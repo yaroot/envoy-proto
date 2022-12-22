@@ -34,143 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StaticContentPrompt(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.actions.sdk.v2.interactionmodel.prompt.StaticCardPrompt.Builder subBuilder = null;
-            if (contentCase_ == 1) {
-              subBuilder = ((com.google.actions.sdk.v2.interactionmodel.prompt.StaticCardPrompt) content_).toBuilder();
-            }
-            content_ =
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticCardPrompt.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.interactionmodel.prompt.StaticCardPrompt) content_);
-              content_ = subBuilder.buildPartial();
-            }
-            contentCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt.Builder subBuilder = null;
-            if (contentCase_ == 2) {
-              subBuilder = ((com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt) content_).toBuilder();
-            }
-            content_ =
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt) content_);
-              content_ = subBuilder.buildPartial();
-            }
-            contentCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.actions.sdk.v2.interactionmodel.prompt.StaticTablePrompt.Builder subBuilder = null;
-            if (contentCase_ == 3) {
-              subBuilder = ((com.google.actions.sdk.v2.interactionmodel.prompt.StaticTablePrompt) content_).toBuilder();
-            }
-            content_ =
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticTablePrompt.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.interactionmodel.prompt.StaticTablePrompt) content_);
-              content_ = subBuilder.buildPartial();
-            }
-            contentCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.Builder subBuilder = null;
-            if (contentCase_ == 4) {
-              subBuilder = ((com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt) content_).toBuilder();
-            }
-            content_ =
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt) content_);
-              content_ = subBuilder.buildPartial();
-            }
-            contentCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.actions.sdk.v2.interactionmodel.prompt.StaticListPrompt.Builder subBuilder = null;
-            if (contentCase_ == 5) {
-              subBuilder = ((com.google.actions.sdk.v2.interactionmodel.prompt.StaticListPrompt) content_).toBuilder();
-            }
-            content_ =
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticListPrompt.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.interactionmodel.prompt.StaticListPrompt) content_);
-              content_ = subBuilder.buildPartial();
-            }
-            contentCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.actions.sdk.v2.interactionmodel.prompt.StaticCollectionPrompt.Builder subBuilder = null;
-            if (contentCase_ == 6) {
-              subBuilder = ((com.google.actions.sdk.v2.interactionmodel.prompt.StaticCollectionPrompt) content_).toBuilder();
-            }
-            content_ =
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticCollectionPrompt.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.interactionmodel.prompt.StaticCollectionPrompt) content_);
-              content_ = subBuilder.buildPartial();
-            }
-            contentCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.actions.sdk.v2.interactionmodel.prompt.StaticCollectionBrowsePrompt.Builder subBuilder = null;
-            if (contentCase_ == 7) {
-              subBuilder = ((com.google.actions.sdk.v2.interactionmodel.prompt.StaticCollectionBrowsePrompt) content_).toBuilder();
-            }
-            content_ =
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticCollectionBrowsePrompt.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.interactionmodel.prompt.StaticCollectionBrowsePrompt) content_);
-              content_ = subBuilder.buildPartial();
-            }
-            contentCase_ = 7;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPromptProto.internal_static_google_actions_sdk_v2_interactionmodel_prompt_StaticContentPrompt_descriptor;
@@ -571,7 +434,7 @@ private static final long serialVersionUID = 0L;
     if (contentCase_ == 7) {
       output.writeMessage(7, (com.google.actions.sdk.v2.interactionmodel.prompt.StaticCollectionBrowsePrompt) content_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -608,7 +471,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, (com.google.actions.sdk.v2.interactionmodel.prompt.StaticCollectionBrowsePrompt) content_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -656,7 +519,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -699,7 +562,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -820,22 +683,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (cardBuilder_ != null) {
+        cardBuilder_.clear();
+      }
+      if (imageBuilder_ != null) {
+        imageBuilder_.clear();
+      }
+      if (tableBuilder_ != null) {
+        tableBuilder_.clear();
+      }
+      if (mediaBuilder_ != null) {
+        mediaBuilder_.clear();
+      }
+      if (listBuilder_ != null) {
+        listBuilder_.clear();
+      }
+      if (collectionBuilder_ != null) {
+        collectionBuilder_.clear();
+      }
+      if (collectionBrowseBuilder_ != null) {
+        collectionBrowseBuilder_.clear();
+      }
       contentCase_ = 0;
       content_ = null;
       return this;
@@ -864,58 +744,47 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt buildPartial() {
       com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt result = new com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt(this);
-      if (contentCase_ == 1) {
-        if (cardBuilder_ == null) {
-          result.content_ = content_;
-        } else {
-          result.content_ = cardBuilder_.build();
-        }
-      }
-      if (contentCase_ == 2) {
-        if (imageBuilder_ == null) {
-          result.content_ = content_;
-        } else {
-          result.content_ = imageBuilder_.build();
-        }
-      }
-      if (contentCase_ == 3) {
-        if (tableBuilder_ == null) {
-          result.content_ = content_;
-        } else {
-          result.content_ = tableBuilder_.build();
-        }
-      }
-      if (contentCase_ == 4) {
-        if (mediaBuilder_ == null) {
-          result.content_ = content_;
-        } else {
-          result.content_ = mediaBuilder_.build();
-        }
-      }
-      if (contentCase_ == 5) {
-        if (listBuilder_ == null) {
-          result.content_ = content_;
-        } else {
-          result.content_ = listBuilder_.build();
-        }
-      }
-      if (contentCase_ == 6) {
-        if (collectionBuilder_ == null) {
-          result.content_ = content_;
-        } else {
-          result.content_ = collectionBuilder_.build();
-        }
-      }
-      if (contentCase_ == 7) {
-        if (collectionBrowseBuilder_ == null) {
-          result.content_ = content_;
-        } else {
-          result.content_ = collectionBrowseBuilder_.build();
-        }
-      }
-      result.contentCase_ = contentCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt result) {
+      result.contentCase_ = contentCase_;
+      result.content_ = this.content_;
+      if (contentCase_ == 1 &&
+          cardBuilder_ != null) {
+        result.content_ = cardBuilder_.build();
+      }
+      if (contentCase_ == 2 &&
+          imageBuilder_ != null) {
+        result.content_ = imageBuilder_.build();
+      }
+      if (contentCase_ == 3 &&
+          tableBuilder_ != null) {
+        result.content_ = tableBuilder_.build();
+      }
+      if (contentCase_ == 4 &&
+          mediaBuilder_ != null) {
+        result.content_ = mediaBuilder_.build();
+      }
+      if (contentCase_ == 5 &&
+          listBuilder_ != null) {
+        result.content_ = listBuilder_.build();
+      }
+      if (contentCase_ == 6 &&
+          collectionBuilder_ != null) {
+        result.content_ = collectionBuilder_.build();
+      }
+      if (contentCase_ == 7 &&
+          collectionBrowseBuilder_ != null) {
+        result.content_ = collectionBrowseBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -995,7 +864,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1010,17 +879,79 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCardFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              contentCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getImageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              contentCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getTableFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              contentCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getMediaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              contentCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getListFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              contentCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getCollectionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              contentCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getCollectionBrowseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              contentCase_ = 7;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int contentCase_ = 0;
@@ -1038,6 +969,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.actions.sdk.v2.interactionmodel.prompt.StaticCardPrompt, com.google.actions.sdk.v2.interactionmodel.prompt.StaticCardPrompt.Builder, com.google.actions.sdk.v2.interactionmodel.prompt.StaticCardPromptOrBuilder> cardBuilder_;
@@ -1213,7 +1145,7 @@ private static final long serialVersionUID = 0L;
         content_ = null;
       }
       contentCase_ = 1;
-      onChanged();;
+      onChanged();
       return cardBuilder_;
     }
 
@@ -1391,7 +1323,7 @@ private static final long serialVersionUID = 0L;
         content_ = null;
       }
       contentCase_ = 2;
-      onChanged();;
+      onChanged();
       return imageBuilder_;
     }
 
@@ -1569,7 +1501,7 @@ private static final long serialVersionUID = 0L;
         content_ = null;
       }
       contentCase_ = 3;
-      onChanged();;
+      onChanged();
       return tableBuilder_;
     }
 
@@ -1747,7 +1679,7 @@ private static final long serialVersionUID = 0L;
         content_ = null;
       }
       contentCase_ = 4;
-      onChanged();;
+      onChanged();
       return mediaBuilder_;
     }
 
@@ -1925,7 +1857,7 @@ private static final long serialVersionUID = 0L;
         content_ = null;
       }
       contentCase_ = 5;
-      onChanged();;
+      onChanged();
       return listBuilder_;
     }
 
@@ -2103,7 +2035,7 @@ private static final long serialVersionUID = 0L;
         content_ = null;
       }
       contentCase_ = 6;
-      onChanged();;
+      onChanged();
       return collectionBuilder_;
     }
 
@@ -2281,7 +2213,7 @@ private static final long serialVersionUID = 0L;
         content_ = null;
       }
       contentCase_ = 7;
-      onChanged();;
+      onChanged();
       return collectionBrowseBuilder_;
     }
     @java.lang.Override
@@ -2317,7 +2249,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StaticContentPrompt(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

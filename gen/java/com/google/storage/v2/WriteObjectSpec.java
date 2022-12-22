@@ -35,90 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private WriteObjectSpec(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.storage.v2.Object.Builder subBuilder = null;
-            if (resource_ != null) {
-              subBuilder = resource_.toBuilder();
-            }
-            resource_ = input.readMessage(com.google.storage.v2.Object.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resource_);
-              resource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-            bitField0_ |= 0x00000001;
-            ifGenerationMatch_ = input.readInt64();
-            break;
-          }
-          case 32: {
-            bitField0_ |= 0x00000002;
-            ifGenerationNotMatch_ = input.readInt64();
-            break;
-          }
-          case 40: {
-            bitField0_ |= 0x00000004;
-            ifMetagenerationMatch_ = input.readInt64();
-            break;
-          }
-          case 48: {
-            bitField0_ |= 0x00000008;
-            ifMetagenerationNotMatch_ = input.readInt64();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            predefinedAcl_ = s;
-            break;
-          }
-          case 64: {
-            bitField0_ |= 0x00000010;
-            objectSize_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.storage.v2.StorageProto.internal_static_google_storage_v2_WriteObjectSpec_descriptor;
@@ -137,10 +53,10 @@ private static final long serialVersionUID = 0L;
   private com.google.storage.v2.Object resource_;
   /**
    * <pre>
-   * Destination object, including its name and its metadata.
+   * Required. Destination object, including its name and its metadata.
    * </pre>
    *
-   * <code>.google.storage.v2.Object resource = 1;</code>
+   * <code>.google.storage.v2.Object resource = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return Whether the resource field is set.
    */
   @java.lang.Override
@@ -149,10 +65,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Destination object, including its name and its metadata.
+   * Required. Destination object, including its name and its metadata.
    * </pre>
    *
-   * <code>.google.storage.v2.Object resource = 1;</code>
+   * <code>.google.storage.v2.Object resource = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The resource.
    */
   @java.lang.Override
@@ -161,18 +77,19 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Destination object, including its name and its metadata.
+   * Required. Destination object, including its name and its metadata.
    * </pre>
    *
-   * <code>.google.storage.v2.Object resource = 1;</code>
+   * <code>.google.storage.v2.Object resource = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.storage.v2.ObjectOrBuilder getResourceOrBuilder() {
-    return getResource();
+    return resource_ == null ? com.google.storage.v2.Object.getDefaultInstance() : resource_;
   }
 
   public static final int PREDEFINED_ACL_FIELD_NUMBER = 7;
-  private volatile java.lang.Object predefinedAcl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object predefinedAcl_ = "";
   /**
    * <pre>
    * Apply a predefined set of access controls to this object.
@@ -222,7 +139,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IF_GENERATION_MATCH_FIELD_NUMBER = 3;
-  private long ifGenerationMatch_;
+  private long ifGenerationMatch_ = 0L;
   /**
    * <pre>
    * Makes the operation conditional on whether the object's current
@@ -253,7 +170,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IF_GENERATION_NOT_MATCH_FIELD_NUMBER = 4;
-  private long ifGenerationNotMatch_;
+  private long ifGenerationNotMatch_ = 0L;
   /**
    * <pre>
    * Makes the operation conditional on whether the object's live
@@ -286,7 +203,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IF_METAGENERATION_MATCH_FIELD_NUMBER = 5;
-  private long ifMetagenerationMatch_;
+  private long ifMetagenerationMatch_ = 0L;
   /**
    * <pre>
    * Makes the operation conditional on whether the object's current
@@ -315,7 +232,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IF_METAGENERATION_NOT_MATCH_FIELD_NUMBER = 6;
-  private long ifMetagenerationNotMatch_;
+  private long ifMetagenerationNotMatch_ = 0L;
   /**
    * <pre>
    * Makes the operation conditional on whether the object's current
@@ -344,7 +261,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OBJECT_SIZE_FIELD_NUMBER = 8;
-  private long objectSize_;
+  private long objectSize_ = 0L;
   /**
    * <pre>
    * The expected final object size being uploaded.
@@ -417,7 +334,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000010) != 0)) {
       output.writeInt64(8, objectSize_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -453,7 +370,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(8, objectSize_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -500,7 +417,7 @@ private static final long serialVersionUID = 0L;
       if (getObjectSize()
           != other.getObjectSize()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -542,7 +459,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getObjectSize());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -663,40 +580,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.storage.v2.WriteObjectSpec.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (resourceBuilder_ == null) {
-        resource_ = null;
-      } else {
-        resource_ = null;
+      bitField0_ = 0;
+      resource_ = null;
+      if (resourceBuilder_ != null) {
+        resourceBuilder_.dispose();
         resourceBuilder_ = null;
       }
       predefinedAcl_ = "";
-
       ifGenerationMatch_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000001);
       ifGenerationNotMatch_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000002);
       ifMetagenerationMatch_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000004);
       ifMetagenerationNotMatch_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000008);
       objectSize_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -723,37 +629,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.storage.v2.WriteObjectSpec buildPartial() {
       com.google.storage.v2.WriteObjectSpec result = new com.google.storage.v2.WriteObjectSpec(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.storage.v2.WriteObjectSpec result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (resourceBuilder_ == null) {
-        result.resource_ = resource_;
-      } else {
-        result.resource_ = resourceBuilder_.build();
-      }
-      result.predefinedAcl_ = predefinedAcl_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resource_ = resourceBuilder_ == null
+            ? resource_
+            : resourceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.predefinedAcl_ = predefinedAcl_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
         result.ifGenerationMatch_ = ifGenerationMatch_;
         to_bitField0_ |= 0x00000001;
       }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.ifGenerationNotMatch_ = ifGenerationNotMatch_;
         to_bitField0_ |= 0x00000002;
       }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
+      if (((from_bitField0_ & 0x00000010) != 0)) {
         result.ifMetagenerationMatch_ = ifMetagenerationMatch_;
         to_bitField0_ |= 0x00000004;
       }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
+      if (((from_bitField0_ & 0x00000020) != 0)) {
         result.ifMetagenerationNotMatch_ = ifMetagenerationNotMatch_;
         to_bitField0_ |= 0x00000008;
       }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
+      if (((from_bitField0_ & 0x00000040) != 0)) {
         result.objectSize_ = objectSize_;
         to_bitField0_ |= 0x00000010;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -805,6 +717,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPredefinedAcl().isEmpty()) {
         predefinedAcl_ = other.predefinedAcl_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasIfGenerationMatch()) {
@@ -822,7 +735,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasObjectSize()) {
         setObjectSize(other.getObjectSize());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -837,17 +750,67 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.storage.v2.WriteObjectSpec parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getResourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 24: {
+              ifGenerationMatch_ = input.readInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              ifGenerationNotMatch_ = input.readInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              ifMetagenerationMatch_ = input.readInt64();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              ifMetagenerationNotMatch_ = input.readInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              predefinedAcl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 58
+            case 64: {
+              objectSize_ = input.readInt64();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 64
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.storage.v2.WriteObjectSpec) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -857,21 +820,21 @@ private static final long serialVersionUID = 0L;
         com.google.storage.v2.Object, com.google.storage.v2.Object.Builder, com.google.storage.v2.ObjectOrBuilder> resourceBuilder_;
     /**
      * <pre>
-     * Destination object, including its name and its metadata.
+     * Required. Destination object, including its name and its metadata.
      * </pre>
      *
-     * <code>.google.storage.v2.Object resource = 1;</code>
+     * <code>.google.storage.v2.Object resource = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the resource field is set.
      */
     public boolean hasResource() {
-      return resourceBuilder_ != null || resource_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
-     * Destination object, including its name and its metadata.
+     * Required. Destination object, including its name and its metadata.
      * </pre>
      *
-     * <code>.google.storage.v2.Object resource = 1;</code>
+     * <code>.google.storage.v2.Object resource = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return The resource.
      */
     public com.google.storage.v2.Object getResource() {
@@ -883,10 +846,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Destination object, including its name and its metadata.
+     * Required. Destination object, including its name and its metadata.
      * </pre>
      *
-     * <code>.google.storage.v2.Object resource = 1;</code>
+     * <code>.google.storage.v2.Object resource = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder setResource(com.google.storage.v2.Object value) {
       if (resourceBuilder_ == null) {
@@ -894,89 +857,89 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resource_ = value;
-        onChanged();
       } else {
         resourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Destination object, including its name and its metadata.
+     * Required. Destination object, including its name and its metadata.
      * </pre>
      *
-     * <code>.google.storage.v2.Object resource = 1;</code>
+     * <code>.google.storage.v2.Object resource = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder setResource(
         com.google.storage.v2.Object.Builder builderForValue) {
       if (resourceBuilder_ == null) {
         resource_ = builderForValue.build();
-        onChanged();
       } else {
         resourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Destination object, including its name and its metadata.
+     * Required. Destination object, including its name and its metadata.
      * </pre>
      *
-     * <code>.google.storage.v2.Object resource = 1;</code>
+     * <code>.google.storage.v2.Object resource = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeResource(com.google.storage.v2.Object value) {
       if (resourceBuilder_ == null) {
-        if (resource_ != null) {
-          resource_ =
-            com.google.storage.v2.Object.newBuilder(resource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          resource_ != null &&
+          resource_ != com.google.storage.v2.Object.getDefaultInstance()) {
+          getResourceBuilder().mergeFrom(value);
         } else {
           resource_ = value;
         }
-        onChanged();
       } else {
         resourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Destination object, including its name and its metadata.
+     * Required. Destination object, including its name and its metadata.
      * </pre>
      *
-     * <code>.google.storage.v2.Object resource = 1;</code>
+     * <code>.google.storage.v2.Object resource = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearResource() {
-      if (resourceBuilder_ == null) {
-        resource_ = null;
-        onChanged();
-      } else {
-        resource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      resource_ = null;
+      if (resourceBuilder_ != null) {
+        resourceBuilder_.dispose();
         resourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Destination object, including its name and its metadata.
+     * Required. Destination object, including its name and its metadata.
      * </pre>
      *
-     * <code>.google.storage.v2.Object resource = 1;</code>
+     * <code>.google.storage.v2.Object resource = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.storage.v2.Object.Builder getResourceBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getResourceFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Destination object, including its name and its metadata.
+     * Required. Destination object, including its name and its metadata.
      * </pre>
      *
-     * <code>.google.storage.v2.Object resource = 1;</code>
+     * <code>.google.storage.v2.Object resource = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.storage.v2.ObjectOrBuilder getResourceOrBuilder() {
       if (resourceBuilder_ != null) {
@@ -988,10 +951,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Destination object, including its name and its metadata.
+     * Required. Destination object, including its name and its metadata.
      * </pre>
      *
-     * <code>.google.storage.v2.Object resource = 1;</code>
+     * <code>.google.storage.v2.Object resource = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.storage.v2.Object, com.google.storage.v2.Object.Builder, com.google.storage.v2.ObjectOrBuilder> 
@@ -1066,11 +1029,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPredefinedAcl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       predefinedAcl_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1085,8 +1046,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPredefinedAcl() {
-      
       predefinedAcl_ = getDefaultInstance().getPredefinedAcl();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1103,12 +1064,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPredefinedAclBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       predefinedAcl_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1126,7 +1085,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasIfGenerationMatch() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1154,8 +1113,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIfGenerationMatch(long value) {
-      bitField0_ |= 0x00000001;
+      
       ifGenerationMatch_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1170,7 +1130,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIfGenerationMatch() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       ifGenerationMatch_ = 0L;
       onChanged();
       return this;
@@ -1190,7 +1150,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasIfGenerationNotMatch() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1220,8 +1180,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIfGenerationNotMatch(long value) {
-      bitField0_ |= 0x00000002;
+      
       ifGenerationNotMatch_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1237,7 +1198,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIfGenerationNotMatch() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       ifGenerationNotMatch_ = 0L;
       onChanged();
       return this;
@@ -1255,7 +1216,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasIfMetagenerationMatch() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1281,8 +1242,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIfMetagenerationMatch(long value) {
-      bitField0_ |= 0x00000004;
+      
       ifMetagenerationMatch_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1296,7 +1258,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIfMetagenerationMatch() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000010);
       ifMetagenerationMatch_ = 0L;
       onChanged();
       return this;
@@ -1314,7 +1276,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasIfMetagenerationNotMatch() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1340,8 +1302,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIfMetagenerationNotMatch(long value) {
-      bitField0_ |= 0x00000008;
+      
       ifMetagenerationNotMatch_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1355,7 +1318,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIfMetagenerationNotMatch() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000020);
       ifMetagenerationNotMatch_ = 0L;
       onChanged();
       return this;
@@ -1378,7 +1341,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasObjectSize() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1414,8 +1377,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setObjectSize(long value) {
-      bitField0_ |= 0x00000010;
+      
       objectSize_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1434,7 +1398,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearObjectSize() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000040);
       objectSize_ = 0L;
       onChanged();
       return this;
@@ -1472,7 +1436,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WriteObjectSpec(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

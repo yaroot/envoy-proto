@@ -40,110 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ListObjectsRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 16: {
-
-            pageSize_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            delimiter_ = s;
-            break;
-          }
-          case 40: {
-
-            includeTrailingDelimiter_ = input.readBool();
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            prefix_ = s;
-            break;
-          }
-          case 56: {
-
-            versions_ = input.readBool();
-            break;
-          }
-          case 66: {
-            com.google.protobuf.FieldMask.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = readMask_.toBuilder();
-            }
-            readMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(readMask_);
-              readMask_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            lexicographicStart_ = s;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            lexicographicEnd_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.storage.v2.StorageProto.internal_static_google_storage_v2_ListObjectsRequest_descriptor;
@@ -159,7 +55,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. Name of the bucket in which to look for objects.
@@ -205,7 +102,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 2;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
    * Maximum number of `items` plus `prefixes` to return
@@ -223,7 +120,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 3;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
    * A previously-returned page token representing part of the larger set of
@@ -271,7 +169,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DELIMITER_FIELD_NUMBER = 4;
-  private volatile java.lang.Object delimiter_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object delimiter_ = "";
   /**
    * <pre>
    * If set, returns results in a directory-like mode. `items` will contain
@@ -327,7 +226,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INCLUDE_TRAILING_DELIMITER_FIELD_NUMBER = 5;
-  private boolean includeTrailingDelimiter_;
+  private boolean includeTrailingDelimiter_ = false;
   /**
    * <pre>
    * If true, objects that end in exactly one instance of `delimiter`
@@ -344,7 +243,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PREFIX_FIELD_NUMBER = 6;
-  private volatile java.lang.Object prefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object prefix_ = "";
   /**
    * <pre>
    * Filter results to objects whose names begin with this prefix.
@@ -390,7 +290,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSIONS_FIELD_NUMBER = 7;
-  private boolean versions_;
+  private boolean versions_ = false;
   /**
    * <pre>
    * If `true`, lists all versions of an object as distinct results.
@@ -455,16 +355,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LEXICOGRAPHIC_START_FIELD_NUMBER = 10;
-  private volatile java.lang.Object lexicographicStart_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object lexicographicStart_ = "";
   /**
    * <pre>
-   * Filter results to objects whose names are lexicographically equal to or
-   * after lexicographic_start. If lexicographic_end is also set, the objects
-   * listed have names between lexicographic_start (inclusive) and
+   * Optional. Filter results to objects whose names are lexicographically equal
+   * to or after lexicographic_start. If lexicographic_end is also set, the
+   * objects listed have names between lexicographic_start (inclusive) and
    * lexicographic_end (exclusive).
    * </pre>
    *
-   * <code>string lexicographic_start = 10;</code>
+   * <code>string lexicographic_start = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The lexicographicStart.
    */
   @java.lang.Override
@@ -482,13 +383,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Filter results to objects whose names are lexicographically equal to or
-   * after lexicographic_start. If lexicographic_end is also set, the objects
-   * listed have names between lexicographic_start (inclusive) and
+   * Optional. Filter results to objects whose names are lexicographically equal
+   * to or after lexicographic_start. If lexicographic_end is also set, the
+   * objects listed have names between lexicographic_start (inclusive) and
    * lexicographic_end (exclusive).
    * </pre>
    *
-   * <code>string lexicographic_start = 10;</code>
+   * <code>string lexicographic_start = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The bytes for lexicographicStart.
    */
   @java.lang.Override
@@ -507,16 +408,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LEXICOGRAPHIC_END_FIELD_NUMBER = 11;
-  private volatile java.lang.Object lexicographicEnd_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object lexicographicEnd_ = "";
   /**
    * <pre>
-   * Filter results to objects whose names are lexicographically before
-   * lexicographic_end. If lexicographic_start is also set, the objects listed
-   * have names between lexicographic_start (inclusive) and lexicographic_end
-   * (exclusive).
+   * Optional. Filter results to objects whose names are lexicographically
+   * before lexicographic_end. If lexicographic_start is also set, the objects
+   * listed have names between lexicographic_start (inclusive) and
+   * lexicographic_end (exclusive).
    * </pre>
    *
-   * <code>string lexicographic_end = 11;</code>
+   * <code>string lexicographic_end = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The lexicographicEnd.
    */
   @java.lang.Override
@@ -534,13 +436,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Filter results to objects whose names are lexicographically before
-   * lexicographic_end. If lexicographic_start is also set, the objects listed
-   * have names between lexicographic_start (inclusive) and lexicographic_end
-   * (exclusive).
+   * Optional. Filter results to objects whose names are lexicographically
+   * before lexicographic_end. If lexicographic_start is also set, the objects
+   * listed have names between lexicographic_start (inclusive) and
+   * lexicographic_end (exclusive).
    * </pre>
    *
-   * <code>string lexicographic_end = 11;</code>
+   * <code>string lexicographic_end = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The bytes for lexicographicEnd.
    */
   @java.lang.Override
@@ -602,7 +504,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lexicographicEnd_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 11, lexicographicEnd_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -645,7 +547,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lexicographicEnd_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, lexicographicEnd_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -683,7 +585,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getLexicographicStart())) return false;
     if (!getLexicographicEnd()
         .equals(other.getLexicographicEnd())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -718,7 +620,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getLexicographicStart().hashCode();
     hash = (37 * hash) + LEXICOGRAPHIC_END_FIELD_NUMBER;
     hash = (53 * hash) + getLexicographicEnd().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -856,30 +758,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       pageSize_ = 0;
-
       pageToken_ = "";
-
       delimiter_ = "";
-
       includeTrailingDelimiter_ = false;
-
       prefix_ = "";
-
       versions_ = false;
-
-      if (readMaskBuilder_ == null) {
-        readMask_ = null;
-      } else {
-        readMaskBuilder_.clear();
+      readMask_ = null;
+      if (readMaskBuilder_ != null) {
+        readMaskBuilder_.dispose();
+        readMaskBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
       lexicographicStart_ = "";
-
       lexicographicEnd_ = "";
-
       return this;
     }
 
@@ -906,28 +799,48 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.storage.v2.ListObjectsRequest buildPartial() {
       com.google.storage.v2.ListObjectsRequest result = new com.google.storage.v2.ListObjectsRequest(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.parent_ = parent_;
-      result.pageSize_ = pageSize_;
-      result.pageToken_ = pageToken_;
-      result.delimiter_ = delimiter_;
-      result.includeTrailingDelimiter_ = includeTrailingDelimiter_;
-      result.prefix_ = prefix_;
-      result.versions_ = versions_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (readMaskBuilder_ == null) {
-          result.readMask_ = readMask_;
-        } else {
-          result.readMask_ = readMaskBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000001;
-      }
-      result.lexicographicStart_ = lexicographicStart_;
-      result.lexicographicEnd_ = lexicographicEnd_;
-      result.bitField0_ = to_bitField0_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.storage.v2.ListObjectsRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.delimiter_ = delimiter_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.includeTrailingDelimiter_ = includeTrailingDelimiter_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.prefix_ = prefix_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.versions_ = versions_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.readMask_ = readMaskBuilder_ == null
+            ? readMask_
+            : readMaskBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.lexicographicStart_ = lexicographicStart_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.lexicographicEnd_ = lexicographicEnd_;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -976,6 +889,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.storage.v2.ListObjectsRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getPageSize() != 0) {
@@ -983,10 +897,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getDelimiter().isEmpty()) {
         delimiter_ = other.delimiter_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.getIncludeTrailingDelimiter() != false) {
@@ -994,6 +910,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPrefix().isEmpty()) {
         prefix_ = other.prefix_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.getVersions() != false) {
@@ -1004,13 +921,15 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLexicographicStart().isEmpty()) {
         lexicographicStart_ = other.lexicographicStart_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (!other.getLexicographicEnd().isEmpty()) {
         lexicographicEnd_ = other.lexicographicEnd_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1025,17 +944,82 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.storage.v2.ListObjectsRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              pageSize_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              delimiter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              includeTrailingDelimiter_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              prefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 56: {
+              versions_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 66: {
+              input.readMessage(
+                  getReadMaskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 82: {
+              lexicographicStart_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 82
+            case 90: {
+              lexicographicEnd_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.storage.v2.ListObjectsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1093,11 +1077,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1110,8 +1092,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1126,12 +1108,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1167,6 +1147,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
       
       pageSize_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1182,7 +1163,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -1244,11 +1225,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1262,8 +1241,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1279,12 +1258,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1357,11 +1334,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDelimiter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       delimiter_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1379,8 +1354,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDelimiter() {
-      
       delimiter_ = getDefaultInstance().getDelimiter();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1400,12 +1375,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDelimiterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       delimiter_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1439,6 +1412,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIncludeTrailingDelimiter(boolean value) {
       
       includeTrailingDelimiter_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1453,7 +1427,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncludeTrailingDelimiter() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       includeTrailingDelimiter_ = false;
       onChanged();
       return this;
@@ -1512,11 +1486,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       prefix_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1529,8 +1501,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrefix() {
-      
       prefix_ = getDefaultInstance().getPrefix();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1545,12 +1517,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       prefix_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1586,6 +1556,7 @@ private static final long serialVersionUID = 0L;
     public Builder setVersions(boolean value) {
       
       versions_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1601,7 +1572,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVersions() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       versions_ = false;
       onChanged();
       return this;
@@ -1622,7 +1593,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the readMask field is set.
      */
     public boolean hasReadMask() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -1658,11 +1629,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         readMask_ = value;
-        onChanged();
       } else {
         readMaskBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1679,11 +1650,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.FieldMask.Builder builderForValue) {
       if (readMaskBuilder_ == null) {
         readMask_ = builderForValue.build();
-        onChanged();
       } else {
         readMaskBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1698,19 +1669,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeReadMask(com.google.protobuf.FieldMask value) {
       if (readMaskBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0) &&
-            readMask_ != null &&
-            readMask_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
-          readMask_ =
-            com.google.protobuf.FieldMask.newBuilder(readMask_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          readMask_ != null &&
+          readMask_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
+          getReadMaskBuilder().mergeFrom(value);
         } else {
           readMask_ = value;
         }
-        onChanged();
       } else {
         readMaskBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1724,13 +1694,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.protobuf.FieldMask read_mask = 8;</code>
      */
     public Builder clearReadMask() {
-      if (readMaskBuilder_ == null) {
-        readMask_ = null;
-        onChanged();
-      } else {
-        readMaskBuilder_.clear();
+      bitField0_ = (bitField0_ & ~0x00000080);
+      readMask_ = null;
+      if (readMaskBuilder_ != null) {
+        readMaskBuilder_.dispose();
+        readMaskBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
       return this;
     }
     /**
@@ -1744,7 +1714,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.protobuf.FieldMask read_mask = 8;</code>
      */
     public com.google.protobuf.FieldMask.Builder getReadMaskBuilder() {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000080;
       onChanged();
       return getReadMaskFieldBuilder().getBuilder();
     }
@@ -1793,13 +1763,13 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object lexicographicStart_ = "";
     /**
      * <pre>
-     * Filter results to objects whose names are lexicographically equal to or
-     * after lexicographic_start. If lexicographic_end is also set, the objects
-     * listed have names between lexicographic_start (inclusive) and
+     * Optional. Filter results to objects whose names are lexicographically equal
+     * to or after lexicographic_start. If lexicographic_end is also set, the
+     * objects listed have names between lexicographic_start (inclusive) and
      * lexicographic_end (exclusive).
      * </pre>
      *
-     * <code>string lexicographic_start = 10;</code>
+     * <code>string lexicographic_start = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return The lexicographicStart.
      */
     public java.lang.String getLexicographicStart() {
@@ -1816,13 +1786,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filter results to objects whose names are lexicographically equal to or
-     * after lexicographic_start. If lexicographic_end is also set, the objects
-     * listed have names between lexicographic_start (inclusive) and
+     * Optional. Filter results to objects whose names are lexicographically equal
+     * to or after lexicographic_start. If lexicographic_end is also set, the
+     * objects listed have names between lexicographic_start (inclusive) and
      * lexicographic_end (exclusive).
      * </pre>
      *
-     * <code>string lexicographic_start = 10;</code>
+     * <code>string lexicographic_start = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return The bytes for lexicographicStart.
      */
     public com.google.protobuf.ByteString
@@ -1840,63 +1810,59 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filter results to objects whose names are lexicographically equal to or
-     * after lexicographic_start. If lexicographic_end is also set, the objects
-     * listed have names between lexicographic_start (inclusive) and
+     * Optional. Filter results to objects whose names are lexicographically equal
+     * to or after lexicographic_start. If lexicographic_end is also set, the
+     * objects listed have names between lexicographic_start (inclusive) and
      * lexicographic_end (exclusive).
      * </pre>
      *
-     * <code>string lexicographic_start = 10;</code>
+     * <code>string lexicographic_start = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @param value The lexicographicStart to set.
      * @return This builder for chaining.
      */
     public Builder setLexicographicStart(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       lexicographicStart_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Filter results to objects whose names are lexicographically equal to or
-     * after lexicographic_start. If lexicographic_end is also set, the objects
-     * listed have names between lexicographic_start (inclusive) and
+     * Optional. Filter results to objects whose names are lexicographically equal
+     * to or after lexicographic_start. If lexicographic_end is also set, the
+     * objects listed have names between lexicographic_start (inclusive) and
      * lexicographic_end (exclusive).
      * </pre>
      *
-     * <code>string lexicographic_start = 10;</code>
+     * <code>string lexicographic_start = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearLexicographicStart() {
-      
       lexicographicStart_ = getDefaultInstance().getLexicographicStart();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Filter results to objects whose names are lexicographically equal to or
-     * after lexicographic_start. If lexicographic_end is also set, the objects
-     * listed have names between lexicographic_start (inclusive) and
+     * Optional. Filter results to objects whose names are lexicographically equal
+     * to or after lexicographic_start. If lexicographic_end is also set, the
+     * objects listed have names between lexicographic_start (inclusive) and
      * lexicographic_end (exclusive).
      * </pre>
      *
-     * <code>string lexicographic_start = 10;</code>
+     * <code>string lexicographic_start = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @param value The bytes for lexicographicStart to set.
      * @return This builder for chaining.
      */
     public Builder setLexicographicStartBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       lexicographicStart_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -1904,13 +1870,13 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object lexicographicEnd_ = "";
     /**
      * <pre>
-     * Filter results to objects whose names are lexicographically before
-     * lexicographic_end. If lexicographic_start is also set, the objects listed
-     * have names between lexicographic_start (inclusive) and lexicographic_end
-     * (exclusive).
+     * Optional. Filter results to objects whose names are lexicographically
+     * before lexicographic_end. If lexicographic_start is also set, the objects
+     * listed have names between lexicographic_start (inclusive) and
+     * lexicographic_end (exclusive).
      * </pre>
      *
-     * <code>string lexicographic_end = 11;</code>
+     * <code>string lexicographic_end = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return The lexicographicEnd.
      */
     public java.lang.String getLexicographicEnd() {
@@ -1927,13 +1893,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filter results to objects whose names are lexicographically before
-     * lexicographic_end. If lexicographic_start is also set, the objects listed
-     * have names between lexicographic_start (inclusive) and lexicographic_end
-     * (exclusive).
+     * Optional. Filter results to objects whose names are lexicographically
+     * before lexicographic_end. If lexicographic_start is also set, the objects
+     * listed have names between lexicographic_start (inclusive) and
+     * lexicographic_end (exclusive).
      * </pre>
      *
-     * <code>string lexicographic_end = 11;</code>
+     * <code>string lexicographic_end = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return The bytes for lexicographicEnd.
      */
     public com.google.protobuf.ByteString
@@ -1951,63 +1917,59 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Filter results to objects whose names are lexicographically before
-     * lexicographic_end. If lexicographic_start is also set, the objects listed
-     * have names between lexicographic_start (inclusive) and lexicographic_end
-     * (exclusive).
+     * Optional. Filter results to objects whose names are lexicographically
+     * before lexicographic_end. If lexicographic_start is also set, the objects
+     * listed have names between lexicographic_start (inclusive) and
+     * lexicographic_end (exclusive).
      * </pre>
      *
-     * <code>string lexicographic_end = 11;</code>
+     * <code>string lexicographic_end = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @param value The lexicographicEnd to set.
      * @return This builder for chaining.
      */
     public Builder setLexicographicEnd(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       lexicographicEnd_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Filter results to objects whose names are lexicographically before
-     * lexicographic_end. If lexicographic_start is also set, the objects listed
-     * have names between lexicographic_start (inclusive) and lexicographic_end
-     * (exclusive).
+     * Optional. Filter results to objects whose names are lexicographically
+     * before lexicographic_end. If lexicographic_start is also set, the objects
+     * listed have names between lexicographic_start (inclusive) and
+     * lexicographic_end (exclusive).
      * </pre>
      *
-     * <code>string lexicographic_end = 11;</code>
+     * <code>string lexicographic_end = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearLexicographicEnd() {
-      
       lexicographicEnd_ = getDefaultInstance().getLexicographicEnd();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Filter results to objects whose names are lexicographically before
-     * lexicographic_end. If lexicographic_start is also set, the objects listed
-     * have names between lexicographic_start (inclusive) and lexicographic_end
-     * (exclusive).
+     * Optional. Filter results to objects whose names are lexicographically
+     * before lexicographic_end. If lexicographic_start is also set, the objects
+     * listed have names between lexicographic_start (inclusive) and
+     * lexicographic_end (exclusive).
      * </pre>
      *
-     * <code>string lexicographic_end = 11;</code>
+     * <code>string lexicographic_end = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @param value The bytes for lexicographicEnd to set.
      * @return This builder for chaining.
      */
     public Builder setLexicographicEndBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       lexicographicEnd_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2044,7 +2006,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListObjectsRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

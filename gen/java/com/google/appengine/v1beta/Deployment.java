@@ -34,111 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Deployment(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              files_ = com.google.protobuf.MapField.newMapField(
-                  FilesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.appengine.v1beta.FileInfo>
-            files__ = input.readMessage(
-                FilesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            files_.getMutableMap().put(
-                files__.getKey(), files__.getValue());
-            break;
-          }
-          case 18: {
-            com.google.appengine.v1beta.ContainerInfo.Builder subBuilder = null;
-            if (container_ != null) {
-              subBuilder = container_.toBuilder();
-            }
-            container_ = input.readMessage(com.google.appengine.v1beta.ContainerInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(container_);
-              container_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.appengine.v1beta.ZipInfo.Builder subBuilder = null;
-            if (zip_ != null) {
-              subBuilder = zip_.toBuilder();
-            }
-            zip_ = input.readMessage(com.google.appengine.v1beta.ZipInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(zip_);
-              zip_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.appengine.v1beta.BuildInfo.Builder subBuilder = null;
-            if (build_ != null) {
-              subBuilder = build_.toBuilder();
-            }
-            build_ = input.readMessage(com.google.appengine.v1beta.BuildInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(build_);
-              build_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.appengine.v1beta.CloudBuildOptions.Builder subBuilder = null;
-            if (cloudBuildOptions_ != null) {
-              subBuilder = cloudBuildOptions_.toBuilder();
-            }
-            cloudBuildOptions_ = input.readMessage(com.google.appengine.v1beta.CloudBuildOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cloudBuildOptions_);
-              cloudBuildOptions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.appengine.v1beta.DeployProto.internal_static_google_appengine_v1beta_Deployment_descriptor;
@@ -176,6 +71,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.appengine.v1beta.FileInfo.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.appengine.v1beta.FileInfo> files_;
   private com.google.protobuf.MapField<java.lang.String, com.google.appengine.v1beta.FileInfo>
@@ -186,7 +82,6 @@ private static final long serialVersionUID = 0L;
     }
     return files_;
   }
-
   public int getFilesCount() {
     return internalGetFiles().getMap().size();
   }
@@ -199,7 +94,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.appengine.v1beta.FileInfo&gt; files = 1;</code>
    */
-
   @java.lang.Override
   public boolean containsFiles(
       java.lang.String key) {
@@ -224,7 +118,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.appengine.v1beta.FileInfo&gt; files = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.appengine.v1beta.FileInfo> getFilesMap() {
     return internalGetFiles().getMap();
   }
@@ -238,10 +131,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.appengine.v1beta.FileInfo&gt; files = 1;</code>
    */
   @java.lang.Override
-
-  public com.google.appengine.v1beta.FileInfo getFilesOrDefault(
+  public /* nullable */
+com.google.appengine.v1beta.FileInfo getFilesOrDefault(
       java.lang.String key,
-      com.google.appengine.v1beta.FileInfo defaultValue) {
+      /* nullable */
+com.google.appengine.v1beta.FileInfo defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.appengine.v1beta.FileInfo> map =
         internalGetFiles().getMap();
@@ -257,7 +151,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.appengine.v1beta.FileInfo&gt; files = 1;</code>
    */
   @java.lang.Override
-
   public com.google.appengine.v1beta.FileInfo getFilesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -307,7 +200,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.appengine.v1beta.ContainerInfoOrBuilder getContainerOrBuilder() {
-    return getContainer();
+    return container_ == null ? com.google.appengine.v1beta.ContainerInfo.getDefaultInstance() : container_;
   }
 
   public static final int ZIP_FIELD_NUMBER = 3;
@@ -345,7 +238,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.appengine.v1beta.ZipInfoOrBuilder getZipOrBuilder() {
-    return getZip();
+    return zip_ == null ? com.google.appengine.v1beta.ZipInfo.getDefaultInstance() : zip_;
   }
 
   public static final int BUILD_FIELD_NUMBER = 5;
@@ -386,7 +279,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.appengine.v1beta.BuildInfoOrBuilder getBuildOrBuilder() {
-    return getBuild();
+    return build_ == null ? com.google.appengine.v1beta.BuildInfo.getDefaultInstance() : build_;
   }
 
   public static final int CLOUD_BUILD_OPTIONS_FIELD_NUMBER = 6;
@@ -433,7 +326,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.appengine.v1beta.CloudBuildOptionsOrBuilder getCloudBuildOptionsOrBuilder() {
-    return getCloudBuildOptions();
+    return cloudBuildOptions_ == null ? com.google.appengine.v1beta.CloudBuildOptions.getDefaultInstance() : cloudBuildOptions_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -468,7 +361,7 @@ private static final long serialVersionUID = 0L;
     if (cloudBuildOptions_ != null) {
       output.writeMessage(6, getCloudBuildOptions());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -503,7 +396,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getCloudBuildOptions());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -540,7 +433,7 @@ private static final long serialVersionUID = 0L;
       if (!getCloudBuildOptions()
           .equals(other.getCloudBuildOptions())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -571,7 +464,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CLOUD_BUILD_OPTIONS_FIELD_NUMBER;
       hash = (53 * hash) + getCloudBuildOptions().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -714,45 +607,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.appengine.v1beta.Deployment.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableFiles().clear();
-      if (containerBuilder_ == null) {
-        container_ = null;
-      } else {
-        container_ = null;
+      container_ = null;
+      if (containerBuilder_ != null) {
+        containerBuilder_.dispose();
         containerBuilder_ = null;
       }
-      if (zipBuilder_ == null) {
-        zip_ = null;
-      } else {
-        zip_ = null;
+      zip_ = null;
+      if (zipBuilder_ != null) {
+        zipBuilder_.dispose();
         zipBuilder_ = null;
       }
-      if (buildBuilder_ == null) {
-        build_ = null;
-      } else {
-        build_ = null;
+      build_ = null;
+      if (buildBuilder_ != null) {
+        buildBuilder_.dispose();
         buildBuilder_ = null;
       }
-      if (cloudBuildOptionsBuilder_ == null) {
-        cloudBuildOptions_ = null;
-      } else {
-        cloudBuildOptions_ = null;
+      cloudBuildOptions_ = null;
+      if (cloudBuildOptionsBuilder_ != null) {
+        cloudBuildOptionsBuilder_.dispose();
         cloudBuildOptionsBuilder_ = null;
       }
       return this;
@@ -781,31 +666,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.appengine.v1beta.Deployment buildPartial() {
       com.google.appengine.v1beta.Deployment result = new com.google.appengine.v1beta.Deployment(this);
-      int from_bitField0_ = bitField0_;
-      result.files_ = internalGetFiles();
-      result.files_.makeImmutable();
-      if (containerBuilder_ == null) {
-        result.container_ = container_;
-      } else {
-        result.container_ = containerBuilder_.build();
-      }
-      if (zipBuilder_ == null) {
-        result.zip_ = zip_;
-      } else {
-        result.zip_ = zipBuilder_.build();
-      }
-      if (buildBuilder_ == null) {
-        result.build_ = build_;
-      } else {
-        result.build_ = buildBuilder_.build();
-      }
-      if (cloudBuildOptionsBuilder_ == null) {
-        result.cloudBuildOptions_ = cloudBuildOptions_;
-      } else {
-        result.cloudBuildOptions_ = cloudBuildOptionsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.appengine.v1beta.Deployment result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.files_ = internalGetFiles();
+        result.files_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.container_ = containerBuilder_ == null
+            ? container_
+            : containerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.zip_ = zipBuilder_ == null
+            ? zip_
+            : zipBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.build_ = buildBuilder_ == null
+            ? build_
+            : buildBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.cloudBuildOptions_ = cloudBuildOptionsBuilder_ == null
+            ? cloudBuildOptions_
+            : cloudBuildOptionsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -854,6 +745,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.appengine.v1beta.Deployment.getDefaultInstance()) return this;
       internalGetMutableFiles().mergeFrom(
           other.internalGetFiles());
+      bitField0_ |= 0x00000001;
       if (other.hasContainer()) {
         mergeContainer(other.getContainer());
       }
@@ -866,7 +758,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasCloudBuildOptions()) {
         mergeCloudBuildOptions(other.getCloudBuildOptions());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -881,17 +773,67 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.appengine.v1beta.Deployment parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.appengine.v1beta.FileInfo>
+              files__ = input.readMessage(
+                  FilesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableFiles().getMutableMap().put(
+                  files__.getKey(), files__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getContainerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getZipFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 42: {
+              input.readMessage(
+                  getBuildFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getCloudBuildOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.appengine.v1beta.Deployment) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -899,7 +841,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.appengine.v1beta.FileInfo> files_;
     private com.google.protobuf.MapField<java.lang.String, com.google.appengine.v1beta.FileInfo>
-    internalGetFiles() {
+        internalGetFiles() {
       if (files_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             FilesDefaultEntryHolder.defaultEntry);
@@ -907,8 +849,7 @@ private static final long serialVersionUID = 0L;
       return files_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.appengine.v1beta.FileInfo>
-    internalGetMutableFiles() {
-      onChanged();;
+        internalGetMutableFiles() {
       if (files_ == null) {
         files_ = com.google.protobuf.MapField.newMapField(
             FilesDefaultEntryHolder.defaultEntry);
@@ -916,9 +857,10 @@ private static final long serialVersionUID = 0L;
       if (!files_.isMutable()) {
         files_ = files_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return files_;
     }
-
     public int getFilesCount() {
       return internalGetFiles().getMap().size();
     }
@@ -931,7 +873,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.appengine.v1beta.FileInfo&gt; files = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsFiles(
         java.lang.String key) {
@@ -956,7 +897,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.appengine.v1beta.FileInfo&gt; files = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.appengine.v1beta.FileInfo> getFilesMap() {
       return internalGetFiles().getMap();
     }
@@ -970,10 +910,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.appengine.v1beta.FileInfo&gt; files = 1;</code>
      */
     @java.lang.Override
-
-    public com.google.appengine.v1beta.FileInfo getFilesOrDefault(
+    public /* nullable */
+com.google.appengine.v1beta.FileInfo getFilesOrDefault(
         java.lang.String key,
-        com.google.appengine.v1beta.FileInfo defaultValue) {
+        /* nullable */
+com.google.appengine.v1beta.FileInfo defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.appengine.v1beta.FileInfo> map =
           internalGetFiles().getMap();
@@ -989,7 +930,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.appengine.v1beta.FileInfo&gt; files = 1;</code>
      */
     @java.lang.Override
-
     public com.google.appengine.v1beta.FileInfo getFilesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1000,8 +940,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearFiles() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableFiles().getMutableMap()
           .clear();
       return this;
@@ -1015,7 +955,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.appengine.v1beta.FileInfo&gt; files = 1;</code>
      */
-
     public Builder removeFiles(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1028,7 +967,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.appengine.v1beta.FileInfo>
-    getMutableFiles() {
+        getMutableFiles() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableFiles().getMutableMap();
     }
     /**
@@ -1044,12 +984,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.appengine.v1beta.FileInfo value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableFiles().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -1061,11 +999,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.appengine.v1beta.FileInfo&gt; files = 1;</code>
      */
-
     public Builder putAllFiles(
         java.util.Map<java.lang.String, com.google.appengine.v1beta.FileInfo> values) {
       internalGetMutableFiles().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
 
@@ -1082,7 +1020,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the container field is set.
      */
     public boolean hasContainer() {
-      return containerBuilder_ != null || container_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1114,11 +1052,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         container_ = value;
-        onChanged();
       } else {
         containerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1133,11 +1071,11 @@ private static final long serialVersionUID = 0L;
         com.google.appengine.v1beta.ContainerInfo.Builder builderForValue) {
       if (containerBuilder_ == null) {
         container_ = builderForValue.build();
-        onChanged();
       } else {
         containerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1150,17 +1088,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeContainer(com.google.appengine.v1beta.ContainerInfo value) {
       if (containerBuilder_ == null) {
-        if (container_ != null) {
-          container_ =
-            com.google.appengine.v1beta.ContainerInfo.newBuilder(container_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          container_ != null &&
+          container_ != com.google.appengine.v1beta.ContainerInfo.getDefaultInstance()) {
+          getContainerBuilder().mergeFrom(value);
         } else {
           container_ = value;
         }
-        onChanged();
       } else {
         containerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1172,14 +1111,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1beta.ContainerInfo container = 2;</code>
      */
     public Builder clearContainer() {
-      if (containerBuilder_ == null) {
-        container_ = null;
-        onChanged();
-      } else {
-        container_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      container_ = null;
+      if (containerBuilder_ != null) {
+        containerBuilder_.dispose();
         containerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1191,7 +1129,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1beta.ContainerInfo container = 2;</code>
      */
     public com.google.appengine.v1beta.ContainerInfo.Builder getContainerBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getContainerFieldBuilder().getBuilder();
     }
@@ -1245,7 +1183,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the zip field is set.
      */
     public boolean hasZip() {
-      return zipBuilder_ != null || zip_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1275,11 +1213,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         zip_ = value;
-        onChanged();
       } else {
         zipBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1293,11 +1231,11 @@ private static final long serialVersionUID = 0L;
         com.google.appengine.v1beta.ZipInfo.Builder builderForValue) {
       if (zipBuilder_ == null) {
         zip_ = builderForValue.build();
-        onChanged();
       } else {
         zipBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1309,17 +1247,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeZip(com.google.appengine.v1beta.ZipInfo value) {
       if (zipBuilder_ == null) {
-        if (zip_ != null) {
-          zip_ =
-            com.google.appengine.v1beta.ZipInfo.newBuilder(zip_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          zip_ != null &&
+          zip_ != com.google.appengine.v1beta.ZipInfo.getDefaultInstance()) {
+          getZipBuilder().mergeFrom(value);
         } else {
           zip_ = value;
         }
-        onChanged();
       } else {
         zipBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1330,14 +1269,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1beta.ZipInfo zip = 3;</code>
      */
     public Builder clearZip() {
-      if (zipBuilder_ == null) {
-        zip_ = null;
-        onChanged();
-      } else {
-        zip_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      zip_ = null;
+      if (zipBuilder_ != null) {
+        zipBuilder_.dispose();
         zipBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1348,7 +1286,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1beta.ZipInfo zip = 3;</code>
      */
     public com.google.appengine.v1beta.ZipInfo.Builder getZipBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getZipFieldBuilder().getBuilder();
     }
@@ -1401,7 +1339,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the build field is set.
      */
     public boolean hasBuild() {
-      return buildBuilder_ != null || build_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1433,11 +1371,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         build_ = value;
-        onChanged();
       } else {
         buildBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1452,11 +1390,11 @@ private static final long serialVersionUID = 0L;
         com.google.appengine.v1beta.BuildInfo.Builder builderForValue) {
       if (buildBuilder_ == null) {
         build_ = builderForValue.build();
-        onChanged();
       } else {
         buildBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1469,17 +1407,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBuild(com.google.appengine.v1beta.BuildInfo value) {
       if (buildBuilder_ == null) {
-        if (build_ != null) {
-          build_ =
-            com.google.appengine.v1beta.BuildInfo.newBuilder(build_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          build_ != null &&
+          build_ != com.google.appengine.v1beta.BuildInfo.getDefaultInstance()) {
+          getBuildBuilder().mergeFrom(value);
         } else {
           build_ = value;
         }
-        onChanged();
       } else {
         buildBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1491,14 +1430,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1beta.BuildInfo build = 5;</code>
      */
     public Builder clearBuild() {
-      if (buildBuilder_ == null) {
-        build_ = null;
-        onChanged();
-      } else {
-        build_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      build_ = null;
+      if (buildBuilder_ != null) {
+        buildBuilder_.dispose();
         buildBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1510,7 +1448,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1beta.BuildInfo build = 5;</code>
      */
     public com.google.appengine.v1beta.BuildInfo.Builder getBuildBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getBuildFieldBuilder().getBuilder();
     }
@@ -1567,7 +1505,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cloudBuildOptions field is set.
      */
     public boolean hasCloudBuildOptions() {
-      return cloudBuildOptionsBuilder_ != null || cloudBuildOptions_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1603,11 +1541,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cloudBuildOptions_ = value;
-        onChanged();
       } else {
         cloudBuildOptionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1624,11 +1562,11 @@ private static final long serialVersionUID = 0L;
         com.google.appengine.v1beta.CloudBuildOptions.Builder builderForValue) {
       if (cloudBuildOptionsBuilder_ == null) {
         cloudBuildOptions_ = builderForValue.build();
-        onChanged();
       } else {
         cloudBuildOptionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1643,17 +1581,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCloudBuildOptions(com.google.appengine.v1beta.CloudBuildOptions value) {
       if (cloudBuildOptionsBuilder_ == null) {
-        if (cloudBuildOptions_ != null) {
-          cloudBuildOptions_ =
-            com.google.appengine.v1beta.CloudBuildOptions.newBuilder(cloudBuildOptions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          cloudBuildOptions_ != null &&
+          cloudBuildOptions_ != com.google.appengine.v1beta.CloudBuildOptions.getDefaultInstance()) {
+          getCloudBuildOptionsBuilder().mergeFrom(value);
         } else {
           cloudBuildOptions_ = value;
         }
-        onChanged();
       } else {
         cloudBuildOptionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1667,14 +1606,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1beta.CloudBuildOptions cloud_build_options = 6;</code>
      */
     public Builder clearCloudBuildOptions() {
-      if (cloudBuildOptionsBuilder_ == null) {
-        cloudBuildOptions_ = null;
-        onChanged();
-      } else {
-        cloudBuildOptions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      cloudBuildOptions_ = null;
+      if (cloudBuildOptionsBuilder_ != null) {
+        cloudBuildOptionsBuilder_.dispose();
         cloudBuildOptionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1688,7 +1626,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1beta.CloudBuildOptions cloud_build_options = 6;</code>
      */
     public com.google.appengine.v1beta.CloudBuildOptions.Builder getCloudBuildOptionsBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getCloudBuildOptionsFieldBuilder().getBuilder();
     }
@@ -1766,7 +1704,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Deployment(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

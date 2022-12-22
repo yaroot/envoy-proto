@@ -35,83 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Forecast(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 40: {
-            bitField0_ |= 0x00000001;
-            onTargetReach_ = input.readInt64();
-            break;
-          }
-          case 48: {
-            bitField0_ |= 0x00000002;
-            totalReach_ = input.readInt64();
-            break;
-          }
-          case 56: {
-            bitField0_ |= 0x00000004;
-            onTargetImpressions_ = input.readInt64();
-            break;
-          }
-          case 64: {
-            bitField0_ |= 0x00000008;
-            totalImpressions_ = input.readInt64();
-            break;
-          }
-          case 72: {
-            bitField0_ |= 0x00000010;
-            viewableImpressions_ = input.readInt64();
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              effectiveFrequencyBreakdowns_ = new java.util.ArrayList<com.google.ads.googleads.v10.services.EffectiveFrequencyBreakdown>();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            effectiveFrequencyBreakdowns_.add(
-                input.readMessage(com.google.ads.googleads.v10.services.EffectiveFrequencyBreakdown.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
-        effectiveFrequencyBreakdowns_ = java.util.Collections.unmodifiableList(effectiveFrequencyBreakdowns_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.services.ReachPlanServiceProto.internal_static_google_ads_googleads_v10_services_Forecast_descriptor;
@@ -127,7 +50,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int ON_TARGET_REACH_FIELD_NUMBER = 5;
-  private long onTargetReach_;
+  private long onTargetReach_ = 0L;
   /**
    * <pre>
    * Number of unique people reached at least
@@ -166,7 +89,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOTAL_REACH_FIELD_NUMBER = 6;
-  private long totalReach_;
+  private long totalReach_ = 0L;
   /**
    * <pre>
    * Total number of unique people reached at least
@@ -205,7 +128,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ON_TARGET_IMPRESSIONS_FIELD_NUMBER = 7;
-  private long onTargetImpressions_;
+  private long onTargetImpressions_ = 0L;
   /**
    * <pre>
    * Number of ad impressions that exactly matches the Targeting.
@@ -232,7 +155,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOTAL_IMPRESSIONS_FIELD_NUMBER = 8;
-  private long totalImpressions_;
+  private long totalImpressions_ = 0L;
   /**
    * <pre>
    * Total number of ad impressions. This includes impressions that may fall
@@ -263,7 +186,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VIEWABLE_IMPRESSIONS_FIELD_NUMBER = 9;
-  private long viewableImpressions_;
+  private long viewableImpressions_ = 0L;
   /**
    * <pre>
    * Number of times the ad's impressions were considered viewable.
@@ -296,6 +219,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EFFECTIVE_FREQUENCY_BREAKDOWNS_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v10.services.EffectiveFrequencyBreakdown> effectiveFrequencyBreakdowns_;
   /**
    * <pre>
@@ -402,7 +326,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < effectiveFrequencyBreakdowns_.size(); i++) {
       output.writeMessage(10, effectiveFrequencyBreakdowns_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -435,7 +359,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, effectiveFrequencyBreakdowns_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -477,7 +401,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getEffectiveFrequencyBreakdownsList()
         .equals(other.getEffectiveFrequencyBreakdownsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -517,7 +441,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EFFECTIVE_FREQUENCY_BREAKDOWNS_FIELD_NUMBER;
       hash = (53 * hash) + getEffectiveFrequencyBreakdownsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -638,39 +562,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.services.Forecast.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getEffectiveFrequencyBreakdownsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       onTargetReach_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000001);
       totalReach_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000002);
       onTargetImpressions_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000004);
       totalImpressions_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000008);
       viewableImpressions_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000010);
       if (effectiveFrequencyBreakdownsBuilder_ == null) {
         effectiveFrequencyBreakdowns_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
       } else {
+        effectiveFrequencyBreakdowns_ = null;
         effectiveFrequencyBreakdownsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -697,6 +612,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.services.Forecast buildPartial() {
       com.google.ads.googleads.v10.services.Forecast result = new com.google.ads.googleads.v10.services.Forecast(this);
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v10.services.Forecast result) {
+      if (effectiveFrequencyBreakdownsBuilder_ == null) {
+        if (((bitField0_ & 0x00000020) != 0)) {
+          effectiveFrequencyBreakdowns_ = java.util.Collections.unmodifiableList(effectiveFrequencyBreakdowns_);
+          bitField0_ = (bitField0_ & ~0x00000020);
+        }
+        result.effectiveFrequencyBreakdowns_ = effectiveFrequencyBreakdowns_;
+      } else {
+        result.effectiveFrequencyBreakdowns_ = effectiveFrequencyBreakdownsBuilder_.build();
+      }
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.services.Forecast result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -719,18 +653,7 @@ private static final long serialVersionUID = 0L;
         result.viewableImpressions_ = viewableImpressions_;
         to_bitField0_ |= 0x00000010;
       }
-      if (effectiveFrequencyBreakdownsBuilder_ == null) {
-        if (((bitField0_ & 0x00000020) != 0)) {
-          effectiveFrequencyBreakdowns_ = java.util.Collections.unmodifiableList(effectiveFrequencyBreakdowns_);
-          bitField0_ = (bitField0_ & ~0x00000020);
-        }
-        result.effectiveFrequencyBreakdowns_ = effectiveFrequencyBreakdowns_;
-      } else {
-        result.effectiveFrequencyBreakdowns_ = effectiveFrequencyBreakdownsBuilder_.build();
-      }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -818,7 +741,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -833,17 +756,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.services.Forecast parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 40: {
+              onTargetReach_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 40
+            case 48: {
+              totalReach_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 48
+            case 56: {
+              onTargetImpressions_ = input.readInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 56
+            case 64: {
+              totalImpressions_ = input.readInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 64
+            case 72: {
+              viewableImpressions_ = input.readInt64();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 72
+            case 82: {
+              com.google.ads.googleads.v10.services.EffectiveFrequencyBreakdown m =
+                  input.readMessage(
+                      com.google.ads.googleads.v10.services.EffectiveFrequencyBreakdown.parser(),
+                      extensionRegistry);
+              if (effectiveFrequencyBreakdownsBuilder_ == null) {
+                ensureEffectiveFrequencyBreakdownsIsMutable();
+                effectiveFrequencyBreakdowns_.add(m);
+              } else {
+                effectiveFrequencyBreakdownsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.services.Forecast) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -901,8 +875,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOnTargetReach(long value) {
-      bitField0_ |= 0x00000001;
+      
       onTargetReach_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -980,8 +955,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTotalReach(long value) {
-      bitField0_ |= 0x00000002;
+      
       totalReach_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1041,8 +1017,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOnTargetImpressions(long value) {
-      bitField0_ |= 0x00000004;
+      
       onTargetImpressions_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1102,8 +1079,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTotalImpressions(long value) {
-      bitField0_ |= 0x00000008;
+      
       totalImpressions_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1168,8 +1146,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setViewableImpressions(long value) {
-      bitField0_ |= 0x00000010;
+      
       viewableImpressions_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1589,7 +1568,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Forecast(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

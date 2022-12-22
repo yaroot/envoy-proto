@@ -5,8 +5,8 @@ package com.google.cloud.networkconnectivity.v1;
 
 /**
  * <pre>
- * RoutingVPC contains information about the VPC networks that are associated
- * with a hub's spokes.
+ * RoutingVPC contains information about the VPC networks associated
+ * with the spokes of a Network Connectivity Center hub.
  * </pre>
  *
  * Protobuf type {@code google.cloud.networkconnectivity.v1.RoutingVPC}
@@ -36,56 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RoutingVPC(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            uri_ = s;
-            break;
-          }
-          case 16: {
-
-            requiredForNewSiteToSiteDataTransferSpokes_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.networkconnectivity.v1.HubProto.internal_static_google_cloud_networkconnectivity_v1_RoutingVPC_descriptor;
@@ -100,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int URI_FIELD_NUMBER = 1;
-  private volatile java.lang.Object uri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object uri_ = "";
   /**
    * <pre>
    * The URI of the VPC network.
@@ -146,11 +97,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUIRED_FOR_NEW_SITE_TO_SITE_DATA_TRANSFER_SPOKES_FIELD_NUMBER = 2;
-  private boolean requiredForNewSiteToSiteDataTransferSpokes_;
+  private boolean requiredForNewSiteToSiteDataTransferSpokes_ = false;
   /**
    * <pre>
-   * Output only. If true, indicates that this VPC network is currently associated with
-   * spokes that use the data transfer feature (spokes where the
+   * Output only. If true, indicates that this VPC network is currently
+   * associated with spokes that use the data transfer feature (spokes where the
    * site_to_site_data_transfer field is set to true). If you create new spokes
    * that use data transfer, they must be associated with this VPC network. At
    * most, one VPC network will have this field set to true.
@@ -184,7 +135,7 @@ private static final long serialVersionUID = 0L;
     if (requiredForNewSiteToSiteDataTransferSpokes_ != false) {
       output.writeBool(2, requiredForNewSiteToSiteDataTransferSpokes_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -200,7 +151,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(2, requiredForNewSiteToSiteDataTransferSpokes_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -219,7 +170,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getUri())) return false;
     if (getRequiredForNewSiteToSiteDataTransferSpokes()
         != other.getRequiredForNewSiteToSiteDataTransferSpokes()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -235,7 +186,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + REQUIRED_FOR_NEW_SITE_TO_SITE_DATA_TRANSFER_SPOKES_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getRequiredForNewSiteToSiteDataTransferSpokes());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -332,8 +283,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * RoutingVPC contains information about the VPC networks that are associated
-   * with a hub's spokes.
+   * RoutingVPC contains information about the VPC networks associated
+   * with the spokes of a Network Connectivity Center hub.
    * </pre>
    *
    * Protobuf type {@code google.cloud.networkconnectivity.v1.RoutingVPC}
@@ -357,26 +308,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.networkconnectivity.v1.RoutingVPC.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       uri_ = "";
-
       requiredForNewSiteToSiteDataTransferSpokes_ = false;
-
       return this;
     }
 
@@ -403,10 +348,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.networkconnectivity.v1.RoutingVPC buildPartial() {
       com.google.cloud.networkconnectivity.v1.RoutingVPC result = new com.google.cloud.networkconnectivity.v1.RoutingVPC(this);
-      result.uri_ = uri_;
-      result.requiredForNewSiteToSiteDataTransferSpokes_ = requiredForNewSiteToSiteDataTransferSpokes_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.networkconnectivity.v1.RoutingVPC result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.uri_ = uri_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.requiredForNewSiteToSiteDataTransferSpokes_ = requiredForNewSiteToSiteDataTransferSpokes_;
+      }
     }
 
     @java.lang.Override
@@ -455,12 +409,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.networkconnectivity.v1.RoutingVPC.getDefaultInstance()) return this;
       if (!other.getUri().isEmpty()) {
         uri_ = other.uri_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getRequiredForNewSiteToSiteDataTransferSpokes() != false) {
         setRequiredForNewSiteToSiteDataTransferSpokes(other.getRequiredForNewSiteToSiteDataTransferSpokes());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -475,19 +430,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.networkconnectivity.v1.RoutingVPC parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              uri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              requiredForNewSiteToSiteDataTransferSpokes_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.networkconnectivity.v1.RoutingVPC) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object uri_ = "";
     /**
@@ -542,11 +521,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       uri_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -559,8 +536,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUri() {
-      
       uri_ = getDefaultInstance().getUri();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -575,12 +552,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       uri_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -588,8 +563,8 @@ private static final long serialVersionUID = 0L;
     private boolean requiredForNewSiteToSiteDataTransferSpokes_ ;
     /**
      * <pre>
-     * Output only. If true, indicates that this VPC network is currently associated with
-     * spokes that use the data transfer feature (spokes where the
+     * Output only. If true, indicates that this VPC network is currently
+     * associated with spokes that use the data transfer feature (spokes where the
      * site_to_site_data_transfer field is set to true). If you create new spokes
      * that use data transfer, they must be associated with this VPC network. At
      * most, one VPC network will have this field set to true.
@@ -604,8 +579,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. If true, indicates that this VPC network is currently associated with
-     * spokes that use the data transfer feature (spokes where the
+     * Output only. If true, indicates that this VPC network is currently
+     * associated with spokes that use the data transfer feature (spokes where the
      * site_to_site_data_transfer field is set to true). If you create new spokes
      * that use data transfer, they must be associated with this VPC network. At
      * most, one VPC network will have this field set to true.
@@ -618,13 +593,14 @@ private static final long serialVersionUID = 0L;
     public Builder setRequiredForNewSiteToSiteDataTransferSpokes(boolean value) {
       
       requiredForNewSiteToSiteDataTransferSpokes_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. If true, indicates that this VPC network is currently associated with
-     * spokes that use the data transfer feature (spokes where the
+     * Output only. If true, indicates that this VPC network is currently
+     * associated with spokes that use the data transfer feature (spokes where the
      * site_to_site_data_transfer field is set to true). If you create new spokes
      * that use data transfer, they must be associated with this VPC network. At
      * most, one VPC network will have this field set to true.
@@ -634,7 +610,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequiredForNewSiteToSiteDataTransferSpokes() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       requiredForNewSiteToSiteDataTransferSpokes_ = false;
       onChanged();
       return this;
@@ -672,7 +648,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RoutingVPC(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

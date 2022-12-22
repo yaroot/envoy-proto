@@ -9,7 +9,8 @@ public interface UpdateJobRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The new job properties. [name][google.cloud.scheduler.v1beta1.Job.name] must be specified.
+   * Required. The new job properties.
+   * [name][google.cloud.scheduler.v1beta1.Job.name] must be specified.
    * Output only fields cannot be modified using UpdateJob.
    * Any value specified for an output only field will be ignored.
    * </pre>
@@ -20,7 +21,8 @@ public interface UpdateJobRequestOrBuilder extends
   boolean hasJob();
   /**
    * <pre>
-   * Required. The new job properties. [name][google.cloud.scheduler.v1beta1.Job.name] must be specified.
+   * Required. The new job properties.
+   * [name][google.cloud.scheduler.v1beta1.Job.name] must be specified.
    * Output only fields cannot be modified using UpdateJob.
    * Any value specified for an output only field will be ignored.
    * </pre>
@@ -31,7 +33,8 @@ public interface UpdateJobRequestOrBuilder extends
   com.google.cloud.scheduler.v1beta1.Job getJob();
   /**
    * <pre>
-   * Required. The new job properties. [name][google.cloud.scheduler.v1beta1.Job.name] must be specified.
+   * Required. The new job properties.
+   * [name][google.cloud.scheduler.v1beta1.Job.name] must be specified.
    * Output only fields cannot be modified using UpdateJob.
    * Any value specified for an output only field will be ignored.
    * </pre>

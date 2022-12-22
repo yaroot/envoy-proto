@@ -38,71 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Key(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.datastore.v1beta3.PartitionId.Builder subBuilder = null;
-            if (partitionId_ != null) {
-              subBuilder = partitionId_.toBuilder();
-            }
-            partitionId_ = input.readMessage(com.google.datastore.v1beta3.PartitionId.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(partitionId_);
-              partitionId_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              path_ = new java.util.ArrayList<com.google.datastore.v1beta3.Key.PathElement>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            path_.add(
-                input.readMessage(com.google.datastore.v1beta3.Key.PathElement.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        path_ = java.util.Collections.unmodifiableList(path_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.datastore.v1beta3.EntityProto.internal_static_google_datastore_v1beta3_Key_descriptor;
@@ -243,62 +178,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PathElement(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              kind_ = s;
-              break;
-            }
-            case 16: {
-              idType_ = input.readInt64();
-              idTypeCase_ = 2;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              idTypeCase_ = 3;
-              idType_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.datastore.v1beta3.EntityProto.internal_static_google_datastore_v1beta3_Key_PathElement_descriptor;
@@ -354,7 +233,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int KIND_FIELD_NUMBER = 1;
-    private volatile java.lang.Object kind_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object kind_ = "";
     /**
      * <pre>
      * The kind of the entity.
@@ -535,7 +415,7 @@ private static final long serialVersionUID = 0L;
       if (idTypeCase_ == 3) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, idType_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -555,7 +435,7 @@ private static final long serialVersionUID = 0L;
       if (idTypeCase_ == 3) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, idType_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -585,7 +465,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -611,7 +491,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -734,24 +614,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.datastore.v1beta3.Key.PathElement.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         kind_ = "";
-
         idTypeCase_ = 0;
         idType_ = null;
         return this;
@@ -780,16 +655,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.datastore.v1beta3.Key.PathElement buildPartial() {
         com.google.datastore.v1beta3.Key.PathElement result = new com.google.datastore.v1beta3.Key.PathElement(this);
-        result.kind_ = kind_;
-        if (idTypeCase_ == 2) {
-          result.idType_ = idType_;
-        }
-        if (idTypeCase_ == 3) {
-          result.idType_ = idType_;
-        }
-        result.idTypeCase_ = idTypeCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.datastore.v1beta3.Key.PathElement result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.kind_ = kind_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.datastore.v1beta3.Key.PathElement result) {
+        result.idTypeCase_ = idTypeCase_;
+        result.idType_ = this.idType_;
       }
 
       @java.lang.Override
@@ -838,6 +719,7 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.datastore.v1beta3.Key.PathElement.getDefaultInstance()) return this;
         if (!other.getKind().isEmpty()) {
           kind_ = other.kind_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         switch (other.getIdTypeCase()) {
@@ -855,7 +737,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -870,17 +752,46 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.datastore.v1beta3.Key.PathElement parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                kind_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                idType_ = input.readInt64();
+                idTypeCase_ = 2;
+                break;
+              } // case 16
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                idTypeCase_ = 3;
+                idType_ = s;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.datastore.v1beta3.Key.PathElement) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int idTypeCase_ = 0;
@@ -898,6 +809,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       private java.lang.Object kind_ = "";
       /**
@@ -961,11 +873,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setKind(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         kind_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -981,8 +891,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearKind() {
-        
         kind_ = getDefaultInstance().getKind();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1000,12 +910,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setKindBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         kind_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1051,6 +959,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setId(long value) {
+        
         idTypeCase_ = 2;
         idType_ = value;
         onChanged();
@@ -1163,10 +1072,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  idTypeCase_ = 3;
+        if (value == null) { throw new NullPointerException(); }
+        idTypeCase_ = 3;
         idType_ = value;
         onChanged();
         return this;
@@ -1204,10 +1111,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         idTypeCase_ = 3;
         idType_ = value;
         onChanged();
@@ -1246,7 +1151,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PathElement(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1307,10 +1223,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.datastore.v1beta3.PartitionIdOrBuilder getPartitionIdOrBuilder() {
-    return getPartitionId();
+    return partitionId_ == null ? com.google.datastore.v1beta3.PartitionId.getDefaultInstance() : partitionId_;
   }
 
   public static final int PATH_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.datastore.v1beta3.Key.PathElement> path_;
   /**
    * <pre>
@@ -1455,7 +1372,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < path_.size(); i++) {
       output.writeMessage(2, path_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1472,7 +1389,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, path_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1494,7 +1411,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getPathList()
         .equals(other.getPathList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1513,7 +1430,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PATH_FIELD_NUMBER;
       hash = (53 * hash) + getPathList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1637,35 +1554,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.datastore.v1beta3.Key.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getPathFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (partitionIdBuilder_ == null) {
-        partitionId_ = null;
-      } else {
-        partitionId_ = null;
+      bitField0_ = 0;
+      partitionId_ = null;
+      if (partitionIdBuilder_ != null) {
+        partitionIdBuilder_.dispose();
         partitionIdBuilder_ = null;
       }
       if (pathBuilder_ == null) {
         path_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        path_ = null;
         pathBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -1692,23 +1604,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.datastore.v1beta3.Key buildPartial() {
       com.google.datastore.v1beta3.Key result = new com.google.datastore.v1beta3.Key(this);
-      int from_bitField0_ = bitField0_;
-      if (partitionIdBuilder_ == null) {
-        result.partitionId_ = partitionId_;
-      } else {
-        result.partitionId_ = partitionIdBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.datastore.v1beta3.Key result) {
       if (pathBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           path_ = java.util.Collections.unmodifiableList(path_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.path_ = path_;
       } else {
         result.path_ = pathBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.datastore.v1beta3.Key result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.partitionId_ = partitionIdBuilder_ == null
+            ? partitionId_
+            : partitionIdBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1762,7 +1682,7 @@ private static final long serialVersionUID = 0L;
         if (!other.path_.isEmpty()) {
           if (path_.isEmpty()) {
             path_ = other.path_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensurePathIsMutable();
             path_.addAll(other.path_);
@@ -1775,7 +1695,7 @@ private static final long serialVersionUID = 0L;
             pathBuilder_.dispose();
             pathBuilder_ = null;
             path_ = other.path_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             pathBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPathFieldBuilder() : null;
@@ -1784,7 +1704,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1799,17 +1719,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.datastore.v1beta3.Key parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getPartitionIdFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.datastore.v1beta3.Key.PathElement m =
+                  input.readMessage(
+                      com.google.datastore.v1beta3.Key.PathElement.parser(),
+                      extensionRegistry);
+              if (pathBuilder_ == null) {
+                ensurePathIsMutable();
+                path_.add(m);
+              } else {
+                pathBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.datastore.v1beta3.Key) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1828,7 +1781,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the partitionId field is set.
      */
     public boolean hasPartitionId() {
-      return partitionIdBuilder_ != null || partitionId_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1862,11 +1815,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         partitionId_ = value;
-        onChanged();
       } else {
         partitionIdBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1882,11 +1835,11 @@ private static final long serialVersionUID = 0L;
         com.google.datastore.v1beta3.PartitionId.Builder builderForValue) {
       if (partitionIdBuilder_ == null) {
         partitionId_ = builderForValue.build();
-        onChanged();
       } else {
         partitionIdBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1900,17 +1853,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePartitionId(com.google.datastore.v1beta3.PartitionId value) {
       if (partitionIdBuilder_ == null) {
-        if (partitionId_ != null) {
-          partitionId_ =
-            com.google.datastore.v1beta3.PartitionId.newBuilder(partitionId_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          partitionId_ != null &&
+          partitionId_ != com.google.datastore.v1beta3.PartitionId.getDefaultInstance()) {
+          getPartitionIdBuilder().mergeFrom(value);
         } else {
           partitionId_ = value;
         }
-        onChanged();
       } else {
         partitionIdBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1923,14 +1877,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.datastore.v1beta3.PartitionId partition_id = 1;</code>
      */
     public Builder clearPartitionId() {
-      if (partitionIdBuilder_ == null) {
-        partitionId_ = null;
-        onChanged();
-      } else {
-        partitionId_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      partitionId_ = null;
+      if (partitionIdBuilder_ != null) {
+        partitionIdBuilder_.dispose();
         partitionIdBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1943,7 +1896,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.datastore.v1beta3.PartitionId partition_id = 1;</code>
      */
     public com.google.datastore.v1beta3.PartitionId.Builder getPartitionIdBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getPartitionIdFieldBuilder().getBuilder();
     }
@@ -1990,9 +1943,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.datastore.v1beta3.Key.PathElement> path_ =
       java.util.Collections.emptyList();
     private void ensurePathIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         path_ = new java.util.ArrayList<com.google.datastore.v1beta3.Key.PathElement>(path_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -2329,7 +2282,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPath() {
       if (pathBuilder_ == null) {
         path_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         pathBuilder_.clear();
@@ -2525,7 +2478,7 @@ private static final long serialVersionUID = 0L;
         pathBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.datastore.v1beta3.Key.PathElement, com.google.datastore.v1beta3.Key.PathElement.Builder, com.google.datastore.v1beta3.Key.PathElementOrBuilder>(
                 path_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         path_ = null;
@@ -2565,7 +2518,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Key(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

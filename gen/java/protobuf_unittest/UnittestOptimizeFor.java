@@ -161,7 +161,7 @@ public final class UnittestOptimizeFor {
     }
 
     public static final int I_FIELD_NUMBER = 1;
-    private int i_;
+    private int i_ = 0;
     /**
      * <code>optional int32 i = 1;</code>
      * @return Whether the i field is set.
@@ -408,14 +408,13 @@ public final class UnittestOptimizeFor {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         i_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        if (msgBuilder_ == null) {
-          msg_ = null;
-        } else {
-          msgBuilder_.clear();
+        msg_ = null;
+        if (msgBuilder_ != null) {
+          msgBuilder_.dispose();
+          msgBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         fooCase_ = 0;
         foo_ = null;
         return this;
@@ -444,6 +443,13 @@ public final class UnittestOptimizeFor {
       @java.lang.Override
       public protobuf_unittest.UnittestOptimizeFor.TestOptimizedForSize buildPartial() {
         protobuf_unittest.UnittestOptimizeFor.TestOptimizedForSize result = new protobuf_unittest.UnittestOptimizeFor.TestOptimizedForSize(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(protobuf_unittest.UnittestOptimizeFor.TestOptimizedForSize result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -451,23 +457,17 @@ public final class UnittestOptimizeFor {
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          if (msgBuilder_ == null) {
-            result.msg_ = msg_;
-          } else {
-            result.msg_ = msgBuilder_.build();
-          }
+          result.msg_ = msgBuilder_ == null
+              ? msg_
+              : msgBuilder_.build();
           to_bitField0_ |= 0x00000002;
         }
-        if (fooCase_ == 2) {
-          result.foo_ = foo_;
-        }
-        if (fooCase_ == 3) {
-          result.foo_ = foo_;
-        }
-        result.bitField0_ = to_bitField0_;
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      private void buildPartialOneofs(protobuf_unittest.UnittestOptimizeFor.TestOptimizedForSize result) {
         result.fooCase_ = fooCase_;
-        onBuilt();
-        return result;
+        result.foo_ = this.foo_;
       }
 
       @java.lang.Override
@@ -569,8 +569,9 @@ public final class UnittestOptimizeFor {
        * @return This builder for chaining.
        */
       public Builder setI(int value) {
-        bitField0_ |= 0x00000001;
+        
         i_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -615,11 +616,11 @@ public final class UnittestOptimizeFor {
             throw new NullPointerException();
           }
           msg_ = value;
-          onChanged();
         } else {
           msgBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -629,11 +630,11 @@ public final class UnittestOptimizeFor {
           protobuf_unittest.UnittestProto.ForeignMessage.Builder builderForValue) {
         if (msgBuilder_ == null) {
           msg_ = builderForValue.build();
-          onChanged();
         } else {
           msgBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -642,31 +643,30 @@ public final class UnittestOptimizeFor {
       public Builder mergeMsg(protobuf_unittest.UnittestProto.ForeignMessage value) {
         if (msgBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0) &&
-              msg_ != null &&
-              msg_ != protobuf_unittest.UnittestProto.ForeignMessage.getDefaultInstance()) {
-            msg_ =
-              protobuf_unittest.UnittestProto.ForeignMessage.newBuilder(msg_).mergeFrom(value).buildPartial();
+            msg_ != null &&
+            msg_ != protobuf_unittest.UnittestProto.ForeignMessage.getDefaultInstance()) {
+            getMsgBuilder().mergeFrom(value);
           } else {
             msg_ = value;
           }
-          onChanged();
         } else {
           msgBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .protobuf_unittest.ForeignMessage msg = 19;</code>
        */
       public Builder clearMsg() {
-        if (msgBuilder_ == null) {
-          msg_ = null;
-          onChanged();
-        } else {
-          msgBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000002);
+        msg_ = null;
+        if (msgBuilder_ != null) {
+          msgBuilder_.dispose();
+          msgBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -728,6 +728,7 @@ public final class UnittestOptimizeFor {
        * @return This builder for chaining.
        */
       public Builder setIntegerField(int value) {
+        
         fooCase_ = 2;
         foo_ = value;
         onChanged();
@@ -808,10 +809,8 @@ public final class UnittestOptimizeFor {
        */
       public Builder setStringField(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  fooCase_ = 3;
+        if (value == null) { throw new NullPointerException(); }
+        fooCase_ = 3;
         foo_ = value;
         onChanged();
         return this;
@@ -835,10 +834,8 @@ public final class UnittestOptimizeFor {
        */
       public Builder setStringFieldBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  fooCase_ = 3;
+        if (value == null) { throw new NullPointerException(); }
+        fooCase_ = 3;
         foo_ = value;
         onChanged();
         return this;
@@ -881,10 +878,11 @@ public final class UnittestOptimizeFor {
           builder.mergeFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
         } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(
-                  builder.buildPartial());
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
         }
         return builder.buildPartial();
       }
@@ -989,7 +987,7 @@ public final class UnittestOptimizeFor {
 
     private int bitField0_;
     public static final int X_FIELD_NUMBER = 1;
-    private int x_;
+    private int x_ = 0;
     /**
      * <code>required int32 x = 1;</code>
      * @return Whether the x field is set.
@@ -1119,24 +1117,19 @@ public final class UnittestOptimizeFor {
 
       // Construct using protobuf_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         x_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -1163,15 +1156,19 @@ public final class UnittestOptimizeFor {
       @java.lang.Override
       public protobuf_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize buildPartial() {
         protobuf_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize result = new protobuf_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(protobuf_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.x_ = x_;
           to_bitField0_ |= 0x00000001;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1231,8 +1228,9 @@ public final class UnittestOptimizeFor {
        * @return This builder for chaining.
        */
       public Builder setX(int value) {
-        bitField0_ |= 0x00000001;
+        
         x_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1284,10 +1282,11 @@ public final class UnittestOptimizeFor {
           builder.mergeFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
         } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(
-                  builder.buildPartial());
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
         }
         return builder.buildPartial();
       }
@@ -1524,12 +1523,12 @@ public final class UnittestOptimizeFor {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (oBuilder_ == null) {
-          o_ = null;
-        } else {
-          oBuilder_.clear();
+        bitField0_ = 0;
+        o_ = null;
+        if (oBuilder_ != null) {
+          oBuilder_.dispose();
+          oBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -1556,19 +1555,21 @@ public final class UnittestOptimizeFor {
       @java.lang.Override
       public protobuf_unittest.UnittestOptimizeFor.TestOptionalOptimizedForSize buildPartial() {
         protobuf_unittest.UnittestOptimizeFor.TestOptionalOptimizedForSize result = new protobuf_unittest.UnittestOptimizeFor.TestOptionalOptimizedForSize(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(protobuf_unittest.UnittestOptimizeFor.TestOptionalOptimizedForSize result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          if (oBuilder_ == null) {
-            result.o_ = o_;
-          } else {
-            result.o_ = oBuilder_.build();
-          }
+          result.o_ = oBuilder_ == null
+              ? o_
+              : oBuilder_.build();
           to_bitField0_ |= 0x00000001;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1635,11 +1636,11 @@ public final class UnittestOptimizeFor {
             throw new NullPointerException();
           }
           o_ = value;
-          onChanged();
         } else {
           oBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1649,11 +1650,11 @@ public final class UnittestOptimizeFor {
           protobuf_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize.Builder builderForValue) {
         if (oBuilder_ == null) {
           o_ = builderForValue.build();
-          onChanged();
         } else {
           oBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1662,31 +1663,30 @@ public final class UnittestOptimizeFor {
       public Builder mergeO(protobuf_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize value) {
         if (oBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0) &&
-              o_ != null &&
-              o_ != protobuf_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize.getDefaultInstance()) {
-            o_ =
-              protobuf_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize.newBuilder(o_).mergeFrom(value).buildPartial();
+            o_ != null &&
+            o_ != protobuf_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize.getDefaultInstance()) {
+            getOBuilder().mergeFrom(value);
           } else {
             o_ = value;
           }
-          onChanged();
         } else {
           oBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .protobuf_unittest.TestRequiredOptimizedForSize o = 1;</code>
        */
       public Builder clearO() {
-        if (oBuilder_ == null) {
-          o_ = null;
-          onChanged();
-        } else {
-          oBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000001);
+        o_ = null;
+        if (oBuilder_ != null) {
+          oBuilder_.dispose();
+          oBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -1762,10 +1762,11 @@ public final class UnittestOptimizeFor {
           builder.mergeFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
         } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(
-                  builder.buildPartial());
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
         }
         return builder.buildPartial();
       }

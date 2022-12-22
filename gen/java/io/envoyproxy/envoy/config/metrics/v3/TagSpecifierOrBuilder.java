@@ -18,7 +18,11 @@ public interface TagSpecifierOrBuilder extends
    * :ref:`fixed_value &lt;envoy_v3_api_field_config.metrics.v3.TagSpecifier.fixed_value&gt;` were specified,
    * Envoy will attempt to find that name in its set of defaults and use the accompanying regex.
    * .. note::
-   *   It is invalid to specify the same tag name twice in a config.
+   *   A stat name may be spelled in such a way that it matches two different
+   *   tag extractors for the same tag name. In that case, all but one of the
+   *   tag values will be dropped. It is not specified which tag value will be
+   *   retained. The extraction will only occur for one of the extractors, and
+   *   only the matched extraction will be removed from the tag name.
    * </pre>
    *
    * <code>string tag_name = 1;</code>
@@ -36,7 +40,11 @@ public interface TagSpecifierOrBuilder extends
    * :ref:`fixed_value &lt;envoy_v3_api_field_config.metrics.v3.TagSpecifier.fixed_value&gt;` were specified,
    * Envoy will attempt to find that name in its set of defaults and use the accompanying regex.
    * .. note::
-   *   It is invalid to specify the same tag name twice in a config.
+   *   A stat name may be spelled in such a way that it matches two different
+   *   tag extractors for the same tag name. In that case, all but one of the
+   *   tag values will be dropped. It is not specified which tag value will be
+   *   retained. The extraction will only occur for one of the extractors, and
+   *   only the matched extraction will be removed from the tag name.
    * </pre>
    *
    * <code>string tag_name = 1;</code>

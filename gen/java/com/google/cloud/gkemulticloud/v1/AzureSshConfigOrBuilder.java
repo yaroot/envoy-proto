@@ -9,9 +9,9 @@ public interface AzureSshConfigOrBuilder extends
 
   /**
    * <pre>
-   * Required. The SSH public key data for VMs managed by Anthos. This accepts the
-   * authorized_keys file format used in OpenSSH according to the sshd(8) manual
-   * page.
+   * Required. The SSH public key data for VMs managed by Anthos. This accepts
+   * the authorized_keys file format used in OpenSSH according to the sshd(8)
+   * manual page.
    * </pre>
    *
    * <code>string authorized_key = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -20,9 +20,9 @@ public interface AzureSshConfigOrBuilder extends
   java.lang.String getAuthorizedKey();
   /**
    * <pre>
-   * Required. The SSH public key data for VMs managed by Anthos. This accepts the
-   * authorized_keys file format used in OpenSSH according to the sshd(8) manual
-   * page.
+   * Required. The SSH public key data for VMs managed by Anthos. This accepts
+   * the authorized_keys file format used in OpenSSH according to the sshd(8)
+   * manual page.
    * </pre>
    *
    * <code>string authorized_key = 1 [(.google.api.field_behavior) = REQUIRED];</code>

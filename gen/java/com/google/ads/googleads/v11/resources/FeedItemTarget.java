@@ -38,127 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private FeedItemTarget(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceName_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            feedItemTargetType_ = rawValue;
-            break;
-          }
-          case 58: {
-            com.google.ads.googleads.v11.common.KeywordInfo.Builder subBuilder = null;
-            if (targetCase_ == 7) {
-              subBuilder = ((com.google.ads.googleads.v11.common.KeywordInfo) target_).toBuilder();
-            }
-            target_ =
-                input.readMessage(com.google.ads.googleads.v11.common.KeywordInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.common.KeywordInfo) target_);
-              target_ = subBuilder.buildPartial();
-            }
-            targetCase_ = 7;
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-            targetCase_ = 9;
-            target_ = rawValue;
-            break;
-          }
-          case 82: {
-            com.google.ads.googleads.v11.common.AdScheduleInfo.Builder subBuilder = null;
-            if (targetCase_ == 10) {
-              subBuilder = ((com.google.ads.googleads.v11.common.AdScheduleInfo) target_).toBuilder();
-            }
-            target_ =
-                input.readMessage(com.google.ads.googleads.v11.common.AdScheduleInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.common.AdScheduleInfo) target_);
-              target_ = subBuilder.buildPartial();
-            }
-            targetCase_ = 10;
-            break;
-          }
-          case 88: {
-            int rawValue = input.readEnum();
-
-            status_ = rawValue;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            feedItem_ = s;
-            break;
-          }
-          case 104: {
-            bitField0_ |= 0x00000002;
-            feedItemTargetId_ = input.readInt64();
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-            targetCase_ = 14;
-            target_ = s;
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-            targetCase_ = 15;
-            target_ = s;
-            break;
-          }
-          case 130: {
-            java.lang.String s = input.readStringRequireUtf8();
-            targetCase_ = 16;
-            target_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.resources.FeedItemTargetProto.internal_static_google_ads_googleads_v11_resources_FeedItemTarget_descriptor;
@@ -223,7 +102,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object resourceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceName_ = "";
   /**
    * <pre>
    * Immutable. The resource name of the feed item target.
@@ -273,7 +153,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FEED_ITEM_FIELD_NUMBER = 12;
-  private volatile java.lang.Object feedItem_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object feedItem_ = "";
   /**
    * <pre>
    * Immutable. The feed item to which this feed item target belongs.
@@ -331,7 +212,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FEED_ITEM_TARGET_TYPE_FIELD_NUMBER = 3;
-  private int feedItemTargetType_;
+  private int feedItemTargetType_ = 0;
   /**
    * <pre>
    * Output only. The target type of this feed item target. This field is read-only.
@@ -352,13 +233,12 @@ private static final long serialVersionUID = 0L;
    * @return The feedItemTargetType.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.FeedItemTargetTypeEnum.FeedItemTargetType getFeedItemTargetType() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.FeedItemTargetTypeEnum.FeedItemTargetType result = com.google.ads.googleads.v11.enums.FeedItemTargetTypeEnum.FeedItemTargetType.valueOf(feedItemTargetType_);
+    com.google.ads.googleads.v11.enums.FeedItemTargetTypeEnum.FeedItemTargetType result = com.google.ads.googleads.v11.enums.FeedItemTargetTypeEnum.FeedItemTargetType.forNumber(feedItemTargetType_);
     return result == null ? com.google.ads.googleads.v11.enums.FeedItemTargetTypeEnum.FeedItemTargetType.UNRECOGNIZED : result;
   }
 
   public static final int FEED_ITEM_TARGET_ID_FIELD_NUMBER = 13;
-  private long feedItemTargetId_;
+  private long feedItemTargetId_ = 0L;
   /**
    * <pre>
    * Output only. The ID of the targeted resource. This field is read-only.
@@ -385,7 +265,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 11;
-  private int status_;
+  private int status_ = 0;
   /**
    * <pre>
    * Output only. Status of the feed item target.
@@ -408,8 +288,7 @@ private static final long serialVersionUID = 0L;
    * @return The status.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.FeedItemTargetStatusEnum.FeedItemTargetStatus getStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.FeedItemTargetStatusEnum.FeedItemTargetStatus result = com.google.ads.googleads.v11.enums.FeedItemTargetStatusEnum.FeedItemTargetStatus.valueOf(status_);
+    com.google.ads.googleads.v11.enums.FeedItemTargetStatusEnum.FeedItemTargetStatus result = com.google.ads.googleads.v11.enums.FeedItemTargetStatusEnum.FeedItemTargetStatus.forNumber(status_);
     return result == null ? com.google.ads.googleads.v11.enums.FeedItemTargetStatusEnum.FeedItemTargetStatus.UNRECOGNIZED : result;
   }
 
@@ -684,8 +563,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.FeedItemTargetDeviceEnum.FeedItemTargetDevice getDevice() {
     if (targetCase_ == 9) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.FeedItemTargetDeviceEnum.FeedItemTargetDevice result = com.google.ads.googleads.v11.enums.FeedItemTargetDeviceEnum.FeedItemTargetDevice.valueOf(
+      com.google.ads.googleads.v11.enums.FeedItemTargetDeviceEnum.FeedItemTargetDevice result = com.google.ads.googleads.v11.enums.FeedItemTargetDeviceEnum.FeedItemTargetDevice.forNumber(
           (java.lang.Integer) target_);
       return result == null ? com.google.ads.googleads.v11.enums.FeedItemTargetDeviceEnum.FeedItemTargetDevice.UNRECOGNIZED : result;
     }
@@ -782,7 +660,7 @@ private static final long serialVersionUID = 0L;
     if (targetCase_ == 16) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 16, target_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -830,7 +708,7 @@ private static final long serialVersionUID = 0L;
     if (targetCase_ == 16) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, target_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -888,7 +766,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -942,7 +820,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1063,32 +941,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.resources.FeedItemTarget.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       resourceName_ = "";
-
       feedItem_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       feedItemTargetType_ = 0;
-
       feedItemTargetId_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000002);
       status_ = 0;
-
+      if (keywordBuilder_ != null) {
+        keywordBuilder_.clear();
+      }
+      if (adScheduleBuilder_ != null) {
+        adScheduleBuilder_.clear();
+      }
       targetCase_ = 0;
       target_ = null;
       return this;
@@ -1117,49 +992,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.resources.FeedItemTarget buildPartial() {
       com.google.ads.googleads.v11.resources.FeedItemTarget result = new com.google.ads.googleads.v11.resources.FeedItemTarget(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.resources.FeedItemTarget result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.resourceName_ = resourceName_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resourceName_ = resourceName_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.feedItem_ = feedItem_;
         to_bitField0_ |= 0x00000001;
       }
-      result.feedItem_ = feedItem_;
-      result.feedItemTargetType_ = feedItemTargetType_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.feedItemTargetType_ = feedItemTargetType_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.feedItemTargetId_ = feedItemTargetId_;
         to_bitField0_ |= 0x00000002;
       }
-      result.status_ = status_;
-      if (targetCase_ == 14) {
-        result.target_ = target_;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.status_ = status_;
       }
-      if (targetCase_ == 15) {
-        result.target_ = target_;
-      }
-      if (targetCase_ == 7) {
-        if (keywordBuilder_ == null) {
-          result.target_ = target_;
-        } else {
-          result.target_ = keywordBuilder_.build();
-        }
-      }
-      if (targetCase_ == 16) {
-        result.target_ = target_;
-      }
-      if (targetCase_ == 9) {
-        result.target_ = target_;
-      }
-      if (targetCase_ == 10) {
-        if (adScheduleBuilder_ == null) {
-          result.target_ = target_;
-        } else {
-          result.target_ = adScheduleBuilder_.build();
-        }
-      }
-      result.bitField0_ = to_bitField0_;
+      result.bitField0_ |= to_bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.ads.googleads.v11.resources.FeedItemTarget result) {
       result.targetCase_ = targetCase_;
-      onBuilt();
-      return result;
+      result.target_ = this.target_;
+      if (targetCase_ == 7 &&
+          keywordBuilder_ != null) {
+        result.target_ = keywordBuilder_.build();
+      }
+      if (targetCase_ == 10 &&
+          adScheduleBuilder_ != null) {
+        result.target_ = adScheduleBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1208,11 +1080,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v11.resources.FeedItemTarget.getDefaultInstance()) return this;
       if (!other.getResourceName().isEmpty()) {
         resourceName_ = other.resourceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasFeedItem()) {
-        bitField0_ |= 0x00000001;
         feedItem_ = other.feedItem_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.feedItemTargetType_ != 0) {
@@ -1259,7 +1132,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1274,17 +1147,93 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.resources.FeedItemTarget parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              resourceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 24: {
+              feedItemTargetType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 58: {
+              input.readMessage(
+                  getKeywordFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              targetCase_ = 7;
+              break;
+            } // case 58
+            case 72: {
+              int rawValue = input.readEnum();
+              targetCase_ = 9;
+              target_ = rawValue;
+              break;
+            } // case 72
+            case 82: {
+              input.readMessage(
+                  getAdScheduleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              targetCase_ = 10;
+              break;
+            } // case 82
+            case 88: {
+              status_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 88
+            case 98: {
+              feedItem_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 98
+            case 104: {
+              feedItemTargetId_ = input.readInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 104
+            case 114: {
+              java.lang.String s = input.readStringRequireUtf8();
+              targetCase_ = 14;
+              target_ = s;
+              break;
+            } // case 114
+            case 122: {
+              java.lang.String s = input.readStringRequireUtf8();
+              targetCase_ = 15;
+              target_ = s;
+              break;
+            } // case 122
+            case 130: {
+              java.lang.String s = input.readStringRequireUtf8();
+              targetCase_ = 16;
+              target_ = s;
+              break;
+            } // case 130
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.resources.FeedItemTarget) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int targetCase_ = 0;
@@ -1363,11 +1312,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1382,8 +1329,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceName() {
-      
       resourceName_ = getDefaultInstance().getResourceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1400,12 +1347,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1420,7 +1365,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the feedItem field is set.
      */
     public boolean hasFeedItem() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1474,11 +1419,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFeedItem(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       feedItem_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1491,8 +1434,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFeedItem() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       feedItem_ = getDefaultInstance().getFeedItem();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1507,12 +1450,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFeedItemBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       feedItem_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1539,8 +1480,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFeedItemTargetTypeValue(int value) {
-      
       feedItemTargetType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1554,8 +1495,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.FeedItemTargetTypeEnum.FeedItemTargetType getFeedItemTargetType() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.FeedItemTargetTypeEnum.FeedItemTargetType result = com.google.ads.googleads.v11.enums.FeedItemTargetTypeEnum.FeedItemTargetType.valueOf(feedItemTargetType_);
+      com.google.ads.googleads.v11.enums.FeedItemTargetTypeEnum.FeedItemTargetType result = com.google.ads.googleads.v11.enums.FeedItemTargetTypeEnum.FeedItemTargetType.forNumber(feedItemTargetType_);
       return result == null ? com.google.ads.googleads.v11.enums.FeedItemTargetTypeEnum.FeedItemTargetType.UNRECOGNIZED : result;
     }
     /**
@@ -1571,7 +1511,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       feedItemTargetType_ = value.getNumber();
       onChanged();
       return this;
@@ -1585,7 +1525,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFeedItemTargetType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       feedItemTargetType_ = 0;
       onChanged();
       return this;
@@ -1602,7 +1542,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasFeedItemTargetId() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1626,8 +1566,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFeedItemTargetId(long value) {
-      bitField0_ |= 0x00000002;
+      
       feedItemTargetId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1640,7 +1581,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFeedItemTargetId() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       feedItemTargetId_ = 0L;
       onChanged();
       return this;
@@ -1670,8 +1611,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
-      
       status_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1686,8 +1627,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.FeedItemTargetStatusEnum.FeedItemTargetStatus getStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.FeedItemTargetStatusEnum.FeedItemTargetStatus result = com.google.ads.googleads.v11.enums.FeedItemTargetStatusEnum.FeedItemTargetStatus.valueOf(status_);
+      com.google.ads.googleads.v11.enums.FeedItemTargetStatusEnum.FeedItemTargetStatus result = com.google.ads.googleads.v11.enums.FeedItemTargetStatusEnum.FeedItemTargetStatus.forNumber(status_);
       return result == null ? com.google.ads.googleads.v11.enums.FeedItemTargetStatusEnum.FeedItemTargetStatus.UNRECOGNIZED : result;
     }
     /**
@@ -1704,7 +1644,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       status_ = value.getNumber();
       onChanged();
       return this;
@@ -1719,7 +1659,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       status_ = 0;
       onChanged();
       return this;
@@ -1801,10 +1741,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCampaign(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  targetCase_ = 14;
+      if (value == null) { throw new NullPointerException(); }
+      targetCase_ = 14;
       target_ = value;
       onChanged();
       return this;
@@ -1836,10 +1774,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCampaignBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       targetCase_ = 14;
       target_ = value;
       onChanged();
@@ -1922,10 +1858,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdGroup(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  targetCase_ = 15;
+      if (value == null) { throw new NullPointerException(); }
+      targetCase_ = 15;
       target_ = value;
       onChanged();
       return this;
@@ -1957,10 +1891,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdGroupBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       targetCase_ = 15;
       target_ = value;
       onChanged();
@@ -2141,7 +2073,7 @@ private static final long serialVersionUID = 0L;
         target_ = null;
       }
       targetCase_ = 7;
-      onChanged();;
+      onChanged();
       return keywordBuilder_;
     }
 
@@ -2221,10 +2153,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGeoTargetConstant(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  targetCase_ = 16;
+      if (value == null) { throw new NullPointerException(); }
+      targetCase_ = 16;
       target_ = value;
       onChanged();
       return this;
@@ -2256,10 +2186,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGeoTargetConstantBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       targetCase_ = 16;
       target_ = value;
       onChanged();
@@ -2319,8 +2247,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.FeedItemTargetDeviceEnum.FeedItemTargetDevice getDevice() {
       if (targetCase_ == 9) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.FeedItemTargetDeviceEnum.FeedItemTargetDevice result = com.google.ads.googleads.v11.enums.FeedItemTargetDeviceEnum.FeedItemTargetDevice.valueOf(
+        com.google.ads.googleads.v11.enums.FeedItemTargetDeviceEnum.FeedItemTargetDevice result = com.google.ads.googleads.v11.enums.FeedItemTargetDeviceEnum.FeedItemTargetDevice.forNumber(
             (java.lang.Integer) target_);
         return result == null ? com.google.ads.googleads.v11.enums.FeedItemTargetDeviceEnum.FeedItemTargetDevice.UNRECOGNIZED : result;
       }
@@ -2535,7 +2462,7 @@ private static final long serialVersionUID = 0L;
         target_ = null;
       }
       targetCase_ = 10;
-      onChanged();;
+      onChanged();
       return adScheduleBuilder_;
     }
     @java.lang.Override
@@ -2571,7 +2498,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FeedItemTarget(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

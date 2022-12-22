@@ -36,280 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MapWellKnownTypes(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              anyField_ = com.google.protobuf.MapField.newMapField(
-                  AnyFieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Any>
-            anyField__ = input.readMessage(
-                AnyFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            anyField_.getMutableMap().put(
-                anyField__.getKey(), anyField__.getValue());
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              apiField_ = com.google.protobuf.MapField.newMapField(
-                  ApiFieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Api>
-            apiField__ = input.readMessage(
-                ApiFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            apiField_.getMutableMap().put(
-                apiField__.getKey(), apiField__.getValue());
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              durationField_ = com.google.protobuf.MapField.newMapField(
-                  DurationFieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Duration>
-            durationField__ = input.readMessage(
-                DurationFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            durationField_.getMutableMap().put(
-                durationField__.getKey(), durationField__.getValue());
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              emptyField_ = com.google.protobuf.MapField.newMapField(
-                  EmptyFieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000008;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Empty>
-            emptyField__ = input.readMessage(
-                EmptyFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            emptyField_.getMutableMap().put(
-                emptyField__.getKey(), emptyField__.getValue());
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              fieldMaskField_ = com.google.protobuf.MapField.newMapField(
-                  FieldMaskFieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000010;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.FieldMask>
-            fieldMaskField__ = input.readMessage(
-                FieldMaskFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            fieldMaskField_.getMutableMap().put(
-                fieldMaskField__.getKey(), fieldMaskField__.getValue());
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              sourceContextField_ = com.google.protobuf.MapField.newMapField(
-                  SourceContextFieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000020;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.SourceContext>
-            sourceContextField__ = input.readMessage(
-                SourceContextFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            sourceContextField_.getMutableMap().put(
-                sourceContextField__.getKey(), sourceContextField__.getValue());
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-              structField_ = com.google.protobuf.MapField.newMapField(
-                  StructFieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000040;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Struct>
-            structField__ = input.readMessage(
-                StructFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            structField_.getMutableMap().put(
-                structField__.getKey(), structField__.getValue());
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000080) != 0)) {
-              timestampField_ = com.google.protobuf.MapField.newMapField(
-                  TimestampFieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000080;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Timestamp>
-            timestampField__ = input.readMessage(
-                TimestampFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            timestampField_.getMutableMap().put(
-                timestampField__.getKey(), timestampField__.getValue());
-            break;
-          }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000100) != 0)) {
-              typeField_ = com.google.protobuf.MapField.newMapField(
-                  TypeFieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000100;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Type>
-            typeField__ = input.readMessage(
-                TypeFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            typeField_.getMutableMap().put(
-                typeField__.getKey(), typeField__.getValue());
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000200) != 0)) {
-              doubleField_ = com.google.protobuf.MapField.newMapField(
-                  DoubleFieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000200;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.DoubleValue>
-            doubleField__ = input.readMessage(
-                DoubleFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            doubleField_.getMutableMap().put(
-                doubleField__.getKey(), doubleField__.getValue());
-            break;
-          }
-          case 90: {
-            if (!((mutable_bitField0_ & 0x00000400) != 0)) {
-              floatField_ = com.google.protobuf.MapField.newMapField(
-                  FloatFieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000400;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.FloatValue>
-            floatField__ = input.readMessage(
-                FloatFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            floatField_.getMutableMap().put(
-                floatField__.getKey(), floatField__.getValue());
-            break;
-          }
-          case 98: {
-            if (!((mutable_bitField0_ & 0x00000800) != 0)) {
-              int64Field_ = com.google.protobuf.MapField.newMapField(
-                  Int64FieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000800;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Int64Value>
-            int64Field__ = input.readMessage(
-                Int64FieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            int64Field_.getMutableMap().put(
-                int64Field__.getKey(), int64Field__.getValue());
-            break;
-          }
-          case 106: {
-            if (!((mutable_bitField0_ & 0x00001000) != 0)) {
-              uint64Field_ = com.google.protobuf.MapField.newMapField(
-                  Uint64FieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00001000;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.UInt64Value>
-            uint64Field__ = input.readMessage(
-                Uint64FieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            uint64Field_.getMutableMap().put(
-                uint64Field__.getKey(), uint64Field__.getValue());
-            break;
-          }
-          case 114: {
-            if (!((mutable_bitField0_ & 0x00002000) != 0)) {
-              int32Field_ = com.google.protobuf.MapField.newMapField(
-                  Int32FieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00002000;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Int32Value>
-            int32Field__ = input.readMessage(
-                Int32FieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            int32Field_.getMutableMap().put(
-                int32Field__.getKey(), int32Field__.getValue());
-            break;
-          }
-          case 122: {
-            if (!((mutable_bitField0_ & 0x00004000) != 0)) {
-              uint32Field_ = com.google.protobuf.MapField.newMapField(
-                  Uint32FieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00004000;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.UInt32Value>
-            uint32Field__ = input.readMessage(
-                Uint32FieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            uint32Field_.getMutableMap().put(
-                uint32Field__.getKey(), uint32Field__.getValue());
-            break;
-          }
-          case 130: {
-            if (!((mutable_bitField0_ & 0x00008000) != 0)) {
-              boolField_ = com.google.protobuf.MapField.newMapField(
-                  BoolFieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00008000;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.BoolValue>
-            boolField__ = input.readMessage(
-                BoolFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            boolField_.getMutableMap().put(
-                boolField__.getKey(), boolField__.getValue());
-            break;
-          }
-          case 138: {
-            if (!((mutable_bitField0_ & 0x00010000) != 0)) {
-              stringField_ = com.google.protobuf.MapField.newMapField(
-                  StringFieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00010000;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.StringValue>
-            stringField__ = input.readMessage(
-                StringFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            stringField_.getMutableMap().put(
-                stringField__.getKey(), stringField__.getValue());
-            break;
-          }
-          case 146: {
-            if (!((mutable_bitField0_ & 0x00020000) != 0)) {
-              bytesField_ = com.google.protobuf.MapField.newMapField(
-                  BytesFieldDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00020000;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.BytesValue>
-            bytesField__ = input.readMessage(
-                BytesFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            bytesField_.getMutableMap().put(
-                bytesField__.getKey(), bytesField__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.protobuf.test.UnittestWellKnownTypes.internal_static_protobuf_unittest_MapWellKnownTypes_descriptor;
@@ -381,6 +107,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.Any.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.Any> anyField_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Any>
@@ -391,14 +118,12 @@ private static final long serialVersionUID = 0L;
     }
     return anyField_;
   }
-
   public int getAnyFieldCount() {
     return internalGetAnyField().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.Any&gt; any_field = 1;</code>
    */
-
   @java.lang.Override
   public boolean containsAnyField(
       int key) {
@@ -417,7 +142,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Any&gt; any_field = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.Any> getAnyFieldMap() {
     return internalGetAnyField().getMap();
   }
@@ -425,10 +149,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Any&gt; any_field = 1;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.Any getAnyFieldOrDefault(
+  public /* nullable */
+com.google.protobuf.Any getAnyFieldOrDefault(
       int key,
-      com.google.protobuf.Any defaultValue) {
+      /* nullable */
+com.google.protobuf.Any defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.Any> map =
         internalGetAnyField().getMap();
@@ -438,7 +163,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Any&gt; any_field = 1;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.Any getAnyFieldOrThrow(
       int key) {
     
@@ -462,6 +186,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.Api.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.Api> apiField_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Api>
@@ -472,14 +197,12 @@ private static final long serialVersionUID = 0L;
     }
     return apiField_;
   }
-
   public int getApiFieldCount() {
     return internalGetApiField().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.Api&gt; api_field = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsApiField(
       int key) {
@@ -498,7 +221,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Api&gt; api_field = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.Api> getApiFieldMap() {
     return internalGetApiField().getMap();
   }
@@ -506,10 +228,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Api&gt; api_field = 2;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.Api getApiFieldOrDefault(
+  public /* nullable */
+com.google.protobuf.Api getApiFieldOrDefault(
       int key,
-      com.google.protobuf.Api defaultValue) {
+      /* nullable */
+com.google.protobuf.Api defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.Api> map =
         internalGetApiField().getMap();
@@ -519,7 +242,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Api&gt; api_field = 2;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.Api getApiFieldOrThrow(
       int key) {
     
@@ -543,6 +265,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.Duration.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.Duration> durationField_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Duration>
@@ -553,14 +276,12 @@ private static final long serialVersionUID = 0L;
     }
     return durationField_;
   }
-
   public int getDurationFieldCount() {
     return internalGetDurationField().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.Duration&gt; duration_field = 3;</code>
    */
-
   @java.lang.Override
   public boolean containsDurationField(
       int key) {
@@ -579,7 +300,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Duration&gt; duration_field = 3;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.Duration> getDurationFieldMap() {
     return internalGetDurationField().getMap();
   }
@@ -587,10 +307,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Duration&gt; duration_field = 3;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.Duration getDurationFieldOrDefault(
+  public /* nullable */
+com.google.protobuf.Duration getDurationFieldOrDefault(
       int key,
-      com.google.protobuf.Duration defaultValue) {
+      /* nullable */
+com.google.protobuf.Duration defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.Duration> map =
         internalGetDurationField().getMap();
@@ -600,7 +321,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Duration&gt; duration_field = 3;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.Duration getDurationFieldOrThrow(
       int key) {
     
@@ -624,6 +344,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.Empty.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.Empty> emptyField_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Empty>
@@ -634,14 +355,12 @@ private static final long serialVersionUID = 0L;
     }
     return emptyField_;
   }
-
   public int getEmptyFieldCount() {
     return internalGetEmptyField().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.Empty&gt; empty_field = 4;</code>
    */
-
   @java.lang.Override
   public boolean containsEmptyField(
       int key) {
@@ -660,7 +379,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Empty&gt; empty_field = 4;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.Empty> getEmptyFieldMap() {
     return internalGetEmptyField().getMap();
   }
@@ -668,10 +386,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Empty&gt; empty_field = 4;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.Empty getEmptyFieldOrDefault(
+  public /* nullable */
+com.google.protobuf.Empty getEmptyFieldOrDefault(
       int key,
-      com.google.protobuf.Empty defaultValue) {
+      /* nullable */
+com.google.protobuf.Empty defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.Empty> map =
         internalGetEmptyField().getMap();
@@ -681,7 +400,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Empty&gt; empty_field = 4;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.Empty getEmptyFieldOrThrow(
       int key) {
     
@@ -705,6 +423,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.FieldMask.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.FieldMask> fieldMaskField_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.FieldMask>
@@ -715,14 +434,12 @@ private static final long serialVersionUID = 0L;
     }
     return fieldMaskField_;
   }
-
   public int getFieldMaskFieldCount() {
     return internalGetFieldMaskField().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.FieldMask&gt; field_mask_field = 5;</code>
    */
-
   @java.lang.Override
   public boolean containsFieldMaskField(
       int key) {
@@ -741,7 +458,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.FieldMask&gt; field_mask_field = 5;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.FieldMask> getFieldMaskFieldMap() {
     return internalGetFieldMaskField().getMap();
   }
@@ -749,10 +465,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.FieldMask&gt; field_mask_field = 5;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.FieldMask getFieldMaskFieldOrDefault(
+  public /* nullable */
+com.google.protobuf.FieldMask getFieldMaskFieldOrDefault(
       int key,
-      com.google.protobuf.FieldMask defaultValue) {
+      /* nullable */
+com.google.protobuf.FieldMask defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.FieldMask> map =
         internalGetFieldMaskField().getMap();
@@ -762,7 +479,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.FieldMask&gt; field_mask_field = 5;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.FieldMask getFieldMaskFieldOrThrow(
       int key) {
     
@@ -786,6 +502,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.SourceContext.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.SourceContext> sourceContextField_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.SourceContext>
@@ -796,14 +513,12 @@ private static final long serialVersionUID = 0L;
     }
     return sourceContextField_;
   }
-
   public int getSourceContextFieldCount() {
     return internalGetSourceContextField().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.SourceContext&gt; source_context_field = 6;</code>
    */
-
   @java.lang.Override
   public boolean containsSourceContextField(
       int key) {
@@ -822,7 +537,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.SourceContext&gt; source_context_field = 6;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.SourceContext> getSourceContextFieldMap() {
     return internalGetSourceContextField().getMap();
   }
@@ -830,10 +544,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.SourceContext&gt; source_context_field = 6;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.SourceContext getSourceContextFieldOrDefault(
+  public /* nullable */
+com.google.protobuf.SourceContext getSourceContextFieldOrDefault(
       int key,
-      com.google.protobuf.SourceContext defaultValue) {
+      /* nullable */
+com.google.protobuf.SourceContext defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.SourceContext> map =
         internalGetSourceContextField().getMap();
@@ -843,7 +558,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.SourceContext&gt; source_context_field = 6;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.SourceContext getSourceContextFieldOrThrow(
       int key) {
     
@@ -867,6 +581,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.Struct.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.Struct> structField_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Struct>
@@ -877,14 +592,12 @@ private static final long serialVersionUID = 0L;
     }
     return structField_;
   }
-
   public int getStructFieldCount() {
     return internalGetStructField().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.Struct&gt; struct_field = 7;</code>
    */
-
   @java.lang.Override
   public boolean containsStructField(
       int key) {
@@ -903,7 +616,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Struct&gt; struct_field = 7;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.Struct> getStructFieldMap() {
     return internalGetStructField().getMap();
   }
@@ -911,10 +623,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Struct&gt; struct_field = 7;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.Struct getStructFieldOrDefault(
+  public /* nullable */
+com.google.protobuf.Struct getStructFieldOrDefault(
       int key,
-      com.google.protobuf.Struct defaultValue) {
+      /* nullable */
+com.google.protobuf.Struct defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.Struct> map =
         internalGetStructField().getMap();
@@ -924,7 +637,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Struct&gt; struct_field = 7;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.Struct getStructFieldOrThrow(
       int key) {
     
@@ -948,6 +660,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.Timestamp.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.Timestamp> timestampField_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Timestamp>
@@ -958,14 +671,12 @@ private static final long serialVersionUID = 0L;
     }
     return timestampField_;
   }
-
   public int getTimestampFieldCount() {
     return internalGetTimestampField().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.Timestamp&gt; timestamp_field = 8;</code>
    */
-
   @java.lang.Override
   public boolean containsTimestampField(
       int key) {
@@ -984,7 +695,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Timestamp&gt; timestamp_field = 8;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.Timestamp> getTimestampFieldMap() {
     return internalGetTimestampField().getMap();
   }
@@ -992,10 +702,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Timestamp&gt; timestamp_field = 8;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.Timestamp getTimestampFieldOrDefault(
+  public /* nullable */
+com.google.protobuf.Timestamp getTimestampFieldOrDefault(
       int key,
-      com.google.protobuf.Timestamp defaultValue) {
+      /* nullable */
+com.google.protobuf.Timestamp defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.Timestamp> map =
         internalGetTimestampField().getMap();
@@ -1005,7 +716,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Timestamp&gt; timestamp_field = 8;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.Timestamp getTimestampFieldOrThrow(
       int key) {
     
@@ -1029,6 +739,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.Type.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.Type> typeField_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Type>
@@ -1039,14 +750,12 @@ private static final long serialVersionUID = 0L;
     }
     return typeField_;
   }
-
   public int getTypeFieldCount() {
     return internalGetTypeField().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.Type&gt; type_field = 9;</code>
    */
-
   @java.lang.Override
   public boolean containsTypeField(
       int key) {
@@ -1065,7 +774,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Type&gt; type_field = 9;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.Type> getTypeFieldMap() {
     return internalGetTypeField().getMap();
   }
@@ -1073,10 +781,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Type&gt; type_field = 9;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.Type getTypeFieldOrDefault(
+  public /* nullable */
+com.google.protobuf.Type getTypeFieldOrDefault(
       int key,
-      com.google.protobuf.Type defaultValue) {
+      /* nullable */
+com.google.protobuf.Type defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.Type> map =
         internalGetTypeField().getMap();
@@ -1086,7 +795,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Type&gt; type_field = 9;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.Type getTypeFieldOrThrow(
       int key) {
     
@@ -1110,6 +818,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.DoubleValue.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.DoubleValue> doubleField_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.DoubleValue>
@@ -1120,14 +829,12 @@ private static final long serialVersionUID = 0L;
     }
     return doubleField_;
   }
-
   public int getDoubleFieldCount() {
     return internalGetDoubleField().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.DoubleValue&gt; double_field = 10;</code>
    */
-
   @java.lang.Override
   public boolean containsDoubleField(
       int key) {
@@ -1146,7 +853,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.DoubleValue&gt; double_field = 10;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.DoubleValue> getDoubleFieldMap() {
     return internalGetDoubleField().getMap();
   }
@@ -1154,10 +860,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.DoubleValue&gt; double_field = 10;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.DoubleValue getDoubleFieldOrDefault(
+  public /* nullable */
+com.google.protobuf.DoubleValue getDoubleFieldOrDefault(
       int key,
-      com.google.protobuf.DoubleValue defaultValue) {
+      /* nullable */
+com.google.protobuf.DoubleValue defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.DoubleValue> map =
         internalGetDoubleField().getMap();
@@ -1167,7 +874,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.DoubleValue&gt; double_field = 10;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.DoubleValue getDoubleFieldOrThrow(
       int key) {
     
@@ -1191,6 +897,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.FloatValue.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.FloatValue> floatField_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.FloatValue>
@@ -1201,14 +908,12 @@ private static final long serialVersionUID = 0L;
     }
     return floatField_;
   }
-
   public int getFloatFieldCount() {
     return internalGetFloatField().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.FloatValue&gt; float_field = 11;</code>
    */
-
   @java.lang.Override
   public boolean containsFloatField(
       int key) {
@@ -1227,7 +932,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.FloatValue&gt; float_field = 11;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.FloatValue> getFloatFieldMap() {
     return internalGetFloatField().getMap();
   }
@@ -1235,10 +939,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.FloatValue&gt; float_field = 11;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.FloatValue getFloatFieldOrDefault(
+  public /* nullable */
+com.google.protobuf.FloatValue getFloatFieldOrDefault(
       int key,
-      com.google.protobuf.FloatValue defaultValue) {
+      /* nullable */
+com.google.protobuf.FloatValue defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.FloatValue> map =
         internalGetFloatField().getMap();
@@ -1248,7 +953,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.FloatValue&gt; float_field = 11;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.FloatValue getFloatFieldOrThrow(
       int key) {
     
@@ -1272,6 +976,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.Int64Value.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.Int64Value> int64Field_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Int64Value>
@@ -1282,14 +987,12 @@ private static final long serialVersionUID = 0L;
     }
     return int64Field_;
   }
-
   public int getInt64FieldCount() {
     return internalGetInt64Field().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.Int64Value&gt; int64_field = 12;</code>
    */
-
   @java.lang.Override
   public boolean containsInt64Field(
       int key) {
@@ -1308,7 +1011,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Int64Value&gt; int64_field = 12;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.Int64Value> getInt64FieldMap() {
     return internalGetInt64Field().getMap();
   }
@@ -1316,10 +1018,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Int64Value&gt; int64_field = 12;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.Int64Value getInt64FieldOrDefault(
+  public /* nullable */
+com.google.protobuf.Int64Value getInt64FieldOrDefault(
       int key,
-      com.google.protobuf.Int64Value defaultValue) {
+      /* nullable */
+com.google.protobuf.Int64Value defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.Int64Value> map =
         internalGetInt64Field().getMap();
@@ -1329,7 +1032,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Int64Value&gt; int64_field = 12;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.Int64Value getInt64FieldOrThrow(
       int key) {
     
@@ -1353,6 +1055,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.UInt64Value.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.UInt64Value> uint64Field_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.UInt64Value>
@@ -1363,14 +1066,12 @@ private static final long serialVersionUID = 0L;
     }
     return uint64Field_;
   }
-
   public int getUint64FieldCount() {
     return internalGetUint64Field().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.UInt64Value&gt; uint64_field = 13;</code>
    */
-
   @java.lang.Override
   public boolean containsUint64Field(
       int key) {
@@ -1389,7 +1090,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.UInt64Value&gt; uint64_field = 13;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.UInt64Value> getUint64FieldMap() {
     return internalGetUint64Field().getMap();
   }
@@ -1397,10 +1097,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.UInt64Value&gt; uint64_field = 13;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.UInt64Value getUint64FieldOrDefault(
+  public /* nullable */
+com.google.protobuf.UInt64Value getUint64FieldOrDefault(
       int key,
-      com.google.protobuf.UInt64Value defaultValue) {
+      /* nullable */
+com.google.protobuf.UInt64Value defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.UInt64Value> map =
         internalGetUint64Field().getMap();
@@ -1410,7 +1111,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.UInt64Value&gt; uint64_field = 13;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.UInt64Value getUint64FieldOrThrow(
       int key) {
     
@@ -1434,6 +1134,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.Int32Value.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.Int32Value> int32Field_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Int32Value>
@@ -1444,14 +1145,12 @@ private static final long serialVersionUID = 0L;
     }
     return int32Field_;
   }
-
   public int getInt32FieldCount() {
     return internalGetInt32Field().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.Int32Value&gt; int32_field = 14;</code>
    */
-
   @java.lang.Override
   public boolean containsInt32Field(
       int key) {
@@ -1470,7 +1169,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Int32Value&gt; int32_field = 14;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.Int32Value> getInt32FieldMap() {
     return internalGetInt32Field().getMap();
   }
@@ -1478,10 +1176,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Int32Value&gt; int32_field = 14;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.Int32Value getInt32FieldOrDefault(
+  public /* nullable */
+com.google.protobuf.Int32Value getInt32FieldOrDefault(
       int key,
-      com.google.protobuf.Int32Value defaultValue) {
+      /* nullable */
+com.google.protobuf.Int32Value defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.Int32Value> map =
         internalGetInt32Field().getMap();
@@ -1491,7 +1190,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.Int32Value&gt; int32_field = 14;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.Int32Value getInt32FieldOrThrow(
       int key) {
     
@@ -1515,6 +1213,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.UInt32Value.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.UInt32Value> uint32Field_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.UInt32Value>
@@ -1525,14 +1224,12 @@ private static final long serialVersionUID = 0L;
     }
     return uint32Field_;
   }
-
   public int getUint32FieldCount() {
     return internalGetUint32Field().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.UInt32Value&gt; uint32_field = 15;</code>
    */
-
   @java.lang.Override
   public boolean containsUint32Field(
       int key) {
@@ -1551,7 +1248,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.UInt32Value&gt; uint32_field = 15;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.UInt32Value> getUint32FieldMap() {
     return internalGetUint32Field().getMap();
   }
@@ -1559,10 +1255,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.UInt32Value&gt; uint32_field = 15;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.UInt32Value getUint32FieldOrDefault(
+  public /* nullable */
+com.google.protobuf.UInt32Value getUint32FieldOrDefault(
       int key,
-      com.google.protobuf.UInt32Value defaultValue) {
+      /* nullable */
+com.google.protobuf.UInt32Value defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.UInt32Value> map =
         internalGetUint32Field().getMap();
@@ -1572,7 +1269,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.UInt32Value&gt; uint32_field = 15;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.UInt32Value getUint32FieldOrThrow(
       int key) {
     
@@ -1596,6 +1292,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.BoolValue.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.BoolValue> boolField_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.BoolValue>
@@ -1606,14 +1303,12 @@ private static final long serialVersionUID = 0L;
     }
     return boolField_;
   }
-
   public int getBoolFieldCount() {
     return internalGetBoolField().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.BoolValue&gt; bool_field = 16;</code>
    */
-
   @java.lang.Override
   public boolean containsBoolField(
       int key) {
@@ -1632,7 +1327,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.BoolValue&gt; bool_field = 16;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.BoolValue> getBoolFieldMap() {
     return internalGetBoolField().getMap();
   }
@@ -1640,10 +1334,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.BoolValue&gt; bool_field = 16;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.BoolValue getBoolFieldOrDefault(
+  public /* nullable */
+com.google.protobuf.BoolValue getBoolFieldOrDefault(
       int key,
-      com.google.protobuf.BoolValue defaultValue) {
+      /* nullable */
+com.google.protobuf.BoolValue defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.BoolValue> map =
         internalGetBoolField().getMap();
@@ -1653,7 +1348,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.BoolValue&gt; bool_field = 16;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.BoolValue getBoolFieldOrThrow(
       int key) {
     
@@ -1677,6 +1371,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.StringValue.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.StringValue> stringField_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.StringValue>
@@ -1687,14 +1382,12 @@ private static final long serialVersionUID = 0L;
     }
     return stringField_;
   }
-
   public int getStringFieldCount() {
     return internalGetStringField().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.StringValue&gt; string_field = 17;</code>
    */
-
   @java.lang.Override
   public boolean containsStringField(
       int key) {
@@ -1713,7 +1406,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.StringValue&gt; string_field = 17;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.StringValue> getStringFieldMap() {
     return internalGetStringField().getMap();
   }
@@ -1721,10 +1413,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.StringValue&gt; string_field = 17;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.StringValue getStringFieldOrDefault(
+  public /* nullable */
+com.google.protobuf.StringValue getStringFieldOrDefault(
       int key,
-      com.google.protobuf.StringValue defaultValue) {
+      /* nullable */
+com.google.protobuf.StringValue defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.StringValue> map =
         internalGetStringField().getMap();
@@ -1734,7 +1427,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.StringValue&gt; string_field = 17;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.StringValue getStringFieldOrThrow(
       int key) {
     
@@ -1758,6 +1450,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.BytesValue.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.protobuf.BytesValue> bytesField_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.BytesValue>
@@ -1768,14 +1461,12 @@ private static final long serialVersionUID = 0L;
     }
     return bytesField_;
   }
-
   public int getBytesFieldCount() {
     return internalGetBytesField().getMap().size();
   }
   /**
    * <code>map&lt;int32, .google.protobuf.BytesValue&gt; bytes_field = 18;</code>
    */
-
   @java.lang.Override
   public boolean containsBytesField(
       int key) {
@@ -1794,7 +1485,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.BytesValue&gt; bytes_field = 18;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.protobuf.BytesValue> getBytesFieldMap() {
     return internalGetBytesField().getMap();
   }
@@ -1802,10 +1492,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.BytesValue&gt; bytes_field = 18;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.BytesValue getBytesFieldOrDefault(
+  public /* nullable */
+com.google.protobuf.BytesValue getBytesFieldOrDefault(
       int key,
-      com.google.protobuf.BytesValue defaultValue) {
+      /* nullable */
+com.google.protobuf.BytesValue defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.protobuf.BytesValue> map =
         internalGetBytesField().getMap();
@@ -1815,7 +1506,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.protobuf.BytesValue&gt; bytes_field = 18;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.BytesValue getBytesFieldOrThrow(
       int key) {
     
@@ -1949,7 +1639,7 @@ private static final long serialVersionUID = 0L;
         internalGetBytesField(),
         BytesFieldDefaultEntryHolder.defaultEntry,
         18);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2138,7 +1828,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(18, bytesField__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2189,7 +1879,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetStringField())) return false;
     if (!internalGetBytesField().equals(
         other.internalGetBytesField())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2272,7 +1962,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BYTES_FIELD_FIELD_NUMBER;
       hash = (53 * hash) + internalGetBytesField().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2485,22 +2175,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.protobuf.test.MapWellKnownTypes.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableAnyField().clear();
       internalGetMutableApiField().clear();
       internalGetMutableDurationField().clear();
@@ -2545,45 +2231,85 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.test.MapWellKnownTypes buildPartial() {
       com.google.protobuf.test.MapWellKnownTypes result = new com.google.protobuf.test.MapWellKnownTypes(this);
-      int from_bitField0_ = bitField0_;
-      result.anyField_ = internalGetAnyField();
-      result.anyField_.makeImmutable();
-      result.apiField_ = internalGetApiField();
-      result.apiField_.makeImmutable();
-      result.durationField_ = internalGetDurationField();
-      result.durationField_.makeImmutable();
-      result.emptyField_ = internalGetEmptyField();
-      result.emptyField_.makeImmutable();
-      result.fieldMaskField_ = internalGetFieldMaskField();
-      result.fieldMaskField_.makeImmutable();
-      result.sourceContextField_ = internalGetSourceContextField();
-      result.sourceContextField_.makeImmutable();
-      result.structField_ = internalGetStructField();
-      result.structField_.makeImmutable();
-      result.timestampField_ = internalGetTimestampField();
-      result.timestampField_.makeImmutable();
-      result.typeField_ = internalGetTypeField();
-      result.typeField_.makeImmutable();
-      result.doubleField_ = internalGetDoubleField();
-      result.doubleField_.makeImmutable();
-      result.floatField_ = internalGetFloatField();
-      result.floatField_.makeImmutable();
-      result.int64Field_ = internalGetInt64Field();
-      result.int64Field_.makeImmutable();
-      result.uint64Field_ = internalGetUint64Field();
-      result.uint64Field_.makeImmutable();
-      result.int32Field_ = internalGetInt32Field();
-      result.int32Field_.makeImmutable();
-      result.uint32Field_ = internalGetUint32Field();
-      result.uint32Field_.makeImmutable();
-      result.boolField_ = internalGetBoolField();
-      result.boolField_.makeImmutable();
-      result.stringField_ = internalGetStringField();
-      result.stringField_.makeImmutable();
-      result.bytesField_ = internalGetBytesField();
-      result.bytesField_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.protobuf.test.MapWellKnownTypes result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.anyField_ = internalGetAnyField();
+        result.anyField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.apiField_ = internalGetApiField();
+        result.apiField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.durationField_ = internalGetDurationField();
+        result.durationField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.emptyField_ = internalGetEmptyField();
+        result.emptyField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.fieldMaskField_ = internalGetFieldMaskField();
+        result.fieldMaskField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.sourceContextField_ = internalGetSourceContextField();
+        result.sourceContextField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.structField_ = internalGetStructField();
+        result.structField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.timestampField_ = internalGetTimestampField();
+        result.timestampField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.typeField_ = internalGetTypeField();
+        result.typeField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.doubleField_ = internalGetDoubleField();
+        result.doubleField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.floatField_ = internalGetFloatField();
+        result.floatField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.int64Field_ = internalGetInt64Field();
+        result.int64Field_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.uint64Field_ = internalGetUint64Field();
+        result.uint64Field_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.int32Field_ = internalGetInt32Field();
+        result.int32Field_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.uint32Field_ = internalGetUint32Field();
+        result.uint32Field_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.boolField_ = internalGetBoolField();
+        result.boolField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.stringField_ = internalGetStringField();
+        result.stringField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.bytesField_ = internalGetBytesField();
+        result.bytesField_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -2632,41 +2358,59 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.protobuf.test.MapWellKnownTypes.getDefaultInstance()) return this;
       internalGetMutableAnyField().mergeFrom(
           other.internalGetAnyField());
+      bitField0_ |= 0x00000001;
       internalGetMutableApiField().mergeFrom(
           other.internalGetApiField());
+      bitField0_ |= 0x00000002;
       internalGetMutableDurationField().mergeFrom(
           other.internalGetDurationField());
+      bitField0_ |= 0x00000004;
       internalGetMutableEmptyField().mergeFrom(
           other.internalGetEmptyField());
+      bitField0_ |= 0x00000008;
       internalGetMutableFieldMaskField().mergeFrom(
           other.internalGetFieldMaskField());
+      bitField0_ |= 0x00000010;
       internalGetMutableSourceContextField().mergeFrom(
           other.internalGetSourceContextField());
+      bitField0_ |= 0x00000020;
       internalGetMutableStructField().mergeFrom(
           other.internalGetStructField());
+      bitField0_ |= 0x00000040;
       internalGetMutableTimestampField().mergeFrom(
           other.internalGetTimestampField());
+      bitField0_ |= 0x00000080;
       internalGetMutableTypeField().mergeFrom(
           other.internalGetTypeField());
+      bitField0_ |= 0x00000100;
       internalGetMutableDoubleField().mergeFrom(
           other.internalGetDoubleField());
+      bitField0_ |= 0x00000200;
       internalGetMutableFloatField().mergeFrom(
           other.internalGetFloatField());
+      bitField0_ |= 0x00000400;
       internalGetMutableInt64Field().mergeFrom(
           other.internalGetInt64Field());
+      bitField0_ |= 0x00000800;
       internalGetMutableUint64Field().mergeFrom(
           other.internalGetUint64Field());
+      bitField0_ |= 0x00001000;
       internalGetMutableInt32Field().mergeFrom(
           other.internalGetInt32Field());
+      bitField0_ |= 0x00002000;
       internalGetMutableUint32Field().mergeFrom(
           other.internalGetUint32Field());
+      bitField0_ |= 0x00004000;
       internalGetMutableBoolField().mergeFrom(
           other.internalGetBoolField());
+      bitField0_ |= 0x00008000;
       internalGetMutableStringField().mergeFrom(
           other.internalGetStringField());
+      bitField0_ |= 0x00010000;
       internalGetMutableBytesField().mergeFrom(
           other.internalGetBytesField());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00020000;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2681,17 +2425,192 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.protobuf.test.MapWellKnownTypes parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Any>
+              anyField__ = input.readMessage(
+                  AnyFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableAnyField().getMutableMap().put(
+                  anyField__.getKey(), anyField__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Api>
+              apiField__ = input.readMessage(
+                  ApiFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableApiField().getMutableMap().put(
+                  apiField__.getKey(), apiField__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Duration>
+              durationField__ = input.readMessage(
+                  DurationFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableDurationField().getMutableMap().put(
+                  durationField__.getKey(), durationField__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Empty>
+              emptyField__ = input.readMessage(
+                  EmptyFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableEmptyField().getMutableMap().put(
+                  emptyField__.getKey(), emptyField__.getValue());
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.FieldMask>
+              fieldMaskField__ = input.readMessage(
+                  FieldMaskFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableFieldMaskField().getMutableMap().put(
+                  fieldMaskField__.getKey(), fieldMaskField__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.SourceContext>
+              sourceContextField__ = input.readMessage(
+                  SourceContextFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableSourceContextField().getMutableMap().put(
+                  sourceContextField__.getKey(), sourceContextField__.getValue());
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Struct>
+              structField__ = input.readMessage(
+                  StructFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableStructField().getMutableMap().put(
+                  structField__.getKey(), structField__.getValue());
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Timestamp>
+              timestampField__ = input.readMessage(
+                  TimestampFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableTimestampField().getMutableMap().put(
+                  timestampField__.getKey(), timestampField__.getValue());
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Type>
+              typeField__ = input.readMessage(
+                  TypeFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableTypeField().getMutableMap().put(
+                  typeField__.getKey(), typeField__.getValue());
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.DoubleValue>
+              doubleField__ = input.readMessage(
+                  DoubleFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableDoubleField().getMutableMap().put(
+                  doubleField__.getKey(), doubleField__.getValue());
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.FloatValue>
+              floatField__ = input.readMessage(
+                  FloatFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableFloatField().getMutableMap().put(
+                  floatField__.getKey(), floatField__.getValue());
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 98: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Int64Value>
+              int64Field__ = input.readMessage(
+                  Int64FieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableInt64Field().getMutableMap().put(
+                  int64Field__.getKey(), int64Field__.getValue());
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 106: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.UInt64Value>
+              uint64Field__ = input.readMessage(
+                  Uint64FieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableUint64Field().getMutableMap().put(
+                  uint64Field__.getKey(), uint64Field__.getValue());
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            case 114: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Int32Value>
+              int32Field__ = input.readMessage(
+                  Int32FieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableInt32Field().getMutableMap().put(
+                  int32Field__.getKey(), int32Field__.getValue());
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 114
+            case 122: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.UInt32Value>
+              uint32Field__ = input.readMessage(
+                  Uint32FieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableUint32Field().getMutableMap().put(
+                  uint32Field__.getKey(), uint32Field__.getValue());
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 122
+            case 130: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.BoolValue>
+              boolField__ = input.readMessage(
+                  BoolFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableBoolField().getMutableMap().put(
+                  boolField__.getKey(), boolField__.getValue());
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 130
+            case 138: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.StringValue>
+              stringField__ = input.readMessage(
+                  StringFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableStringField().getMutableMap().put(
+                  stringField__.getKey(), stringField__.getValue());
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 138
+            case 146: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.BytesValue>
+              bytesField__ = input.readMessage(
+                  BytesFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableBytesField().getMutableMap().put(
+                  bytesField__.getKey(), bytesField__.getValue());
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 146
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.protobuf.test.MapWellKnownTypes) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2699,7 +2618,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.Any> anyField_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Any>
-    internalGetAnyField() {
+        internalGetAnyField() {
       if (anyField_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             AnyFieldDefaultEntryHolder.defaultEntry);
@@ -2707,8 +2626,7 @@ private static final long serialVersionUID = 0L;
       return anyField_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Any>
-    internalGetMutableAnyField() {
-      onChanged();;
+        internalGetMutableAnyField() {
       if (anyField_ == null) {
         anyField_ = com.google.protobuf.MapField.newMapField(
             AnyFieldDefaultEntryHolder.defaultEntry);
@@ -2716,16 +2634,16 @@ private static final long serialVersionUID = 0L;
       if (!anyField_.isMutable()) {
         anyField_ = anyField_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return anyField_;
     }
-
     public int getAnyFieldCount() {
       return internalGetAnyField().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Any&gt; any_field = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsAnyField(
         int key) {
@@ -2744,7 +2662,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Any&gt; any_field = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.Any> getAnyFieldMap() {
       return internalGetAnyField().getMap();
     }
@@ -2752,10 +2669,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Any&gt; any_field = 1;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Any getAnyFieldOrDefault(
+    public /* nullable */
+com.google.protobuf.Any getAnyFieldOrDefault(
         int key,
-        com.google.protobuf.Any defaultValue) {
+        /* nullable */
+com.google.protobuf.Any defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.Any> map =
           internalGetAnyField().getMap();
@@ -2765,7 +2683,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Any&gt; any_field = 1;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Any getAnyFieldOrThrow(
         int key) {
       
@@ -2776,8 +2693,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearAnyField() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableAnyField().getMutableMap()
           .clear();
       return this;
@@ -2785,7 +2702,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.Any&gt; any_field = 1;</code>
      */
-
     public Builder removeAnyField(
         int key) {
       
@@ -2798,7 +2714,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.Any>
-    getMutableAnyField() {
+        getMutableAnyField() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableAnyField().getMutableMap();
     }
     /**
@@ -2808,29 +2725,27 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.Any value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableAnyField().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Any&gt; any_field = 1;</code>
      */
-
     public Builder putAllAnyField(
         java.util.Map<java.lang.Integer, com.google.protobuf.Any> values) {
       internalGetMutableAnyField().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.Api> apiField_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Api>
-    internalGetApiField() {
+        internalGetApiField() {
       if (apiField_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ApiFieldDefaultEntryHolder.defaultEntry);
@@ -2838,8 +2753,7 @@ private static final long serialVersionUID = 0L;
       return apiField_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Api>
-    internalGetMutableApiField() {
-      onChanged();;
+        internalGetMutableApiField() {
       if (apiField_ == null) {
         apiField_ = com.google.protobuf.MapField.newMapField(
             ApiFieldDefaultEntryHolder.defaultEntry);
@@ -2847,16 +2761,16 @@ private static final long serialVersionUID = 0L;
       if (!apiField_.isMutable()) {
         apiField_ = apiField_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return apiField_;
     }
-
     public int getApiFieldCount() {
       return internalGetApiField().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Api&gt; api_field = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsApiField(
         int key) {
@@ -2875,7 +2789,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Api&gt; api_field = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.Api> getApiFieldMap() {
       return internalGetApiField().getMap();
     }
@@ -2883,10 +2796,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Api&gt; api_field = 2;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Api getApiFieldOrDefault(
+    public /* nullable */
+com.google.protobuf.Api getApiFieldOrDefault(
         int key,
-        com.google.protobuf.Api defaultValue) {
+        /* nullable */
+com.google.protobuf.Api defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.Api> map =
           internalGetApiField().getMap();
@@ -2896,7 +2810,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Api&gt; api_field = 2;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Api getApiFieldOrThrow(
         int key) {
       
@@ -2907,8 +2820,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearApiField() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableApiField().getMutableMap()
           .clear();
       return this;
@@ -2916,7 +2829,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.Api&gt; api_field = 2;</code>
      */
-
     public Builder removeApiField(
         int key) {
       
@@ -2929,7 +2841,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.Api>
-    getMutableApiField() {
+        getMutableApiField() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableApiField().getMutableMap();
     }
     /**
@@ -2939,29 +2852,27 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.Api value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableApiField().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Api&gt; api_field = 2;</code>
      */
-
     public Builder putAllApiField(
         java.util.Map<java.lang.Integer, com.google.protobuf.Api> values) {
       internalGetMutableApiField().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.Duration> durationField_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Duration>
-    internalGetDurationField() {
+        internalGetDurationField() {
       if (durationField_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             DurationFieldDefaultEntryHolder.defaultEntry);
@@ -2969,8 +2880,7 @@ private static final long serialVersionUID = 0L;
       return durationField_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Duration>
-    internalGetMutableDurationField() {
-      onChanged();;
+        internalGetMutableDurationField() {
       if (durationField_ == null) {
         durationField_ = com.google.protobuf.MapField.newMapField(
             DurationFieldDefaultEntryHolder.defaultEntry);
@@ -2978,16 +2888,16 @@ private static final long serialVersionUID = 0L;
       if (!durationField_.isMutable()) {
         durationField_ = durationField_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return durationField_;
     }
-
     public int getDurationFieldCount() {
       return internalGetDurationField().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Duration&gt; duration_field = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsDurationField(
         int key) {
@@ -3006,7 +2916,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Duration&gt; duration_field = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.Duration> getDurationFieldMap() {
       return internalGetDurationField().getMap();
     }
@@ -3014,10 +2923,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Duration&gt; duration_field = 3;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Duration getDurationFieldOrDefault(
+    public /* nullable */
+com.google.protobuf.Duration getDurationFieldOrDefault(
         int key,
-        com.google.protobuf.Duration defaultValue) {
+        /* nullable */
+com.google.protobuf.Duration defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.Duration> map =
           internalGetDurationField().getMap();
@@ -3027,7 +2937,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Duration&gt; duration_field = 3;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Duration getDurationFieldOrThrow(
         int key) {
       
@@ -3038,8 +2947,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearDurationField() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableDurationField().getMutableMap()
           .clear();
       return this;
@@ -3047,7 +2956,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.Duration&gt; duration_field = 3;</code>
      */
-
     public Builder removeDurationField(
         int key) {
       
@@ -3060,7 +2968,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.Duration>
-    getMutableDurationField() {
+        getMutableDurationField() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableDurationField().getMutableMap();
     }
     /**
@@ -3070,29 +2979,27 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.Duration value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableDurationField().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Duration&gt; duration_field = 3;</code>
      */
-
     public Builder putAllDurationField(
         java.util.Map<java.lang.Integer, com.google.protobuf.Duration> values) {
       internalGetMutableDurationField().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.Empty> emptyField_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Empty>
-    internalGetEmptyField() {
+        internalGetEmptyField() {
       if (emptyField_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             EmptyFieldDefaultEntryHolder.defaultEntry);
@@ -3100,8 +3007,7 @@ private static final long serialVersionUID = 0L;
       return emptyField_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Empty>
-    internalGetMutableEmptyField() {
-      onChanged();;
+        internalGetMutableEmptyField() {
       if (emptyField_ == null) {
         emptyField_ = com.google.protobuf.MapField.newMapField(
             EmptyFieldDefaultEntryHolder.defaultEntry);
@@ -3109,16 +3015,16 @@ private static final long serialVersionUID = 0L;
       if (!emptyField_.isMutable()) {
         emptyField_ = emptyField_.copy();
       }
+      bitField0_ |= 0x00000008;
+      onChanged();
       return emptyField_;
     }
-
     public int getEmptyFieldCount() {
       return internalGetEmptyField().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Empty&gt; empty_field = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsEmptyField(
         int key) {
@@ -3137,7 +3043,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Empty&gt; empty_field = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.Empty> getEmptyFieldMap() {
       return internalGetEmptyField().getMap();
     }
@@ -3145,10 +3050,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Empty&gt; empty_field = 4;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Empty getEmptyFieldOrDefault(
+    public /* nullable */
+com.google.protobuf.Empty getEmptyFieldOrDefault(
         int key,
-        com.google.protobuf.Empty defaultValue) {
+        /* nullable */
+com.google.protobuf.Empty defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.Empty> map =
           internalGetEmptyField().getMap();
@@ -3158,7 +3064,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Empty&gt; empty_field = 4;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Empty getEmptyFieldOrThrow(
         int key) {
       
@@ -3169,8 +3074,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearEmptyField() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutableEmptyField().getMutableMap()
           .clear();
       return this;
@@ -3178,7 +3083,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.Empty&gt; empty_field = 4;</code>
      */
-
     public Builder removeEmptyField(
         int key) {
       
@@ -3191,7 +3095,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.Empty>
-    getMutableEmptyField() {
+        getMutableEmptyField() {
+      bitField0_ |= 0x00000008;
       return internalGetMutableEmptyField().getMutableMap();
     }
     /**
@@ -3201,29 +3106,27 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.Empty value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableEmptyField().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Empty&gt; empty_field = 4;</code>
      */
-
     public Builder putAllEmptyField(
         java.util.Map<java.lang.Integer, com.google.protobuf.Empty> values) {
       internalGetMutableEmptyField().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000008;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.FieldMask> fieldMaskField_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.FieldMask>
-    internalGetFieldMaskField() {
+        internalGetFieldMaskField() {
       if (fieldMaskField_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             FieldMaskFieldDefaultEntryHolder.defaultEntry);
@@ -3231,8 +3134,7 @@ private static final long serialVersionUID = 0L;
       return fieldMaskField_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.FieldMask>
-    internalGetMutableFieldMaskField() {
-      onChanged();;
+        internalGetMutableFieldMaskField() {
       if (fieldMaskField_ == null) {
         fieldMaskField_ = com.google.protobuf.MapField.newMapField(
             FieldMaskFieldDefaultEntryHolder.defaultEntry);
@@ -3240,16 +3142,16 @@ private static final long serialVersionUID = 0L;
       if (!fieldMaskField_.isMutable()) {
         fieldMaskField_ = fieldMaskField_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return fieldMaskField_;
     }
-
     public int getFieldMaskFieldCount() {
       return internalGetFieldMaskField().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.FieldMask&gt; field_mask_field = 5;</code>
      */
-
     @java.lang.Override
     public boolean containsFieldMaskField(
         int key) {
@@ -3268,7 +3170,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.FieldMask&gt; field_mask_field = 5;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.FieldMask> getFieldMaskFieldMap() {
       return internalGetFieldMaskField().getMap();
     }
@@ -3276,10 +3177,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.FieldMask&gt; field_mask_field = 5;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.FieldMask getFieldMaskFieldOrDefault(
+    public /* nullable */
+com.google.protobuf.FieldMask getFieldMaskFieldOrDefault(
         int key,
-        com.google.protobuf.FieldMask defaultValue) {
+        /* nullable */
+com.google.protobuf.FieldMask defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.FieldMask> map =
           internalGetFieldMaskField().getMap();
@@ -3289,7 +3191,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.FieldMask&gt; field_mask_field = 5;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.FieldMask getFieldMaskFieldOrThrow(
         int key) {
       
@@ -3300,8 +3201,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearFieldMaskField() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableFieldMaskField().getMutableMap()
           .clear();
       return this;
@@ -3309,7 +3210,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.FieldMask&gt; field_mask_field = 5;</code>
      */
-
     public Builder removeFieldMaskField(
         int key) {
       
@@ -3322,7 +3222,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.FieldMask>
-    getMutableFieldMaskField() {
+        getMutableFieldMaskField() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableFieldMaskField().getMutableMap();
     }
     /**
@@ -3332,29 +3233,27 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.FieldMask value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableFieldMaskField().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.FieldMask&gt; field_mask_field = 5;</code>
      */
-
     public Builder putAllFieldMaskField(
         java.util.Map<java.lang.Integer, com.google.protobuf.FieldMask> values) {
       internalGetMutableFieldMaskField().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.SourceContext> sourceContextField_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.SourceContext>
-    internalGetSourceContextField() {
+        internalGetSourceContextField() {
       if (sourceContextField_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             SourceContextFieldDefaultEntryHolder.defaultEntry);
@@ -3362,8 +3261,7 @@ private static final long serialVersionUID = 0L;
       return sourceContextField_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.SourceContext>
-    internalGetMutableSourceContextField() {
-      onChanged();;
+        internalGetMutableSourceContextField() {
       if (sourceContextField_ == null) {
         sourceContextField_ = com.google.protobuf.MapField.newMapField(
             SourceContextFieldDefaultEntryHolder.defaultEntry);
@@ -3371,16 +3269,16 @@ private static final long serialVersionUID = 0L;
       if (!sourceContextField_.isMutable()) {
         sourceContextField_ = sourceContextField_.copy();
       }
+      bitField0_ |= 0x00000020;
+      onChanged();
       return sourceContextField_;
     }
-
     public int getSourceContextFieldCount() {
       return internalGetSourceContextField().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.SourceContext&gt; source_context_field = 6;</code>
      */
-
     @java.lang.Override
     public boolean containsSourceContextField(
         int key) {
@@ -3399,7 +3297,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.SourceContext&gt; source_context_field = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.SourceContext> getSourceContextFieldMap() {
       return internalGetSourceContextField().getMap();
     }
@@ -3407,10 +3304,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.SourceContext&gt; source_context_field = 6;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.SourceContext getSourceContextFieldOrDefault(
+    public /* nullable */
+com.google.protobuf.SourceContext getSourceContextFieldOrDefault(
         int key,
-        com.google.protobuf.SourceContext defaultValue) {
+        /* nullable */
+com.google.protobuf.SourceContext defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.SourceContext> map =
           internalGetSourceContextField().getMap();
@@ -3420,7 +3318,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.SourceContext&gt; source_context_field = 6;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.SourceContext getSourceContextFieldOrThrow(
         int key) {
       
@@ -3431,8 +3328,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearSourceContextField() {
+      bitField0_ = (bitField0_ & ~0x00000020);
       internalGetMutableSourceContextField().getMutableMap()
           .clear();
       return this;
@@ -3440,7 +3337,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.SourceContext&gt; source_context_field = 6;</code>
      */
-
     public Builder removeSourceContextField(
         int key) {
       
@@ -3453,7 +3349,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.SourceContext>
-    getMutableSourceContextField() {
+        getMutableSourceContextField() {
+      bitField0_ |= 0x00000020;
       return internalGetMutableSourceContextField().getMutableMap();
     }
     /**
@@ -3463,29 +3360,27 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.SourceContext value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableSourceContextField().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000020;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.SourceContext&gt; source_context_field = 6;</code>
      */
-
     public Builder putAllSourceContextField(
         java.util.Map<java.lang.Integer, com.google.protobuf.SourceContext> values) {
       internalGetMutableSourceContextField().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000020;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.Struct> structField_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Struct>
-    internalGetStructField() {
+        internalGetStructField() {
       if (structField_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             StructFieldDefaultEntryHolder.defaultEntry);
@@ -3493,8 +3388,7 @@ private static final long serialVersionUID = 0L;
       return structField_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Struct>
-    internalGetMutableStructField() {
-      onChanged();;
+        internalGetMutableStructField() {
       if (structField_ == null) {
         structField_ = com.google.protobuf.MapField.newMapField(
             StructFieldDefaultEntryHolder.defaultEntry);
@@ -3502,16 +3396,16 @@ private static final long serialVersionUID = 0L;
       if (!structField_.isMutable()) {
         structField_ = structField_.copy();
       }
+      bitField0_ |= 0x00000040;
+      onChanged();
       return structField_;
     }
-
     public int getStructFieldCount() {
       return internalGetStructField().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Struct&gt; struct_field = 7;</code>
      */
-
     @java.lang.Override
     public boolean containsStructField(
         int key) {
@@ -3530,7 +3424,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Struct&gt; struct_field = 7;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.Struct> getStructFieldMap() {
       return internalGetStructField().getMap();
     }
@@ -3538,10 +3431,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Struct&gt; struct_field = 7;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Struct getStructFieldOrDefault(
+    public /* nullable */
+com.google.protobuf.Struct getStructFieldOrDefault(
         int key,
-        com.google.protobuf.Struct defaultValue) {
+        /* nullable */
+com.google.protobuf.Struct defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.Struct> map =
           internalGetStructField().getMap();
@@ -3551,7 +3445,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Struct&gt; struct_field = 7;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Struct getStructFieldOrThrow(
         int key) {
       
@@ -3562,8 +3455,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearStructField() {
+      bitField0_ = (bitField0_ & ~0x00000040);
       internalGetMutableStructField().getMutableMap()
           .clear();
       return this;
@@ -3571,7 +3464,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.Struct&gt; struct_field = 7;</code>
      */
-
     public Builder removeStructField(
         int key) {
       
@@ -3584,7 +3476,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.Struct>
-    getMutableStructField() {
+        getMutableStructField() {
+      bitField0_ |= 0x00000040;
       return internalGetMutableStructField().getMutableMap();
     }
     /**
@@ -3594,29 +3487,27 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.Struct value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableStructField().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000040;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Struct&gt; struct_field = 7;</code>
      */
-
     public Builder putAllStructField(
         java.util.Map<java.lang.Integer, com.google.protobuf.Struct> values) {
       internalGetMutableStructField().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000040;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.Timestamp> timestampField_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Timestamp>
-    internalGetTimestampField() {
+        internalGetTimestampField() {
       if (timestampField_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             TimestampFieldDefaultEntryHolder.defaultEntry);
@@ -3624,8 +3515,7 @@ private static final long serialVersionUID = 0L;
       return timestampField_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Timestamp>
-    internalGetMutableTimestampField() {
-      onChanged();;
+        internalGetMutableTimestampField() {
       if (timestampField_ == null) {
         timestampField_ = com.google.protobuf.MapField.newMapField(
             TimestampFieldDefaultEntryHolder.defaultEntry);
@@ -3633,16 +3523,16 @@ private static final long serialVersionUID = 0L;
       if (!timestampField_.isMutable()) {
         timestampField_ = timestampField_.copy();
       }
+      bitField0_ |= 0x00000080;
+      onChanged();
       return timestampField_;
     }
-
     public int getTimestampFieldCount() {
       return internalGetTimestampField().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Timestamp&gt; timestamp_field = 8;</code>
      */
-
     @java.lang.Override
     public boolean containsTimestampField(
         int key) {
@@ -3661,7 +3551,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Timestamp&gt; timestamp_field = 8;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.Timestamp> getTimestampFieldMap() {
       return internalGetTimestampField().getMap();
     }
@@ -3669,10 +3558,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Timestamp&gt; timestamp_field = 8;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Timestamp getTimestampFieldOrDefault(
+    public /* nullable */
+com.google.protobuf.Timestamp getTimestampFieldOrDefault(
         int key,
-        com.google.protobuf.Timestamp defaultValue) {
+        /* nullable */
+com.google.protobuf.Timestamp defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.Timestamp> map =
           internalGetTimestampField().getMap();
@@ -3682,7 +3572,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Timestamp&gt; timestamp_field = 8;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Timestamp getTimestampFieldOrThrow(
         int key) {
       
@@ -3693,8 +3582,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearTimestampField() {
+      bitField0_ = (bitField0_ & ~0x00000080);
       internalGetMutableTimestampField().getMutableMap()
           .clear();
       return this;
@@ -3702,7 +3591,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.Timestamp&gt; timestamp_field = 8;</code>
      */
-
     public Builder removeTimestampField(
         int key) {
       
@@ -3715,7 +3603,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.Timestamp>
-    getMutableTimestampField() {
+        getMutableTimestampField() {
+      bitField0_ |= 0x00000080;
       return internalGetMutableTimestampField().getMutableMap();
     }
     /**
@@ -3725,29 +3614,27 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.Timestamp value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableTimestampField().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000080;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Timestamp&gt; timestamp_field = 8;</code>
      */
-
     public Builder putAllTimestampField(
         java.util.Map<java.lang.Integer, com.google.protobuf.Timestamp> values) {
       internalGetMutableTimestampField().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000080;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.Type> typeField_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Type>
-    internalGetTypeField() {
+        internalGetTypeField() {
       if (typeField_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             TypeFieldDefaultEntryHolder.defaultEntry);
@@ -3755,8 +3642,7 @@ private static final long serialVersionUID = 0L;
       return typeField_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Type>
-    internalGetMutableTypeField() {
-      onChanged();;
+        internalGetMutableTypeField() {
       if (typeField_ == null) {
         typeField_ = com.google.protobuf.MapField.newMapField(
             TypeFieldDefaultEntryHolder.defaultEntry);
@@ -3764,16 +3650,16 @@ private static final long serialVersionUID = 0L;
       if (!typeField_.isMutable()) {
         typeField_ = typeField_.copy();
       }
+      bitField0_ |= 0x00000100;
+      onChanged();
       return typeField_;
     }
-
     public int getTypeFieldCount() {
       return internalGetTypeField().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Type&gt; type_field = 9;</code>
      */
-
     @java.lang.Override
     public boolean containsTypeField(
         int key) {
@@ -3792,7 +3678,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Type&gt; type_field = 9;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.Type> getTypeFieldMap() {
       return internalGetTypeField().getMap();
     }
@@ -3800,10 +3685,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Type&gt; type_field = 9;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Type getTypeFieldOrDefault(
+    public /* nullable */
+com.google.protobuf.Type getTypeFieldOrDefault(
         int key,
-        com.google.protobuf.Type defaultValue) {
+        /* nullable */
+com.google.protobuf.Type defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.Type> map =
           internalGetTypeField().getMap();
@@ -3813,7 +3699,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Type&gt; type_field = 9;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Type getTypeFieldOrThrow(
         int key) {
       
@@ -3824,8 +3709,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearTypeField() {
+      bitField0_ = (bitField0_ & ~0x00000100);
       internalGetMutableTypeField().getMutableMap()
           .clear();
       return this;
@@ -3833,7 +3718,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.Type&gt; type_field = 9;</code>
      */
-
     public Builder removeTypeField(
         int key) {
       
@@ -3846,7 +3730,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.Type>
-    getMutableTypeField() {
+        getMutableTypeField() {
+      bitField0_ |= 0x00000100;
       return internalGetMutableTypeField().getMutableMap();
     }
     /**
@@ -3856,29 +3741,27 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.Type value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableTypeField().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000100;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Type&gt; type_field = 9;</code>
      */
-
     public Builder putAllTypeField(
         java.util.Map<java.lang.Integer, com.google.protobuf.Type> values) {
       internalGetMutableTypeField().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000100;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.DoubleValue> doubleField_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.DoubleValue>
-    internalGetDoubleField() {
+        internalGetDoubleField() {
       if (doubleField_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             DoubleFieldDefaultEntryHolder.defaultEntry);
@@ -3886,8 +3769,7 @@ private static final long serialVersionUID = 0L;
       return doubleField_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.DoubleValue>
-    internalGetMutableDoubleField() {
-      onChanged();;
+        internalGetMutableDoubleField() {
       if (doubleField_ == null) {
         doubleField_ = com.google.protobuf.MapField.newMapField(
             DoubleFieldDefaultEntryHolder.defaultEntry);
@@ -3895,16 +3777,16 @@ private static final long serialVersionUID = 0L;
       if (!doubleField_.isMutable()) {
         doubleField_ = doubleField_.copy();
       }
+      bitField0_ |= 0x00000200;
+      onChanged();
       return doubleField_;
     }
-
     public int getDoubleFieldCount() {
       return internalGetDoubleField().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.DoubleValue&gt; double_field = 10;</code>
      */
-
     @java.lang.Override
     public boolean containsDoubleField(
         int key) {
@@ -3923,7 +3805,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.DoubleValue&gt; double_field = 10;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.DoubleValue> getDoubleFieldMap() {
       return internalGetDoubleField().getMap();
     }
@@ -3931,10 +3812,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.DoubleValue&gt; double_field = 10;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.DoubleValue getDoubleFieldOrDefault(
+    public /* nullable */
+com.google.protobuf.DoubleValue getDoubleFieldOrDefault(
         int key,
-        com.google.protobuf.DoubleValue defaultValue) {
+        /* nullable */
+com.google.protobuf.DoubleValue defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.DoubleValue> map =
           internalGetDoubleField().getMap();
@@ -3944,7 +3826,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.DoubleValue&gt; double_field = 10;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.DoubleValue getDoubleFieldOrThrow(
         int key) {
       
@@ -3955,8 +3836,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearDoubleField() {
+      bitField0_ = (bitField0_ & ~0x00000200);
       internalGetMutableDoubleField().getMutableMap()
           .clear();
       return this;
@@ -3964,7 +3845,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.DoubleValue&gt; double_field = 10;</code>
      */
-
     public Builder removeDoubleField(
         int key) {
       
@@ -3977,7 +3857,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.DoubleValue>
-    getMutableDoubleField() {
+        getMutableDoubleField() {
+      bitField0_ |= 0x00000200;
       return internalGetMutableDoubleField().getMutableMap();
     }
     /**
@@ -3987,29 +3868,27 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.DoubleValue value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableDoubleField().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000200;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.DoubleValue&gt; double_field = 10;</code>
      */
-
     public Builder putAllDoubleField(
         java.util.Map<java.lang.Integer, com.google.protobuf.DoubleValue> values) {
       internalGetMutableDoubleField().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000200;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.FloatValue> floatField_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.FloatValue>
-    internalGetFloatField() {
+        internalGetFloatField() {
       if (floatField_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             FloatFieldDefaultEntryHolder.defaultEntry);
@@ -4017,8 +3896,7 @@ private static final long serialVersionUID = 0L;
       return floatField_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.FloatValue>
-    internalGetMutableFloatField() {
-      onChanged();;
+        internalGetMutableFloatField() {
       if (floatField_ == null) {
         floatField_ = com.google.protobuf.MapField.newMapField(
             FloatFieldDefaultEntryHolder.defaultEntry);
@@ -4026,16 +3904,16 @@ private static final long serialVersionUID = 0L;
       if (!floatField_.isMutable()) {
         floatField_ = floatField_.copy();
       }
+      bitField0_ |= 0x00000400;
+      onChanged();
       return floatField_;
     }
-
     public int getFloatFieldCount() {
       return internalGetFloatField().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.FloatValue&gt; float_field = 11;</code>
      */
-
     @java.lang.Override
     public boolean containsFloatField(
         int key) {
@@ -4054,7 +3932,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.FloatValue&gt; float_field = 11;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.FloatValue> getFloatFieldMap() {
       return internalGetFloatField().getMap();
     }
@@ -4062,10 +3939,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.FloatValue&gt; float_field = 11;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.FloatValue getFloatFieldOrDefault(
+    public /* nullable */
+com.google.protobuf.FloatValue getFloatFieldOrDefault(
         int key,
-        com.google.protobuf.FloatValue defaultValue) {
+        /* nullable */
+com.google.protobuf.FloatValue defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.FloatValue> map =
           internalGetFloatField().getMap();
@@ -4075,7 +3953,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.FloatValue&gt; float_field = 11;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.FloatValue getFloatFieldOrThrow(
         int key) {
       
@@ -4086,8 +3963,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearFloatField() {
+      bitField0_ = (bitField0_ & ~0x00000400);
       internalGetMutableFloatField().getMutableMap()
           .clear();
       return this;
@@ -4095,7 +3972,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.FloatValue&gt; float_field = 11;</code>
      */
-
     public Builder removeFloatField(
         int key) {
       
@@ -4108,7 +3984,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.FloatValue>
-    getMutableFloatField() {
+        getMutableFloatField() {
+      bitField0_ |= 0x00000400;
       return internalGetMutableFloatField().getMutableMap();
     }
     /**
@@ -4118,29 +3995,27 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.FloatValue value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableFloatField().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000400;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.FloatValue&gt; float_field = 11;</code>
      */
-
     public Builder putAllFloatField(
         java.util.Map<java.lang.Integer, com.google.protobuf.FloatValue> values) {
       internalGetMutableFloatField().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000400;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.Int64Value> int64Field_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Int64Value>
-    internalGetInt64Field() {
+        internalGetInt64Field() {
       if (int64Field_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             Int64FieldDefaultEntryHolder.defaultEntry);
@@ -4148,8 +4023,7 @@ private static final long serialVersionUID = 0L;
       return int64Field_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Int64Value>
-    internalGetMutableInt64Field() {
-      onChanged();;
+        internalGetMutableInt64Field() {
       if (int64Field_ == null) {
         int64Field_ = com.google.protobuf.MapField.newMapField(
             Int64FieldDefaultEntryHolder.defaultEntry);
@@ -4157,16 +4031,16 @@ private static final long serialVersionUID = 0L;
       if (!int64Field_.isMutable()) {
         int64Field_ = int64Field_.copy();
       }
+      bitField0_ |= 0x00000800;
+      onChanged();
       return int64Field_;
     }
-
     public int getInt64FieldCount() {
       return internalGetInt64Field().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Int64Value&gt; int64_field = 12;</code>
      */
-
     @java.lang.Override
     public boolean containsInt64Field(
         int key) {
@@ -4185,7 +4059,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Int64Value&gt; int64_field = 12;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.Int64Value> getInt64FieldMap() {
       return internalGetInt64Field().getMap();
     }
@@ -4193,10 +4066,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Int64Value&gt; int64_field = 12;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Int64Value getInt64FieldOrDefault(
+    public /* nullable */
+com.google.protobuf.Int64Value getInt64FieldOrDefault(
         int key,
-        com.google.protobuf.Int64Value defaultValue) {
+        /* nullable */
+com.google.protobuf.Int64Value defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.Int64Value> map =
           internalGetInt64Field().getMap();
@@ -4206,7 +4080,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Int64Value&gt; int64_field = 12;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Int64Value getInt64FieldOrThrow(
         int key) {
       
@@ -4217,8 +4090,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearInt64Field() {
+      bitField0_ = (bitField0_ & ~0x00000800);
       internalGetMutableInt64Field().getMutableMap()
           .clear();
       return this;
@@ -4226,7 +4099,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.Int64Value&gt; int64_field = 12;</code>
      */
-
     public Builder removeInt64Field(
         int key) {
       
@@ -4239,7 +4111,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.Int64Value>
-    getMutableInt64Field() {
+        getMutableInt64Field() {
+      bitField0_ |= 0x00000800;
       return internalGetMutableInt64Field().getMutableMap();
     }
     /**
@@ -4249,29 +4122,27 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.Int64Value value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableInt64Field().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000800;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Int64Value&gt; int64_field = 12;</code>
      */
-
     public Builder putAllInt64Field(
         java.util.Map<java.lang.Integer, com.google.protobuf.Int64Value> values) {
       internalGetMutableInt64Field().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000800;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.UInt64Value> uint64Field_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.UInt64Value>
-    internalGetUint64Field() {
+        internalGetUint64Field() {
       if (uint64Field_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             Uint64FieldDefaultEntryHolder.defaultEntry);
@@ -4279,8 +4150,7 @@ private static final long serialVersionUID = 0L;
       return uint64Field_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.UInt64Value>
-    internalGetMutableUint64Field() {
-      onChanged();;
+        internalGetMutableUint64Field() {
       if (uint64Field_ == null) {
         uint64Field_ = com.google.protobuf.MapField.newMapField(
             Uint64FieldDefaultEntryHolder.defaultEntry);
@@ -4288,16 +4158,16 @@ private static final long serialVersionUID = 0L;
       if (!uint64Field_.isMutable()) {
         uint64Field_ = uint64Field_.copy();
       }
+      bitField0_ |= 0x00001000;
+      onChanged();
       return uint64Field_;
     }
-
     public int getUint64FieldCount() {
       return internalGetUint64Field().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.UInt64Value&gt; uint64_field = 13;</code>
      */
-
     @java.lang.Override
     public boolean containsUint64Field(
         int key) {
@@ -4316,7 +4186,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.UInt64Value&gt; uint64_field = 13;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.UInt64Value> getUint64FieldMap() {
       return internalGetUint64Field().getMap();
     }
@@ -4324,10 +4193,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.UInt64Value&gt; uint64_field = 13;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.UInt64Value getUint64FieldOrDefault(
+    public /* nullable */
+com.google.protobuf.UInt64Value getUint64FieldOrDefault(
         int key,
-        com.google.protobuf.UInt64Value defaultValue) {
+        /* nullable */
+com.google.protobuf.UInt64Value defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.UInt64Value> map =
           internalGetUint64Field().getMap();
@@ -4337,7 +4207,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.UInt64Value&gt; uint64_field = 13;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.UInt64Value getUint64FieldOrThrow(
         int key) {
       
@@ -4348,8 +4217,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearUint64Field() {
+      bitField0_ = (bitField0_ & ~0x00001000);
       internalGetMutableUint64Field().getMutableMap()
           .clear();
       return this;
@@ -4357,7 +4226,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.UInt64Value&gt; uint64_field = 13;</code>
      */
-
     public Builder removeUint64Field(
         int key) {
       
@@ -4370,7 +4238,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.UInt64Value>
-    getMutableUint64Field() {
+        getMutableUint64Field() {
+      bitField0_ |= 0x00001000;
       return internalGetMutableUint64Field().getMutableMap();
     }
     /**
@@ -4380,29 +4249,27 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.UInt64Value value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableUint64Field().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00001000;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.UInt64Value&gt; uint64_field = 13;</code>
      */
-
     public Builder putAllUint64Field(
         java.util.Map<java.lang.Integer, com.google.protobuf.UInt64Value> values) {
       internalGetMutableUint64Field().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00001000;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.Int32Value> int32Field_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Int32Value>
-    internalGetInt32Field() {
+        internalGetInt32Field() {
       if (int32Field_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             Int32FieldDefaultEntryHolder.defaultEntry);
@@ -4410,8 +4277,7 @@ private static final long serialVersionUID = 0L;
       return int32Field_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Int32Value>
-    internalGetMutableInt32Field() {
-      onChanged();;
+        internalGetMutableInt32Field() {
       if (int32Field_ == null) {
         int32Field_ = com.google.protobuf.MapField.newMapField(
             Int32FieldDefaultEntryHolder.defaultEntry);
@@ -4419,16 +4285,16 @@ private static final long serialVersionUID = 0L;
       if (!int32Field_.isMutable()) {
         int32Field_ = int32Field_.copy();
       }
+      bitField0_ |= 0x00002000;
+      onChanged();
       return int32Field_;
     }
-
     public int getInt32FieldCount() {
       return internalGetInt32Field().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Int32Value&gt; int32_field = 14;</code>
      */
-
     @java.lang.Override
     public boolean containsInt32Field(
         int key) {
@@ -4447,7 +4313,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Int32Value&gt; int32_field = 14;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.Int32Value> getInt32FieldMap() {
       return internalGetInt32Field().getMap();
     }
@@ -4455,10 +4320,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Int32Value&gt; int32_field = 14;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Int32Value getInt32FieldOrDefault(
+    public /* nullable */
+com.google.protobuf.Int32Value getInt32FieldOrDefault(
         int key,
-        com.google.protobuf.Int32Value defaultValue) {
+        /* nullable */
+com.google.protobuf.Int32Value defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.Int32Value> map =
           internalGetInt32Field().getMap();
@@ -4468,7 +4334,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.Int32Value&gt; int32_field = 14;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Int32Value getInt32FieldOrThrow(
         int key) {
       
@@ -4479,8 +4344,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearInt32Field() {
+      bitField0_ = (bitField0_ & ~0x00002000);
       internalGetMutableInt32Field().getMutableMap()
           .clear();
       return this;
@@ -4488,7 +4353,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.Int32Value&gt; int32_field = 14;</code>
      */
-
     public Builder removeInt32Field(
         int key) {
       
@@ -4501,7 +4365,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.Int32Value>
-    getMutableInt32Field() {
+        getMutableInt32Field() {
+      bitField0_ |= 0x00002000;
       return internalGetMutableInt32Field().getMutableMap();
     }
     /**
@@ -4511,29 +4376,27 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.Int32Value value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableInt32Field().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00002000;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.Int32Value&gt; int32_field = 14;</code>
      */
-
     public Builder putAllInt32Field(
         java.util.Map<java.lang.Integer, com.google.protobuf.Int32Value> values) {
       internalGetMutableInt32Field().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00002000;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.UInt32Value> uint32Field_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.UInt32Value>
-    internalGetUint32Field() {
+        internalGetUint32Field() {
       if (uint32Field_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             Uint32FieldDefaultEntryHolder.defaultEntry);
@@ -4541,8 +4404,7 @@ private static final long serialVersionUID = 0L;
       return uint32Field_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.UInt32Value>
-    internalGetMutableUint32Field() {
-      onChanged();;
+        internalGetMutableUint32Field() {
       if (uint32Field_ == null) {
         uint32Field_ = com.google.protobuf.MapField.newMapField(
             Uint32FieldDefaultEntryHolder.defaultEntry);
@@ -4550,16 +4412,16 @@ private static final long serialVersionUID = 0L;
       if (!uint32Field_.isMutable()) {
         uint32Field_ = uint32Field_.copy();
       }
+      bitField0_ |= 0x00004000;
+      onChanged();
       return uint32Field_;
     }
-
     public int getUint32FieldCount() {
       return internalGetUint32Field().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.UInt32Value&gt; uint32_field = 15;</code>
      */
-
     @java.lang.Override
     public boolean containsUint32Field(
         int key) {
@@ -4578,7 +4440,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.UInt32Value&gt; uint32_field = 15;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.UInt32Value> getUint32FieldMap() {
       return internalGetUint32Field().getMap();
     }
@@ -4586,10 +4447,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.UInt32Value&gt; uint32_field = 15;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.UInt32Value getUint32FieldOrDefault(
+    public /* nullable */
+com.google.protobuf.UInt32Value getUint32FieldOrDefault(
         int key,
-        com.google.protobuf.UInt32Value defaultValue) {
+        /* nullable */
+com.google.protobuf.UInt32Value defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.UInt32Value> map =
           internalGetUint32Field().getMap();
@@ -4599,7 +4461,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.UInt32Value&gt; uint32_field = 15;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.UInt32Value getUint32FieldOrThrow(
         int key) {
       
@@ -4610,8 +4471,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearUint32Field() {
+      bitField0_ = (bitField0_ & ~0x00004000);
       internalGetMutableUint32Field().getMutableMap()
           .clear();
       return this;
@@ -4619,7 +4480,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.UInt32Value&gt; uint32_field = 15;</code>
      */
-
     public Builder removeUint32Field(
         int key) {
       
@@ -4632,7 +4492,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.UInt32Value>
-    getMutableUint32Field() {
+        getMutableUint32Field() {
+      bitField0_ |= 0x00004000;
       return internalGetMutableUint32Field().getMutableMap();
     }
     /**
@@ -4642,29 +4503,27 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.UInt32Value value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableUint32Field().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00004000;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.UInt32Value&gt; uint32_field = 15;</code>
      */
-
     public Builder putAllUint32Field(
         java.util.Map<java.lang.Integer, com.google.protobuf.UInt32Value> values) {
       internalGetMutableUint32Field().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00004000;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.BoolValue> boolField_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.BoolValue>
-    internalGetBoolField() {
+        internalGetBoolField() {
       if (boolField_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             BoolFieldDefaultEntryHolder.defaultEntry);
@@ -4672,8 +4531,7 @@ private static final long serialVersionUID = 0L;
       return boolField_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.BoolValue>
-    internalGetMutableBoolField() {
-      onChanged();;
+        internalGetMutableBoolField() {
       if (boolField_ == null) {
         boolField_ = com.google.protobuf.MapField.newMapField(
             BoolFieldDefaultEntryHolder.defaultEntry);
@@ -4681,16 +4539,16 @@ private static final long serialVersionUID = 0L;
       if (!boolField_.isMutable()) {
         boolField_ = boolField_.copy();
       }
+      bitField0_ |= 0x00008000;
+      onChanged();
       return boolField_;
     }
-
     public int getBoolFieldCount() {
       return internalGetBoolField().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.BoolValue&gt; bool_field = 16;</code>
      */
-
     @java.lang.Override
     public boolean containsBoolField(
         int key) {
@@ -4709,7 +4567,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.BoolValue&gt; bool_field = 16;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.BoolValue> getBoolFieldMap() {
       return internalGetBoolField().getMap();
     }
@@ -4717,10 +4574,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.BoolValue&gt; bool_field = 16;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.BoolValue getBoolFieldOrDefault(
+    public /* nullable */
+com.google.protobuf.BoolValue getBoolFieldOrDefault(
         int key,
-        com.google.protobuf.BoolValue defaultValue) {
+        /* nullable */
+com.google.protobuf.BoolValue defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.BoolValue> map =
           internalGetBoolField().getMap();
@@ -4730,7 +4588,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.BoolValue&gt; bool_field = 16;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.BoolValue getBoolFieldOrThrow(
         int key) {
       
@@ -4741,8 +4598,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearBoolField() {
+      bitField0_ = (bitField0_ & ~0x00008000);
       internalGetMutableBoolField().getMutableMap()
           .clear();
       return this;
@@ -4750,7 +4607,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.BoolValue&gt; bool_field = 16;</code>
      */
-
     public Builder removeBoolField(
         int key) {
       
@@ -4763,7 +4619,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.BoolValue>
-    getMutableBoolField() {
+        getMutableBoolField() {
+      bitField0_ |= 0x00008000;
       return internalGetMutableBoolField().getMutableMap();
     }
     /**
@@ -4773,29 +4630,27 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.BoolValue value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableBoolField().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00008000;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.BoolValue&gt; bool_field = 16;</code>
      */
-
     public Builder putAllBoolField(
         java.util.Map<java.lang.Integer, com.google.protobuf.BoolValue> values) {
       internalGetMutableBoolField().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00008000;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.StringValue> stringField_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.StringValue>
-    internalGetStringField() {
+        internalGetStringField() {
       if (stringField_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             StringFieldDefaultEntryHolder.defaultEntry);
@@ -4803,8 +4658,7 @@ private static final long serialVersionUID = 0L;
       return stringField_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.StringValue>
-    internalGetMutableStringField() {
-      onChanged();;
+        internalGetMutableStringField() {
       if (stringField_ == null) {
         stringField_ = com.google.protobuf.MapField.newMapField(
             StringFieldDefaultEntryHolder.defaultEntry);
@@ -4812,16 +4666,16 @@ private static final long serialVersionUID = 0L;
       if (!stringField_.isMutable()) {
         stringField_ = stringField_.copy();
       }
+      bitField0_ |= 0x00010000;
+      onChanged();
       return stringField_;
     }
-
     public int getStringFieldCount() {
       return internalGetStringField().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.StringValue&gt; string_field = 17;</code>
      */
-
     @java.lang.Override
     public boolean containsStringField(
         int key) {
@@ -4840,7 +4694,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.StringValue&gt; string_field = 17;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.StringValue> getStringFieldMap() {
       return internalGetStringField().getMap();
     }
@@ -4848,10 +4701,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.StringValue&gt; string_field = 17;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.StringValue getStringFieldOrDefault(
+    public /* nullable */
+com.google.protobuf.StringValue getStringFieldOrDefault(
         int key,
-        com.google.protobuf.StringValue defaultValue) {
+        /* nullable */
+com.google.protobuf.StringValue defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.StringValue> map =
           internalGetStringField().getMap();
@@ -4861,7 +4715,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.StringValue&gt; string_field = 17;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.StringValue getStringFieldOrThrow(
         int key) {
       
@@ -4872,8 +4725,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearStringField() {
+      bitField0_ = (bitField0_ & ~0x00010000);
       internalGetMutableStringField().getMutableMap()
           .clear();
       return this;
@@ -4881,7 +4734,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.StringValue&gt; string_field = 17;</code>
      */
-
     public Builder removeStringField(
         int key) {
       
@@ -4894,7 +4746,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.StringValue>
-    getMutableStringField() {
+        getMutableStringField() {
+      bitField0_ |= 0x00010000;
       return internalGetMutableStringField().getMutableMap();
     }
     /**
@@ -4904,29 +4757,27 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.StringValue value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableStringField().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00010000;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.StringValue&gt; string_field = 17;</code>
      */
-
     public Builder putAllStringField(
         java.util.Map<java.lang.Integer, com.google.protobuf.StringValue> values) {
       internalGetMutableStringField().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00010000;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.BytesValue> bytesField_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.BytesValue>
-    internalGetBytesField() {
+        internalGetBytesField() {
       if (bytesField_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             BytesFieldDefaultEntryHolder.defaultEntry);
@@ -4934,8 +4785,7 @@ private static final long serialVersionUID = 0L;
       return bytesField_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.BytesValue>
-    internalGetMutableBytesField() {
-      onChanged();;
+        internalGetMutableBytesField() {
       if (bytesField_ == null) {
         bytesField_ = com.google.protobuf.MapField.newMapField(
             BytesFieldDefaultEntryHolder.defaultEntry);
@@ -4943,16 +4793,16 @@ private static final long serialVersionUID = 0L;
       if (!bytesField_.isMutable()) {
         bytesField_ = bytesField_.copy();
       }
+      bitField0_ |= 0x00020000;
+      onChanged();
       return bytesField_;
     }
-
     public int getBytesFieldCount() {
       return internalGetBytesField().getMap().size();
     }
     /**
      * <code>map&lt;int32, .google.protobuf.BytesValue&gt; bytes_field = 18;</code>
      */
-
     @java.lang.Override
     public boolean containsBytesField(
         int key) {
@@ -4971,7 +4821,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.BytesValue&gt; bytes_field = 18;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.BytesValue> getBytesFieldMap() {
       return internalGetBytesField().getMap();
     }
@@ -4979,10 +4828,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.BytesValue&gt; bytes_field = 18;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.BytesValue getBytesFieldOrDefault(
+    public /* nullable */
+com.google.protobuf.BytesValue getBytesFieldOrDefault(
         int key,
-        com.google.protobuf.BytesValue defaultValue) {
+        /* nullable */
+com.google.protobuf.BytesValue defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.BytesValue> map =
           internalGetBytesField().getMap();
@@ -4992,7 +4842,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.protobuf.BytesValue&gt; bytes_field = 18;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.BytesValue getBytesFieldOrThrow(
         int key) {
       
@@ -5003,8 +4852,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearBytesField() {
+      bitField0_ = (bitField0_ & ~0x00020000);
       internalGetMutableBytesField().getMutableMap()
           .clear();
       return this;
@@ -5012,7 +4861,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;int32, .google.protobuf.BytesValue&gt; bytes_field = 18;</code>
      */
-
     public Builder removeBytesField(
         int key) {
       
@@ -5025,7 +4873,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.protobuf.BytesValue>
-    getMutableBytesField() {
+        getMutableBytesField() {
+      bitField0_ |= 0x00020000;
       return internalGetMutableBytesField().getMutableMap();
     }
     /**
@@ -5035,22 +4884,20 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.protobuf.BytesValue value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableBytesField().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00020000;
       return this;
     }
     /**
      * <code>map&lt;int32, .google.protobuf.BytesValue&gt; bytes_field = 18;</code>
      */
-
     public Builder putAllBytesField(
         java.util.Map<java.lang.Integer, com.google.protobuf.BytesValue> values) {
       internalGetMutableBytesField().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00020000;
       return this;
     }
     @java.lang.Override
@@ -5086,7 +4933,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MapWellKnownTypes(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

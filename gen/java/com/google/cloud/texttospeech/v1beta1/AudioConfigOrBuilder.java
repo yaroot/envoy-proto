@@ -76,7 +76,7 @@ public interface AudioConfigOrBuilder extends
    * converting to the desired sample rate (which might result in worse audio
    * quality), unless the specified sample rate is not supported for the
    * encoding chosen, in which case it will fail the request and return
-   * [google.rpc.Code.INVALID_ARGUMENT][].
+   * [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
    * </pre>
    *
    * <code>int32 sample_rate_hertz = 5 [(.google.api.field_behavior) = OPTIONAL];</code>

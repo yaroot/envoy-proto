@@ -14,7 +14,9 @@ package io.envoyproxy.envoy.config.route.v3;
  *   .. code-block:: json
  *     {
  *       "name": ":method",
- *       "exact_match": "POST"
+ *       "string_match": {
+ *         "exact": "POST"
+ *       }
  *     }
  * .. attention::
  *   In the absence of any header match specifier, match will default to :ref:`present_match
@@ -51,132 +53,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private HeaderMatcher(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            headerMatchSpecifierCase_ = 4;
-            headerMatchSpecifier_ = s;
-            break;
-          }
-          case 50: {
-            io.envoyproxy.envoy.type.v3.Int64Range.Builder subBuilder = null;
-            if (headerMatchSpecifierCase_ == 6) {
-              subBuilder = ((io.envoyproxy.envoy.type.v3.Int64Range) headerMatchSpecifier_).toBuilder();
-            }
-            headerMatchSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.type.v3.Int64Range.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.type.v3.Int64Range) headerMatchSpecifier_);
-              headerMatchSpecifier_ = subBuilder.buildPartial();
-            }
-            headerMatchSpecifierCase_ = 6;
-            break;
-          }
-          case 56: {
-            headerMatchSpecifier_ = input.readBool();
-            headerMatchSpecifierCase_ = 7;
-            break;
-          }
-          case 64: {
-
-            invertMatch_ = input.readBool();
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-            headerMatchSpecifierCase_ = 9;
-            headerMatchSpecifier_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-            headerMatchSpecifierCase_ = 10;
-            headerMatchSpecifier_ = s;
-            break;
-          }
-          case 90: {
-            io.envoyproxy.envoy.type.matcher.v3.RegexMatcher.Builder subBuilder = null;
-            if (headerMatchSpecifierCase_ == 11) {
-              subBuilder = ((io.envoyproxy.envoy.type.matcher.v3.RegexMatcher) headerMatchSpecifier_).toBuilder();
-            }
-            headerMatchSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.type.matcher.v3.RegexMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.type.matcher.v3.RegexMatcher) headerMatchSpecifier_);
-              headerMatchSpecifier_ = subBuilder.buildPartial();
-            }
-            headerMatchSpecifierCase_ = 11;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-            headerMatchSpecifierCase_ = 12;
-            headerMatchSpecifier_ = s;
-            break;
-          }
-          case 106: {
-            io.envoyproxy.envoy.type.matcher.v3.StringMatcher.Builder subBuilder = null;
-            if (headerMatchSpecifierCase_ == 13) {
-              subBuilder = ((io.envoyproxy.envoy.type.matcher.v3.StringMatcher) headerMatchSpecifier_).toBuilder();
-            }
-            headerMatchSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.type.matcher.v3.StringMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.type.matcher.v3.StringMatcher) headerMatchSpecifier_);
-              headerMatchSpecifier_ = subBuilder.buildPartial();
-            }
-            headerMatchSpecifierCase_ = 13;
-            break;
-          }
-          case 112: {
-
-            treatMissingHeaderAsEmpty_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -245,7 +121,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Specifies the name of the header in the request.
@@ -299,7 +176,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string exact_match = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.exact_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2130
+   *     See envoy/config/route/v3/route_components.proto;l=2199
    * @return Whether the exactMatch field is set.
    */
   @java.lang.Deprecated public boolean hasExactMatch() {
@@ -313,7 +190,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string exact_match = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.exact_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2130
+   *     See envoy/config/route/v3/route_components.proto;l=2199
    * @return The exactMatch.
    */
   @java.lang.Deprecated public java.lang.String getExactMatch() {
@@ -341,7 +218,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string exact_match = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.exact_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2130
+   *     See envoy/config/route/v3/route_components.proto;l=2199
    * @return The bytes for exactMatch.
    */
   @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -374,7 +251,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.envoy.type.matcher.v3.RegexMatcher safe_regex_match = 11 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.safe_regex_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2137
+   *     See envoy/config/route/v3/route_components.proto;l=2206
    * @return Whether the safeRegexMatch field is set.
    */
   @java.lang.Override
@@ -391,7 +268,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.envoy.type.matcher.v3.RegexMatcher safe_regex_match = 11 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.safe_regex_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2137
+   *     See envoy/config/route/v3/route_components.proto;l=2206
    * @return The safeRegexMatch.
    */
   @java.lang.Override
@@ -529,7 +406,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string prefix_match = 9 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.prefix_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2164
+   *     See envoy/config/route/v3/route_components.proto;l=2233
    * @return Whether the prefixMatch field is set.
    */
   @java.lang.Deprecated public boolean hasPrefixMatch() {
@@ -546,7 +423,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string prefix_match = 9 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.prefix_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2164
+   *     See envoy/config/route/v3/route_components.proto;l=2233
    * @return The prefixMatch.
    */
   @java.lang.Deprecated public java.lang.String getPrefixMatch() {
@@ -577,7 +454,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string prefix_match = 9 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.prefix_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2164
+   *     See envoy/config/route/v3/route_components.proto;l=2233
    * @return The bytes for prefixMatch.
    */
   @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -611,7 +488,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string suffix_match = 10 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.suffix_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2177
+   *     See envoy/config/route/v3/route_components.proto;l=2246
    * @return Whether the suffixMatch field is set.
    */
   @java.lang.Deprecated public boolean hasSuffixMatch() {
@@ -628,7 +505,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string suffix_match = 10 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.suffix_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2177
+   *     See envoy/config/route/v3/route_components.proto;l=2246
    * @return The suffixMatch.
    */
   @java.lang.Deprecated public java.lang.String getSuffixMatch() {
@@ -659,7 +536,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string suffix_match = 10 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.suffix_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2177
+   *     See envoy/config/route/v3/route_components.proto;l=2246
    * @return The bytes for suffixMatch.
    */
   @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -694,7 +571,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string contains_match = 12 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.contains_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2191
+   *     See envoy/config/route/v3/route_components.proto;l=2260
    * @return Whether the containsMatch field is set.
    */
   @java.lang.Deprecated public boolean hasContainsMatch() {
@@ -712,7 +589,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string contains_match = 12 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.contains_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2191
+   *     See envoy/config/route/v3/route_components.proto;l=2260
    * @return The containsMatch.
    */
   @java.lang.Deprecated public java.lang.String getContainsMatch() {
@@ -744,7 +621,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string contains_match = 12 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.contains_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2191
+   *     See envoy/config/route/v3/route_components.proto;l=2260
    * @return The bytes for containsMatch.
    */
   @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -810,7 +687,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INVERT_MATCH_FIELD_NUMBER = 8;
-  private boolean invertMatch_;
+  private boolean invertMatch_ = false;
   /**
    * <pre>
    * If specified, the match result will be inverted before checking. Defaults to false.
@@ -828,7 +705,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TREAT_MISSING_HEADER_AS_EMPTY_FIELD_NUMBER = 14;
-  private boolean treatMissingHeaderAsEmpty_;
+  private boolean treatMissingHeaderAsEmpty_ = false;
   /**
    * <pre>
    * If specified, for any header match rule, if the header match rule specified header
@@ -913,7 +790,7 @@ private static final long serialVersionUID = 0L;
     if (treatMissingHeaderAsEmpty_ != false) {
       output.writeBool(14, treatMissingHeaderAsEmpty_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -962,7 +839,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(14, treatMissingHeaderAsEmpty_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1020,7 +897,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1076,7 +953,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1182,7 +1059,9 @@ private static final long serialVersionUID = 0L;
    *   .. code-block:: json
    *     {
    *       "name": ":method",
-   *       "exact_match": "POST"
+   *       "string_match": {
+   *         "exact": "POST"
+   *       }
    *     }
    * .. attention::
    *   In the absence of any header match specifier, match will default to :ref:`present_match
@@ -1214,28 +1093,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.route.v3.HeaderMatcher.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
+      if (safeRegexMatchBuilder_ != null) {
+        safeRegexMatchBuilder_.clear();
+      }
+      if (rangeMatchBuilder_ != null) {
+        rangeMatchBuilder_.clear();
+      }
+      if (stringMatchBuilder_ != null) {
+        stringMatchBuilder_.clear();
+      }
       invertMatch_ = false;
-
       treatMissingHeaderAsEmpty_ = false;
-
       headerMatchSpecifierCase_ = 0;
       headerMatchSpecifier_ = null;
       return this;
@@ -1264,48 +1145,40 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.route.v3.HeaderMatcher buildPartial() {
       io.envoyproxy.envoy.config.route.v3.HeaderMatcher result = new io.envoyproxy.envoy.config.route.v3.HeaderMatcher(this);
-      result.name_ = name_;
-      if (headerMatchSpecifierCase_ == 4) {
-        result.headerMatchSpecifier_ = headerMatchSpecifier_;
-      }
-      if (headerMatchSpecifierCase_ == 11) {
-        if (safeRegexMatchBuilder_ == null) {
-          result.headerMatchSpecifier_ = headerMatchSpecifier_;
-        } else {
-          result.headerMatchSpecifier_ = safeRegexMatchBuilder_.build();
-        }
-      }
-      if (headerMatchSpecifierCase_ == 6) {
-        if (rangeMatchBuilder_ == null) {
-          result.headerMatchSpecifier_ = headerMatchSpecifier_;
-        } else {
-          result.headerMatchSpecifier_ = rangeMatchBuilder_.build();
-        }
-      }
-      if (headerMatchSpecifierCase_ == 7) {
-        result.headerMatchSpecifier_ = headerMatchSpecifier_;
-      }
-      if (headerMatchSpecifierCase_ == 9) {
-        result.headerMatchSpecifier_ = headerMatchSpecifier_;
-      }
-      if (headerMatchSpecifierCase_ == 10) {
-        result.headerMatchSpecifier_ = headerMatchSpecifier_;
-      }
-      if (headerMatchSpecifierCase_ == 12) {
-        result.headerMatchSpecifier_ = headerMatchSpecifier_;
-      }
-      if (headerMatchSpecifierCase_ == 13) {
-        if (stringMatchBuilder_ == null) {
-          result.headerMatchSpecifier_ = headerMatchSpecifier_;
-        } else {
-          result.headerMatchSpecifier_ = stringMatchBuilder_.build();
-        }
-      }
-      result.invertMatch_ = invertMatch_;
-      result.treatMissingHeaderAsEmpty_ = treatMissingHeaderAsEmpty_;
-      result.headerMatchSpecifierCase_ = headerMatchSpecifierCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.route.v3.HeaderMatcher result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.invertMatch_ = invertMatch_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.treatMissingHeaderAsEmpty_ = treatMissingHeaderAsEmpty_;
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.config.route.v3.HeaderMatcher result) {
+      result.headerMatchSpecifierCase_ = headerMatchSpecifierCase_;
+      result.headerMatchSpecifier_ = this.headerMatchSpecifier_;
+      if (headerMatchSpecifierCase_ == 11 &&
+          safeRegexMatchBuilder_ != null) {
+        result.headerMatchSpecifier_ = safeRegexMatchBuilder_.build();
+      }
+      if (headerMatchSpecifierCase_ == 6 &&
+          rangeMatchBuilder_ != null) {
+        result.headerMatchSpecifier_ = rangeMatchBuilder_.build();
+      }
+      if (headerMatchSpecifierCase_ == 13 &&
+          stringMatchBuilder_ != null) {
+        result.headerMatchSpecifier_ = stringMatchBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1354,6 +1227,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.config.route.v3.HeaderMatcher.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getInvertMatch() != false) {
@@ -1407,7 +1281,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1422,17 +1296,95 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.route.v3.HeaderMatcher parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              headerMatchSpecifierCase_ = 4;
+              headerMatchSpecifier_ = s;
+              break;
+            } // case 34
+            case 50: {
+              input.readMessage(
+                  getRangeMatchFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              headerMatchSpecifierCase_ = 6;
+              break;
+            } // case 50
+            case 56: {
+              headerMatchSpecifier_ = input.readBool();
+              headerMatchSpecifierCase_ = 7;
+              break;
+            } // case 56
+            case 64: {
+              invertMatch_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 64
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+              headerMatchSpecifierCase_ = 9;
+              headerMatchSpecifier_ = s;
+              break;
+            } // case 74
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+              headerMatchSpecifierCase_ = 10;
+              headerMatchSpecifier_ = s;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getSafeRegexMatchFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              headerMatchSpecifierCase_ = 11;
+              break;
+            } // case 90
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+              headerMatchSpecifierCase_ = 12;
+              headerMatchSpecifier_ = s;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getStringMatchFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              headerMatchSpecifierCase_ = 13;
+              break;
+            } // case 106
+            case 112: {
+              treatMissingHeaderAsEmpty_ = input.readBool();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 112
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.route.v3.HeaderMatcher) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int headerMatchSpecifierCase_ = 0;
@@ -1450,6 +1402,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -1504,11 +1457,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1521,8 +1472,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1537,12 +1488,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1555,7 +1504,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string exact_match = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.exact_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2130
+     *     See envoy/config/route/v3/route_components.proto;l=2199
      * @return Whether the exactMatch field is set.
      */
     @java.lang.Override
@@ -1570,7 +1519,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string exact_match = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.exact_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2130
+     *     See envoy/config/route/v3/route_components.proto;l=2199
      * @return The exactMatch.
      */
     @java.lang.Override
@@ -1599,7 +1548,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string exact_match = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.exact_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2130
+     *     See envoy/config/route/v3/route_components.proto;l=2199
      * @return The bytes for exactMatch.
      */
     @java.lang.Override
@@ -1629,16 +1578,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string exact_match = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.exact_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2130
+     *     See envoy/config/route/v3/route_components.proto;l=2199
      * @param value The exactMatch to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setExactMatch(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  headerMatchSpecifierCase_ = 4;
+      if (value == null) { throw new NullPointerException(); }
+      headerMatchSpecifierCase_ = 4;
       headerMatchSpecifier_ = value;
       onChanged();
       return this;
@@ -1651,7 +1598,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string exact_match = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.exact_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2130
+     *     See envoy/config/route/v3/route_components.proto;l=2199
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearExactMatch() {
@@ -1670,16 +1617,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string exact_match = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.exact_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2130
+     *     See envoy/config/route/v3/route_components.proto;l=2199
      * @param value The bytes for exactMatch to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setExactMatchBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       headerMatchSpecifierCase_ = 4;
       headerMatchSpecifier_ = value;
       onChanged();
@@ -1698,7 +1643,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.envoy.type.matcher.v3.RegexMatcher safe_regex_match = 11 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.safe_regex_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2137
+     *     See envoy/config/route/v3/route_components.proto;l=2206
      * @return Whether the safeRegexMatch field is set.
      */
     @java.lang.Override
@@ -1715,7 +1660,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.envoy.type.matcher.v3.RegexMatcher safe_regex_match = 11 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.safe_regex_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2137
+     *     See envoy/config/route/v3/route_components.proto;l=2206
      * @return The safeRegexMatch.
      */
     @java.lang.Override
@@ -1891,7 +1836,7 @@ private static final long serialVersionUID = 0L;
         headerMatchSpecifier_ = null;
       }
       headerMatchSpecifierCase_ = 11;
-      onChanged();;
+      onChanged();
       return safeRegexMatchBuilder_;
     }
 
@@ -2141,7 +2086,7 @@ private static final long serialVersionUID = 0L;
         headerMatchSpecifier_ = null;
       }
       headerMatchSpecifierCase_ = 6;
-      onChanged();;
+      onChanged();
       return rangeMatchBuilder_;
     }
 
@@ -2183,6 +2128,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPresentMatch(boolean value) {
+      
       headerMatchSpecifierCase_ = 7;
       headerMatchSpecifier_ = value;
       onChanged();
@@ -2217,7 +2163,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string prefix_match = 9 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.prefix_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2164
+     *     See envoy/config/route/v3/route_components.proto;l=2233
      * @return Whether the prefixMatch field is set.
      */
     @java.lang.Override
@@ -2235,7 +2181,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string prefix_match = 9 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.prefix_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2164
+     *     See envoy/config/route/v3/route_components.proto;l=2233
      * @return The prefixMatch.
      */
     @java.lang.Override
@@ -2267,7 +2213,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string prefix_match = 9 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.prefix_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2164
+     *     See envoy/config/route/v3/route_components.proto;l=2233
      * @return The bytes for prefixMatch.
      */
     @java.lang.Override
@@ -2300,16 +2246,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string prefix_match = 9 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.prefix_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2164
+     *     See envoy/config/route/v3/route_components.proto;l=2233
      * @param value The prefixMatch to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setPrefixMatch(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  headerMatchSpecifierCase_ = 9;
+      if (value == null) { throw new NullPointerException(); }
+      headerMatchSpecifierCase_ = 9;
       headerMatchSpecifier_ = value;
       onChanged();
       return this;
@@ -2325,7 +2269,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string prefix_match = 9 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.prefix_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2164
+     *     See envoy/config/route/v3/route_components.proto;l=2233
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearPrefixMatch() {
@@ -2347,16 +2291,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string prefix_match = 9 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.prefix_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2164
+     *     See envoy/config/route/v3/route_components.proto;l=2233
      * @param value The bytes for prefixMatch to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setPrefixMatchBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       headerMatchSpecifierCase_ = 9;
       headerMatchSpecifier_ = value;
       onChanged();
@@ -2374,7 +2316,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string suffix_match = 10 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.suffix_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2177
+     *     See envoy/config/route/v3/route_components.proto;l=2246
      * @return Whether the suffixMatch field is set.
      */
     @java.lang.Override
@@ -2392,7 +2334,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string suffix_match = 10 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.suffix_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2177
+     *     See envoy/config/route/v3/route_components.proto;l=2246
      * @return The suffixMatch.
      */
     @java.lang.Override
@@ -2424,7 +2366,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string suffix_match = 10 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.suffix_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2177
+     *     See envoy/config/route/v3/route_components.proto;l=2246
      * @return The bytes for suffixMatch.
      */
     @java.lang.Override
@@ -2457,16 +2399,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string suffix_match = 10 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.suffix_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2177
+     *     See envoy/config/route/v3/route_components.proto;l=2246
      * @param value The suffixMatch to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setSuffixMatch(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  headerMatchSpecifierCase_ = 10;
+      if (value == null) { throw new NullPointerException(); }
+      headerMatchSpecifierCase_ = 10;
       headerMatchSpecifier_ = value;
       onChanged();
       return this;
@@ -2482,7 +2422,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string suffix_match = 10 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.suffix_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2177
+     *     See envoy/config/route/v3/route_components.proto;l=2246
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearSuffixMatch() {
@@ -2504,16 +2444,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string suffix_match = 10 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.suffix_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2177
+     *     See envoy/config/route/v3/route_components.proto;l=2246
      * @param value The bytes for suffixMatch to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setSuffixMatchBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       headerMatchSpecifierCase_ = 10;
       headerMatchSpecifier_ = value;
       onChanged();
@@ -2532,7 +2470,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string contains_match = 12 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.contains_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2191
+     *     See envoy/config/route/v3/route_components.proto;l=2260
      * @return Whether the containsMatch field is set.
      */
     @java.lang.Override
@@ -2551,7 +2489,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string contains_match = 12 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.contains_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2191
+     *     See envoy/config/route/v3/route_components.proto;l=2260
      * @return The containsMatch.
      */
     @java.lang.Override
@@ -2584,7 +2522,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string contains_match = 12 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.contains_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2191
+     *     See envoy/config/route/v3/route_components.proto;l=2260
      * @return The bytes for containsMatch.
      */
     @java.lang.Override
@@ -2618,16 +2556,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string contains_match = 12 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.contains_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2191
+     *     See envoy/config/route/v3/route_components.proto;l=2260
      * @param value The containsMatch to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setContainsMatch(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  headerMatchSpecifierCase_ = 12;
+      if (value == null) { throw new NullPointerException(); }
+      headerMatchSpecifierCase_ = 12;
       headerMatchSpecifier_ = value;
       onChanged();
       return this;
@@ -2644,7 +2580,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string contains_match = 12 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.contains_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2191
+     *     See envoy/config/route/v3/route_components.proto;l=2260
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearContainsMatch() {
@@ -2667,16 +2603,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string contains_match = 12 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.config.route.v3.HeaderMatcher.contains_match is deprecated.
-     *     See envoy/config/route/v3/route_components.proto;l=2191
+     *     See envoy/config/route/v3/route_components.proto;l=2260
      * @param value The bytes for containsMatch to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setContainsMatchBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       headerMatchSpecifierCase_ = 12;
       headerMatchSpecifier_ = value;
       onChanged();
@@ -2857,7 +2791,7 @@ private static final long serialVersionUID = 0L;
         headerMatchSpecifier_ = null;
       }
       headerMatchSpecifierCase_ = 13;
-      onChanged();;
+      onChanged();
       return stringMatchBuilder_;
     }
 
@@ -2892,6 +2826,7 @@ private static final long serialVersionUID = 0L;
     public Builder setInvertMatch(boolean value) {
       
       invertMatch_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2907,7 +2842,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInvertMatch() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       invertMatch_ = false;
       onChanged();
       return this;
@@ -2984,6 +2919,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTreatMissingHeaderAsEmpty(boolean value) {
       
       treatMissingHeaderAsEmpty_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3019,7 +2955,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTreatMissingHeaderAsEmpty() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       treatMissingHeaderAsEmpty_ = false;
       onChanged();
       return this;
@@ -3057,7 +2993,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HeaderMatcher(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

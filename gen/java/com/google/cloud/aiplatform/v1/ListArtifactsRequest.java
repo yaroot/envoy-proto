@@ -23,6 +23,7 @@ private static final long serialVersionUID = 0L;
     parent_ = "";
     pageToken_ = "";
     filter_ = "";
+    orderBy_ = "";
   }
 
   @java.lang.Override
@@ -36,68 +37,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ListArtifactsRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 16: {
-
-            pageSize_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            filter_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -113,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The MetadataStore whose Artifacts should be listed.
@@ -163,7 +103,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 2;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
    * The maximum number of Artifacts to return. The service may return fewer.
@@ -179,7 +119,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 3;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
    * A page token, received from a previous [MetadataService.ListArtifacts][google.cloud.aiplatform.v1.MetadataService.ListArtifacts]
@@ -233,7 +174,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILTER_FIELD_NUMBER = 4;
-  private volatile java.lang.Object filter_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object filter_ = "";
   /**
    * <pre>
    * Filter specifying the boolean condition for the Artifacts to satisfy in
@@ -258,7 +200,8 @@ private static final long serialVersionUID = 0L;
    *     For example:
    *     `in_context("projects/&lt;project_number&gt;/locations/&lt;location&gt;/metadataStores/&lt;metadatastore_name&gt;/contexts/&lt;context-id&gt;")`
    * Each of the above supported filter types can be combined together using
-   * logical operators (`AND` &amp; `OR`).
+   * logical operators (`AND` &amp; `OR`). Maximum nested expression depth allowed
+   * is 5.
    * For example: `display_name = "test" AND metadata.field1.bool_value = true`.
    * </pre>
    *
@@ -302,7 +245,8 @@ private static final long serialVersionUID = 0L;
    *     For example:
    *     `in_context("projects/&lt;project_number&gt;/locations/&lt;location&gt;/metadataStores/&lt;metadatastore_name&gt;/contexts/&lt;context-id&gt;")`
    * Each of the above supported filter types can be combined together using
-   * logical operators (`AND` &amp; `OR`).
+   * logical operators (`AND` &amp; `OR`). Maximum nested expression depth allowed
+   * is 5.
    * For example: `display_name = "test" AND metadata.field1.bool_value = true`.
    * </pre>
    *
@@ -318,6 +262,63 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       filter_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ORDER_BY_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object orderBy_ = "";
+  /**
+   * <pre>
+   * How the list of messages is ordered. Specify the values to order by and an
+   * ordering operation. The default sorting order is ascending. To specify
+   * descending order for a field, users append a " desc" suffix; for example:
+   * "foo desc, bar".
+   * Subfields are specified with a `.` character, such as foo.bar.
+   * see https://google.aip.dev/132#ordering for more details.
+   * </pre>
+   *
+   * <code>string order_by = 5;</code>
+   * @return The orderBy.
+   */
+  @java.lang.Override
+  public java.lang.String getOrderBy() {
+    java.lang.Object ref = orderBy_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      orderBy_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * How the list of messages is ordered. Specify the values to order by and an
+   * ordering operation. The default sorting order is ascending. To specify
+   * descending order for a field, users append a " desc" suffix; for example:
+   * "foo desc, bar".
+   * Subfields are specified with a `.` character, such as foo.bar.
+   * see https://google.aip.dev/132#ordering for more details.
+   * </pre>
+   *
+   * <code>string order_by = 5;</code>
+   * @return The bytes for orderBy.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getOrderByBytes() {
+    java.lang.Object ref = orderBy_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      orderBy_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -350,7 +351,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filter_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, filter_);
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(orderBy_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, orderBy_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -372,7 +376,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filter_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, filter_);
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(orderBy_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, orderBy_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -395,7 +402,9 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPageToken())) return false;
     if (!getFilter()
         .equals(other.getFilter())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getOrderBy()
+        .equals(other.getOrderBy())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -414,7 +423,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPageToken().hashCode();
     hash = (37 * hash) + FILTER_FIELD_NUMBER;
     hash = (53 * hash) + getFilter().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + ORDER_BY_FIELD_NUMBER;
+    hash = (53 * hash) + getOrderBy().hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -535,30 +546,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1.ListArtifactsRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       pageSize_ = 0;
-
       pageToken_ = "";
-
       filter_ = "";
-
+      orderBy_ = "";
       return this;
     }
 
@@ -585,12 +589,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.ListArtifactsRequest buildPartial() {
       com.google.cloud.aiplatform.v1.ListArtifactsRequest result = new com.google.cloud.aiplatform.v1.ListArtifactsRequest(this);
-      result.parent_ = parent_;
-      result.pageSize_ = pageSize_;
-      result.pageToken_ = pageToken_;
-      result.filter_ = filter_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1.ListArtifactsRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.filter_ = filter_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.orderBy_ = orderBy_;
+      }
     }
 
     @java.lang.Override
@@ -639,6 +659,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.aiplatform.v1.ListArtifactsRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getPageSize() != 0) {
@@ -646,13 +667,20 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getFilter().isEmpty()) {
         filter_ = other.filter_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getOrderBy().isEmpty()) {
+        orderBy_ = other.orderBy_;
+        bitField0_ |= 0x00000010;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -667,19 +695,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1.ListArtifactsRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              pageSize_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              filter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              orderBy_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1.ListArtifactsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -740,11 +807,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -759,8 +824,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -777,12 +842,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -814,6 +877,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
       
       pageSize_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -827,7 +891,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -898,11 +962,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -919,8 +981,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -939,12 +1001,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -974,7 +1034,8 @@ private static final long serialVersionUID = 0L;
      *     For example:
      *     `in_context("projects/&lt;project_number&gt;/locations/&lt;location&gt;/metadataStores/&lt;metadatastore_name&gt;/contexts/&lt;context-id&gt;")`
      * Each of the above supported filter types can be combined together using
-     * logical operators (`AND` &amp; `OR`).
+     * logical operators (`AND` &amp; `OR`). Maximum nested expression depth allowed
+     * is 5.
      * For example: `display_name = "test" AND metadata.field1.bool_value = true`.
      * </pre>
      *
@@ -1017,7 +1078,8 @@ private static final long serialVersionUID = 0L;
      *     For example:
      *     `in_context("projects/&lt;project_number&gt;/locations/&lt;location&gt;/metadataStores/&lt;metadatastore_name&gt;/contexts/&lt;context-id&gt;")`
      * Each of the above supported filter types can be combined together using
-     * logical operators (`AND` &amp; `OR`).
+     * logical operators (`AND` &amp; `OR`). Maximum nested expression depth allowed
+     * is 5.
      * For example: `display_name = "test" AND metadata.field1.bool_value = true`.
      * </pre>
      *
@@ -1061,7 +1123,8 @@ private static final long serialVersionUID = 0L;
      *     For example:
      *     `in_context("projects/&lt;project_number&gt;/locations/&lt;location&gt;/metadataStores/&lt;metadatastore_name&gt;/contexts/&lt;context-id&gt;")`
      * Each of the above supported filter types can be combined together using
-     * logical operators (`AND` &amp; `OR`).
+     * logical operators (`AND` &amp; `OR`). Maximum nested expression depth allowed
+     * is 5.
      * For example: `display_name = "test" AND metadata.field1.bool_value = true`.
      * </pre>
      *
@@ -1071,11 +1134,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       filter_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1103,7 +1164,8 @@ private static final long serialVersionUID = 0L;
      *     For example:
      *     `in_context("projects/&lt;project_number&gt;/locations/&lt;location&gt;/metadataStores/&lt;metadatastore_name&gt;/contexts/&lt;context-id&gt;")`
      * Each of the above supported filter types can be combined together using
-     * logical operators (`AND` &amp; `OR`).
+     * logical operators (`AND` &amp; `OR`). Maximum nested expression depth allowed
+     * is 5.
      * For example: `display_name = "test" AND metadata.field1.bool_value = true`.
      * </pre>
      *
@@ -1111,8 +1173,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFilter() {
-      
       filter_ = getDefaultInstance().getFilter();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1140,7 +1202,8 @@ private static final long serialVersionUID = 0L;
      *     For example:
      *     `in_context("projects/&lt;project_number&gt;/locations/&lt;location&gt;/metadataStores/&lt;metadatastore_name&gt;/contexts/&lt;context-id&gt;")`
      * Each of the above supported filter types can be combined together using
-     * logical operators (`AND` &amp; `OR`).
+     * logical operators (`AND` &amp; `OR`). Maximum nested expression depth allowed
+     * is 5.
      * For example: `display_name = "test" AND metadata.field1.bool_value = true`.
      * </pre>
      *
@@ -1150,12 +1213,127 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       filter_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object orderBy_ = "";
+    /**
+     * <pre>
+     * How the list of messages is ordered. Specify the values to order by and an
+     * ordering operation. The default sorting order is ascending. To specify
+     * descending order for a field, users append a " desc" suffix; for example:
+     * "foo desc, bar".
+     * Subfields are specified with a `.` character, such as foo.bar.
+     * see https://google.aip.dev/132#ordering for more details.
+     * </pre>
+     *
+     * <code>string order_by = 5;</code>
+     * @return The orderBy.
+     */
+    public java.lang.String getOrderBy() {
+      java.lang.Object ref = orderBy_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        orderBy_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * How the list of messages is ordered. Specify the values to order by and an
+     * ordering operation. The default sorting order is ascending. To specify
+     * descending order for a field, users append a " desc" suffix; for example:
+     * "foo desc, bar".
+     * Subfields are specified with a `.` character, such as foo.bar.
+     * see https://google.aip.dev/132#ordering for more details.
+     * </pre>
+     *
+     * <code>string order_by = 5;</code>
+     * @return The bytes for orderBy.
+     */
+    public com.google.protobuf.ByteString
+        getOrderByBytes() {
+      java.lang.Object ref = orderBy_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        orderBy_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * How the list of messages is ordered. Specify the values to order by and an
+     * ordering operation. The default sorting order is ascending. To specify
+     * descending order for a field, users append a " desc" suffix; for example:
+     * "foo desc, bar".
+     * Subfields are specified with a `.` character, such as foo.bar.
+     * see https://google.aip.dev/132#ordering for more details.
+     * </pre>
+     *
+     * <code>string order_by = 5;</code>
+     * @param value The orderBy to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrderBy(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      orderBy_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * How the list of messages is ordered. Specify the values to order by and an
+     * ordering operation. The default sorting order is ascending. To specify
+     * descending order for a field, users append a " desc" suffix; for example:
+     * "foo desc, bar".
+     * Subfields are specified with a `.` character, such as foo.bar.
+     * see https://google.aip.dev/132#ordering for more details.
+     * </pre>
+     *
+     * <code>string order_by = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOrderBy() {
+      orderBy_ = getDefaultInstance().getOrderBy();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * How the list of messages is ordered. Specify the values to order by and an
+     * ordering operation. The default sorting order is ascending. To specify
+     * descending order for a field, users append a " desc" suffix; for example:
+     * "foo desc, bar".
+     * Subfields are specified with a `.` character, such as foo.bar.
+     * see https://google.aip.dev/132#ordering for more details.
+     * </pre>
+     *
+     * <code>string order_by = 5;</code>
+     * @param value The bytes for orderBy to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrderByBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      orderBy_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1192,7 +1370,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListArtifactsRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

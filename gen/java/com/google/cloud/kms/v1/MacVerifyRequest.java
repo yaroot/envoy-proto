@@ -38,87 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MacVerifyRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-
-            data_ = input.readBytes();
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Int64Value.Builder subBuilder = null;
-            if (dataCrc32C_ != null) {
-              subBuilder = dataCrc32C_.toBuilder();
-            }
-            dataCrc32C_ = input.readMessage(com.google.protobuf.Int64Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dataCrc32C_);
-              dataCrc32C_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-
-            mac_ = input.readBytes();
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Int64Value.Builder subBuilder = null;
-            if (macCrc32C_ != null) {
-              subBuilder = macCrc32C_.toBuilder();
-            }
-            macCrc32C_ = input.readMessage(com.google.protobuf.Int64Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(macCrc32C_);
-              macCrc32C_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.kms.v1.KmsProto.internal_static_google_cloud_kms_v1_MacVerifyRequest_descriptor;
@@ -133,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The resource name of the
@@ -183,7 +103,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATA_FIELD_NUMBER = 2;
-  private com.google.protobuf.ByteString data_;
+  private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * Required. The data used previously as a
@@ -285,11 +205,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int64ValueOrBuilder getDataCrc32COrBuilder() {
-    return getDataCrc32C();
+    return dataCrc32C_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : dataCrc32C_;
   }
 
   public static final int MAC_FIELD_NUMBER = 4;
-  private com.google.protobuf.ByteString mac_;
+  private com.google.protobuf.ByteString mac_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * Required. The signature to verify.
@@ -383,7 +303,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int64ValueOrBuilder getMacCrc32COrBuilder() {
-    return getMacCrc32C();
+    return macCrc32C_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : macCrc32C_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -415,7 +335,7 @@ private static final long serialVersionUID = 0L;
     if (macCrc32C_ != null) {
       output.writeMessage(5, getMacCrc32C());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -443,7 +363,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getMacCrc32C());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -474,7 +394,7 @@ private static final long serialVersionUID = 0L;
       if (!getMacCrc32C()
           .equals(other.getMacCrc32C())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -499,7 +419,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MAC_CRC32C_FIELD_NUMBER;
       hash = (53 * hash) + getMacCrc32C().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -621,38 +541,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.kms.v1.MacVerifyRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       data_ = com.google.protobuf.ByteString.EMPTY;
-
-      if (dataCrc32CBuilder_ == null) {
-        dataCrc32C_ = null;
-      } else {
-        dataCrc32C_ = null;
+      dataCrc32C_ = null;
+      if (dataCrc32CBuilder_ != null) {
+        dataCrc32CBuilder_.dispose();
         dataCrc32CBuilder_ = null;
       }
       mac_ = com.google.protobuf.ByteString.EMPTY;
-
-      if (macCrc32CBuilder_ == null) {
-        macCrc32C_ = null;
-      } else {
-        macCrc32C_ = null;
+      macCrc32C_ = null;
+      if (macCrc32CBuilder_ != null) {
+        macCrc32CBuilder_.dispose();
         macCrc32CBuilder_ = null;
       }
       return this;
@@ -681,21 +592,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.kms.v1.MacVerifyRequest buildPartial() {
       com.google.cloud.kms.v1.MacVerifyRequest result = new com.google.cloud.kms.v1.MacVerifyRequest(this);
-      result.name_ = name_;
-      result.data_ = data_;
-      if (dataCrc32CBuilder_ == null) {
-        result.dataCrc32C_ = dataCrc32C_;
-      } else {
-        result.dataCrc32C_ = dataCrc32CBuilder_.build();
-      }
-      result.mac_ = mac_;
-      if (macCrc32CBuilder_ == null) {
-        result.macCrc32C_ = macCrc32C_;
-      } else {
-        result.macCrc32C_ = macCrc32CBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.kms.v1.MacVerifyRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.data_ = data_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.dataCrc32C_ = dataCrc32CBuilder_ == null
+            ? dataCrc32C_
+            : dataCrc32CBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.mac_ = mac_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.macCrc32C_ = macCrc32CBuilder_ == null
+            ? macCrc32C_
+            : macCrc32CBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -744,6 +666,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.kms.v1.MacVerifyRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
@@ -758,7 +681,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasMacCrc32C()) {
         mergeMacCrc32C(other.getMacCrc32C());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -773,19 +696,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.kms.v1.MacVerifyRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              data_ = input.readBytes();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getDataCrc32CFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              mac_ = input.readBytes();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getMacCrc32CFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.kms.v1.MacVerifyRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -846,11 +812,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -865,8 +829,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -883,12 +847,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -920,11 +882,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setData(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       data_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -939,7 +899,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearData() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       data_ = getDefaultInstance().getData();
       onChanged();
       return this;
@@ -974,7 +934,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dataCrc32c field is set.
      */
     public boolean hasDataCrc32C() {
-      return dataCrc32CBuilder_ != null || dataCrc32C_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1038,11 +998,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dataCrc32C_ = value;
-        onChanged();
       } else {
         dataCrc32CBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1073,11 +1033,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int64Value.Builder builderForValue) {
       if (dataCrc32CBuilder_ == null) {
         dataCrc32C_ = builderForValue.build();
-        onChanged();
       } else {
         dataCrc32CBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1106,17 +1066,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDataCrc32C(com.google.protobuf.Int64Value value) {
       if (dataCrc32CBuilder_ == null) {
-        if (dataCrc32C_ != null) {
-          dataCrc32C_ =
-            com.google.protobuf.Int64Value.newBuilder(dataCrc32C_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          dataCrc32C_ != null &&
+          dataCrc32C_ != com.google.protobuf.Int64Value.getDefaultInstance()) {
+          getDataCrc32CBuilder().mergeFrom(value);
         } else {
           dataCrc32C_ = value;
         }
-        onChanged();
       } else {
         dataCrc32CBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1144,14 +1105,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int64Value data_crc32c = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearDataCrc32C() {
-      if (dataCrc32CBuilder_ == null) {
-        dataCrc32C_ = null;
-        onChanged();
-      } else {
-        dataCrc32C_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      dataCrc32C_ = null;
+      if (dataCrc32CBuilder_ != null) {
+        dataCrc32CBuilder_.dispose();
         dataCrc32CBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1179,7 +1139,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int64Value data_crc32c = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.protobuf.Int64Value.Builder getDataCrc32CBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDataCrc32CFieldBuilder().getBuilder();
     }
@@ -1276,11 +1236,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMac(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       mac_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1293,7 +1251,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMac() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       mac_ = getDefaultInstance().getMac();
       onChanged();
       return this;
@@ -1326,7 +1284,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the macCrc32c field is set.
      */
     public boolean hasMacCrc32C() {
-      return macCrc32CBuilder_ != null || macCrc32C_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1386,11 +1344,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         macCrc32C_ = value;
-        onChanged();
       } else {
         macCrc32CBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1419,11 +1377,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int64Value.Builder builderForValue) {
       if (macCrc32CBuilder_ == null) {
         macCrc32C_ = builderForValue.build();
-        onChanged();
       } else {
         macCrc32CBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1450,17 +1408,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMacCrc32C(com.google.protobuf.Int64Value value) {
       if (macCrc32CBuilder_ == null) {
-        if (macCrc32C_ != null) {
-          macCrc32C_ =
-            com.google.protobuf.Int64Value.newBuilder(macCrc32C_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          macCrc32C_ != null &&
+          macCrc32C_ != com.google.protobuf.Int64Value.getDefaultInstance()) {
+          getMacCrc32CBuilder().mergeFrom(value);
         } else {
           macCrc32C_ = value;
         }
-        onChanged();
       } else {
         macCrc32CBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1486,14 +1445,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int64Value mac_crc32c = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearMacCrc32C() {
-      if (macCrc32CBuilder_ == null) {
-        macCrc32C_ = null;
-        onChanged();
-      } else {
-        macCrc32C_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      macCrc32C_ = null;
+      if (macCrc32CBuilder_ != null) {
+        macCrc32CBuilder_.dispose();
         macCrc32CBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1519,7 +1477,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int64Value mac_crc32c = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.protobuf.Int64Value.Builder getMacCrc32CBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getMacCrc32CFieldBuilder().getBuilder();
     }
@@ -1621,7 +1579,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MacVerifyRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -30,6 +30,8 @@ private static final long serialVersionUID = 0L;
     nodeIpv4CidrBlock_ = "";
     servicesIpv4CidrBlock_ = "";
     tpuIpv4CidrBlock_ = "";
+    stackType_ = 0;
+    ipv6AccessType_ = 0;
   }
 
   @java.lang.Override
@@ -43,120 +45,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private IPAllocationPolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            useIpAliases_ = input.readBool();
-            break;
-          }
-          case 16: {
-
-            createSubnetwork_ = input.readBool();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            subnetworkName_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clusterIpv4Cidr_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            nodeIpv4Cidr_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            servicesIpv4Cidr_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clusterSecondaryRangeName_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            servicesSecondaryRangeName_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clusterIpv4CidrBlock_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            nodeIpv4CidrBlock_ = s;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            servicesIpv4CidrBlock_ = s;
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            tpuIpv4CidrBlock_ = s;
-            break;
-          }
-          case 120: {
-
-            useRoutes_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -172,7 +60,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USE_IP_ALIASES_FIELD_NUMBER = 1;
-  private boolean useIpAliases_;
+  private boolean useIpAliases_ = false;
   /**
    * <pre>
    * Whether alias IPs will be used for pod IPs in the cluster.
@@ -190,7 +78,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CREATE_SUBNETWORK_FIELD_NUMBER = 2;
-  private boolean createSubnetwork_;
+  private boolean createSubnetwork_ = false;
   /**
    * <pre>
    * Whether a new subnetwork will be created automatically for the cluster.
@@ -206,7 +94,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBNETWORK_NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object subnetworkName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object subnetworkName_ = "";
   /**
    * <pre>
    * A custom subnetwork name to be used if `create_subnetwork` is true.  If
@@ -256,7 +145,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLUSTER_IPV4_CIDR_FIELD_NUMBER = 4;
-  private volatile java.lang.Object clusterIpv4Cidr_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clusterIpv4Cidr_ = "";
   /**
    * <pre>
    * This field is deprecated, use cluster_ipv4_cidr_block.
@@ -264,7 +154,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string cluster_ipv4_cidr = 4 [deprecated = true];</code>
    * @deprecated google.container.v1.IPAllocationPolicy.cluster_ipv4_cidr is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=1251
+   *     See google/container/v1/cluster_service.proto;l=1307
    * @return The clusterIpv4Cidr.
    */
   @java.lang.Override
@@ -287,7 +177,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string cluster_ipv4_cidr = 4 [deprecated = true];</code>
    * @deprecated google.container.v1.IPAllocationPolicy.cluster_ipv4_cidr is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=1251
+   *     See google/container/v1/cluster_service.proto;l=1307
    * @return The bytes for clusterIpv4Cidr.
    */
   @java.lang.Override
@@ -306,7 +196,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NODE_IPV4_CIDR_FIELD_NUMBER = 5;
-  private volatile java.lang.Object nodeIpv4Cidr_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nodeIpv4Cidr_ = "";
   /**
    * <pre>
    * This field is deprecated, use node_ipv4_cidr_block.
@@ -314,7 +205,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string node_ipv4_cidr = 5 [deprecated = true];</code>
    * @deprecated google.container.v1.IPAllocationPolicy.node_ipv4_cidr is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=1254
+   *     See google/container/v1/cluster_service.proto;l=1310
    * @return The nodeIpv4Cidr.
    */
   @java.lang.Override
@@ -337,7 +228,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string node_ipv4_cidr = 5 [deprecated = true];</code>
    * @deprecated google.container.v1.IPAllocationPolicy.node_ipv4_cidr is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=1254
+   *     See google/container/v1/cluster_service.proto;l=1310
    * @return The bytes for nodeIpv4Cidr.
    */
   @java.lang.Override
@@ -356,7 +247,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICES_IPV4_CIDR_FIELD_NUMBER = 6;
-  private volatile java.lang.Object servicesIpv4Cidr_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object servicesIpv4Cidr_ = "";
   /**
    * <pre>
    * This field is deprecated, use services_ipv4_cidr_block.
@@ -364,7 +256,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string services_ipv4_cidr = 6 [deprecated = true];</code>
    * @deprecated google.container.v1.IPAllocationPolicy.services_ipv4_cidr is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=1257
+   *     See google/container/v1/cluster_service.proto;l=1313
    * @return The servicesIpv4Cidr.
    */
   @java.lang.Override
@@ -387,7 +279,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string services_ipv4_cidr = 6 [deprecated = true];</code>
    * @deprecated google.container.v1.IPAllocationPolicy.services_ipv4_cidr is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=1257
+   *     See google/container/v1/cluster_service.proto;l=1313
    * @return The bytes for servicesIpv4Cidr.
    */
   @java.lang.Override
@@ -406,7 +298,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLUSTER_SECONDARY_RANGE_NAME_FIELD_NUMBER = 7;
-  private volatile java.lang.Object clusterSecondaryRangeName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clusterSecondaryRangeName_ = "";
   /**
    * <pre>
    * The name of the secondary range to be used for the cluster CIDR
@@ -462,7 +355,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICES_SECONDARY_RANGE_NAME_FIELD_NUMBER = 8;
-  private volatile java.lang.Object servicesSecondaryRangeName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object servicesSecondaryRangeName_ = "";
   /**
    * <pre>
    * The name of the secondary range to be used as for the services
@@ -518,7 +412,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLUSTER_IPV4_CIDR_BLOCK_FIELD_NUMBER = 9;
-  private volatile java.lang.Object clusterIpv4CidrBlock_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clusterIpv4CidrBlock_ = "";
   /**
    * <pre>
    * The IP address range for the cluster pod IPs. If this field is set, then
@@ -584,7 +479,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NODE_IPV4_CIDR_BLOCK_FIELD_NUMBER = 10;
-  private volatile java.lang.Object nodeIpv4CidrBlock_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nodeIpv4CidrBlock_ = "";
   /**
    * <pre>
    * The IP address range of the instance IPs in this cluster.
@@ -648,7 +544,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICES_IPV4_CIDR_BLOCK_FIELD_NUMBER = 11;
-  private volatile java.lang.Object servicesIpv4CidrBlock_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object servicesIpv4CidrBlock_ = "";
   /**
    * <pre>
    * The IP address range of the services IPs in this cluster. If blank, a range
@@ -714,7 +611,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TPU_IPV4_CIDR_BLOCK_FIELD_NUMBER = 13;
-  private volatile java.lang.Object tpuIpv4CidrBlock_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object tpuIpv4CidrBlock_ = "";
   /**
    * <pre>
    * The IP address range of the Cloud TPUs in this cluster. If unspecified, a
@@ -780,7 +678,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USE_ROUTES_FIELD_NUMBER = 15;
-  private boolean useRoutes_;
+  private boolean useRoutes_ = false;
   /**
    * <pre>
    * Whether routes will be used for pod IPs in the cluster.
@@ -795,6 +693,58 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean getUseRoutes() {
     return useRoutes_;
+  }
+
+  public static final int STACK_TYPE_FIELD_NUMBER = 16;
+  private int stackType_ = 0;
+  /**
+   * <pre>
+   * The IP stack type of the cluster
+   * </pre>
+   *
+   * <code>.google.container.v1.StackType stack_type = 16;</code>
+   * @return The enum numeric value on the wire for stackType.
+   */
+  @java.lang.Override public int getStackTypeValue() {
+    return stackType_;
+  }
+  /**
+   * <pre>
+   * The IP stack type of the cluster
+   * </pre>
+   *
+   * <code>.google.container.v1.StackType stack_type = 16;</code>
+   * @return The stackType.
+   */
+  @java.lang.Override public com.google.container.v1.StackType getStackType() {
+    com.google.container.v1.StackType result = com.google.container.v1.StackType.forNumber(stackType_);
+    return result == null ? com.google.container.v1.StackType.UNRECOGNIZED : result;
+  }
+
+  public static final int IPV6_ACCESS_TYPE_FIELD_NUMBER = 17;
+  private int ipv6AccessType_ = 0;
+  /**
+   * <pre>
+   * The ipv6 access type (internal or external) when create_subnetwork is true
+   * </pre>
+   *
+   * <code>.google.container.v1.IPv6AccessType ipv6_access_type = 17;</code>
+   * @return The enum numeric value on the wire for ipv6AccessType.
+   */
+  @java.lang.Override public int getIpv6AccessTypeValue() {
+    return ipv6AccessType_;
+  }
+  /**
+   * <pre>
+   * The ipv6 access type (internal or external) when create_subnetwork is true
+   * </pre>
+   *
+   * <code>.google.container.v1.IPv6AccessType ipv6_access_type = 17;</code>
+   * @return The ipv6AccessType.
+   */
+  @java.lang.Override public com.google.container.v1.IPv6AccessType getIpv6AccessType() {
+    com.google.container.v1.IPv6AccessType result = com.google.container.v1.IPv6AccessType.forNumber(ipv6AccessType_);
+    return result == null ? com.google.container.v1.IPv6AccessType.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -850,7 +800,13 @@ private static final long serialVersionUID = 0L;
     if (useRoutes_ != false) {
       output.writeBool(15, useRoutes_);
     }
-    unknownFields.writeTo(output);
+    if (stackType_ != com.google.container.v1.StackType.STACK_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(16, stackType_);
+    }
+    if (ipv6AccessType_ != com.google.container.v1.IPv6AccessType.IPV6_ACCESS_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(17, ipv6AccessType_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -901,7 +857,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(15, useRoutes_);
     }
-    size += unknownFields.getSerializedSize();
+    if (stackType_ != com.google.container.v1.StackType.STACK_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(16, stackType_);
+    }
+    if (ipv6AccessType_ != com.google.container.v1.IPv6AccessType.IPV6_ACCESS_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(17, ipv6AccessType_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -942,7 +906,9 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTpuIpv4CidrBlock())) return false;
     if (getUseRoutes()
         != other.getUseRoutes()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (stackType_ != other.stackType_) return false;
+    if (ipv6AccessType_ != other.ipv6AccessType_) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -982,7 +948,11 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + USE_ROUTES_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getUseRoutes());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + STACK_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + stackType_;
+    hash = (37 * hash) + IPV6_ACCESS_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + ipv6AccessType_;
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1103,48 +1073,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1.IPAllocationPolicy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       useIpAliases_ = false;
-
       createSubnetwork_ = false;
-
       subnetworkName_ = "";
-
       clusterIpv4Cidr_ = "";
-
       nodeIpv4Cidr_ = "";
-
       servicesIpv4Cidr_ = "";
-
       clusterSecondaryRangeName_ = "";
-
       servicesSecondaryRangeName_ = "";
-
       clusterIpv4CidrBlock_ = "";
-
       nodeIpv4CidrBlock_ = "";
-
       servicesIpv4CidrBlock_ = "";
-
       tpuIpv4CidrBlock_ = "";
-
       useRoutes_ = false;
-
+      stackType_ = 0;
+      ipv6AccessType_ = 0;
       return this;
     }
 
@@ -1171,21 +1126,58 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1.IPAllocationPolicy buildPartial() {
       com.google.container.v1.IPAllocationPolicy result = new com.google.container.v1.IPAllocationPolicy(this);
-      result.useIpAliases_ = useIpAliases_;
-      result.createSubnetwork_ = createSubnetwork_;
-      result.subnetworkName_ = subnetworkName_;
-      result.clusterIpv4Cidr_ = clusterIpv4Cidr_;
-      result.nodeIpv4Cidr_ = nodeIpv4Cidr_;
-      result.servicesIpv4Cidr_ = servicesIpv4Cidr_;
-      result.clusterSecondaryRangeName_ = clusterSecondaryRangeName_;
-      result.servicesSecondaryRangeName_ = servicesSecondaryRangeName_;
-      result.clusterIpv4CidrBlock_ = clusterIpv4CidrBlock_;
-      result.nodeIpv4CidrBlock_ = nodeIpv4CidrBlock_;
-      result.servicesIpv4CidrBlock_ = servicesIpv4CidrBlock_;
-      result.tpuIpv4CidrBlock_ = tpuIpv4CidrBlock_;
-      result.useRoutes_ = useRoutes_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.container.v1.IPAllocationPolicy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.useIpAliases_ = useIpAliases_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.createSubnetwork_ = createSubnetwork_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.subnetworkName_ = subnetworkName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.clusterIpv4Cidr_ = clusterIpv4Cidr_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.nodeIpv4Cidr_ = nodeIpv4Cidr_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.servicesIpv4Cidr_ = servicesIpv4Cidr_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.clusterSecondaryRangeName_ = clusterSecondaryRangeName_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.servicesSecondaryRangeName_ = servicesSecondaryRangeName_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.clusterIpv4CidrBlock_ = clusterIpv4CidrBlock_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.nodeIpv4CidrBlock_ = nodeIpv4CidrBlock_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.servicesIpv4CidrBlock_ = servicesIpv4CidrBlock_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.tpuIpv4CidrBlock_ = tpuIpv4CidrBlock_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.useRoutes_ = useRoutes_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.stackType_ = stackType_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.ipv6AccessType_ = ipv6AccessType_;
+      }
     }
 
     @java.lang.Override
@@ -1240,48 +1232,64 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSubnetworkName().isEmpty()) {
         subnetworkName_ = other.subnetworkName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getClusterIpv4Cidr().isEmpty()) {
         clusterIpv4Cidr_ = other.clusterIpv4Cidr_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getNodeIpv4Cidr().isEmpty()) {
         nodeIpv4Cidr_ = other.nodeIpv4Cidr_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getServicesIpv4Cidr().isEmpty()) {
         servicesIpv4Cidr_ = other.servicesIpv4Cidr_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getClusterSecondaryRangeName().isEmpty()) {
         clusterSecondaryRangeName_ = other.clusterSecondaryRangeName_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getServicesSecondaryRangeName().isEmpty()) {
         servicesSecondaryRangeName_ = other.servicesSecondaryRangeName_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.getClusterIpv4CidrBlock().isEmpty()) {
         clusterIpv4CidrBlock_ = other.clusterIpv4CidrBlock_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (!other.getNodeIpv4CidrBlock().isEmpty()) {
         nodeIpv4CidrBlock_ = other.nodeIpv4CidrBlock_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (!other.getServicesIpv4CidrBlock().isEmpty()) {
         servicesIpv4CidrBlock_ = other.servicesIpv4CidrBlock_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (!other.getTpuIpv4CidrBlock().isEmpty()) {
         tpuIpv4CidrBlock_ = other.tpuIpv4CidrBlock_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (other.getUseRoutes() != false) {
         setUseRoutes(other.getUseRoutes());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.stackType_ != 0) {
+        setStackTypeValue(other.getStackTypeValue());
+      }
+      if (other.ipv6AccessType_ != 0) {
+        setIpv6AccessTypeValue(other.getIpv6AccessTypeValue());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1296,19 +1304,108 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1.IPAllocationPolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              useIpAliases_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              createSubnetwork_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              subnetworkName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              clusterIpv4Cidr_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              nodeIpv4Cidr_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              servicesIpv4Cidr_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              clusterSecondaryRangeName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              servicesSecondaryRangeName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              clusterIpv4CidrBlock_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              nodeIpv4CidrBlock_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              servicesIpv4CidrBlock_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 106: {
+              tpuIpv4CidrBlock_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 106
+            case 120: {
+              useRoutes_ = input.readBool();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 120
+            case 128: {
+              stackType_ = input.readEnum();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 128
+            case 136: {
+              ipv6AccessType_ = input.readEnum();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 136
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1.IPAllocationPolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean useIpAliases_ ;
     /**
@@ -1341,6 +1438,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUseIpAliases(boolean value) {
       
       useIpAliases_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1356,7 +1454,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUseIpAliases() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       useIpAliases_ = false;
       onChanged();
       return this;
@@ -1389,6 +1487,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCreateSubnetwork(boolean value) {
       
       createSubnetwork_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1402,7 +1501,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCreateSubnetwork() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       createSubnetwork_ = false;
       onChanged();
       return this;
@@ -1467,11 +1566,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubnetworkName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       subnetworkName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1486,8 +1583,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSubnetworkName() {
-      
       subnetworkName_ = getDefaultInstance().getSubnetworkName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1504,12 +1601,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubnetworkNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       subnetworkName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1522,7 +1617,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string cluster_ipv4_cidr = 4 [deprecated = true];</code>
      * @deprecated google.container.v1.IPAllocationPolicy.cluster_ipv4_cidr is deprecated.
-     *     See google/container/v1/cluster_service.proto;l=1251
+     *     See google/container/v1/cluster_service.proto;l=1307
      * @return The clusterIpv4Cidr.
      */
     @java.lang.Deprecated public java.lang.String getClusterIpv4Cidr() {
@@ -1544,7 +1639,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string cluster_ipv4_cidr = 4 [deprecated = true];</code>
      * @deprecated google.container.v1.IPAllocationPolicy.cluster_ipv4_cidr is deprecated.
-     *     See google/container/v1/cluster_service.proto;l=1251
+     *     See google/container/v1/cluster_service.proto;l=1307
      * @return The bytes for clusterIpv4Cidr.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -1567,17 +1662,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string cluster_ipv4_cidr = 4 [deprecated = true];</code>
      * @deprecated google.container.v1.IPAllocationPolicy.cluster_ipv4_cidr is deprecated.
-     *     See google/container/v1/cluster_service.proto;l=1251
+     *     See google/container/v1/cluster_service.proto;l=1307
      * @param value The clusterIpv4Cidr to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setClusterIpv4Cidr(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clusterIpv4Cidr_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1588,12 +1681,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string cluster_ipv4_cidr = 4 [deprecated = true];</code>
      * @deprecated google.container.v1.IPAllocationPolicy.cluster_ipv4_cidr is deprecated.
-     *     See google/container/v1/cluster_service.proto;l=1251
+     *     See google/container/v1/cluster_service.proto;l=1307
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearClusterIpv4Cidr() {
-      
       clusterIpv4Cidr_ = getDefaultInstance().getClusterIpv4Cidr();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1604,18 +1697,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string cluster_ipv4_cidr = 4 [deprecated = true];</code>
      * @deprecated google.container.v1.IPAllocationPolicy.cluster_ipv4_cidr is deprecated.
-     *     See google/container/v1/cluster_service.proto;l=1251
+     *     See google/container/v1/cluster_service.proto;l=1307
      * @param value The bytes for clusterIpv4Cidr to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setClusterIpv4CidrBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clusterIpv4Cidr_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1628,7 +1719,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string node_ipv4_cidr = 5 [deprecated = true];</code>
      * @deprecated google.container.v1.IPAllocationPolicy.node_ipv4_cidr is deprecated.
-     *     See google/container/v1/cluster_service.proto;l=1254
+     *     See google/container/v1/cluster_service.proto;l=1310
      * @return The nodeIpv4Cidr.
      */
     @java.lang.Deprecated public java.lang.String getNodeIpv4Cidr() {
@@ -1650,7 +1741,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string node_ipv4_cidr = 5 [deprecated = true];</code>
      * @deprecated google.container.v1.IPAllocationPolicy.node_ipv4_cidr is deprecated.
-     *     See google/container/v1/cluster_service.proto;l=1254
+     *     See google/container/v1/cluster_service.proto;l=1310
      * @return The bytes for nodeIpv4Cidr.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -1673,17 +1764,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string node_ipv4_cidr = 5 [deprecated = true];</code>
      * @deprecated google.container.v1.IPAllocationPolicy.node_ipv4_cidr is deprecated.
-     *     See google/container/v1/cluster_service.proto;l=1254
+     *     See google/container/v1/cluster_service.proto;l=1310
      * @param value The nodeIpv4Cidr to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setNodeIpv4Cidr(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       nodeIpv4Cidr_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1694,12 +1783,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string node_ipv4_cidr = 5 [deprecated = true];</code>
      * @deprecated google.container.v1.IPAllocationPolicy.node_ipv4_cidr is deprecated.
-     *     See google/container/v1/cluster_service.proto;l=1254
+     *     See google/container/v1/cluster_service.proto;l=1310
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearNodeIpv4Cidr() {
-      
       nodeIpv4Cidr_ = getDefaultInstance().getNodeIpv4Cidr();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1710,18 +1799,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string node_ipv4_cidr = 5 [deprecated = true];</code>
      * @deprecated google.container.v1.IPAllocationPolicy.node_ipv4_cidr is deprecated.
-     *     See google/container/v1/cluster_service.proto;l=1254
+     *     See google/container/v1/cluster_service.proto;l=1310
      * @param value The bytes for nodeIpv4Cidr to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setNodeIpv4CidrBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nodeIpv4Cidr_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1734,7 +1821,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string services_ipv4_cidr = 6 [deprecated = true];</code>
      * @deprecated google.container.v1.IPAllocationPolicy.services_ipv4_cidr is deprecated.
-     *     See google/container/v1/cluster_service.proto;l=1257
+     *     See google/container/v1/cluster_service.proto;l=1313
      * @return The servicesIpv4Cidr.
      */
     @java.lang.Deprecated public java.lang.String getServicesIpv4Cidr() {
@@ -1756,7 +1843,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string services_ipv4_cidr = 6 [deprecated = true];</code>
      * @deprecated google.container.v1.IPAllocationPolicy.services_ipv4_cidr is deprecated.
-     *     See google/container/v1/cluster_service.proto;l=1257
+     *     See google/container/v1/cluster_service.proto;l=1313
      * @return The bytes for servicesIpv4Cidr.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -1779,17 +1866,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string services_ipv4_cidr = 6 [deprecated = true];</code>
      * @deprecated google.container.v1.IPAllocationPolicy.services_ipv4_cidr is deprecated.
-     *     See google/container/v1/cluster_service.proto;l=1257
+     *     See google/container/v1/cluster_service.proto;l=1313
      * @param value The servicesIpv4Cidr to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setServicesIpv4Cidr(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       servicesIpv4Cidr_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1800,12 +1885,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string services_ipv4_cidr = 6 [deprecated = true];</code>
      * @deprecated google.container.v1.IPAllocationPolicy.services_ipv4_cidr is deprecated.
-     *     See google/container/v1/cluster_service.proto;l=1257
+     *     See google/container/v1/cluster_service.proto;l=1313
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearServicesIpv4Cidr() {
-      
       servicesIpv4Cidr_ = getDefaultInstance().getServicesIpv4Cidr();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1816,18 +1901,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string services_ipv4_cidr = 6 [deprecated = true];</code>
      * @deprecated google.container.v1.IPAllocationPolicy.services_ipv4_cidr is deprecated.
-     *     See google/container/v1/cluster_service.proto;l=1257
+     *     See google/container/v1/cluster_service.proto;l=1313
      * @param value The bytes for servicesIpv4Cidr to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setServicesIpv4CidrBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       servicesIpv4Cidr_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1900,11 +1983,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterSecondaryRangeName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clusterSecondaryRangeName_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1922,8 +2003,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClusterSecondaryRangeName() {
-      
       clusterSecondaryRangeName_ = getDefaultInstance().getClusterSecondaryRangeName();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1943,12 +2024,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterSecondaryRangeNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clusterSecondaryRangeName_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2021,11 +2100,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServicesSecondaryRangeName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       servicesSecondaryRangeName_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2043,8 +2120,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServicesSecondaryRangeName() {
-      
       servicesSecondaryRangeName_ = getDefaultInstance().getServicesSecondaryRangeName();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2064,12 +2141,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServicesSecondaryRangeNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       servicesSecondaryRangeName_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2157,11 +2232,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterIpv4CidrBlock(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clusterIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2184,8 +2257,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClusterIpv4CidrBlock() {
-      
       clusterIpv4CidrBlock_ = getDefaultInstance().getClusterIpv4CidrBlock();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2210,12 +2283,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterIpv4CidrBlockBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clusterIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2300,11 +2371,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNodeIpv4CidrBlock(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       nodeIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2326,8 +2395,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNodeIpv4CidrBlock() {
-      
       nodeIpv4CidrBlock_ = getDefaultInstance().getNodeIpv4CidrBlock();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2351,12 +2420,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNodeIpv4CidrBlockBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nodeIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2444,11 +2511,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServicesIpv4CidrBlock(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       servicesIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2471,8 +2536,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServicesIpv4CidrBlock() {
-      
       servicesIpv4CidrBlock_ = getDefaultInstance().getServicesIpv4CidrBlock();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -2497,12 +2562,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServicesIpv4CidrBlockBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       servicesIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2590,11 +2653,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTpuIpv4CidrBlock(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       tpuIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2617,8 +2678,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTpuIpv4CidrBlock() {
-      
       tpuIpv4CidrBlock_ = getDefaultInstance().getTpuIpv4CidrBlock();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -2643,12 +2704,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTpuIpv4CidrBlockBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       tpuIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2684,6 +2743,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUseRoutes(boolean value) {
       
       useRoutes_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -2699,8 +2759,154 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUseRoutes() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       useRoutes_ = false;
+      onChanged();
+      return this;
+    }
+
+    private int stackType_ = 0;
+    /**
+     * <pre>
+     * The IP stack type of the cluster
+     * </pre>
+     *
+     * <code>.google.container.v1.StackType stack_type = 16;</code>
+     * @return The enum numeric value on the wire for stackType.
+     */
+    @java.lang.Override public int getStackTypeValue() {
+      return stackType_;
+    }
+    /**
+     * <pre>
+     * The IP stack type of the cluster
+     * </pre>
+     *
+     * <code>.google.container.v1.StackType stack_type = 16;</code>
+     * @param value The enum numeric value on the wire for stackType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStackTypeValue(int value) {
+      stackType_ = value;
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The IP stack type of the cluster
+     * </pre>
+     *
+     * <code>.google.container.v1.StackType stack_type = 16;</code>
+     * @return The stackType.
+     */
+    @java.lang.Override
+    public com.google.container.v1.StackType getStackType() {
+      com.google.container.v1.StackType result = com.google.container.v1.StackType.forNumber(stackType_);
+      return result == null ? com.google.container.v1.StackType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * The IP stack type of the cluster
+     * </pre>
+     *
+     * <code>.google.container.v1.StackType stack_type = 16;</code>
+     * @param value The stackType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStackType(com.google.container.v1.StackType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00002000;
+      stackType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The IP stack type of the cluster
+     * </pre>
+     *
+     * <code>.google.container.v1.StackType stack_type = 16;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStackType() {
+      bitField0_ = (bitField0_ & ~0x00002000);
+      stackType_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int ipv6AccessType_ = 0;
+    /**
+     * <pre>
+     * The ipv6 access type (internal or external) when create_subnetwork is true
+     * </pre>
+     *
+     * <code>.google.container.v1.IPv6AccessType ipv6_access_type = 17;</code>
+     * @return The enum numeric value on the wire for ipv6AccessType.
+     */
+    @java.lang.Override public int getIpv6AccessTypeValue() {
+      return ipv6AccessType_;
+    }
+    /**
+     * <pre>
+     * The ipv6 access type (internal or external) when create_subnetwork is true
+     * </pre>
+     *
+     * <code>.google.container.v1.IPv6AccessType ipv6_access_type = 17;</code>
+     * @param value The enum numeric value on the wire for ipv6AccessType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIpv6AccessTypeValue(int value) {
+      ipv6AccessType_ = value;
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The ipv6 access type (internal or external) when create_subnetwork is true
+     * </pre>
+     *
+     * <code>.google.container.v1.IPv6AccessType ipv6_access_type = 17;</code>
+     * @return The ipv6AccessType.
+     */
+    @java.lang.Override
+    public com.google.container.v1.IPv6AccessType getIpv6AccessType() {
+      com.google.container.v1.IPv6AccessType result = com.google.container.v1.IPv6AccessType.forNumber(ipv6AccessType_);
+      return result == null ? com.google.container.v1.IPv6AccessType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * The ipv6 access type (internal or external) when create_subnetwork is true
+     * </pre>
+     *
+     * <code>.google.container.v1.IPv6AccessType ipv6_access_type = 17;</code>
+     * @param value The ipv6AccessType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIpv6AccessType(com.google.container.v1.IPv6AccessType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00004000;
+      ipv6AccessType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The ipv6 access type (internal or external) when create_subnetwork is true
+     * </pre>
+     *
+     * <code>.google.container.v1.IPv6AccessType ipv6_access_type = 17;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIpv6AccessType() {
+      bitField0_ = (bitField0_ & ~0x00004000);
+      ipv6AccessType_ = 0;
       onChanged();
       return this;
     }
@@ -2737,7 +2943,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new IPAllocationPolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

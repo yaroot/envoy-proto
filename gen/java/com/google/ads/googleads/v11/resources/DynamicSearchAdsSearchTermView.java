@@ -39,91 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DynamicSearchAdsSearchTermView(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceName_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            searchTerm_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            headline_ = s;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            landingPage_ = s;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            pageUrl_ = s;
-            break;
-          }
-          case 104: {
-            bitField0_ |= 0x00000010;
-            hasNegativeKeyword_ = input.readBool();
-            break;
-          }
-          case 112: {
-            bitField0_ |= 0x00000020;
-            hasMatchingKeyword_ = input.readBool();
-            break;
-          }
-          case 120: {
-            bitField0_ |= 0x00000040;
-            hasNegativeUrl_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.resources.DynamicSearchAdsSearchTermViewProto.internal_static_google_ads_googleads_v11_resources_DynamicSearchAdsSearchTermView_descriptor;
@@ -139,7 +54,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object resourceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceName_ = "";
   /**
    * <pre>
    * Output only. The resource name of the dynamic search ads search term view.
@@ -189,7 +105,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SEARCH_TERM_FIELD_NUMBER = 9;
-  private volatile java.lang.Object searchTerm_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object searchTerm_ = "";
   /**
    * <pre>
    * Output only. Search term
@@ -250,7 +167,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HEADLINE_FIELD_NUMBER = 10;
-  private volatile java.lang.Object headline_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object headline_ = "";
   /**
    * <pre>
    * Output only. The dynamically generated headline of the Dynamic Search Ad.
@@ -311,7 +229,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LANDING_PAGE_FIELD_NUMBER = 11;
-  private volatile java.lang.Object landingPage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object landingPage_ = "";
   /**
    * <pre>
    * Output only. The dynamically selected landing page URL of the impression.
@@ -372,7 +291,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_URL_FIELD_NUMBER = 12;
-  private volatile java.lang.Object pageUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageUrl_ = "";
   /**
    * <pre>
    * Output only. The URL of page feed item served for the impression.
@@ -433,7 +353,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HAS_NEGATIVE_KEYWORD_FIELD_NUMBER = 13;
-  private boolean hasNegativeKeyword_;
+  private boolean hasNegativeKeyword_ = false;
   /**
    * <pre>
    * Output only. True if query matches a negative keyword.
@@ -462,7 +382,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HAS_MATCHING_KEYWORD_FIELD_NUMBER = 14;
-  private boolean hasMatchingKeyword_;
+  private boolean hasMatchingKeyword_ = false;
   /**
    * <pre>
    * Output only. True if query is added to targeted keywords.
@@ -491,7 +411,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HAS_NEGATIVE_URL_FIELD_NUMBER = 15;
-  private boolean hasNegativeUrl_;
+  private boolean hasNegativeUrl_ = false;
   /**
    * <pre>
    * Output only. True if query matches a negative url.
@@ -557,7 +477,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000040) != 0)) {
       output.writeBool(15, hasNegativeUrl_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -593,7 +513,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(15, hasNegativeUrl_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -645,7 +565,7 @@ private static final long serialVersionUID = 0L;
       if (getHasNegativeUrl()
           != other.getHasNegativeUrl()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -689,7 +609,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getHasNegativeUrl());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -810,38 +730,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.resources.DynamicSearchAdsSearchTermView.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       resourceName_ = "";
-
       searchTerm_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       headline_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       landingPage_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       pageUrl_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       hasNegativeKeyword_ = false;
-      bitField0_ = (bitField0_ & ~0x00000010);
       hasMatchingKeyword_ = false;
-      bitField0_ = (bitField0_ & ~0x00000020);
       hasNegativeUrl_ = false;
-      bitField0_ = (bitField0_ & ~0x00000040);
       return this;
     }
 
@@ -868,40 +776,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.resources.DynamicSearchAdsSearchTermView buildPartial() {
       com.google.ads.googleads.v11.resources.DynamicSearchAdsSearchTermView result = new com.google.ads.googleads.v11.resources.DynamicSearchAdsSearchTermView(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.resources.DynamicSearchAdsSearchTermView result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.resourceName_ = resourceName_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resourceName_ = resourceName_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.searchTerm_ = searchTerm_;
         to_bitField0_ |= 0x00000001;
       }
-      result.searchTerm_ = searchTerm_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.headline_ = headline_;
         to_bitField0_ |= 0x00000002;
       }
-      result.headline_ = headline_;
-      if (((from_bitField0_ & 0x00000004) != 0)) {
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.landingPage_ = landingPage_;
         to_bitField0_ |= 0x00000004;
       }
-      result.landingPage_ = landingPage_;
-      if (((from_bitField0_ & 0x00000008) != 0)) {
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.pageUrl_ = pageUrl_;
         to_bitField0_ |= 0x00000008;
       }
-      result.pageUrl_ = pageUrl_;
-      if (((from_bitField0_ & 0x00000010) != 0)) {
+      if (((from_bitField0_ & 0x00000020) != 0)) {
         result.hasNegativeKeyword_ = hasNegativeKeyword_;
         to_bitField0_ |= 0x00000010;
       }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
+      if (((from_bitField0_ & 0x00000040) != 0)) {
         result.hasMatchingKeyword_ = hasMatchingKeyword_;
         to_bitField0_ |= 0x00000020;
       }
-      if (((from_bitField0_ & 0x00000040) != 0)) {
+      if (((from_bitField0_ & 0x00000080) != 0)) {
         result.hasNegativeUrl_ = hasNegativeUrl_;
         to_bitField0_ |= 0x00000040;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -950,26 +864,27 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v11.resources.DynamicSearchAdsSearchTermView.getDefaultInstance()) return this;
       if (!other.getResourceName().isEmpty()) {
         resourceName_ = other.resourceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasSearchTerm()) {
-        bitField0_ |= 0x00000001;
         searchTerm_ = other.searchTerm_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasHeadline()) {
-        bitField0_ |= 0x00000002;
         headline_ = other.headline_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasLandingPage()) {
-        bitField0_ |= 0x00000004;
         landingPage_ = other.landingPage_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasPageUrl()) {
-        bitField0_ |= 0x00000008;
         pageUrl_ = other.pageUrl_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasHasNegativeKeyword()) {
@@ -981,7 +896,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasHasNegativeUrl()) {
         setHasNegativeUrl(other.getHasNegativeUrl());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -996,17 +911,70 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.resources.DynamicSearchAdsSearchTermView parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              resourceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 74: {
+              searchTerm_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 74
+            case 82: {
+              headline_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 82
+            case 90: {
+              landingPage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 90
+            case 98: {
+              pageUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 98
+            case 104: {
+              hasNegativeKeyword_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 104
+            case 112: {
+              hasMatchingKeyword_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 112
+            case 120: {
+              hasNegativeUrl_ = input.readBool();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 120
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.resources.DynamicSearchAdsSearchTermView) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1070,11 +1038,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1089,8 +1055,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceName() {
-      
       resourceName_ = getDefaultInstance().getResourceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1107,12 +1073,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1128,7 +1092,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the searchTerm field is set.
      */
     public boolean hasSearchTerm() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1185,11 +1149,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSearchTerm(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       searchTerm_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1203,8 +1165,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSearchTerm() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       searchTerm_ = getDefaultInstance().getSearchTerm();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1220,12 +1182,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSearchTermBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       searchTerm_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1241,7 +1201,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the headline field is set.
      */
     public boolean hasHeadline() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1298,11 +1258,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHeadline(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       headline_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1316,8 +1274,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHeadline() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       headline_ = getDefaultInstance().getHeadline();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1333,12 +1291,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHeadlineBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       headline_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1354,7 +1310,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the landingPage field is set.
      */
     public boolean hasLandingPage() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1411,11 +1367,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLandingPage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       landingPage_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1429,8 +1383,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLandingPage() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       landingPage_ = getDefaultInstance().getLandingPage();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1446,12 +1400,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLandingPageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       landingPage_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1467,7 +1419,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the pageUrl field is set.
      */
     public boolean hasPageUrl() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1524,11 +1476,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       pageUrl_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1542,8 +1492,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageUrl() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       pageUrl_ = getDefaultInstance().getPageUrl();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1559,12 +1509,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageUrl_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1581,7 +1529,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasHasNegativeKeyword() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1607,8 +1555,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHasNegativeKeyword(boolean value) {
-      bitField0_ |= 0x00000010;
+      
       hasNegativeKeyword_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1622,7 +1571,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHasNegativeKeyword() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000020);
       hasNegativeKeyword_ = false;
       onChanged();
       return this;
@@ -1640,7 +1589,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasHasMatchingKeyword() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1666,8 +1615,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHasMatchingKeyword(boolean value) {
-      bitField0_ |= 0x00000020;
+      
       hasMatchingKeyword_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1681,7 +1631,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHasMatchingKeyword() {
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000040);
       hasMatchingKeyword_ = false;
       onChanged();
       return this;
@@ -1699,7 +1649,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasHasNegativeUrl() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -1725,8 +1675,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHasNegativeUrl(boolean value) {
-      bitField0_ |= 0x00000040;
+      
       hasNegativeUrl_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1740,7 +1691,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHasNegativeUrl() {
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000080);
       hasNegativeUrl_ = false;
       onChanged();
       return this;
@@ -1778,7 +1729,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DynamicSearchAdsSearchTermView(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

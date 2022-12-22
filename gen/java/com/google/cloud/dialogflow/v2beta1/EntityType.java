@@ -48,87 +48,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EntityType(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            kind_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            autoExpansionMode_ = rawValue;
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              entities_ = new java.util.ArrayList<com.google.cloud.dialogflow.v2beta1.EntityType.Entity>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            entities_.add(
-                input.readMessage(com.google.cloud.dialogflow.v2beta1.EntityType.Entity.parser(), extensionRegistry));
-            break;
-          }
-          case 56: {
-
-            enableFuzzyExtraction_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        entities_ = java.util.Collections.unmodifiableList(entities_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.v2beta1.EntityTypeProto.internal_static_google_cloud_dialogflow_v2beta1_EntityType_descriptor;
@@ -572,64 +491,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Entity(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              value_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                synonyms_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              synonyms_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          synonyms_ = synonyms_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dialogflow.v2beta1.EntityTypeProto.internal_static_google_cloud_dialogflow_v2beta1_EntityType_Entity_descriptor;
@@ -644,7 +505,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int VALUE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object value_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object value_ = "";
     /**
      * <pre>
      * Required. The primary value associated with this entity entry.
@@ -704,6 +566,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SYNONYMS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList synonyms_;
     /**
      * <pre>
@@ -790,7 +653,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < synonyms_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, synonyms_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -810,7 +673,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getSynonymsList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -829,7 +692,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getValue())) return false;
       if (!getSynonymsList()
           .equals(other.getSynonymsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -846,7 +709,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + SYNONYMS_FIELD_NUMBER;
         hash = (53 * hash) + getSynonymsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -967,26 +830,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dialogflow.v2beta1.EntityType.Entity.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         value_ = "";
-
         synonyms_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -1013,15 +871,25 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dialogflow.v2beta1.EntityType.Entity buildPartial() {
         com.google.cloud.dialogflow.v2beta1.EntityType.Entity result = new com.google.cloud.dialogflow.v2beta1.EntityType.Entity(this);
-        int from_bitField0_ = bitField0_;
-        result.value_ = value_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          synonyms_ = synonyms_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.synonyms_ = synonyms_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.dialogflow.v2beta1.EntityType.Entity result) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          synonyms_ = synonyms_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.synonyms_ = synonyms_;
+      }
+
+      private void buildPartial0(com.google.cloud.dialogflow.v2beta1.EntityType.Entity result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.value_ = value_;
+        }
       }
 
       @java.lang.Override
@@ -1070,19 +938,20 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.dialogflow.v2beta1.EntityType.Entity.getDefaultInstance()) return this;
         if (!other.getValue().isEmpty()) {
           value_ = other.value_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.synonyms_.isEmpty()) {
           if (synonyms_.isEmpty()) {
             synonyms_ = other.synonyms_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureSynonymsIsMutable();
             synonyms_.addAll(other.synonyms_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1097,17 +966,41 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.v2beta1.EntityType.Entity parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                value_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureSynonymsIsMutable();
+                synonyms_.add(s);
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.v2beta1.EntityType.Entity) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1186,11 +1079,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setValue(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         value_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1210,8 +1101,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearValue() {
-        
         value_ = getDefaultInstance().getValue();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1233,21 +1124,19 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setValueBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         value_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.LazyStringList synonyms_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureSynonymsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           synonyms_ = new com.google.protobuf.LazyStringArrayList(synonyms_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
       /**
@@ -1330,10 +1219,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSynonyms(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSynonymsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureSynonymsIsMutable();
         synonyms_.set(index, value);
         onChanged();
         return this;
@@ -1353,10 +1240,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addSynonyms(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSynonymsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureSynonymsIsMutable();
         synonyms_.add(value);
         onChanged();
         return this;
@@ -1396,7 +1281,7 @@ private static final long serialVersionUID = 0L;
        */
       public Builder clearSynonyms() {
         synonyms_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1415,10 +1300,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addSynonymsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureSynonymsIsMutable();
         synonyms_.add(value);
         onChanged();
@@ -1457,7 +1340,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Entity(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1478,7 +1372,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The unique identifier of the entity type.
@@ -1536,7 +1431,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Required. The name of the entity type.
@@ -1582,7 +1478,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 3;
-  private int kind_;
+  private int kind_ = 0;
   /**
    * <pre>
    * Required. Indicates the kind of entity type.
@@ -1603,13 +1499,12 @@ private static final long serialVersionUID = 0L;
    * @return The kind.
    */
   @java.lang.Override public com.google.cloud.dialogflow.v2beta1.EntityType.Kind getKind() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dialogflow.v2beta1.EntityType.Kind result = com.google.cloud.dialogflow.v2beta1.EntityType.Kind.valueOf(kind_);
+    com.google.cloud.dialogflow.v2beta1.EntityType.Kind result = com.google.cloud.dialogflow.v2beta1.EntityType.Kind.forNumber(kind_);
     return result == null ? com.google.cloud.dialogflow.v2beta1.EntityType.Kind.UNRECOGNIZED : result;
   }
 
   public static final int AUTO_EXPANSION_MODE_FIELD_NUMBER = 4;
-  private int autoExpansionMode_;
+  private int autoExpansionMode_ = 0;
   /**
    * <pre>
    * Optional. Indicates whether the entity type can be automatically
@@ -1632,12 +1527,12 @@ private static final long serialVersionUID = 0L;
    * @return The autoExpansionMode.
    */
   @java.lang.Override public com.google.cloud.dialogflow.v2beta1.EntityType.AutoExpansionMode getAutoExpansionMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dialogflow.v2beta1.EntityType.AutoExpansionMode result = com.google.cloud.dialogflow.v2beta1.EntityType.AutoExpansionMode.valueOf(autoExpansionMode_);
+    com.google.cloud.dialogflow.v2beta1.EntityType.AutoExpansionMode result = com.google.cloud.dialogflow.v2beta1.EntityType.AutoExpansionMode.forNumber(autoExpansionMode_);
     return result == null ? com.google.cloud.dialogflow.v2beta1.EntityType.AutoExpansionMode.UNRECOGNIZED : result;
   }
 
   public static final int ENTITIES_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.dialogflow.v2beta1.EntityType.Entity> entities_;
   /**
    * <pre>
@@ -1698,7 +1593,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_FUZZY_EXTRACTION_FIELD_NUMBER = 7;
-  private boolean enableFuzzyExtraction_;
+  private boolean enableFuzzyExtraction_ = false;
   /**
    * <pre>
    * Optional. Enables fuzzy entity extraction during classification.
@@ -1744,7 +1639,7 @@ private static final long serialVersionUID = 0L;
     if (enableFuzzyExtraction_ != false) {
       output.writeBool(7, enableFuzzyExtraction_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1775,7 +1670,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(7, enableFuzzyExtraction_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1800,7 +1695,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getEntitiesList())) return false;
     if (getEnableFuzzyExtraction()
         != other.getEnableFuzzyExtraction()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1826,7 +1721,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ENABLE_FUZZY_EXTRACTION_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getEnableFuzzyExtraction());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1956,39 +1851,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.v2beta1.EntityType.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getEntitiesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
       kind_ = 0;
-
       autoExpansionMode_ = 0;
-
       if (entitiesBuilder_ == null) {
         entities_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        entities_ = null;
         entitiesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       enableFuzzyExtraction_ = false;
-
       return this;
     }
 
@@ -2015,23 +1901,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.v2beta1.EntityType buildPartial() {
       com.google.cloud.dialogflow.v2beta1.EntityType result = new com.google.cloud.dialogflow.v2beta1.EntityType(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      result.kind_ = kind_;
-      result.autoExpansionMode_ = autoExpansionMode_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.dialogflow.v2beta1.EntityType result) {
       if (entitiesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           entities_ = java.util.Collections.unmodifiableList(entities_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.entities_ = entities_;
       } else {
         result.entities_ = entitiesBuilder_.build();
       }
-      result.enableFuzzyExtraction_ = enableFuzzyExtraction_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.v2beta1.EntityType result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.kind_ = kind_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.autoExpansionMode_ = autoExpansionMode_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.enableFuzzyExtraction_ = enableFuzzyExtraction_;
+      }
     }
 
     @java.lang.Override
@@ -2080,10 +1984,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dialogflow.v2beta1.EntityType.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.kind_ != 0) {
@@ -2096,7 +2002,7 @@ private static final long serialVersionUID = 0L;
         if (!other.entities_.isEmpty()) {
           if (entities_.isEmpty()) {
             entities_ = other.entities_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureEntitiesIsMutable();
             entities_.addAll(other.entities_);
@@ -2109,7 +2015,7 @@ private static final long serialVersionUID = 0L;
             entitiesBuilder_.dispose();
             entitiesBuilder_ = null;
             entities_ = other.entities_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             entitiesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getEntitiesFieldBuilder() : null;
@@ -2121,7 +2027,7 @@ private static final long serialVersionUID = 0L;
       if (other.getEnableFuzzyExtraction() != false) {
         setEnableFuzzyExtraction(other.getEnableFuzzyExtraction());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2136,17 +2042,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.v2beta1.EntityType parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              kind_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              autoExpansionMode_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 50: {
+              com.google.cloud.dialogflow.v2beta1.EntityType.Entity m =
+                  input.readMessage(
+                      com.google.cloud.dialogflow.v2beta1.EntityType.Entity.parser(),
+                      extensionRegistry);
+              if (entitiesBuilder_ == null) {
+                ensureEntitiesIsMutable();
+                entities_.add(m);
+              } else {
+                entitiesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            case 56: {
+              enableFuzzyExtraction_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 56
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.v2beta1.EntityType) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2222,11 +2179,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2245,8 +2200,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2267,12 +2222,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2330,11 +2283,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2347,8 +2298,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2363,12 +2314,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2395,8 +2344,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setKindValue(int value) {
-      
       kind_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2410,8 +2359,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dialogflow.v2beta1.EntityType.Kind getKind() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dialogflow.v2beta1.EntityType.Kind result = com.google.cloud.dialogflow.v2beta1.EntityType.Kind.valueOf(kind_);
+      com.google.cloud.dialogflow.v2beta1.EntityType.Kind result = com.google.cloud.dialogflow.v2beta1.EntityType.Kind.forNumber(kind_);
       return result == null ? com.google.cloud.dialogflow.v2beta1.EntityType.Kind.UNRECOGNIZED : result;
     }
     /**
@@ -2427,7 +2375,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       kind_ = value.getNumber();
       onChanged();
       return this;
@@ -2441,7 +2389,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       kind_ = 0;
       onChanged();
       return this;
@@ -2471,8 +2419,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAutoExpansionModeValue(int value) {
-      
       autoExpansionMode_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2487,8 +2435,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dialogflow.v2beta1.EntityType.AutoExpansionMode getAutoExpansionMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dialogflow.v2beta1.EntityType.AutoExpansionMode result = com.google.cloud.dialogflow.v2beta1.EntityType.AutoExpansionMode.valueOf(autoExpansionMode_);
+      com.google.cloud.dialogflow.v2beta1.EntityType.AutoExpansionMode result = com.google.cloud.dialogflow.v2beta1.EntityType.AutoExpansionMode.forNumber(autoExpansionMode_);
       return result == null ? com.google.cloud.dialogflow.v2beta1.EntityType.AutoExpansionMode.UNRECOGNIZED : result;
     }
     /**
@@ -2505,7 +2452,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       autoExpansionMode_ = value.getNumber();
       onChanged();
       return this;
@@ -2520,7 +2467,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAutoExpansionMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       autoExpansionMode_ = 0;
       onChanged();
       return this;
@@ -2529,9 +2476,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.dialogflow.v2beta1.EntityType.Entity> entities_ =
       java.util.Collections.emptyList();
     private void ensureEntitiesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         entities_ = new java.util.ArrayList<com.google.cloud.dialogflow.v2beta1.EntityType.Entity>(entities_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -2725,7 +2672,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearEntities() {
       if (entitiesBuilder_ == null) {
         entities_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         entitiesBuilder_.clear();
@@ -2830,7 +2777,7 @@ private static final long serialVersionUID = 0L;
         entitiesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.dialogflow.v2beta1.EntityType.Entity, com.google.cloud.dialogflow.v2beta1.EntityType.Entity.Builder, com.google.cloud.dialogflow.v2beta1.EntityType.EntityOrBuilder>(
                 entities_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         entities_ = null;
@@ -2863,6 +2810,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnableFuzzyExtraction(boolean value) {
       
       enableFuzzyExtraction_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2875,7 +2823,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableFuzzyExtraction() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       enableFuzzyExtraction_ = false;
       onChanged();
       return this;
@@ -2913,7 +2861,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EntityType(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

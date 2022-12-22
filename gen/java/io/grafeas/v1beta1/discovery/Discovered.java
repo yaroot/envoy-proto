@@ -36,83 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Discovered(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            continuousAnalysis_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (lastAnalysisTime_ != null) {
-              subBuilder = lastAnalysisTime_.toBuilder();
-            }
-            lastAnalysisTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lastAnalysisTime_);
-              lastAnalysisTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            analysisStatus_ = rawValue;
-            break;
-          }
-          case 34: {
-            com.google.rpc.Status.Builder subBuilder = null;
-            if (analysisStatusError_ != null) {
-              subBuilder = analysisStatusError_.toBuilder();
-            }
-            analysisStatusError_ = input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(analysisStatusError_);
-              analysisStatusError_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.grafeas.v1beta1.discovery.DiscoveryOuterClass.internal_static_grafeas_v1beta1_discovery_Discovered_descriptor;
@@ -471,7 +394,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTINUOUS_ANALYSIS_FIELD_NUMBER = 1;
-  private int continuousAnalysis_;
+  private int continuousAnalysis_ = 0;
   /**
    * <pre>
    * Whether the resource is continuously analyzed.
@@ -492,8 +415,7 @@ private static final long serialVersionUID = 0L;
    * @return The continuousAnalysis.
    */
   @java.lang.Override public io.grafeas.v1beta1.discovery.Discovered.ContinuousAnalysis getContinuousAnalysis() {
-    @SuppressWarnings("deprecation")
-    io.grafeas.v1beta1.discovery.Discovered.ContinuousAnalysis result = io.grafeas.v1beta1.discovery.Discovered.ContinuousAnalysis.valueOf(continuousAnalysis_);
+    io.grafeas.v1beta1.discovery.Discovered.ContinuousAnalysis result = io.grafeas.v1beta1.discovery.Discovered.ContinuousAnalysis.forNumber(continuousAnalysis_);
     return result == null ? io.grafeas.v1beta1.discovery.Discovered.ContinuousAnalysis.UNRECOGNIZED : result;
   }
 
@@ -532,11 +454,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getLastAnalysisTimeOrBuilder() {
-    return getLastAnalysisTime();
+    return lastAnalysisTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastAnalysisTime_;
   }
 
   public static final int ANALYSIS_STATUS_FIELD_NUMBER = 3;
-  private int analysisStatus_;
+  private int analysisStatus_ = 0;
   /**
    * <pre>
    * The status of discovery for the resource.
@@ -557,8 +479,7 @@ private static final long serialVersionUID = 0L;
    * @return The analysisStatus.
    */
   @java.lang.Override public io.grafeas.v1beta1.discovery.Discovered.AnalysisStatus getAnalysisStatus() {
-    @SuppressWarnings("deprecation")
-    io.grafeas.v1beta1.discovery.Discovered.AnalysisStatus result = io.grafeas.v1beta1.discovery.Discovered.AnalysisStatus.valueOf(analysisStatus_);
+    io.grafeas.v1beta1.discovery.Discovered.AnalysisStatus result = io.grafeas.v1beta1.discovery.Discovered.AnalysisStatus.forNumber(analysisStatus_);
     return result == null ? io.grafeas.v1beta1.discovery.Discovered.AnalysisStatus.UNRECOGNIZED : result;
   }
 
@@ -603,7 +524,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.rpc.StatusOrBuilder getAnalysisStatusErrorOrBuilder() {
-    return getAnalysisStatusError();
+    return analysisStatusError_ == null ? com.google.rpc.Status.getDefaultInstance() : analysisStatusError_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -632,7 +553,7 @@ private static final long serialVersionUID = 0L;
     if (analysisStatusError_ != null) {
       output.writeMessage(4, getAnalysisStatusError());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -657,7 +578,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getAnalysisStatusError());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -684,7 +605,7 @@ private static final long serialVersionUID = 0L;
       if (!getAnalysisStatusError()
           .equals(other.getAnalysisStatusError())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -707,7 +628,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ANALYSIS_STATUS_ERROR_FIELD_NUMBER;
       hash = (53 * hash) + getAnalysisStatusError().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -828,36 +749,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.grafeas.v1beta1.discovery.Discovered.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       continuousAnalysis_ = 0;
-
-      if (lastAnalysisTimeBuilder_ == null) {
-        lastAnalysisTime_ = null;
-      } else {
-        lastAnalysisTime_ = null;
+      lastAnalysisTime_ = null;
+      if (lastAnalysisTimeBuilder_ != null) {
+        lastAnalysisTimeBuilder_.dispose();
         lastAnalysisTimeBuilder_ = null;
       }
       analysisStatus_ = 0;
-
-      if (analysisStatusErrorBuilder_ == null) {
-        analysisStatusError_ = null;
-      } else {
-        analysisStatusError_ = null;
+      analysisStatusError_ = null;
+      if (analysisStatusErrorBuilder_ != null) {
+        analysisStatusErrorBuilder_.dispose();
         analysisStatusErrorBuilder_ = null;
       }
       return this;
@@ -886,20 +799,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.grafeas.v1beta1.discovery.Discovered buildPartial() {
       io.grafeas.v1beta1.discovery.Discovered result = new io.grafeas.v1beta1.discovery.Discovered(this);
-      result.continuousAnalysis_ = continuousAnalysis_;
-      if (lastAnalysisTimeBuilder_ == null) {
-        result.lastAnalysisTime_ = lastAnalysisTime_;
-      } else {
-        result.lastAnalysisTime_ = lastAnalysisTimeBuilder_.build();
-      }
-      result.analysisStatus_ = analysisStatus_;
-      if (analysisStatusErrorBuilder_ == null) {
-        result.analysisStatusError_ = analysisStatusError_;
-      } else {
-        result.analysisStatusError_ = analysisStatusErrorBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.grafeas.v1beta1.discovery.Discovered result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.continuousAnalysis_ = continuousAnalysis_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.lastAnalysisTime_ = lastAnalysisTimeBuilder_ == null
+            ? lastAnalysisTime_
+            : lastAnalysisTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.analysisStatus_ = analysisStatus_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.analysisStatusError_ = analysisStatusErrorBuilder_ == null
+            ? analysisStatusError_
+            : analysisStatusErrorBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -958,7 +880,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasAnalysisStatusError()) {
         mergeAnalysisStatusError(other.getAnalysisStatusError());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -973,19 +895,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.grafeas.v1beta1.discovery.Discovered parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              continuousAnalysis_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getLastAnalysisTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              analysisStatus_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getAnalysisStatusErrorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.grafeas.v1beta1.discovery.Discovered) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int continuousAnalysis_ = 0;
     /**
@@ -1009,8 +969,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setContinuousAnalysisValue(int value) {
-      
       continuousAnalysis_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1024,8 +984,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.grafeas.v1beta1.discovery.Discovered.ContinuousAnalysis getContinuousAnalysis() {
-      @SuppressWarnings("deprecation")
-      io.grafeas.v1beta1.discovery.Discovered.ContinuousAnalysis result = io.grafeas.v1beta1.discovery.Discovered.ContinuousAnalysis.valueOf(continuousAnalysis_);
+      io.grafeas.v1beta1.discovery.Discovered.ContinuousAnalysis result = io.grafeas.v1beta1.discovery.Discovered.ContinuousAnalysis.forNumber(continuousAnalysis_);
       return result == null ? io.grafeas.v1beta1.discovery.Discovered.ContinuousAnalysis.UNRECOGNIZED : result;
     }
     /**
@@ -1041,7 +1000,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       continuousAnalysis_ = value.getNumber();
       onChanged();
       return this;
@@ -1055,7 +1014,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearContinuousAnalysis() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       continuousAnalysis_ = 0;
       onChanged();
       return this;
@@ -1073,7 +1032,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lastAnalysisTime field is set.
      */
     public boolean hasLastAnalysisTime() {
-      return lastAnalysisTimeBuilder_ != null || lastAnalysisTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1103,11 +1062,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         lastAnalysisTime_ = value;
-        onChanged();
       } else {
         lastAnalysisTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1121,11 +1080,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (lastAnalysisTimeBuilder_ == null) {
         lastAnalysisTime_ = builderForValue.build();
-        onChanged();
       } else {
         lastAnalysisTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1137,17 +1096,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLastAnalysisTime(com.google.protobuf.Timestamp value) {
       if (lastAnalysisTimeBuilder_ == null) {
-        if (lastAnalysisTime_ != null) {
-          lastAnalysisTime_ =
-            com.google.protobuf.Timestamp.newBuilder(lastAnalysisTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          lastAnalysisTime_ != null &&
+          lastAnalysisTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getLastAnalysisTimeBuilder().mergeFrom(value);
         } else {
           lastAnalysisTime_ = value;
         }
-        onChanged();
       } else {
         lastAnalysisTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1158,14 +1118,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_analysis_time = 2;</code>
      */
     public Builder clearLastAnalysisTime() {
-      if (lastAnalysisTimeBuilder_ == null) {
-        lastAnalysisTime_ = null;
-        onChanged();
-      } else {
-        lastAnalysisTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      lastAnalysisTime_ = null;
+      if (lastAnalysisTimeBuilder_ != null) {
+        lastAnalysisTimeBuilder_.dispose();
         lastAnalysisTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1176,7 +1135,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_analysis_time = 2;</code>
      */
     public com.google.protobuf.Timestamp.Builder getLastAnalysisTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getLastAnalysisTimeFieldBuilder().getBuilder();
     }
@@ -1238,8 +1197,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAnalysisStatusValue(int value) {
-      
       analysisStatus_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1253,8 +1212,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.grafeas.v1beta1.discovery.Discovered.AnalysisStatus getAnalysisStatus() {
-      @SuppressWarnings("deprecation")
-      io.grafeas.v1beta1.discovery.Discovered.AnalysisStatus result = io.grafeas.v1beta1.discovery.Discovered.AnalysisStatus.valueOf(analysisStatus_);
+      io.grafeas.v1beta1.discovery.Discovered.AnalysisStatus result = io.grafeas.v1beta1.discovery.Discovered.AnalysisStatus.forNumber(analysisStatus_);
       return result == null ? io.grafeas.v1beta1.discovery.Discovered.AnalysisStatus.UNRECOGNIZED : result;
     }
     /**
@@ -1270,7 +1228,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       analysisStatus_ = value.getNumber();
       onChanged();
       return this;
@@ -1284,7 +1242,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAnalysisStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       analysisStatus_ = 0;
       onChanged();
       return this;
@@ -1304,7 +1262,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the analysisStatusError field is set.
      */
     public boolean hasAnalysisStatusError() {
-      return analysisStatusErrorBuilder_ != null || analysisStatusError_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1338,11 +1296,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         analysisStatusError_ = value;
-        onChanged();
       } else {
         analysisStatusErrorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1358,11 +1316,11 @@ private static final long serialVersionUID = 0L;
         com.google.rpc.Status.Builder builderForValue) {
       if (analysisStatusErrorBuilder_ == null) {
         analysisStatusError_ = builderForValue.build();
-        onChanged();
       } else {
         analysisStatusErrorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1376,17 +1334,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAnalysisStatusError(com.google.rpc.Status value) {
       if (analysisStatusErrorBuilder_ == null) {
-        if (analysisStatusError_ != null) {
-          analysisStatusError_ =
-            com.google.rpc.Status.newBuilder(analysisStatusError_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          analysisStatusError_ != null &&
+          analysisStatusError_ != com.google.rpc.Status.getDefaultInstance()) {
+          getAnalysisStatusErrorBuilder().mergeFrom(value);
         } else {
           analysisStatusError_ = value;
         }
-        onChanged();
       } else {
         analysisStatusErrorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1399,14 +1358,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status analysis_status_error = 4;</code>
      */
     public Builder clearAnalysisStatusError() {
-      if (analysisStatusErrorBuilder_ == null) {
-        analysisStatusError_ = null;
-        onChanged();
-      } else {
-        analysisStatusError_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      analysisStatusError_ = null;
+      if (analysisStatusErrorBuilder_ != null) {
+        analysisStatusErrorBuilder_.dispose();
         analysisStatusErrorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1419,7 +1377,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status analysis_status_error = 4;</code>
      */
     public com.google.rpc.Status.Builder getAnalysisStatusErrorBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getAnalysisStatusErrorFieldBuilder().getBuilder();
     }
@@ -1495,7 +1453,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Discovered(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

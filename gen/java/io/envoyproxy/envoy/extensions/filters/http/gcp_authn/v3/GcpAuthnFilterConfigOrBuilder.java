@@ -93,4 +93,34 @@ public interface GcpAuthnFilterConfigOrBuilder extends
    * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenCacheConfig cache_config = 3;</code>
    */
   io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenCacheConfigOrBuilder getCacheConfigOrBuilder();
+
+  /**
+   * <pre>
+   * Request header location to extract the token. By default (i.e. if this field is not specified), the token
+   * is extracted to the Authorization HTTP header, in the format "Authorization: Bearer &lt;token&gt;".
+   * </pre>
+   *
+   * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader token_header = 4;</code>
+   * @return Whether the tokenHeader field is set.
+   */
+  boolean hasTokenHeader();
+  /**
+   * <pre>
+   * Request header location to extract the token. By default (i.e. if this field is not specified), the token
+   * is extracted to the Authorization HTTP header, in the format "Authorization: Bearer &lt;token&gt;".
+   * </pre>
+   *
+   * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader token_header = 4;</code>
+   * @return The tokenHeader.
+   */
+  io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader getTokenHeader();
+  /**
+   * <pre>
+   * Request header location to extract the token. By default (i.e. if this field is not specified), the token
+   * is extracted to the Authorization HTTP header, in the format "Authorization: Bearer &lt;token&gt;".
+   * </pre>
+   *
+   * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader token_header = 4;</code>
+   */
+  io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeaderOrBuilder getTokenHeaderOrBuilder();
 }

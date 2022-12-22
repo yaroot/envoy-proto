@@ -36,88 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Slot(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            mode_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            status_ = rawValue;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Value.Builder subBuilder = null;
-            if (value_ != null) {
-              subBuilder = value_.toBuilder();
-            }
-            value_ = input.readMessage(com.google.protobuf.Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(value_);
-              value_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-
-            updated_ = input.readBool();
-            break;
-          }
-          case 42: {
-            com.google.actions.sdk.v2.conversation.Prompt.Builder subBuilder = null;
-            if (prompt_ != null) {
-              subBuilder = prompt_.toBuilder();
-            }
-            prompt_ = input.readMessage(com.google.actions.sdk.v2.conversation.Prompt.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(prompt_);
-              prompt_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.conversation.SceneProto.internal_static_google_actions_sdk_v2_conversation_Slot_descriptor;
@@ -445,7 +363,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODE_FIELD_NUMBER = 1;
-  private int mode_;
+  private int mode_ = 0;
   /**
    * <pre>
    * The mode of the slot (required or optional). Can be set by developer.
@@ -466,13 +384,12 @@ private static final long serialVersionUID = 0L;
    * @return The mode.
    */
   @java.lang.Override public com.google.actions.sdk.v2.conversation.Slot.SlotMode getMode() {
-    @SuppressWarnings("deprecation")
-    com.google.actions.sdk.v2.conversation.Slot.SlotMode result = com.google.actions.sdk.v2.conversation.Slot.SlotMode.valueOf(mode_);
+    com.google.actions.sdk.v2.conversation.Slot.SlotMode result = com.google.actions.sdk.v2.conversation.Slot.SlotMode.forNumber(mode_);
     return result == null ? com.google.actions.sdk.v2.conversation.Slot.SlotMode.UNRECOGNIZED : result;
   }
 
   public static final int STATUS_FIELD_NUMBER = 2;
-  private int status_;
+  private int status_ = 0;
   /**
    * <pre>
    * The status of the slot.
@@ -493,8 +410,7 @@ private static final long serialVersionUID = 0L;
    * @return The status.
    */
   @java.lang.Override public com.google.actions.sdk.v2.conversation.Slot.SlotStatus getStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.actions.sdk.v2.conversation.Slot.SlotStatus result = com.google.actions.sdk.v2.conversation.Slot.SlotStatus.valueOf(status_);
+    com.google.actions.sdk.v2.conversation.Slot.SlotStatus result = com.google.actions.sdk.v2.conversation.Slot.SlotStatus.forNumber(status_);
     return result == null ? com.google.actions.sdk.v2.conversation.Slot.SlotStatus.UNRECOGNIZED : result;
   }
 
@@ -536,11 +452,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ValueOrBuilder getValueOrBuilder() {
-    return getValue();
+    return value_ == null ? com.google.protobuf.Value.getDefaultInstance() : value_;
   }
 
   public static final int UPDATED_FIELD_NUMBER = 4;
-  private boolean updated_;
+  private boolean updated_ = false;
   /**
    * <pre>
    * Indicates if the slot value was collected on the last turn.
@@ -596,7 +512,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.conversation.PromptOrBuilder getPromptOrBuilder() {
-    return getPrompt();
+    return prompt_ == null ? com.google.actions.sdk.v2.conversation.Prompt.getDefaultInstance() : prompt_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -628,7 +544,7 @@ private static final long serialVersionUID = 0L;
     if (prompt_ != null) {
       output.writeMessage(5, getPrompt());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -657,7 +573,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getPrompt());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -686,7 +602,7 @@ private static final long serialVersionUID = 0L;
       if (!getPrompt()
           .equals(other.getPrompt())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -712,7 +628,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PROMPT_FIELD_NUMBER;
       hash = (53 * hash) + getPrompt().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -833,38 +749,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.conversation.Slot.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       mode_ = 0;
-
       status_ = 0;
-
-      if (valueBuilder_ == null) {
-        value_ = null;
-      } else {
-        value_ = null;
+      value_ = null;
+      if (valueBuilder_ != null) {
+        valueBuilder_.dispose();
         valueBuilder_ = null;
       }
       updated_ = false;
-
-      if (promptBuilder_ == null) {
-        prompt_ = null;
-      } else {
-        prompt_ = null;
+      prompt_ = null;
+      if (promptBuilder_ != null) {
+        promptBuilder_.dispose();
         promptBuilder_ = null;
       }
       return this;
@@ -893,21 +800,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.conversation.Slot buildPartial() {
       com.google.actions.sdk.v2.conversation.Slot result = new com.google.actions.sdk.v2.conversation.Slot(this);
-      result.mode_ = mode_;
-      result.status_ = status_;
-      if (valueBuilder_ == null) {
-        result.value_ = value_;
-      } else {
-        result.value_ = valueBuilder_.build();
-      }
-      result.updated_ = updated_;
-      if (promptBuilder_ == null) {
-        result.prompt_ = prompt_;
-      } else {
-        result.prompt_ = promptBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.conversation.Slot result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.mode_ = mode_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.status_ = status_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.value_ = valueBuilder_ == null
+            ? value_
+            : valueBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.updated_ = updated_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.prompt_ = promptBuilder_ == null
+            ? prompt_
+            : promptBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -969,7 +887,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasPrompt()) {
         mergePrompt(other.getPrompt());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -984,19 +902,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.conversation.Slot parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              mode_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              status_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              updated_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getPromptFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.conversation.Slot) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int mode_ = 0;
     /**
@@ -1020,8 +981,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setModeValue(int value) {
-      
       mode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1035,8 +996,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.actions.sdk.v2.conversation.Slot.SlotMode getMode() {
-      @SuppressWarnings("deprecation")
-      com.google.actions.sdk.v2.conversation.Slot.SlotMode result = com.google.actions.sdk.v2.conversation.Slot.SlotMode.valueOf(mode_);
+      com.google.actions.sdk.v2.conversation.Slot.SlotMode result = com.google.actions.sdk.v2.conversation.Slot.SlotMode.forNumber(mode_);
       return result == null ? com.google.actions.sdk.v2.conversation.Slot.SlotMode.UNRECOGNIZED : result;
     }
     /**
@@ -1052,7 +1012,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       mode_ = value.getNumber();
       onChanged();
       return this;
@@ -1066,7 +1026,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       mode_ = 0;
       onChanged();
       return this;
@@ -1094,8 +1054,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
-      
       status_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1109,8 +1069,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.actions.sdk.v2.conversation.Slot.SlotStatus getStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.actions.sdk.v2.conversation.Slot.SlotStatus result = com.google.actions.sdk.v2.conversation.Slot.SlotStatus.valueOf(status_);
+      com.google.actions.sdk.v2.conversation.Slot.SlotStatus result = com.google.actions.sdk.v2.conversation.Slot.SlotStatus.forNumber(status_);
       return result == null ? com.google.actions.sdk.v2.conversation.Slot.SlotStatus.UNRECOGNIZED : result;
     }
     /**
@@ -1126,7 +1085,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       status_ = value.getNumber();
       onChanged();
       return this;
@@ -1140,7 +1099,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       status_ = 0;
       onChanged();
       return this;
@@ -1159,7 +1118,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the value field is set.
      */
     public boolean hasValue() {
-      return valueBuilder_ != null || value_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1191,11 +1150,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         value_ = value;
-        onChanged();
       } else {
         valueBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1210,11 +1169,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Value.Builder builderForValue) {
       if (valueBuilder_ == null) {
         value_ = builderForValue.build();
-        onChanged();
       } else {
         valueBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1227,17 +1186,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeValue(com.google.protobuf.Value value) {
       if (valueBuilder_ == null) {
-        if (value_ != null) {
-          value_ =
-            com.google.protobuf.Value.newBuilder(value_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          value_ != null &&
+          value_ != com.google.protobuf.Value.getDefaultInstance()) {
+          getValueBuilder().mergeFrom(value);
         } else {
           value_ = value;
         }
-        onChanged();
       } else {
         valueBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1249,14 +1209,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value value = 3;</code>
      */
     public Builder clearValue() {
-      if (valueBuilder_ == null) {
-        value_ = null;
-        onChanged();
-      } else {
-        value_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      value_ = null;
+      if (valueBuilder_ != null) {
+        valueBuilder_.dispose();
         valueBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1268,7 +1227,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value value = 3;</code>
      */
     public com.google.protobuf.Value.Builder getValueBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getValueFieldBuilder().getBuilder();
     }
@@ -1337,6 +1296,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUpdated(boolean value) {
       
       updated_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1350,7 +1310,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUpdated() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       updated_ = false;
       onChanged();
       return this;
@@ -1370,7 +1330,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the prompt field is set.
      */
     public boolean hasPrompt() {
-      return promptBuilder_ != null || prompt_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1404,11 +1364,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         prompt_ = value;
-        onChanged();
       } else {
         promptBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1424,11 +1384,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.conversation.Prompt.Builder builderForValue) {
       if (promptBuilder_ == null) {
         prompt_ = builderForValue.build();
-        onChanged();
       } else {
         promptBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1442,17 +1402,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePrompt(com.google.actions.sdk.v2.conversation.Prompt value) {
       if (promptBuilder_ == null) {
-        if (prompt_ != null) {
-          prompt_ =
-            com.google.actions.sdk.v2.conversation.Prompt.newBuilder(prompt_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          prompt_ != null &&
+          prompt_ != com.google.actions.sdk.v2.conversation.Prompt.getDefaultInstance()) {
+          getPromptBuilder().mergeFrom(value);
         } else {
           prompt_ = value;
         }
-        onChanged();
       } else {
         promptBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1465,14 +1426,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.conversation.Prompt prompt = 5;</code>
      */
     public Builder clearPrompt() {
-      if (promptBuilder_ == null) {
-        prompt_ = null;
-        onChanged();
-      } else {
-        prompt_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      prompt_ = null;
+      if (promptBuilder_ != null) {
+        promptBuilder_.dispose();
         promptBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1485,7 +1445,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.conversation.Prompt prompt = 5;</code>
      */
     public com.google.actions.sdk.v2.conversation.Prompt.Builder getPromptBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getPromptFieldBuilder().getBuilder();
     }
@@ -1561,7 +1521,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Slot(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

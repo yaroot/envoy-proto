@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateConversationModelEvaluationRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.dialogflow.v2.ConversationModelEvaluation.Builder subBuilder = null;
-            if (conversationModelEvaluation_ != null) {
-              subBuilder = conversationModelEvaluation_.toBuilder();
-            }
-            conversationModelEvaluation_ = input.readMessage(com.google.cloud.dialogflow.v2.ConversationModelEvaluation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(conversationModelEvaluation_);
-              conversationModelEvaluation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.v2.ConversationModelProto.internal_static_google_cloud_dialogflow_v2_CreateConversationModelEvaluationRequest_descriptor;
@@ -108,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The conversation model resource name. Format:
@@ -192,7 +135,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.v2.ConversationModelEvaluationOrBuilder getConversationModelEvaluationOrBuilder() {
-    return getConversationModelEvaluation();
+    return conversationModelEvaluation_ == null ? com.google.cloud.dialogflow.v2.ConversationModelEvaluation.getDefaultInstance() : conversationModelEvaluation_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -215,7 +158,7 @@ private static final long serialVersionUID = 0L;
     if (conversationModelEvaluation_ != null) {
       output.writeMessage(2, getConversationModelEvaluation());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -231,7 +174,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getConversationModelEvaluation());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -253,7 +196,7 @@ private static final long serialVersionUID = 0L;
       if (!getConversationModelEvaluation()
           .equals(other.getConversationModelEvaluation())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -270,7 +213,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CONVERSATION_MODEL_EVALUATION_FIELD_NUMBER;
       hash = (53 * hash) + getConversationModelEvaluation().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -392,28 +335,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.v2.CreateConversationModelEvaluationRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (conversationModelEvaluationBuilder_ == null) {
-        conversationModelEvaluation_ = null;
-      } else {
-        conversationModelEvaluation_ = null;
+      conversationModelEvaluation_ = null;
+      if (conversationModelEvaluationBuilder_ != null) {
+        conversationModelEvaluationBuilder_.dispose();
         conversationModelEvaluationBuilder_ = null;
       }
       return this;
@@ -442,14 +379,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.v2.CreateConversationModelEvaluationRequest buildPartial() {
       com.google.cloud.dialogflow.v2.CreateConversationModelEvaluationRequest result = new com.google.cloud.dialogflow.v2.CreateConversationModelEvaluationRequest(this);
-      result.parent_ = parent_;
-      if (conversationModelEvaluationBuilder_ == null) {
-        result.conversationModelEvaluation_ = conversationModelEvaluation_;
-      } else {
-        result.conversationModelEvaluation_ = conversationModelEvaluationBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.v2.CreateConversationModelEvaluationRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.conversationModelEvaluation_ = conversationModelEvaluationBuilder_ == null
+            ? conversationModelEvaluation_
+            : conversationModelEvaluationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -498,12 +442,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dialogflow.v2.CreateConversationModelEvaluationRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasConversationModelEvaluation()) {
         mergeConversationModelEvaluation(other.getConversationModelEvaluation());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -518,19 +463,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.v2.CreateConversationModelEvaluationRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getConversationModelEvaluationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.v2.CreateConversationModelEvaluationRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -591,11 +562,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -610,8 +579,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -628,12 +597,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -650,7 +617,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the conversationModelEvaluation field is set.
      */
     public boolean hasConversationModelEvaluation() {
-      return conversationModelEvaluationBuilder_ != null || conversationModelEvaluation_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -680,11 +647,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         conversationModelEvaluation_ = value;
-        onChanged();
       } else {
         conversationModelEvaluationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -698,11 +665,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dialogflow.v2.ConversationModelEvaluation.Builder builderForValue) {
       if (conversationModelEvaluationBuilder_ == null) {
         conversationModelEvaluation_ = builderForValue.build();
-        onChanged();
       } else {
         conversationModelEvaluationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -714,17 +681,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConversationModelEvaluation(com.google.cloud.dialogflow.v2.ConversationModelEvaluation value) {
       if (conversationModelEvaluationBuilder_ == null) {
-        if (conversationModelEvaluation_ != null) {
-          conversationModelEvaluation_ =
-            com.google.cloud.dialogflow.v2.ConversationModelEvaluation.newBuilder(conversationModelEvaluation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          conversationModelEvaluation_ != null &&
+          conversationModelEvaluation_ != com.google.cloud.dialogflow.v2.ConversationModelEvaluation.getDefaultInstance()) {
+          getConversationModelEvaluationBuilder().mergeFrom(value);
         } else {
           conversationModelEvaluation_ = value;
         }
-        onChanged();
       } else {
         conversationModelEvaluationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -735,14 +703,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.v2.ConversationModelEvaluation conversation_model_evaluation = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearConversationModelEvaluation() {
-      if (conversationModelEvaluationBuilder_ == null) {
-        conversationModelEvaluation_ = null;
-        onChanged();
-      } else {
-        conversationModelEvaluation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      conversationModelEvaluation_ = null;
+      if (conversationModelEvaluationBuilder_ != null) {
+        conversationModelEvaluationBuilder_.dispose();
         conversationModelEvaluationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -753,7 +720,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.v2.ConversationModelEvaluation conversation_model_evaluation = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.dialogflow.v2.ConversationModelEvaluation.Builder getConversationModelEvaluationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getConversationModelEvaluationFieldBuilder().getBuilder();
     }
@@ -825,7 +792,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateConversationModelEvaluationRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

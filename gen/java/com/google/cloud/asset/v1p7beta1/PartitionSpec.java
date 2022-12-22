@@ -35,51 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PartitionSpec(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            partitionKey_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.asset.v1p7beta1.AssetServiceProto.internal_static_google_cloud_asset_v1p7beta1_PartitionSpec_descriptor;
@@ -257,7 +212,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARTITION_KEY_FIELD_NUMBER = 1;
-  private int partitionKey_;
+  private int partitionKey_ = 0;
   /**
    * <pre>
    * The partition key for BigQuery partitioned table.
@@ -278,8 +233,7 @@ private static final long serialVersionUID = 0L;
    * @return The partitionKey.
    */
   @java.lang.Override public com.google.cloud.asset.v1p7beta1.PartitionSpec.PartitionKey getPartitionKey() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.asset.v1p7beta1.PartitionSpec.PartitionKey result = com.google.cloud.asset.v1p7beta1.PartitionSpec.PartitionKey.valueOf(partitionKey_);
+    com.google.cloud.asset.v1p7beta1.PartitionSpec.PartitionKey result = com.google.cloud.asset.v1p7beta1.PartitionSpec.PartitionKey.forNumber(partitionKey_);
     return result == null ? com.google.cloud.asset.v1p7beta1.PartitionSpec.PartitionKey.UNRECOGNIZED : result;
   }
 
@@ -300,7 +254,7 @@ private static final long serialVersionUID = 0L;
     if (partitionKey_ != com.google.cloud.asset.v1p7beta1.PartitionSpec.PartitionKey.PARTITION_KEY_UNSPECIFIED.getNumber()) {
       output.writeEnum(1, partitionKey_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -313,7 +267,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, partitionKey_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -329,7 +283,7 @@ private static final long serialVersionUID = 0L;
     com.google.cloud.asset.v1p7beta1.PartitionSpec other = (com.google.cloud.asset.v1p7beta1.PartitionSpec) obj;
 
     if (partitionKey_ != other.partitionKey_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -342,7 +296,7 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + PARTITION_KEY_FIELD_NUMBER;
     hash = (53 * hash) + partitionKey_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -463,24 +417,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.asset.v1p7beta1.PartitionSpec.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       partitionKey_ = 0;
-
       return this;
     }
 
@@ -507,9 +456,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.asset.v1p7beta1.PartitionSpec buildPartial() {
       com.google.cloud.asset.v1p7beta1.PartitionSpec result = new com.google.cloud.asset.v1p7beta1.PartitionSpec(this);
-      result.partitionKey_ = partitionKey_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.asset.v1p7beta1.PartitionSpec result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.partitionKey_ = partitionKey_;
+      }
     }
 
     @java.lang.Override
@@ -559,7 +515,7 @@ private static final long serialVersionUID = 0L;
       if (other.partitionKey_ != 0) {
         setPartitionKeyValue(other.getPartitionKeyValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -574,19 +530,38 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.asset.v1p7beta1.PartitionSpec parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              partitionKey_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.asset.v1p7beta1.PartitionSpec) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int partitionKey_ = 0;
     /**
@@ -610,8 +585,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPartitionKeyValue(int value) {
-      
       partitionKey_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -625,8 +600,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.asset.v1p7beta1.PartitionSpec.PartitionKey getPartitionKey() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.asset.v1p7beta1.PartitionSpec.PartitionKey result = com.google.cloud.asset.v1p7beta1.PartitionSpec.PartitionKey.valueOf(partitionKey_);
+      com.google.cloud.asset.v1p7beta1.PartitionSpec.PartitionKey result = com.google.cloud.asset.v1p7beta1.PartitionSpec.PartitionKey.forNumber(partitionKey_);
       return result == null ? com.google.cloud.asset.v1p7beta1.PartitionSpec.PartitionKey.UNRECOGNIZED : result;
     }
     /**
@@ -642,7 +616,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       partitionKey_ = value.getNumber();
       onChanged();
       return this;
@@ -656,7 +630,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPartitionKey() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       partitionKey_ = 0;
       onChanged();
       return this;
@@ -694,7 +668,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PartitionSpec(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

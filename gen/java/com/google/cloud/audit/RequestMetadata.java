@@ -37,89 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RequestMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            callerIp_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            callerSuppliedUserAgent_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            callerNetwork_ = s;
-            break;
-          }
-          case 58: {
-            com.google.rpc.context.AttributeContext.Request.Builder subBuilder = null;
-            if (requestAttributes_ != null) {
-              subBuilder = requestAttributes_.toBuilder();
-            }
-            requestAttributes_ = input.readMessage(com.google.rpc.context.AttributeContext.Request.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(requestAttributes_);
-              requestAttributes_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.rpc.context.AttributeContext.Peer.Builder subBuilder = null;
-            if (destinationAttributes_ != null) {
-              subBuilder = destinationAttributes_.toBuilder();
-            }
-            destinationAttributes_ = input.readMessage(com.google.rpc.context.AttributeContext.Peer.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(destinationAttributes_);
-              destinationAttributes_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.audit.AuditLogProto.internal_static_google_cloud_audit_RequestMetadata_descriptor;
@@ -134,18 +51,21 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CALLER_IP_FIELD_NUMBER = 1;
-  private volatile java.lang.Object callerIp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object callerIp_ = "";
   /**
    * <pre>
    * The IP address of the caller.
-   * For caller from internet, this will be public IPv4 or IPv6 address.
-   * For caller from a Compute Engine VM with external IP address, this
-   * will be the VM's external IP address. For caller from a Compute
-   * Engine VM without external IP address, if the VM is in the same
-   * organization (or project) as the accessed resource, `caller_ip` will
-   * be the VM's internal IPv4 address, otherwise the `caller_ip` will be
-   * redacted to "gce-internal-ip".
-   * See https://cloud.google.com/compute/docs/vpc/ for more information.
+   * For a caller from the internet, this will be the public IPv4 or IPv6
+   * address. For calls made from inside Google's internal production network
+   * from one GCP service to another, `caller_ip` will be redacted to "private".
+   * For a caller from a Compute Engine VM with a external IP address,
+   * `caller_ip` will be the VM's external IP address. For a caller from a
+   * Compute Engine VM without a external IP address, if the VM is in the same
+   * organization (or project) as the accessed resource, `caller_ip` will be the
+   * VM's internal IPv4 address, otherwise `caller_ip` will be redacted to
+   * "gce-internal-ip". See https://cloud.google.com/compute/docs/vpc/ for more
+   * information.
    * </pre>
    *
    * <code>string caller_ip = 1;</code>
@@ -167,14 +87,16 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The IP address of the caller.
-   * For caller from internet, this will be public IPv4 or IPv6 address.
-   * For caller from a Compute Engine VM with external IP address, this
-   * will be the VM's external IP address. For caller from a Compute
-   * Engine VM without external IP address, if the VM is in the same
-   * organization (or project) as the accessed resource, `caller_ip` will
-   * be the VM's internal IPv4 address, otherwise the `caller_ip` will be
-   * redacted to "gce-internal-ip".
-   * See https://cloud.google.com/compute/docs/vpc/ for more information.
+   * For a caller from the internet, this will be the public IPv4 or IPv6
+   * address. For calls made from inside Google's internal production network
+   * from one GCP service to another, `caller_ip` will be redacted to "private".
+   * For a caller from a Compute Engine VM with a external IP address,
+   * `caller_ip` will be the VM's external IP address. For a caller from a
+   * Compute Engine VM without a external IP address, if the VM is in the same
+   * organization (or project) as the accessed resource, `caller_ip` will be the
+   * VM's internal IPv4 address, otherwise `caller_ip` will be redacted to
+   * "gce-internal-ip". See https://cloud.google.com/compute/docs/vpc/ for more
+   * information.
    * </pre>
    *
    * <code>string caller_ip = 1;</code>
@@ -196,7 +118,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CALLER_SUPPLIED_USER_AGENT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object callerSuppliedUserAgent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object callerSuppliedUserAgent_ = "";
   /**
    * <pre>
    * The user agent of the caller.
@@ -260,7 +183,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CALLER_NETWORK_FIELD_NUMBER = 3;
-  private volatile java.lang.Object callerNetwork_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object callerNetwork_ = "";
   /**
    * <pre>
    * The network of the caller.
@@ -365,7 +289,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.rpc.context.AttributeContext.RequestOrBuilder getRequestAttributesOrBuilder() {
-    return getRequestAttributes();
+    return requestAttributes_ == null ? com.google.rpc.context.AttributeContext.Request.getDefaultInstance() : requestAttributes_;
   }
 
   public static final int DESTINATION_ATTRIBUTES_FIELD_NUMBER = 8;
@@ -415,7 +339,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.rpc.context.AttributeContext.PeerOrBuilder getDestinationAttributesOrBuilder() {
-    return getDestinationAttributes();
+    return destinationAttributes_ == null ? com.google.rpc.context.AttributeContext.Peer.getDefaultInstance() : destinationAttributes_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -447,7 +371,7 @@ private static final long serialVersionUID = 0L;
     if (destinationAttributes_ != null) {
       output.writeMessage(8, getDestinationAttributes());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -473,7 +397,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getDestinationAttributes());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -504,7 +428,7 @@ private static final long serialVersionUID = 0L;
       if (!getDestinationAttributes()
           .equals(other.getDestinationAttributes())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -529,7 +453,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DESTINATION_ATTRIBUTES_FIELD_NUMBER;
       hash = (53 * hash) + getDestinationAttributes().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -650,38 +574,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.audit.RequestMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       callerIp_ = "";
-
       callerSuppliedUserAgent_ = "";
-
       callerNetwork_ = "";
-
-      if (requestAttributesBuilder_ == null) {
-        requestAttributes_ = null;
-      } else {
-        requestAttributes_ = null;
+      requestAttributes_ = null;
+      if (requestAttributesBuilder_ != null) {
+        requestAttributesBuilder_.dispose();
         requestAttributesBuilder_ = null;
       }
-      if (destinationAttributesBuilder_ == null) {
-        destinationAttributes_ = null;
-      } else {
-        destinationAttributes_ = null;
+      destinationAttributes_ = null;
+      if (destinationAttributesBuilder_ != null) {
+        destinationAttributesBuilder_.dispose();
         destinationAttributesBuilder_ = null;
       }
       return this;
@@ -710,21 +625,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.audit.RequestMetadata buildPartial() {
       com.google.cloud.audit.RequestMetadata result = new com.google.cloud.audit.RequestMetadata(this);
-      result.callerIp_ = callerIp_;
-      result.callerSuppliedUserAgent_ = callerSuppliedUserAgent_;
-      result.callerNetwork_ = callerNetwork_;
-      if (requestAttributesBuilder_ == null) {
-        result.requestAttributes_ = requestAttributes_;
-      } else {
-        result.requestAttributes_ = requestAttributesBuilder_.build();
-      }
-      if (destinationAttributesBuilder_ == null) {
-        result.destinationAttributes_ = destinationAttributes_;
-      } else {
-        result.destinationAttributes_ = destinationAttributesBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.audit.RequestMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.callerIp_ = callerIp_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.callerSuppliedUserAgent_ = callerSuppliedUserAgent_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.callerNetwork_ = callerNetwork_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.requestAttributes_ = requestAttributesBuilder_ == null
+            ? requestAttributes_
+            : requestAttributesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.destinationAttributes_ = destinationAttributesBuilder_ == null
+            ? destinationAttributes_
+            : destinationAttributesBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -773,14 +699,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.audit.RequestMetadata.getDefaultInstance()) return this;
       if (!other.getCallerIp().isEmpty()) {
         callerIp_ = other.callerIp_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getCallerSuppliedUserAgent().isEmpty()) {
         callerSuppliedUserAgent_ = other.callerSuppliedUserAgent_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getCallerNetwork().isEmpty()) {
         callerNetwork_ = other.callerNetwork_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasRequestAttributes()) {
@@ -789,7 +718,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDestinationAttributes()) {
         mergeDestinationAttributes(other.getDestinationAttributes());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -804,32 +733,77 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.audit.RequestMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              callerIp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              callerSuppliedUserAgent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              callerNetwork_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 58: {
+              input.readMessage(
+                  getRequestAttributesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getDestinationAttributesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.audit.RequestMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object callerIp_ = "";
     /**
      * <pre>
      * The IP address of the caller.
-     * For caller from internet, this will be public IPv4 or IPv6 address.
-     * For caller from a Compute Engine VM with external IP address, this
-     * will be the VM's external IP address. For caller from a Compute
-     * Engine VM without external IP address, if the VM is in the same
-     * organization (or project) as the accessed resource, `caller_ip` will
-     * be the VM's internal IPv4 address, otherwise the `caller_ip` will be
-     * redacted to "gce-internal-ip".
-     * See https://cloud.google.com/compute/docs/vpc/ for more information.
+     * For a caller from the internet, this will be the public IPv4 or IPv6
+     * address. For calls made from inside Google's internal production network
+     * from one GCP service to another, `caller_ip` will be redacted to "private".
+     * For a caller from a Compute Engine VM with a external IP address,
+     * `caller_ip` will be the VM's external IP address. For a caller from a
+     * Compute Engine VM without a external IP address, if the VM is in the same
+     * organization (or project) as the accessed resource, `caller_ip` will be the
+     * VM's internal IPv4 address, otherwise `caller_ip` will be redacted to
+     * "gce-internal-ip". See https://cloud.google.com/compute/docs/vpc/ for more
+     * information.
      * </pre>
      *
      * <code>string caller_ip = 1;</code>
@@ -850,14 +824,16 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The IP address of the caller.
-     * For caller from internet, this will be public IPv4 or IPv6 address.
-     * For caller from a Compute Engine VM with external IP address, this
-     * will be the VM's external IP address. For caller from a Compute
-     * Engine VM without external IP address, if the VM is in the same
-     * organization (or project) as the accessed resource, `caller_ip` will
-     * be the VM's internal IPv4 address, otherwise the `caller_ip` will be
-     * redacted to "gce-internal-ip".
-     * See https://cloud.google.com/compute/docs/vpc/ for more information.
+     * For a caller from the internet, this will be the public IPv4 or IPv6
+     * address. For calls made from inside Google's internal production network
+     * from one GCP service to another, `caller_ip` will be redacted to "private".
+     * For a caller from a Compute Engine VM with a external IP address,
+     * `caller_ip` will be the VM's external IP address. For a caller from a
+     * Compute Engine VM without a external IP address, if the VM is in the same
+     * organization (or project) as the accessed resource, `caller_ip` will be the
+     * VM's internal IPv4 address, otherwise `caller_ip` will be redacted to
+     * "gce-internal-ip". See https://cloud.google.com/compute/docs/vpc/ for more
+     * information.
      * </pre>
      *
      * <code>string caller_ip = 1;</code>
@@ -879,14 +855,16 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The IP address of the caller.
-     * For caller from internet, this will be public IPv4 or IPv6 address.
-     * For caller from a Compute Engine VM with external IP address, this
-     * will be the VM's external IP address. For caller from a Compute
-     * Engine VM without external IP address, if the VM is in the same
-     * organization (or project) as the accessed resource, `caller_ip` will
-     * be the VM's internal IPv4 address, otherwise the `caller_ip` will be
-     * redacted to "gce-internal-ip".
-     * See https://cloud.google.com/compute/docs/vpc/ for more information.
+     * For a caller from the internet, this will be the public IPv4 or IPv6
+     * address. For calls made from inside Google's internal production network
+     * from one GCP service to another, `caller_ip` will be redacted to "private".
+     * For a caller from a Compute Engine VM with a external IP address,
+     * `caller_ip` will be the VM's external IP address. For a caller from a
+     * Compute Engine VM without a external IP address, if the VM is in the same
+     * organization (or project) as the accessed resource, `caller_ip` will be the
+     * VM's internal IPv4 address, otherwise `caller_ip` will be redacted to
+     * "gce-internal-ip". See https://cloud.google.com/compute/docs/vpc/ for more
+     * information.
      * </pre>
      *
      * <code>string caller_ip = 1;</code>
@@ -895,47 +873,49 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCallerIp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       callerIp_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * The IP address of the caller.
-     * For caller from internet, this will be public IPv4 or IPv6 address.
-     * For caller from a Compute Engine VM with external IP address, this
-     * will be the VM's external IP address. For caller from a Compute
-     * Engine VM without external IP address, if the VM is in the same
-     * organization (or project) as the accessed resource, `caller_ip` will
-     * be the VM's internal IPv4 address, otherwise the `caller_ip` will be
-     * redacted to "gce-internal-ip".
-     * See https://cloud.google.com/compute/docs/vpc/ for more information.
+     * For a caller from the internet, this will be the public IPv4 or IPv6
+     * address. For calls made from inside Google's internal production network
+     * from one GCP service to another, `caller_ip` will be redacted to "private".
+     * For a caller from a Compute Engine VM with a external IP address,
+     * `caller_ip` will be the VM's external IP address. For a caller from a
+     * Compute Engine VM without a external IP address, if the VM is in the same
+     * organization (or project) as the accessed resource, `caller_ip` will be the
+     * VM's internal IPv4 address, otherwise `caller_ip` will be redacted to
+     * "gce-internal-ip". See https://cloud.google.com/compute/docs/vpc/ for more
+     * information.
      * </pre>
      *
      * <code>string caller_ip = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearCallerIp() {
-      
       callerIp_ = getDefaultInstance().getCallerIp();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * The IP address of the caller.
-     * For caller from internet, this will be public IPv4 or IPv6 address.
-     * For caller from a Compute Engine VM with external IP address, this
-     * will be the VM's external IP address. For caller from a Compute
-     * Engine VM without external IP address, if the VM is in the same
-     * organization (or project) as the accessed resource, `caller_ip` will
-     * be the VM's internal IPv4 address, otherwise the `caller_ip` will be
-     * redacted to "gce-internal-ip".
-     * See https://cloud.google.com/compute/docs/vpc/ for more information.
+     * For a caller from the internet, this will be the public IPv4 or IPv6
+     * address. For calls made from inside Google's internal production network
+     * from one GCP service to another, `caller_ip` will be redacted to "private".
+     * For a caller from a Compute Engine VM with a external IP address,
+     * `caller_ip` will be the VM's external IP address. For a caller from a
+     * Compute Engine VM without a external IP address, if the VM is in the same
+     * organization (or project) as the accessed resource, `caller_ip` will be the
+     * VM's internal IPv4 address, otherwise `caller_ip` will be redacted to
+     * "gce-internal-ip". See https://cloud.google.com/compute/docs/vpc/ for more
+     * information.
      * </pre>
      *
      * <code>string caller_ip = 1;</code>
@@ -944,12 +924,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCallerIpBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       callerIp_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1034,11 +1012,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCallerSuppliedUserAgent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       callerSuppliedUserAgent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1060,8 +1036,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCallerSuppliedUserAgent() {
-      
       callerSuppliedUserAgent_ = getDefaultInstance().getCallerSuppliedUserAgent();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1085,12 +1061,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCallerSuppliedUserAgentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       callerSuppliedUserAgent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1163,11 +1137,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCallerNetwork(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       callerNetwork_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1185,8 +1157,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCallerNetwork() {
-      
       callerNetwork_ = getDefaultInstance().getCallerNetwork();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1206,12 +1178,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCallerNetworkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       callerNetwork_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1233,7 +1203,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the requestAttributes field is set.
      */
     public boolean hasRequestAttributes() {
-      return requestAttributesBuilder_ != null || requestAttributes_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1273,11 +1243,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         requestAttributes_ = value;
-        onChanged();
       } else {
         requestAttributesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1296,11 +1266,11 @@ private static final long serialVersionUID = 0L;
         com.google.rpc.context.AttributeContext.Request.Builder builderForValue) {
       if (requestAttributesBuilder_ == null) {
         requestAttributes_ = builderForValue.build();
-        onChanged();
       } else {
         requestAttributesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1317,17 +1287,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRequestAttributes(com.google.rpc.context.AttributeContext.Request value) {
       if (requestAttributesBuilder_ == null) {
-        if (requestAttributes_ != null) {
-          requestAttributes_ =
-            com.google.rpc.context.AttributeContext.Request.newBuilder(requestAttributes_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          requestAttributes_ != null &&
+          requestAttributes_ != com.google.rpc.context.AttributeContext.Request.getDefaultInstance()) {
+          getRequestAttributesBuilder().mergeFrom(value);
         } else {
           requestAttributes_ = value;
         }
-        onChanged();
       } else {
         requestAttributesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1343,14 +1314,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.context.AttributeContext.Request request_attributes = 7;</code>
      */
     public Builder clearRequestAttributes() {
-      if (requestAttributesBuilder_ == null) {
-        requestAttributes_ = null;
-        onChanged();
-      } else {
-        requestAttributes_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      requestAttributes_ = null;
+      if (requestAttributesBuilder_ != null) {
+        requestAttributesBuilder_.dispose();
         requestAttributesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1366,7 +1336,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.context.AttributeContext.Request request_attributes = 7;</code>
      */
     public com.google.rpc.context.AttributeContext.Request.Builder getRequestAttributesBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getRequestAttributesFieldBuilder().getBuilder();
     }
@@ -1432,7 +1402,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the destinationAttributes field is set.
      */
     public boolean hasDestinationAttributes() {
-      return destinationAttributesBuilder_ != null || destinationAttributes_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1470,11 +1440,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         destinationAttributes_ = value;
-        onChanged();
       } else {
         destinationAttributesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1492,11 +1462,11 @@ private static final long serialVersionUID = 0L;
         com.google.rpc.context.AttributeContext.Peer.Builder builderForValue) {
       if (destinationAttributesBuilder_ == null) {
         destinationAttributes_ = builderForValue.build();
-        onChanged();
       } else {
         destinationAttributesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1512,17 +1482,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDestinationAttributes(com.google.rpc.context.AttributeContext.Peer value) {
       if (destinationAttributesBuilder_ == null) {
-        if (destinationAttributes_ != null) {
-          destinationAttributes_ =
-            com.google.rpc.context.AttributeContext.Peer.newBuilder(destinationAttributes_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          destinationAttributes_ != null &&
+          destinationAttributes_ != com.google.rpc.context.AttributeContext.Peer.getDefaultInstance()) {
+          getDestinationAttributesBuilder().mergeFrom(value);
         } else {
           destinationAttributes_ = value;
         }
-        onChanged();
       } else {
         destinationAttributesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1537,14 +1508,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.context.AttributeContext.Peer destination_attributes = 8;</code>
      */
     public Builder clearDestinationAttributes() {
-      if (destinationAttributesBuilder_ == null) {
-        destinationAttributes_ = null;
-        onChanged();
-      } else {
-        destinationAttributes_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      destinationAttributes_ = null;
+      if (destinationAttributesBuilder_ != null) {
+        destinationAttributesBuilder_.dispose();
         destinationAttributesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1559,7 +1529,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.context.AttributeContext.Peer destination_attributes = 8;</code>
      */
     public com.google.rpc.context.AttributeContext.Peer.Builder getDestinationAttributesBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getDestinationAttributesFieldBuilder().getBuilder();
     }
@@ -1639,7 +1609,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RequestMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

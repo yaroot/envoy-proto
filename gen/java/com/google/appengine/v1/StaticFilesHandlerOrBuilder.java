@@ -92,7 +92,6 @@ public interface StaticFilesHandlerOrBuilder extends
    *
    * <code>map&lt;string, string&gt; http_headers = 3;</code>
    */
-
   /* nullable */
 java.lang.String getHttpHeadersOrDefault(
       java.lang.String key,
@@ -105,7 +104,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; http_headers = 3;</code>
    */
-
   java.lang.String getHttpHeadersOrThrow(
       java.lang.String key);
 

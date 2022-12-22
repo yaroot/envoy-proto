@@ -36,77 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PreviewCreateGameServerClusterResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            etag_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.gaming.v1.TargetState.Builder subBuilder = null;
-            if (targetState_ != null) {
-              subBuilder = targetState_.toBuilder();
-            }
-            targetState_ = input.readMessage(com.google.cloud.gaming.v1.TargetState.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(targetState_);
-              targetState_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.gaming.v1.KubernetesClusterState.Builder subBuilder = null;
-            if (clusterState_ != null) {
-              subBuilder = clusterState_.toBuilder();
-            }
-            clusterState_ = input.readMessage(com.google.cloud.gaming.v1.KubernetesClusterState.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(clusterState_);
-              clusterState_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gaming.v1.GameServerClusters.internal_static_google_cloud_gaming_v1_PreviewCreateGameServerClusterResponse_descriptor;
@@ -121,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ETAG_FIELD_NUMBER = 2;
-  private volatile java.lang.Object etag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object etag_ = "";
   /**
    * <pre>
    * The ETag of the game server cluster.
@@ -201,7 +131,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gaming.v1.TargetStateOrBuilder getTargetStateOrBuilder() {
-    return getTargetState();
+    return targetState_ == null ? com.google.cloud.gaming.v1.TargetState.getDefaultInstance() : targetState_;
   }
 
   public static final int CLUSTER_STATE_FIELD_NUMBER = 4;
@@ -242,7 +172,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gaming.v1.KubernetesClusterStateOrBuilder getClusterStateOrBuilder() {
-    return getClusterState();
+    return clusterState_ == null ? com.google.cloud.gaming.v1.KubernetesClusterState.getDefaultInstance() : clusterState_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -268,7 +198,7 @@ private static final long serialVersionUID = 0L;
     if (clusterState_ != null) {
       output.writeMessage(4, getClusterState());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -288,7 +218,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getClusterState());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -315,7 +245,7 @@ private static final long serialVersionUID = 0L;
       if (!getClusterState()
           .equals(other.getClusterState())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -336,7 +266,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CLUSTER_STATE_FIELD_NUMBER;
       hash = (53 * hash) + getClusterState().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -458,34 +388,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gaming.v1.PreviewCreateGameServerClusterResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       etag_ = "";
-
-      if (targetStateBuilder_ == null) {
-        targetState_ = null;
-      } else {
-        targetState_ = null;
+      targetState_ = null;
+      if (targetStateBuilder_ != null) {
+        targetStateBuilder_.dispose();
         targetStateBuilder_ = null;
       }
-      if (clusterStateBuilder_ == null) {
-        clusterState_ = null;
-      } else {
-        clusterState_ = null;
+      clusterState_ = null;
+      if (clusterStateBuilder_ != null) {
+        clusterStateBuilder_.dispose();
         clusterStateBuilder_ = null;
       }
       return this;
@@ -514,19 +437,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gaming.v1.PreviewCreateGameServerClusterResponse buildPartial() {
       com.google.cloud.gaming.v1.PreviewCreateGameServerClusterResponse result = new com.google.cloud.gaming.v1.PreviewCreateGameServerClusterResponse(this);
-      result.etag_ = etag_;
-      if (targetStateBuilder_ == null) {
-        result.targetState_ = targetState_;
-      } else {
-        result.targetState_ = targetStateBuilder_.build();
-      }
-      if (clusterStateBuilder_ == null) {
-        result.clusterState_ = clusterState_;
-      } else {
-        result.clusterState_ = clusterStateBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gaming.v1.PreviewCreateGameServerClusterResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.etag_ = etag_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.targetState_ = targetStateBuilder_ == null
+            ? targetState_
+            : targetStateBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.clusterState_ = clusterStateBuilder_ == null
+            ? clusterState_
+            : clusterStateBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -575,6 +505,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gaming.v1.PreviewCreateGameServerClusterResponse.getDefaultInstance()) return this;
       if (!other.getEtag().isEmpty()) {
         etag_ = other.etag_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasTargetState()) {
@@ -583,7 +514,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasClusterState()) {
         mergeClusterState(other.getClusterState());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -598,19 +529,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gaming.v1.PreviewCreateGameServerClusterResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              etag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getTargetStateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getClusterStateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gaming.v1.PreviewCreateGameServerClusterResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object etag_ = "";
     /**
@@ -665,11 +629,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       etag_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -682,8 +644,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEtag() {
-      
       etag_ = getDefaultInstance().getEtag();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -698,12 +660,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       etag_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -720,7 +680,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the targetState field is set.
      */
     public boolean hasTargetState() {
-      return targetStateBuilder_ != null || targetState_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -750,11 +710,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         targetState_ = value;
-        onChanged();
       } else {
         targetStateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -768,11 +728,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gaming.v1.TargetState.Builder builderForValue) {
       if (targetStateBuilder_ == null) {
         targetState_ = builderForValue.build();
-        onChanged();
       } else {
         targetStateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -784,17 +744,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTargetState(com.google.cloud.gaming.v1.TargetState value) {
       if (targetStateBuilder_ == null) {
-        if (targetState_ != null) {
-          targetState_ =
-            com.google.cloud.gaming.v1.TargetState.newBuilder(targetState_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          targetState_ != null &&
+          targetState_ != com.google.cloud.gaming.v1.TargetState.getDefaultInstance()) {
+          getTargetStateBuilder().mergeFrom(value);
         } else {
           targetState_ = value;
         }
-        onChanged();
       } else {
         targetStateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -805,14 +766,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gaming.v1.TargetState target_state = 3;</code>
      */
     public Builder clearTargetState() {
-      if (targetStateBuilder_ == null) {
-        targetState_ = null;
-        onChanged();
-      } else {
-        targetState_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      targetState_ = null;
+      if (targetStateBuilder_ != null) {
+        targetStateBuilder_.dispose();
         targetStateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -823,7 +783,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gaming.v1.TargetState target_state = 3;</code>
      */
     public com.google.cloud.gaming.v1.TargetState.Builder getTargetStateBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTargetStateFieldBuilder().getBuilder();
     }
@@ -876,7 +836,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the clusterState field is set.
      */
     public boolean hasClusterState() {
-      return clusterStateBuilder_ != null || clusterState_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -908,11 +868,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         clusterState_ = value;
-        onChanged();
       } else {
         clusterStateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -927,11 +887,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gaming.v1.KubernetesClusterState.Builder builderForValue) {
       if (clusterStateBuilder_ == null) {
         clusterState_ = builderForValue.build();
-        onChanged();
       } else {
         clusterStateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -944,17 +904,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeClusterState(com.google.cloud.gaming.v1.KubernetesClusterState value) {
       if (clusterStateBuilder_ == null) {
-        if (clusterState_ != null) {
-          clusterState_ =
-            com.google.cloud.gaming.v1.KubernetesClusterState.newBuilder(clusterState_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          clusterState_ != null &&
+          clusterState_ != com.google.cloud.gaming.v1.KubernetesClusterState.getDefaultInstance()) {
+          getClusterStateBuilder().mergeFrom(value);
         } else {
           clusterState_ = value;
         }
-        onChanged();
       } else {
         clusterStateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -966,14 +927,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gaming.v1.KubernetesClusterState cluster_state = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearClusterState() {
-      if (clusterStateBuilder_ == null) {
-        clusterState_ = null;
-        onChanged();
-      } else {
-        clusterState_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      clusterState_ = null;
+      if (clusterStateBuilder_ != null) {
+        clusterStateBuilder_.dispose();
         clusterStateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -985,7 +945,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gaming.v1.KubernetesClusterState cluster_state = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.gaming.v1.KubernetesClusterState.Builder getClusterStateBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getClusterStateFieldBuilder().getBuilder();
     }
@@ -1059,7 +1019,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PreviewCreateGameServerClusterResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -37,103 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SpeechTranscriptionConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageCode_ = s;
-            break;
-          }
-          case 16: {
-
-            maxAlternatives_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            filterProfanity_ = input.readBool();
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              speechContexts_ = new java.util.ArrayList<com.google.cloud.videointelligence.v1p1beta1.SpeechContext>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            speechContexts_.add(
-                input.readMessage(com.google.cloud.videointelligence.v1p1beta1.SpeechContext.parser(), extensionRegistry));
-            break;
-          }
-          case 40: {
-
-            enableAutomaticPunctuation_ = input.readBool();
-            break;
-          }
-          case 48: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              audioTracks_ = newIntList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            audioTracks_.addInt(input.readInt32());
-            break;
-          }
-          case 50: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
-              audioTracks_ = newIntList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              audioTracks_.addInt(input.readInt32());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        speechContexts_ = java.util.Collections.unmodifiableList(speechContexts_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        audioTracks_.makeImmutable(); // C
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.videointelligence.v1p1beta1.VideoIntelligenceServiceProto.internal_static_google_cloud_videointelligence_v1p1beta1_SpeechTranscriptionConfig_descriptor;
@@ -148,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LANGUAGE_CODE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object languageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageCode_ = "";
   /**
    * <pre>
    * Required. *Required* The language of the supplied audio as a
@@ -202,7 +106,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_ALTERNATIVES_FIELD_NUMBER = 2;
-  private int maxAlternatives_;
+  private int maxAlternatives_ = 0;
   /**
    * <pre>
    * Optional. Maximum number of recognition hypotheses to be returned.
@@ -221,7 +125,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILTER_PROFANITY_FIELD_NUMBER = 3;
-  private boolean filterProfanity_;
+  private boolean filterProfanity_ = false;
   /**
    * <pre>
    * Optional. If set to `true`, the server will attempt to filter out
@@ -239,6 +143,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPEECH_CONTEXTS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.videointelligence.v1p1beta1.SpeechContext> speechContexts_;
   /**
    * <pre>
@@ -299,7 +204,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_AUTOMATIC_PUNCTUATION_FIELD_NUMBER = 5;
-  private boolean enableAutomaticPunctuation_;
+  private boolean enableAutomaticPunctuation_ = false;
   /**
    * <pre>
    * Optional. If 'true', adds punctuation to recognition result hypotheses.
@@ -319,6 +224,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUDIO_TRACKS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.IntList audioTracks_;
   /**
    * <pre>
@@ -398,7 +304,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < audioTracks_.size(); i++) {
       output.writeInt32NoTag(audioTracks_.getInt(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -440,7 +346,7 @@ private static final long serialVersionUID = 0L;
       }
       audioTracksMemoizedSerializedSize = dataSize;
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -467,7 +373,7 @@ private static final long serialVersionUID = 0L;
         != other.getEnableAutomaticPunctuation()) return false;
     if (!getAudioTracksList()
         .equals(other.getAudioTracksList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -496,7 +402,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + AUDIO_TRACKS_FIELD_NUMBER;
       hash = (53 * hash) + getAudioTracksList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -617,39 +523,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.videointelligence.v1p1beta1.SpeechTranscriptionConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSpeechContextsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       languageCode_ = "";
-
       maxAlternatives_ = 0;
-
       filterProfanity_ = false;
-
       if (speechContextsBuilder_ == null) {
         speechContexts_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        speechContexts_ = null;
         speechContextsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       enableAutomaticPunctuation_ = false;
-
       audioTracks_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -676,27 +573,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.videointelligence.v1p1beta1.SpeechTranscriptionConfig buildPartial() {
       com.google.cloud.videointelligence.v1p1beta1.SpeechTranscriptionConfig result = new com.google.cloud.videointelligence.v1p1beta1.SpeechTranscriptionConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.languageCode_ = languageCode_;
-      result.maxAlternatives_ = maxAlternatives_;
-      result.filterProfanity_ = filterProfanity_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.videointelligence.v1p1beta1.SpeechTranscriptionConfig result) {
       if (speechContextsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           speechContexts_ = java.util.Collections.unmodifiableList(speechContexts_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.speechContexts_ = speechContexts_;
       } else {
         result.speechContexts_ = speechContextsBuilder_.build();
       }
-      result.enableAutomaticPunctuation_ = enableAutomaticPunctuation_;
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         audioTracks_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000020);
       }
       result.audioTracks_ = audioTracks_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.videointelligence.v1p1beta1.SpeechTranscriptionConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.languageCode_ = languageCode_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.maxAlternatives_ = maxAlternatives_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.filterProfanity_ = filterProfanity_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.enableAutomaticPunctuation_ = enableAutomaticPunctuation_;
+      }
     }
 
     @java.lang.Override
@@ -745,6 +658,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.videointelligence.v1p1beta1.SpeechTranscriptionConfig.getDefaultInstance()) return this;
       if (!other.getLanguageCode().isEmpty()) {
         languageCode_ = other.languageCode_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getMaxAlternatives() != 0) {
@@ -757,7 +671,7 @@ private static final long serialVersionUID = 0L;
         if (!other.speechContexts_.isEmpty()) {
           if (speechContexts_.isEmpty()) {
             speechContexts_ = other.speechContexts_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureSpeechContextsIsMutable();
             speechContexts_.addAll(other.speechContexts_);
@@ -770,7 +684,7 @@ private static final long serialVersionUID = 0L;
             speechContextsBuilder_.dispose();
             speechContextsBuilder_ = null;
             speechContexts_ = other.speechContexts_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             speechContextsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSpeechContextsFieldBuilder() : null;
@@ -785,14 +699,14 @@ private static final long serialVersionUID = 0L;
       if (!other.audioTracks_.isEmpty()) {
         if (audioTracks_.isEmpty()) {
           audioTracks_ = other.audioTracks_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureAudioTracksIsMutable();
           audioTracks_.addAll(other.audioTracks_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -807,17 +721,79 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.videointelligence.v1p1beta1.SpeechTranscriptionConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              languageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              maxAlternatives_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              filterProfanity_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              com.google.cloud.videointelligence.v1p1beta1.SpeechContext m =
+                  input.readMessage(
+                      com.google.cloud.videointelligence.v1p1beta1.SpeechContext.parser(),
+                      extensionRegistry);
+              if (speechContextsBuilder_ == null) {
+                ensureSpeechContextsIsMutable();
+                speechContexts_.add(m);
+              } else {
+                speechContextsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 40: {
+              enableAutomaticPunctuation_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              int v = input.readInt32();
+              ensureAudioTracksIsMutable();
+              audioTracks_.addInt(v);
+              break;
+            } // case 48
+            case 50: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureAudioTracksIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                audioTracks_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.videointelligence.v1p1beta1.SpeechTranscriptionConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -887,11 +863,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageCode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -908,8 +882,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguageCode() {
-      
       languageCode_ = getDefaultInstance().getLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -928,12 +902,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageCode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -971,6 +943,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxAlternatives(int value) {
       
       maxAlternatives_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -987,7 +960,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxAlternatives() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       maxAlternatives_ = 0;
       onChanged();
       return this;
@@ -1024,6 +997,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFilterProfanity(boolean value) {
       
       filterProfanity_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1039,7 +1013,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFilterProfanity() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       filterProfanity_ = false;
       onChanged();
       return this;
@@ -1048,9 +1022,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.videointelligence.v1p1beta1.SpeechContext> speechContexts_ =
       java.util.Collections.emptyList();
     private void ensureSpeechContextsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         speechContexts_ = new java.util.ArrayList<com.google.cloud.videointelligence.v1p1beta1.SpeechContext>(speechContexts_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1244,7 +1218,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSpeechContexts() {
       if (speechContextsBuilder_ == null) {
         speechContexts_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         speechContextsBuilder_.clear();
@@ -1349,7 +1323,7 @@ private static final long serialVersionUID = 0L;
         speechContextsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.videointelligence.v1p1beta1.SpeechContext, com.google.cloud.videointelligence.v1p1beta1.SpeechContext.Builder, com.google.cloud.videointelligence.v1p1beta1.SpeechContextOrBuilder>(
                 speechContexts_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         speechContexts_ = null;
@@ -1392,6 +1366,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnableAutomaticPunctuation(boolean value) {
       
       enableAutomaticPunctuation_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1409,7 +1384,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableAutomaticPunctuation() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       enableAutomaticPunctuation_ = false;
       onChanged();
       return this;
@@ -1417,10 +1392,10 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.Internal.IntList audioTracks_ = emptyIntList();
     private void ensureAudioTracksIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         audioTracks_ = mutableCopy(audioTracks_);
-        bitField0_ |= 0x00000002;
-       }
+        bitField0_ |= 0x00000020;
+      }
     }
     /**
      * <pre>
@@ -1433,7 +1408,7 @@ private static final long serialVersionUID = 0L;
      */
     public java.util.List<java.lang.Integer>
         getAudioTracksList() {
-      return ((bitField0_ & 0x00000002) != 0) ?
+      return ((bitField0_ & 0x00000020) != 0) ?
                java.util.Collections.unmodifiableList(audioTracks_) : audioTracks_;
     }
     /**
@@ -1474,6 +1449,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAudioTracks(
         int index, int value) {
+      
       ensureAudioTracksIsMutable();
       audioTracks_.setInt(index, value);
       onChanged();
@@ -1490,6 +1466,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addAudioTracks(int value) {
+      
       ensureAudioTracksIsMutable();
       audioTracks_.addInt(value);
       onChanged();
@@ -1524,7 +1501,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAudioTracks() {
       audioTracks_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1561,7 +1538,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SpeechTranscriptionConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

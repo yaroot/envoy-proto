@@ -39,63 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VideoClassificationConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              annotationSpecSetConfigs_ = new java.util.ArrayList<com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig.AnnotationSpecSetConfig>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            annotationSpecSetConfigs_.add(
-                input.readMessage(com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig.AnnotationSpecSetConfig.parser(), extensionRegistry));
-            break;
-          }
-          case 16: {
-
-            applyShotDetection_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        annotationSpecSetConfigs_ = java.util.Collections.unmodifiableList(annotationSpecSetConfigs_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datalabeling.v1beta1.HumanAnnotationConfigOuterClass.internal_static_google_cloud_datalabeling_v1beta1_VideoClassificationConfig_descriptor;
@@ -176,56 +119,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AnnotationSpecSetConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              annotationSpecSet_ = s;
-              break;
-            }
-            case 16: {
-
-              allowMultiLabel_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.datalabeling.v1beta1.HumanAnnotationConfigOuterClass.internal_static_google_cloud_datalabeling_v1beta1_VideoClassificationConfig_AnnotationSpecSetConfig_descriptor;
@@ -240,7 +133,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ANNOTATION_SPEC_SET_FIELD_NUMBER = 1;
-    private volatile java.lang.Object annotationSpecSet_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object annotationSpecSet_ = "";
     /**
      * <pre>
      * Required. Annotation spec set resource name.
@@ -286,7 +180,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ALLOW_MULTI_LABEL_FIELD_NUMBER = 2;
-    private boolean allowMultiLabel_;
+    private boolean allowMultiLabel_ = false;
     /**
      * <pre>
      * Optional. If allow_multi_label is true, contributors are able to
@@ -321,7 +215,7 @@ private static final long serialVersionUID = 0L;
       if (allowMultiLabel_ != false) {
         output.writeBool(2, allowMultiLabel_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -337,7 +231,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, allowMultiLabel_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -356,7 +250,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getAnnotationSpecSet())) return false;
       if (getAllowMultiLabel()
           != other.getAllowMultiLabel()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -372,7 +266,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ALLOW_MULTI_LABEL_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getAllowMultiLabel());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -493,26 +387,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig.AnnotationSpecSetConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         annotationSpecSet_ = "";
-
         allowMultiLabel_ = false;
-
         return this;
       }
 
@@ -539,10 +427,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig.AnnotationSpecSetConfig buildPartial() {
         com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig.AnnotationSpecSetConfig result = new com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig.AnnotationSpecSetConfig(this);
-        result.annotationSpecSet_ = annotationSpecSet_;
-        result.allowMultiLabel_ = allowMultiLabel_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig.AnnotationSpecSetConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.annotationSpecSet_ = annotationSpecSet_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.allowMultiLabel_ = allowMultiLabel_;
+        }
       }
 
       @java.lang.Override
@@ -591,12 +488,13 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig.AnnotationSpecSetConfig.getDefaultInstance()) return this;
         if (!other.getAnnotationSpecSet().isEmpty()) {
           annotationSpecSet_ = other.annotationSpecSet_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getAllowMultiLabel() != false) {
           setAllowMultiLabel(other.getAllowMultiLabel());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -611,19 +509,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig.AnnotationSpecSetConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                annotationSpecSet_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                allowMultiLabel_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig.AnnotationSpecSetConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object annotationSpecSet_ = "";
       /**
@@ -678,11 +600,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAnnotationSpecSet(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         annotationSpecSet_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -695,8 +615,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAnnotationSpecSet() {
-        
         annotationSpecSet_ = getDefaultInstance().getAnnotationSpecSet();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -711,12 +631,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAnnotationSpecSetBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         annotationSpecSet_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -748,6 +666,7 @@ private static final long serialVersionUID = 0L;
       public Builder setAllowMultiLabel(boolean value) {
         
         allowMultiLabel_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -761,7 +680,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAllowMultiLabel() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         allowMultiLabel_ = false;
         onChanged();
         return this;
@@ -799,7 +718,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AnnotationSpecSetConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -820,6 +750,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ANNOTATION_SPEC_SET_CONFIGS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig.AnnotationSpecSetConfig> annotationSpecSetConfigs_;
   /**
    * <pre>
@@ -905,7 +836,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int APPLY_SHOT_DETECTION_FIELD_NUMBER = 2;
-  private boolean applyShotDetection_;
+  private boolean applyShotDetection_ = false;
   /**
    * <pre>
    * Optional. Option to apply shot detection on the video.
@@ -939,7 +870,7 @@ private static final long serialVersionUID = 0L;
     if (applyShotDetection_ != false) {
       output.writeBool(2, applyShotDetection_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -956,7 +887,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(2, applyShotDetection_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -975,7 +906,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAnnotationSpecSetConfigsList())) return false;
     if (getApplyShotDetection()
         != other.getApplyShotDetection()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -993,7 +924,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + APPLY_SHOT_DETECTION_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getApplyShotDetection());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1118,31 +1049,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getAnnotationSpecSetConfigsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (annotationSpecSetConfigsBuilder_ == null) {
         annotationSpecSetConfigs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        annotationSpecSetConfigs_ = null;
         annotationSpecSetConfigsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       applyShotDetection_ = false;
-
       return this;
     }
 
@@ -1169,7 +1095,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig buildPartial() {
       com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig result = new com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig result) {
       if (annotationSpecSetConfigsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           annotationSpecSetConfigs_ = java.util.Collections.unmodifiableList(annotationSpecSetConfigs_);
@@ -1179,9 +1111,13 @@ private static final long serialVersionUID = 0L;
       } else {
         result.annotationSpecSetConfigs_ = annotationSpecSetConfigsBuilder_.build();
       }
-      result.applyShotDetection_ = applyShotDetection_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.applyShotDetection_ = applyShotDetection_;
+      }
     }
 
     @java.lang.Override
@@ -1257,7 +1193,7 @@ private static final long serialVersionUID = 0L;
       if (other.getApplyShotDetection() != false) {
         setApplyShotDetection(other.getApplyShotDetection());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1272,17 +1208,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig.AnnotationSpecSetConfig m =
+                  input.readMessage(
+                      com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig.AnnotationSpecSetConfig.parser(),
+                      extensionRegistry);
+              if (annotationSpecSetConfigsBuilder_ == null) {
+                ensureAnnotationSpecSetConfigsIsMutable();
+                annotationSpecSetConfigs_.add(m);
+              } else {
+                annotationSpecSetConfigsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 16: {
+              applyShotDetection_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1714,6 +1681,7 @@ private static final long serialVersionUID = 0L;
     public Builder setApplyShotDetection(boolean value) {
       
       applyShotDetection_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1726,7 +1694,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApplyShotDetection() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       applyShotDetection_ = false;
       onChanged();
       return this;
@@ -1764,7 +1732,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VideoClassificationConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

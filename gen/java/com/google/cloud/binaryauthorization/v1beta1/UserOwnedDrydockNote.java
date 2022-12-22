@@ -38,70 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UserOwnedDrydockNote(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            noteReference_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              publicKeys_ = new java.util.ArrayList<com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            publicKeys_.add(
-                input.readMessage(com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            delegationServiceAccountEmail_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        publicKeys_ = java.util.Collections.unmodifiableList(publicKeys_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.binaryauthorization.v1beta1.BinaryAuthorizationResourcesProto.internal_static_google_cloud_binaryauthorization_v1beta1_UserOwnedDrydockNote_descriptor;
@@ -116,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NOTE_REFERENCE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object noteReference_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object noteReference_ = "";
   /**
    * <pre>
    * Required. The Drydock resource name of a ATTESTATION_AUTHORITY Note,
@@ -172,6 +109,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PUBLIC_KEYS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey> publicKeys_;
   /**
    * <pre>
@@ -262,7 +200,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DELEGATION_SERVICE_ACCOUNT_EMAIL_FIELD_NUMBER = 3;
-  private volatile java.lang.Object delegationServiceAccountEmail_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object delegationServiceAccountEmail_ = "";
   /**
    * <pre>
    * Output only. This field will contain the service account email address
@@ -344,7 +283,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(delegationServiceAccountEmail_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, delegationServiceAccountEmail_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -363,7 +302,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(delegationServiceAccountEmail_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, delegationServiceAccountEmail_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -384,7 +323,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPublicKeysList())) return false;
     if (!getDelegationServiceAccountEmail()
         .equals(other.getDelegationServiceAccountEmail())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -403,7 +342,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + DELEGATION_SERVICE_ACCOUNT_EMAIL_FIELD_NUMBER;
     hash = (53 * hash) + getDelegationServiceAccountEmail().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -525,33 +464,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.binaryauthorization.v1beta1.UserOwnedDrydockNote.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getPublicKeysFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       noteReference_ = "";
-
       if (publicKeysBuilder_ == null) {
         publicKeys_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        publicKeys_ = null;
         publicKeysBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       delegationServiceAccountEmail_ = "";
-
       return this;
     }
 
@@ -578,20 +511,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.binaryauthorization.v1beta1.UserOwnedDrydockNote buildPartial() {
       com.google.cloud.binaryauthorization.v1beta1.UserOwnedDrydockNote result = new com.google.cloud.binaryauthorization.v1beta1.UserOwnedDrydockNote(this);
-      int from_bitField0_ = bitField0_;
-      result.noteReference_ = noteReference_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.binaryauthorization.v1beta1.UserOwnedDrydockNote result) {
       if (publicKeysBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           publicKeys_ = java.util.Collections.unmodifiableList(publicKeys_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.publicKeys_ = publicKeys_;
       } else {
         result.publicKeys_ = publicKeysBuilder_.build();
       }
-      result.delegationServiceAccountEmail_ = delegationServiceAccountEmail_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.binaryauthorization.v1beta1.UserOwnedDrydockNote result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.noteReference_ = noteReference_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.delegationServiceAccountEmail_ = delegationServiceAccountEmail_;
+      }
     }
 
     @java.lang.Override
@@ -640,13 +585,14 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.binaryauthorization.v1beta1.UserOwnedDrydockNote.getDefaultInstance()) return this;
       if (!other.getNoteReference().isEmpty()) {
         noteReference_ = other.noteReference_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (publicKeysBuilder_ == null) {
         if (!other.publicKeys_.isEmpty()) {
           if (publicKeys_.isEmpty()) {
             publicKeys_ = other.publicKeys_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensurePublicKeysIsMutable();
             publicKeys_.addAll(other.publicKeys_);
@@ -659,7 +605,7 @@ private static final long serialVersionUID = 0L;
             publicKeysBuilder_.dispose();
             publicKeysBuilder_ = null;
             publicKeys_ = other.publicKeys_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             publicKeysBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPublicKeysFieldBuilder() : null;
@@ -670,9 +616,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDelegationServiceAccountEmail().isEmpty()) {
         delegationServiceAccountEmail_ = other.delegationServiceAccountEmail_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -687,17 +634,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.binaryauthorization.v1beta1.UserOwnedDrydockNote parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              noteReference_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey m =
+                  input.readMessage(
+                      com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey.parser(),
+                      extensionRegistry);
+              if (publicKeysBuilder_ == null) {
+                ensurePublicKeysIsMutable();
+                publicKeys_.add(m);
+              } else {
+                publicKeysBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              delegationServiceAccountEmail_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.binaryauthorization.v1beta1.UserOwnedDrydockNote) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -770,11 +753,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNoteReference(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       noteReference_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -792,8 +773,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNoteReference() {
-      
       noteReference_ = getDefaultInstance().getNoteReference();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -813,12 +794,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNoteReferenceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       noteReference_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -826,9 +805,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey> publicKeys_ =
       java.util.Collections.emptyList();
     private void ensurePublicKeysIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         publicKeys_ = new java.util.ArrayList<com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey>(publicKeys_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1088,7 +1067,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPublicKeys() {
       if (publicKeysBuilder_ == null) {
         publicKeys_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         publicKeysBuilder_.clear();
@@ -1235,7 +1214,7 @@ private static final long serialVersionUID = 0L;
         publicKeysBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey, com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey.Builder, com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKeyOrBuilder>(
                 publicKeys_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         publicKeys_ = null;
@@ -1317,11 +1296,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDelegationServiceAccountEmail(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       delegationServiceAccountEmail_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1341,8 +1318,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDelegationServiceAccountEmail() {
-      
       delegationServiceAccountEmail_ = getDefaultInstance().getDelegationServiceAccountEmail();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1364,12 +1341,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDelegationServiceAccountEmailBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       delegationServiceAccountEmail_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1406,7 +1381,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UserOwnedDrydockNote(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

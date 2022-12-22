@@ -183,8 +183,8 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * Output only. Either the estimated future time when the rider(s) will be picked up, or
-   * the actual time when they were picked up.
+   * Output only. Either the estimated future time when the rider(s) will be
+   * picked up, or the actual time when they were picked up.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp pickup_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -193,8 +193,8 @@ public interface TripOrBuilder extends
   boolean hasPickupTime();
   /**
    * <pre>
-   * Output only. Either the estimated future time when the rider(s) will be picked up, or
-   * the actual time when they were picked up.
+   * Output only. Either the estimated future time when the rider(s) will be
+   * picked up, or the actual time when they were picked up.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp pickup_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -203,8 +203,8 @@ public interface TripOrBuilder extends
   com.google.protobuf.Timestamp getPickupTime();
   /**
    * <pre>
-   * Output only. Either the estimated future time when the rider(s) will be picked up, or
-   * the actual time when they were picked up.
+   * Output only. Either the estimated future time when the rider(s) will be
+   * picked up, or the actual time when they were picked up.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp pickup_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -270,7 +270,7 @@ public interface TripOrBuilder extends
    * Indicates the last time the `intermediate_destinations` was modified.
    * Your server should cache this value and pass it in `UpdateTripRequest`
    * when update `intermediate_destination_index` to ensure the
-   * Trip.intermediate_destinations is not changed.
+   * `intermediate_destinations` is not changed.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp intermediate_destinations_version = 25;</code>
@@ -282,7 +282,7 @@ public interface TripOrBuilder extends
    * Indicates the last time the `intermediate_destinations` was modified.
    * Your server should cache this value and pass it in `UpdateTripRequest`
    * when update `intermediate_destination_index` to ensure the
-   * Trip.intermediate_destinations is not changed.
+   * `intermediate_destinations` is not changed.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp intermediate_destinations_version = 25;</code>
@@ -294,7 +294,7 @@ public interface TripOrBuilder extends
    * Indicates the last time the `intermediate_destinations` was modified.
    * Your server should cache this value and pass it in `UpdateTripRequest`
    * when update `intermediate_destination_index` to ensure the
-   * Trip.intermediate_destinations is not changed.
+   * `intermediate_destinations` is not changed.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp intermediate_destinations_version = 25;</code>
@@ -377,10 +377,9 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * Input only. The actual time and location when and where the customer was picked up from
-   * an intermediate destination.
-   * This field is for provider to provide feedback on actual pickup
-   * information at intermediate destinations.
+   * Input only. The actual time and location when and where the customer was
+   * picked up from an intermediate destination. This field is for provider to
+   * provide feedback on actual pickup information at intermediate destinations.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.StopLocation actual_intermediate_destinations = 34 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -389,10 +388,9 @@ public interface TripOrBuilder extends
       getActualIntermediateDestinationsList();
   /**
    * <pre>
-   * Input only. The actual time and location when and where the customer was picked up from
-   * an intermediate destination.
-   * This field is for provider to provide feedback on actual pickup
-   * information at intermediate destinations.
+   * Input only. The actual time and location when and where the customer was
+   * picked up from an intermediate destination. This field is for provider to
+   * provide feedback on actual pickup information at intermediate destinations.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.StopLocation actual_intermediate_destinations = 34 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -400,10 +398,9 @@ public interface TripOrBuilder extends
   google.maps.fleetengine.v1.StopLocation getActualIntermediateDestinations(int index);
   /**
    * <pre>
-   * Input only. The actual time and location when and where the customer was picked up from
-   * an intermediate destination.
-   * This field is for provider to provide feedback on actual pickup
-   * information at intermediate destinations.
+   * Input only. The actual time and location when and where the customer was
+   * picked up from an intermediate destination. This field is for provider to
+   * provide feedback on actual pickup information at intermediate destinations.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.StopLocation actual_intermediate_destinations = 34 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -411,10 +408,9 @@ public interface TripOrBuilder extends
   int getActualIntermediateDestinationsCount();
   /**
    * <pre>
-   * Input only. The actual time and location when and where the customer was picked up from
-   * an intermediate destination.
-   * This field is for provider to provide feedback on actual pickup
-   * information at intermediate destinations.
+   * Input only. The actual time and location when and where the customer was
+   * picked up from an intermediate destination. This field is for provider to
+   * provide feedback on actual pickup information at intermediate destinations.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.StopLocation actual_intermediate_destinations = 34 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -423,10 +419,9 @@ public interface TripOrBuilder extends
       getActualIntermediateDestinationsOrBuilderList();
   /**
    * <pre>
-   * Input only. The actual time and location when and where the customer was picked up from
-   * an intermediate destination.
-   * This field is for provider to provide feedback on actual pickup
-   * information at intermediate destinations.
+   * Input only. The actual time and location when and where the customer was
+   * picked up from an intermediate destination. This field is for provider to
+   * provide feedback on actual pickup information at intermediate destinations.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.StopLocation actual_intermediate_destinations = 34 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -463,9 +458,9 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * Input only. The actual time and location when and where customer was dropped off.
-   * This field is for provider to provide feedback on actual dropoff
-   * information.
+   * Input only. The actual time and location when and where customer was
+   * dropped off. This field is for provider to provide feedback on actual
+   * dropoff information.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.StopLocation actual_dropoff_point = 23 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -474,9 +469,9 @@ public interface TripOrBuilder extends
   boolean hasActualDropoffPoint();
   /**
    * <pre>
-   * Input only. The actual time and location when and where customer was dropped off.
-   * This field is for provider to provide feedback on actual dropoff
-   * information.
+   * Input only. The actual time and location when and where customer was
+   * dropped off. This field is for provider to provide feedback on actual
+   * dropoff information.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.StopLocation actual_dropoff_point = 23 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -485,9 +480,9 @@ public interface TripOrBuilder extends
   google.maps.fleetengine.v1.StopLocation getActualDropoffPoint();
   /**
    * <pre>
-   * Input only. The actual time and location when and where customer was dropped off.
-   * This field is for provider to provide feedback on actual dropoff
-   * information.
+   * Input only. The actual time and location when and where customer was
+   * dropped off. This field is for provider to provide feedback on actual
+   * dropoff information.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.StopLocation actual_dropoff_point = 23 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -496,8 +491,9 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * Output only. Either the estimated future time when the rider(s) will be dropped off at
-   * the final destination, or the actual time when they were dropped off.
+   * Output only. Either the estimated future time when the rider(s) will be
+   * dropped off at the final destination, or the actual time when they were
+   * dropped off.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp dropoff_time = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -506,8 +502,9 @@ public interface TripOrBuilder extends
   boolean hasDropoffTime();
   /**
    * <pre>
-   * Output only. Either the estimated future time when the rider(s) will be dropped off at
-   * the final destination, or the actual time when they were dropped off.
+   * Output only. Either the estimated future time when the rider(s) will be
+   * dropped off at the final destination, or the actual time when they were
+   * dropped off.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp dropoff_time = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -516,8 +513,9 @@ public interface TripOrBuilder extends
   com.google.protobuf.Timestamp getDropoffTime();
   /**
    * <pre>
-   * Output only. Either the estimated future time when the rider(s) will be dropped off at
-   * the final destination, or the actual time when they were dropped off.
+   * Output only. Either the estimated future time when the rider(s) will be
+   * dropped off at the final destination, or the actual time when they were
+   * dropped off.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp dropoff_time = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -526,9 +524,8 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * Output only. The full path from the current location to the dropoff point, inclusive.
-   * If this is a shared ride, this path could include waypoints from other
-   * trips.
+   * Output only. The full path from the current location to the dropoff point,
+   * inclusive. This path could include waypoints from other trips.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripWaypoint remaining_waypoints = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -537,9 +534,8 @@ public interface TripOrBuilder extends
       getRemainingWaypointsList();
   /**
    * <pre>
-   * Output only. The full path from the current location to the dropoff point, inclusive.
-   * If this is a shared ride, this path could include waypoints from other
-   * trips.
+   * Output only. The full path from the current location to the dropoff point,
+   * inclusive. This path could include waypoints from other trips.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripWaypoint remaining_waypoints = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -547,9 +543,8 @@ public interface TripOrBuilder extends
   google.maps.fleetengine.v1.TripWaypoint getRemainingWaypoints(int index);
   /**
    * <pre>
-   * Output only. The full path from the current location to the dropoff point, inclusive.
-   * If this is a shared ride, this path could include waypoints from other
-   * trips.
+   * Output only. The full path from the current location to the dropoff point,
+   * inclusive. This path could include waypoints from other trips.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripWaypoint remaining_waypoints = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -557,9 +552,8 @@ public interface TripOrBuilder extends
   int getRemainingWaypointsCount();
   /**
    * <pre>
-   * Output only. The full path from the current location to the dropoff point, inclusive.
-   * If this is a shared ride, this path could include waypoints from other
-   * trips.
+   * Output only. The full path from the current location to the dropoff point,
+   * inclusive. This path could include waypoints from other trips.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripWaypoint remaining_waypoints = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -568,9 +562,8 @@ public interface TripOrBuilder extends
       getRemainingWaypointsOrBuilderList();
   /**
    * <pre>
-   * Output only. The full path from the current location to the dropoff point, inclusive.
-   * If this is a shared ride, this path could include waypoints from other
-   * trips.
+   * Output only. The full path from the current location to the dropoff point,
+   * inclusive. This path could include waypoints from other trips.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripWaypoint remaining_waypoints = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -580,12 +573,12 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * This field supports manual ordering of the waypoints for the trip.
-   * It contains all of the remaining waypoints of vehicle assigned, as well as
-   * the pickup and drop-off waypoints for this trip.
-   * If the trip hasn't been assigned to a vehicle, then this field is ignored.
-   * For privacy reasons, this field is only populated by the server on
-   * UpdateTrip and CreateTrip calls, and NOT on GetTrip calls.
+   * This field supports manual ordering of the waypoints for the trip. It
+   * contains all of the remaining waypoints for the assigned vehicle, as well
+   * as the pickup and drop-off waypoints for this trip. If the trip hasn't been
+   * assigned to a vehicle, then this field is ignored. For privacy reasons,
+   * this field is only populated by the server on UpdateTrip and CreateTrip
+   * calls, NOT on GetTrip calls.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripWaypoint vehicle_waypoints = 20;</code>
@@ -594,12 +587,12 @@ public interface TripOrBuilder extends
       getVehicleWaypointsList();
   /**
    * <pre>
-   * This field supports manual ordering of the waypoints for the trip.
-   * It contains all of the remaining waypoints of vehicle assigned, as well as
-   * the pickup and drop-off waypoints for this trip.
-   * If the trip hasn't been assigned to a vehicle, then this field is ignored.
-   * For privacy reasons, this field is only populated by the server on
-   * UpdateTrip and CreateTrip calls, and NOT on GetTrip calls.
+   * This field supports manual ordering of the waypoints for the trip. It
+   * contains all of the remaining waypoints for the assigned vehicle, as well
+   * as the pickup and drop-off waypoints for this trip. If the trip hasn't been
+   * assigned to a vehicle, then this field is ignored. For privacy reasons,
+   * this field is only populated by the server on UpdateTrip and CreateTrip
+   * calls, NOT on GetTrip calls.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripWaypoint vehicle_waypoints = 20;</code>
@@ -607,12 +600,12 @@ public interface TripOrBuilder extends
   google.maps.fleetengine.v1.TripWaypoint getVehicleWaypoints(int index);
   /**
    * <pre>
-   * This field supports manual ordering of the waypoints for the trip.
-   * It contains all of the remaining waypoints of vehicle assigned, as well as
-   * the pickup and drop-off waypoints for this trip.
-   * If the trip hasn't been assigned to a vehicle, then this field is ignored.
-   * For privacy reasons, this field is only populated by the server on
-   * UpdateTrip and CreateTrip calls, and NOT on GetTrip calls.
+   * This field supports manual ordering of the waypoints for the trip. It
+   * contains all of the remaining waypoints for the assigned vehicle, as well
+   * as the pickup and drop-off waypoints for this trip. If the trip hasn't been
+   * assigned to a vehicle, then this field is ignored. For privacy reasons,
+   * this field is only populated by the server on UpdateTrip and CreateTrip
+   * calls, NOT on GetTrip calls.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripWaypoint vehicle_waypoints = 20;</code>
@@ -620,12 +613,12 @@ public interface TripOrBuilder extends
   int getVehicleWaypointsCount();
   /**
    * <pre>
-   * This field supports manual ordering of the waypoints for the trip.
-   * It contains all of the remaining waypoints of vehicle assigned, as well as
-   * the pickup and drop-off waypoints for this trip.
-   * If the trip hasn't been assigned to a vehicle, then this field is ignored.
-   * For privacy reasons, this field is only populated by the server on
-   * UpdateTrip and CreateTrip calls, and NOT on GetTrip calls.
+   * This field supports manual ordering of the waypoints for the trip. It
+   * contains all of the remaining waypoints for the assigned vehicle, as well
+   * as the pickup and drop-off waypoints for this trip. If the trip hasn't been
+   * assigned to a vehicle, then this field is ignored. For privacy reasons,
+   * this field is only populated by the server on UpdateTrip and CreateTrip
+   * calls, NOT on GetTrip calls.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripWaypoint vehicle_waypoints = 20;</code>
@@ -634,12 +627,12 @@ public interface TripOrBuilder extends
       getVehicleWaypointsOrBuilderList();
   /**
    * <pre>
-   * This field supports manual ordering of the waypoints for the trip.
-   * It contains all of the remaining waypoints of vehicle assigned, as well as
-   * the pickup and drop-off waypoints for this trip.
-   * If the trip hasn't been assigned to a vehicle, then this field is ignored.
-   * For privacy reasons, this field is only populated by the server on
-   * UpdateTrip and CreateTrip calls, and NOT on GetTrip calls.
+   * This field supports manual ordering of the waypoints for the trip. It
+   * contains all of the remaining waypoints for the assigned vehicle, as well
+   * as the pickup and drop-off waypoints for this trip. If the trip hasn't been
+   * assigned to a vehicle, then this field is ignored. For privacy reasons,
+   * this field is only populated by the server on UpdateTrip and CreateTrip
+   * calls, NOT on GetTrip calls.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripWaypoint vehicle_waypoints = 20;</code>
@@ -649,9 +642,9 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * Output only. Anticipated route for this trip to the first entry in remaining_waypoints.
-   * If back_to_back or shared trips are enabled, the waypoints may belong to a
-   * different trip.
+   * Output only. Anticipated route for this trip to the first entry in
+   * remaining_waypoints. Note that the first waypoint may belong to a different
+   * trip.
    * </pre>
    *
    * <code>repeated .google.type.LatLng route = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -660,9 +653,9 @@ public interface TripOrBuilder extends
       getRouteList();
   /**
    * <pre>
-   * Output only. Anticipated route for this trip to the first entry in remaining_waypoints.
-   * If back_to_back or shared trips are enabled, the waypoints may belong to a
-   * different trip.
+   * Output only. Anticipated route for this trip to the first entry in
+   * remaining_waypoints. Note that the first waypoint may belong to a different
+   * trip.
    * </pre>
    *
    * <code>repeated .google.type.LatLng route = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -670,9 +663,9 @@ public interface TripOrBuilder extends
   com.google.type.LatLng getRoute(int index);
   /**
    * <pre>
-   * Output only. Anticipated route for this trip to the first entry in remaining_waypoints.
-   * If back_to_back or shared trips are enabled, the waypoints may belong to a
-   * different trip.
+   * Output only. Anticipated route for this trip to the first entry in
+   * remaining_waypoints. Note that the first waypoint may belong to a different
+   * trip.
    * </pre>
    *
    * <code>repeated .google.type.LatLng route = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -680,9 +673,9 @@ public interface TripOrBuilder extends
   int getRouteCount();
   /**
    * <pre>
-   * Output only. Anticipated route for this trip to the first entry in remaining_waypoints.
-   * If back_to_back or shared trips are enabled, the waypoints may belong to a
-   * different trip.
+   * Output only. Anticipated route for this trip to the first entry in
+   * remaining_waypoints. Note that the first waypoint may belong to a different
+   * trip.
    * </pre>
    *
    * <code>repeated .google.type.LatLng route = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -691,9 +684,9 @@ public interface TripOrBuilder extends
       getRouteOrBuilderList();
   /**
    * <pre>
-   * Output only. Anticipated route for this trip to the first entry in remaining_waypoints.
-   * If back_to_back or shared trips are enabled, the waypoints may belong to a
-   * different trip.
+   * Output only. Anticipated route for this trip to the first entry in
+   * remaining_waypoints. Note that the first waypoint may belong to a different
+   * trip.
    * </pre>
    *
    * <code>repeated .google.type.LatLng route = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -703,9 +696,9 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * Output only. An encoded path to the next waypoint. This field facilitates journey
-   * sharing between a driver app and a rider app. Note: This field is intended
-   * only for use by the Driver SDK and Consumer SDK.
+   * Output only. An encoded path to the next waypoint.
+   * Note: This field is intended only for use by the Driver SDK and Consumer
+   * SDK. Decoding is not yet supported.
    * </pre>
    *
    * <code>string current_route_segment = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -714,9 +707,9 @@ public interface TripOrBuilder extends
   java.lang.String getCurrentRouteSegment();
   /**
    * <pre>
-   * Output only. An encoded path to the next waypoint. This field facilitates journey
-   * sharing between a driver app and a rider app. Note: This field is intended
-   * only for use by the Driver SDK and Consumer SDK.
+   * Output only. An encoded path to the next waypoint.
+   * Note: This field is intended only for use by the Driver SDK and Consumer
+   * SDK. Decoding is not yet supported.
    * </pre>
    *
    * <code>string current_route_segment = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -727,8 +720,9 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * Output only. Indicates the last time the route was modified.  Note: This field is
-   * intended only for use by the Driver SDK and Consumer SDK.
+   * Output only. Indicates the last time the route was modified.
+   * Note: This field is intended only for use by the Driver SDK and Consumer
+   * SDK.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp current_route_segment_version = 17 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -737,8 +731,9 @@ public interface TripOrBuilder extends
   boolean hasCurrentRouteSegmentVersion();
   /**
    * <pre>
-   * Output only. Indicates the last time the route was modified.  Note: This field is
-   * intended only for use by the Driver SDK and Consumer SDK.
+   * Output only. Indicates the last time the route was modified.
+   * Note: This field is intended only for use by the Driver SDK and Consumer
+   * SDK.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp current_route_segment_version = 17 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -747,8 +742,9 @@ public interface TripOrBuilder extends
   com.google.protobuf.Timestamp getCurrentRouteSegmentVersion();
   /**
    * <pre>
-   * Output only. Indicates the last time the route was modified.  Note: This field is
-   * intended only for use by the Driver SDK and Consumer SDK.
+   * Output only. Indicates the last time the route was modified.
+   * Note: This field is intended only for use by the Driver SDK and Consumer
+   * SDK.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp current_route_segment_version = 17 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -757,9 +753,10 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * Output only. Indicates the traffic conditions along the `current_route_segment` when
-   * they're available. Note: This field is intended only for use by the Driver
-   * SDK and Consumer SDK.
+   * Output only. Indicates the traffic conditions along the
+   * `current_route_segment` when they're available.
+   * Note: This field is intended only for use by the Driver SDK and Consumer
+   * SDK.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.ConsumableTrafficPolyline current_route_segment_traffic = 28 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -768,9 +765,10 @@ public interface TripOrBuilder extends
   boolean hasCurrentRouteSegmentTraffic();
   /**
    * <pre>
-   * Output only. Indicates the traffic conditions along the `current_route_segment` when
-   * they're available. Note: This field is intended only for use by the Driver
-   * SDK and Consumer SDK.
+   * Output only. Indicates the traffic conditions along the
+   * `current_route_segment` when they're available.
+   * Note: This field is intended only for use by the Driver SDK and Consumer
+   * SDK.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.ConsumableTrafficPolyline current_route_segment_traffic = 28 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -779,9 +777,10 @@ public interface TripOrBuilder extends
   google.maps.fleetengine.v1.ConsumableTrafficPolyline getCurrentRouteSegmentTraffic();
   /**
    * <pre>
-   * Output only. Indicates the traffic conditions along the `current_route_segment` when
-   * they're available. Note: This field is intended only for use by the Driver
-   * SDK and Consumer SDK.
+   * Output only. Indicates the traffic conditions along the
+   * `current_route_segment` when they're available.
+   * Note: This field is intended only for use by the Driver SDK and Consumer
+   * SDK.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.ConsumableTrafficPolyline current_route_segment_traffic = 28 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -790,7 +789,8 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * Output only. Indicates the last time the `current_route_segment_traffic` was modified.
+   * Output only. Indicates the last time the `current_route_segment_traffic`
+   * was modified.
    * Note: This field is intended only for use by the Driver SDK and Consumer
    * SDK.
    * </pre>
@@ -801,7 +801,8 @@ public interface TripOrBuilder extends
   boolean hasCurrentRouteSegmentTrafficVersion();
   /**
    * <pre>
-   * Output only. Indicates the last time the `current_route_segment_traffic` was modified.
+   * Output only. Indicates the last time the `current_route_segment_traffic`
+   * was modified.
    * Note: This field is intended only for use by the Driver SDK and Consumer
    * SDK.
    * </pre>
@@ -812,7 +813,8 @@ public interface TripOrBuilder extends
   com.google.protobuf.Timestamp getCurrentRouteSegmentTrafficVersion();
   /**
    * <pre>
-   * Output only. Indicates the last time the `current_route_segment_traffic` was modified.
+   * Output only. Indicates the last time the `current_route_segment_traffic`
+   * was modified.
    * Note: This field is intended only for use by the Driver SDK and Consumer
    * SDK.
    * </pre>
@@ -850,10 +852,9 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * Output only. The remaining driving distance in `current_route_segment` field. This
-   * field facilitates journey sharing between a driver and rider. The value
-   * is unspecified if the trip is not assigned to a vehicle or the trip is
-   * completed or cancelled.
+   * Output only. The remaining driving distance in the `current_route_segment`
+   * field. The value is unspecified if the trip is not assigned to a vehicle,
+   * or the trip is completed or cancelled.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value remaining_distance_meters = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -862,10 +863,9 @@ public interface TripOrBuilder extends
   boolean hasRemainingDistanceMeters();
   /**
    * <pre>
-   * Output only. The remaining driving distance in `current_route_segment` field. This
-   * field facilitates journey sharing between a driver and rider. The value
-   * is unspecified if the trip is not assigned to a vehicle or the trip is
-   * completed or cancelled.
+   * Output only. The remaining driving distance in the `current_route_segment`
+   * field. The value is unspecified if the trip is not assigned to a vehicle,
+   * or the trip is completed or cancelled.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value remaining_distance_meters = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -874,10 +874,9 @@ public interface TripOrBuilder extends
   com.google.protobuf.Int32Value getRemainingDistanceMeters();
   /**
    * <pre>
-   * Output only. The remaining driving distance in `current_route_segment` field. This
-   * field facilitates journey sharing between a driver and rider. The value
-   * is unspecified if the trip is not assigned to a vehicle or the trip is
-   * completed or cancelled.
+   * Output only. The remaining driving distance in the `current_route_segment`
+   * field. The value is unspecified if the trip is not assigned to a vehicle,
+   * or the trip is completed or cancelled.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value remaining_distance_meters = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -887,10 +886,8 @@ public interface TripOrBuilder extends
   /**
    * <pre>
    * Output only. The ETA to the next waypoint (the first entry in the
-   * `remaining_waypoints` field). This field facilitates journey sharing
-   * between a driver and a consumer. The value is unspecified if the trip is
-   * not assigned to a vehicle, or the trip is inactive (completed or
-   * cancelled).
+   * `remaining_waypoints` field). The value is unspecified if the trip is not
+   * assigned to a vehicle, or the trip is inactive (completed or cancelled).
    * </pre>
    *
    * <code>.google.protobuf.Timestamp eta_to_first_waypoint = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -900,10 +897,8 @@ public interface TripOrBuilder extends
   /**
    * <pre>
    * Output only. The ETA to the next waypoint (the first entry in the
-   * `remaining_waypoints` field). This field facilitates journey sharing
-   * between a driver and a consumer. The value is unspecified if the trip is
-   * not assigned to a vehicle, or the trip is inactive (completed or
-   * cancelled).
+   * `remaining_waypoints` field). The value is unspecified if the trip is not
+   * assigned to a vehicle, or the trip is inactive (completed or cancelled).
    * </pre>
    *
    * <code>.google.protobuf.Timestamp eta_to_first_waypoint = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -913,10 +908,8 @@ public interface TripOrBuilder extends
   /**
    * <pre>
    * Output only. The ETA to the next waypoint (the first entry in the
-   * `remaining_waypoints` field). This field facilitates journey sharing
-   * between a driver and a consumer. The value is unspecified if the trip is
-   * not assigned to a vehicle, or the trip is inactive (completed or
-   * cancelled).
+   * `remaining_waypoints` field). The value is unspecified if the trip is not
+   * assigned to a vehicle, or the trip is inactive (completed or cancelled).
    * </pre>
    *
    * <code>.google.protobuf.Timestamp eta_to_first_waypoint = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -925,8 +918,10 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * Output only. The duration from when the Trip data is returned to the time in
-   * `Trip.eta_to_first_waypoint`.
+   * Output only. The duration from when the Trip data is returned to the time
+   * in `Trip.eta_to_first_waypoint`. The value is unspecified if the trip is
+   * not assigned to a vehicle, or the trip is inactive (completed or
+   * cancelled).
    * </pre>
    *
    * <code>.google.protobuf.Duration remaining_time_to_first_waypoint = 27 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -935,8 +930,10 @@ public interface TripOrBuilder extends
   boolean hasRemainingTimeToFirstWaypoint();
   /**
    * <pre>
-   * Output only. The duration from when the Trip data is returned to the time in
-   * `Trip.eta_to_first_waypoint`.
+   * Output only. The duration from when the Trip data is returned to the time
+   * in `Trip.eta_to_first_waypoint`. The value is unspecified if the trip is
+   * not assigned to a vehicle, or the trip is inactive (completed or
+   * cancelled).
    * </pre>
    *
    * <code>.google.protobuf.Duration remaining_time_to_first_waypoint = 27 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -945,8 +942,10 @@ public interface TripOrBuilder extends
   com.google.protobuf.Duration getRemainingTimeToFirstWaypoint();
   /**
    * <pre>
-   * Output only. The duration from when the Trip data is returned to the time in
-   * `Trip.eta_to_first_waypoint`.
+   * Output only. The duration from when the Trip data is returned to the time
+   * in `Trip.eta_to_first_waypoint`. The value is unspecified if the trip is
+   * not assigned to a vehicle, or the trip is inactive (completed or
+   * cancelled).
    * </pre>
    *
    * <code>.google.protobuf.Duration remaining_time_to_first_waypoint = 27 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -955,8 +954,8 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * Output only. Indicates the last time that `remaining_waypoints` was changed (a
-   * waypoint was added, removed, or changed).
+   * Output only. Indicates the last time that `remaining_waypoints` was changed
+   * (a waypoint was added, removed, or changed).
    * </pre>
    *
    * <code>.google.protobuf.Timestamp remaining_waypoints_version = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -965,8 +964,8 @@ public interface TripOrBuilder extends
   boolean hasRemainingWaypointsVersion();
   /**
    * <pre>
-   * Output only. Indicates the last time that `remaining_waypoints` was changed (a
-   * waypoint was added, removed, or changed).
+   * Output only. Indicates the last time that `remaining_waypoints` was changed
+   * (a waypoint was added, removed, or changed).
    * </pre>
    *
    * <code>.google.protobuf.Timestamp remaining_waypoints_version = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -975,8 +974,8 @@ public interface TripOrBuilder extends
   com.google.protobuf.Timestamp getRemainingWaypointsVersion();
   /**
    * <pre>
-   * Output only. Indicates the last time that `remaining_waypoints` was changed (a
-   * waypoint was added, removed, or changed).
+   * Output only. Indicates the last time that `remaining_waypoints` was changed
+   * (a waypoint was added, removed, or changed).
    * </pre>
    *
    * <code>.google.protobuf.Timestamp remaining_waypoints_version = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -985,7 +984,8 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * Output only. Indicates the last time the `remaining_waypoints.path_to_waypoint` and
+   * Output only. Indicates the last time the
+   * `remaining_waypoints.path_to_waypoint` and
    * `remaining_waypoints.traffic_to_waypoint` were modified. Your client app
    * should cache this value and pass it in `GetTripRequest` to ensure the
    * paths and traffic for `remaining_waypoints` are only returned if updated.
@@ -997,7 +997,8 @@ public interface TripOrBuilder extends
   boolean hasRemainingWaypointsRouteVersion();
   /**
    * <pre>
-   * Output only. Indicates the last time the `remaining_waypoints.path_to_waypoint` and
+   * Output only. Indicates the last time the
+   * `remaining_waypoints.path_to_waypoint` and
    * `remaining_waypoints.traffic_to_waypoint` were modified. Your client app
    * should cache this value and pass it in `GetTripRequest` to ensure the
    * paths and traffic for `remaining_waypoints` are only returned if updated.
@@ -1009,7 +1010,8 @@ public interface TripOrBuilder extends
   com.google.protobuf.Timestamp getRemainingWaypointsRouteVersion();
   /**
    * <pre>
-   * Output only. Indicates the last time the `remaining_waypoints.path_to_waypoint` and
+   * Output only. Indicates the last time the
+   * `remaining_waypoints.path_to_waypoint` and
    * `remaining_waypoints.traffic_to_waypoint` were modified. Your client app
    * should cache this value and pass it in `GetTripRequest` to ensure the
    * paths and traffic for `remaining_waypoints` are only returned if updated.
@@ -1021,8 +1023,8 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * Immutable. Indicates the number of passengers on this trip and does not include the
-   * driver. A vehicle must have available capacity to be returned
+   * Immutable. Indicates the number of passengers on this trip and does not
+   * include the driver. A vehicle must have available capacity to be returned
    * in SearchVehicles.
    * </pre>
    *
@@ -1033,7 +1035,8 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * Output only. Indicates the last reported location of the vehicle along the route.
+   * Output only. Indicates the last reported location of the vehicle along the
+   * route.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.VehicleLocation last_location = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1042,7 +1045,8 @@ public interface TripOrBuilder extends
   boolean hasLastLocation();
   /**
    * <pre>
-   * Output only. Indicates the last reported location of the vehicle along the route.
+   * Output only. Indicates the last reported location of the vehicle along the
+   * route.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.VehicleLocation last_location = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1051,7 +1055,8 @@ public interface TripOrBuilder extends
   google.maps.fleetengine.v1.VehicleLocation getLastLocation();
   /**
    * <pre>
-   * Output only. Indicates the last reported location of the vehicle along the route.
+   * Output only. Indicates the last reported location of the vehicle along the
+   * route.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.VehicleLocation last_location = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1060,8 +1065,8 @@ public interface TripOrBuilder extends
 
   /**
    * <pre>
-   * Output only. Indicates whether the vehicle's `last_location` can be snapped to
-   * the current_route_segment. False if `last_location` or
+   * Output only. Indicates whether the vehicle's `last_location` can be snapped
+   * to the current_route_segment. False if `last_location` or
    * `current_route_segment` doesn't exist.
    * It is computed by Fleet Engine. Any update from clients will be ignored.
    * </pre>

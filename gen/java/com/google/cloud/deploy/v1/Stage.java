@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Stage(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            targetId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              profiles_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            profiles_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        profiles_ = profiles_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.deploy.v1.CloudDeployProto.internal_static_google_cloud_deploy_v1_Stage_descriptor;
@@ -108,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGET_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object targetId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object targetId_ = "";
   /**
    * <pre>
    * The target_id to which this stage points. This field refers exclusively to
@@ -164,6 +107,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROFILES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList profiles_;
   /**
    * <pre>
@@ -218,6 +162,44 @@ private static final long serialVersionUID = 0L;
     return profiles_.getByteString(index);
   }
 
+  public static final int STRATEGY_FIELD_NUMBER = 5;
+  private com.google.cloud.deploy.v1.Strategy strategy_;
+  /**
+   * <pre>
+   * Optional. The strategy to use for a `Rollout` to this stage.
+   * </pre>
+   *
+   * <code>.google.cloud.deploy.v1.Strategy strategy = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return Whether the strategy field is set.
+   */
+  @java.lang.Override
+  public boolean hasStrategy() {
+    return strategy_ != null;
+  }
+  /**
+   * <pre>
+   * Optional. The strategy to use for a `Rollout` to this stage.
+   * </pre>
+   *
+   * <code>.google.cloud.deploy.v1.Strategy strategy = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The strategy.
+   */
+  @java.lang.Override
+  public com.google.cloud.deploy.v1.Strategy getStrategy() {
+    return strategy_ == null ? com.google.cloud.deploy.v1.Strategy.getDefaultInstance() : strategy_;
+  }
+  /**
+   * <pre>
+   * Optional. The strategy to use for a `Rollout` to this stage.
+   * </pre>
+   *
+   * <code>.google.cloud.deploy.v1.Strategy strategy = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.deploy.v1.StrategyOrBuilder getStrategyOrBuilder() {
+    return strategy_ == null ? com.google.cloud.deploy.v1.Strategy.getDefaultInstance() : strategy_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -238,7 +220,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < profiles_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, profiles_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    if (strategy_ != null) {
+      output.writeMessage(5, getStrategy());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -258,7 +243,11 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getProfilesList().size();
     }
-    size += unknownFields.getSerializedSize();
+    if (strategy_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getStrategy());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -277,7 +266,12 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTargetId())) return false;
     if (!getProfilesList()
         .equals(other.getProfilesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasStrategy() != other.hasStrategy()) return false;
+    if (hasStrategy()) {
+      if (!getStrategy()
+          .equals(other.getStrategy())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -294,7 +288,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PROFILES_FIELD_NUMBER;
       hash = (53 * hash) + getProfilesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasStrategy()) {
+      hash = (37 * hash) + STRATEGY_FIELD_NUMBER;
+      hash = (53 * hash) + getStrategy().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -415,26 +413,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.deploy.v1.Stage.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       targetId_ = "";
-
       profiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
+      strategy_ = null;
+      if (strategyBuilder_ != null) {
+        strategyBuilder_.dispose();
+        strategyBuilder_ = null;
+      }
       return this;
     }
 
@@ -461,15 +459,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.deploy.v1.Stage buildPartial() {
       com.google.cloud.deploy.v1.Stage result = new com.google.cloud.deploy.v1.Stage(this);
-      int from_bitField0_ = bitField0_;
-      result.targetId_ = targetId_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        profiles_ = profiles_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.profiles_ = profiles_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.deploy.v1.Stage result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
+        profiles_ = profiles_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.profiles_ = profiles_;
+    }
+
+    private void buildPartial0(com.google.cloud.deploy.v1.Stage result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.targetId_ = targetId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.strategy_ = strategyBuilder_ == null
+            ? strategy_
+            : strategyBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -518,19 +531,23 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.deploy.v1.Stage.getDefaultInstance()) return this;
       if (!other.getTargetId().isEmpty()) {
         targetId_ = other.targetId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.profiles_.isEmpty()) {
         if (profiles_.isEmpty()) {
           profiles_ = other.profiles_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureProfilesIsMutable();
           profiles_.addAll(other.profiles_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasStrategy()) {
+        mergeStrategy(other.getStrategy());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -545,17 +562,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.deploy.v1.Stage parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              targetId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureProfilesIsMutable();
+              profiles_.add(s);
+              break;
+            } // case 18
+            case 42: {
+              input.readMessage(
+                  getStrategyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.deploy.v1.Stage) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -628,11 +676,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTargetId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       targetId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -650,8 +696,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTargetId() {
-      
       targetId_ = getDefaultInstance().getTargetId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -671,21 +717,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTargetIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       targetId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList profiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureProfilesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         profiles_ = new com.google.protobuf.LazyStringArrayList(profiles_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -753,10 +797,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProfiles(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureProfilesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureProfilesIsMutable();
       profiles_.set(index, value);
       onChanged();
       return this;
@@ -773,10 +815,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addProfiles(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureProfilesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureProfilesIsMutable();
       profiles_.add(value);
       onChanged();
       return this;
@@ -810,7 +850,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearProfiles() {
       profiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -826,14 +866,167 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addProfilesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureProfilesIsMutable();
       profiles_.add(value);
       onChanged();
       return this;
+    }
+
+    private com.google.cloud.deploy.v1.Strategy strategy_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.deploy.v1.Strategy, com.google.cloud.deploy.v1.Strategy.Builder, com.google.cloud.deploy.v1.StrategyOrBuilder> strategyBuilder_;
+    /**
+     * <pre>
+     * Optional. The strategy to use for a `Rollout` to this stage.
+     * </pre>
+     *
+     * <code>.google.cloud.deploy.v1.Strategy strategy = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return Whether the strategy field is set.
+     */
+    public boolean hasStrategy() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * Optional. The strategy to use for a `Rollout` to this stage.
+     * </pre>
+     *
+     * <code>.google.cloud.deploy.v1.Strategy strategy = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The strategy.
+     */
+    public com.google.cloud.deploy.v1.Strategy getStrategy() {
+      if (strategyBuilder_ == null) {
+        return strategy_ == null ? com.google.cloud.deploy.v1.Strategy.getDefaultInstance() : strategy_;
+      } else {
+        return strategyBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The strategy to use for a `Rollout` to this stage.
+     * </pre>
+     *
+     * <code>.google.cloud.deploy.v1.Strategy strategy = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setStrategy(com.google.cloud.deploy.v1.Strategy value) {
+      if (strategyBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        strategy_ = value;
+      } else {
+        strategyBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The strategy to use for a `Rollout` to this stage.
+     * </pre>
+     *
+     * <code>.google.cloud.deploy.v1.Strategy strategy = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setStrategy(
+        com.google.cloud.deploy.v1.Strategy.Builder builderForValue) {
+      if (strategyBuilder_ == null) {
+        strategy_ = builderForValue.build();
+      } else {
+        strategyBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The strategy to use for a `Rollout` to this stage.
+     * </pre>
+     *
+     * <code>.google.cloud.deploy.v1.Strategy strategy = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder mergeStrategy(com.google.cloud.deploy.v1.Strategy value) {
+      if (strategyBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) != 0) &&
+          strategy_ != null &&
+          strategy_ != com.google.cloud.deploy.v1.Strategy.getDefaultInstance()) {
+          getStrategyBuilder().mergeFrom(value);
+        } else {
+          strategy_ = value;
+        }
+      } else {
+        strategyBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The strategy to use for a `Rollout` to this stage.
+     * </pre>
+     *
+     * <code>.google.cloud.deploy.v1.Strategy strategy = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder clearStrategy() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      strategy_ = null;
+      if (strategyBuilder_ != null) {
+        strategyBuilder_.dispose();
+        strategyBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The strategy to use for a `Rollout` to this stage.
+     * </pre>
+     *
+     * <code>.google.cloud.deploy.v1.Strategy strategy = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.deploy.v1.Strategy.Builder getStrategyBuilder() {
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return getStrategyFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Optional. The strategy to use for a `Rollout` to this stage.
+     * </pre>
+     *
+     * <code>.google.cloud.deploy.v1.Strategy strategy = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.deploy.v1.StrategyOrBuilder getStrategyOrBuilder() {
+      if (strategyBuilder_ != null) {
+        return strategyBuilder_.getMessageOrBuilder();
+      } else {
+        return strategy_ == null ?
+            com.google.cloud.deploy.v1.Strategy.getDefaultInstance() : strategy_;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The strategy to use for a `Rollout` to this stage.
+     * </pre>
+     *
+     * <code>.google.cloud.deploy.v1.Strategy strategy = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.deploy.v1.Strategy, com.google.cloud.deploy.v1.Strategy.Builder, com.google.cloud.deploy.v1.StrategyOrBuilder> 
+        getStrategyFieldBuilder() {
+      if (strategyBuilder_ == null) {
+        strategyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.deploy.v1.Strategy, com.google.cloud.deploy.v1.Strategy.Builder, com.google.cloud.deploy.v1.StrategyOrBuilder>(
+                getStrategy(),
+                getParentForChildren(),
+                isClean());
+        strategy_ = null;
+      }
+      return strategyBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -868,7 +1061,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Stage(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

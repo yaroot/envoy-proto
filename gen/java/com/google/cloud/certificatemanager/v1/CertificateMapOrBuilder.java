@@ -144,7 +144,6 @@ public interface CertificateMapOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 3;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -157,13 +156,14 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 3;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
   /**
    * <pre>
    * Output only. A list of GCLB targets which use this Certificate Map.
+   * A Target Proxy is only present on this list if it's attached to a
+   * Forwarding Rule.
    * </pre>
    *
    * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -173,6 +173,8 @@ java.lang.String defaultValue);
   /**
    * <pre>
    * Output only. A list of GCLB targets which use this Certificate Map.
+   * A Target Proxy is only present on this list if it's attached to a
+   * Forwarding Rule.
    * </pre>
    *
    * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -181,6 +183,8 @@ java.lang.String defaultValue);
   /**
    * <pre>
    * Output only. A list of GCLB targets which use this Certificate Map.
+   * A Target Proxy is only present on this list if it's attached to a
+   * Forwarding Rule.
    * </pre>
    *
    * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -189,6 +193,8 @@ java.lang.String defaultValue);
   /**
    * <pre>
    * Output only. A list of GCLB targets which use this Certificate Map.
+   * A Target Proxy is only present on this list if it's attached to a
+   * Forwarding Rule.
    * </pre>
    *
    * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -198,6 +204,8 @@ java.lang.String defaultValue);
   /**
    * <pre>
    * Output only. A list of GCLB targets which use this Certificate Map.
+   * A Target Proxy is only present on this list if it's attached to a
+   * Forwarding Rule.
    * </pre>
    *
    * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>

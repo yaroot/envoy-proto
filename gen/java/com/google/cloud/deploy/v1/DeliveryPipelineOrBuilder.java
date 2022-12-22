@@ -72,9 +72,7 @@ public interface DeliveryPipelineOrBuilder extends
   /**
    * <pre>
    * User annotations. These attributes can only be set and used by the
-   * user, and not by Google Cloud Deploy. See
-   * https://google.aip.dev/128#annotations for more details such as format and
-   * size limitations.
+   * user, and not by Google Cloud Deploy.
    * </pre>
    *
    * <code>map&lt;string, string&gt; annotations = 4;</code>
@@ -83,9 +81,7 @@ public interface DeliveryPipelineOrBuilder extends
   /**
    * <pre>
    * User annotations. These attributes can only be set and used by the
-   * user, and not by Google Cloud Deploy. See
-   * https://google.aip.dev/128#annotations for more details such as format and
-   * size limitations.
+   * user, and not by Google Cloud Deploy.
    * </pre>
    *
    * <code>map&lt;string, string&gt; annotations = 4;</code>
@@ -101,9 +97,7 @@ public interface DeliveryPipelineOrBuilder extends
   /**
    * <pre>
    * User annotations. These attributes can only be set and used by the
-   * user, and not by Google Cloud Deploy. See
-   * https://google.aip.dev/128#annotations for more details such as format and
-   * size limitations.
+   * user, and not by Google Cloud Deploy.
    * </pre>
    *
    * <code>map&lt;string, string&gt; annotations = 4;</code>
@@ -113,14 +107,11 @@ public interface DeliveryPipelineOrBuilder extends
   /**
    * <pre>
    * User annotations. These attributes can only be set and used by the
-   * user, and not by Google Cloud Deploy. See
-   * https://google.aip.dev/128#annotations for more details such as format and
-   * size limitations.
+   * user, and not by Google Cloud Deploy.
    * </pre>
    *
    * <code>map&lt;string, string&gt; annotations = 4;</code>
    */
-
   /* nullable */
 java.lang.String getAnnotationsOrDefault(
       java.lang.String key,
@@ -129,14 +120,11 @@ java.lang.String defaultValue);
   /**
    * <pre>
    * User annotations. These attributes can only be set and used by the
-   * user, and not by Google Cloud Deploy. See
-   * https://google.aip.dev/128#annotations for more details such as format and
-   * size limitations.
+   * user, and not by Google Cloud Deploy.
    * </pre>
    *
    * <code>map&lt;string, string&gt; annotations = 4;</code>
    */
-
   java.lang.String getAnnotationsOrThrow(
       java.lang.String key);
 
@@ -215,7 +203,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 5;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -237,7 +224,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 5;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -375,6 +361,17 @@ java.lang.String defaultValue);
    */
   com.google.protobuf.ByteString
       getEtagBytes();
+
+  /**
+   * <pre>
+   * When suspended, no new releases or rollouts can be created,
+   * but in-progress ones will complete.
+   * </pre>
+   *
+   * <code>bool suspended = 12;</code>
+   * @return The suspended.
+   */
+  boolean getSuspended();
 
   public com.google.cloud.deploy.v1.DeliveryPipeline.PipelineCase getPipelineCase();
 }

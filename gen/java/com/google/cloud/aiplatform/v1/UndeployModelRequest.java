@@ -36,71 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UndeployModelRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            endpoint_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            deployedModelId_ = s;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              trafficSplit_ = com.google.protobuf.MapField.newMapField(
-                  TrafficSplitDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-            trafficSplit__ = input.readMessage(
-                TrafficSplitDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            trafficSplit_.getMutableMap().put(
-                trafficSplit__.getKey(), trafficSplit__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1.EndpointServiceProto.internal_static_google_cloud_aiplatform_v1_UndeployModelRequest_descriptor;
@@ -127,7 +62,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENDPOINT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object endpoint_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object endpoint_ = "";
   /**
    * <pre>
    * Required. The name of the Endpoint resource from which to undeploy a Model.
@@ -177,7 +113,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEPLOYED_MODEL_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object deployedModelId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object deployedModelId_ = "";
   /**
    * <pre>
    * Required. The ID of the DeployedModel to be undeployed from the Endpoint.
@@ -234,6 +171,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.INT32,
                 0);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Integer> trafficSplit_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
@@ -244,7 +182,6 @@ private static final long serialVersionUID = 0L;
     }
     return trafficSplit_;
   }
-
   public int getTrafficSplitCount() {
     return internalGetTrafficSplit().getMap().size();
   }
@@ -261,7 +198,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, int32&gt; traffic_split = 3;</code>
    */
-
   @java.lang.Override
   public boolean containsTrafficSplit(
       java.lang.String key) {
@@ -290,7 +226,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int32&gt; traffic_split = 3;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Integer> getTrafficSplitMap() {
     return internalGetTrafficSplit().getMap();
   }
@@ -308,7 +243,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int32&gt; traffic_split = 3;</code>
    */
   @java.lang.Override
-
   public int getTrafficSplitOrDefault(
       java.lang.String key,
       int defaultValue) {
@@ -331,7 +265,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int32&gt; traffic_split = 3;</code>
    */
   @java.lang.Override
-
   public int getTrafficSplitOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -369,7 +302,7 @@ private static final long serialVersionUID = 0L;
         internalGetTrafficSplit(),
         TrafficSplitDefaultEntryHolder.defaultEntry,
         3);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -394,7 +327,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, trafficSplit__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -415,7 +348,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDeployedModelId())) return false;
     if (!internalGetTrafficSplit().equals(
         other.internalGetTrafficSplit())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -434,7 +367,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TRAFFIC_SPLIT_FIELD_NUMBER;
       hash = (53 * hash) + internalGetTrafficSplit().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -577,26 +510,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1.UndeployModelRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       endpoint_ = "";
-
       deployedModelId_ = "";
-
       internalGetMutableTrafficSplit().clear();
       return this;
     }
@@ -624,13 +551,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.UndeployModelRequest buildPartial() {
       com.google.cloud.aiplatform.v1.UndeployModelRequest result = new com.google.cloud.aiplatform.v1.UndeployModelRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.endpoint_ = endpoint_;
-      result.deployedModelId_ = deployedModelId_;
-      result.trafficSplit_ = internalGetTrafficSplit();
-      result.trafficSplit_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1.UndeployModelRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.endpoint_ = endpoint_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.deployedModelId_ = deployedModelId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.trafficSplit_ = internalGetTrafficSplit();
+        result.trafficSplit_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -679,15 +616,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.aiplatform.v1.UndeployModelRequest.getDefaultInstance()) return this;
       if (!other.getEndpoint().isEmpty()) {
         endpoint_ = other.endpoint_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDeployedModelId().isEmpty()) {
         deployedModelId_ = other.deployedModelId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       internalGetMutableTrafficSplit().mergeFrom(
           other.internalGetTrafficSplit());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000004;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -702,17 +642,49 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1.UndeployModelRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              endpoint_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              deployedModelId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              trafficSplit__ = input.readMessage(
+                  TrafficSplitDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableTrafficSplit().getMutableMap().put(
+                  trafficSplit__.getKey(), trafficSplit__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1.UndeployModelRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -776,11 +748,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEndpoint(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       endpoint_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -795,8 +765,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEndpoint() {
-      
       endpoint_ = getDefaultInstance().getEndpoint();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -813,12 +783,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEndpointBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       endpoint_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -876,11 +844,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeployedModelId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       deployedModelId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -893,8 +859,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDeployedModelId() {
-      
       deployedModelId_ = getDefaultInstance().getDeployedModelId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -909,12 +875,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeployedModelIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       deployedModelId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -922,7 +886,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Integer> trafficSplit_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetTrafficSplit() {
+        internalGetTrafficSplit() {
       if (trafficSplit_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             TrafficSplitDefaultEntryHolder.defaultEntry);
@@ -930,8 +894,7 @@ private static final long serialVersionUID = 0L;
       return trafficSplit_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetMutableTrafficSplit() {
-      onChanged();;
+        internalGetMutableTrafficSplit() {
       if (trafficSplit_ == null) {
         trafficSplit_ = com.google.protobuf.MapField.newMapField(
             TrafficSplitDefaultEntryHolder.defaultEntry);
@@ -939,9 +902,10 @@ private static final long serialVersionUID = 0L;
       if (!trafficSplit_.isMutable()) {
         trafficSplit_ = trafficSplit_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return trafficSplit_;
     }
-
     public int getTrafficSplitCount() {
       return internalGetTrafficSplit().getMap().size();
     }
@@ -958,7 +922,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int32&gt; traffic_split = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsTrafficSplit(
         java.lang.String key) {
@@ -987,7 +950,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int32&gt; traffic_split = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Integer> getTrafficSplitMap() {
       return internalGetTrafficSplit().getMap();
     }
@@ -1005,7 +967,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int32&gt; traffic_split = 3;</code>
      */
     @java.lang.Override
-
     public int getTrafficSplitOrDefault(
         java.lang.String key,
         int defaultValue) {
@@ -1028,7 +989,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int32&gt; traffic_split = 3;</code>
      */
     @java.lang.Override
-
     public int getTrafficSplitOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1039,8 +999,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearTrafficSplit() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableTrafficSplit().getMutableMap()
           .clear();
       return this;
@@ -1058,7 +1018,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int32&gt; traffic_split = 3;</code>
      */
-
     public Builder removeTrafficSplit(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1071,7 +1030,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Integer>
-    getMutableTrafficSplit() {
+        getMutableTrafficSplit() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableTrafficSplit().getMutableMap();
     }
     /**
@@ -1094,6 +1054,7 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutableTrafficSplit().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -1109,11 +1070,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int32&gt; traffic_split = 3;</code>
      */
-
     public Builder putAllTrafficSplit(
         java.util.Map<java.lang.String, java.lang.Integer> values) {
       internalGetMutableTrafficSplit().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
     @java.lang.Override
@@ -1149,7 +1110,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UndeployModelRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

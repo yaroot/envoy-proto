@@ -38,82 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InjectedSolutionConstraint(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              routes_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentRoute>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            routes_.add(
-                input.readMessage(com.google.cloud.optimization.v1.ShipmentRoute.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              skippedShipments_ = new java.util.ArrayList<com.google.cloud.optimization.v1.SkippedShipment>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            skippedShipments_.add(
-                input.readMessage(com.google.cloud.optimization.v1.SkippedShipment.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              constraintRelaxations_ = new java.util.ArrayList<com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            constraintRelaxations_.add(
-                input.readMessage(com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        routes_ = java.util.Collections.unmodifiableList(routes_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        skippedShipments_ = java.util.Collections.unmodifiableList(skippedShipments_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        constraintRelaxations_ = java.util.Collections.unmodifiableList(constraintRelaxations_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_InjectedSolutionConstraint_descriptor;
@@ -189,8 +113,9 @@ private static final long serialVersionUID = 0L;
      * most one constraint relaxation field is allowed empty
      * `vehicle_indices`. A vehicle index can only be listed once, even within
      * several `constraint_relaxations`.
-     * A vehicle index is mapped the same as [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index], if
-     * `interpret_injected_solutions_using_labels` is true (see `fields`
+     * A vehicle index is mapped the same as
+     * [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index],
+     * if `interpret_injected_solutions_using_labels` is true (see `fields`
      * comment).
      * </pre>
      *
@@ -207,8 +132,9 @@ private static final long serialVersionUID = 0L;
      * most one constraint relaxation field is allowed empty
      * `vehicle_indices`. A vehicle index can only be listed once, even within
      * several `constraint_relaxations`.
-     * A vehicle index is mapped the same as [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index], if
-     * `interpret_injected_solutions_using_labels` is true (see `fields`
+     * A vehicle index is mapped the same as
+     * [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index],
+     * if `interpret_injected_solutions_using_labels` is true (see `fields`
      * comment).
      * </pre>
      *
@@ -225,8 +151,9 @@ private static final long serialVersionUID = 0L;
      * most one constraint relaxation field is allowed empty
      * `vehicle_indices`. A vehicle index can only be listed once, even within
      * several `constraint_relaxations`.
-     * A vehicle index is mapped the same as [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index], if
-     * `interpret_injected_solutions_using_labels` is true (see `fields`
+     * A vehicle index is mapped the same as
+     * [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index],
+     * if `interpret_injected_solutions_using_labels` is true (see `fields`
      * comment).
      * </pre>
      *
@@ -271,82 +198,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ConstraintRelaxation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                relaxations_ = new java.util.ArrayList<com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              relaxations_.add(
-                  input.readMessage(com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation.parser(), extensionRegistry));
-              break;
-            }
-            case 16: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                vehicleIndices_ = newIntList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              vehicleIndices_.addInt(input.readInt32());
-              break;
-            }
-            case 18: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
-                vehicleIndices_ = newIntList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                vehicleIndices_.addInt(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          relaxations_ = java.util.Collections.unmodifiableList(relaxations_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          vehicleIndices_.makeImmutable(); // C
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -489,69 +340,6 @@ private static final long serialVersionUID = 0L;
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
-      }
-      private Relaxation(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                int rawValue = input.readEnum();
-
-                level_ = rawValue;
-                break;
-              }
-              case 18: {
-                com.google.protobuf.Timestamp.Builder subBuilder = null;
-                if (thresholdTime_ != null) {
-                  subBuilder = thresholdTime_.toBuilder();
-                }
-                thresholdTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(thresholdTime_);
-                  thresholdTime_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              case 24: {
-
-                thresholdVisitCount_ = input.readInt32();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -748,7 +536,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int LEVEL_FIELD_NUMBER = 1;
-      private int level_;
+      private int level_ = 0;
       /**
        * <pre>
        * The constraint relaxation level that applies when the conditions
@@ -773,8 +561,7 @@ private static final long serialVersionUID = 0L;
        * @return The level.
        */
       @java.lang.Override public com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation.Level getLevel() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation.Level result = com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation.Level.valueOf(level_);
+        com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation.Level result = com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation.Level.forNumber(level_);
         return result == null ? com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation.Level.UNRECOGNIZED : result;
       }
 
@@ -813,11 +600,11 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.protobuf.TimestampOrBuilder getThresholdTimeOrBuilder() {
-        return getThresholdTime();
+        return thresholdTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : thresholdTime_;
       }
 
       public static final int THRESHOLD_VISIT_COUNT_FIELD_NUMBER = 3;
-      private int thresholdVisitCount_;
+      private int thresholdVisitCount_ = 0;
       /**
        * <pre>
        * The number of visits at or after which the relaxation `level` may be
@@ -859,7 +646,7 @@ private static final long serialVersionUID = 0L;
         if (thresholdVisitCount_ != 0) {
           output.writeInt32(3, thresholdVisitCount_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -880,7 +667,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(3, thresholdVisitCount_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -903,7 +690,7 @@ private static final long serialVersionUID = 0L;
         }
         if (getThresholdVisitCount()
             != other.getThresholdVisitCount()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -922,7 +709,7 @@ private static final long serialVersionUID = 0L;
         }
         hash = (37 * hash) + THRESHOLD_VISIT_COUNT_FIELD_NUMBER;
         hash = (53 * hash) + getThresholdVisitCount();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -1071,32 +858,25 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           level_ = 0;
-
-          if (thresholdTimeBuilder_ == null) {
-            thresholdTime_ = null;
-          } else {
-            thresholdTime_ = null;
+          thresholdTime_ = null;
+          if (thresholdTimeBuilder_ != null) {
+            thresholdTimeBuilder_.dispose();
             thresholdTimeBuilder_ = null;
           }
           thresholdVisitCount_ = 0;
-
           return this;
         }
 
@@ -1123,15 +903,24 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation buildPartial() {
           com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation result = new com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation(this);
-          result.level_ = level_;
-          if (thresholdTimeBuilder_ == null) {
-            result.thresholdTime_ = thresholdTime_;
-          } else {
-            result.thresholdTime_ = thresholdTimeBuilder_.build();
-          }
-          result.thresholdVisitCount_ = thresholdVisitCount_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.level_ = level_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.thresholdTime_ = thresholdTimeBuilder_ == null
+                ? thresholdTime_
+                : thresholdTimeBuilder_.build();
+          }
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.thresholdVisitCount_ = thresholdVisitCount_;
+          }
         }
 
         @java.lang.Override
@@ -1187,7 +976,7 @@ private static final long serialVersionUID = 0L;
           if (other.getThresholdVisitCount() != 0) {
             setThresholdVisitCount(other.getThresholdVisitCount());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -1202,19 +991,50 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  level_ = input.readEnum();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+                case 18: {
+                  input.readMessage(
+                      getThresholdTimeFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                case 24: {
+                  thresholdVisitCount_ = input.readInt32();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 24
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private int level_ = 0;
         /**
@@ -1242,8 +1062,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder setLevelValue(int value) {
-          
           level_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -1259,8 +1079,7 @@ private static final long serialVersionUID = 0L;
          */
         @java.lang.Override
         public com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation.Level getLevel() {
-          @SuppressWarnings("deprecation")
-          com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation.Level result = com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation.Level.valueOf(level_);
+          com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation.Level result = com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation.Level.forNumber(level_);
           return result == null ? com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation.Level.UNRECOGNIZED : result;
         }
         /**
@@ -1278,7 +1097,7 @@ private static final long serialVersionUID = 0L;
           if (value == null) {
             throw new NullPointerException();
           }
-          
+          bitField0_ |= 0x00000001;
           level_ = value.getNumber();
           onChanged();
           return this;
@@ -1294,7 +1113,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearLevel() {
-          
+          bitField0_ = (bitField0_ & ~0x00000001);
           level_ = 0;
           onChanged();
           return this;
@@ -1312,7 +1131,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the thresholdTime field is set.
          */
         public boolean hasThresholdTime() {
-          return thresholdTimeBuilder_ != null || thresholdTime_ != null;
+          return ((bitField0_ & 0x00000002) != 0);
         }
         /**
          * <pre>
@@ -1342,11 +1161,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             thresholdTime_ = value;
-            onChanged();
           } else {
             thresholdTimeBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -1360,11 +1179,11 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.Timestamp.Builder builderForValue) {
           if (thresholdTimeBuilder_ == null) {
             thresholdTime_ = builderForValue.build();
-            onChanged();
           } else {
             thresholdTimeBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -1376,17 +1195,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeThresholdTime(com.google.protobuf.Timestamp value) {
           if (thresholdTimeBuilder_ == null) {
-            if (thresholdTime_ != null) {
-              thresholdTime_ =
-                com.google.protobuf.Timestamp.newBuilder(thresholdTime_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000002) != 0) &&
+              thresholdTime_ != null &&
+              thresholdTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+              getThresholdTimeBuilder().mergeFrom(value);
             } else {
               thresholdTime_ = value;
             }
-            onChanged();
           } else {
             thresholdTimeBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -1397,14 +1217,13 @@ private static final long serialVersionUID = 0L;
          * <code>.google.protobuf.Timestamp threshold_time = 2;</code>
          */
         public Builder clearThresholdTime() {
-          if (thresholdTimeBuilder_ == null) {
-            thresholdTime_ = null;
-            onChanged();
-          } else {
-            thresholdTime_ = null;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          thresholdTime_ = null;
+          if (thresholdTimeBuilder_ != null) {
+            thresholdTimeBuilder_.dispose();
             thresholdTimeBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -1415,7 +1234,7 @@ private static final long serialVersionUID = 0L;
          * <code>.google.protobuf.Timestamp threshold_time = 2;</code>
          */
         public com.google.protobuf.Timestamp.Builder getThresholdTimeBuilder() {
-          
+          bitField0_ |= 0x00000002;
           onChanged();
           return getThresholdTimeFieldBuilder().getBuilder();
         }
@@ -1490,6 +1309,7 @@ private static final long serialVersionUID = 0L;
         public Builder setThresholdVisitCount(int value) {
           
           thresholdVisitCount_ = value;
+          bitField0_ |= 0x00000004;
           onChanged();
           return this;
         }
@@ -1507,7 +1327,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearThresholdVisitCount() {
-          
+          bitField0_ = (bitField0_ & ~0x00000004);
           thresholdVisitCount_ = 0;
           onChanged();
           return this;
@@ -1545,7 +1365,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Relaxation(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -1566,6 +1397,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int RELAXATIONS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation> relaxations_;
     /**
      * <pre>
@@ -1631,6 +1463,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int VEHICLE_INDICES_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList vehicleIndices_;
     /**
      * <pre>
@@ -1641,8 +1474,9 @@ private static final long serialVersionUID = 0L;
      * most one constraint relaxation field is allowed empty
      * `vehicle_indices`. A vehicle index can only be listed once, even within
      * several `constraint_relaxations`.
-     * A vehicle index is mapped the same as [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index], if
-     * `interpret_injected_solutions_using_labels` is true (see `fields`
+     * A vehicle index is mapped the same as
+     * [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index],
+     * if `interpret_injected_solutions_using_labels` is true (see `fields`
      * comment).
      * </pre>
      *
@@ -1663,8 +1497,9 @@ private static final long serialVersionUID = 0L;
      * most one constraint relaxation field is allowed empty
      * `vehicle_indices`. A vehicle index can only be listed once, even within
      * several `constraint_relaxations`.
-     * A vehicle index is mapped the same as [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index], if
-     * `interpret_injected_solutions_using_labels` is true (see `fields`
+     * A vehicle index is mapped the same as
+     * [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index],
+     * if `interpret_injected_solutions_using_labels` is true (see `fields`
      * comment).
      * </pre>
      *
@@ -1683,8 +1518,9 @@ private static final long serialVersionUID = 0L;
      * most one constraint relaxation field is allowed empty
      * `vehicle_indices`. A vehicle index can only be listed once, even within
      * several `constraint_relaxations`.
-     * A vehicle index is mapped the same as [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index], if
-     * `interpret_injected_solutions_using_labels` is true (see `fields`
+     * A vehicle index is mapped the same as
+     * [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index],
+     * if `interpret_injected_solutions_using_labels` is true (see `fields`
      * comment).
      * </pre>
      *
@@ -1722,7 +1558,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < vehicleIndices_.size(); i++) {
         output.writeInt32NoTag(vehicleIndices_.getInt(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1749,7 +1585,7 @@ private static final long serialVersionUID = 0L;
         }
         vehicleIndicesMemoizedSerializedSize = dataSize;
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1768,7 +1604,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getRelaxationsList())) return false;
       if (!getVehicleIndicesList()
           .equals(other.getVehicleIndicesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1787,7 +1623,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + VEHICLE_INDICES_FIELD_NUMBER;
         hash = (53 * hash) + getVehicleIndicesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1911,31 +1747,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getRelaxationsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (relaxationsBuilder_ == null) {
           relaxations_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          relaxations_ = null;
           relaxationsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         vehicleIndices_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -1962,7 +1793,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation buildPartial() {
         com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation result = new com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation result) {
         if (relaxationsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             relaxations_ = java.util.Collections.unmodifiableList(relaxations_);
@@ -1977,8 +1814,10 @@ private static final long serialVersionUID = 0L;
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.vehicleIndices_ = vehicleIndices_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -2061,7 +1900,7 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2076,17 +1915,59 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation m =
+                    input.readMessage(
+                        com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation.parser(),
+                        extensionRegistry);
+                if (relaxationsBuilder_ == null) {
+                  ensureRelaxationsIsMutable();
+                  relaxations_.add(m);
+                } else {
+                  relaxationsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 16: {
+                int v = input.readInt32();
+                ensureVehicleIndicesIsMutable();
+                vehicleIndices_.addInt(v);
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureVehicleIndicesIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  vehicleIndices_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2426,7 +2307,7 @@ private static final long serialVersionUID = 0L;
         if (!((bitField0_ & 0x00000002) != 0)) {
           vehicleIndices_ = mutableCopy(vehicleIndices_);
           bitField0_ |= 0x00000002;
-         }
+        }
       }
       /**
        * <pre>
@@ -2437,8 +2318,9 @@ private static final long serialVersionUID = 0L;
        * most one constraint relaxation field is allowed empty
        * `vehicle_indices`. A vehicle index can only be listed once, even within
        * several `constraint_relaxations`.
-       * A vehicle index is mapped the same as [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index], if
-       * `interpret_injected_solutions_using_labels` is true (see `fields`
+       * A vehicle index is mapped the same as
+       * [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index],
+       * if `interpret_injected_solutions_using_labels` is true (see `fields`
        * comment).
        * </pre>
        *
@@ -2459,8 +2341,9 @@ private static final long serialVersionUID = 0L;
        * most one constraint relaxation field is allowed empty
        * `vehicle_indices`. A vehicle index can only be listed once, even within
        * several `constraint_relaxations`.
-       * A vehicle index is mapped the same as [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index], if
-       * `interpret_injected_solutions_using_labels` is true (see `fields`
+       * A vehicle index is mapped the same as
+       * [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index],
+       * if `interpret_injected_solutions_using_labels` is true (see `fields`
        * comment).
        * </pre>
        *
@@ -2479,8 +2362,9 @@ private static final long serialVersionUID = 0L;
        * most one constraint relaxation field is allowed empty
        * `vehicle_indices`. A vehicle index can only be listed once, even within
        * several `constraint_relaxations`.
-       * A vehicle index is mapped the same as [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index], if
-       * `interpret_injected_solutions_using_labels` is true (see `fields`
+       * A vehicle index is mapped the same as
+       * [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index],
+       * if `interpret_injected_solutions_using_labels` is true (see `fields`
        * comment).
        * </pre>
        *
@@ -2500,8 +2384,9 @@ private static final long serialVersionUID = 0L;
        * most one constraint relaxation field is allowed empty
        * `vehicle_indices`. A vehicle index can only be listed once, even within
        * several `constraint_relaxations`.
-       * A vehicle index is mapped the same as [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index], if
-       * `interpret_injected_solutions_using_labels` is true (see `fields`
+       * A vehicle index is mapped the same as
+       * [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index],
+       * if `interpret_injected_solutions_using_labels` is true (see `fields`
        * comment).
        * </pre>
        *
@@ -2512,6 +2397,7 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setVehicleIndices(
           int index, int value) {
+        
         ensureVehicleIndicesIsMutable();
         vehicleIndices_.setInt(index, value);
         onChanged();
@@ -2526,8 +2412,9 @@ private static final long serialVersionUID = 0L;
        * most one constraint relaxation field is allowed empty
        * `vehicle_indices`. A vehicle index can only be listed once, even within
        * several `constraint_relaxations`.
-       * A vehicle index is mapped the same as [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index], if
-       * `interpret_injected_solutions_using_labels` is true (see `fields`
+       * A vehicle index is mapped the same as
+       * [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index],
+       * if `interpret_injected_solutions_using_labels` is true (see `fields`
        * comment).
        * </pre>
        *
@@ -2536,6 +2423,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder addVehicleIndices(int value) {
+        
         ensureVehicleIndicesIsMutable();
         vehicleIndices_.addInt(value);
         onChanged();
@@ -2550,8 +2438,9 @@ private static final long serialVersionUID = 0L;
        * most one constraint relaxation field is allowed empty
        * `vehicle_indices`. A vehicle index can only be listed once, even within
        * several `constraint_relaxations`.
-       * A vehicle index is mapped the same as [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index], if
-       * `interpret_injected_solutions_using_labels` is true (see `fields`
+       * A vehicle index is mapped the same as
+       * [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index],
+       * if `interpret_injected_solutions_using_labels` is true (see `fields`
        * comment).
        * </pre>
        *
@@ -2576,8 +2465,9 @@ private static final long serialVersionUID = 0L;
        * most one constraint relaxation field is allowed empty
        * `vehicle_indices`. A vehicle index can only be listed once, even within
        * several `constraint_relaxations`.
-       * A vehicle index is mapped the same as [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index], if
-       * `interpret_injected_solutions_using_labels` is true (see `fields`
+       * A vehicle index is mapped the same as
+       * [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index],
+       * if `interpret_injected_solutions_using_labels` is true (see `fields`
        * comment).
        * </pre>
        *
@@ -2623,7 +2513,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ConstraintRelaxation(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2644,6 +2545,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROUTES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.ShipmentRoute> routes_;
   /**
    * <pre>
@@ -2714,6 +2616,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SKIPPED_SHIPMENTS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.SkippedShipment> skippedShipments_;
   /**
    * <pre>
@@ -2779,6 +2682,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONSTRAINT_RELAXATIONS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation> constraintRelaxations_;
   /**
    * <pre>
@@ -2871,7 +2775,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < constraintRelaxations_.size(); i++) {
       output.writeMessage(3, constraintRelaxations_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2892,7 +2796,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, constraintRelaxations_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2913,7 +2817,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSkippedShipmentsList())) return false;
     if (!getConstraintRelaxationsList()
         .equals(other.getConstraintRelaxationsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2936,7 +2840,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CONSTRAINT_RELAXATIONS_FIELD_NUMBER;
       hash = (53 * hash) + getConstraintRelaxationsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3058,43 +2962,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.optimization.v1.InjectedSolutionConstraint.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRoutesFieldBuilder();
-        getSkippedShipmentsFieldBuilder();
-        getConstraintRelaxationsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (routesBuilder_ == null) {
         routes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        routes_ = null;
         routesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (skippedShipmentsBuilder_ == null) {
         skippedShipments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        skippedShipments_ = null;
         skippedShipmentsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (constraintRelaxationsBuilder_ == null) {
         constraintRelaxations_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        constraintRelaxations_ = null;
         constraintRelaxationsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -3121,7 +3021,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.optimization.v1.InjectedSolutionConstraint buildPartial() {
       com.google.cloud.optimization.v1.InjectedSolutionConstraint result = new com.google.cloud.optimization.v1.InjectedSolutionConstraint(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.InjectedSolutionConstraint result) {
       if (routesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           routes_ = java.util.Collections.unmodifiableList(routes_);
@@ -3149,8 +3055,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.constraintRelaxations_ = constraintRelaxationsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.optimization.v1.InjectedSolutionConstraint result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -3275,7 +3183,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3290,17 +3198,69 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.optimization.v1.InjectedSolutionConstraint parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.optimization.v1.ShipmentRoute m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.ShipmentRoute.parser(),
+                      extensionRegistry);
+              if (routesBuilder_ == null) {
+                ensureRoutesIsMutable();
+                routes_.add(m);
+              } else {
+                routesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.optimization.v1.SkippedShipment m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.SkippedShipment.parser(),
+                      extensionRegistry);
+              if (skippedShipmentsBuilder_ == null) {
+                ensureSkippedShipmentsIsMutable();
+                skippedShipments_.add(m);
+              } else {
+                skippedShipmentsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.parser(),
+                      extensionRegistry);
+              if (constraintRelaxationsBuilder_ == null) {
+                ensureConstraintRelaxationsIsMutable();
+                constraintRelaxations_.add(m);
+              } else {
+                constraintRelaxationsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.optimization.v1.InjectedSolutionConstraint) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -4363,7 +4323,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InjectedSolutionConstraint(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

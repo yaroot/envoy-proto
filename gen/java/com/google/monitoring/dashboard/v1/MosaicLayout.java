@@ -37,63 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MosaicLayout(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            columns_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              tiles_ = new java.util.ArrayList<com.google.monitoring.dashboard.v1.MosaicLayout.Tile>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            tiles_.add(
-                input.readMessage(com.google.monitoring.dashboard.v1.MosaicLayout.Tile.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        tiles_ = java.util.Collections.unmodifiableList(tiles_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.dashboard.v1.LayoutsProto.internal_static_google_monitoring_dashboard_v1_MosaicLayout_descriptor;
@@ -215,78 +158,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Tile(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              xPos_ = input.readInt32();
-              break;
-            }
-            case 16: {
-
-              yPos_ = input.readInt32();
-              break;
-            }
-            case 24: {
-
-              width_ = input.readInt32();
-              break;
-            }
-            case 32: {
-
-              height_ = input.readInt32();
-              break;
-            }
-            case 42: {
-              com.google.monitoring.dashboard.v1.Widget.Builder subBuilder = null;
-              if (widget_ != null) {
-                subBuilder = widget_.toBuilder();
-              }
-              widget_ = input.readMessage(com.google.monitoring.dashboard.v1.Widget.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(widget_);
-                widget_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.monitoring.dashboard.v1.LayoutsProto.internal_static_google_monitoring_dashboard_v1_MosaicLayout_Tile_descriptor;
@@ -301,7 +172,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int X_POS_FIELD_NUMBER = 1;
-    private int xPos_;
+    private int xPos_ = 0;
     /**
      * <pre>
      * The zero-indexed position of the tile in grid blocks relative to the
@@ -318,7 +189,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int Y_POS_FIELD_NUMBER = 2;
-    private int yPos_;
+    private int yPos_ = 0;
     /**
      * <pre>
      * The zero-indexed position of the tile in grid blocks relative to the
@@ -334,7 +205,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int WIDTH_FIELD_NUMBER = 3;
-    private int width_;
+    private int width_ = 0;
     /**
      * <pre>
      * The width of the tile, measured in grid blocks. Tiles must have a
@@ -350,7 +221,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 4;
-    private int height_;
+    private int height_ = 0;
     /**
      * <pre>
      * The height of the tile, measured in grid blocks. Tiles must have a
@@ -400,7 +271,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.WidgetOrBuilder getWidgetOrBuilder() {
-      return getWidget();
+      return widget_ == null ? com.google.monitoring.dashboard.v1.Widget.getDefaultInstance() : widget_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -432,7 +303,7 @@ private static final long serialVersionUID = 0L;
       if (widget_ != null) {
         output.writeMessage(5, getWidget());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -461,7 +332,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getWidget());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -489,7 +360,7 @@ private static final long serialVersionUID = 0L;
         if (!getWidget()
             .equals(other.getWidget())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -512,7 +383,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + WIDGET_FIELD_NUMBER;
         hash = (53 * hash) + getWidget().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -634,34 +505,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.monitoring.dashboard.v1.MosaicLayout.Tile.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         xPos_ = 0;
-
         yPos_ = 0;
-
         width_ = 0;
-
         height_ = 0;
-
-        if (widgetBuilder_ == null) {
-          widget_ = null;
-        } else {
-          widget_ = null;
+        widget_ = null;
+        if (widgetBuilder_ != null) {
+          widgetBuilder_.dispose();
           widgetBuilder_ = null;
         }
         return this;
@@ -690,17 +552,30 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.monitoring.dashboard.v1.MosaicLayout.Tile buildPartial() {
         com.google.monitoring.dashboard.v1.MosaicLayout.Tile result = new com.google.monitoring.dashboard.v1.MosaicLayout.Tile(this);
-        result.xPos_ = xPos_;
-        result.yPos_ = yPos_;
-        result.width_ = width_;
-        result.height_ = height_;
-        if (widgetBuilder_ == null) {
-          result.widget_ = widget_;
-        } else {
-          result.widget_ = widgetBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.monitoring.dashboard.v1.MosaicLayout.Tile result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.xPos_ = xPos_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.yPos_ = yPos_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.width_ = width_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.height_ = height_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.widget_ = widgetBuilder_ == null
+              ? widget_
+              : widgetBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -762,7 +637,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasWidget()) {
           mergeWidget(other.getWidget());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -777,19 +652,60 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.monitoring.dashboard.v1.MosaicLayout.Tile parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                xPos_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                yPos_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                width_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                height_ = input.readInt32();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 42: {
+                input.readMessage(
+                    getWidgetFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.monitoring.dashboard.v1.MosaicLayout.Tile) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int xPos_ ;
       /**
@@ -820,6 +736,7 @@ private static final long serialVersionUID = 0L;
       public Builder setXPos(int value) {
         
         xPos_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -834,7 +751,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearXPos() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         xPos_ = 0;
         onChanged();
         return this;
@@ -867,6 +784,7 @@ private static final long serialVersionUID = 0L;
       public Builder setYPos(int value) {
         
         yPos_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -880,7 +798,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearYPos() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         yPos_ = 0;
         onChanged();
         return this;
@@ -913,6 +831,7 @@ private static final long serialVersionUID = 0L;
       public Builder setWidth(int value) {
         
         width_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -926,7 +845,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearWidth() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         width_ = 0;
         onChanged();
         return this;
@@ -959,6 +878,7 @@ private static final long serialVersionUID = 0L;
       public Builder setHeight(int value) {
         
         height_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -972,7 +892,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearHeight() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         height_ = 0;
         onChanged();
         return this;
@@ -990,7 +910,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the widget field is set.
        */
       public boolean hasWidget() {
-        return widgetBuilder_ != null || widget_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -1020,11 +940,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           widget_ = value;
-          onChanged();
         } else {
           widgetBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -1038,11 +958,11 @@ private static final long serialVersionUID = 0L;
           com.google.monitoring.dashboard.v1.Widget.Builder builderForValue) {
         if (widgetBuilder_ == null) {
           widget_ = builderForValue.build();
-          onChanged();
         } else {
           widgetBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -1054,17 +974,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeWidget(com.google.monitoring.dashboard.v1.Widget value) {
         if (widgetBuilder_ == null) {
-          if (widget_ != null) {
-            widget_ =
-              com.google.monitoring.dashboard.v1.Widget.newBuilder(widget_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            widget_ != null &&
+            widget_ != com.google.monitoring.dashboard.v1.Widget.getDefaultInstance()) {
+            getWidgetBuilder().mergeFrom(value);
           } else {
             widget_ = value;
           }
-          onChanged();
         } else {
           widgetBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -1075,14 +996,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.monitoring.dashboard.v1.Widget widget = 5;</code>
        */
       public Builder clearWidget() {
-        if (widgetBuilder_ == null) {
-          widget_ = null;
-          onChanged();
-        } else {
-          widget_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        widget_ = null;
+        if (widgetBuilder_ != null) {
+          widgetBuilder_.dispose();
           widgetBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1093,7 +1013,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.monitoring.dashboard.v1.Widget widget = 5;</code>
        */
       public com.google.monitoring.dashboard.v1.Widget.Builder getWidgetBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getWidgetFieldBuilder().getBuilder();
       }
@@ -1165,7 +1085,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Tile(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1186,7 +1117,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COLUMNS_FIELD_NUMBER = 1;
-  private int columns_;
+  private int columns_ = 0;
   /**
    * <pre>
    * The number of columns in the mosaic grid. The number of columns must be
@@ -1202,6 +1133,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TILES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.monitoring.dashboard.v1.MosaicLayout.Tile> tiles_;
   /**
    * <pre>
@@ -1281,7 +1213,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < tiles_.size(); i++) {
       output.writeMessage(3, tiles_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1298,7 +1230,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, tiles_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1317,7 +1249,7 @@ private static final long serialVersionUID = 0L;
         != other.getColumns()) return false;
     if (!getTilesList()
         .equals(other.getTilesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1334,7 +1266,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TILES_FIELD_NUMBER;
       hash = (53 * hash) + getTilesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1457,31 +1389,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.dashboard.v1.MosaicLayout.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTilesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       columns_ = 0;
-
       if (tilesBuilder_ == null) {
         tiles_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        tiles_ = null;
         tilesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -1508,19 +1435,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.MosaicLayout buildPartial() {
       com.google.monitoring.dashboard.v1.MosaicLayout result = new com.google.monitoring.dashboard.v1.MosaicLayout(this);
-      int from_bitField0_ = bitField0_;
-      result.columns_ = columns_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.monitoring.dashboard.v1.MosaicLayout result) {
       if (tilesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           tiles_ = java.util.Collections.unmodifiableList(tiles_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.tiles_ = tiles_;
       } else {
         result.tiles_ = tilesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.monitoring.dashboard.v1.MosaicLayout result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.columns_ = columns_;
+      }
     }
 
     @java.lang.Override
@@ -1574,7 +1511,7 @@ private static final long serialVersionUID = 0L;
         if (!other.tiles_.isEmpty()) {
           if (tiles_.isEmpty()) {
             tiles_ = other.tiles_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureTilesIsMutable();
             tiles_.addAll(other.tiles_);
@@ -1587,7 +1524,7 @@ private static final long serialVersionUID = 0L;
             tilesBuilder_.dispose();
             tilesBuilder_ = null;
             tiles_ = other.tiles_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             tilesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTilesFieldBuilder() : null;
@@ -1596,7 +1533,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1611,17 +1548,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.dashboard.v1.MosaicLayout parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              columns_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 26: {
+              com.google.monitoring.dashboard.v1.MosaicLayout.Tile m =
+                  input.readMessage(
+                      com.google.monitoring.dashboard.v1.MosaicLayout.Tile.parser(),
+                      extensionRegistry);
+              if (tilesBuilder_ == null) {
+                ensureTilesIsMutable();
+                tiles_.add(m);
+              } else {
+                tilesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.dashboard.v1.MosaicLayout) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1653,6 +1621,7 @@ private static final long serialVersionUID = 0L;
     public Builder setColumns(int value) {
       
       columns_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1666,7 +1635,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearColumns() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       columns_ = 0;
       onChanged();
       return this;
@@ -1675,9 +1644,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.monitoring.dashboard.v1.MosaicLayout.Tile> tiles_ =
       java.util.Collections.emptyList();
     private void ensureTilesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         tiles_ = new java.util.ArrayList<com.google.monitoring.dashboard.v1.MosaicLayout.Tile>(tiles_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1871,7 +1840,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTiles() {
       if (tilesBuilder_ == null) {
         tiles_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         tilesBuilder_.clear();
@@ -1976,7 +1945,7 @@ private static final long serialVersionUID = 0L;
         tilesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.monitoring.dashboard.v1.MosaicLayout.Tile, com.google.monitoring.dashboard.v1.MosaicLayout.Tile.Builder, com.google.monitoring.dashboard.v1.MosaicLayout.TileOrBuilder>(
                 tiles_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         tiles_ = null;
@@ -2016,7 +1985,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MosaicLayout(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

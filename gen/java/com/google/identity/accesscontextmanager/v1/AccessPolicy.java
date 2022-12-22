@@ -27,6 +27,7 @@ private static final long serialVersionUID = 0L;
     name_ = "";
     parent_ = "";
     title_ = "";
+    scopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     etag_ = "";
   }
 
@@ -42,95 +43,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AccessPolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            title_ = s;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            etag_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.identity.accesscontextmanager.v1.PolicyProto.internal_static_google_identity_accesscontextmanager_v1_AccessPolicy_descriptor;
@@ -145,7 +57,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. Resource name of the `AccessPolicy`. Format:
@@ -193,7 +106,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The parent of this `AccessPolicy` in the Cloud Resource
@@ -243,7 +157,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TITLE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object title_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object title_ = "";
   /**
    * <pre>
    * Required. Human readable title. Does not affect behavior.
@@ -288,6 +203,110 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int SCOPES_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.LazyStringList scopes_;
+  /**
+   * <pre>
+   * The scopes of a policy define which resources an ACM policy can restrict,
+   * and where ACM resources can be referenced.
+   * For example, a policy with scopes=["folders/123"] has the following
+   * behavior:
+   * - vpcsc perimeters can only restrict projects within folders/123
+   * - access levels can only be referenced by resources within folders/123.
+   * If empty, there are no limitations on which resources can be restricted by
+   * an ACM policy, and there are no limitations on where ACM resources can be
+   * referenced.
+   * Only one policy can include a given scope (attempting to create a second
+   * policy which includes "folders/123" will result in an error).
+   * Currently, scopes cannot be modified after a policy is created.
+   * Currently, policies can only have a single scope.
+   * Format: list of `folders/{folder_number}` or `projects/{project_number}`
+   * </pre>
+   *
+   * <code>repeated string scopes = 7;</code>
+   * @return A list containing the scopes.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getScopesList() {
+    return scopes_;
+  }
+  /**
+   * <pre>
+   * The scopes of a policy define which resources an ACM policy can restrict,
+   * and where ACM resources can be referenced.
+   * For example, a policy with scopes=["folders/123"] has the following
+   * behavior:
+   * - vpcsc perimeters can only restrict projects within folders/123
+   * - access levels can only be referenced by resources within folders/123.
+   * If empty, there are no limitations on which resources can be restricted by
+   * an ACM policy, and there are no limitations on where ACM resources can be
+   * referenced.
+   * Only one policy can include a given scope (attempting to create a second
+   * policy which includes "folders/123" will result in an error).
+   * Currently, scopes cannot be modified after a policy is created.
+   * Currently, policies can only have a single scope.
+   * Format: list of `folders/{folder_number}` or `projects/{project_number}`
+   * </pre>
+   *
+   * <code>repeated string scopes = 7;</code>
+   * @return The count of scopes.
+   */
+  public int getScopesCount() {
+    return scopes_.size();
+  }
+  /**
+   * <pre>
+   * The scopes of a policy define which resources an ACM policy can restrict,
+   * and where ACM resources can be referenced.
+   * For example, a policy with scopes=["folders/123"] has the following
+   * behavior:
+   * - vpcsc perimeters can only restrict projects within folders/123
+   * - access levels can only be referenced by resources within folders/123.
+   * If empty, there are no limitations on which resources can be restricted by
+   * an ACM policy, and there are no limitations on where ACM resources can be
+   * referenced.
+   * Only one policy can include a given scope (attempting to create a second
+   * policy which includes "folders/123" will result in an error).
+   * Currently, scopes cannot be modified after a policy is created.
+   * Currently, policies can only have a single scope.
+   * Format: list of `folders/{folder_number}` or `projects/{project_number}`
+   * </pre>
+   *
+   * <code>repeated string scopes = 7;</code>
+   * @param index The index of the element to return.
+   * @return The scopes at the given index.
+   */
+  public java.lang.String getScopes(int index) {
+    return scopes_.get(index);
+  }
+  /**
+   * <pre>
+   * The scopes of a policy define which resources an ACM policy can restrict,
+   * and where ACM resources can be referenced.
+   * For example, a policy with scopes=["folders/123"] has the following
+   * behavior:
+   * - vpcsc perimeters can only restrict projects within folders/123
+   * - access levels can only be referenced by resources within folders/123.
+   * If empty, there are no limitations on which resources can be restricted by
+   * an ACM policy, and there are no limitations on where ACM resources can be
+   * referenced.
+   * Only one policy can include a given scope (attempting to create a second
+   * policy which includes "folders/123" will result in an error).
+   * Currently, scopes cannot be modified after a policy is created.
+   * Currently, policies can only have a single scope.
+   * Format: list of `folders/{folder_number}` or `projects/{project_number}`
+   * </pre>
+   *
+   * <code>repeated string scopes = 7;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the scopes at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getScopesBytes(int index) {
+    return scopes_.getByteString(index);
+  }
+
   public static final int CREATE_TIME_FIELD_NUMBER = 4;
   private com.google.protobuf.Timestamp createTime_;
   /**
@@ -323,7 +342,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 5;
@@ -361,11 +380,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int ETAG_FIELD_NUMBER = 6;
-  private volatile java.lang.Object etag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object etag_ = "";
   /**
    * <pre>
    * Output only. An opaque identifier for the current version of the
@@ -448,7 +468,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(etag_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, etag_);
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < scopes_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, scopes_.getRaw(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -477,7 +500,15 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(etag_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, etag_);
     }
-    size += unknownFields.getSerializedSize();
+    {
+      int dataSize = 0;
+      for (int i = 0; i < scopes_.size(); i++) {
+        dataSize += computeStringSizeNoTag(scopes_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getScopesList().size();
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -498,6 +529,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getParent())) return false;
     if (!getTitle()
         .equals(other.getTitle())) return false;
+    if (!getScopesList()
+        .equals(other.getScopesList())) return false;
     if (hasCreateTime() != other.hasCreateTime()) return false;
     if (hasCreateTime()) {
       if (!getCreateTime()
@@ -510,7 +543,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getEtag()
         .equals(other.getEtag())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -527,6 +560,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getParent().hashCode();
     hash = (37 * hash) + TITLE_FIELD_NUMBER;
     hash = (53 * hash) + getTitle().hashCode();
+    if (getScopesCount() > 0) {
+      hash = (37 * hash) + SCOPES_FIELD_NUMBER;
+      hash = (53 * hash) + getScopesList().hashCode();
+    }
     if (hasCreateTime()) {
       hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getCreateTime().hashCode();
@@ -537,7 +574,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + ETAG_FIELD_NUMBER;
     hash = (53 * hash) + getEtag().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -662,42 +699,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.identity.accesscontextmanager.v1.AccessPolicy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       parent_ = "";
-
       title_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      scopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       etag_ = "";
-
       return this;
     }
 
@@ -724,22 +753,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.identity.accesscontextmanager.v1.AccessPolicy buildPartial() {
       com.google.identity.accesscontextmanager.v1.AccessPolicy result = new com.google.identity.accesscontextmanager.v1.AccessPolicy(this);
-      result.name_ = name_;
-      result.parent_ = parent_;
-      result.title_ = title_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.etag_ = etag_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.identity.accesscontextmanager.v1.AccessPolicy result) {
+      if (((bitField0_ & 0x00000008) != 0)) {
+        scopes_ = scopes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.scopes_ = scopes_;
+    }
+
+    private void buildPartial0(com.google.identity.accesscontextmanager.v1.AccessPolicy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.title_ = title_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.etag_ = etag_;
+      }
     }
 
     @java.lang.Override
@@ -788,14 +839,27 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.identity.accesscontextmanager.v1.AccessPolicy.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getTitle().isEmpty()) {
         title_ = other.title_;
+        bitField0_ |= 0x00000004;
+        onChanged();
+      }
+      if (!other.scopes_.isEmpty()) {
+        if (scopes_.isEmpty()) {
+          scopes_ = other.scopes_;
+          bitField0_ = (bitField0_ & ~0x00000008);
+        } else {
+          ensureScopesIsMutable();
+          scopes_.addAll(other.scopes_);
+        }
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -806,9 +870,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEtag().isEmpty()) {
         etag_ = other.etag_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -823,19 +888,73 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.identity.accesscontextmanager.v1.AccessPolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              title_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              etag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureScopesIsMutable();
+              scopes_.add(s);
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.identity.accesscontextmanager.v1.AccessPolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -893,11 +1012,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -911,8 +1028,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -928,12 +1045,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -997,11 +1112,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1016,8 +1129,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1034,12 +1147,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1097,11 +1208,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTitle(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       title_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1114,8 +1223,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTitle() {
-      
       title_ = getDefaultInstance().getTitle();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1130,12 +1239,267 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTitleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       title_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.LazyStringList scopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureScopesIsMutable() {
+      if (!((bitField0_ & 0x00000008) != 0)) {
+        scopes_ = new com.google.protobuf.LazyStringArrayList(scopes_);
+        bitField0_ |= 0x00000008;
+       }
+    }
+    /**
+     * <pre>
+     * The scopes of a policy define which resources an ACM policy can restrict,
+     * and where ACM resources can be referenced.
+     * For example, a policy with scopes=["folders/123"] has the following
+     * behavior:
+     * - vpcsc perimeters can only restrict projects within folders/123
+     * - access levels can only be referenced by resources within folders/123.
+     * If empty, there are no limitations on which resources can be restricted by
+     * an ACM policy, and there are no limitations on where ACM resources can be
+     * referenced.
+     * Only one policy can include a given scope (attempting to create a second
+     * policy which includes "folders/123" will result in an error).
+     * Currently, scopes cannot be modified after a policy is created.
+     * Currently, policies can only have a single scope.
+     * Format: list of `folders/{folder_number}` or `projects/{project_number}`
+     * </pre>
+     *
+     * <code>repeated string scopes = 7;</code>
+     * @return A list containing the scopes.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getScopesList() {
+      return scopes_.getUnmodifiableView();
+    }
+    /**
+     * <pre>
+     * The scopes of a policy define which resources an ACM policy can restrict,
+     * and where ACM resources can be referenced.
+     * For example, a policy with scopes=["folders/123"] has the following
+     * behavior:
+     * - vpcsc perimeters can only restrict projects within folders/123
+     * - access levels can only be referenced by resources within folders/123.
+     * If empty, there are no limitations on which resources can be restricted by
+     * an ACM policy, and there are no limitations on where ACM resources can be
+     * referenced.
+     * Only one policy can include a given scope (attempting to create a second
+     * policy which includes "folders/123" will result in an error).
+     * Currently, scopes cannot be modified after a policy is created.
+     * Currently, policies can only have a single scope.
+     * Format: list of `folders/{folder_number}` or `projects/{project_number}`
+     * </pre>
+     *
+     * <code>repeated string scopes = 7;</code>
+     * @return The count of scopes.
+     */
+    public int getScopesCount() {
+      return scopes_.size();
+    }
+    /**
+     * <pre>
+     * The scopes of a policy define which resources an ACM policy can restrict,
+     * and where ACM resources can be referenced.
+     * For example, a policy with scopes=["folders/123"] has the following
+     * behavior:
+     * - vpcsc perimeters can only restrict projects within folders/123
+     * - access levels can only be referenced by resources within folders/123.
+     * If empty, there are no limitations on which resources can be restricted by
+     * an ACM policy, and there are no limitations on where ACM resources can be
+     * referenced.
+     * Only one policy can include a given scope (attempting to create a second
+     * policy which includes "folders/123" will result in an error).
+     * Currently, scopes cannot be modified after a policy is created.
+     * Currently, policies can only have a single scope.
+     * Format: list of `folders/{folder_number}` or `projects/{project_number}`
+     * </pre>
+     *
+     * <code>repeated string scopes = 7;</code>
+     * @param index The index of the element to return.
+     * @return The scopes at the given index.
+     */
+    public java.lang.String getScopes(int index) {
+      return scopes_.get(index);
+    }
+    /**
+     * <pre>
+     * The scopes of a policy define which resources an ACM policy can restrict,
+     * and where ACM resources can be referenced.
+     * For example, a policy with scopes=["folders/123"] has the following
+     * behavior:
+     * - vpcsc perimeters can only restrict projects within folders/123
+     * - access levels can only be referenced by resources within folders/123.
+     * If empty, there are no limitations on which resources can be restricted by
+     * an ACM policy, and there are no limitations on where ACM resources can be
+     * referenced.
+     * Only one policy can include a given scope (attempting to create a second
+     * policy which includes "folders/123" will result in an error).
+     * Currently, scopes cannot be modified after a policy is created.
+     * Currently, policies can only have a single scope.
+     * Format: list of `folders/{folder_number}` or `projects/{project_number}`
+     * </pre>
+     *
+     * <code>repeated string scopes = 7;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the scopes at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getScopesBytes(int index) {
+      return scopes_.getByteString(index);
+    }
+    /**
+     * <pre>
+     * The scopes of a policy define which resources an ACM policy can restrict,
+     * and where ACM resources can be referenced.
+     * For example, a policy with scopes=["folders/123"] has the following
+     * behavior:
+     * - vpcsc perimeters can only restrict projects within folders/123
+     * - access levels can only be referenced by resources within folders/123.
+     * If empty, there are no limitations on which resources can be restricted by
+     * an ACM policy, and there are no limitations on where ACM resources can be
+     * referenced.
+     * Only one policy can include a given scope (attempting to create a second
+     * policy which includes "folders/123" will result in an error).
+     * Currently, scopes cannot be modified after a policy is created.
+     * Currently, policies can only have a single scope.
+     * Format: list of `folders/{folder_number}` or `projects/{project_number}`
+     * </pre>
+     *
+     * <code>repeated string scopes = 7;</code>
+     * @param index The index to set the value at.
+     * @param value The scopes to set.
+     * @return This builder for chaining.
+     */
+    public Builder setScopes(
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureScopesIsMutable();
+      scopes_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The scopes of a policy define which resources an ACM policy can restrict,
+     * and where ACM resources can be referenced.
+     * For example, a policy with scopes=["folders/123"] has the following
+     * behavior:
+     * - vpcsc perimeters can only restrict projects within folders/123
+     * - access levels can only be referenced by resources within folders/123.
+     * If empty, there are no limitations on which resources can be restricted by
+     * an ACM policy, and there are no limitations on where ACM resources can be
+     * referenced.
+     * Only one policy can include a given scope (attempting to create a second
+     * policy which includes "folders/123" will result in an error).
+     * Currently, scopes cannot be modified after a policy is created.
+     * Currently, policies can only have a single scope.
+     * Format: list of `folders/{folder_number}` or `projects/{project_number}`
+     * </pre>
+     *
+     * <code>repeated string scopes = 7;</code>
+     * @param value The scopes to add.
+     * @return This builder for chaining.
+     */
+    public Builder addScopes(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureScopesIsMutable();
+      scopes_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The scopes of a policy define which resources an ACM policy can restrict,
+     * and where ACM resources can be referenced.
+     * For example, a policy with scopes=["folders/123"] has the following
+     * behavior:
+     * - vpcsc perimeters can only restrict projects within folders/123
+     * - access levels can only be referenced by resources within folders/123.
+     * If empty, there are no limitations on which resources can be restricted by
+     * an ACM policy, and there are no limitations on where ACM resources can be
+     * referenced.
+     * Only one policy can include a given scope (attempting to create a second
+     * policy which includes "folders/123" will result in an error).
+     * Currently, scopes cannot be modified after a policy is created.
+     * Currently, policies can only have a single scope.
+     * Format: list of `folders/{folder_number}` or `projects/{project_number}`
+     * </pre>
+     *
+     * <code>repeated string scopes = 7;</code>
+     * @param values The scopes to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllScopes(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureScopesIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, scopes_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The scopes of a policy define which resources an ACM policy can restrict,
+     * and where ACM resources can be referenced.
+     * For example, a policy with scopes=["folders/123"] has the following
+     * behavior:
+     * - vpcsc perimeters can only restrict projects within folders/123
+     * - access levels can only be referenced by resources within folders/123.
+     * If empty, there are no limitations on which resources can be restricted by
+     * an ACM policy, and there are no limitations on where ACM resources can be
+     * referenced.
+     * Only one policy can include a given scope (attempting to create a second
+     * policy which includes "folders/123" will result in an error).
+     * Currently, scopes cannot be modified after a policy is created.
+     * Currently, policies can only have a single scope.
+     * Format: list of `folders/{folder_number}` or `projects/{project_number}`
+     * </pre>
+     *
+     * <code>repeated string scopes = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearScopes() {
+      scopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The scopes of a policy define which resources an ACM policy can restrict,
+     * and where ACM resources can be referenced.
+     * For example, a policy with scopes=["folders/123"] has the following
+     * behavior:
+     * - vpcsc perimeters can only restrict projects within folders/123
+     * - access levels can only be referenced by resources within folders/123.
+     * If empty, there are no limitations on which resources can be restricted by
+     * an ACM policy, and there are no limitations on where ACM resources can be
+     * referenced.
+     * Only one policy can include a given scope (attempting to create a second
+     * policy which includes "folders/123" will result in an error).
+     * Currently, scopes cannot be modified after a policy is created.
+     * Currently, policies can only have a single scope.
+     * Format: list of `folders/{folder_number}` or `projects/{project_number}`
+     * </pre>
+     *
+     * <code>repeated string scopes = 7;</code>
+     * @param value The bytes of the scopes to add.
+     * @return This builder for chaining.
+     */
+    public Builder addScopesBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensureScopesIsMutable();
+      scopes_.add(value);
       onChanged();
       return this;
     }
@@ -1152,7 +1516,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1182,11 +1546,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1200,11 +1564,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1216,17 +1580,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1237,14 +1602,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 4;</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1255,7 +1619,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 4;</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -1307,7 +1671,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1337,11 +1701,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1355,11 +1719,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1371,17 +1735,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1392,14 +1757,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 5;</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1410,7 +1774,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 5;</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -1512,11 +1876,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       etag_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1532,8 +1894,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEtag() {
-      
       etag_ = getDefaultInstance().getEtag();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1551,12 +1913,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       etag_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1593,7 +1953,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AccessPolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

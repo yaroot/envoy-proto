@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ReplaceArtifactRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.apigeeregistry.v1.Artifact.Builder subBuilder = null;
-            if (artifact_ != null) {
-              subBuilder = artifact_.toBuilder();
-            }
-            artifact_ = input.readMessage(com.google.cloud.apigeeregistry.v1.Artifact.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(artifact_);
-              artifact_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.apigeeregistry.v1.RegistryServiceProto.internal_static_google_cloud_apigeeregistry_v1_ReplaceArtifactRequest_descriptor;
@@ -105,7 +53,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Required. The artifact to replace.
    * The `name` field is used to identify the artifact to replace.
-   * Format: {parent}/artifacts/&#42;
+   * Format: `{parent}/artifacts/&#42;`
    * </pre>
    *
    * <code>.google.cloud.apigeeregistry.v1.Artifact artifact = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -119,7 +67,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Required. The artifact to replace.
    * The `name` field is used to identify the artifact to replace.
-   * Format: {parent}/artifacts/&#42;
+   * Format: `{parent}/artifacts/&#42;`
    * </pre>
    *
    * <code>.google.cloud.apigeeregistry.v1.Artifact artifact = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -133,14 +81,14 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Required. The artifact to replace.
    * The `name` field is used to identify the artifact to replace.
-   * Format: {parent}/artifacts/&#42;
+   * Format: `{parent}/artifacts/&#42;`
    * </pre>
    *
    * <code>.google.cloud.apigeeregistry.v1.Artifact artifact = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.cloud.apigeeregistry.v1.ArtifactOrBuilder getArtifactOrBuilder() {
-    return getArtifact();
+    return artifact_ == null ? com.google.cloud.apigeeregistry.v1.Artifact.getDefaultInstance() : artifact_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -160,7 +108,7 @@ private static final long serialVersionUID = 0L;
     if (artifact_ != null) {
       output.writeMessage(1, getArtifact());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -173,7 +121,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getArtifact());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -193,7 +141,7 @@ private static final long serialVersionUID = 0L;
       if (!getArtifact()
           .equals(other.getArtifact())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -208,7 +156,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ARTIFACT_FIELD_NUMBER;
       hash = (53 * hash) + getArtifact().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -329,26 +277,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.apigeeregistry.v1.ReplaceArtifactRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (artifactBuilder_ == null) {
-        artifact_ = null;
-      } else {
-        artifact_ = null;
+      bitField0_ = 0;
+      artifact_ = null;
+      if (artifactBuilder_ != null) {
+        artifactBuilder_.dispose();
         artifactBuilder_ = null;
       }
       return this;
@@ -377,13 +320,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.apigeeregistry.v1.ReplaceArtifactRequest buildPartial() {
       com.google.cloud.apigeeregistry.v1.ReplaceArtifactRequest result = new com.google.cloud.apigeeregistry.v1.ReplaceArtifactRequest(this);
-      if (artifactBuilder_ == null) {
-        result.artifact_ = artifact_;
-      } else {
-        result.artifact_ = artifactBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.apigeeregistry.v1.ReplaceArtifactRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.artifact_ = artifactBuilder_ == null
+            ? artifact_
+            : artifactBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -433,7 +381,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasArtifact()) {
         mergeArtifact(other.getArtifact());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -448,19 +396,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.apigeeregistry.v1.ReplaceArtifactRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getArtifactFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.apigeeregistry.v1.ReplaceArtifactRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.apigeeregistry.v1.Artifact artifact_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -469,20 +438,20 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The artifact to replace.
      * The `name` field is used to identify the artifact to replace.
-     * Format: {parent}/artifacts/&#42;
+     * Format: `{parent}/artifacts/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.Artifact artifact = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the artifact field is set.
      */
     public boolean hasArtifact() {
-      return artifactBuilder_ != null || artifact_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
      * Required. The artifact to replace.
      * The `name` field is used to identify the artifact to replace.
-     * Format: {parent}/artifacts/&#42;
+     * Format: `{parent}/artifacts/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.Artifact artifact = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -499,7 +468,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The artifact to replace.
      * The `name` field is used to identify the artifact to replace.
-     * Format: {parent}/artifacts/&#42;
+     * Format: `{parent}/artifacts/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.Artifact artifact = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -510,18 +479,18 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         artifact_ = value;
-        onChanged();
       } else {
         artifactBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The artifact to replace.
      * The `name` field is used to identify the artifact to replace.
-     * Format: {parent}/artifacts/&#42;
+     * Format: `{parent}/artifacts/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.Artifact artifact = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -530,68 +499,68 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.apigeeregistry.v1.Artifact.Builder builderForValue) {
       if (artifactBuilder_ == null) {
         artifact_ = builderForValue.build();
-        onChanged();
       } else {
         artifactBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The artifact to replace.
      * The `name` field is used to identify the artifact to replace.
-     * Format: {parent}/artifacts/&#42;
+     * Format: `{parent}/artifacts/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.Artifact artifact = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeArtifact(com.google.cloud.apigeeregistry.v1.Artifact value) {
       if (artifactBuilder_ == null) {
-        if (artifact_ != null) {
-          artifact_ =
-            com.google.cloud.apigeeregistry.v1.Artifact.newBuilder(artifact_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          artifact_ != null &&
+          artifact_ != com.google.cloud.apigeeregistry.v1.Artifact.getDefaultInstance()) {
+          getArtifactBuilder().mergeFrom(value);
         } else {
           artifact_ = value;
         }
-        onChanged();
       } else {
         artifactBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The artifact to replace.
      * The `name` field is used to identify the artifact to replace.
-     * Format: {parent}/artifacts/&#42;
+     * Format: `{parent}/artifacts/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.Artifact artifact = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearArtifact() {
-      if (artifactBuilder_ == null) {
-        artifact_ = null;
-        onChanged();
-      } else {
-        artifact_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      artifact_ = null;
+      if (artifactBuilder_ != null) {
+        artifactBuilder_.dispose();
         artifactBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The artifact to replace.
      * The `name` field is used to identify the artifact to replace.
-     * Format: {parent}/artifacts/&#42;
+     * Format: `{parent}/artifacts/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.Artifact artifact = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.apigeeregistry.v1.Artifact.Builder getArtifactBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getArtifactFieldBuilder().getBuilder();
     }
@@ -599,7 +568,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The artifact to replace.
      * The `name` field is used to identify the artifact to replace.
-     * Format: {parent}/artifacts/&#42;
+     * Format: `{parent}/artifacts/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.Artifact artifact = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -616,7 +585,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The artifact to replace.
      * The `name` field is used to identify the artifact to replace.
-     * Format: {parent}/artifacts/&#42;
+     * Format: `{parent}/artifacts/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.Artifact artifact = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -667,7 +636,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ReplaceArtifactRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

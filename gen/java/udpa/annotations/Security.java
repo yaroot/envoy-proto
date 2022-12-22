@@ -71,55 +71,6 @@ public final class Security {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private FieldSecurityAnnotation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              configureForUntrustedDownstream_ = input.readBool();
-              break;
-            }
-            case 16: {
-
-              configureForUntrustedUpstream_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return udpa.annotations.Security.internal_static_udpa_annotations_FieldSecurityAnnotation_descriptor;
@@ -134,7 +85,7 @@ public final class Security {
     }
 
     public static final int CONFIGURE_FOR_UNTRUSTED_DOWNSTREAM_FIELD_NUMBER = 1;
-    private boolean configureForUntrustedDownstream_;
+    private boolean configureForUntrustedDownstream_ = false;
     /**
      * <pre>
      * Field should be set in the presence of untrusted downstreams.
@@ -149,7 +100,7 @@ public final class Security {
     }
 
     public static final int CONFIGURE_FOR_UNTRUSTED_UPSTREAM_FIELD_NUMBER = 2;
-    private boolean configureForUntrustedUpstream_;
+    private boolean configureForUntrustedUpstream_ = false;
     /**
      * <pre>
      * Field should be set in the presence of untrusted upstreams.
@@ -183,7 +134,7 @@ public final class Security {
       if (configureForUntrustedUpstream_ != false) {
         output.writeBool(2, configureForUntrustedUpstream_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -200,7 +151,7 @@ public final class Security {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, configureForUntrustedUpstream_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -219,7 +170,7 @@ public final class Security {
           != other.getConfigureForUntrustedDownstream()) return false;
       if (getConfigureForUntrustedUpstream()
           != other.getConfigureForUntrustedUpstream()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -236,7 +187,7 @@ public final class Security {
       hash = (37 * hash) + CONFIGURE_FOR_UNTRUSTED_UPSTREAM_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getConfigureForUntrustedUpstream());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -358,26 +309,20 @@ public final class Security {
 
       // Construct using udpa.annotations.Security.FieldSecurityAnnotation.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         configureForUntrustedDownstream_ = false;
-
         configureForUntrustedUpstream_ = false;
-
         return this;
       }
 
@@ -404,10 +349,19 @@ public final class Security {
       @java.lang.Override
       public udpa.annotations.Security.FieldSecurityAnnotation buildPartial() {
         udpa.annotations.Security.FieldSecurityAnnotation result = new udpa.annotations.Security.FieldSecurityAnnotation(this);
-        result.configureForUntrustedDownstream_ = configureForUntrustedDownstream_;
-        result.configureForUntrustedUpstream_ = configureForUntrustedUpstream_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(udpa.annotations.Security.FieldSecurityAnnotation result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.configureForUntrustedDownstream_ = configureForUntrustedDownstream_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.configureForUntrustedUpstream_ = configureForUntrustedUpstream_;
+        }
       }
 
       @java.lang.Override
@@ -460,7 +414,7 @@ public final class Security {
         if (other.getConfigureForUntrustedUpstream() != false) {
           setConfigureForUntrustedUpstream(other.getConfigureForUntrustedUpstream());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -475,19 +429,43 @@ public final class Security {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        udpa.annotations.Security.FieldSecurityAnnotation parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                configureForUntrustedDownstream_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                configureForUntrustedUpstream_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (udpa.annotations.Security.FieldSecurityAnnotation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private boolean configureForUntrustedDownstream_ ;
       /**
@@ -514,6 +492,7 @@ public final class Security {
       public Builder setConfigureForUntrustedDownstream(boolean value) {
         
         configureForUntrustedDownstream_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -526,7 +505,7 @@ public final class Security {
        * @return This builder for chaining.
        */
       public Builder clearConfigureForUntrustedDownstream() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         configureForUntrustedDownstream_ = false;
         onChanged();
         return this;
@@ -557,6 +536,7 @@ public final class Security {
       public Builder setConfigureForUntrustedUpstream(boolean value) {
         
         configureForUntrustedUpstream_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -569,7 +549,7 @@ public final class Security {
        * @return This builder for chaining.
        */
       public Builder clearConfigureForUntrustedUpstream() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         configureForUntrustedUpstream_ = false;
         onChanged();
         return this;
@@ -607,7 +587,18 @@ public final class Security {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FieldSecurityAnnotation(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

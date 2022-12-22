@@ -40,95 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateInstanceRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 29957474: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            zone_ = s;
-            break;
-          }
-          case 146056362: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            instance_ = s;
-            break;
-          }
-          case 296879706: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            requestId_ = s;
-            break;
-          }
-          case 528824426: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            mostDisruptiveAllowedAction_ = s;
-            break;
-          }
-          case 1727906754: {
-            com.google.cloud.compute.v1.Instance.Builder subBuilder = null;
-            if (instanceResource_ != null) {
-              subBuilder = instanceResource_.toBuilder();
-            }
-            instanceResource_ = input.readMessage(com.google.cloud.compute.v1.Instance.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(instanceResource_);
-              instanceResource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 1820481738: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            project_ = s;
-            break;
-          }
-          case -2130430814: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            minimalAction_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_UpdateInstanceRequest_descriptor;
@@ -376,7 +287,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int INSTANCE_FIELD_NUMBER = 18257045;
-  private volatile java.lang.Object instance_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object instance_ = "";
   /**
    * <pre>
    * Name of the instance resource to update.
@@ -456,11 +368,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.compute.v1.InstanceOrBuilder getInstanceResourceOrBuilder() {
-    return getInstanceResource();
+    return instanceResource_ == null ? com.google.cloud.compute.v1.Instance.getDefaultInstance() : instanceResource_;
   }
 
   public static final int MINIMAL_ACTION_FIELD_NUMBER = 270567060;
-  private volatile java.lang.Object minimalAction_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object minimalAction_ = "";
   /**
    * <pre>
    * Specifies the action to take when updating an instance even if the updated properties do not require it. If not specified, then Compute Engine acts based on the minimum action that the updated properties require.
@@ -521,7 +434,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MOST_DISRUPTIVE_ALLOWED_ACTION_FIELD_NUMBER = 66103053;
-  private volatile java.lang.Object mostDisruptiveAllowedAction_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object mostDisruptiveAllowedAction_ = "";
   /**
    * <pre>
    * Specifies the most disruptive action that can be taken on the instance as part of the update. Compute Engine returns an error if the instance properties require a more disruptive action as part of the instance update. Valid options from lowest to highest are NO_EFFECT, REFRESH, and RESTART.
@@ -582,7 +496,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_FIELD_NUMBER = 227560217;
-  private volatile java.lang.Object project_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object project_ = "";
   /**
    * <pre>
    * Project ID for this request.
@@ -628,7 +543,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUEST_ID_FIELD_NUMBER = 37109963;
-  private volatile java.lang.Object requestId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object requestId_ = "";
   /**
    * <pre>
    * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
@@ -686,7 +602,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ZONE_FIELD_NUMBER = 3744684;
-  private volatile java.lang.Object zone_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object zone_ = "";
   /**
    * <pre>
    * The name of the zone for this request.
@@ -766,7 +683,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 270567060, minimalAction_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -797,7 +714,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(270567060, minimalAction_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -838,7 +755,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getZone()
         .equals(other.getZone())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -871,7 +788,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + ZONE_FIELD_NUMBER;
     hash = (53 * hash) + getZone().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -992,40 +909,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.UpdateInstanceRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       instance_ = "";
-
-      if (instanceResourceBuilder_ == null) {
-        instanceResource_ = null;
-      } else {
-        instanceResource_ = null;
+      instanceResource_ = null;
+      if (instanceResourceBuilder_ != null) {
+        instanceResourceBuilder_.dispose();
         instanceResourceBuilder_ = null;
       }
       minimalAction_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       mostDisruptiveAllowedAction_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       project_ = "";
-
       requestId_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       zone_ = "";
-
       return this;
     }
 
@@ -1052,31 +958,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.UpdateInstanceRequest buildPartial() {
       com.google.cloud.compute.v1.UpdateInstanceRequest result = new com.google.cloud.compute.v1.UpdateInstanceRequest(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.instance_ = instance_;
-      if (instanceResourceBuilder_ == null) {
-        result.instanceResource_ = instanceResource_;
-      } else {
-        result.instanceResource_ = instanceResourceBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.minimalAction_ = minimalAction_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        to_bitField0_ |= 0x00000002;
-      }
-      result.mostDisruptiveAllowedAction_ = mostDisruptiveAllowedAction_;
-      result.project_ = project_;
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        to_bitField0_ |= 0x00000004;
-      }
-      result.requestId_ = requestId_;
-      result.zone_ = zone_;
-      result.bitField0_ = to_bitField0_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.UpdateInstanceRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.instance_ = instance_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.instanceResource_ = instanceResourceBuilder_ == null
+            ? instanceResource_
+            : instanceResourceBuilder_.build();
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.minimalAction_ = minimalAction_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.mostDisruptiveAllowedAction_ = mostDisruptiveAllowedAction_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.project_ = project_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.requestId_ = requestId_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.zone_ = zone_;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1125,35 +1041,38 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.compute.v1.UpdateInstanceRequest.getDefaultInstance()) return this;
       if (!other.getInstance().isEmpty()) {
         instance_ = other.instance_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasInstanceResource()) {
         mergeInstanceResource(other.getInstanceResource());
       }
       if (other.hasMinimalAction()) {
-        bitField0_ |= 0x00000001;
         minimalAction_ = other.minimalAction_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasMostDisruptiveAllowedAction()) {
-        bitField0_ |= 0x00000002;
         mostDisruptiveAllowedAction_ = other.mostDisruptiveAllowedAction_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getProject().isEmpty()) {
         project_ = other.project_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasRequestId()) {
-        bitField0_ |= 0x00000004;
         requestId_ = other.requestId_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getZone().isEmpty()) {
         zone_ = other.zone_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1168,17 +1087,67 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.UpdateInstanceRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 29957474: {
+              zone_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 29957474
+            case 146056362: {
+              instance_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 146056362
+            case 296879706: {
+              requestId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 296879706
+            case 528824426: {
+              mostDisruptiveAllowedAction_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 528824426
+            case 1727906754: {
+              input.readMessage(
+                  getInstanceResourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1727906754
+            case 1820481738: {
+              project_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 1820481738
+            case -2130430814: {
+              minimalAction_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -2130430814
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.UpdateInstanceRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1236,11 +1205,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstance(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       instance_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1253,8 +1220,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInstance() {
-      
       instance_ = getDefaultInstance().getInstance();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1269,12 +1236,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       instance_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1291,7 +1256,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the instanceResource field is set.
      */
     public boolean hasInstanceResource() {
-      return instanceResourceBuilder_ != null || instanceResource_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1321,11 +1286,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         instanceResource_ = value;
-        onChanged();
       } else {
         instanceResourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1339,11 +1304,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.Instance.Builder builderForValue) {
       if (instanceResourceBuilder_ == null) {
         instanceResource_ = builderForValue.build();
-        onChanged();
       } else {
         instanceResourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1355,17 +1320,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInstanceResource(com.google.cloud.compute.v1.Instance value) {
       if (instanceResourceBuilder_ == null) {
-        if (instanceResource_ != null) {
-          instanceResource_ =
-            com.google.cloud.compute.v1.Instance.newBuilder(instanceResource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          instanceResource_ != null &&
+          instanceResource_ != com.google.cloud.compute.v1.Instance.getDefaultInstance()) {
+          getInstanceResourceBuilder().mergeFrom(value);
         } else {
           instanceResource_ = value;
         }
-        onChanged();
       } else {
         instanceResourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1376,14 +1342,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.compute.v1.Instance instance_resource = 215988344 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearInstanceResource() {
-      if (instanceResourceBuilder_ == null) {
-        instanceResource_ = null;
-        onChanged();
-      } else {
-        instanceResource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      instanceResource_ = null;
+      if (instanceResourceBuilder_ != null) {
+        instanceResourceBuilder_.dispose();
         instanceResourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1394,7 +1359,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.compute.v1.Instance instance_resource = 215988344 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.compute.v1.Instance.Builder getInstanceResourceBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getInstanceResourceFieldBuilder().getBuilder();
     }
@@ -1445,7 +1410,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the minimalAction field is set.
      */
     public boolean hasMinimalAction() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1502,11 +1467,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMinimalAction(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       minimalAction_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1520,8 +1483,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinimalAction() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       minimalAction_ = getDefaultInstance().getMinimalAction();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1537,12 +1500,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMinimalActionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       minimalAction_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1558,7 +1519,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the mostDisruptiveAllowedAction field is set.
      */
     public boolean hasMostDisruptiveAllowedAction() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1615,11 +1576,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMostDisruptiveAllowedAction(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       mostDisruptiveAllowedAction_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1633,8 +1592,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMostDisruptiveAllowedAction() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       mostDisruptiveAllowedAction_ = getDefaultInstance().getMostDisruptiveAllowedAction();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1650,12 +1609,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMostDisruptiveAllowedActionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       mostDisruptiveAllowedAction_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1713,11 +1670,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProject(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       project_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1730,8 +1685,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProject() {
-      
       project_ = getDefaultInstance().getProject();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1746,12 +1701,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       project_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1766,7 +1719,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the requestId field is set.
      */
     public boolean hasRequestId() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1820,11 +1773,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       requestId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1837,8 +1788,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequestId() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       requestId_ = getDefaultInstance().getRequestId();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1853,12 +1804,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       requestId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1916,11 +1865,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setZone(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       zone_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1933,8 +1880,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearZone() {
-      
       zone_ = getDefaultInstance().getZone();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1949,12 +1896,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setZoneBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       zone_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1991,7 +1936,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateInstanceRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

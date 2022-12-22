@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UdpSocketConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.UInt64Value.Builder subBuilder = null;
-            if (maxRxDatagramSize_ != null) {
-              subBuilder = maxRxDatagramSize_.toBuilder();
-            }
-            maxRxDatagramSize_ = input.readMessage(com.google.protobuf.UInt64Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxRxDatagramSize_);
-              maxRxDatagramSize_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (preferGro_ != null) {
-              subBuilder = preferGro_.toBuilder();
-            }
-            preferGro_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(preferGro_);
-              preferGro_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.core.v3.UdpSocketConfigProto.internal_static_envoy_config_core_v3_UdpSocketConfig_descriptor;
@@ -153,7 +88,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt64ValueOrBuilder getMaxRxDatagramSizeOrBuilder() {
-    return getMaxRxDatagramSize();
+    return maxRxDatagramSize_ == null ? com.google.protobuf.UInt64Value.getDefaultInstance() : maxRxDatagramSize_;
   }
 
   public static final int PREFER_GRO_FIELD_NUMBER = 2;
@@ -203,7 +138,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getPreferGroOrBuilder() {
-    return getPreferGro();
+    return preferGro_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : preferGro_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -226,7 +161,7 @@ private static final long serialVersionUID = 0L;
     if (preferGro_ != null) {
       output.writeMessage(2, getPreferGro());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -243,7 +178,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getPreferGro());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -268,7 +203,7 @@ private static final long serialVersionUID = 0L;
       if (!getPreferGro()
           .equals(other.getPreferGro())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -287,7 +222,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PREFER_GRO_FIELD_NUMBER;
       hash = (53 * hash) + getPreferGro().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -408,32 +343,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.core.v3.UdpSocketConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (maxRxDatagramSizeBuilder_ == null) {
-        maxRxDatagramSize_ = null;
-      } else {
-        maxRxDatagramSize_ = null;
+      bitField0_ = 0;
+      maxRxDatagramSize_ = null;
+      if (maxRxDatagramSizeBuilder_ != null) {
+        maxRxDatagramSizeBuilder_.dispose();
         maxRxDatagramSizeBuilder_ = null;
       }
-      if (preferGroBuilder_ == null) {
-        preferGro_ = null;
-      } else {
-        preferGro_ = null;
+      preferGro_ = null;
+      if (preferGroBuilder_ != null) {
+        preferGroBuilder_.dispose();
         preferGroBuilder_ = null;
       }
       return this;
@@ -462,18 +391,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.UdpSocketConfig buildPartial() {
       io.envoyproxy.envoy.config.core.v3.UdpSocketConfig result = new io.envoyproxy.envoy.config.core.v3.UdpSocketConfig(this);
-      if (maxRxDatagramSizeBuilder_ == null) {
-        result.maxRxDatagramSize_ = maxRxDatagramSize_;
-      } else {
-        result.maxRxDatagramSize_ = maxRxDatagramSizeBuilder_.build();
-      }
-      if (preferGroBuilder_ == null) {
-        result.preferGro_ = preferGro_;
-      } else {
-        result.preferGro_ = preferGroBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.core.v3.UdpSocketConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.maxRxDatagramSize_ = maxRxDatagramSizeBuilder_ == null
+            ? maxRxDatagramSize_
+            : maxRxDatagramSizeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.preferGro_ = preferGroBuilder_ == null
+            ? preferGro_
+            : preferGroBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -526,7 +460,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasPreferGro()) {
         mergePreferGro(other.getPreferGro());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -541,19 +475,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.core.v3.UdpSocketConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMaxRxDatagramSizeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPreferGroFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.core.v3.UdpSocketConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.UInt64Value maxRxDatagramSize_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -569,7 +531,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxRxDatagramSize field is set.
      */
     public boolean hasMaxRxDatagramSize() {
-      return maxRxDatagramSizeBuilder_ != null || maxRxDatagramSize_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -603,11 +565,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxRxDatagramSize_ = value;
-        onChanged();
       } else {
         maxRxDatagramSizeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -623,11 +585,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt64Value.Builder builderForValue) {
       if (maxRxDatagramSizeBuilder_ == null) {
         maxRxDatagramSize_ = builderForValue.build();
-        onChanged();
       } else {
         maxRxDatagramSizeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -641,17 +603,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxRxDatagramSize(com.google.protobuf.UInt64Value value) {
       if (maxRxDatagramSizeBuilder_ == null) {
-        if (maxRxDatagramSize_ != null) {
-          maxRxDatagramSize_ =
-            com.google.protobuf.UInt64Value.newBuilder(maxRxDatagramSize_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          maxRxDatagramSize_ != null &&
+          maxRxDatagramSize_ != com.google.protobuf.UInt64Value.getDefaultInstance()) {
+          getMaxRxDatagramSizeBuilder().mergeFrom(value);
         } else {
           maxRxDatagramSize_ = value;
         }
-        onChanged();
       } else {
         maxRxDatagramSizeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -664,14 +627,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt64Value max_rx_datagram_size = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearMaxRxDatagramSize() {
-      if (maxRxDatagramSizeBuilder_ == null) {
-        maxRxDatagramSize_ = null;
-        onChanged();
-      } else {
-        maxRxDatagramSize_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      maxRxDatagramSize_ = null;
+      if (maxRxDatagramSizeBuilder_ != null) {
+        maxRxDatagramSizeBuilder_.dispose();
         maxRxDatagramSizeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -684,7 +646,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt64Value max_rx_datagram_size = 1 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt64Value.Builder getMaxRxDatagramSizeBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMaxRxDatagramSizeFieldBuilder().getBuilder();
     }
@@ -744,7 +706,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the preferGro field is set.
      */
     public boolean hasPreferGro() {
-      return preferGroBuilder_ != null || preferGro_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -782,11 +744,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         preferGro_ = value;
-        onChanged();
       } else {
         preferGroBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -804,11 +766,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (preferGroBuilder_ == null) {
         preferGro_ = builderForValue.build();
-        onChanged();
       } else {
         preferGroBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -824,17 +786,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePreferGro(com.google.protobuf.BoolValue value) {
       if (preferGroBuilder_ == null) {
-        if (preferGro_ != null) {
-          preferGro_ =
-            com.google.protobuf.BoolValue.newBuilder(preferGro_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          preferGro_ != null &&
+          preferGro_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getPreferGroBuilder().mergeFrom(value);
         } else {
           preferGro_ = value;
         }
-        onChanged();
       } else {
         preferGroBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -849,14 +812,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue prefer_gro = 2;</code>
      */
     public Builder clearPreferGro() {
-      if (preferGroBuilder_ == null) {
-        preferGro_ = null;
-        onChanged();
-      } else {
-        preferGro_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      preferGro_ = null;
+      if (preferGroBuilder_ != null) {
+        preferGroBuilder_.dispose();
         preferGroBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -871,7 +833,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue prefer_gro = 2;</code>
      */
     public com.google.protobuf.BoolValue.Builder getPreferGroBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getPreferGroFieldBuilder().getBuilder();
     }
@@ -951,7 +913,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UdpSocketConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

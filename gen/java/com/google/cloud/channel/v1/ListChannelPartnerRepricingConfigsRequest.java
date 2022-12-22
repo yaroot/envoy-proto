@@ -38,68 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ListChannelPartnerRepricingConfigsRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 16: {
-
-            pageSize_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            filter_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.ServiceProto.internal_static_google_cloud_channel_v1_ListChannelPartnerRepricingConfigsRequest_descriptor;
@@ -114,11 +52,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
-   * Required. The resource name of the account's [ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink].
-   * Parent uses the format:
+   * Required. The resource name of the account's
+   * [ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink]. Parent
+   * uses the format:
    * accounts/{account_id}/channelPartnerLinks/{channel_partner_id}.
    * Supports accounts/{account_id}/channelPartnerLinks/- to retrieve configs
    * for all channel partners.
@@ -142,8 +82,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The resource name of the account's [ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink].
-   * Parent uses the format:
+   * Required. The resource name of the account's
+   * [ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink]. Parent
+   * uses the format:
    * accounts/{account_id}/channelPartnerLinks/{channel_partner_id}.
    * Supports accounts/{account_id}/channelPartnerLinks/- to retrieve configs
    * for all channel partners.
@@ -168,12 +109,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 2;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
-   * Optional. The maximum number of repricing configs to return. The service may return
-   * fewer than this value. If unspecified, returns a maximum of 50 rules. The
-   * maximum value is 100; values above 100 will be coerced to 100.
+   * Optional. The maximum number of repricing configs to return. The service
+   * may return fewer than this value. If unspecified, returns a maximum of 50
+   * rules. The maximum value is 100; values above 100 will be coerced to 100.
    * </pre>
    *
    * <code>int32 page_size = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -185,13 +126,16 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 3;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
    * Optional. A token identifying a page of results beyond the first page.
    * Obtained through
-   * [ListChannelPartnerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsResponse.next_page_token] of the
-   * previous [CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs] call.
+   * [ListChannelPartnerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsResponse.next_page_token]
+   * of the previous
+   * [CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs]
+   * call.
    * </pre>
    *
    * <code>string page_token = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -214,8 +158,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Optional. A token identifying a page of results beyond the first page.
    * Obtained through
-   * [ListChannelPartnerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsResponse.next_page_token] of the
-   * previous [CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs] call.
+   * [ListChannelPartnerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsResponse.next_page_token]
+   * of the previous
+   * [CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs]
+   * call.
    * </pre>
    *
    * <code>string page_token = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -237,13 +183,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILTER_FIELD_NUMBER = 4;
-  private volatile java.lang.Object filter_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object filter_ = "";
   /**
    * <pre>
-   * Optional. A filter for [CloudChannelService.ListChannelPartnerRepricingConfigs]
-   * results (channel_partner_link only). You can use this filter when you
-   * support a BatchGet-like query.
-   * To use the filter, you must set
+   * Optional. A filter for
+   * [CloudChannelService.ListChannelPartnerRepricingConfigs] results
+   * (channel_partner_link only). You can use this filter when you support a
+   * BatchGet-like query. To use the filter, you must set
    * `parent=accounts/{account_id}/channelPartnerLinks/-`.
    * Example: `channel_partner_link =
    * accounts/account_id/channelPartnerLinks/c1` OR `channel_partner_link =
@@ -268,10 +215,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A filter for [CloudChannelService.ListChannelPartnerRepricingConfigs]
-   * results (channel_partner_link only). You can use this filter when you
-   * support a BatchGet-like query.
-   * To use the filter, you must set
+   * Optional. A filter for
+   * [CloudChannelService.ListChannelPartnerRepricingConfigs] results
+   * (channel_partner_link only). You can use this filter when you support a
+   * BatchGet-like query. To use the filter, you must set
    * `parent=accounts/{account_id}/channelPartnerLinks/-`.
    * Example: `channel_partner_link =
    * accounts/account_id/channelPartnerLinks/c1` OR `channel_partner_link =
@@ -322,7 +269,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filter_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, filter_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -344,7 +291,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filter_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, filter_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -367,7 +314,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPageToken())) return false;
     if (!getFilter()
         .equals(other.getFilter())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -386,7 +333,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPageToken().hashCode();
     hash = (37 * hash) + FILTER_FIELD_NUMBER;
     hash = (53 * hash) + getFilter().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -508,30 +455,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.ListChannelPartnerRepricingConfigsRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       pageSize_ = 0;
-
       pageToken_ = "";
-
       filter_ = "";
-
       return this;
     }
 
@@ -558,12 +497,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.ListChannelPartnerRepricingConfigsRequest buildPartial() {
       com.google.cloud.channel.v1.ListChannelPartnerRepricingConfigsRequest result = new com.google.cloud.channel.v1.ListChannelPartnerRepricingConfigsRequest(this);
-      result.parent_ = parent_;
-      result.pageSize_ = pageSize_;
-      result.pageToken_ = pageToken_;
-      result.filter_ = filter_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.ListChannelPartnerRepricingConfigsRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.filter_ = filter_;
+      }
     }
 
     @java.lang.Override
@@ -612,6 +564,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.channel.v1.ListChannelPartnerRepricingConfigsRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getPageSize() != 0) {
@@ -619,13 +572,15 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getFilter().isEmpty()) {
         filter_ = other.filter_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -640,25 +595,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.ListChannelPartnerRepricingConfigsRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              pageSize_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              filter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.ListChannelPartnerRepricingConfigsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
      * <pre>
-     * Required. The resource name of the account's [ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink].
-     * Parent uses the format:
+     * Required. The resource name of the account's
+     * [ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink]. Parent
+     * uses the format:
      * accounts/{account_id}/channelPartnerLinks/{channel_partner_id}.
      * Supports accounts/{account_id}/channelPartnerLinks/- to retrieve configs
      * for all channel partners.
@@ -681,8 +671,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The resource name of the account's [ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink].
-     * Parent uses the format:
+     * Required. The resource name of the account's
+     * [ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink]. Parent
+     * uses the format:
      * accounts/{account_id}/channelPartnerLinks/{channel_partner_id}.
      * Supports accounts/{account_id}/channelPartnerLinks/- to retrieve configs
      * for all channel partners.
@@ -706,8 +697,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The resource name of the account's [ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink].
-     * Parent uses the format:
+     * Required. The resource name of the account's
+     * [ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink]. Parent
+     * uses the format:
      * accounts/{account_id}/channelPartnerLinks/{channel_partner_id}.
      * Supports accounts/{account_id}/channelPartnerLinks/- to retrieve configs
      * for all channel partners.
@@ -719,18 +711,17 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The resource name of the account's [ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink].
-     * Parent uses the format:
+     * Required. The resource name of the account's
+     * [ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink]. Parent
+     * uses the format:
      * accounts/{account_id}/channelPartnerLinks/{channel_partner_id}.
      * Supports accounts/{account_id}/channelPartnerLinks/- to retrieve configs
      * for all channel partners.
@@ -740,15 +731,16 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The resource name of the account's [ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink].
-     * Parent uses the format:
+     * Required. The resource name of the account's
+     * [ChannelPartnerLink][google.cloud.channel.v1.ChannelPartnerLink]. Parent
+     * uses the format:
      * accounts/{account_id}/channelPartnerLinks/{channel_partner_id}.
      * Supports accounts/{account_id}/channelPartnerLinks/- to retrieve configs
      * for all channel partners.
@@ -760,12 +752,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -773,9 +763,9 @@ private static final long serialVersionUID = 0L;
     private int pageSize_ ;
     /**
      * <pre>
-     * Optional. The maximum number of repricing configs to return. The service may return
-     * fewer than this value. If unspecified, returns a maximum of 50 rules. The
-     * maximum value is 100; values above 100 will be coerced to 100.
+     * Optional. The maximum number of repricing configs to return. The service
+     * may return fewer than this value. If unspecified, returns a maximum of 50
+     * rules. The maximum value is 100; values above 100 will be coerced to 100.
      * </pre>
      *
      * <code>int32 page_size = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -787,9 +777,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The maximum number of repricing configs to return. The service may return
-     * fewer than this value. If unspecified, returns a maximum of 50 rules. The
-     * maximum value is 100; values above 100 will be coerced to 100.
+     * Optional. The maximum number of repricing configs to return. The service
+     * may return fewer than this value. If unspecified, returns a maximum of 50
+     * rules. The maximum value is 100; values above 100 will be coerced to 100.
      * </pre>
      *
      * <code>int32 page_size = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -799,21 +789,22 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
       
       pageSize_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The maximum number of repricing configs to return. The service may return
-     * fewer than this value. If unspecified, returns a maximum of 50 rules. The
-     * maximum value is 100; values above 100 will be coerced to 100.
+     * Optional. The maximum number of repricing configs to return. The service
+     * may return fewer than this value. If unspecified, returns a maximum of 50
+     * rules. The maximum value is 100; values above 100 will be coerced to 100.
      * </pre>
      *
      * <code>int32 page_size = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -824,8 +815,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. A token identifying a page of results beyond the first page.
      * Obtained through
-     * [ListChannelPartnerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsResponse.next_page_token] of the
-     * previous [CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs] call.
+     * [ListChannelPartnerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsResponse.next_page_token]
+     * of the previous
+     * [CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs]
+     * call.
      * </pre>
      *
      * <code>string page_token = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -847,8 +840,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. A token identifying a page of results beyond the first page.
      * Obtained through
-     * [ListChannelPartnerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsResponse.next_page_token] of the
-     * previous [CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs] call.
+     * [ListChannelPartnerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsResponse.next_page_token]
+     * of the previous
+     * [CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs]
+     * call.
      * </pre>
      *
      * <code>string page_token = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -871,8 +866,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. A token identifying a page of results beyond the first page.
      * Obtained through
-     * [ListChannelPartnerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsResponse.next_page_token] of the
-     * previous [CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs] call.
+     * [ListChannelPartnerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsResponse.next_page_token]
+     * of the previous
+     * [CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs]
+     * call.
      * </pre>
      *
      * <code>string page_token = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -881,11 +878,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -893,16 +888,18 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. A token identifying a page of results beyond the first page.
      * Obtained through
-     * [ListChannelPartnerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsResponse.next_page_token] of the
-     * previous [CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs] call.
+     * [ListChannelPartnerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsResponse.next_page_token]
+     * of the previous
+     * [CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs]
+     * call.
      * </pre>
      *
      * <code>string page_token = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -910,8 +907,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. A token identifying a page of results beyond the first page.
      * Obtained through
-     * [ListChannelPartnerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsResponse.next_page_token] of the
-     * previous [CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs] call.
+     * [ListChannelPartnerRepricingConfigsResponse.next_page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsResponse.next_page_token]
+     * of the previous
+     * [CloudChannelService.ListChannelPartnerRepricingConfigs][google.cloud.channel.v1.CloudChannelService.ListChannelPartnerRepricingConfigs]
+     * call.
      * </pre>
      *
      * <code>string page_token = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -920,12 +919,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -933,10 +930,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object filter_ = "";
     /**
      * <pre>
-     * Optional. A filter for [CloudChannelService.ListChannelPartnerRepricingConfigs]
-     * results (channel_partner_link only). You can use this filter when you
-     * support a BatchGet-like query.
-     * To use the filter, you must set
+     * Optional. A filter for
+     * [CloudChannelService.ListChannelPartnerRepricingConfigs] results
+     * (channel_partner_link only). You can use this filter when you support a
+     * BatchGet-like query. To use the filter, you must set
      * `parent=accounts/{account_id}/channelPartnerLinks/-`.
      * Example: `channel_partner_link =
      * accounts/account_id/channelPartnerLinks/c1` OR `channel_partner_link =
@@ -960,10 +957,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A filter for [CloudChannelService.ListChannelPartnerRepricingConfigs]
-     * results (channel_partner_link only). You can use this filter when you
-     * support a BatchGet-like query.
-     * To use the filter, you must set
+     * Optional. A filter for
+     * [CloudChannelService.ListChannelPartnerRepricingConfigs] results
+     * (channel_partner_link only). You can use this filter when you support a
+     * BatchGet-like query. To use the filter, you must set
      * `parent=accounts/{account_id}/channelPartnerLinks/-`.
      * Example: `channel_partner_link =
      * accounts/account_id/channelPartnerLinks/c1` OR `channel_partner_link =
@@ -988,10 +985,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A filter for [CloudChannelService.ListChannelPartnerRepricingConfigs]
-     * results (channel_partner_link only). You can use this filter when you
-     * support a BatchGet-like query.
-     * To use the filter, you must set
+     * Optional. A filter for
+     * [CloudChannelService.ListChannelPartnerRepricingConfigs] results
+     * (channel_partner_link only). You can use this filter when you support a
+     * BatchGet-like query. To use the filter, you must set
      * `parent=accounts/{account_id}/channelPartnerLinks/-`.
      * Example: `channel_partner_link =
      * accounts/account_id/channelPartnerLinks/c1` OR `channel_partner_link =
@@ -1004,20 +1001,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       filter_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A filter for [CloudChannelService.ListChannelPartnerRepricingConfigs]
-     * results (channel_partner_link only). You can use this filter when you
-     * support a BatchGet-like query.
-     * To use the filter, you must set
+     * Optional. A filter for
+     * [CloudChannelService.ListChannelPartnerRepricingConfigs] results
+     * (channel_partner_link only). You can use this filter when you support a
+     * BatchGet-like query. To use the filter, you must set
      * `parent=accounts/{account_id}/channelPartnerLinks/-`.
      * Example: `channel_partner_link =
      * accounts/account_id/channelPartnerLinks/c1` OR `channel_partner_link =
@@ -1028,17 +1023,17 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFilter() {
-      
       filter_ = getDefaultInstance().getFilter();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A filter for [CloudChannelService.ListChannelPartnerRepricingConfigs]
-     * results (channel_partner_link only). You can use this filter when you
-     * support a BatchGet-like query.
-     * To use the filter, you must set
+     * Optional. A filter for
+     * [CloudChannelService.ListChannelPartnerRepricingConfigs] results
+     * (channel_partner_link only). You can use this filter when you support a
+     * BatchGet-like query. To use the filter, you must set
      * `parent=accounts/{account_id}/channelPartnerLinks/-`.
      * Example: `channel_partner_link =
      * accounts/account_id/channelPartnerLinks/c1` OR `channel_partner_link =
@@ -1051,12 +1046,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       filter_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1093,7 +1086,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListChannelPartnerRepricingConfigsRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

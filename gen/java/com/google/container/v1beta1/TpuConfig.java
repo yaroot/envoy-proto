@@ -35,61 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TpuConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            enabled_ = input.readBool();
-            break;
-          }
-          case 16: {
-
-            useServiceNetworking_ = input.readBool();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            ipv4CidrBlock_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_TpuConfig_descriptor;
@@ -104,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLED_FIELD_NUMBER = 1;
-  private boolean enabled_;
+  private boolean enabled_ = false;
   /**
    * <pre>
    * Whether Cloud TPU integration is enabled or not.
@@ -119,7 +64,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USE_SERVICE_NETWORKING_FIELD_NUMBER = 2;
-  private boolean useServiceNetworking_;
+  private boolean useServiceNetworking_ = false;
   /**
    * <pre>
    * Whether to use service networking for Cloud TPU or not.
@@ -134,7 +79,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IPV4_CIDR_BLOCK_FIELD_NUMBER = 3;
-  private volatile java.lang.Object ipv4CidrBlock_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object ipv4CidrBlock_ = "";
   /**
    * <pre>
    * IPv4 CIDR block reserved for Cloud TPU in the VPC.
@@ -202,7 +148,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(ipv4CidrBlock_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, ipv4CidrBlock_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -222,7 +168,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(ipv4CidrBlock_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, ipv4CidrBlock_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -243,7 +189,7 @@ private static final long serialVersionUID = 0L;
         != other.getUseServiceNetworking()) return false;
     if (!getIpv4CidrBlock()
         .equals(other.getIpv4CidrBlock())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -262,7 +208,7 @@ private static final long serialVersionUID = 0L;
         getUseServiceNetworking());
     hash = (37 * hash) + IPV4_CIDR_BLOCK_FIELD_NUMBER;
     hash = (53 * hash) + getIpv4CidrBlock().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -383,28 +329,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1beta1.TpuConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       enabled_ = false;
-
       useServiceNetworking_ = false;
-
       ipv4CidrBlock_ = "";
-
       return this;
     }
 
@@ -431,11 +370,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1beta1.TpuConfig buildPartial() {
       com.google.container.v1beta1.TpuConfig result = new com.google.container.v1beta1.TpuConfig(this);
-      result.enabled_ = enabled_;
-      result.useServiceNetworking_ = useServiceNetworking_;
-      result.ipv4CidrBlock_ = ipv4CidrBlock_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.container.v1beta1.TpuConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.enabled_ = enabled_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.useServiceNetworking_ = useServiceNetworking_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.ipv4CidrBlock_ = ipv4CidrBlock_;
+      }
     }
 
     @java.lang.Override
@@ -490,9 +440,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getIpv4CidrBlock().isEmpty()) {
         ipv4CidrBlock_ = other.ipv4CidrBlock_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -507,19 +458,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1beta1.TpuConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              enabled_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              useServiceNetworking_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              ipv4CidrBlock_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1beta1.TpuConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean enabled_ ;
     /**
@@ -546,6 +526,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnabled(boolean value) {
       
       enabled_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -558,7 +539,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       enabled_ = false;
       onChanged();
       return this;
@@ -589,6 +570,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUseServiceNetworking(boolean value) {
       
       useServiceNetworking_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -601,7 +583,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUseServiceNetworking() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       useServiceNetworking_ = false;
       onChanged();
       return this;
@@ -660,11 +642,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIpv4CidrBlock(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       ipv4CidrBlock_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -677,8 +657,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIpv4CidrBlock() {
-      
       ipv4CidrBlock_ = getDefaultInstance().getIpv4CidrBlock();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -693,12 +673,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIpv4CidrBlockBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ipv4CidrBlock_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -735,7 +713,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TpuConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

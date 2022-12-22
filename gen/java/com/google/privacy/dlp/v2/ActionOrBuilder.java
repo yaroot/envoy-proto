@@ -36,7 +36,7 @@ public interface ActionOrBuilder extends
 
   /**
    * <pre>
-   * Publish a notification to a pubsub topic.
+   * Publish a notification to a Pub/Sub topic.
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.Action.PublishToPubSub pub_sub = 2;</code>
@@ -45,7 +45,7 @@ public interface ActionOrBuilder extends
   boolean hasPubSub();
   /**
    * <pre>
-   * Publish a notification to a pubsub topic.
+   * Publish a notification to a Pub/Sub topic.
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.Action.PublishToPubSub pub_sub = 2;</code>
@@ -54,7 +54,7 @@ public interface ActionOrBuilder extends
   com.google.privacy.dlp.v2.Action.PublishToPubSub getPubSub();
   /**
    * <pre>
-   * Publish a notification to a pubsub topic.
+   * Publish a notification to a Pub/Sub topic.
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.Action.PublishToPubSub pub_sub = 2;</code>
@@ -117,8 +117,36 @@ public interface ActionOrBuilder extends
 
   /**
    * <pre>
-   * Enable email notification for project owners and editors on job's
-   * completion/failure.
+   * Create a de-identified copy of the input data.
+   * </pre>
+   *
+   * <code>.google.privacy.dlp.v2.Action.Deidentify deidentify = 7;</code>
+   * @return Whether the deidentify field is set.
+   */
+  boolean hasDeidentify();
+  /**
+   * <pre>
+   * Create a de-identified copy of the input data.
+   * </pre>
+   *
+   * <code>.google.privacy.dlp.v2.Action.Deidentify deidentify = 7;</code>
+   * @return The deidentify.
+   */
+  com.google.privacy.dlp.v2.Action.Deidentify getDeidentify();
+  /**
+   * <pre>
+   * Create a de-identified copy of the input data.
+   * </pre>
+   *
+   * <code>.google.privacy.dlp.v2.Action.Deidentify deidentify = 7;</code>
+   */
+  com.google.privacy.dlp.v2.Action.DeidentifyOrBuilder getDeidentifyOrBuilder();
+
+  /**
+   * <pre>
+   * Sends an email when the job completes. The email goes to IAM project
+   * owners and technical [Essential
+   * Contacts](https://cloud.google.com/resource-manager/docs/managing-notification-contacts).
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.Action.JobNotificationEmails job_notification_emails = 8;</code>
@@ -127,8 +155,9 @@ public interface ActionOrBuilder extends
   boolean hasJobNotificationEmails();
   /**
    * <pre>
-   * Enable email notification for project owners and editors on job's
-   * completion/failure.
+   * Sends an email when the job completes. The email goes to IAM project
+   * owners and technical [Essential
+   * Contacts](https://cloud.google.com/resource-manager/docs/managing-notification-contacts).
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.Action.JobNotificationEmails job_notification_emails = 8;</code>
@@ -137,8 +166,9 @@ public interface ActionOrBuilder extends
   com.google.privacy.dlp.v2.Action.JobNotificationEmails getJobNotificationEmails();
   /**
    * <pre>
-   * Enable email notification for project owners and editors on job's
-   * completion/failure.
+   * Sends an email when the job completes. The email goes to IAM project
+   * owners and technical [Essential
+   * Contacts](https://cloud.google.com/resource-manager/docs/managing-notification-contacts).
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.Action.JobNotificationEmails job_notification_emails = 8;</code>

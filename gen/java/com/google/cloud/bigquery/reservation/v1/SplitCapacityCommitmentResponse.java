@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SplitCapacityCommitmentResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.bigquery.reservation.v1.CapacityCommitment.Builder subBuilder = null;
-            if (first_ != null) {
-              subBuilder = first_.toBuilder();
-            }
-            first_ = input.readMessage(com.google.cloud.bigquery.reservation.v1.CapacityCommitment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(first_);
-              first_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.bigquery.reservation.v1.CapacityCommitment.Builder subBuilder = null;
-            if (second_ != null) {
-              subBuilder = second_.toBuilder();
-            }
-            second_ = input.readMessage(com.google.cloud.bigquery.reservation.v1.CapacityCommitment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(second_);
-              second_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.reservation.v1.ReservationProto.internal_static_google_cloud_bigquery_reservation_v1_SplitCapacityCommitmentResponse_descriptor;
@@ -147,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.reservation.v1.CapacityCommitmentOrBuilder getFirstOrBuilder() {
-    return getFirst();
+    return first_ == null ? com.google.cloud.bigquery.reservation.v1.CapacityCommitment.getDefaultInstance() : first_;
   }
 
   public static final int SECOND_FIELD_NUMBER = 2;
@@ -185,7 +120,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.reservation.v1.CapacityCommitmentOrBuilder getSecondOrBuilder() {
-    return getSecond();
+    return second_ == null ? com.google.cloud.bigquery.reservation.v1.CapacityCommitment.getDefaultInstance() : second_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -208,7 +143,7 @@ private static final long serialVersionUID = 0L;
     if (second_ != null) {
       output.writeMessage(2, getSecond());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -225,7 +160,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getSecond());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +185,7 @@ private static final long serialVersionUID = 0L;
       if (!getSecond()
           .equals(other.getSecond())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -269,7 +204,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SECOND_FIELD_NUMBER;
       hash = (53 * hash) + getSecond().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -390,32 +325,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.reservation.v1.SplitCapacityCommitmentResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (firstBuilder_ == null) {
-        first_ = null;
-      } else {
-        first_ = null;
+      bitField0_ = 0;
+      first_ = null;
+      if (firstBuilder_ != null) {
+        firstBuilder_.dispose();
         firstBuilder_ = null;
       }
-      if (secondBuilder_ == null) {
-        second_ = null;
-      } else {
-        second_ = null;
+      second_ = null;
+      if (secondBuilder_ != null) {
+        secondBuilder_.dispose();
         secondBuilder_ = null;
       }
       return this;
@@ -444,18 +373,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.reservation.v1.SplitCapacityCommitmentResponse buildPartial() {
       com.google.cloud.bigquery.reservation.v1.SplitCapacityCommitmentResponse result = new com.google.cloud.bigquery.reservation.v1.SplitCapacityCommitmentResponse(this);
-      if (firstBuilder_ == null) {
-        result.first_ = first_;
-      } else {
-        result.first_ = firstBuilder_.build();
-      }
-      if (secondBuilder_ == null) {
-        result.second_ = second_;
-      } else {
-        result.second_ = secondBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.reservation.v1.SplitCapacityCommitmentResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.first_ = firstBuilder_ == null
+            ? first_
+            : firstBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.second_ = secondBuilder_ == null
+            ? second_
+            : secondBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -508,7 +442,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSecond()) {
         mergeSecond(other.getSecond());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -523,19 +457,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.reservation.v1.SplitCapacityCommitmentResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getFirstFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getSecondFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.reservation.v1.SplitCapacityCommitmentResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.bigquery.reservation.v1.CapacityCommitment first_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -549,7 +511,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the first field is set.
      */
     public boolean hasFirst() {
-      return firstBuilder_ != null || first_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -579,11 +541,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         first_ = value;
-        onChanged();
       } else {
         firstBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -597,11 +559,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.reservation.v1.CapacityCommitment.Builder builderForValue) {
       if (firstBuilder_ == null) {
         first_ = builderForValue.build();
-        onChanged();
       } else {
         firstBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -613,17 +575,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFirst(com.google.cloud.bigquery.reservation.v1.CapacityCommitment value) {
       if (firstBuilder_ == null) {
-        if (first_ != null) {
-          first_ =
-            com.google.cloud.bigquery.reservation.v1.CapacityCommitment.newBuilder(first_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          first_ != null &&
+          first_ != com.google.cloud.bigquery.reservation.v1.CapacityCommitment.getDefaultInstance()) {
+          getFirstBuilder().mergeFrom(value);
         } else {
           first_ = value;
         }
-        onChanged();
       } else {
         firstBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -634,14 +597,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.reservation.v1.CapacityCommitment first = 1;</code>
      */
     public Builder clearFirst() {
-      if (firstBuilder_ == null) {
-        first_ = null;
-        onChanged();
-      } else {
-        first_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      first_ = null;
+      if (firstBuilder_ != null) {
+        firstBuilder_.dispose();
         firstBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -652,7 +614,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.reservation.v1.CapacityCommitment first = 1;</code>
      */
     public com.google.cloud.bigquery.reservation.v1.CapacityCommitment.Builder getFirstBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getFirstFieldBuilder().getBuilder();
     }
@@ -704,7 +666,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the second field is set.
      */
     public boolean hasSecond() {
-      return secondBuilder_ != null || second_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -734,11 +696,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         second_ = value;
-        onChanged();
       } else {
         secondBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -752,11 +714,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.reservation.v1.CapacityCommitment.Builder builderForValue) {
       if (secondBuilder_ == null) {
         second_ = builderForValue.build();
-        onChanged();
       } else {
         secondBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -768,17 +730,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSecond(com.google.cloud.bigquery.reservation.v1.CapacityCommitment value) {
       if (secondBuilder_ == null) {
-        if (second_ != null) {
-          second_ =
-            com.google.cloud.bigquery.reservation.v1.CapacityCommitment.newBuilder(second_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          second_ != null &&
+          second_ != com.google.cloud.bigquery.reservation.v1.CapacityCommitment.getDefaultInstance()) {
+          getSecondBuilder().mergeFrom(value);
         } else {
           second_ = value;
         }
-        onChanged();
       } else {
         secondBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -789,14 +752,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.reservation.v1.CapacityCommitment second = 2;</code>
      */
     public Builder clearSecond() {
-      if (secondBuilder_ == null) {
-        second_ = null;
-        onChanged();
-      } else {
-        second_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      second_ = null;
+      if (secondBuilder_ != null) {
+        secondBuilder_.dispose();
         secondBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -807,7 +769,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.reservation.v1.CapacityCommitment second = 2;</code>
      */
     public com.google.cloud.bigquery.reservation.v1.CapacityCommitment.Builder getSecondBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getSecondFieldBuilder().getBuilder();
     }
@@ -879,7 +841,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SplitCapacityCommitmentResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

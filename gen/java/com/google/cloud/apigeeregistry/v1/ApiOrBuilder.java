@@ -125,7 +125,7 @@ public interface ApiOrBuilder extends
    * <pre>
    * A user-definable description of the availability of this service.
    * Format: free-form, but we expect single words that describe availability,
-   * e.g. "NONE", "TESTING", "PREVIEW", "GENERAL", "DEPRECATED", "SHUTDOWN".
+   * e.g., "NONE", "TESTING", "PREVIEW", "GENERAL", "DEPRECATED", "SHUTDOWN".
    * </pre>
    *
    * <code>string availability = 6;</code>
@@ -136,7 +136,7 @@ public interface ApiOrBuilder extends
    * <pre>
    * A user-definable description of the availability of this service.
    * Format: free-form, but we expect single words that describe availability,
-   * e.g. "NONE", "TESTING", "PREVIEW", "GENERAL", "DEPRECATED", "SHUTDOWN".
+   * e.g., "NONE", "TESTING", "PREVIEW", "GENERAL", "DEPRECATED", "SHUTDOWN".
    * </pre>
    *
    * <code>string availability = 6;</code>
@@ -148,7 +148,7 @@ public interface ApiOrBuilder extends
   /**
    * <pre>
    * The recommended version of the API.
-   * Format: apis/{api}/versions/{version}
+   * Format: `apis/{api}/versions/{version}`
    * </pre>
    *
    * <code>string recommended_version = 7 [(.google.api.resource_reference) = { ... }</code>
@@ -158,7 +158,7 @@ public interface ApiOrBuilder extends
   /**
    * <pre>
    * The recommended version of the API.
-   * Format: apis/{api}/versions/{version}
+   * Format: `apis/{api}/versions/{version}`
    * </pre>
    *
    * <code>string recommended_version = 7 [(.google.api.resource_reference) = { ... }</code>
@@ -170,7 +170,7 @@ public interface ApiOrBuilder extends
   /**
    * <pre>
    * The recommended deployment of the API.
-   * Format: apis/{api}/deployments/{deployment}
+   * Format: `apis/{api}/deployments/{deployment}`
    * </pre>
    *
    * <code>string recommended_deployment = 8 [(.google.api.resource_reference) = { ... }</code>
@@ -180,7 +180,7 @@ public interface ApiOrBuilder extends
   /**
    * <pre>
    * The recommended deployment of the API.
-   * Format: apis/{api}/deployments/{deployment}
+   * Format: `apis/{api}/deployments/{deployment}`
    * </pre>
    *
    * <code>string recommended_deployment = 8 [(.google.api.resource_reference) = { ... }</code>
@@ -195,12 +195,12 @@ public interface ApiOrBuilder extends
    * be used to filter list operations.
    * Label keys and values can be no longer than 64 characters
    * (Unicode codepoints), can only contain lowercase letters, numeric
-   * characters, underscores and dashes. International characters are allowed.
+   * characters, underscores, and dashes. International characters are allowed.
    * No more than 64 user labels can be associated with one resource (System
    * labels are excluded).
    * See https://goo.gl/xmQnxf for more information and examples of labels.
    * System reserved label keys are prefixed with
-   * "apigeeregistry.googleapis.com/" and cannot be changed.
+   * `apigeeregistry.googleapis.com/` and cannot be changed.
    * </pre>
    *
    * <code>map&lt;string, string&gt; labels = 9;</code>
@@ -212,12 +212,12 @@ public interface ApiOrBuilder extends
    * be used to filter list operations.
    * Label keys and values can be no longer than 64 characters
    * (Unicode codepoints), can only contain lowercase letters, numeric
-   * characters, underscores and dashes. International characters are allowed.
+   * characters, underscores, and dashes. International characters are allowed.
    * No more than 64 user labels can be associated with one resource (System
    * labels are excluded).
    * See https://goo.gl/xmQnxf for more information and examples of labels.
    * System reserved label keys are prefixed with
-   * "apigeeregistry.googleapis.com/" and cannot be changed.
+   * `apigeeregistry.googleapis.com/` and cannot be changed.
    * </pre>
    *
    * <code>map&lt;string, string&gt; labels = 9;</code>
@@ -236,12 +236,12 @@ public interface ApiOrBuilder extends
    * be used to filter list operations.
    * Label keys and values can be no longer than 64 characters
    * (Unicode codepoints), can only contain lowercase letters, numeric
-   * characters, underscores and dashes. International characters are allowed.
+   * characters, underscores, and dashes. International characters are allowed.
    * No more than 64 user labels can be associated with one resource (System
    * labels are excluded).
    * See https://goo.gl/xmQnxf for more information and examples of labels.
    * System reserved label keys are prefixed with
-   * "apigeeregistry.googleapis.com/" and cannot be changed.
+   * `apigeeregistry.googleapis.com/` and cannot be changed.
    * </pre>
    *
    * <code>map&lt;string, string&gt; labels = 9;</code>
@@ -254,17 +254,16 @@ public interface ApiOrBuilder extends
    * be used to filter list operations.
    * Label keys and values can be no longer than 64 characters
    * (Unicode codepoints), can only contain lowercase letters, numeric
-   * characters, underscores and dashes. International characters are allowed.
+   * characters, underscores, and dashes. International characters are allowed.
    * No more than 64 user labels can be associated with one resource (System
    * labels are excluded).
    * See https://goo.gl/xmQnxf for more information and examples of labels.
    * System reserved label keys are prefixed with
-   * "apigeeregistry.googleapis.com/" and cannot be changed.
+   * `apigeeregistry.googleapis.com/` and cannot be changed.
    * </pre>
    *
    * <code>map&lt;string, string&gt; labels = 9;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -276,17 +275,16 @@ java.lang.String defaultValue);
    * be used to filter list operations.
    * Label keys and values can be no longer than 64 characters
    * (Unicode codepoints), can only contain lowercase letters, numeric
-   * characters, underscores and dashes. International characters are allowed.
+   * characters, underscores, and dashes. International characters are allowed.
    * No more than 64 user labels can be associated with one resource (System
    * labels are excluded).
    * See https://goo.gl/xmQnxf for more information and examples of labels.
    * System reserved label keys are prefixed with
-   * "apigeeregistry.googleapis.com/" and cannot be changed.
+   * `apigeeregistry.googleapis.com/` and cannot be changed.
    * </pre>
    *
    * <code>map&lt;string, string&gt; labels = 9;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -341,7 +339,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; annotations = 10;</code>
    */
-
   /* nullable */
 java.lang.String getAnnotationsOrDefault(
       java.lang.String key,
@@ -357,7 +354,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; annotations = 10;</code>
    */
-
   java.lang.String getAnnotationsOrThrow(
       java.lang.String key);
 }

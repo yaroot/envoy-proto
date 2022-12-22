@@ -45,6 +45,11 @@ public final class ClouddmsPlatformLogsProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_cloud_clouddms_logging_v1_CloudSqlConnectionProfile_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_clouddms_logging_v1_OracleConnectionProfile_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_clouddms_logging_v1_OracleConnectionProfile_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_cloud_clouddms_logging_v1_LoggedConnectionProfile_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -64,6 +69,26 @@ public final class ClouddmsPlatformLogsProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_cloud_clouddms_logging_v1_ConnectionProfileEventLog_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_clouddms_logging_v1_LoggedPrivateConnection_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_clouddms_logging_v1_LoggedPrivateConnection_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_clouddms_logging_v1_LoggedPrivateConnection_LabelsEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_clouddms_logging_v1_LoggedPrivateConnection_LabelsEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_clouddms_logging_v1_VpcPeeringConfig_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_clouddms_logging_v1_VpcPeeringConfig_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_clouddms_logging_v1_PrivateConnectionEventLog_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_clouddms_logging_v1_PrivateConnectionEventLog_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -131,50 +156,81 @@ public final class ClouddmsPlatformLogsProto {
       "sion\022\027\n\023VERSION_UNSPECIFIED\020\000\022\010\n\004V9_6\020\001\022" +
       "\007\n\003V11\020\002\022\007\n\003V10\020\003\022\007\n\003V12\020\004\022\007\n\003V13\020\005\"1\n\031C" +
       "loudSqlConnectionProfile\022\024\n\014cloud_sql_id" +
-      "\030\001 \001(\t\"\374\005\n\027LoggedConnectionProfile\022\014\n\004na" +
-      "me\030\001 \001(\t\022U\n\006labels\030\002 \003(\0132E.google.cloud." +
-      "clouddms.logging.v1.LoggedConnectionProf" +
-      "ile.LabelsEntry\022N\n\005state\030\003 \001(\0162?.google." +
-      "cloud.clouddms.logging.v1.LoggedConnecti" +
-      "onProfile.State\022\024\n\014display_name\030\004 \001(\t\022I\n" +
-      "\005mysql\030d \001(\01328.google.cloud.clouddms.log" +
-      "ging.v1.MySqlConnectionProfileH\000\022S\n\npost" +
-      "gresql\030e \001(\0132=.google.cloud.clouddms.log" +
-      "ging.v1.PostgreSqlConnectionProfileH\000\022O\n" +
-      "\010cloudsql\030f \001(\0132;.google.cloud.clouddms." +
-      "logging.v1.CloudSqlConnectionProfileH\000\022!" +
-      "\n\005error\030\005 \001(\0132\022.google.rpc.Status\022D\n\010pro" +
-      "vider\030\006 \001(\01622.google.cloud.clouddms.logg" +
-      "ing.v1.DatabaseProvider\032-\n\013LabelsEntry\022\013" +
-      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"w\n\005State\022" +
-      "\025\n\021STATE_UNSPECIFIED\020\000\022\t\n\005DRAFT\020\001\022\014\n\010CRE" +
-      "ATING\020\002\022\t\n\005READY\020\003\022\014\n\010UPDATING\020\004\022\014\n\010DELE" +
-      "TING\020\005\022\013\n\007DELETED\020\006\022\n\n\006FAILED\020\007B\024\n\022conne" +
-      "ction_profile\"\212\002\n\024MigrationJobEventLog\022K" +
-      "\n\rmigration_job\030\001 \001(\01324.google.cloud.clo" +
-      "uddms.logging.v1.LoggedMigrationJob\0228\n\024o" +
-      "ccurrence_timestamp\030\002 \001(\0132\032.google.proto" +
-      "buf.Timestamp\022\014\n\004code\030\003 \001(\005\022\024\n\014text_mess" +
-      "age\030\004 \001(\t\022\030\n\roriginal_code\030\310\001 \001(\005H\000\022\033\n\020o" +
-      "riginal_message\030\311\001 \001(\tH\000B\020\n\016original_cau" +
-      "se\"\231\002\n\031ConnectionProfileEventLog\022U\n\022conn" +
-      "ection_profile\030\001 \001(\01329.google.cloud.clou" +
-      "ddms.logging.v1.LoggedConnectionProfile\022" +
-      "8\n\024occurrence_timestamp\030\002 \001(\0132\032.google.p" +
-      "rotobuf.Timestamp\022\014\n\004code\030\003 \001(\005\022\024\n\014text_" +
-      "message\030\004 \001(\t\022\030\n\roriginal_code\030\310\001 \001(\005H\000\022" +
-      "\033\n\020original_message\030\311\001 \001(\tH\000B\020\n\016original" +
-      "_cause*[\n\016DatabaseEngine\022\037\n\033DATABASE_ENG" +
-      "INE_UNSPECIFIED\020\000\022\t\n\005MYSQL\020\001\022\016\n\nPOSTGRES" +
-      "QL\020\002\022\r\n\tSQLSERVER\020\003*L\n\020DatabaseProvider\022" +
-      "!\n\035DATABASE_PROVIDER_UNSPECIFIED\020\000\022\014\n\010CL" +
-      "OUDSQL\020\001\022\007\n\003RDS\020\002B\371\001\n$com.google.cloud.c" +
-      "louddms.logging.v1B\031ClouddmsPlatformLogs" +
-      "ProtoP\001ZGgoogle.golang.org/genproto/goog" +
-      "leapis/cloud/clouddms/logging/v1;logging" +
-      "\252\002 Google.Cloud.CloudDms.Logging.V1\312\002 Go" +
-      "ogle\\Cloud\\CloudDms\\Logging\\V1\352\002$Google:" +
-      ":Cloud::CloudDMS::Logging::V1b\006proto3"
+      "\030\001 \001(\t\"\205\002\n\027OracleConnectionProfile\022j\n\021co" +
+      "nnectivity_type\030\001 \001(\0162J.google.cloud.clo" +
+      "uddms.logging.v1.OracleConnectionProfile" +
+      ".ConnectivityTypeB\003\340A\002\"~\n\020ConnectivityTy" +
+      "pe\022!\n\035CONNECTIVITY_TYPE_UNSPECIFIED\020\000\022\025\n" +
+      "\021STATIC_SERVICE_IP\020\001\022\026\n\022FORWARD_SSH_TUNN" +
+      "EL\020\002\022\030\n\024PRIVATE_CONNECTIVITY\020\003\"\311\006\n\027Logge" +
+      "dConnectionProfile\022\014\n\004name\030\001 \001(\t\022U\n\006labe" +
+      "ls\030\002 \003(\0132E.google.cloud.clouddms.logging" +
+      ".v1.LoggedConnectionProfile.LabelsEntry\022" +
+      "N\n\005state\030\003 \001(\0162?.google.cloud.clouddms.l" +
+      "ogging.v1.LoggedConnectionProfile.State\022" +
+      "\024\n\014display_name\030\004 \001(\t\022I\n\005mysql\030d \001(\01328.g" +
+      "oogle.cloud.clouddms.logging.v1.MySqlCon" +
+      "nectionProfileH\000\022S\n\npostgresql\030e \001(\0132=.g" +
+      "oogle.cloud.clouddms.logging.v1.PostgreS" +
+      "qlConnectionProfileH\000\022O\n\010cloudsql\030f \001(\0132" +
+      ";.google.cloud.clouddms.logging.v1.Cloud" +
+      "SqlConnectionProfileH\000\022K\n\006oracle\030g \001(\01329" +
+      ".google.cloud.clouddms.logging.v1.Oracle" +
+      "ConnectionProfileH\000\022!\n\005error\030\005 \001(\0132\022.goo" +
+      "gle.rpc.Status\022D\n\010provider\030\006 \001(\01622.googl" +
+      "e.cloud.clouddms.logging.v1.DatabaseProv" +
+      "ider\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
+      "e\030\002 \001(\t:\0028\001\"w\n\005State\022\025\n\021STATE_UNSPECIFIE" +
+      "D\020\000\022\t\n\005DRAFT\020\001\022\014\n\010CREATING\020\002\022\t\n\005READY\020\003\022" +
+      "\014\n\010UPDATING\020\004\022\014\n\010DELETING\020\005\022\013\n\007DELETED\020\006" +
+      "\022\n\n\006FAILED\020\007B\024\n\022connection_profile\"\212\002\n\024M" +
+      "igrationJobEventLog\022K\n\rmigration_job\030\001 \001" +
+      "(\01324.google.cloud.clouddms.logging.v1.Lo" +
+      "ggedMigrationJob\0228\n\024occurrence_timestamp" +
+      "\030\002 \001(\0132\032.google.protobuf.Timestamp\022\014\n\004co" +
+      "de\030\003 \001(\005\022\024\n\014text_message\030\004 \001(\t\022\030\n\rorigin" +
+      "al_code\030\310\001 \001(\005H\000\022\033\n\020original_message\030\311\001 " +
+      "\001(\tH\000B\020\n\016original_cause\"\231\002\n\031ConnectionPr" +
+      "ofileEventLog\022U\n\022connection_profile\030\001 \001(" +
+      "\01329.google.cloud.clouddms.logging.v1.Log" +
+      "gedConnectionProfile\0228\n\024occurrence_times" +
+      "tamp\030\002 \001(\0132\032.google.protobuf.Timestamp\022\014" +
+      "\n\004code\030\003 \001(\005\022\024\n\014text_message\030\004 \001(\t\022\030\n\ror" +
+      "iginal_code\030\310\001 \001(\005H\000\022\033\n\020original_message" +
+      "\030\311\001 \001(\tH\000B\020\n\016original_cause\"\376\003\n\027LoggedPr" +
+      "ivateConnection\022\014\n\004name\030\001 \001(\t\022U\n\006labels\030" +
+      "\002 \003(\0132E.google.cloud.clouddms.logging.v1" +
+      ".LoggedPrivateConnection.LabelsEntry\022\024\n\014" +
+      "display_name\030\003 \001(\t\022N\n\005state\030\004 \001(\0162?.goog" +
+      "le.cloud.clouddms.logging.v1.LoggedPriva" +
+      "teConnection.State\022!\n\005error\030\005 \001(\0132\022.goog" +
+      "le.rpc.Status\022N\n\022vpc_peering_config\030d \001(" +
+      "\01322.google.cloud.clouddms.logging.v1.Vpc" +
+      "PeeringConfig\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(" +
+      "\t\022\r\n\005value\030\002 \001(\t:\0028\001\"v\n\005State\022\025\n\021STATE_U" +
+      "NSPECIFIED\020\000\022\014\n\010CREATING\020\001\022\013\n\007CREATED\020\002\022" +
+      "\n\n\006FAILED\020\003\022\014\n\010DELETING\020\004\022\024\n\020FAILED_TO_D" +
+      "ELETE\020\005\022\013\n\007DELETED\020\006\"4\n\020VpcPeeringConfig" +
+      "\022\020\n\010vpc_name\030\001 \001(\t\022\016\n\006subnet\030\002 \001(\t\"\231\002\n\031P" +
+      "rivateConnectionEventLog\022U\n\022private_conn" +
+      "ection\030\001 \001(\01329.google.cloud.clouddms.log" +
+      "ging.v1.LoggedPrivateConnection\0228\n\024occur" +
+      "rence_timestamp\030\002 \001(\0132\032.google.protobuf." +
+      "Timestamp\022\014\n\004code\030\003 \001(\005\022\024\n\014text_message\030" +
+      "\004 \001(\t\022\030\n\roriginal_code\030\310\001 \001(\005H\000\022\033\n\020origi" +
+      "nal_message\030\311\001 \001(\tH\000B\020\n\016original_cause*t" +
+      "\n\016DatabaseEngine\022\037\n\033DATABASE_ENGINE_UNSP" +
+      "ECIFIED\020\000\022\t\n\005MYSQL\020\001\022\016\n\nPOSTGRESQL\020\002\022\r\n\t" +
+      "SQLSERVER\020\003\022\n\n\006ORACLE\020\004\022\013\n\007SPANNER\020\005*e\n\020" +
+      "DatabaseProvider\022!\n\035DATABASE_PROVIDER_UN" +
+      "SPECIFIED\020\000\022\014\n\010CLOUDSQL\020\001\022\007\n\003RDS\020\002\022\n\n\006AU" +
+      "RORA\020\003\022\013\n\007ALLOYDB\020\004B\371\001\n$com.google.cloud" +
+      ".clouddms.logging.v1B\031ClouddmsPlatformLo" +
+      "gsProtoP\001ZGgoogle.golang.org/genproto/go" +
+      "ogleapis/cloud/clouddms/logging/v1;loggi" +
+      "ng\252\002 Google.Cloud.CloudDms.Logging.V1\312\002 " +
+      "Google\\Cloud\\CloudDms\\Logging\\V1\352\002$Googl" +
+      "e::Cloud::CloudDMS::Logging::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -220,12 +276,18 @@ public final class ClouddmsPlatformLogsProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_clouddms_logging_v1_CloudSqlConnectionProfile_descriptor,
         new java.lang.String[] { "CloudSqlId", });
-    internal_static_google_cloud_clouddms_logging_v1_LoggedConnectionProfile_descriptor =
+    internal_static_google_cloud_clouddms_logging_v1_OracleConnectionProfile_descriptor =
       getDescriptor().getMessageTypes().get(5);
+    internal_static_google_cloud_clouddms_logging_v1_OracleConnectionProfile_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_clouddms_logging_v1_OracleConnectionProfile_descriptor,
+        new java.lang.String[] { "ConnectivityType", });
+    internal_static_google_cloud_clouddms_logging_v1_LoggedConnectionProfile_descriptor =
+      getDescriptor().getMessageTypes().get(6);
     internal_static_google_cloud_clouddms_logging_v1_LoggedConnectionProfile_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_clouddms_logging_v1_LoggedConnectionProfile_descriptor,
-        new java.lang.String[] { "Name", "Labels", "State", "DisplayName", "Mysql", "Postgresql", "Cloudsql", "Error", "Provider", "ConnectionProfile", });
+        new java.lang.String[] { "Name", "Labels", "State", "DisplayName", "Mysql", "Postgresql", "Cloudsql", "Oracle", "Error", "Provider", "ConnectionProfile", });
     internal_static_google_cloud_clouddms_logging_v1_LoggedConnectionProfile_LabelsEntry_descriptor =
       internal_static_google_cloud_clouddms_logging_v1_LoggedConnectionProfile_descriptor.getNestedTypes().get(0);
     internal_static_google_cloud_clouddms_logging_v1_LoggedConnectionProfile_LabelsEntry_fieldAccessorTable = new
@@ -233,17 +295,41 @@ public final class ClouddmsPlatformLogsProto {
         internal_static_google_cloud_clouddms_logging_v1_LoggedConnectionProfile_LabelsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_google_cloud_clouddms_logging_v1_MigrationJobEventLog_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_google_cloud_clouddms_logging_v1_MigrationJobEventLog_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_clouddms_logging_v1_MigrationJobEventLog_descriptor,
         new java.lang.String[] { "MigrationJob", "OccurrenceTimestamp", "Code", "TextMessage", "OriginalCode", "OriginalMessage", "OriginalCause", });
     internal_static_google_cloud_clouddms_logging_v1_ConnectionProfileEventLog_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_google_cloud_clouddms_logging_v1_ConnectionProfileEventLog_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_clouddms_logging_v1_ConnectionProfileEventLog_descriptor,
         new java.lang.String[] { "ConnectionProfile", "OccurrenceTimestamp", "Code", "TextMessage", "OriginalCode", "OriginalMessage", "OriginalCause", });
+    internal_static_google_cloud_clouddms_logging_v1_LoggedPrivateConnection_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_google_cloud_clouddms_logging_v1_LoggedPrivateConnection_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_clouddms_logging_v1_LoggedPrivateConnection_descriptor,
+        new java.lang.String[] { "Name", "Labels", "DisplayName", "State", "Error", "VpcPeeringConfig", });
+    internal_static_google_cloud_clouddms_logging_v1_LoggedPrivateConnection_LabelsEntry_descriptor =
+      internal_static_google_cloud_clouddms_logging_v1_LoggedPrivateConnection_descriptor.getNestedTypes().get(0);
+    internal_static_google_cloud_clouddms_logging_v1_LoggedPrivateConnection_LabelsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_clouddms_logging_v1_LoggedPrivateConnection_LabelsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_google_cloud_clouddms_logging_v1_VpcPeeringConfig_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_google_cloud_clouddms_logging_v1_VpcPeeringConfig_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_clouddms_logging_v1_VpcPeeringConfig_descriptor,
+        new java.lang.String[] { "VpcName", "Subnet", });
+    internal_static_google_cloud_clouddms_logging_v1_PrivateConnectionEventLog_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_google_cloud_clouddms_logging_v1_PrivateConnectionEventLog_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_clouddms_logging_v1_PrivateConnectionEventLog_descriptor,
+        new java.lang.String[] { "PrivateConnection", "OccurrenceTimestamp", "Code", "TextMessage", "OriginalCode", "OriginalMessage", "OriginalCause", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.FieldBehaviorProto.fieldBehavior);

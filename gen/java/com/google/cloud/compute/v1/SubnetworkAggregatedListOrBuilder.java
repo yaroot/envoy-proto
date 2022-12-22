@@ -75,7 +75,6 @@ public interface SubnetworkAggregatedListOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.SubnetworksScopedList&gt; items = 100526016;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.SubnetworksScopedList getItemsOrDefault(
       java.lang.String key,
@@ -88,7 +87,6 @@ com.google.cloud.compute.v1.SubnetworksScopedList defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.SubnetworksScopedList&gt; items = 100526016;</code>
    */
-
   com.google.cloud.compute.v1.SubnetworksScopedList getItemsOrThrow(
       java.lang.String key);
 

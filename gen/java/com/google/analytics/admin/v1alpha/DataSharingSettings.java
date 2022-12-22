@@ -36,76 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DataSharingSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-
-            sharingWithGoogleSupportEnabled_ = input.readBool();
-            break;
-          }
-          case 24: {
-
-            sharingWithGoogleAssignedSalesEnabled_ = input.readBool();
-            break;
-          }
-          case 32: {
-
-            sharingWithGoogleAnySalesEnabled_ = input.readBool();
-            break;
-          }
-          case 40: {
-
-            sharingWithGoogleProductsEnabled_ = input.readBool();
-            break;
-          }
-          case 48: {
-
-            sharingWithOthersEnabled_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.admin.v1alpha.ResourcesProto.internal_static_google_analytics_admin_v1alpha_DataSharingSettings_descriptor;
@@ -120,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. Resource name.
@@ -170,7 +101,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SHARING_WITH_GOOGLE_SUPPORT_ENABLED_FIELD_NUMBER = 2;
-  private boolean sharingWithGoogleSupportEnabled_;
+  private boolean sharingWithGoogleSupportEnabled_ = false;
   /**
    * <pre>
    * Allows Google support to access the data in order to help troubleshoot
@@ -186,7 +117,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SHARING_WITH_GOOGLE_ASSIGNED_SALES_ENABLED_FIELD_NUMBER = 3;
-  private boolean sharingWithGoogleAssignedSalesEnabled_;
+  private boolean sharingWithGoogleAssignedSalesEnabled_ = false;
   /**
    * <pre>
    * Allows Google sales teams that are assigned to the customer to access the
@@ -203,7 +134,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SHARING_WITH_GOOGLE_ANY_SALES_ENABLED_FIELD_NUMBER = 4;
-  private boolean sharingWithGoogleAnySalesEnabled_;
+  private boolean sharingWithGoogleAnySalesEnabled_ = false;
   /**
    * <pre>
    * Allows any of Google sales to access the data in order to suggest
@@ -219,7 +150,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SHARING_WITH_GOOGLE_PRODUCTS_ENABLED_FIELD_NUMBER = 5;
-  private boolean sharingWithGoogleProductsEnabled_;
+  private boolean sharingWithGoogleProductsEnabled_ = false;
   /**
    * <pre>
    * Allows Google to use the data to improve other Google products or services.
@@ -234,7 +165,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SHARING_WITH_OTHERS_ENABLED_FIELD_NUMBER = 6;
-  private boolean sharingWithOthersEnabled_;
+  private boolean sharingWithOthersEnabled_ = false;
   /**
    * <pre>
    * Allows Google to share the data anonymously in aggregate form with others.
@@ -280,7 +211,7 @@ private static final long serialVersionUID = 0L;
     if (sharingWithOthersEnabled_ != false) {
       output.writeBool(6, sharingWithOthersEnabled_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -312,7 +243,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(6, sharingWithOthersEnabled_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -339,7 +270,7 @@ private static final long serialVersionUID = 0L;
         != other.getSharingWithGoogleProductsEnabled()) return false;
     if (getSharingWithOthersEnabled()
         != other.getSharingWithOthersEnabled()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -367,7 +298,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SHARING_WITH_OTHERS_ENABLED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getSharingWithOthersEnabled());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -489,34 +420,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.admin.v1alpha.DataSharingSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       sharingWithGoogleSupportEnabled_ = false;
-
       sharingWithGoogleAssignedSalesEnabled_ = false;
-
       sharingWithGoogleAnySalesEnabled_ = false;
-
       sharingWithGoogleProductsEnabled_ = false;
-
       sharingWithOthersEnabled_ = false;
-
       return this;
     }
 
@@ -543,14 +464,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.admin.v1alpha.DataSharingSettings buildPartial() {
       com.google.analytics.admin.v1alpha.DataSharingSettings result = new com.google.analytics.admin.v1alpha.DataSharingSettings(this);
-      result.name_ = name_;
-      result.sharingWithGoogleSupportEnabled_ = sharingWithGoogleSupportEnabled_;
-      result.sharingWithGoogleAssignedSalesEnabled_ = sharingWithGoogleAssignedSalesEnabled_;
-      result.sharingWithGoogleAnySalesEnabled_ = sharingWithGoogleAnySalesEnabled_;
-      result.sharingWithGoogleProductsEnabled_ = sharingWithGoogleProductsEnabled_;
-      result.sharingWithOthersEnabled_ = sharingWithOthersEnabled_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.analytics.admin.v1alpha.DataSharingSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.sharingWithGoogleSupportEnabled_ = sharingWithGoogleSupportEnabled_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.sharingWithGoogleAssignedSalesEnabled_ = sharingWithGoogleAssignedSalesEnabled_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.sharingWithGoogleAnySalesEnabled_ = sharingWithGoogleAnySalesEnabled_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.sharingWithGoogleProductsEnabled_ = sharingWithGoogleProductsEnabled_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.sharingWithOthersEnabled_ = sharingWithOthersEnabled_;
+      }
     }
 
     @java.lang.Override
@@ -599,6 +537,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.analytics.admin.v1alpha.DataSharingSettings.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getSharingWithGoogleSupportEnabled() != false) {
@@ -616,7 +555,7 @@ private static final long serialVersionUID = 0L;
       if (other.getSharingWithOthersEnabled() != false) {
         setSharingWithOthersEnabled(other.getSharingWithOthersEnabled());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -631,19 +570,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.admin.v1alpha.DataSharingSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              sharingWithGoogleSupportEnabled_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              sharingWithGoogleAssignedSalesEnabled_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              sharingWithGoogleAnySalesEnabled_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              sharingWithGoogleProductsEnabled_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              sharingWithOthersEnabled_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.admin.v1alpha.DataSharingSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -704,11 +687,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -723,8 +704,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -741,12 +722,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -778,6 +757,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSharingWithGoogleSupportEnabled(boolean value) {
       
       sharingWithGoogleSupportEnabled_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -791,7 +771,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSharingWithGoogleSupportEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       sharingWithGoogleSupportEnabled_ = false;
       onChanged();
       return this;
@@ -826,6 +806,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSharingWithGoogleAssignedSalesEnabled(boolean value) {
       
       sharingWithGoogleAssignedSalesEnabled_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -840,7 +821,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSharingWithGoogleAssignedSalesEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       sharingWithGoogleAssignedSalesEnabled_ = false;
       onChanged();
       return this;
@@ -873,6 +854,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSharingWithGoogleAnySalesEnabled(boolean value) {
       
       sharingWithGoogleAnySalesEnabled_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -886,7 +868,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSharingWithGoogleAnySalesEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       sharingWithGoogleAnySalesEnabled_ = false;
       onChanged();
       return this;
@@ -917,6 +899,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSharingWithGoogleProductsEnabled(boolean value) {
       
       sharingWithGoogleProductsEnabled_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -929,7 +912,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSharingWithGoogleProductsEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       sharingWithGoogleProductsEnabled_ = false;
       onChanged();
       return this;
@@ -960,6 +943,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSharingWithOthersEnabled(boolean value) {
       
       sharingWithOthersEnabled_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -972,7 +956,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSharingWithOthersEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       sharingWithOthersEnabled_ = false;
       onChanged();
       return this;
@@ -1010,7 +994,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DataSharingSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

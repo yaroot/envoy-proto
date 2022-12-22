@@ -36,77 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RelationDescriptor(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              columns_ = new java.util.ArrayList<com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptor>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            columns_.add(
-                input.readMessage(com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptor.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              bigqueryLabels_ = com.google.protobuf.MapField.newMapField(
-                  BigqueryLabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            bigqueryLabels__ = input.readMessage(
-                BigqueryLabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            bigqueryLabels_.getMutableMap().put(
-                bigqueryLabels__.getKey(), bigqueryLabels__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        columns_ = java.util.Collections.unmodifiableList(columns_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataform.v1beta1.DataformProto.internal_static_google_cloud_dataform_v1beta1_RelationDescriptor_descriptor;
@@ -276,76 +205,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ColumnDescriptor(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                path_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              path_.add(s);
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              description_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                bigqueryPolicyTags_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              bigqueryPolicyTags_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          path_ = path_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          bigqueryPolicyTags_ = bigqueryPolicyTags_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dataform.v1beta1.DataformProto.internal_static_google_cloud_dataform_v1beta1_RelationDescriptor_ColumnDescriptor_descriptor;
@@ -360,6 +219,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PATH_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList path_;
     /**
      * <pre>
@@ -415,7 +275,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object description_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object description_ = "";
     /**
      * <pre>
      * A textual description of the column.
@@ -461,6 +322,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int BIGQUERY_POLICY_TAGS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList bigqueryPolicyTags_;
     /**
      * <pre>
@@ -534,7 +396,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < bigqueryPolicyTags_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, bigqueryPolicyTags_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -562,7 +424,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getBigqueryPolicyTagsList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -583,7 +445,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getDescription())) return false;
       if (!getBigqueryPolicyTagsList()
           .equals(other.getBigqueryPolicyTagsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -604,7 +466,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + BIGQUERY_POLICY_TAGS_FIELD_NUMBER;
         hash = (53 * hash) + getBigqueryPolicyTagsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -725,28 +587,23 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptor.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         path_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         description_ = "";
-
         bigqueryPolicyTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -773,20 +630,30 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptor buildPartial() {
         com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptor result = new com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptor(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptor result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           path_ = path_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.path_ = path_;
-        result.description_ = description_;
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           bigqueryPolicyTags_ = bigqueryPolicyTags_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.bigqueryPolicyTags_ = bigqueryPolicyTags_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptor result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.description_ = description_;
+        }
       }
 
       @java.lang.Override
@@ -845,19 +712,20 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.bigqueryPolicyTags_.isEmpty()) {
           if (bigqueryPolicyTags_.isEmpty()) {
             bigqueryPolicyTags_ = other.bigqueryPolicyTags_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureBigqueryPolicyTagsIsMutable();
             bigqueryPolicyTags_.addAll(other.bigqueryPolicyTags_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -872,17 +740,47 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptor parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensurePathIsMutable();
+                path_.add(s);
+                break;
+              } // case 10
+              case 18: {
+                description_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureBigqueryPolicyTagsIsMutable();
+                bigqueryPolicyTags_.add(s);
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptor) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -959,10 +857,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPath(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePathIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensurePathIsMutable();
         path_.set(index, value);
         onChanged();
         return this;
@@ -979,10 +875,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addPath(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePathIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensurePathIsMutable();
         path_.add(value);
         onChanged();
         return this;
@@ -1032,10 +926,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addPathBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensurePathIsMutable();
         path_.add(value);
         onChanged();
@@ -1095,11 +987,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1112,8 +1002,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
-        
         description_ = getDefaultInstance().getDescription();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1128,21 +1018,19 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.LazyStringList bigqueryPolicyTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureBigqueryPolicyTagsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           bigqueryPolicyTags_ = new com.google.protobuf.LazyStringArrayList(bigqueryPolicyTags_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
          }
       }
       /**
@@ -1205,10 +1093,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setBigqueryPolicyTags(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureBigqueryPolicyTagsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureBigqueryPolicyTagsIsMutable();
         bigqueryPolicyTags_.set(index, value);
         onChanged();
         return this;
@@ -1224,10 +1110,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addBigqueryPolicyTags(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureBigqueryPolicyTagsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureBigqueryPolicyTagsIsMutable();
         bigqueryPolicyTags_.add(value);
         onChanged();
         return this;
@@ -1259,7 +1143,7 @@ private static final long serialVersionUID = 0L;
        */
       public Builder clearBigqueryPolicyTags() {
         bigqueryPolicyTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1274,10 +1158,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addBigqueryPolicyTagsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureBigqueryPolicyTagsIsMutable();
         bigqueryPolicyTags_.add(value);
         onChanged();
@@ -1316,7 +1198,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ColumnDescriptor(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1337,7 +1230,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * A text description of the relation.
@@ -1383,6 +1277,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COLUMNS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptor> columns_;
   /**
    * <pre>
@@ -1454,6 +1349,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> bigqueryLabels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -1464,7 +1360,6 @@ private static final long serialVersionUID = 0L;
     }
     return bigqueryLabels_;
   }
-
   public int getBigqueryLabelsCount() {
     return internalGetBigqueryLabels().getMap().size();
   }
@@ -1475,7 +1370,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; bigquery_labels = 3;</code>
    */
-
   @java.lang.Override
   public boolean containsBigqueryLabels(
       java.lang.String key) {
@@ -1498,7 +1392,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; bigquery_labels = 3;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getBigqueryLabelsMap() {
     return internalGetBigqueryLabels().getMap();
   }
@@ -1510,10 +1403,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; bigquery_labels = 3;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getBigqueryLabelsOrDefault(
+  public /* nullable */
+java.lang.String getBigqueryLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetBigqueryLabels().getMap();
@@ -1527,7 +1421,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; bigquery_labels = 3;</code>
    */
   @java.lang.Override
-
   public java.lang.String getBigqueryLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1565,7 +1458,7 @@ private static final long serialVersionUID = 0L;
         internalGetBigqueryLabels(),
         BigqueryLabelsDefaultEntryHolder.defaultEntry,
         3);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1591,7 +1484,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, bigqueryLabels__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1612,7 +1505,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getColumnsList())) return false;
     if (!internalGetBigqueryLabels().equals(
         other.internalGetBigqueryLabels())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1633,7 +1526,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BIGQUERY_LABELS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetBigqueryLabels().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1776,31 +1669,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataform.v1beta1.RelationDescriptor.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getColumnsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       description_ = "";
-
       if (columnsBuilder_ == null) {
         columns_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        columns_ = null;
         columnsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableBigqueryLabels().clear();
       return this;
     }
@@ -1828,21 +1716,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataform.v1beta1.RelationDescriptor buildPartial() {
       com.google.cloud.dataform.v1beta1.RelationDescriptor result = new com.google.cloud.dataform.v1beta1.RelationDescriptor(this);
-      int from_bitField0_ = bitField0_;
-      result.description_ = description_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.dataform.v1beta1.RelationDescriptor result) {
       if (columnsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           columns_ = java.util.Collections.unmodifiableList(columns_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.columns_ = columns_;
       } else {
         result.columns_ = columnsBuilder_.build();
       }
-      result.bigqueryLabels_ = internalGetBigqueryLabels();
-      result.bigqueryLabels_.makeImmutable();
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataform.v1beta1.RelationDescriptor result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.bigqueryLabels_ = internalGetBigqueryLabels();
+        result.bigqueryLabels_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -1891,13 +1791,14 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dataform.v1beta1.RelationDescriptor.getDefaultInstance()) return this;
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (columnsBuilder_ == null) {
         if (!other.columns_.isEmpty()) {
           if (columns_.isEmpty()) {
             columns_ = other.columns_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureColumnsIsMutable();
             columns_.addAll(other.columns_);
@@ -1910,7 +1811,7 @@ private static final long serialVersionUID = 0L;
             columnsBuilder_.dispose();
             columnsBuilder_ = null;
             columns_ = other.columns_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             columnsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getColumnsFieldBuilder() : null;
@@ -1921,7 +1822,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableBigqueryLabels().mergeFrom(
           other.internalGetBigqueryLabels());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000004;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1936,17 +1838,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataform.v1beta1.RelationDescriptor parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptor m =
+                  input.readMessage(
+                      com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptor.parser(),
+                      extensionRegistry);
+              if (columnsBuilder_ == null) {
+                ensureColumnsIsMutable();
+                columns_.add(m);
+              } else {
+                columnsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              bigqueryLabels__ = input.readMessage(
+                  BigqueryLabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableBigqueryLabels().getMutableMap().put(
+                  bigqueryLabels__.getKey(), bigqueryLabels__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataform.v1beta1.RelationDescriptor) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2004,11 +1946,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2021,8 +1961,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2037,12 +1977,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2050,9 +1988,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptor> columns_ =
       java.util.Collections.emptyList();
     private void ensureColumnsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         columns_ = new java.util.ArrayList<com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptor>(columns_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -2246,7 +2184,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearColumns() {
       if (columnsBuilder_ == null) {
         columns_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         columnsBuilder_.clear();
@@ -2351,7 +2289,7 @@ private static final long serialVersionUID = 0L;
         columnsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptor, com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptor.Builder, com.google.cloud.dataform.v1beta1.RelationDescriptor.ColumnDescriptorOrBuilder>(
                 columns_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         columns_ = null;
@@ -2362,7 +2300,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> bigqueryLabels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetBigqueryLabels() {
+        internalGetBigqueryLabels() {
       if (bigqueryLabels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             BigqueryLabelsDefaultEntryHolder.defaultEntry);
@@ -2370,8 +2308,7 @@ private static final long serialVersionUID = 0L;
       return bigqueryLabels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableBigqueryLabels() {
-      onChanged();;
+        internalGetMutableBigqueryLabels() {
       if (bigqueryLabels_ == null) {
         bigqueryLabels_ = com.google.protobuf.MapField.newMapField(
             BigqueryLabelsDefaultEntryHolder.defaultEntry);
@@ -2379,9 +2316,10 @@ private static final long serialVersionUID = 0L;
       if (!bigqueryLabels_.isMutable()) {
         bigqueryLabels_ = bigqueryLabels_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return bigqueryLabels_;
     }
-
     public int getBigqueryLabelsCount() {
       return internalGetBigqueryLabels().getMap().size();
     }
@@ -2392,7 +2330,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; bigquery_labels = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsBigqueryLabels(
         java.lang.String key) {
@@ -2415,7 +2352,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; bigquery_labels = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getBigqueryLabelsMap() {
       return internalGetBigqueryLabels().getMap();
     }
@@ -2427,10 +2363,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; bigquery_labels = 3;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getBigqueryLabelsOrDefault(
+    public /* nullable */
+java.lang.String getBigqueryLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetBigqueryLabels().getMap();
@@ -2444,7 +2381,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; bigquery_labels = 3;</code>
      */
     @java.lang.Override
-
     public java.lang.String getBigqueryLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2455,8 +2391,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearBigqueryLabels() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableBigqueryLabels().getMutableMap()
           .clear();
       return this;
@@ -2468,7 +2404,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; bigquery_labels = 3;</code>
      */
-
     public Builder removeBigqueryLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2481,7 +2416,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableBigqueryLabels() {
+        getMutableBigqueryLabels() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableBigqueryLabels().getMutableMap();
     }
     /**
@@ -2495,12 +2431,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableBigqueryLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -2510,11 +2444,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; bigquery_labels = 3;</code>
      */
-
     public Builder putAllBigqueryLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableBigqueryLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
     @java.lang.Override
@@ -2550,7 +2484,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RelationDescriptor(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

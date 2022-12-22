@@ -22,14 +22,14 @@ from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb
 from google.type import dayofweek_pb2 as google_dot_type_dot_dayofweek__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-google/cloud/metastore/v1beta/metastore.proto\x12\x1dgoogle.cloud.metastore.v1beta\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1bgoogle/type/dayofweek.proto\"\xd6\n\n\x07Service\x12S\n\x15hive_metastore_config\x18\x05 \x01(\x0b\x32\x32.google.cloud.metastore.v1beta.HiveMetastoreConfigH\x00\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x42\n\x06labels\x18\x04 \x03(\x0b\x32\x32.google.cloud.metastore.v1beta.Service.LabelsEntry\x12\x37\n\x07network\x18\x07 \x01(\tB&\xe0\x41\x05\xfa\x41 \n\x1e\x63ompute.googleapis.com/Network\x12\x19\n\x0c\x65ndpoint_uri\x18\x08 \x01(\tB\x03\xe0\x41\x03\x12\x0c\n\x04port\x18\t \x01(\x05\x12@\n\x05state\x18\n \x01(\x0e\x32,.google.cloud.metastore.v1beta.Service.StateB\x03\xe0\x41\x03\x12\x1a\n\rstate_message\x18\x0b \x01(\tB\x03\xe0\x41\x03\x12\x1d\n\x10\x61rtifact_gcs_uri\x18\x0c \x01(\tB\x03\xe0\x41\x03\x12\x39\n\x04tier\x18\r \x01(\x0e\x32+.google.cloud.metastore.v1beta.Service.Tier\x12P\n\x14metadata_integration\x18\x0e \x01(\x0b\x32\x32.google.cloud.metastore.v1beta.MetadataIntegration\x12L\n\x12maintenance_window\x18\x0f \x01(\x0b\x32\x30.google.cloud.metastore.v1beta.MaintenanceWindow\x12\x10\n\x03uid\x18\x10 \x01(\tB\x03\xe0\x41\x03\x12\x64\n\x1cmetadata_management_activity\x18\x11 \x01(\x0b\x32\x39.google.cloud.metastore.v1beta.MetadataManagementActivityB\x03\xe0\x41\x03\x12S\n\x0frelease_channel\x18\x13 \x01(\x0e\x32\x35.google.cloud.metastore.v1beta.Service.ReleaseChannelB\x03\xe0\x41\x05\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"~\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\n\n\x06\x41\x43TIVE\x10\x02\x12\x0e\n\nSUSPENDING\x10\x03\x12\r\n\tSUSPENDED\x10\x04\x12\x0c\n\x08UPDATING\x10\x05\x12\x0c\n\x08\x44\x45LETING\x10\x06\x12\t\n\x05\x45RROR\x10\x07\";\n\x04Tier\x12\x14\n\x10TIER_UNSPECIFIED\x10\x00\x12\r\n\tDEVELOPER\x10\x01\x12\x0e\n\nENTERPRISE\x10\x03\"I\n\x0eReleaseChannel\x12\x1f\n\x1bRELEASE_CHANNEL_UNSPECIFIED\x10\x00\x12\n\n\x06\x43\x41NARY\x10\x01\x12\n\n\x06STABLE\x10\x02:a\xea\x41^\n metastore.googleapis.com/Service\x12:projects/{project}/locations/{location}/services/{service}B\x12\n\x10metastore_config\"d\n\x13MetadataIntegration\x12M\n\x13\x64\x61ta_catalog_config\x18\x01 \x01(\x0b\x32\x30.google.cloud.metastore.v1beta.DataCatalogConfig\"$\n\x11\x44\x61taCatalogConfig\x12\x0f\n\x07\x65nabled\x18\x02 \x01(\x08\"r\n\x11MaintenanceWindow\x12\x30\n\x0bhour_of_day\x18\x01 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12+\n\x0b\x64\x61y_of_week\x18\x02 \x01(\x0e\x32\x16.google.type.DayOfWeek\"\x8e\x02\n\x13HiveMetastoreConfig\x12\x14\n\x07version\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x61\n\x10\x63onfig_overrides\x18\x02 \x03(\x0b\x32G.google.cloud.metastore.v1beta.HiveMetastoreConfig.ConfigOverridesEntry\x12\x46\n\x0fkerberos_config\x18\x03 \x01(\x0b\x32-.google.cloud.metastore.v1beta.KerberosConfig\x1a\x36\n\x14\x43onfigOverridesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"w\n\x0eKerberosConfig\x12\x35\n\x06keytab\x18\x01 \x01(\x0b\x32%.google.cloud.metastore.v1beta.Secret\x12\x11\n\tprincipal\x18\x02 \x01(\t\x12\x1b\n\x13krb5_config_gcs_uri\x18\x03 \x01(\t\")\n\x06Secret\x12\x16\n\x0c\x63loud_secret\x18\x02 \x01(\tH\x00\x42\x07\n\x05value\"\xa9\x01\n\x1aMetadataManagementActivity\x12L\n\x10metadata_exports\x18\x01 \x03(\x0b\x32-.google.cloud.metastore.v1beta.MetadataExportB\x03\xe0\x41\x03\x12=\n\x08restores\x18\x02 \x03(\x0b\x32&.google.cloud.metastore.v1beta.RestoreB\x03\xe0\x41\x03\"\xdd\x06\n\x0eMetadataImport\x12X\n\rdatabase_dump\x18\x06 \x01(\x0b\x32:.google.cloud.metastore.v1beta.MetadataImport.DatabaseDumpB\x03\xe0\x41\x05H\x00\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12G\n\x05state\x18\x05 \x01(\x0e\x32\x33.google.cloud.metastore.v1beta.MetadataImport.StateB\x03\xe0\x41\x03\x1a\xa3\x02\n\x0c\x44\x61tabaseDump\x12\x62\n\rdatabase_type\x18\x01 \x01(\x0e\x32G.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseTypeB\x02\x18\x01\x12\x0f\n\x07gcs_uri\x18\x02 \x01(\t\x12\x1b\n\x0fsource_database\x18\x03 \x01(\tB\x02\x18\x01\x12G\n\x04type\x18\x04 \x01(\x0e\x32\x34.google.cloud.metastore.v1beta.DatabaseDumpSpec.TypeB\x03\xe0\x41\x01\"8\n\x0c\x44\x61tabaseType\x12\x1d\n\x19\x44\x41TABASE_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05MYSQL\x10\x01\"T\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\x0c\n\x08UPDATING\x10\x03\x12\n\n\x06\x46\x41ILED\x10\x04:\x8b\x01\xea\x41\x87\x01\n\'metastore.googleapis.com/MetadataImport\x12\\projects/{project}/locations/{location}/services/{service}/metadataImports/{metadata_import}B\n\n\x08metadata\"\xa2\x03\n\x0eMetadataExport\x12\"\n\x13\x64\x65stination_gcs_uri\x18\x04 \x01(\tB\x03\xe0\x41\x03H\x00\x12\x33\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12G\n\x05state\x18\x03 \x01(\x0e\x32\x33.google.cloud.metastore.v1beta.MetadataExport.StateB\x03\xe0\x41\x03\x12U\n\x12\x64\x61tabase_dump_type\x18\x05 \x01(\x0e\x32\x34.google.cloud.metastore.v1beta.DatabaseDumpSpec.TypeB\x03\xe0\x41\x03\"U\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\r\n\tCANCELLED\x10\x04\x42\r\n\x0b\x64\x65stination\"\xe8\x03\n\x06\x42\x61\x63kup\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12?\n\x05state\x18\x04 \x01(\x0e\x32+.google.cloud.metastore.v1beta.Backup.StateB\x03\xe0\x41\x03\x12\x45\n\x10service_revision\x18\x05 \x01(\x0b\x32&.google.cloud.metastore.v1beta.ServiceB\x03\xe0\x41\x03\x12\x13\n\x0b\x64\x65scription\x18\x06 \x01(\t\"R\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\x0c\n\x08\x44\x45LETING\x10\x02\x12\n\n\x06\x41\x43TIVE\x10\x03\x12\n\n\x06\x46\x41ILED\x10\x04:q\xea\x41n\n\x1fmetastore.googleapis.com/Backup\x12Kprojects/{project}/locations/{location}/services/{service}/backups/{backup}\"\xea\x03\n\x07Restore\x12\x33\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12@\n\x05state\x18\x03 \x01(\x0e\x32,.google.cloud.metastore.v1beta.Restore.StateB\x03\xe0\x41\x03\x12\x37\n\x06\x62\x61\x63kup\x18\x04 \x01(\tB\'\xe0\x41\x03\xfa\x41!\n\x1fmetastore.googleapis.com/Backup\x12\x45\n\x04type\x18\x05 \x01(\x0e\x32\x32.google.cloud.metastore.v1beta.Restore.RestoreTypeB\x03\xe0\x41\x03\x12\x14\n\x07\x64\x65tails\x18\x06 \x01(\tB\x03\xe0\x41\x03\"U\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\r\n\tCANCELLED\x10\x04\"H\n\x0bRestoreType\x12\x1c\n\x18RESTORE_TYPE_UNSPECIFIED\x10\x00\x12\x08\n\x04\x46ULL\x10\x01\x12\x11\n\rMETADATA_ONLY\x10\x02\"\xad\x01\n\x13ListServicesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"~\n\x14ListServicesResponse\x12\x38\n\x08services\x18\x01 \x03(\x0b\x32&.google.cloud.metastore.v1beta.Service\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"K\n\x11GetServiceRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n metastore.googleapis.com/Service\"\xc1\x01\n\x14\x43reateServiceRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x17\n\nservice_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12<\n\x07service\x18\x03 \x01(\x0b\x32&.google.cloud.metastore.v1beta.ServiceB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\xa3\x01\n\x14UpdateServiceRequest\x12\x34\n\x0bupdate_mask\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12<\n\x07service\x18\x02 \x01(\x0b\x32&.google.cloud.metastore.v1beta.ServiceB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"g\n\x14\x44\x65leteServiceRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n metastore.googleapis.com/Service\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\xb3\x01\n\x1aListMetadataImportsRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n metastore.googleapis.com/Service\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\x94\x01\n\x1bListMetadataImportsResponse\x12G\n\x10metadata_imports\x18\x01 \x03(\x0b\x32-.google.cloud.metastore.v1beta.MetadataImport\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"Y\n\x18GetMetadataImportRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'metastore.googleapis.com/MetadataImport\"\xde\x01\n\x1b\x43reateMetadataImportRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n metastore.googleapis.com/Service\x12\x1f\n\x12metadata_import_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12K\n\x0fmetadata_import\x18\x03 \x01(\x0b\x32-.google.cloud.metastore.v1beta.MetadataImportB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\xb9\x01\n\x1bUpdateMetadataImportRequest\x12\x34\n\x0bupdate_mask\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12K\n\x0fmetadata_import\x18\x02 \x01(\x0b\x32-.google.cloud.metastore.v1beta.MetadataImportB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xab\x01\n\x12ListBackupsRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n metastore.googleapis.com/Service\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"{\n\x13ListBackupsResponse\x12\x36\n\x07\x62\x61\x63kups\x18\x01 \x03(\x0b\x32%.google.cloud.metastore.v1beta.Backup\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"I\n\x10GetBackupRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fmetastore.googleapis.com/Backup\"\xbc\x01\n\x13\x43reateBackupRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n metastore.googleapis.com/Service\x12\x16\n\tbackup_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12:\n\x06\x62\x61\x63kup\x18\x03 \x01(\x0b\x32%.google.cloud.metastore.v1beta.BackupB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"e\n\x13\x44\x65leteBackupRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fmetastore.googleapis.com/Backup\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\xf3\x01\n\x15\x45xportMetadataRequest\x12 \n\x16\x64\x65stination_gcs_folder\x18\x02 \x01(\tH\x00\x12\x39\n\x07service\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n metastore.googleapis.com/Service\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12U\n\x12\x64\x61tabase_dump_type\x18\x04 \x01(\x0e\x32\x34.google.cloud.metastore.v1beta.DatabaseDumpSpec.TypeB\x03\xe0\x41\x01\x42\r\n\x0b\x64\x65stination\"\xf3\x01\n\x15RestoreServiceRequest\x12\x39\n\x07service\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n metastore.googleapis.com/Service\x12\x37\n\x06\x62\x61\x63kup\x18\x02 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fmetastore.googleapis.com/Backup\x12M\n\x0crestore_type\x18\x03 \x01(\x0e\x32\x32.google.cloud.metastore.v1beta.Restore.RestoreTypeB\x03\xe0\x41\x01\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\x80\x02\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04verb\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x1b\n\x0estatus_message\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12#\n\x16requested_cancellation\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x61pi_version\x18\x07 \x01(\tB\x03\xe0\x41\x03\"\xc0\x01\n\x10LocationMetadata\x12o\n!supported_hive_metastore_versions\x18\x01 \x03(\x0b\x32\x44.google.cloud.metastore.v1beta.LocationMetadata.HiveMetastoreVersion\x1a;\n\x14HiveMetastoreVersion\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x12\n\nis_default\x18\x02 \x01(\x08\";\n\x10\x44\x61tabaseDumpSpec\"\'\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05MYSQL\x10\x01\x32\xdc\x1a\n\x11\x44\x61taprocMetastore\x12\xba\x01\n\x0cListServices\x12\x32.google.cloud.metastore.v1beta.ListServicesRequest\x1a\x33.google.cloud.metastore.v1beta.ListServicesResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta/{parent=projects/*/locations/*}/services\xda\x41\x06parent\x12\xa7\x01\n\nGetService\x12\x30.google.cloud.metastore.v1beta.GetServiceRequest\x1a&.google.cloud.metastore.v1beta.Service\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta/{name=projects/*/locations/*/services/*}\xda\x41\x04name\x12\xe1\x01\n\rCreateService\x12\x33.google.cloud.metastore.v1beta.CreateServiceRequest\x1a\x1d.google.longrunning.Operation\"|\x82\xd3\xe4\x93\x02;\"0/v1beta/{parent=projects/*/locations/*}/services:\x07service\xda\x41\x19parent,service,service_id\xca\x41\x1c\n\x07Service\x12\x11OperationMetadata\x12\xe3\x01\n\rUpdateService\x12\x33.google.cloud.metastore.v1beta.UpdateServiceRequest\x1a\x1d.google.longrunning.Operation\"~\x82\xd3\xe4\x93\x02\x43\x32\x38/v1beta/{service.name=projects/*/locations/*/services/*}:\x07service\xda\x41\x13service,update_mask\xca\x41\x1c\n\x07Service\x12\x11OperationMetadata\x12\xd1\x01\n\rDeleteService\x12\x33.google.cloud.metastore.v1beta.DeleteServiceRequest\x1a\x1d.google.longrunning.Operation\"l\x82\xd3\xe4\x93\x02\x32*0/v1beta/{name=projects/*/locations/*/services/*}\xda\x41\x04name\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xe1\x01\n\x13ListMetadataImports\x12\x39.google.cloud.metastore.v1beta.ListMetadataImportsRequest\x1a:.google.cloud.metastore.v1beta.ListMetadataImportsResponse\"S\x82\xd3\xe4\x93\x02\x44\x12\x42/v1beta/{parent=projects/*/locations/*/services/*}/metadataImports\xda\x41\x06parent\x12\xce\x01\n\x11GetMetadataImport\x12\x37.google.cloud.metastore.v1beta.GetMetadataImportRequest\x1a-.google.cloud.metastore.v1beta.MetadataImport\"Q\x82\xd3\xe4\x93\x02\x44\x12\x42/v1beta/{name=projects/*/locations/*/services/*/metadataImports/*}\xda\x41\x04name\x12\xa1\x02\n\x14\x43reateMetadataImport\x12:.google.cloud.metastore.v1beta.CreateMetadataImportRequest\x1a\x1d.google.longrunning.Operation\"\xad\x01\x82\xd3\xe4\x93\x02U\"B/v1beta/{parent=projects/*/locations/*/services/*}/metadataImports:\x0fmetadata_import\xda\x41)parent,metadata_import,metadata_import_id\xca\x41#\n\x0eMetadataImport\x12\x11OperationMetadata\x12\xa3\x02\n\x14UpdateMetadataImport\x12:.google.cloud.metastore.v1beta.UpdateMetadataImportRequest\x1a\x1d.google.longrunning.Operation\"\xaf\x01\x82\xd3\xe4\x93\x02\x65\x32R/v1beta/{metadata_import.name=projects/*/locations/*/services/*/metadataImports/*}:\x0fmetadata_import\xda\x41\x1bmetadata_import,update_mask\xca\x41#\n\x0eMetadataImport\x12\x11OperationMetadata\x12\xda\x01\n\x0e\x45xportMetadata\x12\x34.google.cloud.metastore.v1beta.ExportMetadataRequest\x1a\x1d.google.longrunning.Operation\"s\x82\xd3\xe4\x93\x02G\"B/v1beta/{service=projects/*/locations/*/services/*}:exportMetadata:\x01*\xca\x41#\n\x0eMetadataExport\x12\x11OperationMetadata\x12\xdd\x01\n\x0eRestoreService\x12\x34.google.cloud.metastore.v1beta.RestoreServiceRequest\x1a\x1d.google.longrunning.Operation\"v\x82\xd3\xe4\x93\x02@\";/v1beta/{service=projects/*/locations/*/services/*}:restore:\x01*\xda\x41\x0eservice,backup\xca\x41\x1c\n\x07Restore\x12\x11OperationMetadata\x12\xc1\x01\n\x0bListBackups\x12\x31.google.cloud.metastore.v1beta.ListBackupsRequest\x1a\x32.google.cloud.metastore.v1beta.ListBackupsResponse\"K\x82\xd3\xe4\x93\x02<\x12:/v1beta/{parent=projects/*/locations/*/services/*}/backups\xda\x41\x06parent\x12\xae\x01\n\tGetBackup\x12/.google.cloud.metastore.v1beta.GetBackupRequest\x1a%.google.cloud.metastore.v1beta.Backup\"I\x82\xd3\xe4\x93\x02<\x12:/v1beta/{name=projects/*/locations/*/services/*/backups/*}\xda\x41\x04name\x12\xe6\x01\n\x0c\x43reateBackup\x12\x32.google.cloud.metastore.v1beta.CreateBackupRequest\x1a\x1d.google.longrunning.Operation\"\x82\x01\x82\xd3\xe4\x93\x02\x44\":/v1beta/{parent=projects/*/locations/*/services/*}/backups:\x06\x62\x61\x63kup\xda\x41\x17parent,backup,backup_id\xca\x41\x1b\n\x06\x42\x61\x63kup\x12\x11OperationMetadata\x12\xd9\x01\n\x0c\x44\x65leteBackup\x12\x32.google.cloud.metastore.v1beta.DeleteBackupRequest\x1a\x1d.google.longrunning.Operation\"v\x82\xd3\xe4\x93\x02<*:/v1beta/{name=projects/*/locations/*/services/*/backups/*}\xda\x41\x04name\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x1aL\xca\x41\x18metastore.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xee\x01\n!com.google.cloud.metastore.v1betaB\x0eMetastoreProtoP\x01ZFgoogle.golang.org/genproto/googleapis/cloud/metastore/v1beta;metastore\xca\x02\x1dGoogle\\Cloud\\Metastore\\V1beta\xea\x41N\n\x1e\x63ompute.googleapis.com/Network\x12,projects/{project}/global/networks/{network}b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-google/cloud/metastore/v1beta/metastore.proto\x12\x1dgoogle.cloud.metastore.v1beta\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1bgoogle/type/dayofweek.proto\"\xcf\r\n\x07Service\x12S\n\x15hive_metastore_config\x18\x05 \x01(\x0b\x32\x32.google.cloud.metastore.v1beta.HiveMetastoreConfigH\x00\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x42\n\x06labels\x18\x04 \x03(\x0b\x32\x32.google.cloud.metastore.v1beta.Service.LabelsEntry\x12\x37\n\x07network\x18\x07 \x01(\tB&\xe0\x41\x05\xfa\x41 \n\x1e\x63ompute.googleapis.com/Network\x12\x19\n\x0c\x65ndpoint_uri\x18\x08 \x01(\tB\x03\xe0\x41\x03\x12\x0c\n\x04port\x18\t \x01(\x05\x12@\n\x05state\x18\n \x01(\x0e\x32,.google.cloud.metastore.v1beta.Service.StateB\x03\xe0\x41\x03\x12\x1a\n\rstate_message\x18\x0b \x01(\tB\x03\xe0\x41\x03\x12\x1d\n\x10\x61rtifact_gcs_uri\x18\x0c \x01(\tB\x03\xe0\x41\x03\x12\x39\n\x04tier\x18\r \x01(\x0e\x32+.google.cloud.metastore.v1beta.Service.Tier\x12P\n\x14metadata_integration\x18\x0e \x01(\x0b\x32\x32.google.cloud.metastore.v1beta.MetadataIntegration\x12L\n\x12maintenance_window\x18\x0f \x01(\x0b\x32\x30.google.cloud.metastore.v1beta.MaintenanceWindow\x12\x10\n\x03uid\x18\x10 \x01(\tB\x03\xe0\x41\x03\x12\x64\n\x1cmetadata_management_activity\x18\x11 \x01(\x0b\x32\x39.google.cloud.metastore.v1beta.MetadataManagementActivityB\x03\xe0\x41\x03\x12S\n\x0frelease_channel\x18\x13 \x01(\x0e\x32\x35.google.cloud.metastore.v1beta.Service.ReleaseChannelB\x03\xe0\x41\x05\x12O\n\x11\x65ncryption_config\x18\x14 \x01(\x0b\x32/.google.cloud.metastore.v1beta.EncryptionConfigB\x03\xe0\x41\x05\x12\x44\n\x0enetwork_config\x18\x15 \x01(\x0b\x32,.google.cloud.metastore.v1beta.NetworkConfig\x12O\n\rdatabase_type\x18\x16 \x01(\x0e\x32\x33.google.cloud.metastore.v1beta.Service.DatabaseTypeB\x03\xe0\x41\x05\x12H\n\x10telemetry_config\x18\x17 \x01(\x0b\x32..google.cloud.metastore.v1beta.TelemetryConfig\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"~\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\n\n\x06\x41\x43TIVE\x10\x02\x12\x0e\n\nSUSPENDING\x10\x03\x12\r\n\tSUSPENDED\x10\x04\x12\x0c\n\x08UPDATING\x10\x05\x12\x0c\n\x08\x44\x45LETING\x10\x06\x12\t\n\x05\x45RROR\x10\x07\";\n\x04Tier\x12\x14\n\x10TIER_UNSPECIFIED\x10\x00\x12\r\n\tDEVELOPER\x10\x01\x12\x0e\n\nENTERPRISE\x10\x03\"I\n\x0eReleaseChannel\x12\x1f\n\x1bRELEASE_CHANNEL_UNSPECIFIED\x10\x00\x12\n\n\x06\x43\x41NARY\x10\x01\x12\n\n\x06STABLE\x10\x02\"E\n\x0c\x44\x61tabaseType\x12\x1d\n\x19\x44\x41TABASE_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05MYSQL\x10\x01\x12\x0b\n\x07SPANNER\x10\x02:a\xea\x41^\n metastore.googleapis.com/Service\x12:projects/{project}/locations/{location}/services/{service}B\x12\n\x10metastore_config\"\xac\x01\n\x13MetadataIntegration\x12M\n\x13\x64\x61ta_catalog_config\x18\x01 \x01(\x0b\x32\x30.google.cloud.metastore.v1beta.DataCatalogConfig\x12\x46\n\x0f\x64\x61taplex_config\x18\x02 \x01(\x0b\x32-.google.cloud.metastore.v1beta.DataplexConfig\"$\n\x11\x44\x61taCatalogConfig\x12\x0f\n\x07\x65nabled\x18\x02 \x01(\x08\"\xc5\x01\n\x0e\x44\x61taplexConfig\x12X\n\x0elake_resources\x18\x01 \x03(\x0b\x32@.google.cloud.metastore.v1beta.DataplexConfig.LakeResourcesEntry\x1aY\n\x12LakeResourcesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x32\n\x05value\x18\x02 \x01(\x0b\x32#.google.cloud.metastore.v1beta.Lake:\x02\x38\x01\"7\n\x04Lake\x12/\n\x04name\x18\x01 \x01(\tB!\xfa\x41\x1e\n\x1c\x64\x61taplex.googleapis.com/Lake\"r\n\x11MaintenanceWindow\x12\x30\n\x0bhour_of_day\x18\x01 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12+\n\x0b\x64\x61y_of_week\x18\x02 \x01(\x0e\x32\x16.google.type.DayOfWeek\"\x93\x05\n\x13HiveMetastoreConfig\x12\x14\n\x07version\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x61\n\x10\x63onfig_overrides\x18\x02 \x03(\x0b\x32G.google.cloud.metastore.v1beta.HiveMetastoreConfig.ConfigOverridesEntry\x12\x46\n\x0fkerberos_config\x18\x03 \x01(\x0b\x32-.google.cloud.metastore.v1beta.KerberosConfig\x12^\n\x11\x65ndpoint_protocol\x18\x04 \x01(\x0e\x32\x43.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol\x12\x65\n\x12\x61uxiliary_versions\x18\x05 \x03(\x0b\x32I.google.cloud.metastore.v1beta.HiveMetastoreConfig.AuxiliaryVersionsEntry\x1a\x36\n\x14\x43onfigOverridesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1ao\n\x16\x41uxiliaryVersionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x44\n\x05value\x18\x02 \x01(\x0b\x32\x35.google.cloud.metastore.v1beta.AuxiliaryVersionConfig:\x02\x38\x01\"K\n\x10\x45ndpointProtocol\x12!\n\x1d\x45NDPOINT_PROTOCOL_UNSPECIFIED\x10\x00\x12\n\n\x06THRIFT\x10\x01\x12\x08\n\x04GRPC\x10\x02\"w\n\x0eKerberosConfig\x12\x35\n\x06keytab\x18\x01 \x01(\x0b\x32%.google.cloud.metastore.v1beta.Secret\x12\x11\n\tprincipal\x18\x02 \x01(\t\x12\x1b\n\x13krb5_config_gcs_uri\x18\x03 \x01(\t\")\n\x06Secret\x12\x16\n\x0c\x63loud_secret\x18\x02 \x01(\tH\x00\x42\x07\n\x05value\"#\n\x10\x45ncryptionConfig\x12\x0f\n\x07kms_key\x18\x01 \x01(\t\"\x92\x02\n\x16\x41uxiliaryVersionConfig\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x64\n\x10\x63onfig_overrides\x18\x02 \x03(\x0b\x32J.google.cloud.metastore.v1beta.AuxiliaryVersionConfig.ConfigOverridesEntry\x12I\n\x0enetwork_config\x18\x03 \x01(\x0b\x32,.google.cloud.metastore.v1beta.NetworkConfigB\x03\xe0\x41\x03\x1a\x36\n\x14\x43onfigOverridesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xd6\x01\n\rNetworkConfig\x12M\n\tconsumers\x18\x01 \x03(\x0b\x32\x35.google.cloud.metastore.v1beta.NetworkConfig.ConsumerB\x03\xe0\x41\x05\x1av\n\x08\x43onsumer\x12?\n\nsubnetwork\x18\x01 \x01(\tB)\xe0\x41\x05\xfa\x41#\n!compute.googleapis.com/SubnetworkH\x00\x12\x19\n\x0c\x65ndpoint_uri\x18\x03 \x01(\tB\x03\xe0\x41\x03\x42\x0e\n\x0cvpc_resource\"\x9e\x01\n\x0fTelemetryConfig\x12L\n\nlog_format\x18\x01 \x01(\x0e\x32\x38.google.cloud.metastore.v1beta.TelemetryConfig.LogFormat\"=\n\tLogFormat\x12\x1a\n\x16LOG_FORMAT_UNSPECIFIED\x10\x00\x12\n\n\x06LEGACY\x10\x01\x12\x08\n\x04JSON\x10\x02\"\xa9\x01\n\x1aMetadataManagementActivity\x12L\n\x10metadata_exports\x18\x01 \x03(\x0b\x32-.google.cloud.metastore.v1beta.MetadataExportB\x03\xe0\x41\x03\x12=\n\x08restores\x18\x02 \x03(\x0b\x32&.google.cloud.metastore.v1beta.RestoreB\x03\xe0\x41\x03\"\x90\x07\n\x0eMetadataImport\x12X\n\rdatabase_dump\x18\x06 \x01(\x0b\x32:.google.cloud.metastore.v1beta.MetadataImport.DatabaseDumpB\x03\xe0\x41\x05H\x00\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12G\n\x05state\x18\x05 \x01(\x0e\x32\x33.google.cloud.metastore.v1beta.MetadataImport.StateB\x03\xe0\x41\x03\x1a\xa3\x02\n\x0c\x44\x61tabaseDump\x12\x62\n\rdatabase_type\x18\x01 \x01(\x0e\x32G.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseTypeB\x02\x18\x01\x12\x0f\n\x07gcs_uri\x18\x02 \x01(\t\x12\x1b\n\x0fsource_database\x18\x03 \x01(\tB\x02\x18\x01\x12G\n\x04type\x18\x04 \x01(\x0e\x32\x34.google.cloud.metastore.v1beta.DatabaseDumpSpec.TypeB\x03\xe0\x41\x01\"8\n\x0c\x44\x61tabaseType\x12\x1d\n\x19\x44\x41TABASE_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05MYSQL\x10\x01\"T\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\x0c\n\x08UPDATING\x10\x03\x12\n\n\x06\x46\x41ILED\x10\x04:\x8b\x01\xea\x41\x87\x01\n\'metastore.googleapis.com/MetadataImport\x12\\projects/{project}/locations/{location}/services/{service}/metadataImports/{metadata_import}B\n\n\x08metadata\"\xa2\x03\n\x0eMetadataExport\x12\"\n\x13\x64\x65stination_gcs_uri\x18\x04 \x01(\tB\x03\xe0\x41\x03H\x00\x12\x33\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12G\n\x05state\x18\x03 \x01(\x0e\x32\x33.google.cloud.metastore.v1beta.MetadataExport.StateB\x03\xe0\x41\x03\x12U\n\x12\x64\x61tabase_dump_type\x18\x05 \x01(\x0e\x32\x34.google.cloud.metastore.v1beta.DatabaseDumpSpec.TypeB\x03\xe0\x41\x03\"U\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\r\n\tCANCELLED\x10\x04\x42\r\n\x0b\x64\x65stination\"\x98\x04\n\x06\x42\x61\x63kup\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12?\n\x05state\x18\x04 \x01(\x0e\x32+.google.cloud.metastore.v1beta.Backup.StateB\x03\xe0\x41\x03\x12\x45\n\x10service_revision\x18\x05 \x01(\x0b\x32&.google.cloud.metastore.v1beta.ServiceB\x03\xe0\x41\x03\x12\x13\n\x0b\x64\x65scription\x18\x06 \x01(\t\x12\x1f\n\x12restoring_services\x18\x07 \x03(\tB\x03\xe0\x41\x03\"a\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\x0c\n\x08\x44\x45LETING\x10\x02\x12\n\n\x06\x41\x43TIVE\x10\x03\x12\n\n\x06\x46\x41ILED\x10\x04\x12\r\n\tRESTORING\x10\x05:q\xea\x41n\n\x1fmetastore.googleapis.com/Backup\x12Kprojects/{project}/locations/{location}/services/{service}/backups/{backup}\"\xea\x03\n\x07Restore\x12\x33\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12@\n\x05state\x18\x03 \x01(\x0e\x32,.google.cloud.metastore.v1beta.Restore.StateB\x03\xe0\x41\x03\x12\x37\n\x06\x62\x61\x63kup\x18\x04 \x01(\tB\'\xe0\x41\x03\xfa\x41!\n\x1fmetastore.googleapis.com/Backup\x12\x45\n\x04type\x18\x05 \x01(\x0e\x32\x32.google.cloud.metastore.v1beta.Restore.RestoreTypeB\x03\xe0\x41\x03\x12\x14\n\x07\x64\x65tails\x18\x06 \x01(\tB\x03\xe0\x41\x03\"U\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\r\n\tCANCELLED\x10\x04\"H\n\x0bRestoreType\x12\x1c\n\x18RESTORE_TYPE_UNSPECIFIED\x10\x00\x12\x08\n\x04\x46ULL\x10\x01\x12\x11\n\rMETADATA_ONLY\x10\x02\"\xac\x01\n\x13ListServicesRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\x12 metastore.googleapis.com/Service\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"~\n\x14ListServicesResponse\x12\x38\n\x08services\x18\x01 \x03(\x0b\x32&.google.cloud.metastore.v1beta.Service\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"K\n\x11GetServiceRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n metastore.googleapis.com/Service\"\xc0\x01\n\x14\x43reateServiceRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\x12 metastore.googleapis.com/Service\x12\x17\n\nservice_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12<\n\x07service\x18\x03 \x01(\x0b\x32&.google.cloud.metastore.v1beta.ServiceB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\xa3\x01\n\x14UpdateServiceRequest\x12\x34\n\x0bupdate_mask\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12<\n\x07service\x18\x02 \x01(\x0b\x32&.google.cloud.metastore.v1beta.ServiceB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"g\n\x14\x44\x65leteServiceRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n metastore.googleapis.com/Service\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\xba\x01\n\x1aListMetadataImportsRequest\x12?\n\x06parent\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\x12\'metastore.googleapis.com/MetadataImport\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\x94\x01\n\x1bListMetadataImportsResponse\x12G\n\x10metadata_imports\x18\x01 \x03(\x0b\x32-.google.cloud.metastore.v1beta.MetadataImport\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"Y\n\x18GetMetadataImportRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'metastore.googleapis.com/MetadataImport\"\xe5\x01\n\x1b\x43reateMetadataImportRequest\x12?\n\x06parent\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\x12\'metastore.googleapis.com/MetadataImport\x12\x1f\n\x12metadata_import_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12K\n\x0fmetadata_import\x18\x03 \x01(\x0b\x32-.google.cloud.metastore.v1beta.MetadataImportB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\xb9\x01\n\x1bUpdateMetadataImportRequest\x12\x34\n\x0bupdate_mask\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12K\n\x0fmetadata_import\x18\x02 \x01(\x0b\x32-.google.cloud.metastore.v1beta.MetadataImportB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xaa\x01\n\x12ListBackupsRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\x12\x1fmetastore.googleapis.com/Backup\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"{\n\x13ListBackupsResponse\x12\x36\n\x07\x62\x61\x63kups\x18\x01 \x03(\x0b\x32%.google.cloud.metastore.v1beta.Backup\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"I\n\x10GetBackupRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fmetastore.googleapis.com/Backup\"\xbb\x01\n\x13\x43reateBackupRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\x12\x1fmetastore.googleapis.com/Backup\x12\x16\n\tbackup_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12:\n\x06\x62\x61\x63kup\x18\x03 \x01(\x0b\x32%.google.cloud.metastore.v1beta.BackupB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"e\n\x13\x44\x65leteBackupRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fmetastore.googleapis.com/Backup\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\xf3\x01\n\x15\x45xportMetadataRequest\x12 \n\x16\x64\x65stination_gcs_folder\x18\x02 \x01(\tH\x00\x12\x39\n\x07service\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n metastore.googleapis.com/Service\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12U\n\x12\x64\x61tabase_dump_type\x18\x04 \x01(\x0e\x32\x34.google.cloud.metastore.v1beta.DatabaseDumpSpec.TypeB\x03\xe0\x41\x01\x42\r\n\x0b\x64\x65stination\"\xf3\x01\n\x15RestoreServiceRequest\x12\x39\n\x07service\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n metastore.googleapis.com/Service\x12\x37\n\x06\x62\x61\x63kup\x18\x02 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fmetastore.googleapis.com/Backup\x12M\n\x0crestore_type\x18\x03 \x01(\x0e\x32\x32.google.cloud.metastore.v1beta.Restore.RestoreTypeB\x03\xe0\x41\x01\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\x80\x02\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04verb\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x1b\n\x0estatus_message\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12#\n\x16requested_cancellation\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x61pi_version\x18\x07 \x01(\tB\x03\xe0\x41\x03\"\xc0\x01\n\x10LocationMetadata\x12o\n!supported_hive_metastore_versions\x18\x01 \x03(\x0b\x32\x44.google.cloud.metastore.v1beta.LocationMetadata.HiveMetastoreVersion\x1a;\n\x14HiveMetastoreVersion\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x12\n\nis_default\x18\x02 \x01(\x08\"E\n\x10\x44\x61tabaseDumpSpec\"1\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05MYSQL\x10\x01\x12\x08\n\x04\x41VRO\x10\x02\"P\n\x16RemoveIamPolicyRequest\x12\x1b\n\x08resource\x18\x01 \x01(\tB\t\xe0\x41\x02\xfa\x41\x03\n\x01*\x12\x19\n\x0c\x61synchronous\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\"*\n\x17RemoveIamPolicyResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"e\n\x14QueryMetadataRequest\x12\x39\n\x07service\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n metastore.googleapis.com/Service\x12\x12\n\x05query\x18\x02 \x01(\tB\x03\xe0\x41\x02\"4\n\x15QueryMetadataResponse\x12\x1b\n\x13result_manifest_uri\x18\x01 \x01(\t\"\xa8\x01\n\x1aMoveTableToDatabaseRequest\x12\x39\n\x07service\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n metastore.googleapis.com/Service\x12\x17\n\ntable_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07\x64\x62_name\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12 \n\x13\x64\x65stination_db_name\x18\x04 \x01(\tB\x03\xe0\x41\x02\"\x1d\n\x1bMoveTableToDatabaseResponse\"\x98\x01\n$AlterMetadataResourceLocationRequest\x12\x39\n\x07service\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n metastore.googleapis.com/Service\x12\x1a\n\rresource_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x19\n\x0clocation_uri\x18\x03 \x01(\tB\x03\xe0\x41\x02\"\'\n%AlterMetadataResourceLocationResponse2\x8f%\n\x11\x44\x61taprocMetastore\x12\xba\x01\n\x0cListServices\x12\x32.google.cloud.metastore.v1beta.ListServicesRequest\x1a\x33.google.cloud.metastore.v1beta.ListServicesResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta/{parent=projects/*/locations/*}/services\xda\x41\x06parent\x12\xa7\x01\n\nGetService\x12\x30.google.cloud.metastore.v1beta.GetServiceRequest\x1a&.google.cloud.metastore.v1beta.Service\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta/{name=projects/*/locations/*/services/*}\xda\x41\x04name\x12\x80\x02\n\rCreateService\x12\x33.google.cloud.metastore.v1beta.CreateServiceRequest\x1a\x1d.google.longrunning.Operation\"\x9a\x01\x82\xd3\xe4\x93\x02;\"0/v1beta/{parent=projects/*/locations/*}/services:\x07service\xda\x41\x19parent,service,service_id\xca\x41:\n\x07Service\x12/google.cloud.metastore.v1beta.OperationMetadata\x12\x82\x02\n\rUpdateService\x12\x33.google.cloud.metastore.v1beta.UpdateServiceRequest\x1a\x1d.google.longrunning.Operation\"\x9c\x01\x82\xd3\xe4\x93\x02\x43\x32\x38/v1beta/{service.name=projects/*/locations/*/services/*}:\x07service\xda\x41\x13service,update_mask\xca\x41:\n\x07Service\x12/google.cloud.metastore.v1beta.OperationMetadata\x12\xf0\x01\n\rDeleteService\x12\x33.google.cloud.metastore.v1beta.DeleteServiceRequest\x1a\x1d.google.longrunning.Operation\"\x8a\x01\x82\xd3\xe4\x93\x02\x32*0/v1beta/{name=projects/*/locations/*/services/*}\xda\x41\x04name\xca\x41H\n\x15google.protobuf.Empty\x12/google.cloud.metastore.v1beta.OperationMetadata\x12\xe1\x01\n\x13ListMetadataImports\x12\x39.google.cloud.metastore.v1beta.ListMetadataImportsRequest\x1a:.google.cloud.metastore.v1beta.ListMetadataImportsResponse\"S\x82\xd3\xe4\x93\x02\x44\x12\x42/v1beta/{parent=projects/*/locations/*/services/*}/metadataImports\xda\x41\x06parent\x12\xce\x01\n\x11GetMetadataImport\x12\x37.google.cloud.metastore.v1beta.GetMetadataImportRequest\x1a-.google.cloud.metastore.v1beta.MetadataImport\"Q\x82\xd3\xe4\x93\x02\x44\x12\x42/v1beta/{name=projects/*/locations/*/services/*/metadataImports/*}\xda\x41\x04name\x12\xbf\x02\n\x14\x43reateMetadataImport\x12:.google.cloud.metastore.v1beta.CreateMetadataImportRequest\x1a\x1d.google.longrunning.Operation\"\xcb\x01\x82\xd3\xe4\x93\x02U\"B/v1beta/{parent=projects/*/locations/*/services/*}/metadataImports:\x0fmetadata_import\xda\x41)parent,metadata_import,metadata_import_id\xca\x41\x41\n\x0eMetadataImport\x12/google.cloud.metastore.v1beta.OperationMetadata\x12\xc1\x02\n\x14UpdateMetadataImport\x12:.google.cloud.metastore.v1beta.UpdateMetadataImportRequest\x1a\x1d.google.longrunning.Operation\"\xcd\x01\x82\xd3\xe4\x93\x02\x65\x32R/v1beta/{metadata_import.name=projects/*/locations/*/services/*/metadataImports/*}:\x0fmetadata_import\xda\x41\x1bmetadata_import,update_mask\xca\x41\x41\n\x0eMetadataImport\x12/google.cloud.metastore.v1beta.OperationMetadata\x12\xf9\x01\n\x0e\x45xportMetadata\x12\x34.google.cloud.metastore.v1beta.ExportMetadataRequest\x1a\x1d.google.longrunning.Operation\"\x91\x01\x82\xd3\xe4\x93\x02G\"B/v1beta/{service=projects/*/locations/*/services/*}:exportMetadata:\x01*\xca\x41\x41\n\x0eMetadataExport\x12/google.cloud.metastore.v1beta.OperationMetadata\x12\xfc\x01\n\x0eRestoreService\x12\x34.google.cloud.metastore.v1beta.RestoreServiceRequest\x1a\x1d.google.longrunning.Operation\"\x94\x01\x82\xd3\xe4\x93\x02@\";/v1beta/{service=projects/*/locations/*/services/*}:restore:\x01*\xda\x41\x0eservice,backup\xca\x41:\n\x07Restore\x12/google.cloud.metastore.v1beta.OperationMetadata\x12\xc1\x01\n\x0bListBackups\x12\x31.google.cloud.metastore.v1beta.ListBackupsRequest\x1a\x32.google.cloud.metastore.v1beta.ListBackupsResponse\"K\x82\xd3\xe4\x93\x02<\x12:/v1beta/{parent=projects/*/locations/*/services/*}/backups\xda\x41\x06parent\x12\xae\x01\n\tGetBackup\x12/.google.cloud.metastore.v1beta.GetBackupRequest\x1a%.google.cloud.metastore.v1beta.Backup\"I\x82\xd3\xe4\x93\x02<\x12:/v1beta/{name=projects/*/locations/*/services/*/backups/*}\xda\x41\x04name\x12\x84\x02\n\x0c\x43reateBackup\x12\x32.google.cloud.metastore.v1beta.CreateBackupRequest\x1a\x1d.google.longrunning.Operation\"\xa0\x01\x82\xd3\xe4\x93\x02\x44\":/v1beta/{parent=projects/*/locations/*/services/*}/backups:\x06\x62\x61\x63kup\xda\x41\x17parent,backup,backup_id\xca\x41\x39\n\x06\x42\x61\x63kup\x12/google.cloud.metastore.v1beta.OperationMetadata\x12\xf8\x01\n\x0c\x44\x65leteBackup\x12\x32.google.cloud.metastore.v1beta.DeleteBackupRequest\x1a\x1d.google.longrunning.Operation\"\x94\x01\x82\xd3\xe4\x93\x02<*:/v1beta/{name=projects/*/locations/*/services/*/backups/*}\xda\x41\x04name\xca\x41H\n\x15google.protobuf.Empty\x12/google.cloud.metastore.v1beta.OperationMetadata\x12\xd4\x01\n\x0fRemoveIamPolicy\x12\x35.google.cloud.metastore.v1beta.RemoveIamPolicyRequest\x1a\x36.google.cloud.metastore.v1beta.RemoveIamPolicyResponse\"R\x82\xd3\xe4\x93\x02L\"G/v1beta/{resource=projects/*/locations/*/services/*/**}:removeIamPolicy:\x01*\x12\xfd\x01\n\rQueryMetadata\x12\x33.google.cloud.metastore.v1beta.QueryMetadataRequest\x1a\x1d.google.longrunning.Operation\"\x97\x01\x82\xd3\xe4\x93\x02\x46\"A/v1beta/{service=projects/*/locations/*/services/*}:queryMetadata:\x01*\xca\x41H\n\x15QueryMetadataResponse\x12/google.cloud.metastore.v1beta.OperationMetadata\x12\x95\x02\n\x13MoveTableToDatabase\x12\x39.google.cloud.metastore.v1beta.MoveTableToDatabaseRequest\x1a\x1d.google.longrunning.Operation\"\xa3\x01\x82\xd3\xe4\x93\x02L\"G/v1beta/{service=projects/*/locations/*/services/*}:moveTableToDatabase:\x01*\xca\x41N\n\x1bMoveTableToDatabaseResponse\x12/google.cloud.metastore.v1beta.OperationMetadata\x12\xad\x02\n\x1d\x41lterMetadataResourceLocation\x12\x43.google.cloud.metastore.v1beta.AlterMetadataResourceLocationRequest\x1a\x1d.google.longrunning.Operation\"\xa7\x01\x82\xd3\xe4\x93\x02\x46\"A/v1beta/{service=projects/*/locations/*/services/*}:alterLocation:\x01*\xca\x41X\n%AlterMetadataResourceLocationResponse\x12/google.cloud.metastore.v1beta.OperationMetadata\x1aL\xca\x41\x18metastore.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xa9\x03\n!com.google.cloud.metastore.v1betaB\x0eMetastoreProtoP\x01ZFgoogle.golang.org/genproto/googleapis/cloud/metastore/v1beta;metastore\xca\x02\x1dGoogle\\Cloud\\Metastore\\V1beta\xea\x41N\n\x1e\x63ompute.googleapis.com/Network\x12,projects/{project}/global/networks/{network}\xea\x41\x61\n!compute.googleapis.com/Subnetwork\x12<projects/{project}/regions/{region}/subnetworks/{subnetwork}\xea\x41T\n\x1c\x64\x61taplex.googleapis.com/Lake\x12\x34projects/{project}/locations/{location}/lakes/{lake}b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.metastore.v1beta.metastore_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n!com.google.cloud.metastore.v1betaB\016MetastoreProtoP\001ZFgoogle.golang.org/genproto/googleapis/cloud/metastore/v1beta;metastore\312\002\035Google\\Cloud\\Metastore\\V1beta\352AN\n\036compute.googleapis.com/Network\022,projects/{project}/global/networks/{network}'
+  DESCRIPTOR._serialized_options = b'\n!com.google.cloud.metastore.v1betaB\016MetastoreProtoP\001ZFgoogle.golang.org/genproto/googleapis/cloud/metastore/v1beta;metastore\312\002\035Google\\Cloud\\Metastore\\V1beta\352AN\n\036compute.googleapis.com/Network\022,projects/{project}/global/networks/{network}\352Aa\n!compute.googleapis.com/Subnetwork\022<projects/{project}/regions/{region}/subnetworks/{subnetwork}\352AT\n\034dataplex.googleapis.com/Lake\0224projects/{project}/locations/{location}/lakes/{lake}'
   _SERVICE_LABELSENTRY._options = None
   _SERVICE_LABELSENTRY._serialized_options = b'8\001'
   _SERVICE.fields_by_name['name']._options = None
@@ -54,12 +54,32 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _SERVICE.fields_by_name['metadata_management_activity']._serialized_options = b'\340A\003'
   _SERVICE.fields_by_name['release_channel']._options = None
   _SERVICE.fields_by_name['release_channel']._serialized_options = b'\340A\005'
+  _SERVICE.fields_by_name['encryption_config']._options = None
+  _SERVICE.fields_by_name['encryption_config']._serialized_options = b'\340A\005'
+  _SERVICE.fields_by_name['database_type']._options = None
+  _SERVICE.fields_by_name['database_type']._serialized_options = b'\340A\005'
   _SERVICE._options = None
   _SERVICE._serialized_options = b'\352A^\n metastore.googleapis.com/Service\022:projects/{project}/locations/{location}/services/{service}'
+  _DATAPLEXCONFIG_LAKERESOURCESENTRY._options = None
+  _DATAPLEXCONFIG_LAKERESOURCESENTRY._serialized_options = b'8\001'
+  _LAKE.fields_by_name['name']._options = None
+  _LAKE.fields_by_name['name']._serialized_options = b'\372A\036\n\034dataplex.googleapis.com/Lake'
   _HIVEMETASTORECONFIG_CONFIGOVERRIDESENTRY._options = None
   _HIVEMETASTORECONFIG_CONFIGOVERRIDESENTRY._serialized_options = b'8\001'
+  _HIVEMETASTORECONFIG_AUXILIARYVERSIONSENTRY._options = None
+  _HIVEMETASTORECONFIG_AUXILIARYVERSIONSENTRY._serialized_options = b'8\001'
   _HIVEMETASTORECONFIG.fields_by_name['version']._options = None
   _HIVEMETASTORECONFIG.fields_by_name['version']._serialized_options = b'\340A\005'
+  _AUXILIARYVERSIONCONFIG_CONFIGOVERRIDESENTRY._options = None
+  _AUXILIARYVERSIONCONFIG_CONFIGOVERRIDESENTRY._serialized_options = b'8\001'
+  _AUXILIARYVERSIONCONFIG.fields_by_name['network_config']._options = None
+  _AUXILIARYVERSIONCONFIG.fields_by_name['network_config']._serialized_options = b'\340A\003'
+  _NETWORKCONFIG_CONSUMER.fields_by_name['subnetwork']._options = None
+  _NETWORKCONFIG_CONSUMER.fields_by_name['subnetwork']._serialized_options = b'\340A\005\372A#\n!compute.googleapis.com/Subnetwork'
+  _NETWORKCONFIG_CONSUMER.fields_by_name['endpoint_uri']._options = None
+  _NETWORKCONFIG_CONSUMER.fields_by_name['endpoint_uri']._serialized_options = b'\340A\003'
+  _NETWORKCONFIG.fields_by_name['consumers']._options = None
+  _NETWORKCONFIG.fields_by_name['consumers']._serialized_options = b'\340A\005'
   _METADATAMANAGEMENTACTIVITY.fields_by_name['metadata_exports']._options = None
   _METADATAMANAGEMENTACTIVITY.fields_by_name['metadata_exports']._serialized_options = b'\340A\003'
   _METADATAMANAGEMENTACTIVITY.fields_by_name['restores']._options = None
@@ -78,6 +98,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _METADATAIMPORT.fields_by_name['create_time']._serialized_options = b'\340A\003'
   _METADATAIMPORT.fields_by_name['update_time']._options = None
   _METADATAIMPORT.fields_by_name['update_time']._serialized_options = b'\340A\003'
+  _METADATAIMPORT.fields_by_name['end_time']._options = None
+  _METADATAIMPORT.fields_by_name['end_time']._serialized_options = b'\340A\003'
   _METADATAIMPORT.fields_by_name['state']._options = None
   _METADATAIMPORT.fields_by_name['state']._serialized_options = b'\340A\003'
   _METADATAIMPORT._options = None
@@ -102,6 +124,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _BACKUP.fields_by_name['state']._serialized_options = b'\340A\003'
   _BACKUP.fields_by_name['service_revision']._options = None
   _BACKUP.fields_by_name['service_revision']._serialized_options = b'\340A\003'
+  _BACKUP.fields_by_name['restoring_services']._options = None
+  _BACKUP.fields_by_name['restoring_services']._serialized_options = b'\340A\003'
   _BACKUP._options = None
   _BACKUP._serialized_options = b'\352An\n\037metastore.googleapis.com/Backup\022Kprojects/{project}/locations/{location}/services/{service}/backups/{backup}'
   _RESTORE.fields_by_name['start_time']._options = None
@@ -117,7 +141,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _RESTORE.fields_by_name['details']._options = None
   _RESTORE.fields_by_name['details']._serialized_options = b'\340A\003'
   _LISTSERVICESREQUEST.fields_by_name['parent']._options = None
-  _LISTSERVICESREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A#\n!locations.googleapis.com/Location'
+  _LISTSERVICESREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A\"\022 metastore.googleapis.com/Service'
   _LISTSERVICESREQUEST.fields_by_name['page_size']._options = None
   _LISTSERVICESREQUEST.fields_by_name['page_size']._serialized_options = b'\340A\001'
   _LISTSERVICESREQUEST.fields_by_name['page_token']._options = None
@@ -129,7 +153,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _GETSERVICEREQUEST.fields_by_name['name']._options = None
   _GETSERVICEREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A\"\n metastore.googleapis.com/Service'
   _CREATESERVICEREQUEST.fields_by_name['parent']._options = None
-  _CREATESERVICEREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A#\n!locations.googleapis.com/Location'
+  _CREATESERVICEREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A\"\022 metastore.googleapis.com/Service'
   _CREATESERVICEREQUEST.fields_by_name['service_id']._options = None
   _CREATESERVICEREQUEST.fields_by_name['service_id']._serialized_options = b'\340A\002'
   _CREATESERVICEREQUEST.fields_by_name['service']._options = None
@@ -147,7 +171,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _DELETESERVICEREQUEST.fields_by_name['request_id']._options = None
   _DELETESERVICEREQUEST.fields_by_name['request_id']._serialized_options = b'\340A\001'
   _LISTMETADATAIMPORTSREQUEST.fields_by_name['parent']._options = None
-  _LISTMETADATAIMPORTSREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A\"\n metastore.googleapis.com/Service'
+  _LISTMETADATAIMPORTSREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A)\022\'metastore.googleapis.com/MetadataImport'
   _LISTMETADATAIMPORTSREQUEST.fields_by_name['page_size']._options = None
   _LISTMETADATAIMPORTSREQUEST.fields_by_name['page_size']._serialized_options = b'\340A\001'
   _LISTMETADATAIMPORTSREQUEST.fields_by_name['page_token']._options = None
@@ -159,7 +183,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _GETMETADATAIMPORTREQUEST.fields_by_name['name']._options = None
   _GETMETADATAIMPORTREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A)\n\'metastore.googleapis.com/MetadataImport'
   _CREATEMETADATAIMPORTREQUEST.fields_by_name['parent']._options = None
-  _CREATEMETADATAIMPORTREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A\"\n metastore.googleapis.com/Service'
+  _CREATEMETADATAIMPORTREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A)\022\'metastore.googleapis.com/MetadataImport'
   _CREATEMETADATAIMPORTREQUEST.fields_by_name['metadata_import_id']._options = None
   _CREATEMETADATAIMPORTREQUEST.fields_by_name['metadata_import_id']._serialized_options = b'\340A\002'
   _CREATEMETADATAIMPORTREQUEST.fields_by_name['metadata_import']._options = None
@@ -173,7 +197,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _UPDATEMETADATAIMPORTREQUEST.fields_by_name['request_id']._options = None
   _UPDATEMETADATAIMPORTREQUEST.fields_by_name['request_id']._serialized_options = b'\340A\001'
   _LISTBACKUPSREQUEST.fields_by_name['parent']._options = None
-  _LISTBACKUPSREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A\"\n metastore.googleapis.com/Service'
+  _LISTBACKUPSREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A!\022\037metastore.googleapis.com/Backup'
   _LISTBACKUPSREQUEST.fields_by_name['page_size']._options = None
   _LISTBACKUPSREQUEST.fields_by_name['page_size']._serialized_options = b'\340A\001'
   _LISTBACKUPSREQUEST.fields_by_name['page_token']._options = None
@@ -185,7 +209,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _GETBACKUPREQUEST.fields_by_name['name']._options = None
   _GETBACKUPREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A!\n\037metastore.googleapis.com/Backup'
   _CREATEBACKUPREQUEST.fields_by_name['parent']._options = None
-  _CREATEBACKUPREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A\"\n metastore.googleapis.com/Service'
+  _CREATEBACKUPREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A!\022\037metastore.googleapis.com/Backup'
   _CREATEBACKUPREQUEST.fields_by_name['backup_id']._options = None
   _CREATEBACKUPREQUEST.fields_by_name['backup_id']._serialized_options = b'\340A\002'
   _CREATEBACKUPREQUEST.fields_by_name['backup']._options = None
@@ -224,6 +248,28 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _OPERATIONMETADATA.fields_by_name['requested_cancellation']._serialized_options = b'\340A\003'
   _OPERATIONMETADATA.fields_by_name['api_version']._options = None
   _OPERATIONMETADATA.fields_by_name['api_version']._serialized_options = b'\340A\003'
+  _REMOVEIAMPOLICYREQUEST.fields_by_name['resource']._options = None
+  _REMOVEIAMPOLICYREQUEST.fields_by_name['resource']._serialized_options = b'\340A\002\372A\003\n\001*'
+  _REMOVEIAMPOLICYREQUEST.fields_by_name['asynchronous']._options = None
+  _REMOVEIAMPOLICYREQUEST.fields_by_name['asynchronous']._serialized_options = b'\340A\001'
+  _QUERYMETADATAREQUEST.fields_by_name['service']._options = None
+  _QUERYMETADATAREQUEST.fields_by_name['service']._serialized_options = b'\340A\002\372A\"\n metastore.googleapis.com/Service'
+  _QUERYMETADATAREQUEST.fields_by_name['query']._options = None
+  _QUERYMETADATAREQUEST.fields_by_name['query']._serialized_options = b'\340A\002'
+  _MOVETABLETODATABASEREQUEST.fields_by_name['service']._options = None
+  _MOVETABLETODATABASEREQUEST.fields_by_name['service']._serialized_options = b'\340A\002\372A\"\n metastore.googleapis.com/Service'
+  _MOVETABLETODATABASEREQUEST.fields_by_name['table_name']._options = None
+  _MOVETABLETODATABASEREQUEST.fields_by_name['table_name']._serialized_options = b'\340A\002'
+  _MOVETABLETODATABASEREQUEST.fields_by_name['db_name']._options = None
+  _MOVETABLETODATABASEREQUEST.fields_by_name['db_name']._serialized_options = b'\340A\002'
+  _MOVETABLETODATABASEREQUEST.fields_by_name['destination_db_name']._options = None
+  _MOVETABLETODATABASEREQUEST.fields_by_name['destination_db_name']._serialized_options = b'\340A\002'
+  _ALTERMETADATARESOURCELOCATIONREQUEST.fields_by_name['service']._options = None
+  _ALTERMETADATARESOURCELOCATIONREQUEST.fields_by_name['service']._serialized_options = b'\340A\002\372A\"\n metastore.googleapis.com/Service'
+  _ALTERMETADATARESOURCELOCATIONREQUEST.fields_by_name['resource_name']._options = None
+  _ALTERMETADATARESOURCELOCATIONREQUEST.fields_by_name['resource_name']._serialized_options = b'\340A\002'
+  _ALTERMETADATARESOURCELOCATIONREQUEST.fields_by_name['location_uri']._options = None
+  _ALTERMETADATARESOURCELOCATIONREQUEST.fields_by_name['location_uri']._serialized_options = b'\340A\002'
   _DATAPROCMETASTORE._options = None
   _DATAPROCMETASTORE._serialized_options = b'\312A\030metastore.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform'
   _DATAPROCMETASTORE.methods_by_name['ListServices']._options = None
@@ -231,125 +277,175 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _DATAPROCMETASTORE.methods_by_name['GetService']._options = None
   _DATAPROCMETASTORE.methods_by_name['GetService']._serialized_options = b'\202\323\344\223\0022\0220/v1beta/{name=projects/*/locations/*/services/*}\332A\004name'
   _DATAPROCMETASTORE.methods_by_name['CreateService']._options = None
-  _DATAPROCMETASTORE.methods_by_name['CreateService']._serialized_options = b'\202\323\344\223\002;\"0/v1beta/{parent=projects/*/locations/*}/services:\007service\332A\031parent,service,service_id\312A\034\n\007Service\022\021OperationMetadata'
+  _DATAPROCMETASTORE.methods_by_name['CreateService']._serialized_options = b'\202\323\344\223\002;\"0/v1beta/{parent=projects/*/locations/*}/services:\007service\332A\031parent,service,service_id\312A:\n\007Service\022/google.cloud.metastore.v1beta.OperationMetadata'
   _DATAPROCMETASTORE.methods_by_name['UpdateService']._options = None
-  _DATAPROCMETASTORE.methods_by_name['UpdateService']._serialized_options = b'\202\323\344\223\002C28/v1beta/{service.name=projects/*/locations/*/services/*}:\007service\332A\023service,update_mask\312A\034\n\007Service\022\021OperationMetadata'
+  _DATAPROCMETASTORE.methods_by_name['UpdateService']._serialized_options = b'\202\323\344\223\002C28/v1beta/{service.name=projects/*/locations/*/services/*}:\007service\332A\023service,update_mask\312A:\n\007Service\022/google.cloud.metastore.v1beta.OperationMetadata'
   _DATAPROCMETASTORE.methods_by_name['DeleteService']._options = None
-  _DATAPROCMETASTORE.methods_by_name['DeleteService']._serialized_options = b'\202\323\344\223\0022*0/v1beta/{name=projects/*/locations/*/services/*}\332A\004name\312A*\n\025google.protobuf.Empty\022\021OperationMetadata'
+  _DATAPROCMETASTORE.methods_by_name['DeleteService']._serialized_options = b'\202\323\344\223\0022*0/v1beta/{name=projects/*/locations/*/services/*}\332A\004name\312AH\n\025google.protobuf.Empty\022/google.cloud.metastore.v1beta.OperationMetadata'
   _DATAPROCMETASTORE.methods_by_name['ListMetadataImports']._options = None
   _DATAPROCMETASTORE.methods_by_name['ListMetadataImports']._serialized_options = b'\202\323\344\223\002D\022B/v1beta/{parent=projects/*/locations/*/services/*}/metadataImports\332A\006parent'
   _DATAPROCMETASTORE.methods_by_name['GetMetadataImport']._options = None
   _DATAPROCMETASTORE.methods_by_name['GetMetadataImport']._serialized_options = b'\202\323\344\223\002D\022B/v1beta/{name=projects/*/locations/*/services/*/metadataImports/*}\332A\004name'
   _DATAPROCMETASTORE.methods_by_name['CreateMetadataImport']._options = None
-  _DATAPROCMETASTORE.methods_by_name['CreateMetadataImport']._serialized_options = b'\202\323\344\223\002U\"B/v1beta/{parent=projects/*/locations/*/services/*}/metadataImports:\017metadata_import\332A)parent,metadata_import,metadata_import_id\312A#\n\016MetadataImport\022\021OperationMetadata'
+  _DATAPROCMETASTORE.methods_by_name['CreateMetadataImport']._serialized_options = b'\202\323\344\223\002U\"B/v1beta/{parent=projects/*/locations/*/services/*}/metadataImports:\017metadata_import\332A)parent,metadata_import,metadata_import_id\312AA\n\016MetadataImport\022/google.cloud.metastore.v1beta.OperationMetadata'
   _DATAPROCMETASTORE.methods_by_name['UpdateMetadataImport']._options = None
-  _DATAPROCMETASTORE.methods_by_name['UpdateMetadataImport']._serialized_options = b'\202\323\344\223\002e2R/v1beta/{metadata_import.name=projects/*/locations/*/services/*/metadataImports/*}:\017metadata_import\332A\033metadata_import,update_mask\312A#\n\016MetadataImport\022\021OperationMetadata'
+  _DATAPROCMETASTORE.methods_by_name['UpdateMetadataImport']._serialized_options = b'\202\323\344\223\002e2R/v1beta/{metadata_import.name=projects/*/locations/*/services/*/metadataImports/*}:\017metadata_import\332A\033metadata_import,update_mask\312AA\n\016MetadataImport\022/google.cloud.metastore.v1beta.OperationMetadata'
   _DATAPROCMETASTORE.methods_by_name['ExportMetadata']._options = None
-  _DATAPROCMETASTORE.methods_by_name['ExportMetadata']._serialized_options = b'\202\323\344\223\002G\"B/v1beta/{service=projects/*/locations/*/services/*}:exportMetadata:\001*\312A#\n\016MetadataExport\022\021OperationMetadata'
+  _DATAPROCMETASTORE.methods_by_name['ExportMetadata']._serialized_options = b'\202\323\344\223\002G\"B/v1beta/{service=projects/*/locations/*/services/*}:exportMetadata:\001*\312AA\n\016MetadataExport\022/google.cloud.metastore.v1beta.OperationMetadata'
   _DATAPROCMETASTORE.methods_by_name['RestoreService']._options = None
-  _DATAPROCMETASTORE.methods_by_name['RestoreService']._serialized_options = b'\202\323\344\223\002@\";/v1beta/{service=projects/*/locations/*/services/*}:restore:\001*\332A\016service,backup\312A\034\n\007Restore\022\021OperationMetadata'
+  _DATAPROCMETASTORE.methods_by_name['RestoreService']._serialized_options = b'\202\323\344\223\002@\";/v1beta/{service=projects/*/locations/*/services/*}:restore:\001*\332A\016service,backup\312A:\n\007Restore\022/google.cloud.metastore.v1beta.OperationMetadata'
   _DATAPROCMETASTORE.methods_by_name['ListBackups']._options = None
   _DATAPROCMETASTORE.methods_by_name['ListBackups']._serialized_options = b'\202\323\344\223\002<\022:/v1beta/{parent=projects/*/locations/*/services/*}/backups\332A\006parent'
   _DATAPROCMETASTORE.methods_by_name['GetBackup']._options = None
   _DATAPROCMETASTORE.methods_by_name['GetBackup']._serialized_options = b'\202\323\344\223\002<\022:/v1beta/{name=projects/*/locations/*/services/*/backups/*}\332A\004name'
   _DATAPROCMETASTORE.methods_by_name['CreateBackup']._options = None
-  _DATAPROCMETASTORE.methods_by_name['CreateBackup']._serialized_options = b'\202\323\344\223\002D\":/v1beta/{parent=projects/*/locations/*/services/*}/backups:\006backup\332A\027parent,backup,backup_id\312A\033\n\006Backup\022\021OperationMetadata'
+  _DATAPROCMETASTORE.methods_by_name['CreateBackup']._serialized_options = b'\202\323\344\223\002D\":/v1beta/{parent=projects/*/locations/*/services/*}/backups:\006backup\332A\027parent,backup,backup_id\312A9\n\006Backup\022/google.cloud.metastore.v1beta.OperationMetadata'
   _DATAPROCMETASTORE.methods_by_name['DeleteBackup']._options = None
-  _DATAPROCMETASTORE.methods_by_name['DeleteBackup']._serialized_options = b'\202\323\344\223\002<*:/v1beta/{name=projects/*/locations/*/services/*/backups/*}\332A\004name\312A*\n\025google.protobuf.Empty\022\021OperationMetadata'
+  _DATAPROCMETASTORE.methods_by_name['DeleteBackup']._serialized_options = b'\202\323\344\223\002<*:/v1beta/{name=projects/*/locations/*/services/*/backups/*}\332A\004name\312AH\n\025google.protobuf.Empty\022/google.cloud.metastore.v1beta.OperationMetadata'
+  _DATAPROCMETASTORE.methods_by_name['RemoveIamPolicy']._options = None
+  _DATAPROCMETASTORE.methods_by_name['RemoveIamPolicy']._serialized_options = b'\202\323\344\223\002L\"G/v1beta/{resource=projects/*/locations/*/services/*/**}:removeIamPolicy:\001*'
+  _DATAPROCMETASTORE.methods_by_name['QueryMetadata']._options = None
+  _DATAPROCMETASTORE.methods_by_name['QueryMetadata']._serialized_options = b'\202\323\344\223\002F\"A/v1beta/{service=projects/*/locations/*/services/*}:queryMetadata:\001*\312AH\n\025QueryMetadataResponse\022/google.cloud.metastore.v1beta.OperationMetadata'
+  _DATAPROCMETASTORE.methods_by_name['MoveTableToDatabase']._options = None
+  _DATAPROCMETASTORE.methods_by_name['MoveTableToDatabase']._serialized_options = b'\202\323\344\223\002L\"G/v1beta/{service=projects/*/locations/*/services/*}:moveTableToDatabase:\001*\312AN\n\033MoveTableToDatabaseResponse\022/google.cloud.metastore.v1beta.OperationMetadata'
+  _DATAPROCMETASTORE.methods_by_name['AlterMetadataResourceLocation']._options = None
+  _DATAPROCMETASTORE.methods_by_name['AlterMetadataResourceLocation']._serialized_options = b'\202\323\344\223\002F\"A/v1beta/{service=projects/*/locations/*/services/*}:alterLocation:\001*\312AX\n%AlterMetadataResourceLocationResponse\022/google.cloud.metastore.v1beta.OperationMetadata'
   _SERVICE._serialized_start=361
-  _SERVICE._serialized_end=1727
-  _SERVICE_LABELSENTRY._serialized_start=1299
-  _SERVICE_LABELSENTRY._serialized_end=1344
-  _SERVICE_STATE._serialized_start=1346
-  _SERVICE_STATE._serialized_end=1472
-  _SERVICE_TIER._serialized_start=1474
-  _SERVICE_TIER._serialized_end=1533
-  _SERVICE_RELEASECHANNEL._serialized_start=1535
-  _SERVICE_RELEASECHANNEL._serialized_end=1608
-  _METADATAINTEGRATION._serialized_start=1729
-  _METADATAINTEGRATION._serialized_end=1829
-  _DATACATALOGCONFIG._serialized_start=1831
-  _DATACATALOGCONFIG._serialized_end=1867
-  _MAINTENANCEWINDOW._serialized_start=1869
-  _MAINTENANCEWINDOW._serialized_end=1983
-  _HIVEMETASTORECONFIG._serialized_start=1986
-  _HIVEMETASTORECONFIG._serialized_end=2256
-  _HIVEMETASTORECONFIG_CONFIGOVERRIDESENTRY._serialized_start=2202
-  _HIVEMETASTORECONFIG_CONFIGOVERRIDESENTRY._serialized_end=2256
-  _KERBEROSCONFIG._serialized_start=2258
-  _KERBEROSCONFIG._serialized_end=2377
-  _SECRET._serialized_start=2379
-  _SECRET._serialized_end=2420
-  _METADATAMANAGEMENTACTIVITY._serialized_start=2423
-  _METADATAMANAGEMENTACTIVITY._serialized_end=2592
-  _METADATAIMPORT._serialized_start=2595
-  _METADATAIMPORT._serialized_end=3456
-  _METADATAIMPORT_DATABASEDUMP._serialized_start=2925
-  _METADATAIMPORT_DATABASEDUMP._serialized_end=3216
-  _METADATAIMPORT_DATABASEDUMP_DATABASETYPE._serialized_start=3160
-  _METADATAIMPORT_DATABASEDUMP_DATABASETYPE._serialized_end=3216
-  _METADATAIMPORT_STATE._serialized_start=3218
-  _METADATAIMPORT_STATE._serialized_end=3302
-  _METADATAEXPORT._serialized_start=3459
-  _METADATAEXPORT._serialized_end=3877
-  _METADATAEXPORT_STATE._serialized_start=3777
-  _METADATAEXPORT_STATE._serialized_end=3862
-  _BACKUP._serialized_start=3880
-  _BACKUP._serialized_end=4368
-  _BACKUP_STATE._serialized_start=4171
-  _BACKUP_STATE._serialized_end=4253
-  _RESTORE._serialized_start=4371
-  _RESTORE._serialized_end=4861
-  _RESTORE_STATE._serialized_start=3777
-  _RESTORE_STATE._serialized_end=3862
-  _RESTORE_RESTORETYPE._serialized_start=4789
-  _RESTORE_RESTORETYPE._serialized_end=4861
-  _LISTSERVICESREQUEST._serialized_start=4864
-  _LISTSERVICESREQUEST._serialized_end=5037
-  _LISTSERVICESRESPONSE._serialized_start=5039
-  _LISTSERVICESRESPONSE._serialized_end=5165
-  _GETSERVICEREQUEST._serialized_start=5167
-  _GETSERVICEREQUEST._serialized_end=5242
-  _CREATESERVICEREQUEST._serialized_start=5245
-  _CREATESERVICEREQUEST._serialized_end=5438
-  _UPDATESERVICEREQUEST._serialized_start=5441
-  _UPDATESERVICEREQUEST._serialized_end=5604
-  _DELETESERVICEREQUEST._serialized_start=5606
-  _DELETESERVICEREQUEST._serialized_end=5709
-  _LISTMETADATAIMPORTSREQUEST._serialized_start=5712
-  _LISTMETADATAIMPORTSREQUEST._serialized_end=5891
-  _LISTMETADATAIMPORTSRESPONSE._serialized_start=5894
-  _LISTMETADATAIMPORTSRESPONSE._serialized_end=6042
-  _GETMETADATAIMPORTREQUEST._serialized_start=6044
-  _GETMETADATAIMPORTREQUEST._serialized_end=6133
-  _CREATEMETADATAIMPORTREQUEST._serialized_start=6136
-  _CREATEMETADATAIMPORTREQUEST._serialized_end=6358
-  _UPDATEMETADATAIMPORTREQUEST._serialized_start=6361
-  _UPDATEMETADATAIMPORTREQUEST._serialized_end=6546
-  _LISTBACKUPSREQUEST._serialized_start=6549
-  _LISTBACKUPSREQUEST._serialized_end=6720
-  _LISTBACKUPSRESPONSE._serialized_start=6722
-  _LISTBACKUPSRESPONSE._serialized_end=6845
-  _GETBACKUPREQUEST._serialized_start=6847
-  _GETBACKUPREQUEST._serialized_end=6920
-  _CREATEBACKUPREQUEST._serialized_start=6923
-  _CREATEBACKUPREQUEST._serialized_end=7111
-  _DELETEBACKUPREQUEST._serialized_start=7113
-  _DELETEBACKUPREQUEST._serialized_end=7214
-  _EXPORTMETADATAREQUEST._serialized_start=7217
-  _EXPORTMETADATAREQUEST._serialized_end=7460
-  _RESTORESERVICEREQUEST._serialized_start=7463
-  _RESTORESERVICEREQUEST._serialized_end=7706
-  _OPERATIONMETADATA._serialized_start=7709
-  _OPERATIONMETADATA._serialized_end=7965
-  _LOCATIONMETADATA._serialized_start=7968
-  _LOCATIONMETADATA._serialized_end=8160
-  _LOCATIONMETADATA_HIVEMETASTOREVERSION._serialized_start=8101
-  _LOCATIONMETADATA_HIVEMETASTOREVERSION._serialized_end=8160
-  _DATABASEDUMPSPEC._serialized_start=8162
-  _DATABASEDUMPSPEC._serialized_end=8221
-  _DATABASEDUMPSPEC_TYPE._serialized_start=8182
-  _DATABASEDUMPSPEC_TYPE._serialized_end=8221
-  _DATAPROCMETASTORE._serialized_start=8224
-  _DATAPROCMETASTORE._serialized_end=11644
+  _SERVICE._serialized_end=2104
+  _SERVICE_LABELSENTRY._serialized_start=1605
+  _SERVICE_LABELSENTRY._serialized_end=1650
+  _SERVICE_STATE._serialized_start=1652
+  _SERVICE_STATE._serialized_end=1778
+  _SERVICE_TIER._serialized_start=1780
+  _SERVICE_TIER._serialized_end=1839
+  _SERVICE_RELEASECHANNEL._serialized_start=1841
+  _SERVICE_RELEASECHANNEL._serialized_end=1914
+  _SERVICE_DATABASETYPE._serialized_start=1916
+  _SERVICE_DATABASETYPE._serialized_end=1985
+  _METADATAINTEGRATION._serialized_start=2107
+  _METADATAINTEGRATION._serialized_end=2279
+  _DATACATALOGCONFIG._serialized_start=2281
+  _DATACATALOGCONFIG._serialized_end=2317
+  _DATAPLEXCONFIG._serialized_start=2320
+  _DATAPLEXCONFIG._serialized_end=2517
+  _DATAPLEXCONFIG_LAKERESOURCESENTRY._serialized_start=2428
+  _DATAPLEXCONFIG_LAKERESOURCESENTRY._serialized_end=2517
+  _LAKE._serialized_start=2519
+  _LAKE._serialized_end=2574
+  _MAINTENANCEWINDOW._serialized_start=2576
+  _MAINTENANCEWINDOW._serialized_end=2690
+  _HIVEMETASTORECONFIG._serialized_start=2693
+  _HIVEMETASTORECONFIG._serialized_end=3352
+  _HIVEMETASTORECONFIG_CONFIGOVERRIDESENTRY._serialized_start=3108
+  _HIVEMETASTORECONFIG_CONFIGOVERRIDESENTRY._serialized_end=3162
+  _HIVEMETASTORECONFIG_AUXILIARYVERSIONSENTRY._serialized_start=3164
+  _HIVEMETASTORECONFIG_AUXILIARYVERSIONSENTRY._serialized_end=3275
+  _HIVEMETASTORECONFIG_ENDPOINTPROTOCOL._serialized_start=3277
+  _HIVEMETASTORECONFIG_ENDPOINTPROTOCOL._serialized_end=3352
+  _KERBEROSCONFIG._serialized_start=3354
+  _KERBEROSCONFIG._serialized_end=3473
+  _SECRET._serialized_start=3475
+  _SECRET._serialized_end=3516
+  _ENCRYPTIONCONFIG._serialized_start=3518
+  _ENCRYPTIONCONFIG._serialized_end=3553
+  _AUXILIARYVERSIONCONFIG._serialized_start=3556
+  _AUXILIARYVERSIONCONFIG._serialized_end=3830
+  _AUXILIARYVERSIONCONFIG_CONFIGOVERRIDESENTRY._serialized_start=3108
+  _AUXILIARYVERSIONCONFIG_CONFIGOVERRIDESENTRY._serialized_end=3162
+  _NETWORKCONFIG._serialized_start=3833
+  _NETWORKCONFIG._serialized_end=4047
+  _NETWORKCONFIG_CONSUMER._serialized_start=3929
+  _NETWORKCONFIG_CONSUMER._serialized_end=4047
+  _TELEMETRYCONFIG._serialized_start=4050
+  _TELEMETRYCONFIG._serialized_end=4208
+  _TELEMETRYCONFIG_LOGFORMAT._serialized_start=4147
+  _TELEMETRYCONFIG_LOGFORMAT._serialized_end=4208
+  _METADATAMANAGEMENTACTIVITY._serialized_start=4211
+  _METADATAMANAGEMENTACTIVITY._serialized_end=4380
+  _METADATAIMPORT._serialized_start=4383
+  _METADATAIMPORT._serialized_end=5295
+  _METADATAIMPORT_DATABASEDUMP._serialized_start=4764
+  _METADATAIMPORT_DATABASEDUMP._serialized_end=5055
+  _METADATAIMPORT_DATABASEDUMP_DATABASETYPE._serialized_start=1916
+  _METADATAIMPORT_DATABASEDUMP_DATABASETYPE._serialized_end=1972
+  _METADATAIMPORT_STATE._serialized_start=5057
+  _METADATAIMPORT_STATE._serialized_end=5141
+  _METADATAEXPORT._serialized_start=5298
+  _METADATAEXPORT._serialized_end=5716
+  _METADATAEXPORT_STATE._serialized_start=5616
+  _METADATAEXPORT_STATE._serialized_end=5701
+  _BACKUP._serialized_start=5719
+  _BACKUP._serialized_end=6255
+  _BACKUP_STATE._serialized_start=6043
+  _BACKUP_STATE._serialized_end=6140
+  _RESTORE._serialized_start=6258
+  _RESTORE._serialized_end=6748
+  _RESTORE_STATE._serialized_start=5616
+  _RESTORE_STATE._serialized_end=5701
+  _RESTORE_RESTORETYPE._serialized_start=6676
+  _RESTORE_RESTORETYPE._serialized_end=6748
+  _LISTSERVICESREQUEST._serialized_start=6751
+  _LISTSERVICESREQUEST._serialized_end=6923
+  _LISTSERVICESRESPONSE._serialized_start=6925
+  _LISTSERVICESRESPONSE._serialized_end=7051
+  _GETSERVICEREQUEST._serialized_start=7053
+  _GETSERVICEREQUEST._serialized_end=7128
+  _CREATESERVICEREQUEST._serialized_start=7131
+  _CREATESERVICEREQUEST._serialized_end=7323
+  _UPDATESERVICEREQUEST._serialized_start=7326
+  _UPDATESERVICEREQUEST._serialized_end=7489
+  _DELETESERVICEREQUEST._serialized_start=7491
+  _DELETESERVICEREQUEST._serialized_end=7594
+  _LISTMETADATAIMPORTSREQUEST._serialized_start=7597
+  _LISTMETADATAIMPORTSREQUEST._serialized_end=7783
+  _LISTMETADATAIMPORTSRESPONSE._serialized_start=7786
+  _LISTMETADATAIMPORTSRESPONSE._serialized_end=7934
+  _GETMETADATAIMPORTREQUEST._serialized_start=7936
+  _GETMETADATAIMPORTREQUEST._serialized_end=8025
+  _CREATEMETADATAIMPORTREQUEST._serialized_start=8028
+  _CREATEMETADATAIMPORTREQUEST._serialized_end=8257
+  _UPDATEMETADATAIMPORTREQUEST._serialized_start=8260
+  _UPDATEMETADATAIMPORTREQUEST._serialized_end=8445
+  _LISTBACKUPSREQUEST._serialized_start=8448
+  _LISTBACKUPSREQUEST._serialized_end=8618
+  _LISTBACKUPSRESPONSE._serialized_start=8620
+  _LISTBACKUPSRESPONSE._serialized_end=8743
+  _GETBACKUPREQUEST._serialized_start=8745
+  _GETBACKUPREQUEST._serialized_end=8818
+  _CREATEBACKUPREQUEST._serialized_start=8821
+  _CREATEBACKUPREQUEST._serialized_end=9008
+  _DELETEBACKUPREQUEST._serialized_start=9010
+  _DELETEBACKUPREQUEST._serialized_end=9111
+  _EXPORTMETADATAREQUEST._serialized_start=9114
+  _EXPORTMETADATAREQUEST._serialized_end=9357
+  _RESTORESERVICEREQUEST._serialized_start=9360
+  _RESTORESERVICEREQUEST._serialized_end=9603
+  _OPERATIONMETADATA._serialized_start=9606
+  _OPERATIONMETADATA._serialized_end=9862
+  _LOCATIONMETADATA._serialized_start=9865
+  _LOCATIONMETADATA._serialized_end=10057
+  _LOCATIONMETADATA_HIVEMETASTOREVERSION._serialized_start=9998
+  _LOCATIONMETADATA_HIVEMETASTOREVERSION._serialized_end=10057
+  _DATABASEDUMPSPEC._serialized_start=10059
+  _DATABASEDUMPSPEC._serialized_end=10128
+  _DATABASEDUMPSPEC_TYPE._serialized_start=10079
+  _DATABASEDUMPSPEC_TYPE._serialized_end=10128
+  _REMOVEIAMPOLICYREQUEST._serialized_start=10130
+  _REMOVEIAMPOLICYREQUEST._serialized_end=10210
+  _REMOVEIAMPOLICYRESPONSE._serialized_start=10212
+  _REMOVEIAMPOLICYRESPONSE._serialized_end=10254
+  _QUERYMETADATAREQUEST._serialized_start=10256
+  _QUERYMETADATAREQUEST._serialized_end=10357
+  _QUERYMETADATARESPONSE._serialized_start=10359
+  _QUERYMETADATARESPONSE._serialized_end=10411
+  _MOVETABLETODATABASEREQUEST._serialized_start=10414
+  _MOVETABLETODATABASEREQUEST._serialized_end=10582
+  _MOVETABLETODATABASERESPONSE._serialized_start=10584
+  _MOVETABLETODATABASERESPONSE._serialized_end=10613
+  _ALTERMETADATARESOURCELOCATIONREQUEST._serialized_start=10616
+  _ALTERMETADATARESOURCELOCATIONREQUEST._serialized_end=10768
+  _ALTERMETADATARESOURCELOCATIONRESPONSE._serialized_start=10770
+  _ALTERMETADATARESOURCELOCATIONRESPONSE._serialized_end=10809
+  _DATAPROCMETASTORE._serialized_start=10812
+  _DATAPROCMETASTORE._serialized_end=15563
 # @@protoc_insertion_point(module_scope)

@@ -11,9 +11,10 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,google/cloud/documentai/v1/document_io.proto\x12\x1agoogle.cloud.documentai.v1\"1\n\x0bRawDocument\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\x0c\x12\x11\n\tmime_type\x18\x02 \x01(\t\"1\n\x0bGcsDocument\x12\x0f\n\x07gcs_uri\x18\x01 \x01(\t\x12\x11\n\tmime_type\x18\x02 \x01(\t\"J\n\x0cGcsDocuments\x12:\n\tdocuments\x18\x01 \x03(\x0b\x32\'.google.cloud.documentai.v1.GcsDocument\"#\n\tGcsPrefix\x12\x16\n\x0egcs_uri_prefix\x18\x01 \x01(\t\"\xa5\x01\n\x19\x42\x61tchDocumentsInputConfig\x12;\n\ngcs_prefix\x18\x01 \x01(\x0b\x32%.google.cloud.documentai.v1.GcsPrefixH\x00\x12\x41\n\rgcs_documents\x18\x02 \x01(\x0b\x32(.google.cloud.documentai.v1.GcsDocumentsH\x00\x42\x08\n\x06source\"\xa8\x01\n\x14\x44ocumentOutputConfig\x12]\n\x11gcs_output_config\x18\x01 \x01(\x0b\x32@.google.cloud.documentai.v1.DocumentOutputConfig.GcsOutputConfigH\x00\x1a\"\n\x0fGcsOutputConfig\x12\x0f\n\x07gcs_uri\x18\x01 \x01(\tB\r\n\x0b\x64\x65stinationB\xd3\x01\n\x1e\x63om.google.cloud.documentai.v1B\x0f\x44ocumentIoProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/documentai/v1;documentai\xaa\x02\x1aGoogle.Cloud.DocumentAI.V1\xca\x02\x1aGoogle\\Cloud\\DocumentAI\\V1\xea\x02\x1dGoogle::Cloud::DocumentAI::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,google/cloud/documentai/v1/document_io.proto\x12\x1agoogle.cloud.documentai.v1\x1a google/protobuf/field_mask.proto\"1\n\x0bRawDocument\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\x0c\x12\x11\n\tmime_type\x18\x02 \x01(\t\"1\n\x0bGcsDocument\x12\x0f\n\x07gcs_uri\x18\x01 \x01(\t\x12\x11\n\tmime_type\x18\x02 \x01(\t\"J\n\x0cGcsDocuments\x12:\n\tdocuments\x18\x01 \x03(\x0b\x32\'.google.cloud.documentai.v1.GcsDocument\"#\n\tGcsPrefix\x12\x16\n\x0egcs_uri_prefix\x18\x01 \x01(\t\"\xa5\x01\n\x19\x42\x61tchDocumentsInputConfig\x12;\n\ngcs_prefix\x18\x01 \x01(\x0b\x32%.google.cloud.documentai.v1.GcsPrefixH\x00\x12\x41\n\rgcs_documents\x18\x02 \x01(\x0b\x32(.google.cloud.documentai.v1.GcsDocumentsH\x00\x42\x08\n\x06source\"\x85\x03\n\x14\x44ocumentOutputConfig\x12]\n\x11gcs_output_config\x18\x01 \x01(\x0b\x32@.google.cloud.documentai.v1.DocumentOutputConfig.GcsOutputConfigH\x00\x1a\xfe\x01\n\x0fGcsOutputConfig\x12\x0f\n\x07gcs_uri\x18\x01 \x01(\t\x12.\n\nfield_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12h\n\x0fsharding_config\x18\x03 \x01(\x0b\x32O.google.cloud.documentai.v1.DocumentOutputConfig.GcsOutputConfig.ShardingConfig\x1a@\n\x0eShardingConfig\x12\x17\n\x0fpages_per_shard\x18\x01 \x01(\x05\x12\x15\n\rpages_overlap\x18\x02 \x01(\x05\x42\r\n\x0b\x64\x65stinationB\xd3\x01\n\x1e\x63om.google.cloud.documentai.v1B\x0f\x44ocumentIoProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/documentai/v1;documentai\xaa\x02\x1aGoogle.Cloud.DocumentAI.V1\xca\x02\x1aGoogle\\Cloud\\DocumentAI\\V1\xea\x02\x1dGoogle::Cloud::DocumentAI::V1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.documentai.v1.document_io_pb2', globals())
@@ -21,18 +22,20 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\036com.google.cloud.documentai.v1B\017DocumentIoProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/documentai/v1;documentai\252\002\032Google.Cloud.DocumentAI.V1\312\002\032Google\\Cloud\\DocumentAI\\V1\352\002\035Google::Cloud::DocumentAI::V1'
-  _RAWDOCUMENT._serialized_start=76
-  _RAWDOCUMENT._serialized_end=125
-  _GCSDOCUMENT._serialized_start=127
-  _GCSDOCUMENT._serialized_end=176
-  _GCSDOCUMENTS._serialized_start=178
-  _GCSDOCUMENTS._serialized_end=252
-  _GCSPREFIX._serialized_start=254
-  _GCSPREFIX._serialized_end=289
-  _BATCHDOCUMENTSINPUTCONFIG._serialized_start=292
-  _BATCHDOCUMENTSINPUTCONFIG._serialized_end=457
-  _DOCUMENTOUTPUTCONFIG._serialized_start=460
-  _DOCUMENTOUTPUTCONFIG._serialized_end=628
-  _DOCUMENTOUTPUTCONFIG_GCSOUTPUTCONFIG._serialized_start=579
-  _DOCUMENTOUTPUTCONFIG_GCSOUTPUTCONFIG._serialized_end=613
+  _RAWDOCUMENT._serialized_start=110
+  _RAWDOCUMENT._serialized_end=159
+  _GCSDOCUMENT._serialized_start=161
+  _GCSDOCUMENT._serialized_end=210
+  _GCSDOCUMENTS._serialized_start=212
+  _GCSDOCUMENTS._serialized_end=286
+  _GCSPREFIX._serialized_start=288
+  _GCSPREFIX._serialized_end=323
+  _BATCHDOCUMENTSINPUTCONFIG._serialized_start=326
+  _BATCHDOCUMENTSINPUTCONFIG._serialized_end=491
+  _DOCUMENTOUTPUTCONFIG._serialized_start=494
+  _DOCUMENTOUTPUTCONFIG._serialized_end=883
+  _DOCUMENTOUTPUTCONFIG_GCSOUTPUTCONFIG._serialized_start=614
+  _DOCUMENTOUTPUTCONFIG_GCSOUTPUTCONFIG._serialized_end=868
+  _DOCUMENTOUTPUTCONFIG_GCSOUTPUTCONFIG_SHARDINGCONFIG._serialized_start=804
+  _DOCUMENTOUTPUTCONFIG_GCSOUTPUTCONFIG_SHARDINGCONFIG._serialized_end=868
 # @@protoc_insertion_point(module_scope)

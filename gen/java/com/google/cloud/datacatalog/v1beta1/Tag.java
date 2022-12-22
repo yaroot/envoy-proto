@@ -41,83 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Tag(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            template_ = s;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              fields_ = com.google.protobuf.MapField.newMapField(
-                  FieldsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.datacatalog.v1beta1.TagField>
-            fields__ = input.readMessage(
-                FieldsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            fields_.getMutableMap().put(
-                fields__.getKey(), fields__.getValue());
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            scopeCase_ = 4;
-            scope_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            templateDisplayName_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datacatalog.v1beta1.Tags.internal_static_google_cloud_datacatalog_v1beta1_Tag_descriptor;
@@ -183,7 +106,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The resource name of the tag in URL format. Example:
@@ -235,7 +159,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TEMPLATE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object template_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object template_ = "";
   /**
    * <pre>
    * Required. The resource name of the tag template that this tag uses. Example:
@@ -285,7 +210,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TEMPLATE_DISPLAY_NAME_FIELD_NUMBER = 5;
-  private volatile java.lang.Object templateDisplayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object templateDisplayName_ = "";
   /**
    * <pre>
    * Output only. The display name of the tag template.
@@ -418,6 +344,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.datacatalog.v1beta1.TagField.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.datacatalog.v1beta1.TagField> fields_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.datacatalog.v1beta1.TagField>
@@ -428,7 +355,6 @@ private static final long serialVersionUID = 0L;
     }
     return fields_;
   }
-
   public int getFieldsCount() {
     return internalGetFields().getMap().size();
   }
@@ -441,7 +367,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.datacatalog.v1beta1.TagField&gt; fields = 3 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   @java.lang.Override
   public boolean containsFields(
       java.lang.String key) {
@@ -466,7 +391,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.datacatalog.v1beta1.TagField&gt; fields = 3 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.datacatalog.v1beta1.TagField> getFieldsMap() {
     return internalGetFields().getMap();
   }
@@ -480,10 +404,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.datacatalog.v1beta1.TagField&gt; fields = 3 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.datacatalog.v1beta1.TagField getFieldsOrDefault(
+  public /* nullable */
+com.google.cloud.datacatalog.v1beta1.TagField getFieldsOrDefault(
       java.lang.String key,
-      com.google.cloud.datacatalog.v1beta1.TagField defaultValue) {
+      /* nullable */
+com.google.cloud.datacatalog.v1beta1.TagField defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.datacatalog.v1beta1.TagField> map =
         internalGetFields().getMap();
@@ -499,7 +424,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.datacatalog.v1beta1.TagField&gt; fields = 3 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
-
   public com.google.cloud.datacatalog.v1beta1.TagField getFieldsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -543,7 +467,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(templateDisplayName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, templateDisplayName_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -574,7 +498,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(templateDisplayName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, templateDisplayName_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -606,7 +530,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -635,7 +559,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -782,28 +706,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datacatalog.v1beta1.Tag.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       template_ = "";
-
       templateDisplayName_ = "";
-
       internalGetMutableFields().clear();
       scopeCase_ = 0;
       scope_ = null;
@@ -833,18 +750,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datacatalog.v1beta1.Tag buildPartial() {
       com.google.cloud.datacatalog.v1beta1.Tag result = new com.google.cloud.datacatalog.v1beta1.Tag(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.template_ = template_;
-      result.templateDisplayName_ = templateDisplayName_;
-      if (scopeCase_ == 4) {
-        result.scope_ = scope_;
-      }
-      result.fields_ = internalGetFields();
-      result.fields_.makeImmutable();
-      result.scopeCase_ = scopeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datacatalog.v1beta1.Tag result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.template_ = template_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.templateDisplayName_ = templateDisplayName_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.fields_ = internalGetFields();
+        result.fields_.makeImmutable();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.datacatalog.v1beta1.Tag result) {
+      result.scopeCase_ = scopeCase_;
+      result.scope_ = this.scope_;
     }
 
     @java.lang.Override
@@ -893,18 +824,22 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.datacatalog.v1beta1.Tag.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getTemplate().isEmpty()) {
         template_ = other.template_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getTemplateDisplayName().isEmpty()) {
         templateDisplayName_ = other.templateDisplayName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       internalGetMutableFields().mergeFrom(
           other.internalGetFields());
+      bitField0_ |= 0x00000010;
       switch (other.getScopeCase()) {
         case COLUMN: {
           scopeCase_ = 4;
@@ -916,7 +851,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -931,17 +866,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datacatalog.v1beta1.Tag parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              template_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.datacatalog.v1beta1.TagField>
+              fields__ = input.readMessage(
+                  FieldsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableFields().getMutableMap().put(
+                  fields__.getKey(), fields__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              scopeCase_ = 4;
+              scope_ = s;
+              break;
+            } // case 34
+            case 42: {
+              templateDisplayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datacatalog.v1beta1.Tag) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int scopeCase_ = 0;
@@ -1023,11 +1001,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1043,8 +1019,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1062,12 +1038,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1131,11 +1105,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTemplate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       template_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1150,8 +1122,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTemplate() {
-      
       template_ = getDefaultInstance().getTemplate();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1168,12 +1140,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTemplateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       template_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1231,11 +1201,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTemplateDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       templateDisplayName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1248,8 +1216,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTemplateDisplayName() {
-      
       templateDisplayName_ = getDefaultInstance().getTemplateDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1264,12 +1232,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTemplateDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       templateDisplayName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1366,10 +1332,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setColumn(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  scopeCase_ = 4;
+      if (value == null) { throw new NullPointerException(); }
+      scopeCase_ = 4;
       scope_ = value;
       onChanged();
       return this;
@@ -1409,10 +1373,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setColumnBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       scopeCase_ = 4;
       scope_ = value;
       onChanged();
@@ -1422,7 +1384,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.datacatalog.v1beta1.TagField> fields_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.datacatalog.v1beta1.TagField>
-    internalGetFields() {
+        internalGetFields() {
       if (fields_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             FieldsDefaultEntryHolder.defaultEntry);
@@ -1430,8 +1392,7 @@ private static final long serialVersionUID = 0L;
       return fields_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.datacatalog.v1beta1.TagField>
-    internalGetMutableFields() {
-      onChanged();;
+        internalGetMutableFields() {
       if (fields_ == null) {
         fields_ = com.google.protobuf.MapField.newMapField(
             FieldsDefaultEntryHolder.defaultEntry);
@@ -1439,9 +1400,10 @@ private static final long serialVersionUID = 0L;
       if (!fields_.isMutable()) {
         fields_ = fields_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return fields_;
     }
-
     public int getFieldsCount() {
       return internalGetFields().getMap().size();
     }
@@ -1454,7 +1416,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.datacatalog.v1beta1.TagField&gt; fields = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
-
     @java.lang.Override
     public boolean containsFields(
         java.lang.String key) {
@@ -1479,7 +1440,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.datacatalog.v1beta1.TagField&gt; fields = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.datacatalog.v1beta1.TagField> getFieldsMap() {
       return internalGetFields().getMap();
     }
@@ -1493,10 +1453,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.datacatalog.v1beta1.TagField&gt; fields = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.datacatalog.v1beta1.TagField getFieldsOrDefault(
+    public /* nullable */
+com.google.cloud.datacatalog.v1beta1.TagField getFieldsOrDefault(
         java.lang.String key,
-        com.google.cloud.datacatalog.v1beta1.TagField defaultValue) {
+        /* nullable */
+com.google.cloud.datacatalog.v1beta1.TagField defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.datacatalog.v1beta1.TagField> map =
           internalGetFields().getMap();
@@ -1512,7 +1473,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.datacatalog.v1beta1.TagField&gt; fields = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     @java.lang.Override
-
     public com.google.cloud.datacatalog.v1beta1.TagField getFieldsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1523,8 +1483,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearFields() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableFields().getMutableMap()
           .clear();
       return this;
@@ -1538,7 +1498,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.datacatalog.v1beta1.TagField&gt; fields = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
-
     public Builder removeFields(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1551,7 +1510,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.datacatalog.v1beta1.TagField>
-    getMutableFields() {
+        getMutableFields() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableFields().getMutableMap();
     }
     /**
@@ -1567,12 +1527,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.datacatalog.v1beta1.TagField value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableFields().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -1584,11 +1542,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.datacatalog.v1beta1.TagField&gt; fields = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
-
     public Builder putAllFields(
         java.util.Map<java.lang.String, com.google.cloud.datacatalog.v1beta1.TagField> values) {
       internalGetMutableFields().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
     @java.lang.Override
@@ -1624,7 +1582,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Tag(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

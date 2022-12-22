@@ -37,91 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StorageFormat(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            format_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            compressionFormat_ = rawValue;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            mimeType_ = s;
-            break;
-          }
-          case 82: {
-            com.google.cloud.dataplex.v1.StorageFormat.CsvOptions.Builder subBuilder = null;
-            if (optionsCase_ == 10) {
-              subBuilder = ((com.google.cloud.dataplex.v1.StorageFormat.CsvOptions) options_).toBuilder();
-            }
-            options_ =
-                input.readMessage(com.google.cloud.dataplex.v1.StorageFormat.CsvOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dataplex.v1.StorageFormat.CsvOptions) options_);
-              options_ = subBuilder.buildPartial();
-            }
-            optionsCase_ = 10;
-            break;
-          }
-          case 90: {
-            com.google.cloud.dataplex.v1.StorageFormat.JsonOptions.Builder subBuilder = null;
-            if (optionsCase_ == 11) {
-              subBuilder = ((com.google.cloud.dataplex.v1.StorageFormat.JsonOptions) options_).toBuilder();
-            }
-            options_ =
-                input.readMessage(com.google.cloud.dataplex.v1.StorageFormat.JsonOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dataplex.v1.StorageFormat.JsonOptions) options_);
-              options_ = subBuilder.buildPartial();
-            }
-            optionsCase_ = 11;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataplex.v1.MetadataProto.internal_static_google_cloud_dataplex_v1_StorageFormat_descriptor;
@@ -601,8 +516,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8", and
-     * "ISO-8859-1". Defaults to UTF-8 if unspecified.
+     * Optional. The character encoding of the data. Accepts "US-ASCII",
+     * "UTF-8", and "ISO-8859-1". Defaults to UTF-8 if unspecified.
      * </pre>
      *
      * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -611,8 +526,8 @@ private static final long serialVersionUID = 0L;
     java.lang.String getEncoding();
     /**
      * <pre>
-     * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8", and
-     * "ISO-8859-1". Defaults to UTF-8 if unspecified.
+     * Optional. The character encoding of the data. Accepts "US-ASCII",
+     * "UTF-8", and "ISO-8859-1". Defaults to UTF-8 if unspecified.
      * </pre>
      *
      * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -623,8 +538,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Optional. The number of rows to interpret as header rows that should be skipped
-     * when reading data rows. Defaults to 0.
+     * Optional. The number of rows to interpret as header rows that should be
+     * skipped when reading data rows. Defaults to 0.
      * </pre>
      *
      * <code>int32 header_rows = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -710,68 +625,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CsvOptions(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              encoding_ = s;
-              break;
-            }
-            case 16: {
-
-              headerRows_ = input.readInt32();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              delimiter_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              quote_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dataplex.v1.MetadataProto.internal_static_google_cloud_dataplex_v1_StorageFormat_CsvOptions_descriptor;
@@ -786,11 +639,12 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ENCODING_FIELD_NUMBER = 1;
-    private volatile java.lang.Object encoding_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object encoding_ = "";
     /**
      * <pre>
-     * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8", and
-     * "ISO-8859-1". Defaults to UTF-8 if unspecified.
+     * Optional. The character encoding of the data. Accepts "US-ASCII",
+     * "UTF-8", and "ISO-8859-1". Defaults to UTF-8 if unspecified.
      * </pre>
      *
      * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -811,8 +665,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8", and
-     * "ISO-8859-1". Defaults to UTF-8 if unspecified.
+     * Optional. The character encoding of the data. Accepts "US-ASCII",
+     * "UTF-8", and "ISO-8859-1". Defaults to UTF-8 if unspecified.
      * </pre>
      *
      * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -834,11 +688,11 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int HEADER_ROWS_FIELD_NUMBER = 2;
-    private int headerRows_;
+    private int headerRows_ = 0;
     /**
      * <pre>
-     * Optional. The number of rows to interpret as header rows that should be skipped
-     * when reading data rows. Defaults to 0.
+     * Optional. The number of rows to interpret as header rows that should be
+     * skipped when reading data rows. Defaults to 0.
      * </pre>
      *
      * <code>int32 header_rows = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -850,7 +704,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DELIMITER_FIELD_NUMBER = 3;
-    private volatile java.lang.Object delimiter_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object delimiter_ = "";
     /**
      * <pre>
      * Optional. The delimiter used to separate values. Defaults to ','.
@@ -896,7 +751,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int QUOTE_FIELD_NUMBER = 4;
-    private volatile java.lang.Object quote_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object quote_ = "";
     /**
      * <pre>
      * Optional. The character used to quote column values. Accepts '"'
@@ -971,7 +827,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quote_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, quote_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -993,7 +849,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(quote_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, quote_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1016,7 +872,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getDelimiter())) return false;
       if (!getQuote()
           .equals(other.getQuote())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1035,7 +891,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getDelimiter().hashCode();
       hash = (37 * hash) + QUOTE_FIELD_NUMBER;
       hash = (53 * hash) + getQuote().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1156,30 +1012,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dataplex.v1.StorageFormat.CsvOptions.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         encoding_ = "";
-
         headerRows_ = 0;
-
         delimiter_ = "";
-
         quote_ = "";
-
         return this;
       }
 
@@ -1206,12 +1054,25 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dataplex.v1.StorageFormat.CsvOptions buildPartial() {
         com.google.cloud.dataplex.v1.StorageFormat.CsvOptions result = new com.google.cloud.dataplex.v1.StorageFormat.CsvOptions(this);
-        result.encoding_ = encoding_;
-        result.headerRows_ = headerRows_;
-        result.delimiter_ = delimiter_;
-        result.quote_ = quote_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dataplex.v1.StorageFormat.CsvOptions result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.encoding_ = encoding_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.headerRows_ = headerRows_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.delimiter_ = delimiter_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.quote_ = quote_;
+        }
       }
 
       @java.lang.Override
@@ -1260,6 +1121,7 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.dataplex.v1.StorageFormat.CsvOptions.getDefaultInstance()) return this;
         if (!other.getEncoding().isEmpty()) {
           encoding_ = other.encoding_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getHeaderRows() != 0) {
@@ -1267,13 +1129,15 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getDelimiter().isEmpty()) {
           delimiter_ = other.delimiter_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getQuote().isEmpty()) {
           quote_ = other.quote_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1288,25 +1152,59 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataplex.v1.StorageFormat.CsvOptions parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                encoding_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                headerRows_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                delimiter_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                quote_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataplex.v1.StorageFormat.CsvOptions) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object encoding_ = "";
       /**
        * <pre>
-       * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8", and
-       * "ISO-8859-1". Defaults to UTF-8 if unspecified.
+       * Optional. The character encoding of the data. Accepts "US-ASCII",
+       * "UTF-8", and "ISO-8859-1". Defaults to UTF-8 if unspecified.
        * </pre>
        *
        * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1326,8 +1224,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8", and
-       * "ISO-8859-1". Defaults to UTF-8 if unspecified.
+       * Optional. The character encoding of the data. Accepts "US-ASCII",
+       * "UTF-8", and "ISO-8859-1". Defaults to UTF-8 if unspecified.
        * </pre>
        *
        * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1348,8 +1246,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8", and
-       * "ISO-8859-1". Defaults to UTF-8 if unspecified.
+       * Optional. The character encoding of the data. Accepts "US-ASCII",
+       * "UTF-8", and "ISO-8859-1". Defaults to UTF-8 if unspecified.
        * </pre>
        *
        * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1358,33 +1256,31 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEncoding(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         encoding_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8", and
-       * "ISO-8859-1". Defaults to UTF-8 if unspecified.
+       * Optional. The character encoding of the data. Accepts "US-ASCII",
+       * "UTF-8", and "ISO-8859-1". Defaults to UTF-8 if unspecified.
        * </pre>
        *
        * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
        * @return This builder for chaining.
        */
       public Builder clearEncoding() {
-        
         encoding_ = getDefaultInstance().getEncoding();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8", and
-       * "ISO-8859-1". Defaults to UTF-8 if unspecified.
+       * Optional. The character encoding of the data. Accepts "US-ASCII",
+       * "UTF-8", and "ISO-8859-1". Defaults to UTF-8 if unspecified.
        * </pre>
        *
        * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1393,12 +1289,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEncodingBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         encoding_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1406,8 +1300,8 @@ private static final long serialVersionUID = 0L;
       private int headerRows_ ;
       /**
        * <pre>
-       * Optional. The number of rows to interpret as header rows that should be skipped
-       * when reading data rows. Defaults to 0.
+       * Optional. The number of rows to interpret as header rows that should be
+       * skipped when reading data rows. Defaults to 0.
        * </pre>
        *
        * <code>int32 header_rows = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1419,8 +1313,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The number of rows to interpret as header rows that should be skipped
-       * when reading data rows. Defaults to 0.
+       * Optional. The number of rows to interpret as header rows that should be
+       * skipped when reading data rows. Defaults to 0.
        * </pre>
        *
        * <code>int32 header_rows = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1430,20 +1324,21 @@ private static final long serialVersionUID = 0L;
       public Builder setHeaderRows(int value) {
         
         headerRows_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. The number of rows to interpret as header rows that should be skipped
-       * when reading data rows. Defaults to 0.
+       * Optional. The number of rows to interpret as header rows that should be
+       * skipped when reading data rows. Defaults to 0.
        * </pre>
        *
        * <code>int32 header_rows = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
        * @return This builder for chaining.
        */
       public Builder clearHeaderRows() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         headerRows_ = 0;
         onChanged();
         return this;
@@ -1502,11 +1397,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDelimiter(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         delimiter_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1519,8 +1412,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDelimiter() {
-        
         delimiter_ = getDefaultInstance().getDelimiter();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1535,12 +1428,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDelimiterBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         delimiter_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1604,11 +1495,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setQuote(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         quote_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1623,8 +1512,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearQuote() {
-        
         quote_ = getDefaultInstance().getQuote();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1641,12 +1530,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setQuoteBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         quote_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1683,7 +1570,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CsvOptions(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1709,8 +1607,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8" and
-     * "ISO-8859-1". Defaults to UTF-8 if not specified.
+     * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8"
+     * and "ISO-8859-1". Defaults to UTF-8 if not specified.
      * </pre>
      *
      * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1719,8 +1617,8 @@ private static final long serialVersionUID = 0L;
     java.lang.String getEncoding();
     /**
      * <pre>
-     * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8" and
-     * "ISO-8859-1". Defaults to UTF-8 if not specified.
+     * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8"
+     * and "ISO-8859-1". Defaults to UTF-8 if not specified.
      * </pre>
      *
      * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1761,51 +1659,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private JsonOptions(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              encoding_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dataplex.v1.MetadataProto.internal_static_google_cloud_dataplex_v1_StorageFormat_JsonOptions_descriptor;
@@ -1820,11 +1673,12 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ENCODING_FIELD_NUMBER = 1;
-    private volatile java.lang.Object encoding_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object encoding_ = "";
     /**
      * <pre>
-     * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8" and
-     * "ISO-8859-1". Defaults to UTF-8 if not specified.
+     * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8"
+     * and "ISO-8859-1". Defaults to UTF-8 if not specified.
      * </pre>
      *
      * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1845,8 +1699,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8" and
-     * "ISO-8859-1". Defaults to UTF-8 if not specified.
+     * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8"
+     * and "ISO-8859-1". Defaults to UTF-8 if not specified.
      * </pre>
      *
      * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1884,7 +1738,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(encoding_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, encoding_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1896,7 +1750,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(encoding_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, encoding_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1913,7 +1767,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getEncoding()
           .equals(other.getEncoding())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1926,7 +1780,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ENCODING_FIELD_NUMBER;
       hash = (53 * hash) + getEncoding().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2047,24 +1901,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dataplex.v1.StorageFormat.JsonOptions.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         encoding_ = "";
-
         return this;
       }
 
@@ -2091,9 +1940,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dataplex.v1.StorageFormat.JsonOptions buildPartial() {
         com.google.cloud.dataplex.v1.StorageFormat.JsonOptions result = new com.google.cloud.dataplex.v1.StorageFormat.JsonOptions(this);
-        result.encoding_ = encoding_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dataplex.v1.StorageFormat.JsonOptions result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.encoding_ = encoding_;
+        }
       }
 
       @java.lang.Override
@@ -2142,9 +1998,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.dataplex.v1.StorageFormat.JsonOptions.getDefaultInstance()) return this;
         if (!other.getEncoding().isEmpty()) {
           encoding_ = other.encoding_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2159,25 +2016,44 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataplex.v1.StorageFormat.JsonOptions parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                encoding_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataplex.v1.StorageFormat.JsonOptions) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object encoding_ = "";
       /**
        * <pre>
-       * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8" and
-       * "ISO-8859-1". Defaults to UTF-8 if not specified.
+       * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8"
+       * and "ISO-8859-1". Defaults to UTF-8 if not specified.
        * </pre>
        *
        * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2197,8 +2073,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8" and
-       * "ISO-8859-1". Defaults to UTF-8 if not specified.
+       * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8"
+       * and "ISO-8859-1". Defaults to UTF-8 if not specified.
        * </pre>
        *
        * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2219,8 +2095,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8" and
-       * "ISO-8859-1". Defaults to UTF-8 if not specified.
+       * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8"
+       * and "ISO-8859-1". Defaults to UTF-8 if not specified.
        * </pre>
        *
        * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2229,33 +2105,31 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEncoding(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         encoding_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8" and
-       * "ISO-8859-1". Defaults to UTF-8 if not specified.
+       * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8"
+       * and "ISO-8859-1". Defaults to UTF-8 if not specified.
        * </pre>
        *
        * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
        * @return This builder for chaining.
        */
       public Builder clearEncoding() {
-        
         encoding_ = getDefaultInstance().getEncoding();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8" and
-       * "ISO-8859-1". Defaults to UTF-8 if not specified.
+       * Optional. The character encoding of the data. Accepts "US-ASCII", "UTF-8"
+       * and "ISO-8859-1". Defaults to UTF-8 if not specified.
        * </pre>
        *
        * <code>string encoding = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2264,12 +2138,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEncodingBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         encoding_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2306,7 +2178,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new JsonOptions(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2326,6 +2209,614 @@ private static final long serialVersionUID = 0L;
 
   }
 
+  public interface IcebergOptionsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.cloud.dataplex.v1.StorageFormat.IcebergOptions)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Optional. The location of where the iceberg metadata is present, must be
+     * within the table path
+     * </pre>
+     *
+     * <code>string metadata_location = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The metadataLocation.
+     */
+    java.lang.String getMetadataLocation();
+    /**
+     * <pre>
+     * Optional. The location of where the iceberg metadata is present, must be
+     * within the table path
+     * </pre>
+     *
+     * <code>string metadata_location = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The bytes for metadataLocation.
+     */
+    com.google.protobuf.ByteString
+        getMetadataLocationBytes();
+  }
+  /**
+   * <pre>
+   * Describes Iceberg data format.
+   * </pre>
+   *
+   * Protobuf type {@code google.cloud.dataplex.v1.StorageFormat.IcebergOptions}
+   */
+  public static final class IcebergOptions extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.cloud.dataplex.v1.StorageFormat.IcebergOptions)
+      IcebergOptionsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use IcebergOptions.newBuilder() to construct.
+    private IcebergOptions(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private IcebergOptions() {
+      metadataLocation_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new IcebergOptions();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.cloud.dataplex.v1.MetadataProto.internal_static_google_cloud_dataplex_v1_StorageFormat_IcebergOptions_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.cloud.dataplex.v1.MetadataProto.internal_static_google_cloud_dataplex_v1_StorageFormat_IcebergOptions_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.class, com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.Builder.class);
+    }
+
+    public static final int METADATA_LOCATION_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object metadataLocation_ = "";
+    /**
+     * <pre>
+     * Optional. The location of where the iceberg metadata is present, must be
+     * within the table path
+     * </pre>
+     *
+     * <code>string metadata_location = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The metadataLocation.
+     */
+    @java.lang.Override
+    public java.lang.String getMetadataLocation() {
+      java.lang.Object ref = metadataLocation_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        metadataLocation_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The location of where the iceberg metadata is present, must be
+     * within the table path
+     * </pre>
+     *
+     * <code>string metadata_location = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The bytes for metadataLocation.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMetadataLocationBytes() {
+      java.lang.Object ref = metadataLocation_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        metadataLocation_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(metadataLocation_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, metadataLocation_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(metadataLocation_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, metadataLocation_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions)) {
+        return super.equals(obj);
+      }
+      com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions other = (com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions) obj;
+
+      if (!getMetadataLocation()
+          .equals(other.getMetadataLocation())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + METADATA_LOCATION_FIELD_NUMBER;
+      hash = (53 * hash) + getMetadataLocation().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Describes Iceberg data format.
+     * </pre>
+     *
+     * Protobuf type {@code google.cloud.dataplex.v1.StorageFormat.IcebergOptions}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.cloud.dataplex.v1.StorageFormat.IcebergOptions)
+        com.google.cloud.dataplex.v1.StorageFormat.IcebergOptionsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.cloud.dataplex.v1.MetadataProto.internal_static_google_cloud_dataplex_v1_StorageFormat_IcebergOptions_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.cloud.dataplex.v1.MetadataProto.internal_static_google_cloud_dataplex_v1_StorageFormat_IcebergOptions_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.class, com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.Builder.class);
+      }
+
+      // Construct using com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        metadataLocation_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.cloud.dataplex.v1.MetadataProto.internal_static_google_cloud_dataplex_v1_StorageFormat_IcebergOptions_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions getDefaultInstanceForType() {
+        return com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions build() {
+        com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions buildPartial() {
+        com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions result = new com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.metadataLocation_ = metadataLocation_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions) {
+          return mergeFrom((com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions other) {
+        if (other == com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.getDefaultInstance()) return this;
+        if (!other.getMetadataLocation().isEmpty()) {
+          metadataLocation_ = other.metadataLocation_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                metadataLocation_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object metadataLocation_ = "";
+      /**
+       * <pre>
+       * Optional. The location of where the iceberg metadata is present, must be
+       * within the table path
+       * </pre>
+       *
+       * <code>string metadata_location = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return The metadataLocation.
+       */
+      public java.lang.String getMetadataLocation() {
+        java.lang.Object ref = metadataLocation_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          metadataLocation_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Optional. The location of where the iceberg metadata is present, must be
+       * within the table path
+       * </pre>
+       *
+       * <code>string metadata_location = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return The bytes for metadataLocation.
+       */
+      public com.google.protobuf.ByteString
+          getMetadataLocationBytes() {
+        java.lang.Object ref = metadataLocation_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          metadataLocation_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Optional. The location of where the iceberg metadata is present, must be
+       * within the table path
+       * </pre>
+       *
+       * <code>string metadata_location = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @param value The metadataLocation to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMetadataLocation(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        metadataLocation_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional. The location of where the iceberg metadata is present, must be
+       * within the table path
+       * </pre>
+       *
+       * <code>string metadata_location = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMetadataLocation() {
+        metadataLocation_ = getDefaultInstance().getMetadataLocation();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional. The location of where the iceberg metadata is present, must be
+       * within the table path
+       * </pre>
+       *
+       * <code>string metadata_location = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @param value The bytes for metadataLocation to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMetadataLocationBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        metadataLocation_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.cloud.dataplex.v1.StorageFormat.IcebergOptions)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.cloud.dataplex.v1.StorageFormat.IcebergOptions)
+    private static final com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions();
+    }
+
+    public static com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<IcebergOptions>
+        PARSER = new com.google.protobuf.AbstractParser<IcebergOptions>() {
+      @java.lang.Override
+      public IcebergOptions parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<IcebergOptions> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<IcebergOptions> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private int optionsCase_ = 0;
   private java.lang.Object options_;
   public enum OptionsCase
@@ -2333,6 +2824,7 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
     CSV(10),
     JSON(11),
+    ICEBERG(12),
     OPTIONS_NOT_SET(0);
     private final int value;
     private OptionsCase(int value) {
@@ -2352,6 +2844,7 @@ private static final long serialVersionUID = 0L;
       switch (value) {
         case 10: return CSV;
         case 11: return JSON;
+        case 12: return ICEBERG;
         case 0: return OPTIONS_NOT_SET;
         default: return null;
       }
@@ -2368,11 +2861,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORMAT_FIELD_NUMBER = 1;
-  private int format_;
+  private int format_ = 0;
   /**
    * <pre>
-   * Output only. The data format associated with the stored data, which represents
-   * content type values. The value is inferred from mime type.
+   * Output only. The data format associated with the stored data, which
+   * represents content type values. The value is inferred from mime type.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.StorageFormat.Format format = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2383,21 +2876,20 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The data format associated with the stored data, which represents
-   * content type values. The value is inferred from mime type.
+   * Output only. The data format associated with the stored data, which
+   * represents content type values. The value is inferred from mime type.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.StorageFormat.Format format = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The format.
    */
   @java.lang.Override public com.google.cloud.dataplex.v1.StorageFormat.Format getFormat() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dataplex.v1.StorageFormat.Format result = com.google.cloud.dataplex.v1.StorageFormat.Format.valueOf(format_);
+    com.google.cloud.dataplex.v1.StorageFormat.Format result = com.google.cloud.dataplex.v1.StorageFormat.Format.forNumber(format_);
     return result == null ? com.google.cloud.dataplex.v1.StorageFormat.Format.UNRECOGNIZED : result;
   }
 
   public static final int COMPRESSION_FORMAT_FIELD_NUMBER = 2;
-  private int compressionFormat_;
+  private int compressionFormat_ = 0;
   /**
    * <pre>
    * Optional. The compression type associated with the stored data.
@@ -2420,13 +2912,13 @@ private static final long serialVersionUID = 0L;
    * @return The compressionFormat.
    */
   @java.lang.Override public com.google.cloud.dataplex.v1.StorageFormat.CompressionFormat getCompressionFormat() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dataplex.v1.StorageFormat.CompressionFormat result = com.google.cloud.dataplex.v1.StorageFormat.CompressionFormat.valueOf(compressionFormat_);
+    com.google.cloud.dataplex.v1.StorageFormat.CompressionFormat result = com.google.cloud.dataplex.v1.StorageFormat.CompressionFormat.forNumber(compressionFormat_);
     return result == null ? com.google.cloud.dataplex.v1.StorageFormat.CompressionFormat.UNRECOGNIZED : result;
   }
 
   public static final int MIME_TYPE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object mimeType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object mimeType_ = "";
   /**
    * <pre>
    * Required. The mime type descriptor for the data. Must match the pattern
@@ -2435,6 +2927,9 @@ private static final long serialVersionUID = 0L;
    * - application/x-avro
    * - application/x-orc
    * - application/x-tfrecord
+   * - application/x-parquet+iceberg
+   * - application/x-avro+iceberg
+   * - application/x-orc+iceberg
    * - application/json
    * - application/{subtypes}
    * - text/csv
@@ -2468,6 +2963,9 @@ private static final long serialVersionUID = 0L;
    * - application/x-avro
    * - application/x-orc
    * - application/x-tfrecord
+   * - application/x-parquet+iceberg
+   * - application/x-avro+iceberg
+   * - application/x-orc+iceberg
    * - application/json
    * - application/{subtypes}
    * - text/csv
@@ -2581,6 +3079,49 @@ private static final long serialVersionUID = 0L;
     return com.google.cloud.dataplex.v1.StorageFormat.JsonOptions.getDefaultInstance();
   }
 
+  public static final int ICEBERG_FIELD_NUMBER = 12;
+  /**
+   * <pre>
+   * Optional. Additional information about iceberg tables.
+   * </pre>
+   *
+   * <code>.google.cloud.dataplex.v1.StorageFormat.IcebergOptions iceberg = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return Whether the iceberg field is set.
+   */
+  @java.lang.Override
+  public boolean hasIceberg() {
+    return optionsCase_ == 12;
+  }
+  /**
+   * <pre>
+   * Optional. Additional information about iceberg tables.
+   * </pre>
+   *
+   * <code>.google.cloud.dataplex.v1.StorageFormat.IcebergOptions iceberg = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The iceberg.
+   */
+  @java.lang.Override
+  public com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions getIceberg() {
+    if (optionsCase_ == 12) {
+       return (com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions) options_;
+    }
+    return com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.getDefaultInstance();
+  }
+  /**
+   * <pre>
+   * Optional. Additional information about iceberg tables.
+   * </pre>
+   *
+   * <code>.google.cloud.dataplex.v1.StorageFormat.IcebergOptions iceberg = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.dataplex.v1.StorageFormat.IcebergOptionsOrBuilder getIcebergOrBuilder() {
+    if (optionsCase_ == 12) {
+       return (com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions) options_;
+    }
+    return com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.getDefaultInstance();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -2610,7 +3151,10 @@ private static final long serialVersionUID = 0L;
     if (optionsCase_ == 11) {
       output.writeMessage(11, (com.google.cloud.dataplex.v1.StorageFormat.JsonOptions) options_);
     }
-    unknownFields.writeTo(output);
+    if (optionsCase_ == 12) {
+      output.writeMessage(12, (com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions) options_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2638,7 +3182,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, (com.google.cloud.dataplex.v1.StorageFormat.JsonOptions) options_);
     }
-    size += unknownFields.getSerializedSize();
+    if (optionsCase_ == 12) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(12, (com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions) options_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2667,10 +3215,14 @@ private static final long serialVersionUID = 0L;
         if (!getJson()
             .equals(other.getJson())) return false;
         break;
+      case 12:
+        if (!getIceberg()
+            .equals(other.getIceberg())) return false;
+        break;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2696,10 +3248,14 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + JSON_FIELD_NUMBER;
         hash = (53 * hash) + getJson().hashCode();
         break;
+      case 12:
+        hash = (37 * hash) + ICEBERG_FIELD_NUMBER;
+        hash = (53 * hash) + getIceberg().hashCode();
+        break;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2820,28 +3376,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataplex.v1.StorageFormat.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       format_ = 0;
-
       compressionFormat_ = 0;
-
       mimeType_ = "";
-
+      if (csvBuilder_ != null) {
+        csvBuilder_.clear();
+      }
+      if (jsonBuilder_ != null) {
+        jsonBuilder_.clear();
+      }
+      if (icebergBuilder_ != null) {
+        icebergBuilder_.clear();
+      }
       optionsCase_ = 0;
       options_ = null;
       return this;
@@ -2870,26 +3428,40 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataplex.v1.StorageFormat buildPartial() {
       com.google.cloud.dataplex.v1.StorageFormat result = new com.google.cloud.dataplex.v1.StorageFormat(this);
-      result.format_ = format_;
-      result.compressionFormat_ = compressionFormat_;
-      result.mimeType_ = mimeType_;
-      if (optionsCase_ == 10) {
-        if (csvBuilder_ == null) {
-          result.options_ = options_;
-        } else {
-          result.options_ = csvBuilder_.build();
-        }
-      }
-      if (optionsCase_ == 11) {
-        if (jsonBuilder_ == null) {
-          result.options_ = options_;
-        } else {
-          result.options_ = jsonBuilder_.build();
-        }
-      }
-      result.optionsCase_ = optionsCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataplex.v1.StorageFormat result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.format_ = format_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.compressionFormat_ = compressionFormat_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.mimeType_ = mimeType_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.dataplex.v1.StorageFormat result) {
+      result.optionsCase_ = optionsCase_;
+      result.options_ = this.options_;
+      if (optionsCase_ == 10 &&
+          csvBuilder_ != null) {
+        result.options_ = csvBuilder_.build();
+      }
+      if (optionsCase_ == 11 &&
+          jsonBuilder_ != null) {
+        result.options_ = jsonBuilder_.build();
+      }
+      if (optionsCase_ == 12 &&
+          icebergBuilder_ != null) {
+        result.options_ = icebergBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2944,6 +3516,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getMimeType().isEmpty()) {
         mimeType_ = other.mimeType_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       switch (other.getOptionsCase()) {
@@ -2955,11 +3528,15 @@ private static final long serialVersionUID = 0L;
           mergeJson(other.getJson());
           break;
         }
+        case ICEBERG: {
+          mergeIceberg(other.getIceberg());
+          break;
+        }
         case OPTIONS_NOT_SET: {
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2974,17 +3551,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataplex.v1.StorageFormat parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              format_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              compressionFormat_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              mimeType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 82: {
+              input.readMessage(
+                  getCsvFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              optionsCase_ = 10;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getJsonFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              optionsCase_ = 11;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getIcebergFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              optionsCase_ = 12;
+              break;
+            } // case 98
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataplex.v1.StorageFormat) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int optionsCase_ = 0;
@@ -3002,12 +3628,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private int format_ = 0;
     /**
      * <pre>
-     * Output only. The data format associated with the stored data, which represents
-     * content type values. The value is inferred from mime type.
+     * Output only. The data format associated with the stored data, which
+     * represents content type values. The value is inferred from mime type.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.StorageFormat.Format format = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -3018,8 +3645,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The data format associated with the stored data, which represents
-     * content type values. The value is inferred from mime type.
+     * Output only. The data format associated with the stored data, which
+     * represents content type values. The value is inferred from mime type.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.StorageFormat.Format format = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -3027,15 +3654,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFormatValue(int value) {
-      
       format_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The data format associated with the stored data, which represents
-     * content type values. The value is inferred from mime type.
+     * Output only. The data format associated with the stored data, which
+     * represents content type values. The value is inferred from mime type.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.StorageFormat.Format format = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -3043,14 +3670,13 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dataplex.v1.StorageFormat.Format getFormat() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dataplex.v1.StorageFormat.Format result = com.google.cloud.dataplex.v1.StorageFormat.Format.valueOf(format_);
+      com.google.cloud.dataplex.v1.StorageFormat.Format result = com.google.cloud.dataplex.v1.StorageFormat.Format.forNumber(format_);
       return result == null ? com.google.cloud.dataplex.v1.StorageFormat.Format.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Output only. The data format associated with the stored data, which represents
-     * content type values. The value is inferred from mime type.
+     * Output only. The data format associated with the stored data, which
+     * represents content type values. The value is inferred from mime type.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.StorageFormat.Format format = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -3061,22 +3687,22 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       format_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The data format associated with the stored data, which represents
-     * content type values. The value is inferred from mime type.
+     * Output only. The data format associated with the stored data, which
+     * represents content type values. The value is inferred from mime type.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.StorageFormat.Format format = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearFormat() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       format_ = 0;
       onChanged();
       return this;
@@ -3106,8 +3732,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCompressionFormatValue(int value) {
-      
       compressionFormat_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3122,8 +3748,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dataplex.v1.StorageFormat.CompressionFormat getCompressionFormat() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dataplex.v1.StorageFormat.CompressionFormat result = com.google.cloud.dataplex.v1.StorageFormat.CompressionFormat.valueOf(compressionFormat_);
+      com.google.cloud.dataplex.v1.StorageFormat.CompressionFormat result = com.google.cloud.dataplex.v1.StorageFormat.CompressionFormat.forNumber(compressionFormat_);
       return result == null ? com.google.cloud.dataplex.v1.StorageFormat.CompressionFormat.UNRECOGNIZED : result;
     }
     /**
@@ -3140,7 +3765,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       compressionFormat_ = value.getNumber();
       onChanged();
       return this;
@@ -3155,7 +3780,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCompressionFormat() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       compressionFormat_ = 0;
       onChanged();
       return this;
@@ -3170,6 +3795,9 @@ private static final long serialVersionUID = 0L;
      * - application/x-avro
      * - application/x-orc
      * - application/x-tfrecord
+     * - application/x-parquet+iceberg
+     * - application/x-avro+iceberg
+     * - application/x-orc+iceberg
      * - application/json
      * - application/{subtypes}
      * - text/csv
@@ -3202,6 +3830,9 @@ private static final long serialVersionUID = 0L;
      * - application/x-avro
      * - application/x-orc
      * - application/x-tfrecord
+     * - application/x-parquet+iceberg
+     * - application/x-avro+iceberg
+     * - application/x-orc+iceberg
      * - application/json
      * - application/{subtypes}
      * - text/csv
@@ -3235,6 +3866,9 @@ private static final long serialVersionUID = 0L;
      * - application/x-avro
      * - application/x-orc
      * - application/x-tfrecord
+     * - application/x-parquet+iceberg
+     * - application/x-avro+iceberg
+     * - application/x-orc+iceberg
      * - application/json
      * - application/{subtypes}
      * - text/csv
@@ -3250,11 +3884,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMimeType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       mimeType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3266,6 +3898,9 @@ private static final long serialVersionUID = 0L;
      * - application/x-avro
      * - application/x-orc
      * - application/x-tfrecord
+     * - application/x-parquet+iceberg
+     * - application/x-avro+iceberg
+     * - application/x-orc+iceberg
      * - application/json
      * - application/{subtypes}
      * - text/csv
@@ -3279,8 +3914,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMimeType() {
-      
       mimeType_ = getDefaultInstance().getMimeType();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -3292,6 +3927,9 @@ private static final long serialVersionUID = 0L;
      * - application/x-avro
      * - application/x-orc
      * - application/x-tfrecord
+     * - application/x-parquet+iceberg
+     * - application/x-avro+iceberg
+     * - application/x-orc+iceberg
      * - application/json
      * - application/{subtypes}
      * - text/csv
@@ -3307,12 +3945,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMimeTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       mimeType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3491,7 +4127,7 @@ private static final long serialVersionUID = 0L;
         options_ = null;
       }
       optionsCase_ = 10;
-      onChanged();;
+      onChanged();
       return csvBuilder_;
     }
 
@@ -3669,8 +4305,186 @@ private static final long serialVersionUID = 0L;
         options_ = null;
       }
       optionsCase_ = 11;
-      onChanged();;
+      onChanged();
       return jsonBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions, com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.Builder, com.google.cloud.dataplex.v1.StorageFormat.IcebergOptionsOrBuilder> icebergBuilder_;
+    /**
+     * <pre>
+     * Optional. Additional information about iceberg tables.
+     * </pre>
+     *
+     * <code>.google.cloud.dataplex.v1.StorageFormat.IcebergOptions iceberg = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return Whether the iceberg field is set.
+     */
+    @java.lang.Override
+    public boolean hasIceberg() {
+      return optionsCase_ == 12;
+    }
+    /**
+     * <pre>
+     * Optional. Additional information about iceberg tables.
+     * </pre>
+     *
+     * <code>.google.cloud.dataplex.v1.StorageFormat.IcebergOptions iceberg = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The iceberg.
+     */
+    @java.lang.Override
+    public com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions getIceberg() {
+      if (icebergBuilder_ == null) {
+        if (optionsCase_ == 12) {
+          return (com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions) options_;
+        }
+        return com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.getDefaultInstance();
+      } else {
+        if (optionsCase_ == 12) {
+          return icebergBuilder_.getMessage();
+        }
+        return com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Additional information about iceberg tables.
+     * </pre>
+     *
+     * <code>.google.cloud.dataplex.v1.StorageFormat.IcebergOptions iceberg = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setIceberg(com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions value) {
+      if (icebergBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        options_ = value;
+        onChanged();
+      } else {
+        icebergBuilder_.setMessage(value);
+      }
+      optionsCase_ = 12;
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Additional information about iceberg tables.
+     * </pre>
+     *
+     * <code>.google.cloud.dataplex.v1.StorageFormat.IcebergOptions iceberg = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setIceberg(
+        com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.Builder builderForValue) {
+      if (icebergBuilder_ == null) {
+        options_ = builderForValue.build();
+        onChanged();
+      } else {
+        icebergBuilder_.setMessage(builderForValue.build());
+      }
+      optionsCase_ = 12;
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Additional information about iceberg tables.
+     * </pre>
+     *
+     * <code>.google.cloud.dataplex.v1.StorageFormat.IcebergOptions iceberg = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder mergeIceberg(com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions value) {
+      if (icebergBuilder_ == null) {
+        if (optionsCase_ == 12 &&
+            options_ != com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.getDefaultInstance()) {
+          options_ = com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.newBuilder((com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions) options_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          options_ = value;
+        }
+        onChanged();
+      } else {
+        if (optionsCase_ == 12) {
+          icebergBuilder_.mergeFrom(value);
+        } else {
+          icebergBuilder_.setMessage(value);
+        }
+      }
+      optionsCase_ = 12;
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Additional information about iceberg tables.
+     * </pre>
+     *
+     * <code>.google.cloud.dataplex.v1.StorageFormat.IcebergOptions iceberg = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder clearIceberg() {
+      if (icebergBuilder_ == null) {
+        if (optionsCase_ == 12) {
+          optionsCase_ = 0;
+          options_ = null;
+          onChanged();
+        }
+      } else {
+        if (optionsCase_ == 12) {
+          optionsCase_ = 0;
+          options_ = null;
+        }
+        icebergBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Additional information about iceberg tables.
+     * </pre>
+     *
+     * <code>.google.cloud.dataplex.v1.StorageFormat.IcebergOptions iceberg = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.Builder getIcebergBuilder() {
+      return getIcebergFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Optional. Additional information about iceberg tables.
+     * </pre>
+     *
+     * <code>.google.cloud.dataplex.v1.StorageFormat.IcebergOptions iceberg = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    @java.lang.Override
+    public com.google.cloud.dataplex.v1.StorageFormat.IcebergOptionsOrBuilder getIcebergOrBuilder() {
+      if ((optionsCase_ == 12) && (icebergBuilder_ != null)) {
+        return icebergBuilder_.getMessageOrBuilder();
+      } else {
+        if (optionsCase_ == 12) {
+          return (com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions) options_;
+        }
+        return com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Additional information about iceberg tables.
+     * </pre>
+     *
+     * <code>.google.cloud.dataplex.v1.StorageFormat.IcebergOptions iceberg = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions, com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.Builder, com.google.cloud.dataplex.v1.StorageFormat.IcebergOptionsOrBuilder> 
+        getIcebergFieldBuilder() {
+      if (icebergBuilder_ == null) {
+        if (!(optionsCase_ == 12)) {
+          options_ = com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.getDefaultInstance();
+        }
+        icebergBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions, com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions.Builder, com.google.cloud.dataplex.v1.StorageFormat.IcebergOptionsOrBuilder>(
+                (com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions) options_,
+                getParentForChildren(),
+                isClean());
+        options_ = null;
+      }
+      optionsCase_ = 12;
+      onChanged();
+      return icebergBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -3705,7 +4519,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StorageFormat(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

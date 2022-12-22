@@ -70,10 +70,12 @@ public interface InputAudioConfigOrBuilder extends
 
   /**
    * <pre>
-   * If `true`, Dialogflow returns [SpeechWordInfo][google.cloud.dialogflow.v2beta1.SpeechWordInfo] in
-   * [StreamingRecognitionResult][google.cloud.dialogflow.v2beta1.StreamingRecognitionResult] with information about the recognized speech
-   * words, e.g. start and end time offsets. If false or unspecified, Speech
-   * doesn't return any word-level information.
+   * If `true`, Dialogflow returns
+   * [SpeechWordInfo][google.cloud.dialogflow.v2beta1.SpeechWordInfo] in
+   * [StreamingRecognitionResult][google.cloud.dialogflow.v2beta1.StreamingRecognitionResult]
+   * with information about the recognized speech words, e.g. start and end time
+   * offsets. If false or unspecified, Speech doesn't return any word-level
+   * information.
    * </pre>
    *
    * <code>bool enable_word_info = 13;</code>
@@ -95,7 +97,7 @@ public interface InputAudioConfigOrBuilder extends
    *
    * <code>repeated string phrase_hints = 4 [deprecated = true];</code>
    * @deprecated google.cloud.dialogflow.v2beta1.InputAudioConfig.phrase_hints is deprecated.
-   *     See google/cloud/dialogflow/v2beta1/audio_config.proto;l=216
+   *     See google/cloud/dialogflow/v2beta1/audio_config.proto;l=219
    * @return A list containing the phraseHints.
    */
   @java.lang.Deprecated java.util.List<java.lang.String>
@@ -114,7 +116,7 @@ public interface InputAudioConfigOrBuilder extends
    *
    * <code>repeated string phrase_hints = 4 [deprecated = true];</code>
    * @deprecated google.cloud.dialogflow.v2beta1.InputAudioConfig.phrase_hints is deprecated.
-   *     See google/cloud/dialogflow/v2beta1/audio_config.proto;l=216
+   *     See google/cloud/dialogflow/v2beta1/audio_config.proto;l=219
    * @return The count of phraseHints.
    */
   @java.lang.Deprecated int getPhraseHintsCount();
@@ -132,7 +134,7 @@ public interface InputAudioConfigOrBuilder extends
    *
    * <code>repeated string phrase_hints = 4 [deprecated = true];</code>
    * @deprecated google.cloud.dialogflow.v2beta1.InputAudioConfig.phrase_hints is deprecated.
-   *     See google/cloud/dialogflow/v2beta1/audio_config.proto;l=216
+   *     See google/cloud/dialogflow/v2beta1/audio_config.proto;l=219
    * @param index The index of the element to return.
    * @return The phraseHints at the given index.
    */
@@ -151,7 +153,7 @@ public interface InputAudioConfigOrBuilder extends
    *
    * <code>repeated string phrase_hints = 4 [deprecated = true];</code>
    * @deprecated google.cloud.dialogflow.v2beta1.InputAudioConfig.phrase_hints is deprecated.
-   *     See google/cloud/dialogflow/v2beta1/audio_config.proto;l=216
+   *     See google/cloud/dialogflow/v2beta1/audio_config.proto;l=219
    * @param index The index of the value to return.
    * @return The bytes of the phraseHints at the given index.
    */
@@ -259,7 +261,8 @@ public interface InputAudioConfigOrBuilder extends
 
   /**
    * <pre>
-   * Which variant of the [Speech model][google.cloud.dialogflow.v2beta1.InputAudioConfig.model] to use.
+   * Which variant of the [Speech
+   * model][google.cloud.dialogflow.v2beta1.InputAudioConfig.model] to use.
    * </pre>
    *
    * <code>.google.cloud.dialogflow.v2beta1.SpeechModelVariant model_variant = 10;</code>
@@ -268,7 +271,8 @@ public interface InputAudioConfigOrBuilder extends
   int getModelVariantValue();
   /**
    * <pre>
-   * Which variant of the [Speech model][google.cloud.dialogflow.v2beta1.InputAudioConfig.model] to use.
+   * Which variant of the [Speech
+   * model][google.cloud.dialogflow.v2beta1.InputAudioConfig.model] to use.
    * </pre>
    *
    * <code>.google.cloud.dialogflow.v2beta1.SpeechModelVariant model_variant = 10;</code>
@@ -297,7 +301,9 @@ public interface InputAudioConfigOrBuilder extends
 
   /**
    * <pre>
-   * Only used in [Participants.AnalyzeContent][google.cloud.dialogflow.v2beta1.Participants.AnalyzeContent] and
+   * Only used in
+   * [Participants.AnalyzeContent][google.cloud.dialogflow.v2beta1.Participants.AnalyzeContent]
+   * and
    * [Participants.StreamingAnalyzeContent][google.cloud.dialogflow.v2beta1.Participants.StreamingAnalyzeContent].
    * If `false` and recognition doesn't return any result, trigger
    * `NO_SPEECH_RECOGNIZED` event to Dialogflow agent.

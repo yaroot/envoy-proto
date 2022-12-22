@@ -34,59 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CapabilityRestrictionConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              allowedCapabilities_ = com.google.protobuf.MapField.newMapField(
-                  AllowedCapabilitiesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig>
-            allowedCapabilities__ = input.readMessage(
-                AllowedCapabilitiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            allowedCapabilities_.getMutableMap().put(
-                allowedCapabilities__.getKey(), allowedCapabilities__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.wasm.v3.WasmProto.internal_static_envoy_extensions_wasm_v3_CapabilityRestrictionConfig_descriptor;
@@ -124,6 +71,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig> allowedCapabilities_;
   private com.google.protobuf.MapField<java.lang.String, io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig>
@@ -134,7 +82,6 @@ private static final long serialVersionUID = 0L;
     }
     return allowedCapabilities_;
   }
-
   public int getAllowedCapabilitiesCount() {
     return internalGetAllowedCapabilities().getMap().size();
   }
@@ -154,7 +101,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .envoy.extensions.wasm.v3.SanitizationConfig&gt; allowed_capabilities = 1;</code>
    */
-
   @java.lang.Override
   public boolean containsAllowedCapabilities(
       java.lang.String key) {
@@ -186,7 +132,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .envoy.extensions.wasm.v3.SanitizationConfig&gt; allowed_capabilities = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig> getAllowedCapabilitiesMap() {
     return internalGetAllowedCapabilities().getMap();
   }
@@ -207,10 +152,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .envoy.extensions.wasm.v3.SanitizationConfig&gt; allowed_capabilities = 1;</code>
    */
   @java.lang.Override
-
-  public io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig getAllowedCapabilitiesOrDefault(
+  public /* nullable */
+io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig getAllowedCapabilitiesOrDefault(
       java.lang.String key,
-      io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig defaultValue) {
+      /* nullable */
+io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig> map =
         internalGetAllowedCapabilities().getMap();
@@ -233,7 +179,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .envoy.extensions.wasm.v3.SanitizationConfig&gt; allowed_capabilities = 1;</code>
    */
   @java.lang.Override
-
   public io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig getAllowedCapabilitiesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -265,7 +210,7 @@ private static final long serialVersionUID = 0L;
         internalGetAllowedCapabilities(),
         AllowedCapabilitiesDefaultEntryHolder.defaultEntry,
         1);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -284,7 +229,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, allowedCapabilities__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -301,7 +246,7 @@ private static final long serialVersionUID = 0L;
 
     if (!internalGetAllowedCapabilities().equals(
         other.internalGetAllowedCapabilities())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -316,7 +261,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ALLOWED_CAPABILITIES_FIELD_NUMBER;
       hash = (53 * hash) + internalGetAllowedCapabilities().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -459,22 +404,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.wasm.v3.CapabilityRestrictionConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableAllowedCapabilities().clear();
       return this;
     }
@@ -502,11 +443,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.wasm.v3.CapabilityRestrictionConfig buildPartial() {
       io.envoyproxy.envoy.extensions.wasm.v3.CapabilityRestrictionConfig result = new io.envoyproxy.envoy.extensions.wasm.v3.CapabilityRestrictionConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.allowedCapabilities_ = internalGetAllowedCapabilities();
-      result.allowedCapabilities_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.wasm.v3.CapabilityRestrictionConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.allowedCapabilities_ = internalGetAllowedCapabilities();
+        result.allowedCapabilities_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -555,7 +502,8 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.extensions.wasm.v3.CapabilityRestrictionConfig.getDefaultInstance()) return this;
       internalGetMutableAllowedCapabilities().mergeFrom(
           other.internalGetAllowedCapabilities());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000001;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -570,17 +518,39 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.wasm.v3.CapabilityRestrictionConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig>
+              allowedCapabilities__ = input.readMessage(
+                  AllowedCapabilitiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableAllowedCapabilities().getMutableMap().put(
+                  allowedCapabilities__.getKey(), allowedCapabilities__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.wasm.v3.CapabilityRestrictionConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -588,7 +558,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig> allowedCapabilities_;
     private com.google.protobuf.MapField<java.lang.String, io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig>
-    internalGetAllowedCapabilities() {
+        internalGetAllowedCapabilities() {
       if (allowedCapabilities_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             AllowedCapabilitiesDefaultEntryHolder.defaultEntry);
@@ -596,8 +566,7 @@ private static final long serialVersionUID = 0L;
       return allowedCapabilities_;
     }
     private com.google.protobuf.MapField<java.lang.String, io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig>
-    internalGetMutableAllowedCapabilities() {
-      onChanged();;
+        internalGetMutableAllowedCapabilities() {
       if (allowedCapabilities_ == null) {
         allowedCapabilities_ = com.google.protobuf.MapField.newMapField(
             AllowedCapabilitiesDefaultEntryHolder.defaultEntry);
@@ -605,9 +574,10 @@ private static final long serialVersionUID = 0L;
       if (!allowedCapabilities_.isMutable()) {
         allowedCapabilities_ = allowedCapabilities_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return allowedCapabilities_;
     }
-
     public int getAllowedCapabilitiesCount() {
       return internalGetAllowedCapabilities().getMap().size();
     }
@@ -627,7 +597,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .envoy.extensions.wasm.v3.SanitizationConfig&gt; allowed_capabilities = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsAllowedCapabilities(
         java.lang.String key) {
@@ -659,7 +628,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .envoy.extensions.wasm.v3.SanitizationConfig&gt; allowed_capabilities = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig> getAllowedCapabilitiesMap() {
       return internalGetAllowedCapabilities().getMap();
     }
@@ -680,10 +648,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .envoy.extensions.wasm.v3.SanitizationConfig&gt; allowed_capabilities = 1;</code>
      */
     @java.lang.Override
-
-    public io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig getAllowedCapabilitiesOrDefault(
+    public /* nullable */
+io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig getAllowedCapabilitiesOrDefault(
         java.lang.String key,
-        io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig defaultValue) {
+        /* nullable */
+io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig> map =
           internalGetAllowedCapabilities().getMap();
@@ -706,7 +675,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .envoy.extensions.wasm.v3.SanitizationConfig&gt; allowed_capabilities = 1;</code>
      */
     @java.lang.Override
-
     public io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig getAllowedCapabilitiesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -717,8 +685,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearAllowedCapabilities() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableAllowedCapabilities().getMutableMap()
           .clear();
       return this;
@@ -739,7 +707,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .envoy.extensions.wasm.v3.SanitizationConfig&gt; allowed_capabilities = 1;</code>
      */
-
     public Builder removeAllowedCapabilities(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -752,7 +719,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig>
-    getMutableAllowedCapabilities() {
+        getMutableAllowedCapabilities() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableAllowedCapabilities().getMutableMap();
     }
     /**
@@ -775,12 +743,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableAllowedCapabilities().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -799,11 +765,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .envoy.extensions.wasm.v3.SanitizationConfig&gt; allowed_capabilities = 1;</code>
      */
-
     public Builder putAllAllowedCapabilities(
         java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig> values) {
       internalGetMutableAllowedCapabilities().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
     @java.lang.Override
@@ -839,7 +805,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CapabilityRestrictionConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

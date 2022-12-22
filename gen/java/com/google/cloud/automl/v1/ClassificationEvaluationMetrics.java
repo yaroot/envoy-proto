@@ -38,98 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ClassificationEvaluationMetrics(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 13: {
-
-            auPrc_ = input.readFloat();
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              confidenceMetricsEntry_ = new java.util.ArrayList<com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            confidenceMetricsEntry_.add(
-                input.readMessage(com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Builder subBuilder = null;
-            if (confusionMatrix_ != null) {
-              subBuilder = confusionMatrix_.toBuilder();
-            }
-            confusionMatrix_ = input.readMessage(com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(confusionMatrix_);
-              confusionMatrix_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              annotationSpecId_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            annotationSpecId_.add(s);
-            break;
-          }
-          case 53: {
-
-            auRoc_ = input.readFloat();
-            break;
-          }
-          case 61: {
-
-            logLoss_ = input.readFloat();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        confidenceMetricsEntry_ = java.util.Collections.unmodifiableList(confidenceMetricsEntry_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        annotationSpecId_ = annotationSpecId_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.automl.v1.ClassificationProto.internal_static_google_cloud_automl_v1_ClassificationEvaluationMetrics_descriptor;
@@ -332,115 +240,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ConfidenceMetricsEntry(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 13: {
-
-              confidenceThreshold_ = input.readFloat();
-              break;
-            }
-            case 21: {
-
-              recall_ = input.readFloat();
-              break;
-            }
-            case 29: {
-
-              precision_ = input.readFloat();
-              break;
-            }
-            case 37: {
-
-              f1Score_ = input.readFloat();
-              break;
-            }
-            case 45: {
-
-              recallAt1_ = input.readFloat();
-              break;
-            }
-            case 53: {
-
-              precisionAt1_ = input.readFloat();
-              break;
-            }
-            case 61: {
-
-              f1ScoreAt1_ = input.readFloat();
-              break;
-            }
-            case 69: {
-
-              falsePositiveRate_ = input.readFloat();
-              break;
-            }
-            case 77: {
-
-              falsePositiveRateAt1_ = input.readFloat();
-              break;
-            }
-            case 80: {
-
-              truePositiveCount_ = input.readInt64();
-              break;
-            }
-            case 88: {
-
-              falsePositiveCount_ = input.readInt64();
-              break;
-            }
-            case 96: {
-
-              falseNegativeCount_ = input.readInt64();
-              break;
-            }
-            case 104: {
-
-              trueNegativeCount_ = input.readInt64();
-              break;
-            }
-            case 112: {
-
-              positionThreshold_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.automl.v1.ClassificationProto.internal_static_google_cloud_automl_v1_ClassificationEvaluationMetrics_ConfidenceMetricsEntry_descriptor;
@@ -455,7 +254,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int CONFIDENCE_THRESHOLD_FIELD_NUMBER = 1;
-    private float confidenceThreshold_;
+    private float confidenceThreshold_ = 0F;
     /**
      * <pre>
      * Output only. Metrics are computed with an assumption that the model
@@ -471,7 +270,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int POSITION_THRESHOLD_FIELD_NUMBER = 14;
-    private int positionThreshold_;
+    private int positionThreshold_ = 0;
     /**
      * <pre>
      * Output only. Metrics are computed with an assumption that the model
@@ -488,7 +287,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int RECALL_FIELD_NUMBER = 2;
-    private float recall_;
+    private float recall_ = 0F;
     /**
      * <pre>
      * Output only. Recall (True Positive Rate) for the given confidence
@@ -504,7 +303,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PRECISION_FIELD_NUMBER = 3;
-    private float precision_;
+    private float precision_ = 0F;
     /**
      * <pre>
      * Output only. Precision for the given confidence threshold.
@@ -519,7 +318,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int FALSE_POSITIVE_RATE_FIELD_NUMBER = 8;
-    private float falsePositiveRate_;
+    private float falsePositiveRate_ = 0F;
     /**
      * <pre>
      * Output only. False Positive Rate for the given confidence threshold.
@@ -534,7 +333,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int F1_SCORE_FIELD_NUMBER = 4;
-    private float f1Score_;
+    private float f1Score_ = 0F;
     /**
      * <pre>
      * Output only. The harmonic mean of recall and precision.
@@ -549,7 +348,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int RECALL_AT1_FIELD_NUMBER = 5;
-    private float recallAt1_;
+    private float recallAt1_ = 0F;
     /**
      * <pre>
      * Output only. The Recall (True Positive Rate) when only considering the
@@ -566,7 +365,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PRECISION_AT1_FIELD_NUMBER = 6;
-    private float precisionAt1_;
+    private float precisionAt1_ = 0F;
     /**
      * <pre>
      * Output only. The precision when only considering the label that has the
@@ -583,7 +382,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int FALSE_POSITIVE_RATE_AT1_FIELD_NUMBER = 9;
-    private float falsePositiveRateAt1_;
+    private float falsePositiveRateAt1_ = 0F;
     /**
      * <pre>
      * Output only. The False Positive Rate when only considering the label that
@@ -600,7 +399,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int F1_SCORE_AT1_FIELD_NUMBER = 7;
-    private float f1ScoreAt1_;
+    private float f1ScoreAt1_ = 0F;
     /**
      * <pre>
      * Output only. The harmonic mean of [recall_at1][google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry.recall_at1] and [precision_at1][google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry.precision_at1].
@@ -615,7 +414,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TRUE_POSITIVE_COUNT_FIELD_NUMBER = 10;
-    private long truePositiveCount_;
+    private long truePositiveCount_ = 0L;
     /**
      * <pre>
      * Output only. The number of model created labels that match a ground truth
@@ -631,7 +430,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int FALSE_POSITIVE_COUNT_FIELD_NUMBER = 11;
-    private long falsePositiveCount_;
+    private long falsePositiveCount_ = 0L;
     /**
      * <pre>
      * Output only. The number of model created labels that do not match a
@@ -647,7 +446,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int FALSE_NEGATIVE_COUNT_FIELD_NUMBER = 12;
-    private long falseNegativeCount_;
+    private long falseNegativeCount_ = 0L;
     /**
      * <pre>
      * Output only. The number of ground truth labels that are not matched
@@ -663,7 +462,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TRUE_NEGATIVE_COUNT_FIELD_NUMBER = 13;
-    private long trueNegativeCount_;
+    private long trueNegativeCount_ = 0L;
     /**
      * <pre>
      * Output only. The number of labels that were not created by the model,
@@ -734,7 +533,7 @@ private static final long serialVersionUID = 0L;
       if (positionThreshold_ != 0) {
         output.writeInt32(14, positionThreshold_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -799,7 +598,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(14, positionThreshold_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -851,7 +650,7 @@ private static final long serialVersionUID = 0L;
           != other.getFalseNegativeCount()) return false;
       if (getTrueNegativeCount()
           != other.getTrueNegativeCount()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -903,7 +702,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TRUE_NEGATIVE_COUNT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTrueNegativeCount());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1024,50 +823,32 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         confidenceThreshold_ = 0F;
-
         positionThreshold_ = 0;
-
         recall_ = 0F;
-
         precision_ = 0F;
-
         falsePositiveRate_ = 0F;
-
         f1Score_ = 0F;
-
         recallAt1_ = 0F;
-
         precisionAt1_ = 0F;
-
         falsePositiveRateAt1_ = 0F;
-
         f1ScoreAt1_ = 0F;
-
         truePositiveCount_ = 0L;
-
         falsePositiveCount_ = 0L;
-
         falseNegativeCount_ = 0L;
-
         trueNegativeCount_ = 0L;
-
         return this;
       }
 
@@ -1094,22 +875,55 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry buildPartial() {
         com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry result = new com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry(this);
-        result.confidenceThreshold_ = confidenceThreshold_;
-        result.positionThreshold_ = positionThreshold_;
-        result.recall_ = recall_;
-        result.precision_ = precision_;
-        result.falsePositiveRate_ = falsePositiveRate_;
-        result.f1Score_ = f1Score_;
-        result.recallAt1_ = recallAt1_;
-        result.precisionAt1_ = precisionAt1_;
-        result.falsePositiveRateAt1_ = falsePositiveRateAt1_;
-        result.f1ScoreAt1_ = f1ScoreAt1_;
-        result.truePositiveCount_ = truePositiveCount_;
-        result.falsePositiveCount_ = falsePositiveCount_;
-        result.falseNegativeCount_ = falseNegativeCount_;
-        result.trueNegativeCount_ = trueNegativeCount_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.confidenceThreshold_ = confidenceThreshold_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.positionThreshold_ = positionThreshold_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.recall_ = recall_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.precision_ = precision_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.falsePositiveRate_ = falsePositiveRate_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.f1Score_ = f1Score_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.recallAt1_ = recallAt1_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.precisionAt1_ = precisionAt1_;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.falsePositiveRateAt1_ = falsePositiveRateAt1_;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.f1ScoreAt1_ = f1ScoreAt1_;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.truePositiveCount_ = truePositiveCount_;
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.falsePositiveCount_ = falsePositiveCount_;
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.falseNegativeCount_ = falseNegativeCount_;
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.trueNegativeCount_ = trueNegativeCount_;
+        }
       }
 
       @java.lang.Override
@@ -1198,7 +1012,7 @@ private static final long serialVersionUID = 0L;
         if (other.getTrueNegativeCount() != 0L) {
           setTrueNegativeCount(other.getTrueNegativeCount());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1213,19 +1027,103 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 13: {
+                confidenceThreshold_ = input.readFloat();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 13
+              case 21: {
+                recall_ = input.readFloat();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 21
+              case 29: {
+                precision_ = input.readFloat();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 29
+              case 37: {
+                f1Score_ = input.readFloat();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 37
+              case 45: {
+                recallAt1_ = input.readFloat();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 45
+              case 53: {
+                precisionAt1_ = input.readFloat();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 53
+              case 61: {
+                f1ScoreAt1_ = input.readFloat();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 61
+              case 69: {
+                falsePositiveRate_ = input.readFloat();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 69
+              case 77: {
+                falsePositiveRateAt1_ = input.readFloat();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 77
+              case 80: {
+                truePositiveCount_ = input.readInt64();
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 80
+              case 88: {
+                falsePositiveCount_ = input.readInt64();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 88
+              case 96: {
+                falseNegativeCount_ = input.readInt64();
+                bitField0_ |= 0x00001000;
+                break;
+              } // case 96
+              case 104: {
+                trueNegativeCount_ = input.readInt64();
+                bitField0_ |= 0x00002000;
+                break;
+              } // case 104
+              case 112: {
+                positionThreshold_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 112
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private float confidenceThreshold_ ;
       /**
@@ -1254,6 +1152,7 @@ private static final long serialVersionUID = 0L;
       public Builder setConfidenceThreshold(float value) {
         
         confidenceThreshold_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1267,7 +1166,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearConfidenceThreshold() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         confidenceThreshold_ = 0F;
         onChanged();
         return this;
@@ -1302,6 +1201,7 @@ private static final long serialVersionUID = 0L;
       public Builder setPositionThreshold(int value) {
         
         positionThreshold_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1316,7 +1216,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPositionThreshold() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         positionThreshold_ = 0;
         onChanged();
         return this;
@@ -1349,6 +1249,7 @@ private static final long serialVersionUID = 0L;
       public Builder setRecall(float value) {
         
         recall_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1362,7 +1263,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearRecall() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         recall_ = 0F;
         onChanged();
         return this;
@@ -1393,6 +1294,7 @@ private static final long serialVersionUID = 0L;
       public Builder setPrecision(float value) {
         
         precision_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1405,7 +1307,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPrecision() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         precision_ = 0F;
         onChanged();
         return this;
@@ -1436,6 +1338,7 @@ private static final long serialVersionUID = 0L;
       public Builder setFalsePositiveRate(float value) {
         
         falsePositiveRate_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1448,7 +1351,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearFalsePositiveRate() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         falsePositiveRate_ = 0F;
         onChanged();
         return this;
@@ -1479,6 +1382,7 @@ private static final long serialVersionUID = 0L;
       public Builder setF1Score(float value) {
         
         f1Score_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1491,7 +1395,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearF1Score() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         f1Score_ = 0F;
         onChanged();
         return this;
@@ -1526,6 +1430,7 @@ private static final long serialVersionUID = 0L;
       public Builder setRecallAt1(float value) {
         
         recallAt1_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -1540,7 +1445,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearRecallAt1() {
-        
+        bitField0_ = (bitField0_ & ~0x00000040);
         recallAt1_ = 0F;
         onChanged();
         return this;
@@ -1575,6 +1480,7 @@ private static final long serialVersionUID = 0L;
       public Builder setPrecisionAt1(float value) {
         
         precisionAt1_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -1589,7 +1495,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPrecisionAt1() {
-        
+        bitField0_ = (bitField0_ & ~0x00000080);
         precisionAt1_ = 0F;
         onChanged();
         return this;
@@ -1624,6 +1530,7 @@ private static final long serialVersionUID = 0L;
       public Builder setFalsePositiveRateAt1(float value) {
         
         falsePositiveRateAt1_ = value;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -1638,7 +1545,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearFalsePositiveRateAt1() {
-        
+        bitField0_ = (bitField0_ & ~0x00000100);
         falsePositiveRateAt1_ = 0F;
         onChanged();
         return this;
@@ -1669,6 +1576,7 @@ private static final long serialVersionUID = 0L;
       public Builder setF1ScoreAt1(float value) {
         
         f1ScoreAt1_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -1681,7 +1589,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearF1ScoreAt1() {
-        
+        bitField0_ = (bitField0_ & ~0x00000200);
         f1ScoreAt1_ = 0F;
         onChanged();
         return this;
@@ -1714,6 +1622,7 @@ private static final long serialVersionUID = 0L;
       public Builder setTruePositiveCount(long value) {
         
         truePositiveCount_ = value;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -1727,7 +1636,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearTruePositiveCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000400);
         truePositiveCount_ = 0L;
         onChanged();
         return this;
@@ -1760,6 +1669,7 @@ private static final long serialVersionUID = 0L;
       public Builder setFalsePositiveCount(long value) {
         
         falsePositiveCount_ = value;
+        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -1773,7 +1683,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearFalsePositiveCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000800);
         falsePositiveCount_ = 0L;
         onChanged();
         return this;
@@ -1806,6 +1716,7 @@ private static final long serialVersionUID = 0L;
       public Builder setFalseNegativeCount(long value) {
         
         falseNegativeCount_ = value;
+        bitField0_ |= 0x00001000;
         onChanged();
         return this;
       }
@@ -1819,7 +1730,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearFalseNegativeCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00001000);
         falseNegativeCount_ = 0L;
         onChanged();
         return this;
@@ -1852,6 +1763,7 @@ private static final long serialVersionUID = 0L;
       public Builder setTrueNegativeCount(long value) {
         
         trueNegativeCount_ = value;
+        bitField0_ |= 0x00002000;
         onChanged();
         return this;
       }
@@ -1865,7 +1777,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearTrueNegativeCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00002000);
         trueNegativeCount_ = 0L;
         onChanged();
         return this;
@@ -1903,7 +1815,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ConfidenceMetricsEntry(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2139,82 +2062,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ConfusionMatrix(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                annotationSpecId_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              annotationSpecId_.add(s);
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                row_ = new java.util.ArrayList<com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Row>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              row_.add(
-                  input.readMessage(com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Row.parser(), extensionRegistry));
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                displayName_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              displayName_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          annotationSpecId_ = annotationSpecId_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          row_ = java.util.Collections.unmodifiableList(row_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          displayName_ = displayName_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.automl.v1.ClassificationProto.internal_static_google_cloud_automl_v1_ClassificationEvaluationMetrics_ConfusionMatrix_descriptor;
@@ -2302,70 +2149,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Row(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  exampleCount_ = newIntList();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                exampleCount_.addInt(input.readInt32());
-                break;
-              }
-              case 10: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-                  exampleCount_ = newIntList();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  exampleCount_.addInt(input.readInt32());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          if (((mutable_bitField0_ & 0x00000001) != 0)) {
-            exampleCount_.makeImmutable(); // C
-          }
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.automl.v1.ClassificationProto.internal_static_google_cloud_automl_v1_ClassificationEvaluationMetrics_ConfusionMatrix_Row_descriptor;
@@ -2380,6 +2163,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int EXAMPLE_COUNT_FIELD_NUMBER = 1;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.IntList exampleCount_;
       /**
        * <pre>
@@ -2450,7 +2234,7 @@ private static final long serialVersionUID = 0L;
         for (int i = 0; i < exampleCount_.size(); i++) {
           output.writeInt32NoTag(exampleCount_.getInt(i));
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -2473,7 +2257,7 @@ private static final long serialVersionUID = 0L;
           }
           exampleCountMemoizedSerializedSize = dataSize;
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -2490,7 +2274,7 @@ private static final long serialVersionUID = 0L;
 
         if (!getExampleCountList()
             .equals(other.getExampleCountList())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -2505,7 +2289,7 @@ private static final long serialVersionUID = 0L;
           hash = (37 * hash) + EXAMPLE_COUNT_FIELD_NUMBER;
           hash = (53 * hash) + getExampleCountList().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -2626,24 +2410,19 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Row.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           exampleCount_ = emptyIntList();
-          bitField0_ = (bitField0_ & ~0x00000001);
           return this;
         }
 
@@ -2670,14 +2449,22 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Row buildPartial() {
           com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Row result = new com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Row(this);
-          int from_bitField0_ = bitField0_;
+          buildPartialRepeatedFields(result);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartialRepeatedFields(com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Row result) {
           if (((bitField0_ & 0x00000001) != 0)) {
             exampleCount_.makeImmutable();
             bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.exampleCount_ = exampleCount_;
-          onBuilt();
-          return result;
+        }
+
+        private void buildPartial0(com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Row result) {
+          int from_bitField0_ = bitField0_;
         }
 
         @java.lang.Override
@@ -2734,7 +2521,7 @@ private static final long serialVersionUID = 0L;
             }
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -2749,17 +2536,46 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Row parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  int v = input.readInt32();
+                  ensureExampleCountIsMutable();
+                  exampleCount_.addInt(v);
+                  break;
+                } // case 8
+                case 10: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureExampleCountIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    exampleCount_.addInt(input.readInt32());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 10
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Row) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -2769,7 +2585,7 @@ private static final long serialVersionUID = 0L;
           if (!((bitField0_ & 0x00000001) != 0)) {
             exampleCount_ = mutableCopy(exampleCount_);
             bitField0_ |= 0x00000001;
-           }
+          }
         }
         /**
          * <pre>
@@ -2831,6 +2647,7 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setExampleCount(
             int index, int value) {
+          
           ensureExampleCountIsMutable();
           exampleCount_.setInt(index, value);
           onChanged();
@@ -2849,6 +2666,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder addExampleCount(int value) {
+          
           ensureExampleCountIsMutable();
           exampleCount_.addInt(value);
           onChanged();
@@ -2924,7 +2742,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Row(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -2945,6 +2774,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ANNOTATION_SPEC_ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList annotationSpecId_;
     /**
      * <pre>
@@ -3008,6 +2838,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DISPLAY_NAME_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList displayName_;
     /**
      * <pre>
@@ -3079,6 +2910,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ROW_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Row> row_;
     /**
      * <pre>
@@ -3181,7 +3013,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < displayName_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, displayName_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3210,7 +3042,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getDisplayNameList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3231,7 +3063,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getDisplayNameList())) return false;
       if (!getRowList()
           .equals(other.getRowList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3254,7 +3086,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + ROW_FIELD_NUMBER;
         hash = (53 * hash) + getRowList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3375,33 +3207,29 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getRowFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         annotationSpecId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         displayName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
         if (rowBuilder_ == null) {
           row_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
+          row_ = null;
           rowBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -3428,7 +3256,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix buildPartial() {
         com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix result = new com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           annotationSpecId_ = annotationSpecId_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -3448,8 +3282,10 @@ private static final long serialVersionUID = 0L;
         } else {
           result.row_ = rowBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -3542,7 +3378,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3557,17 +3393,55 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureAnnotationSpecIdIsMutable();
+                annotationSpecId_.add(s);
+                break;
+              } // case 10
+              case 18: {
+                com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Row m =
+                    input.readMessage(
+                        com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Row.parser(),
+                        extensionRegistry);
+                if (rowBuilder_ == null) {
+                  ensureRowIsMutable();
+                  row_.add(m);
+                } else {
+                  rowBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureDisplayNameIsMutable();
+                displayName_.add(s);
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3654,10 +3528,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAnnotationSpecId(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAnnotationSpecIdIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAnnotationSpecIdIsMutable();
         annotationSpecId_.set(index, value);
         onChanged();
         return this;
@@ -3676,10 +3548,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addAnnotationSpecId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAnnotationSpecIdIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAnnotationSpecIdIsMutable();
         annotationSpecId_.add(value);
         onChanged();
         return this;
@@ -3735,10 +3605,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addAnnotationSpecIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureAnnotationSpecIdIsMutable();
         annotationSpecId_.add(value);
         onChanged();
@@ -3837,10 +3705,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDisplayName(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDisplayNameIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureDisplayNameIsMutable();
         displayName_.set(index, value);
         onChanged();
         return this;
@@ -3861,10 +3727,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addDisplayName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDisplayNameIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureDisplayNameIsMutable();
         displayName_.add(value);
         onChanged();
         return this;
@@ -3926,10 +3790,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addDisplayNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureDisplayNameIsMutable();
         displayName_.add(value);
         onChanged();
@@ -4352,7 +4214,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ConfusionMatrix(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4373,7 +4246,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AU_PRC_FIELD_NUMBER = 1;
-  private float auPrc_;
+  private float auPrc_ = 0F;
   /**
    * <pre>
    * Output only. The Area Under Precision-Recall Curve metric. Micro-averaged
@@ -4389,7 +4262,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AU_ROC_FIELD_NUMBER = 6;
-  private float auRoc_;
+  private float auRoc_ = 0F;
   /**
    * <pre>
    * Output only. The Area Under Receiver Operating Characteristic curve metric.
@@ -4405,7 +4278,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOG_LOSS_FIELD_NUMBER = 7;
-  private float logLoss_;
+  private float logLoss_ = 0F;
   /**
    * <pre>
    * Output only. The Log Loss metric.
@@ -4420,6 +4293,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONFIDENCE_METRICS_ENTRY_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry> confidenceMetricsEntry_;
   /**
    * <pre>
@@ -4553,10 +4427,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrixOrBuilder getConfusionMatrixOrBuilder() {
-    return getConfusionMatrix();
+    return confusionMatrix_ == null ? com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.getDefaultInstance() : confusionMatrix_;
   }
 
   public static final int ANNOTATION_SPEC_ID_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList annotationSpecId_;
   /**
    * <pre>
@@ -4639,7 +4514,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToRawIntBits(logLoss_) != 0) {
       output.writeFloat(7, logLoss_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -4676,7 +4551,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(7, logLoss_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -4709,7 +4584,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getAnnotationSpecIdList()
         .equals(other.getAnnotationSpecIdList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -4741,7 +4616,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ANNOTATION_SPEC_ID_FIELD_NUMBER;
       hash = (53 * hash) + getAnnotationSpecIdList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -4864,43 +4739,35 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.automl.v1.ClassificationEvaluationMetrics.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getConfidenceMetricsEntryFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       auPrc_ = 0F;
-
       auRoc_ = 0F;
-
       logLoss_ = 0F;
-
       if (confidenceMetricsEntryBuilder_ == null) {
         confidenceMetricsEntry_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        confidenceMetricsEntry_ = null;
         confidenceMetricsEntryBuilder_.clear();
       }
-      if (confusionMatrixBuilder_ == null) {
-        confusionMatrix_ = null;
-      } else {
-        confusionMatrix_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      confusionMatrix_ = null;
+      if (confusionMatrixBuilder_ != null) {
+        confusionMatrixBuilder_.dispose();
         confusionMatrixBuilder_ = null;
       }
       annotationSpecId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -4927,31 +4794,45 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.automl.v1.ClassificationEvaluationMetrics buildPartial() {
       com.google.cloud.automl.v1.ClassificationEvaluationMetrics result = new com.google.cloud.automl.v1.ClassificationEvaluationMetrics(this);
-      int from_bitField0_ = bitField0_;
-      result.auPrc_ = auPrc_;
-      result.auRoc_ = auRoc_;
-      result.logLoss_ = logLoss_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.automl.v1.ClassificationEvaluationMetrics result) {
       if (confidenceMetricsEntryBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           confidenceMetricsEntry_ = java.util.Collections.unmodifiableList(confidenceMetricsEntry_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.confidenceMetricsEntry_ = confidenceMetricsEntry_;
       } else {
         result.confidenceMetricsEntry_ = confidenceMetricsEntryBuilder_.build();
       }
-      if (confusionMatrixBuilder_ == null) {
-        result.confusionMatrix_ = confusionMatrix_;
-      } else {
-        result.confusionMatrix_ = confusionMatrixBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         annotationSpecId_ = annotationSpecId_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000020);
       }
       result.annotationSpecId_ = annotationSpecId_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.automl.v1.ClassificationEvaluationMetrics result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.auPrc_ = auPrc_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.auRoc_ = auRoc_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.logLoss_ = logLoss_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.confusionMatrix_ = confusionMatrixBuilder_ == null
+            ? confusionMatrix_
+            : confusionMatrixBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -5011,7 +4892,7 @@ private static final long serialVersionUID = 0L;
         if (!other.confidenceMetricsEntry_.isEmpty()) {
           if (confidenceMetricsEntry_.isEmpty()) {
             confidenceMetricsEntry_ = other.confidenceMetricsEntry_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureConfidenceMetricsEntryIsMutable();
             confidenceMetricsEntry_.addAll(other.confidenceMetricsEntry_);
@@ -5024,7 +4905,7 @@ private static final long serialVersionUID = 0L;
             confidenceMetricsEntryBuilder_.dispose();
             confidenceMetricsEntryBuilder_ = null;
             confidenceMetricsEntry_ = other.confidenceMetricsEntry_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             confidenceMetricsEntryBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getConfidenceMetricsEntryFieldBuilder() : null;
@@ -5039,14 +4920,14 @@ private static final long serialVersionUID = 0L;
       if (!other.annotationSpecId_.isEmpty()) {
         if (annotationSpecId_.isEmpty()) {
           annotationSpecId_ = other.annotationSpecId_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureAnnotationSpecIdIsMutable();
           annotationSpecId_.addAll(other.annotationSpecId_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -5061,17 +4942,71 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.automl.v1.ClassificationEvaluationMetrics parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 13: {
+              auPrc_ = input.readFloat();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 13
+            case 26: {
+              com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry m =
+                  input.readMessage(
+                      com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry.parser(),
+                      extensionRegistry);
+              if (confidenceMetricsEntryBuilder_ == null) {
+                ensureConfidenceMetricsEntryIsMutable();
+                confidenceMetricsEntry_.add(m);
+              } else {
+                confidenceMetricsEntryBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getConfusionMatrixFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureAnnotationSpecIdIsMutable();
+              annotationSpecId_.add(s);
+              break;
+            } // case 42
+            case 53: {
+              auRoc_ = input.readFloat();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 53
+            case 61: {
+              logLoss_ = input.readFloat();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 61
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.automl.v1.ClassificationEvaluationMetrics) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -5103,6 +5038,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAuPrc(float value) {
       
       auPrc_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -5116,7 +5052,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAuPrc() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       auPrc_ = 0F;
       onChanged();
       return this;
@@ -5149,6 +5085,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAuRoc(float value) {
       
       auRoc_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -5162,7 +5099,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAuRoc() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       auRoc_ = 0F;
       onChanged();
       return this;
@@ -5193,6 +5130,7 @@ private static final long serialVersionUID = 0L;
     public Builder setLogLoss(float value) {
       
       logLoss_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -5205,7 +5143,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLogLoss() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       logLoss_ = 0F;
       onChanged();
       return this;
@@ -5214,9 +5152,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry> confidenceMetricsEntry_ =
       java.util.Collections.emptyList();
     private void ensureConfidenceMetricsEntryIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         confidenceMetricsEntry_ = new java.util.ArrayList<com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry>(confidenceMetricsEntry_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -5476,7 +5414,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearConfidenceMetricsEntry() {
       if (confidenceMetricsEntryBuilder_ == null) {
         confidenceMetricsEntry_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         confidenceMetricsEntryBuilder_.clear();
@@ -5623,7 +5561,7 @@ private static final long serialVersionUID = 0L;
         confidenceMetricsEntryBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry, com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry.Builder, com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfidenceMetricsEntryOrBuilder>(
                 confidenceMetricsEntry_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         confidenceMetricsEntry_ = null;
@@ -5646,7 +5584,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the confusionMatrix field is set.
      */
     public boolean hasConfusionMatrix() {
-      return confusionMatrixBuilder_ != null || confusionMatrix_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -5682,11 +5620,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         confusionMatrix_ = value;
-        onChanged();
       } else {
         confusionMatrixBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -5703,11 +5641,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Builder builderForValue) {
       if (confusionMatrixBuilder_ == null) {
         confusionMatrix_ = builderForValue.build();
-        onChanged();
       } else {
         confusionMatrixBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -5722,17 +5660,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConfusionMatrix(com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix value) {
       if (confusionMatrixBuilder_ == null) {
-        if (confusionMatrix_ != null) {
-          confusionMatrix_ =
-            com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.newBuilder(confusionMatrix_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          confusionMatrix_ != null &&
+          confusionMatrix_ != com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.getDefaultInstance()) {
+          getConfusionMatrixBuilder().mergeFrom(value);
         } else {
           confusionMatrix_ = value;
         }
-        onChanged();
       } else {
         confusionMatrixBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -5746,14 +5685,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix confusion_matrix = 4;</code>
      */
     public Builder clearConfusionMatrix() {
-      if (confusionMatrixBuilder_ == null) {
-        confusionMatrix_ = null;
-        onChanged();
-      } else {
-        confusionMatrix_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      confusionMatrix_ = null;
+      if (confusionMatrixBuilder_ != null) {
+        confusionMatrixBuilder_.dispose();
         confusionMatrixBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5767,7 +5705,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix confusion_matrix = 4;</code>
      */
     public com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Builder getConfusionMatrixBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getConfusionMatrixFieldBuilder().getBuilder();
     }
@@ -5815,9 +5753,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList annotationSpecId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureAnnotationSpecIdIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         annotationSpecId_ = new com.google.protobuf.LazyStringArrayList(annotationSpecId_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000020;
        }
     }
     /**
@@ -5880,10 +5818,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAnnotationSpecId(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAnnotationSpecIdIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAnnotationSpecIdIsMutable();
       annotationSpecId_.set(index, value);
       onChanged();
       return this;
@@ -5899,10 +5835,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAnnotationSpecId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAnnotationSpecIdIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAnnotationSpecIdIsMutable();
       annotationSpecId_.add(value);
       onChanged();
       return this;
@@ -5934,7 +5868,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAnnotationSpecId() {
       annotationSpecId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -5949,10 +5883,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAnnotationSpecIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureAnnotationSpecIdIsMutable();
       annotationSpecId_.add(value);
       onChanged();
@@ -5991,7 +5923,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ClassificationEvaluationMetrics(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

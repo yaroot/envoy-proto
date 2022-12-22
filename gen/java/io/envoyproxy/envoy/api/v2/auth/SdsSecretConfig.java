@@ -31,64 +31,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SdsSecretConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.api.v2.core.ConfigSource.Builder subBuilder = null;
-            if (sdsConfig_ != null) {
-              subBuilder = sdsConfig_.toBuilder();
-            }
-            sdsConfig_ = input.readMessage(io.envoyproxy.envoy.api.v2.core.ConfigSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sdsConfig_);
-              sdsConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.api.v2.auth.SecretProto.internal_static_envoy_api_v2_auth_SdsSecretConfig_descriptor;
@@ -103,7 +45,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Name (FQDN, UUID, SPKI, SHA256, etc.) by which the secret can be uniquely referred to.
@@ -175,7 +118,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.api.v2.core.ConfigSourceOrBuilder getSdsConfigOrBuilder() {
-    return getSdsConfig();
+    return sdsConfig_ == null ? io.envoyproxy.envoy.api.v2.core.ConfigSource.getDefaultInstance() : sdsConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -198,7 +141,7 @@ private static final long serialVersionUID = 0L;
     if (sdsConfig_ != null) {
       output.writeMessage(2, getSdsConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -214,7 +157,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getSdsConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -236,7 +179,7 @@ private static final long serialVersionUID = 0L;
       if (!getSdsConfig()
           .equals(other.getSdsConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -253,7 +196,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SDS_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getSdsConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -370,28 +313,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (sdsConfigBuilder_ == null) {
-        sdsConfig_ = null;
-      } else {
-        sdsConfig_ = null;
+      sdsConfig_ = null;
+      if (sdsConfigBuilder_ != null) {
+        sdsConfigBuilder_.dispose();
         sdsConfigBuilder_ = null;
       }
       return this;
@@ -420,14 +357,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig buildPartial() {
       io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig result = new io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig(this);
-      result.name_ = name_;
-      if (sdsConfigBuilder_ == null) {
-        result.sdsConfig_ = sdsConfig_;
-      } else {
-        result.sdsConfig_ = sdsConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.sdsConfig_ = sdsConfigBuilder_ == null
+            ? sdsConfig_
+            : sdsConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -476,12 +420,13 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasSdsConfig()) {
         mergeSdsConfig(other.getSdsConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -496,19 +441,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getSdsConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -569,11 +540,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -588,8 +557,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -606,12 +575,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -624,7 +591,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sdsConfig field is set.
      */
     public boolean hasSdsConfig() {
-      return sdsConfigBuilder_ != null || sdsConfig_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>.envoy.api.v2.core.ConfigSource sds_config = 2;</code>
@@ -646,11 +613,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sdsConfig_ = value;
-        onChanged();
       } else {
         sdsConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -660,11 +627,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.api.v2.core.ConfigSource.Builder builderForValue) {
       if (sdsConfigBuilder_ == null) {
         sdsConfig_ = builderForValue.build();
-        onChanged();
       } else {
         sdsConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -672,38 +639,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSdsConfig(io.envoyproxy.envoy.api.v2.core.ConfigSource value) {
       if (sdsConfigBuilder_ == null) {
-        if (sdsConfig_ != null) {
-          sdsConfig_ =
-            io.envoyproxy.envoy.api.v2.core.ConfigSource.newBuilder(sdsConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          sdsConfig_ != null &&
+          sdsConfig_ != io.envoyproxy.envoy.api.v2.core.ConfigSource.getDefaultInstance()) {
+          getSdsConfigBuilder().mergeFrom(value);
         } else {
           sdsConfig_ = value;
         }
-        onChanged();
       } else {
         sdsConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.api.v2.core.ConfigSource sds_config = 2;</code>
      */
     public Builder clearSdsConfig() {
-      if (sdsConfigBuilder_ == null) {
-        sdsConfig_ = null;
-        onChanged();
-      } else {
-        sdsConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      sdsConfig_ = null;
+      if (sdsConfigBuilder_ != null) {
+        sdsConfigBuilder_.dispose();
         sdsConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.api.v2.core.ConfigSource sds_config = 2;</code>
      */
     public io.envoyproxy.envoy.api.v2.core.ConfigSource.Builder getSdsConfigBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getSdsConfigFieldBuilder().getBuilder();
     }
@@ -767,7 +734,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SdsSecretConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

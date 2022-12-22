@@ -38,129 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SearchJobsResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              matchingJobs_ = new java.util.ArrayList<com.google.cloud.talent.v4beta1.SearchJobsResponse.MatchingJob>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            matchingJobs_.add(
-                input.readMessage(com.google.cloud.talent.v4beta1.SearchJobsResponse.MatchingJob.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              histogramQueryResults_ = new java.util.ArrayList<com.google.cloud.talent.v4beta1.HistogramQueryResult>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            histogramQueryResults_.add(
-                input.readMessage(com.google.cloud.talent.v4beta1.HistogramQueryResult.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            nextPageToken_ = s;
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              locationFilters_ = new java.util.ArrayList<com.google.cloud.talent.v4beta1.Location>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            locationFilters_.add(
-                input.readMessage(com.google.cloud.talent.v4beta1.Location.parser(), extensionRegistry));
-            break;
-          }
-          case 40: {
-
-            estimatedTotalSize_ = input.readInt32();
-            break;
-          }
-          case 48: {
-
-            totalSize_ = input.readInt32();
-            break;
-          }
-          case 58: {
-            com.google.cloud.talent.v4beta1.ResponseMetadata.Builder subBuilder = null;
-            if (metadata_ != null) {
-              subBuilder = metadata_.toBuilder();
-            }
-            metadata_ = input.readMessage(com.google.cloud.talent.v4beta1.ResponseMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(metadata_);
-              metadata_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 64: {
-
-            broadenedQueryJobsCount_ = input.readInt32();
-            break;
-          }
-          case 74: {
-            com.google.cloud.talent.v4beta1.SpellingCorrection.Builder subBuilder = null;
-            if (spellCorrection_ != null) {
-              subBuilder = spellCorrection_.toBuilder();
-            }
-            spellCorrection_ = input.readMessage(com.google.cloud.talent.v4beta1.SpellingCorrection.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(spellCorrection_);
-              spellCorrection_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        matchingJobs_ = java.util.Collections.unmodifiableList(matchingJobs_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        histogramQueryResults_ = java.util.Collections.unmodifiableList(histogramQueryResults_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        locationFilters_ = java.util.Collections.unmodifiableList(locationFilters_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.talent.v4beta1.JobServiceProto.internal_static_google_cloud_talent_v4beta1_SearchJobsResponse_descriptor;
@@ -341,89 +218,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private MatchingJob(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.talent.v4beta1.Job.Builder subBuilder = null;
-              if (job_ != null) {
-                subBuilder = job_.toBuilder();
-              }
-              job_ = input.readMessage(com.google.cloud.talent.v4beta1.Job.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(job_);
-                job_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              jobSummary_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              jobTitleSnippet_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              searchTextSnippet_ = s;
-              break;
-            }
-            case 42: {
-              com.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfo.Builder subBuilder = null;
-              if (commuteInfo_ != null) {
-                subBuilder = commuteInfo_.toBuilder();
-              }
-              commuteInfo_ = input.readMessage(com.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfo.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(commuteInfo_);
-                commuteInfo_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.talent.v4beta1.JobServiceProto.internal_static_google_cloud_talent_v4beta1_SearchJobsResponse_MatchingJob_descriptor;
@@ -472,11 +266,12 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.talent.v4beta1.JobOrBuilder getJobOrBuilder() {
-      return getJob();
+      return job_ == null ? com.google.cloud.talent.v4beta1.Job.getDefaultInstance() : job_;
     }
 
     public static final int JOB_SUMMARY_FIELD_NUMBER = 2;
-    private volatile java.lang.Object jobSummary_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object jobSummary_ = "";
     /**
      * <pre>
      * A summary of the job with core information that's displayed on the search
@@ -524,7 +319,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int JOB_TITLE_SNIPPET_FIELD_NUMBER = 3;
-    private volatile java.lang.Object jobTitleSnippet_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object jobTitleSnippet_ = "";
     /**
      * <pre>
      * Contains snippets of text from the [Job.title][google.cloud.talent.v4beta1.Job.title] field most
@@ -574,7 +370,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SEARCH_TEXT_SNIPPET_FIELD_NUMBER = 4;
-    private volatile java.lang.Object searchTextSnippet_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object searchTextSnippet_ = "";
     /**
      * <pre>
      * Contains snippets of text from the [Job.description][google.cloud.talent.v4beta1.Job.description] and similar
@@ -663,7 +460,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfoOrBuilder getCommuteInfoOrBuilder() {
-      return getCommuteInfo();
+      return commuteInfo_ == null ? com.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfo.getDefaultInstance() : commuteInfo_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -695,7 +492,7 @@ private static final long serialVersionUID = 0L;
       if (commuteInfo_ != null) {
         output.writeMessage(5, getCommuteInfo());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -721,7 +518,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getCommuteInfo());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -752,7 +549,7 @@ private static final long serialVersionUID = 0L;
         if (!getCommuteInfo()
             .equals(other.getCommuteInfo())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -777,7 +574,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + COMMUTE_INFO_FIELD_NUMBER;
         hash = (53 * hash) + getCommuteInfo().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -898,38 +695,29 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.talent.v4beta1.SearchJobsResponse.MatchingJob.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (jobBuilder_ == null) {
-          job_ = null;
-        } else {
-          job_ = null;
+        bitField0_ = 0;
+        job_ = null;
+        if (jobBuilder_ != null) {
+          jobBuilder_.dispose();
           jobBuilder_ = null;
         }
         jobSummary_ = "";
-
         jobTitleSnippet_ = "";
-
         searchTextSnippet_ = "";
-
-        if (commuteInfoBuilder_ == null) {
-          commuteInfo_ = null;
-        } else {
-          commuteInfo_ = null;
+        commuteInfo_ = null;
+        if (commuteInfoBuilder_ != null) {
+          commuteInfoBuilder_.dispose();
           commuteInfoBuilder_ = null;
         }
         return this;
@@ -958,21 +746,32 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.talent.v4beta1.SearchJobsResponse.MatchingJob buildPartial() {
         com.google.cloud.talent.v4beta1.SearchJobsResponse.MatchingJob result = new com.google.cloud.talent.v4beta1.SearchJobsResponse.MatchingJob(this);
-        if (jobBuilder_ == null) {
-          result.job_ = job_;
-        } else {
-          result.job_ = jobBuilder_.build();
-        }
-        result.jobSummary_ = jobSummary_;
-        result.jobTitleSnippet_ = jobTitleSnippet_;
-        result.searchTextSnippet_ = searchTextSnippet_;
-        if (commuteInfoBuilder_ == null) {
-          result.commuteInfo_ = commuteInfo_;
-        } else {
-          result.commuteInfo_ = commuteInfoBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.talent.v4beta1.SearchJobsResponse.MatchingJob result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.job_ = jobBuilder_ == null
+              ? job_
+              : jobBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.jobSummary_ = jobSummary_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.jobTitleSnippet_ = jobTitleSnippet_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.searchTextSnippet_ = searchTextSnippet_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.commuteInfo_ = commuteInfoBuilder_ == null
+              ? commuteInfo_
+              : commuteInfoBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1024,20 +823,23 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getJobSummary().isEmpty()) {
           jobSummary_ = other.jobSummary_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getJobTitleSnippet().isEmpty()) {
           jobTitleSnippet_ = other.jobTitleSnippet_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getSearchTextSnippet().isEmpty()) {
           searchTextSnippet_ = other.searchTextSnippet_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (other.hasCommuteInfo()) {
           mergeCommuteInfo(other.getCommuteInfo());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1052,19 +854,62 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.talent.v4beta1.SearchJobsResponse.MatchingJob parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getJobFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                jobSummary_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                jobTitleSnippet_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                searchTextSnippet_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getCommuteInfoFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.talent.v4beta1.SearchJobsResponse.MatchingJob) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.talent.v4beta1.Job job_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1078,7 +923,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the job field is set.
        */
       public boolean hasJob() {
-        return jobBuilder_ != null || job_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -1108,11 +953,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           job_ = value;
-          onChanged();
         } else {
           jobBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1126,11 +971,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.talent.v4beta1.Job.Builder builderForValue) {
         if (jobBuilder_ == null) {
           job_ = builderForValue.build();
-          onChanged();
         } else {
           jobBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1142,17 +987,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeJob(com.google.cloud.talent.v4beta1.Job value) {
         if (jobBuilder_ == null) {
-          if (job_ != null) {
-            job_ =
-              com.google.cloud.talent.v4beta1.Job.newBuilder(job_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            job_ != null &&
+            job_ != com.google.cloud.talent.v4beta1.Job.getDefaultInstance()) {
+            getJobBuilder().mergeFrom(value);
           } else {
             job_ = value;
           }
-          onChanged();
         } else {
           jobBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1163,14 +1009,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.talent.v4beta1.Job job = 1;</code>
        */
       public Builder clearJob() {
-        if (jobBuilder_ == null) {
-          job_ = null;
-          onChanged();
-        } else {
-          job_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        job_ = null;
+        if (jobBuilder_ != null) {
+          jobBuilder_.dispose();
           jobBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1181,7 +1026,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.talent.v4beta1.Job job = 1;</code>
        */
       public com.google.cloud.talent.v4beta1.Job.Builder getJobBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getJobFieldBuilder().getBuilder();
       }
@@ -1277,11 +1122,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setJobSummary(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         jobSummary_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1295,8 +1138,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearJobSummary() {
-        
         jobSummary_ = getDefaultInstance().getJobSummary();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1312,12 +1155,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setJobSummaryBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         jobSummary_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1381,11 +1222,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setJobTitleSnippet(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         jobTitleSnippet_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1400,8 +1239,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearJobTitleSnippet() {
-        
         jobTitleSnippet_ = getDefaultInstance().getJobTitleSnippet();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1418,12 +1257,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setJobTitleSnippetBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         jobTitleSnippet_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1490,11 +1327,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSearchTextSnippet(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         searchTextSnippet_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1510,8 +1345,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearSearchTextSnippet() {
-        
         searchTextSnippet_ = getDefaultInstance().getSearchTextSnippet();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1529,12 +1364,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSearchTextSnippetBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         searchTextSnippet_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1552,7 +1385,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the commuteInfo field is set.
        */
       public boolean hasCommuteInfo() {
-        return commuteInfoBuilder_ != null || commuteInfo_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -1584,11 +1417,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           commuteInfo_ = value;
-          onChanged();
         } else {
           commuteInfoBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -1603,11 +1436,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfo.Builder builderForValue) {
         if (commuteInfoBuilder_ == null) {
           commuteInfo_ = builderForValue.build();
-          onChanged();
         } else {
           commuteInfoBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -1620,17 +1453,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeCommuteInfo(com.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfo value) {
         if (commuteInfoBuilder_ == null) {
-          if (commuteInfo_ != null) {
-            commuteInfo_ =
-              com.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfo.newBuilder(commuteInfo_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            commuteInfo_ != null &&
+            commuteInfo_ != com.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfo.getDefaultInstance()) {
+            getCommuteInfoBuilder().mergeFrom(value);
           } else {
             commuteInfo_ = value;
           }
-          onChanged();
         } else {
           commuteInfoBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -1642,14 +1476,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfo commute_info = 5;</code>
        */
       public Builder clearCommuteInfo() {
-        if (commuteInfoBuilder_ == null) {
-          commuteInfo_ = null;
-          onChanged();
-        } else {
-          commuteInfo_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        commuteInfo_ = null;
+        if (commuteInfoBuilder_ != null) {
+          commuteInfoBuilder_.dispose();
           commuteInfoBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1661,7 +1494,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfo commute_info = 5;</code>
        */
       public com.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfo.Builder getCommuteInfoBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getCommuteInfoFieldBuilder().getBuilder();
       }
@@ -1735,7 +1568,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MatchingJob(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1853,71 +1697,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CommuteInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.talent.v4beta1.Location.Builder subBuilder = null;
-              if (jobLocation_ != null) {
-                subBuilder = jobLocation_.toBuilder();
-              }
-              jobLocation_ = input.readMessage(com.google.cloud.talent.v4beta1.Location.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(jobLocation_);
-                jobLocation_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (travelDuration_ != null) {
-                subBuilder = travelDuration_.toBuilder();
-              }
-              travelDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(travelDuration_);
-                travelDuration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.talent.v4beta1.JobServiceProto.internal_static_google_cloud_talent_v4beta1_SearchJobsResponse_CommuteInfo_descriptor;
@@ -1966,7 +1745,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.talent.v4beta1.LocationOrBuilder getJobLocationOrBuilder() {
-      return getJobLocation();
+      return jobLocation_ == null ? com.google.cloud.talent.v4beta1.Location.getDefaultInstance() : jobLocation_;
     }
 
     public static final int TRAVEL_DURATION_FIELD_NUMBER = 2;
@@ -2013,7 +1792,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getTravelDurationOrBuilder() {
-      return getTravelDuration();
+      return travelDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : travelDuration_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2036,7 +1815,7 @@ private static final long serialVersionUID = 0L;
       if (travelDuration_ != null) {
         output.writeMessage(2, getTravelDuration());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2053,7 +1832,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getTravelDuration());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2078,7 +1857,7 @@ private static final long serialVersionUID = 0L;
         if (!getTravelDuration()
             .equals(other.getTravelDuration())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2097,7 +1876,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + TRAVEL_DURATION_FIELD_NUMBER;
         hash = (53 * hash) + getTravelDuration().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2218,32 +1997,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (jobLocationBuilder_ == null) {
-          jobLocation_ = null;
-        } else {
-          jobLocation_ = null;
+        bitField0_ = 0;
+        jobLocation_ = null;
+        if (jobLocationBuilder_ != null) {
+          jobLocationBuilder_.dispose();
           jobLocationBuilder_ = null;
         }
-        if (travelDurationBuilder_ == null) {
-          travelDuration_ = null;
-        } else {
-          travelDuration_ = null;
+        travelDuration_ = null;
+        if (travelDurationBuilder_ != null) {
+          travelDurationBuilder_.dispose();
           travelDurationBuilder_ = null;
         }
         return this;
@@ -2272,18 +2045,23 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfo buildPartial() {
         com.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfo result = new com.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfo(this);
-        if (jobLocationBuilder_ == null) {
-          result.jobLocation_ = jobLocation_;
-        } else {
-          result.jobLocation_ = jobLocationBuilder_.build();
-        }
-        if (travelDurationBuilder_ == null) {
-          result.travelDuration_ = travelDuration_;
-        } else {
-          result.travelDuration_ = travelDurationBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.jobLocation_ = jobLocationBuilder_ == null
+              ? jobLocation_
+              : jobLocationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.travelDuration_ = travelDurationBuilder_ == null
+              ? travelDuration_
+              : travelDurationBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -2336,7 +2114,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasTravelDuration()) {
           mergeTravelDuration(other.getTravelDuration());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2351,19 +2129,47 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getJobLocationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getTravelDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.talent.v4beta1.SearchJobsResponse.CommuteInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.talent.v4beta1.Location jobLocation_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2377,7 +2183,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the jobLocation field is set.
        */
       public boolean hasJobLocation() {
-        return jobLocationBuilder_ != null || jobLocation_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -2407,11 +2213,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           jobLocation_ = value;
-          onChanged();
         } else {
           jobLocationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2425,11 +2231,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.talent.v4beta1.Location.Builder builderForValue) {
         if (jobLocationBuilder_ == null) {
           jobLocation_ = builderForValue.build();
-          onChanged();
         } else {
           jobLocationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2441,17 +2247,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeJobLocation(com.google.cloud.talent.v4beta1.Location value) {
         if (jobLocationBuilder_ == null) {
-          if (jobLocation_ != null) {
-            jobLocation_ =
-              com.google.cloud.talent.v4beta1.Location.newBuilder(jobLocation_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            jobLocation_ != null &&
+            jobLocation_ != com.google.cloud.talent.v4beta1.Location.getDefaultInstance()) {
+            getJobLocationBuilder().mergeFrom(value);
           } else {
             jobLocation_ = value;
           }
-          onChanged();
         } else {
           jobLocationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2462,14 +2269,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.talent.v4beta1.Location job_location = 1;</code>
        */
       public Builder clearJobLocation() {
-        if (jobLocationBuilder_ == null) {
-          jobLocation_ = null;
-          onChanged();
-        } else {
-          jobLocation_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        jobLocation_ = null;
+        if (jobLocationBuilder_ != null) {
+          jobLocationBuilder_.dispose();
           jobLocationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2480,7 +2286,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.talent.v4beta1.Location job_location = 1;</code>
        */
       public com.google.cloud.talent.v4beta1.Location.Builder getJobLocationBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getJobLocationFieldBuilder().getBuilder();
       }
@@ -2535,7 +2341,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the travelDuration field is set.
        */
       public boolean hasTravelDuration() {
-        return travelDurationBuilder_ != null || travelDuration_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -2571,11 +2377,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           travelDuration_ = value;
-          onChanged();
         } else {
           travelDurationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2592,11 +2398,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration.Builder builderForValue) {
         if (travelDurationBuilder_ == null) {
           travelDuration_ = builderForValue.build();
-          onChanged();
         } else {
           travelDurationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2611,17 +2417,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeTravelDuration(com.google.protobuf.Duration value) {
         if (travelDurationBuilder_ == null) {
-          if (travelDuration_ != null) {
-            travelDuration_ =
-              com.google.protobuf.Duration.newBuilder(travelDuration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            travelDuration_ != null &&
+            travelDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getTravelDurationBuilder().mergeFrom(value);
           } else {
             travelDuration_ = value;
           }
-          onChanged();
         } else {
           travelDurationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2635,14 +2442,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration travel_duration = 2;</code>
        */
       public Builder clearTravelDuration() {
-        if (travelDurationBuilder_ == null) {
-          travelDuration_ = null;
-          onChanged();
-        } else {
-          travelDuration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        travelDuration_ = null;
+        if (travelDurationBuilder_ != null) {
+          travelDurationBuilder_.dispose();
           travelDurationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2656,7 +2462,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration travel_duration = 2;</code>
        */
       public com.google.protobuf.Duration.Builder getTravelDurationBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getTravelDurationFieldBuilder().getBuilder();
       }
@@ -2734,7 +2540,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CommuteInfo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2755,6 +2572,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MATCHING_JOBS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.talent.v4beta1.SearchJobsResponse.MatchingJob> matchingJobs_;
   /**
    * <pre>
@@ -2815,6 +2633,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HISTOGRAM_QUERY_RESULTS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.talent.v4beta1.HistogramQueryResult> histogramQueryResults_;
   /**
    * <pre>
@@ -2880,7 +2699,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEXT_PAGE_TOKEN_FIELD_NUMBER = 3;
-  private volatile java.lang.Object nextPageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nextPageToken_ = "";
   /**
    * <pre>
    * The token that specifies the starting position of the next page of results.
@@ -2928,6 +2748,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCATION_FILTERS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.talent.v4beta1.Location> locationFilters_;
   /**
    * <pre>
@@ -2998,7 +2819,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ESTIMATED_TOTAL_SIZE_FIELD_NUMBER = 5;
-  private int estimatedTotalSize_;
+  private int estimatedTotalSize_ = 0;
   /**
    * <pre>
    * An estimation of the number of jobs that match the specified query.
@@ -3015,7 +2836,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOTAL_SIZE_FIELD_NUMBER = 6;
-  private int totalSize_;
+  private int totalSize_ = 0;
   /**
    * <pre>
    * The precise result count with limit 100,000.
@@ -3067,11 +2888,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.talent.v4beta1.ResponseMetadataOrBuilder getMetadataOrBuilder() {
-    return getMetadata();
+    return metadata_ == null ? com.google.cloud.talent.v4beta1.ResponseMetadata.getDefaultInstance() : metadata_;
   }
 
   public static final int BROADENED_QUERY_JOBS_COUNT_FIELD_NUMBER = 8;
-  private int broadenedQueryJobsCount_;
+  private int broadenedQueryJobsCount_ = 0;
   /**
    * <pre>
    * If query broadening is enabled, we may append additional results from the
@@ -3126,7 +2947,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.talent.v4beta1.SpellingCorrectionOrBuilder getSpellCorrectionOrBuilder() {
-    return getSpellCorrection();
+    return spellCorrection_ == null ? com.google.cloud.talent.v4beta1.SpellingCorrection.getDefaultInstance() : spellCorrection_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -3170,7 +2991,7 @@ private static final long serialVersionUID = 0L;
     if (spellCorrection_ != null) {
       output.writeMessage(9, getSpellCorrection());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3214,7 +3035,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, getSpellCorrection());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3253,7 +3074,7 @@ private static final long serialVersionUID = 0L;
       if (!getSpellCorrection()
           .equals(other.getSpellCorrection())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3292,7 +3113,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SPELL_CORRECTION_FIELD_NUMBER;
       hash = (53 * hash) + getSpellCorrection().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3413,61 +3234,51 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.talent.v4beta1.SearchJobsResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMatchingJobsFieldBuilder();
-        getHistogramQueryResultsFieldBuilder();
-        getLocationFiltersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (matchingJobsBuilder_ == null) {
         matchingJobs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        matchingJobs_ = null;
         matchingJobsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (histogramQueryResultsBuilder_ == null) {
         histogramQueryResults_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        histogramQueryResults_ = null;
         histogramQueryResultsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       nextPageToken_ = "";
-
       if (locationFiltersBuilder_ == null) {
         locationFilters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        locationFilters_ = null;
         locationFiltersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       estimatedTotalSize_ = 0;
-
       totalSize_ = 0;
-
-      if (metadataBuilder_ == null) {
-        metadata_ = null;
-      } else {
-        metadata_ = null;
+      metadata_ = null;
+      if (metadataBuilder_ != null) {
+        metadataBuilder_.dispose();
         metadataBuilder_ = null;
       }
       broadenedQueryJobsCount_ = 0;
-
-      if (spellCorrectionBuilder_ == null) {
-        spellCorrection_ = null;
-      } else {
-        spellCorrection_ = null;
+      spellCorrection_ = null;
+      if (spellCorrectionBuilder_ != null) {
+        spellCorrectionBuilder_.dispose();
         spellCorrectionBuilder_ = null;
       }
       return this;
@@ -3496,7 +3307,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.talent.v4beta1.SearchJobsResponse buildPartial() {
       com.google.cloud.talent.v4beta1.SearchJobsResponse result = new com.google.cloud.talent.v4beta1.SearchJobsResponse(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.talent.v4beta1.SearchJobsResponse result) {
       if (matchingJobsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           matchingJobs_ = java.util.Collections.unmodifiableList(matchingJobs_);
@@ -3515,31 +3332,41 @@ private static final long serialVersionUID = 0L;
       } else {
         result.histogramQueryResults_ = histogramQueryResultsBuilder_.build();
       }
-      result.nextPageToken_ = nextPageToken_;
       if (locationFiltersBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           locationFilters_ = java.util.Collections.unmodifiableList(locationFilters_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.locationFilters_ = locationFilters_;
       } else {
         result.locationFilters_ = locationFiltersBuilder_.build();
       }
-      result.estimatedTotalSize_ = estimatedTotalSize_;
-      result.totalSize_ = totalSize_;
-      if (metadataBuilder_ == null) {
-        result.metadata_ = metadata_;
-      } else {
-        result.metadata_ = metadataBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.talent.v4beta1.SearchJobsResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.nextPageToken_ = nextPageToken_;
       }
-      result.broadenedQueryJobsCount_ = broadenedQueryJobsCount_;
-      if (spellCorrectionBuilder_ == null) {
-        result.spellCorrection_ = spellCorrection_;
-      } else {
-        result.spellCorrection_ = spellCorrectionBuilder_.build();
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.estimatedTotalSize_ = estimatedTotalSize_;
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.totalSize_ = totalSize_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.metadata_ = metadataBuilder_ == null
+            ? metadata_
+            : metadataBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.broadenedQueryJobsCount_ = broadenedQueryJobsCount_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.spellCorrection_ = spellCorrectionBuilder_ == null
+            ? spellCorrection_
+            : spellCorrectionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -3640,13 +3467,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getNextPageToken().isEmpty()) {
         nextPageToken_ = other.nextPageToken_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (locationFiltersBuilder_ == null) {
         if (!other.locationFilters_.isEmpty()) {
           if (locationFilters_.isEmpty()) {
             locationFilters_ = other.locationFilters_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureLocationFiltersIsMutable();
             locationFilters_.addAll(other.locationFilters_);
@@ -3659,7 +3487,7 @@ private static final long serialVersionUID = 0L;
             locationFiltersBuilder_.dispose();
             locationFiltersBuilder_ = null;
             locationFilters_ = other.locationFilters_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
             locationFiltersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getLocationFiltersFieldBuilder() : null;
@@ -3683,7 +3511,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSpellCorrection()) {
         mergeSpellCorrection(other.getSpellCorrection());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3698,17 +3526,103 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.talent.v4beta1.SearchJobsResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.talent.v4beta1.SearchJobsResponse.MatchingJob m =
+                  input.readMessage(
+                      com.google.cloud.talent.v4beta1.SearchJobsResponse.MatchingJob.parser(),
+                      extensionRegistry);
+              if (matchingJobsBuilder_ == null) {
+                ensureMatchingJobsIsMutable();
+                matchingJobs_.add(m);
+              } else {
+                matchingJobsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.talent.v4beta1.HistogramQueryResult m =
+                  input.readMessage(
+                      com.google.cloud.talent.v4beta1.HistogramQueryResult.parser(),
+                      extensionRegistry);
+              if (histogramQueryResultsBuilder_ == null) {
+                ensureHistogramQueryResultsIsMutable();
+                histogramQueryResults_.add(m);
+              } else {
+                histogramQueryResultsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              nextPageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.cloud.talent.v4beta1.Location m =
+                  input.readMessage(
+                      com.google.cloud.talent.v4beta1.Location.parser(),
+                      extensionRegistry);
+              if (locationFiltersBuilder_ == null) {
+                ensureLocationFiltersIsMutable();
+                locationFilters_.add(m);
+              } else {
+                locationFiltersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 40: {
+              estimatedTotalSize_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              totalSize_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              input.readMessage(
+                  getMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 64: {
+              broadenedQueryJobsCount_ = input.readInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 74: {
+              input.readMessage(
+                  getSpellCorrectionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.talent.v4beta1.SearchJobsResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -4411,11 +4325,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       nextPageToken_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -4429,8 +4341,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNextPageToken() {
-      
       nextPageToken_ = getDefaultInstance().getNextPageToken();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -4446,12 +4358,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nextPageToken_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -4459,9 +4369,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.talent.v4beta1.Location> locationFilters_ =
       java.util.Collections.emptyList();
     private void ensureLocationFiltersIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         locationFilters_ = new java.util.ArrayList<com.google.cloud.talent.v4beta1.Location>(locationFilters_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -4677,7 +4587,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearLocationFilters() {
       if (locationFiltersBuilder_ == null) {
         locationFilters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         locationFiltersBuilder_.clear();
@@ -4796,7 +4706,7 @@ private static final long serialVersionUID = 0L;
         locationFiltersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.talent.v4beta1.Location, com.google.cloud.talent.v4beta1.Location.Builder, com.google.cloud.talent.v4beta1.LocationOrBuilder>(
                 locationFilters_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         locationFilters_ = null;
@@ -4833,6 +4743,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEstimatedTotalSize(int value) {
       
       estimatedTotalSize_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -4847,7 +4758,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEstimatedTotalSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       estimatedTotalSize_ = 0;
       onChanged();
       return this;
@@ -4878,6 +4789,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTotalSize(int value) {
       
       totalSize_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -4890,7 +4802,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTotalSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       totalSize_ = 0;
       onChanged();
       return this;
@@ -4909,7 +4821,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the metadata field is set.
      */
     public boolean hasMetadata() {
-      return metadataBuilder_ != null || metadata_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -4941,11 +4853,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         metadata_ = value;
-        onChanged();
       } else {
         metadataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -4960,11 +4872,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.talent.v4beta1.ResponseMetadata.Builder builderForValue) {
       if (metadataBuilder_ == null) {
         metadata_ = builderForValue.build();
-        onChanged();
       } else {
         metadataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -4977,17 +4889,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMetadata(com.google.cloud.talent.v4beta1.ResponseMetadata value) {
       if (metadataBuilder_ == null) {
-        if (metadata_ != null) {
-          metadata_ =
-            com.google.cloud.talent.v4beta1.ResponseMetadata.newBuilder(metadata_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          metadata_ != null &&
+          metadata_ != com.google.cloud.talent.v4beta1.ResponseMetadata.getDefaultInstance()) {
+          getMetadataBuilder().mergeFrom(value);
         } else {
           metadata_ = value;
         }
-        onChanged();
       } else {
         metadataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -4999,14 +4912,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4beta1.ResponseMetadata metadata = 7;</code>
      */
     public Builder clearMetadata() {
-      if (metadataBuilder_ == null) {
-        metadata_ = null;
-        onChanged();
-      } else {
-        metadata_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      metadata_ = null;
+      if (metadataBuilder_ != null) {
+        metadataBuilder_.dispose();
         metadataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5018,7 +4930,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4beta1.ResponseMetadata metadata = 7;</code>
      */
     public com.google.cloud.talent.v4beta1.ResponseMetadata.Builder getMetadataBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getMetadataFieldBuilder().getBuilder();
     }
@@ -5097,6 +5009,7 @@ private static final long serialVersionUID = 0L;
     public Builder setBroadenedQueryJobsCount(int value) {
       
       broadenedQueryJobsCount_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -5115,7 +5028,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBroadenedQueryJobsCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       broadenedQueryJobsCount_ = 0;
       onChanged();
       return this;
@@ -5133,7 +5046,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the spellCorrection field is set.
      */
     public boolean hasSpellCorrection() {
-      return spellCorrectionBuilder_ != null || spellCorrection_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -5163,11 +5076,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         spellCorrection_ = value;
-        onChanged();
       } else {
         spellCorrectionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -5181,11 +5094,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.talent.v4beta1.SpellingCorrection.Builder builderForValue) {
       if (spellCorrectionBuilder_ == null) {
         spellCorrection_ = builderForValue.build();
-        onChanged();
       } else {
         spellCorrectionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -5197,17 +5110,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSpellCorrection(com.google.cloud.talent.v4beta1.SpellingCorrection value) {
       if (spellCorrectionBuilder_ == null) {
-        if (spellCorrection_ != null) {
-          spellCorrection_ =
-            com.google.cloud.talent.v4beta1.SpellingCorrection.newBuilder(spellCorrection_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          spellCorrection_ != null &&
+          spellCorrection_ != com.google.cloud.talent.v4beta1.SpellingCorrection.getDefaultInstance()) {
+          getSpellCorrectionBuilder().mergeFrom(value);
         } else {
           spellCorrection_ = value;
         }
-        onChanged();
       } else {
         spellCorrectionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -5218,14 +5132,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4beta1.SpellingCorrection spell_correction = 9;</code>
      */
     public Builder clearSpellCorrection() {
-      if (spellCorrectionBuilder_ == null) {
-        spellCorrection_ = null;
-        onChanged();
-      } else {
-        spellCorrection_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      spellCorrection_ = null;
+      if (spellCorrectionBuilder_ != null) {
+        spellCorrectionBuilder_.dispose();
         spellCorrectionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5236,7 +5149,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4beta1.SpellingCorrection spell_correction = 9;</code>
      */
     public com.google.cloud.talent.v4beta1.SpellingCorrection.Builder getSpellCorrectionBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getSpellCorrectionFieldBuilder().getBuilder();
     }
@@ -5308,7 +5221,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SearchJobsResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

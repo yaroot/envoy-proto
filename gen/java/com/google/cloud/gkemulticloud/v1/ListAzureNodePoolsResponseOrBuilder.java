@@ -9,7 +9,8 @@ public interface ListAzureNodePoolsResponseOrBuilder extends
 
   /**
    * <pre>
-   * A list of [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] resources in the specified `AzureCluster`.
+   * A list of [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool]
+   * resources in the specified `AzureCluster`.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pools = 1;</code>
@@ -18,7 +19,8 @@ public interface ListAzureNodePoolsResponseOrBuilder extends
       getAzureNodePoolsList();
   /**
    * <pre>
-   * A list of [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] resources in the specified `AzureCluster`.
+   * A list of [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool]
+   * resources in the specified `AzureCluster`.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pools = 1;</code>
@@ -26,7 +28,8 @@ public interface ListAzureNodePoolsResponseOrBuilder extends
   com.google.cloud.gkemulticloud.v1.AzureNodePool getAzureNodePools(int index);
   /**
    * <pre>
-   * A list of [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] resources in the specified `AzureCluster`.
+   * A list of [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool]
+   * resources in the specified `AzureCluster`.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pools = 1;</code>
@@ -34,7 +37,8 @@ public interface ListAzureNodePoolsResponseOrBuilder extends
   int getAzureNodePoolsCount();
   /**
    * <pre>
-   * A list of [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] resources in the specified `AzureCluster`.
+   * A list of [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool]
+   * resources in the specified `AzureCluster`.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pools = 1;</code>
@@ -43,7 +47,8 @@ public interface ListAzureNodePoolsResponseOrBuilder extends
       getAzureNodePoolsOrBuilderList();
   /**
    * <pre>
-   * A list of [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] resources in the specified `AzureCluster`.
+   * A list of [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool]
+   * resources in the specified `AzureCluster`.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pools = 1;</code>

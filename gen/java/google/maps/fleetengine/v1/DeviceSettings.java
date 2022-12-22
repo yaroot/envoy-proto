@@ -35,74 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DeviceSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            locationPowerSaveMode_ = rawValue;
-            break;
-          }
-          case 16: {
-
-            isPowerSaveMode_ = input.readBool();
-            break;
-          }
-          case 24: {
-
-            isInteractive_ = input.readBool();
-            break;
-          }
-          case 34: {
-            google.maps.fleetengine.v1.BatteryInfo.Builder subBuilder = null;
-            if (batteryInfo_ != null) {
-              subBuilder = batteryInfo_.toBuilder();
-            }
-            batteryInfo_ = input.readMessage(google.maps.fleetengine.v1.BatteryInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(batteryInfo_);
-              batteryInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.v1.Vehicles.internal_static_maps_fleetengine_v1_DeviceSettings_descriptor;
@@ -117,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCATION_POWER_SAVE_MODE_FIELD_NUMBER = 1;
-  private int locationPowerSaveMode_;
+  private int locationPowerSaveMode_ = 0;
   /**
    * <pre>
    * How location features are set to behave on the device when battery saver is
@@ -140,13 +72,12 @@ private static final long serialVersionUID = 0L;
    * @return The locationPowerSaveMode.
    */
   @java.lang.Override public google.maps.fleetengine.v1.LocationPowerSaveMode getLocationPowerSaveMode() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.v1.LocationPowerSaveMode result = google.maps.fleetengine.v1.LocationPowerSaveMode.valueOf(locationPowerSaveMode_);
+    google.maps.fleetengine.v1.LocationPowerSaveMode result = google.maps.fleetengine.v1.LocationPowerSaveMode.forNumber(locationPowerSaveMode_);
     return result == null ? google.maps.fleetengine.v1.LocationPowerSaveMode.UNRECOGNIZED : result;
   }
 
   public static final int IS_POWER_SAVE_MODE_FIELD_NUMBER = 2;
-  private boolean isPowerSaveMode_;
+  private boolean isPowerSaveMode_ = false;
   /**
    * <pre>
    * Whether the device is currently in power save mode.
@@ -161,7 +92,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IS_INTERACTIVE_FIELD_NUMBER = 3;
-  private boolean isInteractive_;
+  private boolean isInteractive_ = false;
   /**
    * <pre>
    * Whether the device is in an interactive state.
@@ -210,7 +141,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.v1.BatteryInfoOrBuilder getBatteryInfoOrBuilder() {
-    return getBatteryInfo();
+    return batteryInfo_ == null ? google.maps.fleetengine.v1.BatteryInfo.getDefaultInstance() : batteryInfo_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -239,7 +170,7 @@ private static final long serialVersionUID = 0L;
     if (batteryInfo_ != null) {
       output.writeMessage(4, getBatteryInfo());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -264,7 +195,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getBatteryInfo());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -289,7 +220,7 @@ private static final long serialVersionUID = 0L;
       if (!getBatteryInfo()
           .equals(other.getBatteryInfo())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -312,7 +243,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BATTERY_INFO_FIELD_NUMBER;
       hash = (53 * hash) + getBatteryInfo().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -433,32 +364,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.v1.DeviceSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       locationPowerSaveMode_ = 0;
-
       isPowerSaveMode_ = false;
-
       isInteractive_ = false;
-
-      if (batteryInfoBuilder_ == null) {
-        batteryInfo_ = null;
-      } else {
-        batteryInfo_ = null;
+      batteryInfo_ = null;
+      if (batteryInfoBuilder_ != null) {
+        batteryInfoBuilder_.dispose();
         batteryInfoBuilder_ = null;
       }
       return this;
@@ -487,16 +410,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.v1.DeviceSettings buildPartial() {
       google.maps.fleetengine.v1.DeviceSettings result = new google.maps.fleetengine.v1.DeviceSettings(this);
-      result.locationPowerSaveMode_ = locationPowerSaveMode_;
-      result.isPowerSaveMode_ = isPowerSaveMode_;
-      result.isInteractive_ = isInteractive_;
-      if (batteryInfoBuilder_ == null) {
-        result.batteryInfo_ = batteryInfo_;
-      } else {
-        result.batteryInfo_ = batteryInfoBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.v1.DeviceSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.locationPowerSaveMode_ = locationPowerSaveMode_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.isPowerSaveMode_ = isPowerSaveMode_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.isInteractive_ = isInteractive_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.batteryInfo_ = batteryInfoBuilder_ == null
+            ? batteryInfo_
+            : batteryInfoBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -555,7 +489,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasBatteryInfo()) {
         mergeBatteryInfo(other.getBatteryInfo());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -570,19 +504,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.v1.DeviceSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              locationPowerSaveMode_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              isPowerSaveMode_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              isInteractive_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getBatteryInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.v1.DeviceSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int locationPowerSaveMode_ = 0;
     /**
@@ -608,8 +578,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLocationPowerSaveModeValue(int value) {
-      
       locationPowerSaveMode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -624,8 +594,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.v1.LocationPowerSaveMode getLocationPowerSaveMode() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.LocationPowerSaveMode result = google.maps.fleetengine.v1.LocationPowerSaveMode.valueOf(locationPowerSaveMode_);
+      google.maps.fleetengine.v1.LocationPowerSaveMode result = google.maps.fleetengine.v1.LocationPowerSaveMode.forNumber(locationPowerSaveMode_);
       return result == null ? google.maps.fleetengine.v1.LocationPowerSaveMode.UNRECOGNIZED : result;
     }
     /**
@@ -642,7 +611,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       locationPowerSaveMode_ = value.getNumber();
       onChanged();
       return this;
@@ -657,7 +626,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocationPowerSaveMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       locationPowerSaveMode_ = 0;
       onChanged();
       return this;
@@ -688,6 +657,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIsPowerSaveMode(boolean value) {
       
       isPowerSaveMode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -700,7 +670,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIsPowerSaveMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       isPowerSaveMode_ = false;
       onChanged();
       return this;
@@ -731,6 +701,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIsInteractive(boolean value) {
       
       isInteractive_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -743,7 +714,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIsInteractive() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       isInteractive_ = false;
       onChanged();
       return this;
@@ -761,7 +732,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the batteryInfo field is set.
      */
     public boolean hasBatteryInfo() {
-      return batteryInfoBuilder_ != null || batteryInfo_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -791,11 +762,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         batteryInfo_ = value;
-        onChanged();
       } else {
         batteryInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -809,11 +780,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.v1.BatteryInfo.Builder builderForValue) {
       if (batteryInfoBuilder_ == null) {
         batteryInfo_ = builderForValue.build();
-        onChanged();
       } else {
         batteryInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -825,17 +796,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBatteryInfo(google.maps.fleetengine.v1.BatteryInfo value) {
       if (batteryInfoBuilder_ == null) {
-        if (batteryInfo_ != null) {
-          batteryInfo_ =
-            google.maps.fleetengine.v1.BatteryInfo.newBuilder(batteryInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          batteryInfo_ != null &&
+          batteryInfo_ != google.maps.fleetengine.v1.BatteryInfo.getDefaultInstance()) {
+          getBatteryInfoBuilder().mergeFrom(value);
         } else {
           batteryInfo_ = value;
         }
-        onChanged();
       } else {
         batteryInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -846,14 +818,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.BatteryInfo battery_info = 4;</code>
      */
     public Builder clearBatteryInfo() {
-      if (batteryInfoBuilder_ == null) {
-        batteryInfo_ = null;
-        onChanged();
-      } else {
-        batteryInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      batteryInfo_ = null;
+      if (batteryInfoBuilder_ != null) {
+        batteryInfoBuilder_.dispose();
         batteryInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -864,7 +835,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.BatteryInfo battery_info = 4;</code>
      */
     public google.maps.fleetengine.v1.BatteryInfo.Builder getBatteryInfoBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getBatteryInfoFieldBuilder().getBuilder();
     }
@@ -936,7 +907,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DeviceSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

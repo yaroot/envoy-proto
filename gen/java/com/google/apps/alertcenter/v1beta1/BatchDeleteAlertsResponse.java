@@ -35,71 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BatchDeleteAlertsResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              successAlertIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            successAlertIds_.add(s);
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              failedAlertStatus_ = com.google.protobuf.MapField.newMapField(
-                  FailedAlertStatusDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.rpc.Status>
-            failedAlertStatus__ = input.readMessage(
-                FailedAlertStatusDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            failedAlertStatus_.getMutableMap().put(
-                failedAlertStatus__.getKey(), failedAlertStatus__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        successAlertIds_ = successAlertIds_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.apps.alertcenter.v1beta1.AlertCenterProto.internal_static_google_apps_alertcenter_v1beta1_BatchDeleteAlertsResponse_descriptor;
@@ -126,6 +61,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUCCESS_ALERT_IDS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList successAlertIds_;
   /**
    * <pre>
@@ -188,6 +124,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.rpc.Status.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.rpc.Status> failedAlertStatus_;
   private com.google.protobuf.MapField<java.lang.String, com.google.rpc.Status>
@@ -198,7 +135,6 @@ private static final long serialVersionUID = 0L;
     }
     return failedAlertStatus_;
   }
-
   public int getFailedAlertStatusCount() {
     return internalGetFailedAlertStatus().getMap().size();
   }
@@ -209,7 +145,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.rpc.Status&gt; failed_alert_status = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsFailedAlertStatus(
       java.lang.String key) {
@@ -232,7 +167,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.rpc.Status&gt; failed_alert_status = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.rpc.Status> getFailedAlertStatusMap() {
     return internalGetFailedAlertStatus().getMap();
   }
@@ -244,10 +178,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.rpc.Status&gt; failed_alert_status = 2;</code>
    */
   @java.lang.Override
-
-  public com.google.rpc.Status getFailedAlertStatusOrDefault(
+  public /* nullable */
+com.google.rpc.Status getFailedAlertStatusOrDefault(
       java.lang.String key,
-      com.google.rpc.Status defaultValue) {
+      /* nullable */
+com.google.rpc.Status defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.rpc.Status> map =
         internalGetFailedAlertStatus().getMap();
@@ -261,7 +196,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.rpc.Status&gt; failed_alert_status = 2;</code>
    */
   @java.lang.Override
-
   public com.google.rpc.Status getFailedAlertStatusOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -296,7 +230,7 @@ private static final long serialVersionUID = 0L;
         internalGetFailedAlertStatus(),
         FailedAlertStatusDefaultEntryHolder.defaultEntry,
         2);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -323,7 +257,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, failedAlertStatus__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -342,7 +276,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSuccessAlertIdsList())) return false;
     if (!internalGetFailedAlertStatus().equals(
         other.internalGetFailedAlertStatus())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -361,7 +295,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FAILED_ALERT_STATUS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetFailedAlertStatus().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -504,22 +438,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.apps.alertcenter.v1beta1.BatchDeleteAlertsResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       successAlertIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableFailedAlertStatus().clear();
@@ -549,16 +479,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.apps.alertcenter.v1beta1.BatchDeleteAlertsResponse buildPartial() {
       com.google.apps.alertcenter.v1beta1.BatchDeleteAlertsResponse result = new com.google.apps.alertcenter.v1beta1.BatchDeleteAlertsResponse(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.apps.alertcenter.v1beta1.BatchDeleteAlertsResponse result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         successAlertIds_ = successAlertIds_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.successAlertIds_ = successAlertIds_;
-      result.failedAlertStatus_ = internalGetFailedAlertStatus();
-      result.failedAlertStatus_.makeImmutable();
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.apps.alertcenter.v1beta1.BatchDeleteAlertsResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.failedAlertStatus_ = internalGetFailedAlertStatus();
+        result.failedAlertStatus_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -617,7 +557,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableFailedAlertStatus().mergeFrom(
           other.internalGetFailedAlertStatus());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000002;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -632,17 +573,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.apps.alertcenter.v1beta1.BatchDeleteAlertsResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSuccessAlertIdsIsMutable();
+              successAlertIds_.add(s);
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.rpc.Status>
+              failedAlertStatus__ = input.readMessage(
+                  FailedAlertStatusDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableFailedAlertStatus().getMutableMap().put(
+                  failedAlertStatus__.getKey(), failedAlertStatus__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.apps.alertcenter.v1beta1.BatchDeleteAlertsResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -714,10 +683,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSuccessAlertIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSuccessAlertIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSuccessAlertIdsIsMutable();
       successAlertIds_.set(index, value);
       onChanged();
       return this;
@@ -733,10 +700,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSuccessAlertIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSuccessAlertIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSuccessAlertIdsIsMutable();
       successAlertIds_.add(value);
       onChanged();
       return this;
@@ -783,10 +748,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSuccessAlertIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureSuccessAlertIdsIsMutable();
       successAlertIds_.add(value);
       onChanged();
@@ -796,7 +759,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.rpc.Status> failedAlertStatus_;
     private com.google.protobuf.MapField<java.lang.String, com.google.rpc.Status>
-    internalGetFailedAlertStatus() {
+        internalGetFailedAlertStatus() {
       if (failedAlertStatus_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             FailedAlertStatusDefaultEntryHolder.defaultEntry);
@@ -804,8 +767,7 @@ private static final long serialVersionUID = 0L;
       return failedAlertStatus_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.rpc.Status>
-    internalGetMutableFailedAlertStatus() {
-      onChanged();;
+        internalGetMutableFailedAlertStatus() {
       if (failedAlertStatus_ == null) {
         failedAlertStatus_ = com.google.protobuf.MapField.newMapField(
             FailedAlertStatusDefaultEntryHolder.defaultEntry);
@@ -813,9 +775,10 @@ private static final long serialVersionUID = 0L;
       if (!failedAlertStatus_.isMutable()) {
         failedAlertStatus_ = failedAlertStatus_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return failedAlertStatus_;
     }
-
     public int getFailedAlertStatusCount() {
       return internalGetFailedAlertStatus().getMap().size();
     }
@@ -826,7 +789,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.rpc.Status&gt; failed_alert_status = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsFailedAlertStatus(
         java.lang.String key) {
@@ -849,7 +811,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.rpc.Status&gt; failed_alert_status = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.rpc.Status> getFailedAlertStatusMap() {
       return internalGetFailedAlertStatus().getMap();
     }
@@ -861,10 +822,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.rpc.Status&gt; failed_alert_status = 2;</code>
      */
     @java.lang.Override
-
-    public com.google.rpc.Status getFailedAlertStatusOrDefault(
+    public /* nullable */
+com.google.rpc.Status getFailedAlertStatusOrDefault(
         java.lang.String key,
-        com.google.rpc.Status defaultValue) {
+        /* nullable */
+com.google.rpc.Status defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.rpc.Status> map =
           internalGetFailedAlertStatus().getMap();
@@ -878,7 +840,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.rpc.Status&gt; failed_alert_status = 2;</code>
      */
     @java.lang.Override
-
     public com.google.rpc.Status getFailedAlertStatusOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -889,8 +850,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearFailedAlertStatus() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableFailedAlertStatus().getMutableMap()
           .clear();
       return this;
@@ -902,7 +863,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.rpc.Status&gt; failed_alert_status = 2;</code>
      */
-
     public Builder removeFailedAlertStatus(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -915,7 +875,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.rpc.Status>
-    getMutableFailedAlertStatus() {
+        getMutableFailedAlertStatus() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableFailedAlertStatus().getMutableMap();
     }
     /**
@@ -929,12 +890,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.rpc.Status value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableFailedAlertStatus().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -944,11 +903,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.rpc.Status&gt; failed_alert_status = 2;</code>
      */
-
     public Builder putAllFailedAlertStatus(
         java.util.Map<java.lang.String, com.google.rpc.Status> values) {
       internalGetMutableFailedAlertStatus().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
     @java.lang.Override
@@ -984,7 +943,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BatchDeleteAlertsResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

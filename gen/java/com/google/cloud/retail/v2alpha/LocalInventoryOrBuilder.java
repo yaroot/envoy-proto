@@ -159,7 +159,6 @@ public interface LocalInventoryOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.retail.v2alpha.CustomAttribute&gt; attributes = 3;</code>
    */
-
   /* nullable */
 com.google.cloud.retail.v2alpha.CustomAttribute getAttributesOrDefault(
       java.lang.String key,
@@ -187,7 +186,6 @@ com.google.cloud.retail.v2alpha.CustomAttribute defaultValue);
    *
    * <code>map&lt;string, .google.cloud.retail.v2alpha.CustomAttribute&gt; attributes = 3;</code>
    */
-
   com.google.cloud.retail.v2alpha.CustomAttribute getAttributesOrThrow(
       java.lang.String key);
 

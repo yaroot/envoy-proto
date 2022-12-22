@@ -134,7 +134,6 @@ public interface InputConfigOrBuilder extends
    *
    * <code>map&lt;string, string&gt; params = 2;</code>
    */
-
   /* nullable */
 java.lang.String getParamsOrDefault(
       java.lang.String key,
@@ -154,7 +153,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; params = 2;</code>
    */
-
   java.lang.String getParamsOrThrow(
       java.lang.String key);
 

@@ -15,6 +15,7 @@ from google.ads.googleads.v11.enums import customer_match_upload_key_type_pb2 as
 from google.ads.googleads.v11.enums import user_list_combined_rule_operator_pb2 as google_dot_ads_dot_googleads_dot_v11_dot_enums_dot_user__list__combined__rule__operator__pb2
 from google.ads.googleads.v11.enums import user_list_crm_data_source_type_pb2 as google_dot_ads_dot_googleads_dot_v11_dot_enums_dot_user__list__crm__data__source__type__pb2
 from google.ads.googleads.v11.enums import user_list_date_rule_item_operator_pb2 as google_dot_ads_dot_googleads_dot_v11_dot_enums_dot_user__list__date__rule__item__operator__pb2
+from google.ads.googleads.v11.enums import user_list_flexible_rule_operator_pb2 as google_dot_ads_dot_googleads_dot_v11_dot_enums_dot_user__list__flexible__rule__operator__pb2
 from google.ads.googleads.v11.enums import user_list_logical_rule_operator_pb2 as google_dot_ads_dot_googleads_dot_v11_dot_enums_dot_user__list__logical__rule__operator__pb2
 from google.ads.googleads.v11.enums import user_list_number_rule_item_operator_pb2 as google_dot_ads_dot_googleads_dot_v11_dot_enums_dot_user__list__number__rule__item__operator__pb2
 from google.ads.googleads.v11.enums import user_list_prepopulation_status_pb2 as google_dot_ads_dot_googleads_dot_v11_dot_enums_dot_user__list__prepopulation__status__pb2
@@ -22,7 +23,7 @@ from google.ads.googleads.v11.enums import user_list_rule_type_pb2 as google_dot
 from google.ads.googleads.v11.enums import user_list_string_rule_item_operator_pb2 as google_dot_ads_dot_googleads_dot_v11_dot_enums_dot_user__list__string__rule__item__operator__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0google/ads/googleads/v11/common/user_lists.proto\x12\x1fgoogle.ads.googleads.v11.common\x1a\x43google/ads/googleads/v11/enums/customer_match_upload_key_type.proto\x1a\x45google/ads/googleads/v11/enums/user_list_combined_rule_operator.proto\x1a\x43google/ads/googleads/v11/enums/user_list_crm_data_source_type.proto\x1a\x46google/ads/googleads/v11/enums/user_list_date_rule_item_operator.proto\x1a\x44google/ads/googleads/v11/enums/user_list_logical_rule_operator.proto\x1aHgoogle/ads/googleads/v11/enums/user_list_number_rule_item_operator.proto\x1a\x43google/ads/googleads/v11/enums/user_list_prepopulation_status.proto\x1a\x38google/ads/googleads/v11/enums/user_list_rule_type.proto\x1aHgoogle/ads/googleads/v11/enums/user_list_string_rule_item_operator.proto\"E\n\x13SimilarUserListInfo\x12\x1b\n\x0eseed_user_list\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\x11\n\x0f_seed_user_list\"\x9d\x02\n\x14\x43rmBasedUserListInfo\x12\x13\n\x06\x61pp_id\x18\x04 \x01(\tH\x00\x88\x01\x01\x12r\n\x0fupload_key_type\x18\x02 \x01(\x0e\x32Y.google.ads.googleads.v11.enums.CustomerMatchUploadKeyTypeEnum.CustomerMatchUploadKeyType\x12q\n\x10\x64\x61ta_source_type\x18\x03 \x01(\x0e\x32W.google.ads.googleads.v11.enums.UserListCrmDataSourceTypeEnum.UserListCrmDataSourceTypeB\t\n\x07_app_id\"\xc2\x01\n\x10UserListRuleInfo\x12X\n\trule_type\x18\x01 \x01(\x0e\x32\x45.google.ads.googleads.v11.enums.UserListRuleTypeEnum.UserListRuleType\x12T\n\x10rule_item_groups\x18\x02 \x03(\x0b\x32:.google.ads.googleads.v11.common.UserListRuleItemGroupInfo\"f\n\x19UserListRuleItemGroupInfo\x12I\n\nrule_items\x18\x01 \x03(\x0b\x32\x35.google.ads.googleads.v11.common.UserListRuleItemInfo\"\xc6\x02\n\x14UserListRuleItemInfo\x12\x11\n\x04name\x18\x05 \x01(\tH\x01\x88\x01\x01\x12W\n\x10number_rule_item\x18\x02 \x01(\x0b\x32;.google.ads.googleads.v11.common.UserListNumberRuleItemInfoH\x00\x12W\n\x10string_rule_item\x18\x03 \x01(\x0b\x32;.google.ads.googleads.v11.common.UserListStringRuleItemInfoH\x00\x12S\n\x0e\x64\x61te_rule_item\x18\x04 \x01(\x0b\x32\x39.google.ads.googleads.v11.common.UserListDateRuleItemInfoH\x00\x42\x0b\n\trule_itemB\x07\n\x05_name\"\xd9\x01\n\x18UserListDateRuleItemInfo\x12o\n\x08operator\x18\x01 \x01(\x0e\x32].google.ads.googleads.v11.enums.UserListDateRuleItemOperatorEnum.UserListDateRuleItemOperator\x12\x12\n\x05value\x18\x04 \x01(\tH\x00\x88\x01\x01\x12\x1b\n\x0eoffset_in_days\x18\x05 \x01(\x03H\x01\x88\x01\x01\x42\x08\n\x06_valueB\x11\n\x0f_offset_in_days\"\xaf\x01\n\x1aUserListNumberRuleItemInfo\x12s\n\x08operator\x18\x01 \x01(\x0e\x32\x61.google.ads.googleads.v11.enums.UserListNumberRuleItemOperatorEnum.UserListNumberRuleItemOperator\x12\x12\n\x05value\x18\x03 \x01(\x01H\x00\x88\x01\x01\x42\x08\n\x06_value\"\xaf\x01\n\x1aUserListStringRuleItemInfo\x12s\n\x08operator\x18\x01 \x01(\x0e\x32\x61.google.ads.googleads.v11.enums.UserListStringRuleItemOperatorEnum.UserListStringRuleItemOperator\x12\x12\n\x05value\x18\x03 \x01(\tH\x00\x88\x01\x01\x42\x08\n\x06_value\"\xa3\x02\n\x18\x43ombinedRuleUserListInfo\x12G\n\x0cleft_operand\x18\x01 \x01(\x0b\x32\x31.google.ads.googleads.v11.common.UserListRuleInfo\x12H\n\rright_operand\x18\x02 \x01(\x0b\x32\x31.google.ads.googleads.v11.common.UserListRuleInfo\x12t\n\rrule_operator\x18\x03 \x01(\x0e\x32].google.ads.googleads.v11.enums.UserListCombinedRuleOperatorEnum.UserListCombinedRuleOperator\"]\n\x1a\x45xpressionRuleUserListInfo\x12?\n\x04rule\x18\x01 \x01(\x0b\x32\x31.google.ads.googleads.v11.common.UserListRuleInfo\"\xea\x02\n\x15RuleBasedUserListInfo\x12y\n\x14prepopulation_status\x18\x01 \x01(\x0e\x32[.google.ads.googleads.v11.enums.UserListPrepopulationStatusEnum.UserListPrepopulationStatus\x12\\\n\x17\x63ombined_rule_user_list\x18\x02 \x01(\x0b\x32\x39.google.ads.googleads.v11.common.CombinedRuleUserListInfoH\x00\x12`\n\x19\x65xpression_rule_user_list\x18\x04 \x01(\x0b\x32;.google.ads.googleads.v11.common.ExpressionRuleUserListInfoH\x00\x42\x16\n\x14rule_based_user_list\"^\n\x13LogicalUserListInfo\x12G\n\x05rules\x18\x01 \x03(\x0b\x32\x38.google.ads.googleads.v11.common.UserListLogicalRuleInfo\"\xdc\x01\n\x17UserListLogicalRuleInfo\x12m\n\x08operator\x18\x01 \x01(\x0e\x32[.google.ads.googleads.v11.enums.UserListLogicalRuleOperatorEnum.UserListLogicalRuleOperator\x12R\n\rrule_operands\x18\x02 \x03(\x0b\x32;.google.ads.googleads.v11.common.LogicalUserListOperandInfo\"B\n\x1aLogicalUserListOperandInfo\x12\x16\n\tuser_list\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\x0c\n\n_user_list\"Y\n\x11\x42\x61sicUserListInfo\x12\x44\n\x07\x61\x63tions\x18\x01 \x03(\x0b\x32\x33.google.ads.googleads.v11.common.UserListActionInfo\"c\n\x12UserListActionInfo\x12\x1b\n\x11\x63onversion_action\x18\x03 \x01(\tH\x00\x12\x1c\n\x12remarketing_action\x18\x04 \x01(\tH\x00\x42\x12\n\x10user_list_actionB\xee\x01\n#com.google.ads.googleads.v11.commonB\x0eUserListsProtoP\x01ZEgoogle.golang.org/genproto/googleapis/ads/googleads/v11/common;common\xa2\x02\x03GAA\xaa\x02\x1fGoogle.Ads.GoogleAds.V11.Common\xca\x02\x1fGoogle\\Ads\\GoogleAds\\V11\\Common\xea\x02#Google::Ads::GoogleAds::V11::Commonb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0google/ads/googleads/v11/common/user_lists.proto\x12\x1fgoogle.ads.googleads.v11.common\x1a\x43google/ads/googleads/v11/enums/customer_match_upload_key_type.proto\x1a\x45google/ads/googleads/v11/enums/user_list_combined_rule_operator.proto\x1a\x43google/ads/googleads/v11/enums/user_list_crm_data_source_type.proto\x1a\x46google/ads/googleads/v11/enums/user_list_date_rule_item_operator.proto\x1a\x45google/ads/googleads/v11/enums/user_list_flexible_rule_operator.proto\x1a\x44google/ads/googleads/v11/enums/user_list_logical_rule_operator.proto\x1aHgoogle/ads/googleads/v11/enums/user_list_number_rule_item_operator.proto\x1a\x43google/ads/googleads/v11/enums/user_list_prepopulation_status.proto\x1a\x38google/ads/googleads/v11/enums/user_list_rule_type.proto\x1aHgoogle/ads/googleads/v11/enums/user_list_string_rule_item_operator.proto\"E\n\x13SimilarUserListInfo\x12\x1b\n\x0eseed_user_list\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\x11\n\x0f_seed_user_list\"\x9d\x02\n\x14\x43rmBasedUserListInfo\x12\x13\n\x06\x61pp_id\x18\x04 \x01(\tH\x00\x88\x01\x01\x12r\n\x0fupload_key_type\x18\x02 \x01(\x0e\x32Y.google.ads.googleads.v11.enums.CustomerMatchUploadKeyTypeEnum.CustomerMatchUploadKeyType\x12q\n\x10\x64\x61ta_source_type\x18\x03 \x01(\x0e\x32W.google.ads.googleads.v11.enums.UserListCrmDataSourceTypeEnum.UserListCrmDataSourceTypeB\t\n\x07_app_id\"\xc2\x01\n\x10UserListRuleInfo\x12X\n\trule_type\x18\x01 \x01(\x0e\x32\x45.google.ads.googleads.v11.enums.UserListRuleTypeEnum.UserListRuleType\x12T\n\x10rule_item_groups\x18\x02 \x03(\x0b\x32:.google.ads.googleads.v11.common.UserListRuleItemGroupInfo\"f\n\x19UserListRuleItemGroupInfo\x12I\n\nrule_items\x18\x01 \x03(\x0b\x32\x35.google.ads.googleads.v11.common.UserListRuleItemInfo\"\xc6\x02\n\x14UserListRuleItemInfo\x12\x11\n\x04name\x18\x05 \x01(\tH\x01\x88\x01\x01\x12W\n\x10number_rule_item\x18\x02 \x01(\x0b\x32;.google.ads.googleads.v11.common.UserListNumberRuleItemInfoH\x00\x12W\n\x10string_rule_item\x18\x03 \x01(\x0b\x32;.google.ads.googleads.v11.common.UserListStringRuleItemInfoH\x00\x12S\n\x0e\x64\x61te_rule_item\x18\x04 \x01(\x0b\x32\x39.google.ads.googleads.v11.common.UserListDateRuleItemInfoH\x00\x42\x0b\n\trule_itemB\x07\n\x05_name\"\xd9\x01\n\x18UserListDateRuleItemInfo\x12o\n\x08operator\x18\x01 \x01(\x0e\x32].google.ads.googleads.v11.enums.UserListDateRuleItemOperatorEnum.UserListDateRuleItemOperator\x12\x12\n\x05value\x18\x04 \x01(\tH\x00\x88\x01\x01\x12\x1b\n\x0eoffset_in_days\x18\x05 \x01(\x03H\x01\x88\x01\x01\x42\x08\n\x06_valueB\x11\n\x0f_offset_in_days\"\xaf\x01\n\x1aUserListNumberRuleItemInfo\x12s\n\x08operator\x18\x01 \x01(\x0e\x32\x61.google.ads.googleads.v11.enums.UserListNumberRuleItemOperatorEnum.UserListNumberRuleItemOperator\x12\x12\n\x05value\x18\x03 \x01(\x01H\x00\x88\x01\x01\x42\x08\n\x06_value\"\xaf\x01\n\x1aUserListStringRuleItemInfo\x12s\n\x08operator\x18\x01 \x01(\x0e\x32\x61.google.ads.googleads.v11.enums.UserListStringRuleItemOperatorEnum.UserListStringRuleItemOperator\x12\x12\n\x05value\x18\x03 \x01(\tH\x00\x88\x01\x01\x42\x08\n\x06_value\"\xa3\x02\n\x18\x43ombinedRuleUserListInfo\x12G\n\x0cleft_operand\x18\x01 \x01(\x0b\x32\x31.google.ads.googleads.v11.common.UserListRuleInfo\x12H\n\rright_operand\x18\x02 \x01(\x0b\x32\x31.google.ads.googleads.v11.common.UserListRuleInfo\x12t\n\rrule_operator\x18\x03 \x01(\x0e\x32].google.ads.googleads.v11.enums.UserListCombinedRuleOperatorEnum.UserListCombinedRuleOperator\"]\n\x1a\x45xpressionRuleUserListInfo\x12?\n\x04rule\x18\x01 \x01(\x0b\x32\x31.google.ads.googleads.v11.common.UserListRuleInfo\"\x96\x01\n\x17\x46lexibleRuleOperandInfo\x12?\n\x04rule\x18\x01 \x01(\x0b\x32\x31.google.ads.googleads.v11.common.UserListRuleInfo\x12!\n\x14lookback_window_days\x18\x02 \x01(\x03H\x00\x88\x01\x01\x42\x17\n\x15_lookback_window_days\"\xc6\x02\n\x18\x46lexibleRuleUserListInfo\x12~\n\x17inclusive_rule_operator\x18\x01 \x01(\x0e\x32].google.ads.googleads.v11.enums.UserListFlexibleRuleOperatorEnum.UserListFlexibleRuleOperator\x12T\n\x12inclusive_operands\x18\x02 \x03(\x0b\x32\x38.google.ads.googleads.v11.common.FlexibleRuleOperandInfo\x12T\n\x12\x65xclusive_operands\x18\x03 \x03(\x0b\x32\x38.google.ads.googleads.v11.common.FlexibleRuleOperandInfo\"\xc6\x03\n\x15RuleBasedUserListInfo\x12y\n\x14prepopulation_status\x18\x01 \x01(\x0e\x32[.google.ads.googleads.v11.enums.UserListPrepopulationStatusEnum.UserListPrepopulationStatus\x12Z\n\x17\x66lexible_rule_user_list\x18\x05 \x01(\x0b\x32\x39.google.ads.googleads.v11.common.FlexibleRuleUserListInfo\x12\\\n\x17\x63ombined_rule_user_list\x18\x02 \x01(\x0b\x32\x39.google.ads.googleads.v11.common.CombinedRuleUserListInfoH\x00\x12`\n\x19\x65xpression_rule_user_list\x18\x04 \x01(\x0b\x32;.google.ads.googleads.v11.common.ExpressionRuleUserListInfoH\x00\x42\x16\n\x14rule_based_user_list\"^\n\x13LogicalUserListInfo\x12G\n\x05rules\x18\x01 \x03(\x0b\x32\x38.google.ads.googleads.v11.common.UserListLogicalRuleInfo\"\xdc\x01\n\x17UserListLogicalRuleInfo\x12m\n\x08operator\x18\x01 \x01(\x0e\x32[.google.ads.googleads.v11.enums.UserListLogicalRuleOperatorEnum.UserListLogicalRuleOperator\x12R\n\rrule_operands\x18\x02 \x03(\x0b\x32;.google.ads.googleads.v11.common.LogicalUserListOperandInfo\"B\n\x1aLogicalUserListOperandInfo\x12\x16\n\tuser_list\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\x0c\n\n_user_list\"Y\n\x11\x42\x61sicUserListInfo\x12\x44\n\x07\x61\x63tions\x18\x01 \x03(\x0b\x32\x33.google.ads.googleads.v11.common.UserListActionInfo\"c\n\x12UserListActionInfo\x12\x1b\n\x11\x63onversion_action\x18\x03 \x01(\tH\x00\x12\x1c\n\x12remarketing_action\x18\x04 \x01(\tH\x00\x42\x12\n\x10user_list_actionB\xee\x01\n#com.google.ads.googleads.v11.commonB\x0eUserListsProtoP\x01ZEgoogle.golang.org/genproto/googleapis/ads/googleads/v11/common;common\xa2\x02\x03GAA\xaa\x02\x1fGoogle.Ads.GoogleAds.V11.Common\xca\x02\x1fGoogle\\Ads\\GoogleAds\\V11\\Common\xea\x02#Google::Ads::GoogleAds::V11::Commonb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.ads.googleads.v11.common.user_lists_pb2', globals())
@@ -30,36 +31,40 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n#com.google.ads.googleads.v11.commonB\016UserListsProtoP\001ZEgoogle.golang.org/genproto/googleapis/ads/googleads/v11/common;common\242\002\003GAA\252\002\037Google.Ads.GoogleAds.V11.Common\312\002\037Google\\Ads\\GoogleAds\\V11\\Common\352\002#Google::Ads::GoogleAds::V11::Common'
-  _SIMILARUSERLISTINFO._serialized_start=711
-  _SIMILARUSERLISTINFO._serialized_end=780
-  _CRMBASEDUSERLISTINFO._serialized_start=783
-  _CRMBASEDUSERLISTINFO._serialized_end=1068
-  _USERLISTRULEINFO._serialized_start=1071
-  _USERLISTRULEINFO._serialized_end=1265
-  _USERLISTRULEITEMGROUPINFO._serialized_start=1267
-  _USERLISTRULEITEMGROUPINFO._serialized_end=1369
-  _USERLISTRULEITEMINFO._serialized_start=1372
-  _USERLISTRULEITEMINFO._serialized_end=1698
-  _USERLISTDATERULEITEMINFO._serialized_start=1701
-  _USERLISTDATERULEITEMINFO._serialized_end=1918
-  _USERLISTNUMBERRULEITEMINFO._serialized_start=1921
-  _USERLISTNUMBERRULEITEMINFO._serialized_end=2096
-  _USERLISTSTRINGRULEITEMINFO._serialized_start=2099
-  _USERLISTSTRINGRULEITEMINFO._serialized_end=2274
-  _COMBINEDRULEUSERLISTINFO._serialized_start=2277
-  _COMBINEDRULEUSERLISTINFO._serialized_end=2568
-  _EXPRESSIONRULEUSERLISTINFO._serialized_start=2570
-  _EXPRESSIONRULEUSERLISTINFO._serialized_end=2663
-  _RULEBASEDUSERLISTINFO._serialized_start=2666
-  _RULEBASEDUSERLISTINFO._serialized_end=3028
-  _LOGICALUSERLISTINFO._serialized_start=3030
-  _LOGICALUSERLISTINFO._serialized_end=3124
-  _USERLISTLOGICALRULEINFO._serialized_start=3127
-  _USERLISTLOGICALRULEINFO._serialized_end=3347
-  _LOGICALUSERLISTOPERANDINFO._serialized_start=3349
-  _LOGICALUSERLISTOPERANDINFO._serialized_end=3415
-  _BASICUSERLISTINFO._serialized_start=3417
-  _BASICUSERLISTINFO._serialized_end=3506
-  _USERLISTACTIONINFO._serialized_start=3508
-  _USERLISTACTIONINFO._serialized_end=3607
+  _SIMILARUSERLISTINFO._serialized_start=782
+  _SIMILARUSERLISTINFO._serialized_end=851
+  _CRMBASEDUSERLISTINFO._serialized_start=854
+  _CRMBASEDUSERLISTINFO._serialized_end=1139
+  _USERLISTRULEINFO._serialized_start=1142
+  _USERLISTRULEINFO._serialized_end=1336
+  _USERLISTRULEITEMGROUPINFO._serialized_start=1338
+  _USERLISTRULEITEMGROUPINFO._serialized_end=1440
+  _USERLISTRULEITEMINFO._serialized_start=1443
+  _USERLISTRULEITEMINFO._serialized_end=1769
+  _USERLISTDATERULEITEMINFO._serialized_start=1772
+  _USERLISTDATERULEITEMINFO._serialized_end=1989
+  _USERLISTNUMBERRULEITEMINFO._serialized_start=1992
+  _USERLISTNUMBERRULEITEMINFO._serialized_end=2167
+  _USERLISTSTRINGRULEITEMINFO._serialized_start=2170
+  _USERLISTSTRINGRULEITEMINFO._serialized_end=2345
+  _COMBINEDRULEUSERLISTINFO._serialized_start=2348
+  _COMBINEDRULEUSERLISTINFO._serialized_end=2639
+  _EXPRESSIONRULEUSERLISTINFO._serialized_start=2641
+  _EXPRESSIONRULEUSERLISTINFO._serialized_end=2734
+  _FLEXIBLERULEOPERANDINFO._serialized_start=2737
+  _FLEXIBLERULEOPERANDINFO._serialized_end=2887
+  _FLEXIBLERULEUSERLISTINFO._serialized_start=2890
+  _FLEXIBLERULEUSERLISTINFO._serialized_end=3216
+  _RULEBASEDUSERLISTINFO._serialized_start=3219
+  _RULEBASEDUSERLISTINFO._serialized_end=3673
+  _LOGICALUSERLISTINFO._serialized_start=3675
+  _LOGICALUSERLISTINFO._serialized_end=3769
+  _USERLISTLOGICALRULEINFO._serialized_start=3772
+  _USERLISTLOGICALRULEINFO._serialized_end=3992
+  _LOGICALUSERLISTOPERANDINFO._serialized_start=3994
+  _LOGICALUSERLISTOPERANDINFO._serialized_end=4060
+  _BASICUSERLISTINFO._serialized_start=4062
+  _BASICUSERLISTINFO._serialized_end=4151
+  _USERLISTACTIONINFO._serialized_start=4153
+  _USERLISTACTIONINFO._serialized_end=4252
 # @@protoc_insertion_point(module_scope)

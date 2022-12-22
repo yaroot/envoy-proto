@@ -37,88 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GeoTargetConstantSuggestion(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 34: {
-            com.google.ads.googleads.v11.resources.GeoTargetConstant.Builder subBuilder = null;
-            if (geoTargetConstant_ != null) {
-              subBuilder = geoTargetConstant_.toBuilder();
-            }
-            geoTargetConstant_ = input.readMessage(com.google.ads.googleads.v11.resources.GeoTargetConstant.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(geoTargetConstant_);
-              geoTargetConstant_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              geoTargetConstantParents_ = new java.util.ArrayList<com.google.ads.googleads.v11.resources.GeoTargetConstant>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            geoTargetConstantParents_.add(
-                input.readMessage(com.google.ads.googleads.v11.resources.GeoTargetConstant.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            locale_ = s;
-            break;
-          }
-          case 56: {
-            bitField0_ |= 0x00000002;
-            reach_ = input.readInt64();
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            searchTerm_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        geoTargetConstantParents_ = java.util.Collections.unmodifiableList(geoTargetConstantParents_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.services.GeoTargetConstantServiceProto.internal_static_google_ads_googleads_v11_services_GeoTargetConstantSuggestion_descriptor;
@@ -134,7 +52,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int LOCALE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object locale_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object locale_ = "";
   /**
    * <pre>
    * The language this GeoTargetConstantSuggestion is currently translated to.
@@ -201,7 +120,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REACH_FIELD_NUMBER = 7;
-  private long reach_;
+  private long reach_ = 0L;
   /**
    * <pre>
    * Approximate user population that will be targeted, rounded to the
@@ -230,7 +149,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SEARCH_TERM_FIELD_NUMBER = 8;
-  private volatile java.lang.Object searchTerm_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object searchTerm_ = "";
   /**
    * <pre>
    * If the request searched by location name, this is the location name that
@@ -325,10 +245,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v11.resources.GeoTargetConstantOrBuilder getGeoTargetConstantOrBuilder() {
-    return getGeoTargetConstant();
+    return geoTargetConstant_ == null ? com.google.ads.googleads.v11.resources.GeoTargetConstant.getDefaultInstance() : geoTargetConstant_;
   }
 
   public static final int GEO_TARGET_CONSTANT_PARENTS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.resources.GeoTargetConstant> geoTargetConstantParents_;
   /**
    * <pre>
@@ -417,7 +338,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, searchTerm_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -444,7 +365,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, searchTerm_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -481,7 +402,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getGeoTargetConstantParentsList()
         .equals(other.getGeoTargetConstantParentsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -513,7 +434,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + GEO_TARGET_CONSTANT_PARENTS_FIELD_NUMBER;
       hash = (53 * hash) + getGeoTargetConstantParentsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -634,41 +555,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.services.GeoTargetConstantSuggestion.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getGeoTargetConstantParentsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       locale_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       reach_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000002);
       searchTerm_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
-      if (geoTargetConstantBuilder_ == null) {
-        geoTargetConstant_ = null;
-      } else {
-        geoTargetConstant_ = null;
+      geoTargetConstant_ = null;
+      if (geoTargetConstantBuilder_ != null) {
+        geoTargetConstantBuilder_.dispose();
         geoTargetConstantBuilder_ = null;
       }
       if (geoTargetConstantParentsBuilder_ == null) {
         geoTargetConstantParents_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        geoTargetConstantParents_ = null;
         geoTargetConstantParentsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -695,37 +608,45 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.services.GeoTargetConstantSuggestion buildPartial() {
       com.google.ads.googleads.v11.services.GeoTargetConstantSuggestion result = new com.google.ads.googleads.v11.services.GeoTargetConstantSuggestion(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.locale_ = locale_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.reach_ = reach_;
-        to_bitField0_ |= 0x00000002;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        to_bitField0_ |= 0x00000004;
-      }
-      result.searchTerm_ = searchTerm_;
-      if (geoTargetConstantBuilder_ == null) {
-        result.geoTargetConstant_ = geoTargetConstant_;
-      } else {
-        result.geoTargetConstant_ = geoTargetConstantBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v11.services.GeoTargetConstantSuggestion result) {
       if (geoTargetConstantParentsBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           geoTargetConstantParents_ = java.util.Collections.unmodifiableList(geoTargetConstantParents_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.geoTargetConstantParents_ = geoTargetConstantParents_;
       } else {
         result.geoTargetConstantParents_ = geoTargetConstantParentsBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.services.GeoTargetConstantSuggestion result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.locale_ = locale_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.reach_ = reach_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.searchTerm_ = searchTerm_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.geoTargetConstant_ = geoTargetConstantBuilder_ == null
+            ? geoTargetConstant_
+            : geoTargetConstantBuilder_.build();
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -773,16 +694,16 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.ads.googleads.v11.services.GeoTargetConstantSuggestion other) {
       if (other == com.google.ads.googleads.v11.services.GeoTargetConstantSuggestion.getDefaultInstance()) return this;
       if (other.hasLocale()) {
-        bitField0_ |= 0x00000001;
         locale_ = other.locale_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasReach()) {
         setReach(other.getReach());
       }
       if (other.hasSearchTerm()) {
-        bitField0_ |= 0x00000004;
         searchTerm_ = other.searchTerm_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasGeoTargetConstant()) {
@@ -792,7 +713,7 @@ private static final long serialVersionUID = 0L;
         if (!other.geoTargetConstantParents_.isEmpty()) {
           if (geoTargetConstantParents_.isEmpty()) {
             geoTargetConstantParents_ = other.geoTargetConstantParents_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureGeoTargetConstantParentsIsMutable();
             geoTargetConstantParents_.addAll(other.geoTargetConstantParents_);
@@ -805,7 +726,7 @@ private static final long serialVersionUID = 0L;
             geoTargetConstantParentsBuilder_.dispose();
             geoTargetConstantParentsBuilder_ = null;
             geoTargetConstantParents_ = other.geoTargetConstantParents_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
             geoTargetConstantParentsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getGeoTargetConstantParentsFieldBuilder() : null;
@@ -814,7 +735,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -829,17 +750,65 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.services.GeoTargetConstantSuggestion parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 34: {
+              input.readMessage(
+                  getGeoTargetConstantFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.ads.googleads.v11.resources.GeoTargetConstant m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.resources.GeoTargetConstant.parser(),
+                      extensionRegistry);
+              if (geoTargetConstantParentsBuilder_ == null) {
+                ensureGeoTargetConstantParentsIsMutable();
+                geoTargetConstantParents_.add(m);
+              } else {
+                geoTargetConstantParentsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              locale_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 50
+            case 56: {
+              reach_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 56
+            case 66: {
+              searchTerm_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.services.GeoTargetConstantSuggestion) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -920,11 +889,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocale(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       locale_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -940,8 +907,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocale() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       locale_ = getDefaultInstance().getLocale();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -959,12 +926,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocaleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       locale_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1007,8 +972,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setReach(long value) {
-      bitField0_ |= 0x00000002;
+      
       reach_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1096,11 +1062,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSearchTerm(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       searchTerm_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1114,8 +1078,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSearchTerm() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       searchTerm_ = getDefaultInstance().getSearchTerm();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1131,12 +1095,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSearchTermBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       searchTerm_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1153,7 +1115,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the geoTargetConstant field is set.
      */
     public boolean hasGeoTargetConstant() {
-      return geoTargetConstantBuilder_ != null || geoTargetConstant_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1183,11 +1145,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         geoTargetConstant_ = value;
-        onChanged();
       } else {
         geoTargetConstantBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1201,11 +1163,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.resources.GeoTargetConstant.Builder builderForValue) {
       if (geoTargetConstantBuilder_ == null) {
         geoTargetConstant_ = builderForValue.build();
-        onChanged();
       } else {
         geoTargetConstantBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1217,17 +1179,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGeoTargetConstant(com.google.ads.googleads.v11.resources.GeoTargetConstant value) {
       if (geoTargetConstantBuilder_ == null) {
-        if (geoTargetConstant_ != null) {
-          geoTargetConstant_ =
-            com.google.ads.googleads.v11.resources.GeoTargetConstant.newBuilder(geoTargetConstant_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          geoTargetConstant_ != null &&
+          geoTargetConstant_ != com.google.ads.googleads.v11.resources.GeoTargetConstant.getDefaultInstance()) {
+          getGeoTargetConstantBuilder().mergeFrom(value);
         } else {
           geoTargetConstant_ = value;
         }
-        onChanged();
       } else {
         geoTargetConstantBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1238,14 +1201,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.resources.GeoTargetConstant geo_target_constant = 4;</code>
      */
     public Builder clearGeoTargetConstant() {
-      if (geoTargetConstantBuilder_ == null) {
-        geoTargetConstant_ = null;
-        onChanged();
-      } else {
-        geoTargetConstant_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      geoTargetConstant_ = null;
+      if (geoTargetConstantBuilder_ != null) {
+        geoTargetConstantBuilder_.dispose();
         geoTargetConstantBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1256,7 +1218,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.resources.GeoTargetConstant geo_target_constant = 4;</code>
      */
     public com.google.ads.googleads.v11.resources.GeoTargetConstant.Builder getGeoTargetConstantBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getGeoTargetConstantFieldBuilder().getBuilder();
     }
@@ -1299,9 +1261,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.ads.googleads.v11.resources.GeoTargetConstant> geoTargetConstantParents_ =
       java.util.Collections.emptyList();
     private void ensureGeoTargetConstantParentsIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         geoTargetConstantParents_ = new java.util.ArrayList<com.google.ads.googleads.v11.resources.GeoTargetConstant>(geoTargetConstantParents_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1495,7 +1457,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearGeoTargetConstantParents() {
       if (geoTargetConstantParentsBuilder_ == null) {
         geoTargetConstantParents_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         geoTargetConstantParentsBuilder_.clear();
@@ -1600,7 +1562,7 @@ private static final long serialVersionUID = 0L;
         geoTargetConstantParentsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.ads.googleads.v11.resources.GeoTargetConstant, com.google.ads.googleads.v11.resources.GeoTargetConstant.Builder, com.google.ads.googleads.v11.resources.GeoTargetConstantOrBuilder>(
                 geoTargetConstantParents_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         geoTargetConstantParents_ = null;
@@ -1640,7 +1602,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GeoTargetConstantSuggestion(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

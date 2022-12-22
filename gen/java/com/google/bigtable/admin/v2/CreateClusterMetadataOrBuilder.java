@@ -151,7 +151,6 @@ public interface CreateClusterMetadataOrBuilder extends
    *
    * <code>map&lt;string, .google.bigtable.admin.v2.CreateClusterMetadata.TableProgress&gt; tables = 4;</code>
    */
-
   /* nullable */
 com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress getTablesOrDefault(
       java.lang.String key,
@@ -170,7 +169,6 @@ com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress defaultValue);
    *
    * <code>map&lt;string, .google.bigtable.admin.v2.CreateClusterMetadata.TableProgress&gt; tables = 4;</code>
    */
-
   com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress getTablesOrThrow(
       java.lang.String key);
 }

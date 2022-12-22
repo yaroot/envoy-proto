@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AttachTrustRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.managedidentities.v1beta1.Trust.Builder subBuilder = null;
-            if (trust_ != null) {
-              subBuilder = trust_.toBuilder();
-            }
-            trust_ = input.readMessage(com.google.cloud.managedidentities.v1beta1.Trust.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(trust_);
-              trust_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.managedidentities.v1beta1.ManagedIdentitiesServiceProto.internal_static_google_cloud_managedidentities_v1beta1_AttachTrustRequest_descriptor;
@@ -108,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The resource domain name, project name and location using the form:
@@ -190,7 +133,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.managedidentities.v1beta1.TrustOrBuilder getTrustOrBuilder() {
-    return getTrust();
+    return trust_ == null ? com.google.cloud.managedidentities.v1beta1.Trust.getDefaultInstance() : trust_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -213,7 +156,7 @@ private static final long serialVersionUID = 0L;
     if (trust_ != null) {
       output.writeMessage(2, getTrust());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -229,7 +172,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getTrust());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -251,7 +194,7 @@ private static final long serialVersionUID = 0L;
       if (!getTrust()
           .equals(other.getTrust())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -268,7 +211,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TRUST_FIELD_NUMBER;
       hash = (53 * hash) + getTrust().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -390,28 +333,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.managedidentities.v1beta1.AttachTrustRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (trustBuilder_ == null) {
-        trust_ = null;
-      } else {
-        trust_ = null;
+      trust_ = null;
+      if (trustBuilder_ != null) {
+        trustBuilder_.dispose();
         trustBuilder_ = null;
       }
       return this;
@@ -440,14 +377,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.managedidentities.v1beta1.AttachTrustRequest buildPartial() {
       com.google.cloud.managedidentities.v1beta1.AttachTrustRequest result = new com.google.cloud.managedidentities.v1beta1.AttachTrustRequest(this);
-      result.name_ = name_;
-      if (trustBuilder_ == null) {
-        result.trust_ = trust_;
-      } else {
-        result.trust_ = trustBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.managedidentities.v1beta1.AttachTrustRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.trust_ = trustBuilder_ == null
+            ? trust_
+            : trustBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -496,12 +440,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.managedidentities.v1beta1.AttachTrustRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasTrust()) {
         mergeTrust(other.getTrust());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -516,19 +461,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.managedidentities.v1beta1.AttachTrustRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTrustFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.managedidentities.v1beta1.AttachTrustRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -586,11 +557,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -604,8 +573,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -621,12 +590,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -643,7 +610,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the trust field is set.
      */
     public boolean hasTrust() {
-      return trustBuilder_ != null || trust_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -673,11 +640,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         trust_ = value;
-        onChanged();
       } else {
         trustBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -691,11 +658,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.managedidentities.v1beta1.Trust.Builder builderForValue) {
       if (trustBuilder_ == null) {
         trust_ = builderForValue.build();
-        onChanged();
       } else {
         trustBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -707,17 +674,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTrust(com.google.cloud.managedidentities.v1beta1.Trust value) {
       if (trustBuilder_ == null) {
-        if (trust_ != null) {
-          trust_ =
-            com.google.cloud.managedidentities.v1beta1.Trust.newBuilder(trust_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          trust_ != null &&
+          trust_ != com.google.cloud.managedidentities.v1beta1.Trust.getDefaultInstance()) {
+          getTrustBuilder().mergeFrom(value);
         } else {
           trust_ = value;
         }
-        onChanged();
       } else {
         trustBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -728,14 +696,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.managedidentities.v1beta1.Trust trust = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearTrust() {
-      if (trustBuilder_ == null) {
-        trust_ = null;
-        onChanged();
-      } else {
-        trust_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      trust_ = null;
+      if (trustBuilder_ != null) {
+        trustBuilder_.dispose();
         trustBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -746,7 +713,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.managedidentities.v1beta1.Trust trust = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.managedidentities.v1beta1.Trust.Builder getTrustBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTrustFieldBuilder().getBuilder();
     }
@@ -818,7 +785,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AttachTrustRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -304,5 +304,32 @@ public interface ActionDetailOrBuilder extends
    */
   com.google.apps.drive.activity.v2.SettingsChangeOrBuilder getSettingsChangeOrBuilder();
 
+  /**
+   * <pre>
+   * Label was changed.
+   * </pre>
+   *
+   * <code>.google.apps.drive.activity.v2.AppliedLabelChange applied_label_change = 19;</code>
+   * @return Whether the appliedLabelChange field is set.
+   */
+  boolean hasAppliedLabelChange();
+  /**
+   * <pre>
+   * Label was changed.
+   * </pre>
+   *
+   * <code>.google.apps.drive.activity.v2.AppliedLabelChange applied_label_change = 19;</code>
+   * @return The appliedLabelChange.
+   */
+  com.google.apps.drive.activity.v2.AppliedLabelChange getAppliedLabelChange();
+  /**
+   * <pre>
+   * Label was changed.
+   * </pre>
+   *
+   * <code>.google.apps.drive.activity.v2.AppliedLabelChange applied_label_change = 19;</code>
+   */
+  com.google.apps.drive.activity.v2.AppliedLabelChangeOrBuilder getAppliedLabelChangeOrBuilder();
+
   public com.google.apps.drive.activity.v2.ActionDetail.ActionDetailCase getActionDetailCase();
 }

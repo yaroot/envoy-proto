@@ -35,91 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Examples(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.aiplatform.v1beta1.GcsSource.Builder subBuilder = null;
-            if (gcsSource_ != null) {
-              subBuilder = gcsSource_.toBuilder();
-            }
-            gcsSource_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.GcsSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(gcsSource_);
-              gcsSource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Value.Builder subBuilder = null;
-            if (configCase_ == 2) {
-              subBuilder = ((com.google.protobuf.Value) config_).toBuilder();
-            }
-            config_ =
-                input.readMessage(com.google.protobuf.Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Value) config_);
-              config_ = subBuilder.buildPartial();
-            }
-            configCase_ = 2;
-            break;
-          }
-          case 24: {
-
-            neighborCount_ = input.readInt32();
-            break;
-          }
-          case 34: {
-            com.google.cloud.aiplatform.v1beta1.Presets.Builder subBuilder = null;
-            if (configCase_ == 4) {
-              subBuilder = ((com.google.cloud.aiplatform.v1beta1.Presets) config_).toBuilder();
-            }
-            config_ =
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.Presets.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1beta1.Presets) config_);
-              config_ = subBuilder.buildPartial();
-            }
-            configCase_ = 4;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.ExplanationProto.internal_static_google_cloud_aiplatform_v1beta1_Examples_descriptor;
@@ -301,11 +216,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.GcsSourceOrBuilder getGcsSourceOrBuilder() {
-    return getGcsSource();
+    return gcsSource_ == null ? com.google.cloud.aiplatform.v1beta1.GcsSource.getDefaultInstance() : gcsSource_;
   }
 
   public static final int NEIGHBOR_COUNT_FIELD_NUMBER = 3;
-  private int neighborCount_;
+  private int neighborCount_ = 0;
   /**
    * <pre>
    * The number of neighbors to return.
@@ -345,7 +260,7 @@ private static final long serialVersionUID = 0L;
     if (configCase_ == 4) {
       output.writeMessage(4, (com.google.cloud.aiplatform.v1beta1.Presets) config_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -370,7 +285,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, (com.google.cloud.aiplatform.v1beta1.Presets) config_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -405,7 +320,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -434,7 +349,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -556,30 +471,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.Examples.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (gcsSourceBuilder_ == null) {
-        gcsSource_ = null;
-      } else {
-        gcsSource_ = null;
+      bitField0_ = 0;
+      if (nearestNeighborSearchConfigBuilder_ != null) {
+        nearestNeighborSearchConfigBuilder_.clear();
+      }
+      if (presetsBuilder_ != null) {
+        presetsBuilder_.clear();
+      }
+      gcsSource_ = null;
+      if (gcsSourceBuilder_ != null) {
+        gcsSourceBuilder_.dispose();
         gcsSourceBuilder_ = null;
       }
       neighborCount_ = 0;
-
       configCase_ = 0;
       config_ = null;
       return this;
@@ -608,29 +523,35 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.Examples buildPartial() {
       com.google.cloud.aiplatform.v1beta1.Examples result = new com.google.cloud.aiplatform.v1beta1.Examples(this);
-      if (configCase_ == 2) {
-        if (nearestNeighborSearchConfigBuilder_ == null) {
-          result.config_ = config_;
-        } else {
-          result.config_ = nearestNeighborSearchConfigBuilder_.build();
-        }
-      }
-      if (configCase_ == 4) {
-        if (presetsBuilder_ == null) {
-          result.config_ = config_;
-        } else {
-          result.config_ = presetsBuilder_.build();
-        }
-      }
-      if (gcsSourceBuilder_ == null) {
-        result.gcsSource_ = gcsSource_;
-      } else {
-        result.gcsSource_ = gcsSourceBuilder_.build();
-      }
-      result.neighborCount_ = neighborCount_;
-      result.configCase_ = configCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.Examples result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.gcsSource_ = gcsSourceBuilder_ == null
+            ? gcsSource_
+            : gcsSourceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.neighborCount_ = neighborCount_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.aiplatform.v1beta1.Examples result) {
+      result.configCase_ = configCase_;
+      result.config_ = this.config_;
+      if (configCase_ == 2 &&
+          nearestNeighborSearchConfigBuilder_ != null) {
+        result.config_ = nearestNeighborSearchConfigBuilder_.build();
+      }
+      if (configCase_ == 4 &&
+          presetsBuilder_ != null) {
+        result.config_ = presetsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -696,7 +617,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -711,17 +632,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.Examples parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getGcsSourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getNearestNeighborSearchConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              configCase_ = 2;
+              break;
+            } // case 18
+            case 24: {
+              neighborCount_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getPresetsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              configCase_ = 4;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.Examples) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int configCase_ = 0;
@@ -739,6 +699,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder> nearestNeighborSearchConfigBuilder_;
@@ -923,7 +884,7 @@ private static final long serialVersionUID = 0L;
         config_ = null;
       }
       configCase_ = 2;
-      onChanged();;
+      onChanged();
       return nearestNeighborSearchConfigBuilder_;
     }
 
@@ -1110,7 +1071,7 @@ private static final long serialVersionUID = 0L;
         config_ = null;
       }
       configCase_ = 4;
-      onChanged();;
+      onChanged();
       return presetsBuilder_;
     }
 
@@ -1126,7 +1087,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the gcsSource field is set.
      */
     public boolean hasGcsSource() {
-      return gcsSourceBuilder_ != null || gcsSource_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1156,11 +1117,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         gcsSource_ = value;
-        onChanged();
       } else {
         gcsSourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1174,11 +1135,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.GcsSource.Builder builderForValue) {
       if (gcsSourceBuilder_ == null) {
         gcsSource_ = builderForValue.build();
-        onChanged();
       } else {
         gcsSourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1190,17 +1151,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGcsSource(com.google.cloud.aiplatform.v1beta1.GcsSource value) {
       if (gcsSourceBuilder_ == null) {
-        if (gcsSource_ != null) {
-          gcsSource_ =
-            com.google.cloud.aiplatform.v1beta1.GcsSource.newBuilder(gcsSource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          gcsSource_ != null &&
+          gcsSource_ != com.google.cloud.aiplatform.v1beta1.GcsSource.getDefaultInstance()) {
+          getGcsSourceBuilder().mergeFrom(value);
         } else {
           gcsSource_ = value;
         }
-        onChanged();
       } else {
         gcsSourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1211,14 +1173,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.GcsSource gcs_source = 1;</code>
      */
     public Builder clearGcsSource() {
-      if (gcsSourceBuilder_ == null) {
-        gcsSource_ = null;
-        onChanged();
-      } else {
-        gcsSource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      gcsSource_ = null;
+      if (gcsSourceBuilder_ != null) {
+        gcsSourceBuilder_.dispose();
         gcsSourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1229,7 +1190,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.GcsSource gcs_source = 1;</code>
      */
     public com.google.cloud.aiplatform.v1beta1.GcsSource.Builder getGcsSourceBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getGcsSourceFieldBuilder().getBuilder();
     }
@@ -1294,6 +1255,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNeighborCount(int value) {
       
       neighborCount_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1306,7 +1268,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNeighborCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       neighborCount_ = 0;
       onChanged();
       return this;
@@ -1344,7 +1306,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Examples(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

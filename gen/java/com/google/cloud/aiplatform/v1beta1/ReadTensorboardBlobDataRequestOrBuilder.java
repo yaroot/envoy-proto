@@ -11,7 +11,7 @@ public interface ReadTensorboardBlobDataRequestOrBuilder extends
    * <pre>
    * Required. The resource name of the TensorboardTimeSeries to list Blobs.
    * Format:
-   * 'projects/{project}/locations/{location}/tensorboards/{tensorboard}/experiments/{experiment}/runs/{run}/timeSeries/{time_series}'
+   * `projects/{project}/locations/{location}/tensorboards/{tensorboard}/experiments/{experiment}/runs/{run}/timeSeries/{time_series}`
    * </pre>
    *
    * <code>string time_series = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -22,7 +22,7 @@ public interface ReadTensorboardBlobDataRequestOrBuilder extends
    * <pre>
    * Required. The resource name of the TensorboardTimeSeries to list Blobs.
    * Format:
-   * 'projects/{project}/locations/{location}/tensorboards/{tensorboard}/experiments/{experiment}/runs/{run}/timeSeries/{time_series}'
+   * `projects/{project}/locations/{location}/tensorboards/{tensorboard}/experiments/{experiment}/runs/{run}/timeSeries/{time_series}`
    * </pre>
    *
    * <code>string time_series = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

@@ -41,83 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private WeightedCluster(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              clusters_ = new java.util.ArrayList<io.envoyproxy.envoy.config.route.v3.WeightedCluster.ClusterWeight>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            clusters_.add(
-                input.readMessage(io.envoyproxy.envoy.config.route.v3.WeightedCluster.ClusterWeight.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            runtimeKeyPrefix_ = s;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (totalWeight_ != null) {
-              subBuilder = totalWeight_.toBuilder();
-            }
-            totalWeight_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(totalWeight_);
-              totalWeight_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            randomValueSpecifierCase_ = 4;
-            randomValueSpecifier_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        clusters_ = java.util.Collections.unmodifiableList(clusters_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.route.v3.RouteComponentsProto.internal_static_envoy_config_route_v3_WeightedCluster_descriptor;
@@ -203,10 +126,10 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * An integer between 0 and :ref:`total_weight
-     * &lt;envoy_v3_api_field_config.route.v3.WeightedCluster.total_weight&gt;`. When a request matches the route,
-     * the choice of an upstream cluster is determined by its weight. The sum of weights across all
-     * entries in the clusters array must add up to the total_weight, if total_weight is greater than 0.
+     * The weight of the cluster. This value is relative to the other clusters'
+     * weights. When a request matches the route, the choice of an upstream cluster
+     * is determined by its weight. The sum of weights across all
+     * entries in the clusters array must be greater than 0.
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value weight = 2;</code>
@@ -215,10 +138,10 @@ private static final long serialVersionUID = 0L;
     boolean hasWeight();
     /**
      * <pre>
-     * An integer between 0 and :ref:`total_weight
-     * &lt;envoy_v3_api_field_config.route.v3.WeightedCluster.total_weight&gt;`. When a request matches the route,
-     * the choice of an upstream cluster is determined by its weight. The sum of weights across all
-     * entries in the clusters array must add up to the total_weight, if total_weight is greater than 0.
+     * The weight of the cluster. This value is relative to the other clusters'
+     * weights. When a request matches the route, the choice of an upstream cluster
+     * is determined by its weight. The sum of weights across all
+     * entries in the clusters array must be greater than 0.
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value weight = 2;</code>
@@ -227,10 +150,10 @@ private static final long serialVersionUID = 0L;
     com.google.protobuf.UInt32Value getWeight();
     /**
      * <pre>
-     * An integer between 0 and :ref:`total_weight
-     * &lt;envoy_v3_api_field_config.route.v3.WeightedCluster.total_weight&gt;`. When a request matches the route,
-     * the choice of an upstream cluster is determined by its weight. The sum of weights across all
-     * entries in the clusters array must add up to the total_weight, if total_weight is greater than 0.
+     * The weight of the cluster. This value is relative to the other clusters'
+     * weights. When a request matches the route, the choice of an upstream cluster
+     * is determined by its weight. The sum of weights across all
+     * entries in the clusters array must be greater than 0.
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value weight = 2;</code>
@@ -597,7 +520,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
      */
-
     /* nullable */
 com.google.protobuf.Any getTypedPerFilterConfigOrDefault(
         java.lang.String key,
@@ -621,7 +543,6 @@ com.google.protobuf.Any defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
      */
-
     com.google.protobuf.Any getTypedPerFilterConfigOrThrow(
         java.lang.String key);
 
@@ -696,151 +617,6 @@ com.google.protobuf.Any defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ClusterWeight(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              com.google.protobuf.UInt32Value.Builder subBuilder = null;
-              if (weight_ != null) {
-                subBuilder = weight_.toBuilder();
-              }
-              weight_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(weight_);
-                weight_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              io.envoyproxy.envoy.config.core.v3.Metadata.Builder subBuilder = null;
-              if (metadataMatch_ != null) {
-                subBuilder = metadataMatch_.toBuilder();
-              }
-              metadataMatch_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.Metadata.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(metadataMatch_);
-                metadataMatch_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                requestHeadersToAdd_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.HeaderValueOption>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              requestHeadersToAdd_.add(
-                  input.readMessage(io.envoyproxy.envoy.config.core.v3.HeaderValueOption.parser(), extensionRegistry));
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                responseHeadersToAdd_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.HeaderValueOption>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              responseHeadersToAdd_.add(
-                  input.readMessage(io.envoyproxy.envoy.config.core.v3.HeaderValueOption.parser(), extensionRegistry));
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                responseHeadersToRemove_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              responseHeadersToRemove_.add(s);
-              break;
-            }
-            case 74: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                requestHeadersToRemove_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              requestHeadersToRemove_.add(s);
-              break;
-            }
-            case 82: {
-              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-                typedPerFilterConfig_ = com.google.protobuf.MapField.newMapField(
-                    TypedPerFilterConfigDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Any>
-              typedPerFilterConfig__ = input.readMessage(
-                  TypedPerFilterConfigDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              typedPerFilterConfig_.getMutableMap().put(
-                  typedPerFilterConfig__.getKey(), typedPerFilterConfig__.getValue());
-              break;
-            }
-            case 90: {
-              java.lang.String s = input.readStringRequireUtf8();
-              hostRewriteSpecifierCase_ = 11;
-              hostRewriteSpecifier_ = s;
-              break;
-            }
-            case 98: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              clusterHeader_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          requestHeadersToAdd_ = java.util.Collections.unmodifiableList(requestHeadersToAdd_);
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          responseHeadersToAdd_ = java.util.Collections.unmodifiableList(responseHeadersToAdd_);
-        }
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
-          responseHeadersToRemove_ = responseHeadersToRemove_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          requestHeadersToRemove_ = requestHeadersToRemove_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.config.route.v3.RouteComponentsProto.internal_static_envoy_config_route_v3_WeightedCluster_ClusterWeight_descriptor;
@@ -906,7 +682,8 @@ com.google.protobuf.Any defaultValue);
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Only one of ``name`` and ``cluster_header`` may be specified.
@@ -958,7 +735,8 @@ com.google.protobuf.Any defaultValue);
     }
 
     public static final int CLUSTER_HEADER_FIELD_NUMBER = 12;
-    private volatile java.lang.Object clusterHeader_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object clusterHeader_ = "";
     /**
      * <pre>
      * Only one of ``name`` and ``cluster_header`` may be specified.
@@ -1027,10 +805,10 @@ com.google.protobuf.Any defaultValue);
     private com.google.protobuf.UInt32Value weight_;
     /**
      * <pre>
-     * An integer between 0 and :ref:`total_weight
-     * &lt;envoy_v3_api_field_config.route.v3.WeightedCluster.total_weight&gt;`. When a request matches the route,
-     * the choice of an upstream cluster is determined by its weight. The sum of weights across all
-     * entries in the clusters array must add up to the total_weight, if total_weight is greater than 0.
+     * The weight of the cluster. This value is relative to the other clusters'
+     * weights. When a request matches the route, the choice of an upstream cluster
+     * is determined by its weight. The sum of weights across all
+     * entries in the clusters array must be greater than 0.
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value weight = 2;</code>
@@ -1042,10 +820,10 @@ com.google.protobuf.Any defaultValue);
     }
     /**
      * <pre>
-     * An integer between 0 and :ref:`total_weight
-     * &lt;envoy_v3_api_field_config.route.v3.WeightedCluster.total_weight&gt;`. When a request matches the route,
-     * the choice of an upstream cluster is determined by its weight. The sum of weights across all
-     * entries in the clusters array must add up to the total_weight, if total_weight is greater than 0.
+     * The weight of the cluster. This value is relative to the other clusters'
+     * weights. When a request matches the route, the choice of an upstream cluster
+     * is determined by its weight. The sum of weights across all
+     * entries in the clusters array must be greater than 0.
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value weight = 2;</code>
@@ -1057,17 +835,17 @@ com.google.protobuf.Any defaultValue);
     }
     /**
      * <pre>
-     * An integer between 0 and :ref:`total_weight
-     * &lt;envoy_v3_api_field_config.route.v3.WeightedCluster.total_weight&gt;`. When a request matches the route,
-     * the choice of an upstream cluster is determined by its weight. The sum of weights across all
-     * entries in the clusters array must add up to the total_weight, if total_weight is greater than 0.
+     * The weight of the cluster. This value is relative to the other clusters'
+     * weights. When a request matches the route, the choice of an upstream cluster
+     * is determined by its weight. The sum of weights across all
+     * entries in the clusters array must be greater than 0.
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value weight = 2;</code>
      */
     @java.lang.Override
     public com.google.protobuf.UInt32ValueOrBuilder getWeightOrBuilder() {
-      return getWeight();
+      return weight_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : weight_;
     }
 
     public static final int METADATA_MATCH_FIELD_NUMBER = 3;
@@ -1117,10 +895,11 @@ com.google.protobuf.Any defaultValue);
      */
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.MetadataOrBuilder getMetadataMatchOrBuilder() {
-      return getMetadataMatch();
+      return metadataMatch_ == null ? io.envoyproxy.envoy.config.core.v3.Metadata.getDefaultInstance() : metadataMatch_;
     }
 
     public static final int REQUEST_HEADERS_TO_ADD_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private java.util.List<io.envoyproxy.envoy.config.core.v3.HeaderValueOption> requestHeadersToAdd_;
     /**
      * <pre>
@@ -1211,6 +990,7 @@ com.google.protobuf.Any defaultValue);
     }
 
     public static final int REQUEST_HEADERS_TO_REMOVE_FIELD_NUMBER = 9;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList requestHeadersToRemove_;
     /**
      * <pre>
@@ -1266,6 +1046,7 @@ com.google.protobuf.Any defaultValue);
     }
 
     public static final int RESPONSE_HEADERS_TO_ADD_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
     private java.util.List<io.envoyproxy.envoy.config.core.v3.HeaderValueOption> responseHeadersToAdd_;
     /**
      * <pre>
@@ -1356,6 +1137,7 @@ com.google.protobuf.Any defaultValue);
     }
 
     public static final int RESPONSE_HEADERS_TO_REMOVE_FIELD_NUMBER = 6;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList responseHeadersToRemove_;
     /**
      * <pre>
@@ -1422,6 +1204,7 @@ com.google.protobuf.Any defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.protobuf.Any.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf.Any> typedPerFilterConfig_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Any>
@@ -1432,7 +1215,6 @@ com.google.protobuf.Any defaultValue);
       }
       return typedPerFilterConfig_;
     }
-
     public int getTypedPerFilterConfigCount() {
       return internalGetTypedPerFilterConfig().getMap().size();
     }
@@ -1454,7 +1236,6 @@ com.google.protobuf.Any defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
      */
-
     @java.lang.Override
     public boolean containsTypedPerFilterConfig(
         java.lang.String key) {
@@ -1488,7 +1269,6 @@ com.google.protobuf.Any defaultValue);
      * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf.Any> getTypedPerFilterConfigMap() {
       return internalGetTypedPerFilterConfig().getMap();
     }
@@ -1511,10 +1291,11 @@ com.google.protobuf.Any defaultValue);
      * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Any getTypedPerFilterConfigOrDefault(
+    public /* nullable */
+com.google.protobuf.Any getTypedPerFilterConfigOrDefault(
         java.lang.String key,
-        com.google.protobuf.Any defaultValue) {
+        /* nullable */
+com.google.protobuf.Any defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.Any> map =
           internalGetTypedPerFilterConfig().getMap();
@@ -1539,7 +1320,6 @@ com.google.protobuf.Any defaultValue);
      * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Any getTypedPerFilterConfigOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1665,7 +1445,7 @@ com.google.protobuf.Any defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clusterHeader_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 12, clusterHeader_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1725,7 +1505,7 @@ com.google.protobuf.Any defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clusterHeader_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, clusterHeader_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1773,7 +1553,7 @@ com.google.protobuf.Any defaultValue);
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1824,7 +1604,7 @@ com.google.protobuf.Any defaultValue);
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1967,56 +1747,48 @@ com.google.protobuf.Any defaultValue);
 
       // Construct using io.envoyproxy.envoy.config.route.v3.WeightedCluster.ClusterWeight.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getRequestHeadersToAddFieldBuilder();
-          getResponseHeadersToAddFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         clusterHeader_ = "";
-
-        if (weightBuilder_ == null) {
-          weight_ = null;
-        } else {
-          weight_ = null;
+        weight_ = null;
+        if (weightBuilder_ != null) {
+          weightBuilder_.dispose();
           weightBuilder_ = null;
         }
-        if (metadataMatchBuilder_ == null) {
-          metadataMatch_ = null;
-        } else {
-          metadataMatch_ = null;
+        metadataMatch_ = null;
+        if (metadataMatchBuilder_ != null) {
+          metadataMatchBuilder_.dispose();
           metadataMatchBuilder_ = null;
         }
         if (requestHeadersToAddBuilder_ == null) {
           requestHeadersToAdd_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          requestHeadersToAdd_ = null;
           requestHeadersToAddBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000010);
         requestHeadersToRemove_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000020);
         if (responseHeadersToAddBuilder_ == null) {
           responseHeadersToAdd_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
+          responseHeadersToAdd_ = null;
           responseHeadersToAddBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000040);
         responseHeadersToRemove_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000080);
         internalGetMutableTypedPerFilterConfig().clear();
         hostRewriteSpecifierCase_ = 0;
         hostRewriteSpecifier_ = null;
@@ -2046,55 +1818,71 @@ com.google.protobuf.Any defaultValue);
       @java.lang.Override
       public io.envoyproxy.envoy.config.route.v3.WeightedCluster.ClusterWeight buildPartial() {
         io.envoyproxy.envoy.config.route.v3.WeightedCluster.ClusterWeight result = new io.envoyproxy.envoy.config.route.v3.WeightedCluster.ClusterWeight(this);
-        int from_bitField0_ = bitField0_;
-        result.name_ = name_;
-        result.clusterHeader_ = clusterHeader_;
-        if (weightBuilder_ == null) {
-          result.weight_ = weight_;
-        } else {
-          result.weight_ = weightBuilder_.build();
-        }
-        if (metadataMatchBuilder_ == null) {
-          result.metadataMatch_ = metadataMatch_;
-        } else {
-          result.metadataMatch_ = metadataMatchBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(io.envoyproxy.envoy.config.route.v3.WeightedCluster.ClusterWeight result) {
         if (requestHeadersToAddBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000010) != 0)) {
             requestHeadersToAdd_ = java.util.Collections.unmodifiableList(requestHeadersToAdd_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           }
           result.requestHeadersToAdd_ = requestHeadersToAdd_;
         } else {
           result.requestHeadersToAdd_ = requestHeadersToAddBuilder_.build();
         }
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           requestHeadersToRemove_ = requestHeadersToRemove_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.requestHeadersToRemove_ = requestHeadersToRemove_;
         if (responseHeadersToAddBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000040) != 0)) {
             responseHeadersToAdd_ = java.util.Collections.unmodifiableList(responseHeadersToAdd_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000040);
           }
           result.responseHeadersToAdd_ = responseHeadersToAdd_;
         } else {
           result.responseHeadersToAdd_ = responseHeadersToAddBuilder_.build();
         }
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           responseHeadersToRemove_ = responseHeadersToRemove_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.responseHeadersToRemove_ = responseHeadersToRemove_;
-        result.typedPerFilterConfig_ = internalGetTypedPerFilterConfig();
-        result.typedPerFilterConfig_.makeImmutable();
-        if (hostRewriteSpecifierCase_ == 11) {
-          result.hostRewriteSpecifier_ = hostRewriteSpecifier_;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.config.route.v3.WeightedCluster.ClusterWeight result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
         }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.clusterHeader_ = clusterHeader_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.weight_ = weightBuilder_ == null
+              ? weight_
+              : weightBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.metadataMatch_ = metadataMatchBuilder_ == null
+              ? metadataMatch_
+              : metadataMatchBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.typedPerFilterConfig_ = internalGetTypedPerFilterConfig();
+          result.typedPerFilterConfig_.makeImmutable();
+        }
+      }
+
+      private void buildPartialOneofs(io.envoyproxy.envoy.config.route.v3.WeightedCluster.ClusterWeight result) {
         result.hostRewriteSpecifierCase_ = hostRewriteSpecifierCase_;
-        onBuilt();
-        return result;
+        result.hostRewriteSpecifier_ = this.hostRewriteSpecifier_;
       }
 
       @java.lang.Override
@@ -2143,10 +1931,12 @@ com.google.protobuf.Any defaultValue);
         if (other == io.envoyproxy.envoy.config.route.v3.WeightedCluster.ClusterWeight.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getClusterHeader().isEmpty()) {
           clusterHeader_ = other.clusterHeader_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasWeight()) {
@@ -2159,7 +1949,7 @@ com.google.protobuf.Any defaultValue);
           if (!other.requestHeadersToAdd_.isEmpty()) {
             if (requestHeadersToAdd_.isEmpty()) {
               requestHeadersToAdd_ = other.requestHeadersToAdd_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000010);
             } else {
               ensureRequestHeadersToAddIsMutable();
               requestHeadersToAdd_.addAll(other.requestHeadersToAdd_);
@@ -2172,7 +1962,7 @@ com.google.protobuf.Any defaultValue);
               requestHeadersToAddBuilder_.dispose();
               requestHeadersToAddBuilder_ = null;
               requestHeadersToAdd_ = other.requestHeadersToAdd_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000010);
               requestHeadersToAddBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getRequestHeadersToAddFieldBuilder() : null;
@@ -2184,7 +1974,7 @@ com.google.protobuf.Any defaultValue);
         if (!other.requestHeadersToRemove_.isEmpty()) {
           if (requestHeadersToRemove_.isEmpty()) {
             requestHeadersToRemove_ = other.requestHeadersToRemove_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureRequestHeadersToRemoveIsMutable();
             requestHeadersToRemove_.addAll(other.requestHeadersToRemove_);
@@ -2195,7 +1985,7 @@ com.google.protobuf.Any defaultValue);
           if (!other.responseHeadersToAdd_.isEmpty()) {
             if (responseHeadersToAdd_.isEmpty()) {
               responseHeadersToAdd_ = other.responseHeadersToAdd_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000040);
             } else {
               ensureResponseHeadersToAddIsMutable();
               responseHeadersToAdd_.addAll(other.responseHeadersToAdd_);
@@ -2208,7 +1998,7 @@ com.google.protobuf.Any defaultValue);
               responseHeadersToAddBuilder_.dispose();
               responseHeadersToAddBuilder_ = null;
               responseHeadersToAdd_ = other.responseHeadersToAdd_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000040);
               responseHeadersToAddBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getResponseHeadersToAddFieldBuilder() : null;
@@ -2220,7 +2010,7 @@ com.google.protobuf.Any defaultValue);
         if (!other.responseHeadersToRemove_.isEmpty()) {
           if (responseHeadersToRemove_.isEmpty()) {
             responseHeadersToRemove_ = other.responseHeadersToRemove_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureResponseHeadersToRemoveIsMutable();
             responseHeadersToRemove_.addAll(other.responseHeadersToRemove_);
@@ -2229,6 +2019,7 @@ com.google.protobuf.Any defaultValue);
         }
         internalGetMutableTypedPerFilterConfig().mergeFrom(
             other.internalGetTypedPerFilterConfig());
+        bitField0_ |= 0x00000100;
         switch (other.getHostRewriteSpecifierCase()) {
           case HOST_REWRITE_LITERAL: {
             hostRewriteSpecifierCase_ = 11;
@@ -2240,7 +2031,7 @@ com.google.protobuf.Any defaultValue);
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2255,17 +2046,107 @@ com.google.protobuf.Any defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.config.route.v3.WeightedCluster.ClusterWeight parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getWeightFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getMetadataMatchFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 26
+              case 34: {
+                io.envoyproxy.envoy.config.core.v3.HeaderValueOption m =
+                    input.readMessage(
+                        io.envoyproxy.envoy.config.core.v3.HeaderValueOption.parser(),
+                        extensionRegistry);
+                if (requestHeadersToAddBuilder_ == null) {
+                  ensureRequestHeadersToAddIsMutable();
+                  requestHeadersToAdd_.add(m);
+                } else {
+                  requestHeadersToAddBuilder_.addMessage(m);
+                }
+                break;
+              } // case 34
+              case 42: {
+                io.envoyproxy.envoy.config.core.v3.HeaderValueOption m =
+                    input.readMessage(
+                        io.envoyproxy.envoy.config.core.v3.HeaderValueOption.parser(),
+                        extensionRegistry);
+                if (responseHeadersToAddBuilder_ == null) {
+                  ensureResponseHeadersToAddIsMutable();
+                  responseHeadersToAdd_.add(m);
+                } else {
+                  responseHeadersToAddBuilder_.addMessage(m);
+                }
+                break;
+              } // case 42
+              case 50: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureResponseHeadersToRemoveIsMutable();
+                responseHeadersToRemove_.add(s);
+                break;
+              } // case 50
+              case 74: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureRequestHeadersToRemoveIsMutable();
+                requestHeadersToRemove_.add(s);
+                break;
+              } // case 74
+              case 82: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Any>
+                typedPerFilterConfig__ = input.readMessage(
+                    TypedPerFilterConfigDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableTypedPerFilterConfig().getMutableMap().put(
+                    typedPerFilterConfig__.getKey(), typedPerFilterConfig__.getValue());
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 82
+              case 90: {
+                java.lang.String s = input.readStringRequireUtf8();
+                hostRewriteSpecifierCase_ = 11;
+                hostRewriteSpecifier_ = s;
+                break;
+              } // case 90
+              case 98: {
+                clusterHeader_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 98
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.config.route.v3.WeightedCluster.ClusterWeight) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int hostRewriteSpecifierCase_ = 0;
@@ -2347,11 +2228,9 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2367,8 +2246,8 @@ com.google.protobuf.Any defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2386,12 +2265,10 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2479,11 +2356,9 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder setClusterHeader(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         clusterHeader_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2506,8 +2381,8 @@ com.google.protobuf.Any defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearClusterHeader() {
-        
         clusterHeader_ = getDefaultInstance().getClusterHeader();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2532,12 +2407,10 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder setClusterHeaderBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         clusterHeader_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2547,24 +2420,24 @@ com.google.protobuf.Any defaultValue);
           com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> weightBuilder_;
       /**
        * <pre>
-       * An integer between 0 and :ref:`total_weight
-       * &lt;envoy_v3_api_field_config.route.v3.WeightedCluster.total_weight&gt;`. When a request matches the route,
-       * the choice of an upstream cluster is determined by its weight. The sum of weights across all
-       * entries in the clusters array must add up to the total_weight, if total_weight is greater than 0.
+       * The weight of the cluster. This value is relative to the other clusters'
+       * weights. When a request matches the route, the choice of an upstream cluster
+       * is determined by its weight. The sum of weights across all
+       * entries in the clusters array must be greater than 0.
        * </pre>
        *
        * <code>.google.protobuf.UInt32Value weight = 2;</code>
        * @return Whether the weight field is set.
        */
       public boolean hasWeight() {
-        return weightBuilder_ != null || weight_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
-       * An integer between 0 and :ref:`total_weight
-       * &lt;envoy_v3_api_field_config.route.v3.WeightedCluster.total_weight&gt;`. When a request matches the route,
-       * the choice of an upstream cluster is determined by its weight. The sum of weights across all
-       * entries in the clusters array must add up to the total_weight, if total_weight is greater than 0.
+       * The weight of the cluster. This value is relative to the other clusters'
+       * weights. When a request matches the route, the choice of an upstream cluster
+       * is determined by its weight. The sum of weights across all
+       * entries in the clusters array must be greater than 0.
        * </pre>
        *
        * <code>.google.protobuf.UInt32Value weight = 2;</code>
@@ -2579,10 +2452,10 @@ com.google.protobuf.Any defaultValue);
       }
       /**
        * <pre>
-       * An integer between 0 and :ref:`total_weight
-       * &lt;envoy_v3_api_field_config.route.v3.WeightedCluster.total_weight&gt;`. When a request matches the route,
-       * the choice of an upstream cluster is determined by its weight. The sum of weights across all
-       * entries in the clusters array must add up to the total_weight, if total_weight is greater than 0.
+       * The weight of the cluster. This value is relative to the other clusters'
+       * weights. When a request matches the route, the choice of an upstream cluster
+       * is determined by its weight. The sum of weights across all
+       * entries in the clusters array must be greater than 0.
        * </pre>
        *
        * <code>.google.protobuf.UInt32Value weight = 2;</code>
@@ -2593,19 +2466,19 @@ com.google.protobuf.Any defaultValue);
             throw new NullPointerException();
           }
           weight_ = value;
-          onChanged();
         } else {
           weightBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * An integer between 0 and :ref:`total_weight
-       * &lt;envoy_v3_api_field_config.route.v3.WeightedCluster.total_weight&gt;`. When a request matches the route,
-       * the choice of an upstream cluster is determined by its weight. The sum of weights across all
-       * entries in the clusters array must add up to the total_weight, if total_weight is greater than 0.
+       * The weight of the cluster. This value is relative to the other clusters'
+       * weights. When a request matches the route, the choice of an upstream cluster
+       * is determined by its weight. The sum of weights across all
+       * entries in the clusters array must be greater than 0.
        * </pre>
        *
        * <code>.google.protobuf.UInt32Value weight = 2;</code>
@@ -2614,80 +2487,80 @@ com.google.protobuf.Any defaultValue);
           com.google.protobuf.UInt32Value.Builder builderForValue) {
         if (weightBuilder_ == null) {
           weight_ = builderForValue.build();
-          onChanged();
         } else {
           weightBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * An integer between 0 and :ref:`total_weight
-       * &lt;envoy_v3_api_field_config.route.v3.WeightedCluster.total_weight&gt;`. When a request matches the route,
-       * the choice of an upstream cluster is determined by its weight. The sum of weights across all
-       * entries in the clusters array must add up to the total_weight, if total_weight is greater than 0.
+       * The weight of the cluster. This value is relative to the other clusters'
+       * weights. When a request matches the route, the choice of an upstream cluster
+       * is determined by its weight. The sum of weights across all
+       * entries in the clusters array must be greater than 0.
        * </pre>
        *
        * <code>.google.protobuf.UInt32Value weight = 2;</code>
        */
       public Builder mergeWeight(com.google.protobuf.UInt32Value value) {
         if (weightBuilder_ == null) {
-          if (weight_ != null) {
-            weight_ =
-              com.google.protobuf.UInt32Value.newBuilder(weight_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            weight_ != null &&
+            weight_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+            getWeightBuilder().mergeFrom(value);
           } else {
             weight_ = value;
           }
-          onChanged();
         } else {
           weightBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * An integer between 0 and :ref:`total_weight
-       * &lt;envoy_v3_api_field_config.route.v3.WeightedCluster.total_weight&gt;`. When a request matches the route,
-       * the choice of an upstream cluster is determined by its weight. The sum of weights across all
-       * entries in the clusters array must add up to the total_weight, if total_weight is greater than 0.
+       * The weight of the cluster. This value is relative to the other clusters'
+       * weights. When a request matches the route, the choice of an upstream cluster
+       * is determined by its weight. The sum of weights across all
+       * entries in the clusters array must be greater than 0.
        * </pre>
        *
        * <code>.google.protobuf.UInt32Value weight = 2;</code>
        */
       public Builder clearWeight() {
-        if (weightBuilder_ == null) {
-          weight_ = null;
-          onChanged();
-        } else {
-          weight_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        weight_ = null;
+        if (weightBuilder_ != null) {
+          weightBuilder_.dispose();
           weightBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * An integer between 0 and :ref:`total_weight
-       * &lt;envoy_v3_api_field_config.route.v3.WeightedCluster.total_weight&gt;`. When a request matches the route,
-       * the choice of an upstream cluster is determined by its weight. The sum of weights across all
-       * entries in the clusters array must add up to the total_weight, if total_weight is greater than 0.
+       * The weight of the cluster. This value is relative to the other clusters'
+       * weights. When a request matches the route, the choice of an upstream cluster
+       * is determined by its weight. The sum of weights across all
+       * entries in the clusters array must be greater than 0.
        * </pre>
        *
        * <code>.google.protobuf.UInt32Value weight = 2;</code>
        */
       public com.google.protobuf.UInt32Value.Builder getWeightBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getWeightFieldBuilder().getBuilder();
       }
       /**
        * <pre>
-       * An integer between 0 and :ref:`total_weight
-       * &lt;envoy_v3_api_field_config.route.v3.WeightedCluster.total_weight&gt;`. When a request matches the route,
-       * the choice of an upstream cluster is determined by its weight. The sum of weights across all
-       * entries in the clusters array must add up to the total_weight, if total_weight is greater than 0.
+       * The weight of the cluster. This value is relative to the other clusters'
+       * weights. When a request matches the route, the choice of an upstream cluster
+       * is determined by its weight. The sum of weights across all
+       * entries in the clusters array must be greater than 0.
        * </pre>
        *
        * <code>.google.protobuf.UInt32Value weight = 2;</code>
@@ -2702,10 +2575,10 @@ com.google.protobuf.Any defaultValue);
       }
       /**
        * <pre>
-       * An integer between 0 and :ref:`total_weight
-       * &lt;envoy_v3_api_field_config.route.v3.WeightedCluster.total_weight&gt;`. When a request matches the route,
-       * the choice of an upstream cluster is determined by its weight. The sum of weights across all
-       * entries in the clusters array must add up to the total_weight, if total_weight is greater than 0.
+       * The weight of the cluster. This value is relative to the other clusters'
+       * weights. When a request matches the route, the choice of an upstream cluster
+       * is determined by its weight. The sum of weights across all
+       * entries in the clusters array must be greater than 0.
        * </pre>
        *
        * <code>.google.protobuf.UInt32Value weight = 2;</code>
@@ -2740,7 +2613,7 @@ com.google.protobuf.Any defaultValue);
        * @return Whether the metadataMatch field is set.
        */
       public boolean hasMetadataMatch() {
-        return metadataMatchBuilder_ != null || metadataMatch_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -2778,11 +2651,11 @@ com.google.protobuf.Any defaultValue);
             throw new NullPointerException();
           }
           metadataMatch_ = value;
-          onChanged();
         } else {
           metadataMatchBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -2800,11 +2673,11 @@ com.google.protobuf.Any defaultValue);
           io.envoyproxy.envoy.config.core.v3.Metadata.Builder builderForValue) {
         if (metadataMatchBuilder_ == null) {
           metadataMatch_ = builderForValue.build();
-          onChanged();
         } else {
           metadataMatchBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -2820,17 +2693,18 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder mergeMetadataMatch(io.envoyproxy.envoy.config.core.v3.Metadata value) {
         if (metadataMatchBuilder_ == null) {
-          if (metadataMatch_ != null) {
-            metadataMatch_ =
-              io.envoyproxy.envoy.config.core.v3.Metadata.newBuilder(metadataMatch_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            metadataMatch_ != null &&
+            metadataMatch_ != io.envoyproxy.envoy.config.core.v3.Metadata.getDefaultInstance()) {
+            getMetadataMatchBuilder().mergeFrom(value);
           } else {
             metadataMatch_ = value;
           }
-          onChanged();
         } else {
           metadataMatchBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -2845,14 +2719,13 @@ com.google.protobuf.Any defaultValue);
        * <code>.envoy.config.core.v3.Metadata metadata_match = 3;</code>
        */
       public Builder clearMetadataMatch() {
-        if (metadataMatchBuilder_ == null) {
-          metadataMatch_ = null;
-          onChanged();
-        } else {
-          metadataMatch_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        metadataMatch_ = null;
+        if (metadataMatchBuilder_ != null) {
+          metadataMatchBuilder_.dispose();
           metadataMatchBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2867,7 +2740,7 @@ com.google.protobuf.Any defaultValue);
        * <code>.envoy.config.core.v3.Metadata metadata_match = 3;</code>
        */
       public io.envoyproxy.envoy.config.core.v3.Metadata.Builder getMetadataMatchBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getMetadataMatchFieldBuilder().getBuilder();
       }
@@ -2918,9 +2791,9 @@ com.google.protobuf.Any defaultValue);
       private java.util.List<io.envoyproxy.envoy.config.core.v3.HeaderValueOption> requestHeadersToAdd_ =
         java.util.Collections.emptyList();
       private void ensureRequestHeadersToAddIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           requestHeadersToAdd_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.HeaderValueOption>(requestHeadersToAdd_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000010;
          }
       }
 
@@ -3180,7 +3053,7 @@ com.google.protobuf.Any defaultValue);
       public Builder clearRequestHeadersToAdd() {
         if (requestHeadersToAddBuilder_ == null) {
           requestHeadersToAdd_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
           onChanged();
         } else {
           requestHeadersToAddBuilder_.clear();
@@ -3327,7 +3200,7 @@ com.google.protobuf.Any defaultValue);
           requestHeadersToAddBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               io.envoyproxy.envoy.config.core.v3.HeaderValueOption, io.envoyproxy.envoy.config.core.v3.HeaderValueOption.Builder, io.envoyproxy.envoy.config.core.v3.HeaderValueOptionOrBuilder>(
                   requestHeadersToAdd_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000010) != 0),
                   getParentForChildren(),
                   isClean());
           requestHeadersToAdd_ = null;
@@ -3337,9 +3210,9 @@ com.google.protobuf.Any defaultValue);
 
       private com.google.protobuf.LazyStringList requestHeadersToRemove_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureRequestHeadersToRemoveIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000020) != 0)) {
           requestHeadersToRemove_ = new com.google.protobuf.LazyStringArrayList(requestHeadersToRemove_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000020;
          }
       }
       /**
@@ -3407,10 +3280,8 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder setRequestHeadersToRemove(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequestHeadersToRemoveIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRequestHeadersToRemoveIsMutable();
         requestHeadersToRemove_.set(index, value);
         onChanged();
         return this;
@@ -3427,10 +3298,8 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder addRequestHeadersToRemove(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequestHeadersToRemoveIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRequestHeadersToRemoveIsMutable();
         requestHeadersToRemove_.add(value);
         onChanged();
         return this;
@@ -3464,7 +3333,7 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder clearRequestHeadersToRemove() {
         requestHeadersToRemove_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -3480,10 +3349,8 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder addRequestHeadersToRemoveBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureRequestHeadersToRemoveIsMutable();
         requestHeadersToRemove_.add(value);
         onChanged();
@@ -3493,9 +3360,9 @@ com.google.protobuf.Any defaultValue);
       private java.util.List<io.envoyproxy.envoy.config.core.v3.HeaderValueOption> responseHeadersToAdd_ =
         java.util.Collections.emptyList();
       private void ensureResponseHeadersToAddIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000040) != 0)) {
           responseHeadersToAdd_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.HeaderValueOption>(responseHeadersToAdd_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000040;
          }
       }
 
@@ -3755,7 +3622,7 @@ com.google.protobuf.Any defaultValue);
       public Builder clearResponseHeadersToAdd() {
         if (responseHeadersToAddBuilder_ == null) {
           responseHeadersToAdd_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000040);
           onChanged();
         } else {
           responseHeadersToAddBuilder_.clear();
@@ -3902,7 +3769,7 @@ com.google.protobuf.Any defaultValue);
           responseHeadersToAddBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               io.envoyproxy.envoy.config.core.v3.HeaderValueOption, io.envoyproxy.envoy.config.core.v3.HeaderValueOption.Builder, io.envoyproxy.envoy.config.core.v3.HeaderValueOptionOrBuilder>(
                   responseHeadersToAdd_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000040) != 0),
                   getParentForChildren(),
                   isClean());
           responseHeadersToAdd_ = null;
@@ -3912,9 +3779,9 @@ com.google.protobuf.Any defaultValue);
 
       private com.google.protobuf.LazyStringList responseHeadersToRemove_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureResponseHeadersToRemoveIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000080) != 0)) {
           responseHeadersToRemove_ = new com.google.protobuf.LazyStringArrayList(responseHeadersToRemove_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000080;
          }
       }
       /**
@@ -3982,10 +3849,8 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder setResponseHeadersToRemove(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureResponseHeadersToRemoveIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureResponseHeadersToRemoveIsMutable();
         responseHeadersToRemove_.set(index, value);
         onChanged();
         return this;
@@ -4002,10 +3867,8 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder addResponseHeadersToRemove(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureResponseHeadersToRemoveIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureResponseHeadersToRemoveIsMutable();
         responseHeadersToRemove_.add(value);
         onChanged();
         return this;
@@ -4039,7 +3902,7 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder clearResponseHeadersToRemove() {
         responseHeadersToRemove_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
@@ -4055,10 +3918,8 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder addResponseHeadersToRemoveBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureResponseHeadersToRemoveIsMutable();
         responseHeadersToRemove_.add(value);
         onChanged();
@@ -4068,7 +3929,7 @@ com.google.protobuf.Any defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, com.google.protobuf.Any> typedPerFilterConfig_;
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Any>
-      internalGetTypedPerFilterConfig() {
+          internalGetTypedPerFilterConfig() {
         if (typedPerFilterConfig_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               TypedPerFilterConfigDefaultEntryHolder.defaultEntry);
@@ -4076,8 +3937,7 @@ com.google.protobuf.Any defaultValue);
         return typedPerFilterConfig_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Any>
-      internalGetMutableTypedPerFilterConfig() {
-        onChanged();;
+          internalGetMutableTypedPerFilterConfig() {
         if (typedPerFilterConfig_ == null) {
           typedPerFilterConfig_ = com.google.protobuf.MapField.newMapField(
               TypedPerFilterConfigDefaultEntryHolder.defaultEntry);
@@ -4085,9 +3945,10 @@ com.google.protobuf.Any defaultValue);
         if (!typedPerFilterConfig_.isMutable()) {
           typedPerFilterConfig_ = typedPerFilterConfig_.copy();
         }
+        bitField0_ |= 0x00000100;
+        onChanged();
         return typedPerFilterConfig_;
       }
-
       public int getTypedPerFilterConfigCount() {
         return internalGetTypedPerFilterConfig().getMap().size();
       }
@@ -4109,7 +3970,6 @@ com.google.protobuf.Any defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
        */
-
       @java.lang.Override
       public boolean containsTypedPerFilterConfig(
           java.lang.String key) {
@@ -4143,7 +4003,6 @@ com.google.protobuf.Any defaultValue);
        * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.protobuf.Any> getTypedPerFilterConfigMap() {
         return internalGetTypedPerFilterConfig().getMap();
       }
@@ -4166,10 +4025,11 @@ com.google.protobuf.Any defaultValue);
        * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
        */
       @java.lang.Override
-
-      public com.google.protobuf.Any getTypedPerFilterConfigOrDefault(
+      public /* nullable */
+com.google.protobuf.Any getTypedPerFilterConfigOrDefault(
           java.lang.String key,
-          com.google.protobuf.Any defaultValue) {
+          /* nullable */
+com.google.protobuf.Any defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf.Any> map =
             internalGetTypedPerFilterConfig().getMap();
@@ -4194,7 +4054,6 @@ com.google.protobuf.Any defaultValue);
        * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
        */
       @java.lang.Override
-
       public com.google.protobuf.Any getTypedPerFilterConfigOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -4205,8 +4064,8 @@ com.google.protobuf.Any defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearTypedPerFilterConfig() {
+        bitField0_ = (bitField0_ & ~0x00000100);
         internalGetMutableTypedPerFilterConfig().getMutableMap()
             .clear();
         return this;
@@ -4229,7 +4088,6 @@ com.google.protobuf.Any defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
        */
-
       public Builder removeTypedPerFilterConfig(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -4242,7 +4100,8 @@ com.google.protobuf.Any defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf.Any>
-      getMutableTypedPerFilterConfig() {
+          getMutableTypedPerFilterConfig() {
+        bitField0_ |= 0x00000100;
         return internalGetMutableTypedPerFilterConfig().getMutableMap();
       }
       /**
@@ -4267,12 +4126,10 @@ com.google.protobuf.Any defaultValue);
           java.lang.String key,
           com.google.protobuf.Any value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableTypedPerFilterConfig().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000100;
         return this;
       }
       /**
@@ -4293,11 +4150,11 @@ com.google.protobuf.Any defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
        */
-
       public Builder putAllTypedPerFilterConfig(
           java.util.Map<java.lang.String, com.google.protobuf.Any> values) {
         internalGetMutableTypedPerFilterConfig().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000100;
         return this;
       }
 
@@ -4381,10 +4238,8 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder setHostRewriteLiteral(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  hostRewriteSpecifierCase_ = 11;
+        if (value == null) { throw new NullPointerException(); }
+        hostRewriteSpecifierCase_ = 11;
         hostRewriteSpecifier_ = value;
         onChanged();
         return this;
@@ -4418,10 +4273,8 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder setHostRewriteLiteralBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         hostRewriteSpecifierCase_ = 11;
         hostRewriteSpecifier_ = value;
         onChanged();
@@ -4460,7 +4313,18 @@ com.google.protobuf.Any defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ClusterWeight(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4520,6 +4384,7 @@ com.google.protobuf.Any defaultValue);
   }
 
   public static final int CLUSTERS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.route.v3.WeightedCluster.ClusterWeight> clusters_;
   /**
    * <pre>
@@ -4585,43 +4450,54 @@ com.google.protobuf.Any defaultValue);
    * <pre>
    * Specifies the total weight across all clusters. The sum of all cluster weights must equal this
    * value, if this is greater than 0.
+   * This field is now deprecated, and the client will use the sum of all
+   * cluster weights. It is up to the management server to supply the correct weights.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value total_weight = 3;</code>
+   * <code>.google.protobuf.UInt32Value total_weight = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.config.route.v3.WeightedCluster.total_weight is deprecated.
+   *     See envoy/config/route/v3/route_components.proto;l=478
    * @return Whether the totalWeight field is set.
    */
   @java.lang.Override
-  public boolean hasTotalWeight() {
+  @java.lang.Deprecated public boolean hasTotalWeight() {
     return totalWeight_ != null;
   }
   /**
    * <pre>
    * Specifies the total weight across all clusters. The sum of all cluster weights must equal this
    * value, if this is greater than 0.
+   * This field is now deprecated, and the client will use the sum of all
+   * cluster weights. It is up to the management server to supply the correct weights.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value total_weight = 3;</code>
+   * <code>.google.protobuf.UInt32Value total_weight = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.config.route.v3.WeightedCluster.total_weight is deprecated.
+   *     See envoy/config/route/v3/route_components.proto;l=478
    * @return The totalWeight.
    */
   @java.lang.Override
-  public com.google.protobuf.UInt32Value getTotalWeight() {
+  @java.lang.Deprecated public com.google.protobuf.UInt32Value getTotalWeight() {
     return totalWeight_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : totalWeight_;
   }
   /**
    * <pre>
    * Specifies the total weight across all clusters. The sum of all cluster weights must equal this
    * value, if this is greater than 0.
+   * This field is now deprecated, and the client will use the sum of all
+   * cluster weights. It is up to the management server to supply the correct weights.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value total_weight = 3;</code>
+   * <code>.google.protobuf.UInt32Value total_weight = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    */
   @java.lang.Override
-  public com.google.protobuf.UInt32ValueOrBuilder getTotalWeightOrBuilder() {
-    return getTotalWeight();
+  @java.lang.Deprecated public com.google.protobuf.UInt32ValueOrBuilder getTotalWeightOrBuilder() {
+    return totalWeight_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : totalWeight_;
   }
 
   public static final int RUNTIME_KEY_PREFIX_FIELD_NUMBER = 2;
-  private volatile java.lang.Object runtimeKeyPrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object runtimeKeyPrefix_ = "";
   /**
    * <pre>
    * Specifies the runtime key prefix that should be used to construct the
@@ -4782,7 +4658,7 @@ com.google.protobuf.Any defaultValue);
     if (randomValueSpecifierCase_ == 4) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, randomValueSpecifier_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -4805,7 +4681,7 @@ com.google.protobuf.Any defaultValue);
     if (randomValueSpecifierCase_ == 4) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, randomValueSpecifier_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -4838,7 +4714,7 @@ com.google.protobuf.Any defaultValue);
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -4867,7 +4743,7 @@ com.google.protobuf.Any defaultValue);
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -4993,37 +4869,31 @@ com.google.protobuf.Any defaultValue);
 
     // Construct using io.envoyproxy.envoy.config.route.v3.WeightedCluster.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getClustersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (clustersBuilder_ == null) {
         clusters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        clusters_ = null;
         clustersBuilder_.clear();
       }
-      if (totalWeightBuilder_ == null) {
-        totalWeight_ = null;
-      } else {
-        totalWeight_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      totalWeight_ = null;
+      if (totalWeightBuilder_ != null) {
+        totalWeightBuilder_.dispose();
         totalWeightBuilder_ = null;
       }
       runtimeKeyPrefix_ = "";
-
       randomValueSpecifierCase_ = 0;
       randomValueSpecifier_ = null;
       return this;
@@ -5052,7 +4922,14 @@ com.google.protobuf.Any defaultValue);
     @java.lang.Override
     public io.envoyproxy.envoy.config.route.v3.WeightedCluster buildPartial() {
       io.envoyproxy.envoy.config.route.v3.WeightedCluster result = new io.envoyproxy.envoy.config.route.v3.WeightedCluster(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.config.route.v3.WeightedCluster result) {
       if (clustersBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           clusters_ = java.util.Collections.unmodifiableList(clusters_);
@@ -5062,18 +4939,23 @@ com.google.protobuf.Any defaultValue);
       } else {
         result.clusters_ = clustersBuilder_.build();
       }
-      if (totalWeightBuilder_ == null) {
-        result.totalWeight_ = totalWeight_;
-      } else {
-        result.totalWeight_ = totalWeightBuilder_.build();
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.route.v3.WeightedCluster result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.totalWeight_ = totalWeightBuilder_ == null
+            ? totalWeight_
+            : totalWeightBuilder_.build();
       }
-      result.runtimeKeyPrefix_ = runtimeKeyPrefix_;
-      if (randomValueSpecifierCase_ == 4) {
-        result.randomValueSpecifier_ = randomValueSpecifier_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.runtimeKeyPrefix_ = runtimeKeyPrefix_;
       }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.config.route.v3.WeightedCluster result) {
       result.randomValueSpecifierCase_ = randomValueSpecifierCase_;
-      onBuilt();
-      return result;
+      result.randomValueSpecifier_ = this.randomValueSpecifier_;
     }
 
     @java.lang.Override
@@ -5151,6 +5033,7 @@ com.google.protobuf.Any defaultValue);
       }
       if (!other.getRuntimeKeyPrefix().isEmpty()) {
         runtimeKeyPrefix_ = other.runtimeKeyPrefix_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       switch (other.getRandomValueSpecifierCase()) {
@@ -5164,7 +5047,7 @@ com.google.protobuf.Any defaultValue);
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -5179,17 +5062,61 @@ com.google.protobuf.Any defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.route.v3.WeightedCluster parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              io.envoyproxy.envoy.config.route.v3.WeightedCluster.ClusterWeight m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.route.v3.WeightedCluster.ClusterWeight.parser(),
+                      extensionRegistry);
+              if (clustersBuilder_ == null) {
+                ensureClustersIsMutable();
+                clusters_.add(m);
+              } else {
+                clustersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              runtimeKeyPrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getTotalWeightFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              randomValueSpecifierCase_ = 4;
+              randomValueSpecifier_ = s;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.route.v3.WeightedCluster) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int randomValueSpecifierCase_ = 0;
@@ -5528,24 +5455,32 @@ com.google.protobuf.Any defaultValue);
      * <pre>
      * Specifies the total weight across all clusters. The sum of all cluster weights must equal this
      * value, if this is greater than 0.
+     * This field is now deprecated, and the client will use the sum of all
+     * cluster weights. It is up to the management server to supply the correct weights.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value total_weight = 3;</code>
+     * <code>.google.protobuf.UInt32Value total_weight = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     * @deprecated envoy.config.route.v3.WeightedCluster.total_weight is deprecated.
+     *     See envoy/config/route/v3/route_components.proto;l=478
      * @return Whether the totalWeight field is set.
      */
-    public boolean hasTotalWeight() {
-      return totalWeightBuilder_ != null || totalWeight_ != null;
+    @java.lang.Deprecated public boolean hasTotalWeight() {
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
      * Specifies the total weight across all clusters. The sum of all cluster weights must equal this
      * value, if this is greater than 0.
+     * This field is now deprecated, and the client will use the sum of all
+     * cluster weights. It is up to the management server to supply the correct weights.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value total_weight = 3;</code>
+     * <code>.google.protobuf.UInt32Value total_weight = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     * @deprecated envoy.config.route.v3.WeightedCluster.total_weight is deprecated.
+     *     See envoy/config/route/v3/route_components.proto;l=478
      * @return The totalWeight.
      */
-    public com.google.protobuf.UInt32Value getTotalWeight() {
+    @java.lang.Deprecated public com.google.protobuf.UInt32Value getTotalWeight() {
       if (totalWeightBuilder_ == null) {
         return totalWeight_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : totalWeight_;
       } else {
@@ -5556,94 +5491,104 @@ com.google.protobuf.Any defaultValue);
      * <pre>
      * Specifies the total weight across all clusters. The sum of all cluster weights must equal this
      * value, if this is greater than 0.
+     * This field is now deprecated, and the client will use the sum of all
+     * cluster weights. It is up to the management server to supply the correct weights.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value total_weight = 3;</code>
+     * <code>.google.protobuf.UInt32Value total_weight = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public Builder setTotalWeight(com.google.protobuf.UInt32Value value) {
+    @java.lang.Deprecated public Builder setTotalWeight(com.google.protobuf.UInt32Value value) {
       if (totalWeightBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
         totalWeight_ = value;
-        onChanged();
       } else {
         totalWeightBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Specifies the total weight across all clusters. The sum of all cluster weights must equal this
      * value, if this is greater than 0.
+     * This field is now deprecated, and the client will use the sum of all
+     * cluster weights. It is up to the management server to supply the correct weights.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value total_weight = 3;</code>
+     * <code>.google.protobuf.UInt32Value total_weight = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public Builder setTotalWeight(
+    @java.lang.Deprecated public Builder setTotalWeight(
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (totalWeightBuilder_ == null) {
         totalWeight_ = builderForValue.build();
-        onChanged();
       } else {
         totalWeightBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Specifies the total weight across all clusters. The sum of all cluster weights must equal this
      * value, if this is greater than 0.
+     * This field is now deprecated, and the client will use the sum of all
+     * cluster weights. It is up to the management server to supply the correct weights.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value total_weight = 3;</code>
+     * <code>.google.protobuf.UInt32Value total_weight = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public Builder mergeTotalWeight(com.google.protobuf.UInt32Value value) {
+    @java.lang.Deprecated public Builder mergeTotalWeight(com.google.protobuf.UInt32Value value) {
       if (totalWeightBuilder_ == null) {
-        if (totalWeight_ != null) {
-          totalWeight_ =
-            com.google.protobuf.UInt32Value.newBuilder(totalWeight_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          totalWeight_ != null &&
+          totalWeight_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getTotalWeightBuilder().mergeFrom(value);
         } else {
           totalWeight_ = value;
         }
-        onChanged();
       } else {
         totalWeightBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Specifies the total weight across all clusters. The sum of all cluster weights must equal this
      * value, if this is greater than 0.
+     * This field is now deprecated, and the client will use the sum of all
+     * cluster weights. It is up to the management server to supply the correct weights.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value total_weight = 3;</code>
+     * <code>.google.protobuf.UInt32Value total_weight = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public Builder clearTotalWeight() {
-      if (totalWeightBuilder_ == null) {
-        totalWeight_ = null;
-        onChanged();
-      } else {
-        totalWeight_ = null;
+    @java.lang.Deprecated public Builder clearTotalWeight() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      totalWeight_ = null;
+      if (totalWeightBuilder_ != null) {
+        totalWeightBuilder_.dispose();
         totalWeightBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Specifies the total weight across all clusters. The sum of all cluster weights must equal this
      * value, if this is greater than 0.
+     * This field is now deprecated, and the client will use the sum of all
+     * cluster weights. It is up to the management server to supply the correct weights.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value total_weight = 3;</code>
+     * <code>.google.protobuf.UInt32Value total_weight = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public com.google.protobuf.UInt32Value.Builder getTotalWeightBuilder() {
-      
+    @java.lang.Deprecated public com.google.protobuf.UInt32Value.Builder getTotalWeightBuilder() {
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTotalWeightFieldBuilder().getBuilder();
     }
@@ -5651,11 +5596,13 @@ com.google.protobuf.Any defaultValue);
      * <pre>
      * Specifies the total weight across all clusters. The sum of all cluster weights must equal this
      * value, if this is greater than 0.
+     * This field is now deprecated, and the client will use the sum of all
+     * cluster weights. It is up to the management server to supply the correct weights.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value total_weight = 3;</code>
+     * <code>.google.protobuf.UInt32Value total_weight = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public com.google.protobuf.UInt32ValueOrBuilder getTotalWeightOrBuilder() {
+    @java.lang.Deprecated public com.google.protobuf.UInt32ValueOrBuilder getTotalWeightOrBuilder() {
       if (totalWeightBuilder_ != null) {
         return totalWeightBuilder_.getMessageOrBuilder();
       } else {
@@ -5667,9 +5614,11 @@ com.google.protobuf.Any defaultValue);
      * <pre>
      * Specifies the total weight across all clusters. The sum of all cluster weights must equal this
      * value, if this is greater than 0.
+     * This field is now deprecated, and the client will use the sum of all
+     * cluster weights. It is up to the management server to supply the correct weights.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value total_weight = 3;</code>
+     * <code>.google.protobuf.UInt32Value total_weight = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> 
@@ -5759,11 +5708,9 @@ com.google.protobuf.Any defaultValue);
      */
     public Builder setRuntimeKeyPrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       runtimeKeyPrefix_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -5783,8 +5730,8 @@ com.google.protobuf.Any defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearRuntimeKeyPrefix() {
-      
       runtimeKeyPrefix_ = getDefaultInstance().getRuntimeKeyPrefix();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -5806,12 +5753,10 @@ com.google.protobuf.Any defaultValue);
      */
     public Builder setRuntimeKeyPrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       runtimeKeyPrefix_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -5908,10 +5853,8 @@ com.google.protobuf.Any defaultValue);
      */
     public Builder setHeaderName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  randomValueSpecifierCase_ = 4;
+      if (value == null) { throw new NullPointerException(); }
+      randomValueSpecifierCase_ = 4;
       randomValueSpecifier_ = value;
       onChanged();
       return this;
@@ -5951,10 +5894,8 @@ com.google.protobuf.Any defaultValue);
      */
     public Builder setHeaderNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       randomValueSpecifierCase_ = 4;
       randomValueSpecifier_ = value;
       onChanged();
@@ -5993,7 +5934,18 @@ com.google.protobuf.Any defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WeightedCluster(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

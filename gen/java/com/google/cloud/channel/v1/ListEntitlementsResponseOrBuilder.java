@@ -54,7 +54,9 @@ public interface ListEntitlementsResponseOrBuilder extends
   /**
    * <pre>
    * A token to list the next page of results.
-   * Pass to [ListEntitlementsRequest.page_token][google.cloud.channel.v1.ListEntitlementsRequest.page_token] to obtain that page.
+   * Pass to
+   * [ListEntitlementsRequest.page_token][google.cloud.channel.v1.ListEntitlementsRequest.page_token]
+   * to obtain that page.
    * </pre>
    *
    * <code>string next_page_token = 2;</code>
@@ -64,7 +66,9 @@ public interface ListEntitlementsResponseOrBuilder extends
   /**
    * <pre>
    * A token to list the next page of results.
-   * Pass to [ListEntitlementsRequest.page_token][google.cloud.channel.v1.ListEntitlementsRequest.page_token] to obtain that page.
+   * Pass to
+   * [ListEntitlementsRequest.page_token][google.cloud.channel.v1.ListEntitlementsRequest.page_token]
+   * to obtain that page.
    * </pre>
    *
    * <code>string next_page_token = 2;</code>

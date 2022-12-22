@@ -13,10 +13,9 @@ _sym_db = _symbol_database.Default()
 
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.cloud.securitycenter.settings.v1beta1 import billing_settings_pb2 as google_dot_cloud_dot_securitycenter_dot_settings_dot_v1beta1_dot_billing__settings__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n;google/cloud/securitycenter/settings/v1beta1/detector.proto\x12,google.cloud.securitycenter.settings.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x43google/cloud/securitycenter/settings/v1beta1/billing_settings.proto\x1a\x1cgoogle/api/annotations.proto\"\xad\x01\n\x08\x44\x65tector\x12\x15\n\x08\x64\x65tector\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x16\n\tcomponent\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12T\n\x0c\x62illing_tier\x18\x03 \x01(\x0e\x32\x39.google.cloud.securitycenter.settings.v1beta1.BillingTierB\x03\xe0\x41\x03\x12\x1c\n\x0f\x64\x65tector_labels\x18\x04 \x03(\tB\x03\xe0\x41\x03\x42\xae\x02\n0com.google.cloud.securitycenter.settings.v1beta1B\x0e\x44\x65tectorsProtoP\x01ZTgoogle.golang.org/genproto/googleapis/cloud/securitycenter/settings/v1beta1;settings\xf8\x01\x01\xaa\x02,Google.Cloud.SecurityCenter.Settings.V1Beta1\xca\x02,Google\\Cloud\\SecurityCenter\\Settings\\V1beta1\xea\x02\x30Google::Cloud::SecurityCenter::Settings::V1beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n;google/cloud/securitycenter/settings/v1beta1/detector.proto\x12,google.cloud.securitycenter.settings.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x43google/cloud/securitycenter/settings/v1beta1/billing_settings.proto\"\xad\x01\n\x08\x44\x65tector\x12\x15\n\x08\x64\x65tector\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x16\n\tcomponent\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12T\n\x0c\x62illing_tier\x18\x03 \x01(\x0e\x32\x39.google.cloud.securitycenter.settings.v1beta1.BillingTierB\x03\xe0\x41\x03\x12\x1c\n\x0f\x64\x65tector_labels\x18\x04 \x03(\tB\x03\xe0\x41\x03\x42\xae\x02\n0com.google.cloud.securitycenter.settings.v1beta1B\x0e\x44\x65tectorsProtoP\x01ZTgoogle.golang.org/genproto/googleapis/cloud/securitycenter/settings/v1beta1;settings\xf8\x01\x01\xaa\x02,Google.Cloud.SecurityCenter.Settings.V1Beta1\xca\x02,Google\\Cloud\\SecurityCenter\\Settings\\V1beta1\xea\x02\x30Google::Cloud::SecurityCenter::Settings::V1beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.securitycenter.settings.v1beta1.detector_pb2', globals())
@@ -32,6 +31,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _DETECTOR.fields_by_name['billing_tier']._serialized_options = b'\340A\003'
   _DETECTOR.fields_by_name['detector_labels']._options = None
   _DETECTOR.fields_by_name['detector_labels']._serialized_options = b'\340A\003'
-  _DETECTOR._serialized_start=242
-  _DETECTOR._serialized_end=415
+  _DETECTOR._serialized_start=212
+  _DETECTOR._serialized_end=385
 # @@protoc_insertion_point(module_scope)

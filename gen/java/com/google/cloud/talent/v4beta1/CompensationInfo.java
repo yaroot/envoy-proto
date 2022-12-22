@@ -35,84 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CompensationInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              entries_ = new java.util.ArrayList<com.google.cloud.talent.v4beta1.CompensationInfo.CompensationEntry>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            entries_.add(
-                input.readMessage(com.google.cloud.talent.v4beta1.CompensationInfo.CompensationEntry.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange.Builder subBuilder = null;
-            if (annualizedBaseCompensationRange_ != null) {
-              subBuilder = annualizedBaseCompensationRange_.toBuilder();
-            }
-            annualizedBaseCompensationRange_ = input.readMessage(com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(annualizedBaseCompensationRange_);
-              annualizedBaseCompensationRange_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange.Builder subBuilder = null;
-            if (annualizedTotalCompensationRange_ != null) {
-              subBuilder = annualizedTotalCompensationRange_.toBuilder();
-            }
-            annualizedTotalCompensationRange_ = input.readMessage(com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(annualizedTotalCompensationRange_);
-              annualizedTotalCompensationRange_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        entries_ = java.util.Collections.unmodifiableList(entries_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.talent.v4beta1.CommonProto.internal_static_google_cloud_talent_v4beta1_CompensationInfo_descriptor;
@@ -835,104 +757,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CompensationEntry(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              type_ = rawValue;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              unit_ = rawValue;
-              break;
-            }
-            case 26: {
-              com.google.type.Money.Builder subBuilder = null;
-              if (compensationAmountCase_ == 3) {
-                subBuilder = ((com.google.type.Money) compensationAmount_).toBuilder();
-              }
-              compensationAmount_ =
-                  input.readMessage(com.google.type.Money.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.type.Money) compensationAmount_);
-                compensationAmount_ = subBuilder.buildPartial();
-              }
-              compensationAmountCase_ = 3;
-              break;
-            }
-            case 34: {
-              com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange.Builder subBuilder = null;
-              if (compensationAmountCase_ == 4) {
-                subBuilder = ((com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange) compensationAmount_).toBuilder();
-              }
-              compensationAmount_ =
-                  input.readMessage(com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange) compensationAmount_);
-                compensationAmount_ = subBuilder.buildPartial();
-              }
-              compensationAmountCase_ = 4;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              description_ = s;
-              break;
-            }
-            case 50: {
-              com.google.protobuf.DoubleValue.Builder subBuilder = null;
-              if (expectedUnitsPerYear_ != null) {
-                subBuilder = expectedUnitsPerYear_.toBuilder();
-              }
-              expectedUnitsPerYear_ = input.readMessage(com.google.protobuf.DoubleValue.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(expectedUnitsPerYear_);
-                expectedUnitsPerYear_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.talent.v4beta1.CommonProto.internal_static_google_cloud_talent_v4beta1_CompensationInfo_CompensationEntry_descriptor;
@@ -988,7 +812,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
-    private int type_;
+    private int type_ = 0;
     /**
      * <pre>
      * Compensation type.
@@ -1011,13 +835,12 @@ private static final long serialVersionUID = 0L;
      * @return The type.
      */
     @java.lang.Override public com.google.cloud.talent.v4beta1.CompensationInfo.CompensationType getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.talent.v4beta1.CompensationInfo.CompensationType result = com.google.cloud.talent.v4beta1.CompensationInfo.CompensationType.valueOf(type_);
+      com.google.cloud.talent.v4beta1.CompensationInfo.CompensationType result = com.google.cloud.talent.v4beta1.CompensationInfo.CompensationType.forNumber(type_);
       return result == null ? com.google.cloud.talent.v4beta1.CompensationInfo.CompensationType.UNRECOGNIZED : result;
     }
 
     public static final int UNIT_FIELD_NUMBER = 2;
-    private int unit_;
+    private int unit_ = 0;
     /**
      * <pre>
      * Frequency of the specified amount.
@@ -1040,8 +863,7 @@ private static final long serialVersionUID = 0L;
      * @return The unit.
      */
     @java.lang.Override public com.google.cloud.talent.v4beta1.CompensationInfo.CompensationUnit getUnit() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.talent.v4beta1.CompensationInfo.CompensationUnit result = com.google.cloud.talent.v4beta1.CompensationInfo.CompensationUnit.valueOf(unit_);
+      com.google.cloud.talent.v4beta1.CompensationInfo.CompensationUnit result = com.google.cloud.talent.v4beta1.CompensationInfo.CompensationUnit.forNumber(unit_);
       return result == null ? com.google.cloud.talent.v4beta1.CompensationInfo.CompensationUnit.UNRECOGNIZED : result;
     }
 
@@ -1132,7 +954,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 5;
-    private volatile java.lang.Object description_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object description_ = "";
     /**
      * <pre>
      * Compensation description.  For example, could
@@ -1237,7 +1060,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.DoubleValueOrBuilder getExpectedUnitsPerYearOrBuilder() {
-      return getExpectedUnitsPerYear();
+      return expectedUnitsPerYear_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : expectedUnitsPerYear_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1272,7 +1095,7 @@ private static final long serialVersionUID = 0L;
       if (expectedUnitsPerYear_ != null) {
         output.writeMessage(6, getExpectedUnitsPerYear());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1304,7 +1127,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, getExpectedUnitsPerYear());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1341,7 +1164,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1374,7 +1197,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1501,32 +1324,30 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.talent.v4beta1.CompensationInfo.CompensationEntry.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         type_ = 0;
-
         unit_ = 0;
-
+        if (amountBuilder_ != null) {
+          amountBuilder_.clear();
+        }
+        if (rangeBuilder_ != null) {
+          rangeBuilder_.clear();
+        }
         description_ = "";
-
-        if (expectedUnitsPerYearBuilder_ == null) {
-          expectedUnitsPerYear_ = null;
-        } else {
-          expectedUnitsPerYear_ = null;
+        expectedUnitsPerYear_ = null;
+        if (expectedUnitsPerYearBuilder_ != null) {
+          expectedUnitsPerYearBuilder_.dispose();
           expectedUnitsPerYearBuilder_ = null;
         }
         compensationAmountCase_ = 0;
@@ -1557,31 +1378,41 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.talent.v4beta1.CompensationInfo.CompensationEntry buildPartial() {
         com.google.cloud.talent.v4beta1.CompensationInfo.CompensationEntry result = new com.google.cloud.talent.v4beta1.CompensationInfo.CompensationEntry(this);
-        result.type_ = type_;
-        result.unit_ = unit_;
-        if (compensationAmountCase_ == 3) {
-          if (amountBuilder_ == null) {
-            result.compensationAmount_ = compensationAmount_;
-          } else {
-            result.compensationAmount_ = amountBuilder_.build();
-          }
-        }
-        if (compensationAmountCase_ == 4) {
-          if (rangeBuilder_ == null) {
-            result.compensationAmount_ = compensationAmount_;
-          } else {
-            result.compensationAmount_ = rangeBuilder_.build();
-          }
-        }
-        result.description_ = description_;
-        if (expectedUnitsPerYearBuilder_ == null) {
-          result.expectedUnitsPerYear_ = expectedUnitsPerYear_;
-        } else {
-          result.expectedUnitsPerYear_ = expectedUnitsPerYearBuilder_.build();
-        }
-        result.compensationAmountCase_ = compensationAmountCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.talent.v4beta1.CompensationInfo.CompensationEntry result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.type_ = type_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.unit_ = unit_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.description_ = description_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.expectedUnitsPerYear_ = expectedUnitsPerYearBuilder_ == null
+              ? expectedUnitsPerYear_
+              : expectedUnitsPerYearBuilder_.build();
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.talent.v4beta1.CompensationInfo.CompensationEntry result) {
+        result.compensationAmountCase_ = compensationAmountCase_;
+        result.compensationAmount_ = this.compensationAmount_;
+        if (compensationAmountCase_ == 3 &&
+            amountBuilder_ != null) {
+          result.compensationAmount_ = amountBuilder_.build();
+        }
+        if (compensationAmountCase_ == 4 &&
+            rangeBuilder_ != null) {
+          result.compensationAmount_ = rangeBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1636,6 +1467,7 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
         if (other.hasExpectedUnitsPerYear()) {
@@ -1654,7 +1486,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1669,17 +1501,66 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.talent.v4beta1.CompensationInfo.CompensationEntry parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                unit_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                input.readMessage(
+                    getAmountFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                compensationAmountCase_ = 3;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getRangeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                compensationAmountCase_ = 4;
+                break;
+              } // case 34
+              case 42: {
+                description_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 50: {
+                input.readMessage(
+                    getExpectedUnitsPerYearFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.talent.v4beta1.CompensationInfo.CompensationEntry) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int compensationAmountCase_ = 0;
@@ -1697,6 +1578,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       private int type_ = 0;
       /**
@@ -1722,8 +1604,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
-        
         type_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1738,8 +1620,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.talent.v4beta1.CompensationInfo.CompensationType getType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.talent.v4beta1.CompensationInfo.CompensationType result = com.google.cloud.talent.v4beta1.CompensationInfo.CompensationType.valueOf(type_);
+        com.google.cloud.talent.v4beta1.CompensationInfo.CompensationType result = com.google.cloud.talent.v4beta1.CompensationInfo.CompensationType.forNumber(type_);
         return result == null ? com.google.cloud.talent.v4beta1.CompensationInfo.CompensationType.UNRECOGNIZED : result;
       }
       /**
@@ -1756,7 +1637,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -1771,7 +1652,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         type_ = 0;
         onChanged();
         return this;
@@ -1801,8 +1682,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setUnitValue(int value) {
-        
         unit_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1817,8 +1698,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.talent.v4beta1.CompensationInfo.CompensationUnit getUnit() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.talent.v4beta1.CompensationInfo.CompensationUnit result = com.google.cloud.talent.v4beta1.CompensationInfo.CompensationUnit.valueOf(unit_);
+        com.google.cloud.talent.v4beta1.CompensationInfo.CompensationUnit result = com.google.cloud.talent.v4beta1.CompensationInfo.CompensationUnit.forNumber(unit_);
         return result == null ? com.google.cloud.talent.v4beta1.CompensationInfo.CompensationUnit.UNRECOGNIZED : result;
       }
       /**
@@ -1835,7 +1715,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         unit_ = value.getNumber();
         onChanged();
         return this;
@@ -1850,7 +1730,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearUnit() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         unit_ = 0;
         onChanged();
         return this;
@@ -2030,7 +1910,7 @@ private static final long serialVersionUID = 0L;
           compensationAmount_ = null;
         }
         compensationAmountCase_ = 3;
-        onChanged();;
+        onChanged();
         return amountBuilder_;
       }
 
@@ -2208,7 +2088,7 @@ private static final long serialVersionUID = 0L;
           compensationAmount_ = null;
         }
         compensationAmountCase_ = 4;
-        onChanged();;
+        onChanged();
         return rangeBuilder_;
       }
 
@@ -2271,11 +2151,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         description_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -2290,8 +2168,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
-        
         description_ = getDefaultInstance().getDescription();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -2308,12 +2186,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         description_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -2337,7 +2213,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the expectedUnitsPerYear field is set.
        */
       public boolean hasExpectedUnitsPerYear() {
-        return expectedUnitsPerYearBuilder_ != null || expectedUnitsPerYear_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -2381,11 +2257,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           expectedUnitsPerYear_ = value;
-          onChanged();
         } else {
           expectedUnitsPerYearBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -2406,11 +2282,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.DoubleValue.Builder builderForValue) {
         if (expectedUnitsPerYearBuilder_ == null) {
           expectedUnitsPerYear_ = builderForValue.build();
-          onChanged();
         } else {
           expectedUnitsPerYearBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -2429,17 +2305,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeExpectedUnitsPerYear(com.google.protobuf.DoubleValue value) {
         if (expectedUnitsPerYearBuilder_ == null) {
-          if (expectedUnitsPerYear_ != null) {
-            expectedUnitsPerYear_ =
-              com.google.protobuf.DoubleValue.newBuilder(expectedUnitsPerYear_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            expectedUnitsPerYear_ != null &&
+            expectedUnitsPerYear_ != com.google.protobuf.DoubleValue.getDefaultInstance()) {
+            getExpectedUnitsPerYearBuilder().mergeFrom(value);
           } else {
             expectedUnitsPerYear_ = value;
           }
-          onChanged();
         } else {
           expectedUnitsPerYearBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -2457,14 +2334,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.DoubleValue expected_units_per_year = 6;</code>
        */
       public Builder clearExpectedUnitsPerYear() {
-        if (expectedUnitsPerYearBuilder_ == null) {
-          expectedUnitsPerYear_ = null;
-          onChanged();
-        } else {
-          expectedUnitsPerYear_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        expectedUnitsPerYear_ = null;
+        if (expectedUnitsPerYearBuilder_ != null) {
+          expectedUnitsPerYearBuilder_.dispose();
           expectedUnitsPerYearBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2482,7 +2358,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.DoubleValue expected_units_per_year = 6;</code>
        */
       public com.google.protobuf.DoubleValue.Builder getExpectedUnitsPerYearBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getExpectedUnitsPerYearFieldBuilder().getBuilder();
       }
@@ -2568,7 +2444,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CompensationEntry(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2692,71 +2579,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CompensationRange(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.type.Money.Builder subBuilder = null;
-              if (minCompensation_ != null) {
-                subBuilder = minCompensation_.toBuilder();
-              }
-              minCompensation_ = input.readMessage(com.google.type.Money.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(minCompensation_);
-                minCompensation_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.type.Money.Builder subBuilder = null;
-              if (maxCompensation_ != null) {
-                subBuilder = maxCompensation_.toBuilder();
-              }
-              maxCompensation_ = input.readMessage(com.google.type.Money.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(maxCompensation_);
-                maxCompensation_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.talent.v4beta1.CommonProto.internal_static_google_cloud_talent_v4beta1_CompensationInfo_CompensationRange_descriptor;
@@ -2814,7 +2636,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.type.MoneyOrBuilder getMaxCompensationOrBuilder() {
-      return getMaxCompensation();
+      return maxCompensation_ == null ? com.google.type.Money.getDefaultInstance() : maxCompensation_;
     }
 
     public static final int MIN_COMPENSATION_FIELD_NUMBER = 1;
@@ -2858,7 +2680,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.type.MoneyOrBuilder getMinCompensationOrBuilder() {
-      return getMinCompensation();
+      return minCompensation_ == null ? com.google.type.Money.getDefaultInstance() : minCompensation_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2881,7 +2703,7 @@ private static final long serialVersionUID = 0L;
       if (maxCompensation_ != null) {
         output.writeMessage(2, getMaxCompensation());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2898,7 +2720,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getMaxCompensation());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2923,7 +2745,7 @@ private static final long serialVersionUID = 0L;
         if (!getMinCompensation()
             .equals(other.getMinCompensation())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2942,7 +2764,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + MIN_COMPENSATION_FIELD_NUMBER;
         hash = (53 * hash) + getMinCompensation().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3063,32 +2885,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (maxCompensationBuilder_ == null) {
-          maxCompensation_ = null;
-        } else {
-          maxCompensation_ = null;
+        bitField0_ = 0;
+        maxCompensation_ = null;
+        if (maxCompensationBuilder_ != null) {
+          maxCompensationBuilder_.dispose();
           maxCompensationBuilder_ = null;
         }
-        if (minCompensationBuilder_ == null) {
-          minCompensation_ = null;
-        } else {
-          minCompensation_ = null;
+        minCompensation_ = null;
+        if (minCompensationBuilder_ != null) {
+          minCompensationBuilder_.dispose();
           minCompensationBuilder_ = null;
         }
         return this;
@@ -3117,18 +2933,23 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange buildPartial() {
         com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange result = new com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange(this);
-        if (maxCompensationBuilder_ == null) {
-          result.maxCompensation_ = maxCompensation_;
-        } else {
-          result.maxCompensation_ = maxCompensationBuilder_.build();
-        }
-        if (minCompensationBuilder_ == null) {
-          result.minCompensation_ = minCompensation_;
-        } else {
-          result.minCompensation_ = minCompensationBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.maxCompensation_ = maxCompensationBuilder_ == null
+              ? maxCompensation_
+              : maxCompensationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.minCompensation_ = minCompensationBuilder_ == null
+              ? minCompensation_
+              : minCompensationBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3181,7 +3002,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasMinCompensation()) {
           mergeMinCompensation(other.getMinCompensation());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3196,19 +3017,47 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getMinCompensationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getMaxCompensationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.type.Money maxCompensation_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -3225,7 +3074,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the maxCompensation field is set.
        */
       public boolean hasMaxCompensation() {
-        return maxCompensationBuilder_ != null || maxCompensation_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -3261,11 +3110,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           maxCompensation_ = value;
-          onChanged();
         } else {
           maxCompensationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3282,11 +3131,11 @@ private static final long serialVersionUID = 0L;
           com.google.type.Money.Builder builderForValue) {
         if (maxCompensationBuilder_ == null) {
           maxCompensation_ = builderForValue.build();
-          onChanged();
         } else {
           maxCompensationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3301,17 +3150,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeMaxCompensation(com.google.type.Money value) {
         if (maxCompensationBuilder_ == null) {
-          if (maxCompensation_ != null) {
-            maxCompensation_ =
-              com.google.type.Money.newBuilder(maxCompensation_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            maxCompensation_ != null &&
+            maxCompensation_ != com.google.type.Money.getDefaultInstance()) {
+            getMaxCompensationBuilder().mergeFrom(value);
           } else {
             maxCompensation_ = value;
           }
-          onChanged();
         } else {
           maxCompensationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3325,14 +3175,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.type.Money max_compensation = 2;</code>
        */
       public Builder clearMaxCompensation() {
-        if (maxCompensationBuilder_ == null) {
-          maxCompensation_ = null;
-          onChanged();
-        } else {
-          maxCompensation_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        maxCompensation_ = null;
+        if (maxCompensationBuilder_ != null) {
+          maxCompensationBuilder_.dispose();
           maxCompensationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3346,7 +3195,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.type.Money max_compensation = 2;</code>
        */
       public com.google.type.Money.Builder getMaxCompensationBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getMaxCompensationFieldBuilder().getBuilder();
       }
@@ -3406,7 +3255,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the minCompensation field is set.
        */
       public boolean hasMinCompensation() {
-        return minCompensationBuilder_ != null || minCompensation_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -3440,11 +3289,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           minCompensation_ = value;
-          onChanged();
         } else {
           minCompensationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3460,11 +3309,11 @@ private static final long serialVersionUID = 0L;
           com.google.type.Money.Builder builderForValue) {
         if (minCompensationBuilder_ == null) {
           minCompensation_ = builderForValue.build();
-          onChanged();
         } else {
           minCompensationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3478,17 +3327,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeMinCompensation(com.google.type.Money value) {
         if (minCompensationBuilder_ == null) {
-          if (minCompensation_ != null) {
-            minCompensation_ =
-              com.google.type.Money.newBuilder(minCompensation_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            minCompensation_ != null &&
+            minCompensation_ != com.google.type.Money.getDefaultInstance()) {
+            getMinCompensationBuilder().mergeFrom(value);
           } else {
             minCompensation_ = value;
           }
-          onChanged();
         } else {
           minCompensationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3501,14 +3351,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.type.Money min_compensation = 1;</code>
        */
       public Builder clearMinCompensation() {
-        if (minCompensationBuilder_ == null) {
-          minCompensation_ = null;
-          onChanged();
-        } else {
-          minCompensation_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        minCompensation_ = null;
+        if (minCompensationBuilder_ != null) {
+          minCompensationBuilder_.dispose();
           minCompensationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3521,7 +3370,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.type.Money min_compensation = 1;</code>
        */
       public com.google.type.Money.Builder getMinCompensationBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getMinCompensationFieldBuilder().getBuilder();
       }
@@ -3597,7 +3446,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CompensationRange(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3618,6 +3478,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENTRIES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.talent.v4beta1.CompensationInfo.CompensationEntry> entries_;
   /**
    * <pre>
@@ -3736,7 +3597,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRangeOrBuilder getAnnualizedBaseCompensationRangeOrBuilder() {
-    return getAnnualizedBaseCompensationRange();
+    return annualizedBaseCompensationRange_ == null ? com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange.getDefaultInstance() : annualizedBaseCompensationRange_;
   }
 
   public static final int ANNUALIZED_TOTAL_COMPENSATION_RANGE_FIELD_NUMBER = 3;
@@ -3783,7 +3644,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRangeOrBuilder getAnnualizedTotalCompensationRangeOrBuilder() {
-    return getAnnualizedTotalCompensationRange();
+    return annualizedTotalCompensationRange_ == null ? com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange.getDefaultInstance() : annualizedTotalCompensationRange_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -3809,7 +3670,7 @@ private static final long serialVersionUID = 0L;
     if (annualizedTotalCompensationRange_ != null) {
       output.writeMessage(3, getAnnualizedTotalCompensationRange());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3830,7 +3691,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getAnnualizedTotalCompensationRange());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3857,7 +3718,7 @@ private static final long serialVersionUID = 0L;
       if (!getAnnualizedTotalCompensationRange()
           .equals(other.getAnnualizedTotalCompensationRange())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3880,7 +3741,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ANNUALIZED_TOTAL_COMPENSATION_RANGE_FIELD_NUMBER;
       hash = (53 * hash) + getAnnualizedTotalCompensationRange().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -4001,39 +3862,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.talent.v4beta1.CompensationInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getEntriesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (entriesBuilder_ == null) {
         entries_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        entries_ = null;
         entriesBuilder_.clear();
       }
-      if (annualizedBaseCompensationRangeBuilder_ == null) {
-        annualizedBaseCompensationRange_ = null;
-      } else {
-        annualizedBaseCompensationRange_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      annualizedBaseCompensationRange_ = null;
+      if (annualizedBaseCompensationRangeBuilder_ != null) {
+        annualizedBaseCompensationRangeBuilder_.dispose();
         annualizedBaseCompensationRangeBuilder_ = null;
       }
-      if (annualizedTotalCompensationRangeBuilder_ == null) {
-        annualizedTotalCompensationRange_ = null;
-      } else {
-        annualizedTotalCompensationRange_ = null;
+      annualizedTotalCompensationRange_ = null;
+      if (annualizedTotalCompensationRangeBuilder_ != null) {
+        annualizedTotalCompensationRangeBuilder_.dispose();
         annualizedTotalCompensationRangeBuilder_ = null;
       }
       return this;
@@ -4062,7 +3917,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.talent.v4beta1.CompensationInfo buildPartial() {
       com.google.cloud.talent.v4beta1.CompensationInfo result = new com.google.cloud.talent.v4beta1.CompensationInfo(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.talent.v4beta1.CompensationInfo result) {
       if (entriesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           entries_ = java.util.Collections.unmodifiableList(entries_);
@@ -4072,18 +3933,20 @@ private static final long serialVersionUID = 0L;
       } else {
         result.entries_ = entriesBuilder_.build();
       }
-      if (annualizedBaseCompensationRangeBuilder_ == null) {
-        result.annualizedBaseCompensationRange_ = annualizedBaseCompensationRange_;
-      } else {
-        result.annualizedBaseCompensationRange_ = annualizedBaseCompensationRangeBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.talent.v4beta1.CompensationInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.annualizedBaseCompensationRange_ = annualizedBaseCompensationRangeBuilder_ == null
+            ? annualizedBaseCompensationRange_
+            : annualizedBaseCompensationRangeBuilder_.build();
       }
-      if (annualizedTotalCompensationRangeBuilder_ == null) {
-        result.annualizedTotalCompensationRange_ = annualizedTotalCompensationRange_;
-      } else {
-        result.annualizedTotalCompensationRange_ = annualizedTotalCompensationRangeBuilder_.build();
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.annualizedTotalCompensationRange_ = annualizedTotalCompensationRangeBuilder_ == null
+            ? annualizedTotalCompensationRange_
+            : annualizedTotalCompensationRangeBuilder_.build();
       }
-      onBuilt();
-      return result;
     }
 
     @java.lang.Override
@@ -4162,7 +4025,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasAnnualizedTotalCompensationRange()) {
         mergeAnnualizedTotalCompensationRange(other.getAnnualizedTotalCompensationRange());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -4177,17 +4040,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.talent.v4beta1.CompensationInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.talent.v4beta1.CompensationInfo.CompensationEntry m =
+                  input.readMessage(
+                      com.google.cloud.talent.v4beta1.CompensationInfo.CompensationEntry.parser(),
+                      extensionRegistry);
+              if (entriesBuilder_ == null) {
+                ensureEntriesIsMutable();
+                entries_.add(m);
+              } else {
+                entriesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAnnualizedBaseCompensationRangeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getAnnualizedTotalCompensationRangeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.talent.v4beta1.CompensationInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -4573,7 +4476,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the annualizedBaseCompensationRange field is set.
      */
     public boolean hasAnnualizedBaseCompensationRange() {
-      return annualizedBaseCompensationRangeBuilder_ != null || annualizedBaseCompensationRange_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -4609,11 +4512,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         annualizedBaseCompensationRange_ = value;
-        onChanged();
       } else {
         annualizedBaseCompensationRangeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -4630,11 +4533,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange.Builder builderForValue) {
       if (annualizedBaseCompensationRangeBuilder_ == null) {
         annualizedBaseCompensationRange_ = builderForValue.build();
-        onChanged();
       } else {
         annualizedBaseCompensationRangeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -4649,17 +4552,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAnnualizedBaseCompensationRange(com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange value) {
       if (annualizedBaseCompensationRangeBuilder_ == null) {
-        if (annualizedBaseCompensationRange_ != null) {
-          annualizedBaseCompensationRange_ =
-            com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange.newBuilder(annualizedBaseCompensationRange_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          annualizedBaseCompensationRange_ != null &&
+          annualizedBaseCompensationRange_ != com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange.getDefaultInstance()) {
+          getAnnualizedBaseCompensationRangeBuilder().mergeFrom(value);
         } else {
           annualizedBaseCompensationRange_ = value;
         }
-        onChanged();
       } else {
         annualizedBaseCompensationRangeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -4673,14 +4577,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange annualized_base_compensation_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearAnnualizedBaseCompensationRange() {
-      if (annualizedBaseCompensationRangeBuilder_ == null) {
-        annualizedBaseCompensationRange_ = null;
-        onChanged();
-      } else {
-        annualizedBaseCompensationRange_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      annualizedBaseCompensationRange_ = null;
+      if (annualizedBaseCompensationRangeBuilder_ != null) {
+        annualizedBaseCompensationRangeBuilder_.dispose();
         annualizedBaseCompensationRangeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4694,7 +4597,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange annualized_base_compensation_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange.Builder getAnnualizedBaseCompensationRangeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAnnualizedBaseCompensationRangeFieldBuilder().getBuilder();
     }
@@ -4755,7 +4658,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the annualizedTotalCompensationRange field is set.
      */
     public boolean hasAnnualizedTotalCompensationRange() {
-      return annualizedTotalCompensationRangeBuilder_ != null || annualizedTotalCompensationRange_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -4791,11 +4694,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         annualizedTotalCompensationRange_ = value;
-        onChanged();
       } else {
         annualizedTotalCompensationRangeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -4812,11 +4715,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange.Builder builderForValue) {
       if (annualizedTotalCompensationRangeBuilder_ == null) {
         annualizedTotalCompensationRange_ = builderForValue.build();
-        onChanged();
       } else {
         annualizedTotalCompensationRangeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -4831,17 +4734,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAnnualizedTotalCompensationRange(com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange value) {
       if (annualizedTotalCompensationRangeBuilder_ == null) {
-        if (annualizedTotalCompensationRange_ != null) {
-          annualizedTotalCompensationRange_ =
-            com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange.newBuilder(annualizedTotalCompensationRange_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          annualizedTotalCompensationRange_ != null &&
+          annualizedTotalCompensationRange_ != com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange.getDefaultInstance()) {
+          getAnnualizedTotalCompensationRangeBuilder().mergeFrom(value);
         } else {
           annualizedTotalCompensationRange_ = value;
         }
-        onChanged();
       } else {
         annualizedTotalCompensationRangeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -4855,14 +4759,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange annualized_total_compensation_range = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearAnnualizedTotalCompensationRange() {
-      if (annualizedTotalCompensationRangeBuilder_ == null) {
-        annualizedTotalCompensationRange_ = null;
-        onChanged();
-      } else {
-        annualizedTotalCompensationRange_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      annualizedTotalCompensationRange_ = null;
+      if (annualizedTotalCompensationRangeBuilder_ != null) {
+        annualizedTotalCompensationRangeBuilder_.dispose();
         annualizedTotalCompensationRangeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4876,7 +4779,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange annualized_total_compensation_range = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.talent.v4beta1.CompensationInfo.CompensationRange.Builder getAnnualizedTotalCompensationRangeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getAnnualizedTotalCompensationRangeFieldBuilder().getBuilder();
     }
@@ -4954,7 +4857,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CompensationInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

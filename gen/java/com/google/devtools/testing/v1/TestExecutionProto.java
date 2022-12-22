@@ -275,278 +275,276 @@ public final class TestExecutionProto {
     java.lang.String[] descriptorData = {
       "\n/google/devtools/testing/v1/test_execut" +
       "ion.proto\022\032google.devtools.testing.v1\032\034g" +
-      "oogle/api/annotations.proto\032\037google/api/" +
-      "field_behavior.proto\032\036google/protobuf/du" +
-      "ration.proto\032\037google/protobuf/timestamp." +
-      "proto\032\027google/api/client.proto\"\276\005\n\nTestM" +
-      "atrix\022\026\n\016test_matrix_id\030\001 \001(\t\022\022\n\nproject" +
-      "_id\030\007 \001(\t\022;\n\013client_info\030\n \001(\0132&.google." +
-      "devtools.testing.v1.ClientInfo\022I\n\022test_s" +
-      "pecification\030\003 \001(\0132-.google.devtools.tes" +
-      "ting.v1.TestSpecification\022I\n\022environment" +
-      "_matrix\030\004 \001(\0132-.google.devtools.testing." +
-      "v1.EnvironmentMatrix\022B\n\017test_executions\030" +
-      "\005 \003(\0132).google.devtools.testing.v1.TestE" +
-      "xecution\022A\n\016result_storage\030\006 \001(\0132).googl" +
-      "e.devtools.testing.v1.ResultStorage\0224\n\005s" +
-      "tate\030\010 \001(\0162%.google.devtools.testing.v1." +
-      "TestState\022-\n\ttimestamp\030\t \001(\0132\032.google.pr" +
-      "otobuf.Timestamp\022P\n\026invalid_matrix_detai" +
-      "ls\030\013 \001(\01620.google.devtools.testing.v1.In" +
-      "validMatrixDetails\022\033\n\023flaky_test_attempt" +
-      "s\030\r \001(\005\022C\n\017outcome_summary\030\016 \001(\0162*.googl" +
-      "e.devtools.testing.v1.OutcomeSummary\022\021\n\t" +
-      "fail_fast\030\021 \001(\010\"\351\003\n\rTestExecution\022\n\n\002id\030" +
-      "\001 \001(\t\022\021\n\tmatrix_id\030\t \001(\t\022\022\n\nproject_id\030\n" +
-      " \001(\t\022I\n\022test_specification\030\003 \001(\0132-.googl" +
-      "e.devtools.testing.v1.TestSpecification\022" +
-      "0\n\005shard\030\014 \001(\0132!.google.devtools.testing" +
-      ".v1.Shard\022<\n\013environment\030\004 \001(\0132\'.google." +
-      "devtools.testing.v1.Environment\0224\n\005state" +
-      "\030\005 \001(\0162%.google.devtools.testing.v1.Test" +
-      "State\022F\n\021tool_results_step\030\013 \001(\0132+.googl" +
-      "e.devtools.testing.v1.ToolResultsStep\022-\n" +
-      "\ttimestamp\030\007 \001(\0132\032.google.protobuf.Times" +
-      "tamp\022=\n\014test_details\030\010 \001(\0132\'.google.devt" +
-      "ools.testing.v1.TestDetails\"\220\005\n\021TestSpec" +
-      "ification\022/\n\014test_timeout\030\001 \001(\0132\031.google" +
-      ".protobuf.Duration\022;\n\ntest_setup\030\006 \001(\0132%" +
-      ".google.devtools.testing.v1.TestSetupH\000\022" +
-      "B\n\016ios_test_setup\030\016 \001(\0132(.google.devtool" +
-      "s.testing.v1.IosTestSetupH\000\022^\n\034android_i" +
-      "nstrumentation_test\030\002 \001(\01326.google.devto" +
-      "ols.testing.v1.AndroidInstrumentationTes" +
-      "tH\001\022H\n\021android_robo_test\030\003 \001(\0132+.google." +
-      "devtools.testing.v1.AndroidRoboTestH\001\022H\n" +
-      "\021android_test_loop\030\t \001(\0132+.google.devtoo" +
-      "ls.testing.v1.AndroidTestLoopH\001\022<\n\013ios_x" +
-      "c_test\030\r \001(\0132%.google.devtools.testing.v" +
-      "1.IosXcTestH\001\022@\n\rios_test_loop\030\017 \001(\0132\'.g" +
-      "oogle.devtools.testing.v1.IosTestLoopH\001\022" +
-      "\037\n\027disable_video_recording\030\n \001(\010\022#\n\033disa" +
-      "ble_performance_metrics\030\013 \001(\010B\007\n\005setupB\006" +
-      "\n\004test\")\n\rSystraceSetup\022\030\n\020duration_seco" +
-      "nds\030\001 \001(\005\"\241\003\n\tTestSetup\022=\n\rfiles_to_push" +
-      "\030\001 \003(\0132&.google.devtools.testing.v1.Devi" +
-      "ceFile\022\033\n\023directories_to_pull\030\002 \003(\t\0228\n\017a" +
-      "dditional_apks\030\003 \003(\0132\037.google.devtools.t" +
-      "esting.v1.Apk\0224\n\007account\030\004 \001(\0132#.google." +
-      "devtools.testing.v1.Account\022\027\n\017network_p" +
-      "rofile\030\005 \001(\t\022N\n\025environment_variables\030\006 " +
-      "\003(\0132/.google.devtools.testing.v1.Environ" +
-      "mentVariable\022;\n\010systrace\030\t \001(\0132).google." +
-      "devtools.testing.v1.SystraceSetup\022\"\n\032don" +
-      "t_autogrant_permissions\030\027 \001(\010\"\357\001\n\014IosTes" +
-      "tSetup\022\027\n\017network_profile\030\001 \001(\t\022B\n\017addit" +
-      "ional_ipas\030\002 \003(\0132).google.devtools.testi" +
-      "ng.v1.FileReference\022=\n\npush_files\030\003 \003(\0132" +
-      ").google.devtools.testing.v1.IosDeviceFi" +
-      "le\022C\n\020pull_directories\030\004 \003(\0132).google.de" +
-      "vtools.testing.v1.IosDeviceFile\"1\n\023Envir" +
-      "onmentVariable\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
-      "(\t\"X\n\007Account\022=\n\013google_auto\030\001 \001(\0132&.goo" +
-      "gle.devtools.testing.v1.GoogleAutoH\000B\016\n\014" +
-      "account_type\"\014\n\nGoogleAuto\"X\n\003Apk\022;\n\010loc" +
-      "ation\030\001 \001(\0132).google.devtools.testing.v1" +
-      ".FileReference\022\024\n\014package_name\030\002 \001(\t\"[\n\t" +
-      "AppBundle\022D\n\017bundle_location\030\001 \001(\0132).goo" +
-      "gle.devtools.testing.v1.FileReferenceH\000B" +
-      "\010\n\006bundle\"\225\001\n\nDeviceFile\0227\n\010obb_file\030\001 \001" +
-      "(\0132#.google.devtools.testing.v1.ObbFileH" +
-      "\000\022?\n\014regular_file\030\002 \001(\0132\'.google.devtool" +
-      "s.testing.v1.RegularFileH\000B\r\n\013device_fil" +
-      "e\"X\n\007ObbFile\022\025\n\robb_file_name\030\001 \001(\t\0226\n\003o" +
-      "bb\030\002 \001(\0132).google.devtools.testing.v1.Fi" +
-      "leReference\"^\n\013RegularFile\022:\n\007content\030\001 " +
-      "\001(\0132).google.devtools.testing.v1.FileRef" +
-      "erence\022\023\n\013device_path\030\002 \001(\t\"s\n\rIosDevice" +
-      "File\022:\n\007content\030\001 \001(\0132).google.devtools." +
-      "testing.v1.FileReference\022\021\n\tbundle_id\030\002 " +
-      "\001(\t\022\023\n\013device_path\030\003 \001(\t\"\342\001\n\017AndroidTest" +
-      "Loop\022<\n\007app_apk\030\001 \001(\0132).google.devtools." +
-      "testing.v1.FileReferenceH\000\022;\n\napp_bundle" +
-      "\030\005 \001(\0132%.google.devtools.testing.v1.AppB" +
-      "undleH\000\022\026\n\016app_package_id\030\002 \001(\t\022\021\n\tscena" +
-      "rios\030\003 \003(\005\022\027\n\017scenario_labels\030\004 \003(\tB\020\n\016a" +
-      "pp_under_test\"\330\001\n\tIosXcTest\022<\n\ttests_zip" +
-      "\030\001 \001(\0132).google.devtools.testing.v1.File" +
-      "Reference\022<\n\txctestrun\030\002 \001(\0132).google.de" +
-      "vtools.testing.v1.FileReference\022\025\n\rxcode" +
-      "_version\030\003 \001(\t\022\025\n\rapp_bundle_id\030\004 \001(\t\022!\n" +
-      "\031test_special_entitlements\030\006 \001(\010\"s\n\013IosT" +
-      "estLoop\022:\n\007app_ipa\030\001 \001(\0132).google.devtoo" +
-      "ls.testing.v1.FileReference\022\021\n\tscenarios" +
-      "\030\002 \003(\005\022\025\n\rapp_bundle_id\030\003 \001(\t\"\332\003\n\032Androi" +
-      "dInstrumentationTest\022<\n\007app_apk\030\001 \001(\0132)." +
-      "google.devtools.testing.v1.FileReference" +
-      "H\000\022;\n\napp_bundle\030\010 \001(\0132%.google.devtools" +
-      ".testing.v1.AppBundleH\000\022;\n\010test_apk\030\002 \001(" +
+      "oogle/api/annotations.proto\032\036google/prot" +
+      "obuf/duration.proto\032\037google/protobuf/tim" +
+      "estamp.proto\032\027google/api/client.proto\"\276\005" +
+      "\n\nTestMatrix\022\026\n\016test_matrix_id\030\001 \001(\t\022\022\n\n" +
+      "project_id\030\007 \001(\t\022;\n\013client_info\030\n \001(\0132&." +
+      "google.devtools.testing.v1.ClientInfo\022I\n" +
+      "\022test_specification\030\003 \001(\0132-.google.devto" +
+      "ols.testing.v1.TestSpecification\022I\n\022envi" +
+      "ronment_matrix\030\004 \001(\0132-.google.devtools.t" +
+      "esting.v1.EnvironmentMatrix\022B\n\017test_exec" +
+      "utions\030\005 \003(\0132).google.devtools.testing.v" +
+      "1.TestExecution\022A\n\016result_storage\030\006 \001(\0132" +
+      ").google.devtools.testing.v1.ResultStora" +
+      "ge\0224\n\005state\030\010 \001(\0162%.google.devtools.test" +
+      "ing.v1.TestState\022-\n\ttimestamp\030\t \001(\0132\032.go" +
+      "ogle.protobuf.Timestamp\022P\n\026invalid_matri" +
+      "x_details\030\013 \001(\01620.google.devtools.testin" +
+      "g.v1.InvalidMatrixDetails\022\033\n\023flaky_test_" +
+      "attempts\030\r \001(\005\022C\n\017outcome_summary\030\016 \001(\0162" +
+      "*.google.devtools.testing.v1.OutcomeSumm" +
+      "ary\022\021\n\tfail_fast\030\021 \001(\010\"\351\003\n\rTestExecution" +
+      "\022\n\n\002id\030\001 \001(\t\022\021\n\tmatrix_id\030\t \001(\t\022\022\n\nproje" +
+      "ct_id\030\n \001(\t\022I\n\022test_specification\030\003 \001(\0132" +
+      "-.google.devtools.testing.v1.TestSpecifi" +
+      "cation\0220\n\005shard\030\014 \001(\0132!.google.devtools." +
+      "testing.v1.Shard\022<\n\013environment\030\004 \001(\0132\'." +
+      "google.devtools.testing.v1.Environment\0224" +
+      "\n\005state\030\005 \001(\0162%.google.devtools.testing." +
+      "v1.TestState\022F\n\021tool_results_step\030\013 \001(\0132" +
+      "+.google.devtools.testing.v1.ToolResults" +
+      "Step\022-\n\ttimestamp\030\007 \001(\0132\032.google.protobu" +
+      "f.Timestamp\022=\n\014test_details\030\010 \001(\0132\'.goog" +
+      "le.devtools.testing.v1.TestDetails\"\220\005\n\021T" +
+      "estSpecification\022/\n\014test_timeout\030\001 \001(\0132\031" +
+      ".google.protobuf.Duration\022;\n\ntest_setup\030" +
+      "\006 \001(\0132%.google.devtools.testing.v1.TestS" +
+      "etupH\000\022B\n\016ios_test_setup\030\016 \001(\0132(.google." +
+      "devtools.testing.v1.IosTestSetupH\000\022^\n\034an" +
+      "droid_instrumentation_test\030\002 \001(\01326.googl" +
+      "e.devtools.testing.v1.AndroidInstrumenta" +
+      "tionTestH\001\022H\n\021android_robo_test\030\003 \001(\0132+." +
+      "google.devtools.testing.v1.AndroidRoboTe" +
+      "stH\001\022H\n\021android_test_loop\030\t \001(\0132+.google" +
+      ".devtools.testing.v1.AndroidTestLoopH\001\022<" +
+      "\n\013ios_xc_test\030\r \001(\0132%.google.devtools.te" +
+      "sting.v1.IosXcTestH\001\022@\n\rios_test_loop\030\017 " +
+      "\001(\0132\'.google.devtools.testing.v1.IosTest" +
+      "LoopH\001\022\037\n\027disable_video_recording\030\n \001(\010\022" +
+      "#\n\033disable_performance_metrics\030\013 \001(\010B\007\n\005" +
+      "setupB\006\n\004test\")\n\rSystraceSetup\022\030\n\020durati" +
+      "on_seconds\030\001 \001(\005\"\241\003\n\tTestSetup\022=\n\rfiles_" +
+      "to_push\030\001 \003(\0132&.google.devtools.testing." +
+      "v1.DeviceFile\022\033\n\023directories_to_pull\030\002 \003" +
+      "(\t\0228\n\017additional_apks\030\003 \003(\0132\037.google.dev" +
+      "tools.testing.v1.Apk\0224\n\007account\030\004 \001(\0132#." +
+      "google.devtools.testing.v1.Account\022\027\n\017ne" +
+      "twork_profile\030\005 \001(\t\022N\n\025environment_varia" +
+      "bles\030\006 \003(\0132/.google.devtools.testing.v1." +
+      "EnvironmentVariable\022;\n\010systrace\030\t \001(\0132)." +
+      "google.devtools.testing.v1.SystraceSetup" +
+      "\022\"\n\032dont_autogrant_permissions\030\027 \001(\010\"\357\001\n" +
+      "\014IosTestSetup\022\027\n\017network_profile\030\001 \001(\t\022B" +
+      "\n\017additional_ipas\030\002 \003(\0132).google.devtool" +
+      "s.testing.v1.FileReference\022=\n\npush_files" +
+      "\030\003 \003(\0132).google.devtools.testing.v1.IosD" +
+      "eviceFile\022C\n\020pull_directories\030\004 \003(\0132).go" +
+      "ogle.devtools.testing.v1.IosDeviceFile\"1" +
+      "\n\023EnvironmentVariable\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
+      "lue\030\002 \001(\t\"X\n\007Account\022=\n\013google_auto\030\001 \001(" +
+      "\0132&.google.devtools.testing.v1.GoogleAut" +
+      "oH\000B\016\n\014account_type\"\014\n\nGoogleAuto\"X\n\003Apk" +
+      "\022;\n\010location\030\001 \001(\0132).google.devtools.tes" +
+      "ting.v1.FileReference\022\024\n\014package_name\030\002 " +
+      "\001(\t\"[\n\tAppBundle\022D\n\017bundle_location\030\001 \001(" +
       "\0132).google.devtools.testing.v1.FileRefer" +
-      "ence\022\026\n\016app_package_id\030\003 \001(\t\022\027\n\017test_pac" +
-      "kage_id\030\004 \001(\t\022\031\n\021test_runner_class\030\005 \001(\t" +
-      "\022\024\n\014test_targets\030\006 \003(\t\022K\n\023orchestrator_o" +
-      "ption\030\007 \001(\0162..google.devtools.testing.v1" +
-      ".OrchestratorOption\022C\n\017sharding_option\030\t" +
-      " \001(\0132*.google.devtools.testing.v1.Shardi" +
-      "ngOptionB\020\n\016app_under_test\"\320\003\n\017AndroidRo" +
-      "boTest\022<\n\007app_apk\030\001 \001(\0132).google.devtool" +
-      "s.testing.v1.FileReferenceH\000\022;\n\napp_bund" +
-      "le\030\020 \001(\0132%.google.devtools.testing.v1.Ap" +
-      "pBundleH\000\022\026\n\016app_package_id\030\002 \001(\t\022\034\n\024app" +
-      "_initial_activity\030\003 \001(\t\022\025\n\tmax_depth\030\007 \001" +
-      "(\005B\002\030\001\022\025\n\tmax_steps\030\010 \001(\005B\002\030\001\022B\n\017robo_di" +
-      "rectives\030\013 \003(\0132).google.devtools.testing" +
-      ".v1.RoboDirective\022>\n\013robo_script\030\r \001(\0132)" +
-      ".google.devtools.testing.v1.FileReferenc" +
-      "e\022H\n\020starting_intents\030\017 \003(\0132..google.dev" +
-      "tools.testing.v1.RoboStartingIntentB\020\n\016a" +
-      "pp_under_test\"{\n\rRoboDirective\022\025\n\rresour" +
-      "ce_name\030\001 \001(\t\022\022\n\ninput_text\030\002 \001(\t\022?\n\013act" +
-      "ion_type\030\003 \001(\0162*.google.devtools.testing" +
-      ".v1.RoboActionType\"\357\001\n\022RoboStartingInten" +
-      "t\022O\n\021launcher_activity\030\001 \001(\01322.google.de" +
-      "vtools.testing.v1.LauncherActivityIntent" +
-      "H\000\022I\n\016start_activity\030\002 \001(\0132/.google.devt" +
-      "ools.testing.v1.StartActivityIntentH\000\022*\n" +
-      "\007timeout\030\003 \001(\0132\031.google.protobuf.Duratio" +
-      "nB\021\n\017starting_intent\"\030\n\026LauncherActivity" +
-      "Intent\"F\n\023StartActivityIntent\022\016\n\006action\030" +
-      "\002 \001(\t\022\013\n\003uri\030\003 \001(\t\022\022\n\ncategories\030\004 \003(\t\"\202" +
-      "\002\n\021EnvironmentMatrix\022C\n\016android_matrix\030\001" +
-      " \001(\0132).google.devtools.testing.v1.Androi" +
-      "dMatrixH\000\022L\n\023android_device_list\030\002 \001(\0132-" +
-      ".google.devtools.testing.v1.AndroidDevic" +
-      "eListH\000\022D\n\017ios_device_list\030\003 \001(\0132).googl" +
-      "e.devtools.testing.v1.IosDeviceListH\000B\024\n" +
-      "\022environment_matrix\"W\n\021AndroidDeviceList" +
-      "\022B\n\017android_devices\030\001 \003(\0132).google.devto" +
-      "ols.testing.v1.AndroidDevice\"K\n\rIosDevic" +
-      "eList\022:\n\013ios_devices\030\001 \003(\0132%.google.devt" +
-      "ools.testing.v1.IosDevice\"n\n\rAndroidMatr" +
-      "ix\022\031\n\021android_model_ids\030\001 \003(\t\022\033\n\023android" +
-      "_version_ids\030\002 \003(\t\022\017\n\007locales\030\003 \003(\t\022\024\n\014o" +
-      "rientations\030\004 \003(\t\"e\n\nClientInfo\022\014\n\004name\030" +
-      "\001 \001(\t\022I\n\023client_info_details\030\002 \003(\0132,.goo" +
-      "gle.devtools.testing.v1.ClientInfoDetail" +
-      "\".\n\020ClientInfoDetail\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
-      "ue\030\002 \001(\t\"\222\002\n\rResultStorage\022L\n\024google_clo" +
-      "ud_storage\030\001 \001(\0132..google.devtools.testi" +
-      "ng.v1.GoogleCloudStorage\022L\n\024tool_results" +
-      "_history\030\005 \001(\0132..google.devtools.testing" +
-      ".v1.ToolResultsHistory\022P\n\026tool_results_e" +
-      "xecution\030\006 \001(\01320.google.devtools.testing" +
-      ".v1.ToolResultsExecution\022\023\n\013results_url\030" +
-      "\007 \001(\t\"<\n\022ToolResultsHistory\022\022\n\nproject_i" +
-      "d\030\001 \001(\t\022\022\n\nhistory_id\030\002 \001(\t\"T\n\024ToolResul" +
-      "tsExecution\022\022\n\nproject_id\030\001 \001(\t\022\022\n\nhisto" +
-      "ry_id\030\002 \001(\t\022\024\n\014execution_id\030\003 \001(\t\"`\n\017Too" +
-      "lResultsStep\022\022\n\nproject_id\030\001 \001(\t\022\022\n\nhist" +
-      "ory_id\030\002 \001(\t\022\024\n\014execution_id\030\003 \001(\t\022\017\n\007st" +
-      "ep_id\030\004 \001(\t\"&\n\022GoogleCloudStorage\022\020\n\010gcs" +
-      "_path\030\001 \001(\t\"+\n\rFileReference\022\022\n\010gcs_path" +
-      "\030\001 \001(\tH\000B\006\n\004file\"\236\001\n\013Environment\022C\n\016andr" +
-      "oid_device\030\001 \001(\0132).google.devtools.testi" +
-      "ng.v1.AndroidDeviceH\000\022;\n\nios_device\030\002 \001(" +
-      "\0132%.google.devtools.testing.v1.IosDevice" +
-      "H\000B\r\n\013environment\"j\n\rAndroidDevice\022\030\n\020an" +
-      "droid_model_id\030\001 \001(\t\022\032\n\022android_version_" +
-      "id\030\002 \001(\t\022\016\n\006locale\030\003 \001(\t\022\023\n\013orientation\030" +
-      "\004 \001(\t\"^\n\tIosDevice\022\024\n\014ios_model_id\030\001 \001(\t" +
-      "\022\026\n\016ios_version_id\030\002 \001(\t\022\016\n\006locale\030\003 \001(\t" +
-      "\022\023\n\013orientation\030\004 \001(\t\"?\n\013TestDetails\022\031\n\021" +
-      "progress_messages\030\003 \003(\t\022\025\n\rerror_message" +
-      "\030\004 \001(\t\"\353\001\n\024InvalidRequestDetail\022G\n\006reaso" +
-      "n\030\001 \001(\01627.google.devtools.testing.v1.Inv" +
-      "alidRequestDetail.Reason\"\211\001\n\006Reason\022\026\n\022R" +
-      "EASON_UNSPECIFIED\020\000\022\023\n\017REQUEST_INVALID\020\001" +
-      "\022\024\n\020RESOURCE_TOO_BIG\020\002\022\026\n\022RESOURCE_NOT_F" +
-      "OUND\020\003\022\017\n\013UNSUPPORTED\020\004\022\023\n\017NOT_IMPLEMENT" +
-      "ED\020\005\"\252\001\n\016ShardingOption\022G\n\020uniform_shard" +
-      "ing\030\001 \001(\0132+.google.devtools.testing.v1.U" +
-      "niformShardingH\000\022E\n\017manual_sharding\030\002 \001(" +
-      "\0132*.google.devtools.testing.v1.ManualSha" +
-      "rdingH\000B\010\n\006option\"%\n\017UniformSharding\022\022\n\n" +
-      "num_shards\030\001 \001(\005\"a\n\016ManualSharding\022O\n\026te" +
-      "st_targets_for_shard\030\001 \003(\0132/.google.devt" +
-      "ools.testing.v1.TestTargetsForShard\"+\n\023T" +
-      "estTargetsForShard\022\024\n\014test_targets\030\001 \003(\t" +
-      "\"\201\001\n\005Shard\022\023\n\013shard_index\030\001 \001(\005\022\022\n\nnum_s" +
-      "hards\030\002 \001(\005\022O\n\026test_targets_for_shard\030\003 " +
-      "\001(\0132/.google.devtools.testing.v1.TestTar" +
-      "getsForShard\"~\n\027CreateTestMatrixRequest\022" +
-      "\022\n\nproject_id\030\001 \001(\t\022;\n\013test_matrix\030\002 \001(\013" +
-      "2&.google.devtools.testing.v1.TestMatrix" +
-      "\022\022\n\nrequest_id\030\003 \001(\t\"B\n\024GetTestMatrixReq" +
-      "uest\022\022\n\nproject_id\030\001 \001(\t\022\026\n\016test_matrix_" +
-      "id\030\002 \001(\t\"E\n\027CancelTestMatrixRequest\022\022\n\np" +
-      "roject_id\030\001 \001(\t\022\026\n\016test_matrix_id\030\002 \001(\t\"" +
-      "U\n\030CancelTestMatrixResponse\0229\n\ntest_stat" +
-      "e\030\001 \001(\0162%.google.devtools.testing.v1.Tes" +
-      "tState*l\n\022OrchestratorOption\022#\n\037ORCHESTR" +
-      "ATOR_OPTION_UNSPECIFIED\020\000\022\024\n\020USE_ORCHEST" +
-      "RATOR\020\001\022\033\n\027DO_NOT_USE_ORCHESTRATOR\020\002*[\n\016" +
-      "RoboActionType\022\033\n\027ACTION_TYPE_UNSPECIFIE" +
-      "D\020\000\022\020\n\014SINGLE_CLICK\020\001\022\016\n\nENTER_TEXT\020\002\022\n\n" +
-      "\006IGNORE\020\003*\274\007\n\024InvalidMatrixDetails\022&\n\"IN" +
-      "VALID_MATRIX_DETAILS_UNSPECIFIED\020\000\022\027\n\023DE" +
-      "TAILS_UNAVAILABLE\020\001\022\021\n\rMALFORMED_APK\020\002\022\026" +
-      "\n\022MALFORMED_TEST_APK\020\003\022\017\n\013NO_MANIFEST\020\004\022" +
-      "\023\n\017NO_PACKAGE_NAME\020\005\022\030\n\024INVALID_PACKAGE_" +
-      "NAME\020\037\022\024\n\020TEST_SAME_AS_APP\020\006\022\026\n\022NO_INSTR" +
-      "UMENTATION\020\007\022\020\n\014NO_SIGNATURE\020\024\022-\n)INSTRU" +
-      "MENTATION_ORCHESTRATOR_INCOMPATIBLE\020\022\022\030\n" +
-      "\024NO_TEST_RUNNER_CLASS\020\023\022\030\n\024NO_LAUNCHER_A" +
-      "CTIVITY\020\010\022\031\n\025FORBIDDEN_PERMISSIONS\020\t\022\033\n\027" +
-      "INVALID_ROBO_DIRECTIVES\020\n\022\031\n\025INVALID_RES" +
-      "OURCE_NAME\020!\022\034\n\030INVALID_DIRECTIVE_ACTION" +
-      "\020\"\022%\n!TEST_LOOP_INTENT_FILTER_NOT_FOUND\020" +
-      "\014\022\037\n\033SCENARIO_LABEL_NOT_DECLARED\020\r\022\034\n\030SC" +
-      "ENARIO_LABEL_MALFORMED\020\016\022\031\n\025SCENARIO_NOT" +
-      "_DECLARED\020\017\022\031\n\025DEVICE_ADMIN_RECEIVER\020\021\022\031" +
-      "\n\025MALFORMED_XC_TEST_ZIP\020\013\022\033\n\027BUILT_FOR_I" +
-      "OS_SIMULATOR\020\030\022\033\n\027NO_TESTS_IN_XC_TEST_ZI" +
-      "P\020\031\022\035\n\031USE_DESTINATION_ARTIFACTS\020\032\022\027\n\023TE" +
-      "ST_NOT_APP_HOSTED\020\034\022\032\n\026PLIST_CANNOT_BE_P" +
-      "ARSED\020\036\022\025\n\rTEST_ONLY_APK\020\025\032\002\010\001\022\021\n\rMALFOR" +
-      "MED_IPA\020\026\022\026\n\022MISSING_URL_SCHEME\020#\022\030\n\024MAL" +
-      "FORMED_APP_BUNDLE\020$\022\017\n\013NO_CODE_APK\020\027\022\025\n\021" +
-      "INVALID_INPUT_APK\020\033\022\033\n\027INVALID_APK_PREVI" +
-      "EW_SDK\020\035*\340\001\n\tTestState\022\032\n\026TEST_STATE_UNS" +
-      "PECIFIED\020\000\022\016\n\nVALIDATING\020\010\022\013\n\007PENDING\020\001\022" +
-      "\013\n\007RUNNING\020\002\022\014\n\010FINISHED\020\003\022\t\n\005ERROR\020\004\022\033\n" +
-      "\027UNSUPPORTED_ENVIRONMENT\020\005\022\034\n\030INCOMPATIB" +
-      "LE_ENVIRONMENT\020\t\022\035\n\031INCOMPATIBLE_ARCHITE" +
-      "CTURE\020\n\022\r\n\tCANCELLED\020\006\022\013\n\007INVALID\020\007*j\n\016O" +
-      "utcomeSummary\022\037\n\033OUTCOME_SUMMARY_UNSPECI" +
-      "FIED\020\000\022\013\n\007SUCCESS\020\001\022\013\n\007FAILURE\020\002\022\020\n\014INCO" +
-      "NCLUSIVE\020\003\022\013\n\007SKIPPED\020\0042\300\005\n\024TestExecutio" +
-      "nService\022\254\001\n\020CreateTestMatrix\0223.google.d" +
-      "evtools.testing.v1.CreateTestMatrixReque" +
-      "st\032&.google.devtools.testing.v1.TestMatr" +
-      "ix\";\202\323\344\223\0025\"&/v1/projects/{project_id}/te" +
-      "stMatrices:\013test_matrix\022\252\001\n\rGetTestMatri" +
-      "x\0220.google.devtools.testing.v1.GetTestMa" +
-      "trixRequest\032&.google.devtools.testing.v1" +
-      ".TestMatrix\"?\202\323\344\223\0029\0227/v1/projects/{proje" +
-      "ct_id}/testMatrices/{test_matrix_id}\022\305\001\n" +
-      "\020CancelTestMatrix\0223.google.devtools.test" +
-      "ing.v1.CancelTestMatrixRequest\0324.google." +
-      "devtools.testing.v1.CancelTestMatrixResp" +
-      "onse\"F\202\323\344\223\002@\">/v1/projects/{project_id}/" +
-      "testMatrices/{test_matrix_id}:cancel\032\203\001\312" +
-      "A\026testing.googleapis.com\322Aghttps://www.g" +
-      "oogleapis.com/auth/cloud-platform,https:" +
+      "enceH\000B\010\n\006bundle\"\225\001\n\nDeviceFile\0227\n\010obb_f" +
+      "ile\030\001 \001(\0132#.google.devtools.testing.v1.O" +
+      "bbFileH\000\022?\n\014regular_file\030\002 \001(\0132\'.google." +
+      "devtools.testing.v1.RegularFileH\000B\r\n\013dev" +
+      "ice_file\"X\n\007ObbFile\022\025\n\robb_file_name\030\001 \001" +
+      "(\t\0226\n\003obb\030\002 \001(\0132).google.devtools.testin" +
+      "g.v1.FileReference\"^\n\013RegularFile\022:\n\007con" +
+      "tent\030\001 \001(\0132).google.devtools.testing.v1." +
+      "FileReference\022\023\n\013device_path\030\002 \001(\t\"s\n\rIo" +
+      "sDeviceFile\022:\n\007content\030\001 \001(\0132).google.de" +
+      "vtools.testing.v1.FileReference\022\021\n\tbundl" +
+      "e_id\030\002 \001(\t\022\023\n\013device_path\030\003 \001(\t\"\342\001\n\017Andr" +
+      "oidTestLoop\022<\n\007app_apk\030\001 \001(\0132).google.de" +
+      "vtools.testing.v1.FileReferenceH\000\022;\n\napp" +
+      "_bundle\030\005 \001(\0132%.google.devtools.testing." +
+      "v1.AppBundleH\000\022\026\n\016app_package_id\030\002 \001(\t\022\021" +
+      "\n\tscenarios\030\003 \003(\005\022\027\n\017scenario_labels\030\004 \003" +
+      "(\tB\020\n\016app_under_test\"\330\001\n\tIosXcTest\022<\n\tte" +
+      "sts_zip\030\001 \001(\0132).google.devtools.testing." +
+      "v1.FileReference\022<\n\txctestrun\030\002 \001(\0132).go" +
+      "ogle.devtools.testing.v1.FileReference\022\025" +
+      "\n\rxcode_version\030\003 \001(\t\022\025\n\rapp_bundle_id\030\004" +
+      " \001(\t\022!\n\031test_special_entitlements\030\006 \001(\010\"" +
+      "s\n\013IosTestLoop\022:\n\007app_ipa\030\001 \001(\0132).google" +
+      ".devtools.testing.v1.FileReference\022\021\n\tsc" +
+      "enarios\030\002 \003(\005\022\025\n\rapp_bundle_id\030\003 \001(\t\"\332\003\n" +
+      "\032AndroidInstrumentationTest\022<\n\007app_apk\030\001" +
+      " \001(\0132).google.devtools.testing.v1.FileRe" +
+      "ferenceH\000\022;\n\napp_bundle\030\010 \001(\0132%.google.d" +
+      "evtools.testing.v1.AppBundleH\000\022;\n\010test_a" +
+      "pk\030\002 \001(\0132).google.devtools.testing.v1.Fi" +
+      "leReference\022\026\n\016app_package_id\030\003 \001(\t\022\027\n\017t" +
+      "est_package_id\030\004 \001(\t\022\031\n\021test_runner_clas" +
+      "s\030\005 \001(\t\022\024\n\014test_targets\030\006 \003(\t\022K\n\023orchest" +
+      "rator_option\030\007 \001(\0162..google.devtools.tes" +
+      "ting.v1.OrchestratorOption\022C\n\017sharding_o" +
+      "ption\030\t \001(\0132*.google.devtools.testing.v1" +
+      ".ShardingOptionB\020\n\016app_under_test\"\320\003\n\017An" +
+      "droidRoboTest\022<\n\007app_apk\030\001 \001(\0132).google." +
+      "devtools.testing.v1.FileReferenceH\000\022;\n\na" +
+      "pp_bundle\030\020 \001(\0132%.google.devtools.testin" +
+      "g.v1.AppBundleH\000\022\026\n\016app_package_id\030\002 \001(\t" +
+      "\022\034\n\024app_initial_activity\030\003 \001(\t\022\025\n\tmax_de" +
+      "pth\030\007 \001(\005B\002\030\001\022\025\n\tmax_steps\030\010 \001(\005B\002\030\001\022B\n\017" +
+      "robo_directives\030\013 \003(\0132).google.devtools." +
+      "testing.v1.RoboDirective\022>\n\013robo_script\030" +
+      "\r \001(\0132).google.devtools.testing.v1.FileR" +
+      "eference\022H\n\020starting_intents\030\017 \003(\0132..goo" +
+      "gle.devtools.testing.v1.RoboStartingInte" +
+      "ntB\020\n\016app_under_test\"{\n\rRoboDirective\022\025\n" +
+      "\rresource_name\030\001 \001(\t\022\022\n\ninput_text\030\002 \001(\t" +
+      "\022?\n\013action_type\030\003 \001(\0162*.google.devtools." +
+      "testing.v1.RoboActionType\"\357\001\n\022RoboStarti" +
+      "ngIntent\022O\n\021launcher_activity\030\001 \001(\01322.go" +
+      "ogle.devtools.testing.v1.LauncherActivit" +
+      "yIntentH\000\022I\n\016start_activity\030\002 \001(\0132/.goog" +
+      "le.devtools.testing.v1.StartActivityInte" +
+      "ntH\000\022*\n\007timeout\030\003 \001(\0132\031.google.protobuf." +
+      "DurationB\021\n\017starting_intent\"\030\n\026LauncherA" +
+      "ctivityIntent\"F\n\023StartActivityIntent\022\016\n\006" +
+      "action\030\002 \001(\t\022\013\n\003uri\030\003 \001(\t\022\022\n\ncategories\030" +
+      "\004 \003(\t\"\202\002\n\021EnvironmentMatrix\022C\n\016android_m" +
+      "atrix\030\001 \001(\0132).google.devtools.testing.v1" +
+      ".AndroidMatrixH\000\022L\n\023android_device_list\030" +
+      "\002 \001(\0132-.google.devtools.testing.v1.Andro" +
+      "idDeviceListH\000\022D\n\017ios_device_list\030\003 \001(\0132" +
+      ").google.devtools.testing.v1.IosDeviceLi" +
+      "stH\000B\024\n\022environment_matrix\"W\n\021AndroidDev" +
+      "iceList\022B\n\017android_devices\030\001 \003(\0132).googl" +
+      "e.devtools.testing.v1.AndroidDevice\"K\n\rI" +
+      "osDeviceList\022:\n\013ios_devices\030\001 \003(\0132%.goog" +
+      "le.devtools.testing.v1.IosDevice\"n\n\rAndr" +
+      "oidMatrix\022\031\n\021android_model_ids\030\001 \003(\t\022\033\n\023" +
+      "android_version_ids\030\002 \003(\t\022\017\n\007locales\030\003 \003" +
+      "(\t\022\024\n\014orientations\030\004 \003(\t\"e\n\nClientInfo\022\014" +
+      "\n\004name\030\001 \001(\t\022I\n\023client_info_details\030\002 \003(" +
+      "\0132,.google.devtools.testing.v1.ClientInf" +
+      "oDetail\".\n\020ClientInfoDetail\022\013\n\003key\030\001 \001(\t" +
+      "\022\r\n\005value\030\002 \001(\t\"\222\002\n\rResultStorage\022L\n\024goo" +
+      "gle_cloud_storage\030\001 \001(\0132..google.devtool" +
+      "s.testing.v1.GoogleCloudStorage\022L\n\024tool_" +
+      "results_history\030\005 \001(\0132..google.devtools." +
+      "testing.v1.ToolResultsHistory\022P\n\026tool_re" +
+      "sults_execution\030\006 \001(\01320.google.devtools." +
+      "testing.v1.ToolResultsExecution\022\023\n\013resul" +
+      "ts_url\030\007 \001(\t\"<\n\022ToolResultsHistory\022\022\n\npr" +
+      "oject_id\030\001 \001(\t\022\022\n\nhistory_id\030\002 \001(\t\"T\n\024To" +
+      "olResultsExecution\022\022\n\nproject_id\030\001 \001(\t\022\022" +
+      "\n\nhistory_id\030\002 \001(\t\022\024\n\014execution_id\030\003 \001(\t" +
+      "\"`\n\017ToolResultsStep\022\022\n\nproject_id\030\001 \001(\t\022" +
+      "\022\n\nhistory_id\030\002 \001(\t\022\024\n\014execution_id\030\003 \001(" +
+      "\t\022\017\n\007step_id\030\004 \001(\t\"&\n\022GoogleCloudStorage" +
+      "\022\020\n\010gcs_path\030\001 \001(\t\"+\n\rFileReference\022\022\n\010g" +
+      "cs_path\030\001 \001(\tH\000B\006\n\004file\"\236\001\n\013Environment\022" +
+      "C\n\016android_device\030\001 \001(\0132).google.devtool" +
+      "s.testing.v1.AndroidDeviceH\000\022;\n\nios_devi" +
+      "ce\030\002 \001(\0132%.google.devtools.testing.v1.Io" +
+      "sDeviceH\000B\r\n\013environment\"j\n\rAndroidDevic" +
+      "e\022\030\n\020android_model_id\030\001 \001(\t\022\032\n\022android_v" +
+      "ersion_id\030\002 \001(\t\022\016\n\006locale\030\003 \001(\t\022\023\n\013orien" +
+      "tation\030\004 \001(\t\"^\n\tIosDevice\022\024\n\014ios_model_i" +
+      "d\030\001 \001(\t\022\026\n\016ios_version_id\030\002 \001(\t\022\016\n\006local" +
+      "e\030\003 \001(\t\022\023\n\013orientation\030\004 \001(\t\"?\n\013TestDeta" +
+      "ils\022\031\n\021progress_messages\030\003 \003(\t\022\025\n\rerror_" +
+      "message\030\004 \001(\t\"\353\001\n\024InvalidRequestDetail\022G" +
+      "\n\006reason\030\001 \001(\01627.google.devtools.testing" +
+      ".v1.InvalidRequestDetail.Reason\"\211\001\n\006Reas" +
+      "on\022\026\n\022REASON_UNSPECIFIED\020\000\022\023\n\017REQUEST_IN" +
+      "VALID\020\001\022\024\n\020RESOURCE_TOO_BIG\020\002\022\026\n\022RESOURC" +
+      "E_NOT_FOUND\020\003\022\017\n\013UNSUPPORTED\020\004\022\023\n\017NOT_IM" +
+      "PLEMENTED\020\005\"\252\001\n\016ShardingOption\022G\n\020unifor" +
+      "m_sharding\030\001 \001(\0132+.google.devtools.testi" +
+      "ng.v1.UniformShardingH\000\022E\n\017manual_shardi" +
+      "ng\030\002 \001(\0132*.google.devtools.testing.v1.Ma" +
+      "nualShardingH\000B\010\n\006option\"%\n\017UniformShard" +
+      "ing\022\022\n\nnum_shards\030\001 \001(\005\"a\n\016ManualShardin" +
+      "g\022O\n\026test_targets_for_shard\030\001 \003(\0132/.goog" +
+      "le.devtools.testing.v1.TestTargetsForSha" +
+      "rd\"+\n\023TestTargetsForShard\022\024\n\014test_target" +
+      "s\030\001 \003(\t\"\201\001\n\005Shard\022\023\n\013shard_index\030\001 \001(\005\022\022" +
+      "\n\nnum_shards\030\002 \001(\005\022O\n\026test_targets_for_s" +
+      "hard\030\003 \001(\0132/.google.devtools.testing.v1." +
+      "TestTargetsForShard\"~\n\027CreateTestMatrixR" +
+      "equest\022\022\n\nproject_id\030\001 \001(\t\022;\n\013test_matri" +
+      "x\030\002 \001(\0132&.google.devtools.testing.v1.Tes" +
+      "tMatrix\022\022\n\nrequest_id\030\003 \001(\t\"B\n\024GetTestMa" +
+      "trixRequest\022\022\n\nproject_id\030\001 \001(\t\022\026\n\016test_" +
+      "matrix_id\030\002 \001(\t\"E\n\027CancelTestMatrixReque" +
+      "st\022\022\n\nproject_id\030\001 \001(\t\022\026\n\016test_matrix_id" +
+      "\030\002 \001(\t\"U\n\030CancelTestMatrixResponse\0229\n\nte" +
+      "st_state\030\001 \001(\0162%.google.devtools.testing" +
+      ".v1.TestState*l\n\022OrchestratorOption\022#\n\037O" +
+      "RCHESTRATOR_OPTION_UNSPECIFIED\020\000\022\024\n\020USE_" +
+      "ORCHESTRATOR\020\001\022\033\n\027DO_NOT_USE_ORCHESTRATO" +
+      "R\020\002*[\n\016RoboActionType\022\033\n\027ACTION_TYPE_UNS" +
+      "PECIFIED\020\000\022\020\n\014SINGLE_CLICK\020\001\022\016\n\nENTER_TE" +
+      "XT\020\002\022\n\n\006IGNORE\020\003*\274\007\n\024InvalidMatrixDetail" +
+      "s\022&\n\"INVALID_MATRIX_DETAILS_UNSPECIFIED\020" +
+      "\000\022\027\n\023DETAILS_UNAVAILABLE\020\001\022\021\n\rMALFORMED_" +
+      "APK\020\002\022\026\n\022MALFORMED_TEST_APK\020\003\022\017\n\013NO_MANI" +
+      "FEST\020\004\022\023\n\017NO_PACKAGE_NAME\020\005\022\030\n\024INVALID_P" +
+      "ACKAGE_NAME\020\037\022\024\n\020TEST_SAME_AS_APP\020\006\022\026\n\022N" +
+      "O_INSTRUMENTATION\020\007\022\020\n\014NO_SIGNATURE\020\024\022-\n" +
+      ")INSTRUMENTATION_ORCHESTRATOR_INCOMPATIB" +
+      "LE\020\022\022\030\n\024NO_TEST_RUNNER_CLASS\020\023\022\030\n\024NO_LAU" +
+      "NCHER_ACTIVITY\020\010\022\031\n\025FORBIDDEN_PERMISSION" +
+      "S\020\t\022\033\n\027INVALID_ROBO_DIRECTIVES\020\n\022\031\n\025INVA" +
+      "LID_RESOURCE_NAME\020!\022\034\n\030INVALID_DIRECTIVE" +
+      "_ACTION\020\"\022%\n!TEST_LOOP_INTENT_FILTER_NOT" +
+      "_FOUND\020\014\022\037\n\033SCENARIO_LABEL_NOT_DECLARED\020" +
+      "\r\022\034\n\030SCENARIO_LABEL_MALFORMED\020\016\022\031\n\025SCENA" +
+      "RIO_NOT_DECLARED\020\017\022\031\n\025DEVICE_ADMIN_RECEI" +
+      "VER\020\021\022\031\n\025MALFORMED_XC_TEST_ZIP\020\013\022\033\n\027BUIL" +
+      "T_FOR_IOS_SIMULATOR\020\030\022\033\n\027NO_TESTS_IN_XC_" +
+      "TEST_ZIP\020\031\022\035\n\031USE_DESTINATION_ARTIFACTS\020" +
+      "\032\022\027\n\023TEST_NOT_APP_HOSTED\020\034\022\032\n\026PLIST_CANN" +
+      "OT_BE_PARSED\020\036\022\025\n\rTEST_ONLY_APK\020\025\032\002\010\001\022\021\n" +
+      "\rMALFORMED_IPA\020\026\022\026\n\022MISSING_URL_SCHEME\020#" +
+      "\022\030\n\024MALFORMED_APP_BUNDLE\020$\022\017\n\013NO_CODE_AP" +
+      "K\020\027\022\025\n\021INVALID_INPUT_APK\020\033\022\033\n\027INVALID_AP" +
+      "K_PREVIEW_SDK\020\035*\340\001\n\tTestState\022\032\n\026TEST_ST" +
+      "ATE_UNSPECIFIED\020\000\022\016\n\nVALIDATING\020\010\022\013\n\007PEN" +
+      "DING\020\001\022\013\n\007RUNNING\020\002\022\014\n\010FINISHED\020\003\022\t\n\005ERR" +
+      "OR\020\004\022\033\n\027UNSUPPORTED_ENVIRONMENT\020\005\022\034\n\030INC" +
+      "OMPATIBLE_ENVIRONMENT\020\t\022\035\n\031INCOMPATIBLE_" +
+      "ARCHITECTURE\020\n\022\r\n\tCANCELLED\020\006\022\013\n\007INVALID" +
+      "\020\007*j\n\016OutcomeSummary\022\037\n\033OUTCOME_SUMMARY_" +
+      "UNSPECIFIED\020\000\022\013\n\007SUCCESS\020\001\022\013\n\007FAILURE\020\002\022" +
+      "\020\n\014INCONCLUSIVE\020\003\022\013\n\007SKIPPED\020\0042\300\005\n\024TestE" +
+      "xecutionService\022\254\001\n\020CreateTestMatrix\0223.g" +
+      "oogle.devtools.testing.v1.CreateTestMatr" +
+      "ixRequest\032&.google.devtools.testing.v1.T" +
+      "estMatrix\";\202\323\344\223\0025\"&/v1/projects/{project" +
+      "_id}/testMatrices:\013test_matrix\022\252\001\n\rGetTe" +
+      "stMatrix\0220.google.devtools.testing.v1.Ge" +
+      "tTestMatrixRequest\032&.google.devtools.tes" +
+      "ting.v1.TestMatrix\"?\202\323\344\223\0029\0227/v1/projects" +
+      "/{project_id}/testMatrices/{test_matrix_" +
+      "id}\022\305\001\n\020CancelTestMatrix\0223.google.devtoo" +
+      "ls.testing.v1.CancelTestMatrixRequest\0324." +
+      "google.devtools.testing.v1.CancelTestMat" +
+      "rixResponse\"F\202\323\344\223\002@\">/v1/projects/{proje" +
+      "ct_id}/testMatrices/{test_matrix_id}:can" +
+      "cel\032\203\001\312A\026testing.googleapis.com\322Aghttps:" +
       "//www.googleapis.com/auth/cloud-platform" +
-      ".read-onlyBy\n\036com.google.devtools.testin" +
-      "g.v1B\022TestExecutionProtoP\001ZAgoogle.golan" +
-      "g.org/genproto/googleapis/devtools/testi" +
-      "ng/v1;testingb\006proto3"
+      ",https://www.googleapis.com/auth/cloud-p" +
+      "latform.read-onlyBy\n\036com.google.devtools" +
+      ".testing.v1B\022TestExecutionProtoP\001ZAgoogl" +
+      "e.golang.org/genproto/googleapis/devtool" +
+      "s/testing/v1;testingb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
-          com.google.api.FieldBehaviorProto.getDescriptor(),
           com.google.protobuf.DurationProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
           com.google.api.ClientProto.getDescriptor(),
@@ -859,7 +857,6 @@ public final class TestExecutionProto {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.api.AnnotationsProto.getDescriptor();
-    com.google.api.FieldBehaviorProto.getDescriptor();
     com.google.protobuf.DurationProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
     com.google.api.ClientProto.getDescriptor();

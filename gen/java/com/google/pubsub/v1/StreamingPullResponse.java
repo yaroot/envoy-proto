@@ -36,97 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StreamingPullResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              receivedMessages_ = new java.util.ArrayList<com.google.pubsub.v1.ReceivedMessage>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            receivedMessages_.add(
-                input.readMessage(com.google.pubsub.v1.ReceivedMessage.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            com.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation.Builder subBuilder = null;
-            if (modifyAckDeadlineConfirmation_ != null) {
-              subBuilder = modifyAckDeadlineConfirmation_.toBuilder();
-            }
-            modifyAckDeadlineConfirmation_ = input.readMessage(com.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(modifyAckDeadlineConfirmation_);
-              modifyAckDeadlineConfirmation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.pubsub.v1.StreamingPullResponse.SubscriptionProperties.Builder subBuilder = null;
-            if (subscriptionProperties_ != null) {
-              subBuilder = subscriptionProperties_.toBuilder();
-            }
-            subscriptionProperties_ = input.readMessage(com.google.pubsub.v1.StreamingPullResponse.SubscriptionProperties.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(subscriptionProperties_);
-              subscriptionProperties_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation.Builder subBuilder = null;
-            if (acknowledgeConfirmation_ != null) {
-              subBuilder = acknowledgeConfirmation_.toBuilder();
-            }
-            acknowledgeConfirmation_ = input.readMessage(com.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(acknowledgeConfirmation_);
-              acknowledgeConfirmation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        receivedMessages_ = java.util.Collections.unmodifiableList(receivedMessages_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.pubsub.v1.PubsubProto.internal_static_google_pubsub_v1_StreamingPullResponse_descriptor;
@@ -149,7 +58,7 @@ private static final long serialVersionUID = 0L;
      * Successfully processed acknowledgement IDs.
      * </pre>
      *
-     * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+     * <code>repeated string ack_ids = 1;</code>
      * @return A list containing the ackIds.
      */
     java.util.List<java.lang.String>
@@ -159,7 +68,7 @@ private static final long serialVersionUID = 0L;
      * Successfully processed acknowledgement IDs.
      * </pre>
      *
-     * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+     * <code>repeated string ack_ids = 1;</code>
      * @return The count of ackIds.
      */
     int getAckIdsCount();
@@ -168,7 +77,7 @@ private static final long serialVersionUID = 0L;
      * Successfully processed acknowledgement IDs.
      * </pre>
      *
-     * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+     * <code>repeated string ack_ids = 1;</code>
      * @param index The index of the element to return.
      * @return The ackIds at the given index.
      */
@@ -178,7 +87,7 @@ private static final long serialVersionUID = 0L;
      * Successfully processed acknowledgement IDs.
      * </pre>
      *
-     * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+     * <code>repeated string ack_ids = 1;</code>
      * @param index The index of the value to return.
      * @return The bytes of the ackIds at the given index.
      */
@@ -191,7 +100,7 @@ private static final long serialVersionUID = 0L;
      * deadline has expired.
      * </pre>
      *
-     * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+     * <code>repeated string invalid_ack_ids = 2;</code>
      * @return A list containing the invalidAckIds.
      */
     java.util.List<java.lang.String>
@@ -202,7 +111,7 @@ private static final long serialVersionUID = 0L;
      * deadline has expired.
      * </pre>
      *
-     * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+     * <code>repeated string invalid_ack_ids = 2;</code>
      * @return The count of invalidAckIds.
      */
     int getInvalidAckIdsCount();
@@ -212,7 +121,7 @@ private static final long serialVersionUID = 0L;
      * deadline has expired.
      * </pre>
      *
-     * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+     * <code>repeated string invalid_ack_ids = 2;</code>
      * @param index The index of the element to return.
      * @return The invalidAckIds at the given index.
      */
@@ -223,7 +132,7 @@ private static final long serialVersionUID = 0L;
      * deadline has expired.
      * </pre>
      *
-     * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+     * <code>repeated string invalid_ack_ids = 2;</code>
      * @param index The index of the value to return.
      * @return The bytes of the invalidAckIds at the given index.
      */
@@ -235,7 +144,7 @@ private static final long serialVersionUID = 0L;
      * List of acknowledgement IDs that were out of order.
      * </pre>
      *
-     * <code>repeated string unordered_ack_ids = 3 [ctype = CORD];</code>
+     * <code>repeated string unordered_ack_ids = 3;</code>
      * @return A list containing the unorderedAckIds.
      */
     java.util.List<java.lang.String>
@@ -245,7 +154,7 @@ private static final long serialVersionUID = 0L;
      * List of acknowledgement IDs that were out of order.
      * </pre>
      *
-     * <code>repeated string unordered_ack_ids = 3 [ctype = CORD];</code>
+     * <code>repeated string unordered_ack_ids = 3;</code>
      * @return The count of unorderedAckIds.
      */
     int getUnorderedAckIdsCount();
@@ -254,7 +163,7 @@ private static final long serialVersionUID = 0L;
      * List of acknowledgement IDs that were out of order.
      * </pre>
      *
-     * <code>repeated string unordered_ack_ids = 3 [ctype = CORD];</code>
+     * <code>repeated string unordered_ack_ids = 3;</code>
      * @param index The index of the element to return.
      * @return The unorderedAckIds at the given index.
      */
@@ -264,7 +173,7 @@ private static final long serialVersionUID = 0L;
      * List of acknowledgement IDs that were out of order.
      * </pre>
      *
-     * <code>repeated string unordered_ack_ids = 3 [ctype = CORD];</code>
+     * <code>repeated string unordered_ack_ids = 3;</code>
      * @param index The index of the value to return.
      * @return The bytes of the unorderedAckIds at the given index.
      */
@@ -306,82 +215,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AcknowledgeConfirmation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                ackIds_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              ackIds_.add(s);
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                invalidAckIds_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              invalidAckIds_.add(s);
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                unorderedAckIds_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              unorderedAckIds_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          ackIds_ = ackIds_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          invalidAckIds_ = invalidAckIds_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          unorderedAckIds_ = unorderedAckIds_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.pubsub.v1.PubsubProto.internal_static_google_pubsub_v1_StreamingPullResponse_AcknowledgeConfirmation_descriptor;
@@ -396,13 +229,14 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ACK_IDS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList ackIds_;
     /**
      * <pre>
      * Successfully processed acknowledgement IDs.
      * </pre>
      *
-     * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+     * <code>repeated string ack_ids = 1;</code>
      * @return A list containing the ackIds.
      */
     public com.google.protobuf.ProtocolStringList
@@ -414,7 +248,7 @@ private static final long serialVersionUID = 0L;
      * Successfully processed acknowledgement IDs.
      * </pre>
      *
-     * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+     * <code>repeated string ack_ids = 1;</code>
      * @return The count of ackIds.
      */
     public int getAckIdsCount() {
@@ -425,7 +259,7 @@ private static final long serialVersionUID = 0L;
      * Successfully processed acknowledgement IDs.
      * </pre>
      *
-     * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+     * <code>repeated string ack_ids = 1;</code>
      * @param index The index of the element to return.
      * @return The ackIds at the given index.
      */
@@ -437,7 +271,7 @@ private static final long serialVersionUID = 0L;
      * Successfully processed acknowledgement IDs.
      * </pre>
      *
-     * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+     * <code>repeated string ack_ids = 1;</code>
      * @param index The index of the value to return.
      * @return The bytes of the ackIds at the given index.
      */
@@ -447,6 +281,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int INVALID_ACK_IDS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList invalidAckIds_;
     /**
      * <pre>
@@ -454,7 +289,7 @@ private static final long serialVersionUID = 0L;
      * deadline has expired.
      * </pre>
      *
-     * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+     * <code>repeated string invalid_ack_ids = 2;</code>
      * @return A list containing the invalidAckIds.
      */
     public com.google.protobuf.ProtocolStringList
@@ -467,7 +302,7 @@ private static final long serialVersionUID = 0L;
      * deadline has expired.
      * </pre>
      *
-     * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+     * <code>repeated string invalid_ack_ids = 2;</code>
      * @return The count of invalidAckIds.
      */
     public int getInvalidAckIdsCount() {
@@ -479,7 +314,7 @@ private static final long serialVersionUID = 0L;
      * deadline has expired.
      * </pre>
      *
-     * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+     * <code>repeated string invalid_ack_ids = 2;</code>
      * @param index The index of the element to return.
      * @return The invalidAckIds at the given index.
      */
@@ -492,7 +327,7 @@ private static final long serialVersionUID = 0L;
      * deadline has expired.
      * </pre>
      *
-     * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+     * <code>repeated string invalid_ack_ids = 2;</code>
      * @param index The index of the value to return.
      * @return The bytes of the invalidAckIds at the given index.
      */
@@ -502,13 +337,14 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int UNORDERED_ACK_IDS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList unorderedAckIds_;
     /**
      * <pre>
      * List of acknowledgement IDs that were out of order.
      * </pre>
      *
-     * <code>repeated string unordered_ack_ids = 3 [ctype = CORD];</code>
+     * <code>repeated string unordered_ack_ids = 3;</code>
      * @return A list containing the unorderedAckIds.
      */
     public com.google.protobuf.ProtocolStringList
@@ -520,7 +356,7 @@ private static final long serialVersionUID = 0L;
      * List of acknowledgement IDs that were out of order.
      * </pre>
      *
-     * <code>repeated string unordered_ack_ids = 3 [ctype = CORD];</code>
+     * <code>repeated string unordered_ack_ids = 3;</code>
      * @return The count of unorderedAckIds.
      */
     public int getUnorderedAckIdsCount() {
@@ -531,7 +367,7 @@ private static final long serialVersionUID = 0L;
      * List of acknowledgement IDs that were out of order.
      * </pre>
      *
-     * <code>repeated string unordered_ack_ids = 3 [ctype = CORD];</code>
+     * <code>repeated string unordered_ack_ids = 3;</code>
      * @param index The index of the element to return.
      * @return The unorderedAckIds at the given index.
      */
@@ -543,7 +379,7 @@ private static final long serialVersionUID = 0L;
      * List of acknowledgement IDs that were out of order.
      * </pre>
      *
-     * <code>repeated string unordered_ack_ids = 3 [ctype = CORD];</code>
+     * <code>repeated string unordered_ack_ids = 3;</code>
      * @param index The index of the value to return.
      * @return The bytes of the unorderedAckIds at the given index.
      */
@@ -575,7 +411,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < unorderedAckIds_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, unorderedAckIds_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -608,7 +444,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getUnorderedAckIdsList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -629,7 +465,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getInvalidAckIdsList())) return false;
       if (!getUnorderedAckIdsList()
           .equals(other.getUnorderedAckIdsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -652,7 +488,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + UNORDERED_ACK_IDS_FIELD_NUMBER;
         hash = (53 * hash) + getUnorderedAckIdsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -774,22 +610,18 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         ackIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         invalidAckIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -822,7 +654,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation buildPartial() {
         com.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation result = new com.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           ackIds_ = ackIds_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -838,8 +676,10 @@ private static final long serialVersionUID = 0L;
           bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.unorderedAckIds_ = unorderedAckIds_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -916,7 +756,7 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -931,17 +771,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureAckIdsIsMutable();
+                ackIds_.add(s);
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureInvalidAckIdsIsMutable();
+                invalidAckIds_.add(s);
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureUnorderedAckIdsIsMutable();
+                unorderedAckIds_.add(s);
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -958,7 +829,7 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @return A list containing the ackIds.
        */
       public com.google.protobuf.ProtocolStringList
@@ -970,7 +841,7 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @return The count of ackIds.
        */
       public int getAckIdsCount() {
@@ -981,7 +852,7 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @param index The index of the element to return.
        * @return The ackIds at the given index.
        */
@@ -993,7 +864,7 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @param index The index of the value to return.
        * @return The bytes of the ackIds at the given index.
        */
@@ -1006,17 +877,15 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @param index The index to set the value at.
        * @param value The ackIds to set.
        * @return This builder for chaining.
        */
       public Builder setAckIds(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAckIdsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAckIdsIsMutable();
         ackIds_.set(index, value);
         onChanged();
         return this;
@@ -1026,16 +895,14 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @param value The ackIds to add.
        * @return This builder for chaining.
        */
       public Builder addAckIds(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAckIdsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAckIdsIsMutable();
         ackIds_.add(value);
         onChanged();
         return this;
@@ -1045,7 +912,7 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @param values The ackIds to add.
        * @return This builder for chaining.
        */
@@ -1062,7 +929,7 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearAckIds() {
@@ -1076,16 +943,14 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @param value The bytes of the ackIds to add.
        * @return This builder for chaining.
        */
       public Builder addAckIdsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureAckIdsIsMutable();
         ackIds_.add(value);
         onChanged();
@@ -1105,7 +970,7 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @return A list containing the invalidAckIds.
        */
       public com.google.protobuf.ProtocolStringList
@@ -1118,7 +983,7 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @return The count of invalidAckIds.
        */
       public int getInvalidAckIdsCount() {
@@ -1130,7 +995,7 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @param index The index of the element to return.
        * @return The invalidAckIds at the given index.
        */
@@ -1143,7 +1008,7 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @param index The index of the value to return.
        * @return The bytes of the invalidAckIds at the given index.
        */
@@ -1157,17 +1022,15 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @param index The index to set the value at.
        * @param value The invalidAckIds to set.
        * @return This builder for chaining.
        */
       public Builder setInvalidAckIds(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInvalidAckIdsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureInvalidAckIdsIsMutable();
         invalidAckIds_.set(index, value);
         onChanged();
         return this;
@@ -1178,16 +1041,14 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @param value The invalidAckIds to add.
        * @return This builder for chaining.
        */
       public Builder addInvalidAckIds(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInvalidAckIdsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureInvalidAckIdsIsMutable();
         invalidAckIds_.add(value);
         onChanged();
         return this;
@@ -1198,7 +1059,7 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @param values The invalidAckIds to add.
        * @return This builder for chaining.
        */
@@ -1216,7 +1077,7 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearInvalidAckIds() {
@@ -1231,16 +1092,14 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @param value The bytes of the invalidAckIds to add.
        * @return This builder for chaining.
        */
       public Builder addInvalidAckIdsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureInvalidAckIdsIsMutable();
         invalidAckIds_.add(value);
         onChanged();
@@ -1259,7 +1118,7 @@ private static final long serialVersionUID = 0L;
        * List of acknowledgement IDs that were out of order.
        * </pre>
        *
-       * <code>repeated string unordered_ack_ids = 3 [ctype = CORD];</code>
+       * <code>repeated string unordered_ack_ids = 3;</code>
        * @return A list containing the unorderedAckIds.
        */
       public com.google.protobuf.ProtocolStringList
@@ -1271,7 +1130,7 @@ private static final long serialVersionUID = 0L;
        * List of acknowledgement IDs that were out of order.
        * </pre>
        *
-       * <code>repeated string unordered_ack_ids = 3 [ctype = CORD];</code>
+       * <code>repeated string unordered_ack_ids = 3;</code>
        * @return The count of unorderedAckIds.
        */
       public int getUnorderedAckIdsCount() {
@@ -1282,7 +1141,7 @@ private static final long serialVersionUID = 0L;
        * List of acknowledgement IDs that were out of order.
        * </pre>
        *
-       * <code>repeated string unordered_ack_ids = 3 [ctype = CORD];</code>
+       * <code>repeated string unordered_ack_ids = 3;</code>
        * @param index The index of the element to return.
        * @return The unorderedAckIds at the given index.
        */
@@ -1294,7 +1153,7 @@ private static final long serialVersionUID = 0L;
        * List of acknowledgement IDs that were out of order.
        * </pre>
        *
-       * <code>repeated string unordered_ack_ids = 3 [ctype = CORD];</code>
+       * <code>repeated string unordered_ack_ids = 3;</code>
        * @param index The index of the value to return.
        * @return The bytes of the unorderedAckIds at the given index.
        */
@@ -1307,17 +1166,15 @@ private static final long serialVersionUID = 0L;
        * List of acknowledgement IDs that were out of order.
        * </pre>
        *
-       * <code>repeated string unordered_ack_ids = 3 [ctype = CORD];</code>
+       * <code>repeated string unordered_ack_ids = 3;</code>
        * @param index The index to set the value at.
        * @param value The unorderedAckIds to set.
        * @return This builder for chaining.
        */
       public Builder setUnorderedAckIds(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUnorderedAckIdsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureUnorderedAckIdsIsMutable();
         unorderedAckIds_.set(index, value);
         onChanged();
         return this;
@@ -1327,16 +1184,14 @@ private static final long serialVersionUID = 0L;
        * List of acknowledgement IDs that were out of order.
        * </pre>
        *
-       * <code>repeated string unordered_ack_ids = 3 [ctype = CORD];</code>
+       * <code>repeated string unordered_ack_ids = 3;</code>
        * @param value The unorderedAckIds to add.
        * @return This builder for chaining.
        */
       public Builder addUnorderedAckIds(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUnorderedAckIdsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureUnorderedAckIdsIsMutable();
         unorderedAckIds_.add(value);
         onChanged();
         return this;
@@ -1346,7 +1201,7 @@ private static final long serialVersionUID = 0L;
        * List of acknowledgement IDs that were out of order.
        * </pre>
        *
-       * <code>repeated string unordered_ack_ids = 3 [ctype = CORD];</code>
+       * <code>repeated string unordered_ack_ids = 3;</code>
        * @param values The unorderedAckIds to add.
        * @return This builder for chaining.
        */
@@ -1363,7 +1218,7 @@ private static final long serialVersionUID = 0L;
        * List of acknowledgement IDs that were out of order.
        * </pre>
        *
-       * <code>repeated string unordered_ack_ids = 3 [ctype = CORD];</code>
+       * <code>repeated string unordered_ack_ids = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearUnorderedAckIds() {
@@ -1377,16 +1232,14 @@ private static final long serialVersionUID = 0L;
        * List of acknowledgement IDs that were out of order.
        * </pre>
        *
-       * <code>repeated string unordered_ack_ids = 3 [ctype = CORD];</code>
+       * <code>repeated string unordered_ack_ids = 3;</code>
        * @param value The bytes of the unorderedAckIds to add.
        * @return This builder for chaining.
        */
       public Builder addUnorderedAckIdsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureUnorderedAckIdsIsMutable();
         unorderedAckIds_.add(value);
         onChanged();
@@ -1425,7 +1278,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AcknowledgeConfirmation(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1454,7 +1318,7 @@ private static final long serialVersionUID = 0L;
      * Successfully processed acknowledgement IDs.
      * </pre>
      *
-     * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+     * <code>repeated string ack_ids = 1;</code>
      * @return A list containing the ackIds.
      */
     java.util.List<java.lang.String>
@@ -1464,7 +1328,7 @@ private static final long serialVersionUID = 0L;
      * Successfully processed acknowledgement IDs.
      * </pre>
      *
-     * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+     * <code>repeated string ack_ids = 1;</code>
      * @return The count of ackIds.
      */
     int getAckIdsCount();
@@ -1473,7 +1337,7 @@ private static final long serialVersionUID = 0L;
      * Successfully processed acknowledgement IDs.
      * </pre>
      *
-     * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+     * <code>repeated string ack_ids = 1;</code>
      * @param index The index of the element to return.
      * @return The ackIds at the given index.
      */
@@ -1483,7 +1347,7 @@ private static final long serialVersionUID = 0L;
      * Successfully processed acknowledgement IDs.
      * </pre>
      *
-     * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+     * <code>repeated string ack_ids = 1;</code>
      * @param index The index of the value to return.
      * @return The bytes of the ackIds at the given index.
      */
@@ -1496,7 +1360,7 @@ private static final long serialVersionUID = 0L;
      * deadline has expired.
      * </pre>
      *
-     * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+     * <code>repeated string invalid_ack_ids = 2;</code>
      * @return A list containing the invalidAckIds.
      */
     java.util.List<java.lang.String>
@@ -1507,7 +1371,7 @@ private static final long serialVersionUID = 0L;
      * deadline has expired.
      * </pre>
      *
-     * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+     * <code>repeated string invalid_ack_ids = 2;</code>
      * @return The count of invalidAckIds.
      */
     int getInvalidAckIdsCount();
@@ -1517,7 +1381,7 @@ private static final long serialVersionUID = 0L;
      * deadline has expired.
      * </pre>
      *
-     * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+     * <code>repeated string invalid_ack_ids = 2;</code>
      * @param index The index of the element to return.
      * @return The invalidAckIds at the given index.
      */
@@ -1528,7 +1392,7 @@ private static final long serialVersionUID = 0L;
      * deadline has expired.
      * </pre>
      *
-     * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+     * <code>repeated string invalid_ack_ids = 2;</code>
      * @param index The index of the value to return.
      * @return The bytes of the invalidAckIds at the given index.
      */
@@ -1569,70 +1433,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ModifyAckDeadlineConfirmation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                ackIds_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              ackIds_.add(s);
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                invalidAckIds_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              invalidAckIds_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          ackIds_ = ackIds_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          invalidAckIds_ = invalidAckIds_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.pubsub.v1.PubsubProto.internal_static_google_pubsub_v1_StreamingPullResponse_ModifyAckDeadlineConfirmation_descriptor;
@@ -1647,13 +1447,14 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ACK_IDS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList ackIds_;
     /**
      * <pre>
      * Successfully processed acknowledgement IDs.
      * </pre>
      *
-     * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+     * <code>repeated string ack_ids = 1;</code>
      * @return A list containing the ackIds.
      */
     public com.google.protobuf.ProtocolStringList
@@ -1665,7 +1466,7 @@ private static final long serialVersionUID = 0L;
      * Successfully processed acknowledgement IDs.
      * </pre>
      *
-     * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+     * <code>repeated string ack_ids = 1;</code>
      * @return The count of ackIds.
      */
     public int getAckIdsCount() {
@@ -1676,7 +1477,7 @@ private static final long serialVersionUID = 0L;
      * Successfully processed acknowledgement IDs.
      * </pre>
      *
-     * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+     * <code>repeated string ack_ids = 1;</code>
      * @param index The index of the element to return.
      * @return The ackIds at the given index.
      */
@@ -1688,7 +1489,7 @@ private static final long serialVersionUID = 0L;
      * Successfully processed acknowledgement IDs.
      * </pre>
      *
-     * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+     * <code>repeated string ack_ids = 1;</code>
      * @param index The index of the value to return.
      * @return The bytes of the ackIds at the given index.
      */
@@ -1698,6 +1499,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int INVALID_ACK_IDS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList invalidAckIds_;
     /**
      * <pre>
@@ -1705,7 +1507,7 @@ private static final long serialVersionUID = 0L;
      * deadline has expired.
      * </pre>
      *
-     * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+     * <code>repeated string invalid_ack_ids = 2;</code>
      * @return A list containing the invalidAckIds.
      */
     public com.google.protobuf.ProtocolStringList
@@ -1718,7 +1520,7 @@ private static final long serialVersionUID = 0L;
      * deadline has expired.
      * </pre>
      *
-     * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+     * <code>repeated string invalid_ack_ids = 2;</code>
      * @return The count of invalidAckIds.
      */
     public int getInvalidAckIdsCount() {
@@ -1730,7 +1532,7 @@ private static final long serialVersionUID = 0L;
      * deadline has expired.
      * </pre>
      *
-     * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+     * <code>repeated string invalid_ack_ids = 2;</code>
      * @param index The index of the element to return.
      * @return The invalidAckIds at the given index.
      */
@@ -1743,7 +1545,7 @@ private static final long serialVersionUID = 0L;
      * deadline has expired.
      * </pre>
      *
-     * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+     * <code>repeated string invalid_ack_ids = 2;</code>
      * @param index The index of the value to return.
      * @return The bytes of the invalidAckIds at the given index.
      */
@@ -1772,7 +1574,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < invalidAckIds_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, invalidAckIds_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1797,7 +1599,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getInvalidAckIdsList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1816,7 +1618,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getAckIdsList())) return false;
       if (!getInvalidAckIdsList()
           .equals(other.getInvalidAckIdsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1835,7 +1637,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + INVALID_ACK_IDS_FIELD_NUMBER;
         hash = (53 * hash) + getInvalidAckIdsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1957,22 +1759,18 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         ackIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         invalidAckIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -2003,7 +1801,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation buildPartial() {
         com.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation result = new com.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           ackIds_ = ackIds_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -2014,8 +1818,10 @@ private static final long serialVersionUID = 0L;
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.invalidAckIds_ = invalidAckIds_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -2082,7 +1888,7 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2097,17 +1903,42 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureAckIdsIsMutable();
+                ackIds_.add(s);
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureInvalidAckIdsIsMutable();
+                invalidAckIds_.add(s);
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2124,7 +1955,7 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @return A list containing the ackIds.
        */
       public com.google.protobuf.ProtocolStringList
@@ -2136,7 +1967,7 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @return The count of ackIds.
        */
       public int getAckIdsCount() {
@@ -2147,7 +1978,7 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @param index The index of the element to return.
        * @return The ackIds at the given index.
        */
@@ -2159,7 +1990,7 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @param index The index of the value to return.
        * @return The bytes of the ackIds at the given index.
        */
@@ -2172,17 +2003,15 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @param index The index to set the value at.
        * @param value The ackIds to set.
        * @return This builder for chaining.
        */
       public Builder setAckIds(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAckIdsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAckIdsIsMutable();
         ackIds_.set(index, value);
         onChanged();
         return this;
@@ -2192,16 +2021,14 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @param value The ackIds to add.
        * @return This builder for chaining.
        */
       public Builder addAckIds(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAckIdsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAckIdsIsMutable();
         ackIds_.add(value);
         onChanged();
         return this;
@@ -2211,7 +2038,7 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @param values The ackIds to add.
        * @return This builder for chaining.
        */
@@ -2228,7 +2055,7 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearAckIds() {
@@ -2242,16 +2069,14 @@ private static final long serialVersionUID = 0L;
        * Successfully processed acknowledgement IDs.
        * </pre>
        *
-       * <code>repeated string ack_ids = 1 [ctype = CORD];</code>
+       * <code>repeated string ack_ids = 1;</code>
        * @param value The bytes of the ackIds to add.
        * @return This builder for chaining.
        */
       public Builder addAckIdsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureAckIdsIsMutable();
         ackIds_.add(value);
         onChanged();
@@ -2271,7 +2096,7 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @return A list containing the invalidAckIds.
        */
       public com.google.protobuf.ProtocolStringList
@@ -2284,7 +2109,7 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @return The count of invalidAckIds.
        */
       public int getInvalidAckIdsCount() {
@@ -2296,7 +2121,7 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @param index The index of the element to return.
        * @return The invalidAckIds at the given index.
        */
@@ -2309,7 +2134,7 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @param index The index of the value to return.
        * @return The bytes of the invalidAckIds at the given index.
        */
@@ -2323,17 +2148,15 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @param index The index to set the value at.
        * @param value The invalidAckIds to set.
        * @return This builder for chaining.
        */
       public Builder setInvalidAckIds(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInvalidAckIdsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureInvalidAckIdsIsMutable();
         invalidAckIds_.set(index, value);
         onChanged();
         return this;
@@ -2344,16 +2167,14 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @param value The invalidAckIds to add.
        * @return This builder for chaining.
        */
       public Builder addInvalidAckIds(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInvalidAckIdsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureInvalidAckIdsIsMutable();
         invalidAckIds_.add(value);
         onChanged();
         return this;
@@ -2364,7 +2185,7 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @param values The invalidAckIds to add.
        * @return This builder for chaining.
        */
@@ -2382,7 +2203,7 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearInvalidAckIds() {
@@ -2397,16 +2218,14 @@ private static final long serialVersionUID = 0L;
        * deadline has expired.
        * </pre>
        *
-       * <code>repeated string invalid_ack_ids = 2 [ctype = CORD];</code>
+       * <code>repeated string invalid_ack_ids = 2;</code>
        * @param value The bytes of the invalidAckIds to add.
        * @return This builder for chaining.
        */
       public Builder addInvalidAckIdsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureInvalidAckIdsIsMutable();
         invalidAckIds_.add(value);
         onChanged();
@@ -2445,7 +2264,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ModifyAckDeadlineConfirmation(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2520,55 +2350,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SubscriptionProperties(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              exactlyOnceDeliveryEnabled_ = input.readBool();
-              break;
-            }
-            case 16: {
-
-              messageOrderingEnabled_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.pubsub.v1.PubsubProto.internal_static_google_pubsub_v1_StreamingPullResponse_SubscriptionProperties_descriptor;
@@ -2583,7 +2364,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int EXACTLY_ONCE_DELIVERY_ENABLED_FIELD_NUMBER = 1;
-    private boolean exactlyOnceDeliveryEnabled_;
+    private boolean exactlyOnceDeliveryEnabled_ = false;
     /**
      * <pre>
      * True iff exactly once delivery is enabled for this subscription.
@@ -2598,7 +2379,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MESSAGE_ORDERING_ENABLED_FIELD_NUMBER = 2;
-    private boolean messageOrderingEnabled_;
+    private boolean messageOrderingEnabled_ = false;
     /**
      * <pre>
      * True iff message ordering is enabled for this subscription.
@@ -2632,7 +2413,7 @@ private static final long serialVersionUID = 0L;
       if (messageOrderingEnabled_ != false) {
         output.writeBool(2, messageOrderingEnabled_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2649,7 +2430,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, messageOrderingEnabled_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2668,7 +2449,7 @@ private static final long serialVersionUID = 0L;
           != other.getExactlyOnceDeliveryEnabled()) return false;
       if (getMessageOrderingEnabled()
           != other.getMessageOrderingEnabled()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2685,7 +2466,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MESSAGE_ORDERING_ENABLED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getMessageOrderingEnabled());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2806,26 +2587,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.pubsub.v1.StreamingPullResponse.SubscriptionProperties.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         exactlyOnceDeliveryEnabled_ = false;
-
         messageOrderingEnabled_ = false;
-
         return this;
       }
 
@@ -2852,10 +2627,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.pubsub.v1.StreamingPullResponse.SubscriptionProperties buildPartial() {
         com.google.pubsub.v1.StreamingPullResponse.SubscriptionProperties result = new com.google.pubsub.v1.StreamingPullResponse.SubscriptionProperties(this);
-        result.exactlyOnceDeliveryEnabled_ = exactlyOnceDeliveryEnabled_;
-        result.messageOrderingEnabled_ = messageOrderingEnabled_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.pubsub.v1.StreamingPullResponse.SubscriptionProperties result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.exactlyOnceDeliveryEnabled_ = exactlyOnceDeliveryEnabled_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.messageOrderingEnabled_ = messageOrderingEnabled_;
+        }
       }
 
       @java.lang.Override
@@ -2908,7 +2692,7 @@ private static final long serialVersionUID = 0L;
         if (other.getMessageOrderingEnabled() != false) {
           setMessageOrderingEnabled(other.getMessageOrderingEnabled());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2923,19 +2707,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.pubsub.v1.StreamingPullResponse.SubscriptionProperties parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                exactlyOnceDeliveryEnabled_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                messageOrderingEnabled_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.pubsub.v1.StreamingPullResponse.SubscriptionProperties) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private boolean exactlyOnceDeliveryEnabled_ ;
       /**
@@ -2962,6 +2770,7 @@ private static final long serialVersionUID = 0L;
       public Builder setExactlyOnceDeliveryEnabled(boolean value) {
         
         exactlyOnceDeliveryEnabled_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2974,7 +2783,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearExactlyOnceDeliveryEnabled() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         exactlyOnceDeliveryEnabled_ = false;
         onChanged();
         return this;
@@ -3005,6 +2814,7 @@ private static final long serialVersionUID = 0L;
       public Builder setMessageOrderingEnabled(boolean value) {
         
         messageOrderingEnabled_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3017,7 +2827,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMessageOrderingEnabled() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         messageOrderingEnabled_ = false;
         onChanged();
         return this;
@@ -3055,7 +2865,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SubscriptionProperties(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3076,6 +2897,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RECEIVED_MESSAGES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.pubsub.v1.ReceivedMessage> receivedMessages_;
   /**
    * <pre>
@@ -3173,7 +2995,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmationOrBuilder getAcknowledgeConfirmationOrBuilder() {
-    return getAcknowledgeConfirmation();
+    return acknowledgeConfirmation_ == null ? com.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation.getDefaultInstance() : acknowledgeConfirmation_;
   }
 
   public static final int MODIFY_ACK_DEADLINE_CONFIRMATION_FIELD_NUMBER = 3;
@@ -3214,7 +3036,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmationOrBuilder getModifyAckDeadlineConfirmationOrBuilder() {
-    return getModifyAckDeadlineConfirmation();
+    return modifyAckDeadlineConfirmation_ == null ? com.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation.getDefaultInstance() : modifyAckDeadlineConfirmation_;
   }
 
   public static final int SUBSCRIPTION_PROPERTIES_FIELD_NUMBER = 4;
@@ -3252,7 +3074,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.pubsub.v1.StreamingPullResponse.SubscriptionPropertiesOrBuilder getSubscriptionPropertiesOrBuilder() {
-    return getSubscriptionProperties();
+    return subscriptionProperties_ == null ? com.google.pubsub.v1.StreamingPullResponse.SubscriptionProperties.getDefaultInstance() : subscriptionProperties_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -3281,7 +3103,7 @@ private static final long serialVersionUID = 0L;
     if (acknowledgeConfirmation_ != null) {
       output.writeMessage(5, getAcknowledgeConfirmation());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3306,7 +3128,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getAcknowledgeConfirmation());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3338,7 +3160,7 @@ private static final long serialVersionUID = 0L;
       if (!getSubscriptionProperties()
           .equals(other.getSubscriptionProperties())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3365,7 +3187,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SUBSCRIPTION_PROPERTIES_FIELD_NUMBER;
       hash = (53 * hash) + getSubscriptionProperties().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3487,45 +3309,38 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.pubsub.v1.StreamingPullResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getReceivedMessagesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (receivedMessagesBuilder_ == null) {
         receivedMessages_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        receivedMessages_ = null;
         receivedMessagesBuilder_.clear();
       }
-      if (acknowledgeConfirmationBuilder_ == null) {
-        acknowledgeConfirmation_ = null;
-      } else {
-        acknowledgeConfirmation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      acknowledgeConfirmation_ = null;
+      if (acknowledgeConfirmationBuilder_ != null) {
+        acknowledgeConfirmationBuilder_.dispose();
         acknowledgeConfirmationBuilder_ = null;
       }
-      if (modifyAckDeadlineConfirmationBuilder_ == null) {
-        modifyAckDeadlineConfirmation_ = null;
-      } else {
-        modifyAckDeadlineConfirmation_ = null;
+      modifyAckDeadlineConfirmation_ = null;
+      if (modifyAckDeadlineConfirmationBuilder_ != null) {
+        modifyAckDeadlineConfirmationBuilder_.dispose();
         modifyAckDeadlineConfirmationBuilder_ = null;
       }
-      if (subscriptionPropertiesBuilder_ == null) {
-        subscriptionProperties_ = null;
-      } else {
-        subscriptionProperties_ = null;
+      subscriptionProperties_ = null;
+      if (subscriptionPropertiesBuilder_ != null) {
+        subscriptionPropertiesBuilder_.dispose();
         subscriptionPropertiesBuilder_ = null;
       }
       return this;
@@ -3554,7 +3369,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.pubsub.v1.StreamingPullResponse buildPartial() {
       com.google.pubsub.v1.StreamingPullResponse result = new com.google.pubsub.v1.StreamingPullResponse(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.pubsub.v1.StreamingPullResponse result) {
       if (receivedMessagesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           receivedMessages_ = java.util.Collections.unmodifiableList(receivedMessages_);
@@ -3564,23 +3385,25 @@ private static final long serialVersionUID = 0L;
       } else {
         result.receivedMessages_ = receivedMessagesBuilder_.build();
       }
-      if (acknowledgeConfirmationBuilder_ == null) {
-        result.acknowledgeConfirmation_ = acknowledgeConfirmation_;
-      } else {
-        result.acknowledgeConfirmation_ = acknowledgeConfirmationBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.pubsub.v1.StreamingPullResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.acknowledgeConfirmation_ = acknowledgeConfirmationBuilder_ == null
+            ? acknowledgeConfirmation_
+            : acknowledgeConfirmationBuilder_.build();
       }
-      if (modifyAckDeadlineConfirmationBuilder_ == null) {
-        result.modifyAckDeadlineConfirmation_ = modifyAckDeadlineConfirmation_;
-      } else {
-        result.modifyAckDeadlineConfirmation_ = modifyAckDeadlineConfirmationBuilder_.build();
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.modifyAckDeadlineConfirmation_ = modifyAckDeadlineConfirmationBuilder_ == null
+            ? modifyAckDeadlineConfirmation_
+            : modifyAckDeadlineConfirmationBuilder_.build();
       }
-      if (subscriptionPropertiesBuilder_ == null) {
-        result.subscriptionProperties_ = subscriptionProperties_;
-      } else {
-        result.subscriptionProperties_ = subscriptionPropertiesBuilder_.build();
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.subscriptionProperties_ = subscriptionPropertiesBuilder_ == null
+            ? subscriptionProperties_
+            : subscriptionPropertiesBuilder_.build();
       }
-      onBuilt();
-      return result;
     }
 
     @java.lang.Override
@@ -3662,7 +3485,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSubscriptionProperties()) {
         mergeSubscriptionProperties(other.getSubscriptionProperties());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3677,17 +3500,64 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.pubsub.v1.StreamingPullResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.pubsub.v1.ReceivedMessage m =
+                  input.readMessage(
+                      com.google.pubsub.v1.ReceivedMessage.parser(),
+                      extensionRegistry);
+              if (receivedMessagesBuilder_ == null) {
+                ensureReceivedMessagesIsMutable();
+                receivedMessages_.add(m);
+              } else {
+                receivedMessagesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 26: {
+              input.readMessage(
+                  getModifyAckDeadlineConfirmationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getSubscriptionPropertiesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getAcknowledgeConfirmationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.pubsub.v1.StreamingPullResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -4017,7 +3887,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the acknowledgeConfirmation field is set.
      */
     public boolean hasAcknowledgeConfirmation() {
-      return acknowledgeConfirmationBuilder_ != null || acknowledgeConfirmation_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -4049,11 +3919,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         acknowledgeConfirmation_ = value;
-        onChanged();
       } else {
         acknowledgeConfirmationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -4068,11 +3938,11 @@ private static final long serialVersionUID = 0L;
         com.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation.Builder builderForValue) {
       if (acknowledgeConfirmationBuilder_ == null) {
         acknowledgeConfirmation_ = builderForValue.build();
-        onChanged();
       } else {
         acknowledgeConfirmationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -4085,17 +3955,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAcknowledgeConfirmation(com.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation value) {
       if (acknowledgeConfirmationBuilder_ == null) {
-        if (acknowledgeConfirmation_ != null) {
-          acknowledgeConfirmation_ =
-            com.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation.newBuilder(acknowledgeConfirmation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          acknowledgeConfirmation_ != null &&
+          acknowledgeConfirmation_ != com.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation.getDefaultInstance()) {
+          getAcknowledgeConfirmationBuilder().mergeFrom(value);
         } else {
           acknowledgeConfirmation_ = value;
         }
-        onChanged();
       } else {
         acknowledgeConfirmationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -4107,14 +3978,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation acknowledge_confirmation = 5;</code>
      */
     public Builder clearAcknowledgeConfirmation() {
-      if (acknowledgeConfirmationBuilder_ == null) {
-        acknowledgeConfirmation_ = null;
-        onChanged();
-      } else {
-        acknowledgeConfirmation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      acknowledgeConfirmation_ = null;
+      if (acknowledgeConfirmationBuilder_ != null) {
+        acknowledgeConfirmationBuilder_.dispose();
         acknowledgeConfirmationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4126,7 +3996,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation acknowledge_confirmation = 5;</code>
      */
     public com.google.pubsub.v1.StreamingPullResponse.AcknowledgeConfirmation.Builder getAcknowledgeConfirmationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAcknowledgeConfirmationFieldBuilder().getBuilder();
     }
@@ -4181,7 +4051,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the modifyAckDeadlineConfirmation field is set.
      */
     public boolean hasModifyAckDeadlineConfirmation() {
-      return modifyAckDeadlineConfirmationBuilder_ != null || modifyAckDeadlineConfirmation_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -4213,11 +4083,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         modifyAckDeadlineConfirmation_ = value;
-        onChanged();
       } else {
         modifyAckDeadlineConfirmationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -4232,11 +4102,11 @@ private static final long serialVersionUID = 0L;
         com.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation.Builder builderForValue) {
       if (modifyAckDeadlineConfirmationBuilder_ == null) {
         modifyAckDeadlineConfirmation_ = builderForValue.build();
-        onChanged();
       } else {
         modifyAckDeadlineConfirmationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -4249,17 +4119,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeModifyAckDeadlineConfirmation(com.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation value) {
       if (modifyAckDeadlineConfirmationBuilder_ == null) {
-        if (modifyAckDeadlineConfirmation_ != null) {
-          modifyAckDeadlineConfirmation_ =
-            com.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation.newBuilder(modifyAckDeadlineConfirmation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          modifyAckDeadlineConfirmation_ != null &&
+          modifyAckDeadlineConfirmation_ != com.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation.getDefaultInstance()) {
+          getModifyAckDeadlineConfirmationBuilder().mergeFrom(value);
         } else {
           modifyAckDeadlineConfirmation_ = value;
         }
-        onChanged();
       } else {
         modifyAckDeadlineConfirmationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -4271,14 +4142,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation modify_ack_deadline_confirmation = 3;</code>
      */
     public Builder clearModifyAckDeadlineConfirmation() {
-      if (modifyAckDeadlineConfirmationBuilder_ == null) {
-        modifyAckDeadlineConfirmation_ = null;
-        onChanged();
-      } else {
-        modifyAckDeadlineConfirmation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      modifyAckDeadlineConfirmation_ = null;
+      if (modifyAckDeadlineConfirmationBuilder_ != null) {
+        modifyAckDeadlineConfirmationBuilder_.dispose();
         modifyAckDeadlineConfirmationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4290,7 +4160,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation modify_ack_deadline_confirmation = 3;</code>
      */
     public com.google.pubsub.v1.StreamingPullResponse.ModifyAckDeadlineConfirmation.Builder getModifyAckDeadlineConfirmationBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getModifyAckDeadlineConfirmationFieldBuilder().getBuilder();
     }
@@ -4344,7 +4214,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the subscriptionProperties field is set.
      */
     public boolean hasSubscriptionProperties() {
-      return subscriptionPropertiesBuilder_ != null || subscriptionProperties_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -4374,11 +4244,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         subscriptionProperties_ = value;
-        onChanged();
       } else {
         subscriptionPropertiesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4392,11 +4262,11 @@ private static final long serialVersionUID = 0L;
         com.google.pubsub.v1.StreamingPullResponse.SubscriptionProperties.Builder builderForValue) {
       if (subscriptionPropertiesBuilder_ == null) {
         subscriptionProperties_ = builderForValue.build();
-        onChanged();
       } else {
         subscriptionPropertiesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4408,17 +4278,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSubscriptionProperties(com.google.pubsub.v1.StreamingPullResponse.SubscriptionProperties value) {
       if (subscriptionPropertiesBuilder_ == null) {
-        if (subscriptionProperties_ != null) {
-          subscriptionProperties_ =
-            com.google.pubsub.v1.StreamingPullResponse.SubscriptionProperties.newBuilder(subscriptionProperties_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          subscriptionProperties_ != null &&
+          subscriptionProperties_ != com.google.pubsub.v1.StreamingPullResponse.SubscriptionProperties.getDefaultInstance()) {
+          getSubscriptionPropertiesBuilder().mergeFrom(value);
         } else {
           subscriptionProperties_ = value;
         }
-        onChanged();
       } else {
         subscriptionPropertiesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4429,14 +4300,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.pubsub.v1.StreamingPullResponse.SubscriptionProperties subscription_properties = 4;</code>
      */
     public Builder clearSubscriptionProperties() {
-      if (subscriptionPropertiesBuilder_ == null) {
-        subscriptionProperties_ = null;
-        onChanged();
-      } else {
-        subscriptionProperties_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      subscriptionProperties_ = null;
+      if (subscriptionPropertiesBuilder_ != null) {
+        subscriptionPropertiesBuilder_.dispose();
         subscriptionPropertiesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4447,7 +4317,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.pubsub.v1.StreamingPullResponse.SubscriptionProperties subscription_properties = 4;</code>
      */
     public com.google.pubsub.v1.StreamingPullResponse.SubscriptionProperties.Builder getSubscriptionPropertiesBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getSubscriptionPropertiesFieldBuilder().getBuilder();
     }
@@ -4519,7 +4389,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StreamingPullResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

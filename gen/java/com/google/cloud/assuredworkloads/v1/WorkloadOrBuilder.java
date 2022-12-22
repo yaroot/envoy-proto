@@ -168,7 +168,7 @@ public interface WorkloadOrBuilder extends
 
   /**
    * <pre>
-   * Required. Input only. The billing account used for the resources which are
+   * Optional. The billing account used for the resources which are
    * direct children of workload. This billing account is initially associated
    * with the resources created as part of Workload creation.
    * After the initial creation of these resources, the customer can change
@@ -178,13 +178,13 @@ public interface WorkloadOrBuilder extends
    * `billingAccounts/012345-567890-ABCDEF`.
    * </pre>
    *
-   * <code>string billing_account = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = INPUT_ONLY];</code>
+   * <code>string billing_account = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The billingAccount.
    */
   java.lang.String getBillingAccount();
   /**
    * <pre>
-   * Required. Input only. The billing account used for the resources which are
+   * Optional. The billing account used for the resources which are
    * direct children of workload. This billing account is initially associated
    * with the resources created as part of Workload creation.
    * After the initial creation of these resources, the customer can change
@@ -194,7 +194,7 @@ public interface WorkloadOrBuilder extends
    * `billingAccounts/012345-567890-ABCDEF`.
    * </pre>
    *
-   * <code>string billing_account = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = INPUT_ONLY];</code>
+   * <code>string billing_account = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The bytes for billingAccount.
    */
   com.google.protobuf.ByteString
@@ -261,7 +261,6 @@ public interface WorkloadOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -274,14 +273,13 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
   /**
    * <pre>
-   * Input only. The parent resource for the resources managed by this Assured
-   * Workload. May be either empty or a folder resource which is a child of the
+   * Input only. The parent resource for the resources managed by this Assured Workload. May
+   * be either empty or a folder resource which is a child of the
    * Workload parent. If not specified all resources are created under the
    * parent organization.
    * Format:
@@ -294,8 +292,8 @@ java.lang.String defaultValue);
   java.lang.String getProvisionedResourcesParent();
   /**
    * <pre>
-   * Input only. The parent resource for the resources managed by this Assured
-   * Workload. May be either empty or a folder resource which is a child of the
+   * Input only. The parent resource for the resources managed by this Assured Workload. May
+   * be either empty or a folder resource which is a child of the
    * Workload parent. If not specified all resources are created under the
    * parent organization.
    * Format:
@@ -310,42 +308,52 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Input only. Settings used to create a CMEK crypto key. When set a project
-   * with a KMS CMEK key is provisioned. This field is mandatory for a subset of
-   * Compliance Regimes.
+   * Input only. Settings used to create a CMEK crypto key. When set, a project with a KMS
+   * CMEK key is provisioned.
+   * This field is deprecated as of Feb 28, 2022.
+   * In order to create a Keyring, callers should specify,
+   * ENCRYPTION_KEYS_PROJECT or KEYRING in ResourceSettings.resource_type field.
    * </pre>
    *
-   * <code>.google.cloud.assuredworkloads.v1.Workload.KMSSettings kms_settings = 14 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+   * <code>.google.cloud.assuredworkloads.v1.Workload.KMSSettings kms_settings = 14 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY];</code>
+   * @deprecated google.cloud.assuredworkloads.v1.Workload.kms_settings is deprecated.
+   *     See google/cloud/assuredworkloads/v1/assuredworkloads.proto;l=484
    * @return Whether the kmsSettings field is set.
    */
-  boolean hasKmsSettings();
+  @java.lang.Deprecated boolean hasKmsSettings();
   /**
    * <pre>
-   * Input only. Settings used to create a CMEK crypto key. When set a project
-   * with a KMS CMEK key is provisioned. This field is mandatory for a subset of
-   * Compliance Regimes.
+   * Input only. Settings used to create a CMEK crypto key. When set, a project with a KMS
+   * CMEK key is provisioned.
+   * This field is deprecated as of Feb 28, 2022.
+   * In order to create a Keyring, callers should specify,
+   * ENCRYPTION_KEYS_PROJECT or KEYRING in ResourceSettings.resource_type field.
    * </pre>
    *
-   * <code>.google.cloud.assuredworkloads.v1.Workload.KMSSettings kms_settings = 14 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+   * <code>.google.cloud.assuredworkloads.v1.Workload.KMSSettings kms_settings = 14 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY];</code>
+   * @deprecated google.cloud.assuredworkloads.v1.Workload.kms_settings is deprecated.
+   *     See google/cloud/assuredworkloads/v1/assuredworkloads.proto;l=484
    * @return The kmsSettings.
    */
-  com.google.cloud.assuredworkloads.v1.Workload.KMSSettings getKmsSettings();
+  @java.lang.Deprecated com.google.cloud.assuredworkloads.v1.Workload.KMSSettings getKmsSettings();
   /**
    * <pre>
-   * Input only. Settings used to create a CMEK crypto key. When set a project
-   * with a KMS CMEK key is provisioned. This field is mandatory for a subset of
-   * Compliance Regimes.
+   * Input only. Settings used to create a CMEK crypto key. When set, a project with a KMS
+   * CMEK key is provisioned.
+   * This field is deprecated as of Feb 28, 2022.
+   * In order to create a Keyring, callers should specify,
+   * ENCRYPTION_KEYS_PROJECT or KEYRING in ResourceSettings.resource_type field.
    * </pre>
    *
-   * <code>.google.cloud.assuredworkloads.v1.Workload.KMSSettings kms_settings = 14 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+   * <code>.google.cloud.assuredworkloads.v1.Workload.KMSSettings kms_settings = 14 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY];</code>
    */
-  com.google.cloud.assuredworkloads.v1.Workload.KMSSettingsOrBuilder getKmsSettingsOrBuilder();
+  @java.lang.Deprecated com.google.cloud.assuredworkloads.v1.Workload.KMSSettingsOrBuilder getKmsSettingsOrBuilder();
 
   /**
    * <pre>
-   * Input only. Resource properties that are used to customize workload
-   * resources. These properties (such as custom project id) will be used to
-   * create workload resources if possible. This field is optional.
+   * Input only. Resource properties that are used to customize workload resources.
+   * These properties (such as custom project id) will be used to create
+   * workload resources if possible. This field is optional.
    * </pre>
    *
    * <code>repeated .google.cloud.assuredworkloads.v1.Workload.ResourceSettings resource_settings = 15 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -354,9 +362,9 @@ java.lang.String defaultValue);
       getResourceSettingsList();
   /**
    * <pre>
-   * Input only. Resource properties that are used to customize workload
-   * resources. These properties (such as custom project id) will be used to
-   * create workload resources if possible. This field is optional.
+   * Input only. Resource properties that are used to customize workload resources.
+   * These properties (such as custom project id) will be used to create
+   * workload resources if possible. This field is optional.
    * </pre>
    *
    * <code>repeated .google.cloud.assuredworkloads.v1.Workload.ResourceSettings resource_settings = 15 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -364,9 +372,9 @@ java.lang.String defaultValue);
   com.google.cloud.assuredworkloads.v1.Workload.ResourceSettings getResourceSettings(int index);
   /**
    * <pre>
-   * Input only. Resource properties that are used to customize workload
-   * resources. These properties (such as custom project id) will be used to
-   * create workload resources if possible. This field is optional.
+   * Input only. Resource properties that are used to customize workload resources.
+   * These properties (such as custom project id) will be used to create
+   * workload resources if possible. This field is optional.
    * </pre>
    *
    * <code>repeated .google.cloud.assuredworkloads.v1.Workload.ResourceSettings resource_settings = 15 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -374,9 +382,9 @@ java.lang.String defaultValue);
   int getResourceSettingsCount();
   /**
    * <pre>
-   * Input only. Resource properties that are used to customize workload
-   * resources. These properties (such as custom project id) will be used to
-   * create workload resources if possible. This field is optional.
+   * Input only. Resource properties that are used to customize workload resources.
+   * These properties (such as custom project id) will be used to create
+   * workload resources if possible. This field is optional.
    * </pre>
    *
    * <code>repeated .google.cloud.assuredworkloads.v1.Workload.ResourceSettings resource_settings = 15 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -385,9 +393,9 @@ java.lang.String defaultValue);
       getResourceSettingsOrBuilderList();
   /**
    * <pre>
-   * Input only. Resource properties that are used to customize workload
-   * resources. These properties (such as custom project id) will be used to
-   * create workload resources if possible. This field is optional.
+   * Input only. Resource properties that are used to customize workload resources.
+   * These properties (such as custom project id) will be used to create
+   * workload resources if possible. This field is optional.
    * </pre>
    *
    * <code>repeated .google.cloud.assuredworkloads.v1.Workload.ResourceSettings resource_settings = 15 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -457,4 +465,76 @@ java.lang.String defaultValue);
    * <code>.google.cloud.assuredworkloads.v1.Workload.SaaEnrollmentResponse saa_enrollment_response = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   com.google.cloud.assuredworkloads.v1.Workload.SaaEnrollmentResponseOrBuilder getSaaEnrollmentResponseOrBuilder();
+
+  /**
+   * <pre>
+   * Output only. Urls for services which are compliant for this Assured Workload, but which
+   * are currently disallowed by the ResourceUsageRestriction org policy.
+   * Invoke RestrictAllowedResources endpoint to allow your project developers
+   * to use these services in their environment."
+   * </pre>
+   *
+   * <code>repeated string compliant_but_disallowed_services = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return A list containing the compliantButDisallowedServices.
+   */
+  java.util.List<java.lang.String>
+      getCompliantButDisallowedServicesList();
+  /**
+   * <pre>
+   * Output only. Urls for services which are compliant for this Assured Workload, but which
+   * are currently disallowed by the ResourceUsageRestriction org policy.
+   * Invoke RestrictAllowedResources endpoint to allow your project developers
+   * to use these services in their environment."
+   * </pre>
+   *
+   * <code>repeated string compliant_but_disallowed_services = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The count of compliantButDisallowedServices.
+   */
+  int getCompliantButDisallowedServicesCount();
+  /**
+   * <pre>
+   * Output only. Urls for services which are compliant for this Assured Workload, but which
+   * are currently disallowed by the ResourceUsageRestriction org policy.
+   * Invoke RestrictAllowedResources endpoint to allow your project developers
+   * to use these services in their environment."
+   * </pre>
+   *
+   * <code>repeated string compliant_but_disallowed_services = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @param index The index of the element to return.
+   * @return The compliantButDisallowedServices at the given index.
+   */
+  java.lang.String getCompliantButDisallowedServices(int index);
+  /**
+   * <pre>
+   * Output only. Urls for services which are compliant for this Assured Workload, but which
+   * are currently disallowed by the ResourceUsageRestriction org policy.
+   * Invoke RestrictAllowedResources endpoint to allow your project developers
+   * to use these services in their environment."
+   * </pre>
+   *
+   * <code>repeated string compliant_but_disallowed_services = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the compliantButDisallowedServices at the given index.
+   */
+  com.google.protobuf.ByteString
+      getCompliantButDisallowedServicesBytes(int index);
+
+  /**
+   * <pre>
+   * Optional. Compliance Regime associated with this workload.
+   * </pre>
+   *
+   * <code>.google.cloud.assuredworkloads.v1.Workload.Partner partner = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The enum numeric value on the wire for partner.
+   */
+  int getPartnerValue();
+  /**
+   * <pre>
+   * Optional. Compliance Regime associated with this workload.
+   * </pre>
+   *
+   * <code>.google.cloud.assuredworkloads.v1.Workload.Partner partner = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The partner.
+   */
+  com.google.cloud.assuredworkloads.v1.Workload.Partner getPartner();
 }

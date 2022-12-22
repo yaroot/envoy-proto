@@ -31,69 +31,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Connection(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            endpoint_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.apigeeconnect.v1.Cluster.Builder subBuilder = null;
-            if (cluster_ != null) {
-              subBuilder = cluster_.toBuilder();
-            }
-            cluster_ = input.readMessage(com.google.cloud.apigeeconnect.v1.Cluster.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cluster_);
-              cluster_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-
-            streamCount_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.apigeeconnect.v1.ConnectionProto.internal_static_google_cloud_apigeeconnect_v1_Connection_descriptor;
@@ -108,7 +45,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENDPOINT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object endpoint_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object endpoint_ = "";
   /**
    * <pre>
    * The endpoint that the connection is made against.
@@ -190,11 +128,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.apigeeconnect.v1.ClusterOrBuilder getClusterOrBuilder() {
-    return getCluster();
+    return cluster_ == null ? com.google.cloud.apigeeconnect.v1.Cluster.getDefaultInstance() : cluster_;
   }
 
   public static final int STREAM_COUNT_FIELD_NUMBER = 3;
-  private int streamCount_;
+  private int streamCount_ = 0;
   /**
    * <pre>
    * The count of streams.
@@ -231,7 +169,7 @@ private static final long serialVersionUID = 0L;
     if (streamCount_ != 0) {
       output.writeInt32(3, streamCount_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -251,7 +189,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, streamCount_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -275,7 +213,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getStreamCount()
         != other.getStreamCount()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -294,7 +232,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + STREAM_COUNT_FIELD_NUMBER;
     hash = (53 * hash) + getStreamCount();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -411,32 +349,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.apigeeconnect.v1.Connection.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       endpoint_ = "";
-
-      if (clusterBuilder_ == null) {
-        cluster_ = null;
-      } else {
-        cluster_ = null;
+      cluster_ = null;
+      if (clusterBuilder_ != null) {
+        clusterBuilder_.dispose();
         clusterBuilder_ = null;
       }
       streamCount_ = 0;
-
       return this;
     }
 
@@ -463,15 +394,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.apigeeconnect.v1.Connection buildPartial() {
       com.google.cloud.apigeeconnect.v1.Connection result = new com.google.cloud.apigeeconnect.v1.Connection(this);
-      result.endpoint_ = endpoint_;
-      if (clusterBuilder_ == null) {
-        result.cluster_ = cluster_;
-      } else {
-        result.cluster_ = clusterBuilder_.build();
-      }
-      result.streamCount_ = streamCount_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.apigeeconnect.v1.Connection result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.endpoint_ = endpoint_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.cluster_ = clusterBuilder_ == null
+            ? cluster_
+            : clusterBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.streamCount_ = streamCount_;
+      }
     }
 
     @java.lang.Override
@@ -520,6 +460,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.apigeeconnect.v1.Connection.getDefaultInstance()) return this;
       if (!other.getEndpoint().isEmpty()) {
         endpoint_ = other.endpoint_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasCluster()) {
@@ -528,7 +469,7 @@ private static final long serialVersionUID = 0L;
       if (other.getStreamCount() != 0) {
         setStreamCount(other.getStreamCount());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -543,19 +484,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.apigeeconnect.v1.Connection parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              endpoint_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getClusterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              streamCount_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.apigeeconnect.v1.Connection) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object endpoint_ = "";
     /**
@@ -613,11 +585,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEndpoint(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       endpoint_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -631,8 +601,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEndpoint() {
-      
       endpoint_ = getDefaultInstance().getEndpoint();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -648,12 +618,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEndpointBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       endpoint_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -670,7 +638,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cluster field is set.
      */
     public boolean hasCluster() {
-      return clusterBuilder_ != null || cluster_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -700,11 +668,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cluster_ = value;
-        onChanged();
       } else {
         clusterBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -718,11 +686,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.apigeeconnect.v1.Cluster.Builder builderForValue) {
       if (clusterBuilder_ == null) {
         cluster_ = builderForValue.build();
-        onChanged();
       } else {
         clusterBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -734,17 +702,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCluster(com.google.cloud.apigeeconnect.v1.Cluster value) {
       if (clusterBuilder_ == null) {
-        if (cluster_ != null) {
-          cluster_ =
-            com.google.cloud.apigeeconnect.v1.Cluster.newBuilder(cluster_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          cluster_ != null &&
+          cluster_ != com.google.cloud.apigeeconnect.v1.Cluster.getDefaultInstance()) {
+          getClusterBuilder().mergeFrom(value);
         } else {
           cluster_ = value;
         }
-        onChanged();
       } else {
         clusterBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -755,14 +724,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.apigeeconnect.v1.Cluster cluster = 2;</code>
      */
     public Builder clearCluster() {
-      if (clusterBuilder_ == null) {
-        cluster_ = null;
-        onChanged();
-      } else {
-        cluster_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      cluster_ = null;
+      if (clusterBuilder_ != null) {
+        clusterBuilder_.dispose();
         clusterBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -773,7 +741,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.apigeeconnect.v1.Cluster cluster = 2;</code>
      */
     public com.google.cloud.apigeeconnect.v1.Cluster.Builder getClusterBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getClusterFieldBuilder().getBuilder();
     }
@@ -838,6 +806,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStreamCount(int value) {
       
       streamCount_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -850,7 +819,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStreamCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       streamCount_ = 0;
       onChanged();
       return this;
@@ -888,7 +857,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Connection(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

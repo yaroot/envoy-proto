@@ -38,82 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ScalingConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            fleetAutoscalerSpec_ = s;
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              selectors_ = new java.util.ArrayList<com.google.cloud.gaming.v1.LabelSelector>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            selectors_.add(
-                input.readMessage(com.google.cloud.gaming.v1.LabelSelector.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              schedules_ = new java.util.ArrayList<com.google.cloud.gaming.v1.Schedule>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            schedules_.add(
-                input.readMessage(com.google.cloud.gaming.v1.Schedule.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        selectors_ = java.util.Collections.unmodifiableList(selectors_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        schedules_ = java.util.Collections.unmodifiableList(schedules_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gaming.v1.GameServerConfigs.internal_static_google_cloud_gaming_v1_ScalingConfig_descriptor;
@@ -128,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The name of the Scaling Config
@@ -174,7 +99,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FLEET_AUTOSCALER_SPEC_FIELD_NUMBER = 2;
-  private volatile java.lang.Object fleetAutoscalerSpec_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object fleetAutoscalerSpec_ = "";
   /**
    * <pre>
    * Required. Agones fleet autoscaler spec. Example spec:
@@ -222,6 +148,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SELECTORS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.gaming.v1.LabelSelector> selectors_;
   /**
    * <pre>
@@ -292,6 +219,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCHEDULES_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.gaming.v1.Schedule> schedules_;
   /**
    * <pre>
@@ -377,7 +305,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < schedules_.size(); i++) {
       output.writeMessage(5, schedules_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -400,7 +328,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, schedules_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -423,7 +351,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSelectorsList())) return false;
     if (!getSchedulesList()
         .equals(other.getSchedulesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -446,7 +374,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SCHEDULES_FIELD_NUMBER;
       hash = (53 * hash) + getSchedulesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -567,40 +495,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gaming.v1.ScalingConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSelectorsFieldBuilder();
-        getSchedulesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       fleetAutoscalerSpec_ = "";
-
       if (selectorsBuilder_ == null) {
         selectors_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        selectors_ = null;
         selectorsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (schedulesBuilder_ == null) {
         schedules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        schedules_ = null;
         schedulesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -627,29 +549,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gaming.v1.ScalingConfig buildPartial() {
       com.google.cloud.gaming.v1.ScalingConfig result = new com.google.cloud.gaming.v1.ScalingConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.fleetAutoscalerSpec_ = fleetAutoscalerSpec_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.gaming.v1.ScalingConfig result) {
       if (selectorsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           selectors_ = java.util.Collections.unmodifiableList(selectors_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.selectors_ = selectors_;
       } else {
         result.selectors_ = selectorsBuilder_.build();
       }
       if (schedulesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           schedules_ = java.util.Collections.unmodifiableList(schedules_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.schedules_ = schedules_;
       } else {
         result.schedules_ = schedulesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gaming.v1.ScalingConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.fleetAutoscalerSpec_ = fleetAutoscalerSpec_;
+      }
     }
 
     @java.lang.Override
@@ -698,17 +632,19 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gaming.v1.ScalingConfig.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getFleetAutoscalerSpec().isEmpty()) {
         fleetAutoscalerSpec_ = other.fleetAutoscalerSpec_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (selectorsBuilder_ == null) {
         if (!other.selectors_.isEmpty()) {
           if (selectors_.isEmpty()) {
             selectors_ = other.selectors_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureSelectorsIsMutable();
             selectors_.addAll(other.selectors_);
@@ -721,7 +657,7 @@ private static final long serialVersionUID = 0L;
             selectorsBuilder_.dispose();
             selectorsBuilder_ = null;
             selectors_ = other.selectors_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             selectorsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSelectorsFieldBuilder() : null;
@@ -734,7 +670,7 @@ private static final long serialVersionUID = 0L;
         if (!other.schedules_.isEmpty()) {
           if (schedules_.isEmpty()) {
             schedules_ = other.schedules_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureSchedulesIsMutable();
             schedules_.addAll(other.schedules_);
@@ -747,7 +683,7 @@ private static final long serialVersionUID = 0L;
             schedulesBuilder_.dispose();
             schedulesBuilder_ = null;
             schedules_ = other.schedules_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
             schedulesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSchedulesFieldBuilder() : null;
@@ -756,7 +692,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -771,17 +707,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gaming.v1.ScalingConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              fleetAutoscalerSpec_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 34: {
+              com.google.cloud.gaming.v1.LabelSelector m =
+                  input.readMessage(
+                      com.google.cloud.gaming.v1.LabelSelector.parser(),
+                      extensionRegistry);
+              if (selectorsBuilder_ == null) {
+                ensureSelectorsIsMutable();
+                selectors_.add(m);
+              } else {
+                selectorsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              com.google.cloud.gaming.v1.Schedule m =
+                  input.readMessage(
+                      com.google.cloud.gaming.v1.Schedule.parser(),
+                      extensionRegistry);
+              if (schedulesBuilder_ == null) {
+                ensureSchedulesIsMutable();
+                schedules_.add(m);
+              } else {
+                schedulesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gaming.v1.ScalingConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -839,11 +824,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -856,8 +839,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -872,12 +855,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -938,11 +919,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFleetAutoscalerSpec(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       fleetAutoscalerSpec_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -956,8 +935,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFleetAutoscalerSpec() {
-      
       fleetAutoscalerSpec_ = getDefaultInstance().getFleetAutoscalerSpec();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -973,12 +952,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFleetAutoscalerSpecBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       fleetAutoscalerSpec_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -986,9 +963,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.gaming.v1.LabelSelector> selectors_ =
       java.util.Collections.emptyList();
     private void ensureSelectorsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         selectors_ = new java.util.ArrayList<com.google.cloud.gaming.v1.LabelSelector>(selectors_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1204,7 +1181,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSelectors() {
       if (selectorsBuilder_ == null) {
         selectors_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         selectorsBuilder_.clear();
@@ -1323,7 +1300,7 @@ private static final long serialVersionUID = 0L;
         selectorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.gaming.v1.LabelSelector, com.google.cloud.gaming.v1.LabelSelector.Builder, com.google.cloud.gaming.v1.LabelSelectorOrBuilder>(
                 selectors_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         selectors_ = null;
@@ -1334,9 +1311,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.gaming.v1.Schedule> schedules_ =
       java.util.Collections.emptyList();
     private void ensureSchedulesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         schedules_ = new java.util.ArrayList<com.google.cloud.gaming.v1.Schedule>(schedules_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1530,7 +1507,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSchedules() {
       if (schedulesBuilder_ == null) {
         schedules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         schedulesBuilder_.clear();
@@ -1635,7 +1612,7 @@ private static final long serialVersionUID = 0L;
         schedulesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.gaming.v1.Schedule, com.google.cloud.gaming.v1.Schedule.Builder, com.google.cloud.gaming.v1.ScheduleOrBuilder>(
                 schedules_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         schedules_ = null;
@@ -1675,7 +1652,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ScalingConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

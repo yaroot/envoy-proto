@@ -5,7 +5,8 @@ package com.google.cloud.scheduler.v1beta1;
 
 /**
  * <pre>
- * Request message for [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob].
+ * Request message for
+ * [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob].
  * </pre>
  *
  * Protobuf type {@code google.cloud.scheduler.v1beta1.CreateJobRequest}
@@ -35,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateJobRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.scheduler.v1beta1.Job.Builder subBuilder = null;
-            if (job_ != null) {
-              subBuilder = job_.toBuilder();
-            }
-            job_ = input.readMessage(com.google.cloud.scheduler.v1beta1.Job.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(job_);
-              job_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.scheduler.v1beta1.SchedulerProto.internal_static_google_cloud_scheduler_v1beta1_CreateJobRequest_descriptor;
@@ -107,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The location name. For example:
@@ -159,7 +103,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Required. The job to add. The user can optionally specify a name for the
-   * job in [name][google.cloud.scheduler.v1beta1.Job.name]. [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
+   * job in [name][google.cloud.scheduler.v1beta1.Job.name].
+   * [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
    * existing job. If a name is not specified then the system will
    * generate a random unique name that will be returned
    * ([name][google.cloud.scheduler.v1beta1.Job.name]) in the response.
@@ -175,7 +120,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Required. The job to add. The user can optionally specify a name for the
-   * job in [name][google.cloud.scheduler.v1beta1.Job.name]. [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
+   * job in [name][google.cloud.scheduler.v1beta1.Job.name].
+   * [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
    * existing job. If a name is not specified then the system will
    * generate a random unique name that will be returned
    * ([name][google.cloud.scheduler.v1beta1.Job.name]) in the response.
@@ -191,7 +137,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Required. The job to add. The user can optionally specify a name for the
-   * job in [name][google.cloud.scheduler.v1beta1.Job.name]. [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
+   * job in [name][google.cloud.scheduler.v1beta1.Job.name].
+   * [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
    * existing job. If a name is not specified then the system will
    * generate a random unique name that will be returned
    * ([name][google.cloud.scheduler.v1beta1.Job.name]) in the response.
@@ -201,7 +148,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.scheduler.v1beta1.JobOrBuilder getJobOrBuilder() {
-    return getJob();
+    return job_ == null ? com.google.cloud.scheduler.v1beta1.Job.getDefaultInstance() : job_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -224,7 +171,7 @@ private static final long serialVersionUID = 0L;
     if (job_ != null) {
       output.writeMessage(2, getJob());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -240,7 +187,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getJob());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -262,7 +209,7 @@ private static final long serialVersionUID = 0L;
       if (!getJob()
           .equals(other.getJob())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -279,7 +226,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + JOB_FIELD_NUMBER;
       hash = (53 * hash) + getJob().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -376,7 +323,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Request message for [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob].
+   * Request message for
+   * [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob].
    * </pre>
    *
    * Protobuf type {@code google.cloud.scheduler.v1beta1.CreateJobRequest}
@@ -400,28 +348,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.scheduler.v1beta1.CreateJobRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (jobBuilder_ == null) {
-        job_ = null;
-      } else {
-        job_ = null;
+      job_ = null;
+      if (jobBuilder_ != null) {
+        jobBuilder_.dispose();
         jobBuilder_ = null;
       }
       return this;
@@ -450,14 +392,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.scheduler.v1beta1.CreateJobRequest buildPartial() {
       com.google.cloud.scheduler.v1beta1.CreateJobRequest result = new com.google.cloud.scheduler.v1beta1.CreateJobRequest(this);
-      result.parent_ = parent_;
-      if (jobBuilder_ == null) {
-        result.job_ = job_;
-      } else {
-        result.job_ = jobBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.scheduler.v1beta1.CreateJobRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.job_ = jobBuilder_ == null
+            ? job_
+            : jobBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -506,12 +455,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.scheduler.v1beta1.CreateJobRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasJob()) {
         mergeJob(other.getJob());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -526,19 +476,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.scheduler.v1beta1.CreateJobRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getJobFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.scheduler.v1beta1.CreateJobRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -596,11 +572,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -614,8 +588,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -631,12 +605,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -647,7 +619,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. The job to add. The user can optionally specify a name for the
-     * job in [name][google.cloud.scheduler.v1beta1.Job.name]. [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
+     * job in [name][google.cloud.scheduler.v1beta1.Job.name].
+     * [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
      * existing job. If a name is not specified then the system will
      * generate a random unique name that will be returned
      * ([name][google.cloud.scheduler.v1beta1.Job.name]) in the response.
@@ -657,12 +630,13 @@ private static final long serialVersionUID = 0L;
      * @return Whether the job field is set.
      */
     public boolean hasJob() {
-      return jobBuilder_ != null || job_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
      * Required. The job to add. The user can optionally specify a name for the
-     * job in [name][google.cloud.scheduler.v1beta1.Job.name]. [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
+     * job in [name][google.cloud.scheduler.v1beta1.Job.name].
+     * [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
      * existing job. If a name is not specified then the system will
      * generate a random unique name that will be returned
      * ([name][google.cloud.scheduler.v1beta1.Job.name]) in the response.
@@ -681,7 +655,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. The job to add. The user can optionally specify a name for the
-     * job in [name][google.cloud.scheduler.v1beta1.Job.name]. [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
+     * job in [name][google.cloud.scheduler.v1beta1.Job.name].
+     * [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
      * existing job. If a name is not specified then the system will
      * generate a random unique name that will be returned
      * ([name][google.cloud.scheduler.v1beta1.Job.name]) in the response.
@@ -695,17 +670,18 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         job_ = value;
-        onChanged();
       } else {
         jobBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The job to add. The user can optionally specify a name for the
-     * job in [name][google.cloud.scheduler.v1beta1.Job.name]. [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
+     * job in [name][google.cloud.scheduler.v1beta1.Job.name].
+     * [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
      * existing job. If a name is not specified then the system will
      * generate a random unique name that will be returned
      * ([name][google.cloud.scheduler.v1beta1.Job.name]) in the response.
@@ -717,17 +693,18 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.scheduler.v1beta1.Job.Builder builderForValue) {
       if (jobBuilder_ == null) {
         job_ = builderForValue.build();
-        onChanged();
       } else {
         jobBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The job to add. The user can optionally specify a name for the
-     * job in [name][google.cloud.scheduler.v1beta1.Job.name]. [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
+     * job in [name][google.cloud.scheduler.v1beta1.Job.name].
+     * [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
      * existing job. If a name is not specified then the system will
      * generate a random unique name that will be returned
      * ([name][google.cloud.scheduler.v1beta1.Job.name]) in the response.
@@ -737,23 +714,25 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeJob(com.google.cloud.scheduler.v1beta1.Job value) {
       if (jobBuilder_ == null) {
-        if (job_ != null) {
-          job_ =
-            com.google.cloud.scheduler.v1beta1.Job.newBuilder(job_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          job_ != null &&
+          job_ != com.google.cloud.scheduler.v1beta1.Job.getDefaultInstance()) {
+          getJobBuilder().mergeFrom(value);
         } else {
           job_ = value;
         }
-        onChanged();
       } else {
         jobBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The job to add. The user can optionally specify a name for the
-     * job in [name][google.cloud.scheduler.v1beta1.Job.name]. [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
+     * job in [name][google.cloud.scheduler.v1beta1.Job.name].
+     * [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
      * existing job. If a name is not specified then the system will
      * generate a random unique name that will be returned
      * ([name][google.cloud.scheduler.v1beta1.Job.name]) in the response.
@@ -762,20 +741,20 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.scheduler.v1beta1.Job job = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearJob() {
-      if (jobBuilder_ == null) {
-        job_ = null;
-        onChanged();
-      } else {
-        job_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      job_ = null;
+      if (jobBuilder_ != null) {
+        jobBuilder_.dispose();
         jobBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The job to add. The user can optionally specify a name for the
-     * job in [name][google.cloud.scheduler.v1beta1.Job.name]. [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
+     * job in [name][google.cloud.scheduler.v1beta1.Job.name].
+     * [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
      * existing job. If a name is not specified then the system will
      * generate a random unique name that will be returned
      * ([name][google.cloud.scheduler.v1beta1.Job.name]) in the response.
@@ -784,14 +763,15 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.scheduler.v1beta1.Job job = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.scheduler.v1beta1.Job.Builder getJobBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getJobFieldBuilder().getBuilder();
     }
     /**
      * <pre>
      * Required. The job to add. The user can optionally specify a name for the
-     * job in [name][google.cloud.scheduler.v1beta1.Job.name]. [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
+     * job in [name][google.cloud.scheduler.v1beta1.Job.name].
+     * [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
      * existing job. If a name is not specified then the system will
      * generate a random unique name that will be returned
      * ([name][google.cloud.scheduler.v1beta1.Job.name]) in the response.
@@ -810,7 +790,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. The job to add. The user can optionally specify a name for the
-     * job in [name][google.cloud.scheduler.v1beta1.Job.name]. [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
+     * job in [name][google.cloud.scheduler.v1beta1.Job.name].
+     * [name][google.cloud.scheduler.v1beta1.Job.name] cannot be the same as an
      * existing job. If a name is not specified then the system will
      * generate a random unique name that will be returned
      * ([name][google.cloud.scheduler.v1beta1.Job.name]) in the response.
@@ -864,7 +845,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateJobRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

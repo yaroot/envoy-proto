@@ -34,68 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Shard(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            shardIndex_ = input.readInt32();
-            break;
-          }
-          case 16: {
-
-            numShards_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            com.google.devtools.testing.v1.TestTargetsForShard.Builder subBuilder = null;
-            if (testTargetsForShard_ != null) {
-              subBuilder = testTargetsForShard_.toBuilder();
-            }
-            testTargetsForShard_ = input.readMessage(com.google.devtools.testing.v1.TestTargetsForShard.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(testTargetsForShard_);
-              testTargetsForShard_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.TestExecutionProto.internal_static_google_devtools_testing_v1_Shard_descriptor;
@@ -110,7 +48,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SHARD_INDEX_FIELD_NUMBER = 1;
-  private int shardIndex_;
+  private int shardIndex_ = 0;
   /**
    * <pre>
    * Output only. The index of the shard among all the shards.
@@ -125,7 +63,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NUM_SHARDS_FIELD_NUMBER = 2;
-  private int numShards_;
+  private int numShards_ = 0;
   /**
    * <pre>
    * Output only. The total number of shards.
@@ -174,7 +112,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.testing.v1.TestTargetsForShardOrBuilder getTestTargetsForShardOrBuilder() {
-    return getTestTargetsForShard();
+    return testTargetsForShard_ == null ? com.google.devtools.testing.v1.TestTargetsForShard.getDefaultInstance() : testTargetsForShard_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -200,7 +138,7 @@ private static final long serialVersionUID = 0L;
     if (testTargetsForShard_ != null) {
       output.writeMessage(3, getTestTargetsForShard());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -221,7 +159,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getTestTargetsForShard());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -245,7 +183,7 @@ private static final long serialVersionUID = 0L;
       if (!getTestTargetsForShard()
           .equals(other.getTestTargetsForShard())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -264,7 +202,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TEST_TARGETS_FOR_SHARD_FIELD_NUMBER;
       hash = (53 * hash) + getTestTargetsForShard().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -385,30 +323,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.Shard.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       shardIndex_ = 0;
-
       numShards_ = 0;
-
-      if (testTargetsForShardBuilder_ == null) {
-        testTargetsForShard_ = null;
-      } else {
-        testTargetsForShard_ = null;
+      testTargetsForShard_ = null;
+      if (testTargetsForShardBuilder_ != null) {
+        testTargetsForShardBuilder_.dispose();
         testTargetsForShardBuilder_ = null;
       }
       return this;
@@ -437,15 +368,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.Shard buildPartial() {
       com.google.devtools.testing.v1.Shard result = new com.google.devtools.testing.v1.Shard(this);
-      result.shardIndex_ = shardIndex_;
-      result.numShards_ = numShards_;
-      if (testTargetsForShardBuilder_ == null) {
-        result.testTargetsForShard_ = testTargetsForShard_;
-      } else {
-        result.testTargetsForShard_ = testTargetsForShardBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.Shard result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.shardIndex_ = shardIndex_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.numShards_ = numShards_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.testTargetsForShard_ = testTargetsForShardBuilder_ == null
+            ? testTargetsForShard_
+            : testTargetsForShardBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -501,7 +441,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasTestTargetsForShard()) {
         mergeTestTargetsForShard(other.getTestTargetsForShard());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -516,19 +456,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.Shard parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              shardIndex_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              numShards_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getTestTargetsForShardFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.Shard) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int shardIndex_ ;
     /**
@@ -555,6 +526,7 @@ private static final long serialVersionUID = 0L;
     public Builder setShardIndex(int value) {
       
       shardIndex_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -567,7 +539,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearShardIndex() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       shardIndex_ = 0;
       onChanged();
       return this;
@@ -598,6 +570,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNumShards(int value) {
       
       numShards_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -610,7 +583,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNumShards() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       numShards_ = 0;
       onChanged();
       return this;
@@ -628,7 +601,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the testTargetsForShard field is set.
      */
     public boolean hasTestTargetsForShard() {
-      return testTargetsForShardBuilder_ != null || testTargetsForShard_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -658,11 +631,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         testTargetsForShard_ = value;
-        onChanged();
       } else {
         testTargetsForShardBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -676,11 +649,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.testing.v1.TestTargetsForShard.Builder builderForValue) {
       if (testTargetsForShardBuilder_ == null) {
         testTargetsForShard_ = builderForValue.build();
-        onChanged();
       } else {
         testTargetsForShardBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -692,17 +665,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTestTargetsForShard(com.google.devtools.testing.v1.TestTargetsForShard value) {
       if (testTargetsForShardBuilder_ == null) {
-        if (testTargetsForShard_ != null) {
-          testTargetsForShard_ =
-            com.google.devtools.testing.v1.TestTargetsForShard.newBuilder(testTargetsForShard_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          testTargetsForShard_ != null &&
+          testTargetsForShard_ != com.google.devtools.testing.v1.TestTargetsForShard.getDefaultInstance()) {
+          getTestTargetsForShardBuilder().mergeFrom(value);
         } else {
           testTargetsForShard_ = value;
         }
-        onChanged();
       } else {
         testTargetsForShardBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -713,14 +687,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.TestTargetsForShard test_targets_for_shard = 3;</code>
      */
     public Builder clearTestTargetsForShard() {
-      if (testTargetsForShardBuilder_ == null) {
-        testTargetsForShard_ = null;
-        onChanged();
-      } else {
-        testTargetsForShard_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      testTargetsForShard_ = null;
+      if (testTargetsForShardBuilder_ != null) {
+        testTargetsForShardBuilder_.dispose();
         testTargetsForShardBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -731,7 +704,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.TestTargetsForShard test_targets_for_shard = 3;</code>
      */
     public com.google.devtools.testing.v1.TestTargetsForShard.Builder getTestTargetsForShardBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getTestTargetsForShardFieldBuilder().getBuilder();
     }
@@ -803,7 +776,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Shard(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

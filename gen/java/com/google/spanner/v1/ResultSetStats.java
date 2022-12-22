@@ -34,81 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ResultSetStats(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.spanner.v1.QueryPlan.Builder subBuilder = null;
-            if (queryPlan_ != null) {
-              subBuilder = queryPlan_.toBuilder();
-            }
-            queryPlan_ = input.readMessage(com.google.spanner.v1.QueryPlan.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(queryPlan_);
-              queryPlan_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (queryStats_ != null) {
-              subBuilder = queryStats_.toBuilder();
-            }
-            queryStats_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(queryStats_);
-              queryStats_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-            rowCount_ = input.readInt64();
-            rowCountCase_ = 3;
-            break;
-          }
-          case 32: {
-            rowCount_ = input.readInt64();
-            rowCountCase_ = 4;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.spanner.v1.ResultSetProto.internal_static_google_spanner_v1_ResultSetStats_descriptor;
@@ -198,7 +123,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.spanner.v1.QueryPlanOrBuilder getQueryPlanOrBuilder() {
-    return getQueryPlan();
+    return queryPlan_ == null ? com.google.spanner.v1.QueryPlan.getDefaultInstance() : queryPlan_;
   }
 
   public static final int QUERY_STATS_FIELD_NUMBER = 2;
@@ -257,7 +182,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getQueryStatsOrBuilder() {
-    return getQueryStats();
+    return queryStats_ == null ? com.google.protobuf.Struct.getDefaultInstance() : queryStats_;
   }
 
   public static final int ROW_COUNT_EXACT_FIELD_NUMBER = 3;
@@ -348,7 +273,7 @@ private static final long serialVersionUID = 0L;
       output.writeInt64(
           4, (long)((java.lang.Long) rowCount_));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -375,7 +300,7 @@ private static final long serialVersionUID = 0L;
         .computeInt64Size(
             4, (long)((java.lang.Long) rowCount_));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -413,7 +338,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -446,7 +371,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -567,32 +492,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.spanner.v1.ResultSetStats.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (queryPlanBuilder_ == null) {
-        queryPlan_ = null;
-      } else {
-        queryPlan_ = null;
+      bitField0_ = 0;
+      queryPlan_ = null;
+      if (queryPlanBuilder_ != null) {
+        queryPlanBuilder_.dispose();
         queryPlanBuilder_ = null;
       }
-      if (queryStatsBuilder_ == null) {
-        queryStats_ = null;
-      } else {
-        queryStats_ = null;
+      queryStats_ = null;
+      if (queryStatsBuilder_ != null) {
+        queryStatsBuilder_.dispose();
         queryStatsBuilder_ = null;
       }
       rowCountCase_ = 0;
@@ -623,25 +542,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.spanner.v1.ResultSetStats buildPartial() {
       com.google.spanner.v1.ResultSetStats result = new com.google.spanner.v1.ResultSetStats(this);
-      if (queryPlanBuilder_ == null) {
-        result.queryPlan_ = queryPlan_;
-      } else {
-        result.queryPlan_ = queryPlanBuilder_.build();
-      }
-      if (queryStatsBuilder_ == null) {
-        result.queryStats_ = queryStats_;
-      } else {
-        result.queryStats_ = queryStatsBuilder_.build();
-      }
-      if (rowCountCase_ == 3) {
-        result.rowCount_ = rowCount_;
-      }
-      if (rowCountCase_ == 4) {
-        result.rowCount_ = rowCount_;
-      }
-      result.rowCountCase_ = rowCountCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.spanner.v1.ResultSetStats result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.queryPlan_ = queryPlanBuilder_ == null
+            ? queryPlan_
+            : queryPlanBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.queryStats_ = queryStatsBuilder_ == null
+            ? queryStats_
+            : queryStatsBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.spanner.v1.ResultSetStats result) {
+      result.rowCountCase_ = rowCountCase_;
+      result.rowCount_ = this.rowCount_;
     }
 
     @java.lang.Override
@@ -707,7 +630,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -722,17 +645,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.spanner.v1.ResultSetStats parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getQueryPlanFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getQueryStatsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              rowCount_ = input.readInt64();
+              rowCountCase_ = 3;
+              break;
+            } // case 24
+            case 32: {
+              rowCount_ = input.readInt64();
+              rowCountCase_ = 4;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.spanner.v1.ResultSetStats) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int rowCountCase_ = 0;
@@ -750,6 +710,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.spanner.v1.QueryPlan queryPlan_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -763,7 +724,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the queryPlan field is set.
      */
     public boolean hasQueryPlan() {
-      return queryPlanBuilder_ != null || queryPlan_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -793,11 +754,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         queryPlan_ = value;
-        onChanged();
       } else {
         queryPlanBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -811,11 +772,11 @@ private static final long serialVersionUID = 0L;
         com.google.spanner.v1.QueryPlan.Builder builderForValue) {
       if (queryPlanBuilder_ == null) {
         queryPlan_ = builderForValue.build();
-        onChanged();
       } else {
         queryPlanBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -827,17 +788,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeQueryPlan(com.google.spanner.v1.QueryPlan value) {
       if (queryPlanBuilder_ == null) {
-        if (queryPlan_ != null) {
-          queryPlan_ =
-            com.google.spanner.v1.QueryPlan.newBuilder(queryPlan_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          queryPlan_ != null &&
+          queryPlan_ != com.google.spanner.v1.QueryPlan.getDefaultInstance()) {
+          getQueryPlanBuilder().mergeFrom(value);
         } else {
           queryPlan_ = value;
         }
-        onChanged();
       } else {
         queryPlanBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -848,14 +810,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.spanner.v1.QueryPlan query_plan = 1;</code>
      */
     public Builder clearQueryPlan() {
-      if (queryPlanBuilder_ == null) {
-        queryPlan_ = null;
-        onChanged();
-      } else {
-        queryPlan_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      queryPlan_ = null;
+      if (queryPlanBuilder_ != null) {
+        queryPlanBuilder_.dispose();
         queryPlanBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -866,7 +827,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.spanner.v1.QueryPlan query_plan = 1;</code>
      */
     public com.google.spanner.v1.QueryPlan.Builder getQueryPlanBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getQueryPlanFieldBuilder().getBuilder();
     }
@@ -925,7 +886,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the queryStats field is set.
      */
     public boolean hasQueryStats() {
-      return queryStatsBuilder_ != null || queryStats_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -969,11 +930,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         queryStats_ = value;
-        onChanged();
       } else {
         queryStatsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -994,11 +955,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct.Builder builderForValue) {
       if (queryStatsBuilder_ == null) {
         queryStats_ = builderForValue.build();
-        onChanged();
       } else {
         queryStatsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1017,17 +978,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeQueryStats(com.google.protobuf.Struct value) {
       if (queryStatsBuilder_ == null) {
-        if (queryStats_ != null) {
-          queryStats_ =
-            com.google.protobuf.Struct.newBuilder(queryStats_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          queryStats_ != null &&
+          queryStats_ != com.google.protobuf.Struct.getDefaultInstance()) {
+          getQueryStatsBuilder().mergeFrom(value);
         } else {
           queryStats_ = value;
         }
-        onChanged();
       } else {
         queryStatsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1045,14 +1007,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct query_stats = 2;</code>
      */
     public Builder clearQueryStats() {
-      if (queryStatsBuilder_ == null) {
-        queryStats_ = null;
-        onChanged();
-      } else {
-        queryStats_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      queryStats_ = null;
+      if (queryStatsBuilder_ != null) {
+        queryStatsBuilder_.dispose();
         queryStatsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1070,7 +1031,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct query_stats = 2;</code>
      */
     public com.google.protobuf.Struct.Builder getQueryStatsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getQueryStatsFieldBuilder().getBuilder();
     }
@@ -1159,6 +1120,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRowCountExact(long value) {
+      
       rowCountCase_ = 3;
       rowCount_ = value;
       onChanged();
@@ -1219,6 +1181,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRowCountLowerBound(long value) {
+      
       rowCountCase_ = 4;
       rowCount_ = value;
       onChanged();
@@ -1274,7 +1237,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ResultSetStats(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -30,7 +30,7 @@ public interface HyperparameterTuningJobOrBuilder extends
   /**
    * <pre>
    * Required. The display name of the HyperparameterTuningJob.
-   * The name can be up to 128 characters long and can be consist of any UTF-8
+   * The name can be up to 128 characters long and can consist of any UTF-8
    * characters.
    * </pre>
    *
@@ -41,7 +41,7 @@ public interface HyperparameterTuningJobOrBuilder extends
   /**
    * <pre>
    * Required. The display name of the HyperparameterTuningJob.
-   * The name can be up to 128 characters long and can be consist of any UTF-8
+   * The name can be up to 128 characters long and can consist of any UTF-8
    * characters.
    * </pre>
    *
@@ -403,7 +403,6 @@ public interface HyperparameterTuningJobOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 16;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -420,7 +419,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 16;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 

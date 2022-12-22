@@ -78,4 +78,25 @@ public interface HeaderValidatorConfigOrBuilder extends
    * @return The restrictHttpMethods.
    */
   boolean getRestrictHttpMethods();
+
+  /**
+   * <pre>
+   * Action to take when a client request with a header name containing underscore characters is received.
+   * If this setting is not specified, the value defaults to ALLOW.
+   * </pre>
+   *
+   * <code>.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction headers_with_underscores_action = 4;</code>
+   * @return The enum numeric value on the wire for headersWithUnderscoresAction.
+   */
+  int getHeadersWithUnderscoresActionValue();
+  /**
+   * <pre>
+   * Action to take when a client request with a header name containing underscore characters is received.
+   * If this setting is not specified, the value defaults to ALLOW.
+   * </pre>
+   *
+   * <code>.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction headers_with_underscores_action = 4;</code>
+   * @return The headersWithUnderscoresAction.
+   */
+  io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction getHeadersWithUnderscoresAction();
 }

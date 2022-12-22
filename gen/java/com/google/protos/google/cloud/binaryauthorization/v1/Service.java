@@ -72,51 +72,6 @@ public final class Service {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GetPolicyRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protos.google.cloud.binaryauthorization.v1.Service.internal_static_google_cloud_binaryauthorization_v1_GetPolicyRequest_descriptor;
@@ -131,7 +86,8 @@ public final class Service {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Required. The resource name of the [policy][google.cloud.binaryauthorization.v1.Policy] to retrieve,
@@ -195,7 +151,7 @@ public final class Service {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -207,7 +163,7 @@ public final class Service {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -224,7 +180,7 @@ public final class Service {
 
       if (!getName()
           .equals(other.getName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -237,7 +193,7 @@ public final class Service {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -358,24 +314,19 @@ public final class Service {
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Service.GetPolicyRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         return this;
       }
 
@@ -402,9 +353,16 @@ public final class Service {
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Service.GetPolicyRequest buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Service.GetPolicyRequest result = new com.google.protos.google.cloud.binaryauthorization.v1.Service.GetPolicyRequest(this);
-        result.name_ = name_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Service.GetPolicyRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
       }
 
       @java.lang.Override
@@ -453,9 +411,10 @@ public final class Service {
         if (other == com.google.protos.google.cloud.binaryauthorization.v1.Service.GetPolicyRequest.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -470,19 +429,38 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Service.GetPolicyRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Service.GetPolicyRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -540,11 +518,9 @@ public final class Service {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -558,8 +534,8 @@ public final class Service {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -575,12 +551,10 @@ public final class Service {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -617,7 +591,18 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetPolicyRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -705,58 +690,6 @@ public final class Service {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private UpdatePolicyRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.Builder subBuilder = null;
-              if (policy_ != null) {
-                subBuilder = policy_.toBuilder();
-              }
-              policy_ = input.readMessage(com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(policy_);
-                policy_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protos.google.cloud.binaryauthorization.v1.Service.internal_static_google_cloud_binaryauthorization_v1_UpdatePolicyRequest_descriptor;
@@ -811,7 +744,7 @@ public final class Service {
      */
     @java.lang.Override
     public com.google.protos.google.cloud.binaryauthorization.v1.Resources.PolicyOrBuilder getPolicyOrBuilder() {
-      return getPolicy();
+      return policy_ == null ? com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.getDefaultInstance() : policy_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -831,7 +764,7 @@ public final class Service {
       if (policy_ != null) {
         output.writeMessage(1, getPolicy());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -844,7 +777,7 @@ public final class Service {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getPolicy());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -864,7 +797,7 @@ public final class Service {
         if (!getPolicy()
             .equals(other.getPolicy())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -879,7 +812,7 @@ public final class Service {
         hash = (37 * hash) + POLICY_FIELD_NUMBER;
         hash = (53 * hash) + getPolicy().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1000,26 +933,21 @@ public final class Service {
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Service.UpdatePolicyRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (policyBuilder_ == null) {
-          policy_ = null;
-        } else {
-          policy_ = null;
+        bitField0_ = 0;
+        policy_ = null;
+        if (policyBuilder_ != null) {
+          policyBuilder_.dispose();
           policyBuilder_ = null;
         }
         return this;
@@ -1048,13 +976,18 @@ public final class Service {
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Service.UpdatePolicyRequest buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Service.UpdatePolicyRequest result = new com.google.protos.google.cloud.binaryauthorization.v1.Service.UpdatePolicyRequest(this);
-        if (policyBuilder_ == null) {
-          result.policy_ = policy_;
-        } else {
-          result.policy_ = policyBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Service.UpdatePolicyRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.policy_ = policyBuilder_ == null
+              ? policy_
+              : policyBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1104,7 +1037,7 @@ public final class Service {
         if (other.hasPolicy()) {
           mergePolicy(other.getPolicy());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1119,19 +1052,40 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Service.UpdatePolicyRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getPolicyFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Service.UpdatePolicyRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy policy_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1147,7 +1101,7 @@ public final class Service {
        * @return Whether the policy field is set.
        */
       public boolean hasPolicy() {
-        return policyBuilder_ != null || policy_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -1181,11 +1135,11 @@ public final class Service {
             throw new NullPointerException();
           }
           policy_ = value;
-          onChanged();
         } else {
           policyBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1201,11 +1155,11 @@ public final class Service {
           com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.Builder builderForValue) {
         if (policyBuilder_ == null) {
           policy_ = builderForValue.build();
-          onChanged();
         } else {
           policyBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1219,17 +1173,18 @@ public final class Service {
        */
       public Builder mergePolicy(com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy value) {
         if (policyBuilder_ == null) {
-          if (policy_ != null) {
-            policy_ =
-              com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.newBuilder(policy_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            policy_ != null &&
+            policy_ != com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.getDefaultInstance()) {
+            getPolicyBuilder().mergeFrom(value);
           } else {
             policy_ = value;
           }
-          onChanged();
         } else {
           policyBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1242,14 +1197,13 @@ public final class Service {
        * <code>.google.cloud.binaryauthorization.v1.Policy policy = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearPolicy() {
-        if (policyBuilder_ == null) {
-          policy_ = null;
-          onChanged();
-        } else {
-          policy_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        policy_ = null;
+        if (policyBuilder_ != null) {
+          policyBuilder_.dispose();
           policyBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1262,7 +1216,7 @@ public final class Service {
        * <code>.google.cloud.binaryauthorization.v1.Policy policy = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.Builder getPolicyBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getPolicyFieldBuilder().getBuilder();
       }
@@ -1338,7 +1292,18 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UpdatePolicyRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1468,70 +1433,6 @@ public final class Service {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CreateAttestorRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              parent_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              attestorId_ = s;
-              break;
-            }
-            case 26: {
-              com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.Builder subBuilder = null;
-              if (attestor_ != null) {
-                subBuilder = attestor_.toBuilder();
-              }
-              attestor_ = input.readMessage(com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(attestor_);
-                attestor_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protos.google.cloud.binaryauthorization.v1.Service.internal_static_google_cloud_binaryauthorization_v1_CreateAttestorRequest_descriptor;
@@ -1546,7 +1447,8 @@ public final class Service {
     }
 
     public static final int PARENT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object parent_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object parent_ = "";
     /**
      * <pre>
      * Required. The parent of this [attestor][google.cloud.binaryauthorization.v1.Attestor].
@@ -1592,7 +1494,8 @@ public final class Service {
     }
 
     public static final int ATTESTOR_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object attestorId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object attestorId_ = "";
     /**
      * <pre>
      * Required. The [attestors][google.cloud.binaryauthorization.v1.Attestor] ID.
@@ -1678,7 +1581,7 @@ public final class Service {
      */
     @java.lang.Override
     public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorOrBuilder getAttestorOrBuilder() {
-      return getAttestor();
+      return attestor_ == null ? com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.getDefaultInstance() : attestor_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1704,7 +1607,7 @@ public final class Service {
       if (attestor_ != null) {
         output.writeMessage(3, getAttestor());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1723,7 +1626,7 @@ public final class Service {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getAttestor());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1747,7 +1650,7 @@ public final class Service {
         if (!getAttestor()
             .equals(other.getAttestor())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1766,7 +1669,7 @@ public final class Service {
         hash = (37 * hash) + ATTESTOR_FIELD_NUMBER;
         hash = (53 * hash) + getAttestor().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1887,30 +1790,23 @@ public final class Service {
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Service.CreateAttestorRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         parent_ = "";
-
         attestorId_ = "";
-
-        if (attestorBuilder_ == null) {
-          attestor_ = null;
-        } else {
-          attestor_ = null;
+        attestor_ = null;
+        if (attestorBuilder_ != null) {
+          attestorBuilder_.dispose();
           attestorBuilder_ = null;
         }
         return this;
@@ -1939,15 +1835,24 @@ public final class Service {
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Service.CreateAttestorRequest buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Service.CreateAttestorRequest result = new com.google.protos.google.cloud.binaryauthorization.v1.Service.CreateAttestorRequest(this);
-        result.parent_ = parent_;
-        result.attestorId_ = attestorId_;
-        if (attestorBuilder_ == null) {
-          result.attestor_ = attestor_;
-        } else {
-          result.attestor_ = attestorBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Service.CreateAttestorRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.parent_ = parent_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.attestorId_ = attestorId_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.attestor_ = attestorBuilder_ == null
+              ? attestor_
+              : attestorBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1996,16 +1901,18 @@ public final class Service {
         if (other == com.google.protos.google.cloud.binaryauthorization.v1.Service.CreateAttestorRequest.getDefaultInstance()) return this;
         if (!other.getParent().isEmpty()) {
           parent_ = other.parent_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getAttestorId().isEmpty()) {
           attestorId_ = other.attestorId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasAttestor()) {
           mergeAttestor(other.getAttestor());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2020,19 +1927,50 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Service.CreateAttestorRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                parent_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                attestorId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getAttestorFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Service.CreateAttestorRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object parent_ = "";
       /**
@@ -2087,11 +2025,9 @@ public final class Service {
        */
       public Builder setParent(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         parent_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2104,8 +2040,8 @@ public final class Service {
        * @return This builder for chaining.
        */
       public Builder clearParent() {
-        
         parent_ = getDefaultInstance().getParent();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2120,12 +2056,10 @@ public final class Service {
        */
       public Builder setParentBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         parent_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2183,11 +2117,9 @@ public final class Service {
        */
       public Builder setAttestorId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         attestorId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2200,8 +2132,8 @@ public final class Service {
        * @return This builder for chaining.
        */
       public Builder clearAttestorId() {
-        
         attestorId_ = getDefaultInstance().getAttestorId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2216,12 +2148,10 @@ public final class Service {
        */
       public Builder setAttestorIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         attestorId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2240,7 +2170,7 @@ public final class Service {
        * @return Whether the attestor field is set.
        */
       public boolean hasAttestor() {
-        return attestorBuilder_ != null || attestor_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -2274,11 +2204,11 @@ public final class Service {
             throw new NullPointerException();
           }
           attestor_ = value;
-          onChanged();
         } else {
           attestorBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2294,11 +2224,11 @@ public final class Service {
           com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.Builder builderForValue) {
         if (attestorBuilder_ == null) {
           attestor_ = builderForValue.build();
-          onChanged();
         } else {
           attestorBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2312,17 +2242,18 @@ public final class Service {
        */
       public Builder mergeAttestor(com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor value) {
         if (attestorBuilder_ == null) {
-          if (attestor_ != null) {
-            attestor_ =
-              com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.newBuilder(attestor_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            attestor_ != null &&
+            attestor_ != com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.getDefaultInstance()) {
+            getAttestorBuilder().mergeFrom(value);
           } else {
             attestor_ = value;
           }
-          onChanged();
         } else {
           attestorBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2335,14 +2266,13 @@ public final class Service {
        * <code>.google.cloud.binaryauthorization.v1.Attestor attestor = 3 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearAttestor() {
-        if (attestorBuilder_ == null) {
-          attestor_ = null;
-          onChanged();
-        } else {
-          attestor_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        attestor_ = null;
+        if (attestorBuilder_ != null) {
+          attestorBuilder_.dispose();
           attestorBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2355,7 +2285,7 @@ public final class Service {
        * <code>.google.cloud.binaryauthorization.v1.Attestor attestor = 3 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.Builder getAttestorBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getAttestorFieldBuilder().getBuilder();
       }
@@ -2431,7 +2361,18 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CreateAttestorRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2509,51 +2450,6 @@ public final class Service {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GetAttestorRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protos.google.cloud.binaryauthorization.v1.Service.internal_static_google_cloud_binaryauthorization_v1_GetAttestorRequest_descriptor;
@@ -2568,7 +2464,8 @@ public final class Service {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Required. The name of the [attestor][google.cloud.binaryauthorization.v1.Attestor] to retrieve, in the format
@@ -2632,7 +2529,7 @@ public final class Service {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2644,7 +2541,7 @@ public final class Service {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2661,7 +2558,7 @@ public final class Service {
 
       if (!getName()
           .equals(other.getName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2674,7 +2571,7 @@ public final class Service {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2795,24 +2692,19 @@ public final class Service {
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Service.GetAttestorRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         return this;
       }
 
@@ -2839,9 +2731,16 @@ public final class Service {
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Service.GetAttestorRequest buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Service.GetAttestorRequest result = new com.google.protos.google.cloud.binaryauthorization.v1.Service.GetAttestorRequest(this);
-        result.name_ = name_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Service.GetAttestorRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
       }
 
       @java.lang.Override
@@ -2890,9 +2789,10 @@ public final class Service {
         if (other == com.google.protos.google.cloud.binaryauthorization.v1.Service.GetAttestorRequest.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2907,19 +2807,38 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Service.GetAttestorRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Service.GetAttestorRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -2977,11 +2896,9 @@ public final class Service {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2995,8 +2912,8 @@ public final class Service {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3012,12 +2929,10 @@ public final class Service {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3054,7 +2969,18 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetAttestorRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3142,58 +3068,6 @@ public final class Service {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private UpdateAttestorRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.Builder subBuilder = null;
-              if (attestor_ != null) {
-                subBuilder = attestor_.toBuilder();
-              }
-              attestor_ = input.readMessage(com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(attestor_);
-                attestor_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protos.google.cloud.binaryauthorization.v1.Service.internal_static_google_cloud_binaryauthorization_v1_UpdateAttestorRequest_descriptor;
@@ -3248,7 +3122,7 @@ public final class Service {
      */
     @java.lang.Override
     public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorOrBuilder getAttestorOrBuilder() {
-      return getAttestor();
+      return attestor_ == null ? com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.getDefaultInstance() : attestor_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3268,7 +3142,7 @@ public final class Service {
       if (attestor_ != null) {
         output.writeMessage(1, getAttestor());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3281,7 +3155,7 @@ public final class Service {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getAttestor());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3301,7 +3175,7 @@ public final class Service {
         if (!getAttestor()
             .equals(other.getAttestor())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3316,7 +3190,7 @@ public final class Service {
         hash = (37 * hash) + ATTESTOR_FIELD_NUMBER;
         hash = (53 * hash) + getAttestor().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3437,26 +3311,21 @@ public final class Service {
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Service.UpdateAttestorRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (attestorBuilder_ == null) {
-          attestor_ = null;
-        } else {
-          attestor_ = null;
+        bitField0_ = 0;
+        attestor_ = null;
+        if (attestorBuilder_ != null) {
+          attestorBuilder_.dispose();
           attestorBuilder_ = null;
         }
         return this;
@@ -3485,13 +3354,18 @@ public final class Service {
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Service.UpdateAttestorRequest buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Service.UpdateAttestorRequest result = new com.google.protos.google.cloud.binaryauthorization.v1.Service.UpdateAttestorRequest(this);
-        if (attestorBuilder_ == null) {
-          result.attestor_ = attestor_;
-        } else {
-          result.attestor_ = attestorBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Service.UpdateAttestorRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.attestor_ = attestorBuilder_ == null
+              ? attestor_
+              : attestorBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3541,7 +3415,7 @@ public final class Service {
         if (other.hasAttestor()) {
           mergeAttestor(other.getAttestor());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3556,19 +3430,40 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Service.UpdateAttestorRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getAttestorFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Service.UpdateAttestorRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor attestor_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -3584,7 +3479,7 @@ public final class Service {
        * @return Whether the attestor field is set.
        */
       public boolean hasAttestor() {
-        return attestorBuilder_ != null || attestor_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -3618,11 +3513,11 @@ public final class Service {
             throw new NullPointerException();
           }
           attestor_ = value;
-          onChanged();
         } else {
           attestorBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3638,11 +3533,11 @@ public final class Service {
           com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.Builder builderForValue) {
         if (attestorBuilder_ == null) {
           attestor_ = builderForValue.build();
-          onChanged();
         } else {
           attestorBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3656,17 +3551,18 @@ public final class Service {
        */
       public Builder mergeAttestor(com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor value) {
         if (attestorBuilder_ == null) {
-          if (attestor_ != null) {
-            attestor_ =
-              com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.newBuilder(attestor_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            attestor_ != null &&
+            attestor_ != com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.getDefaultInstance()) {
+            getAttestorBuilder().mergeFrom(value);
           } else {
             attestor_ = value;
           }
-          onChanged();
         } else {
           attestorBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3679,14 +3575,13 @@ public final class Service {
        * <code>.google.cloud.binaryauthorization.v1.Attestor attestor = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearAttestor() {
-        if (attestorBuilder_ == null) {
-          attestor_ = null;
-          onChanged();
-        } else {
-          attestor_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        attestor_ = null;
+        if (attestorBuilder_ != null) {
+          attestorBuilder_.dispose();
           attestorBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3699,7 +3594,7 @@ public final class Service {
        * <code>.google.cloud.binaryauthorization.v1.Attestor attestor = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.Builder getAttestorBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getAttestorFieldBuilder().getBuilder();
       }
@@ -3775,7 +3670,18 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UpdateAttestorRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3889,62 +3795,6 @@ public final class Service {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ListAttestorsRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              parent_ = s;
-              break;
-            }
-            case 16: {
-
-              pageSize_ = input.readInt32();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              pageToken_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protos.google.cloud.binaryauthorization.v1.Service.internal_static_google_cloud_binaryauthorization_v1_ListAttestorsRequest_descriptor;
@@ -3959,7 +3809,8 @@ public final class Service {
     }
 
     public static final int PARENT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object parent_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object parent_ = "";
     /**
      * <pre>
      * Required. The resource name of the project associated with the
@@ -4007,7 +3858,7 @@ public final class Service {
     }
 
     public static final int PAGE_SIZE_FIELD_NUMBER = 2;
-    private int pageSize_;
+    private int pageSize_ = 0;
     /**
      * <pre>
      * Requested page size. The server may return fewer results than requested. If
@@ -4023,7 +3874,8 @@ public final class Service {
     }
 
     public static final int PAGE_TOKEN_FIELD_NUMBER = 3;
-    private volatile java.lang.Object pageToken_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object pageToken_ = "";
     /**
      * <pre>
      * A token identifying a page of results the server should return. Typically,
@@ -4095,7 +3947,7 @@ public final class Service {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, pageToken_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4114,7 +3966,7 @@ public final class Service {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, pageToken_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4135,7 +3987,7 @@ public final class Service {
           != other.getPageSize()) return false;
       if (!getPageToken()
           .equals(other.getPageToken())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4152,7 +4004,7 @@ public final class Service {
       hash = (53 * hash) + getPageSize();
       hash = (37 * hash) + PAGE_TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getPageToken().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4273,28 +4125,21 @@ public final class Service {
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Service.ListAttestorsRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         parent_ = "";
-
         pageSize_ = 0;
-
         pageToken_ = "";
-
         return this;
       }
 
@@ -4321,11 +4166,22 @@ public final class Service {
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Service.ListAttestorsRequest buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Service.ListAttestorsRequest result = new com.google.protos.google.cloud.binaryauthorization.v1.Service.ListAttestorsRequest(this);
-        result.parent_ = parent_;
-        result.pageSize_ = pageSize_;
-        result.pageToken_ = pageToken_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Service.ListAttestorsRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.parent_ = parent_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.pageSize_ = pageSize_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.pageToken_ = pageToken_;
+        }
       }
 
       @java.lang.Override
@@ -4374,6 +4230,7 @@ public final class Service {
         if (other == com.google.protos.google.cloud.binaryauthorization.v1.Service.ListAttestorsRequest.getDefaultInstance()) return this;
         if (!other.getParent().isEmpty()) {
           parent_ = other.parent_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getPageSize() != 0) {
@@ -4381,9 +4238,10 @@ public final class Service {
         }
         if (!other.getPageToken().isEmpty()) {
           pageToken_ = other.pageToken_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4398,19 +4256,48 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Service.ListAttestorsRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                parent_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                pageSize_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                pageToken_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Service.ListAttestorsRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object parent_ = "";
       /**
@@ -4468,11 +4355,9 @@ public final class Service {
        */
       public Builder setParent(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         parent_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4486,8 +4371,8 @@ public final class Service {
        * @return This builder for chaining.
        */
       public Builder clearParent() {
-        
         parent_ = getDefaultInstance().getParent();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4503,12 +4388,10 @@ public final class Service {
        */
       public Builder setParentBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         parent_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4540,6 +4423,7 @@ public final class Service {
       public Builder setPageSize(int value) {
         
         pageSize_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4553,7 +4437,7 @@ public final class Service {
        * @return This builder for chaining.
        */
       public Builder clearPageSize() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         pageSize_ = 0;
         onChanged();
         return this;
@@ -4618,11 +4502,9 @@ public final class Service {
        */
       public Builder setPageToken(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         pageToken_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -4637,8 +4519,8 @@ public final class Service {
        * @return This builder for chaining.
        */
       public Builder clearPageToken() {
-        
         pageToken_ = getDefaultInstance().getPageToken();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -4655,12 +4537,10 @@ public final class Service {
        */
       public Builder setPageTokenBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         pageToken_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -4697,7 +4577,18 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ListAttestorsRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4822,64 +4713,6 @@ public final class Service {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ListAttestorsResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                attestors_ = new java.util.ArrayList<com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              attestors_.add(
-                  input.readMessage(com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.parser(), extensionRegistry));
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              nextPageToken_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          attestors_ = java.util.Collections.unmodifiableList(attestors_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protos.google.cloud.binaryauthorization.v1.Service.internal_static_google_cloud_binaryauthorization_v1_ListAttestorsResponse_descriptor;
@@ -4894,6 +4727,7 @@ public final class Service {
     }
 
     public static final int ATTESTORS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor> attestors_;
     /**
      * <pre>
@@ -4954,7 +4788,8 @@ public final class Service {
     }
 
     public static final int NEXT_PAGE_TOKEN_FIELD_NUMBER = 2;
-    private volatile java.lang.Object nextPageToken_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object nextPageToken_ = "";
     /**
      * <pre>
      * A token to retrieve the next page of results. Pass this value in the
@@ -5023,7 +4858,7 @@ public final class Service {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nextPageToken_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5039,7 +4874,7 @@ public final class Service {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nextPageToken_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5058,7 +4893,7 @@ public final class Service {
           .equals(other.getAttestorsList())) return false;
       if (!getNextPageToken()
           .equals(other.getNextPageToken())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5075,7 +4910,7 @@ public final class Service {
       }
       hash = (37 * hash) + NEXT_PAGE_TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getNextPageToken().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5196,31 +5031,26 @@ public final class Service {
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Service.ListAttestorsResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getAttestorsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (attestorsBuilder_ == null) {
           attestors_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          attestors_ = null;
           attestorsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         nextPageToken_ = "";
-
         return this;
       }
 
@@ -5247,7 +5077,13 @@ public final class Service {
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Service.ListAttestorsResponse buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Service.ListAttestorsResponse result = new com.google.protos.google.cloud.binaryauthorization.v1.Service.ListAttestorsResponse(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.protos.google.cloud.binaryauthorization.v1.Service.ListAttestorsResponse result) {
         if (attestorsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             attestors_ = java.util.Collections.unmodifiableList(attestors_);
@@ -5257,9 +5093,13 @@ public final class Service {
         } else {
           result.attestors_ = attestorsBuilder_.build();
         }
-        result.nextPageToken_ = nextPageToken_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Service.ListAttestorsResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.nextPageToken_ = nextPageToken_;
+        }
       }
 
       @java.lang.Override
@@ -5334,9 +5174,10 @@ public final class Service {
         }
         if (!other.getNextPageToken().isEmpty()) {
           nextPageToken_ = other.nextPageToken_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5351,17 +5192,48 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Service.ListAttestorsResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor m =
+                    input.readMessage(
+                        com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.parser(),
+                        extensionRegistry);
+                if (attestorsBuilder_ == null) {
+                  ensureAttestorsIsMutable();
+                  attestors_.add(m);
+                } else {
+                  attestorsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                nextPageToken_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Service.ListAttestorsResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -5737,11 +5609,9 @@ public final class Service {
        */
       public Builder setNextPageToken(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         nextPageToken_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5756,8 +5626,8 @@ public final class Service {
        * @return This builder for chaining.
        */
       public Builder clearNextPageToken() {
-        
         nextPageToken_ = getDefaultInstance().getNextPageToken();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -5774,12 +5644,10 @@ public final class Service {
        */
       public Builder setNextPageTokenBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         nextPageToken_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5816,7 +5684,18 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ListAttestorsResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5894,51 +5773,6 @@ public final class Service {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DeleteAttestorRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protos.google.cloud.binaryauthorization.v1.Service.internal_static_google_cloud_binaryauthorization_v1_DeleteAttestorRequest_descriptor;
@@ -5953,7 +5787,8 @@ public final class Service {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Required. The name of the [attestors][google.cloud.binaryauthorization.v1.Attestor] to delete, in the format
@@ -6017,7 +5852,7 @@ public final class Service {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6029,7 +5864,7 @@ public final class Service {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6046,7 +5881,7 @@ public final class Service {
 
       if (!getName()
           .equals(other.getName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6059,7 +5894,7 @@ public final class Service {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6180,24 +6015,19 @@ public final class Service {
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Service.DeleteAttestorRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         return this;
       }
 
@@ -6224,9 +6054,16 @@ public final class Service {
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Service.DeleteAttestorRequest buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Service.DeleteAttestorRequest result = new com.google.protos.google.cloud.binaryauthorization.v1.Service.DeleteAttestorRequest(this);
-        result.name_ = name_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Service.DeleteAttestorRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
       }
 
       @java.lang.Override
@@ -6275,9 +6112,10 @@ public final class Service {
         if (other == com.google.protos.google.cloud.binaryauthorization.v1.Service.DeleteAttestorRequest.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6292,19 +6130,38 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Service.DeleteAttestorRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Service.DeleteAttestorRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -6362,11 +6219,9 @@ public final class Service {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6380,8 +6235,8 @@ public final class Service {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -6397,12 +6252,10 @@ public final class Service {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6439,7 +6292,18 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DeleteAttestorRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6517,51 +6381,6 @@ public final class Service {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GetSystemPolicyRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protos.google.cloud.binaryauthorization.v1.Service.internal_static_google_cloud_binaryauthorization_v1_GetSystemPolicyRequest_descriptor;
@@ -6576,7 +6395,8 @@ public final class Service {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Required. The resource name, in the format `locations/&#42;&#47;policy`.
@@ -6640,7 +6460,7 @@ public final class Service {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6652,7 +6472,7 @@ public final class Service {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6669,7 +6489,7 @@ public final class Service {
 
       if (!getName()
           .equals(other.getName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6682,7 +6502,7 @@ public final class Service {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6803,24 +6623,19 @@ public final class Service {
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Service.GetSystemPolicyRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         return this;
       }
 
@@ -6847,9 +6662,16 @@ public final class Service {
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Service.GetSystemPolicyRequest buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Service.GetSystemPolicyRequest result = new com.google.protos.google.cloud.binaryauthorization.v1.Service.GetSystemPolicyRequest(this);
-        result.name_ = name_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Service.GetSystemPolicyRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
       }
 
       @java.lang.Override
@@ -6898,9 +6720,10 @@ public final class Service {
         if (other == com.google.protos.google.cloud.binaryauthorization.v1.Service.GetSystemPolicyRequest.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6915,19 +6738,38 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Service.GetSystemPolicyRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Service.GetSystemPolicyRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -6985,11 +6827,9 @@ public final class Service {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7003,8 +6843,8 @@ public final class Service {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -7020,12 +6860,10 @@ public final class Service {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7062,7 +6900,18 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetSystemPolicyRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7225,76 +7074,6 @@ public final class Service {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ValidateAttestationOccurrenceRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              attestor_ = s;
-              break;
-            }
-            case 18: {
-              io.grafeas.v1.AttestationOccurrence.Builder subBuilder = null;
-              if (attestation_ != null) {
-                subBuilder = attestation_.toBuilder();
-              }
-              attestation_ = input.readMessage(io.grafeas.v1.AttestationOccurrence.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(attestation_);
-                attestation_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              occurrenceNote_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              occurrenceResourceUri_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protos.google.cloud.binaryauthorization.v1.Service.internal_static_google_cloud_binaryauthorization_v1_ValidateAttestationOccurrenceRequest_descriptor;
@@ -7309,7 +7088,8 @@ public final class Service {
     }
 
     public static final int ATTESTOR_FIELD_NUMBER = 1;
-    private volatile java.lang.Object attestor_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object attestor_ = "";
     /**
      * <pre>
      * Required. The resource name of the [Attestor][google.cloud.binaryauthorization.v1.Attestor] of the
@@ -7402,11 +7182,12 @@ public final class Service {
      */
     @java.lang.Override
     public io.grafeas.v1.AttestationOccurrenceOrBuilder getAttestationOrBuilder() {
-      return getAttestation();
+      return attestation_ == null ? io.grafeas.v1.AttestationOccurrence.getDefaultInstance() : attestation_;
     }
 
     public static final int OCCURRENCE_NOTE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object occurrenceNote_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object occurrenceNote_ = "";
     /**
      * <pre>
      * Required. The resource name of the [Note][grafeas.v1.Note] to which the
@@ -7454,7 +7235,8 @@ public final class Service {
     }
 
     public static final int OCCURRENCE_RESOURCE_URI_FIELD_NUMBER = 4;
-    private volatile java.lang.Object occurrenceResourceUri_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object occurrenceResourceUri_ = "";
     /**
      * <pre>
      * Required. The URI of the artifact (e.g. container image) that is the
@@ -7527,7 +7309,7 @@ public final class Service {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(occurrenceResourceUri_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, occurrenceResourceUri_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -7549,7 +7331,7 @@ public final class Service {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(occurrenceResourceUri_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, occurrenceResourceUri_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7575,7 +7357,7 @@ public final class Service {
           .equals(other.getOccurrenceNote())) return false;
       if (!getOccurrenceResourceUri()
           .equals(other.getOccurrenceResourceUri())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -7596,7 +7378,7 @@ public final class Service {
       hash = (53 * hash) + getOccurrenceNote().hashCode();
       hash = (37 * hash) + OCCURRENCE_RESOURCE_URI_FIELD_NUMBER;
       hash = (53 * hash) + getOccurrenceResourceUri().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7718,34 +7500,26 @@ public final class Service {
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         attestor_ = "";
-
-        if (attestationBuilder_ == null) {
-          attestation_ = null;
-        } else {
-          attestation_ = null;
+        attestation_ = null;
+        if (attestationBuilder_ != null) {
+          attestationBuilder_.dispose();
           attestationBuilder_ = null;
         }
         occurrenceNote_ = "";
-
         occurrenceResourceUri_ = "";
-
         return this;
       }
 
@@ -7772,16 +7546,27 @@ public final class Service {
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceRequest buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceRequest result = new com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceRequest(this);
-        result.attestor_ = attestor_;
-        if (attestationBuilder_ == null) {
-          result.attestation_ = attestation_;
-        } else {
-          result.attestation_ = attestationBuilder_.build();
-        }
-        result.occurrenceNote_ = occurrenceNote_;
-        result.occurrenceResourceUri_ = occurrenceResourceUri_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.attestor_ = attestor_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.attestation_ = attestationBuilder_ == null
+              ? attestation_
+              : attestationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.occurrenceNote_ = occurrenceNote_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.occurrenceResourceUri_ = occurrenceResourceUri_;
+        }
       }
 
       @java.lang.Override
@@ -7830,6 +7615,7 @@ public final class Service {
         if (other == com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceRequest.getDefaultInstance()) return this;
         if (!other.getAttestor().isEmpty()) {
           attestor_ = other.attestor_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasAttestation()) {
@@ -7837,13 +7623,15 @@ public final class Service {
         }
         if (!other.getOccurrenceNote().isEmpty()) {
           occurrenceNote_ = other.occurrenceNote_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getOccurrenceResourceUri().isEmpty()) {
           occurrenceResourceUri_ = other.occurrenceResourceUri_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -7858,19 +7646,55 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                attestor_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getAttestationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                occurrenceNote_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                occurrenceResourceUri_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object attestor_ = "";
       /**
@@ -7931,11 +7755,9 @@ public final class Service {
        */
       public Builder setAttestor(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         attestor_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7950,8 +7772,8 @@ public final class Service {
        * @return This builder for chaining.
        */
       public Builder clearAttestor() {
-        
         attestor_ = getDefaultInstance().getAttestor();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -7968,12 +7790,10 @@ public final class Service {
        */
       public Builder setAttestorBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         attestor_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7993,7 +7813,7 @@ public final class Service {
        * @return Whether the attestation field is set.
        */
       public boolean hasAttestation() {
-        return attestationBuilder_ != null || attestation_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -8029,11 +7849,11 @@ public final class Service {
             throw new NullPointerException();
           }
           attestation_ = value;
-          onChanged();
         } else {
           attestationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -8050,11 +7870,11 @@ public final class Service {
           io.grafeas.v1.AttestationOccurrence.Builder builderForValue) {
         if (attestationBuilder_ == null) {
           attestation_ = builderForValue.build();
-          onChanged();
         } else {
           attestationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -8069,17 +7889,18 @@ public final class Service {
        */
       public Builder mergeAttestation(io.grafeas.v1.AttestationOccurrence value) {
         if (attestationBuilder_ == null) {
-          if (attestation_ != null) {
-            attestation_ =
-              io.grafeas.v1.AttestationOccurrence.newBuilder(attestation_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            attestation_ != null &&
+            attestation_ != io.grafeas.v1.AttestationOccurrence.getDefaultInstance()) {
+            getAttestationBuilder().mergeFrom(value);
           } else {
             attestation_ = value;
           }
-          onChanged();
         } else {
           attestationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -8093,14 +7914,13 @@ public final class Service {
        * <code>.grafeas.v1.AttestationOccurrence attestation = 2 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearAttestation() {
-        if (attestationBuilder_ == null) {
-          attestation_ = null;
-          onChanged();
-        } else {
-          attestation_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        attestation_ = null;
+        if (attestationBuilder_ != null) {
+          attestationBuilder_.dispose();
           attestationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -8114,7 +7934,7 @@ public final class Service {
        * <code>.grafeas.v1.AttestationOccurrence attestation = 2 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public io.grafeas.v1.AttestationOccurrence.Builder getAttestationBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getAttestationFieldBuilder().getBuilder();
       }
@@ -8216,11 +8036,9 @@ public final class Service {
        */
       public Builder setOccurrenceNote(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         occurrenceNote_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -8234,8 +8052,8 @@ public final class Service {
        * @return This builder for chaining.
        */
       public Builder clearOccurrenceNote() {
-        
         occurrenceNote_ = getDefaultInstance().getOccurrenceNote();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -8251,12 +8069,10 @@ public final class Service {
        */
       public Builder setOccurrenceNoteBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         occurrenceNote_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -8317,11 +8133,9 @@ public final class Service {
        */
       public Builder setOccurrenceResourceUri(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         occurrenceResourceUri_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -8335,8 +8149,8 @@ public final class Service {
        * @return This builder for chaining.
        */
       public Builder clearOccurrenceResourceUri() {
-        
         occurrenceResourceUri_ = getDefaultInstance().getOccurrenceResourceUri();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -8352,12 +8166,10 @@ public final class Service {
        */
       public Builder setOccurrenceResourceUriBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         occurrenceResourceUri_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -8394,7 +8206,18 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ValidateAttestationOccurrenceRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -8490,57 +8313,6 @@ public final class Service {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ValidateAttestationOccurrenceResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              result_ = rawValue;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              denialReason_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -8701,7 +8473,7 @@ public final class Service {
     }
 
     public static final int RESULT_FIELD_NUMBER = 1;
-    private int result_;
+    private int result_ = 0;
     /**
      * <pre>
      * The result of the Attestation validation.
@@ -8722,13 +8494,13 @@ public final class Service {
      * @return The result.
      */
     @java.lang.Override public com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse.Result getResult() {
-      @SuppressWarnings("deprecation")
-      com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse.Result result = com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse.Result.valueOf(result_);
+      com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse.Result result = com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse.Result.forNumber(result_);
       return result == null ? com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse.Result.UNRECOGNIZED : result;
     }
 
     public static final int DENIAL_REASON_FIELD_NUMBER = 2;
-    private volatile java.lang.Object denialReason_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object denialReason_ = "";
     /**
      * <pre>
      * The reason for denial if the Attestation couldn't be validated.
@@ -8793,7 +8565,7 @@ public final class Service {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(denialReason_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, denialReason_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -8809,7 +8581,7 @@ public final class Service {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(denialReason_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, denialReason_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8827,7 +8599,7 @@ public final class Service {
       if (result_ != other.result_) return false;
       if (!getDenialReason()
           .equals(other.getDenialReason())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -8842,7 +8614,7 @@ public final class Service {
       hash = (53 * hash) + result_;
       hash = (37 * hash) + DENIAL_REASON_FIELD_NUMBER;
       hash = (53 * hash) + getDenialReason().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8964,26 +8736,20 @@ public final class Service {
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         result_ = 0;
-
         denialReason_ = "";
-
         return this;
       }
 
@@ -9010,10 +8776,19 @@ public final class Service {
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse result = new com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse(this);
-        result.result_ = result_;
-        result.denialReason_ = denialReason_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.result_ = result_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.denialReason_ = denialReason_;
+        }
       }
 
       @java.lang.Override
@@ -9065,9 +8840,10 @@ public final class Service {
         }
         if (!other.getDenialReason().isEmpty()) {
           denialReason_ = other.denialReason_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9082,19 +8858,43 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                result_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                denialReason_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int result_ = 0;
       /**
@@ -9118,8 +8918,8 @@ public final class Service {
        * @return This builder for chaining.
        */
       public Builder setResultValue(int value) {
-        
         result_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9133,8 +8933,7 @@ public final class Service {
        */
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse.Result getResult() {
-        @SuppressWarnings("deprecation")
-        com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse.Result result = com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse.Result.valueOf(result_);
+        com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse.Result result = com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse.Result.forNumber(result_);
         return result == null ? com.google.protos.google.cloud.binaryauthorization.v1.Service.ValidateAttestationOccurrenceResponse.Result.UNRECOGNIZED : result;
       }
       /**
@@ -9150,7 +8949,7 @@ public final class Service {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         result_ = value.getNumber();
         onChanged();
         return this;
@@ -9164,7 +8963,7 @@ public final class Service {
        * @return This builder for chaining.
        */
       public Builder clearResult() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         result_ = 0;
         onChanged();
         return this;
@@ -9223,11 +9022,9 @@ public final class Service {
        */
       public Builder setDenialReason(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         denialReason_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -9240,8 +9037,8 @@ public final class Service {
        * @return This builder for chaining.
        */
       public Builder clearDenialReason() {
-        
         denialReason_ = getDefaultInstance().getDenialReason();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -9256,12 +9053,10 @@ public final class Service {
        */
       public Builder setDenialReasonBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         denialReason_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -9298,7 +9093,18 @@ public final class Service {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ValidateAttestationOccurrenceResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

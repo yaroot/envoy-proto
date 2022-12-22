@@ -40,71 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private JobMetrics(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (metricTime_ != null) {
-              subBuilder = metricTime_.toBuilder();
-            }
-            metricTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(metricTime_);
-              metricTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              metrics_ = new java.util.ArrayList<com.google.dataflow.v1beta3.MetricUpdate>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            metrics_.add(
-                input.readMessage(com.google.dataflow.v1beta3.MetricUpdate.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        metrics_ = java.util.Collections.unmodifiableList(metrics_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.dataflow.v1beta3.MetricsProto.internal_static_google_dataflow_v1beta3_JobMetrics_descriptor;
@@ -153,10 +88,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getMetricTimeOrBuilder() {
-    return getMetricTime();
+    return metricTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : metricTime_;
   }
 
   public static final int METRICS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.dataflow.v1beta3.MetricUpdate> metrics_;
   /**
    * <pre>
@@ -236,7 +172,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < metrics_.size(); i++) {
       output.writeMessage(2, metrics_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -253,7 +189,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, metrics_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -275,7 +211,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getMetricsList()
         .equals(other.getMetricsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -294,7 +230,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + METRICS_FIELD_NUMBER;
       hash = (53 * hash) + getMetricsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -420,35 +356,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.dataflow.v1beta3.JobMetrics.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMetricsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (metricTimeBuilder_ == null) {
-        metricTime_ = null;
-      } else {
-        metricTime_ = null;
+      bitField0_ = 0;
+      metricTime_ = null;
+      if (metricTimeBuilder_ != null) {
+        metricTimeBuilder_.dispose();
         metricTimeBuilder_ = null;
       }
       if (metricsBuilder_ == null) {
         metrics_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        metrics_ = null;
         metricsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -475,23 +406,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.dataflow.v1beta3.JobMetrics buildPartial() {
       com.google.dataflow.v1beta3.JobMetrics result = new com.google.dataflow.v1beta3.JobMetrics(this);
-      int from_bitField0_ = bitField0_;
-      if (metricTimeBuilder_ == null) {
-        result.metricTime_ = metricTime_;
-      } else {
-        result.metricTime_ = metricTimeBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.dataflow.v1beta3.JobMetrics result) {
       if (metricsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           metrics_ = java.util.Collections.unmodifiableList(metrics_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.metrics_ = metrics_;
       } else {
         result.metrics_ = metricsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.dataflow.v1beta3.JobMetrics result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.metricTime_ = metricTimeBuilder_ == null
+            ? metricTime_
+            : metricTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -545,7 +484,7 @@ private static final long serialVersionUID = 0L;
         if (!other.metrics_.isEmpty()) {
           if (metrics_.isEmpty()) {
             metrics_ = other.metrics_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureMetricsIsMutable();
             metrics_.addAll(other.metrics_);
@@ -558,7 +497,7 @@ private static final long serialVersionUID = 0L;
             metricsBuilder_.dispose();
             metricsBuilder_ = null;
             metrics_ = other.metrics_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             metricsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMetricsFieldBuilder() : null;
@@ -567,7 +506,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -582,17 +521,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.dataflow.v1beta3.JobMetrics parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMetricTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.dataflow.v1beta3.MetricUpdate m =
+                  input.readMessage(
+                      com.google.dataflow.v1beta3.MetricUpdate.parser(),
+                      extensionRegistry);
+              if (metricsBuilder_ == null) {
+                ensureMetricsIsMutable();
+                metrics_.add(m);
+              } else {
+                metricsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.dataflow.v1beta3.JobMetrics) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -609,7 +581,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the metricTime field is set.
      */
     public boolean hasMetricTime() {
-      return metricTimeBuilder_ != null || metricTime_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -639,11 +611,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         metricTime_ = value;
-        onChanged();
       } else {
         metricTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -657,11 +629,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (metricTimeBuilder_ == null) {
         metricTime_ = builderForValue.build();
-        onChanged();
       } else {
         metricTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -673,17 +645,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMetricTime(com.google.protobuf.Timestamp value) {
       if (metricTimeBuilder_ == null) {
-        if (metricTime_ != null) {
-          metricTime_ =
-            com.google.protobuf.Timestamp.newBuilder(metricTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          metricTime_ != null &&
+          metricTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getMetricTimeBuilder().mergeFrom(value);
         } else {
           metricTime_ = value;
         }
-        onChanged();
       } else {
         metricTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -694,14 +667,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp metric_time = 1;</code>
      */
     public Builder clearMetricTime() {
-      if (metricTimeBuilder_ == null) {
-        metricTime_ = null;
-        onChanged();
-      } else {
-        metricTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      metricTime_ = null;
+      if (metricTimeBuilder_ != null) {
+        metricTimeBuilder_.dispose();
         metricTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -712,7 +684,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp metric_time = 1;</code>
      */
     public com.google.protobuf.Timestamp.Builder getMetricTimeBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMetricTimeFieldBuilder().getBuilder();
     }
@@ -755,9 +727,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.dataflow.v1beta3.MetricUpdate> metrics_ =
       java.util.Collections.emptyList();
     private void ensureMetricsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         metrics_ = new java.util.ArrayList<com.google.dataflow.v1beta3.MetricUpdate>(metrics_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -951,7 +923,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMetrics() {
       if (metricsBuilder_ == null) {
         metrics_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         metricsBuilder_.clear();
@@ -1056,7 +1028,7 @@ private static final long serialVersionUID = 0L;
         metricsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.dataflow.v1beta3.MetricUpdate, com.google.dataflow.v1beta3.MetricUpdate.Builder, com.google.dataflow.v1beta3.MetricUpdateOrBuilder>(
                 metrics_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         metrics_ = null;
@@ -1096,7 +1068,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new JobMetrics(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

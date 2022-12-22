@@ -37,95 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private IosDeviceCatalog(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              models_ = new java.util.ArrayList<com.google.devtools.testing.v1.IosModel>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            models_.add(
-                input.readMessage(com.google.devtools.testing.v1.IosModel.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              versions_ = new java.util.ArrayList<com.google.devtools.testing.v1.IosVersion>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            versions_.add(
-                input.readMessage(com.google.devtools.testing.v1.IosVersion.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            com.google.devtools.testing.v1.IosRuntimeConfiguration.Builder subBuilder = null;
-            if (runtimeConfiguration_ != null) {
-              subBuilder = runtimeConfiguration_.toBuilder();
-            }
-            runtimeConfiguration_ = input.readMessage(com.google.devtools.testing.v1.IosRuntimeConfiguration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(runtimeConfiguration_);
-              runtimeConfiguration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              xcodeVersions_ = new java.util.ArrayList<com.google.devtools.testing.v1.XcodeVersion>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            xcodeVersions_.add(
-                input.readMessage(com.google.devtools.testing.v1.XcodeVersion.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        models_ = java.util.Collections.unmodifiableList(models_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        versions_ = java.util.Collections.unmodifiableList(versions_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        xcodeVersions_ = java.util.Collections.unmodifiableList(xcodeVersions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.TestEnvironmentDiscoveryProto.internal_static_google_devtools_testing_v1_IosDeviceCatalog_descriptor;
@@ -140,6 +51,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODELS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.devtools.testing.v1.IosModel> models_;
   /**
    * <pre>
@@ -200,6 +112,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSIONS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.devtools.testing.v1.IosVersion> versions_;
   /**
    * <pre>
@@ -260,6 +173,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int XCODE_VERSIONS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.devtools.testing.v1.XcodeVersion> xcodeVersions_;
   /**
    * <pre>
@@ -354,7 +268,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.testing.v1.IosRuntimeConfigurationOrBuilder getRuntimeConfigurationOrBuilder() {
-    return getRuntimeConfiguration();
+    return runtimeConfiguration_ == null ? com.google.devtools.testing.v1.IosRuntimeConfiguration.getDefaultInstance() : runtimeConfiguration_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -383,7 +297,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < xcodeVersions_.size(); i++) {
       output.writeMessage(4, xcodeVersions_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -408,7 +322,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, xcodeVersions_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -434,7 +348,7 @@ private static final long serialVersionUID = 0L;
       if (!getRuntimeConfiguration()
           .equals(other.getRuntimeConfiguration())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -461,7 +375,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RUNTIME_CONFIGURATION_FIELD_NUMBER;
       hash = (53 * hash) + getRuntimeConfiguration().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -582,47 +496,42 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.IosDeviceCatalog.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getModelsFieldBuilder();
-        getVersionsFieldBuilder();
-        getXcodeVersionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (modelsBuilder_ == null) {
         models_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        models_ = null;
         modelsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (versionsBuilder_ == null) {
         versions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        versions_ = null;
         versionsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (xcodeVersionsBuilder_ == null) {
         xcodeVersions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        xcodeVersions_ = null;
         xcodeVersionsBuilder_.clear();
       }
-      if (runtimeConfigurationBuilder_ == null) {
-        runtimeConfiguration_ = null;
-      } else {
-        runtimeConfiguration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      runtimeConfiguration_ = null;
+      if (runtimeConfigurationBuilder_ != null) {
+        runtimeConfigurationBuilder_.dispose();
         runtimeConfigurationBuilder_ = null;
       }
       return this;
@@ -651,7 +560,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.IosDeviceCatalog buildPartial() {
       com.google.devtools.testing.v1.IosDeviceCatalog result = new com.google.devtools.testing.v1.IosDeviceCatalog(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.devtools.testing.v1.IosDeviceCatalog result) {
       if (modelsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           models_ = java.util.Collections.unmodifiableList(models_);
@@ -679,13 +594,15 @@ private static final long serialVersionUID = 0L;
       } else {
         result.xcodeVersions_ = xcodeVersionsBuilder_.build();
       }
-      if (runtimeConfigurationBuilder_ == null) {
-        result.runtimeConfiguration_ = runtimeConfiguration_;
-      } else {
-        result.runtimeConfiguration_ = runtimeConfigurationBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.IosDeviceCatalog result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.runtimeConfiguration_ = runtimeConfigurationBuilder_ == null
+            ? runtimeConfiguration_
+            : runtimeConfigurationBuilder_.build();
       }
-      onBuilt();
-      return result;
     }
 
     @java.lang.Override
@@ -813,7 +730,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRuntimeConfiguration()) {
         mergeRuntimeConfiguration(other.getRuntimeConfiguration());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -828,17 +745,76 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.IosDeviceCatalog parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.devtools.testing.v1.IosModel m =
+                  input.readMessage(
+                      com.google.devtools.testing.v1.IosModel.parser(),
+                      extensionRegistry);
+              if (modelsBuilder_ == null) {
+                ensureModelsIsMutable();
+                models_.add(m);
+              } else {
+                modelsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.google.devtools.testing.v1.IosVersion m =
+                  input.readMessage(
+                      com.google.devtools.testing.v1.IosVersion.parser(),
+                      extensionRegistry);
+              if (versionsBuilder_ == null) {
+                ensureVersionsIsMutable();
+                versions_.add(m);
+              } else {
+                versionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getRuntimeConfigurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              com.google.devtools.testing.v1.XcodeVersion m =
+                  input.readMessage(
+                      com.google.devtools.testing.v1.XcodeVersion.parser(),
+                      extensionRegistry);
+              if (xcodeVersionsBuilder_ == null) {
+                ensureXcodeVersionsIsMutable();
+                xcodeVersions_.add(m);
+              } else {
+                xcodeVersionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.IosDeviceCatalog) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1791,7 +1767,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the runtimeConfiguration field is set.
      */
     public boolean hasRuntimeConfiguration() {
-      return runtimeConfigurationBuilder_ != null || runtimeConfiguration_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1821,11 +1797,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         runtimeConfiguration_ = value;
-        onChanged();
       } else {
         runtimeConfigurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1839,11 +1815,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.testing.v1.IosRuntimeConfiguration.Builder builderForValue) {
       if (runtimeConfigurationBuilder_ == null) {
         runtimeConfiguration_ = builderForValue.build();
-        onChanged();
       } else {
         runtimeConfigurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1855,17 +1831,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRuntimeConfiguration(com.google.devtools.testing.v1.IosRuntimeConfiguration value) {
       if (runtimeConfigurationBuilder_ == null) {
-        if (runtimeConfiguration_ != null) {
-          runtimeConfiguration_ =
-            com.google.devtools.testing.v1.IosRuntimeConfiguration.newBuilder(runtimeConfiguration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          runtimeConfiguration_ != null &&
+          runtimeConfiguration_ != com.google.devtools.testing.v1.IosRuntimeConfiguration.getDefaultInstance()) {
+          getRuntimeConfigurationBuilder().mergeFrom(value);
         } else {
           runtimeConfiguration_ = value;
         }
-        onChanged();
       } else {
         runtimeConfigurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1876,14 +1853,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.IosRuntimeConfiguration runtime_configuration = 3;</code>
      */
     public Builder clearRuntimeConfiguration() {
-      if (runtimeConfigurationBuilder_ == null) {
-        runtimeConfiguration_ = null;
-        onChanged();
-      } else {
-        runtimeConfiguration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      runtimeConfiguration_ = null;
+      if (runtimeConfigurationBuilder_ != null) {
+        runtimeConfigurationBuilder_.dispose();
         runtimeConfigurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1894,7 +1870,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.IosRuntimeConfiguration runtime_configuration = 3;</code>
      */
     public com.google.devtools.testing.v1.IosRuntimeConfiguration.Builder getRuntimeConfigurationBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getRuntimeConfigurationFieldBuilder().getBuilder();
     }
@@ -1966,7 +1942,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new IosDeviceCatalog(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

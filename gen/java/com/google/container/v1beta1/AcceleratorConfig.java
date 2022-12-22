@@ -36,81 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AcceleratorConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            acceleratorCount_ = input.readInt64();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            acceleratorType_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            gpuPartitionSize_ = s;
-            break;
-          }
-          case 32: {
-
-            maxTimeSharedClientsPerGpu_ = input.readInt64();
-            break;
-          }
-          case 42: {
-            com.google.container.v1beta1.GPUSharingConfig.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = gpuSharingConfig_.toBuilder();
-            }
-            gpuSharingConfig_ = input.readMessage(com.google.container.v1beta1.GPUSharingConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(gpuSharingConfig_);
-              gpuSharingConfig_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_AcceleratorConfig_descriptor;
@@ -126,7 +51,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int ACCELERATOR_COUNT_FIELD_NUMBER = 1;
-  private long acceleratorCount_;
+  private long acceleratorCount_ = 0L;
   /**
    * <pre>
    * The number of the accelerator cards exposed to an instance.
@@ -141,7 +66,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACCELERATOR_TYPE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object acceleratorType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object acceleratorType_ = "";
   /**
    * <pre>
    * The accelerator type resource name. List of supported accelerators
@@ -189,7 +115,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GPU_PARTITION_SIZE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object gpuPartitionSize_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object gpuPartitionSize_ = "";
   /**
    * <pre>
    * Size of partitions to create on the GPU. Valid values are described in the
@@ -239,7 +166,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_TIME_SHARED_CLIENTS_PER_GPU_FIELD_NUMBER = 4;
-  private long maxTimeSharedClientsPerGpu_;
+  private long maxTimeSharedClientsPerGpu_ = 0L;
   /**
    * <pre>
    * The number of time-shared GPU resources to expose for each physical GPU.
@@ -247,7 +174,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>int64 max_time_shared_clients_per_gpu = 4 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.AcceleratorConfig.max_time_shared_clients_per_gpu is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=4106
+   *     See google/container/v1beta1/cluster_service.proto;l=4177
    * @return The maxTimeSharedClientsPerGpu.
    */
   @java.lang.Override
@@ -322,7 +249,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(5, getGpuSharingConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -349,7 +276,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getGpuSharingConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -377,7 +304,7 @@ private static final long serialVersionUID = 0L;
       if (!getGpuSharingConfig()
           .equals(other.getGpuSharingConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -402,7 +329,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + GPU_SHARING_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getGpuSharingConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -540,20 +467,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       acceleratorCount_ = 0L;
-
       acceleratorType_ = "";
-
       gpuPartitionSize_ = "";
-
       maxTimeSharedClientsPerGpu_ = 0L;
-
-      if (gpuSharingConfigBuilder_ == null) {
-        gpuSharingConfig_ = null;
-      } else {
-        gpuSharingConfigBuilder_.clear();
+      gpuSharingConfig_ = null;
+      if (gpuSharingConfigBuilder_ != null) {
+        gpuSharingConfigBuilder_.dispose();
+        gpuSharingConfigBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -580,23 +503,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1beta1.AcceleratorConfig buildPartial() {
       com.google.container.v1beta1.AcceleratorConfig result = new com.google.container.v1beta1.AcceleratorConfig(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.acceleratorCount_ = acceleratorCount_;
-      result.acceleratorType_ = acceleratorType_;
-      result.gpuPartitionSize_ = gpuPartitionSize_;
-      result.maxTimeSharedClientsPerGpu_ = maxTimeSharedClientsPerGpu_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (gpuSharingConfigBuilder_ == null) {
-          result.gpuSharingConfig_ = gpuSharingConfig_;
-        } else {
-          result.gpuSharingConfig_ = gpuSharingConfigBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000001;
-      }
-      result.bitField0_ = to_bitField0_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.container.v1beta1.AcceleratorConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.acceleratorCount_ = acceleratorCount_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.acceleratorType_ = acceleratorType_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.gpuPartitionSize_ = gpuPartitionSize_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.maxTimeSharedClientsPerGpu_ = maxTimeSharedClientsPerGpu_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.gpuSharingConfig_ = gpuSharingConfigBuilder_ == null
+            ? gpuSharingConfig_
+            : gpuSharingConfigBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -648,10 +581,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAcceleratorType().isEmpty()) {
         acceleratorType_ = other.acceleratorType_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getGpuPartitionSize().isEmpty()) {
         gpuPartitionSize_ = other.gpuPartitionSize_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getMaxTimeSharedClientsPerGpu() != 0L) {
@@ -660,7 +595,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasGpuSharingConfig()) {
         mergeGpuSharingConfig(other.getGpuSharingConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -675,17 +610,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1beta1.AcceleratorConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              acceleratorCount_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              acceleratorType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              gpuPartitionSize_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              maxTimeSharedClientsPerGpu_ = input.readInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getGpuSharingConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1beta1.AcceleratorConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -715,6 +690,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAcceleratorCount(long value) {
       
       acceleratorCount_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -727,7 +703,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAcceleratorCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       acceleratorCount_ = 0L;
       onChanged();
       return this;
@@ -789,11 +765,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAcceleratorType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       acceleratorType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -807,8 +781,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAcceleratorType() {
-      
       acceleratorType_ = getDefaultInstance().getAcceleratorType();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -824,12 +798,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAcceleratorTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       acceleratorType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -893,11 +865,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGpuPartitionSize(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       gpuPartitionSize_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -912,8 +882,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGpuPartitionSize() {
-      
       gpuPartitionSize_ = getDefaultInstance().getGpuPartitionSize();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -930,12 +900,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGpuPartitionSizeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       gpuPartitionSize_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -948,7 +916,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int64 max_time_shared_clients_per_gpu = 4 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.AcceleratorConfig.max_time_shared_clients_per_gpu is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=4106
+     *     See google/container/v1beta1/cluster_service.proto;l=4177
      * @return The maxTimeSharedClientsPerGpu.
      */
     @java.lang.Override
@@ -962,13 +930,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int64 max_time_shared_clients_per_gpu = 4 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.AcceleratorConfig.max_time_shared_clients_per_gpu is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=4106
+     *     See google/container/v1beta1/cluster_service.proto;l=4177
      * @param value The maxTimeSharedClientsPerGpu to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setMaxTimeSharedClientsPerGpu(long value) {
       
       maxTimeSharedClientsPerGpu_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -979,11 +948,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int64 max_time_shared_clients_per_gpu = 4 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.AcceleratorConfig.max_time_shared_clients_per_gpu is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=4106
+     *     See google/container/v1beta1/cluster_service.proto;l=4177
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearMaxTimeSharedClientsPerGpu() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       maxTimeSharedClientsPerGpu_ = 0L;
       onChanged();
       return this;
@@ -1001,7 +970,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the gpuSharingConfig field is set.
      */
     public boolean hasGpuSharingConfig() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1031,11 +1000,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         gpuSharingConfig_ = value;
-        onChanged();
       } else {
         gpuSharingConfigBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1049,11 +1018,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.GPUSharingConfig.Builder builderForValue) {
       if (gpuSharingConfigBuilder_ == null) {
         gpuSharingConfig_ = builderForValue.build();
-        onChanged();
       } else {
         gpuSharingConfigBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1065,19 +1034,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGpuSharingConfig(com.google.container.v1beta1.GPUSharingConfig value) {
       if (gpuSharingConfigBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0) &&
-            gpuSharingConfig_ != null &&
-            gpuSharingConfig_ != com.google.container.v1beta1.GPUSharingConfig.getDefaultInstance()) {
-          gpuSharingConfig_ =
-            com.google.container.v1beta1.GPUSharingConfig.newBuilder(gpuSharingConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          gpuSharingConfig_ != null &&
+          gpuSharingConfig_ != com.google.container.v1beta1.GPUSharingConfig.getDefaultInstance()) {
+          getGpuSharingConfigBuilder().mergeFrom(value);
         } else {
           gpuSharingConfig_ = value;
         }
-        onChanged();
       } else {
         gpuSharingConfigBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1088,13 +1056,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.container.v1beta1.GPUSharingConfig gpu_sharing_config = 5;</code>
      */
     public Builder clearGpuSharingConfig() {
-      if (gpuSharingConfigBuilder_ == null) {
-        gpuSharingConfig_ = null;
-        onChanged();
-      } else {
-        gpuSharingConfigBuilder_.clear();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      gpuSharingConfig_ = null;
+      if (gpuSharingConfigBuilder_ != null) {
+        gpuSharingConfigBuilder_.dispose();
+        gpuSharingConfigBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
       return this;
     }
     /**
@@ -1105,7 +1073,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.container.v1beta1.GPUSharingConfig gpu_sharing_config = 5;</code>
      */
     public com.google.container.v1beta1.GPUSharingConfig.Builder getGpuSharingConfigBuilder() {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000010;
       onChanged();
       return getGpuSharingConfigFieldBuilder().getBuilder();
     }
@@ -1177,7 +1145,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AcceleratorConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

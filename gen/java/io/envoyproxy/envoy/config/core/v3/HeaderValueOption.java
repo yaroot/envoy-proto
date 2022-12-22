@@ -35,82 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HeaderValueOption(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.core.v3.HeaderValue.Builder subBuilder = null;
-            if (header_ != null) {
-              subBuilder = header_.toBuilder();
-            }
-            header_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.HeaderValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(header_);
-              header_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (append_ != null) {
-              subBuilder = append_.toBuilder();
-            }
-            append_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(append_);
-              append_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            appendAction_ = rawValue;
-            break;
-          }
-          case 32: {
-
-            keepEmptyValue_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.core.v3.BaseProto.internal_static_envoy_config_core_v3_HeaderValueOption_descriptor;
@@ -126,7 +50,7 @@ private static final long serialVersionUID = 0L;
 
   /**
    * <pre>
-   * [#not-implemented-hide:] Describes the supported actions types for header append action.
+   * Describes the supported actions types for header append action.
    * </pre>
    *
    * Protobuf enum {@code envoy.config.core.v3.HeaderValueOption.HeaderAppendAction}
@@ -314,7 +238,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.HeaderValueOrBuilder getHeaderOrBuilder() {
-    return getHeader();
+    return header_ == null ? io.envoyproxy.envoy.config.core.v3.HeaderValue.getDefaultInstance() : header_;
   }
 
   public static final int APPEND_FIELD_NUMBER = 2;
@@ -323,47 +247,71 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Should the value be appended? If true (default), the value is appended to
    * existing values. Otherwise it replaces any existing values.
+   * This field is deprecated and please use
+   * :ref:`append_action &lt;envoy_v3_api_field_config.core.v3.HeaderValueOption.append_action&gt;` as replacement.
+   * .. note::
+   *   The :ref:`external authorization service &lt;envoy_v3_api_msg_service.auth.v3.CheckResponse&gt;` and
+   *   :ref:`external processor service &lt;envoy_v3_api_msg_service.ext_proc.v3.ProcessingResponse&gt;` have
+   *   default value (``false``) for this field.
    * </pre>
    *
-   * <code>.google.protobuf.BoolValue append = 2;</code>
+   * <code>.google.protobuf.BoolValue append = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.config.core.v3.HeaderValueOption.append is deprecated.
+   *     See envoy/config/core/v3/base.proto;l=365
    * @return Whether the append field is set.
    */
   @java.lang.Override
-  public boolean hasAppend() {
+  @java.lang.Deprecated public boolean hasAppend() {
     return append_ != null;
   }
   /**
    * <pre>
    * Should the value be appended? If true (default), the value is appended to
    * existing values. Otherwise it replaces any existing values.
+   * This field is deprecated and please use
+   * :ref:`append_action &lt;envoy_v3_api_field_config.core.v3.HeaderValueOption.append_action&gt;` as replacement.
+   * .. note::
+   *   The :ref:`external authorization service &lt;envoy_v3_api_msg_service.auth.v3.CheckResponse&gt;` and
+   *   :ref:`external processor service &lt;envoy_v3_api_msg_service.ext_proc.v3.ProcessingResponse&gt;` have
+   *   default value (``false``) for this field.
    * </pre>
    *
-   * <code>.google.protobuf.BoolValue append = 2;</code>
+   * <code>.google.protobuf.BoolValue append = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.config.core.v3.HeaderValueOption.append is deprecated.
+   *     See envoy/config/core/v3/base.proto;l=365
    * @return The append.
    */
   @java.lang.Override
-  public com.google.protobuf.BoolValue getAppend() {
+  @java.lang.Deprecated public com.google.protobuf.BoolValue getAppend() {
     return append_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : append_;
   }
   /**
    * <pre>
    * Should the value be appended? If true (default), the value is appended to
    * existing values. Otherwise it replaces any existing values.
+   * This field is deprecated and please use
+   * :ref:`append_action &lt;envoy_v3_api_field_config.core.v3.HeaderValueOption.append_action&gt;` as replacement.
+   * .. note::
+   *   The :ref:`external authorization service &lt;envoy_v3_api_msg_service.auth.v3.CheckResponse&gt;` and
+   *   :ref:`external processor service &lt;envoy_v3_api_msg_service.ext_proc.v3.ProcessingResponse&gt;` have
+   *   default value (``false``) for this field.
    * </pre>
    *
-   * <code>.google.protobuf.BoolValue append = 2;</code>
+   * <code>.google.protobuf.BoolValue append = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    */
   @java.lang.Override
-  public com.google.protobuf.BoolValueOrBuilder getAppendOrBuilder() {
-    return getAppend();
+  @java.lang.Deprecated public com.google.protobuf.BoolValueOrBuilder getAppendOrBuilder() {
+    return append_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : append_;
   }
 
   public static final int APPEND_ACTION_FIELD_NUMBER = 3;
-  private int appendAction_;
+  private int appendAction_ = 0;
   /**
    * <pre>
-   * [#not-implemented-hide:] Describes the action taken to append/overwrite the given value for an existing header
-   * or to only add this header if it's absent. Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD&lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
+   * Describes the action taken to append/overwrite the given value for an existing header
+   * or to only add this header if it's absent.
+   * Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD
+   * &lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
    * </pre>
    *
    * <code>.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction append_action = 3 [(.validate.rules) = { ... }</code>
@@ -374,21 +322,22 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * [#not-implemented-hide:] Describes the action taken to append/overwrite the given value for an existing header
-   * or to only add this header if it's absent. Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD&lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
+   * Describes the action taken to append/overwrite the given value for an existing header
+   * or to only add this header if it's absent.
+   * Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD
+   * &lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
    * </pre>
    *
    * <code>.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction append_action = 3 [(.validate.rules) = { ... }</code>
    * @return The appendAction.
    */
   @java.lang.Override public io.envoyproxy.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction getAppendAction() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction result = io.envoyproxy.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction.valueOf(appendAction_);
+    io.envoyproxy.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction result = io.envoyproxy.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction.forNumber(appendAction_);
     return result == null ? io.envoyproxy.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction.UNRECOGNIZED : result;
   }
 
   public static final int KEEP_EMPTY_VALUE_FIELD_NUMBER = 4;
-  private boolean keepEmptyValue_;
+  private boolean keepEmptyValue_ = false;
   /**
    * <pre>
    * Is the header value allowed to be empty? If false (default), custom headers with empty values are dropped,
@@ -429,7 +378,7 @@ private static final long serialVersionUID = 0L;
     if (keepEmptyValue_ != false) {
       output.writeBool(4, keepEmptyValue_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -454,7 +403,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, keepEmptyValue_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -482,7 +431,7 @@ private static final long serialVersionUID = 0L;
     if (appendAction_ != other.appendAction_) return false;
     if (getKeepEmptyValue()
         != other.getKeepEmptyValue()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -506,7 +455,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + KEEP_EMPTY_VALUE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getKeepEmptyValue());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -627,38 +576,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.core.v3.HeaderValueOption.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (headerBuilder_ == null) {
-        header_ = null;
-      } else {
-        header_ = null;
+      bitField0_ = 0;
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
-      if (appendBuilder_ == null) {
-        append_ = null;
-      } else {
-        append_ = null;
+      append_ = null;
+      if (appendBuilder_ != null) {
+        appendBuilder_.dispose();
         appendBuilder_ = null;
       }
       appendAction_ = 0;
-
       keepEmptyValue_ = false;
-
       return this;
     }
 
@@ -685,20 +626,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.HeaderValueOption buildPartial() {
       io.envoyproxy.envoy.config.core.v3.HeaderValueOption result = new io.envoyproxy.envoy.config.core.v3.HeaderValueOption(this);
-      if (headerBuilder_ == null) {
-        result.header_ = header_;
-      } else {
-        result.header_ = headerBuilder_.build();
-      }
-      if (appendBuilder_ == null) {
-        result.append_ = append_;
-      } else {
-        result.append_ = appendBuilder_.build();
-      }
-      result.appendAction_ = appendAction_;
-      result.keepEmptyValue_ = keepEmptyValue_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.core.v3.HeaderValueOption result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.header_ = headerBuilder_ == null
+            ? header_
+            : headerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.append_ = appendBuilder_ == null
+            ? append_
+            : appendBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.appendAction_ = appendAction_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.keepEmptyValue_ = keepEmptyValue_;
+      }
     }
 
     @java.lang.Override
@@ -757,7 +707,7 @@ private static final long serialVersionUID = 0L;
       if (other.getKeepEmptyValue() != false) {
         setKeepEmptyValue(other.getKeepEmptyValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -772,19 +722,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.core.v3.HeaderValueOption parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getHeaderFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAppendFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              appendAction_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              keepEmptyValue_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.core.v3.HeaderValueOption) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.config.core.v3.HeaderValue header_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -798,7 +786,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the header field is set.
      */
     public boolean hasHeader() {
-      return headerBuilder_ != null || header_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -828,11 +816,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         header_ = value;
-        onChanged();
       } else {
         headerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -846,11 +834,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.HeaderValue.Builder builderForValue) {
       if (headerBuilder_ == null) {
         header_ = builderForValue.build();
-        onChanged();
       } else {
         headerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -862,17 +850,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHeader(io.envoyproxy.envoy.config.core.v3.HeaderValue value) {
       if (headerBuilder_ == null) {
-        if (header_ != null) {
-          header_ =
-            io.envoyproxy.envoy.config.core.v3.HeaderValue.newBuilder(header_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          header_ != null &&
+          header_ != io.envoyproxy.envoy.config.core.v3.HeaderValue.getDefaultInstance()) {
+          getHeaderBuilder().mergeFrom(value);
         } else {
           header_ = value;
         }
-        onChanged();
       } else {
         headerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -883,14 +872,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.HeaderValue header = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearHeader() {
-      if (headerBuilder_ == null) {
-        header_ = null;
-        onChanged();
-      } else {
-        header_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -901,7 +889,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.HeaderValue header = 1 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.config.core.v3.HeaderValue.Builder getHeaderBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getHeaderFieldBuilder().getBuilder();
     }
@@ -948,24 +936,40 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Should the value be appended? If true (default), the value is appended to
      * existing values. Otherwise it replaces any existing values.
+     * This field is deprecated and please use
+     * :ref:`append_action &lt;envoy_v3_api_field_config.core.v3.HeaderValueOption.append_action&gt;` as replacement.
+     * .. note::
+     *   The :ref:`external authorization service &lt;envoy_v3_api_msg_service.auth.v3.CheckResponse&gt;` and
+     *   :ref:`external processor service &lt;envoy_v3_api_msg_service.ext_proc.v3.ProcessingResponse&gt;` have
+     *   default value (``false``) for this field.
      * </pre>
      *
-     * <code>.google.protobuf.BoolValue append = 2;</code>
+     * <code>.google.protobuf.BoolValue append = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     * @deprecated envoy.config.core.v3.HeaderValueOption.append is deprecated.
+     *     See envoy/config/core/v3/base.proto;l=365
      * @return Whether the append field is set.
      */
-    public boolean hasAppend() {
-      return appendBuilder_ != null || append_ != null;
+    @java.lang.Deprecated public boolean hasAppend() {
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
      * Should the value be appended? If true (default), the value is appended to
      * existing values. Otherwise it replaces any existing values.
+     * This field is deprecated and please use
+     * :ref:`append_action &lt;envoy_v3_api_field_config.core.v3.HeaderValueOption.append_action&gt;` as replacement.
+     * .. note::
+     *   The :ref:`external authorization service &lt;envoy_v3_api_msg_service.auth.v3.CheckResponse&gt;` and
+     *   :ref:`external processor service &lt;envoy_v3_api_msg_service.ext_proc.v3.ProcessingResponse&gt;` have
+     *   default value (``false``) for this field.
      * </pre>
      *
-     * <code>.google.protobuf.BoolValue append = 2;</code>
+     * <code>.google.protobuf.BoolValue append = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     * @deprecated envoy.config.core.v3.HeaderValueOption.append is deprecated.
+     *     See envoy/config/core/v3/base.proto;l=365
      * @return The append.
      */
-    public com.google.protobuf.BoolValue getAppend() {
+    @java.lang.Deprecated public com.google.protobuf.BoolValue getAppend() {
       if (appendBuilder_ == null) {
         return append_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : append_;
       } else {
@@ -976,94 +980,124 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Should the value be appended? If true (default), the value is appended to
      * existing values. Otherwise it replaces any existing values.
+     * This field is deprecated and please use
+     * :ref:`append_action &lt;envoy_v3_api_field_config.core.v3.HeaderValueOption.append_action&gt;` as replacement.
+     * .. note::
+     *   The :ref:`external authorization service &lt;envoy_v3_api_msg_service.auth.v3.CheckResponse&gt;` and
+     *   :ref:`external processor service &lt;envoy_v3_api_msg_service.ext_proc.v3.ProcessingResponse&gt;` have
+     *   default value (``false``) for this field.
      * </pre>
      *
-     * <code>.google.protobuf.BoolValue append = 2;</code>
+     * <code>.google.protobuf.BoolValue append = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public Builder setAppend(com.google.protobuf.BoolValue value) {
+    @java.lang.Deprecated public Builder setAppend(com.google.protobuf.BoolValue value) {
       if (appendBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
         append_ = value;
-        onChanged();
       } else {
         appendBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Should the value be appended? If true (default), the value is appended to
      * existing values. Otherwise it replaces any existing values.
+     * This field is deprecated and please use
+     * :ref:`append_action &lt;envoy_v3_api_field_config.core.v3.HeaderValueOption.append_action&gt;` as replacement.
+     * .. note::
+     *   The :ref:`external authorization service &lt;envoy_v3_api_msg_service.auth.v3.CheckResponse&gt;` and
+     *   :ref:`external processor service &lt;envoy_v3_api_msg_service.ext_proc.v3.ProcessingResponse&gt;` have
+     *   default value (``false``) for this field.
      * </pre>
      *
-     * <code>.google.protobuf.BoolValue append = 2;</code>
+     * <code>.google.protobuf.BoolValue append = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public Builder setAppend(
+    @java.lang.Deprecated public Builder setAppend(
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (appendBuilder_ == null) {
         append_ = builderForValue.build();
-        onChanged();
       } else {
         appendBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Should the value be appended? If true (default), the value is appended to
      * existing values. Otherwise it replaces any existing values.
+     * This field is deprecated and please use
+     * :ref:`append_action &lt;envoy_v3_api_field_config.core.v3.HeaderValueOption.append_action&gt;` as replacement.
+     * .. note::
+     *   The :ref:`external authorization service &lt;envoy_v3_api_msg_service.auth.v3.CheckResponse&gt;` and
+     *   :ref:`external processor service &lt;envoy_v3_api_msg_service.ext_proc.v3.ProcessingResponse&gt;` have
+     *   default value (``false``) for this field.
      * </pre>
      *
-     * <code>.google.protobuf.BoolValue append = 2;</code>
+     * <code>.google.protobuf.BoolValue append = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public Builder mergeAppend(com.google.protobuf.BoolValue value) {
+    @java.lang.Deprecated public Builder mergeAppend(com.google.protobuf.BoolValue value) {
       if (appendBuilder_ == null) {
-        if (append_ != null) {
-          append_ =
-            com.google.protobuf.BoolValue.newBuilder(append_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          append_ != null &&
+          append_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getAppendBuilder().mergeFrom(value);
         } else {
           append_ = value;
         }
-        onChanged();
       } else {
         appendBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Should the value be appended? If true (default), the value is appended to
      * existing values. Otherwise it replaces any existing values.
+     * This field is deprecated and please use
+     * :ref:`append_action &lt;envoy_v3_api_field_config.core.v3.HeaderValueOption.append_action&gt;` as replacement.
+     * .. note::
+     *   The :ref:`external authorization service &lt;envoy_v3_api_msg_service.auth.v3.CheckResponse&gt;` and
+     *   :ref:`external processor service &lt;envoy_v3_api_msg_service.ext_proc.v3.ProcessingResponse&gt;` have
+     *   default value (``false``) for this field.
      * </pre>
      *
-     * <code>.google.protobuf.BoolValue append = 2;</code>
+     * <code>.google.protobuf.BoolValue append = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public Builder clearAppend() {
-      if (appendBuilder_ == null) {
-        append_ = null;
-        onChanged();
-      } else {
-        append_ = null;
+    @java.lang.Deprecated public Builder clearAppend() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      append_ = null;
+      if (appendBuilder_ != null) {
+        appendBuilder_.dispose();
         appendBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Should the value be appended? If true (default), the value is appended to
      * existing values. Otherwise it replaces any existing values.
+     * This field is deprecated and please use
+     * :ref:`append_action &lt;envoy_v3_api_field_config.core.v3.HeaderValueOption.append_action&gt;` as replacement.
+     * .. note::
+     *   The :ref:`external authorization service &lt;envoy_v3_api_msg_service.auth.v3.CheckResponse&gt;` and
+     *   :ref:`external processor service &lt;envoy_v3_api_msg_service.ext_proc.v3.ProcessingResponse&gt;` have
+     *   default value (``false``) for this field.
      * </pre>
      *
-     * <code>.google.protobuf.BoolValue append = 2;</code>
+     * <code>.google.protobuf.BoolValue append = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public com.google.protobuf.BoolValue.Builder getAppendBuilder() {
-      
+    @java.lang.Deprecated public com.google.protobuf.BoolValue.Builder getAppendBuilder() {
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAppendFieldBuilder().getBuilder();
     }
@@ -1071,11 +1105,17 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Should the value be appended? If true (default), the value is appended to
      * existing values. Otherwise it replaces any existing values.
+     * This field is deprecated and please use
+     * :ref:`append_action &lt;envoy_v3_api_field_config.core.v3.HeaderValueOption.append_action&gt;` as replacement.
+     * .. note::
+     *   The :ref:`external authorization service &lt;envoy_v3_api_msg_service.auth.v3.CheckResponse&gt;` and
+     *   :ref:`external processor service &lt;envoy_v3_api_msg_service.ext_proc.v3.ProcessingResponse&gt;` have
+     *   default value (``false``) for this field.
      * </pre>
      *
-     * <code>.google.protobuf.BoolValue append = 2;</code>
+     * <code>.google.protobuf.BoolValue append = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public com.google.protobuf.BoolValueOrBuilder getAppendOrBuilder() {
+    @java.lang.Deprecated public com.google.protobuf.BoolValueOrBuilder getAppendOrBuilder() {
       if (appendBuilder_ != null) {
         return appendBuilder_.getMessageOrBuilder();
       } else {
@@ -1087,9 +1127,15 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Should the value be appended? If true (default), the value is appended to
      * existing values. Otherwise it replaces any existing values.
+     * This field is deprecated and please use
+     * :ref:`append_action &lt;envoy_v3_api_field_config.core.v3.HeaderValueOption.append_action&gt;` as replacement.
+     * .. note::
+     *   The :ref:`external authorization service &lt;envoy_v3_api_msg_service.auth.v3.CheckResponse&gt;` and
+     *   :ref:`external processor service &lt;envoy_v3_api_msg_service.ext_proc.v3.ProcessingResponse&gt;` have
+     *   default value (``false``) for this field.
      * </pre>
      *
-     * <code>.google.protobuf.BoolValue append = 2;</code>
+     * <code>.google.protobuf.BoolValue append = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> 
@@ -1108,8 +1154,10 @@ private static final long serialVersionUID = 0L;
     private int appendAction_ = 0;
     /**
      * <pre>
-     * [#not-implemented-hide:] Describes the action taken to append/overwrite the given value for an existing header
-     * or to only add this header if it's absent. Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD&lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
+     * Describes the action taken to append/overwrite the given value for an existing header
+     * or to only add this header if it's absent.
+     * Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD
+     * &lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
      * </pre>
      *
      * <code>.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction append_action = 3 [(.validate.rules) = { ... }</code>
@@ -1120,8 +1168,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:] Describes the action taken to append/overwrite the given value for an existing header
-     * or to only add this header if it's absent. Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD&lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
+     * Describes the action taken to append/overwrite the given value for an existing header
+     * or to only add this header if it's absent.
+     * Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD
+     * &lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
      * </pre>
      *
      * <code>.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction append_action = 3 [(.validate.rules) = { ... }</code>
@@ -1129,15 +1179,17 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAppendActionValue(int value) {
-      
       appendAction_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:] Describes the action taken to append/overwrite the given value for an existing header
-     * or to only add this header if it's absent. Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD&lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
+     * Describes the action taken to append/overwrite the given value for an existing header
+     * or to only add this header if it's absent.
+     * Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD
+     * &lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
      * </pre>
      *
      * <code>.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction append_action = 3 [(.validate.rules) = { ... }</code>
@@ -1145,14 +1197,15 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction getAppendAction() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction result = io.envoyproxy.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction.valueOf(appendAction_);
+      io.envoyproxy.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction result = io.envoyproxy.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction.forNumber(appendAction_);
       return result == null ? io.envoyproxy.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:] Describes the action taken to append/overwrite the given value for an existing header
-     * or to only add this header if it's absent. Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD&lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
+     * Describes the action taken to append/overwrite the given value for an existing header
+     * or to only add this header if it's absent.
+     * Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD
+     * &lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
      * </pre>
      *
      * <code>.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction append_action = 3 [(.validate.rules) = { ... }</code>
@@ -1163,22 +1216,24 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       appendAction_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:] Describes the action taken to append/overwrite the given value for an existing header
-     * or to only add this header if it's absent. Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD&lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
+     * Describes the action taken to append/overwrite the given value for an existing header
+     * or to only add this header if it's absent.
+     * Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD
+     * &lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
      * </pre>
      *
      * <code>.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction append_action = 3 [(.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearAppendAction() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       appendAction_ = 0;
       onChanged();
       return this;
@@ -1211,6 +1266,7 @@ private static final long serialVersionUID = 0L;
     public Builder setKeepEmptyValue(boolean value) {
       
       keepEmptyValue_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1224,7 +1280,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKeepEmptyValue() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       keepEmptyValue_ = false;
       onChanged();
       return this;
@@ -1262,7 +1318,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HeaderValueOption(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -37,82 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SpeechAdaptation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              phraseSets_ = new java.util.ArrayList<com.google.cloud.speech.v1.PhraseSet>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            phraseSets_.add(
-                input.readMessage(com.google.cloud.speech.v1.PhraseSet.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              phraseSetReferences_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            phraseSetReferences_.add(s);
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              customClasses_ = new java.util.ArrayList<com.google.cloud.speech.v1.CustomClass>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            customClasses_.add(
-                input.readMessage(com.google.cloud.speech.v1.CustomClass.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        phraseSets_ = java.util.Collections.unmodifiableList(phraseSets_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        phraseSetReferences_ = phraseSetReferences_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        customClasses_ = java.util.Collections.unmodifiableList(customClasses_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.speech.v1.SpeechResourceProto.internal_static_google_cloud_speech_v1_SpeechAdaptation_descriptor;
@@ -127,6 +51,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PHRASE_SETS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.speech.v1.PhraseSet> phraseSets_;
   /**
    * <pre>
@@ -197,6 +122,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PHRASE_SET_REFERENCES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList phraseSetReferences_;
   /**
    * <pre>
@@ -248,6 +174,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOM_CLASSES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.speech.v1.CustomClass> customClasses_;
   /**
    * <pre>
@@ -345,7 +272,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < customClasses_.size(); i++) {
       output.writeMessage(3, customClasses_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -370,7 +297,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, customClasses_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -391,7 +318,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPhraseSetReferencesList())) return false;
     if (!getCustomClassesList()
         .equals(other.getCustomClassesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -414,7 +341,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CUSTOM_CLASSES_FIELD_NUMBER;
       hash = (53 * hash) + getCustomClassesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -535,38 +462,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.speech.v1.SpeechAdaptation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getPhraseSetsFieldBuilder();
-        getCustomClassesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (phraseSetsBuilder_ == null) {
         phraseSets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        phraseSets_ = null;
         phraseSetsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       phraseSetReferences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
       if (customClassesBuilder_ == null) {
         customClasses_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        customClasses_ = null;
         customClassesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -593,7 +516,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.speech.v1.SpeechAdaptation buildPartial() {
       com.google.cloud.speech.v1.SpeechAdaptation result = new com.google.cloud.speech.v1.SpeechAdaptation(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.speech.v1.SpeechAdaptation result) {
       if (phraseSetsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           phraseSets_ = java.util.Collections.unmodifiableList(phraseSets_);
@@ -617,8 +546,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.customClasses_ = customClassesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.speech.v1.SpeechAdaptation result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -727,7 +658,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -742,17 +673,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.speech.v1.SpeechAdaptation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.speech.v1.PhraseSet m =
+                  input.readMessage(
+                      com.google.cloud.speech.v1.PhraseSet.parser(),
+                      extensionRegistry);
+              if (phraseSetsBuilder_ == null) {
+                ensurePhraseSetsIsMutable();
+                phraseSets_.add(m);
+              } else {
+                phraseSetsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensurePhraseSetReferencesIsMutable();
+              phraseSetReferences_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.speech.v1.CustomClass m =
+                  input.readMessage(
+                      com.google.cloud.speech.v1.CustomClass.parser(),
+                      extensionRegistry);
+              if (customClassesBuilder_ == null) {
+                ensureCustomClassesIsMutable();
+                customClasses_.add(m);
+              } else {
+                customClassesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.speech.v1.SpeechAdaptation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1172,10 +1148,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPhraseSetReferences(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePhraseSetReferencesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensurePhraseSetReferencesIsMutable();
       phraseSetReferences_.set(index, value);
       onChanged();
       return this;
@@ -1191,10 +1165,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPhraseSetReferences(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePhraseSetReferencesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensurePhraseSetReferencesIsMutable();
       phraseSetReferences_.add(value);
       onChanged();
       return this;
@@ -1241,10 +1213,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPhraseSetReferencesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensurePhraseSetReferencesIsMutable();
       phraseSetReferences_.add(value);
       onChanged();
@@ -1649,7 +1619,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SpeechAdaptation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

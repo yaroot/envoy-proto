@@ -39,133 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Filter(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              projects_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            projects_.add(s);
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              services_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            services_.add(s);
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            creditTypesTreatment_ = rawValue;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              subaccounts_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            subaccounts_.add(s);
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000010;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ListValue>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              creditTypes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            creditTypes_.add(s);
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-            usagePeriodCase_ = 8;
-            usagePeriod_ = rawValue;
-            break;
-          }
-          case 74: {
-            com.google.cloud.billing.budgets.v1.CustomPeriod.Builder subBuilder = null;
-            if (usagePeriodCase_ == 9) {
-              subBuilder = ((com.google.cloud.billing.budgets.v1.CustomPeriod) usagePeriod_).toBuilder();
-            }
-            usagePeriod_ =
-                input.readMessage(com.google.cloud.billing.budgets.v1.CustomPeriod.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.billing.budgets.v1.CustomPeriod) usagePeriod_);
-              usagePeriod_ = subBuilder.buildPartial();
-            }
-            usagePeriodCase_ = 9;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        projects_ = projects_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        services_ = services_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        subaccounts_ = subaccounts_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        creditTypes_ = creditTypes_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.billing.budgets.v1.BudgetModelProto.internal_static_google_cloud_billing_budgets_v1_Filter_descriptor;
@@ -401,6 +274,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECTS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList projects_;
   /**
    * <pre>
@@ -468,6 +342,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CREDIT_TYPES_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList creditTypes_;
   /**
    * <pre>
@@ -551,7 +426,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CREDIT_TYPES_TREATMENT_FIELD_NUMBER = 4;
-  private int creditTypesTreatment_;
+  private int creditTypesTreatment_ = 0;
   /**
    * <pre>
    * Optional. If not set, default behavior is `INCLUDE_ALL_CREDITS`.
@@ -572,12 +447,12 @@ private static final long serialVersionUID = 0L;
    * @return The creditTypesTreatment.
    */
   @java.lang.Override public com.google.cloud.billing.budgets.v1.Filter.CreditTypesTreatment getCreditTypesTreatment() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.billing.budgets.v1.Filter.CreditTypesTreatment result = com.google.cloud.billing.budgets.v1.Filter.CreditTypesTreatment.valueOf(creditTypesTreatment_);
+    com.google.cloud.billing.budgets.v1.Filter.CreditTypesTreatment result = com.google.cloud.billing.budgets.v1.Filter.CreditTypesTreatment.forNumber(creditTypesTreatment_);
     return result == null ? com.google.cloud.billing.budgets.v1.Filter.CreditTypesTreatment.UNRECOGNIZED : result;
   }
 
   public static final int SERVICES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList services_;
   /**
    * <pre>
@@ -649,6 +524,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBACCOUNTS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList subaccounts_;
   /**
    * <pre>
@@ -731,6 +607,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.ListValue.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.protobuf.ListValue> labels_;
   private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ListValue>
@@ -741,7 +618,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -755,7 +631,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.protobuf.ListValue&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -781,7 +656,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.ListValue&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.protobuf.ListValue> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -796,10 +670,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.ListValue&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.ListValue getLabelsOrDefault(
+  public /* nullable */
+com.google.protobuf.ListValue getLabelsOrDefault(
       java.lang.String key,
-      com.google.protobuf.ListValue defaultValue) {
+      /* nullable */
+com.google.protobuf.ListValue defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.protobuf.ListValue> map =
         internalGetLabels().getMap();
@@ -816,7 +691,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.ListValue&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.ListValue getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -879,8 +753,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.cloud.billing.budgets.v1.CalendarPeriod getCalendarPeriod() {
     if (usagePeriodCase_ == 8) {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.billing.budgets.v1.CalendarPeriod result = com.google.cloud.billing.budgets.v1.CalendarPeriod.valueOf(
+      com.google.cloud.billing.budgets.v1.CalendarPeriod result = com.google.cloud.billing.budgets.v1.CalendarPeriod.forNumber(
           (java.lang.Integer) usagePeriod_);
       return result == null ? com.google.cloud.billing.budgets.v1.CalendarPeriod.UNRECOGNIZED : result;
     }
@@ -974,7 +847,7 @@ private static final long serialVersionUID = 0L;
     if (usagePeriodCase_ == 9) {
       output.writeMessage(9, (com.google.cloud.billing.budgets.v1.CustomPeriod) usagePeriod_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1037,7 +910,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, (com.google.cloud.billing.budgets.v1.CustomPeriod) usagePeriod_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1076,7 +949,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1121,7 +994,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1264,33 +1137,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.billing.budgets.v1.Filter.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       projects_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       creditTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
       creditTypesTreatment_ = 0;
-
       services_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
-      subaccounts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000008);
+      subaccounts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableLabels().clear();
+      if (customPeriodBuilder_ != null) {
+        customPeriodBuilder_.clear();
+      }
       usagePeriodCase_ = 0;
       usagePeriod_ = null;
       return this;
@@ -1319,7 +1190,14 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.billing.budgets.v1.Filter buildPartial() {
       com.google.cloud.billing.budgets.v1.Filter result = new com.google.cloud.billing.budgets.v1.Filter(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.billing.budgets.v1.Filter result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         projects_ = projects_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -1330,32 +1208,36 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.creditTypes_ = creditTypes_;
-      result.creditTypesTreatment_ = creditTypesTreatment_;
-      if (((bitField0_ & 0x00000004) != 0)) {
-        services_ = services_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
-      }
-      result.services_ = services_;
       if (((bitField0_ & 0x00000008) != 0)) {
-        subaccounts_ = subaccounts_.getUnmodifiableView();
+        services_ = services_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000008);
       }
+      result.services_ = services_;
+      if (((bitField0_ & 0x00000010) != 0)) {
+        subaccounts_ = subaccounts_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
       result.subaccounts_ = subaccounts_;
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      if (usagePeriodCase_ == 8) {
-        result.usagePeriod_ = usagePeriod_;
+    }
+
+    private void buildPartial0(com.google.cloud.billing.budgets.v1.Filter result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.creditTypesTreatment_ = creditTypesTreatment_;
       }
-      if (usagePeriodCase_ == 9) {
-        if (customPeriodBuilder_ == null) {
-          result.usagePeriod_ = usagePeriod_;
-        } else {
-          result.usagePeriod_ = customPeriodBuilder_.build();
-        }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
       }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.billing.budgets.v1.Filter result) {
       result.usagePeriodCase_ = usagePeriodCase_;
-      onBuilt();
-      return result;
+      result.usagePeriod_ = this.usagePeriod_;
+      if (usagePeriodCase_ == 9 &&
+          customPeriodBuilder_ != null) {
+        result.usagePeriod_ = customPeriodBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1428,7 +1310,7 @@ private static final long serialVersionUID = 0L;
       if (!other.services_.isEmpty()) {
         if (services_.isEmpty()) {
           services_ = other.services_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureServicesIsMutable();
           services_.addAll(other.services_);
@@ -1438,7 +1320,7 @@ private static final long serialVersionUID = 0L;
       if (!other.subaccounts_.isEmpty()) {
         if (subaccounts_.isEmpty()) {
           subaccounts_ = other.subaccounts_;
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureSubaccountsIsMutable();
           subaccounts_.addAll(other.subaccounts_);
@@ -1447,6 +1329,7 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000020;
       switch (other.getUsagePeriodCase()) {
         case CALENDAR_PERIOD: {
           setCalendarPeriodValue(other.getCalendarPeriodValue());
@@ -1460,7 +1343,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1475,17 +1358,81 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.billing.budgets.v1.Filter parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureProjectsIsMutable();
+              projects_.add(s);
+              break;
+            } // case 10
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureServicesIsMutable();
+              services_.add(s);
+              break;
+            } // case 26
+            case 32: {
+              creditTypesTreatment_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 32
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSubaccountsIsMutable();
+              subaccounts_.add(s);
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ListValue>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureCreditTypesIsMutable();
+              creditTypes_.add(s);
+              break;
+            } // case 58
+            case 64: {
+              int rawValue = input.readEnum();
+              usagePeriodCase_ = 8;
+              usagePeriod_ = rawValue;
+              break;
+            } // case 64
+            case 74: {
+              input.readMessage(
+                  getCustomPeriodFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              usagePeriodCase_ = 9;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.billing.budgets.v1.Filter) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int usagePeriodCase_ = 0;
@@ -1592,10 +1539,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjects(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureProjectsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureProjectsIsMutable();
       projects_.set(index, value);
       onChanged();
       return this;
@@ -1615,10 +1560,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addProjects(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureProjectsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureProjectsIsMutable();
       projects_.add(value);
       onChanged();
       return this;
@@ -1677,10 +1620,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addProjectsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureProjectsIsMutable();
       projects_.add(value);
       onChanged();
@@ -1794,10 +1735,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreditTypes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCreditTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCreditTypesIsMutable();
       creditTypes_.set(index, value);
       onChanged();
       return this;
@@ -1821,10 +1760,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCreditTypes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCreditTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCreditTypesIsMutable();
       creditTypes_.add(value);
       onChanged();
       return this;
@@ -1895,10 +1832,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCreditTypesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureCreditTypesIsMutable();
       creditTypes_.add(value);
       onChanged();
@@ -1927,8 +1862,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCreditTypesTreatmentValue(int value) {
-      
       creditTypesTreatment_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1942,8 +1877,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.billing.budgets.v1.Filter.CreditTypesTreatment getCreditTypesTreatment() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.billing.budgets.v1.Filter.CreditTypesTreatment result = com.google.cloud.billing.budgets.v1.Filter.CreditTypesTreatment.valueOf(creditTypesTreatment_);
+      com.google.cloud.billing.budgets.v1.Filter.CreditTypesTreatment result = com.google.cloud.billing.budgets.v1.Filter.CreditTypesTreatment.forNumber(creditTypesTreatment_);
       return result == null ? com.google.cloud.billing.budgets.v1.Filter.CreditTypesTreatment.UNRECOGNIZED : result;
     }
     /**
@@ -1959,7 +1893,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       creditTypesTreatment_ = value.getNumber();
       onChanged();
       return this;
@@ -1973,7 +1907,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCreditTypesTreatment() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       creditTypesTreatment_ = 0;
       onChanged();
       return this;
@@ -1981,9 +1915,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList services_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureServicesIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         services_ = new com.google.protobuf.LazyStringArrayList(services_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -2071,10 +2005,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServices(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureServicesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureServicesIsMutable();
       services_.set(index, value);
       onChanged();
       return this;
@@ -2095,10 +2027,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addServices(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureServicesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureServicesIsMutable();
       services_.add(value);
       onChanged();
       return this;
@@ -2140,7 +2070,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearServices() {
       services_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2160,10 +2090,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addServicesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureServicesIsMutable();
       services_.add(value);
       onChanged();
@@ -2172,9 +2100,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList subaccounts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureSubaccountsIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         subaccounts_ = new com.google.protobuf.LazyStringArrayList(subaccounts_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -2262,10 +2190,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubaccounts(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSubaccountsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSubaccountsIsMutable();
       subaccounts_.set(index, value);
       onChanged();
       return this;
@@ -2286,10 +2212,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSubaccounts(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSubaccountsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSubaccountsIsMutable();
       subaccounts_.add(value);
       onChanged();
       return this;
@@ -2331,7 +2255,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSubaccounts() {
       subaccounts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2351,10 +2275,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSubaccountsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureSubaccountsIsMutable();
       subaccounts_.add(value);
       onChanged();
@@ -2364,7 +2286,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf.ListValue> labels_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ListValue>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -2372,8 +2294,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ListValue>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -2381,9 +2302,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000020;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -2397,7 +2319,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.ListValue&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -2423,7 +2344,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.ListValue&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf.ListValue> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -2438,10 +2358,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.ListValue&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.ListValue getLabelsOrDefault(
+    public /* nullable */
+com.google.protobuf.ListValue getLabelsOrDefault(
         java.lang.String key,
-        com.google.protobuf.ListValue defaultValue) {
+        /* nullable */
+com.google.protobuf.ListValue defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.ListValue> map =
           internalGetLabels().getMap();
@@ -2458,7 +2379,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.ListValue&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.ListValue getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2469,8 +2389,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000020);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -2485,7 +2405,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.ListValue&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2498,7 +2417,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.protobuf.ListValue>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000020;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -2515,12 +2435,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.protobuf.ListValue value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000020;
       return this;
     }
     /**
@@ -2533,11 +2451,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.ListValue&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, com.google.protobuf.ListValue> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000020;
       return this;
     }
 
@@ -2614,8 +2532,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.billing.budgets.v1.CalendarPeriod getCalendarPeriod() {
       if (usagePeriodCase_ == 8) {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.billing.budgets.v1.CalendarPeriod result = com.google.cloud.billing.budgets.v1.CalendarPeriod.valueOf(
+        com.google.cloud.billing.budgets.v1.CalendarPeriod result = com.google.cloud.billing.budgets.v1.CalendarPeriod.forNumber(
             (java.lang.Integer) usagePeriod_);
         return result == null ? com.google.cloud.billing.budgets.v1.CalendarPeriod.UNRECOGNIZED : result;
       }
@@ -2849,7 +2766,7 @@ private static final long serialVersionUID = 0L;
         usagePeriod_ = null;
       }
       usagePeriodCase_ = 9;
-      onChanged();;
+      onChanged();
       return customPeriodBuilder_;
     }
     @java.lang.Override
@@ -2885,7 +2802,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Filter(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

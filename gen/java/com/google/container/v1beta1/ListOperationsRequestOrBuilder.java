@@ -16,7 +16,7 @@ public interface ListOperationsRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.ListOperationsRequest.project_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2903
+   *     See google/container/v1beta1/cluster_service.proto;l=2974
    * @return The projectId.
    */
   @java.lang.Deprecated java.lang.String getProjectId();
@@ -29,7 +29,7 @@ public interface ListOperationsRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.ListOperationsRequest.project_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2903
+   *     See google/container/v1beta1/cluster_service.proto;l=2974
    * @return The bytes for projectId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -45,7 +45,7 @@ public interface ListOperationsRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.ListOperationsRequest.zone is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2912
+   *     See google/container/v1beta1/cluster_service.proto;l=2983
    * @return The zone.
    */
   @java.lang.Deprecated java.lang.String getZone();
@@ -59,7 +59,7 @@ public interface ListOperationsRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.ListOperationsRequest.zone is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2912
+   *     See google/container/v1beta1/cluster_service.proto;l=2983
    * @return The bytes for zone.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

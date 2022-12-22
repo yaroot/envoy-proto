@@ -34,59 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TimestampStats(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              granularStats_ = com.google.protobuf.MapField.newMapField(
-                  GranularStatsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.automl.v1beta1.TimestampStats.GranularStats>
-            granularStats__ = input.readMessage(
-                GranularStatsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            granularStats_.getMutableMap().put(
-                granularStats__.getKey(), granularStats__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.automl.v1beta1.DataStatsOuterClass.internal_static_google_cloud_automl_v1beta1_TimestampStats_descriptor;
@@ -159,7 +106,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int32, int64&gt; buckets = 1;</code>
      */
-
     long getBucketsOrDefault(
         int key,
         long defaultValue);
@@ -171,7 +117,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int32, int64&gt; buckets = 1;</code>
      */
-
     long getBucketsOrThrow(
         int key);
   }
@@ -205,59 +150,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private GranularStats(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                buckets_ = com.google.protobuf.MapField.newMapField(
-                    BucketsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Long>
-              buckets__ = input.readMessage(
-                  BucketsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              buckets_.getMutableMap().put(
-                  buckets__.getKey(), buckets__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -296,6 +188,7 @@ private static final long serialVersionUID = 0L;
                   com.google.protobuf.WireFormat.FieldType.INT64,
                   0L);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Long> buckets_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Long>
@@ -306,7 +199,6 @@ private static final long serialVersionUID = 0L;
       }
       return buckets_;
     }
-
     public int getBucketsCount() {
       return internalGetBuckets().getMap().size();
     }
@@ -318,7 +210,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int32, int64&gt; buckets = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsBuckets(
         int key) {
@@ -342,7 +233,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, int64&gt; buckets = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Long> getBucketsMap() {
       return internalGetBuckets().getMap();
     }
@@ -355,7 +245,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, int64&gt; buckets = 1;</code>
      */
     @java.lang.Override
-
     public long getBucketsOrDefault(
         int key,
         long defaultValue) {
@@ -373,7 +262,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, int64&gt; buckets = 1;</code>
      */
     @java.lang.Override
-
     public long getBucketsOrThrow(
         int key) {
       
@@ -405,7 +293,7 @@ private static final long serialVersionUID = 0L;
           internalGetBuckets(),
           BucketsDefaultEntryHolder.defaultEntry,
           1);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -424,7 +312,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(1, buckets__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -441,7 +329,7 @@ private static final long serialVersionUID = 0L;
 
       if (!internalGetBuckets().equals(
           other.internalGetBuckets())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -456,7 +344,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + BUCKETS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetBuckets().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -599,22 +487,18 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.automl.v1beta1.TimestampStats.GranularStats.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutableBuckets().clear();
         return this;
       }
@@ -642,11 +526,17 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.automl.v1beta1.TimestampStats.GranularStats buildPartial() {
         com.google.cloud.automl.v1beta1.TimestampStats.GranularStats result = new com.google.cloud.automl.v1beta1.TimestampStats.GranularStats(this);
-        int from_bitField0_ = bitField0_;
-        result.buckets_ = internalGetBuckets();
-        result.buckets_.makeImmutable();
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.automl.v1beta1.TimestampStats.GranularStats result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.buckets_ = internalGetBuckets();
+          result.buckets_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -695,7 +585,8 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.automl.v1beta1.TimestampStats.GranularStats.getDefaultInstance()) return this;
         internalGetMutableBuckets().mergeFrom(
             other.internalGetBuckets());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00000001;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -710,17 +601,39 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.automl.v1beta1.TimestampStats.GranularStats parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Long>
+                buckets__ = input.readMessage(
+                    BucketsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableBuckets().getMutableMap().put(
+                    buckets__.getKey(), buckets__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.automl.v1beta1.TimestampStats.GranularStats) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -728,7 +641,7 @@ private static final long serialVersionUID = 0L;
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Long> buckets_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Long>
-      internalGetBuckets() {
+          internalGetBuckets() {
         if (buckets_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               BucketsDefaultEntryHolder.defaultEntry);
@@ -736,8 +649,7 @@ private static final long serialVersionUID = 0L;
         return buckets_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Long>
-      internalGetMutableBuckets() {
-        onChanged();;
+          internalGetMutableBuckets() {
         if (buckets_ == null) {
           buckets_ = com.google.protobuf.MapField.newMapField(
               BucketsDefaultEntryHolder.defaultEntry);
@@ -745,9 +657,10 @@ private static final long serialVersionUID = 0L;
         if (!buckets_.isMutable()) {
           buckets_ = buckets_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return buckets_;
       }
-
       public int getBucketsCount() {
         return internalGetBuckets().getMap().size();
       }
@@ -759,7 +672,6 @@ private static final long serialVersionUID = 0L;
        *
        * <code>map&lt;int32, int64&gt; buckets = 1;</code>
        */
-
       @java.lang.Override
       public boolean containsBuckets(
           int key) {
@@ -783,7 +695,6 @@ private static final long serialVersionUID = 0L;
        * <code>map&lt;int32, int64&gt; buckets = 1;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Long> getBucketsMap() {
         return internalGetBuckets().getMap();
       }
@@ -796,7 +707,6 @@ private static final long serialVersionUID = 0L;
        * <code>map&lt;int32, int64&gt; buckets = 1;</code>
        */
       @java.lang.Override
-
       public long getBucketsOrDefault(
           int key,
           long defaultValue) {
@@ -814,7 +724,6 @@ private static final long serialVersionUID = 0L;
        * <code>map&lt;int32, int64&gt; buckets = 1;</code>
        */
       @java.lang.Override
-
       public long getBucketsOrThrow(
           int key) {
         
@@ -825,8 +734,8 @@ private static final long serialVersionUID = 0L;
         }
         return map.get(key);
       }
-
       public Builder clearBuckets() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableBuckets().getMutableMap()
             .clear();
         return this;
@@ -839,7 +748,6 @@ private static final long serialVersionUID = 0L;
        *
        * <code>map&lt;int32, int64&gt; buckets = 1;</code>
        */
-
       public Builder removeBuckets(
           int key) {
         
@@ -852,7 +760,8 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Long>
-      getMutableBuckets() {
+          getMutableBuckets() {
+        bitField0_ |= 0x00000001;
         return internalGetMutableBuckets().getMutableMap();
       }
       /**
@@ -870,6 +779,7 @@ private static final long serialVersionUID = 0L;
         
         internalGetMutableBuckets().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
@@ -880,11 +790,11 @@ private static final long serialVersionUID = 0L;
        *
        * <code>map&lt;int32, int64&gt; buckets = 1;</code>
        */
-
       public Builder putAllBuckets(
           java.util.Map<java.lang.Integer, java.lang.Long> values) {
         internalGetMutableBuckets().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
       @java.lang.Override
@@ -920,7 +830,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GranularStats(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -952,6 +873,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.automl.v1beta1.TimestampStats.GranularStats.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.automl.v1beta1.TimestampStats.GranularStats> granularStats_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.automl.v1beta1.TimestampStats.GranularStats>
@@ -962,7 +884,6 @@ private static final long serialVersionUID = 0L;
     }
     return granularStats_;
   }
-
   public int getGranularStatsCount() {
     return internalGetGranularStats().getMap().size();
   }
@@ -977,7 +898,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.automl.v1beta1.TimestampStats.GranularStats&gt; granular_stats = 1;</code>
    */
-
   @java.lang.Override
   public boolean containsGranularStats(
       java.lang.String key) {
@@ -1004,7 +924,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.automl.v1beta1.TimestampStats.GranularStats&gt; granular_stats = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.automl.v1beta1.TimestampStats.GranularStats> getGranularStatsMap() {
     return internalGetGranularStats().getMap();
   }
@@ -1020,10 +939,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.automl.v1beta1.TimestampStats.GranularStats&gt; granular_stats = 1;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.automl.v1beta1.TimestampStats.GranularStats getGranularStatsOrDefault(
+  public /* nullable */
+com.google.cloud.automl.v1beta1.TimestampStats.GranularStats getGranularStatsOrDefault(
       java.lang.String key,
-      com.google.cloud.automl.v1beta1.TimestampStats.GranularStats defaultValue) {
+      /* nullable */
+com.google.cloud.automl.v1beta1.TimestampStats.GranularStats defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.automl.v1beta1.TimestampStats.GranularStats> map =
         internalGetGranularStats().getMap();
@@ -1041,7 +961,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.automl.v1beta1.TimestampStats.GranularStats&gt; granular_stats = 1;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.automl.v1beta1.TimestampStats.GranularStats getGranularStatsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1073,7 +992,7 @@ private static final long serialVersionUID = 0L;
         internalGetGranularStats(),
         GranularStatsDefaultEntryHolder.defaultEntry,
         1);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1092,7 +1011,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, granularStats__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1109,7 +1028,7 @@ private static final long serialVersionUID = 0L;
 
     if (!internalGetGranularStats().equals(
         other.internalGetGranularStats())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1124,7 +1043,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + GRANULAR_STATS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetGranularStats().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1267,22 +1186,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.automl.v1beta1.TimestampStats.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableGranularStats().clear();
       return this;
     }
@@ -1310,11 +1225,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.automl.v1beta1.TimestampStats buildPartial() {
       com.google.cloud.automl.v1beta1.TimestampStats result = new com.google.cloud.automl.v1beta1.TimestampStats(this);
-      int from_bitField0_ = bitField0_;
-      result.granularStats_ = internalGetGranularStats();
-      result.granularStats_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.automl.v1beta1.TimestampStats result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.granularStats_ = internalGetGranularStats();
+        result.granularStats_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -1363,7 +1284,8 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.automl.v1beta1.TimestampStats.getDefaultInstance()) return this;
       internalGetMutableGranularStats().mergeFrom(
           other.internalGetGranularStats());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000001;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1378,17 +1300,39 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.automl.v1beta1.TimestampStats parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.automl.v1beta1.TimestampStats.GranularStats>
+              granularStats__ = input.readMessage(
+                  GranularStatsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableGranularStats().getMutableMap().put(
+                  granularStats__.getKey(), granularStats__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.automl.v1beta1.TimestampStats) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1396,7 +1340,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.automl.v1beta1.TimestampStats.GranularStats> granularStats_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.automl.v1beta1.TimestampStats.GranularStats>
-    internalGetGranularStats() {
+        internalGetGranularStats() {
       if (granularStats_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             GranularStatsDefaultEntryHolder.defaultEntry);
@@ -1404,8 +1348,7 @@ private static final long serialVersionUID = 0L;
       return granularStats_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.automl.v1beta1.TimestampStats.GranularStats>
-    internalGetMutableGranularStats() {
-      onChanged();;
+        internalGetMutableGranularStats() {
       if (granularStats_ == null) {
         granularStats_ = com.google.protobuf.MapField.newMapField(
             GranularStatsDefaultEntryHolder.defaultEntry);
@@ -1413,9 +1356,10 @@ private static final long serialVersionUID = 0L;
       if (!granularStats_.isMutable()) {
         granularStats_ = granularStats_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return granularStats_;
     }
-
     public int getGranularStatsCount() {
       return internalGetGranularStats().getMap().size();
     }
@@ -1430,7 +1374,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.automl.v1beta1.TimestampStats.GranularStats&gt; granular_stats = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsGranularStats(
         java.lang.String key) {
@@ -1457,7 +1400,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.automl.v1beta1.TimestampStats.GranularStats&gt; granular_stats = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.automl.v1beta1.TimestampStats.GranularStats> getGranularStatsMap() {
       return internalGetGranularStats().getMap();
     }
@@ -1473,10 +1415,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.automl.v1beta1.TimestampStats.GranularStats&gt; granular_stats = 1;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.automl.v1beta1.TimestampStats.GranularStats getGranularStatsOrDefault(
+    public /* nullable */
+com.google.cloud.automl.v1beta1.TimestampStats.GranularStats getGranularStatsOrDefault(
         java.lang.String key,
-        com.google.cloud.automl.v1beta1.TimestampStats.GranularStats defaultValue) {
+        /* nullable */
+com.google.cloud.automl.v1beta1.TimestampStats.GranularStats defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.automl.v1beta1.TimestampStats.GranularStats> map =
           internalGetGranularStats().getMap();
@@ -1494,7 +1437,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.automl.v1beta1.TimestampStats.GranularStats&gt; granular_stats = 1;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.automl.v1beta1.TimestampStats.GranularStats getGranularStatsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1505,8 +1447,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearGranularStats() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableGranularStats().getMutableMap()
           .clear();
       return this;
@@ -1522,7 +1464,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.automl.v1beta1.TimestampStats.GranularStats&gt; granular_stats = 1;</code>
      */
-
     public Builder removeGranularStats(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1535,7 +1476,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.automl.v1beta1.TimestampStats.GranularStats>
-    getMutableGranularStats() {
+        getMutableGranularStats() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableGranularStats().getMutableMap();
     }
     /**
@@ -1553,12 +1495,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.automl.v1beta1.TimestampStats.GranularStats value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableGranularStats().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -1572,11 +1512,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.automl.v1beta1.TimestampStats.GranularStats&gt; granular_stats = 1;</code>
      */
-
     public Builder putAllGranularStats(
         java.util.Map<java.lang.String, com.google.cloud.automl.v1beta1.TimestampStats.GranularStats> values) {
       internalGetMutableGranularStats().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
     @java.lang.Override
@@ -1612,7 +1552,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TimestampStats(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

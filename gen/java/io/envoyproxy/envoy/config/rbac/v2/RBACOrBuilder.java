@@ -69,7 +69,6 @@ public interface RBACOrBuilder extends
    *
    * <code>map&lt;string, .envoy.config.rbac.v2.Policy&gt; policies = 2;</code>
    */
-
   /* nullable */
 io.envoyproxy.envoy.config.rbac.v2.Policy getPoliciesOrDefault(
       java.lang.String key,
@@ -82,7 +81,6 @@ io.envoyproxy.envoy.config.rbac.v2.Policy defaultValue);
    *
    * <code>map&lt;string, .envoy.config.rbac.v2.Policy&gt; policies = 2;</code>
    */
-
   io.envoyproxy.envoy.config.rbac.v2.Policy getPoliciesOrThrow(
       java.lang.String key);
 }

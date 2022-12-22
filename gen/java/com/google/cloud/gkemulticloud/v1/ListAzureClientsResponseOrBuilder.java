@@ -9,8 +9,8 @@ public interface ListAzureClientsResponseOrBuilder extends
 
   /**
    * <pre>
-   * A list of [AzureClient][google.cloud.gkemulticloud.v1.AzureClient] resources in the specified Google Cloud
-   * project and region region.
+   * A list of [AzureClient][google.cloud.gkemulticloud.v1.AzureClient]
+   * resources in the specified Google Cloud project and region region.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AzureClient azure_clients = 1;</code>
@@ -19,8 +19,8 @@ public interface ListAzureClientsResponseOrBuilder extends
       getAzureClientsList();
   /**
    * <pre>
-   * A list of [AzureClient][google.cloud.gkemulticloud.v1.AzureClient] resources in the specified Google Cloud
-   * project and region region.
+   * A list of [AzureClient][google.cloud.gkemulticloud.v1.AzureClient]
+   * resources in the specified Google Cloud project and region region.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AzureClient azure_clients = 1;</code>
@@ -28,8 +28,8 @@ public interface ListAzureClientsResponseOrBuilder extends
   com.google.cloud.gkemulticloud.v1.AzureClient getAzureClients(int index);
   /**
    * <pre>
-   * A list of [AzureClient][google.cloud.gkemulticloud.v1.AzureClient] resources in the specified Google Cloud
-   * project and region region.
+   * A list of [AzureClient][google.cloud.gkemulticloud.v1.AzureClient]
+   * resources in the specified Google Cloud project and region region.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AzureClient azure_clients = 1;</code>
@@ -37,8 +37,8 @@ public interface ListAzureClientsResponseOrBuilder extends
   int getAzureClientsCount();
   /**
    * <pre>
-   * A list of [AzureClient][google.cloud.gkemulticloud.v1.AzureClient] resources in the specified Google Cloud
-   * project and region region.
+   * A list of [AzureClient][google.cloud.gkemulticloud.v1.AzureClient]
+   * resources in the specified Google Cloud project and region region.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AzureClient azure_clients = 1;</code>
@@ -47,8 +47,8 @@ public interface ListAzureClientsResponseOrBuilder extends
       getAzureClientsOrBuilderList();
   /**
    * <pre>
-   * A list of [AzureClient][google.cloud.gkemulticloud.v1.AzureClient] resources in the specified Google Cloud
-   * project and region region.
+   * A list of [AzureClient][google.cloud.gkemulticloud.v1.AzureClient]
+   * resources in the specified Google Cloud project and region region.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AzureClient azure_clients = 1;</code>

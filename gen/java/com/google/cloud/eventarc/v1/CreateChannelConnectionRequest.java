@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateChannelConnectionRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.eventarc.v1.ChannelConnection.Builder subBuilder = null;
-            if (channelConnection_ != null) {
-              subBuilder = channelConnection_.toBuilder();
-            }
-            channelConnection_ = input.readMessage(com.google.cloud.eventarc.v1.ChannelConnection.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(channelConnection_);
-              channelConnection_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            channelConnectionId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.eventarc.v1.EventarcProto.internal_static_google_cloud_eventarc_v1_CreateChannelConnectionRequest_descriptor;
@@ -114,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The parent collection in which to add this channel connection.
@@ -194,11 +131,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.eventarc.v1.ChannelConnectionOrBuilder getChannelConnectionOrBuilder() {
-    return getChannelConnection();
+    return channelConnection_ == null ? com.google.cloud.eventarc.v1.ChannelConnection.getDefaultInstance() : channelConnection_;
   }
 
   public static final int CHANNEL_CONNECTION_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object channelConnectionId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object channelConnectionId_ = "";
   /**
    * <pre>
    * Required. The user-provided ID to be assigned to the channel connection.
@@ -266,7 +204,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelConnectionId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, channelConnectionId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -285,7 +223,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelConnectionId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, channelConnectionId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -309,7 +247,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getChannelConnectionId()
         .equals(other.getChannelConnectionId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -328,7 +266,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + CHANNEL_CONNECTION_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChannelConnectionId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -449,32 +387,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.eventarc.v1.CreateChannelConnectionRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (channelConnectionBuilder_ == null) {
-        channelConnection_ = null;
-      } else {
-        channelConnection_ = null;
+      channelConnection_ = null;
+      if (channelConnectionBuilder_ != null) {
+        channelConnectionBuilder_.dispose();
         channelConnectionBuilder_ = null;
       }
       channelConnectionId_ = "";
-
       return this;
     }
 
@@ -501,15 +432,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.eventarc.v1.CreateChannelConnectionRequest buildPartial() {
       com.google.cloud.eventarc.v1.CreateChannelConnectionRequest result = new com.google.cloud.eventarc.v1.CreateChannelConnectionRequest(this);
-      result.parent_ = parent_;
-      if (channelConnectionBuilder_ == null) {
-        result.channelConnection_ = channelConnection_;
-      } else {
-        result.channelConnection_ = channelConnectionBuilder_.build();
-      }
-      result.channelConnectionId_ = channelConnectionId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.eventarc.v1.CreateChannelConnectionRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.channelConnection_ = channelConnectionBuilder_ == null
+            ? channelConnection_
+            : channelConnectionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.channelConnectionId_ = channelConnectionId_;
+      }
     }
 
     @java.lang.Override
@@ -558,6 +498,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.eventarc.v1.CreateChannelConnectionRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasChannelConnection()) {
@@ -565,9 +506,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getChannelConnectionId().isEmpty()) {
         channelConnectionId_ = other.channelConnectionId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -582,19 +524,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.eventarc.v1.CreateChannelConnectionRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getChannelConnectionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              channelConnectionId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.eventarc.v1.CreateChannelConnectionRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -649,11 +622,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -666,8 +637,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -682,12 +653,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -704,7 +673,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the channelConnection field is set.
      */
     public boolean hasChannelConnection() {
-      return channelConnectionBuilder_ != null || channelConnection_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -734,11 +703,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         channelConnection_ = value;
-        onChanged();
       } else {
         channelConnectionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -752,11 +721,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.eventarc.v1.ChannelConnection.Builder builderForValue) {
       if (channelConnectionBuilder_ == null) {
         channelConnection_ = builderForValue.build();
-        onChanged();
       } else {
         channelConnectionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -768,17 +737,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeChannelConnection(com.google.cloud.eventarc.v1.ChannelConnection value) {
       if (channelConnectionBuilder_ == null) {
-        if (channelConnection_ != null) {
-          channelConnection_ =
-            com.google.cloud.eventarc.v1.ChannelConnection.newBuilder(channelConnection_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          channelConnection_ != null &&
+          channelConnection_ != com.google.cloud.eventarc.v1.ChannelConnection.getDefaultInstance()) {
+          getChannelConnectionBuilder().mergeFrom(value);
         } else {
           channelConnection_ = value;
         }
-        onChanged();
       } else {
         channelConnectionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -789,14 +759,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.eventarc.v1.ChannelConnection channel_connection = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearChannelConnection() {
-      if (channelConnectionBuilder_ == null) {
-        channelConnection_ = null;
-        onChanged();
-      } else {
-        channelConnection_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      channelConnection_ = null;
+      if (channelConnectionBuilder_ != null) {
+        channelConnectionBuilder_.dispose();
         channelConnectionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -807,7 +776,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.eventarc.v1.ChannelConnection channel_connection = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.eventarc.v1.ChannelConnection.Builder getChannelConnectionBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getChannelConnectionFieldBuilder().getBuilder();
     }
@@ -900,11 +869,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setChannelConnectionId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       channelConnectionId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -917,8 +884,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearChannelConnectionId() {
-      
       channelConnectionId_ = getDefaultInstance().getChannelConnectionId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -933,12 +900,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setChannelConnectionIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       channelConnectionId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -975,7 +940,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateChannelConnectionRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

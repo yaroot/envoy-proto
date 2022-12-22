@@ -106,7 +106,6 @@ public interface AssistQueryParametersOrBuilder extends
    *
    * <code>map&lt;string, string&gt; documents_metadata_filters = 1;</code>
    */
-
   /* nullable */
 java.lang.String getDocumentsMetadataFiltersOrDefault(
       java.lang.String key,
@@ -134,7 +133,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; documents_metadata_filters = 1;</code>
    */
-
   java.lang.String getDocumentsMetadataFiltersOrThrow(
       java.lang.String key);
 }

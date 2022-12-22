@@ -268,7 +268,6 @@ public interface InstancePropertiesOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 500195327;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -281,7 +280,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 500195327;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -539,7 +537,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; resource_manager_tags = 377671164;</code>
    */
-
   /* nullable */
 java.lang.String getResourceManagerTagsOrDefault(
       java.lang.String key,
@@ -552,7 +549,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; resource_manager_tags = 377671164;</code>
    */
-
   java.lang.String getResourceManagerTagsOrThrow(
       java.lang.String key);
 

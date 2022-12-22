@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ImageProperties(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.vision.v1.DominantColorsAnnotation.Builder subBuilder = null;
-            if (dominantColors_ != null) {
-              subBuilder = dominantColors_.toBuilder();
-            }
-            dominantColors_ = input.readMessage(com.google.cloud.vision.v1.DominantColorsAnnotation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dominantColors_);
-              dominantColors_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.vision.v1.ImageAnnotatorProto.internal_static_google_cloud_vision_v1_ImageProperties_descriptor;
@@ -134,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.vision.v1.DominantColorsAnnotationOrBuilder getDominantColorsOrBuilder() {
-    return getDominantColors();
+    return dominantColors_ == null ? com.google.cloud.vision.v1.DominantColorsAnnotation.getDefaultInstance() : dominantColors_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -154,7 +102,7 @@ private static final long serialVersionUID = 0L;
     if (dominantColors_ != null) {
       output.writeMessage(1, getDominantColors());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -167,7 +115,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getDominantColors());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -187,7 +135,7 @@ private static final long serialVersionUID = 0L;
       if (!getDominantColors()
           .equals(other.getDominantColors())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -202,7 +150,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DOMINANT_COLORS_FIELD_NUMBER;
       hash = (53 * hash) + getDominantColors().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -323,26 +271,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.vision.v1.ImageProperties.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (dominantColorsBuilder_ == null) {
-        dominantColors_ = null;
-      } else {
-        dominantColors_ = null;
+      bitField0_ = 0;
+      dominantColors_ = null;
+      if (dominantColorsBuilder_ != null) {
+        dominantColorsBuilder_.dispose();
         dominantColorsBuilder_ = null;
       }
       return this;
@@ -371,13 +314,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.vision.v1.ImageProperties buildPartial() {
       com.google.cloud.vision.v1.ImageProperties result = new com.google.cloud.vision.v1.ImageProperties(this);
-      if (dominantColorsBuilder_ == null) {
-        result.dominantColors_ = dominantColors_;
-      } else {
-        result.dominantColors_ = dominantColorsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.vision.v1.ImageProperties result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.dominantColors_ = dominantColorsBuilder_ == null
+            ? dominantColors_
+            : dominantColorsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -427,7 +375,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDominantColors()) {
         mergeDominantColors(other.getDominantColors());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -442,19 +390,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.vision.v1.ImageProperties parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getDominantColorsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.vision.v1.ImageProperties) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.vision.v1.DominantColorsAnnotation dominantColors_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -468,7 +437,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dominantColors field is set.
      */
     public boolean hasDominantColors() {
-      return dominantColorsBuilder_ != null || dominantColors_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -498,11 +467,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dominantColors_ = value;
-        onChanged();
       } else {
         dominantColorsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -516,11 +485,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.vision.v1.DominantColorsAnnotation.Builder builderForValue) {
       if (dominantColorsBuilder_ == null) {
         dominantColors_ = builderForValue.build();
-        onChanged();
       } else {
         dominantColorsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -532,17 +501,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDominantColors(com.google.cloud.vision.v1.DominantColorsAnnotation value) {
       if (dominantColorsBuilder_ == null) {
-        if (dominantColors_ != null) {
-          dominantColors_ =
-            com.google.cloud.vision.v1.DominantColorsAnnotation.newBuilder(dominantColors_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          dominantColors_ != null &&
+          dominantColors_ != com.google.cloud.vision.v1.DominantColorsAnnotation.getDefaultInstance()) {
+          getDominantColorsBuilder().mergeFrom(value);
         } else {
           dominantColors_ = value;
         }
-        onChanged();
       } else {
         dominantColorsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -553,14 +523,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vision.v1.DominantColorsAnnotation dominant_colors = 1;</code>
      */
     public Builder clearDominantColors() {
-      if (dominantColorsBuilder_ == null) {
-        dominantColors_ = null;
-        onChanged();
-      } else {
-        dominantColors_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      dominantColors_ = null;
+      if (dominantColorsBuilder_ != null) {
+        dominantColorsBuilder_.dispose();
         dominantColorsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -571,7 +540,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vision.v1.DominantColorsAnnotation dominant_colors = 1;</code>
      */
     public com.google.cloud.vision.v1.DominantColorsAnnotation.Builder getDominantColorsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getDominantColorsFieldBuilder().getBuilder();
     }
@@ -643,7 +612,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImageProperties(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

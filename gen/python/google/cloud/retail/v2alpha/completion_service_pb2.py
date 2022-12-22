@@ -20,7 +20,7 @@ from google.cloud.retail.v2alpha import import_config_pb2 as google_dot_cloud_do
 from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4google/cloud/retail/v2alpha/completion_service.proto\x12\x1bgoogle.cloud.retail.v2alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a(google/cloud/retail/v2alpha/common.proto\x1a/google/cloud/retail/v2alpha/import_config.proto\x1a#google/longrunning/operations.proto\"\xcd\x01\n\x14\x43ompleteQueryRequest\x12\x36\n\x07\x63\x61talog\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1dretail.googleapis.com/Catalog\x12\x12\n\x05query\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\nvisitor_id\x18\x07 \x01(\t\x12\x16\n\x0elanguage_codes\x18\x03 \x03(\t\x12\x13\n\x0b\x64\x65vice_type\x18\x04 \x01(\t\x12\x0f\n\x07\x64\x61taset\x18\x06 \x01(\t\x12\x17\n\x0fmax_suggestions\x18\x05 \x01(\x05\"\x99\x04\n\x15\x43ompleteQueryResponse\x12_\n\x12\x63ompletion_results\x18\x01 \x03(\x0b\x32\x43.google.cloud.retail.v2alpha.CompleteQueryResponse.CompletionResult\x12\x19\n\x11\x61ttribution_token\x18\x02 \x01(\t\x12\x64\n\x15recent_search_results\x18\x03 \x03(\x0b\x32\x45.google.cloud.retail.v2alpha.CompleteQueryResponse.RecentSearchResult\x1a\xf0\x01\n\x10\x43ompletionResult\x12\x12\n\nsuggestion\x18\x01 \x01(\t\x12g\n\nattributes\x18\x02 \x03(\x0b\x32S.google.cloud.retail.v2alpha.CompleteQueryResponse.CompletionResult.AttributesEntry\x1a_\n\x0f\x41ttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12;\n\x05value\x18\x02 \x01(\x0b\x32,.google.cloud.retail.v2alpha.CustomAttribute:\x02\x38\x01\x1a+\n\x12RecentSearchResult\x12\x15\n\rrecent_search\x18\x01 \x01(\t2\xd5\x04\n\x11\x43ompletionService\x12\xc2\x01\n\rCompleteQuery\x12\x31.google.cloud.retail.v2alpha.CompleteQueryRequest\x1a\x32.google.cloud.retail.v2alpha.CompleteQueryResponse\"J\x82\xd3\xe4\x93\x02\x44\x12\x42/v2alpha/{catalog=projects/*/locations/*/catalogs/*}:completeQuery\x12\xaf\x02\n\x14ImportCompletionData\x12\x38.google.cloud.retail.v2alpha.ImportCompletionDataRequest\x1a\x1d.google.longrunning.Operation\"\xbd\x01\x82\xd3\xe4\x93\x02N\"I/v2alpha/{parent=projects/*/locations/*/catalogs/*}/completionData:import:\x01*\xca\x41\x66\n8google.cloud.retail.v2alpha.ImportCompletionDataResponse\x12*google.cloud.retail.v2alpha.ImportMetadata\x1aI\xca\x41\x15retail.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xe4\x01\n\x1f\x63om.google.cloud.retail.v2alphaB\x16\x43ompletionServiceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/retail/v2alpha;retail\xa2\x02\x06RETAIL\xaa\x02\x1bGoogle.Cloud.Retail.V2Alpha\xca\x02\x1bGoogle\\Cloud\\Retail\\V2alpha\xea\x02\x1eGoogle::Cloud::Retail::V2alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4google/cloud/retail/v2alpha/completion_service.proto\x12\x1bgoogle.cloud.retail.v2alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a(google/cloud/retail/v2alpha/common.proto\x1a/google/cloud/retail/v2alpha/import_config.proto\x1a#google/longrunning/operations.proto\"\xf3\x01\n\x14\x43ompleteQueryRequest\x12\x36\n\x07\x63\x61talog\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1dretail.googleapis.com/Catalog\x12\x12\n\x05query\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\nvisitor_id\x18\x07 \x01(\t\x12\x16\n\x0elanguage_codes\x18\x03 \x03(\t\x12\x13\n\x0b\x64\x65vice_type\x18\x04 \x01(\t\x12\x0f\n\x07\x64\x61taset\x18\x06 \x01(\t\x12\x17\n\x0fmax_suggestions\x18\x05 \x01(\x05\x12$\n\x1c\x65nable_attribute_suggestions\x18\t \x01(\x08\"\xa3\x06\n\x15\x43ompleteQueryResponse\x12_\n\x12\x63ompletion_results\x18\x01 \x03(\x0b\x32\x43.google.cloud.retail.v2alpha.CompleteQueryResponse.CompletionResult\x12\x19\n\x11\x61ttribution_token\x18\x02 \x01(\t\x12\x64\n\x15recent_search_results\x18\x03 \x03(\x0b\x32\x45.google.cloud.retail.v2alpha.CompleteQueryResponse.RecentSearchResult\x12\x63\n\x11\x61ttribute_results\x18\x04 \x03(\x0b\x32H.google.cloud.retail.v2alpha.CompleteQueryResponse.AttributeResultsEntry\x1a\xf0\x01\n\x10\x43ompletionResult\x12\x12\n\nsuggestion\x18\x01 \x01(\t\x12g\n\nattributes\x18\x02 \x03(\x0b\x32S.google.cloud.retail.v2alpha.CompleteQueryResponse.CompletionResult.AttributesEntry\x1a_\n\x0f\x41ttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12;\n\x05value\x18\x02 \x01(\x0b\x32,.google.cloud.retail.v2alpha.CustomAttribute:\x02\x38\x01\x1a+\n\x12RecentSearchResult\x12\x15\n\rrecent_search\x18\x01 \x01(\t\x1a&\n\x0f\x41ttributeResult\x12\x13\n\x0bsuggestions\x18\x01 \x03(\t\x1a{\n\x15\x41ttributeResultsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12Q\n\x05value\x18\x02 \x01(\x0b\x32\x42.google.cloud.retail.v2alpha.CompleteQueryResponse.AttributeResult:\x02\x38\x01\x32\xd5\x04\n\x11\x43ompletionService\x12\xc2\x01\n\rCompleteQuery\x12\x31.google.cloud.retail.v2alpha.CompleteQueryRequest\x1a\x32.google.cloud.retail.v2alpha.CompleteQueryResponse\"J\x82\xd3\xe4\x93\x02\x44\x12\x42/v2alpha/{catalog=projects/*/locations/*/catalogs/*}:completeQuery\x12\xaf\x02\n\x14ImportCompletionData\x12\x38.google.cloud.retail.v2alpha.ImportCompletionDataRequest\x1a\x1d.google.longrunning.Operation\"\xbd\x01\x82\xd3\xe4\x93\x02N\"I/v2alpha/{parent=projects/*/locations/*/catalogs/*}/completionData:import:\x01*\xca\x41\x66\n8google.cloud.retail.v2alpha.ImportCompletionDataResponse\x12*google.cloud.retail.v2alpha.ImportMetadata\x1aI\xca\x41\x15retail.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xe4\x01\n\x1f\x63om.google.cloud.retail.v2alphaB\x16\x43ompletionServiceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/retail/v2alpha;retail\xa2\x02\x06RETAIL\xaa\x02\x1bGoogle.Cloud.Retail.V2Alpha\xca\x02\x1bGoogle\\Cloud\\Retail\\V2alpha\xea\x02\x1eGoogle::Cloud::Retail::V2alphab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.retail.v2alpha.completion_service_pb2', globals())
@@ -34,6 +34,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _COMPLETEQUERYREQUEST.fields_by_name['query']._serialized_options = b'\340A\002'
   _COMPLETEQUERYRESPONSE_COMPLETIONRESULT_ATTRIBUTESENTRY._options = None
   _COMPLETEQUERYRESPONSE_COMPLETIONRESULT_ATTRIBUTESENTRY._serialized_options = b'8\001'
+  _COMPLETEQUERYRESPONSE_ATTRIBUTERESULTSENTRY._options = None
+  _COMPLETEQUERYRESPONSE_ATTRIBUTERESULTSENTRY._serialized_options = b'8\001'
   _COMPLETIONSERVICE._options = None
   _COMPLETIONSERVICE._serialized_options = b'\312A\025retail.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform'
   _COMPLETIONSERVICE.methods_by_name['CompleteQuery']._options = None
@@ -41,15 +43,19 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _COMPLETIONSERVICE.methods_by_name['ImportCompletionData']._options = None
   _COMPLETIONSERVICE.methods_by_name['ImportCompletionData']._serialized_options = b'\202\323\344\223\002N\"I/v2alpha/{parent=projects/*/locations/*/catalogs/*}/completionData:import:\001*\312Af\n8google.cloud.retail.v2alpha.ImportCompletionDataResponse\022*google.cloud.retail.v2alpha.ImportMetadata'
   _COMPLETEQUERYREQUEST._serialized_start=329
-  _COMPLETEQUERYREQUEST._serialized_end=534
-  _COMPLETEQUERYRESPONSE._serialized_start=537
-  _COMPLETEQUERYRESPONSE._serialized_end=1074
-  _COMPLETEQUERYRESPONSE_COMPLETIONRESULT._serialized_start=789
-  _COMPLETEQUERYRESPONSE_COMPLETIONRESULT._serialized_end=1029
-  _COMPLETEQUERYRESPONSE_COMPLETIONRESULT_ATTRIBUTESENTRY._serialized_start=934
-  _COMPLETEQUERYRESPONSE_COMPLETIONRESULT_ATTRIBUTESENTRY._serialized_end=1029
-  _COMPLETEQUERYRESPONSE_RECENTSEARCHRESULT._serialized_start=1031
-  _COMPLETEQUERYRESPONSE_RECENTSEARCHRESULT._serialized_end=1074
-  _COMPLETIONSERVICE._serialized_start=1077
-  _COMPLETIONSERVICE._serialized_end=1674
+  _COMPLETEQUERYREQUEST._serialized_end=572
+  _COMPLETEQUERYRESPONSE._serialized_start=575
+  _COMPLETEQUERYRESPONSE._serialized_end=1378
+  _COMPLETEQUERYRESPONSE_COMPLETIONRESULT._serialized_start=928
+  _COMPLETEQUERYRESPONSE_COMPLETIONRESULT._serialized_end=1168
+  _COMPLETEQUERYRESPONSE_COMPLETIONRESULT_ATTRIBUTESENTRY._serialized_start=1073
+  _COMPLETEQUERYRESPONSE_COMPLETIONRESULT_ATTRIBUTESENTRY._serialized_end=1168
+  _COMPLETEQUERYRESPONSE_RECENTSEARCHRESULT._serialized_start=1170
+  _COMPLETEQUERYRESPONSE_RECENTSEARCHRESULT._serialized_end=1213
+  _COMPLETEQUERYRESPONSE_ATTRIBUTERESULT._serialized_start=1215
+  _COMPLETEQUERYRESPONSE_ATTRIBUTERESULT._serialized_end=1253
+  _COMPLETEQUERYRESPONSE_ATTRIBUTERESULTSENTRY._serialized_start=1255
+  _COMPLETEQUERYRESPONSE_ATTRIBUTERESULTSENTRY._serialized_end=1378
+  _COMPLETIONSERVICE._serialized_start=1381
+  _COMPLETIONSERVICE._serialized_end=1978
 # @@protoc_insertion_point(module_scope)

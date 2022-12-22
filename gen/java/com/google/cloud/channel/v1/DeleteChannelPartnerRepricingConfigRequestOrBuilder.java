@@ -9,7 +9,8 @@ public interface DeleteChannelPartnerRepricingConfigRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The resource name of the channel partner repricing config rule to delete.
+   * Required. The resource name of the channel partner repricing config rule to
+   * delete.
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -18,7 +19,8 @@ public interface DeleteChannelPartnerRepricingConfigRequestOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Required. The resource name of the channel partner repricing config rule to delete.
+   * Required. The resource name of the channel partner repricing config rule to
+   * delete.
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

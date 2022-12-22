@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreatePredictionApiKeyRegistrationRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistration.Builder subBuilder = null;
-            if (predictionApiKeyRegistration_ != null) {
-              subBuilder = predictionApiKeyRegistration_.toBuilder();
-            }
-            predictionApiKeyRegistration_ = input.readMessage(com.google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(predictionApiKeyRegistration_);
-              predictionApiKeyRegistration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.recommendationengine.v1beta1.PredictionApikeyRegistryService.internal_static_google_cloud_recommendationengine_v1beta1_CreatePredictionApiKeyRegistrationRequest_descriptor;
@@ -107,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The parent resource path.
@@ -189,7 +132,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistrationOrBuilder getPredictionApiKeyRegistrationOrBuilder() {
-    return getPredictionApiKeyRegistration();
+    return predictionApiKeyRegistration_ == null ? com.google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistration.getDefaultInstance() : predictionApiKeyRegistration_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -212,7 +155,7 @@ private static final long serialVersionUID = 0L;
     if (predictionApiKeyRegistration_ != null) {
       output.writeMessage(2, getPredictionApiKeyRegistration());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -228,7 +171,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getPredictionApiKeyRegistration());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +193,7 @@ private static final long serialVersionUID = 0L;
       if (!getPredictionApiKeyRegistration()
           .equals(other.getPredictionApiKeyRegistration())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -267,7 +210,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PREDICTION_API_KEY_REGISTRATION_FIELD_NUMBER;
       hash = (53 * hash) + getPredictionApiKeyRegistration().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -388,28 +331,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.recommendationengine.v1beta1.CreatePredictionApiKeyRegistrationRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (predictionApiKeyRegistrationBuilder_ == null) {
-        predictionApiKeyRegistration_ = null;
-      } else {
-        predictionApiKeyRegistration_ = null;
+      predictionApiKeyRegistration_ = null;
+      if (predictionApiKeyRegistrationBuilder_ != null) {
+        predictionApiKeyRegistrationBuilder_.dispose();
         predictionApiKeyRegistrationBuilder_ = null;
       }
       return this;
@@ -438,14 +375,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.recommendationengine.v1beta1.CreatePredictionApiKeyRegistrationRequest buildPartial() {
       com.google.cloud.recommendationengine.v1beta1.CreatePredictionApiKeyRegistrationRequest result = new com.google.cloud.recommendationengine.v1beta1.CreatePredictionApiKeyRegistrationRequest(this);
-      result.parent_ = parent_;
-      if (predictionApiKeyRegistrationBuilder_ == null) {
-        result.predictionApiKeyRegistration_ = predictionApiKeyRegistration_;
-      } else {
-        result.predictionApiKeyRegistration_ = predictionApiKeyRegistrationBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.recommendationengine.v1beta1.CreatePredictionApiKeyRegistrationRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.predictionApiKeyRegistration_ = predictionApiKeyRegistrationBuilder_ == null
+            ? predictionApiKeyRegistration_
+            : predictionApiKeyRegistrationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -494,12 +438,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.recommendationengine.v1beta1.CreatePredictionApiKeyRegistrationRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasPredictionApiKeyRegistration()) {
         mergePredictionApiKeyRegistration(other.getPredictionApiKeyRegistration());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -514,19 +459,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.recommendationengine.v1beta1.CreatePredictionApiKeyRegistrationRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPredictionApiKeyRegistrationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.recommendationengine.v1beta1.CreatePredictionApiKeyRegistrationRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -584,11 +555,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -602,8 +571,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -619,12 +588,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -641,7 +608,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the predictionApiKeyRegistration field is set.
      */
     public boolean hasPredictionApiKeyRegistration() {
-      return predictionApiKeyRegistrationBuilder_ != null || predictionApiKeyRegistration_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -671,11 +638,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         predictionApiKeyRegistration_ = value;
-        onChanged();
       } else {
         predictionApiKeyRegistrationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -689,11 +656,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistration.Builder builderForValue) {
       if (predictionApiKeyRegistrationBuilder_ == null) {
         predictionApiKeyRegistration_ = builderForValue.build();
-        onChanged();
       } else {
         predictionApiKeyRegistrationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -705,17 +672,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePredictionApiKeyRegistration(com.google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistration value) {
       if (predictionApiKeyRegistrationBuilder_ == null) {
-        if (predictionApiKeyRegistration_ != null) {
-          predictionApiKeyRegistration_ =
-            com.google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistration.newBuilder(predictionApiKeyRegistration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          predictionApiKeyRegistration_ != null &&
+          predictionApiKeyRegistration_ != com.google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistration.getDefaultInstance()) {
+          getPredictionApiKeyRegistrationBuilder().mergeFrom(value);
         } else {
           predictionApiKeyRegistration_ = value;
         }
-        onChanged();
       } else {
         predictionApiKeyRegistrationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -726,14 +694,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistration prediction_api_key_registration = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearPredictionApiKeyRegistration() {
-      if (predictionApiKeyRegistrationBuilder_ == null) {
-        predictionApiKeyRegistration_ = null;
-        onChanged();
-      } else {
-        predictionApiKeyRegistration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      predictionApiKeyRegistration_ = null;
+      if (predictionApiKeyRegistrationBuilder_ != null) {
+        predictionApiKeyRegistrationBuilder_.dispose();
         predictionApiKeyRegistrationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -744,7 +711,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistration prediction_api_key_registration = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistration.Builder getPredictionApiKeyRegistrationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getPredictionApiKeyRegistrationFieldBuilder().getBuilder();
     }
@@ -816,7 +783,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreatePredictionApiKeyRegistrationRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

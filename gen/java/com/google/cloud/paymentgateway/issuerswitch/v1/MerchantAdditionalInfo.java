@@ -41,87 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MerchantAdditionalInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            categoryCode_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            storeId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            terminalId_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            genre_ = rawValue;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            onboardingType_ = rawValue;
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            ownershipType_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.paymentgateway.issuerswitch.v1.CommonFieldsProto.internal_static_google_cloud_paymentgateway_issuerswitch_v1_MerchantAdditionalInfo_descriptor;
@@ -802,7 +721,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CATEGORY_CODE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object categoryCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object categoryCode_ = "";
   /**
    * <pre>
    * Merchant Category Code (MCC) as specified by UPI. This is a four-digit
@@ -850,7 +770,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STORE_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object storeId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object storeId_ = "";
   /**
    * <pre>
    * A unique identifier for the merchant store where the payment settlement
@@ -898,7 +819,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TERMINAL_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object terminalId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object terminalId_ = "";
   /**
    * <pre>
    * A unique identifier for the POS terminal in the store where the payment
@@ -946,7 +868,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 4;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Indicates the type of merchant.
@@ -967,13 +889,12 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Type getType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Type result = com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Type.valueOf(type_);
+    com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Type result = com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Type.forNumber(type_);
     return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Type.UNRECOGNIZED : result;
   }
 
   public static final int GENRE_FIELD_NUMBER = 5;
-  private int genre_;
+  private int genre_ = 0;
   /**
    * <pre>
    * Indicates the genre of the merchant.
@@ -994,13 +915,12 @@ private static final long serialVersionUID = 0L;
    * @return The genre.
    */
   @java.lang.Override public com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Genre getGenre() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Genre result = com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Genre.valueOf(genre_);
+    com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Genre result = com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Genre.forNumber(genre_);
     return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Genre.UNRECOGNIZED : result;
   }
 
   public static final int ONBOARDING_TYPE_FIELD_NUMBER = 6;
-  private int onboardingType_;
+  private int onboardingType_ = 0;
   /**
    * <pre>
    * Indicates the merchant's onboarding type.
@@ -1021,13 +941,12 @@ private static final long serialVersionUID = 0L;
    * @return The onboardingType.
    */
   @java.lang.Override public com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OnboardingType getOnboardingType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OnboardingType result = com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OnboardingType.valueOf(onboardingType_);
+    com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OnboardingType result = com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OnboardingType.forNumber(onboardingType_);
     return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OnboardingType.UNRECOGNIZED : result;
   }
 
   public static final int OWNERSHIP_TYPE_FIELD_NUMBER = 7;
-  private int ownershipType_;
+  private int ownershipType_ = 0;
   /**
    * <pre>
    * Indicates the merchant's owner type.
@@ -1048,8 +967,7 @@ private static final long serialVersionUID = 0L;
    * @return The ownershipType.
    */
   @java.lang.Override public com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OwnershipType getOwnershipType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OwnershipType result = com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OwnershipType.valueOf(ownershipType_);
+    com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OwnershipType result = com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OwnershipType.forNumber(ownershipType_);
     return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OwnershipType.UNRECOGNIZED : result;
   }
 
@@ -1088,7 +1006,7 @@ private static final long serialVersionUID = 0L;
     if (ownershipType_ != com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OwnershipType.OWNERSHIP_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(7, ownershipType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1122,7 +1040,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(7, ownershipType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1147,7 +1065,7 @@ private static final long serialVersionUID = 0L;
     if (genre_ != other.genre_) return false;
     if (onboardingType_ != other.onboardingType_) return false;
     if (ownershipType_ != other.ownershipType_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1172,7 +1090,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + onboardingType_;
     hash = (37 * hash) + OWNERSHIP_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + ownershipType_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1293,36 +1211,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       categoryCode_ = "";
-
       storeId_ = "";
-
       terminalId_ = "";
-
       type_ = 0;
-
       genre_ = 0;
-
       onboardingType_ = 0;
-
       ownershipType_ = 0;
-
       return this;
     }
 
@@ -1349,15 +1256,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo buildPartial() {
       com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo result = new com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo(this);
-      result.categoryCode_ = categoryCode_;
-      result.storeId_ = storeId_;
-      result.terminalId_ = terminalId_;
-      result.type_ = type_;
-      result.genre_ = genre_;
-      result.onboardingType_ = onboardingType_;
-      result.ownershipType_ = ownershipType_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.categoryCode_ = categoryCode_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.storeId_ = storeId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.terminalId_ = terminalId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.genre_ = genre_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.onboardingType_ = onboardingType_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.ownershipType_ = ownershipType_;
+      }
     }
 
     @java.lang.Override
@@ -1406,14 +1332,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.getDefaultInstance()) return this;
       if (!other.getCategoryCode().isEmpty()) {
         categoryCode_ = other.categoryCode_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getStoreId().isEmpty()) {
         storeId_ = other.storeId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getTerminalId().isEmpty()) {
         terminalId_ = other.terminalId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.type_ != 0) {
@@ -1428,7 +1357,7 @@ private static final long serialVersionUID = 0L;
       if (other.ownershipType_ != 0) {
         setOwnershipTypeValue(other.getOwnershipTypeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1443,19 +1372,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              categoryCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              storeId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              terminalId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              genre_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              onboardingType_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              ownershipType_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object categoryCode_ = "";
     /**
@@ -1513,11 +1491,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCategoryCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       categoryCode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1531,8 +1507,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCategoryCode() {
-      
       categoryCode_ = getDefaultInstance().getCategoryCode();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1548,12 +1524,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCategoryCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       categoryCode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1614,11 +1588,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStoreId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       storeId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1632,8 +1604,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStoreId() {
-      
       storeId_ = getDefaultInstance().getStoreId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1649,12 +1621,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStoreIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       storeId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1715,11 +1685,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTerminalId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       terminalId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1733,8 +1701,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTerminalId() {
-      
       terminalId_ = getDefaultInstance().getTerminalId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1750,12 +1718,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTerminalIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       terminalId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1782,8 +1748,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1797,8 +1763,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Type result = com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Type.valueOf(type_);
+      com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Type result = com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Type.forNumber(type_);
       return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Type.UNRECOGNIZED : result;
     }
     /**
@@ -1814,7 +1779,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -1828,7 +1793,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       type_ = 0;
       onChanged();
       return this;
@@ -1856,8 +1821,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setGenreValue(int value) {
-      
       genre_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1871,8 +1836,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Genre getGenre() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Genre result = com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Genre.valueOf(genre_);
+      com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Genre result = com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Genre.forNumber(genre_);
       return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.Genre.UNRECOGNIZED : result;
     }
     /**
@@ -1888,7 +1852,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       genre_ = value.getNumber();
       onChanged();
       return this;
@@ -1902,7 +1866,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGenre() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       genre_ = 0;
       onChanged();
       return this;
@@ -1930,8 +1894,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOnboardingTypeValue(int value) {
-      
       onboardingType_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1945,8 +1909,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OnboardingType getOnboardingType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OnboardingType result = com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OnboardingType.valueOf(onboardingType_);
+      com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OnboardingType result = com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OnboardingType.forNumber(onboardingType_);
       return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OnboardingType.UNRECOGNIZED : result;
     }
     /**
@@ -1962,7 +1925,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       onboardingType_ = value.getNumber();
       onChanged();
       return this;
@@ -1976,7 +1939,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOnboardingType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       onboardingType_ = 0;
       onChanged();
       return this;
@@ -2004,8 +1967,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOwnershipTypeValue(int value) {
-      
       ownershipType_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2019,8 +1982,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OwnershipType getOwnershipType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OwnershipType result = com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OwnershipType.valueOf(ownershipType_);
+      com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OwnershipType result = com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OwnershipType.forNumber(ownershipType_);
       return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.MerchantAdditionalInfo.OwnershipType.UNRECOGNIZED : result;
     }
     /**
@@ -2036,7 +1998,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       ownershipType_ = value.getNumber();
       onChanged();
       return this;
@@ -2050,7 +2012,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOwnershipType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       ownershipType_ = 0;
       onChanged();
       return this;
@@ -2088,7 +2050,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MerchantAdditionalInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

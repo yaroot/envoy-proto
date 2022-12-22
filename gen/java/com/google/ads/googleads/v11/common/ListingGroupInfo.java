@@ -36,71 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ListingGroupInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.ads.googleads.v11.common.ListingDimensionInfo.Builder subBuilder = null;
-            if (caseValue_ != null) {
-              subBuilder = caseValue_.toBuilder();
-            }
-            caseValue_ = input.readMessage(com.google.ads.googleads.v11.common.ListingDimensionInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(caseValue_);
-              caseValue_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            parentAdGroupCriterion_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.common.CriteriaProto.internal_static_google_ads_googleads_v11_common_ListingGroupInfo_descriptor;
@@ -116,7 +51,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int TYPE_FIELD_NUMBER = 1;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Type of the listing group.
@@ -137,8 +72,7 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.ListingGroupTypeEnum.ListingGroupType getType() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.ListingGroupTypeEnum.ListingGroupType result = com.google.ads.googleads.v11.enums.ListingGroupTypeEnum.ListingGroupType.valueOf(type_);
+    com.google.ads.googleads.v11.enums.ListingGroupTypeEnum.ListingGroupType result = com.google.ads.googleads.v11.enums.ListingGroupTypeEnum.ListingGroupType.forNumber(type_);
     return result == null ? com.google.ads.googleads.v11.enums.ListingGroupTypeEnum.ListingGroupType.UNRECOGNIZED : result;
   }
 
@@ -180,11 +114,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v11.common.ListingDimensionInfoOrBuilder getCaseValueOrBuilder() {
-    return getCaseValue();
+    return caseValue_ == null ? com.google.ads.googleads.v11.common.ListingDimensionInfo.getDefaultInstance() : caseValue_;
   }
 
   public static final int PARENT_AD_GROUP_CRITERION_FIELD_NUMBER = 4;
-  private volatile java.lang.Object parentAdGroupCriterion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parentAdGroupCriterion_ = "";
   /**
    * <pre>
    * Resource name of ad group criterion which is the parent listing group
@@ -267,7 +202,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, parentAdGroupCriterion_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -287,7 +222,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, parentAdGroupCriterion_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -313,7 +248,7 @@ private static final long serialVersionUID = 0L;
       if (!getParentAdGroupCriterion()
           .equals(other.getParentAdGroupCriterion())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -334,7 +269,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PARENT_AD_GROUP_CRITERION_FIELD_NUMBER;
       hash = (53 * hash) + getParentAdGroupCriterion().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -455,32 +390,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.common.ListingGroupInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       type_ = 0;
-
-      if (caseValueBuilder_ == null) {
-        caseValue_ = null;
-      } else {
-        caseValue_ = null;
+      caseValue_ = null;
+      if (caseValueBuilder_ != null) {
+        caseValueBuilder_.dispose();
         caseValueBuilder_ = null;
       }
       parentAdGroupCriterion_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -507,21 +435,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.common.ListingGroupInfo buildPartial() {
       com.google.ads.googleads.v11.common.ListingGroupInfo result = new com.google.ads.googleads.v11.common.ListingGroupInfo(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.type_ = type_;
-      if (caseValueBuilder_ == null) {
-        result.caseValue_ = caseValue_;
-      } else {
-        result.caseValue_ = caseValueBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.parentAdGroupCriterion_ = parentAdGroupCriterion_;
-      result.bitField0_ = to_bitField0_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.common.ListingGroupInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.caseValue_ = caseValueBuilder_ == null
+            ? caseValue_
+            : caseValueBuilder_.build();
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.parentAdGroupCriterion_ = parentAdGroupCriterion_;
+        to_bitField0_ |= 0x00000001;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -575,11 +509,11 @@ private static final long serialVersionUID = 0L;
         mergeCaseValue(other.getCaseValue());
       }
       if (other.hasParentAdGroupCriterion()) {
-        bitField0_ |= 0x00000001;
         parentAdGroupCriterion_ = other.parentAdGroupCriterion_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -594,17 +528,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.common.ListingGroupInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getCaseValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 34: {
+              parentAdGroupCriterion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.common.ListingGroupInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -631,8 +595,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -646,8 +610,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.ListingGroupTypeEnum.ListingGroupType getType() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.ListingGroupTypeEnum.ListingGroupType result = com.google.ads.googleads.v11.enums.ListingGroupTypeEnum.ListingGroupType.valueOf(type_);
+      com.google.ads.googleads.v11.enums.ListingGroupTypeEnum.ListingGroupType result = com.google.ads.googleads.v11.enums.ListingGroupTypeEnum.ListingGroupType.forNumber(type_);
       return result == null ? com.google.ads.googleads.v11.enums.ListingGroupTypeEnum.ListingGroupType.UNRECOGNIZED : result;
     }
     /**
@@ -663,7 +626,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -677,7 +640,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       type_ = 0;
       onChanged();
       return this;
@@ -696,7 +659,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the caseValue field is set.
      */
     public boolean hasCaseValue() {
-      return caseValueBuilder_ != null || caseValue_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -728,11 +691,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         caseValue_ = value;
-        onChanged();
       } else {
         caseValueBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -747,11 +710,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.common.ListingDimensionInfo.Builder builderForValue) {
       if (caseValueBuilder_ == null) {
         caseValue_ = builderForValue.build();
-        onChanged();
       } else {
         caseValueBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -764,17 +727,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCaseValue(com.google.ads.googleads.v11.common.ListingDimensionInfo value) {
       if (caseValueBuilder_ == null) {
-        if (caseValue_ != null) {
-          caseValue_ =
-            com.google.ads.googleads.v11.common.ListingDimensionInfo.newBuilder(caseValue_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          caseValue_ != null &&
+          caseValue_ != com.google.ads.googleads.v11.common.ListingDimensionInfo.getDefaultInstance()) {
+          getCaseValueBuilder().mergeFrom(value);
         } else {
           caseValue_ = value;
         }
-        onChanged();
       } else {
         caseValueBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -786,14 +750,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.common.ListingDimensionInfo case_value = 2;</code>
      */
     public Builder clearCaseValue() {
-      if (caseValueBuilder_ == null) {
-        caseValue_ = null;
-        onChanged();
-      } else {
-        caseValue_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      caseValue_ = null;
+      if (caseValueBuilder_ != null) {
+        caseValueBuilder_.dispose();
         caseValueBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -805,7 +768,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.common.ListingDimensionInfo case_value = 2;</code>
      */
     public com.google.ads.googleads.v11.common.ListingDimensionInfo.Builder getCaseValueBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCaseValueFieldBuilder().getBuilder();
     }
@@ -858,7 +821,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the parentAdGroupCriterion field is set.
      */
     public boolean hasParentAdGroupCriterion() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -915,11 +878,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentAdGroupCriterion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       parentAdGroupCriterion_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -933,8 +894,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParentAdGroupCriterion() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       parentAdGroupCriterion_ = getDefaultInstance().getParentAdGroupCriterion();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -950,12 +911,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentAdGroupCriterionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parentAdGroupCriterion_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -992,7 +951,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListingGroupInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

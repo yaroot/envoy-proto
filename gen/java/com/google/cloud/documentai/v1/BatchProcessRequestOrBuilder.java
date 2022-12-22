@@ -9,7 +9,12 @@ public interface BatchProcessRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The processor resource name.
+   * Required. The resource name of
+   * [Processor][google.cloud.documentai.v1.Processor] or
+   * [ProcessorVersion][google.cloud.documentai.v1.ProcessorVersion].
+   * Format: `projects/{project}/locations/{location}/processors/{processor}`,
+   * or
+   * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -18,7 +23,12 @@ public interface BatchProcessRequestOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Required. The processor resource name.
+   * Required. The resource name of
+   * [Processor][google.cloud.documentai.v1.Processor] or
+   * [ProcessorVersion][google.cloud.documentai.v1.ProcessorVersion].
+   * Format: `projects/{project}/locations/{location}/processors/{processor}`,
+   * or
+   * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

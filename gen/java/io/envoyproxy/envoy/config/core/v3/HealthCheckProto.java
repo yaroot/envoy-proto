@@ -81,7 +81,7 @@ public final class HealthCheckProto {
       "ions/versioning.proto\032\027validate/validate" +
       ".proto\"V\n\017HealthStatusSet\022C\n\010statuses\030\001 " +
       "\003(\0162\".envoy.config.core.v3.HealthStatusB" +
-      "\r\372B\n\222\001\007\"\005\202\001\002\020\001\"\222\030\n\013HealthCheck\0226\n\007timeou" +
+      "\r\372B\n\222\001\007\"\005\202\001\002\020\001\"\327\030\n\013HealthCheck\0226\n\007timeou" +
       "t\030\001 \001(\0132\031.google.protobuf.DurationB\n\372B\007\252" +
       "\001\004\010\001*\000\0227\n\010interval\030\002 \001(\0132\031.google.protob" +
       "uf.DurationB\n\372B\007\252\001\004\010\001*\000\0221\n\016initial_jitte" +
@@ -120,51 +120,53 @@ public final class HealthCheckProto {
       "Struct\032r\n\007Payload\022\027\n\004text\030\001 \001(\tB\007\372B\004r\002\020\001" +
       "H\000\022\020\n\006binary\030\002 \001(\014H\000:,\232\305\210\036\'\n%envoy.api.v" +
       "2.core.HealthCheck.PayloadB\016\n\007payload\022\003\370" +
-      "B\001\032\331\005\n\017HttpHealthCheck\022\031\n\004host\030\001 \001(\tB\013\372B" +
+      "B\001\032\236\006\n\017HttpHealthCheck\022\031\n\004host\030\001 \001(\tB\013\372B" +
       "\010r\006\300\001\002\310\001\000\022\033\n\004path\030\002 \001(\tB\r\372B\nr\010\020\001\300\001\002\310\001\000\0227" +
       "\n\004send\030\003 \001(\0132).envoy.config.core.v3.Heal" +
-      "thCheck.Payload\022:\n\007receive\030\004 \001(\0132).envoy" +
-      ".config.core.v3.HealthCheck.Payload\022R\n\026r" +
-      "equest_headers_to_add\030\006 \003(\0132\'.envoy.conf" +
-      "ig.core.v3.HeaderValueOptionB\t\372B\006\222\001\003\020\350\007\022" +
-      "3\n\031request_headers_to_remove\030\010 \003(\tB\020\372B\r\222" +
-      "\001\n\"\010r\006\300\001\001\310\001\000\0224\n\021expected_statuses\030\t \003(\0132" +
-      "\031.envoy.type.v3.Int64Range\0225\n\022retriable_" +
-      "statuses\030\014 \003(\0132\031.envoy.type.v3.Int64Rang" +
-      "e\022C\n\021codec_client_type\030\n \001(\0162\036.envoy.typ" +
-      "e.v3.CodecClientTypeB\010\372B\005\202\001\002\020\001\022B\n\024servic" +
-      "e_name_matcher\030\013 \001(\0132$.envoy.type.matche" +
-      "r.v3.StringMatcher\022?\n\006method\030\r \001(\0162#.env" +
-      "oy.config.core.v3.RequestMethodB\n\372B\007\202\001\004\020" +
-      "\001 \006:4\232\305\210\036/\n-envoy.api.v2.core.HealthChec" +
-      "k.HttpHealthCheckJ\004\010\005\020\006J\004\010\007\020\010R\014service_n" +
-      "ameR\tuse_http2\032\272\001\n\016TcpHealthCheck\0227\n\004sen" +
-      "d\030\001 \001(\0132).envoy.config.core.v3.HealthChe" +
-      "ck.Payload\022:\n\007receive\030\002 \003(\0132).envoy.conf" +
-      "ig.core.v3.HealthCheck.Payload:3\232\305\210\036.\n,e" +
-      "nvoy.api.v2.core.HealthCheck.TcpHealthCh" +
-      "eck\032V\n\020RedisHealthCheck\022\013\n\003key\030\001 \001(\t:5\232\305" +
-      "\210\0360\n.envoy.api.v2.core.HealthCheck.Redis" +
-      "HealthCheck\032\313\001\n\017GrpcHealthCheck\022\024\n\014servi" +
-      "ce_name\030\001 \001(\t\022\036\n\tauthority\030\002 \001(\tB\013\372B\010r\006\300" +
-      "\001\002\310\001\000\022L\n\020initial_metadata\030\003 \003(\0132\'.envoy." +
-      "config.core.v3.HeaderValueOptionB\t\372B\006\222\001\003" +
-      "\020\350\007:4\232\305\210\036/\n-envoy.api.v2.core.HealthChec" +
-      "k.GrpcHealthCheck\032\255\001\n\021CustomHealthCheck\022" +
-      "\025\n\004name\030\001 \001(\tB\007\372B\004r\002\020\001\022,\n\014typed_config\030\003" +
-      " \001(\0132\024.google.protobuf.AnyH\000:6\232\305\210\0361\n/env" +
-      "oy.api.v2.core.HealthCheck.CustomHealthC" +
-      "heckB\r\n\013config_typeJ\004\010\002\020\003R\006config\032U\n\nTls" +
-      "Options\022\026\n\016alpn_protocols\030\001 \003(\t:/\232\305\210\036*\n(" +
-      "envoy.api.v2.core.HealthCheck.TlsOptions" +
-      ":$\232\305\210\036\037\n\035envoy.api.v2.core.HealthCheckB\025" +
-      "\n\016health_checker\022\003\370B\001J\004\010\n\020\013*`\n\014HealthSta" +
-      "tus\022\013\n\007UNKNOWN\020\000\022\013\n\007HEALTHY\020\001\022\r\n\tUNHEALT" +
-      "HY\020\002\022\014\n\010DRAINING\020\003\022\013\n\007TIMEOUT\020\004\022\014\n\010DEGRA" +
-      "DED\020\005B\204\001\n\"io.envoyproxy.envoy.config.cor" +
-      "e.v3B\020HealthCheckProtoP\001ZBgithub.com/env" +
-      "oyproxy/go-control-plane/envoy/config/co" +
-      "re/v3;corev3\272\200\310\321\006\002\020\002b\006proto3"
+      "thCheck.Payload\022:\n\007receive\030\004 \003(\0132).envoy" +
+      ".config.core.v3.HealthCheck.Payload\022C\n\024r" +
+      "esponse_buffer_size\030\016 \001(\0132\034.google.proto" +
+      "buf.UInt64ValueB\007\372B\0042\002(\000\022R\n\026request_head" +
+      "ers_to_add\030\006 \003(\0132\'.envoy.config.core.v3." +
+      "HeaderValueOptionB\t\372B\006\222\001\003\020\350\007\0223\n\031request_" +
+      "headers_to_remove\030\010 \003(\tB\020\372B\r\222\001\n\"\010r\006\300\001\001\310\001" +
+      "\000\0224\n\021expected_statuses\030\t \003(\0132\031.envoy.typ" +
+      "e.v3.Int64Range\0225\n\022retriable_statuses\030\014 " +
+      "\003(\0132\031.envoy.type.v3.Int64Range\022C\n\021codec_" +
+      "client_type\030\n \001(\0162\036.envoy.type.v3.CodecC" +
+      "lientTypeB\010\372B\005\202\001\002\020\001\022B\n\024service_name_matc" +
+      "her\030\013 \001(\0132$.envoy.type.matcher.v3.String" +
+      "Matcher\022?\n\006method\030\r \001(\0162#.envoy.config.c" +
+      "ore.v3.RequestMethodB\n\372B\007\202\001\004\020\001 \006:4\232\305\210\036/\n" +
+      "-envoy.api.v2.core.HealthCheck.HttpHealt" +
+      "hCheckJ\004\010\005\020\006J\004\010\007\020\010R\014service_nameR\tuse_ht" +
+      "tp2\032\272\001\n\016TcpHealthCheck\0227\n\004send\030\001 \001(\0132).e" +
+      "nvoy.config.core.v3.HealthCheck.Payload\022" +
+      ":\n\007receive\030\002 \003(\0132).envoy.config.core.v3." +
+      "HealthCheck.Payload:3\232\305\210\036.\n,envoy.api.v2" +
+      ".core.HealthCheck.TcpHealthCheck\032V\n\020Redi" +
+      "sHealthCheck\022\013\n\003key\030\001 \001(\t:5\232\305\210\0360\n.envoy." +
+      "api.v2.core.HealthCheck.RedisHealthCheck" +
+      "\032\313\001\n\017GrpcHealthCheck\022\024\n\014service_name\030\001 \001" +
+      "(\t\022\036\n\tauthority\030\002 \001(\tB\013\372B\010r\006\300\001\002\310\001\000\022L\n\020in" +
+      "itial_metadata\030\003 \003(\0132\'.envoy.config.core" +
+      ".v3.HeaderValueOptionB\t\372B\006\222\001\003\020\350\007:4\232\305\210\036/\n" +
+      "-envoy.api.v2.core.HealthCheck.GrpcHealt" +
+      "hCheck\032\255\001\n\021CustomHealthCheck\022\025\n\004name\030\001 \001" +
+      "(\tB\007\372B\004r\002\020\001\022,\n\014typed_config\030\003 \001(\0132\024.goog" +
+      "le.protobuf.AnyH\000:6\232\305\210\0361\n/envoy.api.v2.c" +
+      "ore.HealthCheck.CustomHealthCheckB\r\n\013con" +
+      "fig_typeJ\004\010\002\020\003R\006config\032U\n\nTlsOptions\022\026\n\016" +
+      "alpn_protocols\030\001 \003(\t:/\232\305\210\036*\n(envoy.api.v" +
+      "2.core.HealthCheck.TlsOptions:$\232\305\210\036\037\n\035en" +
+      "voy.api.v2.core.HealthCheckB\025\n\016health_ch" +
+      "ecker\022\003\370B\001J\004\010\n\020\013*`\n\014HealthStatus\022\013\n\007UNKN" +
+      "OWN\020\000\022\013\n\007HEALTHY\020\001\022\r\n\tUNHEALTHY\020\002\022\014\n\010DRA" +
+      "INING\020\003\022\013\n\007TIMEOUT\020\004\022\014\n\010DEGRADED\020\005B\204\001\n\"i" +
+      "o.envoyproxy.envoy.config.core.v3B\020Healt" +
+      "hCheckProtoP\001ZBgithub.com/envoyproxy/go-" +
+      "control-plane/envoy/config/core/v3;corev" +
+      "3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -205,7 +207,7 @@ public final class HealthCheckProto {
     internal_static_envoy_config_core_v3_HealthCheck_HttpHealthCheck_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_config_core_v3_HealthCheck_HttpHealthCheck_descriptor,
-        new java.lang.String[] { "Host", "Path", "Send", "Receive", "RequestHeadersToAdd", "RequestHeadersToRemove", "ExpectedStatuses", "RetriableStatuses", "CodecClientType", "ServiceNameMatcher", "Method", });
+        new java.lang.String[] { "Host", "Path", "Send", "Receive", "ResponseBufferSize", "RequestHeadersToAdd", "RequestHeadersToRemove", "ExpectedStatuses", "RetriableStatuses", "CodecClientType", "ServiceNameMatcher", "Method", });
     internal_static_envoy_config_core_v3_HealthCheck_TcpHealthCheck_descriptor =
       internal_static_envoy_config_core_v3_HealthCheck_descriptor.getNestedTypes().get(2);
     internal_static_envoy_config_core_v3_HealthCheck_TcpHealthCheck_fieldAccessorTable = new

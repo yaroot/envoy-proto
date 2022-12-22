@@ -5,7 +5,8 @@ package com.google.cloud.dialogflow.v2beta1;
 
 /**
  * <pre>
- * Configures speech transcription for [ConversationProfile][google.cloud.dialogflow.v2beta1.ConversationProfile].
+ * Configures speech transcription for
+ * [ConversationProfile][google.cloud.dialogflow.v2beta1.ConversationProfile].
  * </pre>
  *
  * Protobuf type {@code google.cloud.dialogflow.v2beta1.SpeechToTextConfig}
@@ -21,6 +22,7 @@ private static final long serialVersionUID = 0L;
   }
   private SpeechToTextConfig() {
     speechModelVariant_ = 0;
+    model_ = "";
   }
 
   @java.lang.Override
@@ -34,51 +36,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private SpeechToTextConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            speechModelVariant_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -94,16 +51,18 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPEECH_MODEL_VARIANT_FIELD_NUMBER = 1;
-  private int speechModelVariant_;
+  private int speechModelVariant_ = 0;
   /**
    * <pre>
    * The speech model used in speech to text.
    * `SPEECH_MODEL_VARIANT_UNSPECIFIED`, `USE_BEST_AVAILABLE` will be treated as
-   * `USE_ENHANCED`. It can be overridden in [AnalyzeContentRequest][google.cloud.dialogflow.v2beta1.AnalyzeContentRequest] and
-   * [StreamingAnalyzeContentRequest][google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentRequest] request.
-   * If enhanced model variant is specified and an enhanced
-   * version of the specified model for the language does not exist, then it
-   * would emit an error.
+   * `USE_ENHANCED`. It can be overridden in
+   * [AnalyzeContentRequest][google.cloud.dialogflow.v2beta1.AnalyzeContentRequest]
+   * and
+   * [StreamingAnalyzeContentRequest][google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentRequest]
+   * request. If enhanced model variant is specified and an enhanced version of
+   * the specified model for the language does not exist, then it would emit an
+   * error.
    * </pre>
    *
    * <code>.google.cloud.dialogflow.v2beta1.SpeechModelVariant speech_model_variant = 1;</code>
@@ -116,20 +75,80 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The speech model used in speech to text.
    * `SPEECH_MODEL_VARIANT_UNSPECIFIED`, `USE_BEST_AVAILABLE` will be treated as
-   * `USE_ENHANCED`. It can be overridden in [AnalyzeContentRequest][google.cloud.dialogflow.v2beta1.AnalyzeContentRequest] and
-   * [StreamingAnalyzeContentRequest][google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentRequest] request.
-   * If enhanced model variant is specified and an enhanced
-   * version of the specified model for the language does not exist, then it
-   * would emit an error.
+   * `USE_ENHANCED`. It can be overridden in
+   * [AnalyzeContentRequest][google.cloud.dialogflow.v2beta1.AnalyzeContentRequest]
+   * and
+   * [StreamingAnalyzeContentRequest][google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentRequest]
+   * request. If enhanced model variant is specified and an enhanced version of
+   * the specified model for the language does not exist, then it would emit an
+   * error.
    * </pre>
    *
    * <code>.google.cloud.dialogflow.v2beta1.SpeechModelVariant speech_model_variant = 1;</code>
    * @return The speechModelVariant.
    */
   @java.lang.Override public com.google.cloud.dialogflow.v2beta1.SpeechModelVariant getSpeechModelVariant() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dialogflow.v2beta1.SpeechModelVariant result = com.google.cloud.dialogflow.v2beta1.SpeechModelVariant.valueOf(speechModelVariant_);
+    com.google.cloud.dialogflow.v2beta1.SpeechModelVariant result = com.google.cloud.dialogflow.v2beta1.SpeechModelVariant.forNumber(speechModelVariant_);
     return result == null ? com.google.cloud.dialogflow.v2beta1.SpeechModelVariant.UNRECOGNIZED : result;
+  }
+
+  public static final int MODEL_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object model_ = "";
+  /**
+   * <pre>
+   * Which Speech model to select. Select the model best suited to your domain
+   * to get best results. If a model is not explicitly specified, then a default
+   * model is used.
+   * Refer to
+   * [Cloud Speech API
+   * documentation](https://cloud.google.com/speech-to-text/docs/basics#select-model)
+   * for more details.
+   * </pre>
+   *
+   * <code>string model = 2;</code>
+   * @return The model.
+   */
+  @java.lang.Override
+  public java.lang.String getModel() {
+    java.lang.Object ref = model_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      model_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Which Speech model to select. Select the model best suited to your domain
+   * to get best results. If a model is not explicitly specified, then a default
+   * model is used.
+   * Refer to
+   * [Cloud Speech API
+   * documentation](https://cloud.google.com/speech-to-text/docs/basics#select-model)
+   * for more details.
+   * </pre>
+   *
+   * <code>string model = 2;</code>
+   * @return The bytes for model.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getModelBytes() {
+    java.lang.Object ref = model_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      model_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -149,7 +168,10 @@ private static final long serialVersionUID = 0L;
     if (speechModelVariant_ != com.google.cloud.dialogflow.v2beta1.SpeechModelVariant.SPEECH_MODEL_VARIANT_UNSPECIFIED.getNumber()) {
       output.writeEnum(1, speechModelVariant_);
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(model_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, model_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -162,7 +184,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, speechModelVariant_);
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(model_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, model_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -178,7 +203,9 @@ private static final long serialVersionUID = 0L;
     com.google.cloud.dialogflow.v2beta1.SpeechToTextConfig other = (com.google.cloud.dialogflow.v2beta1.SpeechToTextConfig) obj;
 
     if (speechModelVariant_ != other.speechModelVariant_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getModel()
+        .equals(other.getModel())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -191,7 +218,9 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + SPEECH_MODEL_VARIANT_FIELD_NUMBER;
     hash = (53 * hash) + speechModelVariant_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + MODEL_FIELD_NUMBER;
+    hash = (53 * hash) + getModel().hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -288,7 +317,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Configures speech transcription for [ConversationProfile][google.cloud.dialogflow.v2beta1.ConversationProfile].
+   * Configures speech transcription for
+   * [ConversationProfile][google.cloud.dialogflow.v2beta1.ConversationProfile].
    * </pre>
    *
    * Protobuf type {@code google.cloud.dialogflow.v2beta1.SpeechToTextConfig}
@@ -312,24 +342,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.v2beta1.SpeechToTextConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       speechModelVariant_ = 0;
-
+      model_ = "";
       return this;
     }
 
@@ -356,9 +382,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.v2beta1.SpeechToTextConfig buildPartial() {
       com.google.cloud.dialogflow.v2beta1.SpeechToTextConfig result = new com.google.cloud.dialogflow.v2beta1.SpeechToTextConfig(this);
-      result.speechModelVariant_ = speechModelVariant_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.v2beta1.SpeechToTextConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.speechModelVariant_ = speechModelVariant_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.model_ = model_;
+      }
     }
 
     @java.lang.Override
@@ -408,7 +444,12 @@ private static final long serialVersionUID = 0L;
       if (other.speechModelVariant_ != 0) {
         setSpeechModelVariantValue(other.getSpeechModelVariantValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getModel().isEmpty()) {
+        model_ = other.model_;
+        bitField0_ |= 0x00000002;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -423,30 +464,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.v2beta1.SpeechToTextConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              speechModelVariant_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              model_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.v2beta1.SpeechToTextConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int speechModelVariant_ = 0;
     /**
      * <pre>
      * The speech model used in speech to text.
      * `SPEECH_MODEL_VARIANT_UNSPECIFIED`, `USE_BEST_AVAILABLE` will be treated as
-     * `USE_ENHANCED`. It can be overridden in [AnalyzeContentRequest][google.cloud.dialogflow.v2beta1.AnalyzeContentRequest] and
-     * [StreamingAnalyzeContentRequest][google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentRequest] request.
-     * If enhanced model variant is specified and an enhanced
-     * version of the specified model for the language does not exist, then it
-     * would emit an error.
+     * `USE_ENHANCED`. It can be overridden in
+     * [AnalyzeContentRequest][google.cloud.dialogflow.v2beta1.AnalyzeContentRequest]
+     * and
+     * [StreamingAnalyzeContentRequest][google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentRequest]
+     * request. If enhanced model variant is specified and an enhanced version of
+     * the specified model for the language does not exist, then it would emit an
+     * error.
      * </pre>
      *
      * <code>.google.cloud.dialogflow.v2beta1.SpeechModelVariant speech_model_variant = 1;</code>
@@ -459,11 +526,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The speech model used in speech to text.
      * `SPEECH_MODEL_VARIANT_UNSPECIFIED`, `USE_BEST_AVAILABLE` will be treated as
-     * `USE_ENHANCED`. It can be overridden in [AnalyzeContentRequest][google.cloud.dialogflow.v2beta1.AnalyzeContentRequest] and
-     * [StreamingAnalyzeContentRequest][google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentRequest] request.
-     * If enhanced model variant is specified and an enhanced
-     * version of the specified model for the language does not exist, then it
-     * would emit an error.
+     * `USE_ENHANCED`. It can be overridden in
+     * [AnalyzeContentRequest][google.cloud.dialogflow.v2beta1.AnalyzeContentRequest]
+     * and
+     * [StreamingAnalyzeContentRequest][google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentRequest]
+     * request. If enhanced model variant is specified and an enhanced version of
+     * the specified model for the language does not exist, then it would emit an
+     * error.
      * </pre>
      *
      * <code>.google.cloud.dialogflow.v2beta1.SpeechModelVariant speech_model_variant = 1;</code>
@@ -471,8 +540,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSpeechModelVariantValue(int value) {
-      
       speechModelVariant_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -480,11 +549,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The speech model used in speech to text.
      * `SPEECH_MODEL_VARIANT_UNSPECIFIED`, `USE_BEST_AVAILABLE` will be treated as
-     * `USE_ENHANCED`. It can be overridden in [AnalyzeContentRequest][google.cloud.dialogflow.v2beta1.AnalyzeContentRequest] and
-     * [StreamingAnalyzeContentRequest][google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentRequest] request.
-     * If enhanced model variant is specified and an enhanced
-     * version of the specified model for the language does not exist, then it
-     * would emit an error.
+     * `USE_ENHANCED`. It can be overridden in
+     * [AnalyzeContentRequest][google.cloud.dialogflow.v2beta1.AnalyzeContentRequest]
+     * and
+     * [StreamingAnalyzeContentRequest][google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentRequest]
+     * request. If enhanced model variant is specified and an enhanced version of
+     * the specified model for the language does not exist, then it would emit an
+     * error.
      * </pre>
      *
      * <code>.google.cloud.dialogflow.v2beta1.SpeechModelVariant speech_model_variant = 1;</code>
@@ -492,19 +563,20 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dialogflow.v2beta1.SpeechModelVariant getSpeechModelVariant() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dialogflow.v2beta1.SpeechModelVariant result = com.google.cloud.dialogflow.v2beta1.SpeechModelVariant.valueOf(speechModelVariant_);
+      com.google.cloud.dialogflow.v2beta1.SpeechModelVariant result = com.google.cloud.dialogflow.v2beta1.SpeechModelVariant.forNumber(speechModelVariant_);
       return result == null ? com.google.cloud.dialogflow.v2beta1.SpeechModelVariant.UNRECOGNIZED : result;
     }
     /**
      * <pre>
      * The speech model used in speech to text.
      * `SPEECH_MODEL_VARIANT_UNSPECIFIED`, `USE_BEST_AVAILABLE` will be treated as
-     * `USE_ENHANCED`. It can be overridden in [AnalyzeContentRequest][google.cloud.dialogflow.v2beta1.AnalyzeContentRequest] and
-     * [StreamingAnalyzeContentRequest][google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentRequest] request.
-     * If enhanced model variant is specified and an enhanced
-     * version of the specified model for the language does not exist, then it
-     * would emit an error.
+     * `USE_ENHANCED`. It can be overridden in
+     * [AnalyzeContentRequest][google.cloud.dialogflow.v2beta1.AnalyzeContentRequest]
+     * and
+     * [StreamingAnalyzeContentRequest][google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentRequest]
+     * request. If enhanced model variant is specified and an enhanced version of
+     * the specified model for the language does not exist, then it would emit an
+     * error.
      * </pre>
      *
      * <code>.google.cloud.dialogflow.v2beta1.SpeechModelVariant speech_model_variant = 1;</code>
@@ -515,7 +587,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       speechModelVariant_ = value.getNumber();
       onChanged();
       return this;
@@ -524,19 +596,143 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The speech model used in speech to text.
      * `SPEECH_MODEL_VARIANT_UNSPECIFIED`, `USE_BEST_AVAILABLE` will be treated as
-     * `USE_ENHANCED`. It can be overridden in [AnalyzeContentRequest][google.cloud.dialogflow.v2beta1.AnalyzeContentRequest] and
-     * [StreamingAnalyzeContentRequest][google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentRequest] request.
-     * If enhanced model variant is specified and an enhanced
-     * version of the specified model for the language does not exist, then it
-     * would emit an error.
+     * `USE_ENHANCED`. It can be overridden in
+     * [AnalyzeContentRequest][google.cloud.dialogflow.v2beta1.AnalyzeContentRequest]
+     * and
+     * [StreamingAnalyzeContentRequest][google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentRequest]
+     * request. If enhanced model variant is specified and an enhanced version of
+     * the specified model for the language does not exist, then it would emit an
+     * error.
      * </pre>
      *
      * <code>.google.cloud.dialogflow.v2beta1.SpeechModelVariant speech_model_variant = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearSpeechModelVariant() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       speechModelVariant_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object model_ = "";
+    /**
+     * <pre>
+     * Which Speech model to select. Select the model best suited to your domain
+     * to get best results. If a model is not explicitly specified, then a default
+     * model is used.
+     * Refer to
+     * [Cloud Speech API
+     * documentation](https://cloud.google.com/speech-to-text/docs/basics#select-model)
+     * for more details.
+     * </pre>
+     *
+     * <code>string model = 2;</code>
+     * @return The model.
+     */
+    public java.lang.String getModel() {
+      java.lang.Object ref = model_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        model_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Which Speech model to select. Select the model best suited to your domain
+     * to get best results. If a model is not explicitly specified, then a default
+     * model is used.
+     * Refer to
+     * [Cloud Speech API
+     * documentation](https://cloud.google.com/speech-to-text/docs/basics#select-model)
+     * for more details.
+     * </pre>
+     *
+     * <code>string model = 2;</code>
+     * @return The bytes for model.
+     */
+    public com.google.protobuf.ByteString
+        getModelBytes() {
+      java.lang.Object ref = model_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        model_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Which Speech model to select. Select the model best suited to your domain
+     * to get best results. If a model is not explicitly specified, then a default
+     * model is used.
+     * Refer to
+     * [Cloud Speech API
+     * documentation](https://cloud.google.com/speech-to-text/docs/basics#select-model)
+     * for more details.
+     * </pre>
+     *
+     * <code>string model = 2;</code>
+     * @param value The model to set.
+     * @return This builder for chaining.
+     */
+    public Builder setModel(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      model_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Which Speech model to select. Select the model best suited to your domain
+     * to get best results. If a model is not explicitly specified, then a default
+     * model is used.
+     * Refer to
+     * [Cloud Speech API
+     * documentation](https://cloud.google.com/speech-to-text/docs/basics#select-model)
+     * for more details.
+     * </pre>
+     *
+     * <code>string model = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearModel() {
+      model_ = getDefaultInstance().getModel();
+      bitField0_ = (bitField0_ & ~0x00000002);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Which Speech model to select. Select the model best suited to your domain
+     * to get best results. If a model is not explicitly specified, then a default
+     * model is used.
+     * Refer to
+     * [Cloud Speech API
+     * documentation](https://cloud.google.com/speech-to-text/docs/basics#select-model)
+     * for more details.
+     * </pre>
+     *
+     * <code>string model = 2;</code>
+     * @param value The bytes for model to set.
+     * @return This builder for chaining.
+     */
+    public Builder setModelBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      model_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -573,7 +769,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SpeechToTextConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ComposeTrigger(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 32: {
-            int rawValue = input.readEnum();
-
-            draftAccess_ = rawValue;
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              actions_ = new java.util.ArrayList<com.google.apps.script.type.MenuItemExtensionPoint>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            actions_.add(
-                input.readMessage(com.google.apps.script.type.MenuItemExtensionPoint.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        actions_ = java.util.Collections.unmodifiableList(actions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.apps.script.type.gmail.GmailAddOnManifestProto.internal_static_google_apps_script_type_gmail_ComposeTrigger_descriptor;
@@ -259,6 +201,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACTIONS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.apps.script.type.MenuItemExtensionPoint> actions_;
   /**
    * <pre>
@@ -324,7 +267,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DRAFT_ACCESS_FIELD_NUMBER = 4;
-  private int draftAccess_;
+  private int draftAccess_ = 0;
   /**
    * <pre>
    * Define the level of data access when a compose time addon is triggered.
@@ -345,8 +288,7 @@ private static final long serialVersionUID = 0L;
    * @return The draftAccess.
    */
   @java.lang.Override public com.google.apps.script.type.gmail.ComposeTrigger.DraftAccess getDraftAccess() {
-    @SuppressWarnings("deprecation")
-    com.google.apps.script.type.gmail.ComposeTrigger.DraftAccess result = com.google.apps.script.type.gmail.ComposeTrigger.DraftAccess.valueOf(draftAccess_);
+    com.google.apps.script.type.gmail.ComposeTrigger.DraftAccess result = com.google.apps.script.type.gmail.ComposeTrigger.DraftAccess.forNumber(draftAccess_);
     return result == null ? com.google.apps.script.type.gmail.ComposeTrigger.DraftAccess.UNRECOGNIZED : result;
   }
 
@@ -370,7 +312,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < actions_.size(); i++) {
       output.writeMessage(5, actions_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -387,7 +329,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, actions_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -405,7 +347,7 @@ private static final long serialVersionUID = 0L;
     if (!getActionsList()
         .equals(other.getActionsList())) return false;
     if (draftAccess_ != other.draftAccess_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -422,7 +364,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + DRAFT_ACCESS_FIELD_NUMBER;
     hash = (53 * hash) + draftAccess_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -543,31 +485,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.apps.script.type.gmail.ComposeTrigger.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getActionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (actionsBuilder_ == null) {
         actions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        actions_ = null;
         actionsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       draftAccess_ = 0;
-
       return this;
     }
 
@@ -594,7 +531,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.apps.script.type.gmail.ComposeTrigger buildPartial() {
       com.google.apps.script.type.gmail.ComposeTrigger result = new com.google.apps.script.type.gmail.ComposeTrigger(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.apps.script.type.gmail.ComposeTrigger result) {
       if (actionsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           actions_ = java.util.Collections.unmodifiableList(actions_);
@@ -604,9 +547,13 @@ private static final long serialVersionUID = 0L;
       } else {
         result.actions_ = actionsBuilder_.build();
       }
-      result.draftAccess_ = draftAccess_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.apps.script.type.gmail.ComposeTrigger result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.draftAccess_ = draftAccess_;
+      }
     }
 
     @java.lang.Override
@@ -682,7 +629,7 @@ private static final long serialVersionUID = 0L;
       if (other.draftAccess_ != 0) {
         setDraftAccessValue(other.getDraftAccessValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -697,17 +644,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.apps.script.type.gmail.ComposeTrigger parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 32: {
+              draftAccess_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 32
+            case 42: {
+              com.google.apps.script.type.MenuItemExtensionPoint m =
+                  input.readMessage(
+                      com.google.apps.script.type.MenuItemExtensionPoint.parser(),
+                      extensionRegistry);
+              if (actionsBuilder_ == null) {
+                ensureActionsIsMutable();
+                actions_.add(m);
+              } else {
+                actionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.apps.script.type.gmail.ComposeTrigger) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1064,8 +1042,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDraftAccessValue(int value) {
-      
       draftAccess_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1079,8 +1057,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.apps.script.type.gmail.ComposeTrigger.DraftAccess getDraftAccess() {
-      @SuppressWarnings("deprecation")
-      com.google.apps.script.type.gmail.ComposeTrigger.DraftAccess result = com.google.apps.script.type.gmail.ComposeTrigger.DraftAccess.valueOf(draftAccess_);
+      com.google.apps.script.type.gmail.ComposeTrigger.DraftAccess result = com.google.apps.script.type.gmail.ComposeTrigger.DraftAccess.forNumber(draftAccess_);
       return result == null ? com.google.apps.script.type.gmail.ComposeTrigger.DraftAccess.UNRECOGNIZED : result;
     }
     /**
@@ -1096,7 +1073,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       draftAccess_ = value.getNumber();
       onChanged();
       return this;
@@ -1110,7 +1087,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDraftAccess() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       draftAccess_ = 0;
       onChanged();
       return this;
@@ -1148,7 +1125,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ComposeTrigger(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

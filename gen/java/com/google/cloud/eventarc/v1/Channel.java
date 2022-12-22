@@ -28,6 +28,7 @@ private static final long serialVersionUID = 0L;
     provider_ = "";
     state_ = 0;
     activationToken_ = "";
+    cryptoKeyName_ = "";
   }
 
   @java.lang.Override
@@ -41,107 +42,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Channel(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            uid_ = s;
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            provider_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-            transportCase_ = 8;
-            transport_ = s;
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            activationToken_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -196,7 +96,7 @@ private static final long serialVersionUID = 0L;
     ACTIVE(2),
     /**
      * <pre>
-     * The INACTIVE state means that the Channel cannot receive events
+     * The INACTIVE state indicates that the Channel cannot receive events
      * permanently. There are two possible cases this state can happen:
      * 1. The SaaS provider disconnected from this Channel.
      * 2. The Channel activation token has expired but the SaaS provider
@@ -242,7 +142,7 @@ private static final long serialVersionUID = 0L;
     public static final int ACTIVE_VALUE = 2;
     /**
      * <pre>
-     * The INACTIVE state means that the Channel cannot receive events
+     * The INACTIVE state indicates that the Channel cannot receive events
      * permanently. There are two possible cases this state can happen:
      * 1. The SaaS provider disconnected from this Channel.
      * 2. The Channel activation token has expired but the SaaS provider
@@ -380,11 +280,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
-   * Required. The resource name of the channel. Must be unique within the location
-   * on the project and must be in
+   * Required. The resource name of the channel. Must be unique within the
+   * location on the project and must be in
    * `projects/{project}/locations/{location}/channels/{channel_id}` format.
    * </pre>
    *
@@ -406,8 +307,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The resource name of the channel. Must be unique within the location
-   * on the project and must be in
+   * Required. The resource name of the channel. Must be unique within the
+   * location on the project and must be in
    * `projects/{project}/locations/{location}/channels/{channel_id}` format.
    * </pre>
    *
@@ -430,11 +331,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object uid_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object uid_ = "";
   /**
    * <pre>
-   * Output only. Server assigned unique identifier for the channel. The value is a UUID4
-   * string and guaranteed to remain unchanged until the resource is deleted.
+   * Output only. Server assigned unique identifier for the channel. The value
+   * is a UUID4 string and guaranteed to remain unchanged until the resource is
+   * deleted.
    * </pre>
    *
    * <code>string uid = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -455,8 +358,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. Server assigned unique identifier for the channel. The value is a UUID4
-   * string and guaranteed to remain unchanged until the resource is deleted.
+   * Output only. Server assigned unique identifier for the channel. The value
+   * is a UUID4 string and guaranteed to remain unchanged until the resource is
+   * deleted.
    * </pre>
    *
    * <code>string uid = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -512,7 +416,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 6;
@@ -550,20 +454,21 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int PROVIDER_FIELD_NUMBER = 7;
-  private volatile java.lang.Object provider_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object provider_ = "";
   /**
    * <pre>
-   * Required. The name of the event provider (e.g. Eventarc SaaS partner) associated
+   * The name of the event provider (e.g. Eventarc SaaS partner) associated
    * with the channel. This provider will be granted permissions to publish
    * events to the channel. Format:
    * `projects/{project}/locations/{location}/providers/{provider_id}`.
    * </pre>
    *
-   * <code>string provider = 7 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string provider = 7;</code>
    * @return The provider.
    */
   @java.lang.Override
@@ -581,13 +486,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The name of the event provider (e.g. Eventarc SaaS partner) associated
+   * The name of the event provider (e.g. Eventarc SaaS partner) associated
    * with the channel. This provider will be granted permissions to publish
    * events to the channel. Format:
    * `projects/{project}/locations/{location}/providers/{provider_id}`.
    * </pre>
    *
-   * <code>string provider = 7 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string provider = 7;</code>
    * @return The bytes for provider.
    */
   @java.lang.Override
@@ -608,8 +513,8 @@ private static final long serialVersionUID = 0L;
   public static final int PUBSUB_TOPIC_FIELD_NUMBER = 8;
   /**
    * <pre>
-   * Output only. The name of the Pub/Sub topic created and managed by Eventarc system as
-   * a transport for the event delivery. Format:
+   * Output only. The name of the Pub/Sub topic created and managed by
+   * Eventarc system as a transport for the event delivery. Format:
    * `projects/{project}/topics/{topic_id}`.
    * </pre>
    *
@@ -621,8 +526,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The name of the Pub/Sub topic created and managed by Eventarc system as
-   * a transport for the event delivery. Format:
+   * Output only. The name of the Pub/Sub topic created and managed by
+   * Eventarc system as a transport for the event delivery. Format:
    * `projects/{project}/topics/{topic_id}`.
    * </pre>
    *
@@ -648,8 +553,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The name of the Pub/Sub topic created and managed by Eventarc system as
-   * a transport for the event delivery. Format:
+   * Output only. The name of the Pub/Sub topic created and managed by
+   * Eventarc system as a transport for the event delivery. Format:
    * `projects/{project}/topics/{topic_id}`.
    * </pre>
    *
@@ -676,7 +581,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 9;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The state of a Channel.
@@ -697,17 +602,17 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.eventarc.v1.Channel.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.eventarc.v1.Channel.State result = com.google.cloud.eventarc.v1.Channel.State.valueOf(state_);
+    com.google.cloud.eventarc.v1.Channel.State result = com.google.cloud.eventarc.v1.Channel.State.forNumber(state_);
     return result == null ? com.google.cloud.eventarc.v1.Channel.State.UNRECOGNIZED : result;
   }
 
   public static final int ACTIVATION_TOKEN_FIELD_NUMBER = 10;
-  private volatile java.lang.Object activationToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object activationToken_ = "";
   /**
    * <pre>
-   * Output only. The activation token for the channel. The token must be used by the
-   * provider to register the channel for publishing.
+   * Output only. The activation token for the channel. The token must be used
+   * by the provider to register the channel for publishing.
    * </pre>
    *
    * <code>string activation_token = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -728,8 +633,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The activation token for the channel. The token must be used by the
-   * provider to register the channel for publishing.
+   * Output only. The activation token for the channel. The token must be used
+   * by the provider to register the channel for publishing.
    * </pre>
    *
    * <code>string activation_token = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -744,6 +649,59 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       activationToken_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CRYPTO_KEY_NAME_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cryptoKeyName_ = "";
+  /**
+   * <pre>
+   * Optional. Resource name of a KMS crypto key (managed by the user) used to
+   * encrypt/decrypt their event data.
+   * It must match the pattern
+   * `projects/&#42;&#47;locations/&#42;&#47;keyRings/&#42;&#47;cryptoKeys/&#42;`.
+   * </pre>
+   *
+   * <code>string crypto_key_name = 11 [(.google.api.field_behavior) = OPTIONAL, (.google.api.resource_reference) = { ... }</code>
+   * @return The cryptoKeyName.
+   */
+  @java.lang.Override
+  public java.lang.String getCryptoKeyName() {
+    java.lang.Object ref = cryptoKeyName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      cryptoKeyName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Optional. Resource name of a KMS crypto key (managed by the user) used to
+   * encrypt/decrypt their event data.
+   * It must match the pattern
+   * `projects/&#42;&#47;locations/&#42;&#47;keyRings/&#42;&#47;cryptoKeys/&#42;`.
+   * </pre>
+   *
+   * <code>string crypto_key_name = 11 [(.google.api.field_behavior) = OPTIONAL, (.google.api.resource_reference) = { ... }</code>
+   * @return The bytes for cryptoKeyName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCryptoKeyNameBytes() {
+    java.lang.Object ref = cryptoKeyName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      cryptoKeyName_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -788,7 +746,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(activationToken_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, activationToken_);
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cryptoKeyName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, cryptoKeyName_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -824,7 +785,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(activationToken_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, activationToken_);
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cryptoKeyName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, cryptoKeyName_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -858,6 +822,8 @@ private static final long serialVersionUID = 0L;
     if (state_ != other.state_) return false;
     if (!getActivationToken()
         .equals(other.getActivationToken())) return false;
+    if (!getCryptoKeyName()
+        .equals(other.getCryptoKeyName())) return false;
     if (!getTransportCase().equals(other.getTransportCase())) return false;
     switch (transportCase_) {
       case 8:
@@ -867,7 +833,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -896,6 +862,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + state_;
     hash = (37 * hash) + ACTIVATION_TOKEN_FIELD_NUMBER;
     hash = (53 * hash) + getActivationToken().hashCode();
+    hash = (37 * hash) + CRYPTO_KEY_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getCryptoKeyName().hashCode();
     switch (transportCase_) {
       case 8:
         hash = (37 * hash) + PUBSUB_TOPIC_FIELD_NUMBER;
@@ -904,7 +872,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1028,44 +996,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.eventarc.v1.Channel.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       uid_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       provider_ = "";
-
       state_ = 0;
-
       activationToken_ = "";
-
+      cryptoKeyName_ = "";
       transportCase_ = 0;
       transport_ = null;
       return this;
@@ -1094,27 +1052,47 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.eventarc.v1.Channel buildPartial() {
       com.google.cloud.eventarc.v1.Channel result = new com.google.cloud.eventarc.v1.Channel(this);
-      result.name_ = name_;
-      result.uid_ = uid_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.provider_ = provider_;
-      if (transportCase_ == 8) {
-        result.transport_ = transport_;
-      }
-      result.state_ = state_;
-      result.activationToken_ = activationToken_;
-      result.transportCase_ = transportCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.eventarc.v1.Channel result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.uid_ = uid_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.provider_ = provider_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.activationToken_ = activationToken_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.cryptoKeyName_ = cryptoKeyName_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.eventarc.v1.Channel result) {
+      result.transportCase_ = transportCase_;
+      result.transport_ = this.transport_;
     }
 
     @java.lang.Override
@@ -1163,10 +1141,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.eventarc.v1.Channel.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getUid().isEmpty()) {
         uid_ = other.uid_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -1177,6 +1157,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getProvider().isEmpty()) {
         provider_ = other.provider_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -1184,6 +1165,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getActivationToken().isEmpty()) {
         activationToken_ = other.activationToken_;
+        bitField0_ |= 0x00000080;
+        onChanged();
+      }
+      if (!other.getCryptoKeyName().isEmpty()) {
+        cryptoKeyName_ = other.cryptoKeyName_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       switch (other.getTransportCase()) {
@@ -1197,7 +1184,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1212,17 +1199,80 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.eventarc.v1.Channel parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              uid_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 42: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 50
+            case 58: {
+              provider_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 58
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+              transportCase_ = 8;
+              transport_ = s;
+              break;
+            } // case 66
+            case 72: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 72
+            case 82: {
+              activationToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 82
+            case 90: {
+              cryptoKeyName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.eventarc.v1.Channel) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int transportCase_ = 0;
@@ -1240,12 +1290,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Required. The resource name of the channel. Must be unique within the location
-     * on the project and must be in
+     * Required. The resource name of the channel. Must be unique within the
+     * location on the project and must be in
      * `projects/{project}/locations/{location}/channels/{channel_id}` format.
      * </pre>
      *
@@ -1266,8 +1317,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The resource name of the channel. Must be unique within the location
-     * on the project and must be in
+     * Required. The resource name of the channel. Must be unique within the
+     * location on the project and must be in
      * `projects/{project}/locations/{location}/channels/{channel_id}` format.
      * </pre>
      *
@@ -1289,8 +1340,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The resource name of the channel. Must be unique within the location
-     * on the project and must be in
+     * Required. The resource name of the channel. Must be unique within the
+     * location on the project and must be in
      * `projects/{project}/locations/{location}/channels/{channel_id}` format.
      * </pre>
      *
@@ -1300,18 +1351,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The resource name of the channel. Must be unique within the location
-     * on the project and must be in
+     * Required. The resource name of the channel. Must be unique within the
+     * location on the project and must be in
      * `projects/{project}/locations/{location}/channels/{channel_id}` format.
      * </pre>
      *
@@ -1319,15 +1368,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The resource name of the channel. Must be unique within the location
-     * on the project and must be in
+     * Required. The resource name of the channel. Must be unique within the
+     * location on the project and must be in
      * `projects/{project}/locations/{location}/channels/{channel_id}` format.
      * </pre>
      *
@@ -1337,12 +1386,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1350,8 +1397,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object uid_ = "";
     /**
      * <pre>
-     * Output only. Server assigned unique identifier for the channel. The value is a UUID4
-     * string and guaranteed to remain unchanged until the resource is deleted.
+     * Output only. Server assigned unique identifier for the channel. The value
+     * is a UUID4 string and guaranteed to remain unchanged until the resource is
+     * deleted.
      * </pre>
      *
      * <code>string uid = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1371,8 +1419,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Server assigned unique identifier for the channel. The value is a UUID4
-     * string and guaranteed to remain unchanged until the resource is deleted.
+     * Output only. Server assigned unique identifier for the channel. The value
+     * is a UUID4 string and guaranteed to remain unchanged until the resource is
+     * deleted.
      * </pre>
      *
      * <code>string uid = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1393,8 +1442,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Server assigned unique identifier for the channel. The value is a UUID4
-     * string and guaranteed to remain unchanged until the resource is deleted.
+     * Output only. Server assigned unique identifier for the channel. The value
+     * is a UUID4 string and guaranteed to remain unchanged until the resource is
+     * deleted.
      * </pre>
      *
      * <code>string uid = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1403,33 +1453,33 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUid(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       uid_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. Server assigned unique identifier for the channel. The value is a UUID4
-     * string and guaranteed to remain unchanged until the resource is deleted.
+     * Output only. Server assigned unique identifier for the channel. The value
+     * is a UUID4 string and guaranteed to remain unchanged until the resource is
+     * deleted.
      * </pre>
      *
      * <code>string uid = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearUid() {
-      
       uid_ = getDefaultInstance().getUid();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. Server assigned unique identifier for the channel. The value is a UUID4
-     * string and guaranteed to remain unchanged until the resource is deleted.
+     * Output only. Server assigned unique identifier for the channel. The value
+     * is a UUID4 string and guaranteed to remain unchanged until the resource is
+     * deleted.
      * </pre>
      *
      * <code>string uid = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1438,12 +1488,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUidBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       uid_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1460,7 +1508,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1490,11 +1538,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1508,11 +1556,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1524,17 +1572,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1545,14 +1594,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1563,7 +1611,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -1615,7 +1663,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1645,11 +1693,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1663,11 +1711,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1679,17 +1727,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1700,14 +1749,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1718,7 +1766,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -1761,13 +1809,13 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object provider_ = "";
     /**
      * <pre>
-     * Required. The name of the event provider (e.g. Eventarc SaaS partner) associated
+     * The name of the event provider (e.g. Eventarc SaaS partner) associated
      * with the channel. This provider will be granted permissions to publish
      * events to the channel. Format:
      * `projects/{project}/locations/{location}/providers/{provider_id}`.
      * </pre>
      *
-     * <code>string provider = 7 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string provider = 7;</code>
      * @return The provider.
      */
     public java.lang.String getProvider() {
@@ -1784,13 +1832,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The name of the event provider (e.g. Eventarc SaaS partner) associated
+     * The name of the event provider (e.g. Eventarc SaaS partner) associated
      * with the channel. This provider will be granted permissions to publish
      * events to the channel. Format:
      * `projects/{project}/locations/{location}/providers/{provider_id}`.
      * </pre>
      *
-     * <code>string provider = 7 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string provider = 7;</code>
      * @return The bytes for provider.
      */
     public com.google.protobuf.ByteString
@@ -1808,71 +1856,67 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The name of the event provider (e.g. Eventarc SaaS partner) associated
+     * The name of the event provider (e.g. Eventarc SaaS partner) associated
      * with the channel. This provider will be granted permissions to publish
      * events to the channel. Format:
      * `projects/{project}/locations/{location}/providers/{provider_id}`.
      * </pre>
      *
-     * <code>string provider = 7 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string provider = 7;</code>
      * @param value The provider to set.
      * @return This builder for chaining.
      */
     public Builder setProvider(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       provider_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The name of the event provider (e.g. Eventarc SaaS partner) associated
+     * The name of the event provider (e.g. Eventarc SaaS partner) associated
      * with the channel. This provider will be granted permissions to publish
      * events to the channel. Format:
      * `projects/{project}/locations/{location}/providers/{provider_id}`.
      * </pre>
      *
-     * <code>string provider = 7 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string provider = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearProvider() {
-      
       provider_ = getDefaultInstance().getProvider();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The name of the event provider (e.g. Eventarc SaaS partner) associated
+     * The name of the event provider (e.g. Eventarc SaaS partner) associated
      * with the channel. This provider will be granted permissions to publish
      * events to the channel. Format:
      * `projects/{project}/locations/{location}/providers/{provider_id}`.
      * </pre>
      *
-     * <code>string provider = 7 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string provider = 7;</code>
      * @param value The bytes for provider to set.
      * @return This builder for chaining.
      */
     public Builder setProviderBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       provider_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
 
     /**
      * <pre>
-     * Output only. The name of the Pub/Sub topic created and managed by Eventarc system as
-     * a transport for the event delivery. Format:
+     * Output only. The name of the Pub/Sub topic created and managed by
+     * Eventarc system as a transport for the event delivery. Format:
      * `projects/{project}/topics/{topic_id}`.
      * </pre>
      *
@@ -1885,8 +1929,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The name of the Pub/Sub topic created and managed by Eventarc system as
-     * a transport for the event delivery. Format:
+     * Output only. The name of the Pub/Sub topic created and managed by
+     * Eventarc system as a transport for the event delivery. Format:
      * `projects/{project}/topics/{topic_id}`.
      * </pre>
      *
@@ -1913,8 +1957,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The name of the Pub/Sub topic created and managed by Eventarc system as
-     * a transport for the event delivery. Format:
+     * Output only. The name of the Pub/Sub topic created and managed by
+     * Eventarc system as a transport for the event delivery. Format:
      * `projects/{project}/topics/{topic_id}`.
      * </pre>
      *
@@ -1942,8 +1986,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The name of the Pub/Sub topic created and managed by Eventarc system as
-     * a transport for the event delivery. Format:
+     * Output only. The name of the Pub/Sub topic created and managed by
+     * Eventarc system as a transport for the event delivery. Format:
      * `projects/{project}/topics/{topic_id}`.
      * </pre>
      *
@@ -1953,18 +1997,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPubsubTopic(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  transportCase_ = 8;
+      if (value == null) { throw new NullPointerException(); }
+      transportCase_ = 8;
       transport_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The name of the Pub/Sub topic created and managed by Eventarc system as
-     * a transport for the event delivery. Format:
+     * Output only. The name of the Pub/Sub topic created and managed by
+     * Eventarc system as a transport for the event delivery. Format:
      * `projects/{project}/topics/{topic_id}`.
      * </pre>
      *
@@ -1981,8 +2023,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The name of the Pub/Sub topic created and managed by Eventarc system as
-     * a transport for the event delivery. Format:
+     * Output only. The name of the Pub/Sub topic created and managed by
+     * Eventarc system as a transport for the event delivery. Format:
      * `projects/{project}/topics/{topic_id}`.
      * </pre>
      *
@@ -1992,10 +2034,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPubsubTopicBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       transportCase_ = 8;
       transport_ = value;
       onChanged();
@@ -2024,8 +2064,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2039,8 +2079,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.eventarc.v1.Channel.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.eventarc.v1.Channel.State result = com.google.cloud.eventarc.v1.Channel.State.valueOf(state_);
+      com.google.cloud.eventarc.v1.Channel.State result = com.google.cloud.eventarc.v1.Channel.State.forNumber(state_);
       return result == null ? com.google.cloud.eventarc.v1.Channel.State.UNRECOGNIZED : result;
     }
     /**
@@ -2056,7 +2095,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -2070,7 +2109,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       state_ = 0;
       onChanged();
       return this;
@@ -2079,8 +2118,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object activationToken_ = "";
     /**
      * <pre>
-     * Output only. The activation token for the channel. The token must be used by the
-     * provider to register the channel for publishing.
+     * Output only. The activation token for the channel. The token must be used
+     * by the provider to register the channel for publishing.
      * </pre>
      *
      * <code>string activation_token = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2100,8 +2139,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The activation token for the channel. The token must be used by the
-     * provider to register the channel for publishing.
+     * Output only. The activation token for the channel. The token must be used
+     * by the provider to register the channel for publishing.
      * </pre>
      *
      * <code>string activation_token = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2122,8 +2161,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The activation token for the channel. The token must be used by the
-     * provider to register the channel for publishing.
+     * Output only. The activation token for the channel. The token must be used
+     * by the provider to register the channel for publishing.
      * </pre>
      *
      * <code>string activation_token = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2132,33 +2171,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setActivationToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       activationToken_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The activation token for the channel. The token must be used by the
-     * provider to register the channel for publishing.
+     * Output only. The activation token for the channel. The token must be used
+     * by the provider to register the channel for publishing.
      * </pre>
      *
      * <code>string activation_token = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearActivationToken() {
-      
       activationToken_ = getDefaultInstance().getActivationToken();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The activation token for the channel. The token must be used by the
-     * provider to register the channel for publishing.
+     * Output only. The activation token for the channel. The token must be used
+     * by the provider to register the channel for publishing.
      * </pre>
      *
      * <code>string activation_token = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2167,12 +2204,117 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setActivationTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       activationToken_ = value;
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object cryptoKeyName_ = "";
+    /**
+     * <pre>
+     * Optional. Resource name of a KMS crypto key (managed by the user) used to
+     * encrypt/decrypt their event data.
+     * It must match the pattern
+     * `projects/&#42;&#47;locations/&#42;&#47;keyRings/&#42;&#47;cryptoKeys/&#42;`.
+     * </pre>
+     *
+     * <code>string crypto_key_name = 11 [(.google.api.field_behavior) = OPTIONAL, (.google.api.resource_reference) = { ... }</code>
+     * @return The cryptoKeyName.
+     */
+    public java.lang.String getCryptoKeyName() {
+      java.lang.Object ref = cryptoKeyName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        cryptoKeyName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Resource name of a KMS crypto key (managed by the user) used to
+     * encrypt/decrypt their event data.
+     * It must match the pattern
+     * `projects/&#42;&#47;locations/&#42;&#47;keyRings/&#42;&#47;cryptoKeys/&#42;`.
+     * </pre>
+     *
+     * <code>string crypto_key_name = 11 [(.google.api.field_behavior) = OPTIONAL, (.google.api.resource_reference) = { ... }</code>
+     * @return The bytes for cryptoKeyName.
+     */
+    public com.google.protobuf.ByteString
+        getCryptoKeyNameBytes() {
+      java.lang.Object ref = cryptoKeyName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cryptoKeyName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Resource name of a KMS crypto key (managed by the user) used to
+     * encrypt/decrypt their event data.
+     * It must match the pattern
+     * `projects/&#42;&#47;locations/&#42;&#47;keyRings/&#42;&#47;cryptoKeys/&#42;`.
+     * </pre>
+     *
+     * <code>string crypto_key_name = 11 [(.google.api.field_behavior) = OPTIONAL, (.google.api.resource_reference) = { ... }</code>
+     * @param value The cryptoKeyName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCryptoKeyName(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      cryptoKeyName_ = value;
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Resource name of a KMS crypto key (managed by the user) used to
+     * encrypt/decrypt their event data.
+     * It must match the pattern
+     * `projects/&#42;&#47;locations/&#42;&#47;keyRings/&#42;&#47;cryptoKeys/&#42;`.
+     * </pre>
+     *
+     * <code>string crypto_key_name = 11 [(.google.api.field_behavior) = OPTIONAL, (.google.api.resource_reference) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCryptoKeyName() {
+      cryptoKeyName_ = getDefaultInstance().getCryptoKeyName();
+      bitField0_ = (bitField0_ & ~0x00000100);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Resource name of a KMS crypto key (managed by the user) used to
+     * encrypt/decrypt their event data.
+     * It must match the pattern
+     * `projects/&#42;&#47;locations/&#42;&#47;keyRings/&#42;&#47;cryptoKeys/&#42;`.
+     * </pre>
+     *
+     * <code>string crypto_key_name = 11 [(.google.api.field_behavior) = OPTIONAL, (.google.api.resource_reference) = { ... }</code>
+     * @param value The bytes for cryptoKeyName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCryptoKeyNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      cryptoKeyName_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2209,7 +2351,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Channel(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

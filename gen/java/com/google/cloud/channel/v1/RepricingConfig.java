@@ -21,6 +21,7 @@ private static final long serialVersionUID = 0L;
   }
   private RepricingConfig() {
     rebillingBasis_ = 0;
+    conditionalOverrides_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -34,105 +35,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private RepricingConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.type.Date.Builder subBuilder = null;
-            if (effectiveInvoiceMonth_ != null) {
-              subBuilder = effectiveInvoiceMonth_.toBuilder();
-            }
-            effectiveInvoiceMonth_ = input.readMessage(com.google.type.Date.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(effectiveInvoiceMonth_);
-              effectiveInvoiceMonth_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.channel.v1.RepricingAdjustment.Builder subBuilder = null;
-            if (adjustment_ != null) {
-              subBuilder = adjustment_.toBuilder();
-            }
-            adjustment_ = input.readMessage(com.google.cloud.channel.v1.RepricingAdjustment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(adjustment_);
-              adjustment_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            rebillingBasis_ = rawValue;
-            break;
-          }
-          case 34: {
-            com.google.cloud.channel.v1.RepricingConfig.EntitlementGranularity.Builder subBuilder = null;
-            if (granularityCase_ == 4) {
-              subBuilder = ((com.google.cloud.channel.v1.RepricingConfig.EntitlementGranularity) granularity_).toBuilder();
-            }
-            granularity_ =
-                input.readMessage(com.google.cloud.channel.v1.RepricingConfig.EntitlementGranularity.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.channel.v1.RepricingConfig.EntitlementGranularity) granularity_);
-              granularity_ = subBuilder.buildPartial();
-            }
-            granularityCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularity.Builder subBuilder = null;
-            if (granularityCase_ == 5) {
-              subBuilder = ((com.google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularity) granularity_).toBuilder();
-            }
-            granularity_ =
-                input.readMessage(com.google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularity.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularity) granularity_);
-              granularity_ = subBuilder.buildPartial();
-            }
-            granularityCase_ = 5;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -207,51 +109,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private EntitlementGranularity(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              entitlement_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.channel.v1.RepricingProto.internal_static_google_cloud_channel_v1_RepricingConfig_EntitlementGranularity_descriptor;
@@ -266,7 +123,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ENTITLEMENT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object entitlement_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object entitlement_ = "";
     /**
      * <pre>
      * Resource name of the entitlement.
@@ -332,7 +190,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(entitlement_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, entitlement_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -344,7 +202,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(entitlement_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, entitlement_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -361,7 +219,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getEntitlement()
           .equals(other.getEntitlement())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -374,7 +232,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ENTITLEMENT_FIELD_NUMBER;
       hash = (53 * hash) + getEntitlement().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -495,24 +353,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.channel.v1.RepricingConfig.EntitlementGranularity.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         entitlement_ = "";
-
         return this;
       }
 
@@ -539,9 +392,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.channel.v1.RepricingConfig.EntitlementGranularity buildPartial() {
         com.google.cloud.channel.v1.RepricingConfig.EntitlementGranularity result = new com.google.cloud.channel.v1.RepricingConfig.EntitlementGranularity(this);
-        result.entitlement_ = entitlement_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.channel.v1.RepricingConfig.EntitlementGranularity result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.entitlement_ = entitlement_;
+        }
       }
 
       @java.lang.Override
@@ -590,9 +450,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.channel.v1.RepricingConfig.EntitlementGranularity.getDefaultInstance()) return this;
         if (!other.getEntitlement().isEmpty()) {
           entitlement_ = other.entitlement_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -607,19 +468,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.channel.v1.RepricingConfig.EntitlementGranularity parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                entitlement_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.channel.v1.RepricingConfig.EntitlementGranularity) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object entitlement_ = "";
       /**
@@ -680,11 +560,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEntitlement(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         entitlement_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -699,8 +577,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearEntitlement() {
-        
         entitlement_ = getDefaultInstance().getEntitlement();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -717,12 +595,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEntitlementBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         entitlement_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -759,7 +635,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new EntitlementGranularity(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -816,45 +703,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ChannelPartnerGranularity(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.channel.v1.RepricingProto.internal_static_google_cloud_channel_v1_RepricingConfig_ChannelPartnerGranularity_descriptor;
@@ -882,7 +730,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -891,7 +739,7 @@ private static final long serialVersionUID = 0L;
       if (size != -1) return size;
 
       size = 0;
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -906,7 +754,7 @@ private static final long serialVersionUID = 0L;
       }
       com.google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularity other = (com.google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularity) obj;
 
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -917,7 +765,7 @@ private static final long serialVersionUID = 0L;
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1040,18 +888,13 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularity.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -1130,7 +973,7 @@ private static final long serialVersionUID = 0L;
 
       public Builder mergeFrom(com.google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularity other) {
         if (other == com.google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularity.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1145,17 +988,30 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularity parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularity) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       @java.lang.Override
@@ -1191,7 +1047,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ChannelPartnerGranularity(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1348,8 +1215,8 @@ private static final long serialVersionUID = 0L;
   private com.google.type.Date effectiveInvoiceMonth_;
   /**
    * <pre>
-   * Required. The YearMonth when these adjustments activate. The Day field needs to be
-   * "0" since we only accept YearMonth repricing boundaries.
+   * Required. The YearMonth when these adjustments activate. The Day field
+   * needs to be "0" since we only accept YearMonth repricing boundaries.
    * </pre>
    *
    * <code>.google.type.Date effective_invoice_month = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1361,8 +1228,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The YearMonth when these adjustments activate. The Day field needs to be
-   * "0" since we only accept YearMonth repricing boundaries.
+   * Required. The YearMonth when these adjustments activate. The Day field
+   * needs to be "0" since we only accept YearMonth repricing boundaries.
    * </pre>
    *
    * <code>.google.type.Date effective_invoice_month = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1374,15 +1241,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The YearMonth when these adjustments activate. The Day field needs to be
-   * "0" since we only accept YearMonth repricing boundaries.
+   * Required. The YearMonth when these adjustments activate. The Day field
+   * needs to be "0" since we only accept YearMonth repricing boundaries.
    * </pre>
    *
    * <code>.google.type.Date effective_invoice_month = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.type.DateOrBuilder getEffectiveInvoiceMonthOrBuilder() {
-    return getEffectiveInvoiceMonth();
+    return effectiveInvoiceMonth_ == null ? com.google.type.Date.getDefaultInstance() : effectiveInvoiceMonth_;
   }
 
   public static final int ADJUSTMENT_FIELD_NUMBER = 2;
@@ -1420,15 +1287,16 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.RepricingAdjustmentOrBuilder getAdjustmentOrBuilder() {
-    return getAdjustment();
+    return adjustment_ == null ? com.google.cloud.channel.v1.RepricingAdjustment.getDefaultInstance() : adjustment_;
   }
 
   public static final int REBILLING_BASIS_FIELD_NUMBER = 3;
-  private int rebillingBasis_;
+  private int rebillingBasis_ = 0;
   /**
    * <pre>
-   * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to use for this bill. Specifies the relative cost
-   * based on repricing costs you will apply.
+   * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to
+   * use for this bill. Specifies the relative cost based on repricing costs you
+   * will apply.
    * </pre>
    *
    * <code>.google.cloud.channel.v1.RebillingBasis rebilling_basis = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1439,17 +1307,88 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to use for this bill. Specifies the relative cost
-   * based on repricing costs you will apply.
+   * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to
+   * use for this bill. Specifies the relative cost based on repricing costs you
+   * will apply.
    * </pre>
    *
    * <code>.google.cloud.channel.v1.RebillingBasis rebilling_basis = 3 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The rebillingBasis.
    */
   @java.lang.Override public com.google.cloud.channel.v1.RebillingBasis getRebillingBasis() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.channel.v1.RebillingBasis result = com.google.cloud.channel.v1.RebillingBasis.valueOf(rebillingBasis_);
+    com.google.cloud.channel.v1.RebillingBasis result = com.google.cloud.channel.v1.RebillingBasis.forNumber(rebillingBasis_);
     return result == null ? com.google.cloud.channel.v1.RebillingBasis.UNRECOGNIZED : result;
+  }
+
+  public static final int CONDITIONAL_OVERRIDES_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
+  private java.util.List<com.google.cloud.channel.v1.ConditionalOverride> conditionalOverrides_;
+  /**
+   * <pre>
+   * The conditional overrides to apply for this configuration. If you list
+   * multiple overrides, only the first valid override is used.  If you don't
+   * list any overrides, the API uses the normal adjustment and rebilling basis.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.google.cloud.channel.v1.ConditionalOverride> getConditionalOverridesList() {
+    return conditionalOverrides_;
+  }
+  /**
+   * <pre>
+   * The conditional overrides to apply for this configuration. If you list
+   * multiple overrides, only the first valid override is used.  If you don't
+   * list any overrides, the API uses the normal adjustment and rebilling basis.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.google.cloud.channel.v1.ConditionalOverrideOrBuilder> 
+      getConditionalOverridesOrBuilderList() {
+    return conditionalOverrides_;
+  }
+  /**
+   * <pre>
+   * The conditional overrides to apply for this configuration. If you list
+   * multiple overrides, only the first valid override is used.  If you don't
+   * list any overrides, the API uses the normal adjustment and rebilling basis.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+   */
+  @java.lang.Override
+  public int getConditionalOverridesCount() {
+    return conditionalOverrides_.size();
+  }
+  /**
+   * <pre>
+   * The conditional overrides to apply for this configuration. If you list
+   * multiple overrides, only the first valid override is used.  If you don't
+   * list any overrides, the API uses the normal adjustment and rebilling basis.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.channel.v1.ConditionalOverride getConditionalOverrides(int index) {
+    return conditionalOverrides_.get(index);
+  }
+  /**
+   * <pre>
+   * The conditional overrides to apply for this configuration. If you list
+   * multiple overrides, only the first valid override is used.  If you don't
+   * list any overrides, the API uses the normal adjustment and rebilling basis.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.channel.v1.ConditionalOverrideOrBuilder getConditionalOverridesOrBuilder(
+      int index) {
+    return conditionalOverrides_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1481,7 +1420,10 @@ private static final long serialVersionUID = 0L;
     if (granularityCase_ == 5) {
       output.writeMessage(5, (com.google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularity) granularity_);
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < conditionalOverrides_.size(); i++) {
+      output.writeMessage(6, conditionalOverrides_.get(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1510,7 +1452,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, (com.google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularity) granularity_);
     }
-    size += unknownFields.getSerializedSize();
+    for (int i = 0; i < conditionalOverrides_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, conditionalOverrides_.get(i));
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1536,6 +1482,8 @@ private static final long serialVersionUID = 0L;
           .equals(other.getAdjustment())) return false;
     }
     if (rebillingBasis_ != other.rebillingBasis_) return false;
+    if (!getConditionalOverridesList()
+        .equals(other.getConditionalOverridesList())) return false;
     if (!getGranularityCase().equals(other.getGranularityCase())) return false;
     switch (granularityCase_) {
       case 4:
@@ -1549,7 +1497,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1570,6 +1518,10 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + REBILLING_BASIS_FIELD_NUMBER;
     hash = (53 * hash) + rebillingBasis_;
+    if (getConditionalOverridesCount() > 0) {
+      hash = (37 * hash) + CONDITIONAL_OVERRIDES_FIELD_NUMBER;
+      hash = (53 * hash) + getConditionalOverridesList().hashCode();
+    }
     switch (granularityCase_) {
       case 4:
         hash = (37 * hash) + ENTITLEMENT_GRANULARITY_FIELD_NUMBER;
@@ -1582,7 +1534,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1703,36 +1655,42 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.RepricingConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (effectiveInvoiceMonthBuilder_ == null) {
-        effectiveInvoiceMonth_ = null;
-      } else {
-        effectiveInvoiceMonth_ = null;
+      bitField0_ = 0;
+      if (entitlementGranularityBuilder_ != null) {
+        entitlementGranularityBuilder_.clear();
+      }
+      if (channelPartnerGranularityBuilder_ != null) {
+        channelPartnerGranularityBuilder_.clear();
+      }
+      effectiveInvoiceMonth_ = null;
+      if (effectiveInvoiceMonthBuilder_ != null) {
+        effectiveInvoiceMonthBuilder_.dispose();
         effectiveInvoiceMonthBuilder_ = null;
       }
-      if (adjustmentBuilder_ == null) {
-        adjustment_ = null;
-      } else {
-        adjustment_ = null;
+      adjustment_ = null;
+      if (adjustmentBuilder_ != null) {
+        adjustmentBuilder_.dispose();
         adjustmentBuilder_ = null;
       }
       rebillingBasis_ = 0;
-
+      if (conditionalOverridesBuilder_ == null) {
+        conditionalOverrides_ = java.util.Collections.emptyList();
+      } else {
+        conditionalOverrides_ = null;
+        conditionalOverridesBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000020);
       granularityCase_ = 0;
       granularity_ = null;
       return this;
@@ -1761,34 +1719,53 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.RepricingConfig buildPartial() {
       com.google.cloud.channel.v1.RepricingConfig result = new com.google.cloud.channel.v1.RepricingConfig(this);
-      if (granularityCase_ == 4) {
-        if (entitlementGranularityBuilder_ == null) {
-          result.granularity_ = granularity_;
-        } else {
-          result.granularity_ = entitlementGranularityBuilder_.build();
-        }
-      }
-      if (granularityCase_ == 5) {
-        if (channelPartnerGranularityBuilder_ == null) {
-          result.granularity_ = granularity_;
-        } else {
-          result.granularity_ = channelPartnerGranularityBuilder_.build();
-        }
-      }
-      if (effectiveInvoiceMonthBuilder_ == null) {
-        result.effectiveInvoiceMonth_ = effectiveInvoiceMonth_;
-      } else {
-        result.effectiveInvoiceMonth_ = effectiveInvoiceMonthBuilder_.build();
-      }
-      if (adjustmentBuilder_ == null) {
-        result.adjustment_ = adjustment_;
-      } else {
-        result.adjustment_ = adjustmentBuilder_.build();
-      }
-      result.rebillingBasis_ = rebillingBasis_;
-      result.granularityCase_ = granularityCase_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.channel.v1.RepricingConfig result) {
+      if (conditionalOverridesBuilder_ == null) {
+        if (((bitField0_ & 0x00000020) != 0)) {
+          conditionalOverrides_ = java.util.Collections.unmodifiableList(conditionalOverrides_);
+          bitField0_ = (bitField0_ & ~0x00000020);
+        }
+        result.conditionalOverrides_ = conditionalOverrides_;
+      } else {
+        result.conditionalOverrides_ = conditionalOverridesBuilder_.build();
+      }
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.RepricingConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.effectiveInvoiceMonth_ = effectiveInvoiceMonthBuilder_ == null
+            ? effectiveInvoiceMonth_
+            : effectiveInvoiceMonthBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.adjustment_ = adjustmentBuilder_ == null
+            ? adjustment_
+            : adjustmentBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.rebillingBasis_ = rebillingBasis_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.channel.v1.RepricingConfig result) {
+      result.granularityCase_ = granularityCase_;
+      result.granularity_ = this.granularity_;
+      if (granularityCase_ == 4 &&
+          entitlementGranularityBuilder_ != null) {
+        result.granularity_ = entitlementGranularityBuilder_.build();
+      }
+      if (granularityCase_ == 5 &&
+          channelPartnerGranularityBuilder_ != null) {
+        result.granularity_ = channelPartnerGranularityBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1844,6 +1821,32 @@ private static final long serialVersionUID = 0L;
       if (other.rebillingBasis_ != 0) {
         setRebillingBasisValue(other.getRebillingBasisValue());
       }
+      if (conditionalOverridesBuilder_ == null) {
+        if (!other.conditionalOverrides_.isEmpty()) {
+          if (conditionalOverrides_.isEmpty()) {
+            conditionalOverrides_ = other.conditionalOverrides_;
+            bitField0_ = (bitField0_ & ~0x00000020);
+          } else {
+            ensureConditionalOverridesIsMutable();
+            conditionalOverrides_.addAll(other.conditionalOverrides_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.conditionalOverrides_.isEmpty()) {
+          if (conditionalOverridesBuilder_.isEmpty()) {
+            conditionalOverridesBuilder_.dispose();
+            conditionalOverridesBuilder_ = null;
+            conditionalOverrides_ = other.conditionalOverrides_;
+            bitField0_ = (bitField0_ & ~0x00000020);
+            conditionalOverridesBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getConditionalOverridesFieldBuilder() : null;
+          } else {
+            conditionalOverridesBuilder_.addAllMessages(other.conditionalOverrides_);
+          }
+        }
+      }
       switch (other.getGranularityCase()) {
         case ENTITLEMENT_GRANULARITY: {
           mergeEntitlementGranularity(other.getEntitlementGranularity());
@@ -1857,7 +1860,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1872,17 +1875,76 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.RepricingConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getEffectiveInvoiceMonthFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAdjustmentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 18
+            case 24: {
+              rebillingBasis_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getEntitlementGranularityFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              granularityCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getChannelPartnerGranularityFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              granularityCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              com.google.cloud.channel.v1.ConditionalOverride m =
+                  input.readMessage(
+                      com.google.cloud.channel.v1.ConditionalOverride.parser(),
+                      extensionRegistry);
+              if (conditionalOverridesBuilder_ == null) {
+                ensureConditionalOverridesIsMutable();
+                conditionalOverrides_.add(m);
+              } else {
+                conditionalOverridesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.RepricingConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int granularityCase_ = 0;
@@ -1900,6 +1962,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.channel.v1.RepricingConfig.EntitlementGranularity, com.google.cloud.channel.v1.RepricingConfig.EntitlementGranularity.Builder, com.google.cloud.channel.v1.RepricingConfig.EntitlementGranularityOrBuilder> entitlementGranularityBuilder_;
@@ -2084,7 +2147,7 @@ private static final long serialVersionUID = 0L;
         granularity_ = null;
       }
       granularityCase_ = 4;
-      onChanged();;
+      onChanged();
       return entitlementGranularityBuilder_;
     }
 
@@ -2271,7 +2334,7 @@ private static final long serialVersionUID = 0L;
         granularity_ = null;
       }
       granularityCase_ = 5;
-      onChanged();;
+      onChanged();
       return channelPartnerGranularityBuilder_;
     }
 
@@ -2280,20 +2343,20 @@ private static final long serialVersionUID = 0L;
         com.google.type.Date, com.google.type.Date.Builder, com.google.type.DateOrBuilder> effectiveInvoiceMonthBuilder_;
     /**
      * <pre>
-     * Required. The YearMonth when these adjustments activate. The Day field needs to be
-     * "0" since we only accept YearMonth repricing boundaries.
+     * Required. The YearMonth when these adjustments activate. The Day field
+     * needs to be "0" since we only accept YearMonth repricing boundaries.
      * </pre>
      *
      * <code>.google.type.Date effective_invoice_month = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the effectiveInvoiceMonth field is set.
      */
     public boolean hasEffectiveInvoiceMonth() {
-      return effectiveInvoiceMonthBuilder_ != null || effectiveInvoiceMonth_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
-     * Required. The YearMonth when these adjustments activate. The Day field needs to be
-     * "0" since we only accept YearMonth repricing boundaries.
+     * Required. The YearMonth when these adjustments activate. The Day field
+     * needs to be "0" since we only accept YearMonth repricing boundaries.
      * </pre>
      *
      * <code>.google.type.Date effective_invoice_month = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2308,8 +2371,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The YearMonth when these adjustments activate. The Day field needs to be
-     * "0" since we only accept YearMonth repricing boundaries.
+     * Required. The YearMonth when these adjustments activate. The Day field
+     * needs to be "0" since we only accept YearMonth repricing boundaries.
      * </pre>
      *
      * <code>.google.type.Date effective_invoice_month = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2320,17 +2383,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         effectiveInvoiceMonth_ = value;
-        onChanged();
       } else {
         effectiveInvoiceMonthBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The YearMonth when these adjustments activate. The Day field needs to be
-     * "0" since we only accept YearMonth repricing boundaries.
+     * Required. The YearMonth when these adjustments activate. The Day field
+     * needs to be "0" since we only accept YearMonth repricing boundaries.
      * </pre>
      *
      * <code>.google.type.Date effective_invoice_month = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2339,72 +2402,72 @@ private static final long serialVersionUID = 0L;
         com.google.type.Date.Builder builderForValue) {
       if (effectiveInvoiceMonthBuilder_ == null) {
         effectiveInvoiceMonth_ = builderForValue.build();
-        onChanged();
       } else {
         effectiveInvoiceMonthBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The YearMonth when these adjustments activate. The Day field needs to be
-     * "0" since we only accept YearMonth repricing boundaries.
+     * Required. The YearMonth when these adjustments activate. The Day field
+     * needs to be "0" since we only accept YearMonth repricing boundaries.
      * </pre>
      *
      * <code>.google.type.Date effective_invoice_month = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeEffectiveInvoiceMonth(com.google.type.Date value) {
       if (effectiveInvoiceMonthBuilder_ == null) {
-        if (effectiveInvoiceMonth_ != null) {
-          effectiveInvoiceMonth_ =
-            com.google.type.Date.newBuilder(effectiveInvoiceMonth_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          effectiveInvoiceMonth_ != null &&
+          effectiveInvoiceMonth_ != com.google.type.Date.getDefaultInstance()) {
+          getEffectiveInvoiceMonthBuilder().mergeFrom(value);
         } else {
           effectiveInvoiceMonth_ = value;
         }
-        onChanged();
       } else {
         effectiveInvoiceMonthBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The YearMonth when these adjustments activate. The Day field needs to be
-     * "0" since we only accept YearMonth repricing boundaries.
+     * Required. The YearMonth when these adjustments activate. The Day field
+     * needs to be "0" since we only accept YearMonth repricing boundaries.
      * </pre>
      *
      * <code>.google.type.Date effective_invoice_month = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearEffectiveInvoiceMonth() {
-      if (effectiveInvoiceMonthBuilder_ == null) {
-        effectiveInvoiceMonth_ = null;
-        onChanged();
-      } else {
-        effectiveInvoiceMonth_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      effectiveInvoiceMonth_ = null;
+      if (effectiveInvoiceMonthBuilder_ != null) {
+        effectiveInvoiceMonthBuilder_.dispose();
         effectiveInvoiceMonthBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The YearMonth when these adjustments activate. The Day field needs to be
-     * "0" since we only accept YearMonth repricing boundaries.
+     * Required. The YearMonth when these adjustments activate. The Day field
+     * needs to be "0" since we only accept YearMonth repricing boundaries.
      * </pre>
      *
      * <code>.google.type.Date effective_invoice_month = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.type.Date.Builder getEffectiveInvoiceMonthBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getEffectiveInvoiceMonthFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Required. The YearMonth when these adjustments activate. The Day field needs to be
-     * "0" since we only accept YearMonth repricing boundaries.
+     * Required. The YearMonth when these adjustments activate. The Day field
+     * needs to be "0" since we only accept YearMonth repricing boundaries.
      * </pre>
      *
      * <code>.google.type.Date effective_invoice_month = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2419,8 +2482,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The YearMonth when these adjustments activate. The Day field needs to be
-     * "0" since we only accept YearMonth repricing boundaries.
+     * Required. The YearMonth when these adjustments activate. The Day field
+     * needs to be "0" since we only accept YearMonth repricing boundaries.
      * </pre>
      *
      * <code>.google.type.Date effective_invoice_month = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2451,7 +2514,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the adjustment field is set.
      */
     public boolean hasAdjustment() {
-      return adjustmentBuilder_ != null || adjustment_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2481,11 +2544,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         adjustment_ = value;
-        onChanged();
       } else {
         adjustmentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2499,11 +2562,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.RepricingAdjustment.Builder builderForValue) {
       if (adjustmentBuilder_ == null) {
         adjustment_ = builderForValue.build();
-        onChanged();
       } else {
         adjustmentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2515,17 +2578,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAdjustment(com.google.cloud.channel.v1.RepricingAdjustment value) {
       if (adjustmentBuilder_ == null) {
-        if (adjustment_ != null) {
-          adjustment_ =
-            com.google.cloud.channel.v1.RepricingAdjustment.newBuilder(adjustment_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          adjustment_ != null &&
+          adjustment_ != com.google.cloud.channel.v1.RepricingAdjustment.getDefaultInstance()) {
+          getAdjustmentBuilder().mergeFrom(value);
         } else {
           adjustment_ = value;
         }
-        onChanged();
       } else {
         adjustmentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2536,14 +2600,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.RepricingAdjustment adjustment = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearAdjustment() {
-      if (adjustmentBuilder_ == null) {
-        adjustment_ = null;
-        onChanged();
-      } else {
-        adjustment_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      adjustment_ = null;
+      if (adjustmentBuilder_ != null) {
+        adjustmentBuilder_.dispose();
         adjustmentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2554,7 +2617,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.RepricingAdjustment adjustment = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.channel.v1.RepricingAdjustment.Builder getAdjustmentBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getAdjustmentFieldBuilder().getBuilder();
     }
@@ -2597,8 +2660,9 @@ private static final long serialVersionUID = 0L;
     private int rebillingBasis_ = 0;
     /**
      * <pre>
-     * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to use for this bill. Specifies the relative cost
-     * based on repricing costs you will apply.
+     * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to
+     * use for this bill. Specifies the relative cost based on repricing costs you
+     * will apply.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.RebillingBasis rebilling_basis = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2609,8 +2673,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to use for this bill. Specifies the relative cost
-     * based on repricing costs you will apply.
+     * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to
+     * use for this bill. Specifies the relative cost based on repricing costs you
+     * will apply.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.RebillingBasis rebilling_basis = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2618,15 +2683,16 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRebillingBasisValue(int value) {
-      
       rebillingBasis_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to use for this bill. Specifies the relative cost
-     * based on repricing costs you will apply.
+     * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to
+     * use for this bill. Specifies the relative cost based on repricing costs you
+     * will apply.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.RebillingBasis rebilling_basis = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2634,14 +2700,14 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.channel.v1.RebillingBasis getRebillingBasis() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.channel.v1.RebillingBasis result = com.google.cloud.channel.v1.RebillingBasis.valueOf(rebillingBasis_);
+      com.google.cloud.channel.v1.RebillingBasis result = com.google.cloud.channel.v1.RebillingBasis.forNumber(rebillingBasis_);
       return result == null ? com.google.cloud.channel.v1.RebillingBasis.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to use for this bill. Specifies the relative cost
-     * based on repricing costs you will apply.
+     * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to
+     * use for this bill. Specifies the relative cost based on repricing costs you
+     * will apply.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.RebillingBasis rebilling_basis = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2652,25 +2718,374 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       rebillingBasis_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to use for this bill. Specifies the relative cost
-     * based on repricing costs you will apply.
+     * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to
+     * use for this bill. Specifies the relative cost based on repricing costs you
+     * will apply.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.RebillingBasis rebilling_basis = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearRebillingBasis() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       rebillingBasis_ = 0;
       onChanged();
       return this;
+    }
+
+    private java.util.List<com.google.cloud.channel.v1.ConditionalOverride> conditionalOverrides_ =
+      java.util.Collections.emptyList();
+    private void ensureConditionalOverridesIsMutable() {
+      if (!((bitField0_ & 0x00000020) != 0)) {
+        conditionalOverrides_ = new java.util.ArrayList<com.google.cloud.channel.v1.ConditionalOverride>(conditionalOverrides_);
+        bitField0_ |= 0x00000020;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.channel.v1.ConditionalOverride, com.google.cloud.channel.v1.ConditionalOverride.Builder, com.google.cloud.channel.v1.ConditionalOverrideOrBuilder> conditionalOverridesBuilder_;
+
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public java.util.List<com.google.cloud.channel.v1.ConditionalOverride> getConditionalOverridesList() {
+      if (conditionalOverridesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(conditionalOverrides_);
+      } else {
+        return conditionalOverridesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public int getConditionalOverridesCount() {
+      if (conditionalOverridesBuilder_ == null) {
+        return conditionalOverrides_.size();
+      } else {
+        return conditionalOverridesBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public com.google.cloud.channel.v1.ConditionalOverride getConditionalOverrides(int index) {
+      if (conditionalOverridesBuilder_ == null) {
+        return conditionalOverrides_.get(index);
+      } else {
+        return conditionalOverridesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public Builder setConditionalOverrides(
+        int index, com.google.cloud.channel.v1.ConditionalOverride value) {
+      if (conditionalOverridesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureConditionalOverridesIsMutable();
+        conditionalOverrides_.set(index, value);
+        onChanged();
+      } else {
+        conditionalOverridesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public Builder setConditionalOverrides(
+        int index, com.google.cloud.channel.v1.ConditionalOverride.Builder builderForValue) {
+      if (conditionalOverridesBuilder_ == null) {
+        ensureConditionalOverridesIsMutable();
+        conditionalOverrides_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        conditionalOverridesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public Builder addConditionalOverrides(com.google.cloud.channel.v1.ConditionalOverride value) {
+      if (conditionalOverridesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureConditionalOverridesIsMutable();
+        conditionalOverrides_.add(value);
+        onChanged();
+      } else {
+        conditionalOverridesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public Builder addConditionalOverrides(
+        int index, com.google.cloud.channel.v1.ConditionalOverride value) {
+      if (conditionalOverridesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureConditionalOverridesIsMutable();
+        conditionalOverrides_.add(index, value);
+        onChanged();
+      } else {
+        conditionalOverridesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public Builder addConditionalOverrides(
+        com.google.cloud.channel.v1.ConditionalOverride.Builder builderForValue) {
+      if (conditionalOverridesBuilder_ == null) {
+        ensureConditionalOverridesIsMutable();
+        conditionalOverrides_.add(builderForValue.build());
+        onChanged();
+      } else {
+        conditionalOverridesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public Builder addConditionalOverrides(
+        int index, com.google.cloud.channel.v1.ConditionalOverride.Builder builderForValue) {
+      if (conditionalOverridesBuilder_ == null) {
+        ensureConditionalOverridesIsMutable();
+        conditionalOverrides_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        conditionalOverridesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public Builder addAllConditionalOverrides(
+        java.lang.Iterable<? extends com.google.cloud.channel.v1.ConditionalOverride> values) {
+      if (conditionalOverridesBuilder_ == null) {
+        ensureConditionalOverridesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, conditionalOverrides_);
+        onChanged();
+      } else {
+        conditionalOverridesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public Builder clearConditionalOverrides() {
+      if (conditionalOverridesBuilder_ == null) {
+        conditionalOverrides_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000020);
+        onChanged();
+      } else {
+        conditionalOverridesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public Builder removeConditionalOverrides(int index) {
+      if (conditionalOverridesBuilder_ == null) {
+        ensureConditionalOverridesIsMutable();
+        conditionalOverrides_.remove(index);
+        onChanged();
+      } else {
+        conditionalOverridesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public com.google.cloud.channel.v1.ConditionalOverride.Builder getConditionalOverridesBuilder(
+        int index) {
+      return getConditionalOverridesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public com.google.cloud.channel.v1.ConditionalOverrideOrBuilder getConditionalOverridesOrBuilder(
+        int index) {
+      if (conditionalOverridesBuilder_ == null) {
+        return conditionalOverrides_.get(index);  } else {
+        return conditionalOverridesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public java.util.List<? extends com.google.cloud.channel.v1.ConditionalOverrideOrBuilder> 
+         getConditionalOverridesOrBuilderList() {
+      if (conditionalOverridesBuilder_ != null) {
+        return conditionalOverridesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(conditionalOverrides_);
+      }
+    }
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public com.google.cloud.channel.v1.ConditionalOverride.Builder addConditionalOverridesBuilder() {
+      return getConditionalOverridesFieldBuilder().addBuilder(
+          com.google.cloud.channel.v1.ConditionalOverride.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public com.google.cloud.channel.v1.ConditionalOverride.Builder addConditionalOverridesBuilder(
+        int index) {
+      return getConditionalOverridesFieldBuilder().addBuilder(
+          index, com.google.cloud.channel.v1.ConditionalOverride.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * The conditional overrides to apply for this configuration. If you list
+     * multiple overrides, only the first valid override is used.  If you don't
+     * list any overrides, the API uses the normal adjustment and rebilling basis.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+     */
+    public java.util.List<com.google.cloud.channel.v1.ConditionalOverride.Builder> 
+         getConditionalOverridesBuilderList() {
+      return getConditionalOverridesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.channel.v1.ConditionalOverride, com.google.cloud.channel.v1.ConditionalOverride.Builder, com.google.cloud.channel.v1.ConditionalOverrideOrBuilder> 
+        getConditionalOverridesFieldBuilder() {
+      if (conditionalOverridesBuilder_ == null) {
+        conditionalOverridesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.google.cloud.channel.v1.ConditionalOverride, com.google.cloud.channel.v1.ConditionalOverride.Builder, com.google.cloud.channel.v1.ConditionalOverrideOrBuilder>(
+                conditionalOverrides_,
+                ((bitField0_ & 0x00000020) != 0),
+                getParentForChildren(),
+                isClean());
+        conditionalOverrides_ = null;
+      }
+      return conditionalOverridesBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -2705,7 +3120,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RepricingConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

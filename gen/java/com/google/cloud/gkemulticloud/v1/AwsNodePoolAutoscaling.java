@@ -35,55 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AwsNodePoolAutoscaling(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            minNodeCount_ = input.readInt32();
-            break;
-          }
-          case 16: {
-
-            maxNodeCount_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkemulticloud.v1.AwsResourcesProto.internal_static_google_cloud_gkemulticloud_v1_AwsNodePoolAutoscaling_descriptor;
@@ -98,11 +49,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_NODE_COUNT_FIELD_NUMBER = 1;
-  private int minNodeCount_;
+  private int minNodeCount_ = 0;
   /**
    * <pre>
-   * Required. Minimum number of nodes in the node pool. Must be greater than or equal to
-   * 1 and less than or equal to max_node_count.
+   * Required. Minimum number of nodes in the node pool. Must be greater than or
+   * equal to 1 and less than or equal to max_node_count.
    * </pre>
    *
    * <code>int32 min_node_count = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -114,11 +65,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_NODE_COUNT_FIELD_NUMBER = 2;
-  private int maxNodeCount_;
+  private int maxNodeCount_ = 0;
   /**
    * <pre>
-   * Required. Maximum number of nodes in the node pool. Must be greater than or equal to
-   * min_node_count and less than or equal to 50.
+   * Required. Maximum number of nodes in the node pool. Must be greater than or
+   * equal to min_node_count and less than or equal to 50.
    * </pre>
    *
    * <code>int32 max_node_count = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -149,7 +100,7 @@ private static final long serialVersionUID = 0L;
     if (maxNodeCount_ != 0) {
       output.writeInt32(2, maxNodeCount_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -166,7 +117,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, maxNodeCount_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -185,7 +136,7 @@ private static final long serialVersionUID = 0L;
         != other.getMinNodeCount()) return false;
     if (getMaxNodeCount()
         != other.getMaxNodeCount()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -200,7 +151,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getMinNodeCount();
     hash = (37 * hash) + MAX_NODE_COUNT_FIELD_NUMBER;
     hash = (53 * hash) + getMaxNodeCount();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -322,26 +273,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkemulticloud.v1.AwsNodePoolAutoscaling.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       minNodeCount_ = 0;
-
       maxNodeCount_ = 0;
-
       return this;
     }
 
@@ -368,10 +313,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.AwsNodePoolAutoscaling buildPartial() {
       com.google.cloud.gkemulticloud.v1.AwsNodePoolAutoscaling result = new com.google.cloud.gkemulticloud.v1.AwsNodePoolAutoscaling(this);
-      result.minNodeCount_ = minNodeCount_;
-      result.maxNodeCount_ = maxNodeCount_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkemulticloud.v1.AwsNodePoolAutoscaling result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.minNodeCount_ = minNodeCount_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.maxNodeCount_ = maxNodeCount_;
+      }
     }
 
     @java.lang.Override
@@ -424,7 +378,7 @@ private static final long serialVersionUID = 0L;
       if (other.getMaxNodeCount() != 0) {
         setMaxNodeCount(other.getMaxNodeCount());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -439,25 +393,49 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkemulticloud.v1.AwsNodePoolAutoscaling parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              minNodeCount_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              maxNodeCount_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkemulticloud.v1.AwsNodePoolAutoscaling) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int minNodeCount_ ;
     /**
      * <pre>
-     * Required. Minimum number of nodes in the node pool. Must be greater than or equal to
-     * 1 and less than or equal to max_node_count.
+     * Required. Minimum number of nodes in the node pool. Must be greater than or
+     * equal to 1 and less than or equal to max_node_count.
      * </pre>
      *
      * <code>int32 min_node_count = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -469,8 +447,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Minimum number of nodes in the node pool. Must be greater than or equal to
-     * 1 and less than or equal to max_node_count.
+     * Required. Minimum number of nodes in the node pool. Must be greater than or
+     * equal to 1 and less than or equal to max_node_count.
      * </pre>
      *
      * <code>int32 min_node_count = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -480,20 +458,21 @@ private static final long serialVersionUID = 0L;
     public Builder setMinNodeCount(int value) {
       
       minNodeCount_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Minimum number of nodes in the node pool. Must be greater than or equal to
-     * 1 and less than or equal to max_node_count.
+     * Required. Minimum number of nodes in the node pool. Must be greater than or
+     * equal to 1 and less than or equal to max_node_count.
      * </pre>
      *
      * <code>int32 min_node_count = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearMinNodeCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       minNodeCount_ = 0;
       onChanged();
       return this;
@@ -502,8 +481,8 @@ private static final long serialVersionUID = 0L;
     private int maxNodeCount_ ;
     /**
      * <pre>
-     * Required. Maximum number of nodes in the node pool. Must be greater than or equal to
-     * min_node_count and less than or equal to 50.
+     * Required. Maximum number of nodes in the node pool. Must be greater than or
+     * equal to min_node_count and less than or equal to 50.
      * </pre>
      *
      * <code>int32 max_node_count = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -515,8 +494,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Maximum number of nodes in the node pool. Must be greater than or equal to
-     * min_node_count and less than or equal to 50.
+     * Required. Maximum number of nodes in the node pool. Must be greater than or
+     * equal to min_node_count and less than or equal to 50.
      * </pre>
      *
      * <code>int32 max_node_count = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -526,20 +505,21 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxNodeCount(int value) {
       
       maxNodeCount_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Maximum number of nodes in the node pool. Must be greater than or equal to
-     * min_node_count and less than or equal to 50.
+     * Required. Maximum number of nodes in the node pool. Must be greater than or
+     * equal to min_node_count and less than or equal to 50.
      * </pre>
      *
      * <code>int32 max_node_count = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearMaxNodeCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       maxNodeCount_ = 0;
       onChanged();
       return this;
@@ -577,7 +557,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AwsNodePoolAutoscaling(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

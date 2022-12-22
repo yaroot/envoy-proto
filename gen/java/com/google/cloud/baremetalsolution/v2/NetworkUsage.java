@@ -35,71 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NetworkUsage(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.baremetalsolution.v2.Network.Builder subBuilder = null;
-            if (network_ != null) {
-              subBuilder = network_.toBuilder();
-            }
-            network_ = input.readMessage(com.google.cloud.baremetalsolution.v2.Network.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(network_);
-              network_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              usedIps_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            usedIps_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        usedIps_ = usedIps_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.baremetalsolution.v2.NetworkProto.internal_static_google_cloud_baremetalsolution_v2_NetworkUsage_descriptor;
@@ -148,10 +83,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.baremetalsolution.v2.NetworkOrBuilder getNetworkOrBuilder() {
-    return getNetwork();
+    return network_ == null ? com.google.cloud.baremetalsolution.v2.Network.getDefaultInstance() : network_;
   }
 
   public static final int USED_IPS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList usedIps_;
   /**
    * <pre>
@@ -222,7 +158,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < usedIps_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, usedIps_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -243,7 +179,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getUsedIpsList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -265,7 +201,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getUsedIpsList()
         .equals(other.getUsedIpsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -284,7 +220,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + USED_IPS_FIELD_NUMBER;
       hash = (53 * hash) + getUsedIpsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -405,30 +341,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.baremetalsolution.v2.NetworkUsage.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (networkBuilder_ == null) {
-        network_ = null;
-      } else {
-        network_ = null;
+      bitField0_ = 0;
+      network_ = null;
+      if (networkBuilder_ != null) {
+        networkBuilder_.dispose();
         networkBuilder_ = null;
       }
       usedIps_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -455,19 +386,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.baremetalsolution.v2.NetworkUsage buildPartial() {
       com.google.cloud.baremetalsolution.v2.NetworkUsage result = new com.google.cloud.baremetalsolution.v2.NetworkUsage(this);
-      int from_bitField0_ = bitField0_;
-      if (networkBuilder_ == null) {
-        result.network_ = network_;
-      } else {
-        result.network_ = networkBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        usedIps_ = usedIps_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.usedIps_ = usedIps_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.baremetalsolution.v2.NetworkUsage result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
+        usedIps_ = usedIps_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.usedIps_ = usedIps_;
+    }
+
+    private void buildPartial0(com.google.cloud.baremetalsolution.v2.NetworkUsage result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.network_ = networkBuilder_ == null
+            ? network_
+            : networkBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -520,14 +459,14 @@ private static final long serialVersionUID = 0L;
       if (!other.usedIps_.isEmpty()) {
         if (usedIps_.isEmpty()) {
           usedIps_ = other.usedIps_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureUsedIpsIsMutable();
           usedIps_.addAll(other.usedIps_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -542,17 +481,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.baremetalsolution.v2.NetworkUsage parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getNetworkFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureUsedIpsIsMutable();
+              usedIps_.add(s);
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.baremetalsolution.v2.NetworkUsage) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -569,7 +534,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the network field is set.
      */
     public boolean hasNetwork() {
-      return networkBuilder_ != null || network_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -599,11 +564,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         network_ = value;
-        onChanged();
       } else {
         networkBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -617,11 +582,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.baremetalsolution.v2.Network.Builder builderForValue) {
       if (networkBuilder_ == null) {
         network_ = builderForValue.build();
-        onChanged();
       } else {
         networkBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -633,17 +598,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNetwork(com.google.cloud.baremetalsolution.v2.Network value) {
       if (networkBuilder_ == null) {
-        if (network_ != null) {
-          network_ =
-            com.google.cloud.baremetalsolution.v2.Network.newBuilder(network_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          network_ != null &&
+          network_ != com.google.cloud.baremetalsolution.v2.Network.getDefaultInstance()) {
+          getNetworkBuilder().mergeFrom(value);
         } else {
           network_ = value;
         }
-        onChanged();
       } else {
         networkBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -654,14 +620,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.baremetalsolution.v2.Network network = 1;</code>
      */
     public Builder clearNetwork() {
-      if (networkBuilder_ == null) {
-        network_ = null;
-        onChanged();
-      } else {
-        network_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      network_ = null;
+      if (networkBuilder_ != null) {
+        networkBuilder_.dispose();
         networkBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -672,7 +637,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.baremetalsolution.v2.Network network = 1;</code>
      */
     public com.google.cloud.baremetalsolution.v2.Network.Builder getNetworkBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getNetworkFieldBuilder().getBuilder();
     }
@@ -714,9 +679,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList usedIps_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureUsedIpsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         usedIps_ = new com.google.protobuf.LazyStringArrayList(usedIps_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -779,10 +744,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUsedIps(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUsedIpsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureUsedIpsIsMutable();
       usedIps_.set(index, value);
       onChanged();
       return this;
@@ -798,10 +761,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addUsedIps(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUsedIpsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureUsedIpsIsMutable();
       usedIps_.add(value);
       onChanged();
       return this;
@@ -833,7 +794,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearUsedIps() {
       usedIps_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -848,10 +809,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addUsedIpsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureUsedIpsIsMutable();
       usedIps_.add(value);
       onChanged();
@@ -890,7 +849,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NetworkUsage(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

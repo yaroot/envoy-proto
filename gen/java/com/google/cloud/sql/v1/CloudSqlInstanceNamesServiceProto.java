@@ -24,20 +24,17 @@ public final class CloudSqlInstanceNamesServiceProto {
   static {
     java.lang.String[] descriptorData = {
       "\n2google/cloud/sql/v1/cloud_sql_instance" +
-      "_names.proto\022\023google.cloud.sql.v1\032\034googl" +
-      "e/api/annotations.proto\032\037google/api/fiel" +
-      "d_behavior.proto\032\027google/api/client.prot" +
-      "o25\n\027SqlInstanceNamesService\032\032\312A\027sqladmi" +
-      "n.googleapis.comBv\n\027com.google.cloud.sql" +
-      ".v1B!CloudSqlInstanceNamesServiceProtoP\001" +
-      "Z6google.golang.org/genproto/googleapis/" +
-      "cloud/sql/v1;sqlb\006proto3"
+      "_names.proto\022\023google.cloud.sql.v1\032\027googl" +
+      "e/api/client.proto25\n\027SqlInstanceNamesSe" +
+      "rvice\032\032\312A\027sqladmin.googleapis.comBv\n\027com" +
+      ".google.cloud.sql.v1B!CloudSqlInstanceNa" +
+      "mesServiceProtoP\001Z6google.golang.org/gen" +
+      "proto/googleapis/cloud/sql/v1;sqlb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.api.AnnotationsProto.getDescriptor(),
-          com.google.api.FieldBehaviorProto.getDescriptor(),
           com.google.api.ClientProto.getDescriptor(),
         });
     com.google.protobuf.ExtensionRegistry registry =
@@ -45,8 +42,6 @@ public final class CloudSqlInstanceNamesServiceProto {
     registry.add(com.google.api.ClientProto.defaultHost);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
-    com.google.api.AnnotationsProto.getDescriptor();
-    com.google.api.FieldBehaviorProto.getDescriptor();
     com.google.api.ClientProto.getDescriptor();
   }
 

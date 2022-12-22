@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ModelDeploymentMonitoringScheduleConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (monitorInterval_ != null) {
-              subBuilder = monitorInterval_.toBuilder();
-            }
-            monitorInterval_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(monitorInterval_);
-              monitorInterval_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (monitorWindow_ != null) {
-              subBuilder = monitorWindow_.toBuilder();
-            }
-            monitorWindow_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(monitorWindow_);
-              monitorWindow_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1.ModelDeploymentMonitoringJobProto.internal_static_google_cloud_aiplatform_v1_ModelDeploymentMonitoringScheduleConfig_descriptor;
@@ -150,7 +85,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMonitorIntervalOrBuilder() {
-    return getMonitorInterval();
+    return monitorInterval_ == null ? com.google.protobuf.Duration.getDefaultInstance() : monitorInterval_;
   }
 
   public static final int MONITOR_WINDOW_FIELD_NUMBER = 2;
@@ -209,7 +144,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMonitorWindowOrBuilder() {
-    return getMonitorWindow();
+    return monitorWindow_ == null ? com.google.protobuf.Duration.getDefaultInstance() : monitorWindow_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -232,7 +167,7 @@ private static final long serialVersionUID = 0L;
     if (monitorWindow_ != null) {
       output.writeMessage(2, getMonitorWindow());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -249,7 +184,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getMonitorWindow());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -274,7 +209,7 @@ private static final long serialVersionUID = 0L;
       if (!getMonitorWindow()
           .equals(other.getMonitorWindow())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -293,7 +228,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MONITOR_WINDOW_FIELD_NUMBER;
       hash = (53 * hash) + getMonitorWindow().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -414,32 +349,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1.ModelDeploymentMonitoringScheduleConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (monitorIntervalBuilder_ == null) {
-        monitorInterval_ = null;
-      } else {
-        monitorInterval_ = null;
+      bitField0_ = 0;
+      monitorInterval_ = null;
+      if (monitorIntervalBuilder_ != null) {
+        monitorIntervalBuilder_.dispose();
         monitorIntervalBuilder_ = null;
       }
-      if (monitorWindowBuilder_ == null) {
-        monitorWindow_ = null;
-      } else {
-        monitorWindow_ = null;
+      monitorWindow_ = null;
+      if (monitorWindowBuilder_ != null) {
+        monitorWindowBuilder_.dispose();
         monitorWindowBuilder_ = null;
       }
       return this;
@@ -468,18 +397,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.ModelDeploymentMonitoringScheduleConfig buildPartial() {
       com.google.cloud.aiplatform.v1.ModelDeploymentMonitoringScheduleConfig result = new com.google.cloud.aiplatform.v1.ModelDeploymentMonitoringScheduleConfig(this);
-      if (monitorIntervalBuilder_ == null) {
-        result.monitorInterval_ = monitorInterval_;
-      } else {
-        result.monitorInterval_ = monitorIntervalBuilder_.build();
-      }
-      if (monitorWindowBuilder_ == null) {
-        result.monitorWindow_ = monitorWindow_;
-      } else {
-        result.monitorWindow_ = monitorWindowBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1.ModelDeploymentMonitoringScheduleConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.monitorInterval_ = monitorIntervalBuilder_ == null
+            ? monitorInterval_
+            : monitorIntervalBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.monitorWindow_ = monitorWindowBuilder_ == null
+            ? monitorWindow_
+            : monitorWindowBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -532,7 +466,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasMonitorWindow()) {
         mergeMonitorWindow(other.getMonitorWindow());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -547,19 +481,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1.ModelDeploymentMonitoringScheduleConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMonitorIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getMonitorWindowFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1.ModelDeploymentMonitoringScheduleConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.Duration monitorInterval_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -574,7 +536,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the monitorInterval field is set.
      */
     public boolean hasMonitorInterval() {
-      return monitorIntervalBuilder_ != null || monitorInterval_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -606,11 +568,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         monitorInterval_ = value;
-        onChanged();
       } else {
         monitorIntervalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -625,11 +587,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (monitorIntervalBuilder_ == null) {
         monitorInterval_ = builderForValue.build();
-        onChanged();
       } else {
         monitorIntervalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -642,17 +604,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMonitorInterval(com.google.protobuf.Duration value) {
       if (monitorIntervalBuilder_ == null) {
-        if (monitorInterval_ != null) {
-          monitorInterval_ =
-            com.google.protobuf.Duration.newBuilder(monitorInterval_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          monitorInterval_ != null &&
+          monitorInterval_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMonitorIntervalBuilder().mergeFrom(value);
         } else {
           monitorInterval_ = value;
         }
-        onChanged();
       } else {
         monitorIntervalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -664,14 +627,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration monitor_interval = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearMonitorInterval() {
-      if (monitorIntervalBuilder_ == null) {
-        monitorInterval_ = null;
-        onChanged();
-      } else {
-        monitorInterval_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      monitorInterval_ = null;
+      if (monitorIntervalBuilder_ != null) {
+        monitorIntervalBuilder_.dispose();
         monitorIntervalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -683,7 +645,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration monitor_interval = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.protobuf.Duration.Builder getMonitorIntervalBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMonitorIntervalFieldBuilder().getBuilder();
     }
@@ -744,7 +706,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the monitorWindow field is set.
      */
     public boolean hasMonitorWindow() {
-      return monitorWindowBuilder_ != null || monitorWindow_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -788,11 +750,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         monitorWindow_ = value;
-        onChanged();
       } else {
         monitorWindowBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -813,11 +775,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (monitorWindowBuilder_ == null) {
         monitorWindow_ = builderForValue.build();
-        onChanged();
       } else {
         monitorWindowBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -836,17 +798,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMonitorWindow(com.google.protobuf.Duration value) {
       if (monitorWindowBuilder_ == null) {
-        if (monitorWindow_ != null) {
-          monitorWindow_ =
-            com.google.protobuf.Duration.newBuilder(monitorWindow_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          monitorWindow_ != null &&
+          monitorWindow_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMonitorWindowBuilder().mergeFrom(value);
         } else {
           monitorWindow_ = value;
         }
-        onChanged();
       } else {
         monitorWindowBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -864,14 +827,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration monitor_window = 2;</code>
      */
     public Builder clearMonitorWindow() {
-      if (monitorWindowBuilder_ == null) {
-        monitorWindow_ = null;
-        onChanged();
-      } else {
-        monitorWindow_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      monitorWindow_ = null;
+      if (monitorWindowBuilder_ != null) {
+        monitorWindowBuilder_.dispose();
         monitorWindowBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -889,7 +851,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration monitor_window = 2;</code>
      */
     public com.google.protobuf.Duration.Builder getMonitorWindowBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getMonitorWindowFieldBuilder().getBuilder();
     }
@@ -975,7 +937,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ModelDeploymentMonitoringScheduleConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

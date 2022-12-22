@@ -32,23 +32,21 @@ public final class StaticCanvasPromptProto {
       "/prompt/content/static_canvas_prompt.pro" +
       "to\022-google.actions.sdk.v2.interactionmod" +
       "el.prompt\032\037google/api/field_behavior.pro" +
-      "to\032\036google/protobuf/duration.proto\032\034goog" +
-      "le/protobuf/struct.proto\"\271\001\n\022StaticCanva" +
-      "sPrompt\022\020\n\003url\030\001 \001(\tB\003\340A\002\022)\n\004data\030\002 \003(\0132" +
-      "\026.google.protobuf.ValueB\003\340A\001\022\031\n\014suppress" +
-      "_mic\030\003 \001(\010B\003\340A\001\022*\n\035send_state_data_to_ca" +
-      "nvas_app\030\005 \001(\010B\003\340A\001\022\037\n\022enable_full_scree" +
-      "n\030\006 \001(\010B\003\340A\001B\243\001\n1com.google.actions.sdk." +
-      "v2.interactionmodel.promptB\027StaticCanvas" +
-      "PromptProtoP\001ZSgoogle.golang.org/genprot" +
-      "o/googleapis/actions/sdk/v2/interactionm" +
-      "odel/prompt;promptb\006proto3"
+      "to\032\034google/protobuf/struct.proto\"\271\001\n\022Sta" +
+      "ticCanvasPrompt\022\020\n\003url\030\001 \001(\tB\003\340A\002\022)\n\004dat" +
+      "a\030\002 \003(\0132\026.google.protobuf.ValueB\003\340A\001\022\031\n\014" +
+      "suppress_mic\030\003 \001(\010B\003\340A\001\022*\n\035send_state_da" +
+      "ta_to_canvas_app\030\005 \001(\010B\003\340A\001\022\037\n\022enable_fu" +
+      "ll_screen\030\006 \001(\010B\003\340A\001B\243\001\n1com.google.acti" +
+      "ons.sdk.v2.interactionmodel.promptB\027Stat" +
+      "icCanvasPromptProtoP\001ZSgoogle.golang.org" +
+      "/genproto/googleapis/actions/sdk/v2/inte" +
+      "ractionmodel/prompt;promptb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.FieldBehaviorProto.getDescriptor(),
-          com.google.protobuf.DurationProto.getDescriptor(),
           com.google.protobuf.StructProto.getDescriptor(),
         });
     internal_static_google_actions_sdk_v2_interactionmodel_prompt_StaticCanvasPrompt_descriptor =
@@ -63,7 +61,6 @@ public final class StaticCanvasPromptProto {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.api.FieldBehaviorProto.getDescriptor();
-    com.google.protobuf.DurationProto.getDescriptor();
     com.google.protobuf.StructProto.getDescriptor();
   }
 

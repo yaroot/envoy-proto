@@ -116,7 +116,6 @@ public interface TagTemplateOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.datacatalog.v1beta1.TagTemplateField&gt; fields = 3 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   /* nullable */
 com.google.cloud.datacatalog.v1beta1.TagTemplateField getFieldsOrDefault(
       java.lang.String key,
@@ -135,7 +134,6 @@ com.google.cloud.datacatalog.v1beta1.TagTemplateField defaultValue);
    *
    * <code>map&lt;string, .google.cloud.datacatalog.v1beta1.TagTemplateField&gt; fields = 3 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   com.google.cloud.datacatalog.v1beta1.TagTemplateField getFieldsOrThrow(
       java.lang.String key);
 }

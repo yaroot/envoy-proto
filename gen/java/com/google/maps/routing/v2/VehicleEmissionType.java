@@ -45,6 +45,14 @@ public enum VehicleEmissionType
    * <code>HYBRID = 3;</code>
    */
   HYBRID(3),
+  /**
+   * <pre>
+   * Diesel fueled vehicle.
+   * </pre>
+   *
+   * <code>DIESEL = 4;</code>
+   */
+  DIESEL(4),
   UNRECOGNIZED(-1),
   ;
 
@@ -80,6 +88,14 @@ public enum VehicleEmissionType
    * <code>HYBRID = 3;</code>
    */
   public static final int HYBRID_VALUE = 3;
+  /**
+   * <pre>
+   * Diesel fueled vehicle.
+   * </pre>
+   *
+   * <code>DIESEL = 4;</code>
+   */
+  public static final int DIESEL_VALUE = 4;
 
 
   public final int getNumber() {
@@ -110,6 +126,7 @@ public enum VehicleEmissionType
       case 1: return GASOLINE;
       case 2: return ELECTRIC;
       case 3: return HYBRID;
+      case 4: return DIESEL;
       default: return null;
     }
   }

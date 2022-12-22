@@ -299,7 +299,6 @@ public interface NodeConfigOrBuilder extends
    *
    * <code>map&lt;string, string&gt; metadata = 4;</code>
    */
-
   /* nullable */
 java.lang.String getMetadataOrDefault(
       java.lang.String key,
@@ -339,7 +338,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; metadata = 4;</code>
    */
-
   java.lang.String getMetadataOrThrow(
       java.lang.String key);
 
@@ -432,7 +430,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -452,7 +449,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -1047,4 +1043,117 @@ java.lang.String defaultValue);
    * <code>.google.container.v1.ConfidentialNodes confidential_nodes = 35;</code>
    */
   com.google.container.v1.ConfidentialNodesOrBuilder getConfidentialNodesOrBuilder();
+
+  /**
+   * <pre>
+   * Enable or disable NCCL fast socket for the node pool.
+   * </pre>
+   *
+   * <code>optional .google.container.v1.FastSocket fast_socket = 36;</code>
+   * @return Whether the fastSocket field is set.
+   */
+  boolean hasFastSocket();
+  /**
+   * <pre>
+   * Enable or disable NCCL fast socket for the node pool.
+   * </pre>
+   *
+   * <code>optional .google.container.v1.FastSocket fast_socket = 36;</code>
+   * @return The fastSocket.
+   */
+  com.google.container.v1.FastSocket getFastSocket();
+  /**
+   * <pre>
+   * Enable or disable NCCL fast socket for the node pool.
+   * </pre>
+   *
+   * <code>optional .google.container.v1.FastSocket fast_socket = 36;</code>
+   */
+  com.google.container.v1.FastSocketOrBuilder getFastSocketOrBuilder();
+
+  /**
+   * <pre>
+   * The resource labels for the node pool to use to annotate any related
+   * Google Compute Engine resources.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; resource_labels = 37;</code>
+   */
+  int getResourceLabelsCount();
+  /**
+   * <pre>
+   * The resource labels for the node pool to use to annotate any related
+   * Google Compute Engine resources.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; resource_labels = 37;</code>
+   */
+  boolean containsResourceLabels(
+      java.lang.String key);
+  /**
+   * Use {@link #getResourceLabelsMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, java.lang.String>
+  getResourceLabels();
+  /**
+   * <pre>
+   * The resource labels for the node pool to use to annotate any related
+   * Google Compute Engine resources.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; resource_labels = 37;</code>
+   */
+  java.util.Map<java.lang.String, java.lang.String>
+  getResourceLabelsMap();
+  /**
+   * <pre>
+   * The resource labels for the node pool to use to annotate any related
+   * Google Compute Engine resources.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; resource_labels = 37;</code>
+   */
+  /* nullable */
+java.lang.String getResourceLabelsOrDefault(
+      java.lang.String key,
+      /* nullable */
+java.lang.String defaultValue);
+  /**
+   * <pre>
+   * The resource labels for the node pool to use to annotate any related
+   * Google Compute Engine resources.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; resource_labels = 37;</code>
+   */
+  java.lang.String getResourceLabelsOrThrow(
+      java.lang.String key);
+
+  /**
+   * <pre>
+   * Logging configuration.
+   * </pre>
+   *
+   * <code>.google.container.v1.NodePoolLoggingConfig logging_config = 38;</code>
+   * @return Whether the loggingConfig field is set.
+   */
+  boolean hasLoggingConfig();
+  /**
+   * <pre>
+   * Logging configuration.
+   * </pre>
+   *
+   * <code>.google.container.v1.NodePoolLoggingConfig logging_config = 38;</code>
+   * @return The loggingConfig.
+   */
+  com.google.container.v1.NodePoolLoggingConfig getLoggingConfig();
+  /**
+   * <pre>
+   * Logging configuration.
+   * </pre>
+   *
+   * <code>.google.container.v1.NodePoolLoggingConfig logging_config = 38;</code>
+   */
+  com.google.container.v1.NodePoolLoggingConfigOrBuilder getLoggingConfigOrBuilder();
 }

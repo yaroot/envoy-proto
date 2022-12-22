@@ -88,7 +88,6 @@ public interface SourceOrBuilder extends
    *
    * <code>map&lt;string, .grafeas.v1.FileHashes&gt; file_hashes = 2;</code>
    */
-
   /* nullable */
 io.grafeas.v1.FileHashes getFileHashesOrDefault(
       java.lang.String key,
@@ -106,7 +105,6 @@ io.grafeas.v1.FileHashes defaultValue);
    *
    * <code>map&lt;string, .grafeas.v1.FileHashes&gt; file_hashes = 2;</code>
    */
-
   io.grafeas.v1.FileHashes getFileHashesOrThrow(
       java.lang.String key);
 

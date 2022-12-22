@@ -30,84 +30,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TcpKeepalive(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (keepaliveProbes_ != null) {
-              subBuilder = keepaliveProbes_.toBuilder();
-            }
-            keepaliveProbes_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(keepaliveProbes_);
-              keepaliveProbes_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (keepaliveTime_ != null) {
-              subBuilder = keepaliveTime_.toBuilder();
-            }
-            keepaliveTime_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(keepaliveTime_);
-              keepaliveTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (keepaliveInterval_ != null) {
-              subBuilder = keepaliveInterval_.toBuilder();
-            }
-            keepaliveInterval_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(keepaliveInterval_);
-              keepaliveInterval_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.core.v3.AddressProto.internal_static_envoy_config_core_v3_TcpKeepalive_descriptor;
@@ -162,7 +84,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getKeepaliveProbesOrBuilder() {
-    return getKeepaliveProbes();
+    return keepaliveProbes_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : keepaliveProbes_;
   }
 
   public static final int KEEPALIVE_TIME_FIELD_NUMBER = 2;
@@ -206,7 +128,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getKeepaliveTimeOrBuilder() {
-    return getKeepaliveTime();
+    return keepaliveTime_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : keepaliveTime_;
   }
 
   public static final int KEEPALIVE_INTERVAL_FIELD_NUMBER = 3;
@@ -247,7 +169,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getKeepaliveIntervalOrBuilder() {
-    return getKeepaliveInterval();
+    return keepaliveInterval_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : keepaliveInterval_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -273,7 +195,7 @@ private static final long serialVersionUID = 0L;
     if (keepaliveInterval_ != null) {
       output.writeMessage(3, getKeepaliveInterval());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -294,7 +216,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getKeepaliveInterval());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -324,7 +246,7 @@ private static final long serialVersionUID = 0L;
       if (!getKeepaliveInterval()
           .equals(other.getKeepaliveInterval())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -347,7 +269,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + KEEPALIVE_INTERVAL_FIELD_NUMBER;
       hash = (53 * hash) + getKeepaliveInterval().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -464,38 +386,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.core.v3.TcpKeepalive.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (keepaliveProbesBuilder_ == null) {
-        keepaliveProbes_ = null;
-      } else {
-        keepaliveProbes_ = null;
+      bitField0_ = 0;
+      keepaliveProbes_ = null;
+      if (keepaliveProbesBuilder_ != null) {
+        keepaliveProbesBuilder_.dispose();
         keepaliveProbesBuilder_ = null;
       }
-      if (keepaliveTimeBuilder_ == null) {
-        keepaliveTime_ = null;
-      } else {
-        keepaliveTime_ = null;
+      keepaliveTime_ = null;
+      if (keepaliveTimeBuilder_ != null) {
+        keepaliveTimeBuilder_.dispose();
         keepaliveTimeBuilder_ = null;
       }
-      if (keepaliveIntervalBuilder_ == null) {
-        keepaliveInterval_ = null;
-      } else {
-        keepaliveInterval_ = null;
+      keepaliveInterval_ = null;
+      if (keepaliveIntervalBuilder_ != null) {
+        keepaliveIntervalBuilder_.dispose();
         keepaliveIntervalBuilder_ = null;
       }
       return this;
@@ -524,23 +439,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.TcpKeepalive buildPartial() {
       io.envoyproxy.envoy.config.core.v3.TcpKeepalive result = new io.envoyproxy.envoy.config.core.v3.TcpKeepalive(this);
-      if (keepaliveProbesBuilder_ == null) {
-        result.keepaliveProbes_ = keepaliveProbes_;
-      } else {
-        result.keepaliveProbes_ = keepaliveProbesBuilder_.build();
-      }
-      if (keepaliveTimeBuilder_ == null) {
-        result.keepaliveTime_ = keepaliveTime_;
-      } else {
-        result.keepaliveTime_ = keepaliveTimeBuilder_.build();
-      }
-      if (keepaliveIntervalBuilder_ == null) {
-        result.keepaliveInterval_ = keepaliveInterval_;
-      } else {
-        result.keepaliveInterval_ = keepaliveIntervalBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.core.v3.TcpKeepalive result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.keepaliveProbes_ = keepaliveProbesBuilder_ == null
+            ? keepaliveProbes_
+            : keepaliveProbesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.keepaliveTime_ = keepaliveTimeBuilder_ == null
+            ? keepaliveTime_
+            : keepaliveTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.keepaliveInterval_ = keepaliveIntervalBuilder_ == null
+            ? keepaliveInterval_
+            : keepaliveIntervalBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -596,7 +516,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasKeepaliveInterval()) {
         mergeKeepaliveInterval(other.getKeepaliveInterval());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -611,19 +531,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.core.v3.TcpKeepalive parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getKeepaliveProbesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getKeepaliveTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getKeepaliveIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.core.v3.TcpKeepalive) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.UInt32Value keepaliveProbes_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -639,7 +594,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the keepaliveProbes field is set.
      */
     public boolean hasKeepaliveProbes() {
-      return keepaliveProbesBuilder_ != null || keepaliveProbes_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -673,11 +628,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         keepaliveProbes_ = value;
-        onChanged();
       } else {
         keepaliveProbesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -693,11 +648,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (keepaliveProbesBuilder_ == null) {
         keepaliveProbes_ = builderForValue.build();
-        onChanged();
       } else {
         keepaliveProbesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -711,17 +666,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeKeepaliveProbes(com.google.protobuf.UInt32Value value) {
       if (keepaliveProbesBuilder_ == null) {
-        if (keepaliveProbes_ != null) {
-          keepaliveProbes_ =
-            com.google.protobuf.UInt32Value.newBuilder(keepaliveProbes_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          keepaliveProbes_ != null &&
+          keepaliveProbes_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getKeepaliveProbesBuilder().mergeFrom(value);
         } else {
           keepaliveProbes_ = value;
         }
-        onChanged();
       } else {
         keepaliveProbesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -734,14 +690,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value keepalive_probes = 1;</code>
      */
     public Builder clearKeepaliveProbes() {
-      if (keepaliveProbesBuilder_ == null) {
-        keepaliveProbes_ = null;
-        onChanged();
-      } else {
-        keepaliveProbes_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      keepaliveProbes_ = null;
+      if (keepaliveProbesBuilder_ != null) {
+        keepaliveProbesBuilder_.dispose();
         keepaliveProbesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -754,7 +709,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value keepalive_probes = 1;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getKeepaliveProbesBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getKeepaliveProbesFieldBuilder().getBuilder();
     }
@@ -812,7 +767,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the keepaliveTime field is set.
      */
     public boolean hasKeepaliveTime() {
-      return keepaliveTimeBuilder_ != null || keepaliveTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -846,11 +801,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         keepaliveTime_ = value;
-        onChanged();
       } else {
         keepaliveTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -866,11 +821,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (keepaliveTimeBuilder_ == null) {
         keepaliveTime_ = builderForValue.build();
-        onChanged();
       } else {
         keepaliveTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -884,17 +839,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeKeepaliveTime(com.google.protobuf.UInt32Value value) {
       if (keepaliveTimeBuilder_ == null) {
-        if (keepaliveTime_ != null) {
-          keepaliveTime_ =
-            com.google.protobuf.UInt32Value.newBuilder(keepaliveTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          keepaliveTime_ != null &&
+          keepaliveTime_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getKeepaliveTimeBuilder().mergeFrom(value);
         } else {
           keepaliveTime_ = value;
         }
-        onChanged();
       } else {
         keepaliveTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -907,14 +863,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value keepalive_time = 2;</code>
      */
     public Builder clearKeepaliveTime() {
-      if (keepaliveTimeBuilder_ == null) {
-        keepaliveTime_ = null;
-        onChanged();
-      } else {
-        keepaliveTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      keepaliveTime_ = null;
+      if (keepaliveTimeBuilder_ != null) {
+        keepaliveTimeBuilder_.dispose();
         keepaliveTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -927,7 +882,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value keepalive_time = 2;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getKeepaliveTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getKeepaliveTimeFieldBuilder().getBuilder();
     }
@@ -984,7 +939,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the keepaliveInterval field is set.
      */
     public boolean hasKeepaliveInterval() {
-      return keepaliveIntervalBuilder_ != null || keepaliveInterval_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1016,11 +971,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         keepaliveInterval_ = value;
-        onChanged();
       } else {
         keepaliveIntervalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1035,11 +990,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (keepaliveIntervalBuilder_ == null) {
         keepaliveInterval_ = builderForValue.build();
-        onChanged();
       } else {
         keepaliveIntervalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1052,17 +1007,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeKeepaliveInterval(com.google.protobuf.UInt32Value value) {
       if (keepaliveIntervalBuilder_ == null) {
-        if (keepaliveInterval_ != null) {
-          keepaliveInterval_ =
-            com.google.protobuf.UInt32Value.newBuilder(keepaliveInterval_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          keepaliveInterval_ != null &&
+          keepaliveInterval_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getKeepaliveIntervalBuilder().mergeFrom(value);
         } else {
           keepaliveInterval_ = value;
         }
-        onChanged();
       } else {
         keepaliveIntervalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1074,14 +1030,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value keepalive_interval = 3;</code>
      */
     public Builder clearKeepaliveInterval() {
-      if (keepaliveIntervalBuilder_ == null) {
-        keepaliveInterval_ = null;
-        onChanged();
-      } else {
-        keepaliveInterval_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      keepaliveInterval_ = null;
+      if (keepaliveIntervalBuilder_ != null) {
+        keepaliveIntervalBuilder_.dispose();
         keepaliveIntervalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1093,7 +1048,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value keepalive_interval = 3;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getKeepaliveIntervalBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getKeepaliveIntervalFieldBuilder().getBuilder();
     }
@@ -1167,7 +1122,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TcpKeepalive(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

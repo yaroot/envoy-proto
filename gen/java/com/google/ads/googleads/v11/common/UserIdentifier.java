@@ -35,89 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UserIdentifier(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 42: {
-            com.google.ads.googleads.v11.common.OfflineUserAddressInfo.Builder subBuilder = null;
-            if (identifierCase_ == 5) {
-              subBuilder = ((com.google.ads.googleads.v11.common.OfflineUserAddressInfo) identifier_).toBuilder();
-            }
-            identifier_ =
-                input.readMessage(com.google.ads.googleads.v11.common.OfflineUserAddressInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.common.OfflineUserAddressInfo) identifier_);
-              identifier_ = subBuilder.buildPartial();
-            }
-            identifierCase_ = 5;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            userIdentifierSource_ = rawValue;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            identifierCase_ = 7;
-            identifier_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-            identifierCase_ = 8;
-            identifier_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-            identifierCase_ = 9;
-            identifier_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-            identifierCase_ = 10;
-            identifier_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.common.OfflineUserDataProto.internal_static_google_ads_googleads_v11_common_UserIdentifier_descriptor;
@@ -179,7 +96,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_IDENTIFIER_SOURCE_FIELD_NUMBER = 6;
-  private int userIdentifierSource_;
+  private int userIdentifierSource_ = 0;
   /**
    * <pre>
    * Source of the user identifier when the upload is from Store Sales,
@@ -202,8 +119,7 @@ private static final long serialVersionUID = 0L;
    * @return The userIdentifierSource.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.UserIdentifierSourceEnum.UserIdentifierSource getUserIdentifierSource() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.UserIdentifierSourceEnum.UserIdentifierSource result = com.google.ads.googleads.v11.enums.UserIdentifierSourceEnum.UserIdentifierSource.valueOf(userIdentifierSource_);
+    com.google.ads.googleads.v11.enums.UserIdentifierSourceEnum.UserIdentifierSource result = com.google.ads.googleads.v11.enums.UserIdentifierSourceEnum.UserIdentifierSource.forNumber(userIdentifierSource_);
     return result == null ? com.google.ads.googleads.v11.enums.UserIdentifierSourceEnum.UserIdentifierSource.UNRECOGNIZED : result;
   }
 
@@ -559,7 +475,7 @@ private static final long serialVersionUID = 0L;
     if (identifierCase_ == 10) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, identifier_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -588,7 +504,7 @@ private static final long serialVersionUID = 0L;
     if (identifierCase_ == 10) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, identifier_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -629,7 +545,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -666,7 +582,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -787,24 +703,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.common.UserIdentifier.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       userIdentifierSource_ = 0;
-
+      if (addressInfoBuilder_ != null) {
+        addressInfoBuilder_.clear();
+      }
       identifierCase_ = 0;
       identifier_ = null;
       return this;
@@ -833,29 +747,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.common.UserIdentifier buildPartial() {
       com.google.ads.googleads.v11.common.UserIdentifier result = new com.google.ads.googleads.v11.common.UserIdentifier(this);
-      result.userIdentifierSource_ = userIdentifierSource_;
-      if (identifierCase_ == 7) {
-        result.identifier_ = identifier_;
-      }
-      if (identifierCase_ == 8) {
-        result.identifier_ = identifier_;
-      }
-      if (identifierCase_ == 9) {
-        result.identifier_ = identifier_;
-      }
-      if (identifierCase_ == 10) {
-        result.identifier_ = identifier_;
-      }
-      if (identifierCase_ == 5) {
-        if (addressInfoBuilder_ == null) {
-          result.identifier_ = identifier_;
-        } else {
-          result.identifier_ = addressInfoBuilder_.build();
-        }
-      }
-      result.identifierCase_ = identifierCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.common.UserIdentifier result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.userIdentifierSource_ = userIdentifierSource_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.ads.googleads.v11.common.UserIdentifier result) {
+      result.identifierCase_ = identifierCase_;
+      result.identifier_ = this.identifier_;
+      if (identifierCase_ == 5 &&
+          addressInfoBuilder_ != null) {
+        result.identifier_ = addressInfoBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -938,7 +849,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -953,17 +864,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.common.UserIdentifier parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 42: {
+              input.readMessage(
+                  getAddressInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              identifierCase_ = 5;
+              break;
+            } // case 42
+            case 48: {
+              userIdentifierSource_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 48
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              identifierCase_ = 7;
+              identifier_ = s;
+              break;
+            } // case 58
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+              identifierCase_ = 8;
+              identifier_ = s;
+              break;
+            } // case 66
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+              identifierCase_ = 9;
+              identifier_ = s;
+              break;
+            } // case 74
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+              identifierCase_ = 10;
+              identifier_ = s;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.common.UserIdentifier) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int identifierCase_ = 0;
@@ -981,6 +941,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private int userIdentifierSource_ = 0;
     /**
@@ -1006,8 +967,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setUserIdentifierSourceValue(int value) {
-      
       userIdentifierSource_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1022,8 +983,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.UserIdentifierSourceEnum.UserIdentifierSource getUserIdentifierSource() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.UserIdentifierSourceEnum.UserIdentifierSource result = com.google.ads.googleads.v11.enums.UserIdentifierSourceEnum.UserIdentifierSource.valueOf(userIdentifierSource_);
+      com.google.ads.googleads.v11.enums.UserIdentifierSourceEnum.UserIdentifierSource result = com.google.ads.googleads.v11.enums.UserIdentifierSourceEnum.UserIdentifierSource.forNumber(userIdentifierSource_);
       return result == null ? com.google.ads.googleads.v11.enums.UserIdentifierSourceEnum.UserIdentifierSource.UNRECOGNIZED : result;
     }
     /**
@@ -1040,7 +1000,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       userIdentifierSource_ = value.getNumber();
       onChanged();
       return this;
@@ -1055,7 +1015,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUserIdentifierSource() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       userIdentifierSource_ = 0;
       onChanged();
       return this;
@@ -1145,10 +1105,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHashedEmail(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  identifierCase_ = 7;
+      if (value == null) { throw new NullPointerException(); }
+      identifierCase_ = 7;
       identifier_ = value;
       onChanged();
       return this;
@@ -1184,10 +1142,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHashedEmailBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       identifierCase_ = 7;
       identifier_ = value;
       onChanged();
@@ -1278,10 +1234,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHashedPhoneNumber(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  identifierCase_ = 8;
+      if (value == null) { throw new NullPointerException(); }
+      identifierCase_ = 8;
       identifier_ = value;
       onChanged();
       return this;
@@ -1317,10 +1271,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHashedPhoneNumberBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       identifierCase_ = 8;
       identifier_ = value;
       onChanged();
@@ -1403,10 +1355,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMobileId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  identifierCase_ = 9;
+      if (value == null) { throw new NullPointerException(); }
+      identifierCase_ = 9;
       identifier_ = value;
       onChanged();
       return this;
@@ -1438,10 +1388,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMobileIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       identifierCase_ = 9;
       identifier_ = value;
       onChanged();
@@ -1532,10 +1480,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setThirdPartyUserId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  identifierCase_ = 10;
+      if (value == null) { throw new NullPointerException(); }
+      identifierCase_ = 10;
       identifier_ = value;
       onChanged();
       return this;
@@ -1571,10 +1517,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setThirdPartyUserIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       identifierCase_ = 10;
       identifier_ = value;
       onChanged();
@@ -1764,7 +1708,7 @@ private static final long serialVersionUID = 0L;
         identifier_ = null;
       }
       identifierCase_ = 5;
-      onChanged();;
+      onChanged();
       return addressInfoBuilder_;
     }
     @java.lang.Override
@@ -1800,7 +1744,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UserIdentifier(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

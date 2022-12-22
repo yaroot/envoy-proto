@@ -41,27 +41,23 @@ public final class DataItemPayloadProto {
       "\n>google/cloud/aiplatform/v1beta1/schema" +
       "/data_item_payload.proto\022&google.cloud.a" +
       "iplatform.v1beta1.schema\032\037google/api/fie" +
-      "ld_behavior.proto\032\036google/protobuf/durat" +
-      "ion.proto\032\034google/api/annotations.proto\"" +
-      "=\n\rImageDataItem\022\024\n\007gcs_uri\030\001 \001(\tB\003\340A\002\022\026" +
-      "\n\tmime_type\030\002 \001(\tB\003\340A\003\"=\n\rVideoDataItem\022" +
-      "\024\n\007gcs_uri\030\001 \001(\tB\003\340A\002\022\026\n\tmime_type\030\002 \001(\t" +
-      "B\003\340A\003\"$\n\014TextDataItem\022\024\n\007gcs_uri\030\001 \001(\tB\003" +
-      "\340A\003B\221\002\n*com.google.cloud.aiplatform.v1be" +
-      "ta1.schemaB\024DataItemPayloadProtoP\001ZLgoog" +
-      "le.golang.org/genproto/googleapis/cloud/" +
-      "aiplatform/v1beta1/schema;schema\252\002&Googl" +
-      "e.Cloud.AIPlatform.V1Beta1.Schema\312\002&Goog" +
-      "le\\Cloud\\AIPlatform\\V1beta1\\Schema\352\002*Goo" +
-      "gle::Cloud::AIPlatform::V1beta1::Schemab" +
-      "\006proto3"
+      "ld_behavior.proto\"=\n\rImageDataItem\022\024\n\007gc" +
+      "s_uri\030\001 \001(\tB\003\340A\002\022\026\n\tmime_type\030\002 \001(\tB\003\340A\003" +
+      "\"=\n\rVideoDataItem\022\024\n\007gcs_uri\030\001 \001(\tB\003\340A\002\022" +
+      "\026\n\tmime_type\030\002 \001(\tB\003\340A\003\"$\n\014TextDataItem\022" +
+      "\024\n\007gcs_uri\030\001 \001(\tB\003\340A\003B\221\002\n*com.google.clo" +
+      "ud.aiplatform.v1beta1.schemaB\024DataItemPa" +
+      "yloadProtoP\001ZLgoogle.golang.org/genproto" +
+      "/googleapis/cloud/aiplatform/v1beta1/sch" +
+      "ema;schema\252\002&Google.Cloud.AIPlatform.V1B" +
+      "eta1.Schema\312\002&Google\\Cloud\\AIPlatform\\V1" +
+      "beta1\\Schema\352\002*Google::Cloud::AIPlatform" +
+      "::V1beta1::Schemab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.FieldBehaviorProto.getDescriptor(),
-          com.google.protobuf.DurationProto.getDescriptor(),
-          com.google.api.AnnotationsProto.getDescriptor(),
         });
     internal_static_google_cloud_aiplatform_v1beta1_schema_ImageDataItem_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -87,8 +83,6 @@ public final class DataItemPayloadProto {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.api.FieldBehaviorProto.getDescriptor();
-    com.google.protobuf.DurationProto.getDescriptor();
-    com.google.api.AnnotationsProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

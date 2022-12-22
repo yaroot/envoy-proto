@@ -34,87 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EnvironmentMatrix(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.devtools.testing.v1.AndroidMatrix.Builder subBuilder = null;
-            if (environmentMatrixCase_ == 1) {
-              subBuilder = ((com.google.devtools.testing.v1.AndroidMatrix) environmentMatrix_).toBuilder();
-            }
-            environmentMatrix_ =
-                input.readMessage(com.google.devtools.testing.v1.AndroidMatrix.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.AndroidMatrix) environmentMatrix_);
-              environmentMatrix_ = subBuilder.buildPartial();
-            }
-            environmentMatrixCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.devtools.testing.v1.AndroidDeviceList.Builder subBuilder = null;
-            if (environmentMatrixCase_ == 2) {
-              subBuilder = ((com.google.devtools.testing.v1.AndroidDeviceList) environmentMatrix_).toBuilder();
-            }
-            environmentMatrix_ =
-                input.readMessage(com.google.devtools.testing.v1.AndroidDeviceList.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.AndroidDeviceList) environmentMatrix_);
-              environmentMatrix_ = subBuilder.buildPartial();
-            }
-            environmentMatrixCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.devtools.testing.v1.IosDeviceList.Builder subBuilder = null;
-            if (environmentMatrixCase_ == 3) {
-              subBuilder = ((com.google.devtools.testing.v1.IosDeviceList) environmentMatrix_).toBuilder();
-            }
-            environmentMatrix_ =
-                input.readMessage(com.google.devtools.testing.v1.IosDeviceList.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.IosDeviceList) environmentMatrix_);
-              environmentMatrix_ = subBuilder.buildPartial();
-            }
-            environmentMatrixCase_ = 3;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.TestExecutionProto.internal_static_google_devtools_testing_v1_EnvironmentMatrix_descriptor;
@@ -326,7 +245,7 @@ private static final long serialVersionUID = 0L;
     if (environmentMatrixCase_ == 3) {
       output.writeMessage(3, (com.google.devtools.testing.v1.IosDeviceList) environmentMatrix_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -347,7 +266,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, (com.google.devtools.testing.v1.IosDeviceList) environmentMatrix_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -379,7 +298,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -406,7 +325,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -527,22 +446,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.EnvironmentMatrix.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (androidMatrixBuilder_ != null) {
+        androidMatrixBuilder_.clear();
+      }
+      if (androidDeviceListBuilder_ != null) {
+        androidDeviceListBuilder_.clear();
+      }
+      if (iosDeviceListBuilder_ != null) {
+        iosDeviceListBuilder_.clear();
+      }
       environmentMatrixCase_ = 0;
       environmentMatrix_ = null;
       return this;
@@ -571,30 +495,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.EnvironmentMatrix buildPartial() {
       com.google.devtools.testing.v1.EnvironmentMatrix result = new com.google.devtools.testing.v1.EnvironmentMatrix(this);
-      if (environmentMatrixCase_ == 1) {
-        if (androidMatrixBuilder_ == null) {
-          result.environmentMatrix_ = environmentMatrix_;
-        } else {
-          result.environmentMatrix_ = androidMatrixBuilder_.build();
-        }
-      }
-      if (environmentMatrixCase_ == 2) {
-        if (androidDeviceListBuilder_ == null) {
-          result.environmentMatrix_ = environmentMatrix_;
-        } else {
-          result.environmentMatrix_ = androidDeviceListBuilder_.build();
-        }
-      }
-      if (environmentMatrixCase_ == 3) {
-        if (iosDeviceListBuilder_ == null) {
-          result.environmentMatrix_ = environmentMatrix_;
-        } else {
-          result.environmentMatrix_ = iosDeviceListBuilder_.build();
-        }
-      }
-      result.environmentMatrixCase_ = environmentMatrixCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.EnvironmentMatrix result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.devtools.testing.v1.EnvironmentMatrix result) {
+      result.environmentMatrixCase_ = environmentMatrixCase_;
+      result.environmentMatrix_ = this.environmentMatrix_;
+      if (environmentMatrixCase_ == 1 &&
+          androidMatrixBuilder_ != null) {
+        result.environmentMatrix_ = androidMatrixBuilder_.build();
+      }
+      if (environmentMatrixCase_ == 2 &&
+          androidDeviceListBuilder_ != null) {
+        result.environmentMatrix_ = androidDeviceListBuilder_.build();
+      }
+      if (environmentMatrixCase_ == 3 &&
+          iosDeviceListBuilder_ != null) {
+        result.environmentMatrix_ = iosDeviceListBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -658,7 +583,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -673,17 +598,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.EnvironmentMatrix parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAndroidMatrixFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              environmentMatrixCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAndroidDeviceListFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              environmentMatrixCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getIosDeviceListFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              environmentMatrixCase_ = 3;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.EnvironmentMatrix) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int environmentMatrixCase_ = 0;
@@ -701,6 +660,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.devtools.testing.v1.AndroidMatrix, com.google.devtools.testing.v1.AndroidMatrix.Builder, com.google.devtools.testing.v1.AndroidMatrixOrBuilder> androidMatrixBuilder_;
@@ -876,7 +836,7 @@ private static final long serialVersionUID = 0L;
         environmentMatrix_ = null;
       }
       environmentMatrixCase_ = 1;
-      onChanged();;
+      onChanged();
       return androidMatrixBuilder_;
     }
 
@@ -1063,7 +1023,7 @@ private static final long serialVersionUID = 0L;
         environmentMatrix_ = null;
       }
       environmentMatrixCase_ = 2;
-      onChanged();;
+      onChanged();
       return androidDeviceListBuilder_;
     }
 
@@ -1241,7 +1201,7 @@ private static final long serialVersionUID = 0L;
         environmentMatrix_ = null;
       }
       environmentMatrixCase_ = 3;
-      onChanged();;
+      onChanged();
       return iosDeviceListBuilder_;
     }
     @java.lang.Override
@@ -1277,7 +1237,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EnvironmentMatrix(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

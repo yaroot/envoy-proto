@@ -35,7 +35,8 @@ public interface ServiceOrBuilder extends
 
   /**
    * <pre>
-   * The product title for this service.
+   * The product title for this service, it is the name displayed in Google
+   * Cloud Console.
    * </pre>
    *
    * <code>string title = 2;</code>
@@ -44,7 +45,8 @@ public interface ServiceOrBuilder extends
   java.lang.String getTitle();
   /**
    * <pre>
-   * The product title for this service.
+   * The product title for this service, it is the name displayed in Google
+   * Cloud Console.
    * </pre>
    *
    * <code>string title = 2;</code>
@@ -166,10 +168,10 @@ public interface ServiceOrBuilder extends
   /**
    * <pre>
    * A list of all proto message types included in this API service.
-   * Types referenced directly or indirectly by the `apis` are
-   * automatically included.  Messages which are not referenced but
-   * shall be included, such as types used by the `google.protobuf.Any` type,
-   * should be listed here by name. Example:
+   * Types referenced directly or indirectly by the `apis` are automatically
+   * included.  Messages which are not referenced but shall be included, such as
+   * types used by the `google.protobuf.Any` type, should be listed here by
+   * name by the configuration author. Example:
    *     types:
    *     - name: google.protobuf.Int32
    * </pre>
@@ -181,10 +183,10 @@ public interface ServiceOrBuilder extends
   /**
    * <pre>
    * A list of all proto message types included in this API service.
-   * Types referenced directly or indirectly by the `apis` are
-   * automatically included.  Messages which are not referenced but
-   * shall be included, such as types used by the `google.protobuf.Any` type,
-   * should be listed here by name. Example:
+   * Types referenced directly or indirectly by the `apis` are automatically
+   * included.  Messages which are not referenced but shall be included, such as
+   * types used by the `google.protobuf.Any` type, should be listed here by
+   * name by the configuration author. Example:
    *     types:
    *     - name: google.protobuf.Int32
    * </pre>
@@ -195,10 +197,10 @@ public interface ServiceOrBuilder extends
   /**
    * <pre>
    * A list of all proto message types included in this API service.
-   * Types referenced directly or indirectly by the `apis` are
-   * automatically included.  Messages which are not referenced but
-   * shall be included, such as types used by the `google.protobuf.Any` type,
-   * should be listed here by name. Example:
+   * Types referenced directly or indirectly by the `apis` are automatically
+   * included.  Messages which are not referenced but shall be included, such as
+   * types used by the `google.protobuf.Any` type, should be listed here by
+   * name by the configuration author. Example:
    *     types:
    *     - name: google.protobuf.Int32
    * </pre>
@@ -209,10 +211,10 @@ public interface ServiceOrBuilder extends
   /**
    * <pre>
    * A list of all proto message types included in this API service.
-   * Types referenced directly or indirectly by the `apis` are
-   * automatically included.  Messages which are not referenced but
-   * shall be included, such as types used by the `google.protobuf.Any` type,
-   * should be listed here by name. Example:
+   * Types referenced directly or indirectly by the `apis` are automatically
+   * included.  Messages which are not referenced but shall be included, such as
+   * types used by the `google.protobuf.Any` type, should be listed here by
+   * name by the configuration author. Example:
    *     types:
    *     - name: google.protobuf.Int32
    * </pre>
@@ -224,10 +226,10 @@ public interface ServiceOrBuilder extends
   /**
    * <pre>
    * A list of all proto message types included in this API service.
-   * Types referenced directly or indirectly by the `apis` are
-   * automatically included.  Messages which are not referenced but
-   * shall be included, such as types used by the `google.protobuf.Any` type,
-   * should be listed here by name. Example:
+   * Types referenced directly or indirectly by the `apis` are automatically
+   * included.  Messages which are not referenced but shall be included, such as
+   * types used by the `google.protobuf.Any` type, should be listed here by
+   * name by the configuration author. Example:
    *     types:
    *     - name: google.protobuf.Int32
    * </pre>
@@ -239,10 +241,10 @@ public interface ServiceOrBuilder extends
 
   /**
    * <pre>
-   * A list of all enum types included in this API service.  Enums
-   * referenced directly or indirectly by the `apis` are automatically
-   * included.  Enums which are not referenced but shall be included
-   * should be listed here by name. Example:
+   * A list of all enum types included in this API service.  Enums referenced
+   * directly or indirectly by the `apis` are automatically included.  Enums
+   * which are not referenced but shall be included should be listed here by
+   * name by the configuration author. Example:
    *     enums:
    *     - name: google.someapi.v1.SomeEnum
    * </pre>
@@ -253,10 +255,10 @@ public interface ServiceOrBuilder extends
       getEnumsList();
   /**
    * <pre>
-   * A list of all enum types included in this API service.  Enums
-   * referenced directly or indirectly by the `apis` are automatically
-   * included.  Enums which are not referenced but shall be included
-   * should be listed here by name. Example:
+   * A list of all enum types included in this API service.  Enums referenced
+   * directly or indirectly by the `apis` are automatically included.  Enums
+   * which are not referenced but shall be included should be listed here by
+   * name by the configuration author. Example:
    *     enums:
    *     - name: google.someapi.v1.SomeEnum
    * </pre>
@@ -266,10 +268,10 @@ public interface ServiceOrBuilder extends
   com.google.protobuf.Enum getEnums(int index);
   /**
    * <pre>
-   * A list of all enum types included in this API service.  Enums
-   * referenced directly or indirectly by the `apis` are automatically
-   * included.  Enums which are not referenced but shall be included
-   * should be listed here by name. Example:
+   * A list of all enum types included in this API service.  Enums referenced
+   * directly or indirectly by the `apis` are automatically included.  Enums
+   * which are not referenced but shall be included should be listed here by
+   * name by the configuration author. Example:
    *     enums:
    *     - name: google.someapi.v1.SomeEnum
    * </pre>
@@ -279,10 +281,10 @@ public interface ServiceOrBuilder extends
   int getEnumsCount();
   /**
    * <pre>
-   * A list of all enum types included in this API service.  Enums
-   * referenced directly or indirectly by the `apis` are automatically
-   * included.  Enums which are not referenced but shall be included
-   * should be listed here by name. Example:
+   * A list of all enum types included in this API service.  Enums referenced
+   * directly or indirectly by the `apis` are automatically included.  Enums
+   * which are not referenced but shall be included should be listed here by
+   * name by the configuration author. Example:
    *     enums:
    *     - name: google.someapi.v1.SomeEnum
    * </pre>
@@ -293,10 +295,10 @@ public interface ServiceOrBuilder extends
       getEnumsOrBuilderList();
   /**
    * <pre>
-   * A list of all enum types included in this API service.  Enums
-   * referenced directly or indirectly by the `apis` are automatically
-   * included.  Enums which are not referenced but shall be included
-   * should be listed here by name. Example:
+   * A list of all enum types included in this API service.  Enums referenced
+   * directly or indirectly by the `apis` are automatically included.  Enums
+   * which are not referenced but shall be included should be listed here by
+   * name by the configuration author. Example:
    *     enums:
    *     - name: google.someapi.v1.SomeEnum
    * </pre>
@@ -850,17 +852,48 @@ public interface ServiceOrBuilder extends
 
   /**
    * <pre>
+   * Settings for [Google Cloud Client
+   * libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+   * generated from APIs defined as protocol buffers.
+   * </pre>
+   *
+   * <code>.google.api.Publishing publishing = 45;</code>
+   * @return Whether the publishing field is set.
+   */
+  boolean hasPublishing();
+  /**
+   * <pre>
+   * Settings for [Google Cloud Client
+   * libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+   * generated from APIs defined as protocol buffers.
+   * </pre>
+   *
+   * <code>.google.api.Publishing publishing = 45;</code>
+   * @return The publishing.
+   */
+  com.google.api.Publishing getPublishing();
+  /**
+   * <pre>
+   * Settings for [Google Cloud Client
+   * libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+   * generated from APIs defined as protocol buffers.
+   * </pre>
+   *
+   * <code>.google.api.Publishing publishing = 45;</code>
+   */
+  com.google.api.PublishingOrBuilder getPublishingOrBuilder();
+
+  /**
+   * <pre>
    * Obsolete. Do not use.
    * This field has no semantic meaning. The service config compiler always
    * sets this field to `3`.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value config_version = 20 [deprecated = true];</code>
-   * @deprecated google.api.Service.config_version is deprecated.
-   *     See google/api/service.proto;l=170
+   * <code>.google.protobuf.UInt32Value config_version = 20;</code>
    * @return Whether the configVersion field is set.
    */
-  @java.lang.Deprecated boolean hasConfigVersion();
+  boolean hasConfigVersion();
   /**
    * <pre>
    * Obsolete. Do not use.
@@ -868,12 +901,10 @@ public interface ServiceOrBuilder extends
    * sets this field to `3`.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value config_version = 20 [deprecated = true];</code>
-   * @deprecated google.api.Service.config_version is deprecated.
-   *     See google/api/service.proto;l=170
+   * <code>.google.protobuf.UInt32Value config_version = 20;</code>
    * @return The configVersion.
    */
-  @java.lang.Deprecated com.google.protobuf.UInt32Value getConfigVersion();
+  com.google.protobuf.UInt32Value getConfigVersion();
   /**
    * <pre>
    * Obsolete. Do not use.
@@ -881,7 +912,7 @@ public interface ServiceOrBuilder extends
    * sets this field to `3`.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value config_version = 20 [deprecated = true];</code>
+   * <code>.google.protobuf.UInt32Value config_version = 20;</code>
    */
-  @java.lang.Deprecated com.google.protobuf.UInt32ValueOrBuilder getConfigVersionOrBuilder();
+  com.google.protobuf.UInt32ValueOrBuilder getConfigVersionOrBuilder();
 }

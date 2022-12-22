@@ -5,7 +5,7 @@ package com.google.cloud.aiplatform.v1beta1;
 
 /**
  * <pre>
- * Next ID: 5
+ * The model monitoring configuration used for Batch Prediction Job.
  * </pre>
  *
  * Protobuf type {@code google.cloud.aiplatform.v1beta1.ModelMonitoringConfig}
@@ -36,77 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ModelMonitoringConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            com.google.cloud.aiplatform.v1beta1.ModelMonitoringAlertConfig.Builder subBuilder = null;
-            if (alertConfig_ != null) {
-              subBuilder = alertConfig_.toBuilder();
-            }
-            alertConfig_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.ModelMonitoringAlertConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(alertConfig_);
-              alertConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              objectiveConfigs_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            objectiveConfigs_.add(
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            analysisInstanceSchemaUri_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        objectiveConfigs_ = java.util.Collections.unmodifiableList(objectiveConfigs_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.ModelMonitoringProto.internal_static_google_cloud_aiplatform_v1beta1_ModelMonitoringConfig_descriptor;
@@ -121,6 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OBJECTIVE_CONFIGS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig> objectiveConfigs_;
   /**
    * <pre>
@@ -215,11 +145,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.ModelMonitoringAlertConfigOrBuilder getAlertConfigOrBuilder() {
-    return getAlertConfig();
+    return alertConfig_ == null ? com.google.cloud.aiplatform.v1beta1.ModelMonitoringAlertConfig.getDefaultInstance() : alertConfig_;
   }
 
   public static final int ANALYSIS_INSTANCE_SCHEMA_URI_FIELD_NUMBER = 4;
-  private volatile java.lang.Object analysisInstanceSchemaUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object analysisInstanceSchemaUri_ = "";
   /**
    * <pre>
    * YAML schema file uri in Cloud Storage describing the format of a single
@@ -274,6 +205,53 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int STATS_ANOMALIES_BASE_DIRECTORY_FIELD_NUMBER = 5;
+  private com.google.cloud.aiplatform.v1beta1.GcsDestination statsAnomaliesBaseDirectory_;
+  /**
+   * <pre>
+   * A Google Cloud Storage location for batch prediction model monitoring to
+   * dump statistics and anomalies.
+   * If not provided, a folder will be created in customer project to hold
+   * statistics and anomalies.
+   * </pre>
+   *
+   * <code>.google.cloud.aiplatform.v1beta1.GcsDestination stats_anomalies_base_directory = 5;</code>
+   * @return Whether the statsAnomaliesBaseDirectory field is set.
+   */
+  @java.lang.Override
+  public boolean hasStatsAnomaliesBaseDirectory() {
+    return statsAnomaliesBaseDirectory_ != null;
+  }
+  /**
+   * <pre>
+   * A Google Cloud Storage location for batch prediction model monitoring to
+   * dump statistics and anomalies.
+   * If not provided, a folder will be created in customer project to hold
+   * statistics and anomalies.
+   * </pre>
+   *
+   * <code>.google.cloud.aiplatform.v1beta1.GcsDestination stats_anomalies_base_directory = 5;</code>
+   * @return The statsAnomaliesBaseDirectory.
+   */
+  @java.lang.Override
+  public com.google.cloud.aiplatform.v1beta1.GcsDestination getStatsAnomaliesBaseDirectory() {
+    return statsAnomaliesBaseDirectory_ == null ? com.google.cloud.aiplatform.v1beta1.GcsDestination.getDefaultInstance() : statsAnomaliesBaseDirectory_;
+  }
+  /**
+   * <pre>
+   * A Google Cloud Storage location for batch prediction model monitoring to
+   * dump statistics and anomalies.
+   * If not provided, a folder will be created in customer project to hold
+   * statistics and anomalies.
+   * </pre>
+   *
+   * <code>.google.cloud.aiplatform.v1beta1.GcsDestination stats_anomalies_base_directory = 5;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.aiplatform.v1beta1.GcsDestinationOrBuilder getStatsAnomaliesBaseDirectoryOrBuilder() {
+    return statsAnomaliesBaseDirectory_ == null ? com.google.cloud.aiplatform.v1beta1.GcsDestination.getDefaultInstance() : statsAnomaliesBaseDirectory_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -297,7 +275,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(analysisInstanceSchemaUri_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, analysisInstanceSchemaUri_);
     }
-    unknownFields.writeTo(output);
+    if (statsAnomaliesBaseDirectory_ != null) {
+      output.writeMessage(5, getStatsAnomaliesBaseDirectory());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -317,7 +298,11 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(analysisInstanceSchemaUri_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, analysisInstanceSchemaUri_);
     }
-    size += unknownFields.getSerializedSize();
+    if (statsAnomaliesBaseDirectory_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getStatsAnomaliesBaseDirectory());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -341,7 +326,12 @@ private static final long serialVersionUID = 0L;
     }
     if (!getAnalysisInstanceSchemaUri()
         .equals(other.getAnalysisInstanceSchemaUri())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasStatsAnomaliesBaseDirectory() != other.hasStatsAnomaliesBaseDirectory()) return false;
+    if (hasStatsAnomaliesBaseDirectory()) {
+      if (!getStatsAnomaliesBaseDirectory()
+          .equals(other.getStatsAnomaliesBaseDirectory())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -362,7 +352,11 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + ANALYSIS_INSTANCE_SCHEMA_URI_FIELD_NUMBER;
     hash = (53 * hash) + getAnalysisInstanceSchemaUri().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasStatsAnomaliesBaseDirectory()) {
+      hash = (37 * hash) + STATS_ANOMALIES_BASE_DIRECTORY_FIELD_NUMBER;
+      hash = (53 * hash) + getStatsAnomaliesBaseDirectory().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -459,7 +453,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Next ID: 5
+   * The model monitoring configuration used for Batch Prediction Job.
    * </pre>
    *
    * Protobuf type {@code google.cloud.aiplatform.v1beta1.ModelMonitoringConfig}
@@ -483,37 +477,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getObjectiveConfigsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (objectiveConfigsBuilder_ == null) {
         objectiveConfigs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        objectiveConfigs_ = null;
         objectiveConfigsBuilder_.clear();
       }
-      if (alertConfigBuilder_ == null) {
-        alertConfig_ = null;
-      } else {
-        alertConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      alertConfig_ = null;
+      if (alertConfigBuilder_ != null) {
+        alertConfigBuilder_.dispose();
         alertConfigBuilder_ = null;
       }
       analysisInstanceSchemaUri_ = "";
-
+      statsAnomaliesBaseDirectory_ = null;
+      if (statsAnomaliesBaseDirectoryBuilder_ != null) {
+        statsAnomaliesBaseDirectoryBuilder_.dispose();
+        statsAnomaliesBaseDirectoryBuilder_ = null;
+      }
       return this;
     }
 
@@ -540,7 +533,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig buildPartial() {
       com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig result = new com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig result) {
       if (objectiveConfigsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           objectiveConfigs_ = java.util.Collections.unmodifiableList(objectiveConfigs_);
@@ -550,14 +549,23 @@ private static final long serialVersionUID = 0L;
       } else {
         result.objectiveConfigs_ = objectiveConfigsBuilder_.build();
       }
-      if (alertConfigBuilder_ == null) {
-        result.alertConfig_ = alertConfig_;
-      } else {
-        result.alertConfig_ = alertConfigBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.alertConfig_ = alertConfigBuilder_ == null
+            ? alertConfig_
+            : alertConfigBuilder_.build();
       }
-      result.analysisInstanceSchemaUri_ = analysisInstanceSchemaUri_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.analysisInstanceSchemaUri_ = analysisInstanceSchemaUri_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.statsAnomaliesBaseDirectory_ = statsAnomaliesBaseDirectoryBuilder_ == null
+            ? statsAnomaliesBaseDirectory_
+            : statsAnomaliesBaseDirectoryBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -635,9 +643,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAnalysisInstanceSchemaUri().isEmpty()) {
         analysisInstanceSchemaUri_ = other.analysisInstanceSchemaUri_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasStatsAnomaliesBaseDirectory()) {
+        mergeStatsAnomaliesBaseDirectory(other.getStatsAnomaliesBaseDirectory());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -652,17 +664,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              input.readMessage(
+                  getAlertConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig m =
+                  input.readMessage(
+                      com.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.parser(),
+                      extensionRegistry);
+              if (objectiveConfigsBuilder_ == null) {
+                ensureObjectiveConfigsIsMutable();
+                objectiveConfigs_.add(m);
+              } else {
+                objectiveConfigsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              analysisInstanceSchemaUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getStatsAnomaliesBaseDirectoryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -991,7 +1048,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the alertConfig field is set.
      */
     public boolean hasAlertConfig() {
-      return alertConfigBuilder_ != null || alertConfig_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1021,11 +1078,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         alertConfig_ = value;
-        onChanged();
       } else {
         alertConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1039,11 +1096,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.ModelMonitoringAlertConfig.Builder builderForValue) {
       if (alertConfigBuilder_ == null) {
         alertConfig_ = builderForValue.build();
-        onChanged();
       } else {
         alertConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1055,17 +1112,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAlertConfig(com.google.cloud.aiplatform.v1beta1.ModelMonitoringAlertConfig value) {
       if (alertConfigBuilder_ == null) {
-        if (alertConfig_ != null) {
-          alertConfig_ =
-            com.google.cloud.aiplatform.v1beta1.ModelMonitoringAlertConfig.newBuilder(alertConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          alertConfig_ != null &&
+          alertConfig_ != com.google.cloud.aiplatform.v1beta1.ModelMonitoringAlertConfig.getDefaultInstance()) {
+          getAlertConfigBuilder().mergeFrom(value);
         } else {
           alertConfig_ = value;
         }
-        onChanged();
       } else {
         alertConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1076,14 +1134,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.ModelMonitoringAlertConfig alert_config = 2;</code>
      */
     public Builder clearAlertConfig() {
-      if (alertConfigBuilder_ == null) {
-        alertConfig_ = null;
-        onChanged();
-      } else {
-        alertConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      alertConfig_ = null;
+      if (alertConfigBuilder_ != null) {
+        alertConfigBuilder_.dispose();
         alertConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1094,7 +1151,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.ModelMonitoringAlertConfig alert_config = 2;</code>
      */
     public com.google.cloud.aiplatform.v1beta1.ModelMonitoringAlertConfig.Builder getAlertConfigBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAlertConfigFieldBuilder().getBuilder();
     }
@@ -1202,11 +1259,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAnalysisInstanceSchemaUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       analysisInstanceSchemaUri_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1224,8 +1279,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAnalysisInstanceSchemaUri() {
-      
       analysisInstanceSchemaUri_ = getDefaultInstance().getAnalysisInstanceSchemaUri();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1245,14 +1300,194 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAnalysisInstanceSchemaUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       analysisInstanceSchemaUri_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
+    }
+
+    private com.google.cloud.aiplatform.v1beta1.GcsDestination statsAnomaliesBaseDirectory_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.aiplatform.v1beta1.GcsDestination, com.google.cloud.aiplatform.v1beta1.GcsDestination.Builder, com.google.cloud.aiplatform.v1beta1.GcsDestinationOrBuilder> statsAnomaliesBaseDirectoryBuilder_;
+    /**
+     * <pre>
+     * A Google Cloud Storage location for batch prediction model monitoring to
+     * dump statistics and anomalies.
+     * If not provided, a folder will be created in customer project to hold
+     * statistics and anomalies.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.GcsDestination stats_anomalies_base_directory = 5;</code>
+     * @return Whether the statsAnomaliesBaseDirectory field is set.
+     */
+    public boolean hasStatsAnomaliesBaseDirectory() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * A Google Cloud Storage location for batch prediction model monitoring to
+     * dump statistics and anomalies.
+     * If not provided, a folder will be created in customer project to hold
+     * statistics and anomalies.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.GcsDestination stats_anomalies_base_directory = 5;</code>
+     * @return The statsAnomaliesBaseDirectory.
+     */
+    public com.google.cloud.aiplatform.v1beta1.GcsDestination getStatsAnomaliesBaseDirectory() {
+      if (statsAnomaliesBaseDirectoryBuilder_ == null) {
+        return statsAnomaliesBaseDirectory_ == null ? com.google.cloud.aiplatform.v1beta1.GcsDestination.getDefaultInstance() : statsAnomaliesBaseDirectory_;
+      } else {
+        return statsAnomaliesBaseDirectoryBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * A Google Cloud Storage location for batch prediction model monitoring to
+     * dump statistics and anomalies.
+     * If not provided, a folder will be created in customer project to hold
+     * statistics and anomalies.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.GcsDestination stats_anomalies_base_directory = 5;</code>
+     */
+    public Builder setStatsAnomaliesBaseDirectory(com.google.cloud.aiplatform.v1beta1.GcsDestination value) {
+      if (statsAnomaliesBaseDirectoryBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        statsAnomaliesBaseDirectory_ = value;
+      } else {
+        statsAnomaliesBaseDirectoryBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * A Google Cloud Storage location for batch prediction model monitoring to
+     * dump statistics and anomalies.
+     * If not provided, a folder will be created in customer project to hold
+     * statistics and anomalies.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.GcsDestination stats_anomalies_base_directory = 5;</code>
+     */
+    public Builder setStatsAnomaliesBaseDirectory(
+        com.google.cloud.aiplatform.v1beta1.GcsDestination.Builder builderForValue) {
+      if (statsAnomaliesBaseDirectoryBuilder_ == null) {
+        statsAnomaliesBaseDirectory_ = builderForValue.build();
+      } else {
+        statsAnomaliesBaseDirectoryBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * A Google Cloud Storage location for batch prediction model monitoring to
+     * dump statistics and anomalies.
+     * If not provided, a folder will be created in customer project to hold
+     * statistics and anomalies.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.GcsDestination stats_anomalies_base_directory = 5;</code>
+     */
+    public Builder mergeStatsAnomaliesBaseDirectory(com.google.cloud.aiplatform.v1beta1.GcsDestination value) {
+      if (statsAnomaliesBaseDirectoryBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0) &&
+          statsAnomaliesBaseDirectory_ != null &&
+          statsAnomaliesBaseDirectory_ != com.google.cloud.aiplatform.v1beta1.GcsDestination.getDefaultInstance()) {
+          getStatsAnomaliesBaseDirectoryBuilder().mergeFrom(value);
+        } else {
+          statsAnomaliesBaseDirectory_ = value;
+        }
+      } else {
+        statsAnomaliesBaseDirectoryBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * A Google Cloud Storage location for batch prediction model monitoring to
+     * dump statistics and anomalies.
+     * If not provided, a folder will be created in customer project to hold
+     * statistics and anomalies.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.GcsDestination stats_anomalies_base_directory = 5;</code>
+     */
+    public Builder clearStatsAnomaliesBaseDirectory() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      statsAnomaliesBaseDirectory_ = null;
+      if (statsAnomaliesBaseDirectoryBuilder_ != null) {
+        statsAnomaliesBaseDirectoryBuilder_.dispose();
+        statsAnomaliesBaseDirectoryBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * A Google Cloud Storage location for batch prediction model monitoring to
+     * dump statistics and anomalies.
+     * If not provided, a folder will be created in customer project to hold
+     * statistics and anomalies.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.GcsDestination stats_anomalies_base_directory = 5;</code>
+     */
+    public com.google.cloud.aiplatform.v1beta1.GcsDestination.Builder getStatsAnomaliesBaseDirectoryBuilder() {
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return getStatsAnomaliesBaseDirectoryFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * A Google Cloud Storage location for batch prediction model monitoring to
+     * dump statistics and anomalies.
+     * If not provided, a folder will be created in customer project to hold
+     * statistics and anomalies.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.GcsDestination stats_anomalies_base_directory = 5;</code>
+     */
+    public com.google.cloud.aiplatform.v1beta1.GcsDestinationOrBuilder getStatsAnomaliesBaseDirectoryOrBuilder() {
+      if (statsAnomaliesBaseDirectoryBuilder_ != null) {
+        return statsAnomaliesBaseDirectoryBuilder_.getMessageOrBuilder();
+      } else {
+        return statsAnomaliesBaseDirectory_ == null ?
+            com.google.cloud.aiplatform.v1beta1.GcsDestination.getDefaultInstance() : statsAnomaliesBaseDirectory_;
+      }
+    }
+    /**
+     * <pre>
+     * A Google Cloud Storage location for batch prediction model monitoring to
+     * dump statistics and anomalies.
+     * If not provided, a folder will be created in customer project to hold
+     * statistics and anomalies.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.GcsDestination stats_anomalies_base_directory = 5;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.aiplatform.v1beta1.GcsDestination, com.google.cloud.aiplatform.v1beta1.GcsDestination.Builder, com.google.cloud.aiplatform.v1beta1.GcsDestinationOrBuilder> 
+        getStatsAnomaliesBaseDirectoryFieldBuilder() {
+      if (statsAnomaliesBaseDirectoryBuilder_ == null) {
+        statsAnomaliesBaseDirectoryBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.aiplatform.v1beta1.GcsDestination, com.google.cloud.aiplatform.v1beta1.GcsDestination.Builder, com.google.cloud.aiplatform.v1beta1.GcsDestinationOrBuilder>(
+                getStatsAnomaliesBaseDirectory(),
+                getParentForChildren(),
+                isClean());
+        statsAnomaliesBaseDirectory_ = null;
+      }
+      return statsAnomaliesBaseDirectoryBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1287,7 +1522,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ModelMonitoringConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

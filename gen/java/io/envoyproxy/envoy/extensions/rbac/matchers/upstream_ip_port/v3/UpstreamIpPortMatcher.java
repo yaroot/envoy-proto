@@ -42,71 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpstreamIpPortMatcher(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.core.v3.CidrRange.Builder subBuilder = null;
-            if (upstreamIp_ != null) {
-              subBuilder = upstreamIp_.toBuilder();
-            }
-            upstreamIp_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.CidrRange.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(upstreamIp_);
-              upstreamIp_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.type.v3.Int64Range.Builder subBuilder = null;
-            if (upstreamPortRange_ != null) {
-              subBuilder = upstreamPortRange_.toBuilder();
-            }
-            upstreamPortRange_ = input.readMessage(io.envoyproxy.envoy.type.v3.Int64Range.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(upstreamPortRange_);
-              upstreamPortRange_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.rbac.matchers.upstream_ip_port.v3.UpstreamIpPortMatcherProto.internal_static_envoy_extensions_rbac_matchers_upstream_ip_port_v3_UpstreamIpPortMatcher_descriptor;
@@ -158,7 +93,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.CidrRangeOrBuilder getUpstreamIpOrBuilder() {
-    return getUpstreamIp();
+    return upstreamIp_ == null ? io.envoyproxy.envoy.config.core.v3.CidrRange.getDefaultInstance() : upstreamIp_;
   }
 
   public static final int UPSTREAM_PORT_RANGE_FIELD_NUMBER = 2;
@@ -196,7 +131,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.v3.Int64RangeOrBuilder getUpstreamPortRangeOrBuilder() {
-    return getUpstreamPortRange();
+    return upstreamPortRange_ == null ? io.envoyproxy.envoy.type.v3.Int64Range.getDefaultInstance() : upstreamPortRange_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -219,7 +154,7 @@ private static final long serialVersionUID = 0L;
     if (upstreamPortRange_ != null) {
       output.writeMessage(2, getUpstreamPortRange());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -236,7 +171,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getUpstreamPortRange());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -261,7 +196,7 @@ private static final long serialVersionUID = 0L;
       if (!getUpstreamPortRange()
           .equals(other.getUpstreamPortRange())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -280,7 +215,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UPSTREAM_PORT_RANGE_FIELD_NUMBER;
       hash = (53 * hash) + getUpstreamPortRange().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -409,32 +344,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.rbac.matchers.upstream_ip_port.v3.UpstreamIpPortMatcher.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (upstreamIpBuilder_ == null) {
-        upstreamIp_ = null;
-      } else {
-        upstreamIp_ = null;
+      bitField0_ = 0;
+      upstreamIp_ = null;
+      if (upstreamIpBuilder_ != null) {
+        upstreamIpBuilder_.dispose();
         upstreamIpBuilder_ = null;
       }
-      if (upstreamPortRangeBuilder_ == null) {
-        upstreamPortRange_ = null;
-      } else {
-        upstreamPortRange_ = null;
+      upstreamPortRange_ = null;
+      if (upstreamPortRangeBuilder_ != null) {
+        upstreamPortRangeBuilder_.dispose();
         upstreamPortRangeBuilder_ = null;
       }
       return this;
@@ -463,18 +392,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.rbac.matchers.upstream_ip_port.v3.UpstreamIpPortMatcher buildPartial() {
       io.envoyproxy.envoy.extensions.rbac.matchers.upstream_ip_port.v3.UpstreamIpPortMatcher result = new io.envoyproxy.envoy.extensions.rbac.matchers.upstream_ip_port.v3.UpstreamIpPortMatcher(this);
-      if (upstreamIpBuilder_ == null) {
-        result.upstreamIp_ = upstreamIp_;
-      } else {
-        result.upstreamIp_ = upstreamIpBuilder_.build();
-      }
-      if (upstreamPortRangeBuilder_ == null) {
-        result.upstreamPortRange_ = upstreamPortRange_;
-      } else {
-        result.upstreamPortRange_ = upstreamPortRangeBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.rbac.matchers.upstream_ip_port.v3.UpstreamIpPortMatcher result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.upstreamIp_ = upstreamIpBuilder_ == null
+            ? upstreamIp_
+            : upstreamIpBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.upstreamPortRange_ = upstreamPortRangeBuilder_ == null
+            ? upstreamPortRange_
+            : upstreamPortRangeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -527,7 +461,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasUpstreamPortRange()) {
         mergeUpstreamPortRange(other.getUpstreamPortRange());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -542,19 +476,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.rbac.matchers.upstream_ip_port.v3.UpstreamIpPortMatcher parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getUpstreamIpFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getUpstreamPortRangeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.rbac.matchers.upstream_ip_port.v3.UpstreamIpPortMatcher) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.config.core.v3.CidrRange upstreamIp_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -569,7 +531,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the upstreamIp field is set.
      */
     public boolean hasUpstreamIp() {
-      return upstreamIpBuilder_ != null || upstreamIp_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -601,11 +563,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         upstreamIp_ = value;
-        onChanged();
       } else {
         upstreamIpBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -620,11 +582,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.CidrRange.Builder builderForValue) {
       if (upstreamIpBuilder_ == null) {
         upstreamIp_ = builderForValue.build();
-        onChanged();
       } else {
         upstreamIpBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -637,17 +599,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpstreamIp(io.envoyproxy.envoy.config.core.v3.CidrRange value) {
       if (upstreamIpBuilder_ == null) {
-        if (upstreamIp_ != null) {
-          upstreamIp_ =
-            io.envoyproxy.envoy.config.core.v3.CidrRange.newBuilder(upstreamIp_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          upstreamIp_ != null &&
+          upstreamIp_ != io.envoyproxy.envoy.config.core.v3.CidrRange.getDefaultInstance()) {
+          getUpstreamIpBuilder().mergeFrom(value);
         } else {
           upstreamIp_ = value;
         }
-        onChanged();
       } else {
         upstreamIpBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -659,14 +622,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.CidrRange upstream_ip = 1;</code>
      */
     public Builder clearUpstreamIp() {
-      if (upstreamIpBuilder_ == null) {
-        upstreamIp_ = null;
-        onChanged();
-      } else {
-        upstreamIp_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      upstreamIp_ = null;
+      if (upstreamIpBuilder_ != null) {
+        upstreamIpBuilder_.dispose();
         upstreamIpBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -678,7 +640,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.CidrRange upstream_ip = 1;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.CidrRange.Builder getUpstreamIpBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getUpstreamIpFieldBuilder().getBuilder();
     }
@@ -732,7 +694,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the upstreamPortRange field is set.
      */
     public boolean hasUpstreamPortRange() {
-      return upstreamPortRangeBuilder_ != null || upstreamPortRange_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -762,11 +724,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         upstreamPortRange_ = value;
-        onChanged();
       } else {
         upstreamPortRangeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -780,11 +742,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.v3.Int64Range.Builder builderForValue) {
       if (upstreamPortRangeBuilder_ == null) {
         upstreamPortRange_ = builderForValue.build();
-        onChanged();
       } else {
         upstreamPortRangeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -796,17 +758,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpstreamPortRange(io.envoyproxy.envoy.type.v3.Int64Range value) {
       if (upstreamPortRangeBuilder_ == null) {
-        if (upstreamPortRange_ != null) {
-          upstreamPortRange_ =
-            io.envoyproxy.envoy.type.v3.Int64Range.newBuilder(upstreamPortRange_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          upstreamPortRange_ != null &&
+          upstreamPortRange_ != io.envoyproxy.envoy.type.v3.Int64Range.getDefaultInstance()) {
+          getUpstreamPortRangeBuilder().mergeFrom(value);
         } else {
           upstreamPortRange_ = value;
         }
-        onChanged();
       } else {
         upstreamPortRangeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -817,14 +780,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.v3.Int64Range upstream_port_range = 2;</code>
      */
     public Builder clearUpstreamPortRange() {
-      if (upstreamPortRangeBuilder_ == null) {
-        upstreamPortRange_ = null;
-        onChanged();
-      } else {
-        upstreamPortRange_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      upstreamPortRange_ = null;
+      if (upstreamPortRangeBuilder_ != null) {
+        upstreamPortRangeBuilder_.dispose();
         upstreamPortRangeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -835,7 +797,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.v3.Int64Range upstream_port_range = 2;</code>
      */
     public io.envoyproxy.envoy.type.v3.Int64Range.Builder getUpstreamPortRangeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getUpstreamPortRangeFieldBuilder().getBuilder();
     }
@@ -907,7 +869,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpstreamIpPortMatcher(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

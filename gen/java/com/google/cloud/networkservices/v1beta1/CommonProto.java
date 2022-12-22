@@ -51,45 +51,43 @@ public final class CommonProto {
       "\n1google/cloud/networkservices/v1beta1/c" +
       "ommon.proto\022$google.cloud.networkservice" +
       "s.v1beta1\032\037google/api/field_behavior.pro" +
-      "to\032\037google/protobuf/timestamp.proto\032\034goo" +
-      "gle/api/annotations.proto\"\200\002\n\021OperationM" +
-      "etadata\0224\n\013create_time\030\001 \001(\0132\032.google.pr" +
-      "otobuf.TimestampB\003\340A\003\0221\n\010end_time\030\002 \001(\0132" +
-      "\032.google.protobuf.TimestampB\003\340A\003\022\023\n\006targ" +
-      "et\030\003 \001(\tB\003\340A\003\022\021\n\004verb\030\004 \001(\tB\003\340A\003\022\033\n\016stat" +
-      "us_message\030\005 \001(\tB\003\340A\003\022#\n\026requested_cance" +
-      "llation\030\006 \001(\010B\003\340A\003\022\030\n\013api_version\030\007 \001(\tB" +
-      "\003\340A\003\")\n\023TrafficPortSelector\022\022\n\005ports\030\001 \003" +
-      "(\tB\003\340A\001\"\333\004\n\017EndpointMatcher\022l\n\026metadata_" +
-      "label_matcher\030\001 \001(\0132J.google.cloud.netwo" +
-      "rkservices.v1beta1.EndpointMatcher.Metad" +
-      "ataLabelMatcherH\000\032\311\003\n\024MetadataLabelMatch" +
-      "er\022\214\001\n\035metadata_label_match_criteria\030\001 \001" +
-      "(\0162e.google.cloud.networkservices.v1beta" +
-      "1.EndpointMatcher.MetadataLabelMatcher.M" +
-      "etadataLabelMatchCriteria\022r\n\017metadata_la" +
-      "bels\030\002 \003(\0132Y.google.cloud.networkservice" +
-      "s.v1beta1.EndpointMatcher.MetadataLabelM" +
-      "atcher.MetadataLabels\032C\n\016MetadataLabels\022" +
-      "\027\n\nlabel_name\030\001 \001(\tB\003\340A\002\022\030\n\013label_value\030" +
-      "\002 \001(\tB\003\340A\002\"i\n\032MetadataLabelMatchCriteria" +
-      "\022-\n)METADATA_LABEL_MATCH_CRITERIA_UNSPEC" +
-      "IFIED\020\000\022\r\n\tMATCH_ANY\020\001\022\r\n\tMATCH_ALL\020\002B\016\n" +
-      "\014matcher_typeB\206\002\n(com.google.cloud.netwo" +
-      "rkservices.v1beta1B\013CommonProtoP\001ZSgoogl" +
-      "e.golang.org/genproto/googleapis/cloud/n" +
-      "etworkservices/v1beta1;networkservices\252\002" +
-      "$Google.Cloud.NetworkServices.V1Beta1\312\002$" +
-      "Google\\Cloud\\NetworkServices\\V1beta1\352\002\'G" +
-      "oogle::Cloud::NetworkServices::V1beta1b\006" +
-      "proto3"
+      "to\032\037google/protobuf/timestamp.proto\"\200\002\n\021" +
+      "OperationMetadata\0224\n\013create_time\030\001 \001(\0132\032" +
+      ".google.protobuf.TimestampB\003\340A\003\0221\n\010end_t" +
+      "ime\030\002 \001(\0132\032.google.protobuf.TimestampB\003\340" +
+      "A\003\022\023\n\006target\030\003 \001(\tB\003\340A\003\022\021\n\004verb\030\004 \001(\tB\003\340" +
+      "A\003\022\033\n\016status_message\030\005 \001(\tB\003\340A\003\022#\n\026reque" +
+      "sted_cancellation\030\006 \001(\010B\003\340A\003\022\030\n\013api_vers" +
+      "ion\030\007 \001(\tB\003\340A\003\")\n\023TrafficPortSelector\022\022\n" +
+      "\005ports\030\001 \003(\tB\003\340A\001\"\333\004\n\017EndpointMatcher\022l\n" +
+      "\026metadata_label_matcher\030\001 \001(\0132J.google.c" +
+      "loud.networkservices.v1beta1.EndpointMat" +
+      "cher.MetadataLabelMatcherH\000\032\311\003\n\024Metadata" +
+      "LabelMatcher\022\214\001\n\035metadata_label_match_cr" +
+      "iteria\030\001 \001(\0162e.google.cloud.networkservi" +
+      "ces.v1beta1.EndpointMatcher.MetadataLabe" +
+      "lMatcher.MetadataLabelMatchCriteria\022r\n\017m" +
+      "etadata_labels\030\002 \003(\0132Y.google.cloud.netw" +
+      "orkservices.v1beta1.EndpointMatcher.Meta" +
+      "dataLabelMatcher.MetadataLabels\032C\n\016Metad" +
+      "ataLabels\022\027\n\nlabel_name\030\001 \001(\tB\003\340A\002\022\030\n\013la" +
+      "bel_value\030\002 \001(\tB\003\340A\002\"i\n\032MetadataLabelMat" +
+      "chCriteria\022-\n)METADATA_LABEL_MATCH_CRITE" +
+      "RIA_UNSPECIFIED\020\000\022\r\n\tMATCH_ANY\020\001\022\r\n\tMATC" +
+      "H_ALL\020\002B\016\n\014matcher_typeB\206\002\n(com.google.c" +
+      "loud.networkservices.v1beta1B\013CommonProt" +
+      "oP\001ZSgoogle.golang.org/genproto/googleap" +
+      "is/cloud/networkservices/v1beta1;network" +
+      "services\252\002$Google.Cloud.NetworkServices." +
+      "V1Beta1\312\002$Google\\Cloud\\NetworkServices\\V" +
+      "1beta1\352\002\'Google::Cloud::NetworkServices:" +
+      ":V1beta1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.FieldBehaviorProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
-          com.google.api.AnnotationsProto.getDescriptor(),
         });
     internal_static_google_cloud_networkservices_v1beta1_OperationMetadata_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -128,7 +126,6 @@ public final class CommonProto {
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.api.FieldBehaviorProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
-    com.google.api.AnnotationsProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

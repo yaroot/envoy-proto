@@ -75,7 +75,6 @@ public interface BackendServiceAggregatedListOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.BackendServicesScopedList&gt; items = 100526016;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.BackendServicesScopedList getItemsOrDefault(
       java.lang.String key,
@@ -88,7 +87,6 @@ com.google.cloud.compute.v1.BackendServicesScopedList defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.BackendServicesScopedList&gt; items = 100526016;</code>
    */
-
   com.google.cloud.compute.v1.BackendServicesScopedList getItemsOrThrow(
       java.lang.String key);
 

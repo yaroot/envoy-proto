@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
   private IsInstanceUpgradeableResponse() {
     upgradeVersion_ = "";
     upgradeInfo_ = "";
+    upgradeImage_ = "";
   }
 
   @java.lang.Override
@@ -35,62 +36,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private IsInstanceUpgradeableResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            upgradeable_ = input.readBool();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            upgradeVersion_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            upgradeInfo_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -106,7 +51,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UPGRADEABLE_FIELD_NUMBER = 1;
-  private boolean upgradeable_;
+  private boolean upgradeable_ = false;
   /**
    * <pre>
    * If an instance is upgradeable.
@@ -121,7 +66,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UPGRADE_VERSION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object upgradeVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object upgradeVersion_ = "";
   /**
    * <pre>
    * The version this instance will be upgraded to if calling the upgrade
@@ -169,7 +115,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UPGRADE_INFO_FIELD_NUMBER = 3;
-  private volatile java.lang.Object upgradeInfo_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object upgradeInfo_ = "";
   /**
    * <pre>
    * Additional information about upgrade.
@@ -214,6 +161,57 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int UPGRADE_IMAGE_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object upgradeImage_ = "";
+  /**
+   * <pre>
+   * The new image self link this instance will be upgraded to if calling the
+   * upgrade endpoint. This field will only be populated if field upgradeable
+   * is true.
+   * </pre>
+   *
+   * <code>string upgrade_image = 4;</code>
+   * @return The upgradeImage.
+   */
+  @java.lang.Override
+  public java.lang.String getUpgradeImage() {
+    java.lang.Object ref = upgradeImage_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      upgradeImage_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * The new image self link this instance will be upgraded to if calling the
+   * upgrade endpoint. This field will only be populated if field upgradeable
+   * is true.
+   * </pre>
+   *
+   * <code>string upgrade_image = 4;</code>
+   * @return The bytes for upgradeImage.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUpgradeImageBytes() {
+    java.lang.Object ref = upgradeImage_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      upgradeImage_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -237,7 +235,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(upgradeInfo_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, upgradeInfo_);
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(upgradeImage_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, upgradeImage_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -256,7 +257,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(upgradeInfo_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, upgradeInfo_);
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(upgradeImage_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, upgradeImage_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -277,7 +281,9 @@ private static final long serialVersionUID = 0L;
         .equals(other.getUpgradeVersion())) return false;
     if (!getUpgradeInfo()
         .equals(other.getUpgradeInfo())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUpgradeImage()
+        .equals(other.getUpgradeImage())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -295,7 +301,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getUpgradeVersion().hashCode();
     hash = (37 * hash) + UPGRADE_INFO_FIELD_NUMBER;
     hash = (53 * hash) + getUpgradeInfo().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + UPGRADE_IMAGE_FIELD_NUMBER;
+    hash = (53 * hash) + getUpgradeImage().hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -416,28 +424,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.notebooks.v1beta1.IsInstanceUpgradeableResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       upgradeable_ = false;
-
       upgradeVersion_ = "";
-
       upgradeInfo_ = "";
-
+      upgradeImage_ = "";
       return this;
     }
 
@@ -464,11 +466,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.notebooks.v1beta1.IsInstanceUpgradeableResponse buildPartial() {
       com.google.cloud.notebooks.v1beta1.IsInstanceUpgradeableResponse result = new com.google.cloud.notebooks.v1beta1.IsInstanceUpgradeableResponse(this);
-      result.upgradeable_ = upgradeable_;
-      result.upgradeVersion_ = upgradeVersion_;
-      result.upgradeInfo_ = upgradeInfo_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.notebooks.v1beta1.IsInstanceUpgradeableResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.upgradeable_ = upgradeable_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.upgradeVersion_ = upgradeVersion_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.upgradeInfo_ = upgradeInfo_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.upgradeImage_ = upgradeImage_;
+      }
     }
 
     @java.lang.Override
@@ -520,13 +536,20 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getUpgradeVersion().isEmpty()) {
         upgradeVersion_ = other.upgradeVersion_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getUpgradeInfo().isEmpty()) {
         upgradeInfo_ = other.upgradeInfo_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getUpgradeImage().isEmpty()) {
+        upgradeImage_ = other.upgradeImage_;
+        bitField0_ |= 0x00000008;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -541,19 +564,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.notebooks.v1beta1.IsInstanceUpgradeableResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              upgradeable_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              upgradeVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              upgradeInfo_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              upgradeImage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.notebooks.v1beta1.IsInstanceUpgradeableResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean upgradeable_ ;
     /**
@@ -580,6 +637,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUpgradeable(boolean value) {
       
       upgradeable_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -592,7 +650,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUpgradeable() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       upgradeable_ = false;
       onChanged();
       return this;
@@ -654,11 +712,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUpgradeVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       upgradeVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -672,8 +728,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUpgradeVersion() {
-      
       upgradeVersion_ = getDefaultInstance().getUpgradeVersion();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -689,12 +745,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUpgradeVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       upgradeVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -752,11 +806,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUpgradeInfo(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       upgradeInfo_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -769,8 +821,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUpgradeInfo() {
-      
       upgradeInfo_ = getDefaultInstance().getUpgradeInfo();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -785,12 +837,112 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUpgradeInfoBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       upgradeInfo_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object upgradeImage_ = "";
+    /**
+     * <pre>
+     * The new image self link this instance will be upgraded to if calling the
+     * upgrade endpoint. This field will only be populated if field upgradeable
+     * is true.
+     * </pre>
+     *
+     * <code>string upgrade_image = 4;</code>
+     * @return The upgradeImage.
+     */
+    public java.lang.String getUpgradeImage() {
+      java.lang.Object ref = upgradeImage_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        upgradeImage_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The new image self link this instance will be upgraded to if calling the
+     * upgrade endpoint. This field will only be populated if field upgradeable
+     * is true.
+     * </pre>
+     *
+     * <code>string upgrade_image = 4;</code>
+     * @return The bytes for upgradeImage.
+     */
+    public com.google.protobuf.ByteString
+        getUpgradeImageBytes() {
+      java.lang.Object ref = upgradeImage_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        upgradeImage_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The new image self link this instance will be upgraded to if calling the
+     * upgrade endpoint. This field will only be populated if field upgradeable
+     * is true.
+     * </pre>
+     *
+     * <code>string upgrade_image = 4;</code>
+     * @param value The upgradeImage to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUpgradeImage(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      upgradeImage_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The new image self link this instance will be upgraded to if calling the
+     * upgrade endpoint. This field will only be populated if field upgradeable
+     * is true.
+     * </pre>
+     *
+     * <code>string upgrade_image = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUpgradeImage() {
+      upgradeImage_ = getDefaultInstance().getUpgradeImage();
+      bitField0_ = (bitField0_ & ~0x00000008);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The new image self link this instance will be upgraded to if calling the
+     * upgrade endpoint. This field will only be populated if field upgradeable
+     * is true.
+     * </pre>
+     *
+     * <code>string upgrade_image = 4;</code>
+     * @param value The bytes for upgradeImage to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUpgradeImageBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      upgradeImage_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -827,7 +979,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new IsInstanceUpgradeableResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

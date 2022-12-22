@@ -39,127 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DeviceRegistry(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 34: {
-            com.google.cloud.iot.v1.MqttConfig.Builder subBuilder = null;
-            if (mqttConfig_ != null) {
-              subBuilder = mqttConfig_.toBuilder();
-            }
-            mqttConfig_ = input.readMessage(com.google.cloud.iot.v1.MqttConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(mqttConfig_);
-              mqttConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.cloud.iot.v1.StateNotificationConfig.Builder subBuilder = null;
-            if (stateNotificationConfig_ != null) {
-              subBuilder = stateNotificationConfig_.toBuilder();
-            }
-            stateNotificationConfig_ = input.readMessage(com.google.cloud.iot.v1.StateNotificationConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(stateNotificationConfig_);
-              stateNotificationConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              credentials_ = new java.util.ArrayList<com.google.cloud.iot.v1.RegistryCredential>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            credentials_.add(
-                input.readMessage(com.google.cloud.iot.v1.RegistryCredential.parser(), extensionRegistry));
-            break;
-          }
-          case 74: {
-            com.google.cloud.iot.v1.HttpConfig.Builder subBuilder = null;
-            if (httpConfig_ != null) {
-              subBuilder = httpConfig_.toBuilder();
-            }
-            httpConfig_ = input.readMessage(com.google.cloud.iot.v1.HttpConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(httpConfig_);
-              httpConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              eventNotificationConfigs_ = new java.util.ArrayList<com.google.cloud.iot.v1.EventNotificationConfig>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            eventNotificationConfigs_.add(
-                input.readMessage(com.google.cloud.iot.v1.EventNotificationConfig.parser(), extensionRegistry));
-            break;
-          }
-          case 88: {
-            int rawValue = input.readEnum();
-
-            logLevel_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        credentials_ = java.util.Collections.unmodifiableList(credentials_);
-      }
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        eventNotificationConfigs_ = java.util.Collections.unmodifiableList(eventNotificationConfigs_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.iot.v1.ResourcesProto.internal_static_google_cloud_iot_v1_DeviceRegistry_descriptor;
@@ -174,7 +53,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * The identifier of this device registry. For example, `myRegistry`.
@@ -220,7 +100,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The resource path name. For example,
@@ -268,6 +149,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EVENT_NOTIFICATION_CONFIGS_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.iot.v1.EventNotificationConfig> eventNotificationConfigs_;
   /**
    * <pre>
@@ -417,7 +299,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.iot.v1.StateNotificationConfigOrBuilder getStateNotificationConfigOrBuilder() {
-    return getStateNotificationConfig();
+    return stateNotificationConfig_ == null ? com.google.cloud.iot.v1.StateNotificationConfig.getDefaultInstance() : stateNotificationConfig_;
   }
 
   public static final int MQTT_CONFIG_FIELD_NUMBER = 4;
@@ -455,7 +337,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.iot.v1.MqttConfigOrBuilder getMqttConfigOrBuilder() {
-    return getMqttConfig();
+    return mqttConfig_ == null ? com.google.cloud.iot.v1.MqttConfig.getDefaultInstance() : mqttConfig_;
   }
 
   public static final int HTTP_CONFIG_FIELD_NUMBER = 9;
@@ -493,11 +375,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.iot.v1.HttpConfigOrBuilder getHttpConfigOrBuilder() {
-    return getHttpConfig();
+    return httpConfig_ == null ? com.google.cloud.iot.v1.HttpConfig.getDefaultInstance() : httpConfig_;
   }
 
   public static final int LOG_LEVEL_FIELD_NUMBER = 11;
-  private int logLevel_;
+  private int logLevel_ = 0;
   /**
    * <pre>
    * **Beta Feature**
@@ -522,12 +404,12 @@ private static final long serialVersionUID = 0L;
    * @return The logLevel.
    */
   @java.lang.Override public com.google.cloud.iot.v1.LogLevel getLogLevel() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.iot.v1.LogLevel result = com.google.cloud.iot.v1.LogLevel.valueOf(logLevel_);
+    com.google.cloud.iot.v1.LogLevel result = com.google.cloud.iot.v1.LogLevel.forNumber(logLevel_);
     return result == null ? com.google.cloud.iot.v1.LogLevel.UNRECOGNIZED : result;
   }
 
   public static final int CREDENTIALS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.iot.v1.RegistryCredential> credentials_;
   /**
    * <pre>
@@ -670,7 +552,7 @@ private static final long serialVersionUID = 0L;
     if (logLevel_ != com.google.cloud.iot.v1.LogLevel.LOG_LEVEL_UNSPECIFIED.getNumber()) {
       output.writeEnum(11, logLevel_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -709,7 +591,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(11, logLevel_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -748,7 +630,7 @@ private static final long serialVersionUID = 0L;
     if (logLevel_ != other.logLevel_) return false;
     if (!getCredentialsList()
         .equals(other.getCredentialsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -785,7 +667,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CREDENTIALS_FIELD_NUMBER;
       hash = (53 * hash) + getCredentialsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -906,60 +788,50 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.iot.v1.DeviceRegistry.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getEventNotificationConfigsFieldBuilder();
-        getCredentialsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       id_ = "";
-
       name_ = "";
-
       if (eventNotificationConfigsBuilder_ == null) {
         eventNotificationConfigs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        eventNotificationConfigs_ = null;
         eventNotificationConfigsBuilder_.clear();
       }
-      if (stateNotificationConfigBuilder_ == null) {
-        stateNotificationConfig_ = null;
-      } else {
-        stateNotificationConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      stateNotificationConfig_ = null;
+      if (stateNotificationConfigBuilder_ != null) {
+        stateNotificationConfigBuilder_.dispose();
         stateNotificationConfigBuilder_ = null;
       }
-      if (mqttConfigBuilder_ == null) {
-        mqttConfig_ = null;
-      } else {
-        mqttConfig_ = null;
+      mqttConfig_ = null;
+      if (mqttConfigBuilder_ != null) {
+        mqttConfigBuilder_.dispose();
         mqttConfigBuilder_ = null;
       }
-      if (httpConfigBuilder_ == null) {
-        httpConfig_ = null;
-      } else {
-        httpConfig_ = null;
+      httpConfig_ = null;
+      if (httpConfigBuilder_ != null) {
+        httpConfigBuilder_.dispose();
         httpConfigBuilder_ = null;
       }
       logLevel_ = 0;
-
       if (credentialsBuilder_ == null) {
         credentials_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        credentials_ = null;
         credentialsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       return this;
     }
 
@@ -986,45 +858,59 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.iot.v1.DeviceRegistry buildPartial() {
       com.google.cloud.iot.v1.DeviceRegistry result = new com.google.cloud.iot.v1.DeviceRegistry(this);
-      int from_bitField0_ = bitField0_;
-      result.id_ = id_;
-      result.name_ = name_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.iot.v1.DeviceRegistry result) {
       if (eventNotificationConfigsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           eventNotificationConfigs_ = java.util.Collections.unmodifiableList(eventNotificationConfigs_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.eventNotificationConfigs_ = eventNotificationConfigs_;
       } else {
         result.eventNotificationConfigs_ = eventNotificationConfigsBuilder_.build();
       }
-      if (stateNotificationConfigBuilder_ == null) {
-        result.stateNotificationConfig_ = stateNotificationConfig_;
-      } else {
-        result.stateNotificationConfig_ = stateNotificationConfigBuilder_.build();
-      }
-      if (mqttConfigBuilder_ == null) {
-        result.mqttConfig_ = mqttConfig_;
-      } else {
-        result.mqttConfig_ = mqttConfigBuilder_.build();
-      }
-      if (httpConfigBuilder_ == null) {
-        result.httpConfig_ = httpConfig_;
-      } else {
-        result.httpConfig_ = httpConfigBuilder_.build();
-      }
-      result.logLevel_ = logLevel_;
       if (credentialsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           credentials_ = java.util.Collections.unmodifiableList(credentials_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.credentials_ = credentials_;
       } else {
         result.credentials_ = credentialsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.iot.v1.DeviceRegistry result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.stateNotificationConfig_ = stateNotificationConfigBuilder_ == null
+            ? stateNotificationConfig_
+            : stateNotificationConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.mqttConfig_ = mqttConfigBuilder_ == null
+            ? mqttConfig_
+            : mqttConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.httpConfig_ = httpConfigBuilder_ == null
+            ? httpConfig_
+            : httpConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.logLevel_ = logLevel_;
+      }
     }
 
     @java.lang.Override
@@ -1073,17 +959,19 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.iot.v1.DeviceRegistry.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (eventNotificationConfigsBuilder_ == null) {
         if (!other.eventNotificationConfigs_.isEmpty()) {
           if (eventNotificationConfigs_.isEmpty()) {
             eventNotificationConfigs_ = other.eventNotificationConfigs_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureEventNotificationConfigsIsMutable();
             eventNotificationConfigs_.addAll(other.eventNotificationConfigs_);
@@ -1096,7 +984,7 @@ private static final long serialVersionUID = 0L;
             eventNotificationConfigsBuilder_.dispose();
             eventNotificationConfigsBuilder_ = null;
             eventNotificationConfigs_ = other.eventNotificationConfigs_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             eventNotificationConfigsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getEventNotificationConfigsFieldBuilder() : null;
@@ -1121,7 +1009,7 @@ private static final long serialVersionUID = 0L;
         if (!other.credentials_.isEmpty()) {
           if (credentials_.isEmpty()) {
             credentials_ = other.credentials_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureCredentialsIsMutable();
             credentials_.addAll(other.credentials_);
@@ -1134,7 +1022,7 @@ private static final long serialVersionUID = 0L;
             credentialsBuilder_.dispose();
             credentialsBuilder_ = null;
             credentials_ = other.credentials_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000080);
             credentialsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getCredentialsFieldBuilder() : null;
@@ -1143,7 +1031,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1158,17 +1046,92 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.iot.v1.DeviceRegistry parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 34: {
+              input.readMessage(
+                  getMqttConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 58: {
+              input.readMessage(
+                  getStateNotificationConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 58
+            case 66: {
+              com.google.cloud.iot.v1.RegistryCredential m =
+                  input.readMessage(
+                      com.google.cloud.iot.v1.RegistryCredential.parser(),
+                      extensionRegistry);
+              if (credentialsBuilder_ == null) {
+                ensureCredentialsIsMutable();
+                credentials_.add(m);
+              } else {
+                credentialsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getHttpConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 74
+            case 82: {
+              com.google.cloud.iot.v1.EventNotificationConfig m =
+                  input.readMessage(
+                      com.google.cloud.iot.v1.EventNotificationConfig.parser(),
+                      extensionRegistry);
+              if (eventNotificationConfigsBuilder_ == null) {
+                ensureEventNotificationConfigsIsMutable();
+                eventNotificationConfigs_.add(m);
+              } else {
+                eventNotificationConfigsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 82
+            case 88: {
+              logLevel_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 88
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.iot.v1.DeviceRegistry) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1226,11 +1189,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1243,8 +1204,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1259,12 +1220,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1325,11 +1284,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1343,8 +1300,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1360,12 +1317,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1373,9 +1328,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.iot.v1.EventNotificationConfig> eventNotificationConfigs_ =
       java.util.Collections.emptyList();
     private void ensureEventNotificationConfigsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         eventNotificationConfigs_ = new java.util.ArrayList<com.google.cloud.iot.v1.EventNotificationConfig>(eventNotificationConfigs_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1657,7 +1612,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearEventNotificationConfigs() {
       if (eventNotificationConfigsBuilder_ == null) {
         eventNotificationConfigs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         eventNotificationConfigsBuilder_.clear();
@@ -1818,7 +1773,7 @@ private static final long serialVersionUID = 0L;
         eventNotificationConfigsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.iot.v1.EventNotificationConfig, com.google.cloud.iot.v1.EventNotificationConfig.Builder, com.google.cloud.iot.v1.EventNotificationConfigOrBuilder>(
                 eventNotificationConfigs_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         eventNotificationConfigs_ = null;
@@ -1843,7 +1798,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the stateNotificationConfig field is set.
      */
     public boolean hasStateNotificationConfig() {
-      return stateNotificationConfigBuilder_ != null || stateNotificationConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1883,11 +1838,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         stateNotificationConfig_ = value;
-        onChanged();
       } else {
         stateNotificationConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1906,11 +1861,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.iot.v1.StateNotificationConfig.Builder builderForValue) {
       if (stateNotificationConfigBuilder_ == null) {
         stateNotificationConfig_ = builderForValue.build();
-        onChanged();
       } else {
         stateNotificationConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1927,17 +1882,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStateNotificationConfig(com.google.cloud.iot.v1.StateNotificationConfig value) {
       if (stateNotificationConfigBuilder_ == null) {
-        if (stateNotificationConfig_ != null) {
-          stateNotificationConfig_ =
-            com.google.cloud.iot.v1.StateNotificationConfig.newBuilder(stateNotificationConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          stateNotificationConfig_ != null &&
+          stateNotificationConfig_ != com.google.cloud.iot.v1.StateNotificationConfig.getDefaultInstance()) {
+          getStateNotificationConfigBuilder().mergeFrom(value);
         } else {
           stateNotificationConfig_ = value;
         }
-        onChanged();
       } else {
         stateNotificationConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1953,14 +1909,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iot.v1.StateNotificationConfig state_notification_config = 7;</code>
      */
     public Builder clearStateNotificationConfig() {
-      if (stateNotificationConfigBuilder_ == null) {
-        stateNotificationConfig_ = null;
-        onChanged();
-      } else {
-        stateNotificationConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      stateNotificationConfig_ = null;
+      if (stateNotificationConfigBuilder_ != null) {
+        stateNotificationConfigBuilder_.dispose();
         stateNotificationConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1976,7 +1931,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iot.v1.StateNotificationConfig state_notification_config = 7;</code>
      */
     public com.google.cloud.iot.v1.StateNotificationConfig.Builder getStateNotificationConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getStateNotificationConfigFieldBuilder().getBuilder();
     }
@@ -2038,7 +1993,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the mqttConfig field is set.
      */
     public boolean hasMqttConfig() {
-      return mqttConfigBuilder_ != null || mqttConfig_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2068,11 +2023,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         mqttConfig_ = value;
-        onChanged();
       } else {
         mqttConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2086,11 +2041,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.iot.v1.MqttConfig.Builder builderForValue) {
       if (mqttConfigBuilder_ == null) {
         mqttConfig_ = builderForValue.build();
-        onChanged();
       } else {
         mqttConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2102,17 +2057,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMqttConfig(com.google.cloud.iot.v1.MqttConfig value) {
       if (mqttConfigBuilder_ == null) {
-        if (mqttConfig_ != null) {
-          mqttConfig_ =
-            com.google.cloud.iot.v1.MqttConfig.newBuilder(mqttConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          mqttConfig_ != null &&
+          mqttConfig_ != com.google.cloud.iot.v1.MqttConfig.getDefaultInstance()) {
+          getMqttConfigBuilder().mergeFrom(value);
         } else {
           mqttConfig_ = value;
         }
-        onChanged();
       } else {
         mqttConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2123,14 +2079,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iot.v1.MqttConfig mqtt_config = 4;</code>
      */
     public Builder clearMqttConfig() {
-      if (mqttConfigBuilder_ == null) {
-        mqttConfig_ = null;
-        onChanged();
-      } else {
-        mqttConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      mqttConfig_ = null;
+      if (mqttConfigBuilder_ != null) {
+        mqttConfigBuilder_.dispose();
         mqttConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2141,7 +2096,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iot.v1.MqttConfig mqtt_config = 4;</code>
      */
     public com.google.cloud.iot.v1.MqttConfig.Builder getMqttConfigBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getMqttConfigFieldBuilder().getBuilder();
     }
@@ -2193,7 +2148,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the httpConfig field is set.
      */
     public boolean hasHttpConfig() {
-      return httpConfigBuilder_ != null || httpConfig_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2223,11 +2178,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         httpConfig_ = value;
-        onChanged();
       } else {
         httpConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2241,11 +2196,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.iot.v1.HttpConfig.Builder builderForValue) {
       if (httpConfigBuilder_ == null) {
         httpConfig_ = builderForValue.build();
-        onChanged();
       } else {
         httpConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2257,17 +2212,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHttpConfig(com.google.cloud.iot.v1.HttpConfig value) {
       if (httpConfigBuilder_ == null) {
-        if (httpConfig_ != null) {
-          httpConfig_ =
-            com.google.cloud.iot.v1.HttpConfig.newBuilder(httpConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          httpConfig_ != null &&
+          httpConfig_ != com.google.cloud.iot.v1.HttpConfig.getDefaultInstance()) {
+          getHttpConfigBuilder().mergeFrom(value);
         } else {
           httpConfig_ = value;
         }
-        onChanged();
       } else {
         httpConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2278,14 +2234,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iot.v1.HttpConfig http_config = 9;</code>
      */
     public Builder clearHttpConfig() {
-      if (httpConfigBuilder_ == null) {
-        httpConfig_ = null;
-        onChanged();
-      } else {
-        httpConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      httpConfig_ = null;
+      if (httpConfigBuilder_ != null) {
+        httpConfigBuilder_.dispose();
         httpConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2296,7 +2251,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iot.v1.HttpConfig http_config = 9;</code>
      */
     public com.google.cloud.iot.v1.HttpConfig.Builder getHttpConfigBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getHttpConfigFieldBuilder().getBuilder();
     }
@@ -2362,8 +2317,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLogLevelValue(int value) {
-      
       logLevel_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2379,8 +2334,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.iot.v1.LogLevel getLogLevel() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.iot.v1.LogLevel result = com.google.cloud.iot.v1.LogLevel.valueOf(logLevel_);
+      com.google.cloud.iot.v1.LogLevel result = com.google.cloud.iot.v1.LogLevel.forNumber(logLevel_);
       return result == null ? com.google.cloud.iot.v1.LogLevel.UNRECOGNIZED : result;
     }
     /**
@@ -2398,7 +2352,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       logLevel_ = value.getNumber();
       onChanged();
       return this;
@@ -2414,7 +2368,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLogLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       logLevel_ = 0;
       onChanged();
       return this;
@@ -2423,9 +2377,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.iot.v1.RegistryCredential> credentials_ =
       java.util.Collections.emptyList();
     private void ensureCredentialsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         credentials_ = new java.util.ArrayList<com.google.cloud.iot.v1.RegistryCredential>(credentials_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -2718,7 +2672,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearCredentials() {
       if (credentialsBuilder_ == null) {
         credentials_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         credentialsBuilder_.clear();
@@ -2886,7 +2840,7 @@ private static final long serialVersionUID = 0L;
         credentialsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.iot.v1.RegistryCredential, com.google.cloud.iot.v1.RegistryCredential.Builder, com.google.cloud.iot.v1.RegistryCredentialOrBuilder>(
                 credentials_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         credentials_ = null;
@@ -2926,7 +2880,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DeviceRegistry(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

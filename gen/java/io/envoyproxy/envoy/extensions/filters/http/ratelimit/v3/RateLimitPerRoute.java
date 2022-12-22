@@ -33,70 +33,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RateLimitPerRoute(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            vhRateLimits_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            overrideOption_ = rawValue;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              rateLimits_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitConfig>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            rateLimits_.add(
-                input.readMessage(io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitConfig.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        rateLimits_ = java.util.Collections.unmodifiableList(rateLimits_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitProto.internal_static_envoy_extensions_filters_http_ratelimit_v3_RateLimitPerRoute_descriptor;
@@ -111,6 +47,10 @@ private static final long serialVersionUID = 0L;
   }
 
   /**
+   * <pre>
+   * [#next-major-version: unify with local ratelimit, should use common.ratelimit.v3.VhRateLimitsOptions instead.]
+   * </pre>
+   *
    * Protobuf enum {@code envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions}
    */
   public enum VhRateLimitsOptions
@@ -415,10 +355,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VH_RATE_LIMITS_FIELD_NUMBER = 1;
-  private int vhRateLimits_;
+  private int vhRateLimits_ = 0;
   /**
    * <pre>
    * Specifies if the rate limit filter should include the virtual host rate limits.
+   * [#next-major-version: unify with local ratelimit, should use common.ratelimit.v3.VhRateLimitsOptions instead.]
    * </pre>
    *
    * <code>.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions vh_rate_limits = 1 [(.validate.rules) = { ... }</code>
@@ -430,19 +371,19 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Specifies if the rate limit filter should include the virtual host rate limits.
+   * [#next-major-version: unify with local ratelimit, should use common.ratelimit.v3.VhRateLimitsOptions instead.]
    * </pre>
    *
    * <code>.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions vh_rate_limits = 1 [(.validate.rules) = { ... }</code>
    * @return The vhRateLimits.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions getVhRateLimits() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions result = io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions.valueOf(vhRateLimits_);
+    io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions result = io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions.forNumber(vhRateLimits_);
     return result == null ? io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions.UNRECOGNIZED : result;
   }
 
   public static final int OVERRIDE_OPTION_FIELD_NUMBER = 2;
-  private int overrideOption_;
+  private int overrideOption_ = 0;
   /**
    * <pre>
    * Specifies if the rate limit filter should include the lower levels (route level, virtual host level or cluster weight level) rate limits override options.
@@ -465,12 +406,12 @@ private static final long serialVersionUID = 0L;
    * @return The overrideOption.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.OverrideOptions getOverrideOption() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.OverrideOptions result = io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.OverrideOptions.valueOf(overrideOption_);
+    io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.OverrideOptions result = io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.OverrideOptions.forNumber(overrideOption_);
     return result == null ? io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.OverrideOptions.UNRECOGNIZED : result;
   }
 
   public static final int RATE_LIMITS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitConfig> rateLimits_;
   /**
    * <pre>
@@ -568,7 +509,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < rateLimits_.size(); i++) {
       output.writeMessage(3, rateLimits_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -589,7 +530,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, rateLimits_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -608,7 +549,7 @@ private static final long serialVersionUID = 0L;
     if (overrideOption_ != other.overrideOption_) return false;
     if (!getRateLimitsList()
         .equals(other.getRateLimitsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -627,7 +568,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RATE_LIMITS_FIELD_NUMBER;
       hash = (53 * hash) + getRateLimitsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -744,33 +685,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRateLimitsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       vhRateLimits_ = 0;
-
       overrideOption_ = 0;
-
       if (rateLimitsBuilder_ == null) {
         rateLimits_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        rateLimits_ = null;
         rateLimitsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -797,20 +732,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute result = new io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute(this);
-      int from_bitField0_ = bitField0_;
-      result.vhRateLimits_ = vhRateLimits_;
-      result.overrideOption_ = overrideOption_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute result) {
       if (rateLimitsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           rateLimits_ = java.util.Collections.unmodifiableList(rateLimits_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.rateLimits_ = rateLimits_;
       } else {
         result.rateLimits_ = rateLimitsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.vhRateLimits_ = vhRateLimits_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.overrideOption_ = overrideOption_;
+      }
     }
 
     @java.lang.Override
@@ -867,7 +814,7 @@ private static final long serialVersionUID = 0L;
         if (!other.rateLimits_.isEmpty()) {
           if (rateLimits_.isEmpty()) {
             rateLimits_ = other.rateLimits_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureRateLimitsIsMutable();
             rateLimits_.addAll(other.rateLimits_);
@@ -880,7 +827,7 @@ private static final long serialVersionUID = 0L;
             rateLimitsBuilder_.dispose();
             rateLimitsBuilder_ = null;
             rateLimits_ = other.rateLimits_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             rateLimitsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getRateLimitsFieldBuilder() : null;
@@ -889,7 +836,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -904,17 +851,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              vhRateLimits_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              overrideOption_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitConfig m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitConfig.parser(),
+                      extensionRegistry);
+              if (rateLimitsBuilder_ == null) {
+                ensureRateLimitsIsMutable();
+                rateLimits_.add(m);
+              } else {
+                rateLimitsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -923,6 +906,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies if the rate limit filter should include the virtual host rate limits.
+     * [#next-major-version: unify with local ratelimit, should use common.ratelimit.v3.VhRateLimitsOptions instead.]
      * </pre>
      *
      * <code>.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions vh_rate_limits = 1 [(.validate.rules) = { ... }</code>
@@ -934,6 +918,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies if the rate limit filter should include the virtual host rate limits.
+     * [#next-major-version: unify with local ratelimit, should use common.ratelimit.v3.VhRateLimitsOptions instead.]
      * </pre>
      *
      * <code>.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions vh_rate_limits = 1 [(.validate.rules) = { ... }</code>
@@ -941,14 +926,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setVhRateLimitsValue(int value) {
-      
       vhRateLimits_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Specifies if the rate limit filter should include the virtual host rate limits.
+     * [#next-major-version: unify with local ratelimit, should use common.ratelimit.v3.VhRateLimitsOptions instead.]
      * </pre>
      *
      * <code>.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions vh_rate_limits = 1 [(.validate.rules) = { ... }</code>
@@ -956,13 +942,13 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions getVhRateLimits() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions result = io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions.valueOf(vhRateLimits_);
+      io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions result = io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions.forNumber(vhRateLimits_);
       return result == null ? io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions.UNRECOGNIZED : result;
     }
     /**
      * <pre>
      * Specifies if the rate limit filter should include the virtual host rate limits.
+     * [#next-major-version: unify with local ratelimit, should use common.ratelimit.v3.VhRateLimitsOptions instead.]
      * </pre>
      *
      * <code>.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions vh_rate_limits = 1 [(.validate.rules) = { ... }</code>
@@ -973,7 +959,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       vhRateLimits_ = value.getNumber();
       onChanged();
       return this;
@@ -981,13 +967,14 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies if the rate limit filter should include the virtual host rate limits.
+     * [#next-major-version: unify with local ratelimit, should use common.ratelimit.v3.VhRateLimitsOptions instead.]
      * </pre>
      *
      * <code>.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions vh_rate_limits = 1 [(.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearVhRateLimits() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       vhRateLimits_ = 0;
       onChanged();
       return this;
@@ -1017,8 +1004,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOverrideOptionValue(int value) {
-      
       overrideOption_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1033,8 +1020,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.OverrideOptions getOverrideOption() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.OverrideOptions result = io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.OverrideOptions.valueOf(overrideOption_);
+      io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.OverrideOptions result = io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.OverrideOptions.forNumber(overrideOption_);
       return result == null ? io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.OverrideOptions.UNRECOGNIZED : result;
     }
     /**
@@ -1051,7 +1037,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       overrideOption_ = value.getNumber();
       onChanged();
       return this;
@@ -1066,7 +1052,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOverrideOption() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       overrideOption_ = 0;
       onChanged();
       return this;
@@ -1075,9 +1061,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitConfig> rateLimits_ =
       java.util.Collections.emptyList();
     private void ensureRateLimitsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         rateLimits_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitConfig>(rateLimits_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1304,7 +1290,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearRateLimits() {
       if (rateLimitsBuilder_ == null) {
         rateLimits_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         rateLimitsBuilder_.clear();
@@ -1430,7 +1416,7 @@ private static final long serialVersionUID = 0L;
         rateLimitsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitConfig, io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitConfig.Builder, io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimitConfigOrBuilder>(
                 rateLimits_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         rateLimits_ = null;
@@ -1470,7 +1456,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RateLimitPerRoute(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

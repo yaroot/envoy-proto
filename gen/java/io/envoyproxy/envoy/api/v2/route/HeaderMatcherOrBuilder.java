@@ -73,7 +73,7 @@ public interface HeaderMatcherOrBuilder extends
    *
    * <code>string regex_match = 5 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.api.v2.route.HeaderMatcher.regex_match is deprecated.
-   *     See envoy/api/v2/route/route_components.proto;l=1541
+   *     See envoy/api/v2/route/route_components.proto;l=1542
    * @return Whether the regexMatch field is set.
    */
   @java.lang.Deprecated boolean hasRegexMatch();
@@ -94,7 +94,7 @@ public interface HeaderMatcherOrBuilder extends
    *
    * <code>string regex_match = 5 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.api.v2.route.HeaderMatcher.regex_match is deprecated.
-   *     See envoy/api/v2/route/route_components.proto;l=1541
+   *     See envoy/api/v2/route/route_components.proto;l=1542
    * @return The regexMatch.
    */
   @java.lang.Deprecated java.lang.String getRegexMatch();
@@ -115,7 +115,7 @@ public interface HeaderMatcherOrBuilder extends
    *
    * <code>string regex_match = 5 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.api.v2.route.HeaderMatcher.regex_match is deprecated.
-   *     See envoy/api/v2/route/route_components.proto;l=1541
+   *     See envoy/api/v2/route/route_components.proto;l=1542
    * @return The bytes for regexMatch.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

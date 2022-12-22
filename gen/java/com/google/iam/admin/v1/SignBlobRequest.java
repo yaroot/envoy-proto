@@ -38,71 +38,22 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SignBlobRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-
-            bytesToSign_ = input.readBytes();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_SignBlobRequest_descriptor;
+    return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_SignBlobRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_SignBlobRequest_fieldAccessorTable
+    return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_SignBlobRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.google.iam.admin.v1.SignBlobRequest.class, com.google.iam.admin.v1.SignBlobRequest.Builder.class);
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. Deprecated. [Migrate to Service Account Credentials
@@ -116,7 +67,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string name = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
    * @deprecated google.iam.admin.v1.SignBlobRequest.name is deprecated.
-   *     See google/iam/admin/v1/iam.proto;l=856
+   *     See google/iam/admin/v1/iam.proto;l=974
    * @return The name.
    */
   @java.lang.Override
@@ -145,7 +96,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string name = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
    * @deprecated google.iam.admin.v1.SignBlobRequest.name is deprecated.
-   *     See google/iam/admin/v1/iam.proto;l=856
+   *     See google/iam/admin/v1/iam.proto;l=974
    * @return The bytes for name.
    */
   @java.lang.Override
@@ -164,7 +115,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BYTES_TO_SIGN_FIELD_NUMBER = 2;
-  private com.google.protobuf.ByteString bytesToSign_;
+  private com.google.protobuf.ByteString bytesToSign_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * Required. Deprecated. [Migrate to Service Account Credentials
@@ -174,7 +125,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>bytes bytes_to_sign = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.iam.admin.v1.SignBlobRequest.bytes_to_sign is deprecated.
-   *     See google/iam/admin/v1/iam.proto;l=868
+   *     See google/iam/admin/v1/iam.proto;l=986
    * @return The bytesToSign.
    */
   @java.lang.Override
@@ -202,7 +153,7 @@ private static final long serialVersionUID = 0L;
     if (!bytesToSign_.isEmpty()) {
       output.writeBytes(2, bytesToSign_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -218,7 +169,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBytesSize(2, bytesToSign_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -237,7 +188,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName())) return false;
     if (!getBytesToSign()
         .equals(other.getBytesToSign())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -252,7 +203,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + BYTES_TO_SIGN_FIELD_NUMBER;
     hash = (53 * hash) + getBytesToSign().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -362,46 +313,40 @@ private static final long serialVersionUID = 0L;
       com.google.iam.admin.v1.SignBlobRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_SignBlobRequest_descriptor;
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_SignBlobRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_SignBlobRequest_fieldAccessorTable
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_SignBlobRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.iam.admin.v1.SignBlobRequest.class, com.google.iam.admin.v1.SignBlobRequest.Builder.class);
     }
 
     // Construct using com.google.iam.admin.v1.SignBlobRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       bytesToSign_ = com.google.protobuf.ByteString.EMPTY;
-
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_SignBlobRequest_descriptor;
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_SignBlobRequest_descriptor;
     }
 
     @java.lang.Override
@@ -421,10 +366,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.iam.admin.v1.SignBlobRequest buildPartial() {
       com.google.iam.admin.v1.SignBlobRequest result = new com.google.iam.admin.v1.SignBlobRequest(this);
-      result.name_ = name_;
-      result.bytesToSign_ = bytesToSign_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.iam.admin.v1.SignBlobRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.bytesToSign_ = bytesToSign_;
+      }
     }
 
     @java.lang.Override
@@ -473,12 +427,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.iam.admin.v1.SignBlobRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getBytesToSign() != com.google.protobuf.ByteString.EMPTY) {
         setBytesToSign(other.getBytesToSign());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -493,19 +448,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.iam.admin.v1.SignBlobRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              bytesToSign_ = input.readBytes();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.iam.admin.v1.SignBlobRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -521,7 +500,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string name = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
      * @deprecated google.iam.admin.v1.SignBlobRequest.name is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=856
+     *     See google/iam/admin/v1/iam.proto;l=974
      * @return The name.
      */
     @java.lang.Deprecated public java.lang.String getName() {
@@ -549,7 +528,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string name = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
      * @deprecated google.iam.admin.v1.SignBlobRequest.name is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=856
+     *     See google/iam/admin/v1/iam.proto;l=974
      * @return The bytes for name.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -578,17 +557,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string name = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
      * @deprecated google.iam.admin.v1.SignBlobRequest.name is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=856
+     *     See google/iam/admin/v1/iam.proto;l=974
      * @param value The name to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -605,12 +582,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string name = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
      * @deprecated google.iam.admin.v1.SignBlobRequest.name is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=856
+     *     See google/iam/admin/v1/iam.proto;l=974
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -627,18 +604,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string name = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
      * @deprecated google.iam.admin.v1.SignBlobRequest.name is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=856
+     *     See google/iam/admin/v1/iam.proto;l=974
      * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -653,7 +628,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>bytes bytes_to_sign = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.iam.admin.v1.SignBlobRequest.bytes_to_sign is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=868
+     *     See google/iam/admin/v1/iam.proto;l=986
      * @return The bytesToSign.
      */
     @java.lang.Override
@@ -669,16 +644,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>bytes bytes_to_sign = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.iam.admin.v1.SignBlobRequest.bytes_to_sign is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=868
+     *     See google/iam/admin/v1/iam.proto;l=986
      * @param value The bytesToSign to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setBytesToSign(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       bytesToSign_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -691,11 +664,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>bytes bytes_to_sign = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.iam.admin.v1.SignBlobRequest.bytes_to_sign is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=868
+     *     See google/iam/admin/v1/iam.proto;l=986
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearBytesToSign() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       bytesToSign_ = getDefaultInstance().getBytesToSign();
       onChanged();
       return this;
@@ -733,7 +706,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SignBlobRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -38,101 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AnnotateTextResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              sentences_ = new java.util.ArrayList<com.google.cloud.language.v1beta1.Sentence>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            sentences_.add(
-                input.readMessage(com.google.cloud.language.v1beta1.Sentence.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              tokens_ = new java.util.ArrayList<com.google.cloud.language.v1beta1.Token>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            tokens_.add(
-                input.readMessage(com.google.cloud.language.v1beta1.Token.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              entities_ = new java.util.ArrayList<com.google.cloud.language.v1beta1.Entity>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            entities_.add(
-                input.readMessage(com.google.cloud.language.v1beta1.Entity.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            com.google.cloud.language.v1beta1.Sentiment.Builder subBuilder = null;
-            if (documentSentiment_ != null) {
-              subBuilder = documentSentiment_.toBuilder();
-            }
-            documentSentiment_ = input.readMessage(com.google.cloud.language.v1beta1.Sentiment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(documentSentiment_);
-              documentSentiment_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            language_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        sentences_ = java.util.Collections.unmodifiableList(sentences_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        tokens_ = java.util.Collections.unmodifiableList(tokens_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        entities_ = java.util.Collections.unmodifiableList(entities_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.language.v1beta1.LanguageServiceProto.internal_static_google_cloud_language_v1beta1_AnnotateTextResponse_descriptor;
@@ -147,6 +52,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SENTENCES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.language.v1beta1.Sentence> sentences_;
   /**
    * <pre>
@@ -212,6 +118,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOKENS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.language.v1beta1.Token> tokens_;
   /**
    * <pre>
@@ -282,6 +189,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENTITIES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.language.v1beta1.Entity> entities_;
   /**
    * <pre>
@@ -389,11 +297,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.language.v1beta1.SentimentOrBuilder getDocumentSentimentOrBuilder() {
-    return getDocumentSentiment();
+    return documentSentiment_ == null ? com.google.cloud.language.v1beta1.Sentiment.getDefaultInstance() : documentSentiment_;
   }
 
   public static final int LANGUAGE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object language_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object language_ = "";
   /**
    * <pre>
    * The language of the text, which will be the same as the language specified
@@ -473,7 +382,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(language_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, language_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -501,7 +410,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(language_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, language_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -529,7 +438,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getLanguage()
         .equals(other.getLanguage())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -558,7 +467,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + LANGUAGE_FIELD_NUMBER;
     hash = (53 * hash) + getLanguage().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -679,51 +588,45 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.language.v1beta1.AnnotateTextResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSentencesFieldBuilder();
-        getTokensFieldBuilder();
-        getEntitiesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (sentencesBuilder_ == null) {
         sentences_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        sentences_ = null;
         sentencesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (tokensBuilder_ == null) {
         tokens_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        tokens_ = null;
         tokensBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (entitiesBuilder_ == null) {
         entities_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        entities_ = null;
         entitiesBuilder_.clear();
       }
-      if (documentSentimentBuilder_ == null) {
-        documentSentiment_ = null;
-      } else {
-        documentSentiment_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      documentSentiment_ = null;
+      if (documentSentimentBuilder_ != null) {
+        documentSentimentBuilder_.dispose();
         documentSentimentBuilder_ = null;
       }
       language_ = "";
-
       return this;
     }
 
@@ -750,7 +653,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.language.v1beta1.AnnotateTextResponse buildPartial() {
       com.google.cloud.language.v1beta1.AnnotateTextResponse result = new com.google.cloud.language.v1beta1.AnnotateTextResponse(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.language.v1beta1.AnnotateTextResponse result) {
       if (sentencesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           sentences_ = java.util.Collections.unmodifiableList(sentences_);
@@ -778,14 +687,18 @@ private static final long serialVersionUID = 0L;
       } else {
         result.entities_ = entitiesBuilder_.build();
       }
-      if (documentSentimentBuilder_ == null) {
-        result.documentSentiment_ = documentSentiment_;
-      } else {
-        result.documentSentiment_ = documentSentimentBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.language.v1beta1.AnnotateTextResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.documentSentiment_ = documentSentimentBuilder_ == null
+            ? documentSentiment_
+            : documentSentimentBuilder_.build();
       }
-      result.language_ = language_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.language_ = language_;
+      }
     }
 
     @java.lang.Override
@@ -915,9 +828,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLanguage().isEmpty()) {
         language_ = other.language_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -932,17 +846,81 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.language.v1beta1.AnnotateTextResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.language.v1beta1.Sentence m =
+                  input.readMessage(
+                      com.google.cloud.language.v1beta1.Sentence.parser(),
+                      extensionRegistry);
+              if (sentencesBuilder_ == null) {
+                ensureSentencesIsMutable();
+                sentences_.add(m);
+              } else {
+                sentencesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.language.v1beta1.Token m =
+                  input.readMessage(
+                      com.google.cloud.language.v1beta1.Token.parser(),
+                      extensionRegistry);
+              if (tokensBuilder_ == null) {
+                ensureTokensIsMutable();
+                tokens_.add(m);
+              } else {
+                tokensBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.language.v1beta1.Entity m =
+                  input.readMessage(
+                      com.google.cloud.language.v1beta1.Entity.parser(),
+                      extensionRegistry);
+              if (entitiesBuilder_ == null) {
+                ensureEntitiesIsMutable();
+                entities_.add(m);
+              } else {
+                entitiesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getDocumentSentimentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              language_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.language.v1beta1.AnnotateTextResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1986,7 +1964,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the documentSentiment field is set.
      */
     public boolean hasDocumentSentiment() {
-      return documentSentimentBuilder_ != null || documentSentiment_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2018,11 +1996,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         documentSentiment_ = value;
-        onChanged();
       } else {
         documentSentimentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2037,11 +2015,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.language.v1beta1.Sentiment.Builder builderForValue) {
       if (documentSentimentBuilder_ == null) {
         documentSentiment_ = builderForValue.build();
-        onChanged();
       } else {
         documentSentimentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2054,17 +2032,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDocumentSentiment(com.google.cloud.language.v1beta1.Sentiment value) {
       if (documentSentimentBuilder_ == null) {
-        if (documentSentiment_ != null) {
-          documentSentiment_ =
-            com.google.cloud.language.v1beta1.Sentiment.newBuilder(documentSentiment_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          documentSentiment_ != null &&
+          documentSentiment_ != com.google.cloud.language.v1beta1.Sentiment.getDefaultInstance()) {
+          getDocumentSentimentBuilder().mergeFrom(value);
         } else {
           documentSentiment_ = value;
         }
-        onChanged();
       } else {
         documentSentimentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2076,14 +2055,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.language.v1beta1.Sentiment document_sentiment = 4;</code>
      */
     public Builder clearDocumentSentiment() {
-      if (documentSentimentBuilder_ == null) {
-        documentSentiment_ = null;
-        onChanged();
-      } else {
-        documentSentiment_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      documentSentiment_ = null;
+      if (documentSentimentBuilder_ != null) {
+        documentSentimentBuilder_.dispose();
         documentSentimentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2095,7 +2073,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.language.v1beta1.Sentiment document_sentiment = 4;</code>
      */
     public com.google.cloud.language.v1beta1.Sentiment.Builder getDocumentSentimentBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getDocumentSentimentFieldBuilder().getBuilder();
     }
@@ -2199,11 +2177,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       language_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2219,8 +2195,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguage() {
-      
       language_ = getDefaultInstance().getLanguage();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2238,12 +2214,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       language_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2280,7 +2254,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AnnotateTextResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

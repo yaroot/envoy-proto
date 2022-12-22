@@ -34,86 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ImagePolylineAnnotation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.datalabeling.v1beta1.AnnotationSpec.Builder subBuilder = null;
-            if (annotationSpec_ != null) {
-              subBuilder = annotationSpec_.toBuilder();
-            }
-            annotationSpec_ = input.readMessage(com.google.cloud.datalabeling.v1beta1.AnnotationSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(annotationSpec_);
-              annotationSpec_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.datalabeling.v1beta1.Polyline.Builder subBuilder = null;
-            if (polyCase_ == 2) {
-              subBuilder = ((com.google.cloud.datalabeling.v1beta1.Polyline) poly_).toBuilder();
-            }
-            poly_ =
-                input.readMessage(com.google.cloud.datalabeling.v1beta1.Polyline.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datalabeling.v1beta1.Polyline) poly_);
-              poly_ = subBuilder.buildPartial();
-            }
-            polyCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.cloud.datalabeling.v1beta1.NormalizedPolyline.Builder subBuilder = null;
-            if (polyCase_ == 3) {
-              subBuilder = ((com.google.cloud.datalabeling.v1beta1.NormalizedPolyline) poly_).toBuilder();
-            }
-            poly_ =
-                input.readMessage(com.google.cloud.datalabeling.v1beta1.NormalizedPolyline.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datalabeling.v1beta1.NormalizedPolyline) poly_);
-              poly_ = subBuilder.buildPartial();
-            }
-            polyCase_ = 3;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datalabeling.v1beta1.AnnotationOuterClass.internal_static_google_cloud_datalabeling_v1beta1_ImagePolylineAnnotation_descriptor;
@@ -265,7 +185,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datalabeling.v1beta1.AnnotationSpecOrBuilder getAnnotationSpecOrBuilder() {
-    return getAnnotationSpec();
+    return annotationSpec_ == null ? com.google.cloud.datalabeling.v1beta1.AnnotationSpec.getDefaultInstance() : annotationSpec_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -291,7 +211,7 @@ private static final long serialVersionUID = 0L;
     if (polyCase_ == 3) {
       output.writeMessage(3, (com.google.cloud.datalabeling.v1beta1.NormalizedPolyline) poly_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -312,7 +232,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, (com.google.cloud.datalabeling.v1beta1.NormalizedPolyline) poly_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -345,7 +265,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -372,7 +292,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -493,26 +413,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datalabeling.v1beta1.ImagePolylineAnnotation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (annotationSpecBuilder_ == null) {
-        annotationSpec_ = null;
-      } else {
-        annotationSpec_ = null;
+      bitField0_ = 0;
+      if (polylineBuilder_ != null) {
+        polylineBuilder_.clear();
+      }
+      if (normalizedPolylineBuilder_ != null) {
+        normalizedPolylineBuilder_.clear();
+      }
+      annotationSpec_ = null;
+      if (annotationSpecBuilder_ != null) {
+        annotationSpecBuilder_.dispose();
         annotationSpecBuilder_ = null;
       }
       polyCase_ = 0;
@@ -543,28 +464,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datalabeling.v1beta1.ImagePolylineAnnotation buildPartial() {
       com.google.cloud.datalabeling.v1beta1.ImagePolylineAnnotation result = new com.google.cloud.datalabeling.v1beta1.ImagePolylineAnnotation(this);
-      if (polyCase_ == 2) {
-        if (polylineBuilder_ == null) {
-          result.poly_ = poly_;
-        } else {
-          result.poly_ = polylineBuilder_.build();
-        }
-      }
-      if (polyCase_ == 3) {
-        if (normalizedPolylineBuilder_ == null) {
-          result.poly_ = poly_;
-        } else {
-          result.poly_ = normalizedPolylineBuilder_.build();
-        }
-      }
-      if (annotationSpecBuilder_ == null) {
-        result.annotationSpec_ = annotationSpec_;
-      } else {
-        result.annotationSpec_ = annotationSpecBuilder_.build();
-      }
-      result.polyCase_ = polyCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datalabeling.v1beta1.ImagePolylineAnnotation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.annotationSpec_ = annotationSpecBuilder_ == null
+            ? annotationSpec_
+            : annotationSpecBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.datalabeling.v1beta1.ImagePolylineAnnotation result) {
+      result.polyCase_ = polyCase_;
+      result.poly_ = this.poly_;
+      if (polyCase_ == 2 &&
+          polylineBuilder_ != null) {
+        result.poly_ = polylineBuilder_.build();
+      }
+      if (polyCase_ == 3 &&
+          normalizedPolylineBuilder_ != null) {
+        result.poly_ = normalizedPolylineBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -627,7 +552,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -642,17 +567,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datalabeling.v1beta1.ImagePolylineAnnotation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAnnotationSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPolylineFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              polyCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getNormalizedPolylineFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              polyCase_ = 3;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datalabeling.v1beta1.ImagePolylineAnnotation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int polyCase_ = 0;
@@ -670,6 +629,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.datalabeling.v1beta1.Polyline, com.google.cloud.datalabeling.v1beta1.Polyline.Builder, com.google.cloud.datalabeling.v1beta1.PolylineOrBuilder> polylineBuilder_;
@@ -809,7 +769,7 @@ private static final long serialVersionUID = 0L;
         poly_ = null;
       }
       polyCase_ = 2;
-      onChanged();;
+      onChanged();
       return polylineBuilder_;
     }
 
@@ -951,7 +911,7 @@ private static final long serialVersionUID = 0L;
         poly_ = null;
       }
       polyCase_ = 3;
-      onChanged();;
+      onChanged();
       return normalizedPolylineBuilder_;
     }
 
@@ -967,7 +927,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the annotationSpec field is set.
      */
     public boolean hasAnnotationSpec() {
-      return annotationSpecBuilder_ != null || annotationSpec_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -997,11 +957,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         annotationSpec_ = value;
-        onChanged();
       } else {
         annotationSpecBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1015,11 +975,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datalabeling.v1beta1.AnnotationSpec.Builder builderForValue) {
       if (annotationSpecBuilder_ == null) {
         annotationSpec_ = builderForValue.build();
-        onChanged();
       } else {
         annotationSpecBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1031,17 +991,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAnnotationSpec(com.google.cloud.datalabeling.v1beta1.AnnotationSpec value) {
       if (annotationSpecBuilder_ == null) {
-        if (annotationSpec_ != null) {
-          annotationSpec_ =
-            com.google.cloud.datalabeling.v1beta1.AnnotationSpec.newBuilder(annotationSpec_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          annotationSpec_ != null &&
+          annotationSpec_ != com.google.cloud.datalabeling.v1beta1.AnnotationSpec.getDefaultInstance()) {
+          getAnnotationSpecBuilder().mergeFrom(value);
         } else {
           annotationSpec_ = value;
         }
-        onChanged();
       } else {
         annotationSpecBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1052,14 +1013,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datalabeling.v1beta1.AnnotationSpec annotation_spec = 1;</code>
      */
     public Builder clearAnnotationSpec() {
-      if (annotationSpecBuilder_ == null) {
-        annotationSpec_ = null;
-        onChanged();
-      } else {
-        annotationSpec_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      annotationSpec_ = null;
+      if (annotationSpecBuilder_ != null) {
+        annotationSpecBuilder_.dispose();
         annotationSpecBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1070,7 +1030,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datalabeling.v1beta1.AnnotationSpec annotation_spec = 1;</code>
      */
     public com.google.cloud.datalabeling.v1beta1.AnnotationSpec.Builder getAnnotationSpecBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getAnnotationSpecFieldBuilder().getBuilder();
     }
@@ -1142,7 +1102,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImagePolylineAnnotation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

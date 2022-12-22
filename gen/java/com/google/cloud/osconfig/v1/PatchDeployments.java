@@ -383,182 +383,6 @@ public final class PatchDeployments {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PatchDeployment(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              description_ = s;
-              break;
-            }
-            case 26: {
-              com.google.cloud.osconfig.v1.PatchJobs.PatchInstanceFilter.Builder subBuilder = null;
-              if (instanceFilter_ != null) {
-                subBuilder = instanceFilter_.toBuilder();
-              }
-              instanceFilter_ = input.readMessage(com.google.cloud.osconfig.v1.PatchJobs.PatchInstanceFilter.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(instanceFilter_);
-                instanceFilter_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              com.google.cloud.osconfig.v1.PatchJobs.PatchConfig.Builder subBuilder = null;
-              if (patchConfig_ != null) {
-                subBuilder = patchConfig_.toBuilder();
-              }
-              patchConfig_ = input.readMessage(com.google.cloud.osconfig.v1.PatchJobs.PatchConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(patchConfig_);
-                patchConfig_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (duration_ != null) {
-                subBuilder = duration_.toBuilder();
-              }
-              duration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(duration_);
-                duration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 50: {
-              com.google.cloud.osconfig.v1.PatchDeployments.OneTimeSchedule.Builder subBuilder = null;
-              if (scheduleCase_ == 6) {
-                subBuilder = ((com.google.cloud.osconfig.v1.PatchDeployments.OneTimeSchedule) schedule_).toBuilder();
-              }
-              schedule_ =
-                  input.readMessage(com.google.cloud.osconfig.v1.PatchDeployments.OneTimeSchedule.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.osconfig.v1.PatchDeployments.OneTimeSchedule) schedule_);
-                schedule_ = subBuilder.buildPartial();
-              }
-              scheduleCase_ = 6;
-              break;
-            }
-            case 58: {
-              com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule.Builder subBuilder = null;
-              if (scheduleCase_ == 7) {
-                subBuilder = ((com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule) schedule_).toBuilder();
-              }
-              schedule_ =
-                  input.readMessage(com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule) schedule_);
-                schedule_ = subBuilder.buildPartial();
-              }
-              scheduleCase_ = 7;
-              break;
-            }
-            case 66: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (createTime_ != null) {
-                subBuilder = createTime_.toBuilder();
-              }
-              createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(createTime_);
-                createTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 74: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (updateTime_ != null) {
-                subBuilder = updateTime_.toBuilder();
-              }
-              updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(updateTime_);
-                updateTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 82: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (lastExecuteTime_ != null) {
-                subBuilder = lastExecuteTime_.toBuilder();
-              }
-              lastExecuteTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(lastExecuteTime_);
-                lastExecuteTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 90: {
-              com.google.cloud.osconfig.v1.PatchJobs.PatchRollout.Builder subBuilder = null;
-              if (rollout_ != null) {
-                subBuilder = rollout_.toBuilder();
-              }
-              rollout_ = input.readMessage(com.google.cloud.osconfig.v1.PatchJobs.PatchRollout.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(rollout_);
-                rollout_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 96: {
-              int rawValue = input.readEnum();
-
-              state_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.v1.PatchDeployments.internal_static_google_cloud_osconfig_v1_PatchDeployment_descriptor;
@@ -761,7 +585,8 @@ public final class PatchDeployments {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Unique name for the patch deployment resource in a project. The patch
@@ -813,7 +638,8 @@ public final class PatchDeployments {
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object description_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object description_ = "";
     /**
      * <pre>
      * Optional. Description of the patch deployment. Length of the description is
@@ -895,7 +721,7 @@ public final class PatchDeployments {
      */
     @java.lang.Override
     public com.google.cloud.osconfig.v1.PatchJobs.PatchInstanceFilterOrBuilder getInstanceFilterOrBuilder() {
-      return getInstanceFilter();
+      return instanceFilter_ == null ? com.google.cloud.osconfig.v1.PatchJobs.PatchInstanceFilter.getDefaultInstance() : instanceFilter_;
     }
 
     public static final int PATCH_CONFIG_FIELD_NUMBER = 4;
@@ -933,7 +759,7 @@ public final class PatchDeployments {
      */
     @java.lang.Override
     public com.google.cloud.osconfig.v1.PatchJobs.PatchConfigOrBuilder getPatchConfigOrBuilder() {
-      return getPatchConfig();
+      return patchConfig_ == null ? com.google.cloud.osconfig.v1.PatchJobs.PatchConfig.getDefaultInstance() : patchConfig_;
     }
 
     public static final int DURATION_FIELD_NUMBER = 5;
@@ -974,7 +800,7 @@ public final class PatchDeployments {
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getDurationOrBuilder() {
-      return getDuration();
+      return duration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : duration_;
     }
 
     public static final int ONE_TIME_SCHEDULE_FIELD_NUMBER = 6;
@@ -1101,7 +927,7 @@ public final class PatchDeployments {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-      return getCreateTime();
+      return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
     }
 
     public static final int UPDATE_TIME_FIELD_NUMBER = 9;
@@ -1142,7 +968,7 @@ public final class PatchDeployments {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-      return getUpdateTime();
+      return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
     }
 
     public static final int LAST_EXECUTE_TIME_FIELD_NUMBER = 10;
@@ -1186,7 +1012,7 @@ public final class PatchDeployments {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getLastExecuteTimeOrBuilder() {
-      return getLastExecuteTime();
+      return lastExecuteTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastExecuteTime_;
     }
 
     public static final int ROLLOUT_FIELD_NUMBER = 11;
@@ -1224,11 +1050,11 @@ public final class PatchDeployments {
      */
     @java.lang.Override
     public com.google.cloud.osconfig.v1.PatchJobs.PatchRolloutOrBuilder getRolloutOrBuilder() {
-      return getRollout();
+      return rollout_ == null ? com.google.cloud.osconfig.v1.PatchJobs.PatchRollout.getDefaultInstance() : rollout_;
     }
 
     public static final int STATE_FIELD_NUMBER = 12;
-    private int state_;
+    private int state_ = 0;
     /**
      * <pre>
      * Output only. Current state of the patch deployment.
@@ -1249,8 +1075,7 @@ public final class PatchDeployments {
      * @return The state.
      */
     @java.lang.Override public com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.State result = com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.State.valueOf(state_);
+      com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.State result = com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.State.forNumber(state_);
       return result == null ? com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.State.UNRECOGNIZED : result;
     }
 
@@ -1304,7 +1129,7 @@ public final class PatchDeployments {
       if (state_ != com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.State.STATE_UNSPECIFIED.getNumber()) {
         output.writeEnum(12, state_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1359,7 +1184,7 @@ public final class PatchDeployments {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(12, state_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1427,7 +1252,7 @@ public final class PatchDeployments {
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1484,7 +1309,7 @@ public final class PatchDeployments {
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1609,70 +1434,62 @@ public final class PatchDeployments {
 
       // Construct using com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         description_ = "";
-
-        if (instanceFilterBuilder_ == null) {
-          instanceFilter_ = null;
-        } else {
-          instanceFilter_ = null;
+        instanceFilter_ = null;
+        if (instanceFilterBuilder_ != null) {
+          instanceFilterBuilder_.dispose();
           instanceFilterBuilder_ = null;
         }
-        if (patchConfigBuilder_ == null) {
-          patchConfig_ = null;
-        } else {
-          patchConfig_ = null;
+        patchConfig_ = null;
+        if (patchConfigBuilder_ != null) {
+          patchConfigBuilder_.dispose();
           patchConfigBuilder_ = null;
         }
-        if (durationBuilder_ == null) {
-          duration_ = null;
-        } else {
-          duration_ = null;
+        duration_ = null;
+        if (durationBuilder_ != null) {
+          durationBuilder_.dispose();
           durationBuilder_ = null;
         }
-        if (createTimeBuilder_ == null) {
-          createTime_ = null;
-        } else {
-          createTime_ = null;
+        if (oneTimeScheduleBuilder_ != null) {
+          oneTimeScheduleBuilder_.clear();
+        }
+        if (recurringScheduleBuilder_ != null) {
+          recurringScheduleBuilder_.clear();
+        }
+        createTime_ = null;
+        if (createTimeBuilder_ != null) {
+          createTimeBuilder_.dispose();
           createTimeBuilder_ = null;
         }
-        if (updateTimeBuilder_ == null) {
-          updateTime_ = null;
-        } else {
-          updateTime_ = null;
+        updateTime_ = null;
+        if (updateTimeBuilder_ != null) {
+          updateTimeBuilder_.dispose();
           updateTimeBuilder_ = null;
         }
-        if (lastExecuteTimeBuilder_ == null) {
-          lastExecuteTime_ = null;
-        } else {
-          lastExecuteTime_ = null;
+        lastExecuteTime_ = null;
+        if (lastExecuteTimeBuilder_ != null) {
+          lastExecuteTimeBuilder_.dispose();
           lastExecuteTimeBuilder_ = null;
         }
-        if (rolloutBuilder_ == null) {
-          rollout_ = null;
-        } else {
-          rollout_ = null;
+        rollout_ = null;
+        if (rolloutBuilder_ != null) {
+          rolloutBuilder_.dispose();
           rolloutBuilder_ = null;
         }
         state_ = 0;
-
         scheduleCase_ = 0;
         schedule_ = null;
         return this;
@@ -1701,61 +1518,71 @@ public final class PatchDeployments {
       @java.lang.Override
       public com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment buildPartial() {
         com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment result = new com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment(this);
-        result.name_ = name_;
-        result.description_ = description_;
-        if (instanceFilterBuilder_ == null) {
-          result.instanceFilter_ = instanceFilter_;
-        } else {
-          result.instanceFilter_ = instanceFilterBuilder_.build();
-        }
-        if (patchConfigBuilder_ == null) {
-          result.patchConfig_ = patchConfig_;
-        } else {
-          result.patchConfig_ = patchConfigBuilder_.build();
-        }
-        if (durationBuilder_ == null) {
-          result.duration_ = duration_;
-        } else {
-          result.duration_ = durationBuilder_.build();
-        }
-        if (scheduleCase_ == 6) {
-          if (oneTimeScheduleBuilder_ == null) {
-            result.schedule_ = schedule_;
-          } else {
-            result.schedule_ = oneTimeScheduleBuilder_.build();
-          }
-        }
-        if (scheduleCase_ == 7) {
-          if (recurringScheduleBuilder_ == null) {
-            result.schedule_ = schedule_;
-          } else {
-            result.schedule_ = recurringScheduleBuilder_.build();
-          }
-        }
-        if (createTimeBuilder_ == null) {
-          result.createTime_ = createTime_;
-        } else {
-          result.createTime_ = createTimeBuilder_.build();
-        }
-        if (updateTimeBuilder_ == null) {
-          result.updateTime_ = updateTime_;
-        } else {
-          result.updateTime_ = updateTimeBuilder_.build();
-        }
-        if (lastExecuteTimeBuilder_ == null) {
-          result.lastExecuteTime_ = lastExecuteTime_;
-        } else {
-          result.lastExecuteTime_ = lastExecuteTimeBuilder_.build();
-        }
-        if (rolloutBuilder_ == null) {
-          result.rollout_ = rollout_;
-        } else {
-          result.rollout_ = rolloutBuilder_.build();
-        }
-        result.state_ = state_;
-        result.scheduleCase_ = scheduleCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.description_ = description_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.instanceFilter_ = instanceFilterBuilder_ == null
+              ? instanceFilter_
+              : instanceFilterBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.patchConfig_ = patchConfigBuilder_ == null
+              ? patchConfig_
+              : patchConfigBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.duration_ = durationBuilder_ == null
+              ? duration_
+              : durationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.createTime_ = createTimeBuilder_ == null
+              ? createTime_
+              : createTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.updateTime_ = updateTimeBuilder_ == null
+              ? updateTime_
+              : updateTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.lastExecuteTime_ = lastExecuteTimeBuilder_ == null
+              ? lastExecuteTime_
+              : lastExecuteTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.rollout_ = rolloutBuilder_ == null
+              ? rollout_
+              : rolloutBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.state_ = state_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment result) {
+        result.scheduleCase_ = scheduleCase_;
+        result.schedule_ = this.schedule_;
+        if (scheduleCase_ == 6 &&
+            oneTimeScheduleBuilder_ != null) {
+          result.schedule_ = oneTimeScheduleBuilder_.build();
+        }
+        if (scheduleCase_ == 7 &&
+            recurringScheduleBuilder_ != null) {
+          result.schedule_ = recurringScheduleBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1804,10 +1631,12 @@ public final class PatchDeployments {
         if (other == com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasInstanceFilter()) {
@@ -1847,7 +1676,7 @@ public final class PatchDeployments {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1862,17 +1691,108 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                description_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getInstanceFilterFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getPatchConfigFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 50: {
+                input.readMessage(
+                    getOneTimeScheduleFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                scheduleCase_ = 6;
+                break;
+              } // case 50
+              case 58: {
+                input.readMessage(
+                    getRecurringScheduleFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                scheduleCase_ = 7;
+                break;
+              } // case 58
+              case 66: {
+                input.readMessage(
+                    getCreateTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              case 74: {
+                input.readMessage(
+                    getUpdateTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 74
+              case 82: {
+                input.readMessage(
+                    getLastExecuteTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 82
+              case 90: {
+                input.readMessage(
+                    getRolloutFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 90
+              case 96: {
+                state_ = input.readEnum();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 96
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int scheduleCase_ = 0;
@@ -1890,6 +1810,7 @@ public final class PatchDeployments {
         return this;
       }
 
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -1953,11 +1874,9 @@ public final class PatchDeployments {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1973,8 +1892,8 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1992,12 +1911,10 @@ public final class PatchDeployments {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2058,11 +1975,9 @@ public final class PatchDeployments {
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2076,8 +1991,8 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
-        
         description_ = getDefaultInstance().getDescription();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2093,12 +2008,10 @@ public final class PatchDeployments {
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2115,7 +2028,7 @@ public final class PatchDeployments {
        * @return Whether the instanceFilter field is set.
        */
       public boolean hasInstanceFilter() {
-        return instanceFilterBuilder_ != null || instanceFilter_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -2145,11 +2058,11 @@ public final class PatchDeployments {
             throw new NullPointerException();
           }
           instanceFilter_ = value;
-          onChanged();
         } else {
           instanceFilterBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2163,11 +2076,11 @@ public final class PatchDeployments {
           com.google.cloud.osconfig.v1.PatchJobs.PatchInstanceFilter.Builder builderForValue) {
         if (instanceFilterBuilder_ == null) {
           instanceFilter_ = builderForValue.build();
-          onChanged();
         } else {
           instanceFilterBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2179,17 +2092,18 @@ public final class PatchDeployments {
        */
       public Builder mergeInstanceFilter(com.google.cloud.osconfig.v1.PatchJobs.PatchInstanceFilter value) {
         if (instanceFilterBuilder_ == null) {
-          if (instanceFilter_ != null) {
-            instanceFilter_ =
-              com.google.cloud.osconfig.v1.PatchJobs.PatchInstanceFilter.newBuilder(instanceFilter_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            instanceFilter_ != null &&
+            instanceFilter_ != com.google.cloud.osconfig.v1.PatchJobs.PatchInstanceFilter.getDefaultInstance()) {
+            getInstanceFilterBuilder().mergeFrom(value);
           } else {
             instanceFilter_ = value;
           }
-          onChanged();
         } else {
           instanceFilterBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2200,14 +2114,13 @@ public final class PatchDeployments {
        * <code>.google.cloud.osconfig.v1.PatchInstanceFilter instance_filter = 3 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearInstanceFilter() {
-        if (instanceFilterBuilder_ == null) {
-          instanceFilter_ = null;
-          onChanged();
-        } else {
-          instanceFilter_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        instanceFilter_ = null;
+        if (instanceFilterBuilder_ != null) {
+          instanceFilterBuilder_.dispose();
           instanceFilterBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2218,7 +2131,7 @@ public final class PatchDeployments {
        * <code>.google.cloud.osconfig.v1.PatchInstanceFilter instance_filter = 3 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.cloud.osconfig.v1.PatchJobs.PatchInstanceFilter.Builder getInstanceFilterBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getInstanceFilterFieldBuilder().getBuilder();
       }
@@ -2270,7 +2183,7 @@ public final class PatchDeployments {
        * @return Whether the patchConfig field is set.
        */
       public boolean hasPatchConfig() {
-        return patchConfigBuilder_ != null || patchConfig_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -2300,11 +2213,11 @@ public final class PatchDeployments {
             throw new NullPointerException();
           }
           patchConfig_ = value;
-          onChanged();
         } else {
           patchConfigBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -2318,11 +2231,11 @@ public final class PatchDeployments {
           com.google.cloud.osconfig.v1.PatchJobs.PatchConfig.Builder builderForValue) {
         if (patchConfigBuilder_ == null) {
           patchConfig_ = builderForValue.build();
-          onChanged();
         } else {
           patchConfigBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -2334,17 +2247,18 @@ public final class PatchDeployments {
        */
       public Builder mergePatchConfig(com.google.cloud.osconfig.v1.PatchJobs.PatchConfig value) {
         if (patchConfigBuilder_ == null) {
-          if (patchConfig_ != null) {
-            patchConfig_ =
-              com.google.cloud.osconfig.v1.PatchJobs.PatchConfig.newBuilder(patchConfig_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            patchConfig_ != null &&
+            patchConfig_ != com.google.cloud.osconfig.v1.PatchJobs.PatchConfig.getDefaultInstance()) {
+            getPatchConfigBuilder().mergeFrom(value);
           } else {
             patchConfig_ = value;
           }
-          onChanged();
         } else {
           patchConfigBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -2355,14 +2269,13 @@ public final class PatchDeployments {
        * <code>.google.cloud.osconfig.v1.PatchConfig patch_config = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearPatchConfig() {
-        if (patchConfigBuilder_ == null) {
-          patchConfig_ = null;
-          onChanged();
-        } else {
-          patchConfig_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        patchConfig_ = null;
+        if (patchConfigBuilder_ != null) {
+          patchConfigBuilder_.dispose();
           patchConfigBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2373,7 +2286,7 @@ public final class PatchDeployments {
        * <code>.google.cloud.osconfig.v1.PatchConfig patch_config = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.cloud.osconfig.v1.PatchJobs.PatchConfig.Builder getPatchConfigBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getPatchConfigFieldBuilder().getBuilder();
       }
@@ -2426,7 +2339,7 @@ public final class PatchDeployments {
        * @return Whether the duration field is set.
        */
       public boolean hasDuration() {
-        return durationBuilder_ != null || duration_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -2458,11 +2371,11 @@ public final class PatchDeployments {
             throw new NullPointerException();
           }
           duration_ = value;
-          onChanged();
         } else {
           durationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -2477,11 +2390,11 @@ public final class PatchDeployments {
           com.google.protobuf.Duration.Builder builderForValue) {
         if (durationBuilder_ == null) {
           duration_ = builderForValue.build();
-          onChanged();
         } else {
           durationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -2494,17 +2407,18 @@ public final class PatchDeployments {
        */
       public Builder mergeDuration(com.google.protobuf.Duration value) {
         if (durationBuilder_ == null) {
-          if (duration_ != null) {
-            duration_ =
-              com.google.protobuf.Duration.newBuilder(duration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            duration_ != null &&
+            duration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getDurationBuilder().mergeFrom(value);
           } else {
             duration_ = value;
           }
-          onChanged();
         } else {
           durationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -2516,14 +2430,13 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Duration duration = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearDuration() {
-        if (durationBuilder_ == null) {
-          duration_ = null;
-          onChanged();
-        } else {
-          duration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        duration_ = null;
+        if (durationBuilder_ != null) {
+          durationBuilder_.dispose();
           durationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2535,7 +2448,7 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Duration duration = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.protobuf.Duration.Builder getDurationBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getDurationFieldBuilder().getBuilder();
       }
@@ -2751,7 +2664,7 @@ public final class PatchDeployments {
           schedule_ = null;
         }
         scheduleCase_ = 6;
-        onChanged();;
+        onChanged();
         return oneTimeScheduleBuilder_;
       }
 
@@ -2929,7 +2842,7 @@ public final class PatchDeployments {
           schedule_ = null;
         }
         scheduleCase_ = 7;
-        onChanged();;
+        onChanged();
         return recurringScheduleBuilder_;
       }
 
@@ -2946,7 +2859,7 @@ public final class PatchDeployments {
        * @return Whether the createTime field is set.
        */
       public boolean hasCreateTime() {
-        return createTimeBuilder_ != null || createTime_ != null;
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
        * <pre>
@@ -2978,11 +2891,11 @@ public final class PatchDeployments {
             throw new NullPointerException();
           }
           createTime_ = value;
-          onChanged();
         } else {
           createTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -2997,11 +2910,11 @@ public final class PatchDeployments {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (createTimeBuilder_ == null) {
           createTime_ = builderForValue.build();
-          onChanged();
         } else {
           createTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -3014,17 +2927,18 @@ public final class PatchDeployments {
        */
       public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
         if (createTimeBuilder_ == null) {
-          if (createTime_ != null) {
-            createTime_ =
-              com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000080) != 0) &&
+            createTime_ != null &&
+            createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getCreateTimeBuilder().mergeFrom(value);
           } else {
             createTime_ = value;
           }
-          onChanged();
         } else {
           createTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -3036,14 +2950,13 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Timestamp create_time = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearCreateTime() {
-        if (createTimeBuilder_ == null) {
-          createTime_ = null;
-          onChanged();
-        } else {
-          createTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        createTime_ = null;
+        if (createTimeBuilder_ != null) {
+          createTimeBuilder_.dispose();
           createTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3055,7 +2968,7 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Timestamp create_time = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-        
+        bitField0_ |= 0x00000080;
         onChanged();
         return getCreateTimeFieldBuilder().getBuilder();
       }
@@ -3110,7 +3023,7 @@ public final class PatchDeployments {
        * @return Whether the updateTime field is set.
        */
       public boolean hasUpdateTime() {
-        return updateTimeBuilder_ != null || updateTime_ != null;
+        return ((bitField0_ & 0x00000100) != 0);
       }
       /**
        * <pre>
@@ -3142,11 +3055,11 @@ public final class PatchDeployments {
             throw new NullPointerException();
           }
           updateTime_ = value;
-          onChanged();
         } else {
           updateTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -3161,11 +3074,11 @@ public final class PatchDeployments {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (updateTimeBuilder_ == null) {
           updateTime_ = builderForValue.build();
-          onChanged();
         } else {
           updateTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -3178,17 +3091,18 @@ public final class PatchDeployments {
        */
       public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
         if (updateTimeBuilder_ == null) {
-          if (updateTime_ != null) {
-            updateTime_ =
-              com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000100) != 0) &&
+            updateTime_ != null &&
+            updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getUpdateTimeBuilder().mergeFrom(value);
           } else {
             updateTime_ = value;
           }
-          onChanged();
         } else {
           updateTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -3200,14 +3114,13 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Timestamp update_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearUpdateTime() {
-        if (updateTimeBuilder_ == null) {
-          updateTime_ = null;
-          onChanged();
-        } else {
-          updateTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        updateTime_ = null;
+        if (updateTimeBuilder_ != null) {
+          updateTimeBuilder_.dispose();
           updateTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3219,7 +3132,7 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Timestamp update_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-        
+        bitField0_ |= 0x00000100;
         onChanged();
         return getUpdateTimeFieldBuilder().getBuilder();
       }
@@ -3275,7 +3188,7 @@ public final class PatchDeployments {
        * @return Whether the lastExecuteTime field is set.
        */
       public boolean hasLastExecuteTime() {
-        return lastExecuteTimeBuilder_ != null || lastExecuteTime_ != null;
+        return ((bitField0_ & 0x00000200) != 0);
       }
       /**
        * <pre>
@@ -3309,11 +3222,11 @@ public final class PatchDeployments {
             throw new NullPointerException();
           }
           lastExecuteTime_ = value;
-          onChanged();
         } else {
           lastExecuteTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -3329,11 +3242,11 @@ public final class PatchDeployments {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (lastExecuteTimeBuilder_ == null) {
           lastExecuteTime_ = builderForValue.build();
-          onChanged();
         } else {
           lastExecuteTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -3347,17 +3260,18 @@ public final class PatchDeployments {
        */
       public Builder mergeLastExecuteTime(com.google.protobuf.Timestamp value) {
         if (lastExecuteTimeBuilder_ == null) {
-          if (lastExecuteTime_ != null) {
-            lastExecuteTime_ =
-              com.google.protobuf.Timestamp.newBuilder(lastExecuteTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000200) != 0) &&
+            lastExecuteTime_ != null &&
+            lastExecuteTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getLastExecuteTimeBuilder().mergeFrom(value);
           } else {
             lastExecuteTime_ = value;
           }
-          onChanged();
         } else {
           lastExecuteTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -3370,14 +3284,13 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Timestamp last_execute_time = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearLastExecuteTime() {
-        if (lastExecuteTimeBuilder_ == null) {
-          lastExecuteTime_ = null;
-          onChanged();
-        } else {
-          lastExecuteTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        lastExecuteTime_ = null;
+        if (lastExecuteTimeBuilder_ != null) {
+          lastExecuteTimeBuilder_.dispose();
           lastExecuteTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3390,7 +3303,7 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Timestamp last_execute_time = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.protobuf.Timestamp.Builder getLastExecuteTimeBuilder() {
-        
+        bitField0_ |= 0x00000200;
         onChanged();
         return getLastExecuteTimeFieldBuilder().getBuilder();
       }
@@ -3446,7 +3359,7 @@ public final class PatchDeployments {
        * @return Whether the rollout field is set.
        */
       public boolean hasRollout() {
-        return rolloutBuilder_ != null || rollout_ != null;
+        return ((bitField0_ & 0x00000400) != 0);
       }
       /**
        * <pre>
@@ -3476,11 +3389,11 @@ public final class PatchDeployments {
             throw new NullPointerException();
           }
           rollout_ = value;
-          onChanged();
         } else {
           rolloutBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000400;
+        onChanged();
         return this;
       }
       /**
@@ -3494,11 +3407,11 @@ public final class PatchDeployments {
           com.google.cloud.osconfig.v1.PatchJobs.PatchRollout.Builder builderForValue) {
         if (rolloutBuilder_ == null) {
           rollout_ = builderForValue.build();
-          onChanged();
         } else {
           rolloutBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000400;
+        onChanged();
         return this;
       }
       /**
@@ -3510,17 +3423,18 @@ public final class PatchDeployments {
        */
       public Builder mergeRollout(com.google.cloud.osconfig.v1.PatchJobs.PatchRollout value) {
         if (rolloutBuilder_ == null) {
-          if (rollout_ != null) {
-            rollout_ =
-              com.google.cloud.osconfig.v1.PatchJobs.PatchRollout.newBuilder(rollout_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000400) != 0) &&
+            rollout_ != null &&
+            rollout_ != com.google.cloud.osconfig.v1.PatchJobs.PatchRollout.getDefaultInstance()) {
+            getRolloutBuilder().mergeFrom(value);
           } else {
             rollout_ = value;
           }
-          onChanged();
         } else {
           rolloutBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000400;
+        onChanged();
         return this;
       }
       /**
@@ -3531,14 +3445,13 @@ public final class PatchDeployments {
        * <code>.google.cloud.osconfig.v1.PatchRollout rollout = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearRollout() {
-        if (rolloutBuilder_ == null) {
-          rollout_ = null;
-          onChanged();
-        } else {
-          rollout_ = null;
+        bitField0_ = (bitField0_ & ~0x00000400);
+        rollout_ = null;
+        if (rolloutBuilder_ != null) {
+          rolloutBuilder_.dispose();
           rolloutBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3549,7 +3462,7 @@ public final class PatchDeployments {
        * <code>.google.cloud.osconfig.v1.PatchRollout rollout = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.cloud.osconfig.v1.PatchJobs.PatchRollout.Builder getRolloutBuilder() {
-        
+        bitField0_ |= 0x00000400;
         onChanged();
         return getRolloutFieldBuilder().getBuilder();
       }
@@ -3611,8 +3524,8 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
-        
         state_ = value;
+        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -3626,8 +3539,7 @@ public final class PatchDeployments {
        */
       @java.lang.Override
       public com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.State getState() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.State result = com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.State.valueOf(state_);
+        com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.State result = com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.State.forNumber(state_);
         return result == null ? com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.State.UNRECOGNIZED : result;
       }
       /**
@@ -3643,7 +3555,7 @@ public final class PatchDeployments {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000800;
         state_ = value.getNumber();
         onChanged();
         return this;
@@ -3657,7 +3569,7 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000800);
         state_ = 0;
         onChanged();
         return this;
@@ -3695,7 +3607,18 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PatchDeployment(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3778,58 +3701,6 @@ public final class PatchDeployments {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private OneTimeSchedule(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (executeTime_ != null) {
-                subBuilder = executeTime_.toBuilder();
-              }
-              executeTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(executeTime_);
-                executeTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.v1.PatchDeployments.internal_static_google_cloud_osconfig_v1_OneTimeSchedule_descriptor;
@@ -3878,7 +3749,7 @@ public final class PatchDeployments {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getExecuteTimeOrBuilder() {
-      return getExecuteTime();
+      return executeTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : executeTime_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3898,7 +3769,7 @@ public final class PatchDeployments {
       if (executeTime_ != null) {
         output.writeMessage(1, getExecuteTime());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3911,7 +3782,7 @@ public final class PatchDeployments {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getExecuteTime());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3931,7 +3802,7 @@ public final class PatchDeployments {
         if (!getExecuteTime()
             .equals(other.getExecuteTime())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3946,7 +3817,7 @@ public final class PatchDeployments {
         hash = (37 * hash) + EXECUTE_TIME_FIELD_NUMBER;
         hash = (53 * hash) + getExecuteTime().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4068,26 +3939,21 @@ public final class PatchDeployments {
 
       // Construct using com.google.cloud.osconfig.v1.PatchDeployments.OneTimeSchedule.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (executeTimeBuilder_ == null) {
-          executeTime_ = null;
-        } else {
-          executeTime_ = null;
+        bitField0_ = 0;
+        executeTime_ = null;
+        if (executeTimeBuilder_ != null) {
+          executeTimeBuilder_.dispose();
           executeTimeBuilder_ = null;
         }
         return this;
@@ -4116,13 +3982,18 @@ public final class PatchDeployments {
       @java.lang.Override
       public com.google.cloud.osconfig.v1.PatchDeployments.OneTimeSchedule buildPartial() {
         com.google.cloud.osconfig.v1.PatchDeployments.OneTimeSchedule result = new com.google.cloud.osconfig.v1.PatchDeployments.OneTimeSchedule(this);
-        if (executeTimeBuilder_ == null) {
-          result.executeTime_ = executeTime_;
-        } else {
-          result.executeTime_ = executeTimeBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.v1.PatchDeployments.OneTimeSchedule result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.executeTime_ = executeTimeBuilder_ == null
+              ? executeTime_
+              : executeTimeBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -4172,7 +4043,7 @@ public final class PatchDeployments {
         if (other.hasExecuteTime()) {
           mergeExecuteTime(other.getExecuteTime());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4187,19 +4058,40 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.v1.PatchDeployments.OneTimeSchedule parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getExecuteTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.v1.PatchDeployments.OneTimeSchedule) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.Timestamp executeTime_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4213,7 +4105,7 @@ public final class PatchDeployments {
        * @return Whether the executeTime field is set.
        */
       public boolean hasExecuteTime() {
-        return executeTimeBuilder_ != null || executeTime_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -4243,11 +4135,11 @@ public final class PatchDeployments {
             throw new NullPointerException();
           }
           executeTime_ = value;
-          onChanged();
         } else {
           executeTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4261,11 +4153,11 @@ public final class PatchDeployments {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (executeTimeBuilder_ == null) {
           executeTime_ = builderForValue.build();
-          onChanged();
         } else {
           executeTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4277,17 +4169,18 @@ public final class PatchDeployments {
        */
       public Builder mergeExecuteTime(com.google.protobuf.Timestamp value) {
         if (executeTimeBuilder_ == null) {
-          if (executeTime_ != null) {
-            executeTime_ =
-              com.google.protobuf.Timestamp.newBuilder(executeTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            executeTime_ != null &&
+            executeTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getExecuteTimeBuilder().mergeFrom(value);
           } else {
             executeTime_ = value;
           }
-          onChanged();
         } else {
           executeTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4298,14 +4191,13 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Timestamp execute_time = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearExecuteTime() {
-        if (executeTimeBuilder_ == null) {
-          executeTime_ = null;
-          onChanged();
-        } else {
-          executeTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        executeTime_ = null;
+        if (executeTimeBuilder_ != null) {
+          executeTimeBuilder_.dispose();
           executeTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4316,7 +4208,7 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Timestamp execute_time = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.protobuf.Timestamp.Builder getExecuteTimeBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getExecuteTimeFieldBuilder().getBuilder();
       }
@@ -4388,7 +4280,18 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new OneTimeSchedule(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4690,157 +4593,6 @@ public final class PatchDeployments {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RecurringSchedule(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.type.TimeZone.Builder subBuilder = null;
-              if (timeZone_ != null) {
-                subBuilder = timeZone_.toBuilder();
-              }
-              timeZone_ = input.readMessage(com.google.type.TimeZone.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(timeZone_);
-                timeZone_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (startTime_ != null) {
-                subBuilder = startTime_.toBuilder();
-              }
-              startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(startTime_);
-                startTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (endTime_ != null) {
-                subBuilder = endTime_.toBuilder();
-              }
-              endTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(endTime_);
-                endTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              com.google.type.TimeOfDay.Builder subBuilder = null;
-              if (timeOfDay_ != null) {
-                subBuilder = timeOfDay_.toBuilder();
-              }
-              timeOfDay_ = input.readMessage(com.google.type.TimeOfDay.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(timeOfDay_);
-                timeOfDay_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 40: {
-              int rawValue = input.readEnum();
-
-              frequency_ = rawValue;
-              break;
-            }
-            case 50: {
-              com.google.cloud.osconfig.v1.PatchDeployments.WeeklySchedule.Builder subBuilder = null;
-              if (scheduleConfigCase_ == 6) {
-                subBuilder = ((com.google.cloud.osconfig.v1.PatchDeployments.WeeklySchedule) scheduleConfig_).toBuilder();
-              }
-              scheduleConfig_ =
-                  input.readMessage(com.google.cloud.osconfig.v1.PatchDeployments.WeeklySchedule.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.osconfig.v1.PatchDeployments.WeeklySchedule) scheduleConfig_);
-                scheduleConfig_ = subBuilder.buildPartial();
-              }
-              scheduleConfigCase_ = 6;
-              break;
-            }
-            case 58: {
-              com.google.cloud.osconfig.v1.PatchDeployments.MonthlySchedule.Builder subBuilder = null;
-              if (scheduleConfigCase_ == 7) {
-                subBuilder = ((com.google.cloud.osconfig.v1.PatchDeployments.MonthlySchedule) scheduleConfig_).toBuilder();
-              }
-              scheduleConfig_ =
-                  input.readMessage(com.google.cloud.osconfig.v1.PatchDeployments.MonthlySchedule.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.osconfig.v1.PatchDeployments.MonthlySchedule) scheduleConfig_);
-                scheduleConfig_ = subBuilder.buildPartial();
-              }
-              scheduleConfigCase_ = 7;
-              break;
-            }
-            case 74: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (lastExecuteTime_ != null) {
-                subBuilder = lastExecuteTime_.toBuilder();
-              }
-              lastExecuteTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(lastExecuteTime_);
-                lastExecuteTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 82: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (nextExecuteTime_ != null) {
-                subBuilder = nextExecuteTime_.toBuilder();
-              }
-              nextExecuteTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(nextExecuteTime_);
-                nextExecuteTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.v1.PatchDeployments.internal_static_google_cloud_osconfig_v1_RecurringSchedule_descriptor;
@@ -5101,7 +4853,7 @@ public final class PatchDeployments {
      */
     @java.lang.Override
     public com.google.type.TimeZoneOrBuilder getTimeZoneOrBuilder() {
-      return getTimeZone();
+      return timeZone_ == null ? com.google.type.TimeZone.getDefaultInstance() : timeZone_;
     }
 
     public static final int START_TIME_FIELD_NUMBER = 2;
@@ -5142,7 +4894,7 @@ public final class PatchDeployments {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
-      return getStartTime();
+      return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
     }
 
     public static final int END_TIME_FIELD_NUMBER = 3;
@@ -5183,7 +4935,7 @@ public final class PatchDeployments {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
-      return getEndTime();
+      return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
     }
 
     public static final int TIME_OF_DAY_FIELD_NUMBER = 4;
@@ -5221,11 +4973,11 @@ public final class PatchDeployments {
      */
     @java.lang.Override
     public com.google.type.TimeOfDayOrBuilder getTimeOfDayOrBuilder() {
-      return getTimeOfDay();
+      return timeOfDay_ == null ? com.google.type.TimeOfDay.getDefaultInstance() : timeOfDay_;
     }
 
     public static final int FREQUENCY_FIELD_NUMBER = 5;
-    private int frequency_;
+    private int frequency_ = 0;
     /**
      * <pre>
      * Required. The frequency unit of this recurring schedule.
@@ -5246,8 +4998,7 @@ public final class PatchDeployments {
      * @return The frequency.
      */
     @java.lang.Override public com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule.Frequency getFrequency() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule.Frequency result = com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule.Frequency.valueOf(frequency_);
+      com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule.Frequency result = com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule.Frequency.forNumber(frequency_);
       return result == null ? com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule.Frequency.UNRECOGNIZED : result;
     }
 
@@ -5372,7 +5123,7 @@ public final class PatchDeployments {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getLastExecuteTimeOrBuilder() {
-      return getLastExecuteTime();
+      return lastExecuteTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastExecuteTime_;
     }
 
     public static final int NEXT_EXECUTE_TIME_FIELD_NUMBER = 10;
@@ -5410,7 +5161,7 @@ public final class PatchDeployments {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getNextExecuteTimeOrBuilder() {
-      return getNextExecuteTime();
+      return nextExecuteTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : nextExecuteTime_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5454,7 +5205,7 @@ public final class PatchDeployments {
       if (nextExecuteTime_ != null) {
         output.writeMessage(10, getNextExecuteTime());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5499,7 +5250,7 @@ public final class PatchDeployments {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(10, getNextExecuteTime());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5558,7 +5309,7 @@ public final class PatchDeployments {
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5607,7 +5358,7 @@ public final class PatchDeployments {
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5728,58 +5479,53 @@ public final class PatchDeployments {
 
       // Construct using com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (timeZoneBuilder_ == null) {
-          timeZone_ = null;
-        } else {
-          timeZone_ = null;
+        bitField0_ = 0;
+        timeZone_ = null;
+        if (timeZoneBuilder_ != null) {
+          timeZoneBuilder_.dispose();
           timeZoneBuilder_ = null;
         }
-        if (startTimeBuilder_ == null) {
-          startTime_ = null;
-        } else {
-          startTime_ = null;
+        startTime_ = null;
+        if (startTimeBuilder_ != null) {
+          startTimeBuilder_.dispose();
           startTimeBuilder_ = null;
         }
-        if (endTimeBuilder_ == null) {
-          endTime_ = null;
-        } else {
-          endTime_ = null;
+        endTime_ = null;
+        if (endTimeBuilder_ != null) {
+          endTimeBuilder_.dispose();
           endTimeBuilder_ = null;
         }
-        if (timeOfDayBuilder_ == null) {
-          timeOfDay_ = null;
-        } else {
-          timeOfDay_ = null;
+        timeOfDay_ = null;
+        if (timeOfDayBuilder_ != null) {
+          timeOfDayBuilder_.dispose();
           timeOfDayBuilder_ = null;
         }
         frequency_ = 0;
-
-        if (lastExecuteTimeBuilder_ == null) {
-          lastExecuteTime_ = null;
-        } else {
-          lastExecuteTime_ = null;
+        if (weeklyBuilder_ != null) {
+          weeklyBuilder_.clear();
+        }
+        if (monthlyBuilder_ != null) {
+          monthlyBuilder_.clear();
+        }
+        lastExecuteTime_ = null;
+        if (lastExecuteTimeBuilder_ != null) {
+          lastExecuteTimeBuilder_.dispose();
           lastExecuteTimeBuilder_ = null;
         }
-        if (nextExecuteTimeBuilder_ == null) {
-          nextExecuteTime_ = null;
-        } else {
-          nextExecuteTime_ = null;
+        nextExecuteTime_ = null;
+        if (nextExecuteTimeBuilder_ != null) {
+          nextExecuteTimeBuilder_.dispose();
           nextExecuteTimeBuilder_ = null;
         }
         scheduleConfigCase_ = 0;
@@ -5810,54 +5556,60 @@ public final class PatchDeployments {
       @java.lang.Override
       public com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule buildPartial() {
         com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule result = new com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule(this);
-        if (timeZoneBuilder_ == null) {
-          result.timeZone_ = timeZone_;
-        } else {
-          result.timeZone_ = timeZoneBuilder_.build();
-        }
-        if (startTimeBuilder_ == null) {
-          result.startTime_ = startTime_;
-        } else {
-          result.startTime_ = startTimeBuilder_.build();
-        }
-        if (endTimeBuilder_ == null) {
-          result.endTime_ = endTime_;
-        } else {
-          result.endTime_ = endTimeBuilder_.build();
-        }
-        if (timeOfDayBuilder_ == null) {
-          result.timeOfDay_ = timeOfDay_;
-        } else {
-          result.timeOfDay_ = timeOfDayBuilder_.build();
-        }
-        result.frequency_ = frequency_;
-        if (scheduleConfigCase_ == 6) {
-          if (weeklyBuilder_ == null) {
-            result.scheduleConfig_ = scheduleConfig_;
-          } else {
-            result.scheduleConfig_ = weeklyBuilder_.build();
-          }
-        }
-        if (scheduleConfigCase_ == 7) {
-          if (monthlyBuilder_ == null) {
-            result.scheduleConfig_ = scheduleConfig_;
-          } else {
-            result.scheduleConfig_ = monthlyBuilder_.build();
-          }
-        }
-        if (lastExecuteTimeBuilder_ == null) {
-          result.lastExecuteTime_ = lastExecuteTime_;
-        } else {
-          result.lastExecuteTime_ = lastExecuteTimeBuilder_.build();
-        }
-        if (nextExecuteTimeBuilder_ == null) {
-          result.nextExecuteTime_ = nextExecuteTime_;
-        } else {
-          result.nextExecuteTime_ = nextExecuteTimeBuilder_.build();
-        }
-        result.scheduleConfigCase_ = scheduleConfigCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.timeZone_ = timeZoneBuilder_ == null
+              ? timeZone_
+              : timeZoneBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.startTime_ = startTimeBuilder_ == null
+              ? startTime_
+              : startTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.endTime_ = endTimeBuilder_ == null
+              ? endTime_
+              : endTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.timeOfDay_ = timeOfDayBuilder_ == null
+              ? timeOfDay_
+              : timeOfDayBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.frequency_ = frequency_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.lastExecuteTime_ = lastExecuteTimeBuilder_ == null
+              ? lastExecuteTime_
+              : lastExecuteTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.nextExecuteTime_ = nextExecuteTimeBuilder_ == null
+              ? nextExecuteTime_
+              : nextExecuteTimeBuilder_.build();
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule result) {
+        result.scheduleConfigCase_ = scheduleConfigCase_;
+        result.scheduleConfig_ = this.scheduleConfig_;
+        if (scheduleConfigCase_ == 6 &&
+            weeklyBuilder_ != null) {
+          result.scheduleConfig_ = weeklyBuilder_.build();
+        }
+        if (scheduleConfigCase_ == 7 &&
+            monthlyBuilder_ != null) {
+          result.scheduleConfig_ = monthlyBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -5938,7 +5690,7 @@ public final class PatchDeployments {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5953,17 +5705,91 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getTimeZoneFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getStartTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getEndTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getTimeOfDayFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 40: {
+                frequency_ = input.readEnum();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 50: {
+                input.readMessage(
+                    getWeeklyFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                scheduleConfigCase_ = 6;
+                break;
+              } // case 50
+              case 58: {
+                input.readMessage(
+                    getMonthlyFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                scheduleConfigCase_ = 7;
+                break;
+              } // case 58
+              case 74: {
+                input.readMessage(
+                    getLastExecuteTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 74
+              case 82: {
+                input.readMessage(
+                    getNextExecuteTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 82
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int scheduleConfigCase_ = 0;
@@ -5981,6 +5807,7 @@ public final class PatchDeployments {
         return this;
       }
 
+      private int bitField0_;
 
       private com.google.type.TimeZone timeZone_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -5995,7 +5822,7 @@ public final class PatchDeployments {
        * @return Whether the timeZone field is set.
        */
       public boolean hasTimeZone() {
-        return timeZoneBuilder_ != null || timeZone_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -6027,11 +5854,11 @@ public final class PatchDeployments {
             throw new NullPointerException();
           }
           timeZone_ = value;
-          onChanged();
         } else {
           timeZoneBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -6046,11 +5873,11 @@ public final class PatchDeployments {
           com.google.type.TimeZone.Builder builderForValue) {
         if (timeZoneBuilder_ == null) {
           timeZone_ = builderForValue.build();
-          onChanged();
         } else {
           timeZoneBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -6063,17 +5890,18 @@ public final class PatchDeployments {
        */
       public Builder mergeTimeZone(com.google.type.TimeZone value) {
         if (timeZoneBuilder_ == null) {
-          if (timeZone_ != null) {
-            timeZone_ =
-              com.google.type.TimeZone.newBuilder(timeZone_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            timeZone_ != null &&
+            timeZone_ != com.google.type.TimeZone.getDefaultInstance()) {
+            getTimeZoneBuilder().mergeFrom(value);
           } else {
             timeZone_ = value;
           }
-          onChanged();
         } else {
           timeZoneBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -6085,14 +5913,13 @@ public final class PatchDeployments {
        * <code>.google.type.TimeZone time_zone = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearTimeZone() {
-        if (timeZoneBuilder_ == null) {
-          timeZone_ = null;
-          onChanged();
-        } else {
-          timeZone_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        timeZone_ = null;
+        if (timeZoneBuilder_ != null) {
+          timeZoneBuilder_.dispose();
           timeZoneBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -6104,7 +5931,7 @@ public final class PatchDeployments {
        * <code>.google.type.TimeZone time_zone = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.type.TimeZone.Builder getTimeZoneBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getTimeZoneFieldBuilder().getBuilder();
       }
@@ -6159,7 +5986,7 @@ public final class PatchDeployments {
        * @return Whether the startTime field is set.
        */
       public boolean hasStartTime() {
-        return startTimeBuilder_ != null || startTime_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -6191,11 +6018,11 @@ public final class PatchDeployments {
             throw new NullPointerException();
           }
           startTime_ = value;
-          onChanged();
         } else {
           startTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -6210,11 +6037,11 @@ public final class PatchDeployments {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (startTimeBuilder_ == null) {
           startTime_ = builderForValue.build();
-          onChanged();
         } else {
           startTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -6227,17 +6054,18 @@ public final class PatchDeployments {
        */
       public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
         if (startTimeBuilder_ == null) {
-          if (startTime_ != null) {
-            startTime_ =
-              com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            startTime_ != null &&
+            startTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getStartTimeBuilder().mergeFrom(value);
           } else {
             startTime_ = value;
           }
-          onChanged();
         } else {
           startTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -6249,14 +6077,13 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Timestamp start_time = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearStartTime() {
-        if (startTimeBuilder_ == null) {
-          startTime_ = null;
-          onChanged();
-        } else {
-          startTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        startTime_ = null;
+        if (startTimeBuilder_ != null) {
+          startTimeBuilder_.dispose();
           startTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -6268,7 +6095,7 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Timestamp start_time = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getStartTimeFieldBuilder().getBuilder();
       }
@@ -6323,7 +6150,7 @@ public final class PatchDeployments {
        * @return Whether the endTime field is set.
        */
       public boolean hasEndTime() {
-        return endTimeBuilder_ != null || endTime_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -6355,11 +6182,11 @@ public final class PatchDeployments {
             throw new NullPointerException();
           }
           endTime_ = value;
-          onChanged();
         } else {
           endTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -6374,11 +6201,11 @@ public final class PatchDeployments {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (endTimeBuilder_ == null) {
           endTime_ = builderForValue.build();
-          onChanged();
         } else {
           endTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -6391,17 +6218,18 @@ public final class PatchDeployments {
        */
       public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
         if (endTimeBuilder_ == null) {
-          if (endTime_ != null) {
-            endTime_ =
-              com.google.protobuf.Timestamp.newBuilder(endTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            endTime_ != null &&
+            endTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getEndTimeBuilder().mergeFrom(value);
           } else {
             endTime_ = value;
           }
-          onChanged();
         } else {
           endTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -6413,14 +6241,13 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Timestamp end_time = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearEndTime() {
-        if (endTimeBuilder_ == null) {
-          endTime_ = null;
-          onChanged();
-        } else {
-          endTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        endTime_ = null;
+        if (endTimeBuilder_ != null) {
+          endTimeBuilder_.dispose();
           endTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -6432,7 +6259,7 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Timestamp end_time = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getEndTimeFieldBuilder().getBuilder();
       }
@@ -6486,7 +6313,7 @@ public final class PatchDeployments {
        * @return Whether the timeOfDay field is set.
        */
       public boolean hasTimeOfDay() {
-        return timeOfDayBuilder_ != null || timeOfDay_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -6516,11 +6343,11 @@ public final class PatchDeployments {
             throw new NullPointerException();
           }
           timeOfDay_ = value;
-          onChanged();
         } else {
           timeOfDayBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -6534,11 +6361,11 @@ public final class PatchDeployments {
           com.google.type.TimeOfDay.Builder builderForValue) {
         if (timeOfDayBuilder_ == null) {
           timeOfDay_ = builderForValue.build();
-          onChanged();
         } else {
           timeOfDayBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -6550,17 +6377,18 @@ public final class PatchDeployments {
        */
       public Builder mergeTimeOfDay(com.google.type.TimeOfDay value) {
         if (timeOfDayBuilder_ == null) {
-          if (timeOfDay_ != null) {
-            timeOfDay_ =
-              com.google.type.TimeOfDay.newBuilder(timeOfDay_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            timeOfDay_ != null &&
+            timeOfDay_ != com.google.type.TimeOfDay.getDefaultInstance()) {
+            getTimeOfDayBuilder().mergeFrom(value);
           } else {
             timeOfDay_ = value;
           }
-          onChanged();
         } else {
           timeOfDayBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -6571,14 +6399,13 @@ public final class PatchDeployments {
        * <code>.google.type.TimeOfDay time_of_day = 4 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearTimeOfDay() {
-        if (timeOfDayBuilder_ == null) {
-          timeOfDay_ = null;
-          onChanged();
-        } else {
-          timeOfDay_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        timeOfDay_ = null;
+        if (timeOfDayBuilder_ != null) {
+          timeOfDayBuilder_.dispose();
           timeOfDayBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -6589,7 +6416,7 @@ public final class PatchDeployments {
        * <code>.google.type.TimeOfDay time_of_day = 4 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.type.TimeOfDay.Builder getTimeOfDayBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getTimeOfDayFieldBuilder().getBuilder();
       }
@@ -6651,8 +6478,8 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder setFrequencyValue(int value) {
-        
         frequency_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -6666,8 +6493,7 @@ public final class PatchDeployments {
        */
       @java.lang.Override
       public com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule.Frequency getFrequency() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule.Frequency result = com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule.Frequency.valueOf(frequency_);
+        com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule.Frequency result = com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule.Frequency.forNumber(frequency_);
         return result == null ? com.google.cloud.osconfig.v1.PatchDeployments.RecurringSchedule.Frequency.UNRECOGNIZED : result;
       }
       /**
@@ -6683,7 +6509,7 @@ public final class PatchDeployments {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000010;
         frequency_ = value.getNumber();
         onChanged();
         return this;
@@ -6697,7 +6523,7 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearFrequency() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         frequency_ = 0;
         onChanged();
         return this;
@@ -6877,7 +6703,7 @@ public final class PatchDeployments {
           scheduleConfig_ = null;
         }
         scheduleConfigCase_ = 6;
-        onChanged();;
+        onChanged();
         return weeklyBuilder_;
       }
 
@@ -7055,7 +6881,7 @@ public final class PatchDeployments {
           scheduleConfig_ = null;
         }
         scheduleConfigCase_ = 7;
-        onChanged();;
+        onChanged();
         return monthlyBuilder_;
       }
 
@@ -7071,7 +6897,7 @@ public final class PatchDeployments {
        * @return Whether the lastExecuteTime field is set.
        */
       public boolean hasLastExecuteTime() {
-        return lastExecuteTimeBuilder_ != null || lastExecuteTime_ != null;
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
        * <pre>
@@ -7101,11 +6927,11 @@ public final class PatchDeployments {
             throw new NullPointerException();
           }
           lastExecuteTime_ = value;
-          onChanged();
         } else {
           lastExecuteTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -7119,11 +6945,11 @@ public final class PatchDeployments {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (lastExecuteTimeBuilder_ == null) {
           lastExecuteTime_ = builderForValue.build();
-          onChanged();
         } else {
           lastExecuteTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -7135,17 +6961,18 @@ public final class PatchDeployments {
        */
       public Builder mergeLastExecuteTime(com.google.protobuf.Timestamp value) {
         if (lastExecuteTimeBuilder_ == null) {
-          if (lastExecuteTime_ != null) {
-            lastExecuteTime_ =
-              com.google.protobuf.Timestamp.newBuilder(lastExecuteTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000080) != 0) &&
+            lastExecuteTime_ != null &&
+            lastExecuteTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getLastExecuteTimeBuilder().mergeFrom(value);
           } else {
             lastExecuteTime_ = value;
           }
-          onChanged();
         } else {
           lastExecuteTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -7156,14 +6983,13 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Timestamp last_execute_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearLastExecuteTime() {
-        if (lastExecuteTimeBuilder_ == null) {
-          lastExecuteTime_ = null;
-          onChanged();
-        } else {
-          lastExecuteTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        lastExecuteTime_ = null;
+        if (lastExecuteTimeBuilder_ != null) {
+          lastExecuteTimeBuilder_.dispose();
           lastExecuteTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -7174,7 +7000,7 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Timestamp last_execute_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.protobuf.Timestamp.Builder getLastExecuteTimeBuilder() {
-        
+        bitField0_ |= 0x00000080;
         onChanged();
         return getLastExecuteTimeFieldBuilder().getBuilder();
       }
@@ -7226,7 +7052,7 @@ public final class PatchDeployments {
        * @return Whether the nextExecuteTime field is set.
        */
       public boolean hasNextExecuteTime() {
-        return nextExecuteTimeBuilder_ != null || nextExecuteTime_ != null;
+        return ((bitField0_ & 0x00000100) != 0);
       }
       /**
        * <pre>
@@ -7256,11 +7082,11 @@ public final class PatchDeployments {
             throw new NullPointerException();
           }
           nextExecuteTime_ = value;
-          onChanged();
         } else {
           nextExecuteTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -7274,11 +7100,11 @@ public final class PatchDeployments {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (nextExecuteTimeBuilder_ == null) {
           nextExecuteTime_ = builderForValue.build();
-          onChanged();
         } else {
           nextExecuteTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -7290,17 +7116,18 @@ public final class PatchDeployments {
        */
       public Builder mergeNextExecuteTime(com.google.protobuf.Timestamp value) {
         if (nextExecuteTimeBuilder_ == null) {
-          if (nextExecuteTime_ != null) {
-            nextExecuteTime_ =
-              com.google.protobuf.Timestamp.newBuilder(nextExecuteTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000100) != 0) &&
+            nextExecuteTime_ != null &&
+            nextExecuteTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getNextExecuteTimeBuilder().mergeFrom(value);
           } else {
             nextExecuteTime_ = value;
           }
-          onChanged();
         } else {
           nextExecuteTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -7311,14 +7138,13 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Timestamp next_execute_time = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearNextExecuteTime() {
-        if (nextExecuteTimeBuilder_ == null) {
-          nextExecuteTime_ = null;
-          onChanged();
-        } else {
-          nextExecuteTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        nextExecuteTime_ = null;
+        if (nextExecuteTimeBuilder_ != null) {
+          nextExecuteTimeBuilder_.dispose();
           nextExecuteTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -7329,7 +7155,7 @@ public final class PatchDeployments {
        * <code>.google.protobuf.Timestamp next_execute_time = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.protobuf.Timestamp.Builder getNextExecuteTimeBuilder() {
-        
+        bitField0_ |= 0x00000100;
         onChanged();
         return getNextExecuteTimeFieldBuilder().getBuilder();
       }
@@ -7401,7 +7227,18 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RecurringSchedule(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7476,51 +7313,6 @@ public final class PatchDeployments {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private WeeklySchedule(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              dayOfWeek_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.v1.PatchDeployments.internal_static_google_cloud_osconfig_v1_WeeklySchedule_descriptor;
@@ -7535,7 +7327,7 @@ public final class PatchDeployments {
     }
 
     public static final int DAY_OF_WEEK_FIELD_NUMBER = 1;
-    private int dayOfWeek_;
+    private int dayOfWeek_ = 0;
     /**
      * <pre>
      * Required. Day of the week.
@@ -7556,8 +7348,7 @@ public final class PatchDeployments {
      * @return The dayOfWeek.
      */
     @java.lang.Override public com.google.type.DayOfWeek getDayOfWeek() {
-      @SuppressWarnings("deprecation")
-      com.google.type.DayOfWeek result = com.google.type.DayOfWeek.valueOf(dayOfWeek_);
+      com.google.type.DayOfWeek result = com.google.type.DayOfWeek.forNumber(dayOfWeek_);
       return result == null ? com.google.type.DayOfWeek.UNRECOGNIZED : result;
     }
 
@@ -7578,7 +7369,7 @@ public final class PatchDeployments {
       if (dayOfWeek_ != com.google.type.DayOfWeek.DAY_OF_WEEK_UNSPECIFIED.getNumber()) {
         output.writeEnum(1, dayOfWeek_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -7591,7 +7382,7 @@ public final class PatchDeployments {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, dayOfWeek_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7607,7 +7398,7 @@ public final class PatchDeployments {
       com.google.cloud.osconfig.v1.PatchDeployments.WeeklySchedule other = (com.google.cloud.osconfig.v1.PatchDeployments.WeeklySchedule) obj;
 
       if (dayOfWeek_ != other.dayOfWeek_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -7620,7 +7411,7 @@ public final class PatchDeployments {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + DAY_OF_WEEK_FIELD_NUMBER;
       hash = (53 * hash) + dayOfWeek_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7741,24 +7532,19 @@ public final class PatchDeployments {
 
       // Construct using com.google.cloud.osconfig.v1.PatchDeployments.WeeklySchedule.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         dayOfWeek_ = 0;
-
         return this;
       }
 
@@ -7785,9 +7571,16 @@ public final class PatchDeployments {
       @java.lang.Override
       public com.google.cloud.osconfig.v1.PatchDeployments.WeeklySchedule buildPartial() {
         com.google.cloud.osconfig.v1.PatchDeployments.WeeklySchedule result = new com.google.cloud.osconfig.v1.PatchDeployments.WeeklySchedule(this);
-        result.dayOfWeek_ = dayOfWeek_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.v1.PatchDeployments.WeeklySchedule result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.dayOfWeek_ = dayOfWeek_;
+        }
       }
 
       @java.lang.Override
@@ -7837,7 +7630,7 @@ public final class PatchDeployments {
         if (other.dayOfWeek_ != 0) {
           setDayOfWeekValue(other.getDayOfWeekValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -7852,19 +7645,38 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.v1.PatchDeployments.WeeklySchedule parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                dayOfWeek_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.v1.PatchDeployments.WeeklySchedule) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int dayOfWeek_ = 0;
       /**
@@ -7888,8 +7700,8 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder setDayOfWeekValue(int value) {
-        
         dayOfWeek_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7903,8 +7715,7 @@ public final class PatchDeployments {
        */
       @java.lang.Override
       public com.google.type.DayOfWeek getDayOfWeek() {
-        @SuppressWarnings("deprecation")
-        com.google.type.DayOfWeek result = com.google.type.DayOfWeek.valueOf(dayOfWeek_);
+        com.google.type.DayOfWeek result = com.google.type.DayOfWeek.forNumber(dayOfWeek_);
         return result == null ? com.google.type.DayOfWeek.UNRECOGNIZED : result;
       }
       /**
@@ -7920,7 +7731,7 @@ public final class PatchDeployments {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         dayOfWeek_ = value.getNumber();
         onChanged();
         return this;
@@ -7934,7 +7745,7 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearDayOfWeek() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         dayOfWeek_ = 0;
         onChanged();
         return this;
@@ -7972,7 +7783,18 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new WeeklySchedule(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -8081,64 +7903,6 @@ public final class PatchDeployments {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private MonthlySchedule(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.osconfig.v1.PatchDeployments.WeekDayOfMonth.Builder subBuilder = null;
-              if (dayOfMonthCase_ == 1) {
-                subBuilder = ((com.google.cloud.osconfig.v1.PatchDeployments.WeekDayOfMonth) dayOfMonth_).toBuilder();
-              }
-              dayOfMonth_ =
-                  input.readMessage(com.google.cloud.osconfig.v1.PatchDeployments.WeekDayOfMonth.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.osconfig.v1.PatchDeployments.WeekDayOfMonth) dayOfMonth_);
-                dayOfMonth_ = subBuilder.buildPartial();
-              }
-              dayOfMonthCase_ = 1;
-              break;
-            }
-            case 16: {
-              dayOfMonth_ = input.readInt32();
-              dayOfMonthCase_ = 2;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -8293,7 +8057,7 @@ public final class PatchDeployments {
         output.writeInt32(
             2, (int)((java.lang.Integer) dayOfMonth_));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -8311,7 +8075,7 @@ public final class PatchDeployments {
           .computeInt32Size(
               2, (int)((java.lang.Integer) dayOfMonth_));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8339,7 +8103,7 @@ public final class PatchDeployments {
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -8362,7 +8126,7 @@ public final class PatchDeployments {
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8484,22 +8248,21 @@ public final class PatchDeployments {
 
       // Construct using com.google.cloud.osconfig.v1.PatchDeployments.MonthlySchedule.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (weekDayOfMonthBuilder_ != null) {
+          weekDayOfMonthBuilder_.clear();
+        }
         dayOfMonthCase_ = 0;
         dayOfMonth_ = null;
         return this;
@@ -8528,19 +8291,23 @@ public final class PatchDeployments {
       @java.lang.Override
       public com.google.cloud.osconfig.v1.PatchDeployments.MonthlySchedule buildPartial() {
         com.google.cloud.osconfig.v1.PatchDeployments.MonthlySchedule result = new com.google.cloud.osconfig.v1.PatchDeployments.MonthlySchedule(this);
-        if (dayOfMonthCase_ == 1) {
-          if (weekDayOfMonthBuilder_ == null) {
-            result.dayOfMonth_ = dayOfMonth_;
-          } else {
-            result.dayOfMonth_ = weekDayOfMonthBuilder_.build();
-          }
-        }
-        if (dayOfMonthCase_ == 2) {
-          result.dayOfMonth_ = dayOfMonth_;
-        }
-        result.dayOfMonthCase_ = dayOfMonthCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.v1.PatchDeployments.MonthlySchedule result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      private void buildPartialOneofs(com.google.cloud.osconfig.v1.PatchDeployments.MonthlySchedule result) {
+        result.dayOfMonthCase_ = dayOfMonthCase_;
+        result.dayOfMonth_ = this.dayOfMonth_;
+        if (dayOfMonthCase_ == 1 &&
+            weekDayOfMonthBuilder_ != null) {
+          result.dayOfMonth_ = weekDayOfMonthBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -8600,7 +8367,7 @@ public final class PatchDeployments {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -8615,17 +8382,42 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.v1.PatchDeployments.MonthlySchedule parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getWeekDayOfMonthFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dayOfMonthCase_ = 1;
+                break;
+              } // case 10
+              case 16: {
+                dayOfMonth_ = input.readInt32();
+                dayOfMonthCase_ = 2;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.v1.PatchDeployments.MonthlySchedule) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int dayOfMonthCase_ = 0;
@@ -8643,6 +8435,7 @@ public final class PatchDeployments {
         return this;
       }
 
+      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.cloud.osconfig.v1.PatchDeployments.WeekDayOfMonth, com.google.cloud.osconfig.v1.PatchDeployments.WeekDayOfMonth.Builder, com.google.cloud.osconfig.v1.PatchDeployments.WeekDayOfMonthOrBuilder> weekDayOfMonthBuilder_;
@@ -8818,7 +8611,7 @@ public final class PatchDeployments {
           dayOfMonth_ = null;
         }
         dayOfMonthCase_ = 1;
-        onChanged();;
+        onChanged();
         return weekDayOfMonthBuilder_;
       }
 
@@ -8866,6 +8659,7 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder setMonthDay(int value) {
+        
         dayOfMonthCase_ = 2;
         dayOfMonth_ = value;
         onChanged();
@@ -8923,7 +8717,18 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MonthlySchedule(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9025,61 +8830,6 @@ public final class PatchDeployments {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private WeekDayOfMonth(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              weekOrdinal_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              dayOfWeek_ = rawValue;
-              break;
-            }
-            case 24: {
-
-              dayOffset_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.v1.PatchDeployments.internal_static_google_cloud_osconfig_v1_WeekDayOfMonth_descriptor;
@@ -9094,7 +8844,7 @@ public final class PatchDeployments {
     }
 
     public static final int WEEK_ORDINAL_FIELD_NUMBER = 1;
-    private int weekOrdinal_;
+    private int weekOrdinal_ = 0;
     /**
      * <pre>
      * Required. Week number in a month. 1-4 indicates the 1st to 4th week of the
@@ -9110,7 +8860,7 @@ public final class PatchDeployments {
     }
 
     public static final int DAY_OF_WEEK_FIELD_NUMBER = 2;
-    private int dayOfWeek_;
+    private int dayOfWeek_ = 0;
     /**
      * <pre>
      * Required. A day of the week.
@@ -9131,13 +8881,12 @@ public final class PatchDeployments {
      * @return The dayOfWeek.
      */
     @java.lang.Override public com.google.type.DayOfWeek getDayOfWeek() {
-      @SuppressWarnings("deprecation")
-      com.google.type.DayOfWeek result = com.google.type.DayOfWeek.valueOf(dayOfWeek_);
+      com.google.type.DayOfWeek result = com.google.type.DayOfWeek.forNumber(dayOfWeek_);
       return result == null ? com.google.type.DayOfWeek.UNRECOGNIZED : result;
     }
 
     public static final int DAY_OFFSET_FIELD_NUMBER = 3;
-    private int dayOffset_;
+    private int dayOffset_ = 0;
     /**
      * <pre>
      * Optional. Represents the number of days before or after the given week day
@@ -9180,7 +8929,7 @@ public final class PatchDeployments {
       if (dayOffset_ != 0) {
         output.writeInt32(3, dayOffset_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -9201,7 +8950,7 @@ public final class PatchDeployments {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, dayOffset_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9221,7 +8970,7 @@ public final class PatchDeployments {
       if (dayOfWeek_ != other.dayOfWeek_) return false;
       if (getDayOffset()
           != other.getDayOffset()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -9238,7 +8987,7 @@ public final class PatchDeployments {
       hash = (53 * hash) + dayOfWeek_;
       hash = (37 * hash) + DAY_OFFSET_FIELD_NUMBER;
       hash = (53 * hash) + getDayOffset();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9359,28 +9108,21 @@ public final class PatchDeployments {
 
       // Construct using com.google.cloud.osconfig.v1.PatchDeployments.WeekDayOfMonth.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         weekOrdinal_ = 0;
-
         dayOfWeek_ = 0;
-
         dayOffset_ = 0;
-
         return this;
       }
 
@@ -9407,11 +9149,22 @@ public final class PatchDeployments {
       @java.lang.Override
       public com.google.cloud.osconfig.v1.PatchDeployments.WeekDayOfMonth buildPartial() {
         com.google.cloud.osconfig.v1.PatchDeployments.WeekDayOfMonth result = new com.google.cloud.osconfig.v1.PatchDeployments.WeekDayOfMonth(this);
-        result.weekOrdinal_ = weekOrdinal_;
-        result.dayOfWeek_ = dayOfWeek_;
-        result.dayOffset_ = dayOffset_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.v1.PatchDeployments.WeekDayOfMonth result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.weekOrdinal_ = weekOrdinal_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.dayOfWeek_ = dayOfWeek_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.dayOffset_ = dayOffset_;
+        }
       }
 
       @java.lang.Override
@@ -9467,7 +9220,7 @@ public final class PatchDeployments {
         if (other.getDayOffset() != 0) {
           setDayOffset(other.getDayOffset());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9482,19 +9235,48 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.v1.PatchDeployments.WeekDayOfMonth parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                weekOrdinal_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                dayOfWeek_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                dayOffset_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.v1.PatchDeployments.WeekDayOfMonth) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int weekOrdinal_ ;
       /**
@@ -9523,6 +9305,7 @@ public final class PatchDeployments {
       public Builder setWeekOrdinal(int value) {
         
         weekOrdinal_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9536,7 +9319,7 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearWeekOrdinal() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         weekOrdinal_ = 0;
         onChanged();
         return this;
@@ -9564,8 +9347,8 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder setDayOfWeekValue(int value) {
-        
         dayOfWeek_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -9579,8 +9362,7 @@ public final class PatchDeployments {
        */
       @java.lang.Override
       public com.google.type.DayOfWeek getDayOfWeek() {
-        @SuppressWarnings("deprecation")
-        com.google.type.DayOfWeek result = com.google.type.DayOfWeek.valueOf(dayOfWeek_);
+        com.google.type.DayOfWeek result = com.google.type.DayOfWeek.forNumber(dayOfWeek_);
         return result == null ? com.google.type.DayOfWeek.UNRECOGNIZED : result;
       }
       /**
@@ -9596,7 +9378,7 @@ public final class PatchDeployments {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         dayOfWeek_ = value.getNumber();
         onChanged();
         return this;
@@ -9610,7 +9392,7 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearDayOfWeek() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         dayOfWeek_ = 0;
         onChanged();
         return this;
@@ -9653,6 +9435,7 @@ public final class PatchDeployments {
       public Builder setDayOffset(int value) {
         
         dayOffset_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -9671,7 +9454,7 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearDayOffset() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         dayOffset_ = 0;
         onChanged();
         return this;
@@ -9709,7 +9492,18 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new WeekDayOfMonth(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9847,70 +9641,6 @@ public final class PatchDeployments {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CreatePatchDeploymentRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              parent_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              patchDeploymentId_ = s;
-              break;
-            }
-            case 26: {
-              com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.Builder subBuilder = null;
-              if (patchDeployment_ != null) {
-                subBuilder = patchDeployment_.toBuilder();
-              }
-              patchDeployment_ = input.readMessage(com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(patchDeployment_);
-                patchDeployment_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.v1.PatchDeployments.internal_static_google_cloud_osconfig_v1_CreatePatchDeploymentRequest_descriptor;
@@ -9925,7 +9655,8 @@ public final class PatchDeployments {
     }
 
     public static final int PARENT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object parent_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object parent_ = "";
     /**
      * <pre>
      * Required. The project to apply this patch deployment to in the form
@@ -9973,7 +9704,8 @@ public final class PatchDeployments {
     }
 
     public static final int PATCH_DEPLOYMENT_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object patchDeploymentId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object patchDeploymentId_ = "";
     /**
      * <pre>
      * Required. A name for the patch deployment in the project. When creating a
@@ -10065,7 +9797,7 @@ public final class PatchDeployments {
      */
     @java.lang.Override
     public com.google.cloud.osconfig.v1.PatchDeployments.PatchDeploymentOrBuilder getPatchDeploymentOrBuilder() {
-      return getPatchDeployment();
+      return patchDeployment_ == null ? com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.getDefaultInstance() : patchDeployment_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -10091,7 +9823,7 @@ public final class PatchDeployments {
       if (patchDeployment_ != null) {
         output.writeMessage(3, getPatchDeployment());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -10110,7 +9842,7 @@ public final class PatchDeployments {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getPatchDeployment());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -10134,7 +9866,7 @@ public final class PatchDeployments {
         if (!getPatchDeployment()
             .equals(other.getPatchDeployment())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -10153,7 +9885,7 @@ public final class PatchDeployments {
         hash = (37 * hash) + PATCH_DEPLOYMENT_FIELD_NUMBER;
         hash = (53 * hash) + getPatchDeployment().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10274,30 +10006,23 @@ public final class PatchDeployments {
 
       // Construct using com.google.cloud.osconfig.v1.PatchDeployments.CreatePatchDeploymentRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         parent_ = "";
-
         patchDeploymentId_ = "";
-
-        if (patchDeploymentBuilder_ == null) {
-          patchDeployment_ = null;
-        } else {
-          patchDeployment_ = null;
+        patchDeployment_ = null;
+        if (patchDeploymentBuilder_ != null) {
+          patchDeploymentBuilder_.dispose();
           patchDeploymentBuilder_ = null;
         }
         return this;
@@ -10326,15 +10051,24 @@ public final class PatchDeployments {
       @java.lang.Override
       public com.google.cloud.osconfig.v1.PatchDeployments.CreatePatchDeploymentRequest buildPartial() {
         com.google.cloud.osconfig.v1.PatchDeployments.CreatePatchDeploymentRequest result = new com.google.cloud.osconfig.v1.PatchDeployments.CreatePatchDeploymentRequest(this);
-        result.parent_ = parent_;
-        result.patchDeploymentId_ = patchDeploymentId_;
-        if (patchDeploymentBuilder_ == null) {
-          result.patchDeployment_ = patchDeployment_;
-        } else {
-          result.patchDeployment_ = patchDeploymentBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.v1.PatchDeployments.CreatePatchDeploymentRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.parent_ = parent_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.patchDeploymentId_ = patchDeploymentId_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.patchDeployment_ = patchDeploymentBuilder_ == null
+              ? patchDeployment_
+              : patchDeploymentBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -10383,16 +10117,18 @@ public final class PatchDeployments {
         if (other == com.google.cloud.osconfig.v1.PatchDeployments.CreatePatchDeploymentRequest.getDefaultInstance()) return this;
         if (!other.getParent().isEmpty()) {
           parent_ = other.parent_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getPatchDeploymentId().isEmpty()) {
           patchDeploymentId_ = other.patchDeploymentId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasPatchDeployment()) {
           mergePatchDeployment(other.getPatchDeployment());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -10407,19 +10143,50 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.v1.PatchDeployments.CreatePatchDeploymentRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                parent_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                patchDeploymentId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getPatchDeploymentFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.v1.PatchDeployments.CreatePatchDeploymentRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object parent_ = "";
       /**
@@ -10477,11 +10244,9 @@ public final class PatchDeployments {
        */
       public Builder setParent(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         parent_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10495,8 +10260,8 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearParent() {
-        
         parent_ = getDefaultInstance().getParent();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -10512,12 +10277,10 @@ public final class PatchDeployments {
        */
       public Builder setParentBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         parent_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10593,11 +10356,9 @@ public final class PatchDeployments {
        */
       public Builder setPatchDeploymentId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         patchDeploymentId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -10616,8 +10377,8 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearPatchDeploymentId() {
-        
         patchDeploymentId_ = getDefaultInstance().getPatchDeploymentId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -10638,12 +10399,10 @@ public final class PatchDeployments {
        */
       public Builder setPatchDeploymentIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         patchDeploymentId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -10660,7 +10419,7 @@ public final class PatchDeployments {
        * @return Whether the patchDeployment field is set.
        */
       public boolean hasPatchDeployment() {
-        return patchDeploymentBuilder_ != null || patchDeployment_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -10690,11 +10449,11 @@ public final class PatchDeployments {
             throw new NullPointerException();
           }
           patchDeployment_ = value;
-          onChanged();
         } else {
           patchDeploymentBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -10708,11 +10467,11 @@ public final class PatchDeployments {
           com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.Builder builderForValue) {
         if (patchDeploymentBuilder_ == null) {
           patchDeployment_ = builderForValue.build();
-          onChanged();
         } else {
           patchDeploymentBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -10724,17 +10483,18 @@ public final class PatchDeployments {
        */
       public Builder mergePatchDeployment(com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment value) {
         if (patchDeploymentBuilder_ == null) {
-          if (patchDeployment_ != null) {
-            patchDeployment_ =
-              com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.newBuilder(patchDeployment_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            patchDeployment_ != null &&
+            patchDeployment_ != com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.getDefaultInstance()) {
+            getPatchDeploymentBuilder().mergeFrom(value);
           } else {
             patchDeployment_ = value;
           }
-          onChanged();
         } else {
           patchDeploymentBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -10745,14 +10505,13 @@ public final class PatchDeployments {
        * <code>.google.cloud.osconfig.v1.PatchDeployment patch_deployment = 3 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearPatchDeployment() {
-        if (patchDeploymentBuilder_ == null) {
-          patchDeployment_ = null;
-          onChanged();
-        } else {
-          patchDeployment_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        patchDeployment_ = null;
+        if (patchDeploymentBuilder_ != null) {
+          patchDeploymentBuilder_.dispose();
           patchDeploymentBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -10763,7 +10522,7 @@ public final class PatchDeployments {
        * <code>.google.cloud.osconfig.v1.PatchDeployment patch_deployment = 3 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.Builder getPatchDeploymentBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getPatchDeploymentFieldBuilder().getBuilder();
       }
@@ -10835,7 +10594,18 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CreatePatchDeploymentRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -10913,51 +10683,6 @@ public final class PatchDeployments {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GetPatchDeploymentRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.v1.PatchDeployments.internal_static_google_cloud_osconfig_v1_GetPatchDeploymentRequest_descriptor;
@@ -10972,7 +10697,8 @@ public final class PatchDeployments {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Required. The resource name of the patch deployment in the form
@@ -11036,7 +10762,7 @@ public final class PatchDeployments {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -11048,7 +10774,7 @@ public final class PatchDeployments {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -11065,7 +10791,7 @@ public final class PatchDeployments {
 
       if (!getName()
           .equals(other.getName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -11078,7 +10804,7 @@ public final class PatchDeployments {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -11199,24 +10925,19 @@ public final class PatchDeployments {
 
       // Construct using com.google.cloud.osconfig.v1.PatchDeployments.GetPatchDeploymentRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         return this;
       }
 
@@ -11243,9 +10964,16 @@ public final class PatchDeployments {
       @java.lang.Override
       public com.google.cloud.osconfig.v1.PatchDeployments.GetPatchDeploymentRequest buildPartial() {
         com.google.cloud.osconfig.v1.PatchDeployments.GetPatchDeploymentRequest result = new com.google.cloud.osconfig.v1.PatchDeployments.GetPatchDeploymentRequest(this);
-        result.name_ = name_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.v1.PatchDeployments.GetPatchDeploymentRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
       }
 
       @java.lang.Override
@@ -11294,9 +11022,10 @@ public final class PatchDeployments {
         if (other == com.google.cloud.osconfig.v1.PatchDeployments.GetPatchDeploymentRequest.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -11311,19 +11040,38 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.v1.PatchDeployments.GetPatchDeploymentRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.v1.PatchDeployments.GetPatchDeploymentRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -11381,11 +11129,9 @@ public final class PatchDeployments {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -11399,8 +11145,8 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -11416,12 +11162,10 @@ public final class PatchDeployments {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -11458,7 +11202,18 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetPatchDeploymentRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -11570,62 +11325,6 @@ public final class PatchDeployments {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ListPatchDeploymentsRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              parent_ = s;
-              break;
-            }
-            case 16: {
-
-              pageSize_ = input.readInt32();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              pageToken_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.v1.PatchDeployments.internal_static_google_cloud_osconfig_v1_ListPatchDeploymentsRequest_descriptor;
@@ -11640,7 +11339,8 @@ public final class PatchDeployments {
     }
 
     public static final int PARENT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object parent_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object parent_ = "";
     /**
      * <pre>
      * Required. The resource name of the parent in the form `projects/&#42;`.
@@ -11686,7 +11386,7 @@ public final class PatchDeployments {
     }
 
     public static final int PAGE_SIZE_FIELD_NUMBER = 2;
-    private int pageSize_;
+    private int pageSize_ = 0;
     /**
      * <pre>
      * Optional. The maximum number of patch deployments to return. Default is
@@ -11702,7 +11402,8 @@ public final class PatchDeployments {
     }
 
     public static final int PAGE_TOKEN_FIELD_NUMBER = 3;
-    private volatile java.lang.Object pageToken_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object pageToken_ = "";
     /**
      * <pre>
      * Optional. A pagination token returned from a previous call to
@@ -11774,7 +11475,7 @@ public final class PatchDeployments {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, pageToken_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -11793,7 +11494,7 @@ public final class PatchDeployments {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, pageToken_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -11814,7 +11515,7 @@ public final class PatchDeployments {
           != other.getPageSize()) return false;
       if (!getPageToken()
           .equals(other.getPageToken())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -11831,7 +11532,7 @@ public final class PatchDeployments {
       hash = (53 * hash) + getPageSize();
       hash = (37 * hash) + PAGE_TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getPageToken().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -11952,28 +11653,21 @@ public final class PatchDeployments {
 
       // Construct using com.google.cloud.osconfig.v1.PatchDeployments.ListPatchDeploymentsRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         parent_ = "";
-
         pageSize_ = 0;
-
         pageToken_ = "";
-
         return this;
       }
 
@@ -12000,11 +11694,22 @@ public final class PatchDeployments {
       @java.lang.Override
       public com.google.cloud.osconfig.v1.PatchDeployments.ListPatchDeploymentsRequest buildPartial() {
         com.google.cloud.osconfig.v1.PatchDeployments.ListPatchDeploymentsRequest result = new com.google.cloud.osconfig.v1.PatchDeployments.ListPatchDeploymentsRequest(this);
-        result.parent_ = parent_;
-        result.pageSize_ = pageSize_;
-        result.pageToken_ = pageToken_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.v1.PatchDeployments.ListPatchDeploymentsRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.parent_ = parent_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.pageSize_ = pageSize_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.pageToken_ = pageToken_;
+        }
       }
 
       @java.lang.Override
@@ -12053,6 +11758,7 @@ public final class PatchDeployments {
         if (other == com.google.cloud.osconfig.v1.PatchDeployments.ListPatchDeploymentsRequest.getDefaultInstance()) return this;
         if (!other.getParent().isEmpty()) {
           parent_ = other.parent_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getPageSize() != 0) {
@@ -12060,9 +11766,10 @@ public final class PatchDeployments {
         }
         if (!other.getPageToken().isEmpty()) {
           pageToken_ = other.pageToken_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -12077,19 +11784,48 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.v1.PatchDeployments.ListPatchDeploymentsRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                parent_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                pageSize_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                pageToken_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.v1.PatchDeployments.ListPatchDeploymentsRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object parent_ = "";
       /**
@@ -12144,11 +11880,9 @@ public final class PatchDeployments {
        */
       public Builder setParent(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         parent_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -12161,8 +11895,8 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearParent() {
-        
         parent_ = getDefaultInstance().getParent();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -12177,12 +11911,10 @@ public final class PatchDeployments {
        */
       public Builder setParentBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         parent_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -12214,6 +11946,7 @@ public final class PatchDeployments {
       public Builder setPageSize(int value) {
         
         pageSize_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -12227,7 +11960,7 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearPageSize() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         pageSize_ = 0;
         onChanged();
         return this;
@@ -12292,11 +12025,9 @@ public final class PatchDeployments {
        */
       public Builder setPageToken(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         pageToken_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -12311,8 +12042,8 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearPageToken() {
-        
         pageToken_ = getDefaultInstance().getPageToken();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -12329,12 +12060,10 @@ public final class PatchDeployments {
        */
       public Builder setPageTokenBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         pageToken_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -12371,7 +12100,18 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ListPatchDeploymentsRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -12494,64 +12234,6 @@ public final class PatchDeployments {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ListPatchDeploymentsResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                patchDeployments_ = new java.util.ArrayList<com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              patchDeployments_.add(
-                  input.readMessage(com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.parser(), extensionRegistry));
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              nextPageToken_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          patchDeployments_ = java.util.Collections.unmodifiableList(patchDeployments_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.v1.PatchDeployments.internal_static_google_cloud_osconfig_v1_ListPatchDeploymentsResponse_descriptor;
@@ -12566,6 +12248,7 @@ public final class PatchDeployments {
     }
 
     public static final int PATCH_DEPLOYMENTS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment> patchDeployments_;
     /**
      * <pre>
@@ -12626,7 +12309,8 @@ public final class PatchDeployments {
     }
 
     public static final int NEXT_PAGE_TOKEN_FIELD_NUMBER = 2;
-    private volatile java.lang.Object nextPageToken_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object nextPageToken_ = "";
     /**
      * <pre>
      * A pagination token that can be used to get the next page of patch
@@ -12693,7 +12377,7 @@ public final class PatchDeployments {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nextPageToken_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -12709,7 +12393,7 @@ public final class PatchDeployments {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nextPageToken_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -12728,7 +12412,7 @@ public final class PatchDeployments {
           .equals(other.getPatchDeploymentsList())) return false;
       if (!getNextPageToken()
           .equals(other.getNextPageToken())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -12745,7 +12429,7 @@ public final class PatchDeployments {
       }
       hash = (37 * hash) + NEXT_PAGE_TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getNextPageToken().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -12866,31 +12550,26 @@ public final class PatchDeployments {
 
       // Construct using com.google.cloud.osconfig.v1.PatchDeployments.ListPatchDeploymentsResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getPatchDeploymentsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (patchDeploymentsBuilder_ == null) {
           patchDeployments_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          patchDeployments_ = null;
           patchDeploymentsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         nextPageToken_ = "";
-
         return this;
       }
 
@@ -12917,7 +12596,13 @@ public final class PatchDeployments {
       @java.lang.Override
       public com.google.cloud.osconfig.v1.PatchDeployments.ListPatchDeploymentsResponse buildPartial() {
         com.google.cloud.osconfig.v1.PatchDeployments.ListPatchDeploymentsResponse result = new com.google.cloud.osconfig.v1.PatchDeployments.ListPatchDeploymentsResponse(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.osconfig.v1.PatchDeployments.ListPatchDeploymentsResponse result) {
         if (patchDeploymentsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             patchDeployments_ = java.util.Collections.unmodifiableList(patchDeployments_);
@@ -12927,9 +12612,13 @@ public final class PatchDeployments {
         } else {
           result.patchDeployments_ = patchDeploymentsBuilder_.build();
         }
-        result.nextPageToken_ = nextPageToken_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.v1.PatchDeployments.ListPatchDeploymentsResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.nextPageToken_ = nextPageToken_;
+        }
       }
 
       @java.lang.Override
@@ -13004,9 +12693,10 @@ public final class PatchDeployments {
         }
         if (!other.getNextPageToken().isEmpty()) {
           nextPageToken_ = other.nextPageToken_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -13021,17 +12711,48 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.v1.PatchDeployments.ListPatchDeploymentsResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment m =
+                    input.readMessage(
+                        com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.parser(),
+                        extensionRegistry);
+                if (patchDeploymentsBuilder_ == null) {
+                  ensurePatchDeploymentsIsMutable();
+                  patchDeployments_.add(m);
+                } else {
+                  patchDeploymentsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                nextPageToken_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.v1.PatchDeployments.ListPatchDeploymentsResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -13404,11 +13125,9 @@ public final class PatchDeployments {
        */
       public Builder setNextPageToken(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         nextPageToken_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -13422,8 +13141,8 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearNextPageToken() {
-        
         nextPageToken_ = getDefaultInstance().getNextPageToken();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -13439,12 +13158,10 @@ public final class PatchDeployments {
        */
       public Builder setNextPageTokenBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         nextPageToken_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -13481,7 +13198,18 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ListPatchDeploymentsResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -13559,51 +13287,6 @@ public final class PatchDeployments {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DeletePatchDeploymentRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.v1.PatchDeployments.internal_static_google_cloud_osconfig_v1_DeletePatchDeploymentRequest_descriptor;
@@ -13618,7 +13301,8 @@ public final class PatchDeployments {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Required. The resource name of the patch deployment in the form
@@ -13682,7 +13366,7 @@ public final class PatchDeployments {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -13694,7 +13378,7 @@ public final class PatchDeployments {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -13711,7 +13395,7 @@ public final class PatchDeployments {
 
       if (!getName()
           .equals(other.getName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -13724,7 +13408,7 @@ public final class PatchDeployments {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -13845,24 +13529,19 @@ public final class PatchDeployments {
 
       // Construct using com.google.cloud.osconfig.v1.PatchDeployments.DeletePatchDeploymentRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         return this;
       }
 
@@ -13889,9 +13568,16 @@ public final class PatchDeployments {
       @java.lang.Override
       public com.google.cloud.osconfig.v1.PatchDeployments.DeletePatchDeploymentRequest buildPartial() {
         com.google.cloud.osconfig.v1.PatchDeployments.DeletePatchDeploymentRequest result = new com.google.cloud.osconfig.v1.PatchDeployments.DeletePatchDeploymentRequest(this);
-        result.name_ = name_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.v1.PatchDeployments.DeletePatchDeploymentRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
       }
 
       @java.lang.Override
@@ -13940,9 +13626,10 @@ public final class PatchDeployments {
         if (other == com.google.cloud.osconfig.v1.PatchDeployments.DeletePatchDeploymentRequest.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -13957,19 +13644,38 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.v1.PatchDeployments.DeletePatchDeploymentRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.v1.PatchDeployments.DeletePatchDeploymentRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -14027,11 +13733,9 @@ public final class PatchDeployments {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -14045,8 +13749,8 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -14062,12 +13766,10 @@ public final class PatchDeployments {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -14104,7 +13806,18 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DeletePatchDeploymentRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -14216,71 +13929,6 @@ public final class PatchDeployments {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private UpdatePatchDeploymentRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.Builder subBuilder = null;
-              if (patchDeployment_ != null) {
-                subBuilder = patchDeployment_.toBuilder();
-              }
-              patchDeployment_ = input.readMessage(com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(patchDeployment_);
-                patchDeployment_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.protobuf.FieldMask.Builder subBuilder = null;
-              if (updateMask_ != null) {
-                subBuilder = updateMask_.toBuilder();
-              }
-              updateMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(updateMask_);
-                updateMask_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.v1.PatchDeployments.internal_static_google_cloud_osconfig_v1_UpdatePatchDeploymentRequest_descriptor;
@@ -14329,7 +13977,7 @@ public final class PatchDeployments {
      */
     @java.lang.Override
     public com.google.cloud.osconfig.v1.PatchDeployments.PatchDeploymentOrBuilder getPatchDeploymentOrBuilder() {
-      return getPatchDeployment();
+      return patchDeployment_ == null ? com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.getDefaultInstance() : patchDeployment_;
     }
 
     public static final int UPDATE_MASK_FIELD_NUMBER = 2;
@@ -14370,7 +14018,7 @@ public final class PatchDeployments {
      */
     @java.lang.Override
     public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
-      return getUpdateMask();
+      return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -14393,7 +14041,7 @@ public final class PatchDeployments {
       if (updateMask_ != null) {
         output.writeMessage(2, getUpdateMask());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -14410,7 +14058,7 @@ public final class PatchDeployments {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getUpdateMask());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -14435,7 +14083,7 @@ public final class PatchDeployments {
         if (!getUpdateMask()
             .equals(other.getUpdateMask())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -14454,7 +14102,7 @@ public final class PatchDeployments {
         hash = (37 * hash) + UPDATE_MASK_FIELD_NUMBER;
         hash = (53 * hash) + getUpdateMask().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -14575,32 +14223,26 @@ public final class PatchDeployments {
 
       // Construct using com.google.cloud.osconfig.v1.PatchDeployments.UpdatePatchDeploymentRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (patchDeploymentBuilder_ == null) {
-          patchDeployment_ = null;
-        } else {
-          patchDeployment_ = null;
+        bitField0_ = 0;
+        patchDeployment_ = null;
+        if (patchDeploymentBuilder_ != null) {
+          patchDeploymentBuilder_.dispose();
           patchDeploymentBuilder_ = null;
         }
-        if (updateMaskBuilder_ == null) {
-          updateMask_ = null;
-        } else {
-          updateMask_ = null;
+        updateMask_ = null;
+        if (updateMaskBuilder_ != null) {
+          updateMaskBuilder_.dispose();
           updateMaskBuilder_ = null;
         }
         return this;
@@ -14629,18 +14271,23 @@ public final class PatchDeployments {
       @java.lang.Override
       public com.google.cloud.osconfig.v1.PatchDeployments.UpdatePatchDeploymentRequest buildPartial() {
         com.google.cloud.osconfig.v1.PatchDeployments.UpdatePatchDeploymentRequest result = new com.google.cloud.osconfig.v1.PatchDeployments.UpdatePatchDeploymentRequest(this);
-        if (patchDeploymentBuilder_ == null) {
-          result.patchDeployment_ = patchDeployment_;
-        } else {
-          result.patchDeployment_ = patchDeploymentBuilder_.build();
-        }
-        if (updateMaskBuilder_ == null) {
-          result.updateMask_ = updateMask_;
-        } else {
-          result.updateMask_ = updateMaskBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.v1.PatchDeployments.UpdatePatchDeploymentRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.patchDeployment_ = patchDeploymentBuilder_ == null
+              ? patchDeployment_
+              : patchDeploymentBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.updateMask_ = updateMaskBuilder_ == null
+              ? updateMask_
+              : updateMaskBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -14693,7 +14340,7 @@ public final class PatchDeployments {
         if (other.hasUpdateMask()) {
           mergeUpdateMask(other.getUpdateMask());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -14708,19 +14355,47 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.v1.PatchDeployments.UpdatePatchDeploymentRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getPatchDeploymentFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getUpdateMaskFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.v1.PatchDeployments.UpdatePatchDeploymentRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment patchDeployment_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -14734,7 +14409,7 @@ public final class PatchDeployments {
        * @return Whether the patchDeployment field is set.
        */
       public boolean hasPatchDeployment() {
-        return patchDeploymentBuilder_ != null || patchDeployment_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -14764,11 +14439,11 @@ public final class PatchDeployments {
             throw new NullPointerException();
           }
           patchDeployment_ = value;
-          onChanged();
         } else {
           patchDeploymentBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -14782,11 +14457,11 @@ public final class PatchDeployments {
           com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.Builder builderForValue) {
         if (patchDeploymentBuilder_ == null) {
           patchDeployment_ = builderForValue.build();
-          onChanged();
         } else {
           patchDeploymentBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -14798,17 +14473,18 @@ public final class PatchDeployments {
        */
       public Builder mergePatchDeployment(com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment value) {
         if (patchDeploymentBuilder_ == null) {
-          if (patchDeployment_ != null) {
-            patchDeployment_ =
-              com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.newBuilder(patchDeployment_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            patchDeployment_ != null &&
+            patchDeployment_ != com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.getDefaultInstance()) {
+            getPatchDeploymentBuilder().mergeFrom(value);
           } else {
             patchDeployment_ = value;
           }
-          onChanged();
         } else {
           patchDeploymentBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -14819,14 +14495,13 @@ public final class PatchDeployments {
        * <code>.google.cloud.osconfig.v1.PatchDeployment patch_deployment = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearPatchDeployment() {
-        if (patchDeploymentBuilder_ == null) {
-          patchDeployment_ = null;
-          onChanged();
-        } else {
-          patchDeployment_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        patchDeployment_ = null;
+        if (patchDeploymentBuilder_ != null) {
+          patchDeploymentBuilder_.dispose();
           patchDeploymentBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -14837,7 +14512,7 @@ public final class PatchDeployments {
        * <code>.google.cloud.osconfig.v1.PatchDeployment patch_deployment = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.cloud.osconfig.v1.PatchDeployments.PatchDeployment.Builder getPatchDeploymentBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getPatchDeploymentFieldBuilder().getBuilder();
       }
@@ -14890,7 +14565,7 @@ public final class PatchDeployments {
        * @return Whether the updateMask field is set.
        */
       public boolean hasUpdateMask() {
-        return updateMaskBuilder_ != null || updateMask_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -14922,11 +14597,11 @@ public final class PatchDeployments {
             throw new NullPointerException();
           }
           updateMask_ = value;
-          onChanged();
         } else {
           updateMaskBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -14941,11 +14616,11 @@ public final class PatchDeployments {
           com.google.protobuf.FieldMask.Builder builderForValue) {
         if (updateMaskBuilder_ == null) {
           updateMask_ = builderForValue.build();
-          onChanged();
         } else {
           updateMaskBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -14958,17 +14633,18 @@ public final class PatchDeployments {
        */
       public Builder mergeUpdateMask(com.google.protobuf.FieldMask value) {
         if (updateMaskBuilder_ == null) {
-          if (updateMask_ != null) {
-            updateMask_ =
-              com.google.protobuf.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            updateMask_ != null &&
+            updateMask_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
+            getUpdateMaskBuilder().mergeFrom(value);
           } else {
             updateMask_ = value;
           }
-          onChanged();
         } else {
           updateMaskBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -14980,14 +14656,13 @@ public final class PatchDeployments {
        * <code>.google.protobuf.FieldMask update_mask = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearUpdateMask() {
-        if (updateMaskBuilder_ == null) {
-          updateMask_ = null;
-          onChanged();
-        } else {
-          updateMask_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        updateMask_ = null;
+        if (updateMaskBuilder_ != null) {
+          updateMaskBuilder_.dispose();
           updateMaskBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -14999,7 +14674,7 @@ public final class PatchDeployments {
        * <code>.google.protobuf.FieldMask update_mask = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.protobuf.FieldMask.Builder getUpdateMaskBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getUpdateMaskFieldBuilder().getBuilder();
       }
@@ -15073,7 +14748,18 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UpdatePatchDeploymentRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -15151,51 +14837,6 @@ public final class PatchDeployments {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PausePatchDeploymentRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.v1.PatchDeployments.internal_static_google_cloud_osconfig_v1_PausePatchDeploymentRequest_descriptor;
@@ -15210,7 +14851,8 @@ public final class PatchDeployments {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Required. The resource name of the patch deployment in the form
@@ -15274,7 +14916,7 @@ public final class PatchDeployments {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -15286,7 +14928,7 @@ public final class PatchDeployments {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -15303,7 +14945,7 @@ public final class PatchDeployments {
 
       if (!getName()
           .equals(other.getName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -15316,7 +14958,7 @@ public final class PatchDeployments {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -15437,24 +15079,19 @@ public final class PatchDeployments {
 
       // Construct using com.google.cloud.osconfig.v1.PatchDeployments.PausePatchDeploymentRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         return this;
       }
 
@@ -15481,9 +15118,16 @@ public final class PatchDeployments {
       @java.lang.Override
       public com.google.cloud.osconfig.v1.PatchDeployments.PausePatchDeploymentRequest buildPartial() {
         com.google.cloud.osconfig.v1.PatchDeployments.PausePatchDeploymentRequest result = new com.google.cloud.osconfig.v1.PatchDeployments.PausePatchDeploymentRequest(this);
-        result.name_ = name_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.v1.PatchDeployments.PausePatchDeploymentRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
       }
 
       @java.lang.Override
@@ -15532,9 +15176,10 @@ public final class PatchDeployments {
         if (other == com.google.cloud.osconfig.v1.PatchDeployments.PausePatchDeploymentRequest.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -15549,19 +15194,38 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.v1.PatchDeployments.PausePatchDeploymentRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.v1.PatchDeployments.PausePatchDeploymentRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -15619,11 +15283,9 @@ public final class PatchDeployments {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -15637,8 +15299,8 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -15654,12 +15316,10 @@ public final class PatchDeployments {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -15696,7 +15356,18 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PausePatchDeploymentRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -15774,51 +15445,6 @@ public final class PatchDeployments {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ResumePatchDeploymentRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.v1.PatchDeployments.internal_static_google_cloud_osconfig_v1_ResumePatchDeploymentRequest_descriptor;
@@ -15833,7 +15459,8 @@ public final class PatchDeployments {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Required. The resource name of the patch deployment in the form
@@ -15897,7 +15524,7 @@ public final class PatchDeployments {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -15909,7 +15536,7 @@ public final class PatchDeployments {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -15926,7 +15553,7 @@ public final class PatchDeployments {
 
       if (!getName()
           .equals(other.getName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -15939,7 +15566,7 @@ public final class PatchDeployments {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -16060,24 +15687,19 @@ public final class PatchDeployments {
 
       // Construct using com.google.cloud.osconfig.v1.PatchDeployments.ResumePatchDeploymentRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         return this;
       }
 
@@ -16104,9 +15726,16 @@ public final class PatchDeployments {
       @java.lang.Override
       public com.google.cloud.osconfig.v1.PatchDeployments.ResumePatchDeploymentRequest buildPartial() {
         com.google.cloud.osconfig.v1.PatchDeployments.ResumePatchDeploymentRequest result = new com.google.cloud.osconfig.v1.PatchDeployments.ResumePatchDeploymentRequest(this);
-        result.name_ = name_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.v1.PatchDeployments.ResumePatchDeploymentRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
       }
 
       @java.lang.Override
@@ -16155,9 +15784,10 @@ public final class PatchDeployments {
         if (other == com.google.cloud.osconfig.v1.PatchDeployments.ResumePatchDeploymentRequest.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -16172,19 +15802,38 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.v1.PatchDeployments.ResumePatchDeploymentRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.v1.PatchDeployments.ResumePatchDeploymentRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -16242,11 +15891,9 @@ public final class PatchDeployments {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -16260,8 +15907,8 @@ public final class PatchDeployments {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -16277,12 +15924,10 @@ public final class PatchDeployments {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -16319,7 +15964,18 @@ public final class PatchDeployments {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ResumePatchDeploymentRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

@@ -39,145 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Dashboard(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            etag_ = s;
-            break;
-          }
-          case 42: {
-            com.google.monitoring.dashboard.v1.GridLayout.Builder subBuilder = null;
-            if (layoutCase_ == 5) {
-              subBuilder = ((com.google.monitoring.dashboard.v1.GridLayout) layout_).toBuilder();
-            }
-            layout_ =
-                input.readMessage(com.google.monitoring.dashboard.v1.GridLayout.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.dashboard.v1.GridLayout) layout_);
-              layout_ = subBuilder.buildPartial();
-            }
-            layoutCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.monitoring.dashboard.v1.MosaicLayout.Builder subBuilder = null;
-            if (layoutCase_ == 6) {
-              subBuilder = ((com.google.monitoring.dashboard.v1.MosaicLayout) layout_).toBuilder();
-            }
-            layout_ =
-                input.readMessage(com.google.monitoring.dashboard.v1.MosaicLayout.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.dashboard.v1.MosaicLayout) layout_);
-              layout_ = subBuilder.buildPartial();
-            }
-            layoutCase_ = 6;
-            break;
-          }
-          case 66: {
-            com.google.monitoring.dashboard.v1.RowLayout.Builder subBuilder = null;
-            if (layoutCase_ == 8) {
-              subBuilder = ((com.google.monitoring.dashboard.v1.RowLayout) layout_).toBuilder();
-            }
-            layout_ =
-                input.readMessage(com.google.monitoring.dashboard.v1.RowLayout.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.dashboard.v1.RowLayout) layout_);
-              layout_ = subBuilder.buildPartial();
-            }
-            layoutCase_ = 8;
-            break;
-          }
-          case 74: {
-            com.google.monitoring.dashboard.v1.ColumnLayout.Builder subBuilder = null;
-            if (layoutCase_ == 9) {
-              subBuilder = ((com.google.monitoring.dashboard.v1.ColumnLayout) layout_).toBuilder();
-            }
-            layout_ =
-                input.readMessage(com.google.monitoring.dashboard.v1.ColumnLayout.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.dashboard.v1.ColumnLayout) layout_);
-              layout_ = subBuilder.buildPartial();
-            }
-            layoutCase_ = 9;
-            break;
-          }
-          case 90: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              dashboardFilters_ = new java.util.ArrayList<com.google.monitoring.dashboard.v1.DashboardFilter>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            dashboardFilters_.add(
-                input.readMessage(com.google.monitoring.dashboard.v1.DashboardFilter.parser(), extensionRegistry));
-            break;
-          }
-          case 98: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        dashboardFilters_ = java.util.Collections.unmodifiableList(dashboardFilters_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.dashboard.v1.DashboardsProto.internal_static_google_monitoring_dashboard_v1_Dashboard_descriptor;
@@ -249,7 +110,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Immutable. The resource name of the dashboard.
@@ -295,7 +157,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Required. The mutable, human-readable name.
@@ -341,7 +204,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ETAG_FIELD_NUMBER = 4;
-  private volatile java.lang.Object etag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object etag_ = "";
   /**
    * <pre>
    * `etag` is used for optimistic concurrency control as a way to help
@@ -583,6 +447,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DASHBOARD_FILTERS_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.monitoring.dashboard.v1.DashboardFilter> dashboardFilters_;
   /**
    * <pre>
@@ -654,6 +519,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -664,7 +530,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -675,7 +540,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 12;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -698,7 +562,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 12;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -710,10 +573,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 12;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -727,7 +591,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 12;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -783,7 +646,7 @@ private static final long serialVersionUID = 0L;
         internalGetLabels(),
         LabelsDefaultEntryHolder.defaultEntry,
         12);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -831,7 +694,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(12, labels__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -877,7 +740,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -922,7 +785,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1066,35 +929,40 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.dashboard.v1.Dashboard.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getDashboardFiltersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
       etag_ = "";
-
+      if (gridLayoutBuilder_ != null) {
+        gridLayoutBuilder_.clear();
+      }
+      if (mosaicLayoutBuilder_ != null) {
+        mosaicLayoutBuilder_.clear();
+      }
+      if (rowLayoutBuilder_ != null) {
+        rowLayoutBuilder_.clear();
+      }
+      if (columnLayoutBuilder_ != null) {
+        columnLayoutBuilder_.clear();
+      }
       if (dashboardFiltersBuilder_ == null) {
         dashboardFilters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        dashboardFilters_ = null;
         dashboardFiltersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       internalGetMutableLabels().clear();
       layoutCase_ = 0;
       layout_ = null;
@@ -1124,52 +992,61 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.Dashboard buildPartial() {
       com.google.monitoring.dashboard.v1.Dashboard result = new com.google.monitoring.dashboard.v1.Dashboard(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      result.etag_ = etag_;
-      if (layoutCase_ == 5) {
-        if (gridLayoutBuilder_ == null) {
-          result.layout_ = layout_;
-        } else {
-          result.layout_ = gridLayoutBuilder_.build();
-        }
-      }
-      if (layoutCase_ == 6) {
-        if (mosaicLayoutBuilder_ == null) {
-          result.layout_ = layout_;
-        } else {
-          result.layout_ = mosaicLayoutBuilder_.build();
-        }
-      }
-      if (layoutCase_ == 8) {
-        if (rowLayoutBuilder_ == null) {
-          result.layout_ = layout_;
-        } else {
-          result.layout_ = rowLayoutBuilder_.build();
-        }
-      }
-      if (layoutCase_ == 9) {
-        if (columnLayoutBuilder_ == null) {
-          result.layout_ = layout_;
-        } else {
-          result.layout_ = columnLayoutBuilder_.build();
-        }
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.monitoring.dashboard.v1.Dashboard result) {
       if (dashboardFiltersBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           dashboardFilters_ = java.util.Collections.unmodifiableList(dashboardFilters_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.dashboardFilters_ = dashboardFilters_;
       } else {
         result.dashboardFilters_ = dashboardFiltersBuilder_.build();
       }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
+    }
+
+    private void buildPartial0(com.google.monitoring.dashboard.v1.Dashboard result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.etag_ = etag_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.monitoring.dashboard.v1.Dashboard result) {
       result.layoutCase_ = layoutCase_;
-      onBuilt();
-      return result;
+      result.layout_ = this.layout_;
+      if (layoutCase_ == 5 &&
+          gridLayoutBuilder_ != null) {
+        result.layout_ = gridLayoutBuilder_.build();
+      }
+      if (layoutCase_ == 6 &&
+          mosaicLayoutBuilder_ != null) {
+        result.layout_ = mosaicLayoutBuilder_.build();
+      }
+      if (layoutCase_ == 8 &&
+          rowLayoutBuilder_ != null) {
+        result.layout_ = rowLayoutBuilder_.build();
+      }
+      if (layoutCase_ == 9 &&
+          columnLayoutBuilder_ != null) {
+        result.layout_ = columnLayoutBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1218,21 +1095,24 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.monitoring.dashboard.v1.Dashboard.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getEtag().isEmpty()) {
         etag_ = other.etag_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (dashboardFiltersBuilder_ == null) {
         if (!other.dashboardFilters_.isEmpty()) {
           if (dashboardFilters_.isEmpty()) {
             dashboardFilters_ = other.dashboardFilters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureDashboardFiltersIsMutable();
             dashboardFilters_.addAll(other.dashboardFilters_);
@@ -1245,7 +1125,7 @@ private static final long serialVersionUID = 0L;
             dashboardFiltersBuilder_.dispose();
             dashboardFiltersBuilder_ = null;
             dashboardFilters_ = other.dashboardFilters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000080);
             dashboardFiltersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getDashboardFiltersFieldBuilder() : null;
@@ -1256,6 +1136,7 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000100;
       switch (other.getLayoutCase()) {
         case GRID_LAYOUT: {
           mergeGridLayout(other.getGridLayout());
@@ -1277,7 +1158,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1292,17 +1173,95 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.dashboard.v1.Dashboard parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 34: {
+              etag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getGridLayoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              layoutCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getMosaicLayoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              layoutCase_ = 6;
+              break;
+            } // case 50
+            case 66: {
+              input.readMessage(
+                  getRowLayoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              layoutCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getColumnLayoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              layoutCase_ = 9;
+              break;
+            } // case 74
+            case 90: {
+              com.google.monitoring.dashboard.v1.DashboardFilter m =
+                  input.readMessage(
+                      com.google.monitoring.dashboard.v1.DashboardFilter.parser(),
+                      extensionRegistry);
+              if (dashboardFiltersBuilder_ == null) {
+                ensureDashboardFiltersIsMutable();
+                dashboardFilters_.add(m);
+              } else {
+                dashboardFiltersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 90
+            case 98: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 98
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.dashboard.v1.Dashboard) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int layoutCase_ = 0;
@@ -1375,11 +1334,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1392,8 +1349,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1408,12 +1365,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1471,11 +1426,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1488,8 +1441,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1504,12 +1457,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1585,11 +1536,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       etag_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1608,8 +1557,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEtag() {
-      
       etag_ = getDefaultInstance().getEtag();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1630,12 +1579,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       etag_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1823,7 +1770,7 @@ private static final long serialVersionUID = 0L;
         layout_ = null;
       }
       layoutCase_ = 5;
-      onChanged();;
+      onChanged();
       return gridLayoutBuilder_;
     }
 
@@ -2010,7 +1957,7 @@ private static final long serialVersionUID = 0L;
         layout_ = null;
       }
       layoutCase_ = 6;
-      onChanged();;
+      onChanged();
       return mosaicLayoutBuilder_;
     }
 
@@ -2197,7 +2144,7 @@ private static final long serialVersionUID = 0L;
         layout_ = null;
       }
       layoutCase_ = 8;
-      onChanged();;
+      onChanged();
       return rowLayoutBuilder_;
     }
 
@@ -2384,16 +2331,16 @@ private static final long serialVersionUID = 0L;
         layout_ = null;
       }
       layoutCase_ = 9;
-      onChanged();;
+      onChanged();
       return columnLayoutBuilder_;
     }
 
     private java.util.List<com.google.monitoring.dashboard.v1.DashboardFilter> dashboardFilters_ =
       java.util.Collections.emptyList();
     private void ensureDashboardFiltersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         dashboardFilters_ = new java.util.ArrayList<com.google.monitoring.dashboard.v1.DashboardFilter>(dashboardFilters_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -2587,7 +2534,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearDashboardFilters() {
       if (dashboardFiltersBuilder_ == null) {
         dashboardFilters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         dashboardFiltersBuilder_.clear();
@@ -2692,7 +2639,7 @@ private static final long serialVersionUID = 0L;
         dashboardFiltersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.monitoring.dashboard.v1.DashboardFilter, com.google.monitoring.dashboard.v1.DashboardFilter.Builder, com.google.monitoring.dashboard.v1.DashboardFilterOrBuilder>(
                 dashboardFilters_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         dashboardFilters_ = null;
@@ -2703,7 +2650,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -2711,8 +2658,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -2720,9 +2666,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000100;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -2733,7 +2680,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 12;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -2756,7 +2702,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 12;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -2768,10 +2713,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 12;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -2785,7 +2731,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 12;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2796,8 +2741,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000100);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -2809,7 +2754,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 12;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2822,7 +2766,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000100;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -2836,12 +2781,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000100;
       return this;
     }
     /**
@@ -2851,11 +2794,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 12;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000100;
       return this;
     }
     @java.lang.Override
@@ -2891,7 +2834,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Dashboard(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

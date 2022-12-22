@@ -37,103 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MetadataImport(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 50: {
-            com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.Builder subBuilder = null;
-            if (metadataCase_ == 6) {
-              subBuilder = ((com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump) metadata_).toBuilder();
-            }
-            metadata_ =
-                input.readMessage(com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump) metadata_);
-              metadata_ = subBuilder.buildPartial();
-            }
-            metadataCase_ = 6;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.metastore.v1beta.MetastoreProto.internal_static_google_cloud_metastore_v1beta_MetadataImport_descriptor;
@@ -339,7 +242,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType database_type = 1 [deprecated = true];</code>
      * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.database_type is deprecated.
-     *     See google/cloud/metastore/v1beta/metastore.proto;l=477
+     *     See google/cloud/metastore/v1beta/metastore.proto;l=691
      * @return The enum numeric value on the wire for databaseType.
      */
     @java.lang.Deprecated int getDatabaseTypeValue();
@@ -350,7 +253,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType database_type = 1 [deprecated = true];</code>
      * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.database_type is deprecated.
-     *     See google/cloud/metastore/v1beta/metastore.proto;l=477
+     *     See google/cloud/metastore/v1beta/metastore.proto;l=691
      * @return The databaseType.
      */
     @java.lang.Deprecated com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType getDatabaseType();
@@ -384,7 +287,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string source_database = 3 [deprecated = true];</code>
      * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.source_database is deprecated.
-     *     See google/cloud/metastore/v1beta/metastore.proto;l=484
+     *     See google/cloud/metastore/v1beta/metastore.proto;l=698
      * @return The sourceDatabase.
      */
     @java.lang.Deprecated java.lang.String getSourceDatabase();
@@ -395,7 +298,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string source_database = 3 [deprecated = true];</code>
      * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.source_database is deprecated.
-     *     See google/cloud/metastore/v1beta/metastore.proto;l=484
+     *     See google/cloud/metastore/v1beta/metastore.proto;l=698
      * @return The bytes for sourceDatabase.
      */
     @java.lang.Deprecated com.google.protobuf.ByteString
@@ -457,69 +360,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private DatabaseDump(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              databaseType_ = rawValue;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              gcsUri_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              sourceDatabase_ = s;
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              type_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -663,7 +503,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DATABASE_TYPE_FIELD_NUMBER = 1;
-    private int databaseType_;
+    private int databaseType_ = 0;
     /**
      * <pre>
      * The type of the database.
@@ -671,7 +511,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType database_type = 1 [deprecated = true];</code>
      * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.database_type is deprecated.
-     *     See google/cloud/metastore/v1beta/metastore.proto;l=477
+     *     See google/cloud/metastore/v1beta/metastore.proto;l=691
      * @return The enum numeric value on the wire for databaseType.
      */
     @java.lang.Override @java.lang.Deprecated public int getDatabaseTypeValue() {
@@ -684,17 +524,17 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType database_type = 1 [deprecated = true];</code>
      * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.database_type is deprecated.
-     *     See google/cloud/metastore/v1beta/metastore.proto;l=477
+     *     See google/cloud/metastore/v1beta/metastore.proto;l=691
      * @return The databaseType.
      */
     @java.lang.Override @java.lang.Deprecated public com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType getDatabaseType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType result = com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType.valueOf(databaseType_);
+      com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType result = com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType.forNumber(databaseType_);
       return result == null ? com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType.UNRECOGNIZED : result;
     }
 
     public static final int GCS_URI_FIELD_NUMBER = 2;
-    private volatile java.lang.Object gcsUri_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object gcsUri_ = "";
     /**
      * <pre>
      * A Cloud Storage object or folder URI that specifies the source from which
@@ -742,7 +582,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SOURCE_DATABASE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object sourceDatabase_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object sourceDatabase_ = "";
     /**
      * <pre>
      * The name of the source database.
@@ -750,7 +591,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string source_database = 3 [deprecated = true];</code>
      * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.source_database is deprecated.
-     *     See google/cloud/metastore/v1beta/metastore.proto;l=484
+     *     See google/cloud/metastore/v1beta/metastore.proto;l=698
      * @return The sourceDatabase.
      */
     @java.lang.Override
@@ -773,7 +614,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string source_database = 3 [deprecated = true];</code>
      * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.source_database is deprecated.
-     *     See google/cloud/metastore/v1beta/metastore.proto;l=484
+     *     See google/cloud/metastore/v1beta/metastore.proto;l=698
      * @return The bytes for sourceDatabase.
      */
     @java.lang.Override
@@ -792,7 +633,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TYPE_FIELD_NUMBER = 4;
-    private int type_;
+    private int type_ = 0;
     /**
      * <pre>
      * Optional. The type of the database dump. If unspecified, defaults to
@@ -815,8 +656,7 @@ private static final long serialVersionUID = 0L;
      * @return The type.
      */
     @java.lang.Override public com.google.cloud.metastore.v1beta.DatabaseDumpSpec.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.metastore.v1beta.DatabaseDumpSpec.Type result = com.google.cloud.metastore.v1beta.DatabaseDumpSpec.Type.valueOf(type_);
+      com.google.cloud.metastore.v1beta.DatabaseDumpSpec.Type result = com.google.cloud.metastore.v1beta.DatabaseDumpSpec.Type.forNumber(type_);
       return result == null ? com.google.cloud.metastore.v1beta.DatabaseDumpSpec.Type.UNRECOGNIZED : result;
     }
 
@@ -846,7 +686,7 @@ private static final long serialVersionUID = 0L;
       if (type_ != com.google.cloud.metastore.v1beta.DatabaseDumpSpec.Type.TYPE_UNSPECIFIED.getNumber()) {
         output.writeEnum(4, type_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -869,7 +709,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, type_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -890,7 +730,7 @@ private static final long serialVersionUID = 0L;
       if (!getSourceDatabase()
           .equals(other.getSourceDatabase())) return false;
       if (type_ != other.type_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -909,7 +749,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getSourceDatabase().hashCode();
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + type_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1031,30 +871,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         databaseType_ = 0;
-
         gcsUri_ = "";
-
         sourceDatabase_ = "";
-
         type_ = 0;
-
         return this;
       }
 
@@ -1081,12 +913,25 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump buildPartial() {
         com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump result = new com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump(this);
-        result.databaseType_ = databaseType_;
-        result.gcsUri_ = gcsUri_;
-        result.sourceDatabase_ = sourceDatabase_;
-        result.type_ = type_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.databaseType_ = databaseType_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.gcsUri_ = gcsUri_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.sourceDatabase_ = sourceDatabase_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.type_ = type_;
+        }
       }
 
       @java.lang.Override
@@ -1138,16 +983,18 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getGcsUri().isEmpty()) {
           gcsUri_ = other.gcsUri_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getSourceDatabase().isEmpty()) {
           sourceDatabase_ = other.sourceDatabase_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.type_ != 0) {
           setTypeValue(other.getTypeValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1162,19 +1009,53 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                databaseType_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                gcsUri_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                sourceDatabase_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int databaseType_ = 0;
       /**
@@ -1184,7 +1065,7 @@ private static final long serialVersionUID = 0L;
        *
        * <code>.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType database_type = 1 [deprecated = true];</code>
        * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.database_type is deprecated.
-       *     See google/cloud/metastore/v1beta/metastore.proto;l=477
+       *     See google/cloud/metastore/v1beta/metastore.proto;l=691
        * @return The enum numeric value on the wire for databaseType.
        */
       @java.lang.Override @java.lang.Deprecated public int getDatabaseTypeValue() {
@@ -1197,13 +1078,13 @@ private static final long serialVersionUID = 0L;
        *
        * <code>.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType database_type = 1 [deprecated = true];</code>
        * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.database_type is deprecated.
-       *     See google/cloud/metastore/v1beta/metastore.proto;l=477
+       *     See google/cloud/metastore/v1beta/metastore.proto;l=691
        * @param value The enum numeric value on the wire for databaseType to set.
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder setDatabaseTypeValue(int value) {
-        
         databaseType_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1214,13 +1095,12 @@ private static final long serialVersionUID = 0L;
        *
        * <code>.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType database_type = 1 [deprecated = true];</code>
        * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.database_type is deprecated.
-       *     See google/cloud/metastore/v1beta/metastore.proto;l=477
+       *     See google/cloud/metastore/v1beta/metastore.proto;l=691
        * @return The databaseType.
        */
       @java.lang.Override
       @java.lang.Deprecated public com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType getDatabaseType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType result = com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType.valueOf(databaseType_);
+        com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType result = com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType.forNumber(databaseType_);
         return result == null ? com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType.UNRECOGNIZED : result;
       }
       /**
@@ -1230,7 +1110,7 @@ private static final long serialVersionUID = 0L;
        *
        * <code>.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType database_type = 1 [deprecated = true];</code>
        * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.database_type is deprecated.
-       *     See google/cloud/metastore/v1beta/metastore.proto;l=477
+       *     See google/cloud/metastore/v1beta/metastore.proto;l=691
        * @param value The databaseType to set.
        * @return This builder for chaining.
        */
@@ -1238,7 +1118,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         databaseType_ = value.getNumber();
         onChanged();
         return this;
@@ -1250,11 +1130,11 @@ private static final long serialVersionUID = 0L;
        *
        * <code>.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.DatabaseType database_type = 1 [deprecated = true];</code>
        * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.database_type is deprecated.
-       *     See google/cloud/metastore/v1beta/metastore.proto;l=477
+       *     See google/cloud/metastore/v1beta/metastore.proto;l=691
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearDatabaseType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         databaseType_ = 0;
         onChanged();
         return this;
@@ -1316,11 +1196,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setGcsUri(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         gcsUri_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1334,8 +1212,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearGcsUri() {
-        
         gcsUri_ = getDefaultInstance().getGcsUri();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1351,12 +1229,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setGcsUriBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         gcsUri_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1369,7 +1245,7 @@ private static final long serialVersionUID = 0L;
        *
        * <code>string source_database = 3 [deprecated = true];</code>
        * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.source_database is deprecated.
-       *     See google/cloud/metastore/v1beta/metastore.proto;l=484
+       *     See google/cloud/metastore/v1beta/metastore.proto;l=698
        * @return The sourceDatabase.
        */
       @java.lang.Deprecated public java.lang.String getSourceDatabase() {
@@ -1391,7 +1267,7 @@ private static final long serialVersionUID = 0L;
        *
        * <code>string source_database = 3 [deprecated = true];</code>
        * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.source_database is deprecated.
-       *     See google/cloud/metastore/v1beta/metastore.proto;l=484
+       *     See google/cloud/metastore/v1beta/metastore.proto;l=698
        * @return The bytes for sourceDatabase.
        */
       @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -1414,17 +1290,15 @@ private static final long serialVersionUID = 0L;
        *
        * <code>string source_database = 3 [deprecated = true];</code>
        * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.source_database is deprecated.
-       *     See google/cloud/metastore/v1beta/metastore.proto;l=484
+       *     See google/cloud/metastore/v1beta/metastore.proto;l=698
        * @param value The sourceDatabase to set.
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder setSourceDatabase(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         sourceDatabase_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1435,12 +1309,12 @@ private static final long serialVersionUID = 0L;
        *
        * <code>string source_database = 3 [deprecated = true];</code>
        * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.source_database is deprecated.
-       *     See google/cloud/metastore/v1beta/metastore.proto;l=484
+       *     See google/cloud/metastore/v1beta/metastore.proto;l=698
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearSourceDatabase() {
-        
         sourceDatabase_ = getDefaultInstance().getSourceDatabase();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1451,18 +1325,16 @@ private static final long serialVersionUID = 0L;
        *
        * <code>string source_database = 3 [deprecated = true];</code>
        * @deprecated google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.source_database is deprecated.
-       *     See google/cloud/metastore/v1beta/metastore.proto;l=484
+       *     See google/cloud/metastore/v1beta/metastore.proto;l=698
        * @param value The bytes for sourceDatabase to set.
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder setSourceDatabaseBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         sourceDatabase_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1491,8 +1363,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
-        
         type_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1507,8 +1379,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.metastore.v1beta.DatabaseDumpSpec.Type getType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.metastore.v1beta.DatabaseDumpSpec.Type result = com.google.cloud.metastore.v1beta.DatabaseDumpSpec.Type.valueOf(type_);
+        com.google.cloud.metastore.v1beta.DatabaseDumpSpec.Type result = com.google.cloud.metastore.v1beta.DatabaseDumpSpec.Type.forNumber(type_);
         return result == null ? com.google.cloud.metastore.v1beta.DatabaseDumpSpec.Type.UNRECOGNIZED : result;
       }
       /**
@@ -1525,7 +1396,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000008;
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -1540,7 +1411,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         type_ = 0;
         onChanged();
         return this;
@@ -1578,7 +1449,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DatabaseDump(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1681,7 +1563,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Immutable. The relative resource name of the metadata import, of the form:
@@ -1729,7 +1612,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * The description of the metadata import.
@@ -1778,7 +1662,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp createTime_;
   /**
    * <pre>
-   * Output only. The time when the metadata import was created.
+   * Output only. The time when the metadata import was started.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1790,7 +1674,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The time when the metadata import was created.
+   * Output only. The time when the metadata import was started.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1802,14 +1686,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The time when the metadata import was created.
+   * Output only. The time when the metadata import was started.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 4;
@@ -1847,11 +1731,49 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
+  }
+
+  public static final int END_TIME_FIELD_NUMBER = 7;
+  private com.google.protobuf.Timestamp endTime_;
+  /**
+   * <pre>
+   * Output only. The time when the metadata import finished.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp end_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return Whether the endTime field is set.
+   */
+  @java.lang.Override
+  public boolean hasEndTime() {
+    return endTime_ != null;
+  }
+  /**
+   * <pre>
+   * Output only. The time when the metadata import finished.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp end_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The endTime.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getEndTime() {
+    return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
+  }
+  /**
+   * <pre>
+   * Output only. The time when the metadata import finished.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp end_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
+    return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
   }
 
   public static final int STATE_FIELD_NUMBER = 5;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The current state of the metadata import.
@@ -1872,8 +1794,7 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.metastore.v1beta.MetadataImport.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.metastore.v1beta.MetadataImport.State result = com.google.cloud.metastore.v1beta.MetadataImport.State.valueOf(state_);
+    com.google.cloud.metastore.v1beta.MetadataImport.State result = com.google.cloud.metastore.v1beta.MetadataImport.State.forNumber(state_);
     return result == null ? com.google.cloud.metastore.v1beta.MetadataImport.State.UNRECOGNIZED : result;
   }
 
@@ -1909,7 +1830,10 @@ private static final long serialVersionUID = 0L;
     if (metadataCase_ == 6) {
       output.writeMessage(6, (com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump) metadata_);
     }
-    unknownFields.writeTo(output);
+    if (endTime_ != null) {
+      output.writeMessage(7, getEndTime());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1940,7 +1864,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, (com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump) metadata_);
     }
-    size += unknownFields.getSerializedSize();
+    if (endTime_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, getEndTime());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1969,6 +1897,11 @@ private static final long serialVersionUID = 0L;
       if (!getUpdateTime()
           .equals(other.getUpdateTime())) return false;
     }
+    if (hasEndTime() != other.hasEndTime()) return false;
+    if (hasEndTime()) {
+      if (!getEndTime()
+          .equals(other.getEndTime())) return false;
+    }
     if (state_ != other.state_) return false;
     if (!getMetadataCase().equals(other.getMetadataCase())) return false;
     switch (metadataCase_) {
@@ -1979,7 +1912,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2002,6 +1935,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UPDATE_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getUpdateTime().hashCode();
     }
+    if (hasEndTime()) {
+      hash = (37 * hash) + END_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getEndTime().hashCode();
+    }
     hash = (37 * hash) + STATE_FIELD_NUMBER;
     hash = (53 * hash) + state_;
     switch (metadataCase_) {
@@ -2012,7 +1949,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2133,40 +2070,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.metastore.v1beta.MetadataImport.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (databaseDumpBuilder_ != null) {
+        databaseDumpBuilder_.clear();
+      }
       name_ = "";
-
       description_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
+      endTime_ = null;
+      if (endTimeBuilder_ != null) {
+        endTimeBuilder_.dispose();
+        endTimeBuilder_ = null;
+      }
       state_ = 0;
-
       metadataCase_ = 0;
       metadata_ = null;
       return this;
@@ -2195,29 +2131,47 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.metastore.v1beta.MetadataImport buildPartial() {
       com.google.cloud.metastore.v1beta.MetadataImport result = new com.google.cloud.metastore.v1beta.MetadataImport(this);
-      if (metadataCase_ == 6) {
-        if (databaseDumpBuilder_ == null) {
-          result.metadata_ = metadata_;
-        } else {
-          result.metadata_ = databaseDumpBuilder_.build();
-        }
-      }
-      result.name_ = name_;
-      result.description_ = description_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.state_ = state_;
-      result.metadataCase_ = metadataCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.metastore.v1beta.MetadataImport result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.endTime_ = endTimeBuilder_ == null
+            ? endTime_
+            : endTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.state_ = state_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.metastore.v1beta.MetadataImport result) {
+      result.metadataCase_ = metadataCase_;
+      result.metadata_ = this.metadata_;
+      if (metadataCase_ == 6 &&
+          databaseDumpBuilder_ != null) {
+        result.metadata_ = databaseDumpBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2266,10 +2220,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.metastore.v1beta.MetadataImport.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -2277,6 +2233,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasUpdateTime()) {
         mergeUpdateTime(other.getUpdateTime());
+      }
+      if (other.hasEndTime()) {
+        mergeEndTime(other.getEndTime());
       }
       if (other.state_ != 0) {
         setStateValue(other.getStateValue());
@@ -2290,7 +2249,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2305,17 +2264,73 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.metastore.v1beta.MetadataImport parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 10
+            case 18: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 40: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 40
+            case 50: {
+              input.readMessage(
+                  getDatabaseDumpFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              metadataCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getEndTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.metastore.v1beta.MetadataImport) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int metadataCase_ = 0;
@@ -2333,6 +2348,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump, com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDump.Builder, com.google.cloud.metastore.v1beta.MetadataImport.DatabaseDumpOrBuilder> databaseDumpBuilder_;
@@ -2508,7 +2524,7 @@ private static final long serialVersionUID = 0L;
         metadata_ = null;
       }
       metadataCase_ = 6;
-      onChanged();;
+      onChanged();
       return databaseDumpBuilder_;
     }
 
@@ -2568,11 +2584,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2586,8 +2600,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2603,12 +2617,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2666,11 +2678,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2683,8 +2693,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2699,12 +2709,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2714,18 +2722,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createTimeBuilder_;
     /**
      * <pre>
-     * Output only. The time when the metadata import was created.
+     * Output only. The time when the metadata import was started.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
-     * Output only. The time when the metadata import was created.
+     * Output only. The time when the metadata import was started.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2740,7 +2748,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The time when the metadata import was created.
+     * Output only. The time when the metadata import was started.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2751,16 +2759,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The time when the metadata import was created.
+     * Output only. The time when the metadata import was started.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2769,68 +2777,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The time when the metadata import was created.
+     * Output only. The time when the metadata import was started.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The time when the metadata import was created.
+     * Output only. The time when the metadata import was started.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The time when the metadata import was created.
+     * Output only. The time when the metadata import was started.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Output only. The time when the metadata import was created.
+     * Output only. The time when the metadata import was started.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2845,7 +2853,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The time when the metadata import was created.
+     * Output only. The time when the metadata import was started.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2876,7 +2884,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2906,11 +2914,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2924,11 +2932,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2940,17 +2948,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2961,14 +2970,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2979,7 +2987,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -3019,6 +3027,161 @@ private static final long serialVersionUID = 0L;
       return updateTimeBuilder_;
     }
 
+    private com.google.protobuf.Timestamp endTime_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> endTimeBuilder_;
+    /**
+     * <pre>
+     * Output only. The time when the metadata import finished.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return Whether the endTime field is set.
+     */
+    public boolean hasEndTime() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <pre>
+     * Output only. The time when the metadata import finished.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The endTime.
+     */
+    public com.google.protobuf.Timestamp getEndTime() {
+      if (endTimeBuilder_ == null) {
+        return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
+      } else {
+        return endTimeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Output only. The time when the metadata import finished.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder setEndTime(com.google.protobuf.Timestamp value) {
+      if (endTimeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        endTime_ = value;
+      } else {
+        endTimeBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The time when the metadata import finished.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder setEndTime(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (endTimeBuilder_ == null) {
+        endTime_ = builderForValue.build();
+      } else {
+        endTimeBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The time when the metadata import finished.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
+      if (endTimeBuilder_ == null) {
+        if (((bitField0_ & 0x00000020) != 0) &&
+          endTime_ != null &&
+          endTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getEndTimeBuilder().mergeFrom(value);
+        } else {
+          endTime_ = value;
+        }
+      } else {
+        endTimeBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The time when the metadata import finished.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder clearEndTime() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      endTime_ = null;
+      if (endTimeBuilder_ != null) {
+        endTimeBuilder_.dispose();
+        endTimeBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The time when the metadata import finished.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return getEndTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Output only. The time when the metadata import finished.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
+      if (endTimeBuilder_ != null) {
+        return endTimeBuilder_.getMessageOrBuilder();
+      } else {
+        return endTime_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
+      }
+    }
+    /**
+     * <pre>
+     * Output only. The time when the metadata import finished.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getEndTimeFieldBuilder() {
+      if (endTimeBuilder_ == null) {
+        endTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getEndTime(),
+                getParentForChildren(),
+                isClean());
+        endTime_ = null;
+      }
+      return endTimeBuilder_;
+    }
+
     private int state_ = 0;
     /**
      * <pre>
@@ -3041,8 +3204,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -3056,8 +3219,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.metastore.v1beta.MetadataImport.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.metastore.v1beta.MetadataImport.State result = com.google.cloud.metastore.v1beta.MetadataImport.State.valueOf(state_);
+      com.google.cloud.metastore.v1beta.MetadataImport.State result = com.google.cloud.metastore.v1beta.MetadataImport.State.forNumber(state_);
       return result == null ? com.google.cloud.metastore.v1beta.MetadataImport.State.UNRECOGNIZED : result;
     }
     /**
@@ -3073,7 +3235,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -3087,7 +3249,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       state_ = 0;
       onChanged();
       return this;
@@ -3125,7 +3287,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MetadataImport(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

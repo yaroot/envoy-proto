@@ -38,88 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AdminQuotaPolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-
-            policyValue_ = input.readInt64();
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              dimensions_ = com.google.protobuf.MapField.newMapField(
-                  DimensionsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            dimensions__ = input.readMessage(
-                DimensionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            dimensions_.getMutableMap().put(
-                dimensions__.getKey(), dimensions__.getValue());
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            metric_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            unit_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            container_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.serviceusage.v1beta1.ResourcesProto.internal_static_google_api_serviceusage_v1beta1_AdminQuotaPolicy_descriptor;
@@ -146,7 +64,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The resource name of the policy.
@@ -198,7 +117,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POLICY_VALUE_FIELD_NUMBER = 2;
-  private long policyValue_;
+  private long policyValue_ = 0L;
   /**
    * <pre>
    * The quota policy value.
@@ -225,6 +144,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> dimensions_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -235,7 +155,6 @@ private static final long serialVersionUID = 0L;
     }
     return dimensions_;
   }
-
   public int getDimensionsCount() {
     return internalGetDimensions().getMap().size();
   }
@@ -254,7 +173,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; dimensions = 3;</code>
    */
-
   @java.lang.Override
   public boolean containsDimensions(
       java.lang.String key) {
@@ -285,7 +203,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; dimensions = 3;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getDimensionsMap() {
     return internalGetDimensions().getMap();
   }
@@ -305,10 +222,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; dimensions = 3;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getDimensionsOrDefault(
+  public /* nullable */
+java.lang.String getDimensionsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetDimensions().getMap();
@@ -330,7 +248,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; dimensions = 3;</code>
    */
   @java.lang.Override
-
   public java.lang.String getDimensionsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -343,7 +260,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int METRIC_FIELD_NUMBER = 4;
-  private volatile java.lang.Object metric_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object metric_ = "";
   /**
    * <pre>
    * The name of the metric to which this policy applies.
@@ -393,7 +311,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UNIT_FIELD_NUMBER = 5;
-  private volatile java.lang.Object unit_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object unit_ = "";
   /**
    * <pre>
    * The limit unit of the limit to which this policy applies.
@@ -447,7 +366,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTAINER_FIELD_NUMBER = 6;
-  private volatile java.lang.Object container_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object container_ = "";
   /**
    * <pre>
    * The cloud resource container at which the quota policy is created. The
@@ -529,7 +449,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(container_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, container_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -564,7 +484,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(container_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, container_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -591,7 +511,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getUnit())) return false;
     if (!getContainer()
         .equals(other.getContainer())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -617,7 +537,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getUnit().hashCode();
     hash = (37 * hash) + CONTAINER_FIELD_NUMBER;
     hash = (53 * hash) + getContainer().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -760,33 +680,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.serviceusage.v1beta1.AdminQuotaPolicy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       policyValue_ = 0L;
-
       internalGetMutableDimensions().clear();
       metric_ = "";
-
       unit_ = "";
-
       container_ = "";
-
       return this;
     }
 
@@ -813,16 +724,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.serviceusage.v1beta1.AdminQuotaPolicy buildPartial() {
       com.google.api.serviceusage.v1beta1.AdminQuotaPolicy result = new com.google.api.serviceusage.v1beta1.AdminQuotaPolicy(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.policyValue_ = policyValue_;
-      result.dimensions_ = internalGetDimensions();
-      result.dimensions_.makeImmutable();
-      result.metric_ = metric_;
-      result.unit_ = unit_;
-      result.container_ = container_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.api.serviceusage.v1beta1.AdminQuotaPolicy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.policyValue_ = policyValue_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.dimensions_ = internalGetDimensions();
+        result.dimensions_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.metric_ = metric_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.unit_ = unit_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.container_ = container_;
+      }
     }
 
     @java.lang.Override
@@ -871,6 +798,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.api.serviceusage.v1beta1.AdminQuotaPolicy.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getPolicyValue() != 0L) {
@@ -878,19 +806,23 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableDimensions().mergeFrom(
           other.internalGetDimensions());
+      bitField0_ |= 0x00000004;
       if (!other.getMetric().isEmpty()) {
         metric_ = other.metric_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getUnit().isEmpty()) {
         unit_ = other.unit_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getContainer().isEmpty()) {
         container_ = other.container_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -905,17 +837,64 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.serviceusage.v1beta1.AdminQuotaPolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              policyValue_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              dimensions__ = input.readMessage(
+                  DimensionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableDimensions().getMutableMap().put(
+                  dimensions__.getKey(), dimensions__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              metric_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              unit_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              container_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.serviceusage.v1beta1.AdminQuotaPolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -982,11 +961,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1002,8 +979,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1021,12 +998,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1058,6 +1033,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPolicyValue(long value) {
       
       policyValue_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1071,7 +1047,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPolicyValue() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       policyValue_ = 0L;
       onChanged();
       return this;
@@ -1080,7 +1056,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> dimensions_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetDimensions() {
+        internalGetDimensions() {
       if (dimensions_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             DimensionsDefaultEntryHolder.defaultEntry);
@@ -1088,8 +1064,7 @@ private static final long serialVersionUID = 0L;
       return dimensions_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableDimensions() {
-      onChanged();;
+        internalGetMutableDimensions() {
       if (dimensions_ == null) {
         dimensions_ = com.google.protobuf.MapField.newMapField(
             DimensionsDefaultEntryHolder.defaultEntry);
@@ -1097,9 +1072,10 @@ private static final long serialVersionUID = 0L;
       if (!dimensions_.isMutable()) {
         dimensions_ = dimensions_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return dimensions_;
     }
-
     public int getDimensionsCount() {
       return internalGetDimensions().getMap().size();
     }
@@ -1118,7 +1094,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; dimensions = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsDimensions(
         java.lang.String key) {
@@ -1149,7 +1124,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; dimensions = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getDimensionsMap() {
       return internalGetDimensions().getMap();
     }
@@ -1169,10 +1143,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; dimensions = 3;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getDimensionsOrDefault(
+    public /* nullable */
+java.lang.String getDimensionsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetDimensions().getMap();
@@ -1194,7 +1169,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; dimensions = 3;</code>
      */
     @java.lang.Override
-
     public java.lang.String getDimensionsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1205,8 +1179,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearDimensions() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableDimensions().getMutableMap()
           .clear();
       return this;
@@ -1226,7 +1200,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; dimensions = 3;</code>
      */
-
     public Builder removeDimensions(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1239,7 +1212,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableDimensions() {
+        getMutableDimensions() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableDimensions().getMutableMap();
     }
     /**
@@ -1261,12 +1235,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableDimensions().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -1284,11 +1256,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; dimensions = 3;</code>
      */
-
     public Builder putAllDimensions(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableDimensions().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
@@ -1351,11 +1323,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMetric(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       metric_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1370,8 +1340,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMetric() {
-      
       metric_ = getDefaultInstance().getMetric();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1388,12 +1358,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMetricBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       metric_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1463,11 +1431,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUnit(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       unit_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1484,8 +1450,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUnit() {
-      
       unit_ = getDefaultInstance().getUnit();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1504,12 +1470,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUnitBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       unit_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1570,11 +1534,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setContainer(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       container_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1588,8 +1550,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearContainer() {
-      
       container_ = getDefaultInstance().getContainer();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1605,12 +1567,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setContainerBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       container_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1647,7 +1607,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AdminQuotaPolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

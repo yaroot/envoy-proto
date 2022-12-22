@@ -124,7 +124,7 @@ public interface TimeSeriesFilterOrBuilder extends
    *
    * <code>.google.monitoring.dashboard.v1.StatisticalTimeSeriesFilter statistical_time_series_filter = 5 [deprecated = true];</code>
    * @deprecated google.monitoring.dashboard.v1.TimeSeriesFilter.statistical_time_series_filter is deprecated.
-   *     See google/monitoring/dashboard/v1/metrics.proto;l=76
+   *     See google/monitoring/dashboard/v1/metrics.proto;l=79
    * @return Whether the statisticalTimeSeriesFilter field is set.
    */
   @java.lang.Deprecated boolean hasStatisticalTimeSeriesFilter();
@@ -136,7 +136,7 @@ public interface TimeSeriesFilterOrBuilder extends
    *
    * <code>.google.monitoring.dashboard.v1.StatisticalTimeSeriesFilter statistical_time_series_filter = 5 [deprecated = true];</code>
    * @deprecated google.monitoring.dashboard.v1.TimeSeriesFilter.statistical_time_series_filter is deprecated.
-   *     See google/monitoring/dashboard/v1/metrics.proto;l=76
+   *     See google/monitoring/dashboard/v1/metrics.proto;l=79
    * @return The statisticalTimeSeriesFilter.
    */
   @java.lang.Deprecated com.google.monitoring.dashboard.v1.StatisticalTimeSeriesFilter getStatisticalTimeSeriesFilter();

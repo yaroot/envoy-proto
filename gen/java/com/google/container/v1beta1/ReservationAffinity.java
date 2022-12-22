@@ -39,70 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ReservationAffinity(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            consumeReservationType_ = rawValue;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            key_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              values_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            values_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        values_ = values_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_ReservationAffinity_descriptor;
@@ -281,7 +217,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONSUME_RESERVATION_TYPE_FIELD_NUMBER = 1;
-  private int consumeReservationType_;
+  private int consumeReservationType_ = 0;
   /**
    * <pre>
    * Corresponds to the type of reservation consumption.
@@ -302,18 +238,19 @@ private static final long serialVersionUID = 0L;
    * @return The consumeReservationType.
    */
   @java.lang.Override public com.google.container.v1beta1.ReservationAffinity.Type getConsumeReservationType() {
-    @SuppressWarnings("deprecation")
-    com.google.container.v1beta1.ReservationAffinity.Type result = com.google.container.v1beta1.ReservationAffinity.Type.valueOf(consumeReservationType_);
+    com.google.container.v1beta1.ReservationAffinity.Type result = com.google.container.v1beta1.ReservationAffinity.Type.forNumber(consumeReservationType_);
     return result == null ? com.google.container.v1beta1.ReservationAffinity.Type.UNRECOGNIZED : result;
   }
 
   public static final int KEY_FIELD_NUMBER = 2;
-  private volatile java.lang.Object key_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object key_ = "";
   /**
    * <pre>
    * Corresponds to the label key of a reservation resource. To target a
-   * SPECIFIC_RESERVATION by name, specify "googleapis.com/reservation-name" as
-   * the key and specify the name of your reservation as its value.
+   * SPECIFIC_RESERVATION by name, specify
+   * "compute.googleapis.com/reservation-name" as the key and specify the name
+   * of your reservation as its value.
    * </pre>
    *
    * <code>string key = 2;</code>
@@ -335,8 +272,9 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Corresponds to the label key of a reservation resource. To target a
-   * SPECIFIC_RESERVATION by name, specify "googleapis.com/reservation-name" as
-   * the key and specify the name of your reservation as its value.
+   * SPECIFIC_RESERVATION by name, specify
+   * "compute.googleapis.com/reservation-name" as the key and specify the name
+   * of your reservation as its value.
    * </pre>
    *
    * <code>string key = 2;</code>
@@ -358,6 +296,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALUES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList values_;
   /**
    * <pre>
@@ -431,7 +370,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < values_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, values_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -455,7 +394,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getValuesList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -475,7 +414,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getKey())) return false;
     if (!getValuesList()
         .equals(other.getValuesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -494,7 +433,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VALUES_FIELD_NUMBER;
       hash = (53 * hash) + getValuesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -617,28 +556,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1beta1.ReservationAffinity.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       consumeReservationType_ = 0;
-
       key_ = "";
-
       values_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -665,16 +598,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1beta1.ReservationAffinity buildPartial() {
       com.google.container.v1beta1.ReservationAffinity result = new com.google.container.v1beta1.ReservationAffinity(this);
-      int from_bitField0_ = bitField0_;
-      result.consumeReservationType_ = consumeReservationType_;
-      result.key_ = key_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        values_ = values_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.values_ = values_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.container.v1beta1.ReservationAffinity result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        values_ = values_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.values_ = values_;
+    }
+
+    private void buildPartial0(com.google.container.v1beta1.ReservationAffinity result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.consumeReservationType_ = consumeReservationType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.key_ = key_;
+      }
     }
 
     @java.lang.Override
@@ -726,19 +671,20 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getKey().isEmpty()) {
         key_ = other.key_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.values_.isEmpty()) {
         if (values_.isEmpty()) {
           values_ = other.values_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureValuesIsMutable();
           values_.addAll(other.values_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -753,17 +699,46 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1beta1.ReservationAffinity parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              consumeReservationType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              key_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureValuesIsMutable();
+              values_.add(s);
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1beta1.ReservationAffinity) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -790,8 +765,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setConsumeReservationTypeValue(int value) {
-      
       consumeReservationType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -805,8 +780,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.container.v1beta1.ReservationAffinity.Type getConsumeReservationType() {
-      @SuppressWarnings("deprecation")
-      com.google.container.v1beta1.ReservationAffinity.Type result = com.google.container.v1beta1.ReservationAffinity.Type.valueOf(consumeReservationType_);
+      com.google.container.v1beta1.ReservationAffinity.Type result = com.google.container.v1beta1.ReservationAffinity.Type.forNumber(consumeReservationType_);
       return result == null ? com.google.container.v1beta1.ReservationAffinity.Type.UNRECOGNIZED : result;
     }
     /**
@@ -822,7 +796,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       consumeReservationType_ = value.getNumber();
       onChanged();
       return this;
@@ -836,7 +810,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConsumeReservationType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       consumeReservationType_ = 0;
       onChanged();
       return this;
@@ -846,8 +820,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Corresponds to the label key of a reservation resource. To target a
-     * SPECIFIC_RESERVATION by name, specify "googleapis.com/reservation-name" as
-     * the key and specify the name of your reservation as its value.
+     * SPECIFIC_RESERVATION by name, specify
+     * "compute.googleapis.com/reservation-name" as the key and specify the name
+     * of your reservation as its value.
      * </pre>
      *
      * <code>string key = 2;</code>
@@ -868,8 +843,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Corresponds to the label key of a reservation resource. To target a
-     * SPECIFIC_RESERVATION by name, specify "googleapis.com/reservation-name" as
-     * the key and specify the name of your reservation as its value.
+     * SPECIFIC_RESERVATION by name, specify
+     * "compute.googleapis.com/reservation-name" as the key and specify the name
+     * of your reservation as its value.
      * </pre>
      *
      * <code>string key = 2;</code>
@@ -891,8 +867,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Corresponds to the label key of a reservation resource. To target a
-     * SPECIFIC_RESERVATION by name, specify "googleapis.com/reservation-name" as
-     * the key and specify the name of your reservation as its value.
+     * SPECIFIC_RESERVATION by name, specify
+     * "compute.googleapis.com/reservation-name" as the key and specify the name
+     * of your reservation as its value.
      * </pre>
      *
      * <code>string key = 2;</code>
@@ -901,35 +878,35 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       key_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Corresponds to the label key of a reservation resource. To target a
-     * SPECIFIC_RESERVATION by name, specify "googleapis.com/reservation-name" as
-     * the key and specify the name of your reservation as its value.
+     * SPECIFIC_RESERVATION by name, specify
+     * "compute.googleapis.com/reservation-name" as the key and specify the name
+     * of your reservation as its value.
      * </pre>
      *
      * <code>string key = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearKey() {
-      
       key_ = getDefaultInstance().getKey();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Corresponds to the label key of a reservation resource. To target a
-     * SPECIFIC_RESERVATION by name, specify "googleapis.com/reservation-name" as
-     * the key and specify the name of your reservation as its value.
+     * SPECIFIC_RESERVATION by name, specify
+     * "compute.googleapis.com/reservation-name" as the key and specify the name
+     * of your reservation as its value.
      * </pre>
      *
      * <code>string key = 2;</code>
@@ -938,21 +915,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       key_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList values_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureValuesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         values_ = new com.google.protobuf.LazyStringArrayList(values_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1015,10 +990,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setValues(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureValuesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureValuesIsMutable();
       values_.set(index, value);
       onChanged();
       return this;
@@ -1034,10 +1007,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addValues(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureValuesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureValuesIsMutable();
       values_.add(value);
       onChanged();
       return this;
@@ -1069,7 +1040,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearValues() {
       values_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1084,10 +1055,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addValuesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureValuesIsMutable();
       values_.add(value);
       onChanged();
@@ -1126,7 +1095,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ReservationAffinity(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

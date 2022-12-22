@@ -34,63 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CpuUtilization(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (aggregationWindowLength_ != null) {
-              subBuilder = aggregationWindowLength_.toBuilder();
-            }
-            aggregationWindowLength_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(aggregationWindowLength_);
-              aggregationWindowLength_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 17: {
-
-            targetUtilization_ = input.readDouble();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.appengine.v1beta.VersionProto.internal_static_google_appengine_v1beta_CpuUtilization_descriptor;
@@ -139,11 +82,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getAggregationWindowLengthOrBuilder() {
-    return getAggregationWindowLength();
+    return aggregationWindowLength_ == null ? com.google.protobuf.Duration.getDefaultInstance() : aggregationWindowLength_;
   }
 
   public static final int TARGET_UTILIZATION_FIELD_NUMBER = 2;
-  private double targetUtilization_;
+  private double targetUtilization_ = 0D;
   /**
    * <pre>
    * Target CPU utilization ratio to maintain when scaling. Must be between 0
@@ -178,7 +121,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToRawLongBits(targetUtilization_) != 0) {
       output.writeDouble(2, targetUtilization_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -195,7 +138,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(2, targetUtilization_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -218,7 +161,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToLongBits(getTargetUtilization())
         != java.lang.Double.doubleToLongBits(
             other.getTargetUtilization())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -236,7 +179,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + TARGET_UTILIZATION_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getTargetUtilization()));
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -357,30 +300,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.appengine.v1beta.CpuUtilization.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (aggregationWindowLengthBuilder_ == null) {
-        aggregationWindowLength_ = null;
-      } else {
-        aggregationWindowLength_ = null;
+      bitField0_ = 0;
+      aggregationWindowLength_ = null;
+      if (aggregationWindowLengthBuilder_ != null) {
+        aggregationWindowLengthBuilder_.dispose();
         aggregationWindowLengthBuilder_ = null;
       }
       targetUtilization_ = 0D;
-
       return this;
     }
 
@@ -407,14 +344,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.appengine.v1beta.CpuUtilization buildPartial() {
       com.google.appengine.v1beta.CpuUtilization result = new com.google.appengine.v1beta.CpuUtilization(this);
-      if (aggregationWindowLengthBuilder_ == null) {
-        result.aggregationWindowLength_ = aggregationWindowLength_;
-      } else {
-        result.aggregationWindowLength_ = aggregationWindowLengthBuilder_.build();
-      }
-      result.targetUtilization_ = targetUtilization_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.appengine.v1beta.CpuUtilization result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.aggregationWindowLength_ = aggregationWindowLengthBuilder_ == null
+            ? aggregationWindowLength_
+            : aggregationWindowLengthBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.targetUtilization_ = targetUtilization_;
+      }
     }
 
     @java.lang.Override
@@ -467,7 +411,7 @@ private static final long serialVersionUID = 0L;
       if (other.getTargetUtilization() != 0D) {
         setTargetUtilization(other.getTargetUtilization());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -482,19 +426,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.appengine.v1beta.CpuUtilization parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAggregationWindowLengthFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 17: {
+              targetUtilization_ = input.readDouble();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 17
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.appengine.v1beta.CpuUtilization) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.Duration aggregationWindowLength_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -508,7 +478,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the aggregationWindowLength field is set.
      */
     public boolean hasAggregationWindowLength() {
-      return aggregationWindowLengthBuilder_ != null || aggregationWindowLength_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -538,11 +508,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         aggregationWindowLength_ = value;
-        onChanged();
       } else {
         aggregationWindowLengthBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -556,11 +526,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (aggregationWindowLengthBuilder_ == null) {
         aggregationWindowLength_ = builderForValue.build();
-        onChanged();
       } else {
         aggregationWindowLengthBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -572,17 +542,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAggregationWindowLength(com.google.protobuf.Duration value) {
       if (aggregationWindowLengthBuilder_ == null) {
-        if (aggregationWindowLength_ != null) {
-          aggregationWindowLength_ =
-            com.google.protobuf.Duration.newBuilder(aggregationWindowLength_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          aggregationWindowLength_ != null &&
+          aggregationWindowLength_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getAggregationWindowLengthBuilder().mergeFrom(value);
         } else {
           aggregationWindowLength_ = value;
         }
-        onChanged();
       } else {
         aggregationWindowLengthBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -593,14 +564,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration aggregation_window_length = 1;</code>
      */
     public Builder clearAggregationWindowLength() {
-      if (aggregationWindowLengthBuilder_ == null) {
-        aggregationWindowLength_ = null;
-        onChanged();
-      } else {
-        aggregationWindowLength_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      aggregationWindowLength_ = null;
+      if (aggregationWindowLengthBuilder_ != null) {
+        aggregationWindowLengthBuilder_.dispose();
         aggregationWindowLengthBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -611,7 +581,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration aggregation_window_length = 1;</code>
      */
     public com.google.protobuf.Duration.Builder getAggregationWindowLengthBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAggregationWindowLengthFieldBuilder().getBuilder();
     }
@@ -678,6 +648,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTargetUtilization(double value) {
       
       targetUtilization_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -691,7 +662,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTargetUtilization() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       targetUtilization_ = 0D;
       onChanged();
       return this;
@@ -729,7 +700,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CpuUtilization(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

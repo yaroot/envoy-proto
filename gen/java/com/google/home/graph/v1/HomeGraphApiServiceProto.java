@@ -84,56 +84,6 @@ public final class HomeGraphApiServiceProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RequestSyncDevicesRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              agentUserId_ = s;
-              break;
-            }
-            case 16: {
-
-              async_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.HomeGraphApiServiceProto.internal_static_google_home_graph_v1_RequestSyncDevicesRequest_descriptor;
@@ -148,7 +98,8 @@ public final class HomeGraphApiServiceProto {
     }
 
     public static final int AGENT_USER_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object agentUserId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object agentUserId_ = "";
     /**
      * <pre>
      * Required. Third-party user ID.
@@ -194,7 +145,7 @@ public final class HomeGraphApiServiceProto {
     }
 
     public static final int ASYNC_FIELD_NUMBER = 2;
-    private boolean async_;
+    private boolean async_ = false;
     /**
      * <pre>
      * Optional. If set, the request will be added to a queue and a response will
@@ -230,7 +181,7 @@ public final class HomeGraphApiServiceProto {
       if (async_ != false) {
         output.writeBool(2, async_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -246,7 +197,7 @@ public final class HomeGraphApiServiceProto {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, async_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -265,7 +216,7 @@ public final class HomeGraphApiServiceProto {
           .equals(other.getAgentUserId())) return false;
       if (getAsync()
           != other.getAsync()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -281,7 +232,7 @@ public final class HomeGraphApiServiceProto {
       hash = (37 * hash) + ASYNC_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getAsync());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -404,26 +355,20 @@ public final class HomeGraphApiServiceProto {
 
       // Construct using com.google.home.graph.v1.HomeGraphApiServiceProto.RequestSyncDevicesRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         agentUserId_ = "";
-
         async_ = false;
-
         return this;
       }
 
@@ -450,10 +395,19 @@ public final class HomeGraphApiServiceProto {
       @java.lang.Override
       public com.google.home.graph.v1.HomeGraphApiServiceProto.RequestSyncDevicesRequest buildPartial() {
         com.google.home.graph.v1.HomeGraphApiServiceProto.RequestSyncDevicesRequest result = new com.google.home.graph.v1.HomeGraphApiServiceProto.RequestSyncDevicesRequest(this);
-        result.agentUserId_ = agentUserId_;
-        result.async_ = async_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.HomeGraphApiServiceProto.RequestSyncDevicesRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.agentUserId_ = agentUserId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.async_ = async_;
+        }
       }
 
       @java.lang.Override
@@ -502,12 +456,13 @@ public final class HomeGraphApiServiceProto {
         if (other == com.google.home.graph.v1.HomeGraphApiServiceProto.RequestSyncDevicesRequest.getDefaultInstance()) return this;
         if (!other.getAgentUserId().isEmpty()) {
           agentUserId_ = other.agentUserId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getAsync() != false) {
           setAsync(other.getAsync());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -522,19 +477,43 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.HomeGraphApiServiceProto.RequestSyncDevicesRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                agentUserId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                async_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.HomeGraphApiServiceProto.RequestSyncDevicesRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object agentUserId_ = "";
       /**
@@ -589,11 +568,9 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setAgentUserId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         agentUserId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -606,8 +583,8 @@ public final class HomeGraphApiServiceProto {
        * @return This builder for chaining.
        */
       public Builder clearAgentUserId() {
-        
         agentUserId_ = getDefaultInstance().getAgentUserId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -622,12 +599,10 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setAgentUserIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         agentUserId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -661,6 +636,7 @@ public final class HomeGraphApiServiceProto {
       public Builder setAsync(boolean value) {
         
         async_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -675,7 +651,7 @@ public final class HomeGraphApiServiceProto {
        * @return This builder for chaining.
        */
       public Builder clearAsync() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         async_ = false;
         onChanged();
         return this;
@@ -713,7 +689,18 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RequestSyncDevicesRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -772,45 +759,6 @@ public final class HomeGraphApiServiceProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RequestSyncDevicesResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.HomeGraphApiServiceProto.internal_static_google_home_graph_v1_RequestSyncDevicesResponse_descriptor;
@@ -838,7 +786,7 @@ public final class HomeGraphApiServiceProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -847,7 +795,7 @@ public final class HomeGraphApiServiceProto {
       if (size != -1) return size;
 
       size = 0;
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -862,7 +810,7 @@ public final class HomeGraphApiServiceProto {
       }
       com.google.home.graph.v1.HomeGraphApiServiceProto.RequestSyncDevicesResponse other = (com.google.home.graph.v1.HomeGraphApiServiceProto.RequestSyncDevicesResponse) obj;
 
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -873,7 +821,7 @@ public final class HomeGraphApiServiceProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -998,18 +946,13 @@ public final class HomeGraphApiServiceProto {
 
       // Construct using com.google.home.graph.v1.HomeGraphApiServiceProto.RequestSyncDevicesResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -1088,7 +1031,7 @@ public final class HomeGraphApiServiceProto {
 
       public Builder mergeFrom(com.google.home.graph.v1.HomeGraphApiServiceProto.RequestSyncDevicesResponse other) {
         if (other == com.google.home.graph.v1.HomeGraphApiServiceProto.RequestSyncDevicesResponse.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1103,17 +1046,30 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.HomeGraphApiServiceProto.RequestSyncDevicesResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.HomeGraphApiServiceProto.RequestSyncDevicesResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       @java.lang.Override
@@ -1149,7 +1105,18 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RequestSyncDevicesResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1244,7 +1211,7 @@ public final class HomeGraphApiServiceProto {
      *
      * <code>string follow_up_token = 5 [deprecated = true];</code>
      * @deprecated google.home.graph.v1.ReportStateAndNotificationRequest.follow_up_token is deprecated.
-     *     See google/home/graph/v1/homegraph.proto;l=203
+     *     See google/home/graph/v1/homegraph.proto;l=202
      * @return The followUpToken.
      */
     @java.lang.Deprecated java.lang.String getFollowUpToken();
@@ -1259,7 +1226,7 @@ public final class HomeGraphApiServiceProto {
      *
      * <code>string follow_up_token = 5 [deprecated = true];</code>
      * @deprecated google.home.graph.v1.ReportStateAndNotificationRequest.follow_up_token is deprecated.
-     *     See google/home/graph/v1/homegraph.proto;l=203
+     *     See google/home/graph/v1/homegraph.proto;l=202
      * @return The bytes for followUpToken.
      */
     @java.lang.Deprecated com.google.protobuf.ByteString
@@ -1351,82 +1318,6 @@ public final class HomeGraphApiServiceProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ReportStateAndNotificationRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              requestId_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              agentUserId_ = s;
-              break;
-            }
-            case 26: {
-              com.google.home.graph.v1.HomeGraphApiServiceProto.StateAndNotificationPayload.Builder subBuilder = null;
-              if (payload_ != null) {
-                subBuilder = payload_.toBuilder();
-              }
-              payload_ = input.readMessage(com.google.home.graph.v1.HomeGraphApiServiceProto.StateAndNotificationPayload.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(payload_);
-                payload_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              eventId_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              followUpToken_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.HomeGraphApiServiceProto.internal_static_google_home_graph_v1_ReportStateAndNotificationRequest_descriptor;
@@ -1441,7 +1332,8 @@ public final class HomeGraphApiServiceProto {
     }
 
     public static final int REQUEST_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object requestId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object requestId_ = "";
     /**
      * <pre>
      * Request ID used for debugging.
@@ -1487,7 +1379,8 @@ public final class HomeGraphApiServiceProto {
     }
 
     public static final int EVENT_ID_FIELD_NUMBER = 4;
-    private volatile java.lang.Object eventId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object eventId_ = "";
     /**
      * <pre>
      * Unique identifier per event (for example, a doorbell press).
@@ -1533,7 +1426,8 @@ public final class HomeGraphApiServiceProto {
     }
 
     public static final int AGENT_USER_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object agentUserId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object agentUserId_ = "";
     /**
      * <pre>
      * Required. Third-party user ID.
@@ -1579,7 +1473,8 @@ public final class HomeGraphApiServiceProto {
     }
 
     public static final int FOLLOW_UP_TOKEN_FIELD_NUMBER = 5;
-    private volatile java.lang.Object followUpToken_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object followUpToken_ = "";
     /**
      * <pre>
      * Deprecated.
@@ -1591,7 +1486,7 @@ public final class HomeGraphApiServiceProto {
      *
      * <code>string follow_up_token = 5 [deprecated = true];</code>
      * @deprecated google.home.graph.v1.ReportStateAndNotificationRequest.follow_up_token is deprecated.
-     *     See google/home/graph/v1/homegraph.proto;l=203
+     *     See google/home/graph/v1/homegraph.proto;l=202
      * @return The followUpToken.
      */
     @java.lang.Override
@@ -1618,7 +1513,7 @@ public final class HomeGraphApiServiceProto {
      *
      * <code>string follow_up_token = 5 [deprecated = true];</code>
      * @deprecated google.home.graph.v1.ReportStateAndNotificationRequest.follow_up_token is deprecated.
-     *     See google/home/graph/v1/homegraph.proto;l=203
+     *     See google/home/graph/v1/homegraph.proto;l=202
      * @return The bytes for followUpToken.
      */
     @java.lang.Override
@@ -1671,7 +1566,7 @@ public final class HomeGraphApiServiceProto {
      */
     @java.lang.Override
     public com.google.home.graph.v1.HomeGraphApiServiceProto.StateAndNotificationPayloadOrBuilder getPayloadOrBuilder() {
-      return getPayload();
+      return payload_ == null ? com.google.home.graph.v1.HomeGraphApiServiceProto.StateAndNotificationPayload.getDefaultInstance() : payload_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1703,7 +1598,7 @@ public final class HomeGraphApiServiceProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(followUpToken_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, followUpToken_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1728,7 +1623,7 @@ public final class HomeGraphApiServiceProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(followUpToken_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, followUpToken_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1756,7 +1651,7 @@ public final class HomeGraphApiServiceProto {
         if (!getPayload()
             .equals(other.getPayload())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1779,7 +1674,7 @@ public final class HomeGraphApiServiceProto {
         hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
         hash = (53 * hash) + getPayload().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1924,34 +1819,25 @@ public final class HomeGraphApiServiceProto {
 
       // Construct using com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         requestId_ = "";
-
         eventId_ = "";
-
         agentUserId_ = "";
-
         followUpToken_ = "";
-
-        if (payloadBuilder_ == null) {
-          payload_ = null;
-        } else {
-          payload_ = null;
+        payload_ = null;
+        if (payloadBuilder_ != null) {
+          payloadBuilder_.dispose();
           payloadBuilder_ = null;
         }
         return this;
@@ -1980,17 +1866,30 @@ public final class HomeGraphApiServiceProto {
       @java.lang.Override
       public com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationRequest buildPartial() {
         com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationRequest result = new com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationRequest(this);
-        result.requestId_ = requestId_;
-        result.eventId_ = eventId_;
-        result.agentUserId_ = agentUserId_;
-        result.followUpToken_ = followUpToken_;
-        if (payloadBuilder_ == null) {
-          result.payload_ = payload_;
-        } else {
-          result.payload_ = payloadBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.requestId_ = requestId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.eventId_ = eventId_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.agentUserId_ = agentUserId_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.followUpToken_ = followUpToken_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.payload_ = payloadBuilder_ == null
+              ? payload_
+              : payloadBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -2039,24 +1938,28 @@ public final class HomeGraphApiServiceProto {
         if (other == com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationRequest.getDefaultInstance()) return this;
         if (!other.getRequestId().isEmpty()) {
           requestId_ = other.requestId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getEventId().isEmpty()) {
           eventId_ = other.eventId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getAgentUserId().isEmpty()) {
           agentUserId_ = other.agentUserId_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getFollowUpToken().isEmpty()) {
           followUpToken_ = other.followUpToken_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (other.hasPayload()) {
           mergePayload(other.getPayload());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2071,19 +1974,60 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                requestId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                agentUserId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getPayloadFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 26
+              case 34: {
+                eventId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 34
+              case 42: {
+                followUpToken_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object requestId_ = "";
       /**
@@ -2138,11 +2082,9 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setRequestId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         requestId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2155,8 +2097,8 @@ public final class HomeGraphApiServiceProto {
        * @return This builder for chaining.
        */
       public Builder clearRequestId() {
-        
         requestId_ = getDefaultInstance().getRequestId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2171,12 +2113,10 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setRequestIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         requestId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2234,11 +2174,9 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setEventId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         eventId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2251,8 +2189,8 @@ public final class HomeGraphApiServiceProto {
        * @return This builder for chaining.
        */
       public Builder clearEventId() {
-        
         eventId_ = getDefaultInstance().getEventId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2267,12 +2205,10 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setEventIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         eventId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2330,11 +2266,9 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setAgentUserId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         agentUserId_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2347,8 +2281,8 @@ public final class HomeGraphApiServiceProto {
        * @return This builder for chaining.
        */
       public Builder clearAgentUserId() {
-        
         agentUserId_ = getDefaultInstance().getAgentUserId();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -2363,12 +2297,10 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setAgentUserIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         agentUserId_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2385,7 +2317,7 @@ public final class HomeGraphApiServiceProto {
        *
        * <code>string follow_up_token = 5 [deprecated = true];</code>
        * @deprecated google.home.graph.v1.ReportStateAndNotificationRequest.follow_up_token is deprecated.
-       *     See google/home/graph/v1/homegraph.proto;l=203
+       *     See google/home/graph/v1/homegraph.proto;l=202
        * @return The followUpToken.
        */
       @java.lang.Deprecated public java.lang.String getFollowUpToken() {
@@ -2411,7 +2343,7 @@ public final class HomeGraphApiServiceProto {
        *
        * <code>string follow_up_token = 5 [deprecated = true];</code>
        * @deprecated google.home.graph.v1.ReportStateAndNotificationRequest.follow_up_token is deprecated.
-       *     See google/home/graph/v1/homegraph.proto;l=203
+       *     See google/home/graph/v1/homegraph.proto;l=202
        * @return The bytes for followUpToken.
        */
       @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -2438,17 +2370,15 @@ public final class HomeGraphApiServiceProto {
        *
        * <code>string follow_up_token = 5 [deprecated = true];</code>
        * @deprecated google.home.graph.v1.ReportStateAndNotificationRequest.follow_up_token is deprecated.
-       *     See google/home/graph/v1/homegraph.proto;l=203
+       *     See google/home/graph/v1/homegraph.proto;l=202
        * @param value The followUpToken to set.
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder setFollowUpToken(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         followUpToken_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2463,12 +2393,12 @@ public final class HomeGraphApiServiceProto {
        *
        * <code>string follow_up_token = 5 [deprecated = true];</code>
        * @deprecated google.home.graph.v1.ReportStateAndNotificationRequest.follow_up_token is deprecated.
-       *     See google/home/graph/v1/homegraph.proto;l=203
+       *     See google/home/graph/v1/homegraph.proto;l=202
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearFollowUpToken() {
-        
         followUpToken_ = getDefaultInstance().getFollowUpToken();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -2483,18 +2413,16 @@ public final class HomeGraphApiServiceProto {
        *
        * <code>string follow_up_token = 5 [deprecated = true];</code>
        * @deprecated google.home.graph.v1.ReportStateAndNotificationRequest.follow_up_token is deprecated.
-       *     See google/home/graph/v1/homegraph.proto;l=203
+       *     See google/home/graph/v1/homegraph.proto;l=202
        * @param value The bytes for followUpToken to set.
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder setFollowUpTokenBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         followUpToken_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2511,7 +2439,7 @@ public final class HomeGraphApiServiceProto {
        * @return Whether the payload field is set.
        */
       public boolean hasPayload() {
-        return payloadBuilder_ != null || payload_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -2541,11 +2469,11 @@ public final class HomeGraphApiServiceProto {
             throw new NullPointerException();
           }
           payload_ = value;
-          onChanged();
         } else {
           payloadBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -2559,11 +2487,11 @@ public final class HomeGraphApiServiceProto {
           com.google.home.graph.v1.HomeGraphApiServiceProto.StateAndNotificationPayload.Builder builderForValue) {
         if (payloadBuilder_ == null) {
           payload_ = builderForValue.build();
-          onChanged();
         } else {
           payloadBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -2575,17 +2503,18 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder mergePayload(com.google.home.graph.v1.HomeGraphApiServiceProto.StateAndNotificationPayload value) {
         if (payloadBuilder_ == null) {
-          if (payload_ != null) {
-            payload_ =
-              com.google.home.graph.v1.HomeGraphApiServiceProto.StateAndNotificationPayload.newBuilder(payload_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            payload_ != null &&
+            payload_ != com.google.home.graph.v1.HomeGraphApiServiceProto.StateAndNotificationPayload.getDefaultInstance()) {
+            getPayloadBuilder().mergeFrom(value);
           } else {
             payload_ = value;
           }
-          onChanged();
         } else {
           payloadBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -2596,14 +2525,13 @@ public final class HomeGraphApiServiceProto {
        * <code>.google.home.graph.v1.StateAndNotificationPayload payload = 3 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearPayload() {
-        if (payloadBuilder_ == null) {
-          payload_ = null;
-          onChanged();
-        } else {
-          payload_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        payload_ = null;
+        if (payloadBuilder_ != null) {
+          payloadBuilder_.dispose();
           payloadBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2614,7 +2542,7 @@ public final class HomeGraphApiServiceProto {
        * <code>.google.home.graph.v1.StateAndNotificationPayload payload = 3 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.home.graph.v1.HomeGraphApiServiceProto.StateAndNotificationPayload.Builder getPayloadBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getPayloadFieldBuilder().getBuilder();
       }
@@ -2686,7 +2614,18 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ReportStateAndNotificationRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2766,51 +2705,6 @@ public final class HomeGraphApiServiceProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ReportStateAndNotificationResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              requestId_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.HomeGraphApiServiceProto.internal_static_google_home_graph_v1_ReportStateAndNotificationResponse_descriptor;
@@ -2825,7 +2719,8 @@ public final class HomeGraphApiServiceProto {
     }
 
     public static final int REQUEST_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object requestId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object requestId_ = "";
     /**
      * <pre>
      * Request ID copied from
@@ -2889,7 +2784,7 @@ public final class HomeGraphApiServiceProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, requestId_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2901,7 +2796,7 @@ public final class HomeGraphApiServiceProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, requestId_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2918,7 +2813,7 @@ public final class HomeGraphApiServiceProto {
 
       if (!getRequestId()
           .equals(other.getRequestId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2931,7 +2826,7 @@ public final class HomeGraphApiServiceProto {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
       hash = (53 * hash) + getRequestId().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3054,24 +2949,19 @@ public final class HomeGraphApiServiceProto {
 
       // Construct using com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         requestId_ = "";
-
         return this;
       }
 
@@ -3098,9 +2988,16 @@ public final class HomeGraphApiServiceProto {
       @java.lang.Override
       public com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationResponse buildPartial() {
         com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationResponse result = new com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationResponse(this);
-        result.requestId_ = requestId_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.requestId_ = requestId_;
+        }
       }
 
       @java.lang.Override
@@ -3149,9 +3046,10 @@ public final class HomeGraphApiServiceProto {
         if (other == com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationResponse.getDefaultInstance()) return this;
         if (!other.getRequestId().isEmpty()) {
           requestId_ = other.requestId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3166,19 +3064,38 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                requestId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object requestId_ = "";
       /**
@@ -3236,11 +3153,9 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setRequestId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         requestId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3254,8 +3169,8 @@ public final class HomeGraphApiServiceProto {
        * @return This builder for chaining.
        */
       public Builder clearRequestId() {
-        
         requestId_ = getDefaultInstance().getRequestId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3271,12 +3186,10 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setRequestIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         requestId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3313,7 +3226,18 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ReportStateAndNotificationResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3395,58 +3319,6 @@ public final class HomeGraphApiServiceProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private StateAndNotificationPayload(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationDevice.Builder subBuilder = null;
-              if (devices_ != null) {
-                subBuilder = devices_.toBuilder();
-              }
-              devices_ = input.readMessage(com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationDevice.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(devices_);
-                devices_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.HomeGraphApiServiceProto.internal_static_google_home_graph_v1_StateAndNotificationPayload_descriptor;
@@ -3495,7 +3367,7 @@ public final class HomeGraphApiServiceProto {
      */
     @java.lang.Override
     public com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationDeviceOrBuilder getDevicesOrBuilder() {
-      return getDevices();
+      return devices_ == null ? com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationDevice.getDefaultInstance() : devices_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3515,7 +3387,7 @@ public final class HomeGraphApiServiceProto {
       if (devices_ != null) {
         output.writeMessage(1, getDevices());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3528,7 +3400,7 @@ public final class HomeGraphApiServiceProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getDevices());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3548,7 +3420,7 @@ public final class HomeGraphApiServiceProto {
         if (!getDevices()
             .equals(other.getDevices())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3563,7 +3435,7 @@ public final class HomeGraphApiServiceProto {
         hash = (37 * hash) + DEVICES_FIELD_NUMBER;
         hash = (53 * hash) + getDevices().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3684,26 +3556,21 @@ public final class HomeGraphApiServiceProto {
 
       // Construct using com.google.home.graph.v1.HomeGraphApiServiceProto.StateAndNotificationPayload.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (devicesBuilder_ == null) {
-          devices_ = null;
-        } else {
-          devices_ = null;
+        bitField0_ = 0;
+        devices_ = null;
+        if (devicesBuilder_ != null) {
+          devicesBuilder_.dispose();
           devicesBuilder_ = null;
         }
         return this;
@@ -3732,13 +3599,18 @@ public final class HomeGraphApiServiceProto {
       @java.lang.Override
       public com.google.home.graph.v1.HomeGraphApiServiceProto.StateAndNotificationPayload buildPartial() {
         com.google.home.graph.v1.HomeGraphApiServiceProto.StateAndNotificationPayload result = new com.google.home.graph.v1.HomeGraphApiServiceProto.StateAndNotificationPayload(this);
-        if (devicesBuilder_ == null) {
-          result.devices_ = devices_;
-        } else {
-          result.devices_ = devicesBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.HomeGraphApiServiceProto.StateAndNotificationPayload result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.devices_ = devicesBuilder_ == null
+              ? devices_
+              : devicesBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3788,7 +3660,7 @@ public final class HomeGraphApiServiceProto {
         if (other.hasDevices()) {
           mergeDevices(other.getDevices());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3803,19 +3675,40 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.HomeGraphApiServiceProto.StateAndNotificationPayload parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getDevicesFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.HomeGraphApiServiceProto.StateAndNotificationPayload) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationDevice devices_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -3829,7 +3722,7 @@ public final class HomeGraphApiServiceProto {
        * @return Whether the devices field is set.
        */
       public boolean hasDevices() {
-        return devicesBuilder_ != null || devices_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -3859,11 +3752,11 @@ public final class HomeGraphApiServiceProto {
             throw new NullPointerException();
           }
           devices_ = value;
-          onChanged();
         } else {
           devicesBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3877,11 +3770,11 @@ public final class HomeGraphApiServiceProto {
           com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationDevice.Builder builderForValue) {
         if (devicesBuilder_ == null) {
           devices_ = builderForValue.build();
-          onChanged();
         } else {
           devicesBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3893,17 +3786,18 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder mergeDevices(com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationDevice value) {
         if (devicesBuilder_ == null) {
-          if (devices_ != null) {
-            devices_ =
-              com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationDevice.newBuilder(devices_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            devices_ != null &&
+            devices_ != com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationDevice.getDefaultInstance()) {
+            getDevicesBuilder().mergeFrom(value);
           } else {
             devices_ = value;
           }
-          onChanged();
         } else {
           devicesBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3914,14 +3808,13 @@ public final class HomeGraphApiServiceProto {
        * <code>.google.home.graph.v1.ReportStateAndNotificationDevice devices = 1;</code>
        */
       public Builder clearDevices() {
-        if (devicesBuilder_ == null) {
-          devices_ = null;
-          onChanged();
-        } else {
-          devices_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        devices_ = null;
+        if (devicesBuilder_ != null) {
+          devicesBuilder_.dispose();
           devicesBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3932,7 +3825,7 @@ public final class HomeGraphApiServiceProto {
        * <code>.google.home.graph.v1.ReportStateAndNotificationDevice devices = 1;</code>
        */
       public com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationDevice.Builder getDevicesBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getDevicesFieldBuilder().getBuilder();
       }
@@ -4004,7 +3897,18 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StateAndNotificationPayload(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4125,71 +4029,6 @@ public final class HomeGraphApiServiceProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ReportStateAndNotificationDevice(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Struct.Builder subBuilder = null;
-              if (states_ != null) {
-                subBuilder = states_.toBuilder();
-              }
-              states_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(states_);
-                states_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Struct.Builder subBuilder = null;
-              if (notifications_ != null) {
-                subBuilder = notifications_.toBuilder();
-              }
-              notifications_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(notifications_);
-                notifications_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.HomeGraphApiServiceProto.internal_static_google_home_graph_v1_ReportStateAndNotificationDevice_descriptor;
@@ -4244,7 +4083,7 @@ public final class HomeGraphApiServiceProto {
      */
     @java.lang.Override
     public com.google.protobuf.StructOrBuilder getStatesOrBuilder() {
-      return getStates();
+      return states_ == null ? com.google.protobuf.Struct.getDefaultInstance() : states_;
     }
 
     public static final int NOTIFICATIONS_FIELD_NUMBER = 2;
@@ -4288,7 +4127,7 @@ public final class HomeGraphApiServiceProto {
      */
     @java.lang.Override
     public com.google.protobuf.StructOrBuilder getNotificationsOrBuilder() {
-      return getNotifications();
+      return notifications_ == null ? com.google.protobuf.Struct.getDefaultInstance() : notifications_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4311,7 +4150,7 @@ public final class HomeGraphApiServiceProto {
       if (notifications_ != null) {
         output.writeMessage(2, getNotifications());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4328,7 +4167,7 @@ public final class HomeGraphApiServiceProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getNotifications());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4353,7 +4192,7 @@ public final class HomeGraphApiServiceProto {
         if (!getNotifications()
             .equals(other.getNotifications())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4372,7 +4211,7 @@ public final class HomeGraphApiServiceProto {
         hash = (37 * hash) + NOTIFICATIONS_FIELD_NUMBER;
         hash = (53 * hash) + getNotifications().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4493,32 +4332,26 @@ public final class HomeGraphApiServiceProto {
 
       // Construct using com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationDevice.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (statesBuilder_ == null) {
-          states_ = null;
-        } else {
-          states_ = null;
+        bitField0_ = 0;
+        states_ = null;
+        if (statesBuilder_ != null) {
+          statesBuilder_.dispose();
           statesBuilder_ = null;
         }
-        if (notificationsBuilder_ == null) {
-          notifications_ = null;
-        } else {
-          notifications_ = null;
+        notifications_ = null;
+        if (notificationsBuilder_ != null) {
+          notificationsBuilder_.dispose();
           notificationsBuilder_ = null;
         }
         return this;
@@ -4547,18 +4380,23 @@ public final class HomeGraphApiServiceProto {
       @java.lang.Override
       public com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationDevice buildPartial() {
         com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationDevice result = new com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationDevice(this);
-        if (statesBuilder_ == null) {
-          result.states_ = states_;
-        } else {
-          result.states_ = statesBuilder_.build();
-        }
-        if (notificationsBuilder_ == null) {
-          result.notifications_ = notifications_;
-        } else {
-          result.notifications_ = notificationsBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationDevice result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.states_ = statesBuilder_ == null
+              ? states_
+              : statesBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.notifications_ = notificationsBuilder_ == null
+              ? notifications_
+              : notificationsBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -4611,7 +4449,7 @@ public final class HomeGraphApiServiceProto {
         if (other.hasNotifications()) {
           mergeNotifications(other.getNotifications());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4626,19 +4464,47 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationDevice parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getStatesFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getNotificationsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.HomeGraphApiServiceProto.ReportStateAndNotificationDevice) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.Struct states_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4654,7 +4520,7 @@ public final class HomeGraphApiServiceProto {
        * @return Whether the states field is set.
        */
       public boolean hasStates() {
-        return statesBuilder_ != null || states_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -4688,11 +4554,11 @@ public final class HomeGraphApiServiceProto {
             throw new NullPointerException();
           }
           states_ = value;
-          onChanged();
         } else {
           statesBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4708,11 +4574,11 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.Struct.Builder builderForValue) {
         if (statesBuilder_ == null) {
           states_ = builderForValue.build();
-          onChanged();
         } else {
           statesBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4726,17 +4592,18 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder mergeStates(com.google.protobuf.Struct value) {
         if (statesBuilder_ == null) {
-          if (states_ != null) {
-            states_ =
-              com.google.protobuf.Struct.newBuilder(states_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            states_ != null &&
+            states_ != com.google.protobuf.Struct.getDefaultInstance()) {
+            getStatesBuilder().mergeFrom(value);
           } else {
             states_ = value;
           }
-          onChanged();
         } else {
           statesBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4749,14 +4616,13 @@ public final class HomeGraphApiServiceProto {
        * <code>.google.protobuf.Struct states = 1;</code>
        */
       public Builder clearStates() {
-        if (statesBuilder_ == null) {
-          states_ = null;
-          onChanged();
-        } else {
-          states_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        states_ = null;
+        if (statesBuilder_ != null) {
+          statesBuilder_.dispose();
           statesBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4769,7 +4635,7 @@ public final class HomeGraphApiServiceProto {
        * <code>.google.protobuf.Struct states = 1;</code>
        */
       public com.google.protobuf.Struct.Builder getStatesBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getStatesFieldBuilder().getBuilder();
       }
@@ -4827,7 +4693,7 @@ public final class HomeGraphApiServiceProto {
        * @return Whether the notifications field is set.
        */
       public boolean hasNotifications() {
-        return notificationsBuilder_ != null || notifications_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -4861,11 +4727,11 @@ public final class HomeGraphApiServiceProto {
             throw new NullPointerException();
           }
           notifications_ = value;
-          onChanged();
         } else {
           notificationsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -4881,11 +4747,11 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.Struct.Builder builderForValue) {
         if (notificationsBuilder_ == null) {
           notifications_ = builderForValue.build();
-          onChanged();
         } else {
           notificationsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -4899,17 +4765,18 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder mergeNotifications(com.google.protobuf.Struct value) {
         if (notificationsBuilder_ == null) {
-          if (notifications_ != null) {
-            notifications_ =
-              com.google.protobuf.Struct.newBuilder(notifications_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            notifications_ != null &&
+            notifications_ != com.google.protobuf.Struct.getDefaultInstance()) {
+            getNotificationsBuilder().mergeFrom(value);
           } else {
             notifications_ = value;
           }
-          onChanged();
         } else {
           notificationsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -4922,14 +4789,13 @@ public final class HomeGraphApiServiceProto {
        * <code>.google.protobuf.Struct notifications = 2;</code>
        */
       public Builder clearNotifications() {
-        if (notificationsBuilder_ == null) {
-          notifications_ = null;
-          onChanged();
-        } else {
-          notifications_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        notifications_ = null;
+        if (notificationsBuilder_ != null) {
+          notificationsBuilder_.dispose();
           notificationsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4942,7 +4808,7 @@ public final class HomeGraphApiServiceProto {
        * <code>.google.protobuf.Struct notifications = 2;</code>
        */
       public com.google.protobuf.Struct.Builder getNotificationsBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getNotificationsFieldBuilder().getBuilder();
       }
@@ -5018,7 +4884,18 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ReportStateAndNotificationDevice(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5117,57 +4994,6 @@ public final class HomeGraphApiServiceProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DeleteAgentUserRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              requestId_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              agentUserId_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.HomeGraphApiServiceProto.internal_static_google_home_graph_v1_DeleteAgentUserRequest_descriptor;
@@ -5182,7 +5008,8 @@ public final class HomeGraphApiServiceProto {
     }
 
     public static final int REQUEST_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object requestId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object requestId_ = "";
     /**
      * <pre>
      * Request ID used for debugging.
@@ -5228,7 +5055,8 @@ public final class HomeGraphApiServiceProto {
     }
 
     public static final int AGENT_USER_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object agentUserId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object agentUserId_ = "";
     /**
      * <pre>
      * Required. Third-party user ID.
@@ -5293,7 +5121,7 @@ public final class HomeGraphApiServiceProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agentUserId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, agentUserId_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5308,7 +5136,7 @@ public final class HomeGraphApiServiceProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agentUserId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, agentUserId_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5327,7 +5155,7 @@ public final class HomeGraphApiServiceProto {
           .equals(other.getRequestId())) return false;
       if (!getAgentUserId()
           .equals(other.getAgentUserId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5342,7 +5170,7 @@ public final class HomeGraphApiServiceProto {
       hash = (53 * hash) + getRequestId().hashCode();
       hash = (37 * hash) + AGENT_USER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getAgentUserId().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5465,26 +5293,20 @@ public final class HomeGraphApiServiceProto {
 
       // Construct using com.google.home.graph.v1.HomeGraphApiServiceProto.DeleteAgentUserRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         requestId_ = "";
-
         agentUserId_ = "";
-
         return this;
       }
 
@@ -5511,10 +5333,19 @@ public final class HomeGraphApiServiceProto {
       @java.lang.Override
       public com.google.home.graph.v1.HomeGraphApiServiceProto.DeleteAgentUserRequest buildPartial() {
         com.google.home.graph.v1.HomeGraphApiServiceProto.DeleteAgentUserRequest result = new com.google.home.graph.v1.HomeGraphApiServiceProto.DeleteAgentUserRequest(this);
-        result.requestId_ = requestId_;
-        result.agentUserId_ = agentUserId_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.HomeGraphApiServiceProto.DeleteAgentUserRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.requestId_ = requestId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.agentUserId_ = agentUserId_;
+        }
       }
 
       @java.lang.Override
@@ -5563,13 +5394,15 @@ public final class HomeGraphApiServiceProto {
         if (other == com.google.home.graph.v1.HomeGraphApiServiceProto.DeleteAgentUserRequest.getDefaultInstance()) return this;
         if (!other.getRequestId().isEmpty()) {
           requestId_ = other.requestId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getAgentUserId().isEmpty()) {
           agentUserId_ = other.agentUserId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5584,19 +5417,43 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.HomeGraphApiServiceProto.DeleteAgentUserRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                requestId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                agentUserId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.HomeGraphApiServiceProto.DeleteAgentUserRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object requestId_ = "";
       /**
@@ -5651,11 +5508,9 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setRequestId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         requestId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5668,8 +5523,8 @@ public final class HomeGraphApiServiceProto {
        * @return This builder for chaining.
        */
       public Builder clearRequestId() {
-        
         requestId_ = getDefaultInstance().getRequestId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -5684,12 +5539,10 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setRequestIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         requestId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5747,11 +5600,9 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setAgentUserId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         agentUserId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5764,8 +5615,8 @@ public final class HomeGraphApiServiceProto {
        * @return This builder for chaining.
        */
       public Builder clearAgentUserId() {
-        
         agentUserId_ = getDefaultInstance().getAgentUserId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -5780,12 +5631,10 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setAgentUserIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         agentUserId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5822,7 +5671,18 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DeleteAgentUserRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5970,70 +5830,6 @@ public final class HomeGraphApiServiceProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private QueryRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              requestId_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              agentUserId_ = s;
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                inputs_ = new java.util.ArrayList<com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestInput>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              inputs_.add(
-                  input.readMessage(com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestInput.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          inputs_ = java.util.Collections.unmodifiableList(inputs_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.HomeGraphApiServiceProto.internal_static_google_home_graph_v1_QueryRequest_descriptor;
@@ -6048,7 +5844,8 @@ public final class HomeGraphApiServiceProto {
     }
 
     public static final int REQUEST_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object requestId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object requestId_ = "";
     /**
      * <pre>
      * Request ID used for debugging.
@@ -6094,7 +5891,8 @@ public final class HomeGraphApiServiceProto {
     }
 
     public static final int AGENT_USER_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object agentUserId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object agentUserId_ = "";
     /**
      * <pre>
      * Required. Third-party user ID.
@@ -6140,6 +5938,7 @@ public final class HomeGraphApiServiceProto {
     }
 
     public static final int INPUTS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestInput> inputs_;
     /**
      * <pre>
@@ -6227,7 +6026,7 @@ public final class HomeGraphApiServiceProto {
       for (int i = 0; i < inputs_.size(); i++) {
         output.writeMessage(3, inputs_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6246,7 +6045,7 @@ public final class HomeGraphApiServiceProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, inputs_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6267,7 +6066,7 @@ public final class HomeGraphApiServiceProto {
           .equals(other.getAgentUserId())) return false;
       if (!getInputsList()
           .equals(other.getInputsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6286,7 +6085,7 @@ public final class HomeGraphApiServiceProto {
         hash = (37 * hash) + INPUTS_FIELD_NUMBER;
         hash = (53 * hash) + getInputsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6408,33 +6207,27 @@ public final class HomeGraphApiServiceProto {
 
       // Construct using com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getInputsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         requestId_ = "";
-
         agentUserId_ = "";
-
         if (inputsBuilder_ == null) {
           inputs_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          inputs_ = null;
           inputsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -6461,20 +6254,32 @@ public final class HomeGraphApiServiceProto {
       @java.lang.Override
       public com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequest buildPartial() {
         com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequest result = new com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequest(this);
-        int from_bitField0_ = bitField0_;
-        result.requestId_ = requestId_;
-        result.agentUserId_ = agentUserId_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequest result) {
         if (inputsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000004) != 0)) {
             inputs_ = java.util.Collections.unmodifiableList(inputs_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.inputs_ = inputs_;
         } else {
           result.inputs_ = inputsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.requestId_ = requestId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.agentUserId_ = agentUserId_;
+        }
       }
 
       @java.lang.Override
@@ -6523,17 +6328,19 @@ public final class HomeGraphApiServiceProto {
         if (other == com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequest.getDefaultInstance()) return this;
         if (!other.getRequestId().isEmpty()) {
           requestId_ = other.requestId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getAgentUserId().isEmpty()) {
           agentUserId_ = other.agentUserId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (inputsBuilder_ == null) {
           if (!other.inputs_.isEmpty()) {
             if (inputs_.isEmpty()) {
               inputs_ = other.inputs_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureInputsIsMutable();
               inputs_.addAll(other.inputs_);
@@ -6546,7 +6353,7 @@ public final class HomeGraphApiServiceProto {
               inputsBuilder_.dispose();
               inputsBuilder_ = null;
               inputs_ = other.inputs_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
               inputsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getInputsFieldBuilder() : null;
@@ -6555,7 +6362,7 @@ public final class HomeGraphApiServiceProto {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6570,17 +6377,53 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                requestId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                agentUserId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestInput m =
+                    input.readMessage(
+                        com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestInput.parser(),
+                        extensionRegistry);
+                if (inputsBuilder_ == null) {
+                  ensureInputsIsMutable();
+                  inputs_.add(m);
+                } else {
+                  inputsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -6638,11 +6481,9 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setRequestId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         requestId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6655,8 +6496,8 @@ public final class HomeGraphApiServiceProto {
        * @return This builder for chaining.
        */
       public Builder clearRequestId() {
-        
         requestId_ = getDefaultInstance().getRequestId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -6671,12 +6512,10 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setRequestIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         requestId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6734,11 +6573,9 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setAgentUserId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         agentUserId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6751,8 +6588,8 @@ public final class HomeGraphApiServiceProto {
        * @return This builder for chaining.
        */
       public Builder clearAgentUserId() {
-        
         agentUserId_ = getDefaultInstance().getAgentUserId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -6767,12 +6604,10 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setAgentUserIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         agentUserId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6780,9 +6615,9 @@ public final class HomeGraphApiServiceProto {
       private java.util.List<com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestInput> inputs_ =
         java.util.Collections.emptyList();
       private void ensureInputsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           inputs_ = new java.util.ArrayList<com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestInput>(inputs_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000004;
          }
       }
 
@@ -6987,7 +6822,7 @@ public final class HomeGraphApiServiceProto {
       public Builder clearInputs() {
         if (inputsBuilder_ == null) {
           inputs_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           inputsBuilder_.clear();
@@ -7099,7 +6934,7 @@ public final class HomeGraphApiServiceProto {
           inputsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestInput, com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestInput.Builder, com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestInputOrBuilder>(
                   inputs_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
           inputs_ = null;
@@ -7139,7 +6974,18 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new QueryRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7221,58 +7067,6 @@ public final class HomeGraphApiServiceProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private QueryRequestInput(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayload.Builder subBuilder = null;
-              if (payload_ != null) {
-                subBuilder = payload_.toBuilder();
-              }
-              payload_ = input.readMessage(com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayload.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(payload_);
-                payload_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.HomeGraphApiServiceProto.internal_static_google_home_graph_v1_QueryRequestInput_descriptor;
@@ -7321,7 +7115,7 @@ public final class HomeGraphApiServiceProto {
      */
     @java.lang.Override
     public com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayloadOrBuilder getPayloadOrBuilder() {
-      return getPayload();
+      return payload_ == null ? com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayload.getDefaultInstance() : payload_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -7341,7 +7135,7 @@ public final class HomeGraphApiServiceProto {
       if (payload_ != null) {
         output.writeMessage(1, getPayload());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -7354,7 +7148,7 @@ public final class HomeGraphApiServiceProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getPayload());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7374,7 +7168,7 @@ public final class HomeGraphApiServiceProto {
         if (!getPayload()
             .equals(other.getPayload())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -7389,7 +7183,7 @@ public final class HomeGraphApiServiceProto {
         hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
         hash = (53 * hash) + getPayload().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7510,26 +7304,21 @@ public final class HomeGraphApiServiceProto {
 
       // Construct using com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestInput.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (payloadBuilder_ == null) {
-          payload_ = null;
-        } else {
-          payload_ = null;
+        bitField0_ = 0;
+        payload_ = null;
+        if (payloadBuilder_ != null) {
+          payloadBuilder_.dispose();
           payloadBuilder_ = null;
         }
         return this;
@@ -7558,13 +7347,18 @@ public final class HomeGraphApiServiceProto {
       @java.lang.Override
       public com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestInput buildPartial() {
         com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestInput result = new com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestInput(this);
-        if (payloadBuilder_ == null) {
-          result.payload_ = payload_;
-        } else {
-          result.payload_ = payloadBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestInput result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.payload_ = payloadBuilder_ == null
+              ? payload_
+              : payloadBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -7614,7 +7408,7 @@ public final class HomeGraphApiServiceProto {
         if (other.hasPayload()) {
           mergePayload(other.getPayload());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -7629,19 +7423,40 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestInput parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getPayloadFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestInput) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayload payload_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -7655,7 +7470,7 @@ public final class HomeGraphApiServiceProto {
        * @return Whether the payload field is set.
        */
       public boolean hasPayload() {
-        return payloadBuilder_ != null || payload_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -7685,11 +7500,11 @@ public final class HomeGraphApiServiceProto {
             throw new NullPointerException();
           }
           payload_ = value;
-          onChanged();
         } else {
           payloadBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -7703,11 +7518,11 @@ public final class HomeGraphApiServiceProto {
           com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayload.Builder builderForValue) {
         if (payloadBuilder_ == null) {
           payload_ = builderForValue.build();
-          onChanged();
         } else {
           payloadBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -7719,17 +7534,18 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder mergePayload(com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayload value) {
         if (payloadBuilder_ == null) {
-          if (payload_ != null) {
-            payload_ =
-              com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayload.newBuilder(payload_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            payload_ != null &&
+            payload_ != com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayload.getDefaultInstance()) {
+            getPayloadBuilder().mergeFrom(value);
           } else {
             payload_ = value;
           }
-          onChanged();
         } else {
           payloadBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -7740,14 +7556,13 @@ public final class HomeGraphApiServiceProto {
        * <code>.google.home.graph.v1.QueryRequestPayload payload = 1;</code>
        */
       public Builder clearPayload() {
-        if (payloadBuilder_ == null) {
-          payload_ = null;
-          onChanged();
-        } else {
-          payload_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        payload_ = null;
+        if (payloadBuilder_ != null) {
+          payloadBuilder_.dispose();
           payloadBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -7758,7 +7573,7 @@ public final class HomeGraphApiServiceProto {
        * <code>.google.home.graph.v1.QueryRequestPayload payload = 1;</code>
        */
       public com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayload.Builder getPayloadBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getPayloadFieldBuilder().getBuilder();
       }
@@ -7830,7 +7645,18 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new QueryRequestInput(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7930,58 +7756,6 @@ public final class HomeGraphApiServiceProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private QueryRequestPayload(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                devices_ = new java.util.ArrayList<com.google.home.graph.v1.HomeGraphApiServiceProto.AgentDeviceId>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              devices_.add(
-                  input.readMessage(com.google.home.graph.v1.HomeGraphApiServiceProto.AgentDeviceId.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          devices_ = java.util.Collections.unmodifiableList(devices_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.HomeGraphApiServiceProto.internal_static_google_home_graph_v1_QueryRequestPayload_descriptor;
@@ -7996,6 +7770,7 @@ public final class HomeGraphApiServiceProto {
     }
 
     public static final int DEVICES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.home.graph.v1.HomeGraphApiServiceProto.AgentDeviceId> devices_;
     /**
      * <pre>
@@ -8072,7 +7847,7 @@ public final class HomeGraphApiServiceProto {
       for (int i = 0; i < devices_.size(); i++) {
         output.writeMessage(1, devices_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -8085,7 +7860,7 @@ public final class HomeGraphApiServiceProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, devices_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8102,7 +7877,7 @@ public final class HomeGraphApiServiceProto {
 
       if (!getDevicesList()
           .equals(other.getDevicesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -8117,7 +7892,7 @@ public final class HomeGraphApiServiceProto {
         hash = (37 * hash) + DEVICES_FIELD_NUMBER;
         hash = (53 * hash) + getDevicesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8238,29 +8013,25 @@ public final class HomeGraphApiServiceProto {
 
       // Construct using com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayload.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getDevicesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (devicesBuilder_ == null) {
           devices_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          devices_ = null;
           devicesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -8287,7 +8058,13 @@ public final class HomeGraphApiServiceProto {
       @java.lang.Override
       public com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayload buildPartial() {
         com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayload result = new com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayload(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayload result) {
         if (devicesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             devices_ = java.util.Collections.unmodifiableList(devices_);
@@ -8297,8 +8074,10 @@ public final class HomeGraphApiServiceProto {
         } else {
           result.devices_ = devicesBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayload result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -8371,7 +8150,7 @@ public final class HomeGraphApiServiceProto {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -8386,17 +8165,43 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayload parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.home.graph.v1.HomeGraphApiServiceProto.AgentDeviceId m =
+                    input.readMessage(
+                        com.google.home.graph.v1.HomeGraphApiServiceProto.AgentDeviceId.parser(),
+                        extensionRegistry);
+                if (devicesBuilder_ == null) {
+                  ensureDevicesIsMutable();
+                  devices_.add(m);
+                } else {
+                  devicesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.HomeGraphApiServiceProto.QueryRequestPayload) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -8745,7 +8550,18 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new QueryRequestPayload(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -8821,51 +8637,6 @@ public final class HomeGraphApiServiceProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AgentDeviceId(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              id_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.HomeGraphApiServiceProto.internal_static_google_home_graph_v1_AgentDeviceId_descriptor;
@@ -8880,7 +8651,8 @@ public final class HomeGraphApiServiceProto {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
     /**
      * <pre>
      * Third-party device ID.
@@ -8942,7 +8714,7 @@ public final class HomeGraphApiServiceProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -8954,7 +8726,7 @@ public final class HomeGraphApiServiceProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8971,7 +8743,7 @@ public final class HomeGraphApiServiceProto {
 
       if (!getId()
           .equals(other.getId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -8984,7 +8756,7 @@ public final class HomeGraphApiServiceProto {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9105,24 +8877,19 @@ public final class HomeGraphApiServiceProto {
 
       // Construct using com.google.home.graph.v1.HomeGraphApiServiceProto.AgentDeviceId.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         id_ = "";
-
         return this;
       }
 
@@ -9149,9 +8916,16 @@ public final class HomeGraphApiServiceProto {
       @java.lang.Override
       public com.google.home.graph.v1.HomeGraphApiServiceProto.AgentDeviceId buildPartial() {
         com.google.home.graph.v1.HomeGraphApiServiceProto.AgentDeviceId result = new com.google.home.graph.v1.HomeGraphApiServiceProto.AgentDeviceId(this);
-        result.id_ = id_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.HomeGraphApiServiceProto.AgentDeviceId result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
       }
 
       @java.lang.Override
@@ -9200,9 +8974,10 @@ public final class HomeGraphApiServiceProto {
         if (other == com.google.home.graph.v1.HomeGraphApiServiceProto.AgentDeviceId.getDefaultInstance()) return this;
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9217,19 +8992,38 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.HomeGraphApiServiceProto.AgentDeviceId parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.HomeGraphApiServiceProto.AgentDeviceId) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object id_ = "";
       /**
@@ -9284,11 +9078,9 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9301,8 +9093,8 @@ public final class HomeGraphApiServiceProto {
        * @return This builder for chaining.
        */
       public Builder clearId() {
-        
         id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -9317,12 +9109,10 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9359,7 +9149,18 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AgentDeviceId(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9489,64 +9290,6 @@ public final class HomeGraphApiServiceProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private QueryResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              requestId_ = s;
-              break;
-            }
-            case 18: {
-              com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponsePayload.Builder subBuilder = null;
-              if (payload_ != null) {
-                subBuilder = payload_.toBuilder();
-              }
-              payload_ = input.readMessage(com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponsePayload.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(payload_);
-                payload_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.HomeGraphApiServiceProto.internal_static_google_home_graph_v1_QueryResponse_descriptor;
@@ -9561,7 +9304,8 @@ public final class HomeGraphApiServiceProto {
     }
 
     public static final int REQUEST_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object requestId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object requestId_ = "";
     /**
      * <pre>
      * Request ID used for debugging. Copied from the request.
@@ -9641,7 +9385,7 @@ public final class HomeGraphApiServiceProto {
      */
     @java.lang.Override
     public com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponsePayloadOrBuilder getPayloadOrBuilder() {
-      return getPayload();
+      return payload_ == null ? com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponsePayload.getDefaultInstance() : payload_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -9664,7 +9408,7 @@ public final class HomeGraphApiServiceProto {
       if (payload_ != null) {
         output.writeMessage(2, getPayload());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -9680,7 +9424,7 @@ public final class HomeGraphApiServiceProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getPayload());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9702,7 +9446,7 @@ public final class HomeGraphApiServiceProto {
         if (!getPayload()
             .equals(other.getPayload())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -9719,7 +9463,7 @@ public final class HomeGraphApiServiceProto {
         hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
         hash = (53 * hash) + getPayload().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9867,28 +9611,22 @@ public final class HomeGraphApiServiceProto {
 
       // Construct using com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         requestId_ = "";
-
-        if (payloadBuilder_ == null) {
-          payload_ = null;
-        } else {
-          payload_ = null;
+        payload_ = null;
+        if (payloadBuilder_ != null) {
+          payloadBuilder_.dispose();
           payloadBuilder_ = null;
         }
         return this;
@@ -9917,14 +9655,21 @@ public final class HomeGraphApiServiceProto {
       @java.lang.Override
       public com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponse buildPartial() {
         com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponse result = new com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponse(this);
-        result.requestId_ = requestId_;
-        if (payloadBuilder_ == null) {
-          result.payload_ = payload_;
-        } else {
-          result.payload_ = payloadBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.requestId_ = requestId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.payload_ = payloadBuilder_ == null
+              ? payload_
+              : payloadBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -9973,12 +9718,13 @@ public final class HomeGraphApiServiceProto {
         if (other == com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponse.getDefaultInstance()) return this;
         if (!other.getRequestId().isEmpty()) {
           requestId_ = other.requestId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasPayload()) {
           mergePayload(other.getPayload());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9993,19 +9739,45 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                requestId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getPayloadFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object requestId_ = "";
       /**
@@ -10060,11 +9832,9 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setRequestId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         requestId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10077,8 +9847,8 @@ public final class HomeGraphApiServiceProto {
        * @return This builder for chaining.
        */
       public Builder clearRequestId() {
-        
         requestId_ = getDefaultInstance().getRequestId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -10093,12 +9863,10 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder setRequestIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         requestId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10115,7 +9883,7 @@ public final class HomeGraphApiServiceProto {
        * @return Whether the payload field is set.
        */
       public boolean hasPayload() {
-        return payloadBuilder_ != null || payload_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -10145,11 +9913,11 @@ public final class HomeGraphApiServiceProto {
             throw new NullPointerException();
           }
           payload_ = value;
-          onChanged();
         } else {
           payloadBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -10163,11 +9931,11 @@ public final class HomeGraphApiServiceProto {
           com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponsePayload.Builder builderForValue) {
         if (payloadBuilder_ == null) {
           payload_ = builderForValue.build();
-          onChanged();
         } else {
           payloadBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -10179,17 +9947,18 @@ public final class HomeGraphApiServiceProto {
        */
       public Builder mergePayload(com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponsePayload value) {
         if (payloadBuilder_ == null) {
-          if (payload_ != null) {
-            payload_ =
-              com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponsePayload.newBuilder(payload_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            payload_ != null &&
+            payload_ != com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponsePayload.getDefaultInstance()) {
+            getPayloadBuilder().mergeFrom(value);
           } else {
             payload_ = value;
           }
-          onChanged();
         } else {
           payloadBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -10200,14 +9969,13 @@ public final class HomeGraphApiServiceProto {
        * <code>.google.home.graph.v1.QueryResponsePayload payload = 2;</code>
        */
       public Builder clearPayload() {
-        if (payloadBuilder_ == null) {
-          payload_ = null;
-          onChanged();
-        } else {
-          payload_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        payload_ = null;
+        if (payloadBuilder_ != null) {
+          payloadBuilder_.dispose();
           payloadBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -10218,7 +9986,7 @@ public final class HomeGraphApiServiceProto {
        * <code>.google.home.graph.v1.QueryResponsePayload payload = 2;</code>
        */
       public com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponsePayload.Builder getPayloadBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getPayloadFieldBuilder().getBuilder();
       }
@@ -10290,7 +10058,18 @@ public final class HomeGraphApiServiceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new QueryResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -10357,7 +10136,6 @@ public final class HomeGraphApiServiceProto {
      *
      * <code>map&lt;string, .google.protobuf.Struct&gt; devices = 1;</code>
      */
-
     /* nullable */
 com.google.protobuf.Struct getDevicesOrDefault(
         java.lang.String key,
@@ -10371,7 +10149,6 @@ com.google.protobuf.Struct defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Struct&gt; devices = 1;</code>
      */
-
     com.google.protobuf.Struct getDevicesOrThrow(
         java.lang.String key);
   }
@@ -10405,59 +10182,6 @@ com.google.protobuf.Struct defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private QueryResponsePayload(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                devices_ = com.google.protobuf.MapField.newMapField(
-                    DevicesDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Struct>
-              devices__ = input.readMessage(
-                  DevicesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              devices_.getMutableMap().put(
-                  devices__.getKey(), devices__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -10496,6 +10220,7 @@ com.google.protobuf.Struct defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.protobuf.Struct.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf.Struct> devices_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Struct>
@@ -10506,7 +10231,6 @@ com.google.protobuf.Struct defaultValue);
       }
       return devices_;
     }
-
     public int getDevicesCount() {
       return internalGetDevices().getMap().size();
     }
@@ -10518,7 +10242,6 @@ com.google.protobuf.Struct defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Struct&gt; devices = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsDevices(
         java.lang.String key) {
@@ -10542,7 +10265,6 @@ com.google.protobuf.Struct defaultValue);
      * <code>map&lt;string, .google.protobuf.Struct&gt; devices = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf.Struct> getDevicesMap() {
       return internalGetDevices().getMap();
     }
@@ -10555,10 +10277,11 @@ com.google.protobuf.Struct defaultValue);
      * <code>map&lt;string, .google.protobuf.Struct&gt; devices = 1;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Struct getDevicesOrDefault(
+    public /* nullable */
+com.google.protobuf.Struct getDevicesOrDefault(
         java.lang.String key,
-        com.google.protobuf.Struct defaultValue) {
+        /* nullable */
+com.google.protobuf.Struct defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.Struct> map =
           internalGetDevices().getMap();
@@ -10573,7 +10296,6 @@ com.google.protobuf.Struct defaultValue);
      * <code>map&lt;string, .google.protobuf.Struct&gt; devices = 1;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Struct getDevicesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -10605,7 +10327,7 @@ com.google.protobuf.Struct defaultValue);
           internalGetDevices(),
           DevicesDefaultEntryHolder.defaultEntry,
           1);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -10624,7 +10346,7 @@ com.google.protobuf.Struct defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(1, devices__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -10641,7 +10363,7 @@ com.google.protobuf.Struct defaultValue);
 
       if (!internalGetDevices().equals(
           other.internalGetDevices())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -10656,7 +10378,7 @@ com.google.protobuf.Struct defaultValue);
         hash = (37 * hash) + DEVICES_FIELD_NUMBER;
         hash = (53 * hash) + internalGetDevices().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10799,22 +10521,18 @@ com.google.protobuf.Struct defaultValue);
 
       // Construct using com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponsePayload.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutableDevices().clear();
         return this;
       }
@@ -10842,11 +10560,17 @@ com.google.protobuf.Struct defaultValue);
       @java.lang.Override
       public com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponsePayload buildPartial() {
         com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponsePayload result = new com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponsePayload(this);
-        int from_bitField0_ = bitField0_;
-        result.devices_ = internalGetDevices();
-        result.devices_.makeImmutable();
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponsePayload result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.devices_ = internalGetDevices();
+          result.devices_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -10895,7 +10619,8 @@ com.google.protobuf.Struct defaultValue);
         if (other == com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponsePayload.getDefaultInstance()) return this;
         internalGetMutableDevices().mergeFrom(
             other.internalGetDevices());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00000001;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -10910,17 +10635,39 @@ com.google.protobuf.Struct defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponsePayload parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Struct>
+                devices__ = input.readMessage(
+                    DevicesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableDevices().getMutableMap().put(
+                    devices__.getKey(), devices__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.HomeGraphApiServiceProto.QueryResponsePayload) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -10928,7 +10675,7 @@ com.google.protobuf.Struct defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, com.google.protobuf.Struct> devices_;
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Struct>
-      internalGetDevices() {
+          internalGetDevices() {
         if (devices_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               DevicesDefaultEntryHolder.defaultEntry);
@@ -10936,8 +10683,7 @@ com.google.protobuf.Struct defaultValue);
         return devices_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Struct>
-      internalGetMutableDevices() {
-        onChanged();;
+          internalGetMutableDevices() {
         if (devices_ == null) {
           devices_ = com.google.protobuf.MapField.newMapField(
               DevicesDefaultEntryHolder.defaultEntry);
@@ -10945,9 +10691,10 @@ com.google.protobuf.Struct defaultValue);
         if (!devices_.isMutable()) {
           devices_ = devices_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return devices_;
       }
-
       public int getDevicesCount() {
         return internalGetDevices().getMap().size();
       }
@@ -10959,7 +10706,6 @@ com.google.protobuf.Struct defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Struct&gt; devices = 1;</code>
        */
-
       @java.lang.Override
       public boolean containsDevices(
           java.lang.String key) {
@@ -10983,7 +10729,6 @@ com.google.protobuf.Struct defaultValue);
        * <code>map&lt;string, .google.protobuf.Struct&gt; devices = 1;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.protobuf.Struct> getDevicesMap() {
         return internalGetDevices().getMap();
       }
@@ -10996,10 +10741,11 @@ com.google.protobuf.Struct defaultValue);
        * <code>map&lt;string, .google.protobuf.Struct&gt; devices = 1;</code>
        */
       @java.lang.Override
-
-      public com.google.protobuf.Struct getDevicesOrDefault(
+      public /* nullable */
+com.google.protobuf.Struct getDevicesOrDefault(
           java.lang.String key,
-          com.google.protobuf.Struct defaultValue) {
+          /* nullable */
+com.google.protobuf.Struct defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf.Struct> map =
             internalGetDevices().getMap();
@@ -11014,7 +10760,6 @@ com.google.protobuf.Struct defaultValue);
        * <code>map&lt;string, .google.protobuf.Struct&gt; devices = 1;</code>
        */
       @java.lang.Override
-
       public com.google.protobuf.Struct getDevicesOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -11025,8 +10770,8 @@ com.google.protobuf.Struct defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearDevices() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableDevices().getMutableMap()
             .clear();
         return this;
@@ -11039,7 +10784,6 @@ com.google.protobuf.Struct defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Struct&gt; devices = 1;</code>
        */
-
       public Builder removeDevices(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -11052,7 +10796,8 @@ com.google.protobuf.Struct defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf.Struct>
-      getMutableDevices() {
+          getMutableDevices() {
+        bitField0_ |= 0x00000001;
         return internalGetMutableDevices().getMutableMap();
       }
       /**
@@ -11067,12 +10812,10 @@ com.google.protobuf.Struct defaultValue);
           java.lang.String key,
           com.google.protobuf.Struct value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableDevices().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
@@ -11083,11 +10826,11 @@ com.google.protobuf.Struct defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Struct&gt; devices = 1;</code>
        */
-
       public Builder putAllDevices(
           java.util.Map<java.lang.String, com.google.protobuf.Struct> values) {
         internalGetMutableDevices().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
       @java.lang.Override
@@ -11123,7 +10866,18 @@ com.google.protobuf.Struct defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new QueryResponsePayload(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -11221,57 +10975,6 @@ com.google.protobuf.Struct defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SyncRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              requestId_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              agentUserId_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.HomeGraphApiServiceProto.internal_static_google_home_graph_v1_SyncRequest_descriptor;
@@ -11286,7 +10989,8 @@ com.google.protobuf.Struct defaultValue);
     }
 
     public static final int REQUEST_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object requestId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object requestId_ = "";
     /**
      * <pre>
      * Request ID used for debugging.
@@ -11332,7 +11036,8 @@ com.google.protobuf.Struct defaultValue);
     }
 
     public static final int AGENT_USER_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object agentUserId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object agentUserId_ = "";
     /**
      * <pre>
      * Required. Third-party user ID.
@@ -11397,7 +11102,7 @@ com.google.protobuf.Struct defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agentUserId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, agentUserId_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -11412,7 +11117,7 @@ com.google.protobuf.Struct defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agentUserId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, agentUserId_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -11431,7 +11136,7 @@ com.google.protobuf.Struct defaultValue);
           .equals(other.getRequestId())) return false;
       if (!getAgentUserId()
           .equals(other.getAgentUserId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -11446,7 +11151,7 @@ com.google.protobuf.Struct defaultValue);
       hash = (53 * hash) + getRequestId().hashCode();
       hash = (37 * hash) + AGENT_USER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getAgentUserId().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -11568,26 +11273,20 @@ com.google.protobuf.Struct defaultValue);
 
       // Construct using com.google.home.graph.v1.HomeGraphApiServiceProto.SyncRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         requestId_ = "";
-
         agentUserId_ = "";
-
         return this;
       }
 
@@ -11614,10 +11313,19 @@ com.google.protobuf.Struct defaultValue);
       @java.lang.Override
       public com.google.home.graph.v1.HomeGraphApiServiceProto.SyncRequest buildPartial() {
         com.google.home.graph.v1.HomeGraphApiServiceProto.SyncRequest result = new com.google.home.graph.v1.HomeGraphApiServiceProto.SyncRequest(this);
-        result.requestId_ = requestId_;
-        result.agentUserId_ = agentUserId_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.HomeGraphApiServiceProto.SyncRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.requestId_ = requestId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.agentUserId_ = agentUserId_;
+        }
       }
 
       @java.lang.Override
@@ -11666,13 +11374,15 @@ com.google.protobuf.Struct defaultValue);
         if (other == com.google.home.graph.v1.HomeGraphApiServiceProto.SyncRequest.getDefaultInstance()) return this;
         if (!other.getRequestId().isEmpty()) {
           requestId_ = other.requestId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getAgentUserId().isEmpty()) {
           agentUserId_ = other.agentUserId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -11687,19 +11397,43 @@ com.google.protobuf.Struct defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.HomeGraphApiServiceProto.SyncRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                requestId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                agentUserId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.HomeGraphApiServiceProto.SyncRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object requestId_ = "";
       /**
@@ -11754,11 +11488,9 @@ com.google.protobuf.Struct defaultValue);
        */
       public Builder setRequestId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         requestId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -11771,8 +11503,8 @@ com.google.protobuf.Struct defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearRequestId() {
-        
         requestId_ = getDefaultInstance().getRequestId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -11787,12 +11519,10 @@ com.google.protobuf.Struct defaultValue);
        */
       public Builder setRequestIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         requestId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -11850,11 +11580,9 @@ com.google.protobuf.Struct defaultValue);
        */
       public Builder setAgentUserId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         agentUserId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -11867,8 +11595,8 @@ com.google.protobuf.Struct defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearAgentUserId() {
-        
         agentUserId_ = getDefaultInstance().getAgentUserId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -11883,12 +11611,10 @@ com.google.protobuf.Struct defaultValue);
        */
       public Builder setAgentUserIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         agentUserId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -11925,7 +11651,18 @@ com.google.protobuf.Struct defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SyncRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -12065,64 +11802,6 @@ com.google.protobuf.Struct defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SyncResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              requestId_ = s;
-              break;
-            }
-            case 18: {
-              com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayload.Builder subBuilder = null;
-              if (payload_ != null) {
-                subBuilder = payload_.toBuilder();
-              }
-              payload_ = input.readMessage(com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayload.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(payload_);
-                payload_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.HomeGraphApiServiceProto.internal_static_google_home_graph_v1_SyncResponse_descriptor;
@@ -12137,7 +11816,8 @@ com.google.protobuf.Struct defaultValue);
     }
 
     public static final int REQUEST_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object requestId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object requestId_ = "";
     /**
      * <pre>
      * Request ID used for debugging. Copied from the request.
@@ -12217,7 +11897,7 @@ com.google.protobuf.Struct defaultValue);
      */
     @java.lang.Override
     public com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayloadOrBuilder getPayloadOrBuilder() {
-      return getPayload();
+      return payload_ == null ? com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayload.getDefaultInstance() : payload_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -12240,7 +11920,7 @@ com.google.protobuf.Struct defaultValue);
       if (payload_ != null) {
         output.writeMessage(2, getPayload());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -12256,7 +11936,7 @@ com.google.protobuf.Struct defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getPayload());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -12278,7 +11958,7 @@ com.google.protobuf.Struct defaultValue);
         if (!getPayload()
             .equals(other.getPayload())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -12295,7 +11975,7 @@ com.google.protobuf.Struct defaultValue);
         hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
         hash = (53 * hash) + getPayload().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -12453,28 +12133,22 @@ com.google.protobuf.Struct defaultValue);
 
       // Construct using com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         requestId_ = "";
-
-        if (payloadBuilder_ == null) {
-          payload_ = null;
-        } else {
-          payload_ = null;
+        payload_ = null;
+        if (payloadBuilder_ != null) {
+          payloadBuilder_.dispose();
           payloadBuilder_ = null;
         }
         return this;
@@ -12503,14 +12177,21 @@ com.google.protobuf.Struct defaultValue);
       @java.lang.Override
       public com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponse buildPartial() {
         com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponse result = new com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponse(this);
-        result.requestId_ = requestId_;
-        if (payloadBuilder_ == null) {
-          result.payload_ = payload_;
-        } else {
-          result.payload_ = payloadBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.requestId_ = requestId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.payload_ = payloadBuilder_ == null
+              ? payload_
+              : payloadBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -12559,12 +12240,13 @@ com.google.protobuf.Struct defaultValue);
         if (other == com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponse.getDefaultInstance()) return this;
         if (!other.getRequestId().isEmpty()) {
           requestId_ = other.requestId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasPayload()) {
           mergePayload(other.getPayload());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -12579,19 +12261,45 @@ com.google.protobuf.Struct defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                requestId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getPayloadFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object requestId_ = "";
       /**
@@ -12646,11 +12354,9 @@ com.google.protobuf.Struct defaultValue);
        */
       public Builder setRequestId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         requestId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -12663,8 +12369,8 @@ com.google.protobuf.Struct defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearRequestId() {
-        
         requestId_ = getDefaultInstance().getRequestId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -12679,12 +12385,10 @@ com.google.protobuf.Struct defaultValue);
        */
       public Builder setRequestIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         requestId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -12701,7 +12405,7 @@ com.google.protobuf.Struct defaultValue);
        * @return Whether the payload field is set.
        */
       public boolean hasPayload() {
-        return payloadBuilder_ != null || payload_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -12731,11 +12435,11 @@ com.google.protobuf.Struct defaultValue);
             throw new NullPointerException();
           }
           payload_ = value;
-          onChanged();
         } else {
           payloadBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -12749,11 +12453,11 @@ com.google.protobuf.Struct defaultValue);
           com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayload.Builder builderForValue) {
         if (payloadBuilder_ == null) {
           payload_ = builderForValue.build();
-          onChanged();
         } else {
           payloadBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -12765,17 +12469,18 @@ com.google.protobuf.Struct defaultValue);
        */
       public Builder mergePayload(com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayload value) {
         if (payloadBuilder_ == null) {
-          if (payload_ != null) {
-            payload_ =
-              com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayload.newBuilder(payload_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            payload_ != null &&
+            payload_ != com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayload.getDefaultInstance()) {
+            getPayloadBuilder().mergeFrom(value);
           } else {
             payload_ = value;
           }
-          onChanged();
         } else {
           payloadBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -12786,14 +12491,13 @@ com.google.protobuf.Struct defaultValue);
        * <code>.google.home.graph.v1.SyncResponsePayload payload = 2;</code>
        */
       public Builder clearPayload() {
-        if (payloadBuilder_ == null) {
-          payload_ = null;
-          onChanged();
-        } else {
-          payload_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        payload_ = null;
+        if (payloadBuilder_ != null) {
+          payloadBuilder_.dispose();
           payloadBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -12804,7 +12508,7 @@ com.google.protobuf.Struct defaultValue);
        * <code>.google.home.graph.v1.SyncResponsePayload payload = 2;</code>
        */
       public com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayload.Builder getPayloadBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getPayloadFieldBuilder().getBuilder();
       }
@@ -12876,7 +12580,18 @@ com.google.protobuf.Struct defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SyncResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -12997,64 +12712,6 @@ com.google.protobuf.Struct defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SyncResponsePayload(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              agentUserId_ = s;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                devices_ = new java.util.ArrayList<com.google.home.graph.v1.DeviceProto.Device>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              devices_.add(
-                  input.readMessage(com.google.home.graph.v1.DeviceProto.Device.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          devices_ = java.util.Collections.unmodifiableList(devices_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.HomeGraphApiServiceProto.internal_static_google_home_graph_v1_SyncResponsePayload_descriptor;
@@ -13069,7 +12726,8 @@ com.google.protobuf.Struct defaultValue);
     }
 
     public static final int AGENT_USER_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object agentUserId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object agentUserId_ = "";
     /**
      * <pre>
      * Third-party user ID
@@ -13115,6 +12773,7 @@ com.google.protobuf.Struct defaultValue);
     }
 
     public static final int DEVICES_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.home.graph.v1.DeviceProto.Device> devices_;
     /**
      * <pre>
@@ -13194,7 +12853,7 @@ com.google.protobuf.Struct defaultValue);
       for (int i = 0; i < devices_.size(); i++) {
         output.writeMessage(2, devices_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -13210,7 +12869,7 @@ com.google.protobuf.Struct defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, devices_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -13229,7 +12888,7 @@ com.google.protobuf.Struct defaultValue);
           .equals(other.getAgentUserId())) return false;
       if (!getDevicesList()
           .equals(other.getDevicesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -13246,7 +12905,7 @@ com.google.protobuf.Struct defaultValue);
         hash = (37 * hash) + DEVICES_FIELD_NUMBER;
         hash = (53 * hash) + getDevicesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -13367,31 +13026,26 @@ com.google.protobuf.Struct defaultValue);
 
       // Construct using com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayload.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getDevicesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         agentUserId_ = "";
-
         if (devicesBuilder_ == null) {
           devices_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          devices_ = null;
           devicesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -13418,19 +13072,29 @@ com.google.protobuf.Struct defaultValue);
       @java.lang.Override
       public com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayload buildPartial() {
         com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayload result = new com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayload(this);
-        int from_bitField0_ = bitField0_;
-        result.agentUserId_ = agentUserId_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayload result) {
         if (devicesBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             devices_ = java.util.Collections.unmodifiableList(devices_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.devices_ = devices_;
         } else {
           result.devices_ = devicesBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayload result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.agentUserId_ = agentUserId_;
+        }
       }
 
       @java.lang.Override
@@ -13479,13 +13143,14 @@ com.google.protobuf.Struct defaultValue);
         if (other == com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayload.getDefaultInstance()) return this;
         if (!other.getAgentUserId().isEmpty()) {
           agentUserId_ = other.agentUserId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (devicesBuilder_ == null) {
           if (!other.devices_.isEmpty()) {
             if (devices_.isEmpty()) {
               devices_ = other.devices_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureDevicesIsMutable();
               devices_.addAll(other.devices_);
@@ -13498,7 +13163,7 @@ com.google.protobuf.Struct defaultValue);
               devicesBuilder_.dispose();
               devicesBuilder_ = null;
               devices_ = other.devices_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               devicesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getDevicesFieldBuilder() : null;
@@ -13507,7 +13172,7 @@ com.google.protobuf.Struct defaultValue);
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -13522,17 +13187,48 @@ com.google.protobuf.Struct defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayload parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                agentUserId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.home.graph.v1.DeviceProto.Device m =
+                    input.readMessage(
+                        com.google.home.graph.v1.DeviceProto.Device.parser(),
+                        extensionRegistry);
+                if (devicesBuilder_ == null) {
+                  ensureDevicesIsMutable();
+                  devices_.add(m);
+                } else {
+                  devicesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.HomeGraphApiServiceProto.SyncResponsePayload) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -13590,11 +13286,9 @@ com.google.protobuf.Struct defaultValue);
        */
       public Builder setAgentUserId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         agentUserId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -13607,8 +13301,8 @@ com.google.protobuf.Struct defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearAgentUserId() {
-        
         agentUserId_ = getDefaultInstance().getAgentUserId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -13623,12 +13317,10 @@ com.google.protobuf.Struct defaultValue);
        */
       public Builder setAgentUserIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         agentUserId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -13636,9 +13328,9 @@ com.google.protobuf.Struct defaultValue);
       private java.util.List<com.google.home.graph.v1.DeviceProto.Device> devices_ =
         java.util.Collections.emptyList();
       private void ensureDevicesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           devices_ = new java.util.ArrayList<com.google.home.graph.v1.DeviceProto.Device>(devices_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -13832,7 +13524,7 @@ com.google.protobuf.Struct defaultValue);
       public Builder clearDevices() {
         if (devicesBuilder_ == null) {
           devices_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           devicesBuilder_.clear();
@@ -13937,7 +13629,7 @@ com.google.protobuf.Struct defaultValue);
           devicesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.home.graph.v1.DeviceProto.Device, com.google.home.graph.v1.DeviceProto.Device.Builder, com.google.home.graph.v1.DeviceProto.DeviceOrBuilder>(
                   devices_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           devices_ = null;
@@ -13977,7 +13669,18 @@ com.google.protobuf.Struct defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SyncResponsePayload(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -14159,12 +13862,12 @@ com.google.protobuf.Struct defaultValue);
       "SyncRequest\032\".google.home.graph.v1.SyncR" +
       "esponse\"6\202\323\344\223\002\025\"\020/v1/devices:sync:\001*\332A\030r" +
       "equest_id,agent_user_id\032\033\312A\030homegraph.go" +
-      "ogleapis.comB\322\001\n\030com.google.home.graph.v" +
+      "ogleapis.comB\317\001\n\030com.google.home.graph.v" +
       "1B\030HomeGraphApiServiceProtoZ9google.gola" +
       "ng.org/genproto/googleapis/home/graph/v1" +
-      ";graph\312\002\024Google\\Home\\Graph\\V1\352AI\n&homegr" +
-      "aph.googleapis.com/AgentUserPath\022\037agentU" +
-      "sers/{agent_user_path=**}b\006proto3"
+      ";graph\312\002\024Google\\Home\\Graph\\V1\352AF\n&homegr" +
+      "aph.googleapis.com/AgentUserPath\022\034agentU" +
+      "sers/{agent_user_path}b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

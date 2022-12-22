@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateServiceLevelObjectiveRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.monitoring.v3.ServiceLevelObjective.Builder subBuilder = null;
-            if (serviceLevelObjective_ != null) {
-              subBuilder = serviceLevelObjective_.toBuilder();
-            }
-            serviceLevelObjective_ = input.readMessage(com.google.monitoring.v3.ServiceLevelObjective.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(serviceLevelObjective_);
-              serviceLevelObjective_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceLevelObjectiveId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.v3.ServiceMonitoringServiceProto.internal_static_google_monitoring_v3_CreateServiceLevelObjectiveRequest_descriptor;
@@ -114,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. Resource name of the parent `Service`. The format is:
@@ -162,7 +99,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_LEVEL_OBJECTIVE_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object serviceLevelObjectiveId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceLevelObjectiveId_ = "";
   /**
    * <pre>
    * Optional. The ServiceLevelObjective id to use for this
@@ -252,7 +190,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.monitoring.v3.ServiceLevelObjectiveOrBuilder getServiceLevelObjectiveOrBuilder() {
-    return getServiceLevelObjective();
+    return serviceLevelObjective_ == null ? com.google.monitoring.v3.ServiceLevelObjective.getDefaultInstance() : serviceLevelObjective_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -278,7 +216,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serviceLevelObjectiveId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, serviceLevelObjectiveId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -297,7 +235,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serviceLevelObjectiveId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, serviceLevelObjectiveId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -321,7 +259,7 @@ private static final long serialVersionUID = 0L;
       if (!getServiceLevelObjective()
           .equals(other.getServiceLevelObjective())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -340,7 +278,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SERVICE_LEVEL_OBJECTIVE_FIELD_NUMBER;
       hash = (53 * hash) + getServiceLevelObjective().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -461,30 +399,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.v3.CreateServiceLevelObjectiveRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       serviceLevelObjectiveId_ = "";
-
-      if (serviceLevelObjectiveBuilder_ == null) {
-        serviceLevelObjective_ = null;
-      } else {
-        serviceLevelObjective_ = null;
+      serviceLevelObjective_ = null;
+      if (serviceLevelObjectiveBuilder_ != null) {
+        serviceLevelObjectiveBuilder_.dispose();
         serviceLevelObjectiveBuilder_ = null;
       }
       return this;
@@ -513,15 +444,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.v3.CreateServiceLevelObjectiveRequest buildPartial() {
       com.google.monitoring.v3.CreateServiceLevelObjectiveRequest result = new com.google.monitoring.v3.CreateServiceLevelObjectiveRequest(this);
-      result.parent_ = parent_;
-      result.serviceLevelObjectiveId_ = serviceLevelObjectiveId_;
-      if (serviceLevelObjectiveBuilder_ == null) {
-        result.serviceLevelObjective_ = serviceLevelObjective_;
-      } else {
-        result.serviceLevelObjective_ = serviceLevelObjectiveBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.monitoring.v3.CreateServiceLevelObjectiveRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.serviceLevelObjectiveId_ = serviceLevelObjectiveId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.serviceLevelObjective_ = serviceLevelObjectiveBuilder_ == null
+            ? serviceLevelObjective_
+            : serviceLevelObjectiveBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -570,16 +510,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.monitoring.v3.CreateServiceLevelObjectiveRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getServiceLevelObjectiveId().isEmpty()) {
         serviceLevelObjectiveId_ = other.serviceLevelObjectiveId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasServiceLevelObjective()) {
         mergeServiceLevelObjective(other.getServiceLevelObjective());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -594,19 +536,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.v3.CreateServiceLevelObjectiveRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getServiceLevelObjectiveFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              serviceLevelObjectiveId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.v3.CreateServiceLevelObjectiveRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -664,11 +637,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -682,8 +653,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -699,12 +670,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -768,11 +737,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceLevelObjectiveId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceLevelObjectiveId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -787,8 +754,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServiceLevelObjectiveId() {
-      
       serviceLevelObjectiveId_ = getDefaultInstance().getServiceLevelObjectiveId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -805,12 +772,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceLevelObjectiveIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceLevelObjectiveId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -829,7 +794,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the serviceLevelObjective field is set.
      */
     public boolean hasServiceLevelObjective() {
-      return serviceLevelObjectiveBuilder_ != null || serviceLevelObjective_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -863,11 +828,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         serviceLevelObjective_ = value;
-        onChanged();
       } else {
         serviceLevelObjectiveBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -883,11 +848,11 @@ private static final long serialVersionUID = 0L;
         com.google.monitoring.v3.ServiceLevelObjective.Builder builderForValue) {
       if (serviceLevelObjectiveBuilder_ == null) {
         serviceLevelObjective_ = builderForValue.build();
-        onChanged();
       } else {
         serviceLevelObjectiveBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -901,17 +866,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeServiceLevelObjective(com.google.monitoring.v3.ServiceLevelObjective value) {
       if (serviceLevelObjectiveBuilder_ == null) {
-        if (serviceLevelObjective_ != null) {
-          serviceLevelObjective_ =
-            com.google.monitoring.v3.ServiceLevelObjective.newBuilder(serviceLevelObjective_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          serviceLevelObjective_ != null &&
+          serviceLevelObjective_ != com.google.monitoring.v3.ServiceLevelObjective.getDefaultInstance()) {
+          getServiceLevelObjectiveBuilder().mergeFrom(value);
         } else {
           serviceLevelObjective_ = value;
         }
-        onChanged();
       } else {
         serviceLevelObjectiveBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -924,14 +890,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.v3.ServiceLevelObjective service_level_objective = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearServiceLevelObjective() {
-      if (serviceLevelObjectiveBuilder_ == null) {
-        serviceLevelObjective_ = null;
-        onChanged();
-      } else {
-        serviceLevelObjective_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      serviceLevelObjective_ = null;
+      if (serviceLevelObjectiveBuilder_ != null) {
+        serviceLevelObjectiveBuilder_.dispose();
         serviceLevelObjectiveBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -944,7 +909,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.v3.ServiceLevelObjective service_level_objective = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.monitoring.v3.ServiceLevelObjective.Builder getServiceLevelObjectiveBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getServiceLevelObjectiveFieldBuilder().getBuilder();
     }
@@ -1020,7 +985,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateServiceLevelObjectiveRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

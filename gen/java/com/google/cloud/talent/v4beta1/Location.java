@@ -35,82 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Location(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            locationType_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.type.PostalAddress.Builder subBuilder = null;
-            if (postalAddress_ != null) {
-              subBuilder = postalAddress_.toBuilder();
-            }
-            postalAddress_ = input.readMessage(com.google.type.PostalAddress.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(postalAddress_);
-              postalAddress_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.type.LatLng.Builder subBuilder = null;
-            if (latLng_ != null) {
-              subBuilder = latLng_.toBuilder();
-            }
-            latLng_ = input.readMessage(com.google.type.LatLng.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(latLng_);
-              latLng_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 33: {
-
-            radiusMiles_ = input.readDouble();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.talent.v4beta1.CommonProto.internal_static_google_cloud_talent_v4beta1_Location_descriptor;
@@ -414,7 +338,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCATION_TYPE_FIELD_NUMBER = 1;
-  private int locationType_;
+  private int locationType_ = 0;
   /**
    * <pre>
    * The type of a location, which corresponds to the address lines field of
@@ -441,8 +365,7 @@ private static final long serialVersionUID = 0L;
    * @return The locationType.
    */
   @java.lang.Override public com.google.cloud.talent.v4beta1.Location.LocationType getLocationType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.talent.v4beta1.Location.LocationType result = com.google.cloud.talent.v4beta1.Location.LocationType.valueOf(locationType_);
+    com.google.cloud.talent.v4beta1.Location.LocationType result = com.google.cloud.talent.v4beta1.Location.LocationType.forNumber(locationType_);
     return result == null ? com.google.cloud.talent.v4beta1.Location.LocationType.UNRECOGNIZED : result;
   }
 
@@ -490,7 +413,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.PostalAddressOrBuilder getPostalAddressOrBuilder() {
-    return getPostalAddress();
+    return postalAddress_ == null ? com.google.type.PostalAddress.getDefaultInstance() : postalAddress_;
   }
 
   public static final int LAT_LNG_FIELD_NUMBER = 3;
@@ -528,11 +451,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.LatLngOrBuilder getLatLngOrBuilder() {
-    return getLatLng();
+    return latLng_ == null ? com.google.type.LatLng.getDefaultInstance() : latLng_;
   }
 
   public static final int RADIUS_MILES_FIELD_NUMBER = 4;
-  private double radiusMiles_;
+  private double radiusMiles_ = 0D;
   /**
    * <pre>
    * Radius in miles of the job location. This value is derived from the
@@ -577,7 +500,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToRawLongBits(radiusMiles_) != 0) {
       output.writeDouble(4, radiusMiles_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -602,7 +525,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(4, radiusMiles_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -631,7 +554,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToLongBits(getRadiusMiles())
         != java.lang.Double.doubleToLongBits(
             other.getRadiusMiles())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -655,7 +578,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + RADIUS_MILES_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getRadiusMiles()));
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -776,38 +699,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.talent.v4beta1.Location.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       locationType_ = 0;
-
-      if (postalAddressBuilder_ == null) {
-        postalAddress_ = null;
-      } else {
-        postalAddress_ = null;
+      postalAddress_ = null;
+      if (postalAddressBuilder_ != null) {
+        postalAddressBuilder_.dispose();
         postalAddressBuilder_ = null;
       }
-      if (latLngBuilder_ == null) {
-        latLng_ = null;
-      } else {
-        latLng_ = null;
+      latLng_ = null;
+      if (latLngBuilder_ != null) {
+        latLngBuilder_.dispose();
         latLngBuilder_ = null;
       }
       radiusMiles_ = 0D;
-
       return this;
     }
 
@@ -834,20 +749,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.talent.v4beta1.Location buildPartial() {
       com.google.cloud.talent.v4beta1.Location result = new com.google.cloud.talent.v4beta1.Location(this);
-      result.locationType_ = locationType_;
-      if (postalAddressBuilder_ == null) {
-        result.postalAddress_ = postalAddress_;
-      } else {
-        result.postalAddress_ = postalAddressBuilder_.build();
-      }
-      if (latLngBuilder_ == null) {
-        result.latLng_ = latLng_;
-      } else {
-        result.latLng_ = latLngBuilder_.build();
-      }
-      result.radiusMiles_ = radiusMiles_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.talent.v4beta1.Location result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.locationType_ = locationType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.postalAddress_ = postalAddressBuilder_ == null
+            ? postalAddress_
+            : postalAddressBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.latLng_ = latLngBuilder_ == null
+            ? latLng_
+            : latLngBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.radiusMiles_ = radiusMiles_;
+      }
     }
 
     @java.lang.Override
@@ -906,7 +830,7 @@ private static final long serialVersionUID = 0L;
       if (other.getRadiusMiles() != 0D) {
         setRadiusMiles(other.getRadiusMiles());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -921,19 +845,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.talent.v4beta1.Location parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              locationType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getPostalAddressFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getLatLngFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 33: {
+              radiusMiles_ = input.readDouble();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 33
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.talent.v4beta1.Location) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int locationType_ = 0;
     /**
@@ -963,8 +925,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLocationTypeValue(int value) {
-      
       locationType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -981,8 +943,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.talent.v4beta1.Location.LocationType getLocationType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.talent.v4beta1.Location.LocationType result = com.google.cloud.talent.v4beta1.Location.LocationType.valueOf(locationType_);
+      com.google.cloud.talent.v4beta1.Location.LocationType result = com.google.cloud.talent.v4beta1.Location.LocationType.forNumber(locationType_);
       return result == null ? com.google.cloud.talent.v4beta1.Location.LocationType.UNRECOGNIZED : result;
     }
     /**
@@ -1001,7 +962,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       locationType_ = value.getNumber();
       onChanged();
       return this;
@@ -1018,7 +979,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocationType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       locationType_ = 0;
       onChanged();
       return this;
@@ -1039,7 +1000,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the postalAddress field is set.
      */
     public boolean hasPostalAddress() {
-      return postalAddressBuilder_ != null || postalAddress_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1075,11 +1036,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         postalAddress_ = value;
-        onChanged();
       } else {
         postalAddressBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1096,11 +1057,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.PostalAddress.Builder builderForValue) {
       if (postalAddressBuilder_ == null) {
         postalAddress_ = builderForValue.build();
-        onChanged();
       } else {
         postalAddressBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1115,17 +1076,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePostalAddress(com.google.type.PostalAddress value) {
       if (postalAddressBuilder_ == null) {
-        if (postalAddress_ != null) {
-          postalAddress_ =
-            com.google.type.PostalAddress.newBuilder(postalAddress_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          postalAddress_ != null &&
+          postalAddress_ != com.google.type.PostalAddress.getDefaultInstance()) {
+          getPostalAddressBuilder().mergeFrom(value);
         } else {
           postalAddress_ = value;
         }
-        onChanged();
       } else {
         postalAddressBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1139,14 +1101,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.PostalAddress postal_address = 2;</code>
      */
     public Builder clearPostalAddress() {
-      if (postalAddressBuilder_ == null) {
-        postalAddress_ = null;
-        onChanged();
-      } else {
-        postalAddress_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      postalAddress_ = null;
+      if (postalAddressBuilder_ != null) {
+        postalAddressBuilder_.dispose();
         postalAddressBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1160,7 +1121,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.PostalAddress postal_address = 2;</code>
      */
     public com.google.type.PostalAddress.Builder getPostalAddressBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getPostalAddressFieldBuilder().getBuilder();
     }
@@ -1218,7 +1179,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the latLng field is set.
      */
     public boolean hasLatLng() {
-      return latLngBuilder_ != null || latLng_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1248,11 +1209,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         latLng_ = value;
-        onChanged();
       } else {
         latLngBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1266,11 +1227,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.LatLng.Builder builderForValue) {
       if (latLngBuilder_ == null) {
         latLng_ = builderForValue.build();
-        onChanged();
       } else {
         latLngBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1282,17 +1243,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLatLng(com.google.type.LatLng value) {
       if (latLngBuilder_ == null) {
-        if (latLng_ != null) {
-          latLng_ =
-            com.google.type.LatLng.newBuilder(latLng_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          latLng_ != null &&
+          latLng_ != com.google.type.LatLng.getDefaultInstance()) {
+          getLatLngBuilder().mergeFrom(value);
         } else {
           latLng_ = value;
         }
-        onChanged();
       } else {
         latLngBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1303,14 +1265,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng lat_lng = 3;</code>
      */
     public Builder clearLatLng() {
-      if (latLngBuilder_ == null) {
-        latLng_ = null;
-        onChanged();
-      } else {
-        latLng_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      latLng_ = null;
+      if (latLngBuilder_ != null) {
+        latLngBuilder_.dispose();
         latLngBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1321,7 +1282,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng lat_lng = 3;</code>
      */
     public com.google.type.LatLng.Builder getLatLngBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getLatLngFieldBuilder().getBuilder();
     }
@@ -1396,6 +1357,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRadiusMiles(double value) {
       
       radiusMiles_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1413,7 +1375,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRadiusMiles() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       radiusMiles_ = 0D;
       onChanged();
       return this;
@@ -1451,7 +1413,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Location(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

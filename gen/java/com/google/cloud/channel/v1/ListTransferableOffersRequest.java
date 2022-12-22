@@ -5,7 +5,8 @@ package com.google.cloud.channel.v1;
 
 /**
  * <pre>
- * Request message for [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers]
+ * Request message for
+ * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers]
  * </pre>
  *
  * Protobuf type {@code google.cloud.channel.v1.ListTransferableOffersRequest}
@@ -37,86 +38,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ListTransferableOffersRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 16: {
-
-            pageSize_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            transferredCustomerIdentityCase_ = 4;
-            transferredCustomerIdentity_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            transferredCustomerIdentityCase_ = 5;
-            transferredCustomerIdentity_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sku_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageCode_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -304,7 +225,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The resource name of the reseller's account.
@@ -350,7 +272,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 2;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
    * Requested page size. Server might return fewer results than requested.
@@ -367,13 +289,16 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 3;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
    * A token for a page of results other than the first page.
    * Obtained using
-   * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token] of the previous
-   * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers] call.
+   * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token]
+   * of the previous
+   * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers]
+   * call.
    * </pre>
    *
    * <code>string page_token = 3;</code>
@@ -396,8 +321,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * A token for a page of results other than the first page.
    * Obtained using
-   * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token] of the previous
-   * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers] call.
+   * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token]
+   * of the previous
+   * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers]
+   * call.
    * </pre>
    *
    * <code>string page_token = 3;</code>
@@ -419,7 +346,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SKU_FIELD_NUMBER = 6;
-  private volatile java.lang.Object sku_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sku_ = "";
   /**
    * <pre>
    * Required. The SKU to look up Offers for.
@@ -465,15 +393,16 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LANGUAGE_CODE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object languageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageCode_ = "";
   /**
    * <pre>
-   * The BCP-47 language code. For example, "en-US". The
+   * Optional. The BCP-47 language code. For example, "en-US". The
    * response will localize in the corresponding language code, if specified.
    * The default value is "en-US".
    * </pre>
    *
-   * <code>string language_code = 7;</code>
+   * <code>string language_code = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The languageCode.
    */
   @java.lang.Override
@@ -491,12 +420,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The BCP-47 language code. For example, "en-US". The
+   * Optional. The BCP-47 language code. For example, "en-US". The
    * response will localize in the corresponding language code, if specified.
    * The default value is "en-US".
    * </pre>
    *
-   * <code>string language_code = 7;</code>
+   * <code>string language_code = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The bytes for languageCode.
    */
   @java.lang.Override
@@ -549,7 +478,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, languageCode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -580,7 +509,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, languageCode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -618,7 +547,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -651,7 +580,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -748,7 +677,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Request message for [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers]
+   * Request message for
+   * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers]
    * </pre>
    *
    * Protobuf type {@code google.cloud.channel.v1.ListTransferableOffersRequest}
@@ -772,32 +702,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.ListTransferableOffersRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       pageSize_ = 0;
-
       pageToken_ = "";
-
       sku_ = "";
-
       languageCode_ = "";
-
       transferredCustomerIdentityCase_ = 0;
       transferredCustomerIdentity_ = null;
       return this;
@@ -826,20 +747,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.ListTransferableOffersRequest buildPartial() {
       com.google.cloud.channel.v1.ListTransferableOffersRequest result = new com.google.cloud.channel.v1.ListTransferableOffersRequest(this);
-      if (transferredCustomerIdentityCase_ == 4) {
-        result.transferredCustomerIdentity_ = transferredCustomerIdentity_;
-      }
-      if (transferredCustomerIdentityCase_ == 5) {
-        result.transferredCustomerIdentity_ = transferredCustomerIdentity_;
-      }
-      result.parent_ = parent_;
-      result.pageSize_ = pageSize_;
-      result.pageToken_ = pageToken_;
-      result.sku_ = sku_;
-      result.languageCode_ = languageCode_;
-      result.transferredCustomerIdentityCase_ = transferredCustomerIdentityCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.ListTransferableOffersRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.sku_ = sku_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.languageCode_ = languageCode_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.channel.v1.ListTransferableOffersRequest result) {
+      result.transferredCustomerIdentityCase_ = transferredCustomerIdentityCase_;
+      result.transferredCustomerIdentity_ = this.transferredCustomerIdentity_;
     }
 
     @java.lang.Override
@@ -888,6 +823,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.channel.v1.ListTransferableOffersRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getPageSize() != 0) {
@@ -895,14 +831,17 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getSku().isEmpty()) {
         sku_ = other.sku_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getLanguageCode().isEmpty()) {
         languageCode_ = other.languageCode_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       switch (other.getTransferredCustomerIdentityCase()) {
@@ -922,7 +861,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -937,17 +876,67 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.ListTransferableOffersRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 10
+            case 16: {
+              pageSize_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 16
+            case 26: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              transferredCustomerIdentityCase_ = 4;
+              transferredCustomerIdentity_ = s;
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              transferredCustomerIdentityCase_ = 5;
+              transferredCustomerIdentity_ = s;
+              break;
+            } // case 42
+            case 50: {
+              sku_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              languageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.ListTransferableOffersRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int transferredCustomerIdentityCase_ = 0;
@@ -965,6 +954,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -1042,10 +1032,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudIdentityId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  transferredCustomerIdentityCase_ = 4;
+      if (value == null) { throw new NullPointerException(); }
+      transferredCustomerIdentityCase_ = 4;
       transferredCustomerIdentity_ = value;
       onChanged();
       return this;
@@ -1077,10 +1065,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudIdentityIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       transferredCustomerIdentityCase_ = 4;
       transferredCustomerIdentity_ = value;
       onChanged();
@@ -1167,10 +1153,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  transferredCustomerIdentityCase_ = 5;
+      if (value == null) { throw new NullPointerException(); }
+      transferredCustomerIdentityCase_ = 5;
       transferredCustomerIdentity_ = value;
       onChanged();
       return this;
@@ -1204,10 +1188,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       transferredCustomerIdentityCase_ = 5;
       transferredCustomerIdentity_ = value;
       onChanged();
@@ -1267,11 +1249,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1284,8 +1264,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1300,12 +1280,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1339,6 +1317,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
       
       pageSize_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1353,7 +1332,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -1364,8 +1343,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A token for a page of results other than the first page.
      * Obtained using
-     * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token] of the previous
-     * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers] call.
+     * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token]
+     * of the previous
+     * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers]
+     * call.
      * </pre>
      *
      * <code>string page_token = 3;</code>
@@ -1387,8 +1368,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A token for a page of results other than the first page.
      * Obtained using
-     * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token] of the previous
-     * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers] call.
+     * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token]
+     * of the previous
+     * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers]
+     * call.
      * </pre>
      *
      * <code>string page_token = 3;</code>
@@ -1411,8 +1394,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A token for a page of results other than the first page.
      * Obtained using
-     * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token] of the previous
-     * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers] call.
+     * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token]
+     * of the previous
+     * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers]
+     * call.
      * </pre>
      *
      * <code>string page_token = 3;</code>
@@ -1421,11 +1406,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1433,16 +1416,18 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A token for a page of results other than the first page.
      * Obtained using
-     * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token] of the previous
-     * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers] call.
+     * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token]
+     * of the previous
+     * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers]
+     * call.
      * </pre>
      *
      * <code>string page_token = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1450,8 +1435,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A token for a page of results other than the first page.
      * Obtained using
-     * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token] of the previous
-     * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers] call.
+     * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token]
+     * of the previous
+     * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers]
+     * call.
      * </pre>
      *
      * <code>string page_token = 3;</code>
@@ -1460,12 +1447,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1523,11 +1508,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSku(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sku_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1540,8 +1523,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSku() {
-      
       sku_ = getDefaultInstance().getSku();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1556,12 +1539,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSkuBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sku_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1569,12 +1550,12 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object languageCode_ = "";
     /**
      * <pre>
-     * The BCP-47 language code. For example, "en-US". The
+     * Optional. The BCP-47 language code. For example, "en-US". The
      * response will localize in the corresponding language code, if specified.
      * The default value is "en-US".
      * </pre>
      *
-     * <code>string language_code = 7;</code>
+     * <code>string language_code = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return The languageCode.
      */
     public java.lang.String getLanguageCode() {
@@ -1591,12 +1572,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The BCP-47 language code. For example, "en-US". The
+     * Optional. The BCP-47 language code. For example, "en-US". The
      * response will localize in the corresponding language code, if specified.
      * The default value is "en-US".
      * </pre>
      *
-     * <code>string language_code = 7;</code>
+     * <code>string language_code = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return The bytes for languageCode.
      */
     public com.google.protobuf.ByteString
@@ -1614,60 +1595,56 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The BCP-47 language code. For example, "en-US". The
+     * Optional. The BCP-47 language code. For example, "en-US". The
      * response will localize in the corresponding language code, if specified.
      * The default value is "en-US".
      * </pre>
      *
-     * <code>string language_code = 7;</code>
+     * <code>string language_code = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @param value The languageCode to set.
      * @return This builder for chaining.
      */
     public Builder setLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageCode_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The BCP-47 language code. For example, "en-US". The
+     * Optional. The BCP-47 language code. For example, "en-US". The
      * response will localize in the corresponding language code, if specified.
      * The default value is "en-US".
      * </pre>
      *
-     * <code>string language_code = 7;</code>
+     * <code>string language_code = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearLanguageCode() {
-      
       languageCode_ = getDefaultInstance().getLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The BCP-47 language code. For example, "en-US". The
+     * Optional. The BCP-47 language code. For example, "en-US". The
      * response will localize in the corresponding language code, if specified.
      * The default value is "en-US".
      * </pre>
      *
-     * <code>string language_code = 7;</code>
+     * <code>string language_code = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @param value The bytes for languageCode to set.
      * @return This builder for chaining.
      */
     public Builder setLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageCode_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1704,7 +1681,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListTransferableOffersRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

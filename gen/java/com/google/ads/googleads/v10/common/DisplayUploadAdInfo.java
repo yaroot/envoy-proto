@@ -37,65 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DisplayUploadAdInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            displayUploadProductType_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.ads.googleads.v10.common.AdMediaBundleAsset.Builder subBuilder = null;
-            if (mediaAssetCase_ == 2) {
-              subBuilder = ((com.google.ads.googleads.v10.common.AdMediaBundleAsset) mediaAsset_).toBuilder();
-            }
-            mediaAsset_ =
-                input.readMessage(com.google.ads.googleads.v10.common.AdMediaBundleAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.AdMediaBundleAsset) mediaAsset_);
-              mediaAsset_ = subBuilder.buildPartial();
-            }
-            mediaAssetCase_ = 2;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.common.AdTypeInfosProto.internal_static_google_ads_googleads_v10_common_DisplayUploadAdInfo_descriptor;
@@ -149,7 +90,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_UPLOAD_PRODUCT_TYPE_FIELD_NUMBER = 1;
-  private int displayUploadProductType_;
+  private int displayUploadProductType_ = 0;
   /**
    * <pre>
    * The product type of this ad. See comments on the enum for details.
@@ -170,8 +111,7 @@ private static final long serialVersionUID = 0L;
    * @return The displayUploadProductType.
    */
   @java.lang.Override public com.google.ads.googleads.v10.enums.DisplayUploadProductTypeEnum.DisplayUploadProductType getDisplayUploadProductType() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v10.enums.DisplayUploadProductTypeEnum.DisplayUploadProductType result = com.google.ads.googleads.v10.enums.DisplayUploadProductTypeEnum.DisplayUploadProductType.valueOf(displayUploadProductType_);
+    com.google.ads.googleads.v10.enums.DisplayUploadProductTypeEnum.DisplayUploadProductType result = com.google.ads.googleads.v10.enums.DisplayUploadProductTypeEnum.DisplayUploadProductType.forNumber(displayUploadProductType_);
     return result == null ? com.google.ads.googleads.v10.enums.DisplayUploadProductTypeEnum.DisplayUploadProductType.UNRECOGNIZED : result;
   }
 
@@ -256,7 +196,7 @@ private static final long serialVersionUID = 0L;
     if (mediaAssetCase_ == 2) {
       output.writeMessage(2, (com.google.ads.googleads.v10.common.AdMediaBundleAsset) mediaAsset_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -273,7 +213,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, (com.google.ads.googleads.v10.common.AdMediaBundleAsset) mediaAsset_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -298,7 +238,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -319,7 +259,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -442,24 +382,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.common.DisplayUploadAdInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       displayUploadProductType_ = 0;
-
+      if (mediaBundleBuilder_ != null) {
+        mediaBundleBuilder_.clear();
+      }
       mediaAssetCase_ = 0;
       mediaAsset_ = null;
       return this;
@@ -488,17 +426,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.common.DisplayUploadAdInfo buildPartial() {
       com.google.ads.googleads.v10.common.DisplayUploadAdInfo result = new com.google.ads.googleads.v10.common.DisplayUploadAdInfo(this);
-      result.displayUploadProductType_ = displayUploadProductType_;
-      if (mediaAssetCase_ == 2) {
-        if (mediaBundleBuilder_ == null) {
-          result.mediaAsset_ = mediaAsset_;
-        } else {
-          result.mediaAsset_ = mediaBundleBuilder_.build();
-        }
-      }
-      result.mediaAssetCase_ = mediaAssetCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.common.DisplayUploadAdInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.displayUploadProductType_ = displayUploadProductType_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.ads.googleads.v10.common.DisplayUploadAdInfo result) {
+      result.mediaAssetCase_ = mediaAssetCase_;
+      result.mediaAsset_ = this.mediaAsset_;
+      if (mediaAssetCase_ == 2 &&
+          mediaBundleBuilder_ != null) {
+        result.mediaAsset_ = mediaBundleBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -557,7 +504,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -572,17 +519,42 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.common.DisplayUploadAdInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              displayUploadProductType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getMediaBundleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              mediaAssetCase_ = 2;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.common.DisplayUploadAdInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int mediaAssetCase_ = 0;
@@ -600,6 +572,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private int displayUploadProductType_ = 0;
     /**
@@ -623,8 +596,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDisplayUploadProductTypeValue(int value) {
-      
       displayUploadProductType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -638,8 +611,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.DisplayUploadProductTypeEnum.DisplayUploadProductType getDisplayUploadProductType() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.DisplayUploadProductTypeEnum.DisplayUploadProductType result = com.google.ads.googleads.v10.enums.DisplayUploadProductTypeEnum.DisplayUploadProductType.valueOf(displayUploadProductType_);
+      com.google.ads.googleads.v10.enums.DisplayUploadProductTypeEnum.DisplayUploadProductType result = com.google.ads.googleads.v10.enums.DisplayUploadProductTypeEnum.DisplayUploadProductType.forNumber(displayUploadProductType_);
       return result == null ? com.google.ads.googleads.v10.enums.DisplayUploadProductTypeEnum.DisplayUploadProductType.UNRECOGNIZED : result;
     }
     /**
@@ -655,7 +627,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       displayUploadProductType_ = value.getNumber();
       onChanged();
       return this;
@@ -669,7 +641,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayUploadProductType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       displayUploadProductType_ = 0;
       onChanged();
       return this;
@@ -903,7 +875,7 @@ private static final long serialVersionUID = 0L;
         mediaAsset_ = null;
       }
       mediaAssetCase_ = 2;
-      onChanged();;
+      onChanged();
       return mediaBundleBuilder_;
     }
     @java.lang.Override
@@ -939,7 +911,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DisplayUploadAdInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

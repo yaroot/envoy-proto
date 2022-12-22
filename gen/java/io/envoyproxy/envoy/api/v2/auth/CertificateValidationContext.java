@@ -39,157 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CertificateValidationContext(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.api.v2.core.DataSource.Builder subBuilder = null;
-            if (trustedCa_ != null) {
-              subBuilder = trustedCa_.toBuilder();
-            }
-            trustedCa_ = input.readMessage(io.envoyproxy.envoy.api.v2.core.DataSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(trustedCa_);
-              trustedCa_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              verifyCertificateHash_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            verifyCertificateHash_.add(s);
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              verifyCertificateSpki_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            verifyCertificateSpki_.add(s);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              verifySubjectAltName_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            verifySubjectAltName_.add(s);
-            break;
-          }
-          case 42: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (requireOcspStaple_ != null) {
-              subBuilder = requireOcspStaple_.toBuilder();
-            }
-            requireOcspStaple_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(requireOcspStaple_);
-              requireOcspStaple_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (requireSignedCertificateTimestamp_ != null) {
-              subBuilder = requireSignedCertificateTimestamp_.toBuilder();
-            }
-            requireSignedCertificateTimestamp_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(requireSignedCertificateTimestamp_);
-              requireSignedCertificateTimestamp_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            io.envoyproxy.envoy.api.v2.core.DataSource.Builder subBuilder = null;
-            if (crl_ != null) {
-              subBuilder = crl_.toBuilder();
-            }
-            crl_ = input.readMessage(io.envoyproxy.envoy.api.v2.core.DataSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(crl_);
-              crl_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 64: {
-
-            allowExpiredCertificate_ = input.readBool();
-            break;
-          }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              matchSubjectAltNames_ = new java.util.ArrayList<io.envoyproxy.envoy.type.matcher.StringMatcher>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            matchSubjectAltNames_.add(
-                input.readMessage(io.envoyproxy.envoy.type.matcher.StringMatcher.parser(), extensionRegistry));
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-
-            trustChainVerification_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        verifyCertificateHash_ = verifyCertificateHash_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        verifyCertificateSpki_ = verifyCertificateSpki_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        verifySubjectAltName_ = verifySubjectAltName_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        matchSubjectAltNames_ = java.util.Collections.unmodifiableList(matchSubjectAltNames_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.api.v2.auth.CommonProto.internal_static_envoy_api_v2_auth_CertificateValidationContext_descriptor;
@@ -418,10 +267,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.api.v2.core.DataSourceOrBuilder getTrustedCaOrBuilder() {
-    return getTrustedCa();
+    return trustedCa_ == null ? io.envoyproxy.envoy.api.v2.core.DataSource.getDefaultInstance() : trustedCa_;
   }
 
   public static final int VERIFY_CERTIFICATE_SPKI_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList verifyCertificateSpki_;
   /**
    * <pre>
@@ -561,6 +411,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERIFY_CERTIFICATE_HASH_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList verifyCertificateHash_;
   /**
    * <pre>
@@ -680,6 +531,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERIFY_SUBJECT_ALT_NAME_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList verifySubjectAltName_;
   /**
    * <pre>
@@ -759,6 +611,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MATCH_SUBJECT_ALT_NAMES_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.type.matcher.StringMatcher> matchSubjectAltNames_;
   /**
    * <pre>
@@ -913,7 +766,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getRequireOcspStapleOrBuilder() {
-    return getRequireOcspStaple();
+    return requireOcspStaple_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : requireOcspStaple_;
   }
 
   public static final int REQUIRE_SIGNED_CERTIFICATE_TIMESTAMP_FIELD_NUMBER = 6;
@@ -951,7 +804,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getRequireSignedCertificateTimestampOrBuilder() {
-    return getRequireSignedCertificateTimestamp();
+    return requireSignedCertificateTimestamp_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : requireSignedCertificateTimestamp_;
   }
 
   public static final int CRL_FIELD_NUMBER = 7;
@@ -1001,11 +854,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.api.v2.core.DataSourceOrBuilder getCrlOrBuilder() {
-    return getCrl();
+    return crl_ == null ? io.envoyproxy.envoy.api.v2.core.DataSource.getDefaultInstance() : crl_;
   }
 
   public static final int ALLOW_EXPIRED_CERTIFICATE_FIELD_NUMBER = 8;
-  private boolean allowExpiredCertificate_;
+  private boolean allowExpiredCertificate_ = false;
   /**
    * <pre>
    * If specified, Envoy will not reject expired certificates.
@@ -1020,7 +873,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRUST_CHAIN_VERIFICATION_FIELD_NUMBER = 10;
-  private int trustChainVerification_;
+  private int trustChainVerification_ = 0;
   /**
    * <pre>
    * Certificate trust chain verification mode.
@@ -1041,8 +894,7 @@ private static final long serialVersionUID = 0L;
    * @return The trustChainVerification.
    */
   @java.lang.Override public io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.TrustChainVerification getTrustChainVerification() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.TrustChainVerification result = io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.TrustChainVerification.valueOf(trustChainVerification_);
+    io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.TrustChainVerification result = io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.TrustChainVerification.forNumber(trustChainVerification_);
     return result == null ? io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.TrustChainVerification.UNRECOGNIZED : result;
   }
 
@@ -1090,7 +942,7 @@ private static final long serialVersionUID = 0L;
     if (trustChainVerification_ != io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.TrustChainVerification.VERIFY_TRUST_CHAIN.getNumber()) {
       output.writeEnum(10, trustChainVerification_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1151,7 +1003,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(10, trustChainVerification_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1197,7 +1049,7 @@ private static final long serialVersionUID = 0L;
     if (getAllowExpiredCertificate()
         != other.getAllowExpiredCertificate()) return false;
     if (trustChainVerification_ != other.trustChainVerification_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1245,7 +1097,7 @@ private static final long serialVersionUID = 0L;
         getAllowExpiredCertificate());
     hash = (37 * hash) + TRUST_CHAIN_VERIFICATION_FIELD_NUMBER;
     hash = (53 * hash) + trustChainVerification_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1366,63 +1218,53 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMatchSubjectAltNamesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (trustedCaBuilder_ == null) {
-        trustedCa_ = null;
-      } else {
-        trustedCa_ = null;
+      bitField0_ = 0;
+      trustedCa_ = null;
+      if (trustedCaBuilder_ != null) {
+        trustedCaBuilder_.dispose();
         trustedCaBuilder_ = null;
       }
       verifyCertificateSpki_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      verifyCertificateHash_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
-      verifySubjectAltName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      verifyCertificateHash_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000004);
+      verifySubjectAltName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000008);
       if (matchSubjectAltNamesBuilder_ == null) {
         matchSubjectAltNames_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        matchSubjectAltNames_ = null;
         matchSubjectAltNamesBuilder_.clear();
       }
-      if (requireOcspStapleBuilder_ == null) {
-        requireOcspStaple_ = null;
-      } else {
-        requireOcspStaple_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      requireOcspStaple_ = null;
+      if (requireOcspStapleBuilder_ != null) {
+        requireOcspStapleBuilder_.dispose();
         requireOcspStapleBuilder_ = null;
       }
-      if (requireSignedCertificateTimestampBuilder_ == null) {
-        requireSignedCertificateTimestamp_ = null;
-      } else {
-        requireSignedCertificateTimestamp_ = null;
+      requireSignedCertificateTimestamp_ = null;
+      if (requireSignedCertificateTimestampBuilder_ != null) {
+        requireSignedCertificateTimestampBuilder_.dispose();
         requireSignedCertificateTimestampBuilder_ = null;
       }
-      if (crlBuilder_ == null) {
-        crl_ = null;
-      } else {
-        crl_ = null;
+      crl_ = null;
+      if (crlBuilder_ != null) {
+        crlBuilder_.dispose();
         crlBuilder_ = null;
       }
       allowExpiredCertificate_ = false;
-
       trustChainVerification_ = 0;
-
       return this;
     }
 
@@ -1449,55 +1291,67 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext buildPartial() {
       io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext result = new io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext(this);
-      int from_bitField0_ = bitField0_;
-      if (trustedCaBuilder_ == null) {
-        result.trustedCa_ = trustedCa_;
-      } else {
-        result.trustedCa_ = trustedCaBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        verifyCertificateSpki_ = verifyCertificateSpki_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.verifyCertificateSpki_ = verifyCertificateSpki_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext result) {
       if (((bitField0_ & 0x00000002) != 0)) {
-        verifyCertificateHash_ = verifyCertificateHash_.getUnmodifiableView();
+        verifyCertificateSpki_ = verifyCertificateSpki_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000002);
       }
-      result.verifyCertificateHash_ = verifyCertificateHash_;
+      result.verifyCertificateSpki_ = verifyCertificateSpki_;
       if (((bitField0_ & 0x00000004) != 0)) {
-        verifySubjectAltName_ = verifySubjectAltName_.getUnmodifiableView();
+        verifyCertificateHash_ = verifyCertificateHash_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.verifyCertificateHash_ = verifyCertificateHash_;
+      if (((bitField0_ & 0x00000008) != 0)) {
+        verifySubjectAltName_ = verifySubjectAltName_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.verifySubjectAltName_ = verifySubjectAltName_;
       if (matchSubjectAltNamesBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           matchSubjectAltNames_ = java.util.Collections.unmodifiableList(matchSubjectAltNames_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.matchSubjectAltNames_ = matchSubjectAltNames_;
       } else {
         result.matchSubjectAltNames_ = matchSubjectAltNamesBuilder_.build();
       }
-      if (requireOcspStapleBuilder_ == null) {
-        result.requireOcspStaple_ = requireOcspStaple_;
-      } else {
-        result.requireOcspStaple_ = requireOcspStapleBuilder_.build();
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.trustedCa_ = trustedCaBuilder_ == null
+            ? trustedCa_
+            : trustedCaBuilder_.build();
       }
-      if (requireSignedCertificateTimestampBuilder_ == null) {
-        result.requireSignedCertificateTimestamp_ = requireSignedCertificateTimestamp_;
-      } else {
-        result.requireSignedCertificateTimestamp_ = requireSignedCertificateTimestampBuilder_.build();
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.requireOcspStaple_ = requireOcspStapleBuilder_ == null
+            ? requireOcspStaple_
+            : requireOcspStapleBuilder_.build();
       }
-      if (crlBuilder_ == null) {
-        result.crl_ = crl_;
-      } else {
-        result.crl_ = crlBuilder_.build();
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.requireSignedCertificateTimestamp_ = requireSignedCertificateTimestampBuilder_ == null
+            ? requireSignedCertificateTimestamp_
+            : requireSignedCertificateTimestampBuilder_.build();
       }
-      result.allowExpiredCertificate_ = allowExpiredCertificate_;
-      result.trustChainVerification_ = trustChainVerification_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.crl_ = crlBuilder_ == null
+            ? crl_
+            : crlBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.allowExpiredCertificate_ = allowExpiredCertificate_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.trustChainVerification_ = trustChainVerification_;
+      }
     }
 
     @java.lang.Override
@@ -1550,7 +1404,7 @@ private static final long serialVersionUID = 0L;
       if (!other.verifyCertificateSpki_.isEmpty()) {
         if (verifyCertificateSpki_.isEmpty()) {
           verifyCertificateSpki_ = other.verifyCertificateSpki_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureVerifyCertificateSpkiIsMutable();
           verifyCertificateSpki_.addAll(other.verifyCertificateSpki_);
@@ -1560,7 +1414,7 @@ private static final long serialVersionUID = 0L;
       if (!other.verifyCertificateHash_.isEmpty()) {
         if (verifyCertificateHash_.isEmpty()) {
           verifyCertificateHash_ = other.verifyCertificateHash_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureVerifyCertificateHashIsMutable();
           verifyCertificateHash_.addAll(other.verifyCertificateHash_);
@@ -1570,7 +1424,7 @@ private static final long serialVersionUID = 0L;
       if (!other.verifySubjectAltName_.isEmpty()) {
         if (verifySubjectAltName_.isEmpty()) {
           verifySubjectAltName_ = other.verifySubjectAltName_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureVerifySubjectAltNameIsMutable();
           verifySubjectAltName_.addAll(other.verifySubjectAltName_);
@@ -1581,7 +1435,7 @@ private static final long serialVersionUID = 0L;
         if (!other.matchSubjectAltNames_.isEmpty()) {
           if (matchSubjectAltNames_.isEmpty()) {
             matchSubjectAltNames_ = other.matchSubjectAltNames_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureMatchSubjectAltNamesIsMutable();
             matchSubjectAltNames_.addAll(other.matchSubjectAltNames_);
@@ -1594,7 +1448,7 @@ private static final long serialVersionUID = 0L;
             matchSubjectAltNamesBuilder_.dispose();
             matchSubjectAltNamesBuilder_ = null;
             matchSubjectAltNames_ = other.matchSubjectAltNames_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
             matchSubjectAltNamesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMatchSubjectAltNamesFieldBuilder() : null;
@@ -1618,7 +1472,7 @@ private static final long serialVersionUID = 0L;
       if (other.trustChainVerification_ != 0) {
         setTrustChainVerificationValue(other.getTrustChainVerificationValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1633,17 +1487,99 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTrustedCaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureVerifyCertificateHashIsMutable();
+              verifyCertificateHash_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureVerifyCertificateSpkiIsMutable();
+              verifyCertificateSpki_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureVerifySubjectAltNameIsMutable();
+              verifySubjectAltName_.add(s);
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getRequireOcspStapleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getRequireSignedCertificateTimestampFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getCrlFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 58
+            case 64: {
+              allowExpiredCertificate_ = input.readBool();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 64
+            case 74: {
+              io.envoyproxy.envoy.type.matcher.StringMatcher m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.type.matcher.StringMatcher.parser(),
+                      extensionRegistry);
+              if (matchSubjectAltNamesBuilder_ == null) {
+                ensureMatchSubjectAltNamesIsMutable();
+                matchSubjectAltNames_.add(m);
+              } else {
+                matchSubjectAltNamesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 74
+            case 80: {
+              trustChainVerification_ = input.readEnum();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1676,7 +1612,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the trustedCa field is set.
      */
     public boolean hasTrustedCa() {
-      return trustedCaBuilder_ != null || trustedCa_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1738,11 +1674,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         trustedCa_ = value;
-        onChanged();
       } else {
         trustedCaBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1772,11 +1708,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.api.v2.core.DataSource.Builder builderForValue) {
       if (trustedCaBuilder_ == null) {
         trustedCa_ = builderForValue.build();
-        onChanged();
       } else {
         trustedCaBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1804,17 +1740,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTrustedCa(io.envoyproxy.envoy.api.v2.core.DataSource value) {
       if (trustedCaBuilder_ == null) {
-        if (trustedCa_ != null) {
-          trustedCa_ =
-            io.envoyproxy.envoy.api.v2.core.DataSource.newBuilder(trustedCa_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          trustedCa_ != null &&
+          trustedCa_ != io.envoyproxy.envoy.api.v2.core.DataSource.getDefaultInstance()) {
+          getTrustedCaBuilder().mergeFrom(value);
         } else {
           trustedCa_ = value;
         }
-        onChanged();
       } else {
         trustedCaBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1841,14 +1778,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.api.v2.core.DataSource trusted_ca = 1;</code>
      */
     public Builder clearTrustedCa() {
-      if (trustedCaBuilder_ == null) {
-        trustedCa_ = null;
-        onChanged();
-      } else {
-        trustedCa_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      trustedCa_ = null;
+      if (trustedCaBuilder_ != null) {
+        trustedCaBuilder_.dispose();
         trustedCaBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1875,7 +1811,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.api.v2.core.DataSource trusted_ca = 1;</code>
      */
     public io.envoyproxy.envoy.api.v2.core.DataSource.Builder getTrustedCaBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getTrustedCaFieldBuilder().getBuilder();
     }
@@ -1949,9 +1885,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList verifyCertificateSpki_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureVerifyCertificateSpkiIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         verifyCertificateSpki_ = new com.google.protobuf.LazyStringArrayList(verifyCertificateSpki_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -2124,10 +2060,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVerifyCertificateSpki(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureVerifyCertificateSpkiIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureVerifyCertificateSpkiIsMutable();
       verifyCertificateSpki_.set(index, value);
       onChanged();
       return this;
@@ -2165,10 +2099,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addVerifyCertificateSpki(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureVerifyCertificateSpkiIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureVerifyCertificateSpkiIsMutable();
       verifyCertificateSpki_.add(value);
       onChanged();
       return this;
@@ -2244,7 +2176,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearVerifyCertificateSpki() {
       verifyCertificateSpki_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2281,10 +2213,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addVerifyCertificateSpkiBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureVerifyCertificateSpkiIsMutable();
       verifyCertificateSpki_.add(value);
       onChanged();
@@ -2293,9 +2223,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList verifyCertificateHash_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureVerifyCertificateHashIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         verifyCertificateHash_ = new com.google.protobuf.LazyStringArrayList(verifyCertificateHash_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -2443,10 +2373,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVerifyCertificateHash(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureVerifyCertificateHashIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureVerifyCertificateHashIsMutable();
       verifyCertificateHash_.set(index, value);
       onChanged();
       return this;
@@ -2479,10 +2407,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addVerifyCertificateHash(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureVerifyCertificateHashIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureVerifyCertificateHashIsMutable();
       verifyCertificateHash_.add(value);
       onChanged();
       return this;
@@ -2548,7 +2474,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearVerifyCertificateHash() {
       verifyCertificateHash_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2580,10 +2506,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addVerifyCertificateHashBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureVerifyCertificateHashIsMutable();
       verifyCertificateHash_.add(value);
       onChanged();
@@ -2592,9 +2516,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList verifySubjectAltName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureVerifySubjectAltNameIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         verifySubjectAltName_ = new com.google.protobuf.LazyStringArrayList(verifySubjectAltName_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -2692,10 +2616,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setVerifySubjectAltName(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureVerifySubjectAltNameIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureVerifySubjectAltNameIsMutable();
       verifySubjectAltName_.set(index, value);
       onChanged();
       return this;
@@ -2718,10 +2640,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder addVerifySubjectAltName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureVerifySubjectAltNameIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureVerifySubjectAltNameIsMutable();
       verifySubjectAltName_.add(value);
       onChanged();
       return this;
@@ -2767,7 +2687,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder clearVerifySubjectAltName() {
       verifySubjectAltName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2789,10 +2709,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder addVerifySubjectAltNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureVerifySubjectAltNameIsMutable();
       verifySubjectAltName_.add(value);
       onChanged();
@@ -2802,9 +2720,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.type.matcher.StringMatcher> matchSubjectAltNames_ =
       java.util.Collections.emptyList();
     private void ensureMatchSubjectAltNamesIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         matchSubjectAltNames_ = new java.util.ArrayList<io.envoyproxy.envoy.type.matcher.StringMatcher>(matchSubjectAltNames_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -3130,7 +3048,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMatchSubjectAltNames() {
       if (matchSubjectAltNamesBuilder_ == null) {
         matchSubjectAltNames_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         matchSubjectAltNamesBuilder_.clear();
@@ -3319,7 +3237,7 @@ private static final long serialVersionUID = 0L;
         matchSubjectAltNamesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.type.matcher.StringMatcher, io.envoyproxy.envoy.type.matcher.StringMatcher.Builder, io.envoyproxy.envoy.type.matcher.StringMatcherOrBuilder>(
                 matchSubjectAltNames_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         matchSubjectAltNames_ = null;
@@ -3339,7 +3257,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the requireOcspStaple field is set.
      */
     public boolean hasRequireOcspStaple() {
-      return requireOcspStapleBuilder_ != null || requireOcspStaple_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -3369,11 +3287,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         requireOcspStaple_ = value;
-        onChanged();
       } else {
         requireOcspStapleBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3387,11 +3305,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (requireOcspStapleBuilder_ == null) {
         requireOcspStaple_ = builderForValue.build();
-        onChanged();
       } else {
         requireOcspStapleBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3403,17 +3321,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRequireOcspStaple(com.google.protobuf.BoolValue value) {
       if (requireOcspStapleBuilder_ == null) {
-        if (requireOcspStaple_ != null) {
-          requireOcspStaple_ =
-            com.google.protobuf.BoolValue.newBuilder(requireOcspStaple_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          requireOcspStaple_ != null &&
+          requireOcspStaple_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getRequireOcspStapleBuilder().mergeFrom(value);
         } else {
           requireOcspStaple_ = value;
         }
-        onChanged();
       } else {
         requireOcspStapleBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3424,14 +3343,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue require_ocsp_staple = 5;</code>
      */
     public Builder clearRequireOcspStaple() {
-      if (requireOcspStapleBuilder_ == null) {
-        requireOcspStaple_ = null;
-        onChanged();
-      } else {
-        requireOcspStaple_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      requireOcspStaple_ = null;
+      if (requireOcspStapleBuilder_ != null) {
+        requireOcspStapleBuilder_.dispose();
         requireOcspStapleBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3442,7 +3360,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue require_ocsp_staple = 5;</code>
      */
     public com.google.protobuf.BoolValue.Builder getRequireOcspStapleBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getRequireOcspStapleFieldBuilder().getBuilder();
     }
@@ -3494,7 +3412,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the requireSignedCertificateTimestamp field is set.
      */
     public boolean hasRequireSignedCertificateTimestamp() {
-      return requireSignedCertificateTimestampBuilder_ != null || requireSignedCertificateTimestamp_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -3524,11 +3442,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         requireSignedCertificateTimestamp_ = value;
-        onChanged();
       } else {
         requireSignedCertificateTimestampBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3542,11 +3460,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (requireSignedCertificateTimestampBuilder_ == null) {
         requireSignedCertificateTimestamp_ = builderForValue.build();
-        onChanged();
       } else {
         requireSignedCertificateTimestampBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3558,17 +3476,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRequireSignedCertificateTimestamp(com.google.protobuf.BoolValue value) {
       if (requireSignedCertificateTimestampBuilder_ == null) {
-        if (requireSignedCertificateTimestamp_ != null) {
-          requireSignedCertificateTimestamp_ =
-            com.google.protobuf.BoolValue.newBuilder(requireSignedCertificateTimestamp_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          requireSignedCertificateTimestamp_ != null &&
+          requireSignedCertificateTimestamp_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getRequireSignedCertificateTimestampBuilder().mergeFrom(value);
         } else {
           requireSignedCertificateTimestamp_ = value;
         }
-        onChanged();
       } else {
         requireSignedCertificateTimestampBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3579,14 +3498,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue require_signed_certificate_timestamp = 6;</code>
      */
     public Builder clearRequireSignedCertificateTimestamp() {
-      if (requireSignedCertificateTimestampBuilder_ == null) {
-        requireSignedCertificateTimestamp_ = null;
-        onChanged();
-      } else {
-        requireSignedCertificateTimestamp_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      requireSignedCertificateTimestamp_ = null;
+      if (requireSignedCertificateTimestampBuilder_ != null) {
+        requireSignedCertificateTimestampBuilder_.dispose();
         requireSignedCertificateTimestampBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3597,7 +3515,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue require_signed_certificate_timestamp = 6;</code>
      */
     public com.google.protobuf.BoolValue.Builder getRequireSignedCertificateTimestampBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getRequireSignedCertificateTimestampFieldBuilder().getBuilder();
     }
@@ -3653,7 +3571,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the crl field is set.
      */
     public boolean hasCrl() {
-      return crlBuilder_ != null || crl_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -3691,11 +3609,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         crl_ = value;
-        onChanged();
       } else {
         crlBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3713,11 +3631,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.api.v2.core.DataSource.Builder builderForValue) {
       if (crlBuilder_ == null) {
         crl_ = builderForValue.build();
-        onChanged();
       } else {
         crlBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3733,17 +3651,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCrl(io.envoyproxy.envoy.api.v2.core.DataSource value) {
       if (crlBuilder_ == null) {
-        if (crl_ != null) {
-          crl_ =
-            io.envoyproxy.envoy.api.v2.core.DataSource.newBuilder(crl_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          crl_ != null &&
+          crl_ != io.envoyproxy.envoy.api.v2.core.DataSource.getDefaultInstance()) {
+          getCrlBuilder().mergeFrom(value);
         } else {
           crl_ = value;
         }
-        onChanged();
       } else {
         crlBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3758,14 +3677,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.api.v2.core.DataSource crl = 7;</code>
      */
     public Builder clearCrl() {
-      if (crlBuilder_ == null) {
-        crl_ = null;
-        onChanged();
-      } else {
-        crl_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      crl_ = null;
+      if (crlBuilder_ != null) {
+        crlBuilder_.dispose();
         crlBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3780,7 +3698,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.api.v2.core.DataSource crl = 7;</code>
      */
     public io.envoyproxy.envoy.api.v2.core.DataSource.Builder getCrlBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getCrlFieldBuilder().getBuilder();
     }
@@ -3853,6 +3771,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAllowExpiredCertificate(boolean value) {
       
       allowExpiredCertificate_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3865,7 +3784,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAllowExpiredCertificate() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       allowExpiredCertificate_ = false;
       onChanged();
       return this;
@@ -3893,8 +3812,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTrustChainVerificationValue(int value) {
-      
       trustChainVerification_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3908,8 +3827,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.TrustChainVerification getTrustChainVerification() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.TrustChainVerification result = io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.TrustChainVerification.valueOf(trustChainVerification_);
+      io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.TrustChainVerification result = io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.TrustChainVerification.forNumber(trustChainVerification_);
       return result == null ? io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.TrustChainVerification.UNRECOGNIZED : result;
     }
     /**
@@ -3925,7 +3843,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000200;
       trustChainVerification_ = value.getNumber();
       onChanged();
       return this;
@@ -3939,7 +3857,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTrustChainVerification() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       trustChainVerification_ = 0;
       onChanged();
       return this;
@@ -3977,7 +3895,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CertificateValidationContext(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

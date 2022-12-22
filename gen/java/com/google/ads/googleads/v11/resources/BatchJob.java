@@ -40,88 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BatchJob(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceName_ = s;
-            break;
-          }
-          case 34: {
-            com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata.Builder subBuilder = null;
-            if (metadata_ != null) {
-              subBuilder = metadata_.toBuilder();
-            }
-            metadata_ = input.readMessage(com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(metadata_);
-              metadata_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            status_ = rawValue;
-            break;
-          }
-          case 56: {
-            bitField0_ |= 0x00000001;
-            id_ = input.readInt64();
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            nextAddSequenceToken_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            longRunningOperation_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.resources.BatchJobProto.internal_static_google_ads_googleads_v11_resources_BatchJob_descriptor;
@@ -331,79 +249,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BatchJobMetadata(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
-              startDateTime_ = s;
-              break;
-            }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
-              creationDateTime_ = s;
-              break;
-            }
-            case 74: {
-              java.lang.String s = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
-              completionDateTime_ = s;
-              break;
-            }
-            case 81: {
-              bitField0_ |= 0x00000008;
-              estimatedCompletionRatio_ = input.readDouble();
-              break;
-            }
-            case 88: {
-              bitField0_ |= 0x00000010;
-              operationCount_ = input.readInt64();
-              break;
-            }
-            case 96: {
-              bitField0_ |= 0x00000020;
-              executedOperationCount_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.googleads.v11.resources.BatchJobProto.internal_static_google_ads_googleads_v11_resources_BatchJob_BatchJobMetadata_descriptor;
@@ -419,7 +264,8 @@ private static final long serialVersionUID = 0L;
 
     private int bitField0_;
     public static final int CREATION_DATE_TIME_FIELD_NUMBER = 8;
-    private volatile java.lang.Object creationDateTime_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object creationDateTime_ = "";
     /**
      * <pre>
      * Output only. The time when this batch job was created.
@@ -480,7 +326,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int START_DATE_TIME_FIELD_NUMBER = 7;
-    private volatile java.lang.Object startDateTime_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object startDateTime_ = "";
     /**
      * <pre>
      * Output only. The time when this batch job started running.
@@ -541,7 +388,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int COMPLETION_DATE_TIME_FIELD_NUMBER = 9;
-    private volatile java.lang.Object completionDateTime_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object completionDateTime_ = "";
     /**
      * <pre>
      * Output only. The time when this batch job was completed.
@@ -602,7 +450,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ESTIMATED_COMPLETION_RATIO_FIELD_NUMBER = 10;
-    private double estimatedCompletionRatio_;
+    private double estimatedCompletionRatio_ = 0D;
     /**
      * <pre>
      * Output only. The fraction (between 0.0 and 1.0) of mutates that have been processed.
@@ -631,7 +479,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int OPERATION_COUNT_FIELD_NUMBER = 11;
-    private long operationCount_;
+    private long operationCount_ = 0L;
     /**
      * <pre>
      * Output only. The number of mutate operations in the batch job.
@@ -658,7 +506,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int EXECUTED_OPERATION_COUNT_FIELD_NUMBER = 12;
-    private long executedOperationCount_;
+    private long executedOperationCount_ = 0L;
     /**
      * <pre>
      * Output only. The number of mutate operations executed by the batch job.
@@ -718,7 +566,7 @@ private static final long serialVersionUID = 0L;
       if (((bitField0_ & 0x00000020) != 0)) {
         output.writeInt64(12, executedOperationCount_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -748,7 +596,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(12, executedOperationCount_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -794,7 +642,7 @@ private static final long serialVersionUID = 0L;
         if (getExecutedOperationCount()
             != other.getExecutedOperationCount()) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -832,7 +680,7 @@ private static final long serialVersionUID = 0L;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getExecutedOperationCount());
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -954,34 +802,24 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         creationDateTime_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
         startDateTime_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
         completionDateTime_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
         estimatedCompletionRatio_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000008);
         operationCount_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000010);
         executedOperationCount_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -1008,20 +846,26 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata buildPartial() {
         com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata result = new com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.creationDateTime_ = creationDateTime_;
           to_bitField0_ |= 0x00000001;
         }
-        result.creationDateTime_ = creationDateTime_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.startDateTime_ = startDateTime_;
           to_bitField0_ |= 0x00000002;
         }
-        result.startDateTime_ = startDateTime_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.completionDateTime_ = completionDateTime_;
           to_bitField0_ |= 0x00000004;
         }
-        result.completionDateTime_ = completionDateTime_;
         if (((from_bitField0_ & 0x00000008) != 0)) {
           result.estimatedCompletionRatio_ = estimatedCompletionRatio_;
           to_bitField0_ |= 0x00000008;
@@ -1034,9 +878,7 @@ private static final long serialVersionUID = 0L;
           result.executedOperationCount_ = executedOperationCount_;
           to_bitField0_ |= 0x00000020;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1084,18 +926,18 @@ private static final long serialVersionUID = 0L;
       public Builder mergeFrom(com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata other) {
         if (other == com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata.getDefaultInstance()) return this;
         if (other.hasCreationDateTime()) {
-          bitField0_ |= 0x00000001;
           creationDateTime_ = other.creationDateTime_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasStartDateTime()) {
-          bitField0_ |= 0x00000002;
           startDateTime_ = other.startDateTime_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasCompletionDateTime()) {
-          bitField0_ |= 0x00000004;
           completionDateTime_ = other.completionDateTime_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.hasEstimatedCompletionRatio()) {
@@ -1107,7 +949,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasExecutedOperationCount()) {
           setExecutedOperationCount(other.getExecutedOperationCount());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1122,17 +964,60 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 58: {
+                startDateTime_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 58
+              case 66: {
+                creationDateTime_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 66
+              case 74: {
+                completionDateTime_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 74
+              case 81: {
+                estimatedCompletionRatio_ = input.readDouble();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 81
+              case 88: {
+                operationCount_ = input.readInt64();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 88
+              case 96: {
+                executedOperationCount_ = input.readInt64();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 96
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1205,11 +1090,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setCreationDateTime(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+        if (value == null) { throw new NullPointerException(); }
         creationDateTime_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1223,8 +1106,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCreationDateTime() {
-        bitField0_ = (bitField0_ & ~0x00000001);
         creationDateTime_ = getDefaultInstance().getCreationDateTime();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1240,12 +1123,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setCreationDateTimeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        bitField0_ |= 0x00000001;
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         creationDateTime_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1318,11 +1199,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setStartDateTime(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+        if (value == null) { throw new NullPointerException(); }
         startDateTime_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1336,8 +1215,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearStartDateTime() {
-        bitField0_ = (bitField0_ & ~0x00000002);
         startDateTime_ = getDefaultInstance().getStartDateTime();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1353,12 +1232,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setStartDateTimeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        bitField0_ |= 0x00000002;
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         startDateTime_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1431,11 +1308,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setCompletionDateTime(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+        if (value == null) { throw new NullPointerException(); }
         completionDateTime_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1449,8 +1324,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCompletionDateTime() {
-        bitField0_ = (bitField0_ & ~0x00000004);
         completionDateTime_ = getDefaultInstance().getCompletionDateTime();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1466,12 +1341,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setCompletionDateTimeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        bitField0_ |= 0x00000004;
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         completionDateTime_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1514,8 +1387,9 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setEstimatedCompletionRatio(double value) {
-        bitField0_ |= 0x00000008;
+        
         estimatedCompletionRatio_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1570,8 +1444,9 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setOperationCount(long value) {
-        bitField0_ |= 0x00000010;
+        
         operationCount_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1628,8 +1503,9 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setExecutedOperationCount(long value) {
-        bitField0_ |= 0x00000020;
+        
         executedOperationCount_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1681,7 +1557,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BatchJobMetadata(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1703,7 +1590,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object resourceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceName_ = "";
   /**
    * <pre>
    * Immutable. The resource name of the batch job.
@@ -1753,7 +1641,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 7;
-  private long id_;
+  private long id_ = 0L;
   /**
    * <pre>
    * Output only. ID of this batch job.
@@ -1780,7 +1668,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEXT_ADD_SEQUENCE_TOKEN_FIELD_NUMBER = 8;
-  private volatile java.lang.Object nextAddSequenceToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nextAddSequenceToken_ = "";
   /**
    * <pre>
    * Output only. The next sequence token to use when adding operations. Only set when the
@@ -1875,11 +1764,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadataOrBuilder getMetadataOrBuilder() {
-    return getMetadata();
+    return metadata_ == null ? com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata.getDefaultInstance() : metadata_;
   }
 
   public static final int STATUS_FIELD_NUMBER = 5;
-  private int status_;
+  private int status_ = 0;
   /**
    * <pre>
    * Output only. Status of this batch job.
@@ -1900,13 +1789,13 @@ private static final long serialVersionUID = 0L;
    * @return The status.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.BatchJobStatusEnum.BatchJobStatus getStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.BatchJobStatusEnum.BatchJobStatus result = com.google.ads.googleads.v11.enums.BatchJobStatusEnum.BatchJobStatus.valueOf(status_);
+    com.google.ads.googleads.v11.enums.BatchJobStatusEnum.BatchJobStatus result = com.google.ads.googleads.v11.enums.BatchJobStatusEnum.BatchJobStatus.forNumber(status_);
     return result == null ? com.google.ads.googleads.v11.enums.BatchJobStatusEnum.BatchJobStatus.UNRECOGNIZED : result;
   }
 
   public static final int LONG_RUNNING_OPERATION_FIELD_NUMBER = 9;
-  private volatile java.lang.Object longRunningOperation_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object longRunningOperation_ = "";
   /**
    * <pre>
    * Output only. The resource name of the long-running operation that can be used to poll
@@ -1998,7 +1887,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, longRunningOperation_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2028,7 +1917,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, longRunningOperation_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2066,7 +1955,7 @@ private static final long serialVersionUID = 0L;
       if (!getLongRunningOperation()
           .equals(other.getLongRunningOperation())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2098,7 +1987,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LONG_RUNNING_OPERATION_FIELD_NUMBER;
       hash = (53 * hash) + getLongRunningOperation().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2221,38 +2110,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.resources.BatchJob.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       resourceName_ = "";
-
       id_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000001);
       nextAddSequenceToken_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
-      if (metadataBuilder_ == null) {
-        metadata_ = null;
-      } else {
-        metadata_ = null;
+      metadata_ = null;
+      if (metadataBuilder_ != null) {
+        metadataBuilder_.dispose();
         metadataBuilder_ = null;
       }
       status_ = 0;
-
       longRunningOperation_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -2279,30 +2158,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.resources.BatchJob buildPartial() {
       com.google.ads.googleads.v11.resources.BatchJob result = new com.google.ads.googleads.v11.resources.BatchJob(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.resources.BatchJob result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.resourceName_ = resourceName_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resourceName_ = resourceName_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.id_ = id_;
         to_bitField0_ |= 0x00000001;
       }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.nextAddSequenceToken_ = nextAddSequenceToken_;
         to_bitField0_ |= 0x00000002;
       }
-      result.nextAddSequenceToken_ = nextAddSequenceToken_;
-      if (metadataBuilder_ == null) {
-        result.metadata_ = metadata_;
-      } else {
-        result.metadata_ = metadataBuilder_.build();
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.metadata_ = metadataBuilder_ == null
+            ? metadata_
+            : metadataBuilder_.build();
       }
-      result.status_ = status_;
-      if (((from_bitField0_ & 0x00000004) != 0)) {
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.status_ = status_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.longRunningOperation_ = longRunningOperation_;
         to_bitField0_ |= 0x00000004;
       }
-      result.longRunningOperation_ = longRunningOperation_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -2351,14 +2238,15 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v11.resources.BatchJob.getDefaultInstance()) return this;
       if (!other.getResourceName().isEmpty()) {
         resourceName_ = other.resourceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasId()) {
         setId(other.getId());
       }
       if (other.hasNextAddSequenceToken()) {
-        bitField0_ |= 0x00000002;
         nextAddSequenceToken_ = other.nextAddSequenceToken_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasMetadata()) {
@@ -2368,11 +2256,11 @@ private static final long serialVersionUID = 0L;
         setStatusValue(other.getStatusValue());
       }
       if (other.hasLongRunningOperation()) {
-        bitField0_ |= 0x00000004;
         longRunningOperation_ = other.longRunningOperation_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2387,17 +2275,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.resources.BatchJob parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              resourceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 34: {
+              input.readMessage(
+                  getMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              status_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 56: {
+              id_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 56
+            case 66: {
+              nextAddSequenceToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 66
+            case 74: {
+              longRunningOperation_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.resources.BatchJob) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2461,11 +2394,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2480,8 +2411,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceName() {
-      
       resourceName_ = getDefaultInstance().getResourceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2498,12 +2429,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2519,7 +2448,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasId() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -2543,8 +2472,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(long value) {
-      bitField0_ |= 0x00000001;
+      
       id_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2557,7 +2487,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       id_ = 0L;
       onChanged();
       return this;
@@ -2574,7 +2504,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the nextAddSequenceToken field is set.
      */
     public boolean hasNextAddSequenceToken() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2631,11 +2561,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextAddSequenceToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       nextAddSequenceToken_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2649,8 +2577,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNextAddSequenceToken() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       nextAddSequenceToken_ = getDefaultInstance().getNextAddSequenceToken();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2666,12 +2594,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextAddSequenceTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nextAddSequenceToken_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2688,7 +2614,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the metadata field is set.
      */
     public boolean hasMetadata() {
-      return metadataBuilder_ != null || metadata_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2718,11 +2644,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         metadata_ = value;
-        onChanged();
       } else {
         metadataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2736,11 +2662,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata.Builder builderForValue) {
       if (metadataBuilder_ == null) {
         metadata_ = builderForValue.build();
-        onChanged();
       } else {
         metadataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2752,17 +2678,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMetadata(com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata value) {
       if (metadataBuilder_ == null) {
-        if (metadata_ != null) {
-          metadata_ =
-            com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata.newBuilder(metadata_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          metadata_ != null &&
+          metadata_ != com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata.getDefaultInstance()) {
+          getMetadataBuilder().mergeFrom(value);
         } else {
           metadata_ = value;
         }
-        onChanged();
       } else {
         metadataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2773,14 +2700,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata metadata = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearMetadata() {
-      if (metadataBuilder_ == null) {
-        metadata_ = null;
-        onChanged();
-      } else {
-        metadata_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      metadata_ = null;
+      if (metadataBuilder_ != null) {
+        metadataBuilder_.dispose();
         metadataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2791,7 +2717,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata metadata = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.ads.googleads.v11.resources.BatchJob.BatchJobMetadata.Builder getMetadataBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getMetadataFieldBuilder().getBuilder();
     }
@@ -2853,8 +2779,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
-      
       status_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2868,8 +2794,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.BatchJobStatusEnum.BatchJobStatus getStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.BatchJobStatusEnum.BatchJobStatus result = com.google.ads.googleads.v11.enums.BatchJobStatusEnum.BatchJobStatus.valueOf(status_);
+      com.google.ads.googleads.v11.enums.BatchJobStatusEnum.BatchJobStatus result = com.google.ads.googleads.v11.enums.BatchJobStatusEnum.BatchJobStatus.forNumber(status_);
       return result == null ? com.google.ads.googleads.v11.enums.BatchJobStatusEnum.BatchJobStatus.UNRECOGNIZED : result;
     }
     /**
@@ -2885,7 +2810,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       status_ = value.getNumber();
       onChanged();
       return this;
@@ -2899,7 +2824,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       status_ = 0;
       onChanged();
       return this;
@@ -2916,7 +2841,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the longRunningOperation field is set.
      */
     public boolean hasLongRunningOperation() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2973,11 +2898,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLongRunningOperation(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       longRunningOperation_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2991,8 +2914,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLongRunningOperation() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       longRunningOperation_ = getDefaultInstance().getLongRunningOperation();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -3008,12 +2931,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLongRunningOperationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       longRunningOperation_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3050,7 +2971,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BatchJob(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -164,7 +164,6 @@ public interface NodeOrBuilder extends
    *
    * <code>map&lt;string, .xds.core.v3.ContextParams&gt; dynamic_parameters = 12;</code>
    */
-
   /* nullable */
 com.github.xds.core.v3.ContextParams getDynamicParametersOrDefault(
       java.lang.String key,
@@ -181,7 +180,6 @@ com.github.xds.core.v3.ContextParams defaultValue);
    *
    * <code>map&lt;string, .xds.core.v3.ContextParams&gt; dynamic_parameters = 12;</code>
    */
-
   com.github.xds.core.v3.ContextParams getDynamicParametersOrThrow(
       java.lang.String key);
 

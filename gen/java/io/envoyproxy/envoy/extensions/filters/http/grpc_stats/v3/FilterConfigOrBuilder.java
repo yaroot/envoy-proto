@@ -129,5 +129,21 @@ public interface FilterConfigOrBuilder extends
    */
   boolean getEnableUpstreamStats();
 
+  /**
+   * <pre>
+   * If true, the filter will replace dots in the grpc_service_name with underscores before emitting
+   * the metrics. Only works when :ref:`stats_for_all_methods
+   * &lt;envoy_v3_api_field_extensions.filters.http.grpc_stats.v3.FilterConfig.stats_for_all_methods&gt;`
+   * is set to true. It could cause metrics to be merged if the edited service name conflicts with
+   * an existing service. For example there are both service "foo.bar" &amp; "foo_bar" running.
+   * This config can fix incorrect gRPC metrics with dots because the existing stats tag extractor
+   * assumes no dots in the gRPC service name. By default this is set as false.
+   * </pre>
+   *
+   * <code>bool replace_dots_in_grpc_service_name = 5;</code>
+   * @return The replaceDotsInGrpcServiceName.
+   */
+  boolean getReplaceDotsInGrpcServiceName();
+
   public io.envoyproxy.envoy.extensions.filters.http.grpc_stats.v3.FilterConfig.PerMethodStatSpecifierCase getPerMethodStatSpecifierCase();
 }

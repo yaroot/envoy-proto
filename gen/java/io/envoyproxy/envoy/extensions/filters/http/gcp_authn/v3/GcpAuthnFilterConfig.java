@@ -34,84 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GcpAuthnFilterConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.core.v3.HttpUri.Builder subBuilder = null;
-            if (httpUri_ != null) {
-              subBuilder = httpUri_.toBuilder();
-            }
-            httpUri_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.HttpUri.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(httpUri_);
-              httpUri_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.config.core.v3.RetryPolicy.Builder subBuilder = null;
-            if (retryPolicy_ != null) {
-              subBuilder = retryPolicy_.toBuilder();
-            }
-            retryPolicy_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.RetryPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(retryPolicy_);
-              retryPolicy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenCacheConfig.Builder subBuilder = null;
-            if (cacheConfig_ != null) {
-              subBuilder = cacheConfig_.toBuilder();
-            }
-            cacheConfig_ = input.readMessage(io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenCacheConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cacheConfig_);
-              cacheConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.GcpAuthnProto.internal_static_envoy_extensions_filters_http_gcp_authn_v3_GcpAuthnFilterConfig_descriptor;
@@ -163,7 +85,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.HttpUriOrBuilder getHttpUriOrBuilder() {
-    return getHttpUri();
+    return httpUri_ == null ? io.envoyproxy.envoy.config.core.v3.HttpUri.getDefaultInstance() : httpUri_;
   }
 
   public static final int RETRY_POLICY_FIELD_NUMBER = 2;
@@ -204,7 +126,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.RetryPolicyOrBuilder getRetryPolicyOrBuilder() {
-    return getRetryPolicy();
+    return retryPolicy_ == null ? io.envoyproxy.envoy.config.core.v3.RetryPolicy.getDefaultInstance() : retryPolicy_;
   }
 
   public static final int CACHE_CONFIG_FIELD_NUMBER = 3;
@@ -242,7 +164,48 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenCacheConfigOrBuilder getCacheConfigOrBuilder() {
-    return getCacheConfig();
+    return cacheConfig_ == null ? io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenCacheConfig.getDefaultInstance() : cacheConfig_;
+  }
+
+  public static final int TOKEN_HEADER_FIELD_NUMBER = 4;
+  private io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader tokenHeader_;
+  /**
+   * <pre>
+   * Request header location to extract the token. By default (i.e. if this field is not specified), the token
+   * is extracted to the Authorization HTTP header, in the format "Authorization: Bearer &lt;token&gt;".
+   * </pre>
+   *
+   * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader token_header = 4;</code>
+   * @return Whether the tokenHeader field is set.
+   */
+  @java.lang.Override
+  public boolean hasTokenHeader() {
+    return tokenHeader_ != null;
+  }
+  /**
+   * <pre>
+   * Request header location to extract the token. By default (i.e. if this field is not specified), the token
+   * is extracted to the Authorization HTTP header, in the format "Authorization: Bearer &lt;token&gt;".
+   * </pre>
+   *
+   * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader token_header = 4;</code>
+   * @return The tokenHeader.
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader getTokenHeader() {
+    return tokenHeader_ == null ? io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader.getDefaultInstance() : tokenHeader_;
+  }
+  /**
+   * <pre>
+   * Request header location to extract the token. By default (i.e. if this field is not specified), the token
+   * is extracted to the Authorization HTTP header, in the format "Authorization: Bearer &lt;token&gt;".
+   * </pre>
+   *
+   * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader token_header = 4;</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeaderOrBuilder getTokenHeaderOrBuilder() {
+    return tokenHeader_ == null ? io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader.getDefaultInstance() : tokenHeader_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -268,7 +231,10 @@ private static final long serialVersionUID = 0L;
     if (cacheConfig_ != null) {
       output.writeMessage(3, getCacheConfig());
     }
-    unknownFields.writeTo(output);
+    if (tokenHeader_ != null) {
+      output.writeMessage(4, getTokenHeader());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -289,7 +255,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getCacheConfig());
     }
-    size += unknownFields.getSerializedSize();
+    if (tokenHeader_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getTokenHeader());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -319,7 +289,12 @@ private static final long serialVersionUID = 0L;
       if (!getCacheConfig()
           .equals(other.getCacheConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasTokenHeader() != other.hasTokenHeader()) return false;
+    if (hasTokenHeader()) {
+      if (!getTokenHeader()
+          .equals(other.getTokenHeader())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -342,7 +317,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CACHE_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getCacheConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasTokenHeader()) {
+      hash = (37 * hash) + TOKEN_HEADER_FIELD_NUMBER;
+      hash = (53 * hash) + getTokenHeader().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -463,39 +442,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.GcpAuthnFilterConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (httpUriBuilder_ == null) {
-        httpUri_ = null;
-      } else {
-        httpUri_ = null;
+      bitField0_ = 0;
+      httpUri_ = null;
+      if (httpUriBuilder_ != null) {
+        httpUriBuilder_.dispose();
         httpUriBuilder_ = null;
       }
-      if (retryPolicyBuilder_ == null) {
-        retryPolicy_ = null;
-      } else {
-        retryPolicy_ = null;
+      retryPolicy_ = null;
+      if (retryPolicyBuilder_ != null) {
+        retryPolicyBuilder_.dispose();
         retryPolicyBuilder_ = null;
       }
-      if (cacheConfigBuilder_ == null) {
-        cacheConfig_ = null;
-      } else {
-        cacheConfig_ = null;
+      cacheConfig_ = null;
+      if (cacheConfigBuilder_ != null) {
+        cacheConfigBuilder_.dispose();
         cacheConfigBuilder_ = null;
+      }
+      tokenHeader_ = null;
+      if (tokenHeaderBuilder_ != null) {
+        tokenHeaderBuilder_.dispose();
+        tokenHeaderBuilder_ = null;
       }
       return this;
     }
@@ -523,23 +500,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.GcpAuthnFilterConfig buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.GcpAuthnFilterConfig result = new io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.GcpAuthnFilterConfig(this);
-      if (httpUriBuilder_ == null) {
-        result.httpUri_ = httpUri_;
-      } else {
-        result.httpUri_ = httpUriBuilder_.build();
-      }
-      if (retryPolicyBuilder_ == null) {
-        result.retryPolicy_ = retryPolicy_;
-      } else {
-        result.retryPolicy_ = retryPolicyBuilder_.build();
-      }
-      if (cacheConfigBuilder_ == null) {
-        result.cacheConfig_ = cacheConfig_;
-      } else {
-        result.cacheConfig_ = cacheConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.GcpAuthnFilterConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.httpUri_ = httpUriBuilder_ == null
+            ? httpUri_
+            : httpUriBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.retryPolicy_ = retryPolicyBuilder_ == null
+            ? retryPolicy_
+            : retryPolicyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.cacheConfig_ = cacheConfigBuilder_ == null
+            ? cacheConfig_
+            : cacheConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.tokenHeader_ = tokenHeaderBuilder_ == null
+            ? tokenHeader_
+            : tokenHeaderBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -595,7 +582,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasCacheConfig()) {
         mergeCacheConfig(other.getCacheConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasTokenHeader()) {
+        mergeTokenHeader(other.getTokenHeader());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -610,19 +600,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.GcpAuthnFilterConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getHttpUriFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getRetryPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCacheConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getTokenHeaderFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.GcpAuthnFilterConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.config.core.v3.HttpUri httpUri_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -637,7 +669,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the httpUri field is set.
      */
     public boolean hasHttpUri() {
-      return httpUriBuilder_ != null || httpUri_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -669,11 +701,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         httpUri_ = value;
-        onChanged();
       } else {
         httpUriBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -688,11 +720,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.HttpUri.Builder builderForValue) {
       if (httpUriBuilder_ == null) {
         httpUri_ = builderForValue.build();
-        onChanged();
       } else {
         httpUriBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -705,17 +737,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHttpUri(io.envoyproxy.envoy.config.core.v3.HttpUri value) {
       if (httpUriBuilder_ == null) {
-        if (httpUri_ != null) {
-          httpUri_ =
-            io.envoyproxy.envoy.config.core.v3.HttpUri.newBuilder(httpUri_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          httpUri_ != null &&
+          httpUri_ != io.envoyproxy.envoy.config.core.v3.HttpUri.getDefaultInstance()) {
+          getHttpUriBuilder().mergeFrom(value);
         } else {
           httpUri_ = value;
         }
-        onChanged();
       } else {
         httpUriBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -727,14 +760,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.HttpUri http_uri = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearHttpUri() {
-      if (httpUriBuilder_ == null) {
-        httpUri_ = null;
-        onChanged();
-      } else {
-        httpUri_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      httpUri_ = null;
+      if (httpUriBuilder_ != null) {
+        httpUriBuilder_.dispose();
         httpUriBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -746,7 +778,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.HttpUri http_uri = 1 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.config.core.v3.HttpUri.Builder getHttpUriBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getHttpUriFieldBuilder().getBuilder();
     }
@@ -801,7 +833,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the retryPolicy field is set.
      */
     public boolean hasRetryPolicy() {
-      return retryPolicyBuilder_ != null || retryPolicy_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -833,11 +865,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         retryPolicy_ = value;
-        onChanged();
       } else {
         retryPolicyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -852,11 +884,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.RetryPolicy.Builder builderForValue) {
       if (retryPolicyBuilder_ == null) {
         retryPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         retryPolicyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -869,17 +901,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRetryPolicy(io.envoyproxy.envoy.config.core.v3.RetryPolicy value) {
       if (retryPolicyBuilder_ == null) {
-        if (retryPolicy_ != null) {
-          retryPolicy_ =
-            io.envoyproxy.envoy.config.core.v3.RetryPolicy.newBuilder(retryPolicy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          retryPolicy_ != null &&
+          retryPolicy_ != io.envoyproxy.envoy.config.core.v3.RetryPolicy.getDefaultInstance()) {
+          getRetryPolicyBuilder().mergeFrom(value);
         } else {
           retryPolicy_ = value;
         }
-        onChanged();
       } else {
         retryPolicyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -891,14 +924,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RetryPolicy retry_policy = 2;</code>
      */
     public Builder clearRetryPolicy() {
-      if (retryPolicyBuilder_ == null) {
-        retryPolicy_ = null;
-        onChanged();
-      } else {
-        retryPolicy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      retryPolicy_ = null;
+      if (retryPolicyBuilder_ != null) {
+        retryPolicyBuilder_.dispose();
         retryPolicyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -910,7 +942,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RetryPolicy retry_policy = 2;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.RetryPolicy.Builder getRetryPolicyBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getRetryPolicyFieldBuilder().getBuilder();
     }
@@ -964,7 +996,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cacheConfig field is set.
      */
     public boolean hasCacheConfig() {
-      return cacheConfigBuilder_ != null || cacheConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -994,11 +1026,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cacheConfig_ = value;
-        onChanged();
       } else {
         cacheConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1012,11 +1044,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenCacheConfig.Builder builderForValue) {
       if (cacheConfigBuilder_ == null) {
         cacheConfig_ = builderForValue.build();
-        onChanged();
       } else {
         cacheConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1028,17 +1060,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCacheConfig(io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenCacheConfig value) {
       if (cacheConfigBuilder_ == null) {
-        if (cacheConfig_ != null) {
-          cacheConfig_ =
-            io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenCacheConfig.newBuilder(cacheConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          cacheConfig_ != null &&
+          cacheConfig_ != io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenCacheConfig.getDefaultInstance()) {
+          getCacheConfigBuilder().mergeFrom(value);
         } else {
           cacheConfig_ = value;
         }
-        onChanged();
       } else {
         cacheConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1049,14 +1082,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenCacheConfig cache_config = 3;</code>
      */
     public Builder clearCacheConfig() {
-      if (cacheConfigBuilder_ == null) {
-        cacheConfig_ = null;
-        onChanged();
-      } else {
-        cacheConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      cacheConfig_ = null;
+      if (cacheConfigBuilder_ != null) {
+        cacheConfigBuilder_.dispose();
         cacheConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1067,7 +1099,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenCacheConfig cache_config = 3;</code>
      */
     public io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenCacheConfig.Builder getCacheConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCacheConfigFieldBuilder().getBuilder();
     }
@@ -1106,6 +1138,170 @@ private static final long serialVersionUID = 0L;
       }
       return cacheConfigBuilder_;
     }
+
+    private io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader tokenHeader_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader, io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader.Builder, io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeaderOrBuilder> tokenHeaderBuilder_;
+    /**
+     * <pre>
+     * Request header location to extract the token. By default (i.e. if this field is not specified), the token
+     * is extracted to the Authorization HTTP header, in the format "Authorization: Bearer &lt;token&gt;".
+     * </pre>
+     *
+     * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader token_header = 4;</code>
+     * @return Whether the tokenHeader field is set.
+     */
+    public boolean hasTokenHeader() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * Request header location to extract the token. By default (i.e. if this field is not specified), the token
+     * is extracted to the Authorization HTTP header, in the format "Authorization: Bearer &lt;token&gt;".
+     * </pre>
+     *
+     * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader token_header = 4;</code>
+     * @return The tokenHeader.
+     */
+    public io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader getTokenHeader() {
+      if (tokenHeaderBuilder_ == null) {
+        return tokenHeader_ == null ? io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader.getDefaultInstance() : tokenHeader_;
+      } else {
+        return tokenHeaderBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Request header location to extract the token. By default (i.e. if this field is not specified), the token
+     * is extracted to the Authorization HTTP header, in the format "Authorization: Bearer &lt;token&gt;".
+     * </pre>
+     *
+     * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader token_header = 4;</code>
+     */
+    public Builder setTokenHeader(io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader value) {
+      if (tokenHeaderBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        tokenHeader_ = value;
+      } else {
+        tokenHeaderBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Request header location to extract the token. By default (i.e. if this field is not specified), the token
+     * is extracted to the Authorization HTTP header, in the format "Authorization: Bearer &lt;token&gt;".
+     * </pre>
+     *
+     * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader token_header = 4;</code>
+     */
+    public Builder setTokenHeader(
+        io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader.Builder builderForValue) {
+      if (tokenHeaderBuilder_ == null) {
+        tokenHeader_ = builderForValue.build();
+      } else {
+        tokenHeaderBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Request header location to extract the token. By default (i.e. if this field is not specified), the token
+     * is extracted to the Authorization HTTP header, in the format "Authorization: Bearer &lt;token&gt;".
+     * </pre>
+     *
+     * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader token_header = 4;</code>
+     */
+    public Builder mergeTokenHeader(io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader value) {
+      if (tokenHeaderBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0) &&
+          tokenHeader_ != null &&
+          tokenHeader_ != io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader.getDefaultInstance()) {
+          getTokenHeaderBuilder().mergeFrom(value);
+        } else {
+          tokenHeader_ = value;
+        }
+      } else {
+        tokenHeaderBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Request header location to extract the token. By default (i.e. if this field is not specified), the token
+     * is extracted to the Authorization HTTP header, in the format "Authorization: Bearer &lt;token&gt;".
+     * </pre>
+     *
+     * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader token_header = 4;</code>
+     */
+    public Builder clearTokenHeader() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      tokenHeader_ = null;
+      if (tokenHeaderBuilder_ != null) {
+        tokenHeaderBuilder_.dispose();
+        tokenHeaderBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Request header location to extract the token. By default (i.e. if this field is not specified), the token
+     * is extracted to the Authorization HTTP header, in the format "Authorization: Bearer &lt;token&gt;".
+     * </pre>
+     *
+     * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader token_header = 4;</code>
+     */
+    public io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader.Builder getTokenHeaderBuilder() {
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return getTokenHeaderFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Request header location to extract the token. By default (i.e. if this field is not specified), the token
+     * is extracted to the Authorization HTTP header, in the format "Authorization: Bearer &lt;token&gt;".
+     * </pre>
+     *
+     * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader token_header = 4;</code>
+     */
+    public io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeaderOrBuilder getTokenHeaderOrBuilder() {
+      if (tokenHeaderBuilder_ != null) {
+        return tokenHeaderBuilder_.getMessageOrBuilder();
+      } else {
+        return tokenHeader_ == null ?
+            io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader.getDefaultInstance() : tokenHeader_;
+      }
+    }
+    /**
+     * <pre>
+     * Request header location to extract the token. By default (i.e. if this field is not specified), the token
+     * is extracted to the Authorization HTTP header, in the format "Authorization: Bearer &lt;token&gt;".
+     * </pre>
+     *
+     * <code>.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader token_header = 4;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader, io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader.Builder, io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeaderOrBuilder> 
+        getTokenHeaderFieldBuilder() {
+      if (tokenHeaderBuilder_ == null) {
+        tokenHeaderBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader, io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader.Builder, io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3.TokenHeaderOrBuilder>(
+                getTokenHeader(),
+                getParentForChildren(),
+                isClean());
+        tokenHeader_ = null;
+      }
+      return tokenHeaderBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1139,7 +1335,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GcpAuthnFilterConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

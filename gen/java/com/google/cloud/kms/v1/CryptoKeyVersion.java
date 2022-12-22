@@ -48,177 +48,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CryptoKeyVersion(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (destroyTime_ != null) {
-              subBuilder = destroyTime_.toBuilder();
-            }
-            destroyTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(destroyTime_);
-              destroyTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (destroyEventTime_ != null) {
-              subBuilder = destroyEventTime_.toBuilder();
-            }
-            destroyEventTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(destroyEventTime_);
-              destroyEventTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            protectionLevel_ = rawValue;
-            break;
-          }
-          case 66: {
-            com.google.cloud.kms.v1.KeyOperationAttestation.Builder subBuilder = null;
-            if (attestation_ != null) {
-              subBuilder = attestation_.toBuilder();
-            }
-            attestation_ = input.readMessage(com.google.cloud.kms.v1.KeyOperationAttestation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(attestation_);
-              attestation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-
-            algorithm_ = rawValue;
-            break;
-          }
-          case 90: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (generateTime_ != null) {
-              subBuilder = generateTime_.toBuilder();
-            }
-            generateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(generateTime_);
-              generateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            importJob_ = s;
-            break;
-          }
-          case 122: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (importTime_ != null) {
-              subBuilder = importTime_.toBuilder();
-            }
-            importTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(importTime_);
-              importTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 130: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            importFailureReason_ = s;
-            break;
-          }
-          case 138: {
-            com.google.cloud.kms.v1.ExternalProtectionLevelOptions.Builder subBuilder = null;
-            if (externalProtectionLevelOptions_ != null) {
-              subBuilder = externalProtectionLevelOptions_.toBuilder();
-            }
-            externalProtectionLevelOptions_ = input.readMessage(com.google.cloud.kms.v1.ExternalProtectionLevelOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(externalProtectionLevelOptions_);
-              externalProtectionLevelOptions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 144: {
-
-            reimportEligible_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.kms.v1.KmsResourcesProto.internal_static_google_cloud_kms_v1_CryptoKeyVersion_descriptor;
@@ -469,6 +298,38 @@ private static final long serialVersionUID = 0L;
     HMAC_SHA256(32),
     /**
      * <pre>
+     * HMAC-SHA1 signing with a 160 bit key.
+     * </pre>
+     *
+     * <code>HMAC_SHA1 = 33;</code>
+     */
+    HMAC_SHA1(33),
+    /**
+     * <pre>
+     * HMAC-SHA384 signing with a 384 bit key.
+     * </pre>
+     *
+     * <code>HMAC_SHA384 = 34;</code>
+     */
+    HMAC_SHA384(34),
+    /**
+     * <pre>
+     * HMAC-SHA512 signing with a 512 bit key.
+     * </pre>
+     *
+     * <code>HMAC_SHA512 = 35;</code>
+     */
+    HMAC_SHA512(35),
+    /**
+     * <pre>
+     * HMAC-SHA224 signing with a 224 bit key.
+     * </pre>
+     *
+     * <code>HMAC_SHA224 = 36;</code>
+     */
+    HMAC_SHA224(36),
+    /**
+     * <pre>
      * Algorithm representing symmetric encryption by an external key manager.
      * </pre>
      *
@@ -673,6 +534,38 @@ private static final long serialVersionUID = 0L;
     public static final int HMAC_SHA256_VALUE = 32;
     /**
      * <pre>
+     * HMAC-SHA1 signing with a 160 bit key.
+     * </pre>
+     *
+     * <code>HMAC_SHA1 = 33;</code>
+     */
+    public static final int HMAC_SHA1_VALUE = 33;
+    /**
+     * <pre>
+     * HMAC-SHA384 signing with a 384 bit key.
+     * </pre>
+     *
+     * <code>HMAC_SHA384 = 34;</code>
+     */
+    public static final int HMAC_SHA384_VALUE = 34;
+    /**
+     * <pre>
+     * HMAC-SHA512 signing with a 512 bit key.
+     * </pre>
+     *
+     * <code>HMAC_SHA512 = 35;</code>
+     */
+    public static final int HMAC_SHA512_VALUE = 35;
+    /**
+     * <pre>
+     * HMAC-SHA224 signing with a 224 bit key.
+     * </pre>
+     *
+     * <code>HMAC_SHA224 = 36;</code>
+     */
+    public static final int HMAC_SHA224_VALUE = 36;
+    /**
+     * <pre>
      * Algorithm representing symmetric encryption by an external key manager.
      * </pre>
      *
@@ -729,6 +622,10 @@ private static final long serialVersionUID = 0L;
         case 13: return EC_SIGN_P384_SHA384;
         case 31: return EC_SIGN_SECP256K1_SHA256;
         case 32: return HMAC_SHA256;
+        case 33: return HMAC_SHA1;
+        case 34: return HMAC_SHA384;
+        case 35: return HMAC_SHA512;
+        case 36: return HMAC_SHA224;
         case 18: return EXTERNAL_SYMMETRIC_ENCRYPTION;
         default: return null;
       }
@@ -1211,7 +1108,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The resource name for this
@@ -1261,7 +1159,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 3;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * The current state of the
@@ -1284,13 +1182,12 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState result = com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState.valueOf(state_);
+    com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState result = com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState.forNumber(state_);
     return result == null ? com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState.UNRECOGNIZED : result;
   }
 
   public static final int PROTECTION_LEVEL_FIELD_NUMBER = 7;
-  private int protectionLevel_;
+  private int protectionLevel_ = 0;
   /**
    * <pre>
    * Output only. The [ProtectionLevel][google.cloud.kms.v1.ProtectionLevel]
@@ -1315,13 +1212,12 @@ private static final long serialVersionUID = 0L;
    * @return The protectionLevel.
    */
   @java.lang.Override public com.google.cloud.kms.v1.ProtectionLevel getProtectionLevel() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.kms.v1.ProtectionLevel result = com.google.cloud.kms.v1.ProtectionLevel.valueOf(protectionLevel_);
+    com.google.cloud.kms.v1.ProtectionLevel result = com.google.cloud.kms.v1.ProtectionLevel.forNumber(protectionLevel_);
     return result == null ? com.google.cloud.kms.v1.ProtectionLevel.UNRECOGNIZED : result;
   }
 
   public static final int ALGORITHM_FIELD_NUMBER = 10;
-  private int algorithm_;
+  private int algorithm_ = 0;
   /**
    * <pre>
    * Output only. The
@@ -1348,8 +1244,7 @@ private static final long serialVersionUID = 0L;
    * @return The algorithm.
    */
   @java.lang.Override public com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm getAlgorithm() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm result = com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.valueOf(algorithm_);
+    com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm result = com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.forNumber(algorithm_);
     return result == null ? com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.UNRECOGNIZED : result;
   }
 
@@ -1400,7 +1295,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.kms.v1.KeyOperationAttestationOrBuilder getAttestationOrBuilder() {
-    return getAttestation();
+    return attestation_ == null ? com.google.cloud.kms.v1.KeyOperationAttestation.getDefaultInstance() : attestation_;
   }
 
   public static final int CREATE_TIME_FIELD_NUMBER = 4;
@@ -1441,7 +1336,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int GENERATE_TIME_FIELD_NUMBER = 11;
@@ -1485,7 +1380,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getGenerateTimeOrBuilder() {
-    return getGenerateTime();
+    return generateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : generateTime_;
   }
 
   public static final int DESTROY_TIME_FIELD_NUMBER = 5;
@@ -1535,7 +1430,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getDestroyTimeOrBuilder() {
-    return getDestroyTime();
+    return destroyTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : destroyTime_;
   }
 
   public static final int DESTROY_EVENT_TIME_FIELD_NUMBER = 6;
@@ -1582,11 +1477,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getDestroyEventTimeOrBuilder() {
-    return getDestroyEventTime();
+    return destroyEventTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : destroyEventTime_;
   }
 
   public static final int IMPORT_JOB_FIELD_NUMBER = 14;
-  private volatile java.lang.Object importJob_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object importJob_ = "";
   /**
    * <pre>
    * Output only. The name of the [ImportJob][google.cloud.kms.v1.ImportJob]
@@ -1678,11 +1574,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getImportTimeOrBuilder() {
-    return getImportTime();
+    return importTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : importTime_;
   }
 
   public static final int IMPORT_FAILURE_REASON_FIELD_NUMBER = 16;
-  private volatile java.lang.Object importFailureReason_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object importFailureReason_ = "";
   /**
    * <pre>
    * Output only. The root cause of the most recent import failure. Only present
@@ -1781,11 +1678,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.kms.v1.ExternalProtectionLevelOptionsOrBuilder getExternalProtectionLevelOptionsOrBuilder() {
-    return getExternalProtectionLevelOptions();
+    return externalProtectionLevelOptions_ == null ? com.google.cloud.kms.v1.ExternalProtectionLevelOptions.getDefaultInstance() : externalProtectionLevelOptions_;
   }
 
   public static final int REIMPORT_ELIGIBLE_FIELD_NUMBER = 18;
-  private boolean reimportEligible_;
+  private boolean reimportEligible_ = false;
   /**
    * <pre>
    * Output only. Whether or not this key version is eligible for reimport, by
@@ -1857,7 +1754,7 @@ private static final long serialVersionUID = 0L;
     if (reimportEligible_ != false) {
       output.writeBool(18, reimportEligible_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1919,7 +1816,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(18, reimportEligible_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1980,7 +1877,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getReimportEligible()
         != other.getReimportEligible()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2034,7 +1931,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + REIMPORT_ELIGIBLE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getReimportEligible());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2163,78 +2060,60 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.kms.v1.CryptoKeyVersion.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       state_ = 0;
-
       protectionLevel_ = 0;
-
       algorithm_ = 0;
-
-      if (attestationBuilder_ == null) {
-        attestation_ = null;
-      } else {
-        attestation_ = null;
+      attestation_ = null;
+      if (attestationBuilder_ != null) {
+        attestationBuilder_.dispose();
         attestationBuilder_ = null;
       }
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (generateTimeBuilder_ == null) {
-        generateTime_ = null;
-      } else {
-        generateTime_ = null;
+      generateTime_ = null;
+      if (generateTimeBuilder_ != null) {
+        generateTimeBuilder_.dispose();
         generateTimeBuilder_ = null;
       }
-      if (destroyTimeBuilder_ == null) {
-        destroyTime_ = null;
-      } else {
-        destroyTime_ = null;
+      destroyTime_ = null;
+      if (destroyTimeBuilder_ != null) {
+        destroyTimeBuilder_.dispose();
         destroyTimeBuilder_ = null;
       }
-      if (destroyEventTimeBuilder_ == null) {
-        destroyEventTime_ = null;
-      } else {
-        destroyEventTime_ = null;
+      destroyEventTime_ = null;
+      if (destroyEventTimeBuilder_ != null) {
+        destroyEventTimeBuilder_.dispose();
         destroyEventTimeBuilder_ = null;
       }
       importJob_ = "";
-
-      if (importTimeBuilder_ == null) {
-        importTime_ = null;
-      } else {
-        importTime_ = null;
+      importTime_ = null;
+      if (importTimeBuilder_ != null) {
+        importTimeBuilder_.dispose();
         importTimeBuilder_ = null;
       }
       importFailureReason_ = "";
-
-      if (externalProtectionLevelOptionsBuilder_ == null) {
-        externalProtectionLevelOptions_ = null;
-      } else {
-        externalProtectionLevelOptions_ = null;
+      externalProtectionLevelOptions_ = null;
+      if (externalProtectionLevelOptionsBuilder_ != null) {
+        externalProtectionLevelOptionsBuilder_.dispose();
         externalProtectionLevelOptionsBuilder_ = null;
       }
       reimportEligible_ = false;
-
       return this;
     }
 
@@ -2261,50 +2140,69 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.kms.v1.CryptoKeyVersion buildPartial() {
       com.google.cloud.kms.v1.CryptoKeyVersion result = new com.google.cloud.kms.v1.CryptoKeyVersion(this);
-      result.name_ = name_;
-      result.state_ = state_;
-      result.protectionLevel_ = protectionLevel_;
-      result.algorithm_ = algorithm_;
-      if (attestationBuilder_ == null) {
-        result.attestation_ = attestation_;
-      } else {
-        result.attestation_ = attestationBuilder_.build();
-      }
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (generateTimeBuilder_ == null) {
-        result.generateTime_ = generateTime_;
-      } else {
-        result.generateTime_ = generateTimeBuilder_.build();
-      }
-      if (destroyTimeBuilder_ == null) {
-        result.destroyTime_ = destroyTime_;
-      } else {
-        result.destroyTime_ = destroyTimeBuilder_.build();
-      }
-      if (destroyEventTimeBuilder_ == null) {
-        result.destroyEventTime_ = destroyEventTime_;
-      } else {
-        result.destroyEventTime_ = destroyEventTimeBuilder_.build();
-      }
-      result.importJob_ = importJob_;
-      if (importTimeBuilder_ == null) {
-        result.importTime_ = importTime_;
-      } else {
-        result.importTime_ = importTimeBuilder_.build();
-      }
-      result.importFailureReason_ = importFailureReason_;
-      if (externalProtectionLevelOptionsBuilder_ == null) {
-        result.externalProtectionLevelOptions_ = externalProtectionLevelOptions_;
-      } else {
-        result.externalProtectionLevelOptions_ = externalProtectionLevelOptionsBuilder_.build();
-      }
-      result.reimportEligible_ = reimportEligible_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.kms.v1.CryptoKeyVersion result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.protectionLevel_ = protectionLevel_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.algorithm_ = algorithm_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.attestation_ = attestationBuilder_ == null
+            ? attestation_
+            : attestationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.generateTime_ = generateTimeBuilder_ == null
+            ? generateTime_
+            : generateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.destroyTime_ = destroyTimeBuilder_ == null
+            ? destroyTime_
+            : destroyTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.destroyEventTime_ = destroyEventTimeBuilder_ == null
+            ? destroyEventTime_
+            : destroyEventTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.importJob_ = importJob_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.importTime_ = importTimeBuilder_ == null
+            ? importTime_
+            : importTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.importFailureReason_ = importFailureReason_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.externalProtectionLevelOptions_ = externalProtectionLevelOptionsBuilder_ == null
+            ? externalProtectionLevelOptions_
+            : externalProtectionLevelOptionsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.reimportEligible_ = reimportEligible_;
+      }
     }
 
     @java.lang.Override
@@ -2353,6 +2251,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.kms.v1.CryptoKeyVersion.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -2381,6 +2280,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getImportJob().isEmpty()) {
         importJob_ = other.importJob_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (other.hasImportTime()) {
@@ -2388,6 +2288,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getImportFailureReason().isEmpty()) {
         importFailureReason_ = other.importFailureReason_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (other.hasExternalProtectionLevelOptions()) {
@@ -2396,7 +2297,7 @@ private static final long serialVersionUID = 0L;
       if (other.getReimportEligible() != false) {
         setReimportEligible(other.getReimportEligible());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2411,19 +2312,117 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.kms.v1.CryptoKeyVersion parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 24: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getDestroyTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getDestroyEventTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 50
+            case 56: {
+              protectionLevel_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 56
+            case 66: {
+              input.readMessage(
+                  getAttestationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 66
+            case 80: {
+              algorithm_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 80
+            case 90: {
+              input.readMessage(
+                  getGenerateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 90
+            case 114: {
+              importJob_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getImportTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 122
+            case 130: {
+              importFailureReason_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 130
+            case 138: {
+              input.readMessage(
+                  getExternalProtectionLevelOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 138
+            case 144: {
+              reimportEligible_ = input.readBool();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 144
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.kms.v1.CryptoKeyVersion) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -2484,11 +2483,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2503,8 +2500,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2521,12 +2518,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2555,8 +2550,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2571,8 +2566,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState result = com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState.valueOf(state_);
+      com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState result = com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState.forNumber(state_);
       return result == null ? com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState.UNRECOGNIZED : result;
     }
     /**
@@ -2589,7 +2583,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -2604,7 +2598,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       state_ = 0;
       onChanged();
       return this;
@@ -2636,8 +2630,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setProtectionLevelValue(int value) {
-      
       protectionLevel_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2653,8 +2647,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.kms.v1.ProtectionLevel getProtectionLevel() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.kms.v1.ProtectionLevel result = com.google.cloud.kms.v1.ProtectionLevel.valueOf(protectionLevel_);
+      com.google.cloud.kms.v1.ProtectionLevel result = com.google.cloud.kms.v1.ProtectionLevel.forNumber(protectionLevel_);
       return result == null ? com.google.cloud.kms.v1.ProtectionLevel.UNRECOGNIZED : result;
     }
     /**
@@ -2672,7 +2665,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       protectionLevel_ = value.getNumber();
       onChanged();
       return this;
@@ -2688,7 +2681,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProtectionLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       protectionLevel_ = 0;
       onChanged();
       return this;
@@ -2722,8 +2715,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAlgorithmValue(int value) {
-      
       algorithm_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2740,8 +2733,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm getAlgorithm() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm result = com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.valueOf(algorithm_);
+      com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm result = com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.forNumber(algorithm_);
       return result == null ? com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.UNRECOGNIZED : result;
     }
     /**
@@ -2760,7 +2752,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       algorithm_ = value.getNumber();
       onChanged();
       return this;
@@ -2777,7 +2769,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAlgorithm() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       algorithm_ = 0;
       onChanged();
       return this;
@@ -2799,7 +2791,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the attestation field is set.
      */
     public boolean hasAttestation() {
-      return attestationBuilder_ != null || attestation_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2837,11 +2829,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         attestation_ = value;
-        onChanged();
       } else {
         attestationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2859,11 +2851,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.kms.v1.KeyOperationAttestation.Builder builderForValue) {
       if (attestationBuilder_ == null) {
         attestation_ = builderForValue.build();
-        onChanged();
       } else {
         attestationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2879,17 +2871,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAttestation(com.google.cloud.kms.v1.KeyOperationAttestation value) {
       if (attestationBuilder_ == null) {
-        if (attestation_ != null) {
-          attestation_ =
-            com.google.cloud.kms.v1.KeyOperationAttestation.newBuilder(attestation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          attestation_ != null &&
+          attestation_ != com.google.cloud.kms.v1.KeyOperationAttestation.getDefaultInstance()) {
+          getAttestationBuilder().mergeFrom(value);
         } else {
           attestation_ = value;
         }
-        onChanged();
       } else {
         attestationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2904,14 +2897,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.kms.v1.KeyOperationAttestation attestation = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearAttestation() {
-      if (attestationBuilder_ == null) {
-        attestation_ = null;
-        onChanged();
-      } else {
-        attestation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      attestation_ = null;
+      if (attestationBuilder_ != null) {
+        attestationBuilder_.dispose();
         attestationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2926,7 +2918,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.kms.v1.KeyOperationAttestation attestation = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.kms.v1.KeyOperationAttestation.Builder getAttestationBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getAttestationFieldBuilder().getBuilder();
     }
@@ -2987,7 +2979,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -3019,11 +3011,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3038,11 +3030,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3055,17 +3047,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3077,14 +3070,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3096,7 +3088,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -3152,7 +3144,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the generateTime field is set.
      */
     public boolean hasGenerateTime() {
-      return generateTimeBuilder_ != null || generateTime_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -3186,11 +3178,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         generateTime_ = value;
-        onChanged();
       } else {
         generateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3206,11 +3198,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (generateTimeBuilder_ == null) {
         generateTime_ = builderForValue.build();
-        onChanged();
       } else {
         generateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3224,17 +3216,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGenerateTime(com.google.protobuf.Timestamp value) {
       if (generateTimeBuilder_ == null) {
-        if (generateTime_ != null) {
-          generateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(generateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          generateTime_ != null &&
+          generateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getGenerateTimeBuilder().mergeFrom(value);
         } else {
           generateTime_ = value;
         }
-        onChanged();
       } else {
         generateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3247,14 +3240,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp generate_time = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearGenerateTime() {
-      if (generateTimeBuilder_ == null) {
-        generateTime_ = null;
-        onChanged();
-      } else {
-        generateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      generateTime_ = null;
+      if (generateTimeBuilder_ != null) {
+        generateTimeBuilder_.dispose();
         generateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3267,7 +3259,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp generate_time = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getGenerateTimeBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getGenerateTimeFieldBuilder().getBuilder();
     }
@@ -3327,7 +3319,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the destroyTime field is set.
      */
     public boolean hasDestroyTime() {
-      return destroyTimeBuilder_ != null || destroyTime_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -3365,11 +3357,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         destroyTime_ = value;
-        onChanged();
       } else {
         destroyTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3387,11 +3379,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (destroyTimeBuilder_ == null) {
         destroyTime_ = builderForValue.build();
-        onChanged();
       } else {
         destroyTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3407,17 +3399,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDestroyTime(com.google.protobuf.Timestamp value) {
       if (destroyTimeBuilder_ == null) {
-        if (destroyTime_ != null) {
-          destroyTime_ =
-            com.google.protobuf.Timestamp.newBuilder(destroyTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          destroyTime_ != null &&
+          destroyTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getDestroyTimeBuilder().mergeFrom(value);
         } else {
           destroyTime_ = value;
         }
-        onChanged();
       } else {
         destroyTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3432,14 +3425,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp destroy_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearDestroyTime() {
-      if (destroyTimeBuilder_ == null) {
-        destroyTime_ = null;
-        onChanged();
-      } else {
-        destroyTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      destroyTime_ = null;
+      if (destroyTimeBuilder_ != null) {
+        destroyTimeBuilder_.dispose();
         destroyTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3454,7 +3446,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp destroy_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getDestroyTimeBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getDestroyTimeFieldBuilder().getBuilder();
     }
@@ -3517,7 +3509,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the destroyEventTime field is set.
      */
     public boolean hasDestroyEventTime() {
-      return destroyEventTimeBuilder_ != null || destroyEventTime_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -3553,11 +3545,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         destroyEventTime_ = value;
-        onChanged();
       } else {
         destroyEventTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3574,11 +3566,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (destroyEventTimeBuilder_ == null) {
         destroyEventTime_ = builderForValue.build();
-        onChanged();
       } else {
         destroyEventTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3593,17 +3585,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDestroyEventTime(com.google.protobuf.Timestamp value) {
       if (destroyEventTimeBuilder_ == null) {
-        if (destroyEventTime_ != null) {
-          destroyEventTime_ =
-            com.google.protobuf.Timestamp.newBuilder(destroyEventTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          destroyEventTime_ != null &&
+          destroyEventTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getDestroyEventTimeBuilder().mergeFrom(value);
         } else {
           destroyEventTime_ = value;
         }
-        onChanged();
       } else {
         destroyEventTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3617,14 +3610,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp destroy_event_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearDestroyEventTime() {
-      if (destroyEventTimeBuilder_ == null) {
-        destroyEventTime_ = null;
-        onChanged();
-      } else {
-        destroyEventTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      destroyEventTime_ = null;
+      if (destroyEventTimeBuilder_ != null) {
+        destroyEventTimeBuilder_.dispose();
         destroyEventTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3638,7 +3630,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp destroy_event_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getDestroyEventTimeBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getDestroyEventTimeFieldBuilder().getBuilder();
     }
@@ -3746,11 +3738,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImportJob(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       importJob_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3766,8 +3756,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImportJob() {
-      
       importJob_ = getDefaultInstance().getImportJob();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -3785,12 +3775,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImportJobBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       importJob_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3809,7 +3797,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the importTime field is set.
      */
     public boolean hasImportTime() {
-      return importTimeBuilder_ != null || importTime_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -3843,11 +3831,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         importTime_ = value;
-        onChanged();
       } else {
         importTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3863,11 +3851,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (importTimeBuilder_ == null) {
         importTime_ = builderForValue.build();
-        onChanged();
       } else {
         importTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3881,17 +3869,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeImportTime(com.google.protobuf.Timestamp value) {
       if (importTimeBuilder_ == null) {
-        if (importTime_ != null) {
-          importTime_ =
-            com.google.protobuf.Timestamp.newBuilder(importTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          importTime_ != null &&
+          importTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getImportTimeBuilder().mergeFrom(value);
         } else {
           importTime_ = value;
         }
-        onChanged();
       } else {
         importTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3904,14 +3893,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp import_time = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearImportTime() {
-      if (importTimeBuilder_ == null) {
-        importTime_ = null;
-        onChanged();
-      } else {
-        importTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      importTime_ = null;
+      if (importTimeBuilder_ != null) {
+        importTimeBuilder_.dispose();
         importTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3924,7 +3912,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp import_time = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getImportTimeBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getImportTimeFieldBuilder().getBuilder();
     }
@@ -4027,11 +4015,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImportFailureReason(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       importFailureReason_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -4046,8 +4032,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImportFailureReason() {
-      
       importFailureReason_ = getDefaultInstance().getImportFailureReason();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -4064,12 +4050,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImportFailureReasonBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       importFailureReason_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -4091,7 +4075,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the externalProtectionLevelOptions field is set.
      */
     public boolean hasExternalProtectionLevelOptions() {
-      return externalProtectionLevelOptionsBuilder_ != null || externalProtectionLevelOptions_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -4131,11 +4115,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         externalProtectionLevelOptions_ = value;
-        onChanged();
       } else {
         externalProtectionLevelOptionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -4154,11 +4138,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.kms.v1.ExternalProtectionLevelOptions.Builder builderForValue) {
       if (externalProtectionLevelOptionsBuilder_ == null) {
         externalProtectionLevelOptions_ = builderForValue.build();
-        onChanged();
       } else {
         externalProtectionLevelOptionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -4175,17 +4159,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExternalProtectionLevelOptions(com.google.cloud.kms.v1.ExternalProtectionLevelOptions value) {
       if (externalProtectionLevelOptionsBuilder_ == null) {
-        if (externalProtectionLevelOptions_ != null) {
-          externalProtectionLevelOptions_ =
-            com.google.cloud.kms.v1.ExternalProtectionLevelOptions.newBuilder(externalProtectionLevelOptions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          externalProtectionLevelOptions_ != null &&
+          externalProtectionLevelOptions_ != com.google.cloud.kms.v1.ExternalProtectionLevelOptions.getDefaultInstance()) {
+          getExternalProtectionLevelOptionsBuilder().mergeFrom(value);
         } else {
           externalProtectionLevelOptions_ = value;
         }
-        onChanged();
       } else {
         externalProtectionLevelOptionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -4201,14 +4186,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.kms.v1.ExternalProtectionLevelOptions external_protection_level_options = 17;</code>
      */
     public Builder clearExternalProtectionLevelOptions() {
-      if (externalProtectionLevelOptionsBuilder_ == null) {
-        externalProtectionLevelOptions_ = null;
-        onChanged();
-      } else {
-        externalProtectionLevelOptions_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      externalProtectionLevelOptions_ = null;
+      if (externalProtectionLevelOptionsBuilder_ != null) {
+        externalProtectionLevelOptionsBuilder_.dispose();
         externalProtectionLevelOptionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4224,7 +4208,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.kms.v1.ExternalProtectionLevelOptions external_protection_level_options = 17;</code>
      */
     public com.google.cloud.kms.v1.ExternalProtectionLevelOptions.Builder getExternalProtectionLevelOptionsBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getExternalProtectionLevelOptionsFieldBuilder().getBuilder();
     }
@@ -4303,6 +4287,7 @@ private static final long serialVersionUID = 0L;
     public Builder setReimportEligible(boolean value) {
       
       reimportEligible_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -4317,7 +4302,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReimportEligible() {
-      
+      bitField0_ = (bitField0_ & ~0x00002000);
       reimportEligible_ = false;
       onChanged();
       return this;
@@ -4355,7 +4340,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CryptoKeyVersion(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

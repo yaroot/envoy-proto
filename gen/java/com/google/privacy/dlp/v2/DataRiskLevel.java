@@ -6,7 +6,7 @@ package com.google.privacy.dlp.v2;
 /**
  * <pre>
  * Score is a summary of all elements in the data profile.
- * A higher number means more risky.
+ * A higher number means more risk.
  * </pre>
  *
  * Protobuf type {@code google.privacy.dlp.v2.DataRiskLevel}
@@ -35,51 +35,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private DataRiskLevel(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            score_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -124,8 +79,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Medium risk - Sensitive data may be present but additional access or fine
-     * grain access restrictions appears to be present.  Consider limiting
-     * access even further or transforming data to mask.
+     * grain access restrictions appear to be present.  Consider limiting
+     * access even further or transform data to mask.
      * </pre>
      *
      * <code>RISK_MODERATE = 20;</code>
@@ -165,8 +120,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Medium risk - Sensitive data may be present but additional access or fine
-     * grain access restrictions appears to be present.  Consider limiting
-     * access even further or transforming data to mask.
+     * grain access restrictions appear to be present.  Consider limiting
+     * access even further or transform data to mask.
      * </pre>
      *
      * <code>RISK_MODERATE = 20;</code>
@@ -269,7 +224,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCORE_FIELD_NUMBER = 1;
-  private int score_;
+  private int score_ = 0;
   /**
    * <pre>
    * The score applied to the resource.
@@ -290,8 +245,7 @@ private static final long serialVersionUID = 0L;
    * @return The score.
    */
   @java.lang.Override public com.google.privacy.dlp.v2.DataRiskLevel.DataRiskLevelScore getScore() {
-    @SuppressWarnings("deprecation")
-    com.google.privacy.dlp.v2.DataRiskLevel.DataRiskLevelScore result = com.google.privacy.dlp.v2.DataRiskLevel.DataRiskLevelScore.valueOf(score_);
+    com.google.privacy.dlp.v2.DataRiskLevel.DataRiskLevelScore result = com.google.privacy.dlp.v2.DataRiskLevel.DataRiskLevelScore.forNumber(score_);
     return result == null ? com.google.privacy.dlp.v2.DataRiskLevel.DataRiskLevelScore.UNRECOGNIZED : result;
   }
 
@@ -312,7 +266,7 @@ private static final long serialVersionUID = 0L;
     if (score_ != com.google.privacy.dlp.v2.DataRiskLevel.DataRiskLevelScore.RISK_SCORE_UNSPECIFIED.getNumber()) {
       output.writeEnum(1, score_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -325,7 +279,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, score_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -341,7 +295,7 @@ private static final long serialVersionUID = 0L;
     com.google.privacy.dlp.v2.DataRiskLevel other = (com.google.privacy.dlp.v2.DataRiskLevel) obj;
 
     if (score_ != other.score_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -354,7 +308,7 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + SCORE_FIELD_NUMBER;
     hash = (53 * hash) + score_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -452,7 +406,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Score is a summary of all elements in the data profile.
-   * A higher number means more risky.
+   * A higher number means more risk.
    * </pre>
    *
    * Protobuf type {@code google.privacy.dlp.v2.DataRiskLevel}
@@ -476,24 +430,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.DataRiskLevel.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       score_ = 0;
-
       return this;
     }
 
@@ -520,9 +469,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.DataRiskLevel buildPartial() {
       com.google.privacy.dlp.v2.DataRiskLevel result = new com.google.privacy.dlp.v2.DataRiskLevel(this);
-      result.score_ = score_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.DataRiskLevel result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.score_ = score_;
+      }
     }
 
     @java.lang.Override
@@ -572,7 +528,7 @@ private static final long serialVersionUID = 0L;
       if (other.score_ != 0) {
         setScoreValue(other.getScoreValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -587,19 +543,38 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.DataRiskLevel parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              score_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.DataRiskLevel) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int score_ = 0;
     /**
@@ -623,8 +598,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setScoreValue(int value) {
-      
       score_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -638,8 +613,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.privacy.dlp.v2.DataRiskLevel.DataRiskLevelScore getScore() {
-      @SuppressWarnings("deprecation")
-      com.google.privacy.dlp.v2.DataRiskLevel.DataRiskLevelScore result = com.google.privacy.dlp.v2.DataRiskLevel.DataRiskLevelScore.valueOf(score_);
+      com.google.privacy.dlp.v2.DataRiskLevel.DataRiskLevelScore result = com.google.privacy.dlp.v2.DataRiskLevel.DataRiskLevelScore.forNumber(score_);
       return result == null ? com.google.privacy.dlp.v2.DataRiskLevel.DataRiskLevelScore.UNRECOGNIZED : result;
     }
     /**
@@ -655,7 +629,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       score_ = value.getNumber();
       onChanged();
       return this;
@@ -669,7 +643,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScore() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       score_ = 0;
       onChanged();
       return this;
@@ -707,7 +681,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DataRiskLevel(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

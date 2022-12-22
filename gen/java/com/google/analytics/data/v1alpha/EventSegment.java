@@ -36,71 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EventSegment(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.analytics.data.v1alpha.EventSegmentCriteria.Builder subBuilder = null;
-            if (eventInclusionCriteria_ != null) {
-              subBuilder = eventInclusionCriteria_.toBuilder();
-            }
-            eventInclusionCriteria_ = input.readMessage(com.google.analytics.data.v1alpha.EventSegmentCriteria.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(eventInclusionCriteria_);
-              eventInclusionCriteria_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.analytics.data.v1alpha.EventSegmentExclusion.Builder subBuilder = null;
-            if (exclusion_ != null) {
-              subBuilder = exclusion_.toBuilder();
-            }
-            exclusion_ = input.readMessage(com.google.analytics.data.v1alpha.EventSegmentExclusion.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(exclusion_);
-              exclusion_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.data.v1alpha.ReportingApiProto.internal_static_google_analytics_data_v1alpha_EventSegment_descriptor;
@@ -149,7 +84,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.data.v1alpha.EventSegmentCriteriaOrBuilder getEventInclusionCriteriaOrBuilder() {
-    return getEventInclusionCriteria();
+    return eventInclusionCriteria_ == null ? com.google.analytics.data.v1alpha.EventSegmentCriteria.getDefaultInstance() : eventInclusionCriteria_;
   }
 
   public static final int EXCLUSION_FIELD_NUMBER = 2;
@@ -187,7 +122,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.data.v1alpha.EventSegmentExclusionOrBuilder getExclusionOrBuilder() {
-    return getExclusion();
+    return exclusion_ == null ? com.google.analytics.data.v1alpha.EventSegmentExclusion.getDefaultInstance() : exclusion_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -210,7 +145,7 @@ private static final long serialVersionUID = 0L;
     if (exclusion_ != null) {
       output.writeMessage(2, getExclusion());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -227,7 +162,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getExclusion());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -252,7 +187,7 @@ private static final long serialVersionUID = 0L;
       if (!getExclusion()
           .equals(other.getExclusion())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -271,7 +206,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXCLUSION_FIELD_NUMBER;
       hash = (53 * hash) + getExclusion().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -394,32 +329,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.data.v1alpha.EventSegment.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (eventInclusionCriteriaBuilder_ == null) {
-        eventInclusionCriteria_ = null;
-      } else {
-        eventInclusionCriteria_ = null;
+      bitField0_ = 0;
+      eventInclusionCriteria_ = null;
+      if (eventInclusionCriteriaBuilder_ != null) {
+        eventInclusionCriteriaBuilder_.dispose();
         eventInclusionCriteriaBuilder_ = null;
       }
-      if (exclusionBuilder_ == null) {
-        exclusion_ = null;
-      } else {
-        exclusion_ = null;
+      exclusion_ = null;
+      if (exclusionBuilder_ != null) {
+        exclusionBuilder_.dispose();
         exclusionBuilder_ = null;
       }
       return this;
@@ -448,18 +377,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.data.v1alpha.EventSegment buildPartial() {
       com.google.analytics.data.v1alpha.EventSegment result = new com.google.analytics.data.v1alpha.EventSegment(this);
-      if (eventInclusionCriteriaBuilder_ == null) {
-        result.eventInclusionCriteria_ = eventInclusionCriteria_;
-      } else {
-        result.eventInclusionCriteria_ = eventInclusionCriteriaBuilder_.build();
-      }
-      if (exclusionBuilder_ == null) {
-        result.exclusion_ = exclusion_;
-      } else {
-        result.exclusion_ = exclusionBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.analytics.data.v1alpha.EventSegment result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.eventInclusionCriteria_ = eventInclusionCriteriaBuilder_ == null
+            ? eventInclusionCriteria_
+            : eventInclusionCriteriaBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.exclusion_ = exclusionBuilder_ == null
+            ? exclusion_
+            : exclusionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -512,7 +446,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasExclusion()) {
         mergeExclusion(other.getExclusion());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -527,19 +461,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.data.v1alpha.EventSegment parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getEventInclusionCriteriaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getExclusionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.data.v1alpha.EventSegment) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.analytics.data.v1alpha.EventSegmentCriteria eventInclusionCriteria_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -553,7 +515,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the eventInclusionCriteria field is set.
      */
     public boolean hasEventInclusionCriteria() {
-      return eventInclusionCriteriaBuilder_ != null || eventInclusionCriteria_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -583,11 +545,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         eventInclusionCriteria_ = value;
-        onChanged();
       } else {
         eventInclusionCriteriaBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -601,11 +563,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1alpha.EventSegmentCriteria.Builder builderForValue) {
       if (eventInclusionCriteriaBuilder_ == null) {
         eventInclusionCriteria_ = builderForValue.build();
-        onChanged();
       } else {
         eventInclusionCriteriaBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -617,17 +579,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEventInclusionCriteria(com.google.analytics.data.v1alpha.EventSegmentCriteria value) {
       if (eventInclusionCriteriaBuilder_ == null) {
-        if (eventInclusionCriteria_ != null) {
-          eventInclusionCriteria_ =
-            com.google.analytics.data.v1alpha.EventSegmentCriteria.newBuilder(eventInclusionCriteria_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          eventInclusionCriteria_ != null &&
+          eventInclusionCriteria_ != com.google.analytics.data.v1alpha.EventSegmentCriteria.getDefaultInstance()) {
+          getEventInclusionCriteriaBuilder().mergeFrom(value);
         } else {
           eventInclusionCriteria_ = value;
         }
-        onChanged();
       } else {
         eventInclusionCriteriaBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -638,14 +601,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.EventSegmentCriteria event_inclusion_criteria = 1;</code>
      */
     public Builder clearEventInclusionCriteria() {
-      if (eventInclusionCriteriaBuilder_ == null) {
-        eventInclusionCriteria_ = null;
-        onChanged();
-      } else {
-        eventInclusionCriteria_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      eventInclusionCriteria_ = null;
+      if (eventInclusionCriteriaBuilder_ != null) {
+        eventInclusionCriteriaBuilder_.dispose();
         eventInclusionCriteriaBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -656,7 +618,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.EventSegmentCriteria event_inclusion_criteria = 1;</code>
      */
     public com.google.analytics.data.v1alpha.EventSegmentCriteria.Builder getEventInclusionCriteriaBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getEventInclusionCriteriaFieldBuilder().getBuilder();
     }
@@ -708,7 +670,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the exclusion field is set.
      */
     public boolean hasExclusion() {
-      return exclusionBuilder_ != null || exclusion_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -738,11 +700,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         exclusion_ = value;
-        onChanged();
       } else {
         exclusionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -756,11 +718,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1alpha.EventSegmentExclusion.Builder builderForValue) {
       if (exclusionBuilder_ == null) {
         exclusion_ = builderForValue.build();
-        onChanged();
       } else {
         exclusionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -772,17 +734,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExclusion(com.google.analytics.data.v1alpha.EventSegmentExclusion value) {
       if (exclusionBuilder_ == null) {
-        if (exclusion_ != null) {
-          exclusion_ =
-            com.google.analytics.data.v1alpha.EventSegmentExclusion.newBuilder(exclusion_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          exclusion_ != null &&
+          exclusion_ != com.google.analytics.data.v1alpha.EventSegmentExclusion.getDefaultInstance()) {
+          getExclusionBuilder().mergeFrom(value);
         } else {
           exclusion_ = value;
         }
-        onChanged();
       } else {
         exclusionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -793,14 +756,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.EventSegmentExclusion exclusion = 2;</code>
      */
     public Builder clearExclusion() {
-      if (exclusionBuilder_ == null) {
-        exclusion_ = null;
-        onChanged();
-      } else {
-        exclusion_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      exclusion_ = null;
+      if (exclusionBuilder_ != null) {
+        exclusionBuilder_.dispose();
         exclusionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -811,7 +773,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.EventSegmentExclusion exclusion = 2;</code>
      */
     public com.google.analytics.data.v1alpha.EventSegmentExclusion.Builder getExclusionBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getExclusionFieldBuilder().getBuilder();
     }
@@ -883,7 +845,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EventSegment(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

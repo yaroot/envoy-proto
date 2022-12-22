@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BatchUpdateIngressRulesRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              ingressRules_ = new java.util.ArrayList<com.google.appengine.v1beta.firewall.FirewallRule>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            ingressRules_.add(
-                input.readMessage(com.google.appengine.v1beta.firewall.FirewallRule.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        ingressRules_ = java.util.Collections.unmodifiableList(ingressRules_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.appengine.v1beta.AppengineProto.internal_static_google_appengine_v1beta_BatchUpdateIngressRulesRequest_descriptor;
@@ -108,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Name of the Firewall collection to set.
@@ -156,6 +99,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INGRESS_RULES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.appengine.v1beta.firewall.FirewallRule> ingressRules_;
   /**
    * <pre>
@@ -235,7 +179,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < ingressRules_.size(); i++) {
       output.writeMessage(2, ingressRules_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -251,7 +195,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, ingressRules_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -270,7 +214,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName())) return false;
     if (!getIngressRulesList()
         .equals(other.getIngressRulesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -287,7 +231,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + INGRESS_RULES_FIELD_NUMBER;
       hash = (53 * hash) + getIngressRulesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -408,31 +352,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.appengine.v1beta.BatchUpdateIngressRulesRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getIngressRulesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       if (ingressRulesBuilder_ == null) {
         ingressRules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        ingressRules_ = null;
         ingressRulesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -459,19 +398,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.appengine.v1beta.BatchUpdateIngressRulesRequest buildPartial() {
       com.google.appengine.v1beta.BatchUpdateIngressRulesRequest result = new com.google.appengine.v1beta.BatchUpdateIngressRulesRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.appengine.v1beta.BatchUpdateIngressRulesRequest result) {
       if (ingressRulesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           ingressRules_ = java.util.Collections.unmodifiableList(ingressRules_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.ingressRules_ = ingressRules_;
       } else {
         result.ingressRules_ = ingressRulesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.appengine.v1beta.BatchUpdateIngressRulesRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
     }
 
     @java.lang.Override
@@ -520,13 +469,14 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.appengine.v1beta.BatchUpdateIngressRulesRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (ingressRulesBuilder_ == null) {
         if (!other.ingressRules_.isEmpty()) {
           if (ingressRules_.isEmpty()) {
             ingressRules_ = other.ingressRules_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureIngressRulesIsMutable();
             ingressRules_.addAll(other.ingressRules_);
@@ -539,7 +489,7 @@ private static final long serialVersionUID = 0L;
             ingressRulesBuilder_.dispose();
             ingressRulesBuilder_ = null;
             ingressRules_ = other.ingressRules_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             ingressRulesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getIngressRulesFieldBuilder() : null;
@@ -548,7 +498,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -563,17 +513,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.appengine.v1beta.BatchUpdateIngressRulesRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.appengine.v1beta.firewall.FirewallRule m =
+                  input.readMessage(
+                      com.google.appengine.v1beta.firewall.FirewallRule.parser(),
+                      extensionRegistry);
+              if (ingressRulesBuilder_ == null) {
+                ensureIngressRulesIsMutable();
+                ingressRules_.add(m);
+              } else {
+                ingressRulesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.appengine.v1beta.BatchUpdateIngressRulesRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -634,11 +615,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -652,8 +631,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -669,12 +648,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -682,9 +659,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.appengine.v1beta.firewall.FirewallRule> ingressRules_ =
       java.util.Collections.emptyList();
     private void ensureIngressRulesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         ingressRules_ = new java.util.ArrayList<com.google.appengine.v1beta.firewall.FirewallRule>(ingressRules_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -878,7 +855,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearIngressRules() {
       if (ingressRulesBuilder_ == null) {
         ingressRules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         ingressRulesBuilder_.clear();
@@ -983,7 +960,7 @@ private static final long serialVersionUID = 0L;
         ingressRulesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.appengine.v1beta.firewall.FirewallRule, com.google.appengine.v1beta.firewall.FirewallRule.Builder, com.google.appengine.v1beta.firewall.FirewallRuleOrBuilder>(
                 ingressRules_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         ingressRules_ = null;
@@ -1023,7 +1000,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BatchUpdateIngressRulesRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

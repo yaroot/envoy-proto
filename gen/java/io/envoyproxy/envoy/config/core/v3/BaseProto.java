@@ -209,59 +209,59 @@ public final class BaseProto {
       " \001(\t\"s\n\013HeaderValue\022\036\n\003key\030\001 \001(\tB\021\372B\016r\014\020" +
       "\001(\200\200\001\300\001\001\310\001\000\022\036\n\005value\030\002 \001(\tB\017\372B\014r\n(\200\200\001\300\001\002" +
       "\310\001\000:$\232\305\210\036\037\n\035envoy.api.v2.core.HeaderValu" +
-      "e\"\205\003\n\021HeaderValueOption\022;\n\006header\030\001 \001(\0132" +
+      "e\"\222\003\n\021HeaderValueOption\022;\n\006header\030\001 \001(\0132" +
       "!.envoy.config.core.v3.HeaderValueB\010\372B\005\212" +
-      "\001\002\020\001\022*\n\006append\030\002 \001(\0132\032.google.protobuf.B" +
-      "oolValue\022[\n\rappend_action\030\003 \001(\0162:.envoy." +
-      "config.core.v3.HeaderValueOption.HeaderA" +
-      "ppendActionB\010\372B\005\202\001\002\020\001\022\030\n\020keep_empty_valu" +
-      "e\030\004 \001(\010\"d\n\022HeaderAppendAction\022\033\n\027APPEND_" +
-      "IF_EXISTS_OR_ADD\020\000\022\021\n\rADD_IF_ABSENT\020\001\022\036\n" +
-      "\032OVERWRITE_IF_EXISTS_OR_ADD\020\002:*\232\305\210\036%\n#en" +
-      "voy.api.v2.core.HeaderValueOption\"c\n\tHea" +
-      "derMap\0222\n\007headers\030\001 \003(\0132!.envoy.config.c" +
-      "ore.v3.HeaderValue:\"\232\305\210\036\035\n\033envoy.api.v2." +
-      "core.HeaderMap\")\n\020WatchedDirectory\022\025\n\004pa" +
-      "th\030\001 \001(\tB\007\372B\004r\002\020\001\"\272\001\n\nDataSource\022\033\n\010file" +
-      "name\030\001 \001(\tB\007\372B\004r\002\020\001H\000\022\026\n\014inline_bytes\030\002 " +
-      "\001(\014H\000\022\027\n\rinline_string\030\003 \001(\tH\000\022\'\n\024enviro" +
-      "nment_variable\030\004 \001(\tB\007\372B\004r\002\020\001H\000:#\232\305\210\036\036\n\034" +
-      "envoy.api.v2.core.DataSourceB\020\n\tspecifie" +
-      "r\022\003\370B\001\"\272\001\n\013RetryPolicy\022=\n\016retry_back_off" +
-      "\030\001 \001(\0132%.envoy.config.core.v3.BackoffStr" +
-      "ategy\022F\n\013num_retries\030\002 \001(\0132\034.google.prot" +
-      "obuf.UInt32ValueB\023\362\230\376\217\005\r\n\013max_retries:$\232" +
-      "\305\210\036\037\n\035envoy.api.v2.core.RetryPolicy\"\312\001\n\020" +
-      "RemoteDataSource\0229\n\010http_uri\030\001 \001(\0132\035.env" +
-      "oy.config.core.v3.HttpUriB\010\372B\005\212\001\002\020\001\022\027\n\006s" +
-      "ha256\030\002 \001(\tB\007\372B\004r\002\020\001\0227\n\014retry_policy\030\003 \001" +
-      "(\0132!.envoy.config.core.v3.RetryPolicy:)\232" +
-      "\305\210\036$\n\"envoy.api.v2.core.RemoteDataSource" +
-      "\"\272\001\n\017AsyncDataSource\0221\n\005local\030\001 \001(\0132 .en" +
-      "voy.config.core.v3.DataSourceH\000\0228\n\006remot" +
-      "e\030\002 \001(\0132&.envoy.config.core.v3.RemoteDat" +
-      "aSourceH\000:(\232\305\210\036#\n!envoy.api.v2.core.Asyn" +
-      "cDataSourceB\020\n\tspecifier\022\003\370B\001\"\235\001\n\017Transp" +
-      "ortSocket\022\025\n\004name\030\001 \001(\tB\007\372B\004r\002\020\001\022,\n\014type" +
-      "d_config\030\003 \001(\0132\024.google.protobuf.AnyH\000:(" +
-      "\232\305\210\036#\n!envoy.api.v2.core.TransportSocket" +
-      "B\r\n\013config_typeJ\004\010\002\020\003R\006config\"\245\001\n\030Runtim" +
-      "eFractionalPercent\022A\n\rdefault_value\030\001 \001(" +
-      "\0132 .envoy.type.v3.FractionalPercentB\010\372B\005" +
-      "\212\001\002\020\001\022\023\n\013runtime_key\030\002 \001(\t:1\232\305\210\036,\n*envoy" +
-      ".api.v2.core.RuntimeFractionalPercent\"I\n" +
-      "\014ControlPlane\022\022\n\nidentifier\030\001 \001(\t:%\232\305\210\036 " +
-      "\n\036envoy.api.v2.core.ControlPlane*(\n\017Rout" +
-      "ingPriority\022\013\n\007DEFAULT\020\000\022\010\n\004HIGH\020\001*\211\001\n\rR" +
-      "equestMethod\022\026\n\022METHOD_UNSPECIFIED\020\000\022\007\n\003" +
-      "GET\020\001\022\010\n\004HEAD\020\002\022\010\n\004POST\020\003\022\007\n\003PUT\020\004\022\n\n\006DE" +
-      "LETE\020\005\022\013\n\007CONNECT\020\006\022\013\n\007OPTIONS\020\007\022\t\n\005TRAC" +
-      "E\020\010\022\t\n\005PATCH\020\t*>\n\020TrafficDirection\022\017\n\013UN" +
-      "SPECIFIED\020\000\022\013\n\007INBOUND\020\001\022\014\n\010OUTBOUND\020\002B}" +
-      "\n\"io.envoyproxy.envoy.config.core.v3B\tBa" +
-      "seProtoP\001ZBgithub.com/envoyproxy/go-cont" +
-      "rol-plane/envoy/config/core/v3;corev3\272\200\310" +
-      "\321\006\002\020\002b\006proto3"
+      "\001\002\020\001\0227\n\006append\030\002 \001(\0132\032.google.protobuf.B" +
+      "oolValueB\013\030\001\222\307\206\330\004\0033.0\022[\n\rappend_action\030\003" +
+      " \001(\0162:.envoy.config.core.v3.HeaderValueO" +
+      "ption.HeaderAppendActionB\010\372B\005\202\001\002\020\001\022\030\n\020ke" +
+      "ep_empty_value\030\004 \001(\010\"d\n\022HeaderAppendActi" +
+      "on\022\033\n\027APPEND_IF_EXISTS_OR_ADD\020\000\022\021\n\rADD_I" +
+      "F_ABSENT\020\001\022\036\n\032OVERWRITE_IF_EXISTS_OR_ADD" +
+      "\020\002:*\232\305\210\036%\n#envoy.api.v2.core.HeaderValue" +
+      "Option\"c\n\tHeaderMap\0222\n\007headers\030\001 \003(\0132!.e" +
+      "nvoy.config.core.v3.HeaderValue:\"\232\305\210\036\035\n\033" +
+      "envoy.api.v2.core.HeaderMap\")\n\020WatchedDi" +
+      "rectory\022\025\n\004path\030\001 \001(\tB\007\372B\004r\002\020\001\"\272\001\n\nDataS" +
+      "ource\022\033\n\010filename\030\001 \001(\tB\007\372B\004r\002\020\001H\000\022\026\n\014in" +
+      "line_bytes\030\002 \001(\014H\000\022\027\n\rinline_string\030\003 \001(" +
+      "\tH\000\022\'\n\024environment_variable\030\004 \001(\tB\007\372B\004r\002" +
+      "\020\001H\000:#\232\305\210\036\036\n\034envoy.api.v2.core.DataSourc" +
+      "eB\020\n\tspecifier\022\003\370B\001\"\272\001\n\013RetryPolicy\022=\n\016r" +
+      "etry_back_off\030\001 \001(\0132%.envoy.config.core." +
+      "v3.BackoffStrategy\022F\n\013num_retries\030\002 \001(\0132" +
+      "\034.google.protobuf.UInt32ValueB\023\362\230\376\217\005\r\n\013m" +
+      "ax_retries:$\232\305\210\036\037\n\035envoy.api.v2.core.Ret" +
+      "ryPolicy\"\312\001\n\020RemoteDataSource\0229\n\010http_ur" +
+      "i\030\001 \001(\0132\035.envoy.config.core.v3.HttpUriB\010" +
+      "\372B\005\212\001\002\020\001\022\027\n\006sha256\030\002 \001(\tB\007\372B\004r\002\020\001\0227\n\014ret" +
+      "ry_policy\030\003 \001(\0132!.envoy.config.core.v3.R" +
+      "etryPolicy:)\232\305\210\036$\n\"envoy.api.v2.core.Rem" +
+      "oteDataSource\"\272\001\n\017AsyncDataSource\0221\n\005loc" +
+      "al\030\001 \001(\0132 .envoy.config.core.v3.DataSour" +
+      "ceH\000\0228\n\006remote\030\002 \001(\0132&.envoy.config.core" +
+      ".v3.RemoteDataSourceH\000:(\232\305\210\036#\n!envoy.api" +
+      ".v2.core.AsyncDataSourceB\020\n\tspecifier\022\003\370" +
+      "B\001\"\235\001\n\017TransportSocket\022\025\n\004name\030\001 \001(\tB\007\372B" +
+      "\004r\002\020\001\022,\n\014typed_config\030\003 \001(\0132\024.google.pro" +
+      "tobuf.AnyH\000:(\232\305\210\036#\n!envoy.api.v2.core.Tr" +
+      "ansportSocketB\r\n\013config_typeJ\004\010\002\020\003R\006conf" +
+      "ig\"\245\001\n\030RuntimeFractionalPercent\022A\n\rdefau" +
+      "lt_value\030\001 \001(\0132 .envoy.type.v3.Fractiona" +
+      "lPercentB\010\372B\005\212\001\002\020\001\022\023\n\013runtime_key\030\002 \001(\t:" +
+      "1\232\305\210\036,\n*envoy.api.v2.core.RuntimeFractio" +
+      "nalPercent\"I\n\014ControlPlane\022\022\n\nidentifier" +
+      "\030\001 \001(\t:%\232\305\210\036 \n\036envoy.api.v2.core.Control" +
+      "Plane*(\n\017RoutingPriority\022\013\n\007DEFAULT\020\000\022\010\n" +
+      "\004HIGH\020\001*\211\001\n\rRequestMethod\022\026\n\022METHOD_UNSP" +
+      "ECIFIED\020\000\022\007\n\003GET\020\001\022\010\n\004HEAD\020\002\022\010\n\004POST\020\003\022\007" +
+      "\n\003PUT\020\004\022\n\n\006DELETE\020\005\022\013\n\007CONNECT\020\006\022\013\n\007OPTI" +
+      "ONS\020\007\022\t\n\005TRACE\020\010\022\t\n\005PATCH\020\t*>\n\020TrafficDi" +
+      "rection\022\017\n\013UNSPECIFIED\020\000\022\013\n\007INBOUND\020\001\022\014\n" +
+      "\010OUTBOUND\020\002B}\n\"io.envoyproxy.envoy.confi" +
+      "g.core.v3B\tBaseProtoP\001ZBgithub.com/envoy" +
+      "proxy/go-control-plane/envoy/config/core" +
+      "/v3;corev3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

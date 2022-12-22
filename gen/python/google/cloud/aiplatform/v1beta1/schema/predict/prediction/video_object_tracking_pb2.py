@@ -13,10 +13,9 @@ _sym_db = _symbol_database.Default()
 
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nUgoogle/cloud/aiplatform/v1beta1/schema/predict/prediction/video_object_tracking.proto\x12\x39google.cloud.aiplatform.v1beta1.schema.predict.prediction\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1cgoogle/api/annotations.proto\"\xc4\x04\n#VideoObjectTrackingPredictionResult\x12\n\n\x02id\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x35\n\x12time_segment_start\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x33\n\x10time_segment_end\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12/\n\nconfidence\x18\x05 \x01(\x0b\x32\x1b.google.protobuf.FloatValue\x12t\n\x06\x66rames\x18\x06 \x03(\x0b\x32\x64.google.cloud.aiplatform.v1beta1.schema.predict.prediction.VideoObjectTrackingPredictionResult.Frame\x1a\xe7\x01\n\x05\x46rame\x12.\n\x0btime_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12*\n\x05x_min\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.FloatValue\x12*\n\x05x_max\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.FloatValue\x12*\n\x05y_min\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.FloatValue\x12*\n\x05y_max\x18\x05 \x01(\x0b\x32\x1b.google.protobuf.FloatValueB\x8a\x03\n=com.google.cloud.aiplatform.v1beta1.schema.predict.predictionB(VideoObjectTrackingPredictionResultProtoP\x01Zcgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/predict/prediction;prediction\xaa\x02\x39Google.Cloud.AIPlatform.V1Beta1.Schema.Predict.Prediction\xca\x02\x39Google\\Cloud\\AIPlatform\\V1beta1\\Schema\\Predict\\Prediction\xea\x02?Google::Cloud::AIPlatform::V1beta1::Schema::Predict::Predictionb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nUgoogle/cloud/aiplatform/v1beta1/schema/predict/prediction/video_object_tracking.proto\x12\x39google.cloud.aiplatform.v1beta1.schema.predict.prediction\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\xc4\x04\n#VideoObjectTrackingPredictionResult\x12\n\n\x02id\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x35\n\x12time_segment_start\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x33\n\x10time_segment_end\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12/\n\nconfidence\x18\x05 \x01(\x0b\x32\x1b.google.protobuf.FloatValue\x12t\n\x06\x66rames\x18\x06 \x03(\x0b\x32\x64.google.cloud.aiplatform.v1beta1.schema.predict.prediction.VideoObjectTrackingPredictionResult.Frame\x1a\xe7\x01\n\x05\x46rame\x12.\n\x0btime_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12*\n\x05x_min\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.FloatValue\x12*\n\x05x_max\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.FloatValue\x12*\n\x05y_min\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.FloatValue\x12*\n\x05y_max\x18\x05 \x01(\x0b\x32\x1b.google.protobuf.FloatValueB\x8a\x03\n=com.google.cloud.aiplatform.v1beta1.schema.predict.predictionB(VideoObjectTrackingPredictionResultProtoP\x01Zcgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/predict/prediction;prediction\xaa\x02\x39Google.Cloud.AIPlatform.V1Beta1.Schema.Predict.Prediction\xca\x02\x39Google\\Cloud\\AIPlatform\\V1beta1\\Schema\\Predict\\Prediction\xea\x02?Google::Cloud::AIPlatform::V1beta1::Schema::Predict::Predictionb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.aiplatform.v1beta1.schema.predict.prediction.video_object_tracking_pb2', globals())
@@ -24,8 +23,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n=com.google.cloud.aiplatform.v1beta1.schema.predict.predictionB(VideoObjectTrackingPredictionResultProtoP\001Zcgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/predict/prediction;prediction\252\0029Google.Cloud.AIPlatform.V1Beta1.Schema.Predict.Prediction\312\0029Google\\Cloud\\AIPlatform\\V1beta1\\Schema\\Predict\\Prediction\352\002?Google::Cloud::AIPlatform::V1beta1::Schema::Predict::Prediction'
-  _VIDEOOBJECTTRACKINGPREDICTIONRESULT._serialized_start=243
-  _VIDEOOBJECTTRACKINGPREDICTIONRESULT._serialized_end=823
-  _VIDEOOBJECTTRACKINGPREDICTIONRESULT_FRAME._serialized_start=592
-  _VIDEOOBJECTTRACKINGPREDICTIONRESULT_FRAME._serialized_end=823
+  _VIDEOOBJECTTRACKINGPREDICTIONRESULT._serialized_start=213
+  _VIDEOOBJECTTRACKINGPREDICTIONRESULT._serialized_end=793
+  _VIDEOOBJECTTRACKINGPREDICTIONRESULT_FRAME._serialized_start=562
+  _VIDEOOBJECTTRACKINGPREDICTIONRESULT_FRAME._serialized_end=793
 # @@protoc_insertion_point(module_scope)

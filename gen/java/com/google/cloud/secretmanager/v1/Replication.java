@@ -34,73 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Replication(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.secretmanager.v1.Replication.Automatic.Builder subBuilder = null;
-            if (replicationCase_ == 1) {
-              subBuilder = ((com.google.cloud.secretmanager.v1.Replication.Automatic) replication_).toBuilder();
-            }
-            replication_ =
-                input.readMessage(com.google.cloud.secretmanager.v1.Replication.Automatic.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.secretmanager.v1.Replication.Automatic) replication_);
-              replication_ = subBuilder.buildPartial();
-            }
-            replicationCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.cloud.secretmanager.v1.Replication.UserManaged.Builder subBuilder = null;
-            if (replicationCase_ == 2) {
-              subBuilder = ((com.google.cloud.secretmanager.v1.Replication.UserManaged) replication_).toBuilder();
-            }
-            replication_ =
-                input.readMessage(com.google.cloud.secretmanager.v1.Replication.UserManaged.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.secretmanager.v1.Replication.UserManaged) replication_);
-              replication_ = subBuilder.buildPartial();
-            }
-            replicationCase_ = 2;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.secretmanager.v1.ResourcesProto.internal_static_google_cloud_secretmanager_v1_Replication_descriptor;
@@ -120,11 +53,14 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Optional. The customer-managed encryption configuration of the [Secret][google.cloud.secretmanager.v1.Secret]. If no
-     * configuration is provided, Google-managed default encryption is used.
-     * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-     * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+     * Optional. The customer-managed encryption configuration of the
+     * [Secret][google.cloud.secretmanager.v1.Secret]. If no configuration is
+     * provided, Google-managed default encryption is used.
+     * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption
+     * configuration only apply to
+     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+     * afterwards. They do not apply retroactively to existing
+     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -133,11 +69,14 @@ private static final long serialVersionUID = 0L;
     boolean hasCustomerManagedEncryption();
     /**
      * <pre>
-     * Optional. The customer-managed encryption configuration of the [Secret][google.cloud.secretmanager.v1.Secret]. If no
-     * configuration is provided, Google-managed default encryption is used.
-     * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-     * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+     * Optional. The customer-managed encryption configuration of the
+     * [Secret][google.cloud.secretmanager.v1.Secret]. If no configuration is
+     * provided, Google-managed default encryption is used.
+     * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption
+     * configuration only apply to
+     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+     * afterwards. They do not apply retroactively to existing
+     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -146,11 +85,14 @@ private static final long serialVersionUID = 0L;
     com.google.cloud.secretmanager.v1.CustomerManagedEncryption getCustomerManagedEncryption();
     /**
      * <pre>
-     * Optional. The customer-managed encryption configuration of the [Secret][google.cloud.secretmanager.v1.Secret]. If no
-     * configuration is provided, Google-managed default encryption is used.
-     * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-     * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+     * Optional. The customer-managed encryption configuration of the
+     * [Secret][google.cloud.secretmanager.v1.Secret]. If no configuration is
+     * provided, Google-managed default encryption is used.
+     * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption
+     * configuration only apply to
+     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+     * afterwards. They do not apply retroactively to existing
+     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -159,7 +101,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A replication policy that replicates the [Secret][google.cloud.secretmanager.v1.Secret] payload without any
+   * A replication policy that replicates the
+   * [Secret][google.cloud.secretmanager.v1.Secret] payload without any
    * restrictions.
    * </pre>
    *
@@ -189,58 +132,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Automatic(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.secretmanager.v1.CustomerManagedEncryption.Builder subBuilder = null;
-              if (customerManagedEncryption_ != null) {
-                subBuilder = customerManagedEncryption_.toBuilder();
-              }
-              customerManagedEncryption_ = input.readMessage(com.google.cloud.secretmanager.v1.CustomerManagedEncryption.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(customerManagedEncryption_);
-                customerManagedEncryption_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.secretmanager.v1.ResourcesProto.internal_static_google_cloud_secretmanager_v1_Replication_Automatic_descriptor;
@@ -258,11 +149,14 @@ private static final long serialVersionUID = 0L;
     private com.google.cloud.secretmanager.v1.CustomerManagedEncryption customerManagedEncryption_;
     /**
      * <pre>
-     * Optional. The customer-managed encryption configuration of the [Secret][google.cloud.secretmanager.v1.Secret]. If no
-     * configuration is provided, Google-managed default encryption is used.
-     * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-     * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+     * Optional. The customer-managed encryption configuration of the
+     * [Secret][google.cloud.secretmanager.v1.Secret]. If no configuration is
+     * provided, Google-managed default encryption is used.
+     * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption
+     * configuration only apply to
+     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+     * afterwards. They do not apply retroactively to existing
+     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -274,11 +168,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The customer-managed encryption configuration of the [Secret][google.cloud.secretmanager.v1.Secret]. If no
-     * configuration is provided, Google-managed default encryption is used.
-     * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-     * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+     * Optional. The customer-managed encryption configuration of the
+     * [Secret][google.cloud.secretmanager.v1.Secret]. If no configuration is
+     * provided, Google-managed default encryption is used.
+     * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption
+     * configuration only apply to
+     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+     * afterwards. They do not apply retroactively to existing
+     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -290,18 +187,21 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The customer-managed encryption configuration of the [Secret][google.cloud.secretmanager.v1.Secret]. If no
-     * configuration is provided, Google-managed default encryption is used.
-     * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-     * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+     * Optional. The customer-managed encryption configuration of the
+     * [Secret][google.cloud.secretmanager.v1.Secret]. If no configuration is
+     * provided, Google-managed default encryption is used.
+     * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption
+     * configuration only apply to
+     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+     * afterwards. They do not apply retroactively to existing
+     * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
     public com.google.cloud.secretmanager.v1.CustomerManagedEncryptionOrBuilder getCustomerManagedEncryptionOrBuilder() {
-      return getCustomerManagedEncryption();
+      return customerManagedEncryption_ == null ? com.google.cloud.secretmanager.v1.CustomerManagedEncryption.getDefaultInstance() : customerManagedEncryption_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -321,7 +221,7 @@ private static final long serialVersionUID = 0L;
       if (customerManagedEncryption_ != null) {
         output.writeMessage(1, getCustomerManagedEncryption());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -334,7 +234,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getCustomerManagedEncryption());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -354,7 +254,7 @@ private static final long serialVersionUID = 0L;
         if (!getCustomerManagedEncryption()
             .equals(other.getCustomerManagedEncryption())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -369,7 +269,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + CUSTOMER_MANAGED_ENCRYPTION_FIELD_NUMBER;
         hash = (53 * hash) + getCustomerManagedEncryption().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -466,7 +366,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A replication policy that replicates the [Secret][google.cloud.secretmanager.v1.Secret] payload without any
+     * A replication policy that replicates the
+     * [Secret][google.cloud.secretmanager.v1.Secret] payload without any
      * restrictions.
      * </pre>
      *
@@ -491,26 +392,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.secretmanager.v1.Replication.Automatic.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (customerManagedEncryptionBuilder_ == null) {
-          customerManagedEncryption_ = null;
-        } else {
-          customerManagedEncryption_ = null;
+        bitField0_ = 0;
+        customerManagedEncryption_ = null;
+        if (customerManagedEncryptionBuilder_ != null) {
+          customerManagedEncryptionBuilder_.dispose();
           customerManagedEncryptionBuilder_ = null;
         }
         return this;
@@ -539,13 +435,18 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.secretmanager.v1.Replication.Automatic buildPartial() {
         com.google.cloud.secretmanager.v1.Replication.Automatic result = new com.google.cloud.secretmanager.v1.Replication.Automatic(this);
-        if (customerManagedEncryptionBuilder_ == null) {
-          result.customerManagedEncryption_ = customerManagedEncryption_;
-        } else {
-          result.customerManagedEncryption_ = customerManagedEncryptionBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.secretmanager.v1.Replication.Automatic result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.customerManagedEncryption_ = customerManagedEncryptionBuilder_ == null
+              ? customerManagedEncryption_
+              : customerManagedEncryptionBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -595,7 +496,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasCustomerManagedEncryption()) {
           mergeCustomerManagedEncryption(other.getCustomerManagedEncryption());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -610,45 +511,72 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.secretmanager.v1.Replication.Automatic parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getCustomerManagedEncryptionFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.secretmanager.v1.Replication.Automatic) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.secretmanager.v1.CustomerManagedEncryption customerManagedEncryption_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.cloud.secretmanager.v1.CustomerManagedEncryption, com.google.cloud.secretmanager.v1.CustomerManagedEncryption.Builder, com.google.cloud.secretmanager.v1.CustomerManagedEncryptionOrBuilder> customerManagedEncryptionBuilder_;
       /**
        * <pre>
-       * Optional. The customer-managed encryption configuration of the [Secret][google.cloud.secretmanager.v1.Secret]. If no
-       * configuration is provided, Google-managed default encryption is used.
-       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-       * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+       * Optional. The customer-managed encryption configuration of the
+       * [Secret][google.cloud.secretmanager.v1.Secret]. If no configuration is
+       * provided, Google-managed default encryption is used.
+       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption
+       * configuration only apply to
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+       * afterwards. They do not apply retroactively to existing
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
        * @return Whether the customerManagedEncryption field is set.
        */
       public boolean hasCustomerManagedEncryption() {
-        return customerManagedEncryptionBuilder_ != null || customerManagedEncryption_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
-       * Optional. The customer-managed encryption configuration of the [Secret][google.cloud.secretmanager.v1.Secret]. If no
-       * configuration is provided, Google-managed default encryption is used.
-       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-       * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+       * Optional. The customer-managed encryption configuration of the
+       * [Secret][google.cloud.secretmanager.v1.Secret]. If no configuration is
+       * provided, Google-managed default encryption is used.
+       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption
+       * configuration only apply to
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+       * afterwards. They do not apply retroactively to existing
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -663,11 +591,14 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The customer-managed encryption configuration of the [Secret][google.cloud.secretmanager.v1.Secret]. If no
-       * configuration is provided, Google-managed default encryption is used.
-       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-       * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+       * Optional. The customer-managed encryption configuration of the
+       * [Secret][google.cloud.secretmanager.v1.Secret]. If no configuration is
+       * provided, Google-managed default encryption is used.
+       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption
+       * configuration only apply to
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+       * afterwards. They do not apply retroactively to existing
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -678,20 +609,23 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           customerManagedEncryption_ = value;
-          onChanged();
         } else {
           customerManagedEncryptionBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. The customer-managed encryption configuration of the [Secret][google.cloud.secretmanager.v1.Secret]. If no
-       * configuration is provided, Google-managed default encryption is used.
-       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-       * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+       * Optional. The customer-managed encryption configuration of the
+       * [Secret][google.cloud.secretmanager.v1.Secret]. If no configuration is
+       * provided, Google-managed default encryption is used.
+       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption
+       * configuration only apply to
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+       * afterwards. They do not apply retroactively to existing
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -700,84 +634,96 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.secretmanager.v1.CustomerManagedEncryption.Builder builderForValue) {
         if (customerManagedEncryptionBuilder_ == null) {
           customerManagedEncryption_ = builderForValue.build();
-          onChanged();
         } else {
           customerManagedEncryptionBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. The customer-managed encryption configuration of the [Secret][google.cloud.secretmanager.v1.Secret]. If no
-       * configuration is provided, Google-managed default encryption is used.
-       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-       * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+       * Optional. The customer-managed encryption configuration of the
+       * [Secret][google.cloud.secretmanager.v1.Secret]. If no configuration is
+       * provided, Google-managed default encryption is used.
+       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption
+       * configuration only apply to
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+       * afterwards. They do not apply retroactively to existing
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder mergeCustomerManagedEncryption(com.google.cloud.secretmanager.v1.CustomerManagedEncryption value) {
         if (customerManagedEncryptionBuilder_ == null) {
-          if (customerManagedEncryption_ != null) {
-            customerManagedEncryption_ =
-              com.google.cloud.secretmanager.v1.CustomerManagedEncryption.newBuilder(customerManagedEncryption_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            customerManagedEncryption_ != null &&
+            customerManagedEncryption_ != com.google.cloud.secretmanager.v1.CustomerManagedEncryption.getDefaultInstance()) {
+            getCustomerManagedEncryptionBuilder().mergeFrom(value);
           } else {
             customerManagedEncryption_ = value;
           }
-          onChanged();
         } else {
           customerManagedEncryptionBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. The customer-managed encryption configuration of the [Secret][google.cloud.secretmanager.v1.Secret]. If no
-       * configuration is provided, Google-managed default encryption is used.
-       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-       * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+       * Optional. The customer-managed encryption configuration of the
+       * [Secret][google.cloud.secretmanager.v1.Secret]. If no configuration is
+       * provided, Google-managed default encryption is used.
+       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption
+       * configuration only apply to
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+       * afterwards. They do not apply retroactively to existing
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearCustomerManagedEncryption() {
-        if (customerManagedEncryptionBuilder_ == null) {
-          customerManagedEncryption_ = null;
-          onChanged();
-        } else {
-          customerManagedEncryption_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        customerManagedEncryption_ = null;
+        if (customerManagedEncryptionBuilder_ != null) {
+          customerManagedEncryptionBuilder_.dispose();
           customerManagedEncryptionBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. The customer-managed encryption configuration of the [Secret][google.cloud.secretmanager.v1.Secret]. If no
-       * configuration is provided, Google-managed default encryption is used.
-       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-       * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+       * Optional. The customer-managed encryption configuration of the
+       * [Secret][google.cloud.secretmanager.v1.Secret]. If no configuration is
+       * provided, Google-managed default encryption is used.
+       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption
+       * configuration only apply to
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+       * afterwards. They do not apply retroactively to existing
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.cloud.secretmanager.v1.CustomerManagedEncryption.Builder getCustomerManagedEncryptionBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getCustomerManagedEncryptionFieldBuilder().getBuilder();
       }
       /**
        * <pre>
-       * Optional. The customer-managed encryption configuration of the [Secret][google.cloud.secretmanager.v1.Secret]. If no
-       * configuration is provided, Google-managed default encryption is used.
-       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-       * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+       * Optional. The customer-managed encryption configuration of the
+       * [Secret][google.cloud.secretmanager.v1.Secret]. If no configuration is
+       * provided, Google-managed default encryption is used.
+       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption
+       * configuration only apply to
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+       * afterwards. They do not apply retroactively to existing
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -792,11 +738,14 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The customer-managed encryption configuration of the [Secret][google.cloud.secretmanager.v1.Secret]. If no
-       * configuration is provided, Google-managed default encryption is used.
-       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-       * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+       * Optional. The customer-managed encryption configuration of the
+       * [Secret][google.cloud.secretmanager.v1.Secret]. If no configuration is
+       * provided, Google-managed default encryption is used.
+       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption
+       * configuration only apply to
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+       * afterwards. They do not apply retroactively to existing
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -847,7 +796,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Automatic(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -873,7 +833,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. The list of Replicas for this
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * Cannot be empty.
      * </pre>
      *
@@ -883,7 +844,8 @@ private static final long serialVersionUID = 0L;
         getReplicasList();
     /**
      * <pre>
-     * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. The list of Replicas for this
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * Cannot be empty.
      * </pre>
      *
@@ -892,7 +854,8 @@ private static final long serialVersionUID = 0L;
     com.google.cloud.secretmanager.v1.Replication.UserManaged.Replica getReplicas(int index);
     /**
      * <pre>
-     * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. The list of Replicas for this
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * Cannot be empty.
      * </pre>
      *
@@ -901,7 +864,8 @@ private static final long serialVersionUID = 0L;
     int getReplicasCount();
     /**
      * <pre>
-     * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. The list of Replicas for this
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * Cannot be empty.
      * </pre>
      *
@@ -911,7 +875,8 @@ private static final long serialVersionUID = 0L;
         getReplicasOrBuilderList();
     /**
      * <pre>
-     * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. The list of Replicas for this
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * Cannot be empty.
      * </pre>
      *
@@ -922,8 +887,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A replication policy that replicates the [Secret][google.cloud.secretmanager.v1.Secret] payload into the
-   * locations specified in [Secret.replication.user_managed.replicas][]
+   * A replication policy that replicates the
+   * [Secret][google.cloud.secretmanager.v1.Secret] payload into the locations
+   * specified in [Secret.replication.user_managed.replicas][]
    * </pre>
    *
    * Protobuf type {@code google.cloud.secretmanager.v1.Replication.UserManaged}
@@ -952,58 +918,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private UserManaged(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                replicas_ = new java.util.ArrayList<com.google.cloud.secretmanager.v1.Replication.UserManaged.Replica>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              replicas_.add(
-                  input.readMessage(com.google.cloud.secretmanager.v1.Replication.UserManaged.Replica.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          replicas_ = java.util.Collections.unmodifiableList(replicas_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1046,12 +960,14 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * Optional. The customer-managed encryption configuration of the [User-Managed
-       * Replica][Replication.UserManaged.Replica]. If no configuration is
-       * provided, Google-managed default encryption is used.
-       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-       * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+       * Optional. The customer-managed encryption configuration of the
+       * [User-Managed Replica][Replication.UserManaged.Replica]. If no
+       * configuration is provided, Google-managed default encryption is used.
+       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret]
+       * encryption configuration only apply to
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+       * afterwards. They do not apply retroactively to existing
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1060,12 +976,14 @@ private static final long serialVersionUID = 0L;
       boolean hasCustomerManagedEncryption();
       /**
        * <pre>
-       * Optional. The customer-managed encryption configuration of the [User-Managed
-       * Replica][Replication.UserManaged.Replica]. If no configuration is
-       * provided, Google-managed default encryption is used.
-       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-       * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+       * Optional. The customer-managed encryption configuration of the
+       * [User-Managed Replica][Replication.UserManaged.Replica]. If no
+       * configuration is provided, Google-managed default encryption is used.
+       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret]
+       * encryption configuration only apply to
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+       * afterwards. They do not apply retroactively to existing
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1074,12 +992,14 @@ private static final long serialVersionUID = 0L;
       com.google.cloud.secretmanager.v1.CustomerManagedEncryption getCustomerManagedEncryption();
       /**
        * <pre>
-       * Optional. The customer-managed encryption configuration of the [User-Managed
-       * Replica][Replication.UserManaged.Replica]. If no configuration is
-       * provided, Google-managed default encryption is used.
-       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-       * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+       * Optional. The customer-managed encryption configuration of the
+       * [User-Managed Replica][Replication.UserManaged.Replica]. If no
+       * configuration is provided, Google-managed default encryption is used.
+       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret]
+       * encryption configuration only apply to
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+       * afterwards. They do not apply retroactively to existing
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1088,7 +1008,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Represents a Replica for this [Secret][google.cloud.secretmanager.v1.Secret].
+     * Represents a Replica for this
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * </pre>
      *
      * Protobuf type {@code google.cloud.secretmanager.v1.Replication.UserManaged.Replica}
@@ -1118,64 +1039,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Replica(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                location_ = s;
-                break;
-              }
-              case 18: {
-                com.google.cloud.secretmanager.v1.CustomerManagedEncryption.Builder subBuilder = null;
-                if (customerManagedEncryption_ != null) {
-                  subBuilder = customerManagedEncryption_.toBuilder();
-                }
-                customerManagedEncryption_ = input.readMessage(com.google.cloud.secretmanager.v1.CustomerManagedEncryption.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(customerManagedEncryption_);
-                  customerManagedEncryption_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.secretmanager.v1.ResourcesProto.internal_static_google_cloud_secretmanager_v1_Replication_UserManaged_Replica_descriptor;
@@ -1190,7 +1053,8 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int LOCATION_FIELD_NUMBER = 1;
-      private volatile java.lang.Object location_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object location_ = "";
       /**
        * <pre>
        * The canonical IDs of the location to replicate data.
@@ -1241,12 +1105,14 @@ private static final long serialVersionUID = 0L;
       private com.google.cloud.secretmanager.v1.CustomerManagedEncryption customerManagedEncryption_;
       /**
        * <pre>
-       * Optional. The customer-managed encryption configuration of the [User-Managed
-       * Replica][Replication.UserManaged.Replica]. If no configuration is
-       * provided, Google-managed default encryption is used.
-       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-       * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+       * Optional. The customer-managed encryption configuration of the
+       * [User-Managed Replica][Replication.UserManaged.Replica]. If no
+       * configuration is provided, Google-managed default encryption is used.
+       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret]
+       * encryption configuration only apply to
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+       * afterwards. They do not apply retroactively to existing
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1258,12 +1124,14 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The customer-managed encryption configuration of the [User-Managed
-       * Replica][Replication.UserManaged.Replica]. If no configuration is
-       * provided, Google-managed default encryption is used.
-       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-       * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+       * Optional. The customer-managed encryption configuration of the
+       * [User-Managed Replica][Replication.UserManaged.Replica]. If no
+       * configuration is provided, Google-managed default encryption is used.
+       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret]
+       * encryption configuration only apply to
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+       * afterwards. They do not apply retroactively to existing
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1275,19 +1143,21 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The customer-managed encryption configuration of the [User-Managed
-       * Replica][Replication.UserManaged.Replica]. If no configuration is
-       * provided, Google-managed default encryption is used.
-       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-       * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+       * Optional. The customer-managed encryption configuration of the
+       * [User-Managed Replica][Replication.UserManaged.Replica]. If no
+       * configuration is provided, Google-managed default encryption is used.
+       * Updates to the [Secret][google.cloud.secretmanager.v1.Secret]
+       * encryption configuration only apply to
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+       * afterwards. They do not apply retroactively to existing
+       * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
       public com.google.cloud.secretmanager.v1.CustomerManagedEncryptionOrBuilder getCustomerManagedEncryptionOrBuilder() {
-        return getCustomerManagedEncryption();
+        return customerManagedEncryption_ == null ? com.google.cloud.secretmanager.v1.CustomerManagedEncryption.getDefaultInstance() : customerManagedEncryption_;
       }
 
       private byte memoizedIsInitialized = -1;
@@ -1310,7 +1180,7 @@ private static final long serialVersionUID = 0L;
         if (customerManagedEncryption_ != null) {
           output.writeMessage(2, getCustomerManagedEncryption());
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -1326,7 +1196,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, getCustomerManagedEncryption());
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -1348,7 +1218,7 @@ private static final long serialVersionUID = 0L;
           if (!getCustomerManagedEncryption()
               .equals(other.getCustomerManagedEncryption())) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -1365,7 +1235,7 @@ private static final long serialVersionUID = 0L;
           hash = (37 * hash) + CUSTOMER_MANAGED_ENCRYPTION_FIELD_NUMBER;
           hash = (53 * hash) + getCustomerManagedEncryption().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -1462,7 +1332,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Represents a Replica for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Represents a Replica for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * </pre>
        *
        * Protobuf type {@code google.cloud.secretmanager.v1.Replication.UserManaged.Replica}
@@ -1486,28 +1357,22 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.secretmanager.v1.Replication.UserManaged.Replica.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           location_ = "";
-
-          if (customerManagedEncryptionBuilder_ == null) {
-            customerManagedEncryption_ = null;
-          } else {
-            customerManagedEncryption_ = null;
+          customerManagedEncryption_ = null;
+          if (customerManagedEncryptionBuilder_ != null) {
+            customerManagedEncryptionBuilder_.dispose();
             customerManagedEncryptionBuilder_ = null;
           }
           return this;
@@ -1536,14 +1401,21 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.secretmanager.v1.Replication.UserManaged.Replica buildPartial() {
           com.google.cloud.secretmanager.v1.Replication.UserManaged.Replica result = new com.google.cloud.secretmanager.v1.Replication.UserManaged.Replica(this);
-          result.location_ = location_;
-          if (customerManagedEncryptionBuilder_ == null) {
-            result.customerManagedEncryption_ = customerManagedEncryption_;
-          } else {
-            result.customerManagedEncryption_ = customerManagedEncryptionBuilder_.build();
-          }
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.secretmanager.v1.Replication.UserManaged.Replica result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.location_ = location_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.customerManagedEncryption_ = customerManagedEncryptionBuilder_ == null
+                ? customerManagedEncryption_
+                : customerManagedEncryptionBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -1592,12 +1464,13 @@ private static final long serialVersionUID = 0L;
           if (other == com.google.cloud.secretmanager.v1.Replication.UserManaged.Replica.getDefaultInstance()) return this;
           if (!other.getLocation().isEmpty()) {
             location_ = other.location_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (other.hasCustomerManagedEncryption()) {
             mergeCustomerManagedEncryption(other.getCustomerManagedEncryption());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -1612,19 +1485,45 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.secretmanager.v1.Replication.UserManaged.Replica parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  location_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  input.readMessage(
+                      getCustomerManagedEncryptionFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.secretmanager.v1.Replication.UserManaged.Replica) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object location_ = "";
         /**
@@ -1682,11 +1581,9 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setLocation(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           location_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -1700,8 +1597,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearLocation() {
-          
           location_ = getDefaultInstance().getLocation();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -1717,12 +1614,10 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setLocationBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           location_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -1732,28 +1627,32 @@ private static final long serialVersionUID = 0L;
             com.google.cloud.secretmanager.v1.CustomerManagedEncryption, com.google.cloud.secretmanager.v1.CustomerManagedEncryption.Builder, com.google.cloud.secretmanager.v1.CustomerManagedEncryptionOrBuilder> customerManagedEncryptionBuilder_;
         /**
          * <pre>
-         * Optional. The customer-managed encryption configuration of the [User-Managed
-         * Replica][Replication.UserManaged.Replica]. If no configuration is
-         * provided, Google-managed default encryption is used.
-         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-         * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+         * Optional. The customer-managed encryption configuration of the
+         * [User-Managed Replica][Replication.UserManaged.Replica]. If no
+         * configuration is provided, Google-managed default encryption is used.
+         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret]
+         * encryption configuration only apply to
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+         * afterwards. They do not apply retroactively to existing
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
          * </pre>
          *
          * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
          * @return Whether the customerManagedEncryption field is set.
          */
         public boolean hasCustomerManagedEncryption() {
-          return customerManagedEncryptionBuilder_ != null || customerManagedEncryption_ != null;
+          return ((bitField0_ & 0x00000002) != 0);
         }
         /**
          * <pre>
-         * Optional. The customer-managed encryption configuration of the [User-Managed
-         * Replica][Replication.UserManaged.Replica]. If no configuration is
-         * provided, Google-managed default encryption is used.
-         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-         * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+         * Optional. The customer-managed encryption configuration of the
+         * [User-Managed Replica][Replication.UserManaged.Replica]. If no
+         * configuration is provided, Google-managed default encryption is used.
+         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret]
+         * encryption configuration only apply to
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+         * afterwards. They do not apply retroactively to existing
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
          * </pre>
          *
          * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1768,12 +1667,14 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Optional. The customer-managed encryption configuration of the [User-Managed
-         * Replica][Replication.UserManaged.Replica]. If no configuration is
-         * provided, Google-managed default encryption is used.
-         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-         * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+         * Optional. The customer-managed encryption configuration of the
+         * [User-Managed Replica][Replication.UserManaged.Replica]. If no
+         * configuration is provided, Google-managed default encryption is used.
+         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret]
+         * encryption configuration only apply to
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+         * afterwards. They do not apply retroactively to existing
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
          * </pre>
          *
          * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1784,21 +1685,23 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             customerManagedEncryption_ = value;
-            onChanged();
           } else {
             customerManagedEncryptionBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
          * <pre>
-         * Optional. The customer-managed encryption configuration of the [User-Managed
-         * Replica][Replication.UserManaged.Replica]. If no configuration is
-         * provided, Google-managed default encryption is used.
-         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-         * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+         * Optional. The customer-managed encryption configuration of the
+         * [User-Managed Replica][Replication.UserManaged.Replica]. If no
+         * configuration is provided, Google-managed default encryption is used.
+         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret]
+         * encryption configuration only apply to
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+         * afterwards. They do not apply retroactively to existing
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
          * </pre>
          *
          * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1807,88 +1710,96 @@ private static final long serialVersionUID = 0L;
             com.google.cloud.secretmanager.v1.CustomerManagedEncryption.Builder builderForValue) {
           if (customerManagedEncryptionBuilder_ == null) {
             customerManagedEncryption_ = builderForValue.build();
-            onChanged();
           } else {
             customerManagedEncryptionBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
          * <pre>
-         * Optional. The customer-managed encryption configuration of the [User-Managed
-         * Replica][Replication.UserManaged.Replica]. If no configuration is
-         * provided, Google-managed default encryption is used.
-         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-         * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+         * Optional. The customer-managed encryption configuration of the
+         * [User-Managed Replica][Replication.UserManaged.Replica]. If no
+         * configuration is provided, Google-managed default encryption is used.
+         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret]
+         * encryption configuration only apply to
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+         * afterwards. They do not apply retroactively to existing
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
          * </pre>
          *
          * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
          */
         public Builder mergeCustomerManagedEncryption(com.google.cloud.secretmanager.v1.CustomerManagedEncryption value) {
           if (customerManagedEncryptionBuilder_ == null) {
-            if (customerManagedEncryption_ != null) {
-              customerManagedEncryption_ =
-                com.google.cloud.secretmanager.v1.CustomerManagedEncryption.newBuilder(customerManagedEncryption_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000002) != 0) &&
+              customerManagedEncryption_ != null &&
+              customerManagedEncryption_ != com.google.cloud.secretmanager.v1.CustomerManagedEncryption.getDefaultInstance()) {
+              getCustomerManagedEncryptionBuilder().mergeFrom(value);
             } else {
               customerManagedEncryption_ = value;
             }
-            onChanged();
           } else {
             customerManagedEncryptionBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
          * <pre>
-         * Optional. The customer-managed encryption configuration of the [User-Managed
-         * Replica][Replication.UserManaged.Replica]. If no configuration is
-         * provided, Google-managed default encryption is used.
-         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-         * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+         * Optional. The customer-managed encryption configuration of the
+         * [User-Managed Replica][Replication.UserManaged.Replica]. If no
+         * configuration is provided, Google-managed default encryption is used.
+         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret]
+         * encryption configuration only apply to
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+         * afterwards. They do not apply retroactively to existing
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
          * </pre>
          *
          * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
          */
         public Builder clearCustomerManagedEncryption() {
-          if (customerManagedEncryptionBuilder_ == null) {
-            customerManagedEncryption_ = null;
-            onChanged();
-          } else {
-            customerManagedEncryption_ = null;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          customerManagedEncryption_ = null;
+          if (customerManagedEncryptionBuilder_ != null) {
+            customerManagedEncryptionBuilder_.dispose();
             customerManagedEncryptionBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
          * <pre>
-         * Optional. The customer-managed encryption configuration of the [User-Managed
-         * Replica][Replication.UserManaged.Replica]. If no configuration is
-         * provided, Google-managed default encryption is used.
-         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-         * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+         * Optional. The customer-managed encryption configuration of the
+         * [User-Managed Replica][Replication.UserManaged.Replica]. If no
+         * configuration is provided, Google-managed default encryption is used.
+         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret]
+         * encryption configuration only apply to
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+         * afterwards. They do not apply retroactively to existing
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
          * </pre>
          *
          * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
          */
         public com.google.cloud.secretmanager.v1.CustomerManagedEncryption.Builder getCustomerManagedEncryptionBuilder() {
-          
+          bitField0_ |= 0x00000002;
           onChanged();
           return getCustomerManagedEncryptionFieldBuilder().getBuilder();
         }
         /**
          * <pre>
-         * Optional. The customer-managed encryption configuration of the [User-Managed
-         * Replica][Replication.UserManaged.Replica]. If no configuration is
-         * provided, Google-managed default encryption is used.
-         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-         * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+         * Optional. The customer-managed encryption configuration of the
+         * [User-Managed Replica][Replication.UserManaged.Replica]. If no
+         * configuration is provided, Google-managed default encryption is used.
+         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret]
+         * encryption configuration only apply to
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+         * afterwards. They do not apply retroactively to existing
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
          * </pre>
          *
          * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1903,12 +1814,14 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Optional. The customer-managed encryption configuration of the [User-Managed
-         * Replica][Replication.UserManaged.Replica]. If no configuration is
-         * provided, Google-managed default encryption is used.
-         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret] encryption configuration only apply to
-         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added afterwards. They do not apply
-         * retroactively to existing [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
+         * Optional. The customer-managed encryption configuration of the
+         * [User-Managed Replica][Replication.UserManaged.Replica]. If no
+         * configuration is provided, Google-managed default encryption is used.
+         * Updates to the [Secret][google.cloud.secretmanager.v1.Secret]
+         * encryption configuration only apply to
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
+         * afterwards. They do not apply retroactively to existing
+         * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
          * </pre>
          *
          * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryption customer_managed_encryption = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1959,7 +1872,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Replica(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -1980,10 +1904,12 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int REPLICAS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.secretmanager.v1.Replication.UserManaged.Replica> replicas_;
     /**
      * <pre>
-     * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. The list of Replicas for this
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * Cannot be empty.
      * </pre>
      *
@@ -1995,7 +1921,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. The list of Replicas for this
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * Cannot be empty.
      * </pre>
      *
@@ -2008,7 +1935,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. The list of Replicas for this
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * Cannot be empty.
      * </pre>
      *
@@ -2020,7 +1948,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. The list of Replicas for this
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * Cannot be empty.
      * </pre>
      *
@@ -2032,7 +1961,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. The list of Replicas for this
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * Cannot be empty.
      * </pre>
      *
@@ -2061,7 +1991,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < replicas_.size(); i++) {
         output.writeMessage(1, replicas_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2074,7 +2004,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, replicas_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2091,7 +2021,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getReplicasList()
           .equals(other.getReplicasList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2106,7 +2036,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + REPLICAS_FIELD_NUMBER;
         hash = (53 * hash) + getReplicasList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2203,8 +2133,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A replication policy that replicates the [Secret][google.cloud.secretmanager.v1.Secret] payload into the
-     * locations specified in [Secret.replication.user_managed.replicas][]
+     * A replication policy that replicates the
+     * [Secret][google.cloud.secretmanager.v1.Secret] payload into the locations
+     * specified in [Secret.replication.user_managed.replicas][]
      * </pre>
      *
      * Protobuf type {@code google.cloud.secretmanager.v1.Replication.UserManaged}
@@ -2228,29 +2159,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.secretmanager.v1.Replication.UserManaged.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getReplicasFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (replicasBuilder_ == null) {
           replicas_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          replicas_ = null;
           replicasBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -2277,7 +2204,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.secretmanager.v1.Replication.UserManaged buildPartial() {
         com.google.cloud.secretmanager.v1.Replication.UserManaged result = new com.google.cloud.secretmanager.v1.Replication.UserManaged(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.secretmanager.v1.Replication.UserManaged result) {
         if (replicasBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             replicas_ = java.util.Collections.unmodifiableList(replicas_);
@@ -2287,8 +2220,10 @@ private static final long serialVersionUID = 0L;
         } else {
           result.replicas_ = replicasBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.secretmanager.v1.Replication.UserManaged result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -2361,7 +2296,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2376,17 +2311,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.secretmanager.v1.Replication.UserManaged parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.secretmanager.v1.Replication.UserManaged.Replica m =
+                    input.readMessage(
+                        com.google.cloud.secretmanager.v1.Replication.UserManaged.Replica.parser(),
+                        extensionRegistry);
+                if (replicasBuilder_ == null) {
+                  ensureReplicasIsMutable();
+                  replicas_.add(m);
+                } else {
+                  replicasBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.secretmanager.v1.Replication.UserManaged) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2405,7 +2366,8 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2420,7 +2382,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2435,7 +2398,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2450,7 +2414,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2472,7 +2437,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2491,7 +2457,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2512,7 +2479,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2534,7 +2502,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2553,7 +2522,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2572,7 +2542,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2592,7 +2563,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2610,7 +2582,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2628,7 +2601,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2640,7 +2614,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2655,7 +2630,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2671,7 +2647,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2683,7 +2660,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2696,7 +2674,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The list of Replicas for this [Secret][google.cloud.secretmanager.v1.Secret].
+       * Required. The list of Replicas for this
+       * [Secret][google.cloud.secretmanager.v1.Secret].
        * Cannot be empty.
        * </pre>
        *
@@ -2753,7 +2732,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UserManaged(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2817,7 +2807,8 @@ private static final long serialVersionUID = 0L;
   public static final int AUTOMATIC_FIELD_NUMBER = 1;
   /**
    * <pre>
-   * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be replicated without any restrictions.
+   * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be
+   * replicated without any restrictions.
    * </pre>
    *
    * <code>.google.cloud.secretmanager.v1.Replication.Automatic automatic = 1;</code>
@@ -2829,7 +2820,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be replicated without any restrictions.
+   * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be
+   * replicated without any restrictions.
    * </pre>
    *
    * <code>.google.cloud.secretmanager.v1.Replication.Automatic automatic = 1;</code>
@@ -2844,7 +2836,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be replicated without any restrictions.
+   * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be
+   * replicated without any restrictions.
    * </pre>
    *
    * <code>.google.cloud.secretmanager.v1.Replication.Automatic automatic = 1;</code>
@@ -2860,7 +2853,8 @@ private static final long serialVersionUID = 0L;
   public static final int USER_MANAGED_FIELD_NUMBER = 2;
   /**
    * <pre>
-   * The [Secret][google.cloud.secretmanager.v1.Secret] will only be replicated into the locations specified.
+   * The [Secret][google.cloud.secretmanager.v1.Secret] will only be
+   * replicated into the locations specified.
    * </pre>
    *
    * <code>.google.cloud.secretmanager.v1.Replication.UserManaged user_managed = 2;</code>
@@ -2872,7 +2866,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The [Secret][google.cloud.secretmanager.v1.Secret] will only be replicated into the locations specified.
+   * The [Secret][google.cloud.secretmanager.v1.Secret] will only be
+   * replicated into the locations specified.
    * </pre>
    *
    * <code>.google.cloud.secretmanager.v1.Replication.UserManaged user_managed = 2;</code>
@@ -2887,7 +2882,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The [Secret][google.cloud.secretmanager.v1.Secret] will only be replicated into the locations specified.
+   * The [Secret][google.cloud.secretmanager.v1.Secret] will only be
+   * replicated into the locations specified.
    * </pre>
    *
    * <code>.google.cloud.secretmanager.v1.Replication.UserManaged user_managed = 2;</code>
@@ -2920,7 +2916,7 @@ private static final long serialVersionUID = 0L;
     if (replicationCase_ == 2) {
       output.writeMessage(2, (com.google.cloud.secretmanager.v1.Replication.UserManaged) replication_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2937,7 +2933,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, (com.google.cloud.secretmanager.v1.Replication.UserManaged) replication_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2965,7 +2961,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2988,7 +2984,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3109,22 +3105,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.secretmanager.v1.Replication.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (automaticBuilder_ != null) {
+        automaticBuilder_.clear();
+      }
+      if (userManagedBuilder_ != null) {
+        userManagedBuilder_.clear();
+      }
       replicationCase_ = 0;
       replication_ = null;
       return this;
@@ -3153,23 +3151,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.secretmanager.v1.Replication buildPartial() {
       com.google.cloud.secretmanager.v1.Replication result = new com.google.cloud.secretmanager.v1.Replication(this);
-      if (replicationCase_ == 1) {
-        if (automaticBuilder_ == null) {
-          result.replication_ = replication_;
-        } else {
-          result.replication_ = automaticBuilder_.build();
-        }
-      }
-      if (replicationCase_ == 2) {
-        if (userManagedBuilder_ == null) {
-          result.replication_ = replication_;
-        } else {
-          result.replication_ = userManagedBuilder_.build();
-        }
-      }
-      result.replicationCase_ = replicationCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.secretmanager.v1.Replication result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.cloud.secretmanager.v1.Replication result) {
+      result.replicationCase_ = replicationCase_;
+      result.replication_ = this.replication_;
+      if (replicationCase_ == 1 &&
+          automaticBuilder_ != null) {
+        result.replication_ = automaticBuilder_.build();
+      }
+      if (replicationCase_ == 2 &&
+          userManagedBuilder_ != null) {
+        result.replication_ = userManagedBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -3229,7 +3231,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3244,17 +3246,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.secretmanager.v1.Replication parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAutomaticFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              replicationCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getUserManagedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              replicationCase_ = 2;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.secretmanager.v1.Replication) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int replicationCase_ = 0;
@@ -3272,12 +3301,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.secretmanager.v1.Replication.Automatic, com.google.cloud.secretmanager.v1.Replication.Automatic.Builder, com.google.cloud.secretmanager.v1.Replication.AutomaticOrBuilder> automaticBuilder_;
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be replicated without any restrictions.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be
+     * replicated without any restrictions.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.Automatic automatic = 1;</code>
@@ -3289,7 +3320,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be replicated without any restrictions.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be
+     * replicated without any restrictions.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.Automatic automatic = 1;</code>
@@ -3311,7 +3343,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be replicated without any restrictions.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be
+     * replicated without any restrictions.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.Automatic automatic = 1;</code>
@@ -3331,7 +3364,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be replicated without any restrictions.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be
+     * replicated without any restrictions.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.Automatic automatic = 1;</code>
@@ -3349,7 +3383,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be replicated without any restrictions.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be
+     * replicated without any restrictions.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.Automatic automatic = 1;</code>
@@ -3376,7 +3411,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be replicated without any restrictions.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be
+     * replicated without any restrictions.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.Automatic automatic = 1;</code>
@@ -3399,7 +3435,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be replicated without any restrictions.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be
+     * replicated without any restrictions.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.Automatic automatic = 1;</code>
@@ -3409,7 +3446,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be replicated without any restrictions.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be
+     * replicated without any restrictions.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.Automatic automatic = 1;</code>
@@ -3427,7 +3465,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be replicated without any restrictions.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be
+     * replicated without any restrictions.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.Automatic automatic = 1;</code>
@@ -3447,7 +3486,7 @@ private static final long serialVersionUID = 0L;
         replication_ = null;
       }
       replicationCase_ = 1;
-      onChanged();;
+      onChanged();
       return automaticBuilder_;
     }
 
@@ -3455,7 +3494,8 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.secretmanager.v1.Replication.UserManaged, com.google.cloud.secretmanager.v1.Replication.UserManaged.Builder, com.google.cloud.secretmanager.v1.Replication.UserManagedOrBuilder> userManagedBuilder_;
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be replicated into the locations specified.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be
+     * replicated into the locations specified.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.UserManaged user_managed = 2;</code>
@@ -3467,7 +3507,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be replicated into the locations specified.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be
+     * replicated into the locations specified.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.UserManaged user_managed = 2;</code>
@@ -3489,7 +3530,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be replicated into the locations specified.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be
+     * replicated into the locations specified.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.UserManaged user_managed = 2;</code>
@@ -3509,7 +3551,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be replicated into the locations specified.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be
+     * replicated into the locations specified.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.UserManaged user_managed = 2;</code>
@@ -3527,7 +3570,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be replicated into the locations specified.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be
+     * replicated into the locations specified.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.UserManaged user_managed = 2;</code>
@@ -3554,7 +3598,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be replicated into the locations specified.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be
+     * replicated into the locations specified.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.UserManaged user_managed = 2;</code>
@@ -3577,7 +3622,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be replicated into the locations specified.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be
+     * replicated into the locations specified.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.UserManaged user_managed = 2;</code>
@@ -3587,7 +3633,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be replicated into the locations specified.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be
+     * replicated into the locations specified.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.UserManaged user_managed = 2;</code>
@@ -3605,7 +3652,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be replicated into the locations specified.
+     * The [Secret][google.cloud.secretmanager.v1.Secret] will only be
+     * replicated into the locations specified.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication.UserManaged user_managed = 2;</code>
@@ -3625,7 +3673,7 @@ private static final long serialVersionUID = 0L;
         replication_ = null;
       }
       replicationCase_ = 2;
-      onChanged();;
+      onChanged();
       return userManagedBuilder_;
     }
     @java.lang.Override
@@ -3661,7 +3709,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Replication(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

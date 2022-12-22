@@ -228,8 +228,7 @@ public interface RouteMatchOrBuilder extends
 
   /**
    * <pre>
-   * [#not-implemented-hide:]
-   * [#comment: TODO(silverstar195): Hook into extension once added]
+   * [#extension-category: envoy.path.match]
    * </pre>
    *
    * <code>.envoy.config.core.v3.TypedExtensionConfig path_match_policy = 15;</code>
@@ -238,8 +237,7 @@ public interface RouteMatchOrBuilder extends
   boolean hasPathMatchPolicy();
   /**
    * <pre>
-   * [#not-implemented-hide:]
-   * [#comment: TODO(silverstar195): Hook into extension once added]
+   * [#extension-category: envoy.path.match]
    * </pre>
    *
    * <code>.envoy.config.core.v3.TypedExtensionConfig path_match_policy = 15;</code>
@@ -248,8 +246,7 @@ public interface RouteMatchOrBuilder extends
   io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig getPathMatchPolicy();
   /**
    * <pre>
-   * [#not-implemented-hide:]
-   * [#comment: TODO(silverstar195): Hook into extension once added]
+   * [#extension-category: envoy.path.match]
    * </pre>
    *
    * <code>.envoy.config.core.v3.TypedExtensionConfig path_match_policy = 15;</code>

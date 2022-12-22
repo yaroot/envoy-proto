@@ -14,7 +14,7 @@ public interface CompressorOrBuilder extends
    *
    * <code>.google.protobuf.UInt32Value content_length = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_length is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=71
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=72
    * @return Whether the contentLength field is set.
    */
   @java.lang.Deprecated boolean hasContentLength();
@@ -25,7 +25,7 @@ public interface CompressorOrBuilder extends
    *
    * <code>.google.protobuf.UInt32Value content_length = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_length is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=71
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=72
    * @return The contentLength.
    */
   @java.lang.Deprecated com.google.protobuf.UInt32Value getContentLength();
@@ -49,7 +49,7 @@ public interface CompressorOrBuilder extends
    *
    * <code>repeated string content_type = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_type is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=79
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=80
    * @return A list containing the contentType.
    */
   @java.lang.Deprecated java.util.List<java.lang.String>
@@ -65,7 +65,7 @@ public interface CompressorOrBuilder extends
    *
    * <code>repeated string content_type = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_type is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=79
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=80
    * @return The count of contentType.
    */
   @java.lang.Deprecated int getContentTypeCount();
@@ -80,7 +80,7 @@ public interface CompressorOrBuilder extends
    *
    * <code>repeated string content_type = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_type is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=79
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=80
    * @param index The index of the element to return.
    * @return The contentType at the given index.
    */
@@ -96,7 +96,7 @@ public interface CompressorOrBuilder extends
    *
    * <code>repeated string content_type = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_type is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=79
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=80
    * @param index The index of the value to return.
    * @return The bytes of the contentType at the given index.
    */
@@ -111,7 +111,7 @@ public interface CompressorOrBuilder extends
    *
    * <code>bool disable_on_etag_header = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.disable_on_etag_header is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=84
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=85
    * @return The disableOnEtagHeader.
    */
   @java.lang.Deprecated boolean getDisableOnEtagHeader();
@@ -127,7 +127,7 @@ public interface CompressorOrBuilder extends
    *
    * <code>bool remove_accept_encoding_header = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.remove_accept_encoding_header is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=94
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=95
    * @return The removeAcceptEncodingHeader.
    */
   @java.lang.Deprecated boolean getRemoveAcceptEncodingHeader();
@@ -135,31 +135,34 @@ public interface CompressorOrBuilder extends
   /**
    * <pre>
    * Runtime flag that controls whether the filter is enabled or not. If set to false, the
-   * filter will operate as a pass-through filter. If not specified, defaults to enabled.
+   * filter will operate as a pass-through filter, unless overridden by
+   * CompressorPerRoute. If not specified, defaults to enabled.
    * </pre>
    *
    * <code>.envoy.config.core.v3.RuntimeFeatureFlag runtime_enabled = 5 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.runtime_enabled is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=99
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=101
    * @return Whether the runtimeEnabled field is set.
    */
   @java.lang.Deprecated boolean hasRuntimeEnabled();
   /**
    * <pre>
    * Runtime flag that controls whether the filter is enabled or not. If set to false, the
-   * filter will operate as a pass-through filter. If not specified, defaults to enabled.
+   * filter will operate as a pass-through filter, unless overridden by
+   * CompressorPerRoute. If not specified, defaults to enabled.
    * </pre>
    *
    * <code>.envoy.config.core.v3.RuntimeFeatureFlag runtime_enabled = 5 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.runtime_enabled is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=99
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=101
    * @return The runtimeEnabled.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag getRuntimeEnabled();
   /**
    * <pre>
    * Runtime flag that controls whether the filter is enabled or not. If set to false, the
-   * filter will operate as a pass-through filter. If not specified, defaults to enabled.
+   * filter will operate as a pass-through filter, unless overridden by
+   * CompressorPerRoute. If not specified, defaults to enabled.
    * </pre>
    *
    * <code>.envoy.config.core.v3.RuntimeFeatureFlag runtime_enabled = 5 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
@@ -279,4 +282,15 @@ public interface CompressorOrBuilder extends
    * <code>.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig response_direction_config = 8;</code>
    */
   io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfigOrBuilder getResponseDirectionConfigOrBuilder();
+
+  /**
+   * <pre>
+   * If true, chooses this compressor first to do compression when the q-values in `Accept-Encoding` are same.
+   * The last compressor which enables choose_first will be chosen if multiple compressor filters in the chain have choose_first as true.
+   * </pre>
+   *
+   * <code>bool choose_first = 9;</code>
+   * @return The chooseFirst.
+   */
+  boolean getChooseFirst();
 }

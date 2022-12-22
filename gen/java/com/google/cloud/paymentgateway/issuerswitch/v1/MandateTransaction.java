@@ -46,183 +46,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MandateTransaction(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.Builder subBuilder = null;
-            if (transactionInfo_ != null) {
-              subBuilder = transactionInfo_.toBuilder();
-            }
-            transactionInfo_ = input.readMessage(com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(transactionInfo_);
-              transactionInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            uniqueMandateNumber_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            payerVpa_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            payeeVpa_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            payeeMerchantId_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            payerMobileNumber_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            payeeMobileNumber_ = s;
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            recurrencePattern_ = rawValue;
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-
-            recurrenceRuleType_ = rawValue;
-            break;
-          }
-          case 88: {
-
-            recurrenceRuleValue_ = input.readInt32();
-            break;
-          }
-          case 98: {
-            com.google.type.Date.Builder subBuilder = null;
-            if (startDate_ != null) {
-              subBuilder = startDate_.toBuilder();
-            }
-            startDate_ = input.readMessage(com.google.type.Date.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(startDate_);
-              startDate_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            com.google.type.Date.Builder subBuilder = null;
-            if (endDate_ != null) {
-              subBuilder = endDate_.toBuilder();
-            }
-            endDate_ = input.readMessage(com.google.type.Date.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(endDate_);
-              endDate_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 112: {
-
-            revokable_ = input.readBool();
-            break;
-          }
-          case 121: {
-
-            amount_ = input.readDouble();
-            break;
-          }
-          case 128: {
-            int rawValue = input.readEnum();
-
-            amountRule_ = rawValue;
-            break;
-          }
-          case 138: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            approvalReference_ = s;
-            break;
-          }
-          case 144: {
-
-            blockFunds_ = input.readBool();
-            break;
-          }
-          case 154: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (lastUpdateTime_ != null) {
-              subBuilder = lastUpdateTime_.toBuilder();
-            }
-            lastUpdateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lastUpdateTime_);
-              lastUpdateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.paymentgateway.issuerswitch.v1.TransactionsProto.internal_static_google_cloud_paymentgateway_issuerswitch_v1_MandateTransaction_descriptor;
@@ -830,7 +653,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The name of the mandate transaction. This uniquely identifies the
@@ -914,11 +738,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfoOrBuilder getTransactionInfoOrBuilder() {
-    return getTransactionInfo();
+    return transactionInfo_ == null ? com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.getDefaultInstance() : transactionInfo_;
   }
 
   public static final int UNIQUE_MANDATE_NUMBER_FIELD_NUMBER = 3;
-  private volatile java.lang.Object uniqueMandateNumber_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object uniqueMandateNumber_ = "";
   /**
    * <pre>
    * Output only. This maps to Unique Mandate Number (UMN) in UPI specification.
@@ -964,7 +789,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAYER_VPA_FIELD_NUMBER = 4;
-  private volatile java.lang.Object payerVpa_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object payerVpa_ = "";
   /**
    * <pre>
    * Output only. The virtual payment address (VPA) of the payer.
@@ -1010,7 +836,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAYEE_VPA_FIELD_NUMBER = 5;
-  private volatile java.lang.Object payeeVpa_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object payeeVpa_ = "";
   /**
    * <pre>
    * Output only. The virtual payment address (VPA) of the payee.
@@ -1056,7 +883,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAYEE_MERCHANT_ID_FIELD_NUMBER = 6;
-  private volatile java.lang.Object payeeMerchantId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object payeeMerchantId_ = "";
   /**
    * <pre>
    * Output only. A unique identifier for merchant.
@@ -1102,7 +930,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAYER_MOBILE_NUMBER_FIELD_NUMBER = 7;
-  private volatile java.lang.Object payerMobileNumber_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object payerMobileNumber_ = "";
   /**
    * <pre>
    * Output only. The mobile number of the payer consisting of total twelve digits where
@@ -1152,7 +981,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAYEE_MOBILE_NUMBER_FIELD_NUMBER = 8;
-  private volatile java.lang.Object payeeMobileNumber_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object payeeMobileNumber_ = "";
   /**
    * <pre>
    * Output only. The mobile number of the payer consisting of total twelve digits where
@@ -1202,7 +1032,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RECURRENCE_PATTERN_FIELD_NUMBER = 9;
-  private int recurrencePattern_;
+  private int recurrencePattern_ = 0;
   /**
    * <pre>
    * Output only. The type of recurrence pattern of the mandate.
@@ -1223,13 +1053,12 @@ private static final long serialVersionUID = 0L;
    * @return The recurrencePattern.
    */
   @java.lang.Override public com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrencePatternType getRecurrencePattern() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrencePatternType result = com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrencePatternType.valueOf(recurrencePattern_);
+    com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrencePatternType result = com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrencePatternType.forNumber(recurrencePattern_);
     return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrencePatternType.UNRECOGNIZED : result;
   }
 
   public static final int RECURRENCE_RULE_TYPE_FIELD_NUMBER = 10;
-  private int recurrenceRuleType_;
+  private int recurrenceRuleType_ = 0;
   /**
    * <pre>
    * Output only. The type of recurrence rule of the mandate.
@@ -1250,13 +1079,12 @@ private static final long serialVersionUID = 0L;
    * @return The recurrenceRuleType.
    */
   @java.lang.Override public com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrenceRuleType getRecurrenceRuleType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrenceRuleType result = com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrenceRuleType.valueOf(recurrenceRuleType_);
+    com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrenceRuleType result = com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrenceRuleType.forNumber(recurrenceRuleType_);
     return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrenceRuleType.UNRECOGNIZED : result;
   }
 
   public static final int RECURRENCE_RULE_VALUE_FIELD_NUMBER = 11;
-  private int recurrenceRuleValue_;
+  private int recurrenceRuleValue_ = 0;
   /**
    * <pre>
    * Output only. The recurrence rule value of the mandate. This is a value from 1 to 31.
@@ -1305,7 +1133,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.DateOrBuilder getStartDateOrBuilder() {
-    return getStartDate();
+    return startDate_ == null ? com.google.type.Date.getDefaultInstance() : startDate_;
   }
 
   public static final int END_DATE_FIELD_NUMBER = 13;
@@ -1343,11 +1171,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.DateOrBuilder getEndDateOrBuilder() {
-    return getEndDate();
+    return endDate_ == null ? com.google.type.Date.getDefaultInstance() : endDate_;
   }
 
   public static final int REVOKABLE_FIELD_NUMBER = 14;
-  private boolean revokable_;
+  private boolean revokable_ = false;
   /**
    * <pre>
    * Output only. If true, this specifies mandate can be revoked.
@@ -1362,7 +1190,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AMOUNT_FIELD_NUMBER = 15;
-  private double amount_;
+  private double amount_ = 0D;
   /**
    * <pre>
    * Output only. The amount of the mandate.
@@ -1377,7 +1205,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AMOUNT_RULE_FIELD_NUMBER = 16;
-  private int amountRule_;
+  private int amountRule_ = 0;
   /**
    * <pre>
    * Output only. The amount rule type of the mandate.
@@ -1398,13 +1226,13 @@ private static final long serialVersionUID = 0L;
    * @return The amountRule.
    */
   @java.lang.Override public com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.AmountRuleType getAmountRule() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.AmountRuleType result = com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.AmountRuleType.valueOf(amountRule_);
+    com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.AmountRuleType result = com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.AmountRuleType.forNumber(amountRule_);
     return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.AmountRuleType.UNRECOGNIZED : result;
   }
 
   public static final int APPROVAL_REFERENCE_FIELD_NUMBER = 17;
-  private volatile java.lang.Object approvalReference_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object approvalReference_ = "";
   /**
    * <pre>
    * Output only. The Block funds reference generated by the bank, this will be available
@@ -1452,7 +1280,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BLOCK_FUNDS_FIELD_NUMBER = 18;
-  private boolean blockFunds_;
+  private boolean blockFunds_ = false;
   /**
    * <pre>
    * Output only. If true, this specifies the mandate transaction requested funds to be
@@ -1471,8 +1299,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp lastUpdateTime_;
   /**
    * <pre>
-   * Output only. The last time at which the mandate resource was modified by the issuer
-   * switch.
+   * Output only.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_update_time = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1484,8 +1311,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The last time at which the mandate resource was modified by the issuer
-   * switch.
+   * Output only.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_update_time = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1497,15 +1323,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The last time at which the mandate resource was modified by the issuer
-   * switch.
+   * Output only.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_update_time = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getLastUpdateTimeOrBuilder() {
-    return getLastUpdateTime();
+    return lastUpdateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastUpdateTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1579,7 +1404,7 @@ private static final long serialVersionUID = 0L;
     if (lastUpdateTime_ != null) {
       output.writeMessage(19, getLastUpdateTime());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1656,7 +1481,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(19, getLastUpdateTime());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1719,7 +1544,7 @@ private static final long serialVersionUID = 0L;
       if (!getLastUpdateTime()
           .equals(other.getLastUpdateTime())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1779,7 +1604,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LAST_UPDATE_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getLastUpdateTime().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1901,74 +1726,51 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (transactionInfoBuilder_ == null) {
-        transactionInfo_ = null;
-      } else {
-        transactionInfo_ = null;
+      transactionInfo_ = null;
+      if (transactionInfoBuilder_ != null) {
+        transactionInfoBuilder_.dispose();
         transactionInfoBuilder_ = null;
       }
       uniqueMandateNumber_ = "";
-
       payerVpa_ = "";
-
       payeeVpa_ = "";
-
       payeeMerchantId_ = "";
-
       payerMobileNumber_ = "";
-
       payeeMobileNumber_ = "";
-
       recurrencePattern_ = 0;
-
       recurrenceRuleType_ = 0;
-
       recurrenceRuleValue_ = 0;
-
-      if (startDateBuilder_ == null) {
-        startDate_ = null;
-      } else {
-        startDate_ = null;
+      startDate_ = null;
+      if (startDateBuilder_ != null) {
+        startDateBuilder_.dispose();
         startDateBuilder_ = null;
       }
-      if (endDateBuilder_ == null) {
-        endDate_ = null;
-      } else {
-        endDate_ = null;
+      endDate_ = null;
+      if (endDateBuilder_ != null) {
+        endDateBuilder_.dispose();
         endDateBuilder_ = null;
       }
       revokable_ = false;
-
       amount_ = 0D;
-
       amountRule_ = 0;
-
       approvalReference_ = "";
-
       blockFunds_ = false;
-
-      if (lastUpdateTimeBuilder_ == null) {
-        lastUpdateTime_ = null;
-      } else {
-        lastUpdateTime_ = null;
+      lastUpdateTime_ = null;
+      if (lastUpdateTimeBuilder_ != null) {
+        lastUpdateTimeBuilder_.dispose();
         lastUpdateTimeBuilder_ = null;
       }
       return this;
@@ -1997,43 +1799,78 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction buildPartial() {
       com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction result = new com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction(this);
-      result.name_ = name_;
-      if (transactionInfoBuilder_ == null) {
-        result.transactionInfo_ = transactionInfo_;
-      } else {
-        result.transactionInfo_ = transactionInfoBuilder_.build();
-      }
-      result.uniqueMandateNumber_ = uniqueMandateNumber_;
-      result.payerVpa_ = payerVpa_;
-      result.payeeVpa_ = payeeVpa_;
-      result.payeeMerchantId_ = payeeMerchantId_;
-      result.payerMobileNumber_ = payerMobileNumber_;
-      result.payeeMobileNumber_ = payeeMobileNumber_;
-      result.recurrencePattern_ = recurrencePattern_;
-      result.recurrenceRuleType_ = recurrenceRuleType_;
-      result.recurrenceRuleValue_ = recurrenceRuleValue_;
-      if (startDateBuilder_ == null) {
-        result.startDate_ = startDate_;
-      } else {
-        result.startDate_ = startDateBuilder_.build();
-      }
-      if (endDateBuilder_ == null) {
-        result.endDate_ = endDate_;
-      } else {
-        result.endDate_ = endDateBuilder_.build();
-      }
-      result.revokable_ = revokable_;
-      result.amount_ = amount_;
-      result.amountRule_ = amountRule_;
-      result.approvalReference_ = approvalReference_;
-      result.blockFunds_ = blockFunds_;
-      if (lastUpdateTimeBuilder_ == null) {
-        result.lastUpdateTime_ = lastUpdateTime_;
-      } else {
-        result.lastUpdateTime_ = lastUpdateTimeBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.transactionInfo_ = transactionInfoBuilder_ == null
+            ? transactionInfo_
+            : transactionInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.uniqueMandateNumber_ = uniqueMandateNumber_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.payerVpa_ = payerVpa_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.payeeVpa_ = payeeVpa_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.payeeMerchantId_ = payeeMerchantId_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.payerMobileNumber_ = payerMobileNumber_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.payeeMobileNumber_ = payeeMobileNumber_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.recurrencePattern_ = recurrencePattern_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.recurrenceRuleType_ = recurrenceRuleType_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.recurrenceRuleValue_ = recurrenceRuleValue_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.startDate_ = startDateBuilder_ == null
+            ? startDate_
+            : startDateBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.endDate_ = endDateBuilder_ == null
+            ? endDate_
+            : endDateBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.revokable_ = revokable_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.amount_ = amount_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.amountRule_ = amountRule_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.approvalReference_ = approvalReference_;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.blockFunds_ = blockFunds_;
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.lastUpdateTime_ = lastUpdateTimeBuilder_ == null
+            ? lastUpdateTime_
+            : lastUpdateTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2082,6 +1919,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasTransactionInfo()) {
@@ -2089,26 +1927,32 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getUniqueMandateNumber().isEmpty()) {
         uniqueMandateNumber_ = other.uniqueMandateNumber_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getPayerVpa().isEmpty()) {
         payerVpa_ = other.payerVpa_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getPayeeVpa().isEmpty()) {
         payeeVpa_ = other.payeeVpa_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getPayeeMerchantId().isEmpty()) {
         payeeMerchantId_ = other.payeeMerchantId_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getPayerMobileNumber().isEmpty()) {
         payerMobileNumber_ = other.payerMobileNumber_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getPayeeMobileNumber().isEmpty()) {
         payeeMobileNumber_ = other.payeeMobileNumber_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.recurrencePattern_ != 0) {
@@ -2137,6 +1981,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getApprovalReference().isEmpty()) {
         approvalReference_ = other.approvalReference_;
+        bitField0_ |= 0x00010000;
         onChanged();
       }
       if (other.getBlockFunds() != false) {
@@ -2145,7 +1990,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasLastUpdateTime()) {
         mergeLastUpdateTime(other.getLastUpdateTime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2160,19 +2005,136 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTransactionInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              uniqueMandateNumber_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              payerVpa_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              payeeVpa_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              payeeMerchantId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              payerMobileNumber_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              payeeMobileNumber_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 72: {
+              recurrencePattern_ = input.readEnum();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 80: {
+              recurrenceRuleType_ = input.readEnum();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 88: {
+              recurrenceRuleValue_ = input.readInt32();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 98: {
+              input.readMessage(
+                  getStartDateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getEndDateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            case 112: {
+              revokable_ = input.readBool();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 112
+            case 121: {
+              amount_ = input.readDouble();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 121
+            case 128: {
+              amountRule_ = input.readEnum();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 128
+            case 138: {
+              approvalReference_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 138
+            case 144: {
+              blockFunds_ = input.readBool();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 144
+            case 154: {
+              input.readMessage(
+                  getLastUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 154
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -2233,11 +2195,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2252,8 +2212,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2270,12 +2230,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2292,7 +2250,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the transactionInfo field is set.
      */
     public boolean hasTransactionInfo() {
-      return transactionInfoBuilder_ != null || transactionInfo_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -2322,11 +2280,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         transactionInfo_ = value;
-        onChanged();
       } else {
         transactionInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2340,11 +2298,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.Builder builderForValue) {
       if (transactionInfoBuilder_ == null) {
         transactionInfo_ = builderForValue.build();
-        onChanged();
       } else {
         transactionInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2356,17 +2314,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTransactionInfo(com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo value) {
       if (transactionInfoBuilder_ == null) {
-        if (transactionInfo_ != null) {
-          transactionInfo_ =
-            com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.newBuilder(transactionInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          transactionInfo_ != null &&
+          transactionInfo_ != com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.getDefaultInstance()) {
+          getTransactionInfoBuilder().mergeFrom(value);
         } else {
           transactionInfo_ = value;
         }
-        onChanged();
       } else {
         transactionInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2377,14 +2336,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo transaction_info = 2;</code>
      */
     public Builder clearTransactionInfo() {
-      if (transactionInfoBuilder_ == null) {
-        transactionInfo_ = null;
-        onChanged();
-      } else {
-        transactionInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      transactionInfo_ = null;
+      if (transactionInfoBuilder_ != null) {
+        transactionInfoBuilder_.dispose();
         transactionInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2395,7 +2353,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo transaction_info = 2;</code>
      */
     public com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.Builder getTransactionInfoBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTransactionInfoFieldBuilder().getBuilder();
     }
@@ -2488,11 +2446,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUniqueMandateNumber(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       uniqueMandateNumber_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2505,8 +2461,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUniqueMandateNumber() {
-      
       uniqueMandateNumber_ = getDefaultInstance().getUniqueMandateNumber();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2521,12 +2477,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUniqueMandateNumberBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       uniqueMandateNumber_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2584,11 +2538,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPayerVpa(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       payerVpa_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2601,8 +2553,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPayerVpa() {
-      
       payerVpa_ = getDefaultInstance().getPayerVpa();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2617,12 +2569,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPayerVpaBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       payerVpa_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2680,11 +2630,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPayeeVpa(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       payeeVpa_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2697,8 +2645,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPayeeVpa() {
-      
       payeeVpa_ = getDefaultInstance().getPayeeVpa();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2713,12 +2661,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPayeeVpaBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       payeeVpa_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2776,11 +2722,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPayeeMerchantId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       payeeMerchantId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2793,8 +2737,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPayeeMerchantId() {
-      
       payeeMerchantId_ = getDefaultInstance().getPayeeMerchantId();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2809,12 +2753,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPayeeMerchantIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       payeeMerchantId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2878,11 +2820,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPayerMobileNumber(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       payerMobileNumber_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2897,8 +2837,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPayerMobileNumber() {
-      
       payerMobileNumber_ = getDefaultInstance().getPayerMobileNumber();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2915,12 +2855,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPayerMobileNumberBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       payerMobileNumber_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2984,11 +2922,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPayeeMobileNumber(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       payeeMobileNumber_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3003,8 +2939,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPayeeMobileNumber() {
-      
       payeeMobileNumber_ = getDefaultInstance().getPayeeMobileNumber();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -3021,12 +2957,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPayeeMobileNumberBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       payeeMobileNumber_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3053,8 +2987,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRecurrencePatternValue(int value) {
-      
       recurrencePattern_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3068,8 +3002,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrencePatternType getRecurrencePattern() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrencePatternType result = com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrencePatternType.valueOf(recurrencePattern_);
+      com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrencePatternType result = com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrencePatternType.forNumber(recurrencePattern_);
       return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrencePatternType.UNRECOGNIZED : result;
     }
     /**
@@ -3085,7 +3018,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000100;
       recurrencePattern_ = value.getNumber();
       onChanged();
       return this;
@@ -3099,7 +3032,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRecurrencePattern() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       recurrencePattern_ = 0;
       onChanged();
       return this;
@@ -3127,8 +3060,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRecurrenceRuleTypeValue(int value) {
-      
       recurrenceRuleType_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3142,8 +3075,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrenceRuleType getRecurrenceRuleType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrenceRuleType result = com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrenceRuleType.valueOf(recurrenceRuleType_);
+      com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrenceRuleType result = com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrenceRuleType.forNumber(recurrenceRuleType_);
       return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.RecurrenceRuleType.UNRECOGNIZED : result;
     }
     /**
@@ -3159,7 +3091,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000200;
       recurrenceRuleType_ = value.getNumber();
       onChanged();
       return this;
@@ -3173,7 +3105,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRecurrenceRuleType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       recurrenceRuleType_ = 0;
       onChanged();
       return this;
@@ -3204,6 +3136,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRecurrenceRuleValue(int value) {
       
       recurrenceRuleValue_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3216,7 +3149,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRecurrenceRuleValue() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       recurrenceRuleValue_ = 0;
       onChanged();
       return this;
@@ -3234,7 +3167,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the startDate field is set.
      */
     public boolean hasStartDate() {
-      return startDateBuilder_ != null || startDate_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -3264,11 +3197,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         startDate_ = value;
-        onChanged();
       } else {
         startDateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3282,11 +3215,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.Date.Builder builderForValue) {
       if (startDateBuilder_ == null) {
         startDate_ = builderForValue.build();
-        onChanged();
       } else {
         startDateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3298,17 +3231,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStartDate(com.google.type.Date value) {
       if (startDateBuilder_ == null) {
-        if (startDate_ != null) {
-          startDate_ =
-            com.google.type.Date.newBuilder(startDate_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          startDate_ != null &&
+          startDate_ != com.google.type.Date.getDefaultInstance()) {
+          getStartDateBuilder().mergeFrom(value);
         } else {
           startDate_ = value;
         }
-        onChanged();
       } else {
         startDateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3319,14 +3253,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.Date start_date = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearStartDate() {
-      if (startDateBuilder_ == null) {
-        startDate_ = null;
-        onChanged();
-      } else {
-        startDate_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      startDate_ = null;
+      if (startDateBuilder_ != null) {
+        startDateBuilder_.dispose();
         startDateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3337,7 +3270,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.Date start_date = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.type.Date.Builder getStartDateBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getStartDateFieldBuilder().getBuilder();
     }
@@ -3389,7 +3322,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the endDate field is set.
      */
     public boolean hasEndDate() {
-      return endDateBuilder_ != null || endDate_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -3419,11 +3352,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         endDate_ = value;
-        onChanged();
       } else {
         endDateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3437,11 +3370,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.Date.Builder builderForValue) {
       if (endDateBuilder_ == null) {
         endDate_ = builderForValue.build();
-        onChanged();
       } else {
         endDateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3453,17 +3386,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEndDate(com.google.type.Date value) {
       if (endDateBuilder_ == null) {
-        if (endDate_ != null) {
-          endDate_ =
-            com.google.type.Date.newBuilder(endDate_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          endDate_ != null &&
+          endDate_ != com.google.type.Date.getDefaultInstance()) {
+          getEndDateBuilder().mergeFrom(value);
         } else {
           endDate_ = value;
         }
-        onChanged();
       } else {
         endDateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3474,14 +3408,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.Date end_date = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearEndDate() {
-      if (endDateBuilder_ == null) {
-        endDate_ = null;
-        onChanged();
-      } else {
-        endDate_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      endDate_ = null;
+      if (endDateBuilder_ != null) {
+        endDateBuilder_.dispose();
         endDateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3492,7 +3425,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.Date end_date = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.type.Date.Builder getEndDateBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getEndDateFieldBuilder().getBuilder();
     }
@@ -3557,6 +3490,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRevokable(boolean value) {
       
       revokable_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3569,7 +3503,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRevokable() {
-      
+      bitField0_ = (bitField0_ & ~0x00002000);
       revokable_ = false;
       onChanged();
       return this;
@@ -3600,6 +3534,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAmount(double value) {
       
       amount_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -3612,7 +3547,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAmount() {
-      
+      bitField0_ = (bitField0_ & ~0x00004000);
       amount_ = 0D;
       onChanged();
       return this;
@@ -3640,8 +3575,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAmountRuleValue(int value) {
-      
       amountRule_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -3655,8 +3590,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.AmountRuleType getAmountRule() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.AmountRuleType result = com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.AmountRuleType.valueOf(amountRule_);
+      com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.AmountRuleType result = com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.AmountRuleType.forNumber(amountRule_);
       return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.MandateTransaction.AmountRuleType.UNRECOGNIZED : result;
     }
     /**
@@ -3672,7 +3606,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00008000;
       amountRule_ = value.getNumber();
       onChanged();
       return this;
@@ -3686,7 +3620,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAmountRule() {
-      
+      bitField0_ = (bitField0_ & ~0x00008000);
       amountRule_ = 0;
       onChanged();
       return this;
@@ -3748,11 +3682,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApprovalReference(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       approvalReference_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -3766,8 +3698,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApprovalReference() {
-      
       approvalReference_ = getDefaultInstance().getApprovalReference();
+      bitField0_ = (bitField0_ & ~0x00010000);
       onChanged();
       return this;
     }
@@ -3783,12 +3715,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApprovalReferenceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       approvalReference_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -3820,6 +3750,7 @@ private static final long serialVersionUID = 0L;
     public Builder setBlockFunds(boolean value) {
       
       blockFunds_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -3833,7 +3764,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBlockFunds() {
-      
+      bitField0_ = (bitField0_ & ~0x00020000);
       blockFunds_ = false;
       onChanged();
       return this;
@@ -3844,20 +3775,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> lastUpdateTimeBuilder_;
     /**
      * <pre>
-     * Output only. The last time at which the mandate resource was modified by the issuer
-     * switch.
+     * Output only.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_update_time = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return Whether the lastUpdateTime field is set.
      */
     public boolean hasLastUpdateTime() {
-      return lastUpdateTimeBuilder_ != null || lastUpdateTime_ != null;
+      return ((bitField0_ & 0x00040000) != 0);
     }
     /**
      * <pre>
-     * Output only. The last time at which the mandate resource was modified by the issuer
-     * switch.
+     * Output only.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_update_time = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -3872,8 +3801,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The last time at which the mandate resource was modified by the issuer
-     * switch.
+     * Output only.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_update_time = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -3884,17 +3812,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         lastUpdateTime_ = value;
-        onChanged();
       } else {
         lastUpdateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The last time at which the mandate resource was modified by the issuer
-     * switch.
+     * Output only.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_update_time = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -3903,72 +3830,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (lastUpdateTimeBuilder_ == null) {
         lastUpdateTime_ = builderForValue.build();
-        onChanged();
       } else {
         lastUpdateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The last time at which the mandate resource was modified by the issuer
-     * switch.
+     * Output only.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_update_time = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder mergeLastUpdateTime(com.google.protobuf.Timestamp value) {
       if (lastUpdateTimeBuilder_ == null) {
-        if (lastUpdateTime_ != null) {
-          lastUpdateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(lastUpdateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00040000) != 0) &&
+          lastUpdateTime_ != null &&
+          lastUpdateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getLastUpdateTimeBuilder().mergeFrom(value);
         } else {
           lastUpdateTime_ = value;
         }
-        onChanged();
       } else {
         lastUpdateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The last time at which the mandate resource was modified by the issuer
-     * switch.
+     * Output only.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_update_time = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearLastUpdateTime() {
-      if (lastUpdateTimeBuilder_ == null) {
-        lastUpdateTime_ = null;
-        onChanged();
-      } else {
-        lastUpdateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00040000);
+      lastUpdateTime_ = null;
+      if (lastUpdateTimeBuilder_ != null) {
+        lastUpdateTimeBuilder_.dispose();
         lastUpdateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The last time at which the mandate resource was modified by the issuer
-     * switch.
+     * Output only.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_update_time = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getLastUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00040000;
       onChanged();
       return getLastUpdateTimeFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Output only. The last time at which the mandate resource was modified by the issuer
-     * switch.
+     * Output only.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_update_time = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -3983,8 +3906,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The last time at which the mandate resource was modified by the issuer
-     * switch.
+     * Output only.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp last_update_time = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4035,7 +3957,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MandateTransaction(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -35,78 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ShieldedInstanceIdentity(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26336418: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            kind_ = s;
-            break;
-          }
-          case -1727381206: {
-            com.google.cloud.compute.v1.ShieldedInstanceIdentityEntry.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000004) != 0)) {
-              subBuilder = signingKey_.toBuilder();
-            }
-            signingKey_ = input.readMessage(com.google.cloud.compute.v1.ShieldedInstanceIdentityEntry.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(signingKey_);
-              signingKey_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000004;
-            break;
-          }
-          case -388817638: {
-            com.google.cloud.compute.v1.ShieldedInstanceIdentityEntry.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = encryptionKey_.toBuilder();
-            }
-            encryptionKey_ = input.readMessage(com.google.cloud.compute.v1.ShieldedInstanceIdentityEntry.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(encryptionKey_);
-              encryptionKey_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_ShieldedInstanceIdentity_descriptor;
@@ -160,7 +88,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 3292052;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * [Output Only] Type of the resource. Always compute#shieldedInstanceIdentity for shielded Instance identity entry.
@@ -278,7 +207,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(488268707, getEncryptionKey());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -298,7 +227,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(488268707, getEncryptionKey());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -328,7 +257,7 @@ private static final long serialVersionUID = 0L;
       if (!getSigningKey()
           .equals(other.getSigningKey())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -351,7 +280,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SIGNING_KEY_FIELD_NUMBER;
       hash = (53 * hash) + getSigningKey().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -490,20 +419,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (encryptionKeyBuilder_ == null) {
-        encryptionKey_ = null;
-      } else {
-        encryptionKeyBuilder_.clear();
+      bitField0_ = 0;
+      encryptionKey_ = null;
+      if (encryptionKeyBuilder_ != null) {
+        encryptionKeyBuilder_.dispose();
+        encryptionKeyBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
       kind_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
-      if (signingKeyBuilder_ == null) {
-        signingKey_ = null;
-      } else {
-        signingKeyBuilder_.clear();
+      signingKey_ = null;
+      if (signingKeyBuilder_ != null) {
+        signingKeyBuilder_.dispose();
+        signingKeyBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -530,31 +457,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.ShieldedInstanceIdentity buildPartial() {
       com.google.cloud.compute.v1.ShieldedInstanceIdentity result = new com.google.cloud.compute.v1.ShieldedInstanceIdentity(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.ShieldedInstanceIdentity result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (encryptionKeyBuilder_ == null) {
-          result.encryptionKey_ = encryptionKey_;
-        } else {
-          result.encryptionKey_ = encryptionKeyBuilder_.build();
-        }
+        result.encryptionKey_ = encryptionKeyBuilder_ == null
+            ? encryptionKey_
+            : encryptionKeyBuilder_.build();
         to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.kind_ = kind_;
         to_bitField0_ |= 0x00000002;
       }
-      result.kind_ = kind_;
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        if (signingKeyBuilder_ == null) {
-          result.signingKey_ = signingKey_;
-        } else {
-          result.signingKey_ = signingKeyBuilder_.build();
-        }
+        result.signingKey_ = signingKeyBuilder_ == null
+            ? signingKey_
+            : signingKeyBuilder_.build();
         to_bitField0_ |= 0x00000004;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -605,14 +532,14 @@ private static final long serialVersionUID = 0L;
         mergeEncryptionKey(other.getEncryptionKey());
       }
       if (other.hasKind()) {
-        bitField0_ |= 0x00000002;
         kind_ = other.kind_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasSigningKey()) {
         mergeSigningKey(other.getSigningKey());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -627,17 +554,49 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.ShieldedInstanceIdentity parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26336418: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26336418
+            case -1727381206: {
+              input.readMessage(
+                  getSigningKeyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -1727381206
+            case -388817638: {
+              input.readMessage(
+                  getEncryptionKeyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -388817638
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.ShieldedInstanceIdentity) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -684,11 +643,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         encryptionKey_ = value;
-        onChanged();
       } else {
         encryptionKeyBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -702,11 +661,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.ShieldedInstanceIdentityEntry.Builder builderForValue) {
       if (encryptionKeyBuilder_ == null) {
         encryptionKey_ = builderForValue.build();
-        onChanged();
       } else {
         encryptionKeyBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -719,18 +678,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeEncryptionKey(com.google.cloud.compute.v1.ShieldedInstanceIdentityEntry value) {
       if (encryptionKeyBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0) &&
-            encryptionKey_ != null &&
-            encryptionKey_ != com.google.cloud.compute.v1.ShieldedInstanceIdentityEntry.getDefaultInstance()) {
-          encryptionKey_ =
-            com.google.cloud.compute.v1.ShieldedInstanceIdentityEntry.newBuilder(encryptionKey_).mergeFrom(value).buildPartial();
+          encryptionKey_ != null &&
+          encryptionKey_ != com.google.cloud.compute.v1.ShieldedInstanceIdentityEntry.getDefaultInstance()) {
+          getEncryptionKeyBuilder().mergeFrom(value);
         } else {
           encryptionKey_ = value;
         }
-        onChanged();
       } else {
         encryptionKeyBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -741,13 +699,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.ShieldedInstanceIdentityEntry encryption_key = 488268707;</code>
      */
     public Builder clearEncryptionKey() {
-      if (encryptionKeyBuilder_ == null) {
-        encryptionKey_ = null;
-        onChanged();
-      } else {
-        encryptionKeyBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000001);
+      encryptionKey_ = null;
+      if (encryptionKeyBuilder_ != null) {
+        encryptionKeyBuilder_.dispose();
+        encryptionKeyBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -862,11 +820,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -879,8 +835,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -895,12 +851,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -947,11 +901,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         signingKey_ = value;
-        onChanged();
       } else {
         signingKeyBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -965,11 +919,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.ShieldedInstanceIdentityEntry.Builder builderForValue) {
       if (signingKeyBuilder_ == null) {
         signingKey_ = builderForValue.build();
-        onChanged();
       } else {
         signingKeyBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -982,18 +936,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeSigningKey(com.google.cloud.compute.v1.ShieldedInstanceIdentityEntry value) {
       if (signingKeyBuilder_ == null) {
         if (((bitField0_ & 0x00000004) != 0) &&
-            signingKey_ != null &&
-            signingKey_ != com.google.cloud.compute.v1.ShieldedInstanceIdentityEntry.getDefaultInstance()) {
-          signingKey_ =
-            com.google.cloud.compute.v1.ShieldedInstanceIdentityEntry.newBuilder(signingKey_).mergeFrom(value).buildPartial();
+          signingKey_ != null &&
+          signingKey_ != com.google.cloud.compute.v1.ShieldedInstanceIdentityEntry.getDefaultInstance()) {
+          getSigningKeyBuilder().mergeFrom(value);
         } else {
           signingKey_ = value;
         }
-        onChanged();
       } else {
         signingKeyBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1004,13 +957,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.ShieldedInstanceIdentityEntry signing_key = 320948261;</code>
      */
     public Builder clearSigningKey() {
-      if (signingKeyBuilder_ == null) {
-        signingKey_ = null;
-        onChanged();
-      } else {
-        signingKeyBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000004);
+      signingKey_ = null;
+      if (signingKeyBuilder_ != null) {
+        signingKeyBuilder_.dispose();
+        signingKeyBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1093,7 +1046,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ShieldedInstanceIdentity(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

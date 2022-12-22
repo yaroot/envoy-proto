@@ -30,17 +30,15 @@ public final class HttpInputsProto {
     java.lang.String[] descriptorData = {
       "\n%xds/type/matcher/v3/http_inputs.proto\022" +
       "\023xds.type.matcher.v3\032\037xds/annotations/v3" +
-      "/status.proto\032\027validate/validate.proto\"\035" +
-      "\n\033HttpAttributesCelMatchInputBg\n\036com.git" +
-      "hub.xds.type.matcher.v3B\017HttpInputsProto" +
-      "P\001Z*github.com/cncf/xds/go/xds/type/matc" +
-      "her/v3\322\306\244\341\006\002\010\001b\006proto3"
+      "/status.proto\"\035\n\033HttpAttributesCelMatchI" +
+      "nputBg\n\036com.github.xds.type.matcher.v3B\017" +
+      "HttpInputsProtoP\001Z*github.com/cncf/xds/g" +
+      "o/xds/type/matcher/v3\322\306\244\341\006\002\010\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           xds.annotations.v3.Status.getDescriptor(),
-          io.envoyproxy.pgv.validate.Validate.getDescriptor(),
         });
     internal_static_xds_type_matcher_v3_HttpAttributesCelMatchInput_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -54,7 +52,6 @@ public final class HttpInputsProto {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     xds.annotations.v3.Status.getDescriptor();
-    io.envoyproxy.pgv.validate.Validate.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

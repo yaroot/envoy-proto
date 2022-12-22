@@ -39,213 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Dataset(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 114: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 138: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            etag_ = s;
-            break;
-          }
-          case 168: {
-
-            exampleCount_ = input.readInt32();
-            break;
-          }
-          case 186: {
-            com.google.cloud.automl.v1beta1.TranslationDatasetMetadata.Builder subBuilder = null;
-            if (datasetMetadataCase_ == 23) {
-              subBuilder = ((com.google.cloud.automl.v1beta1.TranslationDatasetMetadata) datasetMetadata_).toBuilder();
-            }
-            datasetMetadata_ =
-                input.readMessage(com.google.cloud.automl.v1beta1.TranslationDatasetMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.automl.v1beta1.TranslationDatasetMetadata) datasetMetadata_);
-              datasetMetadata_ = subBuilder.buildPartial();
-            }
-            datasetMetadataCase_ = 23;
-            break;
-          }
-          case 194: {
-            com.google.cloud.automl.v1beta1.ImageClassificationDatasetMetadata.Builder subBuilder = null;
-            if (datasetMetadataCase_ == 24) {
-              subBuilder = ((com.google.cloud.automl.v1beta1.ImageClassificationDatasetMetadata) datasetMetadata_).toBuilder();
-            }
-            datasetMetadata_ =
-                input.readMessage(com.google.cloud.automl.v1beta1.ImageClassificationDatasetMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.automl.v1beta1.ImageClassificationDatasetMetadata) datasetMetadata_);
-              datasetMetadata_ = subBuilder.buildPartial();
-            }
-            datasetMetadataCase_ = 24;
-            break;
-          }
-          case 202: {
-            com.google.cloud.automl.v1beta1.TextClassificationDatasetMetadata.Builder subBuilder = null;
-            if (datasetMetadataCase_ == 25) {
-              subBuilder = ((com.google.cloud.automl.v1beta1.TextClassificationDatasetMetadata) datasetMetadata_).toBuilder();
-            }
-            datasetMetadata_ =
-                input.readMessage(com.google.cloud.automl.v1beta1.TextClassificationDatasetMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.automl.v1beta1.TextClassificationDatasetMetadata) datasetMetadata_);
-              datasetMetadata_ = subBuilder.buildPartial();
-            }
-            datasetMetadataCase_ = 25;
-            break;
-          }
-          case 210: {
-            com.google.cloud.automl.v1beta1.ImageObjectDetectionDatasetMetadata.Builder subBuilder = null;
-            if (datasetMetadataCase_ == 26) {
-              subBuilder = ((com.google.cloud.automl.v1beta1.ImageObjectDetectionDatasetMetadata) datasetMetadata_).toBuilder();
-            }
-            datasetMetadata_ =
-                input.readMessage(com.google.cloud.automl.v1beta1.ImageObjectDetectionDatasetMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.automl.v1beta1.ImageObjectDetectionDatasetMetadata) datasetMetadata_);
-              datasetMetadata_ = subBuilder.buildPartial();
-            }
-            datasetMetadataCase_ = 26;
-            break;
-          }
-          case 226: {
-            com.google.cloud.automl.v1beta1.TextExtractionDatasetMetadata.Builder subBuilder = null;
-            if (datasetMetadataCase_ == 28) {
-              subBuilder = ((com.google.cloud.automl.v1beta1.TextExtractionDatasetMetadata) datasetMetadata_).toBuilder();
-            }
-            datasetMetadata_ =
-                input.readMessage(com.google.cloud.automl.v1beta1.TextExtractionDatasetMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.automl.v1beta1.TextExtractionDatasetMetadata) datasetMetadata_);
-              datasetMetadata_ = subBuilder.buildPartial();
-            }
-            datasetMetadataCase_ = 28;
-            break;
-          }
-          case 234: {
-            com.google.cloud.automl.v1beta1.VideoObjectTrackingDatasetMetadata.Builder subBuilder = null;
-            if (datasetMetadataCase_ == 29) {
-              subBuilder = ((com.google.cloud.automl.v1beta1.VideoObjectTrackingDatasetMetadata) datasetMetadata_).toBuilder();
-            }
-            datasetMetadata_ =
-                input.readMessage(com.google.cloud.automl.v1beta1.VideoObjectTrackingDatasetMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.automl.v1beta1.VideoObjectTrackingDatasetMetadata) datasetMetadata_);
-              datasetMetadata_ = subBuilder.buildPartial();
-            }
-            datasetMetadataCase_ = 29;
-            break;
-          }
-          case 242: {
-            com.google.cloud.automl.v1beta1.TextSentimentDatasetMetadata.Builder subBuilder = null;
-            if (datasetMetadataCase_ == 30) {
-              subBuilder = ((com.google.cloud.automl.v1beta1.TextSentimentDatasetMetadata) datasetMetadata_).toBuilder();
-            }
-            datasetMetadata_ =
-                input.readMessage(com.google.cloud.automl.v1beta1.TextSentimentDatasetMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.automl.v1beta1.TextSentimentDatasetMetadata) datasetMetadata_);
-              datasetMetadata_ = subBuilder.buildPartial();
-            }
-            datasetMetadataCase_ = 30;
-            break;
-          }
-          case 250: {
-            com.google.cloud.automl.v1beta1.VideoClassificationDatasetMetadata.Builder subBuilder = null;
-            if (datasetMetadataCase_ == 31) {
-              subBuilder = ((com.google.cloud.automl.v1beta1.VideoClassificationDatasetMetadata) datasetMetadata_).toBuilder();
-            }
-            datasetMetadata_ =
-                input.readMessage(com.google.cloud.automl.v1beta1.VideoClassificationDatasetMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.automl.v1beta1.VideoClassificationDatasetMetadata) datasetMetadata_);
-              datasetMetadata_ = subBuilder.buildPartial();
-            }
-            datasetMetadataCase_ = 31;
-            break;
-          }
-          case 266: {
-            com.google.cloud.automl.v1beta1.TablesDatasetMetadata.Builder subBuilder = null;
-            if (datasetMetadataCase_ == 33) {
-              subBuilder = ((com.google.cloud.automl.v1beta1.TablesDatasetMetadata) datasetMetadata_).toBuilder();
-            }
-            datasetMetadata_ =
-                input.readMessage(com.google.cloud.automl.v1beta1.TablesDatasetMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.automl.v1beta1.TablesDatasetMetadata) datasetMetadata_);
-              datasetMetadata_ = subBuilder.buildPartial();
-            }
-            datasetMetadataCase_ = 33;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.automl.v1beta1.DatasetOuterClass.internal_static_google_cloud_automl_v1beta1_Dataset_descriptor;
@@ -702,7 +495,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The resource name of the dataset.
@@ -750,7 +544,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Required. The name of the dataset to show in the interface. The name can be
@@ -802,7 +597,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * User-provided description of the dataset. The description can be up to
@@ -850,7 +646,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXAMPLE_COUNT_FIELD_NUMBER = 21;
-  private int exampleCount_;
+  private int exampleCount_ = 0;
   /**
    * <pre>
    * Output only. The number of examples in the dataset.
@@ -899,11 +695,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int ETAG_FIELD_NUMBER = 17;
-  private volatile java.lang.Object etag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object etag_ = "";
   /**
    * <pre>
    * Used to perform consistent read-modify-write updates. If not set, a blind
@@ -1009,7 +806,7 @@ private static final long serialVersionUID = 0L;
     if (datasetMetadataCase_ == 33) {
       output.writeMessage(33, (com.google.cloud.automl.v1beta1.TablesDatasetMetadata) datasetMetadata_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1074,7 +871,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(33, (com.google.cloud.automl.v1beta1.TablesDatasetMetadata) datasetMetadata_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1145,7 +942,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1210,7 +1007,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1332,38 +1129,55 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.automl.v1beta1.Dataset.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (translationDatasetMetadataBuilder_ != null) {
+        translationDatasetMetadataBuilder_.clear();
+      }
+      if (imageClassificationDatasetMetadataBuilder_ != null) {
+        imageClassificationDatasetMetadataBuilder_.clear();
+      }
+      if (textClassificationDatasetMetadataBuilder_ != null) {
+        textClassificationDatasetMetadataBuilder_.clear();
+      }
+      if (imageObjectDetectionDatasetMetadataBuilder_ != null) {
+        imageObjectDetectionDatasetMetadataBuilder_.clear();
+      }
+      if (videoClassificationDatasetMetadataBuilder_ != null) {
+        videoClassificationDatasetMetadataBuilder_.clear();
+      }
+      if (videoObjectTrackingDatasetMetadataBuilder_ != null) {
+        videoObjectTrackingDatasetMetadataBuilder_.clear();
+      }
+      if (textExtractionDatasetMetadataBuilder_ != null) {
+        textExtractionDatasetMetadataBuilder_.clear();
+      }
+      if (textSentimentDatasetMetadataBuilder_ != null) {
+        textSentimentDatasetMetadataBuilder_.clear();
+      }
+      if (tablesDatasetMetadataBuilder_ != null) {
+        tablesDatasetMetadataBuilder_.clear();
+      }
       name_ = "";
-
       displayName_ = "";
-
       description_ = "";
-
       exampleCount_ = 0;
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
       etag_ = "";
-
       datasetMetadataCase_ = 0;
       datasetMetadata_ = null;
       return this;
@@ -1392,82 +1206,75 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.automl.v1beta1.Dataset buildPartial() {
       com.google.cloud.automl.v1beta1.Dataset result = new com.google.cloud.automl.v1beta1.Dataset(this);
-      if (datasetMetadataCase_ == 23) {
-        if (translationDatasetMetadataBuilder_ == null) {
-          result.datasetMetadata_ = datasetMetadata_;
-        } else {
-          result.datasetMetadata_ = translationDatasetMetadataBuilder_.build();
-        }
-      }
-      if (datasetMetadataCase_ == 24) {
-        if (imageClassificationDatasetMetadataBuilder_ == null) {
-          result.datasetMetadata_ = datasetMetadata_;
-        } else {
-          result.datasetMetadata_ = imageClassificationDatasetMetadataBuilder_.build();
-        }
-      }
-      if (datasetMetadataCase_ == 25) {
-        if (textClassificationDatasetMetadataBuilder_ == null) {
-          result.datasetMetadata_ = datasetMetadata_;
-        } else {
-          result.datasetMetadata_ = textClassificationDatasetMetadataBuilder_.build();
-        }
-      }
-      if (datasetMetadataCase_ == 26) {
-        if (imageObjectDetectionDatasetMetadataBuilder_ == null) {
-          result.datasetMetadata_ = datasetMetadata_;
-        } else {
-          result.datasetMetadata_ = imageObjectDetectionDatasetMetadataBuilder_.build();
-        }
-      }
-      if (datasetMetadataCase_ == 31) {
-        if (videoClassificationDatasetMetadataBuilder_ == null) {
-          result.datasetMetadata_ = datasetMetadata_;
-        } else {
-          result.datasetMetadata_ = videoClassificationDatasetMetadataBuilder_.build();
-        }
-      }
-      if (datasetMetadataCase_ == 29) {
-        if (videoObjectTrackingDatasetMetadataBuilder_ == null) {
-          result.datasetMetadata_ = datasetMetadata_;
-        } else {
-          result.datasetMetadata_ = videoObjectTrackingDatasetMetadataBuilder_.build();
-        }
-      }
-      if (datasetMetadataCase_ == 28) {
-        if (textExtractionDatasetMetadataBuilder_ == null) {
-          result.datasetMetadata_ = datasetMetadata_;
-        } else {
-          result.datasetMetadata_ = textExtractionDatasetMetadataBuilder_.build();
-        }
-      }
-      if (datasetMetadataCase_ == 30) {
-        if (textSentimentDatasetMetadataBuilder_ == null) {
-          result.datasetMetadata_ = datasetMetadata_;
-        } else {
-          result.datasetMetadata_ = textSentimentDatasetMetadataBuilder_.build();
-        }
-      }
-      if (datasetMetadataCase_ == 33) {
-        if (tablesDatasetMetadataBuilder_ == null) {
-          result.datasetMetadata_ = datasetMetadata_;
-        } else {
-          result.datasetMetadata_ = tablesDatasetMetadataBuilder_.build();
-        }
-      }
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      result.description_ = description_;
-      result.exampleCount_ = exampleCount_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      result.etag_ = etag_;
-      result.datasetMetadataCase_ = datasetMetadataCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.automl.v1beta1.Dataset result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.exampleCount_ = exampleCount_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.etag_ = etag_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.automl.v1beta1.Dataset result) {
+      result.datasetMetadataCase_ = datasetMetadataCase_;
+      result.datasetMetadata_ = this.datasetMetadata_;
+      if (datasetMetadataCase_ == 23 &&
+          translationDatasetMetadataBuilder_ != null) {
+        result.datasetMetadata_ = translationDatasetMetadataBuilder_.build();
+      }
+      if (datasetMetadataCase_ == 24 &&
+          imageClassificationDatasetMetadataBuilder_ != null) {
+        result.datasetMetadata_ = imageClassificationDatasetMetadataBuilder_.build();
+      }
+      if (datasetMetadataCase_ == 25 &&
+          textClassificationDatasetMetadataBuilder_ != null) {
+        result.datasetMetadata_ = textClassificationDatasetMetadataBuilder_.build();
+      }
+      if (datasetMetadataCase_ == 26 &&
+          imageObjectDetectionDatasetMetadataBuilder_ != null) {
+        result.datasetMetadata_ = imageObjectDetectionDatasetMetadataBuilder_.build();
+      }
+      if (datasetMetadataCase_ == 31 &&
+          videoClassificationDatasetMetadataBuilder_ != null) {
+        result.datasetMetadata_ = videoClassificationDatasetMetadataBuilder_.build();
+      }
+      if (datasetMetadataCase_ == 29 &&
+          videoObjectTrackingDatasetMetadataBuilder_ != null) {
+        result.datasetMetadata_ = videoObjectTrackingDatasetMetadataBuilder_.build();
+      }
+      if (datasetMetadataCase_ == 28 &&
+          textExtractionDatasetMetadataBuilder_ != null) {
+        result.datasetMetadata_ = textExtractionDatasetMetadataBuilder_.build();
+      }
+      if (datasetMetadataCase_ == 30 &&
+          textSentimentDatasetMetadataBuilder_ != null) {
+        result.datasetMetadata_ = textSentimentDatasetMetadataBuilder_.build();
+      }
+      if (datasetMetadataCase_ == 33 &&
+          tablesDatasetMetadataBuilder_ != null) {
+        result.datasetMetadata_ = tablesDatasetMetadataBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1516,14 +1323,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.automl.v1beta1.Dataset.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (other.getExampleCount() != 0) {
@@ -1534,6 +1344,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEtag().isEmpty()) {
         etag_ = other.etag_;
+        bitField0_ |= 0x00004000;
         onChanged();
       }
       switch (other.getDatasetMetadataCase()) {
@@ -1577,7 +1388,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1592,17 +1403,125 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.automl.v1beta1.Dataset parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 18
+            case 26: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 26
+            case 114: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 114
+            case 138: {
+              etag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 138
+            case 168: {
+              exampleCount_ = input.readInt32();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 168
+            case 186: {
+              input.readMessage(
+                  getTranslationDatasetMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              datasetMetadataCase_ = 23;
+              break;
+            } // case 186
+            case 194: {
+              input.readMessage(
+                  getImageClassificationDatasetMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              datasetMetadataCase_ = 24;
+              break;
+            } // case 194
+            case 202: {
+              input.readMessage(
+                  getTextClassificationDatasetMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              datasetMetadataCase_ = 25;
+              break;
+            } // case 202
+            case 210: {
+              input.readMessage(
+                  getImageObjectDetectionDatasetMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              datasetMetadataCase_ = 26;
+              break;
+            } // case 210
+            case 226: {
+              input.readMessage(
+                  getTextExtractionDatasetMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              datasetMetadataCase_ = 28;
+              break;
+            } // case 226
+            case 234: {
+              input.readMessage(
+                  getVideoObjectTrackingDatasetMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              datasetMetadataCase_ = 29;
+              break;
+            } // case 234
+            case 242: {
+              input.readMessage(
+                  getTextSentimentDatasetMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              datasetMetadataCase_ = 30;
+              break;
+            } // case 242
+            case 250: {
+              input.readMessage(
+                  getVideoClassificationDatasetMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              datasetMetadataCase_ = 31;
+              break;
+            } // case 250
+            case 266: {
+              input.readMessage(
+                  getTablesDatasetMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              datasetMetadataCase_ = 33;
+              break;
+            } // case 266
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.automl.v1beta1.Dataset) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int datasetMetadataCase_ = 0;
@@ -1620,6 +1539,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.automl.v1beta1.TranslationDatasetMetadata, com.google.cloud.automl.v1beta1.TranslationDatasetMetadata.Builder, com.google.cloud.automl.v1beta1.TranslationDatasetMetadataOrBuilder> translationDatasetMetadataBuilder_;
@@ -1795,7 +1715,7 @@ private static final long serialVersionUID = 0L;
         datasetMetadata_ = null;
       }
       datasetMetadataCase_ = 23;
-      onChanged();;
+      onChanged();
       return translationDatasetMetadataBuilder_;
     }
 
@@ -1973,7 +1893,7 @@ private static final long serialVersionUID = 0L;
         datasetMetadata_ = null;
       }
       datasetMetadataCase_ = 24;
-      onChanged();;
+      onChanged();
       return imageClassificationDatasetMetadataBuilder_;
     }
 
@@ -2151,7 +2071,7 @@ private static final long serialVersionUID = 0L;
         datasetMetadata_ = null;
       }
       datasetMetadataCase_ = 25;
-      onChanged();;
+      onChanged();
       return textClassificationDatasetMetadataBuilder_;
     }
 
@@ -2329,7 +2249,7 @@ private static final long serialVersionUID = 0L;
         datasetMetadata_ = null;
       }
       datasetMetadataCase_ = 26;
-      onChanged();;
+      onChanged();
       return imageObjectDetectionDatasetMetadataBuilder_;
     }
 
@@ -2507,7 +2427,7 @@ private static final long serialVersionUID = 0L;
         datasetMetadata_ = null;
       }
       datasetMetadataCase_ = 31;
-      onChanged();;
+      onChanged();
       return videoClassificationDatasetMetadataBuilder_;
     }
 
@@ -2685,7 +2605,7 @@ private static final long serialVersionUID = 0L;
         datasetMetadata_ = null;
       }
       datasetMetadataCase_ = 29;
-      onChanged();;
+      onChanged();
       return videoObjectTrackingDatasetMetadataBuilder_;
     }
 
@@ -2863,7 +2783,7 @@ private static final long serialVersionUID = 0L;
         datasetMetadata_ = null;
       }
       datasetMetadataCase_ = 28;
-      onChanged();;
+      onChanged();
       return textExtractionDatasetMetadataBuilder_;
     }
 
@@ -3041,7 +2961,7 @@ private static final long serialVersionUID = 0L;
         datasetMetadata_ = null;
       }
       datasetMetadataCase_ = 30;
-      onChanged();;
+      onChanged();
       return textSentimentDatasetMetadataBuilder_;
     }
 
@@ -3219,7 +3139,7 @@ private static final long serialVersionUID = 0L;
         datasetMetadata_ = null;
       }
       datasetMetadataCase_ = 33;
-      onChanged();;
+      onChanged();
       return tablesDatasetMetadataBuilder_;
     }
 
@@ -3279,11 +3199,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3297,8 +3215,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -3314,12 +3232,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3386,11 +3302,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3406,8 +3320,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -3425,12 +3339,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3491,11 +3403,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3509,8 +3419,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -3526,12 +3436,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3561,6 +3469,7 @@ private static final long serialVersionUID = 0L;
     public Builder setExampleCount(int value) {
       
       exampleCount_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3573,7 +3482,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExampleCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       exampleCount_ = 0;
       onChanged();
       return this;
@@ -3591,7 +3500,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -3621,11 +3530,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -3639,11 +3548,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -3655,17 +3564,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00002000) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -3676,14 +3586,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 14;</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00002000);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3694,7 +3603,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 14;</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00002000;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -3790,11 +3699,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       etag_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -3808,8 +3715,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEtag() {
-      
       etag_ = getDefaultInstance().getEtag();
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
@@ -3825,12 +3732,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       etag_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -3867,7 +3772,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Dataset(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

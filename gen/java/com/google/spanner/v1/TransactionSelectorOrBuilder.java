@@ -63,7 +63,8 @@ public interface TransactionSelectorOrBuilder extends
    * <pre>
    * Begin a new transaction and execute this read or SQL query in
    * it. The transaction ID of the new transaction is returned in
-   * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction], which is a [Transaction][google.spanner.v1.Transaction].
+   * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction],
+   * which is a [Transaction][google.spanner.v1.Transaction].
    * </pre>
    *
    * <code>.google.spanner.v1.TransactionOptions begin = 3;</code>
@@ -74,7 +75,8 @@ public interface TransactionSelectorOrBuilder extends
    * <pre>
    * Begin a new transaction and execute this read or SQL query in
    * it. The transaction ID of the new transaction is returned in
-   * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction], which is a [Transaction][google.spanner.v1.Transaction].
+   * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction],
+   * which is a [Transaction][google.spanner.v1.Transaction].
    * </pre>
    *
    * <code>.google.spanner.v1.TransactionOptions begin = 3;</code>
@@ -85,7 +87,8 @@ public interface TransactionSelectorOrBuilder extends
    * <pre>
    * Begin a new transaction and execute this read or SQL query in
    * it. The transaction ID of the new transaction is returned in
-   * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction], which is a [Transaction][google.spanner.v1.Transaction].
+   * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction],
+   * which is a [Transaction][google.spanner.v1.Transaction].
    * </pre>
    *
    * <code>.google.spanner.v1.TransactionOptions begin = 3;</code>

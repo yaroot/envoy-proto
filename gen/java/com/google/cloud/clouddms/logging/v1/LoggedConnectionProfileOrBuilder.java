@@ -66,7 +66,6 @@ public interface LoggedConnectionProfileOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 2;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -79,7 +78,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 2;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -202,6 +200,33 @@ java.lang.String defaultValue);
    * <code>.google.cloud.clouddms.logging.v1.CloudSqlConnectionProfile cloudsql = 102;</code>
    */
   com.google.cloud.clouddms.logging.v1.CloudSqlConnectionProfileOrBuilder getCloudsqlOrBuilder();
+
+  /**
+   * <pre>
+   * An Oracle database connection profile.
+   * </pre>
+   *
+   * <code>.google.cloud.clouddms.logging.v1.OracleConnectionProfile oracle = 103;</code>
+   * @return Whether the oracle field is set.
+   */
+  boolean hasOracle();
+  /**
+   * <pre>
+   * An Oracle database connection profile.
+   * </pre>
+   *
+   * <code>.google.cloud.clouddms.logging.v1.OracleConnectionProfile oracle = 103;</code>
+   * @return The oracle.
+   */
+  com.google.cloud.clouddms.logging.v1.OracleConnectionProfile getOracle();
+  /**
+   * <pre>
+   * An Oracle database connection profile.
+   * </pre>
+   *
+   * <code>.google.cloud.clouddms.logging.v1.OracleConnectionProfile oracle = 103;</code>
+   */
+  com.google.cloud.clouddms.logging.v1.OracleConnectionProfileOrBuilder getOracleOrBuilder();
 
   /**
    * <pre>

@@ -169,7 +169,7 @@ public interface RedisProxyOrBuilder extends
    *
    * <code>.envoy.config.core.v3.DataSource downstream_auth_password = 6 [deprecated = true, (.udpa.annotations.sensitive) = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.downstream_auth_password is deprecated.
-   *     See envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto;l=266
+   *     See envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto;l=273
    * @return Whether the downstreamAuthPassword field is set.
    */
   @java.lang.Deprecated boolean hasDownstreamAuthPassword();
@@ -190,7 +190,7 @@ public interface RedisProxyOrBuilder extends
    *
    * <code>.envoy.config.core.v3.DataSource downstream_auth_password = 6 [deprecated = true, (.udpa.annotations.sensitive) = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.downstream_auth_password is deprecated.
-   *     See envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto;l=266
+   *     See envoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto;l=273
    * @return The downstreamAuthPassword.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.config.core.v3.DataSource getDownstreamAuthPassword();

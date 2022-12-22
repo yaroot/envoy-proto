@@ -42,243 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateNodePoolRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            projectId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            zone_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clusterId_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            nodePoolId_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            nodeVersion_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            imageType_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              locations_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            locations_.add(s);
-            break;
-          }
-          case 114: {
-            com.google.container.v1beta1.WorkloadMetadataConfig.Builder subBuilder = null;
-            if (workloadMetadataConfig_ != null) {
-              subBuilder = workloadMetadataConfig_.toBuilder();
-            }
-            workloadMetadataConfig_ = input.readMessage(com.google.container.v1beta1.WorkloadMetadataConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(workloadMetadataConfig_);
-              workloadMetadataConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            com.google.container.v1beta1.NodePool.UpgradeSettings.Builder subBuilder = null;
-            if (upgradeSettings_ != null) {
-              subBuilder = upgradeSettings_.toBuilder();
-            }
-            upgradeSettings_ = input.readMessage(com.google.container.v1beta1.NodePool.UpgradeSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(upgradeSettings_);
-              upgradeSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 130: {
-            com.google.container.v1beta1.NetworkTags.Builder subBuilder = null;
-            if (tags_ != null) {
-              subBuilder = tags_.toBuilder();
-            }
-            tags_ = input.readMessage(com.google.container.v1beta1.NetworkTags.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tags_);
-              tags_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 138: {
-            com.google.container.v1beta1.NodeTaints.Builder subBuilder = null;
-            if (taints_ != null) {
-              subBuilder = taints_.toBuilder();
-            }
-            taints_ = input.readMessage(com.google.container.v1beta1.NodeTaints.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(taints_);
-              taints_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 146: {
-            com.google.container.v1beta1.NodeLabels.Builder subBuilder = null;
-            if (labels_ != null) {
-              subBuilder = labels_.toBuilder();
-            }
-            labels_ = input.readMessage(com.google.container.v1beta1.NodeLabels.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(labels_);
-              labels_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 154: {
-            com.google.container.v1beta1.LinuxNodeConfig.Builder subBuilder = null;
-            if (linuxNodeConfig_ != null) {
-              subBuilder = linuxNodeConfig_.toBuilder();
-            }
-            linuxNodeConfig_ = input.readMessage(com.google.container.v1beta1.LinuxNodeConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(linuxNodeConfig_);
-              linuxNodeConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 162: {
-            com.google.container.v1beta1.NodeKubeletConfig.Builder subBuilder = null;
-            if (kubeletConfig_ != null) {
-              subBuilder = kubeletConfig_.toBuilder();
-            }
-            kubeletConfig_ = input.readMessage(com.google.container.v1beta1.NodeKubeletConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(kubeletConfig_);
-              kubeletConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 170: {
-            com.google.container.v1beta1.NodeNetworkConfig.Builder subBuilder = null;
-            if (nodeNetworkConfig_ != null) {
-              subBuilder = nodeNetworkConfig_.toBuilder();
-            }
-            nodeNetworkConfig_ = input.readMessage(com.google.container.v1beta1.NodeNetworkConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(nodeNetworkConfig_);
-              nodeNetworkConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 178: {
-            com.google.container.v1beta1.GcfsConfig.Builder subBuilder = null;
-            if (gcfsConfig_ != null) {
-              subBuilder = gcfsConfig_.toBuilder();
-            }
-            gcfsConfig_ = input.readMessage(com.google.container.v1beta1.GcfsConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(gcfsConfig_);
-              gcfsConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 186: {
-            com.google.container.v1beta1.ConfidentialNodes.Builder subBuilder = null;
-            if (confidentialNodes_ != null) {
-              subBuilder = confidentialNodes_.toBuilder();
-            }
-            confidentialNodes_ = input.readMessage(com.google.container.v1beta1.ConfidentialNodes.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(confidentialNodes_);
-              confidentialNodes_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 234: {
-            com.google.container.v1beta1.VirtualNIC.Builder subBuilder = null;
-            if (gvnic_ != null) {
-              subBuilder = gvnic_.toBuilder();
-            }
-            gvnic_ = input.readMessage(com.google.container.v1beta1.VirtualNIC.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(gvnic_);
-              gvnic_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        locations_ = locations_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_UpdateNodePoolRequest_descriptor;
@@ -293,7 +56,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object projectId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object projectId_ = "";
   /**
    * <pre>
    * Required. Deprecated. The Google Developers Console [project ID or project
@@ -303,7 +67,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string project_id = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.UpdateNodePoolRequest.project_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2400
+   *     See google/container/v1beta1/cluster_service.proto;l=2461
    * @return The projectId.
    */
   @java.lang.Override
@@ -328,7 +92,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string project_id = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.UpdateNodePoolRequest.project_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2400
+   *     See google/container/v1beta1/cluster_service.proto;l=2461
    * @return The bytes for projectId.
    */
   @java.lang.Override
@@ -347,7 +111,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ZONE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object zone_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object zone_ = "";
   /**
    * <pre>
    * Required. Deprecated. The name of the Google Compute Engine
@@ -358,7 +123,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string zone = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.UpdateNodePoolRequest.zone is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2409
+   *     See google/container/v1beta1/cluster_service.proto;l=2470
    * @return The zone.
    */
   @java.lang.Override
@@ -384,7 +149,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string zone = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.UpdateNodePoolRequest.zone is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2409
+   *     See google/container/v1beta1/cluster_service.proto;l=2470
    * @return The bytes for zone.
    */
   @java.lang.Override
@@ -403,7 +168,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLUSTER_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object clusterId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clusterId_ = "";
   /**
    * <pre>
    * Required. Deprecated. The name of the cluster to upgrade.
@@ -412,7 +178,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string cluster_id = 3 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.UpdateNodePoolRequest.cluster_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2416
+   *     See google/container/v1beta1/cluster_service.proto;l=2477
    * @return The clusterId.
    */
   @java.lang.Override
@@ -436,7 +202,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string cluster_id = 3 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.UpdateNodePoolRequest.cluster_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2416
+   *     See google/container/v1beta1/cluster_service.proto;l=2477
    * @return The bytes for clusterId.
    */
   @java.lang.Override
@@ -455,7 +221,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NODE_POOL_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object nodePoolId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nodePoolId_ = "";
   /**
    * <pre>
    * Required. Deprecated. The name of the node pool to upgrade.
@@ -464,7 +231,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string node_pool_id = 4 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.UpdateNodePoolRequest.node_pool_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2423
+   *     See google/container/v1beta1/cluster_service.proto;l=2484
    * @return The nodePoolId.
    */
   @java.lang.Override
@@ -488,7 +255,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string node_pool_id = 4 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.UpdateNodePoolRequest.node_pool_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2423
+   *     See google/container/v1beta1/cluster_service.proto;l=2484
    * @return The bytes for nodePoolId.
    */
   @java.lang.Override
@@ -507,7 +274,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NODE_VERSION_FIELD_NUMBER = 5;
-  private volatile java.lang.Object nodeVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nodeVersion_ = "";
   /**
    * <pre>
    * Required. The Kubernetes version to change the nodes to (typically an
@@ -569,7 +337,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGE_TYPE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object imageType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object imageType_ = "";
   /**
    * <pre>
    * Required. The desired image type for the node pool.
@@ -615,6 +384,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCATIONS_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList locations_;
   /**
    * <pre>
@@ -716,11 +486,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1beta1.WorkloadMetadataConfigOrBuilder getWorkloadMetadataConfigOrBuilder() {
-    return getWorkloadMetadataConfig();
+    return workloadMetadataConfig_ == null ? com.google.container.v1beta1.WorkloadMetadataConfig.getDefaultInstance() : workloadMetadataConfig_;
   }
 
   public static final int NAME_FIELD_NUMBER = 8;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The name (project, location, cluster, node pool) of the node pool to
@@ -804,7 +575,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1beta1.NodePool.UpgradeSettingsOrBuilder getUpgradeSettingsOrBuilder() {
-    return getUpgradeSettings();
+    return upgradeSettings_ == null ? com.google.container.v1beta1.NodePool.UpgradeSettings.getDefaultInstance() : upgradeSettings_;
   }
 
   public static final int TAGS_FIELD_NUMBER = 16;
@@ -848,7 +619,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1beta1.NetworkTagsOrBuilder getTagsOrBuilder() {
-    return getTags();
+    return tags_ == null ? com.google.container.v1beta1.NetworkTags.getDefaultInstance() : tags_;
   }
 
   public static final int TAINTS_FIELD_NUMBER = 17;
@@ -892,7 +663,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1beta1.NodeTaintsOrBuilder getTaintsOrBuilder() {
-    return getTaints();
+    return taints_ == null ? com.google.container.v1beta1.NodeTaints.getDefaultInstance() : taints_;
   }
 
   public static final int LABELS_FIELD_NUMBER = 18;
@@ -936,7 +707,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1beta1.NodeLabelsOrBuilder getLabelsOrBuilder() {
-    return getLabels();
+    return labels_ == null ? com.google.container.v1beta1.NodeLabels.getDefaultInstance() : labels_;
   }
 
   public static final int LINUX_NODE_CONFIG_FIELD_NUMBER = 19;
@@ -974,7 +745,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1beta1.LinuxNodeConfigOrBuilder getLinuxNodeConfigOrBuilder() {
-    return getLinuxNodeConfig();
+    return linuxNodeConfig_ == null ? com.google.container.v1beta1.LinuxNodeConfig.getDefaultInstance() : linuxNodeConfig_;
   }
 
   public static final int KUBELET_CONFIG_FIELD_NUMBER = 20;
@@ -1012,7 +783,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1beta1.NodeKubeletConfigOrBuilder getKubeletConfigOrBuilder() {
-    return getKubeletConfig();
+    return kubeletConfig_ == null ? com.google.container.v1beta1.NodeKubeletConfig.getDefaultInstance() : kubeletConfig_;
   }
 
   public static final int NODE_NETWORK_CONFIG_FIELD_NUMBER = 21;
@@ -1050,7 +821,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1beta1.NodeNetworkConfigOrBuilder getNodeNetworkConfigOrBuilder() {
-    return getNodeNetworkConfig();
+    return nodeNetworkConfig_ == null ? com.google.container.v1beta1.NodeNetworkConfig.getDefaultInstance() : nodeNetworkConfig_;
   }
 
   public static final int GCFS_CONFIG_FIELD_NUMBER = 22;
@@ -1088,7 +859,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1beta1.GcfsConfigOrBuilder getGcfsConfigOrBuilder() {
-    return getGcfsConfig();
+    return gcfsConfig_ == null ? com.google.container.v1beta1.GcfsConfig.getDefaultInstance() : gcfsConfig_;
   }
 
   public static final int CONFIDENTIAL_NODES_FIELD_NUMBER = 23;
@@ -1129,7 +900,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1beta1.ConfidentialNodesOrBuilder getConfidentialNodesOrBuilder() {
-    return getConfidentialNodes();
+    return confidentialNodes_ == null ? com.google.container.v1beta1.ConfidentialNodes.getDefaultInstance() : confidentialNodes_;
   }
 
   public static final int GVNIC_FIELD_NUMBER = 29;
@@ -1167,7 +938,124 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1beta1.VirtualNICOrBuilder getGvnicOrBuilder() {
-    return getGvnic();
+    return gvnic_ == null ? com.google.container.v1beta1.VirtualNIC.getDefaultInstance() : gvnic_;
+  }
+
+  public static final int FAST_SOCKET_FIELD_NUMBER = 31;
+  private com.google.container.v1beta1.FastSocket fastSocket_;
+  /**
+   * <pre>
+   * Enable or disable NCCL fast socket for the node pool.
+   * </pre>
+   *
+   * <code>.google.container.v1beta1.FastSocket fast_socket = 31;</code>
+   * @return Whether the fastSocket field is set.
+   */
+  @java.lang.Override
+  public boolean hasFastSocket() {
+    return fastSocket_ != null;
+  }
+  /**
+   * <pre>
+   * Enable or disable NCCL fast socket for the node pool.
+   * </pre>
+   *
+   * <code>.google.container.v1beta1.FastSocket fast_socket = 31;</code>
+   * @return The fastSocket.
+   */
+  @java.lang.Override
+  public com.google.container.v1beta1.FastSocket getFastSocket() {
+    return fastSocket_ == null ? com.google.container.v1beta1.FastSocket.getDefaultInstance() : fastSocket_;
+  }
+  /**
+   * <pre>
+   * Enable or disable NCCL fast socket for the node pool.
+   * </pre>
+   *
+   * <code>.google.container.v1beta1.FastSocket fast_socket = 31;</code>
+   */
+  @java.lang.Override
+  public com.google.container.v1beta1.FastSocketOrBuilder getFastSocketOrBuilder() {
+    return fastSocket_ == null ? com.google.container.v1beta1.FastSocket.getDefaultInstance() : fastSocket_;
+  }
+
+  public static final int LOGGING_CONFIG_FIELD_NUMBER = 32;
+  private com.google.container.v1beta1.NodePoolLoggingConfig loggingConfig_;
+  /**
+   * <pre>
+   * Logging configuration.
+   * </pre>
+   *
+   * <code>.google.container.v1beta1.NodePoolLoggingConfig logging_config = 32;</code>
+   * @return Whether the loggingConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasLoggingConfig() {
+    return loggingConfig_ != null;
+  }
+  /**
+   * <pre>
+   * Logging configuration.
+   * </pre>
+   *
+   * <code>.google.container.v1beta1.NodePoolLoggingConfig logging_config = 32;</code>
+   * @return The loggingConfig.
+   */
+  @java.lang.Override
+  public com.google.container.v1beta1.NodePoolLoggingConfig getLoggingConfig() {
+    return loggingConfig_ == null ? com.google.container.v1beta1.NodePoolLoggingConfig.getDefaultInstance() : loggingConfig_;
+  }
+  /**
+   * <pre>
+   * Logging configuration.
+   * </pre>
+   *
+   * <code>.google.container.v1beta1.NodePoolLoggingConfig logging_config = 32;</code>
+   */
+  @java.lang.Override
+  public com.google.container.v1beta1.NodePoolLoggingConfigOrBuilder getLoggingConfigOrBuilder() {
+    return loggingConfig_ == null ? com.google.container.v1beta1.NodePoolLoggingConfig.getDefaultInstance() : loggingConfig_;
+  }
+
+  public static final int RESOURCE_LABELS_FIELD_NUMBER = 33;
+  private com.google.container.v1beta1.ResourceLabels resourceLabels_;
+  /**
+   * <pre>
+   * The resource labels for the node pool to use to annotate any related
+   * Google Compute Engine resources.
+   * </pre>
+   *
+   * <code>.google.container.v1beta1.ResourceLabels resource_labels = 33;</code>
+   * @return Whether the resourceLabels field is set.
+   */
+  @java.lang.Override
+  public boolean hasResourceLabels() {
+    return resourceLabels_ != null;
+  }
+  /**
+   * <pre>
+   * The resource labels for the node pool to use to annotate any related
+   * Google Compute Engine resources.
+   * </pre>
+   *
+   * <code>.google.container.v1beta1.ResourceLabels resource_labels = 33;</code>
+   * @return The resourceLabels.
+   */
+  @java.lang.Override
+  public com.google.container.v1beta1.ResourceLabels getResourceLabels() {
+    return resourceLabels_ == null ? com.google.container.v1beta1.ResourceLabels.getDefaultInstance() : resourceLabels_;
+  }
+  /**
+   * <pre>
+   * The resource labels for the node pool to use to annotate any related
+   * Google Compute Engine resources.
+   * </pre>
+   *
+   * <code>.google.container.v1beta1.ResourceLabels resource_labels = 33;</code>
+   */
+  @java.lang.Override
+  public com.google.container.v1beta1.ResourceLabelsOrBuilder getResourceLabelsOrBuilder() {
+    return resourceLabels_ == null ? com.google.container.v1beta1.ResourceLabels.getDefaultInstance() : resourceLabels_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1241,7 +1129,16 @@ private static final long serialVersionUID = 0L;
     if (gvnic_ != null) {
       output.writeMessage(29, getGvnic());
     }
-    unknownFields.writeTo(output);
+    if (fastSocket_ != null) {
+      output.writeMessage(31, getFastSocket());
+    }
+    if (loggingConfig_ != null) {
+      output.writeMessage(32, getLoggingConfig());
+    }
+    if (resourceLabels_ != null) {
+      output.writeMessage(33, getResourceLabels());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1323,7 +1220,19 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(29, getGvnic());
     }
-    size += unknownFields.getSerializedSize();
+    if (fastSocket_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(31, getFastSocket());
+    }
+    if (loggingConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(32, getLoggingConfig());
+    }
+    if (resourceLabels_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(33, getResourceLabels());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1409,7 +1318,22 @@ private static final long serialVersionUID = 0L;
       if (!getGvnic()
           .equals(other.getGvnic())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasFastSocket() != other.hasFastSocket()) return false;
+    if (hasFastSocket()) {
+      if (!getFastSocket()
+          .equals(other.getFastSocket())) return false;
+    }
+    if (hasLoggingConfig() != other.hasLoggingConfig()) return false;
+    if (hasLoggingConfig()) {
+      if (!getLoggingConfig()
+          .equals(other.getLoggingConfig())) return false;
+    }
+    if (hasResourceLabels() != other.hasResourceLabels()) return false;
+    if (hasResourceLabels()) {
+      if (!getResourceLabels()
+          .equals(other.getResourceLabels())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1482,7 +1406,19 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + GVNIC_FIELD_NUMBER;
       hash = (53 * hash) + getGvnic().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasFastSocket()) {
+      hash = (37 * hash) + FAST_SOCKET_FIELD_NUMBER;
+      hash = (53 * hash) + getFastSocket().hashCode();
+    }
+    if (hasLoggingConfig()) {
+      hash = (37 * hash) + LOGGING_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getLoggingConfig().hashCode();
+    }
+    if (hasResourceLabels()) {
+      hash = (37 * hash) + RESOURCE_LABELS_FIELD_NUMBER;
+      hash = (53 * hash) + getResourceLabels().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1603,103 +1539,96 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1beta1.UpdateNodePoolRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       projectId_ = "";
-
       zone_ = "";
-
       clusterId_ = "";
-
       nodePoolId_ = "";
-
       nodeVersion_ = "";
-
       imageType_ = "";
-
       locations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (workloadMetadataConfigBuilder_ == null) {
-        workloadMetadataConfig_ = null;
-      } else {
-        workloadMetadataConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      workloadMetadataConfig_ = null;
+      if (workloadMetadataConfigBuilder_ != null) {
+        workloadMetadataConfigBuilder_.dispose();
         workloadMetadataConfigBuilder_ = null;
       }
       name_ = "";
-
-      if (upgradeSettingsBuilder_ == null) {
-        upgradeSettings_ = null;
-      } else {
-        upgradeSettings_ = null;
+      upgradeSettings_ = null;
+      if (upgradeSettingsBuilder_ != null) {
+        upgradeSettingsBuilder_.dispose();
         upgradeSettingsBuilder_ = null;
       }
-      if (tagsBuilder_ == null) {
-        tags_ = null;
-      } else {
-        tags_ = null;
+      tags_ = null;
+      if (tagsBuilder_ != null) {
+        tagsBuilder_.dispose();
         tagsBuilder_ = null;
       }
-      if (taintsBuilder_ == null) {
-        taints_ = null;
-      } else {
-        taints_ = null;
+      taints_ = null;
+      if (taintsBuilder_ != null) {
+        taintsBuilder_.dispose();
         taintsBuilder_ = null;
       }
-      if (labelsBuilder_ == null) {
-        labels_ = null;
-      } else {
-        labels_ = null;
+      labels_ = null;
+      if (labelsBuilder_ != null) {
+        labelsBuilder_.dispose();
         labelsBuilder_ = null;
       }
-      if (linuxNodeConfigBuilder_ == null) {
-        linuxNodeConfig_ = null;
-      } else {
-        linuxNodeConfig_ = null;
+      linuxNodeConfig_ = null;
+      if (linuxNodeConfigBuilder_ != null) {
+        linuxNodeConfigBuilder_.dispose();
         linuxNodeConfigBuilder_ = null;
       }
-      if (kubeletConfigBuilder_ == null) {
-        kubeletConfig_ = null;
-      } else {
-        kubeletConfig_ = null;
+      kubeletConfig_ = null;
+      if (kubeletConfigBuilder_ != null) {
+        kubeletConfigBuilder_.dispose();
         kubeletConfigBuilder_ = null;
       }
-      if (nodeNetworkConfigBuilder_ == null) {
-        nodeNetworkConfig_ = null;
-      } else {
-        nodeNetworkConfig_ = null;
+      nodeNetworkConfig_ = null;
+      if (nodeNetworkConfigBuilder_ != null) {
+        nodeNetworkConfigBuilder_.dispose();
         nodeNetworkConfigBuilder_ = null;
       }
-      if (gcfsConfigBuilder_ == null) {
-        gcfsConfig_ = null;
-      } else {
-        gcfsConfig_ = null;
+      gcfsConfig_ = null;
+      if (gcfsConfigBuilder_ != null) {
+        gcfsConfigBuilder_.dispose();
         gcfsConfigBuilder_ = null;
       }
-      if (confidentialNodesBuilder_ == null) {
-        confidentialNodes_ = null;
-      } else {
-        confidentialNodes_ = null;
+      confidentialNodes_ = null;
+      if (confidentialNodesBuilder_ != null) {
+        confidentialNodesBuilder_.dispose();
         confidentialNodesBuilder_ = null;
       }
-      if (gvnicBuilder_ == null) {
-        gvnic_ = null;
-      } else {
-        gvnic_ = null;
+      gvnic_ = null;
+      if (gvnicBuilder_ != null) {
+        gvnicBuilder_.dispose();
         gvnicBuilder_ = null;
+      }
+      fastSocket_ = null;
+      if (fastSocketBuilder_ != null) {
+        fastSocketBuilder_.dispose();
+        fastSocketBuilder_ = null;
+      }
+      loggingConfig_ = null;
+      if (loggingConfigBuilder_ != null) {
+        loggingConfigBuilder_.dispose();
+        loggingConfigBuilder_ = null;
+      }
+      resourceLabels_ = null;
+      if (resourceLabelsBuilder_ != null) {
+        resourceLabelsBuilder_.dispose();
+        resourceLabelsBuilder_ = null;
       }
       return this;
     }
@@ -1727,76 +1656,113 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1beta1.UpdateNodePoolRequest buildPartial() {
       com.google.container.v1beta1.UpdateNodePoolRequest result = new com.google.container.v1beta1.UpdateNodePoolRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.projectId_ = projectId_;
-      result.zone_ = zone_;
-      result.clusterId_ = clusterId_;
-      result.nodePoolId_ = nodePoolId_;
-      result.nodeVersion_ = nodeVersion_;
-      result.imageType_ = imageType_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        locations_ = locations_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.locations_ = locations_;
-      if (workloadMetadataConfigBuilder_ == null) {
-        result.workloadMetadataConfig_ = workloadMetadataConfig_;
-      } else {
-        result.workloadMetadataConfig_ = workloadMetadataConfigBuilder_.build();
-      }
-      result.name_ = name_;
-      if (upgradeSettingsBuilder_ == null) {
-        result.upgradeSettings_ = upgradeSettings_;
-      } else {
-        result.upgradeSettings_ = upgradeSettingsBuilder_.build();
-      }
-      if (tagsBuilder_ == null) {
-        result.tags_ = tags_;
-      } else {
-        result.tags_ = tagsBuilder_.build();
-      }
-      if (taintsBuilder_ == null) {
-        result.taints_ = taints_;
-      } else {
-        result.taints_ = taintsBuilder_.build();
-      }
-      if (labelsBuilder_ == null) {
-        result.labels_ = labels_;
-      } else {
-        result.labels_ = labelsBuilder_.build();
-      }
-      if (linuxNodeConfigBuilder_ == null) {
-        result.linuxNodeConfig_ = linuxNodeConfig_;
-      } else {
-        result.linuxNodeConfig_ = linuxNodeConfigBuilder_.build();
-      }
-      if (kubeletConfigBuilder_ == null) {
-        result.kubeletConfig_ = kubeletConfig_;
-      } else {
-        result.kubeletConfig_ = kubeletConfigBuilder_.build();
-      }
-      if (nodeNetworkConfigBuilder_ == null) {
-        result.nodeNetworkConfig_ = nodeNetworkConfig_;
-      } else {
-        result.nodeNetworkConfig_ = nodeNetworkConfigBuilder_.build();
-      }
-      if (gcfsConfigBuilder_ == null) {
-        result.gcfsConfig_ = gcfsConfig_;
-      } else {
-        result.gcfsConfig_ = gcfsConfigBuilder_.build();
-      }
-      if (confidentialNodesBuilder_ == null) {
-        result.confidentialNodes_ = confidentialNodes_;
-      } else {
-        result.confidentialNodes_ = confidentialNodesBuilder_.build();
-      }
-      if (gvnicBuilder_ == null) {
-        result.gvnic_ = gvnic_;
-      } else {
-        result.gvnic_ = gvnicBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.container.v1beta1.UpdateNodePoolRequest result) {
+      if (((bitField0_ & 0x00000040) != 0)) {
+        locations_ = locations_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000040);
+      }
+      result.locations_ = locations_;
+    }
+
+    private void buildPartial0(com.google.container.v1beta1.UpdateNodePoolRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.projectId_ = projectId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.zone_ = zone_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.clusterId_ = clusterId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.nodePoolId_ = nodePoolId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.nodeVersion_ = nodeVersion_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.imageType_ = imageType_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.workloadMetadataConfig_ = workloadMetadataConfigBuilder_ == null
+            ? workloadMetadataConfig_
+            : workloadMetadataConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.upgradeSettings_ = upgradeSettingsBuilder_ == null
+            ? upgradeSettings_
+            : upgradeSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.tags_ = tagsBuilder_ == null
+            ? tags_
+            : tagsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.taints_ = taintsBuilder_ == null
+            ? taints_
+            : taintsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.labels_ = labelsBuilder_ == null
+            ? labels_
+            : labelsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.linuxNodeConfig_ = linuxNodeConfigBuilder_ == null
+            ? linuxNodeConfig_
+            : linuxNodeConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.kubeletConfig_ = kubeletConfigBuilder_ == null
+            ? kubeletConfig_
+            : kubeletConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.nodeNetworkConfig_ = nodeNetworkConfigBuilder_ == null
+            ? nodeNetworkConfig_
+            : nodeNetworkConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.gcfsConfig_ = gcfsConfigBuilder_ == null
+            ? gcfsConfig_
+            : gcfsConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.confidentialNodes_ = confidentialNodesBuilder_ == null
+            ? confidentialNodes_
+            : confidentialNodesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.gvnic_ = gvnicBuilder_ == null
+            ? gvnic_
+            : gvnicBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.fastSocket_ = fastSocketBuilder_ == null
+            ? fastSocket_
+            : fastSocketBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.loggingConfig_ = loggingConfigBuilder_ == null
+            ? loggingConfig_
+            : loggingConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00200000) != 0)) {
+        result.resourceLabels_ = resourceLabelsBuilder_ == null
+            ? resourceLabels_
+            : resourceLabelsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1845,32 +1811,38 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.container.v1beta1.UpdateNodePoolRequest.getDefaultInstance()) return this;
       if (!other.getProjectId().isEmpty()) {
         projectId_ = other.projectId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getZone().isEmpty()) {
         zone_ = other.zone_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getClusterId().isEmpty()) {
         clusterId_ = other.clusterId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getNodePoolId().isEmpty()) {
         nodePoolId_ = other.nodePoolId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getNodeVersion().isEmpty()) {
         nodeVersion_ = other.nodeVersion_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getImageType().isEmpty()) {
         imageType_ = other.imageType_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.locations_.isEmpty()) {
         if (locations_.isEmpty()) {
           locations_ = other.locations_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           ensureLocationsIsMutable();
           locations_.addAll(other.locations_);
@@ -1882,6 +1854,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.hasUpgradeSettings()) {
@@ -1914,7 +1887,16 @@ private static final long serialVersionUID = 0L;
       if (other.hasGvnic()) {
         mergeGvnic(other.getGvnic());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasFastSocket()) {
+        mergeFastSocket(other.getFastSocket());
+      }
+      if (other.hasLoggingConfig()) {
+        mergeLoggingConfig(other.getLoggingConfig());
+      }
+      if (other.hasResourceLabels()) {
+        mergeResourceLabels(other.getResourceLabels());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1929,17 +1911,169 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1beta1.UpdateNodePoolRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              projectId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              zone_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              clusterId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              nodePoolId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              nodeVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              imageType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 66: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 66
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureLocationsIsMutable();
+              locations_.add(s);
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getWorkloadMetadataConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getUpgradeSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getTagsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 130
+            case 138: {
+              input.readMessage(
+                  getTaintsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 138
+            case 146: {
+              input.readMessage(
+                  getLabelsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 146
+            case 154: {
+              input.readMessage(
+                  getLinuxNodeConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 154
+            case 162: {
+              input.readMessage(
+                  getKubeletConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 162
+            case 170: {
+              input.readMessage(
+                  getNodeNetworkConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 170
+            case 178: {
+              input.readMessage(
+                  getGcfsConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 178
+            case 186: {
+              input.readMessage(
+                  getConfidentialNodesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 186
+            case 234: {
+              input.readMessage(
+                  getGvnicFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 234
+            case 250: {
+              input.readMessage(
+                  getFastSocketFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 250
+            case 258: {
+              input.readMessage(
+                  getLoggingConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 258
+            case 266: {
+              input.readMessage(
+                  getResourceLabelsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00200000;
+              break;
+            } // case 266
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1beta1.UpdateNodePoolRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1954,7 +2088,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string project_id = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.project_id is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2400
+     *     See google/container/v1beta1/cluster_service.proto;l=2461
      * @return The projectId.
      */
     @java.lang.Deprecated public java.lang.String getProjectId() {
@@ -1978,7 +2112,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string project_id = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.project_id is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2400
+     *     See google/container/v1beta1/cluster_service.proto;l=2461
      * @return The bytes for projectId.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -2003,17 +2137,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string project_id = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.project_id is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2400
+     *     See google/container/v1beta1/cluster_service.proto;l=2461
      * @param value The projectId to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setProjectId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       projectId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2026,12 +2158,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string project_id = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.project_id is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2400
+     *     See google/container/v1beta1/cluster_service.proto;l=2461
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearProjectId() {
-      
       projectId_ = getDefaultInstance().getProjectId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2044,18 +2176,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string project_id = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.project_id is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2400
+     *     See google/container/v1beta1/cluster_service.proto;l=2461
      * @param value The bytes for projectId to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setProjectIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2071,7 +2201,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string zone = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.zone is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2409
+     *     See google/container/v1beta1/cluster_service.proto;l=2470
      * @return The zone.
      */
     @java.lang.Deprecated public java.lang.String getZone() {
@@ -2096,7 +2226,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string zone = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.zone is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2409
+     *     See google/container/v1beta1/cluster_service.proto;l=2470
      * @return The bytes for zone.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -2122,17 +2252,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string zone = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.zone is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2409
+     *     See google/container/v1beta1/cluster_service.proto;l=2470
      * @param value The zone to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setZone(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       zone_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2146,12 +2274,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string zone = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.zone is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2409
+     *     See google/container/v1beta1/cluster_service.proto;l=2470
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearZone() {
-      
       zone_ = getDefaultInstance().getZone();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2165,18 +2293,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string zone = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.zone is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2409
+     *     See google/container/v1beta1/cluster_service.proto;l=2470
      * @param value The bytes for zone to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setZoneBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       zone_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2190,7 +2316,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string cluster_id = 3 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.cluster_id is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2416
+     *     See google/container/v1beta1/cluster_service.proto;l=2477
      * @return The clusterId.
      */
     @java.lang.Deprecated public java.lang.String getClusterId() {
@@ -2213,7 +2339,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string cluster_id = 3 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.cluster_id is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2416
+     *     See google/container/v1beta1/cluster_service.proto;l=2477
      * @return The bytes for clusterId.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -2237,17 +2363,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string cluster_id = 3 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.cluster_id is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2416
+     *     See google/container/v1beta1/cluster_service.proto;l=2477
      * @param value The clusterId to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setClusterId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clusterId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2259,12 +2383,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string cluster_id = 3 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.cluster_id is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2416
+     *     See google/container/v1beta1/cluster_service.proto;l=2477
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearClusterId() {
-      
       clusterId_ = getDefaultInstance().getClusterId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2276,18 +2400,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string cluster_id = 3 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.cluster_id is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2416
+     *     See google/container/v1beta1/cluster_service.proto;l=2477
      * @param value The bytes for clusterId to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setClusterIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clusterId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2301,7 +2423,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string node_pool_id = 4 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.node_pool_id is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2423
+     *     See google/container/v1beta1/cluster_service.proto;l=2484
      * @return The nodePoolId.
      */
     @java.lang.Deprecated public java.lang.String getNodePoolId() {
@@ -2324,7 +2446,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string node_pool_id = 4 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.node_pool_id is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2423
+     *     See google/container/v1beta1/cluster_service.proto;l=2484
      * @return The bytes for nodePoolId.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -2348,17 +2470,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string node_pool_id = 4 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.node_pool_id is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2423
+     *     See google/container/v1beta1/cluster_service.proto;l=2484
      * @param value The nodePoolId to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setNodePoolId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       nodePoolId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2370,12 +2490,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string node_pool_id = 4 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.node_pool_id is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2423
+     *     See google/container/v1beta1/cluster_service.proto;l=2484
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearNodePoolId() {
-      
       nodePoolId_ = getDefaultInstance().getNodePoolId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2387,18 +2507,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string node_pool_id = 4 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.container.v1beta1.UpdateNodePoolRequest.node_pool_id is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=2423
+     *     See google/container/v1beta1/cluster_service.proto;l=2484
      * @param value The bytes for nodePoolId to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setNodePoolIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nodePoolId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2480,11 +2598,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNodeVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       nodeVersion_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2505,8 +2621,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNodeVersion() {
-      
       nodeVersion_ = getDefaultInstance().getNodeVersion();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2529,12 +2645,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNodeVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nodeVersion_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2592,11 +2706,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       imageType_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2609,8 +2721,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImageType() {
-      
       imageType_ = getDefaultInstance().getImageType();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2625,21 +2737,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       imageType_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList locations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureLocationsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         locations_ = new com.google.protobuf.LazyStringArrayList(locations_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000040;
        }
     }
     /**
@@ -2722,10 +2832,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocations(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLocationsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureLocationsIsMutable();
       locations_.set(index, value);
       onChanged();
       return this;
@@ -2745,10 +2853,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLocations(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLocationsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureLocationsIsMutable();
       locations_.add(value);
       onChanged();
       return this;
@@ -2788,7 +2894,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearLocations() {
       locations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2807,10 +2913,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLocationsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureLocationsIsMutable();
       locations_.add(value);
       onChanged();
@@ -2829,7 +2933,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the workloadMetadataConfig field is set.
      */
     public boolean hasWorkloadMetadataConfig() {
-      return workloadMetadataConfigBuilder_ != null || workloadMetadataConfig_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2859,11 +2963,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         workloadMetadataConfig_ = value;
-        onChanged();
       } else {
         workloadMetadataConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2877,11 +2981,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.WorkloadMetadataConfig.Builder builderForValue) {
       if (workloadMetadataConfigBuilder_ == null) {
         workloadMetadataConfig_ = builderForValue.build();
-        onChanged();
       } else {
         workloadMetadataConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2893,17 +2997,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWorkloadMetadataConfig(com.google.container.v1beta1.WorkloadMetadataConfig value) {
       if (workloadMetadataConfigBuilder_ == null) {
-        if (workloadMetadataConfig_ != null) {
-          workloadMetadataConfig_ =
-            com.google.container.v1beta1.WorkloadMetadataConfig.newBuilder(workloadMetadataConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          workloadMetadataConfig_ != null &&
+          workloadMetadataConfig_ != com.google.container.v1beta1.WorkloadMetadataConfig.getDefaultInstance()) {
+          getWorkloadMetadataConfigBuilder().mergeFrom(value);
         } else {
           workloadMetadataConfig_ = value;
         }
-        onChanged();
       } else {
         workloadMetadataConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2914,14 +3019,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.WorkloadMetadataConfig workload_metadata_config = 14;</code>
      */
     public Builder clearWorkloadMetadataConfig() {
-      if (workloadMetadataConfigBuilder_ == null) {
-        workloadMetadataConfig_ = null;
-        onChanged();
-      } else {
-        workloadMetadataConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      workloadMetadataConfig_ = null;
+      if (workloadMetadataConfigBuilder_ != null) {
+        workloadMetadataConfigBuilder_.dispose();
         workloadMetadataConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2932,7 +3036,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.WorkloadMetadataConfig workload_metadata_config = 14;</code>
      */
     public com.google.container.v1beta1.WorkloadMetadataConfig.Builder getWorkloadMetadataConfigBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getWorkloadMetadataConfigFieldBuilder().getBuilder();
     }
@@ -3031,11 +3135,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3050,8 +3152,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -3068,12 +3170,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3090,7 +3190,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the upgradeSettings field is set.
      */
     public boolean hasUpgradeSettings() {
-      return upgradeSettingsBuilder_ != null || upgradeSettings_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -3120,11 +3220,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         upgradeSettings_ = value;
-        onChanged();
       } else {
         upgradeSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3138,11 +3238,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.NodePool.UpgradeSettings.Builder builderForValue) {
       if (upgradeSettingsBuilder_ == null) {
         upgradeSettings_ = builderForValue.build();
-        onChanged();
       } else {
         upgradeSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3154,17 +3254,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpgradeSettings(com.google.container.v1beta1.NodePool.UpgradeSettings value) {
       if (upgradeSettingsBuilder_ == null) {
-        if (upgradeSettings_ != null) {
-          upgradeSettings_ =
-            com.google.container.v1beta1.NodePool.UpgradeSettings.newBuilder(upgradeSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          upgradeSettings_ != null &&
+          upgradeSettings_ != com.google.container.v1beta1.NodePool.UpgradeSettings.getDefaultInstance()) {
+          getUpgradeSettingsBuilder().mergeFrom(value);
         } else {
           upgradeSettings_ = value;
         }
-        onChanged();
       } else {
         upgradeSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3175,14 +3276,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.NodePool.UpgradeSettings upgrade_settings = 15;</code>
      */
     public Builder clearUpgradeSettings() {
-      if (upgradeSettingsBuilder_ == null) {
-        upgradeSettings_ = null;
-        onChanged();
-      } else {
-        upgradeSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      upgradeSettings_ = null;
+      if (upgradeSettingsBuilder_ != null) {
+        upgradeSettingsBuilder_.dispose();
         upgradeSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3193,7 +3293,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.NodePool.UpgradeSettings upgrade_settings = 15;</code>
      */
     public com.google.container.v1beta1.NodePool.UpgradeSettings.Builder getUpgradeSettingsBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getUpgradeSettingsFieldBuilder().getBuilder();
     }
@@ -3247,7 +3347,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the tags field is set.
      */
     public boolean hasTags() {
-      return tagsBuilder_ != null || tags_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -3281,11 +3381,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tags_ = value;
-        onChanged();
       } else {
         tagsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3301,11 +3401,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.NetworkTags.Builder builderForValue) {
       if (tagsBuilder_ == null) {
         tags_ = builderForValue.build();
-        onChanged();
       } else {
         tagsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3319,17 +3419,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTags(com.google.container.v1beta1.NetworkTags value) {
       if (tagsBuilder_ == null) {
-        if (tags_ != null) {
-          tags_ =
-            com.google.container.v1beta1.NetworkTags.newBuilder(tags_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          tags_ != null &&
+          tags_ != com.google.container.v1beta1.NetworkTags.getDefaultInstance()) {
+          getTagsBuilder().mergeFrom(value);
         } else {
           tags_ = value;
         }
-        onChanged();
       } else {
         tagsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3342,14 +3443,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.NetworkTags tags = 16;</code>
      */
     public Builder clearTags() {
-      if (tagsBuilder_ == null) {
-        tags_ = null;
-        onChanged();
-      } else {
-        tags_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      tags_ = null;
+      if (tagsBuilder_ != null) {
+        tagsBuilder_.dispose();
         tagsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3362,7 +3462,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.NetworkTags tags = 16;</code>
      */
     public com.google.container.v1beta1.NetworkTags.Builder getTagsBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getTagsFieldBuilder().getBuilder();
     }
@@ -3420,7 +3520,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the taints field is set.
      */
     public boolean hasTaints() {
-      return taintsBuilder_ != null || taints_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -3454,11 +3554,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         taints_ = value;
-        onChanged();
       } else {
         taintsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3474,11 +3574,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.NodeTaints.Builder builderForValue) {
       if (taintsBuilder_ == null) {
         taints_ = builderForValue.build();
-        onChanged();
       } else {
         taintsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3492,17 +3592,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTaints(com.google.container.v1beta1.NodeTaints value) {
       if (taintsBuilder_ == null) {
-        if (taints_ != null) {
-          taints_ =
-            com.google.container.v1beta1.NodeTaints.newBuilder(taints_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          taints_ != null &&
+          taints_ != com.google.container.v1beta1.NodeTaints.getDefaultInstance()) {
+          getTaintsBuilder().mergeFrom(value);
         } else {
           taints_ = value;
         }
-        onChanged();
       } else {
         taintsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3515,14 +3616,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.NodeTaints taints = 17;</code>
      */
     public Builder clearTaints() {
-      if (taintsBuilder_ == null) {
-        taints_ = null;
-        onChanged();
-      } else {
-        taints_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      taints_ = null;
+      if (taintsBuilder_ != null) {
+        taintsBuilder_.dispose();
         taintsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3535,7 +3635,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.NodeTaints taints = 17;</code>
      */
     public com.google.container.v1beta1.NodeTaints.Builder getTaintsBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getTaintsFieldBuilder().getBuilder();
     }
@@ -3593,7 +3693,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the labels field is set.
      */
     public boolean hasLabels() {
-      return labelsBuilder_ != null || labels_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -3627,11 +3727,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         labels_ = value;
-        onChanged();
       } else {
         labelsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3647,11 +3747,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.NodeLabels.Builder builderForValue) {
       if (labelsBuilder_ == null) {
         labels_ = builderForValue.build();
-        onChanged();
       } else {
         labelsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3665,17 +3765,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLabels(com.google.container.v1beta1.NodeLabels value) {
       if (labelsBuilder_ == null) {
-        if (labels_ != null) {
-          labels_ =
-            com.google.container.v1beta1.NodeLabels.newBuilder(labels_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          labels_ != null &&
+          labels_ != com.google.container.v1beta1.NodeLabels.getDefaultInstance()) {
+          getLabelsBuilder().mergeFrom(value);
         } else {
           labels_ = value;
         }
-        onChanged();
       } else {
         labelsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3688,14 +3789,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.NodeLabels labels = 18;</code>
      */
     public Builder clearLabels() {
-      if (labelsBuilder_ == null) {
-        labels_ = null;
-        onChanged();
-      } else {
-        labels_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      labels_ = null;
+      if (labelsBuilder_ != null) {
+        labelsBuilder_.dispose();
         labelsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3708,7 +3808,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.NodeLabels labels = 18;</code>
      */
     public com.google.container.v1beta1.NodeLabels.Builder getLabelsBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getLabelsFieldBuilder().getBuilder();
     }
@@ -3764,7 +3864,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the linuxNodeConfig field is set.
      */
     public boolean hasLinuxNodeConfig() {
-      return linuxNodeConfigBuilder_ != null || linuxNodeConfig_ != null;
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -3794,11 +3894,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         linuxNodeConfig_ = value;
-        onChanged();
       } else {
         linuxNodeConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -3812,11 +3912,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.LinuxNodeConfig.Builder builderForValue) {
       if (linuxNodeConfigBuilder_ == null) {
         linuxNodeConfig_ = builderForValue.build();
-        onChanged();
       } else {
         linuxNodeConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -3828,17 +3928,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLinuxNodeConfig(com.google.container.v1beta1.LinuxNodeConfig value) {
       if (linuxNodeConfigBuilder_ == null) {
-        if (linuxNodeConfig_ != null) {
-          linuxNodeConfig_ =
-            com.google.container.v1beta1.LinuxNodeConfig.newBuilder(linuxNodeConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00002000) != 0) &&
+          linuxNodeConfig_ != null &&
+          linuxNodeConfig_ != com.google.container.v1beta1.LinuxNodeConfig.getDefaultInstance()) {
+          getLinuxNodeConfigBuilder().mergeFrom(value);
         } else {
           linuxNodeConfig_ = value;
         }
-        onChanged();
       } else {
         linuxNodeConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -3849,14 +3950,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.LinuxNodeConfig linux_node_config = 19;</code>
      */
     public Builder clearLinuxNodeConfig() {
-      if (linuxNodeConfigBuilder_ == null) {
-        linuxNodeConfig_ = null;
-        onChanged();
-      } else {
-        linuxNodeConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00002000);
+      linuxNodeConfig_ = null;
+      if (linuxNodeConfigBuilder_ != null) {
+        linuxNodeConfigBuilder_.dispose();
         linuxNodeConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3867,7 +3967,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.LinuxNodeConfig linux_node_config = 19;</code>
      */
     public com.google.container.v1beta1.LinuxNodeConfig.Builder getLinuxNodeConfigBuilder() {
-      
+      bitField0_ |= 0x00002000;
       onChanged();
       return getLinuxNodeConfigFieldBuilder().getBuilder();
     }
@@ -3919,7 +4019,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the kubeletConfig field is set.
      */
     public boolean hasKubeletConfig() {
-      return kubeletConfigBuilder_ != null || kubeletConfig_ != null;
+      return ((bitField0_ & 0x00004000) != 0);
     }
     /**
      * <pre>
@@ -3949,11 +4049,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         kubeletConfig_ = value;
-        onChanged();
       } else {
         kubeletConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -3967,11 +4067,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.NodeKubeletConfig.Builder builderForValue) {
       if (kubeletConfigBuilder_ == null) {
         kubeletConfig_ = builderForValue.build();
-        onChanged();
       } else {
         kubeletConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -3983,17 +4083,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeKubeletConfig(com.google.container.v1beta1.NodeKubeletConfig value) {
       if (kubeletConfigBuilder_ == null) {
-        if (kubeletConfig_ != null) {
-          kubeletConfig_ =
-            com.google.container.v1beta1.NodeKubeletConfig.newBuilder(kubeletConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00004000) != 0) &&
+          kubeletConfig_ != null &&
+          kubeletConfig_ != com.google.container.v1beta1.NodeKubeletConfig.getDefaultInstance()) {
+          getKubeletConfigBuilder().mergeFrom(value);
         } else {
           kubeletConfig_ = value;
         }
-        onChanged();
       } else {
         kubeletConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -4004,14 +4105,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.NodeKubeletConfig kubelet_config = 20;</code>
      */
     public Builder clearKubeletConfig() {
-      if (kubeletConfigBuilder_ == null) {
-        kubeletConfig_ = null;
-        onChanged();
-      } else {
-        kubeletConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00004000);
+      kubeletConfig_ = null;
+      if (kubeletConfigBuilder_ != null) {
+        kubeletConfigBuilder_.dispose();
         kubeletConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4022,7 +4122,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.NodeKubeletConfig kubelet_config = 20;</code>
      */
     public com.google.container.v1beta1.NodeKubeletConfig.Builder getKubeletConfigBuilder() {
-      
+      bitField0_ |= 0x00004000;
       onChanged();
       return getKubeletConfigFieldBuilder().getBuilder();
     }
@@ -4074,7 +4174,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the nodeNetworkConfig field is set.
      */
     public boolean hasNodeNetworkConfig() {
-      return nodeNetworkConfigBuilder_ != null || nodeNetworkConfig_ != null;
+      return ((bitField0_ & 0x00008000) != 0);
     }
     /**
      * <pre>
@@ -4104,11 +4204,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         nodeNetworkConfig_ = value;
-        onChanged();
       } else {
         nodeNetworkConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -4122,11 +4222,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.NodeNetworkConfig.Builder builderForValue) {
       if (nodeNetworkConfigBuilder_ == null) {
         nodeNetworkConfig_ = builderForValue.build();
-        onChanged();
       } else {
         nodeNetworkConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -4138,17 +4238,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNodeNetworkConfig(com.google.container.v1beta1.NodeNetworkConfig value) {
       if (nodeNetworkConfigBuilder_ == null) {
-        if (nodeNetworkConfig_ != null) {
-          nodeNetworkConfig_ =
-            com.google.container.v1beta1.NodeNetworkConfig.newBuilder(nodeNetworkConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00008000) != 0) &&
+          nodeNetworkConfig_ != null &&
+          nodeNetworkConfig_ != com.google.container.v1beta1.NodeNetworkConfig.getDefaultInstance()) {
+          getNodeNetworkConfigBuilder().mergeFrom(value);
         } else {
           nodeNetworkConfig_ = value;
         }
-        onChanged();
       } else {
         nodeNetworkConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -4159,14 +4260,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.NodeNetworkConfig node_network_config = 21;</code>
      */
     public Builder clearNodeNetworkConfig() {
-      if (nodeNetworkConfigBuilder_ == null) {
-        nodeNetworkConfig_ = null;
-        onChanged();
-      } else {
-        nodeNetworkConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00008000);
+      nodeNetworkConfig_ = null;
+      if (nodeNetworkConfigBuilder_ != null) {
+        nodeNetworkConfigBuilder_.dispose();
         nodeNetworkConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4177,7 +4277,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.NodeNetworkConfig node_network_config = 21;</code>
      */
     public com.google.container.v1beta1.NodeNetworkConfig.Builder getNodeNetworkConfigBuilder() {
-      
+      bitField0_ |= 0x00008000;
       onChanged();
       return getNodeNetworkConfigFieldBuilder().getBuilder();
     }
@@ -4229,7 +4329,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the gcfsConfig field is set.
      */
     public boolean hasGcfsConfig() {
-      return gcfsConfigBuilder_ != null || gcfsConfig_ != null;
+      return ((bitField0_ & 0x00010000) != 0);
     }
     /**
      * <pre>
@@ -4259,11 +4359,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         gcfsConfig_ = value;
-        onChanged();
       } else {
         gcfsConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -4277,11 +4377,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.GcfsConfig.Builder builderForValue) {
       if (gcfsConfigBuilder_ == null) {
         gcfsConfig_ = builderForValue.build();
-        onChanged();
       } else {
         gcfsConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -4293,17 +4393,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGcfsConfig(com.google.container.v1beta1.GcfsConfig value) {
       if (gcfsConfigBuilder_ == null) {
-        if (gcfsConfig_ != null) {
-          gcfsConfig_ =
-            com.google.container.v1beta1.GcfsConfig.newBuilder(gcfsConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00010000) != 0) &&
+          gcfsConfig_ != null &&
+          gcfsConfig_ != com.google.container.v1beta1.GcfsConfig.getDefaultInstance()) {
+          getGcfsConfigBuilder().mergeFrom(value);
         } else {
           gcfsConfig_ = value;
         }
-        onChanged();
       } else {
         gcfsConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -4314,14 +4415,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.GcfsConfig gcfs_config = 22;</code>
      */
     public Builder clearGcfsConfig() {
-      if (gcfsConfigBuilder_ == null) {
-        gcfsConfig_ = null;
-        onChanged();
-      } else {
-        gcfsConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00010000);
+      gcfsConfig_ = null;
+      if (gcfsConfigBuilder_ != null) {
+        gcfsConfigBuilder_.dispose();
         gcfsConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4332,7 +4432,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.GcfsConfig gcfs_config = 22;</code>
      */
     public com.google.container.v1beta1.GcfsConfig.Builder getGcfsConfigBuilder() {
-      
+      bitField0_ |= 0x00010000;
       onChanged();
       return getGcfsConfigFieldBuilder().getBuilder();
     }
@@ -4385,7 +4485,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the confidentialNodes field is set.
      */
     public boolean hasConfidentialNodes() {
-      return confidentialNodesBuilder_ != null || confidentialNodes_ != null;
+      return ((bitField0_ & 0x00020000) != 0);
     }
     /**
      * <pre>
@@ -4417,11 +4517,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         confidentialNodes_ = value;
-        onChanged();
       } else {
         confidentialNodesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -4436,11 +4536,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.ConfidentialNodes.Builder builderForValue) {
       if (confidentialNodesBuilder_ == null) {
         confidentialNodes_ = builderForValue.build();
-        onChanged();
       } else {
         confidentialNodesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -4453,17 +4553,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConfidentialNodes(com.google.container.v1beta1.ConfidentialNodes value) {
       if (confidentialNodesBuilder_ == null) {
-        if (confidentialNodes_ != null) {
-          confidentialNodes_ =
-            com.google.container.v1beta1.ConfidentialNodes.newBuilder(confidentialNodes_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00020000) != 0) &&
+          confidentialNodes_ != null &&
+          confidentialNodes_ != com.google.container.v1beta1.ConfidentialNodes.getDefaultInstance()) {
+          getConfidentialNodesBuilder().mergeFrom(value);
         } else {
           confidentialNodes_ = value;
         }
-        onChanged();
       } else {
         confidentialNodesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -4475,14 +4576,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.ConfidentialNodes confidential_nodes = 23;</code>
      */
     public Builder clearConfidentialNodes() {
-      if (confidentialNodesBuilder_ == null) {
-        confidentialNodes_ = null;
-        onChanged();
-      } else {
-        confidentialNodes_ = null;
+      bitField0_ = (bitField0_ & ~0x00020000);
+      confidentialNodes_ = null;
+      if (confidentialNodesBuilder_ != null) {
+        confidentialNodesBuilder_.dispose();
         confidentialNodesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4494,7 +4594,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.ConfidentialNodes confidential_nodes = 23;</code>
      */
     public com.google.container.v1beta1.ConfidentialNodes.Builder getConfidentialNodesBuilder() {
-      
+      bitField0_ |= 0x00020000;
       onChanged();
       return getConfidentialNodesFieldBuilder().getBuilder();
     }
@@ -4548,7 +4648,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the gvnic field is set.
      */
     public boolean hasGvnic() {
-      return gvnicBuilder_ != null || gvnic_ != null;
+      return ((bitField0_ & 0x00040000) != 0);
     }
     /**
      * <pre>
@@ -4578,11 +4678,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         gvnic_ = value;
-        onChanged();
       } else {
         gvnicBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -4596,11 +4696,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.VirtualNIC.Builder builderForValue) {
       if (gvnicBuilder_ == null) {
         gvnic_ = builderForValue.build();
-        onChanged();
       } else {
         gvnicBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -4612,17 +4712,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGvnic(com.google.container.v1beta1.VirtualNIC value) {
       if (gvnicBuilder_ == null) {
-        if (gvnic_ != null) {
-          gvnic_ =
-            com.google.container.v1beta1.VirtualNIC.newBuilder(gvnic_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00040000) != 0) &&
+          gvnic_ != null &&
+          gvnic_ != com.google.container.v1beta1.VirtualNIC.getDefaultInstance()) {
+          getGvnicBuilder().mergeFrom(value);
         } else {
           gvnic_ = value;
         }
-        onChanged();
       } else {
         gvnicBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -4633,14 +4734,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.VirtualNIC gvnic = 29;</code>
      */
     public Builder clearGvnic() {
-      if (gvnicBuilder_ == null) {
-        gvnic_ = null;
-        onChanged();
-      } else {
-        gvnic_ = null;
+      bitField0_ = (bitField0_ & ~0x00040000);
+      gvnic_ = null;
+      if (gvnicBuilder_ != null) {
+        gvnicBuilder_.dispose();
         gvnicBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4651,7 +4751,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.VirtualNIC gvnic = 29;</code>
      */
     public com.google.container.v1beta1.VirtualNIC.Builder getGvnicBuilder() {
-      
+      bitField0_ |= 0x00040000;
       onChanged();
       return getGvnicFieldBuilder().getBuilder();
     }
@@ -4690,6 +4790,480 @@ private static final long serialVersionUID = 0L;
       }
       return gvnicBuilder_;
     }
+
+    private com.google.container.v1beta1.FastSocket fastSocket_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.container.v1beta1.FastSocket, com.google.container.v1beta1.FastSocket.Builder, com.google.container.v1beta1.FastSocketOrBuilder> fastSocketBuilder_;
+    /**
+     * <pre>
+     * Enable or disable NCCL fast socket for the node pool.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.FastSocket fast_socket = 31;</code>
+     * @return Whether the fastSocket field is set.
+     */
+    public boolean hasFastSocket() {
+      return ((bitField0_ & 0x00080000) != 0);
+    }
+    /**
+     * <pre>
+     * Enable or disable NCCL fast socket for the node pool.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.FastSocket fast_socket = 31;</code>
+     * @return The fastSocket.
+     */
+    public com.google.container.v1beta1.FastSocket getFastSocket() {
+      if (fastSocketBuilder_ == null) {
+        return fastSocket_ == null ? com.google.container.v1beta1.FastSocket.getDefaultInstance() : fastSocket_;
+      } else {
+        return fastSocketBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Enable or disable NCCL fast socket for the node pool.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.FastSocket fast_socket = 31;</code>
+     */
+    public Builder setFastSocket(com.google.container.v1beta1.FastSocket value) {
+      if (fastSocketBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        fastSocket_ = value;
+      } else {
+        fastSocketBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00080000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Enable or disable NCCL fast socket for the node pool.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.FastSocket fast_socket = 31;</code>
+     */
+    public Builder setFastSocket(
+        com.google.container.v1beta1.FastSocket.Builder builderForValue) {
+      if (fastSocketBuilder_ == null) {
+        fastSocket_ = builderForValue.build();
+      } else {
+        fastSocketBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00080000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Enable or disable NCCL fast socket for the node pool.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.FastSocket fast_socket = 31;</code>
+     */
+    public Builder mergeFastSocket(com.google.container.v1beta1.FastSocket value) {
+      if (fastSocketBuilder_ == null) {
+        if (((bitField0_ & 0x00080000) != 0) &&
+          fastSocket_ != null &&
+          fastSocket_ != com.google.container.v1beta1.FastSocket.getDefaultInstance()) {
+          getFastSocketBuilder().mergeFrom(value);
+        } else {
+          fastSocket_ = value;
+        }
+      } else {
+        fastSocketBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00080000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Enable or disable NCCL fast socket for the node pool.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.FastSocket fast_socket = 31;</code>
+     */
+    public Builder clearFastSocket() {
+      bitField0_ = (bitField0_ & ~0x00080000);
+      fastSocket_ = null;
+      if (fastSocketBuilder_ != null) {
+        fastSocketBuilder_.dispose();
+        fastSocketBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Enable or disable NCCL fast socket for the node pool.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.FastSocket fast_socket = 31;</code>
+     */
+    public com.google.container.v1beta1.FastSocket.Builder getFastSocketBuilder() {
+      bitField0_ |= 0x00080000;
+      onChanged();
+      return getFastSocketFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Enable or disable NCCL fast socket for the node pool.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.FastSocket fast_socket = 31;</code>
+     */
+    public com.google.container.v1beta1.FastSocketOrBuilder getFastSocketOrBuilder() {
+      if (fastSocketBuilder_ != null) {
+        return fastSocketBuilder_.getMessageOrBuilder();
+      } else {
+        return fastSocket_ == null ?
+            com.google.container.v1beta1.FastSocket.getDefaultInstance() : fastSocket_;
+      }
+    }
+    /**
+     * <pre>
+     * Enable or disable NCCL fast socket for the node pool.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.FastSocket fast_socket = 31;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.container.v1beta1.FastSocket, com.google.container.v1beta1.FastSocket.Builder, com.google.container.v1beta1.FastSocketOrBuilder> 
+        getFastSocketFieldBuilder() {
+      if (fastSocketBuilder_ == null) {
+        fastSocketBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.container.v1beta1.FastSocket, com.google.container.v1beta1.FastSocket.Builder, com.google.container.v1beta1.FastSocketOrBuilder>(
+                getFastSocket(),
+                getParentForChildren(),
+                isClean());
+        fastSocket_ = null;
+      }
+      return fastSocketBuilder_;
+    }
+
+    private com.google.container.v1beta1.NodePoolLoggingConfig loggingConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.container.v1beta1.NodePoolLoggingConfig, com.google.container.v1beta1.NodePoolLoggingConfig.Builder, com.google.container.v1beta1.NodePoolLoggingConfigOrBuilder> loggingConfigBuilder_;
+    /**
+     * <pre>
+     * Logging configuration.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.NodePoolLoggingConfig logging_config = 32;</code>
+     * @return Whether the loggingConfig field is set.
+     */
+    public boolean hasLoggingConfig() {
+      return ((bitField0_ & 0x00100000) != 0);
+    }
+    /**
+     * <pre>
+     * Logging configuration.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.NodePoolLoggingConfig logging_config = 32;</code>
+     * @return The loggingConfig.
+     */
+    public com.google.container.v1beta1.NodePoolLoggingConfig getLoggingConfig() {
+      if (loggingConfigBuilder_ == null) {
+        return loggingConfig_ == null ? com.google.container.v1beta1.NodePoolLoggingConfig.getDefaultInstance() : loggingConfig_;
+      } else {
+        return loggingConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Logging configuration.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.NodePoolLoggingConfig logging_config = 32;</code>
+     */
+    public Builder setLoggingConfig(com.google.container.v1beta1.NodePoolLoggingConfig value) {
+      if (loggingConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        loggingConfig_ = value;
+      } else {
+        loggingConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00100000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Logging configuration.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.NodePoolLoggingConfig logging_config = 32;</code>
+     */
+    public Builder setLoggingConfig(
+        com.google.container.v1beta1.NodePoolLoggingConfig.Builder builderForValue) {
+      if (loggingConfigBuilder_ == null) {
+        loggingConfig_ = builderForValue.build();
+      } else {
+        loggingConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00100000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Logging configuration.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.NodePoolLoggingConfig logging_config = 32;</code>
+     */
+    public Builder mergeLoggingConfig(com.google.container.v1beta1.NodePoolLoggingConfig value) {
+      if (loggingConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00100000) != 0) &&
+          loggingConfig_ != null &&
+          loggingConfig_ != com.google.container.v1beta1.NodePoolLoggingConfig.getDefaultInstance()) {
+          getLoggingConfigBuilder().mergeFrom(value);
+        } else {
+          loggingConfig_ = value;
+        }
+      } else {
+        loggingConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00100000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Logging configuration.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.NodePoolLoggingConfig logging_config = 32;</code>
+     */
+    public Builder clearLoggingConfig() {
+      bitField0_ = (bitField0_ & ~0x00100000);
+      loggingConfig_ = null;
+      if (loggingConfigBuilder_ != null) {
+        loggingConfigBuilder_.dispose();
+        loggingConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Logging configuration.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.NodePoolLoggingConfig logging_config = 32;</code>
+     */
+    public com.google.container.v1beta1.NodePoolLoggingConfig.Builder getLoggingConfigBuilder() {
+      bitField0_ |= 0x00100000;
+      onChanged();
+      return getLoggingConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Logging configuration.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.NodePoolLoggingConfig logging_config = 32;</code>
+     */
+    public com.google.container.v1beta1.NodePoolLoggingConfigOrBuilder getLoggingConfigOrBuilder() {
+      if (loggingConfigBuilder_ != null) {
+        return loggingConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return loggingConfig_ == null ?
+            com.google.container.v1beta1.NodePoolLoggingConfig.getDefaultInstance() : loggingConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * Logging configuration.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.NodePoolLoggingConfig logging_config = 32;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.container.v1beta1.NodePoolLoggingConfig, com.google.container.v1beta1.NodePoolLoggingConfig.Builder, com.google.container.v1beta1.NodePoolLoggingConfigOrBuilder> 
+        getLoggingConfigFieldBuilder() {
+      if (loggingConfigBuilder_ == null) {
+        loggingConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.container.v1beta1.NodePoolLoggingConfig, com.google.container.v1beta1.NodePoolLoggingConfig.Builder, com.google.container.v1beta1.NodePoolLoggingConfigOrBuilder>(
+                getLoggingConfig(),
+                getParentForChildren(),
+                isClean());
+        loggingConfig_ = null;
+      }
+      return loggingConfigBuilder_;
+    }
+
+    private com.google.container.v1beta1.ResourceLabels resourceLabels_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.container.v1beta1.ResourceLabels, com.google.container.v1beta1.ResourceLabels.Builder, com.google.container.v1beta1.ResourceLabelsOrBuilder> resourceLabelsBuilder_;
+    /**
+     * <pre>
+     * The resource labels for the node pool to use to annotate any related
+     * Google Compute Engine resources.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.ResourceLabels resource_labels = 33;</code>
+     * @return Whether the resourceLabels field is set.
+     */
+    public boolean hasResourceLabels() {
+      return ((bitField0_ & 0x00200000) != 0);
+    }
+    /**
+     * <pre>
+     * The resource labels for the node pool to use to annotate any related
+     * Google Compute Engine resources.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.ResourceLabels resource_labels = 33;</code>
+     * @return The resourceLabels.
+     */
+    public com.google.container.v1beta1.ResourceLabels getResourceLabels() {
+      if (resourceLabelsBuilder_ == null) {
+        return resourceLabels_ == null ? com.google.container.v1beta1.ResourceLabels.getDefaultInstance() : resourceLabels_;
+      } else {
+        return resourceLabelsBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * The resource labels for the node pool to use to annotate any related
+     * Google Compute Engine resources.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.ResourceLabels resource_labels = 33;</code>
+     */
+    public Builder setResourceLabels(com.google.container.v1beta1.ResourceLabels value) {
+      if (resourceLabelsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        resourceLabels_ = value;
+      } else {
+        resourceLabelsBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00200000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The resource labels for the node pool to use to annotate any related
+     * Google Compute Engine resources.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.ResourceLabels resource_labels = 33;</code>
+     */
+    public Builder setResourceLabels(
+        com.google.container.v1beta1.ResourceLabels.Builder builderForValue) {
+      if (resourceLabelsBuilder_ == null) {
+        resourceLabels_ = builderForValue.build();
+      } else {
+        resourceLabelsBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00200000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The resource labels for the node pool to use to annotate any related
+     * Google Compute Engine resources.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.ResourceLabels resource_labels = 33;</code>
+     */
+    public Builder mergeResourceLabels(com.google.container.v1beta1.ResourceLabels value) {
+      if (resourceLabelsBuilder_ == null) {
+        if (((bitField0_ & 0x00200000) != 0) &&
+          resourceLabels_ != null &&
+          resourceLabels_ != com.google.container.v1beta1.ResourceLabels.getDefaultInstance()) {
+          getResourceLabelsBuilder().mergeFrom(value);
+        } else {
+          resourceLabels_ = value;
+        }
+      } else {
+        resourceLabelsBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00200000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The resource labels for the node pool to use to annotate any related
+     * Google Compute Engine resources.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.ResourceLabels resource_labels = 33;</code>
+     */
+    public Builder clearResourceLabels() {
+      bitField0_ = (bitField0_ & ~0x00200000);
+      resourceLabels_ = null;
+      if (resourceLabelsBuilder_ != null) {
+        resourceLabelsBuilder_.dispose();
+        resourceLabelsBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The resource labels for the node pool to use to annotate any related
+     * Google Compute Engine resources.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.ResourceLabels resource_labels = 33;</code>
+     */
+    public com.google.container.v1beta1.ResourceLabels.Builder getResourceLabelsBuilder() {
+      bitField0_ |= 0x00200000;
+      onChanged();
+      return getResourceLabelsFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The resource labels for the node pool to use to annotate any related
+     * Google Compute Engine resources.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.ResourceLabels resource_labels = 33;</code>
+     */
+    public com.google.container.v1beta1.ResourceLabelsOrBuilder getResourceLabelsOrBuilder() {
+      if (resourceLabelsBuilder_ != null) {
+        return resourceLabelsBuilder_.getMessageOrBuilder();
+      } else {
+        return resourceLabels_ == null ?
+            com.google.container.v1beta1.ResourceLabels.getDefaultInstance() : resourceLabels_;
+      }
+    }
+    /**
+     * <pre>
+     * The resource labels for the node pool to use to annotate any related
+     * Google Compute Engine resources.
+     * </pre>
+     *
+     * <code>.google.container.v1beta1.ResourceLabels resource_labels = 33;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.container.v1beta1.ResourceLabels, com.google.container.v1beta1.ResourceLabels.Builder, com.google.container.v1beta1.ResourceLabelsOrBuilder> 
+        getResourceLabelsFieldBuilder() {
+      if (resourceLabelsBuilder_ == null) {
+        resourceLabelsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.container.v1beta1.ResourceLabels, com.google.container.v1beta1.ResourceLabels.Builder, com.google.container.v1beta1.ResourceLabelsOrBuilder>(
+                getResourceLabels(),
+                getParentForChildren(),
+                isClean());
+        resourceLabels_ = null;
+      }
+      return resourceLabelsBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4723,7 +5297,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateNodePoolRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

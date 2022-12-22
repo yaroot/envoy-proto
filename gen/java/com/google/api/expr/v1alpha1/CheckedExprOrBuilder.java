@@ -94,7 +94,6 @@ public interface CheckedExprOrBuilder extends
    *
    * <code>map&lt;int64, .google.api.expr.v1alpha1.Reference&gt; reference_map = 2;</code>
    */
-
   /* nullable */
 com.google.api.expr.v1alpha1.Reference getReferenceMapOrDefault(
       long key,
@@ -119,7 +118,6 @@ com.google.api.expr.v1alpha1.Reference defaultValue);
    *
    * <code>map&lt;int64, .google.api.expr.v1alpha1.Reference&gt; reference_map = 2;</code>
    */
-
   com.google.api.expr.v1alpha1.Reference getReferenceMapOrThrow(
       long key);
 
@@ -174,7 +172,6 @@ com.google.api.expr.v1alpha1.Reference defaultValue);
    *
    * <code>map&lt;int64, .google.api.expr.v1alpha1.Type&gt; type_map = 3;</code>
    */
-
   /* nullable */
 com.google.api.expr.v1alpha1.Type getTypeMapOrDefault(
       long key,
@@ -190,7 +187,6 @@ com.google.api.expr.v1alpha1.Type defaultValue);
    *
    * <code>map&lt;int64, .google.api.expr.v1alpha1.Type&gt; type_map = 3;</code>
    */
-
   com.google.api.expr.v1alpha1.Type getTypeMapOrThrow(
       long key);
 

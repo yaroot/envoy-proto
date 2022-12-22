@@ -35,67 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private WordDetectionRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            word_ = s;
-            break;
-          }
-          case 16: {
-
-            regexMode_ = input.readBool();
-            break;
-          }
-          case 24: {
-
-            disableApproxMatch_ = input.readBool();
-            break;
-          }
-          case 32: {
-            bitField0_ |= 0x00000001;
-            maxEditDistance_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.chromeos.uidetection.v1.UiDetectionProto.internal_static_google_chromeos_uidetection_v1_WordDetectionRequest_descriptor;
@@ -111,7 +50,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int WORD_FIELD_NUMBER = 1;
-  private volatile java.lang.Object word_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object word_ = "";
   /**
    * <pre>
    * Required. The word to locate in the image.
@@ -157,7 +97,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REGEX_MODE_FIELD_NUMBER = 2;
-  private boolean regexMode_;
+  private boolean regexMode_ = false;
   /**
    * <pre>
    * Indicating whether the query string is a regex or not.
@@ -172,7 +112,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISABLE_APPROX_MATCH_FIELD_NUMBER = 3;
-  private boolean disableApproxMatch_;
+  private boolean disableApproxMatch_ = false;
   /**
    * <pre>
    * Indicating whether the detection is an approximate match.
@@ -187,7 +127,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_EDIT_DISTANCE_FIELD_NUMBER = 4;
-  private int maxEditDistance_;
+  private int maxEditDistance_ = 0;
   /**
    * <pre>
    * Levenshtein distance threshold.
@@ -241,7 +181,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeInt32(4, maxEditDistance_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -265,7 +205,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(4, maxEditDistance_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -291,7 +231,7 @@ private static final long serialVersionUID = 0L;
       if (getMaxEditDistance()
           != other.getMaxEditDistance()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -314,7 +254,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MAX_EDIT_DISTANCE_FIELD_NUMBER;
       hash = (53 * hash) + getMaxEditDistance();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -435,30 +375,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.chromeos.uidetection.v1.WordDetectionRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       word_ = "";
-
       regexMode_ = false;
-
       disableApproxMatch_ = false;
-
       maxEditDistance_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -485,18 +417,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.chromeos.uidetection.v1.WordDetectionRequest buildPartial() {
       com.google.chromeos.uidetection.v1.WordDetectionRequest result = new com.google.chromeos.uidetection.v1.WordDetectionRequest(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.chromeos.uidetection.v1.WordDetectionRequest result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.word_ = word_;
-      result.regexMode_ = regexMode_;
-      result.disableApproxMatch_ = disableApproxMatch_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.word_ = word_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.regexMode_ = regexMode_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.disableApproxMatch_ = disableApproxMatch_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.maxEditDistance_ = maxEditDistance_;
         to_bitField0_ |= 0x00000001;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -545,6 +487,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.chromeos.uidetection.v1.WordDetectionRequest.getDefaultInstance()) return this;
       if (!other.getWord().isEmpty()) {
         word_ = other.word_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getRegexMode() != false) {
@@ -556,7 +499,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasMaxEditDistance()) {
         setMaxEditDistance(other.getMaxEditDistance());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -571,17 +514,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.chromeos.uidetection.v1.WordDetectionRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              word_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              regexMode_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              disableApproxMatch_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              maxEditDistance_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.chromeos.uidetection.v1.WordDetectionRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -639,11 +615,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWord(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       word_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -656,8 +630,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWord() {
-      
       word_ = getDefaultInstance().getWord();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -672,12 +646,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWordBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       word_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -707,6 +679,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRegexMode(boolean value) {
       
       regexMode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -719,7 +692,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRegexMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       regexMode_ = false;
       onChanged();
       return this;
@@ -750,6 +723,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDisableApproxMatch(boolean value) {
       
       disableApproxMatch_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -762,7 +736,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisableApproxMatch() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       disableApproxMatch_ = false;
       onChanged();
       return this;
@@ -780,7 +754,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasMaxEditDistance() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -806,8 +780,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxEditDistance(int value) {
-      bitField0_ |= 0x00000001;
+      
       maxEditDistance_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -821,7 +796,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxEditDistance() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       maxEditDistance_ = 0;
       onChanged();
       return this;
@@ -859,7 +834,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WordDetectionRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

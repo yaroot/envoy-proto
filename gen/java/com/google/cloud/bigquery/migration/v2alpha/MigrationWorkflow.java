@@ -38,103 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MigrationWorkflow(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              tasks_ = com.google.protobuf.MapField.newMapField(
-                  TasksDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.bigquery.migration.v2alpha.MigrationTask>
-            tasks__ = input.readMessage(
-                TasksDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            tasks_.getMutableMap().put(
-                tasks__.getKey(), tasks__.getValue());
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (lastUpdateTime_ != null) {
-              subBuilder = lastUpdateTime_.toBuilder();
-            }
-            lastUpdateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lastUpdateTime_);
-              lastUpdateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.migration.v2alpha.MigrationEntitiesProto.internal_static_google_cloud_bigquery_migration_v2alpha_MigrationWorkflow_descriptor;
@@ -348,7 +251,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. Immutable. The unique identifier for the migration workflow. The ID is
@@ -398,7 +302,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 6;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * The display name of the workflow. This can be set to give a workflow
@@ -457,6 +362,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.bigquery.migration.v2alpha.MigrationTask.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.bigquery.migration.v2alpha.MigrationTask> tasks_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.bigquery.migration.v2alpha.MigrationTask>
@@ -467,7 +373,6 @@ private static final long serialVersionUID = 0L;
     }
     return tasks_;
   }
-
   public int getTasksCount() {
     return internalGetTasks().getMap().size();
   }
@@ -480,7 +385,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.MigrationTask&gt; tasks = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsTasks(
       java.lang.String key) {
@@ -505,7 +409,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.MigrationTask&gt; tasks = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.bigquery.migration.v2alpha.MigrationTask> getTasksMap() {
     return internalGetTasks().getMap();
   }
@@ -519,10 +422,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.MigrationTask&gt; tasks = 2;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.bigquery.migration.v2alpha.MigrationTask getTasksOrDefault(
+  public /* nullable */
+com.google.cloud.bigquery.migration.v2alpha.MigrationTask getTasksOrDefault(
       java.lang.String key,
-      com.google.cloud.bigquery.migration.v2alpha.MigrationTask defaultValue) {
+      /* nullable */
+com.google.cloud.bigquery.migration.v2alpha.MigrationTask defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.bigquery.migration.v2alpha.MigrationTask> map =
         internalGetTasks().getMap();
@@ -538,7 +442,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.MigrationTask&gt; tasks = 2;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.bigquery.migration.v2alpha.MigrationTask getTasksOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -551,7 +454,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 3;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. That status of the workflow.
@@ -572,8 +475,7 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow.State result = com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow.State.valueOf(state_);
+    com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow.State result = com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow.State.forNumber(state_);
     return result == null ? com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow.State.UNRECOGNIZED : result;
   }
 
@@ -612,7 +514,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int LAST_UPDATE_TIME_FIELD_NUMBER = 5;
@@ -650,7 +552,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getLastUpdateTimeOrBuilder() {
-    return getLastUpdateTime();
+    return lastUpdateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastUpdateTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -688,7 +590,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, displayName_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -725,7 +627,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, displayName_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -757,7 +659,7 @@ private static final long serialVersionUID = 0L;
       if (!getLastUpdateTime()
           .equals(other.getLastUpdateTime())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -786,7 +688,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LAST_UPDATE_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getLastUpdateTime().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -930,39 +832,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
       internalGetMutableTasks().clear();
       state_ = 0;
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (lastUpdateTimeBuilder_ == null) {
-        lastUpdateTime_ = null;
-      } else {
-        lastUpdateTime_ = null;
+      lastUpdateTime_ = null;
+      if (lastUpdateTimeBuilder_ != null) {
+        lastUpdateTimeBuilder_.dispose();
         lastUpdateTimeBuilder_ = null;
       }
       return this;
@@ -991,24 +884,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow buildPartial() {
       com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow result = new com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      result.tasks_ = internalGetTasks();
-      result.tasks_.makeImmutable();
-      result.state_ = state_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (lastUpdateTimeBuilder_ == null) {
-        result.lastUpdateTime_ = lastUpdateTime_;
-      } else {
-        result.lastUpdateTime_ = lastUpdateTimeBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.tasks_ = internalGetTasks();
+        result.tasks_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.lastUpdateTime_ = lastUpdateTimeBuilder_ == null
+            ? lastUpdateTime_
+            : lastUpdateTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1057,14 +962,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       internalGetMutableTasks().mergeFrom(
           other.internalGetTasks());
+      bitField0_ |= 0x00000004;
       if (other.state_ != 0) {
         setStateValue(other.getStateValue());
       }
@@ -1074,7 +982,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasLastUpdateTime()) {
         mergeLastUpdateTime(other.getLastUpdateTime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1089,17 +997,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.bigquery.migration.v2alpha.MigrationTask>
+              tasks__ = input.readMessage(
+                  TasksDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableTasks().getMutableMap().put(
+                  tasks__.getKey(), tasks__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 24: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getLastUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1163,11 +1122,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1182,8 +1139,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1200,12 +1157,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1266,11 +1221,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1284,8 +1237,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1301,12 +1254,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1314,7 +1265,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.bigquery.migration.v2alpha.MigrationTask> tasks_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.bigquery.migration.v2alpha.MigrationTask>
-    internalGetTasks() {
+        internalGetTasks() {
       if (tasks_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             TasksDefaultEntryHolder.defaultEntry);
@@ -1322,8 +1273,7 @@ private static final long serialVersionUID = 0L;
       return tasks_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.bigquery.migration.v2alpha.MigrationTask>
-    internalGetMutableTasks() {
-      onChanged();;
+        internalGetMutableTasks() {
       if (tasks_ == null) {
         tasks_ = com.google.protobuf.MapField.newMapField(
             TasksDefaultEntryHolder.defaultEntry);
@@ -1331,9 +1281,10 @@ private static final long serialVersionUID = 0L;
       if (!tasks_.isMutable()) {
         tasks_ = tasks_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return tasks_;
     }
-
     public int getTasksCount() {
       return internalGetTasks().getMap().size();
     }
@@ -1346,7 +1297,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.MigrationTask&gt; tasks = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsTasks(
         java.lang.String key) {
@@ -1371,7 +1321,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.MigrationTask&gt; tasks = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.bigquery.migration.v2alpha.MigrationTask> getTasksMap() {
       return internalGetTasks().getMap();
     }
@@ -1385,10 +1334,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.MigrationTask&gt; tasks = 2;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.bigquery.migration.v2alpha.MigrationTask getTasksOrDefault(
+    public /* nullable */
+com.google.cloud.bigquery.migration.v2alpha.MigrationTask getTasksOrDefault(
         java.lang.String key,
-        com.google.cloud.bigquery.migration.v2alpha.MigrationTask defaultValue) {
+        /* nullable */
+com.google.cloud.bigquery.migration.v2alpha.MigrationTask defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.bigquery.migration.v2alpha.MigrationTask> map =
           internalGetTasks().getMap();
@@ -1404,7 +1354,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.MigrationTask&gt; tasks = 2;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.bigquery.migration.v2alpha.MigrationTask getTasksOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1415,8 +1364,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearTasks() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableTasks().getMutableMap()
           .clear();
       return this;
@@ -1430,7 +1379,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.MigrationTask&gt; tasks = 2;</code>
      */
-
     public Builder removeTasks(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1443,7 +1391,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.bigquery.migration.v2alpha.MigrationTask>
-    getMutableTasks() {
+        getMutableTasks() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableTasks().getMutableMap();
     }
     /**
@@ -1459,12 +1408,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.bigquery.migration.v2alpha.MigrationTask value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableTasks().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -1476,11 +1423,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.MigrationTask&gt; tasks = 2;</code>
      */
-
     public Builder putAllTasks(
         java.util.Map<java.lang.String, com.google.cloud.bigquery.migration.v2alpha.MigrationTask> values) {
       internalGetMutableTasks().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
@@ -1506,8 +1453,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1521,8 +1468,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow.State result = com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow.State.valueOf(state_);
+      com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow.State result = com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow.State.forNumber(state_);
       return result == null ? com.google.cloud.bigquery.migration.v2alpha.MigrationWorkflow.State.UNRECOGNIZED : result;
     }
     /**
@@ -1538,7 +1484,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -1552,7 +1498,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       state_ = 0;
       onChanged();
       return this;
@@ -1570,7 +1516,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1600,11 +1546,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1618,11 +1564,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1634,17 +1580,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1655,14 +1602,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 4;</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1673,7 +1619,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 4;</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -1725,7 +1671,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lastUpdateTime field is set.
      */
     public boolean hasLastUpdateTime() {
-      return lastUpdateTimeBuilder_ != null || lastUpdateTime_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1755,11 +1701,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         lastUpdateTime_ = value;
-        onChanged();
       } else {
         lastUpdateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1773,11 +1719,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (lastUpdateTimeBuilder_ == null) {
         lastUpdateTime_ = builderForValue.build();
-        onChanged();
       } else {
         lastUpdateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1789,17 +1735,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLastUpdateTime(com.google.protobuf.Timestamp value) {
       if (lastUpdateTimeBuilder_ == null) {
-        if (lastUpdateTime_ != null) {
-          lastUpdateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(lastUpdateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          lastUpdateTime_ != null &&
+          lastUpdateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getLastUpdateTimeBuilder().mergeFrom(value);
         } else {
           lastUpdateTime_ = value;
         }
-        onChanged();
       } else {
         lastUpdateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1810,14 +1757,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_update_time = 5;</code>
      */
     public Builder clearLastUpdateTime() {
-      if (lastUpdateTimeBuilder_ == null) {
-        lastUpdateTime_ = null;
-        onChanged();
-      } else {
-        lastUpdateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      lastUpdateTime_ = null;
+      if (lastUpdateTimeBuilder_ != null) {
+        lastUpdateTimeBuilder_.dispose();
         lastUpdateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1828,7 +1774,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_update_time = 5;</code>
      */
     public com.google.protobuf.Timestamp.Builder getLastUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getLastUpdateTimeFieldBuilder().getBuilder();
     }
@@ -1900,7 +1846,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MigrationWorkflow(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -37,95 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CompilationResult(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            sourceCase_ = 2;
-            source_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            sourceCase_ = 3;
-            source_ = s;
-            break;
-          }
-          case 34: {
-            com.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig.Builder subBuilder = null;
-            if (codeCompilationConfig_ != null) {
-              subBuilder = codeCompilationConfig_.toBuilder();
-            }
-            codeCompilationConfig_ = input.readMessage(com.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(codeCompilationConfig_);
-              codeCompilationConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            dataformCoreVersion_ = s;
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              compilationErrors_ = new java.util.ArrayList<com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationError>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            compilationErrors_.add(
-                input.readMessage(com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationError.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        compilationErrors_ = java.util.Collections.unmodifiableList(compilationErrors_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataform.v1alpha2.DataformProto.internal_static_google_cloud_dataform_v1alpha2_CompilationResult_descriptor;
@@ -270,7 +181,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; vars = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     /* nullable */
 java.lang.String getVarsOrDefault(
         java.lang.String key,
@@ -284,7 +194,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; vars = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     java.lang.String getVarsOrThrow(
         java.lang.String key);
 
@@ -390,101 +299,6 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CodeCompilationConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              defaultDatabase_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              defaultSchema_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              assertionSchema_ = s;
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                vars_ = com.google.protobuf.MapField.newMapField(
-                    VarsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              vars__ = input.readMessage(
-                  VarsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              vars_.getMutableMap().put(
-                  vars__.getKey(), vars__.getValue());
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              databaseSuffix_ = s;
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              schemaSuffix_ = s;
-              break;
-            }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              tablePrefix_ = s;
-              break;
-            }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              defaultLocation_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dataform.v1alpha2.DataformProto.internal_static_google_cloud_dataform_v1alpha2_CompilationResult_CodeCompilationConfig_descriptor;
@@ -511,7 +325,8 @@ java.lang.String defaultValue);
     }
 
     public static final int DEFAULT_DATABASE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object defaultDatabase_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object defaultDatabase_ = "";
     /**
      * <pre>
      * Optional. The default database (Google Cloud project ID).
@@ -557,7 +372,8 @@ java.lang.String defaultValue);
     }
 
     public static final int DEFAULT_SCHEMA_FIELD_NUMBER = 2;
-    private volatile java.lang.Object defaultSchema_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object defaultSchema_ = "";
     /**
      * <pre>
      * Optional. The default schema (BigQuery dataset ID).
@@ -603,7 +419,8 @@ java.lang.String defaultValue);
     }
 
     public static final int DEFAULT_LOCATION_FIELD_NUMBER = 8;
-    private volatile java.lang.Object defaultLocation_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object defaultLocation_ = "";
     /**
      * <pre>
      * Optional. The default BigQuery location to use. Defaults to "US".
@@ -653,7 +470,8 @@ java.lang.String defaultValue);
     }
 
     public static final int ASSERTION_SCHEMA_FIELD_NUMBER = 3;
-    private volatile java.lang.Object assertionSchema_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object assertionSchema_ = "";
     /**
      * <pre>
      * Optional. The default schema (BigQuery dataset ID) for assertions.
@@ -710,6 +528,7 @@ java.lang.String defaultValue);
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> vars_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -720,7 +539,6 @@ java.lang.String defaultValue);
       }
       return vars_;
     }
-
     public int getVarsCount() {
       return internalGetVars().getMap().size();
     }
@@ -732,7 +550,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; vars = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsVars(
         java.lang.String key) {
@@ -756,7 +573,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; vars = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getVarsMap() {
       return internalGetVars().getMap();
     }
@@ -769,10 +585,11 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; vars = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getVarsOrDefault(
+    public /* nullable */
+java.lang.String getVarsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetVars().getMap();
@@ -787,7 +604,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; vars = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.lang.String getVarsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -800,7 +616,8 @@ java.lang.String defaultValue);
     }
 
     public static final int DATABASE_SUFFIX_FIELD_NUMBER = 5;
-    private volatile java.lang.Object databaseSuffix_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object databaseSuffix_ = "";
     /**
      * <pre>
      * Optional. The suffix that should be appended to all database (Google Cloud project
@@ -848,7 +665,8 @@ java.lang.String defaultValue);
     }
 
     public static final int SCHEMA_SUFFIX_FIELD_NUMBER = 6;
-    private volatile java.lang.Object schemaSuffix_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object schemaSuffix_ = "";
     /**
      * <pre>
      * Optional. The suffix that should be appended to all schema (BigQuery dataset ID)
@@ -896,7 +714,8 @@ java.lang.String defaultValue);
     }
 
     public static final int TABLE_PREFIX_FIELD_NUMBER = 7;
-    private volatile java.lang.Object tablePrefix_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object tablePrefix_ = "";
     /**
      * <pre>
      * Optional. The prefix that should be prepended to all table names.
@@ -982,7 +801,7 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultLocation_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, defaultLocation_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1022,7 +841,7 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultLocation_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, defaultLocation_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1053,7 +872,7 @@ java.lang.String defaultValue);
           .equals(other.getSchemaSuffix())) return false;
       if (!getTablePrefix()
           .equals(other.getTablePrefix())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1082,7 +901,7 @@ java.lang.String defaultValue);
       hash = (53 * hash) + getSchemaSuffix().hashCode();
       hash = (37 * hash) + TABLE_PREFIX_FIELD_NUMBER;
       hash = (53 * hash) + getTablePrefix().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1225,37 +1044,26 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         defaultDatabase_ = "";
-
         defaultSchema_ = "";
-
         defaultLocation_ = "";
-
         assertionSchema_ = "";
-
         internalGetMutableVars().clear();
         databaseSuffix_ = "";
-
         schemaSuffix_ = "";
-
         tablePrefix_ = "";
-
         return this;
       }
 
@@ -1282,18 +1090,38 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig buildPartial() {
         com.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig result = new com.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig(this);
-        int from_bitField0_ = bitField0_;
-        result.defaultDatabase_ = defaultDatabase_;
-        result.defaultSchema_ = defaultSchema_;
-        result.defaultLocation_ = defaultLocation_;
-        result.assertionSchema_ = assertionSchema_;
-        result.vars_ = internalGetVars();
-        result.vars_.makeImmutable();
-        result.databaseSuffix_ = databaseSuffix_;
-        result.schemaSuffix_ = schemaSuffix_;
-        result.tablePrefix_ = tablePrefix_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.defaultDatabase_ = defaultDatabase_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.defaultSchema_ = defaultSchema_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.defaultLocation_ = defaultLocation_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.assertionSchema_ = assertionSchema_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.vars_ = internalGetVars();
+          result.vars_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.databaseSuffix_ = databaseSuffix_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.schemaSuffix_ = schemaSuffix_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.tablePrefix_ = tablePrefix_;
+        }
       }
 
       @java.lang.Override
@@ -1342,35 +1170,43 @@ java.lang.String defaultValue);
         if (other == com.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig.getDefaultInstance()) return this;
         if (!other.getDefaultDatabase().isEmpty()) {
           defaultDatabase_ = other.defaultDatabase_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDefaultSchema().isEmpty()) {
           defaultSchema_ = other.defaultSchema_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getDefaultLocation().isEmpty()) {
           defaultLocation_ = other.defaultLocation_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getAssertionSchema().isEmpty()) {
           assertionSchema_ = other.assertionSchema_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         internalGetMutableVars().mergeFrom(
             other.internalGetVars());
+        bitField0_ |= 0x00000010;
         if (!other.getDatabaseSuffix().isEmpty()) {
           databaseSuffix_ = other.databaseSuffix_;
+          bitField0_ |= 0x00000020;
           onChanged();
         }
         if (!other.getSchemaSuffix().isEmpty()) {
           schemaSuffix_ = other.schemaSuffix_;
+          bitField0_ |= 0x00000040;
           onChanged();
         }
         if (!other.getTablePrefix().isEmpty()) {
           tablePrefix_ = other.tablePrefix_;
+          bitField0_ |= 0x00000080;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1385,17 +1221,74 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                defaultDatabase_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                defaultSchema_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                assertionSchema_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 26
+              case 34: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                vars__ = input.readMessage(
+                    VarsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableVars().getMutableMap().put(
+                    vars__.getKey(), vars__.getValue());
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 34
+              case 42: {
+                databaseSuffix_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 42
+              case 50: {
+                schemaSuffix_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 50
+              case 58: {
+                tablePrefix_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 58
+              case 66: {
+                defaultLocation_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 66
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1453,11 +1346,9 @@ java.lang.String defaultValue);
        */
       public Builder setDefaultDatabase(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         defaultDatabase_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1470,8 +1361,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearDefaultDatabase() {
-        
         defaultDatabase_ = getDefaultInstance().getDefaultDatabase();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1486,12 +1377,10 @@ java.lang.String defaultValue);
        */
       public Builder setDefaultDatabaseBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         defaultDatabase_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1549,11 +1438,9 @@ java.lang.String defaultValue);
        */
       public Builder setDefaultSchema(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         defaultSchema_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1566,8 +1453,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearDefaultSchema() {
-        
         defaultSchema_ = getDefaultInstance().getDefaultSchema();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1582,12 +1469,10 @@ java.lang.String defaultValue);
        */
       public Builder setDefaultSchemaBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         defaultSchema_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1651,11 +1536,9 @@ java.lang.String defaultValue);
        */
       public Builder setDefaultLocation(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         defaultLocation_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1670,8 +1553,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearDefaultLocation() {
-        
         defaultLocation_ = getDefaultInstance().getDefaultLocation();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1688,12 +1571,10 @@ java.lang.String defaultValue);
        */
       public Builder setDefaultLocationBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         defaultLocation_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1751,11 +1632,9 @@ java.lang.String defaultValue);
        */
       public Builder setAssertionSchema(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         assertionSchema_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1768,8 +1647,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearAssertionSchema() {
-        
         assertionSchema_ = getDefaultInstance().getAssertionSchema();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1784,12 +1663,10 @@ java.lang.String defaultValue);
        */
       public Builder setAssertionSchemaBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         assertionSchema_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1797,7 +1674,7 @@ java.lang.String defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> vars_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetVars() {
+          internalGetVars() {
         if (vars_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               VarsDefaultEntryHolder.defaultEntry);
@@ -1805,8 +1682,7 @@ java.lang.String defaultValue);
         return vars_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableVars() {
-        onChanged();;
+          internalGetMutableVars() {
         if (vars_ == null) {
           vars_ = com.google.protobuf.MapField.newMapField(
               VarsDefaultEntryHolder.defaultEntry);
@@ -1814,9 +1690,10 @@ java.lang.String defaultValue);
         if (!vars_.isMutable()) {
           vars_ = vars_.copy();
         }
+        bitField0_ |= 0x00000010;
+        onChanged();
         return vars_;
       }
-
       public int getVarsCount() {
         return internalGetVars().getMap().size();
       }
@@ -1828,7 +1705,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; vars = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       @java.lang.Override
       public boolean containsVars(
           java.lang.String key) {
@@ -1852,7 +1728,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; vars = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, java.lang.String> getVarsMap() {
         return internalGetVars().getMap();
       }
@@ -1865,10 +1740,11 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; vars = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
-      public java.lang.String getVarsOrDefault(
+      public /* nullable */
+java.lang.String getVarsOrDefault(
           java.lang.String key,
-          java.lang.String defaultValue) {
+          /* nullable */
+java.lang.String defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetVars().getMap();
@@ -1883,7 +1759,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; vars = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
       public java.lang.String getVarsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1894,8 +1769,8 @@ java.lang.String defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearVars() {
+        bitField0_ = (bitField0_ & ~0x00000010);
         internalGetMutableVars().getMutableMap()
             .clear();
         return this;
@@ -1908,7 +1783,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; vars = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       public Builder removeVars(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1921,7 +1795,8 @@ java.lang.String defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableVars() {
+          getMutableVars() {
+        bitField0_ |= 0x00000010;
         return internalGetMutableVars().getMutableMap();
       }
       /**
@@ -1936,12 +1811,10 @@ java.lang.String defaultValue);
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableVars().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
@@ -1952,11 +1825,11 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; vars = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       public Builder putAllVars(
           java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableVars().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000010;
         return this;
       }
 
@@ -2016,11 +1889,9 @@ java.lang.String defaultValue);
        */
       public Builder setDatabaseSuffix(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         databaseSuffix_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -2034,8 +1905,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearDatabaseSuffix() {
-        
         databaseSuffix_ = getDefaultInstance().getDatabaseSuffix();
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -2051,12 +1922,10 @@ java.lang.String defaultValue);
        */
       public Builder setDatabaseSuffixBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         databaseSuffix_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -2117,11 +1986,9 @@ java.lang.String defaultValue);
        */
       public Builder setSchemaSuffix(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         schemaSuffix_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -2135,8 +2002,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearSchemaSuffix() {
-        
         schemaSuffix_ = getDefaultInstance().getSchemaSuffix();
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -2152,12 +2019,10 @@ java.lang.String defaultValue);
        */
       public Builder setSchemaSuffixBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         schemaSuffix_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -2215,11 +2080,9 @@ java.lang.String defaultValue);
        */
       public Builder setTablePrefix(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         tablePrefix_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -2232,8 +2095,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearTablePrefix() {
-        
         tablePrefix_ = getDefaultInstance().getTablePrefix();
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
@@ -2248,12 +2111,10 @@ java.lang.String defaultValue);
        */
       public Builder setTablePrefixBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         tablePrefix_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -2290,7 +2151,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CodeCompilationConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2437,76 +2309,6 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CompilationError(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              message_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              stack_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              path_ = s;
-              break;
-            }
-            case 34: {
-              com.google.cloud.dataform.v1alpha2.Target.Builder subBuilder = null;
-              if (actionTarget_ != null) {
-                subBuilder = actionTarget_.toBuilder();
-              }
-              actionTarget_ = input.readMessage(com.google.cloud.dataform.v1alpha2.Target.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(actionTarget_);
-                actionTarget_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dataform.v1alpha2.DataformProto.internal_static_google_cloud_dataform_v1alpha2_CompilationResult_CompilationError_descriptor;
@@ -2521,7 +2323,8 @@ java.lang.String defaultValue);
     }
 
     public static final int MESSAGE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object message_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object message_ = "";
     /**
      * <pre>
      * Output only. The error's top level message.
@@ -2567,7 +2370,8 @@ java.lang.String defaultValue);
     }
 
     public static final int STACK_FIELD_NUMBER = 2;
-    private volatile java.lang.Object stack_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object stack_ = "";
     /**
      * <pre>
      * Output only. The error's full stack trace.
@@ -2613,7 +2417,8 @@ java.lang.String defaultValue);
     }
 
     public static final int PATH_FIELD_NUMBER = 3;
-    private volatile java.lang.Object path_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object path_ = "";
     /**
      * <pre>
      * Output only. The path of the file where this error occurred, if available, relative to
@@ -2695,7 +2500,7 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.dataform.v1alpha2.TargetOrBuilder getActionTargetOrBuilder() {
-      return getActionTarget();
+      return actionTarget_ == null ? com.google.cloud.dataform.v1alpha2.Target.getDefaultInstance() : actionTarget_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2724,7 +2529,7 @@ java.lang.String defaultValue);
       if (actionTarget_ != null) {
         output.writeMessage(4, getActionTarget());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2746,7 +2551,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getActionTarget());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2772,7 +2577,7 @@ java.lang.String defaultValue);
         if (!getActionTarget()
             .equals(other.getActionTarget())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2793,7 +2598,7 @@ java.lang.String defaultValue);
         hash = (37 * hash) + ACTION_TARGET_FIELD_NUMBER;
         hash = (53 * hash) + getActionTarget().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2914,32 +2719,24 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationError.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         message_ = "";
-
         stack_ = "";
-
         path_ = "";
-
-        if (actionTargetBuilder_ == null) {
-          actionTarget_ = null;
-        } else {
-          actionTarget_ = null;
+        actionTarget_ = null;
+        if (actionTargetBuilder_ != null) {
+          actionTargetBuilder_.dispose();
           actionTargetBuilder_ = null;
         }
         return this;
@@ -2968,16 +2765,27 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationError buildPartial() {
         com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationError result = new com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationError(this);
-        result.message_ = message_;
-        result.stack_ = stack_;
-        result.path_ = path_;
-        if (actionTargetBuilder_ == null) {
-          result.actionTarget_ = actionTarget_;
-        } else {
-          result.actionTarget_ = actionTargetBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationError result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.message_ = message_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.stack_ = stack_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.path_ = path_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.actionTarget_ = actionTargetBuilder_ == null
+              ? actionTarget_
+              : actionTargetBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3026,20 +2834,23 @@ java.lang.String defaultValue);
         if (other == com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationError.getDefaultInstance()) return this;
         if (!other.getMessage().isEmpty()) {
           message_ = other.message_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getStack().isEmpty()) {
           stack_ = other.stack_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getPath().isEmpty()) {
           path_ = other.path_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.hasActionTarget()) {
           mergeActionTarget(other.getActionTarget());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3054,19 +2865,55 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationError parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                message_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                stack_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                path_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getActionTargetFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationError) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object message_ = "";
       /**
@@ -3121,11 +2968,9 @@ java.lang.String defaultValue);
        */
       public Builder setMessage(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         message_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3138,8 +2983,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearMessage() {
-        
         message_ = getDefaultInstance().getMessage();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3154,12 +2999,10 @@ java.lang.String defaultValue);
        */
       public Builder setMessageBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         message_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3217,11 +3060,9 @@ java.lang.String defaultValue);
        */
       public Builder setStack(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         stack_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3234,8 +3075,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearStack() {
-        
         stack_ = getDefaultInstance().getStack();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -3250,12 +3091,10 @@ java.lang.String defaultValue);
        */
       public Builder setStackBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         stack_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3316,11 +3155,9 @@ java.lang.String defaultValue);
        */
       public Builder setPath(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         path_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3334,8 +3171,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearPath() {
-        
         path_ = getDefaultInstance().getPath();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -3351,12 +3188,10 @@ java.lang.String defaultValue);
        */
       public Builder setPathBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         path_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3373,7 +3208,7 @@ java.lang.String defaultValue);
        * @return Whether the actionTarget field is set.
        */
       public boolean hasActionTarget() {
-        return actionTargetBuilder_ != null || actionTarget_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -3403,11 +3238,11 @@ java.lang.String defaultValue);
             throw new NullPointerException();
           }
           actionTarget_ = value;
-          onChanged();
         } else {
           actionTargetBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -3421,11 +3256,11 @@ java.lang.String defaultValue);
           com.google.cloud.dataform.v1alpha2.Target.Builder builderForValue) {
         if (actionTargetBuilder_ == null) {
           actionTarget_ = builderForValue.build();
-          onChanged();
         } else {
           actionTargetBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -3437,17 +3272,18 @@ java.lang.String defaultValue);
        */
       public Builder mergeActionTarget(com.google.cloud.dataform.v1alpha2.Target value) {
         if (actionTargetBuilder_ == null) {
-          if (actionTarget_ != null) {
-            actionTarget_ =
-              com.google.cloud.dataform.v1alpha2.Target.newBuilder(actionTarget_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            actionTarget_ != null &&
+            actionTarget_ != com.google.cloud.dataform.v1alpha2.Target.getDefaultInstance()) {
+            getActionTargetBuilder().mergeFrom(value);
           } else {
             actionTarget_ = value;
           }
-          onChanged();
         } else {
           actionTargetBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -3458,14 +3294,13 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataform.v1alpha2.Target action_target = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearActionTarget() {
-        if (actionTargetBuilder_ == null) {
-          actionTarget_ = null;
-          onChanged();
-        } else {
-          actionTarget_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        actionTarget_ = null;
+        if (actionTargetBuilder_ != null) {
+          actionTargetBuilder_.dispose();
           actionTargetBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3476,7 +3311,7 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataform.v1alpha2.Target action_target = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.cloud.dataform.v1alpha2.Target.Builder getActionTargetBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getActionTargetFieldBuilder().getBuilder();
       }
@@ -3548,7 +3383,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CompilationError(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3610,7 +3456,8 @@ java.lang.String defaultValue);
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The compilation result's name.
@@ -3839,11 +3686,12 @@ java.lang.String defaultValue);
    */
   @java.lang.Override
   public com.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfigOrBuilder getCodeCompilationConfigOrBuilder() {
-    return getCodeCompilationConfig();
+    return codeCompilationConfig_ == null ? com.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig.getDefaultInstance() : codeCompilationConfig_;
   }
 
   public static final int DATAFORM_CORE_VERSION_FIELD_NUMBER = 5;
-  private volatile java.lang.Object dataformCoreVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object dataformCoreVersion_ = "";
   /**
    * <pre>
    * Output only. The version of `&#64;dataform/core` that was used for compilation.
@@ -3889,6 +3737,7 @@ java.lang.String defaultValue);
   }
 
   public static final int COMPILATION_ERRORS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationError> compilationErrors_;
   /**
    * <pre>
@@ -3980,7 +3829,7 @@ java.lang.String defaultValue);
     for (int i = 0; i < compilationErrors_.size(); i++) {
       output.writeMessage(6, compilationErrors_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -4009,7 +3858,7 @@ java.lang.String defaultValue);
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, compilationErrors_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -4048,7 +3897,7 @@ java.lang.String defaultValue);
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -4083,7 +3932,7 @@ java.lang.String defaultValue);
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -4204,39 +4053,32 @@ java.lang.String defaultValue);
 
     // Construct using com.google.cloud.dataform.v1alpha2.CompilationResult.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getCompilationErrorsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (codeCompilationConfigBuilder_ == null) {
-        codeCompilationConfig_ = null;
-      } else {
-        codeCompilationConfig_ = null;
+      codeCompilationConfig_ = null;
+      if (codeCompilationConfigBuilder_ != null) {
+        codeCompilationConfigBuilder_.dispose();
         codeCompilationConfigBuilder_ = null;
       }
       dataformCoreVersion_ = "";
-
       if (compilationErrorsBuilder_ == null) {
         compilationErrors_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        compilationErrors_ = null;
         compilationErrorsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       sourceCase_ = 0;
       source_ = null;
       return this;
@@ -4265,32 +4107,43 @@ java.lang.String defaultValue);
     @java.lang.Override
     public com.google.cloud.dataform.v1alpha2.CompilationResult buildPartial() {
       com.google.cloud.dataform.v1alpha2.CompilationResult result = new com.google.cloud.dataform.v1alpha2.CompilationResult(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      if (sourceCase_ == 2) {
-        result.source_ = source_;
-      }
-      if (sourceCase_ == 3) {
-        result.source_ = source_;
-      }
-      if (codeCompilationConfigBuilder_ == null) {
-        result.codeCompilationConfig_ = codeCompilationConfig_;
-      } else {
-        result.codeCompilationConfig_ = codeCompilationConfigBuilder_.build();
-      }
-      result.dataformCoreVersion_ = dataformCoreVersion_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.dataform.v1alpha2.CompilationResult result) {
       if (compilationErrorsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           compilationErrors_ = java.util.Collections.unmodifiableList(compilationErrors_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.compilationErrors_ = compilationErrors_;
       } else {
         result.compilationErrors_ = compilationErrorsBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.dataform.v1alpha2.CompilationResult result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.codeCompilationConfig_ = codeCompilationConfigBuilder_ == null
+            ? codeCompilationConfig_
+            : codeCompilationConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.dataformCoreVersion_ = dataformCoreVersion_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.dataform.v1alpha2.CompilationResult result) {
       result.sourceCase_ = sourceCase_;
-      onBuilt();
-      return result;
+      result.source_ = this.source_;
     }
 
     @java.lang.Override
@@ -4339,6 +4192,7 @@ java.lang.String defaultValue);
       if (other == com.google.cloud.dataform.v1alpha2.CompilationResult.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasCodeCompilationConfig()) {
@@ -4346,13 +4200,14 @@ java.lang.String defaultValue);
       }
       if (!other.getDataformCoreVersion().isEmpty()) {
         dataformCoreVersion_ = other.dataformCoreVersion_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (compilationErrorsBuilder_ == null) {
         if (!other.compilationErrors_.isEmpty()) {
           if (compilationErrors_.isEmpty()) {
             compilationErrors_ = other.compilationErrors_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureCompilationErrorsIsMutable();
             compilationErrors_.addAll(other.compilationErrors_);
@@ -4365,7 +4220,7 @@ java.lang.String defaultValue);
             compilationErrorsBuilder_.dispose();
             compilationErrorsBuilder_ = null;
             compilationErrors_ = other.compilationErrors_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
             compilationErrorsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getCompilationErrorsFieldBuilder() : null;
@@ -4391,7 +4246,7 @@ java.lang.String defaultValue);
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -4406,17 +4261,72 @@ java.lang.String defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataform.v1alpha2.CompilationResult parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              sourceCase_ = 2;
+              source_ = s;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              sourceCase_ = 3;
+              source_ = s;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getCodeCompilationConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              dataformCoreVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationError m =
+                  input.readMessage(
+                      com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationError.parser(),
+                      extensionRegistry);
+              if (compilationErrorsBuilder_ == null) {
+                ensureCompilationErrorsIsMutable();
+                compilationErrors_.add(m);
+              } else {
+                compilationErrorsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataform.v1alpha2.CompilationResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int sourceCase_ = 0;
@@ -4489,11 +4399,9 @@ java.lang.String defaultValue);
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -4506,8 +4414,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -4522,12 +4430,10 @@ java.lang.String defaultValue);
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -4628,10 +4534,8 @@ java.lang.String defaultValue);
      */
     public Builder setGitCommitish(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  sourceCase_ = 2;
+      if (value == null) { throw new NullPointerException(); }
+      sourceCase_ = 2;
       source_ = value;
       onChanged();
       return this;
@@ -4673,10 +4577,8 @@ java.lang.String defaultValue);
      */
     public Builder setGitCommitishBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceCase_ = 2;
       source_ = value;
       onChanged();
@@ -4763,10 +4665,8 @@ java.lang.String defaultValue);
      */
     public Builder setWorkspace(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  sourceCase_ = 3;
+      if (value == null) { throw new NullPointerException(); }
+      sourceCase_ = 3;
       source_ = value;
       onChanged();
       return this;
@@ -4800,10 +4700,8 @@ java.lang.String defaultValue);
      */
     public Builder setWorkspaceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceCase_ = 3;
       source_ = value;
       onChanged();
@@ -4823,7 +4721,7 @@ java.lang.String defaultValue);
      * @return Whether the codeCompilationConfig field is set.
      */
     public boolean hasCodeCompilationConfig() {
-      return codeCompilationConfigBuilder_ != null || codeCompilationConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -4855,11 +4753,11 @@ java.lang.String defaultValue);
           throw new NullPointerException();
         }
         codeCompilationConfig_ = value;
-        onChanged();
       } else {
         codeCompilationConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4874,11 +4772,11 @@ java.lang.String defaultValue);
         com.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig.Builder builderForValue) {
       if (codeCompilationConfigBuilder_ == null) {
         codeCompilationConfig_ = builderForValue.build();
-        onChanged();
       } else {
         codeCompilationConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4891,17 +4789,18 @@ java.lang.String defaultValue);
      */
     public Builder mergeCodeCompilationConfig(com.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig value) {
       if (codeCompilationConfigBuilder_ == null) {
-        if (codeCompilationConfig_ != null) {
-          codeCompilationConfig_ =
-            com.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig.newBuilder(codeCompilationConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          codeCompilationConfig_ != null &&
+          codeCompilationConfig_ != com.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig.getDefaultInstance()) {
+          getCodeCompilationConfigBuilder().mergeFrom(value);
         } else {
           codeCompilationConfig_ = value;
         }
-        onChanged();
       } else {
         codeCompilationConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4913,14 +4812,13 @@ java.lang.String defaultValue);
      * <code>.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig code_compilation_config = 4 [(.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public Builder clearCodeCompilationConfig() {
-      if (codeCompilationConfigBuilder_ == null) {
-        codeCompilationConfig_ = null;
-        onChanged();
-      } else {
-        codeCompilationConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      codeCompilationConfig_ = null;
+      if (codeCompilationConfigBuilder_ != null) {
+        codeCompilationConfigBuilder_.dispose();
         codeCompilationConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4932,7 +4830,7 @@ java.lang.String defaultValue);
      * <code>.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig code_compilation_config = 4 [(.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public com.google.cloud.dataform.v1alpha2.CompilationResult.CodeCompilationConfig.Builder getCodeCompilationConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getCodeCompilationConfigFieldBuilder().getBuilder();
     }
@@ -5027,11 +4925,9 @@ java.lang.String defaultValue);
      */
     public Builder setDataformCoreVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       dataformCoreVersion_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -5044,8 +4940,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearDataformCoreVersion() {
-      
       dataformCoreVersion_ = getDefaultInstance().getDataformCoreVersion();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -5060,12 +4956,10 @@ java.lang.String defaultValue);
      */
     public Builder setDataformCoreVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       dataformCoreVersion_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -5073,9 +4967,9 @@ java.lang.String defaultValue);
     private java.util.List<com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationError> compilationErrors_ =
       java.util.Collections.emptyList();
     private void ensureCompilationErrorsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         compilationErrors_ = new java.util.ArrayList<com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationError>(compilationErrors_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -5269,7 +5163,7 @@ java.lang.String defaultValue);
     public Builder clearCompilationErrors() {
       if (compilationErrorsBuilder_ == null) {
         compilationErrors_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         compilationErrorsBuilder_.clear();
@@ -5374,7 +5268,7 @@ java.lang.String defaultValue);
         compilationErrorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationError, com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationError.Builder, com.google.cloud.dataform.v1alpha2.CompilationResult.CompilationErrorOrBuilder>(
                 compilationErrors_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         compilationErrors_ = null;
@@ -5414,7 +5308,18 @@ java.lang.String defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CompilationResult(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

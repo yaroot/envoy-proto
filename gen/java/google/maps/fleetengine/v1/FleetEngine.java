@@ -126,14 +126,14 @@ public final class FleetEngine {
       "NE_TYPE\020\002*\211\001\n\020NavigationStatus\022\035\n\031UNKNOW" +
       "N_NAVIGATION_STATUS\020\000\022\017\n\013NO_GUIDANCE\020\001\022\032" +
       "\n\026ENROUTE_TO_DESTINATION\020\002\022\r\n\tOFF_ROUTE\020" +
-      "\003\022\032\n\026ARRIVED_AT_DESTINATION\020\004*\210\001\n\016Locati" +
+      "\003\022\032\n\026ARRIVED_AT_DESTINATION\020\004*\234\001\n\016Locati" +
       "onSensor\022\022\n\016UNKNOWN_SENSOR\020\000\022\007\n\003GPS\020\001\022\013\n" +
       "\007NETWORK\020\002\022\013\n\007PASSIVE\020\003\022\"\n\036ROAD_SNAPPED_" +
       "LOCATION_PROVIDER\020\004\022\033\n\027FUSED_LOCATION_PR" +
-      "OVIDER\020dBx\n\032google.maps.fleetengine.v1B\013" +
-      "FleetEngineP\001ZEgoogle.golang.org/genprot" +
-      "o/googleapis/maps/fleetengine/v1;fleeten" +
-      "gine\242\002\003CFEb\006proto3"
+      "OVIDER\020d\022\022\n\rCORE_LOCATION\020\310\001Bx\n\032google.m" +
+      "aps.fleetengine.v1B\013FleetEngineP\001ZEgoogl" +
+      "e.golang.org/genproto/googleapis/maps/fl" +
+      "eetengine/v1;fleetengine\242\002\003CFEb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

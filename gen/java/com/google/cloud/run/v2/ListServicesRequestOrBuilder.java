@@ -10,8 +10,9 @@ public interface ListServicesRequestOrBuilder extends
   /**
    * <pre>
    * Required. The location and project to list resources on.
-   * Location must be a valid GCP region, and may not be the "-" wildcard.
-   * Format: projects/{projectnumber}/locations/{location}
+   * Location must be a valid GCP region, and cannot be the "-" wildcard.
+   * Format: projects/{project}/locations/{location}, where {project} can be
+   * project id or number.
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -21,8 +22,9 @@ public interface ListServicesRequestOrBuilder extends
   /**
    * <pre>
    * Required. The location and project to list resources on.
-   * Location must be a valid GCP region, and may not be the "-" wildcard.
-   * Format: projects/{projectnumber}/locations/{location}
+   * Location must be a valid GCP region, and cannot be the "-" wildcard.
+   * Format: projects/{project}/locations/{location}, where {project} can be
+   * project id or number.
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

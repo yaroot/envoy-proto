@@ -37,7 +37,8 @@ public interface AzureNodePoolOrBuilder extends
 
   /**
    * <pre>
-   * Required. The Kubernetes version (e.g. `1.19.10-gke.1000`) running on this node pool.
+   * Required. The Kubernetes version (e.g. `1.19.10-gke.1000`) running on this
+   * node pool.
    * </pre>
    *
    * <code>string version = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -46,7 +47,8 @@ public interface AzureNodePoolOrBuilder extends
   java.lang.String getVersion();
   /**
    * <pre>
-   * Required. The Kubernetes version (e.g. `1.19.10-gke.1000`) running on this node pool.
+   * Required. The Kubernetes version (e.g. `1.19.10-gke.1000`) running on this
+   * node pool.
    * </pre>
    *
    * <code>string version = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -84,8 +86,8 @@ public interface AzureNodePoolOrBuilder extends
 
   /**
    * <pre>
-   * Required. The ARM ID of the subnet where the node pool VMs run. Make sure it's a
-   * subnet under the virtual network in the cluster configuration.
+   * Required. The ARM ID of the subnet where the node pool VMs run. Make sure
+   * it's a subnet under the virtual network in the cluster configuration.
    * </pre>
    *
    * <code>string subnet_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -94,8 +96,8 @@ public interface AzureNodePoolOrBuilder extends
   java.lang.String getSubnetId();
   /**
    * <pre>
-   * Required. The ARM ID of the subnet where the node pool VMs run. Make sure it's a
-   * subnet under the virtual network in the cluster configuration.
+   * Required. The ARM ID of the subnet where the node pool VMs run. Make sure
+   * it's a subnet under the virtual network in the cluster configuration.
    * </pre>
    *
    * <code>string subnet_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -328,7 +330,6 @@ public interface AzureNodePoolOrBuilder extends
    *
    * <code>map&lt;string, string&gt; annotations = 13 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getAnnotationsOrDefault(
       java.lang.String key,
@@ -348,7 +349,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; annotations = 13 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getAnnotationsOrThrow(
       java.lang.String key);
 
@@ -403,4 +403,48 @@ java.lang.String defaultValue);
    */
   com.google.protobuf.ByteString
       getAzureAvailabilityZoneBytes();
+
+  /**
+   * <pre>
+   * Output only. A set of errors found in the node pool.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.gkemulticloud.v1.AzureNodePoolError errors = 29 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  java.util.List<com.google.cloud.gkemulticloud.v1.AzureNodePoolError> 
+      getErrorsList();
+  /**
+   * <pre>
+   * Output only. A set of errors found in the node pool.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.gkemulticloud.v1.AzureNodePoolError errors = 29 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  com.google.cloud.gkemulticloud.v1.AzureNodePoolError getErrors(int index);
+  /**
+   * <pre>
+   * Output only. A set of errors found in the node pool.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.gkemulticloud.v1.AzureNodePoolError errors = 29 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  int getErrorsCount();
+  /**
+   * <pre>
+   * Output only. A set of errors found in the node pool.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.gkemulticloud.v1.AzureNodePoolError errors = 29 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  java.util.List<? extends com.google.cloud.gkemulticloud.v1.AzureNodePoolErrorOrBuilder> 
+      getErrorsOrBuilderList();
+  /**
+   * <pre>
+   * Output only. A set of errors found in the node pool.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.gkemulticloud.v1.AzureNodePoolError errors = 29 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  com.google.cloud.gkemulticloud.v1.AzureNodePoolErrorOrBuilder getErrorsOrBuilder(
+      int index);
 }

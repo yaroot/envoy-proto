@@ -39,88 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StartMfaPhoneRequestInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            phoneNumber_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            iosReceipt_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            iosSecret_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            recaptchaToken_ = s;
-            break;
-          }
-          case 42: {
-            com.google.cloud.identitytoolkit.v2.AutoRetrievalInfo.Builder subBuilder = null;
-            if (autoRetrievalInfo_ != null) {
-              subBuilder = autoRetrievalInfo_.toBuilder();
-            }
-            autoRetrievalInfo_ = input.readMessage(com.google.cloud.identitytoolkit.v2.AutoRetrievalInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(autoRetrievalInfo_);
-              autoRetrievalInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            safetyNetToken_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.identitytoolkit.v2.MfaInfo.internal_static_google_cloud_identitytoolkit_v2_StartMfaPhoneRequestInfo_descriptor;
@@ -135,7 +53,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PHONE_NUMBER_FIELD_NUMBER = 1;
-  private volatile java.lang.Object phoneNumber_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object phoneNumber_ = "";
   /**
    * <pre>
    * Required for enrollment. Phone number to be enrolled as MFA.
@@ -181,7 +100,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IOS_RECEIPT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object iosReceipt_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object iosReceipt_ = "";
   /**
    * <pre>
    * iOS only. Receipt of successful app token validation with APNS.
@@ -227,7 +147,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IOS_SECRET_FIELD_NUMBER = 3;
-  private volatile java.lang.Object iosSecret_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object iosSecret_ = "";
   /**
    * <pre>
    * iOS only. Secret delivered to iOS app via APNS.
@@ -273,7 +194,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RECAPTCHA_TOKEN_FIELD_NUMBER = 4;
-  private volatile java.lang.Object recaptchaToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object recaptchaToken_ = "";
   /**
    * <pre>
    * Web only. Recaptcha solution.
@@ -356,11 +278,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.identitytoolkit.v2.AutoRetrievalInfoOrBuilder getAutoRetrievalInfoOrBuilder() {
-    return getAutoRetrievalInfo();
+    return autoRetrievalInfo_ == null ? com.google.cloud.identitytoolkit.v2.AutoRetrievalInfo.getDefaultInstance() : autoRetrievalInfo_;
   }
 
   public static final int SAFETY_NET_TOKEN_FIELD_NUMBER = 6;
-  private volatile java.lang.Object safetyNetToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object safetyNetToken_ = "";
   /**
    * <pre>
    * Android only. Used to assert application identity in place of a
@@ -445,7 +368,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(safetyNetToken_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, safetyNetToken_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -473,7 +396,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(safetyNetToken_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, safetyNetToken_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -503,7 +426,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getSafetyNetToken()
         .equals(other.getSafetyNetToken())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -528,7 +451,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + SAFETY_NET_TOKEN_FIELD_NUMBER;
     hash = (53 * hash) + getSafetyNetToken().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -649,38 +572,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.identitytoolkit.v2.StartMfaPhoneRequestInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       phoneNumber_ = "";
-
       iosReceipt_ = "";
-
       iosSecret_ = "";
-
       recaptchaToken_ = "";
-
-      if (autoRetrievalInfoBuilder_ == null) {
-        autoRetrievalInfo_ = null;
-      } else {
-        autoRetrievalInfo_ = null;
+      autoRetrievalInfo_ = null;
+      if (autoRetrievalInfoBuilder_ != null) {
+        autoRetrievalInfoBuilder_.dispose();
         autoRetrievalInfoBuilder_ = null;
       }
       safetyNetToken_ = "";
-
       return this;
     }
 
@@ -707,18 +620,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.identitytoolkit.v2.StartMfaPhoneRequestInfo buildPartial() {
       com.google.cloud.identitytoolkit.v2.StartMfaPhoneRequestInfo result = new com.google.cloud.identitytoolkit.v2.StartMfaPhoneRequestInfo(this);
-      result.phoneNumber_ = phoneNumber_;
-      result.iosReceipt_ = iosReceipt_;
-      result.iosSecret_ = iosSecret_;
-      result.recaptchaToken_ = recaptchaToken_;
-      if (autoRetrievalInfoBuilder_ == null) {
-        result.autoRetrievalInfo_ = autoRetrievalInfo_;
-      } else {
-        result.autoRetrievalInfo_ = autoRetrievalInfoBuilder_.build();
-      }
-      result.safetyNetToken_ = safetyNetToken_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.identitytoolkit.v2.StartMfaPhoneRequestInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.phoneNumber_ = phoneNumber_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.iosReceipt_ = iosReceipt_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.iosSecret_ = iosSecret_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.recaptchaToken_ = recaptchaToken_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.autoRetrievalInfo_ = autoRetrievalInfoBuilder_ == null
+            ? autoRetrievalInfo_
+            : autoRetrievalInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.safetyNetToken_ = safetyNetToken_;
+      }
     }
 
     @java.lang.Override
@@ -767,18 +695,22 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.identitytoolkit.v2.StartMfaPhoneRequestInfo.getDefaultInstance()) return this;
       if (!other.getPhoneNumber().isEmpty()) {
         phoneNumber_ = other.phoneNumber_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getIosReceipt().isEmpty()) {
         iosReceipt_ = other.iosReceipt_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getIosSecret().isEmpty()) {
         iosSecret_ = other.iosSecret_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getRecaptchaToken().isEmpty()) {
         recaptchaToken_ = other.recaptchaToken_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasAutoRetrievalInfo()) {
@@ -786,9 +718,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSafetyNetToken().isEmpty()) {
         safetyNetToken_ = other.safetyNetToken_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -803,19 +736,65 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.identitytoolkit.v2.StartMfaPhoneRequestInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              phoneNumber_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              iosReceipt_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              iosSecret_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              recaptchaToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getAutoRetrievalInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              safetyNetToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.identitytoolkit.v2.StartMfaPhoneRequestInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object phoneNumber_ = "";
     /**
@@ -870,11 +849,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPhoneNumber(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       phoneNumber_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -887,8 +864,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPhoneNumber() {
-      
       phoneNumber_ = getDefaultInstance().getPhoneNumber();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -903,12 +880,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPhoneNumberBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       phoneNumber_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -966,11 +941,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIosReceipt(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       iosReceipt_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -983,8 +956,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIosReceipt() {
-      
       iosReceipt_ = getDefaultInstance().getIosReceipt();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -999,12 +972,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIosReceiptBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       iosReceipt_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1062,11 +1033,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIosSecret(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       iosSecret_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1079,8 +1048,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIosSecret() {
-      
       iosSecret_ = getDefaultInstance().getIosSecret();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1095,12 +1064,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIosSecretBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       iosSecret_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1158,11 +1125,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRecaptchaToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       recaptchaToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1175,8 +1140,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRecaptchaToken() {
-      
       recaptchaToken_ = getDefaultInstance().getRecaptchaToken();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1191,12 +1156,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRecaptchaTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       recaptchaToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1214,7 +1177,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the autoRetrievalInfo field is set.
      */
     public boolean hasAutoRetrievalInfo() {
-      return autoRetrievalInfoBuilder_ != null || autoRetrievalInfo_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1246,11 +1209,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         autoRetrievalInfo_ = value;
-        onChanged();
       } else {
         autoRetrievalInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1265,11 +1228,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.identitytoolkit.v2.AutoRetrievalInfo.Builder builderForValue) {
       if (autoRetrievalInfoBuilder_ == null) {
         autoRetrievalInfo_ = builderForValue.build();
-        onChanged();
       } else {
         autoRetrievalInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1282,17 +1245,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAutoRetrievalInfo(com.google.cloud.identitytoolkit.v2.AutoRetrievalInfo value) {
       if (autoRetrievalInfoBuilder_ == null) {
-        if (autoRetrievalInfo_ != null) {
-          autoRetrievalInfo_ =
-            com.google.cloud.identitytoolkit.v2.AutoRetrievalInfo.newBuilder(autoRetrievalInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          autoRetrievalInfo_ != null &&
+          autoRetrievalInfo_ != com.google.cloud.identitytoolkit.v2.AutoRetrievalInfo.getDefaultInstance()) {
+          getAutoRetrievalInfoBuilder().mergeFrom(value);
         } else {
           autoRetrievalInfo_ = value;
         }
-        onChanged();
       } else {
         autoRetrievalInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1304,14 +1268,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.identitytoolkit.v2.AutoRetrievalInfo auto_retrieval_info = 5;</code>
      */
     public Builder clearAutoRetrievalInfo() {
-      if (autoRetrievalInfoBuilder_ == null) {
-        autoRetrievalInfo_ = null;
-        onChanged();
-      } else {
-        autoRetrievalInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      autoRetrievalInfo_ = null;
+      if (autoRetrievalInfoBuilder_ != null) {
+        autoRetrievalInfoBuilder_.dispose();
         autoRetrievalInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1323,7 +1286,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.identitytoolkit.v2.AutoRetrievalInfo auto_retrieval_info = 5;</code>
      */
     public com.google.cloud.identitytoolkit.v2.AutoRetrievalInfo.Builder getAutoRetrievalInfoBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getAutoRetrievalInfoFieldBuilder().getBuilder();
     }
@@ -1430,11 +1393,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSafetyNetToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       safetyNetToken_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1451,8 +1412,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSafetyNetToken() {
-      
       safetyNetToken_ = getDefaultInstance().getSafetyNetToken();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1471,12 +1432,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSafetyNetTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       safetyNetToken_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1513,7 +1472,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StartMfaPhoneRequestInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

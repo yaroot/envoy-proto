@@ -65,7 +65,6 @@ public interface SlotsOrBuilder extends
    *
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.Slot&gt; slots = 3;</code>
    */
-
   /* nullable */
 com.google.actions.sdk.v2.conversation.Slot getSlotsOrDefault(
       java.lang.String key,
@@ -78,7 +77,6 @@ com.google.actions.sdk.v2.conversation.Slot defaultValue);
    *
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.Slot&gt; slots = 3;</code>
    */
-
   com.google.actions.sdk.v2.conversation.Slot getSlotsOrThrow(
       java.lang.String key);
 }

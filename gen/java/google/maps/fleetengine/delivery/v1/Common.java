@@ -81,18 +81,19 @@ public final class Common {
       ".delivery.v1.DeliveryVehicleLocationSens" +
       "orB\003\340A\004\022I\n\036supplemental_location_accurac" +
       "y\030\025 \001(\0132\034.google.protobuf.DoubleValueB\003\340" +
-      "A\004\022\030\n\014road_snapped\030\032 \001(\010B\002\030\001*\227\001\n\035Deliver" +
+      "A\004\022\030\n\014road_snapped\030\032 \001(\010B\002\030\001*\253\001\n\035Deliver" +
       "yVehicleLocationSensor\022\022\n\016UNKNOWN_SENSOR" +
       "\020\000\022\007\n\003GPS\020\001\022\013\n\007NETWORK\020\002\022\013\n\007PASSIVE\020\003\022\"\n" +
       "\036ROAD_SNAPPED_LOCATION_PROVIDER\020\004\022\033\n\027FUS" +
-      "ED_LOCATION_PROVIDER\020d*\230\001\n\037DeliveryVehic" +
-      "leNavigationStatus\022\035\n\031UNKNOWN_NAVIGATION" +
-      "_STATUS\020\000\022\017\n\013NO_GUIDANCE\020\001\022\032\n\026ENROUTE_TO" +
-      "_DESTINATION\020\002\022\r\n\tOFF_ROUTE\020\003\022\032\n\026ARRIVED" +
-      "_AT_DESTINATION\020\004B\203\001\n#google.maps.fleete" +
-      "ngine.delivery.v1B\006CommonP\001ZKgoogle.gola" +
-      "ng.org/genproto/googleapis/maps/fleeteng" +
-      "ine/delivery/v1;delivery\242\002\004CFEDb\006proto3"
+      "ED_LOCATION_PROVIDER\020d\022\022\n\rCORE_LOCATION\020" +
+      "\310\001*\230\001\n\037DeliveryVehicleNavigationStatus\022\035" +
+      "\n\031UNKNOWN_NAVIGATION_STATUS\020\000\022\017\n\013NO_GUID" +
+      "ANCE\020\001\022\032\n\026ENROUTE_TO_DESTINATION\020\002\022\r\n\tOF" +
+      "F_ROUTE\020\003\022\032\n\026ARRIVED_AT_DESTINATION\020\004B\203\001" +
+      "\n#google.maps.fleetengine.delivery.v1B\006C" +
+      "ommonP\001ZKgoogle.golang.org/genproto/goog" +
+      "leapis/maps/fleetengine/delivery/v1;deli" +
+      "very\242\002\004CFEDb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

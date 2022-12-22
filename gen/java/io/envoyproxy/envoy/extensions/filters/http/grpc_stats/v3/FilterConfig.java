@@ -6,6 +6,7 @@ package io.envoyproxy.envoy.extensions.filters.http.grpc_stats.v3;
 /**
  * <pre>
  * gRPC statistics filter configuration
+ * [#next-free-field: 6]
  * </pre>
  *
  * Protobuf type {@code envoy.extensions.filters.http.grpc_stats.v3.FilterConfig}
@@ -33,83 +34,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private FilterConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            emitFilterState_ = input.readBool();
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.config.core.v3.GrpcMethodList.Builder subBuilder = null;
-            if (perMethodStatSpecifierCase_ == 2) {
-              subBuilder = ((io.envoyproxy.envoy.config.core.v3.GrpcMethodList) perMethodStatSpecifier_).toBuilder();
-            }
-            perMethodStatSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.GrpcMethodList.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.core.v3.GrpcMethodList) perMethodStatSpecifier_);
-              perMethodStatSpecifier_ = subBuilder.buildPartial();
-            }
-            perMethodStatSpecifierCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (perMethodStatSpecifierCase_ == 3) {
-              subBuilder = ((com.google.protobuf.BoolValue) perMethodStatSpecifier_).toBuilder();
-            }
-            perMethodStatSpecifier_ =
-                input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.BoolValue) perMethodStatSpecifier_);
-              perMethodStatSpecifier_ = subBuilder.buildPartial();
-            }
-            perMethodStatSpecifierCase_ = 3;
-            break;
-          }
-          case 32: {
-
-            enableUpstreamStats_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -166,7 +90,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EMIT_FILTER_STATE_FIELD_NUMBER = 1;
-  private boolean emitFilterState_;
+  private boolean emitFilterState_ = false;
   /**
    * <pre>
    * If true, the filter maintains a filter state object with the request and response message
@@ -310,7 +234,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_UPSTREAM_STATS_FIELD_NUMBER = 4;
-  private boolean enableUpstreamStats_;
+  private boolean enableUpstreamStats_ = false;
   /**
    * <pre>
    * If true, the filter will gather a histogram for the request time of the upstream.
@@ -327,6 +251,27 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean getEnableUpstreamStats() {
     return enableUpstreamStats_;
+  }
+
+  public static final int REPLACE_DOTS_IN_GRPC_SERVICE_NAME_FIELD_NUMBER = 5;
+  private boolean replaceDotsInGrpcServiceName_ = false;
+  /**
+   * <pre>
+   * If true, the filter will replace dots in the grpc_service_name with underscores before emitting
+   * the metrics. Only works when :ref:`stats_for_all_methods
+   * &lt;envoy_v3_api_field_extensions.filters.http.grpc_stats.v3.FilterConfig.stats_for_all_methods&gt;`
+   * is set to true. It could cause metrics to be merged if the edited service name conflicts with
+   * an existing service. For example there are both service "foo.bar" &amp; "foo_bar" running.
+   * This config can fix incorrect gRPC metrics with dots because the existing stats tag extractor
+   * assumes no dots in the gRPC service name. By default this is set as false.
+   * </pre>
+   *
+   * <code>bool replace_dots_in_grpc_service_name = 5;</code>
+   * @return The replaceDotsInGrpcServiceName.
+   */
+  @java.lang.Override
+  public boolean getReplaceDotsInGrpcServiceName() {
+    return replaceDotsInGrpcServiceName_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -355,7 +300,10 @@ private static final long serialVersionUID = 0L;
     if (enableUpstreamStats_ != false) {
       output.writeBool(4, enableUpstreamStats_);
     }
-    unknownFields.writeTo(output);
+    if (replaceDotsInGrpcServiceName_ != false) {
+      output.writeBool(5, replaceDotsInGrpcServiceName_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -380,7 +328,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, enableUpstreamStats_);
     }
-    size += unknownFields.getSerializedSize();
+    if (replaceDotsInGrpcServiceName_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(5, replaceDotsInGrpcServiceName_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -399,6 +351,8 @@ private static final long serialVersionUID = 0L;
         != other.getEmitFilterState()) return false;
     if (getEnableUpstreamStats()
         != other.getEnableUpstreamStats()) return false;
+    if (getReplaceDotsInGrpcServiceName()
+        != other.getReplaceDotsInGrpcServiceName()) return false;
     if (!getPerMethodStatSpecifierCase().equals(other.getPerMethodStatSpecifierCase())) return false;
     switch (perMethodStatSpecifierCase_) {
       case 2:
@@ -412,7 +366,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -429,6 +383,9 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ENABLE_UPSTREAM_STATS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getEnableUpstreamStats());
+    hash = (37 * hash) + REPLACE_DOTS_IN_GRPC_SERVICE_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getReplaceDotsInGrpcServiceName());
     switch (perMethodStatSpecifierCase_) {
       case 2:
         hash = (37 * hash) + INDIVIDUAL_METHOD_STATS_ALLOWLIST_FIELD_NUMBER;
@@ -441,7 +398,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -539,6 +496,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * gRPC statistics filter configuration
+   * [#next-free-field: 6]
    * </pre>
    *
    * Protobuf type {@code envoy.extensions.filters.http.grpc_stats.v3.FilterConfig}
@@ -562,26 +520,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.grpc_stats.v3.FilterConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       emitFilterState_ = false;
-
+      if (individualMethodStatsAllowlistBuilder_ != null) {
+        individualMethodStatsAllowlistBuilder_.clear();
+      }
+      if (statsForAllMethodsBuilder_ != null) {
+        statsForAllMethodsBuilder_.clear();
+      }
       enableUpstreamStats_ = false;
-
+      replaceDotsInGrpcServiceName_ = false;
       perMethodStatSpecifierCase_ = 0;
       perMethodStatSpecifier_ = null;
       return this;
@@ -610,25 +569,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.grpc_stats.v3.FilterConfig buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.grpc_stats.v3.FilterConfig result = new io.envoyproxy.envoy.extensions.filters.http.grpc_stats.v3.FilterConfig(this);
-      result.emitFilterState_ = emitFilterState_;
-      if (perMethodStatSpecifierCase_ == 2) {
-        if (individualMethodStatsAllowlistBuilder_ == null) {
-          result.perMethodStatSpecifier_ = perMethodStatSpecifier_;
-        } else {
-          result.perMethodStatSpecifier_ = individualMethodStatsAllowlistBuilder_.build();
-        }
-      }
-      if (perMethodStatSpecifierCase_ == 3) {
-        if (statsForAllMethodsBuilder_ == null) {
-          result.perMethodStatSpecifier_ = perMethodStatSpecifier_;
-        } else {
-          result.perMethodStatSpecifier_ = statsForAllMethodsBuilder_.build();
-        }
-      }
-      result.enableUpstreamStats_ = enableUpstreamStats_;
-      result.perMethodStatSpecifierCase_ = perMethodStatSpecifierCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.grpc_stats.v3.FilterConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.emitFilterState_ = emitFilterState_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.enableUpstreamStats_ = enableUpstreamStats_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.replaceDotsInGrpcServiceName_ = replaceDotsInGrpcServiceName_;
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.extensions.filters.http.grpc_stats.v3.FilterConfig result) {
+      result.perMethodStatSpecifierCase_ = perMethodStatSpecifierCase_;
+      result.perMethodStatSpecifier_ = this.perMethodStatSpecifier_;
+      if (perMethodStatSpecifierCase_ == 2 &&
+          individualMethodStatsAllowlistBuilder_ != null) {
+        result.perMethodStatSpecifier_ = individualMethodStatsAllowlistBuilder_.build();
+      }
+      if (perMethodStatSpecifierCase_ == 3 &&
+          statsForAllMethodsBuilder_ != null) {
+        result.perMethodStatSpecifier_ = statsForAllMethodsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -681,6 +651,9 @@ private static final long serialVersionUID = 0L;
       if (other.getEnableUpstreamStats() != false) {
         setEnableUpstreamStats(other.getEnableUpstreamStats());
       }
+      if (other.getReplaceDotsInGrpcServiceName() != false) {
+        setReplaceDotsInGrpcServiceName(other.getReplaceDotsInGrpcServiceName());
+      }
       switch (other.getPerMethodStatSpecifierCase()) {
         case INDIVIDUAL_METHOD_STATS_ALLOWLIST: {
           mergeIndividualMethodStatsAllowlist(other.getIndividualMethodStatsAllowlist());
@@ -694,7 +667,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -709,17 +682,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.grpc_stats.v3.FilterConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              emitFilterState_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getIndividualMethodStatsAllowlistFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              perMethodStatSpecifierCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getStatsForAllMethodsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              perMethodStatSpecifierCase_ = 3;
+              break;
+            } // case 26
+            case 32: {
+              enableUpstreamStats_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              replaceDotsInGrpcServiceName_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.grpc_stats.v3.FilterConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int perMethodStatSpecifierCase_ = 0;
@@ -737,6 +752,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private boolean emitFilterState_ ;
     /**
@@ -765,6 +781,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEmitFilterState(boolean value) {
       
       emitFilterState_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -778,7 +795,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEmitFilterState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       emitFilterState_ = false;
       onChanged();
       return this;
@@ -976,7 +993,7 @@ private static final long serialVersionUID = 0L;
         perMethodStatSpecifier_ = null;
       }
       perMethodStatSpecifierCase_ = 2;
-      onChanged();;
+      onChanged();
       return individualMethodStatsAllowlistBuilder_;
     }
 
@@ -1262,7 +1279,7 @@ private static final long serialVersionUID = 0L;
         perMethodStatSpecifier_ = null;
       }
       perMethodStatSpecifierCase_ = 3;
-      onChanged();;
+      onChanged();
       return statsForAllMethodsBuilder_;
     }
 
@@ -1301,6 +1318,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnableUpstreamStats(boolean value) {
       
       enableUpstreamStats_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1318,8 +1336,70 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableUpstreamStats() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       enableUpstreamStats_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean replaceDotsInGrpcServiceName_ ;
+    /**
+     * <pre>
+     * If true, the filter will replace dots in the grpc_service_name with underscores before emitting
+     * the metrics. Only works when :ref:`stats_for_all_methods
+     * &lt;envoy_v3_api_field_extensions.filters.http.grpc_stats.v3.FilterConfig.stats_for_all_methods&gt;`
+     * is set to true. It could cause metrics to be merged if the edited service name conflicts with
+     * an existing service. For example there are both service "foo.bar" &amp; "foo_bar" running.
+     * This config can fix incorrect gRPC metrics with dots because the existing stats tag extractor
+     * assumes no dots in the gRPC service name. By default this is set as false.
+     * </pre>
+     *
+     * <code>bool replace_dots_in_grpc_service_name = 5;</code>
+     * @return The replaceDotsInGrpcServiceName.
+     */
+    @java.lang.Override
+    public boolean getReplaceDotsInGrpcServiceName() {
+      return replaceDotsInGrpcServiceName_;
+    }
+    /**
+     * <pre>
+     * If true, the filter will replace dots in the grpc_service_name with underscores before emitting
+     * the metrics. Only works when :ref:`stats_for_all_methods
+     * &lt;envoy_v3_api_field_extensions.filters.http.grpc_stats.v3.FilterConfig.stats_for_all_methods&gt;`
+     * is set to true. It could cause metrics to be merged if the edited service name conflicts with
+     * an existing service. For example there are both service "foo.bar" &amp; "foo_bar" running.
+     * This config can fix incorrect gRPC metrics with dots because the existing stats tag extractor
+     * assumes no dots in the gRPC service name. By default this is set as false.
+     * </pre>
+     *
+     * <code>bool replace_dots_in_grpc_service_name = 5;</code>
+     * @param value The replaceDotsInGrpcServiceName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setReplaceDotsInGrpcServiceName(boolean value) {
+      
+      replaceDotsInGrpcServiceName_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * If true, the filter will replace dots in the grpc_service_name with underscores before emitting
+     * the metrics. Only works when :ref:`stats_for_all_methods
+     * &lt;envoy_v3_api_field_extensions.filters.http.grpc_stats.v3.FilterConfig.stats_for_all_methods&gt;`
+     * is set to true. It could cause metrics to be merged if the edited service name conflicts with
+     * an existing service. For example there are both service "foo.bar" &amp; "foo_bar" running.
+     * This config can fix incorrect gRPC metrics with dots because the existing stats tag extractor
+     * assumes no dots in the gRPC service name. By default this is set as false.
+     * </pre>
+     *
+     * <code>bool replace_dots_in_grpc_service_name = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearReplaceDotsInGrpcServiceName() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      replaceDotsInGrpcServiceName_ = false;
       onChanged();
       return this;
     }
@@ -1356,7 +1436,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FilterConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

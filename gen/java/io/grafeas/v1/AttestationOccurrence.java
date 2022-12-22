@@ -44,75 +44,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AttestationOccurrence(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-
-            serializedPayload_ = input.readBytes();
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              signatures_ = new java.util.ArrayList<io.grafeas.v1.Signature>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            signatures_.add(
-                input.readMessage(io.grafeas.v1.Signature.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              jwts_ = new java.util.ArrayList<io.grafeas.v1.Jwt>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            jwts_.add(
-                input.readMessage(io.grafeas.v1.Jwt.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        signatures_ = java.util.Collections.unmodifiableList(signatures_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        jwts_ = java.util.Collections.unmodifiableList(jwts_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.grafeas.v1.Attestation.internal_static_grafeas_v1_AttestationOccurrence_descriptor;
@@ -127,7 +58,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERIALIZED_PAYLOAD_FIELD_NUMBER = 1;
-  private com.google.protobuf.ByteString serializedPayload_;
+  private com.google.protobuf.ByteString serializedPayload_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * Required. The serialized payload that is verified by one or more
@@ -143,6 +74,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SIGNATURES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<io.grafeas.v1.Signature> signatures_;
   /**
    * <pre>
@@ -218,6 +150,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int JWTS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<io.grafeas.v1.Jwt> jwts_;
   /**
    * <pre>
@@ -340,7 +273,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < jwts_.size(); i++) {
       output.writeMessage(3, jwts_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -361,7 +294,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, jwts_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -382,7 +315,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSignaturesList())) return false;
     if (!getJwtsList()
         .equals(other.getJwtsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -403,7 +336,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + JWTS_FIELD_NUMBER;
       hash = (53 * hash) + getJwtsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -531,38 +464,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.grafeas.v1.AttestationOccurrence.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSignaturesFieldBuilder();
-        getJwtsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       serializedPayload_ = com.google.protobuf.ByteString.EMPTY;
-
       if (signaturesBuilder_ == null) {
         signatures_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        signatures_ = null;
         signaturesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (jwtsBuilder_ == null) {
         jwts_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        jwts_ = null;
         jwtsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -589,28 +517,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.grafeas.v1.AttestationOccurrence buildPartial() {
       io.grafeas.v1.AttestationOccurrence result = new io.grafeas.v1.AttestationOccurrence(this);
-      int from_bitField0_ = bitField0_;
-      result.serializedPayload_ = serializedPayload_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.grafeas.v1.AttestationOccurrence result) {
       if (signaturesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           signatures_ = java.util.Collections.unmodifiableList(signatures_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.signatures_ = signatures_;
       } else {
         result.signatures_ = signaturesBuilder_.build();
       }
       if (jwtsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           jwts_ = java.util.Collections.unmodifiableList(jwts_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.jwts_ = jwts_;
       } else {
         result.jwts_ = jwtsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.grafeas.v1.AttestationOccurrence result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.serializedPayload_ = serializedPayload_;
+      }
     }
 
     @java.lang.Override
@@ -664,7 +602,7 @@ private static final long serialVersionUID = 0L;
         if (!other.signatures_.isEmpty()) {
           if (signatures_.isEmpty()) {
             signatures_ = other.signatures_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureSignaturesIsMutable();
             signatures_.addAll(other.signatures_);
@@ -677,7 +615,7 @@ private static final long serialVersionUID = 0L;
             signaturesBuilder_.dispose();
             signaturesBuilder_ = null;
             signatures_ = other.signatures_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             signaturesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSignaturesFieldBuilder() : null;
@@ -690,7 +628,7 @@ private static final long serialVersionUID = 0L;
         if (!other.jwts_.isEmpty()) {
           if (jwts_.isEmpty()) {
             jwts_ = other.jwts_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureJwtsIsMutable();
             jwts_.addAll(other.jwts_);
@@ -703,7 +641,7 @@ private static final long serialVersionUID = 0L;
             jwtsBuilder_.dispose();
             jwtsBuilder_ = null;
             jwts_ = other.jwts_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             jwtsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getJwtsFieldBuilder() : null;
@@ -712,7 +650,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -727,17 +665,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.grafeas.v1.AttestationOccurrence parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              serializedPayload_ = input.readBytes();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              io.grafeas.v1.Signature m =
+                  input.readMessage(
+                      io.grafeas.v1.Signature.parser(),
+                      extensionRegistry);
+              if (signaturesBuilder_ == null) {
+                ensureSignaturesIsMutable();
+                signatures_.add(m);
+              } else {
+                signaturesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              io.grafeas.v1.Jwt m =
+                  input.readMessage(
+                      io.grafeas.v1.Jwt.parser(),
+                      extensionRegistry);
+              if (jwtsBuilder_ == null) {
+                ensureJwtsIsMutable();
+                jwts_.add(m);
+              } else {
+                jwtsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.grafeas.v1.AttestationOccurrence) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -767,11 +749,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSerializedPayload(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serializedPayload_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -785,7 +765,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSerializedPayload() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       serializedPayload_ = getDefaultInstance().getSerializedPayload();
       onChanged();
       return this;
@@ -794,9 +774,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.grafeas.v1.Signature> signatures_ =
       java.util.Collections.emptyList();
     private void ensureSignaturesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         signatures_ = new java.util.ArrayList<io.grafeas.v1.Signature>(signatures_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1023,7 +1003,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSignatures() {
       if (signaturesBuilder_ == null) {
         signatures_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         signaturesBuilder_.clear();
@@ -1149,7 +1129,7 @@ private static final long serialVersionUID = 0L;
         signaturesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.grafeas.v1.Signature, io.grafeas.v1.Signature.Builder, io.grafeas.v1.SignatureOrBuilder>(
                 signatures_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         signatures_ = null;
@@ -1160,9 +1140,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.grafeas.v1.Jwt> jwts_ =
       java.util.Collections.emptyList();
     private void ensureJwtsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         jwts_ = new java.util.ArrayList<io.grafeas.v1.Jwt>(jwts_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1444,7 +1424,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearJwts() {
       if (jwtsBuilder_ == null) {
         jwts_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         jwtsBuilder_.clear();
@@ -1605,7 +1585,7 @@ private static final long serialVersionUID = 0L;
         jwtsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.grafeas.v1.Jwt, io.grafeas.v1.Jwt.Builder, io.grafeas.v1.JwtOrBuilder>(
                 jwts_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         jwts_ = null;
@@ -1645,7 +1625,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AttestationOccurrence(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

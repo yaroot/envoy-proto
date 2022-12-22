@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PublicKeyCertificate(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            format_ = rawValue;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            certificate_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.iot.v1.X509CertificateDetails.Builder subBuilder = null;
-            if (x509Details_ != null) {
-              subBuilder = x509Details_.toBuilder();
-            }
-            x509Details_ = input.readMessage(com.google.cloud.iot.v1.X509CertificateDetails.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(x509Details_);
-              x509Details_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.iot.v1.ResourcesProto.internal_static_google_cloud_iot_v1_PublicKeyCertificate_descriptor;
@@ -114,7 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORMAT_FIELD_NUMBER = 1;
-  private int format_;
+  private int format_ = 0;
   /**
    * <pre>
    * The certificate format.
@@ -135,13 +71,13 @@ private static final long serialVersionUID = 0L;
    * @return The format.
    */
   @java.lang.Override public com.google.cloud.iot.v1.PublicKeyCertificateFormat getFormat() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.iot.v1.PublicKeyCertificateFormat result = com.google.cloud.iot.v1.PublicKeyCertificateFormat.valueOf(format_);
+    com.google.cloud.iot.v1.PublicKeyCertificateFormat result = com.google.cloud.iot.v1.PublicKeyCertificateFormat.forNumber(format_);
     return result == null ? com.google.cloud.iot.v1.PublicKeyCertificateFormat.UNRECOGNIZED : result;
   }
 
   public static final int CERTIFICATE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object certificate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object certificate_ = "";
   /**
    * <pre>
    * The certificate data.
@@ -221,7 +157,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.iot.v1.X509CertificateDetailsOrBuilder getX509DetailsOrBuilder() {
-    return getX509Details();
+    return x509Details_ == null ? com.google.cloud.iot.v1.X509CertificateDetails.getDefaultInstance() : x509Details_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -247,7 +183,7 @@ private static final long serialVersionUID = 0L;
     if (x509Details_ != null) {
       output.writeMessage(3, getX509Details());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -267,7 +203,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getX509Details());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -290,7 +226,7 @@ private static final long serialVersionUID = 0L;
       if (!getX509Details()
           .equals(other.getX509Details())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -309,7 +245,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + X509_DETAILS_FIELD_NUMBER;
       hash = (53 * hash) + getX509Details().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -430,30 +366,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.iot.v1.PublicKeyCertificate.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       format_ = 0;
-
       certificate_ = "";
-
-      if (x509DetailsBuilder_ == null) {
-        x509Details_ = null;
-      } else {
-        x509Details_ = null;
+      x509Details_ = null;
+      if (x509DetailsBuilder_ != null) {
+        x509DetailsBuilder_.dispose();
         x509DetailsBuilder_ = null;
       }
       return this;
@@ -482,15 +411,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.iot.v1.PublicKeyCertificate buildPartial() {
       com.google.cloud.iot.v1.PublicKeyCertificate result = new com.google.cloud.iot.v1.PublicKeyCertificate(this);
-      result.format_ = format_;
-      result.certificate_ = certificate_;
-      if (x509DetailsBuilder_ == null) {
-        result.x509Details_ = x509Details_;
-      } else {
-        result.x509Details_ = x509DetailsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.iot.v1.PublicKeyCertificate result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.format_ = format_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.certificate_ = certificate_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.x509Details_ = x509DetailsBuilder_ == null
+            ? x509Details_
+            : x509DetailsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -542,12 +480,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCertificate().isEmpty()) {
         certificate_ = other.certificate_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasX509Details()) {
         mergeX509Details(other.getX509Details());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -562,19 +501,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.iot.v1.PublicKeyCertificate parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              format_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              certificate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getX509DetailsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.iot.v1.PublicKeyCertificate) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int format_ = 0;
     /**
@@ -598,8 +568,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFormatValue(int value) {
-      
       format_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -613,8 +583,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.iot.v1.PublicKeyCertificateFormat getFormat() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.iot.v1.PublicKeyCertificateFormat result = com.google.cloud.iot.v1.PublicKeyCertificateFormat.valueOf(format_);
+      com.google.cloud.iot.v1.PublicKeyCertificateFormat result = com.google.cloud.iot.v1.PublicKeyCertificateFormat.forNumber(format_);
       return result == null ? com.google.cloud.iot.v1.PublicKeyCertificateFormat.UNRECOGNIZED : result;
     }
     /**
@@ -630,7 +599,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       format_ = value.getNumber();
       onChanged();
       return this;
@@ -644,7 +613,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFormat() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       format_ = 0;
       onChanged();
       return this;
@@ -703,11 +672,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCertificate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       certificate_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -720,8 +687,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCertificate() {
-      
       certificate_ = getDefaultInstance().getCertificate();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -736,12 +703,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCertificateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       certificate_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -758,7 +723,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the x509Details field is set.
      */
     public boolean hasX509Details() {
-      return x509DetailsBuilder_ != null || x509Details_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -788,11 +753,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         x509Details_ = value;
-        onChanged();
       } else {
         x509DetailsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -806,11 +771,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.iot.v1.X509CertificateDetails.Builder builderForValue) {
       if (x509DetailsBuilder_ == null) {
         x509Details_ = builderForValue.build();
-        onChanged();
       } else {
         x509DetailsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -822,17 +787,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeX509Details(com.google.cloud.iot.v1.X509CertificateDetails value) {
       if (x509DetailsBuilder_ == null) {
-        if (x509Details_ != null) {
-          x509Details_ =
-            com.google.cloud.iot.v1.X509CertificateDetails.newBuilder(x509Details_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          x509Details_ != null &&
+          x509Details_ != com.google.cloud.iot.v1.X509CertificateDetails.getDefaultInstance()) {
+          getX509DetailsBuilder().mergeFrom(value);
         } else {
           x509Details_ = value;
         }
-        onChanged();
       } else {
         x509DetailsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -843,14 +809,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iot.v1.X509CertificateDetails x509_details = 3;</code>
      */
     public Builder clearX509Details() {
-      if (x509DetailsBuilder_ == null) {
-        x509Details_ = null;
-        onChanged();
-      } else {
-        x509Details_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      x509Details_ = null;
+      if (x509DetailsBuilder_ != null) {
+        x509DetailsBuilder_.dispose();
         x509DetailsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -861,7 +826,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iot.v1.X509CertificateDetails x509_details = 3;</code>
      */
     public com.google.cloud.iot.v1.X509CertificateDetails.Builder getX509DetailsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getX509DetailsFieldBuilder().getBuilder();
     }
@@ -933,7 +898,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PublicKeyCertificate(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

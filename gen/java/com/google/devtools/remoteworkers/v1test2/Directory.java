@@ -37,70 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Directory(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              files_ = new java.util.ArrayList<com.google.devtools.remoteworkers.v1test2.FileMetadata>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            files_.add(
-                input.readMessage(com.google.devtools.remoteworkers.v1test2.FileMetadata.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              directories_ = new java.util.ArrayList<com.google.devtools.remoteworkers.v1test2.DirectoryMetadata>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            directories_.add(
-                input.readMessage(com.google.devtools.remoteworkers.v1test2.DirectoryMetadata.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        files_ = java.util.Collections.unmodifiableList(files_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        directories_ = java.util.Collections.unmodifiableList(directories_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.remoteworkers.v1test2.RemoteWorkersCommands.internal_static_google_devtools_remoteworkers_v1test2_Directory_descriptor;
@@ -115,6 +51,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.devtools.remoteworkers.v1test2.FileMetadata> files_;
   /**
    * <pre>
@@ -175,6 +112,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DIRECTORIES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.devtools.remoteworkers.v1test2.DirectoryMetadata> directories_;
   /**
    * <pre>
@@ -254,7 +192,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < directories_.size(); i++) {
       output.writeMessage(2, directories_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -271,7 +209,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, directories_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -290,7 +228,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFilesList())) return false;
     if (!getDirectoriesList()
         .equals(other.getDirectoriesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -309,7 +247,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DIRECTORIES_FIELD_NUMBER;
       hash = (53 * hash) + getDirectoriesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -431,36 +369,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.remoteworkers.v1test2.Directory.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getFilesFieldBuilder();
-        getDirectoriesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (filesBuilder_ == null) {
         files_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        files_ = null;
         filesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (directoriesBuilder_ == null) {
         directories_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        directories_ = null;
         directoriesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -487,7 +421,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.remoteworkers.v1test2.Directory buildPartial() {
       com.google.devtools.remoteworkers.v1test2.Directory result = new com.google.devtools.remoteworkers.v1test2.Directory(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.devtools.remoteworkers.v1test2.Directory result) {
       if (filesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           files_ = java.util.Collections.unmodifiableList(files_);
@@ -506,8 +446,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.directories_ = directoriesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.devtools.remoteworkers.v1test2.Directory result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -606,7 +548,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -621,17 +563,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.remoteworkers.v1test2.Directory parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.devtools.remoteworkers.v1test2.FileMetadata m =
+                  input.readMessage(
+                      com.google.devtools.remoteworkers.v1test2.FileMetadata.parser(),
+                      extensionRegistry);
+              if (filesBuilder_ == null) {
+                ensureFilesIsMutable();
+                files_.add(m);
+              } else {
+                filesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.google.devtools.remoteworkers.v1test2.DirectoryMetadata m =
+                  input.readMessage(
+                      com.google.devtools.remoteworkers.v1test2.DirectoryMetadata.parser(),
+                      extensionRegistry);
+              if (directoriesBuilder_ == null) {
+                ensureDirectoriesIsMutable();
+                directories_.add(m);
+              } else {
+                directoriesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.remoteworkers.v1test2.Directory) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1292,7 +1273,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Directory(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

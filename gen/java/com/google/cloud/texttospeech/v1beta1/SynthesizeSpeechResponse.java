@@ -36,76 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SynthesizeSpeechResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-
-            audioContent_ = input.readBytes();
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              timepoints_ = new java.util.ArrayList<com.google.cloud.texttospeech.v1beta1.Timepoint>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            timepoints_.add(
-                input.readMessage(com.google.cloud.texttospeech.v1beta1.Timepoint.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            com.google.cloud.texttospeech.v1beta1.AudioConfig.Builder subBuilder = null;
-            if (audioConfig_ != null) {
-              subBuilder = audioConfig_.toBuilder();
-            }
-            audioConfig_ = input.readMessage(com.google.cloud.texttospeech.v1beta1.AudioConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(audioConfig_);
-              audioConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        timepoints_ = java.util.Collections.unmodifiableList(timepoints_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.texttospeech.v1beta1.TextToSpeechProto.internal_static_google_cloud_texttospeech_v1beta1_SynthesizeSpeechResponse_descriptor;
@@ -120,7 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUDIO_CONTENT_FIELD_NUMBER = 1;
-  private com.google.protobuf.ByteString audioContent_;
+  private com.google.protobuf.ByteString audioContent_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * The audio data bytes encoded as specified in the request, including the
@@ -139,6 +69,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TIMEPOINTS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.texttospeech.v1beta1.Timepoint> timepoints_;
   /**
    * <pre>
@@ -238,7 +169,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.texttospeech.v1beta1.AudioConfigOrBuilder getAudioConfigOrBuilder() {
-    return getAudioConfig();
+    return audioConfig_ == null ? com.google.cloud.texttospeech.v1beta1.AudioConfig.getDefaultInstance() : audioConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -264,7 +195,7 @@ private static final long serialVersionUID = 0L;
     if (audioConfig_ != null) {
       output.writeMessage(4, getAudioConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -285,7 +216,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getAudioConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -309,7 +240,7 @@ private static final long serialVersionUID = 0L;
       if (!getAudioConfig()
           .equals(other.getAudioConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -330,7 +261,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + AUDIO_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getAudioConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -451,35 +382,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.texttospeech.v1beta1.SynthesizeSpeechResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTimepointsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       audioContent_ = com.google.protobuf.ByteString.EMPTY;
-
       if (timepointsBuilder_ == null) {
         timepoints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        timepoints_ = null;
         timepointsBuilder_.clear();
       }
-      if (audioConfigBuilder_ == null) {
-        audioConfig_ = null;
-      } else {
-        audioConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      audioConfig_ = null;
+      if (audioConfigBuilder_ != null) {
+        audioConfigBuilder_.dispose();
         audioConfigBuilder_ = null;
       }
       return this;
@@ -508,24 +433,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.texttospeech.v1beta1.SynthesizeSpeechResponse buildPartial() {
       com.google.cloud.texttospeech.v1beta1.SynthesizeSpeechResponse result = new com.google.cloud.texttospeech.v1beta1.SynthesizeSpeechResponse(this);
-      int from_bitField0_ = bitField0_;
-      result.audioContent_ = audioContent_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.texttospeech.v1beta1.SynthesizeSpeechResponse result) {
       if (timepointsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           timepoints_ = java.util.Collections.unmodifiableList(timepoints_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.timepoints_ = timepoints_;
       } else {
         result.timepoints_ = timepointsBuilder_.build();
       }
-      if (audioConfigBuilder_ == null) {
-        result.audioConfig_ = audioConfig_;
-      } else {
-        result.audioConfig_ = audioConfigBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.texttospeech.v1beta1.SynthesizeSpeechResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.audioContent_ = audioContent_;
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.audioConfig_ = audioConfigBuilder_ == null
+            ? audioConfig_
+            : audioConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -579,7 +514,7 @@ private static final long serialVersionUID = 0L;
         if (!other.timepoints_.isEmpty()) {
           if (timepoints_.isEmpty()) {
             timepoints_ = other.timepoints_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureTimepointsIsMutable();
             timepoints_.addAll(other.timepoints_);
@@ -592,7 +527,7 @@ private static final long serialVersionUID = 0L;
             timepointsBuilder_.dispose();
             timepointsBuilder_ = null;
             timepoints_ = other.timepoints_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             timepointsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTimepointsFieldBuilder() : null;
@@ -604,7 +539,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasAudioConfig()) {
         mergeAudioConfig(other.getAudioConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -619,17 +554,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.texttospeech.v1beta1.SynthesizeSpeechResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              audioContent_ = input.readBytes();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.texttospeech.v1beta1.Timepoint m =
+                  input.readMessage(
+                      com.google.cloud.texttospeech.v1beta1.Timepoint.parser(),
+                      extensionRegistry);
+              if (timepointsBuilder_ == null) {
+                ensureTimepointsIsMutable();
+                timepoints_.add(m);
+              } else {
+                timepointsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 34: {
+              input.readMessage(
+                  getAudioConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.texttospeech.v1beta1.SynthesizeSpeechResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -665,11 +638,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAudioContent(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       audioContent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -686,7 +657,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAudioContent() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       audioContent_ = getDefaultInstance().getAudioContent();
       onChanged();
       return this;
@@ -695,9 +666,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.texttospeech.v1beta1.Timepoint> timepoints_ =
       java.util.Collections.emptyList();
     private void ensureTimepointsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         timepoints_ = new java.util.ArrayList<com.google.cloud.texttospeech.v1beta1.Timepoint>(timepoints_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -902,7 +873,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTimepoints() {
       if (timepointsBuilder_ == null) {
         timepoints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         timepointsBuilder_.clear();
@@ -1014,7 +985,7 @@ private static final long serialVersionUID = 0L;
         timepointsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.texttospeech.v1beta1.Timepoint, com.google.cloud.texttospeech.v1beta1.Timepoint.Builder, com.google.cloud.texttospeech.v1beta1.TimepointOrBuilder>(
                 timepoints_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         timepoints_ = null;
@@ -1034,7 +1005,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the audioConfig field is set.
      */
     public boolean hasAudioConfig() {
-      return audioConfigBuilder_ != null || audioConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1064,11 +1035,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         audioConfig_ = value;
-        onChanged();
       } else {
         audioConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1082,11 +1053,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.texttospeech.v1beta1.AudioConfig.Builder builderForValue) {
       if (audioConfigBuilder_ == null) {
         audioConfig_ = builderForValue.build();
-        onChanged();
       } else {
         audioConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1098,17 +1069,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAudioConfig(com.google.cloud.texttospeech.v1beta1.AudioConfig value) {
       if (audioConfigBuilder_ == null) {
-        if (audioConfig_ != null) {
-          audioConfig_ =
-            com.google.cloud.texttospeech.v1beta1.AudioConfig.newBuilder(audioConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          audioConfig_ != null &&
+          audioConfig_ != com.google.cloud.texttospeech.v1beta1.AudioConfig.getDefaultInstance()) {
+          getAudioConfigBuilder().mergeFrom(value);
         } else {
           audioConfig_ = value;
         }
-        onChanged();
       } else {
         audioConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1119,14 +1091,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.texttospeech.v1beta1.AudioConfig audio_config = 4;</code>
      */
     public Builder clearAudioConfig() {
-      if (audioConfigBuilder_ == null) {
-        audioConfig_ = null;
-        onChanged();
-      } else {
-        audioConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      audioConfig_ = null;
+      if (audioConfigBuilder_ != null) {
+        audioConfigBuilder_.dispose();
         audioConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1137,7 +1108,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.texttospeech.v1beta1.AudioConfig audio_config = 4;</code>
      */
     public com.google.cloud.texttospeech.v1beta1.AudioConfig.Builder getAudioConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getAudioConfigFieldBuilder().getBuilder();
     }
@@ -1209,7 +1180,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SynthesizeSpeechResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

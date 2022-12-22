@@ -104,8 +104,10 @@ public interface ListTransferableOffersRequestOrBuilder extends
    * <pre>
    * A token for a page of results other than the first page.
    * Obtained using
-   * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token] of the previous
-   * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers] call.
+   * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token]
+   * of the previous
+   * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers]
+   * call.
    * </pre>
    *
    * <code>string page_token = 3;</code>
@@ -116,8 +118,10 @@ public interface ListTransferableOffersRequestOrBuilder extends
    * <pre>
    * A token for a page of results other than the first page.
    * Obtained using
-   * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token] of the previous
-   * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers] call.
+   * [ListTransferableOffersResponse.next_page_token][google.cloud.channel.v1.ListTransferableOffersResponse.next_page_token]
+   * of the previous
+   * [CloudChannelService.ListTransferableOffers][google.cloud.channel.v1.CloudChannelService.ListTransferableOffers]
+   * call.
    * </pre>
    *
    * <code>string page_token = 3;</code>
@@ -148,23 +152,23 @@ public interface ListTransferableOffersRequestOrBuilder extends
 
   /**
    * <pre>
-   * The BCP-47 language code. For example, "en-US". The
+   * Optional. The BCP-47 language code. For example, "en-US". The
    * response will localize in the corresponding language code, if specified.
    * The default value is "en-US".
    * </pre>
    *
-   * <code>string language_code = 7;</code>
+   * <code>string language_code = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The languageCode.
    */
   java.lang.String getLanguageCode();
   /**
    * <pre>
-   * The BCP-47 language code. For example, "en-US". The
+   * Optional. The BCP-47 language code. For example, "en-US". The
    * response will localize in the corresponding language code, if specified.
    * The default value is "en-US".
    * </pre>
    *
-   * <code>string language_code = 7;</code>
+   * <code>string language_code = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The bytes for languageCode.
    */
   com.google.protobuf.ByteString

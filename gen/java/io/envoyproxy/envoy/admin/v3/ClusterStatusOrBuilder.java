@@ -259,4 +259,24 @@ public interface ClusterStatusOrBuilder extends
    */
   com.google.protobuf.ByteString
       getObservabilityNameBytes();
+
+  /**
+   * <pre>
+   * The :ref:`EDS service name &lt;envoy_v3_api_field_config.cluster.v3.Cluster.EdsClusterConfig.service_name&gt;` if the cluster is an EDS cluster.
+   * </pre>
+   *
+   * <code>string eds_service_name = 8;</code>
+   * @return The edsServiceName.
+   */
+  java.lang.String getEdsServiceName();
+  /**
+   * <pre>
+   * The :ref:`EDS service name &lt;envoy_v3_api_field_config.cluster.v3.Cluster.EdsClusterConfig.service_name&gt;` if the cluster is an EDS cluster.
+   * </pre>
+   *
+   * <code>string eds_service_name = 8;</code>
+   * @return The bytes for edsServiceName.
+   */
+  com.google.protobuf.ByteString
+      getEdsServiceNameBytes();
 }

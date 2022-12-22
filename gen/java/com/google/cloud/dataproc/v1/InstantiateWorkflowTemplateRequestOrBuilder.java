@@ -130,7 +130,6 @@ public interface InstantiateWorkflowTemplateRequestOrBuilder extends
    *
    * <code>map&lt;string, string&gt; parameters = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getParametersOrDefault(
       java.lang.String key,
@@ -144,7 +143,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; parameters = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getParametersOrThrow(
       java.lang.String key);
 }

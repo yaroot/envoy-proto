@@ -10,7 +10,7 @@ public interface DeleteApiVersionRequestOrBuilder extends
   /**
    * <pre>
    * Required. The name of the version to delete.
-   * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;versions/&#42;
+   * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;versions/&#42;`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -20,7 +20,7 @@ public interface DeleteApiVersionRequestOrBuilder extends
   /**
    * <pre>
    * Required. The name of the version to delete.
-   * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;versions/&#42;
+   * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;versions/&#42;`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -28,4 +28,15 @@ public interface DeleteApiVersionRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getNameBytes();
+
+  /**
+   * <pre>
+   * If set to true, any child resources will also be deleted.
+   * (Otherwise, the request will only work if there are no child resources.)
+   * </pre>
+   *
+   * <code>bool force = 2;</code>
+   * @return The force.
+   */
+  boolean getForce();
 }

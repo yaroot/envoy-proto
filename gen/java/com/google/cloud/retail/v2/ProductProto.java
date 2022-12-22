@@ -41,7 +41,7 @@ public final class ProductProto {
       "\036google/protobuf/duration.proto\032 google/" +
       "protobuf/field_mask.proto\032\037google/protob" +
       "uf/timestamp.proto\032\036google/protobuf/wrap" +
-      "pers.proto\"\217\r\n\007Product\0221\n\013expire_time\030\020 " +
+      "pers.proto\"\333\r\n\007Product\0221\n\013expire_time\030\020 " +
       "\001(\0132\032.google.protobuf.TimestampH\000\022-\n\003ttl" +
       "\030\021 \001(\0132\031.google.protobuf.DurationB\003\340A\004H\000" +
       "\022\021\n\004name\030\001 \001(\tB\003\340A\005\022\017\n\002id\030\002 \001(\tB\003\340A\005\0227\n\004" +
@@ -70,28 +70,30 @@ public final class ProductProto {
       "onditions\030\035 \003(\t\0225\n\npromotions\030\" \003(\0132!.go" +
       "ogle.cloud.retail.v2.Promotion\0220\n\014publis" +
       "h_time\030! \001(\0132\032.google.protobuf.Timestamp" +
-      "\0226\n\022retrievable_fields\030\036 \001(\0132\032.google.pr" +
-      "otobuf.FieldMask\0226\n\010variants\030\037 \003(\0132\037.goo" +
-      "gle.cloud.retail.v2.ProductB\003\340A\003\032Z\n\017Attr" +
-      "ibutesEntry\022\013\n\003key\030\001 \001(\t\0226\n\005value\030\002 \001(\0132" +
-      "\'.google.cloud.retail.v2.CustomAttribute" +
-      ":\0028\001\"F\n\004Type\022\024\n\020TYPE_UNSPECIFIED\020\000\022\013\n\007PR" +
-      "IMARY\020\001\022\013\n\007VARIANT\020\002\022\016\n\nCOLLECTION\020\003\"i\n\014" +
-      "Availability\022\034\n\030AVAILABILITY_UNSPECIFIED" +
-      "\020\000\022\014\n\010IN_STOCK\020\001\022\020\n\014OUT_OF_STOCK\020\002\022\014\n\010PR" +
-      "EORDER\020\003\022\r\n\tBACKORDER\020\004:\204\001\352A\200\001\n\035retail.g" +
-      "oogleapis.com/Product\022_projects/{project" +
-      "}/locations/{location}/catalogs/{catalog" +
-      "}/branches/{branch}/products/{product}B\014" +
-      "\n\nexpirationB\260\002\n\032com.google.cloud.retail" +
-      ".v2B\014ProductProtoP\001Z<google.golang.org/g" +
-      "enproto/googleapis/cloud/retail/v2;retai" +
-      "l\242\002\006RETAIL\252\002\026Google.Cloud.Retail.V2\312\002\026Go" +
-      "ogle\\Cloud\\Retail\\V2\352\002\031Google::Cloud::Re" +
-      "tail::V2\352Al\n\034retail.googleapis.com/Branc" +
-      "h\022Lprojects/{project}/locations/{locatio" +
-      "n}/catalogs/{catalog}/branches/{branch}b" +
-      "\006proto3"
+      "\022:\n\022retrievable_fields\030\036 \001(\0132\032.google.pr" +
+      "otobuf.FieldMaskB\002\030\001\0226\n\010variants\030\037 \003(\0132\037" +
+      ".google.cloud.retail.v2.ProductB\003\340A\003\022F\n\021" +
+      "local_inventories\030# \003(\0132&.google.cloud.r" +
+      "etail.v2.LocalInventoryB\003\340A\003\032Z\n\017Attribut" +
+      "esEntry\022\013\n\003key\030\001 \001(\t\0226\n\005value\030\002 \001(\0132\'.go" +
+      "ogle.cloud.retail.v2.CustomAttribute:\0028\001" +
+      "\"F\n\004Type\022\024\n\020TYPE_UNSPECIFIED\020\000\022\013\n\007PRIMAR" +
+      "Y\020\001\022\013\n\007VARIANT\020\002\022\016\n\nCOLLECTION\020\003\"i\n\014Avai" +
+      "lability\022\034\n\030AVAILABILITY_UNSPECIFIED\020\000\022\014" +
+      "\n\010IN_STOCK\020\001\022\020\n\014OUT_OF_STOCK\020\002\022\014\n\010PREORD" +
+      "ER\020\003\022\r\n\tBACKORDER\020\004:\204\001\352A\200\001\n\035retail.googl" +
+      "eapis.com/Product\022_projects/{project}/lo" +
+      "cations/{location}/catalogs/{catalog}/br" +
+      "anches/{branch}/products/{product}B\014\n\nex" +
+      "pirationB\260\002\n\032com.google.cloud.retail.v2B" +
+      "\014ProductProtoP\001Z<google.golang.org/genpr" +
+      "oto/googleapis/cloud/retail/v2;retail\242\002\006" +
+      "RETAIL\252\002\026Google.Cloud.Retail.V2\312\002\026Google" +
+      "\\Cloud\\Retail\\V2\352\002\031Google::Cloud::Retail" +
+      "::V2\352Al\n\034retail.googleapis.com/Branch\022Lp" +
+      "rojects/{project}/locations/{location}/c" +
+      "atalogs/{catalog}/branches/{branch}b\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -110,7 +112,7 @@ public final class ProductProto {
     internal_static_google_cloud_retail_v2_Product_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_retail_v2_Product_descriptor,
-        new java.lang.String[] { "ExpireTime", "Ttl", "Name", "Id", "Type", "PrimaryProductId", "CollectionMemberIds", "Gtin", "Categories", "Title", "Brands", "Description", "LanguageCode", "Attributes", "Tags", "PriceInfo", "Rating", "AvailableTime", "Availability", "AvailableQuantity", "FulfillmentInfo", "Uri", "Images", "Audience", "ColorInfo", "Sizes", "Materials", "Patterns", "Conditions", "Promotions", "PublishTime", "RetrievableFields", "Variants", "Expiration", });
+        new java.lang.String[] { "ExpireTime", "Ttl", "Name", "Id", "Type", "PrimaryProductId", "CollectionMemberIds", "Gtin", "Categories", "Title", "Brands", "Description", "LanguageCode", "Attributes", "Tags", "PriceInfo", "Rating", "AvailableTime", "Availability", "AvailableQuantity", "FulfillmentInfo", "Uri", "Images", "Audience", "ColorInfo", "Sizes", "Materials", "Patterns", "Conditions", "Promotions", "PublishTime", "RetrievableFields", "Variants", "LocalInventories", "Expiration", });
     internal_static_google_cloud_retail_v2_Product_AttributesEntry_descriptor =
       internal_static_google_cloud_retail_v2_Product_descriptor.getNestedTypes().get(0);
     internal_static_google_cloud_retail_v2_Product_AttributesEntry_fieldAccessorTable = new

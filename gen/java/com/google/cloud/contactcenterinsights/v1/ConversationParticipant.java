@@ -37,75 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConversationParticipant(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            dialogflowParticipant_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            role_ = rawValue;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            obfuscatedExternalUserId_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            participantCase_ = 5;
-            participant_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            participantCase_ = 6;
-            participant_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.contactcenterinsights.v1.ResourcesProto.internal_static_google_cloud_contactcenterinsights_v1_ConversationParticipant_descriptor;
@@ -471,7 +402,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DIALOGFLOW_PARTICIPANT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object dialogflowParticipant_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object dialogflowParticipant_ = "";
   /**
    * <pre>
    * Deprecated. Use `dialogflow_participant_name` instead.
@@ -481,7 +413,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string dialogflow_participant = 1 [deprecated = true];</code>
    * @deprecated google.cloud.contactcenterinsights.v1.ConversationParticipant.dialogflow_participant is deprecated.
-   *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1083
+   *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1104
    * @return The dialogflowParticipant.
    */
   @java.lang.Override
@@ -506,7 +438,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string dialogflow_participant = 1 [deprecated = true];</code>
    * @deprecated google.cloud.contactcenterinsights.v1.ConversationParticipant.dialogflow_participant is deprecated.
-   *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1083
+   *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1104
    * @return The bytes for dialogflowParticipant.
    */
   @java.lang.Override
@@ -525,7 +457,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OBFUSCATED_EXTERNAL_USER_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object obfuscatedExternalUserId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object obfuscatedExternalUserId_ = "";
   /**
    * <pre>
    * Obfuscated user ID from Dialogflow.
@@ -571,7 +504,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROLE_FIELD_NUMBER = 2;
-  private int role_;
+  private int role_ = 0;
   /**
    * <pre>
    * The role of the participant.
@@ -592,8 +525,7 @@ private static final long serialVersionUID = 0L;
    * @return The role.
    */
   @java.lang.Override public com.google.cloud.contactcenterinsights.v1.ConversationParticipant.Role getRole() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.contactcenterinsights.v1.ConversationParticipant.Role result = com.google.cloud.contactcenterinsights.v1.ConversationParticipant.Role.valueOf(role_);
+    com.google.cloud.contactcenterinsights.v1.ConversationParticipant.Role result = com.google.cloud.contactcenterinsights.v1.ConversationParticipant.Role.forNumber(role_);
     return result == null ? com.google.cloud.contactcenterinsights.v1.ConversationParticipant.Role.UNRECOGNIZED : result;
   }
 
@@ -626,7 +558,7 @@ private static final long serialVersionUID = 0L;
     if (participantCase_ == 6) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, participant_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -651,7 +583,7 @@ private static final long serialVersionUID = 0L;
     if (participantCase_ == 6) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, participant_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -684,7 +616,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -713,7 +645,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -834,28 +766,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.contactcenterinsights.v1.ConversationParticipant.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       dialogflowParticipant_ = "";
-
       obfuscatedExternalUserId_ = "";
-
       role_ = 0;
-
       participantCase_ = 0;
       participant_ = null;
       return this;
@@ -884,18 +809,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.contactcenterinsights.v1.ConversationParticipant buildPartial() {
       com.google.cloud.contactcenterinsights.v1.ConversationParticipant result = new com.google.cloud.contactcenterinsights.v1.ConversationParticipant(this);
-      if (participantCase_ == 5) {
-        result.participant_ = participant_;
-      }
-      if (participantCase_ == 6) {
-        result.participant_ = participant_;
-      }
-      result.dialogflowParticipant_ = dialogflowParticipant_;
-      result.obfuscatedExternalUserId_ = obfuscatedExternalUserId_;
-      result.role_ = role_;
-      result.participantCase_ = participantCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.contactcenterinsights.v1.ConversationParticipant result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.dialogflowParticipant_ = dialogflowParticipant_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.obfuscatedExternalUserId_ = obfuscatedExternalUserId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.role_ = role_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.contactcenterinsights.v1.ConversationParticipant result) {
+      result.participantCase_ = participantCase_;
+      result.participant_ = this.participant_;
     }
 
     @java.lang.Override
@@ -944,10 +879,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.contactcenterinsights.v1.ConversationParticipant.getDefaultInstance()) return this;
       if (!other.getDialogflowParticipant().isEmpty()) {
         dialogflowParticipant_ = other.dialogflowParticipant_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getObfuscatedExternalUserId().isEmpty()) {
         obfuscatedExternalUserId_ = other.obfuscatedExternalUserId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.role_ != 0) {
@@ -970,7 +907,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -985,17 +922,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.contactcenterinsights.v1.ConversationParticipant parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              dialogflowParticipant_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 10
+            case 16: {
+              role_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 16
+            case 26: {
+              obfuscatedExternalUserId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              participantCase_ = 5;
+              participant_ = s;
+              break;
+            } // case 42
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              participantCase_ = 6;
+              participant_ = s;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.contactcenterinsights.v1.ConversationParticipant) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int participantCase_ = 0;
@@ -1013,6 +990,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -1094,10 +1072,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDialogflowParticipantName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  participantCase_ = 5;
+      if (value == null) { throw new NullPointerException(); }
+      participantCase_ = 5;
       participant_ = value;
       onChanged();
       return this;
@@ -1131,10 +1107,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDialogflowParticipantNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       participantCase_ = 5;
       participant_ = value;
       onChanged();
@@ -1217,10 +1191,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  participantCase_ = 6;
+      if (value == null) { throw new NullPointerException(); }
+      participantCase_ = 6;
       participant_ = value;
       onChanged();
       return this;
@@ -1252,10 +1224,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       participantCase_ = 6;
       participant_ = value;
       onChanged();
@@ -1272,7 +1242,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string dialogflow_participant = 1 [deprecated = true];</code>
      * @deprecated google.cloud.contactcenterinsights.v1.ConversationParticipant.dialogflow_participant is deprecated.
-     *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1083
+     *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1104
      * @return The dialogflowParticipant.
      */
     @java.lang.Deprecated public java.lang.String getDialogflowParticipant() {
@@ -1296,7 +1266,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string dialogflow_participant = 1 [deprecated = true];</code>
      * @deprecated google.cloud.contactcenterinsights.v1.ConversationParticipant.dialogflow_participant is deprecated.
-     *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1083
+     *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1104
      * @return The bytes for dialogflowParticipant.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -1321,17 +1291,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string dialogflow_participant = 1 [deprecated = true];</code>
      * @deprecated google.cloud.contactcenterinsights.v1.ConversationParticipant.dialogflow_participant is deprecated.
-     *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1083
+     *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1104
      * @param value The dialogflowParticipant to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setDialogflowParticipant(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       dialogflowParticipant_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1344,12 +1312,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string dialogflow_participant = 1 [deprecated = true];</code>
      * @deprecated google.cloud.contactcenterinsights.v1.ConversationParticipant.dialogflow_participant is deprecated.
-     *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1083
+     *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1104
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearDialogflowParticipant() {
-      
       dialogflowParticipant_ = getDefaultInstance().getDialogflowParticipant();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1362,18 +1330,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string dialogflow_participant = 1 [deprecated = true];</code>
      * @deprecated google.cloud.contactcenterinsights.v1.ConversationParticipant.dialogflow_participant is deprecated.
-     *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1083
+     *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1104
      * @param value The bytes for dialogflowParticipant to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setDialogflowParticipantBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       dialogflowParticipant_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1431,11 +1397,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setObfuscatedExternalUserId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       obfuscatedExternalUserId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1448,8 +1412,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearObfuscatedExternalUserId() {
-      
       obfuscatedExternalUserId_ = getDefaultInstance().getObfuscatedExternalUserId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1464,12 +1428,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setObfuscatedExternalUserIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       obfuscatedExternalUserId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1496,8 +1458,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRoleValue(int value) {
-      
       role_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1511,8 +1473,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.contactcenterinsights.v1.ConversationParticipant.Role getRole() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.contactcenterinsights.v1.ConversationParticipant.Role result = com.google.cloud.contactcenterinsights.v1.ConversationParticipant.Role.valueOf(role_);
+      com.google.cloud.contactcenterinsights.v1.ConversationParticipant.Role result = com.google.cloud.contactcenterinsights.v1.ConversationParticipant.Role.forNumber(role_);
       return result == null ? com.google.cloud.contactcenterinsights.v1.ConversationParticipant.Role.UNRECOGNIZED : result;
     }
     /**
@@ -1528,7 +1489,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       role_ = value.getNumber();
       onChanged();
       return this;
@@ -1542,7 +1503,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRole() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       role_ = 0;
       onChanged();
       return this;
@@ -1580,7 +1541,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConversationParticipant(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

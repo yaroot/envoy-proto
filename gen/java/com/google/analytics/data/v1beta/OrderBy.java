@@ -5,7 +5,9 @@ package com.google.analytics.data.v1beta;
 
 /**
  * <pre>
- * The sort options.
+ * Order bys define how rows will be sorted in the response. For example,
+ * ordering rows by descending event count is one ordering, and ordering rows by
+ * the event name string is a different ordering.
  * </pre>
  *
  * Protobuf type {@code google.analytics.data.v1beta.OrderBy}
@@ -33,92 +35,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private OrderBy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.analytics.data.v1beta.OrderBy.MetricOrderBy.Builder subBuilder = null;
-            if (oneOrderByCase_ == 1) {
-              subBuilder = ((com.google.analytics.data.v1beta.OrderBy.MetricOrderBy) oneOrderBy_).toBuilder();
-            }
-            oneOrderBy_ =
-                input.readMessage(com.google.analytics.data.v1beta.OrderBy.MetricOrderBy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.analytics.data.v1beta.OrderBy.MetricOrderBy) oneOrderBy_);
-              oneOrderBy_ = subBuilder.buildPartial();
-            }
-            oneOrderByCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.Builder subBuilder = null;
-            if (oneOrderByCase_ == 2) {
-              subBuilder = ((com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy) oneOrderBy_).toBuilder();
-            }
-            oneOrderBy_ =
-                input.readMessage(com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy) oneOrderBy_);
-              oneOrderBy_ = subBuilder.buildPartial();
-            }
-            oneOrderByCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.Builder subBuilder = null;
-            if (oneOrderByCase_ == 3) {
-              subBuilder = ((com.google.analytics.data.v1beta.OrderBy.PivotOrderBy) oneOrderBy_).toBuilder();
-            }
-            oneOrderBy_ =
-                input.readMessage(com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.analytics.data.v1beta.OrderBy.PivotOrderBy) oneOrderBy_);
-              oneOrderBy_ = subBuilder.buildPartial();
-            }
-            oneOrderByCase_ = 3;
-            break;
-          }
-          case 32: {
-
-            desc_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -189,51 +105,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private MetricOrderBy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              metricName_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.analytics.data.v1beta.ReportingApiProto.internal_static_google_analytics_data_v1beta_OrderBy_MetricOrderBy_descriptor;
@@ -248,7 +119,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int METRIC_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object metricName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object metricName_ = "";
     /**
      * <pre>
      * A metric name in the request to order by.
@@ -310,7 +182,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(metricName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, metricName_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -322,7 +194,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(metricName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, metricName_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -339,7 +211,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getMetricName()
           .equals(other.getMetricName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -352,7 +224,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + METRIC_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getMetricName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -473,24 +345,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.analytics.data.v1beta.OrderBy.MetricOrderBy.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         metricName_ = "";
-
         return this;
       }
 
@@ -517,9 +384,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.analytics.data.v1beta.OrderBy.MetricOrderBy buildPartial() {
         com.google.analytics.data.v1beta.OrderBy.MetricOrderBy result = new com.google.analytics.data.v1beta.OrderBy.MetricOrderBy(this);
-        result.metricName_ = metricName_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.analytics.data.v1beta.OrderBy.MetricOrderBy result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.metricName_ = metricName_;
+        }
       }
 
       @java.lang.Override
@@ -568,9 +442,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.analytics.data.v1beta.OrderBy.MetricOrderBy.getDefaultInstance()) return this;
         if (!other.getMetricName().isEmpty()) {
           metricName_ = other.metricName_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -585,19 +460,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.analytics.data.v1beta.OrderBy.MetricOrderBy parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                metricName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.analytics.data.v1beta.OrderBy.MetricOrderBy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object metricName_ = "";
       /**
@@ -652,11 +546,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setMetricName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         metricName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -669,8 +561,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMetricName() {
-        
         metricName_ = getDefaultInstance().getMetricName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -685,12 +577,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setMetricNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         metricName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -727,7 +617,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MetricOrderBy(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -822,57 +723,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private DimensionOrderBy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              dimensionName_ = s;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              orderType_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1060,7 +910,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DIMENSION_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object dimensionName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object dimensionName_ = "";
     /**
      * <pre>
      * A dimension name in the request to order by.
@@ -1106,7 +957,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ORDER_TYPE_FIELD_NUMBER = 2;
-    private int orderType_;
+    private int orderType_ = 0;
     /**
      * <pre>
      * Controls the rule for dimension value ordering.
@@ -1127,8 +978,7 @@ private static final long serialVersionUID = 0L;
      * @return The orderType.
      */
     @java.lang.Override public com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.OrderType getOrderType() {
-      @SuppressWarnings("deprecation")
-      com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.OrderType result = com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.OrderType.valueOf(orderType_);
+      com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.OrderType result = com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.OrderType.forNumber(orderType_);
       return result == null ? com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.OrderType.UNRECOGNIZED : result;
     }
 
@@ -1152,7 +1002,7 @@ private static final long serialVersionUID = 0L;
       if (orderType_ != com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.OrderType.ORDER_TYPE_UNSPECIFIED.getNumber()) {
         output.writeEnum(2, orderType_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1168,7 +1018,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, orderType_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1186,7 +1036,7 @@ private static final long serialVersionUID = 0L;
       if (!getDimensionName()
           .equals(other.getDimensionName())) return false;
       if (orderType_ != other.orderType_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1201,7 +1051,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getDimensionName().hashCode();
       hash = (37 * hash) + ORDER_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + orderType_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1322,26 +1172,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         dimensionName_ = "";
-
         orderType_ = 0;
-
         return this;
       }
 
@@ -1368,10 +1212,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy buildPartial() {
         com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy result = new com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy(this);
-        result.dimensionName_ = dimensionName_;
-        result.orderType_ = orderType_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.dimensionName_ = dimensionName_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.orderType_ = orderType_;
+        }
       }
 
       @java.lang.Override
@@ -1420,12 +1273,13 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.getDefaultInstance()) return this;
         if (!other.getDimensionName().isEmpty()) {
           dimensionName_ = other.dimensionName_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.orderType_ != 0) {
           setOrderTypeValue(other.getOrderTypeValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1440,19 +1294,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                dimensionName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                orderType_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object dimensionName_ = "";
       /**
@@ -1507,11 +1385,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDimensionName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         dimensionName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1524,8 +1400,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDimensionName() {
-        
         dimensionName_ = getDefaultInstance().getDimensionName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1540,12 +1416,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDimensionNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         dimensionName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1572,8 +1446,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setOrderTypeValue(int value) {
-        
         orderType_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1587,8 +1461,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.OrderType getOrderType() {
-        @SuppressWarnings("deprecation")
-        com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.OrderType result = com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.OrderType.valueOf(orderType_);
+        com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.OrderType result = com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.OrderType.forNumber(orderType_);
         return result == null ? com.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.OrderType.UNRECOGNIZED : result;
       }
       /**
@@ -1604,7 +1477,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         orderType_ = value.getNumber();
         onChanged();
         return this;
@@ -1618,7 +1491,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOrderType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         orderType_ = 0;
         onChanged();
         return this;
@@ -1656,7 +1529,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DimensionOrderBy(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1794,64 +1678,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PivotOrderBy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              metricName_ = s;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                pivotSelections_ = new java.util.ArrayList<com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              pivotSelections_.add(
-                  input.readMessage(com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          pivotSelections_ = java.util.Collections.unmodifiableList(pivotSelections_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.analytics.data.v1beta.ReportingApiProto.internal_static_google_analytics_data_v1beta_OrderBy_PivotOrderBy_descriptor;
@@ -1955,57 +1781,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private PivotSelection(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                dimensionName_ = s;
-                break;
-              }
-              case 18: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                dimensionValue_ = s;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.analytics.data.v1beta.ReportingApiProto.internal_static_google_analytics_data_v1beta_OrderBy_PivotOrderBy_PivotSelection_descriptor;
@@ -2020,7 +1795,8 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int DIMENSION_NAME_FIELD_NUMBER = 1;
-      private volatile java.lang.Object dimensionName_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object dimensionName_ = "";
       /**
        * <pre>
        * Must be a dimension name from the request.
@@ -2066,7 +1842,8 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int DIMENSION_VALUE_FIELD_NUMBER = 2;
-      private volatile java.lang.Object dimensionValue_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object dimensionValue_ = "";
       /**
        * <pre>
        * Order by only when the named dimension is this value.
@@ -2131,7 +1908,7 @@ private static final long serialVersionUID = 0L;
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dimensionValue_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 2, dimensionValue_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -2146,7 +1923,7 @@ private static final long serialVersionUID = 0L;
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dimensionValue_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, dimensionValue_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -2165,7 +1942,7 @@ private static final long serialVersionUID = 0L;
             .equals(other.getDimensionName())) return false;
         if (!getDimensionValue()
             .equals(other.getDimensionValue())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -2180,7 +1957,7 @@ private static final long serialVersionUID = 0L;
         hash = (53 * hash) + getDimensionName().hashCode();
         hash = (37 * hash) + DIMENSION_VALUE_FIELD_NUMBER;
         hash = (53 * hash) + getDimensionValue().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -2314,26 +2091,20 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           dimensionName_ = "";
-
           dimensionValue_ = "";
-
           return this;
         }
 
@@ -2360,10 +2131,19 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection buildPartial() {
           com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection result = new com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection(this);
-          result.dimensionName_ = dimensionName_;
-          result.dimensionValue_ = dimensionValue_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.dimensionName_ = dimensionName_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.dimensionValue_ = dimensionValue_;
+          }
         }
 
         @java.lang.Override
@@ -2412,13 +2192,15 @@ private static final long serialVersionUID = 0L;
           if (other == com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection.getDefaultInstance()) return this;
           if (!other.getDimensionName().isEmpty()) {
             dimensionName_ = other.dimensionName_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (!other.getDimensionValue().isEmpty()) {
             dimensionValue_ = other.dimensionValue_;
+            bitField0_ |= 0x00000002;
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -2433,19 +2215,43 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  dimensionName_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  dimensionValue_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object dimensionName_ = "";
         /**
@@ -2500,11 +2306,9 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDimensionName(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           dimensionName_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -2517,8 +2321,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearDimensionName() {
-          
           dimensionName_ = getDefaultInstance().getDimensionName();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -2533,12 +2337,10 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDimensionNameBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           dimensionName_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -2596,11 +2398,9 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDimensionValue(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           dimensionValue_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -2613,8 +2413,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearDimensionValue() {
-          
           dimensionValue_ = getDefaultInstance().getDimensionValue();
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
           return this;
         }
@@ -2629,12 +2429,10 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDimensionValueBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           dimensionValue_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -2671,7 +2469,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PivotSelection(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -2692,7 +2501,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int METRIC_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object metricName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object metricName_ = "";
     /**
      * <pre>
      * In the response to order by, order rows by this column. Must be a metric
@@ -2740,6 +2550,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PIVOT_SELECTIONS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection> pivotSelections_;
     /**
      * <pre>
@@ -2834,7 +2645,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < pivotSelections_.size(); i++) {
         output.writeMessage(2, pivotSelections_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2850,7 +2661,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, pivotSelections_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2869,7 +2680,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getMetricName())) return false;
       if (!getPivotSelectionsList()
           .equals(other.getPivotSelectionsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2886,7 +2697,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + PIVOT_SELECTIONS_FIELD_NUMBER;
         hash = (53 * hash) + getPivotSelectionsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3007,31 +2818,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getPivotSelectionsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         metricName_ = "";
-
         if (pivotSelectionsBuilder_ == null) {
           pivotSelections_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          pivotSelections_ = null;
           pivotSelectionsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -3058,19 +2864,29 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.analytics.data.v1beta.OrderBy.PivotOrderBy buildPartial() {
         com.google.analytics.data.v1beta.OrderBy.PivotOrderBy result = new com.google.analytics.data.v1beta.OrderBy.PivotOrderBy(this);
-        int from_bitField0_ = bitField0_;
-        result.metricName_ = metricName_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.analytics.data.v1beta.OrderBy.PivotOrderBy result) {
         if (pivotSelectionsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             pivotSelections_ = java.util.Collections.unmodifiableList(pivotSelections_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.pivotSelections_ = pivotSelections_;
         } else {
           result.pivotSelections_ = pivotSelectionsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.analytics.data.v1beta.OrderBy.PivotOrderBy result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.metricName_ = metricName_;
+        }
       }
 
       @java.lang.Override
@@ -3119,13 +2935,14 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.getDefaultInstance()) return this;
         if (!other.getMetricName().isEmpty()) {
           metricName_ = other.metricName_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (pivotSelectionsBuilder_ == null) {
           if (!other.pivotSelections_.isEmpty()) {
             if (pivotSelections_.isEmpty()) {
               pivotSelections_ = other.pivotSelections_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensurePivotSelectionsIsMutable();
               pivotSelections_.addAll(other.pivotSelections_);
@@ -3138,7 +2955,7 @@ private static final long serialVersionUID = 0L;
               pivotSelectionsBuilder_.dispose();
               pivotSelectionsBuilder_ = null;
               pivotSelections_ = other.pivotSelections_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               pivotSelectionsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getPivotSelectionsFieldBuilder() : null;
@@ -3147,7 +2964,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3162,17 +2979,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.analytics.data.v1beta.OrderBy.PivotOrderBy parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                metricName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection m =
+                    input.readMessage(
+                        com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection.parser(),
+                        extensionRegistry);
+                if (pivotSelectionsBuilder_ == null) {
+                  ensurePivotSelectionsIsMutable();
+                  pivotSelections_.add(m);
+                } else {
+                  pivotSelectionsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.analytics.data.v1beta.OrderBy.PivotOrderBy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3233,11 +3081,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setMetricName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         metricName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3251,8 +3097,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMetricName() {
-        
         metricName_ = getDefaultInstance().getMetricName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3268,12 +3114,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setMetricNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         metricName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3281,9 +3125,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection> pivotSelections_ =
         java.util.Collections.emptyList();
       private void ensurePivotSelectionsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           pivotSelections_ = new java.util.ArrayList<com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection>(pivotSelections_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -3510,7 +3354,7 @@ private static final long serialVersionUID = 0L;
       public Builder clearPivotSelections() {
         if (pivotSelectionsBuilder_ == null) {
           pivotSelections_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           pivotSelectionsBuilder_.clear();
@@ -3636,7 +3480,7 @@ private static final long serialVersionUID = 0L;
           pivotSelectionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection, com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection.Builder, com.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelectionOrBuilder>(
                   pivotSelections_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           pivotSelections_ = null;
@@ -3676,7 +3520,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PivotOrderBy(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3869,7 +3724,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESC_FIELD_NUMBER = 4;
-  private boolean desc_;
+  private boolean desc_ = false;
   /**
    * <pre>
    * If true, sorts by descending order.
@@ -3909,7 +3764,7 @@ private static final long serialVersionUID = 0L;
     if (desc_ != false) {
       output.writeBool(4, desc_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3934,7 +3789,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, desc_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3968,7 +3823,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3998,7 +3853,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -4095,7 +3950,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The sort options.
+   * Order bys define how rows will be sorted in the response. For example,
+   * ordering rows by descending event count is one ordering, and ordering rows by
+   * the event name string is a different ordering.
    * </pre>
    *
    * Protobuf type {@code google.analytics.data.v1beta.OrderBy}
@@ -4119,24 +3976,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.data.v1beta.OrderBy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (metricBuilder_ != null) {
+        metricBuilder_.clear();
+      }
+      if (dimensionBuilder_ != null) {
+        dimensionBuilder_.clear();
+      }
+      if (pivotBuilder_ != null) {
+        pivotBuilder_.clear();
+      }
       desc_ = false;
-
       oneOrderByCase_ = 0;
       oneOrderBy_ = null;
       return this;
@@ -4165,31 +4026,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.data.v1beta.OrderBy buildPartial() {
       com.google.analytics.data.v1beta.OrderBy result = new com.google.analytics.data.v1beta.OrderBy(this);
-      if (oneOrderByCase_ == 1) {
-        if (metricBuilder_ == null) {
-          result.oneOrderBy_ = oneOrderBy_;
-        } else {
-          result.oneOrderBy_ = metricBuilder_.build();
-        }
-      }
-      if (oneOrderByCase_ == 2) {
-        if (dimensionBuilder_ == null) {
-          result.oneOrderBy_ = oneOrderBy_;
-        } else {
-          result.oneOrderBy_ = dimensionBuilder_.build();
-        }
-      }
-      if (oneOrderByCase_ == 3) {
-        if (pivotBuilder_ == null) {
-          result.oneOrderBy_ = oneOrderBy_;
-        } else {
-          result.oneOrderBy_ = pivotBuilder_.build();
-        }
-      }
-      result.desc_ = desc_;
-      result.oneOrderByCase_ = oneOrderByCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.analytics.data.v1beta.OrderBy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.desc_ = desc_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.analytics.data.v1beta.OrderBy result) {
+      result.oneOrderByCase_ = oneOrderByCase_;
+      result.oneOrderBy_ = this.oneOrderBy_;
+      if (oneOrderByCase_ == 1 &&
+          metricBuilder_ != null) {
+        result.oneOrderBy_ = metricBuilder_.build();
+      }
+      if (oneOrderByCase_ == 2 &&
+          dimensionBuilder_ != null) {
+        result.oneOrderBy_ = dimensionBuilder_.build();
+      }
+      if (oneOrderByCase_ == 3 &&
+          pivotBuilder_ != null) {
+        result.oneOrderBy_ = pivotBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -4256,7 +4120,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -4271,17 +4135,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.data.v1beta.OrderBy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMetricFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneOrderByCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDimensionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneOrderByCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getPivotFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneOrderByCase_ = 3;
+              break;
+            } // case 26
+            case 32: {
+              desc_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.data.v1beta.OrderBy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int oneOrderByCase_ = 0;
@@ -4299,6 +4202,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.analytics.data.v1beta.OrderBy.MetricOrderBy, com.google.analytics.data.v1beta.OrderBy.MetricOrderBy.Builder, com.google.analytics.data.v1beta.OrderBy.MetricOrderByOrBuilder> metricBuilder_;
@@ -4474,7 +4378,7 @@ private static final long serialVersionUID = 0L;
         oneOrderBy_ = null;
       }
       oneOrderByCase_ = 1;
-      onChanged();;
+      onChanged();
       return metricBuilder_;
     }
 
@@ -4652,7 +4556,7 @@ private static final long serialVersionUID = 0L;
         oneOrderBy_ = null;
       }
       oneOrderByCase_ = 2;
-      onChanged();;
+      onChanged();
       return dimensionBuilder_;
     }
 
@@ -4830,7 +4734,7 @@ private static final long serialVersionUID = 0L;
         oneOrderBy_ = null;
       }
       oneOrderByCase_ = 3;
-      onChanged();;
+      onChanged();
       return pivotBuilder_;
     }
 
@@ -4859,6 +4763,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDesc(boolean value) {
       
       desc_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -4871,7 +4776,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDesc() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       desc_ = false;
       onChanged();
       return this;
@@ -4909,7 +4814,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OrderBy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

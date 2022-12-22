@@ -39,76 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DeprecationStatus(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 878060682: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            state_ = s;
-            break;
-          }
-          case -1433785142: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            obsolete_ = s;
-            break;
-          }
-          case -847613806: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            replacement_ = s;
-            break;
-          }
-          case -481197878: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            deleted_ = s;
-            break;
-          }
-          case -173855334: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            deprecated_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_DeprecationStatus_descriptor;
@@ -271,7 +201,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int DELETED_FIELD_NUMBER = 476721177;
-  private volatile java.lang.Object deleted_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object deleted_ = "";
   /**
    * <pre>
    * An optional RFC3339 timestamp on or after which the state of this resource is intended to change to DELETED. This is only informational and the status will not change unless the client explicitly changes it.
@@ -329,7 +260,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEPRECATED_FIELD_NUMBER = 515138995;
-  private volatile java.lang.Object deprecated_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object deprecated_ = "";
   /**
    * <pre>
    * An optional RFC3339 timestamp on or after which the state of this resource is intended to change to DEPRECATED. This is only informational and the status will not change unless the client explicitly changes it.
@@ -387,7 +319,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OBSOLETE_FIELD_NUMBER = 357647769;
-  private volatile java.lang.Object obsolete_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object obsolete_ = "";
   /**
    * <pre>
    * An optional RFC3339 timestamp on or after which the state of this resource is intended to change to OBSOLETE. This is only informational and the status will not change unless the client explicitly changes it.
@@ -445,7 +378,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REPLACEMENT_FIELD_NUMBER = 430919186;
-  private volatile java.lang.Object replacement_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object replacement_ = "";
   /**
    * <pre>
    * The URL of the suggested replacement for a deprecated resource. The suggested replacement resource must be the same kind of resource as the deprecated resource.
@@ -503,7 +437,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 109757585;
-  private volatile java.lang.Object state_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object state_ = "";
   /**
    * <pre>
    * The deprecation state of this resource. This can be ACTIVE, DEPRECATED, OBSOLETE, or DELETED. Operations which communicate the end of life date for an image, can use ACTIVE. Operations which create a new resource using a DEPRECATED resource will return successfully, but with a warning indicating the deprecated resource and recommending its replacement. Operations which use OBSOLETE or DELETED resources will be rejected and result in an error.
@@ -592,7 +527,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 515138995, deprecated_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -616,7 +551,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(515138995, deprecated_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -656,7 +591,7 @@ private static final long serialVersionUID = 0L;
       if (!getState()
           .equals(other.getState())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -687,7 +622,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + STATE_FIELD_NUMBER;
       hash = (53 * hash) + getState().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -808,32 +743,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.DeprecationStatus.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       deleted_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       deprecated_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       obsolete_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       replacement_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       state_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -860,31 +786,35 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.DeprecationStatus buildPartial() {
       com.google.cloud.compute.v1.DeprecationStatus result = new com.google.cloud.compute.v1.DeprecationStatus(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.DeprecationStatus result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.deleted_ = deleted_;
         to_bitField0_ |= 0x00000001;
       }
-      result.deleted_ = deleted_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.deprecated_ = deprecated_;
         to_bitField0_ |= 0x00000002;
       }
-      result.deprecated_ = deprecated_;
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.obsolete_ = obsolete_;
         to_bitField0_ |= 0x00000004;
       }
-      result.obsolete_ = obsolete_;
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.replacement_ = replacement_;
         to_bitField0_ |= 0x00000008;
       }
-      result.replacement_ = replacement_;
       if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.state_ = state_;
         to_bitField0_ |= 0x00000010;
       }
-      result.state_ = state_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -932,31 +862,31 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.DeprecationStatus other) {
       if (other == com.google.cloud.compute.v1.DeprecationStatus.getDefaultInstance()) return this;
       if (other.hasDeleted()) {
-        bitField0_ |= 0x00000001;
         deleted_ = other.deleted_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasDeprecated()) {
-        bitField0_ |= 0x00000002;
         deprecated_ = other.deprecated_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasObsolete()) {
-        bitField0_ |= 0x00000004;
         obsolete_ = other.obsolete_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasReplacement()) {
-        bitField0_ |= 0x00000008;
         replacement_ = other.replacement_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasState()) {
-        bitField0_ |= 0x00000010;
         state_ = other.state_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -971,17 +901,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.DeprecationStatus parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 878060682: {
+              state_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 878060682
+            case -1433785142: {
+              obsolete_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -1433785142
+            case -847613806: {
+              replacement_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -847613806
+            case -481197878: {
+              deleted_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -481197878
+            case -173855334: {
+              deprecated_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -173855334
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.DeprecationStatus) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1050,11 +1018,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeleted(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       deleted_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1067,8 +1033,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDeleted() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       deleted_ = getDefaultInstance().getDeleted();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1083,12 +1049,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeletedBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       deleted_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1157,11 +1121,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeprecated(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       deprecated_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1174,8 +1136,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDeprecated() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       deprecated_ = getDefaultInstance().getDeprecated();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1190,12 +1152,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeprecatedBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       deprecated_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1264,11 +1224,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setObsolete(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       obsolete_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1281,8 +1239,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearObsolete() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       obsolete_ = getDefaultInstance().getObsolete();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1297,12 +1255,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setObsoleteBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       obsolete_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1371,11 +1327,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReplacement(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       replacement_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1388,8 +1342,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReplacement() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       replacement_ = getDefaultInstance().getReplacement();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1404,12 +1358,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReplacementBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       replacement_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1482,11 +1434,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setState(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       state_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1500,8 +1450,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       state_ = getDefaultInstance().getState();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1517,12 +1467,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       state_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1559,7 +1507,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DeprecationStatus(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

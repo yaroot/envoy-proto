@@ -48,141 +48,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DynamicFlightsAsset(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            destinationId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            originId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            flightDescription_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            imageUrl_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            destinationName_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            originName_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            flightPrice_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            flightSalePrice_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            formattedPrice_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            formattedSalePrice_ = s;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            androidAppLink_ = s;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            iosAppLink_ = s;
-            break;
-          }
-          case 104: {
-
-            iosAppStoreId_ = input.readInt64();
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              similarDestinationIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            similarDestinationIds_.add(s);
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            customMapping_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        similarDestinationIds_ = similarDestinationIds_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.common.AssetTypesProto.internal_static_google_ads_googleads_v10_common_DynamicFlightsAsset_descriptor;
@@ -197,7 +62,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESTINATION_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object destinationId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object destinationId_ = "";
   /**
    * <pre>
    * Required. Destination ID which can be any sequence of letters and digits, and must be
@@ -245,7 +111,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ORIGIN_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object originId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object originId_ = "";
   /**
    * <pre>
    * Origin ID which can be any sequence of letters and digits. The ID sequence
@@ -293,7 +160,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FLIGHT_DESCRIPTION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object flightDescription_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object flightDescription_ = "";
   /**
    * <pre>
    * Required. Flight description, e.g. Book your ticket. Required.
@@ -339,7 +207,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGE_URL_FIELD_NUMBER = 4;
-  private volatile java.lang.Object imageUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object imageUrl_ = "";
   /**
    * <pre>
    * Image URL, e.g. http://www.example.com/image.png. The image will not be
@@ -387,7 +256,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESTINATION_NAME_FIELD_NUMBER = 5;
-  private volatile java.lang.Object destinationName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object destinationName_ = "";
   /**
    * <pre>
    * Destination name, e.g. Paris.
@@ -433,7 +303,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ORIGIN_NAME_FIELD_NUMBER = 6;
-  private volatile java.lang.Object originName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object originName_ = "";
   /**
    * <pre>
    * Origin name, e.g. London.
@@ -479,7 +350,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FLIGHT_PRICE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object flightPrice_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object flightPrice_ = "";
   /**
    * <pre>
    * Flight price which can be number followed by the alphabetic currency code,
@@ -527,7 +399,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FLIGHT_SALE_PRICE_FIELD_NUMBER = 8;
-  private volatile java.lang.Object flightSalePrice_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object flightSalePrice_ = "";
   /**
    * <pre>
    * Flight sale price which can be number followed by the alphabetic currency
@@ -577,7 +450,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORMATTED_PRICE_FIELD_NUMBER = 9;
-  private volatile java.lang.Object formattedPrice_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object formattedPrice_ = "";
   /**
    * <pre>
    * Formatted price which can be any characters. If set, this attribute will be
@@ -625,7 +499,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORMATTED_SALE_PRICE_FIELD_NUMBER = 10;
-  private volatile java.lang.Object formattedSalePrice_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object formattedSalePrice_ = "";
   /**
    * <pre>
    * Formatted sale price which can be any characters. If set, this attribute
@@ -673,7 +548,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ANDROID_APP_LINK_FIELD_NUMBER = 11;
-  private volatile java.lang.Object androidAppLink_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object androidAppLink_ = "";
   /**
    * <pre>
    * Android deep link, e.g.
@@ -721,7 +597,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IOS_APP_LINK_FIELD_NUMBER = 12;
-  private volatile java.lang.Object iosAppLink_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object iosAppLink_ = "";
   /**
    * <pre>
    * iOS deep link, e.g. exampleApp://content/page.
@@ -767,7 +644,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IOS_APP_STORE_ID_FIELD_NUMBER = 13;
-  private long iosAppStoreId_;
+  private long iosAppStoreId_ = 0L;
   /**
    * <pre>
    * iOS app store ID. This is used to check if the user has the app installed
@@ -784,6 +661,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SIMILAR_DESTINATION_IDS_FIELD_NUMBER = 14;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList similarDestinationIds_;
   /**
    * <pre>
@@ -835,7 +713,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOM_MAPPING_FIELD_NUMBER = 15;
-  private volatile java.lang.Object customMapping_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customMapping_ = "";
   /**
    * <pre>
    * A custom field which can be multiple key to values mapping separated by
@@ -947,7 +826,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(customMapping_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 15, customMapping_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1007,7 +886,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(customMapping_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, customMapping_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1052,7 +931,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSimilarDestinationIdsList())) return false;
     if (!getCustomMapping()
         .equals(other.getCustomMapping())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1096,7 +975,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + CUSTOM_MAPPING_FIELD_NUMBER;
     hash = (53 * hash) + getCustomMapping().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1217,52 +1096,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.common.DynamicFlightsAsset.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       destinationId_ = "";
-
       originId_ = "";
-
       flightDescription_ = "";
-
       imageUrl_ = "";
-
       destinationName_ = "";
-
       originName_ = "";
-
       flightPrice_ = "";
-
       flightSalePrice_ = "";
-
       formattedPrice_ = "";
-
       formattedSalePrice_ = "";
-
       androidAppLink_ = "";
-
       iosAppLink_ = "";
-
       iosAppStoreId_ = 0L;
-
       similarDestinationIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00002000);
       customMapping_ = "";
-
       return this;
     }
 
@@ -1289,28 +1150,64 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.common.DynamicFlightsAsset buildPartial() {
       com.google.ads.googleads.v10.common.DynamicFlightsAsset result = new com.google.ads.googleads.v10.common.DynamicFlightsAsset(this);
-      int from_bitField0_ = bitField0_;
-      result.destinationId_ = destinationId_;
-      result.originId_ = originId_;
-      result.flightDescription_ = flightDescription_;
-      result.imageUrl_ = imageUrl_;
-      result.destinationName_ = destinationName_;
-      result.originName_ = originName_;
-      result.flightPrice_ = flightPrice_;
-      result.flightSalePrice_ = flightSalePrice_;
-      result.formattedPrice_ = formattedPrice_;
-      result.formattedSalePrice_ = formattedSalePrice_;
-      result.androidAppLink_ = androidAppLink_;
-      result.iosAppLink_ = iosAppLink_;
-      result.iosAppStoreId_ = iosAppStoreId_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        similarDestinationIds_ = similarDestinationIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.similarDestinationIds_ = similarDestinationIds_;
-      result.customMapping_ = customMapping_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v10.common.DynamicFlightsAsset result) {
+      if (((bitField0_ & 0x00002000) != 0)) {
+        similarDestinationIds_ = similarDestinationIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00002000);
+      }
+      result.similarDestinationIds_ = similarDestinationIds_;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.common.DynamicFlightsAsset result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.destinationId_ = destinationId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.originId_ = originId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.flightDescription_ = flightDescription_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.imageUrl_ = imageUrl_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.destinationName_ = destinationName_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.originName_ = originName_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.flightPrice_ = flightPrice_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.flightSalePrice_ = flightSalePrice_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.formattedPrice_ = formattedPrice_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.formattedSalePrice_ = formattedSalePrice_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.androidAppLink_ = androidAppLink_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.iosAppLink_ = iosAppLink_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.iosAppStoreId_ = iosAppStoreId_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.customMapping_ = customMapping_;
+      }
     }
 
     @java.lang.Override
@@ -1359,50 +1256,62 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v10.common.DynamicFlightsAsset.getDefaultInstance()) return this;
       if (!other.getDestinationId().isEmpty()) {
         destinationId_ = other.destinationId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getOriginId().isEmpty()) {
         originId_ = other.originId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getFlightDescription().isEmpty()) {
         flightDescription_ = other.flightDescription_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getImageUrl().isEmpty()) {
         imageUrl_ = other.imageUrl_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getDestinationName().isEmpty()) {
         destinationName_ = other.destinationName_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getOriginName().isEmpty()) {
         originName_ = other.originName_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getFlightPrice().isEmpty()) {
         flightPrice_ = other.flightPrice_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getFlightSalePrice().isEmpty()) {
         flightSalePrice_ = other.flightSalePrice_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.getFormattedPrice().isEmpty()) {
         formattedPrice_ = other.formattedPrice_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (!other.getFormattedSalePrice().isEmpty()) {
         formattedSalePrice_ = other.formattedSalePrice_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (!other.getAndroidAppLink().isEmpty()) {
         androidAppLink_ = other.androidAppLink_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (!other.getIosAppLink().isEmpty()) {
         iosAppLink_ = other.iosAppLink_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (other.getIosAppStoreId() != 0L) {
@@ -1411,7 +1320,7 @@ private static final long serialVersionUID = 0L;
       if (!other.similarDestinationIds_.isEmpty()) {
         if (similarDestinationIds_.isEmpty()) {
           similarDestinationIds_ = other.similarDestinationIds_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00002000);
         } else {
           ensureSimilarDestinationIdsIsMutable();
           similarDestinationIds_.addAll(other.similarDestinationIds_);
@@ -1420,9 +1329,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCustomMapping().isEmpty()) {
         customMapping_ = other.customMapping_;
+        bitField0_ |= 0x00004000;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1437,17 +1347,106 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.common.DynamicFlightsAsset parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              destinationId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              originId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              flightDescription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              imageUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              destinationName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              originName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              flightPrice_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              flightSalePrice_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              formattedPrice_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              formattedSalePrice_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              androidAppLink_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 98: {
+              iosAppLink_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 104: {
+              iosAppStoreId_ = input.readInt64();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 104
+            case 114: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSimilarDestinationIdsIsMutable();
+              similarDestinationIds_.add(s);
+              break;
+            } // case 114
+            case 122: {
+              customMapping_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 122
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.common.DynamicFlightsAsset) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1508,11 +1507,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestinationId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       destinationId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1526,8 +1523,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDestinationId() {
-      
       destinationId_ = getDefaultInstance().getDestinationId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1543,12 +1540,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestinationIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       destinationId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1609,11 +1604,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOriginId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       originId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1627,8 +1620,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOriginId() {
-      
       originId_ = getDefaultInstance().getOriginId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1644,12 +1637,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOriginIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       originId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1707,11 +1698,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFlightDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       flightDescription_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1724,8 +1713,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFlightDescription() {
-      
       flightDescription_ = getDefaultInstance().getFlightDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1740,12 +1729,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFlightDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       flightDescription_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1806,11 +1793,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       imageUrl_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1824,8 +1809,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImageUrl() {
-      
       imageUrl_ = getDefaultInstance().getImageUrl();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1841,12 +1826,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       imageUrl_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1904,11 +1887,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestinationName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       destinationName_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1921,8 +1902,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDestinationName() {
-      
       destinationName_ = getDefaultInstance().getDestinationName();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1937,12 +1918,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestinationNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       destinationName_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2000,11 +1979,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOriginName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       originName_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2017,8 +1994,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOriginName() {
-      
       originName_ = getDefaultInstance().getOriginName();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2033,12 +2010,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOriginNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       originName_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2099,11 +2074,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFlightPrice(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       flightPrice_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2117,8 +2090,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFlightPrice() {
-      
       flightPrice_ = getDefaultInstance().getFlightPrice();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2134,12 +2107,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFlightPriceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       flightPrice_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2203,11 +2174,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFlightSalePrice(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       flightSalePrice_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2222,8 +2191,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFlightSalePrice() {
-      
       flightSalePrice_ = getDefaultInstance().getFlightSalePrice();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2240,12 +2209,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFlightSalePriceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       flightSalePrice_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2306,11 +2273,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFormattedPrice(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       formattedPrice_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2324,8 +2289,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFormattedPrice() {
-      
       formattedPrice_ = getDefaultInstance().getFormattedPrice();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2341,12 +2306,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFormattedPriceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       formattedPrice_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2407,11 +2370,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFormattedSalePrice(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       formattedSalePrice_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2425,8 +2386,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFormattedSalePrice() {
-      
       formattedSalePrice_ = getDefaultInstance().getFormattedSalePrice();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2442,12 +2403,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFormattedSalePriceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       formattedSalePrice_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2508,11 +2467,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAndroidAppLink(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       androidAppLink_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2526,8 +2483,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAndroidAppLink() {
-      
       androidAppLink_ = getDefaultInstance().getAndroidAppLink();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -2543,12 +2500,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAndroidAppLinkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       androidAppLink_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2606,11 +2561,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIosAppLink(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       iosAppLink_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2623,8 +2576,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIosAppLink() {
-      
       iosAppLink_ = getDefaultInstance().getIosAppLink();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -2639,12 +2592,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIosAppLinkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       iosAppLink_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2678,6 +2629,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIosAppStoreId(long value) {
       
       iosAppStoreId_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -2692,7 +2644,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIosAppStoreId() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       iosAppStoreId_ = 0L;
       onChanged();
       return this;
@@ -2700,9 +2652,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList similarDestinationIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureSimilarDestinationIdsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00002000) != 0)) {
         similarDestinationIds_ = new com.google.protobuf.LazyStringArrayList(similarDestinationIds_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00002000;
        }
     }
     /**
@@ -2765,10 +2717,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSimilarDestinationIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSimilarDestinationIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSimilarDestinationIdsIsMutable();
       similarDestinationIds_.set(index, value);
       onChanged();
       return this;
@@ -2784,10 +2734,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSimilarDestinationIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSimilarDestinationIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSimilarDestinationIdsIsMutable();
       similarDestinationIds_.add(value);
       onChanged();
       return this;
@@ -2819,7 +2767,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSimilarDestinationIds() {
       similarDestinationIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -2834,10 +2782,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSimilarDestinationIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureSimilarDestinationIdsIsMutable();
       similarDestinationIds_.add(value);
       onChanged();
@@ -2909,11 +2855,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomMapping(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       customMapping_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -2930,8 +2874,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomMapping() {
-      
       customMapping_ = getDefaultInstance().getCustomMapping();
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
@@ -2950,12 +2894,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomMappingBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customMapping_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -2992,7 +2934,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DynamicFlightsAsset(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

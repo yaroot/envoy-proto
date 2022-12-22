@@ -9,8 +9,8 @@ public interface UpdateVehicleAttributesResponseOrBuilder extends
 
   /**
    * <pre>
-   * Required. The updated full list of vehicle attributes, including new,
-   * altered and untouched attributes.
+   * Required. The updated full list of vehicle attributes, including new, altered, and
+   * untouched attributes.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute attributes = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -19,8 +19,8 @@ public interface UpdateVehicleAttributesResponseOrBuilder extends
       getAttributesList();
   /**
    * <pre>
-   * Required. The updated full list of vehicle attributes, including new,
-   * altered and untouched attributes.
+   * Required. The updated full list of vehicle attributes, including new, altered, and
+   * untouched attributes.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute attributes = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -28,8 +28,8 @@ public interface UpdateVehicleAttributesResponseOrBuilder extends
   google.maps.fleetengine.v1.VehicleAttribute getAttributes(int index);
   /**
    * <pre>
-   * Required. The updated full list of vehicle attributes, including new,
-   * altered and untouched attributes.
+   * Required. The updated full list of vehicle attributes, including new, altered, and
+   * untouched attributes.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute attributes = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -37,8 +37,8 @@ public interface UpdateVehicleAttributesResponseOrBuilder extends
   int getAttributesCount();
   /**
    * <pre>
-   * Required. The updated full list of vehicle attributes, including new,
-   * altered and untouched attributes.
+   * Required. The updated full list of vehicle attributes, including new, altered, and
+   * untouched attributes.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute attributes = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -47,8 +47,8 @@ public interface UpdateVehicleAttributesResponseOrBuilder extends
       getAttributesOrBuilderList();
   /**
    * <pre>
-   * Required. The updated full list of vehicle attributes, including new,
-   * altered and untouched attributes.
+   * Required. The updated full list of vehicle attributes, including new, altered, and
+   * untouched attributes.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute attributes = 1 [(.google.api.field_behavior) = REQUIRED];</code>

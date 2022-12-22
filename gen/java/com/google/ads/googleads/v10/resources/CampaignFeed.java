@@ -39,109 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CampaignFeed(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceName_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              placeholderTypes_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            placeholderTypes_.add(rawValue);
-            break;
-          }
-          case 34: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                placeholderTypes_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              placeholderTypes_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 42: {
-            com.google.ads.googleads.v10.common.MatchingFunction.Builder subBuilder = null;
-            if (matchingFunction_ != null) {
-              subBuilder = matchingFunction_.toBuilder();
-            }
-            matchingFunction_ = input.readMessage(com.google.ads.googleads.v10.common.MatchingFunction.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(matchingFunction_);
-              matchingFunction_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            status_ = rawValue;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            feed_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            campaign_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        placeholderTypes_ = java.util.Collections.unmodifiableList(placeholderTypes_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.resources.CampaignFeedProto.internal_static_google_ads_googleads_v10_resources_CampaignFeed_descriptor;
@@ -157,7 +54,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object resourceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceName_ = "";
   /**
    * <pre>
    * Immutable. The resource name of the campaign feed.
@@ -207,7 +105,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FEED_FIELD_NUMBER = 7;
-  private volatile java.lang.Object feed_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object feed_ = "";
   /**
    * <pre>
    * Immutable. The feed to which the CampaignFeed belongs.
@@ -265,7 +164,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CAMPAIGN_FIELD_NUMBER = 8;
-  private volatile java.lang.Object campaign_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object campaign_ = "";
   /**
    * <pre>
    * Immutable. The campaign to which the CampaignFeed belongs.
@@ -323,14 +223,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PLACEHOLDER_TYPES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> placeholderTypes_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.ads.googleads.v10.enums.PlaceholderTypeEnum.PlaceholderType> placeholderTypes_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.ads.googleads.v10.enums.PlaceholderTypeEnum.PlaceholderType>() {
             public com.google.ads.googleads.v10.enums.PlaceholderTypeEnum.PlaceholderType convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.ads.googleads.v10.enums.PlaceholderTypeEnum.PlaceholderType result = com.google.ads.googleads.v10.enums.PlaceholderTypeEnum.PlaceholderType.valueOf(from);
+              com.google.ads.googleads.v10.enums.PlaceholderTypeEnum.PlaceholderType result = com.google.ads.googleads.v10.enums.PlaceholderTypeEnum.PlaceholderType.forNumber(from);
               return result == null ? com.google.ads.googleads.v10.enums.PlaceholderTypeEnum.PlaceholderType.UNRECOGNIZED : result;
             }
           };
@@ -446,11 +346,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v10.common.MatchingFunctionOrBuilder getMatchingFunctionOrBuilder() {
-    return getMatchingFunction();
+    return matchingFunction_ == null ? com.google.ads.googleads.v10.common.MatchingFunction.getDefaultInstance() : matchingFunction_;
   }
 
   public static final int STATUS_FIELD_NUMBER = 6;
-  private int status_;
+  private int status_ = 0;
   /**
    * <pre>
    * Output only. Status of the campaign feed.
@@ -473,8 +373,7 @@ private static final long serialVersionUID = 0L;
    * @return The status.
    */
   @java.lang.Override public com.google.ads.googleads.v10.enums.FeedLinkStatusEnum.FeedLinkStatus getStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v10.enums.FeedLinkStatusEnum.FeedLinkStatus result = com.google.ads.googleads.v10.enums.FeedLinkStatusEnum.FeedLinkStatus.valueOf(status_);
+    com.google.ads.googleads.v10.enums.FeedLinkStatusEnum.FeedLinkStatus result = com.google.ads.googleads.v10.enums.FeedLinkStatusEnum.FeedLinkStatus.forNumber(status_);
     return result == null ? com.google.ads.googleads.v10.enums.FeedLinkStatusEnum.FeedLinkStatus.UNRECOGNIZED : result;
   }
 
@@ -515,7 +414,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, campaign_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -553,7 +452,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, campaign_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -587,7 +486,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getMatchingFunction())) return false;
     }
     if (status_ != other.status_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -618,7 +517,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + status_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -739,38 +638,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.resources.CampaignFeed.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       resourceName_ = "";
-
       feed_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       campaign_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       placeholderTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000004);
-      if (matchingFunctionBuilder_ == null) {
-        matchingFunction_ = null;
-      } else {
-        matchingFunction_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      matchingFunction_ = null;
+      if (matchingFunctionBuilder_ != null) {
+        matchingFunctionBuilder_.dispose();
         matchingFunctionBuilder_ = null;
       }
       status_ = 0;
-
       return this;
     }
 
@@ -797,31 +687,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.resources.CampaignFeed buildPartial() {
       com.google.ads.googleads.v10.resources.CampaignFeed result = new com.google.ads.googleads.v10.resources.CampaignFeed(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.resourceName_ = resourceName_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.feed_ = feed_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        to_bitField0_ |= 0x00000002;
-      }
-      result.campaign_ = campaign_;
-      if (((bitField0_ & 0x00000004) != 0)) {
-        placeholderTypes_ = java.util.Collections.unmodifiableList(placeholderTypes_);
-        bitField0_ = (bitField0_ & ~0x00000004);
-      }
-      result.placeholderTypes_ = placeholderTypes_;
-      if (matchingFunctionBuilder_ == null) {
-        result.matchingFunction_ = matchingFunction_;
-      } else {
-        result.matchingFunction_ = matchingFunctionBuilder_.build();
-      }
-      result.status_ = status_;
-      result.bitField0_ = to_bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v10.resources.CampaignFeed result) {
+      if (((bitField0_ & 0x00000008) != 0)) {
+        placeholderTypes_ = java.util.Collections.unmodifiableList(placeholderTypes_);
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.placeholderTypes_ = placeholderTypes_;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.resources.CampaignFeed result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resourceName_ = resourceName_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.feed_ = feed_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.campaign_ = campaign_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.matchingFunction_ = matchingFunctionBuilder_ == null
+            ? matchingFunction_
+            : matchingFunctionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.status_ = status_;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -870,22 +772,23 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v10.resources.CampaignFeed.getDefaultInstance()) return this;
       if (!other.getResourceName().isEmpty()) {
         resourceName_ = other.resourceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasFeed()) {
-        bitField0_ |= 0x00000001;
         feed_ = other.feed_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasCampaign()) {
-        bitField0_ |= 0x00000002;
         campaign_ = other.campaign_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.placeholderTypes_.isEmpty()) {
         if (placeholderTypes_.isEmpty()) {
           placeholderTypes_ = other.placeholderTypes_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensurePlaceholderTypesIsMutable();
           placeholderTypes_.addAll(other.placeholderTypes_);
@@ -898,7 +801,7 @@ private static final long serialVersionUID = 0L;
       if (other.status_ != 0) {
         setStatusValue(other.getStatusValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -913,17 +816,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.resources.CampaignFeed parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              resourceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 32: {
+              int tmpRaw = input.readEnum();
+              ensurePlaceholderTypesIsMutable();
+              placeholderTypes_.add(tmpRaw);
+              break;
+            } // case 32
+            case 34: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensurePlaceholderTypesIsMutable();
+                placeholderTypes_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getMatchingFunctionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              status_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              feed_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 58
+            case 66: {
+              campaign_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.resources.CampaignFeed) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -987,11 +947,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1006,8 +964,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceName() {
-      
       resourceName_ = getDefaultInstance().getResourceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1024,12 +982,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1044,7 +1000,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the feed field is set.
      */
     public boolean hasFeed() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1098,11 +1054,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFeed(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       feed_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1115,8 +1069,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFeed() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       feed_ = getDefaultInstance().getFeed();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1131,12 +1085,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFeedBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       feed_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1151,7 +1103,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the campaign field is set.
      */
     public boolean hasCampaign() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1205,11 +1157,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCampaign(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       campaign_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1222,8 +1172,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCampaign() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       campaign_ = getDefaultInstance().getCampaign();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1238,12 +1188,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCampaignBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       campaign_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1251,9 +1199,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> placeholderTypes_ =
       java.util.Collections.emptyList();
     private void ensurePlaceholderTypesIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         placeholderTypes_ = new java.util.ArrayList<java.lang.Integer>(placeholderTypes_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
       }
     }
     /**
@@ -1364,7 +1312,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPlaceholderTypes() {
       placeholderTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1462,7 +1410,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the matchingFunction field is set.
      */
     public boolean hasMatchingFunction() {
-      return matchingFunctionBuilder_ != null || matchingFunction_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1496,11 +1444,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         matchingFunction_ = value;
-        onChanged();
       } else {
         matchingFunctionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1516,11 +1464,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.common.MatchingFunction.Builder builderForValue) {
       if (matchingFunctionBuilder_ == null) {
         matchingFunction_ = builderForValue.build();
-        onChanged();
       } else {
         matchingFunctionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1534,17 +1482,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMatchingFunction(com.google.ads.googleads.v10.common.MatchingFunction value) {
       if (matchingFunctionBuilder_ == null) {
-        if (matchingFunction_ != null) {
-          matchingFunction_ =
-            com.google.ads.googleads.v10.common.MatchingFunction.newBuilder(matchingFunction_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          matchingFunction_ != null &&
+          matchingFunction_ != com.google.ads.googleads.v10.common.MatchingFunction.getDefaultInstance()) {
+          getMatchingFunctionBuilder().mergeFrom(value);
         } else {
           matchingFunction_ = value;
         }
-        onChanged();
       } else {
         matchingFunctionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1557,14 +1506,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.common.MatchingFunction matching_function = 5;</code>
      */
     public Builder clearMatchingFunction() {
-      if (matchingFunctionBuilder_ == null) {
-        matchingFunction_ = null;
-        onChanged();
-      } else {
-        matchingFunction_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      matchingFunction_ = null;
+      if (matchingFunctionBuilder_ != null) {
+        matchingFunctionBuilder_.dispose();
         matchingFunctionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1577,7 +1525,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.common.MatchingFunction matching_function = 5;</code>
      */
     public com.google.ads.googleads.v10.common.MatchingFunction.Builder getMatchingFunctionBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getMatchingFunctionFieldBuilder().getBuilder();
     }
@@ -1645,8 +1593,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
-      
       status_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1661,8 +1609,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.FeedLinkStatusEnum.FeedLinkStatus getStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.FeedLinkStatusEnum.FeedLinkStatus result = com.google.ads.googleads.v10.enums.FeedLinkStatusEnum.FeedLinkStatus.valueOf(status_);
+      com.google.ads.googleads.v10.enums.FeedLinkStatusEnum.FeedLinkStatus result = com.google.ads.googleads.v10.enums.FeedLinkStatusEnum.FeedLinkStatus.forNumber(status_);
       return result == null ? com.google.ads.googleads.v10.enums.FeedLinkStatusEnum.FeedLinkStatus.UNRECOGNIZED : result;
     }
     /**
@@ -1679,7 +1626,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       status_ = value.getNumber();
       onChanged();
       return this;
@@ -1694,7 +1641,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       status_ = 0;
       onChanged();
       return this;
@@ -1732,7 +1679,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CampaignFeed(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

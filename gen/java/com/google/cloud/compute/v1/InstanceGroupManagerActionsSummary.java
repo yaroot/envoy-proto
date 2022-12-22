@@ -33,111 +33,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InstanceGroupManagerActionsSummary(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 27097536: {
-            bitField0_ |= 0x00000010;
-            none_ = input.readInt32();
-            break;
-          }
-          case 232911152: {
-            bitField0_ |= 0x00000800;
-            suspending_ = input.readInt32();
-            break;
-          }
-          case 840287136: {
-            bitField0_ |= 0x00000400;
-            stopping_ = input.readInt32();
-            break;
-          }
-          case 1608805712: {
-            bitField0_ |= 0x00000100;
-            resuming_ = input.readInt32();
-            break;
-          }
-          case 1678472648: {
-            bitField0_ |= 0x00000002;
-            creating_ = input.readInt32();
-            break;
-          }
-          case 1720359224: {
-            bitField0_ |= 0x00000040;
-            refreshing_ = input.readInt32();
-            break;
-          }
-          case 1944519168: {
-            bitField0_ |= 0x00000200;
-            starting_ = input.readInt32();
-            break;
-          }
-          case -2032198336: {
-            bitField0_ |= 0x00000008;
-            deleting_ = input.readInt32();
-            break;
-          }
-          case -1582510240: {
-            bitField0_ |= 0x00000020;
-            recreating_ = input.readInt32();
-            break;
-          }
-          case -1335633336: {
-            bitField0_ |= 0x00000004;
-            creatingWithoutRetries_ = input.readInt32();
-            break;
-          }
-          case -1316463720: {
-            bitField0_ |= 0x00000080;
-            restarting_ = input.readInt32();
-            break;
-          }
-          case -774780312: {
-            bitField0_ |= 0x00000001;
-            abandoning_ = input.readInt32();
-            break;
-          }
-          case -682064312: {
-            bitField0_ |= 0x00001000;
-            verifying_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_InstanceGroupManagerActionsSummary_descriptor;
@@ -153,7 +48,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int ABANDONING_FIELD_NUMBER = 440023373;
-  private int abandoning_;
+  private int abandoning_ = 0;
   /**
    * <pre>
    * [Output Only] The total number of instances in the managed instance group that are scheduled to be abandoned. Abandoning an instance removes it from the managed instance group without deleting it.
@@ -180,7 +75,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CREATING_FIELD_NUMBER = 209809081;
-  private int creating_;
+  private int creating_ = 0;
   /**
    * <pre>
    * [Output Only] The number of instances in the managed instance group that are scheduled to be created or are currently being created. If the group fails to create any of these instances, it tries again until it creates the instance successfully. If you have disabled creation retries, this field will not be populated; instead, the creatingWithoutRetries field will be populated.
@@ -207,7 +102,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CREATING_WITHOUT_RETRIES_FIELD_NUMBER = 369916745;
-  private int creatingWithoutRetries_;
+  private int creatingWithoutRetries_ = 0;
   /**
    * <pre>
    * [Output Only] The number of instances that the managed instance group will attempt to create. The group attempts to create each instance only once. If the group fails to create any of these instances, it decreases the group's targetSize value accordingly.
@@ -234,7 +129,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DELETING_FIELD_NUMBER = 282846120;
-  private int deleting_;
+  private int deleting_ = 0;
   /**
    * <pre>
    * [Output Only] The number of instances in the managed instance group that are scheduled to be deleted or are currently being deleted.
@@ -261,7 +156,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NONE_FIELD_NUMBER = 3387192;
-  private int none_;
+  private int none_ = 0;
   /**
    * <pre>
    * [Output Only] The number of instances in the managed instance group that are running and have no scheduled actions.
@@ -288,7 +183,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RECREATING_FIELD_NUMBER = 339057132;
-  private int recreating_;
+  private int recreating_ = 0;
   /**
    * <pre>
    * [Output Only] The number of instances in the managed instance group that are scheduled to be recreated or are currently being being recreated. Recreating an instance deletes the existing root persistent disk and creates a new disk from the image that is defined in the instance template.
@@ -315,7 +210,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REFRESHING_FIELD_NUMBER = 215044903;
-  private int refreshing_;
+  private int refreshing_ = 0;
   /**
    * <pre>
    * [Output Only] The number of instances in the managed instance group that are being reconfigured with properties that do not require a restart or a recreate action. For example, setting or removing target pools for the instance.
@@ -342,7 +237,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESTARTING_FIELD_NUMBER = 372312947;
-  private int restarting_;
+  private int restarting_ = 0;
   /**
    * <pre>
    * [Output Only] The number of instances in the managed instance group that are scheduled to be restarted or are currently being restarted.
@@ -369,7 +264,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESUMING_FIELD_NUMBER = 201100714;
-  private int resuming_;
+  private int resuming_ = 0;
   /**
    * <pre>
    * [Output Only] The number of instances in the managed instance group that are scheduled to be resumed or are currently being resumed.
@@ -396,7 +291,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STARTING_FIELD_NUMBER = 243064896;
-  private int starting_;
+  private int starting_ = 0;
   /**
    * <pre>
    * [Output Only] The number of instances in the managed instance group that are scheduled to be started or are currently being started.
@@ -423,7 +318,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STOPPING_FIELD_NUMBER = 105035892;
-  private int stopping_;
+  private int stopping_ = 0;
   /**
    * <pre>
    * [Output Only] The number of instances in the managed instance group that are scheduled to be stopped or are currently being stopped.
@@ -450,7 +345,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUSPENDING_FIELD_NUMBER = 29113894;
-  private int suspending_;
+  private int suspending_ = 0;
   /**
    * <pre>
    * [Output Only] The number of instances in the managed instance group that are scheduled to be suspended or are currently being suspended.
@@ -477,7 +372,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERIFYING_FIELD_NUMBER = 451612873;
-  private int verifying_;
+  private int verifying_ = 0;
   /**
    * <pre>
    * [Output Only] The number of instances in the managed instance group that are being verified. See the managedInstances[].currentAction property in the listManagedInstances method documentation.
@@ -556,7 +451,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00001000) != 0)) {
       output.writeInt32(451612873, verifying_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -617,7 +512,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(451612873, verifying_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -697,7 +592,7 @@ private static final long serialVersionUID = 0L;
       if (getVerifying()
           != other.getVerifying()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -760,7 +655,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VERIFYING_FIELD_NUMBER;
       hash = (53 * hash) + getVerifying();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -880,48 +775,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.InstanceGroupManagerActionsSummary.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       abandoning_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000001);
       creating_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000002);
       creatingWithoutRetries_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000004);
       deleting_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000008);
       none_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000010);
       recreating_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000020);
       refreshing_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000040);
       restarting_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000080);
       resuming_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000100);
       starting_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000200);
       stopping_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000400);
       suspending_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000800);
       verifying_ = 0;
-      bitField0_ = (bitField0_ & ~0x00001000);
       return this;
     }
 
@@ -948,6 +826,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.InstanceGroupManagerActionsSummary buildPartial() {
       com.google.cloud.compute.v1.InstanceGroupManagerActionsSummary result = new com.google.cloud.compute.v1.InstanceGroupManagerActionsSummary(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.InstanceGroupManagerActionsSummary result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -1002,9 +886,7 @@ private static final long serialVersionUID = 0L;
         result.verifying_ = verifying_;
         to_bitField0_ |= 0x00001000;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1090,7 +972,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasVerifying()) {
         setVerifying(other.getVerifying());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1105,17 +987,95 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.InstanceGroupManagerActionsSummary parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 27097536: {
+              none_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 27097536
+            case 232911152: {
+              suspending_ = input.readInt32();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 232911152
+            case 840287136: {
+              stopping_ = input.readInt32();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 840287136
+            case 1608805712: {
+              resuming_ = input.readInt32();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 1608805712
+            case 1678472648: {
+              creating_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1678472648
+            case 1720359224: {
+              refreshing_ = input.readInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 1720359224
+            case 1944519168: {
+              starting_ = input.readInt32();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 1944519168
+            case -2032198336: {
+              deleting_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -2032198336
+            case -1582510240: {
+              recreating_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case -1582510240
+            case -1335633336: {
+              creatingWithoutRetries_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -1335633336
+            case -1316463720: {
+              restarting_ = input.readInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case -1316463720
+            case -774780312: {
+              abandoning_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -774780312
+            case -682064312: {
+              verifying_ = input.readInt32();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case -682064312
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.InstanceGroupManagerActionsSummary) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1155,8 +1115,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAbandoning(int value) {
-      bitField0_ |= 0x00000001;
+      
       abandoning_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1210,8 +1171,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCreating(int value) {
-      bitField0_ |= 0x00000002;
+      
       creating_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1265,8 +1227,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCreatingWithoutRetries(int value) {
-      bitField0_ |= 0x00000004;
+      
       creatingWithoutRetries_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1320,8 +1283,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDeleting(int value) {
-      bitField0_ |= 0x00000008;
+      
       deleting_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1375,8 +1339,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setNone(int value) {
-      bitField0_ |= 0x00000010;
+      
       none_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1430,8 +1395,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRecreating(int value) {
-      bitField0_ |= 0x00000020;
+      
       recreating_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1485,8 +1451,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRefreshing(int value) {
-      bitField0_ |= 0x00000040;
+      
       refreshing_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1540,8 +1507,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRestarting(int value) {
-      bitField0_ |= 0x00000080;
+      
       restarting_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1595,8 +1563,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setResuming(int value) {
-      bitField0_ |= 0x00000100;
+      
       resuming_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -1650,8 +1619,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStarting(int value) {
-      bitField0_ |= 0x00000200;
+      
       starting_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -1705,8 +1675,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStopping(int value) {
-      bitField0_ |= 0x00000400;
+      
       stopping_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -1760,8 +1731,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSuspending(int value) {
-      bitField0_ |= 0x00000800;
+      
       suspending_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -1815,8 +1787,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setVerifying(int value) {
-      bitField0_ |= 0x00001000;
+      
       verifying_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -1867,7 +1840,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InstanceGroupManagerActionsSummary(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

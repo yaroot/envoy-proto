@@ -131,7 +131,7 @@ public final class AccesslogProto {
       "AccessLogEntry\"w\n\024ConnectionProperties\022\026" +
       "\n\016received_bytes\030\001 \001(\004\022\022\n\nsent_bytes\030\002 \001" +
       "(\004:3\232\305\210\036.\n,envoy.data.accesslog.v2.Conne" +
-      "ctionProperties\"\364\013\n\017AccessLogCommon\022,\n\013s" +
+      "ctionProperties\"\244\r\n\017AccessLogCommon\022,\n\013s" +
       "ample_rate\030\001 \001(\001B\027\372B\024\022\022\031\000\000\000\000\000\000\360?!\000\000\000\000\000\000\000" +
       "\000\022@\n\031downstream_remote_address\030\002 \001(\0132\035.e" +
       "nvoy.config.core.v3.Address\022?\n\030downstrea" +
@@ -165,94 +165,99 @@ public final class AccesslogProto {
       ".v3.AccessLogCommon.FilterStateObjectsEn" +
       "try\022M\n\013custom_tags\030\026 \003(\01328.envoy.data.ac" +
       "cesslog.v3.AccessLogCommon.CustomTagsEnt" +
-      "ry\032O\n\027FilterStateObjectsEntry\022\013\n\003key\030\001 \001" +
-      "(\t\022#\n\005value\030\002 \001(\0132\024.google.protobuf.Any:" +
-      "\0028\001\0321\n\017CustomTagsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
-      "alue\030\002 \001(\t:\0028\001:.\232\305\210\036)\n\'envoy.data.access" +
-      "log.v2.AccessLogCommon\"\230\t\n\rResponseFlags" +
-      "\022 \n\030failed_local_healthcheck\030\001 \001(\010\022\033\n\023no" +
-      "_healthy_upstream\030\002 \001(\010\022 \n\030upstream_requ" +
-      "est_timeout\030\003 \001(\010\022\023\n\013local_reset\030\004 \001(\010\022\035" +
-      "\n\025upstream_remote_reset\030\005 \001(\010\022#\n\033upstrea" +
-      "m_connection_failure\030\006 \001(\010\022\'\n\037upstream_c" +
-      "onnection_termination\030\007 \001(\010\022\031\n\021upstream_" +
-      "overflow\030\010 \001(\010\022\026\n\016no_route_found\030\t \001(\010\022\026" +
-      "\n\016delay_injected\030\n \001(\010\022\026\n\016fault_injected" +
-      "\030\013 \001(\010\022\024\n\014rate_limited\030\014 \001(\010\022Q\n\024unauthor" +
-      "ized_details\030\r \001(\01323.envoy.data.accesslo" +
-      "g.v3.ResponseFlags.Unauthorized\022 \n\030rate_" +
-      "limit_service_error\030\016 \001(\010\022)\n!downstream_" +
-      "connection_termination\030\017 \001(\010\022%\n\035upstream" +
-      "_retry_limit_exceeded\030\020 \001(\010\022\033\n\023stream_id" +
-      "le_timeout\030\021 \001(\010\022%\n\035invalid_envoy_reques" +
-      "t_headers\030\022 \001(\010\022!\n\031downstream_protocol_e" +
-      "rror\030\023 \001(\010\022,\n$upstream_max_stream_durati" +
-      "on_reached\030\024 \001(\010\022\"\n\032response_from_cache_" +
-      "filter\030\025 \001(\010\022\036\n\026no_filter_config_found\030\026" +
-      " \001(\010\022\030\n\020duration_timeout\030\027 \001(\010\022\037\n\027upstre" +
-      "am_protocol_error\030\030 \001(\010\022\030\n\020no_cluster_fo" +
-      "und\030\031 \001(\010\022\030\n\020overload_manager\030\032 \001(\010\022\036\n\026d" +
-      "ns_resolution_failure\030\033 \001(\010\032\315\001\n\014Unauthor" +
-      "ized\022J\n\006reason\030\001 \001(\0162:.envoy.data.access" +
-      "log.v3.ResponseFlags.Unauthorized.Reason" +
-      "\"6\n\006Reason\022\026\n\022REASON_UNSPECIFIED\020\000\022\024\n\020EX" +
-      "TERNAL_SERVICE\020\001:9\232\305\210\0364\n2envoy.data.acce" +
-      "sslog.v2.ResponseFlags.Unauthorized:,\232\305\210" +
-      "\036\'\n%envoy.data.accesslog.v2.ResponseFlag" +
-      "s\"\360\006\n\rTLSProperties\022F\n\013tls_version\030\001 \001(\016" +
-      "21.envoy.data.accesslog.v3.TLSProperties" +
-      ".TLSVersion\0226\n\020tls_cipher_suite\030\002 \001(\0132\034." +
-      "google.protobuf.UInt32Value\022\030\n\020tls_sni_h" +
-      "ostname\030\003 \001(\t\022b\n\034local_certificate_prope" +
-      "rties\030\004 \001(\0132<.envoy.data.accesslog.v3.TL" +
-      "SProperties.CertificateProperties\022a\n\033pee" +
-      "r_certificate_properties\030\005 \001(\0132<.envoy.d" +
-      "ata.accesslog.v3.TLSProperties.Certifica" +
-      "teProperties\022\026\n\016tls_session_id\030\006 \001(\t\032\336\002\n" +
-      "\025CertificateProperties\022e\n\020subject_alt_na" +
-      "me\030\001 \003(\0132K.envoy.data.accesslog.v3.TLSPr" +
-      "operties.CertificateProperties.SubjectAl" +
-      "tName\022\017\n\007subject\030\002 \001(\t\032\210\001\n\016SubjectAltNam" +
-      "e\022\r\n\003uri\030\001 \001(\tH\000\022\r\n\003dns\030\002 \001(\tH\000:Q\232\305\210\036L\nJ" +
-      "envoy.data.accesslog.v2.TLSProperties.Ce" +
-      "rtificateProperties.SubjectAltNameB\005\n\003sa" +
-      "n:B\232\305\210\036=\n;envoy.data.accesslog.v2.TLSPro" +
-      "perties.CertificateProperties\"W\n\nTLSVers" +
-      "ion\022\027\n\023VERSION_UNSPECIFIED\020\000\022\t\n\005TLSv1\020\001\022" +
-      "\013\n\007TLSv1_1\020\002\022\013\n\007TLSv1_2\020\003\022\013\n\007TLSv1_3\020\004:," +
-      "\232\305\210\036\'\n%envoy.data.accesslog.v2.TLSProper" +
-      "ties\"\247\004\n\025HTTPRequestProperties\022E\n\016reques" +
-      "t_method\030\001 \001(\0162#.envoy.config.core.v3.Re" +
-      "questMethodB\010\372B\005\202\001\002\020\001\022\016\n\006scheme\030\002 \001(\t\022\021\n" +
-      "\tauthority\030\003 \001(\t\022*\n\004port\030\004 \001(\0132\034.google." +
-      "protobuf.UInt32Value\022\014\n\004path\030\005 \001(\t\022\022\n\nus" +
-      "er_agent\030\006 \001(\t\022\017\n\007referer\030\007 \001(\t\022\025\n\rforwa" +
-      "rded_for\030\010 \001(\t\022\022\n\nrequest_id\030\t \001(\t\022\025\n\ror" +
-      "iginal_path\030\n \001(\t\022\035\n\025request_headers_byt" +
-      "es\030\013 \001(\004\022\032\n\022request_body_bytes\030\014 \001(\004\022[\n\017" +
-      "request_headers\030\r \003(\0132B.envoy.data.acces" +
-      "slog.v3.HTTPRequestProperties.RequestHea" +
-      "dersEntry\0325\n\023RequestHeadersEntry\022\013\n\003key\030" +
-      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001:4\232\305\210\036/\n-envoy.d" +
-      "ata.accesslog.v2.HTTPRequestProperties\"\223" +
-      "\004\n\026HTTPResponseProperties\0223\n\rresponse_co" +
-      "de\030\001 \001(\0132\034.google.protobuf.UInt32Value\022\036" +
-      "\n\026response_headers_bytes\030\002 \001(\004\022\033\n\023respon" +
-      "se_body_bytes\030\003 \001(\004\022^\n\020response_headers\030" +
-      "\004 \003(\0132D.envoy.data.accesslog.v3.HTTPResp" +
-      "onseProperties.ResponseHeadersEntry\022`\n\021r" +
-      "esponse_trailers\030\005 \003(\0132E.envoy.data.acce" +
-      "sslog.v3.HTTPResponseProperties.Response" +
-      "TrailersEntry\022\035\n\025response_code_details\030\006" +
-      " \001(\t\0326\n\024ResponseHeadersEntry\022\013\n\003key\030\001 \001(" +
-      "\t\022\r\n\005value\030\002 \001(\t:\0028\001\0327\n\025ResponseTrailers" +
-      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001:5\232" +
-      "\305\210\0360\n.envoy.data.accesslog.v2.HTTPRespon" +
-      "sePropertiesB\215\001\n%io.envoyproxy.envoy.dat" +
-      "a.accesslog.v3B\016AccesslogProtoP\001ZJgithub" +
-      ".com/envoyproxy/go-control-plane/envoy/d" +
-      "ata/accesslog/v3;accesslogv3\272\200\310\321\006\002\020\002b\006pr" +
-      "oto3"
+      "ry\022+\n\010duration\030\027 \001(\0132\031.google.protobuf.D" +
+      "uration\022&\n\036upstream_request_attempt_coun" +
+      "t\030\030 \001(\r\022&\n\036connection_termination_detail" +
+      "s\030\031 \001(\t\022\021\n\tstream_id\030\032 \001(\t\022\036\n\026intermedia" +
+      "te_log_entry\030\033 \001(\010\032O\n\027FilterStateObjects" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022#\n\005value\030\002 \001(\0132\024.goog" +
+      "le.protobuf.Any:\0028\001\0321\n\017CustomTagsEntry\022\013" +
+      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001:.\232\305\210\036)\n\'e" +
+      "nvoy.data.accesslog.v2.AccessLogCommon\"\230" +
+      "\t\n\rResponseFlags\022 \n\030failed_local_healthc" +
+      "heck\030\001 \001(\010\022\033\n\023no_healthy_upstream\030\002 \001(\010\022" +
+      " \n\030upstream_request_timeout\030\003 \001(\010\022\023\n\013loc" +
+      "al_reset\030\004 \001(\010\022\035\n\025upstream_remote_reset\030" +
+      "\005 \001(\010\022#\n\033upstream_connection_failure\030\006 \001" +
+      "(\010\022\'\n\037upstream_connection_termination\030\007 " +
+      "\001(\010\022\031\n\021upstream_overflow\030\010 \001(\010\022\026\n\016no_rou" +
+      "te_found\030\t \001(\010\022\026\n\016delay_injected\030\n \001(\010\022\026" +
+      "\n\016fault_injected\030\013 \001(\010\022\024\n\014rate_limited\030\014" +
+      " \001(\010\022Q\n\024unauthorized_details\030\r \001(\01323.env" +
+      "oy.data.accesslog.v3.ResponseFlags.Unaut" +
+      "horized\022 \n\030rate_limit_service_error\030\016 \001(" +
+      "\010\022)\n!downstream_connection_termination\030\017" +
+      " \001(\010\022%\n\035upstream_retry_limit_exceeded\030\020 " +
+      "\001(\010\022\033\n\023stream_idle_timeout\030\021 \001(\010\022%\n\035inva" +
+      "lid_envoy_request_headers\030\022 \001(\010\022!\n\031downs" +
+      "tream_protocol_error\030\023 \001(\010\022,\n$upstream_m" +
+      "ax_stream_duration_reached\030\024 \001(\010\022\"\n\032resp" +
+      "onse_from_cache_filter\030\025 \001(\010\022\036\n\026no_filte" +
+      "r_config_found\030\026 \001(\010\022\030\n\020duration_timeout" +
+      "\030\027 \001(\010\022\037\n\027upstream_protocol_error\030\030 \001(\010\022" +
+      "\030\n\020no_cluster_found\030\031 \001(\010\022\030\n\020overload_ma" +
+      "nager\030\032 \001(\010\022\036\n\026dns_resolution_failure\030\033 " +
+      "\001(\010\032\315\001\n\014Unauthorized\022J\n\006reason\030\001 \001(\0162:.e" +
+      "nvoy.data.accesslog.v3.ResponseFlags.Una" +
+      "uthorized.Reason\"6\n\006Reason\022\026\n\022REASON_UNS" +
+      "PECIFIED\020\000\022\024\n\020EXTERNAL_SERVICE\020\001:9\232\305\210\0364\n" +
+      "2envoy.data.accesslog.v2.ResponseFlags.U" +
+      "nauthorized:,\232\305\210\036\'\n%envoy.data.accesslog" +
+      ".v2.ResponseFlags\"\211\007\n\rTLSProperties\022F\n\013t" +
+      "ls_version\030\001 \001(\01621.envoy.data.accesslog." +
+      "v3.TLSProperties.TLSVersion\0226\n\020tls_ciphe" +
+      "r_suite\030\002 \001(\0132\034.google.protobuf.UInt32Va" +
+      "lue\022\030\n\020tls_sni_hostname\030\003 \001(\t\022b\n\034local_c" +
+      "ertificate_properties\030\004 \001(\0132<.envoy.data" +
+      ".accesslog.v3.TLSProperties.CertificateP" +
+      "roperties\022a\n\033peer_certificate_properties" +
+      "\030\005 \001(\0132<.envoy.data.accesslog.v3.TLSProp" +
+      "erties.CertificateProperties\022\026\n\016tls_sess" +
+      "ion_id\030\006 \001(\t\022\027\n\017ja3_fingerprint\030\007 \001(\t\032\336\002" +
+      "\n\025CertificateProperties\022e\n\020subject_alt_n" +
+      "ame\030\001 \003(\0132K.envoy.data.accesslog.v3.TLSP" +
+      "roperties.CertificateProperties.SubjectA" +
+      "ltName\022\017\n\007subject\030\002 \001(\t\032\210\001\n\016SubjectAltNa" +
+      "me\022\r\n\003uri\030\001 \001(\tH\000\022\r\n\003dns\030\002 \001(\tH\000:Q\232\305\210\036L\n" +
+      "Jenvoy.data.accesslog.v2.TLSProperties.C" +
+      "ertificateProperties.SubjectAltNameB\005\n\003s" +
+      "an:B\232\305\210\036=\n;envoy.data.accesslog.v2.TLSPr" +
+      "operties.CertificateProperties\"W\n\nTLSVer" +
+      "sion\022\027\n\023VERSION_UNSPECIFIED\020\000\022\t\n\005TLSv1\020\001" +
+      "\022\013\n\007TLSv1_1\020\002\022\013\n\007TLSv1_2\020\003\022\013\n\007TLSv1_3\020\004:" +
+      ",\232\305\210\036\'\n%envoy.data.accesslog.v2.TLSPrope" +
+      "rties\"\247\004\n\025HTTPRequestProperties\022E\n\016reque" +
+      "st_method\030\001 \001(\0162#.envoy.config.core.v3.R" +
+      "equestMethodB\010\372B\005\202\001\002\020\001\022\016\n\006scheme\030\002 \001(\t\022\021" +
+      "\n\tauthority\030\003 \001(\t\022*\n\004port\030\004 \001(\0132\034.google" +
+      ".protobuf.UInt32Value\022\014\n\004path\030\005 \001(\t\022\022\n\nu" +
+      "ser_agent\030\006 \001(\t\022\017\n\007referer\030\007 \001(\t\022\025\n\rforw" +
+      "arded_for\030\010 \001(\t\022\022\n\nrequest_id\030\t \001(\t\022\025\n\ro" +
+      "riginal_path\030\n \001(\t\022\035\n\025request_headers_by" +
+      "tes\030\013 \001(\004\022\032\n\022request_body_bytes\030\014 \001(\004\022[\n" +
+      "\017request_headers\030\r \003(\0132B.envoy.data.acce" +
+      "sslog.v3.HTTPRequestProperties.RequestHe" +
+      "adersEntry\0325\n\023RequestHeadersEntry\022\013\n\003key" +
+      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001:4\232\305\210\036/\n-envoy." +
+      "data.accesslog.v2.HTTPRequestProperties\"" +
+      "\223\004\n\026HTTPResponseProperties\0223\n\rresponse_c" +
+      "ode\030\001 \001(\0132\034.google.protobuf.UInt32Value\022" +
+      "\036\n\026response_headers_bytes\030\002 \001(\004\022\033\n\023respo" +
+      "nse_body_bytes\030\003 \001(\004\022^\n\020response_headers" +
+      "\030\004 \003(\0132D.envoy.data.accesslog.v3.HTTPRes" +
+      "ponseProperties.ResponseHeadersEntry\022`\n\021" +
+      "response_trailers\030\005 \003(\0132E.envoy.data.acc" +
+      "esslog.v3.HTTPResponseProperties.Respons" +
+      "eTrailersEntry\022\035\n\025response_code_details\030" +
+      "\006 \001(\t\0326\n\024ResponseHeadersEntry\022\013\n\003key\030\001 \001" +
+      "(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0327\n\025ResponseTrailer" +
+      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001:5" +
+      "\232\305\210\0360\n.envoy.data.accesslog.v2.HTTPRespo" +
+      "nsePropertiesB\215\001\n%io.envoyproxy.envoy.da" +
+      "ta.accesslog.v3B\016AccesslogProtoP\001ZJgithu" +
+      "b.com/envoyproxy/go-control-plane/envoy/" +
+      "data/accesslog/v3;accesslogv3\272\200\310\321\006\002\020\002b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -290,7 +295,7 @@ public final class AccesslogProto {
     internal_static_envoy_data_accesslog_v3_AccessLogCommon_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_data_accesslog_v3_AccessLogCommon_descriptor,
-        new java.lang.String[] { "SampleRate", "DownstreamRemoteAddress", "DownstreamLocalAddress", "TlsProperties", "StartTime", "TimeToLastRxByte", "TimeToFirstUpstreamTxByte", "TimeToLastUpstreamTxByte", "TimeToFirstUpstreamRxByte", "TimeToLastUpstreamRxByte", "TimeToFirstDownstreamTxByte", "TimeToLastDownstreamTxByte", "UpstreamRemoteAddress", "UpstreamLocalAddress", "UpstreamCluster", "ResponseFlags", "Metadata", "UpstreamTransportFailureReason", "RouteName", "DownstreamDirectRemoteAddress", "FilterStateObjects", "CustomTags", });
+        new java.lang.String[] { "SampleRate", "DownstreamRemoteAddress", "DownstreamLocalAddress", "TlsProperties", "StartTime", "TimeToLastRxByte", "TimeToFirstUpstreamTxByte", "TimeToLastUpstreamTxByte", "TimeToFirstUpstreamRxByte", "TimeToLastUpstreamRxByte", "TimeToFirstDownstreamTxByte", "TimeToLastDownstreamTxByte", "UpstreamRemoteAddress", "UpstreamLocalAddress", "UpstreamCluster", "ResponseFlags", "Metadata", "UpstreamTransportFailureReason", "RouteName", "DownstreamDirectRemoteAddress", "FilterStateObjects", "CustomTags", "Duration", "UpstreamRequestAttemptCount", "ConnectionTerminationDetails", "StreamId", "IntermediateLogEntry", });
     internal_static_envoy_data_accesslog_v3_AccessLogCommon_FilterStateObjectsEntry_descriptor =
       internal_static_envoy_data_accesslog_v3_AccessLogCommon_descriptor.getNestedTypes().get(0);
     internal_static_envoy_data_accesslog_v3_AccessLogCommon_FilterStateObjectsEntry_fieldAccessorTable = new
@@ -320,7 +325,7 @@ public final class AccesslogProto {
     internal_static_envoy_data_accesslog_v3_TLSProperties_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_data_accesslog_v3_TLSProperties_descriptor,
-        new java.lang.String[] { "TlsVersion", "TlsCipherSuite", "TlsSniHostname", "LocalCertificateProperties", "PeerCertificateProperties", "TlsSessionId", });
+        new java.lang.String[] { "TlsVersion", "TlsCipherSuite", "TlsSniHostname", "LocalCertificateProperties", "PeerCertificateProperties", "TlsSessionId", "Ja3Fingerprint", });
     internal_static_envoy_data_accesslog_v3_TLSProperties_CertificateProperties_descriptor =
       internal_static_envoy_data_accesslog_v3_TLSProperties_descriptor.getNestedTypes().get(0);
     internal_static_envoy_data_accesslog_v3_TLSProperties_CertificateProperties_fieldAccessorTable = new

@@ -36,65 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RiceDeltaEncoding(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            firstValue_ = input.readInt64();
-            break;
-          }
-          case 16: {
-
-            riceParameter_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            entryCount_ = input.readInt32();
-            break;
-          }
-          case 34: {
-
-            encodedData_ = input.readBytes();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.webrisk.v1.WebRiskProto.internal_static_google_cloud_webrisk_v1_RiceDeltaEncoding_descriptor;
@@ -109,7 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FIRST_VALUE_FIELD_NUMBER = 1;
-  private long firstValue_;
+  private long firstValue_ = 0L;
   /**
    * <pre>
    * The offset of the first entry in the encoded data, or, if only a single
@@ -126,7 +67,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RICE_PARAMETER_FIELD_NUMBER = 2;
-  private int riceParameter_;
+  private int riceParameter_ = 0;
   /**
    * <pre>
    * The Golomb-Rice parameter, which is a number between 2 and 28. This field
@@ -142,7 +83,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENTRY_COUNT_FIELD_NUMBER = 3;
-  private int entryCount_;
+  private int entryCount_ = 0;
   /**
    * <pre>
    * The number of entries that are delta encoded in the encoded data. If only a
@@ -159,7 +100,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENCODED_DATA_FIELD_NUMBER = 4;
-  private com.google.protobuf.ByteString encodedData_;
+  private com.google.protobuf.ByteString encodedData_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * The encoded deltas that are encoded using the Golomb-Rice coder.
@@ -199,7 +140,7 @@ private static final long serialVersionUID = 0L;
     if (!encodedData_.isEmpty()) {
       output.writeBytes(4, encodedData_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -224,7 +165,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBytesSize(4, encodedData_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -247,7 +188,7 @@ private static final long serialVersionUID = 0L;
         != other.getEntryCount()) return false;
     if (!getEncodedData()
         .equals(other.getEncodedData())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -267,7 +208,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getEntryCount();
     hash = (37 * hash) + ENCODED_DATA_FIELD_NUMBER;
     hash = (53 * hash) + getEncodedData().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -389,30 +330,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.webrisk.v1.RiceDeltaEncoding.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       firstValue_ = 0L;
-
       riceParameter_ = 0;
-
       entryCount_ = 0;
-
       encodedData_ = com.google.protobuf.ByteString.EMPTY;
-
       return this;
     }
 
@@ -439,12 +372,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.webrisk.v1.RiceDeltaEncoding buildPartial() {
       com.google.webrisk.v1.RiceDeltaEncoding result = new com.google.webrisk.v1.RiceDeltaEncoding(this);
-      result.firstValue_ = firstValue_;
-      result.riceParameter_ = riceParameter_;
-      result.entryCount_ = entryCount_;
-      result.encodedData_ = encodedData_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.webrisk.v1.RiceDeltaEncoding result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.firstValue_ = firstValue_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.riceParameter_ = riceParameter_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.entryCount_ = entryCount_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.encodedData_ = encodedData_;
+      }
     }
 
     @java.lang.Override
@@ -503,7 +449,7 @@ private static final long serialVersionUID = 0L;
       if (other.getEncodedData() != com.google.protobuf.ByteString.EMPTY) {
         setEncodedData(other.getEncodedData());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -518,19 +464,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.webrisk.v1.RiceDeltaEncoding parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              firstValue_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              riceParameter_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              entryCount_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              encodedData_ = input.readBytes();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.webrisk.v1.RiceDeltaEncoding) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private long firstValue_ ;
     /**
@@ -561,6 +541,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFirstValue(long value) {
       
       firstValue_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -575,7 +556,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFirstValue() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       firstValue_ = 0L;
       onChanged();
       return this;
@@ -608,6 +589,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRiceParameter(int value) {
       
       riceParameter_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -621,7 +603,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRiceParameter() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       riceParameter_ = 0;
       onChanged();
       return this;
@@ -656,6 +638,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEntryCount(int value) {
       
       entryCount_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -670,7 +653,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEntryCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       entryCount_ = 0;
       onChanged();
       return this;
@@ -699,11 +682,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEncodedData(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       encodedData_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -716,7 +697,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEncodedData() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       encodedData_ = getDefaultInstance().getEncodedData();
       onChanged();
       return this;
@@ -754,7 +735,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RiceDeltaEncoding(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

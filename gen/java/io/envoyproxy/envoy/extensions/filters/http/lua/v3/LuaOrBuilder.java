@@ -134,7 +134,6 @@ public interface LuaOrBuilder extends
    *
    * <code>map&lt;string, .envoy.config.core.v3.DataSource&gt; source_codes = 2;</code>
    */
-
   /* nullable */
 io.envoyproxy.envoy.config.core.v3.DataSource getSourceCodesOrDefault(
       java.lang.String key,
@@ -159,7 +158,6 @@ io.envoyproxy.envoy.config.core.v3.DataSource defaultValue);
    *
    * <code>map&lt;string, .envoy.config.core.v3.DataSource&gt; source_codes = 2;</code>
    */
-
   io.envoyproxy.envoy.config.core.v3.DataSource getSourceCodesOrThrow(
       java.lang.String key);
 
@@ -192,4 +190,52 @@ io.envoyproxy.envoy.config.core.v3.DataSource defaultValue);
    * <code>.envoy.config.core.v3.DataSource default_source_code = 3;</code>
    */
   io.envoyproxy.envoy.config.core.v3.DataSourceOrBuilder getDefaultSourceCodeOrBuilder();
+
+  /**
+   * <pre>
+   * Optional additional prefix to use when emitting statistics. By default
+   * metrics are emitted in *.lua.* namespace. If multiple lua filters are
+   * configured in a filter chain, the stats from each filter instance can
+   * be emitted using custom stat prefix to distinguish emitted
+   * statistics. For example:
+   * .. code-block:: yaml
+   *   http_filters:
+   *     - name: envoy.filters.http.lua
+   *       typed_config:
+   *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+   *         stat_prefix: foo_script # This emits lua.foo_script.errors etc.
+   *     - name: envoy.filters.http.lua
+   *       typed_config:
+   *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+   *         stat_prefix: bar_script # This emits lua.bar_script.errors etc.
+   * </pre>
+   *
+   * <code>string stat_prefix = 4;</code>
+   * @return The statPrefix.
+   */
+  java.lang.String getStatPrefix();
+  /**
+   * <pre>
+   * Optional additional prefix to use when emitting statistics. By default
+   * metrics are emitted in *.lua.* namespace. If multiple lua filters are
+   * configured in a filter chain, the stats from each filter instance can
+   * be emitted using custom stat prefix to distinguish emitted
+   * statistics. For example:
+   * .. code-block:: yaml
+   *   http_filters:
+   *     - name: envoy.filters.http.lua
+   *       typed_config:
+   *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+   *         stat_prefix: foo_script # This emits lua.foo_script.errors etc.
+   *     - name: envoy.filters.http.lua
+   *       typed_config:
+   *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+   *         stat_prefix: bar_script # This emits lua.bar_script.errors etc.
+   * </pre>
+   *
+   * <code>string stat_prefix = 4;</code>
+   * @return The bytes for statPrefix.
+   */
+  com.google.protobuf.ByteString
+      getStatPrefixBytes();
 }

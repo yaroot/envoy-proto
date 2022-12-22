@@ -9,8 +9,9 @@ public interface TunnelDestGroupOrBuilder extends
 
   /**
    * <pre>
-   * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique within the
-   * project.
+   * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique
+   * within the project and contain only lower case letters (a-z) and dashes
+   * (-).
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -19,8 +20,9 @@ public interface TunnelDestGroupOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique within the
-   * project.
+   * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique
+   * within the project and contain only lower case letters (a-z) and dashes
+   * (-).
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -31,7 +33,7 @@ public interface TunnelDestGroupOrBuilder extends
 
   /**
    * <pre>
-   * null List of CIDRs that this group applies to.
+   * Unordered list. List of CIDRs that this group applies to.
    * </pre>
    *
    * <code>repeated string cidrs = 2 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -41,7 +43,7 @@ public interface TunnelDestGroupOrBuilder extends
       getCidrsList();
   /**
    * <pre>
-   * null List of CIDRs that this group applies to.
+   * Unordered list. List of CIDRs that this group applies to.
    * </pre>
    *
    * <code>repeated string cidrs = 2 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -50,7 +52,7 @@ public interface TunnelDestGroupOrBuilder extends
   int getCidrsCount();
   /**
    * <pre>
-   * null List of CIDRs that this group applies to.
+   * Unordered list. List of CIDRs that this group applies to.
    * </pre>
    *
    * <code>repeated string cidrs = 2 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -60,7 +62,7 @@ public interface TunnelDestGroupOrBuilder extends
   java.lang.String getCidrs(int index);
   /**
    * <pre>
-   * null List of CIDRs that this group applies to.
+   * Unordered list. List of CIDRs that this group applies to.
    * </pre>
    *
    * <code>repeated string cidrs = 2 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -72,7 +74,7 @@ public interface TunnelDestGroupOrBuilder extends
 
   /**
    * <pre>
-   * null List of FQDNs that this group applies to.
+   * Unordered list. List of FQDNs that this group applies to.
    * </pre>
    *
    * <code>repeated string fqdns = 3 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -82,7 +84,7 @@ public interface TunnelDestGroupOrBuilder extends
       getFqdnsList();
   /**
    * <pre>
-   * null List of FQDNs that this group applies to.
+   * Unordered list. List of FQDNs that this group applies to.
    * </pre>
    *
    * <code>repeated string fqdns = 3 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -91,7 +93,7 @@ public interface TunnelDestGroupOrBuilder extends
   int getFqdnsCount();
   /**
    * <pre>
-   * null List of FQDNs that this group applies to.
+   * Unordered list. List of FQDNs that this group applies to.
    * </pre>
    *
    * <code>repeated string fqdns = 3 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -101,7 +103,7 @@ public interface TunnelDestGroupOrBuilder extends
   java.lang.String getFqdns(int index);
   /**
    * <pre>
-   * null List of FQDNs that this group applies to.
+   * Unordered list. List of FQDNs that this group applies to.
    * </pre>
    *
    * <code>repeated string fqdns = 3 [(.google.api.field_behavior) = UNORDERED_LIST];</code>

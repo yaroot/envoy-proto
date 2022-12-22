@@ -87,7 +87,7 @@ public interface InstanceOrBuilder extends
    * <pre>
    * Path to a Bash script that automatically runs after a notebook instance
    * fully boots up. The path must be a URL or
-   * Cloud Storage path (`gs://path-to-file/file-name`).
+   * Cloud Storage path (gs://path-to-file/file-name).
    * </pre>
    *
    * <code>string post_startup_script = 4;</code>
@@ -98,7 +98,7 @@ public interface InstanceOrBuilder extends
    * <pre>
    * Path to a Bash script that automatically runs after a notebook instance
    * fully boots up. The path must be a URL or
-   * Cloud Storage path (`gs://path-to-file/file-name`).
+   * Cloud Storage path (gs://path-to-file/file-name).
    * </pre>
    *
    * <code>string post_startup_script = 4;</code>
@@ -109,8 +109,7 @@ public interface InstanceOrBuilder extends
 
   /**
    * <pre>
-   * Output only. The proxy endpoint that is used to access the Jupyter
-   * notebook.
+   * Output only. The proxy endpoint that is used to access the Jupyter notebook.
    * </pre>
    *
    * <code>string proxy_uri = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -119,8 +118,7 @@ public interface InstanceOrBuilder extends
   java.lang.String getProxyUri();
   /**
    * <pre>
-   * Output only. The proxy endpoint that is used to access the Jupyter
-   * notebook.
+   * Output only. The proxy endpoint that is used to access the Jupyter notebook.
    * </pre>
    *
    * <code>string proxy_uri = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -131,8 +129,7 @@ public interface InstanceOrBuilder extends
 
   /**
    * <pre>
-   * Input only. The owner of this instance after creation. Format:
-   * `alias&#64;example.com`
+   * Input only. The owner of this instance after creation. Format: `alias&#64;example.com`
    * Currently supports one owner only. If not specified, all of the service
    * account users of your VM instance's service account can use
    * the instance.
@@ -145,8 +142,7 @@ public interface InstanceOrBuilder extends
       getInstanceOwnersList();
   /**
    * <pre>
-   * Input only. The owner of this instance after creation. Format:
-   * `alias&#64;example.com`
+   * Input only. The owner of this instance after creation. Format: `alias&#64;example.com`
    * Currently supports one owner only. If not specified, all of the service
    * account users of your VM instance's service account can use
    * the instance.
@@ -158,8 +154,7 @@ public interface InstanceOrBuilder extends
   int getInstanceOwnersCount();
   /**
    * <pre>
-   * Input only. The owner of this instance after creation. Format:
-   * `alias&#64;example.com`
+   * Input only. The owner of this instance after creation. Format: `alias&#64;example.com`
    * Currently supports one owner only. If not specified, all of the service
    * account users of your VM instance's service account can use
    * the instance.
@@ -172,8 +167,7 @@ public interface InstanceOrBuilder extends
   java.lang.String getInstanceOwners(int index);
   /**
    * <pre>
-   * Input only. The owner of this instance after creation. Format:
-   * `alias&#64;example.com`
+   * Input only. The owner of this instance after creation. Format: `alias&#64;example.com`
    * Currently supports one owner only. If not specified, all of the service
    * account users of your VM instance's service account can use
    * the instance.
@@ -220,8 +214,7 @@ public interface InstanceOrBuilder extends
 
   /**
    * <pre>
-   * Required. The [Compute Engine machine
-   * type](https://cloud.google.com/compute/docs/machine-types) of this
+   * Required. The [Compute Engine machine type](/compute/docs/machine-types) of this
    * instance.
    * </pre>
    *
@@ -231,8 +224,7 @@ public interface InstanceOrBuilder extends
   java.lang.String getMachineType();
   /**
    * <pre>
-   * Required. The [Compute Engine machine
-   * type](https://cloud.google.com/compute/docs/machine-types) of this
+   * Required. The [Compute Engine machine type](/compute/docs/machine-types) of this
    * instance.
    * </pre>
    *
@@ -247,7 +239,7 @@ public interface InstanceOrBuilder extends
    * The hardware accelerator used on this instance. If you use
    * accelerators, make sure that your configuration has
    * [enough vCPUs and memory to support the `machine_type` you
-   * have selected](https://cloud.google.com/compute/docs/gpus/#gpus-list).
+   * have selected](/compute/docs/gpus/#gpus-list).
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig accelerator_config = 9;</code>
@@ -259,7 +251,7 @@ public interface InstanceOrBuilder extends
    * The hardware accelerator used on this instance. If you use
    * accelerators, make sure that your configuration has
    * [enough vCPUs and memory to support the `machine_type` you
-   * have selected](https://cloud.google.com/compute/docs/gpus/#gpus-list).
+   * have selected](/compute/docs/gpus/#gpus-list).
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig accelerator_config = 9;</code>
@@ -271,7 +263,7 @@ public interface InstanceOrBuilder extends
    * The hardware accelerator used on this instance. If you use
    * accelerators, make sure that your configuration has
    * [enough vCPUs and memory to support the `machine_type` you
-   * have selected](https://cloud.google.com/compute/docs/gpus/#gpus-list).
+   * have selected](/compute/docs/gpus/#gpus-list).
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig accelerator_config = 9;</code>
@@ -334,8 +326,8 @@ public interface InstanceOrBuilder extends
 
   /**
    * <pre>
-   * Input only. The type of the boot disk attached to this instance, defaults
-   * to standard persistent disk (`PD_STANDARD`).
+   * Input only. The type of the boot disk attached to this instance, defaults to
+   * standard persistent disk (`PD_STANDARD`).
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType boot_disk_type = 13 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -344,8 +336,8 @@ public interface InstanceOrBuilder extends
   int getBootDiskTypeValue();
   /**
    * <pre>
-   * Input only. The type of the boot disk attached to this instance, defaults
-   * to standard persistent disk (`PD_STANDARD`).
+   * Input only. The type of the boot disk attached to this instance, defaults to
+   * standard persistent disk (`PD_STANDARD`).
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType boot_disk_type = 13 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -355,9 +347,9 @@ public interface InstanceOrBuilder extends
 
   /**
    * <pre>
-   * Input only. The size of the boot disk in GB attached to this instance, up
-   * to a maximum of 64000&amp;nbsp;GB (64&amp;nbsp;TB). The minimum recommended value
-   * is 100&amp;nbsp;GB. If not specified, this defaults to 100.
+   * Input only. The size of the boot disk in GB attached to this instance, up to a maximum
+   * of 64000&amp;nbsp;GB (64&amp;nbsp;TB). The minimum recommended value is
+   * 100&amp;nbsp;GB. If not specified, this defaults to 100.
    * </pre>
    *
    * <code>int64 boot_disk_size_gb = 14 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -367,8 +359,8 @@ public interface InstanceOrBuilder extends
 
   /**
    * <pre>
-   * Input only. The type of the data disk attached to this instance, defaults
-   * to standard persistent disk (`PD_STANDARD`).
+   * Input only. The type of the data disk attached to this instance, defaults to
+   * standard persistent disk (`PD_STANDARD`).
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType data_disk_type = 25 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -377,8 +369,8 @@ public interface InstanceOrBuilder extends
   int getDataDiskTypeValue();
   /**
    * <pre>
-   * Input only. The type of the data disk attached to this instance, defaults
-   * to standard persistent disk (`PD_STANDARD`).
+   * Input only. The type of the data disk attached to this instance, defaults to
+   * standard persistent disk (`PD_STANDARD`).
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType data_disk_type = 25 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -388,10 +380,10 @@ public interface InstanceOrBuilder extends
 
   /**
    * <pre>
-   * Input only. The size of the data disk in GB attached to this instance, up
-   * to a maximum of 64000&amp;nbsp;GB (64&amp;nbsp;TB). You can choose the size of the
-   * data disk based on how big your notebooks and data are. If not specified,
-   * this defaults to 100.
+   * Input only. The size of the data disk in GB attached to this instance, up to a maximum
+   * of 64000&amp;nbsp;GB (64&amp;nbsp;TB). You can choose the size of the data disk
+   * based on how big your notebooks and data are. If not specified, this
+   * defaults to 100.
    * </pre>
    *
    * <code>int64 data_disk_size_gb = 26 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -401,8 +393,7 @@ public interface InstanceOrBuilder extends
 
   /**
    * <pre>
-   * Input only. If true, the data disk will not be auto deleted when deleting
-   * the instance.
+   * Input only. If true, the data disk will not be auto deleted when deleting the instance.
    * </pre>
    *
    * <code>bool no_remove_data_disk = 27 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -412,8 +403,7 @@ public interface InstanceOrBuilder extends
 
   /**
    * <pre>
-   * Input only. Disk encryption method used on the boot and data disks,
-   * defaults to GMEK.
+   * Input only. Disk encryption method used on the boot and data disks, defaults to GMEK.
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.DiskEncryption disk_encryption = 15 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -422,8 +412,7 @@ public interface InstanceOrBuilder extends
   int getDiskEncryptionValue();
   /**
    * <pre>
-   * Input only. Disk encryption method used on the boot and data disks,
-   * defaults to GMEK.
+   * Input only. Disk encryption method used on the boot and data disks, defaults to GMEK.
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.DiskEncryption disk_encryption = 15 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -433,11 +422,11 @@ public interface InstanceOrBuilder extends
 
   /**
    * <pre>
-   * Input only. The KMS key used to encrypt the disks, only applicable if
-   * disk_encryption is CMEK. Format:
+   * Input only. The KMS key used to encrypt the disks, only applicable if disk_encryption
+   * is CMEK.
+   * Format:
    * `projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}`
-   * Learn more about [using your own encryption keys](
-   * https://cloud.google.com/kms/docs/quickstart).
+   * Learn more about [using your own encryption keys](/kms/docs/quickstart).
    * </pre>
    *
    * <code>string kms_key = 16 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -446,11 +435,11 @@ public interface InstanceOrBuilder extends
   java.lang.String getKmsKey();
   /**
    * <pre>
-   * Input only. The KMS key used to encrypt the disks, only applicable if
-   * disk_encryption is CMEK. Format:
+   * Input only. The KMS key used to encrypt the disks, only applicable if disk_encryption
+   * is CMEK.
+   * Format:
    * `projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}`
-   * Learn more about [using your own encryption keys](
-   * https://cloud.google.com/kms/docs/quickstart).
+   * Learn more about [using your own encryption keys](/kms/docs/quickstart).
    * </pre>
    *
    * <code>string kms_key = 16 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -570,7 +559,6 @@ public interface InstanceOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 21;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -584,7 +572,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 21;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -627,7 +614,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; metadata = 22;</code>
    */
-
   /* nullable */
 java.lang.String getMetadataOrDefault(
       java.lang.String key,
@@ -640,9 +626,76 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; metadata = 22;</code>
    */
-
   java.lang.String getMetadataOrThrow(
       java.lang.String key);
+
+  /**
+   * <pre>
+   * Optional. The type of vNIC to be used on this interface. This may be gVNIC or
+   * VirtioNet.
+   * </pre>
+   *
+   * <code>.google.cloud.notebooks.v1beta1.Instance.NicType nic_type = 28 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The enum numeric value on the wire for nicType.
+   */
+  int getNicTypeValue();
+  /**
+   * <pre>
+   * Optional. The type of vNIC to be used on this interface. This may be gVNIC or
+   * VirtioNet.
+   * </pre>
+   *
+   * <code>.google.cloud.notebooks.v1beta1.Instance.NicType nic_type = 28 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The nicType.
+   */
+  com.google.cloud.notebooks.v1beta1.Instance.NicType getNicType();
+
+  /**
+   * <pre>
+   * Optional. The optional reservation affinity. Setting this field will apply
+   * the specified [Zonal Compute
+   * Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+   * to this notebook instance.
+   * </pre>
+   *
+   * <code>.google.cloud.notebooks.v1beta1.ReservationAffinity reservation_affinity = 29 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return Whether the reservationAffinity field is set.
+   */
+  boolean hasReservationAffinity();
+  /**
+   * <pre>
+   * Optional. The optional reservation affinity. Setting this field will apply
+   * the specified [Zonal Compute
+   * Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+   * to this notebook instance.
+   * </pre>
+   *
+   * <code>.google.cloud.notebooks.v1beta1.ReservationAffinity reservation_affinity = 29 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The reservationAffinity.
+   */
+  com.google.cloud.notebooks.v1beta1.ReservationAffinity getReservationAffinity();
+  /**
+   * <pre>
+   * Optional. The optional reservation affinity. Setting this field will apply
+   * the specified [Zonal Compute
+   * Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+   * to this notebook instance.
+   * </pre>
+   *
+   * <code>.google.cloud.notebooks.v1beta1.ReservationAffinity reservation_affinity = 29 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  com.google.cloud.notebooks.v1beta1.ReservationAffinityOrBuilder getReservationAffinityOrBuilder();
+
+  /**
+   * <pre>
+   * Optional. Flag to enable ip forwarding or not, default false/off.
+   * https://cloud.google.com/vpc/docs/using-routes#canipforward
+   * </pre>
+   *
+   * <code>bool can_ip_forward = 31 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The canIpForward.
+   */
+  boolean getCanIpForward();
 
   /**
    * <pre>

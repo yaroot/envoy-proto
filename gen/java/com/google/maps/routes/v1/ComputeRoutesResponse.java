@@ -35,71 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ComputeRoutesResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              routes_ = new java.util.ArrayList<com.google.maps.routes.v1.Route>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            routes_.add(
-                input.readMessage(com.google.maps.routes.v1.Route.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            com.google.maps.routes.v1.FallbackInfo.Builder subBuilder = null;
-            if (fallbackInfo_ != null) {
-              subBuilder = fallbackInfo_.toBuilder();
-            }
-            fallbackInfo_ = input.readMessage(com.google.maps.routes.v1.FallbackInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(fallbackInfo_);
-              fallbackInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        routes_ = java.util.Collections.unmodifiableList(routes_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.routes.v1.ComputeRoutesResponseProto.internal_static_google_maps_routes_v1_ComputeRoutesResponse_descriptor;
@@ -114,6 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROUTES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.maps.routes.v1.Route> routes_;
   /**
    * <pre>
@@ -237,7 +173,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.maps.routes.v1.FallbackInfoOrBuilder getFallbackInfoOrBuilder() {
-    return getFallbackInfo();
+    return fallbackInfo_ == null ? com.google.maps.routes.v1.FallbackInfo.getDefaultInstance() : fallbackInfo_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -260,7 +196,7 @@ private static final long serialVersionUID = 0L;
     if (fallbackInfo_ != null) {
       output.writeMessage(2, getFallbackInfo());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -277,7 +213,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getFallbackInfo());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -299,7 +235,7 @@ private static final long serialVersionUID = 0L;
       if (!getFallbackInfo()
           .equals(other.getFallbackInfo())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -318,7 +254,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FALLBACK_INFO_FIELD_NUMBER;
       hash = (53 * hash) + getFallbackInfo().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -439,33 +375,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.routes.v1.ComputeRoutesResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRoutesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (routesBuilder_ == null) {
         routes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        routes_ = null;
         routesBuilder_.clear();
       }
-      if (fallbackInfoBuilder_ == null) {
-        fallbackInfo_ = null;
-      } else {
-        fallbackInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      fallbackInfo_ = null;
+      if (fallbackInfoBuilder_ != null) {
+        fallbackInfoBuilder_.dispose();
         fallbackInfoBuilder_ = null;
       }
       return this;
@@ -494,7 +425,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.routes.v1.ComputeRoutesResponse buildPartial() {
       com.google.maps.routes.v1.ComputeRoutesResponse result = new com.google.maps.routes.v1.ComputeRoutesResponse(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.maps.routes.v1.ComputeRoutesResponse result) {
       if (routesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           routes_ = java.util.Collections.unmodifiableList(routes_);
@@ -504,13 +441,15 @@ private static final long serialVersionUID = 0L;
       } else {
         result.routes_ = routesBuilder_.build();
       }
-      if (fallbackInfoBuilder_ == null) {
-        result.fallbackInfo_ = fallbackInfo_;
-      } else {
-        result.fallbackInfo_ = fallbackInfoBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.maps.routes.v1.ComputeRoutesResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.fallbackInfo_ = fallbackInfoBuilder_ == null
+            ? fallbackInfo_
+            : fallbackInfoBuilder_.build();
       }
-      onBuilt();
-      return result;
     }
 
     @java.lang.Override
@@ -586,7 +525,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasFallbackInfo()) {
         mergeFallbackInfo(other.getFallbackInfo());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -601,17 +540,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.routes.v1.ComputeRoutesResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.maps.routes.v1.Route m =
+                  input.readMessage(
+                      com.google.maps.routes.v1.Route.parser(),
+                      extensionRegistry);
+              if (routesBuilder_ == null) {
+                ensureRoutesIsMutable();
+                routes_.add(m);
+              } else {
+                routesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getFallbackInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.routes.v1.ComputeRoutesResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1015,7 +987,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the fallbackInfo field is set.
      */
     public boolean hasFallbackInfo() {
-      return fallbackInfoBuilder_ != null || fallbackInfo_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1051,11 +1023,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         fallbackInfo_ = value;
-        onChanged();
       } else {
         fallbackInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1072,11 +1044,11 @@ private static final long serialVersionUID = 0L;
         com.google.maps.routes.v1.FallbackInfo.Builder builderForValue) {
       if (fallbackInfoBuilder_ == null) {
         fallbackInfo_ = builderForValue.build();
-        onChanged();
       } else {
         fallbackInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1091,17 +1063,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFallbackInfo(com.google.maps.routes.v1.FallbackInfo value) {
       if (fallbackInfoBuilder_ == null) {
-        if (fallbackInfo_ != null) {
-          fallbackInfo_ =
-            com.google.maps.routes.v1.FallbackInfo.newBuilder(fallbackInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          fallbackInfo_ != null &&
+          fallbackInfo_ != com.google.maps.routes.v1.FallbackInfo.getDefaultInstance()) {
+          getFallbackInfoBuilder().mergeFrom(value);
         } else {
           fallbackInfo_ = value;
         }
-        onChanged();
       } else {
         fallbackInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1115,14 +1088,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routes.v1.FallbackInfo fallback_info = 2;</code>
      */
     public Builder clearFallbackInfo() {
-      if (fallbackInfoBuilder_ == null) {
-        fallbackInfo_ = null;
-        onChanged();
-      } else {
-        fallbackInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      fallbackInfo_ = null;
+      if (fallbackInfoBuilder_ != null) {
+        fallbackInfoBuilder_.dispose();
         fallbackInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1136,7 +1108,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routes.v1.FallbackInfo fallback_info = 2;</code>
      */
     public com.google.maps.routes.v1.FallbackInfo.Builder getFallbackInfoBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getFallbackInfoFieldBuilder().getBuilder();
     }
@@ -1214,7 +1186,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ComputeRoutesResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

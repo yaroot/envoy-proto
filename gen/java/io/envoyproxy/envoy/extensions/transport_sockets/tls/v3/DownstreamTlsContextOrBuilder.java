@@ -237,5 +237,38 @@ public interface DownstreamTlsContextOrBuilder extends
    */
   io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext.OcspStaplePolicy getOcspStaplePolicy();
 
+  /**
+   * <pre>
+   * Multiple certificates are allowed in Downstream transport socket to serve different SNI.
+   * If the client provides SNI but no such cert matched, it will decide to full scan certificates or not based on this config.
+   * Defaults to false. See more details in :ref:`Multiple TLS certificates &lt;arch_overview_ssl_cert_select&gt;`.
+   * </pre>
+   *
+   * <code>.google.protobuf.BoolValue full_scan_certs_on_sni_mismatch = 9;</code>
+   * @return Whether the fullScanCertsOnSniMismatch field is set.
+   */
+  boolean hasFullScanCertsOnSniMismatch();
+  /**
+   * <pre>
+   * Multiple certificates are allowed in Downstream transport socket to serve different SNI.
+   * If the client provides SNI but no such cert matched, it will decide to full scan certificates or not based on this config.
+   * Defaults to false. See more details in :ref:`Multiple TLS certificates &lt;arch_overview_ssl_cert_select&gt;`.
+   * </pre>
+   *
+   * <code>.google.protobuf.BoolValue full_scan_certs_on_sni_mismatch = 9;</code>
+   * @return The fullScanCertsOnSniMismatch.
+   */
+  com.google.protobuf.BoolValue getFullScanCertsOnSniMismatch();
+  /**
+   * <pre>
+   * Multiple certificates are allowed in Downstream transport socket to serve different SNI.
+   * If the client provides SNI but no such cert matched, it will decide to full scan certificates or not based on this config.
+   * Defaults to false. See more details in :ref:`Multiple TLS certificates &lt;arch_overview_ssl_cert_select&gt;`.
+   * </pre>
+   *
+   * <code>.google.protobuf.BoolValue full_scan_certs_on_sni_mismatch = 9;</code>
+   */
+  com.google.protobuf.BoolValueOrBuilder getFullScanCertsOnSniMismatchOrBuilder();
+
   public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext.SessionTicketKeysTypeCase getSessionTicketKeysTypeCase();
 }

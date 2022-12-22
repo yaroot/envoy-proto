@@ -47,96 +47,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ResourceLocator(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            scheme_ = rawValue;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            authority_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceType_ = s;
-            break;
-          }
-          case 42: {
-            com.github.xds.core.v3.ContextParams.Builder subBuilder = null;
-            if (contextParamSpecifierCase_ == 5) {
-              subBuilder = ((com.github.xds.core.v3.ContextParams) contextParamSpecifier_).toBuilder();
-            }
-            contextParamSpecifier_ =
-                input.readMessage(com.github.xds.core.v3.ContextParams.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.github.xds.core.v3.ContextParams) contextParamSpecifier_);
-              contextParamSpecifier_ = subBuilder.buildPartial();
-            }
-            contextParamSpecifierCase_ = 5;
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              directives_ = new java.util.ArrayList<com.github.xds.core.v3.ResourceLocator.Directive>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            directives_.add(
-                input.readMessage(com.github.xds.core.v3.ResourceLocator.Directive.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        directives_ = java.util.Collections.unmodifiableList(directives_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.github.xds.core.v3.ResourceLocatorProto.internal_static_xds_core_v3_ResourceLocator_descriptor;
@@ -403,65 +313,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Directive(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.github.xds.core.v3.ResourceLocator.Builder subBuilder = null;
-              if (directiveCase_ == 1) {
-                subBuilder = ((com.github.xds.core.v3.ResourceLocator) directive_).toBuilder();
-              }
-              directive_ =
-                  input.readMessage(com.github.xds.core.v3.ResourceLocator.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.github.xds.core.v3.ResourceLocator) directive_);
-                directive_ = subBuilder.buildPartial();
-              }
-              directiveCase_ = 1;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              directiveCase_ = 2;
-              directive_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.github.xds.core.v3.ResourceLocatorProto.internal_static_xds_core_v3_ResourceLocator_Directive_descriptor;
@@ -670,7 +521,7 @@ private static final long serialVersionUID = 0L;
       if (directiveCase_ == 2) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, directive_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -686,7 +537,7 @@ private static final long serialVersionUID = 0L;
       if (directiveCase_ == 2) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, directive_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -714,7 +565,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -737,7 +588,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -874,22 +725,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.github.xds.core.v3.ResourceLocator.Directive.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (altBuilder_ != null) {
+          altBuilder_.clear();
+        }
         directiveCase_ = 0;
         directive_ = null;
         return this;
@@ -918,19 +768,23 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.github.xds.core.v3.ResourceLocator.Directive buildPartial() {
         com.github.xds.core.v3.ResourceLocator.Directive result = new com.github.xds.core.v3.ResourceLocator.Directive(this);
-        if (directiveCase_ == 1) {
-          if (altBuilder_ == null) {
-            result.directive_ = directive_;
-          } else {
-            result.directive_ = altBuilder_.build();
-          }
-        }
-        if (directiveCase_ == 2) {
-          result.directive_ = directive_;
-        }
-        result.directiveCase_ = directiveCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.github.xds.core.v3.ResourceLocator.Directive result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      private void buildPartialOneofs(com.github.xds.core.v3.ResourceLocator.Directive result) {
+        result.directiveCase_ = directiveCase_;
+        result.directive_ = this.directive_;
+        if (directiveCase_ == 1 &&
+            altBuilder_ != null) {
+          result.directive_ = altBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -992,7 +846,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1007,17 +861,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.github.xds.core.v3.ResourceLocator.Directive parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getAltFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                directiveCase_ = 1;
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                directiveCase_ = 2;
+                directive_ = s;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.github.xds.core.v3.ResourceLocator.Directive) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int directiveCase_ = 0;
@@ -1035,6 +915,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.github.xds.core.v3.ResourceLocator, com.github.xds.core.v3.ResourceLocator.Builder, com.github.xds.core.v3.ResourceLocatorOrBuilder> altBuilder_;
@@ -1255,7 +1136,7 @@ private static final long serialVersionUID = 0L;
           directive_ = null;
         }
         directiveCase_ = 1;
-        onChanged();;
+        onChanged();
         return altBuilder_;
       }
 
@@ -1351,10 +1232,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEntry(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  directiveCase_ = 2;
+        if (value == null) { throw new NullPointerException(); }
+        directiveCase_ = 2;
         directive_ = value;
         onChanged();
         return this;
@@ -1394,10 +1273,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEntryBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         directiveCase_ = 2;
         directive_ = value;
         onChanged();
@@ -1436,7 +1313,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Directive(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1496,7 +1384,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCHEME_FIELD_NUMBER = 1;
-  private int scheme_;
+  private int scheme_ = 0;
   /**
    * <pre>
    * URI scheme.
@@ -1517,13 +1405,13 @@ private static final long serialVersionUID = 0L;
    * @return The scheme.
    */
   @java.lang.Override public com.github.xds.core.v3.ResourceLocator.Scheme getScheme() {
-    @SuppressWarnings("deprecation")
-    com.github.xds.core.v3.ResourceLocator.Scheme result = com.github.xds.core.v3.ResourceLocator.Scheme.valueOf(scheme_);
+    com.github.xds.core.v3.ResourceLocator.Scheme result = com.github.xds.core.v3.ResourceLocator.Scheme.forNumber(scheme_);
     return result == null ? com.github.xds.core.v3.ResourceLocator.Scheme.UNRECOGNIZED : result;
   }
 
   public static final int ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * Opaque identifier for the resource. Any '/' will not be escaped during URI
@@ -1573,7 +1461,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUTHORITY_FIELD_NUMBER = 3;
-  private volatile java.lang.Object authority_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object authority_ = "";
   /**
    * <pre>
    * Logical authority for resource (not necessarily transport network address).
@@ -1625,7 +1514,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_TYPE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object resourceType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceType_ = "";
   /**
    * <pre>
    * Fully qualified resource type (as in type URL without types.googleapis.com/
@@ -1725,6 +1615,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DIRECTIVES_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.github.xds.core.v3.ResourceLocator.Directive> directives_;
   /**
    * <pre>
@@ -1826,7 +1717,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < directives_.size(); i++) {
       output.writeMessage(6, directives_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1856,7 +1747,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, directives_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1889,7 +1780,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1920,7 +1811,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2049,37 +1940,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.github.xds.core.v3.ResourceLocator.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getDirectivesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       scheme_ = 0;
-
       id_ = "";
-
       authority_ = "";
-
       resourceType_ = "";
-
+      if (exactContextBuilder_ != null) {
+        exactContextBuilder_.clear();
+      }
       if (directivesBuilder_ == null) {
         directives_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        directives_ = null;
         directivesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       contextParamSpecifierCase_ = 0;
       contextParamSpecifier_ = null;
       return this;
@@ -2108,30 +1994,48 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.github.xds.core.v3.ResourceLocator buildPartial() {
       com.github.xds.core.v3.ResourceLocator result = new com.github.xds.core.v3.ResourceLocator(this);
-      int from_bitField0_ = bitField0_;
-      result.scheme_ = scheme_;
-      result.id_ = id_;
-      result.authority_ = authority_;
-      result.resourceType_ = resourceType_;
-      if (contextParamSpecifierCase_ == 5) {
-        if (exactContextBuilder_ == null) {
-          result.contextParamSpecifier_ = contextParamSpecifier_;
-        } else {
-          result.contextParamSpecifier_ = exactContextBuilder_.build();
-        }
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.github.xds.core.v3.ResourceLocator result) {
       if (directivesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           directives_ = java.util.Collections.unmodifiableList(directives_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.directives_ = directives_;
       } else {
         result.directives_ = directivesBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.github.xds.core.v3.ResourceLocator result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.scheme_ = scheme_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.authority_ = authority_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.resourceType_ = resourceType_;
+      }
+    }
+
+    private void buildPartialOneofs(com.github.xds.core.v3.ResourceLocator result) {
       result.contextParamSpecifierCase_ = contextParamSpecifierCase_;
-      onBuilt();
-      return result;
+      result.contextParamSpecifier_ = this.contextParamSpecifier_;
+      if (contextParamSpecifierCase_ == 5 &&
+          exactContextBuilder_ != null) {
+        result.contextParamSpecifier_ = exactContextBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2183,21 +2087,24 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getAuthority().isEmpty()) {
         authority_ = other.authority_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getResourceType().isEmpty()) {
         resourceType_ = other.resourceType_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (directivesBuilder_ == null) {
         if (!other.directives_.isEmpty()) {
           if (directives_.isEmpty()) {
             directives_ = other.directives_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureDirectivesIsMutable();
             directives_.addAll(other.directives_);
@@ -2210,7 +2117,7 @@ private static final long serialVersionUID = 0L;
             directivesBuilder_.dispose();
             directivesBuilder_ = null;
             directives_ = other.directives_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
             directivesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getDirectivesFieldBuilder() : null;
@@ -2228,7 +2135,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2243,17 +2150,70 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.xds.core.v3.ResourceLocator parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              scheme_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              authority_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              resourceType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getExactContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              contextParamSpecifierCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              com.github.xds.core.v3.ResourceLocator.Directive m =
+                  input.readMessage(
+                      com.github.xds.core.v3.ResourceLocator.Directive.parser(),
+                      extensionRegistry);
+              if (directivesBuilder_ == null) {
+                ensureDirectivesIsMutable();
+                directives_.add(m);
+              } else {
+                directivesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.xds.core.v3.ResourceLocator) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int contextParamSpecifierCase_ = 0;
@@ -2295,8 +2255,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSchemeValue(int value) {
-      
       scheme_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2310,8 +2270,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.github.xds.core.v3.ResourceLocator.Scheme getScheme() {
-      @SuppressWarnings("deprecation")
-      com.github.xds.core.v3.ResourceLocator.Scheme result = com.github.xds.core.v3.ResourceLocator.Scheme.valueOf(scheme_);
+      com.github.xds.core.v3.ResourceLocator.Scheme result = com.github.xds.core.v3.ResourceLocator.Scheme.forNumber(scheme_);
       return result == null ? com.github.xds.core.v3.ResourceLocator.Scheme.UNRECOGNIZED : result;
     }
     /**
@@ -2327,7 +2286,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       scheme_ = value.getNumber();
       onChanged();
       return this;
@@ -2341,7 +2300,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScheme() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       scheme_ = 0;
       onChanged();
       return this;
@@ -2406,11 +2365,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2425,8 +2382,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2443,12 +2400,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2515,11 +2470,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthority(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       authority_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2535,8 +2488,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAuthority() {
-      
       authority_ = getDefaultInstance().getAuthority();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2554,12 +2507,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthorityBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       authority_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2620,11 +2571,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2638,8 +2587,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceType() {
-      
       resourceType_ = getDefaultInstance().getResourceType();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2655,12 +2604,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2866,16 +2813,16 @@ private static final long serialVersionUID = 0L;
         contextParamSpecifier_ = null;
       }
       contextParamSpecifierCase_ = 5;
-      onChanged();;
+      onChanged();
       return exactContextBuilder_;
     }
 
     private java.util.List<com.github.xds.core.v3.ResourceLocator.Directive> directives_ =
       java.util.Collections.emptyList();
     private void ensureDirectivesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         directives_ = new java.util.ArrayList<com.github.xds.core.v3.ResourceLocator.Directive>(directives_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -3091,7 +3038,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearDirectives() {
       if (directivesBuilder_ == null) {
         directives_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         directivesBuilder_.clear();
@@ -3210,7 +3157,7 @@ private static final long serialVersionUID = 0L;
         directivesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.github.xds.core.v3.ResourceLocator.Directive, com.github.xds.core.v3.ResourceLocator.Directive.Builder, com.github.xds.core.v3.ResourceLocator.DirectiveOrBuilder>(
                 directives_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         directives_ = null;
@@ -3250,7 +3197,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ResourceLocator(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

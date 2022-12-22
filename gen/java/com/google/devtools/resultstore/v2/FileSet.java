@@ -47,89 +47,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private FileSet(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.devtools.resultstore.v2.FileSet.Id.Builder subBuilder = null;
-            if (id_ != null) {
-              subBuilder = id_.toBuilder();
-            }
-            id_ = input.readMessage(com.google.devtools.resultstore.v2.FileSet.Id.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(id_);
-              id_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              fileSets_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            fileSets_.add(s);
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              files_ = new java.util.ArrayList<com.google.devtools.resultstore.v2.File>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            files_.add(
-                input.readMessage(com.google.devtools.resultstore.v2.File.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        fileSets_ = fileSets_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        files_ = java.util.Collections.unmodifiableList(files_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.resultstore.v2.FileSetProto.internal_static_google_devtools_resultstore_v2_FileSet_descriptor;
@@ -220,57 +137,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Id(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              invocationId_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              fileSetId_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.devtools.resultstore.v2.FileSetProto.internal_static_google_devtools_resultstore_v2_FileSet_Id_descriptor;
@@ -285,7 +151,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int INVOCATION_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object invocationId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object invocationId_ = "";
     /**
      * <pre>
      * The Invocation ID.
@@ -331,7 +198,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int FILE_SET_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object fileSetId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object fileSetId_ = "";
     /**
      * <pre>
      * The FileSet ID.
@@ -396,7 +264,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileSetId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, fileSetId_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -411,7 +279,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileSetId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, fileSetId_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -430,7 +298,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getInvocationId())) return false;
       if (!getFileSetId()
           .equals(other.getFileSetId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -445,7 +313,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getInvocationId().hashCode();
       hash = (37 * hash) + FILE_SET_ID_FIELD_NUMBER;
       hash = (53 * hash) + getFileSetId().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -566,26 +434,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.devtools.resultstore.v2.FileSet.Id.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         invocationId_ = "";
-
         fileSetId_ = "";
-
         return this;
       }
 
@@ -612,10 +474,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.devtools.resultstore.v2.FileSet.Id buildPartial() {
         com.google.devtools.resultstore.v2.FileSet.Id result = new com.google.devtools.resultstore.v2.FileSet.Id(this);
-        result.invocationId_ = invocationId_;
-        result.fileSetId_ = fileSetId_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.devtools.resultstore.v2.FileSet.Id result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.invocationId_ = invocationId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.fileSetId_ = fileSetId_;
+        }
       }
 
       @java.lang.Override
@@ -664,13 +535,15 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.devtools.resultstore.v2.FileSet.Id.getDefaultInstance()) return this;
         if (!other.getInvocationId().isEmpty()) {
           invocationId_ = other.invocationId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getFileSetId().isEmpty()) {
           fileSetId_ = other.fileSetId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -685,19 +558,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.devtools.resultstore.v2.FileSet.Id parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                invocationId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                fileSetId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.devtools.resultstore.v2.FileSet.Id) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object invocationId_ = "";
       /**
@@ -752,11 +649,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setInvocationId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         invocationId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -769,8 +664,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearInvocationId() {
-        
         invocationId_ = getDefaultInstance().getInvocationId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -785,12 +680,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setInvocationIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         invocationId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -848,11 +741,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setFileSetId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         fileSetId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -865,8 +756,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearFileSetId() {
-        
         fileSetId_ = getDefaultInstance().getFileSetId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -881,12 +772,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setFileSetIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         fileSetId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -923,7 +812,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Id(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -944,7 +844,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The format of this FileSet resource name must be:
@@ -1029,10 +930,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.resultstore.v2.FileSet.IdOrBuilder getIdOrBuilder() {
-    return getId();
+    return id_ == null ? com.google.devtools.resultstore.v2.FileSet.Id.getDefaultInstance() : id_;
   }
 
   public static final int FILE_SETS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList fileSets_;
   /**
    * <pre>
@@ -1092,6 +994,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.devtools.resultstore.v2.File> files_;
   /**
    * <pre>
@@ -1182,7 +1085,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < files_.size(); i++) {
       output.writeMessage(4, files_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1210,7 +1113,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, files_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1236,7 +1139,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFileSetsList())) return false;
     if (!getFilesList()
         .equals(other.getFilesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1261,7 +1164,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FILES_FIELD_NUMBER;
       hash = (53 * hash) + getFilesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1392,39 +1295,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.resultstore.v2.FileSet.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getFilesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (idBuilder_ == null) {
-        id_ = null;
-      } else {
-        id_ = null;
+      id_ = null;
+      if (idBuilder_ != null) {
+        idBuilder_.dispose();
         idBuilder_ = null;
       }
       fileSets_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (filesBuilder_ == null) {
         files_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        files_ = null;
         filesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -1451,29 +1348,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.resultstore.v2.FileSet buildPartial() {
       com.google.devtools.resultstore.v2.FileSet result = new com.google.devtools.resultstore.v2.FileSet(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      if (idBuilder_ == null) {
-        result.id_ = id_;
-      } else {
-        result.id_ = idBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.devtools.resultstore.v2.FileSet result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         fileSets_ = fileSets_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.fileSets_ = fileSets_;
       if (filesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           files_ = java.util.Collections.unmodifiableList(files_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.files_ = files_;
       } else {
         result.files_ = filesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.devtools.resultstore.v2.FileSet result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.id_ = idBuilder_ == null
+            ? id_
+            : idBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1522,6 +1429,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.resultstore.v2.FileSet.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasId()) {
@@ -1530,7 +1438,7 @@ private static final long serialVersionUID = 0L;
       if (!other.fileSets_.isEmpty()) {
         if (fileSets_.isEmpty()) {
           fileSets_ = other.fileSets_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureFileSetsIsMutable();
           fileSets_.addAll(other.fileSets_);
@@ -1541,7 +1449,7 @@ private static final long serialVersionUID = 0L;
         if (!other.files_.isEmpty()) {
           if (files_.isEmpty()) {
             files_ = other.files_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureFilesIsMutable();
             files_.addAll(other.files_);
@@ -1554,7 +1462,7 @@ private static final long serialVersionUID = 0L;
             filesBuilder_.dispose();
             filesBuilder_ = null;
             files_ = other.files_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
             filesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFilesFieldBuilder() : null;
@@ -1563,7 +1471,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1578,17 +1486,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.resultstore.v2.FileSet parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getIdFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureFileSetsIsMutable();
+              fileSets_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              com.google.devtools.resultstore.v2.File m =
+                  input.readMessage(
+                      com.google.devtools.resultstore.v2.File.parser(),
+                      extensionRegistry);
+              if (filesBuilder_ == null) {
+                ensureFilesIsMutable();
+                files_.add(m);
+              } else {
+                filesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.resultstore.v2.FileSet) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1649,11 +1601,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1667,8 +1617,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1684,12 +1634,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1707,7 +1655,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the id field is set.
      */
     public boolean hasId() {
-      return idBuilder_ != null || id_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1739,11 +1687,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         id_ = value;
-        onChanged();
       } else {
         idBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1758,11 +1706,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.resultstore.v2.FileSet.Id.Builder builderForValue) {
       if (idBuilder_ == null) {
         id_ = builderForValue.build();
-        onChanged();
       } else {
         idBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1775,17 +1723,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeId(com.google.devtools.resultstore.v2.FileSet.Id value) {
       if (idBuilder_ == null) {
-        if (id_ != null) {
-          id_ =
-            com.google.devtools.resultstore.v2.FileSet.Id.newBuilder(id_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          id_ != null &&
+          id_ != com.google.devtools.resultstore.v2.FileSet.Id.getDefaultInstance()) {
+          getIdBuilder().mergeFrom(value);
         } else {
           id_ = value;
         }
-        onChanged();
       } else {
         idBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1797,14 +1746,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.resultstore.v2.FileSet.Id id = 2;</code>
      */
     public Builder clearId() {
-      if (idBuilder_ == null) {
-        id_ = null;
-        onChanged();
-      } else {
-        id_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      id_ = null;
+      if (idBuilder_ != null) {
+        idBuilder_.dispose();
         idBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1816,7 +1764,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.resultstore.v2.FileSet.Id id = 2;</code>
      */
     public com.google.devtools.resultstore.v2.FileSet.Id.Builder getIdBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getIdFieldBuilder().getBuilder();
     }
@@ -1860,9 +1808,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList fileSets_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureFileSetsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         fileSets_ = new com.google.protobuf.LazyStringArrayList(fileSets_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1935,10 +1883,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFileSets(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFileSetsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFileSetsIsMutable();
       fileSets_.set(index, value);
       onChanged();
       return this;
@@ -1956,10 +1902,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFileSets(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFileSetsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFileSetsIsMutable();
       fileSets_.add(value);
       onChanged();
       return this;
@@ -1995,7 +1939,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearFileSets() {
       fileSets_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2012,10 +1956,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFileSetsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureFileSetsIsMutable();
       fileSets_.add(value);
       onChanged();
@@ -2025,9 +1967,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.devtools.resultstore.v2.File> files_ =
       java.util.Collections.emptyList();
     private void ensureFilesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         files_ = new java.util.ArrayList<com.google.devtools.resultstore.v2.File>(files_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -2232,7 +2174,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearFiles() {
       if (filesBuilder_ == null) {
         files_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         filesBuilder_.clear();
@@ -2344,7 +2286,7 @@ private static final long serialVersionUID = 0L;
         filesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.devtools.resultstore.v2.File, com.google.devtools.resultstore.v2.File.Builder, com.google.devtools.resultstore.v2.FileOrBuilder>(
                 files_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         files_ = null;
@@ -2384,7 +2326,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FileSet(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

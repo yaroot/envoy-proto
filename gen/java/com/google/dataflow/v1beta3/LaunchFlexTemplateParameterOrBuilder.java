@@ -131,7 +131,6 @@ public interface LaunchFlexTemplateParameterOrBuilder extends
    *
    * <code>map&lt;string, string&gt; parameters = 2;</code>
    */
-
   /* nullable */
 java.lang.String getParametersOrDefault(
       java.lang.String key,
@@ -145,7 +144,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; parameters = 2;</code>
    */
-
   java.lang.String getParametersOrThrow(
       java.lang.String key);
 
@@ -196,7 +194,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; launch_options = 6;</code>
    */
-
   /* nullable */
 java.lang.String getLaunchOptionsOrDefault(
       java.lang.String key,
@@ -211,7 +208,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; launch_options = 6;</code>
    */
-
   java.lang.String getLaunchOptionsOrThrow(
       java.lang.String key);
 
@@ -297,7 +293,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; transform_name_mappings = 9;</code>
    */
-
   /* nullable */
 java.lang.String getTransformNameMappingsOrDefault(
       java.lang.String key,
@@ -311,7 +306,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; transform_name_mappings = 9;</code>
    */
-
   java.lang.String getTransformNameMappingsOrThrow(
       java.lang.String key);
 

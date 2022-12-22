@@ -34,83 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InstanceGroupManagerStatus(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 867286912: {
-            bitField0_ |= 0x00000002;
-            isStable_ = input.readBool();
-            break;
-          }
-          case 1955699298: {
-            com.google.cloud.compute.v1.InstanceGroupManagerStatusStateful.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000004) != 0)) {
-              subBuilder = stateful_.toBuilder();
-            }
-            stateful_ = input.readMessage(com.google.cloud.compute.v1.InstanceGroupManagerStatusStateful.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(stateful_);
-              stateful_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000004;
-            break;
-          }
-          case -1979877694: {
-            com.google.cloud.compute.v1.InstanceGroupManagerStatusVersionTarget.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000008) != 0)) {
-              subBuilder = versionTarget_.toBuilder();
-            }
-            versionTarget_ = input.readMessage(com.google.cloud.compute.v1.InstanceGroupManagerStatusVersionTarget.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(versionTarget_);
-              versionTarget_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000008;
-            break;
-          }
-          case -156895558: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            autoscaler_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_InstanceGroupManagerStatus_descriptor;
@@ -126,7 +49,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int AUTOSCALER_FIELD_NUMBER = 517258967;
-  private volatile java.lang.Object autoscaler_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object autoscaler_ = "";
   /**
    * <pre>
    * [Output Only] The URL of the Autoscaler that targets this instance group manager.
@@ -184,7 +108,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IS_STABLE_FIELD_NUMBER = 108410864;
-  private boolean isStable_;
+  private boolean isStable_ = false;
   /**
    * <pre>
    * [Output Only] A bit indicating whether the managed instance group is in a stable state. A stable state means that: none of the instances in the managed instance group is currently undergoing any type of change (for example, creation, restart, or deletion); no future changes are scheduled for instances in the managed instance group; and the managed instance group itself is not being modified.
@@ -312,7 +236,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 517258967, autoscaler_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -336,7 +260,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(517258967, autoscaler_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -371,7 +295,7 @@ private static final long serialVersionUID = 0L;
       if (!getVersionTarget()
           .equals(other.getVersionTarget())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -399,7 +323,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VERSION_TARGET_FIELD_NUMBER;
       hash = (53 * hash) + getVersionTarget().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -537,22 +461,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       autoscaler_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       isStable_ = false;
-      bitField0_ = (bitField0_ & ~0x00000002);
-      if (statefulBuilder_ == null) {
-        stateful_ = null;
-      } else {
-        statefulBuilder_.clear();
+      stateful_ = null;
+      if (statefulBuilder_ != null) {
+        statefulBuilder_.dispose();
+        statefulBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000004);
-      if (versionTargetBuilder_ == null) {
-        versionTarget_ = null;
-      } else {
-        versionTargetBuilder_.clear();
+      versionTarget_ = null;
+      if (versionTargetBuilder_ != null) {
+        versionTargetBuilder_.dispose();
+        versionTargetBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -579,35 +500,35 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.InstanceGroupManagerStatus buildPartial() {
       com.google.cloud.compute.v1.InstanceGroupManagerStatus result = new com.google.cloud.compute.v1.InstanceGroupManagerStatus(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.InstanceGroupManagerStatus result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.autoscaler_ = autoscaler_;
         to_bitField0_ |= 0x00000001;
       }
-      result.autoscaler_ = autoscaler_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.isStable_ = isStable_;
         to_bitField0_ |= 0x00000002;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        if (statefulBuilder_ == null) {
-          result.stateful_ = stateful_;
-        } else {
-          result.stateful_ = statefulBuilder_.build();
-        }
+        result.stateful_ = statefulBuilder_ == null
+            ? stateful_
+            : statefulBuilder_.build();
         to_bitField0_ |= 0x00000004;
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
-        if (versionTargetBuilder_ == null) {
-          result.versionTarget_ = versionTarget_;
-        } else {
-          result.versionTarget_ = versionTargetBuilder_.build();
-        }
+        result.versionTarget_ = versionTargetBuilder_ == null
+            ? versionTarget_
+            : versionTargetBuilder_.build();
         to_bitField0_ |= 0x00000008;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -655,8 +576,8 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.InstanceGroupManagerStatus other) {
       if (other == com.google.cloud.compute.v1.InstanceGroupManagerStatus.getDefaultInstance()) return this;
       if (other.hasAutoscaler()) {
-        bitField0_ |= 0x00000001;
         autoscaler_ = other.autoscaler_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasIsStable()) {
@@ -668,7 +589,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasVersionTarget()) {
         mergeVersionTarget(other.getVersionTarget());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -683,17 +604,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.InstanceGroupManagerStatus parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 867286912: {
+              isStable_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 867286912
+            case 1955699298: {
+              input.readMessage(
+                  getStatefulFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 1955699298
+            case -1979877694: {
+              input.readMessage(
+                  getVersionTargetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -1979877694
+            case -156895558: {
+              autoscaler_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -156895558
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.InstanceGroupManagerStatus) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -762,11 +720,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAutoscaler(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       autoscaler_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -779,8 +735,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAutoscaler() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       autoscaler_ = getDefaultInstance().getAutoscaler();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -795,12 +751,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAutoscalerBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       autoscaler_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -840,8 +794,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIsStable(boolean value) {
-      bitField0_ |= 0x00000002;
+      
       isStable_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -902,11 +857,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         stateful_ = value;
-        onChanged();
       } else {
         statefulBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -920,11 +875,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.InstanceGroupManagerStatusStateful.Builder builderForValue) {
       if (statefulBuilder_ == null) {
         stateful_ = builderForValue.build();
-        onChanged();
       } else {
         statefulBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -937,18 +892,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeStateful(com.google.cloud.compute.v1.InstanceGroupManagerStatusStateful value) {
       if (statefulBuilder_ == null) {
         if (((bitField0_ & 0x00000004) != 0) &&
-            stateful_ != null &&
-            stateful_ != com.google.cloud.compute.v1.InstanceGroupManagerStatusStateful.getDefaultInstance()) {
-          stateful_ =
-            com.google.cloud.compute.v1.InstanceGroupManagerStatusStateful.newBuilder(stateful_).mergeFrom(value).buildPartial();
+          stateful_ != null &&
+          stateful_ != com.google.cloud.compute.v1.InstanceGroupManagerStatusStateful.getDefaultInstance()) {
+          getStatefulBuilder().mergeFrom(value);
         } else {
           stateful_ = value;
         }
-        onChanged();
       } else {
         statefulBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -959,13 +913,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.InstanceGroupManagerStatusStateful stateful = 244462412;</code>
      */
     public Builder clearStateful() {
-      if (statefulBuilder_ == null) {
-        stateful_ = null;
-        onChanged();
-      } else {
-        statefulBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000004);
+      stateful_ = null;
+      if (statefulBuilder_ != null) {
+        statefulBuilder_.dispose();
+        statefulBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1058,11 +1012,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         versionTarget_ = value;
-        onChanged();
       } else {
         versionTargetBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1076,11 +1030,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.InstanceGroupManagerStatusVersionTarget.Builder builderForValue) {
       if (versionTargetBuilder_ == null) {
         versionTarget_ = builderForValue.build();
-        onChanged();
       } else {
         versionTargetBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1093,18 +1047,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeVersionTarget(com.google.cloud.compute.v1.InstanceGroupManagerStatusVersionTarget value) {
       if (versionTargetBuilder_ == null) {
         if (((bitField0_ & 0x00000008) != 0) &&
-            versionTarget_ != null &&
-            versionTarget_ != com.google.cloud.compute.v1.InstanceGroupManagerStatusVersionTarget.getDefaultInstance()) {
-          versionTarget_ =
-            com.google.cloud.compute.v1.InstanceGroupManagerStatusVersionTarget.newBuilder(versionTarget_).mergeFrom(value).buildPartial();
+          versionTarget_ != null &&
+          versionTarget_ != com.google.cloud.compute.v1.InstanceGroupManagerStatusVersionTarget.getDefaultInstance()) {
+          getVersionTargetBuilder().mergeFrom(value);
         } else {
           versionTarget_ = value;
         }
-        onChanged();
       } else {
         versionTargetBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1115,13 +1068,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.InstanceGroupManagerStatusVersionTarget version_target = 289386200;</code>
      */
     public Builder clearVersionTarget() {
-      if (versionTargetBuilder_ == null) {
-        versionTarget_ = null;
-        onChanged();
-      } else {
-        versionTargetBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000008);
+      versionTarget_ = null;
+      if (versionTargetBuilder_ != null) {
+        versionTargetBuilder_.dispose();
+        versionTargetBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1204,7 +1157,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InstanceGroupManagerStatus(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

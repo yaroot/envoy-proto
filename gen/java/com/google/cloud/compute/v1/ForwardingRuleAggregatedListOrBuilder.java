@@ -75,7 +75,6 @@ public interface ForwardingRuleAggregatedListOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.ForwardingRulesScopedList&gt; items = 100526016;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.ForwardingRulesScopedList getItemsOrDefault(
       java.lang.String key,
@@ -88,7 +87,6 @@ com.google.cloud.compute.v1.ForwardingRulesScopedList defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.ForwardingRulesScopedList&gt; items = 100526016;</code>
    */
-
   com.google.cloud.compute.v1.ForwardingRulesScopedList getItemsOrThrow(
       java.lang.String key);
 

@@ -37,63 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ProvisionedService(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            provisioningId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            productId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            skuId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.EntitlementsProto.internal_static_google_cloud_channel_v1_ProvisionedService_descriptor;
@@ -108,11 +51,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROVISIONING_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object provisioningId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object provisioningId_ = "";
   /**
    * <pre>
-   * Output only. Provisioning ID of the entitlement. For Google Workspace, this is the
-   * underlying Subscription ID. For Google Cloud Platform, this is the
+   * Output only. Provisioning ID of the entitlement. For Google Workspace, this
+   * is the underlying Subscription ID. For Google Cloud Platform, this is the
    * Billing Account ID of the billing subaccount."
    * </pre>
    *
@@ -134,8 +78,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. Provisioning ID of the entitlement. For Google Workspace, this is the
-   * underlying Subscription ID. For Google Cloud Platform, this is the
+   * Output only. Provisioning ID of the entitlement. For Google Workspace, this
+   * is the underlying Subscription ID. For Google Cloud Platform, this is the
    * Billing Account ID of the billing subaccount."
    * </pre>
    *
@@ -158,11 +102,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRODUCT_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object productId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object productId_ = "";
   /**
    * <pre>
-   * Output only. The product pertaining to the provisioning resource as specified in the
-   * Offer.
+   * Output only. The product pertaining to the provisioning resource as
+   * specified in the Offer.
    * </pre>
    *
    * <code>string product_id = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -183,8 +128,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The product pertaining to the provisioning resource as specified in the
-   * Offer.
+   * Output only. The product pertaining to the provisioning resource as
+   * specified in the Offer.
    * </pre>
    *
    * <code>string product_id = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -206,10 +151,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SKU_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object skuId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object skuId_ = "";
   /**
    * <pre>
-   * Output only. The SKU pertaining to the provisioning resource as specified in the Offer.
+   * Output only. The SKU pertaining to the provisioning resource as specified
+   * in the Offer.
    * </pre>
    *
    * <code>string sku_id = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -230,7 +177,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The SKU pertaining to the provisioning resource as specified in the Offer.
+   * Output only. The SKU pertaining to the provisioning resource as specified
+   * in the Offer.
    * </pre>
    *
    * <code>string sku_id = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -274,7 +222,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(skuId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, skuId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -292,7 +240,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(skuId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, skuId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -313,7 +261,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getProductId())) return false;
     if (!getSkuId()
         .equals(other.getSkuId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -330,7 +278,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getProductId().hashCode();
     hash = (37 * hash) + SKU_ID_FIELD_NUMBER;
     hash = (53 * hash) + getSkuId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -451,28 +399,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.ProvisionedService.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       provisioningId_ = "";
-
       productId_ = "";
-
       skuId_ = "";
-
       return this;
     }
 
@@ -499,11 +440,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.ProvisionedService buildPartial() {
       com.google.cloud.channel.v1.ProvisionedService result = new com.google.cloud.channel.v1.ProvisionedService(this);
-      result.provisioningId_ = provisioningId_;
-      result.productId_ = productId_;
-      result.skuId_ = skuId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.ProvisionedService result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.provisioningId_ = provisioningId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.productId_ = productId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.skuId_ = skuId_;
+      }
     }
 
     @java.lang.Override
@@ -552,17 +504,20 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.channel.v1.ProvisionedService.getDefaultInstance()) return this;
       if (!other.getProvisioningId().isEmpty()) {
         provisioningId_ = other.provisioningId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getProductId().isEmpty()) {
         productId_ = other.productId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getSkuId().isEmpty()) {
         skuId_ = other.skuId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -577,25 +532,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.ProvisionedService parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              provisioningId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              productId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              skuId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.ProvisionedService) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object provisioningId_ = "";
     /**
      * <pre>
-     * Output only. Provisioning ID of the entitlement. For Google Workspace, this is the
-     * underlying Subscription ID. For Google Cloud Platform, this is the
+     * Output only. Provisioning ID of the entitlement. For Google Workspace, this
+     * is the underlying Subscription ID. For Google Cloud Platform, this is the
      * Billing Account ID of the billing subaccount."
      * </pre>
      *
@@ -616,8 +600,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Provisioning ID of the entitlement. For Google Workspace, this is the
-     * underlying Subscription ID. For Google Cloud Platform, this is the
+     * Output only. Provisioning ID of the entitlement. For Google Workspace, this
+     * is the underlying Subscription ID. For Google Cloud Platform, this is the
      * Billing Account ID of the billing subaccount."
      * </pre>
      *
@@ -639,8 +623,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Provisioning ID of the entitlement. For Google Workspace, this is the
-     * underlying Subscription ID. For Google Cloud Platform, this is the
+     * Output only. Provisioning ID of the entitlement. For Google Workspace, this
+     * is the underlying Subscription ID. For Google Cloud Platform, this is the
      * Billing Account ID of the billing subaccount."
      * </pre>
      *
@@ -650,18 +634,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProvisioningId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       provisioningId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. Provisioning ID of the entitlement. For Google Workspace, this is the
-     * underlying Subscription ID. For Google Cloud Platform, this is the
+     * Output only. Provisioning ID of the entitlement. For Google Workspace, this
+     * is the underlying Subscription ID. For Google Cloud Platform, this is the
      * Billing Account ID of the billing subaccount."
      * </pre>
      *
@@ -669,15 +651,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProvisioningId() {
-      
       provisioningId_ = getDefaultInstance().getProvisioningId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. Provisioning ID of the entitlement. For Google Workspace, this is the
-     * underlying Subscription ID. For Google Cloud Platform, this is the
+     * Output only. Provisioning ID of the entitlement. For Google Workspace, this
+     * is the underlying Subscription ID. For Google Cloud Platform, this is the
      * Billing Account ID of the billing subaccount."
      * </pre>
      *
@@ -687,12 +669,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProvisioningIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       provisioningId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -700,8 +680,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object productId_ = "";
     /**
      * <pre>
-     * Output only. The product pertaining to the provisioning resource as specified in the
-     * Offer.
+     * Output only. The product pertaining to the provisioning resource as
+     * specified in the Offer.
      * </pre>
      *
      * <code>string product_id = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -721,8 +701,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The product pertaining to the provisioning resource as specified in the
-     * Offer.
+     * Output only. The product pertaining to the provisioning resource as
+     * specified in the Offer.
      * </pre>
      *
      * <code>string product_id = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -743,8 +723,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The product pertaining to the provisioning resource as specified in the
-     * Offer.
+     * Output only. The product pertaining to the provisioning resource as
+     * specified in the Offer.
      * </pre>
      *
      * <code>string product_id = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -753,33 +733,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProductId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       productId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The product pertaining to the provisioning resource as specified in the
-     * Offer.
+     * Output only. The product pertaining to the provisioning resource as
+     * specified in the Offer.
      * </pre>
      *
      * <code>string product_id = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearProductId() {
-      
       productId_ = getDefaultInstance().getProductId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The product pertaining to the provisioning resource as specified in the
-     * Offer.
+     * Output only. The product pertaining to the provisioning resource as
+     * specified in the Offer.
      * </pre>
      *
      * <code>string product_id = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -788,12 +766,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProductIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       productId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -801,7 +777,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object skuId_ = "";
     /**
      * <pre>
-     * Output only. The SKU pertaining to the provisioning resource as specified in the Offer.
+     * Output only. The SKU pertaining to the provisioning resource as specified
+     * in the Offer.
      * </pre>
      *
      * <code>string sku_id = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -821,7 +798,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The SKU pertaining to the provisioning resource as specified in the Offer.
+     * Output only. The SKU pertaining to the provisioning resource as specified
+     * in the Offer.
      * </pre>
      *
      * <code>string sku_id = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -842,7 +820,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The SKU pertaining to the provisioning resource as specified in the Offer.
+     * Output only. The SKU pertaining to the provisioning resource as specified
+     * in the Offer.
      * </pre>
      *
      * <code>string sku_id = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -851,31 +830,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSkuId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       skuId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The SKU pertaining to the provisioning resource as specified in the Offer.
+     * Output only. The SKU pertaining to the provisioning resource as specified
+     * in the Offer.
      * </pre>
      *
      * <code>string sku_id = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearSkuId() {
-      
       skuId_ = getDefaultInstance().getSkuId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The SKU pertaining to the provisioning resource as specified in the Offer.
+     * Output only. The SKU pertaining to the provisioning resource as specified
+     * in the Offer.
      * </pre>
      *
      * <code>string sku_id = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -884,12 +863,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSkuIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       skuId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -926,7 +903,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ProvisionedService(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

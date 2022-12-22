@@ -120,6 +120,50 @@ public interface InfoTypeDescriptionOrBuilder extends
 
   /**
    * <pre>
+   * A list of available versions for the infotype.
+   * </pre>
+   *
+   * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+   */
+  java.util.List<com.google.privacy.dlp.v2.VersionDescription> 
+      getVersionsList();
+  /**
+   * <pre>
+   * A list of available versions for the infotype.
+   * </pre>
+   *
+   * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+   */
+  com.google.privacy.dlp.v2.VersionDescription getVersions(int index);
+  /**
+   * <pre>
+   * A list of available versions for the infotype.
+   * </pre>
+   *
+   * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+   */
+  int getVersionsCount();
+  /**
+   * <pre>
+   * A list of available versions for the infotype.
+   * </pre>
+   *
+   * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+   */
+  java.util.List<? extends com.google.privacy.dlp.v2.VersionDescriptionOrBuilder> 
+      getVersionsOrBuilderList();
+  /**
+   * <pre>
+   * A list of available versions for the infotype.
+   * </pre>
+   *
+   * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+   */
+  com.google.privacy.dlp.v2.VersionDescriptionOrBuilder getVersionsOrBuilder(
+      int index);
+
+  /**
+   * <pre>
    * The category of the infoType.
    * </pre>
    *

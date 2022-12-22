@@ -42,68 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ReverseSshConnectivity(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            vmIp_ = s;
-            break;
-          }
-          case 16: {
-
-            vmPort_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            vm_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            vpc_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.clouddms.v1.ClouddmsResourcesProto.internal_static_google_cloud_clouddms_v1_ReverseSshConnectivity_descriptor;
@@ -118,7 +56,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VM_IP_FIELD_NUMBER = 1;
-  private volatile java.lang.Object vmIp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object vmIp_ = "";
   /**
    * <pre>
    * Required. The IP of the virtual machine (Compute Engine) used as the bastion server
@@ -166,7 +105,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VM_PORT_FIELD_NUMBER = 2;
-  private int vmPort_;
+  private int vmPort_ = 0;
   /**
    * <pre>
    * Required. The forwarding port of the virtual machine (Compute Engine) used as the
@@ -182,7 +121,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VM_FIELD_NUMBER = 3;
-  private volatile java.lang.Object vm_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object vm_ = "";
   /**
    * <pre>
    * The name of the virtual machine (Compute Engine) used as the bastion server
@@ -230,7 +170,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VPC_FIELD_NUMBER = 4;
-  private volatile java.lang.Object vpc_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object vpc_ = "";
   /**
    * <pre>
    * The name of the VPC to peer with the Cloud SQL private network.
@@ -301,7 +242,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vpc_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, vpc_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -323,7 +264,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vpc_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, vpc_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -346,7 +287,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getVm())) return false;
     if (!getVpc()
         .equals(other.getVpc())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -365,7 +306,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getVm().hashCode();
     hash = (37 * hash) + VPC_FIELD_NUMBER;
     hash = (53 * hash) + getVpc().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -491,30 +432,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.clouddms.v1.ReverseSshConnectivity.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       vmIp_ = "";
-
       vmPort_ = 0;
-
       vm_ = "";
-
       vpc_ = "";
-
       return this;
     }
 
@@ -541,12 +474,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.clouddms.v1.ReverseSshConnectivity buildPartial() {
       com.google.cloud.clouddms.v1.ReverseSshConnectivity result = new com.google.cloud.clouddms.v1.ReverseSshConnectivity(this);
-      result.vmIp_ = vmIp_;
-      result.vmPort_ = vmPort_;
-      result.vm_ = vm_;
-      result.vpc_ = vpc_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.clouddms.v1.ReverseSshConnectivity result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.vmIp_ = vmIp_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.vmPort_ = vmPort_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.vm_ = vm_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.vpc_ = vpc_;
+      }
     }
 
     @java.lang.Override
@@ -595,6 +541,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.clouddms.v1.ReverseSshConnectivity.getDefaultInstance()) return this;
       if (!other.getVmIp().isEmpty()) {
         vmIp_ = other.vmIp_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getVmPort() != 0) {
@@ -602,13 +549,15 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getVm().isEmpty()) {
         vm_ = other.vm_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getVpc().isEmpty()) {
         vpc_ = other.vpc_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -623,19 +572,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.clouddms.v1.ReverseSshConnectivity parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              vmIp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              vmPort_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              vm_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              vpc_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.clouddms.v1.ReverseSshConnectivity) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object vmIp_ = "";
     /**
@@ -693,11 +676,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVmIp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       vmIp_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -711,8 +692,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVmIp() {
-      
       vmIp_ = getDefaultInstance().getVmIp();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -728,12 +709,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVmIpBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       vmIp_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -765,6 +744,7 @@ private static final long serialVersionUID = 0L;
     public Builder setVmPort(int value) {
       
       vmPort_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -778,7 +758,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVmPort() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       vmPort_ = 0;
       onChanged();
       return this;
@@ -840,11 +820,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVm(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       vm_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -858,8 +836,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVm() {
-      
       vm_ = getDefaultInstance().getVm();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -875,12 +853,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVmBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       vm_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -938,11 +914,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVpc(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       vpc_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -955,8 +929,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVpc() {
-      
       vpc_ = getDefaultInstance().getVpc();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -971,12 +945,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVpcBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       vpc_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1013,7 +985,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ReverseSshConnectivity(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -289,8 +289,7 @@ public interface RouteOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; per_filter_config = 8 [deprecated = true];</code>
    */
-  @java.lang.Deprecated 
-  /* nullable */
+  @java.lang.Deprecated /* nullable */
 com.google.protobuf.Struct getPerFilterConfigOrDefault(
       java.lang.String key,
       /* nullable */
@@ -306,8 +305,7 @@ com.google.protobuf.Struct defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; per_filter_config = 8 [deprecated = true];</code>
    */
-  @java.lang.Deprecated 
-  com.google.protobuf.Struct getPerFilterConfigOrThrow(
+  @java.lang.Deprecated com.google.protobuf.Struct getPerFilterConfigOrThrow(
       java.lang.String key);
 
   /**
@@ -365,7 +363,6 @@ com.google.protobuf.Struct defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 13;</code>
    */
-
   /* nullable */
 com.google.protobuf.Any getTypedPerFilterConfigOrDefault(
       java.lang.String key,
@@ -382,7 +379,6 @@ com.google.protobuf.Any defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 13;</code>
    */
-
   com.google.protobuf.Any getTypedPerFilterConfigOrThrow(
       java.lang.String key);
 

@@ -12,11 +12,9 @@ _sym_db = _symbol_database.Default()
 
 
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
-from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
-from google.type import latlng_pb2 as google_dot_type_dot_latlng__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0google/maps/playablelocations/v3/resources.proto\x12 google.maps.playablelocations.v3\x1a\x1fgoogle/api/field_behavior.proto\x1a google/protobuf/field_mask.proto\x1a\x18google/type/latlng.proto\"\xe9\x02\n\x0cPlayerReport\x12\x1a\n\rlocation_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12V\n\x07reasons\x18\x02 \x03(\x0e\x32@.google.maps.playablelocations.v3.PlayerReport.BadLocationReasonB\x03\xe0\x41\x02\x12\x1b\n\x0ereason_details\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\rlanguage_code\x18\x04 \x01(\t\"\xb0\x01\n\x11\x42\x61\x64LocationReason\x12#\n\x1f\x42\x41\x44_LOCATION_REASON_UNSPECIFIED\x10\x00\x12\t\n\x05OTHER\x10\x01\x12\x1d\n\x19NOT_PEDESTRIAN_ACCESSIBLE\x10\x02\x12\x16\n\x12NOT_OPEN_TO_PUBLIC\x10\x04\x12\x16\n\x12PERMANENTLY_CLOSED\x10\x05\x12\x1c\n\x18TEMPORARILY_INACCESSIBLE\x10\x06\"\xef\x01\n\nImpression\x12\x1a\n\rlocation_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12Y\n\x0fimpression_type\x18\x02 \x01(\x0e\x32;.google.maps.playablelocations.v3.Impression.ImpressionTypeB\x03\xe0\x41\x02\x12\x18\n\x10game_object_type\x18\x04 \x01(\x05\"P\n\x0eImpressionType\x12\x1f\n\x1bIMPRESSION_TYPE_UNSPECIFIED\x10\x00\x12\r\n\tPRESENTED\x10\x01\x12\x0e\n\nINTERACTED\x10\x02\x42\xd8\x01\n$com.google.maps.playablelocations.v3B\x0eResourcesProtoP\x01ZQgoogle.golang.org/genproto/googleapis/maps/playablelocations/v3;playablelocations\xa2\x02\x04GMPL\xaa\x02 Google.Maps.PlayableLocations.V3\xca\x02 Google\\Maps\\PlayableLocations\\V3b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0google/maps/playablelocations/v3/resources.proto\x12 google.maps.playablelocations.v3\x1a\x1fgoogle/api/field_behavior.proto\"\xe9\x02\n\x0cPlayerReport\x12\x1a\n\rlocation_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12V\n\x07reasons\x18\x02 \x03(\x0e\x32@.google.maps.playablelocations.v3.PlayerReport.BadLocationReasonB\x03\xe0\x41\x02\x12\x1b\n\x0ereason_details\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\rlanguage_code\x18\x04 \x01(\t\"\xb0\x01\n\x11\x42\x61\x64LocationReason\x12#\n\x1f\x42\x41\x44_LOCATION_REASON_UNSPECIFIED\x10\x00\x12\t\n\x05OTHER\x10\x01\x12\x1d\n\x19NOT_PEDESTRIAN_ACCESSIBLE\x10\x02\x12\x16\n\x12NOT_OPEN_TO_PUBLIC\x10\x04\x12\x16\n\x12PERMANENTLY_CLOSED\x10\x05\x12\x1c\n\x18TEMPORARILY_INACCESSIBLE\x10\x06\"\xef\x01\n\nImpression\x12\x1a\n\rlocation_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12Y\n\x0fimpression_type\x18\x02 \x01(\x0e\x32;.google.maps.playablelocations.v3.Impression.ImpressionTypeB\x03\xe0\x41\x02\x12\x18\n\x10game_object_type\x18\x04 \x01(\x05\"P\n\x0eImpressionType\x12\x1f\n\x1bIMPRESSION_TYPE_UNSPECIFIED\x10\x00\x12\r\n\tPRESENTED\x10\x01\x12\x0e\n\nINTERACTED\x10\x02\x42\xd8\x01\n$com.google.maps.playablelocations.v3B\x0eResourcesProtoP\x01ZQgoogle.golang.org/genproto/googleapis/maps/playablelocations/v3;playablelocations\xa2\x02\x04GMPL\xaa\x02 Google.Maps.PlayableLocations.V3\xca\x02 Google\\Maps\\PlayableLocations\\V3b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.maps.playablelocations.v3.resources_pb2', globals())
@@ -34,12 +32,12 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _IMPRESSION.fields_by_name['location_name']._serialized_options = b'\340A\002'
   _IMPRESSION.fields_by_name['impression_type']._options = None
   _IMPRESSION.fields_by_name['impression_type']._serialized_options = b'\340A\002'
-  _PLAYERREPORT._serialized_start=180
-  _PLAYERREPORT._serialized_end=541
-  _PLAYERREPORT_BADLOCATIONREASON._serialized_start=365
-  _PLAYERREPORT_BADLOCATIONREASON._serialized_end=541
-  _IMPRESSION._serialized_start=544
-  _IMPRESSION._serialized_end=783
-  _IMPRESSION_IMPRESSIONTYPE._serialized_start=703
-  _IMPRESSION_IMPRESSIONTYPE._serialized_end=783
+  _PLAYERREPORT._serialized_start=120
+  _PLAYERREPORT._serialized_end=481
+  _PLAYERREPORT_BADLOCATIONREASON._serialized_start=305
+  _PLAYERREPORT_BADLOCATIONREASON._serialized_end=481
+  _IMPRESSION._serialized_start=484
+  _IMPRESSION._serialized_end=723
+  _IMPRESSION_IMPRESSIONTYPE._serialized_start=643
+  _IMPRESSION_IMPRESSIONTYPE._serialized_end=723
 # @@protoc_insertion_point(module_scope)

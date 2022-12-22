@@ -37,79 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Decl(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.api.expr.v1alpha1.Decl.IdentDecl.Builder subBuilder = null;
-            if (declKindCase_ == 2) {
-              subBuilder = ((com.google.api.expr.v1alpha1.Decl.IdentDecl) declKind_).toBuilder();
-            }
-            declKind_ =
-                input.readMessage(com.google.api.expr.v1alpha1.Decl.IdentDecl.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.api.expr.v1alpha1.Decl.IdentDecl) declKind_);
-              declKind_ = subBuilder.buildPartial();
-            }
-            declKindCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.api.expr.v1alpha1.Decl.FunctionDecl.Builder subBuilder = null;
-            if (declKindCase_ == 3) {
-              subBuilder = ((com.google.api.expr.v1alpha1.Decl.FunctionDecl) declKind_).toBuilder();
-            }
-            declKind_ =
-                input.readMessage(com.google.api.expr.v1alpha1.Decl.FunctionDecl.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.api.expr.v1alpha1.Decl.FunctionDecl) declKind_);
-              declKind_ = subBuilder.buildPartial();
-            }
-            declKindCase_ = 3;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.expr.v1alpha1.DeclProto.internal_static_google_api_expr_v1alpha1_Decl_descriptor;
@@ -240,77 +167,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private IdentDecl(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.api.expr.v1alpha1.Type.Builder subBuilder = null;
-              if (type_ != null) {
-                subBuilder = type_.toBuilder();
-              }
-              type_ = input.readMessage(com.google.api.expr.v1alpha1.Type.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(type_);
-                type_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.api.expr.v1alpha1.Constant.Builder subBuilder = null;
-              if (value_ != null) {
-                subBuilder = value_.toBuilder();
-              }
-              value_ = input.readMessage(com.google.api.expr.v1alpha1.Constant.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(value_);
-                value_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              doc_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.api.expr.v1alpha1.DeclProto.internal_static_google_api_expr_v1alpha1_Decl_IdentDecl_descriptor;
@@ -359,7 +215,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.api.expr.v1alpha1.TypeOrBuilder getTypeOrBuilder() {
-      return getType();
+      return type_ == null ? com.google.api.expr.v1alpha1.Type.getDefaultInstance() : type_;
     }
 
     public static final int VALUE_FIELD_NUMBER = 2;
@@ -400,11 +256,12 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.api.expr.v1alpha1.ConstantOrBuilder getValueOrBuilder() {
-      return getValue();
+      return value_ == null ? com.google.api.expr.v1alpha1.Constant.getDefaultInstance() : value_;
     }
 
     public static final int DOC_FIELD_NUMBER = 3;
-    private volatile java.lang.Object doc_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object doc_ = "";
     /**
      * <pre>
      * Documentation string for the identifier.
@@ -472,7 +329,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(doc_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, doc_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -492,7 +349,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(doc_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, doc_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -519,7 +376,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!getDoc()
           .equals(other.getDoc())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -540,7 +397,7 @@ private static final long serialVersionUID = 0L;
       }
       hash = (37 * hash) + DOC_FIELD_NUMBER;
       hash = (53 * hash) + getDoc().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -665,36 +522,29 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.api.expr.v1alpha1.Decl.IdentDecl.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (typeBuilder_ == null) {
-          type_ = null;
-        } else {
-          type_ = null;
+        bitField0_ = 0;
+        type_ = null;
+        if (typeBuilder_ != null) {
+          typeBuilder_.dispose();
           typeBuilder_ = null;
         }
-        if (valueBuilder_ == null) {
-          value_ = null;
-        } else {
-          value_ = null;
+        value_ = null;
+        if (valueBuilder_ != null) {
+          valueBuilder_.dispose();
           valueBuilder_ = null;
         }
         doc_ = "";
-
         return this;
       }
 
@@ -721,19 +571,26 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.api.expr.v1alpha1.Decl.IdentDecl buildPartial() {
         com.google.api.expr.v1alpha1.Decl.IdentDecl result = new com.google.api.expr.v1alpha1.Decl.IdentDecl(this);
-        if (typeBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = typeBuilder_.build();
-        }
-        if (valueBuilder_ == null) {
-          result.value_ = value_;
-        } else {
-          result.value_ = valueBuilder_.build();
-        }
-        result.doc_ = doc_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.api.expr.v1alpha1.Decl.IdentDecl result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.type_ = typeBuilder_ == null
+              ? type_
+              : typeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.value_ = valueBuilder_ == null
+              ? value_
+              : valueBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.doc_ = doc_;
+        }
       }
 
       @java.lang.Override
@@ -788,9 +645,10 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getDoc().isEmpty()) {
           doc_ = other.doc_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -805,19 +663,52 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.api.expr.v1alpha1.Decl.IdentDecl parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getTypeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getValueFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                doc_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.api.expr.v1alpha1.Decl.IdentDecl) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.api.expr.v1alpha1.Type type_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -831,7 +722,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the type field is set.
        */
       public boolean hasType() {
-        return typeBuilder_ != null || type_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -861,11 +752,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           type_ = value;
-          onChanged();
         } else {
           typeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -879,11 +770,11 @@ private static final long serialVersionUID = 0L;
           com.google.api.expr.v1alpha1.Type.Builder builderForValue) {
         if (typeBuilder_ == null) {
           type_ = builderForValue.build();
-          onChanged();
         } else {
           typeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -895,17 +786,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeType(com.google.api.expr.v1alpha1.Type value) {
         if (typeBuilder_ == null) {
-          if (type_ != null) {
-            type_ =
-              com.google.api.expr.v1alpha1.Type.newBuilder(type_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            type_ != null &&
+            type_ != com.google.api.expr.v1alpha1.Type.getDefaultInstance()) {
+            getTypeBuilder().mergeFrom(value);
           } else {
             type_ = value;
           }
-          onChanged();
         } else {
           typeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -916,14 +808,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.api.expr.v1alpha1.Type type = 1;</code>
        */
       public Builder clearType() {
-        if (typeBuilder_ == null) {
-          type_ = null;
-          onChanged();
-        } else {
-          type_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        type_ = null;
+        if (typeBuilder_ != null) {
+          typeBuilder_.dispose();
           typeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -934,7 +825,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.api.expr.v1alpha1.Type type = 1;</code>
        */
       public com.google.api.expr.v1alpha1.Type.Builder getTypeBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getTypeFieldBuilder().getBuilder();
       }
@@ -987,7 +878,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the value field is set.
        */
       public boolean hasValue() {
-        return valueBuilder_ != null || value_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -1019,11 +910,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           value_ = value;
-          onChanged();
         } else {
           valueBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1038,11 +929,11 @@ private static final long serialVersionUID = 0L;
           com.google.api.expr.v1alpha1.Constant.Builder builderForValue) {
         if (valueBuilder_ == null) {
           value_ = builderForValue.build();
-          onChanged();
         } else {
           valueBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1055,17 +946,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeValue(com.google.api.expr.v1alpha1.Constant value) {
         if (valueBuilder_ == null) {
-          if (value_ != null) {
-            value_ =
-              com.google.api.expr.v1alpha1.Constant.newBuilder(value_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            value_ != null &&
+            value_ != com.google.api.expr.v1alpha1.Constant.getDefaultInstance()) {
+            getValueBuilder().mergeFrom(value);
           } else {
             value_ = value;
           }
-          onChanged();
         } else {
           valueBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1077,14 +969,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.api.expr.v1alpha1.Constant value = 2;</code>
        */
       public Builder clearValue() {
-        if (valueBuilder_ == null) {
-          value_ = null;
-          onChanged();
-        } else {
-          value_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        value_ = null;
+        if (valueBuilder_ != null) {
+          valueBuilder_.dispose();
           valueBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1096,7 +987,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.api.expr.v1alpha1.Constant value = 2;</code>
        */
       public com.google.api.expr.v1alpha1.Constant.Builder getValueBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getValueFieldBuilder().getBuilder();
       }
@@ -1191,11 +1082,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDoc(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         doc_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1208,8 +1097,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDoc() {
-        
         doc_ = getDefaultInstance().getDoc();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1224,12 +1113,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDocBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         doc_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1266,7 +1153,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new IdentDecl(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1369,58 +1267,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private FunctionDecl(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                overloads_ = new java.util.ArrayList<com.google.api.expr.v1alpha1.Decl.FunctionDecl.Overload>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              overloads_.add(
-                  input.readMessage(com.google.api.expr.v1alpha1.Decl.FunctionDecl.Overload.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          overloads_ = java.util.Collections.unmodifiableList(overloads_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.api.expr.v1alpha1.DeclProto.internal_static_google_api_expr_v1alpha1_Decl_FunctionDecl_descriptor;
@@ -1442,8 +1288,9 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Required. Globally unique overload name of the function which reflects
        * the function name and argument types.
-       * This will be used by a [Reference][google.api.expr.v1alpha1.Reference] to indicate the `overload_id` that
-       * was resolved for the function `name`.
+       * This will be used by a [Reference][google.api.expr.v1alpha1.Reference]
+       * to indicate the `overload_id` that was resolved for the function
+       * `name`.
        * </pre>
        *
        * <code>string overload_id = 1;</code>
@@ -1454,8 +1301,9 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Required. Globally unique overload name of the function which reflects
        * the function name and argument types.
-       * This will be used by a [Reference][google.api.expr.v1alpha1.Reference] to indicate the `overload_id` that
-       * was resolved for the function `name`.
+       * This will be used by a [Reference][google.api.expr.v1alpha1.Reference]
+       * to indicate the `overload_id` that was resolved for the function
+       * `name`.
        * </pre>
        *
        * <code>string overload_id = 1;</code>
@@ -1466,7 +1314,8 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+       * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+       * values.
        * Param types are disjoint after generic type parameters have been
        * replaced with the type `DYN`. Since the `DYN` type is compatible with
        * any other type, this means that if `A` is a type parameter, the
@@ -1482,7 +1331,8 @@ private static final long serialVersionUID = 0L;
           getParamsList();
       /**
        * <pre>
-       * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+       * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+       * values.
        * Param types are disjoint after generic type parameters have been
        * replaced with the type `DYN`. Since the `DYN` type is compatible with
        * any other type, this means that if `A` is a type parameter, the
@@ -1497,7 +1347,8 @@ private static final long serialVersionUID = 0L;
       com.google.api.expr.v1alpha1.Type getParams(int index);
       /**
        * <pre>
-       * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+       * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+       * values.
        * Param types are disjoint after generic type parameters have been
        * replaced with the type `DYN`. Since the `DYN` type is compatible with
        * any other type, this means that if `A` is a type parameter, the
@@ -1512,7 +1363,8 @@ private static final long serialVersionUID = 0L;
       int getParamsCount();
       /**
        * <pre>
-       * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+       * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+       * values.
        * Param types are disjoint after generic type parameters have been
        * replaced with the type `DYN`. Since the `DYN` type is compatible with
        * any other type, this means that if `A` is a type parameter, the
@@ -1528,7 +1380,8 @@ private static final long serialVersionUID = 0L;
           getParamsOrBuilderList();
       /**
        * <pre>
-       * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+       * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+       * values.
        * Param types are disjoint after generic type parameters have been
        * replaced with the type `DYN`. Since the `DYN` type is compatible with
        * any other type, this means that if `A` is a type parameter, the
@@ -1658,8 +1511,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * An overload indicates a function's parameter types and return type, and
-     * may optionally include a function body described in terms of [Expr][google.api.expr.v1alpha1.Expr]
-     * values.
+     * may optionally include a function body described in terms of
+     * [Expr][google.api.expr.v1alpha1.Expr] values.
      * Functions overloads are declared in either a function or method
      * call-style. For methods, the `params[0]` is the expected type of the
      * target receiver.
@@ -1697,100 +1550,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Overload(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                overloadId_ = s;
-                break;
-              }
-              case 18: {
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  params_ = new java.util.ArrayList<com.google.api.expr.v1alpha1.Type>();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                params_.add(
-                    input.readMessage(com.google.api.expr.v1alpha1.Type.parser(), extensionRegistry));
-                break;
-              }
-              case 26: {
-                java.lang.String s = input.readStringRequireUtf8();
-                if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                  typeParams_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00000002;
-                }
-                typeParams_.add(s);
-                break;
-              }
-              case 34: {
-                com.google.api.expr.v1alpha1.Type.Builder subBuilder = null;
-                if (resultType_ != null) {
-                  subBuilder = resultType_.toBuilder();
-                }
-                resultType_ = input.readMessage(com.google.api.expr.v1alpha1.Type.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(resultType_);
-                  resultType_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              case 40: {
-
-                isInstanceFunction_ = input.readBool();
-                break;
-              }
-              case 50: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                doc_ = s;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          if (((mutable_bitField0_ & 0x00000001) != 0)) {
-            params_ = java.util.Collections.unmodifiableList(params_);
-          }
-          if (((mutable_bitField0_ & 0x00000002) != 0)) {
-            typeParams_ = typeParams_.getUnmodifiableView();
-          }
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.api.expr.v1alpha1.DeclProto.internal_static_google_api_expr_v1alpha1_Decl_FunctionDecl_Overload_descriptor;
@@ -1805,13 +1564,15 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int OVERLOAD_ID_FIELD_NUMBER = 1;
-      private volatile java.lang.Object overloadId_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object overloadId_ = "";
       /**
        * <pre>
        * Required. Globally unique overload name of the function which reflects
        * the function name and argument types.
-       * This will be used by a [Reference][google.api.expr.v1alpha1.Reference] to indicate the `overload_id` that
-       * was resolved for the function `name`.
+       * This will be used by a [Reference][google.api.expr.v1alpha1.Reference]
+       * to indicate the `overload_id` that was resolved for the function
+       * `name`.
        * </pre>
        *
        * <code>string overload_id = 1;</code>
@@ -1834,8 +1595,9 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Required. Globally unique overload name of the function which reflects
        * the function name and argument types.
-       * This will be used by a [Reference][google.api.expr.v1alpha1.Reference] to indicate the `overload_id` that
-       * was resolved for the function `name`.
+       * This will be used by a [Reference][google.api.expr.v1alpha1.Reference]
+       * to indicate the `overload_id` that was resolved for the function
+       * `name`.
        * </pre>
        *
        * <code>string overload_id = 1;</code>
@@ -1857,10 +1619,12 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int PARAMS_FIELD_NUMBER = 2;
+      @SuppressWarnings("serial")
       private java.util.List<com.google.api.expr.v1alpha1.Type> params_;
       /**
        * <pre>
-       * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+       * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+       * values.
        * Param types are disjoint after generic type parameters have been
        * replaced with the type `DYN`. Since the `DYN` type is compatible with
        * any other type, this means that if `A` is a type parameter, the
@@ -1878,7 +1642,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+       * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+       * values.
        * Param types are disjoint after generic type parameters have been
        * replaced with the type `DYN`. Since the `DYN` type is compatible with
        * any other type, this means that if `A` is a type parameter, the
@@ -1897,7 +1662,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+       * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+       * values.
        * Param types are disjoint after generic type parameters have been
        * replaced with the type `DYN`. Since the `DYN` type is compatible with
        * any other type, this means that if `A` is a type parameter, the
@@ -1915,7 +1681,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+       * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+       * values.
        * Param types are disjoint after generic type parameters have been
        * replaced with the type `DYN`. Since the `DYN` type is compatible with
        * any other type, this means that if `A` is a type parameter, the
@@ -1933,7 +1700,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+       * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+       * values.
        * Param types are disjoint after generic type parameters have been
        * replaced with the type `DYN`. Since the `DYN` type is compatible with
        * any other type, this means that if `A` is a type parameter, the
@@ -1952,6 +1720,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int TYPE_PARAMS_FIELD_NUMBER = 3;
+      @SuppressWarnings("serial")
       private com.google.protobuf.LazyStringList typeParams_;
       /**
        * <pre>
@@ -2048,11 +1817,11 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.api.expr.v1alpha1.TypeOrBuilder getResultTypeOrBuilder() {
-        return getResultType();
+        return resultType_ == null ? com.google.api.expr.v1alpha1.Type.getDefaultInstance() : resultType_;
       }
 
       public static final int IS_INSTANCE_FUNCTION_FIELD_NUMBER = 5;
-      private boolean isInstanceFunction_;
+      private boolean isInstanceFunction_ = false;
       /**
        * <pre>
        * Whether the function is to be used in a method call-style `x.f(...)`
@@ -2070,7 +1839,8 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int DOC_FIELD_NUMBER = 6;
-      private volatile java.lang.Object doc_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object doc_ = "";
       /**
        * <pre>
        * Documentation string for the overload.
@@ -2147,7 +1917,7 @@ private static final long serialVersionUID = 0L;
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(doc_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 6, doc_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -2182,7 +1952,7 @@ private static final long serialVersionUID = 0L;
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(doc_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, doc_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -2212,7 +1982,7 @@ private static final long serialVersionUID = 0L;
             != other.getIsInstanceFunction()) return false;
         if (!getDoc()
             .equals(other.getDoc())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -2242,7 +2012,7 @@ private static final long serialVersionUID = 0L;
             getIsInstanceFunction());
         hash = (37 * hash) + DOC_FIELD_NUMBER;
         hash = (53 * hash) + getDoc().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -2340,8 +2110,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * An overload indicates a function's parameter types and return type, and
-       * may optionally include a function body described in terms of [Expr][google.api.expr.v1alpha1.Expr]
-       * values.
+       * may optionally include a function body described in terms of
+       * [Expr][google.api.expr.v1alpha1.Expr] values.
        * Functions overloads are declared in either a function or method
        * call-style. For methods, the `params[0]` is the expected type of the
        * target receiver.
@@ -2370,43 +2140,35 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.api.expr.v1alpha1.Decl.FunctionDecl.Overload.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-            getParamsFieldBuilder();
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           overloadId_ = "";
-
           if (paramsBuilder_ == null) {
             params_ = java.util.Collections.emptyList();
-            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
+            params_ = null;
             paramsBuilder_.clear();
           }
-          typeParams_ = com.google.protobuf.LazyStringArrayList.EMPTY;
           bitField0_ = (bitField0_ & ~0x00000002);
-          if (resultTypeBuilder_ == null) {
-            resultType_ = null;
-          } else {
-            resultType_ = null;
+          typeParams_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+          bitField0_ = (bitField0_ & ~0x00000004);
+          resultType_ = null;
+          if (resultTypeBuilder_ != null) {
+            resultTypeBuilder_.dispose();
             resultTypeBuilder_ = null;
           }
           isInstanceFunction_ = false;
-
           doc_ = "";
-
           return this;
         }
 
@@ -2433,31 +2195,45 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.api.expr.v1alpha1.Decl.FunctionDecl.Overload buildPartial() {
           com.google.api.expr.v1alpha1.Decl.FunctionDecl.Overload result = new com.google.api.expr.v1alpha1.Decl.FunctionDecl.Overload(this);
-          int from_bitField0_ = bitField0_;
-          result.overloadId_ = overloadId_;
+          buildPartialRepeatedFields(result);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartialRepeatedFields(com.google.api.expr.v1alpha1.Decl.FunctionDecl.Overload result) {
           if (paramsBuilder_ == null) {
-            if (((bitField0_ & 0x00000001) != 0)) {
+            if (((bitField0_ & 0x00000002) != 0)) {
               params_ = java.util.Collections.unmodifiableList(params_);
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             }
             result.params_ = params_;
           } else {
             result.params_ = paramsBuilder_.build();
           }
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000004) != 0)) {
             typeParams_ = typeParams_.getUnmodifiableView();
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.typeParams_ = typeParams_;
-          if (resultTypeBuilder_ == null) {
-            result.resultType_ = resultType_;
-          } else {
-            result.resultType_ = resultTypeBuilder_.build();
+        }
+
+        private void buildPartial0(com.google.api.expr.v1alpha1.Decl.FunctionDecl.Overload result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.overloadId_ = overloadId_;
           }
-          result.isInstanceFunction_ = isInstanceFunction_;
-          result.doc_ = doc_;
-          onBuilt();
-          return result;
+          if (((from_bitField0_ & 0x00000008) != 0)) {
+            result.resultType_ = resultTypeBuilder_ == null
+                ? resultType_
+                : resultTypeBuilder_.build();
+          }
+          if (((from_bitField0_ & 0x00000010) != 0)) {
+            result.isInstanceFunction_ = isInstanceFunction_;
+          }
+          if (((from_bitField0_ & 0x00000020) != 0)) {
+            result.doc_ = doc_;
+          }
         }
 
         @java.lang.Override
@@ -2506,13 +2282,14 @@ private static final long serialVersionUID = 0L;
           if (other == com.google.api.expr.v1alpha1.Decl.FunctionDecl.Overload.getDefaultInstance()) return this;
           if (!other.getOverloadId().isEmpty()) {
             overloadId_ = other.overloadId_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (paramsBuilder_ == null) {
             if (!other.params_.isEmpty()) {
               if (params_.isEmpty()) {
                 params_ = other.params_;
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = (bitField0_ & ~0x00000002);
               } else {
                 ensureParamsIsMutable();
                 params_.addAll(other.params_);
@@ -2525,7 +2302,7 @@ private static final long serialVersionUID = 0L;
                 paramsBuilder_.dispose();
                 paramsBuilder_ = null;
                 params_ = other.params_;
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = (bitField0_ & ~0x00000002);
                 paramsBuilder_ = 
                   com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                      getParamsFieldBuilder() : null;
@@ -2537,7 +2314,7 @@ private static final long serialVersionUID = 0L;
           if (!other.typeParams_.isEmpty()) {
             if (typeParams_.isEmpty()) {
               typeParams_ = other.typeParams_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureTypeParamsIsMutable();
               typeParams_.addAll(other.typeParams_);
@@ -2552,9 +2329,10 @@ private static final long serialVersionUID = 0L;
           }
           if (!other.getDoc().isEmpty()) {
             doc_ = other.doc_;
+            bitField0_ |= 0x00000020;
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -2569,17 +2347,71 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.api.expr.v1alpha1.Decl.FunctionDecl.Overload parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  overloadId_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  com.google.api.expr.v1alpha1.Type m =
+                      input.readMessage(
+                          com.google.api.expr.v1alpha1.Type.parser(),
+                          extensionRegistry);
+                  if (paramsBuilder_ == null) {
+                    ensureParamsIsMutable();
+                    params_.add(m);
+                  } else {
+                    paramsBuilder_.addMessage(m);
+                  }
+                  break;
+                } // case 18
+                case 26: {
+                  java.lang.String s = input.readStringRequireUtf8();
+                  ensureTypeParamsIsMutable();
+                  typeParams_.add(s);
+                  break;
+                } // case 26
+                case 34: {
+                  input.readMessage(
+                      getResultTypeFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000008;
+                  break;
+                } // case 34
+                case 40: {
+                  isInstanceFunction_ = input.readBool();
+                  bitField0_ |= 0x00000010;
+                  break;
+                } // case 40
+                case 50: {
+                  doc_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000020;
+                  break;
+                } // case 50
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.api.expr.v1alpha1.Decl.FunctionDecl.Overload) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -2589,8 +2421,9 @@ private static final long serialVersionUID = 0L;
          * <pre>
          * Required. Globally unique overload name of the function which reflects
          * the function name and argument types.
-         * This will be used by a [Reference][google.api.expr.v1alpha1.Reference] to indicate the `overload_id` that
-         * was resolved for the function `name`.
+         * This will be used by a [Reference][google.api.expr.v1alpha1.Reference]
+         * to indicate the `overload_id` that was resolved for the function
+         * `name`.
          * </pre>
          *
          * <code>string overload_id = 1;</code>
@@ -2612,8 +2445,9 @@ private static final long serialVersionUID = 0L;
          * <pre>
          * Required. Globally unique overload name of the function which reflects
          * the function name and argument types.
-         * This will be used by a [Reference][google.api.expr.v1alpha1.Reference] to indicate the `overload_id` that
-         * was resolved for the function `name`.
+         * This will be used by a [Reference][google.api.expr.v1alpha1.Reference]
+         * to indicate the `overload_id` that was resolved for the function
+         * `name`.
          * </pre>
          *
          * <code>string overload_id = 1;</code>
@@ -2636,8 +2470,9 @@ private static final long serialVersionUID = 0L;
          * <pre>
          * Required. Globally unique overload name of the function which reflects
          * the function name and argument types.
-         * This will be used by a [Reference][google.api.expr.v1alpha1.Reference] to indicate the `overload_id` that
-         * was resolved for the function `name`.
+         * This will be used by a [Reference][google.api.expr.v1alpha1.Reference]
+         * to indicate the `overload_id` that was resolved for the function
+         * `name`.
          * </pre>
          *
          * <code>string overload_id = 1;</code>
@@ -2646,11 +2481,9 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setOverloadId(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           overloadId_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -2658,16 +2491,17 @@ private static final long serialVersionUID = 0L;
          * <pre>
          * Required. Globally unique overload name of the function which reflects
          * the function name and argument types.
-         * This will be used by a [Reference][google.api.expr.v1alpha1.Reference] to indicate the `overload_id` that
-         * was resolved for the function `name`.
+         * This will be used by a [Reference][google.api.expr.v1alpha1.Reference]
+         * to indicate the `overload_id` that was resolved for the function
+         * `name`.
          * </pre>
          *
          * <code>string overload_id = 1;</code>
          * @return This builder for chaining.
          */
         public Builder clearOverloadId() {
-          
           overloadId_ = getDefaultInstance().getOverloadId();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -2675,8 +2509,9 @@ private static final long serialVersionUID = 0L;
          * <pre>
          * Required. Globally unique overload name of the function which reflects
          * the function name and argument types.
-         * This will be used by a [Reference][google.api.expr.v1alpha1.Reference] to indicate the `overload_id` that
-         * was resolved for the function `name`.
+         * This will be used by a [Reference][google.api.expr.v1alpha1.Reference]
+         * to indicate the `overload_id` that was resolved for the function
+         * `name`.
          * </pre>
          *
          * <code>string overload_id = 1;</code>
@@ -2685,12 +2520,10 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setOverloadIdBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           overloadId_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -2698,9 +2531,9 @@ private static final long serialVersionUID = 0L;
         private java.util.List<com.google.api.expr.v1alpha1.Type> params_ =
           java.util.Collections.emptyList();
         private void ensureParamsIsMutable() {
-          if (!((bitField0_ & 0x00000001) != 0)) {
+          if (!((bitField0_ & 0x00000002) != 0)) {
             params_ = new java.util.ArrayList<com.google.api.expr.v1alpha1.Type>(params_);
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000002;
            }
         }
 
@@ -2709,7 +2542,8 @@ private static final long serialVersionUID = 0L;
 
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -2730,7 +2564,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -2751,7 +2586,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -2772,7 +2608,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -2800,7 +2637,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -2825,7 +2663,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -2852,7 +2691,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -2880,7 +2720,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -2905,7 +2746,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -2930,7 +2772,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -2956,7 +2799,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -2971,7 +2815,7 @@ private static final long serialVersionUID = 0L;
         public Builder clearParams() {
           if (paramsBuilder_ == null) {
             params_ = java.util.Collections.emptyList();
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             onChanged();
           } else {
             paramsBuilder_.clear();
@@ -2980,7 +2824,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -3004,7 +2849,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -3022,7 +2868,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -3043,7 +2890,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -3065,7 +2913,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -3083,7 +2932,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -3102,7 +2952,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * List of function parameter [Type][google.api.expr.v1alpha1.Type] values.
+         * List of function parameter [Type][google.api.expr.v1alpha1.Type]
+         * values.
          * Param types are disjoint after generic type parameters have been
          * replaced with the type `DYN`. Since the `DYN` type is compatible with
          * any other type, this means that if `A` is a type parameter, the
@@ -3125,7 +2976,7 @@ private static final long serialVersionUID = 0L;
             paramsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
                 com.google.api.expr.v1alpha1.Type, com.google.api.expr.v1alpha1.Type.Builder, com.google.api.expr.v1alpha1.TypeOrBuilder>(
                     params_,
-                    ((bitField0_ & 0x00000001) != 0),
+                    ((bitField0_ & 0x00000002) != 0),
                     getParentForChildren(),
                     isClean());
             params_ = null;
@@ -3135,9 +2986,9 @@ private static final long serialVersionUID = 0L;
 
         private com.google.protobuf.LazyStringList typeParams_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         private void ensureTypeParamsIsMutable() {
-          if (!((bitField0_ & 0x00000002) != 0)) {
+          if (!((bitField0_ & 0x00000004) != 0)) {
             typeParams_ = new com.google.protobuf.LazyStringArrayList(typeParams_);
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000004;
            }
         }
         /**
@@ -3210,10 +3061,8 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setTypeParams(
             int index, java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTypeParamsIsMutable();
+          if (value == null) { throw new NullPointerException(); }
+          ensureTypeParamsIsMutable();
           typeParams_.set(index, value);
           onChanged();
           return this;
@@ -3231,10 +3080,8 @@ private static final long serialVersionUID = 0L;
          */
         public Builder addTypeParams(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTypeParamsIsMutable();
+          if (value == null) { throw new NullPointerException(); }
+          ensureTypeParamsIsMutable();
           typeParams_.add(value);
           onChanged();
           return this;
@@ -3270,7 +3117,7 @@ private static final long serialVersionUID = 0L;
          */
         public Builder clearTypeParams() {
           typeParams_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
           return this;
         }
@@ -3287,10 +3134,8 @@ private static final long serialVersionUID = 0L;
          */
         public Builder addTypeParamsBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           ensureTypeParamsIsMutable();
           typeParams_.add(value);
           onChanged();
@@ -3310,7 +3155,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the resultType field is set.
          */
         public boolean hasResultType() {
-          return resultTypeBuilder_ != null || resultType_ != null;
+          return ((bitField0_ & 0x00000008) != 0);
         }
         /**
          * <pre>
@@ -3342,11 +3187,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             resultType_ = value;
-            onChanged();
           } else {
             resultTypeBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000008;
+          onChanged();
           return this;
         }
         /**
@@ -3361,11 +3206,11 @@ private static final long serialVersionUID = 0L;
             com.google.api.expr.v1alpha1.Type.Builder builderForValue) {
           if (resultTypeBuilder_ == null) {
             resultType_ = builderForValue.build();
-            onChanged();
           } else {
             resultTypeBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000008;
+          onChanged();
           return this;
         }
         /**
@@ -3378,17 +3223,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeResultType(com.google.api.expr.v1alpha1.Type value) {
           if (resultTypeBuilder_ == null) {
-            if (resultType_ != null) {
-              resultType_ =
-                com.google.api.expr.v1alpha1.Type.newBuilder(resultType_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000008) != 0) &&
+              resultType_ != null &&
+              resultType_ != com.google.api.expr.v1alpha1.Type.getDefaultInstance()) {
+              getResultTypeBuilder().mergeFrom(value);
             } else {
               resultType_ = value;
             }
-            onChanged();
           } else {
             resultTypeBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000008;
+          onChanged();
           return this;
         }
         /**
@@ -3400,14 +3246,13 @@ private static final long serialVersionUID = 0L;
          * <code>.google.api.expr.v1alpha1.Type result_type = 4;</code>
          */
         public Builder clearResultType() {
-          if (resultTypeBuilder_ == null) {
-            resultType_ = null;
-            onChanged();
-          } else {
-            resultType_ = null;
+          bitField0_ = (bitField0_ & ~0x00000008);
+          resultType_ = null;
+          if (resultTypeBuilder_ != null) {
+            resultTypeBuilder_.dispose();
             resultTypeBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -3419,7 +3264,7 @@ private static final long serialVersionUID = 0L;
          * <code>.google.api.expr.v1alpha1.Type result_type = 4;</code>
          */
         public com.google.api.expr.v1alpha1.Type.Builder getResultTypeBuilder() {
-          
+          bitField0_ |= 0x00000008;
           onChanged();
           return getResultTypeFieldBuilder().getBuilder();
         }
@@ -3492,6 +3337,7 @@ private static final long serialVersionUID = 0L;
         public Builder setIsInstanceFunction(boolean value) {
           
           isInstanceFunction_ = value;
+          bitField0_ |= 0x00000010;
           onChanged();
           return this;
         }
@@ -3507,7 +3353,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearIsInstanceFunction() {
-          
+          bitField0_ = (bitField0_ & ~0x00000010);
           isInstanceFunction_ = false;
           onChanged();
           return this;
@@ -3566,11 +3412,9 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDoc(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           doc_ = value;
+          bitField0_ |= 0x00000020;
           onChanged();
           return this;
         }
@@ -3583,8 +3427,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearDoc() {
-          
           doc_ = getDefaultInstance().getDoc();
+          bitField0_ = (bitField0_ & ~0x00000020);
           onChanged();
           return this;
         }
@@ -3599,12 +3443,10 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDocBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           doc_ = value;
+          bitField0_ |= 0x00000020;
           onChanged();
           return this;
         }
@@ -3641,7 +3483,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Overload(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -3662,6 +3515,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int OVERLOADS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.api.expr.v1alpha1.Decl.FunctionDecl.Overload> overloads_;
     /**
      * <pre>
@@ -3738,7 +3592,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < overloads_.size(); i++) {
         output.writeMessage(1, overloads_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3751,7 +3605,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, overloads_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3768,7 +3622,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getOverloadsList()
           .equals(other.getOverloadsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3783,7 +3637,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + OVERLOADS_FIELD_NUMBER;
         hash = (53 * hash) + getOverloadsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3907,29 +3761,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.api.expr.v1alpha1.Decl.FunctionDecl.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getOverloadsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (overloadsBuilder_ == null) {
           overloads_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          overloads_ = null;
           overloadsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -3956,7 +3806,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.api.expr.v1alpha1.Decl.FunctionDecl buildPartial() {
         com.google.api.expr.v1alpha1.Decl.FunctionDecl result = new com.google.api.expr.v1alpha1.Decl.FunctionDecl(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.api.expr.v1alpha1.Decl.FunctionDecl result) {
         if (overloadsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             overloads_ = java.util.Collections.unmodifiableList(overloads_);
@@ -3966,8 +3822,10 @@ private static final long serialVersionUID = 0L;
         } else {
           result.overloads_ = overloadsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.api.expr.v1alpha1.Decl.FunctionDecl result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -4040,7 +3898,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4055,17 +3913,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.api.expr.v1alpha1.Decl.FunctionDecl parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.api.expr.v1alpha1.Decl.FunctionDecl.Overload m =
+                    input.readMessage(
+                        com.google.api.expr.v1alpha1.Decl.FunctionDecl.Overload.parser(),
+                        extensionRegistry);
+                if (overloadsBuilder_ == null) {
+                  ensureOverloadsIsMutable();
+                  overloads_.add(m);
+                } else {
+                  overloadsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.api.expr.v1alpha1.Decl.FunctionDecl) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -4414,7 +4298,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FunctionDecl(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4476,15 +4371,18 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The fully qualified name of the declaration.
    * Declarations are organized in containers and this represents the full path
    * to the declaration in its container, as in `google.api.expr.Decl`.
-   * Declarations used as [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload] parameters may or may not
-   * have a name depending on whether the overload is function declaration or a
-   * function definition containing a result [Expr][google.api.expr.v1alpha1.Expr].
+   * Declarations used as
+   * [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload]
+   * parameters may or may not have a name depending on whether the overload is
+   * function declaration or a function definition containing a result
+   * [Expr][google.api.expr.v1alpha1.Expr].
    * </pre>
    *
    * <code>string name = 1;</code>
@@ -4508,9 +4406,11 @@ private static final long serialVersionUID = 0L;
    * The fully qualified name of the declaration.
    * Declarations are organized in containers and this represents the full path
    * to the declaration in its container, as in `google.api.expr.Decl`.
-   * Declarations used as [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload] parameters may or may not
-   * have a name depending on whether the overload is function declaration or a
-   * function definition containing a result [Expr][google.api.expr.v1alpha1.Expr].
+   * Declarations used as
+   * [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload]
+   * parameters may or may not have a name depending on whether the overload is
+   * function declaration or a function definition containing a result
+   * [Expr][google.api.expr.v1alpha1.Expr].
    * </pre>
    *
    * <code>string name = 1;</code>
@@ -4640,7 +4540,7 @@ private static final long serialVersionUID = 0L;
     if (declKindCase_ == 3) {
       output.writeMessage(3, (com.google.api.expr.v1alpha1.Decl.FunctionDecl) declKind_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -4660,7 +4560,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, (com.google.api.expr.v1alpha1.Decl.FunctionDecl) declKind_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -4690,7 +4590,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -4715,7 +4615,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -4838,24 +4738,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.expr.v1alpha1.Decl.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
+      if (identBuilder_ != null) {
+        identBuilder_.clear();
+      }
+      if (functionBuilder_ != null) {
+        functionBuilder_.clear();
+      }
       declKindCase_ = 0;
       declKind_ = null;
       return this;
@@ -4884,24 +4785,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.expr.v1alpha1.Decl buildPartial() {
       com.google.api.expr.v1alpha1.Decl result = new com.google.api.expr.v1alpha1.Decl(this);
-      result.name_ = name_;
-      if (declKindCase_ == 2) {
-        if (identBuilder_ == null) {
-          result.declKind_ = declKind_;
-        } else {
-          result.declKind_ = identBuilder_.build();
-        }
-      }
-      if (declKindCase_ == 3) {
-        if (functionBuilder_ == null) {
-          result.declKind_ = declKind_;
-        } else {
-          result.declKind_ = functionBuilder_.build();
-        }
-      }
-      result.declKindCase_ = declKindCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.api.expr.v1alpha1.Decl result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.api.expr.v1alpha1.Decl result) {
+      result.declKindCase_ = declKindCase_;
+      result.declKind_ = this.declKind_;
+      if (declKindCase_ == 2 &&
+          identBuilder_ != null) {
+        result.declKind_ = identBuilder_.build();
+      }
+      if (declKindCase_ == 3 &&
+          functionBuilder_ != null) {
+        result.declKind_ = functionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -4950,6 +4857,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.api.expr.v1alpha1.Decl.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       switch (other.getDeclKindCase()) {
@@ -4965,7 +4873,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -4980,17 +4888,49 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.expr.v1alpha1.Decl parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getIdentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              declKindCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getFunctionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              declKindCase_ = 3;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.expr.v1alpha1.Decl) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int declKindCase_ = 0;
@@ -5008,6 +4948,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -5015,9 +4956,11 @@ private static final long serialVersionUID = 0L;
      * The fully qualified name of the declaration.
      * Declarations are organized in containers and this represents the full path
      * to the declaration in its container, as in `google.api.expr.Decl`.
-     * Declarations used as [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload] parameters may or may not
-     * have a name depending on whether the overload is function declaration or a
-     * function definition containing a result [Expr][google.api.expr.v1alpha1.Expr].
+     * Declarations used as
+     * [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload]
+     * parameters may or may not have a name depending on whether the overload is
+     * function declaration or a function definition containing a result
+     * [Expr][google.api.expr.v1alpha1.Expr].
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -5040,9 +4983,11 @@ private static final long serialVersionUID = 0L;
      * The fully qualified name of the declaration.
      * Declarations are organized in containers and this represents the full path
      * to the declaration in its container, as in `google.api.expr.Decl`.
-     * Declarations used as [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload] parameters may or may not
-     * have a name depending on whether the overload is function declaration or a
-     * function definition containing a result [Expr][google.api.expr.v1alpha1.Expr].
+     * Declarations used as
+     * [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload]
+     * parameters may or may not have a name depending on whether the overload is
+     * function declaration or a function definition containing a result
+     * [Expr][google.api.expr.v1alpha1.Expr].
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -5066,9 +5011,11 @@ private static final long serialVersionUID = 0L;
      * The fully qualified name of the declaration.
      * Declarations are organized in containers and this represents the full path
      * to the declaration in its container, as in `google.api.expr.Decl`.
-     * Declarations used as [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload] parameters may or may not
-     * have a name depending on whether the overload is function declaration or a
-     * function definition containing a result [Expr][google.api.expr.v1alpha1.Expr].
+     * Declarations used as
+     * [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload]
+     * parameters may or may not have a name depending on whether the overload is
+     * function declaration or a function definition containing a result
+     * [Expr][google.api.expr.v1alpha1.Expr].
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -5077,11 +5024,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -5090,17 +5035,19 @@ private static final long serialVersionUID = 0L;
      * The fully qualified name of the declaration.
      * Declarations are organized in containers and this represents the full path
      * to the declaration in its container, as in `google.api.expr.Decl`.
-     * Declarations used as [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload] parameters may or may not
-     * have a name depending on whether the overload is function declaration or a
-     * function definition containing a result [Expr][google.api.expr.v1alpha1.Expr].
+     * Declarations used as
+     * [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload]
+     * parameters may or may not have a name depending on whether the overload is
+     * function declaration or a function definition containing a result
+     * [Expr][google.api.expr.v1alpha1.Expr].
      * </pre>
      *
      * <code>string name = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -5109,9 +5056,11 @@ private static final long serialVersionUID = 0L;
      * The fully qualified name of the declaration.
      * Declarations are organized in containers and this represents the full path
      * to the declaration in its container, as in `google.api.expr.Decl`.
-     * Declarations used as [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload] parameters may or may not
-     * have a name depending on whether the overload is function declaration or a
-     * function definition containing a result [Expr][google.api.expr.v1alpha1.Expr].
+     * Declarations used as
+     * [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload]
+     * parameters may or may not have a name depending on whether the overload is
+     * function declaration or a function definition containing a result
+     * [Expr][google.api.expr.v1alpha1.Expr].
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -5120,12 +5069,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -5304,7 +5251,7 @@ private static final long serialVersionUID = 0L;
         declKind_ = null;
       }
       declKindCase_ = 2;
-      onChanged();;
+      onChanged();
       return identBuilder_;
     }
 
@@ -5482,7 +5429,7 @@ private static final long serialVersionUID = 0L;
         declKind_ = null;
       }
       declKindCase_ = 3;
-      onChanged();;
+      onChanged();
       return functionBuilder_;
     }
     @java.lang.Override
@@ -5518,7 +5465,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Decl(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

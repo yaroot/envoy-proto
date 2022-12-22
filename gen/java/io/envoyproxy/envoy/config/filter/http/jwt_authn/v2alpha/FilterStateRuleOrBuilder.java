@@ -70,7 +70,6 @@ public interface FilterStateRuleOrBuilder extends
    *
    * <code>map&lt;string, .envoy.config.filter.http.jwt_authn.v2alpha.JwtRequirement&gt; requires = 3;</code>
    */
-
   /* nullable */
 io.envoyproxy.envoy.config.filter.http.jwt_authn.v2alpha.JwtRequirement getRequiresOrDefault(
       java.lang.String key,
@@ -84,7 +83,6 @@ io.envoyproxy.envoy.config.filter.http.jwt_authn.v2alpha.JwtRequirement defaultV
    *
    * <code>map&lt;string, .envoy.config.filter.http.jwt_authn.v2alpha.JwtRequirement&gt; requires = 3;</code>
    */
-
   io.envoyproxy.envoy.config.filter.http.jwt_authn.v2alpha.JwtRequirement getRequiresOrThrow(
       java.lang.String key);
 }

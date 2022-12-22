@@ -82,7 +82,6 @@ public interface CapabilityRestrictionConfigOrBuilder extends
    *
    * <code>map&lt;string, .envoy.extensions.wasm.v3.SanitizationConfig&gt; allowed_capabilities = 1;</code>
    */
-
   /* nullable */
 io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig getAllowedCapabilitiesOrDefault(
       java.lang.String key,
@@ -104,7 +103,6 @@ io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig defaultValue);
    *
    * <code>map&lt;string, .envoy.extensions.wasm.v3.SanitizationConfig&gt; allowed_capabilities = 1;</code>
    */
-
   io.envoyproxy.envoy.extensions.wasm.v3.SanitizationConfig getAllowedCapabilitiesOrThrow(
       java.lang.String key);
 }

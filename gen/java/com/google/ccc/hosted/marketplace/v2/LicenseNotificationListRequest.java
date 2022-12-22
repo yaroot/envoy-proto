@@ -32,67 +32,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LicenseNotificationListRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            applicationId_ = s;
-            break;
-          }
-          case 16: {
-
-            maxResults_ = input.readUInt32();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            startToken_ = s;
-            break;
-          }
-          case 32: {
-
-            timestamp_ = input.readUInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ccc.hosted.marketplace.v2.ServiceProto.internal_static_ccc_hosted_marketplace_v2_LicenseNotificationListRequest_descriptor;
@@ -107,7 +46,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int APPLICATION_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object applicationId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object applicationId_ = "";
   /**
    * <pre>
    * Application Id
@@ -153,7 +93,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_RESULTS_FIELD_NUMBER = 2;
-  private int maxResults_;
+  private int maxResults_ = 0;
   /**
    * <code>uint32 max_results = 2;</code>
    * @return The maxResults.
@@ -164,7 +104,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int START_TOKEN_FIELD_NUMBER = 3;
-  private volatile java.lang.Object startToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object startToken_ = "";
   /**
    * <code>string start_token = 3;</code>
    * @return The startToken.
@@ -202,7 +143,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TIMESTAMP_FIELD_NUMBER = 4;
-  private long timestamp_;
+  private long timestamp_ = 0L;
   /**
    * <pre>
    * Timestamp in milliseconds since epoch
@@ -242,7 +183,7 @@ private static final long serialVersionUID = 0L;
     if (timestamp_ != 0L) {
       output.writeUInt64(4, timestamp_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -265,7 +206,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt64Size(4, timestamp_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -288,7 +229,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getStartToken())) return false;
     if (getTimestamp()
         != other.getTimestamp()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -308,7 +249,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getTimestamp());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -425,30 +366,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ccc.hosted.marketplace.v2.LicenseNotificationListRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       applicationId_ = "";
-
       maxResults_ = 0;
-
       startToken_ = "";
-
       timestamp_ = 0L;
-
       return this;
     }
 
@@ -475,12 +408,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ccc.hosted.marketplace.v2.LicenseNotificationListRequest buildPartial() {
       com.google.ccc.hosted.marketplace.v2.LicenseNotificationListRequest result = new com.google.ccc.hosted.marketplace.v2.LicenseNotificationListRequest(this);
-      result.applicationId_ = applicationId_;
-      result.maxResults_ = maxResults_;
-      result.startToken_ = startToken_;
-      result.timestamp_ = timestamp_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ccc.hosted.marketplace.v2.LicenseNotificationListRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.applicationId_ = applicationId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.maxResults_ = maxResults_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.startToken_ = startToken_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.timestamp_ = timestamp_;
+      }
     }
 
     @java.lang.Override
@@ -529,6 +475,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ccc.hosted.marketplace.v2.LicenseNotificationListRequest.getDefaultInstance()) return this;
       if (!other.getApplicationId().isEmpty()) {
         applicationId_ = other.applicationId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getMaxResults() != 0) {
@@ -536,12 +483,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getStartToken().isEmpty()) {
         startToken_ = other.startToken_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getTimestamp() != 0L) {
         setTimestamp(other.getTimestamp());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -556,19 +504,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ccc.hosted.marketplace.v2.LicenseNotificationListRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              applicationId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              maxResults_ = input.readUInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              startToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              timestamp_ = input.readUInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ccc.hosted.marketplace.v2.LicenseNotificationListRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object applicationId_ = "";
     /**
@@ -623,11 +605,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApplicationId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       applicationId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -640,8 +620,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApplicationId() {
-      
       applicationId_ = getDefaultInstance().getApplicationId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -656,12 +636,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApplicationIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       applicationId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -683,6 +661,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxResults(int value) {
       
       maxResults_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -691,7 +670,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxResults() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       maxResults_ = 0;
       onChanged();
       return this;
@@ -738,11 +717,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStartToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       startToken_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -751,8 +728,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStartToken() {
-      
       startToken_ = getDefaultInstance().getStartToken();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -763,12 +740,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStartTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       startToken_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -798,6 +773,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTimestamp(long value) {
       
       timestamp_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -810,7 +786,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTimestamp() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       timestamp_ = 0L;
       onChanged();
       return this;
@@ -848,7 +824,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LicenseNotificationListRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

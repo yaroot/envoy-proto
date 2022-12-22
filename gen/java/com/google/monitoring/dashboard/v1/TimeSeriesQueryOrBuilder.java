@@ -63,7 +63,7 @@ public interface TimeSeriesQueryOrBuilder extends
 
   /**
    * <pre>
-   * A query used to fetch time series.
+   * A query used to fetch time series with MQL.
    * </pre>
    *
    * <code>string time_series_query_language = 3;</code>
@@ -72,7 +72,7 @@ public interface TimeSeriesQueryOrBuilder extends
   boolean hasTimeSeriesQueryLanguage();
   /**
    * <pre>
-   * A query used to fetch time series.
+   * A query used to fetch time series with MQL.
    * </pre>
    *
    * <code>string time_series_query_language = 3;</code>
@@ -81,7 +81,7 @@ public interface TimeSeriesQueryOrBuilder extends
   java.lang.String getTimeSeriesQueryLanguage();
   /**
    * <pre>
-   * A query used to fetch time series.
+   * A query used to fetch time series with MQL.
    * </pre>
    *
    * <code>string time_series_query_language = 3;</code>
@@ -89,6 +89,35 @@ public interface TimeSeriesQueryOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTimeSeriesQueryLanguageBytes();
+
+  /**
+   * <pre>
+   * A query used to fetch time series with PromQL.
+   * </pre>
+   *
+   * <code>string prometheus_query = 6;</code>
+   * @return Whether the prometheusQuery field is set.
+   */
+  boolean hasPrometheusQuery();
+  /**
+   * <pre>
+   * A query used to fetch time series with PromQL.
+   * </pre>
+   *
+   * <code>string prometheus_query = 6;</code>
+   * @return The prometheusQuery.
+   */
+  java.lang.String getPrometheusQuery();
+  /**
+   * <pre>
+   * A query used to fetch time series with PromQL.
+   * </pre>
+   *
+   * <code>string prometheus_query = 6;</code>
+   * @return The bytes for prometheusQuery.
+   */
+  com.google.protobuf.ByteString
+      getPrometheusQueryBytes();
 
   /**
    * <pre>

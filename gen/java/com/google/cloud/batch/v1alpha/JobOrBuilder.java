@@ -286,7 +286,6 @@ public interface JobOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 8;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -308,7 +307,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 8;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -341,7 +339,7 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Job notification.
+   * Deprecated: please use notifications instead.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.JobNotification notification = 10 [deprecated = true];</code>
@@ -352,7 +350,7 @@ java.lang.String defaultValue);
   @java.lang.Deprecated boolean hasNotification();
   /**
    * <pre>
-   * Job notification.
+   * Deprecated: please use notifications instead.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.JobNotification notification = 10 [deprecated = true];</code>
@@ -363,7 +361,7 @@ java.lang.String defaultValue);
   @java.lang.Deprecated com.google.cloud.batch.v1alpha.JobNotification getNotification();
   /**
    * <pre>
-   * Job notification.
+   * Deprecated: please use notifications instead.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.JobNotification notification = 10 [deprecated = true];</code>

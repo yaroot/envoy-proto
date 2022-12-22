@@ -9,7 +9,7 @@ public interface CreateDataExchangeRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The parent resource path of the DataExchange.
+   * Required. The parent resource path of the data exchange.
    * e.g. `projects/myproject/locations/US`.
    * </pre>
    *
@@ -19,7 +19,7 @@ public interface CreateDataExchangeRequestOrBuilder extends
   java.lang.String getParent();
   /**
    * <pre>
-   * Required. The parent resource path of the DataExchange.
+   * Required. The parent resource path of the data exchange.
    * e.g. `projects/myproject/locations/US`.
    * </pre>
    *
@@ -31,7 +31,7 @@ public interface CreateDataExchangeRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The ID of the DataExchange to create.
+   * Required. The ID of the data exchange.
    * Must contain only Unicode letters, numbers (0-9), underscores (_).
    * Should not use characters that require URL-escaping, or characters
    * outside of ASCII, spaces.
@@ -44,7 +44,7 @@ public interface CreateDataExchangeRequestOrBuilder extends
   java.lang.String getDataExchangeId();
   /**
    * <pre>
-   * Required. The ID of the DataExchange to create.
+   * Required. The ID of the data exchange.
    * Must contain only Unicode letters, numbers (0-9), underscores (_).
    * Should not use characters that require URL-escaping, or characters
    * outside of ASCII, spaces.
@@ -59,7 +59,7 @@ public interface CreateDataExchangeRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The DataExchange to create.
+   * Required. The data exchange to create.
    * </pre>
    *
    * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -68,7 +68,7 @@ public interface CreateDataExchangeRequestOrBuilder extends
   boolean hasDataExchange();
   /**
    * <pre>
-   * Required. The DataExchange to create.
+   * Required. The data exchange to create.
    * </pre>
    *
    * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -77,7 +77,7 @@ public interface CreateDataExchangeRequestOrBuilder extends
   com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange getDataExchange();
   /**
    * <pre>
-   * Required. The DataExchange to create.
+   * Required. The data exchange to create.
    * </pre>
    *
    * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 3 [(.google.api.field_behavior) = REQUIRED];</code>

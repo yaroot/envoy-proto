@@ -30,6 +30,11 @@ public final class BigQueryAuditMetadataProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_cloud_audit_BigQueryAuditMetadata_JobChange_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_JobDeletion_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_JobDeletion_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_cloud_audit_BigQueryAuditMetadata_DatasetCreation_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -95,11 +100,6 @@ public final class BigQueryAuditMetadataProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_cloud_audit_BigQueryAuditMetadata_ModelDataRead_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_google_cloud_audit_BigQueryAuditMetadata_Dataset_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_Dataset_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_cloud_audit_BigQueryAuditMetadata_TableDeletion_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -110,15 +110,30 @@ public final class BigQueryAuditMetadataProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_cloud_audit_BigQueryAuditMetadata_ModelDeletion_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_google_cloud_audit_BigQueryAuditMetadata_Model_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_Model_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_cloud_audit_BigQueryAuditMetadata_RoutineDeletion_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_cloud_audit_BigQueryAuditMetadata_RoutineDeletion_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicyCreation_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicyCreation_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicyChange_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicyChange_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicyDeletion_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicyDeletion_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_UnlinkDataset_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_UnlinkDataset_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_cloud_audit_BigQueryAuditMetadata_Job_descriptor;
   static final 
@@ -195,6 +210,11 @@ public final class BigQueryAuditMetadataProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_cloud_audit_BigQueryAuditMetadata_Table_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_Model_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_Model_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_cloud_audit_BigQueryAuditMetadata_Routine_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -215,6 +235,11 @@ public final class BigQueryAuditMetadataProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_cloud_audit_BigQueryAuditMetadata_TableViewDefinition_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_Dataset_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_Dataset_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_cloud_audit_BigQueryAuditMetadata_BigQueryAcl_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -224,6 +249,21 @@ public final class BigQueryAuditMetadataProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_cloud_audit_BigQueryAuditMetadata_EncryptionInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicy_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicy_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_FirstPartyAppMetadata_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_FirstPartyAppMetadata_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_SheetsMetadata_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_SheetsMetadata_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -237,324 +277,367 @@ public final class BigQueryAuditMetadataProto {
       "data.proto\022\022google.cloud.audit\032\032google/i" +
       "am/v1/policy.proto\032\036google/protobuf/dura" +
       "tion.proto\032\037google/protobuf/timestamp.pr" +
-      "oto\032\027google/rpc/status.proto\"\301a\n\025BigQuer" +
+      "oto\032\027google/rpc/status.proto\"\222o\n\025BigQuer" +
       "yAuditMetadata\022O\n\rjob_insertion\030\001 \001(\01326." +
       "google.cloud.audit.BigQueryAuditMetadata" +
       ".JobInsertionH\000\022I\n\njob_change\030\002 \001(\01323.go" +
       "ogle.cloud.audit.BigQueryAuditMetadata.J" +
-      "obChangeH\000\022U\n\020dataset_creation\030\003 \001(\01329.g" +
+      "obChangeH\000\022M\n\014job_deletion\030\027 \001(\01325.googl" +
+      "e.cloud.audit.BigQueryAuditMetadata.JobD" +
+      "eletionH\000\022U\n\020dataset_creation\030\003 \001(\01329.go" +
+      "ogle.cloud.audit.BigQueryAuditMetadata.D" +
+      "atasetCreationH\000\022Q\n\016dataset_change\030\004 \001(\013" +
+      "27.google.cloud.audit.BigQueryAuditMetad" +
+      "ata.DatasetChangeH\000\022U\n\020dataset_deletion\030" +
+      "\005 \001(\01329.google.cloud.audit.BigQueryAudit" +
+      "Metadata.DatasetDeletionH\000\022Q\n\016table_crea" +
+      "tion\030\006 \001(\01327.google.cloud.audit.BigQuery" +
+      "AuditMetadata.TableCreationH\000\022M\n\014table_c" +
+      "hange\030\010 \001(\01325.google.cloud.audit.BigQuer" +
+      "yAuditMetadata.TableChangeH\000\022Q\n\016table_de" +
+      "letion\030\t \001(\01327.google.cloud.audit.BigQue" +
+      "ryAuditMetadata.TableDeletionH\000\022R\n\017table" +
+      "_data_read\030\n \001(\01327.google.cloud.audit.Bi" +
+      "gQueryAuditMetadata.TableDataReadH\000\022V\n\021t" +
+      "able_data_change\030\013 \001(\01329.google.cloud.au" +
+      "dit.BigQueryAuditMetadata.TableDataChang" +
+      "eH\000\022Q\n\016model_deletion\030\014 \001(\01327.google.clo" +
+      "ud.audit.BigQueryAuditMetadata.ModelDele" +
+      "tionH\000\022Q\n\016model_creation\030\r \001(\01327.google." +
+      "cloud.audit.BigQueryAuditMetadata.ModelC" +
+      "reationH\000\022^\n\025model_metadata_change\030\016 \001(\013" +
+      "2=.google.cloud.audit.BigQueryAuditMetad" +
+      "ata.ModelMetadataChangeH\000\022V\n\021model_data_" +
+      "change\030\017 \001(\01329.google.cloud.audit.BigQue" +
+      "ryAuditMetadata.ModelDataChangeH\000\022R\n\017mod" +
+      "el_data_read\030\023 \001(\01327.google.cloud.audit." +
+      "BigQueryAuditMetadata.ModelDataReadH\000\022U\n" +
+      "\020routine_creation\030\020 \001(\01329.google.cloud.a" +
+      "udit.BigQueryAuditMetadata.RoutineCreati" +
+      "onH\000\022Q\n\016routine_change\030\021 \001(\01327.google.cl" +
+      "oud.audit.BigQueryAuditMetadata.RoutineC" +
+      "hangeH\000\022U\n\020routine_deletion\030\022 \001(\01329.goog" +
+      "le.cloud.audit.BigQueryAuditMetadata.Rou" +
+      "tineDeletionH\000\022g\n\032row_access_policy_crea" +
+      "tion\030\024 \001(\0132A.google.cloud.audit.BigQuery" +
+      "AuditMetadata.RowAccessPolicyCreationH\000\022" +
+      "c\n\030row_access_policy_change\030\025 \001(\0132?.goog" +
+      "le.cloud.audit.BigQueryAuditMetadata.Row" +
+      "AccessPolicyChangeH\000\022g\n\032row_access_polic" +
+      "y_deletion\030\026 \001(\0132A.google.cloud.audit.Bi" +
+      "gQueryAuditMetadata.RowAccessPolicyDelet" +
+      "ionH\000\022Q\n\016unlink_dataset\030\031 \001(\01327.google.c" +
+      "loud.audit.BigQueryAuditMetadata.UnlinkD" +
+      "atasetH\000\022a\n\030first_party_app_metadata\030\030 \001" +
+      "(\0132?.google.cloud.audit.BigQueryAuditMet" +
+      "adata.FirstPartyAppMetadata\032\346\001\n\014JobInser" +
+      "tion\022:\n\003job\030\001 \001(\0132-.google.cloud.audit.B" +
+      "igQueryAuditMetadata.Job\022M\n\006reason\030\002 \001(\016" +
+      "2=.google.cloud.audit.BigQueryAuditMetad" +
+      "ata.JobInsertion.Reason\"K\n\006Reason\022\026\n\022REA" +
+      "SON_UNSPECIFIED\020\000\022\026\n\022JOB_INSERT_REQUEST\020" +
+      "\001\022\021\n\rQUERY_REQUEST\020\002\032\316\001\n\tJobChange\022B\n\006be" +
+      "fore\030\001 \001(\01622.google.cloud.audit.BigQuery" +
+      "AuditMetadata.JobState\022A\n\005after\030\002 \001(\01622." +
+      "google.cloud.audit.BigQueryAuditMetadata" +
+      ".JobState\022:\n\003job\030\003 \001(\0132-.google.cloud.au" +
+      "dit.BigQueryAuditMetadata.Job\032\247\001\n\013JobDel" +
+      "etion\022\020\n\010job_name\030\001 \001(\t\022L\n\006reason\030\002 \001(\0162" +
+      "<.google.cloud.audit.BigQueryAuditMetada" +
+      "ta.JobDeletion.Reason\"8\n\006Reason\022\026\n\022REASO" +
+      "N_UNSPECIFIED\020\000\022\026\n\022JOB_DELETE_REQUEST\020\001\032" +
+      "\362\001\n\017DatasetCreation\022B\n\007dataset\030\001 \001(\01321.g" +
       "oogle.cloud.audit.BigQueryAuditMetadata." +
-      "DatasetCreationH\000\022Q\n\016dataset_change\030\004 \001(" +
-      "\01327.google.cloud.audit.BigQueryAuditMeta" +
-      "data.DatasetChangeH\000\022U\n\020dataset_deletion" +
-      "\030\005 \001(\01329.google.cloud.audit.BigQueryAudi" +
-      "tMetadata.DatasetDeletionH\000\022Q\n\016table_cre" +
-      "ation\030\006 \001(\01327.google.cloud.audit.BigQuer" +
-      "yAuditMetadata.TableCreationH\000\022M\n\014table_" +
-      "change\030\010 \001(\01325.google.cloud.audit.BigQue" +
-      "ryAuditMetadata.TableChangeH\000\022Q\n\016table_d" +
-      "eletion\030\t \001(\01327.google.cloud.audit.BigQu" +
-      "eryAuditMetadata.TableDeletionH\000\022R\n\017tabl" +
-      "e_data_read\030\n \001(\01327.google.cloud.audit.B" +
-      "igQueryAuditMetadata.TableDataReadH\000\022V\n\021" +
-      "table_data_change\030\013 \001(\01329.google.cloud.a" +
-      "udit.BigQueryAuditMetadata.TableDataChan" +
-      "geH\000\022Q\n\016model_deletion\030\014 \001(\01327.google.cl" +
-      "oud.audit.BigQueryAuditMetadata.ModelDel" +
-      "etionH\000\022Q\n\016model_creation\030\r \001(\01327.google" +
-      ".cloud.audit.BigQueryAuditMetadata.Model" +
-      "CreationH\000\022^\n\025model_metadata_change\030\016 \001(" +
-      "\0132=.google.cloud.audit.BigQueryAuditMeta" +
-      "data.ModelMetadataChangeH\000\022V\n\021model_data" +
-      "_change\030\017 \001(\01329.google.cloud.audit.BigQu" +
-      "eryAuditMetadata.ModelDataChangeH\000\022R\n\017mo" +
-      "del_data_read\030\023 \001(\01327.google.cloud.audit" +
-      ".BigQueryAuditMetadata.ModelDataReadH\000\022U" +
-      "\n\020routine_creation\030\020 \001(\01329.google.cloud." +
-      "audit.BigQueryAuditMetadata.RoutineCreat" +
-      "ionH\000\022Q\n\016routine_change\030\021 \001(\01327.google.c" +
-      "loud.audit.BigQueryAuditMetadata.Routine" +
-      "ChangeH\000\022U\n\020routine_deletion\030\022 \001(\01329.goo" +
-      "gle.cloud.audit.BigQueryAuditMetadata.Ro" +
-      "utineDeletionH\000\032\346\001\n\014JobInsertion\022:\n\003job\030" +
-      "\001 \001(\0132-.google.cloud.audit.BigQueryAudit" +
-      "Metadata.Job\022M\n\006reason\030\002 \001(\0162=.google.cl" +
-      "oud.audit.BigQueryAuditMetadata.JobInser" +
-      "tion.Reason\"K\n\006Reason\022\026\n\022REASON_UNSPECIF" +
-      "IED\020\000\022\026\n\022JOB_INSERT_REQUEST\020\001\022\021\n\rQUERY_R" +
-      "EQUEST\020\002\032\316\001\n\tJobChange\022B\n\006before\030\001 \001(\01622" +
-      ".google.cloud.audit.BigQueryAuditMetadat" +
-      "a.JobState\022A\n\005after\030\002 \001(\01622.google.cloud" +
-      ".audit.BigQueryAuditMetadata.JobState\022:\n" +
-      "\003job\030\003 \001(\0132-.google.cloud.audit.BigQuery" +
-      "AuditMetadata.Job\032\362\001\n\017DatasetCreation\022B\n" +
-      "\007dataset\030\001 \001(\01321.google.cloud.audit.BigQ" +
-      "ueryAuditMetadata.Dataset\022P\n\006reason\030\002 \001(" +
-      "\0162@.google.cloud.audit.BigQueryAuditMeta" +
-      "data.DatasetCreation.Reason\022\020\n\010job_name\030" +
-      "\003 \001(\t\"7\n\006Reason\022\026\n\022REASON_UNSPECIFIED\020\000\022" +
-      "\n\n\006CREATE\020\001\022\t\n\005QUERY\020\002\032\202\002\n\rDatasetChange" +
-      "\022B\n\007dataset\030\001 \001(\01321.google.cloud.audit.B" +
-      "igQueryAuditMetadata.Dataset\022N\n\006reason\030\002" +
-      " \001(\0162>.google.cloud.audit.BigQueryAuditM" +
-      "etadata.DatasetChange.Reason\022\020\n\010job_name" +
-      "\030\003 \001(\t\"K\n\006Reason\022\026\n\022REASON_UNSPECIFIED\020\000" +
-      "\022\n\n\006UPDATE\020\001\022\022\n\016SET_IAM_POLICY\020\002\022\t\n\005QUER" +
-      "Y\020\003\032\256\001\n\017DatasetDeletion\022P\n\006reason\030\001 \001(\0162" +
-      "@.google.cloud.audit.BigQueryAuditMetada" +
-      "ta.DatasetDeletion.Reason\022\020\n\010job_name\030\002 " +
-      "\001(\t\"7\n\006Reason\022\026\n\022REASON_UNSPECIFIED\020\000\022\n\n" +
-      "\006DELETE\020\001\022\t\n\005QUERY\020\002\032\201\002\n\rTableCreation\022>" +
-      "\n\005table\030\001 \001(\0132/.google.cloud.audit.BigQu" +
-      "eryAuditMetadata.Table\022N\n\006reason\030\003 \001(\0162>" +
-      ".google.cloud.audit.BigQueryAuditMetadat" +
-      "a.TableCreation.Reason\022\020\n\010job_name\030\004 \001(\t" +
-      "\"N\n\006Reason\022\026\n\022REASON_UNSPECIFIED\020\000\022\007\n\003JO" +
-      "B\020\001\022\t\n\005QUERY\020\002\022\030\n\024TABLE_INSERT_REQUEST\020\003" +
-      "\032\336\001\n\rModelCreation\022>\n\005model\030\001 \001(\0132/.goog" +
-      "le.cloud.audit.BigQueryAuditMetadata.Mod" +
-      "el\022N\n\006reason\030\003 \001(\0162>.google.cloud.audit." +
-      "BigQueryAuditMetadata.ModelCreation.Reas" +
-      "on\022\020\n\010job_name\030\004 \001(\t\"+\n\006Reason\022\026\n\022REASON" +
-      "_UNSPECIFIED\020\000\022\t\n\005QUERY\020\002\032\202\002\n\017RoutineCre" +
-      "ation\022B\n\007routine\030\001 \001(\01321.google.cloud.au" +
-      "dit.BigQueryAuditMetadata.Routine\022P\n\006rea" +
-      "son\030\003 \001(\0162@.google.cloud.audit.BigQueryA" +
-      "uditMetadata.RoutineCreation.Reason\022\020\n\010j" +
-      "ob_name\030\004 \001(\t\"G\n\006Reason\022\026\n\022REASON_UNSPEC" +
-      "IFIED\020\000\022\t\n\005QUERY\020\001\022\032\n\026ROUTINE_INSERT_REQ" +
-      "UEST\020\002\032\227\003\n\rTableDataRead\022\016\n\006fields\030\002 \003(\t" +
-      "\022\030\n\020fields_truncated\030\010 \001(\010\022\023\n\013policy_tag" +
-      "s\030\t \003(\t\022\035\n\025policy_tags_truncated\030\n \001(\010\022N" +
-      "\n\006reason\030\003 \001(\0162>.google.cloud.audit.BigQ" +
-      "ueryAuditMetadata.TableDataRead.Reason\022\020" +
-      "\n\010job_name\030\004 \001(\t\022\024\n\014session_name\030\005 \001(\t\"\257" +
-      "\001\n\006Reason\022\026\n\022REASON_UNSPECIFIED\020\000\022\007\n\003JOB" +
-      "\020\001\022\032\n\026TABLEDATA_LIST_REQUEST\020\002\022\035\n\031GET_QU" +
-      "ERY_RESULTS_REQUEST\020\003\022\021\n\rQUERY_REQUEST\020\004" +
-      "\022\027\n\023CREATE_READ_SESSION\020\005\022\035\n\031MATERIALIZE" +
-      "D_VIEW_REFRESH\020\006\032\220\002\n\013TableChange\022>\n\005tabl" +
-      "e\030\001 \001(\0132/.google.cloud.audit.BigQueryAud" +
-      "itMetadata.Table\022\021\n\ttruncated\030\004 \001(\010\022L\n\006r" +
-      "eason\030\005 \001(\0162<.google.cloud.audit.BigQuer" +
-      "yAuditMetadata.TableChange.Reason\022\020\n\010job" +
-      "_name\030\006 \001(\t\"N\n\006Reason\022\026\n\022REASON_UNSPECIF" +
-      "IED\020\000\022\030\n\024TABLE_UPDATE_REQUEST\020\001\022\007\n\003JOB\020\002" +
-      "\022\t\n\005QUERY\020\003\032\203\002\n\023ModelMetadataChange\022>\n\005m" +
-      "odel\030\001 \001(\0132/.google.cloud.audit.BigQuery" +
-      "AuditMetadata.Model\022T\n\006reason\030\002 \001(\0162D.go" +
-      "ogle.cloud.audit.BigQueryAuditMetadata.M" +
-      "odelMetadataChange.Reason\022\020\n\010job_name\030\003 " +
-      "\001(\t\"D\n\006Reason\022\026\n\022REASON_UNSPECIFIED\020\000\022\027\n" +
-      "\023MODEL_PATCH_REQUEST\020\001\022\t\n\005QUERY\020\002\032\376\001\n\rRo" +
-      "utineChange\022B\n\007routine\030\001 \001(\01321.google.cl" +
-      "oud.audit.BigQueryAuditMetadata.Routine\022" +
-      "N\n\006reason\030\003 \001(\0162>.google.cloud.audit.Big" +
-      "QueryAuditMetadata.RoutineChange.Reason\022" +
-      "\020\n\010job_name\030\004 \001(\t\"G\n\006Reason\022\026\n\022REASON_UN" +
-      "SPECIFIED\020\000\022\t\n\005QUERY\020\001\022\032\n\026ROUTINE_UPDATE" +
-      "_REQUEST\020\002\032\272\002\n\017TableDataChange\022\032\n\022delete" +
-      "d_rows_count\030\001 \001(\003\022\033\n\023inserted_rows_coun" +
-      "t\030\002 \001(\003\022\021\n\ttruncated\030\003 \001(\010\022P\n\006reason\030\004 \001" +
-      "(\0162@.google.cloud.audit.BigQueryAuditMet" +
-      "adata.TableDataChange.Reason\022\020\n\010job_name" +
-      "\030\005 \001(\t\022\023\n\013stream_name\030\006 \001(\t\"b\n\006Reason\022\026\n" +
-      "\022REASON_UNSPECIFIED\020\000\022\007\n\003JOB\020\001\022\t\n\005QUERY\020" +
-      "\002\022\035\n\031MATERIALIZED_VIEW_REFRESH\020\003\022\r\n\tWRIT" +
-      "E_API\020\004\032\242\001\n\017ModelDataChange\022P\n\006reason\030\001 " +
-      "\001(\0162@.google.cloud.audit.BigQueryAuditMe" +
-      "tadata.ModelDataChange.Reason\022\020\n\010job_nam" +
-      "e\030\002 \001(\t\"+\n\006Reason\022\026\n\022REASON_UNSPECIFIED\020" +
-      "\000\022\t\n\005QUERY\020\001\032\234\001\n\rModelDataRead\022N\n\006reason" +
-      "\030\001 \001(\0162>.google.cloud.audit.BigQueryAudi" +
-      "tMetadata.ModelDataRead.Reason\022\020\n\010job_na" +
-      "me\030\002 \001(\t\")\n\006Reason\022\026\n\022REASON_UNSPECIFIED" +
-      "\020\000\022\007\n\003JOB\020\001\032\251\003\n\007Dataset\022\024\n\014dataset_name\030" +
-      "\001 \001(\t\022/\n\013create_time\030\003 \001(\0132\032.google.prot" +
-      "obuf.Timestamp\022/\n\013update_time\030\004 \001(\0132\032.go" +
-      "ogle.protobuf.Timestamp\022B\n\003acl\030\005 \001(\01325.g" +
+      "Dataset\022P\n\006reason\030\002 \001(\0162@.google.cloud.a" +
+      "udit.BigQueryAuditMetadata.DatasetCreati" +
+      "on.Reason\022\020\n\010job_name\030\003 \001(\t\"7\n\006Reason\022\026\n" +
+      "\022REASON_UNSPECIFIED\020\000\022\n\n\006CREATE\020\001\022\t\n\005QUE" +
+      "RY\020\002\032\202\002\n\rDatasetChange\022B\n\007dataset\030\001 \001(\0132" +
+      "1.google.cloud.audit.BigQueryAuditMetada" +
+      "ta.Dataset\022N\n\006reason\030\002 \001(\0162>.google.clou" +
+      "d.audit.BigQueryAuditMetadata.DatasetCha" +
+      "nge.Reason\022\020\n\010job_name\030\003 \001(\t\"K\n\006Reason\022\026" +
+      "\n\022REASON_UNSPECIFIED\020\000\022\n\n\006UPDATE\020\001\022\022\n\016SE" +
+      "T_IAM_POLICY\020\002\022\t\n\005QUERY\020\003\032\256\001\n\017DatasetDel" +
+      "etion\022P\n\006reason\030\001 \001(\0162@.google.cloud.aud" +
+      "it.BigQueryAuditMetadata.DatasetDeletion" +
+      ".Reason\022\020\n\010job_name\030\002 \001(\t\"7\n\006Reason\022\026\n\022R" +
+      "EASON_UNSPECIFIED\020\000\022\n\n\006DELETE\020\001\022\t\n\005QUERY" +
+      "\020\002\032\201\002\n\rTableCreation\022>\n\005table\030\001 \001(\0132/.go" +
+      "ogle.cloud.audit.BigQueryAuditMetadata.T" +
+      "able\022N\n\006reason\030\003 \001(\0162>.google.cloud.audi" +
+      "t.BigQueryAuditMetadata.TableCreation.Re" +
+      "ason\022\020\n\010job_name\030\004 \001(\t\"N\n\006Reason\022\026\n\022REAS" +
+      "ON_UNSPECIFIED\020\000\022\007\n\003JOB\020\001\022\t\n\005QUERY\020\002\022\030\n\024" +
+      "TABLE_INSERT_REQUEST\020\003\032\336\001\n\rModelCreation" +
+      "\022>\n\005model\030\001 \001(\0132/.google.cloud.audit.Big" +
+      "QueryAuditMetadata.Model\022N\n\006reason\030\003 \001(\016" +
+      "2>.google.cloud.audit.BigQueryAuditMetad" +
+      "ata.ModelCreation.Reason\022\020\n\010job_name\030\004 \001" +
+      "(\t\"+\n\006Reason\022\026\n\022REASON_UNSPECIFIED\020\000\022\t\n\005" +
+      "QUERY\020\002\032\202\002\n\017RoutineCreation\022B\n\007routine\030\001" +
+      " \001(\01321.google.cloud.audit.BigQueryAuditM" +
+      "etadata.Routine\022P\n\006reason\030\003 \001(\0162@.google" +
+      ".cloud.audit.BigQueryAuditMetadata.Routi" +
+      "neCreation.Reason\022\020\n\010job_name\030\004 \001(\t\"G\n\006R" +
+      "eason\022\026\n\022REASON_UNSPECIFIED\020\000\022\t\n\005QUERY\020\001" +
+      "\022\032\n\026ROUTINE_INSERT_REQUEST\020\002\032\227\003\n\rTableDa" +
+      "taRead\022\016\n\006fields\030\002 \003(\t\022\030\n\020fields_truncat" +
+      "ed\030\010 \001(\010\022\023\n\013policy_tags\030\t \003(\t\022\035\n\025policy_" +
+      "tags_truncated\030\n \001(\010\022N\n\006reason\030\003 \001(\0162>.g" +
       "oogle.cloud.audit.BigQueryAuditMetadata." +
-      "BigQueryAcl\022@\n\035default_table_expire_dura" +
-      "tion\030\006 \001(\0132\031.google.protobuf.Duration\022J\n" +
-      "\014dataset_info\030\007 \001(\01324.google.cloud.audit" +
-      ".BigQueryAuditMetadata.EntityInfo\022T\n\022def" +
-      "ault_encryption\030\010 \001(\01328.google.cloud.aud" +
-      "it.BigQueryAuditMetadata.EncryptionInfo\032" +
-      "\305\001\n\rTableDeletion\022N\n\006reason\030\001 \001(\0162>.goog" +
+      "TableDataRead.Reason\022\020\n\010job_name\030\004 \001(\t\022\024" +
+      "\n\014session_name\030\005 \001(\t\"\257\001\n\006Reason\022\026\n\022REASO" +
+      "N_UNSPECIFIED\020\000\022\007\n\003JOB\020\001\022\032\n\026TABLEDATA_LI" +
+      "ST_REQUEST\020\002\022\035\n\031GET_QUERY_RESULTS_REQUES" +
+      "T\020\003\022\021\n\rQUERY_REQUEST\020\004\022\027\n\023CREATE_READ_SE" +
+      "SSION\020\005\022\035\n\031MATERIALIZED_VIEW_REFRESH\020\006\032\220" +
+      "\002\n\013TableChange\022>\n\005table\030\001 \001(\0132/.google.c" +
+      "loud.audit.BigQueryAuditMetadata.Table\022\021" +
+      "\n\ttruncated\030\004 \001(\010\022L\n\006reason\030\005 \001(\0162<.goog" +
       "le.cloud.audit.BigQueryAuditMetadata.Tab" +
-      "leDeletion.Reason\022\020\n\010job_name\030\002 \001(\t\"R\n\006R" +
-      "eason\022\026\n\022REASON_UNSPECIFIED\020\000\022\030\n\024TABLE_D" +
-      "ELETE_REQUEST\020\002\022\013\n\007EXPIRED\020\003\022\t\n\005QUERY\020\004\032" +
-      "\305\001\n\rModelDeletion\022N\n\006reason\030\001 \001(\0162>.goog" +
-      "le.cloud.audit.BigQueryAuditMetadata.Mod" +
-      "elDeletion.Reason\022\020\n\010job_name\030\002 \001(\t\"R\n\006R" +
-      "eason\022\026\n\022REASON_UNSPECIFIED\020\000\022\030\n\024MODEL_D" +
-      "ELETE_REQUEST\020\001\022\013\n\007EXPIRED\020\002\022\t\n\005QUERY\020\003\032" +
-      "\306\002\n\005Model\022\022\n\nmodel_name\030\001 \001(\t\022H\n\nmodel_i" +
-      "nfo\030\002 \001(\01324.google.cloud.audit.BigQueryA" +
-      "uditMetadata.EntityInfo\022/\n\013expire_time\030\005" +
-      " \001(\0132\032.google.protobuf.Timestamp\022/\n\013crea" +
-      "te_time\030\006 \001(\0132\032.google.protobuf.Timestam" +
-      "p\022/\n\013update_time\030\007 \001(\0132\032.google.protobuf" +
-      ".Timestamp\022L\n\nencryption\030\010 \001(\01328.google." +
-      "cloud.audit.BigQueryAuditMetadata.Encryp" +
-      "tionInfo\032\202\002\n\017RoutineDeletion\022B\n\007routine\030" +
-      "\001 \001(\01321.google.cloud.audit.BigQueryAudit" +
-      "Metadata.Routine\022P\n\006reason\030\003 \001(\0162@.googl" +
-      "e.cloud.audit.BigQueryAuditMetadata.Rout" +
-      "ineDeletion.Reason\022\020\n\010job_name\030\004 \001(\t\"G\n\006" +
-      "Reason\022\026\n\022REASON_UNSPECIFIED\020\000\022\t\n\005QUERY\020" +
-      "\001\022\032\n\026ROUTINE_DELETE_REQUEST\020\002\032\360\001\n\003Job\022\020\n" +
-      "\010job_name\030\001 \001(\t\022G\n\njob_config\030\002 \001(\01323.go" +
-      "ogle.cloud.audit.BigQueryAuditMetadata.J" +
-      "obConfig\022G\n\njob_status\030\003 \001(\01323.google.cl" +
-      "oud.audit.BigQueryAuditMetadata.JobStatu" +
-      "s\022E\n\tjob_stats\030\004 \001(\01322.google.cloud.audi" +
-      "t.BigQueryAuditMetadata.JobStats\032\350\022\n\tJob" +
-      "Config\022F\n\004type\030\001 \001(\01628.google.cloud.audi" +
-      "t.BigQueryAuditMetadata.JobConfig.Type\022Q" +
-      "\n\014query_config\030\002 \001(\01329.google.cloud.audi" +
-      "t.BigQueryAuditMetadata.JobConfig.QueryH" +
-      "\000\022O\n\013load_config\030\003 \001(\01328.google.cloud.au" +
-      "dit.BigQueryAuditMetadata.JobConfig.Load" +
-      "H\000\022U\n\016extract_config\030\004 \001(\0132;.google.clou" +
-      "d.audit.BigQueryAuditMetadata.JobConfig." +
-      "ExtractH\000\022Z\n\021table_copy_config\030\005 \001(\0132=.g" +
-      "oogle.cloud.audit.BigQueryAuditMetadata." +
-      "JobConfig.TableCopyH\000\022O\n\006labels\030\006 \003(\0132?." +
+      "leChange.Reason\022\020\n\010job_name\030\006 \001(\t\"N\n\006Rea" +
+      "son\022\026\n\022REASON_UNSPECIFIED\020\000\022\030\n\024TABLE_UPD" +
+      "ATE_REQUEST\020\001\022\007\n\003JOB\020\002\022\t\n\005QUERY\020\003\032\203\002\n\023Mo" +
+      "delMetadataChange\022>\n\005model\030\001 \001(\0132/.googl" +
+      "e.cloud.audit.BigQueryAuditMetadata.Mode" +
+      "l\022T\n\006reason\030\002 \001(\0162D.google.cloud.audit.B" +
+      "igQueryAuditMetadata.ModelMetadataChange" +
+      ".Reason\022\020\n\010job_name\030\003 \001(\t\"D\n\006Reason\022\026\n\022R" +
+      "EASON_UNSPECIFIED\020\000\022\027\n\023MODEL_PATCH_REQUE" +
+      "ST\020\001\022\t\n\005QUERY\020\002\032\376\001\n\rRoutineChange\022B\n\007rou" +
+      "tine\030\001 \001(\01321.google.cloud.audit.BigQuery" +
+      "AuditMetadata.Routine\022N\n\006reason\030\003 \001(\0162>." +
       "google.cloud.audit.BigQueryAuditMetadata" +
-      ".JobConfig.LabelsEntry\032\303\005\n\005Query\022\r\n\005quer" +
-      "y\030\001 \001(\t\022\027\n\017query_truncated\030\n \001(\010\022\031\n\021dest" +
-      "ination_table\030\002 \001(\t\022W\n\022create_dispositio" +
-      "n\030\003 \001(\0162;.google.cloud.audit.BigQueryAud" +
-      "itMetadata.CreateDisposition\022U\n\021write_di" +
-      "sposition\030\004 \001(\0162:.google.cloud.audit.Big" +
-      "QueryAuditMetadata.WriteDisposition\022\027\n\017d" +
-      "efault_dataset\030\005 \001(\t\022T\n\021table_definition" +
-      "s\030\006 \003(\01329.google.cloud.audit.BigQueryAud" +
-      "itMetadata.TableDefinition\022T\n\010priority\030\007" +
-      " \001(\0162B.google.cloud.audit.BigQueryAuditM" +
-      "etadata.JobConfig.Query.Priority\022^\n\034dest" +
-      "ination_table_encryption\030\010 \001(\01328.google." +
-      "cloud.audit.BigQueryAuditMetadata.Encryp" +
-      "tionInfo\022T\n\016statement_type\030\t \001(\0162<.googl" +
-      "e.cloud.audit.BigQueryAuditMetadata.Quer" +
-      "yStatementType\"L\n\010Priority\022\030\n\024PRIORITY_U" +
-      "NSPECIFIED\020\000\022\025\n\021QUERY_INTERACTIVE\020\001\022\017\n\013Q" +
-      "UERY_BATCH\020\002\032\231\003\n\004Load\022\023\n\013source_uris\030\001 \003" +
-      "(\t\022\035\n\025source_uris_truncated\030\007 \001(\010\022\023\n\013sch" +
-      "ema_json\030\002 \001(\t\022\035\n\025schema_json_truncated\030" +
-      "\010 \001(\010\022\031\n\021destination_table\030\003 \001(\t\022W\n\022crea" +
-      "te_disposition\030\004 \001(\0162;.google.cloud.audi" +
-      "t.BigQueryAuditMetadata.CreateDispositio" +
-      "n\022U\n\021write_disposition\030\005 \001(\0162:.google.cl" +
-      "oud.audit.BigQueryAuditMetadata.WriteDis" +
-      "position\022^\n\034destination_table_encryption" +
-      "\030\006 \001(\01328.google.cloud.audit.BigQueryAudi" +
-      "tMetadata.EncryptionInfo\032\201\001\n\007Extract\022\030\n\020" +
-      "destination_uris\030\001 \003(\t\022\"\n\032destination_ur" +
-      "is_truncated\030\003 \001(\010\022\026\n\014source_table\030\002 \001(\t" +
-      "H\000\022\026\n\014source_model\030\004 \001(\tH\000B\010\n\006source\032\200\004\n" +
-      "\tTableCopy\022\025\n\rsource_tables\030\001 \003(\t\022\037\n\027sou" +
-      "rce_tables_truncated\030\006 \001(\010\022\031\n\021destinatio" +
-      "n_table\030\002 \001(\t\022W\n\022create_disposition\030\003 \001(" +
-      "\0162;.google.cloud.audit.BigQueryAuditMeta" +
-      "data.CreateDisposition\022U\n\021write_disposit" +
-      "ion\030\004 \001(\0162:.google.cloud.audit.BigQueryA" +
-      "uditMetadata.WriteDisposition\022^\n\034destina" +
-      "tion_table_encryption\030\005 \001(\01328.google.clo" +
-      "ud.audit.BigQueryAuditMetadata.Encryptio" +
-      "nInfo\022O\n\016operation_type\030\007 \001(\01627.google.c" +
-      "loud.audit.BigQueryAuditMetadata.Operati" +
-      "onType\022?\n\033destination_expiration_time\030\010 " +
-      "\001(\0132\032.google.protobuf.Timestamp\032-\n\013Label" +
-      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"I" +
-      "\n\004Type\022\024\n\020TYPE_UNSPECIFIED\020\000\022\t\n\005QUERY\020\001\022" +
-      "\010\n\004COPY\020\002\022\n\n\006EXPORT\020\003\022\n\n\006IMPORT\020\004B\010\n\006con" +
-      "fig\0324\n\017TableDefinition\022\014\n\004name\030\001 \001(\t\022\023\n\013" +
-      "source_uris\030\002 \003(\t\032\240\001\n\tJobStatus\022E\n\tjob_s" +
-      "tate\030\001 \001(\01622.google.cloud.audit.BigQuery" +
-      "AuditMetadata.JobState\022(\n\014error_result\030\002" +
-      " \001(\0132\022.google.rpc.Status\022\"\n\006errors\030\003 \003(\013" +
-      "2\022.google.rpc.Status\032\221\007\n\010JobStats\022/\n\013cre" +
-      "ate_time\030\001 \001(\0132\032.google.protobuf.Timesta" +
-      "mp\022.\n\nstart_time\030\002 \001(\0132\032.google.protobuf" +
-      ".Timestamp\022,\n\010end_time\030\003 \001(\0132\032.google.pr" +
-      "otobuf.Timestamp\022O\n\013query_stats\030\010 \001(\01328." +
+      ".RoutineChange.Reason\022\020\n\010job_name\030\004 \001(\t\"" +
+      "G\n\006Reason\022\026\n\022REASON_UNSPECIFIED\020\000\022\t\n\005QUE" +
+      "RY\020\001\022\032\n\026ROUTINE_UPDATE_REQUEST\020\002\032\272\002\n\017Tab" +
+      "leDataChange\022\032\n\022deleted_rows_count\030\001 \001(\003" +
+      "\022\033\n\023inserted_rows_count\030\002 \001(\003\022\021\n\ttruncat" +
+      "ed\030\003 \001(\010\022P\n\006reason\030\004 \001(\0162@.google.cloud." +
+      "audit.BigQueryAuditMetadata.TableDataCha" +
+      "nge.Reason\022\020\n\010job_name\030\005 \001(\t\022\023\n\013stream_n" +
+      "ame\030\006 \001(\t\"b\n\006Reason\022\026\n\022REASON_UNSPECIFIE" +
+      "D\020\000\022\007\n\003JOB\020\001\022\t\n\005QUERY\020\002\022\035\n\031MATERIALIZED_" +
+      "VIEW_REFRESH\020\003\022\r\n\tWRITE_API\020\004\032\242\001\n\017ModelD" +
+      "ataChange\022P\n\006reason\030\001 \001(\0162@.google.cloud" +
+      ".audit.BigQueryAuditMetadata.ModelDataCh" +
+      "ange.Reason\022\020\n\010job_name\030\002 \001(\t\"+\n\006Reason\022" +
+      "\026\n\022REASON_UNSPECIFIED\020\000\022\t\n\005QUERY\020\001\032\234\001\n\rM" +
+      "odelDataRead\022N\n\006reason\030\001 \001(\0162>.google.cl" +
+      "oud.audit.BigQueryAuditMetadata.ModelDat" +
+      "aRead.Reason\022\020\n\010job_name\030\002 \001(\t\")\n\006Reason" +
+      "\022\026\n\022REASON_UNSPECIFIED\020\000\022\007\n\003JOB\020\001\032\305\001\n\rTa" +
+      "bleDeletion\022N\n\006reason\030\001 \001(\0162>.google.clo" +
+      "ud.audit.BigQueryAuditMetadata.TableDele" +
+      "tion.Reason\022\020\n\010job_name\030\002 \001(\t\"R\n\006Reason\022" +
+      "\026\n\022REASON_UNSPECIFIED\020\000\022\030\n\024TABLE_DELETE_" +
+      "REQUEST\020\002\022\013\n\007EXPIRED\020\003\022\t\n\005QUERY\020\004\032\305\001\n\rMo" +
+      "delDeletion\022N\n\006reason\030\001 \001(\0162>.google.clo" +
+      "ud.audit.BigQueryAuditMetadata.ModelDele" +
+      "tion.Reason\022\020\n\010job_name\030\002 \001(\t\"R\n\006Reason\022" +
+      "\026\n\022REASON_UNSPECIFIED\020\000\022\030\n\024MODEL_DELETE_" +
+      "REQUEST\020\001\022\013\n\007EXPIRED\020\002\022\t\n\005QUERY\020\003\032\202\002\n\017Ro" +
+      "utineDeletion\022B\n\007routine\030\001 \001(\01321.google." +
+      "cloud.audit.BigQueryAuditMetadata.Routin" +
+      "e\022P\n\006reason\030\003 \001(\0162@.google.cloud.audit.B" +
+      "igQueryAuditMetadata.RoutineDeletion.Rea" +
+      "son\022\020\n\010job_name\030\004 \001(\t\"G\n\006Reason\022\026\n\022REASO" +
+      "N_UNSPECIFIED\020\000\022\t\n\005QUERY\020\001\022\032\n\026ROUTINE_DE" +
+      "LETE_REQUEST\020\002\032\201\001\n\027RowAccessPolicyCreati" +
+      "on\022T\n\021row_access_policy\030\001 \001(\01329.google.c" +
+      "loud.audit.BigQueryAuditMetadata.RowAcce" +
+      "ssPolicy\022\020\n\010job_name\030\002 \001(\t\032\177\n\025RowAccessP" +
+      "olicyChange\022T\n\021row_access_policy\030\001 \001(\01329" +
+      ".google.cloud.audit.BigQueryAuditMetadat" +
+      "a.RowAccessPolicy\022\020\n\010job_name\030\002 \001(\t\032\254\001\n\027" +
+      "RowAccessPolicyDeletion\022V\n\023row_access_po" +
+      "licies\030\001 \003(\01329.google.cloud.audit.BigQue" +
+      "ryAuditMetadata.RowAccessPolicy\022\020\n\010job_n" +
+      "ame\030\002 \001(\t\022\'\n\037all_row_access_policies_dro" +
+      "pped\030\003 \001(\010\032\301\001\n\rUnlinkDataset\022\026\n\016linked_d" +
+      "ataset\030\001 \001(\t\022\026\n\016source_dataset\030\002 \001(\t\022N\n\006" +
+      "reason\030\003 \001(\0162>.google.cloud.audit.BigQue" +
+      "ryAuditMetadata.UnlinkDataset.Reason\"0\n\006" +
+      "Reason\022\026\n\022REASON_UNSPECIFIED\020\000\022\016\n\nUNLINK" +
+      "_API\020\001\032\360\001\n\003Job\022\020\n\010job_name\030\001 \001(\t\022G\n\njob_" +
+      "config\030\002 \001(\01323.google.cloud.audit.BigQue" +
+      "ryAuditMetadata.JobConfig\022G\n\njob_status\030" +
+      "\003 \001(\01323.google.cloud.audit.BigQueryAudit" +
+      "Metadata.JobStatus\022E\n\tjob_stats\030\004 \001(\01322." +
       "google.cloud.audit.BigQueryAuditMetadata" +
-      ".JobStats.QueryH\000\022M\n\nload_stats\030\t \001(\01327." +
+      ".JobStats\032\350\022\n\tJobConfig\022F\n\004type\030\001 \001(\01628." +
       "google.cloud.audit.BigQueryAuditMetadata" +
-      ".JobStats.LoadH\000\022S\n\rextract_stats\030\r \001(\0132" +
-      ":.google.cloud.audit.BigQueryAuditMetada" +
-      "ta.JobStats.ExtractH\000\022\025\n\rtotal_slot_ms\030\n" +
-      " \001(\003\022f\n\021reservation_usage\030\013 \003(\0132K.google" +
-      ".cloud.audit.BigQueryAuditMetadata.JobSt" +
-      "ats.ReservationResourceUsage\022\027\n\017parent_j" +
-      "ob_name\030\014 \001(\t\032\327\001\n\005Query\022\035\n\025total_process" +
-      "ed_bytes\030\001 \001(\003\022\032\n\022total_billed_bytes\030\002 \001" +
-      "(\003\022\024\n\014billing_tier\030\003 \001(\005\022\031\n\021referenced_t" +
-      "ables\030\006 \003(\t\022\030\n\020referenced_views\030\007 \003(\t\022\033\n" +
-      "\023referenced_routines\030\n \003(\t\022\030\n\020output_row" +
-      "_count\030\010 \001(\003\022\021\n\tcache_hit\030\t \001(\010\032\"\n\004Load\022" +
-      "\032\n\022total_output_bytes\030\001 \001(\003\032$\n\007Extract\022\031" +
-      "\n\021total_input_bytes\030\001 \001(\003\0329\n\030Reservation" +
-      "ResourceUsage\022\014\n\004name\030\001 \001(\t\022\017\n\007slot_ms\030\002" +
-      " \001(\003B\n\n\010extended\032\372\003\n\005Table\022\022\n\ntable_name" +
-      "\030\001 \001(\t\022\023\n\013schema_json\030\003 \001(\t\022\035\n\025schema_js" +
-      "on_truncated\030\013 \001(\010\022K\n\004view\030\004 \001(\0132=.googl" +
-      "e.cloud.audit.BigQueryAuditMetadata.Tabl" +
-      "eViewDefinition\022/\n\013expire_time\030\005 \001(\0132\032.g" +
-      "oogle.protobuf.Timestamp\022/\n\013create_time\030" +
-      "\006 \001(\0132\032.google.protobuf.Timestamp\022/\n\013upd" +
-      "ate_time\030\007 \001(\0132\032.google.protobuf.Timesta" +
-      "mp\0221\n\rtruncate_time\030\010 \001(\0132\032.google.proto" +
-      "buf.Timestamp\022L\n\nencryption\030\t \001(\01328.goog" +
-      "le.cloud.audit.BigQueryAuditMetadata.Enc" +
-      "ryptionInfo\022H\n\ntable_info\030\n \001(\01324.google" +
-      ".cloud.audit.BigQueryAuditMetadata.Entit" +
-      "yInfo\032\201\001\n\007Routine\022\024\n\014routine_name\030\001 \001(\t\022" +
-      "/\n\013create_time\030\005 \001(\0132\032.google.protobuf.T" +
-      "imestamp\022/\n\013update_time\030\006 \001(\0132\032.google.p" +
-      "rotobuf.Timestamp\032\271\001\n\nEntityInfo\022\025\n\rfrie" +
-      "ndly_name\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\022P\n\006" +
-      "labels\030\003 \003(\0132@.google.cloud.audit.BigQue" +
-      "ryAuditMetadata.EntityInfo.LabelsEntry\032-" +
-      "\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
-      "\t:\0028\001\032=\n\023TableViewDefinition\022\r\n\005query\030\001 " +
-      "\001(\t\022\027\n\017query_truncated\030\002 \001(\010\032N\n\013BigQuery" +
-      "Acl\022%\n\006policy\030\001 \001(\0132\025.google.iam.v1.Poli" +
-      "cy\022\030\n\020authorized_views\030\002 \003(\t\032&\n\016Encrypti" +
-      "onInfo\022\024\n\014kms_key_name\030\001 \001(\t\"l\n\020WriteDis" +
-      "position\022!\n\035WRITE_DISPOSITION_UNSPECIFIE" +
-      "D\020\000\022\017\n\013WRITE_EMPTY\020\001\022\022\n\016WRITE_TRUNCATE\020\002" +
-      "\022\020\n\014WRITE_APPEND\020\003\"T\n\rOperationType\022\036\n\032O" +
-      "PERATION_TYPE_UNSPECIFIED\020\000\022\010\n\004COPY\020\001\022\014\n" +
-      "\010SNAPSHOT\020\002\022\013\n\007RESTORE\020\003\"_\n\021CreateDispos" +
-      "ition\022\"\n\036CREATE_DISPOSITION_UNSPECIFIED\020" +
-      "\000\022\020\n\014CREATE_NEVER\020\001\022\024\n\020CREATE_IF_NEEDED\020" +
-      "\002\"I\n\010JobState\022\031\n\025JOB_STATE_UNSPECIFIED\020\000" +
-      "\022\013\n\007PENDING\020\001\022\013\n\007RUNNING\020\002\022\010\n\004DONE\020\003\"\360\004\n" +
-      "\022QueryStatementType\022$\n QUERY_STATEMENT_T" +
-      "YPE_UNSPECIFIED\020\000\022\n\n\006SELECT\020\001\022\n\n\006ASSERT\020" +
-      "\027\022\n\n\006INSERT\020\002\022\n\n\006UPDATE\020\003\022\n\n\006DELETE\020\004\022\t\n" +
-      "\005MERGE\020\005\022\020\n\014CREATE_TABLE\020\006\022\032\n\026CREATE_TAB" +
-      "LE_AS_SELECT\020\007\022\017\n\013CREATE_VIEW\020\010\022\020\n\014CREAT" +
-      "E_MODEL\020\t\022\034\n\030CREATE_MATERIALIZED_VIEW\020\r\022" +
-      "\023\n\017CREATE_FUNCTION\020\016\022\024\n\020CREATE_PROCEDURE" +
-      "\020\024\022\021\n\rCREATE_SCHEMA\0205\022\016\n\nDROP_TABLE\020\n\022\027\n" +
-      "\023DROP_EXTERNAL_TABLE\020!\022\r\n\tDROP_VIEW\020\013\022\016\n" +
-      "\nDROP_MODEL\020\014\022\032\n\026DROP_MATERIALIZED_VIEW\020" +
-      "\017\022\021\n\rDROP_FUNCTION\020\020\022\022\n\016DROP_PROCEDURE\020\025" +
-      "\022\017\n\013DROP_SCHEMA\0206\022\017\n\013ALTER_TABLE\020\021\022\016\n\nAL" +
-      "TER_VIEW\020\022\022\033\n\027ALTER_MATERIALIZED_VIEW\020\026\022" +
-      "\020\n\014ALTER_SCHEMA\0207\022\n\n\006SCRIPT\020\023\022\022\n\016TRUNCAT" +
-      "E_TABLE\020\032\022\031\n\025CREATE_EXTERNAL_TABLE\020\033\022\017\n\013" +
-      "EXPORT_DATA\020\034\022\010\n\004CALL\020\035B\007\n\005eventB\237\001\n\026com" +
-      ".google.cloud.auditB\032BigQueryAuditMetada" +
-      "taProtoP\001Z7google.golang.org/genproto/go" +
-      "ogleapis/cloud/audit;audit\242\002\003GCA\252\002\022Googl" +
-      "e.Cloud.Audit\312\002\022Google\\Cloud\\Auditb\006prot" +
-      "o3"
+      ".JobConfig.Type\022Q\n\014query_config\030\002 \001(\01329." +
+      "google.cloud.audit.BigQueryAuditMetadata" +
+      ".JobConfig.QueryH\000\022O\n\013load_config\030\003 \001(\0132" +
+      "8.google.cloud.audit.BigQueryAuditMetada" +
+      "ta.JobConfig.LoadH\000\022U\n\016extract_config\030\004 " +
+      "\001(\0132;.google.cloud.audit.BigQueryAuditMe" +
+      "tadata.JobConfig.ExtractH\000\022Z\n\021table_copy" +
+      "_config\030\005 \001(\0132=.google.cloud.audit.BigQu" +
+      "eryAuditMetadata.JobConfig.TableCopyH\000\022O" +
+      "\n\006labels\030\006 \003(\0132?.google.cloud.audit.BigQ" +
+      "ueryAuditMetadata.JobConfig.LabelsEntry\032" +
+      "\303\005\n\005Query\022\r\n\005query\030\001 \001(\t\022\027\n\017query_trunca" +
+      "ted\030\n \001(\010\022\031\n\021destination_table\030\002 \001(\t\022W\n\022" +
+      "create_disposition\030\003 \001(\0162;.google.cloud." +
+      "audit.BigQueryAuditMetadata.CreateDispos" +
+      "ition\022U\n\021write_disposition\030\004 \001(\0162:.googl" +
+      "e.cloud.audit.BigQueryAuditMetadata.Writ" +
+      "eDisposition\022\027\n\017default_dataset\030\005 \001(\t\022T\n" +
+      "\021table_definitions\030\006 \003(\01329.google.cloud." +
+      "audit.BigQueryAuditMetadata.TableDefinit" +
+      "ion\022T\n\010priority\030\007 \001(\0162B.google.cloud.aud" +
+      "it.BigQueryAuditMetadata.JobConfig.Query" +
+      ".Priority\022^\n\034destination_table_encryptio" +
+      "n\030\010 \001(\01328.google.cloud.audit.BigQueryAud" +
+      "itMetadata.EncryptionInfo\022T\n\016statement_t" +
+      "ype\030\t \001(\0162<.google.cloud.audit.BigQueryA" +
+      "uditMetadata.QueryStatementType\"L\n\010Prior" +
+      "ity\022\030\n\024PRIORITY_UNSPECIFIED\020\000\022\025\n\021QUERY_I" +
+      "NTERACTIVE\020\001\022\017\n\013QUERY_BATCH\020\002\032\231\003\n\004Load\022\023" +
+      "\n\013source_uris\030\001 \003(\t\022\035\n\025source_uris_trunc" +
+      "ated\030\007 \001(\010\022\023\n\013schema_json\030\002 \001(\t\022\035\n\025schem" +
+      "a_json_truncated\030\010 \001(\010\022\031\n\021destination_ta" +
+      "ble\030\003 \001(\t\022W\n\022create_disposition\030\004 \001(\0162;." +
+      "google.cloud.audit.BigQueryAuditMetadata" +
+      ".CreateDisposition\022U\n\021write_disposition\030" +
+      "\005 \001(\0162:.google.cloud.audit.BigQueryAudit" +
+      "Metadata.WriteDisposition\022^\n\034destination" +
+      "_table_encryption\030\006 \001(\01328.google.cloud.a" +
+      "udit.BigQueryAuditMetadata.EncryptionInf" +
+      "o\032\201\001\n\007Extract\022\030\n\020destination_uris\030\001 \003(\t\022" +
+      "\"\n\032destination_uris_truncated\030\003 \001(\010\022\026\n\014s" +
+      "ource_table\030\002 \001(\tH\000\022\026\n\014source_model\030\004 \001(" +
+      "\tH\000B\010\n\006source\032\200\004\n\tTableCopy\022\025\n\rsource_ta" +
+      "bles\030\001 \003(\t\022\037\n\027source_tables_truncated\030\006 " +
+      "\001(\010\022\031\n\021destination_table\030\002 \001(\t\022W\n\022create" +
+      "_disposition\030\003 \001(\0162;.google.cloud.audit." +
+      "BigQueryAuditMetadata.CreateDisposition\022" +
+      "U\n\021write_disposition\030\004 \001(\0162:.google.clou" +
+      "d.audit.BigQueryAuditMetadata.WriteDispo" +
+      "sition\022^\n\034destination_table_encryption\030\005" +
+      " \001(\01328.google.cloud.audit.BigQueryAuditM" +
+      "etadata.EncryptionInfo\022O\n\016operation_type" +
+      "\030\007 \001(\01627.google.cloud.audit.BigQueryAudi" +
+      "tMetadata.OperationType\022?\n\033destination_e" +
+      "xpiration_time\030\010 \001(\0132\032.google.protobuf.T" +
+      "imestamp\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
+      "value\030\002 \001(\t:\0028\001\"I\n\004Type\022\024\n\020TYPE_UNSPECIF" +
+      "IED\020\000\022\t\n\005QUERY\020\001\022\010\n\004COPY\020\002\022\n\n\006EXPORT\020\003\022\n" +
+      "\n\006IMPORT\020\004B\010\n\006config\0324\n\017TableDefinition\022" +
+      "\014\n\004name\030\001 \001(\t\022\023\n\013source_uris\030\002 \003(\t\032\240\001\n\tJ" +
+      "obStatus\022E\n\tjob_state\030\001 \001(\01622.google.clo" +
+      "ud.audit.BigQueryAuditMetadata.JobState\022" +
+      "(\n\014error_result\030\002 \001(\0132\022.google.rpc.Statu" +
+      "s\022\"\n\006errors\030\003 \003(\0132\022.google.rpc.Status\032\221\007" +
+      "\n\010JobStats\022/\n\013create_time\030\001 \001(\0132\032.google" +
+      ".protobuf.Timestamp\022.\n\nstart_time\030\002 \001(\0132" +
+      "\032.google.protobuf.Timestamp\022,\n\010end_time\030" +
+      "\003 \001(\0132\032.google.protobuf.Timestamp\022O\n\013que" +
+      "ry_stats\030\010 \001(\01328.google.cloud.audit.BigQ" +
+      "ueryAuditMetadata.JobStats.QueryH\000\022M\n\nlo" +
+      "ad_stats\030\t \001(\01327.google.cloud.audit.BigQ" +
+      "ueryAuditMetadata.JobStats.LoadH\000\022S\n\rext" +
+      "ract_stats\030\r \001(\0132:.google.cloud.audit.Bi" +
+      "gQueryAuditMetadata.JobStats.ExtractH\000\022\025" +
+      "\n\rtotal_slot_ms\030\n \001(\003\022f\n\021reservation_usa" +
+      "ge\030\013 \003(\0132K.google.cloud.audit.BigQueryAu" +
+      "ditMetadata.JobStats.ReservationResource" +
+      "Usage\022\027\n\017parent_job_name\030\014 \001(\t\032\327\001\n\005Query" +
+      "\022\035\n\025total_processed_bytes\030\001 \001(\003\022\032\n\022total" +
+      "_billed_bytes\030\002 \001(\003\022\024\n\014billing_tier\030\003 \001(" +
+      "\005\022\031\n\021referenced_tables\030\006 \003(\t\022\030\n\020referenc" +
+      "ed_views\030\007 \003(\t\022\033\n\023referenced_routines\030\n " +
+      "\003(\t\022\030\n\020output_row_count\030\010 \001(\003\022\021\n\tcache_h" +
+      "it\030\t \001(\010\032\"\n\004Load\022\032\n\022total_output_bytes\030\001" +
+      " \001(\003\032$\n\007Extract\022\031\n\021total_input_bytes\030\001 \001" +
+      "(\003\0329\n\030ReservationResourceUsage\022\014\n\004name\030\001" +
+      " \001(\t\022\017\n\007slot_ms\030\002 \001(\003B\n\n\010extended\032\372\003\n\005Ta" +
+      "ble\022\022\n\ntable_name\030\001 \001(\t\022H\n\ntable_info\030\n " +
+      "\001(\01324.google.cloud.audit.BigQueryAuditMe" +
+      "tadata.EntityInfo\022\023\n\013schema_json\030\003 \001(\t\022\035" +
+      "\n\025schema_json_truncated\030\013 \001(\010\022K\n\004view\030\004 " +
+      "\001(\0132=.google.cloud.audit.BigQueryAuditMe" +
+      "tadata.TableViewDefinition\022/\n\013expire_tim" +
+      "e\030\005 \001(\0132\032.google.protobuf.Timestamp\022/\n\013c" +
+      "reate_time\030\006 \001(\0132\032.google.protobuf.Times" +
+      "tamp\022/\n\013update_time\030\007 \001(\0132\032.google.proto" +
+      "buf.Timestamp\0221\n\rtruncate_time\030\010 \001(\0132\032.g" +
+      "oogle.protobuf.Timestamp\022L\n\nencryption\030\t" +
+      " \001(\01328.google.cloud.audit.BigQueryAuditM" +
+      "etadata.EncryptionInfo\032\306\002\n\005Model\022\022\n\nmode" +
+      "l_name\030\001 \001(\t\022H\n\nmodel_info\030\002 \001(\01324.googl" +
+      "e.cloud.audit.BigQueryAuditMetadata.Enti" +
+      "tyInfo\022/\n\013expire_time\030\005 \001(\0132\032.google.pro" +
+      "tobuf.Timestamp\022/\n\013create_time\030\006 \001(\0132\032.g" +
+      "oogle.protobuf.Timestamp\022/\n\013update_time\030" +
+      "\007 \001(\0132\032.google.protobuf.Timestamp\022L\n\nenc" +
+      "ryption\030\010 \001(\01328.google.cloud.audit.BigQu" +
+      "eryAuditMetadata.EncryptionInfo\032\201\001\n\007Rout" +
+      "ine\022\024\n\014routine_name\030\001 \001(\t\022/\n\013create_time" +
+      "\030\005 \001(\0132\032.google.protobuf.Timestamp\022/\n\013up" +
+      "date_time\030\006 \001(\0132\032.google.protobuf.Timest" +
+      "amp\032\271\001\n\nEntityInfo\022\025\n\rfriendly_name\030\001 \001(" +
+      "\t\022\023\n\013description\030\002 \001(\t\022P\n\006labels\030\003 \003(\0132@" +
+      ".google.cloud.audit.BigQueryAuditMetadat" +
+      "a.EntityInfo.LabelsEntry\032-\n\013LabelsEntry\022" +
+      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032=\n\023Table" +
+      "ViewDefinition\022\r\n\005query\030\001 \001(\t\022\027\n\017query_t" +
+      "runcated\030\002 \001(\010\032\304\003\n\007Dataset\022\024\n\014dataset_na" +
+      "me\030\001 \001(\t\022J\n\014dataset_info\030\007 \001(\01324.google." +
+      "cloud.audit.BigQueryAuditMetadata.Entity" +
+      "Info\022/\n\013create_time\030\003 \001(\0132\032.google.proto" +
+      "buf.Timestamp\022/\n\013update_time\030\004 \001(\0132\032.goo" +
+      "gle.protobuf.Timestamp\022B\n\003acl\030\005 \001(\01325.go" +
+      "ogle.cloud.audit.BigQueryAuditMetadata.B" +
+      "igQueryAcl\022@\n\035default_table_expire_durat" +
+      "ion\030\006 \001(\0132\031.google.protobuf.Duration\022T\n\022" +
+      "default_encryption\030\010 \001(\01328.google.cloud." +
+      "audit.BigQueryAuditMetadata.EncryptionIn" +
+      "fo\022\031\n\021default_collation\030\t \001(\t\032N\n\013BigQuer" +
+      "yAcl\022%\n\006policy\030\001 \001(\0132\025.google.iam.v1.Pol" +
+      "icy\022\030\n\020authorized_views\030\002 \003(\t\032&\n\016Encrypt" +
+      "ionInfo\022\024\n\014kms_key_name\030\001 \001(\t\0321\n\017RowAcce" +
+      "ssPolicy\022\036\n\026row_access_policy_name\030\001 \001(\t" +
+      "\032x\n\025FirstPartyAppMetadata\022S\n\017sheets_meta" +
+      "data\030\001 \001(\01328.google.cloud.audit.BigQuery" +
+      "AuditMetadata.SheetsMetadataH\000B\n\n\010metada" +
+      "ta\032 \n\016SheetsMetadata\022\016\n\006doc_id\030\001 \001(\t\"_\n\021" +
+      "CreateDisposition\022\"\n\036CREATE_DISPOSITION_" +
+      "UNSPECIFIED\020\000\022\020\n\014CREATE_NEVER\020\001\022\024\n\020CREAT" +
+      "E_IF_NEEDED\020\002\"l\n\020WriteDisposition\022!\n\035WRI" +
+      "TE_DISPOSITION_UNSPECIFIED\020\000\022\017\n\013WRITE_EM" +
+      "PTY\020\001\022\022\n\016WRITE_TRUNCATE\020\002\022\020\n\014WRITE_APPEN" +
+      "D\020\003\"T\n\rOperationType\022\036\n\032OPERATION_TYPE_U" +
+      "NSPECIFIED\020\000\022\010\n\004COPY\020\001\022\014\n\010SNAPSHOT\020\002\022\013\n\007" +
+      "RESTORE\020\003\"I\n\010JobState\022\031\n\025JOB_STATE_UNSPE" +
+      "CIFIED\020\000\022\013\n\007PENDING\020\001\022\013\n\007RUNNING\020\002\022\010\n\004DO" +
+      "NE\020\003\"\371\005\n\022QueryStatementType\022$\n QUERY_STA" +
+      "TEMENT_TYPE_UNSPECIFIED\020\000\022\n\n\006SELECT\020\001\022\n\n" +
+      "\006ASSERT\020\027\022\n\n\006INSERT\020\002\022\n\n\006UPDATE\020\003\022\n\n\006DEL" +
+      "ETE\020\004\022\t\n\005MERGE\020\005\022\020\n\014CREATE_TABLE\020\006\022\032\n\026CR" +
+      "EATE_TABLE_AS_SELECT\020\007\022\017\n\013CREATE_VIEW\020\010\022" +
+      "\020\n\014CREATE_MODEL\020\t\022\034\n\030CREATE_MATERIALIZED" +
+      "_VIEW\020\r\022\023\n\017CREATE_FUNCTION\020\016\022\031\n\025CREATE_T" +
+      "ABLE_FUNCTION\0208\022\024\n\020CREATE_PROCEDURE\020\024\022\034\n" +
+      "\030CREATE_ROW_ACCESS_POLICY\020\030\022\021\n\rCREATE_SC" +
+      "HEMA\0205\022\031\n\025CREATE_SNAPSHOT_TABLE\020;\022\016\n\nDRO" +
+      "P_TABLE\020\n\022\027\n\023DROP_EXTERNAL_TABLE\020!\022\r\n\tDR" +
+      "OP_VIEW\020\013\022\016\n\nDROP_MODEL\020\014\022\032\n\026DROP_MATERI" +
+      "ALIZED_VIEW\020\017\022\021\n\rDROP_FUNCTION\020\020\022\022\n\016DROP" +
+      "_PROCEDURE\020\025\022\017\n\013DROP_SCHEMA\0206\022\032\n\026DROP_RO" +
+      "W_ACCESS_POLICY\020\031\022\027\n\023DROP_SNAPSHOT_TABLE" +
+      "\020>\022\017\n\013ALTER_TABLE\020\021\022\016\n\nALTER_VIEW\020\022\022\033\n\027A" +
+      "LTER_MATERIALIZED_VIEW\020\026\022\020\n\014ALTER_SCHEMA" +
+      "\0207\022\n\n\006SCRIPT\020\023\022\022\n\016TRUNCATE_TABLE\020\032\022\031\n\025CR" +
+      "EATE_EXTERNAL_TABLE\020\033\022\017\n\013EXPORT_DATA\020\034\022\010" +
+      "\n\004CALL\020\035B\007\n\005eventB\237\001\n\026com.google.cloud.a" +
+      "uditB\032BigQueryAuditMetadataProtoP\001Z7goog" +
+      "le.golang.org/genproto/googleapis/cloud/" +
+      "audit;audit\242\002\003GCA\252\002\022Google.Cloud.Audit\312\002" +
+      "\022Google\\Cloud\\Auditb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -569,7 +652,7 @@ public final class BigQueryAuditMetadataProto {
     internal_static_google_cloud_audit_BigQueryAuditMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor,
-        new java.lang.String[] { "JobInsertion", "JobChange", "DatasetCreation", "DatasetChange", "DatasetDeletion", "TableCreation", "TableChange", "TableDeletion", "TableDataRead", "TableDataChange", "ModelDeletion", "ModelCreation", "ModelMetadataChange", "ModelDataChange", "ModelDataRead", "RoutineCreation", "RoutineChange", "RoutineDeletion", "Event", });
+        new java.lang.String[] { "JobInsertion", "JobChange", "JobDeletion", "DatasetCreation", "DatasetChange", "DatasetDeletion", "TableCreation", "TableChange", "TableDeletion", "TableDataRead", "TableDataChange", "ModelDeletion", "ModelCreation", "ModelMetadataChange", "ModelDataChange", "ModelDataRead", "RoutineCreation", "RoutineChange", "RoutineDeletion", "RowAccessPolicyCreation", "RowAccessPolicyChange", "RowAccessPolicyDeletion", "UnlinkDataset", "FirstPartyAppMetadata", "Event", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_JobInsertion_descriptor =
       internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(0);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_JobInsertion_fieldAccessorTable = new
@@ -582,90 +665,90 @@ public final class BigQueryAuditMetadataProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_JobChange_descriptor,
         new java.lang.String[] { "Before", "After", "Job", });
-    internal_static_google_cloud_audit_BigQueryAuditMetadata_DatasetCreation_descriptor =
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_JobDeletion_descriptor =
       internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(2);
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_JobDeletion_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_audit_BigQueryAuditMetadata_JobDeletion_descriptor,
+        new java.lang.String[] { "JobName", "Reason", });
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_DatasetCreation_descriptor =
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(3);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_DatasetCreation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_DatasetCreation_descriptor,
         new java.lang.String[] { "Dataset", "Reason", "JobName", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_DatasetChange_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(3);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(4);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_DatasetChange_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_DatasetChange_descriptor,
         new java.lang.String[] { "Dataset", "Reason", "JobName", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_DatasetDeletion_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(4);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(5);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_DatasetDeletion_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_DatasetDeletion_descriptor,
         new java.lang.String[] { "Reason", "JobName", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_TableCreation_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(5);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(6);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_TableCreation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_TableCreation_descriptor,
         new java.lang.String[] { "Table", "Reason", "JobName", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_ModelCreation_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(6);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(7);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_ModelCreation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_ModelCreation_descriptor,
         new java.lang.String[] { "Model", "Reason", "JobName", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_RoutineCreation_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(7);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(8);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_RoutineCreation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_RoutineCreation_descriptor,
         new java.lang.String[] { "Routine", "Reason", "JobName", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_TableDataRead_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(8);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(9);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_TableDataRead_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_TableDataRead_descriptor,
         new java.lang.String[] { "Fields", "FieldsTruncated", "PolicyTags", "PolicyTagsTruncated", "Reason", "JobName", "SessionName", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_TableChange_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(9);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(10);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_TableChange_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_TableChange_descriptor,
         new java.lang.String[] { "Table", "Truncated", "Reason", "JobName", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_ModelMetadataChange_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(10);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(11);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_ModelMetadataChange_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_ModelMetadataChange_descriptor,
         new java.lang.String[] { "Model", "Reason", "JobName", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_RoutineChange_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(11);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(12);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_RoutineChange_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_RoutineChange_descriptor,
         new java.lang.String[] { "Routine", "Reason", "JobName", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_TableDataChange_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(12);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(13);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_TableDataChange_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_TableDataChange_descriptor,
         new java.lang.String[] { "DeletedRowsCount", "InsertedRowsCount", "Truncated", "Reason", "JobName", "StreamName", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_ModelDataChange_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(13);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(14);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_ModelDataChange_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_ModelDataChange_descriptor,
         new java.lang.String[] { "Reason", "JobName", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_ModelDataRead_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(14);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(15);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_ModelDataRead_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_ModelDataRead_descriptor,
         new java.lang.String[] { "Reason", "JobName", });
-    internal_static_google_cloud_audit_BigQueryAuditMetadata_Dataset_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(15);
-    internal_static_google_cloud_audit_BigQueryAuditMetadata_Dataset_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_google_cloud_audit_BigQueryAuditMetadata_Dataset_descriptor,
-        new java.lang.String[] { "DatasetName", "CreateTime", "UpdateTime", "Acl", "DefaultTableExpireDuration", "DatasetInfo", "DefaultEncryption", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_TableDeletion_descriptor =
       internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(16);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_TableDeletion_fieldAccessorTable = new
@@ -678,26 +761,44 @@ public final class BigQueryAuditMetadataProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_ModelDeletion_descriptor,
         new java.lang.String[] { "Reason", "JobName", });
-    internal_static_google_cloud_audit_BigQueryAuditMetadata_Model_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(18);
-    internal_static_google_cloud_audit_BigQueryAuditMetadata_Model_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_google_cloud_audit_BigQueryAuditMetadata_Model_descriptor,
-        new java.lang.String[] { "ModelName", "ModelInfo", "ExpireTime", "CreateTime", "UpdateTime", "Encryption", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_RoutineDeletion_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(19);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(18);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_RoutineDeletion_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_RoutineDeletion_descriptor,
         new java.lang.String[] { "Routine", "Reason", "JobName", });
-    internal_static_google_cloud_audit_BigQueryAuditMetadata_Job_descriptor =
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicyCreation_descriptor =
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(19);
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicyCreation_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicyCreation_descriptor,
+        new java.lang.String[] { "RowAccessPolicy", "JobName", });
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicyChange_descriptor =
       internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(20);
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicyChange_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicyChange_descriptor,
+        new java.lang.String[] { "RowAccessPolicy", "JobName", });
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicyDeletion_descriptor =
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(21);
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicyDeletion_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicyDeletion_descriptor,
+        new java.lang.String[] { "RowAccessPolicies", "JobName", "AllRowAccessPoliciesDropped", });
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_UnlinkDataset_descriptor =
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(22);
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_UnlinkDataset_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_audit_BigQueryAuditMetadata_UnlinkDataset_descriptor,
+        new java.lang.String[] { "LinkedDataset", "SourceDataset", "Reason", });
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_Job_descriptor =
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(23);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_Job_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_Job_descriptor,
         new java.lang.String[] { "JobName", "JobConfig", "JobStatus", "JobStats", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_JobConfig_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(21);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(24);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_JobConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_JobConfig_descriptor,
@@ -733,19 +834,19 @@ public final class BigQueryAuditMetadataProto {
         internal_static_google_cloud_audit_BigQueryAuditMetadata_JobConfig_LabelsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_TableDefinition_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(22);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(25);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_TableDefinition_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_TableDefinition_descriptor,
         new java.lang.String[] { "Name", "SourceUris", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_JobStatus_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(23);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(26);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_JobStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_JobStatus_descriptor,
         new java.lang.String[] { "JobState", "ErrorResult", "Errors", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_JobStats_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(24);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(27);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_JobStats_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_JobStats_descriptor,
@@ -775,19 +876,25 @@ public final class BigQueryAuditMetadataProto {
         internal_static_google_cloud_audit_BigQueryAuditMetadata_JobStats_ReservationResourceUsage_descriptor,
         new java.lang.String[] { "Name", "SlotMs", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_Table_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(25);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(28);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_Table_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_Table_descriptor,
-        new java.lang.String[] { "TableName", "SchemaJson", "SchemaJsonTruncated", "View", "ExpireTime", "CreateTime", "UpdateTime", "TruncateTime", "Encryption", "TableInfo", });
+        new java.lang.String[] { "TableName", "TableInfo", "SchemaJson", "SchemaJsonTruncated", "View", "ExpireTime", "CreateTime", "UpdateTime", "TruncateTime", "Encryption", });
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_Model_descriptor =
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(29);
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_Model_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_audit_BigQueryAuditMetadata_Model_descriptor,
+        new java.lang.String[] { "ModelName", "ModelInfo", "ExpireTime", "CreateTime", "UpdateTime", "Encryption", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_Routine_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(26);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(30);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_Routine_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_Routine_descriptor,
         new java.lang.String[] { "RoutineName", "CreateTime", "UpdateTime", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_EntityInfo_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(27);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(31);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_EntityInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_EntityInfo_descriptor,
@@ -799,23 +906,47 @@ public final class BigQueryAuditMetadataProto {
         internal_static_google_cloud_audit_BigQueryAuditMetadata_EntityInfo_LabelsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_TableViewDefinition_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(28);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(32);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_TableViewDefinition_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_TableViewDefinition_descriptor,
         new java.lang.String[] { "Query", "QueryTruncated", });
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_Dataset_descriptor =
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(33);
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_Dataset_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_audit_BigQueryAuditMetadata_Dataset_descriptor,
+        new java.lang.String[] { "DatasetName", "DatasetInfo", "CreateTime", "UpdateTime", "Acl", "DefaultTableExpireDuration", "DefaultEncryption", "DefaultCollation", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_BigQueryAcl_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(29);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(34);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_BigQueryAcl_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_BigQueryAcl_descriptor,
         new java.lang.String[] { "Policy", "AuthorizedViews", });
     internal_static_google_cloud_audit_BigQueryAuditMetadata_EncryptionInfo_descriptor =
-      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(30);
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(35);
     internal_static_google_cloud_audit_BigQueryAuditMetadata_EncryptionInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_audit_BigQueryAuditMetadata_EncryptionInfo_descriptor,
         new java.lang.String[] { "KmsKeyName", });
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicy_descriptor =
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(36);
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicy_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_audit_BigQueryAuditMetadata_RowAccessPolicy_descriptor,
+        new java.lang.String[] { "RowAccessPolicyName", });
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_FirstPartyAppMetadata_descriptor =
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(37);
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_FirstPartyAppMetadata_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_audit_BigQueryAuditMetadata_FirstPartyAppMetadata_descriptor,
+        new java.lang.String[] { "SheetsMetadata", "Metadata", });
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_SheetsMetadata_descriptor =
+      internal_static_google_cloud_audit_BigQueryAuditMetadata_descriptor.getNestedTypes().get(38);
+    internal_static_google_cloud_audit_BigQueryAuditMetadata_SheetsMetadata_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_audit_BigQueryAuditMetadata_SheetsMetadata_descriptor,
+        new java.lang.String[] { "DocId", });
     com.google.iam.v1.PolicyProto.getDescriptor();
     com.google.protobuf.DurationProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();

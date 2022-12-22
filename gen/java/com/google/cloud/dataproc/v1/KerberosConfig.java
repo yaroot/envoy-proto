@@ -47,133 +47,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private KerberosConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            enableKerberos_ = input.readBool();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            rootPrincipalPasswordUri_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kmsKeyUri_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            keystoreUri_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            truststoreUri_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            keystorePasswordUri_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            keyPasswordUri_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            truststorePasswordUri_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            crossRealmTrustRealm_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            crossRealmTrustKdc_ = s;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            crossRealmTrustAdminServer_ = s;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            crossRealmTrustSharedPasswordUri_ = s;
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kdcDbKeyUri_ = s;
-            break;
-          }
-          case 112: {
-
-            tgtLifetimeHours_ = input.readInt32();
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            realm_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.v1.ClustersProto.internal_static_google_cloud_dataproc_v1_KerberosConfig_descriptor;
@@ -188,11 +61,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_KERBEROS_FIELD_NUMBER = 1;
-  private boolean enableKerberos_;
+  private boolean enableKerberos_ = false;
   /**
    * <pre>
-   * Optional. Flag to indicate whether to Kerberize the cluster (default: false). Set
-   * this field to true to enable Kerberos on a cluster.
+   * Optional. Flag to indicate whether to Kerberize the cluster (default:
+   * false). Set this field to true to enable Kerberos on a cluster.
    * </pre>
    *
    * <code>bool enable_kerberos = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -204,7 +77,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROOT_PRINCIPAL_PASSWORD_URI_FIELD_NUMBER = 2;
-  private volatile java.lang.Object rootPrincipalPasswordUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object rootPrincipalPasswordUri_ = "";
   /**
    * <pre>
    * Optional. The Cloud Storage URI of a KMS encrypted file containing the root
@@ -252,7 +126,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KMS_KEY_URI_FIELD_NUMBER = 3;
-  private volatile java.lang.Object kmsKeyUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kmsKeyUri_ = "";
   /**
    * <pre>
    * Optional. The uri of the KMS key used to encrypt various sensitive
@@ -300,7 +175,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KEYSTORE_URI_FIELD_NUMBER = 4;
-  private volatile java.lang.Object keystoreUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object keystoreUri_ = "";
   /**
    * <pre>
    * Optional. The Cloud Storage URI of the keystore file used for SSL
@@ -350,7 +226,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRUSTSTORE_URI_FIELD_NUMBER = 5;
-  private volatile java.lang.Object truststoreUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object truststoreUri_ = "";
   /**
    * <pre>
    * Optional. The Cloud Storage URI of the truststore file used for SSL
@@ -400,7 +277,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KEYSTORE_PASSWORD_URI_FIELD_NUMBER = 6;
-  private volatile java.lang.Object keystorePasswordUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object keystorePasswordUri_ = "";
   /**
    * <pre>
    * Optional. The Cloud Storage URI of a KMS encrypted file containing the
@@ -450,7 +328,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KEY_PASSWORD_URI_FIELD_NUMBER = 7;
-  private volatile java.lang.Object keyPasswordUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object keyPasswordUri_ = "";
   /**
    * <pre>
    * Optional. The Cloud Storage URI of a KMS encrypted file containing the
@@ -500,7 +379,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRUSTSTORE_PASSWORD_URI_FIELD_NUMBER = 8;
-  private volatile java.lang.Object truststorePasswordUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object truststorePasswordUri_ = "";
   /**
    * <pre>
    * Optional. The Cloud Storage URI of a KMS encrypted file containing the
@@ -550,7 +430,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CROSS_REALM_TRUST_REALM_FIELD_NUMBER = 9;
-  private volatile java.lang.Object crossRealmTrustRealm_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object crossRealmTrustRealm_ = "";
   /**
    * <pre>
    * Optional. The remote realm the Dataproc on-cluster KDC will trust, should
@@ -598,7 +479,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CROSS_REALM_TRUST_KDC_FIELD_NUMBER = 10;
-  private volatile java.lang.Object crossRealmTrustKdc_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object crossRealmTrustKdc_ = "";
   /**
    * <pre>
    * Optional. The KDC (IP or hostname) for the remote trusted realm in a cross
@@ -646,7 +528,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CROSS_REALM_TRUST_ADMIN_SERVER_FIELD_NUMBER = 11;
-  private volatile java.lang.Object crossRealmTrustAdminServer_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object crossRealmTrustAdminServer_ = "";
   /**
    * <pre>
    * Optional. The admin server (IP or hostname) for the remote trusted realm in
@@ -694,7 +577,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CROSS_REALM_TRUST_SHARED_PASSWORD_URI_FIELD_NUMBER = 12;
-  private volatile java.lang.Object crossRealmTrustSharedPasswordUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object crossRealmTrustSharedPasswordUri_ = "";
   /**
    * <pre>
    * Optional. The Cloud Storage URI of a KMS encrypted file containing the
@@ -744,7 +628,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KDC_DB_KEY_URI_FIELD_NUMBER = 13;
-  private volatile java.lang.Object kdcDbKeyUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kdcDbKeyUri_ = "";
   /**
    * <pre>
    * Optional. The Cloud Storage URI of a KMS encrypted file containing the
@@ -792,7 +677,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TGT_LIFETIME_HOURS_FIELD_NUMBER = 14;
-  private int tgtLifetimeHours_;
+  private int tgtLifetimeHours_ = 0;
   /**
    * <pre>
    * Optional. The lifetime of the ticket granting ticket, in hours.
@@ -809,7 +694,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REALM_FIELD_NUMBER = 15;
-  private volatile java.lang.Object realm_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object realm_ = "";
   /**
    * <pre>
    * Optional. The name of the on-cluster Kerberos realm.
@@ -915,7 +801,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(realm_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 15, realm_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -971,7 +857,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(realm_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, realm_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1016,7 +902,7 @@ private static final long serialVersionUID = 0L;
         != other.getTgtLifetimeHours()) return false;
     if (!getRealm()
         .equals(other.getRealm())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1058,7 +944,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getTgtLifetimeHours();
     hash = (37 * hash) + REALM_FIELD_NUMBER;
     hash = (53 * hash) + getRealm().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1179,52 +1065,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.KerberosConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       enableKerberos_ = false;
-
       rootPrincipalPasswordUri_ = "";
-
       kmsKeyUri_ = "";
-
       keystoreUri_ = "";
-
       truststoreUri_ = "";
-
       keystorePasswordUri_ = "";
-
       keyPasswordUri_ = "";
-
       truststorePasswordUri_ = "";
-
       crossRealmTrustRealm_ = "";
-
       crossRealmTrustKdc_ = "";
-
       crossRealmTrustAdminServer_ = "";
-
       crossRealmTrustSharedPasswordUri_ = "";
-
       kdcDbKeyUri_ = "";
-
       tgtLifetimeHours_ = 0;
-
       realm_ = "";
-
       return this;
     }
 
@@ -1251,23 +1118,58 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.KerberosConfig buildPartial() {
       com.google.cloud.dataproc.v1.KerberosConfig result = new com.google.cloud.dataproc.v1.KerberosConfig(this);
-      result.enableKerberos_ = enableKerberos_;
-      result.rootPrincipalPasswordUri_ = rootPrincipalPasswordUri_;
-      result.kmsKeyUri_ = kmsKeyUri_;
-      result.keystoreUri_ = keystoreUri_;
-      result.truststoreUri_ = truststoreUri_;
-      result.keystorePasswordUri_ = keystorePasswordUri_;
-      result.keyPasswordUri_ = keyPasswordUri_;
-      result.truststorePasswordUri_ = truststorePasswordUri_;
-      result.crossRealmTrustRealm_ = crossRealmTrustRealm_;
-      result.crossRealmTrustKdc_ = crossRealmTrustKdc_;
-      result.crossRealmTrustAdminServer_ = crossRealmTrustAdminServer_;
-      result.crossRealmTrustSharedPasswordUri_ = crossRealmTrustSharedPasswordUri_;
-      result.kdcDbKeyUri_ = kdcDbKeyUri_;
-      result.tgtLifetimeHours_ = tgtLifetimeHours_;
-      result.realm_ = realm_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.KerberosConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.enableKerberos_ = enableKerberos_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.rootPrincipalPasswordUri_ = rootPrincipalPasswordUri_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.kmsKeyUri_ = kmsKeyUri_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.keystoreUri_ = keystoreUri_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.truststoreUri_ = truststoreUri_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.keystorePasswordUri_ = keystorePasswordUri_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.keyPasswordUri_ = keyPasswordUri_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.truststorePasswordUri_ = truststorePasswordUri_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.crossRealmTrustRealm_ = crossRealmTrustRealm_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.crossRealmTrustKdc_ = crossRealmTrustKdc_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.crossRealmTrustAdminServer_ = crossRealmTrustAdminServer_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.crossRealmTrustSharedPasswordUri_ = crossRealmTrustSharedPasswordUri_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.kdcDbKeyUri_ = kdcDbKeyUri_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.tgtLifetimeHours_ = tgtLifetimeHours_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.realm_ = realm_;
+      }
     }
 
     @java.lang.Override
@@ -1319,50 +1221,62 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRootPrincipalPasswordUri().isEmpty()) {
         rootPrincipalPasswordUri_ = other.rootPrincipalPasswordUri_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getKmsKeyUri().isEmpty()) {
         kmsKeyUri_ = other.kmsKeyUri_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getKeystoreUri().isEmpty()) {
         keystoreUri_ = other.keystoreUri_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getTruststoreUri().isEmpty()) {
         truststoreUri_ = other.truststoreUri_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getKeystorePasswordUri().isEmpty()) {
         keystorePasswordUri_ = other.keystorePasswordUri_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getKeyPasswordUri().isEmpty()) {
         keyPasswordUri_ = other.keyPasswordUri_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getTruststorePasswordUri().isEmpty()) {
         truststorePasswordUri_ = other.truststorePasswordUri_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.getCrossRealmTrustRealm().isEmpty()) {
         crossRealmTrustRealm_ = other.crossRealmTrustRealm_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (!other.getCrossRealmTrustKdc().isEmpty()) {
         crossRealmTrustKdc_ = other.crossRealmTrustKdc_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (!other.getCrossRealmTrustAdminServer().isEmpty()) {
         crossRealmTrustAdminServer_ = other.crossRealmTrustAdminServer_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (!other.getCrossRealmTrustSharedPasswordUri().isEmpty()) {
         crossRealmTrustSharedPasswordUri_ = other.crossRealmTrustSharedPasswordUri_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (!other.getKdcDbKeyUri().isEmpty()) {
         kdcDbKeyUri_ = other.kdcDbKeyUri_;
+        bitField0_ |= 0x00001000;
         onChanged();
       }
       if (other.getTgtLifetimeHours() != 0) {
@@ -1370,9 +1284,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRealm().isEmpty()) {
         realm_ = other.realm_;
+        bitField0_ |= 0x00004000;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1387,25 +1302,114 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.KerberosConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              enableKerberos_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              rootPrincipalPasswordUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              kmsKeyUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              keystoreUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              truststoreUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              keystorePasswordUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              keyPasswordUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              truststorePasswordUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              crossRealmTrustRealm_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              crossRealmTrustKdc_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              crossRealmTrustAdminServer_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 98: {
+              crossRealmTrustSharedPasswordUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 106: {
+              kdcDbKeyUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            case 112: {
+              tgtLifetimeHours_ = input.readInt32();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 112
+            case 122: {
+              realm_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 122
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.KerberosConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean enableKerberos_ ;
     /**
      * <pre>
-     * Optional. Flag to indicate whether to Kerberize the cluster (default: false). Set
-     * this field to true to enable Kerberos on a cluster.
+     * Optional. Flag to indicate whether to Kerberize the cluster (default:
+     * false). Set this field to true to enable Kerberos on a cluster.
      * </pre>
      *
      * <code>bool enable_kerberos = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1417,8 +1421,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Flag to indicate whether to Kerberize the cluster (default: false). Set
-     * this field to true to enable Kerberos on a cluster.
+     * Optional. Flag to indicate whether to Kerberize the cluster (default:
+     * false). Set this field to true to enable Kerberos on a cluster.
      * </pre>
      *
      * <code>bool enable_kerberos = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1428,20 +1432,21 @@ private static final long serialVersionUID = 0L;
     public Builder setEnableKerberos(boolean value) {
       
       enableKerberos_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Flag to indicate whether to Kerberize the cluster (default: false). Set
-     * this field to true to enable Kerberos on a cluster.
+     * Optional. Flag to indicate whether to Kerberize the cluster (default:
+     * false). Set this field to true to enable Kerberos on a cluster.
      * </pre>
      *
      * <code>bool enable_kerberos = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearEnableKerberos() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       enableKerberos_ = false;
       onChanged();
       return this;
@@ -1503,11 +1508,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRootPrincipalPasswordUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       rootPrincipalPasswordUri_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1521,8 +1524,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRootPrincipalPasswordUri() {
-      
       rootPrincipalPasswordUri_ = getDefaultInstance().getRootPrincipalPasswordUri();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1538,12 +1541,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRootPrincipalPasswordUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       rootPrincipalPasswordUri_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1604,11 +1605,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKeyUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kmsKeyUri_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1622,8 +1621,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKmsKeyUri() {
-      
       kmsKeyUri_ = getDefaultInstance().getKmsKeyUri();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1639,12 +1638,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKeyUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kmsKeyUri_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1708,11 +1705,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKeystoreUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       keystoreUri_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1727,8 +1722,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKeystoreUri() {
-      
       keystoreUri_ = getDefaultInstance().getKeystoreUri();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1745,12 +1740,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKeystoreUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       keystoreUri_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1814,11 +1807,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTruststoreUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       truststoreUri_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1833,8 +1824,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTruststoreUri() {
-      
       truststoreUri_ = getDefaultInstance().getTruststoreUri();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1851,12 +1842,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTruststoreUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       truststoreUri_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1920,11 +1909,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKeystorePasswordUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       keystorePasswordUri_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1939,8 +1926,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKeystorePasswordUri() {
-      
       keystorePasswordUri_ = getDefaultInstance().getKeystorePasswordUri();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1957,12 +1944,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKeystorePasswordUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       keystorePasswordUri_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2026,11 +2011,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKeyPasswordUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       keyPasswordUri_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2045,8 +2028,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKeyPasswordUri() {
-      
       keyPasswordUri_ = getDefaultInstance().getKeyPasswordUri();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2063,12 +2046,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKeyPasswordUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       keyPasswordUri_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2132,11 +2113,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTruststorePasswordUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       truststorePasswordUri_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2151,8 +2130,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTruststorePasswordUri() {
-      
       truststorePasswordUri_ = getDefaultInstance().getTruststorePasswordUri();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2169,12 +2148,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTruststorePasswordUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       truststorePasswordUri_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2235,11 +2212,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCrossRealmTrustRealm(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       crossRealmTrustRealm_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2253,8 +2228,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCrossRealmTrustRealm() {
-      
       crossRealmTrustRealm_ = getDefaultInstance().getCrossRealmTrustRealm();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2270,12 +2245,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCrossRealmTrustRealmBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       crossRealmTrustRealm_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2336,11 +2309,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCrossRealmTrustKdc(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       crossRealmTrustKdc_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2354,8 +2325,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCrossRealmTrustKdc() {
-      
       crossRealmTrustKdc_ = getDefaultInstance().getCrossRealmTrustKdc();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2371,12 +2342,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCrossRealmTrustKdcBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       crossRealmTrustKdc_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2437,11 +2406,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCrossRealmTrustAdminServer(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       crossRealmTrustAdminServer_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2455,8 +2422,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCrossRealmTrustAdminServer() {
-      
       crossRealmTrustAdminServer_ = getDefaultInstance().getCrossRealmTrustAdminServer();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -2472,12 +2439,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCrossRealmTrustAdminServerBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       crossRealmTrustAdminServer_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2541,11 +2506,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCrossRealmTrustSharedPasswordUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       crossRealmTrustSharedPasswordUri_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2560,8 +2523,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCrossRealmTrustSharedPasswordUri() {
-      
       crossRealmTrustSharedPasswordUri_ = getDefaultInstance().getCrossRealmTrustSharedPasswordUri();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -2578,12 +2541,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCrossRealmTrustSharedPasswordUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       crossRealmTrustSharedPasswordUri_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2644,11 +2605,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKdcDbKeyUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kdcDbKeyUri_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -2662,8 +2621,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKdcDbKeyUri() {
-      
       kdcDbKeyUri_ = getDefaultInstance().getKdcDbKeyUri();
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -2679,12 +2638,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKdcDbKeyUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kdcDbKeyUri_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -2718,6 +2675,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTgtLifetimeHours(int value) {
       
       tgtLifetimeHours_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -2732,7 +2690,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTgtLifetimeHours() {
-      
+      bitField0_ = (bitField0_ & ~0x00002000);
       tgtLifetimeHours_ = 0;
       onChanged();
       return this;
@@ -2794,11 +2752,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRealm(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       realm_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -2812,8 +2768,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRealm() {
-      
       realm_ = getDefaultInstance().getRealm();
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
@@ -2829,12 +2785,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRealmBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       realm_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -2871,7 +2825,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new KerberosConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

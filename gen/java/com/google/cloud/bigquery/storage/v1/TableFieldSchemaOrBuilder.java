@@ -71,7 +71,8 @@ public interface TableFieldSchemaOrBuilder extends
 
   /**
    * <pre>
-   * Optional. Describes the nested schema fields if the type property is set to STRUCT.
+   * Optional. Describes the nested schema fields if the type property is set to
+   * STRUCT.
    * </pre>
    *
    * <code>repeated .google.cloud.bigquery.storage.v1.TableFieldSchema fields = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -80,7 +81,8 @@ public interface TableFieldSchemaOrBuilder extends
       getFieldsList();
   /**
    * <pre>
-   * Optional. Describes the nested schema fields if the type property is set to STRUCT.
+   * Optional. Describes the nested schema fields if the type property is set to
+   * STRUCT.
    * </pre>
    *
    * <code>repeated .google.cloud.bigquery.storage.v1.TableFieldSchema fields = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -88,7 +90,8 @@ public interface TableFieldSchemaOrBuilder extends
   com.google.cloud.bigquery.storage.v1.TableFieldSchema getFields(int index);
   /**
    * <pre>
-   * Optional. Describes the nested schema fields if the type property is set to STRUCT.
+   * Optional. Describes the nested schema fields if the type property is set to
+   * STRUCT.
    * </pre>
    *
    * <code>repeated .google.cloud.bigquery.storage.v1.TableFieldSchema fields = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -96,7 +99,8 @@ public interface TableFieldSchemaOrBuilder extends
   int getFieldsCount();
   /**
    * <pre>
-   * Optional. Describes the nested schema fields if the type property is set to STRUCT.
+   * Optional. Describes the nested schema fields if the type property is set to
+   * STRUCT.
    * </pre>
    *
    * <code>repeated .google.cloud.bigquery.storage.v1.TableFieldSchema fields = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -105,7 +109,8 @@ public interface TableFieldSchemaOrBuilder extends
       getFieldsOrBuilderList();
   /**
    * <pre>
-   * Optional. Describes the nested schema fields if the type property is set to STRUCT.
+   * Optional. Describes the nested schema fields if the type property is set to
+   * STRUCT.
    * </pre>
    *
    * <code>repeated .google.cloud.bigquery.storage.v1.TableFieldSchema fields = 4 [(.google.api.field_behavior) = OPTIONAL];</code>

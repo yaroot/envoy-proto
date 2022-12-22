@@ -37,114 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HttpRouteRule(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case -1670348478: {
-            com.google.cloud.compute.v1.HttpHeaderAction.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000002) != 0)) {
-              subBuilder = headerAction_.toBuilder();
-            }
-            headerAction_ = input.readMessage(com.google.cloud.compute.v1.HttpHeaderAction.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(headerAction_);
-              headerAction_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000002;
-            break;
-          }
-          case -1306643030: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            service_ = s;
-            break;
-          }
-          case -1285361686: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              matchRules_ = new java.util.ArrayList<com.google.cloud.compute.v1.HttpRouteRuleMatch>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            matchRules_.add(
-                input.readMessage(com.google.cloud.compute.v1.HttpRouteRuleMatch.parser(), extensionRegistry));
-            break;
-          }
-          case -1053784734: {
-            com.google.cloud.compute.v1.HttpRedirectAction.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000020) != 0)) {
-              subBuilder = urlRedirect_.toBuilder();
-            }
-            urlRedirect_ = input.readMessage(com.google.cloud.compute.v1.HttpRedirectAction.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(urlRedirect_);
-              urlRedirect_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000020;
-            break;
-          }
-          case -911466526: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            description_ = s;
-            break;
-          }
-          case -898455710: {
-            com.google.cloud.compute.v1.HttpRouteAction.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000008) != 0)) {
-              subBuilder = routeAction_.toBuilder();
-            }
-            routeAction_ = input.readMessage(com.google.cloud.compute.v1.HttpRouteAction.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(routeAction_);
-              routeAction_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000008;
-            break;
-          }
-          case -733754080: {
-            bitField0_ |= 0x00000004;
-            priority_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        matchRules_ = java.util.Collections.unmodifiableList(matchRules_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_HttpRouteRule_descriptor;
@@ -160,7 +52,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int DESCRIPTION_FIELD_NUMBER = 422937596;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * The short description conveying the intent of this routeRule. The description can have a maximum length of 1024 characters.
@@ -256,6 +149,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MATCH_RULES_FIELD_NUMBER = 376200701;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.HttpRouteRuleMatch> matchRules_;
   /**
    * <pre>
@@ -316,7 +210,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRIORITY_FIELD_NUMBER = 445151652;
-  private int priority_;
+  private int priority_ = 0;
   /**
    * <pre>
    * For routeRules within a given pathMatcher, priority determines the order in which a load balancer interprets routeRules. RouteRules are evaluated in order of priority, from the lowest to highest number. The priority of a rule decreases as its number increases (1, 2, 3, N+1). The first rule that matches the request is applied. You cannot configure two or more routeRules with the same priority. Priority for each rule must be set to a number from 0 to 2147483647 inclusive. Priority numbers can have gaps, which enable you to add or remove rules in the future without affecting the rest of the rules. For example, 1, 2, 3, 4, 5, 9, 12, 16 is a valid series of priority numbers to which you could add rules numbered from 6 to 8, 10 to 11, and 13 to 15 in the future without any impact on existing rules.
@@ -346,7 +240,7 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.compute.v1.HttpRouteAction routeAction_;
   /**
    * <pre>
-   * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a route rule's routeAction.
+   * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a route rule's routeAction.
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.HttpRouteAction route_action = 424563948;</code>
@@ -358,7 +252,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a route rule's routeAction.
+   * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a route rule's routeAction.
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.HttpRouteAction route_action = 424563948;</code>
@@ -370,7 +264,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a route rule's routeAction.
+   * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a route rule's routeAction.
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.HttpRouteAction route_action = 424563948;</code>
@@ -381,7 +275,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_FIELD_NUMBER = 373540533;
-  private volatile java.lang.Object service_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object service_ = "";
   /**
    * <pre>
    * The full or partial URL of the backend service resource to which traffic is directed if this rule is matched. If routeAction is also specified, advanced routing actions, such as URL rewrites, take effect before sending the request to the backend. However, if service is specified, routeAction cannot contain any weightedBackendServices. Conversely, if routeAction specifies any weightedBackendServices, service must not be specified. Only one of urlRedirect, service or routeAction.weightedBackendService must be set.
@@ -511,7 +406,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       output.writeInt32(445151652, priority_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -546,7 +441,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(445151652, priority_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -593,7 +488,7 @@ private static final long serialVersionUID = 0L;
       if (!getUrlRedirect()
           .equals(other.getUrlRedirect())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -632,7 +527,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + URL_REDIRECT_FIELD_NUMBER;
       hash = (53 * hash) + getUrlRedirect().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -773,36 +668,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       description_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (headerActionBuilder_ == null) {
-        headerAction_ = null;
-      } else {
-        headerActionBuilder_.clear();
+      headerAction_ = null;
+      if (headerActionBuilder_ != null) {
+        headerActionBuilder_.dispose();
+        headerActionBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000002);
       if (matchRulesBuilder_ == null) {
         matchRules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        matchRules_ = null;
         matchRulesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       priority_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000008);
-      if (routeActionBuilder_ == null) {
-        routeAction_ = null;
-      } else {
-        routeActionBuilder_.clear();
+      routeAction_ = null;
+      if (routeActionBuilder_ != null) {
+        routeActionBuilder_.dispose();
+        routeActionBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000010);
       service_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
-      if (urlRedirectBuilder_ == null) {
-        urlRedirect_ = null;
-      } else {
-        urlRedirectBuilder_.clear();
+      urlRedirect_ = null;
+      if (urlRedirectBuilder_ != null) {
+        urlRedirectBuilder_.dispose();
+        urlRedirectBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000040);
       return this;
     }
 
@@ -829,20 +720,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.HttpRouteRule buildPartial() {
       com.google.cloud.compute.v1.HttpRouteRule result = new com.google.cloud.compute.v1.HttpRouteRule(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.description_ = description_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        if (headerActionBuilder_ == null) {
-          result.headerAction_ = headerAction_;
-        } else {
-          result.headerAction_ = headerActionBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000002;
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.HttpRouteRule result) {
       if (matchRulesBuilder_ == null) {
         if (((bitField0_ & 0x00000004) != 0)) {
           matchRules_ = java.util.Collections.unmodifiableList(matchRules_);
@@ -852,33 +736,42 @@ private static final long serialVersionUID = 0L;
       } else {
         result.matchRules_ = matchRulesBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.HttpRouteRule result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.description_ = description_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.headerAction_ = headerActionBuilder_ == null
+            ? headerAction_
+            : headerActionBuilder_.build();
+        to_bitField0_ |= 0x00000002;
+      }
       if (((from_bitField0_ & 0x00000008) != 0)) {
         result.priority_ = priority_;
         to_bitField0_ |= 0x00000004;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
-        if (routeActionBuilder_ == null) {
-          result.routeAction_ = routeAction_;
-        } else {
-          result.routeAction_ = routeActionBuilder_.build();
-        }
+        result.routeAction_ = routeActionBuilder_ == null
+            ? routeAction_
+            : routeActionBuilder_.build();
         to_bitField0_ |= 0x00000008;
       }
       if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.service_ = service_;
         to_bitField0_ |= 0x00000010;
       }
-      result.service_ = service_;
       if (((from_bitField0_ & 0x00000040) != 0)) {
-        if (urlRedirectBuilder_ == null) {
-          result.urlRedirect_ = urlRedirect_;
-        } else {
-          result.urlRedirect_ = urlRedirectBuilder_.build();
-        }
+        result.urlRedirect_ = urlRedirectBuilder_ == null
+            ? urlRedirect_
+            : urlRedirectBuilder_.build();
         to_bitField0_ |= 0x00000020;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -926,8 +819,8 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.HttpRouteRule other) {
       if (other == com.google.cloud.compute.v1.HttpRouteRule.getDefaultInstance()) return this;
       if (other.hasDescription()) {
-        bitField0_ |= 0x00000001;
         description_ = other.description_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasHeaderAction()) {
@@ -966,14 +859,14 @@ private static final long serialVersionUID = 0L;
         mergeRouteAction(other.getRouteAction());
       }
       if (other.hasService()) {
-        bitField0_ |= 0x00000020;
         service_ = other.service_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasUrlRedirect()) {
         mergeUrlRedirect(other.getUrlRedirect());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -988,17 +881,79 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.HttpRouteRule parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case -1670348478: {
+              input.readMessage(
+                  getHeaderActionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -1670348478
+            case -1306643030: {
+              service_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case -1306643030
+            case -1285361686: {
+              com.google.cloud.compute.v1.HttpRouteRuleMatch m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.HttpRouteRuleMatch.parser(),
+                      extensionRegistry);
+              if (matchRulesBuilder_ == null) {
+                ensureMatchRulesIsMutable();
+                matchRules_.add(m);
+              } else {
+                matchRulesBuilder_.addMessage(m);
+              }
+              break;
+            } // case -1285361686
+            case -1053784734: {
+              input.readMessage(
+                  getUrlRedirectFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case -1053784734
+            case -911466526: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -911466526
+            case -898455710: {
+              input.readMessage(
+                  getRouteActionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case -898455710
+            case -733754080: {
+              priority_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -733754080
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.HttpRouteRule) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1067,11 +1022,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1084,8 +1037,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1100,12 +1053,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1152,11 +1103,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         headerAction_ = value;
-        onChanged();
       } else {
         headerActionBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1170,11 +1121,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.HttpHeaderAction.Builder builderForValue) {
       if (headerActionBuilder_ == null) {
         headerAction_ = builderForValue.build();
-        onChanged();
       } else {
         headerActionBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1187,18 +1138,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeHeaderAction(com.google.cloud.compute.v1.HttpHeaderAction value) {
       if (headerActionBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0) &&
-            headerAction_ != null &&
-            headerAction_ != com.google.cloud.compute.v1.HttpHeaderAction.getDefaultInstance()) {
-          headerAction_ =
-            com.google.cloud.compute.v1.HttpHeaderAction.newBuilder(headerAction_).mergeFrom(value).buildPartial();
+          headerAction_ != null &&
+          headerAction_ != com.google.cloud.compute.v1.HttpHeaderAction.getDefaultInstance()) {
+          getHeaderActionBuilder().mergeFrom(value);
         } else {
           headerAction_ = value;
         }
-        onChanged();
       } else {
         headerActionBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1209,13 +1159,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.HttpHeaderAction header_action = 328077352;</code>
      */
     public Builder clearHeaderAction() {
-      if (headerActionBuilder_ == null) {
-        headerAction_ = null;
-        onChanged();
-      } else {
-        headerActionBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000002);
+      headerAction_ = null;
+      if (headerActionBuilder_ != null) {
+        headerActionBuilder_.dispose();
+        headerActionBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1613,8 +1563,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPriority(int value) {
-      bitField0_ |= 0x00000008;
+      
       priority_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1638,7 +1589,7 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.HttpRouteAction, com.google.cloud.compute.v1.HttpRouteAction.Builder, com.google.cloud.compute.v1.HttpRouteActionOrBuilder> routeActionBuilder_;
     /**
      * <pre>
-     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a route rule's routeAction.
+     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a route rule's routeAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction route_action = 424563948;</code>
@@ -1649,7 +1600,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a route rule's routeAction.
+     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a route rule's routeAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction route_action = 424563948;</code>
@@ -1664,7 +1615,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a route rule's routeAction.
+     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a route rule's routeAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction route_action = 424563948;</code>
@@ -1675,16 +1626,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         routeAction_ = value;
-        onChanged();
       } else {
         routeActionBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a route rule's routeAction.
+     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a route rule's routeAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction route_action = 424563948;</code>
@@ -1693,16 +1644,16 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.HttpRouteAction.Builder builderForValue) {
       if (routeActionBuilder_ == null) {
         routeAction_ = builderForValue.build();
-        onChanged();
       } else {
         routeActionBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a route rule's routeAction.
+     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a route rule's routeAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction route_action = 424563948;</code>
@@ -1710,40 +1661,39 @@ private static final long serialVersionUID = 0L;
     public Builder mergeRouteAction(com.google.cloud.compute.v1.HttpRouteAction value) {
       if (routeActionBuilder_ == null) {
         if (((bitField0_ & 0x00000010) != 0) &&
-            routeAction_ != null &&
-            routeAction_ != com.google.cloud.compute.v1.HttpRouteAction.getDefaultInstance()) {
-          routeAction_ =
-            com.google.cloud.compute.v1.HttpRouteAction.newBuilder(routeAction_).mergeFrom(value).buildPartial();
+          routeAction_ != null &&
+          routeAction_ != com.google.cloud.compute.v1.HttpRouteAction.getDefaultInstance()) {
+          getRouteActionBuilder().mergeFrom(value);
         } else {
           routeAction_ = value;
         }
-        onChanged();
       } else {
         routeActionBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a route rule's routeAction.
+     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a route rule's routeAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction route_action = 424563948;</code>
      */
     public Builder clearRouteAction() {
-      if (routeActionBuilder_ == null) {
-        routeAction_ = null;
-        onChanged();
-      } else {
-        routeActionBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000010);
+      routeAction_ = null;
+      if (routeActionBuilder_ != null) {
+        routeActionBuilder_.dispose();
+        routeActionBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a route rule's routeAction.
+     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a route rule's routeAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction route_action = 424563948;</code>
@@ -1755,7 +1705,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a route rule's routeAction.
+     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a route rule's routeAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction route_action = 424563948;</code>
@@ -1770,7 +1720,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a route rule's routeAction.
+     * In response to a matching matchRule, the load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If routeAction specifies any weightedBackendServices, service must not be set. Conversely if service is set, routeAction cannot contain any weightedBackendServices. Only one of urlRedirect, service or routeAction.weightedBackendService must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a route rule's routeAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction route_action = 424563948;</code>
@@ -1853,11 +1803,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setService(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       service_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1870,8 +1818,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearService() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       service_ = getDefaultInstance().getService();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1886,12 +1834,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       service_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1938,11 +1884,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         urlRedirect_ = value;
-        onChanged();
       } else {
         urlRedirectBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1956,11 +1902,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.HttpRedirectAction.Builder builderForValue) {
       if (urlRedirectBuilder_ == null) {
         urlRedirect_ = builderForValue.build();
-        onChanged();
       } else {
         urlRedirectBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1973,18 +1919,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeUrlRedirect(com.google.cloud.compute.v1.HttpRedirectAction value) {
       if (urlRedirectBuilder_ == null) {
         if (((bitField0_ & 0x00000040) != 0) &&
-            urlRedirect_ != null &&
-            urlRedirect_ != com.google.cloud.compute.v1.HttpRedirectAction.getDefaultInstance()) {
-          urlRedirect_ =
-            com.google.cloud.compute.v1.HttpRedirectAction.newBuilder(urlRedirect_).mergeFrom(value).buildPartial();
+          urlRedirect_ != null &&
+          urlRedirect_ != com.google.cloud.compute.v1.HttpRedirectAction.getDefaultInstance()) {
+          getUrlRedirectBuilder().mergeFrom(value);
         } else {
           urlRedirect_ = value;
         }
-        onChanged();
       } else {
         urlRedirectBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1995,13 +1940,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.HttpRedirectAction url_redirect = 405147820;</code>
      */
     public Builder clearUrlRedirect() {
-      if (urlRedirectBuilder_ == null) {
-        urlRedirect_ = null;
-        onChanged();
-      } else {
-        urlRedirectBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000040);
+      urlRedirect_ = null;
+      if (urlRedirectBuilder_ != null) {
+        urlRedirectBuilder_.dispose();
+        urlRedirectBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2084,7 +2029,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HttpRouteRule(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

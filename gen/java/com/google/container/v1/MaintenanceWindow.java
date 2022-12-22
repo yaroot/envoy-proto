@@ -34,87 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MaintenanceWindow(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            com.google.container.v1.DailyMaintenanceWindow.Builder subBuilder = null;
-            if (policyCase_ == 2) {
-              subBuilder = ((com.google.container.v1.DailyMaintenanceWindow) policy_).toBuilder();
-            }
-            policy_ =
-                input.readMessage(com.google.container.v1.DailyMaintenanceWindow.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.container.v1.DailyMaintenanceWindow) policy_);
-              policy_ = subBuilder.buildPartial();
-            }
-            policyCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.container.v1.RecurringTimeWindow.Builder subBuilder = null;
-            if (policyCase_ == 3) {
-              subBuilder = ((com.google.container.v1.RecurringTimeWindow) policy_).toBuilder();
-            }
-            policy_ =
-                input.readMessage(com.google.container.v1.RecurringTimeWindow.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.container.v1.RecurringTimeWindow) policy_);
-              policy_ = subBuilder.buildPartial();
-            }
-            policyCase_ = 3;
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              maintenanceExclusions_ = com.google.protobuf.MapField.newMapField(
-                  MaintenanceExclusionsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.container.v1.TimeWindow>
-            maintenanceExclusions__ = input.readMessage(
-                MaintenanceExclusionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            maintenanceExclusions_.getMutableMap().put(
-                maintenanceExclusions__.getKey(), maintenanceExclusions__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1.ClusterServiceProto.internal_static_google_container_v1_MaintenanceWindow_descriptor;
@@ -285,6 +204,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.container.v1.TimeWindow.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.container.v1.TimeWindow> maintenanceExclusions_;
   private com.google.protobuf.MapField<java.lang.String, com.google.container.v1.TimeWindow>
@@ -295,7 +215,6 @@ private static final long serialVersionUID = 0L;
     }
     return maintenanceExclusions_;
   }
-
   public int getMaintenanceExclusionsCount() {
     return internalGetMaintenanceExclusions().getMap().size();
   }
@@ -307,7 +226,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.container.v1.TimeWindow&gt; maintenance_exclusions = 4;</code>
    */
-
   @java.lang.Override
   public boolean containsMaintenanceExclusions(
       java.lang.String key) {
@@ -331,7 +249,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.container.v1.TimeWindow&gt; maintenance_exclusions = 4;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.container.v1.TimeWindow> getMaintenanceExclusionsMap() {
     return internalGetMaintenanceExclusions().getMap();
   }
@@ -344,10 +261,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.container.v1.TimeWindow&gt; maintenance_exclusions = 4;</code>
    */
   @java.lang.Override
-
-  public com.google.container.v1.TimeWindow getMaintenanceExclusionsOrDefault(
+  public /* nullable */
+com.google.container.v1.TimeWindow getMaintenanceExclusionsOrDefault(
       java.lang.String key,
-      com.google.container.v1.TimeWindow defaultValue) {
+      /* nullable */
+com.google.container.v1.TimeWindow defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.container.v1.TimeWindow> map =
         internalGetMaintenanceExclusions().getMap();
@@ -362,7 +280,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.container.v1.TimeWindow&gt; maintenance_exclusions = 4;</code>
    */
   @java.lang.Override
-
   public com.google.container.v1.TimeWindow getMaintenanceExclusionsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -400,7 +317,7 @@ private static final long serialVersionUID = 0L;
         internalGetMaintenanceExclusions(),
         MaintenanceExclusionsDefaultEntryHolder.defaultEntry,
         4);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -427,7 +344,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, maintenanceExclusions__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -457,7 +374,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -484,7 +401,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -627,22 +544,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1.MaintenanceWindow.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (dailyMaintenanceWindowBuilder_ != null) {
+        dailyMaintenanceWindowBuilder_.clear();
+      }
+      if (recurringWindowBuilder_ != null) {
+        recurringWindowBuilder_.clear();
+      }
       internalGetMutableMaintenanceExclusions().clear();
       policyCase_ = 0;
       policy_ = null;
@@ -672,26 +591,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1.MaintenanceWindow buildPartial() {
       com.google.container.v1.MaintenanceWindow result = new com.google.container.v1.MaintenanceWindow(this);
-      int from_bitField0_ = bitField0_;
-      if (policyCase_ == 2) {
-        if (dailyMaintenanceWindowBuilder_ == null) {
-          result.policy_ = policy_;
-        } else {
-          result.policy_ = dailyMaintenanceWindowBuilder_.build();
-        }
-      }
-      if (policyCase_ == 3) {
-        if (recurringWindowBuilder_ == null) {
-          result.policy_ = policy_;
-        } else {
-          result.policy_ = recurringWindowBuilder_.build();
-        }
-      }
-      result.maintenanceExclusions_ = internalGetMaintenanceExclusions();
-      result.maintenanceExclusions_.makeImmutable();
-      result.policyCase_ = policyCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.container.v1.MaintenanceWindow result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.maintenanceExclusions_ = internalGetMaintenanceExclusions();
+        result.maintenanceExclusions_.makeImmutable();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.container.v1.MaintenanceWindow result) {
+      result.policyCase_ = policyCase_;
+      result.policy_ = this.policy_;
+      if (policyCase_ == 2 &&
+          dailyMaintenanceWindowBuilder_ != null) {
+        result.policy_ = dailyMaintenanceWindowBuilder_.build();
+      }
+      if (policyCase_ == 3 &&
+          recurringWindowBuilder_ != null) {
+        result.policy_ = recurringWindowBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -740,6 +664,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.container.v1.MaintenanceWindow.getDefaultInstance()) return this;
       internalGetMutableMaintenanceExclusions().mergeFrom(
           other.internalGetMaintenanceExclusions());
+      bitField0_ |= 0x00000004;
       switch (other.getPolicyCase()) {
         case DAILY_MAINTENANCE_WINDOW: {
           mergeDailyMaintenanceWindow(other.getDailyMaintenanceWindow());
@@ -753,7 +678,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -768,17 +693,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1.MaintenanceWindow parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              input.readMessage(
+                  getDailyMaintenanceWindowFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              policyCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getRecurringWindowFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              policyCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.container.v1.TimeWindow>
+              maintenanceExclusions__ = input.readMessage(
+                  MaintenanceExclusionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMaintenanceExclusions().getMutableMap().put(
+                  maintenanceExclusions__.getKey(), maintenanceExclusions__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1.MaintenanceWindow) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int policyCase_ = 0;
@@ -972,7 +933,7 @@ private static final long serialVersionUID = 0L;
         policy_ = null;
       }
       policyCase_ = 2;
-      onChanged();;
+      onChanged();
       return dailyMaintenanceWindowBuilder_;
     }
 
@@ -1168,14 +1129,14 @@ private static final long serialVersionUID = 0L;
         policy_ = null;
       }
       policyCase_ = 3;
-      onChanged();;
+      onChanged();
       return recurringWindowBuilder_;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, com.google.container.v1.TimeWindow> maintenanceExclusions_;
     private com.google.protobuf.MapField<java.lang.String, com.google.container.v1.TimeWindow>
-    internalGetMaintenanceExclusions() {
+        internalGetMaintenanceExclusions() {
       if (maintenanceExclusions_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             MaintenanceExclusionsDefaultEntryHolder.defaultEntry);
@@ -1183,8 +1144,7 @@ private static final long serialVersionUID = 0L;
       return maintenanceExclusions_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.container.v1.TimeWindow>
-    internalGetMutableMaintenanceExclusions() {
-      onChanged();;
+        internalGetMutableMaintenanceExclusions() {
       if (maintenanceExclusions_ == null) {
         maintenanceExclusions_ = com.google.protobuf.MapField.newMapField(
             MaintenanceExclusionsDefaultEntryHolder.defaultEntry);
@@ -1192,9 +1152,10 @@ private static final long serialVersionUID = 0L;
       if (!maintenanceExclusions_.isMutable()) {
         maintenanceExclusions_ = maintenanceExclusions_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return maintenanceExclusions_;
     }
-
     public int getMaintenanceExclusionsCount() {
       return internalGetMaintenanceExclusions().getMap().size();
     }
@@ -1206,7 +1167,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.container.v1.TimeWindow&gt; maintenance_exclusions = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsMaintenanceExclusions(
         java.lang.String key) {
@@ -1230,7 +1190,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.container.v1.TimeWindow&gt; maintenance_exclusions = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.container.v1.TimeWindow> getMaintenanceExclusionsMap() {
       return internalGetMaintenanceExclusions().getMap();
     }
@@ -1243,10 +1202,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.container.v1.TimeWindow&gt; maintenance_exclusions = 4;</code>
      */
     @java.lang.Override
-
-    public com.google.container.v1.TimeWindow getMaintenanceExclusionsOrDefault(
+    public /* nullable */
+com.google.container.v1.TimeWindow getMaintenanceExclusionsOrDefault(
         java.lang.String key,
-        com.google.container.v1.TimeWindow defaultValue) {
+        /* nullable */
+com.google.container.v1.TimeWindow defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.container.v1.TimeWindow> map =
           internalGetMaintenanceExclusions().getMap();
@@ -1261,7 +1221,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.container.v1.TimeWindow&gt; maintenance_exclusions = 4;</code>
      */
     @java.lang.Override
-
     public com.google.container.v1.TimeWindow getMaintenanceExclusionsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1272,8 +1231,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearMaintenanceExclusions() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableMaintenanceExclusions().getMutableMap()
           .clear();
       return this;
@@ -1286,7 +1245,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.container.v1.TimeWindow&gt; maintenance_exclusions = 4;</code>
      */
-
     public Builder removeMaintenanceExclusions(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1299,7 +1257,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.container.v1.TimeWindow>
-    getMutableMaintenanceExclusions() {
+        getMutableMaintenanceExclusions() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableMaintenanceExclusions().getMutableMap();
     }
     /**
@@ -1314,12 +1273,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.container.v1.TimeWindow value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableMaintenanceExclusions().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -1330,11 +1287,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.container.v1.TimeWindow&gt; maintenance_exclusions = 4;</code>
      */
-
     public Builder putAllMaintenanceExclusions(
         java.util.Map<java.lang.String, com.google.container.v1.TimeWindow> values) {
       internalGetMutableMaintenanceExclusions().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
     @java.lang.Override
@@ -1370,7 +1327,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MaintenanceWindow(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

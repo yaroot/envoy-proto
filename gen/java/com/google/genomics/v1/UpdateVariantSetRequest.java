@@ -31,77 +31,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateVariantSetRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            variantSetId_ = s;
-            break;
-          }
-          case 18: {
-            com.google.genomics.v1.VariantSet.Builder subBuilder = null;
-            if (variantSet_ != null) {
-              subBuilder = variantSet_.toBuilder();
-            }
-            variantSet_ = input.readMessage(com.google.genomics.v1.VariantSet.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(variantSet_);
-              variantSet_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.FieldMask.Builder subBuilder = null;
-            if (updateMask_ != null) {
-              subBuilder = updateMask_.toBuilder();
-            }
-            updateMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateMask_);
-              updateMask_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.genomics.v1.VariantsProto.internal_static_google_genomics_v1_UpdateVariantSetRequest_descriptor;
@@ -116,7 +45,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VARIANT_SET_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object variantSetId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object variantSetId_ = "";
   /**
    * <pre>
    * The ID of the variant to be updated (must already exist).
@@ -199,7 +129,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.genomics.v1.VariantSetOrBuilder getVariantSetOrBuilder() {
-    return getVariantSet();
+    return variantSet_ == null ? com.google.genomics.v1.VariantSet.getDefaultInstance() : variantSet_;
   }
 
   public static final int UPDATE_MASK_FIELD_NUMBER = 5;
@@ -252,7 +182,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
-    return getUpdateMask();
+    return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -278,7 +208,7 @@ private static final long serialVersionUID = 0L;
     if (updateMask_ != null) {
       output.writeMessage(5, getUpdateMask());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -298,7 +228,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getUpdateMask());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -325,7 +255,7 @@ private static final long serialVersionUID = 0L;
       if (!getUpdateMask()
           .equals(other.getUpdateMask())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -346,7 +276,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UPDATE_MASK_FIELD_NUMBER;
       hash = (53 * hash) + getUpdateMask().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -463,34 +393,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.genomics.v1.UpdateVariantSetRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       variantSetId_ = "";
-
-      if (variantSetBuilder_ == null) {
-        variantSet_ = null;
-      } else {
-        variantSet_ = null;
+      variantSet_ = null;
+      if (variantSetBuilder_ != null) {
+        variantSetBuilder_.dispose();
         variantSetBuilder_ = null;
       }
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-      } else {
-        updateMask_ = null;
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
       return this;
@@ -519,19 +442,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.genomics.v1.UpdateVariantSetRequest buildPartial() {
       com.google.genomics.v1.UpdateVariantSetRequest result = new com.google.genomics.v1.UpdateVariantSetRequest(this);
-      result.variantSetId_ = variantSetId_;
-      if (variantSetBuilder_ == null) {
-        result.variantSet_ = variantSet_;
-      } else {
-        result.variantSet_ = variantSetBuilder_.build();
-      }
-      if (updateMaskBuilder_ == null) {
-        result.updateMask_ = updateMask_;
-      } else {
-        result.updateMask_ = updateMaskBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.genomics.v1.UpdateVariantSetRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.variantSetId_ = variantSetId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.variantSet_ = variantSetBuilder_ == null
+            ? variantSet_
+            : variantSetBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.updateMask_ = updateMaskBuilder_ == null
+            ? updateMask_
+            : updateMaskBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -580,6 +510,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.genomics.v1.UpdateVariantSetRequest.getDefaultInstance()) return this;
       if (!other.getVariantSetId().isEmpty()) {
         variantSetId_ = other.variantSetId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasVariantSet()) {
@@ -588,7 +519,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasUpdateMask()) {
         mergeUpdateMask(other.getUpdateMask());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -603,19 +534,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.genomics.v1.UpdateVariantSetRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              variantSetId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getVariantSetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 42: {
+              input.readMessage(
+                  getUpdateMaskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.genomics.v1.UpdateVariantSetRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object variantSetId_ = "";
     /**
@@ -670,11 +634,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVariantSetId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       variantSetId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -687,8 +649,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVariantSetId() {
-      
       variantSetId_ = getDefaultInstance().getVariantSetId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -703,12 +665,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVariantSetIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       variantSetId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -726,7 +686,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the variantSet field is set.
      */
     public boolean hasVariantSet() {
-      return variantSetBuilder_ != null || variantSet_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -758,11 +718,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         variantSet_ = value;
-        onChanged();
       } else {
         variantSetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -777,11 +737,11 @@ private static final long serialVersionUID = 0L;
         com.google.genomics.v1.VariantSet.Builder builderForValue) {
       if (variantSetBuilder_ == null) {
         variantSet_ = builderForValue.build();
-        onChanged();
       } else {
         variantSetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -794,17 +754,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeVariantSet(com.google.genomics.v1.VariantSet value) {
       if (variantSetBuilder_ == null) {
-        if (variantSet_ != null) {
-          variantSet_ =
-            com.google.genomics.v1.VariantSet.newBuilder(variantSet_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          variantSet_ != null &&
+          variantSet_ != com.google.genomics.v1.VariantSet.getDefaultInstance()) {
+          getVariantSetBuilder().mergeFrom(value);
         } else {
           variantSet_ = value;
         }
-        onChanged();
       } else {
         variantSetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -816,14 +777,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1.VariantSet variant_set = 2;</code>
      */
     public Builder clearVariantSet() {
-      if (variantSetBuilder_ == null) {
-        variantSet_ = null;
-        onChanged();
-      } else {
-        variantSet_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      variantSet_ = null;
+      if (variantSetBuilder_ != null) {
+        variantSetBuilder_.dispose();
         variantSetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -835,7 +795,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1.VariantSet variant_set = 2;</code>
      */
     public com.google.genomics.v1.VariantSet.Builder getVariantSetBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getVariantSetFieldBuilder().getBuilder();
     }
@@ -894,7 +854,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateMask field is set.
      */
     public boolean hasUpdateMask() {
-      return updateMaskBuilder_ != null || updateMask_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -934,11 +894,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateMask_ = value;
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -957,11 +917,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.FieldMask.Builder builderForValue) {
       if (updateMaskBuilder_ == null) {
         updateMask_ = builderForValue.build();
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -978,17 +938,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateMask(com.google.protobuf.FieldMask value) {
       if (updateMaskBuilder_ == null) {
-        if (updateMask_ != null) {
-          updateMask_ =
-            com.google.protobuf.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          updateMask_ != null &&
+          updateMask_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
+          getUpdateMaskBuilder().mergeFrom(value);
         } else {
           updateMask_ = value;
         }
-        onChanged();
       } else {
         updateMaskBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1004,14 +965,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FieldMask update_mask = 5;</code>
      */
     public Builder clearUpdateMask() {
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-        onChanged();
-      } else {
-        updateMask_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1027,7 +987,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FieldMask update_mask = 5;</code>
      */
     public com.google.protobuf.FieldMask.Builder getUpdateMaskBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getUpdateMaskFieldBuilder().getBuilder();
     }
@@ -1109,7 +1069,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateVariantSetRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

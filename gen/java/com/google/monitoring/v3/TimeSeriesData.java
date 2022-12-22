@@ -37,70 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TimeSeriesData(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labelValues_ = new java.util.ArrayList<com.google.monitoring.v3.LabelValue>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            labelValues_.add(
-                input.readMessage(com.google.monitoring.v3.LabelValue.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              pointData_ = new java.util.ArrayList<com.google.monitoring.v3.TimeSeriesData.PointData>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            pointData_.add(
-                input.readMessage(com.google.monitoring.v3.TimeSeriesData.PointData.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        labelValues_ = java.util.Collections.unmodifiableList(labelValues_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        pointData_ = java.util.Collections.unmodifiableList(pointData_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.v3.MetricProto.internal_static_google_monitoring_v3_TimeSeriesData_descriptor;
@@ -223,71 +159,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PointData(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                values_ = new java.util.ArrayList<com.google.monitoring.v3.TypedValue>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              values_.add(
-                  input.readMessage(com.google.monitoring.v3.TypedValue.parser(), extensionRegistry));
-              break;
-            }
-            case 18: {
-              com.google.monitoring.v3.TimeInterval.Builder subBuilder = null;
-              if (timeInterval_ != null) {
-                subBuilder = timeInterval_.toBuilder();
-              }
-              timeInterval_ = input.readMessage(com.google.monitoring.v3.TimeInterval.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(timeInterval_);
-                timeInterval_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          values_ = java.util.Collections.unmodifiableList(values_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.monitoring.v3.MetricProto.internal_static_google_monitoring_v3_TimeSeriesData_PointData_descriptor;
@@ -302,6 +173,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int VALUES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.monitoring.v3.TypedValue> values_;
     /**
      * <pre>
@@ -396,7 +268,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.monitoring.v3.TimeIntervalOrBuilder getTimeIntervalOrBuilder() {
-      return getTimeInterval();
+      return timeInterval_ == null ? com.google.monitoring.v3.TimeInterval.getDefaultInstance() : timeInterval_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -419,7 +291,7 @@ private static final long serialVersionUID = 0L;
       if (timeInterval_ != null) {
         output.writeMessage(2, getTimeInterval());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -436,7 +308,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getTimeInterval());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -458,7 +330,7 @@ private static final long serialVersionUID = 0L;
         if (!getTimeInterval()
             .equals(other.getTimeInterval())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -477,7 +349,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + TIME_INTERVAL_FIELD_NUMBER;
         hash = (53 * hash) + getTimeInterval().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -600,33 +472,28 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.monitoring.v3.TimeSeriesData.PointData.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getValuesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (valuesBuilder_ == null) {
           values_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          values_ = null;
           valuesBuilder_.clear();
         }
-        if (timeIntervalBuilder_ == null) {
-          timeInterval_ = null;
-        } else {
-          timeInterval_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        timeInterval_ = null;
+        if (timeIntervalBuilder_ != null) {
+          timeIntervalBuilder_.dispose();
           timeIntervalBuilder_ = null;
         }
         return this;
@@ -655,7 +522,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.monitoring.v3.TimeSeriesData.PointData buildPartial() {
         com.google.monitoring.v3.TimeSeriesData.PointData result = new com.google.monitoring.v3.TimeSeriesData.PointData(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.monitoring.v3.TimeSeriesData.PointData result) {
         if (valuesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             values_ = java.util.Collections.unmodifiableList(values_);
@@ -665,13 +538,15 @@ private static final long serialVersionUID = 0L;
         } else {
           result.values_ = valuesBuilder_.build();
         }
-        if (timeIntervalBuilder_ == null) {
-          result.timeInterval_ = timeInterval_;
-        } else {
-          result.timeInterval_ = timeIntervalBuilder_.build();
+      }
+
+      private void buildPartial0(com.google.monitoring.v3.TimeSeriesData.PointData result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.timeInterval_ = timeIntervalBuilder_ == null
+              ? timeInterval_
+              : timeIntervalBuilder_.build();
         }
-        onBuilt();
-        return result;
       }
 
       @java.lang.Override
@@ -747,7 +622,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasTimeInterval()) {
           mergeTimeInterval(other.getTimeInterval());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -762,17 +637,50 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.monitoring.v3.TimeSeriesData.PointData parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.monitoring.v3.TypedValue m =
+                    input.readMessage(
+                        com.google.monitoring.v3.TypedValue.parser(),
+                        extensionRegistry);
+                if (valuesBuilder_ == null) {
+                  ensureValuesIsMutable();
+                  values_.add(m);
+                } else {
+                  valuesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getTimeIntervalFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.monitoring.v3.TimeSeriesData.PointData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1101,7 +1009,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the timeInterval field is set.
        */
       public boolean hasTimeInterval() {
-        return timeIntervalBuilder_ != null || timeInterval_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -1131,11 +1039,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           timeInterval_ = value;
-          onChanged();
         } else {
           timeIntervalBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1149,11 +1057,11 @@ private static final long serialVersionUID = 0L;
           com.google.monitoring.v3.TimeInterval.Builder builderForValue) {
         if (timeIntervalBuilder_ == null) {
           timeInterval_ = builderForValue.build();
-          onChanged();
         } else {
           timeIntervalBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1165,17 +1073,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeTimeInterval(com.google.monitoring.v3.TimeInterval value) {
         if (timeIntervalBuilder_ == null) {
-          if (timeInterval_ != null) {
-            timeInterval_ =
-              com.google.monitoring.v3.TimeInterval.newBuilder(timeInterval_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            timeInterval_ != null &&
+            timeInterval_ != com.google.monitoring.v3.TimeInterval.getDefaultInstance()) {
+            getTimeIntervalBuilder().mergeFrom(value);
           } else {
             timeInterval_ = value;
           }
-          onChanged();
         } else {
           timeIntervalBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1186,14 +1095,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.monitoring.v3.TimeInterval time_interval = 2;</code>
        */
       public Builder clearTimeInterval() {
-        if (timeIntervalBuilder_ == null) {
-          timeInterval_ = null;
-          onChanged();
-        } else {
-          timeInterval_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        timeInterval_ = null;
+        if (timeIntervalBuilder_ != null) {
+          timeIntervalBuilder_.dispose();
           timeIntervalBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1204,7 +1112,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.monitoring.v3.TimeInterval time_interval = 2;</code>
        */
       public com.google.monitoring.v3.TimeInterval.Builder getTimeIntervalBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getTimeIntervalFieldBuilder().getBuilder();
       }
@@ -1276,7 +1184,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PointData(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1297,6 +1216,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LABEL_VALUES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.monitoring.v3.LabelValue> labelValues_;
   /**
    * <pre>
@@ -1372,6 +1292,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POINT_DATA_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.monitoring.v3.TimeSeriesData.PointData> pointData_;
   /**
    * <pre>
@@ -1451,7 +1372,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < pointData_.size(); i++) {
       output.writeMessage(2, pointData_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1468,7 +1389,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, pointData_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1487,7 +1408,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getLabelValuesList())) return false;
     if (!getPointDataList()
         .equals(other.getPointDataList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1506,7 +1427,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + POINT_DATA_FIELD_NUMBER;
       hash = (53 * hash) + getPointDataList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1628,36 +1549,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.v3.TimeSeriesData.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getLabelValuesFieldBuilder();
-        getPointDataFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (labelValuesBuilder_ == null) {
         labelValues_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        labelValues_ = null;
         labelValuesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (pointDataBuilder_ == null) {
         pointData_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        pointData_ = null;
         pointDataBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -1684,7 +1601,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.v3.TimeSeriesData buildPartial() {
       com.google.monitoring.v3.TimeSeriesData result = new com.google.monitoring.v3.TimeSeriesData(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.monitoring.v3.TimeSeriesData result) {
       if (labelValuesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           labelValues_ = java.util.Collections.unmodifiableList(labelValues_);
@@ -1703,8 +1626,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.pointData_ = pointDataBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.monitoring.v3.TimeSeriesData result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -1803,7 +1728,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1818,17 +1743,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.v3.TimeSeriesData parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.monitoring.v3.LabelValue m =
+                  input.readMessage(
+                      com.google.monitoring.v3.LabelValue.parser(),
+                      extensionRegistry);
+              if (labelValuesBuilder_ == null) {
+                ensureLabelValuesIsMutable();
+                labelValues_.add(m);
+              } else {
+                labelValuesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.google.monitoring.v3.TimeSeriesData.PointData m =
+                  input.readMessage(
+                      com.google.monitoring.v3.TimeSeriesData.PointData.parser(),
+                      extensionRegistry);
+              if (pointDataBuilder_ == null) {
+                ensurePointDataIsMutable();
+                pointData_.add(m);
+              } else {
+                pointDataBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.v3.TimeSeriesData) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2543,7 +2507,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TimeSeriesData(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

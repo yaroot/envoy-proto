@@ -78,7 +78,6 @@ public interface MarkRecommendationSucceededRequestOrBuilder extends
    *
    * <code>map&lt;string, string&gt; state_metadata = 2;</code>
    */
-
   /* nullable */
 java.lang.String getStateMetadataOrDefault(
       java.lang.String key,
@@ -94,7 +93,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; state_metadata = 2;</code>
    */
-
   java.lang.String getStateMetadataOrThrow(
       java.lang.String key);
 

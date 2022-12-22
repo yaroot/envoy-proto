@@ -4,6 +4,10 @@
 package io.envoyproxy.envoy.config.core.v3;
 
 /**
+ * <pre>
+ * [#next-free-field: 6]
+ * </pre>
+ *
  * Protobuf type {@code envoy.config.core.v3.BindConfig}
  */
 public final class BindConfig extends
@@ -17,6 +21,8 @@ private static final long serialVersionUID = 0L;
   }
   private BindConfig() {
     socketOptions_ = java.util.Collections.emptyList();
+    extraSourceAddresses_ = java.util.Collections.emptyList();
+    additionalSourceAddresses_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -30,84 +36,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private BindConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.core.v3.SocketAddress.Builder subBuilder = null;
-            if (sourceAddress_ != null) {
-              subBuilder = sourceAddress_.toBuilder();
-            }
-            sourceAddress_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.SocketAddress.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sourceAddress_);
-              sourceAddress_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (freebind_ != null) {
-              subBuilder = freebind_.toBuilder();
-            }
-            freebind_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(freebind_);
-              freebind_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              socketOptions_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.SocketOption>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            socketOptions_.add(
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.SocketOption.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        socketOptions_ = java.util.Collections.unmodifiableList(socketOptions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -129,7 +57,7 @@ private static final long serialVersionUID = 0L;
    * The address to bind to when creating a socket.
    * </pre>
    *
-   * <code>.envoy.config.core.v3.SocketAddress source_address = 1 [(.validate.rules) = { ... }</code>
+   * <code>.envoy.config.core.v3.SocketAddress source_address = 1;</code>
    * @return Whether the sourceAddress field is set.
    */
   @java.lang.Override
@@ -141,7 +69,7 @@ private static final long serialVersionUID = 0L;
    * The address to bind to when creating a socket.
    * </pre>
    *
-   * <code>.envoy.config.core.v3.SocketAddress source_address = 1 [(.validate.rules) = { ... }</code>
+   * <code>.envoy.config.core.v3.SocketAddress source_address = 1;</code>
    * @return The sourceAddress.
    */
   @java.lang.Override
@@ -153,11 +81,11 @@ private static final long serialVersionUID = 0L;
    * The address to bind to when creating a socket.
    * </pre>
    *
-   * <code>.envoy.config.core.v3.SocketAddress source_address = 1 [(.validate.rules) = { ... }</code>
+   * <code>.envoy.config.core.v3.SocketAddress source_address = 1;</code>
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.SocketAddressOrBuilder getSourceAddressOrBuilder() {
-    return getSourceAddress();
+    return sourceAddress_ == null ? io.envoyproxy.envoy.config.core.v3.SocketAddress.getDefaultInstance() : sourceAddress_;
   }
 
   public static final int FREEBIND_FIELD_NUMBER = 2;
@@ -166,7 +94,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether to set the ``IP_FREEBIND`` option when creating the socket. When this
    * flag is set to true, allows the :ref:`source_address
-   * &lt;envoy_v3_api_field_config.cluster.v3.UpstreamBindConfig.source_address&gt;` to be an IP address
+   * &lt;envoy_v3_api_field_config.core.v3.BindConfig.source_address&gt;` to be an IP address
    * that is not configured on the system running Envoy. When this flag is set
    * to false, the option ``IP_FREEBIND`` is disabled on the socket. When this
    * flag is not set (default), the socket is not modified, i.e. the option is
@@ -184,7 +112,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether to set the ``IP_FREEBIND`` option when creating the socket. When this
    * flag is set to true, allows the :ref:`source_address
-   * &lt;envoy_v3_api_field_config.cluster.v3.UpstreamBindConfig.source_address&gt;` to be an IP address
+   * &lt;envoy_v3_api_field_config.core.v3.BindConfig.source_address&gt;` to be an IP address
    * that is not configured on the system running Envoy. When this flag is set
    * to false, the option ``IP_FREEBIND`` is disabled on the socket. When this
    * flag is not set (default), the socket is not modified, i.e. the option is
@@ -202,7 +130,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Whether to set the ``IP_FREEBIND`` option when creating the socket. When this
    * flag is set to true, allows the :ref:`source_address
-   * &lt;envoy_v3_api_field_config.cluster.v3.UpstreamBindConfig.source_address&gt;` to be an IP address
+   * &lt;envoy_v3_api_field_config.core.v3.BindConfig.source_address&gt;` to be an IP address
    * that is not configured on the system running Envoy. When this flag is set
    * to false, the option ``IP_FREEBIND`` is disabled on the socket. When this
    * flag is not set (default), the socket is not modified, i.e. the option is
@@ -213,10 +141,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getFreebindOrBuilder() {
-    return getFreebind();
+    return freebind_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : freebind_;
   }
 
   public static final int SOCKET_OPTIONS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.core.v3.SocketOption> socketOptions_;
   /**
    * <pre>
@@ -281,6 +210,168 @@ private static final long serialVersionUID = 0L;
     return socketOptions_.get(index);
   }
 
+  public static final int EXTRA_SOURCE_ADDRESSES_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private java.util.List<io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress> extraSourceAddresses_;
+  /**
+   * <pre>
+   * Extra source addresses appended to the address specified in the `source_address`
+   * field. This enables to specify multiple source addresses. Currently, only one extra
+   * address can be supported, and the extra address should have a different IP version
+   * with the address in the `source_address` field. The address which has the same IP
+   * version with the target host's address IP version will be used as bind address. If more
+   * than one extra address specified, only the first address matched IP version will be
+   * returned. If there is no same IP version address found, the address in the `source_address`
+   * will be returned.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+   */
+  @java.lang.Override
+  public java.util.List<io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress> getExtraSourceAddressesList() {
+    return extraSourceAddresses_;
+  }
+  /**
+   * <pre>
+   * Extra source addresses appended to the address specified in the `source_address`
+   * field. This enables to specify multiple source addresses. Currently, only one extra
+   * address can be supported, and the extra address should have a different IP version
+   * with the address in the `source_address` field. The address which has the same IP
+   * version with the target host's address IP version will be used as bind address. If more
+   * than one extra address specified, only the first address matched IP version will be
+   * returned. If there is no same IP version address found, the address in the `source_address`
+   * will be returned.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends io.envoyproxy.envoy.config.core.v3.ExtraSourceAddressOrBuilder> 
+      getExtraSourceAddressesOrBuilderList() {
+    return extraSourceAddresses_;
+  }
+  /**
+   * <pre>
+   * Extra source addresses appended to the address specified in the `source_address`
+   * field. This enables to specify multiple source addresses. Currently, only one extra
+   * address can be supported, and the extra address should have a different IP version
+   * with the address in the `source_address` field. The address which has the same IP
+   * version with the target host's address IP version will be used as bind address. If more
+   * than one extra address specified, only the first address matched IP version will be
+   * returned. If there is no same IP version address found, the address in the `source_address`
+   * will be returned.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+   */
+  @java.lang.Override
+  public int getExtraSourceAddressesCount() {
+    return extraSourceAddresses_.size();
+  }
+  /**
+   * <pre>
+   * Extra source addresses appended to the address specified in the `source_address`
+   * field. This enables to specify multiple source addresses. Currently, only one extra
+   * address can be supported, and the extra address should have a different IP version
+   * with the address in the `source_address` field. The address which has the same IP
+   * version with the target host's address IP version will be used as bind address. If more
+   * than one extra address specified, only the first address matched IP version will be
+   * returned. If there is no same IP version address found, the address in the `source_address`
+   * will be returned.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress getExtraSourceAddresses(int index) {
+    return extraSourceAddresses_.get(index);
+  }
+  /**
+   * <pre>
+   * Extra source addresses appended to the address specified in the `source_address`
+   * field. This enables to specify multiple source addresses. Currently, only one extra
+   * address can be supported, and the extra address should have a different IP version
+   * with the address in the `source_address` field. The address which has the same IP
+   * version with the target host's address IP version will be used as bind address. If more
+   * than one extra address specified, only the first address matched IP version will be
+   * returned. If there is no same IP version address found, the address in the `source_address`
+   * will be returned.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.config.core.v3.ExtraSourceAddressOrBuilder getExtraSourceAddressesOrBuilder(
+      int index) {
+    return extraSourceAddresses_.get(index);
+  }
+
+  public static final int ADDITIONAL_SOURCE_ADDRESSES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
+  private java.util.List<io.envoyproxy.envoy.config.core.v3.SocketAddress> additionalSourceAddresses_;
+  /**
+   * <pre>
+   * Deprecated by
+   * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   */
+  @java.lang.Override
+  @java.lang.Deprecated public java.util.List<io.envoyproxy.envoy.config.core.v3.SocketAddress> getAdditionalSourceAddressesList() {
+    return additionalSourceAddresses_;
+  }
+  /**
+   * <pre>
+   * Deprecated by
+   * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   */
+  @java.lang.Override
+  @java.lang.Deprecated public java.util.List<? extends io.envoyproxy.envoy.config.core.v3.SocketAddressOrBuilder> 
+      getAdditionalSourceAddressesOrBuilderList() {
+    return additionalSourceAddresses_;
+  }
+  /**
+   * <pre>
+   * Deprecated by
+   * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   */
+  @java.lang.Override
+  @java.lang.Deprecated public int getAdditionalSourceAddressesCount() {
+    return additionalSourceAddresses_.size();
+  }
+  /**
+   * <pre>
+   * Deprecated by
+   * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   */
+  @java.lang.Override
+  @java.lang.Deprecated public io.envoyproxy.envoy.config.core.v3.SocketAddress getAdditionalSourceAddresses(int index) {
+    return additionalSourceAddresses_.get(index);
+  }
+  /**
+   * <pre>
+   * Deprecated by
+   * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   */
+  @java.lang.Override
+  @java.lang.Deprecated public io.envoyproxy.envoy.config.core.v3.SocketAddressOrBuilder getAdditionalSourceAddressesOrBuilder(
+      int index) {
+    return additionalSourceAddresses_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -304,7 +395,13 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < socketOptions_.size(); i++) {
       output.writeMessage(3, socketOptions_.get(i));
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < additionalSourceAddresses_.size(); i++) {
+      output.writeMessage(4, additionalSourceAddresses_.get(i));
+    }
+    for (int i = 0; i < extraSourceAddresses_.size(); i++) {
+      output.writeMessage(5, extraSourceAddresses_.get(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -325,7 +422,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, socketOptions_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    for (int i = 0; i < additionalSourceAddresses_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, additionalSourceAddresses_.get(i));
+    }
+    for (int i = 0; i < extraSourceAddresses_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, extraSourceAddresses_.get(i));
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -352,7 +457,11 @@ private static final long serialVersionUID = 0L;
     }
     if (!getSocketOptionsList()
         .equals(other.getSocketOptionsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getExtraSourceAddressesList()
+        .equals(other.getExtraSourceAddressesList())) return false;
+    if (!getAdditionalSourceAddressesList()
+        .equals(other.getAdditionalSourceAddressesList())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -375,7 +484,15 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SOCKET_OPTIONS_FIELD_NUMBER;
       hash = (53 * hash) + getSocketOptionsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (getExtraSourceAddressesCount() > 0) {
+      hash = (37 * hash) + EXTRA_SOURCE_ADDRESSES_FIELD_NUMBER;
+      hash = (53 * hash) + getExtraSourceAddressesList().hashCode();
+    }
+    if (getAdditionalSourceAddressesCount() > 0) {
+      hash = (37 * hash) + ADDITIONAL_SOURCE_ADDRESSES_FIELD_NUMBER;
+      hash = (53 * hash) + getAdditionalSourceAddressesList().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -471,6 +588,10 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * [#next-free-field: 6]
+   * </pre>
+   *
    * Protobuf type {@code envoy.config.core.v3.BindConfig}
    */
   public static final class Builder extends
@@ -492,41 +613,49 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.core.v3.BindConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSocketOptionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (sourceAddressBuilder_ == null) {
-        sourceAddress_ = null;
-      } else {
-        sourceAddress_ = null;
+      bitField0_ = 0;
+      sourceAddress_ = null;
+      if (sourceAddressBuilder_ != null) {
+        sourceAddressBuilder_.dispose();
         sourceAddressBuilder_ = null;
       }
-      if (freebindBuilder_ == null) {
-        freebind_ = null;
-      } else {
-        freebind_ = null;
+      freebind_ = null;
+      if (freebindBuilder_ != null) {
+        freebindBuilder_.dispose();
         freebindBuilder_ = null;
       }
       if (socketOptionsBuilder_ == null) {
         socketOptions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        socketOptions_ = null;
         socketOptionsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
+      if (extraSourceAddressesBuilder_ == null) {
+        extraSourceAddresses_ = java.util.Collections.emptyList();
+      } else {
+        extraSourceAddresses_ = null;
+        extraSourceAddressesBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000008);
+      if (additionalSourceAddressesBuilder_ == null) {
+        additionalSourceAddresses_ = java.util.Collections.emptyList();
+      } else {
+        additionalSourceAddresses_ = null;
+        additionalSourceAddressesBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -553,28 +682,54 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.BindConfig buildPartial() {
       io.envoyproxy.envoy.config.core.v3.BindConfig result = new io.envoyproxy.envoy.config.core.v3.BindConfig(this);
-      int from_bitField0_ = bitField0_;
-      if (sourceAddressBuilder_ == null) {
-        result.sourceAddress_ = sourceAddress_;
-      } else {
-        result.sourceAddress_ = sourceAddressBuilder_.build();
-      }
-      if (freebindBuilder_ == null) {
-        result.freebind_ = freebind_;
-      } else {
-        result.freebind_ = freebindBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.config.core.v3.BindConfig result) {
       if (socketOptionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           socketOptions_ = java.util.Collections.unmodifiableList(socketOptions_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.socketOptions_ = socketOptions_;
       } else {
         result.socketOptions_ = socketOptionsBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (extraSourceAddressesBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0)) {
+          extraSourceAddresses_ = java.util.Collections.unmodifiableList(extraSourceAddresses_);
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.extraSourceAddresses_ = extraSourceAddresses_;
+      } else {
+        result.extraSourceAddresses_ = extraSourceAddressesBuilder_.build();
+      }
+      if (additionalSourceAddressesBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0)) {
+          additionalSourceAddresses_ = java.util.Collections.unmodifiableList(additionalSourceAddresses_);
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.additionalSourceAddresses_ = additionalSourceAddresses_;
+      } else {
+        result.additionalSourceAddresses_ = additionalSourceAddressesBuilder_.build();
+      }
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.core.v3.BindConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.sourceAddress_ = sourceAddressBuilder_ == null
+            ? sourceAddress_
+            : sourceAddressBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.freebind_ = freebindBuilder_ == null
+            ? freebind_
+            : freebindBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -631,7 +786,7 @@ private static final long serialVersionUID = 0L;
         if (!other.socketOptions_.isEmpty()) {
           if (socketOptions_.isEmpty()) {
             socketOptions_ = other.socketOptions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureSocketOptionsIsMutable();
             socketOptions_.addAll(other.socketOptions_);
@@ -644,7 +799,7 @@ private static final long serialVersionUID = 0L;
             socketOptionsBuilder_.dispose();
             socketOptionsBuilder_ = null;
             socketOptions_ = other.socketOptions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             socketOptionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSocketOptionsFieldBuilder() : null;
@@ -653,7 +808,59 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (extraSourceAddressesBuilder_ == null) {
+        if (!other.extraSourceAddresses_.isEmpty()) {
+          if (extraSourceAddresses_.isEmpty()) {
+            extraSourceAddresses_ = other.extraSourceAddresses_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureExtraSourceAddressesIsMutable();
+            extraSourceAddresses_.addAll(other.extraSourceAddresses_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.extraSourceAddresses_.isEmpty()) {
+          if (extraSourceAddressesBuilder_.isEmpty()) {
+            extraSourceAddressesBuilder_.dispose();
+            extraSourceAddressesBuilder_ = null;
+            extraSourceAddresses_ = other.extraSourceAddresses_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+            extraSourceAddressesBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getExtraSourceAddressesFieldBuilder() : null;
+          } else {
+            extraSourceAddressesBuilder_.addAllMessages(other.extraSourceAddresses_);
+          }
+        }
+      }
+      if (additionalSourceAddressesBuilder_ == null) {
+        if (!other.additionalSourceAddresses_.isEmpty()) {
+          if (additionalSourceAddresses_.isEmpty()) {
+            additionalSourceAddresses_ = other.additionalSourceAddresses_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureAdditionalSourceAddressesIsMutable();
+            additionalSourceAddresses_.addAll(other.additionalSourceAddresses_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.additionalSourceAddresses_.isEmpty()) {
+          if (additionalSourceAddressesBuilder_.isEmpty()) {
+            additionalSourceAddressesBuilder_.dispose();
+            additionalSourceAddressesBuilder_ = null;
+            additionalSourceAddresses_ = other.additionalSourceAddresses_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+            additionalSourceAddressesBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getAdditionalSourceAddressesFieldBuilder() : null;
+          } else {
+            additionalSourceAddressesBuilder_.addAllMessages(other.additionalSourceAddresses_);
+          }
+        }
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -668,17 +875,83 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.core.v3.BindConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getSourceAddressFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getFreebindFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              io.envoyproxy.envoy.config.core.v3.SocketOption m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.core.v3.SocketOption.parser(),
+                      extensionRegistry);
+              if (socketOptionsBuilder_ == null) {
+                ensureSocketOptionsIsMutable();
+                socketOptions_.add(m);
+              } else {
+                socketOptionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              io.envoyproxy.envoy.config.core.v3.SocketAddress m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.core.v3.SocketAddress.parser(),
+                      extensionRegistry);
+              if (additionalSourceAddressesBuilder_ == null) {
+                ensureAdditionalSourceAddressesIsMutable();
+                additionalSourceAddresses_.add(m);
+              } else {
+                additionalSourceAddressesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress.parser(),
+                      extensionRegistry);
+              if (extraSourceAddressesBuilder_ == null) {
+                ensureExtraSourceAddressesIsMutable();
+                extraSourceAddresses_.add(m);
+              } else {
+                extraSourceAddressesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.core.v3.BindConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -691,18 +964,18 @@ private static final long serialVersionUID = 0L;
      * The address to bind to when creating a socket.
      * </pre>
      *
-     * <code>.envoy.config.core.v3.SocketAddress source_address = 1 [(.validate.rules) = { ... }</code>
+     * <code>.envoy.config.core.v3.SocketAddress source_address = 1;</code>
      * @return Whether the sourceAddress field is set.
      */
     public boolean hasSourceAddress() {
-      return sourceAddressBuilder_ != null || sourceAddress_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
      * The address to bind to when creating a socket.
      * </pre>
      *
-     * <code>.envoy.config.core.v3.SocketAddress source_address = 1 [(.validate.rules) = { ... }</code>
+     * <code>.envoy.config.core.v3.SocketAddress source_address = 1;</code>
      * @return The sourceAddress.
      */
     public io.envoyproxy.envoy.config.core.v3.SocketAddress getSourceAddress() {
@@ -717,7 +990,7 @@ private static final long serialVersionUID = 0L;
      * The address to bind to when creating a socket.
      * </pre>
      *
-     * <code>.envoy.config.core.v3.SocketAddress source_address = 1 [(.validate.rules) = { ... }</code>
+     * <code>.envoy.config.core.v3.SocketAddress source_address = 1;</code>
      */
     public Builder setSourceAddress(io.envoyproxy.envoy.config.core.v3.SocketAddress value) {
       if (sourceAddressBuilder_ == null) {
@@ -725,11 +998,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sourceAddress_ = value;
-        onChanged();
       } else {
         sourceAddressBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -737,17 +1010,17 @@ private static final long serialVersionUID = 0L;
      * The address to bind to when creating a socket.
      * </pre>
      *
-     * <code>.envoy.config.core.v3.SocketAddress source_address = 1 [(.validate.rules) = { ... }</code>
+     * <code>.envoy.config.core.v3.SocketAddress source_address = 1;</code>
      */
     public Builder setSourceAddress(
         io.envoyproxy.envoy.config.core.v3.SocketAddress.Builder builderForValue) {
       if (sourceAddressBuilder_ == null) {
         sourceAddress_ = builderForValue.build();
-        onChanged();
       } else {
         sourceAddressBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -755,21 +1028,22 @@ private static final long serialVersionUID = 0L;
      * The address to bind to when creating a socket.
      * </pre>
      *
-     * <code>.envoy.config.core.v3.SocketAddress source_address = 1 [(.validate.rules) = { ... }</code>
+     * <code>.envoy.config.core.v3.SocketAddress source_address = 1;</code>
      */
     public Builder mergeSourceAddress(io.envoyproxy.envoy.config.core.v3.SocketAddress value) {
       if (sourceAddressBuilder_ == null) {
-        if (sourceAddress_ != null) {
-          sourceAddress_ =
-            io.envoyproxy.envoy.config.core.v3.SocketAddress.newBuilder(sourceAddress_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          sourceAddress_ != null &&
+          sourceAddress_ != io.envoyproxy.envoy.config.core.v3.SocketAddress.getDefaultInstance()) {
+          getSourceAddressBuilder().mergeFrom(value);
         } else {
           sourceAddress_ = value;
         }
-        onChanged();
       } else {
         sourceAddressBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -777,17 +1051,16 @@ private static final long serialVersionUID = 0L;
      * The address to bind to when creating a socket.
      * </pre>
      *
-     * <code>.envoy.config.core.v3.SocketAddress source_address = 1 [(.validate.rules) = { ... }</code>
+     * <code>.envoy.config.core.v3.SocketAddress source_address = 1;</code>
      */
     public Builder clearSourceAddress() {
-      if (sourceAddressBuilder_ == null) {
-        sourceAddress_ = null;
-        onChanged();
-      } else {
-        sourceAddress_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      sourceAddress_ = null;
+      if (sourceAddressBuilder_ != null) {
+        sourceAddressBuilder_.dispose();
         sourceAddressBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -795,10 +1068,10 @@ private static final long serialVersionUID = 0L;
      * The address to bind to when creating a socket.
      * </pre>
      *
-     * <code>.envoy.config.core.v3.SocketAddress source_address = 1 [(.validate.rules) = { ... }</code>
+     * <code>.envoy.config.core.v3.SocketAddress source_address = 1;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.SocketAddress.Builder getSourceAddressBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getSourceAddressFieldBuilder().getBuilder();
     }
@@ -807,7 +1080,7 @@ private static final long serialVersionUID = 0L;
      * The address to bind to when creating a socket.
      * </pre>
      *
-     * <code>.envoy.config.core.v3.SocketAddress source_address = 1 [(.validate.rules) = { ... }</code>
+     * <code>.envoy.config.core.v3.SocketAddress source_address = 1;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.SocketAddressOrBuilder getSourceAddressOrBuilder() {
       if (sourceAddressBuilder_ != null) {
@@ -822,7 +1095,7 @@ private static final long serialVersionUID = 0L;
      * The address to bind to when creating a socket.
      * </pre>
      *
-     * <code>.envoy.config.core.v3.SocketAddress source_address = 1 [(.validate.rules) = { ... }</code>
+     * <code>.envoy.config.core.v3.SocketAddress source_address = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         io.envoyproxy.envoy.config.core.v3.SocketAddress, io.envoyproxy.envoy.config.core.v3.SocketAddress.Builder, io.envoyproxy.envoy.config.core.v3.SocketAddressOrBuilder> 
@@ -845,7 +1118,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether to set the ``IP_FREEBIND`` option when creating the socket. When this
      * flag is set to true, allows the :ref:`source_address
-     * &lt;envoy_v3_api_field_config.cluster.v3.UpstreamBindConfig.source_address&gt;` to be an IP address
+     * &lt;envoy_v3_api_field_config.core.v3.BindConfig.source_address&gt;` to be an IP address
      * that is not configured on the system running Envoy. When this flag is set
      * to false, the option ``IP_FREEBIND`` is disabled on the socket. When this
      * flag is not set (default), the socket is not modified, i.e. the option is
@@ -856,13 +1129,13 @@ private static final long serialVersionUID = 0L;
      * @return Whether the freebind field is set.
      */
     public boolean hasFreebind() {
-      return freebindBuilder_ != null || freebind_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
      * Whether to set the ``IP_FREEBIND`` option when creating the socket. When this
      * flag is set to true, allows the :ref:`source_address
-     * &lt;envoy_v3_api_field_config.cluster.v3.UpstreamBindConfig.source_address&gt;` to be an IP address
+     * &lt;envoy_v3_api_field_config.core.v3.BindConfig.source_address&gt;` to be an IP address
      * that is not configured on the system running Envoy. When this flag is set
      * to false, the option ``IP_FREEBIND`` is disabled on the socket. When this
      * flag is not set (default), the socket is not modified, i.e. the option is
@@ -883,7 +1156,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether to set the ``IP_FREEBIND`` option when creating the socket. When this
      * flag is set to true, allows the :ref:`source_address
-     * &lt;envoy_v3_api_field_config.cluster.v3.UpstreamBindConfig.source_address&gt;` to be an IP address
+     * &lt;envoy_v3_api_field_config.core.v3.BindConfig.source_address&gt;` to be an IP address
      * that is not configured on the system running Envoy. When this flag is set
      * to false, the option ``IP_FREEBIND`` is disabled on the socket. When this
      * flag is not set (default), the socket is not modified, i.e. the option is
@@ -898,18 +1171,18 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         freebind_ = value;
-        onChanged();
       } else {
         freebindBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Whether to set the ``IP_FREEBIND`` option when creating the socket. When this
      * flag is set to true, allows the :ref:`source_address
-     * &lt;envoy_v3_api_field_config.cluster.v3.UpstreamBindConfig.source_address&gt;` to be an IP address
+     * &lt;envoy_v3_api_field_config.core.v3.BindConfig.source_address&gt;` to be an IP address
      * that is not configured on the system running Envoy. When this flag is set
      * to false, the option ``IP_FREEBIND`` is disabled on the socket. When this
      * flag is not set (default), the socket is not modified, i.e. the option is
@@ -922,18 +1195,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (freebindBuilder_ == null) {
         freebind_ = builderForValue.build();
-        onChanged();
       } else {
         freebindBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Whether to set the ``IP_FREEBIND`` option when creating the socket. When this
      * flag is set to true, allows the :ref:`source_address
-     * &lt;envoy_v3_api_field_config.cluster.v3.UpstreamBindConfig.source_address&gt;` to be an IP address
+     * &lt;envoy_v3_api_field_config.core.v3.BindConfig.source_address&gt;` to be an IP address
      * that is not configured on the system running Envoy. When this flag is set
      * to false, the option ``IP_FREEBIND`` is disabled on the socket. When this
      * flag is not set (default), the socket is not modified, i.e. the option is
@@ -944,24 +1217,25 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFreebind(com.google.protobuf.BoolValue value) {
       if (freebindBuilder_ == null) {
-        if (freebind_ != null) {
-          freebind_ =
-            com.google.protobuf.BoolValue.newBuilder(freebind_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          freebind_ != null &&
+          freebind_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getFreebindBuilder().mergeFrom(value);
         } else {
           freebind_ = value;
         }
-        onChanged();
       } else {
         freebindBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Whether to set the ``IP_FREEBIND`` option when creating the socket. When this
      * flag is set to true, allows the :ref:`source_address
-     * &lt;envoy_v3_api_field_config.cluster.v3.UpstreamBindConfig.source_address&gt;` to be an IP address
+     * &lt;envoy_v3_api_field_config.core.v3.BindConfig.source_address&gt;` to be an IP address
      * that is not configured on the system running Envoy. When this flag is set
      * to false, the option ``IP_FREEBIND`` is disabled on the socket. When this
      * flag is not set (default), the socket is not modified, i.e. the option is
@@ -971,21 +1245,20 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue freebind = 2;</code>
      */
     public Builder clearFreebind() {
-      if (freebindBuilder_ == null) {
-        freebind_ = null;
-        onChanged();
-      } else {
-        freebind_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      freebind_ = null;
+      if (freebindBuilder_ != null) {
+        freebindBuilder_.dispose();
         freebindBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Whether to set the ``IP_FREEBIND`` option when creating the socket. When this
      * flag is set to true, allows the :ref:`source_address
-     * &lt;envoy_v3_api_field_config.cluster.v3.UpstreamBindConfig.source_address&gt;` to be an IP address
+     * &lt;envoy_v3_api_field_config.core.v3.BindConfig.source_address&gt;` to be an IP address
      * that is not configured on the system running Envoy. When this flag is set
      * to false, the option ``IP_FREEBIND`` is disabled on the socket. When this
      * flag is not set (default), the socket is not modified, i.e. the option is
@@ -995,7 +1268,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue freebind = 2;</code>
      */
     public com.google.protobuf.BoolValue.Builder getFreebindBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getFreebindFieldBuilder().getBuilder();
     }
@@ -1003,7 +1276,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether to set the ``IP_FREEBIND`` option when creating the socket. When this
      * flag is set to true, allows the :ref:`source_address
-     * &lt;envoy_v3_api_field_config.cluster.v3.UpstreamBindConfig.source_address&gt;` to be an IP address
+     * &lt;envoy_v3_api_field_config.core.v3.BindConfig.source_address&gt;` to be an IP address
      * that is not configured on the system running Envoy. When this flag is set
      * to false, the option ``IP_FREEBIND`` is disabled on the socket. When this
      * flag is not set (default), the socket is not modified, i.e. the option is
@@ -1024,7 +1297,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Whether to set the ``IP_FREEBIND`` option when creating the socket. When this
      * flag is set to true, allows the :ref:`source_address
-     * &lt;envoy_v3_api_field_config.cluster.v3.UpstreamBindConfig.source_address&gt;` to be an IP address
+     * &lt;envoy_v3_api_field_config.core.v3.BindConfig.source_address&gt;` to be an IP address
      * that is not configured on the system running Envoy. When this flag is set
      * to false, the option ``IP_FREEBIND`` is disabled on the socket. When this
      * flag is not set (default), the socket is not modified, i.e. the option is
@@ -1050,9 +1323,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.config.core.v3.SocketOption> socketOptions_ =
       java.util.Collections.emptyList();
     private void ensureSocketOptionsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         socketOptions_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.SocketOption>(socketOptions_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1257,7 +1530,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSocketOptions() {
       if (socketOptionsBuilder_ == null) {
         socketOptions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         socketOptionsBuilder_.clear();
@@ -1369,12 +1642,780 @@ private static final long serialVersionUID = 0L;
         socketOptionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.config.core.v3.SocketOption, io.envoyproxy.envoy.config.core.v3.SocketOption.Builder, io.envoyproxy.envoy.config.core.v3.SocketOptionOrBuilder>(
                 socketOptions_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         socketOptions_ = null;
       }
       return socketOptionsBuilder_;
+    }
+
+    private java.util.List<io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress> extraSourceAddresses_ =
+      java.util.Collections.emptyList();
+    private void ensureExtraSourceAddressesIsMutable() {
+      if (!((bitField0_ & 0x00000008) != 0)) {
+        extraSourceAddresses_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress>(extraSourceAddresses_);
+        bitField0_ |= 0x00000008;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress, io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress.Builder, io.envoyproxy.envoy.config.core.v3.ExtraSourceAddressOrBuilder> extraSourceAddressesBuilder_;
+
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public java.util.List<io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress> getExtraSourceAddressesList() {
+      if (extraSourceAddressesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(extraSourceAddresses_);
+      } else {
+        return extraSourceAddressesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public int getExtraSourceAddressesCount() {
+      if (extraSourceAddressesBuilder_ == null) {
+        return extraSourceAddresses_.size();
+      } else {
+        return extraSourceAddressesBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress getExtraSourceAddresses(int index) {
+      if (extraSourceAddressesBuilder_ == null) {
+        return extraSourceAddresses_.get(index);
+      } else {
+        return extraSourceAddressesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public Builder setExtraSourceAddresses(
+        int index, io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress value) {
+      if (extraSourceAddressesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureExtraSourceAddressesIsMutable();
+        extraSourceAddresses_.set(index, value);
+        onChanged();
+      } else {
+        extraSourceAddressesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public Builder setExtraSourceAddresses(
+        int index, io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress.Builder builderForValue) {
+      if (extraSourceAddressesBuilder_ == null) {
+        ensureExtraSourceAddressesIsMutable();
+        extraSourceAddresses_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        extraSourceAddressesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public Builder addExtraSourceAddresses(io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress value) {
+      if (extraSourceAddressesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureExtraSourceAddressesIsMutable();
+        extraSourceAddresses_.add(value);
+        onChanged();
+      } else {
+        extraSourceAddressesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public Builder addExtraSourceAddresses(
+        int index, io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress value) {
+      if (extraSourceAddressesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureExtraSourceAddressesIsMutable();
+        extraSourceAddresses_.add(index, value);
+        onChanged();
+      } else {
+        extraSourceAddressesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public Builder addExtraSourceAddresses(
+        io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress.Builder builderForValue) {
+      if (extraSourceAddressesBuilder_ == null) {
+        ensureExtraSourceAddressesIsMutable();
+        extraSourceAddresses_.add(builderForValue.build());
+        onChanged();
+      } else {
+        extraSourceAddressesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public Builder addExtraSourceAddresses(
+        int index, io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress.Builder builderForValue) {
+      if (extraSourceAddressesBuilder_ == null) {
+        ensureExtraSourceAddressesIsMutable();
+        extraSourceAddresses_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        extraSourceAddressesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public Builder addAllExtraSourceAddresses(
+        java.lang.Iterable<? extends io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress> values) {
+      if (extraSourceAddressesBuilder_ == null) {
+        ensureExtraSourceAddressesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, extraSourceAddresses_);
+        onChanged();
+      } else {
+        extraSourceAddressesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public Builder clearExtraSourceAddresses() {
+      if (extraSourceAddressesBuilder_ == null) {
+        extraSourceAddresses_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+      } else {
+        extraSourceAddressesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public Builder removeExtraSourceAddresses(int index) {
+      if (extraSourceAddressesBuilder_ == null) {
+        ensureExtraSourceAddressesIsMutable();
+        extraSourceAddresses_.remove(index);
+        onChanged();
+      } else {
+        extraSourceAddressesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress.Builder getExtraSourceAddressesBuilder(
+        int index) {
+      return getExtraSourceAddressesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public io.envoyproxy.envoy.config.core.v3.ExtraSourceAddressOrBuilder getExtraSourceAddressesOrBuilder(
+        int index) {
+      if (extraSourceAddressesBuilder_ == null) {
+        return extraSourceAddresses_.get(index);  } else {
+        return extraSourceAddressesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public java.util.List<? extends io.envoyproxy.envoy.config.core.v3.ExtraSourceAddressOrBuilder> 
+         getExtraSourceAddressesOrBuilderList() {
+      if (extraSourceAddressesBuilder_ != null) {
+        return extraSourceAddressesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(extraSourceAddresses_);
+      }
+    }
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress.Builder addExtraSourceAddressesBuilder() {
+      return getExtraSourceAddressesFieldBuilder().addBuilder(
+          io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress.Builder addExtraSourceAddressesBuilder(
+        int index) {
+      return getExtraSourceAddressesFieldBuilder().addBuilder(
+          index, io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Extra source addresses appended to the address specified in the `source_address`
+     * field. This enables to specify multiple source addresses. Currently, only one extra
+     * address can be supported, and the extra address should have a different IP version
+     * with the address in the `source_address` field. The address which has the same IP
+     * version with the target host's address IP version will be used as bind address. If more
+     * than one extra address specified, only the first address matched IP version will be
+     * returned. If there is no same IP version address found, the address in the `source_address`
+     * will be returned.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.ExtraSourceAddress extra_source_addresses = 5;</code>
+     */
+    public java.util.List<io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress.Builder> 
+         getExtraSourceAddressesBuilderList() {
+      return getExtraSourceAddressesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress, io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress.Builder, io.envoyproxy.envoy.config.core.v3.ExtraSourceAddressOrBuilder> 
+        getExtraSourceAddressesFieldBuilder() {
+      if (extraSourceAddressesBuilder_ == null) {
+        extraSourceAddressesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress, io.envoyproxy.envoy.config.core.v3.ExtraSourceAddress.Builder, io.envoyproxy.envoy.config.core.v3.ExtraSourceAddressOrBuilder>(
+                extraSourceAddresses_,
+                ((bitField0_ & 0x00000008) != 0),
+                getParentForChildren(),
+                isClean());
+        extraSourceAddresses_ = null;
+      }
+      return extraSourceAddressesBuilder_;
+    }
+
+    private java.util.List<io.envoyproxy.envoy.config.core.v3.SocketAddress> additionalSourceAddresses_ =
+      java.util.Collections.emptyList();
+    private void ensureAdditionalSourceAddressesIsMutable() {
+      if (!((bitField0_ & 0x00000010) != 0)) {
+        additionalSourceAddresses_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.SocketAddress>(additionalSourceAddresses_);
+        bitField0_ |= 0x00000010;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.envoyproxy.envoy.config.core.v3.SocketAddress, io.envoyproxy.envoy.config.core.v3.SocketAddress.Builder, io.envoyproxy.envoy.config.core.v3.SocketAddressOrBuilder> additionalSourceAddressesBuilder_;
+
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public java.util.List<io.envoyproxy.envoy.config.core.v3.SocketAddress> getAdditionalSourceAddressesList() {
+      if (additionalSourceAddressesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(additionalSourceAddresses_);
+      } else {
+        return additionalSourceAddressesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public int getAdditionalSourceAddressesCount() {
+      if (additionalSourceAddressesBuilder_ == null) {
+        return additionalSourceAddresses_.size();
+      } else {
+        return additionalSourceAddressesBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public io.envoyproxy.envoy.config.core.v3.SocketAddress getAdditionalSourceAddresses(int index) {
+      if (additionalSourceAddressesBuilder_ == null) {
+        return additionalSourceAddresses_.get(index);
+      } else {
+        return additionalSourceAddressesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public Builder setAdditionalSourceAddresses(
+        int index, io.envoyproxy.envoy.config.core.v3.SocketAddress value) {
+      if (additionalSourceAddressesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAdditionalSourceAddressesIsMutable();
+        additionalSourceAddresses_.set(index, value);
+        onChanged();
+      } else {
+        additionalSourceAddressesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public Builder setAdditionalSourceAddresses(
+        int index, io.envoyproxy.envoy.config.core.v3.SocketAddress.Builder builderForValue) {
+      if (additionalSourceAddressesBuilder_ == null) {
+        ensureAdditionalSourceAddressesIsMutable();
+        additionalSourceAddresses_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        additionalSourceAddressesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public Builder addAdditionalSourceAddresses(io.envoyproxy.envoy.config.core.v3.SocketAddress value) {
+      if (additionalSourceAddressesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAdditionalSourceAddressesIsMutable();
+        additionalSourceAddresses_.add(value);
+        onChanged();
+      } else {
+        additionalSourceAddressesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public Builder addAdditionalSourceAddresses(
+        int index, io.envoyproxy.envoy.config.core.v3.SocketAddress value) {
+      if (additionalSourceAddressesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAdditionalSourceAddressesIsMutable();
+        additionalSourceAddresses_.add(index, value);
+        onChanged();
+      } else {
+        additionalSourceAddressesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public Builder addAdditionalSourceAddresses(
+        io.envoyproxy.envoy.config.core.v3.SocketAddress.Builder builderForValue) {
+      if (additionalSourceAddressesBuilder_ == null) {
+        ensureAdditionalSourceAddressesIsMutable();
+        additionalSourceAddresses_.add(builderForValue.build());
+        onChanged();
+      } else {
+        additionalSourceAddressesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public Builder addAdditionalSourceAddresses(
+        int index, io.envoyproxy.envoy.config.core.v3.SocketAddress.Builder builderForValue) {
+      if (additionalSourceAddressesBuilder_ == null) {
+        ensureAdditionalSourceAddressesIsMutable();
+        additionalSourceAddresses_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        additionalSourceAddressesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public Builder addAllAdditionalSourceAddresses(
+        java.lang.Iterable<? extends io.envoyproxy.envoy.config.core.v3.SocketAddress> values) {
+      if (additionalSourceAddressesBuilder_ == null) {
+        ensureAdditionalSourceAddressesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, additionalSourceAddresses_);
+        onChanged();
+      } else {
+        additionalSourceAddressesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public Builder clearAdditionalSourceAddresses() {
+      if (additionalSourceAddressesBuilder_ == null) {
+        additionalSourceAddresses_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+      } else {
+        additionalSourceAddressesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public Builder removeAdditionalSourceAddresses(int index) {
+      if (additionalSourceAddressesBuilder_ == null) {
+        ensureAdditionalSourceAddressesIsMutable();
+        additionalSourceAddresses_.remove(index);
+        onChanged();
+      } else {
+        additionalSourceAddressesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public io.envoyproxy.envoy.config.core.v3.SocketAddress.Builder getAdditionalSourceAddressesBuilder(
+        int index) {
+      return getAdditionalSourceAddressesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public io.envoyproxy.envoy.config.core.v3.SocketAddressOrBuilder getAdditionalSourceAddressesOrBuilder(
+        int index) {
+      if (additionalSourceAddressesBuilder_ == null) {
+        return additionalSourceAddresses_.get(index);  } else {
+        return additionalSourceAddressesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public java.util.List<? extends io.envoyproxy.envoy.config.core.v3.SocketAddressOrBuilder> 
+         getAdditionalSourceAddressesOrBuilderList() {
+      if (additionalSourceAddressesBuilder_ != null) {
+        return additionalSourceAddressesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(additionalSourceAddresses_);
+      }
+    }
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public io.envoyproxy.envoy.config.core.v3.SocketAddress.Builder addAdditionalSourceAddressesBuilder() {
+      return getAdditionalSourceAddressesFieldBuilder().addBuilder(
+          io.envoyproxy.envoy.config.core.v3.SocketAddress.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public io.envoyproxy.envoy.config.core.v3.SocketAddress.Builder addAdditionalSourceAddressesBuilder(
+        int index) {
+      return getAdditionalSourceAddressesFieldBuilder().addBuilder(
+          index, io.envoyproxy.envoy.config.core.v3.SocketAddress.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Deprecated by
+     * :ref:`extra_source_addresses &lt;envoy_v3_api_field_config.core.v3.BindConfig.extra_source_addresses&gt;`
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.SocketAddress additional_source_addresses = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     */
+    @java.lang.Deprecated public java.util.List<io.envoyproxy.envoy.config.core.v3.SocketAddress.Builder> 
+         getAdditionalSourceAddressesBuilderList() {
+      return getAdditionalSourceAddressesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.envoyproxy.envoy.config.core.v3.SocketAddress, io.envoyproxy.envoy.config.core.v3.SocketAddress.Builder, io.envoyproxy.envoy.config.core.v3.SocketAddressOrBuilder> 
+        getAdditionalSourceAddressesFieldBuilder() {
+      if (additionalSourceAddressesBuilder_ == null) {
+        additionalSourceAddressesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            io.envoyproxy.envoy.config.core.v3.SocketAddress, io.envoyproxy.envoy.config.core.v3.SocketAddress.Builder, io.envoyproxy.envoy.config.core.v3.SocketAddressOrBuilder>(
+                additionalSourceAddresses_,
+                ((bitField0_ & 0x00000010) != 0),
+                getParentForChildren(),
+                isClean());
+        additionalSourceAddresses_ = null;
+      }
+      return additionalSourceAddressesBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1409,7 +2450,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BindConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

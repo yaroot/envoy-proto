@@ -73,10 +73,10 @@ public interface ListVehiclesRequestOrBuilder extends
 
   /**
    * <pre>
-   * The `next_page_token` value returned from a previous call to
-   * `ListVehicles`. Functionality is undefined if the filter criteria of this
-   * request don't match the criteria in the request that produced this
-   * `page_token`.
+   * The value of the `next_page_token` provided by a previous call to
+   * `ListVehicles` so that you can paginate through groups of vehicles. The
+   * value is undefined if the filter criteria of the request is not the same as
+   * the filter criteria for the previous call to `ListVehicles`.
    * </pre>
    *
    * <code>string page_token = 4;</code>
@@ -85,10 +85,10 @@ public interface ListVehiclesRequestOrBuilder extends
   java.lang.String getPageToken();
   /**
    * <pre>
-   * The `next_page_token` value returned from a previous call to
-   * `ListVehicles`. Functionality is undefined if the filter criteria of this
-   * request don't match the criteria in the request that produced this
-   * `page_token`.
+   * The value of the `next_page_token` provided by a previous call to
+   * `ListVehicles` so that you can paginate through groups of vehicles. The
+   * value is undefined if the filter criteria of the request is not the same as
+   * the filter criteria for the previous call to `ListVehicles`.
    * </pre>
    *
    * <code>string page_token = 4;</code>
@@ -132,8 +132,8 @@ public interface ListVehiclesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Restrict the response to vehicles that support at least
-   * one of the specified trip types.
+   * Restricts the response to vehicles that support at least one of the
+   * specified trip types.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -142,8 +142,8 @@ public interface ListVehiclesRequestOrBuilder extends
   java.util.List<google.maps.fleetengine.v1.TripType> getTripTypesList();
   /**
    * <pre>
-   * Restrict the response to vehicles that support at least
-   * one of the specified trip types.
+   * Restricts the response to vehicles that support at least one of the
+   * specified trip types.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -152,8 +152,8 @@ public interface ListVehiclesRequestOrBuilder extends
   int getTripTypesCount();
   /**
    * <pre>
-   * Restrict the response to vehicles that support at least
-   * one of the specified trip types.
+   * Restricts the response to vehicles that support at least one of the
+   * specified trip types.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -163,8 +163,8 @@ public interface ListVehiclesRequestOrBuilder extends
   google.maps.fleetengine.v1.TripType getTripTypes(int index);
   /**
    * <pre>
-   * Restrict the response to vehicles that support at least
-   * one of the specified trip types.
+   * Restricts the response to vehicles that support at least one of the
+   * specified trip types.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -174,8 +174,8 @@ public interface ListVehiclesRequestOrBuilder extends
   getTripTypesValueList();
   /**
    * <pre>
-   * Restrict the response to vehicles that support at least
-   * one of the specified trip types.
+   * Restricts the response to vehicles that support at least one of the
+   * specified trip types.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -186,9 +186,9 @@ public interface ListVehiclesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Restrict the response to vehicles that have updated
-   * their locations within the specified duration back from now.
-   * If present, must be a valid positive duration.
+   * Restricts the response to vehicles that have updated their locations within
+   * the specified duration at the time of the call. If present, must be a valid
+   * positive duration.
    * </pre>
    *
    * <code>.google.protobuf.Duration maximum_staleness = 8;</code>
@@ -197,9 +197,9 @@ public interface ListVehiclesRequestOrBuilder extends
   boolean hasMaximumStaleness();
   /**
    * <pre>
-   * Restrict the response to vehicles that have updated
-   * their locations within the specified duration back from now.
-   * If present, must be a valid positive duration.
+   * Restricts the response to vehicles that have updated their locations within
+   * the specified duration at the time of the call. If present, must be a valid
+   * positive duration.
    * </pre>
    *
    * <code>.google.protobuf.Duration maximum_staleness = 8;</code>
@@ -208,9 +208,9 @@ public interface ListVehiclesRequestOrBuilder extends
   com.google.protobuf.Duration getMaximumStaleness();
   /**
    * <pre>
-   * Restrict the response to vehicles that have updated
-   * their locations within the specified duration back from now.
-   * If present, must be a valid positive duration.
+   * Restricts the response to vehicles that have updated their locations within
+   * the specified duration at the time of the call. If present, must be a valid
+   * positive duration.
    * </pre>
    *
    * <code>.google.protobuf.Duration maximum_staleness = 8;</code>
@@ -219,7 +219,7 @@ public interface ListVehiclesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. Restrict the response to vehicles with one of the specified type
+   * Required. Restricts the response to vehicles with one of the specified type
    * categories.
    * </pre>
    *
@@ -229,7 +229,7 @@ public interface ListVehiclesRequestOrBuilder extends
   java.util.List<google.maps.fleetengine.v1.Vehicle.VehicleType.Category> getVehicleTypeCategoriesList();
   /**
    * <pre>
-   * Required. Restrict the response to vehicles with one of the specified type
+   * Required. Restricts the response to vehicles with one of the specified type
    * categories.
    * </pre>
    *
@@ -239,7 +239,7 @@ public interface ListVehiclesRequestOrBuilder extends
   int getVehicleTypeCategoriesCount();
   /**
    * <pre>
-   * Required. Restrict the response to vehicles with one of the specified type
+   * Required. Restricts the response to vehicles with one of the specified type
    * categories.
    * </pre>
    *
@@ -250,7 +250,7 @@ public interface ListVehiclesRequestOrBuilder extends
   google.maps.fleetengine.v1.Vehicle.VehicleType.Category getVehicleTypeCategories(int index);
   /**
    * <pre>
-   * Required. Restrict the response to vehicles with one of the specified type
+   * Required. Restricts the response to vehicles with one of the specified type
    * categories.
    * </pre>
    *
@@ -261,7 +261,7 @@ public interface ListVehiclesRequestOrBuilder extends
   getVehicleTypeCategoriesValueList();
   /**
    * <pre>
-   * Required. Restrict the response to vehicles with one of the specified type
+   * Required. Restricts the response to vehicles with one of the specified type
    * categories.
    * </pre>
    *
@@ -288,10 +288,10 @@ public interface ListVehiclesRequestOrBuilder extends
    * (required_one_of_attributes[1][0] OR required_one_of_attributes[1][1] OR
    * ...)
    * ```
-   * Restrict the response to vehicles with the specified attributes. This field
-   * is a conjunction/AND operation. Your app can specify up to 100 attributes;
-   * however, the combined key:value string length cannot exceed 1024
-   * characters.
+   * Restricts the response to vehicles with the specified attributes. This
+   * field is a conjunction/AND operation. Your app can specify up to 100
+   * attributes; however, the combined key:value string length cannot exceed
+   * 1024 characters.
    * </pre>
    *
    * <code>repeated string required_attributes = 10;</code>
@@ -316,10 +316,10 @@ public interface ListVehiclesRequestOrBuilder extends
    * (required_one_of_attributes[1][0] OR required_one_of_attributes[1][1] OR
    * ...)
    * ```
-   * Restrict the response to vehicles with the specified attributes. This field
-   * is a conjunction/AND operation. Your app can specify up to 100 attributes;
-   * however, the combined key:value string length cannot exceed 1024
-   * characters.
+   * Restricts the response to vehicles with the specified attributes. This
+   * field is a conjunction/AND operation. Your app can specify up to 100
+   * attributes; however, the combined key:value string length cannot exceed
+   * 1024 characters.
    * </pre>
    *
    * <code>repeated string required_attributes = 10;</code>
@@ -343,10 +343,10 @@ public interface ListVehiclesRequestOrBuilder extends
    * (required_one_of_attributes[1][0] OR required_one_of_attributes[1][1] OR
    * ...)
    * ```
-   * Restrict the response to vehicles with the specified attributes. This field
-   * is a conjunction/AND operation. Your app can specify up to 100 attributes;
-   * however, the combined key:value string length cannot exceed 1024
-   * characters.
+   * Restricts the response to vehicles with the specified attributes. This
+   * field is a conjunction/AND operation. Your app can specify up to 100
+   * attributes; however, the combined key:value string length cannot exceed
+   * 1024 characters.
    * </pre>
    *
    * <code>repeated string required_attributes = 10;</code>
@@ -371,10 +371,10 @@ public interface ListVehiclesRequestOrBuilder extends
    * (required_one_of_attributes[1][0] OR required_one_of_attributes[1][1] OR
    * ...)
    * ```
-   * Restrict the response to vehicles with the specified attributes. This field
-   * is a conjunction/AND operation. Your app can specify up to 100 attributes;
-   * however, the combined key:value string length cannot exceed 1024
-   * characters.
+   * Restricts the response to vehicles with the specified attributes. This
+   * field is a conjunction/AND operation. Your app can specify up to 100
+   * attributes; however, the combined key:value string length cannot exceed
+   * 1024 characters.
    * </pre>
    *
    * <code>repeated string required_attributes = 10;</code>
@@ -386,13 +386,12 @@ public interface ListVehiclesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Restrict the response to vehicles with at least one
-   * of the specified attributes in each `VehicleAttributeList`.
-   * Within each list, a vehicle must match at least one of the attributes.
-   * This field is an inclusive disjunction/OR operation in each
-   * `VehicleAttributeList` and a conjunction/AND operation across the
-   * collection of `VehicleAttributeList`. Format:
-   * key1:value1|key2:value2|key3:value3...
+   * Restricts the response to vehicles with at least one of the specified
+   * attributes in each `VehicleAttributeList`. Within each list, a vehicle must
+   * match at least one of the attributes. This field is an inclusive
+   * disjunction/OR operation in each `VehicleAttributeList` and a
+   * conjunction/AND operation across the collection of `VehicleAttributeList`.
+   * Format: key1:value1|key2:value2|key3:value3...
    * </pre>
    *
    * <code>repeated string required_one_of_attributes = 13;</code>
@@ -402,13 +401,12 @@ public interface ListVehiclesRequestOrBuilder extends
       getRequiredOneOfAttributesList();
   /**
    * <pre>
-   * Restrict the response to vehicles with at least one
-   * of the specified attributes in each `VehicleAttributeList`.
-   * Within each list, a vehicle must match at least one of the attributes.
-   * This field is an inclusive disjunction/OR operation in each
-   * `VehicleAttributeList` and a conjunction/AND operation across the
-   * collection of `VehicleAttributeList`. Format:
-   * key1:value1|key2:value2|key3:value3...
+   * Restricts the response to vehicles with at least one of the specified
+   * attributes in each `VehicleAttributeList`. Within each list, a vehicle must
+   * match at least one of the attributes. This field is an inclusive
+   * disjunction/OR operation in each `VehicleAttributeList` and a
+   * conjunction/AND operation across the collection of `VehicleAttributeList`.
+   * Format: key1:value1|key2:value2|key3:value3...
    * </pre>
    *
    * <code>repeated string required_one_of_attributes = 13;</code>
@@ -417,13 +415,12 @@ public interface ListVehiclesRequestOrBuilder extends
   int getRequiredOneOfAttributesCount();
   /**
    * <pre>
-   * Restrict the response to vehicles with at least one
-   * of the specified attributes in each `VehicleAttributeList`.
-   * Within each list, a vehicle must match at least one of the attributes.
-   * This field is an inclusive disjunction/OR operation in each
-   * `VehicleAttributeList` and a conjunction/AND operation across the
-   * collection of `VehicleAttributeList`. Format:
-   * key1:value1|key2:value2|key3:value3...
+   * Restricts the response to vehicles with at least one of the specified
+   * attributes in each `VehicleAttributeList`. Within each list, a vehicle must
+   * match at least one of the attributes. This field is an inclusive
+   * disjunction/OR operation in each `VehicleAttributeList` and a
+   * conjunction/AND operation across the collection of `VehicleAttributeList`.
+   * Format: key1:value1|key2:value2|key3:value3...
    * </pre>
    *
    * <code>repeated string required_one_of_attributes = 13;</code>
@@ -433,13 +430,12 @@ public interface ListVehiclesRequestOrBuilder extends
   java.lang.String getRequiredOneOfAttributes(int index);
   /**
    * <pre>
-   * Restrict the response to vehicles with at least one
-   * of the specified attributes in each `VehicleAttributeList`.
-   * Within each list, a vehicle must match at least one of the attributes.
-   * This field is an inclusive disjunction/OR operation in each
-   * `VehicleAttributeList` and a conjunction/AND operation across the
-   * collection of `VehicleAttributeList`. Format:
-   * key1:value1|key2:value2|key3:value3...
+   * Restricts the response to vehicles with at least one of the specified
+   * attributes in each `VehicleAttributeList`. Within each list, a vehicle must
+   * match at least one of the attributes. This field is an inclusive
+   * disjunction/OR operation in each `VehicleAttributeList` and a
+   * conjunction/AND operation across the collection of `VehicleAttributeList`.
+   * Format: key1:value1|key2:value2|key3:value3...
    * </pre>
    *
    * <code>repeated string required_one_of_attributes = 13;</code>
@@ -464,12 +460,12 @@ public interface ListVehiclesRequestOrBuilder extends
    * (required_one_of_attributes[1][0] AND required_one_of_attributes[1][1] AND
    * ...)
    * ```
-   * Restrict the response to vehicles that match all the attributes in a
+   * Restricts the response to vehicles that match all the attributes in a
    * `VehicleAttributeList`. Within each list, a vehicle must match all of the
    * attributes. This field is a conjunction/AND operation in each
    * `VehicleAttributeList` and inclusive disjunction/OR operation across the
-   * collection of `VehicleAttributeList`. Format:
-   * key1:value1|key2:value2|key3:value3...
+   * collection of `VehicleAttributeList`. Each repeated string should be of the
+   * format "key1:value1|key2:value2|key3:value3".
    * </pre>
    *
    * <code>repeated string required_one_of_attribute_sets = 15;</code>
@@ -492,12 +488,12 @@ public interface ListVehiclesRequestOrBuilder extends
    * (required_one_of_attributes[1][0] AND required_one_of_attributes[1][1] AND
    * ...)
    * ```
-   * Restrict the response to vehicles that match all the attributes in a
+   * Restricts the response to vehicles that match all the attributes in a
    * `VehicleAttributeList`. Within each list, a vehicle must match all of the
    * attributes. This field is a conjunction/AND operation in each
    * `VehicleAttributeList` and inclusive disjunction/OR operation across the
-   * collection of `VehicleAttributeList`. Format:
-   * key1:value1|key2:value2|key3:value3...
+   * collection of `VehicleAttributeList`. Each repeated string should be of the
+   * format "key1:value1|key2:value2|key3:value3".
    * </pre>
    *
    * <code>repeated string required_one_of_attribute_sets = 15;</code>
@@ -519,12 +515,12 @@ public interface ListVehiclesRequestOrBuilder extends
    * (required_one_of_attributes[1][0] AND required_one_of_attributes[1][1] AND
    * ...)
    * ```
-   * Restrict the response to vehicles that match all the attributes in a
+   * Restricts the response to vehicles that match all the attributes in a
    * `VehicleAttributeList`. Within each list, a vehicle must match all of the
    * attributes. This field is a conjunction/AND operation in each
    * `VehicleAttributeList` and inclusive disjunction/OR operation across the
-   * collection of `VehicleAttributeList`. Format:
-   * key1:value1|key2:value2|key3:value3...
+   * collection of `VehicleAttributeList`. Each repeated string should be of the
+   * format "key1:value1|key2:value2|key3:value3".
    * </pre>
    *
    * <code>repeated string required_one_of_attribute_sets = 15;</code>
@@ -547,12 +543,12 @@ public interface ListVehiclesRequestOrBuilder extends
    * (required_one_of_attributes[1][0] AND required_one_of_attributes[1][1] AND
    * ...)
    * ```
-   * Restrict the response to vehicles that match all the attributes in a
+   * Restricts the response to vehicles that match all the attributes in a
    * `VehicleAttributeList`. Within each list, a vehicle must match all of the
    * attributes. This field is a conjunction/AND operation in each
    * `VehicleAttributeList` and inclusive disjunction/OR operation across the
-   * collection of `VehicleAttributeList`. Format:
-   * key1:value1|key2:value2|key3:value3...
+   * collection of `VehicleAttributeList`. Each repeated string should be of the
+   * format "key1:value1|key2:value2|key3:value3".
    * </pre>
    *
    * <code>repeated string required_one_of_attribute_sets = 15;</code>
@@ -564,7 +560,7 @@ public interface ListVehiclesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Restrict the response to vehicles that have this vehicle state.
+   * Restricts the response to vehicles that have this vehicle state.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.VehicleState vehicle_state = 11;</code>
@@ -573,7 +569,7 @@ public interface ListVehiclesRequestOrBuilder extends
   int getVehicleStateValue();
   /**
    * <pre>
-   * Restrict the response to vehicles that have this vehicle state.
+   * Restricts the response to vehicles that have this vehicle state.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.VehicleState vehicle_state = 11;</code>

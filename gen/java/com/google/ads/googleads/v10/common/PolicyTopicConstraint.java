@@ -34,101 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PolicyTopicConstraint(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList.Builder subBuilder = null;
-            if (valueCase_ == 1) {
-              subBuilder = ((com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList) value_).toBuilder();
-            }
-            value_ =
-                input.readMessage(com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList) value_);
-              value_ = subBuilder.buildPartial();
-            }
-            valueCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.ads.googleads.v10.common.PolicyTopicConstraint.ResellerConstraint.Builder subBuilder = null;
-            if (valueCase_ == 2) {
-              subBuilder = ((com.google.ads.googleads.v10.common.PolicyTopicConstraint.ResellerConstraint) value_).toBuilder();
-            }
-            value_ =
-                input.readMessage(com.google.ads.googleads.v10.common.PolicyTopicConstraint.ResellerConstraint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.PolicyTopicConstraint.ResellerConstraint) value_);
-              value_ = subBuilder.buildPartial();
-            }
-            valueCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList.Builder subBuilder = null;
-            if (valueCase_ == 3) {
-              subBuilder = ((com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList) value_).toBuilder();
-            }
-            value_ =
-                input.readMessage(com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList) value_);
-              value_ = subBuilder.buildPartial();
-            }
-            valueCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList.Builder subBuilder = null;
-            if (valueCase_ == 4) {
-              subBuilder = ((com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList) value_).toBuilder();
-            }
-            value_ =
-                input.readMessage(com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList) value_);
-              value_ = subBuilder.buildPartial();
-            }
-            valueCase_ = 4;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.common.PolicyProto.internal_static_google_ads_googleads_v10_common_PolicyTopicConstraint_descriptor;
@@ -241,63 +146,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CountryConstraintList(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                countries_ = new java.util.ArrayList<com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraint>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              countries_.add(
-                  input.readMessage(com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraint.parser(), extensionRegistry));
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000001;
-              totalTargetedCountries_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          countries_ = java.util.Collections.unmodifiableList(countries_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.googleads.v10.common.PolicyProto.internal_static_google_ads_googleads_v10_common_PolicyTopicConstraint_CountryConstraintList_descriptor;
@@ -313,7 +161,7 @@ private static final long serialVersionUID = 0L;
 
     private int bitField0_;
     public static final int TOTAL_TARGETED_COUNTRIES_FIELD_NUMBER = 3;
-    private int totalTargetedCountries_;
+    private int totalTargetedCountries_ = 0;
     /**
      * <pre>
      * Total number of countries targeted by the resource.
@@ -340,6 +188,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int COUNTRIES_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraint> countries_;
     /**
      * <pre>
@@ -419,7 +268,7 @@ private static final long serialVersionUID = 0L;
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeInt32(3, totalTargetedCountries_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -436,7 +285,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, totalTargetedCountries_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -458,7 +307,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!getCountriesList()
           .equals(other.getCountriesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -477,7 +326,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + COUNTRIES_FIELD_NUMBER;
         hash = (53 * hash) + getCountriesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -598,31 +447,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getCountriesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         totalTargetedCountries_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         if (countriesBuilder_ == null) {
           countries_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          countries_ = null;
           countriesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -649,12 +493,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList buildPartial() {
         com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList result = new com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.totalTargetedCountries_ = totalTargetedCountries_;
-          to_bitField0_ |= 0x00000001;
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList result) {
         if (countriesBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0)) {
             countries_ = java.util.Collections.unmodifiableList(countries_);
@@ -664,9 +509,16 @@ private static final long serialVersionUID = 0L;
         } else {
           result.countries_ = countriesBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.totalTargetedCountries_ = totalTargetedCountries_;
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -742,7 +594,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -757,17 +609,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 18: {
+                com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraint m =
+                    input.readMessage(
+                        com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraint.parser(),
+                        extensionRegistry);
+                if (countriesBuilder_ == null) {
+                  ensureCountriesIsMutable();
+                  countries_.add(m);
+                } else {
+                  countriesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              case 24: {
+                totalTargetedCountries_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -807,8 +690,9 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setTotalTargetedCountries(int value) {
-        bitField0_ |= 0x00000001;
+        
         totalTargetedCountries_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1171,7 +1055,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CountryConstraintList(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1227,45 +1122,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ResellerConstraint(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.googleads.v10.common.PolicyProto.internal_static_google_ads_googleads_v10_common_PolicyTopicConstraint_ResellerConstraint_descriptor;
@@ -1293,7 +1149,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1302,7 +1158,7 @@ private static final long serialVersionUID = 0L;
       if (size != -1) return size;
 
       size = 0;
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1317,7 +1173,7 @@ private static final long serialVersionUID = 0L;
       }
       com.google.ads.googleads.v10.common.PolicyTopicConstraint.ResellerConstraint other = (com.google.ads.googleads.v10.common.PolicyTopicConstraint.ResellerConstraint) obj;
 
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1328,7 +1184,7 @@ private static final long serialVersionUID = 0L;
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1450,18 +1306,13 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.ads.googleads.v10.common.PolicyTopicConstraint.ResellerConstraint.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -1540,7 +1391,7 @@ private static final long serialVersionUID = 0L;
 
       public Builder mergeFrom(com.google.ads.googleads.v10.common.PolicyTopicConstraint.ResellerConstraint other) {
         if (other == com.google.ads.googleads.v10.common.PolicyTopicConstraint.ResellerConstraint.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1555,17 +1406,30 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.googleads.v10.common.PolicyTopicConstraint.ResellerConstraint parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.googleads.v10.common.PolicyTopicConstraint.ResellerConstraint) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       @java.lang.Override
@@ -1601,7 +1465,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ResellerConstraint(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1690,52 +1565,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CountryConstraint(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
-              countryCriterion_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.googleads.v10.common.PolicyProto.internal_static_google_ads_googleads_v10_common_PolicyTopicConstraint_CountryConstraint_descriptor;
@@ -1751,7 +1580,8 @@ private static final long serialVersionUID = 0L;
 
     private int bitField0_;
     public static final int COUNTRY_CRITERION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object countryCriterion_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object countryCriterion_ = "";
     /**
      * <pre>
      * Geo target constant resource name of the country in which serving is
@@ -1828,7 +1658,7 @@ private static final long serialVersionUID = 0L;
       if (((bitField0_ & 0x00000001) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, countryCriterion_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1840,7 +1670,7 @@ private static final long serialVersionUID = 0L;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, countryCriterion_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1860,7 +1690,7 @@ private static final long serialVersionUID = 0L;
         if (!getCountryCriterion()
             .equals(other.getCountryCriterion())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1875,7 +1705,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + COUNTRY_CRITERION_FIELD_NUMBER;
         hash = (53 * hash) + getCountryCriterion().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1997,24 +1827,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraint.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         countryCriterion_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -2041,15 +1866,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraint buildPartial() {
         com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraint result = new com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraint(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraint result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.countryCriterion_ = countryCriterion_;
           to_bitField0_ |= 0x00000001;
         }
-        result.countryCriterion_ = countryCriterion_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -2097,11 +1926,11 @@ private static final long serialVersionUID = 0L;
       public Builder mergeFrom(com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraint other) {
         if (other == com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraint.getDefaultInstance()) return this;
         if (other.hasCountryCriterion()) {
-          bitField0_ |= 0x00000001;
           countryCriterion_ = other.countryCriterion_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2116,17 +1945,35 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraint parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 18: {
+                countryCriterion_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraint) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2199,11 +2046,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setCountryCriterion(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+        if (value == null) { throw new NullPointerException(); }
         countryCriterion_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2217,8 +2062,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCountryCriterion() {
-        bitField0_ = (bitField0_ & ~0x00000001);
         countryCriterion_ = getDefaultInstance().getCountryCriterion();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2234,12 +2079,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setCountryCriterionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        bitField0_ |= 0x00000001;
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         countryCriterion_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2276,7 +2119,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CountryConstraint(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2542,7 +2396,7 @@ private static final long serialVersionUID = 0L;
     if (valueCase_ == 4) {
       output.writeMessage(4, (com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList) value_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2567,7 +2421,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, (com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList) value_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2603,7 +2457,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2634,7 +2488,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2755,22 +2609,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.common.PolicyTopicConstraint.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (countryConstraintListBuilder_ != null) {
+        countryConstraintListBuilder_.clear();
+      }
+      if (resellerConstraintBuilder_ != null) {
+        resellerConstraintBuilder_.clear();
+      }
+      if (certificateMissingInCountryListBuilder_ != null) {
+        certificateMissingInCountryListBuilder_.clear();
+      }
+      if (certificateDomainMismatchInCountryListBuilder_ != null) {
+        certificateDomainMismatchInCountryListBuilder_.clear();
+      }
       valueCase_ = 0;
       value_ = null;
       return this;
@@ -2799,37 +2661,35 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.common.PolicyTopicConstraint buildPartial() {
       com.google.ads.googleads.v10.common.PolicyTopicConstraint result = new com.google.ads.googleads.v10.common.PolicyTopicConstraint(this);
-      if (valueCase_ == 1) {
-        if (countryConstraintListBuilder_ == null) {
-          result.value_ = value_;
-        } else {
-          result.value_ = countryConstraintListBuilder_.build();
-        }
-      }
-      if (valueCase_ == 2) {
-        if (resellerConstraintBuilder_ == null) {
-          result.value_ = value_;
-        } else {
-          result.value_ = resellerConstraintBuilder_.build();
-        }
-      }
-      if (valueCase_ == 3) {
-        if (certificateMissingInCountryListBuilder_ == null) {
-          result.value_ = value_;
-        } else {
-          result.value_ = certificateMissingInCountryListBuilder_.build();
-        }
-      }
-      if (valueCase_ == 4) {
-        if (certificateDomainMismatchInCountryListBuilder_ == null) {
-          result.value_ = value_;
-        } else {
-          result.value_ = certificateDomainMismatchInCountryListBuilder_.build();
-        }
-      }
-      result.valueCase_ = valueCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.common.PolicyTopicConstraint result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.ads.googleads.v10.common.PolicyTopicConstraint result) {
+      result.valueCase_ = valueCase_;
+      result.value_ = this.value_;
+      if (valueCase_ == 1 &&
+          countryConstraintListBuilder_ != null) {
+        result.value_ = countryConstraintListBuilder_.build();
+      }
+      if (valueCase_ == 2 &&
+          resellerConstraintBuilder_ != null) {
+        result.value_ = resellerConstraintBuilder_.build();
+      }
+      if (valueCase_ == 3 &&
+          certificateMissingInCountryListBuilder_ != null) {
+        result.value_ = certificateMissingInCountryListBuilder_.build();
+      }
+      if (valueCase_ == 4 &&
+          certificateDomainMismatchInCountryListBuilder_ != null) {
+        result.value_ = certificateDomainMismatchInCountryListBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2897,7 +2757,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2912,17 +2772,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.common.PolicyTopicConstraint parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCountryConstraintListFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              valueCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getResellerConstraintFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              valueCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCertificateMissingInCountryListFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              valueCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getCertificateDomainMismatchInCountryListFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              valueCase_ = 4;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.common.PolicyTopicConstraint) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int valueCase_ = 0;
@@ -2940,6 +2841,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList, com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintList.Builder, com.google.ads.googleads.v10.common.PolicyTopicConstraint.CountryConstraintListOrBuilder> countryConstraintListBuilder_;
@@ -3115,7 +3017,7 @@ private static final long serialVersionUID = 0L;
         value_ = null;
       }
       valueCase_ = 1;
-      onChanged();;
+      onChanged();
       return countryConstraintListBuilder_;
     }
 
@@ -3293,7 +3195,7 @@ private static final long serialVersionUID = 0L;
         value_ = null;
       }
       valueCase_ = 2;
-      onChanged();;
+      onChanged();
       return resellerConstraintBuilder_;
     }
 
@@ -3471,7 +3373,7 @@ private static final long serialVersionUID = 0L;
         value_ = null;
       }
       valueCase_ = 3;
-      onChanged();;
+      onChanged();
       return certificateMissingInCountryListBuilder_;
     }
 
@@ -3658,7 +3560,7 @@ private static final long serialVersionUID = 0L;
         value_ = null;
       }
       valueCase_ = 4;
-      onChanged();;
+      onChanged();
       return certificateDomainMismatchInCountryListBuilder_;
     }
     @java.lang.Override
@@ -3694,7 +3596,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PolicyTopicConstraint(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

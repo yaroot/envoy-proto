@@ -56,95 +56,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StreamingDetectIntentRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            session_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.dialogflow.cx.v3beta1.QueryParameters.Builder subBuilder = null;
-            if (queryParams_ != null) {
-              subBuilder = queryParams_.toBuilder();
-            }
-            queryParams_ = input.readMessage(com.google.cloud.dialogflow.cx.v3beta1.QueryParameters.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(queryParams_);
-              queryParams_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.dialogflow.cx.v3beta1.QueryInput.Builder subBuilder = null;
-            if (queryInput_ != null) {
-              subBuilder = queryInput_.toBuilder();
-            }
-            queryInput_ = input.readMessage(com.google.cloud.dialogflow.cx.v3beta1.QueryInput.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(queryInput_);
-              queryInput_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.dialogflow.cx.v3beta1.OutputAudioConfig.Builder subBuilder = null;
-            if (outputAudioConfig_ != null) {
-              subBuilder = outputAudioConfig_.toBuilder();
-            }
-            outputAudioConfig_ = input.readMessage(com.google.cloud.dialogflow.cx.v3beta1.OutputAudioConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(outputAudioConfig_);
-              outputAudioConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            enablePartialResponse_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.cx.v3beta1.SessionProto.internal_static_google_cloud_dialogflow_cx_v3beta1_StreamingDetectIntentRequest_descriptor;
@@ -159,7 +70,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SESSION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object session_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object session_ = "";
   /**
    * <pre>
    * The name of the session this query is sent to.
@@ -267,7 +179,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.cx.v3beta1.QueryParametersOrBuilder getQueryParamsOrBuilder() {
-    return getQueryParams();
+    return queryParams_ == null ? com.google.cloud.dialogflow.cx.v3beta1.QueryParameters.getDefaultInstance() : queryParams_;
   }
 
   public static final int QUERY_INPUT_FIELD_NUMBER = 3;
@@ -305,7 +217,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.cx.v3beta1.QueryInputOrBuilder getQueryInputOrBuilder() {
-    return getQueryInput();
+    return queryInput_ == null ? com.google.cloud.dialogflow.cx.v3beta1.QueryInput.getDefaultInstance() : queryInput_;
   }
 
   public static final int OUTPUT_AUDIO_CONFIG_FIELD_NUMBER = 4;
@@ -343,11 +255,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.cx.v3beta1.OutputAudioConfigOrBuilder getOutputAudioConfigOrBuilder() {
-    return getOutputAudioConfig();
+    return outputAudioConfig_ == null ? com.google.cloud.dialogflow.cx.v3beta1.OutputAudioConfig.getDefaultInstance() : outputAudioConfig_;
   }
 
   public static final int ENABLE_PARTIAL_RESPONSE_FIELD_NUMBER = 5;
-  private boolean enablePartialResponse_;
+  private boolean enablePartialResponse_ = false;
   /**
    * <pre>
    * Enable partial detect intent response. If this flag is not enabled,
@@ -393,7 +305,7 @@ private static final long serialVersionUID = 0L;
     if (enablePartialResponse_ != false) {
       output.writeBool(5, enablePartialResponse_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -421,7 +333,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, enablePartialResponse_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -455,7 +367,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getEnablePartialResponse()
         != other.getEnablePartialResponse()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -483,7 +395,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ENABLE_PARTIAL_RESPONSE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getEnablePartialResponse());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -625,44 +537,35 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.cx.v3beta1.StreamingDetectIntentRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       session_ = "";
-
-      if (queryParamsBuilder_ == null) {
-        queryParams_ = null;
-      } else {
-        queryParams_ = null;
+      queryParams_ = null;
+      if (queryParamsBuilder_ != null) {
+        queryParamsBuilder_.dispose();
         queryParamsBuilder_ = null;
       }
-      if (queryInputBuilder_ == null) {
-        queryInput_ = null;
-      } else {
-        queryInput_ = null;
+      queryInput_ = null;
+      if (queryInputBuilder_ != null) {
+        queryInputBuilder_.dispose();
         queryInputBuilder_ = null;
       }
-      if (outputAudioConfigBuilder_ == null) {
-        outputAudioConfig_ = null;
-      } else {
-        outputAudioConfig_ = null;
+      outputAudioConfig_ = null;
+      if (outputAudioConfigBuilder_ != null) {
+        outputAudioConfigBuilder_.dispose();
         outputAudioConfigBuilder_ = null;
       }
       enablePartialResponse_ = false;
-
       return this;
     }
 
@@ -689,25 +592,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.cx.v3beta1.StreamingDetectIntentRequest buildPartial() {
       com.google.cloud.dialogflow.cx.v3beta1.StreamingDetectIntentRequest result = new com.google.cloud.dialogflow.cx.v3beta1.StreamingDetectIntentRequest(this);
-      result.session_ = session_;
-      if (queryParamsBuilder_ == null) {
-        result.queryParams_ = queryParams_;
-      } else {
-        result.queryParams_ = queryParamsBuilder_.build();
-      }
-      if (queryInputBuilder_ == null) {
-        result.queryInput_ = queryInput_;
-      } else {
-        result.queryInput_ = queryInputBuilder_.build();
-      }
-      if (outputAudioConfigBuilder_ == null) {
-        result.outputAudioConfig_ = outputAudioConfig_;
-      } else {
-        result.outputAudioConfig_ = outputAudioConfigBuilder_.build();
-      }
-      result.enablePartialResponse_ = enablePartialResponse_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.cx.v3beta1.StreamingDetectIntentRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.session_ = session_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.queryParams_ = queryParamsBuilder_ == null
+            ? queryParams_
+            : queryParamsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.queryInput_ = queryInputBuilder_ == null
+            ? queryInput_
+            : queryInputBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.outputAudioConfig_ = outputAudioConfigBuilder_ == null
+            ? outputAudioConfig_
+            : outputAudioConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.enablePartialResponse_ = enablePartialResponse_;
+      }
     }
 
     @java.lang.Override
@@ -756,6 +668,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dialogflow.cx.v3beta1.StreamingDetectIntentRequest.getDefaultInstance()) return this;
       if (!other.getSession().isEmpty()) {
         session_ = other.session_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasQueryParams()) {
@@ -770,7 +683,7 @@ private static final long serialVersionUID = 0L;
       if (other.getEnablePartialResponse() != false) {
         setEnablePartialResponse(other.getEnablePartialResponse());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -785,19 +698,64 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.cx.v3beta1.StreamingDetectIntentRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              session_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getQueryParamsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getQueryInputFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getOutputAudioConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              enablePartialResponse_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.cx.v3beta1.StreamingDetectIntentRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object session_ = "";
     /**
@@ -894,11 +852,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSession(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       session_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -925,8 +881,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSession() {
-      
       session_ = getDefaultInstance().getSession();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -955,12 +911,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSessionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       session_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -977,7 +931,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the queryParams field is set.
      */
     public boolean hasQueryParams() {
-      return queryParamsBuilder_ != null || queryParams_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1007,11 +961,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         queryParams_ = value;
-        onChanged();
       } else {
         queryParamsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1025,11 +979,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dialogflow.cx.v3beta1.QueryParameters.Builder builderForValue) {
       if (queryParamsBuilder_ == null) {
         queryParams_ = builderForValue.build();
-        onChanged();
       } else {
         queryParamsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1041,17 +995,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeQueryParams(com.google.cloud.dialogflow.cx.v3beta1.QueryParameters value) {
       if (queryParamsBuilder_ == null) {
-        if (queryParams_ != null) {
-          queryParams_ =
-            com.google.cloud.dialogflow.cx.v3beta1.QueryParameters.newBuilder(queryParams_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          queryParams_ != null &&
+          queryParams_ != com.google.cloud.dialogflow.cx.v3beta1.QueryParameters.getDefaultInstance()) {
+          getQueryParamsBuilder().mergeFrom(value);
         } else {
           queryParams_ = value;
         }
-        onChanged();
       } else {
         queryParamsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1062,14 +1017,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.cx.v3beta1.QueryParameters query_params = 2;</code>
      */
     public Builder clearQueryParams() {
-      if (queryParamsBuilder_ == null) {
-        queryParams_ = null;
-        onChanged();
-      } else {
-        queryParams_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      queryParams_ = null;
+      if (queryParamsBuilder_ != null) {
+        queryParamsBuilder_.dispose();
         queryParamsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1080,7 +1034,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.cx.v3beta1.QueryParameters query_params = 2;</code>
      */
     public com.google.cloud.dialogflow.cx.v3beta1.QueryParameters.Builder getQueryParamsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getQueryParamsFieldBuilder().getBuilder();
     }
@@ -1132,7 +1086,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the queryInput field is set.
      */
     public boolean hasQueryInput() {
-      return queryInputBuilder_ != null || queryInput_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1162,11 +1116,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         queryInput_ = value;
-        onChanged();
       } else {
         queryInputBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1180,11 +1134,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dialogflow.cx.v3beta1.QueryInput.Builder builderForValue) {
       if (queryInputBuilder_ == null) {
         queryInput_ = builderForValue.build();
-        onChanged();
       } else {
         queryInputBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1196,17 +1150,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeQueryInput(com.google.cloud.dialogflow.cx.v3beta1.QueryInput value) {
       if (queryInputBuilder_ == null) {
-        if (queryInput_ != null) {
-          queryInput_ =
-            com.google.cloud.dialogflow.cx.v3beta1.QueryInput.newBuilder(queryInput_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          queryInput_ != null &&
+          queryInput_ != com.google.cloud.dialogflow.cx.v3beta1.QueryInput.getDefaultInstance()) {
+          getQueryInputBuilder().mergeFrom(value);
         } else {
           queryInput_ = value;
         }
-        onChanged();
       } else {
         queryInputBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1217,14 +1172,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.cx.v3beta1.QueryInput query_input = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearQueryInput() {
-      if (queryInputBuilder_ == null) {
-        queryInput_ = null;
-        onChanged();
-      } else {
-        queryInput_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      queryInput_ = null;
+      if (queryInputBuilder_ != null) {
+        queryInputBuilder_.dispose();
         queryInputBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1235,7 +1189,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.cx.v3beta1.QueryInput query_input = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.dialogflow.cx.v3beta1.QueryInput.Builder getQueryInputBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getQueryInputFieldBuilder().getBuilder();
     }
@@ -1287,7 +1241,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the outputAudioConfig field is set.
      */
     public boolean hasOutputAudioConfig() {
-      return outputAudioConfigBuilder_ != null || outputAudioConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1317,11 +1271,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         outputAudioConfig_ = value;
-        onChanged();
       } else {
         outputAudioConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1335,11 +1289,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dialogflow.cx.v3beta1.OutputAudioConfig.Builder builderForValue) {
       if (outputAudioConfigBuilder_ == null) {
         outputAudioConfig_ = builderForValue.build();
-        onChanged();
       } else {
         outputAudioConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1351,17 +1305,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOutputAudioConfig(com.google.cloud.dialogflow.cx.v3beta1.OutputAudioConfig value) {
       if (outputAudioConfigBuilder_ == null) {
-        if (outputAudioConfig_ != null) {
-          outputAudioConfig_ =
-            com.google.cloud.dialogflow.cx.v3beta1.OutputAudioConfig.newBuilder(outputAudioConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          outputAudioConfig_ != null &&
+          outputAudioConfig_ != com.google.cloud.dialogflow.cx.v3beta1.OutputAudioConfig.getDefaultInstance()) {
+          getOutputAudioConfigBuilder().mergeFrom(value);
         } else {
           outputAudioConfig_ = value;
         }
-        onChanged();
       } else {
         outputAudioConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1372,14 +1327,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.cx.v3beta1.OutputAudioConfig output_audio_config = 4;</code>
      */
     public Builder clearOutputAudioConfig() {
-      if (outputAudioConfigBuilder_ == null) {
-        outputAudioConfig_ = null;
-        onChanged();
-      } else {
-        outputAudioConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      outputAudioConfig_ = null;
+      if (outputAudioConfigBuilder_ != null) {
+        outputAudioConfigBuilder_.dispose();
         outputAudioConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1390,7 +1344,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.cx.v3beta1.OutputAudioConfig output_audio_config = 4;</code>
      */
     public com.google.cloud.dialogflow.cx.v3beta1.OutputAudioConfig.Builder getOutputAudioConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getOutputAudioConfigFieldBuilder().getBuilder();
     }
@@ -1461,6 +1415,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnablePartialResponse(boolean value) {
       
       enablePartialResponse_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1476,7 +1431,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnablePartialResponse() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       enablePartialResponse_ = false;
       onChanged();
       return this;
@@ -1514,7 +1469,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StreamingDetectIntentRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

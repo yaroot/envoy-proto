@@ -38,102 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TLSProperties(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            tlsVersion_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (tlsCipherSuite_ != null) {
-              subBuilder = tlsCipherSuite_.toBuilder();
-            }
-            tlsCipherSuite_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tlsCipherSuite_);
-              tlsCipherSuite_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            tlsSniHostname_ = s;
-            break;
-          }
-          case 34: {
-            io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.Builder subBuilder = null;
-            if (localCertificateProperties_ != null) {
-              subBuilder = localCertificateProperties_.toBuilder();
-            }
-            localCertificateProperties_ = input.readMessage(io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(localCertificateProperties_);
-              localCertificateProperties_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.Builder subBuilder = null;
-            if (peerCertificateProperties_ != null) {
-              subBuilder = peerCertificateProperties_.toBuilder();
-            }
-            peerCertificateProperties_ = input.readMessage(io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(peerCertificateProperties_);
-              peerCertificateProperties_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            tlsSessionId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.data.accesslog.v2.AccesslogProto.internal_static_envoy_data_accesslog_v2_TLSProperties_descriptor;
@@ -379,64 +283,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CertificateProperties(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                subjectAltName_ = new java.util.ArrayList<io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.SubjectAltName>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              subjectAltName_.add(
-                  input.readMessage(io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.SubjectAltName.parser(), extensionRegistry));
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              subject_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          subjectAltName_ = java.util.Collections.unmodifiableList(subjectAltName_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.data.accesslog.v2.AccesslogProto.internal_static_envoy_data_accesslog_v2_TLSProperties_CertificateProperties_descriptor;
@@ -528,57 +374,6 @@ private static final long serialVersionUID = 0L;
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
-      }
-      private SubjectAltName(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-                sanCase_ = 1;
-                san_ = s;
-                break;
-              }
-              case 18: {
-                java.lang.String s = input.readStringRequireUtf8();
-                sanCase_ = 2;
-                san_ = s;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -770,7 +565,7 @@ private static final long serialVersionUID = 0L;
         if (sanCase_ == 2) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 2, san_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -785,7 +580,7 @@ private static final long serialVersionUID = 0L;
         if (sanCase_ == 2) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, san_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -813,7 +608,7 @@ private static final long serialVersionUID = 0L;
           case 0:
           default:
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -836,7 +631,7 @@ private static final long serialVersionUID = 0L;
           case 0:
           default:
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -953,22 +748,18 @@ private static final long serialVersionUID = 0L;
 
         // Construct using io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.SubjectAltName.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           sanCase_ = 0;
           san_ = null;
           return this;
@@ -997,15 +788,19 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.SubjectAltName buildPartial() {
           io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.SubjectAltName result = new io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.SubjectAltName(this);
-          if (sanCase_ == 1) {
-            result.san_ = san_;
-          }
-          if (sanCase_ == 2) {
-            result.san_ = san_;
-          }
-          result.sanCase_ = sanCase_;
+          if (bitField0_ != 0) { buildPartial0(result); }
+          buildPartialOneofs(result);
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.SubjectAltName result) {
+          int from_bitField0_ = bitField0_;
+        }
+
+        private void buildPartialOneofs(io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.SubjectAltName result) {
+          result.sanCase_ = sanCase_;
+          result.san_ = this.san_;
         }
 
         @java.lang.Override
@@ -1069,7 +864,7 @@ private static final long serialVersionUID = 0L;
               break;
             }
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -1084,17 +879,42 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.SubjectAltName parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  java.lang.String s = input.readStringRequireUtf8();
+                  sanCase_ = 1;
+                  san_ = s;
+                  break;
+                } // case 10
+                case 18: {
+                  java.lang.String s = input.readStringRequireUtf8();
+                  sanCase_ = 2;
+                  san_ = s;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.SubjectAltName) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int sanCase_ = 0;
@@ -1112,6 +932,7 @@ private static final long serialVersionUID = 0L;
           return this;
         }
 
+        private int bitField0_;
 
         /**
          * <code>string uri = 1;</code>
@@ -1173,10 +994,8 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setUri(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  sanCase_ = 1;
+          if (value == null) { throw new NullPointerException(); }
+          sanCase_ = 1;
           san_ = value;
           onChanged();
           return this;
@@ -1200,10 +1019,8 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setUriBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           sanCase_ = 1;
           san_ = value;
           onChanged();
@@ -1286,10 +1103,8 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDns(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  sanCase_ = 2;
+          if (value == null) { throw new NullPointerException(); }
+          sanCase_ = 2;
           san_ = value;
           onChanged();
           return this;
@@ -1321,10 +1136,8 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDnsBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           sanCase_ = 2;
           san_ = value;
           onChanged();
@@ -1363,7 +1176,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SubjectAltName(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -1384,6 +1208,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SUBJECT_ALT_NAME_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.SubjectAltName> subjectAltName_;
     /**
      * <pre>
@@ -1444,7 +1269,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SUBJECT_FIELD_NUMBER = 2;
-    private volatile java.lang.Object subject_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object subject_ = "";
     /**
      * <pre>
      * The subject field of the certificate.
@@ -1509,7 +1335,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(subject_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, subject_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1525,7 +1351,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(subject_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, subject_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1544,7 +1370,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getSubjectAltNameList())) return false;
       if (!getSubject()
           .equals(other.getSubject())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1561,7 +1387,7 @@ private static final long serialVersionUID = 0L;
       }
       hash = (37 * hash) + SUBJECT_FIELD_NUMBER;
       hash = (53 * hash) + getSubject().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1678,31 +1504,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getSubjectAltNameFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (subjectAltNameBuilder_ == null) {
           subjectAltName_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          subjectAltName_ = null;
           subjectAltNameBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         subject_ = "";
-
         return this;
       }
 
@@ -1729,7 +1550,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties buildPartial() {
         io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties result = new io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties result) {
         if (subjectAltNameBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             subjectAltName_ = java.util.Collections.unmodifiableList(subjectAltName_);
@@ -1739,9 +1566,13 @@ private static final long serialVersionUID = 0L;
         } else {
           result.subjectAltName_ = subjectAltNameBuilder_.build();
         }
-        result.subject_ = subject_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.subject_ = subject_;
+        }
       }
 
       @java.lang.Override
@@ -1816,9 +1647,10 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getSubject().isEmpty()) {
           subject_ = other.subject_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1833,17 +1665,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.SubjectAltName m =
+                    input.readMessage(
+                        io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.SubjectAltName.parser(),
+                        extensionRegistry);
+                if (subjectAltNameBuilder_ == null) {
+                  ensureSubjectAltNameIsMutable();
+                  subjectAltName_.add(m);
+                } else {
+                  subjectAltNameBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                subject_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2213,11 +2076,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSubject(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         subject_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2230,8 +2091,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearSubject() {
-        
         subject_ = getDefaultInstance().getSubject();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2246,12 +2107,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSubjectBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         subject_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2288,7 +2147,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CertificateProperties(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2309,7 +2179,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TLS_VERSION_FIELD_NUMBER = 1;
-  private int tlsVersion_;
+  private int tlsVersion_ = 0;
   /**
    * <pre>
    * Version of TLS that was negotiated.
@@ -2330,8 +2200,7 @@ private static final long serialVersionUID = 0L;
    * @return The tlsVersion.
    */
   @java.lang.Override public io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.TLSVersion getTlsVersion() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.TLSVersion result = io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.TLSVersion.valueOf(tlsVersion_);
+    io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.TLSVersion result = io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.TLSVersion.forNumber(tlsVersion_);
     return result == null ? io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.TLSVersion.UNRECOGNIZED : result;
   }
 
@@ -2379,11 +2248,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getTlsCipherSuiteOrBuilder() {
-    return getTlsCipherSuite();
+    return tlsCipherSuite_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : tlsCipherSuite_;
   }
 
   public static final int TLS_SNI_HOSTNAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object tlsSniHostname_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object tlsSniHostname_ = "";
   /**
    * <pre>
    * SNI hostname from handshake.
@@ -2463,7 +2333,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificatePropertiesOrBuilder getLocalCertificatePropertiesOrBuilder() {
-    return getLocalCertificateProperties();
+    return localCertificateProperties_ == null ? io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.getDefaultInstance() : localCertificateProperties_;
   }
 
   public static final int PEER_CERTIFICATE_PROPERTIES_FIELD_NUMBER = 5;
@@ -2501,11 +2371,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificatePropertiesOrBuilder getPeerCertificatePropertiesOrBuilder() {
-    return getPeerCertificateProperties();
+    return peerCertificateProperties_ == null ? io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.getDefaultInstance() : peerCertificateProperties_;
   }
 
   public static final int TLS_SESSION_ID_FIELD_NUMBER = 6;
-  private volatile java.lang.Object tlsSessionId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object tlsSessionId_ = "";
   /**
    * <pre>
    * The TLS session ID.
@@ -2582,7 +2453,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tlsSessionId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, tlsSessionId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2613,7 +2484,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tlsSessionId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, tlsSessionId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2648,7 +2519,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getTlsSessionId()
         .equals(other.getTlsSessionId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2677,7 +2548,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + TLS_SESSION_ID_FIELD_NUMBER;
     hash = (53 * hash) + getTlsSessionId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2799,46 +2670,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       tlsVersion_ = 0;
-
-      if (tlsCipherSuiteBuilder_ == null) {
-        tlsCipherSuite_ = null;
-      } else {
-        tlsCipherSuite_ = null;
+      tlsCipherSuite_ = null;
+      if (tlsCipherSuiteBuilder_ != null) {
+        tlsCipherSuiteBuilder_.dispose();
         tlsCipherSuiteBuilder_ = null;
       }
       tlsSniHostname_ = "";
-
-      if (localCertificatePropertiesBuilder_ == null) {
-        localCertificateProperties_ = null;
-      } else {
-        localCertificateProperties_ = null;
+      localCertificateProperties_ = null;
+      if (localCertificatePropertiesBuilder_ != null) {
+        localCertificatePropertiesBuilder_.dispose();
         localCertificatePropertiesBuilder_ = null;
       }
-      if (peerCertificatePropertiesBuilder_ == null) {
-        peerCertificateProperties_ = null;
-      } else {
-        peerCertificateProperties_ = null;
+      peerCertificateProperties_ = null;
+      if (peerCertificatePropertiesBuilder_ != null) {
+        peerCertificatePropertiesBuilder_.dispose();
         peerCertificatePropertiesBuilder_ = null;
       }
       tlsSessionId_ = "";
-
       return this;
     }
 
@@ -2865,26 +2726,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.data.accesslog.v2.TLSProperties buildPartial() {
       io.envoyproxy.envoy.data.accesslog.v2.TLSProperties result = new io.envoyproxy.envoy.data.accesslog.v2.TLSProperties(this);
-      result.tlsVersion_ = tlsVersion_;
-      if (tlsCipherSuiteBuilder_ == null) {
-        result.tlsCipherSuite_ = tlsCipherSuite_;
-      } else {
-        result.tlsCipherSuite_ = tlsCipherSuiteBuilder_.build();
-      }
-      result.tlsSniHostname_ = tlsSniHostname_;
-      if (localCertificatePropertiesBuilder_ == null) {
-        result.localCertificateProperties_ = localCertificateProperties_;
-      } else {
-        result.localCertificateProperties_ = localCertificatePropertiesBuilder_.build();
-      }
-      if (peerCertificatePropertiesBuilder_ == null) {
-        result.peerCertificateProperties_ = peerCertificateProperties_;
-      } else {
-        result.peerCertificateProperties_ = peerCertificatePropertiesBuilder_.build();
-      }
-      result.tlsSessionId_ = tlsSessionId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.data.accesslog.v2.TLSProperties result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.tlsVersion_ = tlsVersion_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.tlsCipherSuite_ = tlsCipherSuiteBuilder_ == null
+            ? tlsCipherSuite_
+            : tlsCipherSuiteBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.tlsSniHostname_ = tlsSniHostname_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.localCertificateProperties_ = localCertificatePropertiesBuilder_ == null
+            ? localCertificateProperties_
+            : localCertificatePropertiesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.peerCertificateProperties_ = peerCertificatePropertiesBuilder_ == null
+            ? peerCertificateProperties_
+            : peerCertificatePropertiesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.tlsSessionId_ = tlsSessionId_;
+      }
     }
 
     @java.lang.Override
@@ -2939,6 +2811,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTlsSniHostname().isEmpty()) {
         tlsSniHostname_ = other.tlsSniHostname_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasLocalCertificateProperties()) {
@@ -2949,9 +2822,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTlsSessionId().isEmpty()) {
         tlsSessionId_ = other.tlsSessionId_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2966,19 +2840,69 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.data.accesslog.v2.TLSProperties parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              tlsVersion_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getTlsCipherSuiteFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              tlsSniHostname_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getLocalCertificatePropertiesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getPeerCertificatePropertiesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              tlsSessionId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.data.accesslog.v2.TLSProperties) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int tlsVersion_ = 0;
     /**
@@ -3002,8 +2926,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTlsVersionValue(int value) {
-      
       tlsVersion_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3017,8 +2941,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.TLSVersion getTlsVersion() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.TLSVersion result = io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.TLSVersion.valueOf(tlsVersion_);
+      io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.TLSVersion result = io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.TLSVersion.forNumber(tlsVersion_);
       return result == null ? io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.TLSVersion.UNRECOGNIZED : result;
     }
     /**
@@ -3034,7 +2957,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       tlsVersion_ = value.getNumber();
       onChanged();
       return this;
@@ -3048,7 +2971,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTlsVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       tlsVersion_ = 0;
       onChanged();
       return this;
@@ -3069,7 +2992,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the tlsCipherSuite field is set.
      */
     public boolean hasTlsCipherSuite() {
-      return tlsCipherSuiteBuilder_ != null || tlsCipherSuite_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -3105,11 +3028,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tlsCipherSuite_ = value;
-        onChanged();
       } else {
         tlsCipherSuiteBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -3126,11 +3049,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (tlsCipherSuiteBuilder_ == null) {
         tlsCipherSuite_ = builderForValue.build();
-        onChanged();
       } else {
         tlsCipherSuiteBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -3145,17 +3068,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTlsCipherSuite(com.google.protobuf.UInt32Value value) {
       if (tlsCipherSuiteBuilder_ == null) {
-        if (tlsCipherSuite_ != null) {
-          tlsCipherSuite_ =
-            com.google.protobuf.UInt32Value.newBuilder(tlsCipherSuite_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          tlsCipherSuite_ != null &&
+          tlsCipherSuite_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getTlsCipherSuiteBuilder().mergeFrom(value);
         } else {
           tlsCipherSuite_ = value;
         }
-        onChanged();
       } else {
         tlsCipherSuiteBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -3169,14 +3093,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value tls_cipher_suite = 2;</code>
      */
     public Builder clearTlsCipherSuite() {
-      if (tlsCipherSuiteBuilder_ == null) {
-        tlsCipherSuite_ = null;
-        onChanged();
-      } else {
-        tlsCipherSuite_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      tlsCipherSuite_ = null;
+      if (tlsCipherSuiteBuilder_ != null) {
+        tlsCipherSuiteBuilder_.dispose();
         tlsCipherSuiteBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3190,7 +3113,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value tls_cipher_suite = 2;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getTlsCipherSuiteBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTlsCipherSuiteFieldBuilder().getBuilder();
     }
@@ -3289,11 +3212,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTlsSniHostname(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       tlsSniHostname_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3306,8 +3227,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTlsSniHostname() {
-      
       tlsSniHostname_ = getDefaultInstance().getTlsSniHostname();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -3322,12 +3243,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTlsSniHostnameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       tlsSniHostname_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3344,7 +3263,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the localCertificateProperties field is set.
      */
     public boolean hasLocalCertificateProperties() {
-      return localCertificatePropertiesBuilder_ != null || localCertificateProperties_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -3374,11 +3293,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         localCertificateProperties_ = value;
-        onChanged();
       } else {
         localCertificatePropertiesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -3392,11 +3311,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.Builder builderForValue) {
       if (localCertificatePropertiesBuilder_ == null) {
         localCertificateProperties_ = builderForValue.build();
-        onChanged();
       } else {
         localCertificatePropertiesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -3408,17 +3327,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLocalCertificateProperties(io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties value) {
       if (localCertificatePropertiesBuilder_ == null) {
-        if (localCertificateProperties_ != null) {
-          localCertificateProperties_ =
-            io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.newBuilder(localCertificateProperties_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          localCertificateProperties_ != null &&
+          localCertificateProperties_ != io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.getDefaultInstance()) {
+          getLocalCertificatePropertiesBuilder().mergeFrom(value);
         } else {
           localCertificateProperties_ = value;
         }
-        onChanged();
       } else {
         localCertificatePropertiesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -3429,14 +3349,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.data.accesslog.v2.TLSProperties.CertificateProperties local_certificate_properties = 4;</code>
      */
     public Builder clearLocalCertificateProperties() {
-      if (localCertificatePropertiesBuilder_ == null) {
-        localCertificateProperties_ = null;
-        onChanged();
-      } else {
-        localCertificateProperties_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      localCertificateProperties_ = null;
+      if (localCertificatePropertiesBuilder_ != null) {
+        localCertificatePropertiesBuilder_.dispose();
         localCertificatePropertiesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3447,7 +3366,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.data.accesslog.v2.TLSProperties.CertificateProperties local_certificate_properties = 4;</code>
      */
     public io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.Builder getLocalCertificatePropertiesBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getLocalCertificatePropertiesFieldBuilder().getBuilder();
     }
@@ -3499,7 +3418,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the peerCertificateProperties field is set.
      */
     public boolean hasPeerCertificateProperties() {
-      return peerCertificatePropertiesBuilder_ != null || peerCertificateProperties_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -3529,11 +3448,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         peerCertificateProperties_ = value;
-        onChanged();
       } else {
         peerCertificatePropertiesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -3547,11 +3466,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.Builder builderForValue) {
       if (peerCertificatePropertiesBuilder_ == null) {
         peerCertificateProperties_ = builderForValue.build();
-        onChanged();
       } else {
         peerCertificatePropertiesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -3563,17 +3482,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePeerCertificateProperties(io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties value) {
       if (peerCertificatePropertiesBuilder_ == null) {
-        if (peerCertificateProperties_ != null) {
-          peerCertificateProperties_ =
-            io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.newBuilder(peerCertificateProperties_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          peerCertificateProperties_ != null &&
+          peerCertificateProperties_ != io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.getDefaultInstance()) {
+          getPeerCertificatePropertiesBuilder().mergeFrom(value);
         } else {
           peerCertificateProperties_ = value;
         }
-        onChanged();
       } else {
         peerCertificatePropertiesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -3584,14 +3504,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.data.accesslog.v2.TLSProperties.CertificateProperties peer_certificate_properties = 5;</code>
      */
     public Builder clearPeerCertificateProperties() {
-      if (peerCertificatePropertiesBuilder_ == null) {
-        peerCertificateProperties_ = null;
-        onChanged();
-      } else {
-        peerCertificateProperties_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      peerCertificateProperties_ = null;
+      if (peerCertificatePropertiesBuilder_ != null) {
+        peerCertificatePropertiesBuilder_.dispose();
         peerCertificatePropertiesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3602,7 +3521,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.data.accesslog.v2.TLSProperties.CertificateProperties peer_certificate_properties = 5;</code>
      */
     public io.envoyproxy.envoy.data.accesslog.v2.TLSProperties.CertificateProperties.Builder getPeerCertificatePropertiesBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getPeerCertificatePropertiesFieldBuilder().getBuilder();
     }
@@ -3695,11 +3614,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTlsSessionId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       tlsSessionId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3712,8 +3629,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTlsSessionId() {
-      
       tlsSessionId_ = getDefaultInstance().getTlsSessionId();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -3728,12 +3645,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTlsSessionIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       tlsSessionId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3770,7 +3685,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TLSProperties(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

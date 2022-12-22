@@ -38,144 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private QueryParameters(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            timeZone_ = s;
-            break;
-          }
-          case 18: {
-            com.google.type.LatLng.Builder subBuilder = null;
-            if (geoLocation_ != null) {
-              subBuilder = geoLocation_.toBuilder();
-            }
-            geoLocation_ = input.readMessage(com.google.type.LatLng.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(geoLocation_);
-              geoLocation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              sessionEntityTypes_ = new java.util.ArrayList<com.google.cloud.dialogflow.cx.v3beta1.SessionEntityType>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            sessionEntityTypes_.add(
-                input.readMessage(com.google.cloud.dialogflow.cx.v3beta1.SessionEntityType.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (payload_ != null) {
-              subBuilder = payload_.toBuilder();
-            }
-            payload_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(payload_);
-              payload_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (parameters_ != null) {
-              subBuilder = parameters_.toBuilder();
-            }
-            parameters_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(parameters_);
-              parameters_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            currentPage_ = s;
-            break;
-          }
-          case 56: {
-
-            disableWebhook_ = input.readBool();
-            break;
-          }
-          case 64: {
-
-            analyzeQueryTextSentiment_ = input.readBool();
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              webhookHeaders_ = com.google.protobuf.MapField.newMapField(
-                  WebhookHeadersDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            webhookHeaders__ = input.readMessage(
-                WebhookHeadersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            webhookHeaders_.getMutableMap().put(
-                webhookHeaders__.getKey(), webhookHeaders__.getValue());
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              flowVersions_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            flowVersions_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        sessionEntityTypes_ = java.util.Collections.unmodifiableList(sessionEntityTypes_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        flowVersions_ = flowVersions_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.cx.v3beta1.SessionProto.internal_static_google_cloud_dialogflow_cx_v3beta1_QueryParameters_descriptor;
@@ -202,7 +64,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TIME_ZONE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object timeZone_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object timeZone_ = "";
   /**
    * <pre>
    * The time zone of this conversational query from the [time zone
@@ -288,10 +151,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.LatLngOrBuilder getGeoLocationOrBuilder() {
-    return getGeoLocation();
+    return geoLocation_ == null ? com.google.type.LatLng.getDefaultInstance() : geoLocation_;
   }
 
   public static final int SESSION_ENTITY_TYPES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.dialogflow.cx.v3beta1.SessionEntityType> sessionEntityTypes_;
   /**
    * <pre>
@@ -432,7 +296,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getPayloadOrBuilder() {
-    return getPayload();
+    return payload_ == null ? com.google.protobuf.Struct.getDefaultInstance() : payload_;
   }
 
   public static final int PARAMETERS_FIELD_NUMBER = 5;
@@ -518,11 +382,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getParametersOrBuilder() {
-    return getParameters();
+    return parameters_ == null ? com.google.protobuf.Struct.getDefaultInstance() : parameters_;
   }
 
   public static final int CURRENT_PAGE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object currentPage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object currentPage_ = "";
   /**
    * <pre>
    * The unique identifier of the [page][google.cloud.dialogflow.cx.v3beta1.Page] to override the [current
@@ -588,7 +453,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISABLE_WEBHOOK_FIELD_NUMBER = 7;
-  private boolean disableWebhook_;
+  private boolean disableWebhook_ = false;
   /**
    * <pre>
    * Whether to disable webhook calls for this request.
@@ -603,7 +468,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ANALYZE_QUERY_TEXT_SENTIMENT_FIELD_NUMBER = 8;
-  private boolean analyzeQueryTextSentiment_;
+  private boolean analyzeQueryTextSentiment_ = false;
   /**
    * <pre>
    * Configures whether sentiment analysis should be performed. If not
@@ -630,6 +495,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> webhookHeaders_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -640,7 +506,6 @@ private static final long serialVersionUID = 0L;
     }
     return webhookHeaders_;
   }
-
   public int getWebhookHeadersCount() {
     return internalGetWebhookHeaders().getMap().size();
   }
@@ -658,7 +523,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; webhook_headers = 10;</code>
    */
-
   @java.lang.Override
   public boolean containsWebhookHeaders(
       java.lang.String key) {
@@ -688,7 +552,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; webhook_headers = 10;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getWebhookHeadersMap() {
     return internalGetWebhookHeaders().getMap();
   }
@@ -707,10 +570,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; webhook_headers = 10;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getWebhookHeadersOrDefault(
+  public /* nullable */
+java.lang.String getWebhookHeadersOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetWebhookHeaders().getMap();
@@ -731,7 +595,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; webhook_headers = 10;</code>
    */
   @java.lang.Override
-
   public java.lang.String getWebhookHeadersOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -744,6 +607,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FLOW_VERSIONS_FIELD_NUMBER = 14;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList flowVersions_;
   /**
    * <pre>
@@ -865,7 +729,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < flowVersions_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 14, flowVersions_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -922,7 +786,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getFlowVersionsList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -966,7 +830,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetWebhookHeaders())) return false;
     if (!getFlowVersionsList()
         .equals(other.getFlowVersionsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1011,7 +875,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FLOW_VERSIONS_FIELD_NUMBER;
       hash = (53 * hash) + getFlowVersionsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1154,58 +1018,47 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.cx.v3beta1.QueryParameters.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSessionEntityTypesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       timeZone_ = "";
-
-      if (geoLocationBuilder_ == null) {
-        geoLocation_ = null;
-      } else {
-        geoLocation_ = null;
+      geoLocation_ = null;
+      if (geoLocationBuilder_ != null) {
+        geoLocationBuilder_.dispose();
         geoLocationBuilder_ = null;
       }
       if (sessionEntityTypesBuilder_ == null) {
         sessionEntityTypes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        sessionEntityTypes_ = null;
         sessionEntityTypesBuilder_.clear();
       }
-      if (payloadBuilder_ == null) {
-        payload_ = null;
-      } else {
-        payload_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      payload_ = null;
+      if (payloadBuilder_ != null) {
+        payloadBuilder_.dispose();
         payloadBuilder_ = null;
       }
-      if (parametersBuilder_ == null) {
-        parameters_ = null;
-      } else {
-        parameters_ = null;
+      parameters_ = null;
+      if (parametersBuilder_ != null) {
+        parametersBuilder_.dispose();
         parametersBuilder_ = null;
       }
       currentPage_ = "";
-
       disableWebhook_ = false;
-
       analyzeQueryTextSentiment_ = false;
-
       internalGetMutableWebhookHeaders().clear();
       flowVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000200);
       return this;
     }
 
@@ -1232,44 +1085,62 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.cx.v3beta1.QueryParameters buildPartial() {
       com.google.cloud.dialogflow.cx.v3beta1.QueryParameters result = new com.google.cloud.dialogflow.cx.v3beta1.QueryParameters(this);
-      int from_bitField0_ = bitField0_;
-      result.timeZone_ = timeZone_;
-      if (geoLocationBuilder_ == null) {
-        result.geoLocation_ = geoLocation_;
-      } else {
-        result.geoLocation_ = geoLocationBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.dialogflow.cx.v3beta1.QueryParameters result) {
       if (sessionEntityTypesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           sessionEntityTypes_ = java.util.Collections.unmodifiableList(sessionEntityTypes_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.sessionEntityTypes_ = sessionEntityTypes_;
       } else {
         result.sessionEntityTypes_ = sessionEntityTypesBuilder_.build();
       }
-      if (payloadBuilder_ == null) {
-        result.payload_ = payload_;
-      } else {
-        result.payload_ = payloadBuilder_.build();
-      }
-      if (parametersBuilder_ == null) {
-        result.parameters_ = parameters_;
-      } else {
-        result.parameters_ = parametersBuilder_.build();
-      }
-      result.currentPage_ = currentPage_;
-      result.disableWebhook_ = disableWebhook_;
-      result.analyzeQueryTextSentiment_ = analyzeQueryTextSentiment_;
-      result.webhookHeaders_ = internalGetWebhookHeaders();
-      result.webhookHeaders_.makeImmutable();
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000200) != 0)) {
         flowVersions_ = flowVersions_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000200);
       }
       result.flowVersions_ = flowVersions_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.cx.v3beta1.QueryParameters result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.timeZone_ = timeZone_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.geoLocation_ = geoLocationBuilder_ == null
+            ? geoLocation_
+            : geoLocationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.payload_ = payloadBuilder_ == null
+            ? payload_
+            : payloadBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.parameters_ = parametersBuilder_ == null
+            ? parameters_
+            : parametersBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.currentPage_ = currentPage_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.disableWebhook_ = disableWebhook_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.analyzeQueryTextSentiment_ = analyzeQueryTextSentiment_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.webhookHeaders_ = internalGetWebhookHeaders();
+        result.webhookHeaders_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -1318,6 +1189,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dialogflow.cx.v3beta1.QueryParameters.getDefaultInstance()) return this;
       if (!other.getTimeZone().isEmpty()) {
         timeZone_ = other.timeZone_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasGeoLocation()) {
@@ -1327,7 +1199,7 @@ private static final long serialVersionUID = 0L;
         if (!other.sessionEntityTypes_.isEmpty()) {
           if (sessionEntityTypes_.isEmpty()) {
             sessionEntityTypes_ = other.sessionEntityTypes_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureSessionEntityTypesIsMutable();
             sessionEntityTypes_.addAll(other.sessionEntityTypes_);
@@ -1340,7 +1212,7 @@ private static final long serialVersionUID = 0L;
             sessionEntityTypesBuilder_.dispose();
             sessionEntityTypesBuilder_ = null;
             sessionEntityTypes_ = other.sessionEntityTypes_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             sessionEntityTypesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSessionEntityTypesFieldBuilder() : null;
@@ -1357,6 +1229,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCurrentPage().isEmpty()) {
         currentPage_ = other.currentPage_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.getDisableWebhook() != false) {
@@ -1367,17 +1240,18 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableWebhookHeaders().mergeFrom(
           other.internalGetWebhookHeaders());
+      bitField0_ |= 0x00000100;
       if (!other.flowVersions_.isEmpty()) {
         if (flowVersions_.isEmpty()) {
           flowVersions_ = other.flowVersions_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000200);
         } else {
           ensureFlowVersionsIsMutable();
           flowVersions_.addAll(other.flowVersions_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1392,17 +1266,99 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.cx.v3beta1.QueryParameters parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              timeZone_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getGeoLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.dialogflow.cx.v3beta1.SessionEntityType m =
+                  input.readMessage(
+                      com.google.cloud.dialogflow.cx.v3beta1.SessionEntityType.parser(),
+                      extensionRegistry);
+              if (sessionEntityTypesBuilder_ == null) {
+                ensureSessionEntityTypesIsMutable();
+                sessionEntityTypes_.add(m);
+              } else {
+                sessionEntityTypesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getPayloadFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getParametersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              currentPage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 56: {
+              disableWebhook_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              analyzeQueryTextSentiment_ = input.readBool();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 82: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              webhookHeaders__ = input.readMessage(
+                  WebhookHeadersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableWebhookHeaders().getMutableMap().put(
+                  webhookHeaders__.getKey(), webhookHeaders__.getValue());
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 82
+            case 114: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureFlowVersionsIsMutable();
+              flowVersions_.add(s);
+              break;
+            } // case 114
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.cx.v3beta1.QueryParameters) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1469,11 +1425,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTimeZone(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       timeZone_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1489,8 +1443,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTimeZone() {
-      
       timeZone_ = getDefaultInstance().getTimeZone();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1508,12 +1462,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTimeZoneBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       timeZone_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1530,7 +1482,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the geoLocation field is set.
      */
     public boolean hasGeoLocation() {
-      return geoLocationBuilder_ != null || geoLocation_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1560,11 +1512,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         geoLocation_ = value;
-        onChanged();
       } else {
         geoLocationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1578,11 +1530,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.LatLng.Builder builderForValue) {
       if (geoLocationBuilder_ == null) {
         geoLocation_ = builderForValue.build();
-        onChanged();
       } else {
         geoLocationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1594,17 +1546,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGeoLocation(com.google.type.LatLng value) {
       if (geoLocationBuilder_ == null) {
-        if (geoLocation_ != null) {
-          geoLocation_ =
-            com.google.type.LatLng.newBuilder(geoLocation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          geoLocation_ != null &&
+          geoLocation_ != com.google.type.LatLng.getDefaultInstance()) {
+          getGeoLocationBuilder().mergeFrom(value);
         } else {
           geoLocation_ = value;
         }
-        onChanged();
       } else {
         geoLocationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1615,14 +1568,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng geo_location = 2;</code>
      */
     public Builder clearGeoLocation() {
-      if (geoLocationBuilder_ == null) {
-        geoLocation_ = null;
-        onChanged();
-      } else {
-        geoLocation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      geoLocation_ = null;
+      if (geoLocationBuilder_ != null) {
+        geoLocationBuilder_.dispose();
         geoLocationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1633,7 +1585,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng geo_location = 2;</code>
      */
     public com.google.type.LatLng.Builder getGeoLocationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getGeoLocationFieldBuilder().getBuilder();
     }
@@ -1676,9 +1628,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.dialogflow.cx.v3beta1.SessionEntityType> sessionEntityTypes_ =
       java.util.Collections.emptyList();
     private void ensureSessionEntityTypesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         sessionEntityTypes_ = new java.util.ArrayList<com.google.cloud.dialogflow.cx.v3beta1.SessionEntityType>(sessionEntityTypes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1894,7 +1846,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSessionEntityTypes() {
       if (sessionEntityTypesBuilder_ == null) {
         sessionEntityTypes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         sessionEntityTypesBuilder_.clear();
@@ -2013,7 +1965,7 @@ private static final long serialVersionUID = 0L;
         sessionEntityTypesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.dialogflow.cx.v3beta1.SessionEntityType, com.google.cloud.dialogflow.cx.v3beta1.SessionEntityType.Builder, com.google.cloud.dialogflow.cx.v3beta1.SessionEntityTypeOrBuilder>(
                 sessionEntityTypes_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         sessionEntityTypes_ = null;
@@ -2045,7 +1997,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the payload field is set.
      */
     public boolean hasPayload() {
-      return payloadBuilder_ != null || payload_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2099,11 +2051,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         payload_ = value;
-        onChanged();
       } else {
         payloadBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2129,11 +2081,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct.Builder builderForValue) {
       if (payloadBuilder_ == null) {
         payload_ = builderForValue.build();
-        onChanged();
       } else {
         payloadBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2157,17 +2109,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePayload(com.google.protobuf.Struct value) {
       if (payloadBuilder_ == null) {
-        if (payload_ != null) {
-          payload_ =
-            com.google.protobuf.Struct.newBuilder(payload_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          payload_ != null &&
+          payload_ != com.google.protobuf.Struct.getDefaultInstance()) {
+          getPayloadBuilder().mergeFrom(value);
         } else {
           payload_ = value;
         }
-        onChanged();
       } else {
         payloadBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2190,14 +2143,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct payload = 4;</code>
      */
     public Builder clearPayload() {
-      if (payloadBuilder_ == null) {
-        payload_ = null;
-        onChanged();
-      } else {
-        payload_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      payload_ = null;
+      if (payloadBuilder_ != null) {
+        payloadBuilder_.dispose();
         payloadBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2220,7 +2172,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct payload = 4;</code>
      */
     public com.google.protobuf.Struct.Builder getPayloadBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getPayloadFieldBuilder().getBuilder();
     }
@@ -2312,7 +2264,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the parameters field is set.
      */
     public boolean hasParameters() {
-      return parametersBuilder_ != null || parameters_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2374,11 +2326,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         parameters_ = value;
-        onChanged();
       } else {
         parametersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2408,11 +2360,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct.Builder builderForValue) {
       if (parametersBuilder_ == null) {
         parameters_ = builderForValue.build();
-        onChanged();
       } else {
         parametersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2440,17 +2392,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeParameters(com.google.protobuf.Struct value) {
       if (parametersBuilder_ == null) {
-        if (parameters_ != null) {
-          parameters_ =
-            com.google.protobuf.Struct.newBuilder(parameters_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          parameters_ != null &&
+          parameters_ != com.google.protobuf.Struct.getDefaultInstance()) {
+          getParametersBuilder().mergeFrom(value);
         } else {
           parameters_ = value;
         }
-        onChanged();
       } else {
         parametersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2477,14 +2430,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct parameters = 5;</code>
      */
     public Builder clearParameters() {
-      if (parametersBuilder_ == null) {
-        parameters_ = null;
-        onChanged();
-      } else {
-        parameters_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      parameters_ = null;
+      if (parametersBuilder_ != null) {
+        parametersBuilder_.dispose();
         parametersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2511,7 +2463,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct parameters = 5;</code>
      */
     public com.google.protobuf.Struct.Builder getParametersBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getParametersFieldBuilder().getBuilder();
     }
@@ -2666,11 +2618,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCurrentPage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       currentPage_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2693,8 +2643,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCurrentPage() {
-      
       currentPage_ = getDefaultInstance().getCurrentPage();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2719,12 +2669,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCurrentPageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       currentPage_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2754,6 +2702,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDisableWebhook(boolean value) {
       
       disableWebhook_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2766,7 +2715,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisableWebhook() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       disableWebhook_ = false;
       onChanged();
       return this;
@@ -2799,6 +2748,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAnalyzeQueryTextSentiment(boolean value) {
       
       analyzeQueryTextSentiment_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2812,7 +2762,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAnalyzeQueryTextSentiment() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       analyzeQueryTextSentiment_ = false;
       onChanged();
       return this;
@@ -2821,7 +2771,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> webhookHeaders_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetWebhookHeaders() {
+        internalGetWebhookHeaders() {
       if (webhookHeaders_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             WebhookHeadersDefaultEntryHolder.defaultEntry);
@@ -2829,8 +2779,7 @@ private static final long serialVersionUID = 0L;
       return webhookHeaders_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableWebhookHeaders() {
-      onChanged();;
+        internalGetMutableWebhookHeaders() {
       if (webhookHeaders_ == null) {
         webhookHeaders_ = com.google.protobuf.MapField.newMapField(
             WebhookHeadersDefaultEntryHolder.defaultEntry);
@@ -2838,9 +2787,10 @@ private static final long serialVersionUID = 0L;
       if (!webhookHeaders_.isMutable()) {
         webhookHeaders_ = webhookHeaders_.copy();
       }
+      bitField0_ |= 0x00000100;
+      onChanged();
       return webhookHeaders_;
     }
-
     public int getWebhookHeadersCount() {
       return internalGetWebhookHeaders().getMap().size();
     }
@@ -2858,7 +2808,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; webhook_headers = 10;</code>
      */
-
     @java.lang.Override
     public boolean containsWebhookHeaders(
         java.lang.String key) {
@@ -2888,7 +2837,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; webhook_headers = 10;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getWebhookHeadersMap() {
       return internalGetWebhookHeaders().getMap();
     }
@@ -2907,10 +2855,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; webhook_headers = 10;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getWebhookHeadersOrDefault(
+    public /* nullable */
+java.lang.String getWebhookHeadersOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetWebhookHeaders().getMap();
@@ -2931,7 +2880,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; webhook_headers = 10;</code>
      */
     @java.lang.Override
-
     public java.lang.String getWebhookHeadersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2942,8 +2890,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearWebhookHeaders() {
+      bitField0_ = (bitField0_ & ~0x00000100);
       internalGetMutableWebhookHeaders().getMutableMap()
           .clear();
       return this;
@@ -2962,7 +2910,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; webhook_headers = 10;</code>
      */
-
     public Builder removeWebhookHeaders(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2975,7 +2922,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableWebhookHeaders() {
+        getMutableWebhookHeaders() {
+      bitField0_ |= 0x00000100;
       return internalGetMutableWebhookHeaders().getMutableMap();
     }
     /**
@@ -2996,12 +2944,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableWebhookHeaders().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000100;
       return this;
     }
     /**
@@ -3018,19 +2964,19 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; webhook_headers = 10;</code>
      */
-
     public Builder putAllWebhookHeaders(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableWebhookHeaders().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000100;
       return this;
     }
 
     private com.google.protobuf.LazyStringList flowVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureFlowVersionsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000200) != 0)) {
         flowVersions_ = new com.google.protobuf.LazyStringArrayList(flowVersions_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000200;
        }
     }
     /**
@@ -3123,10 +3069,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFlowVersions(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFlowVersionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFlowVersionsIsMutable();
       flowVersions_.set(index, value);
       onChanged();
       return this;
@@ -3148,10 +3092,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFlowVersions(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFlowVersionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFlowVersionsIsMutable();
       flowVersions_.add(value);
       onChanged();
       return this;
@@ -3195,7 +3137,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearFlowVersions() {
       flowVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -3216,10 +3158,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFlowVersionsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureFlowVersionsIsMutable();
       flowVersions_.add(value);
       onChanged();
@@ -3258,7 +3198,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new QueryParameters(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

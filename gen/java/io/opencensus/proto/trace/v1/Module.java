@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Module(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.opencensus.proto.trace.v1.TruncatableString.Builder subBuilder = null;
-            if (module_ != null) {
-              subBuilder = module_.toBuilder();
-            }
-            module_ = input.readMessage(io.opencensus.proto.trace.v1.TruncatableString.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(module_);
-              module_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            io.opencensus.proto.trace.v1.TruncatableString.Builder subBuilder = null;
-            if (buildId_ != null) {
-              subBuilder = buildId_.toBuilder();
-            }
-            buildId_ = input.readMessage(io.opencensus.proto.trace.v1.TruncatableString.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(buildId_);
-              buildId_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.opencensus.proto.trace.v1.TraceProto.internal_static_opencensus_proto_trace_v1_Module_descriptor;
@@ -153,7 +88,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.opencensus.proto.trace.v1.TruncatableStringOrBuilder getModuleOrBuilder() {
-    return getModule();
+    return module_ == null ? io.opencensus.proto.trace.v1.TruncatableString.getDefaultInstance() : module_;
   }
 
   public static final int BUILD_ID_FIELD_NUMBER = 2;
@@ -194,7 +129,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.opencensus.proto.trace.v1.TruncatableStringOrBuilder getBuildIdOrBuilder() {
-    return getBuildId();
+    return buildId_ == null ? io.opencensus.proto.trace.v1.TruncatableString.getDefaultInstance() : buildId_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -217,7 +152,7 @@ private static final long serialVersionUID = 0L;
     if (buildId_ != null) {
       output.writeMessage(2, getBuildId());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -234,7 +169,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getBuildId());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -259,7 +194,7 @@ private static final long serialVersionUID = 0L;
       if (!getBuildId()
           .equals(other.getBuildId())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -278,7 +213,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BUILD_ID_FIELD_NUMBER;
       hash = (53 * hash) + getBuildId().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -399,32 +334,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.opencensus.proto.trace.v1.Module.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (moduleBuilder_ == null) {
-        module_ = null;
-      } else {
-        module_ = null;
+      bitField0_ = 0;
+      module_ = null;
+      if (moduleBuilder_ != null) {
+        moduleBuilder_.dispose();
         moduleBuilder_ = null;
       }
-      if (buildIdBuilder_ == null) {
-        buildId_ = null;
-      } else {
-        buildId_ = null;
+      buildId_ = null;
+      if (buildIdBuilder_ != null) {
+        buildIdBuilder_.dispose();
         buildIdBuilder_ = null;
       }
       return this;
@@ -453,18 +382,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.opencensus.proto.trace.v1.Module buildPartial() {
       io.opencensus.proto.trace.v1.Module result = new io.opencensus.proto.trace.v1.Module(this);
-      if (moduleBuilder_ == null) {
-        result.module_ = module_;
-      } else {
-        result.module_ = moduleBuilder_.build();
-      }
-      if (buildIdBuilder_ == null) {
-        result.buildId_ = buildId_;
-      } else {
-        result.buildId_ = buildIdBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.opencensus.proto.trace.v1.Module result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.module_ = moduleBuilder_ == null
+            ? module_
+            : moduleBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.buildId_ = buildIdBuilder_ == null
+            ? buildId_
+            : buildIdBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -517,7 +451,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasBuildId()) {
         mergeBuildId(other.getBuildId());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -532,19 +466,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.opencensus.proto.trace.v1.Module parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getModuleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getBuildIdFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.opencensus.proto.trace.v1.Module) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.opencensus.proto.trace.v1.TruncatableString module_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -560,7 +522,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the module field is set.
      */
     public boolean hasModule() {
-      return moduleBuilder_ != null || module_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -594,11 +556,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         module_ = value;
-        onChanged();
       } else {
         moduleBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -614,11 +576,11 @@ private static final long serialVersionUID = 0L;
         io.opencensus.proto.trace.v1.TruncatableString.Builder builderForValue) {
       if (moduleBuilder_ == null) {
         module_ = builderForValue.build();
-        onChanged();
       } else {
         moduleBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -632,17 +594,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeModule(io.opencensus.proto.trace.v1.TruncatableString value) {
       if (moduleBuilder_ == null) {
-        if (module_ != null) {
-          module_ =
-            io.opencensus.proto.trace.v1.TruncatableString.newBuilder(module_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          module_ != null &&
+          module_ != io.opencensus.proto.trace.v1.TruncatableString.getDefaultInstance()) {
+          getModuleBuilder().mergeFrom(value);
         } else {
           module_ = value;
         }
-        onChanged();
       } else {
         moduleBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -655,14 +618,13 @@ private static final long serialVersionUID = 0L;
      * <code>.opencensus.proto.trace.v1.TruncatableString module = 1;</code>
      */
     public Builder clearModule() {
-      if (moduleBuilder_ == null) {
-        module_ = null;
-        onChanged();
-      } else {
-        module_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      module_ = null;
+      if (moduleBuilder_ != null) {
+        moduleBuilder_.dispose();
         moduleBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -675,7 +637,7 @@ private static final long serialVersionUID = 0L;
      * <code>.opencensus.proto.trace.v1.TruncatableString module = 1;</code>
      */
     public io.opencensus.proto.trace.v1.TruncatableString.Builder getModuleBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getModuleFieldBuilder().getBuilder();
     }
@@ -732,7 +694,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the buildId field is set.
      */
     public boolean hasBuildId() {
-      return buildIdBuilder_ != null || buildId_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -764,11 +726,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         buildId_ = value;
-        onChanged();
       } else {
         buildIdBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -783,11 +745,11 @@ private static final long serialVersionUID = 0L;
         io.opencensus.proto.trace.v1.TruncatableString.Builder builderForValue) {
       if (buildIdBuilder_ == null) {
         buildId_ = builderForValue.build();
-        onChanged();
       } else {
         buildIdBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -800,17 +762,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBuildId(io.opencensus.proto.trace.v1.TruncatableString value) {
       if (buildIdBuilder_ == null) {
-        if (buildId_ != null) {
-          buildId_ =
-            io.opencensus.proto.trace.v1.TruncatableString.newBuilder(buildId_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          buildId_ != null &&
+          buildId_ != io.opencensus.proto.trace.v1.TruncatableString.getDefaultInstance()) {
+          getBuildIdBuilder().mergeFrom(value);
         } else {
           buildId_ = value;
         }
-        onChanged();
       } else {
         buildIdBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -822,14 +785,13 @@ private static final long serialVersionUID = 0L;
      * <code>.opencensus.proto.trace.v1.TruncatableString build_id = 2;</code>
      */
     public Builder clearBuildId() {
-      if (buildIdBuilder_ == null) {
-        buildId_ = null;
-        onChanged();
-      } else {
-        buildId_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      buildId_ = null;
+      if (buildIdBuilder_ != null) {
+        buildIdBuilder_.dispose();
         buildIdBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -841,7 +803,7 @@ private static final long serialVersionUID = 0L;
      * <code>.opencensus.proto.trace.v1.TruncatableString build_id = 2;</code>
      */
     public io.opencensus.proto.trace.v1.TruncatableString.Builder getBuildIdBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getBuildIdFieldBuilder().getBuilder();
     }
@@ -915,7 +877,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Module(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

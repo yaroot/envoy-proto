@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BinauthzState(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            webhook_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.cloud.gkehub.configmanagement.v1alpha.BinauthzVersion.Builder subBuilder = null;
-            if (version_ != null) {
-              subBuilder = version_.toBuilder();
-            }
-            version_ = input.readMessage(com.google.cloud.gkehub.configmanagement.v1alpha.BinauthzVersion.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(version_);
-              version_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkehub.configmanagement.v1alpha.ConfigManagementProto.internal_static_google_cloud_gkehub_configmanagement_v1alpha_BinauthzState_descriptor;
@@ -107,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WEBHOOK_FIELD_NUMBER = 1;
-  private int webhook_;
+  private int webhook_ = 0;
   /**
    * <pre>
    * The state of the binauthz webhook.
@@ -128,8 +70,7 @@ private static final long serialVersionUID = 0L;
    * @return The webhook.
    */
   @java.lang.Override public com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState getWebhook() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.valueOf(webhook_);
+    com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.forNumber(webhook_);
     return result == null ? com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.UNRECOGNIZED : result;
   }
 
@@ -168,7 +109,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkehub.configmanagement.v1alpha.BinauthzVersionOrBuilder getVersionOrBuilder() {
-    return getVersion();
+    return version_ == null ? com.google.cloud.gkehub.configmanagement.v1alpha.BinauthzVersion.getDefaultInstance() : version_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -191,7 +132,7 @@ private static final long serialVersionUID = 0L;
     if (version_ != null) {
       output.writeMessage(2, getVersion());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -208,7 +149,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getVersion());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -229,7 +170,7 @@ private static final long serialVersionUID = 0L;
       if (!getVersion()
           .equals(other.getVersion())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -246,7 +187,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getVersion().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -367,28 +308,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkehub.configmanagement.v1alpha.BinauthzState.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       webhook_ = 0;
-
-      if (versionBuilder_ == null) {
-        version_ = null;
-      } else {
-        version_ = null;
+      version_ = null;
+      if (versionBuilder_ != null) {
+        versionBuilder_.dispose();
         versionBuilder_ = null;
       }
       return this;
@@ -417,14 +352,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1alpha.BinauthzState buildPartial() {
       com.google.cloud.gkehub.configmanagement.v1alpha.BinauthzState result = new com.google.cloud.gkehub.configmanagement.v1alpha.BinauthzState(this);
-      result.webhook_ = webhook_;
-      if (versionBuilder_ == null) {
-        result.version_ = version_;
-      } else {
-        result.version_ = versionBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkehub.configmanagement.v1alpha.BinauthzState result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.webhook_ = webhook_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.version_ = versionBuilder_ == null
+            ? version_
+            : versionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -477,7 +419,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasVersion()) {
         mergeVersion(other.getVersion());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -492,19 +434,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkehub.configmanagement.v1alpha.BinauthzState parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              webhook_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getVersionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkehub.configmanagement.v1alpha.BinauthzState) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int webhook_ = 0;
     /**
@@ -528,8 +496,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setWebhookValue(int value) {
-      
       webhook_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -543,8 +511,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState getWebhook() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.valueOf(webhook_);
+      com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.forNumber(webhook_);
       return result == null ? com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.UNRECOGNIZED : result;
     }
     /**
@@ -560,7 +527,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       webhook_ = value.getNumber();
       onChanged();
       return this;
@@ -574,7 +541,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWebhook() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       webhook_ = 0;
       onChanged();
       return this;
@@ -592,7 +559,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the version field is set.
      */
     public boolean hasVersion() {
-      return versionBuilder_ != null || version_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -622,11 +589,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         version_ = value;
-        onChanged();
       } else {
         versionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -640,11 +607,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkehub.configmanagement.v1alpha.BinauthzVersion.Builder builderForValue) {
       if (versionBuilder_ == null) {
         version_ = builderForValue.build();
-        onChanged();
       } else {
         versionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -656,17 +623,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeVersion(com.google.cloud.gkehub.configmanagement.v1alpha.BinauthzVersion value) {
       if (versionBuilder_ == null) {
-        if (version_ != null) {
-          version_ =
-            com.google.cloud.gkehub.configmanagement.v1alpha.BinauthzVersion.newBuilder(version_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          version_ != null &&
+          version_ != com.google.cloud.gkehub.configmanagement.v1alpha.BinauthzVersion.getDefaultInstance()) {
+          getVersionBuilder().mergeFrom(value);
         } else {
           version_ = value;
         }
-        onChanged();
       } else {
         versionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -677,14 +645,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.configmanagement.v1alpha.BinauthzVersion version = 2;</code>
      */
     public Builder clearVersion() {
-      if (versionBuilder_ == null) {
-        version_ = null;
-        onChanged();
-      } else {
-        version_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      version_ = null;
+      if (versionBuilder_ != null) {
+        versionBuilder_.dispose();
         versionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -695,7 +662,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.configmanagement.v1alpha.BinauthzVersion version = 2;</code>
      */
     public com.google.cloud.gkehub.configmanagement.v1alpha.BinauthzVersion.Builder getVersionBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getVersionFieldBuilder().getBuilder();
     }
@@ -767,7 +734,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BinauthzState(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

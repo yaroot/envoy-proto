@@ -35,37 +35,33 @@ public final class ResourcesProto {
     java.lang.String[] descriptorData = {
       "\n0google/maps/playablelocations/v3/resou" +
       "rces.proto\022 google.maps.playablelocation" +
-      "s.v3\032\037google/api/field_behavior.proto\032 g" +
-      "oogle/protobuf/field_mask.proto\032\030google/" +
-      "type/latlng.proto\"\351\002\n\014PlayerReport\022\032\n\rlo" +
-      "cation_name\030\001 \001(\tB\003\340A\002\022V\n\007reasons\030\002 \003(\0162" +
-      "@.google.maps.playablelocations.v3.Playe" +
-      "rReport.BadLocationReasonB\003\340A\002\022\033\n\016reason" +
-      "_details\030\003 \001(\tB\003\340A\002\022\025\n\rlanguage_code\030\004 \001" +
-      "(\t\"\260\001\n\021BadLocationReason\022#\n\037BAD_LOCATION" +
-      "_REASON_UNSPECIFIED\020\000\022\t\n\005OTHER\020\001\022\035\n\031NOT_" +
-      "PEDESTRIAN_ACCESSIBLE\020\002\022\026\n\022NOT_OPEN_TO_P" +
-      "UBLIC\020\004\022\026\n\022PERMANENTLY_CLOSED\020\005\022\034\n\030TEMPO" +
-      "RARILY_INACCESSIBLE\020\006\"\357\001\n\nImpression\022\032\n\r" +
-      "location_name\030\001 \001(\tB\003\340A\002\022Y\n\017impression_t" +
-      "ype\030\002 \001(\0162;.google.maps.playablelocation" +
-      "s.v3.Impression.ImpressionTypeB\003\340A\002\022\030\n\020g" +
-      "ame_object_type\030\004 \001(\005\"P\n\016ImpressionType\022" +
-      "\037\n\033IMPRESSION_TYPE_UNSPECIFIED\020\000\022\r\n\tPRES" +
-      "ENTED\020\001\022\016\n\nINTERACTED\020\002B\330\001\n$com.google.m" +
-      "aps.playablelocations.v3B\016ResourcesProto" +
-      "P\001ZQgoogle.golang.org/genproto/googleapi" +
-      "s/maps/playablelocations/v3;playableloca" +
-      "tions\242\002\004GMPL\252\002 Google.Maps.PlayableLocat" +
-      "ions.V3\312\002 Google\\Maps\\PlayableLocations\\" +
-      "V3b\006proto3"
+      "s.v3\032\037google/api/field_behavior.proto\"\351\002" +
+      "\n\014PlayerReport\022\032\n\rlocation_name\030\001 \001(\tB\003\340" +
+      "A\002\022V\n\007reasons\030\002 \003(\0162@.google.maps.playab" +
+      "lelocations.v3.PlayerReport.BadLocationR" +
+      "easonB\003\340A\002\022\033\n\016reason_details\030\003 \001(\tB\003\340A\002\022" +
+      "\025\n\rlanguage_code\030\004 \001(\t\"\260\001\n\021BadLocationRe" +
+      "ason\022#\n\037BAD_LOCATION_REASON_UNSPECIFIED\020" +
+      "\000\022\t\n\005OTHER\020\001\022\035\n\031NOT_PEDESTRIAN_ACCESSIBL" +
+      "E\020\002\022\026\n\022NOT_OPEN_TO_PUBLIC\020\004\022\026\n\022PERMANENT" +
+      "LY_CLOSED\020\005\022\034\n\030TEMPORARILY_INACCESSIBLE\020" +
+      "\006\"\357\001\n\nImpression\022\032\n\rlocation_name\030\001 \001(\tB" +
+      "\003\340A\002\022Y\n\017impression_type\030\002 \001(\0162;.google.m" +
+      "aps.playablelocations.v3.Impression.Impr" +
+      "essionTypeB\003\340A\002\022\030\n\020game_object_type\030\004 \001(" +
+      "\005\"P\n\016ImpressionType\022\037\n\033IMPRESSION_TYPE_U" +
+      "NSPECIFIED\020\000\022\r\n\tPRESENTED\020\001\022\016\n\nINTERACTE" +
+      "D\020\002B\330\001\n$com.google.maps.playablelocation" +
+      "s.v3B\016ResourcesProtoP\001ZQgoogle.golang.or" +
+      "g/genproto/googleapis/maps/playablelocat" +
+      "ions/v3;playablelocations\242\002\004GMPL\252\002 Googl" +
+      "e.Maps.PlayableLocations.V3\312\002 Google\\Map" +
+      "s\\PlayableLocations\\V3b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.FieldBehaviorProto.getDescriptor(),
-          com.google.protobuf.FieldMaskProto.getDescriptor(),
-          com.google.type.LatLngProto.getDescriptor(),
         });
     internal_static_google_maps_playablelocations_v3_PlayerReport_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -85,8 +81,6 @@ public final class ResourcesProto {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.api.FieldBehaviorProto.getDescriptor();
-    com.google.protobuf.FieldMaskProto.getDescriptor();
-    com.google.type.LatLngProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

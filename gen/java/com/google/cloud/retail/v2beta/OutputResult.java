@@ -5,7 +5,8 @@ package com.google.cloud.retail.v2beta;
 
 /**
  * <pre>
- * Output result.
+ * Output result that stores the information about where the exported data is
+ * stored.
  * </pre>
  *
  * Protobuf type {@code google.cloud.retail.v2beta.OutputResult}
@@ -21,6 +22,7 @@ private static final long serialVersionUID = 0L;
   }
   private OutputResult() {
     bigqueryResult_ = java.util.Collections.emptyList();
+    gcsResult_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -34,58 +36,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private OutputResult(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              bigqueryResult_ = new java.util.ArrayList<com.google.cloud.retail.v2beta.BigQueryOutputResult>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            bigqueryResult_.add(
-                input.readMessage(com.google.cloud.retail.v2beta.BigQueryOutputResult.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        bigqueryResult_ = java.util.Collections.unmodifiableList(bigqueryResult_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -101,10 +51,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BIGQUERY_RESULT_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.retail.v2beta.BigQueryOutputResult> bigqueryResult_;
   /**
    * <pre>
-   * Export result in BigQuery.
+   * The BigQuery location where the result is stored.
    * </pre>
    *
    * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -115,7 +66,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Export result in BigQuery.
+   * The BigQuery location where the result is stored.
    * </pre>
    *
    * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -127,7 +78,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Export result in BigQuery.
+   * The BigQuery location where the result is stored.
    * </pre>
    *
    * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -138,7 +89,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Export result in BigQuery.
+   * The BigQuery location where the result is stored.
    * </pre>
    *
    * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -149,7 +100,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Export result in BigQuery.
+   * The BigQuery location where the result is stored.
    * </pre>
    *
    * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -158,6 +109,67 @@ private static final long serialVersionUID = 0L;
   public com.google.cloud.retail.v2beta.BigQueryOutputResultOrBuilder getBigqueryResultOrBuilder(
       int index) {
     return bigqueryResult_.get(index);
+  }
+
+  public static final int GCS_RESULT_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
+  private java.util.List<com.google.cloud.retail.v2beta.GcsOutputResult> gcsResult_;
+  /**
+   * <pre>
+   * The Google Cloud Storage location where the result is stored.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.google.cloud.retail.v2beta.GcsOutputResult> getGcsResultList() {
+    return gcsResult_;
+  }
+  /**
+   * <pre>
+   * The Google Cloud Storage location where the result is stored.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.google.cloud.retail.v2beta.GcsOutputResultOrBuilder> 
+      getGcsResultOrBuilderList() {
+    return gcsResult_;
+  }
+  /**
+   * <pre>
+   * The Google Cloud Storage location where the result is stored.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+   */
+  @java.lang.Override
+  public int getGcsResultCount() {
+    return gcsResult_.size();
+  }
+  /**
+   * <pre>
+   * The Google Cloud Storage location where the result is stored.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.retail.v2beta.GcsOutputResult getGcsResult(int index) {
+    return gcsResult_.get(index);
+  }
+  /**
+   * <pre>
+   * The Google Cloud Storage location where the result is stored.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.retail.v2beta.GcsOutputResultOrBuilder getGcsResultOrBuilder(
+      int index) {
+    return gcsResult_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -177,7 +189,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < bigqueryResult_.size(); i++) {
       output.writeMessage(1, bigqueryResult_.get(i));
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < gcsResult_.size(); i++) {
+      output.writeMessage(2, gcsResult_.get(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -190,7 +205,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, bigqueryResult_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    for (int i = 0; i < gcsResult_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, gcsResult_.get(i));
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -207,7 +226,9 @@ private static final long serialVersionUID = 0L;
 
     if (!getBigqueryResultList()
         .equals(other.getBigqueryResultList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getGcsResultList()
+        .equals(other.getGcsResultList())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -222,7 +243,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BIGQUERY_RESULT_FIELD_NUMBER;
       hash = (53 * hash) + getBigqueryResultList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (getGcsResultCount() > 0) {
+      hash = (37 * hash) + GCS_RESULT_FIELD_NUMBER;
+      hash = (53 * hash) + getGcsResultList().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -319,7 +344,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output result.
+   * Output result that stores the information about where the exported data is
+   * stored.
    * </pre>
    *
    * Protobuf type {@code google.cloud.retail.v2beta.OutputResult}
@@ -343,29 +369,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.v2beta.OutputResult.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getBigqueryResultFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (bigqueryResultBuilder_ == null) {
         bigqueryResult_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        bigqueryResult_ = null;
         bigqueryResultBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
+      if (gcsResultBuilder_ == null) {
+        gcsResult_ = java.util.Collections.emptyList();
+      } else {
+        gcsResult_ = null;
+        gcsResultBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -392,7 +421,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.v2beta.OutputResult buildPartial() {
       com.google.cloud.retail.v2beta.OutputResult result = new com.google.cloud.retail.v2beta.OutputResult(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.retail.v2beta.OutputResult result) {
       if (bigqueryResultBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           bigqueryResult_ = java.util.Collections.unmodifiableList(bigqueryResult_);
@@ -402,8 +437,19 @@ private static final long serialVersionUID = 0L;
       } else {
         result.bigqueryResult_ = bigqueryResultBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (gcsResultBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          gcsResult_ = java.util.Collections.unmodifiableList(gcsResult_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.gcsResult_ = gcsResult_;
+      } else {
+        result.gcsResult_ = gcsResultBuilder_.build();
+      }
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2beta.OutputResult result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -476,7 +522,33 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (gcsResultBuilder_ == null) {
+        if (!other.gcsResult_.isEmpty()) {
+          if (gcsResult_.isEmpty()) {
+            gcsResult_ = other.gcsResult_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureGcsResultIsMutable();
+            gcsResult_.addAll(other.gcsResult_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.gcsResult_.isEmpty()) {
+          if (gcsResultBuilder_.isEmpty()) {
+            gcsResultBuilder_.dispose();
+            gcsResultBuilder_ = null;
+            gcsResult_ = other.gcsResult_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+            gcsResultBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getGcsResultFieldBuilder() : null;
+          } else {
+            gcsResultBuilder_.addAllMessages(other.gcsResult_);
+          }
+        }
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -491,17 +563,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2beta.OutputResult parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.retail.v2beta.BigQueryOutputResult m =
+                  input.readMessage(
+                      com.google.cloud.retail.v2beta.BigQueryOutputResult.parser(),
+                      extensionRegistry);
+              if (bigqueryResultBuilder_ == null) {
+                ensureBigqueryResultIsMutable();
+                bigqueryResult_.add(m);
+              } else {
+                bigqueryResultBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.retail.v2beta.GcsOutputResult m =
+                  input.readMessage(
+                      com.google.cloud.retail.v2beta.GcsOutputResult.parser(),
+                      extensionRegistry);
+              if (gcsResultBuilder_ == null) {
+                ensureGcsResultIsMutable();
+                gcsResult_.add(m);
+              } else {
+                gcsResultBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2beta.OutputResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -520,7 +631,7 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -534,7 +645,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -548,7 +659,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -562,7 +673,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -583,7 +694,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -601,7 +712,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -621,7 +732,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -642,7 +753,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -660,7 +771,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -678,7 +789,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -697,7 +808,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -714,7 +825,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -731,7 +842,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -742,7 +853,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -756,7 +867,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -771,7 +882,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -782,7 +893,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -794,7 +905,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Export result in BigQuery.
+     * The BigQuery location where the result is stored.
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -816,6 +927,318 @@ private static final long serialVersionUID = 0L;
         bigqueryResult_ = null;
       }
       return bigqueryResultBuilder_;
+    }
+
+    private java.util.List<com.google.cloud.retail.v2beta.GcsOutputResult> gcsResult_ =
+      java.util.Collections.emptyList();
+    private void ensureGcsResultIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        gcsResult_ = new java.util.ArrayList<com.google.cloud.retail.v2beta.GcsOutputResult>(gcsResult_);
+        bitField0_ |= 0x00000002;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.retail.v2beta.GcsOutputResult, com.google.cloud.retail.v2beta.GcsOutputResult.Builder, com.google.cloud.retail.v2beta.GcsOutputResultOrBuilder> gcsResultBuilder_;
+
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public java.util.List<com.google.cloud.retail.v2beta.GcsOutputResult> getGcsResultList() {
+      if (gcsResultBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(gcsResult_);
+      } else {
+        return gcsResultBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public int getGcsResultCount() {
+      if (gcsResultBuilder_ == null) {
+        return gcsResult_.size();
+      } else {
+        return gcsResultBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public com.google.cloud.retail.v2beta.GcsOutputResult getGcsResult(int index) {
+      if (gcsResultBuilder_ == null) {
+        return gcsResult_.get(index);
+      } else {
+        return gcsResultBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public Builder setGcsResult(
+        int index, com.google.cloud.retail.v2beta.GcsOutputResult value) {
+      if (gcsResultBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureGcsResultIsMutable();
+        gcsResult_.set(index, value);
+        onChanged();
+      } else {
+        gcsResultBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public Builder setGcsResult(
+        int index, com.google.cloud.retail.v2beta.GcsOutputResult.Builder builderForValue) {
+      if (gcsResultBuilder_ == null) {
+        ensureGcsResultIsMutable();
+        gcsResult_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        gcsResultBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public Builder addGcsResult(com.google.cloud.retail.v2beta.GcsOutputResult value) {
+      if (gcsResultBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureGcsResultIsMutable();
+        gcsResult_.add(value);
+        onChanged();
+      } else {
+        gcsResultBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public Builder addGcsResult(
+        int index, com.google.cloud.retail.v2beta.GcsOutputResult value) {
+      if (gcsResultBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureGcsResultIsMutable();
+        gcsResult_.add(index, value);
+        onChanged();
+      } else {
+        gcsResultBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public Builder addGcsResult(
+        com.google.cloud.retail.v2beta.GcsOutputResult.Builder builderForValue) {
+      if (gcsResultBuilder_ == null) {
+        ensureGcsResultIsMutable();
+        gcsResult_.add(builderForValue.build());
+        onChanged();
+      } else {
+        gcsResultBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public Builder addGcsResult(
+        int index, com.google.cloud.retail.v2beta.GcsOutputResult.Builder builderForValue) {
+      if (gcsResultBuilder_ == null) {
+        ensureGcsResultIsMutable();
+        gcsResult_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        gcsResultBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public Builder addAllGcsResult(
+        java.lang.Iterable<? extends com.google.cloud.retail.v2beta.GcsOutputResult> values) {
+      if (gcsResultBuilder_ == null) {
+        ensureGcsResultIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, gcsResult_);
+        onChanged();
+      } else {
+        gcsResultBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public Builder clearGcsResult() {
+      if (gcsResultBuilder_ == null) {
+        gcsResult_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+      } else {
+        gcsResultBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public Builder removeGcsResult(int index) {
+      if (gcsResultBuilder_ == null) {
+        ensureGcsResultIsMutable();
+        gcsResult_.remove(index);
+        onChanged();
+      } else {
+        gcsResultBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public com.google.cloud.retail.v2beta.GcsOutputResult.Builder getGcsResultBuilder(
+        int index) {
+      return getGcsResultFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public com.google.cloud.retail.v2beta.GcsOutputResultOrBuilder getGcsResultOrBuilder(
+        int index) {
+      if (gcsResultBuilder_ == null) {
+        return gcsResult_.get(index);  } else {
+        return gcsResultBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public java.util.List<? extends com.google.cloud.retail.v2beta.GcsOutputResultOrBuilder> 
+         getGcsResultOrBuilderList() {
+      if (gcsResultBuilder_ != null) {
+        return gcsResultBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(gcsResult_);
+      }
+    }
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public com.google.cloud.retail.v2beta.GcsOutputResult.Builder addGcsResultBuilder() {
+      return getGcsResultFieldBuilder().addBuilder(
+          com.google.cloud.retail.v2beta.GcsOutputResult.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public com.google.cloud.retail.v2beta.GcsOutputResult.Builder addGcsResultBuilder(
+        int index) {
+      return getGcsResultFieldBuilder().addBuilder(
+          index, com.google.cloud.retail.v2beta.GcsOutputResult.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * The Google Cloud Storage location where the result is stored.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+     */
+    public java.util.List<com.google.cloud.retail.v2beta.GcsOutputResult.Builder> 
+         getGcsResultBuilderList() {
+      return getGcsResultFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.retail.v2beta.GcsOutputResult, com.google.cloud.retail.v2beta.GcsOutputResult.Builder, com.google.cloud.retail.v2beta.GcsOutputResultOrBuilder> 
+        getGcsResultFieldBuilder() {
+      if (gcsResultBuilder_ == null) {
+        gcsResultBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.google.cloud.retail.v2beta.GcsOutputResult, com.google.cloud.retail.v2beta.GcsOutputResult.Builder, com.google.cloud.retail.v2beta.GcsOutputResultOrBuilder>(
+                gcsResult_,
+                ((bitField0_ & 0x00000002) != 0),
+                getParentForChildren(),
+                isClean());
+        gcsResult_ = null;
+      }
+      return gcsResultBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -850,7 +1273,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OutputResult(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

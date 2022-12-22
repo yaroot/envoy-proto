@@ -368,7 +368,6 @@ public interface WorkloadIdentityPoolProviderOrBuilder extends
    *
    * <code>map&lt;string, string&gt; attribute_mapping = 6;</code>
    */
-
   /* nullable */
 java.lang.String getAttributeMappingOrDefault(
       java.lang.String key,
@@ -439,7 +438,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; attribute_mapping = 6;</code>
    */
-
   java.lang.String getAttributeMappingOrThrow(
       java.lang.String key);
 

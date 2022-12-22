@@ -5,7 +5,8 @@ package com.google.cloud.channel.v1;
 
 /**
  * <pre>
- * Request message for [CloudChannelService.ChangeRenewalSettings][google.cloud.channel.v1.CloudChannelService.ChangeRenewalSettings].
+ * Request message for
+ * [CloudChannelService.ChangeRenewalSettings][google.cloud.channel.v1.CloudChannelService.ChangeRenewalSettings].
  * </pre>
  *
  * Protobuf type {@code google.cloud.channel.v1.ChangeRenewalSettingsRequest}
@@ -36,70 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ChangeRenewalSettingsRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 34: {
-            com.google.cloud.channel.v1.RenewalSettings.Builder subBuilder = null;
-            if (renewalSettings_ != null) {
-              subBuilder = renewalSettings_.toBuilder();
-            }
-            renewalSettings_ = input.readMessage(com.google.cloud.channel.v1.RenewalSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(renewalSettings_);
-              renewalSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            requestId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.ServiceProto.internal_static_google_cloud_channel_v1_ChangeRenewalSettingsRequest_descriptor;
@@ -114,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The name of the entitlement to update.
@@ -198,15 +136,17 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.RenewalSettingsOrBuilder getRenewalSettingsOrBuilder() {
-    return getRenewalSettings();
+    return renewalSettings_ == null ? com.google.cloud.channel.v1.RenewalSettings.getDefaultInstance() : renewalSettings_;
   }
 
   public static final int REQUEST_ID_FIELD_NUMBER = 5;
-  private volatile java.lang.Object requestId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object requestId_ = "";
   /**
    * <pre>
-   * Optional. You can specify an optional unique request ID, and if you need to retry
-   * your request, the server will know to ignore the request if it's complete.
+   * Optional. You can specify an optional unique request ID, and if you need to
+   * retry your request, the server will know to ignore the request if it's
+   * complete.
    * For example, you make an initial request and the request times out. If you
    * make the request again with the same request ID, the server can check if
    * it received the original operation with the same request ID. If it did, it
@@ -234,8 +174,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. You can specify an optional unique request ID, and if you need to retry
-   * your request, the server will know to ignore the request if it's complete.
+   * Optional. You can specify an optional unique request ID, and if you need to
+   * retry your request, the server will know to ignore the request if it's
+   * complete.
    * For example, you make an initial request and the request times out. If you
    * make the request again with the same request ID, the server can check if
    * it received the original operation with the same request ID. If it did, it
@@ -286,7 +227,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, requestId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -305,7 +246,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, requestId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -329,7 +270,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getRequestId()
         .equals(other.getRequestId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -348,7 +289,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
     hash = (53 * hash) + getRequestId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -445,7 +386,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Request message for [CloudChannelService.ChangeRenewalSettings][google.cloud.channel.v1.CloudChannelService.ChangeRenewalSettings].
+   * Request message for
+   * [CloudChannelService.ChangeRenewalSettings][google.cloud.channel.v1.CloudChannelService.ChangeRenewalSettings].
    * </pre>
    *
    * Protobuf type {@code google.cloud.channel.v1.ChangeRenewalSettingsRequest}
@@ -469,32 +411,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.ChangeRenewalSettingsRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (renewalSettingsBuilder_ == null) {
-        renewalSettings_ = null;
-      } else {
-        renewalSettings_ = null;
+      renewalSettings_ = null;
+      if (renewalSettingsBuilder_ != null) {
+        renewalSettingsBuilder_.dispose();
         renewalSettingsBuilder_ = null;
       }
       requestId_ = "";
-
       return this;
     }
 
@@ -521,15 +456,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.ChangeRenewalSettingsRequest buildPartial() {
       com.google.cloud.channel.v1.ChangeRenewalSettingsRequest result = new com.google.cloud.channel.v1.ChangeRenewalSettingsRequest(this);
-      result.name_ = name_;
-      if (renewalSettingsBuilder_ == null) {
-        result.renewalSettings_ = renewalSettings_;
-      } else {
-        result.renewalSettings_ = renewalSettingsBuilder_.build();
-      }
-      result.requestId_ = requestId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.ChangeRenewalSettingsRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.renewalSettings_ = renewalSettingsBuilder_ == null
+            ? renewalSettings_
+            : renewalSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.requestId_ = requestId_;
+      }
     }
 
     @java.lang.Override
@@ -578,6 +522,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.channel.v1.ChangeRenewalSettingsRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasRenewalSettings()) {
@@ -585,9 +530,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRequestId().isEmpty()) {
         requestId_ = other.requestId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -602,19 +548,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.ChangeRenewalSettingsRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 34: {
+              input.readMessage(
+                  getRenewalSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 34
+            case 42: {
+              requestId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.ChangeRenewalSettingsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -675,11 +652,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -694,8 +669,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -712,12 +687,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -734,7 +707,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the renewalSettings field is set.
      */
     public boolean hasRenewalSettings() {
-      return renewalSettingsBuilder_ != null || renewalSettings_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -764,11 +737,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         renewalSettings_ = value;
-        onChanged();
       } else {
         renewalSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -782,11 +755,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.RenewalSettings.Builder builderForValue) {
       if (renewalSettingsBuilder_ == null) {
         renewalSettings_ = builderForValue.build();
-        onChanged();
       } else {
         renewalSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -798,17 +771,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRenewalSettings(com.google.cloud.channel.v1.RenewalSettings value) {
       if (renewalSettingsBuilder_ == null) {
-        if (renewalSettings_ != null) {
-          renewalSettings_ =
-            com.google.cloud.channel.v1.RenewalSettings.newBuilder(renewalSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          renewalSettings_ != null &&
+          renewalSettings_ != com.google.cloud.channel.v1.RenewalSettings.getDefaultInstance()) {
+          getRenewalSettingsBuilder().mergeFrom(value);
         } else {
           renewalSettings_ = value;
         }
-        onChanged();
       } else {
         renewalSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -819,14 +793,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.RenewalSettings renewal_settings = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearRenewalSettings() {
-      if (renewalSettingsBuilder_ == null) {
-        renewalSettings_ = null;
-        onChanged();
-      } else {
-        renewalSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      renewalSettings_ = null;
+      if (renewalSettingsBuilder_ != null) {
+        renewalSettingsBuilder_.dispose();
         renewalSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -837,7 +810,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.RenewalSettings renewal_settings = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.channel.v1.RenewalSettings.Builder getRenewalSettingsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getRenewalSettingsFieldBuilder().getBuilder();
     }
@@ -880,8 +853,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object requestId_ = "";
     /**
      * <pre>
-     * Optional. You can specify an optional unique request ID, and if you need to retry
-     * your request, the server will know to ignore the request if it's complete.
+     * Optional. You can specify an optional unique request ID, and if you need to
+     * retry your request, the server will know to ignore the request if it's
+     * complete.
      * For example, you make an initial request and the request times out. If you
      * make the request again with the same request ID, the server can check if
      * it received the original operation with the same request ID. If it did, it
@@ -908,8 +882,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. You can specify an optional unique request ID, and if you need to retry
-     * your request, the server will know to ignore the request if it's complete.
+     * Optional. You can specify an optional unique request ID, and if you need to
+     * retry your request, the server will know to ignore the request if it's
+     * complete.
      * For example, you make an initial request and the request times out. If you
      * make the request again with the same request ID, the server can check if
      * it received the original operation with the same request ID. If it did, it
@@ -937,8 +912,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. You can specify an optional unique request ID, and if you need to retry
-     * your request, the server will know to ignore the request if it's complete.
+     * Optional. You can specify an optional unique request ID, and if you need to
+     * retry your request, the server will know to ignore the request if it's
+     * complete.
      * For example, you make an initial request and the request times out. If you
      * make the request again with the same request ID, the server can check if
      * it received the original operation with the same request ID. If it did, it
@@ -954,18 +930,17 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       requestId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. You can specify an optional unique request ID, and if you need to retry
-     * your request, the server will know to ignore the request if it's complete.
+     * Optional. You can specify an optional unique request ID, and if you need to
+     * retry your request, the server will know to ignore the request if it's
+     * complete.
      * For example, you make an initial request and the request times out. If you
      * make the request again with the same request ID, the server can check if
      * it received the original operation with the same request ID. If it did, it
@@ -979,15 +954,16 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequestId() {
-      
       requestId_ = getDefaultInstance().getRequestId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. You can specify an optional unique request ID, and if you need to retry
-     * your request, the server will know to ignore the request if it's complete.
+     * Optional. You can specify an optional unique request ID, and if you need to
+     * retry your request, the server will know to ignore the request if it's
+     * complete.
      * For example, you make an initial request and the request times out. If you
      * make the request again with the same request ID, the server can check if
      * it received the original operation with the same request ID. If it did, it
@@ -1003,12 +979,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       requestId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1045,7 +1019,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ChangeRenewalSettingsRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

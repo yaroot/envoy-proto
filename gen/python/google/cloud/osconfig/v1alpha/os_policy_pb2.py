@@ -11,11 +11,10 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-google/cloud/osconfig/v1alpha/os_policy.proto\x12\x1dgoogle.cloud.osconfig.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\"\x84#\n\x08OSPolicy\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12?\n\x04mode\x18\x03 \x01(\x0e\x32,.google.cloud.osconfig.v1alpha.OSPolicy.ModeB\x03\xe0\x41\x02\x12S\n\x0fresource_groups\x18\x04 \x03(\x0b\x32\x35.google.cloud.osconfig.v1alpha.OSPolicy.ResourceGroupB\x03\xe0\x41\x02\x12%\n\x1d\x61llow_no_resource_group_match\x18\x05 \x01(\x08\x1a\x35\n\x08OSFilter\x12\x15\n\ros_short_name\x18\x01 \x01(\t\x12\x12\n\nos_version\x18\x02 \x01(\t\x1a\x41\n\x0fInventoryFilter\x12\x1a\n\ros_short_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\nos_version\x18\x02 \x01(\t\x1a\xe2\x1d\n\x08Resource\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12O\n\x03pkg\x18\x02 \x01(\x0b\x32@.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResourceH\x00\x12Y\n\nrepository\x18\x03 \x01(\x0b\x32\x43.google.cloud.osconfig.v1alpha.OSPolicy.Resource.RepositoryResourceH\x00\x12M\n\x04\x65xec\x18\x04 \x01(\x0b\x32=.google.cloud.osconfig.v1alpha.OSPolicy.Resource.ExecResourceH\x00\x12M\n\x04\x66ile\x18\x05 \x01(\x0b\x32=.google.cloud.osconfig.v1alpha.OSPolicy.Resource.FileResourceH\x00\x1a\xd0\x02\n\x04\x46ile\x12N\n\x06remote\x18\x01 \x01(\x0b\x32<.google.cloud.osconfig.v1alpha.OSPolicy.Resource.File.RemoteH\x00\x12H\n\x03gcs\x18\x02 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.OSPolicy.Resource.File.GcsH\x00\x12\x14\n\nlocal_path\x18\x03 \x01(\tH\x00\x12\x16\n\x0e\x61llow_insecure\x18\x04 \x01(\x08\x1a\x33\n\x06Remote\x12\x10\n\x03uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\x0fsha256_checksum\x18\x02 \x01(\t\x1a\x43\n\x03Gcs\x12\x13\n\x06\x62ucket\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x06object\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\ngeneration\x18\x03 \x01(\x03\x42\x06\n\x04type\x1a\xd9\t\n\x0fPackageResource\x12i\n\rdesired_state\x18\x01 \x01(\x0e\x32M.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResource.DesiredStateB\x03\xe0\x41\x02\x12S\n\x03\x61pt\x18\x02 \x01(\x0b\x32\x44.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResource.APTH\x00\x12S\n\x03\x64\x65\x62\x18\x03 \x01(\x0b\x32\x44.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResource.DebH\x00\x12S\n\x03yum\x18\x04 \x01(\x0b\x32\x44.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResource.YUMH\x00\x12Y\n\x06zypper\x18\x05 \x01(\x0b\x32G.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResource.ZypperH\x00\x12S\n\x03rpm\x18\x06 \x01(\x0b\x32\x44.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResource.RPMH\x00\x12Y\n\x06googet\x18\x07 \x01(\x0b\x32G.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResource.GooGetH\x00\x12S\n\x03msi\x18\x08 \x01(\x0b\x32\x44.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResource.MSIH\x00\x1a\x64\n\x03\x44\x65\x62\x12J\n\x06source\x18\x01 \x01(\x0b\x32\x35.google.cloud.osconfig.v1alpha.OSPolicy.Resource.FileB\x03\xe0\x41\x02\x12\x11\n\tpull_deps\x18\x02 \x01(\x08\x1a\x18\n\x03\x41PT\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x64\n\x03RPM\x12J\n\x06source\x18\x01 \x01(\x0b\x32\x35.google.cloud.osconfig.v1alpha.OSPolicy.Resource.FileB\x03\xe0\x41\x02\x12\x11\n\tpull_deps\x18\x02 \x01(\x08\x1a\x18\n\x03YUM\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x1b\n\x06Zypper\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x1b\n\x06GooGet\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x65\n\x03MSI\x12J\n\x06source\x18\x01 \x01(\x0b\x32\x35.google.cloud.osconfig.v1alpha.OSPolicy.Resource.FileB\x03\xe0\x41\x02\x12\x12\n\nproperties\x18\x02 \x03(\t\"I\n\x0c\x44\x65siredState\x12\x1d\n\x19\x44\x45SIRED_STATE_UNSPECIFIED\x10\x00\x12\r\n\tINSTALLED\x10\x01\x12\x0b\n\x07REMOVED\x10\x02\x42\x10\n\x0esystem_package\x1a\xd1\x07\n\x12RepositoryResource\x12`\n\x03\x61pt\x18\x01 \x01(\x0b\x32Q.google.cloud.osconfig.v1alpha.OSPolicy.Resource.RepositoryResource.AptRepositoryH\x00\x12`\n\x03yum\x18\x02 \x01(\x0b\x32Q.google.cloud.osconfig.v1alpha.OSPolicy.Resource.RepositoryResource.YumRepositoryH\x00\x12\x66\n\x06zypper\x18\x03 \x01(\x0b\x32T.google.cloud.osconfig.v1alpha.OSPolicy.Resource.RepositoryResource.ZypperRepositoryH\x00\x12`\n\x03goo\x18\x04 \x01(\x0b\x32Q.google.cloud.osconfig.v1alpha.OSPolicy.Resource.RepositoryResource.GooRepositoryH\x00\x1a\xa3\x02\n\rAptRepository\x12x\n\x0c\x61rchive_type\x18\x01 \x01(\x0e\x32].google.cloud.osconfig.v1alpha.OSPolicy.Resource.RepositoryResource.AptRepository.ArchiveTypeB\x03\xe0\x41\x02\x12\x10\n\x03uri\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x19\n\x0c\x64istribution\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ncomponents\x18\x04 \x03(\tB\x03\xe0\x41\x02\x12\x0f\n\x07gpg_key\x18\x05 \x01(\t\"A\n\x0b\x41rchiveType\x12\x1c\n\x18\x41RCHIVE_TYPE_UNSPECIFIED\x10\x00\x12\x07\n\x03\x44\x45\x42\x10\x01\x12\x0b\n\x07\x44\x45\x42_SRC\x10\x02\x1a_\n\rYumRepository\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x15\n\x08\x62\x61se_url\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x10\n\x08gpg_keys\x18\x04 \x03(\t\x1a\x62\n\x10ZypperRepository\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x15\n\x08\x62\x61se_url\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x10\n\x08gpg_keys\x18\x04 \x03(\t\x1a\x34\n\rGooRepository\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x10\n\x03url\x18\x02 \x01(\tB\x03\xe0\x41\x02\x42\x0c\n\nrepository\x1a\x8d\x04\n\x0c\x45xecResource\x12Y\n\x08validate\x18\x01 \x01(\x0b\x32\x42.google.cloud.osconfig.v1alpha.OSPolicy.Resource.ExecResource.ExecB\x03\xe0\x41\x02\x12S\n\x07\x65nforce\x18\x02 \x01(\x0b\x32\x42.google.cloud.osconfig.v1alpha.OSPolicy.Resource.ExecResource.Exec\x1a\xcc\x02\n\x04\x45xec\x12\x45\n\x04\x66ile\x18\x01 \x01(\x0b\x32\x35.google.cloud.osconfig.v1alpha.OSPolicy.Resource.FileH\x00\x12\x10\n\x06script\x18\x02 \x01(\tH\x00\x12\x0c\n\x04\x61rgs\x18\x03 \x03(\t\x12h\n\x0binterpreter\x18\x04 \x01(\x0e\x32N.google.cloud.osconfig.v1alpha.OSPolicy.Resource.ExecResource.Exec.InterpreterB\x03\xe0\x41\x02\x12\x18\n\x10output_file_path\x18\x05 \x01(\t\"O\n\x0bInterpreter\x12\x1b\n\x17INTERPRETER_UNSPECIFIED\x10\x00\x12\x08\n\x04NONE\x10\x01\x12\t\n\x05SHELL\x10\x02\x12\x0e\n\nPOWERSHELL\x10\x03\x42\x08\n\x06source\x1a\xd6\x02\n\x0c\x46ileResource\x12\x45\n\x04\x66ile\x18\x01 \x01(\x0b\x32\x35.google.cloud.osconfig.v1alpha.OSPolicy.Resource.FileH\x00\x12\x11\n\x07\x63ontent\x18\x02 \x01(\tH\x00\x12\x11\n\x04path\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12^\n\x05state\x18\x04 \x01(\x0e\x32J.google.cloud.osconfig.v1alpha.OSPolicy.Resource.FileResource.DesiredStateB\x03\xe0\x41\x02\x12\x13\n\x0bpermissions\x18\x05 \x01(\t\"Z\n\x0c\x44\x65siredState\x12\x1d\n\x19\x44\x45SIRED_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PRESENT\x10\x01\x12\n\n\x06\x41\x42SENT\x10\x02\x12\x12\n\x0e\x43ONTENTS_MATCH\x10\x03\x42\x08\n\x06sourceB\x0f\n\rresource_type\x1a\xf6\x01\n\rResourceGroup\x12G\n\tos_filter\x18\x01 \x01(\x0b\x32\x30.google.cloud.osconfig.v1alpha.OSPolicy.OSFilterB\x02\x18\x01\x12R\n\x11inventory_filters\x18\x03 \x03(\x0b\x32\x37.google.cloud.osconfig.v1alpha.OSPolicy.InventoryFilter\x12H\n\tresources\x18\x02 \x03(\x0b\x32\x30.google.cloud.osconfig.v1alpha.OSPolicy.ResourceB\x03\xe0\x41\x02\"=\n\x04Mode\x12\x14\n\x10MODE_UNSPECIFIED\x10\x00\x12\x0e\n\nVALIDATION\x10\x01\x12\x0f\n\x0b\x45NFORCEMENT\x10\x02\x42\xde\x01\n!com.google.cloud.osconfig.v1alphaB\rOsPolicyProtoP\x01ZEgoogle.golang.org/genproto/googleapis/cloud/osconfig/v1alpha;osconfig\xaa\x02\x1dGoogle.Cloud.OsConfig.V1Alpha\xca\x02\x1dGoogle\\Cloud\\OsConfig\\V1alpha\xea\x02 Google::Cloud::OsConfig::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-google/cloud/osconfig/v1alpha/os_policy.proto\x12\x1dgoogle.cloud.osconfig.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\"\x84#\n\x08OSPolicy\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12?\n\x04mode\x18\x03 \x01(\x0e\x32,.google.cloud.osconfig.v1alpha.OSPolicy.ModeB\x03\xe0\x41\x02\x12S\n\x0fresource_groups\x18\x04 \x03(\x0b\x32\x35.google.cloud.osconfig.v1alpha.OSPolicy.ResourceGroupB\x03\xe0\x41\x02\x12%\n\x1d\x61llow_no_resource_group_match\x18\x05 \x01(\x08\x1a\x35\n\x08OSFilter\x12\x15\n\ros_short_name\x18\x01 \x01(\t\x12\x12\n\nos_version\x18\x02 \x01(\t\x1a\x41\n\x0fInventoryFilter\x12\x1a\n\ros_short_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\nos_version\x18\x02 \x01(\t\x1a\xe2\x1d\n\x08Resource\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12O\n\x03pkg\x18\x02 \x01(\x0b\x32@.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResourceH\x00\x12Y\n\nrepository\x18\x03 \x01(\x0b\x32\x43.google.cloud.osconfig.v1alpha.OSPolicy.Resource.RepositoryResourceH\x00\x12M\n\x04\x65xec\x18\x04 \x01(\x0b\x32=.google.cloud.osconfig.v1alpha.OSPolicy.Resource.ExecResourceH\x00\x12M\n\x04\x66ile\x18\x05 \x01(\x0b\x32=.google.cloud.osconfig.v1alpha.OSPolicy.Resource.FileResourceH\x00\x1a\xd0\x02\n\x04\x46ile\x12N\n\x06remote\x18\x01 \x01(\x0b\x32<.google.cloud.osconfig.v1alpha.OSPolicy.Resource.File.RemoteH\x00\x12H\n\x03gcs\x18\x02 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.OSPolicy.Resource.File.GcsH\x00\x12\x14\n\nlocal_path\x18\x03 \x01(\tH\x00\x12\x16\n\x0e\x61llow_insecure\x18\x04 \x01(\x08\x1a\x33\n\x06Remote\x12\x10\n\x03uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\x0fsha256_checksum\x18\x02 \x01(\t\x1a\x43\n\x03Gcs\x12\x13\n\x06\x62ucket\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x06object\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\ngeneration\x18\x03 \x01(\x03\x42\x06\n\x04type\x1a\xd9\t\n\x0fPackageResource\x12i\n\rdesired_state\x18\x01 \x01(\x0e\x32M.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResource.DesiredStateB\x03\xe0\x41\x02\x12S\n\x03\x61pt\x18\x02 \x01(\x0b\x32\x44.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResource.APTH\x00\x12S\n\x03\x64\x65\x62\x18\x03 \x01(\x0b\x32\x44.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResource.DebH\x00\x12S\n\x03yum\x18\x04 \x01(\x0b\x32\x44.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResource.YUMH\x00\x12Y\n\x06zypper\x18\x05 \x01(\x0b\x32G.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResource.ZypperH\x00\x12S\n\x03rpm\x18\x06 \x01(\x0b\x32\x44.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResource.RPMH\x00\x12Y\n\x06googet\x18\x07 \x01(\x0b\x32G.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResource.GooGetH\x00\x12S\n\x03msi\x18\x08 \x01(\x0b\x32\x44.google.cloud.osconfig.v1alpha.OSPolicy.Resource.PackageResource.MSIH\x00\x1a\x64\n\x03\x44\x65\x62\x12J\n\x06source\x18\x01 \x01(\x0b\x32\x35.google.cloud.osconfig.v1alpha.OSPolicy.Resource.FileB\x03\xe0\x41\x02\x12\x11\n\tpull_deps\x18\x02 \x01(\x08\x1a\x18\n\x03\x41PT\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x64\n\x03RPM\x12J\n\x06source\x18\x01 \x01(\x0b\x32\x35.google.cloud.osconfig.v1alpha.OSPolicy.Resource.FileB\x03\xe0\x41\x02\x12\x11\n\tpull_deps\x18\x02 \x01(\x08\x1a\x18\n\x03YUM\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x1b\n\x06Zypper\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x1b\n\x06GooGet\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x65\n\x03MSI\x12J\n\x06source\x18\x01 \x01(\x0b\x32\x35.google.cloud.osconfig.v1alpha.OSPolicy.Resource.FileB\x03\xe0\x41\x02\x12\x12\n\nproperties\x18\x02 \x03(\t\"I\n\x0c\x44\x65siredState\x12\x1d\n\x19\x44\x45SIRED_STATE_UNSPECIFIED\x10\x00\x12\r\n\tINSTALLED\x10\x01\x12\x0b\n\x07REMOVED\x10\x02\x42\x10\n\x0esystem_package\x1a\xd1\x07\n\x12RepositoryResource\x12`\n\x03\x61pt\x18\x01 \x01(\x0b\x32Q.google.cloud.osconfig.v1alpha.OSPolicy.Resource.RepositoryResource.AptRepositoryH\x00\x12`\n\x03yum\x18\x02 \x01(\x0b\x32Q.google.cloud.osconfig.v1alpha.OSPolicy.Resource.RepositoryResource.YumRepositoryH\x00\x12\x66\n\x06zypper\x18\x03 \x01(\x0b\x32T.google.cloud.osconfig.v1alpha.OSPolicy.Resource.RepositoryResource.ZypperRepositoryH\x00\x12`\n\x03goo\x18\x04 \x01(\x0b\x32Q.google.cloud.osconfig.v1alpha.OSPolicy.Resource.RepositoryResource.GooRepositoryH\x00\x1a\xa3\x02\n\rAptRepository\x12x\n\x0c\x61rchive_type\x18\x01 \x01(\x0e\x32].google.cloud.osconfig.v1alpha.OSPolicy.Resource.RepositoryResource.AptRepository.ArchiveTypeB\x03\xe0\x41\x02\x12\x10\n\x03uri\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x19\n\x0c\x64istribution\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ncomponents\x18\x04 \x03(\tB\x03\xe0\x41\x02\x12\x0f\n\x07gpg_key\x18\x05 \x01(\t\"A\n\x0b\x41rchiveType\x12\x1c\n\x18\x41RCHIVE_TYPE_UNSPECIFIED\x10\x00\x12\x07\n\x03\x44\x45\x42\x10\x01\x12\x0b\n\x07\x44\x45\x42_SRC\x10\x02\x1a_\n\rYumRepository\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x15\n\x08\x62\x61se_url\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x10\n\x08gpg_keys\x18\x04 \x03(\t\x1a\x62\n\x10ZypperRepository\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x15\n\x08\x62\x61se_url\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x10\n\x08gpg_keys\x18\x04 \x03(\t\x1a\x34\n\rGooRepository\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x10\n\x03url\x18\x02 \x01(\tB\x03\xe0\x41\x02\x42\x0c\n\nrepository\x1a\x8d\x04\n\x0c\x45xecResource\x12Y\n\x08validate\x18\x01 \x01(\x0b\x32\x42.google.cloud.osconfig.v1alpha.OSPolicy.Resource.ExecResource.ExecB\x03\xe0\x41\x02\x12S\n\x07\x65nforce\x18\x02 \x01(\x0b\x32\x42.google.cloud.osconfig.v1alpha.OSPolicy.Resource.ExecResource.Exec\x1a\xcc\x02\n\x04\x45xec\x12\x45\n\x04\x66ile\x18\x01 \x01(\x0b\x32\x35.google.cloud.osconfig.v1alpha.OSPolicy.Resource.FileH\x00\x12\x10\n\x06script\x18\x02 \x01(\tH\x00\x12\x0c\n\x04\x61rgs\x18\x03 \x03(\t\x12h\n\x0binterpreter\x18\x04 \x01(\x0e\x32N.google.cloud.osconfig.v1alpha.OSPolicy.Resource.ExecResource.Exec.InterpreterB\x03\xe0\x41\x02\x12\x18\n\x10output_file_path\x18\x05 \x01(\t\"O\n\x0bInterpreter\x12\x1b\n\x17INTERPRETER_UNSPECIFIED\x10\x00\x12\x08\n\x04NONE\x10\x01\x12\t\n\x05SHELL\x10\x02\x12\x0e\n\nPOWERSHELL\x10\x03\x42\x08\n\x06source\x1a\xd6\x02\n\x0c\x46ileResource\x12\x45\n\x04\x66ile\x18\x01 \x01(\x0b\x32\x35.google.cloud.osconfig.v1alpha.OSPolicy.Resource.FileH\x00\x12\x11\n\x07\x63ontent\x18\x02 \x01(\tH\x00\x12\x11\n\x04path\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12^\n\x05state\x18\x04 \x01(\x0e\x32J.google.cloud.osconfig.v1alpha.OSPolicy.Resource.FileResource.DesiredStateB\x03\xe0\x41\x02\x12\x13\n\x0bpermissions\x18\x05 \x01(\t\"Z\n\x0c\x44\x65siredState\x12\x1d\n\x19\x44\x45SIRED_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PRESENT\x10\x01\x12\n\n\x06\x41\x42SENT\x10\x02\x12\x12\n\x0e\x43ONTENTS_MATCH\x10\x03\x42\x08\n\x06sourceB\x0f\n\rresource_type\x1a\xf6\x01\n\rResourceGroup\x12G\n\tos_filter\x18\x01 \x01(\x0b\x32\x30.google.cloud.osconfig.v1alpha.OSPolicy.OSFilterB\x02\x18\x01\x12R\n\x11inventory_filters\x18\x03 \x03(\x0b\x32\x37.google.cloud.osconfig.v1alpha.OSPolicy.InventoryFilter\x12H\n\tresources\x18\x02 \x03(\x0b\x32\x30.google.cloud.osconfig.v1alpha.OSPolicy.ResourceB\x03\xe0\x41\x02\"=\n\x04Mode\x12\x14\n\x10MODE_UNSPECIFIED\x10\x00\x12\x0e\n\nVALIDATION\x10\x01\x12\x0f\n\x0b\x45NFORCEMENT\x10\x02\x42\xde\x01\n!com.google.cloud.osconfig.v1alphaB\rOsPolicyProtoP\x01ZEgoogle.golang.org/genproto/googleapis/cloud/osconfig/v1alpha;osconfig\xaa\x02\x1dGoogle.Cloud.OsConfig.V1Alpha\xca\x02\x1dGoogle\\Cloud\\OsConfig\\V1alpha\xea\x02 Google::Cloud::OsConfig::V1alphab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.osconfig.v1alpha.os_policy_pb2', globals())
@@ -87,62 +86,62 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _OSPOLICY.fields_by_name['mode']._serialized_options = b'\340A\002'
   _OSPOLICY.fields_by_name['resource_groups']._options = None
   _OSPOLICY.fields_by_name['resource_groups']._serialized_options = b'\340A\002'
-  _OSPOLICY._serialized_start=144
-  _OSPOLICY._serialized_end=4628
-  _OSPOLICY_OSFILTER._serialized_start=383
-  _OSPOLICY_OSFILTER._serialized_end=436
-  _OSPOLICY_INVENTORYFILTER._serialized_start=438
-  _OSPOLICY_INVENTORYFILTER._serialized_end=503
-  _OSPOLICY_RESOURCE._serialized_start=506
-  _OSPOLICY_RESOURCE._serialized_end=4316
-  _OSPOLICY_RESOURCE_FILE._serialized_start=866
-  _OSPOLICY_RESOURCE_FILE._serialized_end=1202
-  _OSPOLICY_RESOURCE_FILE_REMOTE._serialized_start=1074
-  _OSPOLICY_RESOURCE_FILE_REMOTE._serialized_end=1125
-  _OSPOLICY_RESOURCE_FILE_GCS._serialized_start=1127
-  _OSPOLICY_RESOURCE_FILE_GCS._serialized_end=1194
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE._serialized_start=1205
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE._serialized_end=2446
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE_DEB._serialized_start=1938
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE_DEB._serialized_end=2038
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE_APT._serialized_start=2040
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE_APT._serialized_end=2064
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE_RPM._serialized_start=2066
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE_RPM._serialized_end=2166
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE_YUM._serialized_start=2168
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE_YUM._serialized_end=2192
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE_ZYPPER._serialized_start=2194
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE_ZYPPER._serialized_end=2221
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE_GOOGET._serialized_start=2223
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE_GOOGET._serialized_end=2250
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE_MSI._serialized_start=2252
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE_MSI._serialized_end=2353
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE_DESIREDSTATE._serialized_start=2355
-  _OSPOLICY_RESOURCE_PACKAGERESOURCE_DESIREDSTATE._serialized_end=2428
-  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE._serialized_start=2449
-  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE._serialized_end=3426
-  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_APTREPOSITORY._serialized_start=2870
-  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_APTREPOSITORY._serialized_end=3161
-  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_APTREPOSITORY_ARCHIVETYPE._serialized_start=3096
-  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_APTREPOSITORY_ARCHIVETYPE._serialized_end=3161
-  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_YUMREPOSITORY._serialized_start=3163
-  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_YUMREPOSITORY._serialized_end=3258
-  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_ZYPPERREPOSITORY._serialized_start=3260
-  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_ZYPPERREPOSITORY._serialized_end=3358
-  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_GOOREPOSITORY._serialized_start=3360
-  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_GOOREPOSITORY._serialized_end=3412
-  _OSPOLICY_RESOURCE_EXECRESOURCE._serialized_start=3429
-  _OSPOLICY_RESOURCE_EXECRESOURCE._serialized_end=3954
-  _OSPOLICY_RESOURCE_EXECRESOURCE_EXEC._serialized_start=3622
-  _OSPOLICY_RESOURCE_EXECRESOURCE_EXEC._serialized_end=3954
-  _OSPOLICY_RESOURCE_EXECRESOURCE_EXEC_INTERPRETER._serialized_start=3865
-  _OSPOLICY_RESOURCE_EXECRESOURCE_EXEC_INTERPRETER._serialized_end=3944
-  _OSPOLICY_RESOURCE_FILERESOURCE._serialized_start=3957
-  _OSPOLICY_RESOURCE_FILERESOURCE._serialized_end=4299
-  _OSPOLICY_RESOURCE_FILERESOURCE_DESIREDSTATE._serialized_start=4199
-  _OSPOLICY_RESOURCE_FILERESOURCE_DESIREDSTATE._serialized_end=4289
-  _OSPOLICY_RESOURCEGROUP._serialized_start=4319
-  _OSPOLICY_RESOURCEGROUP._serialized_end=4565
-  _OSPOLICY_MODE._serialized_start=4567
-  _OSPOLICY_MODE._serialized_end=4628
+  _OSPOLICY._serialized_start=114
+  _OSPOLICY._serialized_end=4598
+  _OSPOLICY_OSFILTER._serialized_start=353
+  _OSPOLICY_OSFILTER._serialized_end=406
+  _OSPOLICY_INVENTORYFILTER._serialized_start=408
+  _OSPOLICY_INVENTORYFILTER._serialized_end=473
+  _OSPOLICY_RESOURCE._serialized_start=476
+  _OSPOLICY_RESOURCE._serialized_end=4286
+  _OSPOLICY_RESOURCE_FILE._serialized_start=836
+  _OSPOLICY_RESOURCE_FILE._serialized_end=1172
+  _OSPOLICY_RESOURCE_FILE_REMOTE._serialized_start=1044
+  _OSPOLICY_RESOURCE_FILE_REMOTE._serialized_end=1095
+  _OSPOLICY_RESOURCE_FILE_GCS._serialized_start=1097
+  _OSPOLICY_RESOURCE_FILE_GCS._serialized_end=1164
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE._serialized_start=1175
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE._serialized_end=2416
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE_DEB._serialized_start=1908
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE_DEB._serialized_end=2008
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE_APT._serialized_start=2010
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE_APT._serialized_end=2034
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE_RPM._serialized_start=2036
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE_RPM._serialized_end=2136
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE_YUM._serialized_start=2138
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE_YUM._serialized_end=2162
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE_ZYPPER._serialized_start=2164
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE_ZYPPER._serialized_end=2191
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE_GOOGET._serialized_start=2193
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE_GOOGET._serialized_end=2220
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE_MSI._serialized_start=2222
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE_MSI._serialized_end=2323
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE_DESIREDSTATE._serialized_start=2325
+  _OSPOLICY_RESOURCE_PACKAGERESOURCE_DESIREDSTATE._serialized_end=2398
+  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE._serialized_start=2419
+  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE._serialized_end=3396
+  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_APTREPOSITORY._serialized_start=2840
+  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_APTREPOSITORY._serialized_end=3131
+  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_APTREPOSITORY_ARCHIVETYPE._serialized_start=3066
+  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_APTREPOSITORY_ARCHIVETYPE._serialized_end=3131
+  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_YUMREPOSITORY._serialized_start=3133
+  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_YUMREPOSITORY._serialized_end=3228
+  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_ZYPPERREPOSITORY._serialized_start=3230
+  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_ZYPPERREPOSITORY._serialized_end=3328
+  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_GOOREPOSITORY._serialized_start=3330
+  _OSPOLICY_RESOURCE_REPOSITORYRESOURCE_GOOREPOSITORY._serialized_end=3382
+  _OSPOLICY_RESOURCE_EXECRESOURCE._serialized_start=3399
+  _OSPOLICY_RESOURCE_EXECRESOURCE._serialized_end=3924
+  _OSPOLICY_RESOURCE_EXECRESOURCE_EXEC._serialized_start=3592
+  _OSPOLICY_RESOURCE_EXECRESOURCE_EXEC._serialized_end=3924
+  _OSPOLICY_RESOURCE_EXECRESOURCE_EXEC_INTERPRETER._serialized_start=3835
+  _OSPOLICY_RESOURCE_EXECRESOURCE_EXEC_INTERPRETER._serialized_end=3914
+  _OSPOLICY_RESOURCE_FILERESOURCE._serialized_start=3927
+  _OSPOLICY_RESOURCE_FILERESOURCE._serialized_end=4269
+  _OSPOLICY_RESOURCE_FILERESOURCE_DESIREDSTATE._serialized_start=4169
+  _OSPOLICY_RESOURCE_FILERESOURCE_DESIREDSTATE._serialized_end=4259
+  _OSPOLICY_RESOURCEGROUP._serialized_start=4289
+  _OSPOLICY_RESOURCEGROUP._serialized_end=4535
+  _OSPOLICY_MODE._serialized_start=4537
+  _OSPOLICY_MODE._serialized_end=4598
 # @@protoc_insertion_point(module_scope)

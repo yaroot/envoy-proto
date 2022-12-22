@@ -39,119 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BasicInsightsAudience(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              countryLocation_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.LocationInfo>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            countryLocation_.add(
-                input.readMessage(com.google.ads.googleads.v11.common.LocationInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              subCountryLocations_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.LocationInfo>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            subCountryLocations_.add(
-                input.readMessage(com.google.ads.googleads.v11.common.LocationInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            com.google.ads.googleads.v11.common.GenderInfo.Builder subBuilder = null;
-            if (gender_ != null) {
-              subBuilder = gender_.toBuilder();
-            }
-            gender_ = input.readMessage(com.google.ads.googleads.v11.common.GenderInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(gender_);
-              gender_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              ageRanges_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.AgeRangeInfo>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            ageRanges_.add(
-                input.readMessage(com.google.ads.googleads.v11.common.AgeRangeInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              userInterests_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.UserInterestInfo>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            userInterests_.add(
-                input.readMessage(com.google.ads.googleads.v11.common.UserInterestInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              topics_ = new java.util.ArrayList<com.google.ads.googleads.v11.services.AudienceInsightsTopic>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            topics_.add(
-                input.readMessage(com.google.ads.googleads.v11.services.AudienceInsightsTopic.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        countryLocation_ = java.util.Collections.unmodifiableList(countryLocation_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        subCountryLocations_ = java.util.Collections.unmodifiableList(subCountryLocations_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        ageRanges_ = java.util.Collections.unmodifiableList(ageRanges_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        userInterests_ = java.util.Collections.unmodifiableList(userInterests_);
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        topics_ = java.util.Collections.unmodifiableList(topics_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.services.AudienceInsightsServiceProto.internal_static_google_ads_googleads_v11_services_BasicInsightsAudience_descriptor;
@@ -166,6 +53,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COUNTRY_LOCATION_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.common.LocationInfo> countryLocation_;
   /**
    * <pre>
@@ -226,6 +114,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUB_COUNTRY_LOCATIONS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.common.LocationInfo> subCountryLocations_;
   /**
    * <pre>
@@ -328,10 +217,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v11.common.GenderInfoOrBuilder getGenderOrBuilder() {
-    return getGender();
+    return gender_ == null ? com.google.ads.googleads.v11.common.GenderInfo.getDefaultInstance() : gender_;
   }
 
   public static final int AGE_RANGES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.common.AgeRangeInfo> ageRanges_;
   /**
    * <pre>
@@ -397,6 +287,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_INTERESTS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.common.UserInterestInfo> userInterests_;
   /**
    * <pre>
@@ -462,6 +353,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOPICS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.services.AudienceInsightsTopic> topics_;
   /**
    * <pre>
@@ -558,7 +450,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < topics_.size(); i++) {
       output.writeMessage(6, topics_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -591,7 +483,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, topics_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -621,7 +513,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getUserInterestsList())) return false;
     if (!getTopicsList()
         .equals(other.getTopicsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -656,7 +548,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TOPICS_FIELD_NUMBER;
       hash = (53 * hash) + getTopicsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -777,63 +669,58 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.services.BasicInsightsAudience.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getCountryLocationFieldBuilder();
-        getSubCountryLocationsFieldBuilder();
-        getAgeRangesFieldBuilder();
-        getUserInterestsFieldBuilder();
-        getTopicsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (countryLocationBuilder_ == null) {
         countryLocation_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        countryLocation_ = null;
         countryLocationBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (subCountryLocationsBuilder_ == null) {
         subCountryLocations_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        subCountryLocations_ = null;
         subCountryLocationsBuilder_.clear();
       }
-      if (genderBuilder_ == null) {
-        gender_ = null;
-      } else {
-        gender_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      gender_ = null;
+      if (genderBuilder_ != null) {
+        genderBuilder_.dispose();
         genderBuilder_ = null;
       }
       if (ageRangesBuilder_ == null) {
         ageRanges_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        ageRanges_ = null;
         ageRangesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       if (userInterestsBuilder_ == null) {
         userInterests_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        userInterests_ = null;
         userInterestsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       if (topicsBuilder_ == null) {
         topics_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
+        topics_ = null;
         topicsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -860,7 +747,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.services.BasicInsightsAudience buildPartial() {
       com.google.ads.googleads.v11.services.BasicInsightsAudience result = new com.google.ads.googleads.v11.services.BasicInsightsAudience(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v11.services.BasicInsightsAudience result) {
       if (countryLocationBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           countryLocation_ = java.util.Collections.unmodifiableList(countryLocation_);
@@ -879,40 +772,42 @@ private static final long serialVersionUID = 0L;
       } else {
         result.subCountryLocations_ = subCountryLocationsBuilder_.build();
       }
-      if (genderBuilder_ == null) {
-        result.gender_ = gender_;
-      } else {
-        result.gender_ = genderBuilder_.build();
-      }
       if (ageRangesBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           ageRanges_ = java.util.Collections.unmodifiableList(ageRanges_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.ageRanges_ = ageRanges_;
       } else {
         result.ageRanges_ = ageRangesBuilder_.build();
       }
       if (userInterestsBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           userInterests_ = java.util.Collections.unmodifiableList(userInterests_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.userInterests_ = userInterests_;
       } else {
         result.userInterests_ = userInterestsBuilder_.build();
       }
       if (topicsBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           topics_ = java.util.Collections.unmodifiableList(topics_);
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.topics_ = topics_;
       } else {
         result.topics_ = topicsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.services.BasicInsightsAudience result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.gender_ = genderBuilder_ == null
+            ? gender_
+            : genderBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1018,7 +913,7 @@ private static final long serialVersionUID = 0L;
         if (!other.ageRanges_.isEmpty()) {
           if (ageRanges_.isEmpty()) {
             ageRanges_ = other.ageRanges_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureAgeRangesIsMutable();
             ageRanges_.addAll(other.ageRanges_);
@@ -1031,7 +926,7 @@ private static final long serialVersionUID = 0L;
             ageRangesBuilder_.dispose();
             ageRangesBuilder_ = null;
             ageRanges_ = other.ageRanges_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
             ageRangesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAgeRangesFieldBuilder() : null;
@@ -1044,7 +939,7 @@ private static final long serialVersionUID = 0L;
         if (!other.userInterests_.isEmpty()) {
           if (userInterests_.isEmpty()) {
             userInterests_ = other.userInterests_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureUserInterestsIsMutable();
             userInterests_.addAll(other.userInterests_);
@@ -1057,7 +952,7 @@ private static final long serialVersionUID = 0L;
             userInterestsBuilder_.dispose();
             userInterestsBuilder_ = null;
             userInterests_ = other.userInterests_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
             userInterestsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getUserInterestsFieldBuilder() : null;
@@ -1070,7 +965,7 @@ private static final long serialVersionUID = 0L;
         if (!other.topics_.isEmpty()) {
           if (topics_.isEmpty()) {
             topics_ = other.topics_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureTopicsIsMutable();
             topics_.addAll(other.topics_);
@@ -1083,7 +978,7 @@ private static final long serialVersionUID = 0L;
             topicsBuilder_.dispose();
             topicsBuilder_ = null;
             topics_ = other.topics_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000020);
             topicsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTopicsFieldBuilder() : null;
@@ -1092,7 +987,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1107,17 +1002,102 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.services.BasicInsightsAudience parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.ads.googleads.v11.common.LocationInfo m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.common.LocationInfo.parser(),
+                      extensionRegistry);
+              if (countryLocationBuilder_ == null) {
+                ensureCountryLocationIsMutable();
+                countryLocation_.add(m);
+              } else {
+                countryLocationBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.google.ads.googleads.v11.common.LocationInfo m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.common.LocationInfo.parser(),
+                      extensionRegistry);
+              if (subCountryLocationsBuilder_ == null) {
+                ensureSubCountryLocationsIsMutable();
+                subCountryLocations_.add(m);
+              } else {
+                subCountryLocationsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getGenderFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.ads.googleads.v11.common.AgeRangeInfo m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.common.AgeRangeInfo.parser(),
+                      extensionRegistry);
+              if (ageRangesBuilder_ == null) {
+                ensureAgeRangesIsMutable();
+                ageRanges_.add(m);
+              } else {
+                ageRangesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              com.google.ads.googleads.v11.common.UserInterestInfo m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.common.UserInterestInfo.parser(),
+                      extensionRegistry);
+              if (userInterestsBuilder_ == null) {
+                ensureUserInterestsIsMutable();
+                userInterests_.add(m);
+              } else {
+                userInterestsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              com.google.ads.googleads.v11.services.AudienceInsightsTopic m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.services.AudienceInsightsTopic.parser(),
+                      extensionRegistry);
+              if (topicsBuilder_ == null) {
+                ensureTopicsIsMutable();
+                topics_.add(m);
+              } else {
+                topicsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.services.BasicInsightsAudience) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1777,7 +1757,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the gender field is set.
      */
     public boolean hasGender() {
-      return genderBuilder_ != null || gender_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1809,11 +1789,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         gender_ = value;
-        onChanged();
       } else {
         genderBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1828,11 +1808,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.common.GenderInfo.Builder builderForValue) {
       if (genderBuilder_ == null) {
         gender_ = builderForValue.build();
-        onChanged();
       } else {
         genderBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1845,17 +1825,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGender(com.google.ads.googleads.v11.common.GenderInfo value) {
       if (genderBuilder_ == null) {
-        if (gender_ != null) {
-          gender_ =
-            com.google.ads.googleads.v11.common.GenderInfo.newBuilder(gender_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          gender_ != null &&
+          gender_ != com.google.ads.googleads.v11.common.GenderInfo.getDefaultInstance()) {
+          getGenderBuilder().mergeFrom(value);
         } else {
           gender_ = value;
         }
-        onChanged();
       } else {
         genderBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1867,14 +1848,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.common.GenderInfo gender = 3;</code>
      */
     public Builder clearGender() {
-      if (genderBuilder_ == null) {
-        gender_ = null;
-        onChanged();
-      } else {
-        gender_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      gender_ = null;
+      if (genderBuilder_ != null) {
+        genderBuilder_.dispose();
         genderBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1886,7 +1866,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.common.GenderInfo gender = 3;</code>
      */
     public com.google.ads.googleads.v11.common.GenderInfo.Builder getGenderBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getGenderFieldBuilder().getBuilder();
     }
@@ -1931,9 +1911,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.ads.googleads.v11.common.AgeRangeInfo> ageRanges_ =
       java.util.Collections.emptyList();
     private void ensureAgeRangesIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         ageRanges_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.AgeRangeInfo>(ageRanges_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -2138,7 +2118,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearAgeRanges() {
       if (ageRangesBuilder_ == null) {
         ageRanges_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         ageRangesBuilder_.clear();
@@ -2250,7 +2230,7 @@ private static final long serialVersionUID = 0L;
         ageRangesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.ads.googleads.v11.common.AgeRangeInfo, com.google.ads.googleads.v11.common.AgeRangeInfo.Builder, com.google.ads.googleads.v11.common.AgeRangeInfoOrBuilder>(
                 ageRanges_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         ageRanges_ = null;
@@ -2261,9 +2241,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.ads.googleads.v11.common.UserInterestInfo> userInterests_ =
       java.util.Collections.emptyList();
     private void ensureUserInterestsIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         userInterests_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.UserInterestInfo>(userInterests_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -2468,7 +2448,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearUserInterests() {
       if (userInterestsBuilder_ == null) {
         userInterests_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         userInterestsBuilder_.clear();
@@ -2580,7 +2560,7 @@ private static final long serialVersionUID = 0L;
         userInterestsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.ads.googleads.v11.common.UserInterestInfo, com.google.ads.googleads.v11.common.UserInterestInfo.Builder, com.google.ads.googleads.v11.common.UserInterestInfoOrBuilder>(
                 userInterests_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         userInterests_ = null;
@@ -2591,9 +2571,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.ads.googleads.v11.services.AudienceInsightsTopic> topics_ =
       java.util.Collections.emptyList();
     private void ensureTopicsIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         topics_ = new java.util.ArrayList<com.google.ads.googleads.v11.services.AudienceInsightsTopic>(topics_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -2798,7 +2778,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTopics() {
       if (topicsBuilder_ == null) {
         topics_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         topicsBuilder_.clear();
@@ -2910,7 +2890,7 @@ private static final long serialVersionUID = 0L;
         topicsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.ads.googleads.v11.services.AudienceInsightsTopic, com.google.ads.googleads.v11.services.AudienceInsightsTopic.Builder, com.google.ads.googleads.v11.services.AudienceInsightsTopicOrBuilder>(
                 topics_,
-                ((bitField0_ & 0x00000010) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         topics_ = null;
@@ -2950,7 +2930,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BasicInsightsAudience(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

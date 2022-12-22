@@ -39,130 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SmartCampaignSuggestionInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            finalUrl_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageCode_ = s;
-            break;
-          }
-          case 34: {
-            com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.LocationList.Builder subBuilder = null;
-            if (geoTargetCase_ == 4) {
-              subBuilder = ((com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.LocationList) geoTarget_).toBuilder();
-            }
-            geoTarget_ =
-                input.readMessage(com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.LocationList.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.LocationList) geoTarget_);
-              geoTarget_ = subBuilder.buildPartial();
-            }
-            geoTargetCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.ads.googleads.v11.common.ProximityInfo.Builder subBuilder = null;
-            if (geoTargetCase_ == 5) {
-              subBuilder = ((com.google.ads.googleads.v11.common.ProximityInfo) geoTarget_).toBuilder();
-            }
-            geoTarget_ =
-                input.readMessage(com.google.ads.googleads.v11.common.ProximityInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.common.ProximityInfo) geoTarget_);
-              geoTarget_ = subBuilder.buildPartial();
-            }
-            geoTargetCase_ = 5;
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              adSchedules_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.AdScheduleInfo>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            adSchedules_.add(
-                input.readMessage(com.google.ads.googleads.v11.common.AdScheduleInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              keywordThemes_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.KeywordThemeInfo>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            keywordThemes_.add(
-                input.readMessage(com.google.ads.googleads.v11.common.KeywordThemeInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 66: {
-            com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.BusinessContext.Builder subBuilder = null;
-            if (businessSettingCase_ == 8) {
-              subBuilder = ((com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.BusinessContext) businessSetting_).toBuilder();
-            }
-            businessSetting_ =
-                input.readMessage(com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.BusinessContext.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.BusinessContext) businessSetting_);
-              businessSetting_ = subBuilder.buildPartial();
-            }
-            businessSettingCase_ = 8;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-            businessSettingCase_ = 9;
-            businessSetting_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        adSchedules_ = java.util.Collections.unmodifiableList(adSchedules_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        keywordThemes_ = java.util.Collections.unmodifiableList(keywordThemes_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.services.SmartCampaignSuggestServiceProto.internal_static_google_ads_googleads_v11_services_SmartCampaignSuggestionInfo_descriptor;
@@ -256,58 +132,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LocationList(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                locations_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.LocationInfo>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              locations_.add(
-                  input.readMessage(com.google.ads.googleads.v11.common.LocationInfo.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          locations_ = java.util.Collections.unmodifiableList(locations_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.googleads.v11.services.SmartCampaignSuggestServiceProto.internal_static_google_ads_googleads_v11_services_SmartCampaignSuggestionInfo_LocationList_descriptor;
@@ -322,6 +146,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int LOCATIONS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.ads.googleads.v11.common.LocationInfo> locations_;
     /**
      * <pre>
@@ -398,7 +223,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < locations_.size(); i++) {
         output.writeMessage(1, locations_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -411,7 +236,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, locations_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -428,7 +253,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getLocationsList()
           .equals(other.getLocationsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -443,7 +268,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + LOCATIONS_FIELD_NUMBER;
         hash = (53 * hash) + getLocationsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -564,29 +389,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.LocationList.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getLocationsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (locationsBuilder_ == null) {
           locations_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          locations_ = null;
           locationsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -613,7 +434,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.LocationList buildPartial() {
         com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.LocationList result = new com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.LocationList(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.LocationList result) {
         if (locationsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             locations_ = java.util.Collections.unmodifiableList(locations_);
@@ -623,8 +450,10 @@ private static final long serialVersionUID = 0L;
         } else {
           result.locations_ = locationsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.LocationList result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -697,7 +526,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -712,17 +541,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.LocationList parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.ads.googleads.v11.common.LocationInfo m =
+                    input.readMessage(
+                        com.google.ads.googleads.v11.common.LocationInfo.parser(),
+                        extensionRegistry);
+                if (locationsBuilder_ == null) {
+                  ensureLocationsIsMutable();
+                  locations_.add(m);
+                } else {
+                  locationsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.LocationList) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1071,7 +926,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LocationList(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1147,51 +1013,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BusinessContext(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              businessName_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.googleads.v11.services.SmartCampaignSuggestServiceProto.internal_static_google_ads_googleads_v11_services_SmartCampaignSuggestionInfo_BusinessContext_descriptor;
@@ -1206,7 +1027,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int BUSINESS_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object businessName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object businessName_ = "";
     /**
      * <pre>
      * Optional. The name of the business.
@@ -1268,7 +1090,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(businessName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, businessName_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1280,7 +1102,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(businessName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, businessName_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1297,7 +1119,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getBusinessName()
           .equals(other.getBusinessName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1310,7 +1132,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + BUSINESS_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getBusinessName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1431,24 +1253,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.BusinessContext.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         businessName_ = "";
-
         return this;
       }
 
@@ -1475,9 +1292,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.BusinessContext buildPartial() {
         com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.BusinessContext result = new com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.BusinessContext(this);
-        result.businessName_ = businessName_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.BusinessContext result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.businessName_ = businessName_;
+        }
       }
 
       @java.lang.Override
@@ -1526,9 +1350,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.BusinessContext.getDefaultInstance()) return this;
         if (!other.getBusinessName().isEmpty()) {
           businessName_ = other.businessName_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1543,19 +1368,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.BusinessContext parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                businessName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.BusinessContext) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object businessName_ = "";
       /**
@@ -1610,11 +1454,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setBusinessName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         businessName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1627,8 +1469,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearBusinessName() {
-        
         businessName_ = getDefaultInstance().getBusinessName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1643,12 +1485,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setBusinessNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         businessName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1685,7 +1525,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BusinessContext(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1788,7 +1639,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FINAL_URL_FIELD_NUMBER = 1;
-  private volatile java.lang.Object finalUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object finalUrl_ = "";
   /**
    * <pre>
    * Optional. Landing page URL of the campaign.
@@ -1834,7 +1686,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LANGUAGE_CODE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object languageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageCode_ = "";
   /**
    * <pre>
    * Optional. The two letter advertising language for the Smart campaign to be
@@ -1882,6 +1735,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AD_SCHEDULES_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.common.AdScheduleInfo> adSchedules_;
   /**
    * <pre>
@@ -1942,6 +1796,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KEYWORD_THEMES_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.common.KeywordThemeInfo> keywordThemes_;
   /**
    * <pre>
@@ -2053,8 +1908,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Optional. The resource name of a Business Profile location.
-   * Business Profile location resource names can be fetched via the Business
-   * Profile API and adhere to the following format:
+   * Business Profile location resource names can be fetched through the
+   * Business Profile API and adhere to the following format:
    * `locations/{locationId}`.
    * See the [Business Profile API]
    * (https://developers.google.com/my-business/reference/businessinformation/rest/v1/accounts.locations)
@@ -2070,8 +1925,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Optional. The resource name of a Business Profile location.
-   * Business Profile location resource names can be fetched via the Business
-   * Profile API and adhere to the following format:
+   * Business Profile location resource names can be fetched through the
+   * Business Profile API and adhere to the following format:
    * `locations/{locationId}`.
    * See the [Business Profile API]
    * (https://developers.google.com/my-business/reference/businessinformation/rest/v1/accounts.locations)
@@ -2101,8 +1956,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Optional. The resource name of a Business Profile location.
-   * Business Profile location resource names can be fetched via the Business
-   * Profile API and adhere to the following format:
+   * Business Profile location resource names can be fetched through the
+   * Business Profile API and adhere to the following format:
    * `locations/{locationId}`.
    * See the [Business Profile API]
    * (https://developers.google.com/my-business/reference/businessinformation/rest/v1/accounts.locations)
@@ -2255,7 +2110,7 @@ private static final long serialVersionUID = 0L;
     if (businessSettingCase_ == 9) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, businessSetting_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2293,7 +2148,7 @@ private static final long serialVersionUID = 0L;
     if (businessSettingCase_ == 9) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, businessSetting_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2342,7 +2197,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2389,7 +2244,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2511,39 +2366,42 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getAdSchedulesFieldBuilder();
-        getKeywordThemesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       finalUrl_ = "";
-
       languageCode_ = "";
-
       if (adSchedulesBuilder_ == null) {
         adSchedules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        adSchedules_ = null;
         adSchedulesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (keywordThemesBuilder_ == null) {
         keywordThemes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        keywordThemes_ = null;
         keywordThemesBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000008);
+      if (businessContextBuilder_ != null) {
+        businessContextBuilder_.clear();
+      }
+      if (locationListBuilder_ != null) {
+        locationListBuilder_.clear();
+      }
+      if (proximityBuilder_ != null) {
+        proximityBuilder_.clear();
       }
       businessSettingCase_ = 0;
       businessSetting_ = null;
@@ -2575,55 +2433,61 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo buildPartial() {
       com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo result = new com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo(this);
-      int from_bitField0_ = bitField0_;
-      result.finalUrl_ = finalUrl_;
-      result.languageCode_ = languageCode_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo result) {
       if (adSchedulesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           adSchedules_ = java.util.Collections.unmodifiableList(adSchedules_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.adSchedules_ = adSchedules_;
       } else {
         result.adSchedules_ = adSchedulesBuilder_.build();
       }
       if (keywordThemesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           keywordThemes_ = java.util.Collections.unmodifiableList(keywordThemes_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.keywordThemes_ = keywordThemes_;
       } else {
         result.keywordThemes_ = keywordThemesBuilder_.build();
       }
-      if (businessSettingCase_ == 8) {
-        if (businessContextBuilder_ == null) {
-          result.businessSetting_ = businessSetting_;
-        } else {
-          result.businessSetting_ = businessContextBuilder_.build();
-        }
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.finalUrl_ = finalUrl_;
       }
-      if (businessSettingCase_ == 9) {
-        result.businessSetting_ = businessSetting_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.languageCode_ = languageCode_;
       }
-      if (geoTargetCase_ == 4) {
-        if (locationListBuilder_ == null) {
-          result.geoTarget_ = geoTarget_;
-        } else {
-          result.geoTarget_ = locationListBuilder_.build();
-        }
-      }
-      if (geoTargetCase_ == 5) {
-        if (proximityBuilder_ == null) {
-          result.geoTarget_ = geoTarget_;
-        } else {
-          result.geoTarget_ = proximityBuilder_.build();
-        }
-      }
+    }
+
+    private void buildPartialOneofs(com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo result) {
       result.businessSettingCase_ = businessSettingCase_;
+      result.businessSetting_ = this.businessSetting_;
+      if (businessSettingCase_ == 8 &&
+          businessContextBuilder_ != null) {
+        result.businessSetting_ = businessContextBuilder_.build();
+      }
       result.geoTargetCase_ = geoTargetCase_;
-      onBuilt();
-      return result;
+      result.geoTarget_ = this.geoTarget_;
+      if (geoTargetCase_ == 4 &&
+          locationListBuilder_ != null) {
+        result.geoTarget_ = locationListBuilder_.build();
+      }
+      if (geoTargetCase_ == 5 &&
+          proximityBuilder_ != null) {
+        result.geoTarget_ = proximityBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2672,17 +2536,19 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo.getDefaultInstance()) return this;
       if (!other.getFinalUrl().isEmpty()) {
         finalUrl_ = other.finalUrl_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getLanguageCode().isEmpty()) {
         languageCode_ = other.languageCode_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (adSchedulesBuilder_ == null) {
         if (!other.adSchedules_.isEmpty()) {
           if (adSchedules_.isEmpty()) {
             adSchedules_ = other.adSchedules_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureAdSchedulesIsMutable();
             adSchedules_.addAll(other.adSchedules_);
@@ -2695,7 +2561,7 @@ private static final long serialVersionUID = 0L;
             adSchedulesBuilder_.dispose();
             adSchedulesBuilder_ = null;
             adSchedules_ = other.adSchedules_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             adSchedulesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAdSchedulesFieldBuilder() : null;
@@ -2708,7 +2574,7 @@ private static final long serialVersionUID = 0L;
         if (!other.keywordThemes_.isEmpty()) {
           if (keywordThemes_.isEmpty()) {
             keywordThemes_ = other.keywordThemes_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureKeywordThemesIsMutable();
             keywordThemes_.addAll(other.keywordThemes_);
@@ -2721,7 +2587,7 @@ private static final long serialVersionUID = 0L;
             keywordThemesBuilder_.dispose();
             keywordThemesBuilder_ = null;
             keywordThemes_ = other.keywordThemes_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
             keywordThemesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getKeywordThemesFieldBuilder() : null;
@@ -2758,7 +2624,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2773,17 +2639,93 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              finalUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              languageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getLocationListFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              geoTargetCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getProximityFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              geoTargetCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              com.google.ads.googleads.v11.common.AdScheduleInfo m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.common.AdScheduleInfo.parser(),
+                      extensionRegistry);
+              if (adSchedulesBuilder_ == null) {
+                ensureAdSchedulesIsMutable();
+                adSchedules_.add(m);
+              } else {
+                adSchedulesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            case 58: {
+              com.google.ads.googleads.v11.common.KeywordThemeInfo m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.common.KeywordThemeInfo.parser(),
+                      extensionRegistry);
+              if (keywordThemesBuilder_ == null) {
+                ensureKeywordThemesIsMutable();
+                keywordThemes_.add(m);
+              } else {
+                keywordThemesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getBusinessContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              businessSettingCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+              businessSettingCase_ = 9;
+              businessSetting_ = s;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.services.SmartCampaignSuggestionInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int businessSettingCase_ = 0;
@@ -2871,11 +2813,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFinalUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       finalUrl_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2888,8 +2828,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFinalUrl() {
-      
       finalUrl_ = getDefaultInstance().getFinalUrl();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2904,12 +2844,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFinalUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       finalUrl_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2970,11 +2908,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageCode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2988,8 +2924,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguageCode() {
-      
       languageCode_ = getDefaultInstance().getLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -3005,12 +2941,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageCode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3018,9 +2952,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.ads.googleads.v11.common.AdScheduleInfo> adSchedules_ =
       java.util.Collections.emptyList();
     private void ensureAdSchedulesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         adSchedules_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.AdScheduleInfo>(adSchedules_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -3214,7 +3148,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearAdSchedules() {
       if (adSchedulesBuilder_ == null) {
         adSchedules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         adSchedulesBuilder_.clear();
@@ -3319,7 +3253,7 @@ private static final long serialVersionUID = 0L;
         adSchedulesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.ads.googleads.v11.common.AdScheduleInfo, com.google.ads.googleads.v11.common.AdScheduleInfo.Builder, com.google.ads.googleads.v11.common.AdScheduleInfoOrBuilder>(
                 adSchedules_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         adSchedules_ = null;
@@ -3330,9 +3264,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.ads.googleads.v11.common.KeywordThemeInfo> keywordThemes_ =
       java.util.Collections.emptyList();
     private void ensureKeywordThemesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         keywordThemes_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.KeywordThemeInfo>(keywordThemes_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -3537,7 +3471,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearKeywordThemes() {
       if (keywordThemesBuilder_ == null) {
         keywordThemes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         keywordThemesBuilder_.clear();
@@ -3649,7 +3583,7 @@ private static final long serialVersionUID = 0L;
         keywordThemesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.ads.googleads.v11.common.KeywordThemeInfo, com.google.ads.googleads.v11.common.KeywordThemeInfo.Builder, com.google.ads.googleads.v11.common.KeywordThemeInfoOrBuilder>(
                 keywordThemes_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         keywordThemes_ = null;
@@ -3831,15 +3765,15 @@ private static final long serialVersionUID = 0L;
         businessSetting_ = null;
       }
       businessSettingCase_ = 8;
-      onChanged();;
+      onChanged();
       return businessContextBuilder_;
     }
 
     /**
      * <pre>
      * Optional. The resource name of a Business Profile location.
-     * Business Profile location resource names can be fetched via the Business
-     * Profile API and adhere to the following format:
+     * Business Profile location resource names can be fetched through the
+     * Business Profile API and adhere to the following format:
      * `locations/{locationId}`.
      * See the [Business Profile API]
      * (https://developers.google.com/my-business/reference/businessinformation/rest/v1/accounts.locations)
@@ -3856,8 +3790,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional. The resource name of a Business Profile location.
-     * Business Profile location resource names can be fetched via the Business
-     * Profile API and adhere to the following format:
+     * Business Profile location resource names can be fetched through the
+     * Business Profile API and adhere to the following format:
      * `locations/{locationId}`.
      * See the [Business Profile API]
      * (https://developers.google.com/my-business/reference/businessinformation/rest/v1/accounts.locations)
@@ -3888,8 +3822,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional. The resource name of a Business Profile location.
-     * Business Profile location resource names can be fetched via the Business
-     * Profile API and adhere to the following format:
+     * Business Profile location resource names can be fetched through the
+     * Business Profile API and adhere to the following format:
      * `locations/{locationId}`.
      * See the [Business Profile API]
      * (https://developers.google.com/my-business/reference/businessinformation/rest/v1/accounts.locations)
@@ -3921,8 +3855,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional. The resource name of a Business Profile location.
-     * Business Profile location resource names can be fetched via the Business
-     * Profile API and adhere to the following format:
+     * Business Profile location resource names can be fetched through the
+     * Business Profile API and adhere to the following format:
      * `locations/{locationId}`.
      * See the [Business Profile API]
      * (https://developers.google.com/my-business/reference/businessinformation/rest/v1/accounts.locations)
@@ -3935,10 +3869,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBusinessProfileLocation(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  businessSettingCase_ = 9;
+      if (value == null) { throw new NullPointerException(); }
+      businessSettingCase_ = 9;
       businessSetting_ = value;
       onChanged();
       return this;
@@ -3946,8 +3878,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional. The resource name of a Business Profile location.
-     * Business Profile location resource names can be fetched via the Business
-     * Profile API and adhere to the following format:
+     * Business Profile location resource names can be fetched through the
+     * Business Profile API and adhere to the following format:
      * `locations/{locationId}`.
      * See the [Business Profile API]
      * (https://developers.google.com/my-business/reference/businessinformation/rest/v1/accounts.locations)
@@ -3968,8 +3900,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional. The resource name of a Business Profile location.
-     * Business Profile location resource names can be fetched via the Business
-     * Profile API and adhere to the following format:
+     * Business Profile location resource names can be fetched through the
+     * Business Profile API and adhere to the following format:
      * `locations/{locationId}`.
      * See the [Business Profile API]
      * (https://developers.google.com/my-business/reference/businessinformation/rest/v1/accounts.locations)
@@ -3982,10 +3914,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBusinessProfileLocationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       businessSettingCase_ = 9;
       businessSetting_ = value;
       onChanged();
@@ -4166,7 +4096,7 @@ private static final long serialVersionUID = 0L;
         geoTarget_ = null;
       }
       geoTargetCase_ = 4;
-      onChanged();;
+      onChanged();
       return locationListBuilder_;
     }
 
@@ -4344,7 +4274,7 @@ private static final long serialVersionUID = 0L;
         geoTarget_ = null;
       }
       geoTargetCase_ = 5;
-      onChanged();;
+      onChanged();
       return proximityBuilder_;
     }
     @java.lang.Override
@@ -4380,7 +4310,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SmartCampaignSuggestionInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

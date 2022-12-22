@@ -30,6 +30,7 @@ private static final long serialVersionUID = 0L;
     provisionedResourcesParent_ = "";
     resourceSettings_ = java.util.Collections.emptyList();
     kajEnrollmentState_ = 0;
+    compliantButDisallowedServices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -43,225 +44,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Workload(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              resources_ = new java.util.ArrayList<com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            resources_.add(
-                input.readMessage(com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            complianceRegime_ = rawValue;
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            billingAccount_ = s;
-            break;
-          }
-          case 58: {
-            com.google.cloud.assuredworkloads.v1beta1.Workload.IL4Settings.Builder subBuilder = null;
-            if (complianceRegimeSettingsCase_ == 7) {
-              subBuilder = ((com.google.cloud.assuredworkloads.v1beta1.Workload.IL4Settings) complianceRegimeSettings_).toBuilder();
-            }
-            complianceRegimeSettings_ =
-                input.readMessage(com.google.cloud.assuredworkloads.v1beta1.Workload.IL4Settings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.assuredworkloads.v1beta1.Workload.IL4Settings) complianceRegimeSettings_);
-              complianceRegimeSettings_ = subBuilder.buildPartial();
-            }
-            complianceRegimeSettingsCase_ = 7;
-            break;
-          }
-          case 66: {
-            com.google.cloud.assuredworkloads.v1beta1.Workload.CJISSettings.Builder subBuilder = null;
-            if (complianceRegimeSettingsCase_ == 8) {
-              subBuilder = ((com.google.cloud.assuredworkloads.v1beta1.Workload.CJISSettings) complianceRegimeSettings_).toBuilder();
-            }
-            complianceRegimeSettings_ =
-                input.readMessage(com.google.cloud.assuredworkloads.v1beta1.Workload.CJISSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.assuredworkloads.v1beta1.Workload.CJISSettings) complianceRegimeSettings_);
-              complianceRegimeSettings_ = subBuilder.buildPartial();
-            }
-            complianceRegimeSettingsCase_ = 8;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            etag_ = s;
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 90: {
-            com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampHighSettings.Builder subBuilder = null;
-            if (complianceRegimeSettingsCase_ == 11) {
-              subBuilder = ((com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampHighSettings) complianceRegimeSettings_).toBuilder();
-            }
-            complianceRegimeSettings_ =
-                input.readMessage(com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampHighSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampHighSettings) complianceRegimeSettings_);
-              complianceRegimeSettings_ = subBuilder.buildPartial();
-            }
-            complianceRegimeSettingsCase_ = 11;
-            break;
-          }
-          case 98: {
-            com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampModerateSettings.Builder subBuilder = null;
-            if (complianceRegimeSettingsCase_ == 12) {
-              subBuilder = ((com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampModerateSettings) complianceRegimeSettings_).toBuilder();
-            }
-            complianceRegimeSettings_ =
-                input.readMessage(com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampModerateSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampModerateSettings) complianceRegimeSettings_);
-              complianceRegimeSettings_ = subBuilder.buildPartial();
-            }
-            complianceRegimeSettingsCase_ = 12;
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            provisionedResourcesParent_ = s;
-            break;
-          }
-          case 114: {
-            com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.Builder subBuilder = null;
-            if (kmsSettings_ != null) {
-              subBuilder = kmsSettings_.toBuilder();
-            }
-            kmsSettings_ = input.readMessage(com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(kmsSettings_);
-              kmsSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              resourceSettings_ = new java.util.ArrayList<com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettings>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            resourceSettings_.add(
-                input.readMessage(com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettings.parser(), extensionRegistry));
-            break;
-          }
-          case 136: {
-            int rawValue = input.readEnum();
-
-            kajEnrollmentState_ = rawValue;
-            break;
-          }
-          case 144: {
-
-            enableSovereignControls_ = input.readBool();
-            break;
-          }
-          case 162: {
-            com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.Builder subBuilder = null;
-            if (saaEnrollmentResponse_ != null) {
-              subBuilder = saaEnrollmentResponse_.toBuilder();
-            }
-            saaEnrollmentResponse_ = input.readMessage(com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(saaEnrollmentResponse_);
-              saaEnrollmentResponse_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        resources_ = java.util.Collections.unmodifiableList(resources_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        resourceSettings_ = java.util.Collections.unmodifiableList(resourceSettings_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -385,6 +167,14 @@ private static final long serialVersionUID = 0L;
      * <code>ITAR = 10;</code>
      */
     ITAR(10),
+    /**
+     * <pre>
+     * Assured Workloads for Australia Regions and Support controls
+     * </pre>
+     *
+     * <code>AU_REGIONS_AND_US_SUPPORT = 11;</code>
+     */
+    AU_REGIONS_AND_US_SUPPORT(11),
     UNRECOGNIZED(-1),
     ;
 
@@ -476,6 +266,14 @@ private static final long serialVersionUID = 0L;
      * <code>ITAR = 10;</code>
      */
     public static final int ITAR_VALUE = 10;
+    /**
+     * <pre>
+     * Assured Workloads for Australia Regions and Support controls
+     * </pre>
+     *
+     * <code>AU_REGIONS_AND_US_SUPPORT = 11;</code>
+     */
+    public static final int AU_REGIONS_AND_US_SUPPORT_VALUE = 11;
 
 
     public final int getNumber() {
@@ -513,6 +311,7 @@ private static final long serialVersionUID = 0L;
         case 8: return EU_REGIONS_AND_SUPPORT;
         case 9: return CA_REGIONS_AND_SUPPORT;
         case 10: return ITAR;
+        case 11: return AU_REGIONS_AND_US_SUPPORT;
         default: return null;
       }
     }
@@ -780,56 +579,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ResourceInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              resourceId_ = input.readInt64();
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              resourceType_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.assuredworkloads.v1beta1.AssuredworkloadsProto.internal_static_google_cloud_assuredworkloads_v1beta1_Workload_ResourceInfo_descriptor;
@@ -1026,7 +775,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int RESOURCE_ID_FIELD_NUMBER = 1;
-    private long resourceId_;
+    private long resourceId_ = 0L;
     /**
      * <pre>
      * Resource identifier.
@@ -1042,7 +791,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int RESOURCE_TYPE_FIELD_NUMBER = 2;
-    private int resourceType_;
+    private int resourceType_ = 0;
     /**
      * <pre>
      * Indicates the type of resource.
@@ -1063,8 +812,7 @@ private static final long serialVersionUID = 0L;
      * @return The resourceType.
      */
     @java.lang.Override public com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType getResourceType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType result = com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType.valueOf(resourceType_);
+      com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType result = com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType.forNumber(resourceType_);
       return result == null ? com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType.UNRECOGNIZED : result;
     }
 
@@ -1088,7 +836,7 @@ private static final long serialVersionUID = 0L;
       if (resourceType_ != com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType.RESOURCE_TYPE_UNSPECIFIED.getNumber()) {
         output.writeEnum(2, resourceType_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1105,7 +853,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, resourceType_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1123,7 +871,7 @@ private static final long serialVersionUID = 0L;
       if (getResourceId()
           != other.getResourceId()) return false;
       if (resourceType_ != other.resourceType_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1139,7 +887,7 @@ private static final long serialVersionUID = 0L;
           getResourceId());
       hash = (37 * hash) + RESOURCE_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + resourceType_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1260,26 +1008,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         resourceId_ = 0L;
-
         resourceType_ = 0;
-
         return this;
       }
 
@@ -1306,10 +1048,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo buildPartial() {
         com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo result = new com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo(this);
-        result.resourceId_ = resourceId_;
-        result.resourceType_ = resourceType_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.resourceId_ = resourceId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.resourceType_ = resourceType_;
+        }
       }
 
       @java.lang.Override
@@ -1362,7 +1113,7 @@ private static final long serialVersionUID = 0L;
         if (other.resourceType_ != 0) {
           setResourceTypeValue(other.getResourceTypeValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1377,19 +1128,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                resourceId_ = input.readInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                resourceType_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long resourceId_ ;
       /**
@@ -1418,6 +1193,7 @@ private static final long serialVersionUID = 0L;
       public Builder setResourceId(long value) {
         
         resourceId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1431,7 +1207,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearResourceId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         resourceId_ = 0L;
         onChanged();
         return this;
@@ -1459,8 +1235,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setResourceTypeValue(int value) {
-        
         resourceType_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1474,8 +1250,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType getResourceType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType result = com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType.valueOf(resourceType_);
+        com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType result = com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType.forNumber(resourceType_);
         return result == null ? com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType.UNRECOGNIZED : result;
       }
       /**
@@ -1491,7 +1266,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         resourceType_ = value.getNumber();
         onChanged();
         return this;
@@ -1505,7 +1280,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearResourceType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         resourceType_ = 0;
         onChanged();
         return this;
@@ -1543,7 +1318,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ResourceInfo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1661,71 +1447,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private KMSSettings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (nextRotationTime_ != null) {
-                subBuilder = nextRotationTime_.toBuilder();
-              }
-              nextRotationTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(nextRotationTime_);
-                nextRotationTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (rotationPeriod_ != null) {
-                subBuilder = rotationPeriod_.toBuilder();
-              }
-              rotationPeriod_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(rotationPeriod_);
-                rotationPeriod_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.assuredworkloads.v1beta1.AssuredworkloadsProto.internal_static_google_cloud_assuredworkloads_v1beta1_Workload_KMSSettings_descriptor;
@@ -1777,7 +1498,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getNextRotationTimeOrBuilder() {
-      return getNextRotationTime();
+      return nextRotationTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : nextRotationTime_;
     }
 
     public static final int ROTATION_PERIOD_FIELD_NUMBER = 2;
@@ -1821,7 +1542,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getRotationPeriodOrBuilder() {
-      return getRotationPeriod();
+      return rotationPeriod_ == null ? com.google.protobuf.Duration.getDefaultInstance() : rotationPeriod_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1844,7 +1565,7 @@ private static final long serialVersionUID = 0L;
       if (rotationPeriod_ != null) {
         output.writeMessage(2, getRotationPeriod());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1861,7 +1582,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getRotationPeriod());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1886,7 +1607,7 @@ private static final long serialVersionUID = 0L;
         if (!getRotationPeriod()
             .equals(other.getRotationPeriod())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1905,7 +1626,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + ROTATION_PERIOD_FIELD_NUMBER;
         hash = (53 * hash) + getRotationPeriod().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2026,32 +1747,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (nextRotationTimeBuilder_ == null) {
-          nextRotationTime_ = null;
-        } else {
-          nextRotationTime_ = null;
+        bitField0_ = 0;
+        nextRotationTime_ = null;
+        if (nextRotationTimeBuilder_ != null) {
+          nextRotationTimeBuilder_.dispose();
           nextRotationTimeBuilder_ = null;
         }
-        if (rotationPeriodBuilder_ == null) {
-          rotationPeriod_ = null;
-        } else {
-          rotationPeriod_ = null;
+        rotationPeriod_ = null;
+        if (rotationPeriodBuilder_ != null) {
+          rotationPeriodBuilder_.dispose();
           rotationPeriodBuilder_ = null;
         }
         return this;
@@ -2080,18 +1795,23 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings buildPartial() {
         com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings result = new com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings(this);
-        if (nextRotationTimeBuilder_ == null) {
-          result.nextRotationTime_ = nextRotationTime_;
-        } else {
-          result.nextRotationTime_ = nextRotationTimeBuilder_.build();
-        }
-        if (rotationPeriodBuilder_ == null) {
-          result.rotationPeriod_ = rotationPeriod_;
-        } else {
-          result.rotationPeriod_ = rotationPeriodBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.nextRotationTime_ = nextRotationTimeBuilder_ == null
+              ? nextRotationTime_
+              : nextRotationTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.rotationPeriod_ = rotationPeriodBuilder_ == null
+              ? rotationPeriod_
+              : rotationPeriodBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -2144,7 +1864,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasRotationPeriod()) {
           mergeRotationPeriod(other.getRotationPeriod());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2159,19 +1879,47 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getNextRotationTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getRotationPeriodFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.Timestamp nextRotationTime_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2186,7 +1934,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the nextRotationTime field is set.
        */
       public boolean hasNextRotationTime() {
-        return nextRotationTimeBuilder_ != null || nextRotationTime_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -2218,11 +1966,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           nextRotationTime_ = value;
-          onChanged();
         } else {
           nextRotationTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2237,11 +1985,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (nextRotationTimeBuilder_ == null) {
           nextRotationTime_ = builderForValue.build();
-          onChanged();
         } else {
           nextRotationTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2254,17 +2002,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeNextRotationTime(com.google.protobuf.Timestamp value) {
         if (nextRotationTimeBuilder_ == null) {
-          if (nextRotationTime_ != null) {
-            nextRotationTime_ =
-              com.google.protobuf.Timestamp.newBuilder(nextRotationTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            nextRotationTime_ != null &&
+            nextRotationTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getNextRotationTimeBuilder().mergeFrom(value);
           } else {
             nextRotationTime_ = value;
           }
-          onChanged();
         } else {
           nextRotationTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2276,14 +2025,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp next_rotation_time = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
        */
       public Builder clearNextRotationTime() {
-        if (nextRotationTimeBuilder_ == null) {
-          nextRotationTime_ = null;
-          onChanged();
-        } else {
-          nextRotationTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        nextRotationTime_ = null;
+        if (nextRotationTimeBuilder_ != null) {
+          nextRotationTimeBuilder_.dispose();
           nextRotationTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2295,7 +2043,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp next_rotation_time = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
        */
       public com.google.protobuf.Timestamp.Builder getNextRotationTimeBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getNextRotationTimeFieldBuilder().getBuilder();
       }
@@ -2351,7 +2099,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the rotationPeriod field is set.
        */
       public boolean hasRotationPeriod() {
-        return rotationPeriodBuilder_ != null || rotationPeriod_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -2385,11 +2133,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           rotationPeriod_ = value;
-          onChanged();
         } else {
           rotationPeriodBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2405,11 +2153,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration.Builder builderForValue) {
         if (rotationPeriodBuilder_ == null) {
           rotationPeriod_ = builderForValue.build();
-          onChanged();
         } else {
           rotationPeriodBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2423,17 +2171,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeRotationPeriod(com.google.protobuf.Duration value) {
         if (rotationPeriodBuilder_ == null) {
-          if (rotationPeriod_ != null) {
-            rotationPeriod_ =
-              com.google.protobuf.Duration.newBuilder(rotationPeriod_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            rotationPeriod_ != null &&
+            rotationPeriod_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getRotationPeriodBuilder().mergeFrom(value);
           } else {
             rotationPeriod_ = value;
           }
-          onChanged();
         } else {
           rotationPeriodBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2446,14 +2195,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration rotation_period = 2 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
        */
       public Builder clearRotationPeriod() {
-        if (rotationPeriodBuilder_ == null) {
-          rotationPeriod_ = null;
-          onChanged();
-        } else {
-          rotationPeriod_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        rotationPeriod_ = null;
+        if (rotationPeriodBuilder_ != null) {
+          rotationPeriodBuilder_.dispose();
           rotationPeriodBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2466,7 +2214,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration rotation_period = 2 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
        */
       public com.google.protobuf.Duration.Builder getRotationPeriodBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getRotationPeriodFieldBuilder().getBuilder();
       }
@@ -2542,7 +2290,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new KMSSettings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2624,58 +2383,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private IL4Settings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.Builder subBuilder = null;
-              if (kmsSettings_ != null) {
-                subBuilder = kmsSettings_.toBuilder();
-              }
-              kmsSettings_ = input.readMessage(com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(kmsSettings_);
-                kmsSettings_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.assuredworkloads.v1beta1.AssuredworkloadsProto.internal_static_google_cloud_assuredworkloads_v1beta1_Workload_IL4Settings_descriptor;
@@ -2724,7 +2431,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettingsOrBuilder getKmsSettingsOrBuilder() {
-      return getKmsSettings();
+      return kmsSettings_ == null ? com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.getDefaultInstance() : kmsSettings_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2744,7 +2451,7 @@ private static final long serialVersionUID = 0L;
       if (kmsSettings_ != null) {
         output.writeMessage(1, getKmsSettings());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2757,7 +2464,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getKmsSettings());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2777,7 +2484,7 @@ private static final long serialVersionUID = 0L;
         if (!getKmsSettings()
             .equals(other.getKmsSettings())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2792,7 +2499,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + KMS_SETTINGS_FIELD_NUMBER;
         hash = (53 * hash) + getKmsSettings().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2913,26 +2620,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.assuredworkloads.v1beta1.Workload.IL4Settings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (kmsSettingsBuilder_ == null) {
-          kmsSettings_ = null;
-        } else {
-          kmsSettings_ = null;
+        bitField0_ = 0;
+        kmsSettings_ = null;
+        if (kmsSettingsBuilder_ != null) {
+          kmsSettingsBuilder_.dispose();
           kmsSettingsBuilder_ = null;
         }
         return this;
@@ -2961,13 +2663,18 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.assuredworkloads.v1beta1.Workload.IL4Settings buildPartial() {
         com.google.cloud.assuredworkloads.v1beta1.Workload.IL4Settings result = new com.google.cloud.assuredworkloads.v1beta1.Workload.IL4Settings(this);
-        if (kmsSettingsBuilder_ == null) {
-          result.kmsSettings_ = kmsSettings_;
-        } else {
-          result.kmsSettings_ = kmsSettingsBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.assuredworkloads.v1beta1.Workload.IL4Settings result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.kmsSettings_ = kmsSettingsBuilder_ == null
+              ? kmsSettings_
+              : kmsSettingsBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3017,7 +2724,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasKmsSettings()) {
           mergeKmsSettings(other.getKmsSettings());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3032,19 +2739,40 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.assuredworkloads.v1beta1.Workload.IL4Settings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getKmsSettingsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.assuredworkloads.v1beta1.Workload.IL4Settings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kmsSettings_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -3058,7 +2786,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the kmsSettings field is set.
        */
       public boolean hasKmsSettings() {
-        return kmsSettingsBuilder_ != null || kmsSettings_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -3088,11 +2816,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           kmsSettings_ = value;
-          onChanged();
         } else {
           kmsSettingsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3106,11 +2834,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.Builder builderForValue) {
         if (kmsSettingsBuilder_ == null) {
           kmsSettings_ = builderForValue.build();
-          onChanged();
         } else {
           kmsSettingsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3122,17 +2850,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeKmsSettings(com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings value) {
         if (kmsSettingsBuilder_ == null) {
-          if (kmsSettings_ != null) {
-            kmsSettings_ =
-              com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.newBuilder(kmsSettings_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            kmsSettings_ != null &&
+            kmsSettings_ != com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.getDefaultInstance()) {
+            getKmsSettingsBuilder().mergeFrom(value);
           } else {
             kmsSettings_ = value;
           }
-          onChanged();
         } else {
           kmsSettingsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3143,14 +2872,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kms_settings = 1 [(.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
        */
       public Builder clearKmsSettings() {
-        if (kmsSettingsBuilder_ == null) {
-          kmsSettings_ = null;
-          onChanged();
-        } else {
-          kmsSettings_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        kmsSettings_ = null;
+        if (kmsSettingsBuilder_ != null) {
+          kmsSettingsBuilder_.dispose();
           kmsSettingsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3161,7 +2889,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kms_settings = 1 [(.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
        */
       public com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.Builder getKmsSettingsBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getKmsSettingsFieldBuilder().getBuilder();
       }
@@ -3233,7 +2961,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new IL4Settings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3315,58 +3054,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CJISSettings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.Builder subBuilder = null;
-              if (kmsSettings_ != null) {
-                subBuilder = kmsSettings_.toBuilder();
-              }
-              kmsSettings_ = input.readMessage(com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(kmsSettings_);
-                kmsSettings_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.assuredworkloads.v1beta1.AssuredworkloadsProto.internal_static_google_cloud_assuredworkloads_v1beta1_Workload_CJISSettings_descriptor;
@@ -3415,7 +3102,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettingsOrBuilder getKmsSettingsOrBuilder() {
-      return getKmsSettings();
+      return kmsSettings_ == null ? com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.getDefaultInstance() : kmsSettings_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3435,7 +3122,7 @@ private static final long serialVersionUID = 0L;
       if (kmsSettings_ != null) {
         output.writeMessage(1, getKmsSettings());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3448,7 +3135,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getKmsSettings());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3468,7 +3155,7 @@ private static final long serialVersionUID = 0L;
         if (!getKmsSettings()
             .equals(other.getKmsSettings())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3483,7 +3170,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + KMS_SETTINGS_FIELD_NUMBER;
         hash = (53 * hash) + getKmsSettings().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3604,26 +3291,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.assuredworkloads.v1beta1.Workload.CJISSettings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (kmsSettingsBuilder_ == null) {
-          kmsSettings_ = null;
-        } else {
-          kmsSettings_ = null;
+        bitField0_ = 0;
+        kmsSettings_ = null;
+        if (kmsSettingsBuilder_ != null) {
+          kmsSettingsBuilder_.dispose();
           kmsSettingsBuilder_ = null;
         }
         return this;
@@ -3652,13 +3334,18 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.assuredworkloads.v1beta1.Workload.CJISSettings buildPartial() {
         com.google.cloud.assuredworkloads.v1beta1.Workload.CJISSettings result = new com.google.cloud.assuredworkloads.v1beta1.Workload.CJISSettings(this);
-        if (kmsSettingsBuilder_ == null) {
-          result.kmsSettings_ = kmsSettings_;
-        } else {
-          result.kmsSettings_ = kmsSettingsBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.assuredworkloads.v1beta1.Workload.CJISSettings result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.kmsSettings_ = kmsSettingsBuilder_ == null
+              ? kmsSettings_
+              : kmsSettingsBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3708,7 +3395,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasKmsSettings()) {
           mergeKmsSettings(other.getKmsSettings());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3723,19 +3410,40 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.assuredworkloads.v1beta1.Workload.CJISSettings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getKmsSettingsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.assuredworkloads.v1beta1.Workload.CJISSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kmsSettings_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -3749,7 +3457,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the kmsSettings field is set.
        */
       public boolean hasKmsSettings() {
-        return kmsSettingsBuilder_ != null || kmsSettings_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -3779,11 +3487,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           kmsSettings_ = value;
-          onChanged();
         } else {
           kmsSettingsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3797,11 +3505,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.Builder builderForValue) {
         if (kmsSettingsBuilder_ == null) {
           kmsSettings_ = builderForValue.build();
-          onChanged();
         } else {
           kmsSettingsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3813,17 +3521,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeKmsSettings(com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings value) {
         if (kmsSettingsBuilder_ == null) {
-          if (kmsSettings_ != null) {
-            kmsSettings_ =
-              com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.newBuilder(kmsSettings_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            kmsSettings_ != null &&
+            kmsSettings_ != com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.getDefaultInstance()) {
+            getKmsSettingsBuilder().mergeFrom(value);
           } else {
             kmsSettings_ = value;
           }
-          onChanged();
         } else {
           kmsSettingsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3834,14 +3543,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kms_settings = 1 [(.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
        */
       public Builder clearKmsSettings() {
-        if (kmsSettingsBuilder_ == null) {
-          kmsSettings_ = null;
-          onChanged();
-        } else {
-          kmsSettings_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        kmsSettings_ = null;
+        if (kmsSettingsBuilder_ != null) {
+          kmsSettingsBuilder_.dispose();
           kmsSettingsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3852,7 +3560,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kms_settings = 1 [(.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
        */
       public com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.Builder getKmsSettingsBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getKmsSettingsFieldBuilder().getBuilder();
       }
@@ -3924,7 +3632,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CJISSettings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4006,58 +3725,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private FedrampHighSettings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.Builder subBuilder = null;
-              if (kmsSettings_ != null) {
-                subBuilder = kmsSettings_.toBuilder();
-              }
-              kmsSettings_ = input.readMessage(com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(kmsSettings_);
-                kmsSettings_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.assuredworkloads.v1beta1.AssuredworkloadsProto.internal_static_google_cloud_assuredworkloads_v1beta1_Workload_FedrampHighSettings_descriptor;
@@ -4106,7 +3773,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettingsOrBuilder getKmsSettingsOrBuilder() {
-      return getKmsSettings();
+      return kmsSettings_ == null ? com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.getDefaultInstance() : kmsSettings_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4126,7 +3793,7 @@ private static final long serialVersionUID = 0L;
       if (kmsSettings_ != null) {
         output.writeMessage(1, getKmsSettings());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4139,7 +3806,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getKmsSettings());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4159,7 +3826,7 @@ private static final long serialVersionUID = 0L;
         if (!getKmsSettings()
             .equals(other.getKmsSettings())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4174,7 +3841,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + KMS_SETTINGS_FIELD_NUMBER;
         hash = (53 * hash) + getKmsSettings().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4295,26 +3962,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampHighSettings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (kmsSettingsBuilder_ == null) {
-          kmsSettings_ = null;
-        } else {
-          kmsSettings_ = null;
+        bitField0_ = 0;
+        kmsSettings_ = null;
+        if (kmsSettingsBuilder_ != null) {
+          kmsSettingsBuilder_.dispose();
           kmsSettingsBuilder_ = null;
         }
         return this;
@@ -4343,13 +4005,18 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampHighSettings buildPartial() {
         com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampHighSettings result = new com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampHighSettings(this);
-        if (kmsSettingsBuilder_ == null) {
-          result.kmsSettings_ = kmsSettings_;
-        } else {
-          result.kmsSettings_ = kmsSettingsBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampHighSettings result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.kmsSettings_ = kmsSettingsBuilder_ == null
+              ? kmsSettings_
+              : kmsSettingsBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -4399,7 +4066,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasKmsSettings()) {
           mergeKmsSettings(other.getKmsSettings());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4414,19 +4081,40 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampHighSettings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getKmsSettingsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampHighSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kmsSettings_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4440,7 +4128,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the kmsSettings field is set.
        */
       public boolean hasKmsSettings() {
-        return kmsSettingsBuilder_ != null || kmsSettings_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -4470,11 +4158,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           kmsSettings_ = value;
-          onChanged();
         } else {
           kmsSettingsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4488,11 +4176,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.Builder builderForValue) {
         if (kmsSettingsBuilder_ == null) {
           kmsSettings_ = builderForValue.build();
-          onChanged();
         } else {
           kmsSettingsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4504,17 +4192,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeKmsSettings(com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings value) {
         if (kmsSettingsBuilder_ == null) {
-          if (kmsSettings_ != null) {
-            kmsSettings_ =
-              com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.newBuilder(kmsSettings_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            kmsSettings_ != null &&
+            kmsSettings_ != com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.getDefaultInstance()) {
+            getKmsSettingsBuilder().mergeFrom(value);
           } else {
             kmsSettings_ = value;
           }
-          onChanged();
         } else {
           kmsSettingsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4525,14 +4214,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kms_settings = 1 [(.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
        */
       public Builder clearKmsSettings() {
-        if (kmsSettingsBuilder_ == null) {
-          kmsSettings_ = null;
-          onChanged();
-        } else {
-          kmsSettings_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        kmsSettings_ = null;
+        if (kmsSettingsBuilder_ != null) {
+          kmsSettingsBuilder_.dispose();
           kmsSettingsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4543,7 +4231,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kms_settings = 1 [(.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
        */
       public com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.Builder getKmsSettingsBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getKmsSettingsFieldBuilder().getBuilder();
       }
@@ -4615,7 +4303,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FedrampHighSettings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4697,58 +4396,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private FedrampModerateSettings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.Builder subBuilder = null;
-              if (kmsSettings_ != null) {
-                subBuilder = kmsSettings_.toBuilder();
-              }
-              kmsSettings_ = input.readMessage(com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(kmsSettings_);
-                kmsSettings_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.assuredworkloads.v1beta1.AssuredworkloadsProto.internal_static_google_cloud_assuredworkloads_v1beta1_Workload_FedrampModerateSettings_descriptor;
@@ -4797,7 +4444,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettingsOrBuilder getKmsSettingsOrBuilder() {
-      return getKmsSettings();
+      return kmsSettings_ == null ? com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.getDefaultInstance() : kmsSettings_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4817,7 +4464,7 @@ private static final long serialVersionUID = 0L;
       if (kmsSettings_ != null) {
         output.writeMessage(1, getKmsSettings());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4830,7 +4477,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getKmsSettings());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4850,7 +4497,7 @@ private static final long serialVersionUID = 0L;
         if (!getKmsSettings()
             .equals(other.getKmsSettings())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4865,7 +4512,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + KMS_SETTINGS_FIELD_NUMBER;
         hash = (53 * hash) + getKmsSettings().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4986,26 +4633,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampModerateSettings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (kmsSettingsBuilder_ == null) {
-          kmsSettings_ = null;
-        } else {
-          kmsSettings_ = null;
+        bitField0_ = 0;
+        kmsSettings_ = null;
+        if (kmsSettingsBuilder_ != null) {
+          kmsSettingsBuilder_.dispose();
           kmsSettingsBuilder_ = null;
         }
         return this;
@@ -5034,13 +4676,18 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampModerateSettings buildPartial() {
         com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampModerateSettings result = new com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampModerateSettings(this);
-        if (kmsSettingsBuilder_ == null) {
-          result.kmsSettings_ = kmsSettings_;
-        } else {
-          result.kmsSettings_ = kmsSettingsBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampModerateSettings result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.kmsSettings_ = kmsSettingsBuilder_ == null
+              ? kmsSettings_
+              : kmsSettingsBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -5090,7 +4737,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasKmsSettings()) {
           mergeKmsSettings(other.getKmsSettings());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5105,19 +4752,40 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampModerateSettings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getKmsSettingsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.assuredworkloads.v1beta1.Workload.FedrampModerateSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kmsSettings_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -5131,7 +4799,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the kmsSettings field is set.
        */
       public boolean hasKmsSettings() {
-        return kmsSettingsBuilder_ != null || kmsSettings_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -5161,11 +4829,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           kmsSettings_ = value;
-          onChanged();
         } else {
           kmsSettingsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -5179,11 +4847,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.Builder builderForValue) {
         if (kmsSettingsBuilder_ == null) {
           kmsSettings_ = builderForValue.build();
-          onChanged();
         } else {
           kmsSettingsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -5195,17 +4863,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeKmsSettings(com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings value) {
         if (kmsSettingsBuilder_ == null) {
-          if (kmsSettings_ != null) {
-            kmsSettings_ =
-              com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.newBuilder(kmsSettings_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            kmsSettings_ != null &&
+            kmsSettings_ != com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.getDefaultInstance()) {
+            getKmsSettingsBuilder().mergeFrom(value);
           } else {
             kmsSettings_ = value;
           }
-          onChanged();
         } else {
           kmsSettingsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -5216,14 +4885,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kms_settings = 1 [(.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
        */
       public Builder clearKmsSettings() {
-        if (kmsSettingsBuilder_ == null) {
-          kmsSettings_ = null;
-          onChanged();
-        } else {
-          kmsSettings_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        kmsSettings_ = null;
+        if (kmsSettingsBuilder_ != null) {
+          kmsSettingsBuilder_.dispose();
           kmsSettingsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -5234,7 +4902,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kms_settings = 1 [(.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
        */
       public com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.Builder getKmsSettingsBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getKmsSettingsFieldBuilder().getBuilder();
       }
@@ -5306,7 +4974,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FedrampModerateSettings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5439,63 +5118,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ResourceSettings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              resourceId_ = s;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              resourceType_ = rawValue;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              displayName_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.assuredworkloads.v1beta1.AssuredworkloadsProto.internal_static_google_cloud_assuredworkloads_v1beta1_Workload_ResourceSettings_descriptor;
@@ -5510,7 +5132,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int RESOURCE_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object resourceId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object resourceId_ = "";
     /**
      * <pre>
      * Resource identifier.
@@ -5564,7 +5187,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int RESOURCE_TYPE_FIELD_NUMBER = 2;
-    private int resourceType_;
+    private int resourceType_ = 0;
     /**
      * <pre>
      * Indicates the type of resource. This field should be specified to
@@ -5589,13 +5212,13 @@ private static final long serialVersionUID = 0L;
      * @return The resourceType.
      */
     @java.lang.Override public com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType getResourceType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType result = com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType.valueOf(resourceType_);
+      com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType result = com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType.forNumber(resourceType_);
       return result == null ? com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType.UNRECOGNIZED : result;
     }
 
     public static final int DISPLAY_NAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object displayName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object displayName_ = "";
     /**
      * <pre>
      * User-assigned resource display name.
@@ -5667,7 +5290,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, displayName_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5686,7 +5309,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, displayName_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5706,7 +5329,7 @@ private static final long serialVersionUID = 0L;
       if (resourceType_ != other.resourceType_) return false;
       if (!getDisplayName()
           .equals(other.getDisplayName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5723,7 +5346,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + resourceType_;
       hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getDisplayName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5844,28 +5467,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         resourceId_ = "";
-
         resourceType_ = 0;
-
         displayName_ = "";
-
         return this;
       }
 
@@ -5892,11 +5508,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettings buildPartial() {
         com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettings result = new com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettings(this);
-        result.resourceId_ = resourceId_;
-        result.resourceType_ = resourceType_;
-        result.displayName_ = displayName_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettings result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.resourceId_ = resourceId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.resourceType_ = resourceType_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.displayName_ = displayName_;
+        }
       }
 
       @java.lang.Override
@@ -5945,6 +5572,7 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettings.getDefaultInstance()) return this;
         if (!other.getResourceId().isEmpty()) {
           resourceId_ = other.resourceId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.resourceType_ != 0) {
@@ -5952,9 +5580,10 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getDisplayName().isEmpty()) {
           displayName_ = other.displayName_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5969,19 +5598,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                resourceId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                resourceType_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                displayName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object resourceId_ = "";
       /**
@@ -6048,11 +5706,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setResourceId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         resourceId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6069,8 +5725,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearResourceId() {
-        
         resourceId_ = getDefaultInstance().getResourceId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -6089,12 +5745,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setResourceIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         resourceId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6125,8 +5779,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setResourceTypeValue(int value) {
-        
         resourceType_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6142,8 +5796,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType getResourceType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType result = com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType.valueOf(resourceType_);
+        com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType result = com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType.forNumber(resourceType_);
         return result == null ? com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType.UNRECOGNIZED : result;
       }
       /**
@@ -6161,7 +5814,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         resourceType_ = value.getNumber();
         onChanged();
         return this;
@@ -6177,7 +5830,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearResourceType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         resourceType_ = 0;
         onChanged();
         return this;
@@ -6242,11 +5895,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDisplayName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         displayName_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -6261,8 +5912,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
-        
         displayName_ = getDefaultInstance().getDisplayName();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -6279,12 +5930,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         displayName_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -6321,7 +5970,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ResourceSettings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6454,78 +6114,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private SaaEnrollmentResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-              bitField0_ |= 0x00000001;
-              setupStatus_ = rawValue;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                setupErrors_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              setupErrors_.add(rawValue);
-              break;
-            }
-            case 18: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                  setupErrors_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000002;
-                }
-                setupErrors_.add(rawValue);
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          setupErrors_ = java.util.Collections.unmodifiableList(setupErrors_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -6872,7 +6460,7 @@ private static final long serialVersionUID = 0L;
 
     private int bitField0_;
     public static final int SETUP_STATUS_FIELD_NUMBER = 1;
-    private int setupStatus_;
+    private int setupStatus_ = 0;
     /**
      * <pre>
      * Indicates SAA enrollment status of a given workload.
@@ -6904,20 +6492,19 @@ private static final long serialVersionUID = 0L;
      * @return The setupStatus.
      */
     @java.lang.Override public com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupState getSetupStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupState result = com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupState.valueOf(setupStatus_);
+      com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupState result = com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupState.forNumber(setupStatus_);
       return result == null ? com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupState.UNRECOGNIZED : result;
     }
 
     public static final int SETUP_ERRORS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> setupErrors_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupError> setupErrors_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupError>() {
               public com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupError convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupError result = com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupError.valueOf(from);
+                com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupError result = com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupError.forNumber(from);
                 return result == null ? com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupError.UNRECOGNIZED : result;
               }
             };
@@ -7012,7 +6599,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < setupErrors_.size(); i++) {
         output.writeEnumNoTag(setupErrors_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -7037,7 +6624,7 @@ private static final long serialVersionUID = 0L;
             .computeUInt32SizeNoTag(dataSize);
         }setupErrorsMemoizedSerializedSize = dataSize;
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7057,7 +6644,7 @@ private static final long serialVersionUID = 0L;
         if (setupStatus_ != other.setupStatus_) return false;
       }
       if (!setupErrors_.equals(other.setupErrors_)) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -7076,7 +6663,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + SETUP_ERRORS_FIELD_NUMBER;
         hash = (53 * hash) + setupErrors_.hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7197,24 +6784,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         setupStatus_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         setupErrors_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
@@ -7243,20 +6825,28 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse buildPartial() {
         com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse result = new com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.setupStatus_ = setupStatus_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse result) {
         if (((bitField0_ & 0x00000002) != 0)) {
           setupErrors_ = java.util.Collections.unmodifiableList(setupErrors_);
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.setupErrors_ = setupErrors_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.setupStatus_ = setupStatus_;
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -7316,7 +6906,7 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -7331,17 +6921,52 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                setupStatus_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                int tmpRaw = input.readEnum();
+                ensureSetupErrorsIsMutable();
+                setupErrors_.add(tmpRaw);
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  ensureSetupErrorsIsMutable();
+                  setupErrors_.add(tmpRaw);
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -7379,8 +7004,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setSetupStatusValue(int value) {
-        bitField0_ |= 0x00000001;
         setupStatus_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7394,8 +7019,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupState getSetupStatus() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupState result = com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupState.valueOf(setupStatus_);
+        com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupState result = com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupState.forNumber(setupStatus_);
         return result == null ? com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.SetupState.UNRECOGNIZED : result;
       }
       /**
@@ -7651,7 +7275,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SaaEnrollmentResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7717,7 +7352,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Optional. The resource name of the workload.
@@ -7769,7 +7405,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Required. The user-assigned display name of the Workload.
@@ -7823,6 +7460,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo> resources_;
   /**
    * <pre>
@@ -7898,7 +7536,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COMPLIANCE_REGIME_FIELD_NUMBER = 4;
-  private int complianceRegime_;
+  private int complianceRegime_ = 0;
   /**
    * <pre>
    * Required. Immutable. Compliance Regime associated with this workload.
@@ -7919,8 +7557,7 @@ private static final long serialVersionUID = 0L;
    * @return The complianceRegime.
    */
   @java.lang.Override public com.google.cloud.assuredworkloads.v1beta1.Workload.ComplianceRegime getComplianceRegime() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.assuredworkloads.v1beta1.Workload.ComplianceRegime result = com.google.cloud.assuredworkloads.v1beta1.Workload.ComplianceRegime.valueOf(complianceRegime_);
+    com.google.cloud.assuredworkloads.v1beta1.Workload.ComplianceRegime result = com.google.cloud.assuredworkloads.v1beta1.Workload.ComplianceRegime.forNumber(complianceRegime_);
     return result == null ? com.google.cloud.assuredworkloads.v1beta1.Workload.ComplianceRegime.UNRECOGNIZED : result;
   }
 
@@ -7959,14 +7596,15 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int BILLING_ACCOUNT_FIELD_NUMBER = 6;
-  private volatile java.lang.Object billingAccount_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object billingAccount_ = "";
   /**
    * <pre>
-   * Input only. The billing account used for the resources which are
+   * Output only. The billing account used for the resources which are
    * direct children of workload. This billing account is initially associated
    * with the resources created as part of Workload creation.
    * After the initial creation of these resources, the customer can change
@@ -7976,7 +7614,7 @@ private static final long serialVersionUID = 0L;
    * `billingAccounts/012345-567890-ABCDEF`.
    * </pre>
    *
-   * <code>string billing_account = 6 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+   * <code>string billing_account = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The billingAccount.
    */
   @java.lang.Override
@@ -7994,7 +7632,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Input only. The billing account used for the resources which are
+   * Output only. The billing account used for the resources which are
    * direct children of workload. This billing account is initially associated
    * with the resources created as part of Workload creation.
    * After the initial creation of these resources, the customer can change
@@ -8004,7 +7642,7 @@ private static final long serialVersionUID = 0L;
    * `billingAccounts/012345-567890-ABCDEF`.
    * </pre>
    *
-   * <code>string billing_account = 6 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+   * <code>string billing_account = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The bytes for billingAccount.
    */
   @java.lang.Override
@@ -8030,7 +7668,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.cloud.assuredworkloads.v1beta1.Workload.IL4Settings il4_settings = 7 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
    * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.il4_settings is deprecated.
-   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=498
+   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=468
    * @return Whether the il4Settings field is set.
    */
   @java.lang.Override
@@ -8044,7 +7682,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.cloud.assuredworkloads.v1beta1.Workload.IL4Settings il4_settings = 7 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
    * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.il4_settings is deprecated.
-   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=498
+   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=468
    * @return The il4Settings.
    */
   @java.lang.Override
@@ -8077,7 +7715,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.cloud.assuredworkloads.v1beta1.Workload.CJISSettings cjis_settings = 8 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
    * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.cjis_settings is deprecated.
-   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=505
+   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=475
    * @return Whether the cjisSettings field is set.
    */
   @java.lang.Override
@@ -8091,7 +7729,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.cloud.assuredworkloads.v1beta1.Workload.CJISSettings cjis_settings = 8 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
    * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.cjis_settings is deprecated.
-   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=505
+   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=475
    * @return The cjisSettings.
    */
   @java.lang.Override
@@ -8124,7 +7762,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.cloud.assuredworkloads.v1beta1.Workload.FedrampHighSettings fedramp_high_settings = 11 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
    * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.fedramp_high_settings is deprecated.
-   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=512
+   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=482
    * @return Whether the fedrampHighSettings field is set.
    */
   @java.lang.Override
@@ -8138,7 +7776,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.cloud.assuredworkloads.v1beta1.Workload.FedrampHighSettings fedramp_high_settings = 11 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
    * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.fedramp_high_settings is deprecated.
-   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=512
+   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=482
    * @return The fedrampHighSettings.
    */
   @java.lang.Override
@@ -8171,7 +7809,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.cloud.assuredworkloads.v1beta1.Workload.FedrampModerateSettings fedramp_moderate_settings = 12 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
    * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.fedramp_moderate_settings is deprecated.
-   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=519
+   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=489
    * @return Whether the fedrampModerateSettings field is set.
    */
   @java.lang.Override
@@ -8185,7 +7823,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.cloud.assuredworkloads.v1beta1.Workload.FedrampModerateSettings fedramp_moderate_settings = 12 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
    * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.fedramp_moderate_settings is deprecated.
-   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=519
+   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=489
    * @return The fedrampModerateSettings.
    */
   @java.lang.Override
@@ -8211,7 +7849,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ETAG_FIELD_NUMBER = 9;
-  private volatile java.lang.Object etag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object etag_ = "";
   /**
    * <pre>
    * Optional. ETag of the workload, it is calculated on the basis
@@ -8270,6 +7909,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -8280,7 +7920,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -8291,7 +7930,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -8314,7 +7952,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -8326,10 +7963,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -8343,7 +7981,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -8356,7 +7993,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROVISIONED_RESOURCES_PARENT_FIELD_NUMBER = 13;
-  private volatile java.lang.Object provisionedResourcesParent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object provisionedResourcesParent_ = "";
   /**
    * <pre>
    * Input only. The parent resource for the resources managed by this Assured Workload. May
@@ -8424,7 +8062,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kms_settings = 14 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY];</code>
    * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.kms_settings is deprecated.
-   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=546
+   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=516
    * @return Whether the kmsSettings field is set.
    */
   @java.lang.Override
@@ -8442,7 +8080,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kms_settings = 14 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY];</code>
    * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.kms_settings is deprecated.
-   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=546
+   *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=516
    * @return The kmsSettings.
    */
   @java.lang.Override
@@ -8462,10 +8100,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   @java.lang.Deprecated public com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettingsOrBuilder getKmsSettingsOrBuilder() {
-    return getKmsSettings();
+    return kmsSettings_ == null ? com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.getDefaultInstance() : kmsSettings_;
   }
 
   public static final int RESOURCE_SETTINGS_FIELD_NUMBER = 15;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettings> resourceSettings_;
   /**
    * <pre>
@@ -8536,7 +8175,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KAJ_ENROLLMENT_STATE_FIELD_NUMBER = 17;
-  private int kajEnrollmentState_;
+  private int kajEnrollmentState_ = 0;
   /**
    * <pre>
    * Output only. Represents the KAJ enrollment state of the given workload.
@@ -8557,13 +8196,12 @@ private static final long serialVersionUID = 0L;
    * @return The kajEnrollmentState.
    */
   @java.lang.Override public com.google.cloud.assuredworkloads.v1beta1.Workload.KajEnrollmentState getKajEnrollmentState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.assuredworkloads.v1beta1.Workload.KajEnrollmentState result = com.google.cloud.assuredworkloads.v1beta1.Workload.KajEnrollmentState.valueOf(kajEnrollmentState_);
+    com.google.cloud.assuredworkloads.v1beta1.Workload.KajEnrollmentState result = com.google.cloud.assuredworkloads.v1beta1.Workload.KajEnrollmentState.forNumber(kajEnrollmentState_);
     return result == null ? com.google.cloud.assuredworkloads.v1beta1.Workload.KajEnrollmentState.UNRECOGNIZED : result;
   }
 
   public static final int ENABLE_SOVEREIGN_CONTROLS_FIELD_NUMBER = 18;
-  private boolean enableSovereignControls_;
+  private boolean enableSovereignControls_ = false;
   /**
    * <pre>
    * Optional. Indicates the sovereignty status of the given workload.
@@ -8619,7 +8257,71 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponseOrBuilder getSaaEnrollmentResponseOrBuilder() {
-    return getSaaEnrollmentResponse();
+    return saaEnrollmentResponse_ == null ? com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.getDefaultInstance() : saaEnrollmentResponse_;
+  }
+
+  public static final int COMPLIANT_BUT_DISALLOWED_SERVICES_FIELD_NUMBER = 24;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.LazyStringList compliantButDisallowedServices_;
+  /**
+   * <pre>
+   * Output only. Urls for services which are compliant for this Assured Workload, but which
+   * are currently disallowed by the ResourceUsageRestriction org policy.
+   * Invoke RestrictAllowedResources endpoint to allow your project developers
+   * to use these services in their environment."
+   * </pre>
+   *
+   * <code>repeated string compliant_but_disallowed_services = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return A list containing the compliantButDisallowedServices.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getCompliantButDisallowedServicesList() {
+    return compliantButDisallowedServices_;
+  }
+  /**
+   * <pre>
+   * Output only. Urls for services which are compliant for this Assured Workload, but which
+   * are currently disallowed by the ResourceUsageRestriction org policy.
+   * Invoke RestrictAllowedResources endpoint to allow your project developers
+   * to use these services in their environment."
+   * </pre>
+   *
+   * <code>repeated string compliant_but_disallowed_services = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The count of compliantButDisallowedServices.
+   */
+  public int getCompliantButDisallowedServicesCount() {
+    return compliantButDisallowedServices_.size();
+  }
+  /**
+   * <pre>
+   * Output only. Urls for services which are compliant for this Assured Workload, but which
+   * are currently disallowed by the ResourceUsageRestriction org policy.
+   * Invoke RestrictAllowedResources endpoint to allow your project developers
+   * to use these services in their environment."
+   * </pre>
+   *
+   * <code>repeated string compliant_but_disallowed_services = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @param index The index of the element to return.
+   * @return The compliantButDisallowedServices at the given index.
+   */
+  public java.lang.String getCompliantButDisallowedServices(int index) {
+    return compliantButDisallowedServices_.get(index);
+  }
+  /**
+   * <pre>
+   * Output only. Urls for services which are compliant for this Assured Workload, but which
+   * are currently disallowed by the ResourceUsageRestriction org policy.
+   * Invoke RestrictAllowedResources endpoint to allow your project developers
+   * to use these services in their environment."
+   * </pre>
+   *
+   * <code>repeated string compliant_but_disallowed_services = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the compliantButDisallowedServices at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getCompliantButDisallowedServicesBytes(int index) {
+    return compliantButDisallowedServices_.getByteString(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -8693,7 +8395,10 @@ private static final long serialVersionUID = 0L;
     if (saaEnrollmentResponse_ != null) {
       output.writeMessage(20, getSaaEnrollmentResponse());
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < compliantButDisallowedServices_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 24, compliantButDisallowedServices_.getRaw(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -8775,7 +8480,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(20, getSaaEnrollmentResponse());
     }
-    size += unknownFields.getSerializedSize();
+    {
+      int dataSize = 0;
+      for (int i = 0; i < compliantButDisallowedServices_.size(); i++) {
+        dataSize += computeStringSizeNoTag(compliantButDisallowedServices_.getRaw(i));
+      }
+      size += dataSize;
+      size += 2 * getCompliantButDisallowedServicesList().size();
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -8825,6 +8538,8 @@ private static final long serialVersionUID = 0L;
       if (!getSaaEnrollmentResponse()
           .equals(other.getSaaEnrollmentResponse())) return false;
     }
+    if (!getCompliantButDisallowedServicesList()
+        .equals(other.getCompliantButDisallowedServicesList())) return false;
     if (!getComplianceRegimeSettingsCase().equals(other.getComplianceRegimeSettingsCase())) return false;
     switch (complianceRegimeSettingsCase_) {
       case 7:
@@ -8846,7 +8561,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -8898,6 +8613,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SAA_ENROLLMENT_RESPONSE_FIELD_NUMBER;
       hash = (53 * hash) + getSaaEnrollmentResponse().hashCode();
     }
+    if (getCompliantButDisallowedServicesCount() > 0) {
+      hash = (37 * hash) + COMPLIANT_BUT_DISALLOWED_SERVICES_FIELD_NUMBER;
+      hash = (53 * hash) + getCompliantButDisallowedServicesList().hashCode();
+    }
     switch (complianceRegimeSettingsCase_) {
       case 7:
         hash = (37 * hash) + IL4_SETTINGS_FIELD_NUMBER;
@@ -8918,7 +8637,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -9062,71 +8781,70 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.assuredworkloads.v1beta1.Workload.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getResourcesFieldBuilder();
-        getResourceSettingsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
       if (resourcesBuilder_ == null) {
         resources_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        resources_ = null;
         resourcesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       complianceRegime_ = 0;
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
       billingAccount_ = "";
-
+      if (il4SettingsBuilder_ != null) {
+        il4SettingsBuilder_.clear();
+      }
+      if (cjisSettingsBuilder_ != null) {
+        cjisSettingsBuilder_.clear();
+      }
+      if (fedrampHighSettingsBuilder_ != null) {
+        fedrampHighSettingsBuilder_.clear();
+      }
+      if (fedrampModerateSettingsBuilder_ != null) {
+        fedrampModerateSettingsBuilder_.clear();
+      }
       etag_ = "";
-
       internalGetMutableLabels().clear();
       provisionedResourcesParent_ = "";
-
-      if (kmsSettingsBuilder_ == null) {
-        kmsSettings_ = null;
-      } else {
-        kmsSettings_ = null;
+      kmsSettings_ = null;
+      if (kmsSettingsBuilder_ != null) {
+        kmsSettingsBuilder_.dispose();
         kmsSettingsBuilder_ = null;
       }
       if (resourceSettingsBuilder_ == null) {
         resourceSettings_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        resourceSettings_ = null;
         resourceSettingsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00004000);
       kajEnrollmentState_ = 0;
-
       enableSovereignControls_ = false;
-
-      if (saaEnrollmentResponseBuilder_ == null) {
-        saaEnrollmentResponse_ = null;
-      } else {
-        saaEnrollmentResponse_ = null;
+      saaEnrollmentResponse_ = null;
+      if (saaEnrollmentResponseBuilder_ != null) {
+        saaEnrollmentResponseBuilder_.dispose();
         saaEnrollmentResponseBuilder_ = null;
       }
+      compliantButDisallowedServices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00040000);
       complianceRegimeSettingsCase_ = 0;
       complianceRegimeSettings_ = null;
       return this;
@@ -9155,81 +8873,105 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.assuredworkloads.v1beta1.Workload buildPartial() {
       com.google.cloud.assuredworkloads.v1beta1.Workload result = new com.google.cloud.assuredworkloads.v1beta1.Workload(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.assuredworkloads.v1beta1.Workload result) {
       if (resourcesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           resources_ = java.util.Collections.unmodifiableList(resources_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.resources_ = resources_;
       } else {
         result.resources_ = resourcesBuilder_.build();
       }
-      result.complianceRegime_ = complianceRegime_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      result.billingAccount_ = billingAccount_;
-      if (complianceRegimeSettingsCase_ == 7) {
-        if (il4SettingsBuilder_ == null) {
-          result.complianceRegimeSettings_ = complianceRegimeSettings_;
-        } else {
-          result.complianceRegimeSettings_ = il4SettingsBuilder_.build();
-        }
-      }
-      if (complianceRegimeSettingsCase_ == 8) {
-        if (cjisSettingsBuilder_ == null) {
-          result.complianceRegimeSettings_ = complianceRegimeSettings_;
-        } else {
-          result.complianceRegimeSettings_ = cjisSettingsBuilder_.build();
-        }
-      }
-      if (complianceRegimeSettingsCase_ == 11) {
-        if (fedrampHighSettingsBuilder_ == null) {
-          result.complianceRegimeSettings_ = complianceRegimeSettings_;
-        } else {
-          result.complianceRegimeSettings_ = fedrampHighSettingsBuilder_.build();
-        }
-      }
-      if (complianceRegimeSettingsCase_ == 12) {
-        if (fedrampModerateSettingsBuilder_ == null) {
-          result.complianceRegimeSettings_ = complianceRegimeSettings_;
-        } else {
-          result.complianceRegimeSettings_ = fedrampModerateSettingsBuilder_.build();
-        }
-      }
-      result.etag_ = etag_;
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      result.provisionedResourcesParent_ = provisionedResourcesParent_;
-      if (kmsSettingsBuilder_ == null) {
-        result.kmsSettings_ = kmsSettings_;
-      } else {
-        result.kmsSettings_ = kmsSettingsBuilder_.build();
-      }
       if (resourceSettingsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00004000) != 0)) {
           resourceSettings_ = java.util.Collections.unmodifiableList(resourceSettings_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00004000);
         }
         result.resourceSettings_ = resourceSettings_;
       } else {
         result.resourceSettings_ = resourceSettingsBuilder_.build();
       }
-      result.kajEnrollmentState_ = kajEnrollmentState_;
-      result.enableSovereignControls_ = enableSovereignControls_;
-      if (saaEnrollmentResponseBuilder_ == null) {
-        result.saaEnrollmentResponse_ = saaEnrollmentResponse_;
-      } else {
-        result.saaEnrollmentResponse_ = saaEnrollmentResponseBuilder_.build();
+      if (((bitField0_ & 0x00040000) != 0)) {
+        compliantButDisallowedServices_ = compliantButDisallowedServices_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00040000);
       }
+      result.compliantButDisallowedServices_ = compliantButDisallowedServices_;
+    }
+
+    private void buildPartial0(com.google.cloud.assuredworkloads.v1beta1.Workload result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.complianceRegime_ = complianceRegime_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.billingAccount_ = billingAccount_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.etag_ = etag_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.provisionedResourcesParent_ = provisionedResourcesParent_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.kmsSettings_ = kmsSettingsBuilder_ == null
+            ? kmsSettings_
+            : kmsSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.kajEnrollmentState_ = kajEnrollmentState_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.enableSovereignControls_ = enableSovereignControls_;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.saaEnrollmentResponse_ = saaEnrollmentResponseBuilder_ == null
+            ? saaEnrollmentResponse_
+            : saaEnrollmentResponseBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.assuredworkloads.v1beta1.Workload result) {
       result.complianceRegimeSettingsCase_ = complianceRegimeSettingsCase_;
-      onBuilt();
-      return result;
+      result.complianceRegimeSettings_ = this.complianceRegimeSettings_;
+      if (complianceRegimeSettingsCase_ == 7 &&
+          il4SettingsBuilder_ != null) {
+        result.complianceRegimeSettings_ = il4SettingsBuilder_.build();
+      }
+      if (complianceRegimeSettingsCase_ == 8 &&
+          cjisSettingsBuilder_ != null) {
+        result.complianceRegimeSettings_ = cjisSettingsBuilder_.build();
+      }
+      if (complianceRegimeSettingsCase_ == 11 &&
+          fedrampHighSettingsBuilder_ != null) {
+        result.complianceRegimeSettings_ = fedrampHighSettingsBuilder_.build();
+      }
+      if (complianceRegimeSettingsCase_ == 12 &&
+          fedrampModerateSettingsBuilder_ != null) {
+        result.complianceRegimeSettings_ = fedrampModerateSettingsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -9278,17 +9020,19 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.assuredworkloads.v1beta1.Workload.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (resourcesBuilder_ == null) {
         if (!other.resources_.isEmpty()) {
           if (resources_.isEmpty()) {
             resources_ = other.resources_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureResourcesIsMutable();
             resources_.addAll(other.resources_);
@@ -9301,7 +9045,7 @@ private static final long serialVersionUID = 0L;
             resourcesBuilder_.dispose();
             resourcesBuilder_ = null;
             resources_ = other.resources_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             resourcesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getResourcesFieldBuilder() : null;
@@ -9318,16 +9062,20 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getBillingAccount().isEmpty()) {
         billingAccount_ = other.billingAccount_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getEtag().isEmpty()) {
         etag_ = other.etag_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000800;
       if (!other.getProvisionedResourcesParent().isEmpty()) {
         provisionedResourcesParent_ = other.provisionedResourcesParent_;
+        bitField0_ |= 0x00001000;
         onChanged();
       }
       if (other.hasKmsSettings()) {
@@ -9337,7 +9085,7 @@ private static final long serialVersionUID = 0L;
         if (!other.resourceSettings_.isEmpty()) {
           if (resourceSettings_.isEmpty()) {
             resourceSettings_ = other.resourceSettings_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00004000);
           } else {
             ensureResourceSettingsIsMutable();
             resourceSettings_.addAll(other.resourceSettings_);
@@ -9350,7 +9098,7 @@ private static final long serialVersionUID = 0L;
             resourceSettingsBuilder_.dispose();
             resourceSettingsBuilder_ = null;
             resourceSettings_ = other.resourceSettings_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00004000);
             resourceSettingsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getResourceSettingsFieldBuilder() : null;
@@ -9367,6 +9115,16 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasSaaEnrollmentResponse()) {
         mergeSaaEnrollmentResponse(other.getSaaEnrollmentResponse());
+      }
+      if (!other.compliantButDisallowedServices_.isEmpty()) {
+        if (compliantButDisallowedServices_.isEmpty()) {
+          compliantButDisallowedServices_ = other.compliantButDisallowedServices_;
+          bitField0_ = (bitField0_ & ~0x00040000);
+        } else {
+          ensureCompliantButDisallowedServicesIsMutable();
+          compliantButDisallowedServices_.addAll(other.compliantButDisallowedServices_);
+        }
+        onChanged();
       }
       switch (other.getComplianceRegimeSettingsCase()) {
         case IL4_SETTINGS: {
@@ -9389,7 +9147,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -9404,17 +9162,160 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.assuredworkloads.v1beta1.Workload parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo m =
+                  input.readMessage(
+                      com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.parser(),
+                      extensionRegistry);
+              if (resourcesBuilder_ == null) {
+                ensureResourcesIsMutable();
+                resources_.add(m);
+              } else {
+                resourcesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 32: {
+              complianceRegime_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              billingAccount_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getIl4SettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              complianceRegimeSettingsCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getCjisSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              complianceRegimeSettingsCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              etag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 74
+            case 82: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getFedrampHighSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              complianceRegimeSettingsCase_ = 11;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getFedrampModerateSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              complianceRegimeSettingsCase_ = 12;
+              break;
+            } // case 98
+            case 106: {
+              provisionedResourcesParent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getKmsSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 114
+            case 122: {
+              com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettings m =
+                  input.readMessage(
+                      com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettings.parser(),
+                      extensionRegistry);
+              if (resourceSettingsBuilder_ == null) {
+                ensureResourceSettingsIsMutable();
+                resourceSettings_.add(m);
+              } else {
+                resourceSettingsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 122
+            case 136: {
+              kajEnrollmentState_ = input.readEnum();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 136
+            case 144: {
+              enableSovereignControls_ = input.readBool();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 144
+            case 162: {
+              input.readMessage(
+                  getSaaEnrollmentResponseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 162
+            case 194: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureCompliantButDisallowedServicesIsMutable();
+              compliantButDisallowedServices_.add(s);
+              break;
+            } // case 194
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.assuredworkloads.v1beta1.Workload) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int complianceRegimeSettingsCase_ = 0;
@@ -9496,11 +9397,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -9516,8 +9415,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -9535,12 +9434,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -9610,11 +9507,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -9631,8 +9526,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -9651,12 +9546,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -9664,9 +9557,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo> resources_ =
       java.util.Collections.emptyList();
     private void ensureResourcesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         resources_ = new java.util.ArrayList<com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo>(resources_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -9893,7 +9786,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearResources() {
       if (resourcesBuilder_ == null) {
         resources_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         resourcesBuilder_.clear();
@@ -10019,7 +9912,7 @@ private static final long serialVersionUID = 0L;
         resourcesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo, com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.Builder, com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfoOrBuilder>(
                 resources_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         resources_ = null;
@@ -10049,8 +9942,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setComplianceRegimeValue(int value) {
-      
       complianceRegime_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -10064,8 +9957,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.assuredworkloads.v1beta1.Workload.ComplianceRegime getComplianceRegime() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.assuredworkloads.v1beta1.Workload.ComplianceRegime result = com.google.cloud.assuredworkloads.v1beta1.Workload.ComplianceRegime.valueOf(complianceRegime_);
+      com.google.cloud.assuredworkloads.v1beta1.Workload.ComplianceRegime result = com.google.cloud.assuredworkloads.v1beta1.Workload.ComplianceRegime.forNumber(complianceRegime_);
       return result == null ? com.google.cloud.assuredworkloads.v1beta1.Workload.ComplianceRegime.UNRECOGNIZED : result;
     }
     /**
@@ -10081,7 +9973,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       complianceRegime_ = value.getNumber();
       onChanged();
       return this;
@@ -10095,7 +9987,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearComplianceRegime() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       complianceRegime_ = 0;
       onChanged();
       return this;
@@ -10113,7 +10005,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -10143,11 +10035,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -10161,11 +10053,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -10177,17 +10069,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -10198,14 +10091,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -10216,7 +10108,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -10259,7 +10151,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object billingAccount_ = "";
     /**
      * <pre>
-     * Input only. The billing account used for the resources which are
+     * Output only. The billing account used for the resources which are
      * direct children of workload. This billing account is initially associated
      * with the resources created as part of Workload creation.
      * After the initial creation of these resources, the customer can change
@@ -10269,7 +10161,7 @@ private static final long serialVersionUID = 0L;
      * `billingAccounts/012345-567890-ABCDEF`.
      * </pre>
      *
-     * <code>string billing_account = 6 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     * <code>string billing_account = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The billingAccount.
      */
     public java.lang.String getBillingAccount() {
@@ -10286,7 +10178,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The billing account used for the resources which are
+     * Output only. The billing account used for the resources which are
      * direct children of workload. This billing account is initially associated
      * with the resources created as part of Workload creation.
      * After the initial creation of these resources, the customer can change
@@ -10296,7 +10188,7 @@ private static final long serialVersionUID = 0L;
      * `billingAccounts/012345-567890-ABCDEF`.
      * </pre>
      *
-     * <code>string billing_account = 6 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     * <code>string billing_account = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The bytes for billingAccount.
      */
     public com.google.protobuf.ByteString
@@ -10314,7 +10206,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The billing account used for the resources which are
+     * Output only. The billing account used for the resources which are
      * direct children of workload. This billing account is initially associated
      * with the resources created as part of Workload creation.
      * After the initial creation of these resources, the customer can change
@@ -10324,23 +10216,21 @@ private static final long serialVersionUID = 0L;
      * `billingAccounts/012345-567890-ABCDEF`.
      * </pre>
      *
-     * <code>string billing_account = 6 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     * <code>string billing_account = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @param value The billingAccount to set.
      * @return This builder for chaining.
      */
     public Builder setBillingAccount(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       billingAccount_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Input only. The billing account used for the resources which are
+     * Output only. The billing account used for the resources which are
      * direct children of workload. This billing account is initially associated
      * with the resources created as part of Workload creation.
      * After the initial creation of these resources, the customer can change
@@ -10350,18 +10240,18 @@ private static final long serialVersionUID = 0L;
      * `billingAccounts/012345-567890-ABCDEF`.
      * </pre>
      *
-     * <code>string billing_account = 6 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     * <code>string billing_account = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearBillingAccount() {
-      
       billingAccount_ = getDefaultInstance().getBillingAccount();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Input only. The billing account used for the resources which are
+     * Output only. The billing account used for the resources which are
      * direct children of workload. This billing account is initially associated
      * with the resources created as part of Workload creation.
      * After the initial creation of these resources, the customer can change
@@ -10371,18 +10261,16 @@ private static final long serialVersionUID = 0L;
      * `billingAccounts/012345-567890-ABCDEF`.
      * </pre>
      *
-     * <code>string billing_account = 6 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     * <code>string billing_account = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @param value The bytes for billingAccount to set.
      * @return This builder for chaining.
      */
     public Builder setBillingAccountBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       billingAccount_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -10396,7 +10284,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.cloud.assuredworkloads.v1beta1.Workload.IL4Settings il4_settings = 7 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
      * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.il4_settings is deprecated.
-     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=498
+     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=468
      * @return Whether the il4Settings field is set.
      */
     @java.lang.Override
@@ -10410,7 +10298,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.cloud.assuredworkloads.v1beta1.Workload.IL4Settings il4_settings = 7 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
      * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.il4_settings is deprecated.
-     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=498
+     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=468
      * @return The il4Settings.
      */
     @java.lang.Override
@@ -10565,7 +10453,7 @@ private static final long serialVersionUID = 0L;
         complianceRegimeSettings_ = null;
       }
       complianceRegimeSettingsCase_ = 7;
-      onChanged();;
+      onChanged();
       return il4SettingsBuilder_;
     }
 
@@ -10578,7 +10466,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.cloud.assuredworkloads.v1beta1.Workload.CJISSettings cjis_settings = 8 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
      * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.cjis_settings is deprecated.
-     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=505
+     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=475
      * @return Whether the cjisSettings field is set.
      */
     @java.lang.Override
@@ -10592,7 +10480,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.cloud.assuredworkloads.v1beta1.Workload.CJISSettings cjis_settings = 8 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
      * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.cjis_settings is deprecated.
-     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=505
+     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=475
      * @return The cjisSettings.
      */
     @java.lang.Override
@@ -10747,7 +10635,7 @@ private static final long serialVersionUID = 0L;
         complianceRegimeSettings_ = null;
       }
       complianceRegimeSettingsCase_ = 8;
-      onChanged();;
+      onChanged();
       return cjisSettingsBuilder_;
     }
 
@@ -10760,7 +10648,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.cloud.assuredworkloads.v1beta1.Workload.FedrampHighSettings fedramp_high_settings = 11 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
      * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.fedramp_high_settings is deprecated.
-     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=512
+     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=482
      * @return Whether the fedrampHighSettings field is set.
      */
     @java.lang.Override
@@ -10774,7 +10662,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.cloud.assuredworkloads.v1beta1.Workload.FedrampHighSettings fedramp_high_settings = 11 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
      * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.fedramp_high_settings is deprecated.
-     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=512
+     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=482
      * @return The fedrampHighSettings.
      */
     @java.lang.Override
@@ -10929,7 +10817,7 @@ private static final long serialVersionUID = 0L;
         complianceRegimeSettings_ = null;
       }
       complianceRegimeSettingsCase_ = 11;
-      onChanged();;
+      onChanged();
       return fedrampHighSettingsBuilder_;
     }
 
@@ -10942,7 +10830,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.cloud.assuredworkloads.v1beta1.Workload.FedrampModerateSettings fedramp_moderate_settings = 12 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
      * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.fedramp_moderate_settings is deprecated.
-     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=519
+     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=489
      * @return Whether the fedrampModerateSettings field is set.
      */
     @java.lang.Override
@@ -10956,7 +10844,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.cloud.assuredworkloads.v1beta1.Workload.FedrampModerateSettings fedramp_moderate_settings = 12 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
      * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.fedramp_moderate_settings is deprecated.
-     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=519
+     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=489
      * @return The fedrampModerateSettings.
      */
     @java.lang.Override
@@ -11111,7 +10999,7 @@ private static final long serialVersionUID = 0L;
         complianceRegimeSettings_ = null;
       }
       complianceRegimeSettingsCase_ = 12;
-      onChanged();;
+      onChanged();
       return fedrampModerateSettingsBuilder_;
     }
 
@@ -11171,11 +11059,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       etag_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -11189,8 +11075,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEtag() {
-      
       etag_ = getDefaultInstance().getEtag();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -11206,12 +11092,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       etag_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -11219,7 +11103,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -11227,8 +11111,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -11236,9 +11119,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000800;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -11249,7 +11133,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -11272,7 +11155,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -11284,10 +11166,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -11301,7 +11184,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -11312,8 +11194,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000800);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -11325,7 +11207,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -11338,7 +11219,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000800;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -11352,12 +11234,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000800;
       return this;
     }
     /**
@@ -11367,11 +11247,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000800;
       return this;
     }
 
@@ -11443,11 +11323,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProvisionedResourcesParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       provisionedResourcesParent_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -11465,8 +11343,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProvisionedResourcesParent() {
-      
       provisionedResourcesParent_ = getDefaultInstance().getProvisionedResourcesParent();
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -11486,12 +11364,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProvisionedResourcesParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       provisionedResourcesParent_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -11510,11 +11386,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kms_settings = 14 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY];</code>
      * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.kms_settings is deprecated.
-     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=546
+     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=516
      * @return Whether the kmsSettings field is set.
      */
     @java.lang.Deprecated public boolean hasKmsSettings() {
-      return kmsSettingsBuilder_ != null || kmsSettings_ != null;
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -11527,7 +11403,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kms_settings = 14 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY];</code>
      * @deprecated google.cloud.assuredworkloads.v1beta1.Workload.kms_settings is deprecated.
-     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=546
+     *     See google/cloud/assuredworkloads/v1beta1/assuredworkloads.proto;l=516
      * @return The kmsSettings.
      */
     @java.lang.Deprecated public com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings getKmsSettings() {
@@ -11554,11 +11430,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         kmsSettings_ = value;
-        onChanged();
       } else {
         kmsSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -11576,11 +11452,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.Builder builderForValue) {
       if (kmsSettingsBuilder_ == null) {
         kmsSettings_ = builderForValue.build();
-        onChanged();
       } else {
         kmsSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -11596,17 +11472,18 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder mergeKmsSettings(com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings value) {
       if (kmsSettingsBuilder_ == null) {
-        if (kmsSettings_ != null) {
-          kmsSettings_ =
-            com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.newBuilder(kmsSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00002000) != 0) &&
+          kmsSettings_ != null &&
+          kmsSettings_ != com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.getDefaultInstance()) {
+          getKmsSettingsBuilder().mergeFrom(value);
         } else {
           kmsSettings_ = value;
         }
-        onChanged();
       } else {
         kmsSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -11621,14 +11498,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kms_settings = 14 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     @java.lang.Deprecated public Builder clearKmsSettings() {
-      if (kmsSettingsBuilder_ == null) {
-        kmsSettings_ = null;
-        onChanged();
-      } else {
-        kmsSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00002000);
+      kmsSettings_ = null;
+      if (kmsSettingsBuilder_ != null) {
+        kmsSettingsBuilder_.dispose();
         kmsSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -11643,7 +11519,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings kms_settings = 14 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     @java.lang.Deprecated public com.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettings.Builder getKmsSettingsBuilder() {
-      
+      bitField0_ |= 0x00002000;
       onChanged();
       return getKmsSettingsFieldBuilder().getBuilder();
     }
@@ -11694,9 +11570,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettings> resourceSettings_ =
       java.util.Collections.emptyList();
     private void ensureResourceSettingsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00004000) != 0)) {
         resourceSettings_ = new java.util.ArrayList<com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettings>(resourceSettings_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00004000;
        }
     }
 
@@ -11912,7 +11788,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearResourceSettings() {
       if (resourceSettingsBuilder_ == null) {
         resourceSettings_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00004000);
         onChanged();
       } else {
         resourceSettingsBuilder_.clear();
@@ -12031,7 +11907,7 @@ private static final long serialVersionUID = 0L;
         resourceSettingsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettings, com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettings.Builder, com.google.cloud.assuredworkloads.v1beta1.Workload.ResourceSettingsOrBuilder>(
                 resourceSettings_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00004000) != 0),
                 getParentForChildren(),
                 isClean());
         resourceSettings_ = null;
@@ -12061,8 +11937,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setKajEnrollmentStateValue(int value) {
-      
       kajEnrollmentState_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -12076,8 +11952,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.assuredworkloads.v1beta1.Workload.KajEnrollmentState getKajEnrollmentState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.assuredworkloads.v1beta1.Workload.KajEnrollmentState result = com.google.cloud.assuredworkloads.v1beta1.Workload.KajEnrollmentState.valueOf(kajEnrollmentState_);
+      com.google.cloud.assuredworkloads.v1beta1.Workload.KajEnrollmentState result = com.google.cloud.assuredworkloads.v1beta1.Workload.KajEnrollmentState.forNumber(kajEnrollmentState_);
       return result == null ? com.google.cloud.assuredworkloads.v1beta1.Workload.KajEnrollmentState.UNRECOGNIZED : result;
     }
     /**
@@ -12093,7 +11968,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00008000;
       kajEnrollmentState_ = value.getNumber();
       onChanged();
       return this;
@@ -12107,7 +11982,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKajEnrollmentState() {
-      
+      bitField0_ = (bitField0_ & ~0x00008000);
       kajEnrollmentState_ = 0;
       onChanged();
       return this;
@@ -12140,6 +12015,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnableSovereignControls(boolean value) {
       
       enableSovereignControls_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -12153,7 +12029,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableSovereignControls() {
-      
+      bitField0_ = (bitField0_ & ~0x00010000);
       enableSovereignControls_ = false;
       onChanged();
       return this;
@@ -12173,7 +12049,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the saaEnrollmentResponse field is set.
      */
     public boolean hasSaaEnrollmentResponse() {
-      return saaEnrollmentResponseBuilder_ != null || saaEnrollmentResponse_ != null;
+      return ((bitField0_ & 0x00020000) != 0);
     }
     /**
      * <pre>
@@ -12207,11 +12083,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         saaEnrollmentResponse_ = value;
-        onChanged();
       } else {
         saaEnrollmentResponseBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -12227,11 +12103,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.Builder builderForValue) {
       if (saaEnrollmentResponseBuilder_ == null) {
         saaEnrollmentResponse_ = builderForValue.build();
-        onChanged();
       } else {
         saaEnrollmentResponseBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -12245,17 +12121,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSaaEnrollmentResponse(com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse value) {
       if (saaEnrollmentResponseBuilder_ == null) {
-        if (saaEnrollmentResponse_ != null) {
-          saaEnrollmentResponse_ =
-            com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.newBuilder(saaEnrollmentResponse_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00020000) != 0) &&
+          saaEnrollmentResponse_ != null &&
+          saaEnrollmentResponse_ != com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.getDefaultInstance()) {
+          getSaaEnrollmentResponseBuilder().mergeFrom(value);
         } else {
           saaEnrollmentResponse_ = value;
         }
-        onChanged();
       } else {
         saaEnrollmentResponseBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -12268,14 +12145,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse saa_enrollment_response = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearSaaEnrollmentResponse() {
-      if (saaEnrollmentResponseBuilder_ == null) {
-        saaEnrollmentResponse_ = null;
-        onChanged();
-      } else {
-        saaEnrollmentResponse_ = null;
+      bitField0_ = (bitField0_ & ~0x00020000);
+      saaEnrollmentResponse_ = null;
+      if (saaEnrollmentResponseBuilder_ != null) {
+        saaEnrollmentResponseBuilder_.dispose();
         saaEnrollmentResponseBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -12288,7 +12164,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse saa_enrollment_response = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.assuredworkloads.v1beta1.Workload.SaaEnrollmentResponse.Builder getSaaEnrollmentResponseBuilder() {
-      
+      bitField0_ |= 0x00020000;
       onChanged();
       return getSaaEnrollmentResponseFieldBuilder().getBuilder();
     }
@@ -12331,6 +12207,173 @@ private static final long serialVersionUID = 0L;
       }
       return saaEnrollmentResponseBuilder_;
     }
+
+    private com.google.protobuf.LazyStringList compliantButDisallowedServices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureCompliantButDisallowedServicesIsMutable() {
+      if (!((bitField0_ & 0x00040000) != 0)) {
+        compliantButDisallowedServices_ = new com.google.protobuf.LazyStringArrayList(compliantButDisallowedServices_);
+        bitField0_ |= 0x00040000;
+       }
+    }
+    /**
+     * <pre>
+     * Output only. Urls for services which are compliant for this Assured Workload, but which
+     * are currently disallowed by the ResourceUsageRestriction org policy.
+     * Invoke RestrictAllowedResources endpoint to allow your project developers
+     * to use these services in their environment."
+     * </pre>
+     *
+     * <code>repeated string compliant_but_disallowed_services = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return A list containing the compliantButDisallowedServices.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getCompliantButDisallowedServicesList() {
+      return compliantButDisallowedServices_.getUnmodifiableView();
+    }
+    /**
+     * <pre>
+     * Output only. Urls for services which are compliant for this Assured Workload, but which
+     * are currently disallowed by the ResourceUsageRestriction org policy.
+     * Invoke RestrictAllowedResources endpoint to allow your project developers
+     * to use these services in their environment."
+     * </pre>
+     *
+     * <code>repeated string compliant_but_disallowed_services = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The count of compliantButDisallowedServices.
+     */
+    public int getCompliantButDisallowedServicesCount() {
+      return compliantButDisallowedServices_.size();
+    }
+    /**
+     * <pre>
+     * Output only. Urls for services which are compliant for this Assured Workload, but which
+     * are currently disallowed by the ResourceUsageRestriction org policy.
+     * Invoke RestrictAllowedResources endpoint to allow your project developers
+     * to use these services in their environment."
+     * </pre>
+     *
+     * <code>repeated string compliant_but_disallowed_services = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param index The index of the element to return.
+     * @return The compliantButDisallowedServices at the given index.
+     */
+    public java.lang.String getCompliantButDisallowedServices(int index) {
+      return compliantButDisallowedServices_.get(index);
+    }
+    /**
+     * <pre>
+     * Output only. Urls for services which are compliant for this Assured Workload, but which
+     * are currently disallowed by the ResourceUsageRestriction org policy.
+     * Invoke RestrictAllowedResources endpoint to allow your project developers
+     * to use these services in their environment."
+     * </pre>
+     *
+     * <code>repeated string compliant_but_disallowed_services = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the compliantButDisallowedServices at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getCompliantButDisallowedServicesBytes(int index) {
+      return compliantButDisallowedServices_.getByteString(index);
+    }
+    /**
+     * <pre>
+     * Output only. Urls for services which are compliant for this Assured Workload, but which
+     * are currently disallowed by the ResourceUsageRestriction org policy.
+     * Invoke RestrictAllowedResources endpoint to allow your project developers
+     * to use these services in their environment."
+     * </pre>
+     *
+     * <code>repeated string compliant_but_disallowed_services = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param index The index to set the value at.
+     * @param value The compliantButDisallowedServices to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCompliantButDisallowedServices(
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureCompliantButDisallowedServicesIsMutable();
+      compliantButDisallowedServices_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. Urls for services which are compliant for this Assured Workload, but which
+     * are currently disallowed by the ResourceUsageRestriction org policy.
+     * Invoke RestrictAllowedResources endpoint to allow your project developers
+     * to use these services in their environment."
+     * </pre>
+     *
+     * <code>repeated string compliant_but_disallowed_services = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param value The compliantButDisallowedServices to add.
+     * @return This builder for chaining.
+     */
+    public Builder addCompliantButDisallowedServices(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureCompliantButDisallowedServicesIsMutable();
+      compliantButDisallowedServices_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. Urls for services which are compliant for this Assured Workload, but which
+     * are currently disallowed by the ResourceUsageRestriction org policy.
+     * Invoke RestrictAllowedResources endpoint to allow your project developers
+     * to use these services in their environment."
+     * </pre>
+     *
+     * <code>repeated string compliant_but_disallowed_services = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param values The compliantButDisallowedServices to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllCompliantButDisallowedServices(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureCompliantButDisallowedServicesIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, compliantButDisallowedServices_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. Urls for services which are compliant for this Assured Workload, but which
+     * are currently disallowed by the ResourceUsageRestriction org policy.
+     * Invoke RestrictAllowedResources endpoint to allow your project developers
+     * to use these services in their environment."
+     * </pre>
+     *
+     * <code>repeated string compliant_but_disallowed_services = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCompliantButDisallowedServices() {
+      compliantButDisallowedServices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00040000);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. Urls for services which are compliant for this Assured Workload, but which
+     * are currently disallowed by the ResourceUsageRestriction org policy.
+     * Invoke RestrictAllowedResources endpoint to allow your project developers
+     * to use these services in their environment."
+     * </pre>
+     *
+     * <code>repeated string compliant_but_disallowed_services = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param value The bytes of the compliantButDisallowedServices to add.
+     * @return This builder for chaining.
+     */
+    public Builder addCompliantButDisallowedServicesBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensureCompliantButDisallowedServicesIsMutable();
+      compliantButDisallowedServices_.add(value);
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -12364,7 +12407,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Workload(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

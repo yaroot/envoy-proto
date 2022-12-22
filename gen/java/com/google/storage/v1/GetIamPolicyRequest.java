@@ -35,80 +35,15 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GetIamPolicyRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.iam.v1.GetIamPolicyRequest.Builder subBuilder = null;
-            if (iamRequest_ != null) {
-              subBuilder = iamRequest_.toBuilder();
-            }
-            iamRequest_ = input.readMessage(com.google.iam.v1.GetIamPolicyRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(iamRequest_);
-              iamRequest_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.storage.v1.CommonRequestParams.Builder subBuilder = null;
-            if (commonRequestParams_ != null) {
-              subBuilder = commonRequestParams_.toBuilder();
-            }
-            commonRequestParams_ = input.readMessage(com.google.storage.v1.CommonRequestParams.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(commonRequestParams_);
-              commonRequestParams_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.google.storage.v1.StorageOuterClass.internal_static_google_storage_v1_GetIamPolicyRequest_descriptor;
+    return com.google.storage.v1.Storage.internal_static_google_storage_v1_GetIamPolicyRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.google.storage.v1.StorageOuterClass.internal_static_google_storage_v1_GetIamPolicyRequest_fieldAccessorTable
+    return com.google.storage.v1.Storage.internal_static_google_storage_v1_GetIamPolicyRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.google.storage.v1.GetIamPolicyRequest.class, com.google.storage.v1.GetIamPolicyRequest.Builder.class);
   }
@@ -148,7 +83,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.iam.v1.GetIamPolicyRequestOrBuilder getIamRequestOrBuilder() {
-    return getIamRequest();
+    return iamRequest_ == null ? com.google.iam.v1.GetIamPolicyRequest.getDefaultInstance() : iamRequest_;
   }
 
   public static final int COMMON_REQUEST_PARAMS_FIELD_NUMBER = 2;
@@ -186,7 +121,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.storage.v1.CommonRequestParamsOrBuilder getCommonRequestParamsOrBuilder() {
-    return getCommonRequestParams();
+    return commonRequestParams_ == null ? com.google.storage.v1.CommonRequestParams.getDefaultInstance() : commonRequestParams_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -209,7 +144,7 @@ private static final long serialVersionUID = 0L;
     if (commonRequestParams_ != null) {
       output.writeMessage(2, getCommonRequestParams());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -226,7 +161,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getCommonRequestParams());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -251,7 +186,7 @@ private static final long serialVersionUID = 0L;
       if (!getCommonRequestParams()
           .equals(other.getCommonRequestParams())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -270,7 +205,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + COMMON_REQUEST_PARAMS_FIELD_NUMBER;
       hash = (53 * hash) + getCommonRequestParams().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -379,45 +314,39 @@ private static final long serialVersionUID = 0L;
       com.google.storage.v1.GetIamPolicyRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.google.storage.v1.StorageOuterClass.internal_static_google_storage_v1_GetIamPolicyRequest_descriptor;
+      return com.google.storage.v1.Storage.internal_static_google_storage_v1_GetIamPolicyRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.google.storage.v1.StorageOuterClass.internal_static_google_storage_v1_GetIamPolicyRequest_fieldAccessorTable
+      return com.google.storage.v1.Storage.internal_static_google_storage_v1_GetIamPolicyRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.storage.v1.GetIamPolicyRequest.class, com.google.storage.v1.GetIamPolicyRequest.Builder.class);
     }
 
     // Construct using com.google.storage.v1.GetIamPolicyRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (iamRequestBuilder_ == null) {
-        iamRequest_ = null;
-      } else {
-        iamRequest_ = null;
+      bitField0_ = 0;
+      iamRequest_ = null;
+      if (iamRequestBuilder_ != null) {
+        iamRequestBuilder_.dispose();
         iamRequestBuilder_ = null;
       }
-      if (commonRequestParamsBuilder_ == null) {
-        commonRequestParams_ = null;
-      } else {
-        commonRequestParams_ = null;
+      commonRequestParams_ = null;
+      if (commonRequestParamsBuilder_ != null) {
+        commonRequestParamsBuilder_.dispose();
         commonRequestParamsBuilder_ = null;
       }
       return this;
@@ -426,7 +355,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.google.storage.v1.StorageOuterClass.internal_static_google_storage_v1_GetIamPolicyRequest_descriptor;
+      return com.google.storage.v1.Storage.internal_static_google_storage_v1_GetIamPolicyRequest_descriptor;
     }
 
     @java.lang.Override
@@ -446,18 +375,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.storage.v1.GetIamPolicyRequest buildPartial() {
       com.google.storage.v1.GetIamPolicyRequest result = new com.google.storage.v1.GetIamPolicyRequest(this);
-      if (iamRequestBuilder_ == null) {
-        result.iamRequest_ = iamRequest_;
-      } else {
-        result.iamRequest_ = iamRequestBuilder_.build();
-      }
-      if (commonRequestParamsBuilder_ == null) {
-        result.commonRequestParams_ = commonRequestParams_;
-      } else {
-        result.commonRequestParams_ = commonRequestParamsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.storage.v1.GetIamPolicyRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.iamRequest_ = iamRequestBuilder_ == null
+            ? iamRequest_
+            : iamRequestBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.commonRequestParams_ = commonRequestParamsBuilder_ == null
+            ? commonRequestParams_
+            : commonRequestParamsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -510,7 +444,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasCommonRequestParams()) {
         mergeCommonRequestParams(other.getCommonRequestParams());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -525,19 +459,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.storage.v1.GetIamPolicyRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getIamRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCommonRequestParamsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.storage.v1.GetIamPolicyRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.iam.v1.GetIamPolicyRequest iamRequest_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -551,7 +513,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the iamRequest field is set.
      */
     public boolean hasIamRequest() {
-      return iamRequestBuilder_ != null || iamRequest_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -581,11 +543,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         iamRequest_ = value;
-        onChanged();
       } else {
         iamRequestBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -599,11 +561,11 @@ private static final long serialVersionUID = 0L;
         com.google.iam.v1.GetIamPolicyRequest.Builder builderForValue) {
       if (iamRequestBuilder_ == null) {
         iamRequest_ = builderForValue.build();
-        onChanged();
       } else {
         iamRequestBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -615,17 +577,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeIamRequest(com.google.iam.v1.GetIamPolicyRequest value) {
       if (iamRequestBuilder_ == null) {
-        if (iamRequest_ != null) {
-          iamRequest_ =
-            com.google.iam.v1.GetIamPolicyRequest.newBuilder(iamRequest_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          iamRequest_ != null &&
+          iamRequest_ != com.google.iam.v1.GetIamPolicyRequest.getDefaultInstance()) {
+          getIamRequestBuilder().mergeFrom(value);
         } else {
           iamRequest_ = value;
         }
-        onChanged();
       } else {
         iamRequestBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -636,14 +599,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.iam.v1.GetIamPolicyRequest iam_request = 1;</code>
      */
     public Builder clearIamRequest() {
-      if (iamRequestBuilder_ == null) {
-        iamRequest_ = null;
-        onChanged();
-      } else {
-        iamRequest_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      iamRequest_ = null;
+      if (iamRequestBuilder_ != null) {
+        iamRequestBuilder_.dispose();
         iamRequestBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -654,7 +616,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.iam.v1.GetIamPolicyRequest iam_request = 1;</code>
      */
     public com.google.iam.v1.GetIamPolicyRequest.Builder getIamRequestBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getIamRequestFieldBuilder().getBuilder();
     }
@@ -706,7 +668,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the commonRequestParams field is set.
      */
     public boolean hasCommonRequestParams() {
-      return commonRequestParamsBuilder_ != null || commonRequestParams_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -736,11 +698,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         commonRequestParams_ = value;
-        onChanged();
       } else {
         commonRequestParamsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -754,11 +716,11 @@ private static final long serialVersionUID = 0L;
         com.google.storage.v1.CommonRequestParams.Builder builderForValue) {
       if (commonRequestParamsBuilder_ == null) {
         commonRequestParams_ = builderForValue.build();
-        onChanged();
       } else {
         commonRequestParamsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -770,17 +732,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCommonRequestParams(com.google.storage.v1.CommonRequestParams value) {
       if (commonRequestParamsBuilder_ == null) {
-        if (commonRequestParams_ != null) {
-          commonRequestParams_ =
-            com.google.storage.v1.CommonRequestParams.newBuilder(commonRequestParams_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          commonRequestParams_ != null &&
+          commonRequestParams_ != com.google.storage.v1.CommonRequestParams.getDefaultInstance()) {
+          getCommonRequestParamsBuilder().mergeFrom(value);
         } else {
           commonRequestParams_ = value;
         }
-        onChanged();
       } else {
         commonRequestParamsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -791,14 +754,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.storage.v1.CommonRequestParams common_request_params = 2;</code>
      */
     public Builder clearCommonRequestParams() {
-      if (commonRequestParamsBuilder_ == null) {
-        commonRequestParams_ = null;
-        onChanged();
-      } else {
-        commonRequestParams_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      commonRequestParams_ = null;
+      if (commonRequestParamsBuilder_ != null) {
+        commonRequestParamsBuilder_.dispose();
         commonRequestParamsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -809,7 +771,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.storage.v1.CommonRequestParams common_request_params = 2;</code>
      */
     public com.google.storage.v1.CommonRequestParams.Builder getCommonRequestParamsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCommonRequestParamsFieldBuilder().getBuilder();
     }
@@ -881,7 +843,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GetIamPolicyRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

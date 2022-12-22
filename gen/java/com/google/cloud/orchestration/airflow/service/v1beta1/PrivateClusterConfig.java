@@ -37,62 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PrivateClusterConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            enablePrivateEndpoint_ = input.readBool();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            masterIpv4CidrBlock_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            masterIpv4ReservedRange_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.orchestration.airflow.service.v1beta1.EnvironmentsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1beta1_PrivateClusterConfig_descriptor;
@@ -107,7 +51,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_PRIVATE_ENDPOINT_FIELD_NUMBER = 1;
-  private boolean enablePrivateEndpoint_;
+  private boolean enablePrivateEndpoint_ = false;
   /**
    * <pre>
    * Optional. If `true`, access to the public endpoint of the GKE cluster is
@@ -123,7 +67,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MASTER_IPV4_CIDR_BLOCK_FIELD_NUMBER = 2;
-  private volatile java.lang.Object masterIpv4CidrBlock_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object masterIpv4CidrBlock_ = "";
   /**
    * <pre>
    * Optional. The CIDR block from which IPv4 range for GKE master will be reserved. If
@@ -171,7 +116,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MASTER_IPV4_RESERVED_RANGE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object masterIpv4ReservedRange_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object masterIpv4ReservedRange_ = "";
   /**
    * <pre>
    * Output only. The IP range in CIDR notation to use for the hosted master network. This
@@ -247,7 +193,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(masterIpv4ReservedRange_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, masterIpv4ReservedRange_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -266,7 +212,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(masterIpv4ReservedRange_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, masterIpv4ReservedRange_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -287,7 +233,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getMasterIpv4CidrBlock())) return false;
     if (!getMasterIpv4ReservedRange()
         .equals(other.getMasterIpv4ReservedRange())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -305,7 +251,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getMasterIpv4CidrBlock().hashCode();
     hash = (37 * hash) + MASTER_IPV4_RESERVED_RANGE_FIELD_NUMBER;
     hash = (53 * hash) + getMasterIpv4ReservedRange().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -427,28 +373,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       enablePrivateEndpoint_ = false;
-
       masterIpv4CidrBlock_ = "";
-
       masterIpv4ReservedRange_ = "";
-
       return this;
     }
 
@@ -475,11 +414,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfig buildPartial() {
       com.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfig result = new com.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfig(this);
-      result.enablePrivateEndpoint_ = enablePrivateEndpoint_;
-      result.masterIpv4CidrBlock_ = masterIpv4CidrBlock_;
-      result.masterIpv4ReservedRange_ = masterIpv4ReservedRange_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.enablePrivateEndpoint_ = enablePrivateEndpoint_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.masterIpv4CidrBlock_ = masterIpv4CidrBlock_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.masterIpv4ReservedRange_ = masterIpv4ReservedRange_;
+      }
     }
 
     @java.lang.Override
@@ -531,13 +481,15 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getMasterIpv4CidrBlock().isEmpty()) {
         masterIpv4CidrBlock_ = other.masterIpv4CidrBlock_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getMasterIpv4ReservedRange().isEmpty()) {
         masterIpv4ReservedRange_ = other.masterIpv4ReservedRange_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -552,19 +504,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              enablePrivateEndpoint_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              masterIpv4CidrBlock_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              masterIpv4ReservedRange_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean enablePrivateEndpoint_ ;
     /**
@@ -593,6 +574,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnablePrivateEndpoint(boolean value) {
       
       enablePrivateEndpoint_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -606,7 +588,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnablePrivateEndpoint() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       enablePrivateEndpoint_ = false;
       onChanged();
       return this;
@@ -668,11 +650,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMasterIpv4CidrBlock(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       masterIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -686,8 +666,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMasterIpv4CidrBlock() {
-      
       masterIpv4CidrBlock_ = getDefaultInstance().getMasterIpv4CidrBlock();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -703,12 +683,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMasterIpv4CidrBlockBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       masterIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -778,11 +756,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMasterIpv4ReservedRange(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       masterIpv4ReservedRange_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -799,8 +775,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMasterIpv4ReservedRange() {
-      
       masterIpv4ReservedRange_ = getDefaultInstance().getMasterIpv4ReservedRange();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -819,12 +795,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMasterIpv4ReservedRangeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       masterIpv4ReservedRange_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -861,7 +835,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PrivateClusterConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

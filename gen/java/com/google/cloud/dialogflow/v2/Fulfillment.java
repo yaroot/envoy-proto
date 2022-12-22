@@ -45,89 +45,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Fulfillment(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.dialogflow.v2.Fulfillment.GenericWebService.Builder subBuilder = null;
-            if (fulfillmentCase_ == 3) {
-              subBuilder = ((com.google.cloud.dialogflow.v2.Fulfillment.GenericWebService) fulfillment_).toBuilder();
-            }
-            fulfillment_ =
-                input.readMessage(com.google.cloud.dialogflow.v2.Fulfillment.GenericWebService.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dialogflow.v2.Fulfillment.GenericWebService) fulfillment_);
-              fulfillment_ = subBuilder.buildPartial();
-            }
-            fulfillmentCase_ = 3;
-            break;
-          }
-          case 32: {
-
-            enabled_ = input.readBool();
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              features_ = new java.util.ArrayList<com.google.cloud.dialogflow.v2.Fulfillment.Feature>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            features_.add(
-                input.readMessage(com.google.cloud.dialogflow.v2.Fulfillment.Feature.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        features_ = java.util.Collections.unmodifiableList(features_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.v2.FulfillmentProto.internal_static_google_cloud_dialogflow_v2_Fulfillment_descriptor;
@@ -246,7 +163,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; request_headers = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     /* nullable */
 java.lang.String getRequestHeadersOrDefault(
         java.lang.String key,
@@ -259,7 +175,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; request_headers = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     java.lang.String getRequestHeadersOrThrow(
         java.lang.String key);
 
@@ -317,82 +232,6 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GenericWebService(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              uri_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              username_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              password_ = s;
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                requestHeaders_ = com.google.protobuf.MapField.newMapField(
-                    RequestHeadersDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              requestHeaders__ = input.readMessage(
-                  RequestHeadersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              requestHeaders_.getMutableMap().put(
-                  requestHeaders__.getKey(), requestHeaders__.getValue());
-              break;
-            }
-            case 40: {
-
-              isCloudFunction_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dialogflow.v2.FulfillmentProto.internal_static_google_cloud_dialogflow_v2_Fulfillment_GenericWebService_descriptor;
@@ -419,7 +258,8 @@ java.lang.String defaultValue);
     }
 
     public static final int URI_FIELD_NUMBER = 1;
-    private volatile java.lang.Object uri_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object uri_ = "";
     /**
      * <pre>
      * Required. The fulfillment URI for receiving POST requests.
@@ -467,7 +307,8 @@ java.lang.String defaultValue);
     }
 
     public static final int USERNAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object username_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object username_ = "";
     /**
      * <pre>
      * Optional. The user name for HTTP Basic authentication.
@@ -513,7 +354,8 @@ java.lang.String defaultValue);
     }
 
     public static final int PASSWORD_FIELD_NUMBER = 3;
-    private volatile java.lang.Object password_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object password_ = "";
     /**
      * <pre>
      * Optional. The password for HTTP Basic authentication.
@@ -570,6 +412,7 @@ java.lang.String defaultValue);
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> requestHeaders_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -580,7 +423,6 @@ java.lang.String defaultValue);
       }
       return requestHeaders_;
     }
-
     public int getRequestHeadersCount() {
       return internalGetRequestHeaders().getMap().size();
     }
@@ -591,7 +433,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; request_headers = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsRequestHeaders(
         java.lang.String key) {
@@ -614,7 +455,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; request_headers = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getRequestHeadersMap() {
       return internalGetRequestHeaders().getMap();
     }
@@ -626,10 +466,11 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; request_headers = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getRequestHeadersOrDefault(
+    public /* nullable */
+java.lang.String getRequestHeadersOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetRequestHeaders().getMap();
@@ -643,7 +484,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; request_headers = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.lang.String getRequestHeadersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -656,7 +496,7 @@ java.lang.String defaultValue);
     }
 
     public static final int IS_CLOUD_FUNCTION_FIELD_NUMBER = 5;
-    private boolean isCloudFunction_;
+    private boolean isCloudFunction_ = false;
     /**
      * <pre>
      * Optional. Indicates if generic web service is created through Cloud Functions
@@ -707,7 +547,7 @@ java.lang.String defaultValue);
       if (isCloudFunction_ != false) {
         output.writeBool(5, isCloudFunction_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -739,7 +579,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(5, isCloudFunction_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -764,7 +604,7 @@ java.lang.String defaultValue);
           other.internalGetRequestHeaders())) return false;
       if (getIsCloudFunction()
           != other.getIsCloudFunction()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -788,7 +628,7 @@ java.lang.String defaultValue);
       hash = (37 * hash) + IS_CLOUD_FUNCTION_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsCloudFunction());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -936,31 +776,23 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.dialogflow.v2.Fulfillment.GenericWebService.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         uri_ = "";
-
         username_ = "";
-
         password_ = "";
-
         internalGetMutableRequestHeaders().clear();
         isCloudFunction_ = false;
-
         return this;
       }
 
@@ -987,15 +819,29 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.dialogflow.v2.Fulfillment.GenericWebService buildPartial() {
         com.google.cloud.dialogflow.v2.Fulfillment.GenericWebService result = new com.google.cloud.dialogflow.v2.Fulfillment.GenericWebService(this);
-        int from_bitField0_ = bitField0_;
-        result.uri_ = uri_;
-        result.username_ = username_;
-        result.password_ = password_;
-        result.requestHeaders_ = internalGetRequestHeaders();
-        result.requestHeaders_.makeImmutable();
-        result.isCloudFunction_ = isCloudFunction_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dialogflow.v2.Fulfillment.GenericWebService result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.uri_ = uri_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.username_ = username_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.password_ = password_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.requestHeaders_ = internalGetRequestHeaders();
+          result.requestHeaders_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.isCloudFunction_ = isCloudFunction_;
+        }
       }
 
       @java.lang.Override
@@ -1044,22 +890,26 @@ java.lang.String defaultValue);
         if (other == com.google.cloud.dialogflow.v2.Fulfillment.GenericWebService.getDefaultInstance()) return this;
         if (!other.getUri().isEmpty()) {
           uri_ = other.uri_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getUsername().isEmpty()) {
           username_ = other.username_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getPassword().isEmpty()) {
           password_ = other.password_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         internalGetMutableRequestHeaders().mergeFrom(
             other.internalGetRequestHeaders());
+        bitField0_ |= 0x00000008;
         if (other.getIsCloudFunction() != false) {
           setIsCloudFunction(other.getIsCloudFunction());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1074,17 +924,59 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.v2.Fulfillment.GenericWebService parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                uri_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                username_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                password_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                requestHeaders__ = input.readMessage(
+                    RequestHeadersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableRequestHeaders().getMutableMap().put(
+                    requestHeaders__.getKey(), requestHeaders__.getValue());
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 40: {
+                isCloudFunction_ = input.readBool();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.v2.Fulfillment.GenericWebService) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1145,11 +1037,9 @@ java.lang.String defaultValue);
        */
       public Builder setUri(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         uri_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1163,8 +1053,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearUri() {
-        
         uri_ = getDefaultInstance().getUri();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1180,12 +1070,10 @@ java.lang.String defaultValue);
        */
       public Builder setUriBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         uri_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1243,11 +1131,9 @@ java.lang.String defaultValue);
        */
       public Builder setUsername(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         username_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1260,8 +1146,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearUsername() {
-        
         username_ = getDefaultInstance().getUsername();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1276,12 +1162,10 @@ java.lang.String defaultValue);
        */
       public Builder setUsernameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         username_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1339,11 +1223,9 @@ java.lang.String defaultValue);
        */
       public Builder setPassword(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         password_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1356,8 +1238,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearPassword() {
-        
         password_ = getDefaultInstance().getPassword();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1372,12 +1254,10 @@ java.lang.String defaultValue);
        */
       public Builder setPasswordBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         password_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1385,7 +1265,7 @@ java.lang.String defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> requestHeaders_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetRequestHeaders() {
+          internalGetRequestHeaders() {
         if (requestHeaders_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               RequestHeadersDefaultEntryHolder.defaultEntry);
@@ -1393,8 +1273,7 @@ java.lang.String defaultValue);
         return requestHeaders_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableRequestHeaders() {
-        onChanged();;
+          internalGetMutableRequestHeaders() {
         if (requestHeaders_ == null) {
           requestHeaders_ = com.google.protobuf.MapField.newMapField(
               RequestHeadersDefaultEntryHolder.defaultEntry);
@@ -1402,9 +1281,10 @@ java.lang.String defaultValue);
         if (!requestHeaders_.isMutable()) {
           requestHeaders_ = requestHeaders_.copy();
         }
+        bitField0_ |= 0x00000008;
+        onChanged();
         return requestHeaders_;
       }
-
       public int getRequestHeadersCount() {
         return internalGetRequestHeaders().getMap().size();
       }
@@ -1415,7 +1295,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; request_headers = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       @java.lang.Override
       public boolean containsRequestHeaders(
           java.lang.String key) {
@@ -1438,7 +1317,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; request_headers = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, java.lang.String> getRequestHeadersMap() {
         return internalGetRequestHeaders().getMap();
       }
@@ -1450,10 +1328,11 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; request_headers = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
-      public java.lang.String getRequestHeadersOrDefault(
+      public /* nullable */
+java.lang.String getRequestHeadersOrDefault(
           java.lang.String key,
-          java.lang.String defaultValue) {
+          /* nullable */
+java.lang.String defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetRequestHeaders().getMap();
@@ -1467,7 +1346,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; request_headers = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
       public java.lang.String getRequestHeadersOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1478,8 +1356,8 @@ java.lang.String defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearRequestHeaders() {
+        bitField0_ = (bitField0_ & ~0x00000008);
         internalGetMutableRequestHeaders().getMutableMap()
             .clear();
         return this;
@@ -1491,7 +1369,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; request_headers = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       public Builder removeRequestHeaders(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1504,7 +1381,8 @@ java.lang.String defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableRequestHeaders() {
+          getMutableRequestHeaders() {
+        bitField0_ |= 0x00000008;
         return internalGetMutableRequestHeaders().getMutableMap();
       }
       /**
@@ -1518,12 +1396,10 @@ java.lang.String defaultValue);
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableRequestHeaders().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
@@ -1533,11 +1409,11 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; request_headers = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       public Builder putAllRequestHeaders(
           java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableRequestHeaders().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000008;
         return this;
       }
 
@@ -1576,6 +1452,7 @@ java.lang.String defaultValue);
       @java.lang.Deprecated public Builder setIsCloudFunction(boolean value) {
         
         isCloudFunction_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1593,7 +1470,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearIsCloudFunction() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         isCloudFunction_ = false;
         onChanged();
         return this;
@@ -1631,7 +1508,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GenericWebService(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1705,51 +1593,6 @@ java.lang.String defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Feature(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              type_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1893,7 +1736,7 @@ java.lang.String defaultValue);
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
-    private int type_;
+    private int type_ = 0;
     /**
      * <pre>
      * The type of the feature that enabled for fulfillment.
@@ -1914,8 +1757,7 @@ java.lang.String defaultValue);
      * @return The type.
      */
     @java.lang.Override public com.google.cloud.dialogflow.v2.Fulfillment.Feature.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dialogflow.v2.Fulfillment.Feature.Type result = com.google.cloud.dialogflow.v2.Fulfillment.Feature.Type.valueOf(type_);
+      com.google.cloud.dialogflow.v2.Fulfillment.Feature.Type result = com.google.cloud.dialogflow.v2.Fulfillment.Feature.Type.forNumber(type_);
       return result == null ? com.google.cloud.dialogflow.v2.Fulfillment.Feature.Type.UNRECOGNIZED : result;
     }
 
@@ -1936,7 +1778,7 @@ java.lang.String defaultValue);
       if (type_ != com.google.cloud.dialogflow.v2.Fulfillment.Feature.Type.TYPE_UNSPECIFIED.getNumber()) {
         output.writeEnum(1, type_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1949,7 +1791,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, type_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1965,7 +1807,7 @@ java.lang.String defaultValue);
       com.google.cloud.dialogflow.v2.Fulfillment.Feature other = (com.google.cloud.dialogflow.v2.Fulfillment.Feature) obj;
 
       if (type_ != other.type_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1978,7 +1820,7 @@ java.lang.String defaultValue);
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + type_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2099,24 +1941,19 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.dialogflow.v2.Fulfillment.Feature.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         type_ = 0;
-
         return this;
       }
 
@@ -2143,9 +1980,16 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.dialogflow.v2.Fulfillment.Feature buildPartial() {
         com.google.cloud.dialogflow.v2.Fulfillment.Feature result = new com.google.cloud.dialogflow.v2.Fulfillment.Feature(this);
-        result.type_ = type_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dialogflow.v2.Fulfillment.Feature result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.type_ = type_;
+        }
       }
 
       @java.lang.Override
@@ -2195,7 +2039,7 @@ java.lang.String defaultValue);
         if (other.type_ != 0) {
           setTypeValue(other.getTypeValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2210,19 +2054,38 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.v2.Fulfillment.Feature parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.v2.Fulfillment.Feature) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int type_ = 0;
       /**
@@ -2246,8 +2109,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
-        
         type_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2261,8 +2124,7 @@ java.lang.String defaultValue);
        */
       @java.lang.Override
       public com.google.cloud.dialogflow.v2.Fulfillment.Feature.Type getType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.dialogflow.v2.Fulfillment.Feature.Type result = com.google.cloud.dialogflow.v2.Fulfillment.Feature.Type.valueOf(type_);
+        com.google.cloud.dialogflow.v2.Fulfillment.Feature.Type result = com.google.cloud.dialogflow.v2.Fulfillment.Feature.Type.forNumber(type_);
         return result == null ? com.google.cloud.dialogflow.v2.Fulfillment.Feature.Type.UNRECOGNIZED : result;
       }
       /**
@@ -2278,7 +2140,7 @@ java.lang.String defaultValue);
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -2292,7 +2154,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         type_ = 0;
         onChanged();
         return this;
@@ -2330,7 +2192,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Feature(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2390,7 +2263,8 @@ java.lang.String defaultValue);
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The unique identifier of the fulfillment.
@@ -2444,7 +2318,8 @@ java.lang.String defaultValue);
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Optional. The human-readable name of the fulfillment, unique within the agent.
@@ -2535,7 +2410,7 @@ java.lang.String defaultValue);
   }
 
   public static final int ENABLED_FIELD_NUMBER = 4;
-  private boolean enabled_;
+  private boolean enabled_ = false;
   /**
    * <pre>
    * Optional. Whether fulfillment is enabled.
@@ -2550,6 +2425,7 @@ java.lang.String defaultValue);
   }
 
   public static final int FEATURES_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.dialogflow.v2.Fulfillment.Feature> features_;
   /**
    * <pre>
@@ -2638,7 +2514,7 @@ java.lang.String defaultValue);
     for (int i = 0; i < features_.size(); i++) {
       output.writeMessage(5, features_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2665,7 +2541,7 @@ java.lang.String defaultValue);
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, features_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2697,7 +2573,7 @@ java.lang.String defaultValue);
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2727,7 +2603,7 @@ java.lang.String defaultValue);
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2856,35 +2732,31 @@ java.lang.String defaultValue);
 
     // Construct using com.google.cloud.dialogflow.v2.Fulfillment.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getFeaturesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
+      if (genericWebServiceBuilder_ != null) {
+        genericWebServiceBuilder_.clear();
+      }
       enabled_ = false;
-
       if (featuresBuilder_ == null) {
         features_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        features_ = null;
         featuresBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       fulfillmentCase_ = 0;
       fulfillment_ = null;
       return this;
@@ -2913,29 +2785,45 @@ java.lang.String defaultValue);
     @java.lang.Override
     public com.google.cloud.dialogflow.v2.Fulfillment buildPartial() {
       com.google.cloud.dialogflow.v2.Fulfillment result = new com.google.cloud.dialogflow.v2.Fulfillment(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      if (fulfillmentCase_ == 3) {
-        if (genericWebServiceBuilder_ == null) {
-          result.fulfillment_ = fulfillment_;
-        } else {
-          result.fulfillment_ = genericWebServiceBuilder_.build();
-        }
-      }
-      result.enabled_ = enabled_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.dialogflow.v2.Fulfillment result) {
       if (featuresBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           features_ = java.util.Collections.unmodifiableList(features_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.features_ = features_;
       } else {
         result.features_ = featuresBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.v2.Fulfillment result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.enabled_ = enabled_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.dialogflow.v2.Fulfillment result) {
       result.fulfillmentCase_ = fulfillmentCase_;
-      onBuilt();
-      return result;
+      result.fulfillment_ = this.fulfillment_;
+      if (fulfillmentCase_ == 3 &&
+          genericWebServiceBuilder_ != null) {
+        result.fulfillment_ = genericWebServiceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2984,10 +2872,12 @@ java.lang.String defaultValue);
       if (other == com.google.cloud.dialogflow.v2.Fulfillment.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getEnabled() != false) {
@@ -2997,7 +2887,7 @@ java.lang.String defaultValue);
         if (!other.features_.isEmpty()) {
           if (features_.isEmpty()) {
             features_ = other.features_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureFeaturesIsMutable();
             features_.addAll(other.features_);
@@ -3010,7 +2900,7 @@ java.lang.String defaultValue);
             featuresBuilder_.dispose();
             featuresBuilder_ = null;
             features_ = other.features_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             featuresBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFeaturesFieldBuilder() : null;
@@ -3028,7 +2918,7 @@ java.lang.String defaultValue);
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3043,17 +2933,65 @@ java.lang.String defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.v2.Fulfillment parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getGenericWebServiceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              fulfillmentCase_ = 3;
+              break;
+            } // case 26
+            case 32: {
+              enabled_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              com.google.cloud.dialogflow.v2.Fulfillment.Feature m =
+                  input.readMessage(
+                      com.google.cloud.dialogflow.v2.Fulfillment.Feature.parser(),
+                      extensionRegistry);
+              if (featuresBuilder_ == null) {
+                ensureFeaturesIsMutable();
+                features_.add(m);
+              } else {
+                featuresBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.v2.Fulfillment) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int fulfillmentCase_ = 0;
@@ -3138,11 +3076,9 @@ java.lang.String defaultValue);
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3159,8 +3095,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -3179,12 +3115,10 @@ java.lang.String defaultValue);
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3245,11 +3179,9 @@ java.lang.String defaultValue);
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3263,8 +3195,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -3280,12 +3212,10 @@ java.lang.String defaultValue);
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3464,7 +3394,7 @@ java.lang.String defaultValue);
         fulfillment_ = null;
       }
       fulfillmentCase_ = 3;
-      onChanged();;
+      onChanged();
       return genericWebServiceBuilder_;
     }
 
@@ -3493,6 +3423,7 @@ java.lang.String defaultValue);
     public Builder setEnabled(boolean value) {
       
       enabled_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3505,7 +3436,7 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       enabled_ = false;
       onChanged();
       return this;
@@ -3514,9 +3445,9 @@ java.lang.String defaultValue);
     private java.util.List<com.google.cloud.dialogflow.v2.Fulfillment.Feature> features_ =
       java.util.Collections.emptyList();
     private void ensureFeaturesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         features_ = new java.util.ArrayList<com.google.cloud.dialogflow.v2.Fulfillment.Feature>(features_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -3710,7 +3641,7 @@ java.lang.String defaultValue);
     public Builder clearFeatures() {
       if (featuresBuilder_ == null) {
         features_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         featuresBuilder_.clear();
@@ -3815,7 +3746,7 @@ java.lang.String defaultValue);
         featuresBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.dialogflow.v2.Fulfillment.Feature, com.google.cloud.dialogflow.v2.Fulfillment.Feature.Builder, com.google.cloud.dialogflow.v2.Fulfillment.FeatureOrBuilder>(
                 features_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         features_ = null;
@@ -3855,7 +3786,18 @@ java.lang.String defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Fulfillment(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

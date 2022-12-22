@@ -11,10 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nfgoogle/cloud/aiplatform/v1beta1/schema/trainingjob/definition/export_evaluated_data_items_config.proto\x12=google.cloud.aiplatform.v1beta1.schema.trainingjob.definition\x1a\x1cgoogle/api/annotations.proto\"c\n\x1e\x45xportEvaluatedDataItemsConfig\x12 \n\x18\x64\x65stination_bigquery_uri\x18\x01 \x01(\t\x12\x1f\n\x17override_existing_table\x18\x02 \x01(\x08\x42\x99\x03\nAcom.google.cloud.aiplatform.v1beta1.schema.trainingjob.definitionB#ExportEvaluatedDataItemsConfigProtoP\x01Zggoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/trainingjob/definition;definition\xaa\x02=Google.Cloud.AIPlatform.V1Beta1.Schema.TrainingJob.Definition\xca\x02=Google\\Cloud\\AIPlatform\\V1beta1\\Schema\\TrainingJob\\Definition\xea\x02\x43Google::Cloud::AIPlatform::V1beta1::Schema::TrainingJob::Definitionb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nfgoogle/cloud/aiplatform/v1beta1/schema/trainingjob/definition/export_evaluated_data_items_config.proto\x12=google.cloud.aiplatform.v1beta1.schema.trainingjob.definition\"c\n\x1e\x45xportEvaluatedDataItemsConfig\x12 \n\x18\x64\x65stination_bigquery_uri\x18\x01 \x01(\t\x12\x1f\n\x17override_existing_table\x18\x02 \x01(\x08\x42\x99\x03\nAcom.google.cloud.aiplatform.v1beta1.schema.trainingjob.definitionB#ExportEvaluatedDataItemsConfigProtoP\x01Zggoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/trainingjob/definition;definition\xaa\x02=Google.Cloud.AIPlatform.V1Beta1.Schema.TrainingJob.Definition\xca\x02=Google\\Cloud\\AIPlatform\\V1beta1\\Schema\\TrainingJob\\Definition\xea\x02\x43Google::Cloud::AIPlatform::V1beta1::Schema::TrainingJob::Definitionb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.export_evaluated_data_items_config_pb2', globals())
@@ -22,6 +21,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\nAcom.google.cloud.aiplatform.v1beta1.schema.trainingjob.definitionB#ExportEvaluatedDataItemsConfigProtoP\001Zggoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/trainingjob/definition;definition\252\002=Google.Cloud.AIPlatform.V1Beta1.Schema.TrainingJob.Definition\312\002=Google\\Cloud\\AIPlatform\\V1beta1\\Schema\\TrainingJob\\Definition\352\002CGoogle::Cloud::AIPlatform::V1beta1::Schema::TrainingJob::Definition'
-  _EXPORTEVALUATEDDATAITEMSCONFIG._serialized_start=199
-  _EXPORTEVALUATEDDATAITEMSCONFIG._serialized_end=298
+  _EXPORTEVALUATEDDATAITEMSCONFIG._serialized_start=169
+  _EXPORTEVALUATEDDATAITEMSCONFIG._serialized_end=268
 # @@protoc_insertion_point(module_scope)

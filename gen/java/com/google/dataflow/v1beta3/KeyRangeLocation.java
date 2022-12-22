@@ -41,75 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private KeyRangeLocation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            start_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            end_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            deliveryEndpoint_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            deprecatedPersistentDirectory_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            dataDisk_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.dataflow.v1beta3.StreamingProto.internal_static_google_dataflow_v1beta3_KeyRangeLocation_descriptor;
@@ -124,7 +55,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int START_FIELD_NUMBER = 1;
-  private volatile java.lang.Object start_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object start_ = "";
   /**
    * <pre>
    * The start (inclusive) of the key range.
@@ -170,7 +102,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int END_FIELD_NUMBER = 2;
-  private volatile java.lang.Object end_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object end_ = "";
   /**
    * <pre>
    * The end (exclusive) of the key range.
@@ -216,7 +149,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DELIVERY_ENDPOINT_FIELD_NUMBER = 3;
-  private volatile java.lang.Object deliveryEndpoint_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object deliveryEndpoint_ = "";
   /**
    * <pre>
    * The physical location of this range assignment to be used for
@@ -264,7 +198,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATA_DISK_FIELD_NUMBER = 5;
-  private volatile java.lang.Object dataDisk_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object dataDisk_ = "";
   /**
    * <pre>
    * The name of the data disk where data for this range is stored.
@@ -316,7 +251,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEPRECATED_PERSISTENT_DIRECTORY_FIELD_NUMBER = 4;
-  private volatile java.lang.Object deprecatedPersistentDirectory_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object deprecatedPersistentDirectory_ = "";
   /**
    * <pre>
    * DEPRECATED. The location of the persistent state for this range, as a
@@ -396,7 +332,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dataDisk_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, dataDisk_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -420,7 +356,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dataDisk_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, dataDisk_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -445,7 +381,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDataDisk())) return false;
     if (!getDeprecatedPersistentDirectory()
         .equals(other.getDeprecatedPersistentDirectory())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -466,7 +402,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDataDisk().hashCode();
     hash = (37 * hash) + DEPRECATED_PERSISTENT_DIRECTORY_FIELD_NUMBER;
     hash = (53 * hash) + getDeprecatedPersistentDirectory().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -589,32 +525,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.dataflow.v1beta3.KeyRangeLocation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       start_ = "";
-
       end_ = "";
-
       deliveryEndpoint_ = "";
-
       dataDisk_ = "";
-
       deprecatedPersistentDirectory_ = "";
-
       return this;
     }
 
@@ -641,13 +568,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.dataflow.v1beta3.KeyRangeLocation buildPartial() {
       com.google.dataflow.v1beta3.KeyRangeLocation result = new com.google.dataflow.v1beta3.KeyRangeLocation(this);
-      result.start_ = start_;
-      result.end_ = end_;
-      result.deliveryEndpoint_ = deliveryEndpoint_;
-      result.dataDisk_ = dataDisk_;
-      result.deprecatedPersistentDirectory_ = deprecatedPersistentDirectory_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.dataflow.v1beta3.KeyRangeLocation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.start_ = start_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.end_ = end_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.deliveryEndpoint_ = deliveryEndpoint_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.dataDisk_ = dataDisk_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.deprecatedPersistentDirectory_ = deprecatedPersistentDirectory_;
+      }
     }
 
     @java.lang.Override
@@ -696,25 +638,30 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.dataflow.v1beta3.KeyRangeLocation.getDefaultInstance()) return this;
       if (!other.getStart().isEmpty()) {
         start_ = other.start_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getEnd().isEmpty()) {
         end_ = other.end_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDeliveryEndpoint().isEmpty()) {
         deliveryEndpoint_ = other.deliveryEndpoint_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getDataDisk().isEmpty()) {
         dataDisk_ = other.dataDisk_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getDeprecatedPersistentDirectory().isEmpty()) {
         deprecatedPersistentDirectory_ = other.deprecatedPersistentDirectory_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -729,19 +676,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.dataflow.v1beta3.KeyRangeLocation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              start_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              end_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              deliveryEndpoint_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              deprecatedPersistentDirectory_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              dataDisk_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.dataflow.v1beta3.KeyRangeLocation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object start_ = "";
     /**
@@ -796,11 +782,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStart(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       start_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -813,8 +797,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStart() {
-      
       start_ = getDefaultInstance().getStart();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -829,12 +813,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStartBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       start_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -892,11 +874,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEnd(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       end_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -909,8 +889,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnd() {
-      
       end_ = getDefaultInstance().getEnd();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -925,12 +905,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEndBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       end_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -991,11 +969,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeliveryEndpoint(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       deliveryEndpoint_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1009,8 +985,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDeliveryEndpoint() {
-      
       deliveryEndpoint_ = getDefaultInstance().getDeliveryEndpoint();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1026,12 +1002,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeliveryEndpointBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       deliveryEndpoint_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1098,11 +1072,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDataDisk(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       dataDisk_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1118,8 +1090,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDataDisk() {
-      
       dataDisk_ = getDefaultInstance().getDataDisk();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1137,12 +1109,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDataDiskBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       dataDisk_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1209,11 +1179,9 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setDeprecatedPersistentDirectory(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       deprecatedPersistentDirectory_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1229,8 +1197,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearDeprecatedPersistentDirectory() {
-      
       deprecatedPersistentDirectory_ = getDefaultInstance().getDeprecatedPersistentDirectory();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1248,12 +1216,10 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setDeprecatedPersistentDirectoryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       deprecatedPersistentDirectory_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1290,7 +1256,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new KeyRangeLocation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -103,11 +103,17 @@ public interface ListDeliveryVehiclesRequestOrBuilder extends
    * a value, or if you specify an empty string for the filter, then all
    * delivery vehicles are returned.
    * Note that the only queries supported for `ListDeliveryVehicles` are
-   * equality comparisons on vehicle attributes (`attributes.&lt;key&gt; = &lt;value&gt;`).
-   * Comparison operators besides `=` (like `!=`, `&gt;`, `&lt;`, etc.) aren't
-   * supported. Queries that include them are rejected. You can combine
-   * attribute equality queries with **AND**, but not with any other boolean
-   * operator.
+   * on vehicle attributes (for example, `attributes.&lt;key&gt; = &lt;value&gt;` or
+   * `attributes.&lt;key1&gt; = &lt;value1&gt; AND attributes.&lt;key2&gt; = &lt;value2&gt;`). Also, all
+   * attributes are stored as strings, so the only supported comparisons against
+   * attributes are string comparisons. In order to compare against number or
+   * boolean values, the values must be explicitly quoted to be treated as
+   * strings (for example, `attributes.&lt;key&gt; = "10"` or
+   * `attributes.&lt;key&gt; = "true"`).
+   * The maximum number of restrictions allowed in a filter query is 50. A
+   * restriction is a part of the query of the form
+   * `attribute.&lt;KEY&gt; &lt;COMPARATOR&gt; &lt;VALUE&gt;`, for example `attributes.foo = bar`
+   * is 1 restriction.
    * </pre>
    *
    * <code>string filter = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -121,11 +127,17 @@ public interface ListDeliveryVehiclesRequestOrBuilder extends
    * a value, or if you specify an empty string for the filter, then all
    * delivery vehicles are returned.
    * Note that the only queries supported for `ListDeliveryVehicles` are
-   * equality comparisons on vehicle attributes (`attributes.&lt;key&gt; = &lt;value&gt;`).
-   * Comparison operators besides `=` (like `!=`, `&gt;`, `&lt;`, etc.) aren't
-   * supported. Queries that include them are rejected. You can combine
-   * attribute equality queries with **AND**, but not with any other boolean
-   * operator.
+   * on vehicle attributes (for example, `attributes.&lt;key&gt; = &lt;value&gt;` or
+   * `attributes.&lt;key1&gt; = &lt;value1&gt; AND attributes.&lt;key2&gt; = &lt;value2&gt;`). Also, all
+   * attributes are stored as strings, so the only supported comparisons against
+   * attributes are string comparisons. In order to compare against number or
+   * boolean values, the values must be explicitly quoted to be treated as
+   * strings (for example, `attributes.&lt;key&gt; = "10"` or
+   * `attributes.&lt;key&gt; = "true"`).
+   * The maximum number of restrictions allowed in a filter query is 50. A
+   * restriction is a part of the query of the form
+   * `attribute.&lt;KEY&gt; &lt;COMPARATOR&gt; &lt;VALUE&gt;`, for example `attributes.foo = bar`
+   * is 1 restriction.
    * </pre>
    *
    * <code>string filter = 6 [(.google.api.field_behavior) = OPTIONAL];</code>

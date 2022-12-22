@@ -38,76 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private XraiAttribution(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            stepCount_ = input.readInt32();
-            break;
-          }
-          case 18: {
-            com.google.cloud.aiplatform.v1.SmoothGradConfig.Builder subBuilder = null;
-            if (smoothGradConfig_ != null) {
-              subBuilder = smoothGradConfig_.toBuilder();
-            }
-            smoothGradConfig_ = input.readMessage(com.google.cloud.aiplatform.v1.SmoothGradConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(smoothGradConfig_);
-              smoothGradConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.aiplatform.v1.BlurBaselineConfig.Builder subBuilder = null;
-            if (blurBaselineConfig_ != null) {
-              subBuilder = blurBaselineConfig_.toBuilder();
-            }
-            blurBaselineConfig_ = input.readMessage(com.google.cloud.aiplatform.v1.BlurBaselineConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(blurBaselineConfig_);
-              blurBaselineConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1.ExplanationProto.internal_static_google_cloud_aiplatform_v1_XraiAttribution_descriptor;
@@ -122,7 +52,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STEP_COUNT_FIELD_NUMBER = 1;
-  private int stepCount_;
+  private int stepCount_ = 0;
   /**
    * <pre>
    * Required. The number of steps for approximating the path integral.
@@ -186,7 +116,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1.SmoothGradConfigOrBuilder getSmoothGradConfigOrBuilder() {
-    return getSmoothGradConfig();
+    return smoothGradConfig_ == null ? com.google.cloud.aiplatform.v1.SmoothGradConfig.getDefaultInstance() : smoothGradConfig_;
   }
 
   public static final int BLUR_BASELINE_CONFIG_FIELD_NUMBER = 3;
@@ -236,7 +166,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1.BlurBaselineConfigOrBuilder getBlurBaselineConfigOrBuilder() {
-    return getBlurBaselineConfig();
+    return blurBaselineConfig_ == null ? com.google.cloud.aiplatform.v1.BlurBaselineConfig.getDefaultInstance() : blurBaselineConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -262,7 +192,7 @@ private static final long serialVersionUID = 0L;
     if (blurBaselineConfig_ != null) {
       output.writeMessage(3, getBlurBaselineConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -283,7 +213,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getBlurBaselineConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -310,7 +240,7 @@ private static final long serialVersionUID = 0L;
       if (!getBlurBaselineConfig()
           .equals(other.getBlurBaselineConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -331,7 +261,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BLUR_BASELINE_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getBlurBaselineConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -456,34 +386,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1.XraiAttribution.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       stepCount_ = 0;
-
-      if (smoothGradConfigBuilder_ == null) {
-        smoothGradConfig_ = null;
-      } else {
-        smoothGradConfig_ = null;
+      smoothGradConfig_ = null;
+      if (smoothGradConfigBuilder_ != null) {
+        smoothGradConfigBuilder_.dispose();
         smoothGradConfigBuilder_ = null;
       }
-      if (blurBaselineConfigBuilder_ == null) {
-        blurBaselineConfig_ = null;
-      } else {
-        blurBaselineConfig_ = null;
+      blurBaselineConfig_ = null;
+      if (blurBaselineConfigBuilder_ != null) {
+        blurBaselineConfigBuilder_.dispose();
         blurBaselineConfigBuilder_ = null;
       }
       return this;
@@ -512,19 +435,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.XraiAttribution buildPartial() {
       com.google.cloud.aiplatform.v1.XraiAttribution result = new com.google.cloud.aiplatform.v1.XraiAttribution(this);
-      result.stepCount_ = stepCount_;
-      if (smoothGradConfigBuilder_ == null) {
-        result.smoothGradConfig_ = smoothGradConfig_;
-      } else {
-        result.smoothGradConfig_ = smoothGradConfigBuilder_.build();
-      }
-      if (blurBaselineConfigBuilder_ == null) {
-        result.blurBaselineConfig_ = blurBaselineConfig_;
-      } else {
-        result.blurBaselineConfig_ = blurBaselineConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1.XraiAttribution result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.stepCount_ = stepCount_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.smoothGradConfig_ = smoothGradConfigBuilder_ == null
+            ? smoothGradConfig_
+            : smoothGradConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.blurBaselineConfig_ = blurBaselineConfigBuilder_ == null
+            ? blurBaselineConfig_
+            : blurBaselineConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -580,7 +510,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasBlurBaselineConfig()) {
         mergeBlurBaselineConfig(other.getBlurBaselineConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -595,19 +525,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1.XraiAttribution parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              stepCount_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getSmoothGradConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getBlurBaselineConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1.XraiAttribution) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int stepCount_ ;
     /**
@@ -640,6 +603,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStepCount(int value) {
       
       stepCount_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -655,7 +619,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStepCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       stepCount_ = 0;
       onChanged();
       return this;
@@ -677,7 +641,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the smoothGradConfig field is set.
      */
     public boolean hasSmoothGradConfig() {
-      return smoothGradConfigBuilder_ != null || smoothGradConfig_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -715,11 +679,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         smoothGradConfig_ = value;
-        onChanged();
       } else {
         smoothGradConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -737,11 +701,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1.SmoothGradConfig.Builder builderForValue) {
       if (smoothGradConfigBuilder_ == null) {
         smoothGradConfig_ = builderForValue.build();
-        onChanged();
       } else {
         smoothGradConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -757,17 +721,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSmoothGradConfig(com.google.cloud.aiplatform.v1.SmoothGradConfig value) {
       if (smoothGradConfigBuilder_ == null) {
-        if (smoothGradConfig_ != null) {
-          smoothGradConfig_ =
-            com.google.cloud.aiplatform.v1.SmoothGradConfig.newBuilder(smoothGradConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          smoothGradConfig_ != null &&
+          smoothGradConfig_ != com.google.cloud.aiplatform.v1.SmoothGradConfig.getDefaultInstance()) {
+          getSmoothGradConfigBuilder().mergeFrom(value);
         } else {
           smoothGradConfig_ = value;
         }
-        onChanged();
       } else {
         smoothGradConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -782,14 +747,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1.SmoothGradConfig smooth_grad_config = 2;</code>
      */
     public Builder clearSmoothGradConfig() {
-      if (smoothGradConfigBuilder_ == null) {
-        smoothGradConfig_ = null;
-        onChanged();
-      } else {
-        smoothGradConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      smoothGradConfig_ = null;
+      if (smoothGradConfigBuilder_ != null) {
+        smoothGradConfigBuilder_.dispose();
         smoothGradConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -804,7 +768,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1.SmoothGradConfig smooth_grad_config = 2;</code>
      */
     public com.google.cloud.aiplatform.v1.SmoothGradConfig.Builder getSmoothGradConfigBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getSmoothGradConfigFieldBuilder().getBuilder();
     }
@@ -868,7 +832,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the blurBaselineConfig field is set.
      */
     public boolean hasBlurBaselineConfig() {
-      return blurBaselineConfigBuilder_ != null || blurBaselineConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -906,11 +870,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         blurBaselineConfig_ = value;
-        onChanged();
       } else {
         blurBaselineConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -928,11 +892,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1.BlurBaselineConfig.Builder builderForValue) {
       if (blurBaselineConfigBuilder_ == null) {
         blurBaselineConfig_ = builderForValue.build();
-        onChanged();
       } else {
         blurBaselineConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -948,17 +912,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBlurBaselineConfig(com.google.cloud.aiplatform.v1.BlurBaselineConfig value) {
       if (blurBaselineConfigBuilder_ == null) {
-        if (blurBaselineConfig_ != null) {
-          blurBaselineConfig_ =
-            com.google.cloud.aiplatform.v1.BlurBaselineConfig.newBuilder(blurBaselineConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          blurBaselineConfig_ != null &&
+          blurBaselineConfig_ != com.google.cloud.aiplatform.v1.BlurBaselineConfig.getDefaultInstance()) {
+          getBlurBaselineConfigBuilder().mergeFrom(value);
         } else {
           blurBaselineConfig_ = value;
         }
-        onChanged();
       } else {
         blurBaselineConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -973,14 +938,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1.BlurBaselineConfig blur_baseline_config = 3;</code>
      */
     public Builder clearBlurBaselineConfig() {
-      if (blurBaselineConfigBuilder_ == null) {
-        blurBaselineConfig_ = null;
-        onChanged();
-      } else {
-        blurBaselineConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      blurBaselineConfig_ = null;
+      if (blurBaselineConfigBuilder_ != null) {
+        blurBaselineConfigBuilder_.dispose();
         blurBaselineConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -995,7 +959,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1.BlurBaselineConfig blur_baseline_config = 3;</code>
      */
     public com.google.cloud.aiplatform.v1.BlurBaselineConfig.Builder getBlurBaselineConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getBlurBaselineConfigFieldBuilder().getBuilder();
     }
@@ -1075,7 +1039,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new XraiAttribution(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -36,153 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HealthCheckEvent(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            healthCheckerType_ = rawValue;
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.api.v2.core.Address.Builder subBuilder = null;
-            if (host_ != null) {
-              subBuilder = host_.toBuilder();
-            }
-            host_ = input.readMessage(io.envoyproxy.envoy.api.v2.core.Address.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(host_);
-              host_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clusterName_ = s;
-            break;
-          }
-          case 34: {
-            io.envoyproxy.envoy.data.core.v2alpha.HealthCheckEjectUnhealthy.Builder subBuilder = null;
-            if (eventCase_ == 4) {
-              subBuilder = ((io.envoyproxy.envoy.data.core.v2alpha.HealthCheckEjectUnhealthy) event_).toBuilder();
-            }
-            event_ =
-                input.readMessage(io.envoyproxy.envoy.data.core.v2alpha.HealthCheckEjectUnhealthy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.data.core.v2alpha.HealthCheckEjectUnhealthy) event_);
-              event_ = subBuilder.buildPartial();
-            }
-            eventCase_ = 4;
-            break;
-          }
-          case 42: {
-            io.envoyproxy.envoy.data.core.v2alpha.HealthCheckAddHealthy.Builder subBuilder = null;
-            if (eventCase_ == 5) {
-              subBuilder = ((io.envoyproxy.envoy.data.core.v2alpha.HealthCheckAddHealthy) event_).toBuilder();
-            }
-            event_ =
-                input.readMessage(io.envoyproxy.envoy.data.core.v2alpha.HealthCheckAddHealthy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.data.core.v2alpha.HealthCheckAddHealthy) event_);
-              event_ = subBuilder.buildPartial();
-            }
-            eventCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (timestamp_ != null) {
-              subBuilder = timestamp_.toBuilder();
-            }
-            timestamp_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timestamp_);
-              timestamp_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            io.envoyproxy.envoy.data.core.v2alpha.HealthCheckFailure.Builder subBuilder = null;
-            if (eventCase_ == 7) {
-              subBuilder = ((io.envoyproxy.envoy.data.core.v2alpha.HealthCheckFailure) event_).toBuilder();
-            }
-            event_ =
-                input.readMessage(io.envoyproxy.envoy.data.core.v2alpha.HealthCheckFailure.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.data.core.v2alpha.HealthCheckFailure) event_);
-              event_ = subBuilder.buildPartial();
-            }
-            eventCase_ = 7;
-            break;
-          }
-          case 66: {
-            io.envoyproxy.envoy.data.core.v2alpha.DegradedHealthyHost.Builder subBuilder = null;
-            if (eventCase_ == 8) {
-              subBuilder = ((io.envoyproxy.envoy.data.core.v2alpha.DegradedHealthyHost) event_).toBuilder();
-            }
-            event_ =
-                input.readMessage(io.envoyproxy.envoy.data.core.v2alpha.DegradedHealthyHost.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.data.core.v2alpha.DegradedHealthyHost) event_);
-              event_ = subBuilder.buildPartial();
-            }
-            eventCase_ = 8;
-            break;
-          }
-          case 74: {
-            io.envoyproxy.envoy.data.core.v2alpha.NoLongerDegradedHost.Builder subBuilder = null;
-            if (eventCase_ == 9) {
-              subBuilder = ((io.envoyproxy.envoy.data.core.v2alpha.NoLongerDegradedHost) event_).toBuilder();
-            }
-            event_ =
-                input.readMessage(io.envoyproxy.envoy.data.core.v2alpha.NoLongerDegradedHost.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.data.core.v2alpha.NoLongerDegradedHost) event_);
-              event_ = subBuilder.buildPartial();
-            }
-            eventCase_ = 9;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.data.core.v2alpha.HealthCheckEventProto.internal_static_envoy_data_core_v2alpha_HealthCheckEvent_descriptor;
@@ -244,7 +97,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HEALTH_CHECKER_TYPE_FIELD_NUMBER = 1;
-  private int healthCheckerType_;
+  private int healthCheckerType_ = 0;
   /**
    * <code>.envoy.data.core.v2alpha.HealthCheckerType health_checker_type = 1 [(.validate.rules) = { ... }</code>
    * @return The enum numeric value on the wire for healthCheckerType.
@@ -257,8 +110,7 @@ private static final long serialVersionUID = 0L;
    * @return The healthCheckerType.
    */
   @java.lang.Override public io.envoyproxy.envoy.data.core.v2alpha.HealthCheckerType getHealthCheckerType() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.data.core.v2alpha.HealthCheckerType result = io.envoyproxy.envoy.data.core.v2alpha.HealthCheckerType.valueOf(healthCheckerType_);
+    io.envoyproxy.envoy.data.core.v2alpha.HealthCheckerType result = io.envoyproxy.envoy.data.core.v2alpha.HealthCheckerType.forNumber(healthCheckerType_);
     return result == null ? io.envoyproxy.envoy.data.core.v2alpha.HealthCheckerType.UNRECOGNIZED : result;
   }
 
@@ -285,11 +137,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.api.v2.core.AddressOrBuilder getHostOrBuilder() {
-    return getHost();
+    return host_ == null ? io.envoyproxy.envoy.api.v2.core.Address.getDefaultInstance() : host_;
   }
 
   public static final int CLUSTER_NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object clusterName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clusterName_ = "";
   /**
    * <code>string cluster_name = 3 [(.validate.rules) = { ... }</code>
    * @return The clusterName.
@@ -576,7 +429,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
-    return getTimestamp();
+    return timestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -620,7 +473,7 @@ private static final long serialVersionUID = 0L;
     if (eventCase_ == 9) {
       output.writeMessage(9, (io.envoyproxy.envoy.data.core.v2alpha.NoLongerDegradedHost) event_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -664,7 +517,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, (io.envoyproxy.envoy.data.core.v2alpha.NoLongerDegradedHost) event_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -717,7 +570,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -764,7 +617,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -885,36 +738,43 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.data.core.v2alpha.HealthCheckEvent.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       healthCheckerType_ = 0;
-
-      if (hostBuilder_ == null) {
-        host_ = null;
-      } else {
-        host_ = null;
+      host_ = null;
+      if (hostBuilder_ != null) {
+        hostBuilder_.dispose();
         hostBuilder_ = null;
       }
       clusterName_ = "";
-
-      if (timestampBuilder_ == null) {
-        timestamp_ = null;
-      } else {
-        timestamp_ = null;
+      if (ejectUnhealthyEventBuilder_ != null) {
+        ejectUnhealthyEventBuilder_.clear();
+      }
+      if (addHealthyEventBuilder_ != null) {
+        addHealthyEventBuilder_.clear();
+      }
+      if (healthCheckFailureEventBuilder_ != null) {
+        healthCheckFailureEventBuilder_.clear();
+      }
+      if (degradedHealthyHostBuilder_ != null) {
+        degradedHealthyHostBuilder_.clear();
+      }
+      if (noLongerDegradedHostBuilder_ != null) {
+        noLongerDegradedHostBuilder_.clear();
+      }
+      timestamp_ = null;
+      if (timestampBuilder_ != null) {
+        timestampBuilder_.dispose();
         timestampBuilder_ = null;
       }
       eventCase_ = 0;
@@ -945,56 +805,55 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.data.core.v2alpha.HealthCheckEvent buildPartial() {
       io.envoyproxy.envoy.data.core.v2alpha.HealthCheckEvent result = new io.envoyproxy.envoy.data.core.v2alpha.HealthCheckEvent(this);
-      result.healthCheckerType_ = healthCheckerType_;
-      if (hostBuilder_ == null) {
-        result.host_ = host_;
-      } else {
-        result.host_ = hostBuilder_.build();
-      }
-      result.clusterName_ = clusterName_;
-      if (eventCase_ == 4) {
-        if (ejectUnhealthyEventBuilder_ == null) {
-          result.event_ = event_;
-        } else {
-          result.event_ = ejectUnhealthyEventBuilder_.build();
-        }
-      }
-      if (eventCase_ == 5) {
-        if (addHealthyEventBuilder_ == null) {
-          result.event_ = event_;
-        } else {
-          result.event_ = addHealthyEventBuilder_.build();
-        }
-      }
-      if (eventCase_ == 7) {
-        if (healthCheckFailureEventBuilder_ == null) {
-          result.event_ = event_;
-        } else {
-          result.event_ = healthCheckFailureEventBuilder_.build();
-        }
-      }
-      if (eventCase_ == 8) {
-        if (degradedHealthyHostBuilder_ == null) {
-          result.event_ = event_;
-        } else {
-          result.event_ = degradedHealthyHostBuilder_.build();
-        }
-      }
-      if (eventCase_ == 9) {
-        if (noLongerDegradedHostBuilder_ == null) {
-          result.event_ = event_;
-        } else {
-          result.event_ = noLongerDegradedHostBuilder_.build();
-        }
-      }
-      if (timestampBuilder_ == null) {
-        result.timestamp_ = timestamp_;
-      } else {
-        result.timestamp_ = timestampBuilder_.build();
-      }
-      result.eventCase_ = eventCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.data.core.v2alpha.HealthCheckEvent result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.healthCheckerType_ = healthCheckerType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.host_ = hostBuilder_ == null
+            ? host_
+            : hostBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.clusterName_ = clusterName_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.timestamp_ = timestampBuilder_ == null
+            ? timestamp_
+            : timestampBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.data.core.v2alpha.HealthCheckEvent result) {
+      result.eventCase_ = eventCase_;
+      result.event_ = this.event_;
+      if (eventCase_ == 4 &&
+          ejectUnhealthyEventBuilder_ != null) {
+        result.event_ = ejectUnhealthyEventBuilder_.build();
+      }
+      if (eventCase_ == 5 &&
+          addHealthyEventBuilder_ != null) {
+        result.event_ = addHealthyEventBuilder_.build();
+      }
+      if (eventCase_ == 7 &&
+          healthCheckFailureEventBuilder_ != null) {
+        result.event_ = healthCheckFailureEventBuilder_.build();
+      }
+      if (eventCase_ == 8 &&
+          degradedHealthyHostBuilder_ != null) {
+        result.event_ = degradedHealthyHostBuilder_.build();
+      }
+      if (eventCase_ == 9 &&
+          noLongerDegradedHostBuilder_ != null) {
+        result.event_ = noLongerDegradedHostBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1049,6 +908,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getClusterName().isEmpty()) {
         clusterName_ = other.clusterName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasTimestamp()) {
@@ -1079,7 +939,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1094,17 +954,89 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.data.core.v2alpha.HealthCheckEvent parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              healthCheckerType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getHostFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              clusterName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getEjectUnhealthyEventFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getAddHealthyEventFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getTimestampFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getHealthCheckFailureEventFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getDegradedHealthyHostFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getNoLongerDegradedHostFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventCase_ = 9;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.data.core.v2alpha.HealthCheckEvent) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int eventCase_ = 0;
@@ -1122,6 +1054,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private int healthCheckerType_ = 0;
     /**
@@ -1137,8 +1070,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHealthCheckerTypeValue(int value) {
-      
       healthCheckerType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1148,8 +1081,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.data.core.v2alpha.HealthCheckerType getHealthCheckerType() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.data.core.v2alpha.HealthCheckerType result = io.envoyproxy.envoy.data.core.v2alpha.HealthCheckerType.valueOf(healthCheckerType_);
+      io.envoyproxy.envoy.data.core.v2alpha.HealthCheckerType result = io.envoyproxy.envoy.data.core.v2alpha.HealthCheckerType.forNumber(healthCheckerType_);
       return result == null ? io.envoyproxy.envoy.data.core.v2alpha.HealthCheckerType.UNRECOGNIZED : result;
     }
     /**
@@ -1161,7 +1093,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       healthCheckerType_ = value.getNumber();
       onChanged();
       return this;
@@ -1171,7 +1103,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHealthCheckerType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       healthCheckerType_ = 0;
       onChanged();
       return this;
@@ -1185,7 +1117,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the host field is set.
      */
     public boolean hasHost() {
-      return hostBuilder_ != null || host_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>.envoy.api.v2.core.Address host = 2;</code>
@@ -1207,11 +1139,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         host_ = value;
-        onChanged();
       } else {
         hostBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1221,11 +1153,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.api.v2.core.Address.Builder builderForValue) {
       if (hostBuilder_ == null) {
         host_ = builderForValue.build();
-        onChanged();
       } else {
         hostBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1233,38 +1165,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHost(io.envoyproxy.envoy.api.v2.core.Address value) {
       if (hostBuilder_ == null) {
-        if (host_ != null) {
-          host_ =
-            io.envoyproxy.envoy.api.v2.core.Address.newBuilder(host_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          host_ != null &&
+          host_ != io.envoyproxy.envoy.api.v2.core.Address.getDefaultInstance()) {
+          getHostBuilder().mergeFrom(value);
         } else {
           host_ = value;
         }
-        onChanged();
       } else {
         hostBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.api.v2.core.Address host = 2;</code>
      */
     public Builder clearHost() {
-      if (hostBuilder_ == null) {
-        host_ = null;
-        onChanged();
-      } else {
-        host_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      host_ = null;
+      if (hostBuilder_ != null) {
+        hostBuilder_.dispose();
         hostBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.api.v2.core.Address host = 2;</code>
      */
     public io.envoyproxy.envoy.api.v2.core.Address.Builder getHostBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getHostFieldBuilder().getBuilder();
     }
@@ -1337,11 +1269,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clusterName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1350,8 +1280,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClusterName() {
-      
       clusterName_ = getDefaultInstance().getClusterName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1362,12 +1292,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clusterName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1546,7 +1474,7 @@ private static final long serialVersionUID = 0L;
         event_ = null;
       }
       eventCase_ = 4;
-      onChanged();;
+      onChanged();
       return ejectUnhealthyEventBuilder_;
     }
 
@@ -1724,7 +1652,7 @@ private static final long serialVersionUID = 0L;
         event_ = null;
       }
       eventCase_ = 5;
-      onChanged();;
+      onChanged();
       return addHealthyEventBuilder_;
     }
 
@@ -1902,7 +1830,7 @@ private static final long serialVersionUID = 0L;
         event_ = null;
       }
       eventCase_ = 7;
-      onChanged();;
+      onChanged();
       return healthCheckFailureEventBuilder_;
     }
 
@@ -2080,7 +2008,7 @@ private static final long serialVersionUID = 0L;
         event_ = null;
       }
       eventCase_ = 8;
-      onChanged();;
+      onChanged();
       return degradedHealthyHostBuilder_;
     }
 
@@ -2258,7 +2186,7 @@ private static final long serialVersionUID = 0L;
         event_ = null;
       }
       eventCase_ = 9;
-      onChanged();;
+      onChanged();
       return noLongerDegradedHostBuilder_;
     }
 
@@ -2274,7 +2202,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timestamp field is set.
      */
     public boolean hasTimestamp() {
-      return timestampBuilder_ != null || timestamp_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2304,11 +2232,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timestamp_ = value;
-        onChanged();
       } else {
         timestampBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2322,11 +2250,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (timestampBuilder_ == null) {
         timestamp_ = builderForValue.build();
-        onChanged();
       } else {
         timestampBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2338,17 +2266,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimestamp(com.google.protobuf.Timestamp value) {
       if (timestampBuilder_ == null) {
-        if (timestamp_ != null) {
-          timestamp_ =
-            com.google.protobuf.Timestamp.newBuilder(timestamp_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          timestamp_ != null &&
+          timestamp_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getTimestampBuilder().mergeFrom(value);
         } else {
           timestamp_ = value;
         }
-        onChanged();
       } else {
         timestampBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2359,14 +2288,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp timestamp = 6;</code>
      */
     public Builder clearTimestamp() {
-      if (timestampBuilder_ == null) {
-        timestamp_ = null;
-        onChanged();
-      } else {
-        timestamp_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      timestamp_ = null;
+      if (timestampBuilder_ != null) {
+        timestampBuilder_.dispose();
         timestampBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2377,7 +2305,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp timestamp = 6;</code>
      */
     public com.google.protobuf.Timestamp.Builder getTimestampBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getTimestampFieldBuilder().getBuilder();
     }
@@ -2449,7 +2377,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HealthCheckEvent(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

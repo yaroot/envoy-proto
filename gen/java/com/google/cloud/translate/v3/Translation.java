@@ -37,76 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Translation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            translatedText_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            model_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.translate.v3.TranslateTextGlossaryConfig.Builder subBuilder = null;
-            if (glossaryConfig_ != null) {
-              subBuilder = glossaryConfig_.toBuilder();
-            }
-            glossaryConfig_ = input.readMessage(com.google.cloud.translate.v3.TranslateTextGlossaryConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(glossaryConfig_);
-              glossaryConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            detectedLanguageCode_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.translate.v3.TranslationServiceProto.internal_static_google_cloud_translation_v3_Translation_descriptor;
@@ -121,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRANSLATED_TEXT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object translatedText_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object translatedText_ = "";
   /**
    * <pre>
    * Text translated into the target language.
@@ -171,7 +102,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODEL_FIELD_NUMBER = 2;
-  private volatile java.lang.Object model_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object model_ = "";
   /**
    * <pre>
    * Only present when `model` is present in the request.
@@ -229,7 +161,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DETECTED_LANGUAGE_CODE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object detectedLanguageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object detectedLanguageCode_ = "";
   /**
    * <pre>
    * The BCP-47 language code of source text in the initial request, detected
@@ -315,7 +248,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.translate.v3.TranslateTextGlossaryConfigOrBuilder getGlossaryConfigOrBuilder() {
-    return getGlossaryConfig();
+    return glossaryConfig_ == null ? com.google.cloud.translate.v3.TranslateTextGlossaryConfig.getDefaultInstance() : glossaryConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -344,7 +277,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(detectedLanguageCode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, detectedLanguageCode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -366,7 +299,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(detectedLanguageCode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, detectedLanguageCode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -392,7 +325,7 @@ private static final long serialVersionUID = 0L;
       if (!getGlossaryConfig()
           .equals(other.getGlossaryConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -413,7 +346,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + GLOSSARY_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getGlossaryConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -534,32 +467,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.translate.v3.Translation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       translatedText_ = "";
-
       model_ = "";
-
       detectedLanguageCode_ = "";
-
-      if (glossaryConfigBuilder_ == null) {
-        glossaryConfig_ = null;
-      } else {
-        glossaryConfig_ = null;
+      glossaryConfig_ = null;
+      if (glossaryConfigBuilder_ != null) {
+        glossaryConfigBuilder_.dispose();
         glossaryConfigBuilder_ = null;
       }
       return this;
@@ -588,16 +513,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.translate.v3.Translation buildPartial() {
       com.google.cloud.translate.v3.Translation result = new com.google.cloud.translate.v3.Translation(this);
-      result.translatedText_ = translatedText_;
-      result.model_ = model_;
-      result.detectedLanguageCode_ = detectedLanguageCode_;
-      if (glossaryConfigBuilder_ == null) {
-        result.glossaryConfig_ = glossaryConfig_;
-      } else {
-        result.glossaryConfig_ = glossaryConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.translate.v3.Translation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.translatedText_ = translatedText_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.model_ = model_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.detectedLanguageCode_ = detectedLanguageCode_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.glossaryConfig_ = glossaryConfigBuilder_ == null
+            ? glossaryConfig_
+            : glossaryConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -646,20 +582,23 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.translate.v3.Translation.getDefaultInstance()) return this;
       if (!other.getTranslatedText().isEmpty()) {
         translatedText_ = other.translatedText_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getModel().isEmpty()) {
         model_ = other.model_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDetectedLanguageCode().isEmpty()) {
         detectedLanguageCode_ = other.detectedLanguageCode_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasGlossaryConfig()) {
         mergeGlossaryConfig(other.getGlossaryConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -674,19 +613,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.translate.v3.Translation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              translatedText_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              model_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getGlossaryConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              detectedLanguageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.translate.v3.Translation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object translatedText_ = "";
     /**
@@ -747,11 +722,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTranslatedText(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       translatedText_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -766,8 +739,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTranslatedText() {
-      
       translatedText_ = getDefaultInstance().getTranslatedText();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -784,12 +757,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTranslatedTextBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       translatedText_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -865,11 +836,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       model_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -888,8 +857,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearModel() {
-      
       model_ = getDefaultInstance().getModel();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -910,12 +879,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       model_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -982,11 +949,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDetectedLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       detectedLanguageCode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1002,8 +967,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDetectedLanguageCode() {
-      
       detectedLanguageCode_ = getDefaultInstance().getDetectedLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1021,12 +986,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDetectedLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       detectedLanguageCode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1043,7 +1006,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the glossaryConfig field is set.
      */
     public boolean hasGlossaryConfig() {
-      return glossaryConfigBuilder_ != null || glossaryConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1073,11 +1036,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         glossaryConfig_ = value;
-        onChanged();
       } else {
         glossaryConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1091,11 +1054,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.translate.v3.TranslateTextGlossaryConfig.Builder builderForValue) {
       if (glossaryConfigBuilder_ == null) {
         glossaryConfig_ = builderForValue.build();
-        onChanged();
       } else {
         glossaryConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1107,17 +1070,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGlossaryConfig(com.google.cloud.translate.v3.TranslateTextGlossaryConfig value) {
       if (glossaryConfigBuilder_ == null) {
-        if (glossaryConfig_ != null) {
-          glossaryConfig_ =
-            com.google.cloud.translate.v3.TranslateTextGlossaryConfig.newBuilder(glossaryConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          glossaryConfig_ != null &&
+          glossaryConfig_ != com.google.cloud.translate.v3.TranslateTextGlossaryConfig.getDefaultInstance()) {
+          getGlossaryConfigBuilder().mergeFrom(value);
         } else {
           glossaryConfig_ = value;
         }
-        onChanged();
       } else {
         glossaryConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1128,14 +1092,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.translation.v3.TranslateTextGlossaryConfig glossary_config = 3;</code>
      */
     public Builder clearGlossaryConfig() {
-      if (glossaryConfigBuilder_ == null) {
-        glossaryConfig_ = null;
-        onChanged();
-      } else {
-        glossaryConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      glossaryConfig_ = null;
+      if (glossaryConfigBuilder_ != null) {
+        glossaryConfigBuilder_.dispose();
         glossaryConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1146,7 +1109,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.translation.v3.TranslateTextGlossaryConfig glossary_config = 3;</code>
      */
     public com.google.cloud.translate.v3.TranslateTextGlossaryConfig.Builder getGlossaryConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getGlossaryConfigFieldBuilder().getBuilder();
     }
@@ -1218,7 +1181,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Translation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

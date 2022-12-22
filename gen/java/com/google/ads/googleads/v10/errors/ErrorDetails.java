@@ -35,103 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ErrorDetails(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            unpublishedErrorCode_ = s;
-            break;
-          }
-          case 18: {
-            com.google.ads.googleads.v10.errors.PolicyViolationDetails.Builder subBuilder = null;
-            if (policyViolationDetails_ != null) {
-              subBuilder = policyViolationDetails_.toBuilder();
-            }
-            policyViolationDetails_ = input.readMessage(com.google.ads.googleads.v10.errors.PolicyViolationDetails.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(policyViolationDetails_);
-              policyViolationDetails_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.ads.googleads.v10.errors.PolicyFindingDetails.Builder subBuilder = null;
-            if (policyFindingDetails_ != null) {
-              subBuilder = policyFindingDetails_.toBuilder();
-            }
-            policyFindingDetails_ = input.readMessage(com.google.ads.googleads.v10.errors.PolicyFindingDetails.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(policyFindingDetails_);
-              policyFindingDetails_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.ads.googleads.v10.errors.QuotaErrorDetails.Builder subBuilder = null;
-            if (quotaErrorDetails_ != null) {
-              subBuilder = quotaErrorDetails_.toBuilder();
-            }
-            quotaErrorDetails_ = input.readMessage(com.google.ads.googleads.v10.errors.QuotaErrorDetails.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(quotaErrorDetails_);
-              quotaErrorDetails_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.ads.googleads.v10.errors.ResourceCountDetails.Builder subBuilder = null;
-            if (resourceCountDetails_ != null) {
-              subBuilder = resourceCountDetails_.toBuilder();
-            }
-            resourceCountDetails_ = input.readMessage(com.google.ads.googleads.v10.errors.ResourceCountDetails.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resourceCountDetails_);
-              resourceCountDetails_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.errors.ErrorsProto.internal_static_google_ads_googleads_v10_errors_ErrorDetails_descriptor;
@@ -146,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UNPUBLISHED_ERROR_CODE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object unpublishedErrorCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object unpublishedErrorCode_ = "";
   /**
    * <pre>
    * The error code that should have been returned, but wasn't. This is used
@@ -228,7 +132,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v10.errors.PolicyViolationDetailsOrBuilder getPolicyViolationDetailsOrBuilder() {
-    return getPolicyViolationDetails();
+    return policyViolationDetails_ == null ? com.google.ads.googleads.v10.errors.PolicyViolationDetails.getDefaultInstance() : policyViolationDetails_;
   }
 
   public static final int POLICY_FINDING_DETAILS_FIELD_NUMBER = 3;
@@ -266,7 +170,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v10.errors.PolicyFindingDetailsOrBuilder getPolicyFindingDetailsOrBuilder() {
-    return getPolicyFindingDetails();
+    return policyFindingDetails_ == null ? com.google.ads.googleads.v10.errors.PolicyFindingDetails.getDefaultInstance() : policyFindingDetails_;
   }
 
   public static final int QUOTA_ERROR_DETAILS_FIELD_NUMBER = 4;
@@ -307,7 +211,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v10.errors.QuotaErrorDetailsOrBuilder getQuotaErrorDetailsOrBuilder() {
-    return getQuotaErrorDetails();
+    return quotaErrorDetails_ == null ? com.google.ads.googleads.v10.errors.QuotaErrorDetails.getDefaultInstance() : quotaErrorDetails_;
   }
 
   public static final int RESOURCE_COUNT_DETAILS_FIELD_NUMBER = 5;
@@ -345,7 +249,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v10.errors.ResourceCountDetailsOrBuilder getResourceCountDetailsOrBuilder() {
-    return getResourceCountDetails();
+    return resourceCountDetails_ == null ? com.google.ads.googleads.v10.errors.ResourceCountDetails.getDefaultInstance() : resourceCountDetails_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -377,7 +281,7 @@ private static final long serialVersionUID = 0L;
     if (resourceCountDetails_ != null) {
       output.writeMessage(5, getResourceCountDetails());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -405,7 +309,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getResourceCountDetails());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -442,7 +346,7 @@ private static final long serialVersionUID = 0L;
       if (!getResourceCountDetails()
           .equals(other.getResourceCountDetails())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -471,7 +375,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RESOURCE_COUNT_DETAILS_FIELD_NUMBER;
       hash = (53 * hash) + getResourceCountDetails().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -592,46 +496,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.errors.ErrorDetails.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       unpublishedErrorCode_ = "";
-
-      if (policyViolationDetailsBuilder_ == null) {
-        policyViolationDetails_ = null;
-      } else {
-        policyViolationDetails_ = null;
+      policyViolationDetails_ = null;
+      if (policyViolationDetailsBuilder_ != null) {
+        policyViolationDetailsBuilder_.dispose();
         policyViolationDetailsBuilder_ = null;
       }
-      if (policyFindingDetailsBuilder_ == null) {
-        policyFindingDetails_ = null;
-      } else {
-        policyFindingDetails_ = null;
+      policyFindingDetails_ = null;
+      if (policyFindingDetailsBuilder_ != null) {
+        policyFindingDetailsBuilder_.dispose();
         policyFindingDetailsBuilder_ = null;
       }
-      if (quotaErrorDetailsBuilder_ == null) {
-        quotaErrorDetails_ = null;
-      } else {
-        quotaErrorDetails_ = null;
+      quotaErrorDetails_ = null;
+      if (quotaErrorDetailsBuilder_ != null) {
+        quotaErrorDetailsBuilder_.dispose();
         quotaErrorDetailsBuilder_ = null;
       }
-      if (resourceCountDetailsBuilder_ == null) {
-        resourceCountDetails_ = null;
-      } else {
-        resourceCountDetails_ = null;
+      resourceCountDetails_ = null;
+      if (resourceCountDetailsBuilder_ != null) {
+        resourceCountDetailsBuilder_.dispose();
         resourceCountDetailsBuilder_ = null;
       }
       return this;
@@ -660,29 +555,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.errors.ErrorDetails buildPartial() {
       com.google.ads.googleads.v10.errors.ErrorDetails result = new com.google.ads.googleads.v10.errors.ErrorDetails(this);
-      result.unpublishedErrorCode_ = unpublishedErrorCode_;
-      if (policyViolationDetailsBuilder_ == null) {
-        result.policyViolationDetails_ = policyViolationDetails_;
-      } else {
-        result.policyViolationDetails_ = policyViolationDetailsBuilder_.build();
-      }
-      if (policyFindingDetailsBuilder_ == null) {
-        result.policyFindingDetails_ = policyFindingDetails_;
-      } else {
-        result.policyFindingDetails_ = policyFindingDetailsBuilder_.build();
-      }
-      if (quotaErrorDetailsBuilder_ == null) {
-        result.quotaErrorDetails_ = quotaErrorDetails_;
-      } else {
-        result.quotaErrorDetails_ = quotaErrorDetailsBuilder_.build();
-      }
-      if (resourceCountDetailsBuilder_ == null) {
-        result.resourceCountDetails_ = resourceCountDetails_;
-      } else {
-        result.resourceCountDetails_ = resourceCountDetailsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.errors.ErrorDetails result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.unpublishedErrorCode_ = unpublishedErrorCode_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.policyViolationDetails_ = policyViolationDetailsBuilder_ == null
+            ? policyViolationDetails_
+            : policyViolationDetailsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.policyFindingDetails_ = policyFindingDetailsBuilder_ == null
+            ? policyFindingDetails_
+            : policyFindingDetailsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.quotaErrorDetails_ = quotaErrorDetailsBuilder_ == null
+            ? quotaErrorDetails_
+            : quotaErrorDetailsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.resourceCountDetails_ = resourceCountDetailsBuilder_ == null
+            ? resourceCountDetails_
+            : resourceCountDetailsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -731,6 +633,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v10.errors.ErrorDetails.getDefaultInstance()) return this;
       if (!other.getUnpublishedErrorCode().isEmpty()) {
         unpublishedErrorCode_ = other.unpublishedErrorCode_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasPolicyViolationDetails()) {
@@ -745,7 +648,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasResourceCountDetails()) {
         mergeResourceCountDetails(other.getResourceCountDetails());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -760,19 +663,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.errors.ErrorDetails parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              unpublishedErrorCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPolicyViolationDetailsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getPolicyFindingDetailsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getQuotaErrorDetailsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getResourceCountDetailsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.errors.ErrorDetails) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object unpublishedErrorCode_ = "";
     /**
@@ -830,11 +780,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUnpublishedErrorCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       unpublishedErrorCode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -848,8 +796,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUnpublishedErrorCode() {
-      
       unpublishedErrorCode_ = getDefaultInstance().getUnpublishedErrorCode();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -865,12 +813,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUnpublishedErrorCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       unpublishedErrorCode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -887,7 +833,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the policyViolationDetails field is set.
      */
     public boolean hasPolicyViolationDetails() {
-      return policyViolationDetailsBuilder_ != null || policyViolationDetails_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -917,11 +863,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         policyViolationDetails_ = value;
-        onChanged();
       } else {
         policyViolationDetailsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -935,11 +881,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.errors.PolicyViolationDetails.Builder builderForValue) {
       if (policyViolationDetailsBuilder_ == null) {
         policyViolationDetails_ = builderForValue.build();
-        onChanged();
       } else {
         policyViolationDetailsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -951,17 +897,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePolicyViolationDetails(com.google.ads.googleads.v10.errors.PolicyViolationDetails value) {
       if (policyViolationDetailsBuilder_ == null) {
-        if (policyViolationDetails_ != null) {
-          policyViolationDetails_ =
-            com.google.ads.googleads.v10.errors.PolicyViolationDetails.newBuilder(policyViolationDetails_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          policyViolationDetails_ != null &&
+          policyViolationDetails_ != com.google.ads.googleads.v10.errors.PolicyViolationDetails.getDefaultInstance()) {
+          getPolicyViolationDetailsBuilder().mergeFrom(value);
         } else {
           policyViolationDetails_ = value;
         }
-        onChanged();
       } else {
         policyViolationDetailsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -972,14 +919,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.errors.PolicyViolationDetails policy_violation_details = 2;</code>
      */
     public Builder clearPolicyViolationDetails() {
-      if (policyViolationDetailsBuilder_ == null) {
-        policyViolationDetails_ = null;
-        onChanged();
-      } else {
-        policyViolationDetails_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      policyViolationDetails_ = null;
+      if (policyViolationDetailsBuilder_ != null) {
+        policyViolationDetailsBuilder_.dispose();
         policyViolationDetailsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -990,7 +936,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.errors.PolicyViolationDetails policy_violation_details = 2;</code>
      */
     public com.google.ads.googleads.v10.errors.PolicyViolationDetails.Builder getPolicyViolationDetailsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getPolicyViolationDetailsFieldBuilder().getBuilder();
     }
@@ -1042,7 +988,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the policyFindingDetails field is set.
      */
     public boolean hasPolicyFindingDetails() {
-      return policyFindingDetailsBuilder_ != null || policyFindingDetails_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1072,11 +1018,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         policyFindingDetails_ = value;
-        onChanged();
       } else {
         policyFindingDetailsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1090,11 +1036,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.errors.PolicyFindingDetails.Builder builderForValue) {
       if (policyFindingDetailsBuilder_ == null) {
         policyFindingDetails_ = builderForValue.build();
-        onChanged();
       } else {
         policyFindingDetailsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1106,17 +1052,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePolicyFindingDetails(com.google.ads.googleads.v10.errors.PolicyFindingDetails value) {
       if (policyFindingDetailsBuilder_ == null) {
-        if (policyFindingDetails_ != null) {
-          policyFindingDetails_ =
-            com.google.ads.googleads.v10.errors.PolicyFindingDetails.newBuilder(policyFindingDetails_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          policyFindingDetails_ != null &&
+          policyFindingDetails_ != com.google.ads.googleads.v10.errors.PolicyFindingDetails.getDefaultInstance()) {
+          getPolicyFindingDetailsBuilder().mergeFrom(value);
         } else {
           policyFindingDetails_ = value;
         }
-        onChanged();
       } else {
         policyFindingDetailsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1127,14 +1074,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.errors.PolicyFindingDetails policy_finding_details = 3;</code>
      */
     public Builder clearPolicyFindingDetails() {
-      if (policyFindingDetailsBuilder_ == null) {
-        policyFindingDetails_ = null;
-        onChanged();
-      } else {
-        policyFindingDetails_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      policyFindingDetails_ = null;
+      if (policyFindingDetailsBuilder_ != null) {
+        policyFindingDetailsBuilder_.dispose();
         policyFindingDetailsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1145,7 +1091,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.errors.PolicyFindingDetails policy_finding_details = 3;</code>
      */
     public com.google.ads.googleads.v10.errors.PolicyFindingDetails.Builder getPolicyFindingDetailsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getPolicyFindingDetailsFieldBuilder().getBuilder();
     }
@@ -1198,7 +1144,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the quotaErrorDetails field is set.
      */
     public boolean hasQuotaErrorDetails() {
-      return quotaErrorDetailsBuilder_ != null || quotaErrorDetails_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1230,11 +1176,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         quotaErrorDetails_ = value;
-        onChanged();
       } else {
         quotaErrorDetailsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1249,11 +1195,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.errors.QuotaErrorDetails.Builder builderForValue) {
       if (quotaErrorDetailsBuilder_ == null) {
         quotaErrorDetails_ = builderForValue.build();
-        onChanged();
       } else {
         quotaErrorDetailsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1266,17 +1212,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeQuotaErrorDetails(com.google.ads.googleads.v10.errors.QuotaErrorDetails value) {
       if (quotaErrorDetailsBuilder_ == null) {
-        if (quotaErrorDetails_ != null) {
-          quotaErrorDetails_ =
-            com.google.ads.googleads.v10.errors.QuotaErrorDetails.newBuilder(quotaErrorDetails_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          quotaErrorDetails_ != null &&
+          quotaErrorDetails_ != com.google.ads.googleads.v10.errors.QuotaErrorDetails.getDefaultInstance()) {
+          getQuotaErrorDetailsBuilder().mergeFrom(value);
         } else {
           quotaErrorDetails_ = value;
         }
-        onChanged();
       } else {
         quotaErrorDetailsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1288,14 +1235,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.errors.QuotaErrorDetails quota_error_details = 4;</code>
      */
     public Builder clearQuotaErrorDetails() {
-      if (quotaErrorDetailsBuilder_ == null) {
-        quotaErrorDetails_ = null;
-        onChanged();
-      } else {
-        quotaErrorDetails_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      quotaErrorDetails_ = null;
+      if (quotaErrorDetailsBuilder_ != null) {
+        quotaErrorDetailsBuilder_.dispose();
         quotaErrorDetailsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1307,7 +1253,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.errors.QuotaErrorDetails quota_error_details = 4;</code>
      */
     public com.google.ads.googleads.v10.errors.QuotaErrorDetails.Builder getQuotaErrorDetailsBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getQuotaErrorDetailsFieldBuilder().getBuilder();
     }
@@ -1361,7 +1307,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the resourceCountDetails field is set.
      */
     public boolean hasResourceCountDetails() {
-      return resourceCountDetailsBuilder_ != null || resourceCountDetails_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1391,11 +1337,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resourceCountDetails_ = value;
-        onChanged();
       } else {
         resourceCountDetailsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1409,11 +1355,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.errors.ResourceCountDetails.Builder builderForValue) {
       if (resourceCountDetailsBuilder_ == null) {
         resourceCountDetails_ = builderForValue.build();
-        onChanged();
       } else {
         resourceCountDetailsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1425,17 +1371,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResourceCountDetails(com.google.ads.googleads.v10.errors.ResourceCountDetails value) {
       if (resourceCountDetailsBuilder_ == null) {
-        if (resourceCountDetails_ != null) {
-          resourceCountDetails_ =
-            com.google.ads.googleads.v10.errors.ResourceCountDetails.newBuilder(resourceCountDetails_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          resourceCountDetails_ != null &&
+          resourceCountDetails_ != com.google.ads.googleads.v10.errors.ResourceCountDetails.getDefaultInstance()) {
+          getResourceCountDetailsBuilder().mergeFrom(value);
         } else {
           resourceCountDetails_ = value;
         }
-        onChanged();
       } else {
         resourceCountDetailsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1446,14 +1393,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.errors.ResourceCountDetails resource_count_details = 5;</code>
      */
     public Builder clearResourceCountDetails() {
-      if (resourceCountDetailsBuilder_ == null) {
-        resourceCountDetails_ = null;
-        onChanged();
-      } else {
-        resourceCountDetails_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      resourceCountDetails_ = null;
+      if (resourceCountDetailsBuilder_ != null) {
+        resourceCountDetailsBuilder_.dispose();
         resourceCountDetailsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1464,7 +1410,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.errors.ResourceCountDetails resource_count_details = 5;</code>
      */
     public com.google.ads.googleads.v10.errors.ResourceCountDetails.Builder getResourceCountDetailsBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getResourceCountDetailsFieldBuilder().getBuilder();
     }
@@ -1536,7 +1482,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ErrorDetails(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

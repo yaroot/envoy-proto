@@ -167,7 +167,7 @@ public interface ConstantOrBuilder extends
    *
    * <code>.google.protobuf.Duration duration_value = 8 [deprecated = true];</code>
    * @deprecated google.api.expr.v1alpha1.Constant.duration_value is deprecated.
-   *     See google/api/expr/v1alpha1/syntax.proto;l=268
+   *     See google/api/expr/v1alpha1/syntax.proto;l=283
    * @return Whether the durationValue field is set.
    */
   @java.lang.Deprecated boolean hasDurationValue();
@@ -179,7 +179,7 @@ public interface ConstantOrBuilder extends
    *
    * <code>.google.protobuf.Duration duration_value = 8 [deprecated = true];</code>
    * @deprecated google.api.expr.v1alpha1.Constant.duration_value is deprecated.
-   *     See google/api/expr/v1alpha1/syntax.proto;l=268
+   *     See google/api/expr/v1alpha1/syntax.proto;l=283
    * @return The durationValue.
    */
   @java.lang.Deprecated com.google.protobuf.Duration getDurationValue();
@@ -201,7 +201,7 @@ public interface ConstantOrBuilder extends
    *
    * <code>.google.protobuf.Timestamp timestamp_value = 9 [deprecated = true];</code>
    * @deprecated google.api.expr.v1alpha1.Constant.timestamp_value is deprecated.
-   *     See google/api/expr/v1alpha1/syntax.proto;l=273
+   *     See google/api/expr/v1alpha1/syntax.proto;l=288
    * @return Whether the timestampValue field is set.
    */
   @java.lang.Deprecated boolean hasTimestampValue();
@@ -213,7 +213,7 @@ public interface ConstantOrBuilder extends
    *
    * <code>.google.protobuf.Timestamp timestamp_value = 9 [deprecated = true];</code>
    * @deprecated google.api.expr.v1alpha1.Constant.timestamp_value is deprecated.
-   *     See google/api/expr/v1alpha1/syntax.proto;l=273
+   *     See google/api/expr/v1alpha1/syntax.proto;l=288
    * @return The timestampValue.
    */
   @java.lang.Deprecated com.google.protobuf.Timestamp getTimestampValue();

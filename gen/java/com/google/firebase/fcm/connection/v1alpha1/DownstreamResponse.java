@@ -34,59 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DownstreamResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.firebase.fcm.connection.v1alpha1.Message.Builder subBuilder = null;
-            if (responseTypeCase_ == 1) {
-              subBuilder = ((com.google.firebase.fcm.connection.v1alpha1.Message) responseType_).toBuilder();
-            }
-            responseType_ =
-                input.readMessage(com.google.firebase.fcm.connection.v1alpha1.Message.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.firebase.fcm.connection.v1alpha1.Message) responseType_);
-              responseType_ = subBuilder.buildPartial();
-            }
-            responseTypeCase_ = 1;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.firebase.fcm.connection.v1alpha1.ConnectionApiOuterClass.internal_static_google_firebase_fcm_connection_v1alpha1_DownstreamResponse_descriptor;
@@ -205,7 +152,7 @@ private static final long serialVersionUID = 0L;
     if (responseTypeCase_ == 1) {
       output.writeMessage(1, (com.google.firebase.fcm.connection.v1alpha1.Message) responseType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -218,7 +165,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, (com.google.firebase.fcm.connection.v1alpha1.Message) responseType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -242,7 +189,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -261,7 +208,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -382,22 +329,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.firebase.fcm.connection.v1alpha1.DownstreamResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (messageBuilder_ != null) {
+        messageBuilder_.clear();
+      }
       responseTypeCase_ = 0;
       responseType_ = null;
       return this;
@@ -426,16 +372,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.firebase.fcm.connection.v1alpha1.DownstreamResponse buildPartial() {
       com.google.firebase.fcm.connection.v1alpha1.DownstreamResponse result = new com.google.firebase.fcm.connection.v1alpha1.DownstreamResponse(this);
-      if (responseTypeCase_ == 1) {
-        if (messageBuilder_ == null) {
-          result.responseType_ = responseType_;
-        } else {
-          result.responseType_ = messageBuilder_.build();
-        }
-      }
-      result.responseTypeCase_ = responseTypeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.firebase.fcm.connection.v1alpha1.DownstreamResponse result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.firebase.fcm.connection.v1alpha1.DownstreamResponse result) {
+      result.responseTypeCase_ = responseTypeCase_;
+      result.responseType_ = this.responseType_;
+      if (responseTypeCase_ == 1 &&
+          messageBuilder_ != null) {
+        result.responseType_ = messageBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -491,7 +444,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -506,17 +459,37 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.firebase.fcm.connection.v1alpha1.DownstreamResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMessageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              responseTypeCase_ = 1;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.firebase.fcm.connection.v1alpha1.DownstreamResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int responseTypeCase_ = 0;
@@ -534,6 +507,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.firebase.fcm.connection.v1alpha1.Message, com.google.firebase.fcm.connection.v1alpha1.Message.Builder, com.google.firebase.fcm.connection.v1alpha1.MessageOrBuilder> messageBuilder_;
@@ -727,7 +701,7 @@ private static final long serialVersionUID = 0L;
         responseType_ = null;
       }
       responseTypeCase_ = 1;
-      onChanged();;
+      onChanged();
       return messageBuilder_;
     }
     @java.lang.Override
@@ -763,7 +737,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DownstreamResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

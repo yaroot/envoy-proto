@@ -38,87 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PricePhase(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            periodType_ = rawValue;
-            break;
-          }
-          case 16: {
-
-            firstPeriod_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            lastPeriod_ = input.readInt32();
-            break;
-          }
-          case 34: {
-            com.google.cloud.channel.v1.Price.Builder subBuilder = null;
-            if (price_ != null) {
-              subBuilder = price_.toBuilder();
-            }
-            price_ = input.readMessage(com.google.cloud.channel.v1.Price.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(price_);
-              price_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              priceTiers_ = new java.util.ArrayList<com.google.cloud.channel.v1.PriceTier>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            priceTiers_.add(
-                input.readMessage(com.google.cloud.channel.v1.PriceTier.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        priceTiers_ = java.util.Collections.unmodifiableList(priceTiers_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.OffersProto.internal_static_google_cloud_channel_v1_PricePhase_descriptor;
@@ -133,7 +52,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PERIOD_TYPE_FIELD_NUMBER = 1;
-  private int periodType_;
+  private int periodType_ = 0;
   /**
    * <pre>
    * Defines the phase period type.
@@ -154,13 +73,12 @@ private static final long serialVersionUID = 0L;
    * @return The periodType.
    */
   @java.lang.Override public com.google.cloud.channel.v1.PeriodType getPeriodType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.channel.v1.PeriodType result = com.google.cloud.channel.v1.PeriodType.valueOf(periodType_);
+    com.google.cloud.channel.v1.PeriodType result = com.google.cloud.channel.v1.PeriodType.forNumber(periodType_);
     return result == null ? com.google.cloud.channel.v1.PeriodType.UNRECOGNIZED : result;
   }
 
   public static final int FIRST_PERIOD_FIELD_NUMBER = 2;
-  private int firstPeriod_;
+  private int firstPeriod_ = 0;
   /**
    * <pre>
    * Defines first period for the phase.
@@ -175,7 +93,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LAST_PERIOD_FIELD_NUMBER = 3;
-  private int lastPeriod_;
+  private int lastPeriod_ = 0;
   /**
    * <pre>
    * Defines first period for the phase.
@@ -224,10 +142,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.PriceOrBuilder getPriceOrBuilder() {
-    return getPrice();
+    return price_ == null ? com.google.cloud.channel.v1.Price.getDefaultInstance() : price_;
   }
 
   public static final int PRICE_TIERS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.channel.v1.PriceTier> priceTiers_;
   /**
    * <pre>
@@ -316,7 +235,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < priceTiers_.size(); i++) {
       output.writeMessage(5, priceTiers_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -345,7 +264,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, priceTiers_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -372,7 +291,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getPriceTiersList()
         .equals(other.getPriceTiersList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -397,7 +316,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PRICE_TIERS_FIELD_NUMBER;
       hash = (53 * hash) + getPriceTiersList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -520,41 +439,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.PricePhase.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getPriceTiersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       periodType_ = 0;
-
       firstPeriod_ = 0;
-
       lastPeriod_ = 0;
-
-      if (priceBuilder_ == null) {
-        price_ = null;
-      } else {
-        price_ = null;
+      price_ = null;
+      if (priceBuilder_ != null) {
+        priceBuilder_.dispose();
         priceBuilder_ = null;
       }
       if (priceTiersBuilder_ == null) {
         priceTiers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        priceTiers_ = null;
         priceTiersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -581,26 +492,40 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.PricePhase buildPartial() {
       com.google.cloud.channel.v1.PricePhase result = new com.google.cloud.channel.v1.PricePhase(this);
-      int from_bitField0_ = bitField0_;
-      result.periodType_ = periodType_;
-      result.firstPeriod_ = firstPeriod_;
-      result.lastPeriod_ = lastPeriod_;
-      if (priceBuilder_ == null) {
-        result.price_ = price_;
-      } else {
-        result.price_ = priceBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.channel.v1.PricePhase result) {
       if (priceTiersBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           priceTiers_ = java.util.Collections.unmodifiableList(priceTiers_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.priceTiers_ = priceTiers_;
       } else {
         result.priceTiers_ = priceTiersBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.PricePhase result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.periodType_ = periodType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.firstPeriod_ = firstPeriod_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.lastPeriod_ = lastPeriod_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.price_ = priceBuilder_ == null
+            ? price_
+            : priceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -663,7 +588,7 @@ private static final long serialVersionUID = 0L;
         if (!other.priceTiers_.isEmpty()) {
           if (priceTiers_.isEmpty()) {
             priceTiers_ = other.priceTiers_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensurePriceTiersIsMutable();
             priceTiers_.addAll(other.priceTiers_);
@@ -676,7 +601,7 @@ private static final long serialVersionUID = 0L;
             priceTiersBuilder_.dispose();
             priceTiersBuilder_ = null;
             priceTiers_ = other.priceTiers_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             priceTiersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPriceTiersFieldBuilder() : null;
@@ -685,7 +610,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -700,17 +625,65 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.PricePhase parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              periodType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              firstPeriod_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              lastPeriod_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getPriceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.cloud.channel.v1.PriceTier m =
+                  input.readMessage(
+                      com.google.cloud.channel.v1.PriceTier.parser(),
+                      extensionRegistry);
+              if (priceTiersBuilder_ == null) {
+                ensurePriceTiersIsMutable();
+                priceTiers_.add(m);
+              } else {
+                priceTiersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.PricePhase) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -737,8 +710,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPeriodTypeValue(int value) {
-      
       periodType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -752,8 +725,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.channel.v1.PeriodType getPeriodType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.channel.v1.PeriodType result = com.google.cloud.channel.v1.PeriodType.valueOf(periodType_);
+      com.google.cloud.channel.v1.PeriodType result = com.google.cloud.channel.v1.PeriodType.forNumber(periodType_);
       return result == null ? com.google.cloud.channel.v1.PeriodType.UNRECOGNIZED : result;
     }
     /**
@@ -769,7 +741,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       periodType_ = value.getNumber();
       onChanged();
       return this;
@@ -783,7 +755,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPeriodType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       periodType_ = 0;
       onChanged();
       return this;
@@ -814,6 +786,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFirstPeriod(int value) {
       
       firstPeriod_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -826,7 +799,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFirstPeriod() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       firstPeriod_ = 0;
       onChanged();
       return this;
@@ -857,6 +830,7 @@ private static final long serialVersionUID = 0L;
     public Builder setLastPeriod(int value) {
       
       lastPeriod_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -869,7 +843,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLastPeriod() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       lastPeriod_ = 0;
       onChanged();
       return this;
@@ -887,7 +861,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the price field is set.
      */
     public boolean hasPrice() {
-      return priceBuilder_ != null || price_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -917,11 +891,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         price_ = value;
-        onChanged();
       } else {
         priceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -935,11 +909,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.Price.Builder builderForValue) {
       if (priceBuilder_ == null) {
         price_ = builderForValue.build();
-        onChanged();
       } else {
         priceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -951,17 +925,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePrice(com.google.cloud.channel.v1.Price value) {
       if (priceBuilder_ == null) {
-        if (price_ != null) {
-          price_ =
-            com.google.cloud.channel.v1.Price.newBuilder(price_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          price_ != null &&
+          price_ != com.google.cloud.channel.v1.Price.getDefaultInstance()) {
+          getPriceBuilder().mergeFrom(value);
         } else {
           price_ = value;
         }
-        onChanged();
       } else {
         priceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -972,14 +947,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.Price price = 4;</code>
      */
     public Builder clearPrice() {
-      if (priceBuilder_ == null) {
-        price_ = null;
-        onChanged();
-      } else {
-        price_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      price_ = null;
+      if (priceBuilder_ != null) {
+        priceBuilder_.dispose();
         priceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -990,7 +964,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.Price price = 4;</code>
      */
     public com.google.cloud.channel.v1.Price.Builder getPriceBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getPriceFieldBuilder().getBuilder();
     }
@@ -1033,9 +1007,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.channel.v1.PriceTier> priceTiers_ =
       java.util.Collections.emptyList();
     private void ensurePriceTiersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         priceTiers_ = new java.util.ArrayList<com.google.cloud.channel.v1.PriceTier>(priceTiers_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1229,7 +1203,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPriceTiers() {
       if (priceTiersBuilder_ == null) {
         priceTiers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         priceTiersBuilder_.clear();
@@ -1334,7 +1308,7 @@ private static final long serialVersionUID = 0L;
         priceTiersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.channel.v1.PriceTier, com.google.cloud.channel.v1.PriceTier.Builder, com.google.cloud.channel.v1.PriceTierOrBuilder>(
                 priceTiers_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         priceTiers_ = null;
@@ -1374,7 +1348,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PricePhase(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

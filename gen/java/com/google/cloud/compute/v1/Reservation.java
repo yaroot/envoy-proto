@@ -42,140 +42,23 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Reservation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26840: {
-            bitField0_ |= 0x00000008;
-            id_ = input.readUInt64();
-            break;
-          }
-          case 26336418: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            kind_ = s;
-            break;
-          }
-          case 26989658: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000020;
-            name_ = s;
-            break;
-          }
-          case 29957474: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00001000;
-            zone_ = s;
-            break;
-          }
-          case 244202930: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            creationTimestamp_ = s;
-            break;
-          }
-          case 1450082194: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000800;
-            status_ = s;
-            break;
-          }
-          case 1812405496: {
-            bitField0_ |= 0x00000400;
-            specificReservationRequired_ = input.readBool();
-            break;
-          }
-          case 2133345306: {
-            com.google.cloud.compute.v1.ShareSettings.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000100) != 0)) {
-              subBuilder = shareSettings_.toBuilder();
-            }
-            shareSettings_ = input.readMessage(com.google.cloud.compute.v1.ShareSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(shareSettings_);
-              shareSettings_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000100;
-            break;
-          }
-          case -1055751686: {
-            com.google.cloud.compute.v1.AllocationSpecificSKUReservation.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000200) != 0)) {
-              subBuilder = specificReservation_.toBuilder();
-            }
-            specificReservation_ = input.readMessage(com.google.cloud.compute.v1.AllocationSpecificSKUReservation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(specificReservation_);
-              specificReservation_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000200;
-            break;
-          }
-          case -911466526: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            description_ = s;
-            break;
-          }
-          case -645248918: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000080;
-            selfLink_ = s;
-            break;
-          }
-          case -447253160: {
-            bitField0_ |= 0x00000040;
-            satisfiesPzs_ = input.readBool();
-            break;
-          }
-          case -437888854: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            commitment_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_Reservation_descriptor;
   }
 
+  @SuppressWarnings({"rawtypes"})
+  @java.lang.Override
+  protected com.google.protobuf.MapField internalGetMapField(
+      int number) {
+    switch (number) {
+      case 22220385:
+        return internalGetResourcePolicies();
+      default:
+        throw new RuntimeException(
+            "Invalid map field number: " + number);
+    }
+  }
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -374,7 +257,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int COMMITMENT_FIELD_NUMBER = 482134805;
-  private volatile java.lang.Object commitment_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object commitment_ = "";
   /**
    * <pre>
    * [Output Only] Full or partial URL to a parent commitment. This field displays for reservations that are tied to a commitment.
@@ -432,7 +316,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CREATION_TIMESTAMP_FIELD_NUMBER = 30525366;
-  private volatile java.lang.Object creationTimestamp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object creationTimestamp_ = "";
   /**
    * <pre>
    * [Output Only] Creation timestamp in RFC3339 text format.
@@ -490,7 +375,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 422937596;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * An optional description of this resource. Provide this property when you create the resource.
@@ -548,7 +434,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 3355;
-  private long id_;
+  private long id_ = 0L;
   /**
    * <pre>
    * [Output Only] The unique identifier for the resource. This identifier is defined by the server.
@@ -575,7 +461,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 3292052;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * [Output Only] Type of the resource. Always compute#reservations for reservations.
@@ -633,7 +520,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 3373707;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The name of the resource, provided by the client when initially creating the resource. The resource name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
@@ -690,8 +578,103 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int RESOURCE_POLICIES_FIELD_NUMBER = 22220385;
+  private static final class ResourcePoliciesDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, java.lang.String> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, java.lang.String>newDefaultInstance(
+                com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_Reservation_ResourcePoliciesEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "");
+  }
+  @SuppressWarnings("serial")
+  private com.google.protobuf.MapField<
+      java.lang.String, java.lang.String> resourcePolicies_;
+  private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+  internalGetResourcePolicies() {
+    if (resourcePolicies_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          ResourcePoliciesDefaultEntryHolder.defaultEntry);
+    }
+    return resourcePolicies_;
+  }
+  public int getResourcePoliciesCount() {
+    return internalGetResourcePolicies().getMap().size();
+  }
+  /**
+   * <pre>
+   * Resource policies to be added to this reservation. The key is defined by user, and the value is resource policy url. This is to define placement policy with reservation.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; resource_policies = 22220385;</code>
+   */
+  @java.lang.Override
+  public boolean containsResourcePolicies(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    return internalGetResourcePolicies().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getResourcePoliciesMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, java.lang.String> getResourcePolicies() {
+    return getResourcePoliciesMap();
+  }
+  /**
+   * <pre>
+   * Resource policies to be added to this reservation. The key is defined by user, and the value is resource policy url. This is to define placement policy with reservation.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; resource_policies = 22220385;</code>
+   */
+  @java.lang.Override
+  public java.util.Map<java.lang.String, java.lang.String> getResourcePoliciesMap() {
+    return internalGetResourcePolicies().getMap();
+  }
+  /**
+   * <pre>
+   * Resource policies to be added to this reservation. The key is defined by user, and the value is resource policy url. This is to define placement policy with reservation.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; resource_policies = 22220385;</code>
+   */
+  @java.lang.Override
+  public /* nullable */
+java.lang.String getResourcePoliciesOrDefault(
+      java.lang.String key,
+      /* nullable */
+java.lang.String defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetResourcePolicies().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <pre>
+   * Resource policies to be added to this reservation. The key is defined by user, and the value is resource policy url. This is to define placement policy with reservation.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; resource_policies = 22220385;</code>
+   */
+  @java.lang.Override
+  public java.lang.String getResourcePoliciesOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetResourcePolicies().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
   public static final int SATISFIES_PZS_FIELD_NUMBER = 480964267;
-  private boolean satisfiesPzs_;
+  private boolean satisfiesPzs_ = false;
   /**
    * <pre>
    * [Output Only] Reserved for future use.
@@ -718,7 +701,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SELF_LINK_FIELD_NUMBER = 456214797;
-  private volatile java.lang.Object selfLink_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object selfLink_ = "";
   /**
    * <pre>
    * [Output Only] Server-defined fully-qualified URL for this resource.
@@ -779,7 +763,7 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.compute.v1.ShareSettings shareSettings_;
   /**
    * <pre>
-   * Share-settings for shared-reservation
+   * Specify share-settings to create a shared reservation. This property is optional. For more information about the syntax and options for this field and its subfields, see the guide for creating a shared reservation.
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.ShareSettings share_settings = 266668163;</code>
@@ -791,7 +775,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Share-settings for shared-reservation
+   * Specify share-settings to create a shared reservation. This property is optional. For more information about the syntax and options for this field and its subfields, see the guide for creating a shared reservation.
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.ShareSettings share_settings = 266668163;</code>
@@ -803,7 +787,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Share-settings for shared-reservation
+   * Specify share-settings to create a shared reservation. This property is optional. For more information about the syntax and options for this field and its subfields, see the guide for creating a shared reservation.
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.ShareSettings share_settings = 266668163;</code>
@@ -852,7 +836,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPECIFIC_RESERVATION_REQUIRED_FIELD_NUMBER = 226550687;
-  private boolean specificReservationRequired_;
+  private boolean specificReservationRequired_ = false;
   /**
    * <pre>
    * Indicates whether the reservation can be consumed by VMs with affinity for "any" reservation. If the field is set, then only VMs that target the reservation by name can consume from this reservation.
@@ -879,7 +863,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 181260274;
-  private volatile java.lang.Object status_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object status_ = "";
   /**
    * <pre>
    * [Output Only] The status of the reservation.
@@ -940,7 +925,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ZONE_FIELD_NUMBER = 3744684;
-  private volatile java.lang.Object zone_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object zone_ = "";
   /**
    * <pre>
    * Zone in which the reservation resides. A zone must be provided if the reservation is created within a commitment.
@@ -1023,6 +1009,12 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00001000) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3744684, zone_);
     }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetResourcePolicies(),
+        ResourcePoliciesDefaultEntryHolder.defaultEntry,
+        22220385);
     if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 30525366, creationTimestamp_);
     }
@@ -1050,7 +1042,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 482134805, commitment_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1071,6 +1063,16 @@ private static final long serialVersionUID = 0L;
     }
     if (((bitField0_ & 0x00001000) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3744684, zone_);
+    }
+    for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+         : internalGetResourcePolicies().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+      resourcePolicies__ = ResourcePoliciesDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(22220385, resourcePolicies__);
     }
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(30525366, creationTimestamp_);
@@ -1103,7 +1105,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(482134805, commitment_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1148,6 +1150,8 @@ private static final long serialVersionUID = 0L;
       if (!getName()
           .equals(other.getName())) return false;
     }
+    if (!internalGetResourcePolicies().equals(
+        other.internalGetResourcePolicies())) return false;
     if (hasSatisfiesPzs() != other.hasSatisfiesPzs()) return false;
     if (hasSatisfiesPzs()) {
       if (getSatisfiesPzs()
@@ -1183,7 +1187,7 @@ private static final long serialVersionUID = 0L;
       if (!getZone()
           .equals(other.getZone())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1219,6 +1223,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
     }
+    if (!internalGetResourcePolicies().getMap().isEmpty()) {
+      hash = (37 * hash) + RESOURCE_POLICIES_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetResourcePolicies().hashCode();
+    }
     if (hasSatisfiesPzs()) {
       hash = (37 * hash) + SATISFIES_PZS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
@@ -1249,7 +1257,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ZONE_FIELD_NUMBER;
       hash = (53 * hash) + getZone().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1360,6 +1368,28 @@ private static final long serialVersionUID = 0L;
       return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_Reservation_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 22220385:
+          return internalGetResourcePolicies();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMutableMapField(
+        int number) {
+      switch (number) {
+        case 22220385:
+          return internalGetMutableResourcePolicies();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -1388,40 +1418,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       commitment_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       creationTimestamp_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       description_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       id_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000008);
       kind_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       name_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
+      internalGetMutableResourcePolicies().clear();
       satisfiesPzs_ = false;
-      bitField0_ = (bitField0_ & ~0x00000040);
       selfLink_ = "";
-      bitField0_ = (bitField0_ & ~0x00000080);
-      if (shareSettingsBuilder_ == null) {
-        shareSettings_ = null;
-      } else {
-        shareSettingsBuilder_.clear();
+      shareSettings_ = null;
+      if (shareSettingsBuilder_ != null) {
+        shareSettingsBuilder_.dispose();
+        shareSettingsBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000100);
-      if (specificReservationBuilder_ == null) {
-        specificReservation_ = null;
-      } else {
-        specificReservationBuilder_.clear();
+      specificReservation_ = null;
+      if (specificReservationBuilder_ != null) {
+        specificReservationBuilder_.dispose();
+        specificReservationBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000200);
       specificReservationRequired_ = false;
-      bitField0_ = (bitField0_ & ~0x00000400);
       status_ = "";
-      bitField0_ = (bitField0_ & ~0x00000800);
       zone_ = "";
-      bitField0_ = (bitField0_ & ~0x00001000);
       return this;
     }
 
@@ -1448,71 +1467,75 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.Reservation buildPartial() {
       com.google.cloud.compute.v1.Reservation result = new com.google.cloud.compute.v1.Reservation(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.Reservation result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.commitment_ = commitment_;
         to_bitField0_ |= 0x00000001;
       }
-      result.commitment_ = commitment_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.creationTimestamp_ = creationTimestamp_;
         to_bitField0_ |= 0x00000002;
       }
-      result.creationTimestamp_ = creationTimestamp_;
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.description_ = description_;
         to_bitField0_ |= 0x00000004;
       }
-      result.description_ = description_;
       if (((from_bitField0_ & 0x00000008) != 0)) {
         result.id_ = id_;
         to_bitField0_ |= 0x00000008;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.kind_ = kind_;
         to_bitField0_ |= 0x00000010;
       }
-      result.kind_ = kind_;
       if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.name_ = name_;
         to_bitField0_ |= 0x00000020;
       }
-      result.name_ = name_;
       if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.resourcePolicies_ = internalGetResourcePolicies();
+        result.resourcePolicies_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
         result.satisfiesPzs_ = satisfiesPzs_;
         to_bitField0_ |= 0x00000040;
       }
-      if (((from_bitField0_ & 0x00000080) != 0)) {
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.selfLink_ = selfLink_;
         to_bitField0_ |= 0x00000080;
       }
-      result.selfLink_ = selfLink_;
-      if (((from_bitField0_ & 0x00000100) != 0)) {
-        if (shareSettingsBuilder_ == null) {
-          result.shareSettings_ = shareSettings_;
-        } else {
-          result.shareSettings_ = shareSettingsBuilder_.build();
-        }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.shareSettings_ = shareSettingsBuilder_ == null
+            ? shareSettings_
+            : shareSettingsBuilder_.build();
         to_bitField0_ |= 0x00000100;
       }
-      if (((from_bitField0_ & 0x00000200) != 0)) {
-        if (specificReservationBuilder_ == null) {
-          result.specificReservation_ = specificReservation_;
-        } else {
-          result.specificReservation_ = specificReservationBuilder_.build();
-        }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.specificReservation_ = specificReservationBuilder_ == null
+            ? specificReservation_
+            : specificReservationBuilder_.build();
         to_bitField0_ |= 0x00000200;
       }
-      if (((from_bitField0_ & 0x00000400) != 0)) {
+      if (((from_bitField0_ & 0x00000800) != 0)) {
         result.specificReservationRequired_ = specificReservationRequired_;
         to_bitField0_ |= 0x00000400;
       }
-      if (((from_bitField0_ & 0x00000800) != 0)) {
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.status_ = status_;
         to_bitField0_ |= 0x00000800;
       }
-      result.status_ = status_;
-      if (((from_bitField0_ & 0x00001000) != 0)) {
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.zone_ = zone_;
         to_bitField0_ |= 0x00001000;
       }
-      result.zone_ = zone_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1560,39 +1583,42 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.Reservation other) {
       if (other == com.google.cloud.compute.v1.Reservation.getDefaultInstance()) return this;
       if (other.hasCommitment()) {
-        bitField0_ |= 0x00000001;
         commitment_ = other.commitment_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasCreationTimestamp()) {
-        bitField0_ |= 0x00000002;
         creationTimestamp_ = other.creationTimestamp_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasDescription()) {
-        bitField0_ |= 0x00000004;
         description_ = other.description_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasId()) {
         setId(other.getId());
       }
       if (other.hasKind()) {
-        bitField0_ |= 0x00000010;
         kind_ = other.kind_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasName()) {
-        bitField0_ |= 0x00000020;
         name_ = other.name_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
+      internalGetMutableResourcePolicies().mergeFrom(
+          other.internalGetResourcePolicies());
+      bitField0_ |= 0x00000040;
       if (other.hasSatisfiesPzs()) {
         setSatisfiesPzs(other.getSatisfiesPzs());
       }
       if (other.hasSelfLink()) {
-        bitField0_ |= 0x00000080;
         selfLink_ = other.selfLink_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.hasShareSettings()) {
@@ -1605,16 +1631,16 @@ private static final long serialVersionUID = 0L;
         setSpecificReservationRequired(other.getSpecificReservationRequired());
       }
       if (other.hasStatus()) {
-        bitField0_ |= 0x00000800;
         status_ = other.status_;
+        bitField0_ |= 0x00001000;
         onChanged();
       }
       if (other.hasZone()) {
-        bitField0_ |= 0x00001000;
         zone_ = other.zone_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1629,17 +1655,108 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.Reservation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26840: {
+              id_ = input.readUInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26840
+            case 26336418: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 26336418
+            case 26989658: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 26989658
+            case 29957474: {
+              zone_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 29957474
+            case 177763082: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              resourcePolicies__ = input.readMessage(
+                  ResourcePoliciesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableResourcePolicies().getMutableMap().put(
+                  resourcePolicies__.getKey(), resourcePolicies__.getValue());
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 177763082
+            case 244202930: {
+              creationTimestamp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 244202930
+            case 1450082194: {
+              status_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 1450082194
+            case 1812405496: {
+              specificReservationRequired_ = input.readBool();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 1812405496
+            case 2133345306: {
+              input.readMessage(
+                  getShareSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 2133345306
+            case -1055751686: {
+              input.readMessage(
+                  getSpecificReservationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case -1055751686
+            case -911466526: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -911466526
+            case -645248918: {
+              selfLink_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case -645248918
+            case -447253160: {
+              satisfiesPzs_ = input.readBool();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case -447253160
+            case -437888854: {
+              commitment_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -437888854
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.Reservation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1708,11 +1825,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCommitment(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       commitment_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1725,8 +1840,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCommitment() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       commitment_ = getDefaultInstance().getCommitment();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1741,12 +1856,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCommitmentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       commitment_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1815,11 +1928,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestamp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1832,8 +1943,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCreationTimestamp() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       creationTimestamp_ = getDefaultInstance().getCreationTimestamp();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1848,12 +1959,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestampBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1922,11 +2031,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1939,8 +2046,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1955,12 +2062,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2000,8 +2105,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(long value) {
-      bitField0_ |= 0x00000008;
+      
       id_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2084,11 +2190,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2101,8 +2205,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2117,12 +2221,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2191,11 +2293,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2208,8 +2308,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2224,13 +2324,166 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> resourcePolicies_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetResourcePolicies() {
+      if (resourcePolicies_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            ResourcePoliciesDefaultEntryHolder.defaultEntry);
+      }
+      return resourcePolicies_;
+    }
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMutableResourcePolicies() {
+      if (resourcePolicies_ == null) {
+        resourcePolicies_ = com.google.protobuf.MapField.newMapField(
+            ResourcePoliciesDefaultEntryHolder.defaultEntry);
+      }
+      if (!resourcePolicies_.isMutable()) {
+        resourcePolicies_ = resourcePolicies_.copy();
+      }
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return resourcePolicies_;
+    }
+    public int getResourcePoliciesCount() {
+      return internalGetResourcePolicies().getMap().size();
+    }
+    /**
+     * <pre>
+     * Resource policies to be added to this reservation. The key is defined by user, and the value is resource policy url. This is to define placement policy with reservation.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; resource_policies = 22220385;</code>
+     */
+    @java.lang.Override
+    public boolean containsResourcePolicies(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetResourcePolicies().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getResourcePoliciesMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getResourcePolicies() {
+      return getResourcePoliciesMap();
+    }
+    /**
+     * <pre>
+     * Resource policies to be added to this reservation. The key is defined by user, and the value is resource policy url. This is to define placement policy with reservation.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; resource_policies = 22220385;</code>
+     */
+    @java.lang.Override
+    public java.util.Map<java.lang.String, java.lang.String> getResourcePoliciesMap() {
+      return internalGetResourcePolicies().getMap();
+    }
+    /**
+     * <pre>
+     * Resource policies to be added to this reservation. The key is defined by user, and the value is resource policy url. This is to define placement policy with reservation.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; resource_policies = 22220385;</code>
+     */
+    @java.lang.Override
+    public /* nullable */
+java.lang.String getResourcePoliciesOrDefault(
+        java.lang.String key,
+        /* nullable */
+java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetResourcePolicies().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * Resource policies to be added to this reservation. The key is defined by user, and the value is resource policy url. This is to define placement policy with reservation.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; resource_policies = 22220385;</code>
+     */
+    @java.lang.Override
+    public java.lang.String getResourcePoliciesOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetResourcePolicies().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    public Builder clearResourcePolicies() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      internalGetMutableResourcePolicies().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <pre>
+     * Resource policies to be added to this reservation. The key is defined by user, and the value is resource policy url. This is to define placement policy with reservation.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; resource_policies = 22220385;</code>
+     */
+    public Builder removeResourcePolicies(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      internalGetMutableResourcePolicies().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String>
+        getMutableResourcePolicies() {
+      bitField0_ |= 0x00000040;
+      return internalGetMutableResourcePolicies().getMutableMap();
+    }
+    /**
+     * <pre>
+     * Resource policies to be added to this reservation. The key is defined by user, and the value is resource policy url. This is to define placement policy with reservation.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; resource_policies = 22220385;</code>
+     */
+    public Builder putResourcePolicies(
+        java.lang.String key,
+        java.lang.String value) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) { throw new NullPointerException("map value"); }
+      internalGetMutableResourcePolicies().getMutableMap()
+          .put(key, value);
+      bitField0_ |= 0x00000040;
+      return this;
+    }
+    /**
+     * <pre>
+     * Resource policies to be added to this reservation. The key is defined by user, and the value is resource policy url. This is to define placement policy with reservation.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; resource_policies = 22220385;</code>
+     */
+    public Builder putAllResourcePolicies(
+        java.util.Map<java.lang.String, java.lang.String> values) {
+      internalGetMutableResourcePolicies().getMutableMap()
+          .putAll(values);
+      bitField0_ |= 0x00000040;
       return this;
     }
 
@@ -2245,7 +2498,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasSatisfiesPzs() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2269,8 +2522,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSatisfiesPzs(boolean value) {
-      bitField0_ |= 0x00000040;
+      
       satisfiesPzs_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2283,7 +2537,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSatisfiesPzs() {
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000080);
       satisfiesPzs_ = false;
       onChanged();
       return this;
@@ -2299,7 +2553,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the selfLink field is set.
      */
     public boolean hasSelfLink() {
-      return ((bitField0_ & 0x00000080) != 0);
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2353,11 +2607,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLink(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
       selfLink_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2370,8 +2622,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSelfLink() {
-      bitField0_ = (bitField0_ & ~0x00000080);
       selfLink_ = getDefaultInstance().getSelfLink();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2386,12 +2638,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLinkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       selfLink_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2401,18 +2651,18 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.ShareSettings, com.google.cloud.compute.v1.ShareSettings.Builder, com.google.cloud.compute.v1.ShareSettingsOrBuilder> shareSettingsBuilder_;
     /**
      * <pre>
-     * Share-settings for shared-reservation
+     * Specify share-settings to create a shared reservation. This property is optional. For more information about the syntax and options for this field and its subfields, see the guide for creating a shared reservation.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.ShareSettings share_settings = 266668163;</code>
      * @return Whether the shareSettings field is set.
      */
     public boolean hasShareSettings() {
-      return ((bitField0_ & 0x00000100) != 0);
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
-     * Share-settings for shared-reservation
+     * Specify share-settings to create a shared reservation. This property is optional. For more information about the syntax and options for this field and its subfields, see the guide for creating a shared reservation.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.ShareSettings share_settings = 266668163;</code>
@@ -2427,7 +2677,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Share-settings for shared-reservation
+     * Specify share-settings to create a shared reservation. This property is optional. For more information about the syntax and options for this field and its subfields, see the guide for creating a shared reservation.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.ShareSettings share_settings = 266668163;</code>
@@ -2438,16 +2688,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         shareSettings_ = value;
-        onChanged();
       } else {
         shareSettingsBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Share-settings for shared-reservation
+     * Specify share-settings to create a shared reservation. This property is optional. For more information about the syntax and options for this field and its subfields, see the guide for creating a shared reservation.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.ShareSettings share_settings = 266668163;</code>
@@ -2456,69 +2706,68 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.ShareSettings.Builder builderForValue) {
       if (shareSettingsBuilder_ == null) {
         shareSettings_ = builderForValue.build();
-        onChanged();
       } else {
         shareSettingsBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Share-settings for shared-reservation
+     * Specify share-settings to create a shared reservation. This property is optional. For more information about the syntax and options for this field and its subfields, see the guide for creating a shared reservation.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.ShareSettings share_settings = 266668163;</code>
      */
     public Builder mergeShareSettings(com.google.cloud.compute.v1.ShareSettings value) {
       if (shareSettingsBuilder_ == null) {
-        if (((bitField0_ & 0x00000100) != 0) &&
-            shareSettings_ != null &&
-            shareSettings_ != com.google.cloud.compute.v1.ShareSettings.getDefaultInstance()) {
-          shareSettings_ =
-            com.google.cloud.compute.v1.ShareSettings.newBuilder(shareSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          shareSettings_ != null &&
+          shareSettings_ != com.google.cloud.compute.v1.ShareSettings.getDefaultInstance()) {
+          getShareSettingsBuilder().mergeFrom(value);
         } else {
           shareSettings_ = value;
         }
-        onChanged();
       } else {
         shareSettingsBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Share-settings for shared-reservation
+     * Specify share-settings to create a shared reservation. This property is optional. For more information about the syntax and options for this field and its subfields, see the guide for creating a shared reservation.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.ShareSettings share_settings = 266668163;</code>
      */
     public Builder clearShareSettings() {
-      if (shareSettingsBuilder_ == null) {
-        shareSettings_ = null;
-        onChanged();
-      } else {
-        shareSettingsBuilder_.clear();
+      bitField0_ = (bitField0_ & ~0x00000200);
+      shareSettings_ = null;
+      if (shareSettingsBuilder_ != null) {
+        shareSettingsBuilder_.dispose();
+        shareSettingsBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000100);
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Share-settings for shared-reservation
+     * Specify share-settings to create a shared reservation. This property is optional. For more information about the syntax and options for this field and its subfields, see the guide for creating a shared reservation.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.ShareSettings share_settings = 266668163;</code>
      */
     public com.google.cloud.compute.v1.ShareSettings.Builder getShareSettingsBuilder() {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       onChanged();
       return getShareSettingsFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Share-settings for shared-reservation
+     * Specify share-settings to create a shared reservation. This property is optional. For more information about the syntax and options for this field and its subfields, see the guide for creating a shared reservation.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.ShareSettings share_settings = 266668163;</code>
@@ -2533,7 +2782,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Share-settings for shared-reservation
+     * Specify share-settings to create a shared reservation. This property is optional. For more information about the syntax and options for this field and its subfields, see the guide for creating a shared reservation.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.ShareSettings share_settings = 266668163;</code>
@@ -2564,7 +2813,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the specificReservation field is set.
      */
     public boolean hasSpecificReservation() {
-      return ((bitField0_ & 0x00000200) != 0);
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -2594,11 +2843,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         specificReservation_ = value;
-        onChanged();
       } else {
         specificReservationBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2612,11 +2861,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.AllocationSpecificSKUReservation.Builder builderForValue) {
       if (specificReservationBuilder_ == null) {
         specificReservation_ = builderForValue.build();
-        onChanged();
       } else {
         specificReservationBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2628,19 +2877,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSpecificReservation(com.google.cloud.compute.v1.AllocationSpecificSKUReservation value) {
       if (specificReservationBuilder_ == null) {
-        if (((bitField0_ & 0x00000200) != 0) &&
-            specificReservation_ != null &&
-            specificReservation_ != com.google.cloud.compute.v1.AllocationSpecificSKUReservation.getDefaultInstance()) {
-          specificReservation_ =
-            com.google.cloud.compute.v1.AllocationSpecificSKUReservation.newBuilder(specificReservation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          specificReservation_ != null &&
+          specificReservation_ != com.google.cloud.compute.v1.AllocationSpecificSKUReservation.getDefaultInstance()) {
+          getSpecificReservationBuilder().mergeFrom(value);
         } else {
           specificReservation_ = value;
         }
-        onChanged();
       } else {
         specificReservationBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2651,13 +2899,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.AllocationSpecificSKUReservation specific_reservation = 404901951;</code>
      */
     public Builder clearSpecificReservation() {
-      if (specificReservationBuilder_ == null) {
-        specificReservation_ = null;
-        onChanged();
-      } else {
-        specificReservationBuilder_.clear();
+      bitField0_ = (bitField0_ & ~0x00000400);
+      specificReservation_ = null;
+      if (specificReservationBuilder_ != null) {
+        specificReservationBuilder_.dispose();
+        specificReservationBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000200);
+      onChanged();
       return this;
     }
     /**
@@ -2668,7 +2916,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.AllocationSpecificSKUReservation specific_reservation = 404901951;</code>
      */
     public com.google.cloud.compute.v1.AllocationSpecificSKUReservation.Builder getSpecificReservationBuilder() {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
       onChanged();
       return getSpecificReservationFieldBuilder().getBuilder();
     }
@@ -2719,7 +2967,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasSpecificReservationRequired() {
-      return ((bitField0_ & 0x00000400) != 0);
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -2743,8 +2991,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSpecificReservationRequired(boolean value) {
-      bitField0_ |= 0x00000400;
+      
       specificReservationRequired_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2757,7 +3006,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSpecificReservationRequired() {
-      bitField0_ = (bitField0_ & ~0x00000400);
+      bitField0_ = (bitField0_ & ~0x00000800);
       specificReservationRequired_ = false;
       onChanged();
       return this;
@@ -2774,7 +3023,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the status field is set.
      */
     public boolean hasStatus() {
-      return ((bitField0_ & 0x00000800) != 0);
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -2831,11 +3080,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatus(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000800;
+      if (value == null) { throw new NullPointerException(); }
       status_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -2849,8 +3096,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      bitField0_ = (bitField0_ & ~0x00000800);
       status_ = getDefaultInstance().getStatus();
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -2866,12 +3113,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatusBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000800;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       status_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -2886,7 +3131,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the zone field is set.
      */
     public boolean hasZone() {
-      return ((bitField0_ & 0x00001000) != 0);
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -2940,11 +3185,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setZone(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
       zone_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -2957,8 +3200,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearZone() {
-      bitField0_ = (bitField0_ & ~0x00001000);
       zone_ = getDefaultInstance().getZone();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -2973,12 +3216,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setZoneBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       zone_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3015,7 +3256,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Reservation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

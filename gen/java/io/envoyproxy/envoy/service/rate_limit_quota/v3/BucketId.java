@@ -48,59 +48,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BucketId(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              bucket_ = com.google.protobuf.MapField.newMapField(
-                  BucketDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            bucket__ = input.readMessage(
-                BucketDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            bucket_.getMutableMap().put(
-                bucket__.getKey(), bucket__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.service.rate_limit_quota.v3.RlqsProto.internal_static_envoy_service_rate_limit_quota_v3_BucketId_descriptor;
@@ -138,6 +85,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> bucket_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -148,14 +96,12 @@ private static final long serialVersionUID = 0L;
     }
     return bucket_;
   }
-
   public int getBucketCount() {
     return internalGetBucket().getMap().size();
   }
   /**
    * <code>map&lt;string, string&gt; bucket = 1 [(.validate.rules) = { ... }</code>
    */
-
   @java.lang.Override
   public boolean containsBucket(
       java.lang.String key) {
@@ -174,7 +120,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; bucket = 1 [(.validate.rules) = { ... }</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getBucketMap() {
     return internalGetBucket().getMap();
   }
@@ -182,10 +127,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; bucket = 1 [(.validate.rules) = { ... }</code>
    */
   @java.lang.Override
-
-  public java.lang.String getBucketOrDefault(
+  public /* nullable */
+java.lang.String getBucketOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetBucket().getMap();
@@ -195,7 +141,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; bucket = 1 [(.validate.rules) = { ... }</code>
    */
   @java.lang.Override
-
   public java.lang.String getBucketOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -227,7 +172,7 @@ private static final long serialVersionUID = 0L;
         internalGetBucket(),
         BucketDefaultEntryHolder.defaultEntry,
         1);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -246,7 +191,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, bucket__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -263,7 +208,7 @@ private static final long serialVersionUID = 0L;
 
     if (!internalGetBucket().equals(
         other.internalGetBucket())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -278,7 +223,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BUCKET_FIELD_NUMBER;
       hash = (53 * hash) + internalGetBucket().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -435,22 +380,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketId.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableBucket().clear();
       return this;
     }
@@ -478,11 +419,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketId buildPartial() {
       io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketId result = new io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketId(this);
-      int from_bitField0_ = bitField0_;
-      result.bucket_ = internalGetBucket();
-      result.bucket_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketId result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.bucket_ = internalGetBucket();
+        result.bucket_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -531,7 +478,8 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketId.getDefaultInstance()) return this;
       internalGetMutableBucket().mergeFrom(
           other.internalGetBucket());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000001;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -546,17 +494,39 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketId parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              bucket__ = input.readMessage(
+                  BucketDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableBucket().getMutableMap().put(
+                  bucket__.getKey(), bucket__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketId) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -564,7 +534,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> bucket_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetBucket() {
+        internalGetBucket() {
       if (bucket_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             BucketDefaultEntryHolder.defaultEntry);
@@ -572,8 +542,7 @@ private static final long serialVersionUID = 0L;
       return bucket_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableBucket() {
-      onChanged();;
+        internalGetMutableBucket() {
       if (bucket_ == null) {
         bucket_ = com.google.protobuf.MapField.newMapField(
             BucketDefaultEntryHolder.defaultEntry);
@@ -581,16 +550,16 @@ private static final long serialVersionUID = 0L;
       if (!bucket_.isMutable()) {
         bucket_ = bucket_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return bucket_;
     }
-
     public int getBucketCount() {
       return internalGetBucket().getMap().size();
     }
     /**
      * <code>map&lt;string, string&gt; bucket = 1 [(.validate.rules) = { ... }</code>
      */
-
     @java.lang.Override
     public boolean containsBucket(
         java.lang.String key) {
@@ -609,7 +578,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; bucket = 1 [(.validate.rules) = { ... }</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getBucketMap() {
       return internalGetBucket().getMap();
     }
@@ -617,10 +585,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; bucket = 1 [(.validate.rules) = { ... }</code>
      */
     @java.lang.Override
-
-    public java.lang.String getBucketOrDefault(
+    public /* nullable */
+java.lang.String getBucketOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetBucket().getMap();
@@ -630,7 +599,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; bucket = 1 [(.validate.rules) = { ... }</code>
      */
     @java.lang.Override
-
     public java.lang.String getBucketOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -641,8 +609,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearBucket() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableBucket().getMutableMap()
           .clear();
       return this;
@@ -650,7 +618,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;string, string&gt; bucket = 1 [(.validate.rules) = { ... }</code>
      */
-
     public Builder removeBucket(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -663,7 +630,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableBucket() {
+        getMutableBucket() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableBucket().getMutableMap();
     }
     /**
@@ -673,22 +641,20 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableBucket().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
      * <code>map&lt;string, string&gt; bucket = 1 [(.validate.rules) = { ... }</code>
      */
-
     public Builder putAllBucket(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableBucket().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
     @java.lang.Override
@@ -724,7 +690,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BucketId(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

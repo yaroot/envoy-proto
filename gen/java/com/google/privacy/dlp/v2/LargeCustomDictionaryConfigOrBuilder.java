@@ -9,7 +9,7 @@ public interface LargeCustomDictionaryConfigOrBuilder extends
 
   /**
    * <pre>
-   * Location to store dictionary artifacts in Google Cloud Storage. These files
+   * Location to store dictionary artifacts in Cloud Storage. These files
    * will only be accessible by project owners and the DLP API. If any of these
    * artifacts are modified, the dictionary is considered invalid and can no
    * longer be used.
@@ -21,7 +21,7 @@ public interface LargeCustomDictionaryConfigOrBuilder extends
   boolean hasOutputPath();
   /**
    * <pre>
-   * Location to store dictionary artifacts in Google Cloud Storage. These files
+   * Location to store dictionary artifacts in Cloud Storage. These files
    * will only be accessible by project owners and the DLP API. If any of these
    * artifacts are modified, the dictionary is considered invalid and can no
    * longer be used.
@@ -33,7 +33,7 @@ public interface LargeCustomDictionaryConfigOrBuilder extends
   com.google.privacy.dlp.v2.CloudStoragePath getOutputPath();
   /**
    * <pre>
-   * Location to store dictionary artifacts in Google Cloud Storage. These files
+   * Location to store dictionary artifacts in Cloud Storage. These files
    * will only be accessible by project owners and the DLP API. If any of these
    * artifacts are modified, the dictionary is considered invalid and can no
    * longer be used.

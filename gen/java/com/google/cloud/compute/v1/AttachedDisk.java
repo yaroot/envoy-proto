@@ -43,171 +43,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AttachedDisk(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 24237968: {
-            bitField0_ |= 0x00000004;
-            boot_ = input.readBool();
-            break;
-          }
-          case 26336418: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000200;
-            kind_ = s;
-            break;
-          }
-          case 26856730: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000400;
-            mode_ = s;
-            break;
-          }
-          case 28604882: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00002000;
-            type_ = s;
-            break;
-          }
-          case 141576362: {
-            com.google.cloud.compute.v1.AttachedDiskInitializeParams.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000080) != 0)) {
-              subBuilder = initializeParams_.toBuilder();
-            }
-            initializeParams_ = input.readMessage(com.google.cloud.compute.v1.AttachedDiskInitializeParams.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(initializeParams_);
-              initializeParams_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000080;
-            break;
-          }
-          case 540333730: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            deviceName_ = s;
-            break;
-          }
-          case 634356362: {
-            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-              guestOsFeatures_ = new java.util.ArrayList<com.google.cloud.compute.v1.GuestOsFeature>();
-              mutable_bitField0_ |= 0x00000040;
-            }
-            guestOsFeatures_.add(
-                input.readMessage(com.google.cloud.compute.v1.GuestOsFeature.parser(), extensionRegistry));
-            break;
-          }
-          case 802768528: {
-            bitField0_ |= 0x00000040;
-            index_ = input.readInt32();
-            break;
-          }
-          case 1417887962: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00001000;
-            source_ = s;
-            break;
-          }
-          case 1538854938: {
-            com.google.cloud.compute.v1.InitialStateConfig.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000800) != 0)) {
-              subBuilder = shieldedInstanceInitialState_.toBuilder();
-            }
-            shieldedInstanceInitialState_ = input.readMessage(com.google.cloud.compute.v1.InitialStateConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(shieldedInstanceInitialState_);
-              shieldedInstanceInitialState_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000800;
-            break;
-          }
-          case -2121681878: {
-            com.google.cloud.compute.v1.CustomerEncryptionKey.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000010) != 0)) {
-              subBuilder = diskEncryptionKey_.toBuilder();
-            }
-            diskEncryptionKey_ = input.readMessage(com.google.cloud.compute.v1.CustomerEncryptionKey.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(diskEncryptionKey_);
-              diskEncryptionKey_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000010;
-            break;
-          }
-          case -1872541030: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            architecture_ = s;
-            break;
-          }
-          case -1764857416: {
-            bitField0_ |= 0x00000020;
-            diskSizeGb_ = input.readInt64();
-            break;
-          }
-          case -1593826670: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000800) != 0)) {
-              licenses_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000800;
-            }
-            licenses_.add(s);
-            break;
-          }
-          case -576876072: {
-            bitField0_ |= 0x00000002;
-            autoDelete_ = input.readBool();
-            break;
-          }
-          case -273978934: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000100;
-            interface_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000040) != 0)) {
-        guestOsFeatures_ = java.util.Collections.unmodifiableList(guestOsFeatures_);
-      }
-      if (((mutable_bitField0_ & 0x00000800) != 0)) {
-        licenses_ = licenses_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_AttachedDisk_descriptor;
@@ -385,7 +220,7 @@ private static final long serialVersionUID = 0L;
 
   /**
    * <pre>
-   * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. The default is SCSI. Persistent disks must always use SCSI and the request will fail if you attempt to attach a persistent disk in any other format than SCSI. Local SSDs can use either NVME or SCSI. For performance characteristics of SCSI over NVMe, see Local SSD performance.
+   * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. For most machine types, the default is SCSI. Local SSDs can use either NVME or SCSI. In certain configurations, persistent disks can use NVMe. For more information, see About persistent disks.
    * </pre>
    *
    * Protobuf enum {@code google.cloud.compute.v1.AttachedDisk.Interface}
@@ -788,7 +623,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int ARCHITECTURE_FIELD_NUMBER = 302803283;
-  private volatile java.lang.Object architecture_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object architecture_ = "";
   /**
    * <pre>
    * [Output Only] The architecture of the attached disk. Valid values are ARM64 or X86_64.
@@ -849,7 +685,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUTO_DELETE_FIELD_NUMBER = 464761403;
-  private boolean autoDelete_;
+  private boolean autoDelete_ = false;
   /**
    * <pre>
    * Specifies whether the disk will be auto-deleted when the instance is deleted (but not when the disk is detached from the instance).
@@ -876,7 +712,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BOOT_FIELD_NUMBER = 3029746;
-  private boolean boot_;
+  private boolean boot_ = false;
   /**
    * <pre>
    * Indicates that this is a boot disk. The virtual machine will use the first partition of the disk for its root filesystem.
@@ -903,7 +739,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEVICE_NAME_FIELD_NUMBER = 67541716;
-  private volatile java.lang.Object deviceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object deviceName_ = "";
   /**
    * <pre>
    * Specifies a unique device name of your choice that is reflected into the /dev/disk/by-id/google-* tree of a Linux operating system running within the instance. This name can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, the server chooses a default device name to apply to this disk, in the form persistent-disk-x, where x is a number assigned by Google Compute Engine. This field is only applicable for persistent disks.
@@ -999,7 +836,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISK_SIZE_GB_FIELD_NUMBER = 316263735;
-  private long diskSizeGb_;
+  private long diskSizeGb_ = 0L;
   /**
    * <pre>
    * The size of the disk in GB.
@@ -1025,7 +862,35 @@ private static final long serialVersionUID = 0L;
     return diskSizeGb_;
   }
 
+  public static final int FORCE_ATTACH_FIELD_NUMBER = 142758425;
+  private boolean forceAttach_ = false;
+  /**
+   * <pre>
+   * [Input Only] Whether to force attach the regional disk even if it's currently attached to another instance. If you try to force attach a zonal disk to an instance, you will receive an error.
+   * </pre>
+   *
+   * <code>optional bool force_attach = 142758425;</code>
+   * @return Whether the forceAttach field is set.
+   */
+  @java.lang.Override
+  public boolean hasForceAttach() {
+    return ((bitField0_ & 0x00000040) != 0);
+  }
+  /**
+   * <pre>
+   * [Input Only] Whether to force attach the regional disk even if it's currently attached to another instance. If you try to force attach a zonal disk to an instance, you will receive an error.
+   * </pre>
+   *
+   * <code>optional bool force_attach = 142758425;</code>
+   * @return The forceAttach.
+   */
+  @java.lang.Override
+  public boolean getForceAttach() {
+    return forceAttach_;
+  }
+
   public static final int GUEST_OS_FEATURES_FIELD_NUMBER = 79294545;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.GuestOsFeature> guestOsFeatures_;
   /**
    * <pre>
@@ -1086,7 +951,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INDEX_FIELD_NUMBER = 100346066;
-  private int index_;
+  private int index_ = 0;
   /**
    * <pre>
    * [Output Only] A zero-based index to this disk, where 0 is reserved for the boot disk. If you have many disks attached to an instance, each disk would have a unique index number.
@@ -1097,7 +962,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasIndex() {
-    return ((bitField0_ & 0x00000040) != 0);
+    return ((bitField0_ & 0x00000080) != 0);
   }
   /**
    * <pre>
@@ -1124,7 +989,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasInitializeParams() {
-    return ((bitField0_ & 0x00000080) != 0);
+    return ((bitField0_ & 0x00000100) != 0);
   }
   /**
    * <pre>
@@ -1151,10 +1016,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INTERFACE_FIELD_NUMBER = 502623545;
-  private volatile java.lang.Object interface_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object interface_ = "";
   /**
    * <pre>
-   * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. The default is SCSI. Persistent disks must always use SCSI and the request will fail if you attempt to attach a persistent disk in any other format than SCSI. Local SSDs can use either NVME or SCSI. For performance characteristics of SCSI over NVMe, see Local SSD performance.
+   * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. For most machine types, the default is SCSI. Local SSDs can use either NVME or SCSI. In certain configurations, persistent disks can use NVMe. For more information, see About persistent disks.
    * Check the Interface enum for the list of possible values.
    * </pre>
    *
@@ -1163,11 +1029,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasInterface() {
-    return ((bitField0_ & 0x00000100) != 0);
+    return ((bitField0_ & 0x00000200) != 0);
   }
   /**
    * <pre>
-   * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. The default is SCSI. Persistent disks must always use SCSI and the request will fail if you attempt to attach a persistent disk in any other format than SCSI. Local SSDs can use either NVME or SCSI. For performance characteristics of SCSI over NVMe, see Local SSD performance.
+   * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. For most machine types, the default is SCSI. Local SSDs can use either NVME or SCSI. In certain configurations, persistent disks can use NVMe. For more information, see About persistent disks.
    * Check the Interface enum for the list of possible values.
    * </pre>
    *
@@ -1189,7 +1055,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. The default is SCSI. Persistent disks must always use SCSI and the request will fail if you attempt to attach a persistent disk in any other format than SCSI. Local SSDs can use either NVME or SCSI. For performance characteristics of SCSI over NVMe, see Local SSD performance.
+   * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. For most machine types, the default is SCSI. Local SSDs can use either NVME or SCSI. In certain configurations, persistent disks can use NVMe. For more information, see About persistent disks.
    * Check the Interface enum for the list of possible values.
    * </pre>
    *
@@ -1212,7 +1078,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 3292052;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * [Output Only] Type of the resource. Always compute#attachedDisk for attached disks.
@@ -1223,7 +1090,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasKind() {
-    return ((bitField0_ & 0x00000200) != 0);
+    return ((bitField0_ & 0x00000400) != 0);
   }
   /**
    * <pre>
@@ -1270,6 +1137,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LICENSES_FIELD_NUMBER = 337642578;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList licenses_;
   /**
    * <pre>
@@ -1321,7 +1189,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODE_FIELD_NUMBER = 3357091;
-  private volatile java.lang.Object mode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object mode_ = "";
   /**
    * <pre>
    * The mode in which to attach this disk, either READ_WRITE or READ_ONLY. If not specified, the default is to attach the disk in READ_WRITE mode.
@@ -1333,7 +1202,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasMode() {
-    return ((bitField0_ & 0x00000400) != 0);
+    return ((bitField0_ & 0x00000800) != 0);
   }
   /**
    * <pre>
@@ -1393,7 +1262,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasShieldedInstanceInitialState() {
-    return ((bitField0_ & 0x00000800) != 0);
+    return ((bitField0_ & 0x00001000) != 0);
   }
   /**
    * <pre>
@@ -1420,7 +1289,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_FIELD_NUMBER = 177235995;
-  private volatile java.lang.Object source_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object source_ = "";
   /**
    * <pre>
    * Specifies a valid partial or full URL to an existing Persistent Disk resource. When creating a new instance, one of initializeParams.sourceImage or initializeParams.sourceSnapshot or disks.source is required except for local SSD. If desired, you can also attach existing non-root persistent disks using this property. This field is only applicable for persistent disks. Note that for InstanceTemplate, specify the disk name for zonal disk, and the URL for regional disk.
@@ -1431,7 +1301,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasSource() {
-    return ((bitField0_ & 0x00001000) != 0);
+    return ((bitField0_ & 0x00002000) != 0);
   }
   /**
    * <pre>
@@ -1478,7 +1348,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 3575610;
-  private volatile java.lang.Object type_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object type_ = "";
   /**
    * <pre>
    * Specifies the type of the disk, either SCRATCH or PERSISTENT. If not specified, the default is PERSISTENT.
@@ -1490,7 +1361,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasType() {
-    return ((bitField0_ & 0x00002000) != 0);
+    return ((bitField0_ & 0x00004000) != 0);
   }
   /**
    * <pre>
@@ -1555,16 +1426,16 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       output.writeBool(3029746, boot_);
     }
-    if (((bitField0_ & 0x00000200) != 0)) {
+    if (((bitField0_ & 0x00000400) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3292052, kind_);
     }
-    if (((bitField0_ & 0x00000400) != 0)) {
+    if (((bitField0_ & 0x00000800) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3357091, mode_);
     }
-    if (((bitField0_ & 0x00002000) != 0)) {
+    if (((bitField0_ & 0x00004000) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3575610, type_);
     }
-    if (((bitField0_ & 0x00000080) != 0)) {
+    if (((bitField0_ & 0x00000100) != 0)) {
       output.writeMessage(17697045, getInitializeParams());
     }
     if (((bitField0_ & 0x00000008) != 0)) {
@@ -1573,13 +1444,16 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < guestOsFeatures_.size(); i++) {
       output.writeMessage(79294545, guestOsFeatures_.get(i));
     }
-    if (((bitField0_ & 0x00000040) != 0)) {
+    if (((bitField0_ & 0x00000080) != 0)) {
       output.writeInt32(100346066, index_);
     }
-    if (((bitField0_ & 0x00001000) != 0)) {
+    if (((bitField0_ & 0x00000040) != 0)) {
+      output.writeBool(142758425, forceAttach_);
+    }
+    if (((bitField0_ & 0x00002000) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 177235995, source_);
     }
-    if (((bitField0_ & 0x00000800) != 0)) {
+    if (((bitField0_ & 0x00001000) != 0)) {
       output.writeMessage(192356867, getShieldedInstanceInitialState());
     }
     if (((bitField0_ & 0x00000010) != 0)) {
@@ -1597,10 +1471,10 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       output.writeBool(464761403, autoDelete_);
     }
-    if (((bitField0_ & 0x00000100) != 0)) {
+    if (((bitField0_ & 0x00000200) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 502623545, interface_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1613,16 +1487,16 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(3029746, boot_);
     }
-    if (((bitField0_ & 0x00000200) != 0)) {
+    if (((bitField0_ & 0x00000400) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3292052, kind_);
     }
-    if (((bitField0_ & 0x00000400) != 0)) {
+    if (((bitField0_ & 0x00000800) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3357091, mode_);
     }
-    if (((bitField0_ & 0x00002000) != 0)) {
+    if (((bitField0_ & 0x00004000) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3575610, type_);
     }
-    if (((bitField0_ & 0x00000080) != 0)) {
+    if (((bitField0_ & 0x00000100) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(17697045, getInitializeParams());
     }
@@ -1633,14 +1507,18 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(79294545, guestOsFeatures_.get(i));
     }
-    if (((bitField0_ & 0x00000040) != 0)) {
+    if (((bitField0_ & 0x00000080) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(100346066, index_);
     }
-    if (((bitField0_ & 0x00001000) != 0)) {
+    if (((bitField0_ & 0x00000040) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(142758425, forceAttach_);
+    }
+    if (((bitField0_ & 0x00002000) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(177235995, source_);
     }
-    if (((bitField0_ & 0x00000800) != 0)) {
+    if (((bitField0_ & 0x00001000) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(192356867, getShieldedInstanceInitialState());
     }
@@ -1667,10 +1545,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(464761403, autoDelete_);
     }
-    if (((bitField0_ & 0x00000100) != 0)) {
+    if (((bitField0_ & 0x00000200) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(502623545, interface_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1714,6 +1592,11 @@ private static final long serialVersionUID = 0L;
     if (hasDiskSizeGb()) {
       if (getDiskSizeGb()
           != other.getDiskSizeGb()) return false;
+    }
+    if (hasForceAttach() != other.hasForceAttach()) return false;
+    if (hasForceAttach()) {
+      if (getForceAttach()
+          != other.getForceAttach()) return false;
     }
     if (!getGuestOsFeaturesList()
         .equals(other.getGuestOsFeaturesList())) return false;
@@ -1759,7 +1642,7 @@ private static final long serialVersionUID = 0L;
       if (!getType()
           .equals(other.getType())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1796,6 +1679,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DISK_SIZE_GB_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getDiskSizeGb());
+    }
+    if (hasForceAttach()) {
+      hash = (37 * hash) + FORCE_ATTACH_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getForceAttach());
     }
     if (getGuestOsFeaturesCount() > 0) {
       hash = (37 * hash) + GUEST_OS_FEATURES_FIELD_NUMBER;
@@ -1837,7 +1725,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + getType().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1978,54 +1866,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       architecture_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       autoDelete_ = false;
-      bitField0_ = (bitField0_ & ~0x00000002);
       boot_ = false;
-      bitField0_ = (bitField0_ & ~0x00000004);
       deviceName_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
-      if (diskEncryptionKeyBuilder_ == null) {
-        diskEncryptionKey_ = null;
-      } else {
-        diskEncryptionKeyBuilder_.clear();
+      diskEncryptionKey_ = null;
+      if (diskEncryptionKeyBuilder_ != null) {
+        diskEncryptionKeyBuilder_.dispose();
+        diskEncryptionKeyBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000010);
       diskSizeGb_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000020);
+      forceAttach_ = false;
       if (guestOsFeaturesBuilder_ == null) {
         guestOsFeatures_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000040);
       } else {
+        guestOsFeatures_ = null;
         guestOsFeaturesBuilder_.clear();
       }
-      index_ = 0;
       bitField0_ = (bitField0_ & ~0x00000080);
-      if (initializeParamsBuilder_ == null) {
-        initializeParams_ = null;
-      } else {
-        initializeParamsBuilder_.clear();
+      index_ = 0;
+      initializeParams_ = null;
+      if (initializeParamsBuilder_ != null) {
+        initializeParamsBuilder_.dispose();
+        initializeParamsBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000100);
       interface_ = "";
-      bitField0_ = (bitField0_ & ~0x00000200);
       kind_ = "";
-      bitField0_ = (bitField0_ & ~0x00000400);
       licenses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000800);
-      mode_ = "";
       bitField0_ = (bitField0_ & ~0x00001000);
-      if (shieldedInstanceInitialStateBuilder_ == null) {
-        shieldedInstanceInitialState_ = null;
-      } else {
-        shieldedInstanceInitialStateBuilder_.clear();
+      mode_ = "";
+      shieldedInstanceInitialState_ = null;
+      if (shieldedInstanceInitialStateBuilder_ != null) {
+        shieldedInstanceInitialStateBuilder_.dispose();
+        shieldedInstanceInitialStateBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00002000);
       source_ = "";
-      bitField0_ = (bitField0_ & ~0x00004000);
       type_ = "";
-      bitField0_ = (bitField0_ & ~0x00008000);
       return this;
     }
 
@@ -2052,12 +1929,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.AttachedDisk buildPartial() {
       com.google.cloud.compute.v1.AttachedDisk result = new com.google.cloud.compute.v1.AttachedDisk(this);
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.AttachedDisk result) {
+      if (guestOsFeaturesBuilder_ == null) {
+        if (((bitField0_ & 0x00000080) != 0)) {
+          guestOsFeatures_ = java.util.Collections.unmodifiableList(guestOsFeatures_);
+          bitField0_ = (bitField0_ & ~0x00000080);
+        }
+        result.guestOsFeatures_ = guestOsFeatures_;
+      } else {
+        result.guestOsFeatures_ = guestOsFeaturesBuilder_.build();
+      }
+      if (((bitField0_ & 0x00001000) != 0)) {
+        licenses_ = licenses_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00001000);
+      }
+      result.licenses_ = licenses_;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.AttachedDisk result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.architecture_ = architecture_;
         to_bitField0_ |= 0x00000001;
       }
-      result.architecture_ = architecture_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.autoDelete_ = autoDelete_;
         to_bitField0_ |= 0x00000002;
@@ -2067,78 +1968,60 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000004;
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.deviceName_ = deviceName_;
         to_bitField0_ |= 0x00000008;
       }
-      result.deviceName_ = deviceName_;
       if (((from_bitField0_ & 0x00000010) != 0)) {
-        if (diskEncryptionKeyBuilder_ == null) {
-          result.diskEncryptionKey_ = diskEncryptionKey_;
-        } else {
-          result.diskEncryptionKey_ = diskEncryptionKeyBuilder_.build();
-        }
+        result.diskEncryptionKey_ = diskEncryptionKeyBuilder_ == null
+            ? diskEncryptionKey_
+            : diskEncryptionKeyBuilder_.build();
         to_bitField0_ |= 0x00000010;
       }
       if (((from_bitField0_ & 0x00000020) != 0)) {
         result.diskSizeGb_ = diskSizeGb_;
         to_bitField0_ |= 0x00000020;
       }
-      if (guestOsFeaturesBuilder_ == null) {
-        if (((bitField0_ & 0x00000040) != 0)) {
-          guestOsFeatures_ = java.util.Collections.unmodifiableList(guestOsFeatures_);
-          bitField0_ = (bitField0_ & ~0x00000040);
-        }
-        result.guestOsFeatures_ = guestOsFeatures_;
-      } else {
-        result.guestOsFeatures_ = guestOsFeaturesBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000080) != 0)) {
-        result.index_ = index_;
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.forceAttach_ = forceAttach_;
         to_bitField0_ |= 0x00000040;
       }
       if (((from_bitField0_ & 0x00000100) != 0)) {
-        if (initializeParamsBuilder_ == null) {
-          result.initializeParams_ = initializeParams_;
-        } else {
-          result.initializeParams_ = initializeParamsBuilder_.build();
-        }
+        result.index_ = index_;
         to_bitField0_ |= 0x00000080;
       }
       if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.initializeParams_ = initializeParamsBuilder_ == null
+            ? initializeParams_
+            : initializeParamsBuilder_.build();
         to_bitField0_ |= 0x00000100;
       }
-      result.interface_ = interface_;
       if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.interface_ = interface_;
         to_bitField0_ |= 0x00000200;
       }
-      result.kind_ = kind_;
-      if (((bitField0_ & 0x00000800) != 0)) {
-        licenses_ = licenses_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000800);
-      }
-      result.licenses_ = licenses_;
-      if (((from_bitField0_ & 0x00001000) != 0)) {
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.kind_ = kind_;
         to_bitField0_ |= 0x00000400;
       }
-      result.mode_ = mode_;
       if (((from_bitField0_ & 0x00002000) != 0)) {
-        if (shieldedInstanceInitialStateBuilder_ == null) {
-          result.shieldedInstanceInitialState_ = shieldedInstanceInitialState_;
-        } else {
-          result.shieldedInstanceInitialState_ = shieldedInstanceInitialStateBuilder_.build();
-        }
+        result.mode_ = mode_;
         to_bitField0_ |= 0x00000800;
       }
       if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.shieldedInstanceInitialState_ = shieldedInstanceInitialStateBuilder_ == null
+            ? shieldedInstanceInitialState_
+            : shieldedInstanceInitialStateBuilder_.build();
         to_bitField0_ |= 0x00001000;
       }
-      result.source_ = source_;
       if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.source_ = source_;
         to_bitField0_ |= 0x00002000;
       }
-      result.type_ = type_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.type_ = type_;
+        to_bitField0_ |= 0x00004000;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -2186,8 +2069,8 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.AttachedDisk other) {
       if (other == com.google.cloud.compute.v1.AttachedDisk.getDefaultInstance()) return this;
       if (other.hasArchitecture()) {
-        bitField0_ |= 0x00000001;
         architecture_ = other.architecture_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasAutoDelete()) {
@@ -2197,8 +2080,8 @@ private static final long serialVersionUID = 0L;
         setBoot(other.getBoot());
       }
       if (other.hasDeviceName()) {
-        bitField0_ |= 0x00000008;
         deviceName_ = other.deviceName_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasDiskEncryptionKey()) {
@@ -2207,11 +2090,14 @@ private static final long serialVersionUID = 0L;
       if (other.hasDiskSizeGb()) {
         setDiskSizeGb(other.getDiskSizeGb());
       }
+      if (other.hasForceAttach()) {
+        setForceAttach(other.getForceAttach());
+      }
       if (guestOsFeaturesBuilder_ == null) {
         if (!other.guestOsFeatures_.isEmpty()) {
           if (guestOsFeatures_.isEmpty()) {
             guestOsFeatures_ = other.guestOsFeatures_;
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureGuestOsFeaturesIsMutable();
             guestOsFeatures_.addAll(other.guestOsFeatures_);
@@ -2224,7 +2110,7 @@ private static final long serialVersionUID = 0L;
             guestOsFeaturesBuilder_.dispose();
             guestOsFeaturesBuilder_ = null;
             guestOsFeatures_ = other.guestOsFeatures_;
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00000080);
             guestOsFeaturesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getGuestOsFeaturesFieldBuilder() : null;
@@ -2240,19 +2126,19 @@ private static final long serialVersionUID = 0L;
         mergeInitializeParams(other.getInitializeParams());
       }
       if (other.hasInterface()) {
-        bitField0_ |= 0x00000200;
         interface_ = other.interface_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.hasKind()) {
-        bitField0_ |= 0x00000400;
         kind_ = other.kind_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (!other.licenses_.isEmpty()) {
         if (licenses_.isEmpty()) {
           licenses_ = other.licenses_;
-          bitField0_ = (bitField0_ & ~0x00000800);
+          bitField0_ = (bitField0_ & ~0x00001000);
         } else {
           ensureLicensesIsMutable();
           licenses_.addAll(other.licenses_);
@@ -2260,24 +2146,24 @@ private static final long serialVersionUID = 0L;
         onChanged();
       }
       if (other.hasMode()) {
-        bitField0_ |= 0x00001000;
         mode_ = other.mode_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
       if (other.hasShieldedInstanceInitialState()) {
         mergeShieldedInstanceInitialState(other.getShieldedInstanceInitialState());
       }
       if (other.hasSource()) {
-        bitField0_ |= 0x00004000;
         source_ = other.source_;
+        bitField0_ |= 0x00008000;
         onChanged();
       }
       if (other.hasType()) {
-        bitField0_ |= 0x00008000;
         type_ = other.type_;
+        bitField0_ |= 0x00010000;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2292,17 +2178,130 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.AttachedDisk parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 24237968: {
+              boot_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24237968
+            case 26336418: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 26336418
+            case 26856730: {
+              mode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 26856730
+            case 28604882: {
+              type_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 28604882
+            case 141576362: {
+              input.readMessage(
+                  getInitializeParamsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 141576362
+            case 540333730: {
+              deviceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 540333730
+            case 634356362: {
+              com.google.cloud.compute.v1.GuestOsFeature m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.GuestOsFeature.parser(),
+                      extensionRegistry);
+              if (guestOsFeaturesBuilder_ == null) {
+                ensureGuestOsFeaturesIsMutable();
+                guestOsFeatures_.add(m);
+              } else {
+                guestOsFeaturesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 634356362
+            case 802768528: {
+              index_ = input.readInt32();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 802768528
+            case 1142067400: {
+              forceAttach_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 1142067400
+            case 1417887962: {
+              source_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 1417887962
+            case 1538854938: {
+              input.readMessage(
+                  getShieldedInstanceInitialStateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 1538854938
+            case -2121681878: {
+              input.readMessage(
+                  getDiskEncryptionKeyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case -2121681878
+            case -1872541030: {
+              architecture_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -1872541030
+            case -1764857416: {
+              diskSizeGb_ = input.readInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case -1764857416
+            case -1593826670: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureLicensesIsMutable();
+              licenses_.add(s);
+              break;
+            } // case -1593826670
+            case -576876072: {
+              autoDelete_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -576876072
+            case -273978934: {
+              interface_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case -273978934
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.AttachedDisk) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2375,11 +2374,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setArchitecture(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       architecture_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2393,8 +2390,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearArchitecture() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       architecture_ = getDefaultInstance().getArchitecture();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2410,12 +2407,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setArchitectureBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       architecture_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2455,8 +2450,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAutoDelete(boolean value) {
-      bitField0_ |= 0x00000002;
+      
       autoDelete_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2510,8 +2506,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBoot(boolean value) {
-      bitField0_ |= 0x00000004;
+      
       boot_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2594,11 +2591,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeviceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       deviceName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2611,8 +2606,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDeviceName() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       deviceName_ = getDefaultInstance().getDeviceName();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2627,12 +2622,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeviceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       deviceName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2679,11 +2672,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         diskEncryptionKey_ = value;
-        onChanged();
       } else {
         diskEncryptionKeyBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2697,11 +2690,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.CustomerEncryptionKey.Builder builderForValue) {
       if (diskEncryptionKeyBuilder_ == null) {
         diskEncryptionKey_ = builderForValue.build();
-        onChanged();
       } else {
         diskEncryptionKeyBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2714,18 +2707,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeDiskEncryptionKey(com.google.cloud.compute.v1.CustomerEncryptionKey value) {
       if (diskEncryptionKeyBuilder_ == null) {
         if (((bitField0_ & 0x00000010) != 0) &&
-            diskEncryptionKey_ != null &&
-            diskEncryptionKey_ != com.google.cloud.compute.v1.CustomerEncryptionKey.getDefaultInstance()) {
-          diskEncryptionKey_ =
-            com.google.cloud.compute.v1.CustomerEncryptionKey.newBuilder(diskEncryptionKey_).mergeFrom(value).buildPartial();
+          diskEncryptionKey_ != null &&
+          diskEncryptionKey_ != com.google.cloud.compute.v1.CustomerEncryptionKey.getDefaultInstance()) {
+          getDiskEncryptionKeyBuilder().mergeFrom(value);
         } else {
           diskEncryptionKey_ = value;
         }
-        onChanged();
       } else {
         diskEncryptionKeyBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2736,13 +2728,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.CustomerEncryptionKey disk_encryption_key = 271660677;</code>
      */
     public Builder clearDiskEncryptionKey() {
-      if (diskEncryptionKeyBuilder_ == null) {
-        diskEncryptionKey_ = null;
-        onChanged();
-      } else {
-        diskEncryptionKeyBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000010);
+      diskEncryptionKey_ = null;
+      if (diskEncryptionKeyBuilder_ != null) {
+        diskEncryptionKeyBuilder_.dispose();
+        diskEncryptionKeyBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2828,8 +2820,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDiskSizeGb(long value) {
-      bitField0_ |= 0x00000020;
+      
       diskSizeGb_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2848,12 +2841,68 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private boolean forceAttach_ ;
+    /**
+     * <pre>
+     * [Input Only] Whether to force attach the regional disk even if it's currently attached to another instance. If you try to force attach a zonal disk to an instance, you will receive an error.
+     * </pre>
+     *
+     * <code>optional bool force_attach = 142758425;</code>
+     * @return Whether the forceAttach field is set.
+     */
+    @java.lang.Override
+    public boolean hasForceAttach() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <pre>
+     * [Input Only] Whether to force attach the regional disk even if it's currently attached to another instance. If you try to force attach a zonal disk to an instance, you will receive an error.
+     * </pre>
+     *
+     * <code>optional bool force_attach = 142758425;</code>
+     * @return The forceAttach.
+     */
+    @java.lang.Override
+    public boolean getForceAttach() {
+      return forceAttach_;
+    }
+    /**
+     * <pre>
+     * [Input Only] Whether to force attach the regional disk even if it's currently attached to another instance. If you try to force attach a zonal disk to an instance, you will receive an error.
+     * </pre>
+     *
+     * <code>optional bool force_attach = 142758425;</code>
+     * @param value The forceAttach to set.
+     * @return This builder for chaining.
+     */
+    public Builder setForceAttach(boolean value) {
+      
+      forceAttach_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * [Input Only] Whether to force attach the regional disk even if it's currently attached to another instance. If you try to force attach a zonal disk to an instance, you will receive an error.
+     * </pre>
+     *
+     * <code>optional bool force_attach = 142758425;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearForceAttach() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      forceAttach_ = false;
+      onChanged();
+      return this;
+    }
+
     private java.util.List<com.google.cloud.compute.v1.GuestOsFeature> guestOsFeatures_ =
       java.util.Collections.emptyList();
     private void ensureGuestOsFeaturesIsMutable() {
-      if (!((bitField0_ & 0x00000040) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         guestOsFeatures_ = new java.util.ArrayList<com.google.cloud.compute.v1.GuestOsFeature>(guestOsFeatures_);
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -3047,7 +3096,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearGuestOsFeatures() {
       if (guestOsFeaturesBuilder_ == null) {
         guestOsFeatures_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         guestOsFeaturesBuilder_.clear();
@@ -3152,7 +3201,7 @@ private static final long serialVersionUID = 0L;
         guestOsFeaturesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.compute.v1.GuestOsFeature, com.google.cloud.compute.v1.GuestOsFeature.Builder, com.google.cloud.compute.v1.GuestOsFeatureOrBuilder>(
                 guestOsFeatures_,
-                ((bitField0_ & 0x00000040) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         guestOsFeatures_ = null;
@@ -3171,7 +3220,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasIndex() {
-      return ((bitField0_ & 0x00000080) != 0);
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -3195,8 +3244,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIndex(int value) {
-      bitField0_ |= 0x00000080;
+      
       index_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3209,7 +3259,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIndex() {
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x00000100);
       index_ = 0;
       onChanged();
       return this;
@@ -3227,7 +3277,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the initializeParams field is set.
      */
     public boolean hasInitializeParams() {
-      return ((bitField0_ & 0x00000100) != 0);
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -3257,11 +3307,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         initializeParams_ = value;
-        onChanged();
       } else {
         initializeParamsBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3275,11 +3325,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.AttachedDiskInitializeParams.Builder builderForValue) {
       if (initializeParamsBuilder_ == null) {
         initializeParams_ = builderForValue.build();
-        onChanged();
       } else {
         initializeParamsBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3291,19 +3341,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInitializeParams(com.google.cloud.compute.v1.AttachedDiskInitializeParams value) {
       if (initializeParamsBuilder_ == null) {
-        if (((bitField0_ & 0x00000100) != 0) &&
-            initializeParams_ != null &&
-            initializeParams_ != com.google.cloud.compute.v1.AttachedDiskInitializeParams.getDefaultInstance()) {
-          initializeParams_ =
-            com.google.cloud.compute.v1.AttachedDiskInitializeParams.newBuilder(initializeParams_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          initializeParams_ != null &&
+          initializeParams_ != com.google.cloud.compute.v1.AttachedDiskInitializeParams.getDefaultInstance()) {
+          getInitializeParamsBuilder().mergeFrom(value);
         } else {
           initializeParams_ = value;
         }
-        onChanged();
       } else {
         initializeParamsBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3314,13 +3363,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.AttachedDiskInitializeParams initialize_params = 17697045;</code>
      */
     public Builder clearInitializeParams() {
-      if (initializeParamsBuilder_ == null) {
-        initializeParams_ = null;
-        onChanged();
-      } else {
-        initializeParamsBuilder_.clear();
+      bitField0_ = (bitField0_ & ~0x00000200);
+      initializeParams_ = null;
+      if (initializeParamsBuilder_ != null) {
+        initializeParamsBuilder_.dispose();
+        initializeParamsBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000100);
+      onChanged();
       return this;
     }
     /**
@@ -3331,7 +3380,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.AttachedDiskInitializeParams initialize_params = 17697045;</code>
      */
     public com.google.cloud.compute.v1.AttachedDiskInitializeParams.Builder getInitializeParamsBuilder() {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       onChanged();
       return getInitializeParamsFieldBuilder().getBuilder();
     }
@@ -3374,7 +3423,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object interface_ = "";
     /**
      * <pre>
-     * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. The default is SCSI. Persistent disks must always use SCSI and the request will fail if you attempt to attach a persistent disk in any other format than SCSI. Local SSDs can use either NVME or SCSI. For performance characteristics of SCSI over NVMe, see Local SSD performance.
+     * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. For most machine types, the default is SCSI. Local SSDs can use either NVME or SCSI. In certain configurations, persistent disks can use NVMe. For more information, see About persistent disks.
      * Check the Interface enum for the list of possible values.
      * </pre>
      *
@@ -3382,11 +3431,11 @@ private static final long serialVersionUID = 0L;
      * @return Whether the interface field is set.
      */
     public boolean hasInterface() {
-      return ((bitField0_ & 0x00000200) != 0);
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
-     * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. The default is SCSI. Persistent disks must always use SCSI and the request will fail if you attempt to attach a persistent disk in any other format than SCSI. Local SSDs can use either NVME or SCSI. For performance characteristics of SCSI over NVMe, see Local SSD performance.
+     * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. For most machine types, the default is SCSI. Local SSDs can use either NVME or SCSI. In certain configurations, persistent disks can use NVMe. For more information, see About persistent disks.
      * Check the Interface enum for the list of possible values.
      * </pre>
      *
@@ -3407,7 +3456,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. The default is SCSI. Persistent disks must always use SCSI and the request will fail if you attempt to attach a persistent disk in any other format than SCSI. Local SSDs can use either NVME or SCSI. For performance characteristics of SCSI over NVMe, see Local SSD performance.
+     * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. For most machine types, the default is SCSI. Local SSDs can use either NVME or SCSI. In certain configurations, persistent disks can use NVMe. For more information, see About persistent disks.
      * Check the Interface enum for the list of possible values.
      * </pre>
      *
@@ -3429,7 +3478,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. The default is SCSI. Persistent disks must always use SCSI and the request will fail if you attempt to attach a persistent disk in any other format than SCSI. Local SSDs can use either NVME or SCSI. For performance characteristics of SCSI over NVMe, see Local SSD performance.
+     * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. For most machine types, the default is SCSI. Local SSDs can use either NVME or SCSI. In certain configurations, persistent disks can use NVMe. For more information, see About persistent disks.
      * Check the Interface enum for the list of possible values.
      * </pre>
      *
@@ -3439,17 +3488,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInterface(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000200;
+      if (value == null) { throw new NullPointerException(); }
       interface_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. The default is SCSI. Persistent disks must always use SCSI and the request will fail if you attempt to attach a persistent disk in any other format than SCSI. Local SSDs can use either NVME or SCSI. For performance characteristics of SCSI over NVMe, see Local SSD performance.
+     * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. For most machine types, the default is SCSI. Local SSDs can use either NVME or SCSI. In certain configurations, persistent disks can use NVMe. For more information, see About persistent disks.
      * Check the Interface enum for the list of possible values.
      * </pre>
      *
@@ -3457,14 +3504,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInterface() {
-      bitField0_ = (bitField0_ & ~0x00000200);
       interface_ = getDefaultInstance().getInterface();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. The default is SCSI. Persistent disks must always use SCSI and the request will fail if you attempt to attach a persistent disk in any other format than SCSI. Local SSDs can use either NVME or SCSI. For performance characteristics of SCSI over NVMe, see Local SSD performance.
+     * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. For most machine types, the default is SCSI. Local SSDs can use either NVME or SCSI. In certain configurations, persistent disks can use NVMe. For more information, see About persistent disks.
      * Check the Interface enum for the list of possible values.
      * </pre>
      *
@@ -3474,12 +3521,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInterfaceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000200;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       interface_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3494,7 +3539,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the kind field is set.
      */
     public boolean hasKind() {
-      return ((bitField0_ & 0x00000400) != 0);
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -3548,11 +3593,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3565,8 +3608,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      bitField0_ = (bitField0_ & ~0x00000400);
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -3581,21 +3624,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList licenses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureLicensesIsMutable() {
-      if (!((bitField0_ & 0x00000800) != 0)) {
+      if (!((bitField0_ & 0x00001000) != 0)) {
         licenses_ = new com.google.protobuf.LazyStringArrayList(licenses_);
-        bitField0_ |= 0x00000800;
+        bitField0_ |= 0x00001000;
        }
     }
     /**
@@ -3658,10 +3699,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLicenses(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLicensesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureLicensesIsMutable();
       licenses_.set(index, value);
       onChanged();
       return this;
@@ -3677,10 +3716,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLicenses(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLicensesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureLicensesIsMutable();
       licenses_.add(value);
       onChanged();
       return this;
@@ -3712,7 +3749,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearLicenses() {
       licenses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000800);
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -3727,10 +3764,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLicensesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureLicensesIsMutable();
       licenses_.add(value);
       onChanged();
@@ -3748,7 +3783,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the mode field is set.
      */
     public boolean hasMode() {
-      return ((bitField0_ & 0x00001000) != 0);
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -3805,11 +3840,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
       mode_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3823,8 +3856,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMode() {
-      bitField0_ = (bitField0_ & ~0x00001000);
       mode_ = getDefaultInstance().getMode();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -3840,12 +3873,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       mode_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3862,7 +3893,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the shieldedInstanceInitialState field is set.
      */
     public boolean hasShieldedInstanceInitialState() {
-      return ((bitField0_ & 0x00002000) != 0);
+      return ((bitField0_ & 0x00004000) != 0);
     }
     /**
      * <pre>
@@ -3892,11 +3923,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         shieldedInstanceInitialState_ = value;
-        onChanged();
       } else {
         shieldedInstanceInitialStateBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00002000;
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -3910,11 +3941,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.InitialStateConfig.Builder builderForValue) {
       if (shieldedInstanceInitialStateBuilder_ == null) {
         shieldedInstanceInitialState_ = builderForValue.build();
-        onChanged();
       } else {
         shieldedInstanceInitialStateBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00002000;
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -3926,19 +3957,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeShieldedInstanceInitialState(com.google.cloud.compute.v1.InitialStateConfig value) {
       if (shieldedInstanceInitialStateBuilder_ == null) {
-        if (((bitField0_ & 0x00002000) != 0) &&
-            shieldedInstanceInitialState_ != null &&
-            shieldedInstanceInitialState_ != com.google.cloud.compute.v1.InitialStateConfig.getDefaultInstance()) {
-          shieldedInstanceInitialState_ =
-            com.google.cloud.compute.v1.InitialStateConfig.newBuilder(shieldedInstanceInitialState_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00004000) != 0) &&
+          shieldedInstanceInitialState_ != null &&
+          shieldedInstanceInitialState_ != com.google.cloud.compute.v1.InitialStateConfig.getDefaultInstance()) {
+          getShieldedInstanceInitialStateBuilder().mergeFrom(value);
         } else {
           shieldedInstanceInitialState_ = value;
         }
-        onChanged();
       } else {
         shieldedInstanceInitialStateBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00002000;
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -3949,13 +3979,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.InitialStateConfig shielded_instance_initial_state = 192356867;</code>
      */
     public Builder clearShieldedInstanceInitialState() {
-      if (shieldedInstanceInitialStateBuilder_ == null) {
-        shieldedInstanceInitialState_ = null;
-        onChanged();
-      } else {
-        shieldedInstanceInitialStateBuilder_.clear();
+      bitField0_ = (bitField0_ & ~0x00004000);
+      shieldedInstanceInitialState_ = null;
+      if (shieldedInstanceInitialStateBuilder_ != null) {
+        shieldedInstanceInitialStateBuilder_.dispose();
+        shieldedInstanceInitialStateBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00002000);
+      onChanged();
       return this;
     }
     /**
@@ -3966,7 +3996,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.InitialStateConfig shielded_instance_initial_state = 192356867;</code>
      */
     public com.google.cloud.compute.v1.InitialStateConfig.Builder getShieldedInstanceInitialStateBuilder() {
-      bitField0_ |= 0x00002000;
+      bitField0_ |= 0x00004000;
       onChanged();
       return getShieldedInstanceInitialStateFieldBuilder().getBuilder();
     }
@@ -4016,7 +4046,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the source field is set.
      */
     public boolean hasSource() {
-      return ((bitField0_ & 0x00004000) != 0);
+      return ((bitField0_ & 0x00008000) != 0);
     }
     /**
      * <pre>
@@ -4070,11 +4100,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSource(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00004000;
+      if (value == null) { throw new NullPointerException(); }
       source_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -4087,8 +4115,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSource() {
-      bitField0_ = (bitField0_ & ~0x00004000);
       source_ = getDefaultInstance().getSource();
+      bitField0_ = (bitField0_ & ~0x00008000);
       onChanged();
       return this;
     }
@@ -4103,12 +4131,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00004000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       source_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -4124,7 +4150,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the type field is set.
      */
     public boolean hasType() {
-      return ((bitField0_ & 0x00008000) != 0);
+      return ((bitField0_ & 0x00010000) != 0);
     }
     /**
      * <pre>
@@ -4181,11 +4207,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00008000;
+      if (value == null) { throw new NullPointerException(); }
       type_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -4199,8 +4223,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      bitField0_ = (bitField0_ & ~0x00008000);
       type_ = getDefaultInstance().getType();
+      bitField0_ = (bitField0_ & ~0x00010000);
       onChanged();
       return this;
     }
@@ -4216,12 +4240,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00008000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       type_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -4258,7 +4280,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AttachedDisk(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

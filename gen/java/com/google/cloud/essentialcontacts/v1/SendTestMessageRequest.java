@@ -37,70 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SendTestMessageRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              contacts_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            contacts_.add(s);
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resource_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            notificationCategory_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        contacts_ = contacts_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.essentialcontacts.v1.Service.internal_static_google_cloud_essentialcontacts_v1_SendTestMessageRequest_descriptor;
@@ -115,6 +51,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTACTS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList contacts_;
   /**
    * <pre>
@@ -178,7 +115,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object resource_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resource_ = "";
   /**
    * <pre>
    * Required. The name of the resource to send the test message for. All
@@ -232,7 +170,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NOTIFICATION_CATEGORY_FIELD_NUMBER = 3;
-  private int notificationCategory_;
+  private int notificationCategory_ = 0;
   /**
    * <pre>
    * Required. The notification category to send the test message for. All
@@ -255,8 +193,7 @@ private static final long serialVersionUID = 0L;
    * @return The notificationCategory.
    */
   @java.lang.Override public com.google.cloud.essentialcontacts.v1.NotificationCategory getNotificationCategory() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.essentialcontacts.v1.NotificationCategory result = com.google.cloud.essentialcontacts.v1.NotificationCategory.valueOf(notificationCategory_);
+    com.google.cloud.essentialcontacts.v1.NotificationCategory result = com.google.cloud.essentialcontacts.v1.NotificationCategory.forNumber(notificationCategory_);
     return result == null ? com.google.cloud.essentialcontacts.v1.NotificationCategory.UNRECOGNIZED : result;
   }
 
@@ -283,7 +220,7 @@ private static final long serialVersionUID = 0L;
     if (notificationCategory_ != com.google.cloud.essentialcontacts.v1.NotificationCategory.NOTIFICATION_CATEGORY_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, notificationCategory_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -307,7 +244,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, notificationCategory_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -327,7 +264,7 @@ private static final long serialVersionUID = 0L;
     if (!getResource()
         .equals(other.getResource())) return false;
     if (notificationCategory_ != other.notificationCategory_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -346,7 +283,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getResource().hashCode();
     hash = (37 * hash) + NOTIFICATION_CATEGORY_FIELD_NUMBER;
     hash = (53 * hash) + notificationCategory_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -467,28 +404,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.essentialcontacts.v1.SendTestMessageRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       contacts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       resource_ = "";
-
       notificationCategory_ = 0;
-
       return this;
     }
 
@@ -515,16 +446,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.essentialcontacts.v1.SendTestMessageRequest buildPartial() {
       com.google.cloud.essentialcontacts.v1.SendTestMessageRequest result = new com.google.cloud.essentialcontacts.v1.SendTestMessageRequest(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.essentialcontacts.v1.SendTestMessageRequest result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         contacts_ = contacts_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.contacts_ = contacts_;
-      result.resource_ = resource_;
-      result.notificationCategory_ = notificationCategory_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.essentialcontacts.v1.SendTestMessageRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.resource_ = resource_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.notificationCategory_ = notificationCategory_;
+      }
     }
 
     @java.lang.Override
@@ -583,12 +526,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getResource().isEmpty()) {
         resource_ = other.resource_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.notificationCategory_ != 0) {
         setNotificationCategoryValue(other.getNotificationCategoryValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -603,17 +547,46 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.essentialcontacts.v1.SendTestMessageRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureContactsIsMutable();
+              contacts_.add(s);
+              break;
+            } // case 10
+            case 18: {
+              resource_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              notificationCategory_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.essentialcontacts.v1.SendTestMessageRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -700,10 +673,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setContacts(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureContactsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureContactsIsMutable();
       contacts_.set(index, value);
       onChanged();
       return this;
@@ -722,10 +693,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addContacts(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureContactsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureContactsIsMutable();
       contacts_.add(value);
       onChanged();
       return this;
@@ -781,10 +750,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addContactsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureContactsIsMutable();
       contacts_.add(value);
       onChanged();
@@ -856,11 +823,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResource(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resource_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -877,8 +842,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResource() {
-      
       resource_ = getDefaultInstance().getResource();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -897,12 +862,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resource_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -931,8 +894,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setNotificationCategoryValue(int value) {
-      
       notificationCategory_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -947,8 +910,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.essentialcontacts.v1.NotificationCategory getNotificationCategory() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.essentialcontacts.v1.NotificationCategory result = com.google.cloud.essentialcontacts.v1.NotificationCategory.valueOf(notificationCategory_);
+      com.google.cloud.essentialcontacts.v1.NotificationCategory result = com.google.cloud.essentialcontacts.v1.NotificationCategory.forNumber(notificationCategory_);
       return result == null ? com.google.cloud.essentialcontacts.v1.NotificationCategory.UNRECOGNIZED : result;
     }
     /**
@@ -965,7 +927,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       notificationCategory_ = value.getNumber();
       onChanged();
       return this;
@@ -980,7 +942,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNotificationCategory() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       notificationCategory_ = 0;
       onChanged();
       return this;
@@ -1018,7 +980,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SendTestMessageRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

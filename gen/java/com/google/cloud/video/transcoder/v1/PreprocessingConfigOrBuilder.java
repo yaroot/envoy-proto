@@ -168,4 +168,31 @@ public interface PreprocessingConfigOrBuilder extends
    * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad pad = 6;</code>
    */
   com.google.cloud.video.transcoder.v1.PreprocessingConfig.PadOrBuilder getPadOrBuilder();
+
+  /**
+   * <pre>
+   * Specify the video deinterlace configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace deinterlace = 7;</code>
+   * @return Whether the deinterlace field is set.
+   */
+  boolean hasDeinterlace();
+  /**
+   * <pre>
+   * Specify the video deinterlace configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace deinterlace = 7;</code>
+   * @return The deinterlace.
+   */
+  com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace getDeinterlace();
+  /**
+   * <pre>
+   * Specify the video deinterlace configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace deinterlace = 7;</code>
+   */
+  com.google.cloud.video.transcoder.v1.PreprocessingConfig.DeinterlaceOrBuilder getDeinterlaceOrBuilder();
 }

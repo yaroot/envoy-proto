@@ -45,105 +45,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Environment(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            dockerImage_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sshUsername_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sshHost_ = s;
-            break;
-          }
-          case 56: {
-
-            sshPort_ = input.readInt32();
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              publicKeys_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            publicKeys_.add(s);
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            webHost_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        publicKeys_ = publicKeys_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.shell.v1.CloudShellProto.internal_static_google_cloud_shell_v1_Environment_descriptor;
@@ -345,7 +246,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Immutable. Full name of this resource, in the format
@@ -399,7 +301,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * Output only. The environment's identifier, unique among the user's
@@ -447,7 +350,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOCKER_IMAGE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object dockerImage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object dockerImage_ = "";
   /**
    * <pre>
    * Required. Immutable. Full path to the Docker image used to run this environment, e.g.
@@ -495,7 +399,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 4;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. Current execution state of this environment.
@@ -516,13 +420,13 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.shell.v1.Environment.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.shell.v1.Environment.State result = com.google.cloud.shell.v1.Environment.State.valueOf(state_);
+    com.google.cloud.shell.v1.Environment.State result = com.google.cloud.shell.v1.Environment.State.forNumber(state_);
     return result == null ? com.google.cloud.shell.v1.Environment.State.UNRECOGNIZED : result;
   }
 
   public static final int WEB_HOST_FIELD_NUMBER = 12;
-  private volatile java.lang.Object webHost_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object webHost_ = "";
   /**
    * <pre>
    * Output only. Host to which clients can connect to initiate HTTPS or WSS
@@ -570,7 +474,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SSH_USERNAME_FIELD_NUMBER = 5;
-  private volatile java.lang.Object sshUsername_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sshUsername_ = "";
   /**
    * <pre>
    * Output only. Username that clients should use when initiating SSH sessions
@@ -618,7 +523,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SSH_HOST_FIELD_NUMBER = 6;
-  private volatile java.lang.Object sshHost_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sshHost_ = "";
   /**
    * <pre>
    * Output only. Host to which clients can connect to initiate SSH sessions
@@ -666,7 +572,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SSH_PORT_FIELD_NUMBER = 7;
-  private int sshPort_;
+  private int sshPort_ = 0;
   /**
    * <pre>
    * Output only. Port to which clients can connect to initiate SSH sessions
@@ -682,6 +588,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PUBLIC_KEYS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList publicKeys_;
   /**
    * <pre>
@@ -789,7 +696,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(webHost_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, webHost_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -832,7 +739,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(webHost_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, webHost_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -864,7 +771,7 @@ private static final long serialVersionUID = 0L;
         != other.getSshPort()) return false;
     if (!getPublicKeysList()
         .equals(other.getPublicKeysList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -895,7 +802,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PUBLIC_KEYS_FIELD_NUMBER;
       hash = (53 * hash) + getPublicKeysList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1019,40 +926,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.shell.v1.Environment.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       id_ = "";
-
       dockerImage_ = "";
-
       state_ = 0;
-
       webHost_ = "";
-
       sshUsername_ = "";
-
       sshHost_ = "";
-
       sshPort_ = 0;
-
       publicKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000100);
       return this;
     }
 
@@ -1079,22 +974,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.shell.v1.Environment buildPartial() {
       com.google.cloud.shell.v1.Environment result = new com.google.cloud.shell.v1.Environment(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.id_ = id_;
-      result.dockerImage_ = dockerImage_;
-      result.state_ = state_;
-      result.webHost_ = webHost_;
-      result.sshUsername_ = sshUsername_;
-      result.sshHost_ = sshHost_;
-      result.sshPort_ = sshPort_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        publicKeys_ = publicKeys_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.publicKeys_ = publicKeys_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.shell.v1.Environment result) {
+      if (((bitField0_ & 0x00000100) != 0)) {
+        publicKeys_ = publicKeys_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000100);
+      }
+      result.publicKeys_ = publicKeys_;
+    }
+
+    private void buildPartial0(com.google.cloud.shell.v1.Environment result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.dockerImage_ = dockerImage_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.webHost_ = webHost_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.sshUsername_ = sshUsername_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.sshHost_ = sshHost_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.sshPort_ = sshPort_;
+      }
     }
 
     @java.lang.Override
@@ -1143,14 +1062,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.shell.v1.Environment.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDockerImage().isEmpty()) {
         dockerImage_ = other.dockerImage_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -1158,14 +1080,17 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getWebHost().isEmpty()) {
         webHost_ = other.webHost_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getSshUsername().isEmpty()) {
         sshUsername_ = other.sshUsername_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getSshHost().isEmpty()) {
         sshHost_ = other.sshHost_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.getSshPort() != 0) {
@@ -1174,14 +1099,14 @@ private static final long serialVersionUID = 0L;
       if (!other.publicKeys_.isEmpty()) {
         if (publicKeys_.isEmpty()) {
           publicKeys_ = other.publicKeys_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000100);
         } else {
           ensurePublicKeysIsMutable();
           publicKeys_.addAll(other.publicKeys_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1196,17 +1121,76 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.shell.v1.Environment parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              dockerImage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              sshUsername_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              sshHost_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 56: {
+              sshPort_ = input.readInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 56
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensurePublicKeysIsMutable();
+              publicKeys_.add(s);
+              break;
+            } // case 66
+            case 98: {
+              webHost_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 98
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.shell.v1.Environment) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1276,11 +1260,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1297,8 +1279,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1317,12 +1299,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1383,11 +1363,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1401,8 +1379,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1418,12 +1396,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1484,11 +1460,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDockerImage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       dockerImage_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1502,8 +1476,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDockerImage() {
-      
       dockerImage_ = getDefaultInstance().getDockerImage();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1519,12 +1493,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDockerImageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       dockerImage_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1551,8 +1523,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1566,8 +1538,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.shell.v1.Environment.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.shell.v1.Environment.State result = com.google.cloud.shell.v1.Environment.State.valueOf(state_);
+      com.google.cloud.shell.v1.Environment.State result = com.google.cloud.shell.v1.Environment.State.forNumber(state_);
       return result == null ? com.google.cloud.shell.v1.Environment.State.UNRECOGNIZED : result;
     }
     /**
@@ -1583,7 +1554,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -1597,7 +1568,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       state_ = 0;
       onChanged();
       return this;
@@ -1659,11 +1630,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWebHost(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       webHost_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1677,8 +1646,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWebHost() {
-      
       webHost_ = getDefaultInstance().getWebHost();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1694,12 +1663,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWebHostBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       webHost_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1760,11 +1727,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSshUsername(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sshUsername_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1778,8 +1743,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSshUsername() {
-      
       sshUsername_ = getDefaultInstance().getSshUsername();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1795,12 +1760,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSshUsernameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sshUsername_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1861,11 +1824,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSshHost(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sshHost_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1879,8 +1840,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSshHost() {
-      
       sshHost_ = getDefaultInstance().getSshHost();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1896,12 +1857,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSshHostBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sshHost_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1933,6 +1892,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSshPort(int value) {
       
       sshPort_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1946,7 +1906,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSshPort() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       sshPort_ = 0;
       onChanged();
       return this;
@@ -1954,9 +1914,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList publicKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensurePublicKeysIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         publicKeys_ = new com.google.protobuf.LazyStringArrayList(publicKeys_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000100;
        }
     }
     /**
@@ -2039,10 +1999,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPublicKeys(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePublicKeysIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensurePublicKeysIsMutable();
       publicKeys_.set(index, value);
       onChanged();
       return this;
@@ -2062,10 +2020,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPublicKeys(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePublicKeysIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensurePublicKeysIsMutable();
       publicKeys_.add(value);
       onChanged();
       return this;
@@ -2105,7 +2061,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPublicKeys() {
       publicKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2124,10 +2080,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPublicKeysBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensurePublicKeysIsMutable();
       publicKeys_.add(value);
       onChanged();
@@ -2166,7 +2120,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Environment(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

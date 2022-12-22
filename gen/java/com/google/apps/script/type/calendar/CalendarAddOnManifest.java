@@ -37,109 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CalendarAddOnManifest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              conferenceSolution_ = new java.util.ArrayList<com.google.apps.script.type.calendar.ConferenceSolution>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            conferenceSolution_.add(
-                input.readMessage(com.google.apps.script.type.calendar.ConferenceSolution.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            createSettingsUrlFunction_ = s;
-            break;
-          }
-          case 50: {
-            com.google.apps.script.type.HomepageExtensionPoint.Builder subBuilder = null;
-            if (homepageTrigger_ != null) {
-              subBuilder = homepageTrigger_.toBuilder();
-            }
-            homepageTrigger_ = input.readMessage(com.google.apps.script.type.HomepageExtensionPoint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(homepageTrigger_);
-              homepageTrigger_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.google.apps.script.type.calendar.CalendarExtensionPoint.Builder subBuilder = null;
-            if (eventOpenTrigger_ != null) {
-              subBuilder = eventOpenTrigger_.toBuilder();
-            }
-            eventOpenTrigger_ = input.readMessage(com.google.apps.script.type.calendar.CalendarExtensionPoint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(eventOpenTrigger_);
-              eventOpenTrigger_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            com.google.apps.script.type.calendar.CalendarExtensionPoint.Builder subBuilder = null;
-            if (eventUpdateTrigger_ != null) {
-              subBuilder = eventUpdateTrigger_.toBuilder();
-            }
-            eventUpdateTrigger_ = input.readMessage(com.google.apps.script.type.calendar.CalendarExtensionPoint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(eventUpdateTrigger_);
-              eventUpdateTrigger_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 96: {
-            int rawValue = input.readEnum();
-
-            currentEventAccess_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        conferenceSolution_ = java.util.Collections.unmodifiableList(conferenceSolution_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.apps.script.type.calendar.CalendarAddOnManifestProto.internal_static_google_apps_script_type_calendar_CalendarAddOnManifest_descriptor;
@@ -394,10 +291,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.script.type.HomepageExtensionPointOrBuilder getHomepageTriggerOrBuilder() {
-    return getHomepageTrigger();
+    return homepageTrigger_ == null ? com.google.apps.script.type.HomepageExtensionPoint.getDefaultInstance() : homepageTrigger_;
   }
 
   public static final int CONFERENCE_SOLUTION_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.apps.script.type.calendar.ConferenceSolution> conferenceSolution_;
   /**
    * <pre>
@@ -458,7 +356,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CREATE_SETTINGS_URL_FUNCTION_FIELD_NUMBER = 5;
-  private volatile java.lang.Object createSettingsUrlFunction_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object createSettingsUrlFunction_ = "";
   /**
    * <pre>
    * An endpoint to execute that creates a URL to the add-on's settings page.
@@ -538,7 +437,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.script.type.calendar.CalendarExtensionPointOrBuilder getEventOpenTriggerOrBuilder() {
-    return getEventOpenTrigger();
+    return eventOpenTrigger_ == null ? com.google.apps.script.type.calendar.CalendarExtensionPoint.getDefaultInstance() : eventOpenTrigger_;
   }
 
   public static final int EVENT_UPDATE_TRIGGER_FIELD_NUMBER = 11;
@@ -576,11 +475,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.script.type.calendar.CalendarExtensionPointOrBuilder getEventUpdateTriggerOrBuilder() {
-    return getEventUpdateTrigger();
+    return eventUpdateTrigger_ == null ? com.google.apps.script.type.calendar.CalendarExtensionPoint.getDefaultInstance() : eventUpdateTrigger_;
   }
 
   public static final int CURRENT_EVENT_ACCESS_FIELD_NUMBER = 12;
-  private int currentEventAccess_;
+  private int currentEventAccess_ = 0;
   /**
    * <pre>
    * Define the level of data access when an event addon is triggered.
@@ -601,8 +500,7 @@ private static final long serialVersionUID = 0L;
    * @return The currentEventAccess.
    */
   @java.lang.Override public com.google.apps.script.type.calendar.CalendarAddOnManifest.EventAccess getCurrentEventAccess() {
-    @SuppressWarnings("deprecation")
-    com.google.apps.script.type.calendar.CalendarAddOnManifest.EventAccess result = com.google.apps.script.type.calendar.CalendarAddOnManifest.EventAccess.valueOf(currentEventAccess_);
+    com.google.apps.script.type.calendar.CalendarAddOnManifest.EventAccess result = com.google.apps.script.type.calendar.CalendarAddOnManifest.EventAccess.forNumber(currentEventAccess_);
     return result == null ? com.google.apps.script.type.calendar.CalendarAddOnManifest.EventAccess.UNRECOGNIZED : result;
   }
 
@@ -638,7 +536,7 @@ private static final long serialVersionUID = 0L;
     if (currentEventAccess_ != com.google.apps.script.type.calendar.CalendarAddOnManifest.EventAccess.UNSPECIFIED.getNumber()) {
       output.writeEnum(12, currentEventAccess_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -670,7 +568,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(12, currentEventAccess_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -705,7 +603,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getEventUpdateTrigger())) return false;
     }
     if (currentEventAccess_ != other.currentEventAccess_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -736,7 +634,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + CURRENT_EVENT_ACCESS_FIELD_NUMBER;
     hash = (53 * hash) + currentEventAccess_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -857,51 +755,42 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.apps.script.type.calendar.CalendarAddOnManifest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getConferenceSolutionFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (homepageTriggerBuilder_ == null) {
-        homepageTrigger_ = null;
-      } else {
-        homepageTrigger_ = null;
+      bitField0_ = 0;
+      homepageTrigger_ = null;
+      if (homepageTriggerBuilder_ != null) {
+        homepageTriggerBuilder_.dispose();
         homepageTriggerBuilder_ = null;
       }
       if (conferenceSolutionBuilder_ == null) {
         conferenceSolution_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        conferenceSolution_ = null;
         conferenceSolutionBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       createSettingsUrlFunction_ = "";
-
-      if (eventOpenTriggerBuilder_ == null) {
-        eventOpenTrigger_ = null;
-      } else {
-        eventOpenTrigger_ = null;
+      eventOpenTrigger_ = null;
+      if (eventOpenTriggerBuilder_ != null) {
+        eventOpenTriggerBuilder_.dispose();
         eventOpenTriggerBuilder_ = null;
       }
-      if (eventUpdateTriggerBuilder_ == null) {
-        eventUpdateTrigger_ = null;
-      } else {
-        eventUpdateTrigger_ = null;
+      eventUpdateTrigger_ = null;
+      if (eventUpdateTriggerBuilder_ != null) {
+        eventUpdateTriggerBuilder_.dispose();
         eventUpdateTriggerBuilder_ = null;
       }
       currentEventAccess_ = 0;
-
       return this;
     }
 
@@ -928,35 +817,47 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.apps.script.type.calendar.CalendarAddOnManifest buildPartial() {
       com.google.apps.script.type.calendar.CalendarAddOnManifest result = new com.google.apps.script.type.calendar.CalendarAddOnManifest(this);
-      int from_bitField0_ = bitField0_;
-      if (homepageTriggerBuilder_ == null) {
-        result.homepageTrigger_ = homepageTrigger_;
-      } else {
-        result.homepageTrigger_ = homepageTriggerBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.apps.script.type.calendar.CalendarAddOnManifest result) {
       if (conferenceSolutionBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           conferenceSolution_ = java.util.Collections.unmodifiableList(conferenceSolution_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.conferenceSolution_ = conferenceSolution_;
       } else {
         result.conferenceSolution_ = conferenceSolutionBuilder_.build();
       }
-      result.createSettingsUrlFunction_ = createSettingsUrlFunction_;
-      if (eventOpenTriggerBuilder_ == null) {
-        result.eventOpenTrigger_ = eventOpenTrigger_;
-      } else {
-        result.eventOpenTrigger_ = eventOpenTriggerBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.apps.script.type.calendar.CalendarAddOnManifest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.homepageTrigger_ = homepageTriggerBuilder_ == null
+            ? homepageTrigger_
+            : homepageTriggerBuilder_.build();
       }
-      if (eventUpdateTriggerBuilder_ == null) {
-        result.eventUpdateTrigger_ = eventUpdateTrigger_;
-      } else {
-        result.eventUpdateTrigger_ = eventUpdateTriggerBuilder_.build();
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.createSettingsUrlFunction_ = createSettingsUrlFunction_;
       }
-      result.currentEventAccess_ = currentEventAccess_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.eventOpenTrigger_ = eventOpenTriggerBuilder_ == null
+            ? eventOpenTrigger_
+            : eventOpenTriggerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.eventUpdateTrigger_ = eventUpdateTriggerBuilder_ == null
+            ? eventUpdateTrigger_
+            : eventUpdateTriggerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.currentEventAccess_ = currentEventAccess_;
+      }
     }
 
     @java.lang.Override
@@ -1010,7 +911,7 @@ private static final long serialVersionUID = 0L;
         if (!other.conferenceSolution_.isEmpty()) {
           if (conferenceSolution_.isEmpty()) {
             conferenceSolution_ = other.conferenceSolution_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureConferenceSolutionIsMutable();
             conferenceSolution_.addAll(other.conferenceSolution_);
@@ -1023,7 +924,7 @@ private static final long serialVersionUID = 0L;
             conferenceSolutionBuilder_.dispose();
             conferenceSolutionBuilder_ = null;
             conferenceSolution_ = other.conferenceSolution_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             conferenceSolutionBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getConferenceSolutionFieldBuilder() : null;
@@ -1034,6 +935,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCreateSettingsUrlFunction().isEmpty()) {
         createSettingsUrlFunction_ = other.createSettingsUrlFunction_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasEventOpenTrigger()) {
@@ -1045,7 +947,7 @@ private static final long serialVersionUID = 0L;
       if (other.currentEventAccess_ != 0) {
         setCurrentEventAccessValue(other.getCurrentEventAccessValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1060,17 +962,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.apps.script.type.calendar.CalendarAddOnManifest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26: {
+              com.google.apps.script.type.calendar.ConferenceSolution m =
+                  input.readMessage(
+                      com.google.apps.script.type.calendar.ConferenceSolution.parser(),
+                      extensionRegistry);
+              if (conferenceSolutionBuilder_ == null) {
+                ensureConferenceSolutionIsMutable();
+                conferenceSolution_.add(m);
+              } else {
+                conferenceSolutionBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 42: {
+              createSettingsUrlFunction_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getHomepageTriggerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 50
+            case 82: {
+              input.readMessage(
+                  getEventOpenTriggerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getEventUpdateTriggerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 90
+            case 96: {
+              currentEventAccess_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 96
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.apps.script.type.calendar.CalendarAddOnManifest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1092,7 +1051,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the homepageTrigger field is set.
      */
     public boolean hasHomepageTrigger() {
-      return homepageTriggerBuilder_ != null || homepageTrigger_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1132,11 +1091,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         homepageTrigger_ = value;
-        onChanged();
       } else {
         homepageTriggerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1155,11 +1114,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.script.type.HomepageExtensionPoint.Builder builderForValue) {
       if (homepageTriggerBuilder_ == null) {
         homepageTrigger_ = builderForValue.build();
-        onChanged();
       } else {
         homepageTriggerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1176,17 +1135,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHomepageTrigger(com.google.apps.script.type.HomepageExtensionPoint value) {
       if (homepageTriggerBuilder_ == null) {
-        if (homepageTrigger_ != null) {
-          homepageTrigger_ =
-            com.google.apps.script.type.HomepageExtensionPoint.newBuilder(homepageTrigger_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          homepageTrigger_ != null &&
+          homepageTrigger_ != com.google.apps.script.type.HomepageExtensionPoint.getDefaultInstance()) {
+          getHomepageTriggerBuilder().mergeFrom(value);
         } else {
           homepageTrigger_ = value;
         }
-        onChanged();
       } else {
         homepageTriggerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1202,14 +1162,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.HomepageExtensionPoint homepage_trigger = 6;</code>
      */
     public Builder clearHomepageTrigger() {
-      if (homepageTriggerBuilder_ == null) {
-        homepageTrigger_ = null;
-        onChanged();
-      } else {
-        homepageTrigger_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      homepageTrigger_ = null;
+      if (homepageTriggerBuilder_ != null) {
+        homepageTriggerBuilder_.dispose();
         homepageTriggerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1225,7 +1184,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.HomepageExtensionPoint homepage_trigger = 6;</code>
      */
     public com.google.apps.script.type.HomepageExtensionPoint.Builder getHomepageTriggerBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getHomepageTriggerFieldBuilder().getBuilder();
     }
@@ -1278,9 +1237,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.apps.script.type.calendar.ConferenceSolution> conferenceSolution_ =
       java.util.Collections.emptyList();
     private void ensureConferenceSolutionIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         conferenceSolution_ = new java.util.ArrayList<com.google.apps.script.type.calendar.ConferenceSolution>(conferenceSolution_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1474,7 +1433,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearConferenceSolution() {
       if (conferenceSolutionBuilder_ == null) {
         conferenceSolution_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         conferenceSolutionBuilder_.clear();
@@ -1579,7 +1538,7 @@ private static final long serialVersionUID = 0L;
         conferenceSolutionBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.apps.script.type.calendar.ConferenceSolution, com.google.apps.script.type.calendar.ConferenceSolution.Builder, com.google.apps.script.type.calendar.ConferenceSolutionOrBuilder>(
                 conferenceSolution_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         conferenceSolution_ = null;
@@ -1640,11 +1599,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreateSettingsUrlFunction(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       createSettingsUrlFunction_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1657,8 +1614,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCreateSettingsUrlFunction() {
-      
       createSettingsUrlFunction_ = getDefaultInstance().getCreateSettingsUrlFunction();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1673,12 +1630,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreateSettingsUrlFunctionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       createSettingsUrlFunction_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1695,7 +1650,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the eventOpenTrigger field is set.
      */
     public boolean hasEventOpenTrigger() {
-      return eventOpenTriggerBuilder_ != null || eventOpenTrigger_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1725,11 +1680,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         eventOpenTrigger_ = value;
-        onChanged();
       } else {
         eventOpenTriggerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1743,11 +1698,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.script.type.calendar.CalendarExtensionPoint.Builder builderForValue) {
       if (eventOpenTriggerBuilder_ == null) {
         eventOpenTrigger_ = builderForValue.build();
-        onChanged();
       } else {
         eventOpenTriggerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1759,17 +1714,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEventOpenTrigger(com.google.apps.script.type.calendar.CalendarExtensionPoint value) {
       if (eventOpenTriggerBuilder_ == null) {
-        if (eventOpenTrigger_ != null) {
-          eventOpenTrigger_ =
-            com.google.apps.script.type.calendar.CalendarExtensionPoint.newBuilder(eventOpenTrigger_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          eventOpenTrigger_ != null &&
+          eventOpenTrigger_ != com.google.apps.script.type.calendar.CalendarExtensionPoint.getDefaultInstance()) {
+          getEventOpenTriggerBuilder().mergeFrom(value);
         } else {
           eventOpenTrigger_ = value;
         }
-        onChanged();
       } else {
         eventOpenTriggerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1780,14 +1736,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.calendar.CalendarExtensionPoint event_open_trigger = 10;</code>
      */
     public Builder clearEventOpenTrigger() {
-      if (eventOpenTriggerBuilder_ == null) {
-        eventOpenTrigger_ = null;
-        onChanged();
-      } else {
-        eventOpenTrigger_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      eventOpenTrigger_ = null;
+      if (eventOpenTriggerBuilder_ != null) {
+        eventOpenTriggerBuilder_.dispose();
         eventOpenTriggerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1798,7 +1753,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.calendar.CalendarExtensionPoint event_open_trigger = 10;</code>
      */
     public com.google.apps.script.type.calendar.CalendarExtensionPoint.Builder getEventOpenTriggerBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getEventOpenTriggerFieldBuilder().getBuilder();
     }
@@ -1850,7 +1805,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the eventUpdateTrigger field is set.
      */
     public boolean hasEventUpdateTrigger() {
-      return eventUpdateTriggerBuilder_ != null || eventUpdateTrigger_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1880,11 +1835,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         eventUpdateTrigger_ = value;
-        onChanged();
       } else {
         eventUpdateTriggerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1898,11 +1853,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.script.type.calendar.CalendarExtensionPoint.Builder builderForValue) {
       if (eventUpdateTriggerBuilder_ == null) {
         eventUpdateTrigger_ = builderForValue.build();
-        onChanged();
       } else {
         eventUpdateTriggerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1914,17 +1869,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEventUpdateTrigger(com.google.apps.script.type.calendar.CalendarExtensionPoint value) {
       if (eventUpdateTriggerBuilder_ == null) {
-        if (eventUpdateTrigger_ != null) {
-          eventUpdateTrigger_ =
-            com.google.apps.script.type.calendar.CalendarExtensionPoint.newBuilder(eventUpdateTrigger_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          eventUpdateTrigger_ != null &&
+          eventUpdateTrigger_ != com.google.apps.script.type.calendar.CalendarExtensionPoint.getDefaultInstance()) {
+          getEventUpdateTriggerBuilder().mergeFrom(value);
         } else {
           eventUpdateTrigger_ = value;
         }
-        onChanged();
       } else {
         eventUpdateTriggerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1935,14 +1891,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.calendar.CalendarExtensionPoint event_update_trigger = 11;</code>
      */
     public Builder clearEventUpdateTrigger() {
-      if (eventUpdateTriggerBuilder_ == null) {
-        eventUpdateTrigger_ = null;
-        onChanged();
-      } else {
-        eventUpdateTrigger_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      eventUpdateTrigger_ = null;
+      if (eventUpdateTriggerBuilder_ != null) {
+        eventUpdateTriggerBuilder_.dispose();
         eventUpdateTriggerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1953,7 +1908,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.calendar.CalendarExtensionPoint event_update_trigger = 11;</code>
      */
     public com.google.apps.script.type.calendar.CalendarExtensionPoint.Builder getEventUpdateTriggerBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getEventUpdateTriggerFieldBuilder().getBuilder();
     }
@@ -2015,8 +1970,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCurrentEventAccessValue(int value) {
-      
       currentEventAccess_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2030,8 +1985,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.apps.script.type.calendar.CalendarAddOnManifest.EventAccess getCurrentEventAccess() {
-      @SuppressWarnings("deprecation")
-      com.google.apps.script.type.calendar.CalendarAddOnManifest.EventAccess result = com.google.apps.script.type.calendar.CalendarAddOnManifest.EventAccess.valueOf(currentEventAccess_);
+      com.google.apps.script.type.calendar.CalendarAddOnManifest.EventAccess result = com.google.apps.script.type.calendar.CalendarAddOnManifest.EventAccess.forNumber(currentEventAccess_);
       return result == null ? com.google.apps.script.type.calendar.CalendarAddOnManifest.EventAccess.UNRECOGNIZED : result;
     }
     /**
@@ -2047,7 +2001,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       currentEventAccess_ = value.getNumber();
       onChanged();
       return this;
@@ -2061,7 +2015,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCurrentEventAccess() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       currentEventAccess_ = 0;
       onChanged();
       return this;
@@ -2099,7 +2053,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CalendarAddOnManifest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -34,97 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateDocumentRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.firestore.v1beta1.Document.Builder subBuilder = null;
-            if (document_ != null) {
-              subBuilder = document_.toBuilder();
-            }
-            document_ = input.readMessage(com.google.firestore.v1beta1.Document.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(document_);
-              document_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.firestore.v1beta1.DocumentMask.Builder subBuilder = null;
-            if (updateMask_ != null) {
-              subBuilder = updateMask_.toBuilder();
-            }
-            updateMask_ = input.readMessage(com.google.firestore.v1beta1.DocumentMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateMask_);
-              updateMask_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.firestore.v1beta1.DocumentMask.Builder subBuilder = null;
-            if (mask_ != null) {
-              subBuilder = mask_.toBuilder();
-            }
-            mask_ = input.readMessage(com.google.firestore.v1beta1.DocumentMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(mask_);
-              mask_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.firestore.v1beta1.Precondition.Builder subBuilder = null;
-            if (currentDocument_ != null) {
-              subBuilder = currentDocument_.toBuilder();
-            }
-            currentDocument_ = input.readMessage(com.google.firestore.v1beta1.Precondition.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(currentDocument_);
-              currentDocument_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.firestore.v1beta1.FirestoreProto.internal_static_google_firestore_v1beta1_UpdateDocumentRequest_descriptor;
@@ -176,7 +85,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.firestore.v1beta1.DocumentOrBuilder getDocumentOrBuilder() {
-    return getDocument();
+    return document_ == null ? com.google.firestore.v1beta1.Document.getDefaultInstance() : document_;
   }
 
   public static final int UPDATE_MASK_FIELD_NUMBER = 2;
@@ -229,7 +138,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.firestore.v1beta1.DocumentMaskOrBuilder getUpdateMaskOrBuilder() {
-    return getUpdateMask();
+    return updateMask_ == null ? com.google.firestore.v1beta1.DocumentMask.getDefaultInstance() : updateMask_;
   }
 
   public static final int MASK_FIELD_NUMBER = 3;
@@ -273,7 +182,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.firestore.v1beta1.DocumentMaskOrBuilder getMaskOrBuilder() {
-    return getMask();
+    return mask_ == null ? com.google.firestore.v1beta1.DocumentMask.getDefaultInstance() : mask_;
   }
 
   public static final int CURRENT_DOCUMENT_FIELD_NUMBER = 4;
@@ -314,7 +223,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.firestore.v1beta1.PreconditionOrBuilder getCurrentDocumentOrBuilder() {
-    return getCurrentDocument();
+    return currentDocument_ == null ? com.google.firestore.v1beta1.Precondition.getDefaultInstance() : currentDocument_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -343,7 +252,7 @@ private static final long serialVersionUID = 0L;
     if (currentDocument_ != null) {
       output.writeMessage(4, getCurrentDocument());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -368,7 +277,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getCurrentDocument());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -403,7 +312,7 @@ private static final long serialVersionUID = 0L;
       if (!getCurrentDocument()
           .equals(other.getCurrentDocument())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -430,7 +339,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CURRENT_DOCUMENT_FIELD_NUMBER;
       hash = (53 * hash) + getCurrentDocument().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -551,44 +460,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.firestore.v1beta1.UpdateDocumentRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (documentBuilder_ == null) {
-        document_ = null;
-      } else {
-        document_ = null;
+      bitField0_ = 0;
+      document_ = null;
+      if (documentBuilder_ != null) {
+        documentBuilder_.dispose();
         documentBuilder_ = null;
       }
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-      } else {
-        updateMask_ = null;
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
-      if (maskBuilder_ == null) {
-        mask_ = null;
-      } else {
-        mask_ = null;
+      mask_ = null;
+      if (maskBuilder_ != null) {
+        maskBuilder_.dispose();
         maskBuilder_ = null;
       }
-      if (currentDocumentBuilder_ == null) {
-        currentDocument_ = null;
-      } else {
-        currentDocument_ = null;
+      currentDocument_ = null;
+      if (currentDocumentBuilder_ != null) {
+        currentDocumentBuilder_.dispose();
         currentDocumentBuilder_ = null;
       }
       return this;
@@ -617,28 +518,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.firestore.v1beta1.UpdateDocumentRequest buildPartial() {
       com.google.firestore.v1beta1.UpdateDocumentRequest result = new com.google.firestore.v1beta1.UpdateDocumentRequest(this);
-      if (documentBuilder_ == null) {
-        result.document_ = document_;
-      } else {
-        result.document_ = documentBuilder_.build();
-      }
-      if (updateMaskBuilder_ == null) {
-        result.updateMask_ = updateMask_;
-      } else {
-        result.updateMask_ = updateMaskBuilder_.build();
-      }
-      if (maskBuilder_ == null) {
-        result.mask_ = mask_;
-      } else {
-        result.mask_ = maskBuilder_.build();
-      }
-      if (currentDocumentBuilder_ == null) {
-        result.currentDocument_ = currentDocument_;
-      } else {
-        result.currentDocument_ = currentDocumentBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.firestore.v1beta1.UpdateDocumentRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.document_ = documentBuilder_ == null
+            ? document_
+            : documentBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.updateMask_ = updateMaskBuilder_ == null
+            ? updateMask_
+            : updateMaskBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.mask_ = maskBuilder_ == null
+            ? mask_
+            : maskBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.currentDocument_ = currentDocumentBuilder_ == null
+            ? currentDocument_
+            : currentDocumentBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -697,7 +603,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasCurrentDocument()) {
         mergeCurrentDocument(other.getCurrentDocument());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -712,19 +618,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.firestore.v1beta1.UpdateDocumentRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getDocumentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getUpdateMaskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getMaskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getCurrentDocumentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.firestore.v1beta1.UpdateDocumentRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.firestore.v1beta1.Document document_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -739,7 +687,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the document field is set.
      */
     public boolean hasDocument() {
-      return documentBuilder_ != null || document_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -771,11 +719,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         document_ = value;
-        onChanged();
       } else {
         documentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -790,11 +738,11 @@ private static final long serialVersionUID = 0L;
         com.google.firestore.v1beta1.Document.Builder builderForValue) {
       if (documentBuilder_ == null) {
         document_ = builderForValue.build();
-        onChanged();
       } else {
         documentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -807,17 +755,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDocument(com.google.firestore.v1beta1.Document value) {
       if (documentBuilder_ == null) {
-        if (document_ != null) {
-          document_ =
-            com.google.firestore.v1beta1.Document.newBuilder(document_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          document_ != null &&
+          document_ != com.google.firestore.v1beta1.Document.getDefaultInstance()) {
+          getDocumentBuilder().mergeFrom(value);
         } else {
           document_ = value;
         }
-        onChanged();
       } else {
         documentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -829,14 +778,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.firestore.v1beta1.Document document = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearDocument() {
-      if (documentBuilder_ == null) {
-        document_ = null;
-        onChanged();
-      } else {
-        document_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      document_ = null;
+      if (documentBuilder_ != null) {
+        documentBuilder_.dispose();
         documentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -848,7 +796,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.firestore.v1beta1.Document document = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.firestore.v1beta1.Document.Builder getDocumentBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getDocumentFieldBuilder().getBuilder();
     }
@@ -907,7 +855,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateMask field is set.
      */
     public boolean hasUpdateMask() {
-      return updateMaskBuilder_ != null || updateMask_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -947,11 +895,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateMask_ = value;
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -970,11 +918,11 @@ private static final long serialVersionUID = 0L;
         com.google.firestore.v1beta1.DocumentMask.Builder builderForValue) {
       if (updateMaskBuilder_ == null) {
         updateMask_ = builderForValue.build();
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -991,17 +939,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateMask(com.google.firestore.v1beta1.DocumentMask value) {
       if (updateMaskBuilder_ == null) {
-        if (updateMask_ != null) {
-          updateMask_ =
-            com.google.firestore.v1beta1.DocumentMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          updateMask_ != null &&
+          updateMask_ != com.google.firestore.v1beta1.DocumentMask.getDefaultInstance()) {
+          getUpdateMaskBuilder().mergeFrom(value);
         } else {
           updateMask_ = value;
         }
-        onChanged();
       } else {
         updateMaskBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1017,14 +966,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.firestore.v1beta1.DocumentMask update_mask = 2;</code>
      */
     public Builder clearUpdateMask() {
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-        onChanged();
-      } else {
-        updateMask_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1040,7 +988,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.firestore.v1beta1.DocumentMask update_mask = 2;</code>
      */
     public com.google.firestore.v1beta1.DocumentMask.Builder getUpdateMaskBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getUpdateMaskFieldBuilder().getBuilder();
     }
@@ -1104,7 +1052,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the mask field is set.
      */
     public boolean hasMask() {
-      return maskBuilder_ != null || mask_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1138,11 +1086,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         mask_ = value;
-        onChanged();
       } else {
         maskBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1158,11 +1106,11 @@ private static final long serialVersionUID = 0L;
         com.google.firestore.v1beta1.DocumentMask.Builder builderForValue) {
       if (maskBuilder_ == null) {
         mask_ = builderForValue.build();
-        onChanged();
       } else {
         maskBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1176,17 +1124,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMask(com.google.firestore.v1beta1.DocumentMask value) {
       if (maskBuilder_ == null) {
-        if (mask_ != null) {
-          mask_ =
-            com.google.firestore.v1beta1.DocumentMask.newBuilder(mask_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          mask_ != null &&
+          mask_ != com.google.firestore.v1beta1.DocumentMask.getDefaultInstance()) {
+          getMaskBuilder().mergeFrom(value);
         } else {
           mask_ = value;
         }
-        onChanged();
       } else {
         maskBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1199,14 +1148,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.firestore.v1beta1.DocumentMask mask = 3;</code>
      */
     public Builder clearMask() {
-      if (maskBuilder_ == null) {
-        mask_ = null;
-        onChanged();
-      } else {
-        mask_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      mask_ = null;
+      if (maskBuilder_ != null) {
+        maskBuilder_.dispose();
         maskBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1219,7 +1167,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.firestore.v1beta1.DocumentMask mask = 3;</code>
      */
     public com.google.firestore.v1beta1.DocumentMask.Builder getMaskBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getMaskFieldBuilder().getBuilder();
     }
@@ -1276,7 +1224,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the currentDocument field is set.
      */
     public boolean hasCurrentDocument() {
-      return currentDocumentBuilder_ != null || currentDocument_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1308,11 +1256,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         currentDocument_ = value;
-        onChanged();
       } else {
         currentDocumentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1327,11 +1275,11 @@ private static final long serialVersionUID = 0L;
         com.google.firestore.v1beta1.Precondition.Builder builderForValue) {
       if (currentDocumentBuilder_ == null) {
         currentDocument_ = builderForValue.build();
-        onChanged();
       } else {
         currentDocumentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1344,17 +1292,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCurrentDocument(com.google.firestore.v1beta1.Precondition value) {
       if (currentDocumentBuilder_ == null) {
-        if (currentDocument_ != null) {
-          currentDocument_ =
-            com.google.firestore.v1beta1.Precondition.newBuilder(currentDocument_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          currentDocument_ != null &&
+          currentDocument_ != com.google.firestore.v1beta1.Precondition.getDefaultInstance()) {
+          getCurrentDocumentBuilder().mergeFrom(value);
         } else {
           currentDocument_ = value;
         }
-        onChanged();
       } else {
         currentDocumentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1366,14 +1315,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.firestore.v1beta1.Precondition current_document = 4;</code>
      */
     public Builder clearCurrentDocument() {
-      if (currentDocumentBuilder_ == null) {
-        currentDocument_ = null;
-        onChanged();
-      } else {
-        currentDocument_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      currentDocument_ = null;
+      if (currentDocumentBuilder_ != null) {
+        currentDocumentBuilder_.dispose();
         currentDocumentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1385,7 +1333,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.firestore.v1beta1.Precondition current_document = 4;</code>
      */
     public com.google.firestore.v1beta1.Precondition.Builder getCurrentDocumentBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getCurrentDocumentFieldBuilder().getBuilder();
     }
@@ -1459,7 +1407,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateDocumentRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

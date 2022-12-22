@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PipelineCondition(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.deploy.v1.PipelineReadyCondition.Builder subBuilder = null;
-            if (pipelineReadyCondition_ != null) {
-              subBuilder = pipelineReadyCondition_.toBuilder();
-            }
-            pipelineReadyCondition_ = input.readMessage(com.google.cloud.deploy.v1.PipelineReadyCondition.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(pipelineReadyCondition_);
-              pipelineReadyCondition_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.deploy.v1.TargetsPresentCondition.Builder subBuilder = null;
-            if (targetsPresentCondition_ != null) {
-              subBuilder = targetsPresentCondition_.toBuilder();
-            }
-            targetsPresentCondition_ = input.readMessage(com.google.cloud.deploy.v1.TargetsPresentCondition.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(targetsPresentCondition_);
-              targetsPresentCondition_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.deploy.v1.CloudDeployProto.internal_static_google_cloud_deploy_v1_PipelineCondition_descriptor;
@@ -147,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.deploy.v1.PipelineReadyConditionOrBuilder getPipelineReadyConditionOrBuilder() {
-    return getPipelineReadyCondition();
+    return pipelineReadyCondition_ == null ? com.google.cloud.deploy.v1.PipelineReadyCondition.getDefaultInstance() : pipelineReadyCondition_;
   }
 
   public static final int TARGETS_PRESENT_CONDITION_FIELD_NUMBER = 3;
@@ -185,7 +120,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.deploy.v1.TargetsPresentConditionOrBuilder getTargetsPresentConditionOrBuilder() {
-    return getTargetsPresentCondition();
+    return targetsPresentCondition_ == null ? com.google.cloud.deploy.v1.TargetsPresentCondition.getDefaultInstance() : targetsPresentCondition_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -208,7 +143,7 @@ private static final long serialVersionUID = 0L;
     if (targetsPresentCondition_ != null) {
       output.writeMessage(3, getTargetsPresentCondition());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -225,7 +160,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getTargetsPresentCondition());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +185,7 @@ private static final long serialVersionUID = 0L;
       if (!getTargetsPresentCondition()
           .equals(other.getTargetsPresentCondition())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -269,7 +204,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TARGETS_PRESENT_CONDITION_FIELD_NUMBER;
       hash = (53 * hash) + getTargetsPresentCondition().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -390,32 +325,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.deploy.v1.PipelineCondition.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (pipelineReadyConditionBuilder_ == null) {
-        pipelineReadyCondition_ = null;
-      } else {
-        pipelineReadyCondition_ = null;
+      bitField0_ = 0;
+      pipelineReadyCondition_ = null;
+      if (pipelineReadyConditionBuilder_ != null) {
+        pipelineReadyConditionBuilder_.dispose();
         pipelineReadyConditionBuilder_ = null;
       }
-      if (targetsPresentConditionBuilder_ == null) {
-        targetsPresentCondition_ = null;
-      } else {
-        targetsPresentCondition_ = null;
+      targetsPresentCondition_ = null;
+      if (targetsPresentConditionBuilder_ != null) {
+        targetsPresentConditionBuilder_.dispose();
         targetsPresentConditionBuilder_ = null;
       }
       return this;
@@ -444,18 +373,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.deploy.v1.PipelineCondition buildPartial() {
       com.google.cloud.deploy.v1.PipelineCondition result = new com.google.cloud.deploy.v1.PipelineCondition(this);
-      if (pipelineReadyConditionBuilder_ == null) {
-        result.pipelineReadyCondition_ = pipelineReadyCondition_;
-      } else {
-        result.pipelineReadyCondition_ = pipelineReadyConditionBuilder_.build();
-      }
-      if (targetsPresentConditionBuilder_ == null) {
-        result.targetsPresentCondition_ = targetsPresentCondition_;
-      } else {
-        result.targetsPresentCondition_ = targetsPresentConditionBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.deploy.v1.PipelineCondition result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.pipelineReadyCondition_ = pipelineReadyConditionBuilder_ == null
+            ? pipelineReadyCondition_
+            : pipelineReadyConditionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.targetsPresentCondition_ = targetsPresentConditionBuilder_ == null
+            ? targetsPresentCondition_
+            : targetsPresentConditionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -508,7 +442,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasTargetsPresentCondition()) {
         mergeTargetsPresentCondition(other.getTargetsPresentCondition());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -523,19 +457,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.deploy.v1.PipelineCondition parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getPipelineReadyConditionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              input.readMessage(
+                  getTargetsPresentConditionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.deploy.v1.PipelineCondition) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.deploy.v1.PipelineReadyCondition pipelineReadyCondition_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -549,7 +511,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the pipelineReadyCondition field is set.
      */
     public boolean hasPipelineReadyCondition() {
-      return pipelineReadyConditionBuilder_ != null || pipelineReadyCondition_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -579,11 +541,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         pipelineReadyCondition_ = value;
-        onChanged();
       } else {
         pipelineReadyConditionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -597,11 +559,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.deploy.v1.PipelineReadyCondition.Builder builderForValue) {
       if (pipelineReadyConditionBuilder_ == null) {
         pipelineReadyCondition_ = builderForValue.build();
-        onChanged();
       } else {
         pipelineReadyConditionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -613,17 +575,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePipelineReadyCondition(com.google.cloud.deploy.v1.PipelineReadyCondition value) {
       if (pipelineReadyConditionBuilder_ == null) {
-        if (pipelineReadyCondition_ != null) {
-          pipelineReadyCondition_ =
-            com.google.cloud.deploy.v1.PipelineReadyCondition.newBuilder(pipelineReadyCondition_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          pipelineReadyCondition_ != null &&
+          pipelineReadyCondition_ != com.google.cloud.deploy.v1.PipelineReadyCondition.getDefaultInstance()) {
+          getPipelineReadyConditionBuilder().mergeFrom(value);
         } else {
           pipelineReadyCondition_ = value;
         }
-        onChanged();
       } else {
         pipelineReadyConditionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -634,14 +597,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.deploy.v1.PipelineReadyCondition pipeline_ready_condition = 1;</code>
      */
     public Builder clearPipelineReadyCondition() {
-      if (pipelineReadyConditionBuilder_ == null) {
-        pipelineReadyCondition_ = null;
-        onChanged();
-      } else {
-        pipelineReadyCondition_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      pipelineReadyCondition_ = null;
+      if (pipelineReadyConditionBuilder_ != null) {
+        pipelineReadyConditionBuilder_.dispose();
         pipelineReadyConditionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -652,7 +614,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.deploy.v1.PipelineReadyCondition pipeline_ready_condition = 1;</code>
      */
     public com.google.cloud.deploy.v1.PipelineReadyCondition.Builder getPipelineReadyConditionBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getPipelineReadyConditionFieldBuilder().getBuilder();
     }
@@ -704,7 +666,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the targetsPresentCondition field is set.
      */
     public boolean hasTargetsPresentCondition() {
-      return targetsPresentConditionBuilder_ != null || targetsPresentCondition_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -734,11 +696,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         targetsPresentCondition_ = value;
-        onChanged();
       } else {
         targetsPresentConditionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -752,11 +714,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.deploy.v1.TargetsPresentCondition.Builder builderForValue) {
       if (targetsPresentConditionBuilder_ == null) {
         targetsPresentCondition_ = builderForValue.build();
-        onChanged();
       } else {
         targetsPresentConditionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -768,17 +730,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTargetsPresentCondition(com.google.cloud.deploy.v1.TargetsPresentCondition value) {
       if (targetsPresentConditionBuilder_ == null) {
-        if (targetsPresentCondition_ != null) {
-          targetsPresentCondition_ =
-            com.google.cloud.deploy.v1.TargetsPresentCondition.newBuilder(targetsPresentCondition_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          targetsPresentCondition_ != null &&
+          targetsPresentCondition_ != com.google.cloud.deploy.v1.TargetsPresentCondition.getDefaultInstance()) {
+          getTargetsPresentConditionBuilder().mergeFrom(value);
         } else {
           targetsPresentCondition_ = value;
         }
-        onChanged();
       } else {
         targetsPresentConditionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -789,14 +752,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.deploy.v1.TargetsPresentCondition targets_present_condition = 3;</code>
      */
     public Builder clearTargetsPresentCondition() {
-      if (targetsPresentConditionBuilder_ == null) {
-        targetsPresentCondition_ = null;
-        onChanged();
-      } else {
-        targetsPresentCondition_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      targetsPresentCondition_ = null;
+      if (targetsPresentConditionBuilder_ != null) {
+        targetsPresentConditionBuilder_.dispose();
         targetsPresentConditionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -807,7 +769,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.deploy.v1.TargetsPresentCondition targets_present_condition = 3;</code>
      */
     public com.google.cloud.deploy.v1.TargetsPresentCondition.Builder getTargetsPresentConditionBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTargetsPresentConditionFieldBuilder().getBuilder();
     }
@@ -879,7 +841,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PipelineCondition(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

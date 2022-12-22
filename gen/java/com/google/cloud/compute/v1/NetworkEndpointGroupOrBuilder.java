@@ -46,7 +46,6 @@ public interface NetworkEndpointGroupOrBuilder extends
    *
    * <code>map&lt;string, string&gt; annotations = 112032548;</code>
    */
-
   /* nullable */
 java.lang.String getAnnotationsOrDefault(
       java.lang.String key,
@@ -59,7 +58,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; annotations = 112032548;</code>
    */
-
   java.lang.String getAnnotationsOrThrow(
       java.lang.String key);
 
@@ -358,6 +356,21 @@ java.lang.String defaultValue);
    */
   com.google.protobuf.ByteString
       getNetworkEndpointTypeBytes();
+
+  /**
+   * <code>optional .google.cloud.compute.v1.NetworkEndpointGroupPscData psc_data = 71937481;</code>
+   * @return Whether the pscData field is set.
+   */
+  boolean hasPscData();
+  /**
+   * <code>optional .google.cloud.compute.v1.NetworkEndpointGroupPscData psc_data = 71937481;</code>
+   * @return The pscData.
+   */
+  com.google.cloud.compute.v1.NetworkEndpointGroupPscData getPscData();
+  /**
+   * <code>optional .google.cloud.compute.v1.NetworkEndpointGroupPscData psc_data = 71937481;</code>
+   */
+  com.google.cloud.compute.v1.NetworkEndpointGroupPscDataOrBuilder getPscDataOrBuilder();
 
   /**
    * <pre>

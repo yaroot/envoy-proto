@@ -26,6 +26,7 @@ private static final long serialVersionUID = 0L;
     webServerIpv4ReservedRange_ = "";
     cloudComposerNetworkIpv4CidrBlock_ = "";
     cloudComposerNetworkIpv4ReservedRange_ = "";
+    cloudComposerConnectionSubnetwork_ = "";
   }
 
   @java.lang.Override
@@ -39,93 +40,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private PrivateEnvironmentConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            enablePrivateEnvironment_ = input.readBool();
-            break;
-          }
-          case 18: {
-            com.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfig.Builder subBuilder = null;
-            if (privateClusterConfig_ != null) {
-              subBuilder = privateClusterConfig_.toBuilder();
-            }
-            privateClusterConfig_ = input.readMessage(com.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(privateClusterConfig_);
-              privateClusterConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            webServerIpv4CidrBlock_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            cloudSqlIpv4CidrBlock_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            webServerIpv4ReservedRange_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            cloudComposerNetworkIpv4CidrBlock_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            cloudComposerNetworkIpv4ReservedRange_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -141,12 +55,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_PRIVATE_ENVIRONMENT_FIELD_NUMBER = 1;
-  private boolean enablePrivateEnvironment_;
+  private boolean enablePrivateEnvironment_ = false;
   /**
    * <pre>
    * Optional. If `true`, a Private IP Cloud Composer environment is created.
    * If this field is set to true, `IPAllocationPolicy.use_ip_aliases` must be
-   * set to true .
+   * set to true for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>bool enable_private_environment = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -195,16 +110,19 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfigOrBuilder getPrivateClusterConfigOrBuilder() {
-    return getPrivateClusterConfig();
+    return privateClusterConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfig.getDefaultInstance() : privateClusterConfig_;
   }
 
   public static final int WEB_SERVER_IPV4_CIDR_BLOCK_FIELD_NUMBER = 3;
-  private volatile java.lang.Object webServerIpv4CidrBlock_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object webServerIpv4CidrBlock_ = "";
   /**
    * <pre>
    * Optional. The CIDR block from which IP range for web server will be reserved. Needs
    * to be disjoint from private_cluster_config.master_ipv4_cidr_block and
    * cloud_sql_ipv4_cidr_block.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>string web_server_ipv4_cidr_block = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -228,6 +146,8 @@ private static final long serialVersionUID = 0L;
    * Optional. The CIDR block from which IP range for web server will be reserved. Needs
    * to be disjoint from private_cluster_config.master_ipv4_cidr_block and
    * cloud_sql_ipv4_cidr_block.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>string web_server_ipv4_cidr_block = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -249,7 +169,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLOUD_SQL_IPV4_CIDR_BLOCK_FIELD_NUMBER = 4;
-  private volatile java.lang.Object cloudSqlIpv4CidrBlock_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cloudSqlIpv4CidrBlock_ = "";
   /**
    * <pre>
    * Optional. The CIDR block from which IP range in tenant project will be reserved for
@@ -297,10 +218,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WEB_SERVER_IPV4_RESERVED_RANGE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object webServerIpv4ReservedRange_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object webServerIpv4ReservedRange_ = "";
   /**
    * <pre>
    * Output only. The IP range reserved for the tenant project's App Engine VMs.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>string web_server_ipv4_reserved_range = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -322,6 +246,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Output only. The IP range reserved for the tenant project's App Engine VMs.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>string web_server_ipv4_reserved_range = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -343,7 +269,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLOUD_COMPOSER_NETWORK_IPV4_CIDR_BLOCK_FIELD_NUMBER = 7;
-  private volatile java.lang.Object cloudComposerNetworkIpv4CidrBlock_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cloudComposerNetworkIpv4CidrBlock_ = "";
   /**
    * <pre>
    * Optional. The CIDR block from which IP range for Cloud Composer Network in tenant
@@ -399,7 +326,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLOUD_COMPOSER_NETWORK_IPV4_RESERVED_RANGE_FIELD_NUMBER = 8;
-  private volatile java.lang.Object cloudComposerNetworkIpv4ReservedRange_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cloudComposerNetworkIpv4ReservedRange_ = "";
   /**
    * <pre>
    * Output only. The IP range reserved for the tenant project's Cloud Composer network.
@@ -448,6 +376,114 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int ENABLE_PRIVATELY_USED_PUBLIC_IPS_FIELD_NUMBER = 6;
+  private boolean enablePrivatelyUsedPublicIps_ = false;
+  /**
+   * <pre>
+   * Optional. When enabled, IPs from public (non-RFC1918) ranges can be used for
+   * `IPAllocationPolicy.cluster_ipv4_cidr_block` and
+   * `IPAllocationPolicy.service_ipv4_cidr_block`.
+   * </pre>
+   *
+   * <code>bool enable_privately_used_public_ips = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The enablePrivatelyUsedPublicIps.
+   */
+  @java.lang.Override
+  public boolean getEnablePrivatelyUsedPublicIps() {
+    return enablePrivatelyUsedPublicIps_;
+  }
+
+  public static final int CLOUD_COMPOSER_CONNECTION_SUBNETWORK_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cloudComposerConnectionSubnetwork_ = "";
+  /**
+   * <pre>
+   * Optional. When specified, the environment will use Private Service Connect
+   * instead of VPC peerings to connect to Cloud SQL in the Tenant Project,
+   * and the PSC endpoint in the Customer Project will use an IP address from
+   * this subnetwork.
+   * </pre>
+   *
+   * <code>string cloud_composer_connection_subnetwork = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The cloudComposerConnectionSubnetwork.
+   */
+  @java.lang.Override
+  public java.lang.String getCloudComposerConnectionSubnetwork() {
+    java.lang.Object ref = cloudComposerConnectionSubnetwork_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      cloudComposerConnectionSubnetwork_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Optional. When specified, the environment will use Private Service Connect
+   * instead of VPC peerings to connect to Cloud SQL in the Tenant Project,
+   * and the PSC endpoint in the Customer Project will use an IP address from
+   * this subnetwork.
+   * </pre>
+   *
+   * <code>string cloud_composer_connection_subnetwork = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The bytes for cloudComposerConnectionSubnetwork.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCloudComposerConnectionSubnetworkBytes() {
+    java.lang.Object ref = cloudComposerConnectionSubnetwork_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      cloudComposerConnectionSubnetwork_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int NETWORKING_CONFIG_FIELD_NUMBER = 10;
+  private com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig networkingConfig_;
+  /**
+   * <pre>
+   * Optional. Configuration for the network connections configuration in the environment.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig networking_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return Whether the networkingConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasNetworkingConfig() {
+    return networkingConfig_ != null;
+  }
+  /**
+   * <pre>
+   * Optional. Configuration for the network connections configuration in the environment.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig networking_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The networkingConfig.
+   */
+  @java.lang.Override
+  public com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig getNetworkingConfig() {
+    return networkingConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig.getDefaultInstance() : networkingConfig_;
+  }
+  /**
+   * <pre>
+   * Optional. Configuration for the network connections configuration in the environment.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig networking_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfigOrBuilder getNetworkingConfigOrBuilder() {
+    return networkingConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig.getDefaultInstance() : networkingConfig_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -477,13 +513,22 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(webServerIpv4ReservedRange_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, webServerIpv4ReservedRange_);
     }
+    if (enablePrivatelyUsedPublicIps_ != false) {
+      output.writeBool(6, enablePrivatelyUsedPublicIps_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cloudComposerNetworkIpv4CidrBlock_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, cloudComposerNetworkIpv4CidrBlock_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cloudComposerNetworkIpv4ReservedRange_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, cloudComposerNetworkIpv4ReservedRange_);
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cloudComposerConnectionSubnetwork_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, cloudComposerConnectionSubnetwork_);
+    }
+    if (networkingConfig_ != null) {
+      output.writeMessage(10, getNetworkingConfig());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -509,13 +554,24 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(webServerIpv4ReservedRange_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, webServerIpv4ReservedRange_);
     }
+    if (enablePrivatelyUsedPublicIps_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(6, enablePrivatelyUsedPublicIps_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cloudComposerNetworkIpv4CidrBlock_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, cloudComposerNetworkIpv4CidrBlock_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cloudComposerNetworkIpv4ReservedRange_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, cloudComposerNetworkIpv4ReservedRange_);
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cloudComposerConnectionSubnetwork_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, cloudComposerConnectionSubnetwork_);
+    }
+    if (networkingConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(10, getNetworkingConfig());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -547,7 +603,16 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCloudComposerNetworkIpv4CidrBlock())) return false;
     if (!getCloudComposerNetworkIpv4ReservedRange()
         .equals(other.getCloudComposerNetworkIpv4ReservedRange())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (getEnablePrivatelyUsedPublicIps()
+        != other.getEnablePrivatelyUsedPublicIps()) return false;
+    if (!getCloudComposerConnectionSubnetwork()
+        .equals(other.getCloudComposerConnectionSubnetwork())) return false;
+    if (hasNetworkingConfig() != other.hasNetworkingConfig()) return false;
+    if (hasNetworkingConfig()) {
+      if (!getNetworkingConfig()
+          .equals(other.getNetworkingConfig())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -575,7 +640,16 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getCloudComposerNetworkIpv4CidrBlock().hashCode();
     hash = (37 * hash) + CLOUD_COMPOSER_NETWORK_IPV4_RESERVED_RANGE_FIELD_NUMBER;
     hash = (53 * hash) + getCloudComposerNetworkIpv4ReservedRange().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + ENABLE_PRIVATELY_USED_PUBLIC_IPS_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getEnablePrivatelyUsedPublicIps());
+    hash = (37 * hash) + CLOUD_COMPOSER_CONNECTION_SUBNETWORK_FIELD_NUMBER;
+    hash = (53 * hash) + getCloudComposerConnectionSubnetwork().hashCode();
+    if (hasNetworkingConfig()) {
+      hash = (37 * hash) + NETWORKING_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getNetworkingConfig().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -697,40 +771,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.orchestration.airflow.service.v1beta1.PrivateEnvironmentConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       enablePrivateEnvironment_ = false;
-
-      if (privateClusterConfigBuilder_ == null) {
-        privateClusterConfig_ = null;
-      } else {
-        privateClusterConfig_ = null;
+      privateClusterConfig_ = null;
+      if (privateClusterConfigBuilder_ != null) {
+        privateClusterConfigBuilder_.dispose();
         privateClusterConfigBuilder_ = null;
       }
       webServerIpv4CidrBlock_ = "";
-
       cloudSqlIpv4CidrBlock_ = "";
-
       webServerIpv4ReservedRange_ = "";
-
       cloudComposerNetworkIpv4CidrBlock_ = "";
-
       cloudComposerNetworkIpv4ReservedRange_ = "";
-
+      enablePrivatelyUsedPublicIps_ = false;
+      cloudComposerConnectionSubnetwork_ = "";
+      networkingConfig_ = null;
+      if (networkingConfigBuilder_ != null) {
+        networkingConfigBuilder_.dispose();
+        networkingConfigBuilder_ = null;
+      }
       return this;
     }
 
@@ -757,19 +827,47 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.orchestration.airflow.service.v1beta1.PrivateEnvironmentConfig buildPartial() {
       com.google.cloud.orchestration.airflow.service.v1beta1.PrivateEnvironmentConfig result = new com.google.cloud.orchestration.airflow.service.v1beta1.PrivateEnvironmentConfig(this);
-      result.enablePrivateEnvironment_ = enablePrivateEnvironment_;
-      if (privateClusterConfigBuilder_ == null) {
-        result.privateClusterConfig_ = privateClusterConfig_;
-      } else {
-        result.privateClusterConfig_ = privateClusterConfigBuilder_.build();
-      }
-      result.webServerIpv4CidrBlock_ = webServerIpv4CidrBlock_;
-      result.cloudSqlIpv4CidrBlock_ = cloudSqlIpv4CidrBlock_;
-      result.webServerIpv4ReservedRange_ = webServerIpv4ReservedRange_;
-      result.cloudComposerNetworkIpv4CidrBlock_ = cloudComposerNetworkIpv4CidrBlock_;
-      result.cloudComposerNetworkIpv4ReservedRange_ = cloudComposerNetworkIpv4ReservedRange_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.orchestration.airflow.service.v1beta1.PrivateEnvironmentConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.enablePrivateEnvironment_ = enablePrivateEnvironment_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.privateClusterConfig_ = privateClusterConfigBuilder_ == null
+            ? privateClusterConfig_
+            : privateClusterConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.webServerIpv4CidrBlock_ = webServerIpv4CidrBlock_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.cloudSqlIpv4CidrBlock_ = cloudSqlIpv4CidrBlock_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.webServerIpv4ReservedRange_ = webServerIpv4ReservedRange_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.cloudComposerNetworkIpv4CidrBlock_ = cloudComposerNetworkIpv4CidrBlock_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.cloudComposerNetworkIpv4ReservedRange_ = cloudComposerNetworkIpv4ReservedRange_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.enablePrivatelyUsedPublicIps_ = enablePrivatelyUsedPublicIps_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.cloudComposerConnectionSubnetwork_ = cloudComposerConnectionSubnetwork_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.networkingConfig_ = networkingConfigBuilder_ == null
+            ? networkingConfig_
+            : networkingConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -824,25 +922,41 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getWebServerIpv4CidrBlock().isEmpty()) {
         webServerIpv4CidrBlock_ = other.webServerIpv4CidrBlock_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getCloudSqlIpv4CidrBlock().isEmpty()) {
         cloudSqlIpv4CidrBlock_ = other.cloudSqlIpv4CidrBlock_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getWebServerIpv4ReservedRange().isEmpty()) {
         webServerIpv4ReservedRange_ = other.webServerIpv4ReservedRange_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getCloudComposerNetworkIpv4CidrBlock().isEmpty()) {
         cloudComposerNetworkIpv4CidrBlock_ = other.cloudComposerNetworkIpv4CidrBlock_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getCloudComposerNetworkIpv4ReservedRange().isEmpty()) {
         cloudComposerNetworkIpv4ReservedRange_ = other.cloudComposerNetworkIpv4ReservedRange_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.getEnablePrivatelyUsedPublicIps() != false) {
+        setEnablePrivatelyUsedPublicIps(other.getEnablePrivatelyUsedPublicIps());
+      }
+      if (!other.getCloudComposerConnectionSubnetwork().isEmpty()) {
+        cloudComposerConnectionSubnetwork_ = other.cloudComposerConnectionSubnetwork_;
+        bitField0_ |= 0x00000100;
+        onChanged();
+      }
+      if (other.hasNetworkingConfig()) {
+        mergeNetworkingConfig(other.getNetworkingConfig());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -857,26 +971,95 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.orchestration.airflow.service.v1beta1.PrivateEnvironmentConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              enablePrivateEnvironment_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getPrivateClusterConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              webServerIpv4CidrBlock_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              cloudSqlIpv4CidrBlock_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              webServerIpv4ReservedRange_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              enablePrivatelyUsedPublicIps_ = input.readBool();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 48
+            case 58: {
+              cloudComposerNetworkIpv4CidrBlock_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 58
+            case 66: {
+              cloudComposerNetworkIpv4ReservedRange_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            case 74: {
+              cloudComposerConnectionSubnetwork_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getNetworkingConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.orchestration.airflow.service.v1beta1.PrivateEnvironmentConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean enablePrivateEnvironment_ ;
     /**
      * <pre>
      * Optional. If `true`, a Private IP Cloud Composer environment is created.
      * If this field is set to true, `IPAllocationPolicy.use_ip_aliases` must be
-     * set to true .
+     * set to true for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>bool enable_private_environment = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -890,7 +1073,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. If `true`, a Private IP Cloud Composer environment is created.
      * If this field is set to true, `IPAllocationPolicy.use_ip_aliases` must be
-     * set to true .
+     * set to true for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>bool enable_private_environment = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -900,6 +1084,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnablePrivateEnvironment(boolean value) {
       
       enablePrivateEnvironment_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -907,14 +1092,15 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. If `true`, a Private IP Cloud Composer environment is created.
      * If this field is set to true, `IPAllocationPolicy.use_ip_aliases` must be
-     * set to true .
+     * set to true for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>bool enable_private_environment = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearEnablePrivateEnvironment() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       enablePrivateEnvironment_ = false;
       onChanged();
       return this;
@@ -933,7 +1119,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the privateClusterConfig field is set.
      */
     public boolean hasPrivateClusterConfig() {
-      return privateClusterConfigBuilder_ != null || privateClusterConfig_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -965,11 +1151,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         privateClusterConfig_ = value;
-        onChanged();
       } else {
         privateClusterConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -984,11 +1170,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfig.Builder builderForValue) {
       if (privateClusterConfigBuilder_ == null) {
         privateClusterConfig_ = builderForValue.build();
-        onChanged();
       } else {
         privateClusterConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1001,17 +1187,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePrivateClusterConfig(com.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfig value) {
       if (privateClusterConfigBuilder_ == null) {
-        if (privateClusterConfig_ != null) {
-          privateClusterConfig_ =
-            com.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfig.newBuilder(privateClusterConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          privateClusterConfig_ != null &&
+          privateClusterConfig_ != com.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfig.getDefaultInstance()) {
+          getPrivateClusterConfigBuilder().mergeFrom(value);
         } else {
           privateClusterConfig_ = value;
         }
-        onChanged();
       } else {
         privateClusterConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1023,14 +1210,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfig private_cluster_config = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearPrivateClusterConfig() {
-      if (privateClusterConfigBuilder_ == null) {
-        privateClusterConfig_ = null;
-        onChanged();
-      } else {
-        privateClusterConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      privateClusterConfig_ = null;
+      if (privateClusterConfigBuilder_ != null) {
+        privateClusterConfigBuilder_.dispose();
         privateClusterConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1042,7 +1228,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfig private_cluster_config = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.orchestration.airflow.service.v1beta1.PrivateClusterConfig.Builder getPrivateClusterConfigBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getPrivateClusterConfigFieldBuilder().getBuilder();
     }
@@ -1090,6 +1276,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The CIDR block from which IP range for web server will be reserved. Needs
      * to be disjoint from private_cluster_config.master_ipv4_cidr_block and
      * cloud_sql_ipv4_cidr_block.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string web_server_ipv4_cidr_block = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1112,6 +1300,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The CIDR block from which IP range for web server will be reserved. Needs
      * to be disjoint from private_cluster_config.master_ipv4_cidr_block and
      * cloud_sql_ipv4_cidr_block.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string web_server_ipv4_cidr_block = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1135,6 +1325,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The CIDR block from which IP range for web server will be reserved. Needs
      * to be disjoint from private_cluster_config.master_ipv4_cidr_block and
      * cloud_sql_ipv4_cidr_block.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string web_server_ipv4_cidr_block = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1143,11 +1335,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWebServerIpv4CidrBlock(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       webServerIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1156,14 +1346,16 @@ private static final long serialVersionUID = 0L;
      * Optional. The CIDR block from which IP range for web server will be reserved. Needs
      * to be disjoint from private_cluster_config.master_ipv4_cidr_block and
      * cloud_sql_ipv4_cidr_block.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string web_server_ipv4_cidr_block = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearWebServerIpv4CidrBlock() {
-      
       webServerIpv4CidrBlock_ = getDefaultInstance().getWebServerIpv4CidrBlock();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1172,6 +1364,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The CIDR block from which IP range for web server will be reserved. Needs
      * to be disjoint from private_cluster_config.master_ipv4_cidr_block and
      * cloud_sql_ipv4_cidr_block.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string web_server_ipv4_cidr_block = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1180,12 +1374,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWebServerIpv4CidrBlockBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       webServerIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1246,11 +1438,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudSqlIpv4CidrBlock(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       cloudSqlIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1264,8 +1454,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCloudSqlIpv4CidrBlock() {
-      
       cloudSqlIpv4CidrBlock_ = getDefaultInstance().getCloudSqlIpv4CidrBlock();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1281,12 +1471,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudSqlIpv4CidrBlockBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       cloudSqlIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1295,6 +1483,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. The IP range reserved for the tenant project's App Engine VMs.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string web_server_ipv4_reserved_range = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1315,6 +1505,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. The IP range reserved for the tenant project's App Engine VMs.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string web_server_ipv4_reserved_range = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1336,6 +1528,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. The IP range reserved for the tenant project's App Engine VMs.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string web_server_ipv4_reserved_range = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1344,31 +1538,33 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWebServerIpv4ReservedRange(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       webServerIpv4ReservedRange_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Output only. The IP range reserved for the tenant project's App Engine VMs.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string web_server_ipv4_reserved_range = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearWebServerIpv4ReservedRange() {
-      
       webServerIpv4ReservedRange_ = getDefaultInstance().getWebServerIpv4ReservedRange();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Output only. The IP range reserved for the tenant project's App Engine VMs.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string web_server_ipv4_reserved_range = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1377,12 +1573,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWebServerIpv4ReservedRangeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       webServerIpv4ReservedRange_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1455,11 +1649,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudComposerNetworkIpv4CidrBlock(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       cloudComposerNetworkIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1477,8 +1669,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCloudComposerNetworkIpv4CidrBlock() {
-      
       cloudComposerNetworkIpv4CidrBlock_ = getDefaultInstance().getCloudComposerNetworkIpv4CidrBlock();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1498,12 +1690,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudComposerNetworkIpv4CidrBlockBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       cloudComposerNetworkIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1567,11 +1757,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudComposerNetworkIpv4ReservedRange(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       cloudComposerNetworkIpv4ReservedRange_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1586,8 +1774,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCloudComposerNetworkIpv4ReservedRange() {
-      
       cloudComposerNetworkIpv4ReservedRange_ = getDefaultInstance().getCloudComposerNetworkIpv4ReservedRange();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1604,14 +1792,324 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudComposerNetworkIpv4ReservedRangeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       cloudComposerNetworkIpv4ReservedRange_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
+    }
+
+    private boolean enablePrivatelyUsedPublicIps_ ;
+    /**
+     * <pre>
+     * Optional. When enabled, IPs from public (non-RFC1918) ranges can be used for
+     * `IPAllocationPolicy.cluster_ipv4_cidr_block` and
+     * `IPAllocationPolicy.service_ipv4_cidr_block`.
+     * </pre>
+     *
+     * <code>bool enable_privately_used_public_ips = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The enablePrivatelyUsedPublicIps.
+     */
+    @java.lang.Override
+    public boolean getEnablePrivatelyUsedPublicIps() {
+      return enablePrivatelyUsedPublicIps_;
+    }
+    /**
+     * <pre>
+     * Optional. When enabled, IPs from public (non-RFC1918) ranges can be used for
+     * `IPAllocationPolicy.cluster_ipv4_cidr_block` and
+     * `IPAllocationPolicy.service_ipv4_cidr_block`.
+     * </pre>
+     *
+     * <code>bool enable_privately_used_public_ips = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The enablePrivatelyUsedPublicIps to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEnablePrivatelyUsedPublicIps(boolean value) {
+      
+      enablePrivatelyUsedPublicIps_ = value;
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. When enabled, IPs from public (non-RFC1918) ranges can be used for
+     * `IPAllocationPolicy.cluster_ipv4_cidr_block` and
+     * `IPAllocationPolicy.service_ipv4_cidr_block`.
+     * </pre>
+     *
+     * <code>bool enable_privately_used_public_ips = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEnablePrivatelyUsedPublicIps() {
+      bitField0_ = (bitField0_ & ~0x00000080);
+      enablePrivatelyUsedPublicIps_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object cloudComposerConnectionSubnetwork_ = "";
+    /**
+     * <pre>
+     * Optional. When specified, the environment will use Private Service Connect
+     * instead of VPC peerings to connect to Cloud SQL in the Tenant Project,
+     * and the PSC endpoint in the Customer Project will use an IP address from
+     * this subnetwork.
+     * </pre>
+     *
+     * <code>string cloud_composer_connection_subnetwork = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The cloudComposerConnectionSubnetwork.
+     */
+    public java.lang.String getCloudComposerConnectionSubnetwork() {
+      java.lang.Object ref = cloudComposerConnectionSubnetwork_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        cloudComposerConnectionSubnetwork_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. When specified, the environment will use Private Service Connect
+     * instead of VPC peerings to connect to Cloud SQL in the Tenant Project,
+     * and the PSC endpoint in the Customer Project will use an IP address from
+     * this subnetwork.
+     * </pre>
+     *
+     * <code>string cloud_composer_connection_subnetwork = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The bytes for cloudComposerConnectionSubnetwork.
+     */
+    public com.google.protobuf.ByteString
+        getCloudComposerConnectionSubnetworkBytes() {
+      java.lang.Object ref = cloudComposerConnectionSubnetwork_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cloudComposerConnectionSubnetwork_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. When specified, the environment will use Private Service Connect
+     * instead of VPC peerings to connect to Cloud SQL in the Tenant Project,
+     * and the PSC endpoint in the Customer Project will use an IP address from
+     * this subnetwork.
+     * </pre>
+     *
+     * <code>string cloud_composer_connection_subnetwork = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The cloudComposerConnectionSubnetwork to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCloudComposerConnectionSubnetwork(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      cloudComposerConnectionSubnetwork_ = value;
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. When specified, the environment will use Private Service Connect
+     * instead of VPC peerings to connect to Cloud SQL in the Tenant Project,
+     * and the PSC endpoint in the Customer Project will use an IP address from
+     * this subnetwork.
+     * </pre>
+     *
+     * <code>string cloud_composer_connection_subnetwork = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCloudComposerConnectionSubnetwork() {
+      cloudComposerConnectionSubnetwork_ = getDefaultInstance().getCloudComposerConnectionSubnetwork();
+      bitField0_ = (bitField0_ & ~0x00000100);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. When specified, the environment will use Private Service Connect
+     * instead of VPC peerings to connect to Cloud SQL in the Tenant Project,
+     * and the PSC endpoint in the Customer Project will use an IP address from
+     * this subnetwork.
+     * </pre>
+     *
+     * <code>string cloud_composer_connection_subnetwork = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The bytes for cloudComposerConnectionSubnetwork to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCloudComposerConnectionSubnetworkBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      cloudComposerConnectionSubnetwork_ = value;
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+
+    private com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig networkingConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig, com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig.Builder, com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfigOrBuilder> networkingConfigBuilder_;
+    /**
+     * <pre>
+     * Optional. Configuration for the network connections configuration in the environment.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig networking_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return Whether the networkingConfig field is set.
+     */
+    public boolean hasNetworkingConfig() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <pre>
+     * Optional. Configuration for the network connections configuration in the environment.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig networking_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The networkingConfig.
+     */
+    public com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig getNetworkingConfig() {
+      if (networkingConfigBuilder_ == null) {
+        return networkingConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig.getDefaultInstance() : networkingConfig_;
+      } else {
+        return networkingConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Configuration for the network connections configuration in the environment.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig networking_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setNetworkingConfig(com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig value) {
+      if (networkingConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        networkingConfig_ = value;
+      } else {
+        networkingConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Configuration for the network connections configuration in the environment.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig networking_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setNetworkingConfig(
+        com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig.Builder builderForValue) {
+      if (networkingConfigBuilder_ == null) {
+        networkingConfig_ = builderForValue.build();
+      } else {
+        networkingConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Configuration for the network connections configuration in the environment.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig networking_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder mergeNetworkingConfig(com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig value) {
+      if (networkingConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00000200) != 0) &&
+          networkingConfig_ != null &&
+          networkingConfig_ != com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig.getDefaultInstance()) {
+          getNetworkingConfigBuilder().mergeFrom(value);
+        } else {
+          networkingConfig_ = value;
+        }
+      } else {
+        networkingConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Configuration for the network connections configuration in the environment.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig networking_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder clearNetworkingConfig() {
+      bitField0_ = (bitField0_ & ~0x00000200);
+      networkingConfig_ = null;
+      if (networkingConfigBuilder_ != null) {
+        networkingConfigBuilder_.dispose();
+        networkingConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Configuration for the network connections configuration in the environment.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig networking_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig.Builder getNetworkingConfigBuilder() {
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return getNetworkingConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Optional. Configuration for the network connections configuration in the environment.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig networking_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfigOrBuilder getNetworkingConfigOrBuilder() {
+      if (networkingConfigBuilder_ != null) {
+        return networkingConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return networkingConfig_ == null ?
+            com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig.getDefaultInstance() : networkingConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Configuration for the network connections configuration in the environment.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig networking_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig, com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig.Builder, com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfigOrBuilder> 
+        getNetworkingConfigFieldBuilder() {
+      if (networkingConfigBuilder_ == null) {
+        networkingConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig, com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfig.Builder, com.google.cloud.orchestration.airflow.service.v1beta1.NetworkingConfigOrBuilder>(
+                getNetworkingConfig(),
+                getParentForChildren(),
+                isClean());
+        networkingConfig_ = null;
+      }
+      return networkingConfigBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1646,7 +2144,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PrivateEnvironmentConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

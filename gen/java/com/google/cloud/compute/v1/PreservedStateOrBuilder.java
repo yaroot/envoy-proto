@@ -46,7 +46,6 @@ public interface PreservedStateOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.PreservedStatePreservedDisk&gt; disks = 95594102;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.PreservedStatePreservedDisk getDisksOrDefault(
       java.lang.String key,
@@ -59,7 +58,6 @@ com.google.cloud.compute.v1.PreservedStatePreservedDisk defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.PreservedStatePreservedDisk&gt; disks = 95594102;</code>
    */
-
   com.google.cloud.compute.v1.PreservedStatePreservedDisk getDisksOrThrow(
       java.lang.String key);
 
@@ -102,7 +100,6 @@ com.google.cloud.compute.v1.PreservedStatePreservedDisk defaultValue);
    *
    * <code>map&lt;string, string&gt; metadata = 86866735;</code>
    */
-
   /* nullable */
 java.lang.String getMetadataOrDefault(
       java.lang.String key,
@@ -115,7 +112,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; metadata = 86866735;</code>
    */
-
   java.lang.String getMetadataOrThrow(
       java.lang.String key);
 }

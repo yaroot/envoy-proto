@@ -78,7 +78,6 @@ public interface ControllerConfigOrBuilder extends
   /**
    * <code>map&lt;string, string&gt; vars = 5;</code>
    */
-
   /* nullable */
 java.lang.String getVarsOrDefault(
       java.lang.String key,
@@ -87,7 +86,6 @@ java.lang.String defaultValue);
   /**
    * <code>map&lt;string, string&gt; vars = 5;</code>
    */
-
   java.lang.String getVarsOrThrow(
       java.lang.String key);
 
@@ -114,7 +112,6 @@ java.lang.String defaultValue);
   /**
    * <code>map&lt;string, string&gt; disks = 6;</code>
    */
-
   /* nullable */
 java.lang.String getDisksOrDefault(
       java.lang.String key,
@@ -123,7 +120,6 @@ java.lang.String defaultValue);
   /**
    * <code>map&lt;string, string&gt; disks = 6;</code>
    */
-
   java.lang.String getDisksOrThrow(
       java.lang.String key);
 
@@ -150,7 +146,6 @@ java.lang.String defaultValue);
   /**
    * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sources = 7;</code>
    */
-
   /* nullable */
 com.google.genomics.v1a.ControllerConfig.RepeatedString getGcsSourcesOrDefault(
       java.lang.String key,
@@ -159,7 +154,6 @@ com.google.genomics.v1a.ControllerConfig.RepeatedString defaultValue);
   /**
    * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sources = 7;</code>
    */
-
   com.google.genomics.v1a.ControllerConfig.RepeatedString getGcsSourcesOrThrow(
       java.lang.String key);
 
@@ -186,7 +180,6 @@ com.google.genomics.v1a.ControllerConfig.RepeatedString defaultValue);
   /**
    * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sinks = 8;</code>
    */
-
   /* nullable */
 com.google.genomics.v1a.ControllerConfig.RepeatedString getGcsSinksOrDefault(
       java.lang.String key,
@@ -195,7 +188,6 @@ com.google.genomics.v1a.ControllerConfig.RepeatedString defaultValue);
   /**
    * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sinks = 8;</code>
    */
-
   com.google.genomics.v1a.ControllerConfig.RepeatedString getGcsSinksOrThrow(
       java.lang.String key);
 }

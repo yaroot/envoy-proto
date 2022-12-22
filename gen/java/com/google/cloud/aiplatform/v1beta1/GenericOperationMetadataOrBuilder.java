@@ -12,7 +12,7 @@ public interface GenericOperationMetadataOrBuilder extends
    * Output only. Partial failures encountered.
    * E.g. single files that couldn't be read.
    * This field should never exceed 20 entries.
-   * Status details field will contain standard GCP error details.
+   * Status details field will contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -24,7 +24,7 @@ public interface GenericOperationMetadataOrBuilder extends
    * Output only. Partial failures encountered.
    * E.g. single files that couldn't be read.
    * This field should never exceed 20 entries.
-   * Status details field will contain standard GCP error details.
+   * Status details field will contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -35,7 +35,7 @@ public interface GenericOperationMetadataOrBuilder extends
    * Output only. Partial failures encountered.
    * E.g. single files that couldn't be read.
    * This field should never exceed 20 entries.
-   * Status details field will contain standard GCP error details.
+   * Status details field will contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -46,7 +46,7 @@ public interface GenericOperationMetadataOrBuilder extends
    * Output only. Partial failures encountered.
    * E.g. single files that couldn't be read.
    * This field should never exceed 20 entries.
-   * Status details field will contain standard GCP error details.
+   * Status details field will contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -58,7 +58,7 @@ public interface GenericOperationMetadataOrBuilder extends
    * Output only. Partial failures encountered.
    * E.g. single files that couldn't be read.
    * This field should never exceed 20 entries.
-   * Status details field will contain standard GCP error details.
+   * Status details field will contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>

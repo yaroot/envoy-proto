@@ -5,7 +5,7 @@ package com.google.recaptchaenterprise.v1;
 
 /**
  * <pre>
- * Account Defender risk assessment.
+ * Account defender risk assessment.
  * </pre>
  *
  * Protobuf type {@code google.cloud.recaptchaenterprise.v1.AccountDefenderAssessment}
@@ -35,72 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AccountDefenderAssessment(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            labels_.add(rawValue);
-            break;
-          }
-          case 10: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                labels_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              labels_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        labels_ = java.util.Collections.unmodifiableList(labels_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.recaptchaenterprise.v1.RecaptchaEnterpriseProto.internal_static_google_cloud_recaptchaenterprise_v1_AccountDefenderAssessment_descriptor;
@@ -116,7 +50,7 @@ private static final long serialVersionUID = 0L;
 
   /**
    * <pre>
-   * Labels returned by Account Defender for this request.
+   * Labels returned by account defender for this request.
    * </pre>
    *
    * Protobuf enum {@code google.cloud.recaptchaenterprise.v1.AccountDefenderAssessment.AccountDefenderLabel}
@@ -141,8 +75,8 @@ private static final long serialVersionUID = 0L;
     PROFILE_MATCH(1),
     /**
      * <pre>
-     * The request is potentially a suspicious login event and should be further
-     * verified either via multi-factor authentication or another system.
+     * The request is potentially a suspicious login event and must be further
+     * verified either through multi-factor authentication or another system.
      * </pre>
      *
      * <code>SUSPICIOUS_LOGIN_ACTIVITY = 2;</code>
@@ -151,7 +85,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The request matched a profile that previously had suspicious account
-     * creation behavior. This could mean this is a fake account.
+     * creation behavior. This can mean that this is a fake account.
      * </pre>
      *
      * <code>SUSPICIOUS_ACCOUNT_CREATION = 3;</code>
@@ -160,8 +94,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The account in the request has a high number of related accounts. It does
-     * not necessarily imply that the account is bad but could require
-     * investigating.
+     * not necessarily imply that the account is bad but can require further
+     * investigation.
      * </pre>
      *
      * <code>RELATED_ACCOUNTS_NUMBER_HIGH = 4;</code>
@@ -188,8 +122,8 @@ private static final long serialVersionUID = 0L;
     public static final int PROFILE_MATCH_VALUE = 1;
     /**
      * <pre>
-     * The request is potentially a suspicious login event and should be further
-     * verified either via multi-factor authentication or another system.
+     * The request is potentially a suspicious login event and must be further
+     * verified either through multi-factor authentication or another system.
      * </pre>
      *
      * <code>SUSPICIOUS_LOGIN_ACTIVITY = 2;</code>
@@ -198,7 +132,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The request matched a profile that previously had suspicious account
-     * creation behavior. This could mean this is a fake account.
+     * creation behavior. This can mean that this is a fake account.
      * </pre>
      *
      * <code>SUSPICIOUS_ACCOUNT_CREATION = 3;</code>
@@ -207,8 +141,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The account in the request has a high number of related accounts. It does
-     * not necessarily imply that the account is bad but could require
-     * investigating.
+     * not necessarily imply that the account is bad but can require further
+     * investigation.
      * </pre>
      *
      * <code>RELATED_ACCOUNTS_NUMBER_HIGH = 4;</code>
@@ -302,14 +236,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LABELS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> labels_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.recaptchaenterprise.v1.AccountDefenderAssessment.AccountDefenderLabel> labels_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.recaptchaenterprise.v1.AccountDefenderAssessment.AccountDefenderLabel>() {
             public com.google.recaptchaenterprise.v1.AccountDefenderAssessment.AccountDefenderLabel convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.recaptchaenterprise.v1.AccountDefenderAssessment.AccountDefenderLabel result = com.google.recaptchaenterprise.v1.AccountDefenderAssessment.AccountDefenderLabel.valueOf(from);
+              com.google.recaptchaenterprise.v1.AccountDefenderAssessment.AccountDefenderLabel result = com.google.recaptchaenterprise.v1.AccountDefenderAssessment.AccountDefenderLabel.forNumber(from);
               return result == null ? com.google.recaptchaenterprise.v1.AccountDefenderAssessment.AccountDefenderLabel.UNRECOGNIZED : result;
             }
           };
@@ -401,7 +335,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < labels_.size(); i++) {
       output.writeEnumNoTag(labels_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -422,7 +356,7 @@ private static final long serialVersionUID = 0L;
           .computeUInt32SizeNoTag(dataSize);
       }labelsMemoizedSerializedSize = dataSize;
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -438,7 +372,7 @@ private static final long serialVersionUID = 0L;
     com.google.recaptchaenterprise.v1.AccountDefenderAssessment other = (com.google.recaptchaenterprise.v1.AccountDefenderAssessment) obj;
 
     if (!labels_.equals(other.labels_)) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -453,7 +387,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LABELS_FIELD_NUMBER;
       hash = (53 * hash) + labels_.hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -550,7 +484,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Account Defender risk assessment.
+   * Account defender risk assessment.
    * </pre>
    *
    * Protobuf type {@code google.cloud.recaptchaenterprise.v1.AccountDefenderAssessment}
@@ -574,22 +508,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.recaptchaenterprise.v1.AccountDefenderAssessment.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       labels_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000001);
       return this;
@@ -618,14 +548,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.recaptchaenterprise.v1.AccountDefenderAssessment buildPartial() {
       com.google.recaptchaenterprise.v1.AccountDefenderAssessment result = new com.google.recaptchaenterprise.v1.AccountDefenderAssessment(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.recaptchaenterprise.v1.AccountDefenderAssessment result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         labels_ = java.util.Collections.unmodifiableList(labels_);
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.labels_ = labels_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.recaptchaenterprise.v1.AccountDefenderAssessment result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -682,7 +620,7 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -697,17 +635,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.recaptchaenterprise.v1.AccountDefenderAssessment parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int tmpRaw = input.readEnum();
+              ensureLabelsIsMutable();
+              labels_.add(tmpRaw);
+              break;
+            } // case 8
+            case 10: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureLabelsIsMutable();
+                labels_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.recaptchaenterprise.v1.AccountDefenderAssessment) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -932,7 +900,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AccountDefenderAssessment(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

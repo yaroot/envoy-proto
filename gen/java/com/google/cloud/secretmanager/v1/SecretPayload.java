@@ -6,7 +6,8 @@ package com.google.cloud.secretmanager.v1;
 /**
  * <pre>
  * A secret payload resource in the Secret Manager API. This contains the
- * sensitive secret payload that is associated with a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+ * sensitive secret payload that is associated with a
+ * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
  * </pre>
  *
  * Protobuf type {@code google.cloud.secretmanager.v1.SecretPayload}
@@ -36,56 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SecretPayload(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-
-            data_ = input.readBytes();
-            break;
-          }
-          case 16: {
-            bitField0_ |= 0x00000001;
-            dataCrc32C_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.secretmanager.v1.ResourcesProto.internal_static_google_cloud_secretmanager_v1_SecretPayload_descriptor;
@@ -101,7 +52,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int DATA_FIELD_NUMBER = 1;
-  private com.google.protobuf.ByteString data_;
+  private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * The secret data. Must be no larger than 64KiB.
@@ -116,15 +67,21 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATA_CRC32C_FIELD_NUMBER = 2;
-  private long dataCrc32C_;
+  private long dataCrc32C_ = 0L;
   /**
    * <pre>
-   * Optional. If specified, [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService] will verify the integrity of the
-   * received [data][google.cloud.secretmanager.v1.SecretPayload.data] on [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion] calls using
-   * the crc32c checksum and store it to include in future
-   * [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion] responses. If a checksum is
-   * not provided in the [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion] request, the
-   * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService] will generate and store one for you.
+   * Optional. If specified,
+   * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService]
+   * will verify the integrity of the received
+   * [data][google.cloud.secretmanager.v1.SecretPayload.data] on
+   * [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion]
+   * calls using the crc32c checksum and store it to include in future
+   * [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion]
+   * responses. If a checksum is not provided in the
+   * [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion]
+   * request, the
+   * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService]
+   * will generate and store one for you.
    * The CRC32C value is encoded as a Int64 for compatibility, and can be
    * safely downconverted to uint32 in languages that support this type.
    * https://cloud.google.com/apis/design/design_patterns#integer_types
@@ -139,12 +96,18 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. If specified, [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService] will verify the integrity of the
-   * received [data][google.cloud.secretmanager.v1.SecretPayload.data] on [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion] calls using
-   * the crc32c checksum and store it to include in future
-   * [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion] responses. If a checksum is
-   * not provided in the [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion] request, the
-   * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService] will generate and store one for you.
+   * Optional. If specified,
+   * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService]
+   * will verify the integrity of the received
+   * [data][google.cloud.secretmanager.v1.SecretPayload.data] on
+   * [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion]
+   * calls using the crc32c checksum and store it to include in future
+   * [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion]
+   * responses. If a checksum is not provided in the
+   * [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion]
+   * request, the
+   * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService]
+   * will generate and store one for you.
    * The CRC32C value is encoded as a Int64 for compatibility, and can be
    * safely downconverted to uint32 in languages that support this type.
    * https://cloud.google.com/apis/design/design_patterns#integer_types
@@ -178,7 +141,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeInt64(2, dataCrc32C_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -195,7 +158,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, dataCrc32C_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -217,7 +180,7 @@ private static final long serialVersionUID = 0L;
       if (getDataCrc32C()
           != other.getDataCrc32C()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -235,7 +198,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getDataCrc32C());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -333,7 +296,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * A secret payload resource in the Secret Manager API. This contains the
-   * sensitive secret payload that is associated with a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+   * sensitive secret payload that is associated with a
+   * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
    * </pre>
    *
    * Protobuf type {@code google.cloud.secretmanager.v1.SecretPayload}
@@ -357,26 +321,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.secretmanager.v1.SecretPayload.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       data_ = com.google.protobuf.ByteString.EMPTY;
-
       dataCrc32C_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -403,16 +361,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.secretmanager.v1.SecretPayload buildPartial() {
       com.google.cloud.secretmanager.v1.SecretPayload result = new com.google.cloud.secretmanager.v1.SecretPayload(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.secretmanager.v1.SecretPayload result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.data_ = data_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.data_ = data_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.dataCrc32C_ = dataCrc32C_;
         to_bitField0_ |= 0x00000001;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -465,7 +429,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDataCrc32C()) {
         setDataCrc32C(other.getDataCrc32C());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -480,17 +444,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.secretmanager.v1.SecretPayload parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              data_ = input.readBytes();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              dataCrc32C_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.secretmanager.v1.SecretPayload) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -518,11 +505,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setData(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       data_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -535,7 +520,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearData() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       data_ = getDefaultInstance().getData();
       onChanged();
       return this;
@@ -544,12 +529,18 @@ private static final long serialVersionUID = 0L;
     private long dataCrc32C_ ;
     /**
      * <pre>
-     * Optional. If specified, [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService] will verify the integrity of the
-     * received [data][google.cloud.secretmanager.v1.SecretPayload.data] on [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion] calls using
-     * the crc32c checksum and store it to include in future
-     * [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion] responses. If a checksum is
-     * not provided in the [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion] request, the
-     * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService] will generate and store one for you.
+     * Optional. If specified,
+     * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService]
+     * will verify the integrity of the received
+     * [data][google.cloud.secretmanager.v1.SecretPayload.data] on
+     * [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion]
+     * calls using the crc32c checksum and store it to include in future
+     * [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion]
+     * responses. If a checksum is not provided in the
+     * [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion]
+     * request, the
+     * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService]
+     * will generate and store one for you.
      * The CRC32C value is encoded as a Int64 for compatibility, and can be
      * safely downconverted to uint32 in languages that support this type.
      * https://cloud.google.com/apis/design/design_patterns#integer_types
@@ -560,16 +551,22 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasDataCrc32C() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
-     * Optional. If specified, [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService] will verify the integrity of the
-     * received [data][google.cloud.secretmanager.v1.SecretPayload.data] on [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion] calls using
-     * the crc32c checksum and store it to include in future
-     * [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion] responses. If a checksum is
-     * not provided in the [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion] request, the
-     * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService] will generate and store one for you.
+     * Optional. If specified,
+     * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService]
+     * will verify the integrity of the received
+     * [data][google.cloud.secretmanager.v1.SecretPayload.data] on
+     * [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion]
+     * calls using the crc32c checksum and store it to include in future
+     * [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion]
+     * responses. If a checksum is not provided in the
+     * [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion]
+     * request, the
+     * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService]
+     * will generate and store one for you.
      * The CRC32C value is encoded as a Int64 for compatibility, and can be
      * safely downconverted to uint32 in languages that support this type.
      * https://cloud.google.com/apis/design/design_patterns#integer_types
@@ -584,12 +581,18 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. If specified, [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService] will verify the integrity of the
-     * received [data][google.cloud.secretmanager.v1.SecretPayload.data] on [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion] calls using
-     * the crc32c checksum and store it to include in future
-     * [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion] responses. If a checksum is
-     * not provided in the [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion] request, the
-     * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService] will generate and store one for you.
+     * Optional. If specified,
+     * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService]
+     * will verify the integrity of the received
+     * [data][google.cloud.secretmanager.v1.SecretPayload.data] on
+     * [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion]
+     * calls using the crc32c checksum and store it to include in future
+     * [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion]
+     * responses. If a checksum is not provided in the
+     * [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion]
+     * request, the
+     * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService]
+     * will generate and store one for you.
      * The CRC32C value is encoded as a Int64 for compatibility, and can be
      * safely downconverted to uint32 in languages that support this type.
      * https://cloud.google.com/apis/design/design_patterns#integer_types
@@ -600,19 +603,26 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDataCrc32C(long value) {
-      bitField0_ |= 0x00000001;
+      
       dataCrc32C_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. If specified, [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService] will verify the integrity of the
-     * received [data][google.cloud.secretmanager.v1.SecretPayload.data] on [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion] calls using
-     * the crc32c checksum and store it to include in future
-     * [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion] responses. If a checksum is
-     * not provided in the [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion] request, the
-     * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService] will generate and store one for you.
+     * Optional. If specified,
+     * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService]
+     * will verify the integrity of the received
+     * [data][google.cloud.secretmanager.v1.SecretPayload.data] on
+     * [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion]
+     * calls using the crc32c checksum and store it to include in future
+     * [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion]
+     * responses. If a checksum is not provided in the
+     * [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion]
+     * request, the
+     * [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService]
+     * will generate and store one for you.
      * The CRC32C value is encoded as a Int64 for compatibility, and can be
      * safely downconverted to uint32 in languages that support this type.
      * https://cloud.google.com/apis/design/design_patterns#integer_types
@@ -622,7 +632,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDataCrc32C() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       dataCrc32C_ = 0L;
       onChanged();
       return this;
@@ -660,7 +670,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SecretPayload(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

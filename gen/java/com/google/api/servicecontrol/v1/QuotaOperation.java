@@ -39,95 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private QuotaOperation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            operationId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            methodName_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            consumerId_ = s;
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              quotaMetrics_ = new java.util.ArrayList<com.google.api.servicecontrol.v1.MetricValueSet>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            quotaMetrics_.add(
-                input.readMessage(com.google.api.servicecontrol.v1.MetricValueSet.parser(), extensionRegistry));
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            quotaMode_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        quotaMetrics_ = java.util.Collections.unmodifiableList(quotaMetrics_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.servicecontrol.v1.QuotaControllerProto.internal_static_google_api_servicecontrol_v1_QuotaOperation_descriptor;
@@ -394,7 +305,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OPERATION_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object operationId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object operationId_ = "";
   /**
    * <pre>
    * Identity of the operation. This is expected to be unique within the scope
@@ -454,7 +366,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int METHOD_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object methodName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object methodName_ = "";
   /**
    * <pre>
    * Fully qualified name of the API method for which this quota operation is
@@ -514,7 +427,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONSUMER_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object consumerId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object consumerId_ = "";
   /**
    * <pre>
    * Identity of the consumer for whom this quota operation is being performed.
@@ -579,6 +493,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -589,7 +504,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -600,7 +514,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -623,7 +536,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -635,10 +547,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -652,7 +565,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -665,6 +577,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUOTA_METRICS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.api.servicecontrol.v1.MetricValueSet> quotaMetrics_;
   /**
    * <pre>
@@ -770,7 +683,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUOTA_MODE_FIELD_NUMBER = 6;
-  private int quotaMode_;
+  private int quotaMode_ = 0;
   /**
    * <pre>
    * Quota mode for this operation.
@@ -791,8 +704,7 @@ private static final long serialVersionUID = 0L;
    * @return The quotaMode.
    */
   @java.lang.Override public com.google.api.servicecontrol.v1.QuotaOperation.QuotaMode getQuotaMode() {
-    @SuppressWarnings("deprecation")
-    com.google.api.servicecontrol.v1.QuotaOperation.QuotaMode result = com.google.api.servicecontrol.v1.QuotaOperation.QuotaMode.valueOf(quotaMode_);
+    com.google.api.servicecontrol.v1.QuotaOperation.QuotaMode result = com.google.api.servicecontrol.v1.QuotaOperation.QuotaMode.forNumber(quotaMode_);
     return result == null ? com.google.api.servicecontrol.v1.QuotaOperation.QuotaMode.UNRECOGNIZED : result;
   }
 
@@ -831,7 +743,7 @@ private static final long serialVersionUID = 0L;
     if (quotaMode_ != com.google.api.servicecontrol.v1.QuotaOperation.QuotaMode.UNSPECIFIED.getNumber()) {
       output.writeEnum(6, quotaMode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -867,7 +779,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(6, quotaMode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -893,7 +805,7 @@ private static final long serialVersionUID = 0L;
     if (!getQuotaMetricsList()
         .equals(other.getQuotaMetricsList())) return false;
     if (quotaMode_ != other.quotaMode_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -920,7 +832,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + QUOTA_MODE_FIELD_NUMBER;
     hash = (53 * hash) + quotaMode_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1063,38 +975,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.servicecontrol.v1.QuotaOperation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getQuotaMetricsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       operationId_ = "";
-
       methodName_ = "";
-
       consumerId_ = "";
-
       internalGetMutableLabels().clear();
       if (quotaMetricsBuilder_ == null) {
         quotaMetrics_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        quotaMetrics_ = null;
         quotaMetricsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       quotaMode_ = 0;
-
       return this;
     }
 
@@ -1121,24 +1025,42 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.servicecontrol.v1.QuotaOperation buildPartial() {
       com.google.api.servicecontrol.v1.QuotaOperation result = new com.google.api.servicecontrol.v1.QuotaOperation(this);
-      int from_bitField0_ = bitField0_;
-      result.operationId_ = operationId_;
-      result.methodName_ = methodName_;
-      result.consumerId_ = consumerId_;
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.api.servicecontrol.v1.QuotaOperation result) {
       if (quotaMetricsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           quotaMetrics_ = java.util.Collections.unmodifiableList(quotaMetrics_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.quotaMetrics_ = quotaMetrics_;
       } else {
         result.quotaMetrics_ = quotaMetricsBuilder_.build();
       }
-      result.quotaMode_ = quotaMode_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.api.servicecontrol.v1.QuotaOperation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.operationId_ = operationId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.methodName_ = methodName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.consumerId_ = consumerId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.quotaMode_ = quotaMode_;
+      }
     }
 
     @java.lang.Override
@@ -1187,23 +1109,27 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.api.servicecontrol.v1.QuotaOperation.getDefaultInstance()) return this;
       if (!other.getOperationId().isEmpty()) {
         operationId_ = other.operationId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getMethodName().isEmpty()) {
         methodName_ = other.methodName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getConsumerId().isEmpty()) {
         consumerId_ = other.consumerId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000008;
       if (quotaMetricsBuilder_ == null) {
         if (!other.quotaMetrics_.isEmpty()) {
           if (quotaMetrics_.isEmpty()) {
             quotaMetrics_ = other.quotaMetrics_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureQuotaMetricsIsMutable();
             quotaMetrics_.addAll(other.quotaMetrics_);
@@ -1216,7 +1142,7 @@ private static final long serialVersionUID = 0L;
             quotaMetricsBuilder_.dispose();
             quotaMetricsBuilder_ = null;
             quotaMetrics_ = other.quotaMetrics_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
             quotaMetricsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getQuotaMetricsFieldBuilder() : null;
@@ -1228,7 +1154,7 @@ private static final long serialVersionUID = 0L;
       if (other.quotaMode_ != 0) {
         setQuotaModeValue(other.getQuotaModeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1243,17 +1169,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.servicecontrol.v1.QuotaOperation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              operationId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              methodName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              consumerId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.api.servicecontrol.v1.MetricValueSet m =
+                  input.readMessage(
+                      com.google.api.servicecontrol.v1.MetricValueSet.parser(),
+                      extensionRegistry);
+              if (quotaMetricsBuilder_ == null) {
+                ensureQuotaMetricsIsMutable();
+                quotaMetrics_.add(m);
+              } else {
+                quotaMetricsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 48: {
+              quotaMode_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.servicecontrol.v1.QuotaOperation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1332,11 +1313,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOperationId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       operationId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1356,8 +1335,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOperationId() {
-      
       operationId_ = getDefaultInstance().getOperationId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1379,12 +1358,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOperationIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       operationId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1463,11 +1440,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMethodName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       methodName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1487,8 +1462,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMethodName() {
-      
       methodName_ = getDefaultInstance().getMethodName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1510,12 +1485,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMethodNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       methodName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1585,11 +1558,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConsumerId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       consumerId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1606,8 +1577,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConsumerId() {
-      
       consumerId_ = getDefaultInstance().getConsumerId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1626,12 +1597,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConsumerIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       consumerId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1639,7 +1608,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -1647,8 +1616,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -1656,9 +1624,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000008;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -1669,7 +1638,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -1692,7 +1660,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -1704,10 +1671,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -1721,7 +1689,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1732,8 +1699,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -1745,7 +1712,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1758,7 +1724,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000008;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -1772,12 +1739,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
@@ -1787,20 +1752,20 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000008;
       return this;
     }
 
     private java.util.List<com.google.api.servicecontrol.v1.MetricValueSet> quotaMetrics_ =
       java.util.Collections.emptyList();
     private void ensureQuotaMetricsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         quotaMetrics_ = new java.util.ArrayList<com.google.api.servicecontrol.v1.MetricValueSet>(quotaMetrics_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -2093,7 +2058,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearQuotaMetrics() {
       if (quotaMetricsBuilder_ == null) {
         quotaMetrics_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         quotaMetricsBuilder_.clear();
@@ -2261,7 +2226,7 @@ private static final long serialVersionUID = 0L;
         quotaMetricsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.api.servicecontrol.v1.MetricValueSet, com.google.api.servicecontrol.v1.MetricValueSet.Builder, com.google.api.servicecontrol.v1.MetricValueSetOrBuilder>(
                 quotaMetrics_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         quotaMetrics_ = null;
@@ -2291,8 +2256,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setQuotaModeValue(int value) {
-      
       quotaMode_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2306,8 +2271,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.api.servicecontrol.v1.QuotaOperation.QuotaMode getQuotaMode() {
-      @SuppressWarnings("deprecation")
-      com.google.api.servicecontrol.v1.QuotaOperation.QuotaMode result = com.google.api.servicecontrol.v1.QuotaOperation.QuotaMode.valueOf(quotaMode_);
+      com.google.api.servicecontrol.v1.QuotaOperation.QuotaMode result = com.google.api.servicecontrol.v1.QuotaOperation.QuotaMode.forNumber(quotaMode_);
       return result == null ? com.google.api.servicecontrol.v1.QuotaOperation.QuotaMode.UNRECOGNIZED : result;
     }
     /**
@@ -2323,7 +2287,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       quotaMode_ = value.getNumber();
       onChanged();
       return this;
@@ -2337,7 +2301,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearQuotaMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       quotaMode_ = 0;
       onChanged();
       return this;
@@ -2375,7 +2339,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new QuotaOperation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

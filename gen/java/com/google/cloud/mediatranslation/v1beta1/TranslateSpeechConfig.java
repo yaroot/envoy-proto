@@ -39,74 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TranslateSpeechConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            audioEncoding_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sourceLanguageCode_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            targetLanguageCode_ = s;
-            break;
-          }
-          case 32: {
-
-            sampleRateHertz_ = input.readInt32();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            model_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.mediatranslation.v1beta1.MediaTranslationProto.internal_static_google_cloud_mediatranslation_v1beta1_TranslateSpeechConfig_descriptor;
@@ -121,7 +53,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUDIO_ENCODING_FIELD_NUMBER = 1;
-  private volatile java.lang.Object audioEncoding_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object audioEncoding_ = "";
   /**
    * <pre>
    * Required. Encoding of audio data.
@@ -209,7 +142,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_LANGUAGE_CODE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object sourceLanguageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sourceLanguageCode_ = "";
   /**
    * <pre>
    * Required. Source language code (BCP-47) of the input audio.
@@ -255,7 +189,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGET_LANGUAGE_CODE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object targetLanguageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object targetLanguageCode_ = "";
   /**
    * <pre>
    * Required. Target language code (BCP-47) of the output.
@@ -301,7 +236,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SAMPLE_RATE_HERTZ_FIELD_NUMBER = 4;
-  private int sampleRateHertz_;
+  private int sampleRateHertz_ = 0;
   /**
    * <pre>
    * Optional. Sample rate in Hertz of the audio data. Valid values are:
@@ -319,7 +254,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODEL_FIELD_NUMBER = 5;
-  private volatile java.lang.Object model_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object model_ = "";
   /**
    * <pre>
    * Optional. `google-provided-model/video` and
@@ -397,7 +333,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(model_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, model_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -422,7 +358,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(model_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, model_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -447,7 +383,7 @@ private static final long serialVersionUID = 0L;
         != other.getSampleRateHertz()) return false;
     if (!getModel()
         .equals(other.getModel())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -468,7 +404,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getSampleRateHertz();
     hash = (37 * hash) + MODEL_FIELD_NUMBER;
     hash = (53 * hash) + getModel().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -590,32 +526,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.mediatranslation.v1beta1.TranslateSpeechConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       audioEncoding_ = "";
-
       sourceLanguageCode_ = "";
-
       targetLanguageCode_ = "";
-
       sampleRateHertz_ = 0;
-
       model_ = "";
-
       return this;
     }
 
@@ -642,13 +569,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.mediatranslation.v1beta1.TranslateSpeechConfig buildPartial() {
       com.google.cloud.mediatranslation.v1beta1.TranslateSpeechConfig result = new com.google.cloud.mediatranslation.v1beta1.TranslateSpeechConfig(this);
-      result.audioEncoding_ = audioEncoding_;
-      result.sourceLanguageCode_ = sourceLanguageCode_;
-      result.targetLanguageCode_ = targetLanguageCode_;
-      result.sampleRateHertz_ = sampleRateHertz_;
-      result.model_ = model_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.mediatranslation.v1beta1.TranslateSpeechConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.audioEncoding_ = audioEncoding_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.sourceLanguageCode_ = sourceLanguageCode_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.targetLanguageCode_ = targetLanguageCode_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.sampleRateHertz_ = sampleRateHertz_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.model_ = model_;
+      }
     }
 
     @java.lang.Override
@@ -697,14 +639,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.mediatranslation.v1beta1.TranslateSpeechConfig.getDefaultInstance()) return this;
       if (!other.getAudioEncoding().isEmpty()) {
         audioEncoding_ = other.audioEncoding_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSourceLanguageCode().isEmpty()) {
         sourceLanguageCode_ = other.sourceLanguageCode_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getTargetLanguageCode().isEmpty()) {
         targetLanguageCode_ = other.targetLanguageCode_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getSampleRateHertz() != 0) {
@@ -712,9 +657,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getModel().isEmpty()) {
         model_ = other.model_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -729,19 +675,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.mediatranslation.v1beta1.TranslateSpeechConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              audioEncoding_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              sourceLanguageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              targetLanguageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              sampleRateHertz_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              model_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.mediatranslation.v1beta1.TranslateSpeechConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object audioEncoding_ = "";
     /**
@@ -859,11 +844,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAudioEncoding(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       audioEncoding_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -897,8 +880,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAudioEncoding() {
-      
       audioEncoding_ = getDefaultInstance().getAudioEncoding();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -934,12 +917,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAudioEncodingBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       audioEncoding_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -997,11 +978,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sourceLanguageCode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1014,8 +993,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceLanguageCode() {
-      
       sourceLanguageCode_ = getDefaultInstance().getSourceLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1030,12 +1009,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceLanguageCode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1093,11 +1070,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTargetLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       targetLanguageCode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1110,8 +1085,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTargetLanguageCode() {
-      
       targetLanguageCode_ = getDefaultInstance().getTargetLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1126,12 +1101,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTargetLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       targetLanguageCode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1167,6 +1140,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSampleRateHertz(int value) {
       
       sampleRateHertz_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1182,7 +1156,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSampleRateHertz() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       sampleRateHertz_ = 0;
       onChanged();
       return this;
@@ -1247,11 +1221,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       model_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1266,8 +1238,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearModel() {
-      
       model_ = getDefaultInstance().getModel();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1284,12 +1256,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       model_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1326,7 +1296,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TranslateSpeechConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

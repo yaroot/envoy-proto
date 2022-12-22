@@ -10,7 +10,6 @@ public interface ReadOptionsOrBuilder extends
   /**
    * <pre>
    * The non-transactional read consistency to use.
-   * Cannot be set to `STRONG` for global queries.
    * </pre>
    *
    * <code>.google.datastore.v1.ReadOptions.ReadConsistency read_consistency = 1;</code>
@@ -20,7 +19,6 @@ public interface ReadOptionsOrBuilder extends
   /**
    * <pre>
    * The non-transactional read consistency to use.
-   * Cannot be set to `STRONG` for global queries.
    * </pre>
    *
    * <code>.google.datastore.v1.ReadOptions.ReadConsistency read_consistency = 1;</code>
@@ -30,7 +28,6 @@ public interface ReadOptionsOrBuilder extends
   /**
    * <pre>
    * The non-transactional read consistency to use.
-   * Cannot be set to `STRONG` for global queries.
    * </pre>
    *
    * <code>.google.datastore.v1.ReadOptions.ReadConsistency read_consistency = 1;</code>

@@ -37,93 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Volume(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            volume_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.lifesciences.v2beta.PersistentDisk.Builder subBuilder = null;
-            if (storageCase_ == 2) {
-              subBuilder = ((com.google.cloud.lifesciences.v2beta.PersistentDisk) storage_).toBuilder();
-            }
-            storage_ =
-                input.readMessage(com.google.cloud.lifesciences.v2beta.PersistentDisk.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.lifesciences.v2beta.PersistentDisk) storage_);
-              storage_ = subBuilder.buildPartial();
-            }
-            storageCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.cloud.lifesciences.v2beta.ExistingDisk.Builder subBuilder = null;
-            if (storageCase_ == 3) {
-              subBuilder = ((com.google.cloud.lifesciences.v2beta.ExistingDisk) storage_).toBuilder();
-            }
-            storage_ =
-                input.readMessage(com.google.cloud.lifesciences.v2beta.ExistingDisk.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.lifesciences.v2beta.ExistingDisk) storage_);
-              storage_ = subBuilder.buildPartial();
-            }
-            storageCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.cloud.lifesciences.v2beta.NFSMount.Builder subBuilder = null;
-            if (storageCase_ == 4) {
-              subBuilder = ((com.google.cloud.lifesciences.v2beta.NFSMount) storage_).toBuilder();
-            }
-            storage_ =
-                input.readMessage(com.google.cloud.lifesciences.v2beta.NFSMount.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.lifesciences.v2beta.NFSMount) storage_);
-              storage_ = subBuilder.buildPartial();
-            }
-            storageCase_ = 4;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.lifesciences.v2beta.WorkflowsProto.internal_static_google_cloud_lifesciences_v2beta_Volume_descriptor;
@@ -181,7 +94,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VOLUME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object volume_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object volume_ = "";
   /**
    * <pre>
    * A user-supplied name for the volume. Used when mounting the volume into
@@ -387,7 +301,7 @@ private static final long serialVersionUID = 0L;
     if (storageCase_ == 4) {
       output.writeMessage(4, (com.google.cloud.lifesciences.v2beta.NFSMount) storage_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -411,7 +325,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, (com.google.cloud.lifesciences.v2beta.NFSMount) storage_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -445,7 +359,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -474,7 +388,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -597,24 +511,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.lifesciences.v2beta.Volume.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       volume_ = "";
-
+      if (persistentDiskBuilder_ != null) {
+        persistentDiskBuilder_.clear();
+      }
+      if (existingDiskBuilder_ != null) {
+        existingDiskBuilder_.clear();
+      }
+      if (nfsMountBuilder_ != null) {
+        nfsMountBuilder_.clear();
+      }
       storageCase_ = 0;
       storage_ = null;
       return this;
@@ -643,31 +561,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.lifesciences.v2beta.Volume buildPartial() {
       com.google.cloud.lifesciences.v2beta.Volume result = new com.google.cloud.lifesciences.v2beta.Volume(this);
-      result.volume_ = volume_;
-      if (storageCase_ == 2) {
-        if (persistentDiskBuilder_ == null) {
-          result.storage_ = storage_;
-        } else {
-          result.storage_ = persistentDiskBuilder_.build();
-        }
-      }
-      if (storageCase_ == 3) {
-        if (existingDiskBuilder_ == null) {
-          result.storage_ = storage_;
-        } else {
-          result.storage_ = existingDiskBuilder_.build();
-        }
-      }
-      if (storageCase_ == 4) {
-        if (nfsMountBuilder_ == null) {
-          result.storage_ = storage_;
-        } else {
-          result.storage_ = nfsMountBuilder_.build();
-        }
-      }
-      result.storageCase_ = storageCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.lifesciences.v2beta.Volume result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.volume_ = volume_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.lifesciences.v2beta.Volume result) {
+      result.storageCase_ = storageCase_;
+      result.storage_ = this.storage_;
+      if (storageCase_ == 2 &&
+          persistentDiskBuilder_ != null) {
+        result.storage_ = persistentDiskBuilder_.build();
+      }
+      if (storageCase_ == 3 &&
+          existingDiskBuilder_ != null) {
+        result.storage_ = existingDiskBuilder_.build();
+      }
+      if (storageCase_ == 4 &&
+          nfsMountBuilder_ != null) {
+        result.storage_ = nfsMountBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -716,6 +637,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.lifesciences.v2beta.Volume.getDefaultInstance()) return this;
       if (!other.getVolume().isEmpty()) {
         volume_ = other.volume_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       switch (other.getStorageCase()) {
@@ -735,7 +657,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -750,17 +672,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.lifesciences.v2beta.Volume parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              volume_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPersistentDiskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              storageCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getExistingDiskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              storageCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getNfsMountFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              storageCase_ = 4;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.lifesciences.v2beta.Volume) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int storageCase_ = 0;
@@ -778,6 +739,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object volume_ = "";
     /**
@@ -841,11 +803,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVolume(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       volume_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -861,8 +821,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVolume() {
-      
       volume_ = getDefaultInstance().getVolume();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -880,12 +840,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVolumeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       volume_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1064,7 +1022,7 @@ private static final long serialVersionUID = 0L;
         storage_ = null;
       }
       storageCase_ = 2;
-      onChanged();;
+      onChanged();
       return persistentDiskBuilder_;
     }
 
@@ -1242,7 +1200,7 @@ private static final long serialVersionUID = 0L;
         storage_ = null;
       }
       storageCase_ = 3;
-      onChanged();;
+      onChanged();
       return existingDiskBuilder_;
     }
 
@@ -1420,7 +1378,7 @@ private static final long serialVersionUID = 0L;
         storage_ = null;
       }
       storageCase_ = 4;
-      onChanged();;
+      onChanged();
       return nfsMountBuilder_;
     }
     @java.lang.Override
@@ -1456,7 +1414,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Volume(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

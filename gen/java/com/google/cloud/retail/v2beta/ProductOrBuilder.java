@@ -11,6 +11,13 @@ public interface ProductOrBuilder extends
    * <pre>
    * The timestamp when this product becomes unavailable for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+   * Note that this is only applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+   * and ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+   * general, we suggest the users to delete the stale products explicitly,
+   * instead of using this field to determine staleness.
    * If it is set, the [Product][google.cloud.retail.v2beta.Product] is not
    * available for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search]
@@ -36,6 +43,13 @@ public interface ProductOrBuilder extends
    * <pre>
    * The timestamp when this product becomes unavailable for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+   * Note that this is only applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+   * and ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+   * general, we suggest the users to delete the stale products explicitly,
+   * instead of using this field to determine staleness.
    * If it is set, the [Product][google.cloud.retail.v2beta.Product] is not
    * available for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search]
@@ -61,6 +75,13 @@ public interface ProductOrBuilder extends
    * <pre>
    * The timestamp when this product becomes unavailable for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+   * Note that this is only applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+   * and ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+   * general, we suggest the users to delete the stale products explicitly,
+   * instead of using this field to determine staleness.
    * If it is set, the [Product][google.cloud.retail.v2beta.Product] is not
    * available for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search]
@@ -84,7 +105,14 @@ public interface ProductOrBuilder extends
 
   /**
    * <pre>
-   * Input only. The TTL (time to live) of the product.
+   * Input only. The TTL (time to live) of the product. Note that this is only
+   * applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+   * and ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+   * general, we suggest the users to delete the stale products explicitly,
+   * instead of using this field to determine staleness.
    * If it is set, it must be a non-negative value, and
    * [expire_time][google.cloud.retail.v2beta.Product.expire_time] is set as
    * current timestamp plus [ttl][google.cloud.retail.v2beta.Product.ttl]. The
@@ -108,7 +136,14 @@ public interface ProductOrBuilder extends
   boolean hasTtl();
   /**
    * <pre>
-   * Input only. The TTL (time to live) of the product.
+   * Input only. The TTL (time to live) of the product. Note that this is only
+   * applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+   * and ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+   * general, we suggest the users to delete the stale products explicitly,
+   * instead of using this field to determine staleness.
    * If it is set, it must be a non-negative value, and
    * [expire_time][google.cloud.retail.v2beta.Product.expire_time] is set as
    * current timestamp plus [ttl][google.cloud.retail.v2beta.Product.ttl]. The
@@ -132,7 +167,14 @@ public interface ProductOrBuilder extends
   com.google.protobuf.Duration getTtl();
   /**
    * <pre>
-   * Input only. The TTL (time to live) of the product.
+   * Input only. The TTL (time to live) of the product. Note that this is only
+   * applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+   * and ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+   * general, we suggest the users to delete the stale products explicitly,
+   * instead of using this field to determine staleness.
    * If it is set, it must be a non-negative value, and
    * [expire_time][google.cloud.retail.v2beta.Product.expire_time] is set as
    * current timestamp plus [ttl][google.cloud.retail.v2beta.Product.ttl]. The
@@ -296,7 +338,7 @@ public interface ProductOrBuilder extends
    * The [type][google.cloud.retail.v2beta.Product.type] of the members must be
    * either [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] or
    * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT] otherwise
-   * and INVALID_ARGUMENT error is thrown. Should not set it for other types. A
+   * an INVALID_ARGUMENT error is thrown. Should not set it for other types. A
    * maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is
    * return.
    * </pre>
@@ -315,7 +357,7 @@ public interface ProductOrBuilder extends
    * The [type][google.cloud.retail.v2beta.Product.type] of the members must be
    * either [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] or
    * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT] otherwise
-   * and INVALID_ARGUMENT error is thrown. Should not set it for other types. A
+   * an INVALID_ARGUMENT error is thrown. Should not set it for other types. A
    * maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is
    * return.
    * </pre>
@@ -333,7 +375,7 @@ public interface ProductOrBuilder extends
    * The [type][google.cloud.retail.v2beta.Product.type] of the members must be
    * either [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] or
    * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT] otherwise
-   * and INVALID_ARGUMENT error is thrown. Should not set it for other types. A
+   * an INVALID_ARGUMENT error is thrown. Should not set it for other types. A
    * maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is
    * return.
    * </pre>
@@ -352,7 +394,7 @@ public interface ProductOrBuilder extends
    * The [type][google.cloud.retail.v2beta.Product.type] of the members must be
    * either [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] or
    * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT] otherwise
-   * and INVALID_ARGUMENT error is thrown. Should not set it for other types. A
+   * an INVALID_ARGUMENT error is thrown. Should not set it for other types. A
    * maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is
    * return.
    * </pre>
@@ -416,7 +458,7 @@ public interface ProductOrBuilder extends
    * belonging to several parallel categories. Strongly recommended using the
    * full path for better search / recommendation quality.
    * To represent full path of category, use '&gt;' sign to separate different
-   * hierarchies. If '&gt;' is part of the category name, please replace it with
+   * hierarchies. If '&gt;' is part of the category name, replace it with
    * other character(s).
    * For example, if a shoes product belongs to both
    * ["Shoes &amp; Accessories" -&gt; "Shoes"] and
@@ -452,7 +494,7 @@ public interface ProductOrBuilder extends
    * belonging to several parallel categories. Strongly recommended using the
    * full path for better search / recommendation quality.
    * To represent full path of category, use '&gt;' sign to separate different
-   * hierarchies. If '&gt;' is part of the category name, please replace it with
+   * hierarchies. If '&gt;' is part of the category name, replace it with
    * other character(s).
    * For example, if a shoes product belongs to both
    * ["Shoes &amp; Accessories" -&gt; "Shoes"] and
@@ -487,7 +529,7 @@ public interface ProductOrBuilder extends
    * belonging to several parallel categories. Strongly recommended using the
    * full path for better search / recommendation quality.
    * To represent full path of category, use '&gt;' sign to separate different
-   * hierarchies. If '&gt;' is part of the category name, please replace it with
+   * hierarchies. If '&gt;' is part of the category name, replace it with
    * other character(s).
    * For example, if a shoes product belongs to both
    * ["Shoes &amp; Accessories" -&gt; "Shoes"] and
@@ -523,7 +565,7 @@ public interface ProductOrBuilder extends
    * belonging to several parallel categories. Strongly recommended using the
    * full path for better search / recommendation quality.
    * To represent full path of category, use '&gt;' sign to separate different
-   * hierarchies. If '&gt;' is part of the category name, please replace it with
+   * hierarchies. If '&gt;' is part of the category name, replace it with
    * other character(s).
    * For example, if a shoes product belongs to both
    * ["Shoes &amp; Accessories" -&gt; "Shoes"] and
@@ -847,7 +889,6 @@ public interface ProductOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 12;</code>
    */
-
   /* nullable */
 com.google.cloud.retail.v2beta.CustomAttribute getAttributesOrDefault(
       java.lang.String key,
@@ -883,7 +924,6 @@ com.google.cloud.retail.v2beta.CustomAttribute defaultValue);
    *
    * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 12;</code>
    */
-
   com.google.cloud.retail.v2beta.CustomAttribute getAttributesOrThrow(
       java.lang.String key);
 
@@ -1029,6 +1069,11 @@ com.google.cloud.retail.v2beta.CustomAttribute defaultValue);
    * The timestamp when this [Product][google.cloud.retail.v2beta.Product]
    * becomes available for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+   * Note that this is only applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION], and
+   * ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT].
    * </pre>
    *
    * <code>.google.protobuf.Timestamp available_time = 18;</code>
@@ -1040,6 +1085,11 @@ com.google.cloud.retail.v2beta.CustomAttribute defaultValue);
    * The timestamp when this [Product][google.cloud.retail.v2beta.Product]
    * becomes available for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+   * Note that this is only applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION], and
+   * ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT].
    * </pre>
    *
    * <code>.google.protobuf.Timestamp available_time = 18;</code>
@@ -1051,6 +1101,11 @@ com.google.cloud.retail.v2beta.CustomAttribute defaultValue);
    * The timestamp when this [Product][google.cloud.retail.v2beta.Product]
    * becomes available for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+   * Note that this is only applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION], and
+   * ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT].
    * </pre>
    *
    * <code>.google.protobuf.Timestamp available_time = 18;</code>
@@ -1807,12 +1862,15 @@ com.google.cloud.retail.v2beta.CustomAttribute defaultValue);
    * Note: Returning more fields in
    * [SearchResponse][google.cloud.retail.v2beta.SearchResponse] can increase
    * response payload size and serving latency.
+   * This field is deprecated. Use the retrievable site-wide control instead.
    * </pre>
    *
-   * <code>.google.protobuf.FieldMask retrievable_fields = 30;</code>
+   * <code>.google.protobuf.FieldMask retrievable_fields = 30 [deprecated = true];</code>
+   * @deprecated google.cloud.retail.v2beta.Product.retrievable_fields is deprecated.
+   *     See google/cloud/retail/v2beta/product.proto;l=573
    * @return Whether the retrievableFields field is set.
    */
-  boolean hasRetrievableFields();
+  @java.lang.Deprecated boolean hasRetrievableFields();
   /**
    * <pre>
    * Indicates which fields in the
@@ -1861,12 +1919,15 @@ com.google.cloud.retail.v2beta.CustomAttribute defaultValue);
    * Note: Returning more fields in
    * [SearchResponse][google.cloud.retail.v2beta.SearchResponse] can increase
    * response payload size and serving latency.
+   * This field is deprecated. Use the retrievable site-wide control instead.
    * </pre>
    *
-   * <code>.google.protobuf.FieldMask retrievable_fields = 30;</code>
+   * <code>.google.protobuf.FieldMask retrievable_fields = 30 [deprecated = true];</code>
+   * @deprecated google.cloud.retail.v2beta.Product.retrievable_fields is deprecated.
+   *     See google/cloud/retail/v2beta/product.proto;l=573
    * @return The retrievableFields.
    */
-  com.google.protobuf.FieldMask getRetrievableFields();
+  @java.lang.Deprecated com.google.protobuf.FieldMask getRetrievableFields();
   /**
    * <pre>
    * Indicates which fields in the
@@ -1915,11 +1976,12 @@ com.google.cloud.retail.v2beta.CustomAttribute defaultValue);
    * Note: Returning more fields in
    * [SearchResponse][google.cloud.retail.v2beta.SearchResponse] can increase
    * response payload size and serving latency.
+   * This field is deprecated. Use the retrievable site-wide control instead.
    * </pre>
    *
-   * <code>.google.protobuf.FieldMask retrievable_fields = 30;</code>
+   * <code>.google.protobuf.FieldMask retrievable_fields = 30 [deprecated = true];</code>
    */
-  com.google.protobuf.FieldMaskOrBuilder getRetrievableFieldsOrBuilder();
+  @java.lang.Deprecated com.google.protobuf.FieldMaskOrBuilder getRetrievableFieldsOrBuilder();
 
   /**
    * <pre>
@@ -2003,6 +2065,80 @@ com.google.cloud.retail.v2beta.CustomAttribute defaultValue);
    * <code>repeated .google.cloud.retail.v2beta.Product variants = 31 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   com.google.cloud.retail.v2beta.ProductOrBuilder getVariantsOrBuilder(
+      int index);
+
+  /**
+   * <pre>
+   * Output only. A list of local inventories specific to different places.
+   * This is only available for users who have Retail Search enabled, and it can
+   * be managed by
+   * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+   * and
+   * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+   * APIs.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  java.util.List<com.google.cloud.retail.v2beta.LocalInventory> 
+      getLocalInventoriesList();
+  /**
+   * <pre>
+   * Output only. A list of local inventories specific to different places.
+   * This is only available for users who have Retail Search enabled, and it can
+   * be managed by
+   * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+   * and
+   * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+   * APIs.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  com.google.cloud.retail.v2beta.LocalInventory getLocalInventories(int index);
+  /**
+   * <pre>
+   * Output only. A list of local inventories specific to different places.
+   * This is only available for users who have Retail Search enabled, and it can
+   * be managed by
+   * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+   * and
+   * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+   * APIs.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  int getLocalInventoriesCount();
+  /**
+   * <pre>
+   * Output only. A list of local inventories specific to different places.
+   * This is only available for users who have Retail Search enabled, and it can
+   * be managed by
+   * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+   * and
+   * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+   * APIs.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  java.util.List<? extends com.google.cloud.retail.v2beta.LocalInventoryOrBuilder> 
+      getLocalInventoriesOrBuilderList();
+  /**
+   * <pre>
+   * Output only. A list of local inventories specific to different places.
+   * This is only available for users who have Retail Search enabled, and it can
+   * be managed by
+   * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+   * and
+   * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+   * APIs.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  com.google.cloud.retail.v2beta.LocalInventoryOrBuilder getLocalInventoriesOrBuilder(
       int index);
 
   public com.google.cloud.retail.v2beta.Product.ExpirationCase getExpirationCase();

@@ -38,64 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ShipmentTypeIncompatibility(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              types_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            types_.add(s);
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            incompatibilityMode_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        types_ = types_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_ShipmentTypeIncompatibility_descriptor;
@@ -270,6 +212,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList types_;
   /**
    * <pre>
@@ -325,7 +268,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INCOMPATIBILITY_MODE_FIELD_NUMBER = 2;
-  private int incompatibilityMode_;
+  private int incompatibilityMode_ = 0;
   /**
    * <pre>
    * Mode applied to the incompatibility.
@@ -346,8 +289,7 @@ private static final long serialVersionUID = 0L;
    * @return The incompatibilityMode.
    */
   @java.lang.Override public com.google.cloud.optimization.v1.ShipmentTypeIncompatibility.IncompatibilityMode getIncompatibilityMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.optimization.v1.ShipmentTypeIncompatibility.IncompatibilityMode result = com.google.cloud.optimization.v1.ShipmentTypeIncompatibility.IncompatibilityMode.valueOf(incompatibilityMode_);
+    com.google.cloud.optimization.v1.ShipmentTypeIncompatibility.IncompatibilityMode result = com.google.cloud.optimization.v1.ShipmentTypeIncompatibility.IncompatibilityMode.forNumber(incompatibilityMode_);
     return result == null ? com.google.cloud.optimization.v1.ShipmentTypeIncompatibility.IncompatibilityMode.UNRECOGNIZED : result;
   }
 
@@ -371,7 +313,7 @@ private static final long serialVersionUID = 0L;
     if (incompatibilityMode_ != com.google.cloud.optimization.v1.ShipmentTypeIncompatibility.IncompatibilityMode.INCOMPATIBILITY_MODE_UNSPECIFIED.getNumber()) {
       output.writeEnum(2, incompatibilityMode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -392,7 +334,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, incompatibilityMode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -410,7 +352,7 @@ private static final long serialVersionUID = 0L;
     if (!getTypesList()
         .equals(other.getTypesList())) return false;
     if (incompatibilityMode_ != other.incompatibilityMode_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -427,7 +369,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + INCOMPATIBILITY_MODE_FIELD_NUMBER;
     hash = (53 * hash) + incompatibilityMode_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -550,26 +492,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.optimization.v1.ShipmentTypeIncompatibility.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       types_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       incompatibilityMode_ = 0;
-
       return this;
     }
 
@@ -596,15 +533,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.optimization.v1.ShipmentTypeIncompatibility buildPartial() {
       com.google.cloud.optimization.v1.ShipmentTypeIncompatibility result = new com.google.cloud.optimization.v1.ShipmentTypeIncompatibility(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.ShipmentTypeIncompatibility result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         types_ = types_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.types_ = types_;
-      result.incompatibilityMode_ = incompatibilityMode_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.optimization.v1.ShipmentTypeIncompatibility result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.incompatibilityMode_ = incompatibilityMode_;
+      }
     }
 
     @java.lang.Override
@@ -664,7 +611,7 @@ private static final long serialVersionUID = 0L;
       if (other.incompatibilityMode_ != 0) {
         setIncompatibilityModeValue(other.getIncompatibilityModeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -679,17 +626,41 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.optimization.v1.ShipmentTypeIncompatibility parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureTypesIsMutable();
+              types_.add(s);
+              break;
+            } // case 10
+            case 16: {
+              incompatibilityMode_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.optimization.v1.ShipmentTypeIncompatibility) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -766,10 +737,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTypesIsMutable();
       types_.set(index, value);
       onChanged();
       return this;
@@ -786,10 +755,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTypes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTypesIsMutable();
       types_.add(value);
       onChanged();
       return this;
@@ -839,10 +806,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTypesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureTypesIsMutable();
       types_.add(value);
       onChanged();
@@ -871,8 +836,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIncompatibilityModeValue(int value) {
-      
       incompatibilityMode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -886,8 +851,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.optimization.v1.ShipmentTypeIncompatibility.IncompatibilityMode getIncompatibilityMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.optimization.v1.ShipmentTypeIncompatibility.IncompatibilityMode result = com.google.cloud.optimization.v1.ShipmentTypeIncompatibility.IncompatibilityMode.valueOf(incompatibilityMode_);
+      com.google.cloud.optimization.v1.ShipmentTypeIncompatibility.IncompatibilityMode result = com.google.cloud.optimization.v1.ShipmentTypeIncompatibility.IncompatibilityMode.forNumber(incompatibilityMode_);
       return result == null ? com.google.cloud.optimization.v1.ShipmentTypeIncompatibility.IncompatibilityMode.UNRECOGNIZED : result;
     }
     /**
@@ -903,7 +867,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       incompatibilityMode_ = value.getNumber();
       onChanged();
       return this;
@@ -917,7 +881,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncompatibilityMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       incompatibilityMode_ = 0;
       onChanged();
       return this;
@@ -955,7 +919,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ShipmentTypeIncompatibility(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

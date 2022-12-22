@@ -12,7 +12,7 @@ public interface DeleteApiDeploymentRevisionRequestOrBuilder extends
    * Required. The name of the deployment revision to be deleted,
    * with a revision ID explicitly included.
    * Example:
-   * projects/sample/locations/global/apis/petstore/deployments/prod&#64;c7cfa2a8
+   * `projects/sample/locations/global/apis/petstore/deployments/prod&#64;c7cfa2a8`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -24,7 +24,7 @@ public interface DeleteApiDeploymentRevisionRequestOrBuilder extends
    * Required. The name of the deployment revision to be deleted,
    * with a revision ID explicitly included.
    * Example:
-   * projects/sample/locations/global/apis/petstore/deployments/prod&#64;c7cfa2a8
+   * `projects/sample/locations/global/apis/petstore/deployments/prod&#64;c7cfa2a8`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

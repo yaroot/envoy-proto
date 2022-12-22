@@ -55,4 +55,17 @@ public interface WriteUserEventRequestOrBuilder extends
    * <code>.google.cloud.retail.v2.UserEvent user_event = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   com.google.cloud.retail.v2.UserEventOrBuilder getUserEventOrBuilder();
+
+  /**
+   * <pre>
+   * If set to true, the user event will be written asynchronously after
+   * validation, and the API will respond without waiting for the write.
+   * Therefore, silent failures can occur even if the API returns success. In
+   * case of silent failures, error messages can be found in Stackdriver logs.
+   * </pre>
+   *
+   * <code>bool write_async = 3;</code>
+   * @return The writeAsync.
+   */
+  boolean getWriteAsync();
 }

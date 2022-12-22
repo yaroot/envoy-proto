@@ -37,142 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Runtime(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.notebooks.v1.VirtualMachine.Builder subBuilder = null;
-            if (runtimeTypeCase_ == 2) {
-              subBuilder = ((com.google.cloud.notebooks.v1.VirtualMachine) runtimeType_).toBuilder();
-            }
-            runtimeType_ =
-                input.readMessage(com.google.cloud.notebooks.v1.VirtualMachine.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.notebooks.v1.VirtualMachine) runtimeType_);
-              runtimeType_ = subBuilder.buildPartial();
-            }
-            runtimeTypeCase_ = 2;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            healthState_ = rawValue;
-            break;
-          }
-          case 42: {
-            com.google.cloud.notebooks.v1.RuntimeAccessConfig.Builder subBuilder = null;
-            if (accessConfig_ != null) {
-              subBuilder = accessConfig_.toBuilder();
-            }
-            accessConfig_ = input.readMessage(com.google.cloud.notebooks.v1.RuntimeAccessConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(accessConfig_);
-              accessConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.Builder subBuilder = null;
-            if (softwareConfig_ != null) {
-              subBuilder = softwareConfig_.toBuilder();
-            }
-            softwareConfig_ = input.readMessage(com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(softwareConfig_);
-              softwareConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.cloud.notebooks.v1.RuntimeMetrics.Builder subBuilder = null;
-            if (metrics_ != null) {
-              subBuilder = metrics_.toBuilder();
-            }
-            metrics_ = input.readMessage(com.google.cloud.notebooks.v1.RuntimeMetrics.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(metrics_);
-              metrics_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 162: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 170: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.notebooks.v1.RuntimeProto.internal_static_google_cloud_notebooks_v1_Runtime_descriptor;
@@ -666,7 +530,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The resource name of the runtime.
@@ -759,7 +624,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 3;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. Runtime state.
@@ -780,13 +645,12 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.notebooks.v1.Runtime.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.notebooks.v1.Runtime.State result = com.google.cloud.notebooks.v1.Runtime.State.valueOf(state_);
+    com.google.cloud.notebooks.v1.Runtime.State result = com.google.cloud.notebooks.v1.Runtime.State.forNumber(state_);
     return result == null ? com.google.cloud.notebooks.v1.Runtime.State.UNRECOGNIZED : result;
   }
 
   public static final int HEALTH_STATE_FIELD_NUMBER = 4;
-  private int healthState_;
+  private int healthState_ = 0;
   /**
    * <pre>
    * Output only. Runtime health_state.
@@ -807,8 +671,7 @@ private static final long serialVersionUID = 0L;
    * @return The healthState.
    */
   @java.lang.Override public com.google.cloud.notebooks.v1.Runtime.HealthState getHealthState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.notebooks.v1.Runtime.HealthState result = com.google.cloud.notebooks.v1.Runtime.HealthState.valueOf(healthState_);
+    com.google.cloud.notebooks.v1.Runtime.HealthState result = com.google.cloud.notebooks.v1.Runtime.HealthState.forNumber(healthState_);
     return result == null ? com.google.cloud.notebooks.v1.Runtime.HealthState.UNRECOGNIZED : result;
   }
 
@@ -847,7 +710,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.notebooks.v1.RuntimeAccessConfigOrBuilder getAccessConfigOrBuilder() {
-    return getAccessConfig();
+    return accessConfig_ == null ? com.google.cloud.notebooks.v1.RuntimeAccessConfig.getDefaultInstance() : accessConfig_;
   }
 
   public static final int SOFTWARE_CONFIG_FIELD_NUMBER = 6;
@@ -885,7 +748,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.notebooks.v1.RuntimeSoftwareConfigOrBuilder getSoftwareConfigOrBuilder() {
-    return getSoftwareConfig();
+    return softwareConfig_ == null ? com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.getDefaultInstance() : softwareConfig_;
   }
 
   public static final int METRICS_FIELD_NUMBER = 7;
@@ -926,7 +789,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.notebooks.v1.RuntimeMetricsOrBuilder getMetricsOrBuilder() {
-    return getMetrics();
+    return metrics_ == null ? com.google.cloud.notebooks.v1.RuntimeMetrics.getDefaultInstance() : metrics_;
   }
 
   public static final int CREATE_TIME_FIELD_NUMBER = 20;
@@ -964,7 +827,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 21;
@@ -1002,7 +865,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1046,7 +909,7 @@ private static final long serialVersionUID = 0L;
     if (updateTime_ != null) {
       output.writeMessage(21, getUpdateTime());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1090,7 +953,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(21, getUpdateTime());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1143,7 +1006,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1188,7 +1051,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1309,56 +1172,47 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.notebooks.v1.Runtime.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
+      if (virtualMachineBuilder_ != null) {
+        virtualMachineBuilder_.clear();
+      }
       state_ = 0;
-
       healthState_ = 0;
-
-      if (accessConfigBuilder_ == null) {
-        accessConfig_ = null;
-      } else {
-        accessConfig_ = null;
+      accessConfig_ = null;
+      if (accessConfigBuilder_ != null) {
+        accessConfigBuilder_.dispose();
         accessConfigBuilder_ = null;
       }
-      if (softwareConfigBuilder_ == null) {
-        softwareConfig_ = null;
-      } else {
-        softwareConfig_ = null;
+      softwareConfig_ = null;
+      if (softwareConfigBuilder_ != null) {
+        softwareConfigBuilder_.dispose();
         softwareConfigBuilder_ = null;
       }
-      if (metricsBuilder_ == null) {
-        metrics_ = null;
-      } else {
-        metrics_ = null;
+      metrics_ = null;
+      if (metricsBuilder_ != null) {
+        metricsBuilder_.dispose();
         metricsBuilder_ = null;
       }
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       runtimeTypeCase_ = 0;
@@ -1389,44 +1243,57 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.notebooks.v1.Runtime buildPartial() {
       com.google.cloud.notebooks.v1.Runtime result = new com.google.cloud.notebooks.v1.Runtime(this);
-      result.name_ = name_;
-      if (runtimeTypeCase_ == 2) {
-        if (virtualMachineBuilder_ == null) {
-          result.runtimeType_ = runtimeType_;
-        } else {
-          result.runtimeType_ = virtualMachineBuilder_.build();
-        }
-      }
-      result.state_ = state_;
-      result.healthState_ = healthState_;
-      if (accessConfigBuilder_ == null) {
-        result.accessConfig_ = accessConfig_;
-      } else {
-        result.accessConfig_ = accessConfigBuilder_.build();
-      }
-      if (softwareConfigBuilder_ == null) {
-        result.softwareConfig_ = softwareConfig_;
-      } else {
-        result.softwareConfig_ = softwareConfigBuilder_.build();
-      }
-      if (metricsBuilder_ == null) {
-        result.metrics_ = metrics_;
-      } else {
-        result.metrics_ = metricsBuilder_.build();
-      }
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.runtimeTypeCase_ = runtimeTypeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.notebooks.v1.Runtime result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.healthState_ = healthState_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.accessConfig_ = accessConfigBuilder_ == null
+            ? accessConfig_
+            : accessConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.softwareConfig_ = softwareConfigBuilder_ == null
+            ? softwareConfig_
+            : softwareConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.metrics_ = metricsBuilder_ == null
+            ? metrics_
+            : metricsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.notebooks.v1.Runtime result) {
+      result.runtimeTypeCase_ = runtimeTypeCase_;
+      result.runtimeType_ = this.runtimeType_;
+      if (runtimeTypeCase_ == 2 &&
+          virtualMachineBuilder_ != null) {
+        result.runtimeType_ = virtualMachineBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1475,6 +1342,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.notebooks.v1.Runtime.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -1507,7 +1375,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1522,17 +1390,87 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.notebooks.v1.Runtime parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getVirtualMachineFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              runtimeTypeCase_ = 2;
+              break;
+            } // case 18
+            case 24: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              healthState_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getAccessConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getSoftwareConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getMetricsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 162: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 162
+            case 170: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 170
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.notebooks.v1.Runtime) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int runtimeTypeCase_ = 0;
@@ -1550,6 +1488,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -1610,11 +1549,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1629,8 +1566,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1647,12 +1584,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1831,7 +1766,7 @@ private static final long serialVersionUID = 0L;
         runtimeType_ = null;
       }
       runtimeTypeCase_ = 2;
-      onChanged();;
+      onChanged();
       return virtualMachineBuilder_;
     }
 
@@ -1857,8 +1792,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1872,8 +1807,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.notebooks.v1.Runtime.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.notebooks.v1.Runtime.State result = com.google.cloud.notebooks.v1.Runtime.State.valueOf(state_);
+      com.google.cloud.notebooks.v1.Runtime.State result = com.google.cloud.notebooks.v1.Runtime.State.forNumber(state_);
       return result == null ? com.google.cloud.notebooks.v1.Runtime.State.UNRECOGNIZED : result;
     }
     /**
@@ -1889,7 +1823,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -1903,7 +1837,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       state_ = 0;
       onChanged();
       return this;
@@ -1931,8 +1865,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHealthStateValue(int value) {
-      
       healthState_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1946,8 +1880,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.notebooks.v1.Runtime.HealthState getHealthState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.notebooks.v1.Runtime.HealthState result = com.google.cloud.notebooks.v1.Runtime.HealthState.valueOf(healthState_);
+      com.google.cloud.notebooks.v1.Runtime.HealthState result = com.google.cloud.notebooks.v1.Runtime.HealthState.forNumber(healthState_);
       return result == null ? com.google.cloud.notebooks.v1.Runtime.HealthState.UNRECOGNIZED : result;
     }
     /**
@@ -1963,7 +1896,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       healthState_ = value.getNumber();
       onChanged();
       return this;
@@ -1977,7 +1910,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHealthState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       healthState_ = 0;
       onChanged();
       return this;
@@ -1995,7 +1928,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the accessConfig field is set.
      */
     public boolean hasAccessConfig() {
-      return accessConfigBuilder_ != null || accessConfig_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2025,11 +1958,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         accessConfig_ = value;
-        onChanged();
       } else {
         accessConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2043,11 +1976,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.notebooks.v1.RuntimeAccessConfig.Builder builderForValue) {
       if (accessConfigBuilder_ == null) {
         accessConfig_ = builderForValue.build();
-        onChanged();
       } else {
         accessConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2059,17 +1992,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAccessConfig(com.google.cloud.notebooks.v1.RuntimeAccessConfig value) {
       if (accessConfigBuilder_ == null) {
-        if (accessConfig_ != null) {
-          accessConfig_ =
-            com.google.cloud.notebooks.v1.RuntimeAccessConfig.newBuilder(accessConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          accessConfig_ != null &&
+          accessConfig_ != com.google.cloud.notebooks.v1.RuntimeAccessConfig.getDefaultInstance()) {
+          getAccessConfigBuilder().mergeFrom(value);
         } else {
           accessConfig_ = value;
         }
-        onChanged();
       } else {
         accessConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2080,14 +2014,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.notebooks.v1.RuntimeAccessConfig access_config = 5;</code>
      */
     public Builder clearAccessConfig() {
-      if (accessConfigBuilder_ == null) {
-        accessConfig_ = null;
-        onChanged();
-      } else {
-        accessConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      accessConfig_ = null;
+      if (accessConfigBuilder_ != null) {
+        accessConfigBuilder_.dispose();
         accessConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2098,7 +2031,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.notebooks.v1.RuntimeAccessConfig access_config = 5;</code>
      */
     public com.google.cloud.notebooks.v1.RuntimeAccessConfig.Builder getAccessConfigBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getAccessConfigFieldBuilder().getBuilder();
     }
@@ -2150,7 +2083,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the softwareConfig field is set.
      */
     public boolean hasSoftwareConfig() {
-      return softwareConfigBuilder_ != null || softwareConfig_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2180,11 +2113,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         softwareConfig_ = value;
-        onChanged();
       } else {
         softwareConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2198,11 +2131,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.Builder builderForValue) {
       if (softwareConfigBuilder_ == null) {
         softwareConfig_ = builderForValue.build();
-        onChanged();
       } else {
         softwareConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2214,17 +2147,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSoftwareConfig(com.google.cloud.notebooks.v1.RuntimeSoftwareConfig value) {
       if (softwareConfigBuilder_ == null) {
-        if (softwareConfig_ != null) {
-          softwareConfig_ =
-            com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.newBuilder(softwareConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          softwareConfig_ != null &&
+          softwareConfig_ != com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.getDefaultInstance()) {
+          getSoftwareConfigBuilder().mergeFrom(value);
         } else {
           softwareConfig_ = value;
         }
-        onChanged();
       } else {
         softwareConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2235,14 +2169,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.notebooks.v1.RuntimeSoftwareConfig software_config = 6;</code>
      */
     public Builder clearSoftwareConfig() {
-      if (softwareConfigBuilder_ == null) {
-        softwareConfig_ = null;
-        onChanged();
-      } else {
-        softwareConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      softwareConfig_ = null;
+      if (softwareConfigBuilder_ != null) {
+        softwareConfigBuilder_.dispose();
         softwareConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2253,7 +2186,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.notebooks.v1.RuntimeSoftwareConfig software_config = 6;</code>
      */
     public com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.Builder getSoftwareConfigBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getSoftwareConfigFieldBuilder().getBuilder();
     }
@@ -2306,7 +2239,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the metrics field is set.
      */
     public boolean hasMetrics() {
-      return metricsBuilder_ != null || metrics_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2338,11 +2271,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         metrics_ = value;
-        onChanged();
       } else {
         metricsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2357,11 +2290,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.notebooks.v1.RuntimeMetrics.Builder builderForValue) {
       if (metricsBuilder_ == null) {
         metrics_ = builderForValue.build();
-        onChanged();
       } else {
         metricsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2374,17 +2307,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMetrics(com.google.cloud.notebooks.v1.RuntimeMetrics value) {
       if (metricsBuilder_ == null) {
-        if (metrics_ != null) {
-          metrics_ =
-            com.google.cloud.notebooks.v1.RuntimeMetrics.newBuilder(metrics_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          metrics_ != null &&
+          metrics_ != com.google.cloud.notebooks.v1.RuntimeMetrics.getDefaultInstance()) {
+          getMetricsBuilder().mergeFrom(value);
         } else {
           metrics_ = value;
         }
-        onChanged();
       } else {
         metricsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2396,14 +2330,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.notebooks.v1.RuntimeMetrics metrics = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearMetrics() {
-      if (metricsBuilder_ == null) {
-        metrics_ = null;
-        onChanged();
-      } else {
-        metrics_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      metrics_ = null;
+      if (metricsBuilder_ != null) {
+        metricsBuilder_.dispose();
         metricsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2415,7 +2348,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.notebooks.v1.RuntimeMetrics metrics = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.notebooks.v1.RuntimeMetrics.Builder getMetricsBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getMetricsFieldBuilder().getBuilder();
     }
@@ -2469,7 +2402,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2499,11 +2432,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2517,11 +2450,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2533,17 +2466,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2554,14 +2488,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2572,7 +2505,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -2624,7 +2557,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2654,11 +2587,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2672,11 +2605,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2688,17 +2621,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2709,14 +2643,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2727,7 +2660,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -2799,7 +2732,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Runtime(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

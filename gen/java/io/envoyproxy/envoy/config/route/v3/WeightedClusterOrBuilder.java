@@ -55,31 +55,41 @@ public interface WeightedClusterOrBuilder extends
    * <pre>
    * Specifies the total weight across all clusters. The sum of all cluster weights must equal this
    * value, if this is greater than 0.
+   * This field is now deprecated, and the client will use the sum of all
+   * cluster weights. It is up to the management server to supply the correct weights.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value total_weight = 3;</code>
+   * <code>.google.protobuf.UInt32Value total_weight = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.config.route.v3.WeightedCluster.total_weight is deprecated.
+   *     See envoy/config/route/v3/route_components.proto;l=478
    * @return Whether the totalWeight field is set.
    */
-  boolean hasTotalWeight();
+  @java.lang.Deprecated boolean hasTotalWeight();
   /**
    * <pre>
    * Specifies the total weight across all clusters. The sum of all cluster weights must equal this
    * value, if this is greater than 0.
+   * This field is now deprecated, and the client will use the sum of all
+   * cluster weights. It is up to the management server to supply the correct weights.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value total_weight = 3;</code>
+   * <code>.google.protobuf.UInt32Value total_weight = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.config.route.v3.WeightedCluster.total_weight is deprecated.
+   *     See envoy/config/route/v3/route_components.proto;l=478
    * @return The totalWeight.
    */
-  com.google.protobuf.UInt32Value getTotalWeight();
+  @java.lang.Deprecated com.google.protobuf.UInt32Value getTotalWeight();
   /**
    * <pre>
    * Specifies the total weight across all clusters. The sum of all cluster weights must equal this
    * value, if this is greater than 0.
+   * This field is now deprecated, and the client will use the sum of all
+   * cluster weights. It is up to the management server to supply the correct weights.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value total_weight = 3;</code>
+   * <code>.google.protobuf.UInt32Value total_weight = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    */
-  com.google.protobuf.UInt32ValueOrBuilder getTotalWeightOrBuilder();
+  @java.lang.Deprecated com.google.protobuf.UInt32ValueOrBuilder getTotalWeightOrBuilder();
 
   /**
    * <pre>

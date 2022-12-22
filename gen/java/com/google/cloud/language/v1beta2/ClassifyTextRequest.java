@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ClassifyTextRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.language.v1beta2.Document.Builder subBuilder = null;
-            if (document_ != null) {
-              subBuilder = document_.toBuilder();
-            }
-            document_ = input.readMessage(com.google.cloud.language.v1beta2.Document.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(document_);
-              document_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.language.v1beta2.LanguageServiceProto.internal_static_google_cloud_language_v1beta2_ClassifyTextRequest_descriptor;
@@ -134,7 +82,48 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.language.v1beta2.DocumentOrBuilder getDocumentOrBuilder() {
-    return getDocument();
+    return document_ == null ? com.google.cloud.language.v1beta2.Document.getDefaultInstance() : document_;
+  }
+
+  public static final int CLASSIFICATION_MODEL_OPTIONS_FIELD_NUMBER = 3;
+  private com.google.cloud.language.v1beta2.ClassificationModelOptions classificationModelOptions_;
+  /**
+   * <pre>
+   * Model options to use for classification. Defaults to v1 options if not
+   * specified.
+   * </pre>
+   *
+   * <code>.google.cloud.language.v1beta2.ClassificationModelOptions classification_model_options = 3;</code>
+   * @return Whether the classificationModelOptions field is set.
+   */
+  @java.lang.Override
+  public boolean hasClassificationModelOptions() {
+    return classificationModelOptions_ != null;
+  }
+  /**
+   * <pre>
+   * Model options to use for classification. Defaults to v1 options if not
+   * specified.
+   * </pre>
+   *
+   * <code>.google.cloud.language.v1beta2.ClassificationModelOptions classification_model_options = 3;</code>
+   * @return The classificationModelOptions.
+   */
+  @java.lang.Override
+  public com.google.cloud.language.v1beta2.ClassificationModelOptions getClassificationModelOptions() {
+    return classificationModelOptions_ == null ? com.google.cloud.language.v1beta2.ClassificationModelOptions.getDefaultInstance() : classificationModelOptions_;
+  }
+  /**
+   * <pre>
+   * Model options to use for classification. Defaults to v1 options if not
+   * specified.
+   * </pre>
+   *
+   * <code>.google.cloud.language.v1beta2.ClassificationModelOptions classification_model_options = 3;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.language.v1beta2.ClassificationModelOptionsOrBuilder getClassificationModelOptionsOrBuilder() {
+    return classificationModelOptions_ == null ? com.google.cloud.language.v1beta2.ClassificationModelOptions.getDefaultInstance() : classificationModelOptions_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -154,7 +143,10 @@ private static final long serialVersionUID = 0L;
     if (document_ != null) {
       output.writeMessage(1, getDocument());
     }
-    unknownFields.writeTo(output);
+    if (classificationModelOptions_ != null) {
+      output.writeMessage(3, getClassificationModelOptions());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -167,7 +159,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getDocument());
     }
-    size += unknownFields.getSerializedSize();
+    if (classificationModelOptions_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getClassificationModelOptions());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -187,7 +183,12 @@ private static final long serialVersionUID = 0L;
       if (!getDocument()
           .equals(other.getDocument())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasClassificationModelOptions() != other.hasClassificationModelOptions()) return false;
+    if (hasClassificationModelOptions()) {
+      if (!getClassificationModelOptions()
+          .equals(other.getClassificationModelOptions())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -202,7 +203,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DOCUMENT_FIELD_NUMBER;
       hash = (53 * hash) + getDocument().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasClassificationModelOptions()) {
+      hash = (37 * hash) + CLASSIFICATION_MODEL_OPTIONS_FIELD_NUMBER;
+      hash = (53 * hash) + getClassificationModelOptions().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -323,27 +328,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.language.v1beta2.ClassifyTextRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (documentBuilder_ == null) {
-        document_ = null;
-      } else {
-        document_ = null;
+      bitField0_ = 0;
+      document_ = null;
+      if (documentBuilder_ != null) {
+        documentBuilder_.dispose();
         documentBuilder_ = null;
+      }
+      classificationModelOptions_ = null;
+      if (classificationModelOptionsBuilder_ != null) {
+        classificationModelOptionsBuilder_.dispose();
+        classificationModelOptionsBuilder_ = null;
       }
       return this;
     }
@@ -371,13 +376,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.language.v1beta2.ClassifyTextRequest buildPartial() {
       com.google.cloud.language.v1beta2.ClassifyTextRequest result = new com.google.cloud.language.v1beta2.ClassifyTextRequest(this);
-      if (documentBuilder_ == null) {
-        result.document_ = document_;
-      } else {
-        result.document_ = documentBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.language.v1beta2.ClassifyTextRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.document_ = documentBuilder_ == null
+            ? document_
+            : documentBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.classificationModelOptions_ = classificationModelOptionsBuilder_ == null
+            ? classificationModelOptions_
+            : classificationModelOptionsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -427,7 +442,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasDocument()) {
         mergeDocument(other.getDocument());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasClassificationModelOptions()) {
+        mergeClassificationModelOptions(other.getClassificationModelOptions());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -442,19 +460,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.language.v1beta2.ClassifyTextRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getDocumentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              input.readMessage(
+                  getClassificationModelOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.language.v1beta2.ClassifyTextRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.language.v1beta2.Document document_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -468,7 +514,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the document field is set.
      */
     public boolean hasDocument() {
-      return documentBuilder_ != null || document_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -498,11 +544,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         document_ = value;
-        onChanged();
       } else {
         documentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -516,11 +562,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.language.v1beta2.Document.Builder builderForValue) {
       if (documentBuilder_ == null) {
         document_ = builderForValue.build();
-        onChanged();
       } else {
         documentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -532,17 +578,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDocument(com.google.cloud.language.v1beta2.Document value) {
       if (documentBuilder_ == null) {
-        if (document_ != null) {
-          document_ =
-            com.google.cloud.language.v1beta2.Document.newBuilder(document_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          document_ != null &&
+          document_ != com.google.cloud.language.v1beta2.Document.getDefaultInstance()) {
+          getDocumentBuilder().mergeFrom(value);
         } else {
           document_ = value;
         }
-        onChanged();
       } else {
         documentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -553,14 +600,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.language.v1beta2.Document document = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearDocument() {
-      if (documentBuilder_ == null) {
-        document_ = null;
-        onChanged();
-      } else {
-        document_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      document_ = null;
+      if (documentBuilder_ != null) {
+        documentBuilder_.dispose();
         documentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -571,7 +617,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.language.v1beta2.Document document = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.language.v1beta2.Document.Builder getDocumentBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getDocumentFieldBuilder().getBuilder();
     }
@@ -610,6 +656,170 @@ private static final long serialVersionUID = 0L;
       }
       return documentBuilder_;
     }
+
+    private com.google.cloud.language.v1beta2.ClassificationModelOptions classificationModelOptions_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.language.v1beta2.ClassificationModelOptions, com.google.cloud.language.v1beta2.ClassificationModelOptions.Builder, com.google.cloud.language.v1beta2.ClassificationModelOptionsOrBuilder> classificationModelOptionsBuilder_;
+    /**
+     * <pre>
+     * Model options to use for classification. Defaults to v1 options if not
+     * specified.
+     * </pre>
+     *
+     * <code>.google.cloud.language.v1beta2.ClassificationModelOptions classification_model_options = 3;</code>
+     * @return Whether the classificationModelOptions field is set.
+     */
+    public boolean hasClassificationModelOptions() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * Model options to use for classification. Defaults to v1 options if not
+     * specified.
+     * </pre>
+     *
+     * <code>.google.cloud.language.v1beta2.ClassificationModelOptions classification_model_options = 3;</code>
+     * @return The classificationModelOptions.
+     */
+    public com.google.cloud.language.v1beta2.ClassificationModelOptions getClassificationModelOptions() {
+      if (classificationModelOptionsBuilder_ == null) {
+        return classificationModelOptions_ == null ? com.google.cloud.language.v1beta2.ClassificationModelOptions.getDefaultInstance() : classificationModelOptions_;
+      } else {
+        return classificationModelOptionsBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Model options to use for classification. Defaults to v1 options if not
+     * specified.
+     * </pre>
+     *
+     * <code>.google.cloud.language.v1beta2.ClassificationModelOptions classification_model_options = 3;</code>
+     */
+    public Builder setClassificationModelOptions(com.google.cloud.language.v1beta2.ClassificationModelOptions value) {
+      if (classificationModelOptionsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        classificationModelOptions_ = value;
+      } else {
+        classificationModelOptionsBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Model options to use for classification. Defaults to v1 options if not
+     * specified.
+     * </pre>
+     *
+     * <code>.google.cloud.language.v1beta2.ClassificationModelOptions classification_model_options = 3;</code>
+     */
+    public Builder setClassificationModelOptions(
+        com.google.cloud.language.v1beta2.ClassificationModelOptions.Builder builderForValue) {
+      if (classificationModelOptionsBuilder_ == null) {
+        classificationModelOptions_ = builderForValue.build();
+      } else {
+        classificationModelOptionsBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Model options to use for classification. Defaults to v1 options if not
+     * specified.
+     * </pre>
+     *
+     * <code>.google.cloud.language.v1beta2.ClassificationModelOptions classification_model_options = 3;</code>
+     */
+    public Builder mergeClassificationModelOptions(com.google.cloud.language.v1beta2.ClassificationModelOptions value) {
+      if (classificationModelOptionsBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0) &&
+          classificationModelOptions_ != null &&
+          classificationModelOptions_ != com.google.cloud.language.v1beta2.ClassificationModelOptions.getDefaultInstance()) {
+          getClassificationModelOptionsBuilder().mergeFrom(value);
+        } else {
+          classificationModelOptions_ = value;
+        }
+      } else {
+        classificationModelOptionsBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Model options to use for classification. Defaults to v1 options if not
+     * specified.
+     * </pre>
+     *
+     * <code>.google.cloud.language.v1beta2.ClassificationModelOptions classification_model_options = 3;</code>
+     */
+    public Builder clearClassificationModelOptions() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      classificationModelOptions_ = null;
+      if (classificationModelOptionsBuilder_ != null) {
+        classificationModelOptionsBuilder_.dispose();
+        classificationModelOptionsBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Model options to use for classification. Defaults to v1 options if not
+     * specified.
+     * </pre>
+     *
+     * <code>.google.cloud.language.v1beta2.ClassificationModelOptions classification_model_options = 3;</code>
+     */
+    public com.google.cloud.language.v1beta2.ClassificationModelOptions.Builder getClassificationModelOptionsBuilder() {
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return getClassificationModelOptionsFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Model options to use for classification. Defaults to v1 options if not
+     * specified.
+     * </pre>
+     *
+     * <code>.google.cloud.language.v1beta2.ClassificationModelOptions classification_model_options = 3;</code>
+     */
+    public com.google.cloud.language.v1beta2.ClassificationModelOptionsOrBuilder getClassificationModelOptionsOrBuilder() {
+      if (classificationModelOptionsBuilder_ != null) {
+        return classificationModelOptionsBuilder_.getMessageOrBuilder();
+      } else {
+        return classificationModelOptions_ == null ?
+            com.google.cloud.language.v1beta2.ClassificationModelOptions.getDefaultInstance() : classificationModelOptions_;
+      }
+    }
+    /**
+     * <pre>
+     * Model options to use for classification. Defaults to v1 options if not
+     * specified.
+     * </pre>
+     *
+     * <code>.google.cloud.language.v1beta2.ClassificationModelOptions classification_model_options = 3;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.language.v1beta2.ClassificationModelOptions, com.google.cloud.language.v1beta2.ClassificationModelOptions.Builder, com.google.cloud.language.v1beta2.ClassificationModelOptionsOrBuilder> 
+        getClassificationModelOptionsFieldBuilder() {
+      if (classificationModelOptionsBuilder_ == null) {
+        classificationModelOptionsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.language.v1beta2.ClassificationModelOptions, com.google.cloud.language.v1beta2.ClassificationModelOptions.Builder, com.google.cloud.language.v1beta2.ClassificationModelOptionsOrBuilder>(
+                getClassificationModelOptions(),
+                getParentForChildren(),
+                isClean());
+        classificationModelOptions_ = null;
+      }
+      return classificationModelOptionsBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -643,7 +853,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ClassifyTextRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

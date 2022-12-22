@@ -37,61 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LogSplit(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            uid_ = s;
-            break;
-          }
-          case 16: {
-
-            index_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            totalSplits_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.logging.v2.LogEntryProto.internal_static_google_logging_v2_LogSplit_descriptor;
@@ -106,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object uid_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object uid_ = "";
   /**
    * <pre>
    * A globally unique identifier for all log entries in a sequence of split log
@@ -156,7 +102,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INDEX_FIELD_NUMBER = 2;
-  private int index_;
+  private int index_ = 0;
   /**
    * <pre>
    * The index of this LogEntry in the sequence of split log entries. Log
@@ -173,7 +119,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOTAL_SPLITS_FIELD_NUMBER = 3;
-  private int totalSplits_;
+  private int totalSplits_ = 0;
   /**
    * <pre>
    * The total number of log entries that the original LogEntry was split into.
@@ -210,7 +156,7 @@ private static final long serialVersionUID = 0L;
     if (totalSplits_ != 0) {
       output.writeInt32(3, totalSplits_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -230,7 +176,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, totalSplits_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -251,7 +197,7 @@ private static final long serialVersionUID = 0L;
         != other.getIndex()) return false;
     if (getTotalSplits()
         != other.getTotalSplits()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -268,7 +214,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getIndex();
     hash = (37 * hash) + TOTAL_SPLITS_FIELD_NUMBER;
     hash = (53 * hash) + getTotalSplits();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -391,28 +337,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.logging.v2.LogSplit.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       uid_ = "";
-
       index_ = 0;
-
       totalSplits_ = 0;
-
       return this;
     }
 
@@ -439,11 +378,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.logging.v2.LogSplit buildPartial() {
       com.google.logging.v2.LogSplit result = new com.google.logging.v2.LogSplit(this);
-      result.uid_ = uid_;
-      result.index_ = index_;
-      result.totalSplits_ = totalSplits_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.logging.v2.LogSplit result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.uid_ = uid_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.index_ = index_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.totalSplits_ = totalSplits_;
+      }
     }
 
     @java.lang.Override
@@ -492,6 +442,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.logging.v2.LogSplit.getDefaultInstance()) return this;
       if (!other.getUid().isEmpty()) {
         uid_ = other.uid_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getIndex() != 0) {
@@ -500,7 +451,7 @@ private static final long serialVersionUID = 0L;
       if (other.getTotalSplits() != 0) {
         setTotalSplits(other.getTotalSplits());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -515,19 +466,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.logging.v2.LogSplit parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              uid_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              index_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              totalSplits_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.logging.v2.LogSplit) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object uid_ = "";
     /**
@@ -588,11 +568,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUid(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       uid_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -607,8 +585,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUid() {
-      
       uid_ = getDefaultInstance().getUid();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -625,12 +603,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUidBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       uid_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -664,6 +640,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIndex(int value) {
       
       index_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -678,7 +655,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIndex() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       index_ = 0;
       onChanged();
       return this;
@@ -709,6 +686,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTotalSplits(int value) {
       
       totalSplits_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -721,7 +699,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTotalSplits() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       totalSplits_ = 0;
       onChanged();
       return this;
@@ -759,7 +737,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LogSplit(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -39,23 +39,24 @@ public final class ConfigProto {
       "re/v3/grpc_method_list.proto\032\036google/pro" +
       "tobuf/wrappers.proto\032\035udpa/annotations/s" +
       "tatus.proto\032!udpa/annotations/versioning" +
-      ".proto\"\266\002\n\014FilterConfig\022\031\n\021emit_filter_s" +
+      ".proto\"\341\002\n\014FilterConfig\022\031\n\021emit_filter_s" +
       "tate\030\001 \001(\010\022Q\n!individual_method_stats_al" +
       "lowlist\030\002 \001(\0132$.envoy.config.core.v3.Grp" +
       "cMethodListH\000\022;\n\025stats_for_all_methods\030\003" +
       " \001(\0132\032.google.protobuf.BoolValueH\000\022\035\n\025en" +
-      "able_upstream_stats\030\004 \001(\010:?\232\305\210\036:\n8envoy." +
-      "config.filter.http.grpc_stats.v2alpha.Fi" +
-      "lterConfigB\033\n\031per_method_stat_specifier\"" +
-      "\216\001\n\014FilterObject\022\035\n\025request_message_coun" +
-      "t\030\001 \001(\004\022\036\n\026response_message_count\030\002 \001(\004:" +
-      "?\232\305\210\036:\n8envoy.config.filter.http.grpc_st" +
-      "ats.v2alpha.FilterObjectB\263\001\n9io.envoypro" +
-      "xy.envoy.extensions.filters.http.grpc_st" +
-      "ats.v3B\013ConfigProtoP\001Z_github.com/envoyp" +
-      "roxy/go-control-plane/envoy/extensions/f" +
-      "ilters/http/grpc_stats/v3;grpc_statsv3\272\200" +
-      "\310\321\006\002\020\002b\006proto3"
+      "able_upstream_stats\030\004 \001(\010\022)\n!replace_dot" +
+      "s_in_grpc_service_name\030\005 \001(\010:?\232\305\210\036:\n8env" +
+      "oy.config.filter.http.grpc_stats.v2alpha" +
+      ".FilterConfigB\033\n\031per_method_stat_specifi" +
+      "er\"\216\001\n\014FilterObject\022\035\n\025request_message_c" +
+      "ount\030\001 \001(\004\022\036\n\026response_message_count\030\002 \001" +
+      "(\004:?\232\305\210\036:\n8envoy.config.filter.http.grpc" +
+      "_stats.v2alpha.FilterObjectB\263\001\n9io.envoy" +
+      "proxy.envoy.extensions.filters.http.grpc" +
+      "_stats.v3B\013ConfigProtoP\001Z_github.com/env" +
+      "oyproxy/go-control-plane/envoy/extension" +
+      "s/filters/http/grpc_stats/v3;grpc_statsv" +
+      "3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -70,7 +71,7 @@ public final class ConfigProto {
     internal_static_envoy_extensions_filters_http_grpc_stats_v3_FilterConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_http_grpc_stats_v3_FilterConfig_descriptor,
-        new java.lang.String[] { "EmitFilterState", "IndividualMethodStatsAllowlist", "StatsForAllMethods", "EnableUpstreamStats", "PerMethodStatSpecifier", });
+        new java.lang.String[] { "EmitFilterState", "IndividualMethodStatsAllowlist", "StatsForAllMethods", "EnableUpstreamStats", "ReplaceDotsInGrpcServiceName", "PerMethodStatSpecifier", });
     internal_static_envoy_extensions_filters_http_grpc_stats_v3_FilterObject_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_envoy_extensions_filters_http_grpc_stats_v3_FilterObject_fieldAccessorTable = new

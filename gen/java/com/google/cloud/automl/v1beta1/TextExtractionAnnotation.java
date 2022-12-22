@@ -34,64 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TextExtractionAnnotation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 13: {
-
-            score_ = input.readFloat();
-            break;
-          }
-          case 26: {
-            com.google.cloud.automl.v1beta1.TextSegment.Builder subBuilder = null;
-            if (annotationCase_ == 3) {
-              subBuilder = ((com.google.cloud.automl.v1beta1.TextSegment) annotation_).toBuilder();
-            }
-            annotation_ =
-                input.readMessage(com.google.cloud.automl.v1beta1.TextSegment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.automl.v1beta1.TextSegment) annotation_);
-              annotation_ = subBuilder.buildPartial();
-            }
-            annotationCase_ = 3;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.automl.v1beta1.TextExtraction.internal_static_google_cloud_automl_v1beta1_TextExtractionAnnotation_descriptor;
@@ -191,7 +133,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCORE_FIELD_NUMBER = 1;
-  private float score_;
+  private float score_ = 0F;
   /**
    * <pre>
    * Output only. A confidence estimate between 0.0 and 1.0. A higher value
@@ -226,7 +168,7 @@ private static final long serialVersionUID = 0L;
     if (annotationCase_ == 3) {
       output.writeMessage(3, (com.google.cloud.automl.v1beta1.TextSegment) annotation_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -243,7 +185,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, (com.google.cloud.automl.v1beta1.TextSegment) annotation_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -270,7 +212,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -292,7 +234,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -413,24 +355,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.automl.v1beta1.TextExtractionAnnotation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (textSegmentBuilder_ != null) {
+        textSegmentBuilder_.clear();
+      }
       score_ = 0F;
-
       annotationCase_ = 0;
       annotation_ = null;
       return this;
@@ -459,17 +399,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.automl.v1beta1.TextExtractionAnnotation buildPartial() {
       com.google.cloud.automl.v1beta1.TextExtractionAnnotation result = new com.google.cloud.automl.v1beta1.TextExtractionAnnotation(this);
-      if (annotationCase_ == 3) {
-        if (textSegmentBuilder_ == null) {
-          result.annotation_ = annotation_;
-        } else {
-          result.annotation_ = textSegmentBuilder_.build();
-        }
-      }
-      result.score_ = score_;
-      result.annotationCase_ = annotationCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.automl.v1beta1.TextExtractionAnnotation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.score_ = score_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.automl.v1beta1.TextExtractionAnnotation result) {
+      result.annotationCase_ = annotationCase_;
+      result.annotation_ = this.annotation_;
+      if (annotationCase_ == 3 &&
+          textSegmentBuilder_ != null) {
+        result.annotation_ = textSegmentBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -528,7 +477,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -543,17 +492,42 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.automl.v1beta1.TextExtractionAnnotation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 13: {
+              score_ = input.readFloat();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 13
+            case 26: {
+              input.readMessage(
+                  getTextSegmentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              annotationCase_ = 3;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.automl.v1beta1.TextExtractionAnnotation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int annotationCase_ = 0;
@@ -571,6 +545,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.automl.v1beta1.TextSegment, com.google.cloud.automl.v1beta1.TextSegment.Builder, com.google.cloud.automl.v1beta1.TextSegmentOrBuilder> textSegmentBuilder_;
@@ -755,7 +730,7 @@ private static final long serialVersionUID = 0L;
         annotation_ = null;
       }
       annotationCase_ = 3;
-      onChanged();;
+      onChanged();
       return textSegmentBuilder_;
     }
 
@@ -786,6 +761,7 @@ private static final long serialVersionUID = 0L;
     public Builder setScore(float value) {
       
       score_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -799,7 +775,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScore() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       score_ = 0F;
       onChanged();
       return this;
@@ -837,7 +813,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TextExtractionAnnotation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

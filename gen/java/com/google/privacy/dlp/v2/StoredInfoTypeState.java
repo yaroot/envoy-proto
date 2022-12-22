@@ -162,7 +162,7 @@ public enum StoredInfoTypeState
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.google.privacy.dlp.v2.DlpProto.getDescriptor().getEnumTypes().get(6);
+    return com.google.privacy.dlp.v2.DlpProto.getDescriptor().getEnumTypes().get(9);
   }
 
   private static final StoredInfoTypeState[] VALUES = values();

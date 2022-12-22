@@ -34,89 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AppConnectorInstanceConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            sequenceNumber_ = input.readInt64();
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Any.Builder subBuilder = null;
-            if (instanceConfig_ != null) {
-              subBuilder = instanceConfig_.toBuilder();
-            }
-            instanceConfig_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(instanceConfig_);
-              instanceConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.beyondcorp.appconnectors.v1.NotificationConfig.Builder subBuilder = null;
-            if (notificationConfig_ != null) {
-              subBuilder = notificationConfig_.toBuilder();
-            }
-            notificationConfig_ = input.readMessage(com.google.cloud.beyondcorp.appconnectors.v1.NotificationConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(notificationConfig_);
-              notificationConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.beyondcorp.appconnectors.v1.ImageConfig.Builder subBuilder = null;
-            if (imageConfig_ != null) {
-              subBuilder = imageConfig_.toBuilder();
-            }
-            imageConfig_ = input.readMessage(com.google.cloud.beyondcorp.appconnectors.v1.ImageConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(imageConfig_);
-              imageConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.beyondcorp.appconnectors.v1.AppConnectorInstanceConfigProto.internal_static_google_cloud_beyondcorp_appconnectors_v1_AppConnectorInstanceConfig_descriptor;
@@ -131,7 +48,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SEQUENCE_NUMBER_FIELD_NUMBER = 1;
-  private long sequenceNumber_;
+  private long sequenceNumber_ = 0L;
   /**
    * <pre>
    * Required. A monotonically increasing number generated and maintained
@@ -182,7 +99,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.AnyOrBuilder getInstanceConfigOrBuilder() {
-    return getInstanceConfig();
+    return instanceConfig_ == null ? com.google.protobuf.Any.getDefaultInstance() : instanceConfig_;
   }
 
   public static final int NOTIFICATION_CONFIG_FIELD_NUMBER = 3;
@@ -223,7 +140,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.beyondcorp.appconnectors.v1.NotificationConfigOrBuilder getNotificationConfigOrBuilder() {
-    return getNotificationConfig();
+    return notificationConfig_ == null ? com.google.cloud.beyondcorp.appconnectors.v1.NotificationConfig.getDefaultInstance() : notificationConfig_;
   }
 
   public static final int IMAGE_CONFIG_FIELD_NUMBER = 4;
@@ -264,7 +181,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.beyondcorp.appconnectors.v1.ImageConfigOrBuilder getImageConfigOrBuilder() {
-    return getImageConfig();
+    return imageConfig_ == null ? com.google.cloud.beyondcorp.appconnectors.v1.ImageConfig.getDefaultInstance() : imageConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -293,7 +210,7 @@ private static final long serialVersionUID = 0L;
     if (imageConfig_ != null) {
       output.writeMessage(4, getImageConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -318,7 +235,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getImageConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -350,7 +267,7 @@ private static final long serialVersionUID = 0L;
       if (!getImageConfig()
           .equals(other.getImageConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -376,7 +293,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + IMAGE_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getImageConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -497,40 +414,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.beyondcorp.appconnectors.v1.AppConnectorInstanceConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       sequenceNumber_ = 0L;
-
-      if (instanceConfigBuilder_ == null) {
-        instanceConfig_ = null;
-      } else {
-        instanceConfig_ = null;
+      instanceConfig_ = null;
+      if (instanceConfigBuilder_ != null) {
+        instanceConfigBuilder_.dispose();
         instanceConfigBuilder_ = null;
       }
-      if (notificationConfigBuilder_ == null) {
-        notificationConfig_ = null;
-      } else {
-        notificationConfig_ = null;
+      notificationConfig_ = null;
+      if (notificationConfigBuilder_ != null) {
+        notificationConfigBuilder_.dispose();
         notificationConfigBuilder_ = null;
       }
-      if (imageConfigBuilder_ == null) {
-        imageConfig_ = null;
-      } else {
-        imageConfig_ = null;
+      imageConfig_ = null;
+      if (imageConfigBuilder_ != null) {
+        imageConfigBuilder_.dispose();
         imageConfigBuilder_ = null;
       }
       return this;
@@ -559,24 +468,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.beyondcorp.appconnectors.v1.AppConnectorInstanceConfig buildPartial() {
       com.google.cloud.beyondcorp.appconnectors.v1.AppConnectorInstanceConfig result = new com.google.cloud.beyondcorp.appconnectors.v1.AppConnectorInstanceConfig(this);
-      result.sequenceNumber_ = sequenceNumber_;
-      if (instanceConfigBuilder_ == null) {
-        result.instanceConfig_ = instanceConfig_;
-      } else {
-        result.instanceConfig_ = instanceConfigBuilder_.build();
-      }
-      if (notificationConfigBuilder_ == null) {
-        result.notificationConfig_ = notificationConfig_;
-      } else {
-        result.notificationConfig_ = notificationConfigBuilder_.build();
-      }
-      if (imageConfigBuilder_ == null) {
-        result.imageConfig_ = imageConfig_;
-      } else {
-        result.imageConfig_ = imageConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.beyondcorp.appconnectors.v1.AppConnectorInstanceConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.sequenceNumber_ = sequenceNumber_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.instanceConfig_ = instanceConfigBuilder_ == null
+            ? instanceConfig_
+            : instanceConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.notificationConfig_ = notificationConfigBuilder_ == null
+            ? notificationConfig_
+            : notificationConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.imageConfig_ = imageConfigBuilder_ == null
+            ? imageConfig_
+            : imageConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -635,7 +551,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasImageConfig()) {
         mergeImageConfig(other.getImageConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -650,19 +566,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.beyondcorp.appconnectors.v1.AppConnectorInstanceConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              sequenceNumber_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getInstanceConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getNotificationConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getImageConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.beyondcorp.appconnectors.v1.AppConnectorInstanceConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private long sequenceNumber_ ;
     /**
@@ -693,6 +649,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSequenceNumber(long value) {
       
       sequenceNumber_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -707,7 +664,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSequenceNumber() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       sequenceNumber_ = 0L;
       onChanged();
       return this;
@@ -725,7 +682,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the instanceConfig field is set.
      */
     public boolean hasInstanceConfig() {
-      return instanceConfigBuilder_ != null || instanceConfig_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -755,11 +712,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         instanceConfig_ = value;
-        onChanged();
       } else {
         instanceConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -773,11 +730,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Any.Builder builderForValue) {
       if (instanceConfigBuilder_ == null) {
         instanceConfig_ = builderForValue.build();
-        onChanged();
       } else {
         instanceConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -789,17 +746,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInstanceConfig(com.google.protobuf.Any value) {
       if (instanceConfigBuilder_ == null) {
-        if (instanceConfig_ != null) {
-          instanceConfig_ =
-            com.google.protobuf.Any.newBuilder(instanceConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          instanceConfig_ != null &&
+          instanceConfig_ != com.google.protobuf.Any.getDefaultInstance()) {
+          getInstanceConfigBuilder().mergeFrom(value);
         } else {
           instanceConfig_ = value;
         }
-        onChanged();
       } else {
         instanceConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -810,14 +768,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Any instance_config = 2;</code>
      */
     public Builder clearInstanceConfig() {
-      if (instanceConfigBuilder_ == null) {
-        instanceConfig_ = null;
-        onChanged();
-      } else {
-        instanceConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      instanceConfig_ = null;
+      if (instanceConfigBuilder_ != null) {
+        instanceConfigBuilder_.dispose();
         instanceConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -828,7 +785,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Any instance_config = 2;</code>
      */
     public com.google.protobuf.Any.Builder getInstanceConfigBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getInstanceConfigFieldBuilder().getBuilder();
     }
@@ -881,7 +838,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the notificationConfig field is set.
      */
     public boolean hasNotificationConfig() {
-      return notificationConfigBuilder_ != null || notificationConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -913,11 +870,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         notificationConfig_ = value;
-        onChanged();
       } else {
         notificationConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -932,11 +889,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.beyondcorp.appconnectors.v1.NotificationConfig.Builder builderForValue) {
       if (notificationConfigBuilder_ == null) {
         notificationConfig_ = builderForValue.build();
-        onChanged();
       } else {
         notificationConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -949,17 +906,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNotificationConfig(com.google.cloud.beyondcorp.appconnectors.v1.NotificationConfig value) {
       if (notificationConfigBuilder_ == null) {
-        if (notificationConfig_ != null) {
-          notificationConfig_ =
-            com.google.cloud.beyondcorp.appconnectors.v1.NotificationConfig.newBuilder(notificationConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          notificationConfig_ != null &&
+          notificationConfig_ != com.google.cloud.beyondcorp.appconnectors.v1.NotificationConfig.getDefaultInstance()) {
+          getNotificationConfigBuilder().mergeFrom(value);
         } else {
           notificationConfig_ = value;
         }
-        onChanged();
       } else {
         notificationConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -971,14 +929,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.beyondcorp.appconnectors.v1.NotificationConfig notification_config = 3;</code>
      */
     public Builder clearNotificationConfig() {
-      if (notificationConfigBuilder_ == null) {
-        notificationConfig_ = null;
-        onChanged();
-      } else {
-        notificationConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      notificationConfig_ = null;
+      if (notificationConfigBuilder_ != null) {
+        notificationConfigBuilder_.dispose();
         notificationConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -990,7 +947,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.beyondcorp.appconnectors.v1.NotificationConfig notification_config = 3;</code>
      */
     public com.google.cloud.beyondcorp.appconnectors.v1.NotificationConfig.Builder getNotificationConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getNotificationConfigFieldBuilder().getBuilder();
     }
@@ -1045,7 +1002,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the imageConfig field is set.
      */
     public boolean hasImageConfig() {
-      return imageConfigBuilder_ != null || imageConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1077,11 +1034,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         imageConfig_ = value;
-        onChanged();
       } else {
         imageConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1096,11 +1053,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.beyondcorp.appconnectors.v1.ImageConfig.Builder builderForValue) {
       if (imageConfigBuilder_ == null) {
         imageConfig_ = builderForValue.build();
-        onChanged();
       } else {
         imageConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1113,17 +1070,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeImageConfig(com.google.cloud.beyondcorp.appconnectors.v1.ImageConfig value) {
       if (imageConfigBuilder_ == null) {
-        if (imageConfig_ != null) {
-          imageConfig_ =
-            com.google.cloud.beyondcorp.appconnectors.v1.ImageConfig.newBuilder(imageConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          imageConfig_ != null &&
+          imageConfig_ != com.google.cloud.beyondcorp.appconnectors.v1.ImageConfig.getDefaultInstance()) {
+          getImageConfigBuilder().mergeFrom(value);
         } else {
           imageConfig_ = value;
         }
-        onChanged();
       } else {
         imageConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1135,14 +1093,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.beyondcorp.appconnectors.v1.ImageConfig image_config = 4;</code>
      */
     public Builder clearImageConfig() {
-      if (imageConfigBuilder_ == null) {
-        imageConfig_ = null;
-        onChanged();
-      } else {
-        imageConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      imageConfig_ = null;
+      if (imageConfigBuilder_ != null) {
+        imageConfigBuilder_.dispose();
         imageConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1154,7 +1111,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.beyondcorp.appconnectors.v1.ImageConfig image_config = 4;</code>
      */
     public com.google.cloud.beyondcorp.appconnectors.v1.ImageConfig.Builder getImageConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getImageConfigFieldBuilder().getBuilder();
     }
@@ -1228,7 +1185,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AppConnectorInstanceConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -138,7 +138,6 @@ public interface CreateInstanceRequestOrBuilder extends
    *
    * <code>map&lt;string, .google.bigtable.admin.v2.Cluster&gt; clusters = 4 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   /* nullable */
 com.google.bigtable.admin.v2.Cluster getClustersOrDefault(
       java.lang.String key,
@@ -155,7 +154,6 @@ com.google.bigtable.admin.v2.Cluster defaultValue);
    *
    * <code>map&lt;string, .google.bigtable.admin.v2.Cluster&gt; clusters = 4 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   com.google.bigtable.admin.v2.Cluster getClustersOrThrow(
       java.lang.String key);
 }

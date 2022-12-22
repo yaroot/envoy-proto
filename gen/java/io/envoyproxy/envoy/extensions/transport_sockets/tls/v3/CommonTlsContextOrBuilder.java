@@ -36,11 +36,9 @@ public interface CommonTlsContextOrBuilder extends
 
   /**
    * <pre>
+   * Only a single TLS certificate is supported in client contexts. In server contexts,
    * :ref:`Multiple TLS certificates &lt;arch_overview_ssl_cert_select&gt;` can be associated with the
-   * same context to allow both RSA and ECDSA certificates.
-   * Only a single TLS certificate is supported in client contexts. In server contexts, the first
-   * RSA certificate is used for clients that only support RSA and the first ECDSA certificate is
-   * used for clients that support ECDSA.
+   * same context to allow both RSA and ECDSA certificates and support SNI-based selection.
    * Only one of ``tls_certificates``, ``tls_certificate_sds_secret_configs``,
    * and ``tls_certificate_provider_instance`` may be used.
    * [#next-major-version: These mutually exclusive fields should ideally be in a oneof, but it's
@@ -54,11 +52,9 @@ public interface CommonTlsContextOrBuilder extends
       getTlsCertificatesList();
   /**
    * <pre>
+   * Only a single TLS certificate is supported in client contexts. In server contexts,
    * :ref:`Multiple TLS certificates &lt;arch_overview_ssl_cert_select&gt;` can be associated with the
-   * same context to allow both RSA and ECDSA certificates.
-   * Only a single TLS certificate is supported in client contexts. In server contexts, the first
-   * RSA certificate is used for clients that only support RSA and the first ECDSA certificate is
-   * used for clients that support ECDSA.
+   * same context to allow both RSA and ECDSA certificates and support SNI-based selection.
    * Only one of ``tls_certificates``, ``tls_certificate_sds_secret_configs``,
    * and ``tls_certificate_provider_instance`` may be used.
    * [#next-major-version: These mutually exclusive fields should ideally be in a oneof, but it's
@@ -71,11 +67,9 @@ public interface CommonTlsContextOrBuilder extends
   io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsCertificate getTlsCertificates(int index);
   /**
    * <pre>
+   * Only a single TLS certificate is supported in client contexts. In server contexts,
    * :ref:`Multiple TLS certificates &lt;arch_overview_ssl_cert_select&gt;` can be associated with the
-   * same context to allow both RSA and ECDSA certificates.
-   * Only a single TLS certificate is supported in client contexts. In server contexts, the first
-   * RSA certificate is used for clients that only support RSA and the first ECDSA certificate is
-   * used for clients that support ECDSA.
+   * same context to allow both RSA and ECDSA certificates and support SNI-based selection.
    * Only one of ``tls_certificates``, ``tls_certificate_sds_secret_configs``,
    * and ``tls_certificate_provider_instance`` may be used.
    * [#next-major-version: These mutually exclusive fields should ideally be in a oneof, but it's
@@ -88,11 +82,9 @@ public interface CommonTlsContextOrBuilder extends
   int getTlsCertificatesCount();
   /**
    * <pre>
+   * Only a single TLS certificate is supported in client contexts. In server contexts,
    * :ref:`Multiple TLS certificates &lt;arch_overview_ssl_cert_select&gt;` can be associated with the
-   * same context to allow both RSA and ECDSA certificates.
-   * Only a single TLS certificate is supported in client contexts. In server contexts, the first
-   * RSA certificate is used for clients that only support RSA and the first ECDSA certificate is
-   * used for clients that support ECDSA.
+   * same context to allow both RSA and ECDSA certificates and support SNI-based selection.
    * Only one of ``tls_certificates``, ``tls_certificate_sds_secret_configs``,
    * and ``tls_certificate_provider_instance`` may be used.
    * [#next-major-version: These mutually exclusive fields should ideally be in a oneof, but it's
@@ -106,11 +98,9 @@ public interface CommonTlsContextOrBuilder extends
       getTlsCertificatesOrBuilderList();
   /**
    * <pre>
+   * Only a single TLS certificate is supported in client contexts. In server contexts,
    * :ref:`Multiple TLS certificates &lt;arch_overview_ssl_cert_select&gt;` can be associated with the
-   * same context to allow both RSA and ECDSA certificates.
-   * Only a single TLS certificate is supported in client contexts. In server contexts, the first
-   * RSA certificate is used for clients that only support RSA and the first ECDSA certificate is
-   * used for clients that support ECDSA.
+   * same context to allow both RSA and ECDSA certificates and support SNI-based selection.
    * Only one of ``tls_certificates``, ``tls_certificate_sds_secret_configs``,
    * and ``tls_certificate_provider_instance`` may be used.
    * [#next-major-version: These mutually exclusive fields should ideally be in a oneof, but it's
@@ -251,7 +241,7 @@ public interface CommonTlsContextOrBuilder extends
    *
    * <code>.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProvider tls_certificate_certificate_provider = 9 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.tls_certificate_certificate_provider is deprecated.
-   *     See envoy/extensions/transport_sockets/tls/v3/tls.proto;l=266
+   *     See envoy/extensions/transport_sockets/tls/v3/tls.proto;l=268
    * @return Whether the tlsCertificateCertificateProvider field is set.
    */
   @java.lang.Deprecated boolean hasTlsCertificateCertificateProvider();
@@ -263,7 +253,7 @@ public interface CommonTlsContextOrBuilder extends
    *
    * <code>.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProvider tls_certificate_certificate_provider = 9 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.tls_certificate_certificate_provider is deprecated.
-   *     See envoy/extensions/transport_sockets/tls/v3/tls.proto;l=266
+   *     See envoy/extensions/transport_sockets/tls/v3/tls.proto;l=268
    * @return The tlsCertificateCertificateProvider.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProvider getTlsCertificateCertificateProvider();
@@ -285,7 +275,7 @@ public interface CommonTlsContextOrBuilder extends
    *
    * <code>.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstance tls_certificate_certificate_provider_instance = 11 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.tls_certificate_certificate_provider_instance is deprecated.
-   *     See envoy/extensions/transport_sockets/tls/v3/tls.proto;l=271
+   *     See envoy/extensions/transport_sockets/tls/v3/tls.proto;l=273
    * @return Whether the tlsCertificateCertificateProviderInstance field is set.
    */
   @java.lang.Deprecated boolean hasTlsCertificateCertificateProviderInstance();
@@ -297,7 +287,7 @@ public interface CommonTlsContextOrBuilder extends
    *
    * <code>.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstance tls_certificate_certificate_provider_instance = 11 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.tls_certificate_certificate_provider_instance is deprecated.
-   *     See envoy/extensions/transport_sockets/tls/v3/tls.proto;l=271
+   *     See envoy/extensions/transport_sockets/tls/v3/tls.proto;l=273
    * @return The tlsCertificateCertificateProviderInstance.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstance getTlsCertificateCertificateProviderInstance();
@@ -421,7 +411,7 @@ public interface CommonTlsContextOrBuilder extends
    *
    * <code>.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProvider validation_context_certificate_provider = 10 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.validation_context_certificate_provider is deprecated.
-   *     See envoy/extensions/transport_sockets/tls/v3/tls.proto;l=293
+   *     See envoy/extensions/transport_sockets/tls/v3/tls.proto;l=295
    * @return Whether the validationContextCertificateProvider field is set.
    */
   @java.lang.Deprecated boolean hasValidationContextCertificateProvider();
@@ -433,7 +423,7 @@ public interface CommonTlsContextOrBuilder extends
    *
    * <code>.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProvider validation_context_certificate_provider = 10 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.validation_context_certificate_provider is deprecated.
-   *     See envoy/extensions/transport_sockets/tls/v3/tls.proto;l=293
+   *     See envoy/extensions/transport_sockets/tls/v3/tls.proto;l=295
    * @return The validationContextCertificateProvider.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProvider getValidationContextCertificateProvider();
@@ -455,7 +445,7 @@ public interface CommonTlsContextOrBuilder extends
    *
    * <code>.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstance validation_context_certificate_provider_instance = 12 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.validation_context_certificate_provider_instance is deprecated.
-   *     See envoy/extensions/transport_sockets/tls/v3/tls.proto;l=298
+   *     See envoy/extensions/transport_sockets/tls/v3/tls.proto;l=300
    * @return Whether the validationContextCertificateProviderInstance field is set.
    */
   @java.lang.Deprecated boolean hasValidationContextCertificateProviderInstance();
@@ -467,7 +457,7 @@ public interface CommonTlsContextOrBuilder extends
    *
    * <code>.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstance validation_context_certificate_provider_instance = 12 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.validation_context_certificate_provider_instance is deprecated.
-   *     See envoy/extensions/transport_sockets/tls/v3/tls.proto;l=298
+   *     See envoy/extensions/transport_sockets/tls/v3/tls.proto;l=300
    * @return The validationContextCertificateProviderInstance.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstance getValidationContextCertificateProviderInstance();

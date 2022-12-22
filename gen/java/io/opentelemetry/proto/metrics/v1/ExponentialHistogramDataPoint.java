@@ -39,141 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ExponentialHistogramDataPoint(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              attributes_ = new java.util.ArrayList<io.opentelemetry.proto.common.v1.KeyValue>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            attributes_.add(
-                input.readMessage(io.opentelemetry.proto.common.v1.KeyValue.parser(), extensionRegistry));
-            break;
-          }
-          case 17: {
-
-            startTimeUnixNano_ = input.readFixed64();
-            break;
-          }
-          case 25: {
-
-            timeUnixNano_ = input.readFixed64();
-            break;
-          }
-          case 33: {
-
-            count_ = input.readFixed64();
-            break;
-          }
-          case 41: {
-            bitField0_ |= 0x00000001;
-            sum_ = input.readDouble();
-            break;
-          }
-          case 48: {
-
-            scale_ = input.readSInt32();
-            break;
-          }
-          case 57: {
-
-            zeroCount_ = input.readFixed64();
-            break;
-          }
-          case 66: {
-            io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets.Builder subBuilder = null;
-            if (positive_ != null) {
-              subBuilder = positive_.toBuilder();
-            }
-            positive_ = input.readMessage(io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(positive_);
-              positive_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets.Builder subBuilder = null;
-            if (negative_ != null) {
-              subBuilder = negative_.toBuilder();
-            }
-            negative_ = input.readMessage(io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(negative_);
-              negative_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 80: {
-
-            flags_ = input.readUInt32();
-            break;
-          }
-          case 90: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              exemplars_ = new java.util.ArrayList<io.opentelemetry.proto.metrics.v1.Exemplar>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            exemplars_.add(
-                input.readMessage(io.opentelemetry.proto.metrics.v1.Exemplar.parser(), extensionRegistry));
-            break;
-          }
-          case 97: {
-            bitField0_ |= 0x00000002;
-            min_ = input.readDouble();
-            break;
-          }
-          case 105: {
-            bitField0_ |= 0x00000004;
-            max_ = input.readDouble();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        attributes_ = java.util.Collections.unmodifiableList(attributes_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        exemplars_ = java.util.Collections.unmodifiableList(exemplars_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.opentelemetry.proto.metrics.v1.MetricsProto.internal_static_opentelemetry_proto_metrics_v1_ExponentialHistogramDataPoint_descriptor;
@@ -207,7 +72,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Count is an array of counts, where count[i] carries the count
      * of the bucket at index (offset+i).  count[i] is the count of
-     * values greater than or equal to base^(offset+i) and less than
+     * values greater than base^(offset+i) and less or equal to than
      * base^(offset+i+1).
      * Note: By contrast, the explicit HistogramDataPoint uses
      * fixed64.  This field is expected to have many buckets,
@@ -223,7 +88,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Count is an array of counts, where count[i] carries the count
      * of the bucket at index (offset+i).  count[i] is the count of
-     * values greater than or equal to base^(offset+i) and less than
+     * values greater than base^(offset+i) and less or equal to than
      * base^(offset+i+1).
      * Note: By contrast, the explicit HistogramDataPoint uses
      * fixed64.  This field is expected to have many buckets,
@@ -239,7 +104,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Count is an array of counts, where count[i] carries the count
      * of the bucket at index (offset+i).  count[i] is the count of
-     * values greater than or equal to base^(offset+i) and less than
+     * values greater than base^(offset+i) and less or equal to than
      * base^(offset+i+1).
      * Note: By contrast, the explicit HistogramDataPoint uses
      * fixed64.  This field is expected to have many buckets,
@@ -286,75 +151,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Buckets(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              offset_ = input.readSInt32();
-              break;
-            }
-            case 16: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                bucketCounts_ = newLongList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              bucketCounts_.addLong(input.readUInt64());
-              break;
-            }
-            case 18: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-                bucketCounts_ = newLongList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                bucketCounts_.addLong(input.readUInt64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          bucketCounts_.makeImmutable(); // C
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.opentelemetry.proto.metrics.v1.MetricsProto.internal_static_opentelemetry_proto_metrics_v1_ExponentialHistogramDataPoint_Buckets_descriptor;
@@ -369,7 +165,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int OFFSET_FIELD_NUMBER = 1;
-    private int offset_;
+    private int offset_ = 0;
     /**
      * <pre>
      * Offset is the bucket index of the first entry in the bucket_counts array.
@@ -386,12 +182,13 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int BUCKET_COUNTS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList bucketCounts_;
     /**
      * <pre>
      * Count is an array of counts, where count[i] carries the count
      * of the bucket at index (offset+i).  count[i] is the count of
-     * values greater than or equal to base^(offset+i) and less than
+     * values greater than base^(offset+i) and less or equal to than
      * base^(offset+i+1).
      * Note: By contrast, the explicit HistogramDataPoint uses
      * fixed64.  This field is expected to have many buckets,
@@ -411,7 +208,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Count is an array of counts, where count[i] carries the count
      * of the bucket at index (offset+i).  count[i] is the count of
-     * values greater than or equal to base^(offset+i) and less than
+     * values greater than base^(offset+i) and less or equal to than
      * base^(offset+i+1).
      * Note: By contrast, the explicit HistogramDataPoint uses
      * fixed64.  This field is expected to have many buckets,
@@ -429,7 +226,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Count is an array of counts, where count[i] carries the count
      * of the bucket at index (offset+i).  count[i] is the count of
-     * values greater than or equal to base^(offset+i) and less than
+     * values greater than base^(offset+i) and less or equal to than
      * base^(offset+i+1).
      * Note: By contrast, the explicit HistogramDataPoint uses
      * fixed64.  This field is expected to have many buckets,
@@ -471,7 +268,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < bucketCounts_.size(); i++) {
         output.writeUInt64NoTag(bucketCounts_.getLong(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -498,7 +295,7 @@ private static final long serialVersionUID = 0L;
         }
         bucketCountsMemoizedSerializedSize = dataSize;
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -517,7 +314,7 @@ private static final long serialVersionUID = 0L;
           != other.getOffset()) return false;
       if (!getBucketCountsList()
           .equals(other.getBucketCountsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -534,7 +331,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + BUCKET_COUNTS_FIELD_NUMBER;
         hash = (53 * hash) + getBucketCountsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -656,26 +453,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         offset_ = 0;
-
         bucketCounts_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -702,15 +493,25 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets buildPartial() {
         io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets result = new io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets(this);
-        int from_bitField0_ = bitField0_;
-        result.offset_ = offset_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          bucketCounts_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.bucketCounts_ = bucketCounts_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets result) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          bucketCounts_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.bucketCounts_ = bucketCounts_;
+      }
+
+      private void buildPartial0(io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.offset_ = offset_;
+        }
       }
 
       @java.lang.Override
@@ -763,14 +564,14 @@ private static final long serialVersionUID = 0L;
         if (!other.bucketCounts_.isEmpty()) {
           if (bucketCounts_.isEmpty()) {
             bucketCounts_ = other.bucketCounts_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureBucketCountsIsMutable();
             bucketCounts_.addAll(other.bucketCounts_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -785,17 +586,51 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                offset_ = input.readSInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                long v = input.readUInt64();
+                ensureBucketCountsIsMutable();
+                bucketCounts_.addLong(v);
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureBucketCountsIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  bucketCounts_.addLong(input.readUInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -829,6 +664,7 @@ private static final long serialVersionUID = 0L;
       public Builder setOffset(int value) {
         
         offset_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -843,7 +679,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOffset() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         offset_ = 0;
         onChanged();
         return this;
@@ -851,16 +687,16 @@ private static final long serialVersionUID = 0L;
 
       private com.google.protobuf.Internal.LongList bucketCounts_ = emptyLongList();
       private void ensureBucketCountsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           bucketCounts_ = mutableCopy(bucketCounts_);
-          bitField0_ |= 0x00000001;
-         }
+          bitField0_ |= 0x00000002;
+        }
       }
       /**
        * <pre>
        * Count is an array of counts, where count[i] carries the count
        * of the bucket at index (offset+i).  count[i] is the count of
-       * values greater than or equal to base^(offset+i) and less than
+       * values greater than base^(offset+i) and less or equal to than
        * base^(offset+i+1).
        * Note: By contrast, the explicit HistogramDataPoint uses
        * fixed64.  This field is expected to have many buckets,
@@ -873,14 +709,14 @@ private static final long serialVersionUID = 0L;
        */
       public java.util.List<java.lang.Long>
           getBucketCountsList() {
-        return ((bitField0_ & 0x00000001) != 0) ?
+        return ((bitField0_ & 0x00000002) != 0) ?
                  java.util.Collections.unmodifiableList(bucketCounts_) : bucketCounts_;
       }
       /**
        * <pre>
        * Count is an array of counts, where count[i] carries the count
        * of the bucket at index (offset+i).  count[i] is the count of
-       * values greater than or equal to base^(offset+i) and less than
+       * values greater than base^(offset+i) and less or equal to than
        * base^(offset+i+1).
        * Note: By contrast, the explicit HistogramDataPoint uses
        * fixed64.  This field is expected to have many buckets,
@@ -898,7 +734,7 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Count is an array of counts, where count[i] carries the count
        * of the bucket at index (offset+i).  count[i] is the count of
-       * values greater than or equal to base^(offset+i) and less than
+       * values greater than base^(offset+i) and less or equal to than
        * base^(offset+i+1).
        * Note: By contrast, the explicit HistogramDataPoint uses
        * fixed64.  This field is expected to have many buckets,
@@ -917,7 +753,7 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Count is an array of counts, where count[i] carries the count
        * of the bucket at index (offset+i).  count[i] is the count of
-       * values greater than or equal to base^(offset+i) and less than
+       * values greater than base^(offset+i) and less or equal to than
        * base^(offset+i+1).
        * Note: By contrast, the explicit HistogramDataPoint uses
        * fixed64.  This field is expected to have many buckets,
@@ -932,6 +768,7 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setBucketCounts(
           int index, long value) {
+        
         ensureBucketCountsIsMutable();
         bucketCounts_.setLong(index, value);
         onChanged();
@@ -941,7 +778,7 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Count is an array of counts, where count[i] carries the count
        * of the bucket at index (offset+i).  count[i] is the count of
-       * values greater than or equal to base^(offset+i) and less than
+       * values greater than base^(offset+i) and less or equal to than
        * base^(offset+i+1).
        * Note: By contrast, the explicit HistogramDataPoint uses
        * fixed64.  This field is expected to have many buckets,
@@ -954,6 +791,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder addBucketCounts(long value) {
+        
         ensureBucketCountsIsMutable();
         bucketCounts_.addLong(value);
         onChanged();
@@ -963,7 +801,7 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Count is an array of counts, where count[i] carries the count
        * of the bucket at index (offset+i).  count[i] is the count of
-       * values greater than or equal to base^(offset+i) and less than
+       * values greater than base^(offset+i) and less or equal to than
        * base^(offset+i+1).
        * Note: By contrast, the explicit HistogramDataPoint uses
        * fixed64.  This field is expected to have many buckets,
@@ -987,7 +825,7 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Count is an array of counts, where count[i] carries the count
        * of the bucket at index (offset+i).  count[i] is the count of
-       * values greater than or equal to base^(offset+i) and less than
+       * values greater than base^(offset+i) and less or equal to than
        * base^(offset+i+1).
        * Note: By contrast, the explicit HistogramDataPoint uses
        * fixed64.  This field is expected to have many buckets,
@@ -1000,7 +838,7 @@ private static final long serialVersionUID = 0L;
        */
       public Builder clearBucketCounts() {
         bucketCounts_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1037,7 +875,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Buckets(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1059,6 +908,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int ATTRIBUTES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<io.opentelemetry.proto.common.v1.KeyValue> attributes_;
   /**
    * <pre>
@@ -1134,7 +984,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int START_TIME_UNIX_NANO_FIELD_NUMBER = 2;
-  private long startTimeUnixNano_;
+  private long startTimeUnixNano_ = 0L;
   /**
    * <pre>
    * StartTimeUnixNano is optional but strongly encouraged, see the
@@ -1152,7 +1002,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TIME_UNIX_NANO_FIELD_NUMBER = 3;
-  private long timeUnixNano_;
+  private long timeUnixNano_ = 0L;
   /**
    * <pre>
    * TimeUnixNano is required, see the detailed comments above Metric.
@@ -1169,7 +1019,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COUNT_FIELD_NUMBER = 4;
-  private long count_;
+  private long count_ = 0L;
   /**
    * <pre>
    * count is the number of values in the population. Must be
@@ -1186,7 +1036,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUM_FIELD_NUMBER = 5;
-  private double sum_;
+  private double sum_ = 0D;
   /**
    * <pre>
    * sum of the values in the population. If count is zero then this field
@@ -1225,15 +1075,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCALE_FIELD_NUMBER = 6;
-  private int scale_;
+  private int scale_ = 0;
   /**
    * <pre>
    * scale describes the resolution of the histogram.  Boundaries are
    * located at powers of the base, where:
    *   base = (2^(2^-scale))
    * The histogram bucket identified by `index`, a signed integer,
-   * contains values that are greater than or equal to (base^index) and
-   * less than (base^(index+1)).
+   * contains values that are greater than (base^index) and
+   * less than or equal to (base^(index+1)).
    * The positive and negative ranges of the histogram are expressed
    * separately.  Negative values are mapped by their absolute value
    * into the negative range using the same scale as the positive range.
@@ -1250,7 +1100,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ZERO_COUNT_FIELD_NUMBER = 7;
-  private long zeroCount_;
+  private long zeroCount_ = 0L;
   /**
    * <pre>
    * zero_count is the count of values that are either exactly zero or
@@ -1305,7 +1155,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.BucketsOrBuilder getPositiveOrBuilder() {
-    return getPositive();
+    return positive_ == null ? io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets.getDefaultInstance() : positive_;
   }
 
   public static final int NEGATIVE_FIELD_NUMBER = 9;
@@ -1343,11 +1193,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.BucketsOrBuilder getNegativeOrBuilder() {
-    return getNegative();
+    return negative_ == null ? io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets.getDefaultInstance() : negative_;
   }
 
   public static final int FLAGS_FIELD_NUMBER = 10;
-  private int flags_;
+  private int flags_ = 0;
   /**
    * <pre>
    * Flags that apply to this specific data point.  See DataPointFlags
@@ -1363,6 +1213,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXEMPLARS_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
   private java.util.List<io.opentelemetry.proto.metrics.v1.Exemplar> exemplars_;
   /**
    * <pre>
@@ -1428,7 +1279,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_FIELD_NUMBER = 12;
-  private double min_;
+  private double min_ = 0D;
   /**
    * <pre>
    * min is the minimum value over (start_time, end_time].
@@ -1455,7 +1306,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_FIELD_NUMBER = 13;
-  private double max_;
+  private double max_ = 0D;
   /**
    * <pre>
    * max is the maximum value over (start_time, end_time].
@@ -1534,7 +1385,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       output.writeDouble(13, max_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1595,7 +1446,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(13, max_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1654,7 +1505,7 @@ private static final long serialVersionUID = 0L;
           != java.lang.Double.doubleToLongBits(
               other.getMax())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1712,7 +1563,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getMax()));
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1836,66 +1687,51 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getAttributesFieldBuilder();
-        getExemplarsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (attributesBuilder_ == null) {
         attributes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        attributes_ = null;
         attributesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       startTimeUnixNano_ = 0L;
-
       timeUnixNano_ = 0L;
-
       count_ = 0L;
-
       sum_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000002);
       scale_ = 0;
-
       zeroCount_ = 0L;
-
-      if (positiveBuilder_ == null) {
-        positive_ = null;
-      } else {
-        positive_ = null;
+      positive_ = null;
+      if (positiveBuilder_ != null) {
+        positiveBuilder_.dispose();
         positiveBuilder_ = null;
       }
-      if (negativeBuilder_ == null) {
-        negative_ = null;
-      } else {
-        negative_ = null;
+      negative_ = null;
+      if (negativeBuilder_ != null) {
+        negativeBuilder_.dispose();
         negativeBuilder_ = null;
       }
       flags_ = 0;
-
       if (exemplarsBuilder_ == null) {
         exemplars_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        exemplars_ = null;
         exemplarsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000400);
       min_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000008);
       max_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -1922,8 +1758,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint buildPartial() {
       io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint result = new io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint result) {
       if (attributesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           attributes_ = java.util.Collections.unmodifiableList(attributes_);
@@ -1933,46 +1774,61 @@ private static final long serialVersionUID = 0L;
       } else {
         result.attributes_ = attributesBuilder_.build();
       }
-      result.startTimeUnixNano_ = startTimeUnixNano_;
-      result.timeUnixNano_ = timeUnixNano_;
-      result.count_ = count_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.sum_ = sum_;
-        to_bitField0_ |= 0x00000001;
-      }
-      result.scale_ = scale_;
-      result.zeroCount_ = zeroCount_;
-      if (positiveBuilder_ == null) {
-        result.positive_ = positive_;
-      } else {
-        result.positive_ = positiveBuilder_.build();
-      }
-      if (negativeBuilder_ == null) {
-        result.negative_ = negative_;
-      } else {
-        result.negative_ = negativeBuilder_.build();
-      }
-      result.flags_ = flags_;
       if (exemplarsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000400) != 0)) {
           exemplars_ = java.util.Collections.unmodifiableList(exemplars_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000400);
         }
         result.exemplars_ = exemplars_;
       } else {
         result.exemplars_ = exemplarsBuilder_.build();
       }
+    }
+
+    private void buildPartial0(io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.startTimeUnixNano_ = startTimeUnixNano_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.timeUnixNano_ = timeUnixNano_;
+      }
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.count_ = count_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.sum_ = sum_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.scale_ = scale_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.zeroCount_ = zeroCount_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.positive_ = positiveBuilder_ == null
+            ? positive_
+            : positiveBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.negative_ = negativeBuilder_ == null
+            ? negative_
+            : negativeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.flags_ = flags_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
         result.min_ = min_;
         to_bitField0_ |= 0x00000002;
       }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
+      if (((from_bitField0_ & 0x00001000) != 0)) {
         result.max_ = max_;
         to_bitField0_ |= 0x00000004;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -2076,7 +1932,7 @@ private static final long serialVersionUID = 0L;
         if (!other.exemplars_.isEmpty()) {
           if (exemplars_.isEmpty()) {
             exemplars_ = other.exemplars_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000400);
           } else {
             ensureExemplarsIsMutable();
             exemplars_.addAll(other.exemplars_);
@@ -2089,7 +1945,7 @@ private static final long serialVersionUID = 0L;
             exemplarsBuilder_.dispose();
             exemplarsBuilder_ = null;
             exemplars_ = other.exemplars_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000400);
             exemplarsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getExemplarsFieldBuilder() : null;
@@ -2104,7 +1960,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasMax()) {
         setMax(other.getMax());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2119,17 +1975,115 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              io.opentelemetry.proto.common.v1.KeyValue m =
+                  input.readMessage(
+                      io.opentelemetry.proto.common.v1.KeyValue.parser(),
+                      extensionRegistry);
+              if (attributesBuilder_ == null) {
+                ensureAttributesIsMutable();
+                attributes_.add(m);
+              } else {
+                attributesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 17: {
+              startTimeUnixNano_ = input.readFixed64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 17
+            case 25: {
+              timeUnixNano_ = input.readFixed64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 25
+            case 33: {
+              count_ = input.readFixed64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 33
+            case 41: {
+              sum_ = input.readDouble();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 41
+            case 48: {
+              scale_ = input.readSInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 57: {
+              zeroCount_ = input.readFixed64();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 57
+            case 66: {
+              input.readMessage(
+                  getPositiveFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getNegativeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 80: {
+              flags_ = input.readUInt32();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 90: {
+              io.opentelemetry.proto.metrics.v1.Exemplar m =
+                  input.readMessage(
+                      io.opentelemetry.proto.metrics.v1.Exemplar.parser(),
+                      extensionRegistry);
+              if (exemplarsBuilder_ == null) {
+                ensureExemplarsIsMutable();
+                exemplars_.add(m);
+              } else {
+                exemplarsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 90
+            case 97: {
+              min_ = input.readDouble();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 97
+            case 105: {
+              max_ = input.readDouble();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 105
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2531,6 +2485,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStartTimeUnixNano(long value) {
       
       startTimeUnixNano_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2546,7 +2501,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStartTimeUnixNano() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       startTimeUnixNano_ = 0L;
       onChanged();
       return this;
@@ -2581,6 +2536,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTimeUnixNano(long value) {
       
       timeUnixNano_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2595,7 +2551,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTimeUnixNano() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       timeUnixNano_ = 0L;
       onChanged();
       return this;
@@ -2630,6 +2586,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCount(long value) {
       
       count_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2644,7 +2601,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       count_ = 0L;
       onChanged();
       return this;
@@ -2667,7 +2624,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasSum() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2703,8 +2660,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSum(double value) {
-      bitField0_ |= 0x00000002;
+      
       sum_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2723,7 +2681,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSum() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000010);
       sum_ = 0D;
       onChanged();
       return this;
@@ -2736,8 +2694,8 @@ private static final long serialVersionUID = 0L;
      * located at powers of the base, where:
      *   base = (2^(2^-scale))
      * The histogram bucket identified by `index`, a signed integer,
-     * contains values that are greater than or equal to (base^index) and
-     * less than (base^(index+1)).
+     * contains values that are greater than (base^index) and
+     * less than or equal to (base^(index+1)).
      * The positive and negative ranges of the histogram are expressed
      * separately.  Negative values are mapped by their absolute value
      * into the negative range using the same scale as the positive range.
@@ -2758,8 +2716,8 @@ private static final long serialVersionUID = 0L;
      * located at powers of the base, where:
      *   base = (2^(2^-scale))
      * The histogram bucket identified by `index`, a signed integer,
-     * contains values that are greater than or equal to (base^index) and
-     * less than (base^(index+1)).
+     * contains values that are greater than (base^index) and
+     * less than or equal to (base^(index+1)).
      * The positive and negative ranges of the histogram are expressed
      * separately.  Negative values are mapped by their absolute value
      * into the negative range using the same scale as the positive range.
@@ -2774,6 +2732,7 @@ private static final long serialVersionUID = 0L;
     public Builder setScale(int value) {
       
       scale_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2783,8 +2742,8 @@ private static final long serialVersionUID = 0L;
      * located at powers of the base, where:
      *   base = (2^(2^-scale))
      * The histogram bucket identified by `index`, a signed integer,
-     * contains values that are greater than or equal to (base^index) and
-     * less than (base^(index+1)).
+     * contains values that are greater than (base^index) and
+     * less than or equal to (base^(index+1)).
      * The positive and negative ranges of the histogram are expressed
      * separately.  Negative values are mapped by their absolute value
      * into the negative range using the same scale as the positive range.
@@ -2796,7 +2755,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScale() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       scale_ = 0;
       onChanged();
       return this;
@@ -2839,6 +2798,7 @@ private static final long serialVersionUID = 0L;
     public Builder setZeroCount(long value) {
       
       zeroCount_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2857,7 +2817,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearZeroCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       zeroCount_ = 0L;
       onChanged();
       return this;
@@ -2875,7 +2835,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the positive field is set.
      */
     public boolean hasPositive() {
-      return positiveBuilder_ != null || positive_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2905,11 +2865,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         positive_ = value;
-        onChanged();
       } else {
         positiveBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2923,11 +2883,11 @@ private static final long serialVersionUID = 0L;
         io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets.Builder builderForValue) {
       if (positiveBuilder_ == null) {
         positive_ = builderForValue.build();
-        onChanged();
       } else {
         positiveBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2939,17 +2899,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePositive(io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets value) {
       if (positiveBuilder_ == null) {
-        if (positive_ != null) {
-          positive_ =
-            io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets.newBuilder(positive_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          positive_ != null &&
+          positive_ != io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets.getDefaultInstance()) {
+          getPositiveBuilder().mergeFrom(value);
         } else {
           positive_ = value;
         }
-        onChanged();
       } else {
         positiveBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2960,14 +2921,13 @@ private static final long serialVersionUID = 0L;
      * <code>.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets positive = 8;</code>
      */
     public Builder clearPositive() {
-      if (positiveBuilder_ == null) {
-        positive_ = null;
-        onChanged();
-      } else {
-        positive_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      positive_ = null;
+      if (positiveBuilder_ != null) {
+        positiveBuilder_.dispose();
         positiveBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2978,7 +2938,7 @@ private static final long serialVersionUID = 0L;
      * <code>.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets positive = 8;</code>
      */
     public io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets.Builder getPositiveBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getPositiveFieldBuilder().getBuilder();
     }
@@ -3030,7 +2990,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the negative field is set.
      */
     public boolean hasNegative() {
-      return negativeBuilder_ != null || negative_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -3060,11 +3020,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         negative_ = value;
-        onChanged();
       } else {
         negativeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3078,11 +3038,11 @@ private static final long serialVersionUID = 0L;
         io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets.Builder builderForValue) {
       if (negativeBuilder_ == null) {
         negative_ = builderForValue.build();
-        onChanged();
       } else {
         negativeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3094,17 +3054,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNegative(io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets value) {
       if (negativeBuilder_ == null) {
-        if (negative_ != null) {
-          negative_ =
-            io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets.newBuilder(negative_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          negative_ != null &&
+          negative_ != io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets.getDefaultInstance()) {
+          getNegativeBuilder().mergeFrom(value);
         } else {
           negative_ = value;
         }
-        onChanged();
       } else {
         negativeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3115,14 +3076,13 @@ private static final long serialVersionUID = 0L;
      * <code>.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets negative = 9;</code>
      */
     public Builder clearNegative() {
-      if (negativeBuilder_ == null) {
-        negative_ = null;
-        onChanged();
-      } else {
-        negative_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      negative_ = null;
+      if (negativeBuilder_ != null) {
+        negativeBuilder_.dispose();
         negativeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3133,7 +3093,7 @@ private static final long serialVersionUID = 0L;
      * <code>.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets negative = 9;</code>
      */
     public io.opentelemetry.proto.metrics.v1.ExponentialHistogramDataPoint.Buckets.Builder getNegativeBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getNegativeFieldBuilder().getBuilder();
     }
@@ -3200,6 +3160,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFlags(int value) {
       
       flags_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3213,7 +3174,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFlags() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       flags_ = 0;
       onChanged();
       return this;
@@ -3222,9 +3183,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.opentelemetry.proto.metrics.v1.Exemplar> exemplars_ =
       java.util.Collections.emptyList();
     private void ensureExemplarsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000400) != 0)) {
         exemplars_ = new java.util.ArrayList<io.opentelemetry.proto.metrics.v1.Exemplar>(exemplars_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000400;
        }
     }
 
@@ -3429,7 +3390,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearExemplars() {
       if (exemplarsBuilder_ == null) {
         exemplars_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000400);
         onChanged();
       } else {
         exemplarsBuilder_.clear();
@@ -3541,7 +3502,7 @@ private static final long serialVersionUID = 0L;
         exemplarsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.opentelemetry.proto.metrics.v1.Exemplar, io.opentelemetry.proto.metrics.v1.Exemplar.Builder, io.opentelemetry.proto.metrics.v1.ExemplarOrBuilder>(
                 exemplars_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000400) != 0),
                 getParentForChildren(),
                 isClean());
         exemplars_ = null;
@@ -3560,7 +3521,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasMin() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -3584,8 +3545,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMin(double value) {
-      bitField0_ |= 0x00000008;
+      
       min_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3598,7 +3560,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMin() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000800);
       min_ = 0D;
       onChanged();
       return this;
@@ -3615,7 +3577,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasMax() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -3639,8 +3601,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMax(double value) {
-      bitField0_ |= 0x00000010;
+      
       max_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3653,7 +3616,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMax() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00001000);
       max_ = 0D;
       onChanged();
       return this;
@@ -3691,7 +3654,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExponentialHistogramDataPoint(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

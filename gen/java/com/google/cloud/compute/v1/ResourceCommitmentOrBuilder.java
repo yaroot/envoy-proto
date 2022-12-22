@@ -57,7 +57,7 @@ public interface ResourceCommitmentOrBuilder extends
 
   /**
    * <pre>
-   * Type of resource for which this commitment applies. Possible values are VCPU and MEMORY
+   * Type of resource for which this commitment applies. Possible values are VCPU, MEMORY, LOCAL_SSD, and ACCELERATOR.
    * Check the Type enum for the list of possible values.
    * </pre>
    *
@@ -67,7 +67,7 @@ public interface ResourceCommitmentOrBuilder extends
   boolean hasType();
   /**
    * <pre>
-   * Type of resource for which this commitment applies. Possible values are VCPU and MEMORY
+   * Type of resource for which this commitment applies. Possible values are VCPU, MEMORY, LOCAL_SSD, and ACCELERATOR.
    * Check the Type enum for the list of possible values.
    * </pre>
    *
@@ -77,7 +77,7 @@ public interface ResourceCommitmentOrBuilder extends
   java.lang.String getType();
   /**
    * <pre>
-   * Type of resource for which this commitment applies. Possible values are VCPU and MEMORY
+   * Type of resource for which this commitment applies. Possible values are VCPU, MEMORY, LOCAL_SSD, and ACCELERATOR.
    * Check the Type enum for the list of possible values.
    * </pre>
    *

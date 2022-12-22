@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateIndexOperationMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.aiplatform.v1.GenericOperationMetadata.Builder subBuilder = null;
-            if (genericMetadata_ != null) {
-              subBuilder = genericMetadata_.toBuilder();
-            }
-            genericMetadata_ = input.readMessage(com.google.cloud.aiplatform.v1.GenericOperationMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(genericMetadata_);
-              genericMetadata_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.aiplatform.v1.NearestNeighborSearchOperationMetadata.Builder subBuilder = null;
-            if (nearestNeighborSearchOperationMetadata_ != null) {
-              subBuilder = nearestNeighborSearchOperationMetadata_.toBuilder();
-            }
-            nearestNeighborSearchOperationMetadata_ = input.readMessage(com.google.cloud.aiplatform.v1.NearestNeighborSearchOperationMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(nearestNeighborSearchOperationMetadata_);
-              nearestNeighborSearchOperationMetadata_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1.IndexServiceProto.internal_static_google_cloud_aiplatform_v1_CreateIndexOperationMetadata_descriptor;
@@ -147,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1.GenericOperationMetadataOrBuilder getGenericMetadataOrBuilder() {
-    return getGenericMetadata();
+    return genericMetadata_ == null ? com.google.cloud.aiplatform.v1.GenericOperationMetadata.getDefaultInstance() : genericMetadata_;
   }
 
   public static final int NEAREST_NEIGHBOR_SEARCH_OPERATION_METADATA_FIELD_NUMBER = 2;
@@ -185,7 +120,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1.NearestNeighborSearchOperationMetadataOrBuilder getNearestNeighborSearchOperationMetadataOrBuilder() {
-    return getNearestNeighborSearchOperationMetadata();
+    return nearestNeighborSearchOperationMetadata_ == null ? com.google.cloud.aiplatform.v1.NearestNeighborSearchOperationMetadata.getDefaultInstance() : nearestNeighborSearchOperationMetadata_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -208,7 +143,7 @@ private static final long serialVersionUID = 0L;
     if (nearestNeighborSearchOperationMetadata_ != null) {
       output.writeMessage(2, getNearestNeighborSearchOperationMetadata());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -225,7 +160,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getNearestNeighborSearchOperationMetadata());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +185,7 @@ private static final long serialVersionUID = 0L;
       if (!getNearestNeighborSearchOperationMetadata()
           .equals(other.getNearestNeighborSearchOperationMetadata())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -269,7 +204,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NEAREST_NEIGHBOR_SEARCH_OPERATION_METADATA_FIELD_NUMBER;
       hash = (53 * hash) + getNearestNeighborSearchOperationMetadata().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -390,32 +325,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1.CreateIndexOperationMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (genericMetadataBuilder_ == null) {
-        genericMetadata_ = null;
-      } else {
-        genericMetadata_ = null;
+      bitField0_ = 0;
+      genericMetadata_ = null;
+      if (genericMetadataBuilder_ != null) {
+        genericMetadataBuilder_.dispose();
         genericMetadataBuilder_ = null;
       }
-      if (nearestNeighborSearchOperationMetadataBuilder_ == null) {
-        nearestNeighborSearchOperationMetadata_ = null;
-      } else {
-        nearestNeighborSearchOperationMetadata_ = null;
+      nearestNeighborSearchOperationMetadata_ = null;
+      if (nearestNeighborSearchOperationMetadataBuilder_ != null) {
+        nearestNeighborSearchOperationMetadataBuilder_.dispose();
         nearestNeighborSearchOperationMetadataBuilder_ = null;
       }
       return this;
@@ -444,18 +373,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.CreateIndexOperationMetadata buildPartial() {
       com.google.cloud.aiplatform.v1.CreateIndexOperationMetadata result = new com.google.cloud.aiplatform.v1.CreateIndexOperationMetadata(this);
-      if (genericMetadataBuilder_ == null) {
-        result.genericMetadata_ = genericMetadata_;
-      } else {
-        result.genericMetadata_ = genericMetadataBuilder_.build();
-      }
-      if (nearestNeighborSearchOperationMetadataBuilder_ == null) {
-        result.nearestNeighborSearchOperationMetadata_ = nearestNeighborSearchOperationMetadata_;
-      } else {
-        result.nearestNeighborSearchOperationMetadata_ = nearestNeighborSearchOperationMetadataBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1.CreateIndexOperationMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.genericMetadata_ = genericMetadataBuilder_ == null
+            ? genericMetadata_
+            : genericMetadataBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.nearestNeighborSearchOperationMetadata_ = nearestNeighborSearchOperationMetadataBuilder_ == null
+            ? nearestNeighborSearchOperationMetadata_
+            : nearestNeighborSearchOperationMetadataBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -508,7 +442,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasNearestNeighborSearchOperationMetadata()) {
         mergeNearestNeighborSearchOperationMetadata(other.getNearestNeighborSearchOperationMetadata());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -523,19 +457,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1.CreateIndexOperationMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getGenericMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getNearestNeighborSearchOperationMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1.CreateIndexOperationMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.aiplatform.v1.GenericOperationMetadata genericMetadata_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -549,7 +511,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the genericMetadata field is set.
      */
     public boolean hasGenericMetadata() {
-      return genericMetadataBuilder_ != null || genericMetadata_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -579,11 +541,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         genericMetadata_ = value;
-        onChanged();
       } else {
         genericMetadataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -597,11 +559,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1.GenericOperationMetadata.Builder builderForValue) {
       if (genericMetadataBuilder_ == null) {
         genericMetadata_ = builderForValue.build();
-        onChanged();
       } else {
         genericMetadataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -613,17 +575,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGenericMetadata(com.google.cloud.aiplatform.v1.GenericOperationMetadata value) {
       if (genericMetadataBuilder_ == null) {
-        if (genericMetadata_ != null) {
-          genericMetadata_ =
-            com.google.cloud.aiplatform.v1.GenericOperationMetadata.newBuilder(genericMetadata_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          genericMetadata_ != null &&
+          genericMetadata_ != com.google.cloud.aiplatform.v1.GenericOperationMetadata.getDefaultInstance()) {
+          getGenericMetadataBuilder().mergeFrom(value);
         } else {
           genericMetadata_ = value;
         }
-        onChanged();
       } else {
         genericMetadataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -634,14 +597,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1.GenericOperationMetadata generic_metadata = 1;</code>
      */
     public Builder clearGenericMetadata() {
-      if (genericMetadataBuilder_ == null) {
-        genericMetadata_ = null;
-        onChanged();
-      } else {
-        genericMetadata_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      genericMetadata_ = null;
+      if (genericMetadataBuilder_ != null) {
+        genericMetadataBuilder_.dispose();
         genericMetadataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -652,7 +614,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1.GenericOperationMetadata generic_metadata = 1;</code>
      */
     public com.google.cloud.aiplatform.v1.GenericOperationMetadata.Builder getGenericMetadataBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getGenericMetadataFieldBuilder().getBuilder();
     }
@@ -704,7 +666,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the nearestNeighborSearchOperationMetadata field is set.
      */
     public boolean hasNearestNeighborSearchOperationMetadata() {
-      return nearestNeighborSearchOperationMetadataBuilder_ != null || nearestNeighborSearchOperationMetadata_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -734,11 +696,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         nearestNeighborSearchOperationMetadata_ = value;
-        onChanged();
       } else {
         nearestNeighborSearchOperationMetadataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -752,11 +714,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1.NearestNeighborSearchOperationMetadata.Builder builderForValue) {
       if (nearestNeighborSearchOperationMetadataBuilder_ == null) {
         nearestNeighborSearchOperationMetadata_ = builderForValue.build();
-        onChanged();
       } else {
         nearestNeighborSearchOperationMetadataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -768,17 +730,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNearestNeighborSearchOperationMetadata(com.google.cloud.aiplatform.v1.NearestNeighborSearchOperationMetadata value) {
       if (nearestNeighborSearchOperationMetadataBuilder_ == null) {
-        if (nearestNeighborSearchOperationMetadata_ != null) {
-          nearestNeighborSearchOperationMetadata_ =
-            com.google.cloud.aiplatform.v1.NearestNeighborSearchOperationMetadata.newBuilder(nearestNeighborSearchOperationMetadata_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          nearestNeighborSearchOperationMetadata_ != null &&
+          nearestNeighborSearchOperationMetadata_ != com.google.cloud.aiplatform.v1.NearestNeighborSearchOperationMetadata.getDefaultInstance()) {
+          getNearestNeighborSearchOperationMetadataBuilder().mergeFrom(value);
         } else {
           nearestNeighborSearchOperationMetadata_ = value;
         }
-        onChanged();
       } else {
         nearestNeighborSearchOperationMetadataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -789,14 +752,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1.NearestNeighborSearchOperationMetadata nearest_neighbor_search_operation_metadata = 2;</code>
      */
     public Builder clearNearestNeighborSearchOperationMetadata() {
-      if (nearestNeighborSearchOperationMetadataBuilder_ == null) {
-        nearestNeighborSearchOperationMetadata_ = null;
-        onChanged();
-      } else {
-        nearestNeighborSearchOperationMetadata_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      nearestNeighborSearchOperationMetadata_ = null;
+      if (nearestNeighborSearchOperationMetadataBuilder_ != null) {
+        nearestNeighborSearchOperationMetadataBuilder_.dispose();
         nearestNeighborSearchOperationMetadataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -807,7 +769,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1.NearestNeighborSearchOperationMetadata nearest_neighbor_search_operation_metadata = 2;</code>
      */
     public com.google.cloud.aiplatform.v1.NearestNeighborSearchOperationMetadata.Builder getNearestNeighborSearchOperationMetadataBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getNearestNeighborSearchOperationMetadataFieldBuilder().getBuilder();
     }
@@ -879,7 +841,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateIndexOperationMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

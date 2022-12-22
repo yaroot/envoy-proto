@@ -49,202 +49,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ShipmentModel(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              shipments_ = new java.util.ArrayList<com.google.cloud.optimization.v1.Shipment>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            shipments_.add(
-                input.readMessage(com.google.cloud.optimization.v1.Shipment.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              vehicles_ = new java.util.ArrayList<com.google.cloud.optimization.v1.Vehicle>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            vehicles_.add(
-                input.readMessage(com.google.cloud.optimization.v1.Vehicle.parser(), extensionRegistry));
-            break;
-          }
-          case 32: {
-            bitField0_ |= 0x00000001;
-            maxActiveVehicles_ = input.readInt32();
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (globalStartTime_ != null) {
-              subBuilder = globalStartTime_.toBuilder();
-            }
-            globalStartTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(globalStartTime_);
-              globalStartTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (globalEndTime_ != null) {
-              subBuilder = globalEndTime_.toBuilder();
-            }
-            globalEndTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(globalEndTime_);
-              globalEndTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 57: {
-
-            globalDurationCostPerHour_ = input.readDouble();
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              durationDistanceMatrices_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            durationDistanceMatrices_.add(
-                input.readMessage(com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.parser(), extensionRegistry));
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              durationDistanceMatrixSrcTags_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            durationDistanceMatrixSrcTags_.add(s);
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              durationDistanceMatrixDstTags_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            durationDistanceMatrixDstTags_.add(s);
-            break;
-          }
-          case 90: {
-            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-              transitionAttributes_ = new java.util.ArrayList<com.google.cloud.optimization.v1.TransitionAttributes>();
-              mutable_bitField0_ |= 0x00000040;
-            }
-            transitionAttributes_.add(
-                input.readMessage(com.google.cloud.optimization.v1.TransitionAttributes.parser(), extensionRegistry));
-            break;
-          }
-          case 98: {
-            if (!((mutable_bitField0_ & 0x00000080) != 0)) {
-              shipmentTypeIncompatibilities_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentTypeIncompatibility>();
-              mutable_bitField0_ |= 0x00000080;
-            }
-            shipmentTypeIncompatibilities_.add(
-                input.readMessage(com.google.cloud.optimization.v1.ShipmentTypeIncompatibility.parser(), extensionRegistry));
-            break;
-          }
-          case 106: {
-            if (!((mutable_bitField0_ & 0x00000100) != 0)) {
-              shipmentTypeRequirements_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentTypeRequirement>();
-              mutable_bitField0_ |= 0x00000100;
-            }
-            shipmentTypeRequirements_.add(
-                input.readMessage(com.google.cloud.optimization.v1.ShipmentTypeRequirement.parser(), extensionRegistry));
-            break;
-          }
-          case 114: {
-            if (!((mutable_bitField0_ & 0x00000200) != 0)) {
-              precedenceRules_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentModel.PrecedenceRule>();
-              mutable_bitField0_ |= 0x00000200;
-            }
-            precedenceRules_.add(
-                input.readMessage(com.google.cloud.optimization.v1.ShipmentModel.PrecedenceRule.parser(), extensionRegistry));
-            break;
-          }
-          case 122: {
-            if (!((mutable_bitField0_ & 0x00000400) != 0)) {
-              breakRules_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentModel.BreakRule>();
-              mutable_bitField0_ |= 0x00000400;
-            }
-            breakRules_.add(
-                input.readMessage(com.google.cloud.optimization.v1.ShipmentModel.BreakRule.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        shipments_ = java.util.Collections.unmodifiableList(shipments_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        vehicles_ = java.util.Collections.unmodifiableList(vehicles_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        durationDistanceMatrices_ = java.util.Collections.unmodifiableList(durationDistanceMatrices_);
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        durationDistanceMatrixSrcTags_ = durationDistanceMatrixSrcTags_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
-        durationDistanceMatrixDstTags_ = durationDistanceMatrixDstTags_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000040) != 0)) {
-        transitionAttributes_ = java.util.Collections.unmodifiableList(transitionAttributes_);
-      }
-      if (((mutable_bitField0_ & 0x00000080) != 0)) {
-        shipmentTypeIncompatibilities_ = java.util.Collections.unmodifiableList(shipmentTypeIncompatibilities_);
-      }
-      if (((mutable_bitField0_ & 0x00000100) != 0)) {
-        shipmentTypeRequirements_ = java.util.Collections.unmodifiableList(shipmentTypeRequirements_);
-      }
-      if (((mutable_bitField0_ & 0x00000200) != 0)) {
-        precedenceRules_ = java.util.Collections.unmodifiableList(precedenceRules_);
-      }
-      if (((mutable_bitField0_ & 0x00000400) != 0)) {
-        breakRules_ = java.util.Collections.unmodifiableList(breakRules_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_ShipmentModel_descriptor;
@@ -265,7 +69,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies the rows of the duration and distance matrix. It must have as
-     * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+     * many elements as
+     * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -275,7 +80,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies the rows of the duration and distance matrix. It must have as
-     * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+     * many elements as
+     * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -284,7 +90,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies the rows of the duration and distance matrix. It must have as
-     * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+     * many elements as
+     * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -293,7 +100,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies the rows of the duration and distance matrix. It must have as
-     * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+     * many elements as
+     * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -303,7 +111,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies the rows of the duration and distance matrix. It must have as
-     * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+     * many elements as
+     * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -376,64 +185,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private DurationDistanceMatrix(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                rows_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              rows_.add(
-                  input.readMessage(com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row.parser(), extensionRegistry));
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              vehicleStartTag_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          rows_ = java.util.Collections.unmodifiableList(rows_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -569,82 +320,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Row(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  durations_ = new java.util.ArrayList<com.google.protobuf.Duration>();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                durations_.add(
-                    input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry));
-                break;
-              }
-              case 17: {
-                if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                  meters_ = newDoubleList();
-                  mutable_bitField0_ |= 0x00000002;
-                }
-                meters_.addDouble(input.readDouble());
-                break;
-              }
-              case 18: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
-                  meters_ = newDoubleList();
-                  mutable_bitField0_ |= 0x00000002;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  meters_.addDouble(input.readDouble());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          if (((mutable_bitField0_ & 0x00000001) != 0)) {
-            durations_ = java.util.Collections.unmodifiableList(durations_);
-          }
-          if (((mutable_bitField0_ & 0x00000002) != 0)) {
-            meters_.makeImmutable(); // C
-          }
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_ShipmentModel_DurationDistanceMatrix_Row_descriptor;
@@ -659,6 +334,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int DURATIONS_FIELD_NUMBER = 1;
+      @SuppressWarnings("serial")
       private java.util.List<com.google.protobuf.Duration> durations_;
       /**
        * <pre>
@@ -724,6 +400,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int METERS_FIELD_NUMBER = 2;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.DoubleList meters_;
       /**
        * <pre>
@@ -794,7 +471,7 @@ private static final long serialVersionUID = 0L;
         for (int i = 0; i < meters_.size(); i++) {
           output.writeDoubleNoTag(meters_.getDouble(i));
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -818,7 +495,7 @@ private static final long serialVersionUID = 0L;
           }
           metersMemoizedSerializedSize = dataSize;
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -837,7 +514,7 @@ private static final long serialVersionUID = 0L;
             .equals(other.getDurationsList())) return false;
         if (!getMetersList()
             .equals(other.getMetersList())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -856,7 +533,7 @@ private static final long serialVersionUID = 0L;
           hash = (37 * hash) + METERS_FIELD_NUMBER;
           hash = (53 * hash) + getMetersList().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -977,31 +654,26 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-            getDurationsFieldBuilder();
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           if (durationsBuilder_ == null) {
             durations_ = java.util.Collections.emptyList();
-            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
+            durations_ = null;
             durationsBuilder_.clear();
           }
+          bitField0_ = (bitField0_ & ~0x00000001);
           meters_ = emptyDoubleList();
-          bitField0_ = (bitField0_ & ~0x00000002);
           return this;
         }
 
@@ -1028,7 +700,13 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row buildPartial() {
           com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row result = new com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row(this);
-          int from_bitField0_ = bitField0_;
+          buildPartialRepeatedFields(result);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row result) {
           if (durationsBuilder_ == null) {
             if (((bitField0_ & 0x00000001) != 0)) {
               durations_ = java.util.Collections.unmodifiableList(durations_);
@@ -1043,8 +721,10 @@ private static final long serialVersionUID = 0L;
             bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.meters_ = meters_;
-          onBuilt();
-          return result;
+        }
+
+        private void buildPartial0(com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row result) {
+          int from_bitField0_ = bitField0_;
         }
 
         @java.lang.Override
@@ -1127,7 +807,7 @@ private static final long serialVersionUID = 0L;
             }
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -1142,17 +822,59 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  com.google.protobuf.Duration m =
+                      input.readMessage(
+                          com.google.protobuf.Duration.parser(),
+                          extensionRegistry);
+                  if (durationsBuilder_ == null) {
+                    ensureDurationsIsMutable();
+                    durations_.add(m);
+                  } else {
+                    durationsBuilder_.addMessage(m);
+                  }
+                  break;
+                } // case 10
+                case 17: {
+                  double v = input.readDouble();
+                  ensureMetersIsMutable();
+                  meters_.addDouble(v);
+                  break;
+                } // case 17
+                case 18: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensureMetersIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    meters_.addDouble(input.readDouble());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -1492,7 +1214,7 @@ private static final long serialVersionUID = 0L;
           if (!((bitField0_ & 0x00000002) != 0)) {
             meters_ = mutableCopy(meters_);
             bitField0_ |= 0x00000002;
-           }
+          }
         }
         /**
          * <pre>
@@ -1550,6 +1272,7 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setMeters(
             int index, double value) {
+          
           ensureMetersIsMutable();
           meters_.setDouble(index, value);
           onChanged();
@@ -1567,6 +1290,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder addMeters(double value) {
+          
           ensureMetersIsMutable();
           meters_.addDouble(value);
           onChanged();
@@ -1640,7 +1364,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Row(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -1661,11 +1396,13 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ROWS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row> rows_;
     /**
      * <pre>
      * Specifies the rows of the duration and distance matrix. It must have as
-     * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+     * many elements as
+     * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -1677,7 +1414,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies the rows of the duration and distance matrix. It must have as
-     * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+     * many elements as
+     * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -1690,7 +1428,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies the rows of the duration and distance matrix. It must have as
-     * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+     * many elements as
+     * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -1702,7 +1441,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies the rows of the duration and distance matrix. It must have as
-     * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+     * many elements as
+     * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -1714,7 +1454,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies the rows of the duration and distance matrix. It must have as
-     * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+     * many elements as
+     * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -1726,7 +1467,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int VEHICLE_START_TAG_FIELD_NUMBER = 2;
-    private volatile java.lang.Object vehicleStartTag_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object vehicleStartTag_ = "";
     /**
      * <pre>
      * Tag defining to which vehicles this duration and distance matrix applies.
@@ -1803,7 +1545,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vehicleStartTag_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, vehicleStartTag_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1819,7 +1561,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vehicleStartTag_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, vehicleStartTag_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1838,7 +1580,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getRowsList())) return false;
       if (!getVehicleStartTag()
           .equals(other.getVehicleStartTag())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1855,7 +1597,7 @@ private static final long serialVersionUID = 0L;
       }
       hash = (37 * hash) + VEHICLE_START_TAG_FIELD_NUMBER;
       hash = (53 * hash) + getVehicleStartTag().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1977,31 +1719,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getRowsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (rowsBuilder_ == null) {
           rows_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          rows_ = null;
           rowsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         vehicleStartTag_ = "";
-
         return this;
       }
 
@@ -2028,7 +1765,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix buildPartial() {
         com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix result = new com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix result) {
         if (rowsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             rows_ = java.util.Collections.unmodifiableList(rows_);
@@ -2038,9 +1781,13 @@ private static final long serialVersionUID = 0L;
         } else {
           result.rows_ = rowsBuilder_.build();
         }
-        result.vehicleStartTag_ = vehicleStartTag_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.vehicleStartTag_ = vehicleStartTag_;
+        }
       }
 
       @java.lang.Override
@@ -2115,9 +1862,10 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getVehicleStartTag().isEmpty()) {
           vehicleStartTag_ = other.vehicleStartTag_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2132,17 +1880,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row m =
+                    input.readMessage(
+                        com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row.parser(),
+                        extensionRegistry);
+                if (rowsBuilder_ == null) {
+                  ensureRowsIsMutable();
+                  rows_.add(m);
+                } else {
+                  rowsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                vehicleStartTag_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2162,7 +1941,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2177,7 +1957,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2192,7 +1973,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2207,7 +1989,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2229,7 +2012,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2248,7 +2032,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2269,7 +2054,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2291,7 +2077,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2310,7 +2097,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2329,7 +2117,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2349,7 +2138,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2367,7 +2157,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2385,7 +2176,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2397,7 +2189,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2412,7 +2205,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2428,7 +2222,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2440,7 +2235,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2453,7 +2249,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Specifies the rows of the duration and distance matrix. It must have as
-       * many elements as [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
+       * many elements as
+       * [ShipmentModel.duration_distance_matrix_src_tags][google.cloud.optimization.v1.ShipmentModel.duration_distance_matrix_src_tags].
        * </pre>
        *
        * <code>repeated .google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Row rows = 1;</code>
@@ -2548,11 +2345,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setVehicleStartTag(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         vehicleStartTag_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2571,8 +2366,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearVehicleStartTag() {
-        
         vehicleStartTag_ = getDefaultInstance().getVehicleStartTag();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2593,12 +2388,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setVehicleStartTagBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         vehicleStartTag_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2635,7 +2428,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DurationDistanceMatrix(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2782,79 +2586,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PrecedenceRule(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              bitField0_ |= 0x00000001;
-              firstIndex_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              secondIndex_ = input.readInt32();
-              break;
-            }
-            case 24: {
-
-              firstIsDelivery_ = input.readBool();
-              break;
-            }
-            case 32: {
-
-              secondIsDelivery_ = input.readBool();
-              break;
-            }
-            case 42: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (offsetDuration_ != null) {
-                subBuilder = offsetDuration_.toBuilder();
-              }
-              offsetDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(offsetDuration_);
-                offsetDuration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_ShipmentModel_PrecedenceRule_descriptor;
@@ -2870,7 +2601,7 @@ private static final long serialVersionUID = 0L;
 
     private int bitField0_;
     public static final int FIRST_INDEX_FIELD_NUMBER = 1;
-    private int firstIndex_;
+    private int firstIndex_ = 0;
     /**
      * <pre>
      * Shipment index of the "first" event. This field must be specified.
@@ -2897,7 +2628,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int FIRST_IS_DELIVERY_FIELD_NUMBER = 3;
-    private boolean firstIsDelivery_;
+    private boolean firstIsDelivery_ = false;
     /**
      * <pre>
      * Indicates if the "first" event is a delivery.
@@ -2912,7 +2643,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SECOND_INDEX_FIELD_NUMBER = 2;
-    private int secondIndex_;
+    private int secondIndex_ = 0;
     /**
      * <pre>
      * Shipment index of the "second" event. This field must be specified.
@@ -2939,7 +2670,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SECOND_IS_DELIVERY_FIELD_NUMBER = 4;
-    private boolean secondIsDelivery_;
+    private boolean secondIsDelivery_ = false;
     /**
      * <pre>
      * Indicates if the "second" event is a delivery.
@@ -2988,7 +2719,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getOffsetDurationOrBuilder() {
-      return getOffsetDuration();
+      return offsetDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : offsetDuration_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3020,7 +2751,7 @@ private static final long serialVersionUID = 0L;
       if (offsetDuration_ != null) {
         output.writeMessage(5, getOffsetDuration());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3049,7 +2780,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getOffsetDuration());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3083,7 +2814,7 @@ private static final long serialVersionUID = 0L;
         if (!getOffsetDuration()
             .equals(other.getOffsetDuration())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3112,7 +2843,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + OFFSET_DURATION_FIELD_NUMBER;
         hash = (53 * hash) + getOffsetDuration().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3240,34 +2971,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.optimization.v1.ShipmentModel.PrecedenceRule.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         firstIndex_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         firstIsDelivery_ = false;
-
         secondIndex_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
         secondIsDelivery_ = false;
-
-        if (offsetDurationBuilder_ == null) {
-          offsetDuration_ = null;
-        } else {
-          offsetDuration_ = null;
+        offsetDuration_ = null;
+        if (offsetDurationBuilder_ != null) {
+          offsetDurationBuilder_.dispose();
           offsetDurationBuilder_ = null;
         }
         return this;
@@ -3296,26 +3018,34 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.optimization.v1.ShipmentModel.PrecedenceRule buildPartial() {
         com.google.cloud.optimization.v1.ShipmentModel.PrecedenceRule result = new com.google.cloud.optimization.v1.ShipmentModel.PrecedenceRule(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.ShipmentModel.PrecedenceRule result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.firstIndex_ = firstIndex_;
           to_bitField0_ |= 0x00000001;
         }
-        result.firstIsDelivery_ = firstIsDelivery_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.firstIsDelivery_ = firstIsDelivery_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
           result.secondIndex_ = secondIndex_;
           to_bitField0_ |= 0x00000002;
         }
-        result.secondIsDelivery_ = secondIsDelivery_;
-        if (offsetDurationBuilder_ == null) {
-          result.offsetDuration_ = offsetDuration_;
-        } else {
-          result.offsetDuration_ = offsetDurationBuilder_.build();
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.secondIsDelivery_ = secondIsDelivery_;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.offsetDuration_ = offsetDurationBuilder_ == null
+              ? offsetDuration_
+              : offsetDurationBuilder_.build();
+        }
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -3377,7 +3107,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasOffsetDuration()) {
           mergeOffsetDuration(other.getOffsetDuration());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3392,17 +3122,57 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.ShipmentModel.PrecedenceRule parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                firstIndex_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                secondIndex_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 16
+              case 24: {
+                firstIsDelivery_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 24
+              case 32: {
+                secondIsDelivery_ = input.readBool();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 42: {
+                input.readMessage(
+                    getOffsetDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.ShipmentModel.PrecedenceRule) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3442,8 +3212,9 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setFirstIndex(int value) {
-        bitField0_ |= 0x00000001;
+        
         firstIndex_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3487,6 +3258,7 @@ private static final long serialVersionUID = 0L;
       public Builder setFirstIsDelivery(boolean value) {
         
         firstIsDelivery_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3499,7 +3271,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearFirstIsDelivery() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         firstIsDelivery_ = false;
         onChanged();
         return this;
@@ -3516,7 +3288,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public boolean hasSecondIndex() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -3540,8 +3312,9 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setSecondIndex(int value) {
-        bitField0_ |= 0x00000002;
+        
         secondIndex_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3554,7 +3327,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearSecondIndex() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         secondIndex_ = 0;
         onChanged();
         return this;
@@ -3585,6 +3358,7 @@ private static final long serialVersionUID = 0L;
       public Builder setSecondIsDelivery(boolean value) {
         
         secondIsDelivery_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -3597,7 +3371,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearSecondIsDelivery() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         secondIsDelivery_ = false;
         onChanged();
         return this;
@@ -3615,7 +3389,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the offsetDuration field is set.
        */
       public boolean hasOffsetDuration() {
-        return offsetDurationBuilder_ != null || offsetDuration_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -3645,11 +3419,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           offsetDuration_ = value;
-          onChanged();
         } else {
           offsetDurationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -3663,11 +3437,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration.Builder builderForValue) {
         if (offsetDurationBuilder_ == null) {
           offsetDuration_ = builderForValue.build();
-          onChanged();
         } else {
           offsetDurationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -3679,17 +3453,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeOffsetDuration(com.google.protobuf.Duration value) {
         if (offsetDurationBuilder_ == null) {
-          if (offsetDuration_ != null) {
-            offsetDuration_ =
-              com.google.protobuf.Duration.newBuilder(offsetDuration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            offsetDuration_ != null &&
+            offsetDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getOffsetDurationBuilder().mergeFrom(value);
           } else {
             offsetDuration_ = value;
           }
-          onChanged();
         } else {
           offsetDurationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -3700,14 +3475,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration offset_duration = 5;</code>
        */
       public Builder clearOffsetDuration() {
-        if (offsetDurationBuilder_ == null) {
-          offsetDuration_ = null;
-          onChanged();
-        } else {
-          offsetDuration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        offsetDuration_ = null;
+        if (offsetDurationBuilder_ != null) {
+          offsetDurationBuilder_.dispose();
           offsetDurationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3718,7 +3492,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration offset_duration = 5;</code>
        */
       public com.google.protobuf.Duration.Builder getOffsetDurationBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getOffsetDurationFieldBuilder().getBuilder();
       }
@@ -3790,7 +3564,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PrecedenceRule(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3950,70 +3735,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BreakRule(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                breakRequests_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentModel.BreakRule.BreakRequest>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              breakRequests_.add(
-                  input.readMessage(com.google.cloud.optimization.v1.ShipmentModel.BreakRule.BreakRequest.parser(), extensionRegistry));
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                frequencyConstraints_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentModel.BreakRule.FrequencyConstraint>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              frequencyConstraints_.add(
-                  input.readMessage(com.google.cloud.optimization.v1.ShipmentModel.BreakRule.FrequencyConstraint.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          breakRequests_ = java.util.Collections.unmodifiableList(breakRequests_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          frequencyConstraints_ = java.util.Collections.unmodifiableList(frequencyConstraints_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_ShipmentModel_BreakRule_descriptor;
@@ -4147,84 +3868,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private BreakRequest(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                com.google.protobuf.Timestamp.Builder subBuilder = null;
-                if (earliestStartTime_ != null) {
-                  subBuilder = earliestStartTime_.toBuilder();
-                }
-                earliestStartTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(earliestStartTime_);
-                  earliestStartTime_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              case 18: {
-                com.google.protobuf.Timestamp.Builder subBuilder = null;
-                if (latestStartTime_ != null) {
-                  subBuilder = latestStartTime_.toBuilder();
-                }
-                latestStartTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(latestStartTime_);
-                  latestStartTime_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              case 26: {
-                com.google.protobuf.Duration.Builder subBuilder = null;
-                if (minDuration_ != null) {
-                  subBuilder = minDuration_.toBuilder();
-                }
-                minDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(minDuration_);
-                  minDuration_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_ShipmentModel_BreakRule_BreakRequest_descriptor;
@@ -4273,7 +3916,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.protobuf.TimestampOrBuilder getEarliestStartTimeOrBuilder() {
-        return getEarliestStartTime();
+        return earliestStartTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : earliestStartTime_;
       }
 
       public static final int LATEST_START_TIME_FIELD_NUMBER = 2;
@@ -4311,7 +3954,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.protobuf.TimestampOrBuilder getLatestStartTimeOrBuilder() {
-        return getLatestStartTime();
+        return latestStartTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : latestStartTime_;
       }
 
       public static final int MIN_DURATION_FIELD_NUMBER = 3;
@@ -4349,7 +3992,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.protobuf.DurationOrBuilder getMinDurationOrBuilder() {
-        return getMinDuration();
+        return minDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : minDuration_;
       }
 
       private byte memoizedIsInitialized = -1;
@@ -4375,7 +4018,7 @@ private static final long serialVersionUID = 0L;
         if (minDuration_ != null) {
           output.writeMessage(3, getMinDuration());
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -4396,7 +4039,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(3, getMinDuration());
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -4426,7 +4069,7 @@ private static final long serialVersionUID = 0L;
           if (!getMinDuration()
               .equals(other.getMinDuration())) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -4449,7 +4092,7 @@ private static final long serialVersionUID = 0L;
           hash = (37 * hash) + MIN_DURATION_FIELD_NUMBER;
           hash = (53 * hash) + getMinDuration().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -4574,38 +4217,31 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.optimization.v1.ShipmentModel.BreakRule.BreakRequest.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
-          if (earliestStartTimeBuilder_ == null) {
-            earliestStartTime_ = null;
-          } else {
-            earliestStartTime_ = null;
+          bitField0_ = 0;
+          earliestStartTime_ = null;
+          if (earliestStartTimeBuilder_ != null) {
+            earliestStartTimeBuilder_.dispose();
             earliestStartTimeBuilder_ = null;
           }
-          if (latestStartTimeBuilder_ == null) {
-            latestStartTime_ = null;
-          } else {
-            latestStartTime_ = null;
+          latestStartTime_ = null;
+          if (latestStartTimeBuilder_ != null) {
+            latestStartTimeBuilder_.dispose();
             latestStartTimeBuilder_ = null;
           }
-          if (minDurationBuilder_ == null) {
-            minDuration_ = null;
-          } else {
-            minDuration_ = null;
+          minDuration_ = null;
+          if (minDurationBuilder_ != null) {
+            minDurationBuilder_.dispose();
             minDurationBuilder_ = null;
           }
           return this;
@@ -4634,23 +4270,28 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.optimization.v1.ShipmentModel.BreakRule.BreakRequest buildPartial() {
           com.google.cloud.optimization.v1.ShipmentModel.BreakRule.BreakRequest result = new com.google.cloud.optimization.v1.ShipmentModel.BreakRule.BreakRequest(this);
-          if (earliestStartTimeBuilder_ == null) {
-            result.earliestStartTime_ = earliestStartTime_;
-          } else {
-            result.earliestStartTime_ = earliestStartTimeBuilder_.build();
-          }
-          if (latestStartTimeBuilder_ == null) {
-            result.latestStartTime_ = latestStartTime_;
-          } else {
-            result.latestStartTime_ = latestStartTimeBuilder_.build();
-          }
-          if (minDurationBuilder_ == null) {
-            result.minDuration_ = minDuration_;
-          } else {
-            result.minDuration_ = minDurationBuilder_.build();
-          }
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.optimization.v1.ShipmentModel.BreakRule.BreakRequest result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.earliestStartTime_ = earliestStartTimeBuilder_ == null
+                ? earliestStartTime_
+                : earliestStartTimeBuilder_.build();
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.latestStartTime_ = latestStartTimeBuilder_ == null
+                ? latestStartTime_
+                : latestStartTimeBuilder_.build();
+          }
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.minDuration_ = minDurationBuilder_ == null
+                ? minDuration_
+                : minDurationBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -4706,7 +4347,7 @@ private static final long serialVersionUID = 0L;
           if (other.hasMinDuration()) {
             mergeMinDuration(other.getMinDuration());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -4721,19 +4362,54 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.optimization.v1.ShipmentModel.BreakRule.BreakRequest parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  input.readMessage(
+                      getEarliestStartTimeFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  input.readMessage(
+                      getLatestStartTimeFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                case 26: {
+                  input.readMessage(
+                      getMinDurationFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 26
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.optimization.v1.ShipmentModel.BreakRule.BreakRequest) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private com.google.protobuf.Timestamp earliestStartTime_;
         private com.google.protobuf.SingleFieldBuilderV3<
@@ -4747,7 +4423,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the earliestStartTime field is set.
          */
         public boolean hasEarliestStartTime() {
-          return earliestStartTimeBuilder_ != null || earliestStartTime_ != null;
+          return ((bitField0_ & 0x00000001) != 0);
         }
         /**
          * <pre>
@@ -4777,11 +4453,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             earliestStartTime_ = value;
-            onChanged();
           } else {
             earliestStartTimeBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -4795,11 +4471,11 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.Timestamp.Builder builderForValue) {
           if (earliestStartTimeBuilder_ == null) {
             earliestStartTime_ = builderForValue.build();
-            onChanged();
           } else {
             earliestStartTimeBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -4811,17 +4487,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeEarliestStartTime(com.google.protobuf.Timestamp value) {
           if (earliestStartTimeBuilder_ == null) {
-            if (earliestStartTime_ != null) {
-              earliestStartTime_ =
-                com.google.protobuf.Timestamp.newBuilder(earliestStartTime_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000001) != 0) &&
+              earliestStartTime_ != null &&
+              earliestStartTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+              getEarliestStartTimeBuilder().mergeFrom(value);
             } else {
               earliestStartTime_ = value;
             }
-            onChanged();
           } else {
             earliestStartTimeBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -4832,14 +4509,13 @@ private static final long serialVersionUID = 0L;
          * <code>.google.protobuf.Timestamp earliest_start_time = 1 [(.google.api.field_behavior) = REQUIRED];</code>
          */
         public Builder clearEarliestStartTime() {
-          if (earliestStartTimeBuilder_ == null) {
-            earliestStartTime_ = null;
-            onChanged();
-          } else {
-            earliestStartTime_ = null;
+          bitField0_ = (bitField0_ & ~0x00000001);
+          earliestStartTime_ = null;
+          if (earliestStartTimeBuilder_ != null) {
+            earliestStartTimeBuilder_.dispose();
             earliestStartTimeBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -4850,7 +4526,7 @@ private static final long serialVersionUID = 0L;
          * <code>.google.protobuf.Timestamp earliest_start_time = 1 [(.google.api.field_behavior) = REQUIRED];</code>
          */
         public com.google.protobuf.Timestamp.Builder getEarliestStartTimeBuilder() {
-          
+          bitField0_ |= 0x00000001;
           onChanged();
           return getEarliestStartTimeFieldBuilder().getBuilder();
         }
@@ -4902,7 +4578,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the latestStartTime field is set.
          */
         public boolean hasLatestStartTime() {
-          return latestStartTimeBuilder_ != null || latestStartTime_ != null;
+          return ((bitField0_ & 0x00000002) != 0);
         }
         /**
          * <pre>
@@ -4932,11 +4608,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             latestStartTime_ = value;
-            onChanged();
           } else {
             latestStartTimeBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -4950,11 +4626,11 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.Timestamp.Builder builderForValue) {
           if (latestStartTimeBuilder_ == null) {
             latestStartTime_ = builderForValue.build();
-            onChanged();
           } else {
             latestStartTimeBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -4966,17 +4642,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeLatestStartTime(com.google.protobuf.Timestamp value) {
           if (latestStartTimeBuilder_ == null) {
-            if (latestStartTime_ != null) {
-              latestStartTime_ =
-                com.google.protobuf.Timestamp.newBuilder(latestStartTime_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000002) != 0) &&
+              latestStartTime_ != null &&
+              latestStartTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+              getLatestStartTimeBuilder().mergeFrom(value);
             } else {
               latestStartTime_ = value;
             }
-            onChanged();
           } else {
             latestStartTimeBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -4987,14 +4664,13 @@ private static final long serialVersionUID = 0L;
          * <code>.google.protobuf.Timestamp latest_start_time = 2 [(.google.api.field_behavior) = REQUIRED];</code>
          */
         public Builder clearLatestStartTime() {
-          if (latestStartTimeBuilder_ == null) {
-            latestStartTime_ = null;
-            onChanged();
-          } else {
-            latestStartTime_ = null;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          latestStartTime_ = null;
+          if (latestStartTimeBuilder_ != null) {
+            latestStartTimeBuilder_.dispose();
             latestStartTimeBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -5005,7 +4681,7 @@ private static final long serialVersionUID = 0L;
          * <code>.google.protobuf.Timestamp latest_start_time = 2 [(.google.api.field_behavior) = REQUIRED];</code>
          */
         public com.google.protobuf.Timestamp.Builder getLatestStartTimeBuilder() {
-          
+          bitField0_ |= 0x00000002;
           onChanged();
           return getLatestStartTimeFieldBuilder().getBuilder();
         }
@@ -5057,7 +4733,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the minDuration field is set.
          */
         public boolean hasMinDuration() {
-          return minDurationBuilder_ != null || minDuration_ != null;
+          return ((bitField0_ & 0x00000004) != 0);
         }
         /**
          * <pre>
@@ -5087,11 +4763,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             minDuration_ = value;
-            onChanged();
           } else {
             minDurationBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000004;
+          onChanged();
           return this;
         }
         /**
@@ -5105,11 +4781,11 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.Duration.Builder builderForValue) {
           if (minDurationBuilder_ == null) {
             minDuration_ = builderForValue.build();
-            onChanged();
           } else {
             minDurationBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000004;
+          onChanged();
           return this;
         }
         /**
@@ -5121,17 +4797,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeMinDuration(com.google.protobuf.Duration value) {
           if (minDurationBuilder_ == null) {
-            if (minDuration_ != null) {
-              minDuration_ =
-                com.google.protobuf.Duration.newBuilder(minDuration_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000004) != 0) &&
+              minDuration_ != null &&
+              minDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+              getMinDurationBuilder().mergeFrom(value);
             } else {
               minDuration_ = value;
             }
-            onChanged();
           } else {
             minDurationBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000004;
+          onChanged();
           return this;
         }
         /**
@@ -5142,14 +4819,13 @@ private static final long serialVersionUID = 0L;
          * <code>.google.protobuf.Duration min_duration = 3 [(.google.api.field_behavior) = REQUIRED];</code>
          */
         public Builder clearMinDuration() {
-          if (minDurationBuilder_ == null) {
-            minDuration_ = null;
-            onChanged();
-          } else {
-            minDuration_ = null;
+          bitField0_ = (bitField0_ & ~0x00000004);
+          minDuration_ = null;
+          if (minDurationBuilder_ != null) {
+            minDurationBuilder_.dispose();
             minDurationBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -5160,7 +4836,7 @@ private static final long serialVersionUID = 0L;
          * <code>.google.protobuf.Duration min_duration = 3 [(.google.api.field_behavior) = REQUIRED];</code>
          */
         public com.google.protobuf.Duration.Builder getMinDurationBuilder() {
-          
+          bitField0_ |= 0x00000004;
           onChanged();
           return getMinDurationFieldBuilder().getBuilder();
         }
@@ -5232,7 +4908,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new BreakRequest(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -5288,8 +4975,8 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * Required. Maximum allowed span of any interval of time in the route that does not
-       * include at least partially a break of `duration &gt;=
+       * Required. Maximum allowed span of any interval of time in the route
+       * that does not include at least partially a break of `duration &gt;=
        * min_break_duration`. Must be positive.
        * </pre>
        *
@@ -5299,8 +4986,8 @@ private static final long serialVersionUID = 0L;
       boolean hasMaxInterBreakDuration();
       /**
        * <pre>
-       * Required. Maximum allowed span of any interval of time in the route that does not
-       * include at least partially a break of `duration &gt;=
+       * Required. Maximum allowed span of any interval of time in the route
+       * that does not include at least partially a break of `duration &gt;=
        * min_break_duration`. Must be positive.
        * </pre>
        *
@@ -5310,8 +4997,8 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.Duration getMaxInterBreakDuration();
       /**
        * <pre>
-       * Required. Maximum allowed span of any interval of time in the route that does not
-       * include at least partially a break of `duration &gt;=
+       * Required. Maximum allowed span of any interval of time in the route
+       * that does not include at least partially a break of `duration &gt;=
        * min_break_duration`. Must be positive.
        * </pre>
        *
@@ -5380,71 +5067,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private FrequencyConstraint(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                com.google.protobuf.Duration.Builder subBuilder = null;
-                if (minBreakDuration_ != null) {
-                  subBuilder = minBreakDuration_.toBuilder();
-                }
-                minBreakDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(minBreakDuration_);
-                  minBreakDuration_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              case 18: {
-                com.google.protobuf.Duration.Builder subBuilder = null;
-                if (maxInterBreakDuration_ != null) {
-                  subBuilder = maxInterBreakDuration_.toBuilder();
-                }
-                maxInterBreakDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(maxInterBreakDuration_);
-                  maxInterBreakDuration_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_ShipmentModel_BreakRule_FrequencyConstraint_descriptor;
@@ -5496,15 +5118,15 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.protobuf.DurationOrBuilder getMinBreakDurationOrBuilder() {
-        return getMinBreakDuration();
+        return minBreakDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : minBreakDuration_;
       }
 
       public static final int MAX_INTER_BREAK_DURATION_FIELD_NUMBER = 2;
       private com.google.protobuf.Duration maxInterBreakDuration_;
       /**
        * <pre>
-       * Required. Maximum allowed span of any interval of time in the route that does not
-       * include at least partially a break of `duration &gt;=
+       * Required. Maximum allowed span of any interval of time in the route
+       * that does not include at least partially a break of `duration &gt;=
        * min_break_duration`. Must be positive.
        * </pre>
        *
@@ -5517,8 +5139,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. Maximum allowed span of any interval of time in the route that does not
-       * include at least partially a break of `duration &gt;=
+       * Required. Maximum allowed span of any interval of time in the route
+       * that does not include at least partially a break of `duration &gt;=
        * min_break_duration`. Must be positive.
        * </pre>
        *
@@ -5531,8 +5153,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. Maximum allowed span of any interval of time in the route that does not
-       * include at least partially a break of `duration &gt;=
+       * Required. Maximum allowed span of any interval of time in the route
+       * that does not include at least partially a break of `duration &gt;=
        * min_break_duration`. Must be positive.
        * </pre>
        *
@@ -5540,7 +5162,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.protobuf.DurationOrBuilder getMaxInterBreakDurationOrBuilder() {
-        return getMaxInterBreakDuration();
+        return maxInterBreakDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : maxInterBreakDuration_;
       }
 
       private byte memoizedIsInitialized = -1;
@@ -5563,7 +5185,7 @@ private static final long serialVersionUID = 0L;
         if (maxInterBreakDuration_ != null) {
           output.writeMessage(2, getMaxInterBreakDuration());
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -5580,7 +5202,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, getMaxInterBreakDuration());
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -5605,7 +5227,7 @@ private static final long serialVersionUID = 0L;
           if (!getMaxInterBreakDuration()
               .equals(other.getMaxInterBreakDuration())) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -5624,7 +5246,7 @@ private static final long serialVersionUID = 0L;
           hash = (37 * hash) + MAX_INTER_BREAK_DURATION_FIELD_NUMBER;
           hash = (53 * hash) + getMaxInterBreakDuration().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -5775,32 +5397,26 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.optimization.v1.ShipmentModel.BreakRule.FrequencyConstraint.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
-          if (minBreakDurationBuilder_ == null) {
-            minBreakDuration_ = null;
-          } else {
-            minBreakDuration_ = null;
+          bitField0_ = 0;
+          minBreakDuration_ = null;
+          if (minBreakDurationBuilder_ != null) {
+            minBreakDurationBuilder_.dispose();
             minBreakDurationBuilder_ = null;
           }
-          if (maxInterBreakDurationBuilder_ == null) {
-            maxInterBreakDuration_ = null;
-          } else {
-            maxInterBreakDuration_ = null;
+          maxInterBreakDuration_ = null;
+          if (maxInterBreakDurationBuilder_ != null) {
+            maxInterBreakDurationBuilder_.dispose();
             maxInterBreakDurationBuilder_ = null;
           }
           return this;
@@ -5829,18 +5445,23 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.optimization.v1.ShipmentModel.BreakRule.FrequencyConstraint buildPartial() {
           com.google.cloud.optimization.v1.ShipmentModel.BreakRule.FrequencyConstraint result = new com.google.cloud.optimization.v1.ShipmentModel.BreakRule.FrequencyConstraint(this);
-          if (minBreakDurationBuilder_ == null) {
-            result.minBreakDuration_ = minBreakDuration_;
-          } else {
-            result.minBreakDuration_ = minBreakDurationBuilder_.build();
-          }
-          if (maxInterBreakDurationBuilder_ == null) {
-            result.maxInterBreakDuration_ = maxInterBreakDuration_;
-          } else {
-            result.maxInterBreakDuration_ = maxInterBreakDurationBuilder_.build();
-          }
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.optimization.v1.ShipmentModel.BreakRule.FrequencyConstraint result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.minBreakDuration_ = minBreakDurationBuilder_ == null
+                ? minBreakDuration_
+                : minBreakDurationBuilder_.build();
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.maxInterBreakDuration_ = maxInterBreakDurationBuilder_ == null
+                ? maxInterBreakDuration_
+                : maxInterBreakDurationBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -5893,7 +5514,7 @@ private static final long serialVersionUID = 0L;
           if (other.hasMaxInterBreakDuration()) {
             mergeMaxInterBreakDuration(other.getMaxInterBreakDuration());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -5908,19 +5529,47 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.optimization.v1.ShipmentModel.BreakRule.FrequencyConstraint parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  input.readMessage(
+                      getMinBreakDurationFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  input.readMessage(
+                      getMaxInterBreakDurationFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.optimization.v1.ShipmentModel.BreakRule.FrequencyConstraint) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private com.google.protobuf.Duration minBreakDuration_;
         private com.google.protobuf.SingleFieldBuilderV3<
@@ -5935,7 +5584,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the minBreakDuration field is set.
          */
         public boolean hasMinBreakDuration() {
-          return minBreakDurationBuilder_ != null || minBreakDuration_ != null;
+          return ((bitField0_ & 0x00000001) != 0);
         }
         /**
          * <pre>
@@ -5967,11 +5616,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             minBreakDuration_ = value;
-            onChanged();
           } else {
             minBreakDurationBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -5986,11 +5635,11 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.Duration.Builder builderForValue) {
           if (minBreakDurationBuilder_ == null) {
             minBreakDuration_ = builderForValue.build();
-            onChanged();
           } else {
             minBreakDurationBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -6003,17 +5652,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeMinBreakDuration(com.google.protobuf.Duration value) {
           if (minBreakDurationBuilder_ == null) {
-            if (minBreakDuration_ != null) {
-              minBreakDuration_ =
-                com.google.protobuf.Duration.newBuilder(minBreakDuration_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000001) != 0) &&
+              minBreakDuration_ != null &&
+              minBreakDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+              getMinBreakDurationBuilder().mergeFrom(value);
             } else {
               minBreakDuration_ = value;
             }
-            onChanged();
           } else {
             minBreakDurationBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -6025,14 +5675,13 @@ private static final long serialVersionUID = 0L;
          * <code>.google.protobuf.Duration min_break_duration = 1 [(.google.api.field_behavior) = REQUIRED];</code>
          */
         public Builder clearMinBreakDuration() {
-          if (minBreakDurationBuilder_ == null) {
-            minBreakDuration_ = null;
-            onChanged();
-          } else {
-            minBreakDuration_ = null;
+          bitField0_ = (bitField0_ & ~0x00000001);
+          minBreakDuration_ = null;
+          if (minBreakDurationBuilder_ != null) {
+            minBreakDurationBuilder_.dispose();
             minBreakDurationBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -6044,7 +5693,7 @@ private static final long serialVersionUID = 0L;
          * <code>.google.protobuf.Duration min_break_duration = 1 [(.google.api.field_behavior) = REQUIRED];</code>
          */
         public com.google.protobuf.Duration.Builder getMinBreakDurationBuilder() {
-          
+          bitField0_ |= 0x00000001;
           onChanged();
           return getMinBreakDurationFieldBuilder().getBuilder();
         }
@@ -6091,8 +5740,8 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> maxInterBreakDurationBuilder_;
         /**
          * <pre>
-         * Required. Maximum allowed span of any interval of time in the route that does not
-         * include at least partially a break of `duration &gt;=
+         * Required. Maximum allowed span of any interval of time in the route
+         * that does not include at least partially a break of `duration &gt;=
          * min_break_duration`. Must be positive.
          * </pre>
          *
@@ -6100,12 +5749,12 @@ private static final long serialVersionUID = 0L;
          * @return Whether the maxInterBreakDuration field is set.
          */
         public boolean hasMaxInterBreakDuration() {
-          return maxInterBreakDurationBuilder_ != null || maxInterBreakDuration_ != null;
+          return ((bitField0_ & 0x00000002) != 0);
         }
         /**
          * <pre>
-         * Required. Maximum allowed span of any interval of time in the route that does not
-         * include at least partially a break of `duration &gt;=
+         * Required. Maximum allowed span of any interval of time in the route
+         * that does not include at least partially a break of `duration &gt;=
          * min_break_duration`. Must be positive.
          * </pre>
          *
@@ -6121,8 +5770,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Required. Maximum allowed span of any interval of time in the route that does not
-         * include at least partially a break of `duration &gt;=
+         * Required. Maximum allowed span of any interval of time in the route
+         * that does not include at least partially a break of `duration &gt;=
          * min_break_duration`. Must be positive.
          * </pre>
          *
@@ -6134,17 +5783,17 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             maxInterBreakDuration_ = value;
-            onChanged();
           } else {
             maxInterBreakDurationBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
          * <pre>
-         * Required. Maximum allowed span of any interval of time in the route that does not
-         * include at least partially a break of `duration &gt;=
+         * Required. Maximum allowed span of any interval of time in the route
+         * that does not include at least partially a break of `duration &gt;=
          * min_break_duration`. Must be positive.
          * </pre>
          *
@@ -6154,17 +5803,17 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.Duration.Builder builderForValue) {
           if (maxInterBreakDurationBuilder_ == null) {
             maxInterBreakDuration_ = builderForValue.build();
-            onChanged();
           } else {
             maxInterBreakDurationBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
          * <pre>
-         * Required. Maximum allowed span of any interval of time in the route that does not
-         * include at least partially a break of `duration &gt;=
+         * Required. Maximum allowed span of any interval of time in the route
+         * that does not include at least partially a break of `duration &gt;=
          * min_break_duration`. Must be positive.
          * </pre>
          *
@@ -6172,57 +5821,57 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeMaxInterBreakDuration(com.google.protobuf.Duration value) {
           if (maxInterBreakDurationBuilder_ == null) {
-            if (maxInterBreakDuration_ != null) {
-              maxInterBreakDuration_ =
-                com.google.protobuf.Duration.newBuilder(maxInterBreakDuration_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000002) != 0) &&
+              maxInterBreakDuration_ != null &&
+              maxInterBreakDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+              getMaxInterBreakDurationBuilder().mergeFrom(value);
             } else {
               maxInterBreakDuration_ = value;
             }
-            onChanged();
           } else {
             maxInterBreakDurationBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
          * <pre>
-         * Required. Maximum allowed span of any interval of time in the route that does not
-         * include at least partially a break of `duration &gt;=
+         * Required. Maximum allowed span of any interval of time in the route
+         * that does not include at least partially a break of `duration &gt;=
          * min_break_duration`. Must be positive.
          * </pre>
          *
          * <code>.google.protobuf.Duration max_inter_break_duration = 2 [(.google.api.field_behavior) = REQUIRED];</code>
          */
         public Builder clearMaxInterBreakDuration() {
-          if (maxInterBreakDurationBuilder_ == null) {
-            maxInterBreakDuration_ = null;
-            onChanged();
-          } else {
-            maxInterBreakDuration_ = null;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          maxInterBreakDuration_ = null;
+          if (maxInterBreakDurationBuilder_ != null) {
+            maxInterBreakDurationBuilder_.dispose();
             maxInterBreakDurationBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
          * <pre>
-         * Required. Maximum allowed span of any interval of time in the route that does not
-         * include at least partially a break of `duration &gt;=
+         * Required. Maximum allowed span of any interval of time in the route
+         * that does not include at least partially a break of `duration &gt;=
          * min_break_duration`. Must be positive.
          * </pre>
          *
          * <code>.google.protobuf.Duration max_inter_break_duration = 2 [(.google.api.field_behavior) = REQUIRED];</code>
          */
         public com.google.protobuf.Duration.Builder getMaxInterBreakDurationBuilder() {
-          
+          bitField0_ |= 0x00000002;
           onChanged();
           return getMaxInterBreakDurationFieldBuilder().getBuilder();
         }
         /**
          * <pre>
-         * Required. Maximum allowed span of any interval of time in the route that does not
-         * include at least partially a break of `duration &gt;=
+         * Required. Maximum allowed span of any interval of time in the route
+         * that does not include at least partially a break of `duration &gt;=
          * min_break_duration`. Must be positive.
          * </pre>
          *
@@ -6238,8 +5887,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Required. Maximum allowed span of any interval of time in the route that does not
-         * include at least partially a break of `duration &gt;=
+         * Required. Maximum allowed span of any interval of time in the route
+         * that does not include at least partially a break of `duration &gt;=
          * min_break_duration`. Must be positive.
          * </pre>
          *
@@ -6291,7 +5940,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new FrequencyConstraint(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -6312,6 +5972,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int BREAK_REQUESTS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.optimization.v1.ShipmentModel.BreakRule.BreakRequest> breakRequests_;
     /**
      * <pre>
@@ -6372,6 +6033,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int FREQUENCY_CONSTRAINTS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.optimization.v1.ShipmentModel.BreakRule.FrequencyConstraint> frequencyConstraints_;
     /**
      * <pre>
@@ -6456,7 +6118,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < frequencyConstraints_.size(); i++) {
         output.writeMessage(2, frequencyConstraints_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6473,7 +6135,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, frequencyConstraints_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6492,7 +6154,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getBreakRequestsList())) return false;
       if (!getFrequencyConstraintsList()
           .equals(other.getFrequencyConstraintsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6511,7 +6173,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + FREQUENCY_CONSTRAINTS_FIELD_NUMBER;
         hash = (53 * hash) + getFrequencyConstraintsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6642,36 +6304,32 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.optimization.v1.ShipmentModel.BreakRule.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getBreakRequestsFieldBuilder();
-          getFrequencyConstraintsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (breakRequestsBuilder_ == null) {
           breakRequests_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          breakRequests_ = null;
           breakRequestsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (frequencyConstraintsBuilder_ == null) {
           frequencyConstraints_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          frequencyConstraints_ = null;
           frequencyConstraintsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -6698,7 +6356,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.optimization.v1.ShipmentModel.BreakRule buildPartial() {
         com.google.cloud.optimization.v1.ShipmentModel.BreakRule result = new com.google.cloud.optimization.v1.ShipmentModel.BreakRule(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.ShipmentModel.BreakRule result) {
         if (breakRequestsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             breakRequests_ = java.util.Collections.unmodifiableList(breakRequests_);
@@ -6717,8 +6381,10 @@ private static final long serialVersionUID = 0L;
         } else {
           result.frequencyConstraints_ = frequencyConstraintsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.ShipmentModel.BreakRule result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -6817,7 +6483,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6832,17 +6498,56 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.ShipmentModel.BreakRule parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.optimization.v1.ShipmentModel.BreakRule.BreakRequest m =
+                    input.readMessage(
+                        com.google.cloud.optimization.v1.ShipmentModel.BreakRule.BreakRequest.parser(),
+                        extensionRegistry);
+                if (breakRequestsBuilder_ == null) {
+                  ensureBreakRequestsIsMutable();
+                  breakRequests_.add(m);
+                } else {
+                  breakRequestsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                com.google.cloud.optimization.v1.ShipmentModel.BreakRule.FrequencyConstraint m =
+                    input.readMessage(
+                        com.google.cloud.optimization.v1.ShipmentModel.BreakRule.FrequencyConstraint.parser(),
+                        extensionRegistry);
+                if (frequencyConstraintsBuilder_ == null) {
+                  ensureFrequencyConstraintsIsMutable();
+                  frequencyConstraints_.add(m);
+                } else {
+                  frequencyConstraintsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.ShipmentModel.BreakRule) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -7521,7 +7226,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BreakRule(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7543,6 +7259,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int SHIPMENTS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.Shipment> shipments_;
   /**
    * <pre>
@@ -7603,6 +7320,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VEHICLES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.Vehicle> vehicles_;
   /**
    * <pre>
@@ -7663,7 +7381,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_ACTIVE_VEHICLES_FIELD_NUMBER = 4;
-  private int maxActiveVehicles_;
+  private int maxActiveVehicles_ = 0;
   /**
    * <pre>
    * Constrains the maximum number of active vehicles. A vehicle is active if
@@ -7758,7 +7476,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getGlobalStartTimeOrBuilder() {
-    return getGlobalStartTime();
+    return globalStartTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : globalStartTime_;
   }
 
   public static final int GLOBAL_END_TIME_FIELD_NUMBER = 6;
@@ -7799,18 +7517,19 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getGlobalEndTimeOrBuilder() {
-    return getGlobalEndTime();
+    return globalEndTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : globalEndTime_;
   }
 
   public static final int GLOBAL_DURATION_COST_PER_HOUR_FIELD_NUMBER = 7;
-  private double globalDurationCostPerHour_;
+  private double globalDurationCostPerHour_ = 0D;
   /**
    * <pre>
    * The "global duration" of the overall plan is the difference between the
    * earliest effective start time and the latest effective end time of
    * all vehicles. Users can assign a cost per hour to that quantity to try
    * and optimize for earliest job completion, for example. This cost must be in
-   * the same unit as [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
+   * the same unit as
+   * [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
    * </pre>
    *
    * <code>double global_duration_cost_per_hour = 7;</code>
@@ -7822,6 +7541,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DURATION_DISTANCE_MATRICES_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix> durationDistanceMatrices_;
   /**
    * <pre>
@@ -8282,6 +8002,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DURATION_DISTANCE_MATRIX_SRC_TAGS_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList durationDistanceMatrixSrcTags_;
   /**
    * <pre>
@@ -8377,6 +8098,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DURATION_DISTANCE_MATRIX_DST_TAGS_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList durationDistanceMatrixDstTags_;
   /**
    * <pre>
@@ -8480,6 +8202,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRANSITION_ATTRIBUTES_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.TransitionAttributes> transitionAttributes_;
   /**
    * <pre>
@@ -8540,6 +8263,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SHIPMENT_TYPE_INCOMPATIBILITIES_FIELD_NUMBER = 12;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.ShipmentTypeIncompatibility> shipmentTypeIncompatibilities_;
   /**
    * <pre>
@@ -8600,6 +8324,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SHIPMENT_TYPE_REQUIREMENTS_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.ShipmentTypeRequirement> shipmentTypeRequirements_;
   /**
    * <pre>
@@ -8660,6 +8385,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRECEDENCE_RULES_FIELD_NUMBER = 14;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.ShipmentModel.PrecedenceRule> precedenceRules_;
   /**
    * <pre>
@@ -8720,13 +8446,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BREAK_RULES_FIELD_NUMBER = 15;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.ShipmentModel.BreakRule> breakRules_;
   /**
    * <pre>
    * Deprecated: No longer used.
    * Set of break rules used in the model.
    * Each vehicle specifies the `BreakRule` that applies to it via the
-   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+   * field (which must be a singleton).
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -8740,7 +8468,8 @@ private static final long serialVersionUID = 0L;
    * Deprecated: No longer used.
    * Set of break rules used in the model.
    * Each vehicle specifies the `BreakRule` that applies to it via the
-   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+   * field (which must be a singleton).
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -8755,7 +8484,8 @@ private static final long serialVersionUID = 0L;
    * Deprecated: No longer used.
    * Set of break rules used in the model.
    * Each vehicle specifies the `BreakRule` that applies to it via the
-   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+   * field (which must be a singleton).
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -8769,7 +8499,8 @@ private static final long serialVersionUID = 0L;
    * Deprecated: No longer used.
    * Set of break rules used in the model.
    * Each vehicle specifies the `BreakRule` that applies to it via the
-   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+   * field (which must be a singleton).
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -8783,7 +8514,8 @@ private static final long serialVersionUID = 0L;
    * Deprecated: No longer used.
    * Set of break rules used in the model.
    * Each vehicle specifies the `BreakRule` that applies to it via the
-   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+   * field (which must be a singleton).
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -8850,7 +8582,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < breakRules_.size(); i++) {
       output.writeMessage(15, breakRules_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -8923,7 +8655,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(15, breakRules_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -8976,7 +8708,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPrecedenceRulesList())) return false;
     if (!getBreakRulesList()
         .equals(other.getBreakRulesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -9042,7 +8774,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BREAK_RULES_FIELD_NUMBER;
       hash = (53 * hash) + getBreakRulesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -9168,98 +8900,90 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.optimization.v1.ShipmentModel.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getShipmentsFieldBuilder();
-        getVehiclesFieldBuilder();
-        getDurationDistanceMatricesFieldBuilder();
-        getTransitionAttributesFieldBuilder();
-        getShipmentTypeIncompatibilitiesFieldBuilder();
-        getShipmentTypeRequirementsFieldBuilder();
-        getPrecedenceRulesFieldBuilder();
-        getBreakRulesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (shipmentsBuilder_ == null) {
         shipments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        shipments_ = null;
         shipmentsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (vehiclesBuilder_ == null) {
         vehicles_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        vehicles_ = null;
         vehiclesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       maxActiveVehicles_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000004);
-      if (globalStartTimeBuilder_ == null) {
-        globalStartTime_ = null;
-      } else {
-        globalStartTime_ = null;
+      globalStartTime_ = null;
+      if (globalStartTimeBuilder_ != null) {
+        globalStartTimeBuilder_.dispose();
         globalStartTimeBuilder_ = null;
       }
-      if (globalEndTimeBuilder_ == null) {
-        globalEndTime_ = null;
-      } else {
-        globalEndTime_ = null;
+      globalEndTime_ = null;
+      if (globalEndTimeBuilder_ != null) {
+        globalEndTimeBuilder_.dispose();
         globalEndTimeBuilder_ = null;
       }
       globalDurationCostPerHour_ = 0D;
-
       if (durationDistanceMatricesBuilder_ == null) {
         durationDistanceMatrices_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        durationDistanceMatrices_ = null;
         durationDistanceMatricesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000040);
       durationDistanceMatrixSrcTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000080);
       durationDistanceMatrixDstTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000100);
       if (transitionAttributesBuilder_ == null) {
         transitionAttributes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000040);
       } else {
+        transitionAttributes_ = null;
         transitionAttributesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000200);
       if (shipmentTypeIncompatibilitiesBuilder_ == null) {
         shipmentTypeIncompatibilities_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000080);
       } else {
+        shipmentTypeIncompatibilities_ = null;
         shipmentTypeIncompatibilitiesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000400);
       if (shipmentTypeRequirementsBuilder_ == null) {
         shipmentTypeRequirements_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000100);
       } else {
+        shipmentTypeRequirements_ = null;
         shipmentTypeRequirementsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000800);
       if (precedenceRulesBuilder_ == null) {
         precedenceRules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000200);
       } else {
+        precedenceRules_ = null;
         precedenceRulesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00001000);
       if (breakRulesBuilder_ == null) {
         breakRules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000400);
       } else {
+        breakRules_ = null;
         breakRulesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00002000);
       return this;
     }
 
@@ -9286,8 +9010,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.optimization.v1.ShipmentModel buildPartial() {
       com.google.cloud.optimization.v1.ShipmentModel result = new com.google.cloud.optimization.v1.ShipmentModel(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.ShipmentModel result) {
       if (shipmentsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           shipments_ = java.util.Collections.unmodifiableList(shipments_);
@@ -9306,88 +9035,93 @@ private static final long serialVersionUID = 0L;
       } else {
         result.vehicles_ = vehiclesBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.maxActiveVehicles_ = maxActiveVehicles_;
-        to_bitField0_ |= 0x00000001;
-      }
-      if (globalStartTimeBuilder_ == null) {
-        result.globalStartTime_ = globalStartTime_;
-      } else {
-        result.globalStartTime_ = globalStartTimeBuilder_.build();
-      }
-      if (globalEndTimeBuilder_ == null) {
-        result.globalEndTime_ = globalEndTime_;
-      } else {
-        result.globalEndTime_ = globalEndTimeBuilder_.build();
-      }
-      result.globalDurationCostPerHour_ = globalDurationCostPerHour_;
       if (durationDistanceMatricesBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           durationDistanceMatrices_ = java.util.Collections.unmodifiableList(durationDistanceMatrices_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.durationDistanceMatrices_ = durationDistanceMatrices_;
       } else {
         result.durationDistanceMatrices_ = durationDistanceMatricesBuilder_.build();
       }
-      if (((bitField0_ & 0x00000010) != 0)) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         durationDistanceMatrixSrcTags_ = durationDistanceMatrixSrcTags_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000080);
       }
       result.durationDistanceMatrixSrcTags_ = durationDistanceMatrixSrcTags_;
-      if (((bitField0_ & 0x00000020) != 0)) {
+      if (((bitField0_ & 0x00000100) != 0)) {
         durationDistanceMatrixDstTags_ = durationDistanceMatrixDstTags_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000100);
       }
       result.durationDistanceMatrixDstTags_ = durationDistanceMatrixDstTags_;
       if (transitionAttributesBuilder_ == null) {
-        if (((bitField0_ & 0x00000040) != 0)) {
+        if (((bitField0_ & 0x00000200) != 0)) {
           transitionAttributes_ = java.util.Collections.unmodifiableList(transitionAttributes_);
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000200);
         }
         result.transitionAttributes_ = transitionAttributes_;
       } else {
         result.transitionAttributes_ = transitionAttributesBuilder_.build();
       }
       if (shipmentTypeIncompatibilitiesBuilder_ == null) {
-        if (((bitField0_ & 0x00000080) != 0)) {
+        if (((bitField0_ & 0x00000400) != 0)) {
           shipmentTypeIncompatibilities_ = java.util.Collections.unmodifiableList(shipmentTypeIncompatibilities_);
-          bitField0_ = (bitField0_ & ~0x00000080);
+          bitField0_ = (bitField0_ & ~0x00000400);
         }
         result.shipmentTypeIncompatibilities_ = shipmentTypeIncompatibilities_;
       } else {
         result.shipmentTypeIncompatibilities_ = shipmentTypeIncompatibilitiesBuilder_.build();
       }
       if (shipmentTypeRequirementsBuilder_ == null) {
-        if (((bitField0_ & 0x00000100) != 0)) {
+        if (((bitField0_ & 0x00000800) != 0)) {
           shipmentTypeRequirements_ = java.util.Collections.unmodifiableList(shipmentTypeRequirements_);
-          bitField0_ = (bitField0_ & ~0x00000100);
+          bitField0_ = (bitField0_ & ~0x00000800);
         }
         result.shipmentTypeRequirements_ = shipmentTypeRequirements_;
       } else {
         result.shipmentTypeRequirements_ = shipmentTypeRequirementsBuilder_.build();
       }
       if (precedenceRulesBuilder_ == null) {
-        if (((bitField0_ & 0x00000200) != 0)) {
+        if (((bitField0_ & 0x00001000) != 0)) {
           precedenceRules_ = java.util.Collections.unmodifiableList(precedenceRules_);
-          bitField0_ = (bitField0_ & ~0x00000200);
+          bitField0_ = (bitField0_ & ~0x00001000);
         }
         result.precedenceRules_ = precedenceRules_;
       } else {
         result.precedenceRules_ = precedenceRulesBuilder_.build();
       }
       if (breakRulesBuilder_ == null) {
-        if (((bitField0_ & 0x00000400) != 0)) {
+        if (((bitField0_ & 0x00002000) != 0)) {
           breakRules_ = java.util.Collections.unmodifiableList(breakRules_);
-          bitField0_ = (bitField0_ & ~0x00000400);
+          bitField0_ = (bitField0_ & ~0x00002000);
         }
         result.breakRules_ = breakRules_;
       } else {
         result.breakRules_ = breakRulesBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.optimization.v1.ShipmentModel result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.maxActiveVehicles_ = maxActiveVehicles_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.globalStartTime_ = globalStartTimeBuilder_ == null
+            ? globalStartTime_
+            : globalStartTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.globalEndTime_ = globalEndTimeBuilder_ == null
+            ? globalEndTime_
+            : globalEndTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.globalDurationCostPerHour_ = globalDurationCostPerHour_;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -9502,7 +9236,7 @@ private static final long serialVersionUID = 0L;
         if (!other.durationDistanceMatrices_.isEmpty()) {
           if (durationDistanceMatrices_.isEmpty()) {
             durationDistanceMatrices_ = other.durationDistanceMatrices_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureDurationDistanceMatricesIsMutable();
             durationDistanceMatrices_.addAll(other.durationDistanceMatrices_);
@@ -9515,7 +9249,7 @@ private static final long serialVersionUID = 0L;
             durationDistanceMatricesBuilder_.dispose();
             durationDistanceMatricesBuilder_ = null;
             durationDistanceMatrices_ = other.durationDistanceMatrices_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000040);
             durationDistanceMatricesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getDurationDistanceMatricesFieldBuilder() : null;
@@ -9527,7 +9261,7 @@ private static final long serialVersionUID = 0L;
       if (!other.durationDistanceMatrixSrcTags_.isEmpty()) {
         if (durationDistanceMatrixSrcTags_.isEmpty()) {
           durationDistanceMatrixSrcTags_ = other.durationDistanceMatrixSrcTags_;
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensureDurationDistanceMatrixSrcTagsIsMutable();
           durationDistanceMatrixSrcTags_.addAll(other.durationDistanceMatrixSrcTags_);
@@ -9537,7 +9271,7 @@ private static final long serialVersionUID = 0L;
       if (!other.durationDistanceMatrixDstTags_.isEmpty()) {
         if (durationDistanceMatrixDstTags_.isEmpty()) {
           durationDistanceMatrixDstTags_ = other.durationDistanceMatrixDstTags_;
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000100);
         } else {
           ensureDurationDistanceMatrixDstTagsIsMutable();
           durationDistanceMatrixDstTags_.addAll(other.durationDistanceMatrixDstTags_);
@@ -9548,7 +9282,7 @@ private static final long serialVersionUID = 0L;
         if (!other.transitionAttributes_.isEmpty()) {
           if (transitionAttributes_.isEmpty()) {
             transitionAttributes_ = other.transitionAttributes_;
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00000200);
           } else {
             ensureTransitionAttributesIsMutable();
             transitionAttributes_.addAll(other.transitionAttributes_);
@@ -9561,7 +9295,7 @@ private static final long serialVersionUID = 0L;
             transitionAttributesBuilder_.dispose();
             transitionAttributesBuilder_ = null;
             transitionAttributes_ = other.transitionAttributes_;
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00000200);
             transitionAttributesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTransitionAttributesFieldBuilder() : null;
@@ -9574,7 +9308,7 @@ private static final long serialVersionUID = 0L;
         if (!other.shipmentTypeIncompatibilities_.isEmpty()) {
           if (shipmentTypeIncompatibilities_.isEmpty()) {
             shipmentTypeIncompatibilities_ = other.shipmentTypeIncompatibilities_;
-            bitField0_ = (bitField0_ & ~0x00000080);
+            bitField0_ = (bitField0_ & ~0x00000400);
           } else {
             ensureShipmentTypeIncompatibilitiesIsMutable();
             shipmentTypeIncompatibilities_.addAll(other.shipmentTypeIncompatibilities_);
@@ -9587,7 +9321,7 @@ private static final long serialVersionUID = 0L;
             shipmentTypeIncompatibilitiesBuilder_.dispose();
             shipmentTypeIncompatibilitiesBuilder_ = null;
             shipmentTypeIncompatibilities_ = other.shipmentTypeIncompatibilities_;
-            bitField0_ = (bitField0_ & ~0x00000080);
+            bitField0_ = (bitField0_ & ~0x00000400);
             shipmentTypeIncompatibilitiesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getShipmentTypeIncompatibilitiesFieldBuilder() : null;
@@ -9600,7 +9334,7 @@ private static final long serialVersionUID = 0L;
         if (!other.shipmentTypeRequirements_.isEmpty()) {
           if (shipmentTypeRequirements_.isEmpty()) {
             shipmentTypeRequirements_ = other.shipmentTypeRequirements_;
-            bitField0_ = (bitField0_ & ~0x00000100);
+            bitField0_ = (bitField0_ & ~0x00000800);
           } else {
             ensureShipmentTypeRequirementsIsMutable();
             shipmentTypeRequirements_.addAll(other.shipmentTypeRequirements_);
@@ -9613,7 +9347,7 @@ private static final long serialVersionUID = 0L;
             shipmentTypeRequirementsBuilder_.dispose();
             shipmentTypeRequirementsBuilder_ = null;
             shipmentTypeRequirements_ = other.shipmentTypeRequirements_;
-            bitField0_ = (bitField0_ & ~0x00000100);
+            bitField0_ = (bitField0_ & ~0x00000800);
             shipmentTypeRequirementsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getShipmentTypeRequirementsFieldBuilder() : null;
@@ -9626,7 +9360,7 @@ private static final long serialVersionUID = 0L;
         if (!other.precedenceRules_.isEmpty()) {
           if (precedenceRules_.isEmpty()) {
             precedenceRules_ = other.precedenceRules_;
-            bitField0_ = (bitField0_ & ~0x00000200);
+            bitField0_ = (bitField0_ & ~0x00001000);
           } else {
             ensurePrecedenceRulesIsMutable();
             precedenceRules_.addAll(other.precedenceRules_);
@@ -9639,7 +9373,7 @@ private static final long serialVersionUID = 0L;
             precedenceRulesBuilder_.dispose();
             precedenceRulesBuilder_ = null;
             precedenceRules_ = other.precedenceRules_;
-            bitField0_ = (bitField0_ & ~0x00000200);
+            bitField0_ = (bitField0_ & ~0x00001000);
             precedenceRulesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPrecedenceRulesFieldBuilder() : null;
@@ -9652,7 +9386,7 @@ private static final long serialVersionUID = 0L;
         if (!other.breakRules_.isEmpty()) {
           if (breakRules_.isEmpty()) {
             breakRules_ = other.breakRules_;
-            bitField0_ = (bitField0_ & ~0x00000400);
+            bitField0_ = (bitField0_ & ~0x00002000);
           } else {
             ensureBreakRulesIsMutable();
             breakRules_.addAll(other.breakRules_);
@@ -9665,7 +9399,7 @@ private static final long serialVersionUID = 0L;
             breakRulesBuilder_.dispose();
             breakRulesBuilder_ = null;
             breakRules_ = other.breakRules_;
-            bitField0_ = (bitField0_ & ~0x00000400);
+            bitField0_ = (bitField0_ & ~0x00002000);
             breakRulesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getBreakRulesFieldBuilder() : null;
@@ -9674,7 +9408,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -9689,17 +9423,170 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.optimization.v1.ShipmentModel parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.optimization.v1.Shipment m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.Shipment.parser(),
+                      extensionRegistry);
+              if (shipmentsBuilder_ == null) {
+                ensureShipmentsIsMutable();
+                shipments_.add(m);
+              } else {
+                shipmentsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.optimization.v1.Vehicle m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.Vehicle.parser(),
+                      extensionRegistry);
+              if (vehiclesBuilder_ == null) {
+                ensureVehiclesIsMutable();
+                vehicles_.add(m);
+              } else {
+                vehiclesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 32: {
+              maxActiveVehicles_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getGlobalStartTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getGlobalEndTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            case 57: {
+              globalDurationCostPerHour_ = input.readDouble();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 57
+            case 66: {
+              com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.parser(),
+                      extensionRegistry);
+              if (durationDistanceMatricesBuilder_ == null) {
+                ensureDurationDistanceMatricesIsMutable();
+                durationDistanceMatrices_.add(m);
+              } else {
+                durationDistanceMatricesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDurationDistanceMatrixSrcTagsIsMutable();
+              durationDistanceMatrixSrcTags_.add(s);
+              break;
+            } // case 74
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDurationDistanceMatrixDstTagsIsMutable();
+              durationDistanceMatrixDstTags_.add(s);
+              break;
+            } // case 82
+            case 90: {
+              com.google.cloud.optimization.v1.TransitionAttributes m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.TransitionAttributes.parser(),
+                      extensionRegistry);
+              if (transitionAttributesBuilder_ == null) {
+                ensureTransitionAttributesIsMutable();
+                transitionAttributes_.add(m);
+              } else {
+                transitionAttributesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 90
+            case 98: {
+              com.google.cloud.optimization.v1.ShipmentTypeIncompatibility m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.ShipmentTypeIncompatibility.parser(),
+                      extensionRegistry);
+              if (shipmentTypeIncompatibilitiesBuilder_ == null) {
+                ensureShipmentTypeIncompatibilitiesIsMutable();
+                shipmentTypeIncompatibilities_.add(m);
+              } else {
+                shipmentTypeIncompatibilitiesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 98
+            case 106: {
+              com.google.cloud.optimization.v1.ShipmentTypeRequirement m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.ShipmentTypeRequirement.parser(),
+                      extensionRegistry);
+              if (shipmentTypeRequirementsBuilder_ == null) {
+                ensureShipmentTypeRequirementsIsMutable();
+                shipmentTypeRequirements_.add(m);
+              } else {
+                shipmentTypeRequirementsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 106
+            case 114: {
+              com.google.cloud.optimization.v1.ShipmentModel.PrecedenceRule m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.ShipmentModel.PrecedenceRule.parser(),
+                      extensionRegistry);
+              if (precedenceRulesBuilder_ == null) {
+                ensurePrecedenceRulesIsMutable();
+                precedenceRules_.add(m);
+              } else {
+                precedenceRulesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 114
+            case 122: {
+              com.google.cloud.optimization.v1.ShipmentModel.BreakRule m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.ShipmentModel.BreakRule.parser(),
+                      extensionRegistry);
+              if (breakRulesBuilder_ == null) {
+                ensureBreakRulesIsMutable();
+                breakRules_.add(m);
+              } else {
+                breakRulesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 122
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.optimization.v1.ShipmentModel) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -10378,8 +10265,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxActiveVehicles(int value) {
-      bitField0_ |= 0x00000004;
+      
       maxActiveVehicles_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -10423,7 +10311,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the globalStartTime field is set.
      */
     public boolean hasGlobalStartTime() {
-      return globalStartTimeBuilder_ != null || globalStartTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -10469,11 +10357,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         globalStartTime_ = value;
-        onChanged();
       } else {
         globalStartTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -10495,11 +10383,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (globalStartTimeBuilder_ == null) {
         globalStartTime_ = builderForValue.build();
-        onChanged();
       } else {
         globalStartTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -10519,17 +10407,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGlobalStartTime(com.google.protobuf.Timestamp value) {
       if (globalStartTimeBuilder_ == null) {
-        if (globalStartTime_ != null) {
-          globalStartTime_ =
-            com.google.protobuf.Timestamp.newBuilder(globalStartTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          globalStartTime_ != null &&
+          globalStartTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getGlobalStartTimeBuilder().mergeFrom(value);
         } else {
           globalStartTime_ = value;
         }
-        onChanged();
       } else {
         globalStartTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -10548,14 +10437,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp global_start_time = 5;</code>
      */
     public Builder clearGlobalStartTime() {
-      if (globalStartTimeBuilder_ == null) {
-        globalStartTime_ = null;
-        onChanged();
-      } else {
-        globalStartTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      globalStartTime_ = null;
+      if (globalStartTimeBuilder_ != null) {
+        globalStartTimeBuilder_.dispose();
         globalStartTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -10574,7 +10462,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp global_start_time = 5;</code>
      */
     public com.google.protobuf.Timestamp.Builder getGlobalStartTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getGlobalStartTimeFieldBuilder().getBuilder();
     }
@@ -10643,7 +10531,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the globalEndTime field is set.
      */
     public boolean hasGlobalEndTime() {
-      return globalEndTimeBuilder_ != null || globalEndTime_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -10675,11 +10563,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         globalEndTime_ = value;
-        onChanged();
       } else {
         globalEndTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -10694,11 +10582,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (globalEndTimeBuilder_ == null) {
         globalEndTime_ = builderForValue.build();
-        onChanged();
       } else {
         globalEndTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -10711,17 +10599,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGlobalEndTime(com.google.protobuf.Timestamp value) {
       if (globalEndTimeBuilder_ == null) {
-        if (globalEndTime_ != null) {
-          globalEndTime_ =
-            com.google.protobuf.Timestamp.newBuilder(globalEndTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          globalEndTime_ != null &&
+          globalEndTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getGlobalEndTimeBuilder().mergeFrom(value);
         } else {
           globalEndTime_ = value;
         }
-        onChanged();
       } else {
         globalEndTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -10733,14 +10622,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp global_end_time = 6;</code>
      */
     public Builder clearGlobalEndTime() {
-      if (globalEndTimeBuilder_ == null) {
-        globalEndTime_ = null;
-        onChanged();
-      } else {
-        globalEndTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      globalEndTime_ = null;
+      if (globalEndTimeBuilder_ != null) {
+        globalEndTimeBuilder_.dispose();
         globalEndTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -10752,7 +10640,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp global_end_time = 6;</code>
      */
     public com.google.protobuf.Timestamp.Builder getGlobalEndTimeBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getGlobalEndTimeFieldBuilder().getBuilder();
     }
@@ -10801,7 +10689,8 @@ private static final long serialVersionUID = 0L;
      * earliest effective start time and the latest effective end time of
      * all vehicles. Users can assign a cost per hour to that quantity to try
      * and optimize for earliest job completion, for example. This cost must be in
-     * the same unit as [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
+     * the same unit as
+     * [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
      * </pre>
      *
      * <code>double global_duration_cost_per_hour = 7;</code>
@@ -10817,7 +10706,8 @@ private static final long serialVersionUID = 0L;
      * earliest effective start time and the latest effective end time of
      * all vehicles. Users can assign a cost per hour to that quantity to try
      * and optimize for earliest job completion, for example. This cost must be in
-     * the same unit as [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
+     * the same unit as
+     * [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
      * </pre>
      *
      * <code>double global_duration_cost_per_hour = 7;</code>
@@ -10827,6 +10717,7 @@ private static final long serialVersionUID = 0L;
     public Builder setGlobalDurationCostPerHour(double value) {
       
       globalDurationCostPerHour_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -10836,14 +10727,15 @@ private static final long serialVersionUID = 0L;
      * earliest effective start time and the latest effective end time of
      * all vehicles. Users can assign a cost per hour to that quantity to try
      * and optimize for earliest job completion, for example. This cost must be in
-     * the same unit as [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
+     * the same unit as
+     * [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
      * </pre>
      *
      * <code>double global_duration_cost_per_hour = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearGlobalDurationCostPerHour() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       globalDurationCostPerHour_ = 0D;
       onChanged();
       return this;
@@ -10852,9 +10744,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix> durationDistanceMatrices_ =
       java.util.Collections.emptyList();
     private void ensureDurationDistanceMatricesIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         durationDistanceMatrices_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix>(durationDistanceMatrices_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000040;
        }
     }
 
@@ -11928,7 +11820,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearDurationDistanceMatrices() {
       if (durationDistanceMatricesBuilder_ == null) {
         durationDistanceMatrices_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         durationDistanceMatricesBuilder_.clear();
@@ -12593,7 +12485,7 @@ private static final long serialVersionUID = 0L;
         durationDistanceMatricesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix, com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrix.Builder, com.google.cloud.optimization.v1.ShipmentModel.DurationDistanceMatrixOrBuilder>(
                 durationDistanceMatrices_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
         durationDistanceMatrices_ = null;
@@ -12603,9 +12495,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList durationDistanceMatrixSrcTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureDurationDistanceMatrixSrcTagsIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         durationDistanceMatrixSrcTags_ = new com.google.protobuf.LazyStringArrayList(durationDistanceMatrixSrcTags_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000080;
        }
     }
     /**
@@ -12723,10 +12615,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDurationDistanceMatrixSrcTags(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDurationDistanceMatrixSrcTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDurationDistanceMatrixSrcTagsIsMutable();
       durationDistanceMatrixSrcTags_.set(index, value);
       onChanged();
       return this;
@@ -12753,10 +12643,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDurationDistanceMatrixSrcTags(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDurationDistanceMatrixSrcTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDurationDistanceMatrixSrcTagsIsMutable();
       durationDistanceMatrixSrcTags_.add(value);
       onChanged();
       return this;
@@ -12810,7 +12698,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearDurationDistanceMatrixSrcTags() {
       durationDistanceMatrixSrcTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -12836,10 +12724,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDurationDistanceMatrixSrcTagsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDurationDistanceMatrixSrcTagsIsMutable();
       durationDistanceMatrixSrcTags_.add(value);
       onChanged();
@@ -12848,9 +12734,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList durationDistanceMatrixDstTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureDurationDistanceMatrixDstTagsIsMutable() {
-      if (!((bitField0_ & 0x00000020) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         durationDistanceMatrixDstTags_ = new com.google.protobuf.LazyStringArrayList(durationDistanceMatrixDstTags_);
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000100;
        }
     }
     /**
@@ -12978,10 +12864,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDurationDistanceMatrixDstTags(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDurationDistanceMatrixDstTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDurationDistanceMatrixDstTagsIsMutable();
       durationDistanceMatrixDstTags_.set(index, value);
       onChanged();
       return this;
@@ -13010,10 +12894,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDurationDistanceMatrixDstTags(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDurationDistanceMatrixDstTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDurationDistanceMatrixDstTagsIsMutable();
       durationDistanceMatrixDstTags_.add(value);
       onChanged();
       return this;
@@ -13071,7 +12953,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearDurationDistanceMatrixDstTags() {
       durationDistanceMatrixDstTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -13099,10 +12981,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDurationDistanceMatrixDstTagsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDurationDistanceMatrixDstTagsIsMutable();
       durationDistanceMatrixDstTags_.add(value);
       onChanged();
@@ -13112,9 +12992,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.optimization.v1.TransitionAttributes> transitionAttributes_ =
       java.util.Collections.emptyList();
     private void ensureTransitionAttributesIsMutable() {
-      if (!((bitField0_ & 0x00000040) != 0)) {
+      if (!((bitField0_ & 0x00000200) != 0)) {
         transitionAttributes_ = new java.util.ArrayList<com.google.cloud.optimization.v1.TransitionAttributes>(transitionAttributes_);
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000200;
        }
     }
 
@@ -13308,7 +13188,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTransitionAttributes() {
       if (transitionAttributesBuilder_ == null) {
         transitionAttributes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
       } else {
         transitionAttributesBuilder_.clear();
@@ -13413,7 +13293,7 @@ private static final long serialVersionUID = 0L;
         transitionAttributesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.TransitionAttributes, com.google.cloud.optimization.v1.TransitionAttributes.Builder, com.google.cloud.optimization.v1.TransitionAttributesOrBuilder>(
                 transitionAttributes_,
-                ((bitField0_ & 0x00000040) != 0),
+                ((bitField0_ & 0x00000200) != 0),
                 getParentForChildren(),
                 isClean());
         transitionAttributes_ = null;
@@ -13424,9 +13304,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.optimization.v1.ShipmentTypeIncompatibility> shipmentTypeIncompatibilities_ =
       java.util.Collections.emptyList();
     private void ensureShipmentTypeIncompatibilitiesIsMutable() {
-      if (!((bitField0_ & 0x00000080) != 0)) {
+      if (!((bitField0_ & 0x00000400) != 0)) {
         shipmentTypeIncompatibilities_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentTypeIncompatibility>(shipmentTypeIncompatibilities_);
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000400;
        }
     }
 
@@ -13620,7 +13500,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearShipmentTypeIncompatibilities() {
       if (shipmentTypeIncompatibilitiesBuilder_ == null) {
         shipmentTypeIncompatibilities_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000400);
         onChanged();
       } else {
         shipmentTypeIncompatibilitiesBuilder_.clear();
@@ -13725,7 +13605,7 @@ private static final long serialVersionUID = 0L;
         shipmentTypeIncompatibilitiesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.ShipmentTypeIncompatibility, com.google.cloud.optimization.v1.ShipmentTypeIncompatibility.Builder, com.google.cloud.optimization.v1.ShipmentTypeIncompatibilityOrBuilder>(
                 shipmentTypeIncompatibilities_,
-                ((bitField0_ & 0x00000080) != 0),
+                ((bitField0_ & 0x00000400) != 0),
                 getParentForChildren(),
                 isClean());
         shipmentTypeIncompatibilities_ = null;
@@ -13736,9 +13616,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.optimization.v1.ShipmentTypeRequirement> shipmentTypeRequirements_ =
       java.util.Collections.emptyList();
     private void ensureShipmentTypeRequirementsIsMutable() {
-      if (!((bitField0_ & 0x00000100) != 0)) {
+      if (!((bitField0_ & 0x00000800) != 0)) {
         shipmentTypeRequirements_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentTypeRequirement>(shipmentTypeRequirements_);
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000800;
        }
     }
 
@@ -13932,7 +13812,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearShipmentTypeRequirements() {
       if (shipmentTypeRequirementsBuilder_ == null) {
         shipmentTypeRequirements_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000800);
         onChanged();
       } else {
         shipmentTypeRequirementsBuilder_.clear();
@@ -14037,7 +13917,7 @@ private static final long serialVersionUID = 0L;
         shipmentTypeRequirementsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.ShipmentTypeRequirement, com.google.cloud.optimization.v1.ShipmentTypeRequirement.Builder, com.google.cloud.optimization.v1.ShipmentTypeRequirementOrBuilder>(
                 shipmentTypeRequirements_,
-                ((bitField0_ & 0x00000100) != 0),
+                ((bitField0_ & 0x00000800) != 0),
                 getParentForChildren(),
                 isClean());
         shipmentTypeRequirements_ = null;
@@ -14048,9 +13928,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.optimization.v1.ShipmentModel.PrecedenceRule> precedenceRules_ =
       java.util.Collections.emptyList();
     private void ensurePrecedenceRulesIsMutable() {
-      if (!((bitField0_ & 0x00000200) != 0)) {
+      if (!((bitField0_ & 0x00001000) != 0)) {
         precedenceRules_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentModel.PrecedenceRule>(precedenceRules_);
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00001000;
        }
     }
 
@@ -14244,7 +14124,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPrecedenceRules() {
       if (precedenceRulesBuilder_ == null) {
         precedenceRules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00001000);
         onChanged();
       } else {
         precedenceRulesBuilder_.clear();
@@ -14349,7 +14229,7 @@ private static final long serialVersionUID = 0L;
         precedenceRulesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.ShipmentModel.PrecedenceRule, com.google.cloud.optimization.v1.ShipmentModel.PrecedenceRule.Builder, com.google.cloud.optimization.v1.ShipmentModel.PrecedenceRuleOrBuilder>(
                 precedenceRules_,
-                ((bitField0_ & 0x00000200) != 0),
+                ((bitField0_ & 0x00001000) != 0),
                 getParentForChildren(),
                 isClean());
         precedenceRules_ = null;
@@ -14360,9 +14240,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.optimization.v1.ShipmentModel.BreakRule> breakRules_ =
       java.util.Collections.emptyList();
     private void ensureBreakRulesIsMutable() {
-      if (!((bitField0_ & 0x00000400) != 0)) {
+      if (!((bitField0_ & 0x00002000) != 0)) {
         breakRules_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentModel.BreakRule>(breakRules_);
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00002000;
        }
     }
 
@@ -14374,7 +14254,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14391,7 +14272,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14408,7 +14290,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14425,7 +14308,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14449,7 +14333,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14470,7 +14355,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14493,7 +14379,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14517,7 +14404,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14538,7 +14426,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14559,7 +14448,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14581,7 +14471,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14589,7 +14480,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Deprecated public Builder clearBreakRules() {
       if (breakRulesBuilder_ == null) {
         breakRules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00002000);
         onChanged();
       } else {
         breakRulesBuilder_.clear();
@@ -14601,7 +14492,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14621,7 +14513,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14635,7 +14528,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14652,7 +14546,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14670,7 +14565,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14684,7 +14580,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14699,7 +14596,8 @@ private static final long serialVersionUID = 0L;
      * Deprecated: No longer used.
      * Set of break rules used in the model.
      * Each vehicle specifies the `BreakRule` that applies to it via the
-     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+     * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+     * field (which must be a singleton).
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -14715,7 +14613,7 @@ private static final long serialVersionUID = 0L;
         breakRulesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.ShipmentModel.BreakRule, com.google.cloud.optimization.v1.ShipmentModel.BreakRule.Builder, com.google.cloud.optimization.v1.ShipmentModel.BreakRuleOrBuilder>(
                 breakRules_,
-                ((bitField0_ & 0x00000400) != 0),
+                ((bitField0_ & 0x00002000) != 0),
                 getParentForChildren(),
                 isClean());
         breakRules_ = null;
@@ -14755,7 +14653,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ShipmentModel(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

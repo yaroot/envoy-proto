@@ -9,7 +9,7 @@ public interface BatchDocumentsInputConfigOrBuilder extends
 
   /**
    * <pre>
-   * The set of documents that match the specified Cloud Storage [gcs_prefix].
+   * The set of documents that match the specified Cloud Storage `gcs_prefix`.
    * </pre>
    *
    * <code>.google.cloud.documentai.v1.GcsPrefix gcs_prefix = 1;</code>
@@ -18,7 +18,7 @@ public interface BatchDocumentsInputConfigOrBuilder extends
   boolean hasGcsPrefix();
   /**
    * <pre>
-   * The set of documents that match the specified Cloud Storage [gcs_prefix].
+   * The set of documents that match the specified Cloud Storage `gcs_prefix`.
    * </pre>
    *
    * <code>.google.cloud.documentai.v1.GcsPrefix gcs_prefix = 1;</code>
@@ -27,7 +27,7 @@ public interface BatchDocumentsInputConfigOrBuilder extends
   com.google.cloud.documentai.v1.GcsPrefix getGcsPrefix();
   /**
    * <pre>
-   * The set of documents that match the specified Cloud Storage [gcs_prefix].
+   * The set of documents that match the specified Cloud Storage `gcs_prefix`.
    * </pre>
    *
    * <code>.google.cloud.documentai.v1.GcsPrefix gcs_prefix = 1;</code>

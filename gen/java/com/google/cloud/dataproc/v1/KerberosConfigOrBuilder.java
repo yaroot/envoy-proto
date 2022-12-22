@@ -9,8 +9,8 @@ public interface KerberosConfigOrBuilder extends
 
   /**
    * <pre>
-   * Optional. Flag to indicate whether to Kerberize the cluster (default: false). Set
-   * this field to true to enable Kerberos on a cluster.
+   * Optional. Flag to indicate whether to Kerberize the cluster (default:
+   * false). Set this field to true to enable Kerberos on a cluster.
    * </pre>
    *
    * <code>bool enable_kerberos = 1 [(.google.api.field_behavior) = OPTIONAL];</code>

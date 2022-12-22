@@ -33,4 +33,24 @@ public interface ImportSshPublicKeyResponseOrBuilder extends
    * <code>.google.cloud.oslogin.v1beta.LoginProfile login_profile = 1;</code>
    */
   com.google.cloud.oslogin.v1beta.LoginProfileOrBuilder getLoginProfileOrBuilder();
+
+  /**
+   * <pre>
+   * Detailed information about import results.
+   * </pre>
+   *
+   * <code>string details = 2;</code>
+   * @return The details.
+   */
+  java.lang.String getDetails();
+  /**
+   * <pre>
+   * Detailed information about import results.
+   * </pre>
+   *
+   * <code>string details = 2;</code>
+   * @return The bytes for details.
+   */
+  com.google.protobuf.ByteString
+      getDetailsBytes();
 }

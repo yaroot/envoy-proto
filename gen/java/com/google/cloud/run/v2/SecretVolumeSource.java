@@ -38,69 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SecretVolumeSource(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            secret_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              items_ = new java.util.ArrayList<com.google.cloud.run.v2.VersionToPath>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            items_.add(
-                input.readMessage(com.google.cloud.run.v2.VersionToPath.parser(), extensionRegistry));
-            break;
-          }
-          case 24: {
-
-            defaultMode_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        items_ = java.util.Collections.unmodifiableList(items_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.run.v2.K8sMinProto.internal_static_google_cloud_run_v2_SecretVolumeSource_descriptor;
@@ -115,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SECRET_FIELD_NUMBER = 1;
-  private volatile java.lang.Object secret_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object secret_ = "";
   /**
    * <pre>
    * Required. The name of the secret in Cloud Secret Manager.
@@ -167,6 +105,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ITEMS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.run.v2.VersionToPath> items_;
   /**
    * <pre>
@@ -247,11 +186,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEFAULT_MODE_FIELD_NUMBER = 3;
-  private int defaultMode_;
+  private int defaultMode_ = 0;
   /**
    * <pre>
    * Integer representation of mode bits to use on created files by default.
-   * Must be a value between 0000 and 0777 (octal), defaulting to 0644.
+   * Must be a value between 0000 and 0777 (octal), defaulting to 0444.
    * Directories within the path are not affected by  this setting.
    * Notes
    * * Internally, a umask of 0222 will be applied to any non-zero value.
@@ -298,7 +237,7 @@ private static final long serialVersionUID = 0L;
     if (defaultMode_ != 0) {
       output.writeInt32(3, defaultMode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -318,7 +257,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, defaultMode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -339,7 +278,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getItemsList())) return false;
     if (getDefaultMode()
         != other.getDefaultMode()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -358,7 +297,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + DEFAULT_MODE_FIELD_NUMBER;
     hash = (53 * hash) + getDefaultMode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -481,33 +420,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.run.v2.SecretVolumeSource.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getItemsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       secret_ = "";
-
       if (itemsBuilder_ == null) {
         items_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        items_ = null;
         itemsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       defaultMode_ = 0;
-
       return this;
     }
 
@@ -534,20 +467,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.run.v2.SecretVolumeSource buildPartial() {
       com.google.cloud.run.v2.SecretVolumeSource result = new com.google.cloud.run.v2.SecretVolumeSource(this);
-      int from_bitField0_ = bitField0_;
-      result.secret_ = secret_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.run.v2.SecretVolumeSource result) {
       if (itemsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           items_ = java.util.Collections.unmodifiableList(items_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.items_ = items_;
       } else {
         result.items_ = itemsBuilder_.build();
       }
-      result.defaultMode_ = defaultMode_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.run.v2.SecretVolumeSource result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.secret_ = secret_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.defaultMode_ = defaultMode_;
+      }
     }
 
     @java.lang.Override
@@ -596,13 +541,14 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.run.v2.SecretVolumeSource.getDefaultInstance()) return this;
       if (!other.getSecret().isEmpty()) {
         secret_ = other.secret_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (itemsBuilder_ == null) {
         if (!other.items_.isEmpty()) {
           if (items_.isEmpty()) {
             items_ = other.items_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureItemsIsMutable();
             items_.addAll(other.items_);
@@ -615,7 +561,7 @@ private static final long serialVersionUID = 0L;
             itemsBuilder_.dispose();
             itemsBuilder_ = null;
             items_ = other.items_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             itemsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getItemsFieldBuilder() : null;
@@ -627,7 +573,7 @@ private static final long serialVersionUID = 0L;
       if (other.getDefaultMode() != 0) {
         setDefaultMode(other.getDefaultMode());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -642,17 +588,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.run.v2.SecretVolumeSource parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              secret_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.run.v2.VersionToPath m =
+                  input.readMessage(
+                      com.google.cloud.run.v2.VersionToPath.parser(),
+                      extensionRegistry);
+              if (itemsBuilder_ == null) {
+                ensureItemsIsMutable();
+                items_.add(m);
+              } else {
+                itemsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 24: {
+              defaultMode_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.run.v2.SecretVolumeSource) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -719,11 +701,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSecret(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       secret_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -739,8 +719,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSecret() {
-      
       secret_ = getDefaultInstance().getSecret();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -758,12 +738,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSecretBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       secret_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -771,9 +749,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.run.v2.VersionToPath> items_ =
       java.util.Collections.emptyList();
     private void ensureItemsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         items_ = new java.util.ArrayList<com.google.cloud.run.v2.VersionToPath>(items_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1011,7 +989,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearItems() {
       if (itemsBuilder_ == null) {
         items_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         itemsBuilder_.clear();
@@ -1144,7 +1122,7 @@ private static final long serialVersionUID = 0L;
         itemsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.run.v2.VersionToPath, com.google.cloud.run.v2.VersionToPath.Builder, com.google.cloud.run.v2.VersionToPathOrBuilder>(
                 items_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         items_ = null;
@@ -1156,7 +1134,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Integer representation of mode bits to use on created files by default.
-     * Must be a value between 0000 and 0777 (octal), defaulting to 0644.
+     * Must be a value between 0000 and 0777 (octal), defaulting to 0444.
      * Directories within the path are not affected by  this setting.
      * Notes
      * * Internally, a umask of 0222 will be applied to any non-zero value.
@@ -1182,7 +1160,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Integer representation of mode bits to use on created files by default.
-     * Must be a value between 0000 and 0777 (octal), defaulting to 0644.
+     * Must be a value between 0000 and 0777 (octal), defaulting to 0444.
      * Directories within the path are not affected by  this setting.
      * Notes
      * * Internally, a umask of 0222 will be applied to any non-zero value.
@@ -1205,13 +1183,14 @@ private static final long serialVersionUID = 0L;
     public Builder setDefaultMode(int value) {
       
       defaultMode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Integer representation of mode bits to use on created files by default.
-     * Must be a value between 0000 and 0777 (octal), defaulting to 0644.
+     * Must be a value between 0000 and 0777 (octal), defaulting to 0444.
      * Directories within the path are not affected by  this setting.
      * Notes
      * * Internally, a umask of 0222 will be applied to any non-zero value.
@@ -1231,7 +1210,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDefaultMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       defaultMode_ = 0;
       onChanged();
       return this;
@@ -1269,7 +1248,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SecretVolumeSource(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -9,7 +9,8 @@ public interface EnvoyInternalAddressOrBuilder extends
 
   /**
    * <pre>
-   * [#not-implemented-hide:] The :ref:`listener name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the destination internal listener.
+   * Specifies the :ref:`name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the
+   * internal listener.
    * </pre>
    *
    * <code>string server_listener_name = 1;</code>
@@ -18,7 +19,8 @@ public interface EnvoyInternalAddressOrBuilder extends
   boolean hasServerListenerName();
   /**
    * <pre>
-   * [#not-implemented-hide:] The :ref:`listener name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the destination internal listener.
+   * Specifies the :ref:`name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the
+   * internal listener.
    * </pre>
    *
    * <code>string server_listener_name = 1;</code>
@@ -27,7 +29,8 @@ public interface EnvoyInternalAddressOrBuilder extends
   java.lang.String getServerListenerName();
   /**
    * <pre>
-   * [#not-implemented-hide:] The :ref:`listener name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the destination internal listener.
+   * Specifies the :ref:`name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the
+   * internal listener.
    * </pre>
    *
    * <code>string server_listener_name = 1;</code>
@@ -35,6 +38,30 @@ public interface EnvoyInternalAddressOrBuilder extends
    */
   com.google.protobuf.ByteString
       getServerListenerNameBytes();
+
+  /**
+   * <pre>
+   * Specifies an endpoint identifier to distinguish between multiple endpoints for the same internal listener in a
+   * single upstream pool. Only used in the upstream addresses for tracking changes to individual endpoints. This, for
+   * example, may be set to the final destination IP for the target internal listener.
+   * </pre>
+   *
+   * <code>string endpoint_id = 2;</code>
+   * @return The endpointId.
+   */
+  java.lang.String getEndpointId();
+  /**
+   * <pre>
+   * Specifies an endpoint identifier to distinguish between multiple endpoints for the same internal listener in a
+   * single upstream pool. Only used in the upstream addresses for tracking changes to individual endpoints. This, for
+   * example, may be set to the final destination IP for the target internal listener.
+   * </pre>
+   *
+   * <code>string endpoint_id = 2;</code>
+   * @return The bytes for endpointId.
+   */
+  com.google.protobuf.ByteString
+      getEndpointIdBytes();
 
   public io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress.AddressNameSpecifierCase getAddressNameSpecifierCase();
 }

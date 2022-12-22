@@ -38,89 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ExternalSystem(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              assignees_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            assignees_.add(s);
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            externalUid_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            status_ = s;
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (externalSystemUpdateTime_ != null) {
-              subBuilder = externalSystemUpdateTime_.toBuilder();
-            }
-            externalSystemUpdateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(externalSystemUpdateTime_);
-              externalSystemUpdateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        assignees_ = assignees_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.securitycenter.v1.ExternalSystemProto.internal_static_google_cloud_securitycenter_v1_ExternalSystem_descriptor;
@@ -135,14 +52,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
-   * External System Name e.g. jira, demisto, etc.
-   *  e.g.:
-   *  `organizations/1234/sources/5678/findings/123456/externalSystems/jira`
-   * `folders/1234/sources/5678/findings/123456/externalSystems/jira`
-   * `projects/1234/sources/5678/findings/123456/externalSystems/jira`
+   * Full resource name of the external system, for example:
+   * "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
+   * "folders/1234/sources/5678/findings/123456/externalSystems/jira",
+   * "projects/1234/sources/5678/findings/123456/externalSystems/jira"
    * </pre>
    *
    * <code>string name = 1;</code>
@@ -163,11 +80,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * External System Name e.g. jira, demisto, etc.
-   *  e.g.:
-   *  `organizations/1234/sources/5678/findings/123456/externalSystems/jira`
-   * `folders/1234/sources/5678/findings/123456/externalSystems/jira`
-   * `projects/1234/sources/5678/findings/123456/externalSystems/jira`
+   * Full resource name of the external system, for example:
+   * "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
+   * "folders/1234/sources/5678/findings/123456/externalSystems/jira",
+   * "projects/1234/sources/5678/findings/123456/externalSystems/jira"
    * </pre>
    *
    * <code>string name = 1;</code>
@@ -189,6 +105,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ASSIGNEES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList assignees_;
   /**
    * <pre>
@@ -240,7 +157,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXTERNAL_UID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object externalUid_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object externalUid_ = "";
   /**
    * <pre>
    * Identifier that's used to track the given finding in the external system.
@@ -286,7 +204,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 4;
-  private volatile java.lang.Object status_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object status_ = "";
   /**
    * <pre>
    * Most recent status of the corresponding finding's ticket/tracker in the
@@ -371,7 +290,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getExternalSystemUpdateTimeOrBuilder() {
-    return getExternalSystemUpdateTime();
+    return externalSystemUpdateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : externalSystemUpdateTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -403,7 +322,7 @@ private static final long serialVersionUID = 0L;
     if (externalSystemUpdateTime_ != null) {
       output.writeMessage(5, getExternalSystemUpdateTime());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -433,7 +352,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getExternalSystemUpdateTime());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -461,7 +380,7 @@ private static final long serialVersionUID = 0L;
       if (!getExternalSystemUpdateTime()
           .equals(other.getExternalSystemUpdateTime())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -486,7 +405,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXTERNAL_SYSTEM_UPDATE_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getExternalSystemUpdateTime().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -607,34 +526,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.securitycenter.v1.ExternalSystem.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       assignees_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       externalUid_ = "";
-
       status_ = "";
-
-      if (externalSystemUpdateTimeBuilder_ == null) {
-        externalSystemUpdateTime_ = null;
-      } else {
-        externalSystemUpdateTime_ = null;
+      externalSystemUpdateTime_ = null;
+      if (externalSystemUpdateTimeBuilder_ != null) {
+        externalSystemUpdateTimeBuilder_.dispose();
         externalSystemUpdateTimeBuilder_ = null;
       }
       return this;
@@ -663,22 +574,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.securitycenter.v1.ExternalSystem buildPartial() {
       com.google.cloud.securitycenter.v1.ExternalSystem result = new com.google.cloud.securitycenter.v1.ExternalSystem(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        assignees_ = assignees_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.assignees_ = assignees_;
-      result.externalUid_ = externalUid_;
-      result.status_ = status_;
-      if (externalSystemUpdateTimeBuilder_ == null) {
-        result.externalSystemUpdateTime_ = externalSystemUpdateTime_;
-      } else {
-        result.externalSystemUpdateTime_ = externalSystemUpdateTimeBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.securitycenter.v1.ExternalSystem result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
+        assignees_ = assignees_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.assignees_ = assignees_;
+    }
+
+    private void buildPartial0(com.google.cloud.securitycenter.v1.ExternalSystem result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.externalUid_ = externalUid_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.status_ = status_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.externalSystemUpdateTime_ = externalSystemUpdateTimeBuilder_ == null
+            ? externalSystemUpdateTime_
+            : externalSystemUpdateTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -727,12 +652,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.securitycenter.v1.ExternalSystem.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.assignees_.isEmpty()) {
         if (assignees_.isEmpty()) {
           assignees_ = other.assignees_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureAssigneesIsMutable();
           assignees_.addAll(other.assignees_);
@@ -741,16 +667,18 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getExternalUid().isEmpty()) {
         externalUid_ = other.externalUid_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getStatus().isEmpty()) {
         status_ = other.status_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasExternalSystemUpdateTime()) {
         mergeExternalSystemUpdateTime(other.getExternalSystemUpdateTime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -765,17 +693,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.securitycenter.v1.ExternalSystem parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureAssigneesIsMutable();
+              assignees_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              externalUid_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              status_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getExternalSystemUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.securitycenter.v1.ExternalSystem) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -783,11 +752,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * External System Name e.g. jira, demisto, etc.
-     *  e.g.:
-     *  `organizations/1234/sources/5678/findings/123456/externalSystems/jira`
-     * `folders/1234/sources/5678/findings/123456/externalSystems/jira`
-     * `projects/1234/sources/5678/findings/123456/externalSystems/jira`
+     * Full resource name of the external system, for example:
+     * "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
+     * "folders/1234/sources/5678/findings/123456/externalSystems/jira",
+     * "projects/1234/sources/5678/findings/123456/externalSystems/jira"
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -807,11 +775,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * External System Name e.g. jira, demisto, etc.
-     *  e.g.:
-     *  `organizations/1234/sources/5678/findings/123456/externalSystems/jira`
-     * `folders/1234/sources/5678/findings/123456/externalSystems/jira`
-     * `projects/1234/sources/5678/findings/123456/externalSystems/jira`
+     * Full resource name of the external system, for example:
+     * "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
+     * "folders/1234/sources/5678/findings/123456/externalSystems/jira",
+     * "projects/1234/sources/5678/findings/123456/externalSystems/jira"
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -832,11 +799,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * External System Name e.g. jira, demisto, etc.
-     *  e.g.:
-     *  `organizations/1234/sources/5678/findings/123456/externalSystems/jira`
-     * `folders/1234/sources/5678/findings/123456/externalSystems/jira`
-     * `projects/1234/sources/5678/findings/123456/externalSystems/jira`
+     * Full resource name of the external system, for example:
+     * "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
+     * "folders/1234/sources/5678/findings/123456/externalSystems/jira",
+     * "projects/1234/sources/5678/findings/123456/externalSystems/jira"
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -845,39 +811,35 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * External System Name e.g. jira, demisto, etc.
-     *  e.g.:
-     *  `organizations/1234/sources/5678/findings/123456/externalSystems/jira`
-     * `folders/1234/sources/5678/findings/123456/externalSystems/jira`
-     * `projects/1234/sources/5678/findings/123456/externalSystems/jira`
+     * Full resource name of the external system, for example:
+     * "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
+     * "folders/1234/sources/5678/findings/123456/externalSystems/jira",
+     * "projects/1234/sources/5678/findings/123456/externalSystems/jira"
      * </pre>
      *
      * <code>string name = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * External System Name e.g. jira, demisto, etc.
-     *  e.g.:
-     *  `organizations/1234/sources/5678/findings/123456/externalSystems/jira`
-     * `folders/1234/sources/5678/findings/123456/externalSystems/jira`
-     * `projects/1234/sources/5678/findings/123456/externalSystems/jira`
+     * Full resource name of the external system, for example:
+     * "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
+     * "folders/1234/sources/5678/findings/123456/externalSystems/jira",
+     * "projects/1234/sources/5678/findings/123456/externalSystems/jira"
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -886,21 +848,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList assignees_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureAssigneesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         assignees_ = new com.google.protobuf.LazyStringArrayList(assignees_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -963,10 +923,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAssignees(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAssigneesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAssigneesIsMutable();
       assignees_.set(index, value);
       onChanged();
       return this;
@@ -982,10 +940,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAssignees(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAssigneesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAssigneesIsMutable();
       assignees_.add(value);
       onChanged();
       return this;
@@ -1017,7 +973,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAssignees() {
       assignees_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1032,10 +988,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAssigneesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureAssigneesIsMutable();
       assignees_.add(value);
       onChanged();
@@ -1095,11 +1049,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExternalUid(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       externalUid_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1112,8 +1064,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExternalUid() {
-      
       externalUid_ = getDefaultInstance().getExternalUid();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1128,12 +1080,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExternalUidBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       externalUid_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1194,11 +1144,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatus(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       status_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1212,8 +1160,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      
       status_ = getDefaultInstance().getStatus();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1229,12 +1177,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatusBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       status_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1252,7 +1198,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the externalSystemUpdateTime field is set.
      */
     public boolean hasExternalSystemUpdateTime() {
-      return externalSystemUpdateTimeBuilder_ != null || externalSystemUpdateTime_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1284,11 +1230,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         externalSystemUpdateTime_ = value;
-        onChanged();
       } else {
         externalSystemUpdateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1303,11 +1249,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (externalSystemUpdateTimeBuilder_ == null) {
         externalSystemUpdateTime_ = builderForValue.build();
-        onChanged();
       } else {
         externalSystemUpdateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1320,17 +1266,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExternalSystemUpdateTime(com.google.protobuf.Timestamp value) {
       if (externalSystemUpdateTimeBuilder_ == null) {
-        if (externalSystemUpdateTime_ != null) {
-          externalSystemUpdateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(externalSystemUpdateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          externalSystemUpdateTime_ != null &&
+          externalSystemUpdateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getExternalSystemUpdateTimeBuilder().mergeFrom(value);
         } else {
           externalSystemUpdateTime_ = value;
         }
-        onChanged();
       } else {
         externalSystemUpdateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1342,14 +1289,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp external_system_update_time = 5;</code>
      */
     public Builder clearExternalSystemUpdateTime() {
-      if (externalSystemUpdateTimeBuilder_ == null) {
-        externalSystemUpdateTime_ = null;
-        onChanged();
-      } else {
-        externalSystemUpdateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      externalSystemUpdateTime_ = null;
+      if (externalSystemUpdateTimeBuilder_ != null) {
+        externalSystemUpdateTimeBuilder_.dispose();
         externalSystemUpdateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1361,7 +1307,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp external_system_update_time = 5;</code>
      */
     public com.google.protobuf.Timestamp.Builder getExternalSystemUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getExternalSystemUpdateTimeFieldBuilder().getBuilder();
     }
@@ -1435,7 +1381,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExternalSystem(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

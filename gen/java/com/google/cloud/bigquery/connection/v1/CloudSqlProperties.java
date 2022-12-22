@@ -38,82 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CloudSqlProperties(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            instanceId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            database_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 34: {
-            com.google.cloud.bigquery.connection.v1.CloudSqlCredential.Builder subBuilder = null;
-            if (credential_ != null) {
-              subBuilder = credential_.toBuilder();
-            }
-            credential_ = input.readMessage(com.google.cloud.bigquery.connection.v1.CloudSqlCredential.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(credential_);
-              credential_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceAccountId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.connection.v1.ConnectionOuterClass.internal_static_google_cloud_bigquery_connection_v1_CloudSqlProperties_descriptor;
@@ -273,7 +197,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INSTANCE_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object instanceId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object instanceId_ = "";
   /**
    * <pre>
    * Cloud SQL instance ID in the form `project:location:instance`.
@@ -319,7 +244,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATABASE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object database_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object database_ = "";
   /**
    * <pre>
    * Database name.
@@ -365,7 +291,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 3;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Type of the Cloud SQL database.
@@ -386,8 +312,7 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.cloud.bigquery.connection.v1.CloudSqlProperties.DatabaseType getType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.bigquery.connection.v1.CloudSqlProperties.DatabaseType result = com.google.cloud.bigquery.connection.v1.CloudSqlProperties.DatabaseType.valueOf(type_);
+    com.google.cloud.bigquery.connection.v1.CloudSqlProperties.DatabaseType result = com.google.cloud.bigquery.connection.v1.CloudSqlProperties.DatabaseType.forNumber(type_);
     return result == null ? com.google.cloud.bigquery.connection.v1.CloudSqlProperties.DatabaseType.UNRECOGNIZED : result;
   }
 
@@ -426,11 +351,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.connection.v1.CloudSqlCredentialOrBuilder getCredentialOrBuilder() {
-    return getCredential();
+    return credential_ == null ? com.google.cloud.bigquery.connection.v1.CloudSqlCredential.getDefaultInstance() : credential_;
   }
 
   public static final int SERVICE_ACCOUNT_ID_FIELD_NUMBER = 5;
-  private volatile java.lang.Object serviceAccountId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceAccountId_ = "";
   /**
    * <pre>
    * Output only. The account ID of the service used for the purpose of this connection.
@@ -510,7 +436,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serviceAccountId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, serviceAccountId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -536,7 +462,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serviceAccountId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, serviceAccountId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -563,7 +489,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getServiceAccountId()
         .equals(other.getServiceAccountId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -586,7 +512,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + SERVICE_ACCOUNT_ID_FIELD_NUMBER;
     hash = (53 * hash) + getServiceAccountId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -707,36 +633,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.connection.v1.CloudSqlProperties.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       instanceId_ = "";
-
       database_ = "";
-
       type_ = 0;
-
-      if (credentialBuilder_ == null) {
-        credential_ = null;
-      } else {
-        credential_ = null;
+      credential_ = null;
+      if (credentialBuilder_ != null) {
+        credentialBuilder_.dispose();
         credentialBuilder_ = null;
       }
       serviceAccountId_ = "";
-
       return this;
     }
 
@@ -763,17 +680,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.connection.v1.CloudSqlProperties buildPartial() {
       com.google.cloud.bigquery.connection.v1.CloudSqlProperties result = new com.google.cloud.bigquery.connection.v1.CloudSqlProperties(this);
-      result.instanceId_ = instanceId_;
-      result.database_ = database_;
-      result.type_ = type_;
-      if (credentialBuilder_ == null) {
-        result.credential_ = credential_;
-      } else {
-        result.credential_ = credentialBuilder_.build();
-      }
-      result.serviceAccountId_ = serviceAccountId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.connection.v1.CloudSqlProperties result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.instanceId_ = instanceId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.database_ = database_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.credential_ = credentialBuilder_ == null
+            ? credential_
+            : credentialBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.serviceAccountId_ = serviceAccountId_;
+      }
     }
 
     @java.lang.Override
@@ -822,10 +752,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.bigquery.connection.v1.CloudSqlProperties.getDefaultInstance()) return this;
       if (!other.getInstanceId().isEmpty()) {
         instanceId_ = other.instanceId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDatabase().isEmpty()) {
         database_ = other.database_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.type_ != 0) {
@@ -836,9 +768,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getServiceAccountId().isEmpty()) {
         serviceAccountId_ = other.serviceAccountId_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -853,19 +786,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.connection.v1.CloudSqlProperties parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instanceId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              database_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getCredentialFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              serviceAccountId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.connection.v1.CloudSqlProperties) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object instanceId_ = "";
     /**
@@ -920,11 +894,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       instanceId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -937,8 +909,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInstanceId() {
-      
       instanceId_ = getDefaultInstance().getInstanceId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -953,12 +925,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       instanceId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1016,11 +986,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDatabase(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       database_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1033,8 +1001,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDatabase() {
-      
       database_ = getDefaultInstance().getDatabase();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1049,12 +1017,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDatabaseBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       database_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1081,8 +1047,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1096,8 +1062,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.bigquery.connection.v1.CloudSqlProperties.DatabaseType getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.bigquery.connection.v1.CloudSqlProperties.DatabaseType result = com.google.cloud.bigquery.connection.v1.CloudSqlProperties.DatabaseType.valueOf(type_);
+      com.google.cloud.bigquery.connection.v1.CloudSqlProperties.DatabaseType result = com.google.cloud.bigquery.connection.v1.CloudSqlProperties.DatabaseType.forNumber(type_);
       return result == null ? com.google.cloud.bigquery.connection.v1.CloudSqlProperties.DatabaseType.UNRECOGNIZED : result;
     }
     /**
@@ -1113,7 +1078,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -1127,7 +1092,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       type_ = 0;
       onChanged();
       return this;
@@ -1145,7 +1110,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the credential field is set.
      */
     public boolean hasCredential() {
-      return credentialBuilder_ != null || credential_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1175,11 +1140,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         credential_ = value;
-        onChanged();
       } else {
         credentialBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1193,11 +1158,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.connection.v1.CloudSqlCredential.Builder builderForValue) {
       if (credentialBuilder_ == null) {
         credential_ = builderForValue.build();
-        onChanged();
       } else {
         credentialBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1209,17 +1174,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCredential(com.google.cloud.bigquery.connection.v1.CloudSqlCredential value) {
       if (credentialBuilder_ == null) {
-        if (credential_ != null) {
-          credential_ =
-            com.google.cloud.bigquery.connection.v1.CloudSqlCredential.newBuilder(credential_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          credential_ != null &&
+          credential_ != com.google.cloud.bigquery.connection.v1.CloudSqlCredential.getDefaultInstance()) {
+          getCredentialBuilder().mergeFrom(value);
         } else {
           credential_ = value;
         }
-        onChanged();
       } else {
         credentialBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1230,14 +1196,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.connection.v1.CloudSqlCredential credential = 4 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public Builder clearCredential() {
-      if (credentialBuilder_ == null) {
-        credential_ = null;
-        onChanged();
-      } else {
-        credential_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      credential_ = null;
+      if (credentialBuilder_ != null) {
+        credentialBuilder_.dispose();
         credentialBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1248,7 +1213,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.connection.v1.CloudSqlCredential credential = 4 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public com.google.cloud.bigquery.connection.v1.CloudSqlCredential.Builder getCredentialBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getCredentialFieldBuilder().getBuilder();
     }
@@ -1350,11 +1315,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccountId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceAccountId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1370,8 +1333,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServiceAccountId() {
-      
       serviceAccountId_ = getDefaultInstance().getServiceAccountId();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1389,12 +1352,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccountIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceAccountId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1431,7 +1392,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CloudSqlProperties(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

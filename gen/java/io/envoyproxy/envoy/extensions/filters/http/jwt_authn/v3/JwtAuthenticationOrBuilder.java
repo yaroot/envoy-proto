@@ -110,7 +110,6 @@ public interface JwtAuthenticationOrBuilder extends
    *
    * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtProvider&gt; providers = 1;</code>
    */
-
   /* nullable */
 io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider getProvidersOrDefault(
       java.lang.String key,
@@ -139,7 +138,6 @@ io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider defaultValu
    *
    * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtProvider&gt; providers = 1;</code>
    */
-
   io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider getProvidersOrThrow(
       java.lang.String key);
 
@@ -402,7 +400,6 @@ io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider defaultValu
    *
    * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement&gt; requirement_map = 5;</code>
    */
-
   /* nullable */
 io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement getRequirementMapOrDefault(
       java.lang.String key,
@@ -417,7 +414,6 @@ io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement defaultV
    *
    * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement&gt; requirement_map = 5;</code>
    */
-
   io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement getRequirementMapOrThrow(
       java.lang.String key);
 }

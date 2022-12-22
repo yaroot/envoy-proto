@@ -36,69 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private FormExtractionParams(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            enabled_ = input.readBool();
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              keyValuePairHints_ = new java.util.ArrayList<com.google.cloud.documentai.v1beta2.KeyValuePairHint>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            keyValuePairHints_.add(
-                input.readMessage(com.google.cloud.documentai.v1beta2.KeyValuePairHint.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            modelVersion_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        keyValuePairHints_ = java.util.Collections.unmodifiableList(keyValuePairHints_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.documentai.v1beta2.DocumentAiProto.internal_static_google_cloud_documentai_v1beta2_FormExtractionParams_descriptor;
@@ -113,7 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLED_FIELD_NUMBER = 1;
-  private boolean enabled_;
+  private boolean enabled_ = false;
   /**
    * <pre>
    * Whether to enable form extraction.
@@ -128,6 +65,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KEY_VALUE_PAIR_HINTS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.documentai.v1beta2.KeyValuePairHint> keyValuePairHints_;
   /**
    * <pre>
@@ -233,7 +171,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODEL_VERSION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object modelVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object modelVersion_ = "";
   /**
    * <pre>
    * Model version of the form extraction system. Default is
@@ -309,7 +248,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(modelVersion_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, modelVersion_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -329,7 +268,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(modelVersion_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, modelVersion_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -350,7 +289,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getKeyValuePairHintsList())) return false;
     if (!getModelVersion()
         .equals(other.getModelVersion())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -370,7 +309,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + MODEL_VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getModelVersion().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -491,33 +430,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.documentai.v1beta2.FormExtractionParams.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getKeyValuePairHintsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       enabled_ = false;
-
       if (keyValuePairHintsBuilder_ == null) {
         keyValuePairHints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        keyValuePairHints_ = null;
         keyValuePairHintsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       modelVersion_ = "";
-
       return this;
     }
 
@@ -544,20 +477,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.documentai.v1beta2.FormExtractionParams buildPartial() {
       com.google.cloud.documentai.v1beta2.FormExtractionParams result = new com.google.cloud.documentai.v1beta2.FormExtractionParams(this);
-      int from_bitField0_ = bitField0_;
-      result.enabled_ = enabled_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.documentai.v1beta2.FormExtractionParams result) {
       if (keyValuePairHintsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           keyValuePairHints_ = java.util.Collections.unmodifiableList(keyValuePairHints_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.keyValuePairHints_ = keyValuePairHints_;
       } else {
         result.keyValuePairHints_ = keyValuePairHintsBuilder_.build();
       }
-      result.modelVersion_ = modelVersion_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.documentai.v1beta2.FormExtractionParams result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.enabled_ = enabled_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.modelVersion_ = modelVersion_;
+      }
     }
 
     @java.lang.Override
@@ -611,7 +556,7 @@ private static final long serialVersionUID = 0L;
         if (!other.keyValuePairHints_.isEmpty()) {
           if (keyValuePairHints_.isEmpty()) {
             keyValuePairHints_ = other.keyValuePairHints_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureKeyValuePairHintsIsMutable();
             keyValuePairHints_.addAll(other.keyValuePairHints_);
@@ -624,7 +569,7 @@ private static final long serialVersionUID = 0L;
             keyValuePairHintsBuilder_.dispose();
             keyValuePairHintsBuilder_ = null;
             keyValuePairHints_ = other.keyValuePairHints_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             keyValuePairHintsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getKeyValuePairHintsFieldBuilder() : null;
@@ -635,9 +580,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getModelVersion().isEmpty()) {
         modelVersion_ = other.modelVersion_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -652,17 +598,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.documentai.v1beta2.FormExtractionParams parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              enabled_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              com.google.cloud.documentai.v1beta2.KeyValuePairHint m =
+                  input.readMessage(
+                      com.google.cloud.documentai.v1beta2.KeyValuePairHint.parser(),
+                      extensionRegistry);
+              if (keyValuePairHintsBuilder_ == null) {
+                ensureKeyValuePairHintsIsMutable();
+                keyValuePairHints_.add(m);
+              } else {
+                keyValuePairHintsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              modelVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.documentai.v1beta2.FormExtractionParams) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -692,6 +674,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnabled(boolean value) {
       
       enabled_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -704,7 +687,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       enabled_ = false;
       onChanged();
       return this;
@@ -713,9 +696,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.documentai.v1beta2.KeyValuePairHint> keyValuePairHints_ =
       java.util.Collections.emptyList();
     private void ensureKeyValuePairHintsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         keyValuePairHints_ = new java.util.ArrayList<com.google.cloud.documentai.v1beta2.KeyValuePairHint>(keyValuePairHints_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1008,7 +991,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearKeyValuePairHints() {
       if (keyValuePairHintsBuilder_ == null) {
         keyValuePairHints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         keyValuePairHintsBuilder_.clear();
@@ -1176,7 +1159,7 @@ private static final long serialVersionUID = 0L;
         keyValuePairHintsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.documentai.v1beta2.KeyValuePairHint, com.google.cloud.documentai.v1beta2.KeyValuePairHint.Builder, com.google.cloud.documentai.v1beta2.KeyValuePairHintOrBuilder>(
                 keyValuePairHints_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         keyValuePairHints_ = null;
@@ -1249,11 +1232,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModelVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       modelVersion_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1270,8 +1251,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearModelVersion() {
-      
       modelVersion_ = getDefaultInstance().getModelVersion();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1290,12 +1271,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModelVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       modelVersion_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1332,7 +1311,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FormExtractionParams(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MysqlDatabase(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            databaseName_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              mysqlTables_ = new java.util.ArrayList<com.google.cloud.datastream.v1alpha1.MysqlTable>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            mysqlTables_.add(
-                input.readMessage(com.google.cloud.datastream.v1alpha1.MysqlTable.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        mysqlTables_ = java.util.Collections.unmodifiableList(mysqlTables_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datastream.v1alpha1.CloudDatastreamResourcesProto.internal_static_google_cloud_datastream_v1alpha1_MysqlDatabase_descriptor;
@@ -108,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATABASE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object databaseName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object databaseName_ = "";
   /**
    * <pre>
    * Database name.
@@ -154,6 +97,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MYSQL_TABLES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.datastream.v1alpha1.MysqlTable> mysqlTables_;
   /**
    * <pre>
@@ -233,7 +177,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < mysqlTables_.size(); i++) {
       output.writeMessage(2, mysqlTables_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -249,7 +193,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, mysqlTables_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -268,7 +212,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDatabaseName())) return false;
     if (!getMysqlTablesList()
         .equals(other.getMysqlTablesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -285,7 +229,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MYSQL_TABLES_FIELD_NUMBER;
       hash = (53 * hash) + getMysqlTablesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -406,31 +350,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datastream.v1alpha1.MysqlDatabase.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMysqlTablesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       databaseName_ = "";
-
       if (mysqlTablesBuilder_ == null) {
         mysqlTables_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        mysqlTables_ = null;
         mysqlTablesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -457,19 +396,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datastream.v1alpha1.MysqlDatabase buildPartial() {
       com.google.cloud.datastream.v1alpha1.MysqlDatabase result = new com.google.cloud.datastream.v1alpha1.MysqlDatabase(this);
-      int from_bitField0_ = bitField0_;
-      result.databaseName_ = databaseName_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.datastream.v1alpha1.MysqlDatabase result) {
       if (mysqlTablesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           mysqlTables_ = java.util.Collections.unmodifiableList(mysqlTables_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.mysqlTables_ = mysqlTables_;
       } else {
         result.mysqlTables_ = mysqlTablesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datastream.v1alpha1.MysqlDatabase result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.databaseName_ = databaseName_;
+      }
     }
 
     @java.lang.Override
@@ -518,13 +467,14 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.datastream.v1alpha1.MysqlDatabase.getDefaultInstance()) return this;
       if (!other.getDatabaseName().isEmpty()) {
         databaseName_ = other.databaseName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (mysqlTablesBuilder_ == null) {
         if (!other.mysqlTables_.isEmpty()) {
           if (mysqlTables_.isEmpty()) {
             mysqlTables_ = other.mysqlTables_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureMysqlTablesIsMutable();
             mysqlTables_.addAll(other.mysqlTables_);
@@ -537,7 +487,7 @@ private static final long serialVersionUID = 0L;
             mysqlTablesBuilder_.dispose();
             mysqlTablesBuilder_ = null;
             mysqlTables_ = other.mysqlTables_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             mysqlTablesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMysqlTablesFieldBuilder() : null;
@@ -546,7 +496,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -561,17 +511,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datastream.v1alpha1.MysqlDatabase parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              databaseName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.datastream.v1alpha1.MysqlTable m =
+                  input.readMessage(
+                      com.google.cloud.datastream.v1alpha1.MysqlTable.parser(),
+                      extensionRegistry);
+              if (mysqlTablesBuilder_ == null) {
+                ensureMysqlTablesIsMutable();
+                mysqlTables_.add(m);
+              } else {
+                mysqlTablesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datastream.v1alpha1.MysqlDatabase) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -629,11 +610,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDatabaseName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       databaseName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -646,8 +625,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDatabaseName() {
-      
       databaseName_ = getDefaultInstance().getDatabaseName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -662,12 +641,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDatabaseNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       databaseName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -675,9 +652,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.datastream.v1alpha1.MysqlTable> mysqlTables_ =
       java.util.Collections.emptyList();
     private void ensureMysqlTablesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         mysqlTables_ = new java.util.ArrayList<com.google.cloud.datastream.v1alpha1.MysqlTable>(mysqlTables_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -871,7 +848,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMysqlTables() {
       if (mysqlTablesBuilder_ == null) {
         mysqlTables_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         mysqlTablesBuilder_.clear();
@@ -976,7 +953,7 @@ private static final long serialVersionUID = 0L;
         mysqlTablesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.datastream.v1alpha1.MysqlTable, com.google.cloud.datastream.v1alpha1.MysqlTable.Builder, com.google.cloud.datastream.v1alpha1.MysqlTableOrBuilder>(
                 mysqlTables_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         mysqlTables_ = null;
@@ -1016,7 +993,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MysqlDatabase(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

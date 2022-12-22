@@ -28,10 +28,10 @@ private static final long serialVersionUID = 0L;
   }
   private PricingExpression() {
     usageUnit_ = "";
+    tieredRates_ = java.util.Collections.emptyList();
     usageUnitDescription_ = "";
     baseUnit_ = "";
     baseUnitDescription_ = "";
-    tieredRates_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -45,92 +45,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private PricingExpression(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            usageUnit_ = s;
-            break;
-          }
-          case 17: {
-
-            displayQuantity_ = input.readDouble();
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              tieredRates_ = new java.util.ArrayList<com.google.cloud.billing.v1.PricingExpression.TierRate>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            tieredRates_.add(
-                input.readMessage(com.google.cloud.billing.v1.PricingExpression.TierRate.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            usageUnitDescription_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            baseUnit_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            baseUnitDescription_ = s;
-            break;
-          }
-          case 57: {
-
-            baseUnitConversionFactor_ = input.readDouble();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        tieredRates_ = java.util.Collections.unmodifiableList(tieredRates_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -222,63 +136,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TierRate(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 9: {
-
-              startUsageAmount_ = input.readDouble();
-              break;
-            }
-            case 18: {
-              com.google.type.Money.Builder subBuilder = null;
-              if (unitPrice_ != null) {
-                subBuilder = unitPrice_.toBuilder();
-              }
-              unitPrice_ = input.readMessage(com.google.type.Money.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(unitPrice_);
-                unitPrice_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.billing.v1.CloudCatalogProto.internal_static_google_cloud_billing_v1_PricingExpression_TierRate_descriptor;
@@ -293,7 +150,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int START_USAGE_AMOUNT_FIELD_NUMBER = 1;
-    private double startUsageAmount_;
+    private double startUsageAmount_ = 0D;
     /**
      * <pre>
      * Usage is priced at this rate only after this amount.
@@ -347,7 +204,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.type.MoneyOrBuilder getUnitPriceOrBuilder() {
-      return getUnitPrice();
+      return unitPrice_ == null ? com.google.type.Money.getDefaultInstance() : unitPrice_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -370,7 +227,7 @@ private static final long serialVersionUID = 0L;
       if (unitPrice_ != null) {
         output.writeMessage(2, getUnitPrice());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -387,7 +244,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getUnitPrice());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -410,7 +267,7 @@ private static final long serialVersionUID = 0L;
         if (!getUnitPrice()
             .equals(other.getUnitPrice())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -428,7 +285,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + UNIT_PRICE_FIELD_NUMBER;
         hash = (53 * hash) + getUnitPrice().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -549,28 +406,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.billing.v1.PricingExpression.TierRate.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         startUsageAmount_ = 0D;
-
-        if (unitPriceBuilder_ == null) {
-          unitPrice_ = null;
-        } else {
-          unitPrice_ = null;
+        unitPrice_ = null;
+        if (unitPriceBuilder_ != null) {
+          unitPriceBuilder_.dispose();
           unitPriceBuilder_ = null;
         }
         return this;
@@ -599,14 +450,21 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.billing.v1.PricingExpression.TierRate buildPartial() {
         com.google.cloud.billing.v1.PricingExpression.TierRate result = new com.google.cloud.billing.v1.PricingExpression.TierRate(this);
-        result.startUsageAmount_ = startUsageAmount_;
-        if (unitPriceBuilder_ == null) {
-          result.unitPrice_ = unitPrice_;
-        } else {
-          result.unitPrice_ = unitPriceBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.billing.v1.PricingExpression.TierRate result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.startUsageAmount_ = startUsageAmount_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.unitPrice_ = unitPriceBuilder_ == null
+              ? unitPrice_
+              : unitPriceBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -659,7 +517,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasUnitPrice()) {
           mergeUnitPrice(other.getUnitPrice());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -674,19 +532,45 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.billing.v1.PricingExpression.TierRate parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                startUsageAmount_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              case 18: {
+                input.readMessage(
+                    getUnitPriceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.billing.v1.PricingExpression.TierRate) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private double startUsageAmount_ ;
       /**
@@ -717,6 +601,7 @@ private static final long serialVersionUID = 0L;
       public Builder setStartUsageAmount(double value) {
         
         startUsageAmount_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -731,7 +616,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearStartUsageAmount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         startUsageAmount_ = 0D;
         onChanged();
         return this;
@@ -750,7 +635,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the unitPrice field is set.
        */
       public boolean hasUnitPrice() {
-        return unitPriceBuilder_ != null || unitPrice_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -782,11 +667,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           unitPrice_ = value;
-          onChanged();
         } else {
           unitPriceBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -801,11 +686,11 @@ private static final long serialVersionUID = 0L;
           com.google.type.Money.Builder builderForValue) {
         if (unitPriceBuilder_ == null) {
           unitPrice_ = builderForValue.build();
-          onChanged();
         } else {
           unitPriceBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -818,17 +703,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeUnitPrice(com.google.type.Money value) {
         if (unitPriceBuilder_ == null) {
-          if (unitPrice_ != null) {
-            unitPrice_ =
-              com.google.type.Money.newBuilder(unitPrice_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            unitPrice_ != null &&
+            unitPrice_ != com.google.type.Money.getDefaultInstance()) {
+            getUnitPriceBuilder().mergeFrom(value);
           } else {
             unitPrice_ = value;
           }
-          onChanged();
         } else {
           unitPriceBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -840,14 +726,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.type.Money unit_price = 2;</code>
        */
       public Builder clearUnitPrice() {
-        if (unitPriceBuilder_ == null) {
-          unitPrice_ = null;
-          onChanged();
-        } else {
-          unitPrice_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        unitPrice_ = null;
+        if (unitPriceBuilder_ != null) {
+          unitPriceBuilder_.dispose();
           unitPriceBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -859,7 +744,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.type.Money unit_price = 2;</code>
        */
       public com.google.type.Money.Builder getUnitPriceBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getUnitPriceFieldBuilder().getBuilder();
       }
@@ -933,7 +818,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TierRate(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -954,7 +850,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USAGE_UNIT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object usageUnit_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object usageUnit_ = "";
   /**
    * <pre>
    * The short hand for unit of usage this pricing is specified in.
@@ -1001,171 +898,8 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int USAGE_UNIT_DESCRIPTION_FIELD_NUMBER = 4;
-  private volatile java.lang.Object usageUnitDescription_;
-  /**
-   * <pre>
-   * The unit of usage in human readable form.
-   * Example: "gibi byte".
-   * </pre>
-   *
-   * <code>string usage_unit_description = 4;</code>
-   * @return The usageUnitDescription.
-   */
-  @java.lang.Override
-  public java.lang.String getUsageUnitDescription() {
-    java.lang.Object ref = usageUnitDescription_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      usageUnitDescription_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * The unit of usage in human readable form.
-   * Example: "gibi byte".
-   * </pre>
-   *
-   * <code>string usage_unit_description = 4;</code>
-   * @return The bytes for usageUnitDescription.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getUsageUnitDescriptionBytes() {
-    java.lang.Object ref = usageUnitDescription_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      usageUnitDescription_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int BASE_UNIT_FIELD_NUMBER = 5;
-  private volatile java.lang.Object baseUnit_;
-  /**
-   * <pre>
-   * The base unit for the SKU which is the unit used in usage exports.
-   * Example: "By"
-   * </pre>
-   *
-   * <code>string base_unit = 5;</code>
-   * @return The baseUnit.
-   */
-  @java.lang.Override
-  public java.lang.String getBaseUnit() {
-    java.lang.Object ref = baseUnit_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      baseUnit_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * The base unit for the SKU which is the unit used in usage exports.
-   * Example: "By"
-   * </pre>
-   *
-   * <code>string base_unit = 5;</code>
-   * @return The bytes for baseUnit.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getBaseUnitBytes() {
-    java.lang.Object ref = baseUnit_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      baseUnit_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int BASE_UNIT_DESCRIPTION_FIELD_NUMBER = 6;
-  private volatile java.lang.Object baseUnitDescription_;
-  /**
-   * <pre>
-   * The base unit in human readable form.
-   * Example: "byte".
-   * </pre>
-   *
-   * <code>string base_unit_description = 6;</code>
-   * @return The baseUnitDescription.
-   */
-  @java.lang.Override
-  public java.lang.String getBaseUnitDescription() {
-    java.lang.Object ref = baseUnitDescription_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      baseUnitDescription_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * The base unit in human readable form.
-   * Example: "byte".
-   * </pre>
-   *
-   * <code>string base_unit_description = 6;</code>
-   * @return The bytes for baseUnitDescription.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getBaseUnitDescriptionBytes() {
-    java.lang.Object ref = baseUnitDescription_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      baseUnitDescription_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int BASE_UNIT_CONVERSION_FACTOR_FIELD_NUMBER = 7;
-  private double baseUnitConversionFactor_;
-  /**
-   * <pre>
-   * Conversion factor for converting from price per usage_unit to price per
-   * base_unit, and start_usage_amount to start_usage_amount in base_unit.
-   * unit_price / base_unit_conversion_factor = price per base_unit.
-   * start_usage_amount * base_unit_conversion_factor = start_usage_amount in
-   * base_unit.
-   * </pre>
-   *
-   * <code>double base_unit_conversion_factor = 7;</code>
-   * @return The baseUnitConversionFactor.
-   */
-  @java.lang.Override
-  public double getBaseUnitConversionFactor() {
-    return baseUnitConversionFactor_;
-  }
-
   public static final int DISPLAY_QUANTITY_FIELD_NUMBER = 2;
-  private double displayQuantity_;
+  private double displayQuantity_ = 0D;
   /**
    * <pre>
    * The recommended quantity of units for displaying pricing info. When
@@ -1187,6 +921,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TIERED_RATES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.billing.v1.PricingExpression.TierRate> tieredRates_;
   /**
    * <pre>
@@ -1256,6 +991,172 @@ private static final long serialVersionUID = 0L;
     return tieredRates_.get(index);
   }
 
+  public static final int USAGE_UNIT_DESCRIPTION_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object usageUnitDescription_ = "";
+  /**
+   * <pre>
+   * The unit of usage in human readable form.
+   * Example: "gibi byte".
+   * </pre>
+   *
+   * <code>string usage_unit_description = 4;</code>
+   * @return The usageUnitDescription.
+   */
+  @java.lang.Override
+  public java.lang.String getUsageUnitDescription() {
+    java.lang.Object ref = usageUnitDescription_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      usageUnitDescription_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * The unit of usage in human readable form.
+   * Example: "gibi byte".
+   * </pre>
+   *
+   * <code>string usage_unit_description = 4;</code>
+   * @return The bytes for usageUnitDescription.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUsageUnitDescriptionBytes() {
+    java.lang.Object ref = usageUnitDescription_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      usageUnitDescription_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int BASE_UNIT_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object baseUnit_ = "";
+  /**
+   * <pre>
+   * The base unit for the SKU which is the unit used in usage exports.
+   * Example: "By"
+   * </pre>
+   *
+   * <code>string base_unit = 5;</code>
+   * @return The baseUnit.
+   */
+  @java.lang.Override
+  public java.lang.String getBaseUnit() {
+    java.lang.Object ref = baseUnit_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      baseUnit_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * The base unit for the SKU which is the unit used in usage exports.
+   * Example: "By"
+   * </pre>
+   *
+   * <code>string base_unit = 5;</code>
+   * @return The bytes for baseUnit.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getBaseUnitBytes() {
+    java.lang.Object ref = baseUnit_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      baseUnit_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int BASE_UNIT_DESCRIPTION_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object baseUnitDescription_ = "";
+  /**
+   * <pre>
+   * The base unit in human readable form.
+   * Example: "byte".
+   * </pre>
+   *
+   * <code>string base_unit_description = 6;</code>
+   * @return The baseUnitDescription.
+   */
+  @java.lang.Override
+  public java.lang.String getBaseUnitDescription() {
+    java.lang.Object ref = baseUnitDescription_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      baseUnitDescription_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * The base unit in human readable form.
+   * Example: "byte".
+   * </pre>
+   *
+   * <code>string base_unit_description = 6;</code>
+   * @return The bytes for baseUnitDescription.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getBaseUnitDescriptionBytes() {
+    java.lang.Object ref = baseUnitDescription_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      baseUnitDescription_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int BASE_UNIT_CONVERSION_FACTOR_FIELD_NUMBER = 7;
+  private double baseUnitConversionFactor_ = 0D;
+  /**
+   * <pre>
+   * Conversion factor for converting from price per usage_unit to price per
+   * base_unit, and start_usage_amount to start_usage_amount in base_unit.
+   * unit_price / base_unit_conversion_factor = price per base_unit.
+   * start_usage_amount * base_unit_conversion_factor = start_usage_amount in
+   * base_unit.
+   * </pre>
+   *
+   * <code>double base_unit_conversion_factor = 7;</code>
+   * @return The baseUnitConversionFactor.
+   */
+  @java.lang.Override
+  public double getBaseUnitConversionFactor() {
+    return baseUnitConversionFactor_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1291,7 +1192,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToRawLongBits(baseUnitConversionFactor_) != 0) {
       output.writeDouble(7, baseUnitConversionFactor_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1324,7 +1225,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(7, baseUnitConversionFactor_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1341,6 +1242,11 @@ private static final long serialVersionUID = 0L;
 
     if (!getUsageUnit()
         .equals(other.getUsageUnit())) return false;
+    if (java.lang.Double.doubleToLongBits(getDisplayQuantity())
+        != java.lang.Double.doubleToLongBits(
+            other.getDisplayQuantity())) return false;
+    if (!getTieredRatesList()
+        .equals(other.getTieredRatesList())) return false;
     if (!getUsageUnitDescription()
         .equals(other.getUsageUnitDescription())) return false;
     if (!getBaseUnit()
@@ -1350,12 +1256,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToLongBits(getBaseUnitConversionFactor())
         != java.lang.Double.doubleToLongBits(
             other.getBaseUnitConversionFactor())) return false;
-    if (java.lang.Double.doubleToLongBits(getDisplayQuantity())
-        != java.lang.Double.doubleToLongBits(
-            other.getDisplayQuantity())) return false;
-    if (!getTieredRatesList()
-        .equals(other.getTieredRatesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1368,6 +1269,13 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + USAGE_UNIT_FIELD_NUMBER;
     hash = (53 * hash) + getUsageUnit().hashCode();
+    hash = (37 * hash) + DISPLAY_QUANTITY_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getDisplayQuantity()));
+    if (getTieredRatesCount() > 0) {
+      hash = (37 * hash) + TIERED_RATES_FIELD_NUMBER;
+      hash = (53 * hash) + getTieredRatesList().hashCode();
+    }
     hash = (37 * hash) + USAGE_UNIT_DESCRIPTION_FIELD_NUMBER;
     hash = (53 * hash) + getUsageUnitDescription().hashCode();
     hash = (37 * hash) + BASE_UNIT_FIELD_NUMBER;
@@ -1377,14 +1285,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + BASE_UNIT_CONVERSION_FACTOR_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getBaseUnitConversionFactor()));
-    hash = (37 * hash) + DISPLAY_QUANTITY_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getDisplayQuantity()));
-    if (getTieredRatesCount() > 0) {
-      hash = (37 * hash) + TIERED_RATES_FIELD_NUMBER;
-      hash = (53 * hash) + getTieredRatesList().hashCode();
-    }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1512,41 +1413,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.billing.v1.PricingExpression.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTieredRatesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       usageUnit_ = "";
-
-      usageUnitDescription_ = "";
-
-      baseUnit_ = "";
-
-      baseUnitDescription_ = "";
-
-      baseUnitConversionFactor_ = 0D;
-
       displayQuantity_ = 0D;
-
       if (tieredRatesBuilder_ == null) {
         tieredRates_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        tieredRates_ = null;
         tieredRatesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
+      usageUnitDescription_ = "";
+      baseUnit_ = "";
+      baseUnitDescription_ = "";
+      baseUnitConversionFactor_ = 0D;
       return this;
     }
 
@@ -1573,24 +1464,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.billing.v1.PricingExpression buildPartial() {
       com.google.cloud.billing.v1.PricingExpression result = new com.google.cloud.billing.v1.PricingExpression(this);
-      int from_bitField0_ = bitField0_;
-      result.usageUnit_ = usageUnit_;
-      result.usageUnitDescription_ = usageUnitDescription_;
-      result.baseUnit_ = baseUnit_;
-      result.baseUnitDescription_ = baseUnitDescription_;
-      result.baseUnitConversionFactor_ = baseUnitConversionFactor_;
-      result.displayQuantity_ = displayQuantity_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.billing.v1.PricingExpression result) {
       if (tieredRatesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           tieredRates_ = java.util.Collections.unmodifiableList(tieredRates_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.tieredRates_ = tieredRates_;
       } else {
         result.tieredRates_ = tieredRatesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.billing.v1.PricingExpression result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.usageUnit_ = usageUnit_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayQuantity_ = displayQuantity_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.usageUnitDescription_ = usageUnitDescription_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.baseUnit_ = baseUnit_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.baseUnitDescription_ = baseUnitDescription_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.baseUnitConversionFactor_ = baseUnitConversionFactor_;
+      }
     }
 
     @java.lang.Override
@@ -1639,22 +1550,8 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.billing.v1.PricingExpression.getDefaultInstance()) return this;
       if (!other.getUsageUnit().isEmpty()) {
         usageUnit_ = other.usageUnit_;
+        bitField0_ |= 0x00000001;
         onChanged();
-      }
-      if (!other.getUsageUnitDescription().isEmpty()) {
-        usageUnitDescription_ = other.usageUnitDescription_;
-        onChanged();
-      }
-      if (!other.getBaseUnit().isEmpty()) {
-        baseUnit_ = other.baseUnit_;
-        onChanged();
-      }
-      if (!other.getBaseUnitDescription().isEmpty()) {
-        baseUnitDescription_ = other.baseUnitDescription_;
-        onChanged();
-      }
-      if (other.getBaseUnitConversionFactor() != 0D) {
-        setBaseUnitConversionFactor(other.getBaseUnitConversionFactor());
       }
       if (other.getDisplayQuantity() != 0D) {
         setDisplayQuantity(other.getDisplayQuantity());
@@ -1663,7 +1560,7 @@ private static final long serialVersionUID = 0L;
         if (!other.tieredRates_.isEmpty()) {
           if (tieredRates_.isEmpty()) {
             tieredRates_ = other.tieredRates_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureTieredRatesIsMutable();
             tieredRates_.addAll(other.tieredRates_);
@@ -1676,7 +1573,7 @@ private static final long serialVersionUID = 0L;
             tieredRatesBuilder_.dispose();
             tieredRatesBuilder_ = null;
             tieredRates_ = other.tieredRates_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             tieredRatesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTieredRatesFieldBuilder() : null;
@@ -1685,7 +1582,25 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getUsageUnitDescription().isEmpty()) {
+        usageUnitDescription_ = other.usageUnitDescription_;
+        bitField0_ |= 0x00000008;
+        onChanged();
+      }
+      if (!other.getBaseUnit().isEmpty()) {
+        baseUnit_ = other.baseUnit_;
+        bitField0_ |= 0x00000010;
+        onChanged();
+      }
+      if (!other.getBaseUnitDescription().isEmpty()) {
+        baseUnitDescription_ = other.baseUnitDescription_;
+        bitField0_ |= 0x00000020;
+        onChanged();
+      }
+      if (other.getBaseUnitConversionFactor() != 0D) {
+        setBaseUnitConversionFactor(other.getBaseUnitConversionFactor());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1700,17 +1615,73 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.billing.v1.PricingExpression parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              usageUnit_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 17: {
+              displayQuantity_ = input.readDouble();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 17
+            case 26: {
+              com.google.cloud.billing.v1.PricingExpression.TierRate m =
+                  input.readMessage(
+                      com.google.cloud.billing.v1.PricingExpression.TierRate.parser(),
+                      extensionRegistry);
+              if (tieredRatesBuilder_ == null) {
+                ensureTieredRatesIsMutable();
+                tieredRates_.add(m);
+              } else {
+                tieredRatesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              usageUnitDescription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              baseUnit_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              baseUnitDescription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 57: {
+              baseUnitConversionFactor_ = input.readDouble();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 57
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.billing.v1.PricingExpression) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1771,11 +1742,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUsageUnit(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       usageUnit_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1789,8 +1758,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUsageUnit() {
-      
       usageUnit_ = getDefaultInstance().getUsageUnit();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1806,370 +1775,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUsageUnitBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       usageUnit_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object usageUnitDescription_ = "";
-    /**
-     * <pre>
-     * The unit of usage in human readable form.
-     * Example: "gibi byte".
-     * </pre>
-     *
-     * <code>string usage_unit_description = 4;</code>
-     * @return The usageUnitDescription.
-     */
-    public java.lang.String getUsageUnitDescription() {
-      java.lang.Object ref = usageUnitDescription_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        usageUnitDescription_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * The unit of usage in human readable form.
-     * Example: "gibi byte".
-     * </pre>
-     *
-     * <code>string usage_unit_description = 4;</code>
-     * @return The bytes for usageUnitDescription.
-     */
-    public com.google.protobuf.ByteString
-        getUsageUnitDescriptionBytes() {
-      java.lang.Object ref = usageUnitDescription_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        usageUnitDescription_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * The unit of usage in human readable form.
-     * Example: "gibi byte".
-     * </pre>
-     *
-     * <code>string usage_unit_description = 4;</code>
-     * @param value The usageUnitDescription to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUsageUnitDescription(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      usageUnitDescription_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * The unit of usage in human readable form.
-     * Example: "gibi byte".
-     * </pre>
-     *
-     * <code>string usage_unit_description = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearUsageUnitDescription() {
-      
-      usageUnitDescription_ = getDefaultInstance().getUsageUnitDescription();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * The unit of usage in human readable form.
-     * Example: "gibi byte".
-     * </pre>
-     *
-     * <code>string usage_unit_description = 4;</code>
-     * @param value The bytes for usageUnitDescription to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUsageUnitDescriptionBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      usageUnitDescription_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object baseUnit_ = "";
-    /**
-     * <pre>
-     * The base unit for the SKU which is the unit used in usage exports.
-     * Example: "By"
-     * </pre>
-     *
-     * <code>string base_unit = 5;</code>
-     * @return The baseUnit.
-     */
-    public java.lang.String getBaseUnit() {
-      java.lang.Object ref = baseUnit_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        baseUnit_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * The base unit for the SKU which is the unit used in usage exports.
-     * Example: "By"
-     * </pre>
-     *
-     * <code>string base_unit = 5;</code>
-     * @return The bytes for baseUnit.
-     */
-    public com.google.protobuf.ByteString
-        getBaseUnitBytes() {
-      java.lang.Object ref = baseUnit_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        baseUnit_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * The base unit for the SKU which is the unit used in usage exports.
-     * Example: "By"
-     * </pre>
-     *
-     * <code>string base_unit = 5;</code>
-     * @param value The baseUnit to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBaseUnit(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      baseUnit_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * The base unit for the SKU which is the unit used in usage exports.
-     * Example: "By"
-     * </pre>
-     *
-     * <code>string base_unit = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBaseUnit() {
-      
-      baseUnit_ = getDefaultInstance().getBaseUnit();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * The base unit for the SKU which is the unit used in usage exports.
-     * Example: "By"
-     * </pre>
-     *
-     * <code>string base_unit = 5;</code>
-     * @param value The bytes for baseUnit to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBaseUnitBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      baseUnit_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object baseUnitDescription_ = "";
-    /**
-     * <pre>
-     * The base unit in human readable form.
-     * Example: "byte".
-     * </pre>
-     *
-     * <code>string base_unit_description = 6;</code>
-     * @return The baseUnitDescription.
-     */
-    public java.lang.String getBaseUnitDescription() {
-      java.lang.Object ref = baseUnitDescription_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        baseUnitDescription_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * The base unit in human readable form.
-     * Example: "byte".
-     * </pre>
-     *
-     * <code>string base_unit_description = 6;</code>
-     * @return The bytes for baseUnitDescription.
-     */
-    public com.google.protobuf.ByteString
-        getBaseUnitDescriptionBytes() {
-      java.lang.Object ref = baseUnitDescription_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        baseUnitDescription_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * The base unit in human readable form.
-     * Example: "byte".
-     * </pre>
-     *
-     * <code>string base_unit_description = 6;</code>
-     * @param value The baseUnitDescription to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBaseUnitDescription(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      baseUnitDescription_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * The base unit in human readable form.
-     * Example: "byte".
-     * </pre>
-     *
-     * <code>string base_unit_description = 6;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBaseUnitDescription() {
-      
-      baseUnitDescription_ = getDefaultInstance().getBaseUnitDescription();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * The base unit in human readable form.
-     * Example: "byte".
-     * </pre>
-     *
-     * <code>string base_unit_description = 6;</code>
-     * @param value The bytes for baseUnitDescription to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBaseUnitDescriptionBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      baseUnitDescription_ = value;
-      onChanged();
-      return this;
-    }
-
-    private double baseUnitConversionFactor_ ;
-    /**
-     * <pre>
-     * Conversion factor for converting from price per usage_unit to price per
-     * base_unit, and start_usage_amount to start_usage_amount in base_unit.
-     * unit_price / base_unit_conversion_factor = price per base_unit.
-     * start_usage_amount * base_unit_conversion_factor = start_usage_amount in
-     * base_unit.
-     * </pre>
-     *
-     * <code>double base_unit_conversion_factor = 7;</code>
-     * @return The baseUnitConversionFactor.
-     */
-    @java.lang.Override
-    public double getBaseUnitConversionFactor() {
-      return baseUnitConversionFactor_;
-    }
-    /**
-     * <pre>
-     * Conversion factor for converting from price per usage_unit to price per
-     * base_unit, and start_usage_amount to start_usage_amount in base_unit.
-     * unit_price / base_unit_conversion_factor = price per base_unit.
-     * start_usage_amount * base_unit_conversion_factor = start_usage_amount in
-     * base_unit.
-     * </pre>
-     *
-     * <code>double base_unit_conversion_factor = 7;</code>
-     * @param value The baseUnitConversionFactor to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBaseUnitConversionFactor(double value) {
-      
-      baseUnitConversionFactor_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Conversion factor for converting from price per usage_unit to price per
-     * base_unit, and start_usage_amount to start_usage_amount in base_unit.
-     * unit_price / base_unit_conversion_factor = price per base_unit.
-     * start_usage_amount * base_unit_conversion_factor = start_usage_amount in
-     * base_unit.
-     * </pre>
-     *
-     * <code>double base_unit_conversion_factor = 7;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBaseUnitConversionFactor() {
-      
-      baseUnitConversionFactor_ = 0D;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2213,6 +1822,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDisplayQuantity(double value) {
       
       displayQuantity_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2232,7 +1842,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayQuantity() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       displayQuantity_ = 0D;
       onChanged();
       return this;
@@ -2241,9 +1851,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.billing.v1.PricingExpression.TierRate> tieredRates_ =
       java.util.Collections.emptyList();
     private void ensureTieredRatesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         tieredRates_ = new java.util.ArrayList<com.google.cloud.billing.v1.PricingExpression.TierRate>(tieredRates_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -2459,7 +2069,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTieredRates() {
       if (tieredRatesBuilder_ == null) {
         tieredRates_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         tieredRatesBuilder_.clear();
@@ -2578,12 +2188,359 @@ private static final long serialVersionUID = 0L;
         tieredRatesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.billing.v1.PricingExpression.TierRate, com.google.cloud.billing.v1.PricingExpression.TierRate.Builder, com.google.cloud.billing.v1.PricingExpression.TierRateOrBuilder>(
                 tieredRates_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         tieredRates_ = null;
       }
       return tieredRatesBuilder_;
+    }
+
+    private java.lang.Object usageUnitDescription_ = "";
+    /**
+     * <pre>
+     * The unit of usage in human readable form.
+     * Example: "gibi byte".
+     * </pre>
+     *
+     * <code>string usage_unit_description = 4;</code>
+     * @return The usageUnitDescription.
+     */
+    public java.lang.String getUsageUnitDescription() {
+      java.lang.Object ref = usageUnitDescription_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        usageUnitDescription_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The unit of usage in human readable form.
+     * Example: "gibi byte".
+     * </pre>
+     *
+     * <code>string usage_unit_description = 4;</code>
+     * @return The bytes for usageUnitDescription.
+     */
+    public com.google.protobuf.ByteString
+        getUsageUnitDescriptionBytes() {
+      java.lang.Object ref = usageUnitDescription_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        usageUnitDescription_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The unit of usage in human readable form.
+     * Example: "gibi byte".
+     * </pre>
+     *
+     * <code>string usage_unit_description = 4;</code>
+     * @param value The usageUnitDescription to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUsageUnitDescription(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      usageUnitDescription_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The unit of usage in human readable form.
+     * Example: "gibi byte".
+     * </pre>
+     *
+     * <code>string usage_unit_description = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUsageUnitDescription() {
+      usageUnitDescription_ = getDefaultInstance().getUsageUnitDescription();
+      bitField0_ = (bitField0_ & ~0x00000008);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The unit of usage in human readable form.
+     * Example: "gibi byte".
+     * </pre>
+     *
+     * <code>string usage_unit_description = 4;</code>
+     * @param value The bytes for usageUnitDescription to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUsageUnitDescriptionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      usageUnitDescription_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object baseUnit_ = "";
+    /**
+     * <pre>
+     * The base unit for the SKU which is the unit used in usage exports.
+     * Example: "By"
+     * </pre>
+     *
+     * <code>string base_unit = 5;</code>
+     * @return The baseUnit.
+     */
+    public java.lang.String getBaseUnit() {
+      java.lang.Object ref = baseUnit_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        baseUnit_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The base unit for the SKU which is the unit used in usage exports.
+     * Example: "By"
+     * </pre>
+     *
+     * <code>string base_unit = 5;</code>
+     * @return The bytes for baseUnit.
+     */
+    public com.google.protobuf.ByteString
+        getBaseUnitBytes() {
+      java.lang.Object ref = baseUnit_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        baseUnit_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The base unit for the SKU which is the unit used in usage exports.
+     * Example: "By"
+     * </pre>
+     *
+     * <code>string base_unit = 5;</code>
+     * @param value The baseUnit to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBaseUnit(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      baseUnit_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The base unit for the SKU which is the unit used in usage exports.
+     * Example: "By"
+     * </pre>
+     *
+     * <code>string base_unit = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBaseUnit() {
+      baseUnit_ = getDefaultInstance().getBaseUnit();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The base unit for the SKU which is the unit used in usage exports.
+     * Example: "By"
+     * </pre>
+     *
+     * <code>string base_unit = 5;</code>
+     * @param value The bytes for baseUnit to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBaseUnitBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      baseUnit_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object baseUnitDescription_ = "";
+    /**
+     * <pre>
+     * The base unit in human readable form.
+     * Example: "byte".
+     * </pre>
+     *
+     * <code>string base_unit_description = 6;</code>
+     * @return The baseUnitDescription.
+     */
+    public java.lang.String getBaseUnitDescription() {
+      java.lang.Object ref = baseUnitDescription_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        baseUnitDescription_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The base unit in human readable form.
+     * Example: "byte".
+     * </pre>
+     *
+     * <code>string base_unit_description = 6;</code>
+     * @return The bytes for baseUnitDescription.
+     */
+    public com.google.protobuf.ByteString
+        getBaseUnitDescriptionBytes() {
+      java.lang.Object ref = baseUnitDescription_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        baseUnitDescription_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The base unit in human readable form.
+     * Example: "byte".
+     * </pre>
+     *
+     * <code>string base_unit_description = 6;</code>
+     * @param value The baseUnitDescription to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBaseUnitDescription(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      baseUnitDescription_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The base unit in human readable form.
+     * Example: "byte".
+     * </pre>
+     *
+     * <code>string base_unit_description = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBaseUnitDescription() {
+      baseUnitDescription_ = getDefaultInstance().getBaseUnitDescription();
+      bitField0_ = (bitField0_ & ~0x00000020);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The base unit in human readable form.
+     * Example: "byte".
+     * </pre>
+     *
+     * <code>string base_unit_description = 6;</code>
+     * @param value The bytes for baseUnitDescription to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBaseUnitDescriptionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      baseUnitDescription_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+
+    private double baseUnitConversionFactor_ ;
+    /**
+     * <pre>
+     * Conversion factor for converting from price per usage_unit to price per
+     * base_unit, and start_usage_amount to start_usage_amount in base_unit.
+     * unit_price / base_unit_conversion_factor = price per base_unit.
+     * start_usage_amount * base_unit_conversion_factor = start_usage_amount in
+     * base_unit.
+     * </pre>
+     *
+     * <code>double base_unit_conversion_factor = 7;</code>
+     * @return The baseUnitConversionFactor.
+     */
+    @java.lang.Override
+    public double getBaseUnitConversionFactor() {
+      return baseUnitConversionFactor_;
+    }
+    /**
+     * <pre>
+     * Conversion factor for converting from price per usage_unit to price per
+     * base_unit, and start_usage_amount to start_usage_amount in base_unit.
+     * unit_price / base_unit_conversion_factor = price per base_unit.
+     * start_usage_amount * base_unit_conversion_factor = start_usage_amount in
+     * base_unit.
+     * </pre>
+     *
+     * <code>double base_unit_conversion_factor = 7;</code>
+     * @param value The baseUnitConversionFactor to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBaseUnitConversionFactor(double value) {
+      
+      baseUnitConversionFactor_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Conversion factor for converting from price per usage_unit to price per
+     * base_unit, and start_usage_amount to start_usage_amount in base_unit.
+     * unit_price / base_unit_conversion_factor = price per base_unit.
+     * start_usage_amount * base_unit_conversion_factor = start_usage_amount in
+     * base_unit.
+     * </pre>
+     *
+     * <code>double base_unit_conversion_factor = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBaseUnitConversionFactor() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      baseUnitConversionFactor_ = 0D;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -2618,7 +2575,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PricingExpression(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

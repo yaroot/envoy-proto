@@ -36,110 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PropertyQuota(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.analytics.data.v1alpha.QuotaStatus.Builder subBuilder = null;
-            if (tokensPerDay_ != null) {
-              subBuilder = tokensPerDay_.toBuilder();
-            }
-            tokensPerDay_ = input.readMessage(com.google.analytics.data.v1alpha.QuotaStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tokensPerDay_);
-              tokensPerDay_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.analytics.data.v1alpha.QuotaStatus.Builder subBuilder = null;
-            if (tokensPerHour_ != null) {
-              subBuilder = tokensPerHour_.toBuilder();
-            }
-            tokensPerHour_ = input.readMessage(com.google.analytics.data.v1alpha.QuotaStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tokensPerHour_);
-              tokensPerHour_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.analytics.data.v1alpha.QuotaStatus.Builder subBuilder = null;
-            if (concurrentRequests_ != null) {
-              subBuilder = concurrentRequests_.toBuilder();
-            }
-            concurrentRequests_ = input.readMessage(com.google.analytics.data.v1alpha.QuotaStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(concurrentRequests_);
-              concurrentRequests_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.analytics.data.v1alpha.QuotaStatus.Builder subBuilder = null;
-            if (serverErrorsPerProjectPerHour_ != null) {
-              subBuilder = serverErrorsPerProjectPerHour_.toBuilder();
-            }
-            serverErrorsPerProjectPerHour_ = input.readMessage(com.google.analytics.data.v1alpha.QuotaStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(serverErrorsPerProjectPerHour_);
-              serverErrorsPerProjectPerHour_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.analytics.data.v1alpha.QuotaStatus.Builder subBuilder = null;
-            if (potentiallyThresholdedRequestsPerHour_ != null) {
-              subBuilder = potentiallyThresholdedRequestsPerHour_.toBuilder();
-            }
-            potentiallyThresholdedRequestsPerHour_ = input.readMessage(com.google.analytics.data.v1alpha.QuotaStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(potentiallyThresholdedRequestsPerHour_);
-              potentiallyThresholdedRequestsPerHour_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.data.v1alpha.ReportingApiProto.internal_static_google_analytics_data_v1alpha_PropertyQuota_descriptor;
@@ -194,7 +90,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.data.v1alpha.QuotaStatusOrBuilder getTokensPerDayOrBuilder() {
-    return getTokensPerDay();
+    return tokensPerDay_ == null ? com.google.analytics.data.v1alpha.QuotaStatus.getDefaultInstance() : tokensPerDay_;
   }
 
   public static final int TOKENS_PER_HOUR_FIELD_NUMBER = 2;
@@ -241,7 +137,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.data.v1alpha.QuotaStatusOrBuilder getTokensPerHourOrBuilder() {
-    return getTokensPerHour();
+    return tokensPerHour_ == null ? com.google.analytics.data.v1alpha.QuotaStatus.getDefaultInstance() : tokensPerHour_;
   }
 
   public static final int CONCURRENT_REQUESTS_FIELD_NUMBER = 3;
@@ -282,7 +178,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.data.v1alpha.QuotaStatusOrBuilder getConcurrentRequestsOrBuilder() {
-    return getConcurrentRequests();
+    return concurrentRequests_ == null ? com.google.analytics.data.v1alpha.QuotaStatus.getDefaultInstance() : concurrentRequests_;
   }
 
   public static final int SERVER_ERRORS_PER_PROJECT_PER_HOUR_FIELD_NUMBER = 4;
@@ -326,7 +222,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.data.v1alpha.QuotaStatusOrBuilder getServerErrorsPerProjectPerHourOrBuilder() {
-    return getServerErrorsPerProjectPerHour();
+    return serverErrorsPerProjectPerHour_ == null ? com.google.analytics.data.v1alpha.QuotaStatus.getDefaultInstance() : serverErrorsPerProjectPerHour_;
   }
 
   public static final int POTENTIALLY_THRESHOLDED_REQUESTS_PER_HOUR_FIELD_NUMBER = 5;
@@ -373,7 +269,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.data.v1alpha.QuotaStatusOrBuilder getPotentiallyThresholdedRequestsPerHourOrBuilder() {
-    return getPotentiallyThresholdedRequestsPerHour();
+    return potentiallyThresholdedRequestsPerHour_ == null ? com.google.analytics.data.v1alpha.QuotaStatus.getDefaultInstance() : potentiallyThresholdedRequestsPerHour_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -405,7 +301,7 @@ private static final long serialVersionUID = 0L;
     if (potentiallyThresholdedRequestsPerHour_ != null) {
       output.writeMessage(5, getPotentiallyThresholdedRequestsPerHour());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -434,7 +330,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getPotentiallyThresholdedRequestsPerHour());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -474,7 +370,7 @@ private static final long serialVersionUID = 0L;
       if (!getPotentiallyThresholdedRequestsPerHour()
           .equals(other.getPotentiallyThresholdedRequestsPerHour())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -505,7 +401,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + POTENTIALLY_THRESHOLDED_REQUESTS_PER_HOUR_FIELD_NUMBER;
       hash = (53 * hash) + getPotentiallyThresholdedRequestsPerHour().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -628,50 +524,41 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.data.v1alpha.PropertyQuota.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (tokensPerDayBuilder_ == null) {
-        tokensPerDay_ = null;
-      } else {
-        tokensPerDay_ = null;
+      bitField0_ = 0;
+      tokensPerDay_ = null;
+      if (tokensPerDayBuilder_ != null) {
+        tokensPerDayBuilder_.dispose();
         tokensPerDayBuilder_ = null;
       }
-      if (tokensPerHourBuilder_ == null) {
-        tokensPerHour_ = null;
-      } else {
-        tokensPerHour_ = null;
+      tokensPerHour_ = null;
+      if (tokensPerHourBuilder_ != null) {
+        tokensPerHourBuilder_.dispose();
         tokensPerHourBuilder_ = null;
       }
-      if (concurrentRequestsBuilder_ == null) {
-        concurrentRequests_ = null;
-      } else {
-        concurrentRequests_ = null;
+      concurrentRequests_ = null;
+      if (concurrentRequestsBuilder_ != null) {
+        concurrentRequestsBuilder_.dispose();
         concurrentRequestsBuilder_ = null;
       }
-      if (serverErrorsPerProjectPerHourBuilder_ == null) {
-        serverErrorsPerProjectPerHour_ = null;
-      } else {
-        serverErrorsPerProjectPerHour_ = null;
+      serverErrorsPerProjectPerHour_ = null;
+      if (serverErrorsPerProjectPerHourBuilder_ != null) {
+        serverErrorsPerProjectPerHourBuilder_.dispose();
         serverErrorsPerProjectPerHourBuilder_ = null;
       }
-      if (potentiallyThresholdedRequestsPerHourBuilder_ == null) {
-        potentiallyThresholdedRequestsPerHour_ = null;
-      } else {
-        potentiallyThresholdedRequestsPerHour_ = null;
+      potentiallyThresholdedRequestsPerHour_ = null;
+      if (potentiallyThresholdedRequestsPerHourBuilder_ != null) {
+        potentiallyThresholdedRequestsPerHourBuilder_.dispose();
         potentiallyThresholdedRequestsPerHourBuilder_ = null;
       }
       return this;
@@ -700,33 +587,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.data.v1alpha.PropertyQuota buildPartial() {
       com.google.analytics.data.v1alpha.PropertyQuota result = new com.google.analytics.data.v1alpha.PropertyQuota(this);
-      if (tokensPerDayBuilder_ == null) {
-        result.tokensPerDay_ = tokensPerDay_;
-      } else {
-        result.tokensPerDay_ = tokensPerDayBuilder_.build();
-      }
-      if (tokensPerHourBuilder_ == null) {
-        result.tokensPerHour_ = tokensPerHour_;
-      } else {
-        result.tokensPerHour_ = tokensPerHourBuilder_.build();
-      }
-      if (concurrentRequestsBuilder_ == null) {
-        result.concurrentRequests_ = concurrentRequests_;
-      } else {
-        result.concurrentRequests_ = concurrentRequestsBuilder_.build();
-      }
-      if (serverErrorsPerProjectPerHourBuilder_ == null) {
-        result.serverErrorsPerProjectPerHour_ = serverErrorsPerProjectPerHour_;
-      } else {
-        result.serverErrorsPerProjectPerHour_ = serverErrorsPerProjectPerHourBuilder_.build();
-      }
-      if (potentiallyThresholdedRequestsPerHourBuilder_ == null) {
-        result.potentiallyThresholdedRequestsPerHour_ = potentiallyThresholdedRequestsPerHour_;
-      } else {
-        result.potentiallyThresholdedRequestsPerHour_ = potentiallyThresholdedRequestsPerHourBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.analytics.data.v1alpha.PropertyQuota result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.tokensPerDay_ = tokensPerDayBuilder_ == null
+            ? tokensPerDay_
+            : tokensPerDayBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.tokensPerHour_ = tokensPerHourBuilder_ == null
+            ? tokensPerHour_
+            : tokensPerHourBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.concurrentRequests_ = concurrentRequestsBuilder_ == null
+            ? concurrentRequests_
+            : concurrentRequestsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.serverErrorsPerProjectPerHour_ = serverErrorsPerProjectPerHourBuilder_ == null
+            ? serverErrorsPerProjectPerHour_
+            : serverErrorsPerProjectPerHourBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.potentiallyThresholdedRequestsPerHour_ = potentiallyThresholdedRequestsPerHourBuilder_ == null
+            ? potentiallyThresholdedRequestsPerHour_
+            : potentiallyThresholdedRequestsPerHourBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -788,7 +680,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasPotentiallyThresholdedRequestsPerHour()) {
         mergePotentiallyThresholdedRequestsPerHour(other.getPotentiallyThresholdedRequestsPerHour());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -803,19 +695,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.data.v1alpha.PropertyQuota parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTokensPerDayFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTokensPerHourFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getConcurrentRequestsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getServerErrorsPerProjectPerHourFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getPotentiallyThresholdedRequestsPerHourFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.data.v1alpha.PropertyQuota) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.analytics.data.v1alpha.QuotaStatus tokensPerDay_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -831,7 +772,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the tokensPerDay field is set.
      */
     public boolean hasTokensPerDay() {
-      return tokensPerDayBuilder_ != null || tokensPerDay_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -865,11 +806,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tokensPerDay_ = value;
-        onChanged();
       } else {
         tokensPerDayBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -885,11 +826,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1alpha.QuotaStatus.Builder builderForValue) {
       if (tokensPerDayBuilder_ == null) {
         tokensPerDay_ = builderForValue.build();
-        onChanged();
       } else {
         tokensPerDayBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -903,17 +844,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTokensPerDay(com.google.analytics.data.v1alpha.QuotaStatus value) {
       if (tokensPerDayBuilder_ == null) {
-        if (tokensPerDay_ != null) {
-          tokensPerDay_ =
-            com.google.analytics.data.v1alpha.QuotaStatus.newBuilder(tokensPerDay_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          tokensPerDay_ != null &&
+          tokensPerDay_ != com.google.analytics.data.v1alpha.QuotaStatus.getDefaultInstance()) {
+          getTokensPerDayBuilder().mergeFrom(value);
         } else {
           tokensPerDay_ = value;
         }
-        onChanged();
       } else {
         tokensPerDayBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -926,14 +868,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.QuotaStatus tokens_per_day = 1;</code>
      */
     public Builder clearTokensPerDay() {
-      if (tokensPerDayBuilder_ == null) {
-        tokensPerDay_ = null;
-        onChanged();
-      } else {
-        tokensPerDay_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      tokensPerDay_ = null;
+      if (tokensPerDayBuilder_ != null) {
+        tokensPerDayBuilder_.dispose();
         tokensPerDayBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -946,7 +887,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.QuotaStatus tokens_per_day = 1;</code>
      */
     public com.google.analytics.data.v1alpha.QuotaStatus.Builder getTokensPerDayBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getTokensPerDayFieldBuilder().getBuilder();
     }
@@ -1005,7 +946,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the tokensPerHour field is set.
      */
     public boolean hasTokensPerHour() {
-      return tokensPerHourBuilder_ != null || tokensPerHour_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1041,11 +982,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tokensPerHour_ = value;
-        onChanged();
       } else {
         tokensPerHourBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1062,11 +1003,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1alpha.QuotaStatus.Builder builderForValue) {
       if (tokensPerHourBuilder_ == null) {
         tokensPerHour_ = builderForValue.build();
-        onChanged();
       } else {
         tokensPerHourBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1081,17 +1022,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTokensPerHour(com.google.analytics.data.v1alpha.QuotaStatus value) {
       if (tokensPerHourBuilder_ == null) {
-        if (tokensPerHour_ != null) {
-          tokensPerHour_ =
-            com.google.analytics.data.v1alpha.QuotaStatus.newBuilder(tokensPerHour_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          tokensPerHour_ != null &&
+          tokensPerHour_ != com.google.analytics.data.v1alpha.QuotaStatus.getDefaultInstance()) {
+          getTokensPerHourBuilder().mergeFrom(value);
         } else {
           tokensPerHour_ = value;
         }
-        onChanged();
       } else {
         tokensPerHourBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1105,14 +1047,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.QuotaStatus tokens_per_hour = 2;</code>
      */
     public Builder clearTokensPerHour() {
-      if (tokensPerHourBuilder_ == null) {
-        tokensPerHour_ = null;
-        onChanged();
-      } else {
-        tokensPerHour_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      tokensPerHour_ = null;
+      if (tokensPerHourBuilder_ != null) {
+        tokensPerHourBuilder_.dispose();
         tokensPerHourBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1126,7 +1067,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.QuotaStatus tokens_per_hour = 2;</code>
      */
     public com.google.analytics.data.v1alpha.QuotaStatus.Builder getTokensPerHourBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTokensPerHourFieldBuilder().getBuilder();
     }
@@ -1185,7 +1126,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the concurrentRequests field is set.
      */
     public boolean hasConcurrentRequests() {
-      return concurrentRequestsBuilder_ != null || concurrentRequests_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1217,11 +1158,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         concurrentRequests_ = value;
-        onChanged();
       } else {
         concurrentRequestsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1236,11 +1177,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1alpha.QuotaStatus.Builder builderForValue) {
       if (concurrentRequestsBuilder_ == null) {
         concurrentRequests_ = builderForValue.build();
-        onChanged();
       } else {
         concurrentRequestsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1253,17 +1194,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConcurrentRequests(com.google.analytics.data.v1alpha.QuotaStatus value) {
       if (concurrentRequestsBuilder_ == null) {
-        if (concurrentRequests_ != null) {
-          concurrentRequests_ =
-            com.google.analytics.data.v1alpha.QuotaStatus.newBuilder(concurrentRequests_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          concurrentRequests_ != null &&
+          concurrentRequests_ != com.google.analytics.data.v1alpha.QuotaStatus.getDefaultInstance()) {
+          getConcurrentRequestsBuilder().mergeFrom(value);
         } else {
           concurrentRequests_ = value;
         }
-        onChanged();
       } else {
         concurrentRequestsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1275,14 +1217,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.QuotaStatus concurrent_requests = 3;</code>
      */
     public Builder clearConcurrentRequests() {
-      if (concurrentRequestsBuilder_ == null) {
-        concurrentRequests_ = null;
-        onChanged();
-      } else {
-        concurrentRequests_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      concurrentRequests_ = null;
+      if (concurrentRequestsBuilder_ != null) {
+        concurrentRequestsBuilder_.dispose();
         concurrentRequestsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1294,7 +1235,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.QuotaStatus concurrent_requests = 3;</code>
      */
     public com.google.analytics.data.v1alpha.QuotaStatus.Builder getConcurrentRequestsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getConcurrentRequestsFieldBuilder().getBuilder();
     }
@@ -1350,7 +1291,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the serverErrorsPerProjectPerHour field is set.
      */
     public boolean hasServerErrorsPerProjectPerHour() {
-      return serverErrorsPerProjectPerHourBuilder_ != null || serverErrorsPerProjectPerHour_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1384,11 +1325,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         serverErrorsPerProjectPerHour_ = value;
-        onChanged();
       } else {
         serverErrorsPerProjectPerHourBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1404,11 +1345,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1alpha.QuotaStatus.Builder builderForValue) {
       if (serverErrorsPerProjectPerHourBuilder_ == null) {
         serverErrorsPerProjectPerHour_ = builderForValue.build();
-        onChanged();
       } else {
         serverErrorsPerProjectPerHourBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1422,17 +1363,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeServerErrorsPerProjectPerHour(com.google.analytics.data.v1alpha.QuotaStatus value) {
       if (serverErrorsPerProjectPerHourBuilder_ == null) {
-        if (serverErrorsPerProjectPerHour_ != null) {
-          serverErrorsPerProjectPerHour_ =
-            com.google.analytics.data.v1alpha.QuotaStatus.newBuilder(serverErrorsPerProjectPerHour_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          serverErrorsPerProjectPerHour_ != null &&
+          serverErrorsPerProjectPerHour_ != com.google.analytics.data.v1alpha.QuotaStatus.getDefaultInstance()) {
+          getServerErrorsPerProjectPerHourBuilder().mergeFrom(value);
         } else {
           serverErrorsPerProjectPerHour_ = value;
         }
-        onChanged();
       } else {
         serverErrorsPerProjectPerHourBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1445,14 +1387,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.QuotaStatus server_errors_per_project_per_hour = 4;</code>
      */
     public Builder clearServerErrorsPerProjectPerHour() {
-      if (serverErrorsPerProjectPerHourBuilder_ == null) {
-        serverErrorsPerProjectPerHour_ = null;
-        onChanged();
-      } else {
-        serverErrorsPerProjectPerHour_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      serverErrorsPerProjectPerHour_ = null;
+      if (serverErrorsPerProjectPerHourBuilder_ != null) {
+        serverErrorsPerProjectPerHourBuilder_.dispose();
         serverErrorsPerProjectPerHourBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1465,7 +1406,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.QuotaStatus server_errors_per_project_per_hour = 4;</code>
      */
     public com.google.analytics.data.v1alpha.QuotaStatus.Builder getServerErrorsPerProjectPerHourBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getServerErrorsPerProjectPerHourFieldBuilder().getBuilder();
     }
@@ -1524,7 +1465,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the potentiallyThresholdedRequestsPerHour field is set.
      */
     public boolean hasPotentiallyThresholdedRequestsPerHour() {
-      return potentiallyThresholdedRequestsPerHourBuilder_ != null || potentiallyThresholdedRequestsPerHour_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1560,11 +1501,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         potentiallyThresholdedRequestsPerHour_ = value;
-        onChanged();
       } else {
         potentiallyThresholdedRequestsPerHourBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1581,11 +1522,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1alpha.QuotaStatus.Builder builderForValue) {
       if (potentiallyThresholdedRequestsPerHourBuilder_ == null) {
         potentiallyThresholdedRequestsPerHour_ = builderForValue.build();
-        onChanged();
       } else {
         potentiallyThresholdedRequestsPerHourBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1600,17 +1541,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePotentiallyThresholdedRequestsPerHour(com.google.analytics.data.v1alpha.QuotaStatus value) {
       if (potentiallyThresholdedRequestsPerHourBuilder_ == null) {
-        if (potentiallyThresholdedRequestsPerHour_ != null) {
-          potentiallyThresholdedRequestsPerHour_ =
-            com.google.analytics.data.v1alpha.QuotaStatus.newBuilder(potentiallyThresholdedRequestsPerHour_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          potentiallyThresholdedRequestsPerHour_ != null &&
+          potentiallyThresholdedRequestsPerHour_ != com.google.analytics.data.v1alpha.QuotaStatus.getDefaultInstance()) {
+          getPotentiallyThresholdedRequestsPerHourBuilder().mergeFrom(value);
         } else {
           potentiallyThresholdedRequestsPerHour_ = value;
         }
-        onChanged();
       } else {
         potentiallyThresholdedRequestsPerHourBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1624,14 +1566,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.QuotaStatus potentially_thresholded_requests_per_hour = 5;</code>
      */
     public Builder clearPotentiallyThresholdedRequestsPerHour() {
-      if (potentiallyThresholdedRequestsPerHourBuilder_ == null) {
-        potentiallyThresholdedRequestsPerHour_ = null;
-        onChanged();
-      } else {
-        potentiallyThresholdedRequestsPerHour_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      potentiallyThresholdedRequestsPerHour_ = null;
+      if (potentiallyThresholdedRequestsPerHourBuilder_ != null) {
+        potentiallyThresholdedRequestsPerHourBuilder_.dispose();
         potentiallyThresholdedRequestsPerHourBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1645,7 +1586,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.QuotaStatus potentially_thresholded_requests_per_hour = 5;</code>
      */
     public com.google.analytics.data.v1alpha.QuotaStatus.Builder getPotentiallyThresholdedRequestsPerHourBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getPotentiallyThresholdedRequestsPerHourFieldBuilder().getBuilder();
     }
@@ -1723,7 +1664,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PropertyQuota(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -654,4 +654,108 @@ public interface RouteConfigurationOrBuilder extends
    * @return The ignorePathParametersInPathMatching.
    */
   boolean getIgnorePathParametersInPathMatching();
+
+  /**
+   * <pre>
+   * The typed_per_filter_config field can be used to provide RouteConfiguration level per filter config.
+   * The key should match the :ref:`filter config name
+   * &lt;envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpFilter.name&gt;`.
+   * The canonical filter name (e.g., ``envoy.filters.http.buffer`` for the HTTP buffer filter) can also
+   * be used for the backwards compatibility. If there is no entry referred by the filter config name, the
+   * entry referred by the canonical filter name will be provided to the filters as fallback.
+   * Use of this field is filter specific;
+   * see the :ref:`HTTP filter documentation &lt;config_http_filters&gt;` for if and how it is utilized.
+   * [#comment: An entry's value may be wrapped in a
+   * :ref:`FilterConfig&lt;envoy_v3_api_msg_config.route.v3.FilterConfig&gt;`
+   * message to specify additional options.]
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 16;</code>
+   */
+  int getTypedPerFilterConfigCount();
+  /**
+   * <pre>
+   * The typed_per_filter_config field can be used to provide RouteConfiguration level per filter config.
+   * The key should match the :ref:`filter config name
+   * &lt;envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpFilter.name&gt;`.
+   * The canonical filter name (e.g., ``envoy.filters.http.buffer`` for the HTTP buffer filter) can also
+   * be used for the backwards compatibility. If there is no entry referred by the filter config name, the
+   * entry referred by the canonical filter name will be provided to the filters as fallback.
+   * Use of this field is filter specific;
+   * see the :ref:`HTTP filter documentation &lt;config_http_filters&gt;` for if and how it is utilized.
+   * [#comment: An entry's value may be wrapped in a
+   * :ref:`FilterConfig&lt;envoy_v3_api_msg_config.route.v3.FilterConfig&gt;`
+   * message to specify additional options.]
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 16;</code>
+   */
+  boolean containsTypedPerFilterConfig(
+      java.lang.String key);
+  /**
+   * Use {@link #getTypedPerFilterConfigMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, com.google.protobuf.Any>
+  getTypedPerFilterConfig();
+  /**
+   * <pre>
+   * The typed_per_filter_config field can be used to provide RouteConfiguration level per filter config.
+   * The key should match the :ref:`filter config name
+   * &lt;envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpFilter.name&gt;`.
+   * The canonical filter name (e.g., ``envoy.filters.http.buffer`` for the HTTP buffer filter) can also
+   * be used for the backwards compatibility. If there is no entry referred by the filter config name, the
+   * entry referred by the canonical filter name will be provided to the filters as fallback.
+   * Use of this field is filter specific;
+   * see the :ref:`HTTP filter documentation &lt;config_http_filters&gt;` for if and how it is utilized.
+   * [#comment: An entry's value may be wrapped in a
+   * :ref:`FilterConfig&lt;envoy_v3_api_msg_config.route.v3.FilterConfig&gt;`
+   * message to specify additional options.]
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 16;</code>
+   */
+  java.util.Map<java.lang.String, com.google.protobuf.Any>
+  getTypedPerFilterConfigMap();
+  /**
+   * <pre>
+   * The typed_per_filter_config field can be used to provide RouteConfiguration level per filter config.
+   * The key should match the :ref:`filter config name
+   * &lt;envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpFilter.name&gt;`.
+   * The canonical filter name (e.g., ``envoy.filters.http.buffer`` for the HTTP buffer filter) can also
+   * be used for the backwards compatibility. If there is no entry referred by the filter config name, the
+   * entry referred by the canonical filter name will be provided to the filters as fallback.
+   * Use of this field is filter specific;
+   * see the :ref:`HTTP filter documentation &lt;config_http_filters&gt;` for if and how it is utilized.
+   * [#comment: An entry's value may be wrapped in a
+   * :ref:`FilterConfig&lt;envoy_v3_api_msg_config.route.v3.FilterConfig&gt;`
+   * message to specify additional options.]
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 16;</code>
+   */
+  /* nullable */
+com.google.protobuf.Any getTypedPerFilterConfigOrDefault(
+      java.lang.String key,
+      /* nullable */
+com.google.protobuf.Any defaultValue);
+  /**
+   * <pre>
+   * The typed_per_filter_config field can be used to provide RouteConfiguration level per filter config.
+   * The key should match the :ref:`filter config name
+   * &lt;envoy_v3_api_field_extensions.filters.network.http_connection_manager.v3.HttpFilter.name&gt;`.
+   * The canonical filter name (e.g., ``envoy.filters.http.buffer`` for the HTTP buffer filter) can also
+   * be used for the backwards compatibility. If there is no entry referred by the filter config name, the
+   * entry referred by the canonical filter name will be provided to the filters as fallback.
+   * Use of this field is filter specific;
+   * see the :ref:`HTTP filter documentation &lt;config_http_filters&gt;` for if and how it is utilized.
+   * [#comment: An entry's value may be wrapped in a
+   * :ref:`FilterConfig&lt;envoy_v3_api_msg_config.route.v3.FilterConfig&gt;`
+   * message to specify additional options.]
+   * </pre>
+   *
+   * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 16;</code>
+   */
+  com.google.protobuf.Any getTypedPerFilterConfigOrThrow(
+      java.lang.String key);
 }

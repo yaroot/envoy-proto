@@ -39,90 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private QueryResultBatch(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            entityResultType_ = rawValue;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              entityResults_ = new java.util.ArrayList<com.google.datastore.v1beta3.EntityResult>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            entityResults_.add(
-                input.readMessage(com.google.datastore.v1beta3.EntityResult.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-
-            skippedCursor_ = input.readBytes();
-            break;
-          }
-          case 34: {
-
-            endCursor_ = input.readBytes();
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            moreResults_ = rawValue;
-            break;
-          }
-          case 48: {
-
-            skippedResults_ = input.readInt32();
-            break;
-          }
-          case 56: {
-
-            snapshotVersion_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        entityResults_ = java.util.Collections.unmodifiableList(entityResults_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.datastore.v1beta3.QueryProto.internal_static_google_datastore_v1beta3_QueryResultBatch_descriptor;
@@ -318,7 +234,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SKIPPED_RESULTS_FIELD_NUMBER = 6;
-  private int skippedResults_;
+  private int skippedResults_ = 0;
   /**
    * <pre>
    * The number of results skipped, typically because of an offset.
@@ -333,7 +249,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SKIPPED_CURSOR_FIELD_NUMBER = 3;
-  private com.google.protobuf.ByteString skippedCursor_;
+  private com.google.protobuf.ByteString skippedCursor_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * A cursor that points to the position after the last skipped result.
@@ -349,7 +265,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENTITY_RESULT_TYPE_FIELD_NUMBER = 1;
-  private int entityResultType_;
+  private int entityResultType_ = 0;
   /**
    * <pre>
    * The result type for every entity in `entity_results`.
@@ -370,12 +286,12 @@ private static final long serialVersionUID = 0L;
    * @return The entityResultType.
    */
   @java.lang.Override public com.google.datastore.v1beta3.EntityResult.ResultType getEntityResultType() {
-    @SuppressWarnings("deprecation")
-    com.google.datastore.v1beta3.EntityResult.ResultType result = com.google.datastore.v1beta3.EntityResult.ResultType.valueOf(entityResultType_);
+    com.google.datastore.v1beta3.EntityResult.ResultType result = com.google.datastore.v1beta3.EntityResult.ResultType.forNumber(entityResultType_);
     return result == null ? com.google.datastore.v1beta3.EntityResult.ResultType.UNRECOGNIZED : result;
   }
 
   public static final int ENTITY_RESULTS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.datastore.v1beta3.EntityResult> entityResults_;
   /**
    * <pre>
@@ -436,7 +352,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int END_CURSOR_FIELD_NUMBER = 4;
-  private com.google.protobuf.ByteString endCursor_;
+  private com.google.protobuf.ByteString endCursor_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * A cursor that points to the position after the last result in the batch.
@@ -451,7 +367,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MORE_RESULTS_FIELD_NUMBER = 5;
-  private int moreResults_;
+  private int moreResults_ = 0;
   /**
    * <pre>
    * The state of the query after the current batch.
@@ -472,13 +388,12 @@ private static final long serialVersionUID = 0L;
    * @return The moreResults.
    */
   @java.lang.Override public com.google.datastore.v1beta3.QueryResultBatch.MoreResultsType getMoreResults() {
-    @SuppressWarnings("deprecation")
-    com.google.datastore.v1beta3.QueryResultBatch.MoreResultsType result = com.google.datastore.v1beta3.QueryResultBatch.MoreResultsType.valueOf(moreResults_);
+    com.google.datastore.v1beta3.QueryResultBatch.MoreResultsType result = com.google.datastore.v1beta3.QueryResultBatch.MoreResultsType.forNumber(moreResults_);
     return result == null ? com.google.datastore.v1beta3.QueryResultBatch.MoreResultsType.UNRECOGNIZED : result;
   }
 
   public static final int SNAPSHOT_VERSION_FIELD_NUMBER = 7;
-  private long snapshotVersion_;
+  private long snapshotVersion_ = 0L;
   /**
    * <pre>
    * The version number of the snapshot this batch was returned from.
@@ -534,7 +449,7 @@ private static final long serialVersionUID = 0L;
     if (snapshotVersion_ != 0L) {
       output.writeInt64(7, snapshotVersion_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -571,7 +486,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(7, snapshotVersion_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -598,7 +513,7 @@ private static final long serialVersionUID = 0L;
     if (moreResults_ != other.moreResults_) return false;
     if (getSnapshotVersion()
         != other.getSnapshotVersion()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -626,7 +541,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SNAPSHOT_VERSION_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getSnapshotVersion());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -747,41 +662,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.datastore.v1beta3.QueryResultBatch.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getEntityResultsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       skippedResults_ = 0;
-
       skippedCursor_ = com.google.protobuf.ByteString.EMPTY;
-
       entityResultType_ = 0;
-
       if (entityResultsBuilder_ == null) {
         entityResults_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        entityResults_ = null;
         entityResultsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       endCursor_ = com.google.protobuf.ByteString.EMPTY;
-
       moreResults_ = 0;
-
       snapshotVersion_ = 0L;
-
       return this;
     }
 
@@ -808,24 +713,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.datastore.v1beta3.QueryResultBatch buildPartial() {
       com.google.datastore.v1beta3.QueryResultBatch result = new com.google.datastore.v1beta3.QueryResultBatch(this);
-      int from_bitField0_ = bitField0_;
-      result.skippedResults_ = skippedResults_;
-      result.skippedCursor_ = skippedCursor_;
-      result.entityResultType_ = entityResultType_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.datastore.v1beta3.QueryResultBatch result) {
       if (entityResultsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           entityResults_ = java.util.Collections.unmodifiableList(entityResults_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.entityResults_ = entityResults_;
       } else {
         result.entityResults_ = entityResultsBuilder_.build();
       }
-      result.endCursor_ = endCursor_;
-      result.moreResults_ = moreResults_;
-      result.snapshotVersion_ = snapshotVersion_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.datastore.v1beta3.QueryResultBatch result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.skippedResults_ = skippedResults_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.skippedCursor_ = skippedCursor_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.entityResultType_ = entityResultType_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.endCursor_ = endCursor_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.moreResults_ = moreResults_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.snapshotVersion_ = snapshotVersion_;
+      }
     }
 
     @java.lang.Override
@@ -885,7 +810,7 @@ private static final long serialVersionUID = 0L;
         if (!other.entityResults_.isEmpty()) {
           if (entityResults_.isEmpty()) {
             entityResults_ = other.entityResults_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureEntityResultsIsMutable();
             entityResults_.addAll(other.entityResults_);
@@ -898,7 +823,7 @@ private static final long serialVersionUID = 0L;
             entityResultsBuilder_.dispose();
             entityResultsBuilder_ = null;
             entityResults_ = other.entityResults_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             entityResultsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getEntityResultsFieldBuilder() : null;
@@ -916,7 +841,7 @@ private static final long serialVersionUID = 0L;
       if (other.getSnapshotVersion() != 0L) {
         setSnapshotVersion(other.getSnapshotVersion());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -931,17 +856,73 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.datastore.v1beta3.QueryResultBatch parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              entityResultType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 8
+            case 18: {
+              com.google.datastore.v1beta3.EntityResult m =
+                  input.readMessage(
+                      com.google.datastore.v1beta3.EntityResult.parser(),
+                      extensionRegistry);
+              if (entityResultsBuilder_ == null) {
+                ensureEntityResultsIsMutable();
+                entityResults_.add(m);
+              } else {
+                entityResultsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              skippedCursor_ = input.readBytes();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              endCursor_ = input.readBytes();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 40: {
+              moreResults_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 40
+            case 48: {
+              skippedResults_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 48
+            case 56: {
+              snapshotVersion_ = input.readInt64();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.datastore.v1beta3.QueryResultBatch) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -971,6 +952,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSkippedResults(int value) {
       
       skippedResults_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -983,7 +965,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSkippedResults() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       skippedResults_ = 0;
       onChanged();
       return this;
@@ -1014,11 +996,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSkippedCursor(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       skippedCursor_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1032,7 +1012,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSkippedCursor() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       skippedCursor_ = getDefaultInstance().getSkippedCursor();
       onChanged();
       return this;
@@ -1060,8 +1040,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEntityResultTypeValue(int value) {
-      
       entityResultType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1075,8 +1055,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.datastore.v1beta3.EntityResult.ResultType getEntityResultType() {
-      @SuppressWarnings("deprecation")
-      com.google.datastore.v1beta3.EntityResult.ResultType result = com.google.datastore.v1beta3.EntityResult.ResultType.valueOf(entityResultType_);
+      com.google.datastore.v1beta3.EntityResult.ResultType result = com.google.datastore.v1beta3.EntityResult.ResultType.forNumber(entityResultType_);
       return result == null ? com.google.datastore.v1beta3.EntityResult.ResultType.UNRECOGNIZED : result;
     }
     /**
@@ -1092,7 +1071,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       entityResultType_ = value.getNumber();
       onChanged();
       return this;
@@ -1106,7 +1085,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEntityResultType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       entityResultType_ = 0;
       onChanged();
       return this;
@@ -1115,9 +1094,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.datastore.v1beta3.EntityResult> entityResults_ =
       java.util.Collections.emptyList();
     private void ensureEntityResultsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         entityResults_ = new java.util.ArrayList<com.google.datastore.v1beta3.EntityResult>(entityResults_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1311,7 +1290,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearEntityResults() {
       if (entityResultsBuilder_ == null) {
         entityResults_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         entityResultsBuilder_.clear();
@@ -1416,7 +1395,7 @@ private static final long serialVersionUID = 0L;
         entityResultsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.datastore.v1beta3.EntityResult, com.google.datastore.v1beta3.EntityResult.Builder, com.google.datastore.v1beta3.EntityResultOrBuilder>(
                 entityResults_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         entityResults_ = null;
@@ -1447,11 +1426,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEndCursor(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       endCursor_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1464,7 +1441,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEndCursor() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       endCursor_ = getDefaultInstance().getEndCursor();
       onChanged();
       return this;
@@ -1492,8 +1469,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMoreResultsValue(int value) {
-      
       moreResults_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1507,8 +1484,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.datastore.v1beta3.QueryResultBatch.MoreResultsType getMoreResults() {
-      @SuppressWarnings("deprecation")
-      com.google.datastore.v1beta3.QueryResultBatch.MoreResultsType result = com.google.datastore.v1beta3.QueryResultBatch.MoreResultsType.valueOf(moreResults_);
+      com.google.datastore.v1beta3.QueryResultBatch.MoreResultsType result = com.google.datastore.v1beta3.QueryResultBatch.MoreResultsType.forNumber(moreResults_);
       return result == null ? com.google.datastore.v1beta3.QueryResultBatch.MoreResultsType.UNRECOGNIZED : result;
     }
     /**
@@ -1524,7 +1500,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       moreResults_ = value.getNumber();
       onChanged();
       return this;
@@ -1538,7 +1514,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMoreResults() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       moreResults_ = 0;
       onChanged();
       return this;
@@ -1583,6 +1559,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSnapshotVersion(long value) {
       
       snapshotVersion_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1602,7 +1579,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSnapshotVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       snapshotVersion_ = 0L;
       onChanged();
       return this;
@@ -1640,7 +1617,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new QueryResultBatch(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -37,51 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SuggestionFeature(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.v2.ConversationProfileProto.internal_static_google_cloud_dialogflow_v2_SuggestionFeature_descriptor;
@@ -114,7 +69,7 @@ private static final long serialVersionUID = 0L;
     TYPE_UNSPECIFIED(0),
     /**
      * <pre>
-     * Run article suggestion model.
+     * Run article suggestion model for chat.
      * </pre>
      *
      * <code>ARTICLE_SUGGESTION = 1;</code>
@@ -122,7 +77,7 @@ private static final long serialVersionUID = 0L;
     ARTICLE_SUGGESTION(1),
     /**
      * <pre>
-     * Run FAQ model.
+     * Run FAQ model for chat.
      * </pre>
      *
      * <code>FAQ = 2;</code>
@@ -130,7 +85,7 @@ private static final long serialVersionUID = 0L;
     FAQ(2),
     /**
      * <pre>
-     * Run smart reply model.
+     * Run smart reply model for chat.
      * </pre>
      *
      * <code>SMART_REPLY = 3;</code>
@@ -149,7 +104,7 @@ private static final long serialVersionUID = 0L;
     public static final int TYPE_UNSPECIFIED_VALUE = 0;
     /**
      * <pre>
-     * Run article suggestion model.
+     * Run article suggestion model for chat.
      * </pre>
      *
      * <code>ARTICLE_SUGGESTION = 1;</code>
@@ -157,7 +112,7 @@ private static final long serialVersionUID = 0L;
     public static final int ARTICLE_SUGGESTION_VALUE = 1;
     /**
      * <pre>
-     * Run FAQ model.
+     * Run FAQ model for chat.
      * </pre>
      *
      * <code>FAQ = 2;</code>
@@ -165,7 +120,7 @@ private static final long serialVersionUID = 0L;
     public static final int FAQ_VALUE = 2;
     /**
      * <pre>
-     * Run smart reply model.
+     * Run smart reply model for chat.
      * </pre>
      *
      * <code>SMART_REPLY = 3;</code>
@@ -258,7 +213,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 1;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Type of Human Agent Assistant API feature to request.
@@ -279,8 +234,7 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.cloud.dialogflow.v2.SuggestionFeature.Type getType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dialogflow.v2.SuggestionFeature.Type result = com.google.cloud.dialogflow.v2.SuggestionFeature.Type.valueOf(type_);
+    com.google.cloud.dialogflow.v2.SuggestionFeature.Type result = com.google.cloud.dialogflow.v2.SuggestionFeature.Type.forNumber(type_);
     return result == null ? com.google.cloud.dialogflow.v2.SuggestionFeature.Type.UNRECOGNIZED : result;
   }
 
@@ -301,7 +255,7 @@ private static final long serialVersionUID = 0L;
     if (type_ != com.google.cloud.dialogflow.v2.SuggestionFeature.Type.TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(1, type_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -314,7 +268,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, type_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -330,7 +284,7 @@ private static final long serialVersionUID = 0L;
     com.google.cloud.dialogflow.v2.SuggestionFeature other = (com.google.cloud.dialogflow.v2.SuggestionFeature) obj;
 
     if (type_ != other.type_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -343,7 +297,7 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + TYPE_FIELD_NUMBER;
     hash = (53 * hash) + type_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -466,24 +420,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.v2.SuggestionFeature.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       type_ = 0;
-
       return this;
     }
 
@@ -510,9 +459,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.v2.SuggestionFeature buildPartial() {
       com.google.cloud.dialogflow.v2.SuggestionFeature result = new com.google.cloud.dialogflow.v2.SuggestionFeature(this);
-      result.type_ = type_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.v2.SuggestionFeature result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.type_ = type_;
+      }
     }
 
     @java.lang.Override
@@ -562,7 +518,7 @@ private static final long serialVersionUID = 0L;
       if (other.type_ != 0) {
         setTypeValue(other.getTypeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -577,19 +533,38 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.v2.SuggestionFeature parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.v2.SuggestionFeature) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int type_ = 0;
     /**
@@ -613,8 +588,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -628,8 +603,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dialogflow.v2.SuggestionFeature.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dialogflow.v2.SuggestionFeature.Type result = com.google.cloud.dialogflow.v2.SuggestionFeature.Type.valueOf(type_);
+      com.google.cloud.dialogflow.v2.SuggestionFeature.Type result = com.google.cloud.dialogflow.v2.SuggestionFeature.Type.forNumber(type_);
       return result == null ? com.google.cloud.dialogflow.v2.SuggestionFeature.Type.UNRECOGNIZED : result;
     }
     /**
@@ -645,7 +619,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -659,7 +633,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       type_ = 0;
       onChanged();
       return this;
@@ -697,7 +671,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SuggestionFeature(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

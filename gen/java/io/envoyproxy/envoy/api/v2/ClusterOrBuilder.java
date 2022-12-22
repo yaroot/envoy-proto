@@ -912,8 +912,7 @@ public interface ClusterOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; extension_protocol_options = 35 [deprecated = true, (.envoy.annotations.disallowed_by_default) = true];</code>
    */
-  @java.lang.Deprecated 
-  /* nullable */
+  @java.lang.Deprecated /* nullable */
 com.google.protobuf.Struct getExtensionProtocolOptionsOrDefault(
       java.lang.String key,
       /* nullable */
@@ -928,8 +927,7 @@ com.google.protobuf.Struct defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; extension_protocol_options = 35 [deprecated = true, (.envoy.annotations.disallowed_by_default) = true];</code>
    */
-  @java.lang.Deprecated 
-  com.google.protobuf.Struct getExtensionProtocolOptionsOrThrow(
+  @java.lang.Deprecated com.google.protobuf.Struct getExtensionProtocolOptionsOrThrow(
       java.lang.String key);
 
   /**
@@ -983,7 +981,6 @@ com.google.protobuf.Struct defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Any&gt; typed_extension_protocol_options = 36;</code>
    */
-
   /* nullable */
 com.google.protobuf.Any getTypedExtensionProtocolOptionsOrDefault(
       java.lang.String key,
@@ -999,7 +996,6 @@ com.google.protobuf.Any defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Any&gt; typed_extension_protocol_options = 36;</code>
    */
-
   com.google.protobuf.Any getTypedExtensionProtocolOptionsOrThrow(
       java.lang.String key);
 

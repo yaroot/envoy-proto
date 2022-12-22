@@ -35,77 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private FileCoverage(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            path_ = s;
-            break;
-          }
-          case 18: {
-            com.google.devtools.resultstore.v2.LineCoverage.Builder subBuilder = null;
-            if (lineCoverage_ != null) {
-              subBuilder = lineCoverage_.toBuilder();
-            }
-            lineCoverage_ = input.readMessage(com.google.devtools.resultstore.v2.LineCoverage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lineCoverage_);
-              lineCoverage_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.devtools.resultstore.v2.BranchCoverage.Builder subBuilder = null;
-            if (branchCoverage_ != null) {
-              subBuilder = branchCoverage_.toBuilder();
-            }
-            branchCoverage_ = input.readMessage(com.google.devtools.resultstore.v2.BranchCoverage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(branchCoverage_);
-              branchCoverage_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.resultstore.v2.CoverageProto.internal_static_google_devtools_resultstore_v2_FileCoverage_descriptor;
@@ -120,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PATH_FIELD_NUMBER = 1;
-  private volatile java.lang.Object path_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object path_ = "";
   /**
    * <pre>
    * Path of source file within the SourceContext of this Invocation.
@@ -200,7 +130,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.resultstore.v2.LineCoverageOrBuilder getLineCoverageOrBuilder() {
-    return getLineCoverage();
+    return lineCoverage_ == null ? com.google.devtools.resultstore.v2.LineCoverage.getDefaultInstance() : lineCoverage_;
   }
 
   public static final int BRANCH_COVERAGE_FIELD_NUMBER = 3;
@@ -238,7 +168,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.resultstore.v2.BranchCoverageOrBuilder getBranchCoverageOrBuilder() {
-    return getBranchCoverage();
+    return branchCoverage_ == null ? com.google.devtools.resultstore.v2.BranchCoverage.getDefaultInstance() : branchCoverage_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -264,7 +194,7 @@ private static final long serialVersionUID = 0L;
     if (branchCoverage_ != null) {
       output.writeMessage(3, getBranchCoverage());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -284,7 +214,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getBranchCoverage());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -311,7 +241,7 @@ private static final long serialVersionUID = 0L;
       if (!getBranchCoverage()
           .equals(other.getBranchCoverage())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -332,7 +262,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BRANCH_COVERAGE_FIELD_NUMBER;
       hash = (53 * hash) + getBranchCoverage().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -453,34 +383,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.resultstore.v2.FileCoverage.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       path_ = "";
-
-      if (lineCoverageBuilder_ == null) {
-        lineCoverage_ = null;
-      } else {
-        lineCoverage_ = null;
+      lineCoverage_ = null;
+      if (lineCoverageBuilder_ != null) {
+        lineCoverageBuilder_.dispose();
         lineCoverageBuilder_ = null;
       }
-      if (branchCoverageBuilder_ == null) {
-        branchCoverage_ = null;
-      } else {
-        branchCoverage_ = null;
+      branchCoverage_ = null;
+      if (branchCoverageBuilder_ != null) {
+        branchCoverageBuilder_.dispose();
         branchCoverageBuilder_ = null;
       }
       return this;
@@ -509,19 +432,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.resultstore.v2.FileCoverage buildPartial() {
       com.google.devtools.resultstore.v2.FileCoverage result = new com.google.devtools.resultstore.v2.FileCoverage(this);
-      result.path_ = path_;
-      if (lineCoverageBuilder_ == null) {
-        result.lineCoverage_ = lineCoverage_;
-      } else {
-        result.lineCoverage_ = lineCoverageBuilder_.build();
-      }
-      if (branchCoverageBuilder_ == null) {
-        result.branchCoverage_ = branchCoverage_;
-      } else {
-        result.branchCoverage_ = branchCoverageBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.resultstore.v2.FileCoverage result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.path_ = path_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.lineCoverage_ = lineCoverageBuilder_ == null
+            ? lineCoverage_
+            : lineCoverageBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.branchCoverage_ = branchCoverageBuilder_ == null
+            ? branchCoverage_
+            : branchCoverageBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -570,6 +500,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.resultstore.v2.FileCoverage.getDefaultInstance()) return this;
       if (!other.getPath().isEmpty()) {
         path_ = other.path_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasLineCoverage()) {
@@ -578,7 +509,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasBranchCoverage()) {
         mergeBranchCoverage(other.getBranchCoverage());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -593,19 +524,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.resultstore.v2.FileCoverage parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              path_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getLineCoverageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getBranchCoverageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.resultstore.v2.FileCoverage) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object path_ = "";
     /**
@@ -660,11 +624,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       path_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -677,8 +639,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPath() {
-      
       path_ = getDefaultInstance().getPath();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -693,12 +655,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       path_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -715,7 +675,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lineCoverage field is set.
      */
     public boolean hasLineCoverage() {
-      return lineCoverageBuilder_ != null || lineCoverage_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -745,11 +705,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         lineCoverage_ = value;
-        onChanged();
       } else {
         lineCoverageBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -763,11 +723,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.resultstore.v2.LineCoverage.Builder builderForValue) {
       if (lineCoverageBuilder_ == null) {
         lineCoverage_ = builderForValue.build();
-        onChanged();
       } else {
         lineCoverageBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -779,17 +739,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLineCoverage(com.google.devtools.resultstore.v2.LineCoverage value) {
       if (lineCoverageBuilder_ == null) {
-        if (lineCoverage_ != null) {
-          lineCoverage_ =
-            com.google.devtools.resultstore.v2.LineCoverage.newBuilder(lineCoverage_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          lineCoverage_ != null &&
+          lineCoverage_ != com.google.devtools.resultstore.v2.LineCoverage.getDefaultInstance()) {
+          getLineCoverageBuilder().mergeFrom(value);
         } else {
           lineCoverage_ = value;
         }
-        onChanged();
       } else {
         lineCoverageBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -800,14 +761,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.resultstore.v2.LineCoverage line_coverage = 2;</code>
      */
     public Builder clearLineCoverage() {
-      if (lineCoverageBuilder_ == null) {
-        lineCoverage_ = null;
-        onChanged();
-      } else {
-        lineCoverage_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      lineCoverage_ = null;
+      if (lineCoverageBuilder_ != null) {
+        lineCoverageBuilder_.dispose();
         lineCoverageBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -818,7 +778,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.resultstore.v2.LineCoverage line_coverage = 2;</code>
      */
     public com.google.devtools.resultstore.v2.LineCoverage.Builder getLineCoverageBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getLineCoverageFieldBuilder().getBuilder();
     }
@@ -870,7 +830,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the branchCoverage field is set.
      */
     public boolean hasBranchCoverage() {
-      return branchCoverageBuilder_ != null || branchCoverage_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -900,11 +860,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         branchCoverage_ = value;
-        onChanged();
       } else {
         branchCoverageBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -918,11 +878,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.resultstore.v2.BranchCoverage.Builder builderForValue) {
       if (branchCoverageBuilder_ == null) {
         branchCoverage_ = builderForValue.build();
-        onChanged();
       } else {
         branchCoverageBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -934,17 +894,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBranchCoverage(com.google.devtools.resultstore.v2.BranchCoverage value) {
       if (branchCoverageBuilder_ == null) {
-        if (branchCoverage_ != null) {
-          branchCoverage_ =
-            com.google.devtools.resultstore.v2.BranchCoverage.newBuilder(branchCoverage_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          branchCoverage_ != null &&
+          branchCoverage_ != com.google.devtools.resultstore.v2.BranchCoverage.getDefaultInstance()) {
+          getBranchCoverageBuilder().mergeFrom(value);
         } else {
           branchCoverage_ = value;
         }
-        onChanged();
       } else {
         branchCoverageBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -955,14 +916,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.resultstore.v2.BranchCoverage branch_coverage = 3;</code>
      */
     public Builder clearBranchCoverage() {
-      if (branchCoverageBuilder_ == null) {
-        branchCoverage_ = null;
-        onChanged();
-      } else {
-        branchCoverage_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      branchCoverage_ = null;
+      if (branchCoverageBuilder_ != null) {
+        branchCoverageBuilder_.dispose();
         branchCoverageBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -973,7 +933,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.resultstore.v2.BranchCoverage branch_coverage = 3;</code>
      */
     public com.google.devtools.resultstore.v2.BranchCoverage.Builder getBranchCoverageBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getBranchCoverageFieldBuilder().getBuilder();
     }
@@ -1045,7 +1005,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FileCoverage(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

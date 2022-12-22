@@ -50,7 +50,6 @@ public interface EndpointConfigOrBuilder extends
    *
    * <code>map&lt;string, string&gt; http_ports = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 java.lang.String getHttpPortsOrDefault(
       java.lang.String key,
@@ -64,7 +63,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; http_ports = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   java.lang.String getHttpPortsOrThrow(
       java.lang.String key);
 

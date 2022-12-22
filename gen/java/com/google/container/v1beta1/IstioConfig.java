@@ -35,56 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private IstioConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            disabled_ = input.readBool();
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            auth_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_IstioConfig_descriptor;
@@ -227,7 +177,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISABLED_FIELD_NUMBER = 1;
-  private boolean disabled_;
+  private boolean disabled_ = false;
   /**
    * <pre>
    * Whether Istio is enabled for this cluster.
@@ -235,7 +185,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>bool disabled = 1 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.IstioConfig.disabled is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=1184
+   *     See google/container/v1beta1/cluster_service.proto;l=1211
    * @return The disabled.
    */
   @java.lang.Override
@@ -244,7 +194,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUTH_FIELD_NUMBER = 2;
-  private int auth_;
+  private int auth_ = 0;
   /**
    * <pre>
    * The specified Istio auth mode, either none, or mutual TLS.
@@ -252,7 +202,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.container.v1beta1.IstioConfig.IstioAuthMode auth = 2 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.IstioConfig.auth is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=1187
+   *     See google/container/v1beta1/cluster_service.proto;l=1214
    * @return The enum numeric value on the wire for auth.
    */
   @java.lang.Override @java.lang.Deprecated public int getAuthValue() {
@@ -265,12 +215,11 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.container.v1beta1.IstioConfig.IstioAuthMode auth = 2 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.IstioConfig.auth is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=1187
+   *     See google/container/v1beta1/cluster_service.proto;l=1214
    * @return The auth.
    */
   @java.lang.Override @java.lang.Deprecated public com.google.container.v1beta1.IstioConfig.IstioAuthMode getAuth() {
-    @SuppressWarnings("deprecation")
-    com.google.container.v1beta1.IstioConfig.IstioAuthMode result = com.google.container.v1beta1.IstioConfig.IstioAuthMode.valueOf(auth_);
+    com.google.container.v1beta1.IstioConfig.IstioAuthMode result = com.google.container.v1beta1.IstioConfig.IstioAuthMode.forNumber(auth_);
     return result == null ? com.google.container.v1beta1.IstioConfig.IstioAuthMode.UNRECOGNIZED : result;
   }
 
@@ -294,7 +243,7 @@ private static final long serialVersionUID = 0L;
     if (auth_ != com.google.container.v1beta1.IstioConfig.IstioAuthMode.AUTH_NONE.getNumber()) {
       output.writeEnum(2, auth_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -311,7 +260,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, auth_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -329,7 +278,7 @@ private static final long serialVersionUID = 0L;
     if (getDisabled()
         != other.getDisabled()) return false;
     if (auth_ != other.auth_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -345,7 +294,7 @@ private static final long serialVersionUID = 0L;
         getDisabled());
     hash = (37 * hash) + AUTH_FIELD_NUMBER;
     hash = (53 * hash) + auth_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -466,26 +415,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1beta1.IstioConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       disabled_ = false;
-
       auth_ = 0;
-
       return this;
     }
 
@@ -512,10 +455,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1beta1.IstioConfig buildPartial() {
       com.google.container.v1beta1.IstioConfig result = new com.google.container.v1beta1.IstioConfig(this);
-      result.disabled_ = disabled_;
-      result.auth_ = auth_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.container.v1beta1.IstioConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.disabled_ = disabled_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.auth_ = auth_;
+      }
     }
 
     @java.lang.Override
@@ -568,7 +520,7 @@ private static final long serialVersionUID = 0L;
       if (other.auth_ != 0) {
         setAuthValue(other.getAuthValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -583,19 +535,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1beta1.IstioConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              disabled_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              auth_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1beta1.IstioConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean disabled_ ;
     /**
@@ -605,7 +581,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>bool disabled = 1 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.IstioConfig.disabled is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=1184
+     *     See google/container/v1beta1/cluster_service.proto;l=1211
      * @return The disabled.
      */
     @java.lang.Override
@@ -619,13 +595,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>bool disabled = 1 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.IstioConfig.disabled is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=1184
+     *     See google/container/v1beta1/cluster_service.proto;l=1211
      * @param value The disabled to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setDisabled(boolean value) {
       
       disabled_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -636,11 +613,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>bool disabled = 1 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.IstioConfig.disabled is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=1184
+     *     See google/container/v1beta1/cluster_service.proto;l=1211
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearDisabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       disabled_ = false;
       onChanged();
       return this;
@@ -654,7 +631,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.container.v1beta1.IstioConfig.IstioAuthMode auth = 2 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.IstioConfig.auth is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=1187
+     *     See google/container/v1beta1/cluster_service.proto;l=1214
      * @return The enum numeric value on the wire for auth.
      */
     @java.lang.Override @java.lang.Deprecated public int getAuthValue() {
@@ -667,13 +644,13 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.container.v1beta1.IstioConfig.IstioAuthMode auth = 2 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.IstioConfig.auth is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=1187
+     *     See google/container/v1beta1/cluster_service.proto;l=1214
      * @param value The enum numeric value on the wire for auth to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setAuthValue(int value) {
-      
       auth_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -684,13 +661,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.container.v1beta1.IstioConfig.IstioAuthMode auth = 2 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.IstioConfig.auth is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=1187
+     *     See google/container/v1beta1/cluster_service.proto;l=1214
      * @return The auth.
      */
     @java.lang.Override
     @java.lang.Deprecated public com.google.container.v1beta1.IstioConfig.IstioAuthMode getAuth() {
-      @SuppressWarnings("deprecation")
-      com.google.container.v1beta1.IstioConfig.IstioAuthMode result = com.google.container.v1beta1.IstioConfig.IstioAuthMode.valueOf(auth_);
+      com.google.container.v1beta1.IstioConfig.IstioAuthMode result = com.google.container.v1beta1.IstioConfig.IstioAuthMode.forNumber(auth_);
       return result == null ? com.google.container.v1beta1.IstioConfig.IstioAuthMode.UNRECOGNIZED : result;
     }
     /**
@@ -700,7 +676,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.container.v1beta1.IstioConfig.IstioAuthMode auth = 2 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.IstioConfig.auth is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=1187
+     *     See google/container/v1beta1/cluster_service.proto;l=1214
      * @param value The auth to set.
      * @return This builder for chaining.
      */
@@ -708,7 +684,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       auth_ = value.getNumber();
       onChanged();
       return this;
@@ -720,11 +696,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.container.v1beta1.IstioConfig.IstioAuthMode auth = 2 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.IstioConfig.auth is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=1187
+     *     See google/container/v1beta1/cluster_service.proto;l=1214
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearAuth() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       auth_ = 0;
       onChanged();
       return this;
@@ -762,7 +738,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new IstioConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

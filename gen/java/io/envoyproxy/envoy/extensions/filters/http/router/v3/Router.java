@@ -5,7 +5,7 @@ package io.envoyproxy.envoy.extensions.filters.http.router.v3;
 
 /**
  * <pre>
- * [#next-free-field: 8]
+ * [#next-free-field: 9]
  * </pre>
  *
  * Protobuf type {@code envoy.extensions.filters.http.router.v3.Router}
@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
   private Router() {
     upstreamLog_ = java.util.Collections.emptyList();
     strictCheckHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    upstreamHttpFilters_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -35,103 +36,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Router(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (dynamicStats_ != null) {
-              subBuilder = dynamicStats_.toBuilder();
-            }
-            dynamicStats_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dynamicStats_);
-              dynamicStats_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-
-            startChildSpan_ = input.readBool();
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              upstreamLog_ = new java.util.ArrayList<io.envoyproxy.envoy.config.accesslog.v3.AccessLog>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            upstreamLog_.add(
-                input.readMessage(io.envoyproxy.envoy.config.accesslog.v3.AccessLog.parser(), extensionRegistry));
-            break;
-          }
-          case 32: {
-
-            suppressEnvoyHeaders_ = input.readBool();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              strictCheckHeaders_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            strictCheckHeaders_.add(s);
-            break;
-          }
-          case 48: {
-
-            respectExpectedRqTimeout_ = input.readBool();
-            break;
-          }
-          case 56: {
-
-            suppressGrpcRequestFailureCodeStats_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        upstreamLog_ = java.util.Collections.unmodifiableList(upstreamLog_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        strictCheckHeaders_ = strictCheckHeaders_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -184,11 +88,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getDynamicStatsOrBuilder() {
-    return getDynamicStats();
+    return dynamicStats_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : dynamicStats_;
   }
 
   public static final int START_CHILD_SPAN_FIELD_NUMBER = 2;
-  private boolean startChildSpan_;
+  private boolean startChildSpan_ = false;
   /**
    * <pre>
    * Whether to start a child span for egress routed calls. This can be
@@ -206,6 +110,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UPSTREAM_LOG_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.accesslog.v3.AccessLog> upstreamLog_;
   /**
    * <pre>
@@ -281,7 +186,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUPPRESS_ENVOY_HEADERS_FIELD_NUMBER = 4;
-  private boolean suppressEnvoyHeaders_;
+  private boolean suppressEnvoyHeaders_ = false;
   /**
    * <pre>
    * Do not add any additional ``x-envoy-`` headers to requests or responses. This
@@ -299,6 +204,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STRICT_CHECK_HEADERS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList strictCheckHeaders_;
   /**
    * <pre>
@@ -394,7 +300,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESPECT_EXPECTED_RQ_TIMEOUT_FIELD_NUMBER = 6;
-  private boolean respectExpectedRqTimeout_;
+  private boolean respectExpectedRqTimeout_ = false;
   /**
    * <pre>
    * If not set, ingress Envoy will ignore
@@ -411,7 +317,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUPPRESS_GRPC_REQUEST_FAILURE_CODE_STATS_FIELD_NUMBER = 7;
-  private boolean suppressGrpcRequestFailureCodeStats_;
+  private boolean suppressGrpcRequestFailureCodeStats_ = false;
   /**
    * <pre>
    * If set, Envoy will avoid incrementing HTTP failure code stats
@@ -430,6 +336,117 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean getSuppressGrpcRequestFailureCodeStats() {
     return suppressGrpcRequestFailureCodeStats_;
+  }
+
+  public static final int UPSTREAM_HTTP_FILTERS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
+  private java.util.List<io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter> upstreamHttpFilters_;
+  /**
+   * <pre>
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
+   * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all requests that pass through the router.
+   * They will also be applied to shadowed requests.
+   * Upstream filters cannot change route or cluster.
+   * Upstream filters specified on the cluster will override these filters.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+   */
+  @java.lang.Override
+  public java.util.List<io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter> getUpstreamHttpFiltersList() {
+    return upstreamHttpFilters_;
+  }
+  /**
+   * <pre>
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
+   * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all requests that pass through the router.
+   * They will also be applied to shadowed requests.
+   * Upstream filters cannot change route or cluster.
+   * Upstream filters specified on the cluster will override these filters.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilterOrBuilder> 
+      getUpstreamHttpFiltersOrBuilderList() {
+    return upstreamHttpFilters_;
+  }
+  /**
+   * <pre>
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
+   * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all requests that pass through the router.
+   * They will also be applied to shadowed requests.
+   * Upstream filters cannot change route or cluster.
+   * Upstream filters specified on the cluster will override these filters.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+   */
+  @java.lang.Override
+  public int getUpstreamHttpFiltersCount() {
+    return upstreamHttpFilters_.size();
+  }
+  /**
+   * <pre>
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
+   * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all requests that pass through the router.
+   * They will also be applied to shadowed requests.
+   * Upstream filters cannot change route or cluster.
+   * Upstream filters specified on the cluster will override these filters.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter getUpstreamHttpFilters(int index) {
+    return upstreamHttpFilters_.get(index);
+  }
+  /**
+   * <pre>
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
+   * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all requests that pass through the router.
+   * They will also be applied to shadowed requests.
+   * Upstream filters cannot change route or cluster.
+   * Upstream filters specified on the cluster will override these filters.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilterOrBuilder getUpstreamHttpFiltersOrBuilder(
+      int index) {
+    return upstreamHttpFilters_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -467,7 +484,10 @@ private static final long serialVersionUID = 0L;
     if (suppressGrpcRequestFailureCodeStats_ != false) {
       output.writeBool(7, suppressGrpcRequestFailureCodeStats_);
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < upstreamHttpFilters_.size(); i++) {
+      output.writeMessage(8, upstreamHttpFilters_.get(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -508,7 +528,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(7, suppressGrpcRequestFailureCodeStats_);
     }
-    size += unknownFields.getSerializedSize();
+    for (int i = 0; i < upstreamHttpFilters_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, upstreamHttpFilters_.get(i));
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -540,7 +564,9 @@ private static final long serialVersionUID = 0L;
         != other.getRespectExpectedRqTimeout()) return false;
     if (getSuppressGrpcRequestFailureCodeStats()
         != other.getSuppressGrpcRequestFailureCodeStats()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUpstreamHttpFiltersList()
+        .equals(other.getUpstreamHttpFiltersList())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -575,7 +601,11 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SUPPRESS_GRPC_REQUEST_FAILURE_CODE_STATS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getSuppressGrpcRequestFailureCodeStats());
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (getUpstreamHttpFiltersCount() > 0) {
+      hash = (37 * hash) + UPSTREAM_HTTP_FILTERS_FIELD_NUMBER;
+      hash = (53 * hash) + getUpstreamHttpFiltersList().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -672,7 +702,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * [#next-free-field: 8]
+   * [#next-free-field: 9]
    * </pre>
    *
    * Protobuf type {@code envoy.extensions.filters.http.router.v3.Router}
@@ -696,45 +726,43 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.router.v3.Router.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getUpstreamLogFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (dynamicStatsBuilder_ == null) {
-        dynamicStats_ = null;
-      } else {
-        dynamicStats_ = null;
+      bitField0_ = 0;
+      dynamicStats_ = null;
+      if (dynamicStatsBuilder_ != null) {
+        dynamicStatsBuilder_.dispose();
         dynamicStatsBuilder_ = null;
       }
       startChildSpan_ = false;
-
       if (upstreamLogBuilder_ == null) {
         upstreamLog_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        upstreamLog_ = null;
         upstreamLogBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       suppressEnvoyHeaders_ = false;
-
       strictCheckHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000010);
       respectExpectedRqTimeout_ = false;
-
       suppressGrpcRequestFailureCodeStats_ = false;
-
+      if (upstreamHttpFiltersBuilder_ == null) {
+        upstreamHttpFilters_ = java.util.Collections.emptyList();
+      } else {
+        upstreamHttpFilters_ = null;
+        upstreamHttpFiltersBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000080);
       return this;
     }
 
@@ -761,32 +789,57 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.router.v3.Router buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.router.v3.Router result = new io.envoyproxy.envoy.extensions.filters.http.router.v3.Router(this);
-      int from_bitField0_ = bitField0_;
-      if (dynamicStatsBuilder_ == null) {
-        result.dynamicStats_ = dynamicStats_;
-      } else {
-        result.dynamicStats_ = dynamicStatsBuilder_.build();
-      }
-      result.startChildSpan_ = startChildSpan_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.filters.http.router.v3.Router result) {
       if (upstreamLogBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           upstreamLog_ = java.util.Collections.unmodifiableList(upstreamLog_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.upstreamLog_ = upstreamLog_;
       } else {
         result.upstreamLog_ = upstreamLogBuilder_.build();
       }
-      result.suppressEnvoyHeaders_ = suppressEnvoyHeaders_;
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         strictCheckHeaders_ = strictCheckHeaders_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
       }
       result.strictCheckHeaders_ = strictCheckHeaders_;
-      result.respectExpectedRqTimeout_ = respectExpectedRqTimeout_;
-      result.suppressGrpcRequestFailureCodeStats_ = suppressGrpcRequestFailureCodeStats_;
-      onBuilt();
-      return result;
+      if (upstreamHttpFiltersBuilder_ == null) {
+        if (((bitField0_ & 0x00000080) != 0)) {
+          upstreamHttpFilters_ = java.util.Collections.unmodifiableList(upstreamHttpFilters_);
+          bitField0_ = (bitField0_ & ~0x00000080);
+        }
+        result.upstreamHttpFilters_ = upstreamHttpFilters_;
+      } else {
+        result.upstreamHttpFilters_ = upstreamHttpFiltersBuilder_.build();
+      }
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.router.v3.Router result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.dynamicStats_ = dynamicStatsBuilder_ == null
+            ? dynamicStats_
+            : dynamicStatsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.startChildSpan_ = startChildSpan_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.suppressEnvoyHeaders_ = suppressEnvoyHeaders_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.respectExpectedRqTimeout_ = respectExpectedRqTimeout_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.suppressGrpcRequestFailureCodeStats_ = suppressGrpcRequestFailureCodeStats_;
+      }
     }
 
     @java.lang.Override
@@ -843,7 +896,7 @@ private static final long serialVersionUID = 0L;
         if (!other.upstreamLog_.isEmpty()) {
           if (upstreamLog_.isEmpty()) {
             upstreamLog_ = other.upstreamLog_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureUpstreamLogIsMutable();
             upstreamLog_.addAll(other.upstreamLog_);
@@ -856,7 +909,7 @@ private static final long serialVersionUID = 0L;
             upstreamLogBuilder_.dispose();
             upstreamLogBuilder_ = null;
             upstreamLog_ = other.upstreamLog_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             upstreamLogBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getUpstreamLogFieldBuilder() : null;
@@ -871,7 +924,7 @@ private static final long serialVersionUID = 0L;
       if (!other.strictCheckHeaders_.isEmpty()) {
         if (strictCheckHeaders_.isEmpty()) {
           strictCheckHeaders_ = other.strictCheckHeaders_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureStrictCheckHeadersIsMutable();
           strictCheckHeaders_.addAll(other.strictCheckHeaders_);
@@ -884,7 +937,33 @@ private static final long serialVersionUID = 0L;
       if (other.getSuppressGrpcRequestFailureCodeStats() != false) {
         setSuppressGrpcRequestFailureCodeStats(other.getSuppressGrpcRequestFailureCodeStats());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (upstreamHttpFiltersBuilder_ == null) {
+        if (!other.upstreamHttpFilters_.isEmpty()) {
+          if (upstreamHttpFilters_.isEmpty()) {
+            upstreamHttpFilters_ = other.upstreamHttpFilters_;
+            bitField0_ = (bitField0_ & ~0x00000080);
+          } else {
+            ensureUpstreamHttpFiltersIsMutable();
+            upstreamHttpFilters_.addAll(other.upstreamHttpFilters_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.upstreamHttpFilters_.isEmpty()) {
+          if (upstreamHttpFiltersBuilder_.isEmpty()) {
+            upstreamHttpFiltersBuilder_.dispose();
+            upstreamHttpFiltersBuilder_ = null;
+            upstreamHttpFilters_ = other.upstreamHttpFilters_;
+            bitField0_ = (bitField0_ & ~0x00000080);
+            upstreamHttpFiltersBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getUpstreamHttpFiltersFieldBuilder() : null;
+          } else {
+            upstreamHttpFiltersBuilder_.addAllMessages(other.upstreamHttpFilters_);
+          }
+        }
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -899,17 +978,89 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.router.v3.Router parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getDynamicStatsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              startChildSpan_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              io.envoyproxy.envoy.config.accesslog.v3.AccessLog m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.accesslog.v3.AccessLog.parser(),
+                      extensionRegistry);
+              if (upstreamLogBuilder_ == null) {
+                ensureUpstreamLogIsMutable();
+                upstreamLog_.add(m);
+              } else {
+                upstreamLogBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 32: {
+              suppressEnvoyHeaders_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureStrictCheckHeadersIsMutable();
+              strictCheckHeaders_.add(s);
+              break;
+            } // case 42
+            case 48: {
+              respectExpectedRqTimeout_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              suppressGrpcRequestFailureCodeStats_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 66: {
+              io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter.parser(),
+                      extensionRegistry);
+              if (upstreamHttpFiltersBuilder_ == null) {
+                ensureUpstreamHttpFiltersIsMutable();
+                upstreamHttpFilters_.add(m);
+              } else {
+                upstreamHttpFiltersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.router.v3.Router) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -927,7 +1078,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dynamicStats field is set.
      */
     public boolean hasDynamicStats() {
-      return dynamicStatsBuilder_ != null || dynamicStats_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -959,11 +1110,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dynamicStats_ = value;
-        onChanged();
       } else {
         dynamicStatsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -978,11 +1129,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (dynamicStatsBuilder_ == null) {
         dynamicStats_ = builderForValue.build();
-        onChanged();
       } else {
         dynamicStatsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -995,17 +1146,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDynamicStats(com.google.protobuf.BoolValue value) {
       if (dynamicStatsBuilder_ == null) {
-        if (dynamicStats_ != null) {
-          dynamicStats_ =
-            com.google.protobuf.BoolValue.newBuilder(dynamicStats_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          dynamicStats_ != null &&
+          dynamicStats_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getDynamicStatsBuilder().mergeFrom(value);
         } else {
           dynamicStats_ = value;
         }
-        onChanged();
       } else {
         dynamicStatsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1017,14 +1169,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue dynamic_stats = 1;</code>
      */
     public Builder clearDynamicStats() {
-      if (dynamicStatsBuilder_ == null) {
-        dynamicStats_ = null;
-        onChanged();
-      } else {
-        dynamicStats_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      dynamicStats_ = null;
+      if (dynamicStatsBuilder_ != null) {
+        dynamicStatsBuilder_.dispose();
         dynamicStatsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1036,7 +1187,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue dynamic_stats = 1;</code>
      */
     public com.google.protobuf.BoolValue.Builder getDynamicStatsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getDynamicStatsFieldBuilder().getBuilder();
     }
@@ -1109,6 +1260,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStartChildSpan(boolean value) {
       
       startChildSpan_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1124,7 +1276,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStartChildSpan() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       startChildSpan_ = false;
       onChanged();
       return this;
@@ -1133,9 +1285,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.config.accesslog.v3.AccessLog> upstreamLog_ =
       java.util.Collections.emptyList();
     private void ensureUpstreamLogIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         upstreamLog_ = new java.util.ArrayList<io.envoyproxy.envoy.config.accesslog.v3.AccessLog>(upstreamLog_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1362,7 +1514,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearUpstreamLog() {
       if (upstreamLogBuilder_ == null) {
         upstreamLog_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         upstreamLogBuilder_.clear();
@@ -1488,7 +1640,7 @@ private static final long serialVersionUID = 0L;
         upstreamLogBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.config.accesslog.v3.AccessLog, io.envoyproxy.envoy.config.accesslog.v3.AccessLog.Builder, io.envoyproxy.envoy.config.accesslog.v3.AccessLogOrBuilder>(
                 upstreamLog_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         upstreamLog_ = null;
@@ -1527,6 +1679,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSuppressEnvoyHeaders(boolean value) {
       
       suppressEnvoyHeaders_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1542,7 +1695,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSuppressEnvoyHeaders() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       suppressEnvoyHeaders_ = false;
       onChanged();
       return this;
@@ -1550,9 +1703,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList strictCheckHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureStrictCheckHeadersIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         strictCheckHeaders_ = new com.google.protobuf.LazyStringArrayList(strictCheckHeaders_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -1670,10 +1823,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStrictCheckHeaders(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureStrictCheckHeadersIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureStrictCheckHeadersIsMutable();
       strictCheckHeaders_.set(index, value);
       onChanged();
       return this;
@@ -1700,10 +1851,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addStrictCheckHeaders(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureStrictCheckHeadersIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureStrictCheckHeadersIsMutable();
       strictCheckHeaders_.add(value);
       onChanged();
       return this;
@@ -1757,7 +1906,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearStrictCheckHeaders() {
       strictCheckHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1783,10 +1932,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addStrictCheckHeadersBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureStrictCheckHeadersIsMutable();
       strictCheckHeaders_.add(value);
       onChanged();
@@ -1822,6 +1969,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRespectExpectedRqTimeout(boolean value) {
       
       respectExpectedRqTimeout_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1836,7 +1984,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRespectExpectedRqTimeout() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       respectExpectedRqTimeout_ = false;
       onChanged();
       return this;
@@ -1881,6 +2029,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSuppressGrpcRequestFailureCodeStats(boolean value) {
       
       suppressGrpcRequestFailureCodeStats_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1900,10 +2049,502 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSuppressGrpcRequestFailureCodeStats() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       suppressGrpcRequestFailureCodeStats_ = false;
       onChanged();
       return this;
+    }
+
+    private java.util.List<io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter> upstreamHttpFilters_ =
+      java.util.Collections.emptyList();
+    private void ensureUpstreamHttpFiltersIsMutable() {
+      if (!((bitField0_ & 0x00000080) != 0)) {
+        upstreamHttpFilters_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter>(upstreamHttpFilters_);
+        bitField0_ |= 0x00000080;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter, io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter.Builder, io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilterOrBuilder> upstreamHttpFiltersBuilder_;
+
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public java.util.List<io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter> getUpstreamHttpFiltersList() {
+      if (upstreamHttpFiltersBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(upstreamHttpFilters_);
+      } else {
+        return upstreamHttpFiltersBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public int getUpstreamHttpFiltersCount() {
+      if (upstreamHttpFiltersBuilder_ == null) {
+        return upstreamHttpFilters_.size();
+      } else {
+        return upstreamHttpFiltersBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter getUpstreamHttpFilters(int index) {
+      if (upstreamHttpFiltersBuilder_ == null) {
+        return upstreamHttpFilters_.get(index);
+      } else {
+        return upstreamHttpFiltersBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public Builder setUpstreamHttpFilters(
+        int index, io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter value) {
+      if (upstreamHttpFiltersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureUpstreamHttpFiltersIsMutable();
+        upstreamHttpFilters_.set(index, value);
+        onChanged();
+      } else {
+        upstreamHttpFiltersBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public Builder setUpstreamHttpFilters(
+        int index, io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter.Builder builderForValue) {
+      if (upstreamHttpFiltersBuilder_ == null) {
+        ensureUpstreamHttpFiltersIsMutable();
+        upstreamHttpFilters_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        upstreamHttpFiltersBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public Builder addUpstreamHttpFilters(io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter value) {
+      if (upstreamHttpFiltersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureUpstreamHttpFiltersIsMutable();
+        upstreamHttpFilters_.add(value);
+        onChanged();
+      } else {
+        upstreamHttpFiltersBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public Builder addUpstreamHttpFilters(
+        int index, io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter value) {
+      if (upstreamHttpFiltersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureUpstreamHttpFiltersIsMutable();
+        upstreamHttpFilters_.add(index, value);
+        onChanged();
+      } else {
+        upstreamHttpFiltersBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public Builder addUpstreamHttpFilters(
+        io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter.Builder builderForValue) {
+      if (upstreamHttpFiltersBuilder_ == null) {
+        ensureUpstreamHttpFiltersIsMutable();
+        upstreamHttpFilters_.add(builderForValue.build());
+        onChanged();
+      } else {
+        upstreamHttpFiltersBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public Builder addUpstreamHttpFilters(
+        int index, io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter.Builder builderForValue) {
+      if (upstreamHttpFiltersBuilder_ == null) {
+        ensureUpstreamHttpFiltersIsMutable();
+        upstreamHttpFilters_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        upstreamHttpFiltersBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public Builder addAllUpstreamHttpFilters(
+        java.lang.Iterable<? extends io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter> values) {
+      if (upstreamHttpFiltersBuilder_ == null) {
+        ensureUpstreamHttpFiltersIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, upstreamHttpFilters_);
+        onChanged();
+      } else {
+        upstreamHttpFiltersBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public Builder clearUpstreamHttpFilters() {
+      if (upstreamHttpFiltersBuilder_ == null) {
+        upstreamHttpFilters_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000080);
+        onChanged();
+      } else {
+        upstreamHttpFiltersBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public Builder removeUpstreamHttpFilters(int index) {
+      if (upstreamHttpFiltersBuilder_ == null) {
+        ensureUpstreamHttpFiltersIsMutable();
+        upstreamHttpFilters_.remove(index);
+        onChanged();
+      } else {
+        upstreamHttpFiltersBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter.Builder getUpstreamHttpFiltersBuilder(
+        int index) {
+      return getUpstreamHttpFiltersFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilterOrBuilder getUpstreamHttpFiltersOrBuilder(
+        int index) {
+      if (upstreamHttpFiltersBuilder_ == null) {
+        return upstreamHttpFilters_.get(index);  } else {
+        return upstreamHttpFiltersBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public java.util.List<? extends io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilterOrBuilder> 
+         getUpstreamHttpFiltersOrBuilderList() {
+      if (upstreamHttpFiltersBuilder_ != null) {
+        return upstreamHttpFiltersBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(upstreamHttpFilters_);
+      }
+    }
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter.Builder addUpstreamHttpFiltersBuilder() {
+      return getUpstreamHttpFiltersFieldBuilder().addBuilder(
+          io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter.Builder addUpstreamHttpFiltersBuilder(
+        int index) {
+      return getUpstreamHttpFiltersFieldBuilder().addBuilder(
+          index, io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
+     * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all requests that pass through the router.
+     * They will also be applied to shadowed requests.
+     * Upstream filters cannot change route or cluster.
+     * Upstream filters specified on the cluster will override these filters.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+     */
+    public java.util.List<io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter.Builder> 
+         getUpstreamHttpFiltersBuilderList() {
+      return getUpstreamHttpFiltersFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter, io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter.Builder, io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilterOrBuilder> 
+        getUpstreamHttpFiltersFieldBuilder() {
+      if (upstreamHttpFiltersBuilder_ == null) {
+        upstreamHttpFiltersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter, io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter.Builder, io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilterOrBuilder>(
+                upstreamHttpFilters_,
+                ((bitField0_ & 0x00000080) != 0),
+                getParentForChildren(),
+                isClean());
+        upstreamHttpFilters_ = null;
+      }
+      return upstreamHttpFiltersBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1938,7 +2579,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Router(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

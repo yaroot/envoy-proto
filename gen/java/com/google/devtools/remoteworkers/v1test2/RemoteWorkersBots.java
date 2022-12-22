@@ -57,64 +57,64 @@ public final class RemoteWorkersBots {
       "st2/worker.proto\032\031google/protobuf/any.pr" +
       "oto\032 google/protobuf/field_mask.proto\032\037g" +
       "oogle/protobuf/timestamp.proto\032\027google/r" +
-      "pc/status.proto\"\206\003\n\nBotSession\022\014\n\004name\030\001" +
+      "pc/status.proto\"\203\003\n\nBotSession\022\014\n\004name\030\001" +
       " \001(\t\022\016\n\006bot_id\030\002 \001(\t\022@\n\006status\030\003 \001(\01620.g" +
       "oogle.devtools.remoteworkers.v1test2.Bot" +
       "Status\022=\n\006worker\030\004 \001(\0132-.google.devtools" +
       ".remoteworkers.v1test2.Worker\022<\n\006leases\030" +
       "\005 \003(\0132,.google.devtools.remoteworkers.v1" +
       "test2.Lease\022/\n\013expire_time\030\006 \001(\0132\032.googl" +
-      "e.protobuf.Timestamp\022\017\n\007version\030\007 \001(\t:Y\352" +
-      "AV\n\'remoteworkers.googleapis.com/BotSess" +
-      "ion\022+{unknown_path=**}/botSessions/{bot_" +
-      "session}\"\211\003\n\005Lease\022\n\n\002id\030\007 \001(\t\022%\n\007payloa" +
-      "d\030\010 \001(\0132\024.google.protobuf.Any\022$\n\006result\030" +
-      "\t \001(\0132\024.google.protobuf.Any\022@\n\005state\030\002 \001" +
-      "(\01621.google.devtools.remoteworkers.v1tes" +
-      "t2.LeaseState\022\"\n\006status\030\003 \001(\0132\022.google.r" +
-      "pc.Status\022C\n\014requirements\030\004 \001(\0132-.google" +
-      ".devtools.remoteworkers.v1test2.Worker\022/" +
-      "\n\013expire_time\030\005 \001(\0132\032.google.protobuf.Ti" +
-      "mestamp\022\026\n\nassignment\030\001 \001(\tB\002\030\001\0223\n\021inlin" +
-      "e_assignment\030\006 \001(\0132\024.google.protobuf.Any" +
-      "B\002\030\001\"\305\001\n\tAdminTemp\022I\n\007command\030\001 \001(\01628.go" +
-      "ogle.devtools.remoteworkers.v1test2.Admi" +
-      "nTemp.Command\022\013\n\003arg\030\002 \001(\t\"`\n\007Command\022\017\n" +
-      "\013UNSPECIFIED\020\000\022\016\n\nBOT_UPDATE\020\001\022\017\n\013BOT_RE" +
-      "START\020\002\022\021\n\rBOT_TERMINATE\020\003\022\020\n\014HOST_RESTA" +
-      "RT\020\004\"{\n\027CreateBotSessionRequest\022\023\n\006paren" +
-      "t\030\001 \001(\tB\003\340A\002\022K\n\013bot_session\030\002 \001(\01321.goog" +
-      "le.devtools.remoteworkers.v1test2.BotSes" +
-      "sionB\003\340A\002\"\333\001\n\027UpdateBotSessionRequest\022=\n" +
-      "\004name\030\001 \001(\tB/\340A\002\372A)\n\'remoteworkers.googl" +
-      "eapis.com/BotSession\022K\n\013bot_session\030\002 \001(" +
-      "\01321.google.devtools.remoteworkers.v1test" +
-      "2.BotSessionB\003\340A\002\0224\n\013update_mask\030\003 \001(\0132\032" +
-      ".google.protobuf.FieldMaskB\003\340A\002*y\n\tBotSt" +
-      "atus\022\032\n\026BOT_STATUS_UNSPECIFIED\020\000\022\006\n\002OK\020\001" +
-      "\022\r\n\tUNHEALTHY\020\002\022\022\n\016HOST_REBOOTING\020\003\022\023\n\017B" +
-      "OT_TERMINATING\020\004\022\020\n\014INITIALIZING\020\005*`\n\nLe" +
-      "aseState\022\033\n\027LEASE_STATE_UNSPECIFIED\020\000\022\013\n" +
-      "\007PENDING\020\001\022\n\n\006ACTIVE\020\002\022\r\n\tCOMPLETED\020\004\022\r\n" +
-      "\tCANCELLED\020\0052\331\003\n\004Bots\022\321\001\n\020CreateBotSessi" +
-      "on\022>.google.devtools.remoteworkers.v1tes" +
-      "t2.CreateBotSessionRequest\0321.google.devt" +
-      "ools.remoteworkers.v1test2.BotSession\"J\202" +
-      "\323\344\223\002/\" /v1test2/{parent=**}/botSessions:" +
-      "\013bot_session\332A\022parent,bot_session\022\333\001\n\020Up" +
-      "dateBotSession\022>.google.devtools.remotew" +
-      "orkers.v1test2.UpdateBotSessionRequest\0321" +
+      "e.protobuf.Timestamp\022\017\n\007version\030\007 \001(\t:V\352" +
+      "AS\n\'remoteworkers.googleapis.com/BotSess" +
+      "ion\022({unknown_path}/botSessions/{bot_ses" +
+      "sion}\"\211\003\n\005Lease\022\n\n\002id\030\007 \001(\t\022%\n\007payload\030\010" +
+      " \001(\0132\024.google.protobuf.Any\022$\n\006result\030\t \001" +
+      "(\0132\024.google.protobuf.Any\022@\n\005state\030\002 \001(\0162" +
+      "1.google.devtools.remoteworkers.v1test2." +
+      "LeaseState\022\"\n\006status\030\003 \001(\0132\022.google.rpc." +
+      "Status\022C\n\014requirements\030\004 \001(\0132-.google.de" +
+      "vtools.remoteworkers.v1test2.Worker\022/\n\013e" +
+      "xpire_time\030\005 \001(\0132\032.google.protobuf.Times" +
+      "tamp\022\026\n\nassignment\030\001 \001(\tB\002\030\001\0223\n\021inline_a" +
+      "ssignment\030\006 \001(\0132\024.google.protobuf.AnyB\002\030" +
+      "\001\"\305\001\n\tAdminTemp\022I\n\007command\030\001 \001(\01628.googl" +
+      "e.devtools.remoteworkers.v1test2.AdminTe" +
+      "mp.Command\022\013\n\003arg\030\002 \001(\t\"`\n\007Command\022\017\n\013UN" +
+      "SPECIFIED\020\000\022\016\n\nBOT_UPDATE\020\001\022\017\n\013BOT_RESTA" +
+      "RT\020\002\022\021\n\rBOT_TERMINATE\020\003\022\020\n\014HOST_RESTART\020" +
+      "\004\"{\n\027CreateBotSessionRequest\022\023\n\006parent\030\001" +
+      " \001(\tB\003\340A\002\022K\n\013bot_session\030\002 \001(\01321.google." +
+      "devtools.remoteworkers.v1test2.BotSessio" +
+      "nB\003\340A\002\"\333\001\n\027UpdateBotSessionRequest\022=\n\004na" +
+      "me\030\001 \001(\tB/\340A\002\372A)\n\'remoteworkers.googleap" +
+      "is.com/BotSession\022K\n\013bot_session\030\002 \001(\01321" +
       ".google.devtools.remoteworkers.v1test2.B" +
-      "otSession\"T\202\323\344\223\002/2 /v1test2/{name=**/bot" +
-      "Sessions/*}:\013bot_session\332A\034name,bot_sess" +
-      "ion,update_mask\032\037\312A\034remoteworkers.google" +
-      "apis.comB\346\001\n)com.google.devtools.remotew" +
-      "orkers.v1test2B\021RemoteWorkersBotsP\001ZRgoo" +
-      "gle.golang.org/genproto/googleapis/devto" +
-      "ols/remoteworkers/v1test2;remoteworkers\242" +
-      "\002\002RW\252\002%Google.DevTools.RemoteWorkers.V1T" +
-      "est2\312\002\"Google\\Cloud\\Remoteworkers\\V1test" +
-      "2b\006proto3"
+      "otSessionB\003\340A\002\0224\n\013update_mask\030\003 \001(\0132\032.go" +
+      "ogle.protobuf.FieldMaskB\003\340A\002*y\n\tBotStatu" +
+      "s\022\032\n\026BOT_STATUS_UNSPECIFIED\020\000\022\006\n\002OK\020\001\022\r\n" +
+      "\tUNHEALTHY\020\002\022\022\n\016HOST_REBOOTING\020\003\022\023\n\017BOT_" +
+      "TERMINATING\020\004\022\020\n\014INITIALIZING\020\005*`\n\nLease" +
+      "State\022\033\n\027LEASE_STATE_UNSPECIFIED\020\000\022\013\n\007PE" +
+      "NDING\020\001\022\n\n\006ACTIVE\020\002\022\r\n\tCOMPLETED\020\004\022\r\n\tCA" +
+      "NCELLED\020\0052\331\003\n\004Bots\022\321\001\n\020CreateBotSession\022" +
+      ">.google.devtools.remoteworkers.v1test2." +
+      "CreateBotSessionRequest\0321.google.devtool" +
+      "s.remoteworkers.v1test2.BotSession\"J\202\323\344\223" +
+      "\002/\" /v1test2/{parent=**}/botSessions:\013bo" +
+      "t_session\332A\022parent,bot_session\022\333\001\n\020Updat" +
+      "eBotSession\022>.google.devtools.remotework" +
+      "ers.v1test2.UpdateBotSessionRequest\0321.go" +
+      "ogle.devtools.remoteworkers.v1test2.BotS" +
+      "ession\"T\202\323\344\223\002/2 /v1test2/{name=**/botSes" +
+      "sions/*}:\013bot_session\332A\034name,bot_session" +
+      ",update_mask\032\037\312A\034remoteworkers.googleapi" +
+      "s.comB\346\001\n)com.google.devtools.remotework" +
+      "ers.v1test2B\021RemoteWorkersBotsP\001ZRgoogle" +
+      ".golang.org/genproto/googleapis/devtools" +
+      "/remoteworkers/v1test2;remoteworkers\242\002\002R" +
+      "W\252\002%Google.DevTools.RemoteWorkers.V1Test" +
+      "2\312\002\"Google\\Cloud\\Remoteworkers\\V1test2b\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

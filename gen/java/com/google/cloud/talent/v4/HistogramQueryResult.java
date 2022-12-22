@@ -35,65 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HistogramQueryResult(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            histogramQuery_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              histogram_ = com.google.protobuf.MapField.newMapField(
-                  HistogramDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
-            histogram__ = input.readMessage(
-                HistogramDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            histogram_.getMutableMap().put(
-                histogram__.getKey(), histogram__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.talent.v4.HistogramProto.internal_static_google_cloud_talent_v4_HistogramQueryResult_descriptor;
@@ -120,7 +61,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HISTOGRAM_QUERY_FIELD_NUMBER = 1;
-  private volatile java.lang.Object histogramQuery_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object histogramQuery_ = "";
   /**
    * <pre>
    * Requested histogram expression.
@@ -177,6 +119,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.INT64,
                 0L);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Long> histogram_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
@@ -187,7 +130,6 @@ private static final long serialVersionUID = 0L;
     }
     return histogram_;
   }
-
   public int getHistogramCount() {
     return internalGetHistogram().getMap().size();
   }
@@ -205,7 +147,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, int64&gt; histogram = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsHistogram(
       java.lang.String key) {
@@ -235,7 +176,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; histogram = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Long> getHistogramMap() {
     return internalGetHistogram().getMap();
   }
@@ -254,7 +194,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; histogram = 2;</code>
    */
   @java.lang.Override
-
   public long getHistogramOrDefault(
       java.lang.String key,
       long defaultValue) {
@@ -278,7 +217,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; histogram = 2;</code>
    */
   @java.lang.Override
-
   public long getHistogramOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -313,7 +251,7 @@ private static final long serialVersionUID = 0L;
         internalGetHistogram(),
         HistogramDefaultEntryHolder.defaultEntry,
         2);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -335,7 +273,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, histogram__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -354,7 +292,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getHistogramQuery())) return false;
     if (!internalGetHistogram().equals(
         other.internalGetHistogram())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -371,7 +309,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + HISTOGRAM_FIELD_NUMBER;
       hash = (53 * hash) + internalGetHistogram().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -514,24 +452,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.talent.v4.HistogramQueryResult.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       histogramQuery_ = "";
-
       internalGetMutableHistogram().clear();
       return this;
     }
@@ -559,12 +492,20 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.talent.v4.HistogramQueryResult buildPartial() {
       com.google.cloud.talent.v4.HistogramQueryResult result = new com.google.cloud.talent.v4.HistogramQueryResult(this);
-      int from_bitField0_ = bitField0_;
-      result.histogramQuery_ = histogramQuery_;
-      result.histogram_ = internalGetHistogram();
-      result.histogram_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.talent.v4.HistogramQueryResult result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.histogramQuery_ = histogramQuery_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.histogram_ = internalGetHistogram();
+        result.histogram_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -613,11 +554,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.talent.v4.HistogramQueryResult.getDefaultInstance()) return this;
       if (!other.getHistogramQuery().isEmpty()) {
         histogramQuery_ = other.histogramQuery_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       internalGetMutableHistogram().mergeFrom(
           other.internalGetHistogram());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000002;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -632,17 +575,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.talent.v4.HistogramQueryResult parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              histogramQuery_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+              histogram__ = input.readMessage(
+                  HistogramDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableHistogram().getMutableMap().put(
+                  histogram__.getKey(), histogram__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.talent.v4.HistogramQueryResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -700,11 +670,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHistogramQuery(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       histogramQuery_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -717,8 +685,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHistogramQuery() {
-      
       histogramQuery_ = getDefaultInstance().getHistogramQuery();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -733,12 +701,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHistogramQueryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       histogramQuery_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -746,7 +712,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Long> histogram_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
-    internalGetHistogram() {
+        internalGetHistogram() {
       if (histogram_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             HistogramDefaultEntryHolder.defaultEntry);
@@ -754,8 +720,7 @@ private static final long serialVersionUID = 0L;
       return histogram_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
-    internalGetMutableHistogram() {
-      onChanged();;
+        internalGetMutableHistogram() {
       if (histogram_ == null) {
         histogram_ = com.google.protobuf.MapField.newMapField(
             HistogramDefaultEntryHolder.defaultEntry);
@@ -763,9 +728,10 @@ private static final long serialVersionUID = 0L;
       if (!histogram_.isMutable()) {
         histogram_ = histogram_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return histogram_;
     }
-
     public int getHistogramCount() {
       return internalGetHistogram().getMap().size();
     }
@@ -783,7 +749,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; histogram = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsHistogram(
         java.lang.String key) {
@@ -813,7 +778,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; histogram = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Long> getHistogramMap() {
       return internalGetHistogram().getMap();
     }
@@ -832,7 +796,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; histogram = 2;</code>
      */
     @java.lang.Override
-
     public long getHistogramOrDefault(
         java.lang.String key,
         long defaultValue) {
@@ -856,7 +819,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; histogram = 2;</code>
      */
     @java.lang.Override
-
     public long getHistogramOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -867,8 +829,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearHistogram() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableHistogram().getMutableMap()
           .clear();
       return this;
@@ -887,7 +849,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; histogram = 2;</code>
      */
-
     public Builder removeHistogram(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -900,7 +861,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Long>
-    getMutableHistogram() {
+        getMutableHistogram() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableHistogram().getMutableMap();
     }
     /**
@@ -924,6 +886,7 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutableHistogram().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -940,11 +903,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; histogram = 2;</code>
      */
-
     public Builder putAllHistogram(
         java.util.Map<java.lang.String, java.lang.Long> values) {
       internalGetMutableHistogram().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
     @java.lang.Override
@@ -980,7 +943,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HistogramQueryResult(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

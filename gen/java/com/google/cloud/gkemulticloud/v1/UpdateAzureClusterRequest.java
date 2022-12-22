@@ -34,76 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateAzureClusterRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.gkemulticloud.v1.AzureCluster.Builder subBuilder = null;
-            if (azureCluster_ != null) {
-              subBuilder = azureCluster_.toBuilder();
-            }
-            azureCluster_ = input.readMessage(com.google.cloud.gkemulticloud.v1.AzureCluster.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(azureCluster_);
-              azureCluster_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-
-            validateOnly_ = input.readBool();
-            break;
-          }
-          case 34: {
-            com.google.protobuf.FieldMask.Builder subBuilder = null;
-            if (updateMask_ != null) {
-              subBuilder = updateMask_.toBuilder();
-            }
-            updateMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateMask_);
-              updateMask_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkemulticloud.v1.AzureServiceProto.internal_static_google_cloud_gkemulticloud_v1_UpdateAzureClusterRequest_descriptor;
@@ -121,7 +51,8 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.gkemulticloud.v1.AzureCluster azureCluster_;
   /**
    * <pre>
-   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to update.
+   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+   * resource to update.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -133,7 +64,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to update.
+   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+   * resource to update.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -145,18 +77,19 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to update.
+   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+   * resource to update.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.AzureClusterOrBuilder getAzureClusterOrBuilder() {
-    return getAzureCluster();
+    return azureCluster_ == null ? com.google.cloud.gkemulticloud.v1.AzureCluster.getDefaultInstance() : azureCluster_;
   }
 
   public static final int VALIDATE_ONLY_FIELD_NUMBER = 2;
-  private boolean validateOnly_;
+  private boolean validateOnly_ = false;
   /**
    * <pre>
    * If set, only validate the request, but do not actually update the cluster.
@@ -178,13 +111,18 @@ private static final long serialVersionUID = 0L;
    * this field. The elements of the repeated paths field can only include these
    * fields from [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]:
    *  *   `description`.
-   *  *   `annotations`.
    *  *   `azureClient`.
    *  *   `control_plane.version`.
    *  *   `control_plane.vm_size`.
+   *  *   `annotations`.
    *  *   `authorization.admin_users`.
    *  *   `control_plane.root_volume.size_gib`.
-   *  *   `logging_config`
+   *  *   `control_plane.proxy_config`.
+   *  *   `control_plane.proxy_config.resource_group_id`.
+   *  *   `control_plane.proxy_config.secret_id`.
+   *  *   `control_plane.ssh_config.authorized_key`.
+   *  *   `logging_config.component_config.enable_components`
+   *  *   `monitoring_config.managed_prometheus_config.enabled`.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -200,13 +138,18 @@ private static final long serialVersionUID = 0L;
    * this field. The elements of the repeated paths field can only include these
    * fields from [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]:
    *  *   `description`.
-   *  *   `annotations`.
    *  *   `azureClient`.
    *  *   `control_plane.version`.
    *  *   `control_plane.vm_size`.
+   *  *   `annotations`.
    *  *   `authorization.admin_users`.
    *  *   `control_plane.root_volume.size_gib`.
-   *  *   `logging_config`
+   *  *   `control_plane.proxy_config`.
+   *  *   `control_plane.proxy_config.resource_group_id`.
+   *  *   `control_plane.proxy_config.secret_id`.
+   *  *   `control_plane.ssh_config.authorized_key`.
+   *  *   `logging_config.component_config.enable_components`
+   *  *   `monitoring_config.managed_prometheus_config.enabled`.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -222,20 +165,25 @@ private static final long serialVersionUID = 0L;
    * this field. The elements of the repeated paths field can only include these
    * fields from [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]:
    *  *   `description`.
-   *  *   `annotations`.
    *  *   `azureClient`.
    *  *   `control_plane.version`.
    *  *   `control_plane.vm_size`.
+   *  *   `annotations`.
    *  *   `authorization.admin_users`.
    *  *   `control_plane.root_volume.size_gib`.
-   *  *   `logging_config`
+   *  *   `control_plane.proxy_config`.
+   *  *   `control_plane.proxy_config.resource_group_id`.
+   *  *   `control_plane.proxy_config.secret_id`.
+   *  *   `control_plane.ssh_config.authorized_key`.
+   *  *   `logging_config.component_config.enable_components`
+   *  *   `monitoring_config.managed_prometheus_config.enabled`.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
-    return getUpdateMask();
+    return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -261,7 +209,7 @@ private static final long serialVersionUID = 0L;
     if (updateMask_ != null) {
       output.writeMessage(4, getUpdateMask());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -282,7 +230,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getUpdateMask());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -309,7 +257,7 @@ private static final long serialVersionUID = 0L;
       if (!getUpdateMask()
           .equals(other.getUpdateMask())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -331,7 +279,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UPDATE_MASK_FIELD_NUMBER;
       hash = (53 * hash) + getUpdateMask().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -452,34 +400,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkemulticloud.v1.UpdateAzureClusterRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (azureClusterBuilder_ == null) {
-        azureCluster_ = null;
-      } else {
-        azureCluster_ = null;
+      bitField0_ = 0;
+      azureCluster_ = null;
+      if (azureClusterBuilder_ != null) {
+        azureClusterBuilder_.dispose();
         azureClusterBuilder_ = null;
       }
       validateOnly_ = false;
-
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-      } else {
-        updateMask_ = null;
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
       return this;
@@ -508,19 +449,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.UpdateAzureClusterRequest buildPartial() {
       com.google.cloud.gkemulticloud.v1.UpdateAzureClusterRequest result = new com.google.cloud.gkemulticloud.v1.UpdateAzureClusterRequest(this);
-      if (azureClusterBuilder_ == null) {
-        result.azureCluster_ = azureCluster_;
-      } else {
-        result.azureCluster_ = azureClusterBuilder_.build();
-      }
-      result.validateOnly_ = validateOnly_;
-      if (updateMaskBuilder_ == null) {
-        result.updateMask_ = updateMask_;
-      } else {
-        result.updateMask_ = updateMaskBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkemulticloud.v1.UpdateAzureClusterRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.azureCluster_ = azureClusterBuilder_ == null
+            ? azureCluster_
+            : azureClusterBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.validateOnly_ = validateOnly_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.updateMask_ = updateMaskBuilder_ == null
+            ? updateMask_
+            : updateMaskBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -576,7 +524,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasUpdateMask()) {
         mergeUpdateMask(other.getUpdateMask());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -591,37 +539,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkemulticloud.v1.UpdateAzureClusterRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAzureClusterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              validateOnly_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 34: {
+              input.readMessage(
+                  getUpdateMaskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkemulticloud.v1.UpdateAzureClusterRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.gkemulticloud.v1.AzureCluster azureCluster_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.gkemulticloud.v1.AzureCluster, com.google.cloud.gkemulticloud.v1.AzureCluster.Builder, com.google.cloud.gkemulticloud.v1.AzureClusterOrBuilder> azureClusterBuilder_;
     /**
      * <pre>
-     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to update.
+     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+     * resource to update.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the azureCluster field is set.
      */
     public boolean hasAzureCluster() {
-      return azureClusterBuilder_ != null || azureCluster_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
-     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to update.
+     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+     * resource to update.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -636,7 +619,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to update.
+     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+     * resource to update.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -647,16 +631,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         azureCluster_ = value;
-        onChanged();
       } else {
         azureClusterBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to update.
+     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+     * resource to update.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -665,68 +650,72 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AzureCluster.Builder builderForValue) {
       if (azureClusterBuilder_ == null) {
         azureCluster_ = builderForValue.build();
-        onChanged();
       } else {
         azureClusterBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to update.
+     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+     * resource to update.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeAzureCluster(com.google.cloud.gkemulticloud.v1.AzureCluster value) {
       if (azureClusterBuilder_ == null) {
-        if (azureCluster_ != null) {
-          azureCluster_ =
-            com.google.cloud.gkemulticloud.v1.AzureCluster.newBuilder(azureCluster_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          azureCluster_ != null &&
+          azureCluster_ != com.google.cloud.gkemulticloud.v1.AzureCluster.getDefaultInstance()) {
+          getAzureClusterBuilder().mergeFrom(value);
         } else {
           azureCluster_ = value;
         }
-        onChanged();
       } else {
         azureClusterBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to update.
+     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+     * resource to update.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearAzureCluster() {
-      if (azureClusterBuilder_ == null) {
-        azureCluster_ = null;
-        onChanged();
-      } else {
-        azureCluster_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      azureCluster_ = null;
+      if (azureClusterBuilder_ != null) {
+        azureClusterBuilder_.dispose();
         azureClusterBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to update.
+     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+     * resource to update.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.gkemulticloud.v1.AzureCluster.Builder getAzureClusterBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAzureClusterFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to update.
+     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+     * resource to update.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -741,7 +730,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to update.
+     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+     * resource to update.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -785,6 +775,7 @@ private static final long serialVersionUID = 0L;
     public Builder setValidateOnly(boolean value) {
       
       validateOnly_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -797,7 +788,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidateOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       validateOnly_ = false;
       onChanged();
       return this;
@@ -812,20 +803,25 @@ private static final long serialVersionUID = 0L;
      * this field. The elements of the repeated paths field can only include these
      * fields from [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]:
      *  *   `description`.
-     *  *   `annotations`.
      *  *   `azureClient`.
      *  *   `control_plane.version`.
      *  *   `control_plane.vm_size`.
+     *  *   `annotations`.
      *  *   `authorization.admin_users`.
      *  *   `control_plane.root_volume.size_gib`.
-     *  *   `logging_config`
+     *  *   `control_plane.proxy_config`.
+     *  *   `control_plane.proxy_config.resource_group_id`.
+     *  *   `control_plane.proxy_config.secret_id`.
+     *  *   `control_plane.ssh_config.authorized_key`.
+     *  *   `logging_config.component_config.enable_components`
+     *  *   `monitoring_config.managed_prometheus_config.enabled`.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the updateMask field is set.
      */
     public boolean hasUpdateMask() {
-      return updateMaskBuilder_ != null || updateMask_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -833,13 +829,18 @@ private static final long serialVersionUID = 0L;
      * this field. The elements of the repeated paths field can only include these
      * fields from [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]:
      *  *   `description`.
-     *  *   `annotations`.
      *  *   `azureClient`.
      *  *   `control_plane.version`.
      *  *   `control_plane.vm_size`.
+     *  *   `annotations`.
      *  *   `authorization.admin_users`.
      *  *   `control_plane.root_volume.size_gib`.
-     *  *   `logging_config`
+     *  *   `control_plane.proxy_config`.
+     *  *   `control_plane.proxy_config.resource_group_id`.
+     *  *   `control_plane.proxy_config.secret_id`.
+     *  *   `control_plane.ssh_config.authorized_key`.
+     *  *   `logging_config.component_config.enable_components`
+     *  *   `monitoring_config.managed_prometheus_config.enabled`.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -858,13 +859,18 @@ private static final long serialVersionUID = 0L;
      * this field. The elements of the repeated paths field can only include these
      * fields from [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]:
      *  *   `description`.
-     *  *   `annotations`.
      *  *   `azureClient`.
      *  *   `control_plane.version`.
      *  *   `control_plane.vm_size`.
+     *  *   `annotations`.
      *  *   `authorization.admin_users`.
      *  *   `control_plane.root_volume.size_gib`.
-     *  *   `logging_config`
+     *  *   `control_plane.proxy_config`.
+     *  *   `control_plane.proxy_config.resource_group_id`.
+     *  *   `control_plane.proxy_config.secret_id`.
+     *  *   `control_plane.ssh_config.authorized_key`.
+     *  *   `logging_config.component_config.enable_components`
+     *  *   `monitoring_config.managed_prometheus_config.enabled`.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -875,11 +881,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateMask_ = value;
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -888,13 +894,18 @@ private static final long serialVersionUID = 0L;
      * this field. The elements of the repeated paths field can only include these
      * fields from [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]:
      *  *   `description`.
-     *  *   `annotations`.
      *  *   `azureClient`.
      *  *   `control_plane.version`.
      *  *   `control_plane.vm_size`.
+     *  *   `annotations`.
      *  *   `authorization.admin_users`.
      *  *   `control_plane.root_volume.size_gib`.
-     *  *   `logging_config`
+     *  *   `control_plane.proxy_config`.
+     *  *   `control_plane.proxy_config.resource_group_id`.
+     *  *   `control_plane.proxy_config.secret_id`.
+     *  *   `control_plane.ssh_config.authorized_key`.
+     *  *   `logging_config.component_config.enable_components`
+     *  *   `monitoring_config.managed_prometheus_config.enabled`.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -903,11 +914,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.FieldMask.Builder builderForValue) {
       if (updateMaskBuilder_ == null) {
         updateMask_ = builderForValue.build();
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -916,30 +927,36 @@ private static final long serialVersionUID = 0L;
      * this field. The elements of the repeated paths field can only include these
      * fields from [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]:
      *  *   `description`.
-     *  *   `annotations`.
      *  *   `azureClient`.
      *  *   `control_plane.version`.
      *  *   `control_plane.vm_size`.
+     *  *   `annotations`.
      *  *   `authorization.admin_users`.
      *  *   `control_plane.root_volume.size_gib`.
-     *  *   `logging_config`
+     *  *   `control_plane.proxy_config`.
+     *  *   `control_plane.proxy_config.resource_group_id`.
+     *  *   `control_plane.proxy_config.secret_id`.
+     *  *   `control_plane.ssh_config.authorized_key`.
+     *  *   `logging_config.component_config.enable_components`
+     *  *   `monitoring_config.managed_prometheus_config.enabled`.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeUpdateMask(com.google.protobuf.FieldMask value) {
       if (updateMaskBuilder_ == null) {
-        if (updateMask_ != null) {
-          updateMask_ =
-            com.google.protobuf.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          updateMask_ != null &&
+          updateMask_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
+          getUpdateMaskBuilder().mergeFrom(value);
         } else {
           updateMask_ = value;
         }
-        onChanged();
       } else {
         updateMaskBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -948,26 +965,30 @@ private static final long serialVersionUID = 0L;
      * this field. The elements of the repeated paths field can only include these
      * fields from [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]:
      *  *   `description`.
-     *  *   `annotations`.
      *  *   `azureClient`.
      *  *   `control_plane.version`.
      *  *   `control_plane.vm_size`.
+     *  *   `annotations`.
      *  *   `authorization.admin_users`.
      *  *   `control_plane.root_volume.size_gib`.
-     *  *   `logging_config`
+     *  *   `control_plane.proxy_config`.
+     *  *   `control_plane.proxy_config.resource_group_id`.
+     *  *   `control_plane.proxy_config.secret_id`.
+     *  *   `control_plane.ssh_config.authorized_key`.
+     *  *   `logging_config.component_config.enable_components`
+     *  *   `monitoring_config.managed_prometheus_config.enabled`.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearUpdateMask() {
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-        onChanged();
-      } else {
-        updateMask_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -976,19 +997,24 @@ private static final long serialVersionUID = 0L;
      * this field. The elements of the repeated paths field can only include these
      * fields from [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]:
      *  *   `description`.
-     *  *   `annotations`.
      *  *   `azureClient`.
      *  *   `control_plane.version`.
      *  *   `control_plane.vm_size`.
+     *  *   `annotations`.
      *  *   `authorization.admin_users`.
      *  *   `control_plane.root_volume.size_gib`.
-     *  *   `logging_config`
+     *  *   `control_plane.proxy_config`.
+     *  *   `control_plane.proxy_config.resource_group_id`.
+     *  *   `control_plane.proxy_config.secret_id`.
+     *  *   `control_plane.ssh_config.authorized_key`.
+     *  *   `logging_config.component_config.enable_components`
+     *  *   `monitoring_config.managed_prometheus_config.enabled`.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.protobuf.FieldMask.Builder getUpdateMaskBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getUpdateMaskFieldBuilder().getBuilder();
     }
@@ -998,13 +1024,18 @@ private static final long serialVersionUID = 0L;
      * this field. The elements of the repeated paths field can only include these
      * fields from [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]:
      *  *   `description`.
-     *  *   `annotations`.
      *  *   `azureClient`.
      *  *   `control_plane.version`.
      *  *   `control_plane.vm_size`.
+     *  *   `annotations`.
      *  *   `authorization.admin_users`.
      *  *   `control_plane.root_volume.size_gib`.
-     *  *   `logging_config`
+     *  *   `control_plane.proxy_config`.
+     *  *   `control_plane.proxy_config.resource_group_id`.
+     *  *   `control_plane.proxy_config.secret_id`.
+     *  *   `control_plane.ssh_config.authorized_key`.
+     *  *   `logging_config.component_config.enable_components`
+     *  *   `monitoring_config.managed_prometheus_config.enabled`.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1023,13 +1054,18 @@ private static final long serialVersionUID = 0L;
      * this field. The elements of the repeated paths field can only include these
      * fields from [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]:
      *  *   `description`.
-     *  *   `annotations`.
      *  *   `azureClient`.
      *  *   `control_plane.version`.
      *  *   `control_plane.vm_size`.
+     *  *   `annotations`.
      *  *   `authorization.admin_users`.
      *  *   `control_plane.root_volume.size_gib`.
-     *  *   `logging_config`
+     *  *   `control_plane.proxy_config`.
+     *  *   `control_plane.proxy_config.resource_group_id`.
+     *  *   `control_plane.proxy_config.secret_id`.
+     *  *   `control_plane.ssh_config.authorized_key`.
+     *  *   `logging_config.component_config.enable_components`
+     *  *   `monitoring_config.managed_prometheus_config.enabled`.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1080,7 +1116,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateAzureClusterRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

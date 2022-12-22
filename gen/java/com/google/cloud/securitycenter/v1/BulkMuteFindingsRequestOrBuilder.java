@@ -9,8 +9,8 @@ public interface BulkMuteFindingsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The parent, at which bulk action needs to be applied. Its format is
-   * "organizations/[organization_id]", "folders/[folder_id]",
+   * Required. The parent, at which bulk action needs to be applied. Its format
+   * is "organizations/[organization_id]", "folders/[folder_id]",
    * "projects/[project_id]".
    * </pre>
    *
@@ -20,8 +20,8 @@ public interface BulkMuteFindingsRequestOrBuilder extends
   java.lang.String getParent();
   /**
    * <pre>
-   * Required. The parent, at which bulk action needs to be applied. Its format is
-   * "organizations/[organization_id]", "folders/[folder_id]",
+   * Required. The parent, at which bulk action needs to be applied. Its format
+   * is "organizations/[organization_id]", "folders/[folder_id]",
    * "projects/[project_id]".
    * </pre>
    *
@@ -87,7 +87,7 @@ public interface BulkMuteFindingsRequestOrBuilder extends
    *
    * <code>string mute_annotation = 3 [deprecated = true];</code>
    * @deprecated google.cloud.securitycenter.v1.BulkMuteFindingsRequest.mute_annotation is deprecated.
-   *     See google/cloud/securitycenter/v1/securitycenter_service.proto;l=602
+   *     See google/cloud/securitycenter/v1/securitycenter_service.proto;l=612
    * @return The muteAnnotation.
    */
   @java.lang.Deprecated java.lang.String getMuteAnnotation();
@@ -99,7 +99,7 @@ public interface BulkMuteFindingsRequestOrBuilder extends
    *
    * <code>string mute_annotation = 3 [deprecated = true];</code>
    * @deprecated google.cloud.securitycenter.v1.BulkMuteFindingsRequest.mute_annotation is deprecated.
-   *     See google/cloud/securitycenter/v1/securitycenter_service.proto;l=602
+   *     See google/cloud/securitycenter/v1/securitycenter_service.proto;l=612
    * @return The bytes for muteAnnotation.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

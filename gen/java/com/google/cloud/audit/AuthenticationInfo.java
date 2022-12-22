@@ -39,95 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AuthenticationInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            principalEmail_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            authoritySelector_ = s;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (thirdPartyPrincipal_ != null) {
-              subBuilder = thirdPartyPrincipal_.toBuilder();
-            }
-            thirdPartyPrincipal_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(thirdPartyPrincipal_);
-              thirdPartyPrincipal_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceAccountKeyName_ = s;
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              serviceAccountDelegationInfo_ = new java.util.ArrayList<com.google.cloud.audit.ServiceAccountDelegationInfo>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            serviceAccountDelegationInfo_.add(
-                input.readMessage(com.google.cloud.audit.ServiceAccountDelegationInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            principalSubject_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        serviceAccountDelegationInfo_ = java.util.Collections.unmodifiableList(serviceAccountDelegationInfo_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.audit.AuditLogProto.internal_static_google_cloud_audit_AuthenticationInfo_descriptor;
@@ -142,15 +53,16 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRINCIPAL_EMAIL_FIELD_NUMBER = 1;
-  private volatile java.lang.Object principalEmail_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object principalEmail_ = "";
   /**
    * <pre>
    * The email address of the authenticated user (or service account on behalf
    * of third party principal) making the request. For third party identity
    * callers, the `principal_subject` field is populated instead of this field.
    * For privacy reasons, the principal email address is sometimes redacted.
-   * For more information, see
-   * https://cloud.google.com/logging/docs/audit#user-id.
+   * For more information, see [Caller identities in audit
+   * logs](https://cloud.google.com/logging/docs/audit#user-id).
    * </pre>
    *
    * <code>string principal_email = 1;</code>
@@ -175,8 +87,8 @@ private static final long serialVersionUID = 0L;
    * of third party principal) making the request. For third party identity
    * callers, the `principal_subject` field is populated instead of this field.
    * For privacy reasons, the principal email address is sometimes redacted.
-   * For more information, see
-   * https://cloud.google.com/logging/docs/audit#user-id.
+   * For more information, see [Caller identities in audit
+   * logs](https://cloud.google.com/logging/docs/audit#user-id).
    * </pre>
    *
    * <code>string principal_email = 1;</code>
@@ -198,7 +110,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUTHORITY_SELECTOR_FIELD_NUMBER = 2;
-  private volatile java.lang.Object authoritySelector_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object authoritySelector_ = "";
   /**
    * <pre>
    * The authority selector specified by the requestor, if any.
@@ -289,11 +202,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getThirdPartyPrincipalOrBuilder() {
-    return getThirdPartyPrincipal();
+    return thirdPartyPrincipal_ == null ? com.google.protobuf.Struct.getDefaultInstance() : thirdPartyPrincipal_;
   }
 
   public static final int SERVICE_ACCOUNT_KEY_NAME_FIELD_NUMBER = 5;
-  private volatile java.lang.Object serviceAccountKeyName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceAccountKeyName_ = "";
   /**
    * <pre>
    * The name of the service account key used to create or exchange
@@ -345,6 +259,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_ACCOUNT_DELEGATION_INFO_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.audit.ServiceAccountDelegationInfo> serviceAccountDelegationInfo_;
   /**
    * <pre>
@@ -425,7 +340,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRINCIPAL_SUBJECT_FIELD_NUMBER = 8;
-  private volatile java.lang.Object principalSubject_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object principalSubject_ = "";
   /**
    * <pre>
    * String representation of identity of requesting party.
@@ -504,7 +420,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(principalSubject_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, principalSubject_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -533,7 +449,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(principalSubject_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, principalSubject_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -563,7 +479,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getServiceAccountDelegationInfoList())) return false;
     if (!getPrincipalSubject()
         .equals(other.getPrincipalSubject())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -590,7 +506,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + PRINCIPAL_SUBJECT_FIELD_NUMBER;
     hash = (53 * hash) + getPrincipalSubject().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -711,43 +627,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.audit.AuthenticationInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getServiceAccountDelegationInfoFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       principalEmail_ = "";
-
       authoritySelector_ = "";
-
-      if (thirdPartyPrincipalBuilder_ == null) {
-        thirdPartyPrincipal_ = null;
-      } else {
-        thirdPartyPrincipal_ = null;
+      thirdPartyPrincipal_ = null;
+      if (thirdPartyPrincipalBuilder_ != null) {
+        thirdPartyPrincipalBuilder_.dispose();
         thirdPartyPrincipalBuilder_ = null;
       }
       serviceAccountKeyName_ = "";
-
       if (serviceAccountDelegationInfoBuilder_ == null) {
         serviceAccountDelegationInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        serviceAccountDelegationInfo_ = null;
         serviceAccountDelegationInfoBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       principalSubject_ = "";
-
       return this;
     }
 
@@ -774,27 +681,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.audit.AuthenticationInfo buildPartial() {
       com.google.cloud.audit.AuthenticationInfo result = new com.google.cloud.audit.AuthenticationInfo(this);
-      int from_bitField0_ = bitField0_;
-      result.principalEmail_ = principalEmail_;
-      result.authoritySelector_ = authoritySelector_;
-      if (thirdPartyPrincipalBuilder_ == null) {
-        result.thirdPartyPrincipal_ = thirdPartyPrincipal_;
-      } else {
-        result.thirdPartyPrincipal_ = thirdPartyPrincipalBuilder_.build();
-      }
-      result.serviceAccountKeyName_ = serviceAccountKeyName_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.audit.AuthenticationInfo result) {
       if (serviceAccountDelegationInfoBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           serviceAccountDelegationInfo_ = java.util.Collections.unmodifiableList(serviceAccountDelegationInfo_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.serviceAccountDelegationInfo_ = serviceAccountDelegationInfo_;
       } else {
         result.serviceAccountDelegationInfo_ = serviceAccountDelegationInfoBuilder_.build();
       }
-      result.principalSubject_ = principalSubject_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.audit.AuthenticationInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.principalEmail_ = principalEmail_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.authoritySelector_ = authoritySelector_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.thirdPartyPrincipal_ = thirdPartyPrincipalBuilder_ == null
+            ? thirdPartyPrincipal_
+            : thirdPartyPrincipalBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.serviceAccountKeyName_ = serviceAccountKeyName_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.principalSubject_ = principalSubject_;
+      }
     }
 
     @java.lang.Override
@@ -843,10 +766,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.audit.AuthenticationInfo.getDefaultInstance()) return this;
       if (!other.getPrincipalEmail().isEmpty()) {
         principalEmail_ = other.principalEmail_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getAuthoritySelector().isEmpty()) {
         authoritySelector_ = other.authoritySelector_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasThirdPartyPrincipal()) {
@@ -854,13 +779,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getServiceAccountKeyName().isEmpty()) {
         serviceAccountKeyName_ = other.serviceAccountKeyName_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (serviceAccountDelegationInfoBuilder_ == null) {
         if (!other.serviceAccountDelegationInfo_.isEmpty()) {
           if (serviceAccountDelegationInfo_.isEmpty()) {
             serviceAccountDelegationInfo_ = other.serviceAccountDelegationInfo_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureServiceAccountDelegationInfoIsMutable();
             serviceAccountDelegationInfo_.addAll(other.serviceAccountDelegationInfo_);
@@ -873,7 +799,7 @@ private static final long serialVersionUID = 0L;
             serviceAccountDelegationInfoBuilder_.dispose();
             serviceAccountDelegationInfoBuilder_ = null;
             serviceAccountDelegationInfo_ = other.serviceAccountDelegationInfo_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             serviceAccountDelegationInfoBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getServiceAccountDelegationInfoFieldBuilder() : null;
@@ -884,9 +810,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPrincipalSubject().isEmpty()) {
         principalSubject_ = other.principalSubject_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -901,17 +828,70 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.audit.AuthenticationInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              principalEmail_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              authoritySelector_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 34: {
+              input.readMessage(
+                  getThirdPartyPrincipalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 42: {
+              serviceAccountKeyName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 50: {
+              com.google.cloud.audit.ServiceAccountDelegationInfo m =
+                  input.readMessage(
+                      com.google.cloud.audit.ServiceAccountDelegationInfo.parser(),
+                      extensionRegistry);
+              if (serviceAccountDelegationInfoBuilder_ == null) {
+                ensureServiceAccountDelegationInfoIsMutable();
+                serviceAccountDelegationInfo_.add(m);
+              } else {
+                serviceAccountDelegationInfoBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            case 66: {
+              principalSubject_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.audit.AuthenticationInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -923,8 +903,8 @@ private static final long serialVersionUID = 0L;
      * of third party principal) making the request. For third party identity
      * callers, the `principal_subject` field is populated instead of this field.
      * For privacy reasons, the principal email address is sometimes redacted.
-     * For more information, see
-     * https://cloud.google.com/logging/docs/audit#user-id.
+     * For more information, see [Caller identities in audit
+     * logs](https://cloud.google.com/logging/docs/audit#user-id).
      * </pre>
      *
      * <code>string principal_email = 1;</code>
@@ -948,8 +928,8 @@ private static final long serialVersionUID = 0L;
      * of third party principal) making the request. For third party identity
      * callers, the `principal_subject` field is populated instead of this field.
      * For privacy reasons, the principal email address is sometimes redacted.
-     * For more information, see
-     * https://cloud.google.com/logging/docs/audit#user-id.
+     * For more information, see [Caller identities in audit
+     * logs](https://cloud.google.com/logging/docs/audit#user-id).
      * </pre>
      *
      * <code>string principal_email = 1;</code>
@@ -974,8 +954,8 @@ private static final long serialVersionUID = 0L;
      * of third party principal) making the request. For third party identity
      * callers, the `principal_subject` field is populated instead of this field.
      * For privacy reasons, the principal email address is sometimes redacted.
-     * For more information, see
-     * https://cloud.google.com/logging/docs/audit#user-id.
+     * For more information, see [Caller identities in audit
+     * logs](https://cloud.google.com/logging/docs/audit#user-id).
      * </pre>
      *
      * <code>string principal_email = 1;</code>
@@ -984,11 +964,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrincipalEmail(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       principalEmail_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -998,16 +976,16 @@ private static final long serialVersionUID = 0L;
      * of third party principal) making the request. For third party identity
      * callers, the `principal_subject` field is populated instead of this field.
      * For privacy reasons, the principal email address is sometimes redacted.
-     * For more information, see
-     * https://cloud.google.com/logging/docs/audit#user-id.
+     * For more information, see [Caller identities in audit
+     * logs](https://cloud.google.com/logging/docs/audit#user-id).
      * </pre>
      *
      * <code>string principal_email = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearPrincipalEmail() {
-      
       principalEmail_ = getDefaultInstance().getPrincipalEmail();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1017,8 +995,8 @@ private static final long serialVersionUID = 0L;
      * of third party principal) making the request. For third party identity
      * callers, the `principal_subject` field is populated instead of this field.
      * For privacy reasons, the principal email address is sometimes redacted.
-     * For more information, see
-     * https://cloud.google.com/logging/docs/audit#user-id.
+     * For more information, see [Caller identities in audit
+     * logs](https://cloud.google.com/logging/docs/audit#user-id).
      * </pre>
      *
      * <code>string principal_email = 1;</code>
@@ -1027,12 +1005,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrincipalEmailBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       principalEmail_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1093,11 +1069,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthoritySelector(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       authoritySelector_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1111,8 +1085,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAuthoritySelector() {
-      
       authoritySelector_ = getDefaultInstance().getAuthoritySelector();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1128,12 +1102,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthoritySelectorBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       authoritySelector_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1153,7 +1125,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the thirdPartyPrincipal field is set.
      */
     public boolean hasThirdPartyPrincipal() {
-      return thirdPartyPrincipalBuilder_ != null || thirdPartyPrincipal_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1189,11 +1161,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         thirdPartyPrincipal_ = value;
-        onChanged();
       } else {
         thirdPartyPrincipalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1210,11 +1182,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct.Builder builderForValue) {
       if (thirdPartyPrincipalBuilder_ == null) {
         thirdPartyPrincipal_ = builderForValue.build();
-        onChanged();
       } else {
         thirdPartyPrincipalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1229,17 +1201,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeThirdPartyPrincipal(com.google.protobuf.Struct value) {
       if (thirdPartyPrincipalBuilder_ == null) {
-        if (thirdPartyPrincipal_ != null) {
-          thirdPartyPrincipal_ =
-            com.google.protobuf.Struct.newBuilder(thirdPartyPrincipal_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          thirdPartyPrincipal_ != null &&
+          thirdPartyPrincipal_ != com.google.protobuf.Struct.getDefaultInstance()) {
+          getThirdPartyPrincipalBuilder().mergeFrom(value);
         } else {
           thirdPartyPrincipal_ = value;
         }
-        onChanged();
       } else {
         thirdPartyPrincipalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1253,14 +1226,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct third_party_principal = 4;</code>
      */
     public Builder clearThirdPartyPrincipal() {
-      if (thirdPartyPrincipalBuilder_ == null) {
-        thirdPartyPrincipal_ = null;
-        onChanged();
-      } else {
-        thirdPartyPrincipal_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      thirdPartyPrincipal_ = null;
+      if (thirdPartyPrincipalBuilder_ != null) {
+        thirdPartyPrincipalBuilder_.dispose();
         thirdPartyPrincipalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1274,7 +1246,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct third_party_principal = 4;</code>
      */
     public com.google.protobuf.Struct.Builder getThirdPartyPrincipalBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getThirdPartyPrincipalFieldBuilder().getBuilder();
     }
@@ -1382,11 +1354,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccountKeyName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceAccountKeyName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1402,8 +1372,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServiceAccountKeyName() {
-      
       serviceAccountKeyName_ = getDefaultInstance().getServiceAccountKeyName();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1421,12 +1391,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccountKeyNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceAccountKeyName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1434,9 +1402,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.audit.ServiceAccountDelegationInfo> serviceAccountDelegationInfo_ =
       java.util.Collections.emptyList();
     private void ensureServiceAccountDelegationInfoIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         serviceAccountDelegationInfo_ = new java.util.ArrayList<com.google.cloud.audit.ServiceAccountDelegationInfo>(serviceAccountDelegationInfo_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1674,7 +1642,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearServiceAccountDelegationInfo() {
       if (serviceAccountDelegationInfoBuilder_ == null) {
         serviceAccountDelegationInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         serviceAccountDelegationInfoBuilder_.clear();
@@ -1807,7 +1775,7 @@ private static final long serialVersionUID = 0L;
         serviceAccountDelegationInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.audit.ServiceAccountDelegationInfo, com.google.cloud.audit.ServiceAccountDelegationInfo.Builder, com.google.cloud.audit.ServiceAccountDelegationInfoOrBuilder>(
                 serviceAccountDelegationInfo_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         serviceAccountDelegationInfo_ = null;
@@ -1871,11 +1839,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrincipalSubject(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       principalSubject_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1889,8 +1855,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrincipalSubject() {
-      
       principalSubject_ = getDefaultInstance().getPrincipalSubject();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1906,12 +1872,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrincipalSubjectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       principalSubject_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1948,7 +1912,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AuthenticationInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

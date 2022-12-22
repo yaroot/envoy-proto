@@ -57,70 +57,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AnnotatedString(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            textFormatted_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            htmlFormatted_ = s;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              markups_ = new java.util.ArrayList<com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkup>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            markups_.add(
-                input.readMessage(com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkup.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        markups_ = java.util.Collections.unmodifiableList(markups_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataqna.v1alpha.AnnotatedStringProto.internal_static_google_cloud_dataqna_v1alpha_AnnotatedString_descriptor;
@@ -423,61 +359,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SemanticMarkup(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              type_ = rawValue;
-              break;
-            }
-            case 16: {
-
-              startCharIndex_ = input.readInt32();
-              break;
-            }
-            case 24: {
-
-              length_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dataqna.v1alpha.AnnotatedStringProto.internal_static_google_cloud_dataqna_v1alpha_AnnotatedString_SemanticMarkup_descriptor;
@@ -492,7 +373,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
-    private int type_;
+    private int type_ = 0;
     /**
      * <pre>
      * The semantic type of the markup substring.
@@ -513,13 +394,12 @@ private static final long serialVersionUID = 0L;
      * @return The type.
      */
     @java.lang.Override public com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkupType getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkupType result = com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkupType.valueOf(type_);
+      com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkupType result = com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkupType.forNumber(type_);
       return result == null ? com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkupType.UNRECOGNIZED : result;
     }
 
     public static final int START_CHAR_INDEX_FIELD_NUMBER = 2;
-    private int startCharIndex_;
+    private int startCharIndex_ = 0;
     /**
      * <pre>
      * Unicode character index of the query.
@@ -534,7 +414,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int LENGTH_FIELD_NUMBER = 3;
-    private int length_;
+    private int length_ = 0;
     /**
      * <pre>
      * The length (number of unicode characters) of the markup substring.
@@ -571,7 +451,7 @@ private static final long serialVersionUID = 0L;
       if (length_ != 0) {
         output.writeInt32(3, length_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -592,7 +472,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, length_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -612,7 +492,7 @@ private static final long serialVersionUID = 0L;
           != other.getStartCharIndex()) return false;
       if (getLength()
           != other.getLength()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -629,7 +509,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getStartCharIndex();
       hash = (37 * hash) + LENGTH_FIELD_NUMBER;
       hash = (53 * hash) + getLength();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -751,28 +631,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkup.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         type_ = 0;
-
         startCharIndex_ = 0;
-
         length_ = 0;
-
         return this;
       }
 
@@ -799,11 +672,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkup buildPartial() {
         com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkup result = new com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkup(this);
-        result.type_ = type_;
-        result.startCharIndex_ = startCharIndex_;
-        result.length_ = length_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkup result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.type_ = type_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.startCharIndex_ = startCharIndex_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.length_ = length_;
+        }
       }
 
       @java.lang.Override
@@ -859,7 +743,7 @@ private static final long serialVersionUID = 0L;
         if (other.getLength() != 0) {
           setLength(other.getLength());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -874,19 +758,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkup parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                startCharIndex_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                length_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkup) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int type_ = 0;
       /**
@@ -910,8 +823,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
-        
         type_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -925,8 +838,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkupType getType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkupType result = com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkupType.valueOf(type_);
+        com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkupType result = com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkupType.forNumber(type_);
         return result == null ? com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkupType.UNRECOGNIZED : result;
       }
       /**
@@ -942,7 +854,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -956,7 +868,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         type_ = 0;
         onChanged();
         return this;
@@ -987,6 +899,7 @@ private static final long serialVersionUID = 0L;
       public Builder setStartCharIndex(int value) {
         
         startCharIndex_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -999,7 +912,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearStartCharIndex() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         startCharIndex_ = 0;
         onChanged();
         return this;
@@ -1030,6 +943,7 @@ private static final long serialVersionUID = 0L;
       public Builder setLength(int value) {
         
         length_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1042,7 +956,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearLength() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         length_ = 0;
         onChanged();
         return this;
@@ -1080,7 +994,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SemanticMarkup(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1101,7 +1026,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TEXT_FORMATTED_FIELD_NUMBER = 1;
-  private volatile java.lang.Object textFormatted_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object textFormatted_ = "";
   /**
    * <pre>
    * Text version of the string.
@@ -1147,7 +1073,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HTML_FORMATTED_FIELD_NUMBER = 2;
-  private volatile java.lang.Object htmlFormatted_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object htmlFormatted_ = "";
   /**
    * <pre>
    * HTML version of the string annotation.
@@ -1193,6 +1120,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MARKUPS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkup> markups_;
   /**
    * <pre>
@@ -1275,7 +1203,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < markups_.size(); i++) {
       output.writeMessage(3, markups_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1294,7 +1222,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, markups_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1315,7 +1243,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getHtmlFormatted())) return false;
     if (!getMarkupsList()
         .equals(other.getMarkupsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1334,7 +1262,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MARKUPS_FIELD_NUMBER;
       hash = (53 * hash) + getMarkupsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1475,33 +1403,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataqna.v1alpha.AnnotatedString.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMarkupsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       textFormatted_ = "";
-
       htmlFormatted_ = "";
-
       if (markupsBuilder_ == null) {
         markups_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        markups_ = null;
         markupsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -1528,20 +1450,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataqna.v1alpha.AnnotatedString buildPartial() {
       com.google.cloud.dataqna.v1alpha.AnnotatedString result = new com.google.cloud.dataqna.v1alpha.AnnotatedString(this);
-      int from_bitField0_ = bitField0_;
-      result.textFormatted_ = textFormatted_;
-      result.htmlFormatted_ = htmlFormatted_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.dataqna.v1alpha.AnnotatedString result) {
       if (markupsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           markups_ = java.util.Collections.unmodifiableList(markups_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.markups_ = markups_;
       } else {
         result.markups_ = markupsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataqna.v1alpha.AnnotatedString result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.textFormatted_ = textFormatted_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.htmlFormatted_ = htmlFormatted_;
+      }
     }
 
     @java.lang.Override
@@ -1590,17 +1524,19 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dataqna.v1alpha.AnnotatedString.getDefaultInstance()) return this;
       if (!other.getTextFormatted().isEmpty()) {
         textFormatted_ = other.textFormatted_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getHtmlFormatted().isEmpty()) {
         htmlFormatted_ = other.htmlFormatted_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (markupsBuilder_ == null) {
         if (!other.markups_.isEmpty()) {
           if (markups_.isEmpty()) {
             markups_ = other.markups_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureMarkupsIsMutable();
             markups_.addAll(other.markups_);
@@ -1613,7 +1549,7 @@ private static final long serialVersionUID = 0L;
             markupsBuilder_.dispose();
             markupsBuilder_ = null;
             markups_ = other.markups_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             markupsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMarkupsFieldBuilder() : null;
@@ -1622,7 +1558,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1637,17 +1573,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataqna.v1alpha.AnnotatedString parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              textFormatted_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              htmlFormatted_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkup m =
+                  input.readMessage(
+                      com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkup.parser(),
+                      extensionRegistry);
+              if (markupsBuilder_ == null) {
+                ensureMarkupsIsMutable();
+                markups_.add(m);
+              } else {
+                markupsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataqna.v1alpha.AnnotatedString) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1705,11 +1677,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTextFormatted(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       textFormatted_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1722,8 +1692,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTextFormatted() {
-      
       textFormatted_ = getDefaultInstance().getTextFormatted();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1738,12 +1708,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTextFormattedBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       textFormatted_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1801,11 +1769,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHtmlFormatted(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       htmlFormatted_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1818,8 +1784,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHtmlFormatted() {
-      
       htmlFormatted_ = getDefaultInstance().getHtmlFormatted();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1834,12 +1800,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHtmlFormattedBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       htmlFormatted_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1847,9 +1811,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkup> markups_ =
       java.util.Collections.emptyList();
     private void ensureMarkupsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         markups_ = new java.util.ArrayList<com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkup>(markups_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -2043,7 +2007,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMarkups() {
       if (markupsBuilder_ == null) {
         markups_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         markupsBuilder_.clear();
@@ -2148,7 +2112,7 @@ private static final long serialVersionUID = 0L;
         markupsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkup, com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkup.Builder, com.google.cloud.dataqna.v1alpha.AnnotatedString.SemanticMarkupOrBuilder>(
                 markups_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         markups_ = null;
@@ -2188,7 +2152,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AnnotatedString(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

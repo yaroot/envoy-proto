@@ -31,97 +31,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Tracing(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.type.v3.FractionalPercent.Builder subBuilder = null;
-            if (clientSampling_ != null) {
-              subBuilder = clientSampling_.toBuilder();
-            }
-            clientSampling_ = input.readMessage(io.envoyproxy.envoy.type.v3.FractionalPercent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(clientSampling_);
-              clientSampling_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.type.v3.FractionalPercent.Builder subBuilder = null;
-            if (randomSampling_ != null) {
-              subBuilder = randomSampling_.toBuilder();
-            }
-            randomSampling_ = input.readMessage(io.envoyproxy.envoy.type.v3.FractionalPercent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(randomSampling_);
-              randomSampling_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.type.v3.FractionalPercent.Builder subBuilder = null;
-            if (overallSampling_ != null) {
-              subBuilder = overallSampling_.toBuilder();
-            }
-            overallSampling_ = input.readMessage(io.envoyproxy.envoy.type.v3.FractionalPercent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(overallSampling_);
-              overallSampling_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              customTags_ = new java.util.ArrayList<io.envoyproxy.envoy.type.tracing.v3.CustomTag>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            customTags_.add(
-                input.readMessage(io.envoyproxy.envoy.type.tracing.v3.CustomTag.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        customTags_ = java.util.Collections.unmodifiableList(customTags_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.route.v3.RouteComponentsProto.internal_static_envoy_config_route_v3_Tracing_descriptor;
@@ -185,7 +94,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.v3.FractionalPercentOrBuilder getClientSamplingOrBuilder() {
-    return getClientSampling();
+    return clientSampling_ == null ? io.envoyproxy.envoy.type.v3.FractionalPercent.getDefaultInstance() : clientSampling_;
   }
 
   public static final int RANDOM_SAMPLING_FIELD_NUMBER = 2;
@@ -235,7 +144,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.v3.FractionalPercentOrBuilder getRandomSamplingOrBuilder() {
-    return getRandomSampling();
+    return randomSampling_ == null ? io.envoyproxy.envoy.type.v3.FractionalPercent.getDefaultInstance() : randomSampling_;
   }
 
   public static final int OVERALL_SAMPLING_FIELD_NUMBER = 3;
@@ -294,10 +203,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.v3.FractionalPercentOrBuilder getOverallSamplingOrBuilder() {
-    return getOverallSampling();
+    return overallSampling_ == null ? io.envoyproxy.envoy.type.v3.FractionalPercent.getDefaultInstance() : overallSampling_;
   }
 
   public static final int CUSTOM_TAGS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.type.tracing.v3.CustomTag> customTags_;
   /**
    * <pre>
@@ -408,7 +318,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < customTags_.size(); i++) {
       output.writeMessage(4, customTags_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -433,7 +343,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, customTags_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -465,7 +375,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getCustomTagsList()
         .equals(other.getCustomTagsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -492,7 +402,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CUSTOM_TAGS_FIELD_NUMBER;
       hash = (53 * hash) + getCustomTagsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -609,47 +519,40 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.route.v3.Tracing.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getCustomTagsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (clientSamplingBuilder_ == null) {
-        clientSampling_ = null;
-      } else {
-        clientSampling_ = null;
+      bitField0_ = 0;
+      clientSampling_ = null;
+      if (clientSamplingBuilder_ != null) {
+        clientSamplingBuilder_.dispose();
         clientSamplingBuilder_ = null;
       }
-      if (randomSamplingBuilder_ == null) {
-        randomSampling_ = null;
-      } else {
-        randomSampling_ = null;
+      randomSampling_ = null;
+      if (randomSamplingBuilder_ != null) {
+        randomSamplingBuilder_.dispose();
         randomSamplingBuilder_ = null;
       }
-      if (overallSamplingBuilder_ == null) {
-        overallSampling_ = null;
-      } else {
-        overallSampling_ = null;
+      overallSampling_ = null;
+      if (overallSamplingBuilder_ != null) {
+        overallSamplingBuilder_.dispose();
         overallSamplingBuilder_ = null;
       }
       if (customTagsBuilder_ == null) {
         customTags_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        customTags_ = null;
         customTagsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -676,33 +579,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.route.v3.Tracing buildPartial() {
       io.envoyproxy.envoy.config.route.v3.Tracing result = new io.envoyproxy.envoy.config.route.v3.Tracing(this);
-      int from_bitField0_ = bitField0_;
-      if (clientSamplingBuilder_ == null) {
-        result.clientSampling_ = clientSampling_;
-      } else {
-        result.clientSampling_ = clientSamplingBuilder_.build();
-      }
-      if (randomSamplingBuilder_ == null) {
-        result.randomSampling_ = randomSampling_;
-      } else {
-        result.randomSampling_ = randomSamplingBuilder_.build();
-      }
-      if (overallSamplingBuilder_ == null) {
-        result.overallSampling_ = overallSampling_;
-      } else {
-        result.overallSampling_ = overallSamplingBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.config.route.v3.Tracing result) {
       if (customTagsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           customTags_ = java.util.Collections.unmodifiableList(customTags_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.customTags_ = customTags_;
       } else {
         result.customTags_ = customTagsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.route.v3.Tracing result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.clientSampling_ = clientSamplingBuilder_ == null
+            ? clientSampling_
+            : clientSamplingBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.randomSampling_ = randomSamplingBuilder_ == null
+            ? randomSampling_
+            : randomSamplingBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.overallSampling_ = overallSamplingBuilder_ == null
+            ? overallSampling_
+            : overallSamplingBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -762,7 +673,7 @@ private static final long serialVersionUID = 0L;
         if (!other.customTags_.isEmpty()) {
           if (customTags_.isEmpty()) {
             customTags_ = other.customTags_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureCustomTagsIsMutable();
             customTags_.addAll(other.customTags_);
@@ -775,7 +686,7 @@ private static final long serialVersionUID = 0L;
             customTagsBuilder_.dispose();
             customTagsBuilder_ = null;
             customTags_ = other.customTags_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             customTagsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getCustomTagsFieldBuilder() : null;
@@ -784,7 +695,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -799,17 +710,64 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.route.v3.Tracing parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getClientSamplingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getRandomSamplingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getOverallSamplingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              io.envoyproxy.envoy.type.tracing.v3.CustomTag m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.type.tracing.v3.CustomTag.parser(),
+                      extensionRegistry);
+              if (customTagsBuilder_ == null) {
+                ensureCustomTagsIsMutable();
+                customTags_.add(m);
+              } else {
+                customTagsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.route.v3.Tracing) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -831,7 +789,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the clientSampling field is set.
      */
     public boolean hasClientSampling() {
-      return clientSamplingBuilder_ != null || clientSampling_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -871,11 +829,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         clientSampling_ = value;
-        onChanged();
       } else {
         clientSamplingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -894,11 +852,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.v3.FractionalPercent.Builder builderForValue) {
       if (clientSamplingBuilder_ == null) {
         clientSampling_ = builderForValue.build();
-        onChanged();
       } else {
         clientSamplingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -915,17 +873,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeClientSampling(io.envoyproxy.envoy.type.v3.FractionalPercent value) {
       if (clientSamplingBuilder_ == null) {
-        if (clientSampling_ != null) {
-          clientSampling_ =
-            io.envoyproxy.envoy.type.v3.FractionalPercent.newBuilder(clientSampling_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          clientSampling_ != null &&
+          clientSampling_ != io.envoyproxy.envoy.type.v3.FractionalPercent.getDefaultInstance()) {
+          getClientSamplingBuilder().mergeFrom(value);
         } else {
           clientSampling_ = value;
         }
-        onChanged();
       } else {
         clientSamplingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -941,14 +900,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.v3.FractionalPercent client_sampling = 1;</code>
      */
     public Builder clearClientSampling() {
-      if (clientSamplingBuilder_ == null) {
-        clientSampling_ = null;
-        onChanged();
-      } else {
-        clientSampling_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      clientSampling_ = null;
+      if (clientSamplingBuilder_ != null) {
+        clientSamplingBuilder_.dispose();
         clientSamplingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -964,7 +922,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.v3.FractionalPercent client_sampling = 1;</code>
      */
     public io.envoyproxy.envoy.type.v3.FractionalPercent.Builder getClientSamplingBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getClientSamplingFieldBuilder().getBuilder();
     }
@@ -1030,7 +988,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the randomSampling field is set.
      */
     public boolean hasRandomSampling() {
-      return randomSamplingBuilder_ != null || randomSampling_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1068,11 +1026,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         randomSampling_ = value;
-        onChanged();
       } else {
         randomSamplingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1090,11 +1048,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.v3.FractionalPercent.Builder builderForValue) {
       if (randomSamplingBuilder_ == null) {
         randomSampling_ = builderForValue.build();
-        onChanged();
       } else {
         randomSamplingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1110,17 +1068,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRandomSampling(io.envoyproxy.envoy.type.v3.FractionalPercent value) {
       if (randomSamplingBuilder_ == null) {
-        if (randomSampling_ != null) {
-          randomSampling_ =
-            io.envoyproxy.envoy.type.v3.FractionalPercent.newBuilder(randomSampling_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          randomSampling_ != null &&
+          randomSampling_ != io.envoyproxy.envoy.type.v3.FractionalPercent.getDefaultInstance()) {
+          getRandomSamplingBuilder().mergeFrom(value);
         } else {
           randomSampling_ = value;
         }
-        onChanged();
       } else {
         randomSamplingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1135,14 +1094,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.v3.FractionalPercent random_sampling = 2;</code>
      */
     public Builder clearRandomSampling() {
-      if (randomSamplingBuilder_ == null) {
-        randomSampling_ = null;
-        onChanged();
-      } else {
-        randomSampling_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      randomSampling_ = null;
+      if (randomSamplingBuilder_ != null) {
+        randomSamplingBuilder_.dispose();
         randomSamplingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1157,7 +1115,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.v3.FractionalPercent random_sampling = 2;</code>
      */
     public io.envoyproxy.envoy.type.v3.FractionalPercent.Builder getRandomSamplingBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getRandomSamplingFieldBuilder().getBuilder();
     }
@@ -1224,7 +1182,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the overallSampling field is set.
      */
     public boolean hasOverallSampling() {
-      return overallSamplingBuilder_ != null || overallSampling_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1268,11 +1226,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         overallSampling_ = value;
-        onChanged();
       } else {
         overallSamplingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1293,11 +1251,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.v3.FractionalPercent.Builder builderForValue) {
       if (overallSamplingBuilder_ == null) {
         overallSampling_ = builderForValue.build();
-        onChanged();
       } else {
         overallSamplingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1316,17 +1274,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOverallSampling(io.envoyproxy.envoy.type.v3.FractionalPercent value) {
       if (overallSamplingBuilder_ == null) {
-        if (overallSampling_ != null) {
-          overallSampling_ =
-            io.envoyproxy.envoy.type.v3.FractionalPercent.newBuilder(overallSampling_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          overallSampling_ != null &&
+          overallSampling_ != io.envoyproxy.envoy.type.v3.FractionalPercent.getDefaultInstance()) {
+          getOverallSamplingBuilder().mergeFrom(value);
         } else {
           overallSampling_ = value;
         }
-        onChanged();
       } else {
         overallSamplingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1344,14 +1303,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.v3.FractionalPercent overall_sampling = 3;</code>
      */
     public Builder clearOverallSampling() {
-      if (overallSamplingBuilder_ == null) {
-        overallSampling_ = null;
-        onChanged();
-      } else {
-        overallSampling_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      overallSampling_ = null;
+      if (overallSamplingBuilder_ != null) {
+        overallSamplingBuilder_.dispose();
         overallSamplingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1369,7 +1327,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.v3.FractionalPercent overall_sampling = 3;</code>
      */
     public io.envoyproxy.envoy.type.v3.FractionalPercent.Builder getOverallSamplingBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getOverallSamplingFieldBuilder().getBuilder();
     }
@@ -1426,9 +1384,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.type.tracing.v3.CustomTag> customTags_ =
       java.util.Collections.emptyList();
     private void ensureCustomTagsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         customTags_ = new java.util.ArrayList<io.envoyproxy.envoy.type.tracing.v3.CustomTag>(customTags_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1677,7 +1635,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearCustomTags() {
       if (customTagsBuilder_ == null) {
         customTags_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         customTagsBuilder_.clear();
@@ -1817,7 +1775,7 @@ private static final long serialVersionUID = 0L;
         customTagsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.type.tracing.v3.CustomTag, io.envoyproxy.envoy.type.tracing.v3.CustomTag.Builder, io.envoyproxy.envoy.type.tracing.v3.CustomTagOrBuilder>(
                 customTags_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         customTags_ = null;
@@ -1857,7 +1815,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Tracing(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

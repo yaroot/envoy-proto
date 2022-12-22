@@ -40,115 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BuildConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            build_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            runtime_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            entryPoint_ = s;
-            break;
-          }
-          case 34: {
-            com.google.cloud.functions.v2.Source.Builder subBuilder = null;
-            if (source_ != null) {
-              subBuilder = source_.toBuilder();
-            }
-            source_ = input.readMessage(com.google.cloud.functions.v2.Source.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(source_);
-              source_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            workerPool_ = s;
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              environmentVariables_ = com.google.protobuf.MapField.newMapField(
-                  EnvironmentVariablesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            environmentVariables__ = input.readMessage(
-                EnvironmentVariablesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            environmentVariables_.getMutableMap().put(
-                environmentVariables__.getKey(), environmentVariables__.getValue());
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            dockerRepository_ = s;
-            break;
-          }
-          case 66: {
-            com.google.cloud.functions.v2.SourceProvenance.Builder subBuilder = null;
-            if (sourceProvenance_ != null) {
-              subBuilder = sourceProvenance_.toBuilder();
-            }
-            sourceProvenance_ = input.readMessage(com.google.cloud.functions.v2.SourceProvenance.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sourceProvenance_);
-              sourceProvenance_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.functions.v2.FunctionsProto.internal_static_google_cloud_functions_v2_BuildConfig_descriptor;
@@ -175,7 +66,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BUILD_FIELD_NUMBER = 1;
-  private volatile java.lang.Object build_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object build_ = "";
   /**
    * <pre>
    * Output only. The Cloud Build name of the latest successful deployment of the
@@ -223,7 +115,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RUNTIME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object runtime_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object runtime_ = "";
   /**
    * <pre>
    * The runtime in which to run the function. Required when deploying a new
@@ -277,7 +170,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENTRY_POINT_FIELD_NUMBER = 3;
-  private volatile java.lang.Object entryPoint_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object entryPoint_ = "";
   /**
    * <pre>
    * The name of the function (as defined in source code) that will be
@@ -367,7 +261,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.functions.v2.SourceOrBuilder getSourceOrBuilder() {
-    return getSource();
+    return source_ == null ? com.google.cloud.functions.v2.Source.getDefaultInstance() : source_;
   }
 
   public static final int SOURCE_PROVENANCE_FIELD_NUMBER = 8;
@@ -405,11 +299,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.functions.v2.SourceProvenanceOrBuilder getSourceProvenanceOrBuilder() {
-    return getSourceProvenance();
+    return sourceProvenance_ == null ? com.google.cloud.functions.v2.SourceProvenance.getDefaultInstance() : sourceProvenance_;
   }
 
   public static final int WORKER_POOL_FIELD_NUMBER = 5;
-  private volatile java.lang.Object workerPool_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object workerPool_ = "";
   /**
    * <pre>
    * Name of the Cloud Build Custom Worker Pool that should be used to build the
@@ -486,6 +381,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> environmentVariables_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -496,7 +392,6 @@ private static final long serialVersionUID = 0L;
     }
     return environmentVariables_;
   }
-
   public int getEnvironmentVariablesCount() {
     return internalGetEnvironmentVariables().getMap().size();
   }
@@ -507,7 +402,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; environment_variables = 6;</code>
    */
-
   @java.lang.Override
   public boolean containsEnvironmentVariables(
       java.lang.String key) {
@@ -530,7 +424,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; environment_variables = 6;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getEnvironmentVariablesMap() {
     return internalGetEnvironmentVariables().getMap();
   }
@@ -542,10 +435,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; environment_variables = 6;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getEnvironmentVariablesOrDefault(
+  public /* nullable */
+java.lang.String getEnvironmentVariablesOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetEnvironmentVariables().getMap();
@@ -559,7 +453,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; environment_variables = 6;</code>
    */
   @java.lang.Override
-
   public java.lang.String getEnvironmentVariablesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -572,7 +465,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOCKER_REPOSITORY_FIELD_NUMBER = 7;
-  private volatile java.lang.Object dockerRepository_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object dockerRepository_ = "";
   /**
    * <pre>
    * Optional. User managed repository created in Artifact Registry optionally with a
@@ -676,7 +570,7 @@ private static final long serialVersionUID = 0L;
     if (sourceProvenance_ != null) {
       output.writeMessage(8, getSourceProvenance());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -718,7 +612,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getSourceProvenance());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -755,7 +649,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetEnvironmentVariables())) return false;
     if (!getDockerRepository()
         .equals(other.getDockerRepository())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -788,7 +682,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + DOCKER_REPOSITORY_FIELD_NUMBER;
     hash = (53 * hash) + getDockerRepository().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -932,45 +826,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.functions.v2.BuildConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       build_ = "";
-
       runtime_ = "";
-
       entryPoint_ = "";
-
-      if (sourceBuilder_ == null) {
-        source_ = null;
-      } else {
-        source_ = null;
+      source_ = null;
+      if (sourceBuilder_ != null) {
+        sourceBuilder_.dispose();
         sourceBuilder_ = null;
       }
-      if (sourceProvenanceBuilder_ == null) {
-        sourceProvenance_ = null;
-      } else {
-        sourceProvenance_ = null;
+      sourceProvenance_ = null;
+      if (sourceProvenanceBuilder_ != null) {
+        sourceProvenanceBuilder_.dispose();
         sourceProvenanceBuilder_ = null;
       }
       workerPool_ = "";
-
       internalGetMutableEnvironmentVariables().clear();
       dockerRepository_ = "";
-
       return this;
     }
 
@@ -997,26 +880,42 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.functions.v2.BuildConfig buildPartial() {
       com.google.cloud.functions.v2.BuildConfig result = new com.google.cloud.functions.v2.BuildConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.build_ = build_;
-      result.runtime_ = runtime_;
-      result.entryPoint_ = entryPoint_;
-      if (sourceBuilder_ == null) {
-        result.source_ = source_;
-      } else {
-        result.source_ = sourceBuilder_.build();
-      }
-      if (sourceProvenanceBuilder_ == null) {
-        result.sourceProvenance_ = sourceProvenance_;
-      } else {
-        result.sourceProvenance_ = sourceProvenanceBuilder_.build();
-      }
-      result.workerPool_ = workerPool_;
-      result.environmentVariables_ = internalGetEnvironmentVariables();
-      result.environmentVariables_.makeImmutable();
-      result.dockerRepository_ = dockerRepository_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.functions.v2.BuildConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.build_ = build_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.runtime_ = runtime_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.entryPoint_ = entryPoint_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.source_ = sourceBuilder_ == null
+            ? source_
+            : sourceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.sourceProvenance_ = sourceProvenanceBuilder_ == null
+            ? sourceProvenance_
+            : sourceProvenanceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.workerPool_ = workerPool_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.environmentVariables_ = internalGetEnvironmentVariables();
+        result.environmentVariables_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.dockerRepository_ = dockerRepository_;
+      }
     }
 
     @java.lang.Override
@@ -1065,14 +964,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.functions.v2.BuildConfig.getDefaultInstance()) return this;
       if (!other.getBuild().isEmpty()) {
         build_ = other.build_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getRuntime().isEmpty()) {
         runtime_ = other.runtime_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getEntryPoint().isEmpty()) {
         entryPoint_ = other.entryPoint_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasSource()) {
@@ -1083,15 +985,18 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getWorkerPool().isEmpty()) {
         workerPool_ = other.workerPool_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       internalGetMutableEnvironmentVariables().mergeFrom(
           other.internalGetEnvironmentVariables());
+      bitField0_ |= 0x00000040;
       if (!other.getDockerRepository().isEmpty()) {
         dockerRepository_ = other.dockerRepository_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1106,17 +1011,78 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.functions.v2.BuildConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              build_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              runtime_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              entryPoint_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getSourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              workerPool_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              environmentVariables__ = input.readMessage(
+                  EnvironmentVariablesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableEnvironmentVariables().getMutableMap().put(
+                  environmentVariables__.getKey(), environmentVariables__.getValue());
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 58: {
+              dockerRepository_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getSourceProvenanceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.functions.v2.BuildConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1177,11 +1143,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBuild(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       build_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1195,8 +1159,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBuild() {
-      
       build_ = getDefaultInstance().getBuild();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1212,12 +1176,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBuildBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       build_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1287,11 +1249,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRuntime(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       runtime_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1308,8 +1268,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRuntime() {
-      
       runtime_ = getDefaultInstance().getRuntime();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1328,12 +1288,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRuntimeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       runtime_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1406,11 +1364,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEntryPoint(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       entryPoint_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1428,8 +1384,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEntryPoint() {
-      
       entryPoint_ = getDefaultInstance().getEntryPoint();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1449,12 +1405,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEntryPointBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       entryPoint_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1471,7 +1425,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the source field is set.
      */
     public boolean hasSource() {
-      return sourceBuilder_ != null || source_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1501,11 +1455,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         source_ = value;
-        onChanged();
       } else {
         sourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1519,11 +1473,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.functions.v2.Source.Builder builderForValue) {
       if (sourceBuilder_ == null) {
         source_ = builderForValue.build();
-        onChanged();
       } else {
         sourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1535,17 +1489,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSource(com.google.cloud.functions.v2.Source value) {
       if (sourceBuilder_ == null) {
-        if (source_ != null) {
-          source_ =
-            com.google.cloud.functions.v2.Source.newBuilder(source_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          source_ != null &&
+          source_ != com.google.cloud.functions.v2.Source.getDefaultInstance()) {
+          getSourceBuilder().mergeFrom(value);
         } else {
           source_ = value;
         }
-        onChanged();
       } else {
         sourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1556,14 +1511,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.functions.v2.Source source = 4;</code>
      */
     public Builder clearSource() {
-      if (sourceBuilder_ == null) {
-        source_ = null;
-        onChanged();
-      } else {
-        source_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      source_ = null;
+      if (sourceBuilder_ != null) {
+        sourceBuilder_.dispose();
         sourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1574,7 +1528,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.functions.v2.Source source = 4;</code>
      */
     public com.google.cloud.functions.v2.Source.Builder getSourceBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getSourceFieldBuilder().getBuilder();
     }
@@ -1626,7 +1580,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sourceProvenance field is set.
      */
     public boolean hasSourceProvenance() {
-      return sourceProvenanceBuilder_ != null || sourceProvenance_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1656,11 +1610,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sourceProvenance_ = value;
-        onChanged();
       } else {
         sourceProvenanceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1674,11 +1628,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.functions.v2.SourceProvenance.Builder builderForValue) {
       if (sourceProvenanceBuilder_ == null) {
         sourceProvenance_ = builderForValue.build();
-        onChanged();
       } else {
         sourceProvenanceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1690,17 +1644,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSourceProvenance(com.google.cloud.functions.v2.SourceProvenance value) {
       if (sourceProvenanceBuilder_ == null) {
-        if (sourceProvenance_ != null) {
-          sourceProvenance_ =
-            com.google.cloud.functions.v2.SourceProvenance.newBuilder(sourceProvenance_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          sourceProvenance_ != null &&
+          sourceProvenance_ != com.google.cloud.functions.v2.SourceProvenance.getDefaultInstance()) {
+          getSourceProvenanceBuilder().mergeFrom(value);
         } else {
           sourceProvenance_ = value;
         }
-        onChanged();
       } else {
         sourceProvenanceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1711,14 +1666,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.functions.v2.SourceProvenance source_provenance = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearSourceProvenance() {
-      if (sourceProvenanceBuilder_ == null) {
-        sourceProvenance_ = null;
-        onChanged();
-      } else {
-        sourceProvenance_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      sourceProvenance_ = null;
+      if (sourceProvenanceBuilder_ != null) {
+        sourceProvenanceBuilder_.dispose();
         sourceProvenanceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1729,7 +1683,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.functions.v2.SourceProvenance source_provenance = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.functions.v2.SourceProvenance.Builder getSourceProvenanceBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getSourceProvenanceFieldBuilder().getBuilder();
     }
@@ -1852,11 +1806,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWorkerPool(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       workerPool_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1879,8 +1831,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWorkerPool() {
-      
       workerPool_ = getDefaultInstance().getWorkerPool();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1905,12 +1857,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWorkerPoolBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       workerPool_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1918,7 +1868,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> environmentVariables_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetEnvironmentVariables() {
+        internalGetEnvironmentVariables() {
       if (environmentVariables_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             EnvironmentVariablesDefaultEntryHolder.defaultEntry);
@@ -1926,8 +1876,7 @@ private static final long serialVersionUID = 0L;
       return environmentVariables_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableEnvironmentVariables() {
-      onChanged();;
+        internalGetMutableEnvironmentVariables() {
       if (environmentVariables_ == null) {
         environmentVariables_ = com.google.protobuf.MapField.newMapField(
             EnvironmentVariablesDefaultEntryHolder.defaultEntry);
@@ -1935,9 +1884,10 @@ private static final long serialVersionUID = 0L;
       if (!environmentVariables_.isMutable()) {
         environmentVariables_ = environmentVariables_.copy();
       }
+      bitField0_ |= 0x00000040;
+      onChanged();
       return environmentVariables_;
     }
-
     public int getEnvironmentVariablesCount() {
       return internalGetEnvironmentVariables().getMap().size();
     }
@@ -1948,7 +1898,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; environment_variables = 6;</code>
      */
-
     @java.lang.Override
     public boolean containsEnvironmentVariables(
         java.lang.String key) {
@@ -1971,7 +1920,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; environment_variables = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getEnvironmentVariablesMap() {
       return internalGetEnvironmentVariables().getMap();
     }
@@ -1983,10 +1931,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; environment_variables = 6;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getEnvironmentVariablesOrDefault(
+    public /* nullable */
+java.lang.String getEnvironmentVariablesOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetEnvironmentVariables().getMap();
@@ -2000,7 +1949,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; environment_variables = 6;</code>
      */
     @java.lang.Override
-
     public java.lang.String getEnvironmentVariablesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2011,8 +1959,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearEnvironmentVariables() {
+      bitField0_ = (bitField0_ & ~0x00000040);
       internalGetMutableEnvironmentVariables().getMutableMap()
           .clear();
       return this;
@@ -2024,7 +1972,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; environment_variables = 6;</code>
      */
-
     public Builder removeEnvironmentVariables(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2037,7 +1984,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableEnvironmentVariables() {
+        getMutableEnvironmentVariables() {
+      bitField0_ |= 0x00000040;
       return internalGetMutableEnvironmentVariables().getMutableMap();
     }
     /**
@@ -2051,12 +1999,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableEnvironmentVariables().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000040;
       return this;
     }
     /**
@@ -2066,11 +2012,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; environment_variables = 6;</code>
      */
-
     public Builder putAllEnvironmentVariables(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableEnvironmentVariables().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000040;
       return this;
     }
 
@@ -2154,11 +2100,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDockerRepository(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       dockerRepository_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2180,8 +2124,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDockerRepository() {
-      
       dockerRepository_ = getDefaultInstance().getDockerRepository();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2205,12 +2149,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDockerRepositoryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       dockerRepository_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2247,7 +2189,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BuildConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

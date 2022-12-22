@@ -37,83 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VpnGatewayStatusVpnConnection(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 836495450: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              tunnels_ = new java.util.ArrayList<com.google.cloud.compute.v1.VpnGatewayStatusTunnel>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            tunnels_.add(
-                input.readMessage(com.google.cloud.compute.v1.VpnGatewayStatusTunnel.parser(), extensionRegistry));
-            break;
-          }
-          case 878060682: {
-            com.google.cloud.compute.v1.VpnGatewayStatusHighAvailabilityRequirementState.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000004) != 0)) {
-              subBuilder = state_.toBuilder();
-            }
-            state_ = input.readMessage(com.google.cloud.compute.v1.VpnGatewayStatusHighAvailabilityRequirementState.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(state_);
-              state_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000004;
-            break;
-          }
-          case -2040027678: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            peerGcpGateway_ = s;
-            break;
-          }
-          case -1215317910: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            peerExternalGateway_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        tunnels_ = java.util.Collections.unmodifiableList(tunnels_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_VpnGatewayStatusVpnConnection_descriptor;
@@ -129,7 +52,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int PEER_EXTERNAL_GATEWAY_FIELD_NUMBER = 384956173;
-  private volatile java.lang.Object peerExternalGateway_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object peerExternalGateway_ = "";
   /**
    * <pre>
    * URL reference to the peer external VPN gateways to which the VPN tunnels in this VPN connection are connected. This field is mutually exclusive with peer_gcp_gateway.
@@ -187,7 +111,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PEER_GCP_GATEWAY_FIELD_NUMBER = 281867452;
-  private volatile java.lang.Object peerGcpGateway_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object peerGcpGateway_ = "";
   /**
    * <pre>
    * URL reference to the peer side VPN gateways to which the VPN tunnels in this VPN connection are connected. This field is mutually exclusive with peer_gcp_gateway.
@@ -283,6 +208,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TUNNELS_FIELD_NUMBER = 104561931;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.VpnGatewayStatusTunnel> tunnels_;
   /**
    * <pre>
@@ -368,7 +294,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 384956173, peerExternalGateway_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -391,7 +317,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(384956173, peerExternalGateway_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -423,7 +349,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getTunnelsList()
         .equals(other.getTunnelsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -450,7 +376,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TUNNELS_FIELD_NUMBER;
       hash = (53 * hash) + getTunnelsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -589,22 +515,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       peerExternalGateway_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       peerGcpGateway_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
-      if (stateBuilder_ == null) {
-        state_ = null;
-      } else {
-        stateBuilder_.clear();
+      state_ = null;
+      if (stateBuilder_ != null) {
+        stateBuilder_.dispose();
+        stateBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000004);
       if (tunnelsBuilder_ == null) {
         tunnels_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        tunnels_ = null;
         tunnelsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -631,24 +556,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.VpnGatewayStatusVpnConnection buildPartial() {
       com.google.cloud.compute.v1.VpnGatewayStatusVpnConnection result = new com.google.cloud.compute.v1.VpnGatewayStatusVpnConnection(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.peerExternalGateway_ = peerExternalGateway_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        to_bitField0_ |= 0x00000002;
-      }
-      result.peerGcpGateway_ = peerGcpGateway_;
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        if (stateBuilder_ == null) {
-          result.state_ = state_;
-        } else {
-          result.state_ = stateBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000004;
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.VpnGatewayStatusVpnConnection result) {
       if (tunnelsBuilder_ == null) {
         if (((bitField0_ & 0x00000008) != 0)) {
           tunnels_ = java.util.Collections.unmodifiableList(tunnels_);
@@ -658,9 +572,26 @@ private static final long serialVersionUID = 0L;
       } else {
         result.tunnels_ = tunnelsBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.VpnGatewayStatusVpnConnection result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.peerExternalGateway_ = peerExternalGateway_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.peerGcpGateway_ = peerGcpGateway_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.state_ = stateBuilder_ == null
+            ? state_
+            : stateBuilder_.build();
+        to_bitField0_ |= 0x00000004;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -708,13 +639,13 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.VpnGatewayStatusVpnConnection other) {
       if (other == com.google.cloud.compute.v1.VpnGatewayStatusVpnConnection.getDefaultInstance()) return this;
       if (other.hasPeerExternalGateway()) {
-        bitField0_ |= 0x00000001;
         peerExternalGateway_ = other.peerExternalGateway_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasPeerGcpGateway()) {
-        bitField0_ |= 0x00000002;
         peerGcpGateway_ = other.peerGcpGateway_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasState()) {
@@ -746,7 +677,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -761,17 +692,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.VpnGatewayStatusVpnConnection parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 836495450: {
+              com.google.cloud.compute.v1.VpnGatewayStatusTunnel m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.VpnGatewayStatusTunnel.parser(),
+                      extensionRegistry);
+              if (tunnelsBuilder_ == null) {
+                ensureTunnelsIsMutable();
+                tunnels_.add(m);
+              } else {
+                tunnelsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 836495450
+            case 878060682: {
+              input.readMessage(
+                  getStateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 878060682
+            case -2040027678: {
+              peerGcpGateway_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -2040027678
+            case -1215317910: {
+              peerExternalGateway_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -1215317910
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.VpnGatewayStatusVpnConnection) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -840,11 +814,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPeerExternalGateway(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       peerExternalGateway_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -857,8 +829,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPeerExternalGateway() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       peerExternalGateway_ = getDefaultInstance().getPeerExternalGateway();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -873,12 +845,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPeerExternalGatewayBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       peerExternalGateway_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -947,11 +917,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPeerGcpGateway(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       peerGcpGateway_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -964,8 +932,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPeerGcpGateway() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       peerGcpGateway_ = getDefaultInstance().getPeerGcpGateway();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -980,12 +948,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPeerGcpGatewayBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       peerGcpGateway_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1032,11 +998,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         state_ = value;
-        onChanged();
       } else {
         stateBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1050,11 +1016,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.VpnGatewayStatusHighAvailabilityRequirementState.Builder builderForValue) {
       if (stateBuilder_ == null) {
         state_ = builderForValue.build();
-        onChanged();
       } else {
         stateBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1067,18 +1033,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeState(com.google.cloud.compute.v1.VpnGatewayStatusHighAvailabilityRequirementState value) {
       if (stateBuilder_ == null) {
         if (((bitField0_ & 0x00000004) != 0) &&
-            state_ != null &&
-            state_ != com.google.cloud.compute.v1.VpnGatewayStatusHighAvailabilityRequirementState.getDefaultInstance()) {
-          state_ =
-            com.google.cloud.compute.v1.VpnGatewayStatusHighAvailabilityRequirementState.newBuilder(state_).mergeFrom(value).buildPartial();
+          state_ != null &&
+          state_ != com.google.cloud.compute.v1.VpnGatewayStatusHighAvailabilityRequirementState.getDefaultInstance()) {
+          getStateBuilder().mergeFrom(value);
         } else {
           state_ = value;
         }
-        onChanged();
       } else {
         stateBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1089,13 +1054,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.VpnGatewayStatusHighAvailabilityRequirementState state = 109757585;</code>
      */
     public Builder clearState() {
-      if (stateBuilder_ == null) {
-        state_ = null;
-        onChanged();
-      } else {
-        stateBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000004);
+      state_ = null;
+      if (stateBuilder_ != null) {
+        stateBuilder_.dispose();
+        stateBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1490,7 +1455,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VpnGatewayStatusVpnConnection(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

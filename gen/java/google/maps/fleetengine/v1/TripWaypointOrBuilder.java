@@ -75,7 +75,8 @@ public interface TripWaypointOrBuilder extends
 
   /**
    * <pre>
-   * The path from the previous waypoint to the current waypoint.
+   * The path from the previous waypoint to the current waypoint.  Undefined for
+   * the first waypoint in a list. This field is only populated when requested.
    * </pre>
    *
    * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -84,7 +85,8 @@ public interface TripWaypointOrBuilder extends
       getPathToWaypointList();
   /**
    * <pre>
-   * The path from the previous waypoint to the current waypoint.
+   * The path from the previous waypoint to the current waypoint.  Undefined for
+   * the first waypoint in a list. This field is only populated when requested.
    * </pre>
    *
    * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -92,7 +94,8 @@ public interface TripWaypointOrBuilder extends
   com.google.type.LatLng getPathToWaypoint(int index);
   /**
    * <pre>
-   * The path from the previous waypoint to the current waypoint.
+   * The path from the previous waypoint to the current waypoint.  Undefined for
+   * the first waypoint in a list. This field is only populated when requested.
    * </pre>
    *
    * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -100,7 +103,8 @@ public interface TripWaypointOrBuilder extends
   int getPathToWaypointCount();
   /**
    * <pre>
-   * The path from the previous waypoint to the current waypoint.
+   * The path from the previous waypoint to the current waypoint.  Undefined for
+   * the first waypoint in a list. This field is only populated when requested.
    * </pre>
    *
    * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -109,7 +113,8 @@ public interface TripWaypointOrBuilder extends
       getPathToWaypointOrBuilderList();
   /**
    * <pre>
-   * The path from the previous waypoint to the current waypoint.
+   * The path from the previous waypoint to the current waypoint.  Undefined for
+   * the first waypoint in a list. This field is only populated when requested.
    * </pre>
    *
    * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -120,7 +125,8 @@ public interface TripWaypointOrBuilder extends
   /**
    * <pre>
    * The encoded path from the previous waypoint to the current waypoint.
-   * Decoding is not yet supported.
+   * &lt;p&gt;Note: This field is intended only for use by the Driver SDK and Consumer
+   * SDK. Decoding is not yet supported.
    * </pre>
    *
    * <code>string encoded_path_to_waypoint = 5;</code>
@@ -130,7 +136,8 @@ public interface TripWaypointOrBuilder extends
   /**
    * <pre>
    * The encoded path from the previous waypoint to the current waypoint.
-   * Decoding is not yet supported.
+   * &lt;p&gt;Note: This field is intended only for use by the Driver SDK and Consumer
+   * SDK. Decoding is not yet supported.
    * </pre>
    *
    * <code>string encoded_path_to_waypoint = 5;</code>
@@ -174,10 +181,8 @@ public interface TripWaypointOrBuilder extends
 
   /**
    * <pre>
-   * The path distance from the previous waypoint to the current waypoint. If
-   * the waypoint is the first waypoint in the list (e.g.,
-   * `Vehicle.waypoints[0]` or `Trip.remaining_waypoints[0]`), then the value of
-   * this field is undefined.
+   * The path distance from the previous waypoint to the current waypoint.
+   * Undefined for the first waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value distance_meters = 6;</code>
@@ -186,10 +191,8 @@ public interface TripWaypointOrBuilder extends
   boolean hasDistanceMeters();
   /**
    * <pre>
-   * The path distance from the previous waypoint to the current waypoint. If
-   * the waypoint is the first waypoint in the list (e.g.,
-   * `Vehicle.waypoints[0]` or `Trip.remaining_waypoints[0]`), then the value of
-   * this field is undefined.
+   * The path distance from the previous waypoint to the current waypoint.
+   * Undefined for the first waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value distance_meters = 6;</code>
@@ -198,10 +201,8 @@ public interface TripWaypointOrBuilder extends
   com.google.protobuf.Int32Value getDistanceMeters();
   /**
    * <pre>
-   * The path distance from the previous waypoint to the current waypoint. If
-   * the waypoint is the first waypoint in the list (e.g.,
-   * `Vehicle.waypoints[0]` or `Trip.remaining_waypoints[0]`), then the value of
-   * this field is undefined.
+   * The path distance from the previous waypoint to the current waypoint.
+   * Undefined for the first waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value distance_meters = 6;</code>
@@ -210,7 +211,8 @@ public interface TripWaypointOrBuilder extends
 
   /**
    * <pre>
-   * The estimated time of arrival at this waypoint.
+   * The estimated time of arrival at this waypoint. Undefined for the first
+   * waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp eta = 7;</code>
@@ -219,7 +221,8 @@ public interface TripWaypointOrBuilder extends
   boolean hasEta();
   /**
    * <pre>
-   * The estimated time of arrival at this waypoint.
+   * The estimated time of arrival at this waypoint. Undefined for the first
+   * waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp eta = 7;</code>
@@ -228,7 +231,8 @@ public interface TripWaypointOrBuilder extends
   com.google.protobuf.Timestamp getEta();
   /**
    * <pre>
-   * The estimated time of arrival at this waypoint.
+   * The estimated time of arrival at this waypoint. Undefined for the first
+   * waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp eta = 7;</code>
@@ -237,10 +241,8 @@ public interface TripWaypointOrBuilder extends
 
   /**
    * <pre>
-   * The travel time from previous waypoint to this point. If the waypoint is
-   * the first waypoint in the list (e.g., `Vehicle.waypoints[0]` or
-   * `Trip.remaining_waypoints[0]`), then this value indicates the remaining
-   * time to the waypoint.
+   * The travel time from previous waypoint to this point. Undefined for the
+   * first waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Duration duration = 8;</code>
@@ -249,10 +251,8 @@ public interface TripWaypointOrBuilder extends
   boolean hasDuration();
   /**
    * <pre>
-   * The travel time from previous waypoint to this point. If the waypoint is
-   * the first waypoint in the list (e.g., `Vehicle.waypoints[0]` or
-   * `Trip.remaining_waypoints[0]`), then this value indicates the remaining
-   * time to the waypoint.
+   * The travel time from previous waypoint to this point. Undefined for the
+   * first waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Duration duration = 8;</code>
@@ -261,10 +261,8 @@ public interface TripWaypointOrBuilder extends
   com.google.protobuf.Duration getDuration();
   /**
    * <pre>
-   * The travel time from previous waypoint to this point. If the waypoint is
-   * the first waypoint in the list (e.g., `Vehicle.waypoints[0]` or
-   * `Trip.remaining_waypoints[0]`), then this value indicates the remaining
-   * time to the waypoint.
+   * The travel time from previous waypoint to this point. Undefined for the
+   * first waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Duration duration = 8;</code>

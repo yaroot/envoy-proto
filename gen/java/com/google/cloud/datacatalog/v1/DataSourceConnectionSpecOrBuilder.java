@@ -9,7 +9,7 @@ public interface DataSourceConnectionSpecOrBuilder extends
 
   /**
    * <pre>
-   * Fields specific to BigQuery connections.
+   * Output only. Fields specific to BigQuery connections.
    * </pre>
    *
    * <code>.google.cloud.datacatalog.v1.BigQueryConnectionSpec bigquery_connection_spec = 1;</code>
@@ -18,7 +18,7 @@ public interface DataSourceConnectionSpecOrBuilder extends
   boolean hasBigqueryConnectionSpec();
   /**
    * <pre>
-   * Fields specific to BigQuery connections.
+   * Output only. Fields specific to BigQuery connections.
    * </pre>
    *
    * <code>.google.cloud.datacatalog.v1.BigQueryConnectionSpec bigquery_connection_spec = 1;</code>
@@ -27,7 +27,7 @@ public interface DataSourceConnectionSpecOrBuilder extends
   com.google.cloud.datacatalog.v1.BigQueryConnectionSpec getBigqueryConnectionSpec();
   /**
    * <pre>
-   * Fields specific to BigQuery connections.
+   * Output only. Fields specific to BigQuery connections.
    * </pre>
    *
    * <code>.google.cloud.datacatalog.v1.BigQueryConnectionSpec bigquery_connection_spec = 1;</code>

@@ -32,72 +32,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AutoMlImageClassificationInputs(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            modelType_ = rawValue;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            baseModelId_ = s;
-            break;
-          }
-          case 24: {
-
-            budgetMilliNodeHours_ = input.readInt64();
-            break;
-          }
-          case 32: {
-
-            disableEarlyStopping_ = input.readBool();
-            break;
-          }
-          case 40: {
-
-            multiLabel_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMLImageClassificationProto.internal_static_google_cloud_aiplatform_v1_schema_trainingjob_definition_AutoMlImageClassificationInputs_descriptor;
@@ -311,7 +245,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODEL_TYPE_FIELD_NUMBER = 1;
-  private int modelType_;
+  private int modelType_ = 0;
   /**
    * <code>.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs.ModelType model_type = 1;</code>
    * @return The enum numeric value on the wire for modelType.
@@ -324,13 +258,13 @@ private static final long serialVersionUID = 0L;
    * @return The modelType.
    */
   @java.lang.Override public com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs.ModelType getModelType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs.ModelType result = com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs.ModelType.valueOf(modelType_);
+    com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs.ModelType result = com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs.ModelType.forNumber(modelType_);
     return result == null ? com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs.ModelType.UNRECOGNIZED : result;
   }
 
   public static final int BASE_MODEL_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object baseModelId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object baseModelId_ = "";
   /**
    * <pre>
    * The ID of the `base` model. If it is specified, the new model will be
@@ -384,7 +318,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BUDGET_MILLI_NODE_HOURS_FIELD_NUMBER = 3;
-  private long budgetMilliNodeHours_;
+  private long budgetMilliNodeHours_ = 0L;
   /**
    * <pre>
    * The training budget of creating this model, expressed in milli node
@@ -413,7 +347,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISABLE_EARLY_STOPPING_FIELD_NUMBER = 4;
-  private boolean disableEarlyStopping_;
+  private boolean disableEarlyStopping_ = false;
   /**
    * <pre>
    * Use the entire training budget. This disables the early stopping feature.
@@ -431,7 +365,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MULTI_LABEL_FIELD_NUMBER = 5;
-  private boolean multiLabel_;
+  private boolean multiLabel_ = false;
   /**
    * <pre>
    * If false, a single-label (multi-class) Model will be trained (i.e.
@@ -477,7 +411,7 @@ private static final long serialVersionUID = 0L;
     if (multiLabel_ != false) {
       output.writeBool(5, multiLabel_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -505,7 +439,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, multiLabel_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -529,7 +463,7 @@ private static final long serialVersionUID = 0L;
         != other.getDisableEarlyStopping()) return false;
     if (getMultiLabel()
         != other.getMultiLabel()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -553,7 +487,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + MULTI_LABEL_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getMultiLabel());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -670,32 +604,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       modelType_ = 0;
-
       baseModelId_ = "";
-
       budgetMilliNodeHours_ = 0L;
-
       disableEarlyStopping_ = false;
-
       multiLabel_ = false;
-
       return this;
     }
 
@@ -722,13 +647,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs buildPartial() {
       com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs result = new com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs(this);
-      result.modelType_ = modelType_;
-      result.baseModelId_ = baseModelId_;
-      result.budgetMilliNodeHours_ = budgetMilliNodeHours_;
-      result.disableEarlyStopping_ = disableEarlyStopping_;
-      result.multiLabel_ = multiLabel_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.modelType_ = modelType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.baseModelId_ = baseModelId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.budgetMilliNodeHours_ = budgetMilliNodeHours_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.disableEarlyStopping_ = disableEarlyStopping_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.multiLabel_ = multiLabel_;
+      }
     }
 
     @java.lang.Override
@@ -780,6 +720,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getBaseModelId().isEmpty()) {
         baseModelId_ = other.baseModelId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getBudgetMilliNodeHours() != 0L) {
@@ -791,7 +732,7 @@ private static final long serialVersionUID = 0L;
       if (other.getMultiLabel() != false) {
         setMultiLabel(other.getMultiLabel());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -806,19 +747,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              modelType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              baseModelId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              budgetMilliNodeHours_ = input.readInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              disableEarlyStopping_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              multiLabel_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int modelType_ = 0;
     /**
@@ -834,8 +814,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setModelTypeValue(int value) {
-      
       modelType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -845,8 +825,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs.ModelType getModelType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs.ModelType result = com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs.ModelType.valueOf(modelType_);
+      com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs.ModelType result = com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs.ModelType.forNumber(modelType_);
       return result == null ? com.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageClassificationInputs.ModelType.UNRECOGNIZED : result;
     }
     /**
@@ -858,7 +837,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       modelType_ = value.getNumber();
       onChanged();
       return this;
@@ -868,7 +847,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearModelType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       modelType_ = 0;
       onChanged();
       return this;
@@ -939,11 +918,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBaseModelId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       baseModelId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -960,8 +937,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBaseModelId() {
-      
       baseModelId_ = getDefaultInstance().getBaseModelId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -980,12 +957,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBaseModelIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       baseModelId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1043,6 +1018,7 @@ private static final long serialVersionUID = 0L;
     public Builder setBudgetMilliNodeHours(long value) {
       
       budgetMilliNodeHours_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1069,7 +1045,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBudgetMilliNodeHours() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       budgetMilliNodeHours_ = 0L;
       onChanged();
       return this;
@@ -1106,6 +1082,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDisableEarlyStopping(boolean value) {
       
       disableEarlyStopping_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1121,7 +1098,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisableEarlyStopping() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       disableEarlyStopping_ = false;
       onChanged();
       return this;
@@ -1158,6 +1135,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMultiLabel(boolean value) {
       
       multiLabel_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1173,7 +1151,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMultiLabel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       multiLabel_ = false;
       onChanged();
       return this;
@@ -1211,7 +1189,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AutoMlImageClassificationInputs(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

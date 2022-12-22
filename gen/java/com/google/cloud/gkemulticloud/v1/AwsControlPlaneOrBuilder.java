@@ -191,8 +191,8 @@ public interface AwsControlPlaneOrBuilder extends
 
   /**
    * <pre>
-   * Required. The name or ARN of the AWS IAM instance profile to assign to each control
-   * plane replica.
+   * Required. The name or ARN of the AWS IAM instance profile to assign to each
+   * control plane replica.
    * </pre>
    *
    * <code>string iam_instance_profile = 7 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -201,8 +201,8 @@ public interface AwsControlPlaneOrBuilder extends
   java.lang.String getIamInstanceProfile();
   /**
    * <pre>
-   * Required. The name or ARN of the AWS IAM instance profile to assign to each control
-   * plane replica.
+   * Required. The name or ARN of the AWS IAM instance profile to assign to each
+   * control plane replica.
    * </pre>
    *
    * <code>string iam_instance_profile = 7 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -321,8 +321,8 @@ public interface AwsControlPlaneOrBuilder extends
 
   /**
    * <pre>
-   * Optional. A set of AWS resource tags to propagate to all underlying managed AWS
-   * resources.
+   * Optional. A set of AWS resource tags to propagate to all underlying managed
+   * AWS resources.
    * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
    * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
    * 255 Unicode characters.
@@ -333,8 +333,8 @@ public interface AwsControlPlaneOrBuilder extends
   int getTagsCount();
   /**
    * <pre>
-   * Optional. A set of AWS resource tags to propagate to all underlying managed AWS
-   * resources.
+   * Optional. A set of AWS resource tags to propagate to all underlying managed
+   * AWS resources.
    * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
    * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
    * 255 Unicode characters.
@@ -352,8 +352,8 @@ public interface AwsControlPlaneOrBuilder extends
   getTags();
   /**
    * <pre>
-   * Optional. A set of AWS resource tags to propagate to all underlying managed AWS
-   * resources.
+   * Optional. A set of AWS resource tags to propagate to all underlying managed
+   * AWS resources.
    * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
    * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
    * 255 Unicode characters.
@@ -365,8 +365,8 @@ public interface AwsControlPlaneOrBuilder extends
   getTagsMap();
   /**
    * <pre>
-   * Optional. A set of AWS resource tags to propagate to all underlying managed AWS
-   * resources.
+   * Optional. A set of AWS resource tags to propagate to all underlying managed
+   * AWS resources.
    * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
    * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
    * 255 Unicode characters.
@@ -374,7 +374,6 @@ public interface AwsControlPlaneOrBuilder extends
    *
    * <code>map&lt;string, string&gt; tags = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getTagsOrDefault(
       java.lang.String key,
@@ -382,8 +381,8 @@ java.lang.String getTagsOrDefault(
 java.lang.String defaultValue);
   /**
    * <pre>
-   * Optional. A set of AWS resource tags to propagate to all underlying managed AWS
-   * resources.
+   * Optional. A set of AWS resource tags to propagate to all underlying managed
+   * AWS resources.
    * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
    * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
    * 255 Unicode characters.
@@ -391,7 +390,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; tags = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getTagsOrThrow(
       java.lang.String key);
 

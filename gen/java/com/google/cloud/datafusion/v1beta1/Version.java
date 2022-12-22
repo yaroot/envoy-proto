@@ -37,75 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Version(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            versionNumber_ = s;
-            break;
-          }
-          case 16: {
-
-            defaultVersion_ = input.readBool();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              availableFeatures_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            availableFeatures_.add(s);
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        availableFeatures_ = availableFeatures_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datafusion.v1beta1.V1Beta1.internal_static_google_cloud_datafusion_v1beta1_Version_descriptor;
@@ -265,7 +196,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSION_NUMBER_FIELD_NUMBER = 1;
-  private volatile java.lang.Object versionNumber_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object versionNumber_ = "";
   /**
    * <pre>
    * The version number of the Data Fusion instance, such as '6.0.1.0'.
@@ -311,7 +243,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEFAULT_VERSION_FIELD_NUMBER = 2;
-  private boolean defaultVersion_;
+  private boolean defaultVersion_ = false;
   /**
    * <pre>
    * Whether this is currently the default version for Cloud Data Fusion
@@ -326,6 +258,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AVAILABLE_FEATURES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList availableFeatures_;
   /**
    * <pre>
@@ -377,7 +310,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 4;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Type represents the release availability of the version
@@ -398,8 +331,7 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.cloud.datafusion.v1beta1.Version.Type getType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.datafusion.v1beta1.Version.Type result = com.google.cloud.datafusion.v1beta1.Version.Type.valueOf(type_);
+    com.google.cloud.datafusion.v1beta1.Version.Type result = com.google.cloud.datafusion.v1beta1.Version.Type.forNumber(type_);
     return result == null ? com.google.cloud.datafusion.v1beta1.Version.Type.UNRECOGNIZED : result;
   }
 
@@ -429,7 +361,7 @@ private static final long serialVersionUID = 0L;
     if (type_ != com.google.cloud.datafusion.v1beta1.Version.Type.TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, type_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -457,7 +389,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, type_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -479,7 +411,7 @@ private static final long serialVersionUID = 0L;
     if (!getAvailableFeaturesList()
         .equals(other.getAvailableFeaturesList())) return false;
     if (type_ != other.type_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -501,7 +433,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + TYPE_FIELD_NUMBER;
     hash = (53 * hash) + type_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -622,30 +554,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datafusion.v1beta1.Version.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       versionNumber_ = "";
-
       defaultVersion_ = false;
-
       availableFeatures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       type_ = 0;
-
       return this;
     }
 
@@ -672,17 +597,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datafusion.v1beta1.Version buildPartial() {
       com.google.cloud.datafusion.v1beta1.Version result = new com.google.cloud.datafusion.v1beta1.Version(this);
-      int from_bitField0_ = bitField0_;
-      result.versionNumber_ = versionNumber_;
-      result.defaultVersion_ = defaultVersion_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        availableFeatures_ = availableFeatures_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.availableFeatures_ = availableFeatures_;
-      result.type_ = type_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.datafusion.v1beta1.Version result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        availableFeatures_ = availableFeatures_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.availableFeatures_ = availableFeatures_;
+    }
+
+    private void buildPartial0(com.google.cloud.datafusion.v1beta1.Version result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.versionNumber_ = versionNumber_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.defaultVersion_ = defaultVersion_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.type_ = type_;
+      }
     }
 
     @java.lang.Override
@@ -731,6 +670,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.datafusion.v1beta1.Version.getDefaultInstance()) return this;
       if (!other.getVersionNumber().isEmpty()) {
         versionNumber_ = other.versionNumber_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getDefaultVersion() != false) {
@@ -739,7 +679,7 @@ private static final long serialVersionUID = 0L;
       if (!other.availableFeatures_.isEmpty()) {
         if (availableFeatures_.isEmpty()) {
           availableFeatures_ = other.availableFeatures_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureAvailableFeaturesIsMutable();
           availableFeatures_.addAll(other.availableFeatures_);
@@ -749,7 +689,7 @@ private static final long serialVersionUID = 0L;
       if (other.type_ != 0) {
         setTypeValue(other.getTypeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -764,17 +704,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datafusion.v1beta1.Version parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              versionNumber_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              defaultVersion_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureAvailableFeaturesIsMutable();
+              availableFeatures_.add(s);
+              break;
+            } // case 26
+            case 32: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datafusion.v1beta1.Version) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -832,11 +806,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionNumber(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       versionNumber_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -849,8 +821,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVersionNumber() {
-      
       versionNumber_ = getDefaultInstance().getVersionNumber();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -865,12 +837,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionNumberBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       versionNumber_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -900,6 +870,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDefaultVersion(boolean value) {
       
       defaultVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -912,7 +883,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDefaultVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       defaultVersion_ = false;
       onChanged();
       return this;
@@ -920,9 +891,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList availableFeatures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureAvailableFeaturesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         availableFeatures_ = new com.google.protobuf.LazyStringArrayList(availableFeatures_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -985,10 +956,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAvailableFeatures(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAvailableFeaturesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAvailableFeaturesIsMutable();
       availableFeatures_.set(index, value);
       onChanged();
       return this;
@@ -1004,10 +973,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAvailableFeatures(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAvailableFeaturesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAvailableFeaturesIsMutable();
       availableFeatures_.add(value);
       onChanged();
       return this;
@@ -1039,7 +1006,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAvailableFeatures() {
       availableFeatures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1054,10 +1021,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAvailableFeaturesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureAvailableFeaturesIsMutable();
       availableFeatures_.add(value);
       onChanged();
@@ -1086,8 +1051,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1101,8 +1066,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.datafusion.v1beta1.Version.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.datafusion.v1beta1.Version.Type result = com.google.cloud.datafusion.v1beta1.Version.Type.valueOf(type_);
+      com.google.cloud.datafusion.v1beta1.Version.Type result = com.google.cloud.datafusion.v1beta1.Version.Type.forNumber(type_);
       return result == null ? com.google.cloud.datafusion.v1beta1.Version.Type.UNRECOGNIZED : result;
     }
     /**
@@ -1118,7 +1082,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -1132,7 +1096,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       type_ = 0;
       onChanged();
       return this;
@@ -1170,7 +1134,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Version(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -35,63 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CoverageBucket(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.genomics.v1.Range.Builder subBuilder = null;
-            if (range_ != null) {
-              subBuilder = range_.toBuilder();
-            }
-            range_ = input.readMessage(com.google.genomics.v1.Range.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(range_);
-              range_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 21: {
-
-            meanCoverage_ = input.readFloat();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.genomics.v1.ReadsProto.internal_static_google_genomics_v1_CoverageBucket_descriptor;
@@ -140,11 +83,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.genomics.v1.RangeOrBuilder getRangeOrBuilder() {
-    return getRange();
+    return range_ == null ? com.google.genomics.v1.Range.getDefaultInstance() : range_;
   }
 
   public static final int MEAN_COVERAGE_FIELD_NUMBER = 2;
-  private float meanCoverage_;
+  private float meanCoverage_ = 0F;
   /**
    * <pre>
    * The average number of reads which are aligned to each individual
@@ -179,7 +122,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToRawIntBits(meanCoverage_) != 0) {
       output.writeFloat(2, meanCoverage_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -196,7 +139,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(2, meanCoverage_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -219,7 +162,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToIntBits(getMeanCoverage())
         != java.lang.Float.floatToIntBits(
             other.getMeanCoverage())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -237,7 +180,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + MEAN_COVERAGE_FIELD_NUMBER;
     hash = (53 * hash) + java.lang.Float.floatToIntBits(
         getMeanCoverage());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -359,30 +302,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.genomics.v1.CoverageBucket.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (rangeBuilder_ == null) {
-        range_ = null;
-      } else {
-        range_ = null;
+      bitField0_ = 0;
+      range_ = null;
+      if (rangeBuilder_ != null) {
+        rangeBuilder_.dispose();
         rangeBuilder_ = null;
       }
       meanCoverage_ = 0F;
-
       return this;
     }
 
@@ -409,14 +346,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.genomics.v1.CoverageBucket buildPartial() {
       com.google.genomics.v1.CoverageBucket result = new com.google.genomics.v1.CoverageBucket(this);
-      if (rangeBuilder_ == null) {
-        result.range_ = range_;
-      } else {
-        result.range_ = rangeBuilder_.build();
-      }
-      result.meanCoverage_ = meanCoverage_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.genomics.v1.CoverageBucket result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.range_ = rangeBuilder_ == null
+            ? range_
+            : rangeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.meanCoverage_ = meanCoverage_;
+      }
     }
 
     @java.lang.Override
@@ -469,7 +413,7 @@ private static final long serialVersionUID = 0L;
       if (other.getMeanCoverage() != 0F) {
         setMeanCoverage(other.getMeanCoverage());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -484,19 +428,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.genomics.v1.CoverageBucket parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getRangeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 21: {
+              meanCoverage_ = input.readFloat();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 21
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.genomics.v1.CoverageBucket) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.genomics.v1.Range range_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -510,7 +480,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the range field is set.
      */
     public boolean hasRange() {
-      return rangeBuilder_ != null || range_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -540,11 +510,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         range_ = value;
-        onChanged();
       } else {
         rangeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -558,11 +528,11 @@ private static final long serialVersionUID = 0L;
         com.google.genomics.v1.Range.Builder builderForValue) {
       if (rangeBuilder_ == null) {
         range_ = builderForValue.build();
-        onChanged();
       } else {
         rangeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -574,17 +544,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRange(com.google.genomics.v1.Range value) {
       if (rangeBuilder_ == null) {
-        if (range_ != null) {
-          range_ =
-            com.google.genomics.v1.Range.newBuilder(range_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          range_ != null &&
+          range_ != com.google.genomics.v1.Range.getDefaultInstance()) {
+          getRangeBuilder().mergeFrom(value);
         } else {
           range_ = value;
         }
-        onChanged();
       } else {
         rangeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -595,14 +566,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1.Range range = 1;</code>
      */
     public Builder clearRange() {
-      if (rangeBuilder_ == null) {
-        range_ = null;
-        onChanged();
-      } else {
-        range_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      range_ = null;
+      if (rangeBuilder_ != null) {
+        rangeBuilder_.dispose();
         rangeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -613,7 +583,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1.Range range = 1;</code>
      */
     public com.google.genomics.v1.Range.Builder getRangeBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getRangeFieldBuilder().getBuilder();
     }
@@ -680,6 +650,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMeanCoverage(float value) {
       
       meanCoverage_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -693,7 +664,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMeanCoverage() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       meanCoverage_ = 0F;
       onChanged();
       return this;
@@ -731,7 +702,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CoverageBucket(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

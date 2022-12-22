@@ -44,269 +44,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Backup(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            uid_ = s;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            manual_ = input.readBool();
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 56: {
-
-            deleteLockDays_ = input.readInt32();
-            break;
-          }
-          case 66: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (deleteLockExpireTime_ != null) {
-              subBuilder = deleteLockExpireTime_.toBuilder();
-            }
-            deleteLockExpireTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(deleteLockExpireTime_);
-              deleteLockExpireTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 72: {
-
-            retainDays_ = input.readInt32();
-            break;
-          }
-          case 82: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (retainExpireTime_ != null) {
-              subBuilder = retainExpireTime_.toBuilder();
-            }
-            retainExpireTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(retainExpireTime_);
-              retainExpireTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            com.google.cloud.gkebackup.v1.EncryptionKey.Builder subBuilder = null;
-            if (encryptionKey_ != null) {
-              subBuilder = encryptionKey_.toBuilder();
-            }
-            encryptionKey_ = input.readMessage(com.google.cloud.gkebackup.v1.EncryptionKey.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(encryptionKey_);
-              encryptionKey_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 96: {
-            backupScope_ = input.readBool();
-            backupScopeCase_ = 12;
-            break;
-          }
-          case 106: {
-            com.google.cloud.gkebackup.v1.Namespaces.Builder subBuilder = null;
-            if (backupScopeCase_ == 13) {
-              subBuilder = ((com.google.cloud.gkebackup.v1.Namespaces) backupScope_).toBuilder();
-            }
-            backupScope_ =
-                input.readMessage(com.google.cloud.gkebackup.v1.Namespaces.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.gkebackup.v1.Namespaces) backupScope_);
-              backupScope_ = subBuilder.buildPartial();
-            }
-            backupScopeCase_ = 13;
-            break;
-          }
-          case 114: {
-            com.google.cloud.gkebackup.v1.NamespacedNames.Builder subBuilder = null;
-            if (backupScopeCase_ == 14) {
-              subBuilder = ((com.google.cloud.gkebackup.v1.NamespacedNames) backupScope_).toBuilder();
-            }
-            backupScope_ =
-                input.readMessage(com.google.cloud.gkebackup.v1.NamespacedNames.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.gkebackup.v1.NamespacedNames) backupScope_);
-              backupScope_ = subBuilder.buildPartial();
-            }
-            backupScopeCase_ = 14;
-            break;
-          }
-          case 120: {
-
-            containsVolumeData_ = input.readBool();
-            break;
-          }
-          case 128: {
-
-            containsSecrets_ = input.readBool();
-            break;
-          }
-          case 138: {
-            com.google.cloud.gkebackup.v1.Backup.ClusterMetadata.Builder subBuilder = null;
-            if (clusterMetadata_ != null) {
-              subBuilder = clusterMetadata_.toBuilder();
-            }
-            clusterMetadata_ = input.readMessage(com.google.cloud.gkebackup.v1.Backup.ClusterMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(clusterMetadata_);
-              clusterMetadata_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 144: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 154: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            stateReason_ = s;
-            break;
-          }
-          case 162: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (completeTime_ != null) {
-              subBuilder = completeTime_.toBuilder();
-            }
-            completeTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(completeTime_);
-              completeTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 168: {
-
-            resourceCount_ = input.readInt32();
-            break;
-          }
-          case 176: {
-
-            volumeCount_ = input.readInt32();
-            break;
-          }
-          case 184: {
-
-            sizeBytes_ = input.readInt64();
-            break;
-          }
-          case 194: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            etag_ = s;
-            break;
-          }
-          case 202: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 208: {
-
-            podCount_ = input.readInt32();
-            break;
-          }
-          case 216: {
-
-            configBackupSizeBytes_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkebackup.v1.BackupProto.internal_static_google_cloud_gkebackup_v1_Backup_descriptor;
@@ -627,7 +364,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; backup_crd_versions = 3;</code>
      */
-
     /* nullable */
 java.lang.String getBackupCrdVersionsOrDefault(
         java.lang.String key,
@@ -640,7 +376,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; backup_crd_versions = 3;</code>
      */
-
     java.lang.String getBackupCrdVersionsOrThrow(
         java.lang.String key);
 
@@ -737,83 +472,6 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ClusterMetadata(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              cluster_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              k8SVersion_ = s;
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                backupCrdVersions_ = com.google.protobuf.MapField.newMapField(
-                    BackupCrdVersionsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              backupCrdVersions__ = input.readMessage(
-                  BackupCrdVersionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              backupCrdVersions_.getMutableMap().put(
-                  backupCrdVersions__.getKey(), backupCrdVersions__.getValue());
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-              platformVersionCase_ = 4;
-              platformVersion_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-              platformVersionCase_ = 5;
-              platformVersion_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.gkebackup.v1.BackupProto.internal_static_google_cloud_gkebackup_v1_Backup_ClusterMetadata_descriptor;
@@ -881,7 +539,8 @@ java.lang.String defaultValue);
     }
 
     public static final int CLUSTER_FIELD_NUMBER = 1;
-    private volatile java.lang.Object cluster_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object cluster_ = "";
     /**
      * <pre>
      * The source cluster from which this Backup was created.
@@ -937,7 +596,8 @@ java.lang.String defaultValue);
     }
 
     public static final int K8S_VERSION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object k8SVersion_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object k8SVersion_ = "";
     /**
      * <pre>
      * The Kubernetes server version of the source cluster.
@@ -994,6 +654,7 @@ java.lang.String defaultValue);
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> backupCrdVersions_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -1004,7 +665,6 @@ java.lang.String defaultValue);
       }
       return backupCrdVersions_;
     }
-
     public int getBackupCrdVersionsCount() {
       return internalGetBackupCrdVersions().getMap().size();
     }
@@ -1015,7 +675,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; backup_crd_versions = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsBackupCrdVersions(
         java.lang.String key) {
@@ -1038,7 +697,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; backup_crd_versions = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getBackupCrdVersionsMap() {
       return internalGetBackupCrdVersions().getMap();
     }
@@ -1050,10 +708,11 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; backup_crd_versions = 3;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getBackupCrdVersionsOrDefault(
+    public /* nullable */
+java.lang.String getBackupCrdVersionsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetBackupCrdVersions().getMap();
@@ -1067,7 +726,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; backup_crd_versions = 3;</code>
      */
     @java.lang.Override
-
     public java.lang.String getBackupCrdVersionsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1239,7 +897,7 @@ java.lang.String defaultValue);
       if (platformVersionCase_ == 5) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, platformVersion_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1270,7 +928,7 @@ java.lang.String defaultValue);
       if (platformVersionCase_ == 5) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, platformVersion_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1304,7 +962,7 @@ java.lang.String defaultValue);
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1335,7 +993,7 @@ java.lang.String defaultValue);
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1478,26 +1136,20 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.gkebackup.v1.Backup.ClusterMetadata.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         cluster_ = "";
-
         k8SVersion_ = "";
-
         internalGetMutableBackupCrdVersions().clear();
         platformVersionCase_ = 0;
         platformVersion_ = null;
@@ -1527,20 +1179,29 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.gkebackup.v1.Backup.ClusterMetadata buildPartial() {
         com.google.cloud.gkebackup.v1.Backup.ClusterMetadata result = new com.google.cloud.gkebackup.v1.Backup.ClusterMetadata(this);
-        int from_bitField0_ = bitField0_;
-        result.cluster_ = cluster_;
-        result.k8SVersion_ = k8SVersion_;
-        result.backupCrdVersions_ = internalGetBackupCrdVersions();
-        result.backupCrdVersions_.makeImmutable();
-        if (platformVersionCase_ == 4) {
-          result.platformVersion_ = platformVersion_;
-        }
-        if (platformVersionCase_ == 5) {
-          result.platformVersion_ = platformVersion_;
-        }
-        result.platformVersionCase_ = platformVersionCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.gkebackup.v1.Backup.ClusterMetadata result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.cluster_ = cluster_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.k8SVersion_ = k8SVersion_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.backupCrdVersions_ = internalGetBackupCrdVersions();
+          result.backupCrdVersions_.makeImmutable();
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.gkebackup.v1.Backup.ClusterMetadata result) {
+        result.platformVersionCase_ = platformVersionCase_;
+        result.platformVersion_ = this.platformVersion_;
       }
 
       @java.lang.Override
@@ -1589,14 +1250,17 @@ java.lang.String defaultValue);
         if (other == com.google.cloud.gkebackup.v1.Backup.ClusterMetadata.getDefaultInstance()) return this;
         if (!other.getCluster().isEmpty()) {
           cluster_ = other.cluster_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getK8SVersion().isEmpty()) {
           k8SVersion_ = other.k8SVersion_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         internalGetMutableBackupCrdVersions().mergeFrom(
             other.internalGetBackupCrdVersions());
+        bitField0_ |= 0x00000004;
         switch (other.getPlatformVersionCase()) {
           case GKE_VERSION: {
             platformVersionCase_ = 4;
@@ -1614,7 +1278,7 @@ java.lang.String defaultValue);
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1629,17 +1293,61 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.gkebackup.v1.Backup.ClusterMetadata parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                cluster_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                k8SVersion_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                backupCrdVersions__ = input.readMessage(
+                    BackupCrdVersionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableBackupCrdVersions().getMutableMap().put(
+                    backupCrdVersions__.getKey(), backupCrdVersions__.getValue());
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+                platformVersionCase_ = 4;
+                platformVersion_ = s;
+                break;
+              } // case 34
+              case 42: {
+                java.lang.String s = input.readStringRequireUtf8();
+                platformVersionCase_ = 5;
+                platformVersion_ = s;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.gkebackup.v1.Backup.ClusterMetadata) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int platformVersionCase_ = 0;
@@ -1727,11 +1435,9 @@ java.lang.String defaultValue);
        */
       public Builder setCluster(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         cluster_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1749,8 +1455,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearCluster() {
-        
         cluster_ = getDefaultInstance().getCluster();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1770,12 +1476,10 @@ java.lang.String defaultValue);
        */
       public Builder setClusterBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         cluster_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1833,11 +1537,9 @@ java.lang.String defaultValue);
        */
       public Builder setK8SVersion(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         k8SVersion_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1850,8 +1552,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearK8SVersion() {
-        
         k8SVersion_ = getDefaultInstance().getK8SVersion();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1866,12 +1568,10 @@ java.lang.String defaultValue);
        */
       public Builder setK8SVersionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         k8SVersion_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1879,7 +1579,7 @@ java.lang.String defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> backupCrdVersions_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetBackupCrdVersions() {
+          internalGetBackupCrdVersions() {
         if (backupCrdVersions_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               BackupCrdVersionsDefaultEntryHolder.defaultEntry);
@@ -1887,8 +1587,7 @@ java.lang.String defaultValue);
         return backupCrdVersions_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableBackupCrdVersions() {
-        onChanged();;
+          internalGetMutableBackupCrdVersions() {
         if (backupCrdVersions_ == null) {
           backupCrdVersions_ = com.google.protobuf.MapField.newMapField(
               BackupCrdVersionsDefaultEntryHolder.defaultEntry);
@@ -1896,9 +1595,10 @@ java.lang.String defaultValue);
         if (!backupCrdVersions_.isMutable()) {
           backupCrdVersions_ = backupCrdVersions_.copy();
         }
+        bitField0_ |= 0x00000004;
+        onChanged();
         return backupCrdVersions_;
       }
-
       public int getBackupCrdVersionsCount() {
         return internalGetBackupCrdVersions().getMap().size();
       }
@@ -1909,7 +1609,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; backup_crd_versions = 3;</code>
        */
-
       @java.lang.Override
       public boolean containsBackupCrdVersions(
           java.lang.String key) {
@@ -1932,7 +1631,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; backup_crd_versions = 3;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, java.lang.String> getBackupCrdVersionsMap() {
         return internalGetBackupCrdVersions().getMap();
       }
@@ -1944,10 +1642,11 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; backup_crd_versions = 3;</code>
        */
       @java.lang.Override
-
-      public java.lang.String getBackupCrdVersionsOrDefault(
+      public /* nullable */
+java.lang.String getBackupCrdVersionsOrDefault(
           java.lang.String key,
-          java.lang.String defaultValue) {
+          /* nullable */
+java.lang.String defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetBackupCrdVersions().getMap();
@@ -1961,7 +1660,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; backup_crd_versions = 3;</code>
        */
       @java.lang.Override
-
       public java.lang.String getBackupCrdVersionsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1972,8 +1670,8 @@ java.lang.String defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearBackupCrdVersions() {
+        bitField0_ = (bitField0_ & ~0x00000004);
         internalGetMutableBackupCrdVersions().getMutableMap()
             .clear();
         return this;
@@ -1985,7 +1683,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; backup_crd_versions = 3;</code>
        */
-
       public Builder removeBackupCrdVersions(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1998,7 +1695,8 @@ java.lang.String defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableBackupCrdVersions() {
+          getMutableBackupCrdVersions() {
+        bitField0_ |= 0x00000004;
         return internalGetMutableBackupCrdVersions().getMutableMap();
       }
       /**
@@ -2012,12 +1710,10 @@ java.lang.String defaultValue);
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableBackupCrdVersions().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
@@ -2027,11 +1723,11 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; backup_crd_versions = 3;</code>
        */
-
       public Builder putAllBackupCrdVersions(
           java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableBackupCrdVersions().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000004;
         return this;
       }
 
@@ -2111,10 +1807,8 @@ java.lang.String defaultValue);
        */
       public Builder setGkeVersion(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  platformVersionCase_ = 4;
+        if (value == null) { throw new NullPointerException(); }
+        platformVersionCase_ = 4;
         platformVersion_ = value;
         onChanged();
         return this;
@@ -2146,10 +1840,8 @@ java.lang.String defaultValue);
        */
       public Builder setGkeVersionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         platformVersionCase_ = 4;
         platformVersion_ = value;
         onChanged();
@@ -2232,10 +1924,8 @@ java.lang.String defaultValue);
        */
       public Builder setAnthosVersion(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  platformVersionCase_ = 5;
+        if (value == null) { throw new NullPointerException(); }
+        platformVersionCase_ = 5;
         platformVersion_ = value;
         onChanged();
         return this;
@@ -2267,10 +1957,8 @@ java.lang.String defaultValue);
        */
       public Builder setAnthosVersionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         platformVersionCase_ = 5;
         platformVersion_ = value;
         onChanged();
@@ -2309,7 +1997,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ClusterMetadata(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2373,7 +2072,8 @@ java.lang.String defaultValue);
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The fully qualified name of the Backup.
@@ -2421,7 +2121,8 @@ java.lang.String defaultValue);
   }
 
   public static final int UID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object uid_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object uid_ = "";
   /**
    * <pre>
    * Output only. Server generated global unique identifier of
@@ -2503,7 +2204,7 @@ java.lang.String defaultValue);
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 4;
@@ -2541,11 +2242,11 @@ java.lang.String defaultValue);
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int MANUAL_FIELD_NUMBER = 5;
-  private boolean manual_;
+  private boolean manual_ = false;
   /**
    * <pre>
    * Output only. This flag indicates whether this Backup resource was created manually
@@ -2573,6 +2274,7 @@ java.lang.String defaultValue);
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -2583,7 +2285,6 @@ java.lang.String defaultValue);
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -2594,7 +2295,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -2617,7 +2317,6 @@ java.lang.String defaultValue);
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -2629,10 +2328,11 @@ java.lang.String defaultValue);
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -2646,7 +2346,6 @@ java.lang.String defaultValue);
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -2659,7 +2358,7 @@ java.lang.String defaultValue);
   }
 
   public static final int DELETE_LOCK_DAYS_FIELD_NUMBER = 7;
-  private int deleteLockDays_;
+  private int deleteLockDays_ = 0;
   /**
    * <pre>
    * Minimum age for this Backup (in days). If this field is set to a non-zero
@@ -2719,11 +2418,11 @@ java.lang.String defaultValue);
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getDeleteLockExpireTimeOrBuilder() {
-    return getDeleteLockExpireTime();
+    return deleteLockExpireTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : deleteLockExpireTime_;
   }
 
   public static final int RETAIN_DAYS_FIELD_NUMBER = 9;
-  private int retainDays_;
+  private int retainDays_ = 0;
   /**
    * <pre>
    * The age (in days) after which this Backup will be automatically deleted.
@@ -2781,7 +2480,7 @@ java.lang.String defaultValue);
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getRetainExpireTimeOrBuilder() {
-    return getRetainExpireTime();
+    return retainExpireTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : retainExpireTime_;
   }
 
   public static final int ENCRYPTION_KEY_FIELD_NUMBER = 11;
@@ -2825,7 +2524,7 @@ java.lang.String defaultValue);
    */
   @java.lang.Override
   public com.google.cloud.gkebackup.v1.EncryptionKeyOrBuilder getEncryptionKeyOrBuilder() {
-    return getEncryptionKey();
+    return encryptionKey_ == null ? com.google.cloud.gkebackup.v1.EncryptionKey.getDefaultInstance() : encryptionKey_;
   }
 
   public static final int ALL_NAMESPACES_FIELD_NUMBER = 12;
@@ -2947,7 +2646,7 @@ java.lang.String defaultValue);
   }
 
   public static final int CONTAINS_VOLUME_DATA_FIELD_NUMBER = 15;
-  private boolean containsVolumeData_;
+  private boolean containsVolumeData_ = false;
   /**
    * <pre>
    * Output only. Whether or not the Backup contains volume data.  Controlled by the parent
@@ -2964,7 +2663,7 @@ java.lang.String defaultValue);
   }
 
   public static final int CONTAINS_SECRETS_FIELD_NUMBER = 16;
-  private boolean containsSecrets_;
+  private boolean containsSecrets_ = false;
   /**
    * <pre>
    * Output only. Whether or not the Backup contains Kubernetes Secrets.  Controlled by the
@@ -3015,11 +2714,11 @@ java.lang.String defaultValue);
    */
   @java.lang.Override
   public com.google.cloud.gkebackup.v1.Backup.ClusterMetadataOrBuilder getClusterMetadataOrBuilder() {
-    return getClusterMetadata();
+    return clusterMetadata_ == null ? com.google.cloud.gkebackup.v1.Backup.ClusterMetadata.getDefaultInstance() : clusterMetadata_;
   }
 
   public static final int STATE_FIELD_NUMBER = 18;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. Current state of the Backup
@@ -3040,13 +2739,13 @@ java.lang.String defaultValue);
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.gkebackup.v1.Backup.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.gkebackup.v1.Backup.State result = com.google.cloud.gkebackup.v1.Backup.State.valueOf(state_);
+    com.google.cloud.gkebackup.v1.Backup.State result = com.google.cloud.gkebackup.v1.Backup.State.forNumber(state_);
     return result == null ? com.google.cloud.gkebackup.v1.Backup.State.UNRECOGNIZED : result;
   }
 
   public static final int STATE_REASON_FIELD_NUMBER = 19;
-  private volatile java.lang.Object stateReason_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object stateReason_ = "";
   /**
    * <pre>
    * Output only. Human-readable description of why the backup is in the current `state`.
@@ -3126,11 +2825,11 @@ java.lang.String defaultValue);
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCompleteTimeOrBuilder() {
-    return getCompleteTime();
+    return completeTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : completeTime_;
   }
 
   public static final int RESOURCE_COUNT_FIELD_NUMBER = 21;
-  private int resourceCount_;
+  private int resourceCount_ = 0;
   /**
    * <pre>
    * Output only. The total number of Kubernetes resources included in the Backup.
@@ -3145,7 +2844,7 @@ java.lang.String defaultValue);
   }
 
   public static final int VOLUME_COUNT_FIELD_NUMBER = 22;
-  private int volumeCount_;
+  private int volumeCount_ = 0;
   /**
    * <pre>
    * Output only. The total number of volume backups contained in the Backup.
@@ -3160,7 +2859,7 @@ java.lang.String defaultValue);
   }
 
   public static final int SIZE_BYTES_FIELD_NUMBER = 23;
-  private long sizeBytes_;
+  private long sizeBytes_ = 0L;
   /**
    * <pre>
    * Output only. The total size of the Backup in bytes = config backup size + sum(volume
@@ -3176,7 +2875,8 @@ java.lang.String defaultValue);
   }
 
   public static final int ETAG_FIELD_NUMBER = 24;
-  private volatile java.lang.Object etag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object etag_ = "";
   /**
    * <pre>
    * Output only. `etag` is used for optimistic concurrency control as a way to help
@@ -3236,7 +2936,8 @@ java.lang.String defaultValue);
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 25;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * User specified descriptive string for this Backup.
@@ -3282,7 +2983,7 @@ java.lang.String defaultValue);
   }
 
   public static final int POD_COUNT_FIELD_NUMBER = 26;
-  private int podCount_;
+  private int podCount_ = 0;
   /**
    * <pre>
    * Output only. The total number of Kubernetes Pods contained in the Backup.
@@ -3297,7 +2998,7 @@ java.lang.String defaultValue);
   }
 
   public static final int CONFIG_BACKUP_SIZE_BYTES_FIELD_NUMBER = 27;
-  private long configBackupSizeBytes_;
+  private long configBackupSizeBytes_ = 0L;
   /**
    * <pre>
    * Output only. The size of the config backup in bytes.
@@ -3410,7 +3111,7 @@ java.lang.String defaultValue);
     if (configBackupSizeBytes_ != 0L) {
       output.writeInt64(27, configBackupSizeBytes_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3529,7 +3230,7 @@ java.lang.String defaultValue);
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(27, configBackupSizeBytes_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3629,7 +3330,7 @@ java.lang.String defaultValue);
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3726,7 +3427,7 @@ java.lang.String defaultValue);
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3873,97 +3574,76 @@ java.lang.String defaultValue);
 
     // Construct using com.google.cloud.gkebackup.v1.Backup.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       uid_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       manual_ = false;
-
       internalGetMutableLabels().clear();
       deleteLockDays_ = 0;
-
-      if (deleteLockExpireTimeBuilder_ == null) {
-        deleteLockExpireTime_ = null;
-      } else {
-        deleteLockExpireTime_ = null;
+      deleteLockExpireTime_ = null;
+      if (deleteLockExpireTimeBuilder_ != null) {
+        deleteLockExpireTimeBuilder_.dispose();
         deleteLockExpireTimeBuilder_ = null;
       }
       retainDays_ = 0;
-
-      if (retainExpireTimeBuilder_ == null) {
-        retainExpireTime_ = null;
-      } else {
-        retainExpireTime_ = null;
+      retainExpireTime_ = null;
+      if (retainExpireTimeBuilder_ != null) {
+        retainExpireTimeBuilder_.dispose();
         retainExpireTimeBuilder_ = null;
       }
-      if (encryptionKeyBuilder_ == null) {
-        encryptionKey_ = null;
-      } else {
-        encryptionKey_ = null;
+      encryptionKey_ = null;
+      if (encryptionKeyBuilder_ != null) {
+        encryptionKeyBuilder_.dispose();
         encryptionKeyBuilder_ = null;
       }
+      if (selectedNamespacesBuilder_ != null) {
+        selectedNamespacesBuilder_.clear();
+      }
+      if (selectedApplicationsBuilder_ != null) {
+        selectedApplicationsBuilder_.clear();
+      }
       containsVolumeData_ = false;
-
       containsSecrets_ = false;
-
-      if (clusterMetadataBuilder_ == null) {
-        clusterMetadata_ = null;
-      } else {
-        clusterMetadata_ = null;
+      clusterMetadata_ = null;
+      if (clusterMetadataBuilder_ != null) {
+        clusterMetadataBuilder_.dispose();
         clusterMetadataBuilder_ = null;
       }
       state_ = 0;
-
       stateReason_ = "";
-
-      if (completeTimeBuilder_ == null) {
-        completeTime_ = null;
-      } else {
-        completeTime_ = null;
+      completeTime_ = null;
+      if (completeTimeBuilder_ != null) {
+        completeTimeBuilder_.dispose();
         completeTimeBuilder_ = null;
       }
       resourceCount_ = 0;
-
       volumeCount_ = 0;
-
       sizeBytes_ = 0L;
-
       etag_ = "";
-
       description_ = "";
-
       podCount_ = 0;
-
       configBackupSizeBytes_ = 0L;
-
       backupScopeCase_ = 0;
       backupScope_ = null;
       return this;
@@ -3992,80 +3672,114 @@ java.lang.String defaultValue);
     @java.lang.Override
     public com.google.cloud.gkebackup.v1.Backup buildPartial() {
       com.google.cloud.gkebackup.v1.Backup result = new com.google.cloud.gkebackup.v1.Backup(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.uid_ = uid_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.manual_ = manual_;
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      result.deleteLockDays_ = deleteLockDays_;
-      if (deleteLockExpireTimeBuilder_ == null) {
-        result.deleteLockExpireTime_ = deleteLockExpireTime_;
-      } else {
-        result.deleteLockExpireTime_ = deleteLockExpireTimeBuilder_.build();
-      }
-      result.retainDays_ = retainDays_;
-      if (retainExpireTimeBuilder_ == null) {
-        result.retainExpireTime_ = retainExpireTime_;
-      } else {
-        result.retainExpireTime_ = retainExpireTimeBuilder_.build();
-      }
-      if (encryptionKeyBuilder_ == null) {
-        result.encryptionKey_ = encryptionKey_;
-      } else {
-        result.encryptionKey_ = encryptionKeyBuilder_.build();
-      }
-      if (backupScopeCase_ == 12) {
-        result.backupScope_ = backupScope_;
-      }
-      if (backupScopeCase_ == 13) {
-        if (selectedNamespacesBuilder_ == null) {
-          result.backupScope_ = backupScope_;
-        } else {
-          result.backupScope_ = selectedNamespacesBuilder_.build();
-        }
-      }
-      if (backupScopeCase_ == 14) {
-        if (selectedApplicationsBuilder_ == null) {
-          result.backupScope_ = backupScope_;
-        } else {
-          result.backupScope_ = selectedApplicationsBuilder_.build();
-        }
-      }
-      result.containsVolumeData_ = containsVolumeData_;
-      result.containsSecrets_ = containsSecrets_;
-      if (clusterMetadataBuilder_ == null) {
-        result.clusterMetadata_ = clusterMetadata_;
-      } else {
-        result.clusterMetadata_ = clusterMetadataBuilder_.build();
-      }
-      result.state_ = state_;
-      result.stateReason_ = stateReason_;
-      if (completeTimeBuilder_ == null) {
-        result.completeTime_ = completeTime_;
-      } else {
-        result.completeTime_ = completeTimeBuilder_.build();
-      }
-      result.resourceCount_ = resourceCount_;
-      result.volumeCount_ = volumeCount_;
-      result.sizeBytes_ = sizeBytes_;
-      result.etag_ = etag_;
-      result.description_ = description_;
-      result.podCount_ = podCount_;
-      result.configBackupSizeBytes_ = configBackupSizeBytes_;
-      result.backupScopeCase_ = backupScopeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkebackup.v1.Backup result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.uid_ = uid_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.manual_ = manual_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.deleteLockDays_ = deleteLockDays_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.deleteLockExpireTime_ = deleteLockExpireTimeBuilder_ == null
+            ? deleteLockExpireTime_
+            : deleteLockExpireTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.retainDays_ = retainDays_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.retainExpireTime_ = retainExpireTimeBuilder_ == null
+            ? retainExpireTime_
+            : retainExpireTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.encryptionKey_ = encryptionKeyBuilder_ == null
+            ? encryptionKey_
+            : encryptionKeyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.containsVolumeData_ = containsVolumeData_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.containsSecrets_ = containsSecrets_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.clusterMetadata_ = clusterMetadataBuilder_ == null
+            ? clusterMetadata_
+            : clusterMetadataBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.stateReason_ = stateReason_;
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.completeTime_ = completeTimeBuilder_ == null
+            ? completeTime_
+            : completeTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.resourceCount_ = resourceCount_;
+      }
+      if (((from_bitField0_ & 0x00200000) != 0)) {
+        result.volumeCount_ = volumeCount_;
+      }
+      if (((from_bitField0_ & 0x00400000) != 0)) {
+        result.sizeBytes_ = sizeBytes_;
+      }
+      if (((from_bitField0_ & 0x00800000) != 0)) {
+        result.etag_ = etag_;
+      }
+      if (((from_bitField0_ & 0x01000000) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x02000000) != 0)) {
+        result.podCount_ = podCount_;
+      }
+      if (((from_bitField0_ & 0x04000000) != 0)) {
+        result.configBackupSizeBytes_ = configBackupSizeBytes_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.gkebackup.v1.Backup result) {
+      result.backupScopeCase_ = backupScopeCase_;
+      result.backupScope_ = this.backupScope_;
+      if (backupScopeCase_ == 13 &&
+          selectedNamespacesBuilder_ != null) {
+        result.backupScope_ = selectedNamespacesBuilder_.build();
+      }
+      if (backupScopeCase_ == 14 &&
+          selectedApplicationsBuilder_ != null) {
+        result.backupScope_ = selectedApplicationsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -4114,10 +3828,12 @@ java.lang.String defaultValue);
       if (other == com.google.cloud.gkebackup.v1.Backup.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getUid().isEmpty()) {
         uid_ = other.uid_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -4131,6 +3847,7 @@ java.lang.String defaultValue);
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000020;
       if (other.getDeleteLockDays() != 0) {
         setDeleteLockDays(other.getDeleteLockDays());
       }
@@ -4160,6 +3877,7 @@ java.lang.String defaultValue);
       }
       if (!other.getStateReason().isEmpty()) {
         stateReason_ = other.stateReason_;
+        bitField0_ |= 0x00040000;
         onChanged();
       }
       if (other.hasCompleteTime()) {
@@ -4176,10 +3894,12 @@ java.lang.String defaultValue);
       }
       if (!other.getEtag().isEmpty()) {
         etag_ = other.etag_;
+        bitField0_ |= 0x00800000;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x01000000;
         onChanged();
       }
       if (other.getPodCount() != 0) {
@@ -4205,7 +3925,7 @@ java.lang.String defaultValue);
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -4220,17 +3940,187 @@ java.lang.String defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkebackup.v1.Backup parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              uid_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              manual_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 56: {
+              deleteLockDays_ = input.readInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 66: {
+              input.readMessage(
+                  getDeleteLockExpireTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 72: {
+              retainDays_ = input.readInt32();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 82: {
+              input.readMessage(
+                  getRetainExpireTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getEncryptionKeyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 96: {
+              backupScope_ = input.readBool();
+              backupScopeCase_ = 12;
+              break;
+            } // case 96
+            case 106: {
+              input.readMessage(
+                  getSelectedNamespacesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              backupScopeCase_ = 13;
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getSelectedApplicationsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              backupScopeCase_ = 14;
+              break;
+            } // case 114
+            case 120: {
+              containsVolumeData_ = input.readBool();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 120
+            case 128: {
+              containsSecrets_ = input.readBool();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 128
+            case 138: {
+              input.readMessage(
+                  getClusterMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 138
+            case 144: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 144
+            case 154: {
+              stateReason_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 154
+            case 162: {
+              input.readMessage(
+                  getCompleteTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 162
+            case 168: {
+              resourceCount_ = input.readInt32();
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 168
+            case 176: {
+              volumeCount_ = input.readInt32();
+              bitField0_ |= 0x00200000;
+              break;
+            } // case 176
+            case 184: {
+              sizeBytes_ = input.readInt64();
+              bitField0_ |= 0x00400000;
+              break;
+            } // case 184
+            case 194: {
+              etag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00800000;
+              break;
+            } // case 194
+            case 202: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x01000000;
+              break;
+            } // case 202
+            case 208: {
+              podCount_ = input.readInt32();
+              bitField0_ |= 0x02000000;
+              break;
+            } // case 208
+            case 216: {
+              configBackupSizeBytes_ = input.readInt64();
+              bitField0_ |= 0x04000000;
+              break;
+            } // case 216
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkebackup.v1.Backup) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int backupScopeCase_ = 0;
@@ -4306,11 +4196,9 @@ java.lang.String defaultValue);
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -4324,8 +4212,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -4341,12 +4229,10 @@ java.lang.String defaultValue);
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -4407,11 +4293,9 @@ java.lang.String defaultValue);
      */
     public Builder setUid(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       uid_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -4425,8 +4309,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearUid() {
-      
       uid_ = getDefaultInstance().getUid();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -4442,12 +4326,10 @@ java.lang.String defaultValue);
      */
     public Builder setUidBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       uid_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -4464,7 +4346,7 @@ java.lang.String defaultValue);
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -4494,11 +4376,11 @@ java.lang.String defaultValue);
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -4512,11 +4394,11 @@ java.lang.String defaultValue);
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -4528,17 +4410,18 @@ java.lang.String defaultValue);
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -4549,14 +4432,13 @@ java.lang.String defaultValue);
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4567,7 +4449,7 @@ java.lang.String defaultValue);
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -4619,7 +4501,7 @@ java.lang.String defaultValue);
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -4649,11 +4531,11 @@ java.lang.String defaultValue);
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4667,11 +4549,11 @@ java.lang.String defaultValue);
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4683,17 +4565,18 @@ java.lang.String defaultValue);
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4704,14 +4587,13 @@ java.lang.String defaultValue);
      * <code>.google.protobuf.Timestamp update_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4722,7 +4604,7 @@ java.lang.String defaultValue);
      * <code>.google.protobuf.Timestamp update_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -4791,6 +4673,7 @@ java.lang.String defaultValue);
     public Builder setManual(boolean value) {
       
       manual_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -4805,7 +4688,7 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearManual() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       manual_ = false;
       onChanged();
       return this;
@@ -4814,7 +4697,7 @@ java.lang.String defaultValue);
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -4822,8 +4705,7 @@ java.lang.String defaultValue);
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -4831,9 +4713,10 @@ java.lang.String defaultValue);
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000020;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -4844,7 +4727,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -4867,7 +4749,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -4879,10 +4760,11 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -4896,7 +4778,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -4907,8 +4788,8 @@ java.lang.String defaultValue);
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000020);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -4920,7 +4801,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -4933,7 +4813,8 @@ java.lang.String defaultValue);
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000020;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -4947,12 +4828,10 @@ java.lang.String defaultValue);
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000020;
       return this;
     }
     /**
@@ -4962,11 +4841,11 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000020;
       return this;
     }
 
@@ -5011,6 +4890,7 @@ java.lang.String defaultValue);
     public Builder setDeleteLockDays(int value) {
       
       deleteLockDays_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -5031,7 +4911,7 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearDeleteLockDays() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       deleteLockDays_ = 0;
       onChanged();
       return this;
@@ -5050,7 +4930,7 @@ java.lang.String defaultValue);
      * @return Whether the deleteLockExpireTime field is set.
      */
     public boolean hasDeleteLockExpireTime() {
-      return deleteLockExpireTimeBuilder_ != null || deleteLockExpireTime_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -5082,11 +4962,11 @@ java.lang.String defaultValue);
           throw new NullPointerException();
         }
         deleteLockExpireTime_ = value;
-        onChanged();
       } else {
         deleteLockExpireTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -5101,11 +4981,11 @@ java.lang.String defaultValue);
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (deleteLockExpireTimeBuilder_ == null) {
         deleteLockExpireTime_ = builderForValue.build();
-        onChanged();
       } else {
         deleteLockExpireTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -5118,17 +4998,18 @@ java.lang.String defaultValue);
      */
     public Builder mergeDeleteLockExpireTime(com.google.protobuf.Timestamp value) {
       if (deleteLockExpireTimeBuilder_ == null) {
-        if (deleteLockExpireTime_ != null) {
-          deleteLockExpireTime_ =
-            com.google.protobuf.Timestamp.newBuilder(deleteLockExpireTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          deleteLockExpireTime_ != null &&
+          deleteLockExpireTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getDeleteLockExpireTimeBuilder().mergeFrom(value);
         } else {
           deleteLockExpireTime_ = value;
         }
-        onChanged();
       } else {
         deleteLockExpireTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -5140,14 +5021,13 @@ java.lang.String defaultValue);
      * <code>.google.protobuf.Timestamp delete_lock_expire_time = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearDeleteLockExpireTime() {
-      if (deleteLockExpireTimeBuilder_ == null) {
-        deleteLockExpireTime_ = null;
-        onChanged();
-      } else {
-        deleteLockExpireTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      deleteLockExpireTime_ = null;
+      if (deleteLockExpireTimeBuilder_ != null) {
+        deleteLockExpireTimeBuilder_.dispose();
         deleteLockExpireTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5159,7 +5039,7 @@ java.lang.String defaultValue);
      * <code>.google.protobuf.Timestamp delete_lock_expire_time = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getDeleteLockExpireTimeBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getDeleteLockExpireTimeFieldBuilder().getBuilder();
     }
@@ -5238,6 +5118,7 @@ java.lang.String defaultValue);
     public Builder setRetainDays(int value) {
       
       retainDays_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -5256,7 +5137,7 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearRetainDays() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       retainDays_ = 0;
       onChanged();
       return this;
@@ -5275,7 +5156,7 @@ java.lang.String defaultValue);
      * @return Whether the retainExpireTime field is set.
      */
     public boolean hasRetainExpireTime() {
-      return retainExpireTimeBuilder_ != null || retainExpireTime_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -5307,11 +5188,11 @@ java.lang.String defaultValue);
           throw new NullPointerException();
         }
         retainExpireTime_ = value;
-        onChanged();
       } else {
         retainExpireTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -5326,11 +5207,11 @@ java.lang.String defaultValue);
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (retainExpireTimeBuilder_ == null) {
         retainExpireTime_ = builderForValue.build();
-        onChanged();
       } else {
         retainExpireTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -5343,17 +5224,18 @@ java.lang.String defaultValue);
      */
     public Builder mergeRetainExpireTime(com.google.protobuf.Timestamp value) {
       if (retainExpireTimeBuilder_ == null) {
-        if (retainExpireTime_ != null) {
-          retainExpireTime_ =
-            com.google.protobuf.Timestamp.newBuilder(retainExpireTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          retainExpireTime_ != null &&
+          retainExpireTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getRetainExpireTimeBuilder().mergeFrom(value);
         } else {
           retainExpireTime_ = value;
         }
-        onChanged();
       } else {
         retainExpireTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -5365,14 +5247,13 @@ java.lang.String defaultValue);
      * <code>.google.protobuf.Timestamp retain_expire_time = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearRetainExpireTime() {
-      if (retainExpireTimeBuilder_ == null) {
-        retainExpireTime_ = null;
-        onChanged();
-      } else {
-        retainExpireTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      retainExpireTime_ = null;
+      if (retainExpireTimeBuilder_ != null) {
+        retainExpireTimeBuilder_.dispose();
         retainExpireTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5384,7 +5265,7 @@ java.lang.String defaultValue);
      * <code>.google.protobuf.Timestamp retain_expire_time = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getRetainExpireTimeBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getRetainExpireTimeFieldBuilder().getBuilder();
     }
@@ -5440,7 +5321,7 @@ java.lang.String defaultValue);
      * @return Whether the encryptionKey field is set.
      */
     public boolean hasEncryptionKey() {
-      return encryptionKeyBuilder_ != null || encryptionKey_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -5474,11 +5355,11 @@ java.lang.String defaultValue);
           throw new NullPointerException();
         }
         encryptionKey_ = value;
-        onChanged();
       } else {
         encryptionKeyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -5494,11 +5375,11 @@ java.lang.String defaultValue);
         com.google.cloud.gkebackup.v1.EncryptionKey.Builder builderForValue) {
       if (encryptionKeyBuilder_ == null) {
         encryptionKey_ = builderForValue.build();
-        onChanged();
       } else {
         encryptionKeyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -5512,17 +5393,18 @@ java.lang.String defaultValue);
      */
     public Builder mergeEncryptionKey(com.google.cloud.gkebackup.v1.EncryptionKey value) {
       if (encryptionKeyBuilder_ == null) {
-        if (encryptionKey_ != null) {
-          encryptionKey_ =
-            com.google.cloud.gkebackup.v1.EncryptionKey.newBuilder(encryptionKey_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          encryptionKey_ != null &&
+          encryptionKey_ != com.google.cloud.gkebackup.v1.EncryptionKey.getDefaultInstance()) {
+          getEncryptionKeyBuilder().mergeFrom(value);
         } else {
           encryptionKey_ = value;
         }
-        onChanged();
       } else {
         encryptionKeyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -5535,14 +5417,13 @@ java.lang.String defaultValue);
      * <code>.google.cloud.gkebackup.v1.EncryptionKey encryption_key = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearEncryptionKey() {
-      if (encryptionKeyBuilder_ == null) {
-        encryptionKey_ = null;
-        onChanged();
-      } else {
-        encryptionKey_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      encryptionKey_ = null;
+      if (encryptionKeyBuilder_ != null) {
+        encryptionKeyBuilder_.dispose();
         encryptionKeyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5555,7 +5436,7 @@ java.lang.String defaultValue);
      * <code>.google.cloud.gkebackup.v1.EncryptionKey encryption_key = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.gkebackup.v1.EncryptionKey.Builder getEncryptionKeyBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getEncryptionKeyFieldBuilder().getBuilder();
     }
@@ -5634,6 +5515,7 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder setAllNamespaces(boolean value) {
+      
       backupScopeCase_ = 12;
       backupScope_ = value;
       onChanged();
@@ -5830,7 +5712,7 @@ java.lang.String defaultValue);
         backupScope_ = null;
       }
       backupScopeCase_ = 13;
-      onChanged();;
+      onChanged();
       return selectedNamespacesBuilder_;
     }
 
@@ -6017,7 +5899,7 @@ java.lang.String defaultValue);
         backupScope_ = null;
       }
       backupScopeCase_ = 14;
-      onChanged();;
+      onChanged();
       return selectedApplicationsBuilder_;
     }
 
@@ -6050,6 +5932,7 @@ java.lang.String defaultValue);
     public Builder setContainsVolumeData(boolean value) {
       
       containsVolumeData_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -6064,7 +5947,7 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearContainsVolumeData() {
-      
+      bitField0_ = (bitField0_ & ~0x00004000);
       containsVolumeData_ = false;
       onChanged();
       return this;
@@ -6099,6 +5982,7 @@ java.lang.String defaultValue);
     public Builder setContainsSecrets(boolean value) {
       
       containsSecrets_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -6113,7 +5997,7 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearContainsSecrets() {
-      
+      bitField0_ = (bitField0_ & ~0x00008000);
       containsSecrets_ = false;
       onChanged();
       return this;
@@ -6131,7 +6015,7 @@ java.lang.String defaultValue);
      * @return Whether the clusterMetadata field is set.
      */
     public boolean hasClusterMetadata() {
-      return clusterMetadataBuilder_ != null || clusterMetadata_ != null;
+      return ((bitField0_ & 0x00010000) != 0);
     }
     /**
      * <pre>
@@ -6161,11 +6045,11 @@ java.lang.String defaultValue);
           throw new NullPointerException();
         }
         clusterMetadata_ = value;
-        onChanged();
       } else {
         clusterMetadataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -6179,11 +6063,11 @@ java.lang.String defaultValue);
         com.google.cloud.gkebackup.v1.Backup.ClusterMetadata.Builder builderForValue) {
       if (clusterMetadataBuilder_ == null) {
         clusterMetadata_ = builderForValue.build();
-        onChanged();
       } else {
         clusterMetadataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -6195,17 +6079,18 @@ java.lang.String defaultValue);
      */
     public Builder mergeClusterMetadata(com.google.cloud.gkebackup.v1.Backup.ClusterMetadata value) {
       if (clusterMetadataBuilder_ == null) {
-        if (clusterMetadata_ != null) {
-          clusterMetadata_ =
-            com.google.cloud.gkebackup.v1.Backup.ClusterMetadata.newBuilder(clusterMetadata_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00010000) != 0) &&
+          clusterMetadata_ != null &&
+          clusterMetadata_ != com.google.cloud.gkebackup.v1.Backup.ClusterMetadata.getDefaultInstance()) {
+          getClusterMetadataBuilder().mergeFrom(value);
         } else {
           clusterMetadata_ = value;
         }
-        onChanged();
       } else {
         clusterMetadataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -6216,14 +6101,13 @@ java.lang.String defaultValue);
      * <code>.google.cloud.gkebackup.v1.Backup.ClusterMetadata cluster_metadata = 17 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearClusterMetadata() {
-      if (clusterMetadataBuilder_ == null) {
-        clusterMetadata_ = null;
-        onChanged();
-      } else {
-        clusterMetadata_ = null;
+      bitField0_ = (bitField0_ & ~0x00010000);
+      clusterMetadata_ = null;
+      if (clusterMetadataBuilder_ != null) {
+        clusterMetadataBuilder_.dispose();
         clusterMetadataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6234,7 +6118,7 @@ java.lang.String defaultValue);
      * <code>.google.cloud.gkebackup.v1.Backup.ClusterMetadata cluster_metadata = 17 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.gkebackup.v1.Backup.ClusterMetadata.Builder getClusterMetadataBuilder() {
-      
+      bitField0_ |= 0x00010000;
       onChanged();
       return getClusterMetadataFieldBuilder().getBuilder();
     }
@@ -6296,8 +6180,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -6311,8 +6195,7 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.gkebackup.v1.Backup.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.gkebackup.v1.Backup.State result = com.google.cloud.gkebackup.v1.Backup.State.valueOf(state_);
+      com.google.cloud.gkebackup.v1.Backup.State result = com.google.cloud.gkebackup.v1.Backup.State.forNumber(state_);
       return result == null ? com.google.cloud.gkebackup.v1.Backup.State.UNRECOGNIZED : result;
     }
     /**
@@ -6328,7 +6211,7 @@ java.lang.String defaultValue);
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00020000;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -6342,7 +6225,7 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00020000);
       state_ = 0;
       onChanged();
       return this;
@@ -6401,11 +6284,9 @@ java.lang.String defaultValue);
      */
     public Builder setStateReason(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       stateReason_ = value;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
@@ -6418,8 +6299,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearStateReason() {
-      
       stateReason_ = getDefaultInstance().getStateReason();
+      bitField0_ = (bitField0_ & ~0x00040000);
       onChanged();
       return this;
     }
@@ -6434,12 +6315,10 @@ java.lang.String defaultValue);
      */
     public Builder setStateReasonBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       stateReason_ = value;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
@@ -6456,7 +6335,7 @@ java.lang.String defaultValue);
      * @return Whether the completeTime field is set.
      */
     public boolean hasCompleteTime() {
-      return completeTimeBuilder_ != null || completeTime_ != null;
+      return ((bitField0_ & 0x00080000) != 0);
     }
     /**
      * <pre>
@@ -6486,11 +6365,11 @@ java.lang.String defaultValue);
           throw new NullPointerException();
         }
         completeTime_ = value;
-        onChanged();
       } else {
         completeTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -6504,11 +6383,11 @@ java.lang.String defaultValue);
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (completeTimeBuilder_ == null) {
         completeTime_ = builderForValue.build();
-        onChanged();
       } else {
         completeTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -6520,17 +6399,18 @@ java.lang.String defaultValue);
      */
     public Builder mergeCompleteTime(com.google.protobuf.Timestamp value) {
       if (completeTimeBuilder_ == null) {
-        if (completeTime_ != null) {
-          completeTime_ =
-            com.google.protobuf.Timestamp.newBuilder(completeTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00080000) != 0) &&
+          completeTime_ != null &&
+          completeTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCompleteTimeBuilder().mergeFrom(value);
         } else {
           completeTime_ = value;
         }
-        onChanged();
       } else {
         completeTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -6541,14 +6421,13 @@ java.lang.String defaultValue);
      * <code>.google.protobuf.Timestamp complete_time = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCompleteTime() {
-      if (completeTimeBuilder_ == null) {
-        completeTime_ = null;
-        onChanged();
-      } else {
-        completeTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00080000);
+      completeTime_ = null;
+      if (completeTimeBuilder_ != null) {
+        completeTimeBuilder_.dispose();
         completeTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6559,7 +6438,7 @@ java.lang.String defaultValue);
      * <code>.google.protobuf.Timestamp complete_time = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCompleteTimeBuilder() {
-      
+      bitField0_ |= 0x00080000;
       onChanged();
       return getCompleteTimeFieldBuilder().getBuilder();
     }
@@ -6624,6 +6503,7 @@ java.lang.String defaultValue);
     public Builder setResourceCount(int value) {
       
       resourceCount_ = value;
+      bitField0_ |= 0x00100000;
       onChanged();
       return this;
     }
@@ -6636,7 +6516,7 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearResourceCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00100000);
       resourceCount_ = 0;
       onChanged();
       return this;
@@ -6667,6 +6547,7 @@ java.lang.String defaultValue);
     public Builder setVolumeCount(int value) {
       
       volumeCount_ = value;
+      bitField0_ |= 0x00200000;
       onChanged();
       return this;
     }
@@ -6679,7 +6560,7 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearVolumeCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00200000);
       volumeCount_ = 0;
       onChanged();
       return this;
@@ -6712,6 +6593,7 @@ java.lang.String defaultValue);
     public Builder setSizeBytes(long value) {
       
       sizeBytes_ = value;
+      bitField0_ |= 0x00400000;
       onChanged();
       return this;
     }
@@ -6725,7 +6607,7 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearSizeBytes() {
-      
+      bitField0_ = (bitField0_ & ~0x00400000);
       sizeBytes_ = 0L;
       onChanged();
       return this;
@@ -6805,11 +6687,9 @@ java.lang.String defaultValue);
      */
     public Builder setEtag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       etag_ = value;
+      bitField0_ |= 0x00800000;
       onChanged();
       return this;
     }
@@ -6829,8 +6709,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearEtag() {
-      
       etag_ = getDefaultInstance().getEtag();
+      bitField0_ = (bitField0_ & ~0x00800000);
       onChanged();
       return this;
     }
@@ -6852,12 +6732,10 @@ java.lang.String defaultValue);
      */
     public Builder setEtagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       etag_ = value;
+      bitField0_ |= 0x00800000;
       onChanged();
       return this;
     }
@@ -6915,11 +6793,9 @@ java.lang.String defaultValue);
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x01000000;
       onChanged();
       return this;
     }
@@ -6932,8 +6808,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x01000000);
       onChanged();
       return this;
     }
@@ -6948,12 +6824,10 @@ java.lang.String defaultValue);
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x01000000;
       onChanged();
       return this;
     }
@@ -6983,6 +6857,7 @@ java.lang.String defaultValue);
     public Builder setPodCount(int value) {
       
       podCount_ = value;
+      bitField0_ |= 0x02000000;
       onChanged();
       return this;
     }
@@ -6995,7 +6870,7 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearPodCount() {
-      
+      bitField0_ = (bitField0_ & ~0x02000000);
       podCount_ = 0;
       onChanged();
       return this;
@@ -7026,6 +6901,7 @@ java.lang.String defaultValue);
     public Builder setConfigBackupSizeBytes(long value) {
       
       configBackupSizeBytes_ = value;
+      bitField0_ |= 0x04000000;
       onChanged();
       return this;
     }
@@ -7038,7 +6914,7 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearConfigBackupSizeBytes() {
-      
+      bitField0_ = (bitField0_ & ~0x04000000);
       configBackupSizeBytes_ = 0L;
       onChanged();
       return this;
@@ -7076,7 +6952,18 @@ java.lang.String defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Backup(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

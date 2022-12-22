@@ -34,55 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VideoActionRecognitionPredictionParams(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 13: {
-
-            confidenceThreshold_ = input.readFloat();
-            break;
-          }
-          case 16: {
-
-            maxPredictions_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.schema.predict.params.VideoActionRecognitionPredictionParamsProto.internal_static_google_cloud_aiplatform_v1beta1_schema_predict_params_VideoActionRecognitionPredictionParams_descriptor;
@@ -97,7 +48,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONFIDENCE_THRESHOLD_FIELD_NUMBER = 1;
-  private float confidenceThreshold_;
+  private float confidenceThreshold_ = 0F;
   /**
    * <pre>
    * The Model only returns predictions with at least this confidence score.
@@ -113,7 +64,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_PREDICTIONS_FIELD_NUMBER = 2;
-  private int maxPredictions_;
+  private int maxPredictions_ = 0;
   /**
    * <pre>
    * The model only returns up to that many top, by confidence score,
@@ -149,7 +100,7 @@ private static final long serialVersionUID = 0L;
     if (maxPredictions_ != 0) {
       output.writeInt32(2, maxPredictions_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -166,7 +117,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, maxPredictions_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -186,7 +137,7 @@ private static final long serialVersionUID = 0L;
             other.getConfidenceThreshold())) return false;
     if (getMaxPredictions()
         != other.getMaxPredictions()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -202,7 +153,7 @@ private static final long serialVersionUID = 0L;
         getConfidenceThreshold());
     hash = (37 * hash) + MAX_PREDICTIONS_FIELD_NUMBER;
     hash = (53 * hash) + getMaxPredictions();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -323,26 +274,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.schema.predict.params.VideoActionRecognitionPredictionParams.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       confidenceThreshold_ = 0F;
-
       maxPredictions_ = 0;
-
       return this;
     }
 
@@ -369,10 +314,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.schema.predict.params.VideoActionRecognitionPredictionParams buildPartial() {
       com.google.cloud.aiplatform.v1beta1.schema.predict.params.VideoActionRecognitionPredictionParams result = new com.google.cloud.aiplatform.v1beta1.schema.predict.params.VideoActionRecognitionPredictionParams(this);
-      result.confidenceThreshold_ = confidenceThreshold_;
-      result.maxPredictions_ = maxPredictions_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.schema.predict.params.VideoActionRecognitionPredictionParams result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.confidenceThreshold_ = confidenceThreshold_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.maxPredictions_ = maxPredictions_;
+      }
     }
 
     @java.lang.Override
@@ -425,7 +379,7 @@ private static final long serialVersionUID = 0L;
       if (other.getMaxPredictions() != 0) {
         setMaxPredictions(other.getMaxPredictions());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -440,19 +394,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.schema.predict.params.VideoActionRecognitionPredictionParams parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 13: {
+              confidenceThreshold_ = input.readFloat();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 13
+            case 16: {
+              maxPredictions_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.schema.predict.params.VideoActionRecognitionPredictionParams) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private float confidenceThreshold_ ;
     /**
@@ -481,6 +459,7 @@ private static final long serialVersionUID = 0L;
     public Builder setConfidenceThreshold(float value) {
       
       confidenceThreshold_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -494,7 +473,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConfidenceThreshold() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       confidenceThreshold_ = 0F;
       onChanged();
       return this;
@@ -529,6 +508,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxPredictions(int value) {
       
       maxPredictions_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -543,7 +523,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxPredictions() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       maxPredictions_ = 0;
       onChanged();
       return this;
@@ -581,7 +561,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VideoActionRecognitionPredictionParams(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

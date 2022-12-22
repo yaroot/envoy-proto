@@ -13,7 +13,7 @@ public interface SearchRequestOrBuilder extends
    * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
    * or the name of the legacy placement resource, such as
    * `projects/&#42;&#47;locations/global/catalogs/default_catalog/placements/default_search`.
-   * This field is used to identify the serving configuration name and the set
+   * This field is used to identify the serving config name and the set
    * of models that will be used to make the search.
    * </pre>
    *
@@ -27,7 +27,7 @@ public interface SearchRequestOrBuilder extends
    * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
    * or the name of the legacy placement resource, such as
    * `projects/&#42;&#47;locations/global/catalogs/default_catalog/placements/default_search`.
-   * This field is used to identify the serving configuration name and the set
+   * This field is used to identify the serving config name and the set
    * of models that will be used to make the search.
    * </pre>
    *
@@ -379,7 +379,7 @@ public interface SearchRequestOrBuilder extends
    *
    * <code>.google.cloud.retail.v2alpha.SearchRequest.DynamicFacetSpec dynamic_facet_spec = 21 [deprecated = true];</code>
    * @deprecated google.cloud.retail.v2alpha.SearchRequest.dynamic_facet_spec is deprecated.
-   *     See google/cloud/retail/v2alpha/search_service.proto;l=600
+   *     See google/cloud/retail/v2alpha/search_service.proto;l=609
    * @return Whether the dynamicFacetSpec field is set.
    */
   @java.lang.Deprecated boolean hasDynamicFacetSpec();
@@ -393,7 +393,7 @@ public interface SearchRequestOrBuilder extends
    *
    * <code>.google.cloud.retail.v2alpha.SearchRequest.DynamicFacetSpec dynamic_facet_spec = 21 [deprecated = true];</code>
    * @deprecated google.cloud.retail.v2alpha.SearchRequest.dynamic_facet_spec is deprecated.
-   *     See google/cloud/retail/v2alpha/search_service.proto;l=600
+   *     See google/cloud/retail/v2alpha/search_service.proto;l=609
    * @return The dynamicFacetSpec.
    */
   @java.lang.Deprecated com.google.cloud.retail.v2alpha.SearchRequest.DynamicFacetSpec getDynamicFacetSpec();
@@ -866,7 +866,7 @@ public interface SearchRequestOrBuilder extends
    * the same as
    * [UserEvent.page_categories][google.cloud.retail.v2alpha.UserEvent.page_categories];
    * To represent full path of category, use '&gt;' sign to separate different
-   * hierarchies. If '&gt;' is part of the category name, please replace it with
+   * hierarchies. If '&gt;' is part of the category name, replace it with
    * other character(s).
    * Category pages include special pages such as sales or promotions. For
    * instance, a special sale page may have the category hierarchy:
@@ -885,7 +885,7 @@ public interface SearchRequestOrBuilder extends
    * the same as
    * [UserEvent.page_categories][google.cloud.retail.v2alpha.UserEvent.page_categories];
    * To represent full path of category, use '&gt;' sign to separate different
-   * hierarchies. If '&gt;' is part of the category name, please replace it with
+   * hierarchies. If '&gt;' is part of the category name, replace it with
    * other character(s).
    * Category pages include special pages such as sales or promotions. For
    * instance, a special sale page may have the category hierarchy:
@@ -903,7 +903,7 @@ public interface SearchRequestOrBuilder extends
    * the same as
    * [UserEvent.page_categories][google.cloud.retail.v2alpha.UserEvent.page_categories];
    * To represent full path of category, use '&gt;' sign to separate different
-   * hierarchies. If '&gt;' is part of the category name, please replace it with
+   * hierarchies. If '&gt;' is part of the category name, replace it with
    * other character(s).
    * Category pages include special pages such as sales or promotions. For
    * instance, a special sale page may have the category hierarchy:
@@ -922,7 +922,7 @@ public interface SearchRequestOrBuilder extends
    * the same as
    * [UserEvent.page_categories][google.cloud.retail.v2alpha.UserEvent.page_categories];
    * To represent full path of category, use '&gt;' sign to separate different
-   * hierarchies. If '&gt;' is part of the category name, please replace it with
+   * hierarchies. If '&gt;' is part of the category name, replace it with
    * other character(s).
    * Category pages include special pages such as sales or promotions. For
    * instance, a special sale page may have the category hierarchy:
@@ -960,6 +960,14 @@ public interface SearchRequestOrBuilder extends
   /**
    * <pre>
    * The specification for personalization.
+   * Notice that if both
+   * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec]
+   * and
+   * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+   * are set.
+   * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+   * will override
+   * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec].
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec personalization_spec = 32;</code>
@@ -969,6 +977,14 @@ public interface SearchRequestOrBuilder extends
   /**
    * <pre>
    * The specification for personalization.
+   * Notice that if both
+   * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec]
+   * and
+   * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+   * are set.
+   * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+   * will override
+   * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec].
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec personalization_spec = 32;</code>
@@ -978,6 +994,14 @@ public interface SearchRequestOrBuilder extends
   /**
    * <pre>
    * The specification for personalization.
+   * Notice that if both
+   * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec]
+   * and
+   * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+   * are set.
+   * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+   * will override
+   * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec].
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec personalization_spec = 32;</code>
@@ -1079,7 +1103,6 @@ public interface SearchRequestOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 34;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -1106,7 +1129,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 34;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 

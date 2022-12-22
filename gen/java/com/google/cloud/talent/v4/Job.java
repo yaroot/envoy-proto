@@ -54,368 +54,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Job(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            company_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            requisitionId_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            title_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              addresses_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            addresses_.add(s);
-            break;
-          }
-          case 58: {
-            com.google.cloud.talent.v4.Job.ApplicationInfo.Builder subBuilder = null;
-            if (applicationInfo_ != null) {
-              subBuilder = applicationInfo_.toBuilder();
-            }
-            applicationInfo_ = input.readMessage(com.google.cloud.talent.v4.Job.ApplicationInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(applicationInfo_);
-              applicationInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              jobBenefits_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            jobBenefits_.add(rawValue);
-            break;
-          }
-          case 66: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                jobBenefits_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              jobBenefits_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 74: {
-            com.google.cloud.talent.v4.CompensationInfo.Builder subBuilder = null;
-            if (compensationInfo_ != null) {
-              subBuilder = compensationInfo_.toBuilder();
-            }
-            compensationInfo_ = input.readMessage(com.google.cloud.talent.v4.CompensationInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(compensationInfo_);
-              compensationInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              customAttributes_ = com.google.protobuf.MapField.newMapField(
-                  CustomAttributesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.talent.v4.CustomAttribute>
-            customAttributes__ = input.readMessage(
-                CustomAttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            customAttributes_.getMutableMap().put(
-                customAttributes__.getKey(), customAttributes__.getValue());
-            break;
-          }
-          case 88: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              degreeTypes_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            degreeTypes_.add(rawValue);
-            break;
-          }
-          case 90: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                degreeTypes_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              degreeTypes_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            department_ = s;
-            break;
-          }
-          case 104: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              employmentTypes_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            employmentTypes_.add(rawValue);
-            break;
-          }
-          case 106: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-                employmentTypes_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              employmentTypes_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            incentives_ = s;
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageCode_ = s;
-            break;
-          }
-          case 128: {
-            int rawValue = input.readEnum();
-
-            jobLevel_ = rawValue;
-            break;
-          }
-          case 136: {
-
-            promotionValue_ = input.readInt32();
-            break;
-          }
-          case 146: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            qualifications_ = s;
-            break;
-          }
-          case 154: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            responsibilities_ = s;
-            break;
-          }
-          case 160: {
-            int rawValue = input.readEnum();
-
-            postingRegion_ = rawValue;
-            break;
-          }
-          case 168: {
-            int rawValue = input.readEnum();
-
-            visibility_ = rawValue;
-            break;
-          }
-          case 178: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (jobStartTime_ != null) {
-              subBuilder = jobStartTime_.toBuilder();
-            }
-            jobStartTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(jobStartTime_);
-              jobStartTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 186: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (jobEndTime_ != null) {
-              subBuilder = jobEndTime_.toBuilder();
-            }
-            jobEndTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(jobEndTime_);
-              jobEndTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 194: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (postingPublishTime_ != null) {
-              subBuilder = postingPublishTime_.toBuilder();
-            }
-            postingPublishTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(postingPublishTime_);
-              postingPublishTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 202: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (postingExpireTime_ != null) {
-              subBuilder = postingExpireTime_.toBuilder();
-            }
-            postingExpireTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(postingExpireTime_);
-              postingExpireTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 210: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (postingCreateTime_ != null) {
-              subBuilder = postingCreateTime_.toBuilder();
-            }
-            postingCreateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(postingCreateTime_);
-              postingCreateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 218: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (postingUpdateTime_ != null) {
-              subBuilder = postingUpdateTime_.toBuilder();
-            }
-            postingUpdateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(postingUpdateTime_);
-              postingUpdateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 226: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            companyDisplayName_ = s;
-            break;
-          }
-          case 234: {
-            com.google.cloud.talent.v4.Job.DerivedInfo.Builder subBuilder = null;
-            if (derivedInfo_ != null) {
-              subBuilder = derivedInfo_.toBuilder();
-            }
-            derivedInfo_ = input.readMessage(com.google.cloud.talent.v4.Job.DerivedInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(derivedInfo_);
-              derivedInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 242: {
-            com.google.cloud.talent.v4.Job.ProcessingOptions.Builder subBuilder = null;
-            if (processingOptions_ != null) {
-              subBuilder = processingOptions_.toBuilder();
-            }
-            processingOptions_ = input.readMessage(com.google.cloud.talent.v4.Job.ProcessingOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(processingOptions_);
-              processingOptions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        addresses_ = addresses_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        jobBenefits_ = java.util.Collections.unmodifiableList(jobBenefits_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        degreeTypes_ = java.util.Collections.unmodifiableList(degreeTypes_);
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        employmentTypes_ = java.util.Collections.unmodifiableList(employmentTypes_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.talent.v4.JobProto.internal_static_google_cloud_talent_v4_Job_descriptor;
@@ -605,76 +243,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ApplicationInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                emails_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              emails_.add(s);
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              instruction_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                uris_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              uris_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          emails_ = emails_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          uris_ = uris_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.talent.v4.JobProto.internal_static_google_cloud_talent_v4_Job_ApplicationInfo_descriptor;
@@ -689,6 +257,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int EMAILS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList emails_;
     /**
      * <pre>
@@ -748,7 +317,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int INSTRUCTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object instruction_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object instruction_ = "";
     /**
      * <pre>
      * Use this field to provide instructions, such as "Mail your application
@@ -802,6 +372,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int URIS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList uris_;
     /**
      * <pre>
@@ -883,7 +454,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < uris_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, uris_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -911,7 +482,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getUrisList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -932,7 +503,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getInstruction())) return false;
       if (!getUrisList()
           .equals(other.getUrisList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -953,7 +524,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + URIS_FIELD_NUMBER;
         hash = (53 * hash) + getUrisList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1074,28 +645,23 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.talent.v4.Job.ApplicationInfo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         emails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         instruction_ = "";
-
         uris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -1122,20 +688,30 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.talent.v4.Job.ApplicationInfo buildPartial() {
         com.google.cloud.talent.v4.Job.ApplicationInfo result = new com.google.cloud.talent.v4.Job.ApplicationInfo(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.talent.v4.Job.ApplicationInfo result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           emails_ = emails_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.emails_ = emails_;
-        result.instruction_ = instruction_;
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           uris_ = uris_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.uris_ = uris_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.talent.v4.Job.ApplicationInfo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.instruction_ = instruction_;
+        }
       }
 
       @java.lang.Override
@@ -1194,19 +770,20 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getInstruction().isEmpty()) {
           instruction_ = other.instruction_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.uris_.isEmpty()) {
           if (uris_.isEmpty()) {
             uris_ = other.uris_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureUrisIsMutable();
             uris_.addAll(other.uris_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1221,17 +798,47 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.talent.v4.Job.ApplicationInfo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureEmailsIsMutable();
+                emails_.add(s);
+                break;
+              } // case 10
+              case 18: {
+                instruction_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureUrisIsMutable();
+                uris_.add(s);
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.talent.v4.Job.ApplicationInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1313,10 +920,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEmails(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEmailsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureEmailsIsMutable();
         emails_.set(index, value);
         onChanged();
         return this;
@@ -1334,10 +939,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addEmails(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEmailsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureEmailsIsMutable();
         emails_.add(value);
         onChanged();
         return this;
@@ -1390,10 +993,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addEmailsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureEmailsIsMutable();
         emails_.add(value);
         onChanged();
@@ -1465,11 +1066,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setInstruction(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         instruction_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1486,8 +1085,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearInstruction() {
-        
         instruction_ = getDefaultInstance().getInstruction();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1506,21 +1105,19 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setInstructionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         instruction_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.LazyStringList uris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureUrisIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           uris_ = new com.google.protobuf.LazyStringArrayList(uris_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
          }
       }
       /**
@@ -1593,10 +1190,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setUris(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUrisIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureUrisIsMutable();
         uris_.set(index, value);
         onChanged();
         return this;
@@ -1614,10 +1209,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addUris(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUrisIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureUrisIsMutable();
         uris_.add(value);
         onChanged();
         return this;
@@ -1653,7 +1246,7 @@ private static final long serialVersionUID = 0L;
        */
       public Builder clearUris() {
         uris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1670,10 +1263,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addUrisBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureUrisIsMutable();
         uris_.add(value);
         onChanged();
@@ -1712,7 +1303,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ApplicationInfo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1872,84 +1474,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DerivedInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                locations_ = new java.util.ArrayList<com.google.cloud.talent.v4.Location>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              locations_.add(
-                  input.readMessage(com.google.cloud.talent.v4.Location.parser(), extensionRegistry));
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                jobCategories_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              jobCategories_.add(rawValue);
-              break;
-            }
-            case 26: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                  jobCategories_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000002;
-                }
-                jobCategories_.add(rawValue);
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          locations_ = java.util.Collections.unmodifiableList(locations_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          jobCategories_ = java.util.Collections.unmodifiableList(jobCategories_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.talent.v4.JobProto.internal_static_google_cloud_talent_v4_Job_DerivedInfo_descriptor;
@@ -1964,6 +1488,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int LOCATIONS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.talent.v4.Location> locations_;
     /**
      * <pre>
@@ -2034,14 +1559,14 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int JOB_CATEGORIES_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> jobCategories_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, com.google.cloud.talent.v4.JobCategory> jobCategories_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, com.google.cloud.talent.v4.JobCategory>() {
               public com.google.cloud.talent.v4.JobCategory convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                com.google.cloud.talent.v4.JobCategory result = com.google.cloud.talent.v4.JobCategory.valueOf(from);
+                com.google.cloud.talent.v4.JobCategory result = com.google.cloud.talent.v4.JobCategory.forNumber(from);
                 return result == null ? com.google.cloud.talent.v4.JobCategory.UNRECOGNIZED : result;
               }
             };
@@ -2136,7 +1661,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < jobCategories_.size(); i++) {
         output.writeEnumNoTag(jobCategories_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2161,7 +1686,7 @@ private static final long serialVersionUID = 0L;
             .computeUInt32SizeNoTag(dataSize);
         }jobCategoriesMemoizedSerializedSize = dataSize;
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2179,7 +1704,7 @@ private static final long serialVersionUID = 0L;
       if (!getLocationsList()
           .equals(other.getLocationsList())) return false;
       if (!jobCategories_.equals(other.jobCategories_)) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2198,7 +1723,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + JOB_CATEGORIES_FIELD_NUMBER;
         hash = (53 * hash) + jobCategories_.hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2319,29 +1844,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.talent.v4.Job.DerivedInfo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getLocationsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (locationsBuilder_ == null) {
           locations_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          locations_ = null;
           locationsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         jobCategories_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
@@ -2370,7 +1891,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.talent.v4.Job.DerivedInfo buildPartial() {
         com.google.cloud.talent.v4.Job.DerivedInfo result = new com.google.cloud.talent.v4.Job.DerivedInfo(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.talent.v4.Job.DerivedInfo result) {
         if (locationsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             locations_ = java.util.Collections.unmodifiableList(locations_);
@@ -2385,8 +1912,10 @@ private static final long serialVersionUID = 0L;
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.jobCategories_ = jobCategories_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.talent.v4.Job.DerivedInfo result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -2469,7 +1998,7 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2484,17 +2013,60 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.talent.v4.Job.DerivedInfo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.talent.v4.Location m =
+                    input.readMessage(
+                        com.google.cloud.talent.v4.Location.parser(),
+                        extensionRegistry);
+                if (locationsBuilder_ == null) {
+                  ensureLocationsIsMutable();
+                  locations_.add(m);
+                } else {
+                  locationsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 24: {
+                int tmpRaw = input.readEnum();
+                ensureJobCategoriesIsMutable();
+                jobCategories_.add(tmpRaw);
+                break;
+              } // case 24
+              case 26: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  ensureJobCategoriesIsMutable();
+                  jobCategories_.add(tmpRaw);
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.talent.v4.Job.DerivedInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3067,7 +2639,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DerivedInfo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3169,56 +2752,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ProcessingOptions(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              disableStreetAddressResolution_ = input.readBool();
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              htmlSanitization_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.talent.v4.JobProto.internal_static_google_cloud_talent_v4_Job_ProcessingOptions_descriptor;
@@ -3233,7 +2766,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DISABLE_STREET_ADDRESS_RESOLUTION_FIELD_NUMBER = 1;
-    private boolean disableStreetAddressResolution_;
+    private boolean disableStreetAddressResolution_ = false;
     /**
      * <pre>
      * If set to `true`, the service does not attempt to resolve a
@@ -3249,7 +2782,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int HTML_SANITIZATION_FIELD_NUMBER = 2;
-    private int htmlSanitization_;
+    private int htmlSanitization_ = 0;
     /**
      * <pre>
      * Option for job HTML content sanitization. Applied fields are:
@@ -3286,8 +2819,7 @@ private static final long serialVersionUID = 0L;
      * @return The htmlSanitization.
      */
     @java.lang.Override public com.google.cloud.talent.v4.HtmlSanitization getHtmlSanitization() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.talent.v4.HtmlSanitization result = com.google.cloud.talent.v4.HtmlSanitization.valueOf(htmlSanitization_);
+      com.google.cloud.talent.v4.HtmlSanitization result = com.google.cloud.talent.v4.HtmlSanitization.forNumber(htmlSanitization_);
       return result == null ? com.google.cloud.talent.v4.HtmlSanitization.UNRECOGNIZED : result;
     }
 
@@ -3311,7 +2843,7 @@ private static final long serialVersionUID = 0L;
       if (htmlSanitization_ != com.google.cloud.talent.v4.HtmlSanitization.HTML_SANITIZATION_UNSPECIFIED.getNumber()) {
         output.writeEnum(2, htmlSanitization_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3328,7 +2860,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, htmlSanitization_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3346,7 +2878,7 @@ private static final long serialVersionUID = 0L;
       if (getDisableStreetAddressResolution()
           != other.getDisableStreetAddressResolution()) return false;
       if (htmlSanitization_ != other.htmlSanitization_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3362,7 +2894,7 @@ private static final long serialVersionUID = 0L;
           getDisableStreetAddressResolution());
       hash = (37 * hash) + HTML_SANITIZATION_FIELD_NUMBER;
       hash = (53 * hash) + htmlSanitization_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3483,26 +3015,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.talent.v4.Job.ProcessingOptions.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         disableStreetAddressResolution_ = false;
-
         htmlSanitization_ = 0;
-
         return this;
       }
 
@@ -3529,10 +3055,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.talent.v4.Job.ProcessingOptions buildPartial() {
         com.google.cloud.talent.v4.Job.ProcessingOptions result = new com.google.cloud.talent.v4.Job.ProcessingOptions(this);
-        result.disableStreetAddressResolution_ = disableStreetAddressResolution_;
-        result.htmlSanitization_ = htmlSanitization_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.talent.v4.Job.ProcessingOptions result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.disableStreetAddressResolution_ = disableStreetAddressResolution_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.htmlSanitization_ = htmlSanitization_;
+        }
       }
 
       @java.lang.Override
@@ -3585,7 +3120,7 @@ private static final long serialVersionUID = 0L;
         if (other.htmlSanitization_ != 0) {
           setHtmlSanitizationValue(other.getHtmlSanitizationValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3600,19 +3135,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.talent.v4.Job.ProcessingOptions parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                disableStreetAddressResolution_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                htmlSanitization_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.talent.v4.Job.ProcessingOptions) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private boolean disableStreetAddressResolution_ ;
       /**
@@ -3641,6 +3200,7 @@ private static final long serialVersionUID = 0L;
       public Builder setDisableStreetAddressResolution(boolean value) {
         
         disableStreetAddressResolution_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3654,7 +3214,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDisableStreetAddressResolution() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         disableStreetAddressResolution_ = false;
         onChanged();
         return this;
@@ -3698,8 +3258,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setHtmlSanitizationValue(int value) {
-        
         htmlSanitization_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3721,8 +3281,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.talent.v4.HtmlSanitization getHtmlSanitization() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.talent.v4.HtmlSanitization result = com.google.cloud.talent.v4.HtmlSanitization.valueOf(htmlSanitization_);
+        com.google.cloud.talent.v4.HtmlSanitization result = com.google.cloud.talent.v4.HtmlSanitization.forNumber(htmlSanitization_);
         return result == null ? com.google.cloud.talent.v4.HtmlSanitization.UNRECOGNIZED : result;
       }
       /**
@@ -3746,7 +3305,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         htmlSanitization_ = value.getNumber();
         onChanged();
         return this;
@@ -3768,7 +3327,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearHtmlSanitization() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         htmlSanitization_ = 0;
         onChanged();
         return this;
@@ -3806,7 +3365,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ProcessingOptions(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3827,7 +3397,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required during job update.
@@ -3887,7 +3458,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COMPANY_FIELD_NUMBER = 2;
-  private volatile java.lang.Object company_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object company_ = "";
   /**
    * <pre>
    * Required. The resource name of the company listing the job.
@@ -3939,7 +3511,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUISITION_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object requisitionId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object requisitionId_ = "";
   /**
    * <pre>
    * Required. The requisition ID, also referred to as the posting ID, is assigned by the
@@ -3995,7 +3568,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TITLE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object title_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object title_ = "";
   /**
    * <pre>
    * Required. The title of the job, such as "Software Engineer"
@@ -4043,7 +3617,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 5;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * Required. The description of the job, which typically includes a multi-paragraph
@@ -4103,6 +3678,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADDRESSES_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList addresses_;
   /**
    * <pre>
@@ -4268,18 +3844,18 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.talent.v4.Job.ApplicationInfoOrBuilder getApplicationInfoOrBuilder() {
-    return getApplicationInfo();
+    return applicationInfo_ == null ? com.google.cloud.talent.v4.Job.ApplicationInfo.getDefaultInstance() : applicationInfo_;
   }
 
   public static final int JOB_BENEFITS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> jobBenefits_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.talent.v4.JobBenefit> jobBenefits_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.talent.v4.JobBenefit>() {
             public com.google.cloud.talent.v4.JobBenefit convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.talent.v4.JobBenefit result = com.google.cloud.talent.v4.JobBenefit.valueOf(from);
+              com.google.cloud.talent.v4.JobBenefit result = com.google.cloud.talent.v4.JobBenefit.forNumber(from);
               return result == null ? com.google.cloud.talent.v4.JobBenefit.UNRECOGNIZED : result;
             }
           };
@@ -4387,7 +3963,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.talent.v4.CompensationInfoOrBuilder getCompensationInfoOrBuilder() {
-    return getCompensationInfo();
+    return compensationInfo_ == null ? com.google.cloud.talent.v4.CompensationInfo.getDefaultInstance() : compensationInfo_;
   }
 
   public static final int CUSTOM_ATTRIBUTES_FIELD_NUMBER = 10;
@@ -4402,6 +3978,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.talent.v4.CustomAttribute.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.talent.v4.CustomAttribute> customAttributes_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.talent.v4.CustomAttribute>
@@ -4412,7 +3989,6 @@ private static final long serialVersionUID = 0L;
     }
     return customAttributes_;
   }
-
   public int getCustomAttributesCount() {
     return internalGetCustomAttributes().getMap().size();
   }
@@ -4432,7 +4008,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.talent.v4.CustomAttribute&gt; custom_attributes = 10;</code>
    */
-
   @java.lang.Override
   public boolean containsCustomAttributes(
       java.lang.String key) {
@@ -4464,7 +4039,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.talent.v4.CustomAttribute&gt; custom_attributes = 10;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.talent.v4.CustomAttribute> getCustomAttributesMap() {
     return internalGetCustomAttributes().getMap();
   }
@@ -4485,10 +4059,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.talent.v4.CustomAttribute&gt; custom_attributes = 10;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.talent.v4.CustomAttribute getCustomAttributesOrDefault(
+  public /* nullable */
+com.google.cloud.talent.v4.CustomAttribute getCustomAttributesOrDefault(
       java.lang.String key,
-      com.google.cloud.talent.v4.CustomAttribute defaultValue) {
+      /* nullable */
+com.google.cloud.talent.v4.CustomAttribute defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.talent.v4.CustomAttribute> map =
         internalGetCustomAttributes().getMap();
@@ -4511,7 +4086,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.talent.v4.CustomAttribute&gt; custom_attributes = 10;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.talent.v4.CustomAttribute getCustomAttributesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -4524,14 +4098,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEGREE_TYPES_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> degreeTypes_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.talent.v4.DegreeType> degreeTypes_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.talent.v4.DegreeType>() {
             public com.google.cloud.talent.v4.DegreeType convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.talent.v4.DegreeType result = com.google.cloud.talent.v4.DegreeType.valueOf(from);
+              com.google.cloud.talent.v4.DegreeType result = com.google.cloud.talent.v4.DegreeType.forNumber(from);
               return result == null ? com.google.cloud.talent.v4.DegreeType.UNRECOGNIZED : result;
             }
           };
@@ -4602,7 +4176,8 @@ private static final long serialVersionUID = 0L;
   private int degreeTypesMemoizedSerializedSize;
 
   public static final int DEPARTMENT_FIELD_NUMBER = 12;
-  private volatile java.lang.Object department_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object department_ = "";
   /**
    * <pre>
    * The department or functional area within the company with the open
@@ -4652,14 +4227,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EMPLOYMENT_TYPES_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> employmentTypes_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.talent.v4.EmploymentType> employmentTypes_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.talent.v4.EmploymentType>() {
             public com.google.cloud.talent.v4.EmploymentType convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.talent.v4.EmploymentType result = com.google.cloud.talent.v4.EmploymentType.valueOf(from);
+              com.google.cloud.talent.v4.EmploymentType result = com.google.cloud.talent.v4.EmploymentType.forNumber(from);
               return result == null ? com.google.cloud.talent.v4.EmploymentType.UNRECOGNIZED : result;
             }
           };
@@ -4740,7 +4315,8 @@ private static final long serialVersionUID = 0L;
   private int employmentTypesMemoizedSerializedSize;
 
   public static final int INCENTIVES_FIELD_NUMBER = 14;
-  private volatile java.lang.Object incentives_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object incentives_ = "";
   /**
    * <pre>
    * A description of bonus, commission, and other compensation
@@ -4790,7 +4366,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LANGUAGE_CODE_FIELD_NUMBER = 15;
-  private volatile java.lang.Object languageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageCode_ = "";
   /**
    * <pre>
    * The language of the posting. This field is distinct from
@@ -4852,7 +4429,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int JOB_LEVEL_FIELD_NUMBER = 16;
-  private int jobLevel_;
+  private int jobLevel_ = 0;
   /**
    * <pre>
    * The experience level associated with the job, such as "Entry Level".
@@ -4873,13 +4450,12 @@ private static final long serialVersionUID = 0L;
    * @return The jobLevel.
    */
   @java.lang.Override public com.google.cloud.talent.v4.JobLevel getJobLevel() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.talent.v4.JobLevel result = com.google.cloud.talent.v4.JobLevel.valueOf(jobLevel_);
+    com.google.cloud.talent.v4.JobLevel result = com.google.cloud.talent.v4.JobLevel.forNumber(jobLevel_);
     return result == null ? com.google.cloud.talent.v4.JobLevel.UNRECOGNIZED : result;
   }
 
   public static final int PROMOTION_VALUE_FIELD_NUMBER = 17;
-  private int promotionValue_;
+  private int promotionValue_ = 0;
   /**
    * <pre>
    * A promotion value of the job, as determined by the client.
@@ -4899,7 +4475,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUALIFICATIONS_FIELD_NUMBER = 18;
-  private volatile java.lang.Object qualifications_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object qualifications_ = "";
   /**
    * <pre>
    * A description of the qualifications required to perform the
@@ -4955,7 +4532,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESPONSIBILITIES_FIELD_NUMBER = 19;
-  private volatile java.lang.Object responsibilities_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object responsibilities_ = "";
   /**
    * <pre>
    * A description of job responsibilities. The use of this field is
@@ -5011,7 +4589,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POSTING_REGION_FIELD_NUMBER = 20;
-  private int postingRegion_;
+  private int postingRegion_ = 0;
   /**
    * <pre>
    * The job [PostingRegion][google.cloud.talent.v4.PostingRegion] (for example, state, country) throughout
@@ -5044,13 +4622,12 @@ private static final long serialVersionUID = 0L;
    * @return The postingRegion.
    */
   @java.lang.Override public com.google.cloud.talent.v4.PostingRegion getPostingRegion() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.talent.v4.PostingRegion result = com.google.cloud.talent.v4.PostingRegion.valueOf(postingRegion_);
+    com.google.cloud.talent.v4.PostingRegion result = com.google.cloud.talent.v4.PostingRegion.forNumber(postingRegion_);
     return result == null ? com.google.cloud.talent.v4.PostingRegion.UNRECOGNIZED : result;
   }
 
   public static final int VISIBILITY_FIELD_NUMBER = 21;
-  private int visibility_;
+  private int visibility_ = 0;
   /**
    * <pre>
    * Deprecated. The job is only visible to the owner.
@@ -5079,8 +4656,7 @@ private static final long serialVersionUID = 0L;
    * @return The visibility.
    */
   @java.lang.Override @java.lang.Deprecated public com.google.cloud.talent.v4.Visibility getVisibility() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.talent.v4.Visibility result = com.google.cloud.talent.v4.Visibility.valueOf(visibility_);
+    com.google.cloud.talent.v4.Visibility result = com.google.cloud.talent.v4.Visibility.forNumber(visibility_);
     return result == null ? com.google.cloud.talent.v4.Visibility.UNRECOGNIZED : result;
   }
 
@@ -5122,7 +4698,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getJobStartTimeOrBuilder() {
-    return getJobStartTime();
+    return jobStartTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : jobStartTime_;
   }
 
   public static final int JOB_END_TIME_FIELD_NUMBER = 23;
@@ -5163,7 +4739,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getJobEndTimeOrBuilder() {
-    return getJobEndTime();
+    return jobEndTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : jobEndTime_;
   }
 
   public static final int POSTING_PUBLISH_TIME_FIELD_NUMBER = 24;
@@ -5207,7 +4783,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getPostingPublishTimeOrBuilder() {
-    return getPostingPublishTime();
+    return postingPublishTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : postingPublishTime_;
   }
 
   public static final int POSTING_EXPIRE_TIME_FIELD_NUMBER = 25;
@@ -5347,7 +4923,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getPostingExpireTimeOrBuilder() {
-    return getPostingExpireTime();
+    return postingExpireTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : postingExpireTime_;
   }
 
   public static final int POSTING_CREATE_TIME_FIELD_NUMBER = 26;
@@ -5385,7 +4961,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getPostingCreateTimeOrBuilder() {
-    return getPostingCreateTime();
+    return postingCreateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : postingCreateTime_;
   }
 
   public static final int POSTING_UPDATE_TIME_FIELD_NUMBER = 27;
@@ -5423,11 +4999,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getPostingUpdateTimeOrBuilder() {
-    return getPostingUpdateTime();
+    return postingUpdateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : postingUpdateTime_;
   }
 
   public static final int COMPANY_DISPLAY_NAME_FIELD_NUMBER = 28;
-  private volatile java.lang.Object companyDisplayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object companyDisplayName_ = "";
   /**
    * <pre>
    * Output only. Display name of the company listing the job.
@@ -5507,7 +5084,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.talent.v4.Job.DerivedInfoOrBuilder getDerivedInfoOrBuilder() {
-    return getDerivedInfo();
+    return derivedInfo_ == null ? com.google.cloud.talent.v4.Job.DerivedInfo.getDefaultInstance() : derivedInfo_;
   }
 
   public static final int PROCESSING_OPTIONS_FIELD_NUMBER = 30;
@@ -5545,7 +5122,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.talent.v4.Job.ProcessingOptionsOrBuilder getProcessingOptionsOrBuilder() {
-    return getProcessingOptions();
+    return processingOptions_ == null ? com.google.cloud.talent.v4.Job.ProcessingOptions.getDefaultInstance() : processingOptions_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -5668,7 +5245,7 @@ private static final long serialVersionUID = 0L;
     if (processingOptions_ != null) {
       output.writeMessage(30, getProcessingOptions());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -5820,7 +5397,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(30, getProcessingOptions());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -5919,7 +5496,7 @@ private static final long serialVersionUID = 0L;
       if (!getProcessingOptions()
           .equals(other.getProcessingOptions())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -6020,7 +5597,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PROCESSING_OPTIONS_FIELD_NUMBER;
       hash = (53 * hash) + getProcessingOptions().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -6165,119 +5742,90 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.talent.v4.Job.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       company_ = "";
-
       requisitionId_ = "";
-
       title_ = "";
-
       description_ = "";
-
       addresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (applicationInfoBuilder_ == null) {
-        applicationInfo_ = null;
-      } else {
-        applicationInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      applicationInfo_ = null;
+      if (applicationInfoBuilder_ != null) {
+        applicationInfoBuilder_.dispose();
         applicationInfoBuilder_ = null;
       }
       jobBenefits_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000002);
-      if (compensationInfoBuilder_ == null) {
-        compensationInfo_ = null;
-      } else {
-        compensationInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      compensationInfo_ = null;
+      if (compensationInfoBuilder_ != null) {
+        compensationInfoBuilder_.dispose();
         compensationInfoBuilder_ = null;
       }
       internalGetMutableCustomAttributes().clear();
       degreeTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000400);
       department_ = "";
-
       employmentTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00001000);
       incentives_ = "";
-
       languageCode_ = "";
-
       jobLevel_ = 0;
-
       promotionValue_ = 0;
-
       qualifications_ = "";
-
       responsibilities_ = "";
-
       postingRegion_ = 0;
-
       visibility_ = 0;
-
-      if (jobStartTimeBuilder_ == null) {
-        jobStartTime_ = null;
-      } else {
-        jobStartTime_ = null;
+      jobStartTime_ = null;
+      if (jobStartTimeBuilder_ != null) {
+        jobStartTimeBuilder_.dispose();
         jobStartTimeBuilder_ = null;
       }
-      if (jobEndTimeBuilder_ == null) {
-        jobEndTime_ = null;
-      } else {
-        jobEndTime_ = null;
+      jobEndTime_ = null;
+      if (jobEndTimeBuilder_ != null) {
+        jobEndTimeBuilder_.dispose();
         jobEndTimeBuilder_ = null;
       }
-      if (postingPublishTimeBuilder_ == null) {
-        postingPublishTime_ = null;
-      } else {
-        postingPublishTime_ = null;
+      postingPublishTime_ = null;
+      if (postingPublishTimeBuilder_ != null) {
+        postingPublishTimeBuilder_.dispose();
         postingPublishTimeBuilder_ = null;
       }
-      if (postingExpireTimeBuilder_ == null) {
-        postingExpireTime_ = null;
-      } else {
-        postingExpireTime_ = null;
+      postingExpireTime_ = null;
+      if (postingExpireTimeBuilder_ != null) {
+        postingExpireTimeBuilder_.dispose();
         postingExpireTimeBuilder_ = null;
       }
-      if (postingCreateTimeBuilder_ == null) {
-        postingCreateTime_ = null;
-      } else {
-        postingCreateTime_ = null;
+      postingCreateTime_ = null;
+      if (postingCreateTimeBuilder_ != null) {
+        postingCreateTimeBuilder_.dispose();
         postingCreateTimeBuilder_ = null;
       }
-      if (postingUpdateTimeBuilder_ == null) {
-        postingUpdateTime_ = null;
-      } else {
-        postingUpdateTime_ = null;
+      postingUpdateTime_ = null;
+      if (postingUpdateTimeBuilder_ != null) {
+        postingUpdateTimeBuilder_.dispose();
         postingUpdateTimeBuilder_ = null;
       }
       companyDisplayName_ = "";
-
-      if (derivedInfoBuilder_ == null) {
-        derivedInfo_ = null;
-      } else {
-        derivedInfo_ = null;
+      derivedInfo_ = null;
+      if (derivedInfoBuilder_ != null) {
+        derivedInfoBuilder_.dispose();
         derivedInfoBuilder_ = null;
       }
-      if (processingOptionsBuilder_ == null) {
-        processingOptions_ = null;
-      } else {
-        processingOptions_ = null;
+      processingOptions_ = null;
+      if (processingOptionsBuilder_ != null) {
+        processingOptionsBuilder_.dispose();
         processingOptionsBuilder_ = null;
       }
       return this;
@@ -6306,96 +5854,136 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.talent.v4.Job buildPartial() {
       com.google.cloud.talent.v4.Job result = new com.google.cloud.talent.v4.Job(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.company_ = company_;
-      result.requisitionId_ = requisitionId_;
-      result.title_ = title_;
-      result.description_ = description_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        addresses_ = addresses_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.addresses_ = addresses_;
-      if (applicationInfoBuilder_ == null) {
-        result.applicationInfo_ = applicationInfo_;
-      } else {
-        result.applicationInfo_ = applicationInfoBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        jobBenefits_ = java.util.Collections.unmodifiableList(jobBenefits_);
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.jobBenefits_ = jobBenefits_;
-      if (compensationInfoBuilder_ == null) {
-        result.compensationInfo_ = compensationInfo_;
-      } else {
-        result.compensationInfo_ = compensationInfoBuilder_.build();
-      }
-      result.customAttributes_ = internalGetCustomAttributes();
-      result.customAttributes_.makeImmutable();
-      if (((bitField0_ & 0x00000008) != 0)) {
-        degreeTypes_ = java.util.Collections.unmodifiableList(degreeTypes_);
-        bitField0_ = (bitField0_ & ~0x00000008);
-      }
-      result.degreeTypes_ = degreeTypes_;
-      result.department_ = department_;
-      if (((bitField0_ & 0x00000010) != 0)) {
-        employmentTypes_ = java.util.Collections.unmodifiableList(employmentTypes_);
-        bitField0_ = (bitField0_ & ~0x00000010);
-      }
-      result.employmentTypes_ = employmentTypes_;
-      result.incentives_ = incentives_;
-      result.languageCode_ = languageCode_;
-      result.jobLevel_ = jobLevel_;
-      result.promotionValue_ = promotionValue_;
-      result.qualifications_ = qualifications_;
-      result.responsibilities_ = responsibilities_;
-      result.postingRegion_ = postingRegion_;
-      result.visibility_ = visibility_;
-      if (jobStartTimeBuilder_ == null) {
-        result.jobStartTime_ = jobStartTime_;
-      } else {
-        result.jobStartTime_ = jobStartTimeBuilder_.build();
-      }
-      if (jobEndTimeBuilder_ == null) {
-        result.jobEndTime_ = jobEndTime_;
-      } else {
-        result.jobEndTime_ = jobEndTimeBuilder_.build();
-      }
-      if (postingPublishTimeBuilder_ == null) {
-        result.postingPublishTime_ = postingPublishTime_;
-      } else {
-        result.postingPublishTime_ = postingPublishTimeBuilder_.build();
-      }
-      if (postingExpireTimeBuilder_ == null) {
-        result.postingExpireTime_ = postingExpireTime_;
-      } else {
-        result.postingExpireTime_ = postingExpireTimeBuilder_.build();
-      }
-      if (postingCreateTimeBuilder_ == null) {
-        result.postingCreateTime_ = postingCreateTime_;
-      } else {
-        result.postingCreateTime_ = postingCreateTimeBuilder_.build();
-      }
-      if (postingUpdateTimeBuilder_ == null) {
-        result.postingUpdateTime_ = postingUpdateTime_;
-      } else {
-        result.postingUpdateTime_ = postingUpdateTimeBuilder_.build();
-      }
-      result.companyDisplayName_ = companyDisplayName_;
-      if (derivedInfoBuilder_ == null) {
-        result.derivedInfo_ = derivedInfo_;
-      } else {
-        result.derivedInfo_ = derivedInfoBuilder_.build();
-      }
-      if (processingOptionsBuilder_ == null) {
-        result.processingOptions_ = processingOptions_;
-      } else {
-        result.processingOptions_ = processingOptionsBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.talent.v4.Job result) {
+      if (((bitField0_ & 0x00000020) != 0)) {
+        addresses_ = addresses_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000020);
+      }
+      result.addresses_ = addresses_;
+      if (((bitField0_ & 0x00000080) != 0)) {
+        jobBenefits_ = java.util.Collections.unmodifiableList(jobBenefits_);
+        bitField0_ = (bitField0_ & ~0x00000080);
+      }
+      result.jobBenefits_ = jobBenefits_;
+      if (((bitField0_ & 0x00000400) != 0)) {
+        degreeTypes_ = java.util.Collections.unmodifiableList(degreeTypes_);
+        bitField0_ = (bitField0_ & ~0x00000400);
+      }
+      result.degreeTypes_ = degreeTypes_;
+      if (((bitField0_ & 0x00001000) != 0)) {
+        employmentTypes_ = java.util.Collections.unmodifiableList(employmentTypes_);
+        bitField0_ = (bitField0_ & ~0x00001000);
+      }
+      result.employmentTypes_ = employmentTypes_;
+    }
+
+    private void buildPartial0(com.google.cloud.talent.v4.Job result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.company_ = company_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.requisitionId_ = requisitionId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.title_ = title_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.applicationInfo_ = applicationInfoBuilder_ == null
+            ? applicationInfo_
+            : applicationInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.compensationInfo_ = compensationInfoBuilder_ == null
+            ? compensationInfo_
+            : compensationInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.customAttributes_ = internalGetCustomAttributes();
+        result.customAttributes_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.department_ = department_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.incentives_ = incentives_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.languageCode_ = languageCode_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.jobLevel_ = jobLevel_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.promotionValue_ = promotionValue_;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.qualifications_ = qualifications_;
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.responsibilities_ = responsibilities_;
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.postingRegion_ = postingRegion_;
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.visibility_ = visibility_;
+      }
+      if (((from_bitField0_ & 0x00200000) != 0)) {
+        result.jobStartTime_ = jobStartTimeBuilder_ == null
+            ? jobStartTime_
+            : jobStartTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00400000) != 0)) {
+        result.jobEndTime_ = jobEndTimeBuilder_ == null
+            ? jobEndTime_
+            : jobEndTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00800000) != 0)) {
+        result.postingPublishTime_ = postingPublishTimeBuilder_ == null
+            ? postingPublishTime_
+            : postingPublishTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x01000000) != 0)) {
+        result.postingExpireTime_ = postingExpireTimeBuilder_ == null
+            ? postingExpireTime_
+            : postingExpireTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x02000000) != 0)) {
+        result.postingCreateTime_ = postingCreateTimeBuilder_ == null
+            ? postingCreateTime_
+            : postingCreateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x04000000) != 0)) {
+        result.postingUpdateTime_ = postingUpdateTimeBuilder_ == null
+            ? postingUpdateTime_
+            : postingUpdateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x08000000) != 0)) {
+        result.companyDisplayName_ = companyDisplayName_;
+      }
+      if (((from_bitField0_ & 0x10000000) != 0)) {
+        result.derivedInfo_ = derivedInfoBuilder_ == null
+            ? derivedInfo_
+            : derivedInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x20000000) != 0)) {
+        result.processingOptions_ = processingOptionsBuilder_ == null
+            ? processingOptions_
+            : processingOptionsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -6444,28 +6032,33 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.talent.v4.Job.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getCompany().isEmpty()) {
         company_ = other.company_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getRequisitionId().isEmpty()) {
         requisitionId_ = other.requisitionId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getTitle().isEmpty()) {
         title_ = other.title_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.addresses_.isEmpty()) {
         if (addresses_.isEmpty()) {
           addresses_ = other.addresses_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureAddressesIsMutable();
           addresses_.addAll(other.addresses_);
@@ -6478,7 +6071,7 @@ private static final long serialVersionUID = 0L;
       if (!other.jobBenefits_.isEmpty()) {
         if (jobBenefits_.isEmpty()) {
           jobBenefits_ = other.jobBenefits_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensureJobBenefitsIsMutable();
           jobBenefits_.addAll(other.jobBenefits_);
@@ -6490,10 +6083,11 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableCustomAttributes().mergeFrom(
           other.internalGetCustomAttributes());
+      bitField0_ |= 0x00000200;
       if (!other.degreeTypes_.isEmpty()) {
         if (degreeTypes_.isEmpty()) {
           degreeTypes_ = other.degreeTypes_;
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000400);
         } else {
           ensureDegreeTypesIsMutable();
           degreeTypes_.addAll(other.degreeTypes_);
@@ -6502,12 +6096,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDepartment().isEmpty()) {
         department_ = other.department_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (!other.employmentTypes_.isEmpty()) {
         if (employmentTypes_.isEmpty()) {
           employmentTypes_ = other.employmentTypes_;
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00001000);
         } else {
           ensureEmploymentTypesIsMutable();
           employmentTypes_.addAll(other.employmentTypes_);
@@ -6516,10 +6111,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getIncentives().isEmpty()) {
         incentives_ = other.incentives_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
       if (!other.getLanguageCode().isEmpty()) {
         languageCode_ = other.languageCode_;
+        bitField0_ |= 0x00004000;
         onChanged();
       }
       if (other.jobLevel_ != 0) {
@@ -6530,10 +6127,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getQualifications().isEmpty()) {
         qualifications_ = other.qualifications_;
+        bitField0_ |= 0x00020000;
         onChanged();
       }
       if (!other.getResponsibilities().isEmpty()) {
         responsibilities_ = other.responsibilities_;
+        bitField0_ |= 0x00040000;
         onChanged();
       }
       if (other.postingRegion_ != 0) {
@@ -6562,6 +6161,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCompanyDisplayName().isEmpty()) {
         companyDisplayName_ = other.companyDisplayName_;
+        bitField0_ |= 0x08000000;
         onChanged();
       }
       if (other.hasDerivedInfo()) {
@@ -6570,7 +6170,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasProcessingOptions()) {
         mergeProcessingOptions(other.getProcessingOptions());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -6585,17 +6185,241 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.talent.v4.Job parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              company_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              requisitionId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              title_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureAddressesIsMutable();
+              addresses_.add(s);
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getApplicationInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 64: {
+              int tmpRaw = input.readEnum();
+              ensureJobBenefitsIsMutable();
+              jobBenefits_.add(tmpRaw);
+              break;
+            } // case 64
+            case 66: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureJobBenefitsIsMutable();
+                jobBenefits_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getCompensationInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.talent.v4.CustomAttribute>
+              customAttributes__ = input.readMessage(
+                  CustomAttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableCustomAttributes().getMutableMap().put(
+                  customAttributes__.getKey(), customAttributes__.getValue());
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 88: {
+              int tmpRaw = input.readEnum();
+              ensureDegreeTypesIsMutable();
+              degreeTypes_.add(tmpRaw);
+              break;
+            } // case 88
+            case 90: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureDegreeTypesIsMutable();
+                degreeTypes_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 90
+            case 98: {
+              department_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 104: {
+              int tmpRaw = input.readEnum();
+              ensureEmploymentTypesIsMutable();
+              employmentTypes_.add(tmpRaw);
+              break;
+            } // case 104
+            case 106: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureEmploymentTypesIsMutable();
+                employmentTypes_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 106
+            case 114: {
+              incentives_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 114
+            case 122: {
+              languageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 122
+            case 128: {
+              jobLevel_ = input.readEnum();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 128
+            case 136: {
+              promotionValue_ = input.readInt32();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 136
+            case 146: {
+              qualifications_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 146
+            case 154: {
+              responsibilities_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 154
+            case 160: {
+              postingRegion_ = input.readEnum();
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 160
+            case 168: {
+              visibility_ = input.readEnum();
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 168
+            case 178: {
+              input.readMessage(
+                  getJobStartTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00200000;
+              break;
+            } // case 178
+            case 186: {
+              input.readMessage(
+                  getJobEndTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00400000;
+              break;
+            } // case 186
+            case 194: {
+              input.readMessage(
+                  getPostingPublishTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00800000;
+              break;
+            } // case 194
+            case 202: {
+              input.readMessage(
+                  getPostingExpireTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x01000000;
+              break;
+            } // case 202
+            case 210: {
+              input.readMessage(
+                  getPostingCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x02000000;
+              break;
+            } // case 210
+            case 218: {
+              input.readMessage(
+                  getPostingUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x04000000;
+              break;
+            } // case 218
+            case 226: {
+              companyDisplayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x08000000;
+              break;
+            } // case 226
+            case 234: {
+              input.readMessage(
+                  getDerivedInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x10000000;
+              break;
+            } // case 234
+            case 242: {
+              input.readMessage(
+                  getProcessingOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x20000000;
+              break;
+            } // case 242
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.talent.v4.Job) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -6674,11 +6498,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -6698,8 +6520,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -6721,12 +6543,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -6793,11 +6613,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCompany(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       company_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -6813,8 +6631,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCompany() {
-      
       company_ = getDefaultInstance().getCompany();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -6832,12 +6650,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCompanyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       company_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -6910,11 +6726,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequisitionId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       requisitionId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -6932,8 +6746,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequisitionId() {
-      
       requisitionId_ = getDefaultInstance().getRequisitionId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -6953,12 +6767,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequisitionIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       requisitionId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -7019,11 +6831,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTitle(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       title_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -7037,8 +6847,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTitle() {
-      
       title_ = getDefaultInstance().getTitle();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -7054,12 +6864,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTitleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       title_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -7138,11 +6946,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -7162,8 +6968,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -7185,21 +6991,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList addresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureAddressesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         addresses_ = new com.google.protobuf.LazyStringArrayList(addresses_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
     /**
@@ -7362,10 +7166,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAddresses(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAddressesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAddressesIsMutable();
       addresses_.set(index, value);
       onChanged();
       return this;
@@ -7401,10 +7203,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAddresses(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAddressesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAddressesIsMutable();
       addresses_.add(value);
       onChanged();
       return this;
@@ -7476,7 +7276,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAddresses() {
       addresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -7511,10 +7311,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAddressesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureAddressesIsMutable();
       addresses_.add(value);
       onChanged();
@@ -7533,7 +7331,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the applicationInfo field is set.
      */
     public boolean hasApplicationInfo() {
-      return applicationInfoBuilder_ != null || applicationInfo_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -7563,11 +7361,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         applicationInfo_ = value;
-        onChanged();
       } else {
         applicationInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -7581,11 +7379,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.talent.v4.Job.ApplicationInfo.Builder builderForValue) {
       if (applicationInfoBuilder_ == null) {
         applicationInfo_ = builderForValue.build();
-        onChanged();
       } else {
         applicationInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -7597,17 +7395,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeApplicationInfo(com.google.cloud.talent.v4.Job.ApplicationInfo value) {
       if (applicationInfoBuilder_ == null) {
-        if (applicationInfo_ != null) {
-          applicationInfo_ =
-            com.google.cloud.talent.v4.Job.ApplicationInfo.newBuilder(applicationInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          applicationInfo_ != null &&
+          applicationInfo_ != com.google.cloud.talent.v4.Job.ApplicationInfo.getDefaultInstance()) {
+          getApplicationInfoBuilder().mergeFrom(value);
         } else {
           applicationInfo_ = value;
         }
-        onChanged();
       } else {
         applicationInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -7618,14 +7417,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4.Job.ApplicationInfo application_info = 7;</code>
      */
     public Builder clearApplicationInfo() {
-      if (applicationInfoBuilder_ == null) {
-        applicationInfo_ = null;
-        onChanged();
-      } else {
-        applicationInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      applicationInfo_ = null;
+      if (applicationInfoBuilder_ != null) {
+        applicationInfoBuilder_.dispose();
         applicationInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7636,7 +7434,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4.Job.ApplicationInfo application_info = 7;</code>
      */
     public com.google.cloud.talent.v4.Job.ApplicationInfo.Builder getApplicationInfoBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getApplicationInfoFieldBuilder().getBuilder();
     }
@@ -7679,9 +7477,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> jobBenefits_ =
       java.util.Collections.emptyList();
     private void ensureJobBenefitsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         jobBenefits_ = new java.util.ArrayList<java.lang.Integer>(jobBenefits_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000080;
       }
     }
     /**
@@ -7785,7 +7583,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearJobBenefits() {
       jobBenefits_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -7877,7 +7675,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the compensationInfo field is set.
      */
     public boolean hasCompensationInfo() {
-      return compensationInfoBuilder_ != null || compensationInfo_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -7909,11 +7707,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         compensationInfo_ = value;
-        onChanged();
       } else {
         compensationInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -7928,11 +7726,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.talent.v4.CompensationInfo.Builder builderForValue) {
       if (compensationInfoBuilder_ == null) {
         compensationInfo_ = builderForValue.build();
-        onChanged();
       } else {
         compensationInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -7945,17 +7743,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCompensationInfo(com.google.cloud.talent.v4.CompensationInfo value) {
       if (compensationInfoBuilder_ == null) {
-        if (compensationInfo_ != null) {
-          compensationInfo_ =
-            com.google.cloud.talent.v4.CompensationInfo.newBuilder(compensationInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          compensationInfo_ != null &&
+          compensationInfo_ != com.google.cloud.talent.v4.CompensationInfo.getDefaultInstance()) {
+          getCompensationInfoBuilder().mergeFrom(value);
         } else {
           compensationInfo_ = value;
         }
-        onChanged();
       } else {
         compensationInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -7967,14 +7766,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4.CompensationInfo compensation_info = 9;</code>
      */
     public Builder clearCompensationInfo() {
-      if (compensationInfoBuilder_ == null) {
-        compensationInfo_ = null;
-        onChanged();
-      } else {
-        compensationInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      compensationInfo_ = null;
+      if (compensationInfoBuilder_ != null) {
+        compensationInfoBuilder_.dispose();
         compensationInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7986,7 +7784,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4.CompensationInfo compensation_info = 9;</code>
      */
     public com.google.cloud.talent.v4.CompensationInfo.Builder getCompensationInfoBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getCompensationInfoFieldBuilder().getBuilder();
     }
@@ -8031,7 +7829,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.talent.v4.CustomAttribute> customAttributes_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.talent.v4.CustomAttribute>
-    internalGetCustomAttributes() {
+        internalGetCustomAttributes() {
       if (customAttributes_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             CustomAttributesDefaultEntryHolder.defaultEntry);
@@ -8039,8 +7837,7 @@ private static final long serialVersionUID = 0L;
       return customAttributes_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.talent.v4.CustomAttribute>
-    internalGetMutableCustomAttributes() {
-      onChanged();;
+        internalGetMutableCustomAttributes() {
       if (customAttributes_ == null) {
         customAttributes_ = com.google.protobuf.MapField.newMapField(
             CustomAttributesDefaultEntryHolder.defaultEntry);
@@ -8048,9 +7845,10 @@ private static final long serialVersionUID = 0L;
       if (!customAttributes_.isMutable()) {
         customAttributes_ = customAttributes_.copy();
       }
+      bitField0_ |= 0x00000200;
+      onChanged();
       return customAttributes_;
     }
-
     public int getCustomAttributesCount() {
       return internalGetCustomAttributes().getMap().size();
     }
@@ -8070,7 +7868,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.talent.v4.CustomAttribute&gt; custom_attributes = 10;</code>
      */
-
     @java.lang.Override
     public boolean containsCustomAttributes(
         java.lang.String key) {
@@ -8102,7 +7899,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.talent.v4.CustomAttribute&gt; custom_attributes = 10;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.talent.v4.CustomAttribute> getCustomAttributesMap() {
       return internalGetCustomAttributes().getMap();
     }
@@ -8123,10 +7919,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.talent.v4.CustomAttribute&gt; custom_attributes = 10;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.talent.v4.CustomAttribute getCustomAttributesOrDefault(
+    public /* nullable */
+com.google.cloud.talent.v4.CustomAttribute getCustomAttributesOrDefault(
         java.lang.String key,
-        com.google.cloud.talent.v4.CustomAttribute defaultValue) {
+        /* nullable */
+com.google.cloud.talent.v4.CustomAttribute defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.talent.v4.CustomAttribute> map =
           internalGetCustomAttributes().getMap();
@@ -8149,7 +7946,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.talent.v4.CustomAttribute&gt; custom_attributes = 10;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.talent.v4.CustomAttribute getCustomAttributesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -8160,8 +7956,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearCustomAttributes() {
+      bitField0_ = (bitField0_ & ~0x00000200);
       internalGetMutableCustomAttributes().getMutableMap()
           .clear();
       return this;
@@ -8182,7 +7978,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.talent.v4.CustomAttribute&gt; custom_attributes = 10;</code>
      */
-
     public Builder removeCustomAttributes(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -8195,7 +7990,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.talent.v4.CustomAttribute>
-    getMutableCustomAttributes() {
+        getMutableCustomAttributes() {
+      bitField0_ |= 0x00000200;
       return internalGetMutableCustomAttributes().getMutableMap();
     }
     /**
@@ -8218,12 +8014,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.talent.v4.CustomAttribute value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableCustomAttributes().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000200;
       return this;
     }
     /**
@@ -8242,20 +8036,20 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.talent.v4.CustomAttribute&gt; custom_attributes = 10;</code>
      */
-
     public Builder putAllCustomAttributes(
         java.util.Map<java.lang.String, com.google.cloud.talent.v4.CustomAttribute> values) {
       internalGetMutableCustomAttributes().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000200;
       return this;
     }
 
     private java.util.List<java.lang.Integer> degreeTypes_ =
       java.util.Collections.emptyList();
     private void ensureDegreeTypesIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000400) != 0)) {
         degreeTypes_ = new java.util.ArrayList<java.lang.Integer>(degreeTypes_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000400;
       }
     }
     /**
@@ -8359,7 +8153,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearDegreeTypes() {
       degreeTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -8497,11 +8291,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDepartment(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       department_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -8516,8 +8308,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDepartment() {
-      
       department_ = getDefaultInstance().getDepartment();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -8534,12 +8326,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDepartmentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       department_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -8547,9 +8337,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> employmentTypes_ =
       java.util.Collections.emptyList();
     private void ensureEmploymentTypesIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00001000) != 0)) {
         employmentTypes_ = new java.util.ArrayList<java.lang.Integer>(employmentTypes_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00001000;
       }
     }
     /**
@@ -8667,7 +8457,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearEmploymentTypes() {
       employmentTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -8815,11 +8605,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIncentives(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       incentives_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -8834,8 +8622,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncentives() {
-      
       incentives_ = getDefaultInstance().getIncentives();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -8852,12 +8640,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIncentivesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       incentives_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -8939,11 +8725,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageCode_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -8964,8 +8748,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguageCode() {
-      
       languageCode_ = getDefaultInstance().getLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
@@ -8988,12 +8772,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageCode_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -9020,8 +8802,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setJobLevelValue(int value) {
-      
       jobLevel_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -9035,8 +8817,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.talent.v4.JobLevel getJobLevel() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.talent.v4.JobLevel result = com.google.cloud.talent.v4.JobLevel.valueOf(jobLevel_);
+      com.google.cloud.talent.v4.JobLevel result = com.google.cloud.talent.v4.JobLevel.forNumber(jobLevel_);
       return result == null ? com.google.cloud.talent.v4.JobLevel.UNRECOGNIZED : result;
     }
     /**
@@ -9052,7 +8833,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00008000;
       jobLevel_ = value.getNumber();
       onChanged();
       return this;
@@ -9066,7 +8847,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearJobLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00008000);
       jobLevel_ = 0;
       onChanged();
       return this;
@@ -9107,6 +8888,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPromotionValue(int value) {
       
       promotionValue_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -9124,7 +8906,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPromotionValue() {
-      
+      bitField0_ = (bitField0_ & ~0x00010000);
       promotionValue_ = 0;
       onChanged();
       return this;
@@ -9198,11 +8980,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQualifications(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       qualifications_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -9220,8 +9000,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearQualifications() {
-      
       qualifications_ = getDefaultInstance().getQualifications();
+      bitField0_ = (bitField0_ & ~0x00020000);
       onChanged();
       return this;
     }
@@ -9241,12 +9021,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQualificationsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       qualifications_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -9319,11 +9097,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResponsibilities(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       responsibilities_ = value;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
@@ -9341,8 +9117,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResponsibilities() {
-      
       responsibilities_ = getDefaultInstance().getResponsibilities();
+      bitField0_ = (bitField0_ & ~0x00040000);
       onChanged();
       return this;
     }
@@ -9362,12 +9138,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResponsibilitiesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       responsibilities_ = value;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
@@ -9406,8 +9180,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPostingRegionValue(int value) {
-      
       postingRegion_ = value;
+      bitField0_ |= 0x00080000;
       onChanged();
       return this;
     }
@@ -9427,8 +9201,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.talent.v4.PostingRegion getPostingRegion() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.talent.v4.PostingRegion result = com.google.cloud.talent.v4.PostingRegion.valueOf(postingRegion_);
+      com.google.cloud.talent.v4.PostingRegion result = com.google.cloud.talent.v4.PostingRegion.forNumber(postingRegion_);
       return result == null ? com.google.cloud.talent.v4.PostingRegion.UNRECOGNIZED : result;
     }
     /**
@@ -9450,7 +9223,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00080000;
       postingRegion_ = value.getNumber();
       onChanged();
       return this;
@@ -9470,7 +9243,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPostingRegion() {
-      
+      bitField0_ = (bitField0_ & ~0x00080000);
       postingRegion_ = 0;
       onChanged();
       return this;
@@ -9506,8 +9279,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setVisibilityValue(int value) {
-      
       visibility_ = value;
+      bitField0_ |= 0x00100000;
       onChanged();
       return this;
     }
@@ -9525,8 +9298,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     @java.lang.Deprecated public com.google.cloud.talent.v4.Visibility getVisibility() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.talent.v4.Visibility result = com.google.cloud.talent.v4.Visibility.valueOf(visibility_);
+      com.google.cloud.talent.v4.Visibility result = com.google.cloud.talent.v4.Visibility.forNumber(visibility_);
       return result == null ? com.google.cloud.talent.v4.Visibility.UNRECOGNIZED : result;
     }
     /**
@@ -9546,7 +9318,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00100000;
       visibility_ = value.getNumber();
       onChanged();
       return this;
@@ -9564,7 +9336,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearVisibility() {
-      
+      bitField0_ = (bitField0_ & ~0x00100000);
       visibility_ = 0;
       onChanged();
       return this;
@@ -9583,7 +9355,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the jobStartTime field is set.
      */
     public boolean hasJobStartTime() {
-      return jobStartTimeBuilder_ != null || jobStartTime_ != null;
+      return ((bitField0_ & 0x00200000) != 0);
     }
     /**
      * <pre>
@@ -9615,11 +9387,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         jobStartTime_ = value;
-        onChanged();
       } else {
         jobStartTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -9634,11 +9406,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (jobStartTimeBuilder_ == null) {
         jobStartTime_ = builderForValue.build();
-        onChanged();
       } else {
         jobStartTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -9651,17 +9423,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeJobStartTime(com.google.protobuf.Timestamp value) {
       if (jobStartTimeBuilder_ == null) {
-        if (jobStartTime_ != null) {
-          jobStartTime_ =
-            com.google.protobuf.Timestamp.newBuilder(jobStartTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00200000) != 0) &&
+          jobStartTime_ != null &&
+          jobStartTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getJobStartTimeBuilder().mergeFrom(value);
         } else {
           jobStartTime_ = value;
         }
-        onChanged();
       } else {
         jobStartTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -9673,14 +9446,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp job_start_time = 22;</code>
      */
     public Builder clearJobStartTime() {
-      if (jobStartTimeBuilder_ == null) {
-        jobStartTime_ = null;
-        onChanged();
-      } else {
-        jobStartTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00200000);
+      jobStartTime_ = null;
+      if (jobStartTimeBuilder_ != null) {
+        jobStartTimeBuilder_.dispose();
         jobStartTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -9692,7 +9464,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp job_start_time = 22;</code>
      */
     public com.google.protobuf.Timestamp.Builder getJobStartTimeBuilder() {
-      
+      bitField0_ |= 0x00200000;
       onChanged();
       return getJobStartTimeFieldBuilder().getBuilder();
     }
@@ -9747,7 +9519,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the jobEndTime field is set.
      */
     public boolean hasJobEndTime() {
-      return jobEndTimeBuilder_ != null || jobEndTime_ != null;
+      return ((bitField0_ & 0x00400000) != 0);
     }
     /**
      * <pre>
@@ -9779,11 +9551,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         jobEndTime_ = value;
-        onChanged();
       } else {
         jobEndTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -9798,11 +9570,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (jobEndTimeBuilder_ == null) {
         jobEndTime_ = builderForValue.build();
-        onChanged();
       } else {
         jobEndTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -9815,17 +9587,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeJobEndTime(com.google.protobuf.Timestamp value) {
       if (jobEndTimeBuilder_ == null) {
-        if (jobEndTime_ != null) {
-          jobEndTime_ =
-            com.google.protobuf.Timestamp.newBuilder(jobEndTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00400000) != 0) &&
+          jobEndTime_ != null &&
+          jobEndTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getJobEndTimeBuilder().mergeFrom(value);
         } else {
           jobEndTime_ = value;
         }
-        onChanged();
       } else {
         jobEndTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -9837,14 +9610,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp job_end_time = 23;</code>
      */
     public Builder clearJobEndTime() {
-      if (jobEndTimeBuilder_ == null) {
-        jobEndTime_ = null;
-        onChanged();
-      } else {
-        jobEndTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00400000);
+      jobEndTime_ = null;
+      if (jobEndTimeBuilder_ != null) {
+        jobEndTimeBuilder_.dispose();
         jobEndTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -9856,7 +9628,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp job_end_time = 23;</code>
      */
     public com.google.protobuf.Timestamp.Builder getJobEndTimeBuilder() {
-      
+      bitField0_ |= 0x00400000;
       onChanged();
       return getJobEndTimeFieldBuilder().getBuilder();
     }
@@ -9912,7 +9684,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the postingPublishTime field is set.
      */
     public boolean hasPostingPublishTime() {
-      return postingPublishTimeBuilder_ != null || postingPublishTime_ != null;
+      return ((bitField0_ & 0x00800000) != 0);
     }
     /**
      * <pre>
@@ -9946,11 +9718,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         postingPublishTime_ = value;
-        onChanged();
       } else {
         postingPublishTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -9966,11 +9738,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (postingPublishTimeBuilder_ == null) {
         postingPublishTime_ = builderForValue.build();
-        onChanged();
       } else {
         postingPublishTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -9984,17 +9756,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePostingPublishTime(com.google.protobuf.Timestamp value) {
       if (postingPublishTimeBuilder_ == null) {
-        if (postingPublishTime_ != null) {
-          postingPublishTime_ =
-            com.google.protobuf.Timestamp.newBuilder(postingPublishTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00800000) != 0) &&
+          postingPublishTime_ != null &&
+          postingPublishTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getPostingPublishTimeBuilder().mergeFrom(value);
         } else {
           postingPublishTime_ = value;
         }
-        onChanged();
       } else {
         postingPublishTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -10007,14 +9780,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp posting_publish_time = 24;</code>
      */
     public Builder clearPostingPublishTime() {
-      if (postingPublishTimeBuilder_ == null) {
-        postingPublishTime_ = null;
-        onChanged();
-      } else {
-        postingPublishTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00800000);
+      postingPublishTime_ = null;
+      if (postingPublishTimeBuilder_ != null) {
+        postingPublishTimeBuilder_.dispose();
         postingPublishTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -10027,7 +9799,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp posting_publish_time = 24;</code>
      */
     public com.google.protobuf.Timestamp.Builder getPostingPublishTimeBuilder() {
-      
+      bitField0_ |= 0x00800000;
       onChanged();
       return getPostingPublishTimeFieldBuilder().getBuilder();
     }
@@ -10117,7 +9889,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the postingExpireTime field is set.
      */
     public boolean hasPostingExpireTime() {
-      return postingExpireTimeBuilder_ != null || postingExpireTime_ != null;
+      return ((bitField0_ & 0x01000000) != 0);
     }
     /**
      * <pre>
@@ -10215,11 +9987,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         postingExpireTime_ = value;
-        onChanged();
       } else {
         postingExpireTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x01000000;
+      onChanged();
       return this;
     }
     /**
@@ -10267,11 +10039,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (postingExpireTimeBuilder_ == null) {
         postingExpireTime_ = builderForValue.build();
-        onChanged();
       } else {
         postingExpireTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x01000000;
+      onChanged();
       return this;
     }
     /**
@@ -10317,17 +10089,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePostingExpireTime(com.google.protobuf.Timestamp value) {
       if (postingExpireTimeBuilder_ == null) {
-        if (postingExpireTime_ != null) {
-          postingExpireTime_ =
-            com.google.protobuf.Timestamp.newBuilder(postingExpireTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x01000000) != 0) &&
+          postingExpireTime_ != null &&
+          postingExpireTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getPostingExpireTimeBuilder().mergeFrom(value);
         } else {
           postingExpireTime_ = value;
         }
-        onChanged();
       } else {
         postingExpireTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x01000000;
+      onChanged();
       return this;
     }
     /**
@@ -10372,14 +10145,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp posting_expire_time = 25;</code>
      */
     public Builder clearPostingExpireTime() {
-      if (postingExpireTimeBuilder_ == null) {
-        postingExpireTime_ = null;
-        onChanged();
-      } else {
-        postingExpireTime_ = null;
+      bitField0_ = (bitField0_ & ~0x01000000);
+      postingExpireTime_ = null;
+      if (postingExpireTimeBuilder_ != null) {
+        postingExpireTimeBuilder_.dispose();
         postingExpireTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -10424,7 +10196,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp posting_expire_time = 25;</code>
      */
     public com.google.protobuf.Timestamp.Builder getPostingExpireTimeBuilder() {
-      
+      bitField0_ |= 0x01000000;
       onChanged();
       return getPostingExpireTimeFieldBuilder().getBuilder();
     }
@@ -10544,7 +10316,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the postingCreateTime field is set.
      */
     public boolean hasPostingCreateTime() {
-      return postingCreateTimeBuilder_ != null || postingCreateTime_ != null;
+      return ((bitField0_ & 0x02000000) != 0);
     }
     /**
      * <pre>
@@ -10574,11 +10346,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         postingCreateTime_ = value;
-        onChanged();
       } else {
         postingCreateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x02000000;
+      onChanged();
       return this;
     }
     /**
@@ -10592,11 +10364,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (postingCreateTimeBuilder_ == null) {
         postingCreateTime_ = builderForValue.build();
-        onChanged();
       } else {
         postingCreateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x02000000;
+      onChanged();
       return this;
     }
     /**
@@ -10608,17 +10380,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePostingCreateTime(com.google.protobuf.Timestamp value) {
       if (postingCreateTimeBuilder_ == null) {
-        if (postingCreateTime_ != null) {
-          postingCreateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(postingCreateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x02000000) != 0) &&
+          postingCreateTime_ != null &&
+          postingCreateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getPostingCreateTimeBuilder().mergeFrom(value);
         } else {
           postingCreateTime_ = value;
         }
-        onChanged();
       } else {
         postingCreateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x02000000;
+      onChanged();
       return this;
     }
     /**
@@ -10629,14 +10402,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp posting_create_time = 26 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearPostingCreateTime() {
-      if (postingCreateTimeBuilder_ == null) {
-        postingCreateTime_ = null;
-        onChanged();
-      } else {
-        postingCreateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x02000000);
+      postingCreateTime_ = null;
+      if (postingCreateTimeBuilder_ != null) {
+        postingCreateTimeBuilder_.dispose();
         postingCreateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -10647,7 +10419,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp posting_create_time = 26 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getPostingCreateTimeBuilder() {
-      
+      bitField0_ |= 0x02000000;
       onChanged();
       return getPostingCreateTimeFieldBuilder().getBuilder();
     }
@@ -10699,7 +10471,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the postingUpdateTime field is set.
      */
     public boolean hasPostingUpdateTime() {
-      return postingUpdateTimeBuilder_ != null || postingUpdateTime_ != null;
+      return ((bitField0_ & 0x04000000) != 0);
     }
     /**
      * <pre>
@@ -10729,11 +10501,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         postingUpdateTime_ = value;
-        onChanged();
       } else {
         postingUpdateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x04000000;
+      onChanged();
       return this;
     }
     /**
@@ -10747,11 +10519,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (postingUpdateTimeBuilder_ == null) {
         postingUpdateTime_ = builderForValue.build();
-        onChanged();
       } else {
         postingUpdateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x04000000;
+      onChanged();
       return this;
     }
     /**
@@ -10763,17 +10535,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePostingUpdateTime(com.google.protobuf.Timestamp value) {
       if (postingUpdateTimeBuilder_ == null) {
-        if (postingUpdateTime_ != null) {
-          postingUpdateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(postingUpdateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x04000000) != 0) &&
+          postingUpdateTime_ != null &&
+          postingUpdateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getPostingUpdateTimeBuilder().mergeFrom(value);
         } else {
           postingUpdateTime_ = value;
         }
-        onChanged();
       } else {
         postingUpdateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x04000000;
+      onChanged();
       return this;
     }
     /**
@@ -10784,14 +10557,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp posting_update_time = 27 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearPostingUpdateTime() {
-      if (postingUpdateTimeBuilder_ == null) {
-        postingUpdateTime_ = null;
-        onChanged();
-      } else {
-        postingUpdateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x04000000);
+      postingUpdateTime_ = null;
+      if (postingUpdateTimeBuilder_ != null) {
+        postingUpdateTimeBuilder_.dispose();
         postingUpdateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -10802,7 +10574,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp posting_update_time = 27 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getPostingUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x04000000;
       onChanged();
       return getPostingUpdateTimeFieldBuilder().getBuilder();
     }
@@ -10895,11 +10667,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCompanyDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       companyDisplayName_ = value;
+      bitField0_ |= 0x08000000;
       onChanged();
       return this;
     }
@@ -10912,8 +10682,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCompanyDisplayName() {
-      
       companyDisplayName_ = getDefaultInstance().getCompanyDisplayName();
+      bitField0_ = (bitField0_ & ~0x08000000);
       onChanged();
       return this;
     }
@@ -10928,12 +10698,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCompanyDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       companyDisplayName_ = value;
+      bitField0_ |= 0x08000000;
       onChanged();
       return this;
     }
@@ -10950,7 +10718,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the derivedInfo field is set.
      */
     public boolean hasDerivedInfo() {
-      return derivedInfoBuilder_ != null || derivedInfo_ != null;
+      return ((bitField0_ & 0x10000000) != 0);
     }
     /**
      * <pre>
@@ -10980,11 +10748,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         derivedInfo_ = value;
-        onChanged();
       } else {
         derivedInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x10000000;
+      onChanged();
       return this;
     }
     /**
@@ -10998,11 +10766,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.talent.v4.Job.DerivedInfo.Builder builderForValue) {
       if (derivedInfoBuilder_ == null) {
         derivedInfo_ = builderForValue.build();
-        onChanged();
       } else {
         derivedInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x10000000;
+      onChanged();
       return this;
     }
     /**
@@ -11014,17 +10782,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDerivedInfo(com.google.cloud.talent.v4.Job.DerivedInfo value) {
       if (derivedInfoBuilder_ == null) {
-        if (derivedInfo_ != null) {
-          derivedInfo_ =
-            com.google.cloud.talent.v4.Job.DerivedInfo.newBuilder(derivedInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x10000000) != 0) &&
+          derivedInfo_ != null &&
+          derivedInfo_ != com.google.cloud.talent.v4.Job.DerivedInfo.getDefaultInstance()) {
+          getDerivedInfoBuilder().mergeFrom(value);
         } else {
           derivedInfo_ = value;
         }
-        onChanged();
       } else {
         derivedInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x10000000;
+      onChanged();
       return this;
     }
     /**
@@ -11035,14 +10804,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4.Job.DerivedInfo derived_info = 29 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearDerivedInfo() {
-      if (derivedInfoBuilder_ == null) {
-        derivedInfo_ = null;
-        onChanged();
-      } else {
-        derivedInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x10000000);
+      derivedInfo_ = null;
+      if (derivedInfoBuilder_ != null) {
+        derivedInfoBuilder_.dispose();
         derivedInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -11053,7 +10821,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4.Job.DerivedInfo derived_info = 29 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.talent.v4.Job.DerivedInfo.Builder getDerivedInfoBuilder() {
-      
+      bitField0_ |= 0x10000000;
       onChanged();
       return getDerivedInfoFieldBuilder().getBuilder();
     }
@@ -11105,7 +10873,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the processingOptions field is set.
      */
     public boolean hasProcessingOptions() {
-      return processingOptionsBuilder_ != null || processingOptions_ != null;
+      return ((bitField0_ & 0x20000000) != 0);
     }
     /**
      * <pre>
@@ -11135,11 +10903,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         processingOptions_ = value;
-        onChanged();
       } else {
         processingOptionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x20000000;
+      onChanged();
       return this;
     }
     /**
@@ -11153,11 +10921,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.talent.v4.Job.ProcessingOptions.Builder builderForValue) {
       if (processingOptionsBuilder_ == null) {
         processingOptions_ = builderForValue.build();
-        onChanged();
       } else {
         processingOptionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x20000000;
+      onChanged();
       return this;
     }
     /**
@@ -11169,17 +10937,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeProcessingOptions(com.google.cloud.talent.v4.Job.ProcessingOptions value) {
       if (processingOptionsBuilder_ == null) {
-        if (processingOptions_ != null) {
-          processingOptions_ =
-            com.google.cloud.talent.v4.Job.ProcessingOptions.newBuilder(processingOptions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x20000000) != 0) &&
+          processingOptions_ != null &&
+          processingOptions_ != com.google.cloud.talent.v4.Job.ProcessingOptions.getDefaultInstance()) {
+          getProcessingOptionsBuilder().mergeFrom(value);
         } else {
           processingOptions_ = value;
         }
-        onChanged();
       } else {
         processingOptionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x20000000;
+      onChanged();
       return this;
     }
     /**
@@ -11190,14 +10959,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4.Job.ProcessingOptions processing_options = 30;</code>
      */
     public Builder clearProcessingOptions() {
-      if (processingOptionsBuilder_ == null) {
-        processingOptions_ = null;
-        onChanged();
-      } else {
-        processingOptions_ = null;
+      bitField0_ = (bitField0_ & ~0x20000000);
+      processingOptions_ = null;
+      if (processingOptionsBuilder_ != null) {
+        processingOptionsBuilder_.dispose();
         processingOptionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -11208,7 +10976,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4.Job.ProcessingOptions processing_options = 30;</code>
      */
     public com.google.cloud.talent.v4.Job.ProcessingOptions.Builder getProcessingOptionsBuilder() {
-      
+      bitField0_ |= 0x20000000;
       onChanged();
       return getProcessingOptionsFieldBuilder().getBuilder();
     }
@@ -11280,7 +11048,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Job(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

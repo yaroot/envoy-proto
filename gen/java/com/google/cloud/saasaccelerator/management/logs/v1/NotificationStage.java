@@ -38,82 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NotificationStage(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            stage_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (eventTime_ != null) {
-              subBuilder = eventTime_.toBuilder();
-            }
-            eventTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(eventTime_);
-              eventTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            notificationId_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            event_ = rawValue;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            message_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.saasaccelerator.management.logs.v1.NotificationServicePayloadProto.internal_static_google_cloud_saasaccelerator_management_logs_v1_NotificationStage_descriptor;
@@ -418,7 +342,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STAGE_FIELD_NUMBER = 1;
-  private int stage_;
+  private int stage_ = 0;
   /**
    * <pre>
    * The type of the Notification Service event.
@@ -439,8 +363,7 @@ private static final long serialVersionUID = 0L;
    * @return The stage.
    */
   @java.lang.Override public com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Stage getStage() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Stage result = com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Stage.valueOf(stage_);
+    com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Stage result = com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Stage.forNumber(stage_);
     return result == null ? com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Stage.UNRECOGNIZED : result;
   }
 
@@ -479,11 +402,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getEventTimeOrBuilder() {
-    return getEventTime();
+    return eventTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : eventTime_;
   }
 
   public static final int NOTIFICATION_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object notificationId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object notificationId_ = "";
   /**
    * <pre>
    * The id of the notification.
@@ -529,7 +453,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EVENT_FIELD_NUMBER = 4;
-  private int event_;
+  private int event_ = 0;
   /**
    * <pre>
    * The event that triggered the notification.
@@ -550,13 +474,13 @@ private static final long serialVersionUID = 0L;
    * @return The event.
    */
   @java.lang.Override public com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Event getEvent() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Event result = com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Event.valueOf(event_);
+    com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Event result = com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Event.forNumber(event_);
     return result == null ? com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Event.UNRECOGNIZED : result;
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object message_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object message_ = "";
   /**
    * <pre>
    * Message to denote the error related to the event if applicable.
@@ -630,7 +554,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, message_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -657,7 +581,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, message_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -683,7 +607,7 @@ private static final long serialVersionUID = 0L;
     if (event_ != other.event_) return false;
     if (!getMessage()
         .equals(other.getMessage())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -706,7 +630,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + event_;
     hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getMessage().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -827,36 +751,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       stage_ = 0;
-
-      if (eventTimeBuilder_ == null) {
-        eventTime_ = null;
-      } else {
-        eventTime_ = null;
+      eventTime_ = null;
+      if (eventTimeBuilder_ != null) {
+        eventTimeBuilder_.dispose();
         eventTimeBuilder_ = null;
       }
       notificationId_ = "";
-
       event_ = 0;
-
       message_ = "";
-
       return this;
     }
 
@@ -883,17 +798,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage buildPartial() {
       com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage result = new com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage(this);
-      result.stage_ = stage_;
-      if (eventTimeBuilder_ == null) {
-        result.eventTime_ = eventTime_;
-      } else {
-        result.eventTime_ = eventTimeBuilder_.build();
-      }
-      result.notificationId_ = notificationId_;
-      result.event_ = event_;
-      result.message_ = message_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.stage_ = stage_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.eventTime_ = eventTimeBuilder_ == null
+            ? eventTime_
+            : eventTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.notificationId_ = notificationId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.event_ = event_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.message_ = message_;
+      }
     }
 
     @java.lang.Override
@@ -948,6 +876,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getNotificationId().isEmpty()) {
         notificationId_ = other.notificationId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.event_ != 0) {
@@ -955,9 +884,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getMessage().isEmpty()) {
         message_ = other.message_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -972,19 +902,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              stage_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getEventTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              notificationId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              event_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              message_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int stage_ = 0;
     /**
@@ -1008,8 +979,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStageValue(int value) {
-      
       stage_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1023,8 +994,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Stage getStage() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Stage result = com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Stage.valueOf(stage_);
+      com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Stage result = com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Stage.forNumber(stage_);
       return result == null ? com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Stage.UNRECOGNIZED : result;
     }
     /**
@@ -1040,7 +1010,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       stage_ = value.getNumber();
       onChanged();
       return this;
@@ -1054,7 +1024,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStage() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       stage_ = 0;
       onChanged();
       return this;
@@ -1072,7 +1042,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the eventTime field is set.
      */
     public boolean hasEventTime() {
-      return eventTimeBuilder_ != null || eventTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1102,11 +1072,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         eventTime_ = value;
-        onChanged();
       } else {
         eventTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1120,11 +1090,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (eventTimeBuilder_ == null) {
         eventTime_ = builderForValue.build();
-        onChanged();
       } else {
         eventTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1136,17 +1106,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEventTime(com.google.protobuf.Timestamp value) {
       if (eventTimeBuilder_ == null) {
-        if (eventTime_ != null) {
-          eventTime_ =
-            com.google.protobuf.Timestamp.newBuilder(eventTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          eventTime_ != null &&
+          eventTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getEventTimeBuilder().mergeFrom(value);
         } else {
           eventTime_ = value;
         }
-        onChanged();
       } else {
         eventTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1157,14 +1128,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp event_time = 2;</code>
      */
     public Builder clearEventTime() {
-      if (eventTimeBuilder_ == null) {
-        eventTime_ = null;
-        onChanged();
-      } else {
-        eventTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      eventTime_ = null;
+      if (eventTimeBuilder_ != null) {
+        eventTimeBuilder_.dispose();
         eventTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1175,7 +1145,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp event_time = 2;</code>
      */
     public com.google.protobuf.Timestamp.Builder getEventTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getEventTimeFieldBuilder().getBuilder();
     }
@@ -1268,11 +1238,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNotificationId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       notificationId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1285,8 +1253,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNotificationId() {
-      
       notificationId_ = getDefaultInstance().getNotificationId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1301,12 +1269,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNotificationIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       notificationId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1333,8 +1299,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEventValue(int value) {
-      
       event_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1348,8 +1314,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Event getEvent() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Event result = com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Event.valueOf(event_);
+      com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Event result = com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Event.forNumber(event_);
       return result == null ? com.google.cloud.saasaccelerator.management.logs.v1.NotificationStage.Event.UNRECOGNIZED : result;
     }
     /**
@@ -1365,7 +1330,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       event_ = value.getNumber();
       onChanged();
       return this;
@@ -1379,7 +1344,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEvent() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       event_ = 0;
       onChanged();
       return this;
@@ -1438,11 +1403,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMessage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       message_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1455,8 +1418,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMessage() {
-      
       message_ = getDefaultInstance().getMessage();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1471,12 +1434,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMessageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       message_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1513,7 +1474,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NotificationStage(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

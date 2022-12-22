@@ -37,76 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateUtilizationReportRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.vmmigration.v1.UtilizationReport.Builder subBuilder = null;
-            if (utilizationReport_ != null) {
-              subBuilder = utilizationReport_.toBuilder();
-            }
-            utilizationReport_ = input.readMessage(com.google.cloud.vmmigration.v1.UtilizationReport.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(utilizationReport_);
-              utilizationReport_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            utilizationReportId_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            requestId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.vmmigration.v1.VmMigrationProto.internal_static_google_cloud_vmmigration_v1_CreateUtilizationReportRequest_descriptor;
@@ -121,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The Utilization Report's parent.
@@ -201,11 +132,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.vmmigration.v1.UtilizationReportOrBuilder getUtilizationReportOrBuilder() {
-    return getUtilizationReport();
+    return utilizationReport_ == null ? com.google.cloud.vmmigration.v1.UtilizationReport.getDefaultInstance() : utilizationReport_;
   }
 
   public static final int UTILIZATION_REPORT_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object utilizationReportId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object utilizationReportId_ = "";
   /**
    * <pre>
    * Required. The ID to use for the report, which will become the final
@@ -259,7 +191,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUEST_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object requestId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object requestId_ = "";
   /**
    * <pre>
    * A request ID to identify requests. Specify a unique request ID
@@ -350,7 +283,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, requestId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -372,7 +305,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, requestId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -398,7 +331,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getUtilizationReportId())) return false;
     if (!getRequestId()
         .equals(other.getRequestId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -419,7 +352,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getUtilizationReportId().hashCode();
     hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
     hash = (53 * hash) + getRequestId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -540,34 +473,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.vmmigration.v1.CreateUtilizationReportRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (utilizationReportBuilder_ == null) {
-        utilizationReport_ = null;
-      } else {
-        utilizationReport_ = null;
+      utilizationReport_ = null;
+      if (utilizationReportBuilder_ != null) {
+        utilizationReportBuilder_.dispose();
         utilizationReportBuilder_ = null;
       }
       utilizationReportId_ = "";
-
       requestId_ = "";
-
       return this;
     }
 
@@ -594,16 +519,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.vmmigration.v1.CreateUtilizationReportRequest buildPartial() {
       com.google.cloud.vmmigration.v1.CreateUtilizationReportRequest result = new com.google.cloud.vmmigration.v1.CreateUtilizationReportRequest(this);
-      result.parent_ = parent_;
-      if (utilizationReportBuilder_ == null) {
-        result.utilizationReport_ = utilizationReport_;
-      } else {
-        result.utilizationReport_ = utilizationReportBuilder_.build();
-      }
-      result.utilizationReportId_ = utilizationReportId_;
-      result.requestId_ = requestId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.vmmigration.v1.CreateUtilizationReportRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.utilizationReport_ = utilizationReportBuilder_ == null
+            ? utilizationReport_
+            : utilizationReportBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.utilizationReportId_ = utilizationReportId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.requestId_ = requestId_;
+      }
     }
 
     @java.lang.Override
@@ -652,6 +588,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.vmmigration.v1.CreateUtilizationReportRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasUtilizationReport()) {
@@ -659,13 +596,15 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getUtilizationReportId().isEmpty()) {
         utilizationReportId_ = other.utilizationReportId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getRequestId().isEmpty()) {
         requestId_ = other.requestId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -680,19 +619,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.vmmigration.v1.CreateUtilizationReportRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getUtilizationReportFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              utilizationReportId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              requestId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.vmmigration.v1.CreateUtilizationReportRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -747,11 +722,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -764,8 +737,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -780,12 +753,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -802,7 +773,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the utilizationReport field is set.
      */
     public boolean hasUtilizationReport() {
-      return utilizationReportBuilder_ != null || utilizationReport_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -832,11 +803,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         utilizationReport_ = value;
-        onChanged();
       } else {
         utilizationReportBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -850,11 +821,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.vmmigration.v1.UtilizationReport.Builder builderForValue) {
       if (utilizationReportBuilder_ == null) {
         utilizationReport_ = builderForValue.build();
-        onChanged();
       } else {
         utilizationReportBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -866,17 +837,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUtilizationReport(com.google.cloud.vmmigration.v1.UtilizationReport value) {
       if (utilizationReportBuilder_ == null) {
-        if (utilizationReport_ != null) {
-          utilizationReport_ =
-            com.google.cloud.vmmigration.v1.UtilizationReport.newBuilder(utilizationReport_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          utilizationReport_ != null &&
+          utilizationReport_ != com.google.cloud.vmmigration.v1.UtilizationReport.getDefaultInstance()) {
+          getUtilizationReportBuilder().mergeFrom(value);
         } else {
           utilizationReport_ = value;
         }
-        onChanged();
       } else {
         utilizationReportBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -887,14 +859,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vmmigration.v1.UtilizationReport utilization_report = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearUtilizationReport() {
-      if (utilizationReportBuilder_ == null) {
-        utilizationReport_ = null;
-        onChanged();
-      } else {
-        utilizationReport_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      utilizationReport_ = null;
+      if (utilizationReportBuilder_ != null) {
+        utilizationReportBuilder_.dispose();
         utilizationReportBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -905,7 +876,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vmmigration.v1.UtilizationReport utilization_report = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.vmmigration.v1.UtilizationReport.Builder getUtilizationReportBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getUtilizationReportFieldBuilder().getBuilder();
     }
@@ -1010,11 +981,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUtilizationReportId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       utilizationReportId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1031,8 +1000,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUtilizationReportId() {
-      
       utilizationReportId_ = getDefaultInstance().getUtilizationReportId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1051,12 +1020,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUtilizationReportIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       utilizationReportId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1144,11 +1111,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       requestId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1171,8 +1136,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequestId() {
-      
       requestId_ = getDefaultInstance().getRequestId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1197,12 +1162,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       requestId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1239,7 +1202,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateUtilizationReportRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

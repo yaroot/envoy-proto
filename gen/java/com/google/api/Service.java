@@ -5,17 +5,26 @@ package com.google.api;
 
 /**
  * <pre>
- * `Service` is the root object of Google service configuration schema. It
- * describes basic information about a service, such as the name and the
- * title, and delegates other aspects to sub-sections. Each sub-section is
- * either a proto message or a repeated proto message that configures a
- * specific aspect, such as auth. See each proto message definition for details.
+ * `Service` is the root object of Google API service configuration (service
+ * config). It describes the basic information about a logical service,
+ * such as the service name and the user-facing title, and delegates other
+ * aspects to sub-sections. Each sub-section is either a proto message or a
+ * repeated proto message that configures a specific aspect, such as auth.
+ * For more information, see each proto message definition.
  * Example:
  *     type: google.api.Service
  *     name: calendar.googleapis.com
  *     title: Google Calendar API
  *     apis:
  *     - name: google.calendar.v3.Calendar
+ *     visibility:
+ *       rules:
+ *       - selector: "google.calendar.v3.*"
+ *         restriction: PREVIEW
+ *     backend:
+ *       rules:
+ *       - selector: "google.calendar.v3.*"
+ *         address: calendar.example.com
  *     authentication:
  *       providers:
  *       - id: google_calendar_auth
@@ -64,336 +73,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Service(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            title_ = s;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              apis_ = new java.util.ArrayList<com.google.protobuf.Api>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            apis_.add(
-                input.readMessage(com.google.protobuf.Api.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              types_ = new java.util.ArrayList<com.google.protobuf.Type>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            types_.add(
-                input.readMessage(com.google.protobuf.Type.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              enums_ = new java.util.ArrayList<com.google.protobuf.Enum>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            enums_.add(
-                input.readMessage(com.google.protobuf.Enum.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            com.google.api.Documentation.Builder subBuilder = null;
-            if (documentation_ != null) {
-              subBuilder = documentation_.toBuilder();
-            }
-            documentation_ = input.readMessage(com.google.api.Documentation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(documentation_);
-              documentation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.api.Backend.Builder subBuilder = null;
-            if (backend_ != null) {
-              subBuilder = backend_.toBuilder();
-            }
-            backend_ = input.readMessage(com.google.api.Backend.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(backend_);
-              backend_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            com.google.api.Http.Builder subBuilder = null;
-            if (http_ != null) {
-              subBuilder = http_.toBuilder();
-            }
-            http_ = input.readMessage(com.google.api.Http.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(http_);
-              http_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.google.api.Quota.Builder subBuilder = null;
-            if (quota_ != null) {
-              subBuilder = quota_.toBuilder();
-            }
-            quota_ = input.readMessage(com.google.api.Quota.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(quota_);
-              quota_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            com.google.api.Authentication.Builder subBuilder = null;
-            if (authentication_ != null) {
-              subBuilder = authentication_.toBuilder();
-            }
-            authentication_ = input.readMessage(com.google.api.Authentication.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(authentication_);
-              authentication_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 98: {
-            com.google.api.Context.Builder subBuilder = null;
-            if (context_ != null) {
-              subBuilder = context_.toBuilder();
-            }
-            context_ = input.readMessage(com.google.api.Context.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(context_);
-              context_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            com.google.api.Usage.Builder subBuilder = null;
-            if (usage_ != null) {
-              subBuilder = usage_.toBuilder();
-            }
-            usage_ = input.readMessage(com.google.api.Usage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(usage_);
-              usage_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 146: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              endpoints_ = new java.util.ArrayList<com.google.api.Endpoint>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            endpoints_.add(
-                input.readMessage(com.google.api.Endpoint.parser(), extensionRegistry));
-            break;
-          }
-          case 162: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (configVersion_ != null) {
-              subBuilder = configVersion_.toBuilder();
-            }
-            configVersion_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(configVersion_);
-              configVersion_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 170: {
-            com.google.api.Control.Builder subBuilder = null;
-            if (control_ != null) {
-              subBuilder = control_.toBuilder();
-            }
-            control_ = input.readMessage(com.google.api.Control.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(control_);
-              control_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 178: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            producerProjectId_ = s;
-            break;
-          }
-          case 186: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              logs_ = new java.util.ArrayList<com.google.api.LogDescriptor>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            logs_.add(
-                input.readMessage(com.google.api.LogDescriptor.parser(), extensionRegistry));
-            break;
-          }
-          case 194: {
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              metrics_ = new java.util.ArrayList<com.google.api.MetricDescriptor>();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            metrics_.add(
-                input.readMessage(com.google.api.MetricDescriptor.parser(), extensionRegistry));
-            break;
-          }
-          case 202: {
-            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-              monitoredResources_ = new java.util.ArrayList<com.google.api.MonitoredResourceDescriptor>();
-              mutable_bitField0_ |= 0x00000040;
-            }
-            monitoredResources_.add(
-                input.readMessage(com.google.api.MonitoredResourceDescriptor.parser(), extensionRegistry));
-            break;
-          }
-          case 210: {
-            com.google.api.Billing.Builder subBuilder = null;
-            if (billing_ != null) {
-              subBuilder = billing_.toBuilder();
-            }
-            billing_ = input.readMessage(com.google.api.Billing.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(billing_);
-              billing_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 218: {
-            com.google.api.Logging.Builder subBuilder = null;
-            if (logging_ != null) {
-              subBuilder = logging_.toBuilder();
-            }
-            logging_ = input.readMessage(com.google.api.Logging.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(logging_);
-              logging_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 226: {
-            com.google.api.Monitoring.Builder subBuilder = null;
-            if (monitoring_ != null) {
-              subBuilder = monitoring_.toBuilder();
-            }
-            monitoring_ = input.readMessage(com.google.api.Monitoring.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(monitoring_);
-              monitoring_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 234: {
-            com.google.api.SystemParameters.Builder subBuilder = null;
-            if (systemParameters_ != null) {
-              subBuilder = systemParameters_.toBuilder();
-            }
-            systemParameters_ = input.readMessage(com.google.api.SystemParameters.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(systemParameters_);
-              systemParameters_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 266: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 298: {
-            com.google.api.SourceInfo.Builder subBuilder = null;
-            if (sourceInfo_ != null) {
-              subBuilder = sourceInfo_.toBuilder();
-            }
-            sourceInfo_ = input.readMessage(com.google.api.SourceInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sourceInfo_);
-              sourceInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        apis_ = java.util.Collections.unmodifiableList(apis_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        types_ = java.util.Collections.unmodifiableList(types_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        enums_ = java.util.Collections.unmodifiableList(enums_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        endpoints_ = java.util.Collections.unmodifiableList(endpoints_);
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        logs_ = java.util.Collections.unmodifiableList(logs_);
-      }
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
-        metrics_ = java.util.Collections.unmodifiableList(metrics_);
-      }
-      if (((mutable_bitField0_ & 0x00000040) != 0)) {
-        monitoredResources_ = java.util.Collections.unmodifiableList(monitoredResources_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.ServiceProto.internal_static_google_api_Service_descriptor;
@@ -408,7 +87,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The service name, which is a DNS-like logical identifier for the
@@ -460,10 +140,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TITLE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object title_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object title_ = "";
   /**
    * <pre>
-   * The product title for this service.
+   * The product title for this service, it is the name displayed in Google
+   * Cloud Console.
    * </pre>
    *
    * <code>string title = 2;</code>
@@ -484,7 +166,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The product title for this service.
+   * The product title for this service, it is the name displayed in Google
+   * Cloud Console.
    * </pre>
    *
    * <code>string title = 2;</code>
@@ -506,7 +189,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRODUCER_PROJECT_ID_FIELD_NUMBER = 22;
-  private volatile java.lang.Object producerProjectId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object producerProjectId_ = "";
   /**
    * <pre>
    * The Google project that owns this service.
@@ -552,7 +236,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 33;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * A unique ID for a specific instance of this message, typically assigned
@@ -604,6 +289,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int APIS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.protobuf.Api> apis_;
   /**
    * <pre>
@@ -684,14 +370,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.protobuf.Type> types_;
   /**
    * <pre>
    * A list of all proto message types included in this API service.
-   * Types referenced directly or indirectly by the `apis` are
-   * automatically included.  Messages which are not referenced but
-   * shall be included, such as types used by the `google.protobuf.Any` type,
-   * should be listed here by name. Example:
+   * Types referenced directly or indirectly by the `apis` are automatically
+   * included.  Messages which are not referenced but shall be included, such as
+   * types used by the `google.protobuf.Any` type, should be listed here by
+   * name by the configuration author. Example:
    *     types:
    *     - name: google.protobuf.Int32
    * </pre>
@@ -705,10 +392,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * A list of all proto message types included in this API service.
-   * Types referenced directly or indirectly by the `apis` are
-   * automatically included.  Messages which are not referenced but
-   * shall be included, such as types used by the `google.protobuf.Any` type,
-   * should be listed here by name. Example:
+   * Types referenced directly or indirectly by the `apis` are automatically
+   * included.  Messages which are not referenced but shall be included, such as
+   * types used by the `google.protobuf.Any` type, should be listed here by
+   * name by the configuration author. Example:
    *     types:
    *     - name: google.protobuf.Int32
    * </pre>
@@ -723,10 +410,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * A list of all proto message types included in this API service.
-   * Types referenced directly or indirectly by the `apis` are
-   * automatically included.  Messages which are not referenced but
-   * shall be included, such as types used by the `google.protobuf.Any` type,
-   * should be listed here by name. Example:
+   * Types referenced directly or indirectly by the `apis` are automatically
+   * included.  Messages which are not referenced but shall be included, such as
+   * types used by the `google.protobuf.Any` type, should be listed here by
+   * name by the configuration author. Example:
    *     types:
    *     - name: google.protobuf.Int32
    * </pre>
@@ -740,10 +427,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * A list of all proto message types included in this API service.
-   * Types referenced directly or indirectly by the `apis` are
-   * automatically included.  Messages which are not referenced but
-   * shall be included, such as types used by the `google.protobuf.Any` type,
-   * should be listed here by name. Example:
+   * Types referenced directly or indirectly by the `apis` are automatically
+   * included.  Messages which are not referenced but shall be included, such as
+   * types used by the `google.protobuf.Any` type, should be listed here by
+   * name by the configuration author. Example:
    *     types:
    *     - name: google.protobuf.Int32
    * </pre>
@@ -757,10 +444,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * A list of all proto message types included in this API service.
-   * Types referenced directly or indirectly by the `apis` are
-   * automatically included.  Messages which are not referenced but
-   * shall be included, such as types used by the `google.protobuf.Any` type,
-   * should be listed here by name. Example:
+   * Types referenced directly or indirectly by the `apis` are automatically
+   * included.  Messages which are not referenced but shall be included, such as
+   * types used by the `google.protobuf.Any` type, should be listed here by
+   * name by the configuration author. Example:
    *     types:
    *     - name: google.protobuf.Int32
    * </pre>
@@ -774,13 +461,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENUMS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.protobuf.Enum> enums_;
   /**
    * <pre>
-   * A list of all enum types included in this API service.  Enums
-   * referenced directly or indirectly by the `apis` are automatically
-   * included.  Enums which are not referenced but shall be included
-   * should be listed here by name. Example:
+   * A list of all enum types included in this API service.  Enums referenced
+   * directly or indirectly by the `apis` are automatically included.  Enums
+   * which are not referenced but shall be included should be listed here by
+   * name by the configuration author. Example:
    *     enums:
    *     - name: google.someapi.v1.SomeEnum
    * </pre>
@@ -793,10 +481,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A list of all enum types included in this API service.  Enums
-   * referenced directly or indirectly by the `apis` are automatically
-   * included.  Enums which are not referenced but shall be included
-   * should be listed here by name. Example:
+   * A list of all enum types included in this API service.  Enums referenced
+   * directly or indirectly by the `apis` are automatically included.  Enums
+   * which are not referenced but shall be included should be listed here by
+   * name by the configuration author. Example:
    *     enums:
    *     - name: google.someapi.v1.SomeEnum
    * </pre>
@@ -810,10 +498,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A list of all enum types included in this API service.  Enums
-   * referenced directly or indirectly by the `apis` are automatically
-   * included.  Enums which are not referenced but shall be included
-   * should be listed here by name. Example:
+   * A list of all enum types included in this API service.  Enums referenced
+   * directly or indirectly by the `apis` are automatically included.  Enums
+   * which are not referenced but shall be included should be listed here by
+   * name by the configuration author. Example:
    *     enums:
    *     - name: google.someapi.v1.SomeEnum
    * </pre>
@@ -826,10 +514,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A list of all enum types included in this API service.  Enums
-   * referenced directly or indirectly by the `apis` are automatically
-   * included.  Enums which are not referenced but shall be included
-   * should be listed here by name. Example:
+   * A list of all enum types included in this API service.  Enums referenced
+   * directly or indirectly by the `apis` are automatically included.  Enums
+   * which are not referenced but shall be included should be listed here by
+   * name by the configuration author. Example:
    *     enums:
    *     - name: google.someapi.v1.SomeEnum
    * </pre>
@@ -842,10 +530,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A list of all enum types included in this API service.  Enums
-   * referenced directly or indirectly by the `apis` are automatically
-   * included.  Enums which are not referenced but shall be included
-   * should be listed here by name. Example:
+   * A list of all enum types included in this API service.  Enums referenced
+   * directly or indirectly by the `apis` are automatically included.  Enums
+   * which are not referenced but shall be included should be listed here by
+   * name by the configuration author. Example:
    *     enums:
    *     - name: google.someapi.v1.SomeEnum
    * </pre>
@@ -893,7 +581,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.api.DocumentationOrBuilder getDocumentationOrBuilder() {
-    return getDocumentation();
+    return documentation_ == null ? com.google.api.Documentation.getDefaultInstance() : documentation_;
   }
 
   public static final int BACKEND_FIELD_NUMBER = 8;
@@ -931,7 +619,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.api.BackendOrBuilder getBackendOrBuilder() {
-    return getBackend();
+    return backend_ == null ? com.google.api.Backend.getDefaultInstance() : backend_;
   }
 
   public static final int HTTP_FIELD_NUMBER = 9;
@@ -969,7 +657,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.api.HttpOrBuilder getHttpOrBuilder() {
-    return getHttp();
+    return http_ == null ? com.google.api.Http.getDefaultInstance() : http_;
   }
 
   public static final int QUOTA_FIELD_NUMBER = 10;
@@ -1007,7 +695,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.api.QuotaOrBuilder getQuotaOrBuilder() {
-    return getQuota();
+    return quota_ == null ? com.google.api.Quota.getDefaultInstance() : quota_;
   }
 
   public static final int AUTHENTICATION_FIELD_NUMBER = 11;
@@ -1045,7 +733,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.api.AuthenticationOrBuilder getAuthenticationOrBuilder() {
-    return getAuthentication();
+    return authentication_ == null ? com.google.api.Authentication.getDefaultInstance() : authentication_;
   }
 
   public static final int CONTEXT_FIELD_NUMBER = 12;
@@ -1083,7 +771,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.api.ContextOrBuilder getContextOrBuilder() {
-    return getContext();
+    return context_ == null ? com.google.api.Context.getDefaultInstance() : context_;
   }
 
   public static final int USAGE_FIELD_NUMBER = 15;
@@ -1121,10 +809,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.api.UsageOrBuilder getUsageOrBuilder() {
-    return getUsage();
+    return usage_ == null ? com.google.api.Usage.getDefaultInstance() : usage_;
   }
 
   public static final int ENDPOINTS_FIELD_NUMBER = 18;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.api.Endpoint> endpoints_;
   /**
    * <pre>
@@ -1229,10 +918,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.api.ControlOrBuilder getControlOrBuilder() {
-    return getControl();
+    return control_ == null ? com.google.api.Control.getDefaultInstance() : control_;
   }
 
   public static final int LOGS_FIELD_NUMBER = 23;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.api.LogDescriptor> logs_;
   /**
    * <pre>
@@ -1293,6 +983,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int METRICS_FIELD_NUMBER = 24;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.api.MetricDescriptor> metrics_;
   /**
    * <pre>
@@ -1353,6 +1044,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MONITORED_RESOURCES_FIELD_NUMBER = 25;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.api.MonitoredResourceDescriptor> monitoredResources_;
   /**
    * <pre>
@@ -1452,7 +1144,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.api.BillingOrBuilder getBillingOrBuilder() {
-    return getBilling();
+    return billing_ == null ? com.google.api.Billing.getDefaultInstance() : billing_;
   }
 
   public static final int LOGGING_FIELD_NUMBER = 27;
@@ -1490,7 +1182,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.api.LoggingOrBuilder getLoggingOrBuilder() {
-    return getLogging();
+    return logging_ == null ? com.google.api.Logging.getDefaultInstance() : logging_;
   }
 
   public static final int MONITORING_FIELD_NUMBER = 28;
@@ -1528,7 +1220,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.api.MonitoringOrBuilder getMonitoringOrBuilder() {
-    return getMonitoring();
+    return monitoring_ == null ? com.google.api.Monitoring.getDefaultInstance() : monitoring_;
   }
 
   public static final int SYSTEM_PARAMETERS_FIELD_NUMBER = 29;
@@ -1566,7 +1258,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.api.SystemParametersOrBuilder getSystemParametersOrBuilder() {
-    return getSystemParameters();
+    return systemParameters_ == null ? com.google.api.SystemParameters.getDefaultInstance() : systemParameters_;
   }
 
   public static final int SOURCE_INFO_FIELD_NUMBER = 37;
@@ -1604,7 +1296,51 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.api.SourceInfoOrBuilder getSourceInfoOrBuilder() {
-    return getSourceInfo();
+    return sourceInfo_ == null ? com.google.api.SourceInfo.getDefaultInstance() : sourceInfo_;
+  }
+
+  public static final int PUBLISHING_FIELD_NUMBER = 45;
+  private com.google.api.Publishing publishing_;
+  /**
+   * <pre>
+   * Settings for [Google Cloud Client
+   * libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+   * generated from APIs defined as protocol buffers.
+   * </pre>
+   *
+   * <code>.google.api.Publishing publishing = 45;</code>
+   * @return Whether the publishing field is set.
+   */
+  @java.lang.Override
+  public boolean hasPublishing() {
+    return publishing_ != null;
+  }
+  /**
+   * <pre>
+   * Settings for [Google Cloud Client
+   * libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+   * generated from APIs defined as protocol buffers.
+   * </pre>
+   *
+   * <code>.google.api.Publishing publishing = 45;</code>
+   * @return The publishing.
+   */
+  @java.lang.Override
+  public com.google.api.Publishing getPublishing() {
+    return publishing_ == null ? com.google.api.Publishing.getDefaultInstance() : publishing_;
+  }
+  /**
+   * <pre>
+   * Settings for [Google Cloud Client
+   * libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+   * generated from APIs defined as protocol buffers.
+   * </pre>
+   *
+   * <code>.google.api.Publishing publishing = 45;</code>
+   */
+  @java.lang.Override
+  public com.google.api.PublishingOrBuilder getPublishingOrBuilder() {
+    return publishing_ == null ? com.google.api.Publishing.getDefaultInstance() : publishing_;
   }
 
   public static final int CONFIG_VERSION_FIELD_NUMBER = 20;
@@ -1616,13 +1352,11 @@ private static final long serialVersionUID = 0L;
    * sets this field to `3`.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value config_version = 20 [deprecated = true];</code>
-   * @deprecated google.api.Service.config_version is deprecated.
-   *     See google/api/service.proto;l=170
+   * <code>.google.protobuf.UInt32Value config_version = 20;</code>
    * @return Whether the configVersion field is set.
    */
   @java.lang.Override
-  @java.lang.Deprecated public boolean hasConfigVersion() {
+  public boolean hasConfigVersion() {
     return configVersion_ != null;
   }
   /**
@@ -1632,13 +1366,11 @@ private static final long serialVersionUID = 0L;
    * sets this field to `3`.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value config_version = 20 [deprecated = true];</code>
-   * @deprecated google.api.Service.config_version is deprecated.
-   *     See google/api/service.proto;l=170
+   * <code>.google.protobuf.UInt32Value config_version = 20;</code>
    * @return The configVersion.
    */
   @java.lang.Override
-  @java.lang.Deprecated public com.google.protobuf.UInt32Value getConfigVersion() {
+  public com.google.protobuf.UInt32Value getConfigVersion() {
     return configVersion_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : configVersion_;
   }
   /**
@@ -1648,11 +1380,11 @@ private static final long serialVersionUID = 0L;
    * sets this field to `3`.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value config_version = 20 [deprecated = true];</code>
+   * <code>.google.protobuf.UInt32Value config_version = 20;</code>
    */
   @java.lang.Override
-  @java.lang.Deprecated public com.google.protobuf.UInt32ValueOrBuilder getConfigVersionOrBuilder() {
-    return getConfigVersion();
+  public com.google.protobuf.UInt32ValueOrBuilder getConfigVersionOrBuilder() {
+    return configVersion_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : configVersion_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1744,7 +1476,10 @@ private static final long serialVersionUID = 0L;
     if (sourceInfo_ != null) {
       output.writeMessage(37, getSourceInfo());
     }
-    unknownFields.writeTo(output);
+    if (publishing_ != null) {
+      output.writeMessage(45, getPublishing());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1849,7 +1584,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(37, getSourceInfo());
     }
-    size += unknownFields.getSerializedSize();
+    if (publishing_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(45, getPublishing());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1951,12 +1690,17 @@ private static final long serialVersionUID = 0L;
       if (!getSourceInfo()
           .equals(other.getSourceInfo())) return false;
     }
+    if (hasPublishing() != other.hasPublishing()) return false;
+    if (hasPublishing()) {
+      if (!getPublishing()
+          .equals(other.getPublishing())) return false;
+    }
     if (hasConfigVersion() != other.hasConfigVersion()) return false;
     if (hasConfigVersion()) {
       if (!getConfigVersion()
           .equals(other.getConfigVersion())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2055,11 +1799,15 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SOURCE_INFO_FIELD_NUMBER;
       hash = (53 * hash) + getSourceInfo().hashCode();
     }
+    if (hasPublishing()) {
+      hash = (37 * hash) + PUBLISHING_FIELD_NUMBER;
+      hash = (53 * hash) + getPublishing().hashCode();
+    }
     if (hasConfigVersion()) {
       hash = (37 * hash) + CONFIG_VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getConfigVersion().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2156,17 +1904,26 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * `Service` is the root object of Google service configuration schema. It
-   * describes basic information about a service, such as the name and the
-   * title, and delegates other aspects to sub-sections. Each sub-section is
-   * either a proto message or a repeated proto message that configures a
-   * specific aspect, such as auth. See each proto message definition for details.
+   * `Service` is the root object of Google API service configuration (service
+   * config). It describes the basic information about a logical service,
+   * such as the service name and the user-facing title, and delegates other
+   * aspects to sub-sections. Each sub-section is either a proto message or a
+   * repeated proto message that configures a specific aspect, such as auth.
+   * For more information, see each proto message definition.
    * Example:
    *     type: google.api.Service
    *     name: calendar.googleapis.com
    *     title: Google Calendar API
    *     apis:
    *     - name: google.calendar.v3.Calendar
+   *     visibility:
+   *       rules:
+   *       - selector: "google.calendar.v3.*"
+   *         restriction: PREVIEW
+   *     backend:
+   *       rules:
+   *       - selector: "google.calendar.v3.*"
+   *         address: calendar.example.com
    *     authentication:
    *       providers:
    *       - id: google_calendar_auth
@@ -2199,161 +1956,144 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.Service.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getApisFieldBuilder();
-        getTypesFieldBuilder();
-        getEnumsFieldBuilder();
-        getEndpointsFieldBuilder();
-        getLogsFieldBuilder();
-        getMetricsFieldBuilder();
-        getMonitoredResourcesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       title_ = "";
-
       producerProjectId_ = "";
-
       id_ = "";
-
       if (apisBuilder_ == null) {
         apis_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        apis_ = null;
         apisBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       if (typesBuilder_ == null) {
         types_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        types_ = null;
         typesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       if (enumsBuilder_ == null) {
         enums_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        enums_ = null;
         enumsBuilder_.clear();
       }
-      if (documentationBuilder_ == null) {
-        documentation_ = null;
-      } else {
-        documentation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      documentation_ = null;
+      if (documentationBuilder_ != null) {
+        documentationBuilder_.dispose();
         documentationBuilder_ = null;
       }
-      if (backendBuilder_ == null) {
-        backend_ = null;
-      } else {
-        backend_ = null;
+      backend_ = null;
+      if (backendBuilder_ != null) {
+        backendBuilder_.dispose();
         backendBuilder_ = null;
       }
-      if (httpBuilder_ == null) {
-        http_ = null;
-      } else {
-        http_ = null;
+      http_ = null;
+      if (httpBuilder_ != null) {
+        httpBuilder_.dispose();
         httpBuilder_ = null;
       }
-      if (quotaBuilder_ == null) {
-        quota_ = null;
-      } else {
-        quota_ = null;
+      quota_ = null;
+      if (quotaBuilder_ != null) {
+        quotaBuilder_.dispose();
         quotaBuilder_ = null;
       }
-      if (authenticationBuilder_ == null) {
-        authentication_ = null;
-      } else {
-        authentication_ = null;
+      authentication_ = null;
+      if (authenticationBuilder_ != null) {
+        authenticationBuilder_.dispose();
         authenticationBuilder_ = null;
       }
-      if (contextBuilder_ == null) {
-        context_ = null;
-      } else {
-        context_ = null;
+      context_ = null;
+      if (contextBuilder_ != null) {
+        contextBuilder_.dispose();
         contextBuilder_ = null;
       }
-      if (usageBuilder_ == null) {
-        usage_ = null;
-      } else {
-        usage_ = null;
+      usage_ = null;
+      if (usageBuilder_ != null) {
+        usageBuilder_.dispose();
         usageBuilder_ = null;
       }
       if (endpointsBuilder_ == null) {
         endpoints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        endpoints_ = null;
         endpointsBuilder_.clear();
       }
-      if (controlBuilder_ == null) {
-        control_ = null;
-      } else {
-        control_ = null;
+      bitField0_ = (bitField0_ & ~0x00004000);
+      control_ = null;
+      if (controlBuilder_ != null) {
+        controlBuilder_.dispose();
         controlBuilder_ = null;
       }
       if (logsBuilder_ == null) {
         logs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
+        logs_ = null;
         logsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00010000);
       if (metricsBuilder_ == null) {
         metrics_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
       } else {
+        metrics_ = null;
         metricsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00020000);
       if (monitoredResourcesBuilder_ == null) {
         monitoredResources_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000040);
       } else {
+        monitoredResources_ = null;
         monitoredResourcesBuilder_.clear();
       }
-      if (billingBuilder_ == null) {
-        billing_ = null;
-      } else {
-        billing_ = null;
+      bitField0_ = (bitField0_ & ~0x00040000);
+      billing_ = null;
+      if (billingBuilder_ != null) {
+        billingBuilder_.dispose();
         billingBuilder_ = null;
       }
-      if (loggingBuilder_ == null) {
-        logging_ = null;
-      } else {
-        logging_ = null;
+      logging_ = null;
+      if (loggingBuilder_ != null) {
+        loggingBuilder_.dispose();
         loggingBuilder_ = null;
       }
-      if (monitoringBuilder_ == null) {
-        monitoring_ = null;
-      } else {
-        monitoring_ = null;
+      monitoring_ = null;
+      if (monitoringBuilder_ != null) {
+        monitoringBuilder_.dispose();
         monitoringBuilder_ = null;
       }
-      if (systemParametersBuilder_ == null) {
-        systemParameters_ = null;
-      } else {
-        systemParameters_ = null;
+      systemParameters_ = null;
+      if (systemParametersBuilder_ != null) {
+        systemParametersBuilder_.dispose();
         systemParametersBuilder_ = null;
       }
-      if (sourceInfoBuilder_ == null) {
-        sourceInfo_ = null;
-      } else {
-        sourceInfo_ = null;
+      sourceInfo_ = null;
+      if (sourceInfoBuilder_ != null) {
+        sourceInfoBuilder_.dispose();
         sourceInfoBuilder_ = null;
       }
-      if (configVersionBuilder_ == null) {
-        configVersion_ = null;
-      } else {
-        configVersion_ = null;
+      publishing_ = null;
+      if (publishingBuilder_ != null) {
+        publishingBuilder_.dispose();
+        publishingBuilder_ = null;
+      }
+      configVersion_ = null;
+      if (configVersionBuilder_ != null) {
+        configVersionBuilder_.dispose();
         configVersionBuilder_ = null;
       }
       return this;
@@ -2382,146 +2122,167 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.Service buildPartial() {
       com.google.api.Service result = new com.google.api.Service(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.title_ = title_;
-      result.producerProjectId_ = producerProjectId_;
-      result.id_ = id_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.api.Service result) {
       if (apisBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           apis_ = java.util.Collections.unmodifiableList(apis_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.apis_ = apis_;
       } else {
         result.apis_ = apisBuilder_.build();
       }
       if (typesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           types_ = java.util.Collections.unmodifiableList(types_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.types_ = types_;
       } else {
         result.types_ = typesBuilder_.build();
       }
       if (enumsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           enums_ = java.util.Collections.unmodifiableList(enums_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.enums_ = enums_;
       } else {
         result.enums_ = enumsBuilder_.build();
       }
-      if (documentationBuilder_ == null) {
-        result.documentation_ = documentation_;
-      } else {
-        result.documentation_ = documentationBuilder_.build();
-      }
-      if (backendBuilder_ == null) {
-        result.backend_ = backend_;
-      } else {
-        result.backend_ = backendBuilder_.build();
-      }
-      if (httpBuilder_ == null) {
-        result.http_ = http_;
-      } else {
-        result.http_ = httpBuilder_.build();
-      }
-      if (quotaBuilder_ == null) {
-        result.quota_ = quota_;
-      } else {
-        result.quota_ = quotaBuilder_.build();
-      }
-      if (authenticationBuilder_ == null) {
-        result.authentication_ = authentication_;
-      } else {
-        result.authentication_ = authenticationBuilder_.build();
-      }
-      if (contextBuilder_ == null) {
-        result.context_ = context_;
-      } else {
-        result.context_ = contextBuilder_.build();
-      }
-      if (usageBuilder_ == null) {
-        result.usage_ = usage_;
-      } else {
-        result.usage_ = usageBuilder_.build();
-      }
       if (endpointsBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00004000) != 0)) {
           endpoints_ = java.util.Collections.unmodifiableList(endpoints_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00004000);
         }
         result.endpoints_ = endpoints_;
       } else {
         result.endpoints_ = endpointsBuilder_.build();
       }
-      if (controlBuilder_ == null) {
-        result.control_ = control_;
-      } else {
-        result.control_ = controlBuilder_.build();
-      }
       if (logsBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0)) {
+        if (((bitField0_ & 0x00010000) != 0)) {
           logs_ = java.util.Collections.unmodifiableList(logs_);
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00010000);
         }
         result.logs_ = logs_;
       } else {
         result.logs_ = logsBuilder_.build();
       }
       if (metricsBuilder_ == null) {
-        if (((bitField0_ & 0x00000020) != 0)) {
+        if (((bitField0_ & 0x00020000) != 0)) {
           metrics_ = java.util.Collections.unmodifiableList(metrics_);
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00020000);
         }
         result.metrics_ = metrics_;
       } else {
         result.metrics_ = metricsBuilder_.build();
       }
       if (monitoredResourcesBuilder_ == null) {
-        if (((bitField0_ & 0x00000040) != 0)) {
+        if (((bitField0_ & 0x00040000) != 0)) {
           monitoredResources_ = java.util.Collections.unmodifiableList(monitoredResources_);
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00040000);
         }
         result.monitoredResources_ = monitoredResources_;
       } else {
         result.monitoredResources_ = monitoredResourcesBuilder_.build();
       }
-      if (billingBuilder_ == null) {
-        result.billing_ = billing_;
-      } else {
-        result.billing_ = billingBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.api.Service result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
       }
-      if (loggingBuilder_ == null) {
-        result.logging_ = logging_;
-      } else {
-        result.logging_ = loggingBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.title_ = title_;
       }
-      if (monitoringBuilder_ == null) {
-        result.monitoring_ = monitoring_;
-      } else {
-        result.monitoring_ = monitoringBuilder_.build();
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.producerProjectId_ = producerProjectId_;
       }
-      if (systemParametersBuilder_ == null) {
-        result.systemParameters_ = systemParameters_;
-      } else {
-        result.systemParameters_ = systemParametersBuilder_.build();
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.id_ = id_;
       }
-      if (sourceInfoBuilder_ == null) {
-        result.sourceInfo_ = sourceInfo_;
-      } else {
-        result.sourceInfo_ = sourceInfoBuilder_.build();
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.documentation_ = documentationBuilder_ == null
+            ? documentation_
+            : documentationBuilder_.build();
       }
-      if (configVersionBuilder_ == null) {
-        result.configVersion_ = configVersion_;
-      } else {
-        result.configVersion_ = configVersionBuilder_.build();
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.backend_ = backendBuilder_ == null
+            ? backend_
+            : backendBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.http_ = httpBuilder_ == null
+            ? http_
+            : httpBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.quota_ = quotaBuilder_ == null
+            ? quota_
+            : quotaBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.authentication_ = authenticationBuilder_ == null
+            ? authentication_
+            : authenticationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.context_ = contextBuilder_ == null
+            ? context_
+            : contextBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.usage_ = usageBuilder_ == null
+            ? usage_
+            : usageBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.control_ = controlBuilder_ == null
+            ? control_
+            : controlBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.billing_ = billingBuilder_ == null
+            ? billing_
+            : billingBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.logging_ = loggingBuilder_ == null
+            ? logging_
+            : loggingBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00200000) != 0)) {
+        result.monitoring_ = monitoringBuilder_ == null
+            ? monitoring_
+            : monitoringBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00400000) != 0)) {
+        result.systemParameters_ = systemParametersBuilder_ == null
+            ? systemParameters_
+            : systemParametersBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00800000) != 0)) {
+        result.sourceInfo_ = sourceInfoBuilder_ == null
+            ? sourceInfo_
+            : sourceInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x01000000) != 0)) {
+        result.publishing_ = publishingBuilder_ == null
+            ? publishing_
+            : publishingBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x02000000) != 0)) {
+        result.configVersion_ = configVersionBuilder_ == null
+            ? configVersion_
+            : configVersionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2570,25 +2331,29 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.api.Service.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getTitle().isEmpty()) {
         title_ = other.title_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getProducerProjectId().isEmpty()) {
         producerProjectId_ = other.producerProjectId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (apisBuilder_ == null) {
         if (!other.apis_.isEmpty()) {
           if (apis_.isEmpty()) {
             apis_ = other.apis_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureApisIsMutable();
             apis_.addAll(other.apis_);
@@ -2601,7 +2366,7 @@ private static final long serialVersionUID = 0L;
             apisBuilder_.dispose();
             apisBuilder_ = null;
             apis_ = other.apis_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             apisBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getApisFieldBuilder() : null;
@@ -2614,7 +2379,7 @@ private static final long serialVersionUID = 0L;
         if (!other.types_.isEmpty()) {
           if (types_.isEmpty()) {
             types_ = other.types_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureTypesIsMutable();
             types_.addAll(other.types_);
@@ -2627,7 +2392,7 @@ private static final long serialVersionUID = 0L;
             typesBuilder_.dispose();
             typesBuilder_ = null;
             types_ = other.types_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
             typesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTypesFieldBuilder() : null;
@@ -2640,7 +2405,7 @@ private static final long serialVersionUID = 0L;
         if (!other.enums_.isEmpty()) {
           if (enums_.isEmpty()) {
             enums_ = other.enums_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureEnumsIsMutable();
             enums_.addAll(other.enums_);
@@ -2653,7 +2418,7 @@ private static final long serialVersionUID = 0L;
             enumsBuilder_.dispose();
             enumsBuilder_ = null;
             enums_ = other.enums_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000040);
             enumsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getEnumsFieldBuilder() : null;
@@ -2687,7 +2452,7 @@ private static final long serialVersionUID = 0L;
         if (!other.endpoints_.isEmpty()) {
           if (endpoints_.isEmpty()) {
             endpoints_ = other.endpoints_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00004000);
           } else {
             ensureEndpointsIsMutable();
             endpoints_.addAll(other.endpoints_);
@@ -2700,7 +2465,7 @@ private static final long serialVersionUID = 0L;
             endpointsBuilder_.dispose();
             endpointsBuilder_ = null;
             endpoints_ = other.endpoints_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00004000);
             endpointsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getEndpointsFieldBuilder() : null;
@@ -2716,7 +2481,7 @@ private static final long serialVersionUID = 0L;
         if (!other.logs_.isEmpty()) {
           if (logs_.isEmpty()) {
             logs_ = other.logs_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00010000);
           } else {
             ensureLogsIsMutable();
             logs_.addAll(other.logs_);
@@ -2729,7 +2494,7 @@ private static final long serialVersionUID = 0L;
             logsBuilder_.dispose();
             logsBuilder_ = null;
             logs_ = other.logs_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00010000);
             logsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getLogsFieldBuilder() : null;
@@ -2742,7 +2507,7 @@ private static final long serialVersionUID = 0L;
         if (!other.metrics_.isEmpty()) {
           if (metrics_.isEmpty()) {
             metrics_ = other.metrics_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00020000);
           } else {
             ensureMetricsIsMutable();
             metrics_.addAll(other.metrics_);
@@ -2755,7 +2520,7 @@ private static final long serialVersionUID = 0L;
             metricsBuilder_.dispose();
             metricsBuilder_ = null;
             metrics_ = other.metrics_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00020000);
             metricsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMetricsFieldBuilder() : null;
@@ -2768,7 +2533,7 @@ private static final long serialVersionUID = 0L;
         if (!other.monitoredResources_.isEmpty()) {
           if (monitoredResources_.isEmpty()) {
             monitoredResources_ = other.monitoredResources_;
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00040000);
           } else {
             ensureMonitoredResourcesIsMutable();
             monitoredResources_.addAll(other.monitoredResources_);
@@ -2781,7 +2546,7 @@ private static final long serialVersionUID = 0L;
             monitoredResourcesBuilder_.dispose();
             monitoredResourcesBuilder_ = null;
             monitoredResources_ = other.monitoredResources_;
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00040000);
             monitoredResourcesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMonitoredResourcesFieldBuilder() : null;
@@ -2805,10 +2570,13 @@ private static final long serialVersionUID = 0L;
       if (other.hasSourceInfo()) {
         mergeSourceInfo(other.getSourceInfo());
       }
+      if (other.hasPublishing()) {
+        mergePublishing(other.getPublishing());
+      }
       if (other.hasConfigVersion()) {
         mergeConfigVersion(other.getConfigVersion());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2823,17 +2591,246 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.Service parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              title_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.Api m =
+                  input.readMessage(
+                      com.google.protobuf.Api.parser(),
+                      extensionRegistry);
+              if (apisBuilder_ == null) {
+                ensureApisIsMutable();
+                apis_.add(m);
+              } else {
+                apisBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.Type m =
+                  input.readMessage(
+                      com.google.protobuf.Type.parser(),
+                      extensionRegistry);
+              if (typesBuilder_ == null) {
+                ensureTypesIsMutable();
+                types_.add(m);
+              } else {
+                typesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.Enum m =
+                  input.readMessage(
+                      com.google.protobuf.Enum.parser(),
+                      extensionRegistry);
+              if (enumsBuilder_ == null) {
+                ensureEnumsIsMutable();
+                enums_.add(m);
+              } else {
+                enumsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getDocumentationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 50
+            case 66: {
+              input.readMessage(
+                  getBackendFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getHttpFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getQuotaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getAuthenticationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 98
+            case 122: {
+              input.readMessage(
+                  getUsageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 122
+            case 146: {
+              com.google.api.Endpoint m =
+                  input.readMessage(
+                      com.google.api.Endpoint.parser(),
+                      extensionRegistry);
+              if (endpointsBuilder_ == null) {
+                ensureEndpointsIsMutable();
+                endpoints_.add(m);
+              } else {
+                endpointsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 146
+            case 162: {
+              input.readMessage(
+                  getConfigVersionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x02000000;
+              break;
+            } // case 162
+            case 170: {
+              input.readMessage(
+                  getControlFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 170
+            case 178: {
+              producerProjectId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 178
+            case 186: {
+              com.google.api.LogDescriptor m =
+                  input.readMessage(
+                      com.google.api.LogDescriptor.parser(),
+                      extensionRegistry);
+              if (logsBuilder_ == null) {
+                ensureLogsIsMutable();
+                logs_.add(m);
+              } else {
+                logsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 186
+            case 194: {
+              com.google.api.MetricDescriptor m =
+                  input.readMessage(
+                      com.google.api.MetricDescriptor.parser(),
+                      extensionRegistry);
+              if (metricsBuilder_ == null) {
+                ensureMetricsIsMutable();
+                metrics_.add(m);
+              } else {
+                metricsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 194
+            case 202: {
+              com.google.api.MonitoredResourceDescriptor m =
+                  input.readMessage(
+                      com.google.api.MonitoredResourceDescriptor.parser(),
+                      extensionRegistry);
+              if (monitoredResourcesBuilder_ == null) {
+                ensureMonitoredResourcesIsMutable();
+                monitoredResources_.add(m);
+              } else {
+                monitoredResourcesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 202
+            case 210: {
+              input.readMessage(
+                  getBillingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 210
+            case 218: {
+              input.readMessage(
+                  getLoggingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 218
+            case 226: {
+              input.readMessage(
+                  getMonitoringFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00200000;
+              break;
+            } // case 226
+            case 234: {
+              input.readMessage(
+                  getSystemParametersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00400000;
+              break;
+            } // case 234
+            case 266: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 266
+            case 298: {
+              input.readMessage(
+                  getSourceInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00800000;
+              break;
+            } // case 298
+            case 362: {
+              input.readMessage(
+                  getPublishingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x01000000;
+              break;
+            } // case 362
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.Service) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2900,11 +2897,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2920,8 +2915,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2939,12 +2934,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2952,7 +2945,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object title_ = "";
     /**
      * <pre>
-     * The product title for this service.
+     * The product title for this service, it is the name displayed in Google
+     * Cloud Console.
      * </pre>
      *
      * <code>string title = 2;</code>
@@ -2972,7 +2966,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The product title for this service.
+     * The product title for this service, it is the name displayed in Google
+     * Cloud Console.
      * </pre>
      *
      * <code>string title = 2;</code>
@@ -2993,7 +2988,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The product title for this service.
+     * The product title for this service, it is the name displayed in Google
+     * Cloud Console.
      * </pre>
      *
      * <code>string title = 2;</code>
@@ -3002,31 +2998,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTitle(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       title_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The product title for this service.
+     * The product title for this service, it is the name displayed in Google
+     * Cloud Console.
      * </pre>
      *
      * <code>string title = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearTitle() {
-      
       title_ = getDefaultInstance().getTitle();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The product title for this service.
+     * The product title for this service, it is the name displayed in Google
+     * Cloud Console.
      * </pre>
      *
      * <code>string title = 2;</code>
@@ -3035,12 +3031,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTitleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       title_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3098,11 +3092,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProducerProjectId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       producerProjectId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3115,8 +3107,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProducerProjectId() {
-      
       producerProjectId_ = getDefaultInstance().getProducerProjectId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -3131,12 +3123,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProducerProjectIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       producerProjectId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3203,11 +3193,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3223,8 +3211,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -3242,12 +3230,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3255,9 +3241,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.protobuf.Api> apis_ =
       java.util.Collections.emptyList();
     private void ensureApisIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         apis_ = new java.util.ArrayList<com.google.protobuf.Api>(apis_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -3495,7 +3481,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearApis() {
       if (apisBuilder_ == null) {
         apis_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         apisBuilder_.clear();
@@ -3628,7 +3614,7 @@ private static final long serialVersionUID = 0L;
         apisBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.protobuf.Api, com.google.protobuf.Api.Builder, com.google.protobuf.ApiOrBuilder>(
                 apis_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         apis_ = null;
@@ -3639,9 +3625,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.protobuf.Type> types_ =
       java.util.Collections.emptyList();
     private void ensureTypesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         types_ = new java.util.ArrayList<com.google.protobuf.Type>(types_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -3651,10 +3637,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -3671,10 +3657,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -3691,10 +3677,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -3711,10 +3697,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -3738,10 +3724,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -3762,10 +3748,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -3788,10 +3774,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -3815,10 +3801,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -3839,10 +3825,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -3863,10 +3849,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -3888,10 +3874,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -3901,7 +3887,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTypes() {
       if (typesBuilder_ == null) {
         types_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         typesBuilder_.clear();
@@ -3911,10 +3897,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -3934,10 +3920,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -3951,10 +3937,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -3971,10 +3957,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -3992,10 +3978,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -4009,10 +3995,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -4027,10 +4013,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A list of all proto message types included in this API service.
-     * Types referenced directly or indirectly by the `apis` are
-     * automatically included.  Messages which are not referenced but
-     * shall be included, such as types used by the `google.protobuf.Any` type,
-     * should be listed here by name. Example:
+     * Types referenced directly or indirectly by the `apis` are automatically
+     * included.  Messages which are not referenced but shall be included, such as
+     * types used by the `google.protobuf.Any` type, should be listed here by
+     * name by the configuration author. Example:
      *     types:
      *     - name: google.protobuf.Int32
      * </pre>
@@ -4048,7 +4034,7 @@ private static final long serialVersionUID = 0L;
         typesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.protobuf.Type, com.google.protobuf.Type.Builder, com.google.protobuf.TypeOrBuilder>(
                 types_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         types_ = null;
@@ -4059,9 +4045,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.protobuf.Enum> enums_ =
       java.util.Collections.emptyList();
     private void ensureEnumsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         enums_ = new java.util.ArrayList<com.google.protobuf.Enum>(enums_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000040;
        }
     }
 
@@ -4070,10 +4056,10 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4089,10 +4075,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4108,10 +4094,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4127,10 +4113,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4153,10 +4139,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4176,10 +4162,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4201,10 +4187,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4227,10 +4213,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4250,10 +4236,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4273,10 +4259,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4297,10 +4283,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4310,7 +4296,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearEnums() {
       if (enumsBuilder_ == null) {
         enums_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         enumsBuilder_.clear();
@@ -4319,10 +4305,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4341,10 +4327,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4357,10 +4343,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4376,10 +4362,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4396,10 +4382,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4412,10 +4398,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4429,10 +4415,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of all enum types included in this API service.  Enums
-     * referenced directly or indirectly by the `apis` are automatically
-     * included.  Enums which are not referenced but shall be included
-     * should be listed here by name. Example:
+     * A list of all enum types included in this API service.  Enums referenced
+     * directly or indirectly by the `apis` are automatically included.  Enums
+     * which are not referenced but shall be included should be listed here by
+     * name by the configuration author. Example:
      *     enums:
      *     - name: google.someapi.v1.SomeEnum
      * </pre>
@@ -4450,7 +4436,7 @@ private static final long serialVersionUID = 0L;
         enumsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.protobuf.Enum, com.google.protobuf.Enum.Builder, com.google.protobuf.EnumOrBuilder>(
                 enums_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
         enums_ = null;
@@ -4470,7 +4456,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the documentation field is set.
      */
     public boolean hasDocumentation() {
-      return documentationBuilder_ != null || documentation_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -4500,11 +4486,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         documentation_ = value;
-        onChanged();
       } else {
         documentationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -4518,11 +4504,11 @@ private static final long serialVersionUID = 0L;
         com.google.api.Documentation.Builder builderForValue) {
       if (documentationBuilder_ == null) {
         documentation_ = builderForValue.build();
-        onChanged();
       } else {
         documentationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -4534,17 +4520,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDocumentation(com.google.api.Documentation value) {
       if (documentationBuilder_ == null) {
-        if (documentation_ != null) {
-          documentation_ =
-            com.google.api.Documentation.newBuilder(documentation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          documentation_ != null &&
+          documentation_ != com.google.api.Documentation.getDefaultInstance()) {
+          getDocumentationBuilder().mergeFrom(value);
         } else {
           documentation_ = value;
         }
-        onChanged();
       } else {
         documentationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -4555,14 +4542,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Documentation documentation = 6;</code>
      */
     public Builder clearDocumentation() {
-      if (documentationBuilder_ == null) {
-        documentation_ = null;
-        onChanged();
-      } else {
-        documentation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      documentation_ = null;
+      if (documentationBuilder_ != null) {
+        documentationBuilder_.dispose();
         documentationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4573,7 +4559,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Documentation documentation = 6;</code>
      */
     public com.google.api.Documentation.Builder getDocumentationBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getDocumentationFieldBuilder().getBuilder();
     }
@@ -4625,7 +4611,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the backend field is set.
      */
     public boolean hasBackend() {
-      return backendBuilder_ != null || backend_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -4655,11 +4641,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         backend_ = value;
-        onChanged();
       } else {
         backendBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4673,11 +4659,11 @@ private static final long serialVersionUID = 0L;
         com.google.api.Backend.Builder builderForValue) {
       if (backendBuilder_ == null) {
         backend_ = builderForValue.build();
-        onChanged();
       } else {
         backendBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4689,17 +4675,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBackend(com.google.api.Backend value) {
       if (backendBuilder_ == null) {
-        if (backend_ != null) {
-          backend_ =
-            com.google.api.Backend.newBuilder(backend_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          backend_ != null &&
+          backend_ != com.google.api.Backend.getDefaultInstance()) {
+          getBackendBuilder().mergeFrom(value);
         } else {
           backend_ = value;
         }
-        onChanged();
       } else {
         backendBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4710,14 +4697,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Backend backend = 8;</code>
      */
     public Builder clearBackend() {
-      if (backendBuilder_ == null) {
-        backend_ = null;
-        onChanged();
-      } else {
-        backend_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      backend_ = null;
+      if (backendBuilder_ != null) {
+        backendBuilder_.dispose();
         backendBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4728,7 +4714,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Backend backend = 8;</code>
      */
     public com.google.api.Backend.Builder getBackendBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getBackendFieldBuilder().getBuilder();
     }
@@ -4780,7 +4766,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the http field is set.
      */
     public boolean hasHttp() {
-      return httpBuilder_ != null || http_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -4810,11 +4796,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         http_ = value;
-        onChanged();
       } else {
         httpBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4828,11 +4814,11 @@ private static final long serialVersionUID = 0L;
         com.google.api.Http.Builder builderForValue) {
       if (httpBuilder_ == null) {
         http_ = builderForValue.build();
-        onChanged();
       } else {
         httpBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4844,17 +4830,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHttp(com.google.api.Http value) {
       if (httpBuilder_ == null) {
-        if (http_ != null) {
-          http_ =
-            com.google.api.Http.newBuilder(http_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          http_ != null &&
+          http_ != com.google.api.Http.getDefaultInstance()) {
+          getHttpBuilder().mergeFrom(value);
         } else {
           http_ = value;
         }
-        onChanged();
       } else {
         httpBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4865,14 +4852,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Http http = 9;</code>
      */
     public Builder clearHttp() {
-      if (httpBuilder_ == null) {
-        http_ = null;
-        onChanged();
-      } else {
-        http_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      http_ = null;
+      if (httpBuilder_ != null) {
+        httpBuilder_.dispose();
         httpBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4883,7 +4869,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Http http = 9;</code>
      */
     public com.google.api.Http.Builder getHttpBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getHttpFieldBuilder().getBuilder();
     }
@@ -4935,7 +4921,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the quota field is set.
      */
     public boolean hasQuota() {
-      return quotaBuilder_ != null || quota_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -4965,11 +4951,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         quota_ = value;
-        onChanged();
       } else {
         quotaBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -4983,11 +4969,11 @@ private static final long serialVersionUID = 0L;
         com.google.api.Quota.Builder builderForValue) {
       if (quotaBuilder_ == null) {
         quota_ = builderForValue.build();
-        onChanged();
       } else {
         quotaBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -4999,17 +4985,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeQuota(com.google.api.Quota value) {
       if (quotaBuilder_ == null) {
-        if (quota_ != null) {
-          quota_ =
-            com.google.api.Quota.newBuilder(quota_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          quota_ != null &&
+          quota_ != com.google.api.Quota.getDefaultInstance()) {
+          getQuotaBuilder().mergeFrom(value);
         } else {
           quota_ = value;
         }
-        onChanged();
       } else {
         quotaBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -5020,14 +5007,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Quota quota = 10;</code>
      */
     public Builder clearQuota() {
-      if (quotaBuilder_ == null) {
-        quota_ = null;
-        onChanged();
-      } else {
-        quota_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      quota_ = null;
+      if (quotaBuilder_ != null) {
+        quotaBuilder_.dispose();
         quotaBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5038,7 +5024,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Quota quota = 10;</code>
      */
     public com.google.api.Quota.Builder getQuotaBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getQuotaFieldBuilder().getBuilder();
     }
@@ -5090,7 +5076,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the authentication field is set.
      */
     public boolean hasAuthentication() {
-      return authenticationBuilder_ != null || authentication_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -5120,11 +5106,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         authentication_ = value;
-        onChanged();
       } else {
         authenticationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -5138,11 +5124,11 @@ private static final long serialVersionUID = 0L;
         com.google.api.Authentication.Builder builderForValue) {
       if (authenticationBuilder_ == null) {
         authentication_ = builderForValue.build();
-        onChanged();
       } else {
         authenticationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -5154,17 +5140,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAuthentication(com.google.api.Authentication value) {
       if (authenticationBuilder_ == null) {
-        if (authentication_ != null) {
-          authentication_ =
-            com.google.api.Authentication.newBuilder(authentication_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          authentication_ != null &&
+          authentication_ != com.google.api.Authentication.getDefaultInstance()) {
+          getAuthenticationBuilder().mergeFrom(value);
         } else {
           authentication_ = value;
         }
-        onChanged();
       } else {
         authenticationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -5175,14 +5162,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Authentication authentication = 11;</code>
      */
     public Builder clearAuthentication() {
-      if (authenticationBuilder_ == null) {
-        authentication_ = null;
-        onChanged();
-      } else {
-        authentication_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      authentication_ = null;
+      if (authenticationBuilder_ != null) {
+        authenticationBuilder_.dispose();
         authenticationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5193,7 +5179,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Authentication authentication = 11;</code>
      */
     public com.google.api.Authentication.Builder getAuthenticationBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getAuthenticationFieldBuilder().getBuilder();
     }
@@ -5245,7 +5231,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the context field is set.
      */
     public boolean hasContext() {
-      return contextBuilder_ != null || context_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -5275,11 +5261,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         context_ = value;
-        onChanged();
       } else {
         contextBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -5293,11 +5279,11 @@ private static final long serialVersionUID = 0L;
         com.google.api.Context.Builder builderForValue) {
       if (contextBuilder_ == null) {
         context_ = builderForValue.build();
-        onChanged();
       } else {
         contextBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -5309,17 +5295,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeContext(com.google.api.Context value) {
       if (contextBuilder_ == null) {
-        if (context_ != null) {
-          context_ =
-            com.google.api.Context.newBuilder(context_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          context_ != null &&
+          context_ != com.google.api.Context.getDefaultInstance()) {
+          getContextBuilder().mergeFrom(value);
         } else {
           context_ = value;
         }
-        onChanged();
       } else {
         contextBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -5330,14 +5317,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Context context = 12;</code>
      */
     public Builder clearContext() {
-      if (contextBuilder_ == null) {
-        context_ = null;
-        onChanged();
-      } else {
-        context_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      context_ = null;
+      if (contextBuilder_ != null) {
+        contextBuilder_.dispose();
         contextBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5348,7 +5334,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Context context = 12;</code>
      */
     public com.google.api.Context.Builder getContextBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getContextFieldBuilder().getBuilder();
     }
@@ -5400,7 +5386,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the usage field is set.
      */
     public boolean hasUsage() {
-      return usageBuilder_ != null || usage_ != null;
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -5430,11 +5416,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         usage_ = value;
-        onChanged();
       } else {
         usageBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -5448,11 +5434,11 @@ private static final long serialVersionUID = 0L;
         com.google.api.Usage.Builder builderForValue) {
       if (usageBuilder_ == null) {
         usage_ = builderForValue.build();
-        onChanged();
       } else {
         usageBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -5464,17 +5450,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUsage(com.google.api.Usage value) {
       if (usageBuilder_ == null) {
-        if (usage_ != null) {
-          usage_ =
-            com.google.api.Usage.newBuilder(usage_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00002000) != 0) &&
+          usage_ != null &&
+          usage_ != com.google.api.Usage.getDefaultInstance()) {
+          getUsageBuilder().mergeFrom(value);
         } else {
           usage_ = value;
         }
-        onChanged();
       } else {
         usageBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -5485,14 +5472,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Usage usage = 15;</code>
      */
     public Builder clearUsage() {
-      if (usageBuilder_ == null) {
-        usage_ = null;
-        onChanged();
-      } else {
-        usage_ = null;
+      bitField0_ = (bitField0_ & ~0x00002000);
+      usage_ = null;
+      if (usageBuilder_ != null) {
+        usageBuilder_.dispose();
         usageBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5503,7 +5489,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Usage usage = 15;</code>
      */
     public com.google.api.Usage.Builder getUsageBuilder() {
-      
+      bitField0_ |= 0x00002000;
       onChanged();
       return getUsageFieldBuilder().getBuilder();
     }
@@ -5546,9 +5532,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.api.Endpoint> endpoints_ =
       java.util.Collections.emptyList();
     private void ensureEndpointsIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00004000) != 0)) {
         endpoints_ = new java.util.ArrayList<com.google.api.Endpoint>(endpoints_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00004000;
        }
     }
 
@@ -5764,7 +5750,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearEndpoints() {
       if (endpointsBuilder_ == null) {
         endpoints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00004000);
         onChanged();
       } else {
         endpointsBuilder_.clear();
@@ -5883,7 +5869,7 @@ private static final long serialVersionUID = 0L;
         endpointsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.api.Endpoint, com.google.api.Endpoint.Builder, com.google.api.EndpointOrBuilder>(
                 endpoints_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00004000) != 0),
                 getParentForChildren(),
                 isClean());
         endpoints_ = null;
@@ -5903,7 +5889,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the control field is set.
      */
     public boolean hasControl() {
-      return controlBuilder_ != null || control_ != null;
+      return ((bitField0_ & 0x00008000) != 0);
     }
     /**
      * <pre>
@@ -5933,11 +5919,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         control_ = value;
-        onChanged();
       } else {
         controlBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -5951,11 +5937,11 @@ private static final long serialVersionUID = 0L;
         com.google.api.Control.Builder builderForValue) {
       if (controlBuilder_ == null) {
         control_ = builderForValue.build();
-        onChanged();
       } else {
         controlBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -5967,17 +5953,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeControl(com.google.api.Control value) {
       if (controlBuilder_ == null) {
-        if (control_ != null) {
-          control_ =
-            com.google.api.Control.newBuilder(control_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00008000) != 0) &&
+          control_ != null &&
+          control_ != com.google.api.Control.getDefaultInstance()) {
+          getControlBuilder().mergeFrom(value);
         } else {
           control_ = value;
         }
-        onChanged();
       } else {
         controlBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -5988,14 +5975,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Control control = 21;</code>
      */
     public Builder clearControl() {
-      if (controlBuilder_ == null) {
-        control_ = null;
-        onChanged();
-      } else {
-        control_ = null;
+      bitField0_ = (bitField0_ & ~0x00008000);
+      control_ = null;
+      if (controlBuilder_ != null) {
+        controlBuilder_.dispose();
         controlBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6006,7 +5992,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Control control = 21;</code>
      */
     public com.google.api.Control.Builder getControlBuilder() {
-      
+      bitField0_ |= 0x00008000;
       onChanged();
       return getControlFieldBuilder().getBuilder();
     }
@@ -6049,9 +6035,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.api.LogDescriptor> logs_ =
       java.util.Collections.emptyList();
     private void ensureLogsIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00010000) != 0)) {
         logs_ = new java.util.ArrayList<com.google.api.LogDescriptor>(logs_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00010000;
        }
     }
 
@@ -6245,7 +6231,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearLogs() {
       if (logsBuilder_ == null) {
         logs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00010000);
         onChanged();
       } else {
         logsBuilder_.clear();
@@ -6350,7 +6336,7 @@ private static final long serialVersionUID = 0L;
         logsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.api.LogDescriptor, com.google.api.LogDescriptor.Builder, com.google.api.LogDescriptorOrBuilder>(
                 logs_,
-                ((bitField0_ & 0x00000010) != 0),
+                ((bitField0_ & 0x00010000) != 0),
                 getParentForChildren(),
                 isClean());
         logs_ = null;
@@ -6361,9 +6347,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.api.MetricDescriptor> metrics_ =
       java.util.Collections.emptyList();
     private void ensureMetricsIsMutable() {
-      if (!((bitField0_ & 0x00000020) != 0)) {
+      if (!((bitField0_ & 0x00020000) != 0)) {
         metrics_ = new java.util.ArrayList<com.google.api.MetricDescriptor>(metrics_);
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00020000;
        }
     }
 
@@ -6557,7 +6543,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMetrics() {
       if (metricsBuilder_ == null) {
         metrics_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00020000);
         onChanged();
       } else {
         metricsBuilder_.clear();
@@ -6662,7 +6648,7 @@ private static final long serialVersionUID = 0L;
         metricsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.api.MetricDescriptor, com.google.api.MetricDescriptor.Builder, com.google.api.MetricDescriptorOrBuilder>(
                 metrics_,
-                ((bitField0_ & 0x00000020) != 0),
+                ((bitField0_ & 0x00020000) != 0),
                 getParentForChildren(),
                 isClean());
         metrics_ = null;
@@ -6673,9 +6659,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.api.MonitoredResourceDescriptor> monitoredResources_ =
       java.util.Collections.emptyList();
     private void ensureMonitoredResourcesIsMutable() {
-      if (!((bitField0_ & 0x00000040) != 0)) {
+      if (!((bitField0_ & 0x00040000) != 0)) {
         monitoredResources_ = new java.util.ArrayList<com.google.api.MonitoredResourceDescriptor>(monitoredResources_);
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00040000;
        }
     }
 
@@ -6880,7 +6866,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMonitoredResources() {
       if (monitoredResourcesBuilder_ == null) {
         monitoredResources_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00040000);
         onChanged();
       } else {
         monitoredResourcesBuilder_.clear();
@@ -6992,7 +6978,7 @@ private static final long serialVersionUID = 0L;
         monitoredResourcesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.api.MonitoredResourceDescriptor, com.google.api.MonitoredResourceDescriptor.Builder, com.google.api.MonitoredResourceDescriptorOrBuilder>(
                 monitoredResources_,
-                ((bitField0_ & 0x00000040) != 0),
+                ((bitField0_ & 0x00040000) != 0),
                 getParentForChildren(),
                 isClean());
         monitoredResources_ = null;
@@ -7012,7 +6998,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the billing field is set.
      */
     public boolean hasBilling() {
-      return billingBuilder_ != null || billing_ != null;
+      return ((bitField0_ & 0x00080000) != 0);
     }
     /**
      * <pre>
@@ -7042,11 +7028,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         billing_ = value;
-        onChanged();
       } else {
         billingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -7060,11 +7046,11 @@ private static final long serialVersionUID = 0L;
         com.google.api.Billing.Builder builderForValue) {
       if (billingBuilder_ == null) {
         billing_ = builderForValue.build();
-        onChanged();
       } else {
         billingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -7076,17 +7062,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBilling(com.google.api.Billing value) {
       if (billingBuilder_ == null) {
-        if (billing_ != null) {
-          billing_ =
-            com.google.api.Billing.newBuilder(billing_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00080000) != 0) &&
+          billing_ != null &&
+          billing_ != com.google.api.Billing.getDefaultInstance()) {
+          getBillingBuilder().mergeFrom(value);
         } else {
           billing_ = value;
         }
-        onChanged();
       } else {
         billingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -7097,14 +7084,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Billing billing = 26;</code>
      */
     public Builder clearBilling() {
-      if (billingBuilder_ == null) {
-        billing_ = null;
-        onChanged();
-      } else {
-        billing_ = null;
+      bitField0_ = (bitField0_ & ~0x00080000);
+      billing_ = null;
+      if (billingBuilder_ != null) {
+        billingBuilder_.dispose();
         billingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7115,7 +7101,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Billing billing = 26;</code>
      */
     public com.google.api.Billing.Builder getBillingBuilder() {
-      
+      bitField0_ |= 0x00080000;
       onChanged();
       return getBillingFieldBuilder().getBuilder();
     }
@@ -7167,7 +7153,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the logging field is set.
      */
     public boolean hasLogging() {
-      return loggingBuilder_ != null || logging_ != null;
+      return ((bitField0_ & 0x00100000) != 0);
     }
     /**
      * <pre>
@@ -7197,11 +7183,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         logging_ = value;
-        onChanged();
       } else {
         loggingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00100000;
+      onChanged();
       return this;
     }
     /**
@@ -7215,11 +7201,11 @@ private static final long serialVersionUID = 0L;
         com.google.api.Logging.Builder builderForValue) {
       if (loggingBuilder_ == null) {
         logging_ = builderForValue.build();
-        onChanged();
       } else {
         loggingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00100000;
+      onChanged();
       return this;
     }
     /**
@@ -7231,17 +7217,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLogging(com.google.api.Logging value) {
       if (loggingBuilder_ == null) {
-        if (logging_ != null) {
-          logging_ =
-            com.google.api.Logging.newBuilder(logging_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00100000) != 0) &&
+          logging_ != null &&
+          logging_ != com.google.api.Logging.getDefaultInstance()) {
+          getLoggingBuilder().mergeFrom(value);
         } else {
           logging_ = value;
         }
-        onChanged();
       } else {
         loggingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00100000;
+      onChanged();
       return this;
     }
     /**
@@ -7252,14 +7239,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Logging logging = 27;</code>
      */
     public Builder clearLogging() {
-      if (loggingBuilder_ == null) {
-        logging_ = null;
-        onChanged();
-      } else {
-        logging_ = null;
+      bitField0_ = (bitField0_ & ~0x00100000);
+      logging_ = null;
+      if (loggingBuilder_ != null) {
+        loggingBuilder_.dispose();
         loggingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7270,7 +7256,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Logging logging = 27;</code>
      */
     public com.google.api.Logging.Builder getLoggingBuilder() {
-      
+      bitField0_ |= 0x00100000;
       onChanged();
       return getLoggingFieldBuilder().getBuilder();
     }
@@ -7322,7 +7308,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the monitoring field is set.
      */
     public boolean hasMonitoring() {
-      return monitoringBuilder_ != null || monitoring_ != null;
+      return ((bitField0_ & 0x00200000) != 0);
     }
     /**
      * <pre>
@@ -7352,11 +7338,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         monitoring_ = value;
-        onChanged();
       } else {
         monitoringBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -7370,11 +7356,11 @@ private static final long serialVersionUID = 0L;
         com.google.api.Monitoring.Builder builderForValue) {
       if (monitoringBuilder_ == null) {
         monitoring_ = builderForValue.build();
-        onChanged();
       } else {
         monitoringBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -7386,17 +7372,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMonitoring(com.google.api.Monitoring value) {
       if (monitoringBuilder_ == null) {
-        if (monitoring_ != null) {
-          monitoring_ =
-            com.google.api.Monitoring.newBuilder(monitoring_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00200000) != 0) &&
+          monitoring_ != null &&
+          monitoring_ != com.google.api.Monitoring.getDefaultInstance()) {
+          getMonitoringBuilder().mergeFrom(value);
         } else {
           monitoring_ = value;
         }
-        onChanged();
       } else {
         monitoringBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -7407,14 +7394,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Monitoring monitoring = 28;</code>
      */
     public Builder clearMonitoring() {
-      if (monitoringBuilder_ == null) {
-        monitoring_ = null;
-        onChanged();
-      } else {
-        monitoring_ = null;
+      bitField0_ = (bitField0_ & ~0x00200000);
+      monitoring_ = null;
+      if (monitoringBuilder_ != null) {
+        monitoringBuilder_.dispose();
         monitoringBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7425,7 +7411,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.Monitoring monitoring = 28;</code>
      */
     public com.google.api.Monitoring.Builder getMonitoringBuilder() {
-      
+      bitField0_ |= 0x00200000;
       onChanged();
       return getMonitoringFieldBuilder().getBuilder();
     }
@@ -7477,7 +7463,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the systemParameters field is set.
      */
     public boolean hasSystemParameters() {
-      return systemParametersBuilder_ != null || systemParameters_ != null;
+      return ((bitField0_ & 0x00400000) != 0);
     }
     /**
      * <pre>
@@ -7507,11 +7493,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         systemParameters_ = value;
-        onChanged();
       } else {
         systemParametersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -7525,11 +7511,11 @@ private static final long serialVersionUID = 0L;
         com.google.api.SystemParameters.Builder builderForValue) {
       if (systemParametersBuilder_ == null) {
         systemParameters_ = builderForValue.build();
-        onChanged();
       } else {
         systemParametersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -7541,17 +7527,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSystemParameters(com.google.api.SystemParameters value) {
       if (systemParametersBuilder_ == null) {
-        if (systemParameters_ != null) {
-          systemParameters_ =
-            com.google.api.SystemParameters.newBuilder(systemParameters_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00400000) != 0) &&
+          systemParameters_ != null &&
+          systemParameters_ != com.google.api.SystemParameters.getDefaultInstance()) {
+          getSystemParametersBuilder().mergeFrom(value);
         } else {
           systemParameters_ = value;
         }
-        onChanged();
       } else {
         systemParametersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -7562,14 +7549,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.SystemParameters system_parameters = 29;</code>
      */
     public Builder clearSystemParameters() {
-      if (systemParametersBuilder_ == null) {
-        systemParameters_ = null;
-        onChanged();
-      } else {
-        systemParameters_ = null;
+      bitField0_ = (bitField0_ & ~0x00400000);
+      systemParameters_ = null;
+      if (systemParametersBuilder_ != null) {
+        systemParametersBuilder_.dispose();
         systemParametersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7580,7 +7566,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.SystemParameters system_parameters = 29;</code>
      */
     public com.google.api.SystemParameters.Builder getSystemParametersBuilder() {
-      
+      bitField0_ |= 0x00400000;
       onChanged();
       return getSystemParametersFieldBuilder().getBuilder();
     }
@@ -7632,7 +7618,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sourceInfo field is set.
      */
     public boolean hasSourceInfo() {
-      return sourceInfoBuilder_ != null || sourceInfo_ != null;
+      return ((bitField0_ & 0x00800000) != 0);
     }
     /**
      * <pre>
@@ -7662,11 +7648,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sourceInfo_ = value;
-        onChanged();
       } else {
         sourceInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -7680,11 +7666,11 @@ private static final long serialVersionUID = 0L;
         com.google.api.SourceInfo.Builder builderForValue) {
       if (sourceInfoBuilder_ == null) {
         sourceInfo_ = builderForValue.build();
-        onChanged();
       } else {
         sourceInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -7696,17 +7682,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSourceInfo(com.google.api.SourceInfo value) {
       if (sourceInfoBuilder_ == null) {
-        if (sourceInfo_ != null) {
-          sourceInfo_ =
-            com.google.api.SourceInfo.newBuilder(sourceInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00800000) != 0) &&
+          sourceInfo_ != null &&
+          sourceInfo_ != com.google.api.SourceInfo.getDefaultInstance()) {
+          getSourceInfoBuilder().mergeFrom(value);
         } else {
           sourceInfo_ = value;
         }
-        onChanged();
       } else {
         sourceInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -7717,14 +7704,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.SourceInfo source_info = 37;</code>
      */
     public Builder clearSourceInfo() {
-      if (sourceInfoBuilder_ == null) {
-        sourceInfo_ = null;
-        onChanged();
-      } else {
-        sourceInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00800000);
+      sourceInfo_ = null;
+      if (sourceInfoBuilder_ != null) {
+        sourceInfoBuilder_.dispose();
         sourceInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7735,7 +7721,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.SourceInfo source_info = 37;</code>
      */
     public com.google.api.SourceInfo.Builder getSourceInfoBuilder() {
-      
+      bitField0_ |= 0x00800000;
       onChanged();
       return getSourceInfoFieldBuilder().getBuilder();
     }
@@ -7775,6 +7761,179 @@ private static final long serialVersionUID = 0L;
       return sourceInfoBuilder_;
     }
 
+    private com.google.api.Publishing publishing_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.api.Publishing, com.google.api.Publishing.Builder, com.google.api.PublishingOrBuilder> publishingBuilder_;
+    /**
+     * <pre>
+     * Settings for [Google Cloud Client
+     * libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+     * generated from APIs defined as protocol buffers.
+     * </pre>
+     *
+     * <code>.google.api.Publishing publishing = 45;</code>
+     * @return Whether the publishing field is set.
+     */
+    public boolean hasPublishing() {
+      return ((bitField0_ & 0x01000000) != 0);
+    }
+    /**
+     * <pre>
+     * Settings for [Google Cloud Client
+     * libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+     * generated from APIs defined as protocol buffers.
+     * </pre>
+     *
+     * <code>.google.api.Publishing publishing = 45;</code>
+     * @return The publishing.
+     */
+    public com.google.api.Publishing getPublishing() {
+      if (publishingBuilder_ == null) {
+        return publishing_ == null ? com.google.api.Publishing.getDefaultInstance() : publishing_;
+      } else {
+        return publishingBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Settings for [Google Cloud Client
+     * libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+     * generated from APIs defined as protocol buffers.
+     * </pre>
+     *
+     * <code>.google.api.Publishing publishing = 45;</code>
+     */
+    public Builder setPublishing(com.google.api.Publishing value) {
+      if (publishingBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        publishing_ = value;
+      } else {
+        publishingBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x01000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Settings for [Google Cloud Client
+     * libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+     * generated from APIs defined as protocol buffers.
+     * </pre>
+     *
+     * <code>.google.api.Publishing publishing = 45;</code>
+     */
+    public Builder setPublishing(
+        com.google.api.Publishing.Builder builderForValue) {
+      if (publishingBuilder_ == null) {
+        publishing_ = builderForValue.build();
+      } else {
+        publishingBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x01000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Settings for [Google Cloud Client
+     * libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+     * generated from APIs defined as protocol buffers.
+     * </pre>
+     *
+     * <code>.google.api.Publishing publishing = 45;</code>
+     */
+    public Builder mergePublishing(com.google.api.Publishing value) {
+      if (publishingBuilder_ == null) {
+        if (((bitField0_ & 0x01000000) != 0) &&
+          publishing_ != null &&
+          publishing_ != com.google.api.Publishing.getDefaultInstance()) {
+          getPublishingBuilder().mergeFrom(value);
+        } else {
+          publishing_ = value;
+        }
+      } else {
+        publishingBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x01000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Settings for [Google Cloud Client
+     * libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+     * generated from APIs defined as protocol buffers.
+     * </pre>
+     *
+     * <code>.google.api.Publishing publishing = 45;</code>
+     */
+    public Builder clearPublishing() {
+      bitField0_ = (bitField0_ & ~0x01000000);
+      publishing_ = null;
+      if (publishingBuilder_ != null) {
+        publishingBuilder_.dispose();
+        publishingBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Settings for [Google Cloud Client
+     * libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+     * generated from APIs defined as protocol buffers.
+     * </pre>
+     *
+     * <code>.google.api.Publishing publishing = 45;</code>
+     */
+    public com.google.api.Publishing.Builder getPublishingBuilder() {
+      bitField0_ |= 0x01000000;
+      onChanged();
+      return getPublishingFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Settings for [Google Cloud Client
+     * libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+     * generated from APIs defined as protocol buffers.
+     * </pre>
+     *
+     * <code>.google.api.Publishing publishing = 45;</code>
+     */
+    public com.google.api.PublishingOrBuilder getPublishingOrBuilder() {
+      if (publishingBuilder_ != null) {
+        return publishingBuilder_.getMessageOrBuilder();
+      } else {
+        return publishing_ == null ?
+            com.google.api.Publishing.getDefaultInstance() : publishing_;
+      }
+    }
+    /**
+     * <pre>
+     * Settings for [Google Cloud Client
+     * libraries](https://cloud.google.com/apis/docs/cloud-client-libraries)
+     * generated from APIs defined as protocol buffers.
+     * </pre>
+     *
+     * <code>.google.api.Publishing publishing = 45;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.api.Publishing, com.google.api.Publishing.Builder, com.google.api.PublishingOrBuilder> 
+        getPublishingFieldBuilder() {
+      if (publishingBuilder_ == null) {
+        publishingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.api.Publishing, com.google.api.Publishing.Builder, com.google.api.PublishingOrBuilder>(
+                getPublishing(),
+                getParentForChildren(),
+                isClean());
+        publishing_ = null;
+      }
+      return publishingBuilder_;
+    }
+
     private com.google.protobuf.UInt32Value configVersion_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> configVersionBuilder_;
@@ -7785,13 +7944,11 @@ private static final long serialVersionUID = 0L;
      * sets this field to `3`.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value config_version = 20 [deprecated = true];</code>
-     * @deprecated google.api.Service.config_version is deprecated.
-     *     See google/api/service.proto;l=170
+     * <code>.google.protobuf.UInt32Value config_version = 20;</code>
      * @return Whether the configVersion field is set.
      */
-    @java.lang.Deprecated public boolean hasConfigVersion() {
-      return configVersionBuilder_ != null || configVersion_ != null;
+    public boolean hasConfigVersion() {
+      return ((bitField0_ & 0x02000000) != 0);
     }
     /**
      * <pre>
@@ -7800,12 +7957,10 @@ private static final long serialVersionUID = 0L;
      * sets this field to `3`.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value config_version = 20 [deprecated = true];</code>
-     * @deprecated google.api.Service.config_version is deprecated.
-     *     See google/api/service.proto;l=170
+     * <code>.google.protobuf.UInt32Value config_version = 20;</code>
      * @return The configVersion.
      */
-    @java.lang.Deprecated public com.google.protobuf.UInt32Value getConfigVersion() {
+    public com.google.protobuf.UInt32Value getConfigVersion() {
       if (configVersionBuilder_ == null) {
         return configVersion_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : configVersion_;
       } else {
@@ -7819,19 +7974,19 @@ private static final long serialVersionUID = 0L;
      * sets this field to `3`.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value config_version = 20 [deprecated = true];</code>
+     * <code>.google.protobuf.UInt32Value config_version = 20;</code>
      */
-    @java.lang.Deprecated public Builder setConfigVersion(com.google.protobuf.UInt32Value value) {
+    public Builder setConfigVersion(com.google.protobuf.UInt32Value value) {
       if (configVersionBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
         configVersion_ = value;
-        onChanged();
       } else {
         configVersionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x02000000;
+      onChanged();
       return this;
     }
     /**
@@ -7841,17 +7996,17 @@ private static final long serialVersionUID = 0L;
      * sets this field to `3`.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value config_version = 20 [deprecated = true];</code>
+     * <code>.google.protobuf.UInt32Value config_version = 20;</code>
      */
-    @java.lang.Deprecated public Builder setConfigVersion(
+    public Builder setConfigVersion(
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (configVersionBuilder_ == null) {
         configVersion_ = builderForValue.build();
-        onChanged();
       } else {
         configVersionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x02000000;
+      onChanged();
       return this;
     }
     /**
@@ -7861,21 +8016,22 @@ private static final long serialVersionUID = 0L;
      * sets this field to `3`.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value config_version = 20 [deprecated = true];</code>
+     * <code>.google.protobuf.UInt32Value config_version = 20;</code>
      */
-    @java.lang.Deprecated public Builder mergeConfigVersion(com.google.protobuf.UInt32Value value) {
+    public Builder mergeConfigVersion(com.google.protobuf.UInt32Value value) {
       if (configVersionBuilder_ == null) {
-        if (configVersion_ != null) {
-          configVersion_ =
-            com.google.protobuf.UInt32Value.newBuilder(configVersion_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x02000000) != 0) &&
+          configVersion_ != null &&
+          configVersion_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getConfigVersionBuilder().mergeFrom(value);
         } else {
           configVersion_ = value;
         }
-        onChanged();
       } else {
         configVersionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x02000000;
+      onChanged();
       return this;
     }
     /**
@@ -7885,17 +8041,16 @@ private static final long serialVersionUID = 0L;
      * sets this field to `3`.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value config_version = 20 [deprecated = true];</code>
+     * <code>.google.protobuf.UInt32Value config_version = 20;</code>
      */
-    @java.lang.Deprecated public Builder clearConfigVersion() {
-      if (configVersionBuilder_ == null) {
-        configVersion_ = null;
-        onChanged();
-      } else {
-        configVersion_ = null;
+    public Builder clearConfigVersion() {
+      bitField0_ = (bitField0_ & ~0x02000000);
+      configVersion_ = null;
+      if (configVersionBuilder_ != null) {
+        configVersionBuilder_.dispose();
         configVersionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7905,10 +8060,10 @@ private static final long serialVersionUID = 0L;
      * sets this field to `3`.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value config_version = 20 [deprecated = true];</code>
+     * <code>.google.protobuf.UInt32Value config_version = 20;</code>
      */
-    @java.lang.Deprecated public com.google.protobuf.UInt32Value.Builder getConfigVersionBuilder() {
-      
+    public com.google.protobuf.UInt32Value.Builder getConfigVersionBuilder() {
+      bitField0_ |= 0x02000000;
       onChanged();
       return getConfigVersionFieldBuilder().getBuilder();
     }
@@ -7919,9 +8074,9 @@ private static final long serialVersionUID = 0L;
      * sets this field to `3`.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value config_version = 20 [deprecated = true];</code>
+     * <code>.google.protobuf.UInt32Value config_version = 20;</code>
      */
-    @java.lang.Deprecated public com.google.protobuf.UInt32ValueOrBuilder getConfigVersionOrBuilder() {
+    public com.google.protobuf.UInt32ValueOrBuilder getConfigVersionOrBuilder() {
       if (configVersionBuilder_ != null) {
         return configVersionBuilder_.getMessageOrBuilder();
       } else {
@@ -7936,7 +8091,7 @@ private static final long serialVersionUID = 0L;
      * sets this field to `3`.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value config_version = 20 [deprecated = true];</code>
+     * <code>.google.protobuf.UInt32Value config_version = 20;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> 
@@ -7984,7 +8139,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Service(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

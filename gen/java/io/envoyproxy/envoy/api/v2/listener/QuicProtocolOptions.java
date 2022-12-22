@@ -35,84 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private QuicProtocolOptions(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (maxConcurrentStreams_ != null) {
-              subBuilder = maxConcurrentStreams_.toBuilder();
-            }
-            maxConcurrentStreams_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxConcurrentStreams_);
-              maxConcurrentStreams_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (idleTimeout_ != null) {
-              subBuilder = idleTimeout_.toBuilder();
-            }
-            idleTimeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(idleTimeout_);
-              idleTimeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (cryptoHandshakeTimeout_ != null) {
-              subBuilder = cryptoHandshakeTimeout_.toBuilder();
-            }
-            cryptoHandshakeTimeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cryptoHandshakeTimeout_);
-              cryptoHandshakeTimeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.api.v2.listener.QuicConfigProto.internal_static_envoy_api_v2_listener_QuicProtocolOptions_descriptor;
@@ -164,7 +86,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getMaxConcurrentStreamsOrBuilder() {
-    return getMaxConcurrentStreams();
+    return maxConcurrentStreams_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : maxConcurrentStreams_;
   }
 
   public static final int IDLE_TIMEOUT_FIELD_NUMBER = 2;
@@ -205,7 +127,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getIdleTimeoutOrBuilder() {
-    return getIdleTimeout();
+    return idleTimeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : idleTimeout_;
   }
 
   public static final int CRYPTO_HANDSHAKE_TIMEOUT_FIELD_NUMBER = 3;
@@ -246,7 +168,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getCryptoHandshakeTimeoutOrBuilder() {
-    return getCryptoHandshakeTimeout();
+    return cryptoHandshakeTimeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : cryptoHandshakeTimeout_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -272,7 +194,7 @@ private static final long serialVersionUID = 0L;
     if (cryptoHandshakeTimeout_ != null) {
       output.writeMessage(3, getCryptoHandshakeTimeout());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -293,7 +215,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getCryptoHandshakeTimeout());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -323,7 +245,7 @@ private static final long serialVersionUID = 0L;
       if (!getCryptoHandshakeTimeout()
           .equals(other.getCryptoHandshakeTimeout())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -346,7 +268,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CRYPTO_HANDSHAKE_TIMEOUT_FIELD_NUMBER;
       hash = (53 * hash) + getCryptoHandshakeTimeout().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -468,38 +390,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.api.v2.listener.QuicProtocolOptions.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (maxConcurrentStreamsBuilder_ == null) {
-        maxConcurrentStreams_ = null;
-      } else {
-        maxConcurrentStreams_ = null;
+      bitField0_ = 0;
+      maxConcurrentStreams_ = null;
+      if (maxConcurrentStreamsBuilder_ != null) {
+        maxConcurrentStreamsBuilder_.dispose();
         maxConcurrentStreamsBuilder_ = null;
       }
-      if (idleTimeoutBuilder_ == null) {
-        idleTimeout_ = null;
-      } else {
-        idleTimeout_ = null;
+      idleTimeout_ = null;
+      if (idleTimeoutBuilder_ != null) {
+        idleTimeoutBuilder_.dispose();
         idleTimeoutBuilder_ = null;
       }
-      if (cryptoHandshakeTimeoutBuilder_ == null) {
-        cryptoHandshakeTimeout_ = null;
-      } else {
-        cryptoHandshakeTimeout_ = null;
+      cryptoHandshakeTimeout_ = null;
+      if (cryptoHandshakeTimeoutBuilder_ != null) {
+        cryptoHandshakeTimeoutBuilder_.dispose();
         cryptoHandshakeTimeoutBuilder_ = null;
       }
       return this;
@@ -528,23 +443,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.api.v2.listener.QuicProtocolOptions buildPartial() {
       io.envoyproxy.envoy.api.v2.listener.QuicProtocolOptions result = new io.envoyproxy.envoy.api.v2.listener.QuicProtocolOptions(this);
-      if (maxConcurrentStreamsBuilder_ == null) {
-        result.maxConcurrentStreams_ = maxConcurrentStreams_;
-      } else {
-        result.maxConcurrentStreams_ = maxConcurrentStreamsBuilder_.build();
-      }
-      if (idleTimeoutBuilder_ == null) {
-        result.idleTimeout_ = idleTimeout_;
-      } else {
-        result.idleTimeout_ = idleTimeoutBuilder_.build();
-      }
-      if (cryptoHandshakeTimeoutBuilder_ == null) {
-        result.cryptoHandshakeTimeout_ = cryptoHandshakeTimeout_;
-      } else {
-        result.cryptoHandshakeTimeout_ = cryptoHandshakeTimeoutBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.api.v2.listener.QuicProtocolOptions result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.maxConcurrentStreams_ = maxConcurrentStreamsBuilder_ == null
+            ? maxConcurrentStreams_
+            : maxConcurrentStreamsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.idleTimeout_ = idleTimeoutBuilder_ == null
+            ? idleTimeout_
+            : idleTimeoutBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.cryptoHandshakeTimeout_ = cryptoHandshakeTimeoutBuilder_ == null
+            ? cryptoHandshakeTimeout_
+            : cryptoHandshakeTimeoutBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -600,7 +520,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasCryptoHandshakeTimeout()) {
         mergeCryptoHandshakeTimeout(other.getCryptoHandshakeTimeout());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -615,19 +535,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.api.v2.listener.QuicProtocolOptions parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMaxConcurrentStreamsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getIdleTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCryptoHandshakeTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.api.v2.listener.QuicProtocolOptions) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.UInt32Value maxConcurrentStreams_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -642,7 +597,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxConcurrentStreams field is set.
      */
     public boolean hasMaxConcurrentStreams() {
-      return maxConcurrentStreamsBuilder_ != null || maxConcurrentStreams_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -674,11 +629,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxConcurrentStreams_ = value;
-        onChanged();
       } else {
         maxConcurrentStreamsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -693,11 +648,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (maxConcurrentStreamsBuilder_ == null) {
         maxConcurrentStreams_ = builderForValue.build();
-        onChanged();
       } else {
         maxConcurrentStreamsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -710,17 +665,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxConcurrentStreams(com.google.protobuf.UInt32Value value) {
       if (maxConcurrentStreamsBuilder_ == null) {
-        if (maxConcurrentStreams_ != null) {
-          maxConcurrentStreams_ =
-            com.google.protobuf.UInt32Value.newBuilder(maxConcurrentStreams_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          maxConcurrentStreams_ != null &&
+          maxConcurrentStreams_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getMaxConcurrentStreamsBuilder().mergeFrom(value);
         } else {
           maxConcurrentStreams_ = value;
         }
-        onChanged();
       } else {
         maxConcurrentStreamsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -732,14 +688,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value max_concurrent_streams = 1;</code>
      */
     public Builder clearMaxConcurrentStreams() {
-      if (maxConcurrentStreamsBuilder_ == null) {
-        maxConcurrentStreams_ = null;
-        onChanged();
-      } else {
-        maxConcurrentStreams_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      maxConcurrentStreams_ = null;
+      if (maxConcurrentStreamsBuilder_ != null) {
+        maxConcurrentStreamsBuilder_.dispose();
         maxConcurrentStreamsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -751,7 +706,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value max_concurrent_streams = 1;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getMaxConcurrentStreamsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMaxConcurrentStreamsFieldBuilder().getBuilder();
     }
@@ -806,7 +761,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the idleTimeout field is set.
      */
     public boolean hasIdleTimeout() {
-      return idleTimeoutBuilder_ != null || idleTimeout_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -838,11 +793,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         idleTimeout_ = value;
-        onChanged();
       } else {
         idleTimeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -857,11 +812,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (idleTimeoutBuilder_ == null) {
         idleTimeout_ = builderForValue.build();
-        onChanged();
       } else {
         idleTimeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -874,17 +829,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeIdleTimeout(com.google.protobuf.Duration value) {
       if (idleTimeoutBuilder_ == null) {
-        if (idleTimeout_ != null) {
-          idleTimeout_ =
-            com.google.protobuf.Duration.newBuilder(idleTimeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          idleTimeout_ != null &&
+          idleTimeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getIdleTimeoutBuilder().mergeFrom(value);
         } else {
           idleTimeout_ = value;
         }
-        onChanged();
       } else {
         idleTimeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -896,14 +852,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration idle_timeout = 2;</code>
      */
     public Builder clearIdleTimeout() {
-      if (idleTimeoutBuilder_ == null) {
-        idleTimeout_ = null;
-        onChanged();
-      } else {
-        idleTimeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      idleTimeout_ = null;
+      if (idleTimeoutBuilder_ != null) {
+        idleTimeoutBuilder_.dispose();
         idleTimeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -915,7 +870,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration idle_timeout = 2;</code>
      */
     public com.google.protobuf.Duration.Builder getIdleTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getIdleTimeoutFieldBuilder().getBuilder();
     }
@@ -970,7 +925,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cryptoHandshakeTimeout field is set.
      */
     public boolean hasCryptoHandshakeTimeout() {
-      return cryptoHandshakeTimeoutBuilder_ != null || cryptoHandshakeTimeout_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1002,11 +957,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cryptoHandshakeTimeout_ = value;
-        onChanged();
       } else {
         cryptoHandshakeTimeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1021,11 +976,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (cryptoHandshakeTimeoutBuilder_ == null) {
         cryptoHandshakeTimeout_ = builderForValue.build();
-        onChanged();
       } else {
         cryptoHandshakeTimeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1038,17 +993,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCryptoHandshakeTimeout(com.google.protobuf.Duration value) {
       if (cryptoHandshakeTimeoutBuilder_ == null) {
-        if (cryptoHandshakeTimeout_ != null) {
-          cryptoHandshakeTimeout_ =
-            com.google.protobuf.Duration.newBuilder(cryptoHandshakeTimeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          cryptoHandshakeTimeout_ != null &&
+          cryptoHandshakeTimeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getCryptoHandshakeTimeoutBuilder().mergeFrom(value);
         } else {
           cryptoHandshakeTimeout_ = value;
         }
-        onChanged();
       } else {
         cryptoHandshakeTimeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1060,14 +1016,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration crypto_handshake_timeout = 3;</code>
      */
     public Builder clearCryptoHandshakeTimeout() {
-      if (cryptoHandshakeTimeoutBuilder_ == null) {
-        cryptoHandshakeTimeout_ = null;
-        onChanged();
-      } else {
-        cryptoHandshakeTimeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      cryptoHandshakeTimeout_ = null;
+      if (cryptoHandshakeTimeoutBuilder_ != null) {
+        cryptoHandshakeTimeoutBuilder_.dispose();
         cryptoHandshakeTimeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1079,7 +1034,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration crypto_handshake_timeout = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getCryptoHandshakeTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCryptoHandshakeTimeoutFieldBuilder().getBuilder();
     }
@@ -1153,7 +1108,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new QuicProtocolOptions(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

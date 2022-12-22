@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateTagRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            tagId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.devtools.artifactregistry.v1.Tag.Builder subBuilder = null;
-            if (tag_ != null) {
-              subBuilder = tag_.toBuilder();
-            }
-            tag_ = input.readMessage(com.google.devtools.artifactregistry.v1.Tag.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tag_);
-              tag_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.artifactregistry.v1.TagProto.internal_static_google_devtools_artifactregistry_v1_CreateTagRequest_descriptor;
@@ -114,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * The name of the parent resource where the tag will be created.
@@ -160,7 +97,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TAG_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object tagId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object tagId_ = "";
   /**
    * <pre>
    * The tag id to use for this repository.
@@ -240,7 +178,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.artifactregistry.v1.TagOrBuilder getTagOrBuilder() {
-    return getTag();
+    return tag_ == null ? com.google.devtools.artifactregistry.v1.Tag.getDefaultInstance() : tag_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -266,7 +204,7 @@ private static final long serialVersionUID = 0L;
     if (tag_ != null) {
       output.writeMessage(3, getTag());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -285,7 +223,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getTag());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -309,7 +247,7 @@ private static final long serialVersionUID = 0L;
       if (!getTag()
           .equals(other.getTag())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -328,7 +266,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TAG_FIELD_NUMBER;
       hash = (53 * hash) + getTag().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -449,30 +387,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.artifactregistry.v1.CreateTagRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       tagId_ = "";
-
-      if (tagBuilder_ == null) {
-        tag_ = null;
-      } else {
-        tag_ = null;
+      tag_ = null;
+      if (tagBuilder_ != null) {
+        tagBuilder_.dispose();
         tagBuilder_ = null;
       }
       return this;
@@ -501,15 +432,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.artifactregistry.v1.CreateTagRequest buildPartial() {
       com.google.devtools.artifactregistry.v1.CreateTagRequest result = new com.google.devtools.artifactregistry.v1.CreateTagRequest(this);
-      result.parent_ = parent_;
-      result.tagId_ = tagId_;
-      if (tagBuilder_ == null) {
-        result.tag_ = tag_;
-      } else {
-        result.tag_ = tagBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.artifactregistry.v1.CreateTagRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.tagId_ = tagId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.tag_ = tagBuilder_ == null
+            ? tag_
+            : tagBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -558,16 +498,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.artifactregistry.v1.CreateTagRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getTagId().isEmpty()) {
         tagId_ = other.tagId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasTag()) {
         mergeTag(other.getTag());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -582,19 +524,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.artifactregistry.v1.CreateTagRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              tagId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getTagFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.artifactregistry.v1.CreateTagRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -649,11 +622,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -666,8 +637,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -682,12 +653,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -745,11 +714,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTagId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       tagId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -762,8 +729,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTagId() {
-      
       tagId_ = getDefaultInstance().getTagId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -778,12 +745,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTagIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       tagId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -800,7 +765,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the tag field is set.
      */
     public boolean hasTag() {
-      return tagBuilder_ != null || tag_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -830,11 +795,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tag_ = value;
-        onChanged();
       } else {
         tagBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -848,11 +813,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.artifactregistry.v1.Tag.Builder builderForValue) {
       if (tagBuilder_ == null) {
         tag_ = builderForValue.build();
-        onChanged();
       } else {
         tagBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -864,17 +829,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTag(com.google.devtools.artifactregistry.v1.Tag value) {
       if (tagBuilder_ == null) {
-        if (tag_ != null) {
-          tag_ =
-            com.google.devtools.artifactregistry.v1.Tag.newBuilder(tag_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          tag_ != null &&
+          tag_ != com.google.devtools.artifactregistry.v1.Tag.getDefaultInstance()) {
+          getTagBuilder().mergeFrom(value);
         } else {
           tag_ = value;
         }
-        onChanged();
       } else {
         tagBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -885,14 +851,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.artifactregistry.v1.Tag tag = 3;</code>
      */
     public Builder clearTag() {
-      if (tagBuilder_ == null) {
-        tag_ = null;
-        onChanged();
-      } else {
-        tag_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      tag_ = null;
+      if (tagBuilder_ != null) {
+        tagBuilder_.dispose();
         tagBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -903,7 +868,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.artifactregistry.v1.Tag tag = 3;</code>
      */
     public com.google.devtools.artifactregistry.v1.Tag.Builder getTagBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getTagFieldBuilder().getBuilder();
     }
@@ -975,7 +940,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateTagRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

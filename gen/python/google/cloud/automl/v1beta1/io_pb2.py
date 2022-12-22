@@ -11,10 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$google/cloud/automl/v1beta1/io.proto\x12\x1bgoogle.cloud.automl.v1beta1\x1a\x1cgoogle/api/annotations.proto\"\x92\x02\n\x0bInputConfig\x12<\n\ngcs_source\x18\x01 \x01(\x0b\x32&.google.cloud.automl.v1beta1.GcsSourceH\x00\x12\x46\n\x0f\x62igquery_source\x18\x03 \x01(\x0b\x32+.google.cloud.automl.v1beta1.BigQuerySourceH\x00\x12\x44\n\x06params\x18\x02 \x03(\x0b\x32\x34.google.cloud.automl.v1beta1.InputConfig.ParamsEntry\x1a-\n\x0bParamsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\x08\n\x06source\"\xa9\x01\n\x17\x42\x61tchPredictInputConfig\x12<\n\ngcs_source\x18\x01 \x01(\x0b\x32&.google.cloud.automl.v1beta1.GcsSourceH\x00\x12\x46\n\x0f\x62igquery_source\x18\x02 \x01(\x0b\x32+.google.cloud.automl.v1beta1.BigQuerySourceH\x00\x42\x08\n\x06source\"Q\n\x13\x44ocumentInputConfig\x12:\n\ngcs_source\x18\x01 \x01(\x0b\x32&.google.cloud.automl.v1beta1.GcsSource\"\xb7\x01\n\x0cOutputConfig\x12\x46\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32+.google.cloud.automl.v1beta1.GcsDestinationH\x00\x12P\n\x14\x62igquery_destination\x18\x02 \x01(\x0b\x32\x30.google.cloud.automl.v1beta1.BigQueryDestinationH\x00\x42\r\n\x0b\x64\x65stination\"\xc3\x01\n\x18\x42\x61tchPredictOutputConfig\x12\x46\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32+.google.cloud.automl.v1beta1.GcsDestinationH\x00\x12P\n\x14\x62igquery_destination\x18\x02 \x01(\x0b\x32\x30.google.cloud.automl.v1beta1.BigQueryDestinationH\x00\x42\r\n\x0b\x64\x65stination\"\xcf\x02\n\x17ModelExportOutputConfig\x12\x46\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32+.google.cloud.automl.v1beta1.GcsDestinationH\x00\x12\x46\n\x0fgcr_destination\x18\x03 \x01(\x0b\x32+.google.cloud.automl.v1beta1.GcrDestinationH\x00\x12\x14\n\x0cmodel_format\x18\x04 \x01(\t\x12P\n\x06params\x18\x02 \x03(\x0b\x32@.google.cloud.automl.v1beta1.ModelExportOutputConfig.ParamsEntry\x1a-\n\x0bParamsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\r\n\x0b\x64\x65stination\"\x86\x01\n#ExportEvaluatedExamplesOutputConfig\x12P\n\x14\x62igquery_destination\x18\x02 \x01(\x0b\x32\x30.google.cloud.automl.v1beta1.BigQueryDestinationH\x00\x42\r\n\x0b\x64\x65stination\"\x1f\n\tGcsSource\x12\x12\n\ninput_uris\x18\x01 \x03(\t\"#\n\x0e\x42igQuerySource\x12\x11\n\tinput_uri\x18\x01 \x01(\t\"+\n\x0eGcsDestination\x12\x19\n\x11output_uri_prefix\x18\x01 \x01(\t\")\n\x13\x42igQueryDestination\x12\x12\n\noutput_uri\x18\x01 \x01(\t\"$\n\x0eGcrDestination\x12\x12\n\noutput_uri\x18\x01 \x01(\tB\xa5\x01\n\x1f\x63om.google.cloud.automl.v1beta1P\x01ZAgoogle.golang.org/genproto/googleapis/cloud/automl/v1beta1;automl\xca\x02\x1bGoogle\\Cloud\\AutoMl\\V1beta1\xea\x02\x1eGoogle::Cloud::AutoML::V1beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$google/cloud/automl/v1beta1/io.proto\x12\x1bgoogle.cloud.automl.v1beta1\"\x92\x02\n\x0bInputConfig\x12<\n\ngcs_source\x18\x01 \x01(\x0b\x32&.google.cloud.automl.v1beta1.GcsSourceH\x00\x12\x46\n\x0f\x62igquery_source\x18\x03 \x01(\x0b\x32+.google.cloud.automl.v1beta1.BigQuerySourceH\x00\x12\x44\n\x06params\x18\x02 \x03(\x0b\x32\x34.google.cloud.automl.v1beta1.InputConfig.ParamsEntry\x1a-\n\x0bParamsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\x08\n\x06source\"\xa9\x01\n\x17\x42\x61tchPredictInputConfig\x12<\n\ngcs_source\x18\x01 \x01(\x0b\x32&.google.cloud.automl.v1beta1.GcsSourceH\x00\x12\x46\n\x0f\x62igquery_source\x18\x02 \x01(\x0b\x32+.google.cloud.automl.v1beta1.BigQuerySourceH\x00\x42\x08\n\x06source\"Q\n\x13\x44ocumentInputConfig\x12:\n\ngcs_source\x18\x01 \x01(\x0b\x32&.google.cloud.automl.v1beta1.GcsSource\"\xb7\x01\n\x0cOutputConfig\x12\x46\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32+.google.cloud.automl.v1beta1.GcsDestinationH\x00\x12P\n\x14\x62igquery_destination\x18\x02 \x01(\x0b\x32\x30.google.cloud.automl.v1beta1.BigQueryDestinationH\x00\x42\r\n\x0b\x64\x65stination\"\xc3\x01\n\x18\x42\x61tchPredictOutputConfig\x12\x46\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32+.google.cloud.automl.v1beta1.GcsDestinationH\x00\x12P\n\x14\x62igquery_destination\x18\x02 \x01(\x0b\x32\x30.google.cloud.automl.v1beta1.BigQueryDestinationH\x00\x42\r\n\x0b\x64\x65stination\"\xcf\x02\n\x17ModelExportOutputConfig\x12\x46\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32+.google.cloud.automl.v1beta1.GcsDestinationH\x00\x12\x46\n\x0fgcr_destination\x18\x03 \x01(\x0b\x32+.google.cloud.automl.v1beta1.GcrDestinationH\x00\x12\x14\n\x0cmodel_format\x18\x04 \x01(\t\x12P\n\x06params\x18\x02 \x03(\x0b\x32@.google.cloud.automl.v1beta1.ModelExportOutputConfig.ParamsEntry\x1a-\n\x0bParamsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\r\n\x0b\x64\x65stination\"\x86\x01\n#ExportEvaluatedExamplesOutputConfig\x12P\n\x14\x62igquery_destination\x18\x02 \x01(\x0b\x32\x30.google.cloud.automl.v1beta1.BigQueryDestinationH\x00\x42\r\n\x0b\x64\x65stination\"\x1f\n\tGcsSource\x12\x12\n\ninput_uris\x18\x01 \x03(\t\"#\n\x0e\x42igQuerySource\x12\x11\n\tinput_uri\x18\x01 \x01(\t\"+\n\x0eGcsDestination\x12\x19\n\x11output_uri_prefix\x18\x01 \x01(\t\")\n\x13\x42igQueryDestination\x12\x12\n\noutput_uri\x18\x01 \x01(\t\"$\n\x0eGcrDestination\x12\x12\n\noutput_uri\x18\x01 \x01(\tB\xa5\x01\n\x1f\x63om.google.cloud.automl.v1beta1P\x01ZAgoogle.golang.org/genproto/googleapis/cloud/automl/v1beta1;automl\xca\x02\x1bGoogle\\Cloud\\AutoMl\\V1beta1\xea\x02\x1eGoogle::Cloud::AutoML::V1beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.automl.v1beta1.io_pb2', globals())
@@ -26,32 +25,32 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _INPUTCONFIG_PARAMSENTRY._serialized_options = b'8\001'
   _MODELEXPORTOUTPUTCONFIG_PARAMSENTRY._options = None
   _MODELEXPORTOUTPUTCONFIG_PARAMSENTRY._serialized_options = b'8\001'
-  _INPUTCONFIG._serialized_start=100
-  _INPUTCONFIG._serialized_end=374
-  _INPUTCONFIG_PARAMSENTRY._serialized_start=319
-  _INPUTCONFIG_PARAMSENTRY._serialized_end=364
-  _BATCHPREDICTINPUTCONFIG._serialized_start=377
-  _BATCHPREDICTINPUTCONFIG._serialized_end=546
-  _DOCUMENTINPUTCONFIG._serialized_start=548
-  _DOCUMENTINPUTCONFIG._serialized_end=629
-  _OUTPUTCONFIG._serialized_start=632
-  _OUTPUTCONFIG._serialized_end=815
-  _BATCHPREDICTOUTPUTCONFIG._serialized_start=818
-  _BATCHPREDICTOUTPUTCONFIG._serialized_end=1013
-  _MODELEXPORTOUTPUTCONFIG._serialized_start=1016
-  _MODELEXPORTOUTPUTCONFIG._serialized_end=1351
-  _MODELEXPORTOUTPUTCONFIG_PARAMSENTRY._serialized_start=319
-  _MODELEXPORTOUTPUTCONFIG_PARAMSENTRY._serialized_end=364
-  _EXPORTEVALUATEDEXAMPLESOUTPUTCONFIG._serialized_start=1354
-  _EXPORTEVALUATEDEXAMPLESOUTPUTCONFIG._serialized_end=1488
-  _GCSSOURCE._serialized_start=1490
-  _GCSSOURCE._serialized_end=1521
-  _BIGQUERYSOURCE._serialized_start=1523
-  _BIGQUERYSOURCE._serialized_end=1558
-  _GCSDESTINATION._serialized_start=1560
-  _GCSDESTINATION._serialized_end=1603
-  _BIGQUERYDESTINATION._serialized_start=1605
-  _BIGQUERYDESTINATION._serialized_end=1646
-  _GCRDESTINATION._serialized_start=1648
-  _GCRDESTINATION._serialized_end=1684
+  _INPUTCONFIG._serialized_start=70
+  _INPUTCONFIG._serialized_end=344
+  _INPUTCONFIG_PARAMSENTRY._serialized_start=289
+  _INPUTCONFIG_PARAMSENTRY._serialized_end=334
+  _BATCHPREDICTINPUTCONFIG._serialized_start=347
+  _BATCHPREDICTINPUTCONFIG._serialized_end=516
+  _DOCUMENTINPUTCONFIG._serialized_start=518
+  _DOCUMENTINPUTCONFIG._serialized_end=599
+  _OUTPUTCONFIG._serialized_start=602
+  _OUTPUTCONFIG._serialized_end=785
+  _BATCHPREDICTOUTPUTCONFIG._serialized_start=788
+  _BATCHPREDICTOUTPUTCONFIG._serialized_end=983
+  _MODELEXPORTOUTPUTCONFIG._serialized_start=986
+  _MODELEXPORTOUTPUTCONFIG._serialized_end=1321
+  _MODELEXPORTOUTPUTCONFIG_PARAMSENTRY._serialized_start=289
+  _MODELEXPORTOUTPUTCONFIG_PARAMSENTRY._serialized_end=334
+  _EXPORTEVALUATEDEXAMPLESOUTPUTCONFIG._serialized_start=1324
+  _EXPORTEVALUATEDEXAMPLESOUTPUTCONFIG._serialized_end=1458
+  _GCSSOURCE._serialized_start=1460
+  _GCSSOURCE._serialized_end=1491
+  _BIGQUERYSOURCE._serialized_start=1493
+  _BIGQUERYSOURCE._serialized_end=1528
+  _GCSDESTINATION._serialized_start=1530
+  _GCSDESTINATION._serialized_end=1573
+  _BIGQUERYDESTINATION._serialized_start=1575
+  _BIGQUERYDESTINATION._serialized_end=1616
+  _GCRDESTINATION._serialized_start=1618
+  _GCRDESTINATION._serialized_end=1654
 # @@protoc_insertion_point(module_scope)

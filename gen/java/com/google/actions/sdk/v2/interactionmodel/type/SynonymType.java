@@ -35,70 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SynonymType(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            matchType_ = rawValue;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              entities_ = com.google.protobuf.MapField.newMapField(
-                  EntitiesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity>
-            entities__ = input.readMessage(
-                EntitiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            entities_.getMutableMap().put(
-                entities__.getKey(), entities__.getValue());
-            break;
-          }
-          case 24: {
-
-            acceptUnknownValues_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.interactionmodel.type.SynonymTypeProto.internal_static_google_actions_sdk_v2_interactionmodel_type_SynonymType_descriptor;
@@ -383,71 +319,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Entity(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.actions.sdk.v2.interactionmodel.type.EntityDisplay.Builder subBuilder = null;
-              if (display_ != null) {
-                subBuilder = display_.toBuilder();
-              }
-              display_ = input.readMessage(com.google.actions.sdk.v2.interactionmodel.type.EntityDisplay.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(display_);
-                display_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                synonyms_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              synonyms_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          synonyms_ = synonyms_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.actions.sdk.v2.interactionmodel.type.SynonymTypeProto.internal_static_google_actions_sdk_v2_interactionmodel_type_SynonymType_Entity_descriptor;
@@ -496,10 +367,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.actions.sdk.v2.interactionmodel.type.EntityDisplayOrBuilder getDisplayOrBuilder() {
-      return getDisplay();
+      return display_ == null ? com.google.actions.sdk.v2.interactionmodel.type.EntityDisplay.getDefaultInstance() : display_;
     }
 
     public static final int SYNONYMS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList synonyms_;
     /**
      * <pre>
@@ -574,7 +446,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < synonyms_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, synonyms_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -595,7 +467,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getSynonymsList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -617,7 +489,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!getSynonymsList()
           .equals(other.getSynonymsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -636,7 +508,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + SYNONYMS_FIELD_NUMBER;
         hash = (53 * hash) + getSynonymsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -758,30 +630,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (displayBuilder_ == null) {
-          display_ = null;
-        } else {
-          display_ = null;
+        bitField0_ = 0;
+        display_ = null;
+        if (displayBuilder_ != null) {
+          displayBuilder_.dispose();
           displayBuilder_ = null;
         }
         synonyms_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -808,19 +675,27 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity buildPartial() {
         com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity result = new com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity(this);
-        int from_bitField0_ = bitField0_;
-        if (displayBuilder_ == null) {
-          result.display_ = display_;
-        } else {
-          result.display_ = displayBuilder_.build();
-        }
-        if (((bitField0_ & 0x00000001) != 0)) {
-          synonyms_ = synonyms_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.synonyms_ = synonyms_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity result) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          synonyms_ = synonyms_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.synonyms_ = synonyms_;
+      }
+
+      private void buildPartial0(com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.display_ = displayBuilder_ == null
+              ? display_
+              : displayBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -873,14 +748,14 @@ private static final long serialVersionUID = 0L;
         if (!other.synonyms_.isEmpty()) {
           if (synonyms_.isEmpty()) {
             synonyms_ = other.synonyms_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureSynonymsIsMutable();
             synonyms_.addAll(other.synonyms_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -895,17 +770,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getDisplayFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureSynonymsIsMutable();
+                synonyms_.add(s);
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -922,7 +823,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the display field is set.
        */
       public boolean hasDisplay() {
-        return displayBuilder_ != null || display_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -952,11 +853,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           display_ = value;
-          onChanged();
         } else {
           displayBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -970,11 +871,11 @@ private static final long serialVersionUID = 0L;
           com.google.actions.sdk.v2.interactionmodel.type.EntityDisplay.Builder builderForValue) {
         if (displayBuilder_ == null) {
           display_ = builderForValue.build();
-          onChanged();
         } else {
           displayBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -986,17 +887,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeDisplay(com.google.actions.sdk.v2.interactionmodel.type.EntityDisplay value) {
         if (displayBuilder_ == null) {
-          if (display_ != null) {
-            display_ =
-              com.google.actions.sdk.v2.interactionmodel.type.EntityDisplay.newBuilder(display_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            display_ != null &&
+            display_ != com.google.actions.sdk.v2.interactionmodel.type.EntityDisplay.getDefaultInstance()) {
+            getDisplayBuilder().mergeFrom(value);
           } else {
             display_ = value;
           }
-          onChanged();
         } else {
           displayBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1007,14 +909,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.actions.sdk.v2.interactionmodel.type.EntityDisplay display = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearDisplay() {
-        if (displayBuilder_ == null) {
-          display_ = null;
-          onChanged();
-        } else {
-          display_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        display_ = null;
+        if (displayBuilder_ != null) {
+          displayBuilder_.dispose();
           displayBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1025,7 +926,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.actions.sdk.v2.interactionmodel.type.EntityDisplay display = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.actions.sdk.v2.interactionmodel.type.EntityDisplay.Builder getDisplayBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getDisplayFieldBuilder().getBuilder();
       }
@@ -1067,9 +968,9 @@ private static final long serialVersionUID = 0L;
 
       private com.google.protobuf.LazyStringList synonyms_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureSynonymsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           synonyms_ = new com.google.protobuf.LazyStringArrayList(synonyms_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
       /**
@@ -1137,10 +1038,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSynonyms(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSynonymsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureSynonymsIsMutable();
         synonyms_.set(index, value);
         onChanged();
         return this;
@@ -1157,10 +1056,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addSynonyms(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSynonymsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureSynonymsIsMutable();
         synonyms_.add(value);
         onChanged();
         return this;
@@ -1194,7 +1091,7 @@ private static final long serialVersionUID = 0L;
        */
       public Builder clearSynonyms() {
         synonyms_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1210,10 +1107,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addSynonymsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureSynonymsIsMutable();
         synonyms_.add(value);
         onChanged();
@@ -1252,7 +1147,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Entity(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1273,7 +1179,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MATCH_TYPE_FIELD_NUMBER = 1;
-  private int matchType_;
+  private int matchType_ = 0;
   /**
    * <pre>
    * Optional. The match type for the synonym.
@@ -1294,13 +1200,12 @@ private static final long serialVersionUID = 0L;
    * @return The matchType.
    */
   @java.lang.Override public com.google.actions.sdk.v2.interactionmodel.type.SynonymType.MatchType getMatchType() {
-    @SuppressWarnings("deprecation")
-    com.google.actions.sdk.v2.interactionmodel.type.SynonymType.MatchType result = com.google.actions.sdk.v2.interactionmodel.type.SynonymType.MatchType.valueOf(matchType_);
+    com.google.actions.sdk.v2.interactionmodel.type.SynonymType.MatchType result = com.google.actions.sdk.v2.interactionmodel.type.SynonymType.MatchType.forNumber(matchType_);
     return result == null ? com.google.actions.sdk.v2.interactionmodel.type.SynonymType.MatchType.UNRECOGNIZED : result;
   }
 
   public static final int ACCEPT_UNKNOWN_VALUES_FIELD_NUMBER = 3;
-  private boolean acceptUnknownValues_;
+  private boolean acceptUnknownValues_ = false;
   /**
    * <pre>
    * Optional. When set to true this will match unknown words or phrases based on
@@ -1328,6 +1233,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity> entities_;
   private com.google.protobuf.MapField<java.lang.String, com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity>
@@ -1338,7 +1244,6 @@ private static final long serialVersionUID = 0L;
     }
     return entities_;
   }
-
   public int getEntitiesCount() {
     return internalGetEntities().getMap().size();
   }
@@ -1349,7 +1254,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity&gt; entities = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   @java.lang.Override
   public boolean containsEntities(
       java.lang.String key) {
@@ -1372,7 +1276,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity&gt; entities = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity> getEntitiesMap() {
     return internalGetEntities().getMap();
   }
@@ -1384,10 +1287,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity&gt; entities = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
-
-  public com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity getEntitiesOrDefault(
+  public /* nullable */
+com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity getEntitiesOrDefault(
       java.lang.String key,
-      com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity defaultValue) {
+      /* nullable */
+com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity> map =
         internalGetEntities().getMap();
@@ -1401,7 +1305,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity&gt; entities = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
-
   public com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity getEntitiesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1439,7 +1342,7 @@ private static final long serialVersionUID = 0L;
     if (acceptUnknownValues_ != false) {
       output.writeBool(3, acceptUnknownValues_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1466,7 +1369,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(3, acceptUnknownValues_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1486,7 +1389,7 @@ private static final long serialVersionUID = 0L;
         != other.getAcceptUnknownValues()) return false;
     if (!internalGetEntities().equals(
         other.internalGetEntities())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1506,7 +1409,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ENTITIES_FIELD_NUMBER;
       hash = (53 * hash) + internalGetEntities().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1649,26 +1552,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.interactionmodel.type.SynonymType.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       matchType_ = 0;
-
       acceptUnknownValues_ = false;
-
       internalGetMutableEntities().clear();
       return this;
     }
@@ -1696,13 +1593,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.interactionmodel.type.SynonymType buildPartial() {
       com.google.actions.sdk.v2.interactionmodel.type.SynonymType result = new com.google.actions.sdk.v2.interactionmodel.type.SynonymType(this);
-      int from_bitField0_ = bitField0_;
-      result.matchType_ = matchType_;
-      result.acceptUnknownValues_ = acceptUnknownValues_;
-      result.entities_ = internalGetEntities();
-      result.entities_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.interactionmodel.type.SynonymType result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.matchType_ = matchType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.acceptUnknownValues_ = acceptUnknownValues_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.entities_ = internalGetEntities();
+        result.entities_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -1757,7 +1664,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableEntities().mergeFrom(
           other.internalGetEntities());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000004;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1772,17 +1680,49 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.interactionmodel.type.SynonymType parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              matchType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity>
+              entities__ = input.readMessage(
+                  EntitiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableEntities().getMutableMap().put(
+                  entities__.getKey(), entities__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 24: {
+              acceptUnknownValues_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.interactionmodel.type.SynonymType) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1809,8 +1749,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMatchTypeValue(int value) {
-      
       matchType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1824,8 +1764,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.actions.sdk.v2.interactionmodel.type.SynonymType.MatchType getMatchType() {
-      @SuppressWarnings("deprecation")
-      com.google.actions.sdk.v2.interactionmodel.type.SynonymType.MatchType result = com.google.actions.sdk.v2.interactionmodel.type.SynonymType.MatchType.valueOf(matchType_);
+      com.google.actions.sdk.v2.interactionmodel.type.SynonymType.MatchType result = com.google.actions.sdk.v2.interactionmodel.type.SynonymType.MatchType.forNumber(matchType_);
       return result == null ? com.google.actions.sdk.v2.interactionmodel.type.SynonymType.MatchType.UNRECOGNIZED : result;
     }
     /**
@@ -1841,7 +1780,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       matchType_ = value.getNumber();
       onChanged();
       return this;
@@ -1855,7 +1794,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMatchType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       matchType_ = 0;
       onChanged();
       return this;
@@ -1890,6 +1829,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAcceptUnknownValues(boolean value) {
       
       acceptUnknownValues_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1904,7 +1844,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAcceptUnknownValues() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       acceptUnknownValues_ = false;
       onChanged();
       return this;
@@ -1913,7 +1853,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity> entities_;
     private com.google.protobuf.MapField<java.lang.String, com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity>
-    internalGetEntities() {
+        internalGetEntities() {
       if (entities_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             EntitiesDefaultEntryHolder.defaultEntry);
@@ -1921,8 +1861,7 @@ private static final long serialVersionUID = 0L;
       return entities_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity>
-    internalGetMutableEntities() {
-      onChanged();;
+        internalGetMutableEntities() {
       if (entities_ == null) {
         entities_ = com.google.protobuf.MapField.newMapField(
             EntitiesDefaultEntryHolder.defaultEntry);
@@ -1930,9 +1869,10 @@ private static final long serialVersionUID = 0L;
       if (!entities_.isMutable()) {
         entities_ = entities_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return entities_;
     }
-
     public int getEntitiesCount() {
       return internalGetEntities().getMap().size();
     }
@@ -1943,7 +1883,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity&gt; entities = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
-
     @java.lang.Override
     public boolean containsEntities(
         java.lang.String key) {
@@ -1966,7 +1905,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity&gt; entities = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity> getEntitiesMap() {
       return internalGetEntities().getMap();
     }
@@ -1978,10 +1916,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity&gt; entities = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     @java.lang.Override
-
-    public com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity getEntitiesOrDefault(
+    public /* nullable */
+com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity getEntitiesOrDefault(
         java.lang.String key,
-        com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity defaultValue) {
+        /* nullable */
+com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity> map =
           internalGetEntities().getMap();
@@ -1995,7 +1934,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity&gt; entities = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     @java.lang.Override
-
     public com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity getEntitiesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2006,8 +1944,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearEntities() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableEntities().getMutableMap()
           .clear();
       return this;
@@ -2019,7 +1957,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity&gt; entities = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
-
     public Builder removeEntities(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2032,7 +1969,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity>
-    getMutableEntities() {
+        getMutableEntities() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableEntities().getMutableMap();
     }
     /**
@@ -2046,12 +1984,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableEntities().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -2061,11 +1997,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity&gt; entities = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
-
     public Builder putAllEntities(
         java.util.Map<java.lang.String, com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity> values) {
       internalGetMutableEntities().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
     @java.lang.Override
@@ -2101,7 +2037,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SynonymType(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

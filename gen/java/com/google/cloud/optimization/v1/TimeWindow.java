@@ -16,8 +16,11 @@ package com.google.cloud.optimization.v1;
  * event to happen at or before `soft_end_time` by incurring a cost proportional
  * to how long after `soft_end_time` the event occurs. `start_time`, `end_time`,
  * `soft_start_time` and `soft_end_time` should be within the global time limits
- * (see [ShipmentModel.global_start_time][google.cloud.optimization.v1.ShipmentModel.global_start_time] and
- * [ShipmentModel.global_end_time][google.cloud.optimization.v1.ShipmentModel.global_end_time]) and should respect:
+ * (see
+ * [ShipmentModel.global_start_time][google.cloud.optimization.v1.ShipmentModel.global_start_time]
+ * and
+ * [ShipmentModel.global_end_time][google.cloud.optimization.v1.ShipmentModel.global_end_time])
+ * and should respect:
  * ```
  *   0 &lt;= `start_time` &lt;= `soft_start_time` &lt;= `end_time` and
  *   0 &lt;= `start_time` &lt;= `soft_end_time` &lt;= `end_time`.
@@ -49,108 +52,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private TimeWindow(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (startTime_ != null) {
-              subBuilder = startTime_.toBuilder();
-            }
-            startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(startTime_);
-              startTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (endTime_ != null) {
-              subBuilder = endTime_.toBuilder();
-            }
-            endTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(endTime_);
-              endTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (softStartTime_ != null) {
-              subBuilder = softStartTime_.toBuilder();
-            }
-            softStartTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(softStartTime_);
-              softStartTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (softEndTime_ != null) {
-              subBuilder = softEndTime_.toBuilder();
-            }
-            softEndTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(softEndTime_);
-              softEndTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 41: {
-            bitField0_ |= 0x00000001;
-            costPerHourBeforeSoftStartTime_ = input.readDouble();
-            break;
-          }
-          case 49: {
-            bitField0_ |= 0x00000002;
-            costPerHourAfterSoftEndTime_ = input.readDouble();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -204,7 +105,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
-    return getStartTime();
+    return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
   }
 
   public static final int END_TIME_FIELD_NUMBER = 2;
@@ -245,7 +146,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
-    return getEndTime();
+    return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
   }
 
   public static final int SOFT_START_TIME_FIELD_NUMBER = 3;
@@ -283,7 +184,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getSoftStartTimeOrBuilder() {
-    return getSoftStartTime();
+    return softStartTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : softStartTime_;
   }
 
   public static final int SOFT_END_TIME_FIELD_NUMBER = 4;
@@ -321,11 +222,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getSoftEndTimeOrBuilder() {
-    return getSoftEndTime();
+    return softEndTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : softEndTime_;
   }
 
   public static final int COST_PER_HOUR_BEFORE_SOFT_START_TIME_FIELD_NUMBER = 5;
-  private double costPerHourBeforeSoftStartTime_;
+  private double costPerHourBeforeSoftStartTime_ = 0D;
   /**
    * <pre>
    * A cost per hour added to other costs in the model if the event occurs
@@ -368,7 +269,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COST_PER_HOUR_AFTER_SOFT_END_TIME_FIELD_NUMBER = 6;
-  private double costPerHourAfterSoftEndTime_;
+  private double costPerHourAfterSoftEndTime_ = 0D;
   /**
    * <pre>
    * A cost per hour added to other costs in the model if the event occurs after
@@ -442,7 +343,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       output.writeDouble(6, costPerHourAfterSoftEndTime_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -475,7 +376,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(6, costPerHourAfterSoftEndTime_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -522,7 +423,7 @@ private static final long serialVersionUID = 0L;
           != java.lang.Double.doubleToLongBits(
               other.getCostPerHourAfterSoftEndTime())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -559,7 +460,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getCostPerHourAfterSoftEndTime()));
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -667,8 +568,11 @@ private static final long serialVersionUID = 0L;
    * event to happen at or before `soft_end_time` by incurring a cost proportional
    * to how long after `soft_end_time` the event occurs. `start_time`, `end_time`,
    * `soft_start_time` and `soft_end_time` should be within the global time limits
-   * (see [ShipmentModel.global_start_time][google.cloud.optimization.v1.ShipmentModel.global_start_time] and
-   * [ShipmentModel.global_end_time][google.cloud.optimization.v1.ShipmentModel.global_end_time]) and should respect:
+   * (see
+   * [ShipmentModel.global_start_time][google.cloud.optimization.v1.ShipmentModel.global_start_time]
+   * and
+   * [ShipmentModel.global_end_time][google.cloud.optimization.v1.ShipmentModel.global_end_time])
+   * and should respect:
    * ```
    *   0 &lt;= `start_time` &lt;= `soft_start_time` &lt;= `end_time` and
    *   0 &lt;= `start_time` &lt;= `soft_end_time` &lt;= `end_time`.
@@ -696,50 +600,40 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.optimization.v1.TimeWindow.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (startTimeBuilder_ == null) {
-        startTime_ = null;
-      } else {
-        startTime_ = null;
+      bitField0_ = 0;
+      startTime_ = null;
+      if (startTimeBuilder_ != null) {
+        startTimeBuilder_.dispose();
         startTimeBuilder_ = null;
       }
-      if (endTimeBuilder_ == null) {
-        endTime_ = null;
-      } else {
-        endTime_ = null;
+      endTime_ = null;
+      if (endTimeBuilder_ != null) {
+        endTimeBuilder_.dispose();
         endTimeBuilder_ = null;
       }
-      if (softStartTimeBuilder_ == null) {
-        softStartTime_ = null;
-      } else {
-        softStartTime_ = null;
+      softStartTime_ = null;
+      if (softStartTimeBuilder_ != null) {
+        softStartTimeBuilder_.dispose();
         softStartTimeBuilder_ = null;
       }
-      if (softEndTimeBuilder_ == null) {
-        softEndTime_ = null;
-      } else {
-        softEndTime_ = null;
+      softEndTime_ = null;
+      if (softEndTimeBuilder_ != null) {
+        softEndTimeBuilder_.dispose();
         softEndTimeBuilder_ = null;
       }
       costPerHourBeforeSoftStartTime_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000001);
       costPerHourAfterSoftEndTime_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -766,39 +660,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.optimization.v1.TimeWindow buildPartial() {
       com.google.cloud.optimization.v1.TimeWindow result = new com.google.cloud.optimization.v1.TimeWindow(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.optimization.v1.TimeWindow result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (startTimeBuilder_ == null) {
-        result.startTime_ = startTime_;
-      } else {
-        result.startTime_ = startTimeBuilder_.build();
-      }
-      if (endTimeBuilder_ == null) {
-        result.endTime_ = endTime_;
-      } else {
-        result.endTime_ = endTimeBuilder_.build();
-      }
-      if (softStartTimeBuilder_ == null) {
-        result.softStartTime_ = softStartTime_;
-      } else {
-        result.softStartTime_ = softStartTimeBuilder_.build();
-      }
-      if (softEndTimeBuilder_ == null) {
-        result.softEndTime_ = softEndTime_;
-      } else {
-        result.softEndTime_ = softEndTimeBuilder_.build();
-      }
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.startTime_ = startTimeBuilder_ == null
+            ? startTime_
+            : startTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.endTime_ = endTimeBuilder_ == null
+            ? endTime_
+            : endTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.softStartTime_ = softStartTimeBuilder_ == null
+            ? softStartTime_
+            : softStartTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.softEndTime_ = softEndTimeBuilder_ == null
+            ? softEndTime_
+            : softEndTimeBuilder_.build();
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
         result.costPerHourBeforeSoftStartTime_ = costPerHourBeforeSoftStartTime_;
         to_bitField0_ |= 0x00000001;
       }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (((from_bitField0_ & 0x00000020) != 0)) {
         result.costPerHourAfterSoftEndTime_ = costPerHourAfterSoftEndTime_;
         to_bitField0_ |= 0x00000002;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -863,7 +761,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasCostPerHourAfterSoftEndTime()) {
         setCostPerHourAfterSoftEndTime(other.getCostPerHourAfterSoftEndTime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -878,17 +776,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.optimization.v1.TimeWindow parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getStartTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getEndTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getSoftStartTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getSoftEndTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 41: {
+              costPerHourBeforeSoftStartTime_ = input.readDouble();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 41
+            case 49: {
+              costPerHourAfterSoftEndTime_ = input.readDouble();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 49
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.optimization.v1.TimeWindow) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -906,7 +855,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the startTime field is set.
      */
     public boolean hasStartTime() {
-      return startTimeBuilder_ != null || startTime_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -938,11 +887,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         startTime_ = value;
-        onChanged();
       } else {
         startTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -957,11 +906,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (startTimeBuilder_ == null) {
         startTime_ = builderForValue.build();
-        onChanged();
       } else {
         startTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -974,17 +923,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
       if (startTimeBuilder_ == null) {
-        if (startTime_ != null) {
-          startTime_ =
-            com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          startTime_ != null &&
+          startTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getStartTimeBuilder().mergeFrom(value);
         } else {
           startTime_ = value;
         }
-        onChanged();
       } else {
         startTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -996,14 +946,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp start_time = 1;</code>
      */
     public Builder clearStartTime() {
-      if (startTimeBuilder_ == null) {
-        startTime_ = null;
-        onChanged();
-      } else {
-        startTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      startTime_ = null;
+      if (startTimeBuilder_ != null) {
+        startTimeBuilder_.dispose();
         startTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1015,7 +964,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp start_time = 1;</code>
      */
     public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getStartTimeFieldBuilder().getBuilder();
     }
@@ -1070,7 +1019,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the endTime field is set.
      */
     public boolean hasEndTime() {
-      return endTimeBuilder_ != null || endTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1102,11 +1051,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         endTime_ = value;
-        onChanged();
       } else {
         endTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1121,11 +1070,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (endTimeBuilder_ == null) {
         endTime_ = builderForValue.build();
-        onChanged();
       } else {
         endTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1138,17 +1087,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
       if (endTimeBuilder_ == null) {
-        if (endTime_ != null) {
-          endTime_ =
-            com.google.protobuf.Timestamp.newBuilder(endTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          endTime_ != null &&
+          endTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getEndTimeBuilder().mergeFrom(value);
         } else {
           endTime_ = value;
         }
-        onChanged();
       } else {
         endTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1160,14 +1110,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp end_time = 2;</code>
      */
     public Builder clearEndTime() {
-      if (endTimeBuilder_ == null) {
-        endTime_ = null;
-        onChanged();
-      } else {
-        endTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      endTime_ = null;
+      if (endTimeBuilder_ != null) {
+        endTimeBuilder_.dispose();
         endTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1179,7 +1128,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp end_time = 2;</code>
      */
     public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getEndTimeFieldBuilder().getBuilder();
     }
@@ -1233,7 +1182,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the softStartTime field is set.
      */
     public boolean hasSoftStartTime() {
-      return softStartTimeBuilder_ != null || softStartTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1263,11 +1212,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         softStartTime_ = value;
-        onChanged();
       } else {
         softStartTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1281,11 +1230,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (softStartTimeBuilder_ == null) {
         softStartTime_ = builderForValue.build();
-        onChanged();
       } else {
         softStartTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1297,17 +1246,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSoftStartTime(com.google.protobuf.Timestamp value) {
       if (softStartTimeBuilder_ == null) {
-        if (softStartTime_ != null) {
-          softStartTime_ =
-            com.google.protobuf.Timestamp.newBuilder(softStartTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          softStartTime_ != null &&
+          softStartTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getSoftStartTimeBuilder().mergeFrom(value);
         } else {
           softStartTime_ = value;
         }
-        onChanged();
       } else {
         softStartTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1318,14 +1268,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp soft_start_time = 3;</code>
      */
     public Builder clearSoftStartTime() {
-      if (softStartTimeBuilder_ == null) {
-        softStartTime_ = null;
-        onChanged();
-      } else {
-        softStartTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      softStartTime_ = null;
+      if (softStartTimeBuilder_ != null) {
+        softStartTimeBuilder_.dispose();
         softStartTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1336,7 +1285,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp soft_start_time = 3;</code>
      */
     public com.google.protobuf.Timestamp.Builder getSoftStartTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getSoftStartTimeFieldBuilder().getBuilder();
     }
@@ -1388,7 +1337,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the softEndTime field is set.
      */
     public boolean hasSoftEndTime() {
-      return softEndTimeBuilder_ != null || softEndTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1418,11 +1367,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         softEndTime_ = value;
-        onChanged();
       } else {
         softEndTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1436,11 +1385,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (softEndTimeBuilder_ == null) {
         softEndTime_ = builderForValue.build();
-        onChanged();
       } else {
         softEndTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1452,17 +1401,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSoftEndTime(com.google.protobuf.Timestamp value) {
       if (softEndTimeBuilder_ == null) {
-        if (softEndTime_ != null) {
-          softEndTime_ =
-            com.google.protobuf.Timestamp.newBuilder(softEndTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          softEndTime_ != null &&
+          softEndTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getSoftEndTimeBuilder().mergeFrom(value);
         } else {
           softEndTime_ = value;
         }
-        onChanged();
       } else {
         softEndTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1473,14 +1423,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp soft_end_time = 4;</code>
      */
     public Builder clearSoftEndTime() {
-      if (softEndTimeBuilder_ == null) {
-        softEndTime_ = null;
-        onChanged();
-      } else {
-        softEndTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      softEndTime_ = null;
+      if (softEndTimeBuilder_ != null) {
+        softEndTimeBuilder_.dispose();
         softEndTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1491,7 +1440,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp soft_end_time = 4;</code>
      */
     public com.google.protobuf.Timestamp.Builder getSoftEndTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getSoftEndTimeFieldBuilder().getBuilder();
     }
@@ -1550,7 +1499,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasCostPerHourBeforeSoftStartTime() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1590,8 +1539,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCostPerHourBeforeSoftStartTime(double value) {
-      bitField0_ |= 0x00000001;
+      
       costPerHourBeforeSoftStartTime_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1612,7 +1562,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCostPerHourBeforeSoftStartTime() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       costPerHourBeforeSoftStartTime_ = 0D;
       onChanged();
       return this;
@@ -1637,7 +1587,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasCostPerHourAfterSoftEndTime() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1677,8 +1627,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCostPerHourAfterSoftEndTime(double value) {
-      bitField0_ |= 0x00000002;
+      
       costPerHourAfterSoftEndTime_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1699,7 +1650,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCostPerHourAfterSoftEndTime() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000020);
       costPerHourAfterSoftEndTime_ = 0D;
       onChanged();
       return this;
@@ -1737,7 +1688,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TimeWindow(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

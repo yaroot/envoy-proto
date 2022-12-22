@@ -38,70 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VideoTrueViewInStreamAdInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            actionButtonLabel_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            actionHeadline_ = s;
-            break;
-          }
-          case 58: {
-            com.google.ads.googleads.v10.common.AdImageAsset.Builder subBuilder = null;
-            if (companionBanner_ != null) {
-              subBuilder = companionBanner_.toBuilder();
-            }
-            companionBanner_ = input.readMessage(com.google.ads.googleads.v10.common.AdImageAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(companionBanner_);
-              companionBanner_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.common.AdTypeInfosProto.internal_static_google_ads_googleads_v10_common_VideoTrueViewInStreamAdInfo_descriptor;
@@ -116,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACTION_BUTTON_LABEL_FIELD_NUMBER = 4;
-  private volatile java.lang.Object actionButtonLabel_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object actionButtonLabel_ = "";
   /**
    * <pre>
    * Label on the CTA (call-to-action) button taking the user to the video ad's
@@ -166,7 +103,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACTION_HEADLINE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object actionHeadline_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object actionHeadline_ = "";
   /**
    * <pre>
    * Additional text displayed with the CTA (call-to-action) button to give
@@ -248,7 +186,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v10.common.AdImageAssetOrBuilder getCompanionBannerOrBuilder() {
-    return getCompanionBanner();
+    return companionBanner_ == null ? com.google.ads.googleads.v10.common.AdImageAsset.getDefaultInstance() : companionBanner_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -274,7 +212,7 @@ private static final long serialVersionUID = 0L;
     if (companionBanner_ != null) {
       output.writeMessage(7, getCompanionBanner());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -293,7 +231,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getCompanionBanner());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -317,7 +255,7 @@ private static final long serialVersionUID = 0L;
       if (!getCompanionBanner()
           .equals(other.getCompanionBanner())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -336,7 +274,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + COMPANION_BANNER_FIELD_NUMBER;
       hash = (53 * hash) + getCompanionBanner().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -459,30 +397,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.common.VideoTrueViewInStreamAdInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       actionButtonLabel_ = "";
-
       actionHeadline_ = "";
-
-      if (companionBannerBuilder_ == null) {
-        companionBanner_ = null;
-      } else {
-        companionBanner_ = null;
+      companionBanner_ = null;
+      if (companionBannerBuilder_ != null) {
+        companionBannerBuilder_.dispose();
         companionBannerBuilder_ = null;
       }
       return this;
@@ -511,15 +442,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.common.VideoTrueViewInStreamAdInfo buildPartial() {
       com.google.ads.googleads.v10.common.VideoTrueViewInStreamAdInfo result = new com.google.ads.googleads.v10.common.VideoTrueViewInStreamAdInfo(this);
-      result.actionButtonLabel_ = actionButtonLabel_;
-      result.actionHeadline_ = actionHeadline_;
-      if (companionBannerBuilder_ == null) {
-        result.companionBanner_ = companionBanner_;
-      } else {
-        result.companionBanner_ = companionBannerBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.common.VideoTrueViewInStreamAdInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.actionButtonLabel_ = actionButtonLabel_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.actionHeadline_ = actionHeadline_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.companionBanner_ = companionBannerBuilder_ == null
+            ? companionBanner_
+            : companionBannerBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -568,16 +508,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v10.common.VideoTrueViewInStreamAdInfo.getDefaultInstance()) return this;
       if (!other.getActionButtonLabel().isEmpty()) {
         actionButtonLabel_ = other.actionButtonLabel_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getActionHeadline().isEmpty()) {
         actionHeadline_ = other.actionHeadline_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasCompanionBanner()) {
         mergeCompanionBanner(other.getCompanionBanner());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -592,19 +534,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.common.VideoTrueViewInStreamAdInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 34: {
+              actionButtonLabel_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 34
+            case 42: {
+              actionHeadline_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            case 58: {
+              input.readMessage(
+                  getCompanionBannerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.common.VideoTrueViewInStreamAdInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object actionButtonLabel_ = "";
     /**
@@ -665,11 +638,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setActionButtonLabel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       actionButtonLabel_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -684,8 +655,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearActionButtonLabel() {
-      
       actionButtonLabel_ = getDefaultInstance().getActionButtonLabel();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -702,12 +673,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setActionButtonLabelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       actionButtonLabel_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -768,11 +737,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setActionHeadline(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       actionHeadline_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -786,8 +753,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearActionHeadline() {
-      
       actionHeadline_ = getDefaultInstance().getActionHeadline();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -803,12 +770,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setActionHeadlineBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       actionHeadline_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -825,7 +790,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the companionBanner field is set.
      */
     public boolean hasCompanionBanner() {
-      return companionBannerBuilder_ != null || companionBanner_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -855,11 +820,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         companionBanner_ = value;
-        onChanged();
       } else {
         companionBannerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -873,11 +838,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.common.AdImageAsset.Builder builderForValue) {
       if (companionBannerBuilder_ == null) {
         companionBanner_ = builderForValue.build();
-        onChanged();
       } else {
         companionBannerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -889,17 +854,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCompanionBanner(com.google.ads.googleads.v10.common.AdImageAsset value) {
       if (companionBannerBuilder_ == null) {
-        if (companionBanner_ != null) {
-          companionBanner_ =
-            com.google.ads.googleads.v10.common.AdImageAsset.newBuilder(companionBanner_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          companionBanner_ != null &&
+          companionBanner_ != com.google.ads.googleads.v10.common.AdImageAsset.getDefaultInstance()) {
+          getCompanionBannerBuilder().mergeFrom(value);
         } else {
           companionBanner_ = value;
         }
-        onChanged();
       } else {
         companionBannerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -910,14 +876,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.common.AdImageAsset companion_banner = 7;</code>
      */
     public Builder clearCompanionBanner() {
-      if (companionBannerBuilder_ == null) {
-        companionBanner_ = null;
-        onChanged();
-      } else {
-        companionBanner_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      companionBanner_ = null;
+      if (companionBannerBuilder_ != null) {
+        companionBannerBuilder_.dispose();
         companionBannerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -928,7 +893,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.common.AdImageAsset companion_banner = 7;</code>
      */
     public com.google.ads.googleads.v10.common.AdImageAsset.Builder getCompanionBannerBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCompanionBannerFieldBuilder().getBuilder();
     }
@@ -1000,7 +965,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VideoTrueViewInStreamAdInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

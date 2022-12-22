@@ -68,7 +68,6 @@ public interface BatchCreateNotesRequestOrBuilder extends
    *
    * <code>map&lt;string, .grafeas.v1beta1.Note&gt; notes = 2;</code>
    */
-
   /* nullable */
 io.grafeas.v1beta1.Note getNotesOrDefault(
       java.lang.String key,
@@ -81,7 +80,6 @@ io.grafeas.v1beta1.Note defaultValue);
    *
    * <code>map&lt;string, .grafeas.v1beta1.Note&gt; notes = 2;</code>
    */
-
   io.grafeas.v1beta1.Note getNotesOrThrow(
       java.lang.String key);
 }

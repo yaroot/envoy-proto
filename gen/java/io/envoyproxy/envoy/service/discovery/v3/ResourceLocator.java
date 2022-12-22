@@ -35,65 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ResourceLocator(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              dynamicParameters_ = com.google.protobuf.MapField.newMapField(
-                  DynamicParametersDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            dynamicParameters__ = input.readMessage(
-                DynamicParametersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            dynamicParameters_.getMutableMap().put(
-                dynamicParameters__.getKey(), dynamicParameters__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.service.discovery.v3.DiscoveryProto.internal_static_envoy_service_discovery_v3_ResourceLocator_descriptor;
@@ -120,7 +61,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The resource name to subscribe to.
@@ -177,6 +119,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> dynamicParameters_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -187,7 +130,6 @@ private static final long serialVersionUID = 0L;
     }
     return dynamicParameters_;
   }
-
   public int getDynamicParametersCount() {
     return internalGetDynamicParameters().getMap().size();
   }
@@ -200,7 +142,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; dynamic_parameters = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsDynamicParameters(
       java.lang.String key) {
@@ -225,7 +166,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; dynamic_parameters = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getDynamicParametersMap() {
     return internalGetDynamicParameters().getMap();
   }
@@ -239,10 +179,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; dynamic_parameters = 2;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getDynamicParametersOrDefault(
+  public /* nullable */
+java.lang.String getDynamicParametersOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetDynamicParameters().getMap();
@@ -258,7 +199,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; dynamic_parameters = 2;</code>
    */
   @java.lang.Override
-
   public java.lang.String getDynamicParametersOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -293,7 +233,7 @@ private static final long serialVersionUID = 0L;
         internalGetDynamicParameters(),
         DynamicParametersDefaultEntryHolder.defaultEntry,
         2);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -315,7 +255,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, dynamicParameters__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -334,7 +274,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName())) return false;
     if (!internalGetDynamicParameters().equals(
         other.internalGetDynamicParameters())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -351,7 +291,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DYNAMIC_PARAMETERS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetDynamicParameters().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -494,24 +434,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.service.discovery.v3.ResourceLocator.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       internalGetMutableDynamicParameters().clear();
       return this;
     }
@@ -539,12 +474,20 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.service.discovery.v3.ResourceLocator buildPartial() {
       io.envoyproxy.envoy.service.discovery.v3.ResourceLocator result = new io.envoyproxy.envoy.service.discovery.v3.ResourceLocator(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.dynamicParameters_ = internalGetDynamicParameters();
-      result.dynamicParameters_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.service.discovery.v3.ResourceLocator result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.dynamicParameters_ = internalGetDynamicParameters();
+        result.dynamicParameters_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -593,11 +536,13 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.service.discovery.v3.ResourceLocator.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       internalGetMutableDynamicParameters().mergeFrom(
           other.internalGetDynamicParameters());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000002;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -612,17 +557,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.service.discovery.v3.ResourceLocator parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              dynamicParameters__ = input.readMessage(
+                  DynamicParametersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableDynamicParameters().getMutableMap().put(
+                  dynamicParameters__.getKey(), dynamicParameters__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.service.discovery.v3.ResourceLocator) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -680,11 +652,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -697,8 +667,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -713,12 +683,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -726,7 +694,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> dynamicParameters_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetDynamicParameters() {
+        internalGetDynamicParameters() {
       if (dynamicParameters_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             DynamicParametersDefaultEntryHolder.defaultEntry);
@@ -734,8 +702,7 @@ private static final long serialVersionUID = 0L;
       return dynamicParameters_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableDynamicParameters() {
-      onChanged();;
+        internalGetMutableDynamicParameters() {
       if (dynamicParameters_ == null) {
         dynamicParameters_ = com.google.protobuf.MapField.newMapField(
             DynamicParametersDefaultEntryHolder.defaultEntry);
@@ -743,9 +710,10 @@ private static final long serialVersionUID = 0L;
       if (!dynamicParameters_.isMutable()) {
         dynamicParameters_ = dynamicParameters_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return dynamicParameters_;
     }
-
     public int getDynamicParametersCount() {
       return internalGetDynamicParameters().getMap().size();
     }
@@ -758,7 +726,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; dynamic_parameters = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsDynamicParameters(
         java.lang.String key) {
@@ -783,7 +750,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; dynamic_parameters = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getDynamicParametersMap() {
       return internalGetDynamicParameters().getMap();
     }
@@ -797,10 +763,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; dynamic_parameters = 2;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getDynamicParametersOrDefault(
+    public /* nullable */
+java.lang.String getDynamicParametersOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetDynamicParameters().getMap();
@@ -816,7 +783,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; dynamic_parameters = 2;</code>
      */
     @java.lang.Override
-
     public java.lang.String getDynamicParametersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -827,8 +793,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearDynamicParameters() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableDynamicParameters().getMutableMap()
           .clear();
       return this;
@@ -842,7 +808,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; dynamic_parameters = 2;</code>
      */
-
     public Builder removeDynamicParameters(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -855,7 +820,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableDynamicParameters() {
+        getMutableDynamicParameters() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableDynamicParameters().getMutableMap();
     }
     /**
@@ -871,12 +837,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableDynamicParameters().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -888,11 +852,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; dynamic_parameters = 2;</code>
      */
-
     public Builder putAllDynamicParameters(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableDynamicParameters().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
     @java.lang.Override
@@ -928,7 +892,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ResourceLocator(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -41,94 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Container(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            type_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            projectId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            fullPath_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            rootPath_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            relativePath_ = s;
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            version_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_Container_descriptor;
@@ -143,10 +55,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object type_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object type_ = "";
   /**
    * <pre>
-   * Container type, for example BigQuery or Google Cloud Storage.
+   * Container type, for example BigQuery or Cloud Storage.
    * </pre>
    *
    * <code>string type = 1;</code>
@@ -167,7 +80,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Container type, for example BigQuery or Google Cloud Storage.
+   * Container type, for example BigQuery or Cloud Storage.
    * </pre>
    *
    * <code>string type = 1;</code>
@@ -189,7 +102,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object projectId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object projectId_ = "";
   /**
    * <pre>
    * Project where the finding was found.
@@ -237,13 +151,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FULL_PATH_FIELD_NUMBER = 3;
-  private volatile java.lang.Object fullPath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object fullPath_ = "";
   /**
    * <pre>
    * A string representation of the full container name.
    * Examples:
    * - BigQuery: 'Project:DataSetId.TableId'
-   * - Google Cloud Storage: 'gs://Bucket/folders/filename.txt'
+   * - Cloud Storage: 'gs://Bucket/folders/filename.txt'
    * </pre>
    *
    * <code>string full_path = 3;</code>
@@ -267,7 +182,7 @@ private static final long serialVersionUID = 0L;
    * A string representation of the full container name.
    * Examples:
    * - BigQuery: 'Project:DataSetId.TableId'
-   * - Google Cloud Storage: 'gs://Bucket/folders/filename.txt'
+   * - Cloud Storage: 'gs://Bucket/folders/filename.txt'
    * </pre>
    *
    * <code>string full_path = 3;</code>
@@ -289,14 +204,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROOT_PATH_FIELD_NUMBER = 4;
-  private volatile java.lang.Object rootPath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object rootPath_ = "";
   /**
    * <pre>
    * The root of the container.
    * Examples:
    * - For BigQuery table `project_id:dataset_id.table_id`, the root is
    *  `dataset_id`
-   * - For Google Cloud Storage file `gs://bucket/folder/filename.txt`, the root
+   * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the root
    *  is `gs://bucket`
    * </pre>
    *
@@ -322,7 +238,7 @@ private static final long serialVersionUID = 0L;
    * Examples:
    * - For BigQuery table `project_id:dataset_id.table_id`, the root is
    *  `dataset_id`
-   * - For Google Cloud Storage file `gs://bucket/folder/filename.txt`, the root
+   * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the root
    *  is `gs://bucket`
    * </pre>
    *
@@ -345,14 +261,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RELATIVE_PATH_FIELD_NUMBER = 5;
-  private volatile java.lang.Object relativePath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object relativePath_ = "";
   /**
    * <pre>
    * The rest of the path after the root.
    * Examples:
    * - For BigQuery table `project_id:dataset_id.table_id`, the relative path is
    *  `table_id`
-   * - Google Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
+   * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
    *  path is `folder/filename.txt`
    * </pre>
    *
@@ -378,7 +295,7 @@ private static final long serialVersionUID = 0L;
    * Examples:
    * - For BigQuery table `project_id:dataset_id.table_id`, the relative path is
    *  `table_id`
-   * - Google Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
+   * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
    *  path is `folder/filename.txt`
    * </pre>
    *
@@ -404,10 +321,10 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp updateTime_;
   /**
    * <pre>
-   * Findings container modification timestamp, if applicable.
-   * For Google Cloud Storage contains last file modification timestamp.
-   * For BigQuery table contains last_modified_time property.
-   * For Datastore - not populated.
+   * Findings container modification timestamp, if applicable. For Cloud
+   * Storage, this field contains the last file modification timestamp. For a
+   * BigQuery table, this field contains the last_modified_time property. For
+   * Datastore, this field isn't populated.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp update_time = 6;</code>
@@ -419,10 +336,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Findings container modification timestamp, if applicable.
-   * For Google Cloud Storage contains last file modification timestamp.
-   * For BigQuery table contains last_modified_time property.
-   * For Datastore - not populated.
+   * Findings container modification timestamp, if applicable. For Cloud
+   * Storage, this field contains the last file modification timestamp. For a
+   * BigQuery table, this field contains the last_modified_time property. For
+   * Datastore, this field isn't populated.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp update_time = 6;</code>
@@ -434,25 +351,26 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Findings container modification timestamp, if applicable.
-   * For Google Cloud Storage contains last file modification timestamp.
-   * For BigQuery table contains last_modified_time property.
-   * For Datastore - not populated.
+   * Findings container modification timestamp, if applicable. For Cloud
+   * Storage, this field contains the last file modification timestamp. For a
+   * BigQuery table, this field contains the last_modified_time property. For
+   * Datastore, this field isn't populated.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp update_time = 6;</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int VERSION_FIELD_NUMBER = 7;
-  private volatile java.lang.Object version_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object version_ = "";
   /**
    * <pre>
    * Findings container version, if available
-   * ("generation" for Google Cloud Storage).
+   * ("generation" for Cloud Storage).
    * </pre>
    *
    * <code>string version = 7;</code>
@@ -474,7 +392,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Findings container version, if available
-   * ("generation" for Google Cloud Storage).
+   * ("generation" for Cloud Storage).
    * </pre>
    *
    * <code>string version = 7;</code>
@@ -530,7 +448,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, version_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -561,7 +479,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, version_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -593,7 +511,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getVersion()
         .equals(other.getVersion())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -620,7 +538,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getVersion().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -742,40 +660,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.Container.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       type_ = "";
-
       projectId_ = "";
-
       fullPath_ = "";
-
       rootPath_ = "";
-
       relativePath_ = "";
-
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       version_ = "";
-
       return this;
     }
 
@@ -802,19 +709,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.Container buildPartial() {
       com.google.privacy.dlp.v2.Container result = new com.google.privacy.dlp.v2.Container(this);
-      result.type_ = type_;
-      result.projectId_ = projectId_;
-      result.fullPath_ = fullPath_;
-      result.rootPath_ = rootPath_;
-      result.relativePath_ = relativePath_;
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.version_ = version_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.Container result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.projectId_ = projectId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.fullPath_ = fullPath_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.rootPath_ = rootPath_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.relativePath_ = relativePath_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.version_ = version_;
+      }
     }
 
     @java.lang.Override
@@ -863,22 +787,27 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.privacy.dlp.v2.Container.getDefaultInstance()) return this;
       if (!other.getType().isEmpty()) {
         type_ = other.type_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getProjectId().isEmpty()) {
         projectId_ = other.projectId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getFullPath().isEmpty()) {
         fullPath_ = other.fullPath_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getRootPath().isEmpty()) {
         rootPath_ = other.rootPath_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getRelativePath().isEmpty()) {
         relativePath_ = other.relativePath_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasUpdateTime()) {
@@ -886,9 +815,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getVersion().isEmpty()) {
         version_ = other.version_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -903,24 +833,75 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.Container parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              type_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              projectId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              fullPath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              rootPath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              relativePath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              version_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.Container) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object type_ = "";
     /**
      * <pre>
-     * Container type, for example BigQuery or Google Cloud Storage.
+     * Container type, for example BigQuery or Cloud Storage.
      * </pre>
      *
      * <code>string type = 1;</code>
@@ -940,7 +921,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Container type, for example BigQuery or Google Cloud Storage.
+     * Container type, for example BigQuery or Cloud Storage.
      * </pre>
      *
      * <code>string type = 1;</code>
@@ -961,7 +942,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Container type, for example BigQuery or Google Cloud Storage.
+     * Container type, for example BigQuery or Cloud Storage.
      * </pre>
      *
      * <code>string type = 1;</code>
@@ -970,31 +951,29 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       type_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Container type, for example BigQuery or Google Cloud Storage.
+     * Container type, for example BigQuery or Cloud Storage.
      * </pre>
      *
      * <code>string type = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
       type_ = getDefaultInstance().getType();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Container type, for example BigQuery or Google Cloud Storage.
+     * Container type, for example BigQuery or Cloud Storage.
      * </pre>
      *
      * <code>string type = 1;</code>
@@ -1003,12 +982,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       type_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1069,11 +1046,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       projectId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1087,8 +1062,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProjectId() {
-      
       projectId_ = getDefaultInstance().getProjectId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1104,12 +1079,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1120,7 +1093,7 @@ private static final long serialVersionUID = 0L;
      * A string representation of the full container name.
      * Examples:
      * - BigQuery: 'Project:DataSetId.TableId'
-     * - Google Cloud Storage: 'gs://Bucket/folders/filename.txt'
+     * - Cloud Storage: 'gs://Bucket/folders/filename.txt'
      * </pre>
      *
      * <code>string full_path = 3;</code>
@@ -1143,7 +1116,7 @@ private static final long serialVersionUID = 0L;
      * A string representation of the full container name.
      * Examples:
      * - BigQuery: 'Project:DataSetId.TableId'
-     * - Google Cloud Storage: 'gs://Bucket/folders/filename.txt'
+     * - Cloud Storage: 'gs://Bucket/folders/filename.txt'
      * </pre>
      *
      * <code>string full_path = 3;</code>
@@ -1167,7 +1140,7 @@ private static final long serialVersionUID = 0L;
      * A string representation of the full container name.
      * Examples:
      * - BigQuery: 'Project:DataSetId.TableId'
-     * - Google Cloud Storage: 'gs://Bucket/folders/filename.txt'
+     * - Cloud Storage: 'gs://Bucket/folders/filename.txt'
      * </pre>
      *
      * <code>string full_path = 3;</code>
@@ -1176,11 +1149,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFullPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       fullPath_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1189,15 +1160,15 @@ private static final long serialVersionUID = 0L;
      * A string representation of the full container name.
      * Examples:
      * - BigQuery: 'Project:DataSetId.TableId'
-     * - Google Cloud Storage: 'gs://Bucket/folders/filename.txt'
+     * - Cloud Storage: 'gs://Bucket/folders/filename.txt'
      * </pre>
      *
      * <code>string full_path = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearFullPath() {
-      
       fullPath_ = getDefaultInstance().getFullPath();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1206,7 +1177,7 @@ private static final long serialVersionUID = 0L;
      * A string representation of the full container name.
      * Examples:
      * - BigQuery: 'Project:DataSetId.TableId'
-     * - Google Cloud Storage: 'gs://Bucket/folders/filename.txt'
+     * - Cloud Storage: 'gs://Bucket/folders/filename.txt'
      * </pre>
      *
      * <code>string full_path = 3;</code>
@@ -1215,12 +1186,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFullPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       fullPath_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1232,7 +1201,7 @@ private static final long serialVersionUID = 0L;
      * Examples:
      * - For BigQuery table `project_id:dataset_id.table_id`, the root is
      *  `dataset_id`
-     * - For Google Cloud Storage file `gs://bucket/folder/filename.txt`, the root
+     * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the root
      *  is `gs://bucket`
      * </pre>
      *
@@ -1257,7 +1226,7 @@ private static final long serialVersionUID = 0L;
      * Examples:
      * - For BigQuery table `project_id:dataset_id.table_id`, the root is
      *  `dataset_id`
-     * - For Google Cloud Storage file `gs://bucket/folder/filename.txt`, the root
+     * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the root
      *  is `gs://bucket`
      * </pre>
      *
@@ -1283,7 +1252,7 @@ private static final long serialVersionUID = 0L;
      * Examples:
      * - For BigQuery table `project_id:dataset_id.table_id`, the root is
      *  `dataset_id`
-     * - For Google Cloud Storage file `gs://bucket/folder/filename.txt`, the root
+     * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the root
      *  is `gs://bucket`
      * </pre>
      *
@@ -1293,11 +1262,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRootPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       rootPath_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1307,7 +1274,7 @@ private static final long serialVersionUID = 0L;
      * Examples:
      * - For BigQuery table `project_id:dataset_id.table_id`, the root is
      *  `dataset_id`
-     * - For Google Cloud Storage file `gs://bucket/folder/filename.txt`, the root
+     * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the root
      *  is `gs://bucket`
      * </pre>
      *
@@ -1315,8 +1282,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRootPath() {
-      
       rootPath_ = getDefaultInstance().getRootPath();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1326,7 +1293,7 @@ private static final long serialVersionUID = 0L;
      * Examples:
      * - For BigQuery table `project_id:dataset_id.table_id`, the root is
      *  `dataset_id`
-     * - For Google Cloud Storage file `gs://bucket/folder/filename.txt`, the root
+     * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the root
      *  is `gs://bucket`
      * </pre>
      *
@@ -1336,12 +1303,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRootPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       rootPath_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1353,7 +1318,7 @@ private static final long serialVersionUID = 0L;
      * Examples:
      * - For BigQuery table `project_id:dataset_id.table_id`, the relative path is
      *  `table_id`
-     * - Google Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
+     * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
      *  path is `folder/filename.txt`
      * </pre>
      *
@@ -1378,7 +1343,7 @@ private static final long serialVersionUID = 0L;
      * Examples:
      * - For BigQuery table `project_id:dataset_id.table_id`, the relative path is
      *  `table_id`
-     * - Google Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
+     * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
      *  path is `folder/filename.txt`
      * </pre>
      *
@@ -1404,7 +1369,7 @@ private static final long serialVersionUID = 0L;
      * Examples:
      * - For BigQuery table `project_id:dataset_id.table_id`, the relative path is
      *  `table_id`
-     * - Google Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
+     * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
      *  path is `folder/filename.txt`
      * </pre>
      *
@@ -1414,11 +1379,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRelativePath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       relativePath_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1428,7 +1391,7 @@ private static final long serialVersionUID = 0L;
      * Examples:
      * - For BigQuery table `project_id:dataset_id.table_id`, the relative path is
      *  `table_id`
-     * - Google Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
+     * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
      *  path is `folder/filename.txt`
      * </pre>
      *
@@ -1436,8 +1399,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRelativePath() {
-      
       relativePath_ = getDefaultInstance().getRelativePath();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1447,7 +1410,7 @@ private static final long serialVersionUID = 0L;
      * Examples:
      * - For BigQuery table `project_id:dataset_id.table_id`, the relative path is
      *  `table_id`
-     * - Google Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
+     * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
      *  path is `folder/filename.txt`
      * </pre>
      *
@@ -1457,12 +1420,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRelativePathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       relativePath_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1472,24 +1433,24 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> updateTimeBuilder_;
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Findings container modification timestamp, if applicable. For Cloud
+     * Storage, this field contains the last file modification timestamp. For a
+     * BigQuery table, this field contains the last_modified_time property. For
+     * Datastore, this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp update_time = 6;</code>
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Findings container modification timestamp, if applicable. For Cloud
+     * Storage, this field contains the last file modification timestamp. For a
+     * BigQuery table, this field contains the last_modified_time property. For
+     * Datastore, this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp update_time = 6;</code>
@@ -1504,10 +1465,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Findings container modification timestamp, if applicable. For Cloud
+     * Storage, this field contains the last file modification timestamp. For a
+     * BigQuery table, this field contains the last_modified_time property. For
+     * Datastore, this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp update_time = 6;</code>
@@ -1518,19 +1479,19 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Findings container modification timestamp, if applicable. For Cloud
+     * Storage, this field contains the last file modification timestamp. For a
+     * BigQuery table, this field contains the last_modified_time property. For
+     * Datastore, this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp update_time = 6;</code>
@@ -1539,80 +1500,80 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Findings container modification timestamp, if applicable. For Cloud
+     * Storage, this field contains the last file modification timestamp. For a
+     * BigQuery table, this field contains the last_modified_time property. For
+     * Datastore, this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp update_time = 6;</code>
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Findings container modification timestamp, if applicable. For Cloud
+     * Storage, this field contains the last file modification timestamp. For a
+     * BigQuery table, this field contains the last_modified_time property. For
+     * Datastore, this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp update_time = 6;</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Findings container modification timestamp, if applicable. For Cloud
+     * Storage, this field contains the last file modification timestamp. For a
+     * BigQuery table, this field contains the last_modified_time property. For
+     * Datastore, this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp update_time = 6;</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Findings container modification timestamp, if applicable. For Cloud
+     * Storage, this field contains the last file modification timestamp. For a
+     * BigQuery table, this field contains the last_modified_time property. For
+     * Datastore, this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp update_time = 6;</code>
@@ -1627,10 +1588,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Findings container modification timestamp, if applicable. For Cloud
+     * Storage, this field contains the last file modification timestamp. For a
+     * BigQuery table, this field contains the last_modified_time property. For
+     * Datastore, this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp update_time = 6;</code>
@@ -1653,7 +1614,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Findings container version, if available
-     * ("generation" for Google Cloud Storage).
+     * ("generation" for Cloud Storage).
      * </pre>
      *
      * <code>string version = 7;</code>
@@ -1674,7 +1635,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Findings container version, if available
-     * ("generation" for Google Cloud Storage).
+     * ("generation" for Cloud Storage).
      * </pre>
      *
      * <code>string version = 7;</code>
@@ -1696,7 +1657,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Findings container version, if available
-     * ("generation" for Google Cloud Storage).
+     * ("generation" for Cloud Storage).
      * </pre>
      *
      * <code>string version = 7;</code>
@@ -1705,33 +1666,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       version_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Findings container version, if available
-     * ("generation" for Google Cloud Storage).
+     * ("generation" for Cloud Storage).
      * </pre>
      *
      * <code>string version = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearVersion() {
-      
       version_ = getDefaultInstance().getVersion();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Findings container version, if available
-     * ("generation" for Google Cloud Storage).
+     * ("generation" for Cloud Storage).
      * </pre>
      *
      * <code>string version = 7;</code>
@@ -1740,12 +1699,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       version_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1782,7 +1739,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Container(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

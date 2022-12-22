@@ -36,77 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LineItemInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              parameters_ = new java.util.ArrayList<com.google.cloud.commerce.consumer.procurement.v1alpha1.Parameter>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            parameters_.add(
-                input.readMessage(com.google.cloud.commerce.consumer.procurement.v1alpha1.Parameter.parser(), extensionRegistry));
-            break;
-          }
-          case 82: {
-            com.google.cloud.commerce.consumer.procurement.v1alpha1.Subscription.Builder subBuilder = null;
-            if (subscription_ != null) {
-              subBuilder = subscription_.toBuilder();
-            }
-            subscription_ = input.readMessage(com.google.cloud.commerce.consumer.procurement.v1alpha1.Subscription.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(subscription_);
-              subscription_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            offer_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        parameters_ = java.util.Collections.unmodifiableList(parameters_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.commerce.consumer.procurement.v1alpha1.OrderOuterClass.internal_static_google_cloud_commerce_consumer_procurement_v1alpha1_LineItemInfo_descriptor;
@@ -121,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OFFER_FIELD_NUMBER = 13;
-  private volatile java.lang.Object offer_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object offer_ = "";
   /**
    * <pre>
    * Optional. The name of the offer can have either of these formats:
@@ -171,6 +101,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARAMETERS_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.commerce.consumer.procurement.v1alpha1.Parameter> parameters_;
   /**
    * <pre>
@@ -265,7 +196,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.commerce.consumer.procurement.v1alpha1.SubscriptionOrBuilder getSubscriptionOrBuilder() {
-    return getSubscription();
+    return subscription_ == null ? com.google.cloud.commerce.consumer.procurement.v1alpha1.Subscription.getDefaultInstance() : subscription_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -291,7 +222,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(offer_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 13, offer_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -311,7 +242,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(offer_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, offer_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -335,7 +266,7 @@ private static final long serialVersionUID = 0L;
       if (!getSubscription()
           .equals(other.getSubscription())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -356,7 +287,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SUBSCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getSubscription().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -477,35 +408,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.commerce.consumer.procurement.v1alpha1.LineItemInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getParametersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       offer_ = "";
-
       if (parametersBuilder_ == null) {
         parameters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        parameters_ = null;
         parametersBuilder_.clear();
       }
-      if (subscriptionBuilder_ == null) {
-        subscription_ = null;
-      } else {
-        subscription_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      subscription_ = null;
+      if (subscriptionBuilder_ != null) {
+        subscriptionBuilder_.dispose();
         subscriptionBuilder_ = null;
       }
       return this;
@@ -534,24 +459,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.commerce.consumer.procurement.v1alpha1.LineItemInfo buildPartial() {
       com.google.cloud.commerce.consumer.procurement.v1alpha1.LineItemInfo result = new com.google.cloud.commerce.consumer.procurement.v1alpha1.LineItemInfo(this);
-      int from_bitField0_ = bitField0_;
-      result.offer_ = offer_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.commerce.consumer.procurement.v1alpha1.LineItemInfo result) {
       if (parametersBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           parameters_ = java.util.Collections.unmodifiableList(parameters_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.parameters_ = parameters_;
       } else {
         result.parameters_ = parametersBuilder_.build();
       }
-      if (subscriptionBuilder_ == null) {
-        result.subscription_ = subscription_;
-      } else {
-        result.subscription_ = subscriptionBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.commerce.consumer.procurement.v1alpha1.LineItemInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.offer_ = offer_;
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.subscription_ = subscriptionBuilder_ == null
+            ? subscription_
+            : subscriptionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -600,13 +535,14 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.commerce.consumer.procurement.v1alpha1.LineItemInfo.getDefaultInstance()) return this;
       if (!other.getOffer().isEmpty()) {
         offer_ = other.offer_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (parametersBuilder_ == null) {
         if (!other.parameters_.isEmpty()) {
           if (parameters_.isEmpty()) {
             parameters_ = other.parameters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureParametersIsMutable();
             parameters_.addAll(other.parameters_);
@@ -619,7 +555,7 @@ private static final long serialVersionUID = 0L;
             parametersBuilder_.dispose();
             parametersBuilder_ = null;
             parameters_ = other.parameters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             parametersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getParametersFieldBuilder() : null;
@@ -631,7 +567,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSubscription()) {
         mergeSubscription(other.getSubscription());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -646,17 +582,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.commerce.consumer.procurement.v1alpha1.LineItemInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 74: {
+              com.google.cloud.commerce.consumer.procurement.v1alpha1.Parameter m =
+                  input.readMessage(
+                      com.google.cloud.commerce.consumer.procurement.v1alpha1.Parameter.parser(),
+                      extensionRegistry);
+              if (parametersBuilder_ == null) {
+                ensureParametersIsMutable();
+                parameters_.add(m);
+              } else {
+                parametersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getSubscriptionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 82
+            case 106: {
+              offer_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 106
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.commerce.consumer.procurement.v1alpha1.LineItemInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -720,11 +694,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOffer(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       offer_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -739,8 +711,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOffer() {
-      
       offer_ = getDefaultInstance().getOffer();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -757,12 +729,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOfferBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       offer_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -770,9 +740,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.commerce.consumer.procurement.v1alpha1.Parameter> parameters_ =
       java.util.Collections.emptyList();
     private void ensureParametersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         parameters_ = new java.util.ArrayList<com.google.cloud.commerce.consumer.procurement.v1alpha1.Parameter>(parameters_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -966,7 +936,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearParameters() {
       if (parametersBuilder_ == null) {
         parameters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         parametersBuilder_.clear();
@@ -1071,7 +1041,7 @@ private static final long serialVersionUID = 0L;
         parametersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.commerce.consumer.procurement.v1alpha1.Parameter, com.google.cloud.commerce.consumer.procurement.v1alpha1.Parameter.Builder, com.google.cloud.commerce.consumer.procurement.v1alpha1.ParameterOrBuilder>(
                 parameters_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         parameters_ = null;
@@ -1091,7 +1061,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the subscription field is set.
      */
     public boolean hasSubscription() {
-      return subscriptionBuilder_ != null || subscription_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1121,11 +1091,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         subscription_ = value;
-        onChanged();
       } else {
         subscriptionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1139,11 +1109,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.commerce.consumer.procurement.v1alpha1.Subscription.Builder builderForValue) {
       if (subscriptionBuilder_ == null) {
         subscription_ = builderForValue.build();
-        onChanged();
       } else {
         subscriptionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1155,17 +1125,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSubscription(com.google.cloud.commerce.consumer.procurement.v1alpha1.Subscription value) {
       if (subscriptionBuilder_ == null) {
-        if (subscription_ != null) {
-          subscription_ =
-            com.google.cloud.commerce.consumer.procurement.v1alpha1.Subscription.newBuilder(subscription_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          subscription_ != null &&
+          subscription_ != com.google.cloud.commerce.consumer.procurement.v1alpha1.Subscription.getDefaultInstance()) {
+          getSubscriptionBuilder().mergeFrom(value);
         } else {
           subscription_ = value;
         }
-        onChanged();
       } else {
         subscriptionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1176,14 +1147,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.commerce.consumer.procurement.v1alpha1.Subscription subscription = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearSubscription() {
-      if (subscriptionBuilder_ == null) {
-        subscription_ = null;
-        onChanged();
-      } else {
-        subscription_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      subscription_ = null;
+      if (subscriptionBuilder_ != null) {
+        subscriptionBuilder_.dispose();
         subscriptionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1194,7 +1164,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.commerce.consumer.procurement.v1alpha1.Subscription subscription = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.commerce.consumer.procurement.v1alpha1.Subscription.Builder getSubscriptionBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getSubscriptionFieldBuilder().getBuilder();
     }
@@ -1266,7 +1236,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LineItemInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

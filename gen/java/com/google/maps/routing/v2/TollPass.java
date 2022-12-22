@@ -182,6 +182,41 @@ public enum TollPass
   /**
    * <pre>
    * Mexico toll pass.
+   * https://iave.capufe.gob.mx/#/
+   * </pre>
+   *
+   * <code>MX_IAVE = 90;</code>
+   */
+  MX_IAVE(90),
+  /**
+   * <pre>
+   * Mexico
+   * https://www.pase.com.mx
+   * </pre>
+   *
+   * <code>MX_PASE = 91;</code>
+   */
+  MX_PASE(91),
+  /**
+   * <pre>
+   * Mexico
+   *  https://operadoravial.com/quick-pass/
+   * </pre>
+   *
+   * <code>MX_QUICKPASS = 93;</code>
+   */
+  MX_QUICKPASS(93),
+  /**
+   * <pre>
+   * http://appsh.chihuahua.gob.mx/transparencia/?doc=/ingresos/TelepeajeFormato4.pdf
+   * </pre>
+   *
+   * <code>MX_SISTEMA_TELEPEAJE_CHIHUAHUA = 89;</code>
+   */
+  MX_SISTEMA_TELEPEAJE_CHIHUAHUA(89),
+  /**
+   * <pre>
+   * Mexico
    * </pre>
    *
    * <code>MX_TAG_IAVE = 12;</code>
@@ -196,6 +231,15 @@ public enum TollPass
    * <code>MX_TAG_TELEVIA = 13;</code>
    */
   MX_TAG_TELEVIA(13),
+  /**
+   * <pre>
+   * Mexico toll pass company. One of many operating in Mexico City.
+   * https://www.televia.com.mx
+   * </pre>
+   *
+   * <code>MX_TELEVIA = 92;</code>
+   */
+  MX_TELEVIA(92),
   /**
    * <pre>
    * Mexico toll pass. See additional details at
@@ -892,6 +936,41 @@ public enum TollPass
   /**
    * <pre>
    * Mexico toll pass.
+   * https://iave.capufe.gob.mx/#/
+   * </pre>
+   *
+   * <code>MX_IAVE = 90;</code>
+   */
+  public static final int MX_IAVE_VALUE = 90;
+  /**
+   * <pre>
+   * Mexico
+   * https://www.pase.com.mx
+   * </pre>
+   *
+   * <code>MX_PASE = 91;</code>
+   */
+  public static final int MX_PASE_VALUE = 91;
+  /**
+   * <pre>
+   * Mexico
+   *  https://operadoravial.com/quick-pass/
+   * </pre>
+   *
+   * <code>MX_QUICKPASS = 93;</code>
+   */
+  public static final int MX_QUICKPASS_VALUE = 93;
+  /**
+   * <pre>
+   * http://appsh.chihuahua.gob.mx/transparencia/?doc=/ingresos/TelepeajeFormato4.pdf
+   * </pre>
+   *
+   * <code>MX_SISTEMA_TELEPEAJE_CHIHUAHUA = 89;</code>
+   */
+  public static final int MX_SISTEMA_TELEPEAJE_CHIHUAHUA_VALUE = 89;
+  /**
+   * <pre>
+   * Mexico
    * </pre>
    *
    * <code>MX_TAG_IAVE = 12;</code>
@@ -906,6 +985,15 @@ public enum TollPass
    * <code>MX_TAG_TELEVIA = 13;</code>
    */
   public static final int MX_TAG_TELEVIA_VALUE = 13;
+  /**
+   * <pre>
+   * Mexico toll pass company. One of many operating in Mexico City.
+   * https://www.televia.com.mx
+   * </pre>
+   *
+   * <code>MX_TELEVIA = 92;</code>
+   */
+  public static final int MX_TELEVIA_VALUE = 92;
   /**
    * <pre>
    * Mexico toll pass. See additional details at
@@ -1475,8 +1563,13 @@ public enum TollPass
       case 16: return ID_E_TOLL;
       case 78: return IN_FASTAG;
       case 79: return IN_LOCAL_HP_PLATE_EXEMPT;
+      case 90: return MX_IAVE;
+      case 91: return MX_PASE;
+      case 93: return MX_QUICKPASS;
+      case 89: return MX_SISTEMA_TELEPEAJE_CHIHUAHUA;
       case 12: return MX_TAG_IAVE;
       case 13: return MX_TAG_TELEVIA;
+      case 92: return MX_TELEVIA;
       case 14: return MX_VIAPASS;
       case 21: return US_AL_FREEDOM_PASS;
       case 22: return US_AK_ANTON_ANDERSON_TUNNEL_BOOK_OF_10_TICKETS;

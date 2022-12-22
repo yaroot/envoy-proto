@@ -41,137 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InspectConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              infoTypes_ = new java.util.ArrayList<com.google.privacy.dlp.v2.InfoType>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            infoTypes_.add(
-                input.readMessage(com.google.privacy.dlp.v2.InfoType.parser(), extensionRegistry));
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            minLikelihood_ = rawValue;
-            break;
-          }
-          case 26: {
-            com.google.privacy.dlp.v2.InspectConfig.FindingLimits.Builder subBuilder = null;
-            if (limits_ != null) {
-              subBuilder = limits_.toBuilder();
-            }
-            limits_ = input.readMessage(com.google.privacy.dlp.v2.InspectConfig.FindingLimits.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(limits_);
-              limits_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-
-            includeQuote_ = input.readBool();
-            break;
-          }
-          case 40: {
-
-            excludeInfoTypes_ = input.readBool();
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              customInfoTypes_ = new java.util.ArrayList<com.google.privacy.dlp.v2.CustomInfoType>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            customInfoTypes_.add(
-                input.readMessage(com.google.privacy.dlp.v2.CustomInfoType.parser(), extensionRegistry));
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              contentOptions_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            contentOptions_.add(rawValue);
-            break;
-          }
-          case 66: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                contentOptions_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              contentOptions_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              ruleSet_ = new java.util.ArrayList<com.google.privacy.dlp.v2.InspectionRuleSet>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            ruleSet_.add(
-                input.readMessage(com.google.privacy.dlp.v2.InspectionRuleSet.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        infoTypes_ = java.util.Collections.unmodifiableList(infoTypes_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        customInfoTypes_ = java.util.Collections.unmodifiableList(customInfoTypes_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        contentOptions_ = java.util.Collections.unmodifiableList(contentOptions_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        ruleSet_ = java.util.Collections.unmodifiableList(ruleSet_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_InspectConfig_descriptor;
@@ -262,6 +131,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Configuration to control the number of findings returned for inspection.
    * This is not used for de-identification or data profiling.
+   * When redacting sensitive data from images, finding limits don't apply. They
+   * can cause unexpected or inconsistent results, where only some data is
+   * redacted. Don't include finding limits in
+   * [RedactImage][google.privacy.dlp.v2.DlpService.RedactImage]
+   * requests. Otherwise, Cloud DLP returns an error.
    * </pre>
    *
    * Protobuf type {@code google.privacy.dlp.v2.InspectConfig.FindingLimits}
@@ -290,68 +164,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private FindingLimits(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              maxFindingsPerItem_ = input.readInt32();
-              break;
-            }
-            case 16: {
-
-              maxFindingsPerRequest_ = input.readInt32();
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                maxFindingsPerInfoType_ = new java.util.ArrayList<com.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimit>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              maxFindingsPerInfoType_.add(
-                  input.readMessage(com.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimit.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          maxFindingsPerInfoType_ = java.util.Collections.unmodifiableList(maxFindingsPerInfoType_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -448,63 +260,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private InfoTypeLimit(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                com.google.privacy.dlp.v2.InfoType.Builder subBuilder = null;
-                if (infoType_ != null) {
-                  subBuilder = infoType_.toBuilder();
-                }
-                infoType_ = input.readMessage(com.google.privacy.dlp.v2.InfoType.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(infoType_);
-                  infoType_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              case 16: {
-
-                maxFindings_ = input.readInt32();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_InspectConfig_FindingLimits_InfoTypeLimit_descriptor;
@@ -562,11 +317,11 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.privacy.dlp.v2.InfoTypeOrBuilder getInfoTypeOrBuilder() {
-        return getInfoType();
+        return infoType_ == null ? com.google.privacy.dlp.v2.InfoType.getDefaultInstance() : infoType_;
       }
 
       public static final int MAX_FINDINGS_FIELD_NUMBER = 2;
-      private int maxFindings_;
+      private int maxFindings_ = 0;
       /**
        * <pre>
        * Max findings limit for the given infoType.
@@ -600,7 +355,7 @@ private static final long serialVersionUID = 0L;
         if (maxFindings_ != 0) {
           output.writeInt32(2, maxFindings_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -617,7 +372,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(2, maxFindings_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -639,7 +394,7 @@ private static final long serialVersionUID = 0L;
         }
         if (getMaxFindings()
             != other.getMaxFindings()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -656,7 +411,7 @@ private static final long serialVersionUID = 0L;
         }
         hash = (37 * hash) + MAX_FINDINGS_FIELD_NUMBER;
         hash = (53 * hash) + getMaxFindings();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -778,30 +533,24 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimit.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
-          if (infoTypeBuilder_ == null) {
-            infoType_ = null;
-          } else {
-            infoType_ = null;
+          bitField0_ = 0;
+          infoType_ = null;
+          if (infoTypeBuilder_ != null) {
+            infoTypeBuilder_.dispose();
             infoTypeBuilder_ = null;
           }
           maxFindings_ = 0;
-
           return this;
         }
 
@@ -828,14 +577,21 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimit buildPartial() {
           com.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimit result = new com.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimit(this);
-          if (infoTypeBuilder_ == null) {
-            result.infoType_ = infoType_;
-          } else {
-            result.infoType_ = infoTypeBuilder_.build();
-          }
-          result.maxFindings_ = maxFindings_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimit result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.infoType_ = infoTypeBuilder_ == null
+                ? infoType_
+                : infoTypeBuilder_.build();
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.maxFindings_ = maxFindings_;
+          }
         }
 
         @java.lang.Override
@@ -888,7 +644,7 @@ private static final long serialVersionUID = 0L;
           if (other.getMaxFindings() != 0) {
             setMaxFindings(other.getMaxFindings());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -903,19 +659,45 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimit parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  input.readMessage(
+                      getInfoTypeFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 16: {
+                  maxFindings_ = input.readInt32();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimit) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private com.google.privacy.dlp.v2.InfoType infoType_;
         private com.google.protobuf.SingleFieldBuilderV3<
@@ -932,7 +714,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the infoType field is set.
          */
         public boolean hasInfoType() {
-          return infoTypeBuilder_ != null || infoType_ != null;
+          return ((bitField0_ & 0x00000001) != 0);
         }
         /**
          * <pre>
@@ -968,11 +750,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             infoType_ = value;
-            onChanged();
           } else {
             infoTypeBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -989,11 +771,11 @@ private static final long serialVersionUID = 0L;
             com.google.privacy.dlp.v2.InfoType.Builder builderForValue) {
           if (infoTypeBuilder_ == null) {
             infoType_ = builderForValue.build();
-            onChanged();
           } else {
             infoTypeBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -1008,17 +790,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeInfoType(com.google.privacy.dlp.v2.InfoType value) {
           if (infoTypeBuilder_ == null) {
-            if (infoType_ != null) {
-              infoType_ =
-                com.google.privacy.dlp.v2.InfoType.newBuilder(infoType_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000001) != 0) &&
+              infoType_ != null &&
+              infoType_ != com.google.privacy.dlp.v2.InfoType.getDefaultInstance()) {
+              getInfoTypeBuilder().mergeFrom(value);
             } else {
               infoType_ = value;
             }
-            onChanged();
           } else {
             infoTypeBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -1032,14 +815,13 @@ private static final long serialVersionUID = 0L;
          * <code>.google.privacy.dlp.v2.InfoType info_type = 1;</code>
          */
         public Builder clearInfoType() {
-          if (infoTypeBuilder_ == null) {
-            infoType_ = null;
-            onChanged();
-          } else {
-            infoType_ = null;
+          bitField0_ = (bitField0_ & ~0x00000001);
+          infoType_ = null;
+          if (infoTypeBuilder_ != null) {
+            infoTypeBuilder_.dispose();
             infoTypeBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -1053,7 +835,7 @@ private static final long serialVersionUID = 0L;
          * <code>.google.privacy.dlp.v2.InfoType info_type = 1;</code>
          */
         public com.google.privacy.dlp.v2.InfoType.Builder getInfoTypeBuilder() {
-          
+          bitField0_ |= 0x00000001;
           onChanged();
           return getInfoTypeFieldBuilder().getBuilder();
         }
@@ -1124,6 +906,7 @@ private static final long serialVersionUID = 0L;
         public Builder setMaxFindings(int value) {
           
           maxFindings_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -1136,7 +919,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearMaxFindings() {
-          
+          bitField0_ = (bitField0_ & ~0x00000002);
           maxFindings_ = 0;
           onChanged();
           return this;
@@ -1174,7 +957,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new InfoTypeLimit(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -1195,7 +989,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MAX_FINDINGS_PER_ITEM_FIELD_NUMBER = 1;
-    private int maxFindingsPerItem_;
+    private int maxFindingsPerItem_ = 0;
     /**
      * <pre>
      * Max number of findings that will be returned for each item scanned.
@@ -1213,7 +1007,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MAX_FINDINGS_PER_REQUEST_FIELD_NUMBER = 2;
-    private int maxFindingsPerRequest_;
+    private int maxFindingsPerRequest_ = 0;
     /**
      * <pre>
      * Max number of findings that will be returned per request/job.
@@ -1230,6 +1024,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MAX_FINDINGS_PER_INFO_TYPE_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimit> maxFindingsPerInfoType_;
     /**
      * <pre>
@@ -1312,7 +1107,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < maxFindingsPerInfoType_.size(); i++) {
         output.writeMessage(3, maxFindingsPerInfoType_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1333,7 +1128,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, maxFindingsPerInfoType_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1354,7 +1149,7 @@ private static final long serialVersionUID = 0L;
           != other.getMaxFindingsPerRequest()) return false;
       if (!getMaxFindingsPerInfoTypeList()
           .equals(other.getMaxFindingsPerInfoTypeList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1373,7 +1168,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + MAX_FINDINGS_PER_INFO_TYPE_FIELD_NUMBER;
         hash = (53 * hash) + getMaxFindingsPerInfoTypeList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1472,6 +1267,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Configuration to control the number of findings returned for inspection.
      * This is not used for de-identification or data profiling.
+     * When redacting sensitive data from images, finding limits don't apply. They
+     * can cause unexpected or inconsistent results, where only some data is
+     * redacted. Don't include finding limits in
+     * [RedactImage][google.privacy.dlp.v2.DlpService.RedactImage]
+     * requests. Otherwise, Cloud DLP returns an error.
      * </pre>
      *
      * Protobuf type {@code google.privacy.dlp.v2.InspectConfig.FindingLimits}
@@ -1495,33 +1295,27 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.privacy.dlp.v2.InspectConfig.FindingLimits.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getMaxFindingsPerInfoTypeFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         maxFindingsPerItem_ = 0;
-
         maxFindingsPerRequest_ = 0;
-
         if (maxFindingsPerInfoTypeBuilder_ == null) {
           maxFindingsPerInfoType_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          maxFindingsPerInfoType_ = null;
           maxFindingsPerInfoTypeBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -1548,20 +1342,32 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.privacy.dlp.v2.InspectConfig.FindingLimits buildPartial() {
         com.google.privacy.dlp.v2.InspectConfig.FindingLimits result = new com.google.privacy.dlp.v2.InspectConfig.FindingLimits(this);
-        int from_bitField0_ = bitField0_;
-        result.maxFindingsPerItem_ = maxFindingsPerItem_;
-        result.maxFindingsPerRequest_ = maxFindingsPerRequest_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.privacy.dlp.v2.InspectConfig.FindingLimits result) {
         if (maxFindingsPerInfoTypeBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000004) != 0)) {
             maxFindingsPerInfoType_ = java.util.Collections.unmodifiableList(maxFindingsPerInfoType_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.maxFindingsPerInfoType_ = maxFindingsPerInfoType_;
         } else {
           result.maxFindingsPerInfoType_ = maxFindingsPerInfoTypeBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.privacy.dlp.v2.InspectConfig.FindingLimits result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.maxFindingsPerItem_ = maxFindingsPerItem_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.maxFindingsPerRequest_ = maxFindingsPerRequest_;
+        }
       }
 
       @java.lang.Override
@@ -1618,7 +1424,7 @@ private static final long serialVersionUID = 0L;
           if (!other.maxFindingsPerInfoType_.isEmpty()) {
             if (maxFindingsPerInfoType_.isEmpty()) {
               maxFindingsPerInfoType_ = other.maxFindingsPerInfoType_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureMaxFindingsPerInfoTypeIsMutable();
               maxFindingsPerInfoType_.addAll(other.maxFindingsPerInfoType_);
@@ -1631,7 +1437,7 @@ private static final long serialVersionUID = 0L;
               maxFindingsPerInfoTypeBuilder_.dispose();
               maxFindingsPerInfoTypeBuilder_ = null;
               maxFindingsPerInfoType_ = other.maxFindingsPerInfoType_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
               maxFindingsPerInfoTypeBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getMaxFindingsPerInfoTypeFieldBuilder() : null;
@@ -1640,7 +1446,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1655,17 +1461,53 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.privacy.dlp.v2.InspectConfig.FindingLimits parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                maxFindingsPerItem_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                maxFindingsPerRequest_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                com.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimit m =
+                    input.readMessage(
+                        com.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimit.parser(),
+                        extensionRegistry);
+                if (maxFindingsPerInfoTypeBuilder_ == null) {
+                  ensureMaxFindingsPerInfoTypeIsMutable();
+                  maxFindingsPerInfoType_.add(m);
+                } else {
+                  maxFindingsPerInfoTypeBuilder_.addMessage(m);
+                }
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.privacy.dlp.v2.InspectConfig.FindingLimits) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1701,6 +1543,7 @@ private static final long serialVersionUID = 0L;
       public Builder setMaxFindingsPerItem(int value) {
         
         maxFindingsPerItem_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1716,7 +1559,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMaxFindingsPerItem() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         maxFindingsPerItem_ = 0;
         onChanged();
         return this;
@@ -1751,6 +1594,7 @@ private static final long serialVersionUID = 0L;
       public Builder setMaxFindingsPerRequest(int value) {
         
         maxFindingsPerRequest_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1765,7 +1609,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMaxFindingsPerRequest() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         maxFindingsPerRequest_ = 0;
         onChanged();
         return this;
@@ -1774,9 +1618,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<com.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimit> maxFindingsPerInfoType_ =
         java.util.Collections.emptyList();
       private void ensureMaxFindingsPerInfoTypeIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           maxFindingsPerInfoType_ = new java.util.ArrayList<com.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimit>(maxFindingsPerInfoType_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000004;
          }
       }
 
@@ -1970,7 +1814,7 @@ private static final long serialVersionUID = 0L;
       public Builder clearMaxFindingsPerInfoType() {
         if (maxFindingsPerInfoTypeBuilder_ == null) {
           maxFindingsPerInfoType_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           maxFindingsPerInfoTypeBuilder_.clear();
@@ -2075,7 +1919,7 @@ private static final long serialVersionUID = 0L;
           maxFindingsPerInfoTypeBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimit, com.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimit.Builder, com.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimitOrBuilder>(
                   maxFindingsPerInfoType_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
           maxFindingsPerInfoType_ = null;
@@ -2115,7 +1959,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FindingLimits(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2136,6 +1991,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INFO_TYPES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.privacy.dlp.v2.InfoType> infoTypes_;
   /**
    * <pre>
@@ -2236,7 +2092,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_LIKELIHOOD_FIELD_NUMBER = 2;
-  private int minLikelihood_;
+  private int minLikelihood_ = 0;
   /**
    * <pre>
    * Only returns findings equal or above this threshold. The default is
@@ -2261,8 +2117,7 @@ private static final long serialVersionUID = 0L;
    * @return The minLikelihood.
    */
   @java.lang.Override public com.google.privacy.dlp.v2.Likelihood getMinLikelihood() {
-    @SuppressWarnings("deprecation")
-    com.google.privacy.dlp.v2.Likelihood result = com.google.privacy.dlp.v2.Likelihood.valueOf(minLikelihood_);
+    com.google.privacy.dlp.v2.Likelihood result = com.google.privacy.dlp.v2.Likelihood.forNumber(minLikelihood_);
     return result == null ? com.google.privacy.dlp.v2.Likelihood.UNRECOGNIZED : result;
   }
 
@@ -2272,6 +2127,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Configuration to control the number of findings returned.
    * This is not used for data profiling.
+   * When redacting sensitive data from images, finding limits don't apply. They
+   * can cause unexpected or inconsistent results, where only some data is
+   * redacted. Don't include finding limits in
+   * [RedactImage][google.privacy.dlp.v2.DlpService.RedactImage]
+   * requests. Otherwise, Cloud DLP returns an error.
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.InspectConfig.FindingLimits limits = 3;</code>
@@ -2285,6 +2145,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Configuration to control the number of findings returned.
    * This is not used for data profiling.
+   * When redacting sensitive data from images, finding limits don't apply. They
+   * can cause unexpected or inconsistent results, where only some data is
+   * redacted. Don't include finding limits in
+   * [RedactImage][google.privacy.dlp.v2.DlpService.RedactImage]
+   * requests. Otherwise, Cloud DLP returns an error.
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.InspectConfig.FindingLimits limits = 3;</code>
@@ -2298,17 +2163,22 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Configuration to control the number of findings returned.
    * This is not used for data profiling.
+   * When redacting sensitive data from images, finding limits don't apply. They
+   * can cause unexpected or inconsistent results, where only some data is
+   * redacted. Don't include finding limits in
+   * [RedactImage][google.privacy.dlp.v2.DlpService.RedactImage]
+   * requests. Otherwise, Cloud DLP returns an error.
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.InspectConfig.FindingLimits limits = 3;</code>
    */
   @java.lang.Override
   public com.google.privacy.dlp.v2.InspectConfig.FindingLimitsOrBuilder getLimitsOrBuilder() {
-    return getLimits();
+    return limits_ == null ? com.google.privacy.dlp.v2.InspectConfig.FindingLimits.getDefaultInstance() : limits_;
   }
 
   public static final int INCLUDE_QUOTE_FIELD_NUMBER = 4;
-  private boolean includeQuote_;
+  private boolean includeQuote_ = false;
   /**
    * <pre>
    * When true, a contextual quote from the data that triggered a finding is
@@ -2325,7 +2195,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXCLUDE_INFO_TYPES_FIELD_NUMBER = 5;
-  private boolean excludeInfoTypes_;
+  private boolean excludeInfoTypes_ = false;
   /**
    * <pre>
    * When true, excludes type information of the findings.
@@ -2341,6 +2211,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOM_INFO_TYPES_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.privacy.dlp.v2.CustomInfoType> customInfoTypes_;
   /**
    * <pre>
@@ -2406,14 +2277,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTENT_OPTIONS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> contentOptions_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.privacy.dlp.v2.ContentOption> contentOptions_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.privacy.dlp.v2.ContentOption>() {
             public com.google.privacy.dlp.v2.ContentOption convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.privacy.dlp.v2.ContentOption result = com.google.privacy.dlp.v2.ContentOption.valueOf(from);
+              com.google.privacy.dlp.v2.ContentOption result = com.google.privacy.dlp.v2.ContentOption.forNumber(from);
               return result == null ? com.google.privacy.dlp.v2.ContentOption.UNRECOGNIZED : result;
             }
           };
@@ -2484,6 +2355,7 @@ private static final long serialVersionUID = 0L;
   private int contentOptionsMemoizedSerializedSize;
 
   public static final int RULE_SET_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.privacy.dlp.v2.InspectionRuleSet> ruleSet_;
   /**
    * <pre>
@@ -2596,7 +2468,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < ruleSet_.size(); i++) {
       output.writeMessage(10, ruleSet_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2645,7 +2517,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, ruleSet_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2677,7 +2549,7 @@ private static final long serialVersionUID = 0L;
     if (!contentOptions_.equals(other.contentOptions_)) return false;
     if (!getRuleSetList()
         .equals(other.getRuleSetList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2716,7 +2588,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RULE_SET_FIELD_NUMBER;
       hash = (53 * hash) + getRuleSetList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2839,57 +2711,49 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.InspectConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getInfoTypesFieldBuilder();
-        getCustomInfoTypesFieldBuilder();
-        getRuleSetFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (infoTypesBuilder_ == null) {
         infoTypes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        infoTypes_ = null;
         infoTypesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       minLikelihood_ = 0;
-
-      if (limitsBuilder_ == null) {
-        limits_ = null;
-      } else {
-        limits_ = null;
+      limits_ = null;
+      if (limitsBuilder_ != null) {
+        limitsBuilder_.dispose();
         limitsBuilder_ = null;
       }
       includeQuote_ = false;
-
       excludeInfoTypes_ = false;
-
       if (customInfoTypesBuilder_ == null) {
         customInfoTypes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        customInfoTypes_ = null;
         customInfoTypesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       contentOptions_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000040);
       if (ruleSetBuilder_ == null) {
         ruleSet_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        ruleSet_ = null;
         ruleSetBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       return this;
     }
 
@@ -2916,7 +2780,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.InspectConfig buildPartial() {
       com.google.privacy.dlp.v2.InspectConfig result = new com.google.privacy.dlp.v2.InspectConfig(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.privacy.dlp.v2.InspectConfig result) {
       if (infoTypesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           infoTypes_ = java.util.Collections.unmodifiableList(infoTypes_);
@@ -2926,39 +2796,47 @@ private static final long serialVersionUID = 0L;
       } else {
         result.infoTypes_ = infoTypesBuilder_.build();
       }
-      result.minLikelihood_ = minLikelihood_;
-      if (limitsBuilder_ == null) {
-        result.limits_ = limits_;
-      } else {
-        result.limits_ = limitsBuilder_.build();
-      }
-      result.includeQuote_ = includeQuote_;
-      result.excludeInfoTypes_ = excludeInfoTypes_;
       if (customInfoTypesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           customInfoTypes_ = java.util.Collections.unmodifiableList(customInfoTypes_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.customInfoTypes_ = customInfoTypes_;
       } else {
         result.customInfoTypes_ = customInfoTypesBuilder_.build();
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         contentOptions_ = java.util.Collections.unmodifiableList(contentOptions_);
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000040);
       }
       result.contentOptions_ = contentOptions_;
       if (ruleSetBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           ruleSet_ = java.util.Collections.unmodifiableList(ruleSet_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.ruleSet_ = ruleSet_;
       } else {
         result.ruleSet_ = ruleSetBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.InspectConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.minLikelihood_ = minLikelihood_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.limits_ = limitsBuilder_ == null
+            ? limits_
+            : limitsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.includeQuote_ = includeQuote_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.excludeInfoTypes_ = excludeInfoTypes_;
+      }
     }
 
     @java.lang.Override
@@ -3047,7 +2925,7 @@ private static final long serialVersionUID = 0L;
         if (!other.customInfoTypes_.isEmpty()) {
           if (customInfoTypes_.isEmpty()) {
             customInfoTypes_ = other.customInfoTypes_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureCustomInfoTypesIsMutable();
             customInfoTypes_.addAll(other.customInfoTypes_);
@@ -3060,7 +2938,7 @@ private static final long serialVersionUID = 0L;
             customInfoTypesBuilder_.dispose();
             customInfoTypesBuilder_ = null;
             customInfoTypes_ = other.customInfoTypes_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
             customInfoTypesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getCustomInfoTypesFieldBuilder() : null;
@@ -3072,7 +2950,7 @@ private static final long serialVersionUID = 0L;
       if (!other.contentOptions_.isEmpty()) {
         if (contentOptions_.isEmpty()) {
           contentOptions_ = other.contentOptions_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           ensureContentOptionsIsMutable();
           contentOptions_.addAll(other.contentOptions_);
@@ -3083,7 +2961,7 @@ private static final long serialVersionUID = 0L;
         if (!other.ruleSet_.isEmpty()) {
           if (ruleSet_.isEmpty()) {
             ruleSet_ = other.ruleSet_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureRuleSetIsMutable();
             ruleSet_.addAll(other.ruleSet_);
@@ -3096,7 +2974,7 @@ private static final long serialVersionUID = 0L;
             ruleSetBuilder_.dispose();
             ruleSetBuilder_ = null;
             ruleSet_ = other.ruleSet_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000080);
             ruleSetBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getRuleSetFieldBuilder() : null;
@@ -3105,7 +2983,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3120,17 +2998,108 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.InspectConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.privacy.dlp.v2.InfoType m =
+                  input.readMessage(
+                      com.google.privacy.dlp.v2.InfoType.parser(),
+                      extensionRegistry);
+              if (infoTypesBuilder_ == null) {
+                ensureInfoTypesIsMutable();
+                infoTypes_.add(m);
+              } else {
+                infoTypesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 16: {
+              minLikelihood_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getLimitsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              includeQuote_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              excludeInfoTypes_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              com.google.privacy.dlp.v2.CustomInfoType m =
+                  input.readMessage(
+                      com.google.privacy.dlp.v2.CustomInfoType.parser(),
+                      extensionRegistry);
+              if (customInfoTypesBuilder_ == null) {
+                ensureCustomInfoTypesIsMutable();
+                customInfoTypes_.add(m);
+              } else {
+                customInfoTypesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            case 64: {
+              int tmpRaw = input.readEnum();
+              ensureContentOptionsIsMutable();
+              contentOptions_.add(tmpRaw);
+              break;
+            } // case 64
+            case 66: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureContentOptionsIsMutable();
+                contentOptions_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 66
+            case 82: {
+              com.google.privacy.dlp.v2.InspectionRuleSet m =
+                  input.readMessage(
+                      com.google.privacy.dlp.v2.InspectionRuleSet.parser(),
+                      extensionRegistry);
+              if (ruleSetBuilder_ == null) {
+                ensureRuleSetIsMutable();
+                ruleSet_.add(m);
+              } else {
+                ruleSetBuilder_.addMessage(m);
+              }
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.InspectConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -3617,8 +3586,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMinLikelihoodValue(int value) {
-      
       minLikelihood_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3634,8 +3603,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.privacy.dlp.v2.Likelihood getMinLikelihood() {
-      @SuppressWarnings("deprecation")
-      com.google.privacy.dlp.v2.Likelihood result = com.google.privacy.dlp.v2.Likelihood.valueOf(minLikelihood_);
+      com.google.privacy.dlp.v2.Likelihood result = com.google.privacy.dlp.v2.Likelihood.forNumber(minLikelihood_);
       return result == null ? com.google.privacy.dlp.v2.Likelihood.UNRECOGNIZED : result;
     }
     /**
@@ -3653,7 +3621,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       minLikelihood_ = value.getNumber();
       onChanged();
       return this;
@@ -3669,7 +3637,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinLikelihood() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       minLikelihood_ = 0;
       onChanged();
       return this;
@@ -3682,18 +3650,28 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Configuration to control the number of findings returned.
      * This is not used for data profiling.
+     * When redacting sensitive data from images, finding limits don't apply. They
+     * can cause unexpected or inconsistent results, where only some data is
+     * redacted. Don't include finding limits in
+     * [RedactImage][google.privacy.dlp.v2.DlpService.RedactImage]
+     * requests. Otherwise, Cloud DLP returns an error.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.InspectConfig.FindingLimits limits = 3;</code>
      * @return Whether the limits field is set.
      */
     public boolean hasLimits() {
-      return limitsBuilder_ != null || limits_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
      * Configuration to control the number of findings returned.
      * This is not used for data profiling.
+     * When redacting sensitive data from images, finding limits don't apply. They
+     * can cause unexpected or inconsistent results, where only some data is
+     * redacted. Don't include finding limits in
+     * [RedactImage][google.privacy.dlp.v2.DlpService.RedactImage]
+     * requests. Otherwise, Cloud DLP returns an error.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.InspectConfig.FindingLimits limits = 3;</code>
@@ -3710,6 +3688,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Configuration to control the number of findings returned.
      * This is not used for data profiling.
+     * When redacting sensitive data from images, finding limits don't apply. They
+     * can cause unexpected or inconsistent results, where only some data is
+     * redacted. Don't include finding limits in
+     * [RedactImage][google.privacy.dlp.v2.DlpService.RedactImage]
+     * requests. Otherwise, Cloud DLP returns an error.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.InspectConfig.FindingLimits limits = 3;</code>
@@ -3720,17 +3703,22 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         limits_ = value;
-        onChanged();
       } else {
         limitsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Configuration to control the number of findings returned.
      * This is not used for data profiling.
+     * When redacting sensitive data from images, finding limits don't apply. They
+     * can cause unexpected or inconsistent results, where only some data is
+     * redacted. Don't include finding limits in
+     * [RedactImage][google.privacy.dlp.v2.DlpService.RedactImage]
+     * requests. Otherwise, Cloud DLP returns an error.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.InspectConfig.FindingLimits limits = 3;</code>
@@ -3739,65 +3727,80 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.InspectConfig.FindingLimits.Builder builderForValue) {
       if (limitsBuilder_ == null) {
         limits_ = builderForValue.build();
-        onChanged();
       } else {
         limitsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Configuration to control the number of findings returned.
      * This is not used for data profiling.
+     * When redacting sensitive data from images, finding limits don't apply. They
+     * can cause unexpected or inconsistent results, where only some data is
+     * redacted. Don't include finding limits in
+     * [RedactImage][google.privacy.dlp.v2.DlpService.RedactImage]
+     * requests. Otherwise, Cloud DLP returns an error.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.InspectConfig.FindingLimits limits = 3;</code>
      */
     public Builder mergeLimits(com.google.privacy.dlp.v2.InspectConfig.FindingLimits value) {
       if (limitsBuilder_ == null) {
-        if (limits_ != null) {
-          limits_ =
-            com.google.privacy.dlp.v2.InspectConfig.FindingLimits.newBuilder(limits_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          limits_ != null &&
+          limits_ != com.google.privacy.dlp.v2.InspectConfig.FindingLimits.getDefaultInstance()) {
+          getLimitsBuilder().mergeFrom(value);
         } else {
           limits_ = value;
         }
-        onChanged();
       } else {
         limitsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Configuration to control the number of findings returned.
      * This is not used for data profiling.
+     * When redacting sensitive data from images, finding limits don't apply. They
+     * can cause unexpected or inconsistent results, where only some data is
+     * redacted. Don't include finding limits in
+     * [RedactImage][google.privacy.dlp.v2.DlpService.RedactImage]
+     * requests. Otherwise, Cloud DLP returns an error.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.InspectConfig.FindingLimits limits = 3;</code>
      */
     public Builder clearLimits() {
-      if (limitsBuilder_ == null) {
-        limits_ = null;
-        onChanged();
-      } else {
-        limits_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      limits_ = null;
+      if (limitsBuilder_ != null) {
+        limitsBuilder_.dispose();
         limitsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Configuration to control the number of findings returned.
      * This is not used for data profiling.
+     * When redacting sensitive data from images, finding limits don't apply. They
+     * can cause unexpected or inconsistent results, where only some data is
+     * redacted. Don't include finding limits in
+     * [RedactImage][google.privacy.dlp.v2.DlpService.RedactImage]
+     * requests. Otherwise, Cloud DLP returns an error.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.InspectConfig.FindingLimits limits = 3;</code>
      */
     public com.google.privacy.dlp.v2.InspectConfig.FindingLimits.Builder getLimitsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getLimitsFieldBuilder().getBuilder();
     }
@@ -3805,6 +3808,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Configuration to control the number of findings returned.
      * This is not used for data profiling.
+     * When redacting sensitive data from images, finding limits don't apply. They
+     * can cause unexpected or inconsistent results, where only some data is
+     * redacted. Don't include finding limits in
+     * [RedactImage][google.privacy.dlp.v2.DlpService.RedactImage]
+     * requests. Otherwise, Cloud DLP returns an error.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.InspectConfig.FindingLimits limits = 3;</code>
@@ -3821,6 +3829,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Configuration to control the number of findings returned.
      * This is not used for data profiling.
+     * When redacting sensitive data from images, finding limits don't apply. They
+     * can cause unexpected or inconsistent results, where only some data is
+     * redacted. Don't include finding limits in
+     * [RedactImage][google.privacy.dlp.v2.DlpService.RedactImage]
+     * requests. Otherwise, Cloud DLP returns an error.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.InspectConfig.FindingLimits limits = 3;</code>
@@ -3868,6 +3881,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIncludeQuote(boolean value) {
       
       includeQuote_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3882,7 +3896,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncludeQuote() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       includeQuote_ = false;
       onChanged();
       return this;
@@ -3915,6 +3929,7 @@ private static final long serialVersionUID = 0L;
     public Builder setExcludeInfoTypes(boolean value) {
       
       excludeInfoTypes_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3928,7 +3943,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExcludeInfoTypes() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       excludeInfoTypes_ = false;
       onChanged();
       return this;
@@ -3937,9 +3952,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.privacy.dlp.v2.CustomInfoType> customInfoTypes_ =
       java.util.Collections.emptyList();
     private void ensureCustomInfoTypesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         customInfoTypes_ = new java.util.ArrayList<com.google.privacy.dlp.v2.CustomInfoType>(customInfoTypes_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -4144,7 +4159,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearCustomInfoTypes() {
       if (customInfoTypesBuilder_ == null) {
         customInfoTypes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         customInfoTypesBuilder_.clear();
@@ -4256,7 +4271,7 @@ private static final long serialVersionUID = 0L;
         customInfoTypesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.privacy.dlp.v2.CustomInfoType, com.google.privacy.dlp.v2.CustomInfoType.Builder, com.google.privacy.dlp.v2.CustomInfoTypeOrBuilder>(
                 customInfoTypes_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         customInfoTypes_ = null;
@@ -4267,9 +4282,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> contentOptions_ =
       java.util.Collections.emptyList();
     private void ensureContentOptionsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         contentOptions_ = new java.util.ArrayList<java.lang.Integer>(contentOptions_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000040;
       }
     }
     /**
@@ -4373,7 +4388,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearContentOptions() {
       contentOptions_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -4455,9 +4470,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.privacy.dlp.v2.InspectionRuleSet> ruleSet_ =
       java.util.Collections.emptyList();
     private void ensureRuleSetIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         ruleSet_ = new java.util.ArrayList<com.google.privacy.dlp.v2.InspectionRuleSet>(ruleSet_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -4673,7 +4688,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearRuleSet() {
       if (ruleSetBuilder_ == null) {
         ruleSet_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         ruleSetBuilder_.clear();
@@ -4792,7 +4807,7 @@ private static final long serialVersionUID = 0L;
         ruleSetBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.privacy.dlp.v2.InspectionRuleSet, com.google.privacy.dlp.v2.InspectionRuleSet.Builder, com.google.privacy.dlp.v2.InspectionRuleSetOrBuilder>(
                 ruleSet_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         ruleSet_ = null;
@@ -4832,7 +4847,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InspectConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

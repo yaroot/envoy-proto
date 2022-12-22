@@ -34,50 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Config(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            upgradeProtobufToGrpc_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.grpc_http1_bridge.v3.ConfigProto.internal_static_envoy_extensions_filters_http_grpc_http1_bridge_v3_Config_descriptor;
@@ -92,7 +48,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UPGRADE_PROTOBUF_TO_GRPC_FIELD_NUMBER = 1;
-  private boolean upgradeProtobufToGrpc_;
+  private boolean upgradeProtobufToGrpc_ = false;
   /**
    * <pre>
    * If true then requests with content type set to ``application/x-protobuf`` will be automatically converted to gRPC.
@@ -127,7 +83,7 @@ private static final long serialVersionUID = 0L;
     if (upgradeProtobufToGrpc_ != false) {
       output.writeBool(1, upgradeProtobufToGrpc_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -140,7 +96,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(1, upgradeProtobufToGrpc_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -157,7 +113,7 @@ private static final long serialVersionUID = 0L;
 
     if (getUpgradeProtobufToGrpc()
         != other.getUpgradeProtobufToGrpc()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -171,7 +127,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + UPGRADE_PROTOBUF_TO_GRPC_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getUpgradeProtobufToGrpc());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -292,24 +248,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.grpc_http1_bridge.v3.Config.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       upgradeProtobufToGrpc_ = false;
-
       return this;
     }
 
@@ -336,9 +287,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.grpc_http1_bridge.v3.Config buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.grpc_http1_bridge.v3.Config result = new io.envoyproxy.envoy.extensions.filters.http.grpc_http1_bridge.v3.Config(this);
-      result.upgradeProtobufToGrpc_ = upgradeProtobufToGrpc_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.grpc_http1_bridge.v3.Config result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.upgradeProtobufToGrpc_ = upgradeProtobufToGrpc_;
+      }
     }
 
     @java.lang.Override
@@ -388,7 +346,7 @@ private static final long serialVersionUID = 0L;
       if (other.getUpgradeProtobufToGrpc() != false) {
         setUpgradeProtobufToGrpc(other.getUpgradeProtobufToGrpc());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -403,19 +361,38 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.grpc_http1_bridge.v3.Config parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              upgradeProtobufToGrpc_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.grpc_http1_bridge.v3.Config) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean upgradeProtobufToGrpc_ ;
     /**
@@ -450,6 +427,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUpgradeProtobufToGrpc(boolean value) {
       
       upgradeProtobufToGrpc_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -466,7 +444,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUpgradeProtobufToGrpc() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       upgradeProtobufToGrpc_ = false;
       onChanged();
       return this;
@@ -504,7 +482,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Config(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

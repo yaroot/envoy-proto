@@ -11,10 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2google/cloud/securitycenter/v1p1beta1/folder.proto\x12%google.cloud.securitycenter.v1p1beta1\x1a\x1cgoogle/api/annotations.proto\"G\n\x06\x46older\x12\x17\n\x0fresource_folder\x18\x01 \x01(\t\x12$\n\x1cresource_folder_display_name\x18\x02 \x01(\tB\x8a\x02\n)com.google.cloud.securitycenter.v1p1beta1B\x0b\x46olderProtoP\x01ZSgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1p1beta1;securitycenter\xaa\x02%Google.Cloud.SecurityCenter.V1P1Beta1\xca\x02%Google\\Cloud\\SecurityCenter\\V1p1beta1\xea\x02(Google::Cloud::SecurityCenter::V1p1Beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2google/cloud/securitycenter/v1p1beta1/folder.proto\x12%google.cloud.securitycenter.v1p1beta1\"G\n\x06\x46older\x12\x17\n\x0fresource_folder\x18\x01 \x01(\t\x12$\n\x1cresource_folder_display_name\x18\x02 \x01(\tB\x8a\x02\n)com.google.cloud.securitycenter.v1p1beta1B\x0b\x46olderProtoP\x01ZSgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1p1beta1;securitycenter\xaa\x02%Google.Cloud.SecurityCenter.V1P1Beta1\xca\x02%Google\\Cloud\\SecurityCenter\\V1p1beta1\xea\x02(Google::Cloud::SecurityCenter::V1p1Beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.securitycenter.v1p1beta1.folder_pb2', globals())
@@ -22,6 +21,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n)com.google.cloud.securitycenter.v1p1beta1B\013FolderProtoP\001ZSgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1p1beta1;securitycenter\252\002%Google.Cloud.SecurityCenter.V1P1Beta1\312\002%Google\\Cloud\\SecurityCenter\\V1p1beta1\352\002(Google::Cloud::SecurityCenter::V1p1Beta1'
-  _FOLDER._serialized_start=123
-  _FOLDER._serialized_end=194
+  _FOLDER._serialized_start=93
+  _FOLDER._serialized_end=164
 # @@protoc_insertion_point(module_scope)

@@ -112,7 +112,6 @@ public interface VirtualMachineOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 3;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -131,7 +130,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 3;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -376,7 +374,7 @@ java.lang.String defaultValue);
    *
    * <code>string nvidia_driver_version = 11 [deprecated = true];</code>
    * @deprecated google.cloud.lifesciences.v2beta.VirtualMachine.nvidia_driver_version is deprecated.
-   *     See google/cloud/lifesciences/v2beta/workflows.proto;l=390
+   *     See google/cloud/lifesciences/v2beta/workflows.proto;l=410
    * @return The nvidiaDriverVersion.
    */
   @java.lang.Deprecated java.lang.String getNvidiaDriverVersion();
@@ -390,7 +388,7 @@ java.lang.String defaultValue);
    *
    * <code>string nvidia_driver_version = 11 [deprecated = true];</code>
    * @deprecated google.cloud.lifesciences.v2beta.VirtualMachine.nvidia_driver_version is deprecated.
-   *     See google/cloud/lifesciences/v2beta/workflows.proto;l=390
+   *     See google/cloud/lifesciences/v2beta/workflows.proto;l=410
    * @return The bytes for nvidiaDriverVersion.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -527,4 +525,26 @@ java.lang.String defaultValue);
    */
   com.google.cloud.lifesciences.v2beta.VolumeOrBuilder getVolumesOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * If specified, the VM will only be allocated inside the matching
+   * reservation. It will fail if the VM parameters don't match the reservation.
+   * </pre>
+   *
+   * <code>string reservation = 15;</code>
+   * @return The reservation.
+   */
+  java.lang.String getReservation();
+  /**
+   * <pre>
+   * If specified, the VM will only be allocated inside the matching
+   * reservation. It will fail if the VM parameters don't match the reservation.
+   * </pre>
+   *
+   * <code>string reservation = 15;</code>
+   * @return The bytes for reservation.
+   */
+  com.google.protobuf.ByteString
+      getReservationBytes();
 }

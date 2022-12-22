@@ -34,56 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BackendServiceLogConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 1225544365: {
-            bitField0_ |= 0x00000002;
-            sampleRate_ = input.readFloat();
-            break;
-          }
-          case -1800852456: {
-            bitField0_ |= 0x00000001;
-            enable_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_BackendServiceLogConfig_descriptor;
@@ -99,10 +49,10 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int ENABLE_FIELD_NUMBER = 311764355;
-  private boolean enable_;
+  private boolean enable_ = false;
   /**
    * <pre>
-   * This field denotes whether to enable logging for the load balancer traffic served by this backend service.
+   * Denotes whether to enable logging for the load balancer traffic served by this backend service. The default value is false.
    * </pre>
    *
    * <code>optional bool enable = 311764355;</code>
@@ -114,7 +64,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * This field denotes whether to enable logging for the load balancer traffic served by this backend service.
+   * Denotes whether to enable logging for the load balancer traffic served by this backend service. The default value is false.
    * </pre>
    *
    * <code>optional bool enable = 311764355;</code>
@@ -126,10 +76,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SAMPLE_RATE_FIELD_NUMBER = 153193045;
-  private float sampleRate_;
+  private float sampleRate_ = 0F;
   /**
    * <pre>
-   * This field can only be specified if logging is enabled for this backend service. The value of the field must be in [0, 1]. This configures the sampling rate of requests to the load balancer where 1.0 means all logged requests are reported and 0.0 means no logged requests are reported. The default value is 0.0.
+   * This field can only be specified if logging is enabled for this backend service. The value of the field must be in [0, 1]. This configures the sampling rate of requests to the load balancer where 1.0 means all logged requests are reported and 0.0 means no logged requests are reported. The default value is 1.0.
    * </pre>
    *
    * <code>optional float sample_rate = 153193045;</code>
@@ -141,7 +91,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * This field can only be specified if logging is enabled for this backend service. The value of the field must be in [0, 1]. This configures the sampling rate of requests to the load balancer where 1.0 means all logged requests are reported and 0.0 means no logged requests are reported. The default value is 0.0.
+   * This field can only be specified if logging is enabled for this backend service. The value of the field must be in [0, 1]. This configures the sampling rate of requests to the load balancer where 1.0 means all logged requests are reported and 0.0 means no logged requests are reported. The default value is 1.0.
    * </pre>
    *
    * <code>optional float sample_rate = 153193045;</code>
@@ -172,7 +122,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeBool(311764355, enable_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -189,7 +139,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(311764355, enable_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -215,7 +165,7 @@ private static final long serialVersionUID = 0L;
           != java.lang.Float.floatToIntBits(
               other.getSampleRate())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -236,7 +186,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getSampleRate());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -357,26 +307,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.BackendServiceLogConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       enable_ = false;
-      bitField0_ = (bitField0_ & ~0x00000001);
       sampleRate_ = 0F;
-      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -403,6 +347,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.BackendServiceLogConfig buildPartial() {
       com.google.cloud.compute.v1.BackendServiceLogConfig result = new com.google.cloud.compute.v1.BackendServiceLogConfig(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.BackendServiceLogConfig result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -413,9 +363,7 @@ private static final long serialVersionUID = 0L;
         result.sampleRate_ = sampleRate_;
         to_bitField0_ |= 0x00000002;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -468,7 +416,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSampleRate()) {
         setSampleRate(other.getSampleRate());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -483,17 +431,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.BackendServiceLogConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 1225544365: {
+              sampleRate_ = input.readFloat();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1225544365
+            case -1800852456: {
+              enable_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -1800852456
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.BackendServiceLogConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -501,7 +472,7 @@ private static final long serialVersionUID = 0L;
     private boolean enable_ ;
     /**
      * <pre>
-     * This field denotes whether to enable logging for the load balancer traffic served by this backend service.
+     * Denotes whether to enable logging for the load balancer traffic served by this backend service. The default value is false.
      * </pre>
      *
      * <code>optional bool enable = 311764355;</code>
@@ -513,7 +484,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * This field denotes whether to enable logging for the load balancer traffic served by this backend service.
+     * Denotes whether to enable logging for the load balancer traffic served by this backend service. The default value is false.
      * </pre>
      *
      * <code>optional bool enable = 311764355;</code>
@@ -525,7 +496,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * This field denotes whether to enable logging for the load balancer traffic served by this backend service.
+     * Denotes whether to enable logging for the load balancer traffic served by this backend service. The default value is false.
      * </pre>
      *
      * <code>optional bool enable = 311764355;</code>
@@ -533,14 +504,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEnable(boolean value) {
-      bitField0_ |= 0x00000001;
+      
       enable_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * This field denotes whether to enable logging for the load balancer traffic served by this backend service.
+     * Denotes whether to enable logging for the load balancer traffic served by this backend service. The default value is false.
      * </pre>
      *
      * <code>optional bool enable = 311764355;</code>
@@ -556,7 +528,7 @@ private static final long serialVersionUID = 0L;
     private float sampleRate_ ;
     /**
      * <pre>
-     * This field can only be specified if logging is enabled for this backend service. The value of the field must be in [0, 1]. This configures the sampling rate of requests to the load balancer where 1.0 means all logged requests are reported and 0.0 means no logged requests are reported. The default value is 0.0.
+     * This field can only be specified if logging is enabled for this backend service. The value of the field must be in [0, 1]. This configures the sampling rate of requests to the load balancer where 1.0 means all logged requests are reported and 0.0 means no logged requests are reported. The default value is 1.0.
      * </pre>
      *
      * <code>optional float sample_rate = 153193045;</code>
@@ -568,7 +540,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * This field can only be specified if logging is enabled for this backend service. The value of the field must be in [0, 1]. This configures the sampling rate of requests to the load balancer where 1.0 means all logged requests are reported and 0.0 means no logged requests are reported. The default value is 0.0.
+     * This field can only be specified if logging is enabled for this backend service. The value of the field must be in [0, 1]. This configures the sampling rate of requests to the load balancer where 1.0 means all logged requests are reported and 0.0 means no logged requests are reported. The default value is 1.0.
      * </pre>
      *
      * <code>optional float sample_rate = 153193045;</code>
@@ -580,7 +552,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * This field can only be specified if logging is enabled for this backend service. The value of the field must be in [0, 1]. This configures the sampling rate of requests to the load balancer where 1.0 means all logged requests are reported and 0.0 means no logged requests are reported. The default value is 0.0.
+     * This field can only be specified if logging is enabled for this backend service. The value of the field must be in [0, 1]. This configures the sampling rate of requests to the load balancer where 1.0 means all logged requests are reported and 0.0 means no logged requests are reported. The default value is 1.0.
      * </pre>
      *
      * <code>optional float sample_rate = 153193045;</code>
@@ -588,14 +560,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSampleRate(float value) {
-      bitField0_ |= 0x00000002;
+      
       sampleRate_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * This field can only be specified if logging is enabled for this backend service. The value of the field must be in [0, 1]. This configures the sampling rate of requests to the load balancer where 1.0 means all logged requests are reported and 0.0 means no logged requests are reported. The default value is 0.0.
+     * This field can only be specified if logging is enabled for this backend service. The value of the field must be in [0, 1]. This configures the sampling rate of requests to the load balancer where 1.0 means all logged requests are reported and 0.0 means no logged requests are reported. The default value is 1.0.
      * </pre>
      *
      * <code>optional float sample_rate = 153193045;</code>
@@ -640,7 +613,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BackendServiceLogConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

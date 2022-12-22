@@ -188,8 +188,7 @@ public interface ExportAssetsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. Output configuration indicating where the results will be output
-   * to.
+   * Required. Output configuration indicating where the results will be output to.
    * </pre>
    *
    * <code>.google.cloud.asset.v1.OutputConfig output_config = 5 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -198,8 +197,7 @@ public interface ExportAssetsRequestOrBuilder extends
   boolean hasOutputConfig();
   /**
    * <pre>
-   * Required. Output configuration indicating where the results will be output
-   * to.
+   * Required. Output configuration indicating where the results will be output to.
    * </pre>
    *
    * <code>.google.cloud.asset.v1.OutputConfig output_config = 5 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -208,8 +206,7 @@ public interface ExportAssetsRequestOrBuilder extends
   com.google.cloud.asset.v1.OutputConfig getOutputConfig();
   /**
    * <pre>
-   * Required. Output configuration indicating where the results will be output
-   * to.
+   * Required. Output configuration indicating where the results will be output to.
    * </pre>
    *
    * <code>.google.cloud.asset.v1.OutputConfig output_config = 5 [(.google.api.field_behavior) = REQUIRED];</code>

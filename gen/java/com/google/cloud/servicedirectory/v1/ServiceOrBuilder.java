@@ -148,7 +148,6 @@ public interface ServiceOrBuilder extends
    *
    * <code>map&lt;string, string&gt; annotations = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getAnnotationsOrDefault(
       java.lang.String key,
@@ -181,7 +180,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; annotations = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getAnnotationsOrThrow(
       java.lang.String key);
 

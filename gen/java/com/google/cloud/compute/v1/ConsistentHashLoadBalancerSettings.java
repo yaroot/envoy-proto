@@ -35,70 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConsistentHashLoadBalancerSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 53391322: {
-            com.google.cloud.compute.v1.ConsistentHashLoadBalancerSettingsHttpCookie.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = httpCookie_.toBuilder();
-            }
-            httpCookie_ = input.readMessage(com.google.cloud.compute.v1.ConsistentHashLoadBalancerSettingsHttpCookie.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(httpCookie_);
-              httpCookie_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          case 1875045880: {
-            bitField0_ |= 0x00000004;
-            minimumRingSize_ = input.readInt64();
-            break;
-          }
-          case 1878384178: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            httpHeaderName_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_ConsistentHashLoadBalancerSettings_descriptor;
@@ -152,7 +88,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HTTP_HEADER_NAME_FIELD_NUMBER = 234798022;
-  private volatile java.lang.Object httpHeaderName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object httpHeaderName_ = "";
   /**
    * <pre>
    * The hash based on the value of the specified header field. This field is applicable if the sessionAffinity is set to HEADER_FIELD.
@@ -210,7 +147,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MINIMUM_RING_SIZE_FIELD_NUMBER = 234380735;
-  private long minimumRingSize_;
+  private long minimumRingSize_ = 0L;
   /**
    * <pre>
    * The minimum number of virtual nodes to use for the hash ring. Defaults to 1024. Larger ring sizes result in more granular load distributions. If the number of hosts in the load balancing pool is larger than the ring size, each host will be assigned a single virtual node.
@@ -259,7 +196,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 234798022, httpHeaderName_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -279,7 +216,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(234798022, httpHeaderName_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -309,7 +246,7 @@ private static final long serialVersionUID = 0L;
       if (getMinimumRingSize()
           != other.getMinimumRingSize()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -333,7 +270,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getMinimumRingSize());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -471,16 +408,14 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (httpCookieBuilder_ == null) {
-        httpCookie_ = null;
-      } else {
-        httpCookieBuilder_.clear();
+      bitField0_ = 0;
+      httpCookie_ = null;
+      if (httpCookieBuilder_ != null) {
+        httpCookieBuilder_.dispose();
+        httpCookieBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
       httpHeaderName_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       minimumRingSize_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -507,27 +442,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.ConsistentHashLoadBalancerSettings buildPartial() {
       com.google.cloud.compute.v1.ConsistentHashLoadBalancerSettings result = new com.google.cloud.compute.v1.ConsistentHashLoadBalancerSettings(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.ConsistentHashLoadBalancerSettings result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (httpCookieBuilder_ == null) {
-          result.httpCookie_ = httpCookie_;
-        } else {
-          result.httpCookie_ = httpCookieBuilder_.build();
-        }
+        result.httpCookie_ = httpCookieBuilder_ == null
+            ? httpCookie_
+            : httpCookieBuilder_.build();
         to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.httpHeaderName_ = httpHeaderName_;
         to_bitField0_ |= 0x00000002;
       }
-      result.httpHeaderName_ = httpHeaderName_;
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.minimumRingSize_ = minimumRingSize_;
         to_bitField0_ |= 0x00000004;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -578,14 +515,14 @@ private static final long serialVersionUID = 0L;
         mergeHttpCookie(other.getHttpCookie());
       }
       if (other.hasHttpHeaderName()) {
-        bitField0_ |= 0x00000002;
         httpHeaderName_ = other.httpHeaderName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasMinimumRingSize()) {
         setMinimumRingSize(other.getMinimumRingSize());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -600,17 +537,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.ConsistentHashLoadBalancerSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 53391322: {
+              input.readMessage(
+                  getHttpCookieFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 53391322
+            case 1875045880: {
+              minimumRingSize_ = input.readInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 1875045880
+            case 1878384178: {
+              httpHeaderName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1878384178
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.ConsistentHashLoadBalancerSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -657,11 +624,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         httpCookie_ = value;
-        onChanged();
       } else {
         httpCookieBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -675,11 +642,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.ConsistentHashLoadBalancerSettingsHttpCookie.Builder builderForValue) {
       if (httpCookieBuilder_ == null) {
         httpCookie_ = builderForValue.build();
-        onChanged();
       } else {
         httpCookieBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -692,18 +659,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeHttpCookie(com.google.cloud.compute.v1.ConsistentHashLoadBalancerSettingsHttpCookie value) {
       if (httpCookieBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0) &&
-            httpCookie_ != null &&
-            httpCookie_ != com.google.cloud.compute.v1.ConsistentHashLoadBalancerSettingsHttpCookie.getDefaultInstance()) {
-          httpCookie_ =
-            com.google.cloud.compute.v1.ConsistentHashLoadBalancerSettingsHttpCookie.newBuilder(httpCookie_).mergeFrom(value).buildPartial();
+          httpCookie_ != null &&
+          httpCookie_ != com.google.cloud.compute.v1.ConsistentHashLoadBalancerSettingsHttpCookie.getDefaultInstance()) {
+          getHttpCookieBuilder().mergeFrom(value);
         } else {
           httpCookie_ = value;
         }
-        onChanged();
       } else {
         httpCookieBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -714,13 +680,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.ConsistentHashLoadBalancerSettingsHttpCookie http_cookie = 6673915;</code>
      */
     public Builder clearHttpCookie() {
-      if (httpCookieBuilder_ == null) {
-        httpCookie_ = null;
-        onChanged();
-      } else {
-        httpCookieBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000001);
+      httpCookie_ = null;
+      if (httpCookieBuilder_ != null) {
+        httpCookieBuilder_.dispose();
+        httpCookieBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -835,11 +801,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHttpHeaderName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       httpHeaderName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -852,8 +816,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHttpHeaderName() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       httpHeaderName_ = getDefaultInstance().getHttpHeaderName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -868,12 +832,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHttpHeaderNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       httpHeaderName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -913,8 +875,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMinimumRingSize(long value) {
-      bitField0_ |= 0x00000004;
+      
       minimumRingSize_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -965,7 +928,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConsistentHashLoadBalancerSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

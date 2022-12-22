@@ -76,8 +76,7 @@ public interface WaypointOrBuilder extends
    * added to the `legs` array, but they do route the journey through the
    * waypoint. You can only set this value on waypoints that are intermediates.
    * The request fails if you set this field on terminal waypoints.
-   * If
-   * [ComputeRoutesRequest][google.maps.routing.v2.ComputeRoutesRequest.optimize_waypoint_order]
+   * If `ComputeRoutesRequest.optimize_waypoint_order`
    * is set to true then this field cannot be set to
    * true; otherwise, the request fails.
    * </pre>
@@ -108,7 +107,7 @@ public interface WaypointOrBuilder extends
    * value, the route will pass through the location so that the vehicle can
    * stop at the side of road that the location is biased towards from the
    * center of the road. This option works only for 'DRIVE' and 'TWO_WHEELER'
-   * travel modes, and when the 'location_type' is set to 'location'.
+   * travel modes.
    * </pre>
    *
    * <code>bool side_of_road = 5;</code>

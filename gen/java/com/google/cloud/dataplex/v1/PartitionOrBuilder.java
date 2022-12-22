@@ -37,8 +37,8 @@ public interface PartitionOrBuilder extends
 
   /**
    * <pre>
-   * Required. Immutable. The set of values representing the partition, which correspond to the
-   * partition schema defined in the parent entity.
+   * Required. Immutable. The set of values representing the partition, which
+   * correspond to the partition schema defined in the parent entity.
    * </pre>
    *
    * <code>repeated string values = 2 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -48,8 +48,8 @@ public interface PartitionOrBuilder extends
       getValuesList();
   /**
    * <pre>
-   * Required. Immutable. The set of values representing the partition, which correspond to the
-   * partition schema defined in the parent entity.
+   * Required. Immutable. The set of values representing the partition, which
+   * correspond to the partition schema defined in the parent entity.
    * </pre>
    *
    * <code>repeated string values = 2 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -58,8 +58,8 @@ public interface PartitionOrBuilder extends
   int getValuesCount();
   /**
    * <pre>
-   * Required. Immutable. The set of values representing the partition, which correspond to the
-   * partition schema defined in the parent entity.
+   * Required. Immutable. The set of values representing the partition, which
+   * correspond to the partition schema defined in the parent entity.
    * </pre>
    *
    * <code>repeated string values = 2 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -69,8 +69,8 @@ public interface PartitionOrBuilder extends
   java.lang.String getValues(int index);
   /**
    * <pre>
-   * Required. Immutable. The set of values representing the partition, which correspond to the
-   * partition schema defined in the parent entity.
+   * Required. Immutable. The set of values representing the partition, which
+   * correspond to the partition schema defined in the parent entity.
    * </pre>
    *
    * <code>repeated string values = 2 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -82,9 +82,9 @@ public interface PartitionOrBuilder extends
 
   /**
    * <pre>
-   * Required. Immutable. The location of the entity data within the partition, for example,
-   * `gs://bucket/path/to/entity/key1=value1/key2=value2`.
-   * Or `projects/&lt;project_id&gt;/datasets/&lt;dataset_id&gt;/tables/&lt;table_id&gt;`
+   * Required. Immutable. The location of the entity data within the partition,
+   * for example, `gs://bucket/path/to/entity/key1=value1/key2=value2`. Or
+   * `projects/&lt;project_id&gt;/datasets/&lt;dataset_id&gt;/tables/&lt;table_id&gt;`
    * </pre>
    *
    * <code>string location = 3 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -93,9 +93,9 @@ public interface PartitionOrBuilder extends
   java.lang.String getLocation();
   /**
    * <pre>
-   * Required. Immutable. The location of the entity data within the partition, for example,
-   * `gs://bucket/path/to/entity/key1=value1/key2=value2`.
-   * Or `projects/&lt;project_id&gt;/datasets/&lt;dataset_id&gt;/tables/&lt;table_id&gt;`
+   * Required. Immutable. The location of the entity data within the partition,
+   * for example, `gs://bucket/path/to/entity/key1=value1/key2=value2`. Or
+   * `projects/&lt;project_id&gt;/datasets/&lt;dataset_id&gt;/tables/&lt;table_id&gt;`
    * </pre>
    *
    * <code>string location = 3 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -111,7 +111,7 @@ public interface PartitionOrBuilder extends
    *
    * <code>string etag = 4 [deprecated = true, (.google.api.field_behavior) = OPTIONAL];</code>
    * @deprecated google.cloud.dataplex.v1.Partition.etag is deprecated.
-   *     See google/cloud/dataplex/v1/metadata.proto;l=515
+   *     See google/cloud/dataplex/v1/metadata.proto;l=506
    * @return The etag.
    */
   @java.lang.Deprecated java.lang.String getEtag();
@@ -122,7 +122,7 @@ public interface PartitionOrBuilder extends
    *
    * <code>string etag = 4 [deprecated = true, (.google.api.field_behavior) = OPTIONAL];</code>
    * @deprecated google.cloud.dataplex.v1.Partition.etag is deprecated.
-   *     See google/cloud/dataplex/v1/metadata.proto;l=515
+   *     See google/cloud/dataplex/v1/metadata.proto;l=506
    * @return The bytes for etag.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

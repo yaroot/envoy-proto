@@ -92,7 +92,6 @@ public interface NetworkEdgeSecurityServiceAggregatedListOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.NetworkEdgeSecurityServicesScopedList&gt; items = 100526016;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.NetworkEdgeSecurityServicesScopedList getItemsOrDefault(
       java.lang.String key,
@@ -105,7 +104,6 @@ com.google.cloud.compute.v1.NetworkEdgeSecurityServicesScopedList defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.NetworkEdgeSecurityServicesScopedList&gt; items = 100526016;</code>
    */
-
   com.google.cloud.compute.v1.NetworkEdgeSecurityServicesScopedList getItemsOrThrow(
       java.lang.String key);
 

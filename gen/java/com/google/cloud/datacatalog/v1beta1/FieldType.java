@@ -30,65 +30,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private FieldType(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-            typeDeclCase_ = 1;
-            typeDecl_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.cloud.datacatalog.v1beta1.FieldType.EnumType.Builder subBuilder = null;
-            if (typeDeclCase_ == 2) {
-              subBuilder = ((com.google.cloud.datacatalog.v1beta1.FieldType.EnumType) typeDecl_).toBuilder();
-            }
-            typeDecl_ =
-                input.readMessage(com.google.cloud.datacatalog.v1beta1.FieldType.EnumType.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datacatalog.v1beta1.FieldType.EnumType) typeDecl_);
-              typeDecl_ = subBuilder.buildPartial();
-            }
-            typeDeclCase_ = 2;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datacatalog.v1beta1.Tags.internal_static_google_cloud_datacatalog_v1beta1_FieldType_descriptor;
@@ -378,58 +319,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private EnumType(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                allowedValues_ = new java.util.ArrayList<com.google.cloud.datacatalog.v1beta1.FieldType.EnumType.EnumValue>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              allowedValues_.add(
-                  input.readMessage(com.google.cloud.datacatalog.v1beta1.FieldType.EnumType.EnumValue.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          allowedValues_ = java.util.Collections.unmodifiableList(allowedValues_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.datacatalog.v1beta1.Tags.internal_static_google_cloud_datacatalog_v1beta1_FieldType_EnumType_descriptor;
@@ -495,51 +384,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private EnumValue(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                displayName_ = s;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.datacatalog.v1beta1.Tags.internal_static_google_cloud_datacatalog_v1beta1_FieldType_EnumType_EnumValue_descriptor;
@@ -554,7 +398,8 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int DISPLAY_NAME_FIELD_NUMBER = 1;
-      private volatile java.lang.Object displayName_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object displayName_ = "";
       /**
        * <pre>
        * Required. The display name of the enum value. Must not be an empty string.
@@ -616,7 +461,7 @@ private static final long serialVersionUID = 0L;
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, displayName_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -628,7 +473,7 @@ private static final long serialVersionUID = 0L;
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, displayName_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -645,7 +490,7 @@ private static final long serialVersionUID = 0L;
 
         if (!getDisplayName()
             .equals(other.getDisplayName())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -658,7 +503,7 @@ private static final long serialVersionUID = 0L;
         hash = (19 * hash) + getDescriptor().hashCode();
         hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
         hash = (53 * hash) + getDisplayName().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -775,24 +620,19 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.datacatalog.v1beta1.FieldType.EnumType.EnumValue.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           displayName_ = "";
-
           return this;
         }
 
@@ -819,9 +659,16 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.datacatalog.v1beta1.FieldType.EnumType.EnumValue buildPartial() {
           com.google.cloud.datacatalog.v1beta1.FieldType.EnumType.EnumValue result = new com.google.cloud.datacatalog.v1beta1.FieldType.EnumType.EnumValue(this);
-          result.displayName_ = displayName_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.datacatalog.v1beta1.FieldType.EnumType.EnumValue result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.displayName_ = displayName_;
+          }
         }
 
         @java.lang.Override
@@ -870,9 +717,10 @@ private static final long serialVersionUID = 0L;
           if (other == com.google.cloud.datacatalog.v1beta1.FieldType.EnumType.EnumValue.getDefaultInstance()) return this;
           if (!other.getDisplayName().isEmpty()) {
             displayName_ = other.displayName_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -887,19 +735,38 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.datacatalog.v1beta1.FieldType.EnumType.EnumValue parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  displayName_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.datacatalog.v1beta1.FieldType.EnumType.EnumValue) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object displayName_ = "";
         /**
@@ -954,11 +821,9 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDisplayName(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           displayName_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -971,8 +836,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearDisplayName() {
-          
           displayName_ = getDefaultInstance().getDisplayName();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -987,12 +852,10 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDisplayNameBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           displayName_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -1029,7 +892,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new EnumValue(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -1050,6 +924,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ALLOWED_VALUES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.datacatalog.v1beta1.FieldType.EnumType.EnumValue> allowedValues_;
     /**
      * <pre>
@@ -1151,7 +1026,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < allowedValues_.size(); i++) {
         output.writeMessage(1, allowedValues_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1164,7 +1039,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, allowedValues_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1181,7 +1056,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getAllowedValuesList()
           .equals(other.getAllowedValuesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1196,7 +1071,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + ALLOWED_VALUES_FIELD_NUMBER;
         hash = (53 * hash) + getAllowedValuesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1313,29 +1188,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.datacatalog.v1beta1.FieldType.EnumType.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getAllowedValuesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (allowedValuesBuilder_ == null) {
           allowedValues_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          allowedValues_ = null;
           allowedValuesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -1362,7 +1233,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.datacatalog.v1beta1.FieldType.EnumType buildPartial() {
         com.google.cloud.datacatalog.v1beta1.FieldType.EnumType result = new com.google.cloud.datacatalog.v1beta1.FieldType.EnumType(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.datacatalog.v1beta1.FieldType.EnumType result) {
         if (allowedValuesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             allowedValues_ = java.util.Collections.unmodifiableList(allowedValues_);
@@ -1372,8 +1249,10 @@ private static final long serialVersionUID = 0L;
         } else {
           result.allowedValues_ = allowedValuesBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.datacatalog.v1beta1.FieldType.EnumType result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -1446,7 +1325,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1461,17 +1340,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.datacatalog.v1beta1.FieldType.EnumType parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.datacatalog.v1beta1.FieldType.EnumType.EnumValue m =
+                    input.readMessage(
+                        com.google.cloud.datacatalog.v1beta1.FieldType.EnumType.EnumValue.parser(),
+                        extensionRegistry);
+                if (allowedValuesBuilder_ == null) {
+                  ensureAllowedValuesIsMutable();
+                  allowedValues_.add(m);
+                } else {
+                  allowedValuesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.datacatalog.v1beta1.FieldType.EnumType) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1910,7 +1815,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new EnumType(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2007,8 +1923,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.cloud.datacatalog.v1beta1.FieldType.PrimitiveType getPrimitiveType() {
     if (typeDeclCase_ == 1) {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.datacatalog.v1beta1.FieldType.PrimitiveType result = com.google.cloud.datacatalog.v1beta1.FieldType.PrimitiveType.valueOf(
+      com.google.cloud.datacatalog.v1beta1.FieldType.PrimitiveType result = com.google.cloud.datacatalog.v1beta1.FieldType.PrimitiveType.forNumber(
           (java.lang.Integer) typeDecl_);
       return result == null ? com.google.cloud.datacatalog.v1beta1.FieldType.PrimitiveType.UNRECOGNIZED : result;
     }
@@ -2078,7 +1993,7 @@ private static final long serialVersionUID = 0L;
     if (typeDeclCase_ == 2) {
       output.writeMessage(2, (com.google.cloud.datacatalog.v1beta1.FieldType.EnumType) typeDecl_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2095,7 +2010,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, (com.google.cloud.datacatalog.v1beta1.FieldType.EnumType) typeDecl_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2123,7 +2038,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2146,7 +2061,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2263,22 +2178,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datacatalog.v1beta1.FieldType.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (enumTypeBuilder_ != null) {
+        enumTypeBuilder_.clear();
+      }
       typeDeclCase_ = 0;
       typeDecl_ = null;
       return this;
@@ -2307,19 +2221,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datacatalog.v1beta1.FieldType buildPartial() {
       com.google.cloud.datacatalog.v1beta1.FieldType result = new com.google.cloud.datacatalog.v1beta1.FieldType(this);
-      if (typeDeclCase_ == 1) {
-        result.typeDecl_ = typeDecl_;
-      }
-      if (typeDeclCase_ == 2) {
-        if (enumTypeBuilder_ == null) {
-          result.typeDecl_ = typeDecl_;
-        } else {
-          result.typeDecl_ = enumTypeBuilder_.build();
-        }
-      }
-      result.typeDeclCase_ = typeDeclCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datacatalog.v1beta1.FieldType result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.cloud.datacatalog.v1beta1.FieldType result) {
+      result.typeDeclCase_ = typeDeclCase_;
+      result.typeDecl_ = this.typeDecl_;
+      if (typeDeclCase_ == 2 &&
+          enumTypeBuilder_ != null) {
+        result.typeDecl_ = enumTypeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2379,7 +2297,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2394,17 +2312,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datacatalog.v1beta1.FieldType parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+              typeDeclCase_ = 1;
+              typeDecl_ = rawValue;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getEnumTypeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeDeclCase_ = 2;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datacatalog.v1beta1.FieldType) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int typeDeclCase_ = 0;
@@ -2422,6 +2366,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -2476,8 +2421,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datacatalog.v1beta1.FieldType.PrimitiveType getPrimitiveType() {
       if (typeDeclCase_ == 1) {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.datacatalog.v1beta1.FieldType.PrimitiveType result = com.google.cloud.datacatalog.v1beta1.FieldType.PrimitiveType.valueOf(
+        com.google.cloud.datacatalog.v1beta1.FieldType.PrimitiveType result = com.google.cloud.datacatalog.v1beta1.FieldType.PrimitiveType.forNumber(
             (java.lang.Integer) typeDecl_);
         return result == null ? com.google.cloud.datacatalog.v1beta1.FieldType.PrimitiveType.UNRECOGNIZED : result;
       }
@@ -2692,7 +2636,7 @@ private static final long serialVersionUID = 0L;
         typeDecl_ = null;
       }
       typeDeclCase_ = 2;
-      onChanged();;
+      onChanged();
       return enumTypeBuilder_;
     }
     @java.lang.Override
@@ -2728,7 +2672,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FieldType(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

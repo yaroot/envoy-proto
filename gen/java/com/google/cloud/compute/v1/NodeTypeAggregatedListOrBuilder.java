@@ -75,7 +75,6 @@ public interface NodeTypeAggregatedListOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.NodeTypesScopedList&gt; items = 100526016;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.NodeTypesScopedList getItemsOrDefault(
       java.lang.String key,
@@ -88,7 +87,6 @@ com.google.cloud.compute.v1.NodeTypesScopedList defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.NodeTypesScopedList&gt; items = 100526016;</code>
    */
-
   com.google.cloud.compute.v1.NodeTypesScopedList getItemsOrThrow(
       java.lang.String key);
 

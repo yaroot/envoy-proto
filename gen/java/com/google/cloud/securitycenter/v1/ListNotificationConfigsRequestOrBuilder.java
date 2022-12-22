@@ -9,8 +9,9 @@ public interface ListNotificationConfigsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. Name of the organization to list notification configs.
-   * Its format is "organizations/[organization_id]".
+   * Required. The name of the parent in which to list the notification
+   * configurations. Its format is "organizations/[organization_id]",
+   * "folders/[folder_id]", or "projects/[project_id]".
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -19,8 +20,9 @@ public interface ListNotificationConfigsRequestOrBuilder extends
   java.lang.String getParent();
   /**
    * <pre>
-   * Required. Name of the organization to list notification configs.
-   * Its format is "organizations/[organization_id]".
+   * Required. The name of the parent in which to list the notification
+   * configurations. Its format is "organizations/[organization_id]",
+   * "folders/[folder_id]", or "projects/[project_id]".
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

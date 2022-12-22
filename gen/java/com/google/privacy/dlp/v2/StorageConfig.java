@@ -34,114 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StorageConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            com.google.privacy.dlp.v2.DatastoreOptions.Builder subBuilder = null;
-            if (typeCase_ == 2) {
-              subBuilder = ((com.google.privacy.dlp.v2.DatastoreOptions) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.privacy.dlp.v2.DatastoreOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.privacy.dlp.v2.DatastoreOptions) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.privacy.dlp.v2.CloudStorageOptions.Builder subBuilder = null;
-            if (typeCase_ == 3) {
-              subBuilder = ((com.google.privacy.dlp.v2.CloudStorageOptions) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.privacy.dlp.v2.CloudStorageOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.privacy.dlp.v2.CloudStorageOptions) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.privacy.dlp.v2.BigQueryOptions.Builder subBuilder = null;
-            if (typeCase_ == 4) {
-              subBuilder = ((com.google.privacy.dlp.v2.BigQueryOptions) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.privacy.dlp.v2.BigQueryOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.privacy.dlp.v2.BigQueryOptions) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 4;
-            break;
-          }
-          case 50: {
-            com.google.privacy.dlp.v2.StorageConfig.TimespanConfig.Builder subBuilder = null;
-            if (timespanConfig_ != null) {
-              subBuilder = timespanConfig_.toBuilder();
-            }
-            timespanConfig_ = input.readMessage(com.google.privacy.dlp.v2.StorageConfig.TimespanConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timespanConfig_);
-              timespanConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            com.google.privacy.dlp.v2.HybridOptions.Builder subBuilder = null;
-            if (typeCase_ == 9) {
-              subBuilder = ((com.google.privacy.dlp.v2.HybridOptions) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.privacy.dlp.v2.HybridOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.privacy.dlp.v2.HybridOptions) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 9;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpStorage.internal_static_google_privacy_dlp_v2_StorageConfig_descriptor;
@@ -223,7 +115,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Specification of the field containing the timestamp of scanned items.
      * Used for data sources like Datastore and BigQuery.
-     * For BigQuery:
+     * &lt;b&gt;For BigQuery&lt;/b&gt;
      * If this value is not specified and the table was modified between the
      * given start and end times, the entire table will be scanned. If this
      * value is specified, then rows are filtered based on the given start and
@@ -231,11 +123,23 @@ private static final long serialVersionUID = 0L;
      * skipped.
      * Valid data types of the provided BigQuery column are: `INTEGER`, `DATE`,
      * `TIMESTAMP`, and `DATETIME`.
-     * For Datastore:
+     * If your BigQuery table is [partitioned at ingestion
+     * time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
+     * you can use any of the following pseudo-columns as your timestamp field.
+     * When used with Cloud DLP, these pseudo-column names are case sensitive.
+     * &lt;ul&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITIONTIME&lt;/code&gt;&lt;/li&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITIONDATE&lt;/code&gt;&lt;/li&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITION_LOAD_TIME&lt;/code&gt;&lt;/li&gt;
+     * &lt;/ul&gt;
+     * &lt;b&gt;For Datastore&lt;/b&gt;
      * If this value is specified, then entities are filtered based on the given
      * start and end times. If an entity does not contain the provided timestamp
      * property or contains empty or invalid values, then it is included.
      * Valid data types of the provided timestamp property are: `TIMESTAMP`.
+     * See the
+     * [known issue](https://cloud.google.com/dlp/docs/known-issues#bq-timespan)
+     * related to this operation.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.FieldId timestamp_field = 3;</code>
@@ -246,7 +150,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Specification of the field containing the timestamp of scanned items.
      * Used for data sources like Datastore and BigQuery.
-     * For BigQuery:
+     * &lt;b&gt;For BigQuery&lt;/b&gt;
      * If this value is not specified and the table was modified between the
      * given start and end times, the entire table will be scanned. If this
      * value is specified, then rows are filtered based on the given start and
@@ -254,11 +158,23 @@ private static final long serialVersionUID = 0L;
      * skipped.
      * Valid data types of the provided BigQuery column are: `INTEGER`, `DATE`,
      * `TIMESTAMP`, and `DATETIME`.
-     * For Datastore:
+     * If your BigQuery table is [partitioned at ingestion
+     * time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
+     * you can use any of the following pseudo-columns as your timestamp field.
+     * When used with Cloud DLP, these pseudo-column names are case sensitive.
+     * &lt;ul&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITIONTIME&lt;/code&gt;&lt;/li&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITIONDATE&lt;/code&gt;&lt;/li&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITION_LOAD_TIME&lt;/code&gt;&lt;/li&gt;
+     * &lt;/ul&gt;
+     * &lt;b&gt;For Datastore&lt;/b&gt;
      * If this value is specified, then entities are filtered based on the given
      * start and end times. If an entity does not contain the provided timestamp
      * property or contains empty or invalid values, then it is included.
      * Valid data types of the provided timestamp property are: `TIMESTAMP`.
+     * See the
+     * [known issue](https://cloud.google.com/dlp/docs/known-issues#bq-timespan)
+     * related to this operation.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.FieldId timestamp_field = 3;</code>
@@ -269,7 +185,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Specification of the field containing the timestamp of scanned items.
      * Used for data sources like Datastore and BigQuery.
-     * For BigQuery:
+     * &lt;b&gt;For BigQuery&lt;/b&gt;
      * If this value is not specified and the table was modified between the
      * given start and end times, the entire table will be scanned. If this
      * value is specified, then rows are filtered based on the given start and
@@ -277,11 +193,23 @@ private static final long serialVersionUID = 0L;
      * skipped.
      * Valid data types of the provided BigQuery column are: `INTEGER`, `DATE`,
      * `TIMESTAMP`, and `DATETIME`.
-     * For Datastore:
+     * If your BigQuery table is [partitioned at ingestion
+     * time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
+     * you can use any of the following pseudo-columns as your timestamp field.
+     * When used with Cloud DLP, these pseudo-column names are case sensitive.
+     * &lt;ul&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITIONTIME&lt;/code&gt;&lt;/li&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITIONDATE&lt;/code&gt;&lt;/li&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITION_LOAD_TIME&lt;/code&gt;&lt;/li&gt;
+     * &lt;/ul&gt;
+     * &lt;b&gt;For Datastore&lt;/b&gt;
      * If this value is specified, then entities are filtered based on the given
      * start and end times. If an entity does not contain the provided timestamp
      * property or contains empty or invalid values, then it is included.
      * Valid data types of the provided timestamp property are: `TIMESTAMP`.
+     * See the
+     * [known issue](https://cloud.google.com/dlp/docs/known-issues#bq-timespan)
+     * related to this operation.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.FieldId timestamp_field = 3;</code>
@@ -293,7 +221,8 @@ private static final long serialVersionUID = 0L;
      * When the job is started by a JobTrigger we will automatically figure out
      * a valid start_time to avoid scanning files that have not been modified
      * since the last time the JobTrigger executed. This will be based on the
-     * time of the execution of the last run of the JobTrigger.
+     * time of the execution of the last run of the JobTrigger or the timespan
+     * end_time used in the last run of the JobTrigger.
      * </pre>
      *
      * <code>bool enable_auto_population_of_timespan_config = 4;</code>
@@ -304,7 +233,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Configuration of the timespan of the items to include in scanning.
-   * Currently only supported when inspecting Google Cloud Storage and BigQuery.
+   * Currently only supported when inspecting Cloud Storage and BigQuery.
    * </pre>
    *
    * Protobuf type {@code google.privacy.dlp.v2.StorageConfig.TimespanConfig}
@@ -332,89 +261,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private TimespanConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (startTime_ != null) {
-                subBuilder = startTime_.toBuilder();
-              }
-              startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(startTime_);
-                startTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (endTime_ != null) {
-                subBuilder = endTime_.toBuilder();
-              }
-              endTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(endTime_);
-                endTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              com.google.privacy.dlp.v2.FieldId.Builder subBuilder = null;
-              if (timestampField_ != null) {
-                subBuilder = timestampField_.toBuilder();
-              }
-              timestampField_ = input.readMessage(com.google.privacy.dlp.v2.FieldId.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(timestampField_);
-                timestampField_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 32: {
-
-              enableAutoPopulationOfTimespanConfig_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -467,7 +313,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
-      return getStartTime();
+      return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
     }
 
     public static final int END_TIME_FIELD_NUMBER = 2;
@@ -508,7 +354,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
-      return getEndTime();
+      return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
     }
 
     public static final int TIMESTAMP_FIELD_FIELD_NUMBER = 3;
@@ -517,7 +363,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Specification of the field containing the timestamp of scanned items.
      * Used for data sources like Datastore and BigQuery.
-     * For BigQuery:
+     * &lt;b&gt;For BigQuery&lt;/b&gt;
      * If this value is not specified and the table was modified between the
      * given start and end times, the entire table will be scanned. If this
      * value is specified, then rows are filtered based on the given start and
@@ -525,11 +371,23 @@ private static final long serialVersionUID = 0L;
      * skipped.
      * Valid data types of the provided BigQuery column are: `INTEGER`, `DATE`,
      * `TIMESTAMP`, and `DATETIME`.
-     * For Datastore:
+     * If your BigQuery table is [partitioned at ingestion
+     * time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
+     * you can use any of the following pseudo-columns as your timestamp field.
+     * When used with Cloud DLP, these pseudo-column names are case sensitive.
+     * &lt;ul&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITIONTIME&lt;/code&gt;&lt;/li&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITIONDATE&lt;/code&gt;&lt;/li&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITION_LOAD_TIME&lt;/code&gt;&lt;/li&gt;
+     * &lt;/ul&gt;
+     * &lt;b&gt;For Datastore&lt;/b&gt;
      * If this value is specified, then entities are filtered based on the given
      * start and end times. If an entity does not contain the provided timestamp
      * property or contains empty or invalid values, then it is included.
      * Valid data types of the provided timestamp property are: `TIMESTAMP`.
+     * See the
+     * [known issue](https://cloud.google.com/dlp/docs/known-issues#bq-timespan)
+     * related to this operation.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.FieldId timestamp_field = 3;</code>
@@ -543,7 +401,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Specification of the field containing the timestamp of scanned items.
      * Used for data sources like Datastore and BigQuery.
-     * For BigQuery:
+     * &lt;b&gt;For BigQuery&lt;/b&gt;
      * If this value is not specified and the table was modified between the
      * given start and end times, the entire table will be scanned. If this
      * value is specified, then rows are filtered based on the given start and
@@ -551,11 +409,23 @@ private static final long serialVersionUID = 0L;
      * skipped.
      * Valid data types of the provided BigQuery column are: `INTEGER`, `DATE`,
      * `TIMESTAMP`, and `DATETIME`.
-     * For Datastore:
+     * If your BigQuery table is [partitioned at ingestion
+     * time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
+     * you can use any of the following pseudo-columns as your timestamp field.
+     * When used with Cloud DLP, these pseudo-column names are case sensitive.
+     * &lt;ul&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITIONTIME&lt;/code&gt;&lt;/li&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITIONDATE&lt;/code&gt;&lt;/li&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITION_LOAD_TIME&lt;/code&gt;&lt;/li&gt;
+     * &lt;/ul&gt;
+     * &lt;b&gt;For Datastore&lt;/b&gt;
      * If this value is specified, then entities are filtered based on the given
      * start and end times. If an entity does not contain the provided timestamp
      * property or contains empty or invalid values, then it is included.
      * Valid data types of the provided timestamp property are: `TIMESTAMP`.
+     * See the
+     * [known issue](https://cloud.google.com/dlp/docs/known-issues#bq-timespan)
+     * related to this operation.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.FieldId timestamp_field = 3;</code>
@@ -569,7 +439,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Specification of the field containing the timestamp of scanned items.
      * Used for data sources like Datastore and BigQuery.
-     * For BigQuery:
+     * &lt;b&gt;For BigQuery&lt;/b&gt;
      * If this value is not specified and the table was modified between the
      * given start and end times, the entire table will be scanned. If this
      * value is specified, then rows are filtered based on the given start and
@@ -577,28 +447,41 @@ private static final long serialVersionUID = 0L;
      * skipped.
      * Valid data types of the provided BigQuery column are: `INTEGER`, `DATE`,
      * `TIMESTAMP`, and `DATETIME`.
-     * For Datastore:
+     * If your BigQuery table is [partitioned at ingestion
+     * time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
+     * you can use any of the following pseudo-columns as your timestamp field.
+     * When used with Cloud DLP, these pseudo-column names are case sensitive.
+     * &lt;ul&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITIONTIME&lt;/code&gt;&lt;/li&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITIONDATE&lt;/code&gt;&lt;/li&gt;
+     * &lt;li&gt;&lt;code&gt;_PARTITION_LOAD_TIME&lt;/code&gt;&lt;/li&gt;
+     * &lt;/ul&gt;
+     * &lt;b&gt;For Datastore&lt;/b&gt;
      * If this value is specified, then entities are filtered based on the given
      * start and end times. If an entity does not contain the provided timestamp
      * property or contains empty or invalid values, then it is included.
      * Valid data types of the provided timestamp property are: `TIMESTAMP`.
+     * See the
+     * [known issue](https://cloud.google.com/dlp/docs/known-issues#bq-timespan)
+     * related to this operation.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.FieldId timestamp_field = 3;</code>
      */
     @java.lang.Override
     public com.google.privacy.dlp.v2.FieldIdOrBuilder getTimestampFieldOrBuilder() {
-      return getTimestampField();
+      return timestampField_ == null ? com.google.privacy.dlp.v2.FieldId.getDefaultInstance() : timestampField_;
     }
 
     public static final int ENABLE_AUTO_POPULATION_OF_TIMESPAN_CONFIG_FIELD_NUMBER = 4;
-    private boolean enableAutoPopulationOfTimespanConfig_;
+    private boolean enableAutoPopulationOfTimespanConfig_ = false;
     /**
      * <pre>
      * When the job is started by a JobTrigger we will automatically figure out
      * a valid start_time to avoid scanning files that have not been modified
      * since the last time the JobTrigger executed. This will be based on the
-     * time of the execution of the last run of the JobTrigger.
+     * time of the execution of the last run of the JobTrigger or the timespan
+     * end_time used in the last run of the JobTrigger.
      * </pre>
      *
      * <code>bool enable_auto_population_of_timespan_config = 4;</code>
@@ -635,7 +518,7 @@ private static final long serialVersionUID = 0L;
       if (enableAutoPopulationOfTimespanConfig_ != false) {
         output.writeBool(4, enableAutoPopulationOfTimespanConfig_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -660,7 +543,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, enableAutoPopulationOfTimespanConfig_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -692,7 +575,7 @@ private static final long serialVersionUID = 0L;
       }
       if (getEnableAutoPopulationOfTimespanConfig()
           != other.getEnableAutoPopulationOfTimespanConfig()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -718,7 +601,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ENABLE_AUTO_POPULATION_OF_TIMESPAN_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getEnableAutoPopulationOfTimespanConfig());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -816,7 +699,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Configuration of the timespan of the items to include in scanning.
-     * Currently only supported when inspecting Google Cloud Storage and BigQuery.
+     * Currently only supported when inspecting Cloud Storage and BigQuery.
      * </pre>
      *
      * Protobuf type {@code google.privacy.dlp.v2.StorageConfig.TimespanConfig}
@@ -840,42 +723,34 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.privacy.dlp.v2.StorageConfig.TimespanConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (startTimeBuilder_ == null) {
-          startTime_ = null;
-        } else {
-          startTime_ = null;
+        bitField0_ = 0;
+        startTime_ = null;
+        if (startTimeBuilder_ != null) {
+          startTimeBuilder_.dispose();
           startTimeBuilder_ = null;
         }
-        if (endTimeBuilder_ == null) {
-          endTime_ = null;
-        } else {
-          endTime_ = null;
+        endTime_ = null;
+        if (endTimeBuilder_ != null) {
+          endTimeBuilder_.dispose();
           endTimeBuilder_ = null;
         }
-        if (timestampFieldBuilder_ == null) {
-          timestampField_ = null;
-        } else {
-          timestampField_ = null;
+        timestampField_ = null;
+        if (timestampFieldBuilder_ != null) {
+          timestampFieldBuilder_.dispose();
           timestampFieldBuilder_ = null;
         }
         enableAutoPopulationOfTimespanConfig_ = false;
-
         return this;
       }
 
@@ -902,24 +777,31 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.privacy.dlp.v2.StorageConfig.TimespanConfig buildPartial() {
         com.google.privacy.dlp.v2.StorageConfig.TimespanConfig result = new com.google.privacy.dlp.v2.StorageConfig.TimespanConfig(this);
-        if (startTimeBuilder_ == null) {
-          result.startTime_ = startTime_;
-        } else {
-          result.startTime_ = startTimeBuilder_.build();
-        }
-        if (endTimeBuilder_ == null) {
-          result.endTime_ = endTime_;
-        } else {
-          result.endTime_ = endTimeBuilder_.build();
-        }
-        if (timestampFieldBuilder_ == null) {
-          result.timestampField_ = timestampField_;
-        } else {
-          result.timestampField_ = timestampFieldBuilder_.build();
-        }
-        result.enableAutoPopulationOfTimespanConfig_ = enableAutoPopulationOfTimespanConfig_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.privacy.dlp.v2.StorageConfig.TimespanConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.startTime_ = startTimeBuilder_ == null
+              ? startTime_
+              : startTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.endTime_ = endTimeBuilder_ == null
+              ? endTime_
+              : endTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.timestampField_ = timestampFieldBuilder_ == null
+              ? timestampField_
+              : timestampFieldBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.enableAutoPopulationOfTimespanConfig_ = enableAutoPopulationOfTimespanConfig_;
+        }
       }
 
       @java.lang.Override
@@ -978,7 +860,7 @@ private static final long serialVersionUID = 0L;
         if (other.getEnableAutoPopulationOfTimespanConfig() != false) {
           setEnableAutoPopulationOfTimespanConfig(other.getEnableAutoPopulationOfTimespanConfig());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -993,19 +875,59 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.privacy.dlp.v2.StorageConfig.TimespanConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getStartTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getEndTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getTimestampFieldFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                enableAutoPopulationOfTimespanConfig_ = input.readBool();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.privacy.dlp.v2.StorageConfig.TimespanConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.Timestamp startTime_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1020,7 +942,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the startTime field is set.
        */
       public boolean hasStartTime() {
-        return startTimeBuilder_ != null || startTime_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -1052,11 +974,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           startTime_ = value;
-          onChanged();
         } else {
           startTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1071,11 +993,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (startTimeBuilder_ == null) {
           startTime_ = builderForValue.build();
-          onChanged();
         } else {
           startTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1088,17 +1010,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
         if (startTimeBuilder_ == null) {
-          if (startTime_ != null) {
-            startTime_ =
-              com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            startTime_ != null &&
+            startTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getStartTimeBuilder().mergeFrom(value);
           } else {
             startTime_ = value;
           }
-          onChanged();
         } else {
           startTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1110,14 +1033,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp start_time = 1;</code>
        */
       public Builder clearStartTime() {
-        if (startTimeBuilder_ == null) {
-          startTime_ = null;
-          onChanged();
-        } else {
-          startTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        startTime_ = null;
+        if (startTimeBuilder_ != null) {
+          startTimeBuilder_.dispose();
           startTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1129,7 +1051,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp start_time = 1;</code>
        */
       public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getStartTimeFieldBuilder().getBuilder();
       }
@@ -1184,7 +1106,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the endTime field is set.
        */
       public boolean hasEndTime() {
-        return endTimeBuilder_ != null || endTime_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -1216,11 +1138,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           endTime_ = value;
-          onChanged();
         } else {
           endTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1235,11 +1157,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (endTimeBuilder_ == null) {
           endTime_ = builderForValue.build();
-          onChanged();
         } else {
           endTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1252,17 +1174,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
         if (endTimeBuilder_ == null) {
-          if (endTime_ != null) {
-            endTime_ =
-              com.google.protobuf.Timestamp.newBuilder(endTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            endTime_ != null &&
+            endTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getEndTimeBuilder().mergeFrom(value);
           } else {
             endTime_ = value;
           }
-          onChanged();
         } else {
           endTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1274,14 +1197,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp end_time = 2;</code>
        */
       public Builder clearEndTime() {
-        if (endTimeBuilder_ == null) {
-          endTime_ = null;
-          onChanged();
-        } else {
-          endTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        endTime_ = null;
+        if (endTimeBuilder_ != null) {
+          endTimeBuilder_.dispose();
           endTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1293,7 +1215,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp end_time = 2;</code>
        */
       public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getEndTimeFieldBuilder().getBuilder();
       }
@@ -1342,7 +1264,7 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Specification of the field containing the timestamp of scanned items.
        * Used for data sources like Datastore and BigQuery.
-       * For BigQuery:
+       * &lt;b&gt;For BigQuery&lt;/b&gt;
        * If this value is not specified and the table was modified between the
        * given start and end times, the entire table will be scanned. If this
        * value is specified, then rows are filtered based on the given start and
@@ -1350,24 +1272,36 @@ private static final long serialVersionUID = 0L;
        * skipped.
        * Valid data types of the provided BigQuery column are: `INTEGER`, `DATE`,
        * `TIMESTAMP`, and `DATETIME`.
-       * For Datastore:
+       * If your BigQuery table is [partitioned at ingestion
+       * time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
+       * you can use any of the following pseudo-columns as your timestamp field.
+       * When used with Cloud DLP, these pseudo-column names are case sensitive.
+       * &lt;ul&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONTIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONDATE&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITION_LOAD_TIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;/ul&gt;
+       * &lt;b&gt;For Datastore&lt;/b&gt;
        * If this value is specified, then entities are filtered based on the given
        * start and end times. If an entity does not contain the provided timestamp
        * property or contains empty or invalid values, then it is included.
        * Valid data types of the provided timestamp property are: `TIMESTAMP`.
+       * See the
+       * [known issue](https://cloud.google.com/dlp/docs/known-issues#bq-timespan)
+       * related to this operation.
        * </pre>
        *
        * <code>.google.privacy.dlp.v2.FieldId timestamp_field = 3;</code>
        * @return Whether the timestampField field is set.
        */
       public boolean hasTimestampField() {
-        return timestampFieldBuilder_ != null || timestampField_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
        * Specification of the field containing the timestamp of scanned items.
        * Used for data sources like Datastore and BigQuery.
-       * For BigQuery:
+       * &lt;b&gt;For BigQuery&lt;/b&gt;
        * If this value is not specified and the table was modified between the
        * given start and end times, the entire table will be scanned. If this
        * value is specified, then rows are filtered based on the given start and
@@ -1375,11 +1309,23 @@ private static final long serialVersionUID = 0L;
        * skipped.
        * Valid data types of the provided BigQuery column are: `INTEGER`, `DATE`,
        * `TIMESTAMP`, and `DATETIME`.
-       * For Datastore:
+       * If your BigQuery table is [partitioned at ingestion
+       * time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
+       * you can use any of the following pseudo-columns as your timestamp field.
+       * When used with Cloud DLP, these pseudo-column names are case sensitive.
+       * &lt;ul&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONTIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONDATE&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITION_LOAD_TIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;/ul&gt;
+       * &lt;b&gt;For Datastore&lt;/b&gt;
        * If this value is specified, then entities are filtered based on the given
        * start and end times. If an entity does not contain the provided timestamp
        * property or contains empty or invalid values, then it is included.
        * Valid data types of the provided timestamp property are: `TIMESTAMP`.
+       * See the
+       * [known issue](https://cloud.google.com/dlp/docs/known-issues#bq-timespan)
+       * related to this operation.
        * </pre>
        *
        * <code>.google.privacy.dlp.v2.FieldId timestamp_field = 3;</code>
@@ -1396,7 +1342,7 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Specification of the field containing the timestamp of scanned items.
        * Used for data sources like Datastore and BigQuery.
-       * For BigQuery:
+       * &lt;b&gt;For BigQuery&lt;/b&gt;
        * If this value is not specified and the table was modified between the
        * given start and end times, the entire table will be scanned. If this
        * value is specified, then rows are filtered based on the given start and
@@ -1404,11 +1350,23 @@ private static final long serialVersionUID = 0L;
        * skipped.
        * Valid data types of the provided BigQuery column are: `INTEGER`, `DATE`,
        * `TIMESTAMP`, and `DATETIME`.
-       * For Datastore:
+       * If your BigQuery table is [partitioned at ingestion
+       * time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
+       * you can use any of the following pseudo-columns as your timestamp field.
+       * When used with Cloud DLP, these pseudo-column names are case sensitive.
+       * &lt;ul&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONTIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONDATE&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITION_LOAD_TIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;/ul&gt;
+       * &lt;b&gt;For Datastore&lt;/b&gt;
        * If this value is specified, then entities are filtered based on the given
        * start and end times. If an entity does not contain the provided timestamp
        * property or contains empty or invalid values, then it is included.
        * Valid data types of the provided timestamp property are: `TIMESTAMP`.
+       * See the
+       * [known issue](https://cloud.google.com/dlp/docs/known-issues#bq-timespan)
+       * related to this operation.
        * </pre>
        *
        * <code>.google.privacy.dlp.v2.FieldId timestamp_field = 3;</code>
@@ -1419,18 +1377,18 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           timestampField_ = value;
-          onChanged();
         } else {
           timestampFieldBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * Specification of the field containing the timestamp of scanned items.
        * Used for data sources like Datastore and BigQuery.
-       * For BigQuery:
+       * &lt;b&gt;For BigQuery&lt;/b&gt;
        * If this value is not specified and the table was modified between the
        * given start and end times, the entire table will be scanned. If this
        * value is specified, then rows are filtered based on the given start and
@@ -1438,11 +1396,23 @@ private static final long serialVersionUID = 0L;
        * skipped.
        * Valid data types of the provided BigQuery column are: `INTEGER`, `DATE`,
        * `TIMESTAMP`, and `DATETIME`.
-       * For Datastore:
+       * If your BigQuery table is [partitioned at ingestion
+       * time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
+       * you can use any of the following pseudo-columns as your timestamp field.
+       * When used with Cloud DLP, these pseudo-column names are case sensitive.
+       * &lt;ul&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONTIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONDATE&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITION_LOAD_TIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;/ul&gt;
+       * &lt;b&gt;For Datastore&lt;/b&gt;
        * If this value is specified, then entities are filtered based on the given
        * start and end times. If an entity does not contain the provided timestamp
        * property or contains empty or invalid values, then it is included.
        * Valid data types of the provided timestamp property are: `TIMESTAMP`.
+       * See the
+       * [known issue](https://cloud.google.com/dlp/docs/known-issues#bq-timespan)
+       * related to this operation.
        * </pre>
        *
        * <code>.google.privacy.dlp.v2.FieldId timestamp_field = 3;</code>
@@ -1451,18 +1421,18 @@ private static final long serialVersionUID = 0L;
           com.google.privacy.dlp.v2.FieldId.Builder builderForValue) {
         if (timestampFieldBuilder_ == null) {
           timestampField_ = builderForValue.build();
-          onChanged();
         } else {
           timestampFieldBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * Specification of the field containing the timestamp of scanned items.
        * Used for data sources like Datastore and BigQuery.
-       * For BigQuery:
+       * &lt;b&gt;For BigQuery&lt;/b&gt;
        * If this value is not specified and the table was modified between the
        * given start and end times, the entire table will be scanned. If this
        * value is specified, then rows are filtered based on the given start and
@@ -1470,35 +1440,48 @@ private static final long serialVersionUID = 0L;
        * skipped.
        * Valid data types of the provided BigQuery column are: `INTEGER`, `DATE`,
        * `TIMESTAMP`, and `DATETIME`.
-       * For Datastore:
+       * If your BigQuery table is [partitioned at ingestion
+       * time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
+       * you can use any of the following pseudo-columns as your timestamp field.
+       * When used with Cloud DLP, these pseudo-column names are case sensitive.
+       * &lt;ul&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONTIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONDATE&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITION_LOAD_TIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;/ul&gt;
+       * &lt;b&gt;For Datastore&lt;/b&gt;
        * If this value is specified, then entities are filtered based on the given
        * start and end times. If an entity does not contain the provided timestamp
        * property or contains empty or invalid values, then it is included.
        * Valid data types of the provided timestamp property are: `TIMESTAMP`.
+       * See the
+       * [known issue](https://cloud.google.com/dlp/docs/known-issues#bq-timespan)
+       * related to this operation.
        * </pre>
        *
        * <code>.google.privacy.dlp.v2.FieldId timestamp_field = 3;</code>
        */
       public Builder mergeTimestampField(com.google.privacy.dlp.v2.FieldId value) {
         if (timestampFieldBuilder_ == null) {
-          if (timestampField_ != null) {
-            timestampField_ =
-              com.google.privacy.dlp.v2.FieldId.newBuilder(timestampField_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            timestampField_ != null &&
+            timestampField_ != com.google.privacy.dlp.v2.FieldId.getDefaultInstance()) {
+            getTimestampFieldBuilder().mergeFrom(value);
           } else {
             timestampField_ = value;
           }
-          onChanged();
         } else {
           timestampFieldBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * Specification of the field containing the timestamp of scanned items.
        * Used for data sources like Datastore and BigQuery.
-       * For BigQuery:
+       * &lt;b&gt;For BigQuery&lt;/b&gt;
        * If this value is not specified and the table was modified between the
        * given start and end times, the entire table will be scanned. If this
        * value is specified, then rows are filtered based on the given start and
@@ -1506,31 +1489,42 @@ private static final long serialVersionUID = 0L;
        * skipped.
        * Valid data types of the provided BigQuery column are: `INTEGER`, `DATE`,
        * `TIMESTAMP`, and `DATETIME`.
-       * For Datastore:
+       * If your BigQuery table is [partitioned at ingestion
+       * time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
+       * you can use any of the following pseudo-columns as your timestamp field.
+       * When used with Cloud DLP, these pseudo-column names are case sensitive.
+       * &lt;ul&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONTIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONDATE&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITION_LOAD_TIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;/ul&gt;
+       * &lt;b&gt;For Datastore&lt;/b&gt;
        * If this value is specified, then entities are filtered based on the given
        * start and end times. If an entity does not contain the provided timestamp
        * property or contains empty or invalid values, then it is included.
        * Valid data types of the provided timestamp property are: `TIMESTAMP`.
+       * See the
+       * [known issue](https://cloud.google.com/dlp/docs/known-issues#bq-timespan)
+       * related to this operation.
        * </pre>
        *
        * <code>.google.privacy.dlp.v2.FieldId timestamp_field = 3;</code>
        */
       public Builder clearTimestampField() {
-        if (timestampFieldBuilder_ == null) {
-          timestampField_ = null;
-          onChanged();
-        } else {
-          timestampField_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        timestampField_ = null;
+        if (timestampFieldBuilder_ != null) {
+          timestampFieldBuilder_.dispose();
           timestampFieldBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * Specification of the field containing the timestamp of scanned items.
        * Used for data sources like Datastore and BigQuery.
-       * For BigQuery:
+       * &lt;b&gt;For BigQuery&lt;/b&gt;
        * If this value is not specified and the table was modified between the
        * given start and end times, the entire table will be scanned. If this
        * value is specified, then rows are filtered based on the given start and
@@ -1538,17 +1532,29 @@ private static final long serialVersionUID = 0L;
        * skipped.
        * Valid data types of the provided BigQuery column are: `INTEGER`, `DATE`,
        * `TIMESTAMP`, and `DATETIME`.
-       * For Datastore:
+       * If your BigQuery table is [partitioned at ingestion
+       * time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
+       * you can use any of the following pseudo-columns as your timestamp field.
+       * When used with Cloud DLP, these pseudo-column names are case sensitive.
+       * &lt;ul&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONTIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONDATE&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITION_LOAD_TIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;/ul&gt;
+       * &lt;b&gt;For Datastore&lt;/b&gt;
        * If this value is specified, then entities are filtered based on the given
        * start and end times. If an entity does not contain the provided timestamp
        * property or contains empty or invalid values, then it is included.
        * Valid data types of the provided timestamp property are: `TIMESTAMP`.
+       * See the
+       * [known issue](https://cloud.google.com/dlp/docs/known-issues#bq-timespan)
+       * related to this operation.
        * </pre>
        *
        * <code>.google.privacy.dlp.v2.FieldId timestamp_field = 3;</code>
        */
       public com.google.privacy.dlp.v2.FieldId.Builder getTimestampFieldBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getTimestampFieldFieldBuilder().getBuilder();
       }
@@ -1556,7 +1562,7 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Specification of the field containing the timestamp of scanned items.
        * Used for data sources like Datastore and BigQuery.
-       * For BigQuery:
+       * &lt;b&gt;For BigQuery&lt;/b&gt;
        * If this value is not specified and the table was modified between the
        * given start and end times, the entire table will be scanned. If this
        * value is specified, then rows are filtered based on the given start and
@@ -1564,11 +1570,23 @@ private static final long serialVersionUID = 0L;
        * skipped.
        * Valid data types of the provided BigQuery column are: `INTEGER`, `DATE`,
        * `TIMESTAMP`, and `DATETIME`.
-       * For Datastore:
+       * If your BigQuery table is [partitioned at ingestion
+       * time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
+       * you can use any of the following pseudo-columns as your timestamp field.
+       * When used with Cloud DLP, these pseudo-column names are case sensitive.
+       * &lt;ul&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONTIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONDATE&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITION_LOAD_TIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;/ul&gt;
+       * &lt;b&gt;For Datastore&lt;/b&gt;
        * If this value is specified, then entities are filtered based on the given
        * start and end times. If an entity does not contain the provided timestamp
        * property or contains empty or invalid values, then it is included.
        * Valid data types of the provided timestamp property are: `TIMESTAMP`.
+       * See the
+       * [known issue](https://cloud.google.com/dlp/docs/known-issues#bq-timespan)
+       * related to this operation.
        * </pre>
        *
        * <code>.google.privacy.dlp.v2.FieldId timestamp_field = 3;</code>
@@ -1585,7 +1603,7 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Specification of the field containing the timestamp of scanned items.
        * Used for data sources like Datastore and BigQuery.
-       * For BigQuery:
+       * &lt;b&gt;For BigQuery&lt;/b&gt;
        * If this value is not specified and the table was modified between the
        * given start and end times, the entire table will be scanned. If this
        * value is specified, then rows are filtered based on the given start and
@@ -1593,11 +1611,23 @@ private static final long serialVersionUID = 0L;
        * skipped.
        * Valid data types of the provided BigQuery column are: `INTEGER`, `DATE`,
        * `TIMESTAMP`, and `DATETIME`.
-       * For Datastore:
+       * If your BigQuery table is [partitioned at ingestion
+       * time](https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time),
+       * you can use any of the following pseudo-columns as your timestamp field.
+       * When used with Cloud DLP, these pseudo-column names are case sensitive.
+       * &lt;ul&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONTIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITIONDATE&lt;/code&gt;&lt;/li&gt;
+       * &lt;li&gt;&lt;code&gt;_PARTITION_LOAD_TIME&lt;/code&gt;&lt;/li&gt;
+       * &lt;/ul&gt;
+       * &lt;b&gt;For Datastore&lt;/b&gt;
        * If this value is specified, then entities are filtered based on the given
        * start and end times. If an entity does not contain the provided timestamp
        * property or contains empty or invalid values, then it is included.
        * Valid data types of the provided timestamp property are: `TIMESTAMP`.
+       * See the
+       * [known issue](https://cloud.google.com/dlp/docs/known-issues#bq-timespan)
+       * related to this operation.
        * </pre>
        *
        * <code>.google.privacy.dlp.v2.FieldId timestamp_field = 3;</code>
@@ -1622,7 +1652,8 @@ private static final long serialVersionUID = 0L;
        * When the job is started by a JobTrigger we will automatically figure out
        * a valid start_time to avoid scanning files that have not been modified
        * since the last time the JobTrigger executed. This will be based on the
-       * time of the execution of the last run of the JobTrigger.
+       * time of the execution of the last run of the JobTrigger or the timespan
+       * end_time used in the last run of the JobTrigger.
        * </pre>
        *
        * <code>bool enable_auto_population_of_timespan_config = 4;</code>
@@ -1637,7 +1668,8 @@ private static final long serialVersionUID = 0L;
        * When the job is started by a JobTrigger we will automatically figure out
        * a valid start_time to avoid scanning files that have not been modified
        * since the last time the JobTrigger executed. This will be based on the
-       * time of the execution of the last run of the JobTrigger.
+       * time of the execution of the last run of the JobTrigger or the timespan
+       * end_time used in the last run of the JobTrigger.
        * </pre>
        *
        * <code>bool enable_auto_population_of_timespan_config = 4;</code>
@@ -1647,6 +1679,7 @@ private static final long serialVersionUID = 0L;
       public Builder setEnableAutoPopulationOfTimespanConfig(boolean value) {
         
         enableAutoPopulationOfTimespanConfig_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1655,14 +1688,15 @@ private static final long serialVersionUID = 0L;
        * When the job is started by a JobTrigger we will automatically figure out
        * a valid start_time to avoid scanning files that have not been modified
        * since the last time the JobTrigger executed. This will be based on the
-       * time of the execution of the last run of the JobTrigger.
+       * time of the execution of the last run of the JobTrigger or the timespan
+       * end_time used in the last run of the JobTrigger.
        * </pre>
        *
        * <code>bool enable_auto_population_of_timespan_config = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearEnableAutoPopulationOfTimespanConfig() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         enableAutoPopulationOfTimespanConfig_ = false;
         onChanged();
         return this;
@@ -1700,7 +1734,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TimespanConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1811,7 +1856,7 @@ private static final long serialVersionUID = 0L;
   public static final int CLOUD_STORAGE_OPTIONS_FIELD_NUMBER = 3;
   /**
    * <pre>
-   * Google Cloud Storage options.
+   * Cloud Storage options.
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.CloudStorageOptions cloud_storage_options = 3;</code>
@@ -1823,7 +1868,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Google Cloud Storage options.
+   * Cloud Storage options.
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.CloudStorageOptions cloud_storage_options = 3;</code>
@@ -1838,7 +1883,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Google Cloud Storage options.
+   * Cloud Storage options.
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.CloudStorageOptions cloud_storage_options = 3;</code>
@@ -1960,7 +2005,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.privacy.dlp.v2.StorageConfig.TimespanConfigOrBuilder getTimespanConfigOrBuilder() {
-    return getTimespanConfig();
+    return timespanConfig_ == null ? com.google.privacy.dlp.v2.StorageConfig.TimespanConfig.getDefaultInstance() : timespanConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1992,7 +2037,7 @@ private static final long serialVersionUID = 0L;
     if (typeCase_ == 9) {
       output.writeMessage(9, (com.google.privacy.dlp.v2.HybridOptions) type_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2021,7 +2066,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, (com.google.privacy.dlp.v2.HybridOptions) type_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2062,7 +2107,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2097,7 +2142,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2218,26 +2263,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.StorageConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (timespanConfigBuilder_ == null) {
-        timespanConfig_ = null;
-      } else {
-        timespanConfig_ = null;
+      bitField0_ = 0;
+      if (datastoreOptionsBuilder_ != null) {
+        datastoreOptionsBuilder_.clear();
+      }
+      if (cloudStorageOptionsBuilder_ != null) {
+        cloudStorageOptionsBuilder_.clear();
+      }
+      if (bigQueryOptionsBuilder_ != null) {
+        bigQueryOptionsBuilder_.clear();
+      }
+      if (hybridOptionsBuilder_ != null) {
+        hybridOptionsBuilder_.clear();
+      }
+      timespanConfig_ = null;
+      if (timespanConfigBuilder_ != null) {
+        timespanConfigBuilder_.dispose();
         timespanConfigBuilder_ = null;
       }
       typeCase_ = 0;
@@ -2268,42 +2320,40 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.StorageConfig buildPartial() {
       com.google.privacy.dlp.v2.StorageConfig result = new com.google.privacy.dlp.v2.StorageConfig(this);
-      if (typeCase_ == 2) {
-        if (datastoreOptionsBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = datastoreOptionsBuilder_.build();
-        }
-      }
-      if (typeCase_ == 3) {
-        if (cloudStorageOptionsBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = cloudStorageOptionsBuilder_.build();
-        }
-      }
-      if (typeCase_ == 4) {
-        if (bigQueryOptionsBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = bigQueryOptionsBuilder_.build();
-        }
-      }
-      if (typeCase_ == 9) {
-        if (hybridOptionsBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = hybridOptionsBuilder_.build();
-        }
-      }
-      if (timespanConfigBuilder_ == null) {
-        result.timespanConfig_ = timespanConfig_;
-      } else {
-        result.timespanConfig_ = timespanConfigBuilder_.build();
-      }
-      result.typeCase_ = typeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.StorageConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.timespanConfig_ = timespanConfigBuilder_ == null
+            ? timespanConfig_
+            : timespanConfigBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.privacy.dlp.v2.StorageConfig result) {
+      result.typeCase_ = typeCase_;
+      result.type_ = this.type_;
+      if (typeCase_ == 2 &&
+          datastoreOptionsBuilder_ != null) {
+        result.type_ = datastoreOptionsBuilder_.build();
+      }
+      if (typeCase_ == 3 &&
+          cloudStorageOptionsBuilder_ != null) {
+        result.type_ = cloudStorageOptionsBuilder_.build();
+      }
+      if (typeCase_ == 4 &&
+          bigQueryOptionsBuilder_ != null) {
+        result.type_ = bigQueryOptionsBuilder_.build();
+      }
+      if (typeCase_ == 9 &&
+          hybridOptionsBuilder_ != null) {
+        result.type_ = hybridOptionsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2374,7 +2424,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2389,17 +2439,65 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.StorageConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              input.readMessage(
+                  getDatastoreOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCloudStorageOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getBigQueryOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 4;
+              break;
+            } // case 34
+            case 50: {
+              input.readMessage(
+                  getTimespanConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            case 74: {
+              input.readMessage(
+                  getHybridOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 9;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.StorageConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int typeCase_ = 0;
@@ -2417,6 +2515,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.privacy.dlp.v2.DatastoreOptions, com.google.privacy.dlp.v2.DatastoreOptions.Builder, com.google.privacy.dlp.v2.DatastoreOptionsOrBuilder> datastoreOptionsBuilder_;
@@ -2592,7 +2691,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 2;
-      onChanged();;
+      onChanged();
       return datastoreOptionsBuilder_;
     }
 
@@ -2600,7 +2699,7 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.CloudStorageOptions, com.google.privacy.dlp.v2.CloudStorageOptions.Builder, com.google.privacy.dlp.v2.CloudStorageOptionsOrBuilder> cloudStorageOptionsBuilder_;
     /**
      * <pre>
-     * Google Cloud Storage options.
+     * Cloud Storage options.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.CloudStorageOptions cloud_storage_options = 3;</code>
@@ -2612,7 +2711,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Google Cloud Storage options.
+     * Cloud Storage options.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.CloudStorageOptions cloud_storage_options = 3;</code>
@@ -2634,7 +2733,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Google Cloud Storage options.
+     * Cloud Storage options.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.CloudStorageOptions cloud_storage_options = 3;</code>
@@ -2654,7 +2753,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Google Cloud Storage options.
+     * Cloud Storage options.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.CloudStorageOptions cloud_storage_options = 3;</code>
@@ -2672,7 +2771,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Google Cloud Storage options.
+     * Cloud Storage options.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.CloudStorageOptions cloud_storage_options = 3;</code>
@@ -2699,7 +2798,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Google Cloud Storage options.
+     * Cloud Storage options.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.CloudStorageOptions cloud_storage_options = 3;</code>
@@ -2722,7 +2821,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Google Cloud Storage options.
+     * Cloud Storage options.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.CloudStorageOptions cloud_storage_options = 3;</code>
@@ -2732,7 +2831,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Google Cloud Storage options.
+     * Cloud Storage options.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.CloudStorageOptions cloud_storage_options = 3;</code>
@@ -2750,7 +2849,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Google Cloud Storage options.
+     * Cloud Storage options.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.CloudStorageOptions cloud_storage_options = 3;</code>
@@ -2770,7 +2869,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 3;
-      onChanged();;
+      onChanged();
       return cloudStorageOptionsBuilder_;
     }
 
@@ -2948,7 +3047,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 4;
-      onChanged();;
+      onChanged();
       return bigQueryOptionsBuilder_;
     }
 
@@ -3126,7 +3225,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 9;
-      onChanged();;
+      onChanged();
       return hybridOptionsBuilder_;
     }
 
@@ -3138,7 +3237,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timespanConfig field is set.
      */
     public boolean hasTimespanConfig() {
-      return timespanConfigBuilder_ != null || timespanConfig_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <code>.google.privacy.dlp.v2.StorageConfig.TimespanConfig timespan_config = 6;</code>
@@ -3160,11 +3259,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timespanConfig_ = value;
-        onChanged();
       } else {
         timespanConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -3174,11 +3273,11 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.StorageConfig.TimespanConfig.Builder builderForValue) {
       if (timespanConfigBuilder_ == null) {
         timespanConfig_ = builderForValue.build();
-        onChanged();
       } else {
         timespanConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -3186,38 +3285,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimespanConfig(com.google.privacy.dlp.v2.StorageConfig.TimespanConfig value) {
       if (timespanConfigBuilder_ == null) {
-        if (timespanConfig_ != null) {
-          timespanConfig_ =
-            com.google.privacy.dlp.v2.StorageConfig.TimespanConfig.newBuilder(timespanConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          timespanConfig_ != null &&
+          timespanConfig_ != com.google.privacy.dlp.v2.StorageConfig.TimespanConfig.getDefaultInstance()) {
+          getTimespanConfigBuilder().mergeFrom(value);
         } else {
           timespanConfig_ = value;
         }
-        onChanged();
       } else {
         timespanConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <code>.google.privacy.dlp.v2.StorageConfig.TimespanConfig timespan_config = 6;</code>
      */
     public Builder clearTimespanConfig() {
-      if (timespanConfigBuilder_ == null) {
-        timespanConfig_ = null;
-        onChanged();
-      } else {
-        timespanConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      timespanConfig_ = null;
+      if (timespanConfigBuilder_ != null) {
+        timespanConfigBuilder_.dispose();
         timespanConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.google.privacy.dlp.v2.StorageConfig.TimespanConfig timespan_config = 6;</code>
      */
     public com.google.privacy.dlp.v2.StorageConfig.TimespanConfig.Builder getTimespanConfigBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getTimespanConfigFieldBuilder().getBuilder();
     }
@@ -3281,7 +3380,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StorageConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

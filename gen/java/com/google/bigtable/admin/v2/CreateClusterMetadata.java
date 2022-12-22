@@ -34,98 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateClusterMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.bigtable.admin.v2.CreateClusterRequest.Builder subBuilder = null;
-            if (originalRequest_ != null) {
-              subBuilder = originalRequest_.toBuilder();
-            }
-            originalRequest_ = input.readMessage(com.google.bigtable.admin.v2.CreateClusterRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(originalRequest_);
-              originalRequest_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (requestTime_ != null) {
-              subBuilder = requestTime_.toBuilder();
-            }
-            requestTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(requestTime_);
-              requestTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (finishTime_ != null) {
-              subBuilder = finishTime_.toBuilder();
-            }
-            finishTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(finishTime_);
-              finishTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              tables_ = com.google.protobuf.MapField.newMapField(
-                  TablesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress>
-            tables__ = input.readMessage(
-                TablesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            tables_.getMutableMap().put(
-                tables__.getKey(), tables__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.bigtable.admin.v2.BigtableInstanceAdminProto.internal_static_google_bigtable_admin_v2_CreateClusterMetadata_descriptor;
@@ -219,61 +127,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private TableProgress(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 16: {
-
-              estimatedSizeBytes_ = input.readInt64();
-              break;
-            }
-            case 24: {
-
-              estimatedCopiedBytes_ = input.readInt64();
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              state_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -460,7 +313,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ESTIMATED_SIZE_BYTES_FIELD_NUMBER = 2;
-    private long estimatedSizeBytes_;
+    private long estimatedSizeBytes_ = 0L;
     /**
      * <pre>
      * Estimate of the size of the table to be copied.
@@ -475,7 +328,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ESTIMATED_COPIED_BYTES_FIELD_NUMBER = 3;
-    private long estimatedCopiedBytes_;
+    private long estimatedCopiedBytes_ = 0L;
     /**
      * <pre>
      * Estimate of the number of bytes copied so far for this table.
@@ -492,7 +345,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int STATE_FIELD_NUMBER = 4;
-    private int state_;
+    private int state_ = 0;
     /**
      * <code>.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress.State state = 4;</code>
      * @return The enum numeric value on the wire for state.
@@ -505,8 +358,7 @@ private static final long serialVersionUID = 0L;
      * @return The state.
      */
     @java.lang.Override public com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress.State result = com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress.State.valueOf(state_);
+      com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress.State result = com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress.State.forNumber(state_);
       return result == null ? com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress.State.UNRECOGNIZED : result;
     }
 
@@ -533,7 +385,7 @@ private static final long serialVersionUID = 0L;
       if (state_ != com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress.State.STATE_UNSPECIFIED.getNumber()) {
         output.writeEnum(4, state_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -554,7 +406,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, state_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -574,7 +426,7 @@ private static final long serialVersionUID = 0L;
       if (getEstimatedCopiedBytes()
           != other.getEstimatedCopiedBytes()) return false;
       if (state_ != other.state_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -593,7 +445,7 @@ private static final long serialVersionUID = 0L;
           getEstimatedCopiedBytes());
       hash = (37 * hash) + STATE_FIELD_NUMBER;
       hash = (53 * hash) + state_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -714,28 +566,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         estimatedSizeBytes_ = 0L;
-
         estimatedCopiedBytes_ = 0L;
-
         state_ = 0;
-
         return this;
       }
 
@@ -762,11 +607,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress buildPartial() {
         com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress result = new com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress(this);
-        result.estimatedSizeBytes_ = estimatedSizeBytes_;
-        result.estimatedCopiedBytes_ = estimatedCopiedBytes_;
-        result.state_ = state_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.estimatedSizeBytes_ = estimatedSizeBytes_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.estimatedCopiedBytes_ = estimatedCopiedBytes_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.state_ = state_;
+        }
       }
 
       @java.lang.Override
@@ -822,7 +678,7 @@ private static final long serialVersionUID = 0L;
         if (other.state_ != 0) {
           setStateValue(other.getStateValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -837,19 +693,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 16: {
+                estimatedSizeBytes_ = input.readInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 16
+              case 24: {
+                estimatedCopiedBytes_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 24
+              case 32: {
+                state_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long estimatedSizeBytes_ ;
       /**
@@ -876,6 +761,7 @@ private static final long serialVersionUID = 0L;
       public Builder setEstimatedSizeBytes(long value) {
         
         estimatedSizeBytes_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -888,7 +774,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearEstimatedSizeBytes() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         estimatedSizeBytes_ = 0L;
         onChanged();
         return this;
@@ -923,6 +809,7 @@ private static final long serialVersionUID = 0L;
       public Builder setEstimatedCopiedBytes(long value) {
         
         estimatedCopiedBytes_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -937,7 +824,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearEstimatedCopiedBytes() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         estimatedCopiedBytes_ = 0L;
         onChanged();
         return this;
@@ -957,8 +844,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
-        
         state_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -968,8 +855,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress.State getState() {
-        @SuppressWarnings("deprecation")
-        com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress.State result = com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress.State.valueOf(state_);
+        com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress.State result = com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress.State.forNumber(state_);
         return result == null ? com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress.State.UNRECOGNIZED : result;
       }
       /**
@@ -981,7 +867,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         state_ = value.getNumber();
         onChanged();
         return this;
@@ -991,7 +877,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         state_ = 0;
         onChanged();
         return this;
@@ -1029,7 +915,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TableProgress(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1084,7 +981,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.bigtable.admin.v2.CreateClusterRequestOrBuilder getOriginalRequestOrBuilder() {
-    return getOriginalRequest();
+    return originalRequest_ == null ? com.google.bigtable.admin.v2.CreateClusterRequest.getDefaultInstance() : originalRequest_;
   }
 
   public static final int REQUEST_TIME_FIELD_NUMBER = 2;
@@ -1122,7 +1019,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getRequestTimeOrBuilder() {
-    return getRequestTime();
+    return requestTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : requestTime_;
   }
 
   public static final int FINISH_TIME_FIELD_NUMBER = 3;
@@ -1160,7 +1057,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getFinishTimeOrBuilder() {
-    return getFinishTime();
+    return finishTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : finishTime_;
   }
 
   public static final int TABLES_FIELD_NUMBER = 4;
@@ -1175,6 +1072,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress> tables_;
   private com.google.protobuf.MapField<java.lang.String, com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress>
@@ -1185,7 +1083,6 @@ private static final long serialVersionUID = 0L;
     }
     return tables_;
   }
-
   public int getTablesCount() {
     return internalGetTables().getMap().size();
   }
@@ -1202,7 +1099,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.bigtable.admin.v2.CreateClusterMetadata.TableProgress&gt; tables = 4;</code>
    */
-
   @java.lang.Override
   public boolean containsTables(
       java.lang.String key) {
@@ -1231,7 +1127,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.bigtable.admin.v2.CreateClusterMetadata.TableProgress&gt; tables = 4;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress> getTablesMap() {
     return internalGetTables().getMap();
   }
@@ -1249,10 +1144,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.bigtable.admin.v2.CreateClusterMetadata.TableProgress&gt; tables = 4;</code>
    */
   @java.lang.Override
-
-  public com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress getTablesOrDefault(
+  public /* nullable */
+com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress getTablesOrDefault(
       java.lang.String key,
-      com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress defaultValue) {
+      /* nullable */
+com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress> map =
         internalGetTables().getMap();
@@ -1272,7 +1168,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.bigtable.admin.v2.CreateClusterMetadata.TableProgress&gt; tables = 4;</code>
    */
   @java.lang.Override
-
   public com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress getTablesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1313,7 +1208,7 @@ private static final long serialVersionUID = 0L;
         internalGetTables(),
         TablesDefaultEntryHolder.defaultEntry,
         4);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1344,7 +1239,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, tables__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1376,7 +1271,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!internalGetTables().equals(
         other.internalGetTables())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1403,7 +1298,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TABLES_FIELD_NUMBER;
       hash = (53 * hash) + internalGetTables().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1546,38 +1441,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.bigtable.admin.v2.CreateClusterMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (originalRequestBuilder_ == null) {
-        originalRequest_ = null;
-      } else {
-        originalRequest_ = null;
+      bitField0_ = 0;
+      originalRequest_ = null;
+      if (originalRequestBuilder_ != null) {
+        originalRequestBuilder_.dispose();
         originalRequestBuilder_ = null;
       }
-      if (requestTimeBuilder_ == null) {
-        requestTime_ = null;
-      } else {
-        requestTime_ = null;
+      requestTime_ = null;
+      if (requestTimeBuilder_ != null) {
+        requestTimeBuilder_.dispose();
         requestTimeBuilder_ = null;
       }
-      if (finishTimeBuilder_ == null) {
-        finishTime_ = null;
-      } else {
-        finishTime_ = null;
+      finishTime_ = null;
+      if (finishTimeBuilder_ != null) {
+        finishTimeBuilder_.dispose();
         finishTimeBuilder_ = null;
       }
       internalGetMutableTables().clear();
@@ -1607,26 +1495,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.bigtable.admin.v2.CreateClusterMetadata buildPartial() {
       com.google.bigtable.admin.v2.CreateClusterMetadata result = new com.google.bigtable.admin.v2.CreateClusterMetadata(this);
-      int from_bitField0_ = bitField0_;
-      if (originalRequestBuilder_ == null) {
-        result.originalRequest_ = originalRequest_;
-      } else {
-        result.originalRequest_ = originalRequestBuilder_.build();
-      }
-      if (requestTimeBuilder_ == null) {
-        result.requestTime_ = requestTime_;
-      } else {
-        result.requestTime_ = requestTimeBuilder_.build();
-      }
-      if (finishTimeBuilder_ == null) {
-        result.finishTime_ = finishTime_;
-      } else {
-        result.finishTime_ = finishTimeBuilder_.build();
-      }
-      result.tables_ = internalGetTables();
-      result.tables_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.bigtable.admin.v2.CreateClusterMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.originalRequest_ = originalRequestBuilder_ == null
+            ? originalRequest_
+            : originalRequestBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.requestTime_ = requestTimeBuilder_ == null
+            ? requestTime_
+            : requestTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.finishTime_ = finishTimeBuilder_ == null
+            ? finishTime_
+            : finishTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.tables_ = internalGetTables();
+        result.tables_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -1684,7 +1578,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableTables().mergeFrom(
           other.internalGetTables());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000008;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1699,17 +1594,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.bigtable.admin.v2.CreateClusterMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getOriginalRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getRequestTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getFinishTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress>
+              tables__ = input.readMessage(
+                  TablesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableTables().getMutableMap().put(
+                  tables__.getKey(), tables__.getValue());
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.bigtable.admin.v2.CreateClusterMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1726,7 +1664,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the originalRequest field is set.
      */
     public boolean hasOriginalRequest() {
-      return originalRequestBuilder_ != null || originalRequest_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1756,11 +1694,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         originalRequest_ = value;
-        onChanged();
       } else {
         originalRequestBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1774,11 +1712,11 @@ private static final long serialVersionUID = 0L;
         com.google.bigtable.admin.v2.CreateClusterRequest.Builder builderForValue) {
       if (originalRequestBuilder_ == null) {
         originalRequest_ = builderForValue.build();
-        onChanged();
       } else {
         originalRequestBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1790,17 +1728,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOriginalRequest(com.google.bigtable.admin.v2.CreateClusterRequest value) {
       if (originalRequestBuilder_ == null) {
-        if (originalRequest_ != null) {
-          originalRequest_ =
-            com.google.bigtable.admin.v2.CreateClusterRequest.newBuilder(originalRequest_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          originalRequest_ != null &&
+          originalRequest_ != com.google.bigtable.admin.v2.CreateClusterRequest.getDefaultInstance()) {
+          getOriginalRequestBuilder().mergeFrom(value);
         } else {
           originalRequest_ = value;
         }
-        onChanged();
       } else {
         originalRequestBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1811,14 +1750,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.bigtable.admin.v2.CreateClusterRequest original_request = 1;</code>
      */
     public Builder clearOriginalRequest() {
-      if (originalRequestBuilder_ == null) {
-        originalRequest_ = null;
-        onChanged();
-      } else {
-        originalRequest_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      originalRequest_ = null;
+      if (originalRequestBuilder_ != null) {
+        originalRequestBuilder_.dispose();
         originalRequestBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1829,7 +1767,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.bigtable.admin.v2.CreateClusterRequest original_request = 1;</code>
      */
     public com.google.bigtable.admin.v2.CreateClusterRequest.Builder getOriginalRequestBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getOriginalRequestFieldBuilder().getBuilder();
     }
@@ -1881,7 +1819,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the requestTime field is set.
      */
     public boolean hasRequestTime() {
-      return requestTimeBuilder_ != null || requestTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1911,11 +1849,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         requestTime_ = value;
-        onChanged();
       } else {
         requestTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1929,11 +1867,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (requestTimeBuilder_ == null) {
         requestTime_ = builderForValue.build();
-        onChanged();
       } else {
         requestTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1945,17 +1883,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRequestTime(com.google.protobuf.Timestamp value) {
       if (requestTimeBuilder_ == null) {
-        if (requestTime_ != null) {
-          requestTime_ =
-            com.google.protobuf.Timestamp.newBuilder(requestTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          requestTime_ != null &&
+          requestTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getRequestTimeBuilder().mergeFrom(value);
         } else {
           requestTime_ = value;
         }
-        onChanged();
       } else {
         requestTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1966,14 +1905,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp request_time = 2;</code>
      */
     public Builder clearRequestTime() {
-      if (requestTimeBuilder_ == null) {
-        requestTime_ = null;
-        onChanged();
-      } else {
-        requestTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      requestTime_ = null;
+      if (requestTimeBuilder_ != null) {
+        requestTimeBuilder_.dispose();
         requestTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1984,7 +1922,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp request_time = 2;</code>
      */
     public com.google.protobuf.Timestamp.Builder getRequestTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getRequestTimeFieldBuilder().getBuilder();
     }
@@ -2036,7 +1974,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the finishTime field is set.
      */
     public boolean hasFinishTime() {
-      return finishTimeBuilder_ != null || finishTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2066,11 +2004,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         finishTime_ = value;
-        onChanged();
       } else {
         finishTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2084,11 +2022,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (finishTimeBuilder_ == null) {
         finishTime_ = builderForValue.build();
-        onChanged();
       } else {
         finishTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2100,17 +2038,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFinishTime(com.google.protobuf.Timestamp value) {
       if (finishTimeBuilder_ == null) {
-        if (finishTime_ != null) {
-          finishTime_ =
-            com.google.protobuf.Timestamp.newBuilder(finishTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          finishTime_ != null &&
+          finishTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getFinishTimeBuilder().mergeFrom(value);
         } else {
           finishTime_ = value;
         }
-        onChanged();
       } else {
         finishTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2121,14 +2060,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp finish_time = 3;</code>
      */
     public Builder clearFinishTime() {
-      if (finishTimeBuilder_ == null) {
-        finishTime_ = null;
-        onChanged();
-      } else {
-        finishTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      finishTime_ = null;
+      if (finishTimeBuilder_ != null) {
+        finishTimeBuilder_.dispose();
         finishTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2139,7 +2077,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp finish_time = 3;</code>
      */
     public com.google.protobuf.Timestamp.Builder getFinishTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getFinishTimeFieldBuilder().getBuilder();
     }
@@ -2182,7 +2120,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress> tables_;
     private com.google.protobuf.MapField<java.lang.String, com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress>
-    internalGetTables() {
+        internalGetTables() {
       if (tables_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             TablesDefaultEntryHolder.defaultEntry);
@@ -2190,8 +2128,7 @@ private static final long serialVersionUID = 0L;
       return tables_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress>
-    internalGetMutableTables() {
-      onChanged();;
+        internalGetMutableTables() {
       if (tables_ == null) {
         tables_ = com.google.protobuf.MapField.newMapField(
             TablesDefaultEntryHolder.defaultEntry);
@@ -2199,9 +2136,10 @@ private static final long serialVersionUID = 0L;
       if (!tables_.isMutable()) {
         tables_ = tables_.copy();
       }
+      bitField0_ |= 0x00000008;
+      onChanged();
       return tables_;
     }
-
     public int getTablesCount() {
       return internalGetTables().getMap().size();
     }
@@ -2218,7 +2156,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.bigtable.admin.v2.CreateClusterMetadata.TableProgress&gt; tables = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsTables(
         java.lang.String key) {
@@ -2247,7 +2184,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.bigtable.admin.v2.CreateClusterMetadata.TableProgress&gt; tables = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress> getTablesMap() {
       return internalGetTables().getMap();
     }
@@ -2265,10 +2201,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.bigtable.admin.v2.CreateClusterMetadata.TableProgress&gt; tables = 4;</code>
      */
     @java.lang.Override
-
-    public com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress getTablesOrDefault(
+    public /* nullable */
+com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress getTablesOrDefault(
         java.lang.String key,
-        com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress defaultValue) {
+        /* nullable */
+com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress> map =
           internalGetTables().getMap();
@@ -2288,7 +2225,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.bigtable.admin.v2.CreateClusterMetadata.TableProgress&gt; tables = 4;</code>
      */
     @java.lang.Override
-
     public com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress getTablesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2299,8 +2235,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearTables() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutableTables().getMutableMap()
           .clear();
       return this;
@@ -2318,7 +2254,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.bigtable.admin.v2.CreateClusterMetadata.TableProgress&gt; tables = 4;</code>
      */
-
     public Builder removeTables(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2331,7 +2266,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress>
-    getMutableTables() {
+        getMutableTables() {
+      bitField0_ |= 0x00000008;
       return internalGetMutableTables().getMutableMap();
     }
     /**
@@ -2351,12 +2287,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableTables().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
@@ -2372,11 +2306,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.bigtable.admin.v2.CreateClusterMetadata.TableProgress&gt; tables = 4;</code>
      */
-
     public Builder putAllTables(
         java.util.Map<java.lang.String, com.google.bigtable.admin.v2.CreateClusterMetadata.TableProgress> values) {
       internalGetMutableTables().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000008;
       return this;
     }
     @java.lang.Override
@@ -2412,7 +2346,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateClusterMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

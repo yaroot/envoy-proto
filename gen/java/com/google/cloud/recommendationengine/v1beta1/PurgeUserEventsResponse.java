@@ -37,63 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PurgeUserEventsResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            purgedEventsCount_ = input.readInt64();
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              userEventsSample_ = new java.util.ArrayList<com.google.cloud.recommendationengine.v1beta1.UserEvent>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            userEventsSample_.add(
-                input.readMessage(com.google.cloud.recommendationengine.v1beta1.UserEvent.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        userEventsSample_ = java.util.Collections.unmodifiableList(userEventsSample_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.recommendationengine.v1beta1.UserEventServiceOuterClass.internal_static_google_cloud_recommendationengine_v1beta1_PurgeUserEventsResponse_descriptor;
@@ -108,7 +51,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PURGED_EVENTS_COUNT_FIELD_NUMBER = 1;
-  private long purgedEventsCount_;
+  private long purgedEventsCount_ = 0L;
   /**
    * <pre>
    * The total count of events purged as a result of the operation.
@@ -123,6 +66,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_EVENTS_SAMPLE_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.recommendationengine.v1beta1.UserEvent> userEventsSample_;
   /**
    * <pre>
@@ -207,7 +151,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < userEventsSample_.size(); i++) {
       output.writeMessage(2, userEventsSample_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -224,7 +168,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, userEventsSample_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -243,7 +187,7 @@ private static final long serialVersionUID = 0L;
         != other.getPurgedEventsCount()) return false;
     if (!getUserEventsSampleList()
         .equals(other.getUserEventsSampleList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -261,7 +205,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + USER_EVENTS_SAMPLE_FIELD_NUMBER;
       hash = (53 * hash) + getUserEventsSampleList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -384,31 +328,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.recommendationengine.v1beta1.PurgeUserEventsResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getUserEventsSampleFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       purgedEventsCount_ = 0L;
-
       if (userEventsSampleBuilder_ == null) {
         userEventsSample_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        userEventsSample_ = null;
         userEventsSampleBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -435,19 +374,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.recommendationengine.v1beta1.PurgeUserEventsResponse buildPartial() {
       com.google.cloud.recommendationengine.v1beta1.PurgeUserEventsResponse result = new com.google.cloud.recommendationengine.v1beta1.PurgeUserEventsResponse(this);
-      int from_bitField0_ = bitField0_;
-      result.purgedEventsCount_ = purgedEventsCount_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.recommendationengine.v1beta1.PurgeUserEventsResponse result) {
       if (userEventsSampleBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           userEventsSample_ = java.util.Collections.unmodifiableList(userEventsSample_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.userEventsSample_ = userEventsSample_;
       } else {
         result.userEventsSample_ = userEventsSampleBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.recommendationengine.v1beta1.PurgeUserEventsResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.purgedEventsCount_ = purgedEventsCount_;
+      }
     }
 
     @java.lang.Override
@@ -501,7 +450,7 @@ private static final long serialVersionUID = 0L;
         if (!other.userEventsSample_.isEmpty()) {
           if (userEventsSample_.isEmpty()) {
             userEventsSample_ = other.userEventsSample_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureUserEventsSampleIsMutable();
             userEventsSample_.addAll(other.userEventsSample_);
@@ -514,7 +463,7 @@ private static final long serialVersionUID = 0L;
             userEventsSampleBuilder_.dispose();
             userEventsSampleBuilder_ = null;
             userEventsSample_ = other.userEventsSample_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             userEventsSampleBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getUserEventsSampleFieldBuilder() : null;
@@ -523,7 +472,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -538,17 +487,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.recommendationengine.v1beta1.PurgeUserEventsResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              purgedEventsCount_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              com.google.cloud.recommendationengine.v1beta1.UserEvent m =
+                  input.readMessage(
+                      com.google.cloud.recommendationengine.v1beta1.UserEvent.parser(),
+                      extensionRegistry);
+              if (userEventsSampleBuilder_ == null) {
+                ensureUserEventsSampleIsMutable();
+                userEventsSample_.add(m);
+              } else {
+                userEventsSampleBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.recommendationengine.v1beta1.PurgeUserEventsResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -578,6 +558,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPurgedEventsCount(long value) {
       
       purgedEventsCount_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -590,7 +571,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPurgedEventsCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       purgedEventsCount_ = 0L;
       onChanged();
       return this;
@@ -599,9 +580,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.recommendationengine.v1beta1.UserEvent> userEventsSample_ =
       java.util.Collections.emptyList();
     private void ensureUserEventsSampleIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         userEventsSample_ = new java.util.ArrayList<com.google.cloud.recommendationengine.v1beta1.UserEvent>(userEventsSample_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -806,7 +787,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearUserEventsSample() {
       if (userEventsSampleBuilder_ == null) {
         userEventsSample_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         userEventsSampleBuilder_.clear();
@@ -918,7 +899,7 @@ private static final long serialVersionUID = 0L;
         userEventsSampleBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.recommendationengine.v1beta1.UserEvent, com.google.cloud.recommendationengine.v1beta1.UserEvent.Builder, com.google.cloud.recommendationengine.v1beta1.UserEventOrBuilder>(
                 userEventsSample_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         userEventsSample_ = null;
@@ -958,7 +939,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PurgeUserEventsResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -10,6 +10,7 @@ public interface RateLimitPerRouteOrBuilder extends
   /**
    * <pre>
    * Specifies if the rate limit filter should include the virtual host rate limits.
+   * [#next-major-version: unify with local ratelimit, should use common.ratelimit.v3.VhRateLimitsOptions instead.]
    * </pre>
    *
    * <code>.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions vh_rate_limits = 1 [(.validate.rules) = { ... }</code>
@@ -19,6 +20,7 @@ public interface RateLimitPerRouteOrBuilder extends
   /**
    * <pre>
    * Specifies if the rate limit filter should include the virtual host rate limits.
+   * [#next-major-version: unify with local ratelimit, should use common.ratelimit.v3.VhRateLimitsOptions instead.]
    * </pre>
    *
    * <code>.envoy.extensions.filters.http.ratelimit.v3.RateLimitPerRoute.VhRateLimitsOptions vh_rate_limits = 1 [(.validate.rules) = { ... }</code>

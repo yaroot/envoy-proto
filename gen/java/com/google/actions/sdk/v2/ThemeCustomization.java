@@ -40,81 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ThemeCustomization(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            backgroundColor_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            primaryColor_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            fontFamily_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            imageCornerStyle_ = rawValue;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            landscapeBackgroundImage_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            portraitBackgroundImage_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.ThemeCustomizationProto.internal_static_google_actions_sdk_v2_ThemeCustomization_descriptor;
@@ -274,7 +199,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BACKGROUND_COLOR_FIELD_NUMBER = 1;
-  private volatile java.lang.Object backgroundColor_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object backgroundColor_ = "";
   /**
    * <pre>
    * Background color of cards. Acts as a fallback if `background_image` is
@@ -326,7 +252,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRIMARY_COLOR_FIELD_NUMBER = 2;
-  private volatile java.lang.Object primaryColor_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object primaryColor_ = "";
   /**
    * <pre>
    * Primary theme color of the Action will be used to set text color of title,
@@ -376,7 +303,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FONT_FAMILY_FIELD_NUMBER = 3;
-  private volatile java.lang.Object fontFamily_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object fontFamily_ = "";
   /**
    * <pre>
    * The font family that will be used for title of cards.
@@ -446,7 +374,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGE_CORNER_STYLE_FIELD_NUMBER = 4;
-  private int imageCornerStyle_;
+  private int imageCornerStyle_ = 0;
   /**
    * <pre>
    * Border style of foreground image of cards. For example, can be applied on
@@ -469,13 +397,13 @@ private static final long serialVersionUID = 0L;
    * @return The imageCornerStyle.
    */
   @java.lang.Override public com.google.actions.sdk.v2.ThemeCustomization.ImageCornerStyle getImageCornerStyle() {
-    @SuppressWarnings("deprecation")
-    com.google.actions.sdk.v2.ThemeCustomization.ImageCornerStyle result = com.google.actions.sdk.v2.ThemeCustomization.ImageCornerStyle.valueOf(imageCornerStyle_);
+    com.google.actions.sdk.v2.ThemeCustomization.ImageCornerStyle result = com.google.actions.sdk.v2.ThemeCustomization.ImageCornerStyle.forNumber(imageCornerStyle_);
     return result == null ? com.google.actions.sdk.v2.ThemeCustomization.ImageCornerStyle.UNRECOGNIZED : result;
   }
 
   public static final int LANDSCAPE_BACKGROUND_IMAGE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object landscapeBackgroundImage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object landscapeBackgroundImage_ = "";
   /**
    * <pre>
    * Landscape mode (minimum 1920x1200 pixels).
@@ -531,7 +459,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PORTRAIT_BACKGROUND_IMAGE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object portraitBackgroundImage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object portraitBackgroundImage_ = "";
   /**
    * <pre>
    * Portrait mode (minimum 1200x1920 pixels).
@@ -618,7 +547,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portraitBackgroundImage_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, portraitBackgroundImage_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -646,7 +575,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portraitBackgroundImage_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, portraitBackgroundImage_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -672,7 +601,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getLandscapeBackgroundImage())) return false;
     if (!getPortraitBackgroundImage()
         .equals(other.getPortraitBackgroundImage())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -695,7 +624,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getLandscapeBackgroundImage().hashCode();
     hash = (37 * hash) + PORTRAIT_BACKGROUND_IMAGE_FIELD_NUMBER;
     hash = (53 * hash) + getPortraitBackgroundImage().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -816,34 +745,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.ThemeCustomization.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       backgroundColor_ = "";
-
       primaryColor_ = "";
-
       fontFamily_ = "";
-
       imageCornerStyle_ = 0;
-
       landscapeBackgroundImage_ = "";
-
       portraitBackgroundImage_ = "";
-
       return this;
     }
 
@@ -870,14 +789,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.ThemeCustomization buildPartial() {
       com.google.actions.sdk.v2.ThemeCustomization result = new com.google.actions.sdk.v2.ThemeCustomization(this);
-      result.backgroundColor_ = backgroundColor_;
-      result.primaryColor_ = primaryColor_;
-      result.fontFamily_ = fontFamily_;
-      result.imageCornerStyle_ = imageCornerStyle_;
-      result.landscapeBackgroundImage_ = landscapeBackgroundImage_;
-      result.portraitBackgroundImage_ = portraitBackgroundImage_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.ThemeCustomization result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.backgroundColor_ = backgroundColor_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.primaryColor_ = primaryColor_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.fontFamily_ = fontFamily_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.imageCornerStyle_ = imageCornerStyle_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.landscapeBackgroundImage_ = landscapeBackgroundImage_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.portraitBackgroundImage_ = portraitBackgroundImage_;
+      }
     }
 
     @java.lang.Override
@@ -926,14 +862,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.actions.sdk.v2.ThemeCustomization.getDefaultInstance()) return this;
       if (!other.getBackgroundColor().isEmpty()) {
         backgroundColor_ = other.backgroundColor_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getPrimaryColor().isEmpty()) {
         primaryColor_ = other.primaryColor_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getFontFamily().isEmpty()) {
         fontFamily_ = other.fontFamily_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.imageCornerStyle_ != 0) {
@@ -941,13 +880,15 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLandscapeBackgroundImage().isEmpty()) {
         landscapeBackgroundImage_ = other.landscapeBackgroundImage_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getPortraitBackgroundImage().isEmpty()) {
         portraitBackgroundImage_ = other.portraitBackgroundImage_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -962,19 +903,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.ThemeCustomization parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              backgroundColor_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              primaryColor_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              fontFamily_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              imageCornerStyle_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              landscapeBackgroundImage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              portraitBackgroundImage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.ThemeCustomization) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object backgroundColor_ = "";
     /**
@@ -1038,11 +1023,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBackgroundColor(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       backgroundColor_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1058,8 +1041,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBackgroundColor() {
-      
       backgroundColor_ = getDefaultInstance().getBackgroundColor();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1077,12 +1060,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBackgroundColorBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       backgroundColor_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1146,11 +1127,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrimaryColor(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       primaryColor_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1165,8 +1144,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrimaryColor() {
-      
       primaryColor_ = getDefaultInstance().getPrimaryColor();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1183,12 +1162,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrimaryColorBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       primaryColor_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1282,11 +1259,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFontFamily(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       fontFamily_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1311,8 +1286,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFontFamily() {
-      
       fontFamily_ = getDefaultInstance().getFontFamily();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1339,12 +1314,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFontFamilyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       fontFamily_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1373,8 +1346,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setImageCornerStyleValue(int value) {
-      
       imageCornerStyle_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1389,8 +1362,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.actions.sdk.v2.ThemeCustomization.ImageCornerStyle getImageCornerStyle() {
-      @SuppressWarnings("deprecation")
-      com.google.actions.sdk.v2.ThemeCustomization.ImageCornerStyle result = com.google.actions.sdk.v2.ThemeCustomization.ImageCornerStyle.valueOf(imageCornerStyle_);
+      com.google.actions.sdk.v2.ThemeCustomization.ImageCornerStyle result = com.google.actions.sdk.v2.ThemeCustomization.ImageCornerStyle.forNumber(imageCornerStyle_);
       return result == null ? com.google.actions.sdk.v2.ThemeCustomization.ImageCornerStyle.UNRECOGNIZED : result;
     }
     /**
@@ -1407,7 +1379,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       imageCornerStyle_ = value.getNumber();
       onChanged();
       return this;
@@ -1422,7 +1394,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImageCornerStyle() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       imageCornerStyle_ = 0;
       onChanged();
       return this;
@@ -1496,11 +1468,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLandscapeBackgroundImage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       landscapeBackgroundImage_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1518,8 +1488,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLandscapeBackgroundImage() {
-      
       landscapeBackgroundImage_ = getDefaultInstance().getLandscapeBackgroundImage();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1539,12 +1509,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLandscapeBackgroundImageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       landscapeBackgroundImage_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1617,11 +1585,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPortraitBackgroundImage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       portraitBackgroundImage_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1639,8 +1605,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPortraitBackgroundImage() {
-      
       portraitBackgroundImage_ = getDefaultInstance().getPortraitBackgroundImage();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1660,12 +1626,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPortraitBackgroundImageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       portraitBackgroundImage_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1702,7 +1666,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ThemeCustomization(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

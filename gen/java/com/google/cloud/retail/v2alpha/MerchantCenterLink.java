@@ -26,6 +26,7 @@ private static final long serialVersionUID = 0L;
     destinations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     regionCode_ = "";
     languageCode_ = "";
+    feeds_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -39,81 +40,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private MerchantCenterLink(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            merchantCenterAccountId_ = input.readInt64();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            branchId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              destinations_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            destinations_.add(s);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            regionCode_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageCode_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        destinations_ = destinations_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -129,11 +55,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MERCHANT_CENTER_ACCOUNT_ID_FIELD_NUMBER = 1;
-  private long merchantCenterAccountId_;
+  private long merchantCenterAccountId_ = 0L;
   /**
    * <pre>
    * Required. The linked [Merchant center account
-   * id](https://developers.google.com/shopping-content/guides/accountstatuses).
+   * ID](https://developers.google.com/shopping-content/guides/accountstatuses).
    * The account must be a standalone account or a sub-account of a MCA.
    * </pre>
    *
@@ -146,14 +72,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BRANCH_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object branchId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object branchId_ = "";
   /**
    * <pre>
-   * The branch id (e.g. 0/1/2) within this catalog that products from
+   * The branch ID (e.g. 0/1/2) within this catalog that products from
    * merchant_center_account_id are streamed to. When updating this field, an
    * empty value will use the currently configured default branch. However,
    * changing the default branch later on won't change the linked branch here.
-   * A single branch id can only have one linked merchant center account id.
+   * A single branch ID can only have one linked merchant center account ID.
    * </pre>
    *
    * <code>string branch_id = 2;</code>
@@ -174,11 +101,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The branch id (e.g. 0/1/2) within this catalog that products from
+   * The branch ID (e.g. 0/1/2) within this catalog that products from
    * merchant_center_account_id are streamed to. When updating this field, an
    * empty value will use the currently configured default branch. However,
    * changing the default branch later on won't change the linked branch here.
-   * A single branch id can only have one linked merchant center account id.
+   * A single branch ID can only have one linked merchant center account ID.
    * </pre>
    *
    * <code>string branch_id = 2;</code>
@@ -200,12 +127,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESTINATIONS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList destinations_;
   /**
    * <pre>
    * String representing the destination to import for, all if left empty.
-   * List of possible values can be found here.
-   * [https://support.google.com/merchants/answer/7501026]
+   * List of possible values is given in [Included
+   * destination](https://support.google.com/merchants/answer/7501026).
    * List of allowed string values:
    * "Shopping_ads", "Buy_on_google_listings", "Display_ads", "Local_inventory
    * _ads", "Free_listings", "Free_local_listings"
@@ -222,8 +150,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * String representing the destination to import for, all if left empty.
-   * List of possible values can be found here.
-   * [https://support.google.com/merchants/answer/7501026]
+   * List of possible values is given in [Included
+   * destination](https://support.google.com/merchants/answer/7501026).
    * List of allowed string values:
    * "Shopping_ads", "Buy_on_google_listings", "Display_ads", "Local_inventory
    * _ads", "Free_listings", "Free_local_listings"
@@ -239,8 +167,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * String representing the destination to import for, all if left empty.
-   * List of possible values can be found here.
-   * [https://support.google.com/merchants/answer/7501026]
+   * List of possible values is given in [Included
+   * destination](https://support.google.com/merchants/answer/7501026).
    * List of allowed string values:
    * "Shopping_ads", "Buy_on_google_listings", "Display_ads", "Local_inventory
    * _ads", "Free_listings", "Free_local_listings"
@@ -257,8 +185,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * String representing the destination to import for, all if left empty.
-   * List of possible values can be found here.
-   * [https://support.google.com/merchants/answer/7501026]
+   * List of possible values is given in [Included
+   * destination](https://support.google.com/merchants/answer/7501026).
    * List of allowed string values:
    * "Shopping_ads", "Buy_on_google_listings", "Display_ads", "Local_inventory
    * _ads", "Free_listings", "Free_local_listings"
@@ -275,7 +203,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REGION_CODE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object regionCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object regionCode_ = "";
   /**
    * <pre>
    * Region code of offers to accept. 2-letter Uppercase ISO 3166-1 alpha-2
@@ -331,7 +260,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LANGUAGE_CODE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object languageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageCode_ = "";
   /**
    * <pre>
    * Language of the title/description and other string attributes. Use language
@@ -386,6 +316,77 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int FEEDS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
+  private java.util.List<com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter> feeds_;
+  /**
+   * <pre>
+   * Criteria for the Merchant Center feeds to be ingested via the link.
+   * All offers will be ingested if the list is empty.
+   * Otherwise the offers will be ingested from selected feeds.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter> getFeedsList() {
+    return feeds_;
+  }
+  /**
+   * <pre>
+   * Criteria for the Merchant Center feeds to be ingested via the link.
+   * All offers will be ingested if the list is empty.
+   * Otherwise the offers will be ingested from selected feeds.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.google.cloud.retail.v2alpha.MerchantCenterFeedFilterOrBuilder> 
+      getFeedsOrBuilderList() {
+    return feeds_;
+  }
+  /**
+   * <pre>
+   * Criteria for the Merchant Center feeds to be ingested via the link.
+   * All offers will be ingested if the list is empty.
+   * Otherwise the offers will be ingested from selected feeds.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+   */
+  @java.lang.Override
+  public int getFeedsCount() {
+    return feeds_.size();
+  }
+  /**
+   * <pre>
+   * Criteria for the Merchant Center feeds to be ingested via the link.
+   * All offers will be ingested if the list is empty.
+   * Otherwise the offers will be ingested from selected feeds.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter getFeeds(int index) {
+    return feeds_.get(index);
+  }
+  /**
+   * <pre>
+   * Criteria for the Merchant Center feeds to be ingested via the link.
+   * All offers will be ingested if the list is empty.
+   * Otherwise the offers will be ingested from selected feeds.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.retail.v2alpha.MerchantCenterFeedFilterOrBuilder getFeedsOrBuilder(
+      int index) {
+    return feeds_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -415,7 +416,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, languageCode_);
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < feeds_.size(); i++) {
+      output.writeMessage(6, feeds_.get(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -445,7 +449,11 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, languageCode_);
     }
-    size += unknownFields.getSerializedSize();
+    for (int i = 0; i < feeds_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, feeds_.get(i));
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -470,7 +478,9 @@ private static final long serialVersionUID = 0L;
         .equals(other.getRegionCode())) return false;
     if (!getLanguageCode()
         .equals(other.getLanguageCode())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getFeedsList()
+        .equals(other.getFeedsList())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -494,7 +504,11 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getRegionCode().hashCode();
     hash = (37 * hash) + LANGUAGE_CODE_FIELD_NUMBER;
     hash = (53 * hash) + getLanguageCode().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (getFeedsCount() > 0) {
+      hash = (37 * hash) + FEEDS_FIELD_NUMBER;
+      hash = (53 * hash) + getFeedsList().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -617,32 +631,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.v2alpha.MerchantCenterLink.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       merchantCenterAccountId_ = 0L;
-
       branchId_ = "";
-
       destinations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       regionCode_ = "";
-
       languageCode_ = "";
-
+      if (feedsBuilder_ == null) {
+        feeds_ = java.util.Collections.emptyList();
+      } else {
+        feeds_ = null;
+        feedsBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -669,18 +682,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.v2alpha.MerchantCenterLink buildPartial() {
       com.google.cloud.retail.v2alpha.MerchantCenterLink result = new com.google.cloud.retail.v2alpha.MerchantCenterLink(this);
-      int from_bitField0_ = bitField0_;
-      result.merchantCenterAccountId_ = merchantCenterAccountId_;
-      result.branchId_ = branchId_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        destinations_ = destinations_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.destinations_ = destinations_;
-      result.regionCode_ = regionCode_;
-      result.languageCode_ = languageCode_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.retail.v2alpha.MerchantCenterLink result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        destinations_ = destinations_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.destinations_ = destinations_;
+      if (feedsBuilder_ == null) {
+        if (((bitField0_ & 0x00000020) != 0)) {
+          feeds_ = java.util.Collections.unmodifiableList(feeds_);
+          bitField0_ = (bitField0_ & ~0x00000020);
+        }
+        result.feeds_ = feeds_;
+      } else {
+        result.feeds_ = feedsBuilder_.build();
+      }
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2alpha.MerchantCenterLink result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.merchantCenterAccountId_ = merchantCenterAccountId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.branchId_ = branchId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.regionCode_ = regionCode_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.languageCode_ = languageCode_;
+      }
     }
 
     @java.lang.Override
@@ -732,12 +770,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getBranchId().isEmpty()) {
         branchId_ = other.branchId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.destinations_.isEmpty()) {
         if (destinations_.isEmpty()) {
           destinations_ = other.destinations_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureDestinationsIsMutable();
           destinations_.addAll(other.destinations_);
@@ -746,13 +785,41 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRegionCode().isEmpty()) {
         regionCode_ = other.regionCode_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getLanguageCode().isEmpty()) {
         languageCode_ = other.languageCode_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (feedsBuilder_ == null) {
+        if (!other.feeds_.isEmpty()) {
+          if (feeds_.isEmpty()) {
+            feeds_ = other.feeds_;
+            bitField0_ = (bitField0_ & ~0x00000020);
+          } else {
+            ensureFeedsIsMutable();
+            feeds_.addAll(other.feeds_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.feeds_.isEmpty()) {
+          if (feedsBuilder_.isEmpty()) {
+            feedsBuilder_.dispose();
+            feedsBuilder_ = null;
+            feeds_ = other.feeds_;
+            bitField0_ = (bitField0_ & ~0x00000020);
+            feedsBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getFeedsFieldBuilder() : null;
+          } else {
+            feedsBuilder_.addAllMessages(other.feeds_);
+          }
+        }
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -767,17 +834,69 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2alpha.MerchantCenterLink parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              merchantCenterAccountId_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              branchId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDestinationsIsMutable();
+              destinations_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              regionCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              languageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter m =
+                  input.readMessage(
+                      com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter.parser(),
+                      extensionRegistry);
+              if (feedsBuilder_ == null) {
+                ensureFeedsIsMutable();
+                feeds_.add(m);
+              } else {
+                feedsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2alpha.MerchantCenterLink) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -786,7 +905,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. The linked [Merchant center account
-     * id](https://developers.google.com/shopping-content/guides/accountstatuses).
+     * ID](https://developers.google.com/shopping-content/guides/accountstatuses).
      * The account must be a standalone account or a sub-account of a MCA.
      * </pre>
      *
@@ -800,7 +919,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. The linked [Merchant center account
-     * id](https://developers.google.com/shopping-content/guides/accountstatuses).
+     * ID](https://developers.google.com/shopping-content/guides/accountstatuses).
      * The account must be a standalone account or a sub-account of a MCA.
      * </pre>
      *
@@ -811,13 +930,14 @@ private static final long serialVersionUID = 0L;
     public Builder setMerchantCenterAccountId(long value) {
       
       merchantCenterAccountId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The linked [Merchant center account
-     * id](https://developers.google.com/shopping-content/guides/accountstatuses).
+     * ID](https://developers.google.com/shopping-content/guides/accountstatuses).
      * The account must be a standalone account or a sub-account of a MCA.
      * </pre>
      *
@@ -825,7 +945,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMerchantCenterAccountId() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       merchantCenterAccountId_ = 0L;
       onChanged();
       return this;
@@ -834,11 +954,11 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object branchId_ = "";
     /**
      * <pre>
-     * The branch id (e.g. 0/1/2) within this catalog that products from
+     * The branch ID (e.g. 0/1/2) within this catalog that products from
      * merchant_center_account_id are streamed to. When updating this field, an
      * empty value will use the currently configured default branch. However,
      * changing the default branch later on won't change the linked branch here.
-     * A single branch id can only have one linked merchant center account id.
+     * A single branch ID can only have one linked merchant center account ID.
      * </pre>
      *
      * <code>string branch_id = 2;</code>
@@ -858,11 +978,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The branch id (e.g. 0/1/2) within this catalog that products from
+     * The branch ID (e.g. 0/1/2) within this catalog that products from
      * merchant_center_account_id are streamed to. When updating this field, an
      * empty value will use the currently configured default branch. However,
      * changing the default branch later on won't change the linked branch here.
-     * A single branch id can only have one linked merchant center account id.
+     * A single branch ID can only have one linked merchant center account ID.
      * </pre>
      *
      * <code>string branch_id = 2;</code>
@@ -883,11 +1003,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The branch id (e.g. 0/1/2) within this catalog that products from
+     * The branch ID (e.g. 0/1/2) within this catalog that products from
      * merchant_center_account_id are streamed to. When updating this field, an
      * empty value will use the currently configured default branch. However,
      * changing the default branch later on won't change the linked branch here.
-     * A single branch id can only have one linked merchant center account id.
+     * A single branch ID can only have one linked merchant center account ID.
      * </pre>
      *
      * <code>string branch_id = 2;</code>
@@ -896,39 +1016,37 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBranchId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       branchId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The branch id (e.g. 0/1/2) within this catalog that products from
+     * The branch ID (e.g. 0/1/2) within this catalog that products from
      * merchant_center_account_id are streamed to. When updating this field, an
      * empty value will use the currently configured default branch. However,
      * changing the default branch later on won't change the linked branch here.
-     * A single branch id can only have one linked merchant center account id.
+     * A single branch ID can only have one linked merchant center account ID.
      * </pre>
      *
      * <code>string branch_id = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearBranchId() {
-      
       branchId_ = getDefaultInstance().getBranchId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The branch id (e.g. 0/1/2) within this catalog that products from
+     * The branch ID (e.g. 0/1/2) within this catalog that products from
      * merchant_center_account_id are streamed to. When updating this field, an
      * empty value will use the currently configured default branch. However,
      * changing the default branch later on won't change the linked branch here.
-     * A single branch id can only have one linked merchant center account id.
+     * A single branch ID can only have one linked merchant center account ID.
      * </pre>
      *
      * <code>string branch_id = 2;</code>
@@ -937,28 +1055,26 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBranchIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       branchId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList destinations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureDestinationsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         destinations_ = new com.google.protobuf.LazyStringArrayList(destinations_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
      * <pre>
      * String representing the destination to import for, all if left empty.
-     * List of possible values can be found here.
-     * [https://support.google.com/merchants/answer/7501026]
+     * List of possible values is given in [Included
+     * destination](https://support.google.com/merchants/answer/7501026).
      * List of allowed string values:
      * "Shopping_ads", "Buy_on_google_listings", "Display_ads", "Local_inventory
      * _ads", "Free_listings", "Free_local_listings"
@@ -975,8 +1091,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * String representing the destination to import for, all if left empty.
-     * List of possible values can be found here.
-     * [https://support.google.com/merchants/answer/7501026]
+     * List of possible values is given in [Included
+     * destination](https://support.google.com/merchants/answer/7501026).
      * List of allowed string values:
      * "Shopping_ads", "Buy_on_google_listings", "Display_ads", "Local_inventory
      * _ads", "Free_listings", "Free_local_listings"
@@ -992,8 +1108,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * String representing the destination to import for, all if left empty.
-     * List of possible values can be found here.
-     * [https://support.google.com/merchants/answer/7501026]
+     * List of possible values is given in [Included
+     * destination](https://support.google.com/merchants/answer/7501026).
      * List of allowed string values:
      * "Shopping_ads", "Buy_on_google_listings", "Display_ads", "Local_inventory
      * _ads", "Free_listings", "Free_local_listings"
@@ -1010,8 +1126,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * String representing the destination to import for, all if left empty.
-     * List of possible values can be found here.
-     * [https://support.google.com/merchants/answer/7501026]
+     * List of possible values is given in [Included
+     * destination](https://support.google.com/merchants/answer/7501026).
      * List of allowed string values:
      * "Shopping_ads", "Buy_on_google_listings", "Display_ads", "Local_inventory
      * _ads", "Free_listings", "Free_local_listings"
@@ -1029,8 +1145,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * String representing the destination to import for, all if left empty.
-     * List of possible values can be found here.
-     * [https://support.google.com/merchants/answer/7501026]
+     * List of possible values is given in [Included
+     * destination](https://support.google.com/merchants/answer/7501026).
      * List of allowed string values:
      * "Shopping_ads", "Buy_on_google_listings", "Display_ads", "Local_inventory
      * _ads", "Free_listings", "Free_local_listings"
@@ -1044,10 +1160,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestinations(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDestinationsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDestinationsIsMutable();
       destinations_.set(index, value);
       onChanged();
       return this;
@@ -1055,8 +1169,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * String representing the destination to import for, all if left empty.
-     * List of possible values can be found here.
-     * [https://support.google.com/merchants/answer/7501026]
+     * List of possible values is given in [Included
+     * destination](https://support.google.com/merchants/answer/7501026).
      * List of allowed string values:
      * "Shopping_ads", "Buy_on_google_listings", "Display_ads", "Local_inventory
      * _ads", "Free_listings", "Free_local_listings"
@@ -1069,10 +1183,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDestinations(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDestinationsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDestinationsIsMutable();
       destinations_.add(value);
       onChanged();
       return this;
@@ -1080,8 +1192,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * String representing the destination to import for, all if left empty.
-     * List of possible values can be found here.
-     * [https://support.google.com/merchants/answer/7501026]
+     * List of possible values is given in [Included
+     * destination](https://support.google.com/merchants/answer/7501026).
      * List of allowed string values:
      * "Shopping_ads", "Buy_on_google_listings", "Display_ads", "Local_inventory
      * _ads", "Free_listings", "Free_local_listings"
@@ -1103,8 +1215,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * String representing the destination to import for, all if left empty.
-     * List of possible values can be found here.
-     * [https://support.google.com/merchants/answer/7501026]
+     * List of possible values is given in [Included
+     * destination](https://support.google.com/merchants/answer/7501026).
      * List of allowed string values:
      * "Shopping_ads", "Buy_on_google_listings", "Display_ads", "Local_inventory
      * _ads", "Free_listings", "Free_local_listings"
@@ -1116,15 +1228,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearDestinations() {
       destinations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * String representing the destination to import for, all if left empty.
-     * List of possible values can be found here.
-     * [https://support.google.com/merchants/answer/7501026]
+     * List of possible values is given in [Included
+     * destination](https://support.google.com/merchants/answer/7501026).
      * List of allowed string values:
      * "Shopping_ads", "Buy_on_google_listings", "Display_ads", "Local_inventory
      * _ads", "Free_listings", "Free_local_listings"
@@ -1137,10 +1249,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDestinationsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDestinationsIsMutable();
       destinations_.add(value);
       onChanged();
@@ -1215,11 +1325,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegionCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       regionCode_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1237,8 +1345,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRegionCode() {
-      
       regionCode_ = getDefaultInstance().getRegionCode();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1258,12 +1366,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegionCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       regionCode_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1336,11 +1442,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageCode_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1358,8 +1462,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguageCode() {
-      
       languageCode_ = getDefaultInstance().getLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1379,14 +1483,360 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageCode_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
+    }
+
+    private java.util.List<com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter> feeds_ =
+      java.util.Collections.emptyList();
+    private void ensureFeedsIsMutable() {
+      if (!((bitField0_ & 0x00000020) != 0)) {
+        feeds_ = new java.util.ArrayList<com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter>(feeds_);
+        bitField0_ |= 0x00000020;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter, com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter.Builder, com.google.cloud.retail.v2alpha.MerchantCenterFeedFilterOrBuilder> feedsBuilder_;
+
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public java.util.List<com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter> getFeedsList() {
+      if (feedsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(feeds_);
+      } else {
+        return feedsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public int getFeedsCount() {
+      if (feedsBuilder_ == null) {
+        return feeds_.size();
+      } else {
+        return feedsBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter getFeeds(int index) {
+      if (feedsBuilder_ == null) {
+        return feeds_.get(index);
+      } else {
+        return feedsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public Builder setFeeds(
+        int index, com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter value) {
+      if (feedsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureFeedsIsMutable();
+        feeds_.set(index, value);
+        onChanged();
+      } else {
+        feedsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public Builder setFeeds(
+        int index, com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter.Builder builderForValue) {
+      if (feedsBuilder_ == null) {
+        ensureFeedsIsMutable();
+        feeds_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        feedsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public Builder addFeeds(com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter value) {
+      if (feedsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureFeedsIsMutable();
+        feeds_.add(value);
+        onChanged();
+      } else {
+        feedsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public Builder addFeeds(
+        int index, com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter value) {
+      if (feedsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureFeedsIsMutable();
+        feeds_.add(index, value);
+        onChanged();
+      } else {
+        feedsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public Builder addFeeds(
+        com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter.Builder builderForValue) {
+      if (feedsBuilder_ == null) {
+        ensureFeedsIsMutable();
+        feeds_.add(builderForValue.build());
+        onChanged();
+      } else {
+        feedsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public Builder addFeeds(
+        int index, com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter.Builder builderForValue) {
+      if (feedsBuilder_ == null) {
+        ensureFeedsIsMutable();
+        feeds_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        feedsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public Builder addAllFeeds(
+        java.lang.Iterable<? extends com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter> values) {
+      if (feedsBuilder_ == null) {
+        ensureFeedsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, feeds_);
+        onChanged();
+      } else {
+        feedsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public Builder clearFeeds() {
+      if (feedsBuilder_ == null) {
+        feeds_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000020);
+        onChanged();
+      } else {
+        feedsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public Builder removeFeeds(int index) {
+      if (feedsBuilder_ == null) {
+        ensureFeedsIsMutable();
+        feeds_.remove(index);
+        onChanged();
+      } else {
+        feedsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter.Builder getFeedsBuilder(
+        int index) {
+      return getFeedsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public com.google.cloud.retail.v2alpha.MerchantCenterFeedFilterOrBuilder getFeedsOrBuilder(
+        int index) {
+      if (feedsBuilder_ == null) {
+        return feeds_.get(index);  } else {
+        return feedsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public java.util.List<? extends com.google.cloud.retail.v2alpha.MerchantCenterFeedFilterOrBuilder> 
+         getFeedsOrBuilderList() {
+      if (feedsBuilder_ != null) {
+        return feedsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(feeds_);
+      }
+    }
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter.Builder addFeedsBuilder() {
+      return getFeedsFieldBuilder().addBuilder(
+          com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter.Builder addFeedsBuilder(
+        int index) {
+      return getFeedsFieldBuilder().addBuilder(
+          index, com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Criteria for the Merchant Center feeds to be ingested via the link.
+     * All offers will be ingested if the list is empty.
+     * Otherwise the offers will be ingested from selected feeds.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2alpha.MerchantCenterFeedFilter feeds = 6;</code>
+     */
+    public java.util.List<com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter.Builder> 
+         getFeedsBuilderList() {
+      return getFeedsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter, com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter.Builder, com.google.cloud.retail.v2alpha.MerchantCenterFeedFilterOrBuilder> 
+        getFeedsFieldBuilder() {
+      if (feedsBuilder_ == null) {
+        feedsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter, com.google.cloud.retail.v2alpha.MerchantCenterFeedFilter.Builder, com.google.cloud.retail.v2alpha.MerchantCenterFeedFilterOrBuilder>(
+                feeds_,
+                ((bitField0_ & 0x00000020) != 0),
+                getParentForChildren(),
+                isClean());
+        feeds_ = null;
+      }
+      return feedsBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1421,7 +1871,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MerchantCenterLink(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

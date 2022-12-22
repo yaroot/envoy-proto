@@ -30,58 +30,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateAnnotationRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.genomics.v1.Annotation.Builder subBuilder = null;
-            if (annotation_ != null) {
-              subBuilder = annotation_.toBuilder();
-            }
-            annotation_ = input.readMessage(com.google.genomics.v1.Annotation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(annotation_);
-              annotation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.genomics.v1.AnnotationsProto.internal_static_google_genomics_v1_CreateAnnotationRequest_descriptor;
@@ -130,7 +78,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.genomics.v1.AnnotationOrBuilder getAnnotationOrBuilder() {
-    return getAnnotation();
+    return annotation_ == null ? com.google.genomics.v1.Annotation.getDefaultInstance() : annotation_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -150,7 +98,7 @@ private static final long serialVersionUID = 0L;
     if (annotation_ != null) {
       output.writeMessage(1, getAnnotation());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -163,7 +111,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getAnnotation());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -183,7 +131,7 @@ private static final long serialVersionUID = 0L;
       if (!getAnnotation()
           .equals(other.getAnnotation())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -198,7 +146,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ANNOTATION_FIELD_NUMBER;
       hash = (53 * hash) + getAnnotation().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -315,26 +263,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.genomics.v1.CreateAnnotationRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (annotationBuilder_ == null) {
-        annotation_ = null;
-      } else {
-        annotation_ = null;
+      bitField0_ = 0;
+      annotation_ = null;
+      if (annotationBuilder_ != null) {
+        annotationBuilder_.dispose();
         annotationBuilder_ = null;
       }
       return this;
@@ -363,13 +306,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.genomics.v1.CreateAnnotationRequest buildPartial() {
       com.google.genomics.v1.CreateAnnotationRequest result = new com.google.genomics.v1.CreateAnnotationRequest(this);
-      if (annotationBuilder_ == null) {
-        result.annotation_ = annotation_;
-      } else {
-        result.annotation_ = annotationBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.genomics.v1.CreateAnnotationRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.annotation_ = annotationBuilder_ == null
+            ? annotation_
+            : annotationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -419,7 +367,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasAnnotation()) {
         mergeAnnotation(other.getAnnotation());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -434,19 +382,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.genomics.v1.CreateAnnotationRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAnnotationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.genomics.v1.CreateAnnotationRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.genomics.v1.Annotation annotation_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -460,7 +429,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the annotation field is set.
      */
     public boolean hasAnnotation() {
-      return annotationBuilder_ != null || annotation_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -490,11 +459,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         annotation_ = value;
-        onChanged();
       } else {
         annotationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -508,11 +477,11 @@ private static final long serialVersionUID = 0L;
         com.google.genomics.v1.Annotation.Builder builderForValue) {
       if (annotationBuilder_ == null) {
         annotation_ = builderForValue.build();
-        onChanged();
       } else {
         annotationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -524,17 +493,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAnnotation(com.google.genomics.v1.Annotation value) {
       if (annotationBuilder_ == null) {
-        if (annotation_ != null) {
-          annotation_ =
-            com.google.genomics.v1.Annotation.newBuilder(annotation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          annotation_ != null &&
+          annotation_ != com.google.genomics.v1.Annotation.getDefaultInstance()) {
+          getAnnotationBuilder().mergeFrom(value);
         } else {
           annotation_ = value;
         }
-        onChanged();
       } else {
         annotationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -545,14 +515,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1.Annotation annotation = 1;</code>
      */
     public Builder clearAnnotation() {
-      if (annotationBuilder_ == null) {
-        annotation_ = null;
-        onChanged();
-      } else {
-        annotation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      annotation_ = null;
+      if (annotationBuilder_ != null) {
+        annotationBuilder_.dispose();
         annotationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -563,7 +532,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1.Annotation annotation = 1;</code>
      */
     public com.google.genomics.v1.Annotation.Builder getAnnotationBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAnnotationFieldBuilder().getBuilder();
     }
@@ -635,7 +604,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateAnnotationRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

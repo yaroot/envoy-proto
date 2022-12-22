@@ -35,103 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Squash(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            cluster_ = s;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (attachmentTemplate_ != null) {
-              subBuilder = attachmentTemplate_.toBuilder();
-            }
-            attachmentTemplate_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(attachmentTemplate_);
-              attachmentTemplate_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (requestTimeout_ != null) {
-              subBuilder = requestTimeout_.toBuilder();
-            }
-            requestTimeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(requestTimeout_);
-              requestTimeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (attachmentTimeout_ != null) {
-              subBuilder = attachmentTimeout_.toBuilder();
-            }
-            attachmentTimeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(attachmentTimeout_);
-              attachmentTimeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (attachmentPollPeriod_ != null) {
-              subBuilder = attachmentPollPeriod_.toBuilder();
-            }
-            attachmentPollPeriod_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(attachmentPollPeriod_);
-              attachmentPollPeriod_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.filter.http.squash.v2.SquashProto.internal_static_envoy_config_filter_http_squash_v2_Squash_descriptor;
@@ -146,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLUSTER_FIELD_NUMBER = 1;
-  private volatile java.lang.Object cluster_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cluster_ = "";
   /**
    * <pre>
    * The name of the cluster that hosts the Squash server.
@@ -271,7 +175,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getAttachmentTemplateOrBuilder() {
-    return getAttachmentTemplate();
+    return attachmentTemplate_ == null ? com.google.protobuf.Struct.getDefaultInstance() : attachmentTemplate_;
   }
 
   public static final int REQUEST_TIMEOUT_FIELD_NUMBER = 3;
@@ -309,7 +213,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getRequestTimeoutOrBuilder() {
-    return getRequestTimeout();
+    return requestTimeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : requestTimeout_;
   }
 
   public static final int ATTACHMENT_TIMEOUT_FIELD_NUMBER = 4;
@@ -350,7 +254,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getAttachmentTimeoutOrBuilder() {
-    return getAttachmentTimeout();
+    return attachmentTimeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : attachmentTimeout_;
   }
 
   public static final int ATTACHMENT_POLL_PERIOD_FIELD_NUMBER = 5;
@@ -391,7 +295,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getAttachmentPollPeriodOrBuilder() {
-    return getAttachmentPollPeriod();
+    return attachmentPollPeriod_ == null ? com.google.protobuf.Duration.getDefaultInstance() : attachmentPollPeriod_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -423,7 +327,7 @@ private static final long serialVersionUID = 0L;
     if (attachmentPollPeriod_ != null) {
       output.writeMessage(5, getAttachmentPollPeriod());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -451,7 +355,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getAttachmentPollPeriod());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -488,7 +392,7 @@ private static final long serialVersionUID = 0L;
       if (!getAttachmentPollPeriod()
           .equals(other.getAttachmentPollPeriod())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -517,7 +421,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ATTACHMENT_POLL_PERIOD_FIELD_NUMBER;
       hash = (53 * hash) + getAttachmentPollPeriod().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -638,46 +542,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.filter.http.squash.v2.Squash.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       cluster_ = "";
-
-      if (attachmentTemplateBuilder_ == null) {
-        attachmentTemplate_ = null;
-      } else {
-        attachmentTemplate_ = null;
+      attachmentTemplate_ = null;
+      if (attachmentTemplateBuilder_ != null) {
+        attachmentTemplateBuilder_.dispose();
         attachmentTemplateBuilder_ = null;
       }
-      if (requestTimeoutBuilder_ == null) {
-        requestTimeout_ = null;
-      } else {
-        requestTimeout_ = null;
+      requestTimeout_ = null;
+      if (requestTimeoutBuilder_ != null) {
+        requestTimeoutBuilder_.dispose();
         requestTimeoutBuilder_ = null;
       }
-      if (attachmentTimeoutBuilder_ == null) {
-        attachmentTimeout_ = null;
-      } else {
-        attachmentTimeout_ = null;
+      attachmentTimeout_ = null;
+      if (attachmentTimeoutBuilder_ != null) {
+        attachmentTimeoutBuilder_.dispose();
         attachmentTimeoutBuilder_ = null;
       }
-      if (attachmentPollPeriodBuilder_ == null) {
-        attachmentPollPeriod_ = null;
-      } else {
-        attachmentPollPeriod_ = null;
+      attachmentPollPeriod_ = null;
+      if (attachmentPollPeriodBuilder_ != null) {
+        attachmentPollPeriodBuilder_.dispose();
         attachmentPollPeriodBuilder_ = null;
       }
       return this;
@@ -706,29 +601,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.filter.http.squash.v2.Squash buildPartial() {
       io.envoyproxy.envoy.config.filter.http.squash.v2.Squash result = new io.envoyproxy.envoy.config.filter.http.squash.v2.Squash(this);
-      result.cluster_ = cluster_;
-      if (attachmentTemplateBuilder_ == null) {
-        result.attachmentTemplate_ = attachmentTemplate_;
-      } else {
-        result.attachmentTemplate_ = attachmentTemplateBuilder_.build();
-      }
-      if (requestTimeoutBuilder_ == null) {
-        result.requestTimeout_ = requestTimeout_;
-      } else {
-        result.requestTimeout_ = requestTimeoutBuilder_.build();
-      }
-      if (attachmentTimeoutBuilder_ == null) {
-        result.attachmentTimeout_ = attachmentTimeout_;
-      } else {
-        result.attachmentTimeout_ = attachmentTimeoutBuilder_.build();
-      }
-      if (attachmentPollPeriodBuilder_ == null) {
-        result.attachmentPollPeriod_ = attachmentPollPeriod_;
-      } else {
-        result.attachmentPollPeriod_ = attachmentPollPeriodBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.filter.http.squash.v2.Squash result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.cluster_ = cluster_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.attachmentTemplate_ = attachmentTemplateBuilder_ == null
+            ? attachmentTemplate_
+            : attachmentTemplateBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.requestTimeout_ = requestTimeoutBuilder_ == null
+            ? requestTimeout_
+            : requestTimeoutBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.attachmentTimeout_ = attachmentTimeoutBuilder_ == null
+            ? attachmentTimeout_
+            : attachmentTimeoutBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.attachmentPollPeriod_ = attachmentPollPeriodBuilder_ == null
+            ? attachmentPollPeriod_
+            : attachmentPollPeriodBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -777,6 +679,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.config.filter.http.squash.v2.Squash.getDefaultInstance()) return this;
       if (!other.getCluster().isEmpty()) {
         cluster_ = other.cluster_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasAttachmentTemplate()) {
@@ -791,7 +694,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasAttachmentPollPeriod()) {
         mergeAttachmentPollPeriod(other.getAttachmentPollPeriod());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -806,19 +709,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.filter.http.squash.v2.Squash parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              cluster_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAttachmentTemplateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getRequestTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getAttachmentTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getAttachmentPollPeriodFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.filter.http.squash.v2.Squash) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object cluster_ = "";
     /**
@@ -873,11 +823,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCluster(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       cluster_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -890,8 +838,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCluster() {
-      
       cluster_ = getDefaultInstance().getCluster();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -906,12 +854,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       cluster_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -943,7 +889,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the attachmentTemplate field is set.
      */
     public boolean hasAttachmentTemplate() {
-      return attachmentTemplateBuilder_ != null || attachmentTemplate_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1003,11 +949,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         attachmentTemplate_ = value;
-        onChanged();
       } else {
         attachmentTemplateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1036,11 +982,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct.Builder builderForValue) {
       if (attachmentTemplateBuilder_ == null) {
         attachmentTemplate_ = builderForValue.build();
-        onChanged();
       } else {
         attachmentTemplateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1067,17 +1013,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAttachmentTemplate(com.google.protobuf.Struct value) {
       if (attachmentTemplateBuilder_ == null) {
-        if (attachmentTemplate_ != null) {
-          attachmentTemplate_ =
-            com.google.protobuf.Struct.newBuilder(attachmentTemplate_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          attachmentTemplate_ != null &&
+          attachmentTemplate_ != com.google.protobuf.Struct.getDefaultInstance()) {
+          getAttachmentTemplateBuilder().mergeFrom(value);
         } else {
           attachmentTemplate_ = value;
         }
-        onChanged();
       } else {
         attachmentTemplateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1103,14 +1050,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct attachment_template = 2;</code>
      */
     public Builder clearAttachmentTemplate() {
-      if (attachmentTemplateBuilder_ == null) {
-        attachmentTemplate_ = null;
-        onChanged();
-      } else {
-        attachmentTemplate_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      attachmentTemplate_ = null;
+      if (attachmentTemplateBuilder_ != null) {
+        attachmentTemplateBuilder_.dispose();
         attachmentTemplateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1136,7 +1082,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct attachment_template = 2;</code>
      */
     public com.google.protobuf.Struct.Builder getAttachmentTemplateBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAttachmentTemplateFieldBuilder().getBuilder();
     }
@@ -1218,7 +1164,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the requestTimeout field is set.
      */
     public boolean hasRequestTimeout() {
-      return requestTimeoutBuilder_ != null || requestTimeout_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1248,11 +1194,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         requestTimeout_ = value;
-        onChanged();
       } else {
         requestTimeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1266,11 +1212,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (requestTimeoutBuilder_ == null) {
         requestTimeout_ = builderForValue.build();
-        onChanged();
       } else {
         requestTimeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1282,17 +1228,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRequestTimeout(com.google.protobuf.Duration value) {
       if (requestTimeoutBuilder_ == null) {
-        if (requestTimeout_ != null) {
-          requestTimeout_ =
-            com.google.protobuf.Duration.newBuilder(requestTimeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          requestTimeout_ != null &&
+          requestTimeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getRequestTimeoutBuilder().mergeFrom(value);
         } else {
           requestTimeout_ = value;
         }
-        onChanged();
       } else {
         requestTimeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1303,14 +1250,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration request_timeout = 3;</code>
      */
     public Builder clearRequestTimeout() {
-      if (requestTimeoutBuilder_ == null) {
-        requestTimeout_ = null;
-        onChanged();
-      } else {
-        requestTimeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      requestTimeout_ = null;
+      if (requestTimeoutBuilder_ != null) {
+        requestTimeoutBuilder_.dispose();
         requestTimeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1321,7 +1267,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration request_timeout = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getRequestTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getRequestTimeoutFieldBuilder().getBuilder();
     }
@@ -1374,7 +1320,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the attachmentTimeout field is set.
      */
     public boolean hasAttachmentTimeout() {
-      return attachmentTimeoutBuilder_ != null || attachmentTimeout_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1406,11 +1352,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         attachmentTimeout_ = value;
-        onChanged();
       } else {
         attachmentTimeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1425,11 +1371,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (attachmentTimeoutBuilder_ == null) {
         attachmentTimeout_ = builderForValue.build();
-        onChanged();
       } else {
         attachmentTimeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1442,17 +1388,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAttachmentTimeout(com.google.protobuf.Duration value) {
       if (attachmentTimeoutBuilder_ == null) {
-        if (attachmentTimeout_ != null) {
-          attachmentTimeout_ =
-            com.google.protobuf.Duration.newBuilder(attachmentTimeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          attachmentTimeout_ != null &&
+          attachmentTimeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getAttachmentTimeoutBuilder().mergeFrom(value);
         } else {
           attachmentTimeout_ = value;
         }
-        onChanged();
       } else {
         attachmentTimeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1464,14 +1411,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration attachment_timeout = 4;</code>
      */
     public Builder clearAttachmentTimeout() {
-      if (attachmentTimeoutBuilder_ == null) {
-        attachmentTimeout_ = null;
-        onChanged();
-      } else {
-        attachmentTimeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      attachmentTimeout_ = null;
+      if (attachmentTimeoutBuilder_ != null) {
+        attachmentTimeoutBuilder_.dispose();
         attachmentTimeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1483,7 +1429,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration attachment_timeout = 4;</code>
      */
     public com.google.protobuf.Duration.Builder getAttachmentTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getAttachmentTimeoutFieldBuilder().getBuilder();
     }
@@ -1538,7 +1484,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the attachmentPollPeriod field is set.
      */
     public boolean hasAttachmentPollPeriod() {
-      return attachmentPollPeriodBuilder_ != null || attachmentPollPeriod_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1570,11 +1516,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         attachmentPollPeriod_ = value;
-        onChanged();
       } else {
         attachmentPollPeriodBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1589,11 +1535,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (attachmentPollPeriodBuilder_ == null) {
         attachmentPollPeriod_ = builderForValue.build();
-        onChanged();
       } else {
         attachmentPollPeriodBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1606,17 +1552,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAttachmentPollPeriod(com.google.protobuf.Duration value) {
       if (attachmentPollPeriodBuilder_ == null) {
-        if (attachmentPollPeriod_ != null) {
-          attachmentPollPeriod_ =
-            com.google.protobuf.Duration.newBuilder(attachmentPollPeriod_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          attachmentPollPeriod_ != null &&
+          attachmentPollPeriod_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getAttachmentPollPeriodBuilder().mergeFrom(value);
         } else {
           attachmentPollPeriod_ = value;
         }
-        onChanged();
       } else {
         attachmentPollPeriodBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1628,14 +1575,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration attachment_poll_period = 5;</code>
      */
     public Builder clearAttachmentPollPeriod() {
-      if (attachmentPollPeriodBuilder_ == null) {
-        attachmentPollPeriod_ = null;
-        onChanged();
-      } else {
-        attachmentPollPeriod_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      attachmentPollPeriod_ = null;
+      if (attachmentPollPeriodBuilder_ != null) {
+        attachmentPollPeriodBuilder_.dispose();
         attachmentPollPeriodBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1647,7 +1593,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration attachment_poll_period = 5;</code>
      */
     public com.google.protobuf.Duration.Builder getAttachmentPollPeriodBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getAttachmentPollPeriodFieldBuilder().getBuilder();
     }
@@ -1721,7 +1667,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Squash(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -30,87 +30,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OrcaLoadReport(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 9: {
-
-            cpuUtilization_ = input.readDouble();
-            break;
-          }
-          case 17: {
-
-            memUtilization_ = input.readDouble();
-            break;
-          }
-          case 24: {
-
-            rps_ = input.readUInt64();
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              requestCost_ = com.google.protobuf.MapField.newMapField(
-                  RequestCostDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Double>
-            requestCost__ = input.readMessage(
-                RequestCostDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            requestCost_.getMutableMap().put(
-                requestCost__.getKey(), requestCost__.getValue());
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              utilization_ = com.google.protobuf.MapField.newMapField(
-                  UtilizationDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Double>
-            utilization__ = input.readMessage(
-                UtilizationDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            utilization_.getMutableMap().put(
-                utilization__.getKey(), utilization__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.github.xds.data.orca.v3.OrcaLoadReportProto.internal_static_xds_data_orca_v3_OrcaLoadReport_descriptor;
@@ -139,7 +58,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CPU_UTILIZATION_FIELD_NUMBER = 1;
-  private double cpuUtilization_;
+  private double cpuUtilization_ = 0D;
   /**
    * <pre>
    * CPU utilization expressed as a fraction of available CPU resources. This
@@ -155,7 +74,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MEM_UTILIZATION_FIELD_NUMBER = 2;
-  private double memUtilization_;
+  private double memUtilization_ = 0D;
   /**
    * <pre>
    * Memory utilization expressed as a fraction of available memory
@@ -171,7 +90,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RPS_FIELD_NUMBER = 3;
-  private long rps_;
+  private long rps_ = 0L;
   /**
    * <pre>
    * Total RPS being served by an endpoint. This should cover all services that an endpoint is
@@ -198,6 +117,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.DOUBLE,
                 0D);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Double> requestCost_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
@@ -208,7 +128,6 @@ private static final long serialVersionUID = 0L;
     }
     return requestCost_;
   }
-
   public int getRequestCostCount() {
     return internalGetRequestCost().getMap().size();
   }
@@ -220,7 +139,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, double&gt; request_cost = 4;</code>
    */
-
   @java.lang.Override
   public boolean containsRequestCost(
       java.lang.String key) {
@@ -244,7 +162,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, double&gt; request_cost = 4;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Double> getRequestCostMap() {
     return internalGetRequestCost().getMap();
   }
@@ -257,7 +174,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, double&gt; request_cost = 4;</code>
    */
   @java.lang.Override
-
   public double getRequestCostOrDefault(
       java.lang.String key,
       double defaultValue) {
@@ -275,7 +191,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, double&gt; request_cost = 4;</code>
    */
   @java.lang.Override
-
   public double getRequestCostOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -299,6 +214,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.DOUBLE,
                 0D);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Double> utilization_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
@@ -309,7 +225,6 @@ private static final long serialVersionUID = 0L;
     }
     return utilization_;
   }
-
   public int getUtilizationCount() {
     return internalGetUtilization().getMap().size();
   }
@@ -321,7 +236,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, double&gt; utilization = 5 [(.validate.rules) = { ... }</code>
    */
-
   @java.lang.Override
   public boolean containsUtilization(
       java.lang.String key) {
@@ -345,7 +259,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, double&gt; utilization = 5 [(.validate.rules) = { ... }</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Double> getUtilizationMap() {
     return internalGetUtilization().getMap();
   }
@@ -358,7 +271,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, double&gt; utilization = 5 [(.validate.rules) = { ... }</code>
    */
   @java.lang.Override
-
   public double getUtilizationOrDefault(
       java.lang.String key,
       double defaultValue) {
@@ -376,7 +288,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, double&gt; utilization = 5 [(.validate.rules) = { ... }</code>
    */
   @java.lang.Override
-
   public double getUtilizationOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -423,7 +334,7 @@ private static final long serialVersionUID = 0L;
         internalGetUtilization(),
         UtilizationDefaultEntryHolder.defaultEntry,
         5);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -464,7 +375,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, utilization__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -491,7 +402,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetRequestCost())) return false;
     if (!internalGetUtilization().equals(
         other.internalGetUtilization())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -519,7 +430,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UTILIZATION_FIELD_NUMBER;
       hash = (53 * hash) + internalGetUtilization().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -662,28 +573,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.github.xds.data.orca.v3.OrcaLoadReport.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       cpuUtilization_ = 0D;
-
       memUtilization_ = 0D;
-
       rps_ = 0L;
-
       internalGetMutableRequestCost().clear();
       internalGetMutableUtilization().clear();
       return this;
@@ -712,16 +616,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.github.xds.data.orca.v3.OrcaLoadReport buildPartial() {
       com.github.xds.data.orca.v3.OrcaLoadReport result = new com.github.xds.data.orca.v3.OrcaLoadReport(this);
-      int from_bitField0_ = bitField0_;
-      result.cpuUtilization_ = cpuUtilization_;
-      result.memUtilization_ = memUtilization_;
-      result.rps_ = rps_;
-      result.requestCost_ = internalGetRequestCost();
-      result.requestCost_.makeImmutable();
-      result.utilization_ = internalGetUtilization();
-      result.utilization_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.github.xds.data.orca.v3.OrcaLoadReport result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.cpuUtilization_ = cpuUtilization_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.memUtilization_ = memUtilization_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.rps_ = rps_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.requestCost_ = internalGetRequestCost();
+        result.requestCost_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.utilization_ = internalGetUtilization();
+        result.utilization_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -779,9 +697,11 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableRequestCost().mergeFrom(
           other.internalGetRequestCost());
+      bitField0_ |= 0x00000008;
       internalGetMutableUtilization().mergeFrom(
           other.internalGetUtilization());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000010;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -796,17 +716,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.xds.data.orca.v3.OrcaLoadReport parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 9: {
+              cpuUtilization_ = input.readDouble();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 9
+            case 17: {
+              memUtilization_ = input.readDouble();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 17
+            case 24: {
+              rps_ = input.readUInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Double>
+              requestCost__ = input.readMessage(
+                  RequestCostDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableRequestCost().getMutableMap().put(
+                  requestCost__.getKey(), requestCost__.getValue());
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Double>
+              utilization__ = input.readMessage(
+                  UtilizationDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableUtilization().getMutableMap().put(
+                  utilization__.getKey(), utilization__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.xds.data.orca.v3.OrcaLoadReport) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -838,6 +804,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCpuUtilization(double value) {
       
       cpuUtilization_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -851,7 +818,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCpuUtilization() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       cpuUtilization_ = 0D;
       onChanged();
       return this;
@@ -884,6 +851,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMemUtilization(double value) {
       
       memUtilization_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -897,7 +865,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMemUtilization() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       memUtilization_ = 0D;
       onChanged();
       return this;
@@ -930,6 +898,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRps(long value) {
       
       rps_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -943,7 +912,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRps() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       rps_ = 0L;
       onChanged();
       return this;
@@ -952,7 +921,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Double> requestCost_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
-    internalGetRequestCost() {
+        internalGetRequestCost() {
       if (requestCost_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             RequestCostDefaultEntryHolder.defaultEntry);
@@ -960,8 +929,7 @@ private static final long serialVersionUID = 0L;
       return requestCost_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
-    internalGetMutableRequestCost() {
-      onChanged();;
+        internalGetMutableRequestCost() {
       if (requestCost_ == null) {
         requestCost_ = com.google.protobuf.MapField.newMapField(
             RequestCostDefaultEntryHolder.defaultEntry);
@@ -969,9 +937,10 @@ private static final long serialVersionUID = 0L;
       if (!requestCost_.isMutable()) {
         requestCost_ = requestCost_.copy();
       }
+      bitField0_ |= 0x00000008;
+      onChanged();
       return requestCost_;
     }
-
     public int getRequestCostCount() {
       return internalGetRequestCost().getMap().size();
     }
@@ -983,7 +952,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, double&gt; request_cost = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsRequestCost(
         java.lang.String key) {
@@ -1007,7 +975,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, double&gt; request_cost = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Double> getRequestCostMap() {
       return internalGetRequestCost().getMap();
     }
@@ -1020,7 +987,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, double&gt; request_cost = 4;</code>
      */
     @java.lang.Override
-
     public double getRequestCostOrDefault(
         java.lang.String key,
         double defaultValue) {
@@ -1038,7 +1004,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, double&gt; request_cost = 4;</code>
      */
     @java.lang.Override
-
     public double getRequestCostOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1049,8 +1014,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearRequestCost() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutableRequestCost().getMutableMap()
           .clear();
       return this;
@@ -1063,7 +1028,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, double&gt; request_cost = 4;</code>
      */
-
     public Builder removeRequestCost(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1076,7 +1040,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Double>
-    getMutableRequestCost() {
+        getMutableRequestCost() {
+      bitField0_ |= 0x00000008;
       return internalGetMutableRequestCost().getMutableMap();
     }
     /**
@@ -1094,6 +1059,7 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutableRequestCost().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
@@ -1104,18 +1070,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, double&gt; request_cost = 4;</code>
      */
-
     public Builder putAllRequestCost(
         java.util.Map<java.lang.String, java.lang.Double> values) {
       internalGetMutableRequestCost().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000008;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Double> utilization_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
-    internalGetUtilization() {
+        internalGetUtilization() {
       if (utilization_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             UtilizationDefaultEntryHolder.defaultEntry);
@@ -1123,8 +1089,7 @@ private static final long serialVersionUID = 0L;
       return utilization_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
-    internalGetMutableUtilization() {
-      onChanged();;
+        internalGetMutableUtilization() {
       if (utilization_ == null) {
         utilization_ = com.google.protobuf.MapField.newMapField(
             UtilizationDefaultEntryHolder.defaultEntry);
@@ -1132,9 +1097,10 @@ private static final long serialVersionUID = 0L;
       if (!utilization_.isMutable()) {
         utilization_ = utilization_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return utilization_;
     }
-
     public int getUtilizationCount() {
       return internalGetUtilization().getMap().size();
     }
@@ -1146,7 +1112,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, double&gt; utilization = 5 [(.validate.rules) = { ... }</code>
      */
-
     @java.lang.Override
     public boolean containsUtilization(
         java.lang.String key) {
@@ -1170,7 +1135,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, double&gt; utilization = 5 [(.validate.rules) = { ... }</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Double> getUtilizationMap() {
       return internalGetUtilization().getMap();
     }
@@ -1183,7 +1147,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, double&gt; utilization = 5 [(.validate.rules) = { ... }</code>
      */
     @java.lang.Override
-
     public double getUtilizationOrDefault(
         java.lang.String key,
         double defaultValue) {
@@ -1201,7 +1164,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, double&gt; utilization = 5 [(.validate.rules) = { ... }</code>
      */
     @java.lang.Override
-
     public double getUtilizationOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1212,8 +1174,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearUtilization() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableUtilization().getMutableMap()
           .clear();
       return this;
@@ -1226,7 +1188,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, double&gt; utilization = 5 [(.validate.rules) = { ... }</code>
      */
-
     public Builder removeUtilization(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1239,7 +1200,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Double>
-    getMutableUtilization() {
+        getMutableUtilization() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableUtilization().getMutableMap();
     }
     /**
@@ -1257,6 +1219,7 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutableUtilization().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -1267,11 +1230,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, double&gt; utilization = 5 [(.validate.rules) = { ... }</code>
      */
-
     public Builder putAllUtilization(
         java.util.Map<java.lang.String, java.lang.Double> values) {
       internalGetMutableUtilization().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
     @java.lang.Override
@@ -1307,7 +1270,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OrcaLoadReport(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

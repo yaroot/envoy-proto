@@ -38,88 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private IosTestSetup(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            networkProfile_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              additionalIpas_ = new java.util.ArrayList<com.google.devtools.testing.v1.FileReference>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            additionalIpas_.add(
-                input.readMessage(com.google.devtools.testing.v1.FileReference.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              pushFiles_ = new java.util.ArrayList<com.google.devtools.testing.v1.IosDeviceFile>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            pushFiles_.add(
-                input.readMessage(com.google.devtools.testing.v1.IosDeviceFile.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              pullDirectories_ = new java.util.ArrayList<com.google.devtools.testing.v1.IosDeviceFile>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            pullDirectories_.add(
-                input.readMessage(com.google.devtools.testing.v1.IosDeviceFile.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        additionalIpas_ = java.util.Collections.unmodifiableList(additionalIpas_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        pushFiles_ = java.util.Collections.unmodifiableList(pushFiles_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        pullDirectories_ = java.util.Collections.unmodifiableList(pullDirectories_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.TestExecutionProto.internal_static_google_devtools_testing_v1_IosTestSetup_descriptor;
@@ -134,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_PROFILE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object networkProfile_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object networkProfile_ = "";
   /**
    * <pre>
    * The network traffic profile used for running the test.
@@ -186,6 +105,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADDITIONAL_IPAS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.devtools.testing.v1.FileReference> additionalIpas_;
   /**
    * <pre>
@@ -246,6 +166,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PUSH_FILES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.devtools.testing.v1.IosDeviceFile> pushFiles_;
   /**
    * <pre>
@@ -306,6 +227,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PULL_DIRECTORIES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.devtools.testing.v1.IosDeviceFile> pullDirectories_;
   /**
    * <pre>
@@ -411,7 +333,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < pullDirectories_.size(); i++) {
       output.writeMessage(4, pullDirectories_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -435,7 +357,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, pullDirectories_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -458,7 +380,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPushFilesList())) return false;
     if (!getPullDirectoriesList()
         .equals(other.getPullDirectoriesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -483,7 +405,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PULL_DIRECTORIES_FIELD_NUMBER;
       hash = (53 * hash) + getPullDirectoriesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -604,45 +526,40 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.IosTestSetup.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getAdditionalIpasFieldBuilder();
-        getPushFilesFieldBuilder();
-        getPullDirectoriesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       networkProfile_ = "";
-
       if (additionalIpasBuilder_ == null) {
         additionalIpas_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        additionalIpas_ = null;
         additionalIpasBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (pushFilesBuilder_ == null) {
         pushFiles_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        pushFiles_ = null;
         pushFilesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (pullDirectoriesBuilder_ == null) {
         pullDirectories_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        pullDirectories_ = null;
         pullDirectoriesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -669,37 +586,47 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.IosTestSetup buildPartial() {
       com.google.devtools.testing.v1.IosTestSetup result = new com.google.devtools.testing.v1.IosTestSetup(this);
-      int from_bitField0_ = bitField0_;
-      result.networkProfile_ = networkProfile_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.devtools.testing.v1.IosTestSetup result) {
       if (additionalIpasBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           additionalIpas_ = java.util.Collections.unmodifiableList(additionalIpas_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.additionalIpas_ = additionalIpas_;
       } else {
         result.additionalIpas_ = additionalIpasBuilder_.build();
       }
       if (pushFilesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           pushFiles_ = java.util.Collections.unmodifiableList(pushFiles_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.pushFiles_ = pushFiles_;
       } else {
         result.pushFiles_ = pushFilesBuilder_.build();
       }
       if (pullDirectoriesBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           pullDirectories_ = java.util.Collections.unmodifiableList(pullDirectories_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.pullDirectories_ = pullDirectories_;
       } else {
         result.pullDirectories_ = pullDirectoriesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.IosTestSetup result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.networkProfile_ = networkProfile_;
+      }
     }
 
     @java.lang.Override
@@ -748,13 +675,14 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.testing.v1.IosTestSetup.getDefaultInstance()) return this;
       if (!other.getNetworkProfile().isEmpty()) {
         networkProfile_ = other.networkProfile_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (additionalIpasBuilder_ == null) {
         if (!other.additionalIpas_.isEmpty()) {
           if (additionalIpas_.isEmpty()) {
             additionalIpas_ = other.additionalIpas_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureAdditionalIpasIsMutable();
             additionalIpas_.addAll(other.additionalIpas_);
@@ -767,7 +695,7 @@ private static final long serialVersionUID = 0L;
             additionalIpasBuilder_.dispose();
             additionalIpasBuilder_ = null;
             additionalIpas_ = other.additionalIpas_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             additionalIpasBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAdditionalIpasFieldBuilder() : null;
@@ -780,7 +708,7 @@ private static final long serialVersionUID = 0L;
         if (!other.pushFiles_.isEmpty()) {
           if (pushFiles_.isEmpty()) {
             pushFiles_ = other.pushFiles_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensurePushFilesIsMutable();
             pushFiles_.addAll(other.pushFiles_);
@@ -793,7 +721,7 @@ private static final long serialVersionUID = 0L;
             pushFilesBuilder_.dispose();
             pushFilesBuilder_ = null;
             pushFiles_ = other.pushFiles_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             pushFilesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPushFilesFieldBuilder() : null;
@@ -806,7 +734,7 @@ private static final long serialVersionUID = 0L;
         if (!other.pullDirectories_.isEmpty()) {
           if (pullDirectories_.isEmpty()) {
             pullDirectories_ = other.pullDirectories_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensurePullDirectoriesIsMutable();
             pullDirectories_.addAll(other.pullDirectories_);
@@ -819,7 +747,7 @@ private static final long serialVersionUID = 0L;
             pullDirectoriesBuilder_.dispose();
             pullDirectoriesBuilder_ = null;
             pullDirectories_ = other.pullDirectories_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
             pullDirectoriesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPullDirectoriesFieldBuilder() : null;
@@ -828,7 +756,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -843,17 +771,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.IosTestSetup parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              networkProfile_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.devtools.testing.v1.FileReference m =
+                  input.readMessage(
+                      com.google.devtools.testing.v1.FileReference.parser(),
+                      extensionRegistry);
+              if (additionalIpasBuilder_ == null) {
+                ensureAdditionalIpasIsMutable();
+                additionalIpas_.add(m);
+              } else {
+                additionalIpasBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              com.google.devtools.testing.v1.IosDeviceFile m =
+                  input.readMessage(
+                      com.google.devtools.testing.v1.IosDeviceFile.parser(),
+                      extensionRegistry);
+              if (pushFilesBuilder_ == null) {
+                ensurePushFilesIsMutable();
+                pushFiles_.add(m);
+              } else {
+                pushFilesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              com.google.devtools.testing.v1.IosDeviceFile m =
+                  input.readMessage(
+                      com.google.devtools.testing.v1.IosDeviceFile.parser(),
+                      extensionRegistry);
+              if (pullDirectoriesBuilder_ == null) {
+                ensurePullDirectoriesIsMutable();
+                pullDirectories_.add(m);
+              } else {
+                pullDirectoriesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.IosTestSetup) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -920,11 +905,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetworkProfile(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       networkProfile_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -940,8 +923,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNetworkProfile() {
-      
       networkProfile_ = getDefaultInstance().getNetworkProfile();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -959,12 +942,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetworkProfileBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       networkProfile_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -972,9 +953,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.devtools.testing.v1.FileReference> additionalIpas_ =
       java.util.Collections.emptyList();
     private void ensureAdditionalIpasIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         additionalIpas_ = new java.util.ArrayList<com.google.devtools.testing.v1.FileReference>(additionalIpas_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1168,7 +1149,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearAdditionalIpas() {
       if (additionalIpasBuilder_ == null) {
         additionalIpas_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         additionalIpasBuilder_.clear();
@@ -1273,7 +1254,7 @@ private static final long serialVersionUID = 0L;
         additionalIpasBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.devtools.testing.v1.FileReference, com.google.devtools.testing.v1.FileReference.Builder, com.google.devtools.testing.v1.FileReferenceOrBuilder>(
                 additionalIpas_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         additionalIpas_ = null;
@@ -1284,9 +1265,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.devtools.testing.v1.IosDeviceFile> pushFiles_ =
       java.util.Collections.emptyList();
     private void ensurePushFilesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         pushFiles_ = new java.util.ArrayList<com.google.devtools.testing.v1.IosDeviceFile>(pushFiles_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1480,7 +1461,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPushFiles() {
       if (pushFilesBuilder_ == null) {
         pushFiles_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         pushFilesBuilder_.clear();
@@ -1585,7 +1566,7 @@ private static final long serialVersionUID = 0L;
         pushFilesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.devtools.testing.v1.IosDeviceFile, com.google.devtools.testing.v1.IosDeviceFile.Builder, com.google.devtools.testing.v1.IosDeviceFileOrBuilder>(
                 pushFiles_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         pushFiles_ = null;
@@ -1596,9 +1577,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.devtools.testing.v1.IosDeviceFile> pullDirectories_ =
       java.util.Collections.emptyList();
     private void ensurePullDirectoriesIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         pullDirectories_ = new java.util.ArrayList<com.google.devtools.testing.v1.IosDeviceFile>(pullDirectories_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1836,7 +1817,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPullDirectories() {
       if (pullDirectoriesBuilder_ == null) {
         pullDirectories_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         pullDirectoriesBuilder_.clear();
@@ -1969,7 +1950,7 @@ private static final long serialVersionUID = 0L;
         pullDirectoriesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.devtools.testing.v1.IosDeviceFile, com.google.devtools.testing.v1.IosDeviceFile.Builder, com.google.devtools.testing.v1.IosDeviceFileOrBuilder>(
                 pullDirectories_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         pullDirectories_ = null;
@@ -2009,7 +1990,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new IosTestSetup(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

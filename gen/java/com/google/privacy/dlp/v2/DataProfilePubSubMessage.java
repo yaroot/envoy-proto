@@ -5,10 +5,9 @@ package com.google.privacy.dlp.v2;
 
 /**
  * <pre>
- * The message that will be published to a Pub/Sub topic.
+ * Pub/Sub topic message for a DataProfileAction.PubSubNotification event.
  * To receive a message of protocol buffer schema type, convert the message data
  * to an object of this proto class.
- * https://cloud.google.com/pubsub/docs/samples/pubsub-subscribe-proto-messages
  * </pre>
  *
  * Protobuf type {@code google.privacy.dlp.v2.DataProfilePubSubMessage}
@@ -37,64 +36,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private DataProfilePubSubMessage(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.privacy.dlp.v2.TableDataProfile.Builder subBuilder = null;
-            if (profile_ != null) {
-              subBuilder = profile_.toBuilder();
-            }
-            profile_ = input.readMessage(com.google.privacy.dlp.v2.TableDataProfile.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(profile_);
-              profile_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            event_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -150,11 +91,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.privacy.dlp.v2.TableDataProfileOrBuilder getProfileOrBuilder() {
-    return getProfile();
+    return profile_ == null ? com.google.privacy.dlp.v2.TableDataProfile.getDefaultInstance() : profile_;
   }
 
   public static final int EVENT_FIELD_NUMBER = 2;
-  private int event_;
+  private int event_ = 0;
   /**
    * <pre>
    * The event that caused the Pub/Sub message to be sent.
@@ -175,8 +116,7 @@ private static final long serialVersionUID = 0L;
    * @return The event.
    */
   @java.lang.Override public com.google.privacy.dlp.v2.DataProfileAction.EventType getEvent() {
-    @SuppressWarnings("deprecation")
-    com.google.privacy.dlp.v2.DataProfileAction.EventType result = com.google.privacy.dlp.v2.DataProfileAction.EventType.valueOf(event_);
+    com.google.privacy.dlp.v2.DataProfileAction.EventType result = com.google.privacy.dlp.v2.DataProfileAction.EventType.forNumber(event_);
     return result == null ? com.google.privacy.dlp.v2.DataProfileAction.EventType.UNRECOGNIZED : result;
   }
 
@@ -200,7 +140,7 @@ private static final long serialVersionUID = 0L;
     if (event_ != com.google.privacy.dlp.v2.DataProfileAction.EventType.EVENT_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(2, event_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -217,7 +157,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, event_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -238,7 +178,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getProfile())) return false;
     }
     if (event_ != other.event_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -255,7 +195,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + EVENT_FIELD_NUMBER;
     hash = (53 * hash) + event_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -352,10 +292,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The message that will be published to a Pub/Sub topic.
+   * Pub/Sub topic message for a DataProfileAction.PubSubNotification event.
    * To receive a message of protocol buffer schema type, convert the message data
    * to an object of this proto class.
-   * https://cloud.google.com/pubsub/docs/samples/pubsub-subscribe-proto-messages
    * </pre>
    *
    * Protobuf type {@code google.privacy.dlp.v2.DataProfilePubSubMessage}
@@ -379,30 +318,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.DataProfilePubSubMessage.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (profileBuilder_ == null) {
-        profile_ = null;
-      } else {
-        profile_ = null;
+      bitField0_ = 0;
+      profile_ = null;
+      if (profileBuilder_ != null) {
+        profileBuilder_.dispose();
         profileBuilder_ = null;
       }
       event_ = 0;
-
       return this;
     }
 
@@ -429,14 +362,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.DataProfilePubSubMessage buildPartial() {
       com.google.privacy.dlp.v2.DataProfilePubSubMessage result = new com.google.privacy.dlp.v2.DataProfilePubSubMessage(this);
-      if (profileBuilder_ == null) {
-        result.profile_ = profile_;
-      } else {
-        result.profile_ = profileBuilder_.build();
-      }
-      result.event_ = event_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.DataProfilePubSubMessage result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.profile_ = profileBuilder_ == null
+            ? profile_
+            : profileBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.event_ = event_;
+      }
     }
 
     @java.lang.Override
@@ -489,7 +429,7 @@ private static final long serialVersionUID = 0L;
       if (other.event_ != 0) {
         setEventValue(other.getEventValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -504,19 +444,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.DataProfilePubSubMessage parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getProfileFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              event_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.DataProfilePubSubMessage) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.privacy.dlp.v2.TableDataProfile profile_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -532,7 +498,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the profile field is set.
      */
     public boolean hasProfile() {
-      return profileBuilder_ != null || profile_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -566,11 +532,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         profile_ = value;
-        onChanged();
       } else {
         profileBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -586,11 +552,11 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.TableDataProfile.Builder builderForValue) {
       if (profileBuilder_ == null) {
         profile_ = builderForValue.build();
-        onChanged();
       } else {
         profileBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -604,17 +570,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeProfile(com.google.privacy.dlp.v2.TableDataProfile value) {
       if (profileBuilder_ == null) {
-        if (profile_ != null) {
-          profile_ =
-            com.google.privacy.dlp.v2.TableDataProfile.newBuilder(profile_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          profile_ != null &&
+          profile_ != com.google.privacy.dlp.v2.TableDataProfile.getDefaultInstance()) {
+          getProfileBuilder().mergeFrom(value);
         } else {
           profile_ = value;
         }
-        onChanged();
       } else {
         profileBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -627,14 +594,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.TableDataProfile profile = 1;</code>
      */
     public Builder clearProfile() {
-      if (profileBuilder_ == null) {
-        profile_ = null;
-        onChanged();
-      } else {
-        profile_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      profile_ = null;
+      if (profileBuilder_ != null) {
+        profileBuilder_.dispose();
         profileBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -647,7 +613,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.TableDataProfile profile = 1;</code>
      */
     public com.google.privacy.dlp.v2.TableDataProfile.Builder getProfileBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getProfileFieldBuilder().getBuilder();
     }
@@ -713,8 +679,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEventValue(int value) {
-      
       event_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -728,8 +694,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.privacy.dlp.v2.DataProfileAction.EventType getEvent() {
-      @SuppressWarnings("deprecation")
-      com.google.privacy.dlp.v2.DataProfileAction.EventType result = com.google.privacy.dlp.v2.DataProfileAction.EventType.valueOf(event_);
+      com.google.privacy.dlp.v2.DataProfileAction.EventType result = com.google.privacy.dlp.v2.DataProfileAction.EventType.forNumber(event_);
       return result == null ? com.google.privacy.dlp.v2.DataProfileAction.EventType.UNRECOGNIZED : result;
     }
     /**
@@ -745,7 +710,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       event_ = value.getNumber();
       onChanged();
       return this;
@@ -759,7 +724,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEvent() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       event_ = 0;
       onChanged();
       return this;
@@ -797,7 +762,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DataProfilePubSubMessage(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

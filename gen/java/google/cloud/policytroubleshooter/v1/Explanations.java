@@ -469,63 +469,6 @@ public final class Explanations {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AccessTuple(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              principal_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              fullResourceName_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              permission_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return google.cloud.policytroubleshooter.v1.Explanations.internal_static_google_cloud_policytroubleshooter_v1_AccessTuple_descriptor;
@@ -540,7 +483,8 @@ public final class Explanations {
     }
 
     public static final int PRINCIPAL_FIELD_NUMBER = 1;
-    private volatile java.lang.Object principal_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object principal_ = "";
     /**
      * <pre>
      * Required. The member, or principal, whose access you want to check, in the form of
@@ -596,7 +540,8 @@ public final class Explanations {
     }
 
     public static final int FULL_RESOURCE_NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object fullResourceName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object fullResourceName_ = "";
     /**
      * <pre>
      * Required. The full resource name that identifies the resource. For example,
@@ -648,7 +593,8 @@ public final class Explanations {
     }
 
     public static final int PERMISSION_FIELD_NUMBER = 3;
-    private volatile java.lang.Object permission_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object permission_ = "";
     /**
      * <pre>
      * Required. The IAM permission to check for the specified member and resource.
@@ -724,7 +670,7 @@ public final class Explanations {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(permission_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, permission_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -742,7 +688,7 @@ public final class Explanations {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(permission_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, permission_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -763,7 +709,7 @@ public final class Explanations {
           .equals(other.getFullResourceName())) return false;
       if (!getPermission()
           .equals(other.getPermission())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -780,7 +726,7 @@ public final class Explanations {
       hash = (53 * hash) + getFullResourceName().hashCode();
       hash = (37 * hash) + PERMISSION_FIELD_NUMBER;
       hash = (53 * hash) + getPermission().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -901,28 +847,21 @@ public final class Explanations {
 
       // Construct using google.cloud.policytroubleshooter.v1.Explanations.AccessTuple.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         principal_ = "";
-
         fullResourceName_ = "";
-
         permission_ = "";
-
         return this;
       }
 
@@ -949,11 +888,22 @@ public final class Explanations {
       @java.lang.Override
       public google.cloud.policytroubleshooter.v1.Explanations.AccessTuple buildPartial() {
         google.cloud.policytroubleshooter.v1.Explanations.AccessTuple result = new google.cloud.policytroubleshooter.v1.Explanations.AccessTuple(this);
-        result.principal_ = principal_;
-        result.fullResourceName_ = fullResourceName_;
-        result.permission_ = permission_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(google.cloud.policytroubleshooter.v1.Explanations.AccessTuple result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.principal_ = principal_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.fullResourceName_ = fullResourceName_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.permission_ = permission_;
+        }
       }
 
       @java.lang.Override
@@ -1002,17 +952,20 @@ public final class Explanations {
         if (other == google.cloud.policytroubleshooter.v1.Explanations.AccessTuple.getDefaultInstance()) return this;
         if (!other.getPrincipal().isEmpty()) {
           principal_ = other.principal_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getFullResourceName().isEmpty()) {
           fullResourceName_ = other.fullResourceName_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getPermission().isEmpty()) {
           permission_ = other.permission_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1027,19 +980,48 @@ public final class Explanations {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        google.cloud.policytroubleshooter.v1.Explanations.AccessTuple parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                principal_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                fullResourceName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                permission_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (google.cloud.policytroubleshooter.v1.Explanations.AccessTuple) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object principal_ = "";
       /**
@@ -1109,11 +1091,9 @@ public final class Explanations {
        */
       public Builder setPrincipal(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         principal_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1131,8 +1111,8 @@ public final class Explanations {
        * @return This builder for chaining.
        */
       public Builder clearPrincipal() {
-        
         principal_ = getDefaultInstance().getPrincipal();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1152,12 +1132,10 @@ public final class Explanations {
        */
       public Builder setPrincipalBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         principal_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1224,11 +1202,9 @@ public final class Explanations {
        */
       public Builder setFullResourceName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         fullResourceName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1244,8 +1220,8 @@ public final class Explanations {
        * @return This builder for chaining.
        */
       public Builder clearFullResourceName() {
-        
         fullResourceName_ = getDefaultInstance().getFullResourceName();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1263,12 +1239,10 @@ public final class Explanations {
        */
       public Builder setFullResourceNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         fullResourceName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1338,11 +1312,9 @@ public final class Explanations {
        */
       public Builder setPermission(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         permission_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1359,8 +1331,8 @@ public final class Explanations {
        * @return This builder for chaining.
        */
       public Builder clearPermission() {
-        
         permission_ = getDefaultInstance().getPermission();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1379,12 +1351,10 @@ public final class Explanations {
        */
       public Builder setPermissionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         permission_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1421,7 +1391,18 @@ public final class Explanations {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AccessTuple(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1659,89 +1640,6 @@ public final class Explanations {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ExplainedPolicy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              access_ = rawValue;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              fullResourceName_ = s;
-              break;
-            }
-            case 26: {
-              com.google.iam.v1.Policy.Builder subBuilder = null;
-              if (policy_ != null) {
-                subBuilder = policy_.toBuilder();
-              }
-              policy_ = input.readMessage(com.google.iam.v1.Policy.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(policy_);
-                policy_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                bindingExplanations_ = new java.util.ArrayList<google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              bindingExplanations_.add(
-                  input.readMessage(google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.parser(), extensionRegistry));
-              break;
-            }
-            case 40: {
-              int rawValue = input.readEnum();
-
-              relevance_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          bindingExplanations_ = java.util.Collections.unmodifiableList(bindingExplanations_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return google.cloud.policytroubleshooter.v1.Explanations.internal_static_google_cloud_policytroubleshooter_v1_ExplainedPolicy_descriptor;
@@ -1756,7 +1654,7 @@ public final class Explanations {
     }
 
     public static final int ACCESS_FIELD_NUMBER = 1;
-    private int access_;
+    private int access_ = 0;
     /**
      * <pre>
      * Indicates whether _this policy_ provides the specified permission to the
@@ -1789,13 +1687,13 @@ public final class Explanations {
      * @return The access.
      */
     @java.lang.Override public google.cloud.policytroubleshooter.v1.Explanations.AccessState getAccess() {
-      @SuppressWarnings("deprecation")
-      google.cloud.policytroubleshooter.v1.Explanations.AccessState result = google.cloud.policytroubleshooter.v1.Explanations.AccessState.valueOf(access_);
+      google.cloud.policytroubleshooter.v1.Explanations.AccessState result = google.cloud.policytroubleshooter.v1.Explanations.AccessState.forNumber(access_);
       return result == null ? google.cloud.policytroubleshooter.v1.Explanations.AccessState.UNRECOGNIZED : result;
     }
 
     public static final int FULL_RESOURCE_NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object fullResourceName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object fullResourceName_ = "";
     /**
      * <pre>
      * The full resource name that identifies the resource. For example,
@@ -1891,10 +1789,11 @@ public final class Explanations {
      */
     @java.lang.Override
     public com.google.iam.v1.PolicyOrBuilder getPolicyOrBuilder() {
-      return getPolicy();
+      return policy_ == null ? com.google.iam.v1.Policy.getDefaultInstance() : policy_;
     }
 
     public static final int BINDING_EXPLANATIONS_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private java.util.List<google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation> bindingExplanations_;
     /**
      * <pre>
@@ -1970,7 +1869,7 @@ public final class Explanations {
     }
 
     public static final int RELEVANCE_FIELD_NUMBER = 5;
-    private int relevance_;
+    private int relevance_ = 0;
     /**
      * <pre>
      * The relevance of this policy to the overall determination in the
@@ -1997,8 +1896,7 @@ public final class Explanations {
      * @return The relevance.
      */
     @java.lang.Override public google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance getRelevance() {
-      @SuppressWarnings("deprecation")
-      google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance result = google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.valueOf(relevance_);
+      google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance result = google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.forNumber(relevance_);
       return result == null ? google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.UNRECOGNIZED : result;
     }
 
@@ -2031,7 +1929,7 @@ public final class Explanations {
       if (relevance_ != google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.HEURISTIC_RELEVANCE_UNSPECIFIED.getNumber()) {
         output.writeEnum(5, relevance_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2059,7 +1957,7 @@ public final class Explanations {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(5, relevance_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2085,7 +1983,7 @@ public final class Explanations {
       if (!getBindingExplanationsList()
           .equals(other.getBindingExplanationsList())) return false;
       if (relevance_ != other.relevance_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2110,7 +2008,7 @@ public final class Explanations {
       }
       hash = (37 * hash) + RELEVANCE_FIELD_NUMBER;
       hash = (53 * hash) + relevance_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2232,41 +2130,33 @@ public final class Explanations {
 
       // Construct using google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicy.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getBindingExplanationsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         access_ = 0;
-
         fullResourceName_ = "";
-
-        if (policyBuilder_ == null) {
-          policy_ = null;
-        } else {
-          policy_ = null;
+        policy_ = null;
+        if (policyBuilder_ != null) {
+          policyBuilder_.dispose();
           policyBuilder_ = null;
         }
         if (bindingExplanationsBuilder_ == null) {
           bindingExplanations_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          bindingExplanations_ = null;
           bindingExplanationsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000008);
         relevance_ = 0;
-
         return this;
       }
 
@@ -2293,26 +2183,40 @@ public final class Explanations {
       @java.lang.Override
       public google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicy buildPartial() {
         google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicy result = new google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicy(this);
-        int from_bitField0_ = bitField0_;
-        result.access_ = access_;
-        result.fullResourceName_ = fullResourceName_;
-        if (policyBuilder_ == null) {
-          result.policy_ = policy_;
-        } else {
-          result.policy_ = policyBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicy result) {
         if (bindingExplanationsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000008) != 0)) {
             bindingExplanations_ = java.util.Collections.unmodifiableList(bindingExplanations_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.bindingExplanations_ = bindingExplanations_;
         } else {
           result.bindingExplanations_ = bindingExplanationsBuilder_.build();
         }
-        result.relevance_ = relevance_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicy result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.access_ = access_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.fullResourceName_ = fullResourceName_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.policy_ = policyBuilder_ == null
+              ? policy_
+              : policyBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.relevance_ = relevance_;
+        }
       }
 
       @java.lang.Override
@@ -2364,6 +2268,7 @@ public final class Explanations {
         }
         if (!other.getFullResourceName().isEmpty()) {
           fullResourceName_ = other.fullResourceName_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasPolicy()) {
@@ -2373,7 +2278,7 @@ public final class Explanations {
           if (!other.bindingExplanations_.isEmpty()) {
             if (bindingExplanations_.isEmpty()) {
               bindingExplanations_ = other.bindingExplanations_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureBindingExplanationsIsMutable();
               bindingExplanations_.addAll(other.bindingExplanations_);
@@ -2386,7 +2291,7 @@ public final class Explanations {
               bindingExplanationsBuilder_.dispose();
               bindingExplanationsBuilder_ = null;
               bindingExplanations_ = other.bindingExplanations_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000008);
               bindingExplanationsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getBindingExplanationsFieldBuilder() : null;
@@ -2398,7 +2303,7 @@ public final class Explanations {
         if (other.relevance_ != 0) {
           setRelevanceValue(other.getRelevanceValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2413,17 +2318,65 @@ public final class Explanations {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicy parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                access_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                fullResourceName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getPolicyFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation m =
+                    input.readMessage(
+                        google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.parser(),
+                        extensionRegistry);
+                if (bindingExplanationsBuilder_ == null) {
+                  ensureBindingExplanationsIsMutable();
+                  bindingExplanations_.add(m);
+                } else {
+                  bindingExplanationsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 34
+              case 40: {
+                relevance_ = input.readEnum();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2462,8 +2415,8 @@ public final class Explanations {
        * @return This builder for chaining.
        */
       public Builder setAccessValue(int value) {
-        
         access_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2483,8 +2436,7 @@ public final class Explanations {
        */
       @java.lang.Override
       public google.cloud.policytroubleshooter.v1.Explanations.AccessState getAccess() {
-        @SuppressWarnings("deprecation")
-        google.cloud.policytroubleshooter.v1.Explanations.AccessState result = google.cloud.policytroubleshooter.v1.Explanations.AccessState.valueOf(access_);
+        google.cloud.policytroubleshooter.v1.Explanations.AccessState result = google.cloud.policytroubleshooter.v1.Explanations.AccessState.forNumber(access_);
         return result == null ? google.cloud.policytroubleshooter.v1.Explanations.AccessState.UNRECOGNIZED : result;
       }
       /**
@@ -2506,7 +2458,7 @@ public final class Explanations {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         access_ = value.getNumber();
         onChanged();
         return this;
@@ -2526,7 +2478,7 @@ public final class Explanations {
        * @return This builder for chaining.
        */
       public Builder clearAccess() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         access_ = 0;
         onChanged();
         return this;
@@ -2600,11 +2552,9 @@ public final class Explanations {
        */
       public Builder setFullResourceName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         fullResourceName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2622,8 +2572,8 @@ public final class Explanations {
        * @return This builder for chaining.
        */
       public Builder clearFullResourceName() {
-        
         fullResourceName_ = getDefaultInstance().getFullResourceName();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2643,12 +2593,10 @@ public final class Explanations {
        */
       public Builder setFullResourceNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         fullResourceName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2667,7 +2615,7 @@ public final class Explanations {
        * @return Whether the policy field is set.
        */
       public boolean hasPolicy() {
-        return policyBuilder_ != null || policy_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -2701,11 +2649,11 @@ public final class Explanations {
             throw new NullPointerException();
           }
           policy_ = value;
-          onChanged();
         } else {
           policyBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2721,11 +2669,11 @@ public final class Explanations {
           com.google.iam.v1.Policy.Builder builderForValue) {
         if (policyBuilder_ == null) {
           policy_ = builderForValue.build();
-          onChanged();
         } else {
           policyBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2739,17 +2687,18 @@ public final class Explanations {
        */
       public Builder mergePolicy(com.google.iam.v1.Policy value) {
         if (policyBuilder_ == null) {
-          if (policy_ != null) {
-            policy_ =
-              com.google.iam.v1.Policy.newBuilder(policy_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            policy_ != null &&
+            policy_ != com.google.iam.v1.Policy.getDefaultInstance()) {
+            getPolicyBuilder().mergeFrom(value);
           } else {
             policy_ = value;
           }
-          onChanged();
         } else {
           policyBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2762,14 +2711,13 @@ public final class Explanations {
        * <code>.google.iam.v1.Policy policy = 3;</code>
        */
       public Builder clearPolicy() {
-        if (policyBuilder_ == null) {
-          policy_ = null;
-          onChanged();
-        } else {
-          policy_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        policy_ = null;
+        if (policyBuilder_ != null) {
+          policyBuilder_.dispose();
           policyBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2782,7 +2730,7 @@ public final class Explanations {
        * <code>.google.iam.v1.Policy policy = 3;</code>
        */
       public com.google.iam.v1.Policy.Builder getPolicyBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getPolicyFieldBuilder().getBuilder();
       }
@@ -2829,9 +2777,9 @@ public final class Explanations {
       private java.util.List<google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation> bindingExplanations_ =
         java.util.Collections.emptyList();
       private void ensureBindingExplanationsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           bindingExplanations_ = new java.util.ArrayList<google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation>(bindingExplanations_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -3058,7 +3006,7 @@ public final class Explanations {
       public Builder clearBindingExplanations() {
         if (bindingExplanationsBuilder_ == null) {
           bindingExplanations_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           bindingExplanationsBuilder_.clear();
@@ -3184,7 +3132,7 @@ public final class Explanations {
           bindingExplanationsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation, google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.Builder, google.cloud.policytroubleshooter.v1.Explanations.BindingExplanationOrBuilder>(
                   bindingExplanations_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000008) != 0),
                   getParentForChildren(),
                   isClean());
           bindingExplanations_ = null;
@@ -3220,8 +3168,8 @@ public final class Explanations {
        * @return This builder for chaining.
        */
       public Builder setRelevanceValue(int value) {
-        
         relevance_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -3238,8 +3186,7 @@ public final class Explanations {
        */
       @java.lang.Override
       public google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance getRelevance() {
-        @SuppressWarnings("deprecation")
-        google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance result = google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.valueOf(relevance_);
+        google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance result = google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.forNumber(relevance_);
         return result == null ? google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.UNRECOGNIZED : result;
       }
       /**
@@ -3258,7 +3205,7 @@ public final class Explanations {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000010;
         relevance_ = value.getNumber();
         onChanged();
         return this;
@@ -3275,7 +3222,7 @@ public final class Explanations {
        * @return This builder for chaining.
        */
       public Builder clearRelevance() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         relevance_ = 0;
         onChanged();
         return this;
@@ -3313,7 +3260,18 @@ public final class Explanations {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ExplainedPolicy(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3531,7 +3489,6 @@ public final class Explanations {
      *
      * <code>map&lt;string, .google.cloud.policytroubleshooter.v1.BindingExplanation.AnnotatedMembership&gt; memberships = 5;</code>
      */
-
     /* nullable */
 google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership getMembershipsOrDefault(
         java.lang.String key,
@@ -3558,7 +3515,6 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
      *
      * <code>map&lt;string, .google.cloud.policytroubleshooter.v1.BindingExplanation.AnnotatedMembership&gt; memberships = 5;</code>
      */
-
     google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership getMembershipsOrThrow(
         java.lang.String key);
 
@@ -3655,102 +3611,6 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private BindingExplanation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              access_ = rawValue;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              role_ = s;
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              rolePermission_ = rawValue;
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              rolePermissionRelevance_ = rawValue;
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                memberships_ = com.google.protobuf.MapField.newMapField(
-                    MembershipsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership>
-              memberships__ = input.readMessage(
-                  MembershipsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              memberships_.getMutableMap().put(
-                  memberships__.getKey(), memberships__.getValue());
-              break;
-            }
-            case 48: {
-              int rawValue = input.readEnum();
-
-              relevance_ = rawValue;
-              break;
-            }
-            case 58: {
-              com.google.type.Expr.Builder subBuilder = null;
-              if (condition_ != null) {
-                subBuilder = condition_.toBuilder();
-              }
-              condition_ = input.readMessage(com.google.type.Expr.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(condition_);
-                condition_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -4205,57 +4065,6 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
       getUnknownFields() {
         return this.unknownFields;
       }
-      private AnnotatedMembership(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                int rawValue = input.readEnum();
-
-                membership_ = rawValue;
-                break;
-              }
-              case 16: {
-                int rawValue = input.readEnum();
-
-                relevance_ = rawValue;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return google.cloud.policytroubleshooter.v1.Explanations.internal_static_google_cloud_policytroubleshooter_v1_BindingExplanation_AnnotatedMembership_descriptor;
@@ -4270,7 +4079,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
       }
 
       public static final int MEMBERSHIP_FIELD_NUMBER = 1;
-      private int membership_;
+      private int membership_ = 0;
       /**
        * <pre>
        * Indicates whether the binding includes the member.
@@ -4291,13 +4100,12 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        * @return The membership.
        */
       @java.lang.Override public google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.Membership getMembership() {
-        @SuppressWarnings("deprecation")
-        google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.Membership result = google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.Membership.valueOf(membership_);
+        google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.Membership result = google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.Membership.forNumber(membership_);
         return result == null ? google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.Membership.UNRECOGNIZED : result;
       }
 
       public static final int RELEVANCE_FIELD_NUMBER = 2;
-      private int relevance_;
+      private int relevance_ = 0;
       /**
        * <pre>
        * The relevance of the member's status to the overall determination for the
@@ -4320,8 +4128,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        * @return The relevance.
        */
       @java.lang.Override public google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance getRelevance() {
-        @SuppressWarnings("deprecation")
-        google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance result = google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.valueOf(relevance_);
+        google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance result = google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.forNumber(relevance_);
         return result == null ? google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.UNRECOGNIZED : result;
       }
 
@@ -4345,7 +4152,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
         if (relevance_ != google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.HEURISTIC_RELEVANCE_UNSPECIFIED.getNumber()) {
           output.writeEnum(2, relevance_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -4362,7 +4169,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
           size += com.google.protobuf.CodedOutputStream
             .computeEnumSize(2, relevance_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -4379,7 +4186,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
 
         if (membership_ != other.membership_) return false;
         if (relevance_ != other.relevance_) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -4394,7 +4201,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
         hash = (53 * hash) + membership_;
         hash = (37 * hash) + RELEVANCE_FIELD_NUMBER;
         hash = (53 * hash) + relevance_;
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -4515,26 +4322,20 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
 
         // Construct using google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           membership_ = 0;
-
           relevance_ = 0;
-
           return this;
         }
 
@@ -4561,10 +4362,19 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
         @java.lang.Override
         public google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership buildPartial() {
           google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership result = new google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership(this);
-          result.membership_ = membership_;
-          result.relevance_ = relevance_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.membership_ = membership_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.relevance_ = relevance_;
+          }
         }
 
         @java.lang.Override
@@ -4617,7 +4427,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
           if (other.relevance_ != 0) {
             setRelevanceValue(other.getRelevanceValue());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -4632,19 +4442,43 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  membership_ = input.readEnum();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+                case 16: {
+                  relevance_ = input.readEnum();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private int membership_ = 0;
         /**
@@ -4668,8 +4502,8 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
          * @return This builder for chaining.
          */
         public Builder setMembershipValue(int value) {
-          
           membership_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -4683,8 +4517,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
          */
         @java.lang.Override
         public google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.Membership getMembership() {
-          @SuppressWarnings("deprecation")
-          google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.Membership result = google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.Membership.valueOf(membership_);
+          google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.Membership result = google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.Membership.forNumber(membership_);
           return result == null ? google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.Membership.UNRECOGNIZED : result;
         }
         /**
@@ -4700,7 +4533,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
           if (value == null) {
             throw new NullPointerException();
           }
-          
+          bitField0_ |= 0x00000001;
           membership_ = value.getNumber();
           onChanged();
           return this;
@@ -4714,7 +4547,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
          * @return This builder for chaining.
          */
         public Builder clearMembership() {
-          
+          bitField0_ = (bitField0_ & ~0x00000001);
           membership_ = 0;
           onChanged();
           return this;
@@ -4744,8 +4577,8 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
          * @return This builder for chaining.
          */
         public Builder setRelevanceValue(int value) {
-          
           relevance_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -4760,8 +4593,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
          */
         @java.lang.Override
         public google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance getRelevance() {
-          @SuppressWarnings("deprecation")
-          google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance result = google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.valueOf(relevance_);
+          google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance result = google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.forNumber(relevance_);
           return result == null ? google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.UNRECOGNIZED : result;
         }
         /**
@@ -4778,7 +4610,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
           if (value == null) {
             throw new NullPointerException();
           }
-          
+          bitField0_ |= 0x00000002;
           relevance_ = value.getNumber();
           onChanged();
           return this;
@@ -4793,7 +4625,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
          * @return This builder for chaining.
          */
         public Builder clearRelevance() {
-          
+          bitField0_ = (bitField0_ & ~0x00000002);
           relevance_ = 0;
           onChanged();
           return this;
@@ -4831,7 +4663,18 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new AnnotatedMembership(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -4852,7 +4695,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
     }
 
     public static final int ACCESS_FIELD_NUMBER = 1;
-    private int access_;
+    private int access_ = 0;
     /**
      * <pre>
      * Required. Indicates whether _this binding_ provides the specified permission to the
@@ -4885,13 +4728,13 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
      * @return The access.
      */
     @java.lang.Override public google.cloud.policytroubleshooter.v1.Explanations.AccessState getAccess() {
-      @SuppressWarnings("deprecation")
-      google.cloud.policytroubleshooter.v1.Explanations.AccessState result = google.cloud.policytroubleshooter.v1.Explanations.AccessState.valueOf(access_);
+      google.cloud.policytroubleshooter.v1.Explanations.AccessState result = google.cloud.policytroubleshooter.v1.Explanations.AccessState.forNumber(access_);
       return result == null ? google.cloud.policytroubleshooter.v1.Explanations.AccessState.UNRECOGNIZED : result;
     }
 
     public static final int ROLE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object role_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object role_ = "";
     /**
      * <pre>
      * The role that this binding grants. For example,
@@ -4943,7 +4786,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
     }
 
     public static final int ROLE_PERMISSION_FIELD_NUMBER = 3;
-    private int rolePermission_;
+    private int rolePermission_ = 0;
     /**
      * <pre>
      * Indicates whether the role granted by this binding contains the specified
@@ -4966,13 +4809,12 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
      * @return The rolePermission.
      */
     @java.lang.Override public google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.RolePermission getRolePermission() {
-      @SuppressWarnings("deprecation")
-      google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.RolePermission result = google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.RolePermission.valueOf(rolePermission_);
+      google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.RolePermission result = google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.RolePermission.forNumber(rolePermission_);
       return result == null ? google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.RolePermission.UNRECOGNIZED : result;
     }
 
     public static final int ROLE_PERMISSION_RELEVANCE_FIELD_NUMBER = 4;
-    private int rolePermissionRelevance_;
+    private int rolePermissionRelevance_ = 0;
     /**
      * <pre>
      * The relevance of the permission's existence, or nonexistence, in the role
@@ -4995,8 +4837,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
      * @return The rolePermissionRelevance.
      */
     @java.lang.Override public google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance getRolePermissionRelevance() {
-      @SuppressWarnings("deprecation")
-      google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance result = google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.valueOf(rolePermissionRelevance_);
+      google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance result = google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.forNumber(rolePermissionRelevance_);
       return result == null ? google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.UNRECOGNIZED : result;
     }
 
@@ -5012,6 +4853,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership> memberships_;
     private com.google.protobuf.MapField<java.lang.String, google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership>
@@ -5022,7 +4864,6 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
       }
       return memberships_;
     }
-
     public int getMembershipsCount() {
       return internalGetMemberships().getMap().size();
     }
@@ -5047,7 +4888,6 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
      *
      * <code>map&lt;string, .google.cloud.policytroubleshooter.v1.BindingExplanation.AnnotatedMembership&gt; memberships = 5;</code>
      */
-
     @java.lang.Override
     public boolean containsMemberships(
         java.lang.String key) {
@@ -5084,7 +4924,6 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
      * <code>map&lt;string, .google.cloud.policytroubleshooter.v1.BindingExplanation.AnnotatedMembership&gt; memberships = 5;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership> getMembershipsMap() {
       return internalGetMemberships().getMap();
     }
@@ -5110,10 +4949,11 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
      * <code>map&lt;string, .google.cloud.policytroubleshooter.v1.BindingExplanation.AnnotatedMembership&gt; memberships = 5;</code>
      */
     @java.lang.Override
-
-    public google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership getMembershipsOrDefault(
+    public /* nullable */
+google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership getMembershipsOrDefault(
         java.lang.String key,
-        google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership defaultValue) {
+        /* nullable */
+google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership> map =
           internalGetMemberships().getMap();
@@ -5141,7 +4981,6 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
      * <code>map&lt;string, .google.cloud.policytroubleshooter.v1.BindingExplanation.AnnotatedMembership&gt; memberships = 5;</code>
      */
     @java.lang.Override
-
     public google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership getMembershipsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -5154,7 +4993,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
     }
 
     public static final int RELEVANCE_FIELD_NUMBER = 6;
-    private int relevance_;
+    private int relevance_ = 0;
     /**
      * <pre>
      * The relevance of this binding to the overall determination for the entire
@@ -5177,8 +5016,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
      * @return The relevance.
      */
     @java.lang.Override public google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance getRelevance() {
-      @SuppressWarnings("deprecation")
-      google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance result = google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.valueOf(relevance_);
+      google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance result = google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.forNumber(relevance_);
       return result == null ? google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.UNRECOGNIZED : result;
     }
 
@@ -5226,7 +5064,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
      */
     @java.lang.Override
     public com.google.type.ExprOrBuilder getConditionOrBuilder() {
-      return getCondition();
+      return condition_ == null ? com.google.type.Expr.getDefaultInstance() : condition_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5267,7 +5105,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
       if (condition_ != null) {
         output.writeMessage(7, getCondition());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5309,7 +5147,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, getCondition());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5337,7 +5175,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
         if (!getCondition()
             .equals(other.getCondition())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5366,7 +5204,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
         hash = (37 * hash) + CONDITION_FIELD_NUMBER;
         hash = (53 * hash) + getCondition().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5510,37 +5348,27 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
 
       // Construct using google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         access_ = 0;
-
         role_ = "";
-
         rolePermission_ = 0;
-
         rolePermissionRelevance_ = 0;
-
         internalGetMutableMemberships().clear();
         relevance_ = 0;
-
-        if (conditionBuilder_ == null) {
-          condition_ = null;
-        } else {
-          condition_ = null;
+        condition_ = null;
+        if (conditionBuilder_ != null) {
+          conditionBuilder_.dispose();
           conditionBuilder_ = null;
         }
         return this;
@@ -5569,21 +5397,37 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
       @java.lang.Override
       public google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation buildPartial() {
         google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation result = new google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation(this);
-        int from_bitField0_ = bitField0_;
-        result.access_ = access_;
-        result.role_ = role_;
-        result.rolePermission_ = rolePermission_;
-        result.rolePermissionRelevance_ = rolePermissionRelevance_;
-        result.memberships_ = internalGetMemberships();
-        result.memberships_.makeImmutable();
-        result.relevance_ = relevance_;
-        if (conditionBuilder_ == null) {
-          result.condition_ = condition_;
-        } else {
-          result.condition_ = conditionBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.access_ = access_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.role_ = role_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.rolePermission_ = rolePermission_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.rolePermissionRelevance_ = rolePermissionRelevance_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.memberships_ = internalGetMemberships();
+          result.memberships_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.relevance_ = relevance_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.condition_ = conditionBuilder_ == null
+              ? condition_
+              : conditionBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -5635,6 +5479,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
         }
         if (!other.getRole().isEmpty()) {
           role_ = other.role_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.rolePermission_ != 0) {
@@ -5645,13 +5490,14 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
         }
         internalGetMutableMemberships().mergeFrom(
             other.internalGetMemberships());
+        bitField0_ |= 0x00000010;
         if (other.relevance_ != 0) {
           setRelevanceValue(other.getRelevanceValue());
         }
         if (other.hasCondition()) {
           mergeCondition(other.getCondition());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5666,17 +5512,71 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                access_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                role_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                rolePermission_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                rolePermissionRelevance_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 42: {
+                com.google.protobuf.MapEntry<java.lang.String, google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership>
+                memberships__ = input.readMessage(
+                    MembershipsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMemberships().getMutableMap().put(
+                    memberships__.getKey(), memberships__.getValue());
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 48: {
+                relevance_ = input.readEnum();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
+              case 58: {
+                input.readMessage(
+                    getConditionFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -5715,8 +5615,8 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        * @return This builder for chaining.
        */
       public Builder setAccessValue(int value) {
-        
         access_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5736,8 +5636,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        */
       @java.lang.Override
       public google.cloud.policytroubleshooter.v1.Explanations.AccessState getAccess() {
-        @SuppressWarnings("deprecation")
-        google.cloud.policytroubleshooter.v1.Explanations.AccessState result = google.cloud.policytroubleshooter.v1.Explanations.AccessState.valueOf(access_);
+        google.cloud.policytroubleshooter.v1.Explanations.AccessState result = google.cloud.policytroubleshooter.v1.Explanations.AccessState.forNumber(access_);
         return result == null ? google.cloud.policytroubleshooter.v1.Explanations.AccessState.UNRECOGNIZED : result;
       }
       /**
@@ -5759,7 +5658,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         access_ = value.getNumber();
         onChanged();
         return this;
@@ -5779,7 +5678,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        * @return This builder for chaining.
        */
       public Builder clearAccess() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         access_ = 0;
         onChanged();
         return this;
@@ -5847,11 +5746,9 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        */
       public Builder setRole(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         role_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5867,8 +5764,8 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        * @return This builder for chaining.
        */
       public Builder clearRole() {
-        
         role_ = getDefaultInstance().getRole();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -5886,12 +5783,10 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        */
       public Builder setRoleBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         role_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5920,8 +5815,8 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        * @return This builder for chaining.
        */
       public Builder setRolePermissionValue(int value) {
-        
         rolePermission_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -5936,8 +5831,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        */
       @java.lang.Override
       public google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.RolePermission getRolePermission() {
-        @SuppressWarnings("deprecation")
-        google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.RolePermission result = google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.RolePermission.valueOf(rolePermission_);
+        google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.RolePermission result = google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.RolePermission.forNumber(rolePermission_);
         return result == null ? google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.RolePermission.UNRECOGNIZED : result;
       }
       /**
@@ -5954,7 +5848,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         rolePermission_ = value.getNumber();
         onChanged();
         return this;
@@ -5969,7 +5863,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        * @return This builder for chaining.
        */
       public Builder clearRolePermission() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         rolePermission_ = 0;
         onChanged();
         return this;
@@ -5999,8 +5893,8 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        * @return This builder for chaining.
        */
       public Builder setRolePermissionRelevanceValue(int value) {
-        
         rolePermissionRelevance_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -6015,8 +5909,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        */
       @java.lang.Override
       public google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance getRolePermissionRelevance() {
-        @SuppressWarnings("deprecation")
-        google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance result = google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.valueOf(rolePermissionRelevance_);
+        google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance result = google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.forNumber(rolePermissionRelevance_);
         return result == null ? google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.UNRECOGNIZED : result;
       }
       /**
@@ -6033,7 +5926,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000008;
         rolePermissionRelevance_ = value.getNumber();
         onChanged();
         return this;
@@ -6048,7 +5941,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        * @return This builder for chaining.
        */
       public Builder clearRolePermissionRelevance() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         rolePermissionRelevance_ = 0;
         onChanged();
         return this;
@@ -6057,7 +5950,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
       private com.google.protobuf.MapField<
           java.lang.String, google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership> memberships_;
       private com.google.protobuf.MapField<java.lang.String, google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership>
-      internalGetMemberships() {
+          internalGetMemberships() {
         if (memberships_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MembershipsDefaultEntryHolder.defaultEntry);
@@ -6065,8 +5958,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
         return memberships_;
       }
       private com.google.protobuf.MapField<java.lang.String, google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership>
-      internalGetMutableMemberships() {
-        onChanged();;
+          internalGetMutableMemberships() {
         if (memberships_ == null) {
           memberships_ = com.google.protobuf.MapField.newMapField(
               MembershipsDefaultEntryHolder.defaultEntry);
@@ -6074,9 +5966,10 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
         if (!memberships_.isMutable()) {
           memberships_ = memberships_.copy();
         }
+        bitField0_ |= 0x00000010;
+        onChanged();
         return memberships_;
       }
-
       public int getMembershipsCount() {
         return internalGetMemberships().getMap().size();
       }
@@ -6101,7 +5994,6 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        *
        * <code>map&lt;string, .google.cloud.policytroubleshooter.v1.BindingExplanation.AnnotatedMembership&gt; memberships = 5;</code>
        */
-
       @java.lang.Override
       public boolean containsMemberships(
           java.lang.String key) {
@@ -6138,7 +6030,6 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        * <code>map&lt;string, .google.cloud.policytroubleshooter.v1.BindingExplanation.AnnotatedMembership&gt; memberships = 5;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership> getMembershipsMap() {
         return internalGetMemberships().getMap();
       }
@@ -6164,10 +6055,11 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        * <code>map&lt;string, .google.cloud.policytroubleshooter.v1.BindingExplanation.AnnotatedMembership&gt; memberships = 5;</code>
        */
       @java.lang.Override
-
-      public google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership getMembershipsOrDefault(
+      public /* nullable */
+google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership getMembershipsOrDefault(
           java.lang.String key,
-          google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership defaultValue) {
+          /* nullable */
+google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership> map =
             internalGetMemberships().getMap();
@@ -6195,7 +6087,6 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        * <code>map&lt;string, .google.cloud.policytroubleshooter.v1.BindingExplanation.AnnotatedMembership&gt; memberships = 5;</code>
        */
       @java.lang.Override
-
       public google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership getMembershipsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -6206,8 +6097,8 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
         }
         return map.get(key);
       }
-
       public Builder clearMemberships() {
+        bitField0_ = (bitField0_ & ~0x00000010);
         internalGetMutableMemberships().getMutableMap()
             .clear();
         return this;
@@ -6233,7 +6124,6 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        *
        * <code>map&lt;string, .google.cloud.policytroubleshooter.v1.BindingExplanation.AnnotatedMembership&gt; memberships = 5;</code>
        */
-
       public Builder removeMemberships(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -6246,7 +6136,8 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership>
-      getMutableMemberships() {
+          getMutableMemberships() {
+        bitField0_ |= 0x00000010;
         return internalGetMutableMemberships().getMutableMap();
       }
       /**
@@ -6274,12 +6165,10 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
           java.lang.String key,
           google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMemberships().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
@@ -6303,11 +6192,11 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        *
        * <code>map&lt;string, .google.cloud.policytroubleshooter.v1.BindingExplanation.AnnotatedMembership&gt; memberships = 5;</code>
        */
-
       public Builder putAllMemberships(
           java.util.Map<java.lang.String, google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMembership> values) {
         internalGetMutableMemberships().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000010;
         return this;
       }
 
@@ -6335,8 +6224,8 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        * @return This builder for chaining.
        */
       public Builder setRelevanceValue(int value) {
-        
         relevance_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -6351,8 +6240,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        */
       @java.lang.Override
       public google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance getRelevance() {
-        @SuppressWarnings("deprecation")
-        google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance result = google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.valueOf(relevance_);
+        google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance result = google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.forNumber(relevance_);
         return result == null ? google.cloud.policytroubleshooter.v1.Explanations.HeuristicRelevance.UNRECOGNIZED : result;
       }
       /**
@@ -6369,7 +6257,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000020;
         relevance_ = value.getNumber();
         onChanged();
         return this;
@@ -6384,7 +6272,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        * @return This builder for chaining.
        */
       public Builder clearRelevance() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         relevance_ = 0;
         onChanged();
         return this;
@@ -6405,7 +6293,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        * @return Whether the condition field is set.
        */
       public boolean hasCondition() {
-        return conditionBuilder_ != null || condition_ != null;
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
        * <pre>
@@ -6441,11 +6329,11 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
             throw new NullPointerException();
           }
           condition_ = value;
-          onChanged();
         } else {
           conditionBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -6462,11 +6350,11 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
           com.google.type.Expr.Builder builderForValue) {
         if (conditionBuilder_ == null) {
           condition_ = builderForValue.build();
-          onChanged();
         } else {
           conditionBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -6481,17 +6369,18 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        */
       public Builder mergeCondition(com.google.type.Expr value) {
         if (conditionBuilder_ == null) {
-          if (condition_ != null) {
-            condition_ =
-              com.google.type.Expr.newBuilder(condition_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000040) != 0) &&
+            condition_ != null &&
+            condition_ != com.google.type.Expr.getDefaultInstance()) {
+            getConditionBuilder().mergeFrom(value);
           } else {
             condition_ = value;
           }
-          onChanged();
         } else {
           conditionBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -6505,14 +6394,13 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        * <code>.google.type.Expr condition = 7;</code>
        */
       public Builder clearCondition() {
-        if (conditionBuilder_ == null) {
-          condition_ = null;
-          onChanged();
-        } else {
-          condition_ = null;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        condition_ = null;
+        if (conditionBuilder_ != null) {
+          conditionBuilder_.dispose();
           conditionBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -6526,7 +6414,7 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
        * <code>.google.type.Expr condition = 7;</code>
        */
       public com.google.type.Expr.Builder getConditionBuilder() {
-        
+        bitField0_ |= 0x00000040;
         onChanged();
         return getConditionFieldBuilder().getBuilder();
       }
@@ -6604,7 +6492,18 @@ google.cloud.policytroubleshooter.v1.Explanations.BindingExplanation.AnnotatedMe
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BindingExplanation(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

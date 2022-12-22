@@ -37,97 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VehicleJourneySegment(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            google.maps.fleetengine.delivery.v1.VehicleStop.Builder subBuilder = null;
-            if (stop_ != null) {
-              subBuilder = stop_.toBuilder();
-            }
-            stop_ = input.readMessage(google.maps.fleetengine.delivery.v1.VehicleStop.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(stop_);
-              stop_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (drivingDistanceMeters_ != null) {
-              subBuilder = drivingDistanceMeters_.toBuilder();
-            }
-            drivingDistanceMeters_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(drivingDistanceMeters_);
-              drivingDistanceMeters_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (drivingDuration_ != null) {
-              subBuilder = drivingDuration_.toBuilder();
-            }
-            drivingDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(drivingDuration_);
-              drivingDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              path_ = new java.util.ArrayList<com.google.type.LatLng>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            path_.add(
-                input.readMessage(com.google.type.LatLng.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        path_ = java.util.Collections.unmodifiableList(path_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.delivery.v1.DeliveryVehicles.internal_static_maps_fleetengine_delivery_v1_VehicleJourneySegment_descriptor;
@@ -182,7 +91,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.delivery.v1.VehicleStopOrBuilder getStopOrBuilder() {
-    return getStop();
+    return stop_ == null ? google.maps.fleetengine.delivery.v1.VehicleStop.getDefaultInstance() : stop_;
   }
 
   public static final int DRIVING_DISTANCE_METERS_FIELD_NUMBER = 2;
@@ -232,7 +141,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getDrivingDistanceMetersOrBuilder() {
-    return getDrivingDistanceMeters();
+    return drivingDistanceMeters_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : drivingDistanceMeters_;
   }
 
   public static final int DRIVING_DURATION_FIELD_NUMBER = 3;
@@ -303,10 +212,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getDrivingDurationOrBuilder() {
-    return getDrivingDuration();
+    return drivingDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : drivingDuration_;
   }
 
   public static final int PATH_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.type.LatLng> path_;
   /**
    * <pre>
@@ -452,7 +362,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < path_.size(); i++) {
       output.writeMessage(5, path_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -477,7 +387,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, path_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -509,7 +419,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getPathList()
         .equals(other.getPathList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -536,7 +446,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PATH_FIELD_NUMBER;
       hash = (53 * hash) + getPathList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -659,47 +569,40 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.delivery.v1.VehicleJourneySegment.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getPathFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (stopBuilder_ == null) {
-        stop_ = null;
-      } else {
-        stop_ = null;
+      bitField0_ = 0;
+      stop_ = null;
+      if (stopBuilder_ != null) {
+        stopBuilder_.dispose();
         stopBuilder_ = null;
       }
-      if (drivingDistanceMetersBuilder_ == null) {
-        drivingDistanceMeters_ = null;
-      } else {
-        drivingDistanceMeters_ = null;
+      drivingDistanceMeters_ = null;
+      if (drivingDistanceMetersBuilder_ != null) {
+        drivingDistanceMetersBuilder_.dispose();
         drivingDistanceMetersBuilder_ = null;
       }
-      if (drivingDurationBuilder_ == null) {
-        drivingDuration_ = null;
-      } else {
-        drivingDuration_ = null;
+      drivingDuration_ = null;
+      if (drivingDurationBuilder_ != null) {
+        drivingDurationBuilder_.dispose();
         drivingDurationBuilder_ = null;
       }
       if (pathBuilder_ == null) {
         path_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        path_ = null;
         pathBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -726,33 +629,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.delivery.v1.VehicleJourneySegment buildPartial() {
       google.maps.fleetengine.delivery.v1.VehicleJourneySegment result = new google.maps.fleetengine.delivery.v1.VehicleJourneySegment(this);
-      int from_bitField0_ = bitField0_;
-      if (stopBuilder_ == null) {
-        result.stop_ = stop_;
-      } else {
-        result.stop_ = stopBuilder_.build();
-      }
-      if (drivingDistanceMetersBuilder_ == null) {
-        result.drivingDistanceMeters_ = drivingDistanceMeters_;
-      } else {
-        result.drivingDistanceMeters_ = drivingDistanceMetersBuilder_.build();
-      }
-      if (drivingDurationBuilder_ == null) {
-        result.drivingDuration_ = drivingDuration_;
-      } else {
-        result.drivingDuration_ = drivingDurationBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(google.maps.fleetengine.delivery.v1.VehicleJourneySegment result) {
       if (pathBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           path_ = java.util.Collections.unmodifiableList(path_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.path_ = path_;
       } else {
         result.path_ = pathBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.delivery.v1.VehicleJourneySegment result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.stop_ = stopBuilder_ == null
+            ? stop_
+            : stopBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.drivingDistanceMeters_ = drivingDistanceMetersBuilder_ == null
+            ? drivingDistanceMeters_
+            : drivingDistanceMetersBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.drivingDuration_ = drivingDurationBuilder_ == null
+            ? drivingDuration_
+            : drivingDurationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -812,7 +723,7 @@ private static final long serialVersionUID = 0L;
         if (!other.path_.isEmpty()) {
           if (path_.isEmpty()) {
             path_ = other.path_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensurePathIsMutable();
             path_.addAll(other.path_);
@@ -825,7 +736,7 @@ private static final long serialVersionUID = 0L;
             pathBuilder_.dispose();
             pathBuilder_ = null;
             path_ = other.path_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             pathBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPathFieldBuilder() : null;
@@ -834,7 +745,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -849,17 +760,64 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.delivery.v1.VehicleJourneySegment parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getStopFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDrivingDistanceMetersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getDrivingDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 42: {
+              com.google.type.LatLng m =
+                  input.readMessage(
+                      com.google.type.LatLng.parser(),
+                      extensionRegistry);
+              if (pathBuilder_ == null) {
+                ensurePathIsMutable();
+                path_.add(m);
+              } else {
+                pathBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.delivery.v1.VehicleJourneySegment) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -878,7 +836,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the stop field is set.
      */
     public boolean hasStop() {
-      return stopBuilder_ != null || stop_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -912,11 +870,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         stop_ = value;
-        onChanged();
       } else {
         stopBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -932,11 +890,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.delivery.v1.VehicleStop.Builder builderForValue) {
       if (stopBuilder_ == null) {
         stop_ = builderForValue.build();
-        onChanged();
       } else {
         stopBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -950,17 +908,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStop(google.maps.fleetengine.delivery.v1.VehicleStop value) {
       if (stopBuilder_ == null) {
-        if (stop_ != null) {
-          stop_ =
-            google.maps.fleetengine.delivery.v1.VehicleStop.newBuilder(stop_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          stop_ != null &&
+          stop_ != google.maps.fleetengine.delivery.v1.VehicleStop.getDefaultInstance()) {
+          getStopBuilder().mergeFrom(value);
         } else {
           stop_ = value;
         }
-        onChanged();
       } else {
         stopBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -973,14 +932,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.VehicleStop stop = 1;</code>
      */
     public Builder clearStop() {
-      if (stopBuilder_ == null) {
-        stop_ = null;
-        onChanged();
-      } else {
-        stop_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      stop_ = null;
+      if (stopBuilder_ != null) {
+        stopBuilder_.dispose();
         stopBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -993,7 +951,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.VehicleStop stop = 1;</code>
      */
     public google.maps.fleetengine.delivery.v1.VehicleStop.Builder getStopBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getStopFieldBuilder().getBuilder();
     }
@@ -1053,7 +1011,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the drivingDistanceMeters field is set.
      */
     public boolean hasDrivingDistanceMeters() {
-      return drivingDistanceMetersBuilder_ != null || drivingDistanceMeters_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1091,11 +1049,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         drivingDistanceMeters_ = value;
-        onChanged();
       } else {
         drivingDistanceMetersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1113,11 +1071,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (drivingDistanceMetersBuilder_ == null) {
         drivingDistanceMeters_ = builderForValue.build();
-        onChanged();
       } else {
         drivingDistanceMetersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1133,17 +1091,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDrivingDistanceMeters(com.google.protobuf.Int32Value value) {
       if (drivingDistanceMetersBuilder_ == null) {
-        if (drivingDistanceMeters_ != null) {
-          drivingDistanceMeters_ =
-            com.google.protobuf.Int32Value.newBuilder(drivingDistanceMeters_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          drivingDistanceMeters_ != null &&
+          drivingDistanceMeters_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getDrivingDistanceMetersBuilder().mergeFrom(value);
         } else {
           drivingDistanceMeters_ = value;
         }
-        onChanged();
       } else {
         drivingDistanceMetersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1158,14 +1117,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value driving_distance_meters = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearDrivingDistanceMeters() {
-      if (drivingDistanceMetersBuilder_ == null) {
-        drivingDistanceMeters_ = null;
-        onChanged();
-      } else {
-        drivingDistanceMeters_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      drivingDistanceMeters_ = null;
+      if (drivingDistanceMetersBuilder_ != null) {
+        drivingDistanceMetersBuilder_.dispose();
         drivingDistanceMetersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1180,7 +1138,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value driving_distance_meters = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Int32Value.Builder getDrivingDistanceMetersBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDrivingDistanceMetersFieldBuilder().getBuilder();
     }
@@ -1251,7 +1209,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the drivingDuration field is set.
      */
     public boolean hasDrivingDuration() {
-      return drivingDurationBuilder_ != null || drivingDuration_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1303,11 +1261,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         drivingDuration_ = value;
-        onChanged();
       } else {
         drivingDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1332,11 +1290,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (drivingDurationBuilder_ == null) {
         drivingDuration_ = builderForValue.build();
-        onChanged();
       } else {
         drivingDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1359,17 +1317,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDrivingDuration(com.google.protobuf.Duration value) {
       if (drivingDurationBuilder_ == null) {
-        if (drivingDuration_ != null) {
-          drivingDuration_ =
-            com.google.protobuf.Duration.newBuilder(drivingDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          drivingDuration_ != null &&
+          drivingDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getDrivingDurationBuilder().mergeFrom(value);
         } else {
           drivingDuration_ = value;
         }
-        onChanged();
       } else {
         drivingDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1391,14 +1350,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration driving_duration = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearDrivingDuration() {
-      if (drivingDurationBuilder_ == null) {
-        drivingDuration_ = null;
-        onChanged();
-      } else {
-        drivingDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      drivingDuration_ = null;
+      if (drivingDurationBuilder_ != null) {
+        drivingDurationBuilder_.dispose();
         drivingDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1420,7 +1378,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration driving_duration = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Duration.Builder getDrivingDurationBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDrivingDurationFieldBuilder().getBuilder();
     }
@@ -1485,9 +1443,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.type.LatLng> path_ =
       java.util.Collections.emptyList();
     private void ensurePathIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         path_ = new java.util.ArrayList<com.google.type.LatLng>(path_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1813,7 +1771,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPath() {
       if (pathBuilder_ == null) {
         path_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         pathBuilder_.clear();
@@ -2002,7 +1960,7 @@ private static final long serialVersionUID = 0L;
         pathBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.type.LatLng, com.google.type.LatLng.Builder, com.google.type.LatLngOrBuilder>(
                 path_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         path_ = null;
@@ -2042,7 +2000,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VehicleJourneySegment(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

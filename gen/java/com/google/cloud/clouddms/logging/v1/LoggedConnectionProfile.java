@@ -6,7 +6,7 @@ package com.google.cloud.clouddms.logging.v1;
 /**
  * <pre>
  * An producer connection profile definition.
- * NEXT_TAG = 18.
+ * NEXT_TAG = 8.
  * </pre>
  *
  * Protobuf type {@code google.cloud.clouddms.logging.v1.LoggedConnectionProfile}
@@ -38,138 +38,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private LoggedConnectionProfile(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 42: {
-            com.google.rpc.Status.Builder subBuilder = null;
-            if (error_ != null) {
-              subBuilder = error_.toBuilder();
-            }
-            error_ = input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(error_);
-              error_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            provider_ = rawValue;
-            break;
-          }
-          case 802: {
-            com.google.cloud.clouddms.logging.v1.MySqlConnectionProfile.Builder subBuilder = null;
-            if (connectionProfileCase_ == 100) {
-              subBuilder = ((com.google.cloud.clouddms.logging.v1.MySqlConnectionProfile) connectionProfile_).toBuilder();
-            }
-            connectionProfile_ =
-                input.readMessage(com.google.cloud.clouddms.logging.v1.MySqlConnectionProfile.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.clouddms.logging.v1.MySqlConnectionProfile) connectionProfile_);
-              connectionProfile_ = subBuilder.buildPartial();
-            }
-            connectionProfileCase_ = 100;
-            break;
-          }
-          case 810: {
-            com.google.cloud.clouddms.logging.v1.PostgreSqlConnectionProfile.Builder subBuilder = null;
-            if (connectionProfileCase_ == 101) {
-              subBuilder = ((com.google.cloud.clouddms.logging.v1.PostgreSqlConnectionProfile) connectionProfile_).toBuilder();
-            }
-            connectionProfile_ =
-                input.readMessage(com.google.cloud.clouddms.logging.v1.PostgreSqlConnectionProfile.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.clouddms.logging.v1.PostgreSqlConnectionProfile) connectionProfile_);
-              connectionProfile_ = subBuilder.buildPartial();
-            }
-            connectionProfileCase_ = 101;
-            break;
-          }
-          case 818: {
-            com.google.cloud.clouddms.logging.v1.CloudSqlConnectionProfile.Builder subBuilder = null;
-            if (connectionProfileCase_ == 102) {
-              subBuilder = ((com.google.cloud.clouddms.logging.v1.CloudSqlConnectionProfile) connectionProfile_).toBuilder();
-            }
-            connectionProfile_ =
-                input.readMessage(com.google.cloud.clouddms.logging.v1.CloudSqlConnectionProfile.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.clouddms.logging.v1.CloudSqlConnectionProfile) connectionProfile_);
-              connectionProfile_ = subBuilder.buildPartial();
-            }
-            connectionProfileCase_ = 102;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -434,6 +302,7 @@ private static final long serialVersionUID = 0L;
     MYSQL(100),
     POSTGRESQL(101),
     CLOUDSQL(102),
+    ORACLE(103),
     CONNECTIONPROFILE_NOT_SET(0);
     private final int value;
     private ConnectionProfileCase(int value) {
@@ -454,6 +323,7 @@ private static final long serialVersionUID = 0L;
         case 100: return MYSQL;
         case 101: return POSTGRESQL;
         case 102: return CLOUDSQL;
+        case 103: return ORACLE;
         case 0: return CONNECTIONPROFILE_NOT_SET;
         default: return null;
       }
@@ -470,7 +340,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The unique identifier for a connection profile.
@@ -527,6 +398,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -537,7 +409,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -548,7 +419,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -571,7 +441,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -583,10 +452,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 2;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -600,7 +470,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 2;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -613,7 +482,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 3;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * The current connection profile state.
@@ -634,13 +503,13 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile.State result = com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile.State.valueOf(state_);
+    com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile.State result = com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile.State.forNumber(state_);
     return result == null ? com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile.State.UNRECOGNIZED : result;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 4;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * The display name.
@@ -814,6 +683,49 @@ private static final long serialVersionUID = 0L;
     return com.google.cloud.clouddms.logging.v1.CloudSqlConnectionProfile.getDefaultInstance();
   }
 
+  public static final int ORACLE_FIELD_NUMBER = 103;
+  /**
+   * <pre>
+   * An Oracle database connection profile.
+   * </pre>
+   *
+   * <code>.google.cloud.clouddms.logging.v1.OracleConnectionProfile oracle = 103;</code>
+   * @return Whether the oracle field is set.
+   */
+  @java.lang.Override
+  public boolean hasOracle() {
+    return connectionProfileCase_ == 103;
+  }
+  /**
+   * <pre>
+   * An Oracle database connection profile.
+   * </pre>
+   *
+   * <code>.google.cloud.clouddms.logging.v1.OracleConnectionProfile oracle = 103;</code>
+   * @return The oracle.
+   */
+  @java.lang.Override
+  public com.google.cloud.clouddms.logging.v1.OracleConnectionProfile getOracle() {
+    if (connectionProfileCase_ == 103) {
+       return (com.google.cloud.clouddms.logging.v1.OracleConnectionProfile) connectionProfile_;
+    }
+    return com.google.cloud.clouddms.logging.v1.OracleConnectionProfile.getDefaultInstance();
+  }
+  /**
+   * <pre>
+   * An Oracle database connection profile.
+   * </pre>
+   *
+   * <code>.google.cloud.clouddms.logging.v1.OracleConnectionProfile oracle = 103;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.clouddms.logging.v1.OracleConnectionProfileOrBuilder getOracleOrBuilder() {
+    if (connectionProfileCase_ == 103) {
+       return (com.google.cloud.clouddms.logging.v1.OracleConnectionProfile) connectionProfile_;
+    }
+    return com.google.cloud.clouddms.logging.v1.OracleConnectionProfile.getDefaultInstance();
+  }
+
   public static final int ERROR_FIELD_NUMBER = 5;
   private com.google.rpc.Status error_;
   /**
@@ -849,11 +761,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.rpc.StatusOrBuilder getErrorOrBuilder() {
-    return getError();
+    return error_ == null ? com.google.rpc.Status.getDefaultInstance() : error_;
   }
 
   public static final int PROVIDER_FIELD_NUMBER = 6;
-  private int provider_;
+  private int provider_ = 0;
   /**
    * <pre>
    * The database provider.
@@ -874,8 +786,7 @@ private static final long serialVersionUID = 0L;
    * @return The provider.
    */
   @java.lang.Override public com.google.cloud.clouddms.logging.v1.DatabaseProvider getProvider() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.clouddms.logging.v1.DatabaseProvider result = com.google.cloud.clouddms.logging.v1.DatabaseProvider.valueOf(provider_);
+    com.google.cloud.clouddms.logging.v1.DatabaseProvider result = com.google.cloud.clouddms.logging.v1.DatabaseProvider.forNumber(provider_);
     return result == null ? com.google.cloud.clouddms.logging.v1.DatabaseProvider.UNRECOGNIZED : result;
   }
 
@@ -923,7 +834,10 @@ private static final long serialVersionUID = 0L;
     if (connectionProfileCase_ == 102) {
       output.writeMessage(102, (com.google.cloud.clouddms.logging.v1.CloudSqlConnectionProfile) connectionProfile_);
     }
-    unknownFields.writeTo(output);
+    if (connectionProfileCase_ == 103) {
+      output.writeMessage(103, (com.google.cloud.clouddms.logging.v1.OracleConnectionProfile) connectionProfile_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -972,7 +886,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(102, (com.google.cloud.clouddms.logging.v1.CloudSqlConnectionProfile) connectionProfile_);
     }
-    size += unknownFields.getSerializedSize();
+    if (connectionProfileCase_ == 103) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(103, (com.google.cloud.clouddms.logging.v1.OracleConnectionProfile) connectionProfile_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1014,10 +932,14 @@ private static final long serialVersionUID = 0L;
         if (!getCloudsql()
             .equals(other.getCloudsql())) return false;
         break;
+      case 103:
+        if (!getOracle()
+            .equals(other.getOracle())) return false;
+        break;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1057,10 +979,14 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + CLOUDSQL_FIELD_NUMBER;
         hash = (53 * hash) + getCloudsql().hashCode();
         break;
+      case 103:
+        hash = (37 * hash) + ORACLE_FIELD_NUMBER;
+        hash = (53 * hash) + getOracle().hashCode();
+        break;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1158,7 +1084,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * An producer connection profile definition.
-   * NEXT_TAG = 18.
+   * NEXT_TAG = 8.
    * </pre>
    *
    * Protobuf type {@code google.cloud.clouddms.logging.v1.LoggedConnectionProfile}
@@ -1204,37 +1130,40 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       internalGetMutableLabels().clear();
       state_ = 0;
-
       displayName_ = "";
-
-      if (errorBuilder_ == null) {
-        error_ = null;
-      } else {
-        error_ = null;
+      if (mysqlBuilder_ != null) {
+        mysqlBuilder_.clear();
+      }
+      if (postgresqlBuilder_ != null) {
+        postgresqlBuilder_.clear();
+      }
+      if (cloudsqlBuilder_ != null) {
+        cloudsqlBuilder_.clear();
+      }
+      if (oracleBuilder_ != null) {
+        oracleBuilder_.clear();
+      }
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
         errorBuilder_ = null;
       }
       provider_ = 0;
-
       connectionProfileCase_ = 0;
       connectionProfile_ = null;
       return this;
@@ -1263,42 +1192,56 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile buildPartial() {
       com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile result = new com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      result.state_ = state_;
-      result.displayName_ = displayName_;
-      if (connectionProfileCase_ == 100) {
-        if (mysqlBuilder_ == null) {
-          result.connectionProfile_ = connectionProfile_;
-        } else {
-          result.connectionProfile_ = mysqlBuilder_.build();
-        }
-      }
-      if (connectionProfileCase_ == 101) {
-        if (postgresqlBuilder_ == null) {
-          result.connectionProfile_ = connectionProfile_;
-        } else {
-          result.connectionProfile_ = postgresqlBuilder_.build();
-        }
-      }
-      if (connectionProfileCase_ == 102) {
-        if (cloudsqlBuilder_ == null) {
-          result.connectionProfile_ = connectionProfile_;
-        } else {
-          result.connectionProfile_ = cloudsqlBuilder_.build();
-        }
-      }
-      if (errorBuilder_ == null) {
-        result.error_ = error_;
-      } else {
-        result.error_ = errorBuilder_.build();
-      }
-      result.provider_ = provider_;
-      result.connectionProfileCase_ = connectionProfileCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.error_ = errorBuilder_ == null
+            ? error_
+            : errorBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.provider_ = provider_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile result) {
+      result.connectionProfileCase_ = connectionProfileCase_;
+      result.connectionProfile_ = this.connectionProfile_;
+      if (connectionProfileCase_ == 100 &&
+          mysqlBuilder_ != null) {
+        result.connectionProfile_ = mysqlBuilder_.build();
+      }
+      if (connectionProfileCase_ == 101 &&
+          postgresqlBuilder_ != null) {
+        result.connectionProfile_ = postgresqlBuilder_.build();
+      }
+      if (connectionProfileCase_ == 102 &&
+          cloudsqlBuilder_ != null) {
+        result.connectionProfile_ = cloudsqlBuilder_.build();
+      }
+      if (connectionProfileCase_ == 103 &&
+          oracleBuilder_ != null) {
+        result.connectionProfile_ = oracleBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1347,15 +1290,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000002;
       if (other.state_ != 0) {
         setStateValue(other.getStateValue());
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasError()) {
@@ -1377,11 +1323,15 @@ private static final long serialVersionUID = 0L;
           mergeCloudsql(other.getCloudsql());
           break;
         }
+        case ORACLE: {
+          mergeOracle(other.getOracle());
+          break;
+        }
         case CONNECTIONPROFILE_NOT_SET: {
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1396,17 +1346,94 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getErrorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 42
+            case 48: {
+              provider_ = input.readEnum();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 48
+            case 802: {
+              input.readMessage(
+                  getMysqlFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              connectionProfileCase_ = 100;
+              break;
+            } // case 802
+            case 810: {
+              input.readMessage(
+                  getPostgresqlFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              connectionProfileCase_ = 101;
+              break;
+            } // case 810
+            case 818: {
+              input.readMessage(
+                  getCloudsqlFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              connectionProfileCase_ = 102;
+              break;
+            } // case 818
+            case 826: {
+              input.readMessage(
+                  getOracleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              connectionProfileCase_ = 103;
+              break;
+            } // case 826
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int connectionProfileCase_ = 0;
@@ -1479,11 +1506,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1496,8 +1521,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1512,12 +1537,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1525,7 +1548,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -1533,8 +1556,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -1542,9 +1564,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -1555,7 +1578,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -1578,7 +1600,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -1590,10 +1611,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 2;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -1607,7 +1629,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 2;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1618,8 +1639,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -1631,7 +1652,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 2;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1644,7 +1664,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -1658,12 +1679,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -1673,11 +1692,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 2;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
 
@@ -1703,8 +1722,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1718,8 +1737,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile.State result = com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile.State.valueOf(state_);
+      com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile.State result = com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile.State.forNumber(state_);
       return result == null ? com.google.cloud.clouddms.logging.v1.LoggedConnectionProfile.State.UNRECOGNIZED : result;
     }
     /**
@@ -1735,7 +1753,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -1749,7 +1767,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       state_ = 0;
       onChanged();
       return this;
@@ -1808,11 +1826,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1825,8 +1841,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1841,12 +1857,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2025,7 +2039,7 @@ private static final long serialVersionUID = 0L;
         connectionProfile_ = null;
       }
       connectionProfileCase_ = 100;
-      onChanged();;
+      onChanged();
       return mysqlBuilder_;
     }
 
@@ -2203,7 +2217,7 @@ private static final long serialVersionUID = 0L;
         connectionProfile_ = null;
       }
       connectionProfileCase_ = 101;
-      onChanged();;
+      onChanged();
       return postgresqlBuilder_;
     }
 
@@ -2381,8 +2395,186 @@ private static final long serialVersionUID = 0L;
         connectionProfile_ = null;
       }
       connectionProfileCase_ = 102;
-      onChanged();;
+      onChanged();
       return cloudsqlBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.clouddms.logging.v1.OracleConnectionProfile, com.google.cloud.clouddms.logging.v1.OracleConnectionProfile.Builder, com.google.cloud.clouddms.logging.v1.OracleConnectionProfileOrBuilder> oracleBuilder_;
+    /**
+     * <pre>
+     * An Oracle database connection profile.
+     * </pre>
+     *
+     * <code>.google.cloud.clouddms.logging.v1.OracleConnectionProfile oracle = 103;</code>
+     * @return Whether the oracle field is set.
+     */
+    @java.lang.Override
+    public boolean hasOracle() {
+      return connectionProfileCase_ == 103;
+    }
+    /**
+     * <pre>
+     * An Oracle database connection profile.
+     * </pre>
+     *
+     * <code>.google.cloud.clouddms.logging.v1.OracleConnectionProfile oracle = 103;</code>
+     * @return The oracle.
+     */
+    @java.lang.Override
+    public com.google.cloud.clouddms.logging.v1.OracleConnectionProfile getOracle() {
+      if (oracleBuilder_ == null) {
+        if (connectionProfileCase_ == 103) {
+          return (com.google.cloud.clouddms.logging.v1.OracleConnectionProfile) connectionProfile_;
+        }
+        return com.google.cloud.clouddms.logging.v1.OracleConnectionProfile.getDefaultInstance();
+      } else {
+        if (connectionProfileCase_ == 103) {
+          return oracleBuilder_.getMessage();
+        }
+        return com.google.cloud.clouddms.logging.v1.OracleConnectionProfile.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * An Oracle database connection profile.
+     * </pre>
+     *
+     * <code>.google.cloud.clouddms.logging.v1.OracleConnectionProfile oracle = 103;</code>
+     */
+    public Builder setOracle(com.google.cloud.clouddms.logging.v1.OracleConnectionProfile value) {
+      if (oracleBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        connectionProfile_ = value;
+        onChanged();
+      } else {
+        oracleBuilder_.setMessage(value);
+      }
+      connectionProfileCase_ = 103;
+      return this;
+    }
+    /**
+     * <pre>
+     * An Oracle database connection profile.
+     * </pre>
+     *
+     * <code>.google.cloud.clouddms.logging.v1.OracleConnectionProfile oracle = 103;</code>
+     */
+    public Builder setOracle(
+        com.google.cloud.clouddms.logging.v1.OracleConnectionProfile.Builder builderForValue) {
+      if (oracleBuilder_ == null) {
+        connectionProfile_ = builderForValue.build();
+        onChanged();
+      } else {
+        oracleBuilder_.setMessage(builderForValue.build());
+      }
+      connectionProfileCase_ = 103;
+      return this;
+    }
+    /**
+     * <pre>
+     * An Oracle database connection profile.
+     * </pre>
+     *
+     * <code>.google.cloud.clouddms.logging.v1.OracleConnectionProfile oracle = 103;</code>
+     */
+    public Builder mergeOracle(com.google.cloud.clouddms.logging.v1.OracleConnectionProfile value) {
+      if (oracleBuilder_ == null) {
+        if (connectionProfileCase_ == 103 &&
+            connectionProfile_ != com.google.cloud.clouddms.logging.v1.OracleConnectionProfile.getDefaultInstance()) {
+          connectionProfile_ = com.google.cloud.clouddms.logging.v1.OracleConnectionProfile.newBuilder((com.google.cloud.clouddms.logging.v1.OracleConnectionProfile) connectionProfile_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          connectionProfile_ = value;
+        }
+        onChanged();
+      } else {
+        if (connectionProfileCase_ == 103) {
+          oracleBuilder_.mergeFrom(value);
+        } else {
+          oracleBuilder_.setMessage(value);
+        }
+      }
+      connectionProfileCase_ = 103;
+      return this;
+    }
+    /**
+     * <pre>
+     * An Oracle database connection profile.
+     * </pre>
+     *
+     * <code>.google.cloud.clouddms.logging.v1.OracleConnectionProfile oracle = 103;</code>
+     */
+    public Builder clearOracle() {
+      if (oracleBuilder_ == null) {
+        if (connectionProfileCase_ == 103) {
+          connectionProfileCase_ = 0;
+          connectionProfile_ = null;
+          onChanged();
+        }
+      } else {
+        if (connectionProfileCase_ == 103) {
+          connectionProfileCase_ = 0;
+          connectionProfile_ = null;
+        }
+        oracleBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * An Oracle database connection profile.
+     * </pre>
+     *
+     * <code>.google.cloud.clouddms.logging.v1.OracleConnectionProfile oracle = 103;</code>
+     */
+    public com.google.cloud.clouddms.logging.v1.OracleConnectionProfile.Builder getOracleBuilder() {
+      return getOracleFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * An Oracle database connection profile.
+     * </pre>
+     *
+     * <code>.google.cloud.clouddms.logging.v1.OracleConnectionProfile oracle = 103;</code>
+     */
+    @java.lang.Override
+    public com.google.cloud.clouddms.logging.v1.OracleConnectionProfileOrBuilder getOracleOrBuilder() {
+      if ((connectionProfileCase_ == 103) && (oracleBuilder_ != null)) {
+        return oracleBuilder_.getMessageOrBuilder();
+      } else {
+        if (connectionProfileCase_ == 103) {
+          return (com.google.cloud.clouddms.logging.v1.OracleConnectionProfile) connectionProfile_;
+        }
+        return com.google.cloud.clouddms.logging.v1.OracleConnectionProfile.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * An Oracle database connection profile.
+     * </pre>
+     *
+     * <code>.google.cloud.clouddms.logging.v1.OracleConnectionProfile oracle = 103;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.clouddms.logging.v1.OracleConnectionProfile, com.google.cloud.clouddms.logging.v1.OracleConnectionProfile.Builder, com.google.cloud.clouddms.logging.v1.OracleConnectionProfileOrBuilder> 
+        getOracleFieldBuilder() {
+      if (oracleBuilder_ == null) {
+        if (!(connectionProfileCase_ == 103)) {
+          connectionProfile_ = com.google.cloud.clouddms.logging.v1.OracleConnectionProfile.getDefaultInstance();
+        }
+        oracleBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.clouddms.logging.v1.OracleConnectionProfile, com.google.cloud.clouddms.logging.v1.OracleConnectionProfile.Builder, com.google.cloud.clouddms.logging.v1.OracleConnectionProfileOrBuilder>(
+                (com.google.cloud.clouddms.logging.v1.OracleConnectionProfile) connectionProfile_,
+                getParentForChildren(),
+                isClean());
+        connectionProfile_ = null;
+      }
+      connectionProfileCase_ = 103;
+      onChanged();
+      return oracleBuilder_;
     }
 
     private com.google.rpc.Status error_;
@@ -2397,7 +2589,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the error field is set.
      */
     public boolean hasError() {
-      return errorBuilder_ != null || error_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2427,11 +2619,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         error_ = value;
-        onChanged();
       } else {
         errorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2445,11 +2637,11 @@ private static final long serialVersionUID = 0L;
         com.google.rpc.Status.Builder builderForValue) {
       if (errorBuilder_ == null) {
         error_ = builderForValue.build();
-        onChanged();
       } else {
         errorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2461,17 +2653,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeError(com.google.rpc.Status value) {
       if (errorBuilder_ == null) {
-        if (error_ != null) {
-          error_ =
-            com.google.rpc.Status.newBuilder(error_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          error_ != null &&
+          error_ != com.google.rpc.Status.getDefaultInstance()) {
+          getErrorBuilder().mergeFrom(value);
         } else {
           error_ = value;
         }
-        onChanged();
       } else {
         errorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2482,14 +2675,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status error = 5;</code>
      */
     public Builder clearError() {
-      if (errorBuilder_ == null) {
-        error_ = null;
-        onChanged();
-      } else {
-        error_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
         errorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2500,7 +2692,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status error = 5;</code>
      */
     public com.google.rpc.Status.Builder getErrorBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getErrorFieldBuilder().getBuilder();
     }
@@ -2562,8 +2754,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setProviderValue(int value) {
-      
       provider_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2577,8 +2769,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.clouddms.logging.v1.DatabaseProvider getProvider() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.clouddms.logging.v1.DatabaseProvider result = com.google.cloud.clouddms.logging.v1.DatabaseProvider.valueOf(provider_);
+      com.google.cloud.clouddms.logging.v1.DatabaseProvider result = com.google.cloud.clouddms.logging.v1.DatabaseProvider.forNumber(provider_);
       return result == null ? com.google.cloud.clouddms.logging.v1.DatabaseProvider.UNRECOGNIZED : result;
     }
     /**
@@ -2594,7 +2785,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000200;
       provider_ = value.getNumber();
       onChanged();
       return this;
@@ -2608,7 +2799,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProvider() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       provider_ = 0;
       onChanged();
       return this;
@@ -2646,7 +2837,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LoggedConnectionProfile(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -41,81 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TrafficDirectorLogEntry(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            nodeId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            nodeIp_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            clientType_ = rawValue;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clientVersion_ = s;
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            transportApiVersion_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.networking.trafficdirector.type.TrafficDirectorLogEntryProto.internal_static_google_networking_trafficdirector_type_TrafficDirectorLogEntry_descriptor;
@@ -556,7 +481,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NODE_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object nodeId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nodeId_ = "";
   /**
    * <pre>
    * An ID of xDS-client connecting to the Traffic Director.
@@ -602,7 +528,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NODE_IP_FIELD_NUMBER = 2;
-  private volatile java.lang.Object nodeIp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nodeIp_ = "";
   /**
    * <pre>
    * The string representation of IPv4 or IPv6 address of xDS-client
@@ -658,7 +585,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 4;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * A free text describing details of the event.
@@ -704,7 +632,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLIENT_TYPE_FIELD_NUMBER = 5;
-  private int clientType_;
+  private int clientType_ = 0;
   /**
    * <pre>
    * Type of xDS-client connecting to Traffic Director
@@ -725,13 +653,13 @@ private static final long serialVersionUID = 0L;
    * @return The clientType.
    */
   @java.lang.Override public com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.ClientType getClientType() {
-    @SuppressWarnings("deprecation")
-    com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.ClientType result = com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.ClientType.valueOf(clientType_);
+    com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.ClientType result = com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.ClientType.forNumber(clientType_);
     return result == null ? com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.ClientType.UNRECOGNIZED : result;
   }
 
   public static final int CLIENT_VERSION_FIELD_NUMBER = 6;
-  private volatile java.lang.Object clientVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clientVersion_ = "";
   /**
    * <pre>
    * The version of xDS-client connecting to Traffic Director.
@@ -777,7 +705,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRANSPORT_API_VERSION_FIELD_NUMBER = 7;
-  private int transportApiVersion_;
+  private int transportApiVersion_ = 0;
   /**
    * <pre>
    * The xDS API version used by xDS clients connecting to Traffic Director.
@@ -798,8 +726,7 @@ private static final long serialVersionUID = 0L;
    * @return The transportApiVersion.
    */
   @java.lang.Override public com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.TransportApiVersion getTransportApiVersion() {
-    @SuppressWarnings("deprecation")
-    com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.TransportApiVersion result = com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.TransportApiVersion.valueOf(transportApiVersion_);
+    com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.TransportApiVersion result = com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.TransportApiVersion.forNumber(transportApiVersion_);
     return result == null ? com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.TransportApiVersion.UNRECOGNIZED : result;
   }
 
@@ -835,7 +762,7 @@ private static final long serialVersionUID = 0L;
     if (transportApiVersion_ != com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.TransportApiVersion.TRANSPORT_API_VERSION_UNSPECIFIED.getNumber()) {
       output.writeEnum(7, transportApiVersion_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -864,7 +791,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(7, transportApiVersion_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -889,7 +816,7 @@ private static final long serialVersionUID = 0L;
     if (!getClientVersion()
         .equals(other.getClientVersion())) return false;
     if (transportApiVersion_ != other.transportApiVersion_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -912,7 +839,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getClientVersion().hashCode();
     hash = (37 * hash) + TRANSPORT_API_VERSION_FIELD_NUMBER;
     hash = (53 * hash) + transportApiVersion_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1034,34 +961,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       nodeId_ = "";
-
       nodeIp_ = "";
-
       description_ = "";
-
       clientType_ = 0;
-
       clientVersion_ = "";
-
       transportApiVersion_ = 0;
-
       return this;
     }
 
@@ -1088,14 +1005,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.networking.trafficdirector.type.TrafficDirectorLogEntry buildPartial() {
       com.google.networking.trafficdirector.type.TrafficDirectorLogEntry result = new com.google.networking.trafficdirector.type.TrafficDirectorLogEntry(this);
-      result.nodeId_ = nodeId_;
-      result.nodeIp_ = nodeIp_;
-      result.description_ = description_;
-      result.clientType_ = clientType_;
-      result.clientVersion_ = clientVersion_;
-      result.transportApiVersion_ = transportApiVersion_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.networking.trafficdirector.type.TrafficDirectorLogEntry result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.nodeId_ = nodeId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.nodeIp_ = nodeIp_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.clientType_ = clientType_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.clientVersion_ = clientVersion_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.transportApiVersion_ = transportApiVersion_;
+      }
     }
 
     @java.lang.Override
@@ -1144,14 +1078,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.getDefaultInstance()) return this;
       if (!other.getNodeId().isEmpty()) {
         nodeId_ = other.nodeId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getNodeIp().isEmpty()) {
         nodeIp_ = other.nodeIp_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.clientType_ != 0) {
@@ -1159,12 +1096,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getClientVersion().isEmpty()) {
         clientVersion_ = other.clientVersion_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.transportApiVersion_ != 0) {
         setTransportApiVersionValue(other.getTransportApiVersionValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1179,19 +1117,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.networking.trafficdirector.type.TrafficDirectorLogEntry parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              nodeId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              nodeIp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 34: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 40: {
+              clientType_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 40
+            case 50: {
+              clientVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            case 56: {
+              transportApiVersion_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 56
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.networking.trafficdirector.type.TrafficDirectorLogEntry) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object nodeId_ = "";
     /**
@@ -1246,11 +1228,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNodeId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       nodeId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1263,8 +1243,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNodeId() {
-      
       nodeId_ = getDefaultInstance().getNodeId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1279,12 +1259,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNodeIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nodeId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1357,11 +1335,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNodeIp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       nodeIp_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1379,8 +1355,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNodeIp() {
-      
       nodeIp_ = getDefaultInstance().getNodeIp();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1400,12 +1376,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNodeIpBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nodeIp_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1463,11 +1437,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1480,8 +1452,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1496,12 +1468,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1528,8 +1498,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setClientTypeValue(int value) {
-      
       clientType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1543,8 +1513,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.ClientType getClientType() {
-      @SuppressWarnings("deprecation")
-      com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.ClientType result = com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.ClientType.valueOf(clientType_);
+      com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.ClientType result = com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.ClientType.forNumber(clientType_);
       return result == null ? com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.ClientType.UNRECOGNIZED : result;
     }
     /**
@@ -1560,7 +1529,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       clientType_ = value.getNumber();
       onChanged();
       return this;
@@ -1574,7 +1543,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClientType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       clientType_ = 0;
       onChanged();
       return this;
@@ -1633,11 +1602,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clientVersion_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1650,8 +1617,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClientVersion() {
-      
       clientVersion_ = getDefaultInstance().getClientVersion();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1666,12 +1633,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clientVersion_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1698,8 +1663,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTransportApiVersionValue(int value) {
-      
       transportApiVersion_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1713,8 +1678,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.TransportApiVersion getTransportApiVersion() {
-      @SuppressWarnings("deprecation")
-      com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.TransportApiVersion result = com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.TransportApiVersion.valueOf(transportApiVersion_);
+      com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.TransportApiVersion result = com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.TransportApiVersion.forNumber(transportApiVersion_);
       return result == null ? com.google.networking.trafficdirector.type.TrafficDirectorLogEntry.TransportApiVersion.UNRECOGNIZED : result;
     }
     /**
@@ -1730,7 +1694,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       transportApiVersion_ = value.getNumber();
       onChanged();
       return this;
@@ -1744,7 +1708,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTransportApiVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       transportApiVersion_ = 0;
       onChanged();
       return this;
@@ -1782,7 +1746,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TrafficDirectorLogEntry(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

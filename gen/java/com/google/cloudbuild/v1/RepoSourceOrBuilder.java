@@ -226,7 +226,6 @@ public interface RepoSourceOrBuilder extends
    *
    * <code>map&lt;string, string&gt; substitutions = 9;</code>
    */
-
   /* nullable */
 java.lang.String getSubstitutionsOrDefault(
       java.lang.String key,
@@ -240,7 +239,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; substitutions = 9;</code>
    */
-
   java.lang.String getSubstitutionsOrThrow(
       java.lang.String key);
 

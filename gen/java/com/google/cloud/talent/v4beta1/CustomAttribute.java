@@ -36,92 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CustomAttribute(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              stringValues_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            stringValues_.add(s);
-            break;
-          }
-          case 16: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              longValues_ = newLongList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            longValues_.addLong(input.readInt64());
-            break;
-          }
-          case 18: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
-              longValues_ = newLongList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              longValues_.addLong(input.readInt64());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 24: {
-
-            filterable_ = input.readBool();
-            break;
-          }
-          case 32: {
-
-            keywordSearchable_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        stringValues_ = stringValues_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        longValues_.makeImmutable(); // C
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.talent.v4beta1.CommonProto.internal_static_google_cloud_talent_v4beta1_CustomAttribute_descriptor;
@@ -136,6 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STRING_VALUES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList stringValues_;
   /**
    * <pre>
@@ -215,6 +130,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LONG_VALUES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.LongList longValues_;
   /**
    * <pre>
@@ -264,7 +180,7 @@ private static final long serialVersionUID = 0L;
   private int longValuesMemoizedSerializedSize = -1;
 
   public static final int FILTERABLE_FIELD_NUMBER = 3;
-  private boolean filterable_;
+  private boolean filterable_ = false;
   /**
    * <pre>
    * If the `filterable` flag is true, the custom field values may be used for
@@ -282,7 +198,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KEYWORD_SEARCHABLE_FIELD_NUMBER = 4;
-  private boolean keywordSearchable_;
+  private boolean keywordSearchable_ = false;
   /**
    * <pre>
    * If the `keyword_searchable` flag is true, the keywords in custom fields are
@@ -330,7 +246,7 @@ private static final long serialVersionUID = 0L;
     if (keywordSearchable_ != false) {
       output.writeBool(4, keywordSearchable_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -369,7 +285,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, keywordSearchable_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -392,7 +308,7 @@ private static final long serialVersionUID = 0L;
         != other.getFilterable()) return false;
     if (getKeywordSearchable()
         != other.getKeywordSearchable()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -417,7 +333,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + KEYWORD_SEARCHABLE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getKeywordSearchable());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -538,30 +454,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.talent.v4beta1.CustomAttribute.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       stringValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       longValues_ = emptyLongList();
-      bitField0_ = (bitField0_ & ~0x00000002);
       filterable_ = false;
-
       keywordSearchable_ = false;
-
       return this;
     }
 
@@ -588,7 +497,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.talent.v4beta1.CustomAttribute buildPartial() {
       com.google.cloud.talent.v4beta1.CustomAttribute result = new com.google.cloud.talent.v4beta1.CustomAttribute(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.talent.v4beta1.CustomAttribute result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         stringValues_ = stringValues_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -599,10 +514,16 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.longValues_ = longValues_;
-      result.filterable_ = filterable_;
-      result.keywordSearchable_ = keywordSearchable_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.talent.v4beta1.CustomAttribute result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.filterable_ = filterable_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.keywordSearchable_ = keywordSearchable_;
+      }
     }
 
     @java.lang.Override
@@ -675,7 +596,7 @@ private static final long serialVersionUID = 0L;
       if (other.getKeywordSearchable() != false) {
         setKeywordSearchable(other.getKeywordSearchable());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -690,17 +611,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.talent.v4beta1.CustomAttribute parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureStringValuesIsMutable();
+              stringValues_.add(s);
+              break;
+            } // case 10
+            case 16: {
+              long v = input.readInt64();
+              ensureLongValuesIsMutable();
+              longValues_.addLong(v);
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureLongValuesIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                longValues_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            case 24: {
+              filterable_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              keywordSearchable_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.talent.v4beta1.CustomAttribute) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -807,10 +773,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStringValues(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureStringValuesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureStringValuesIsMutable();
       stringValues_.set(index, value);
       onChanged();
       return this;
@@ -833,10 +797,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addStringValues(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureStringValuesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureStringValuesIsMutable();
       stringValues_.add(value);
       onChanged();
       return this;
@@ -904,10 +866,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addStringValuesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureStringValuesIsMutable();
       stringValues_.add(value);
       onChanged();
@@ -919,7 +879,7 @@ private static final long serialVersionUID = 0L;
       if (!((bitField0_ & 0x00000002) != 0)) {
         longValues_ = mutableCopy(longValues_);
         bitField0_ |= 0x00000002;
-       }
+      }
     }
     /**
      * <pre>
@@ -981,6 +941,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLongValues(
         int index, long value) {
+      
       ensureLongValuesIsMutable();
       longValues_.setLong(index, value);
       onChanged();
@@ -999,6 +960,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addLongValues(long value) {
+      
       ensureLongValuesIsMutable();
       longValues_.addLong(value);
       onChanged();
@@ -1073,6 +1035,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFilterable(boolean value) {
       
       filterable_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1088,7 +1051,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFilterable() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       filterable_ = false;
       onChanged();
       return this;
@@ -1125,6 +1088,7 @@ private static final long serialVersionUID = 0L;
     public Builder setKeywordSearchable(boolean value) {
       
       keywordSearchable_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1140,7 +1104,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKeywordSearchable() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       keywordSearchable_ = false;
       onChanged();
       return this;
@@ -1178,7 +1142,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CustomAttribute(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

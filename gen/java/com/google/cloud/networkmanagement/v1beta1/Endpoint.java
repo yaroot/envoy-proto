@@ -41,105 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Endpoint(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            ipAddress_ = s;
-            break;
-          }
-          case 16: {
-
-            port_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            instance_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            network_ = s;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            networkType_ = rawValue;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            projectId_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            gkeMasterCluster_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            cloudSqlInstance_ = s;
-            break;
-          }
-          case 82: {
-            com.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint.Builder subBuilder = null;
-            if (cloudFunction_ != null) {
-              subBuilder = cloudFunction_.toBuilder();
-            }
-            cloudFunction_ = input.readMessage(com.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cloudFunction_);
-              cloudFunction_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.networkmanagement.v1beta1.TestOuterClass.internal_static_google_cloud_networkmanagement_v1beta1_Endpoint_descriptor;
@@ -363,51 +264,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CloudFunctionEndpoint(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              uri_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.networkmanagement.v1beta1.TestOuterClass.internal_static_google_cloud_networkmanagement_v1beta1_Endpoint_CloudFunctionEndpoint_descriptor;
@@ -422,7 +278,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int URI_FIELD_NUMBER = 1;
-    private volatile java.lang.Object uri_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object uri_ = "";
     /**
      * <pre>
      * A [Cloud function](https://cloud.google.com/functions) name.
@@ -484,7 +341,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uri_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uri_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -496,7 +353,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uri_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uri_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -513,7 +370,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getUri()
           .equals(other.getUri())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -526,7 +383,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + URI_FIELD_NUMBER;
       hash = (53 * hash) + getUri().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -647,24 +504,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         uri_ = "";
-
         return this;
       }
 
@@ -691,9 +543,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint buildPartial() {
         com.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint result = new com.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint(this);
-        result.uri_ = uri_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.uri_ = uri_;
+        }
       }
 
       @java.lang.Override
@@ -742,9 +601,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint.getDefaultInstance()) return this;
         if (!other.getUri().isEmpty()) {
           uri_ = other.uri_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -759,19 +619,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                uri_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object uri_ = "";
       /**
@@ -826,11 +705,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setUri(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         uri_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -843,8 +720,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearUri() {
-        
         uri_ = getDefaultInstance().getUri();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -859,12 +736,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setUriBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         uri_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -901,7 +776,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CloudFunctionEndpoint(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -922,7 +808,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IP_ADDRESS_FIELD_NUMBER = 1;
-  private volatile java.lang.Object ipAddress_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object ipAddress_ = "";
   /**
    * <pre>
    * The IP address of the endpoint, which can be an external or internal IP.
@@ -974,7 +861,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PORT_FIELD_NUMBER = 2;
-  private int port_;
+  private int port_ = 0;
   /**
    * <pre>
    * The IP protocol port of the endpoint.
@@ -990,7 +877,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INSTANCE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object instance_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object instance_ = "";
   /**
    * <pre>
    * A Compute Engine instance URI.
@@ -1036,7 +924,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GKE_MASTER_CLUSTER_FIELD_NUMBER = 7;
-  private volatile java.lang.Object gkeMasterCluster_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object gkeMasterCluster_ = "";
   /**
    * <pre>
    * A cluster URI for [Google Kubernetes Engine
@@ -1084,7 +973,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLOUD_SQL_INSTANCE_FIELD_NUMBER = 8;
-  private volatile java.lang.Object cloudSqlInstance_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cloudSqlInstance_ = "";
   /**
    * <pre>
    * A [Cloud SQL](https://cloud.google.com/sql) instance URI.
@@ -1164,11 +1054,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpointOrBuilder getCloudFunctionOrBuilder() {
-    return getCloudFunction();
+    return cloudFunction_ == null ? com.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint.getDefaultInstance() : cloudFunction_;
   }
 
   public static final int NETWORK_FIELD_NUMBER = 4;
-  private volatile java.lang.Object network_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object network_ = "";
   /**
    * <pre>
    * A Compute Engine network URI.
@@ -1214,7 +1105,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_TYPE_FIELD_NUMBER = 5;
-  private int networkType_;
+  private int networkType_ = 0;
   /**
    * <pre>
    * Type of the network where the endpoint is located.
@@ -1239,13 +1130,13 @@ private static final long serialVersionUID = 0L;
    * @return The networkType.
    */
   @java.lang.Override public com.google.cloud.networkmanagement.v1beta1.Endpoint.NetworkType getNetworkType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.networkmanagement.v1beta1.Endpoint.NetworkType result = com.google.cloud.networkmanagement.v1beta1.Endpoint.NetworkType.valueOf(networkType_);
+    com.google.cloud.networkmanagement.v1beta1.Endpoint.NetworkType result = com.google.cloud.networkmanagement.v1beta1.Endpoint.NetworkType.forNumber(networkType_);
     return result == null ? com.google.cloud.networkmanagement.v1beta1.Endpoint.NetworkType.UNRECOGNIZED : result;
   }
 
   public static final int PROJECT_ID_FIELD_NUMBER = 6;
-  private volatile java.lang.Object projectId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object projectId_ = "";
   /**
    * <pre>
    * Project ID where the endpoint is located.
@@ -1347,7 +1238,7 @@ private static final long serialVersionUID = 0L;
     if (cloudFunction_ != null) {
       output.writeMessage(10, getCloudFunction());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1386,7 +1277,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, getCloudFunction());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1421,7 +1312,7 @@ private static final long serialVersionUID = 0L;
     if (networkType_ != other.networkType_) return false;
     if (!getProjectId()
         .equals(other.getProjectId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1452,7 +1343,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + networkType_;
     hash = (37 * hash) + PROJECT_ID_FIELD_NUMBER;
     hash = (53 * hash) + getProjectId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1573,44 +1464,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.networkmanagement.v1beta1.Endpoint.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       ipAddress_ = "";
-
       port_ = 0;
-
       instance_ = "";
-
       gkeMasterCluster_ = "";
-
       cloudSqlInstance_ = "";
-
-      if (cloudFunctionBuilder_ == null) {
-        cloudFunction_ = null;
-      } else {
-        cloudFunction_ = null;
+      cloudFunction_ = null;
+      if (cloudFunctionBuilder_ != null) {
+        cloudFunctionBuilder_.dispose();
         cloudFunctionBuilder_ = null;
       }
       network_ = "";
-
       networkType_ = 0;
-
       projectId_ = "";
-
       return this;
     }
 
@@ -1637,21 +1515,42 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.networkmanagement.v1beta1.Endpoint buildPartial() {
       com.google.cloud.networkmanagement.v1beta1.Endpoint result = new com.google.cloud.networkmanagement.v1beta1.Endpoint(this);
-      result.ipAddress_ = ipAddress_;
-      result.port_ = port_;
-      result.instance_ = instance_;
-      result.gkeMasterCluster_ = gkeMasterCluster_;
-      result.cloudSqlInstance_ = cloudSqlInstance_;
-      if (cloudFunctionBuilder_ == null) {
-        result.cloudFunction_ = cloudFunction_;
-      } else {
-        result.cloudFunction_ = cloudFunctionBuilder_.build();
-      }
-      result.network_ = network_;
-      result.networkType_ = networkType_;
-      result.projectId_ = projectId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.networkmanagement.v1beta1.Endpoint result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.ipAddress_ = ipAddress_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.port_ = port_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.instance_ = instance_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.gkeMasterCluster_ = gkeMasterCluster_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.cloudSqlInstance_ = cloudSqlInstance_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.cloudFunction_ = cloudFunctionBuilder_ == null
+            ? cloudFunction_
+            : cloudFunctionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.network_ = network_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.networkType_ = networkType_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.projectId_ = projectId_;
+      }
     }
 
     @java.lang.Override
@@ -1700,6 +1599,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.networkmanagement.v1beta1.Endpoint.getDefaultInstance()) return this;
       if (!other.getIpAddress().isEmpty()) {
         ipAddress_ = other.ipAddress_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getPort() != 0) {
@@ -1707,14 +1607,17 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getInstance().isEmpty()) {
         instance_ = other.instance_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getGkeMasterCluster().isEmpty()) {
         gkeMasterCluster_ = other.gkeMasterCluster_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getCloudSqlInstance().isEmpty()) {
         cloudSqlInstance_ = other.cloudSqlInstance_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasCloudFunction()) {
@@ -1722,6 +1625,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getNetwork().isEmpty()) {
         network_ = other.network_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.networkType_ != 0) {
@@ -1729,9 +1633,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getProjectId().isEmpty()) {
         projectId_ = other.projectId_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1746,19 +1651,80 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.networkmanagement.v1beta1.Endpoint parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              ipAddress_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              port_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              instance_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              network_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 34
+            case 40: {
+              networkType_ = input.readEnum();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 40
+            case 50: {
+              projectId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 50
+            case 58: {
+              gkeMasterCluster_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 58
+            case 66: {
+              cloudSqlInstance_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 66
+            case 82: {
+              input.readMessage(
+                  getCloudFunctionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.networkmanagement.v1beta1.Endpoint) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object ipAddress_ = "";
     /**
@@ -1822,11 +1788,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIpAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       ipAddress_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1842,8 +1806,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIpAddress() {
-      
       ipAddress_ = getDefaultInstance().getIpAddress();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1861,12 +1825,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIpAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ipAddress_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1898,6 +1860,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPort(int value) {
       
       port_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1911,7 +1874,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPort() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       port_ = 0;
       onChanged();
       return this;
@@ -1970,11 +1933,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstance(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       instance_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1987,8 +1948,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInstance() {
-      
       instance_ = getDefaultInstance().getInstance();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2003,12 +1964,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       instance_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2069,11 +2028,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGkeMasterCluster(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       gkeMasterCluster_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2087,8 +2044,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGkeMasterCluster() {
-      
       gkeMasterCluster_ = getDefaultInstance().getGkeMasterCluster();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2104,12 +2061,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGkeMasterClusterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       gkeMasterCluster_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2167,11 +2122,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudSqlInstance(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       cloudSqlInstance_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2184,8 +2137,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCloudSqlInstance() {
-      
       cloudSqlInstance_ = getDefaultInstance().getCloudSqlInstance();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2200,12 +2153,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudSqlInstanceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       cloudSqlInstance_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2222,7 +2173,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cloudFunction field is set.
      */
     public boolean hasCloudFunction() {
-      return cloudFunctionBuilder_ != null || cloudFunction_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2252,11 +2203,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cloudFunction_ = value;
-        onChanged();
       } else {
         cloudFunctionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2270,11 +2221,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint.Builder builderForValue) {
       if (cloudFunctionBuilder_ == null) {
         cloudFunction_ = builderForValue.build();
-        onChanged();
       } else {
         cloudFunctionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2286,17 +2237,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCloudFunction(com.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint value) {
       if (cloudFunctionBuilder_ == null) {
-        if (cloudFunction_ != null) {
-          cloudFunction_ =
-            com.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint.newBuilder(cloudFunction_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          cloudFunction_ != null &&
+          cloudFunction_ != com.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint.getDefaultInstance()) {
+          getCloudFunctionBuilder().mergeFrom(value);
         } else {
           cloudFunction_ = value;
         }
-        onChanged();
       } else {
         cloudFunctionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2307,14 +2259,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint cloud_function = 10;</code>
      */
     public Builder clearCloudFunction() {
-      if (cloudFunctionBuilder_ == null) {
-        cloudFunction_ = null;
-        onChanged();
-      } else {
-        cloudFunction_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      cloudFunction_ = null;
+      if (cloudFunctionBuilder_ != null) {
+        cloudFunctionBuilder_.dispose();
         cloudFunctionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2325,7 +2276,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint cloud_function = 10;</code>
      */
     public com.google.cloud.networkmanagement.v1beta1.Endpoint.CloudFunctionEndpoint.Builder getCloudFunctionBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getCloudFunctionFieldBuilder().getBuilder();
     }
@@ -2418,11 +2369,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetwork(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       network_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2435,8 +2384,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNetwork() {
-      
       network_ = getDefaultInstance().getNetwork();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2451,12 +2400,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetworkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       network_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2487,8 +2434,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setNetworkTypeValue(int value) {
-      
       networkType_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2504,8 +2451,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.networkmanagement.v1beta1.Endpoint.NetworkType getNetworkType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.networkmanagement.v1beta1.Endpoint.NetworkType result = com.google.cloud.networkmanagement.v1beta1.Endpoint.NetworkType.valueOf(networkType_);
+      com.google.cloud.networkmanagement.v1beta1.Endpoint.NetworkType result = com.google.cloud.networkmanagement.v1beta1.Endpoint.NetworkType.forNumber(networkType_);
       return result == null ? com.google.cloud.networkmanagement.v1beta1.Endpoint.NetworkType.UNRECOGNIZED : result;
     }
     /**
@@ -2523,7 +2469,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000080;
       networkType_ = value.getNumber();
       onChanged();
       return this;
@@ -2539,7 +2485,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNetworkType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       networkType_ = 0;
       onChanged();
       return this;
@@ -2622,11 +2568,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       projectId_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2647,8 +2591,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProjectId() {
-      
       projectId_ = getDefaultInstance().getProjectId();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2671,12 +2615,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectId_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2713,7 +2655,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Endpoint(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

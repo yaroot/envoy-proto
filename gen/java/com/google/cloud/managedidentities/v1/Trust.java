@@ -42,138 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Trust(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            targetDomainName_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            trustType_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            trustDirection_ = rawValue;
-            break;
-          }
-          case 32: {
-
-            selectiveAuthentication_ = input.readBool();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              targetDnsIpAddresses_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            targetDnsIpAddresses_.add(s);
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            trustHandshakeSecret_ = s;
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            stateDescription_ = s;
-            break;
-          }
-          case 98: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (lastTrustHeartbeatTime_ != null) {
-              subBuilder = lastTrustHeartbeatTime_.toBuilder();
-            }
-            lastTrustHeartbeatTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lastTrustHeartbeatTime_);
-              lastTrustHeartbeatTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        targetDnsIpAddresses_ = targetDnsIpAddresses_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.managedidentities.v1.ResourceProto.internal_static_google_cloud_managedidentities_v1_Trust_descriptor;
@@ -694,7 +562,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGET_DOMAIN_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object targetDomainName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object targetDomainName_ = "";
   /**
    * <pre>
    * Required. The fully qualified target domain name which will be in trust with the
@@ -742,7 +611,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRUST_TYPE_FIELD_NUMBER = 2;
-  private int trustType_;
+  private int trustType_ = 0;
   /**
    * <pre>
    * Required. The type of trust represented by the trust resource.
@@ -763,13 +632,12 @@ private static final long serialVersionUID = 0L;
    * @return The trustType.
    */
   @java.lang.Override public com.google.cloud.managedidentities.v1.Trust.TrustType getTrustType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.managedidentities.v1.Trust.TrustType result = com.google.cloud.managedidentities.v1.Trust.TrustType.valueOf(trustType_);
+    com.google.cloud.managedidentities.v1.Trust.TrustType result = com.google.cloud.managedidentities.v1.Trust.TrustType.forNumber(trustType_);
     return result == null ? com.google.cloud.managedidentities.v1.Trust.TrustType.UNRECOGNIZED : result;
   }
 
   public static final int TRUST_DIRECTION_FIELD_NUMBER = 3;
-  private int trustDirection_;
+  private int trustDirection_ = 0;
   /**
    * <pre>
    * Required. The trust direction, which decides if the current domain is trusted,
@@ -792,13 +660,12 @@ private static final long serialVersionUID = 0L;
    * @return The trustDirection.
    */
   @java.lang.Override public com.google.cloud.managedidentities.v1.Trust.TrustDirection getTrustDirection() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.managedidentities.v1.Trust.TrustDirection result = com.google.cloud.managedidentities.v1.Trust.TrustDirection.valueOf(trustDirection_);
+    com.google.cloud.managedidentities.v1.Trust.TrustDirection result = com.google.cloud.managedidentities.v1.Trust.TrustDirection.forNumber(trustDirection_);
     return result == null ? com.google.cloud.managedidentities.v1.Trust.TrustDirection.UNRECOGNIZED : result;
   }
 
   public static final int SELECTIVE_AUTHENTICATION_FIELD_NUMBER = 4;
-  private boolean selectiveAuthentication_;
+  private boolean selectiveAuthentication_ = false;
   /**
    * <pre>
    * Optional. The trust authentication type, which decides whether the trusted side has
@@ -815,6 +682,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGET_DNS_IP_ADDRESSES_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList targetDnsIpAddresses_;
   /**
    * <pre>
@@ -870,7 +738,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRUST_HANDSHAKE_SECRET_FIELD_NUMBER = 6;
-  private volatile java.lang.Object trustHandshakeSecret_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object trustHandshakeSecret_ = "";
   /**
    * <pre>
    * Required. The trust secret used for the handshake with the target domain. This will
@@ -952,7 +821,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 8;
@@ -990,11 +859,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int STATE_FIELD_NUMBER = 9;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The current state of the trust.
@@ -1015,13 +884,13 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.managedidentities.v1.Trust.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.managedidentities.v1.Trust.State result = com.google.cloud.managedidentities.v1.Trust.State.valueOf(state_);
+    com.google.cloud.managedidentities.v1.Trust.State result = com.google.cloud.managedidentities.v1.Trust.State.forNumber(state_);
     return result == null ? com.google.cloud.managedidentities.v1.Trust.State.UNRECOGNIZED : result;
   }
 
   public static final int STATE_DESCRIPTION_FIELD_NUMBER = 11;
-  private volatile java.lang.Object stateDescription_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object stateDescription_ = "";
   /**
    * <pre>
    * Output only. Additional information about the current state of the trust, if available.
@@ -1101,7 +970,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getLastTrustHeartbeatTimeOrBuilder() {
-    return getLastTrustHeartbeatTime();
+    return lastTrustHeartbeatTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastTrustHeartbeatTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1151,7 +1020,7 @@ private static final long serialVersionUID = 0L;
     if (lastTrustHeartbeatTime_ != null) {
       output.writeMessage(12, getLastTrustHeartbeatTime());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1205,7 +1074,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, getLastTrustHeartbeatTime());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1248,7 +1117,7 @@ private static final long serialVersionUID = 0L;
       if (!getLastTrustHeartbeatTime()
           .equals(other.getLastTrustHeartbeatTime())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1290,7 +1159,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LAST_TRUST_HEARTBEAT_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getLastTrustHeartbeatTime().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1412,54 +1281,40 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.managedidentities.v1.Trust.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       targetDomainName_ = "";
-
       trustType_ = 0;
-
       trustDirection_ = 0;
-
       selectiveAuthentication_ = false;
-
       targetDnsIpAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       trustHandshakeSecret_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       state_ = 0;
-
       stateDescription_ = "";
-
-      if (lastTrustHeartbeatTimeBuilder_ == null) {
-        lastTrustHeartbeatTime_ = null;
-      } else {
-        lastTrustHeartbeatTime_ = null;
+      lastTrustHeartbeatTime_ = null;
+      if (lastTrustHeartbeatTimeBuilder_ != null) {
+        lastTrustHeartbeatTimeBuilder_.dispose();
         lastTrustHeartbeatTimeBuilder_ = null;
       }
       return this;
@@ -1488,36 +1343,58 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.managedidentities.v1.Trust buildPartial() {
       com.google.cloud.managedidentities.v1.Trust result = new com.google.cloud.managedidentities.v1.Trust(this);
-      int from_bitField0_ = bitField0_;
-      result.targetDomainName_ = targetDomainName_;
-      result.trustType_ = trustType_;
-      result.trustDirection_ = trustDirection_;
-      result.selectiveAuthentication_ = selectiveAuthentication_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        targetDnsIpAddresses_ = targetDnsIpAddresses_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.targetDnsIpAddresses_ = targetDnsIpAddresses_;
-      result.trustHandshakeSecret_ = trustHandshakeSecret_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.state_ = state_;
-      result.stateDescription_ = stateDescription_;
-      if (lastTrustHeartbeatTimeBuilder_ == null) {
-        result.lastTrustHeartbeatTime_ = lastTrustHeartbeatTime_;
-      } else {
-        result.lastTrustHeartbeatTime_ = lastTrustHeartbeatTimeBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.managedidentities.v1.Trust result) {
+      if (((bitField0_ & 0x00000010) != 0)) {
+        targetDnsIpAddresses_ = targetDnsIpAddresses_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
+      result.targetDnsIpAddresses_ = targetDnsIpAddresses_;
+    }
+
+    private void buildPartial0(com.google.cloud.managedidentities.v1.Trust result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.targetDomainName_ = targetDomainName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.trustType_ = trustType_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.trustDirection_ = trustDirection_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.selectiveAuthentication_ = selectiveAuthentication_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.trustHandshakeSecret_ = trustHandshakeSecret_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.stateDescription_ = stateDescription_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.lastTrustHeartbeatTime_ = lastTrustHeartbeatTimeBuilder_ == null
+            ? lastTrustHeartbeatTime_
+            : lastTrustHeartbeatTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1566,6 +1443,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.managedidentities.v1.Trust.getDefaultInstance()) return this;
       if (!other.getTargetDomainName().isEmpty()) {
         targetDomainName_ = other.targetDomainName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.trustType_ != 0) {
@@ -1580,7 +1458,7 @@ private static final long serialVersionUID = 0L;
       if (!other.targetDnsIpAddresses_.isEmpty()) {
         if (targetDnsIpAddresses_.isEmpty()) {
           targetDnsIpAddresses_ = other.targetDnsIpAddresses_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureTargetDnsIpAddressesIsMutable();
           targetDnsIpAddresses_.addAll(other.targetDnsIpAddresses_);
@@ -1589,6 +1467,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTrustHandshakeSecret().isEmpty()) {
         trustHandshakeSecret_ = other.trustHandshakeSecret_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -1602,12 +1481,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getStateDescription().isEmpty()) {
         stateDescription_ = other.stateDescription_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (other.hasLastTrustHeartbeatTime()) {
         mergeLastTrustHeartbeatTime(other.getLastTrustHeartbeatTime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1622,17 +1502,92 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.managedidentities.v1.Trust parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              targetDomainName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              trustType_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              trustDirection_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              selectiveAuthentication_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureTargetDnsIpAddressesIsMutable();
+              targetDnsIpAddresses_.add(s);
+              break;
+            } // case 42
+            case 50: {
+              trustHandshakeSecret_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 72: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 90: {
+              stateDescription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getLastTrustHeartbeatTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 98
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.managedidentities.v1.Trust) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1693,11 +1648,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTargetDomainName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       targetDomainName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1711,8 +1664,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTargetDomainName() {
-      
       targetDomainName_ = getDefaultInstance().getTargetDomainName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1728,12 +1681,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTargetDomainNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       targetDomainName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1760,8 +1711,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTrustTypeValue(int value) {
-      
       trustType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1775,8 +1726,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.managedidentities.v1.Trust.TrustType getTrustType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.managedidentities.v1.Trust.TrustType result = com.google.cloud.managedidentities.v1.Trust.TrustType.valueOf(trustType_);
+      com.google.cloud.managedidentities.v1.Trust.TrustType result = com.google.cloud.managedidentities.v1.Trust.TrustType.forNumber(trustType_);
       return result == null ? com.google.cloud.managedidentities.v1.Trust.TrustType.UNRECOGNIZED : result;
     }
     /**
@@ -1792,7 +1742,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       trustType_ = value.getNumber();
       onChanged();
       return this;
@@ -1806,7 +1756,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTrustType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       trustType_ = 0;
       onChanged();
       return this;
@@ -1836,8 +1786,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTrustDirectionValue(int value) {
-      
       trustDirection_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1852,8 +1802,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.managedidentities.v1.Trust.TrustDirection getTrustDirection() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.managedidentities.v1.Trust.TrustDirection result = com.google.cloud.managedidentities.v1.Trust.TrustDirection.valueOf(trustDirection_);
+      com.google.cloud.managedidentities.v1.Trust.TrustDirection result = com.google.cloud.managedidentities.v1.Trust.TrustDirection.forNumber(trustDirection_);
       return result == null ? com.google.cloud.managedidentities.v1.Trust.TrustDirection.UNRECOGNIZED : result;
     }
     /**
@@ -1870,7 +1819,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       trustDirection_ = value.getNumber();
       onChanged();
       return this;
@@ -1885,7 +1834,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTrustDirection() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       trustDirection_ = 0;
       onChanged();
       return this;
@@ -1920,6 +1869,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSelectiveAuthentication(boolean value) {
       
       selectiveAuthentication_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1934,7 +1884,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSelectiveAuthentication() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       selectiveAuthentication_ = false;
       onChanged();
       return this;
@@ -1942,9 +1892,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList targetDnsIpAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureTargetDnsIpAddressesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         targetDnsIpAddresses_ = new com.google.protobuf.LazyStringArrayList(targetDnsIpAddresses_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -2012,10 +1962,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTargetDnsIpAddresses(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTargetDnsIpAddressesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTargetDnsIpAddressesIsMutable();
       targetDnsIpAddresses_.set(index, value);
       onChanged();
       return this;
@@ -2032,10 +1980,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTargetDnsIpAddresses(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTargetDnsIpAddressesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTargetDnsIpAddressesIsMutable();
       targetDnsIpAddresses_.add(value);
       onChanged();
       return this;
@@ -2069,7 +2015,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearTargetDnsIpAddresses() {
       targetDnsIpAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2085,10 +2031,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTargetDnsIpAddressesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureTargetDnsIpAddressesIsMutable();
       targetDnsIpAddresses_.add(value);
       onChanged();
@@ -2151,11 +2095,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTrustHandshakeSecret(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       trustHandshakeSecret_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2169,8 +2111,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTrustHandshakeSecret() {
-      
       trustHandshakeSecret_ = getDefaultInstance().getTrustHandshakeSecret();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2186,12 +2128,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTrustHandshakeSecretBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       trustHandshakeSecret_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2208,7 +2148,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2238,11 +2178,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2256,11 +2196,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2272,17 +2212,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2293,14 +2234,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2311,7 +2251,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -2363,7 +2303,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2393,11 +2333,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2411,11 +2351,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2427,17 +2367,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2448,14 +2389,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2466,7 +2406,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -2528,8 +2468,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2543,8 +2483,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.managedidentities.v1.Trust.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.managedidentities.v1.Trust.State result = com.google.cloud.managedidentities.v1.Trust.State.valueOf(state_);
+      com.google.cloud.managedidentities.v1.Trust.State result = com.google.cloud.managedidentities.v1.Trust.State.forNumber(state_);
       return result == null ? com.google.cloud.managedidentities.v1.Trust.State.UNRECOGNIZED : result;
     }
     /**
@@ -2560,7 +2499,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000100;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -2574,7 +2513,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       state_ = 0;
       onChanged();
       return this;
@@ -2633,11 +2572,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStateDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       stateDescription_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2650,8 +2587,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStateDescription() {
-      
       stateDescription_ = getDefaultInstance().getStateDescription();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2666,12 +2603,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStateDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       stateDescription_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2688,7 +2623,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lastTrustHeartbeatTime field is set.
      */
     public boolean hasLastTrustHeartbeatTime() {
-      return lastTrustHeartbeatTimeBuilder_ != null || lastTrustHeartbeatTime_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -2718,11 +2653,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         lastTrustHeartbeatTime_ = value;
-        onChanged();
       } else {
         lastTrustHeartbeatTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2736,11 +2671,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (lastTrustHeartbeatTimeBuilder_ == null) {
         lastTrustHeartbeatTime_ = builderForValue.build();
-        onChanged();
       } else {
         lastTrustHeartbeatTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2752,17 +2687,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLastTrustHeartbeatTime(com.google.protobuf.Timestamp value) {
       if (lastTrustHeartbeatTimeBuilder_ == null) {
-        if (lastTrustHeartbeatTime_ != null) {
-          lastTrustHeartbeatTime_ =
-            com.google.protobuf.Timestamp.newBuilder(lastTrustHeartbeatTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          lastTrustHeartbeatTime_ != null &&
+          lastTrustHeartbeatTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getLastTrustHeartbeatTimeBuilder().mergeFrom(value);
         } else {
           lastTrustHeartbeatTime_ = value;
         }
-        onChanged();
       } else {
         lastTrustHeartbeatTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2773,14 +2709,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_trust_heartbeat_time = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearLastTrustHeartbeatTime() {
-      if (lastTrustHeartbeatTimeBuilder_ == null) {
-        lastTrustHeartbeatTime_ = null;
-        onChanged();
-      } else {
-        lastTrustHeartbeatTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      lastTrustHeartbeatTime_ = null;
+      if (lastTrustHeartbeatTimeBuilder_ != null) {
+        lastTrustHeartbeatTimeBuilder_.dispose();
         lastTrustHeartbeatTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2791,7 +2726,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_trust_heartbeat_time = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getLastTrustHeartbeatTimeBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getLastTrustHeartbeatTimeFieldBuilder().getBuilder();
     }
@@ -2863,7 +2798,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Trust(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

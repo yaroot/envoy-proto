@@ -48,117 +48,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PartOfSpeech(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            tag_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            aspect_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            case_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            form_ = rawValue;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            gender_ = rawValue;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            mood_ = rawValue;
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            number_ = rawValue;
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-
-            person_ = rawValue;
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            proper_ = rawValue;
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-
-            reciprocity_ = rawValue;
-            break;
-          }
-          case 88: {
-            int rawValue = input.readEnum();
-
-            tense_ = rawValue;
-            break;
-          }
-          case 96: {
-            int rawValue = input.readEnum();
-
-            voice_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.language.v1.LanguageServiceProto.internal_static_google_cloud_language_v1_PartOfSpeech_descriptor;
@@ -2703,7 +2592,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TAG_FIELD_NUMBER = 1;
-  private int tag_;
+  private int tag_ = 0;
   /**
    * <pre>
    * The part of speech tag.
@@ -2724,13 +2613,12 @@ private static final long serialVersionUID = 0L;
    * @return The tag.
    */
   @java.lang.Override public com.google.cloud.language.v1.PartOfSpeech.Tag getTag() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.language.v1.PartOfSpeech.Tag result = com.google.cloud.language.v1.PartOfSpeech.Tag.valueOf(tag_);
+    com.google.cloud.language.v1.PartOfSpeech.Tag result = com.google.cloud.language.v1.PartOfSpeech.Tag.forNumber(tag_);
     return result == null ? com.google.cloud.language.v1.PartOfSpeech.Tag.UNRECOGNIZED : result;
   }
 
   public static final int ASPECT_FIELD_NUMBER = 2;
-  private int aspect_;
+  private int aspect_ = 0;
   /**
    * <pre>
    * The grammatical aspect.
@@ -2751,13 +2639,12 @@ private static final long serialVersionUID = 0L;
    * @return The aspect.
    */
   @java.lang.Override public com.google.cloud.language.v1.PartOfSpeech.Aspect getAspect() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.language.v1.PartOfSpeech.Aspect result = com.google.cloud.language.v1.PartOfSpeech.Aspect.valueOf(aspect_);
+    com.google.cloud.language.v1.PartOfSpeech.Aspect result = com.google.cloud.language.v1.PartOfSpeech.Aspect.forNumber(aspect_);
     return result == null ? com.google.cloud.language.v1.PartOfSpeech.Aspect.UNRECOGNIZED : result;
   }
 
   public static final int CASE_FIELD_NUMBER = 3;
-  private int case_;
+  private int case_ = 0;
   /**
    * <pre>
    * The grammatical case.
@@ -2778,13 +2665,12 @@ private static final long serialVersionUID = 0L;
    * @return The case.
    */
   @java.lang.Override public com.google.cloud.language.v1.PartOfSpeech.Case getCase() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.language.v1.PartOfSpeech.Case result = com.google.cloud.language.v1.PartOfSpeech.Case.valueOf(case_);
+    com.google.cloud.language.v1.PartOfSpeech.Case result = com.google.cloud.language.v1.PartOfSpeech.Case.forNumber(case_);
     return result == null ? com.google.cloud.language.v1.PartOfSpeech.Case.UNRECOGNIZED : result;
   }
 
   public static final int FORM_FIELD_NUMBER = 4;
-  private int form_;
+  private int form_ = 0;
   /**
    * <pre>
    * The grammatical form.
@@ -2805,13 +2691,12 @@ private static final long serialVersionUID = 0L;
    * @return The form.
    */
   @java.lang.Override public com.google.cloud.language.v1.PartOfSpeech.Form getForm() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.language.v1.PartOfSpeech.Form result = com.google.cloud.language.v1.PartOfSpeech.Form.valueOf(form_);
+    com.google.cloud.language.v1.PartOfSpeech.Form result = com.google.cloud.language.v1.PartOfSpeech.Form.forNumber(form_);
     return result == null ? com.google.cloud.language.v1.PartOfSpeech.Form.UNRECOGNIZED : result;
   }
 
   public static final int GENDER_FIELD_NUMBER = 5;
-  private int gender_;
+  private int gender_ = 0;
   /**
    * <pre>
    * The grammatical gender.
@@ -2832,13 +2717,12 @@ private static final long serialVersionUID = 0L;
    * @return The gender.
    */
   @java.lang.Override public com.google.cloud.language.v1.PartOfSpeech.Gender getGender() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.language.v1.PartOfSpeech.Gender result = com.google.cloud.language.v1.PartOfSpeech.Gender.valueOf(gender_);
+    com.google.cloud.language.v1.PartOfSpeech.Gender result = com.google.cloud.language.v1.PartOfSpeech.Gender.forNumber(gender_);
     return result == null ? com.google.cloud.language.v1.PartOfSpeech.Gender.UNRECOGNIZED : result;
   }
 
   public static final int MOOD_FIELD_NUMBER = 6;
-  private int mood_;
+  private int mood_ = 0;
   /**
    * <pre>
    * The grammatical mood.
@@ -2859,13 +2743,12 @@ private static final long serialVersionUID = 0L;
    * @return The mood.
    */
   @java.lang.Override public com.google.cloud.language.v1.PartOfSpeech.Mood getMood() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.language.v1.PartOfSpeech.Mood result = com.google.cloud.language.v1.PartOfSpeech.Mood.valueOf(mood_);
+    com.google.cloud.language.v1.PartOfSpeech.Mood result = com.google.cloud.language.v1.PartOfSpeech.Mood.forNumber(mood_);
     return result == null ? com.google.cloud.language.v1.PartOfSpeech.Mood.UNRECOGNIZED : result;
   }
 
   public static final int NUMBER_FIELD_NUMBER = 7;
-  private int number_;
+  private int number_ = 0;
   /**
    * <pre>
    * The grammatical number.
@@ -2886,13 +2769,12 @@ private static final long serialVersionUID = 0L;
    * @return The number.
    */
   @java.lang.Override public com.google.cloud.language.v1.PartOfSpeech.Number getNumber() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.language.v1.PartOfSpeech.Number result = com.google.cloud.language.v1.PartOfSpeech.Number.valueOf(number_);
+    com.google.cloud.language.v1.PartOfSpeech.Number result = com.google.cloud.language.v1.PartOfSpeech.Number.forNumber(number_);
     return result == null ? com.google.cloud.language.v1.PartOfSpeech.Number.UNRECOGNIZED : result;
   }
 
   public static final int PERSON_FIELD_NUMBER = 8;
-  private int person_;
+  private int person_ = 0;
   /**
    * <pre>
    * The grammatical person.
@@ -2913,13 +2795,12 @@ private static final long serialVersionUID = 0L;
    * @return The person.
    */
   @java.lang.Override public com.google.cloud.language.v1.PartOfSpeech.Person getPerson() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.language.v1.PartOfSpeech.Person result = com.google.cloud.language.v1.PartOfSpeech.Person.valueOf(person_);
+    com.google.cloud.language.v1.PartOfSpeech.Person result = com.google.cloud.language.v1.PartOfSpeech.Person.forNumber(person_);
     return result == null ? com.google.cloud.language.v1.PartOfSpeech.Person.UNRECOGNIZED : result;
   }
 
   public static final int PROPER_FIELD_NUMBER = 9;
-  private int proper_;
+  private int proper_ = 0;
   /**
    * <pre>
    * The grammatical properness.
@@ -2940,13 +2821,12 @@ private static final long serialVersionUID = 0L;
    * @return The proper.
    */
   @java.lang.Override public com.google.cloud.language.v1.PartOfSpeech.Proper getProper() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.language.v1.PartOfSpeech.Proper result = com.google.cloud.language.v1.PartOfSpeech.Proper.valueOf(proper_);
+    com.google.cloud.language.v1.PartOfSpeech.Proper result = com.google.cloud.language.v1.PartOfSpeech.Proper.forNumber(proper_);
     return result == null ? com.google.cloud.language.v1.PartOfSpeech.Proper.UNRECOGNIZED : result;
   }
 
   public static final int RECIPROCITY_FIELD_NUMBER = 10;
-  private int reciprocity_;
+  private int reciprocity_ = 0;
   /**
    * <pre>
    * The grammatical reciprocity.
@@ -2967,13 +2847,12 @@ private static final long serialVersionUID = 0L;
    * @return The reciprocity.
    */
   @java.lang.Override public com.google.cloud.language.v1.PartOfSpeech.Reciprocity getReciprocity() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.language.v1.PartOfSpeech.Reciprocity result = com.google.cloud.language.v1.PartOfSpeech.Reciprocity.valueOf(reciprocity_);
+    com.google.cloud.language.v1.PartOfSpeech.Reciprocity result = com.google.cloud.language.v1.PartOfSpeech.Reciprocity.forNumber(reciprocity_);
     return result == null ? com.google.cloud.language.v1.PartOfSpeech.Reciprocity.UNRECOGNIZED : result;
   }
 
   public static final int TENSE_FIELD_NUMBER = 11;
-  private int tense_;
+  private int tense_ = 0;
   /**
    * <pre>
    * The grammatical tense.
@@ -2994,13 +2873,12 @@ private static final long serialVersionUID = 0L;
    * @return The tense.
    */
   @java.lang.Override public com.google.cloud.language.v1.PartOfSpeech.Tense getTense() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.language.v1.PartOfSpeech.Tense result = com.google.cloud.language.v1.PartOfSpeech.Tense.valueOf(tense_);
+    com.google.cloud.language.v1.PartOfSpeech.Tense result = com.google.cloud.language.v1.PartOfSpeech.Tense.forNumber(tense_);
     return result == null ? com.google.cloud.language.v1.PartOfSpeech.Tense.UNRECOGNIZED : result;
   }
 
   public static final int VOICE_FIELD_NUMBER = 12;
-  private int voice_;
+  private int voice_ = 0;
   /**
    * <pre>
    * The grammatical voice.
@@ -3021,8 +2899,7 @@ private static final long serialVersionUID = 0L;
    * @return The voice.
    */
   @java.lang.Override public com.google.cloud.language.v1.PartOfSpeech.Voice getVoice() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.language.v1.PartOfSpeech.Voice result = com.google.cloud.language.v1.PartOfSpeech.Voice.valueOf(voice_);
+    com.google.cloud.language.v1.PartOfSpeech.Voice result = com.google.cloud.language.v1.PartOfSpeech.Voice.forNumber(voice_);
     return result == null ? com.google.cloud.language.v1.PartOfSpeech.Voice.UNRECOGNIZED : result;
   }
 
@@ -3076,7 +2953,7 @@ private static final long serialVersionUID = 0L;
     if (voice_ != com.google.cloud.language.v1.PartOfSpeech.Voice.VOICE_UNKNOWN.getNumber()) {
       output.writeEnum(12, voice_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3133,7 +3010,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(12, voice_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3160,7 +3037,7 @@ private static final long serialVersionUID = 0L;
     if (reciprocity_ != other.reciprocity_) return false;
     if (tense_ != other.tense_) return false;
     if (voice_ != other.voice_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3195,7 +3072,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + tense_;
     hash = (37 * hash) + VOICE_FIELD_NUMBER;
     hash = (53 * hash) + voice_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3318,46 +3195,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.language.v1.PartOfSpeech.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       tag_ = 0;
-
       aspect_ = 0;
-
       case_ = 0;
-
       form_ = 0;
-
       gender_ = 0;
-
       mood_ = 0;
-
       number_ = 0;
-
       person_ = 0;
-
       proper_ = 0;
-
       reciprocity_ = 0;
-
       tense_ = 0;
-
       voice_ = 0;
-
       return this;
     }
 
@@ -3384,20 +3245,49 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.language.v1.PartOfSpeech buildPartial() {
       com.google.cloud.language.v1.PartOfSpeech result = new com.google.cloud.language.v1.PartOfSpeech(this);
-      result.tag_ = tag_;
-      result.aspect_ = aspect_;
-      result.case_ = case_;
-      result.form_ = form_;
-      result.gender_ = gender_;
-      result.mood_ = mood_;
-      result.number_ = number_;
-      result.person_ = person_;
-      result.proper_ = proper_;
-      result.reciprocity_ = reciprocity_;
-      result.tense_ = tense_;
-      result.voice_ = voice_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.language.v1.PartOfSpeech result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.tag_ = tag_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.aspect_ = aspect_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.case_ = case_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.form_ = form_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.gender_ = gender_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.mood_ = mood_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.number_ = number_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.person_ = person_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.proper_ = proper_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.reciprocity_ = reciprocity_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.tense_ = tense_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.voice_ = voice_;
+      }
     }
 
     @java.lang.Override
@@ -3480,7 +3370,7 @@ private static final long serialVersionUID = 0L;
       if (other.voice_ != 0) {
         setVoiceValue(other.getVoiceValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3495,19 +3385,93 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.language.v1.PartOfSpeech parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              tag_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              aspect_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              case_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              form_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              gender_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              mood_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              number_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              person_ = input.readEnum();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 72: {
+              proper_ = input.readEnum();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 80: {
+              reciprocity_ = input.readEnum();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 88: {
+              tense_ = input.readEnum();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 96: {
+              voice_ = input.readEnum();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 96
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.language.v1.PartOfSpeech) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int tag_ = 0;
     /**
@@ -3531,8 +3495,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTagValue(int value) {
-      
       tag_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3546,8 +3510,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.language.v1.PartOfSpeech.Tag getTag() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.language.v1.PartOfSpeech.Tag result = com.google.cloud.language.v1.PartOfSpeech.Tag.valueOf(tag_);
+      com.google.cloud.language.v1.PartOfSpeech.Tag result = com.google.cloud.language.v1.PartOfSpeech.Tag.forNumber(tag_);
       return result == null ? com.google.cloud.language.v1.PartOfSpeech.Tag.UNRECOGNIZED : result;
     }
     /**
@@ -3563,7 +3526,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       tag_ = value.getNumber();
       onChanged();
       return this;
@@ -3577,7 +3540,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTag() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       tag_ = 0;
       onChanged();
       return this;
@@ -3605,8 +3568,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAspectValue(int value) {
-      
       aspect_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3620,8 +3583,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.language.v1.PartOfSpeech.Aspect getAspect() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.language.v1.PartOfSpeech.Aspect result = com.google.cloud.language.v1.PartOfSpeech.Aspect.valueOf(aspect_);
+      com.google.cloud.language.v1.PartOfSpeech.Aspect result = com.google.cloud.language.v1.PartOfSpeech.Aspect.forNumber(aspect_);
       return result == null ? com.google.cloud.language.v1.PartOfSpeech.Aspect.UNRECOGNIZED : result;
     }
     /**
@@ -3637,7 +3599,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       aspect_ = value.getNumber();
       onChanged();
       return this;
@@ -3651,7 +3613,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAspect() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       aspect_ = 0;
       onChanged();
       return this;
@@ -3679,8 +3641,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCaseValue(int value) {
-      
       case_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3694,8 +3656,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.language.v1.PartOfSpeech.Case getCase() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.language.v1.PartOfSpeech.Case result = com.google.cloud.language.v1.PartOfSpeech.Case.valueOf(case_);
+      com.google.cloud.language.v1.PartOfSpeech.Case result = com.google.cloud.language.v1.PartOfSpeech.Case.forNumber(case_);
       return result == null ? com.google.cloud.language.v1.PartOfSpeech.Case.UNRECOGNIZED : result;
     }
     /**
@@ -3711,7 +3672,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       case_ = value.getNumber();
       onChanged();
       return this;
@@ -3725,7 +3686,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCase() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       case_ = 0;
       onChanged();
       return this;
@@ -3753,8 +3714,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFormValue(int value) {
-      
       form_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3768,8 +3729,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.language.v1.PartOfSpeech.Form getForm() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.language.v1.PartOfSpeech.Form result = com.google.cloud.language.v1.PartOfSpeech.Form.valueOf(form_);
+      com.google.cloud.language.v1.PartOfSpeech.Form result = com.google.cloud.language.v1.PartOfSpeech.Form.forNumber(form_);
       return result == null ? com.google.cloud.language.v1.PartOfSpeech.Form.UNRECOGNIZED : result;
     }
     /**
@@ -3785,7 +3745,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       form_ = value.getNumber();
       onChanged();
       return this;
@@ -3799,7 +3759,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearForm() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       form_ = 0;
       onChanged();
       return this;
@@ -3827,8 +3787,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setGenderValue(int value) {
-      
       gender_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3842,8 +3802,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.language.v1.PartOfSpeech.Gender getGender() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.language.v1.PartOfSpeech.Gender result = com.google.cloud.language.v1.PartOfSpeech.Gender.valueOf(gender_);
+      com.google.cloud.language.v1.PartOfSpeech.Gender result = com.google.cloud.language.v1.PartOfSpeech.Gender.forNumber(gender_);
       return result == null ? com.google.cloud.language.v1.PartOfSpeech.Gender.UNRECOGNIZED : result;
     }
     /**
@@ -3859,7 +3818,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       gender_ = value.getNumber();
       onChanged();
       return this;
@@ -3873,7 +3832,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGender() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       gender_ = 0;
       onChanged();
       return this;
@@ -3901,8 +3860,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMoodValue(int value) {
-      
       mood_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3916,8 +3875,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.language.v1.PartOfSpeech.Mood getMood() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.language.v1.PartOfSpeech.Mood result = com.google.cloud.language.v1.PartOfSpeech.Mood.valueOf(mood_);
+      com.google.cloud.language.v1.PartOfSpeech.Mood result = com.google.cloud.language.v1.PartOfSpeech.Mood.forNumber(mood_);
       return result == null ? com.google.cloud.language.v1.PartOfSpeech.Mood.UNRECOGNIZED : result;
     }
     /**
@@ -3933,7 +3891,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       mood_ = value.getNumber();
       onChanged();
       return this;
@@ -3947,7 +3905,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMood() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       mood_ = 0;
       onChanged();
       return this;
@@ -3975,8 +3933,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setNumberValue(int value) {
-      
       number_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -3990,8 +3948,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.language.v1.PartOfSpeech.Number getNumber() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.language.v1.PartOfSpeech.Number result = com.google.cloud.language.v1.PartOfSpeech.Number.valueOf(number_);
+      com.google.cloud.language.v1.PartOfSpeech.Number result = com.google.cloud.language.v1.PartOfSpeech.Number.forNumber(number_);
       return result == null ? com.google.cloud.language.v1.PartOfSpeech.Number.UNRECOGNIZED : result;
     }
     /**
@@ -4007,7 +3964,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       number_ = value.getNumber();
       onChanged();
       return this;
@@ -4021,7 +3978,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNumber() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       number_ = 0;
       onChanged();
       return this;
@@ -4049,8 +4006,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPersonValue(int value) {
-      
       person_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -4064,8 +4021,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.language.v1.PartOfSpeech.Person getPerson() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.language.v1.PartOfSpeech.Person result = com.google.cloud.language.v1.PartOfSpeech.Person.valueOf(person_);
+      com.google.cloud.language.v1.PartOfSpeech.Person result = com.google.cloud.language.v1.PartOfSpeech.Person.forNumber(person_);
       return result == null ? com.google.cloud.language.v1.PartOfSpeech.Person.UNRECOGNIZED : result;
     }
     /**
@@ -4081,7 +4037,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000080;
       person_ = value.getNumber();
       onChanged();
       return this;
@@ -4095,7 +4051,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPerson() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       person_ = 0;
       onChanged();
       return this;
@@ -4123,8 +4079,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setProperValue(int value) {
-      
       proper_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -4138,8 +4094,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.language.v1.PartOfSpeech.Proper getProper() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.language.v1.PartOfSpeech.Proper result = com.google.cloud.language.v1.PartOfSpeech.Proper.valueOf(proper_);
+      com.google.cloud.language.v1.PartOfSpeech.Proper result = com.google.cloud.language.v1.PartOfSpeech.Proper.forNumber(proper_);
       return result == null ? com.google.cloud.language.v1.PartOfSpeech.Proper.UNRECOGNIZED : result;
     }
     /**
@@ -4155,7 +4110,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000100;
       proper_ = value.getNumber();
       onChanged();
       return this;
@@ -4169,7 +4124,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProper() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       proper_ = 0;
       onChanged();
       return this;
@@ -4197,8 +4152,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setReciprocityValue(int value) {
-      
       reciprocity_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -4212,8 +4167,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.language.v1.PartOfSpeech.Reciprocity getReciprocity() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.language.v1.PartOfSpeech.Reciprocity result = com.google.cloud.language.v1.PartOfSpeech.Reciprocity.valueOf(reciprocity_);
+      com.google.cloud.language.v1.PartOfSpeech.Reciprocity result = com.google.cloud.language.v1.PartOfSpeech.Reciprocity.forNumber(reciprocity_);
       return result == null ? com.google.cloud.language.v1.PartOfSpeech.Reciprocity.UNRECOGNIZED : result;
     }
     /**
@@ -4229,7 +4183,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000200;
       reciprocity_ = value.getNumber();
       onChanged();
       return this;
@@ -4243,7 +4197,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReciprocity() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       reciprocity_ = 0;
       onChanged();
       return this;
@@ -4271,8 +4225,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTenseValue(int value) {
-      
       tense_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -4286,8 +4240,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.language.v1.PartOfSpeech.Tense getTense() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.language.v1.PartOfSpeech.Tense result = com.google.cloud.language.v1.PartOfSpeech.Tense.valueOf(tense_);
+      com.google.cloud.language.v1.PartOfSpeech.Tense result = com.google.cloud.language.v1.PartOfSpeech.Tense.forNumber(tense_);
       return result == null ? com.google.cloud.language.v1.PartOfSpeech.Tense.UNRECOGNIZED : result;
     }
     /**
@@ -4303,7 +4256,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000400;
       tense_ = value.getNumber();
       onChanged();
       return this;
@@ -4317,7 +4270,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTense() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       tense_ = 0;
       onChanged();
       return this;
@@ -4345,8 +4298,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setVoiceValue(int value) {
-      
       voice_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -4360,8 +4313,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.language.v1.PartOfSpeech.Voice getVoice() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.language.v1.PartOfSpeech.Voice result = com.google.cloud.language.v1.PartOfSpeech.Voice.valueOf(voice_);
+      com.google.cloud.language.v1.PartOfSpeech.Voice result = com.google.cloud.language.v1.PartOfSpeech.Voice.forNumber(voice_);
       return result == null ? com.google.cloud.language.v1.PartOfSpeech.Voice.UNRECOGNIZED : result;
     }
     /**
@@ -4377,7 +4329,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000800;
       voice_ = value.getNumber();
       onChanged();
       return this;
@@ -4391,7 +4343,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVoice() {
-      
+      bitField0_ = (bitField0_ & ~0x00000800);
       voice_ = 0;
       onChanged();
       return this;
@@ -4429,7 +4381,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PartOfSpeech(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

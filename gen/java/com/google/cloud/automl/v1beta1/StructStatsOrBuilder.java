@@ -50,7 +50,6 @@ public interface StructStatsOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.automl.v1beta1.DataStats&gt; field_stats = 1;</code>
    */
-
   /* nullable */
 com.google.cloud.automl.v1beta1.DataStats getFieldStatsOrDefault(
       java.lang.String key,
@@ -64,7 +63,6 @@ com.google.cloud.automl.v1beta1.DataStats defaultValue);
    *
    * <code>map&lt;string, .google.cloud.automl.v1beta1.DataStats&gt; field_stats = 1;</code>
    */
-
   com.google.cloud.automl.v1beta1.DataStats getFieldStatsOrThrow(
       java.lang.String key);
 }

@@ -35,89 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Word(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.vision.v1.TextAnnotation.TextProperty.Builder subBuilder = null;
-            if (property_ != null) {
-              subBuilder = property_.toBuilder();
-            }
-            property_ = input.readMessage(com.google.cloud.vision.v1.TextAnnotation.TextProperty.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(property_);
-              property_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.vision.v1.BoundingPoly.Builder subBuilder = null;
-            if (boundingBox_ != null) {
-              subBuilder = boundingBox_.toBuilder();
-            }
-            boundingBox_ = input.readMessage(com.google.cloud.vision.v1.BoundingPoly.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(boundingBox_);
-              boundingBox_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              symbols_ = new java.util.ArrayList<com.google.cloud.vision.v1.Symbol>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            symbols_.add(
-                input.readMessage(com.google.cloud.vision.v1.Symbol.parser(), extensionRegistry));
-            break;
-          }
-          case 37: {
-
-            confidence_ = input.readFloat();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        symbols_ = java.util.Collections.unmodifiableList(symbols_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.vision.v1.TextAnnotationProto.internal_static_google_cloud_vision_v1_Word_descriptor;
@@ -166,7 +83,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.vision.v1.TextAnnotation.TextPropertyOrBuilder getPropertyOrBuilder() {
-    return getProperty();
+    return property_ == null ? com.google.cloud.vision.v1.TextAnnotation.TextProperty.getDefaultInstance() : property_;
   }
 
   public static final int BOUNDING_BOX_FIELD_NUMBER = 2;
@@ -246,10 +163,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.vision.v1.BoundingPolyOrBuilder getBoundingBoxOrBuilder() {
-    return getBoundingBox();
+    return boundingBox_ == null ? com.google.cloud.vision.v1.BoundingPoly.getDefaultInstance() : boundingBox_;
   }
 
   public static final int SYMBOLS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.vision.v1.Symbol> symbols_;
   /**
    * <pre>
@@ -315,7 +233,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONFIDENCE_FIELD_NUMBER = 4;
-  private float confidence_;
+  private float confidence_ = 0F;
   /**
    * <pre>
    * Confidence of the OCR results for the word. Range [0, 1].
@@ -355,7 +273,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToRawIntBits(confidence_) != 0) {
       output.writeFloat(4, confidence_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -380,7 +298,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(4, confidence_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -410,7 +328,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToIntBits(getConfidence())
         != java.lang.Float.floatToIntBits(
             other.getConfidence())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -436,7 +354,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + CONFIDENCE_FIELD_NUMBER;
     hash = (53 * hash) + java.lang.Float.floatToIntBits(
         getConfidence());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -557,43 +475,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.vision.v1.Word.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSymbolsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (propertyBuilder_ == null) {
-        property_ = null;
-      } else {
-        property_ = null;
+      bitField0_ = 0;
+      property_ = null;
+      if (propertyBuilder_ != null) {
+        propertyBuilder_.dispose();
         propertyBuilder_ = null;
       }
-      if (boundingBoxBuilder_ == null) {
-        boundingBox_ = null;
-      } else {
-        boundingBox_ = null;
+      boundingBox_ = null;
+      if (boundingBoxBuilder_ != null) {
+        boundingBoxBuilder_.dispose();
         boundingBoxBuilder_ = null;
       }
       if (symbolsBuilder_ == null) {
         symbols_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        symbols_ = null;
         symbolsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       confidence_ = 0F;
-
       return this;
     }
 
@@ -620,29 +531,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.vision.v1.Word buildPartial() {
       com.google.cloud.vision.v1.Word result = new com.google.cloud.vision.v1.Word(this);
-      int from_bitField0_ = bitField0_;
-      if (propertyBuilder_ == null) {
-        result.property_ = property_;
-      } else {
-        result.property_ = propertyBuilder_.build();
-      }
-      if (boundingBoxBuilder_ == null) {
-        result.boundingBox_ = boundingBox_;
-      } else {
-        result.boundingBox_ = boundingBoxBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.vision.v1.Word result) {
       if (symbolsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           symbols_ = java.util.Collections.unmodifiableList(symbols_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.symbols_ = symbols_;
       } else {
         result.symbols_ = symbolsBuilder_.build();
       }
-      result.confidence_ = confidence_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.vision.v1.Word result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.property_ = propertyBuilder_ == null
+            ? property_
+            : propertyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.boundingBox_ = boundingBoxBuilder_ == null
+            ? boundingBox_
+            : boundingBoxBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.confidence_ = confidence_;
+      }
     }
 
     @java.lang.Override
@@ -699,7 +620,7 @@ private static final long serialVersionUID = 0L;
         if (!other.symbols_.isEmpty()) {
           if (symbols_.isEmpty()) {
             symbols_ = other.symbols_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureSymbolsIsMutable();
             symbols_.addAll(other.symbols_);
@@ -712,7 +633,7 @@ private static final long serialVersionUID = 0L;
             symbolsBuilder_.dispose();
             symbolsBuilder_ = null;
             symbols_ = other.symbols_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             symbolsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSymbolsFieldBuilder() : null;
@@ -724,7 +645,7 @@ private static final long serialVersionUID = 0L;
       if (other.getConfidence() != 0F) {
         setConfidence(other.getConfidence());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -739,17 +660,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.vision.v1.Word parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getPropertyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getBoundingBoxFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.vision.v1.Symbol m =
+                  input.readMessage(
+                      com.google.cloud.vision.v1.Symbol.parser(),
+                      extensionRegistry);
+              if (symbolsBuilder_ == null) {
+                ensureSymbolsIsMutable();
+                symbols_.add(m);
+              } else {
+                symbolsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 37: {
+              confidence_ = input.readFloat();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 37
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.vision.v1.Word) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -766,7 +732,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the property field is set.
      */
     public boolean hasProperty() {
-      return propertyBuilder_ != null || property_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -796,11 +762,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         property_ = value;
-        onChanged();
       } else {
         propertyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -814,11 +780,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.vision.v1.TextAnnotation.TextProperty.Builder builderForValue) {
       if (propertyBuilder_ == null) {
         property_ = builderForValue.build();
-        onChanged();
       } else {
         propertyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -830,17 +796,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeProperty(com.google.cloud.vision.v1.TextAnnotation.TextProperty value) {
       if (propertyBuilder_ == null) {
-        if (property_ != null) {
-          property_ =
-            com.google.cloud.vision.v1.TextAnnotation.TextProperty.newBuilder(property_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          property_ != null &&
+          property_ != com.google.cloud.vision.v1.TextAnnotation.TextProperty.getDefaultInstance()) {
+          getPropertyBuilder().mergeFrom(value);
         } else {
           property_ = value;
         }
-        onChanged();
       } else {
         propertyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -851,14 +818,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vision.v1.TextAnnotation.TextProperty property = 1;</code>
      */
     public Builder clearProperty() {
-      if (propertyBuilder_ == null) {
-        property_ = null;
-        onChanged();
-      } else {
-        property_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      property_ = null;
+      if (propertyBuilder_ != null) {
+        propertyBuilder_.dispose();
         propertyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -869,7 +835,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vision.v1.TextAnnotation.TextProperty property = 1;</code>
      */
     public com.google.cloud.vision.v1.TextAnnotation.TextProperty.Builder getPropertyBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getPropertyFieldBuilder().getBuilder();
     }
@@ -935,7 +901,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the boundingBox field is set.
      */
     public boolean hasBoundingBox() {
-      return boundingBoxBuilder_ != null || boundingBox_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -993,11 +959,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         boundingBox_ = value;
-        onChanged();
       } else {
         boundingBoxBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1025,11 +991,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.vision.v1.BoundingPoly.Builder builderForValue) {
       if (boundingBoxBuilder_ == null) {
         boundingBox_ = builderForValue.build();
-        onChanged();
       } else {
         boundingBoxBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1055,17 +1021,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBoundingBox(com.google.cloud.vision.v1.BoundingPoly value) {
       if (boundingBoxBuilder_ == null) {
-        if (boundingBox_ != null) {
-          boundingBox_ =
-            com.google.cloud.vision.v1.BoundingPoly.newBuilder(boundingBox_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          boundingBox_ != null &&
+          boundingBox_ != com.google.cloud.vision.v1.BoundingPoly.getDefaultInstance()) {
+          getBoundingBoxBuilder().mergeFrom(value);
         } else {
           boundingBox_ = value;
         }
-        onChanged();
       } else {
         boundingBoxBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1090,14 +1057,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vision.v1.BoundingPoly bounding_box = 2;</code>
      */
     public Builder clearBoundingBox() {
-      if (boundingBoxBuilder_ == null) {
-        boundingBox_ = null;
-        onChanged();
-      } else {
-        boundingBox_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      boundingBox_ = null;
+      if (boundingBoxBuilder_ != null) {
+        boundingBoxBuilder_.dispose();
         boundingBoxBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1122,7 +1088,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vision.v1.BoundingPoly bounding_box = 2;</code>
      */
     public com.google.cloud.vision.v1.BoundingPoly.Builder getBoundingBoxBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getBoundingBoxFieldBuilder().getBuilder();
     }
@@ -1193,9 +1159,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.vision.v1.Symbol> symbols_ =
       java.util.Collections.emptyList();
     private void ensureSymbolsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         symbols_ = new java.util.ArrayList<com.google.cloud.vision.v1.Symbol>(symbols_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1400,7 +1366,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSymbols() {
       if (symbolsBuilder_ == null) {
         symbols_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         symbolsBuilder_.clear();
@@ -1512,7 +1478,7 @@ private static final long serialVersionUID = 0L;
         symbolsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.vision.v1.Symbol, com.google.cloud.vision.v1.Symbol.Builder, com.google.cloud.vision.v1.SymbolOrBuilder>(
                 symbols_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         symbols_ = null;
@@ -1545,6 +1511,7 @@ private static final long serialVersionUID = 0L;
     public Builder setConfidence(float value) {
       
       confidence_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1557,7 +1524,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConfidence() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       confidence_ = 0F;
       onChanged();
       return this;
@@ -1595,7 +1562,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Word(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

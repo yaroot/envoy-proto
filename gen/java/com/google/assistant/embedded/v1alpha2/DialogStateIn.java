@@ -36,74 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DialogStateIn(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-
-            conversationState_ = input.readBytes();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageCode_ = s;
-            break;
-          }
-          case 42: {
-            com.google.assistant.embedded.v1alpha2.DeviceLocation.Builder subBuilder = null;
-            if (deviceLocation_ != null) {
-              subBuilder = deviceLocation_.toBuilder();
-            }
-            deviceLocation_ = input.readMessage(com.google.assistant.embedded.v1alpha2.DeviceLocation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(deviceLocation_);
-              deviceLocation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 56: {
-
-            isNewConversation_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.assistant.embedded.v1alpha2.AssistantProto.internal_static_google_assistant_embedded_v1alpha2_DialogStateIn_descriptor;
@@ -118,7 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONVERSATION_STATE_FIELD_NUMBER = 1;
-  private com.google.protobuf.ByteString conversationState_;
+  private com.google.protobuf.ByteString conversationState_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * *Required* This field must always be set to the
@@ -138,7 +70,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LANGUAGE_CODE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object languageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageCode_ = "";
   /**
    * <pre>
    * *Required* Language of the request in
@@ -234,11 +167,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.assistant.embedded.v1alpha2.DeviceLocationOrBuilder getDeviceLocationOrBuilder() {
-    return getDeviceLocation();
+    return deviceLocation_ == null ? com.google.assistant.embedded.v1alpha2.DeviceLocation.getDefaultInstance() : deviceLocation_;
   }
 
   public static final int IS_NEW_CONVERSATION_FIELD_NUMBER = 7;
-  private boolean isNewConversation_;
+  private boolean isNewConversation_ = false;
   /**
    * <pre>
    * *Optional* If true, the server will treat the request as a new conversation
@@ -281,7 +214,7 @@ private static final long serialVersionUID = 0L;
     if (isNewConversation_ != false) {
       output.writeBool(7, isNewConversation_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -305,7 +238,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(7, isNewConversation_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -331,7 +264,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getIsNewConversation()
         != other.getIsNewConversation()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -353,7 +286,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + IS_NEW_CONVERSATION_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getIsNewConversation());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -474,34 +407,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.assistant.embedded.v1alpha2.DialogStateIn.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       conversationState_ = com.google.protobuf.ByteString.EMPTY;
-
       languageCode_ = "";
-
-      if (deviceLocationBuilder_ == null) {
-        deviceLocation_ = null;
-      } else {
-        deviceLocation_ = null;
+      deviceLocation_ = null;
+      if (deviceLocationBuilder_ != null) {
+        deviceLocationBuilder_.dispose();
         deviceLocationBuilder_ = null;
       }
       isNewConversation_ = false;
-
       return this;
     }
 
@@ -528,16 +453,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.assistant.embedded.v1alpha2.DialogStateIn buildPartial() {
       com.google.assistant.embedded.v1alpha2.DialogStateIn result = new com.google.assistant.embedded.v1alpha2.DialogStateIn(this);
-      result.conversationState_ = conversationState_;
-      result.languageCode_ = languageCode_;
-      if (deviceLocationBuilder_ == null) {
-        result.deviceLocation_ = deviceLocation_;
-      } else {
-        result.deviceLocation_ = deviceLocationBuilder_.build();
-      }
-      result.isNewConversation_ = isNewConversation_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.assistant.embedded.v1alpha2.DialogStateIn result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.conversationState_ = conversationState_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.languageCode_ = languageCode_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.deviceLocation_ = deviceLocationBuilder_ == null
+            ? deviceLocation_
+            : deviceLocationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.isNewConversation_ = isNewConversation_;
+      }
     }
 
     @java.lang.Override
@@ -589,6 +525,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLanguageCode().isEmpty()) {
         languageCode_ = other.languageCode_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasDeviceLocation()) {
@@ -597,7 +534,7 @@ private static final long serialVersionUID = 0L;
       if (other.getIsNewConversation() != false) {
         setIsNewConversation(other.getIsNewConversation());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -612,19 +549,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.assistant.embedded.v1alpha2.DialogStateIn parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              conversationState_ = input.readBytes();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              languageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 42: {
+              input.readMessage(
+                  getDeviceLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            case 56: {
+              isNewConversation_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 56
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.assistant.embedded.v1alpha2.DialogStateIn) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.ByteString conversationState_ = com.google.protobuf.ByteString.EMPTY;
     /**
@@ -659,11 +632,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setConversationState(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       conversationState_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -681,7 +652,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConversationState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       conversationState_ = getDefaultInstance().getConversationState();
       onChanged();
       return this;
@@ -764,11 +735,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageCode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -789,8 +758,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguageCode() {
-      
       languageCode_ = getDefaultInstance().getLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -813,12 +782,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageCode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -835,7 +802,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the deviceLocation field is set.
      */
     public boolean hasDeviceLocation() {
-      return deviceLocationBuilder_ != null || deviceLocation_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -865,11 +832,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         deviceLocation_ = value;
-        onChanged();
       } else {
         deviceLocationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -883,11 +850,11 @@ private static final long serialVersionUID = 0L;
         com.google.assistant.embedded.v1alpha2.DeviceLocation.Builder builderForValue) {
       if (deviceLocationBuilder_ == null) {
         deviceLocation_ = builderForValue.build();
-        onChanged();
       } else {
         deviceLocationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -899,17 +866,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDeviceLocation(com.google.assistant.embedded.v1alpha2.DeviceLocation value) {
       if (deviceLocationBuilder_ == null) {
-        if (deviceLocation_ != null) {
-          deviceLocation_ =
-            com.google.assistant.embedded.v1alpha2.DeviceLocation.newBuilder(deviceLocation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          deviceLocation_ != null &&
+          deviceLocation_ != com.google.assistant.embedded.v1alpha2.DeviceLocation.getDefaultInstance()) {
+          getDeviceLocationBuilder().mergeFrom(value);
         } else {
           deviceLocation_ = value;
         }
-        onChanged();
       } else {
         deviceLocationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -920,14 +888,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.DeviceLocation device_location = 5;</code>
      */
     public Builder clearDeviceLocation() {
-      if (deviceLocationBuilder_ == null) {
-        deviceLocation_ = null;
-        onChanged();
-      } else {
-        deviceLocation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      deviceLocation_ = null;
+      if (deviceLocationBuilder_ != null) {
+        deviceLocationBuilder_.dispose();
         deviceLocationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -938,7 +905,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.DeviceLocation device_location = 5;</code>
      */
     public com.google.assistant.embedded.v1alpha2.DeviceLocation.Builder getDeviceLocationBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDeviceLocationFieldBuilder().getBuilder();
     }
@@ -1009,6 +976,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIsNewConversation(boolean value) {
       
       isNewConversation_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1024,7 +992,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIsNewConversation() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       isNewConversation_ = false;
       onChanged();
       return this;
@@ -1062,7 +1030,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DialogStateIn(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

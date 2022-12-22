@@ -5,8 +5,8 @@ package com.google.cloud.documentai.v1beta3;
 
 /**
  * <pre>
- * The first-class citizen for DocumentAI. Each processor defines how to extract
- * structural information from a document.
+ * The first-class citizen for Document AI. Each processor defines how to
+ * extract structural information from a document.
  * </pre>
  *
  * Protobuf type {@code google.cloud.documentai.v1beta3.Processor}
@@ -42,100 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Processor(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            type_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            processEndpoint_ = s;
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kmsKeyName_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            defaultProcessorVersion_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.documentai.v1beta3.DocumentAiProcessor.internal_static_google_cloud_documentai_v1beta3_Processor_descriptor;
@@ -168,7 +74,9 @@ private static final long serialVersionUID = 0L;
     STATE_UNSPECIFIED(0),
     /**
      * <pre>
-     * The processor is enabled.
+     * The processor is enabled, i.e., has an enabled version which can
+     * currently serve processing requests and all the feature dependencies have
+     * been successfully initialized.
      * </pre>
      *
      * <code>ENABLED = 1;</code>
@@ -184,7 +92,7 @@ private static final long serialVersionUID = 0L;
     DISABLED(2),
     /**
      * <pre>
-     * The processor is being enabled, will become ENABLED if successful.
+     * The processor is being enabled, will become `ENABLED` if successful.
      * </pre>
      *
      * <code>ENABLING = 3;</code>
@@ -192,7 +100,7 @@ private static final long serialVersionUID = 0L;
     ENABLING(3),
     /**
      * <pre>
-     * The processor is being disabled, will become DISABLED if successful.
+     * The processor is being disabled, will become `DISABLED` if successful.
      * </pre>
      *
      * <code>DISABLING = 4;</code>
@@ -200,7 +108,11 @@ private static final long serialVersionUID = 0L;
     DISABLING(4),
     /**
      * <pre>
-     * The processor is being created.
+     * The processor is being created, will become either `ENABLED` (for
+     * successful creation) or `FAILED` (for failed ones).
+     * Once a processor is in this state, it can then be used for document
+     * processing, but the feature dependencies of the processor might not be
+     * fully created yet.
      * </pre>
      *
      * <code>CREATING = 5;</code>
@@ -208,7 +120,9 @@ private static final long serialVersionUID = 0L;
     CREATING(5),
     /**
      * <pre>
-     * The processor failed during creation.
+     * The processor failed during creation or initialization of feature
+     * dependencies. The user should delete the processor and recreate one as
+     * all the functionalities of the processor are disabled.
      * </pre>
      *
      * <code>FAILED = 6;</code>
@@ -235,7 +149,9 @@ private static final long serialVersionUID = 0L;
     public static final int STATE_UNSPECIFIED_VALUE = 0;
     /**
      * <pre>
-     * The processor is enabled.
+     * The processor is enabled, i.e., has an enabled version which can
+     * currently serve processing requests and all the feature dependencies have
+     * been successfully initialized.
      * </pre>
      *
      * <code>ENABLED = 1;</code>
@@ -251,7 +167,7 @@ private static final long serialVersionUID = 0L;
     public static final int DISABLED_VALUE = 2;
     /**
      * <pre>
-     * The processor is being enabled, will become ENABLED if successful.
+     * The processor is being enabled, will become `ENABLED` if successful.
      * </pre>
      *
      * <code>ENABLING = 3;</code>
@@ -259,7 +175,7 @@ private static final long serialVersionUID = 0L;
     public static final int ENABLING_VALUE = 3;
     /**
      * <pre>
-     * The processor is being disabled, will become DISABLED if successful.
+     * The processor is being disabled, will become `DISABLED` if successful.
      * </pre>
      *
      * <code>DISABLING = 4;</code>
@@ -267,7 +183,11 @@ private static final long serialVersionUID = 0L;
     public static final int DISABLING_VALUE = 4;
     /**
      * <pre>
-     * The processor is being created.
+     * The processor is being created, will become either `ENABLED` (for
+     * successful creation) or `FAILED` (for failed ones).
+     * Once a processor is in this state, it can then be used for document
+     * processing, but the feature dependencies of the processor might not be
+     * fully created yet.
      * </pre>
      *
      * <code>CREATING = 5;</code>
@@ -275,7 +195,9 @@ private static final long serialVersionUID = 0L;
     public static final int CREATING_VALUE = 5;
     /**
      * <pre>
-     * The processor failed during creation.
+     * The processor failed during creation or initialization of feature
+     * dependencies. The user should delete the processor and recreate one as
+     * all the functionalities of the processor are disabled.
      * </pre>
      *
      * <code>FAILED = 6;</code>
@@ -380,11 +302,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. Immutable. The resource name of the processor.
-   * Format: projects/{project}/locations/{location}/processors/{processor}
+   * Format: `projects/{project}/locations/{location}/processors/{processor}`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -406,7 +329,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Output only. Immutable. The resource name of the processor.
-   * Format: projects/{project}/locations/{location}/processors/{processor}
+   * Format: `projects/{project}/locations/{location}/processors/{processor}`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -428,10 +351,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object type_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object type_ = "";
   /**
    * <pre>
-   * The processor type.
+   * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
+   * To get a list of processors types, see
+   * [FetchProcessorTypes][google.cloud.documentai.v1beta3.DocumentProcessorService.FetchProcessorTypes].
    * </pre>
    *
    * <code>string type = 2;</code>
@@ -452,7 +378,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The processor type.
+   * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
+   * To get a list of processors types, see
+   * [FetchProcessorTypes][google.cloud.documentai.v1beta3.DocumentProcessorService.FetchProcessorTypes].
    * </pre>
    *
    * <code>string type = 2;</code>
@@ -474,7 +402,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * The display name of the processor.
@@ -520,7 +449,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 4;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The state of the processor.
@@ -541,19 +470,19 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.documentai.v1beta3.Processor.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.documentai.v1beta3.Processor.State result = com.google.cloud.documentai.v1beta3.Processor.State.valueOf(state_);
+    com.google.cloud.documentai.v1beta3.Processor.State result = com.google.cloud.documentai.v1beta3.Processor.State.forNumber(state_);
     return result == null ? com.google.cloud.documentai.v1beta3.Processor.State.UNRECOGNIZED : result;
   }
 
   public static final int DEFAULT_PROCESSOR_VERSION_FIELD_NUMBER = 9;
-  private volatile java.lang.Object defaultProcessorVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object defaultProcessorVersion_ = "";
   /**
    * <pre>
    * The default processor version.
    * </pre>
    *
-   * <code>string default_processor_version = 9;</code>
+   * <code>string default_processor_version = 9 [(.google.api.resource_reference) = { ... }</code>
    * @return The defaultProcessorVersion.
    */
   @java.lang.Override
@@ -574,7 +503,7 @@ private static final long serialVersionUID = 0L;
    * The default processor version.
    * </pre>
    *
-   * <code>string default_processor_version = 9;</code>
+   * <code>string default_processor_version = 9 [(.google.api.resource_reference) = { ... }</code>
    * @return The bytes for defaultProcessorVersion.
    */
   @java.lang.Override
@@ -593,10 +522,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROCESS_ENDPOINT_FIELD_NUMBER = 6;
-  private volatile java.lang.Object processEndpoint_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object processEndpoint_ = "";
   /**
    * <pre>
-   * Output only. Immutable. The http endpoint that can be called to invoke processing.
+   * Output only. Immutable. The http endpoint that can be called to invoke
+   * processing.
    * </pre>
    *
    * <code>string process_endpoint = 6 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -617,7 +548,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. Immutable. The http endpoint that can be called to invoke processing.
+   * Output only. Immutable. The http endpoint that can be called to invoke
+   * processing.
    * </pre>
    *
    * <code>string process_endpoint = 6 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -673,11 +605,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int KMS_KEY_NAME_FIELD_NUMBER = 8;
-  private volatile java.lang.Object kmsKeyName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kmsKeyName_ = "";
   /**
    * <pre>
    * The KMS key used for encryption/decryption in CMEK scenarios.
@@ -762,7 +695,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultProcessorVersion_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, defaultProcessorVersion_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -797,7 +730,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(defaultProcessorVersion_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, defaultProcessorVersion_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -830,7 +763,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getKmsKeyName()
         .equals(other.getKmsKeyName())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -859,7 +792,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + KMS_KEY_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getKmsKeyName().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -956,8 +889,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The first-class citizen for DocumentAI. Each processor defines how to extract
-   * structural information from a document.
+   * The first-class citizen for Document AI. Each processor defines how to
+   * extract structural information from a document.
    * </pre>
    *
    * Protobuf type {@code google.cloud.documentai.v1beta3.Processor}
@@ -981,42 +914,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.documentai.v1beta3.Processor.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       type_ = "";
-
       displayName_ = "";
-
       state_ = 0;
-
       defaultProcessorVersion_ = "";
-
       processEndpoint_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
       kmsKeyName_ = "";
-
       return this;
     }
 
@@ -1043,20 +964,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.documentai.v1beta3.Processor buildPartial() {
       com.google.cloud.documentai.v1beta3.Processor result = new com.google.cloud.documentai.v1beta3.Processor(this);
-      result.name_ = name_;
-      result.type_ = type_;
-      result.displayName_ = displayName_;
-      result.state_ = state_;
-      result.defaultProcessorVersion_ = defaultProcessorVersion_;
-      result.processEndpoint_ = processEndpoint_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      result.kmsKeyName_ = kmsKeyName_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.documentai.v1beta3.Processor result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.defaultProcessorVersion_ = defaultProcessorVersion_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.processEndpoint_ = processEndpoint_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.kmsKeyName_ = kmsKeyName_;
+      }
     }
 
     @java.lang.Override
@@ -1105,14 +1045,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.documentai.v1beta3.Processor.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getType().isEmpty()) {
         type_ = other.type_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -1120,10 +1063,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDefaultProcessorVersion().isEmpty()) {
         defaultProcessorVersion_ = other.defaultProcessorVersion_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getProcessEndpoint().isEmpty()) {
         processEndpoint_ = other.processEndpoint_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -1131,9 +1076,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getKmsKeyName().isEmpty()) {
         kmsKeyName_ = other.kmsKeyName_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1148,25 +1094,81 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.documentai.v1beta3.Processor parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              type_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 50: {
+              processEndpoint_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              kmsKeyName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              defaultProcessorVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.documentai.v1beta3.Processor) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
      * <pre>
      * Output only. Immutable. The resource name of the processor.
-     * Format: projects/{project}/locations/{location}/processors/{processor}
+     * Format: `projects/{project}/locations/{location}/processors/{processor}`
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1187,7 +1189,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. Immutable. The resource name of the processor.
-     * Format: projects/{project}/locations/{location}/processors/{processor}
+     * Format: `projects/{project}/locations/{location}/processors/{processor}`
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1209,7 +1211,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. Immutable. The resource name of the processor.
-     * Format: projects/{project}/locations/{location}/processors/{processor}
+     * Format: `projects/{project}/locations/{location}/processors/{processor}`
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1218,33 +1220,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Output only. Immutable. The resource name of the processor.
-     * Format: projects/{project}/locations/{location}/processors/{processor}
+     * Format: `projects/{project}/locations/{location}/processors/{processor}`
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Output only. Immutable. The resource name of the processor.
-     * Format: projects/{project}/locations/{location}/processors/{processor}
+     * Format: `projects/{project}/locations/{location}/processors/{processor}`
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1253,12 +1253,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1266,7 +1264,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object type_ = "";
     /**
      * <pre>
-     * The processor type.
+     * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
+     * To get a list of processors types, see
+     * [FetchProcessorTypes][google.cloud.documentai.v1beta3.DocumentProcessorService.FetchProcessorTypes].
      * </pre>
      *
      * <code>string type = 2;</code>
@@ -1286,7 +1286,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The processor type.
+     * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
+     * To get a list of processors types, see
+     * [FetchProcessorTypes][google.cloud.documentai.v1beta3.DocumentProcessorService.FetchProcessorTypes].
      * </pre>
      *
      * <code>string type = 2;</code>
@@ -1307,7 +1309,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The processor type.
+     * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
+     * To get a list of processors types, see
+     * [FetchProcessorTypes][google.cloud.documentai.v1beta3.DocumentProcessorService.FetchProcessorTypes].
      * </pre>
      *
      * <code>string type = 2;</code>
@@ -1316,31 +1320,33 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       type_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The processor type.
+     * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
+     * To get a list of processors types, see
+     * [FetchProcessorTypes][google.cloud.documentai.v1beta3.DocumentProcessorService.FetchProcessorTypes].
      * </pre>
      *
      * <code>string type = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
       type_ = getDefaultInstance().getType();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The processor type.
+     * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
+     * To get a list of processors types, see
+     * [FetchProcessorTypes][google.cloud.documentai.v1beta3.DocumentProcessorService.FetchProcessorTypes].
      * </pre>
      *
      * <code>string type = 2;</code>
@@ -1349,12 +1355,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       type_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1412,11 +1416,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1429,8 +1431,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1445,12 +1447,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1477,8 +1477,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1492,8 +1492,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.documentai.v1beta3.Processor.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.documentai.v1beta3.Processor.State result = com.google.cloud.documentai.v1beta3.Processor.State.valueOf(state_);
+      com.google.cloud.documentai.v1beta3.Processor.State result = com.google.cloud.documentai.v1beta3.Processor.State.forNumber(state_);
       return result == null ? com.google.cloud.documentai.v1beta3.Processor.State.UNRECOGNIZED : result;
     }
     /**
@@ -1509,7 +1508,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -1523,7 +1522,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       state_ = 0;
       onChanged();
       return this;
@@ -1535,7 +1534,7 @@ private static final long serialVersionUID = 0L;
      * The default processor version.
      * </pre>
      *
-     * <code>string default_processor_version = 9;</code>
+     * <code>string default_processor_version = 9 [(.google.api.resource_reference) = { ... }</code>
      * @return The defaultProcessorVersion.
      */
     public java.lang.String getDefaultProcessorVersion() {
@@ -1555,7 +1554,7 @@ private static final long serialVersionUID = 0L;
      * The default processor version.
      * </pre>
      *
-     * <code>string default_processor_version = 9;</code>
+     * <code>string default_processor_version = 9 [(.google.api.resource_reference) = { ... }</code>
      * @return The bytes for defaultProcessorVersion.
      */
     public com.google.protobuf.ByteString
@@ -1576,17 +1575,15 @@ private static final long serialVersionUID = 0L;
      * The default processor version.
      * </pre>
      *
-     * <code>string default_processor_version = 9;</code>
+     * <code>string default_processor_version = 9 [(.google.api.resource_reference) = { ... }</code>
      * @param value The defaultProcessorVersion to set.
      * @return This builder for chaining.
      */
     public Builder setDefaultProcessorVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       defaultProcessorVersion_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1595,12 +1592,12 @@ private static final long serialVersionUID = 0L;
      * The default processor version.
      * </pre>
      *
-     * <code>string default_processor_version = 9;</code>
+     * <code>string default_processor_version = 9 [(.google.api.resource_reference) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearDefaultProcessorVersion() {
-      
       defaultProcessorVersion_ = getDefaultInstance().getDefaultProcessorVersion();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1609,18 +1606,16 @@ private static final long serialVersionUID = 0L;
      * The default processor version.
      * </pre>
      *
-     * <code>string default_processor_version = 9;</code>
+     * <code>string default_processor_version = 9 [(.google.api.resource_reference) = { ... }</code>
      * @param value The bytes for defaultProcessorVersion to set.
      * @return This builder for chaining.
      */
     public Builder setDefaultProcessorVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       defaultProcessorVersion_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1628,7 +1623,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object processEndpoint_ = "";
     /**
      * <pre>
-     * Output only. Immutable. The http endpoint that can be called to invoke processing.
+     * Output only. Immutable. The http endpoint that can be called to invoke
+     * processing.
      * </pre>
      *
      * <code>string process_endpoint = 6 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1648,7 +1644,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Immutable. The http endpoint that can be called to invoke processing.
+     * Output only. Immutable. The http endpoint that can be called to invoke
+     * processing.
      * </pre>
      *
      * <code>string process_endpoint = 6 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1669,7 +1666,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Immutable. The http endpoint that can be called to invoke processing.
+     * Output only. Immutable. The http endpoint that can be called to invoke
+     * processing.
      * </pre>
      *
      * <code>string process_endpoint = 6 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1678,31 +1676,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProcessEndpoint(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       processEndpoint_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. Immutable. The http endpoint that can be called to invoke processing.
+     * Output only. Immutable. The http endpoint that can be called to invoke
+     * processing.
      * </pre>
      *
      * <code>string process_endpoint = 6 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
      * @return This builder for chaining.
      */
     public Builder clearProcessEndpoint() {
-      
       processEndpoint_ = getDefaultInstance().getProcessEndpoint();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. Immutable. The http endpoint that can be called to invoke processing.
+     * Output only. Immutable. The http endpoint that can be called to invoke
+     * processing.
      * </pre>
      *
      * <code>string process_endpoint = 6 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1711,12 +1709,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProcessEndpointBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       processEndpoint_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1733,7 +1729,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1763,11 +1759,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1781,11 +1777,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1797,17 +1793,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1818,14 +1815,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 7;</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1836,7 +1832,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 7;</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -1932,11 +1928,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKeyName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kmsKeyName_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1950,8 +1944,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKmsKeyName() {
-      
       kmsKeyName_ = getDefaultInstance().getKmsKeyName();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -1967,12 +1961,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKeyNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kmsKeyName_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2009,7 +2001,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Processor(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

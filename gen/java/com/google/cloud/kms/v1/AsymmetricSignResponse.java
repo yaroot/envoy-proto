@@ -38,85 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AsymmetricSignResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-
-            signature_ = input.readBytes();
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Int64Value.Builder subBuilder = null;
-            if (signatureCrc32C_ != null) {
-              subBuilder = signatureCrc32C_.toBuilder();
-            }
-            signatureCrc32C_ = input.readMessage(com.google.protobuf.Int64Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(signatureCrc32C_);
-              signatureCrc32C_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-
-            verifiedDigestCrc32C_ = input.readBool();
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 40: {
-
-            verifiedDataCrc32C_ = input.readBool();
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            protectionLevel_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.kms.v1.KmsProto.internal_static_google_cloud_kms_v1_AsymmetricSignResponse_descriptor;
@@ -131,7 +52,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SIGNATURE_FIELD_NUMBER = 1;
-  private com.google.protobuf.ByteString signature_;
+  private com.google.protobuf.ByteString signature_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * The created signature.
@@ -216,11 +137,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int64ValueOrBuilder getSignatureCrc32COrBuilder() {
-    return getSignatureCrc32C();
+    return signatureCrc32C_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : signatureCrc32C_;
   }
 
   public static final int VERIFIED_DIGEST_CRC32C_FIELD_NUMBER = 3;
-  private boolean verifiedDigestCrc32C_;
+  private boolean verifiedDigestCrc32C_ = false;
   /**
    * <pre>
    * Integrity verification field. A flag indicating whether
@@ -248,7 +169,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 4;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The resource name of the
@@ -298,7 +220,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERIFIED_DATA_CRC32C_FIELD_NUMBER = 5;
-  private boolean verifiedDataCrc32C_;
+  private boolean verifiedDataCrc32C_ = false;
   /**
    * <pre>
    * Integrity verification field. A flag indicating whether
@@ -326,7 +248,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROTECTION_LEVEL_FIELD_NUMBER = 6;
-  private int protectionLevel_;
+  private int protectionLevel_ = 0;
   /**
    * <pre>
    * The [ProtectionLevel][google.cloud.kms.v1.ProtectionLevel] of the
@@ -349,8 +271,7 @@ private static final long serialVersionUID = 0L;
    * @return The protectionLevel.
    */
   @java.lang.Override public com.google.cloud.kms.v1.ProtectionLevel getProtectionLevel() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.kms.v1.ProtectionLevel result = com.google.cloud.kms.v1.ProtectionLevel.valueOf(protectionLevel_);
+    com.google.cloud.kms.v1.ProtectionLevel result = com.google.cloud.kms.v1.ProtectionLevel.forNumber(protectionLevel_);
     return result == null ? com.google.cloud.kms.v1.ProtectionLevel.UNRECOGNIZED : result;
   }
 
@@ -386,7 +307,7 @@ private static final long serialVersionUID = 0L;
     if (protectionLevel_ != com.google.cloud.kms.v1.ProtectionLevel.PROTECTION_LEVEL_UNSPECIFIED.getNumber()) {
       output.writeEnum(6, protectionLevel_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -418,7 +339,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(6, protectionLevel_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -447,7 +368,7 @@ private static final long serialVersionUID = 0L;
     if (getVerifiedDataCrc32C()
         != other.getVerifiedDataCrc32C()) return false;
     if (protectionLevel_ != other.protectionLevel_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -474,7 +395,7 @@ private static final long serialVersionUID = 0L;
         getVerifiedDataCrc32C());
     hash = (37 * hash) + PROTECTION_LEVEL_FIELD_NUMBER;
     hash = (53 * hash) + protectionLevel_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -596,38 +517,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.kms.v1.AsymmetricSignResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       signature_ = com.google.protobuf.ByteString.EMPTY;
-
-      if (signatureCrc32CBuilder_ == null) {
-        signatureCrc32C_ = null;
-      } else {
-        signatureCrc32C_ = null;
+      signatureCrc32C_ = null;
+      if (signatureCrc32CBuilder_ != null) {
+        signatureCrc32CBuilder_.dispose();
         signatureCrc32CBuilder_ = null;
       }
       verifiedDigestCrc32C_ = false;
-
       name_ = "";
-
       verifiedDataCrc32C_ = false;
-
       protectionLevel_ = 0;
-
       return this;
     }
 
@@ -654,18 +565,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.kms.v1.AsymmetricSignResponse buildPartial() {
       com.google.cloud.kms.v1.AsymmetricSignResponse result = new com.google.cloud.kms.v1.AsymmetricSignResponse(this);
-      result.signature_ = signature_;
-      if (signatureCrc32CBuilder_ == null) {
-        result.signatureCrc32C_ = signatureCrc32C_;
-      } else {
-        result.signatureCrc32C_ = signatureCrc32CBuilder_.build();
-      }
-      result.verifiedDigestCrc32C_ = verifiedDigestCrc32C_;
-      result.name_ = name_;
-      result.verifiedDataCrc32C_ = verifiedDataCrc32C_;
-      result.protectionLevel_ = protectionLevel_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.kms.v1.AsymmetricSignResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.signature_ = signature_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.signatureCrc32C_ = signatureCrc32CBuilder_ == null
+            ? signatureCrc32C_
+            : signatureCrc32CBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.verifiedDigestCrc32C_ = verifiedDigestCrc32C_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.verifiedDataCrc32C_ = verifiedDataCrc32C_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.protectionLevel_ = protectionLevel_;
+      }
     }
 
     @java.lang.Override
@@ -723,6 +649,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.getVerifiedDataCrc32C() != false) {
@@ -731,7 +658,7 @@ private static final long serialVersionUID = 0L;
       if (other.protectionLevel_ != 0) {
         setProtectionLevelValue(other.getProtectionLevelValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -746,19 +673,65 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.kms.v1.AsymmetricSignResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              signature_ = input.readBytes();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getSignatureCrc32CFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              verifiedDigestCrc32C_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              verifiedDataCrc32C_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              protectionLevel_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.kms.v1.AsymmetricSignResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.ByteString signature_ = com.google.protobuf.ByteString.EMPTY;
     /**
@@ -783,11 +756,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSignature(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       signature_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -800,7 +771,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSignature() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       signature_ = getDefaultInstance().getSignature();
       onChanged();
       return this;
@@ -830,7 +801,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the signatureCrc32c field is set.
      */
     public boolean hasSignatureCrc32C() {
-      return signatureCrc32CBuilder_ != null || signatureCrc32C_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -884,11 +855,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         signatureCrc32C_ = value;
-        onChanged();
       } else {
         signatureCrc32CBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -914,11 +885,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int64Value.Builder builderForValue) {
       if (signatureCrc32CBuilder_ == null) {
         signatureCrc32C_ = builderForValue.build();
-        onChanged();
       } else {
         signatureCrc32CBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -942,17 +913,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSignatureCrc32C(com.google.protobuf.Int64Value value) {
       if (signatureCrc32CBuilder_ == null) {
-        if (signatureCrc32C_ != null) {
-          signatureCrc32C_ =
-            com.google.protobuf.Int64Value.newBuilder(signatureCrc32C_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          signatureCrc32C_ != null &&
+          signatureCrc32C_ != com.google.protobuf.Int64Value.getDefaultInstance()) {
+          getSignatureCrc32CBuilder().mergeFrom(value);
         } else {
           signatureCrc32C_ = value;
         }
-        onChanged();
       } else {
         signatureCrc32CBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -975,14 +947,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int64Value signature_crc32c = 2;</code>
      */
     public Builder clearSignatureCrc32C() {
-      if (signatureCrc32CBuilder_ == null) {
-        signatureCrc32C_ = null;
-        onChanged();
-      } else {
-        signatureCrc32C_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      signatureCrc32C_ = null;
+      if (signatureCrc32CBuilder_ != null) {
+        signatureCrc32CBuilder_.dispose();
         signatureCrc32CBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1005,7 +976,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int64Value signature_crc32c = 2;</code>
      */
     public com.google.protobuf.Int64Value.Builder getSignatureCrc32CBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getSignatureCrc32CFieldBuilder().getBuilder();
     }
@@ -1120,6 +1091,7 @@ private static final long serialVersionUID = 0L;
     public Builder setVerifiedDigestCrc32C(boolean value) {
       
       verifiedDigestCrc32C_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1145,7 +1117,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVerifiedDigestCrc32C() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       verifiedDigestCrc32C_ = false;
       onChanged();
       return this;
@@ -1210,11 +1182,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1229,8 +1199,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1247,12 +1217,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1308,6 +1276,7 @@ private static final long serialVersionUID = 0L;
     public Builder setVerifiedDataCrc32C(boolean value) {
       
       verifiedDataCrc32C_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1333,7 +1302,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVerifiedDataCrc32C() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       verifiedDataCrc32C_ = false;
       onChanged();
       return this;
@@ -1363,8 +1332,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setProtectionLevelValue(int value) {
-      
       protectionLevel_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1379,8 +1348,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.kms.v1.ProtectionLevel getProtectionLevel() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.kms.v1.ProtectionLevel result = com.google.cloud.kms.v1.ProtectionLevel.valueOf(protectionLevel_);
+      com.google.cloud.kms.v1.ProtectionLevel result = com.google.cloud.kms.v1.ProtectionLevel.forNumber(protectionLevel_);
       return result == null ? com.google.cloud.kms.v1.ProtectionLevel.UNRECOGNIZED : result;
     }
     /**
@@ -1397,7 +1365,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       protectionLevel_ = value.getNumber();
       onChanged();
       return this;
@@ -1412,7 +1380,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProtectionLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       protectionLevel_ = 0;
       onChanged();
       return this;
@@ -1450,7 +1418,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AsymmetricSignResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

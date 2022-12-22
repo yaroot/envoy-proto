@@ -32,6 +32,7 @@ public interface PublishChannelConnectionEventsRequestOrBuilder extends
   /**
    * <pre>
    * The CloudEvents v1.0 events to publish. No other types are allowed.
+   * If this field is set, then the `text_events` fields must not be set.
    * </pre>
    *
    * <code>repeated .google.protobuf.Any events = 2;</code>
@@ -41,6 +42,7 @@ public interface PublishChannelConnectionEventsRequestOrBuilder extends
   /**
    * <pre>
    * The CloudEvents v1.0 events to publish. No other types are allowed.
+   * If this field is set, then the `text_events` fields must not be set.
    * </pre>
    *
    * <code>repeated .google.protobuf.Any events = 2;</code>
@@ -49,6 +51,7 @@ public interface PublishChannelConnectionEventsRequestOrBuilder extends
   /**
    * <pre>
    * The CloudEvents v1.0 events to publish. No other types are allowed.
+   * If this field is set, then the `text_events` fields must not be set.
    * </pre>
    *
    * <code>repeated .google.protobuf.Any events = 2;</code>
@@ -57,6 +60,7 @@ public interface PublishChannelConnectionEventsRequestOrBuilder extends
   /**
    * <pre>
    * The CloudEvents v1.0 events to publish. No other types are allowed.
+   * If this field is set, then the `text_events` fields must not be set.
    * </pre>
    *
    * <code>repeated .google.protobuf.Any events = 2;</code>
@@ -66,10 +70,68 @@ public interface PublishChannelConnectionEventsRequestOrBuilder extends
   /**
    * <pre>
    * The CloudEvents v1.0 events to publish. No other types are allowed.
+   * If this field is set, then the `text_events` fields must not be set.
    * </pre>
    *
    * <code>repeated .google.protobuf.Any events = 2;</code>
    */
   com.google.protobuf.AnyOrBuilder getEventsOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * The text representation of events to publish.
+   * CloudEvent v1.0 in JSON format is the only allowed type. Refer to
+   * https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md
+   * for specification.
+   * If this field is set, then the `events` fields must not be set.
+   * </pre>
+   *
+   * <code>repeated string text_events = 3;</code>
+   * @return A list containing the textEvents.
+   */
+  java.util.List<java.lang.String>
+      getTextEventsList();
+  /**
+   * <pre>
+   * The text representation of events to publish.
+   * CloudEvent v1.0 in JSON format is the only allowed type. Refer to
+   * https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md
+   * for specification.
+   * If this field is set, then the `events` fields must not be set.
+   * </pre>
+   *
+   * <code>repeated string text_events = 3;</code>
+   * @return The count of textEvents.
+   */
+  int getTextEventsCount();
+  /**
+   * <pre>
+   * The text representation of events to publish.
+   * CloudEvent v1.0 in JSON format is the only allowed type. Refer to
+   * https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md
+   * for specification.
+   * If this field is set, then the `events` fields must not be set.
+   * </pre>
+   *
+   * <code>repeated string text_events = 3;</code>
+   * @param index The index of the element to return.
+   * @return The textEvents at the given index.
+   */
+  java.lang.String getTextEvents(int index);
+  /**
+   * <pre>
+   * The text representation of events to publish.
+   * CloudEvent v1.0 in JSON format is the only allowed type. Refer to
+   * https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md
+   * for specification.
+   * If this field is set, then the `events` fields must not be set.
+   * </pre>
+   *
+   * <code>repeated string text_events = 3;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the textEvents at the given index.
+   */
+  com.google.protobuf.ByteString
+      getTextEventsBytes(int index);
 }

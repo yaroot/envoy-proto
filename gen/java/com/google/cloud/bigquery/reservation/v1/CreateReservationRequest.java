@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateReservationRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            reservationId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.bigquery.reservation.v1.Reservation.Builder subBuilder = null;
-            if (reservation_ != null) {
-              subBuilder = reservation_.toBuilder();
-            }
-            reservation_ = input.readMessage(com.google.cloud.bigquery.reservation.v1.Reservation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(reservation_);
-              reservation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.reservation.v1.ReservationProto.internal_static_google_cloud_bigquery_reservation_v1_CreateReservationRequest_descriptor;
@@ -114,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. Project, location. E.g.,
@@ -162,7 +99,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESERVATION_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object reservationId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object reservationId_ = "";
   /**
    * <pre>
    * The reservation ID. It must only contain lower case alphanumeric
@@ -246,7 +184,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.reservation.v1.ReservationOrBuilder getReservationOrBuilder() {
-    return getReservation();
+    return reservation_ == null ? com.google.cloud.bigquery.reservation.v1.Reservation.getDefaultInstance() : reservation_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -272,7 +210,7 @@ private static final long serialVersionUID = 0L;
     if (reservation_ != null) {
       output.writeMessage(3, getReservation());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -291,7 +229,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getReservation());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -315,7 +253,7 @@ private static final long serialVersionUID = 0L;
       if (!getReservation()
           .equals(other.getReservation())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -334,7 +272,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RESERVATION_FIELD_NUMBER;
       hash = (53 * hash) + getReservation().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -455,30 +393,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.reservation.v1.CreateReservationRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       reservationId_ = "";
-
-      if (reservationBuilder_ == null) {
-        reservation_ = null;
-      } else {
-        reservation_ = null;
+      reservation_ = null;
+      if (reservationBuilder_ != null) {
+        reservationBuilder_.dispose();
         reservationBuilder_ = null;
       }
       return this;
@@ -507,15 +438,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.reservation.v1.CreateReservationRequest buildPartial() {
       com.google.cloud.bigquery.reservation.v1.CreateReservationRequest result = new com.google.cloud.bigquery.reservation.v1.CreateReservationRequest(this);
-      result.parent_ = parent_;
-      result.reservationId_ = reservationId_;
-      if (reservationBuilder_ == null) {
-        result.reservation_ = reservation_;
-      } else {
-        result.reservation_ = reservationBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.reservation.v1.CreateReservationRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.reservationId_ = reservationId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.reservation_ = reservationBuilder_ == null
+            ? reservation_
+            : reservationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -564,16 +504,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.bigquery.reservation.v1.CreateReservationRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getReservationId().isEmpty()) {
         reservationId_ = other.reservationId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasReservation()) {
         mergeReservation(other.getReservation());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -588,19 +530,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.reservation.v1.CreateReservationRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              reservationId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getReservationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.reservation.v1.CreateReservationRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -658,11 +631,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -676,8 +647,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -693,12 +664,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -762,11 +731,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReservationId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       reservationId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -781,8 +748,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReservationId() {
-      
       reservationId_ = getDefaultInstance().getReservationId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -799,12 +766,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReservationIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       reservationId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -821,7 +786,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the reservation field is set.
      */
     public boolean hasReservation() {
-      return reservationBuilder_ != null || reservation_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -851,11 +816,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         reservation_ = value;
-        onChanged();
       } else {
         reservationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -869,11 +834,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.reservation.v1.Reservation.Builder builderForValue) {
       if (reservationBuilder_ == null) {
         reservation_ = builderForValue.build();
-        onChanged();
       } else {
         reservationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -885,17 +850,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeReservation(com.google.cloud.bigquery.reservation.v1.Reservation value) {
       if (reservationBuilder_ == null) {
-        if (reservation_ != null) {
-          reservation_ =
-            com.google.cloud.bigquery.reservation.v1.Reservation.newBuilder(reservation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          reservation_ != null &&
+          reservation_ != com.google.cloud.bigquery.reservation.v1.Reservation.getDefaultInstance()) {
+          getReservationBuilder().mergeFrom(value);
         } else {
           reservation_ = value;
         }
-        onChanged();
       } else {
         reservationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -906,14 +872,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.reservation.v1.Reservation reservation = 3;</code>
      */
     public Builder clearReservation() {
-      if (reservationBuilder_ == null) {
-        reservation_ = null;
-        onChanged();
-      } else {
-        reservation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      reservation_ = null;
+      if (reservationBuilder_ != null) {
+        reservationBuilder_.dispose();
         reservationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -924,7 +889,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.reservation.v1.Reservation reservation = 3;</code>
      */
     public com.google.cloud.bigquery.reservation.v1.Reservation.Builder getReservationBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getReservationFieldBuilder().getBuilder();
     }
@@ -996,7 +961,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateReservationRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

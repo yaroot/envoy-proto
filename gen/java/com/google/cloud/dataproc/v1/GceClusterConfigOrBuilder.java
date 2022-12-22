@@ -356,7 +356,6 @@ public interface GceClusterConfigOrBuilder extends
    *
    * <code>map&lt;string, string&gt; metadata = 5;</code>
    */
-
   /* nullable */
 java.lang.String getMetadataOrDefault(
       java.lang.String key,
@@ -371,7 +370,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; metadata = 5;</code>
    */
-
   java.lang.String getMetadataOrThrow(
       java.lang.String key);
 
@@ -431,7 +429,8 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Optional. Shielded Instance Config for clusters using [Compute Engine Shielded
+   * Optional. Shielded Instance Config for clusters using [Compute Engine
+   * Shielded
    * VMs](https://cloud.google.com/security/shielded-cloud/shielded-vm).
    * </pre>
    *
@@ -441,7 +440,8 @@ java.lang.String defaultValue);
   boolean hasShieldedInstanceConfig();
   /**
    * <pre>
-   * Optional. Shielded Instance Config for clusters using [Compute Engine Shielded
+   * Optional. Shielded Instance Config for clusters using [Compute Engine
+   * Shielded
    * VMs](https://cloud.google.com/security/shielded-cloud/shielded-vm).
    * </pre>
    *
@@ -451,7 +451,8 @@ java.lang.String defaultValue);
   com.google.cloud.dataproc.v1.ShieldedInstanceConfig getShieldedInstanceConfig();
   /**
    * <pre>
-   * Optional. Shielded Instance Config for clusters using [Compute Engine Shielded
+   * Optional. Shielded Instance Config for clusters using [Compute Engine
+   * Shielded
    * VMs](https://cloud.google.com/security/shielded-cloud/shielded-vm).
    * </pre>
    *

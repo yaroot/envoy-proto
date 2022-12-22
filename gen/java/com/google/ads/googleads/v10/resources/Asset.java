@@ -45,480 +45,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Asset(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceName_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 42: {
-            com.google.ads.googleads.v10.common.YoutubeVideoAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 5) {
-              subBuilder = ((com.google.ads.googleads.v10.common.YoutubeVideoAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.YoutubeVideoAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.YoutubeVideoAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.ads.googleads.v10.common.MediaBundleAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 6) {
-              subBuilder = ((com.google.ads.googleads.v10.common.MediaBundleAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.MediaBundleAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.MediaBundleAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.ads.googleads.v10.common.ImageAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 7) {
-              subBuilder = ((com.google.ads.googleads.v10.common.ImageAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.ImageAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.ImageAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 7;
-            break;
-          }
-          case 66: {
-            com.google.ads.googleads.v10.common.TextAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 8) {
-              subBuilder = ((com.google.ads.googleads.v10.common.TextAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.TextAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.TextAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 8;
-            break;
-          }
-          case 74: {
-            com.google.ads.googleads.v10.common.LeadFormAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 9) {
-              subBuilder = ((com.google.ads.googleads.v10.common.LeadFormAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.LeadFormAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.LeadFormAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 9;
-            break;
-          }
-          case 82: {
-            com.google.ads.googleads.v10.common.BookOnGoogleAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 10) {
-              subBuilder = ((com.google.ads.googleads.v10.common.BookOnGoogleAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.BookOnGoogleAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.BookOnGoogleAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 10;
-            break;
-          }
-          case 88: {
-            bitField0_ |= 0x00000001;
-            id_ = input.readInt64();
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            name_ = s;
-            break;
-          }
-          case 106: {
-            com.google.ads.googleads.v10.resources.AssetPolicySummary.Builder subBuilder = null;
-            if (policySummary_ != null) {
-              subBuilder = policySummary_.toBuilder();
-            }
-            policySummary_ = input.readMessage(com.google.ads.googleads.v10.resources.AssetPolicySummary.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(policySummary_);
-              policySummary_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              finalUrls_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            finalUrls_.add(s);
-            break;
-          }
-          case 122: {
-            com.google.ads.googleads.v10.common.PromotionAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 15) {
-              subBuilder = ((com.google.ads.googleads.v10.common.PromotionAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.PromotionAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.PromotionAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 15;
-            break;
-          }
-          case 130: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              finalMobileUrls_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            finalMobileUrls_.add(s);
-            break;
-          }
-          case 138: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            trackingUrlTemplate_ = s;
-            break;
-          }
-          case 146: {
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              urlCustomParameters_ = new java.util.ArrayList<com.google.ads.googleads.v10.common.CustomParameter>();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            urlCustomParameters_.add(
-                input.readMessage(com.google.ads.googleads.v10.common.CustomParameter.parser(), extensionRegistry));
-            break;
-          }
-          case 154: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            finalUrlSuffix_ = s;
-            break;
-          }
-          case 162: {
-            com.google.ads.googleads.v10.common.CalloutAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 20) {
-              subBuilder = ((com.google.ads.googleads.v10.common.CalloutAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.CalloutAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.CalloutAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 20;
-            break;
-          }
-          case 170: {
-            com.google.ads.googleads.v10.common.StructuredSnippetAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 21) {
-              subBuilder = ((com.google.ads.googleads.v10.common.StructuredSnippetAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.StructuredSnippetAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.StructuredSnippetAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 21;
-            break;
-          }
-          case 178: {
-            com.google.ads.googleads.v10.common.SitelinkAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 22) {
-              subBuilder = ((com.google.ads.googleads.v10.common.SitelinkAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.SitelinkAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.SitelinkAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 22;
-            break;
-          }
-          case 186: {
-            com.google.ads.googleads.v10.common.PageFeedAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 23) {
-              subBuilder = ((com.google.ads.googleads.v10.common.PageFeedAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.PageFeedAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.PageFeedAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 23;
-            break;
-          }
-          case 194: {
-            com.google.ads.googleads.v10.common.DynamicEducationAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 24) {
-              subBuilder = ((com.google.ads.googleads.v10.common.DynamicEducationAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.DynamicEducationAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.DynamicEducationAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 24;
-            break;
-          }
-          case 202: {
-            com.google.ads.googleads.v10.common.MobileAppAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 25) {
-              subBuilder = ((com.google.ads.googleads.v10.common.MobileAppAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.MobileAppAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.MobileAppAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 25;
-            break;
-          }
-          case 210: {
-            com.google.ads.googleads.v10.common.HotelCalloutAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 26) {
-              subBuilder = ((com.google.ads.googleads.v10.common.HotelCalloutAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.HotelCalloutAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.HotelCalloutAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 26;
-            break;
-          }
-          case 218: {
-            com.google.ads.googleads.v10.common.CallAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 27) {
-              subBuilder = ((com.google.ads.googleads.v10.common.CallAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.CallAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.CallAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 27;
-            break;
-          }
-          case 226: {
-            com.google.ads.googleads.v10.common.PriceAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 28) {
-              subBuilder = ((com.google.ads.googleads.v10.common.PriceAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.PriceAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.PriceAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 28;
-            break;
-          }
-          case 234: {
-            com.google.ads.googleads.v10.common.CallToActionAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 29) {
-              subBuilder = ((com.google.ads.googleads.v10.common.CallToActionAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.CallToActionAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.CallToActionAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 29;
-            break;
-          }
-          case 242: {
-            com.google.ads.googleads.v10.common.DynamicRealEstateAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 30) {
-              subBuilder = ((com.google.ads.googleads.v10.common.DynamicRealEstateAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.DynamicRealEstateAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.DynamicRealEstateAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 30;
-            break;
-          }
-          case 250: {
-            com.google.ads.googleads.v10.common.DynamicCustomAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 31) {
-              subBuilder = ((com.google.ads.googleads.v10.common.DynamicCustomAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.DynamicCustomAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.DynamicCustomAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 31;
-            break;
-          }
-          case 258: {
-            com.google.ads.googleads.v10.common.DynamicHotelsAndRentalsAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 32) {
-              subBuilder = ((com.google.ads.googleads.v10.common.DynamicHotelsAndRentalsAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.DynamicHotelsAndRentalsAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.DynamicHotelsAndRentalsAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 32;
-            break;
-          }
-          case 266: {
-            com.google.ads.googleads.v10.common.DynamicFlightsAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 33) {
-              subBuilder = ((com.google.ads.googleads.v10.common.DynamicFlightsAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.DynamicFlightsAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.DynamicFlightsAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 33;
-            break;
-          }
-          case 274: {
-            com.google.ads.googleads.v10.common.DiscoveryCarouselCardAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 34) {
-              subBuilder = ((com.google.ads.googleads.v10.common.DiscoveryCarouselCardAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.DiscoveryCarouselCardAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.DiscoveryCarouselCardAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 34;
-            break;
-          }
-          case 282: {
-            com.google.ads.googleads.v10.common.DynamicTravelAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 35) {
-              subBuilder = ((com.google.ads.googleads.v10.common.DynamicTravelAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.DynamicTravelAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.DynamicTravelAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 35;
-            break;
-          }
-          case 290: {
-            com.google.ads.googleads.v10.common.DynamicLocalAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 36) {
-              subBuilder = ((com.google.ads.googleads.v10.common.DynamicLocalAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.DynamicLocalAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.DynamicLocalAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 36;
-            break;
-          }
-          case 298: {
-            com.google.ads.googleads.v10.common.DynamicJobsAsset.Builder subBuilder = null;
-            if (assetDataCase_ == 37) {
-              subBuilder = ((com.google.ads.googleads.v10.common.DynamicJobsAsset) assetData_).toBuilder();
-            }
-            assetData_ =
-                input.readMessage(com.google.ads.googleads.v10.common.DynamicJobsAsset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.DynamicJobsAsset) assetData_);
-              assetData_ = subBuilder.buildPartial();
-            }
-            assetDataCase_ = 37;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        finalUrls_ = finalUrls_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        finalMobileUrls_ = finalMobileUrls_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
-        urlCustomParameters_ = java.util.Collections.unmodifiableList(urlCustomParameters_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.resources.AssetProto.internal_static_google_ads_googleads_v10_resources_Asset_descriptor;
@@ -621,7 +147,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object resourceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceName_ = "";
   /**
    * <pre>
    * Immutable. The resource name of the asset.
@@ -671,7 +198,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 11;
-  private long id_;
+  private long id_ = 0L;
   /**
    * <pre>
    * Output only. The ID of the asset.
@@ -698,7 +225,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 12;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Optional name of the asset.
@@ -756,7 +284,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 4;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Output only. Type of the asset.
@@ -777,12 +305,12 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.ads.googleads.v10.enums.AssetTypeEnum.AssetType getType() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v10.enums.AssetTypeEnum.AssetType result = com.google.ads.googleads.v10.enums.AssetTypeEnum.AssetType.valueOf(type_);
+    com.google.ads.googleads.v10.enums.AssetTypeEnum.AssetType result = com.google.ads.googleads.v10.enums.AssetTypeEnum.AssetType.forNumber(type_);
     return result == null ? com.google.ads.googleads.v10.enums.AssetTypeEnum.AssetType.UNRECOGNIZED : result;
   }
 
   public static final int FINAL_URLS_FIELD_NUMBER = 14;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList finalUrls_;
   /**
    * <pre>
@@ -834,6 +362,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FINAL_MOBILE_URLS_FIELD_NUMBER = 16;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList finalMobileUrls_;
   /**
    * <pre>
@@ -885,7 +414,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRACKING_URL_TEMPLATE_FIELD_NUMBER = 17;
-  private volatile java.lang.Object trackingUrlTemplate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object trackingUrlTemplate_ = "";
   /**
    * <pre>
    * URL template for constructing a tracking URL.
@@ -943,6 +473,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int URL_CUSTOM_PARAMETERS_FIELD_NUMBER = 18;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v10.common.CustomParameter> urlCustomParameters_;
   /**
    * <pre>
@@ -1008,7 +539,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FINAL_URL_SUFFIX_FIELD_NUMBER = 19;
-  private volatile java.lang.Object finalUrlSuffix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object finalUrlSuffix_ = "";
   /**
    * <pre>
    * URL template for appending params to landing page URLs served with parallel
@@ -1103,7 +635,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v10.resources.AssetPolicySummaryOrBuilder getPolicySummaryOrBuilder() {
-    return getPolicySummary();
+    return policySummary_ == null ? com.google.ads.googleads.v10.resources.AssetPolicySummary.getDefaultInstance() : policySummary_;
   }
 
   public static final int YOUTUBE_VIDEO_ASSET_FIELD_NUMBER = 5;
@@ -2300,7 +1832,7 @@ private static final long serialVersionUID = 0L;
     if (assetDataCase_ == 37) {
       output.writeMessage(37, (com.google.ads.googleads.v10.common.DynamicJobsAsset) assetData_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2453,7 +1985,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(37, (com.google.ads.googleads.v10.common.DynamicJobsAsset) assetData_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2607,7 +2139,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2759,7 +2291,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2883,50 +2415,115 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.resources.Asset.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getUrlCustomParametersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      bitField1_ = 0;
       resourceName_ = "";
-
       id_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000001);
       name_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       type_ = 0;
-
       finalUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
-      finalMobileUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
-      trackingUrlTemplate_ = "";
       bitField0_ = (bitField0_ & ~0x00000010);
+      finalMobileUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      trackingUrlTemplate_ = "";
       if (urlCustomParametersBuilder_ == null) {
         urlCustomParameters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
       } else {
+        urlCustomParameters_ = null;
         urlCustomParametersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       finalUrlSuffix_ = "";
-      bitField0_ = (bitField0_ & ~0x00000040);
-      if (policySummaryBuilder_ == null) {
-        policySummary_ = null;
-      } else {
-        policySummary_ = null;
+      policySummary_ = null;
+      if (policySummaryBuilder_ != null) {
+        policySummaryBuilder_.dispose();
         policySummaryBuilder_ = null;
+      }
+      if (youtubeVideoAssetBuilder_ != null) {
+        youtubeVideoAssetBuilder_.clear();
+      }
+      if (mediaBundleAssetBuilder_ != null) {
+        mediaBundleAssetBuilder_.clear();
+      }
+      if (imageAssetBuilder_ != null) {
+        imageAssetBuilder_.clear();
+      }
+      if (textAssetBuilder_ != null) {
+        textAssetBuilder_.clear();
+      }
+      if (leadFormAssetBuilder_ != null) {
+        leadFormAssetBuilder_.clear();
+      }
+      if (bookOnGoogleAssetBuilder_ != null) {
+        bookOnGoogleAssetBuilder_.clear();
+      }
+      if (promotionAssetBuilder_ != null) {
+        promotionAssetBuilder_.clear();
+      }
+      if (calloutAssetBuilder_ != null) {
+        calloutAssetBuilder_.clear();
+      }
+      if (structuredSnippetAssetBuilder_ != null) {
+        structuredSnippetAssetBuilder_.clear();
+      }
+      if (sitelinkAssetBuilder_ != null) {
+        sitelinkAssetBuilder_.clear();
+      }
+      if (pageFeedAssetBuilder_ != null) {
+        pageFeedAssetBuilder_.clear();
+      }
+      if (dynamicEducationAssetBuilder_ != null) {
+        dynamicEducationAssetBuilder_.clear();
+      }
+      if (mobileAppAssetBuilder_ != null) {
+        mobileAppAssetBuilder_.clear();
+      }
+      if (hotelCalloutAssetBuilder_ != null) {
+        hotelCalloutAssetBuilder_.clear();
+      }
+      if (callAssetBuilder_ != null) {
+        callAssetBuilder_.clear();
+      }
+      if (priceAssetBuilder_ != null) {
+        priceAssetBuilder_.clear();
+      }
+      if (callToActionAssetBuilder_ != null) {
+        callToActionAssetBuilder_.clear();
+      }
+      if (dynamicRealEstateAssetBuilder_ != null) {
+        dynamicRealEstateAssetBuilder_.clear();
+      }
+      if (dynamicCustomAssetBuilder_ != null) {
+        dynamicCustomAssetBuilder_.clear();
+      }
+      if (dynamicHotelsAndRentalsAssetBuilder_ != null) {
+        dynamicHotelsAndRentalsAssetBuilder_.clear();
+      }
+      if (dynamicFlightsAssetBuilder_ != null) {
+        dynamicFlightsAssetBuilder_.clear();
+      }
+      if (discoveryCarouselCardAssetBuilder_ != null) {
+        discoveryCarouselCardAssetBuilder_.clear();
+      }
+      if (dynamicTravelAssetBuilder_ != null) {
+        dynamicTravelAssetBuilder_.clear();
+      }
+      if (dynamicLocalAssetBuilder_ != null) {
+        dynamicLocalAssetBuilder_.clear();
+      }
+      if (dynamicJobsAssetBuilder_ != null) {
+        dynamicJobsAssetBuilder_.clear();
       }
       assetDataCase_ = 0;
       assetData_ = null;
@@ -2956,229 +2553,176 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.resources.Asset buildPartial() {
       com.google.ads.googleads.v10.resources.Asset result = new com.google.ads.googleads.v10.resources.Asset(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.resourceName_ = resourceName_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.id_ = id_;
-        to_bitField0_ |= 0x00000001;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        to_bitField0_ |= 0x00000002;
-      }
-      result.name_ = name_;
-      result.type_ = type_;
-      if (((bitField0_ & 0x00000004) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      if (bitField1_ != 0) { buildPartial1(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v10.resources.Asset result) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         finalUrls_ = finalUrls_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000010);
       }
       result.finalUrls_ = finalUrls_;
-      if (((bitField0_ & 0x00000008) != 0)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         finalMobileUrls_ = finalMobileUrls_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000020);
       }
       result.finalMobileUrls_ = finalMobileUrls_;
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        to_bitField0_ |= 0x00000004;
-      }
-      result.trackingUrlTemplate_ = trackingUrlTemplate_;
       if (urlCustomParametersBuilder_ == null) {
-        if (((bitField0_ & 0x00000020) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           urlCustomParameters_ = java.util.Collections.unmodifiableList(urlCustomParameters_);
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.urlCustomParameters_ = urlCustomParameters_;
       } else {
         result.urlCustomParameters_ = urlCustomParametersBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.resources.Asset result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resourceName_ = resourceName_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.id_ = id_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.name_ = name_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.type_ = type_;
+      }
       if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.trackingUrlTemplate_ = trackingUrlTemplate_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.finalUrlSuffix_ = finalUrlSuffix_;
         to_bitField0_ |= 0x00000008;
       }
-      result.finalUrlSuffix_ = finalUrlSuffix_;
-      if (policySummaryBuilder_ == null) {
-        result.policySummary_ = policySummary_;
-      } else {
-        result.policySummary_ = policySummaryBuilder_.build();
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.policySummary_ = policySummaryBuilder_ == null
+            ? policySummary_
+            : policySummaryBuilder_.build();
       }
-      if (assetDataCase_ == 5) {
-        if (youtubeVideoAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = youtubeVideoAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 6) {
-        if (mediaBundleAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = mediaBundleAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 7) {
-        if (imageAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = imageAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 8) {
-        if (textAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = textAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 9) {
-        if (leadFormAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = leadFormAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 10) {
-        if (bookOnGoogleAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = bookOnGoogleAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 15) {
-        if (promotionAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = promotionAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 20) {
-        if (calloutAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = calloutAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 21) {
-        if (structuredSnippetAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = structuredSnippetAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 22) {
-        if (sitelinkAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = sitelinkAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 23) {
-        if (pageFeedAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = pageFeedAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 24) {
-        if (dynamicEducationAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = dynamicEducationAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 25) {
-        if (mobileAppAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = mobileAppAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 26) {
-        if (hotelCalloutAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = hotelCalloutAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 27) {
-        if (callAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = callAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 28) {
-        if (priceAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = priceAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 29) {
-        if (callToActionAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = callToActionAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 30) {
-        if (dynamicRealEstateAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = dynamicRealEstateAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 31) {
-        if (dynamicCustomAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = dynamicCustomAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 32) {
-        if (dynamicHotelsAndRentalsAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = dynamicHotelsAndRentalsAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 33) {
-        if (dynamicFlightsAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = dynamicFlightsAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 34) {
-        if (discoveryCarouselCardAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = discoveryCarouselCardAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 35) {
-        if (dynamicTravelAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = dynamicTravelAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 36) {
-        if (dynamicLocalAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = dynamicLocalAssetBuilder_.build();
-        }
-      }
-      if (assetDataCase_ == 37) {
-        if (dynamicJobsAssetBuilder_ == null) {
-          result.assetData_ = assetData_;
-        } else {
-          result.assetData_ = dynamicJobsAssetBuilder_.build();
-        }
-      }
-      result.bitField0_ = to_bitField0_;
+      result.bitField0_ |= to_bitField0_;
+    }
+
+    private void buildPartial1(com.google.ads.googleads.v10.resources.Asset result) {
+      int from_bitField1_ = bitField1_;
+    }
+
+    private void buildPartialOneofs(com.google.ads.googleads.v10.resources.Asset result) {
       result.assetDataCase_ = assetDataCase_;
-      onBuilt();
-      return result;
+      result.assetData_ = this.assetData_;
+      if (assetDataCase_ == 5 &&
+          youtubeVideoAssetBuilder_ != null) {
+        result.assetData_ = youtubeVideoAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 6 &&
+          mediaBundleAssetBuilder_ != null) {
+        result.assetData_ = mediaBundleAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 7 &&
+          imageAssetBuilder_ != null) {
+        result.assetData_ = imageAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 8 &&
+          textAssetBuilder_ != null) {
+        result.assetData_ = textAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 9 &&
+          leadFormAssetBuilder_ != null) {
+        result.assetData_ = leadFormAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 10 &&
+          bookOnGoogleAssetBuilder_ != null) {
+        result.assetData_ = bookOnGoogleAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 15 &&
+          promotionAssetBuilder_ != null) {
+        result.assetData_ = promotionAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 20 &&
+          calloutAssetBuilder_ != null) {
+        result.assetData_ = calloutAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 21 &&
+          structuredSnippetAssetBuilder_ != null) {
+        result.assetData_ = structuredSnippetAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 22 &&
+          sitelinkAssetBuilder_ != null) {
+        result.assetData_ = sitelinkAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 23 &&
+          pageFeedAssetBuilder_ != null) {
+        result.assetData_ = pageFeedAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 24 &&
+          dynamicEducationAssetBuilder_ != null) {
+        result.assetData_ = dynamicEducationAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 25 &&
+          mobileAppAssetBuilder_ != null) {
+        result.assetData_ = mobileAppAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 26 &&
+          hotelCalloutAssetBuilder_ != null) {
+        result.assetData_ = hotelCalloutAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 27 &&
+          callAssetBuilder_ != null) {
+        result.assetData_ = callAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 28 &&
+          priceAssetBuilder_ != null) {
+        result.assetData_ = priceAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 29 &&
+          callToActionAssetBuilder_ != null) {
+        result.assetData_ = callToActionAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 30 &&
+          dynamicRealEstateAssetBuilder_ != null) {
+        result.assetData_ = dynamicRealEstateAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 31 &&
+          dynamicCustomAssetBuilder_ != null) {
+        result.assetData_ = dynamicCustomAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 32 &&
+          dynamicHotelsAndRentalsAssetBuilder_ != null) {
+        result.assetData_ = dynamicHotelsAndRentalsAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 33 &&
+          dynamicFlightsAssetBuilder_ != null) {
+        result.assetData_ = dynamicFlightsAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 34 &&
+          discoveryCarouselCardAssetBuilder_ != null) {
+        result.assetData_ = discoveryCarouselCardAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 35 &&
+          dynamicTravelAssetBuilder_ != null) {
+        result.assetData_ = dynamicTravelAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 36 &&
+          dynamicLocalAssetBuilder_ != null) {
+        result.assetData_ = dynamicLocalAssetBuilder_.build();
+      }
+      if (assetDataCase_ == 37 &&
+          dynamicJobsAssetBuilder_ != null) {
+        result.assetData_ = dynamicJobsAssetBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -3227,14 +2771,15 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v10.resources.Asset.getDefaultInstance()) return this;
       if (!other.getResourceName().isEmpty()) {
         resourceName_ = other.resourceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasId()) {
         setId(other.getId());
       }
       if (other.hasName()) {
-        bitField0_ |= 0x00000002;
         name_ = other.name_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.type_ != 0) {
@@ -3243,7 +2788,7 @@ private static final long serialVersionUID = 0L;
       if (!other.finalUrls_.isEmpty()) {
         if (finalUrls_.isEmpty()) {
           finalUrls_ = other.finalUrls_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureFinalUrlsIsMutable();
           finalUrls_.addAll(other.finalUrls_);
@@ -3253,7 +2798,7 @@ private static final long serialVersionUID = 0L;
       if (!other.finalMobileUrls_.isEmpty()) {
         if (finalMobileUrls_.isEmpty()) {
           finalMobileUrls_ = other.finalMobileUrls_;
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureFinalMobileUrlsIsMutable();
           finalMobileUrls_.addAll(other.finalMobileUrls_);
@@ -3261,15 +2806,15 @@ private static final long serialVersionUID = 0L;
         onChanged();
       }
       if (other.hasTrackingUrlTemplate()) {
-        bitField0_ |= 0x00000010;
         trackingUrlTemplate_ = other.trackingUrlTemplate_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (urlCustomParametersBuilder_ == null) {
         if (!other.urlCustomParameters_.isEmpty()) {
           if (urlCustomParameters_.isEmpty()) {
             urlCustomParameters_ = other.urlCustomParameters_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureUrlCustomParametersIsMutable();
             urlCustomParameters_.addAll(other.urlCustomParameters_);
@@ -3282,7 +2827,7 @@ private static final long serialVersionUID = 0L;
             urlCustomParametersBuilder_.dispose();
             urlCustomParametersBuilder_ = null;
             urlCustomParameters_ = other.urlCustomParameters_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000080);
             urlCustomParametersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getUrlCustomParametersFieldBuilder() : null;
@@ -3292,8 +2837,8 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (other.hasFinalUrlSuffix()) {
-        bitField0_ |= 0x00000040;
         finalUrlSuffix_ = other.finalUrlSuffix_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.hasPolicySummary()) {
@@ -3404,7 +2949,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3419,17 +2964,267 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.resources.Asset parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              resourceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 32: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getYoutubeVideoAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getMediaBundleAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getImageAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getTextAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getLeadFormAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 9;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getBookOnGoogleAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 10;
+              break;
+            } // case 82
+            case 88: {
+              id_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 88
+            case 98: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getPolicySummaryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 106
+            case 114: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureFinalUrlsIsMutable();
+              finalUrls_.add(s);
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getPromotionAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 15;
+              break;
+            } // case 122
+            case 130: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureFinalMobileUrlsIsMutable();
+              finalMobileUrls_.add(s);
+              break;
+            } // case 130
+            case 138: {
+              trackingUrlTemplate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 138
+            case 146: {
+              com.google.ads.googleads.v10.common.CustomParameter m =
+                  input.readMessage(
+                      com.google.ads.googleads.v10.common.CustomParameter.parser(),
+                      extensionRegistry);
+              if (urlCustomParametersBuilder_ == null) {
+                ensureUrlCustomParametersIsMutable();
+                urlCustomParameters_.add(m);
+              } else {
+                urlCustomParametersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 146
+            case 154: {
+              finalUrlSuffix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 154
+            case 162: {
+              input.readMessage(
+                  getCalloutAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 20;
+              break;
+            } // case 162
+            case 170: {
+              input.readMessage(
+                  getStructuredSnippetAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 21;
+              break;
+            } // case 170
+            case 178: {
+              input.readMessage(
+                  getSitelinkAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 22;
+              break;
+            } // case 178
+            case 186: {
+              input.readMessage(
+                  getPageFeedAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 23;
+              break;
+            } // case 186
+            case 194: {
+              input.readMessage(
+                  getDynamicEducationAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 24;
+              break;
+            } // case 194
+            case 202: {
+              input.readMessage(
+                  getMobileAppAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 25;
+              break;
+            } // case 202
+            case 210: {
+              input.readMessage(
+                  getHotelCalloutAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 26;
+              break;
+            } // case 210
+            case 218: {
+              input.readMessage(
+                  getCallAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 27;
+              break;
+            } // case 218
+            case 226: {
+              input.readMessage(
+                  getPriceAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 28;
+              break;
+            } // case 226
+            case 234: {
+              input.readMessage(
+                  getCallToActionAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 29;
+              break;
+            } // case 234
+            case 242: {
+              input.readMessage(
+                  getDynamicRealEstateAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 30;
+              break;
+            } // case 242
+            case 250: {
+              input.readMessage(
+                  getDynamicCustomAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 31;
+              break;
+            } // case 250
+            case 258: {
+              input.readMessage(
+                  getDynamicHotelsAndRentalsAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 32;
+              break;
+            } // case 258
+            case 266: {
+              input.readMessage(
+                  getDynamicFlightsAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 33;
+              break;
+            } // case 266
+            case 274: {
+              input.readMessage(
+                  getDiscoveryCarouselCardAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 34;
+              break;
+            } // case 274
+            case 282: {
+              input.readMessage(
+                  getDynamicTravelAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 35;
+              break;
+            } // case 282
+            case 290: {
+              input.readMessage(
+                  getDynamicLocalAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 36;
+              break;
+            } // case 290
+            case 298: {
+              input.readMessage(
+                  getDynamicJobsAssetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              assetDataCase_ = 37;
+              break;
+            } // case 298
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.resources.Asset) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int assetDataCase_ = 0;
@@ -3448,6 +3243,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private int bitField0_;
+    private int bitField1_;
 
     private java.lang.Object resourceName_ = "";
     /**
@@ -3508,11 +3304,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3527,8 +3321,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceName() {
-      
       resourceName_ = getDefaultInstance().getResourceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -3545,12 +3339,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3566,7 +3358,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasId() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -3590,8 +3382,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(long value) {
-      bitField0_ |= 0x00000001;
+      
       id_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3604,7 +3397,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       id_ = 0L;
       onChanged();
       return this;
@@ -3620,7 +3413,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the name field is set.
      */
     public boolean hasName() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -3674,11 +3467,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3691,8 +3482,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -3707,12 +3498,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3739,8 +3528,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3754,8 +3543,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.AssetTypeEnum.AssetType getType() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.AssetTypeEnum.AssetType result = com.google.ads.googleads.v10.enums.AssetTypeEnum.AssetType.valueOf(type_);
+      com.google.ads.googleads.v10.enums.AssetTypeEnum.AssetType result = com.google.ads.googleads.v10.enums.AssetTypeEnum.AssetType.forNumber(type_);
       return result == null ? com.google.ads.googleads.v10.enums.AssetTypeEnum.AssetType.UNRECOGNIZED : result;
     }
     /**
@@ -3771,7 +3559,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -3785,7 +3573,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       type_ = 0;
       onChanged();
       return this;
@@ -3793,9 +3581,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList finalUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureFinalUrlsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         finalUrls_ = new com.google.protobuf.LazyStringArrayList(finalUrls_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -3858,10 +3646,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFinalUrls(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFinalUrlsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFinalUrlsIsMutable();
       finalUrls_.set(index, value);
       onChanged();
       return this;
@@ -3877,10 +3663,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFinalUrls(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFinalUrlsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFinalUrlsIsMutable();
       finalUrls_.add(value);
       onChanged();
       return this;
@@ -3912,7 +3696,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearFinalUrls() {
       finalUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -3927,10 +3711,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFinalUrlsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureFinalUrlsIsMutable();
       finalUrls_.add(value);
       onChanged();
@@ -3939,9 +3721,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList finalMobileUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureFinalMobileUrlsIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         finalMobileUrls_ = new com.google.protobuf.LazyStringArrayList(finalMobileUrls_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000020;
        }
     }
     /**
@@ -4004,10 +3786,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFinalMobileUrls(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFinalMobileUrlsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFinalMobileUrlsIsMutable();
       finalMobileUrls_.set(index, value);
       onChanged();
       return this;
@@ -4023,10 +3803,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFinalMobileUrls(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFinalMobileUrlsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFinalMobileUrlsIsMutable();
       finalMobileUrls_.add(value);
       onChanged();
       return this;
@@ -4058,7 +3836,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearFinalMobileUrls() {
       finalMobileUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -4073,10 +3851,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFinalMobileUrlsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureFinalMobileUrlsIsMutable();
       finalMobileUrls_.add(value);
       onChanged();
@@ -4093,7 +3869,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the trackingUrlTemplate field is set.
      */
     public boolean hasTrackingUrlTemplate() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -4147,11 +3923,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTrackingUrlTemplate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       trackingUrlTemplate_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -4164,8 +3938,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTrackingUrlTemplate() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       trackingUrlTemplate_ = getDefaultInstance().getTrackingUrlTemplate();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -4180,12 +3954,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTrackingUrlTemplateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       trackingUrlTemplate_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -4193,9 +3965,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.ads.googleads.v10.common.CustomParameter> urlCustomParameters_ =
       java.util.Collections.emptyList();
     private void ensureUrlCustomParametersIsMutable() {
-      if (!((bitField0_ & 0x00000020) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         urlCustomParameters_ = new java.util.ArrayList<com.google.ads.googleads.v10.common.CustomParameter>(urlCustomParameters_);
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -4400,7 +4172,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearUrlCustomParameters() {
       if (urlCustomParametersBuilder_ == null) {
         urlCustomParameters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         urlCustomParametersBuilder_.clear();
@@ -4512,7 +4284,7 @@ private static final long serialVersionUID = 0L;
         urlCustomParametersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.ads.googleads.v10.common.CustomParameter, com.google.ads.googleads.v10.common.CustomParameter.Builder, com.google.ads.googleads.v10.common.CustomParameterOrBuilder>(
                 urlCustomParameters_,
-                ((bitField0_ & 0x00000020) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         urlCustomParameters_ = null;
@@ -4531,7 +4303,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the finalUrlSuffix field is set.
      */
     public boolean hasFinalUrlSuffix() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -4588,11 +4360,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFinalUrlSuffix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
       finalUrlSuffix_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -4606,8 +4376,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFinalUrlSuffix() {
-      bitField0_ = (bitField0_ & ~0x00000040);
       finalUrlSuffix_ = getDefaultInstance().getFinalUrlSuffix();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -4623,12 +4393,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFinalUrlSuffixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       finalUrlSuffix_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -4645,7 +4413,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the policySummary field is set.
      */
     public boolean hasPolicySummary() {
-      return policySummaryBuilder_ != null || policySummary_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -4675,11 +4443,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         policySummary_ = value;
-        onChanged();
       } else {
         policySummaryBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4693,11 +4461,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.resources.AssetPolicySummary.Builder builderForValue) {
       if (policySummaryBuilder_ == null) {
         policySummary_ = builderForValue.build();
-        onChanged();
       } else {
         policySummaryBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4709,17 +4477,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePolicySummary(com.google.ads.googleads.v10.resources.AssetPolicySummary value) {
       if (policySummaryBuilder_ == null) {
-        if (policySummary_ != null) {
-          policySummary_ =
-            com.google.ads.googleads.v10.resources.AssetPolicySummary.newBuilder(policySummary_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          policySummary_ != null &&
+          policySummary_ != com.google.ads.googleads.v10.resources.AssetPolicySummary.getDefaultInstance()) {
+          getPolicySummaryBuilder().mergeFrom(value);
         } else {
           policySummary_ = value;
         }
-        onChanged();
       } else {
         policySummaryBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4730,14 +4499,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.resources.AssetPolicySummary policy_summary = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearPolicySummary() {
-      if (policySummaryBuilder_ == null) {
-        policySummary_ = null;
-        onChanged();
-      } else {
-        policySummary_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      policySummary_ = null;
+      if (policySummaryBuilder_ != null) {
+        policySummaryBuilder_.dispose();
         policySummaryBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4748,7 +4516,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.resources.AssetPolicySummary policy_summary = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.ads.googleads.v10.resources.AssetPolicySummary.Builder getPolicySummaryBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getPolicySummaryFieldBuilder().getBuilder();
     }
@@ -4962,7 +4730,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 5;
-      onChanged();;
+      onChanged();
       return youtubeVideoAssetBuilder_;
     }
 
@@ -5140,7 +4908,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 6;
-      onChanged();;
+      onChanged();
       return mediaBundleAssetBuilder_;
     }
 
@@ -5318,7 +5086,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 7;
-      onChanged();;
+      onChanged();
       return imageAssetBuilder_;
     }
 
@@ -5496,7 +5264,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 8;
-      onChanged();;
+      onChanged();
       return textAssetBuilder_;
     }
 
@@ -5674,7 +5442,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 9;
-      onChanged();;
+      onChanged();
       return leadFormAssetBuilder_;
     }
 
@@ -5852,7 +5620,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 10;
-      onChanged();;
+      onChanged();
       return bookOnGoogleAssetBuilder_;
     }
 
@@ -6030,7 +5798,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 15;
-      onChanged();;
+      onChanged();
       return promotionAssetBuilder_;
     }
 
@@ -6208,7 +5976,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 20;
-      onChanged();;
+      onChanged();
       return calloutAssetBuilder_;
     }
 
@@ -6386,7 +6154,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 21;
-      onChanged();;
+      onChanged();
       return structuredSnippetAssetBuilder_;
     }
 
@@ -6564,7 +6332,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 22;
-      onChanged();;
+      onChanged();
       return sitelinkAssetBuilder_;
     }
 
@@ -6742,7 +6510,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 23;
-      onChanged();;
+      onChanged();
       return pageFeedAssetBuilder_;
     }
 
@@ -6920,7 +6688,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 24;
-      onChanged();;
+      onChanged();
       return dynamicEducationAssetBuilder_;
     }
 
@@ -7098,7 +6866,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 25;
-      onChanged();;
+      onChanged();
       return mobileAppAssetBuilder_;
     }
 
@@ -7276,7 +7044,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 26;
-      onChanged();;
+      onChanged();
       return hotelCalloutAssetBuilder_;
     }
 
@@ -7454,7 +7222,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 27;
-      onChanged();;
+      onChanged();
       return callAssetBuilder_;
     }
 
@@ -7632,7 +7400,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 28;
-      onChanged();;
+      onChanged();
       return priceAssetBuilder_;
     }
 
@@ -7810,7 +7578,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 29;
-      onChanged();;
+      onChanged();
       return callToActionAssetBuilder_;
     }
 
@@ -7988,7 +7756,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 30;
-      onChanged();;
+      onChanged();
       return dynamicRealEstateAssetBuilder_;
     }
 
@@ -8166,7 +7934,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 31;
-      onChanged();;
+      onChanged();
       return dynamicCustomAssetBuilder_;
     }
 
@@ -8344,7 +8112,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 32;
-      onChanged();;
+      onChanged();
       return dynamicHotelsAndRentalsAssetBuilder_;
     }
 
@@ -8522,7 +8290,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 33;
-      onChanged();;
+      onChanged();
       return dynamicFlightsAssetBuilder_;
     }
 
@@ -8700,7 +8468,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 34;
-      onChanged();;
+      onChanged();
       return discoveryCarouselCardAssetBuilder_;
     }
 
@@ -8878,7 +8646,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 35;
-      onChanged();;
+      onChanged();
       return dynamicTravelAssetBuilder_;
     }
 
@@ -9056,7 +8824,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 36;
-      onChanged();;
+      onChanged();
       return dynamicLocalAssetBuilder_;
     }
 
@@ -9234,7 +9002,7 @@ private static final long serialVersionUID = 0L;
         assetData_ = null;
       }
       assetDataCase_ = 37;
-      onChanged();;
+      onChanged();
       return dynamicJobsAssetBuilder_;
     }
     @java.lang.Override
@@ -9270,7 +9038,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Asset(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

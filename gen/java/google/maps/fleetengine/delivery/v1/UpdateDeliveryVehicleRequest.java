@@ -34,84 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateDeliveryVehicleRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.Builder subBuilder = null;
-            if (header_ != null) {
-              subBuilder = header_.toBuilder();
-            }
-            header_ = input.readMessage(google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(header_);
-              header_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            google.maps.fleetengine.delivery.v1.DeliveryVehicle.Builder subBuilder = null;
-            if (deliveryVehicle_ != null) {
-              subBuilder = deliveryVehicle_.toBuilder();
-            }
-            deliveryVehicle_ = input.readMessage(google.maps.fleetengine.delivery.v1.DeliveryVehicle.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(deliveryVehicle_);
-              deliveryVehicle_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.FieldMask.Builder subBuilder = null;
-            if (updateMask_ != null) {
-              subBuilder = updateMask_.toBuilder();
-            }
-            updateMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateMask_);
-              updateMask_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.delivery.v1.DeliveryApi.internal_static_maps_fleetengine_delivery_v1_UpdateDeliveryVehicleRequest_descriptor;
@@ -160,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.delivery.v1.DeliveryRequestHeaderOrBuilder getHeaderOrBuilder() {
-    return getHeader();
+    return header_ == null ? google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.getDefaultInstance() : header_;
   }
 
   public static final int DELIVERY_VEHICLE_FIELD_NUMBER = 3;
@@ -201,7 +123,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.delivery.v1.DeliveryVehicleOrBuilder getDeliveryVehicleOrBuilder() {
-    return getDeliveryVehicle();
+    return deliveryVehicle_ == null ? google.maps.fleetengine.delivery.v1.DeliveryVehicle.getDefaultInstance() : deliveryVehicle_;
   }
 
   public static final int UPDATE_MASK_FIELD_NUMBER = 4;
@@ -248,7 +170,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
-    return getUpdateMask();
+    return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -274,7 +196,7 @@ private static final long serialVersionUID = 0L;
     if (updateMask_ != null) {
       output.writeMessage(4, getUpdateMask());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -295,7 +217,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getUpdateMask());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -325,7 +247,7 @@ private static final long serialVersionUID = 0L;
       if (!getUpdateMask()
           .equals(other.getUpdateMask())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -348,7 +270,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UPDATE_MASK_FIELD_NUMBER;
       hash = (53 * hash) + getUpdateMask().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -469,38 +391,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.delivery.v1.UpdateDeliveryVehicleRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (headerBuilder_ == null) {
-        header_ = null;
-      } else {
-        header_ = null;
+      bitField0_ = 0;
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
-      if (deliveryVehicleBuilder_ == null) {
-        deliveryVehicle_ = null;
-      } else {
-        deliveryVehicle_ = null;
+      deliveryVehicle_ = null;
+      if (deliveryVehicleBuilder_ != null) {
+        deliveryVehicleBuilder_.dispose();
         deliveryVehicleBuilder_ = null;
       }
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-      } else {
-        updateMask_ = null;
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
       return this;
@@ -529,23 +444,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.delivery.v1.UpdateDeliveryVehicleRequest buildPartial() {
       google.maps.fleetengine.delivery.v1.UpdateDeliveryVehicleRequest result = new google.maps.fleetengine.delivery.v1.UpdateDeliveryVehicleRequest(this);
-      if (headerBuilder_ == null) {
-        result.header_ = header_;
-      } else {
-        result.header_ = headerBuilder_.build();
-      }
-      if (deliveryVehicleBuilder_ == null) {
-        result.deliveryVehicle_ = deliveryVehicle_;
-      } else {
-        result.deliveryVehicle_ = deliveryVehicleBuilder_.build();
-      }
-      if (updateMaskBuilder_ == null) {
-        result.updateMask_ = updateMask_;
-      } else {
-        result.updateMask_ = updateMaskBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.delivery.v1.UpdateDeliveryVehicleRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.header_ = headerBuilder_ == null
+            ? header_
+            : headerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.deliveryVehicle_ = deliveryVehicleBuilder_ == null
+            ? deliveryVehicle_
+            : deliveryVehicleBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.updateMask_ = updateMaskBuilder_ == null
+            ? updateMask_
+            : updateMaskBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -601,7 +521,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasUpdateMask()) {
         mergeUpdateMask(other.getUpdateMask());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -616,19 +536,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.delivery.v1.UpdateDeliveryVehicleRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getHeaderFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              input.readMessage(
+                  getDeliveryVehicleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getUpdateMaskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.delivery.v1.UpdateDeliveryVehicleRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private google.maps.fleetengine.delivery.v1.DeliveryRequestHeader header_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -642,7 +597,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the header field is set.
      */
     public boolean hasHeader() {
-      return headerBuilder_ != null || header_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -672,11 +627,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         header_ = value;
-        onChanged();
       } else {
         headerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -690,11 +645,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.Builder builderForValue) {
       if (headerBuilder_ == null) {
         header_ = builderForValue.build();
-        onChanged();
       } else {
         headerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -706,17 +661,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHeader(google.maps.fleetengine.delivery.v1.DeliveryRequestHeader value) {
       if (headerBuilder_ == null) {
-        if (header_ != null) {
-          header_ =
-            google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          header_ != null &&
+          header_ != google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.getDefaultInstance()) {
+          getHeaderBuilder().mergeFrom(value);
         } else {
           header_ = value;
         }
-        onChanged();
       } else {
         headerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -727,14 +683,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.DeliveryRequestHeader header = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearHeader() {
-      if (headerBuilder_ == null) {
-        header_ = null;
-        onChanged();
-      } else {
-        header_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -745,7 +700,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.DeliveryRequestHeader header = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.Builder getHeaderBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getHeaderFieldBuilder().getBuilder();
     }
@@ -798,7 +753,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the deliveryVehicle field is set.
      */
     public boolean hasDeliveryVehicle() {
-      return deliveryVehicleBuilder_ != null || deliveryVehicle_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -830,11 +785,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         deliveryVehicle_ = value;
-        onChanged();
       } else {
         deliveryVehicleBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -849,11 +804,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.delivery.v1.DeliveryVehicle.Builder builderForValue) {
       if (deliveryVehicleBuilder_ == null) {
         deliveryVehicle_ = builderForValue.build();
-        onChanged();
       } else {
         deliveryVehicleBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -866,17 +821,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDeliveryVehicle(google.maps.fleetengine.delivery.v1.DeliveryVehicle value) {
       if (deliveryVehicleBuilder_ == null) {
-        if (deliveryVehicle_ != null) {
-          deliveryVehicle_ =
-            google.maps.fleetengine.delivery.v1.DeliveryVehicle.newBuilder(deliveryVehicle_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          deliveryVehicle_ != null &&
+          deliveryVehicle_ != google.maps.fleetengine.delivery.v1.DeliveryVehicle.getDefaultInstance()) {
+          getDeliveryVehicleBuilder().mergeFrom(value);
         } else {
           deliveryVehicle_ = value;
         }
-        onChanged();
       } else {
         deliveryVehicleBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -888,14 +844,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.DeliveryVehicle delivery_vehicle = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearDeliveryVehicle() {
-      if (deliveryVehicleBuilder_ == null) {
-        deliveryVehicle_ = null;
-        onChanged();
-      } else {
-        deliveryVehicle_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      deliveryVehicle_ = null;
+      if (deliveryVehicleBuilder_ != null) {
+        deliveryVehicleBuilder_.dispose();
         deliveryVehicleBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -907,7 +862,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.DeliveryVehicle delivery_vehicle = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public google.maps.fleetengine.delivery.v1.DeliveryVehicle.Builder getDeliveryVehicleBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDeliveryVehicleFieldBuilder().getBuilder();
     }
@@ -964,7 +919,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateMask field is set.
      */
     public boolean hasUpdateMask() {
-      return updateMaskBuilder_ != null || updateMask_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1000,11 +955,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateMask_ = value;
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1021,11 +976,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.FieldMask.Builder builderForValue) {
       if (updateMaskBuilder_ == null) {
         updateMask_ = builderForValue.build();
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1040,17 +995,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateMask(com.google.protobuf.FieldMask value) {
       if (updateMaskBuilder_ == null) {
-        if (updateMask_ != null) {
-          updateMask_ =
-            com.google.protobuf.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          updateMask_ != null &&
+          updateMask_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
+          getUpdateMaskBuilder().mergeFrom(value);
         } else {
           updateMask_ = value;
         }
-        onChanged();
       } else {
         updateMaskBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1064,14 +1020,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearUpdateMask() {
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-        onChanged();
-      } else {
-        updateMask_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1085,7 +1040,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.protobuf.FieldMask.Builder getUpdateMaskBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getUpdateMaskFieldBuilder().getBuilder();
     }
@@ -1163,7 +1118,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateDeliveryVehicleRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

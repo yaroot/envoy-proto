@@ -43,163 +43,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SecurityPolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26840: {
-            bitField0_ |= 0x00000040;
-            id_ = input.readUInt64();
-            break;
-          }
-          case 26336418: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000080;
-            kind_ = s;
-            break;
-          }
-          case 26989658: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000100;
-            name_ = s;
-            break;
-          }
-          case 28604882: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00001000;
-            type_ = s;
-            break;
-          }
-          case 244202930: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            creationTimestamp_ = s;
-            break;
-          }
-          case 402526826: {
-            com.google.cloud.compute.v1.SecurityPolicyDdosProtectionConfig.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000008) != 0)) {
-              subBuilder = ddosProtectionConfig_.toBuilder();
-            }
-            ddosProtectionConfig_ = input.readMessage(com.google.cloud.compute.v1.SecurityPolicyDdosProtectionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(ddosProtectionConfig_);
-              ddosProtectionConfig_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000008;
-            break;
-          }
-          case 870991802: {
-            if (!((mutable_bitField0_ & 0x00000800) != 0)) {
-              rules_ = new java.util.ArrayList<com.google.cloud.compute.v1.SecurityPolicyRule>();
-              mutable_bitField0_ |= 0x00000800;
-            }
-            rules_.add(
-                input.readMessage(com.google.cloud.compute.v1.SecurityPolicyRule.parser(), extensionRegistry));
-            break;
-          }
-          case 1111570338: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000400;
-            region_ = s;
-            break;
-          }
-          case 1201925882: {
-            com.google.cloud.compute.v1.SecurityPolicyAdaptiveProtectionConfig.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = adaptiveProtectionConfig_.toBuilder();
-            }
-            adaptiveProtectionConfig_ = input.readMessage(com.google.cloud.compute.v1.SecurityPolicyAdaptiveProtectionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(adaptiveProtectionConfig_);
-              adaptiveProtectionConfig_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          case 1877428002: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000020;
-            fingerprint_ = s;
-            break;
-          }
-          case -911466526: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            description_ = s;
-            break;
-          }
-          case -700756478: {
-            com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000002) != 0)) {
-              subBuilder = advancedOptionsConfig_.toBuilder();
-            }
-            advancedOptionsConfig_ = input.readMessage(com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(advancedOptionsConfig_);
-              advancedOptionsConfig_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000002;
-            break;
-          }
-          case -645248918: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000800;
-            selfLink_ = s;
-            break;
-          }
-          case -142912806: {
-            com.google.cloud.compute.v1.SecurityPolicyRecaptchaOptionsConfig.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000200) != 0)) {
-              subBuilder = recaptchaOptionsConfig_.toBuilder();
-            }
-            recaptchaOptionsConfig_ = input.readMessage(com.google.cloud.compute.v1.SecurityPolicyRecaptchaOptionsConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(recaptchaOptionsConfig_);
-              recaptchaOptionsConfig_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000200;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000800) != 0)) {
-        rules_ = java.util.Collections.unmodifiableList(rules_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_SecurityPolicy_descriptor;
@@ -405,7 +248,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CREATION_TIMESTAMP_FIELD_NUMBER = 30525366;
-  private volatile java.lang.Object creationTimestamp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object creationTimestamp_ = "";
   /**
    * <pre>
    * [Output Only] Creation timestamp in RFC3339 text format.
@@ -489,7 +333,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 422937596;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * An optional description of this resource. Provide this property when you create the resource.
@@ -547,7 +392,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FINGERPRINT_FIELD_NUMBER = 234678500;
-  private volatile java.lang.Object fingerprint_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object fingerprint_ = "";
   /**
    * <pre>
    * Specifies a fingerprint for this resource, which is essentially a hash of the metadata's contents and used for optimistic locking. The fingerprint is initially generated by Compute Engine and changes after every request to modify or update metadata. You must always provide an up-to-date fingerprint hash in order to update or change metadata, otherwise the request will fail with error 412 conditionNotMet. To see the latest fingerprint, make get() request to the security policy.
@@ -605,7 +451,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 3355;
-  private long id_;
+  private long id_ = 0L;
   /**
    * <pre>
    * [Output Only] The unique identifier for the resource. This identifier is defined by the server.
@@ -632,7 +478,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 3292052;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * [Output only] Type of the resource. Always compute#securityPolicyfor security policies
@@ -690,7 +537,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 3373707;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
@@ -774,7 +622,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REGION_FIELD_NUMBER = 138946292;
-  private volatile java.lang.Object region_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object region_ = "";
   /**
    * <pre>
    * [Output Only] URL of the region where the regional security policy resides. This field is not applicable to global security policies.
@@ -832,10 +681,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RULES_FIELD_NUMBER = 108873975;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.SecurityPolicyRule> rules_;
   /**
    * <pre>
-   * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+   * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
    * </pre>
    *
    * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -846,7 +696,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+   * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
    * </pre>
    *
    * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -858,7 +708,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+   * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
    * </pre>
    *
    * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -869,7 +719,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+   * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
    * </pre>
    *
    * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -880,7 +730,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+   * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
    * </pre>
    *
    * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -892,7 +742,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SELF_LINK_FIELD_NUMBER = 456214797;
-  private volatile java.lang.Object selfLink_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object selfLink_ = "";
   /**
    * <pre>
    * [Output Only] Server-defined URL for the resource.
@@ -950,7 +801,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 3575610;
-  private volatile java.lang.Object type_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object type_ = "";
   /**
    * <pre>
    * The type indicates the intended use of the security policy. - CLOUD_ARMOR: Cloud Armor backend security policies can be configured to filter incoming HTTP requests targeting backend services. They filter requests before they hit the origin servers. - CLOUD_ARMOR_EDGE: Cloud Armor edge security policies can be configured to filter incoming HTTP requests targeting backend services (including Cloud CDN-enabled) as well as backend buckets (Cloud Storage). They filter requests before the request is served from Google's cache. - CLOUD_ARMOR_INTERNAL_SERVICE: Cloud Armor internal service policies can be configured to filter HTTP requests targeting services managed by Traffic Director in a service mesh. They filter requests before the request is served from the application. This field can be set only at resource creation time.
@@ -1066,7 +918,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000200) != 0)) {
       output.writeMessage(519006811, getRecaptchaOptionsConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1123,7 +975,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(519006811, getRecaptchaOptionsConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1205,7 +1057,7 @@ private static final long serialVersionUID = 0L;
       if (!getType()
           .equals(other.getType())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1273,7 +1125,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + getType().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1415,54 +1267,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (adaptiveProtectionConfigBuilder_ == null) {
-        adaptiveProtectionConfig_ = null;
-      } else {
-        adaptiveProtectionConfigBuilder_.clear();
+      bitField0_ = 0;
+      adaptiveProtectionConfig_ = null;
+      if (adaptiveProtectionConfigBuilder_ != null) {
+        adaptiveProtectionConfigBuilder_.dispose();
+        adaptiveProtectionConfigBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (advancedOptionsConfigBuilder_ == null) {
-        advancedOptionsConfig_ = null;
-      } else {
-        advancedOptionsConfigBuilder_.clear();
+      advancedOptionsConfig_ = null;
+      if (advancedOptionsConfigBuilder_ != null) {
+        advancedOptionsConfigBuilder_.dispose();
+        advancedOptionsConfigBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000002);
       creationTimestamp_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
-      if (ddosProtectionConfigBuilder_ == null) {
-        ddosProtectionConfig_ = null;
-      } else {
-        ddosProtectionConfigBuilder_.clear();
+      ddosProtectionConfig_ = null;
+      if (ddosProtectionConfigBuilder_ != null) {
+        ddosProtectionConfigBuilder_.dispose();
+        ddosProtectionConfigBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000008);
       description_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       fingerprint_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
       id_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000040);
       kind_ = "";
-      bitField0_ = (bitField0_ & ~0x00000080);
       name_ = "";
-      bitField0_ = (bitField0_ & ~0x00000100);
-      if (recaptchaOptionsConfigBuilder_ == null) {
-        recaptchaOptionsConfig_ = null;
-      } else {
-        recaptchaOptionsConfigBuilder_.clear();
+      recaptchaOptionsConfig_ = null;
+      if (recaptchaOptionsConfigBuilder_ != null) {
+        recaptchaOptionsConfigBuilder_.dispose();
+        recaptchaOptionsConfigBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000200);
       region_ = "";
-      bitField0_ = (bitField0_ & ~0x00000400);
       if (rulesBuilder_ == null) {
         rules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000800);
       } else {
+        rules_ = null;
         rulesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000800);
       selfLink_ = "";
-      bitField0_ = (bitField0_ & ~0x00001000);
       type_ = "";
-      bitField0_ = (bitField0_ & ~0x00002000);
       return this;
     }
 
@@ -1489,68 +1330,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.SecurityPolicy buildPartial() {
       com.google.cloud.compute.v1.SecurityPolicy result = new com.google.cloud.compute.v1.SecurityPolicy(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (adaptiveProtectionConfigBuilder_ == null) {
-          result.adaptiveProtectionConfig_ = adaptiveProtectionConfig_;
-        } else {
-          result.adaptiveProtectionConfig_ = adaptiveProtectionConfigBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000001;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        if (advancedOptionsConfigBuilder_ == null) {
-          result.advancedOptionsConfig_ = advancedOptionsConfig_;
-        } else {
-          result.advancedOptionsConfig_ = advancedOptionsConfigBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000002;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        to_bitField0_ |= 0x00000004;
-      }
-      result.creationTimestamp_ = creationTimestamp_;
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        if (ddosProtectionConfigBuilder_ == null) {
-          result.ddosProtectionConfig_ = ddosProtectionConfig_;
-        } else {
-          result.ddosProtectionConfig_ = ddosProtectionConfigBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000008;
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        to_bitField0_ |= 0x00000010;
-      }
-      result.description_ = description_;
-      if (((from_bitField0_ & 0x00000020) != 0)) {
-        to_bitField0_ |= 0x00000020;
-      }
-      result.fingerprint_ = fingerprint_;
-      if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.id_ = id_;
-        to_bitField0_ |= 0x00000040;
-      }
-      if (((from_bitField0_ & 0x00000080) != 0)) {
-        to_bitField0_ |= 0x00000080;
-      }
-      result.kind_ = kind_;
-      if (((from_bitField0_ & 0x00000100) != 0)) {
-        to_bitField0_ |= 0x00000100;
-      }
-      result.name_ = name_;
-      if (((from_bitField0_ & 0x00000200) != 0)) {
-        if (recaptchaOptionsConfigBuilder_ == null) {
-          result.recaptchaOptionsConfig_ = recaptchaOptionsConfig_;
-        } else {
-          result.recaptchaOptionsConfig_ = recaptchaOptionsConfigBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000200;
-      }
-      if (((from_bitField0_ & 0x00000400) != 0)) {
-        to_bitField0_ |= 0x00000400;
-      }
-      result.region_ = region_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.SecurityPolicy result) {
       if (rulesBuilder_ == null) {
         if (((bitField0_ & 0x00000800) != 0)) {
           rules_ = java.util.Collections.unmodifiableList(rules_);
@@ -1560,17 +1346,72 @@ private static final long serialVersionUID = 0L;
       } else {
         result.rules_ = rulesBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.SecurityPolicy result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.adaptiveProtectionConfig_ = adaptiveProtectionConfigBuilder_ == null
+            ? adaptiveProtectionConfig_
+            : adaptiveProtectionConfigBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.advancedOptionsConfig_ = advancedOptionsConfigBuilder_ == null
+            ? advancedOptionsConfig_
+            : advancedOptionsConfigBuilder_.build();
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.creationTimestamp_ = creationTimestamp_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.ddosProtectionConfig_ = ddosProtectionConfigBuilder_ == null
+            ? ddosProtectionConfig_
+            : ddosProtectionConfigBuilder_.build();
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.description_ = description_;
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.fingerprint_ = fingerprint_;
+        to_bitField0_ |= 0x00000020;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.id_ = id_;
+        to_bitField0_ |= 0x00000040;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.kind_ = kind_;
+        to_bitField0_ |= 0x00000080;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.name_ = name_;
+        to_bitField0_ |= 0x00000100;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.recaptchaOptionsConfig_ = recaptchaOptionsConfigBuilder_ == null
+            ? recaptchaOptionsConfig_
+            : recaptchaOptionsConfigBuilder_.build();
+        to_bitField0_ |= 0x00000200;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.region_ = region_;
+        to_bitField0_ |= 0x00000400;
+      }
       if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.selfLink_ = selfLink_;
         to_bitField0_ |= 0x00000800;
       }
-      result.selfLink_ = selfLink_;
       if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.type_ = type_;
         to_bitField0_ |= 0x00001000;
       }
-      result.type_ = type_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1624,42 +1465,42 @@ private static final long serialVersionUID = 0L;
         mergeAdvancedOptionsConfig(other.getAdvancedOptionsConfig());
       }
       if (other.hasCreationTimestamp()) {
-        bitField0_ |= 0x00000004;
         creationTimestamp_ = other.creationTimestamp_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasDdosProtectionConfig()) {
         mergeDdosProtectionConfig(other.getDdosProtectionConfig());
       }
       if (other.hasDescription()) {
-        bitField0_ |= 0x00000010;
         description_ = other.description_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasFingerprint()) {
-        bitField0_ |= 0x00000020;
         fingerprint_ = other.fingerprint_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasId()) {
         setId(other.getId());
       }
       if (other.hasKind()) {
-        bitField0_ |= 0x00000080;
         kind_ = other.kind_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.hasName()) {
-        bitField0_ |= 0x00000100;
         name_ = other.name_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.hasRecaptchaOptionsConfig()) {
         mergeRecaptchaOptionsConfig(other.getRecaptchaOptionsConfig());
       }
       if (other.hasRegion()) {
-        bitField0_ |= 0x00000400;
         region_ = other.region_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (rulesBuilder_ == null) {
@@ -1689,16 +1530,16 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (other.hasSelfLink()) {
-        bitField0_ |= 0x00001000;
         selfLink_ = other.selfLink_;
+        bitField0_ |= 0x00001000;
         onChanged();
       }
       if (other.hasType()) {
-        bitField0_ |= 0x00002000;
         type_ = other.type_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1713,17 +1554,116 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.SecurityPolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26840: {
+              id_ = input.readUInt64();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 26840
+            case 26336418: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 26336418
+            case 26989658: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 26989658
+            case 28604882: {
+              type_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 28604882
+            case 244202930: {
+              creationTimestamp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 244202930
+            case 402526826: {
+              input.readMessage(
+                  getDdosProtectionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 402526826
+            case 870991802: {
+              com.google.cloud.compute.v1.SecurityPolicyRule m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.SecurityPolicyRule.parser(),
+                      extensionRegistry);
+              if (rulesBuilder_ == null) {
+                ensureRulesIsMutable();
+                rules_.add(m);
+              } else {
+                rulesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 870991802
+            case 1111570338: {
+              region_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 1111570338
+            case 1201925882: {
+              input.readMessage(
+                  getAdaptiveProtectionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 1201925882
+            case 1877428002: {
+              fingerprint_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 1877428002
+            case -911466526: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case -911466526
+            case -700756478: {
+              input.readMessage(
+                  getAdvancedOptionsConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -700756478
+            case -645248918: {
+              selfLink_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case -645248918
+            case -142912806: {
+              input.readMessage(
+                  getRecaptchaOptionsConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case -142912806
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.SecurityPolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1758,11 +1698,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         adaptiveProtectionConfig_ = value;
-        onChanged();
       } else {
         adaptiveProtectionConfigBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1772,11 +1712,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.SecurityPolicyAdaptiveProtectionConfig.Builder builderForValue) {
       if (adaptiveProtectionConfigBuilder_ == null) {
         adaptiveProtectionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         adaptiveProtectionConfigBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1785,31 +1725,30 @@ private static final long serialVersionUID = 0L;
     public Builder mergeAdaptiveProtectionConfig(com.google.cloud.compute.v1.SecurityPolicyAdaptiveProtectionConfig value) {
       if (adaptiveProtectionConfigBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0) &&
-            adaptiveProtectionConfig_ != null &&
-            adaptiveProtectionConfig_ != com.google.cloud.compute.v1.SecurityPolicyAdaptiveProtectionConfig.getDefaultInstance()) {
-          adaptiveProtectionConfig_ =
-            com.google.cloud.compute.v1.SecurityPolicyAdaptiveProtectionConfig.newBuilder(adaptiveProtectionConfig_).mergeFrom(value).buildPartial();
+          adaptiveProtectionConfig_ != null &&
+          adaptiveProtectionConfig_ != com.google.cloud.compute.v1.SecurityPolicyAdaptiveProtectionConfig.getDefaultInstance()) {
+          getAdaptiveProtectionConfigBuilder().mergeFrom(value);
         } else {
           adaptiveProtectionConfig_ = value;
         }
-        onChanged();
       } else {
         adaptiveProtectionConfigBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>optional .google.cloud.compute.v1.SecurityPolicyAdaptiveProtectionConfig adaptive_protection_config = 150240735;</code>
      */
     public Builder clearAdaptiveProtectionConfig() {
-      if (adaptiveProtectionConfigBuilder_ == null) {
-        adaptiveProtectionConfig_ = null;
-        onChanged();
-      } else {
-        adaptiveProtectionConfigBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000001);
+      adaptiveProtectionConfig_ = null;
+      if (adaptiveProtectionConfigBuilder_ != null) {
+        adaptiveProtectionConfigBuilder_.dispose();
+        adaptiveProtectionConfigBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1878,11 +1817,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         advancedOptionsConfig_ = value;
-        onChanged();
       } else {
         advancedOptionsConfigBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1892,11 +1831,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig.Builder builderForValue) {
       if (advancedOptionsConfigBuilder_ == null) {
         advancedOptionsConfig_ = builderForValue.build();
-        onChanged();
       } else {
         advancedOptionsConfigBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1905,31 +1844,30 @@ private static final long serialVersionUID = 0L;
     public Builder mergeAdvancedOptionsConfig(com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig value) {
       if (advancedOptionsConfigBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0) &&
-            advancedOptionsConfig_ != null &&
-            advancedOptionsConfig_ != com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig.getDefaultInstance()) {
-          advancedOptionsConfig_ =
-            com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig.newBuilder(advancedOptionsConfig_).mergeFrom(value).buildPartial();
+          advancedOptionsConfig_ != null &&
+          advancedOptionsConfig_ != com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig.getDefaultInstance()) {
+          getAdvancedOptionsConfigBuilder().mergeFrom(value);
         } else {
           advancedOptionsConfig_ = value;
         }
-        onChanged();
       } else {
         advancedOptionsConfigBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <code>optional .google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig advanced_options_config = 449276352;</code>
      */
     public Builder clearAdvancedOptionsConfig() {
-      if (advancedOptionsConfigBuilder_ == null) {
-        advancedOptionsConfig_ = null;
-        onChanged();
-      } else {
-        advancedOptionsConfigBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000002);
+      advancedOptionsConfig_ = null;
+      if (advancedOptionsConfigBuilder_ != null) {
+        advancedOptionsConfigBuilder_.dispose();
+        advancedOptionsConfigBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2032,11 +1970,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestamp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2049,8 +1985,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCreationTimestamp() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       creationTimestamp_ = getDefaultInstance().getCreationTimestamp();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2065,12 +2001,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestampBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2105,11 +2039,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         ddosProtectionConfig_ = value;
-        onChanged();
       } else {
         ddosProtectionConfigBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2119,11 +2053,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.SecurityPolicyDdosProtectionConfig.Builder builderForValue) {
       if (ddosProtectionConfigBuilder_ == null) {
         ddosProtectionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         ddosProtectionConfigBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2132,31 +2066,30 @@ private static final long serialVersionUID = 0L;
     public Builder mergeDdosProtectionConfig(com.google.cloud.compute.v1.SecurityPolicyDdosProtectionConfig value) {
       if (ddosProtectionConfigBuilder_ == null) {
         if (((bitField0_ & 0x00000008) != 0) &&
-            ddosProtectionConfig_ != null &&
-            ddosProtectionConfig_ != com.google.cloud.compute.v1.SecurityPolicyDdosProtectionConfig.getDefaultInstance()) {
-          ddosProtectionConfig_ =
-            com.google.cloud.compute.v1.SecurityPolicyDdosProtectionConfig.newBuilder(ddosProtectionConfig_).mergeFrom(value).buildPartial();
+          ddosProtectionConfig_ != null &&
+          ddosProtectionConfig_ != com.google.cloud.compute.v1.SecurityPolicyDdosProtectionConfig.getDefaultInstance()) {
+          getDdosProtectionConfigBuilder().mergeFrom(value);
         } else {
           ddosProtectionConfig_ = value;
         }
-        onChanged();
       } else {
         ddosProtectionConfigBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <code>optional .google.cloud.compute.v1.SecurityPolicyDdosProtectionConfig ddos_protection_config = 50315853;</code>
      */
     public Builder clearDdosProtectionConfig() {
-      if (ddosProtectionConfigBuilder_ == null) {
-        ddosProtectionConfig_ = null;
-        onChanged();
-      } else {
-        ddosProtectionConfigBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000008);
+      ddosProtectionConfig_ = null;
+      if (ddosProtectionConfigBuilder_ != null) {
+        ddosProtectionConfigBuilder_.dispose();
+        ddosProtectionConfigBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2259,11 +2192,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2276,8 +2207,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2292,12 +2223,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2366,11 +2295,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFingerprint(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       fingerprint_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2383,8 +2310,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFingerprint() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       fingerprint_ = getDefaultInstance().getFingerprint();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2399,12 +2326,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFingerprintBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       fingerprint_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2444,8 +2369,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(long value) {
-      bitField0_ |= 0x00000040;
+      
       id_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2528,11 +2454,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2545,8 +2469,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      bitField0_ = (bitField0_ & ~0x00000080);
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2561,12 +2485,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2635,11 +2557,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2652,8 +2572,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      bitField0_ = (bitField0_ & ~0x00000100);
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2668,12 +2588,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2708,11 +2626,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         recaptchaOptionsConfig_ = value;
-        onChanged();
       } else {
         recaptchaOptionsConfigBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2722,11 +2640,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.SecurityPolicyRecaptchaOptionsConfig.Builder builderForValue) {
       if (recaptchaOptionsConfigBuilder_ == null) {
         recaptchaOptionsConfig_ = builderForValue.build();
-        onChanged();
       } else {
         recaptchaOptionsConfigBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2735,31 +2653,30 @@ private static final long serialVersionUID = 0L;
     public Builder mergeRecaptchaOptionsConfig(com.google.cloud.compute.v1.SecurityPolicyRecaptchaOptionsConfig value) {
       if (recaptchaOptionsConfigBuilder_ == null) {
         if (((bitField0_ & 0x00000200) != 0) &&
-            recaptchaOptionsConfig_ != null &&
-            recaptchaOptionsConfig_ != com.google.cloud.compute.v1.SecurityPolicyRecaptchaOptionsConfig.getDefaultInstance()) {
-          recaptchaOptionsConfig_ =
-            com.google.cloud.compute.v1.SecurityPolicyRecaptchaOptionsConfig.newBuilder(recaptchaOptionsConfig_).mergeFrom(value).buildPartial();
+          recaptchaOptionsConfig_ != null &&
+          recaptchaOptionsConfig_ != com.google.cloud.compute.v1.SecurityPolicyRecaptchaOptionsConfig.getDefaultInstance()) {
+          getRecaptchaOptionsConfigBuilder().mergeFrom(value);
         } else {
           recaptchaOptionsConfig_ = value;
         }
-        onChanged();
       } else {
         recaptchaOptionsConfigBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
      * <code>optional .google.cloud.compute.v1.SecurityPolicyRecaptchaOptionsConfig recaptcha_options_config = 519006811;</code>
      */
     public Builder clearRecaptchaOptionsConfig() {
-      if (recaptchaOptionsConfigBuilder_ == null) {
-        recaptchaOptionsConfig_ = null;
-        onChanged();
-      } else {
-        recaptchaOptionsConfigBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000200);
+      recaptchaOptionsConfig_ = null;
+      if (recaptchaOptionsConfigBuilder_ != null) {
+        recaptchaOptionsConfigBuilder_.dispose();
+        recaptchaOptionsConfigBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2862,11 +2779,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
       region_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2879,8 +2794,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRegion() {
-      bitField0_ = (bitField0_ & ~0x00000400);
       region_ = getDefaultInstance().getRegion();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -2895,12 +2810,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       region_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2919,7 +2832,7 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -2933,7 +2846,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -2947,7 +2860,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -2961,7 +2874,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -2982,7 +2895,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -3000,7 +2913,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -3020,7 +2933,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -3041,7 +2954,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -3059,7 +2972,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -3077,7 +2990,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -3096,7 +3009,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -3113,7 +3026,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -3130,7 +3043,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -3141,7 +3054,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -3155,7 +3068,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -3170,7 +3083,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -3181,7 +3094,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -3193,7 +3106,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
+     * A list of rules that belong to this policy. There must always be a default rule which is a rule with priority 2147483647 and match all condition (for the match condition this means match "*" for srcIpRanges and for the networkMatch condition every field must be either match "*" or not set). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
      * </pre>
      *
      * <code>repeated .google.cloud.compute.v1.SecurityPolicyRule rules = 108873975;</code>
@@ -3281,11 +3194,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLink(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
       selfLink_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3298,8 +3209,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSelfLink() {
-      bitField0_ = (bitField0_ & ~0x00001000);
       selfLink_ = getDefaultInstance().getSelfLink();
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -3314,12 +3225,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLinkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       selfLink_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3392,11 +3301,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00002000;
+      if (value == null) { throw new NullPointerException(); }
       type_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3410,8 +3317,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      bitField0_ = (bitField0_ & ~0x00002000);
       type_ = getDefaultInstance().getType();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -3427,12 +3334,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00002000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       type_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3469,7 +3374,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SecurityPolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

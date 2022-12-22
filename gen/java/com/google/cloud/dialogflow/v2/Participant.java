@@ -23,6 +23,7 @@ private static final long serialVersionUID = 0L;
     name_ = "";
     role_ = 0;
     sipRecordingMediaLabel_ = "";
+    obfuscatedExternalUserId_ = "";
   }
 
   @java.lang.Override
@@ -36,77 +37,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Participant(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            role_ = rawValue;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sipRecordingMediaLabel_ = s;
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              documentsMetadataFilters_ = com.google.protobuf.MapField.newMapField(
-                  DocumentsMetadataFiltersDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            documentsMetadataFilters__ = input.readMessage(
-                DocumentsMetadataFiltersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            documentsMetadataFilters_.getMutableMap().put(
-                documentsMetadataFilters__.getKey(), documentsMetadataFilters__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -298,7 +228,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Optional. The unique identifier of this participant.
@@ -348,7 +279,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROLE_FIELD_NUMBER = 2;
-  private int role_;
+  private int role_ = 0;
   /**
    * <pre>
    * Immutable. The role this participant plays in the conversation. This field must be set
@@ -371,13 +302,13 @@ private static final long serialVersionUID = 0L;
    * @return The role.
    */
   @java.lang.Override public com.google.cloud.dialogflow.v2.Participant.Role getRole() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dialogflow.v2.Participant.Role result = com.google.cloud.dialogflow.v2.Participant.Role.valueOf(role_);
+    com.google.cloud.dialogflow.v2.Participant.Role result = com.google.cloud.dialogflow.v2.Participant.Role.forNumber(role_);
     return result == null ? com.google.cloud.dialogflow.v2.Participant.Role.UNRECOGNIZED : result;
   }
 
   public static final int SIP_RECORDING_MEDIA_LABEL_FIELD_NUMBER = 6;
-  private volatile java.lang.Object sipRecordingMediaLabel_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sipRecordingMediaLabel_ = "";
   /**
    * <pre>
    * Optional. Label applied to streams representing this participant in SIPREC
@@ -426,6 +357,93 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int OBFUSCATED_EXTERNAL_USER_ID_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object obfuscatedExternalUserId_ = "";
+  /**
+   * <pre>
+   * Optional. Obfuscated user id that should be associated with the created participant.
+   * You can specify a user id as follows:
+   * 1. If you set this field in
+   *    [CreateParticipantRequest][google.cloud.dialogflow.v2.CreateParticipantRequest.participant] or
+   *    [UpdateParticipantRequest][google.cloud.dialogflow.v2.UpdateParticipantRequest.participant],
+   *    Dialogflow adds the obfuscated user id with the participant.
+   * 2. If you set this field in
+   *    [AnalyzeContent][google.cloud.dialogflow.v2.AnalyzeContentRequest.obfuscated_external_user_id] or
+   *    [StreamingAnalyzeContent][google.cloud.dialogflow.v2.StreamingAnalyzeContentRequest.obfuscated_external_user_id],
+   *    Dialogflow will update [Participant.obfuscated_external_user_id][google.cloud.dialogflow.v2.Participant.obfuscated_external_user_id].
+   * Dialogflow returns an error if you try to add a user id for a
+   * non-[END_USER][google.cloud.dialogflow.v2.Participant.Role.END_USER] participant.
+   * Dialogflow uses this user id for billing and measurement purposes. For
+   * example, Dialogflow determines whether a user in one conversation returned
+   * in a later conversation.
+   * Note:
+   * * Please never pass raw user ids to Dialogflow. Always obfuscate your user
+   *   id first.
+   * * Dialogflow only accepts a UTF-8 encoded string, e.g., a hex digest of a
+   *   hash function like SHA-512.
+   * * The length of the user id must be &lt;= 256 characters.
+   * </pre>
+   *
+   * <code>string obfuscated_external_user_id = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The obfuscatedExternalUserId.
+   */
+  @java.lang.Override
+  public java.lang.String getObfuscatedExternalUserId() {
+    java.lang.Object ref = obfuscatedExternalUserId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      obfuscatedExternalUserId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Optional. Obfuscated user id that should be associated with the created participant.
+   * You can specify a user id as follows:
+   * 1. If you set this field in
+   *    [CreateParticipantRequest][google.cloud.dialogflow.v2.CreateParticipantRequest.participant] or
+   *    [UpdateParticipantRequest][google.cloud.dialogflow.v2.UpdateParticipantRequest.participant],
+   *    Dialogflow adds the obfuscated user id with the participant.
+   * 2. If you set this field in
+   *    [AnalyzeContent][google.cloud.dialogflow.v2.AnalyzeContentRequest.obfuscated_external_user_id] or
+   *    [StreamingAnalyzeContent][google.cloud.dialogflow.v2.StreamingAnalyzeContentRequest.obfuscated_external_user_id],
+   *    Dialogflow will update [Participant.obfuscated_external_user_id][google.cloud.dialogflow.v2.Participant.obfuscated_external_user_id].
+   * Dialogflow returns an error if you try to add a user id for a
+   * non-[END_USER][google.cloud.dialogflow.v2.Participant.Role.END_USER] participant.
+   * Dialogflow uses this user id for billing and measurement purposes. For
+   * example, Dialogflow determines whether a user in one conversation returned
+   * in a later conversation.
+   * Note:
+   * * Please never pass raw user ids to Dialogflow. Always obfuscate your user
+   *   id first.
+   * * Dialogflow only accepts a UTF-8 encoded string, e.g., a hex digest of a
+   *   hash function like SHA-512.
+   * * The length of the user id must be &lt;= 256 characters.
+   * </pre>
+   *
+   * <code>string obfuscated_external_user_id = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The bytes for obfuscatedExternalUserId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getObfuscatedExternalUserIdBytes() {
+    java.lang.Object ref = obfuscatedExternalUserId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      obfuscatedExternalUserId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int DOCUMENTS_METADATA_FILTERS_FIELD_NUMBER = 8;
   private static final class DocumentsMetadataFiltersDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
@@ -438,6 +456,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> documentsMetadataFilters_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -448,7 +467,6 @@ private static final long serialVersionUID = 0L;
     }
     return documentsMetadataFilters_;
   }
-
   public int getDocumentsMetadataFiltersCount() {
     return internalGetDocumentsMetadataFilters().getMap().size();
   }
@@ -474,7 +492,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; documents_metadata_filters = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsDocumentsMetadataFilters(
       java.lang.String key) {
@@ -512,7 +529,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; documents_metadata_filters = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getDocumentsMetadataFiltersMap() {
     return internalGetDocumentsMetadataFilters().getMap();
   }
@@ -539,10 +555,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; documents_metadata_filters = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getDocumentsMetadataFiltersOrDefault(
+  public /* nullable */
+java.lang.String getDocumentsMetadataFiltersOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetDocumentsMetadataFilters().getMap();
@@ -571,7 +588,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; documents_metadata_filters = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.lang.String getDocumentsMetadataFiltersOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -606,13 +622,16 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sipRecordingMediaLabel_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, sipRecordingMediaLabel_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(obfuscatedExternalUserId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, obfuscatedExternalUserId_);
+    }
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
         internalGetDocumentsMetadataFilters(),
         DocumentsMetadataFiltersDefaultEntryHolder.defaultEntry,
         8);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -631,6 +650,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sipRecordingMediaLabel_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, sipRecordingMediaLabel_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(obfuscatedExternalUserId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, obfuscatedExternalUserId_);
+    }
     for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
          : internalGetDocumentsMetadataFilters().getMap().entrySet()) {
       com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
@@ -641,7 +663,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, documentsMetadataFilters__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -661,9 +683,11 @@ private static final long serialVersionUID = 0L;
     if (role_ != other.role_) return false;
     if (!getSipRecordingMediaLabel()
         .equals(other.getSipRecordingMediaLabel())) return false;
+    if (!getObfuscatedExternalUserId()
+        .equals(other.getObfuscatedExternalUserId())) return false;
     if (!internalGetDocumentsMetadataFilters().equals(
         other.internalGetDocumentsMetadataFilters())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -680,11 +704,13 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + role_;
     hash = (37 * hash) + SIP_RECORDING_MEDIA_LABEL_FIELD_NUMBER;
     hash = (53 * hash) + getSipRecordingMediaLabel().hashCode();
+    hash = (37 * hash) + OBFUSCATED_EXTERNAL_USER_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getObfuscatedExternalUserId().hashCode();
     if (!internalGetDocumentsMetadataFilters().getMap().isEmpty()) {
       hash = (37 * hash) + DOCUMENTS_METADATA_FILTERS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetDocumentsMetadataFilters().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -827,28 +853,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.v2.Participant.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       role_ = 0;
-
       sipRecordingMediaLabel_ = "";
-
+      obfuscatedExternalUserId_ = "";
       internalGetMutableDocumentsMetadataFilters().clear();
       return this;
     }
@@ -876,14 +896,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.v2.Participant buildPartial() {
       com.google.cloud.dialogflow.v2.Participant result = new com.google.cloud.dialogflow.v2.Participant(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.role_ = role_;
-      result.sipRecordingMediaLabel_ = sipRecordingMediaLabel_;
-      result.documentsMetadataFilters_ = internalGetDocumentsMetadataFilters();
-      result.documentsMetadataFilters_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.v2.Participant result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.role_ = role_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.sipRecordingMediaLabel_ = sipRecordingMediaLabel_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.obfuscatedExternalUserId_ = obfuscatedExternalUserId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.documentsMetadataFilters_ = internalGetDocumentsMetadataFilters();
+        result.documentsMetadataFilters_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -932,6 +967,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dialogflow.v2.Participant.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.role_ != 0) {
@@ -939,11 +975,18 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSipRecordingMediaLabel().isEmpty()) {
         sipRecordingMediaLabel_ = other.sipRecordingMediaLabel_;
+        bitField0_ |= 0x00000004;
+        onChanged();
+      }
+      if (!other.getObfuscatedExternalUserId().isEmpty()) {
+        obfuscatedExternalUserId_ = other.obfuscatedExternalUserId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       internalGetMutableDocumentsMetadataFilters().mergeFrom(
           other.internalGetDocumentsMetadataFilters());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000010;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -958,17 +1001,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.v2.Participant parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              role_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 50: {
+              sipRecordingMediaLabel_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 50
+            case 58: {
+              obfuscatedExternalUserId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 58
+            case 66: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              documentsMetadataFilters__ = input.readMessage(
+                  DocumentsMetadataFiltersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableDocumentsMetadataFilters().getMutableMap().put(
+                  documentsMetadataFilters__.getKey(), documentsMetadataFilters__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.v2.Participant) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1032,11 +1117,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1051,8 +1134,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1069,12 +1152,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1103,8 +1184,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRoleValue(int value) {
-      
       role_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1119,8 +1200,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dialogflow.v2.Participant.Role getRole() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dialogflow.v2.Participant.Role result = com.google.cloud.dialogflow.v2.Participant.Role.valueOf(role_);
+      com.google.cloud.dialogflow.v2.Participant.Role result = com.google.cloud.dialogflow.v2.Participant.Role.forNumber(role_);
       return result == null ? com.google.cloud.dialogflow.v2.Participant.Role.UNRECOGNIZED : result;
     }
     /**
@@ -1137,7 +1217,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       role_ = value.getNumber();
       onChanged();
       return this;
@@ -1152,7 +1232,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRole() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       role_ = 0;
       onChanged();
       return this;
@@ -1217,11 +1297,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSipRecordingMediaLabel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sipRecordingMediaLabel_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1236,8 +1314,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSipRecordingMediaLabel() {
-      
       sipRecordingMediaLabel_ = getDefaultInstance().getSipRecordingMediaLabel();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1254,12 +1332,202 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSipRecordingMediaLabelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sipRecordingMediaLabel_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object obfuscatedExternalUserId_ = "";
+    /**
+     * <pre>
+     * Optional. Obfuscated user id that should be associated with the created participant.
+     * You can specify a user id as follows:
+     * 1. If you set this field in
+     *    [CreateParticipantRequest][google.cloud.dialogflow.v2.CreateParticipantRequest.participant] or
+     *    [UpdateParticipantRequest][google.cloud.dialogflow.v2.UpdateParticipantRequest.participant],
+     *    Dialogflow adds the obfuscated user id with the participant.
+     * 2. If you set this field in
+     *    [AnalyzeContent][google.cloud.dialogflow.v2.AnalyzeContentRequest.obfuscated_external_user_id] or
+     *    [StreamingAnalyzeContent][google.cloud.dialogflow.v2.StreamingAnalyzeContentRequest.obfuscated_external_user_id],
+     *    Dialogflow will update [Participant.obfuscated_external_user_id][google.cloud.dialogflow.v2.Participant.obfuscated_external_user_id].
+     * Dialogflow returns an error if you try to add a user id for a
+     * non-[END_USER][google.cloud.dialogflow.v2.Participant.Role.END_USER] participant.
+     * Dialogflow uses this user id for billing and measurement purposes. For
+     * example, Dialogflow determines whether a user in one conversation returned
+     * in a later conversation.
+     * Note:
+     * * Please never pass raw user ids to Dialogflow. Always obfuscate your user
+     *   id first.
+     * * Dialogflow only accepts a UTF-8 encoded string, e.g., a hex digest of a
+     *   hash function like SHA-512.
+     * * The length of the user id must be &lt;= 256 characters.
+     * </pre>
+     *
+     * <code>string obfuscated_external_user_id = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The obfuscatedExternalUserId.
+     */
+    public java.lang.String getObfuscatedExternalUserId() {
+      java.lang.Object ref = obfuscatedExternalUserId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        obfuscatedExternalUserId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Obfuscated user id that should be associated with the created participant.
+     * You can specify a user id as follows:
+     * 1. If you set this field in
+     *    [CreateParticipantRequest][google.cloud.dialogflow.v2.CreateParticipantRequest.participant] or
+     *    [UpdateParticipantRequest][google.cloud.dialogflow.v2.UpdateParticipantRequest.participant],
+     *    Dialogflow adds the obfuscated user id with the participant.
+     * 2. If you set this field in
+     *    [AnalyzeContent][google.cloud.dialogflow.v2.AnalyzeContentRequest.obfuscated_external_user_id] or
+     *    [StreamingAnalyzeContent][google.cloud.dialogflow.v2.StreamingAnalyzeContentRequest.obfuscated_external_user_id],
+     *    Dialogflow will update [Participant.obfuscated_external_user_id][google.cloud.dialogflow.v2.Participant.obfuscated_external_user_id].
+     * Dialogflow returns an error if you try to add a user id for a
+     * non-[END_USER][google.cloud.dialogflow.v2.Participant.Role.END_USER] participant.
+     * Dialogflow uses this user id for billing and measurement purposes. For
+     * example, Dialogflow determines whether a user in one conversation returned
+     * in a later conversation.
+     * Note:
+     * * Please never pass raw user ids to Dialogflow. Always obfuscate your user
+     *   id first.
+     * * Dialogflow only accepts a UTF-8 encoded string, e.g., a hex digest of a
+     *   hash function like SHA-512.
+     * * The length of the user id must be &lt;= 256 characters.
+     * </pre>
+     *
+     * <code>string obfuscated_external_user_id = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The bytes for obfuscatedExternalUserId.
+     */
+    public com.google.protobuf.ByteString
+        getObfuscatedExternalUserIdBytes() {
+      java.lang.Object ref = obfuscatedExternalUserId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        obfuscatedExternalUserId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Obfuscated user id that should be associated with the created participant.
+     * You can specify a user id as follows:
+     * 1. If you set this field in
+     *    [CreateParticipantRequest][google.cloud.dialogflow.v2.CreateParticipantRequest.participant] or
+     *    [UpdateParticipantRequest][google.cloud.dialogflow.v2.UpdateParticipantRequest.participant],
+     *    Dialogflow adds the obfuscated user id with the participant.
+     * 2. If you set this field in
+     *    [AnalyzeContent][google.cloud.dialogflow.v2.AnalyzeContentRequest.obfuscated_external_user_id] or
+     *    [StreamingAnalyzeContent][google.cloud.dialogflow.v2.StreamingAnalyzeContentRequest.obfuscated_external_user_id],
+     *    Dialogflow will update [Participant.obfuscated_external_user_id][google.cloud.dialogflow.v2.Participant.obfuscated_external_user_id].
+     * Dialogflow returns an error if you try to add a user id for a
+     * non-[END_USER][google.cloud.dialogflow.v2.Participant.Role.END_USER] participant.
+     * Dialogflow uses this user id for billing and measurement purposes. For
+     * example, Dialogflow determines whether a user in one conversation returned
+     * in a later conversation.
+     * Note:
+     * * Please never pass raw user ids to Dialogflow. Always obfuscate your user
+     *   id first.
+     * * Dialogflow only accepts a UTF-8 encoded string, e.g., a hex digest of a
+     *   hash function like SHA-512.
+     * * The length of the user id must be &lt;= 256 characters.
+     * </pre>
+     *
+     * <code>string obfuscated_external_user_id = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The obfuscatedExternalUserId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setObfuscatedExternalUserId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      obfuscatedExternalUserId_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Obfuscated user id that should be associated with the created participant.
+     * You can specify a user id as follows:
+     * 1. If you set this field in
+     *    [CreateParticipantRequest][google.cloud.dialogflow.v2.CreateParticipantRequest.participant] or
+     *    [UpdateParticipantRequest][google.cloud.dialogflow.v2.UpdateParticipantRequest.participant],
+     *    Dialogflow adds the obfuscated user id with the participant.
+     * 2. If you set this field in
+     *    [AnalyzeContent][google.cloud.dialogflow.v2.AnalyzeContentRequest.obfuscated_external_user_id] or
+     *    [StreamingAnalyzeContent][google.cloud.dialogflow.v2.StreamingAnalyzeContentRequest.obfuscated_external_user_id],
+     *    Dialogflow will update [Participant.obfuscated_external_user_id][google.cloud.dialogflow.v2.Participant.obfuscated_external_user_id].
+     * Dialogflow returns an error if you try to add a user id for a
+     * non-[END_USER][google.cloud.dialogflow.v2.Participant.Role.END_USER] participant.
+     * Dialogflow uses this user id for billing and measurement purposes. For
+     * example, Dialogflow determines whether a user in one conversation returned
+     * in a later conversation.
+     * Note:
+     * * Please never pass raw user ids to Dialogflow. Always obfuscate your user
+     *   id first.
+     * * Dialogflow only accepts a UTF-8 encoded string, e.g., a hex digest of a
+     *   hash function like SHA-512.
+     * * The length of the user id must be &lt;= 256 characters.
+     * </pre>
+     *
+     * <code>string obfuscated_external_user_id = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearObfuscatedExternalUserId() {
+      obfuscatedExternalUserId_ = getDefaultInstance().getObfuscatedExternalUserId();
+      bitField0_ = (bitField0_ & ~0x00000008);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Obfuscated user id that should be associated with the created participant.
+     * You can specify a user id as follows:
+     * 1. If you set this field in
+     *    [CreateParticipantRequest][google.cloud.dialogflow.v2.CreateParticipantRequest.participant] or
+     *    [UpdateParticipantRequest][google.cloud.dialogflow.v2.UpdateParticipantRequest.participant],
+     *    Dialogflow adds the obfuscated user id with the participant.
+     * 2. If you set this field in
+     *    [AnalyzeContent][google.cloud.dialogflow.v2.AnalyzeContentRequest.obfuscated_external_user_id] or
+     *    [StreamingAnalyzeContent][google.cloud.dialogflow.v2.StreamingAnalyzeContentRequest.obfuscated_external_user_id],
+     *    Dialogflow will update [Participant.obfuscated_external_user_id][google.cloud.dialogflow.v2.Participant.obfuscated_external_user_id].
+     * Dialogflow returns an error if you try to add a user id for a
+     * non-[END_USER][google.cloud.dialogflow.v2.Participant.Role.END_USER] participant.
+     * Dialogflow uses this user id for billing and measurement purposes. For
+     * example, Dialogflow determines whether a user in one conversation returned
+     * in a later conversation.
+     * Note:
+     * * Please never pass raw user ids to Dialogflow. Always obfuscate your user
+     *   id first.
+     * * Dialogflow only accepts a UTF-8 encoded string, e.g., a hex digest of a
+     *   hash function like SHA-512.
+     * * The length of the user id must be &lt;= 256 characters.
+     * </pre>
+     *
+     * <code>string obfuscated_external_user_id = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The bytes for obfuscatedExternalUserId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setObfuscatedExternalUserIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      obfuscatedExternalUserId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1267,7 +1535,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> documentsMetadataFilters_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetDocumentsMetadataFilters() {
+        internalGetDocumentsMetadataFilters() {
       if (documentsMetadataFilters_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             DocumentsMetadataFiltersDefaultEntryHolder.defaultEntry);
@@ -1275,8 +1543,7 @@ private static final long serialVersionUID = 0L;
       return documentsMetadataFilters_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableDocumentsMetadataFilters() {
-      onChanged();;
+        internalGetMutableDocumentsMetadataFilters() {
       if (documentsMetadataFilters_ == null) {
         documentsMetadataFilters_ = com.google.protobuf.MapField.newMapField(
             DocumentsMetadataFiltersDefaultEntryHolder.defaultEntry);
@@ -1284,9 +1551,10 @@ private static final long serialVersionUID = 0L;
       if (!documentsMetadataFilters_.isMutable()) {
         documentsMetadataFilters_ = documentsMetadataFilters_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return documentsMetadataFilters_;
     }
-
     public int getDocumentsMetadataFiltersCount() {
       return internalGetDocumentsMetadataFilters().getMap().size();
     }
@@ -1312,7 +1580,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; documents_metadata_filters = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsDocumentsMetadataFilters(
         java.lang.String key) {
@@ -1350,7 +1617,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; documents_metadata_filters = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getDocumentsMetadataFiltersMap() {
       return internalGetDocumentsMetadataFilters().getMap();
     }
@@ -1377,10 +1643,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; documents_metadata_filters = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getDocumentsMetadataFiltersOrDefault(
+    public /* nullable */
+java.lang.String getDocumentsMetadataFiltersOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetDocumentsMetadataFilters().getMap();
@@ -1409,7 +1676,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; documents_metadata_filters = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.lang.String getDocumentsMetadataFiltersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1420,8 +1686,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearDocumentsMetadataFilters() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableDocumentsMetadataFilters().getMutableMap()
           .clear();
       return this;
@@ -1448,7 +1714,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; documents_metadata_filters = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeDocumentsMetadataFilters(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1461,7 +1726,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableDocumentsMetadataFilters() {
+        getMutableDocumentsMetadataFilters() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableDocumentsMetadataFilters().getMutableMap();
     }
     /**
@@ -1490,12 +1756,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableDocumentsMetadataFilters().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -1520,11 +1784,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; documents_metadata_filters = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllDocumentsMetadataFilters(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableDocumentsMetadataFilters().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
     @java.lang.Override
@@ -1560,7 +1824,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Participant(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

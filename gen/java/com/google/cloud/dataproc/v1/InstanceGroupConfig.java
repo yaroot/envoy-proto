@@ -41,130 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InstanceGroupConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            numInstances_ = input.readInt32();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              instanceNames_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            instanceNames_.add(s);
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            imageUri_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            machineTypeUri_ = s;
-            break;
-          }
-          case 42: {
-            com.google.cloud.dataproc.v1.DiskConfig.Builder subBuilder = null;
-            if (diskConfig_ != null) {
-              subBuilder = diskConfig_.toBuilder();
-            }
-            diskConfig_ = input.readMessage(com.google.cloud.dataproc.v1.DiskConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(diskConfig_);
-              diskConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 48: {
-
-            isPreemptible_ = input.readBool();
-            break;
-          }
-          case 58: {
-            com.google.cloud.dataproc.v1.ManagedGroupConfig.Builder subBuilder = null;
-            if (managedGroupConfig_ != null) {
-              subBuilder = managedGroupConfig_.toBuilder();
-            }
-            managedGroupConfig_ = input.readMessage(com.google.cloud.dataproc.v1.ManagedGroupConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(managedGroupConfig_);
-              managedGroupConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              accelerators_ = new java.util.ArrayList<com.google.cloud.dataproc.v1.AcceleratorConfig>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            accelerators_.add(
-                input.readMessage(com.google.cloud.dataproc.v1.AcceleratorConfig.parser(), extensionRegistry));
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            minCpuPlatform_ = s;
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-
-            preemptibility_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        instanceNames_ = instanceNames_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        accelerators_ = java.util.Collections.unmodifiableList(accelerators_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.v1.ClustersProto.internal_static_google_cloud_dataproc_v1_InstanceGroupConfig_descriptor;
@@ -180,10 +56,7 @@ private static final long serialVersionUID = 0L;
 
   /**
    * <pre>
-   * Controls the use of
-   * [preemptible instances]
-   * (https://cloud.google.com/compute/docs/instances/preemptible)
-   * within the group.
+   * Controls the use of preemptible instances within the group.
    * </pre>
    *
    * Protobuf enum {@code google.cloud.dataproc.v1.InstanceGroupConfig.Preemptibility}
@@ -211,8 +84,11 @@ private static final long serialVersionUID = 0L;
     NON_PREEMPTIBLE(1),
     /**
      * <pre>
-     * Instances are preemptible.
-     * This option is allowed only for secondary worker groups.
+     * Instances are [preemptible]
+     * (https://cloud.google.com/compute/docs/instances/preemptible).
+     * This option is allowed only for [secondary worker]
+     * (https://cloud.google.com/dataproc/docs/concepts/compute/secondary-vms)
+     * groups.
      * </pre>
      *
      * <code>PREEMPTIBLE = 2;</code>
@@ -242,8 +118,11 @@ private static final long serialVersionUID = 0L;
     public static final int NON_PREEMPTIBLE_VALUE = 1;
     /**
      * <pre>
-     * Instances are preemptible.
-     * This option is allowed only for secondary worker groups.
+     * Instances are [preemptible]
+     * (https://cloud.google.com/compute/docs/instances/preemptible).
+     * This option is allowed only for [secondary worker]
+     * (https://cloud.google.com/dataproc/docs/concepts/compute/secondary-vms)
+     * groups.
      * </pre>
      *
      * <code>PREEMPTIBLE = 2;</code>
@@ -335,7 +214,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NUM_INSTANCES_FIELD_NUMBER = 1;
-  private int numInstances_;
+  private int numInstances_ = 0;
   /**
    * <pre>
    * Optional. The number of VM instances in the instance group.
@@ -355,6 +234,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INSTANCE_NAMES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList instanceNames_;
   /**
    * <pre>
@@ -410,7 +290,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGE_URI_FIELD_NUMBER = 3;
-  private volatile java.lang.Object imageUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object imageUri_ = "";
   /**
    * <pre>
    * Optional. The Compute Engine image resource used for cluster instances.
@@ -478,7 +359,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MACHINE_TYPE_URI_FIELD_NUMBER = 4;
-  private volatile java.lang.Object machineTypeUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object machineTypeUri_ = "";
   /**
    * <pre>
    * Optional. The Compute Engine machine type used for cluster instances.
@@ -576,11 +458,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.DiskConfigOrBuilder getDiskConfigOrBuilder() {
-    return getDiskConfig();
+    return diskConfig_ == null ? com.google.cloud.dataproc.v1.DiskConfig.getDefaultInstance() : diskConfig_;
   }
 
   public static final int IS_PREEMPTIBLE_FIELD_NUMBER = 6;
-  private boolean isPreemptible_;
+  private boolean isPreemptible_ = false;
   /**
    * <pre>
    * Output only. Specifies that this instance group contains preemptible
@@ -596,7 +478,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PREEMPTIBILITY_FIELD_NUMBER = 10;
-  private int preemptibility_;
+  private int preemptibility_ = 0;
   /**
    * <pre>
    * Optional. Specifies the preemptibility of the instance group.
@@ -625,8 +507,7 @@ private static final long serialVersionUID = 0L;
    * @return The preemptibility.
    */
   @java.lang.Override public com.google.cloud.dataproc.v1.InstanceGroupConfig.Preemptibility getPreemptibility() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dataproc.v1.InstanceGroupConfig.Preemptibility result = com.google.cloud.dataproc.v1.InstanceGroupConfig.Preemptibility.valueOf(preemptibility_);
+    com.google.cloud.dataproc.v1.InstanceGroupConfig.Preemptibility result = com.google.cloud.dataproc.v1.InstanceGroupConfig.Preemptibility.forNumber(preemptibility_);
     return result == null ? com.google.cloud.dataproc.v1.InstanceGroupConfig.Preemptibility.UNRECOGNIZED : result;
   }
 
@@ -671,10 +552,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.ManagedGroupConfigOrBuilder getManagedGroupConfigOrBuilder() {
-    return getManagedGroupConfig();
+    return managedGroupConfig_ == null ? com.google.cloud.dataproc.v1.ManagedGroupConfig.getDefaultInstance() : managedGroupConfig_;
   }
 
   public static final int ACCELERATORS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.dataproc.v1.AcceleratorConfig> accelerators_;
   /**
    * <pre>
@@ -740,7 +622,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_CPU_PLATFORM_FIELD_NUMBER = 9;
-  private volatile java.lang.Object minCpuPlatform_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object minCpuPlatform_ = "";
   /**
    * <pre>
    * Optional. Specifies the minimum cpu platform for the Instance Group.
@@ -833,7 +716,7 @@ private static final long serialVersionUID = 0L;
     if (preemptibility_ != com.google.cloud.dataproc.v1.InstanceGroupConfig.Preemptibility.PREEMPTIBILITY_UNSPECIFIED.getNumber()) {
       output.writeEnum(10, preemptibility_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -883,7 +766,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(10, preemptibility_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -923,7 +806,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAcceleratorsList())) return false;
     if (!getMinCpuPlatform()
         .equals(other.getMinCpuPlatform())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -963,7 +846,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + MIN_CPU_PLATFORM_FIELD_NUMBER;
     hash = (53 * hash) + getMinCpuPlatform().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1085,55 +968,43 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.InstanceGroupConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getAcceleratorsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       numInstances_ = 0;
-
       instanceNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       imageUri_ = "";
-
       machineTypeUri_ = "";
-
-      if (diskConfigBuilder_ == null) {
-        diskConfig_ = null;
-      } else {
-        diskConfig_ = null;
+      diskConfig_ = null;
+      if (diskConfigBuilder_ != null) {
+        diskConfigBuilder_.dispose();
         diskConfigBuilder_ = null;
       }
       isPreemptible_ = false;
-
       preemptibility_ = 0;
-
-      if (managedGroupConfigBuilder_ == null) {
-        managedGroupConfig_ = null;
-      } else {
-        managedGroupConfig_ = null;
+      managedGroupConfig_ = null;
+      if (managedGroupConfigBuilder_ != null) {
+        managedGroupConfigBuilder_.dispose();
         managedGroupConfigBuilder_ = null;
       }
       if (acceleratorsBuilder_ == null) {
         accelerators_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        accelerators_ = null;
         acceleratorsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000100);
       minCpuPlatform_ = "";
-
       return this;
     }
 
@@ -1160,39 +1031,59 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.InstanceGroupConfig buildPartial() {
       com.google.cloud.dataproc.v1.InstanceGroupConfig result = new com.google.cloud.dataproc.v1.InstanceGroupConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.numInstances_ = numInstances_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.dataproc.v1.InstanceGroupConfig result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         instanceNames_ = instanceNames_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.instanceNames_ = instanceNames_;
-      result.imageUri_ = imageUri_;
-      result.machineTypeUri_ = machineTypeUri_;
-      if (diskConfigBuilder_ == null) {
-        result.diskConfig_ = diskConfig_;
-      } else {
-        result.diskConfig_ = diskConfigBuilder_.build();
-      }
-      result.isPreemptible_ = isPreemptible_;
-      result.preemptibility_ = preemptibility_;
-      if (managedGroupConfigBuilder_ == null) {
-        result.managedGroupConfig_ = managedGroupConfig_;
-      } else {
-        result.managedGroupConfig_ = managedGroupConfigBuilder_.build();
-      }
       if (acceleratorsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000100) != 0)) {
           accelerators_ = java.util.Collections.unmodifiableList(accelerators_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000100);
         }
         result.accelerators_ = accelerators_;
       } else {
         result.accelerators_ = acceleratorsBuilder_.build();
       }
-      result.minCpuPlatform_ = minCpuPlatform_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.InstanceGroupConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.numInstances_ = numInstances_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.imageUri_ = imageUri_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.machineTypeUri_ = machineTypeUri_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.diskConfig_ = diskConfigBuilder_ == null
+            ? diskConfig_
+            : diskConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.isPreemptible_ = isPreemptible_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.preemptibility_ = preemptibility_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.managedGroupConfig_ = managedGroupConfigBuilder_ == null
+            ? managedGroupConfig_
+            : managedGroupConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.minCpuPlatform_ = minCpuPlatform_;
+      }
     }
 
     @java.lang.Override
@@ -1245,7 +1136,7 @@ private static final long serialVersionUID = 0L;
       if (!other.instanceNames_.isEmpty()) {
         if (instanceNames_.isEmpty()) {
           instanceNames_ = other.instanceNames_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureInstanceNamesIsMutable();
           instanceNames_.addAll(other.instanceNames_);
@@ -1254,10 +1145,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getImageUri().isEmpty()) {
         imageUri_ = other.imageUri_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getMachineTypeUri().isEmpty()) {
         machineTypeUri_ = other.machineTypeUri_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasDiskConfig()) {
@@ -1276,7 +1169,7 @@ private static final long serialVersionUID = 0L;
         if (!other.accelerators_.isEmpty()) {
           if (accelerators_.isEmpty()) {
             accelerators_ = other.accelerators_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000100);
           } else {
             ensureAcceleratorsIsMutable();
             accelerators_.addAll(other.accelerators_);
@@ -1289,7 +1182,7 @@ private static final long serialVersionUID = 0L;
             acceleratorsBuilder_.dispose();
             acceleratorsBuilder_ = null;
             accelerators_ = other.accelerators_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000100);
             acceleratorsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAcceleratorsFieldBuilder() : null;
@@ -1300,9 +1193,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getMinCpuPlatform().isEmpty()) {
         minCpuPlatform_ = other.minCpuPlatform_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1317,17 +1211,93 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.InstanceGroupConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              numInstances_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureInstanceNamesIsMutable();
+              instanceNames_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              imageUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              machineTypeUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getDiskConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              isPreemptible_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              input.readMessage(
+                  getManagedGroupConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 58
+            case 66: {
+              com.google.cloud.dataproc.v1.AcceleratorConfig m =
+                  input.readMessage(
+                      com.google.cloud.dataproc.v1.AcceleratorConfig.parser(),
+                      extensionRegistry);
+              if (acceleratorsBuilder_ == null) {
+                ensureAcceleratorsIsMutable();
+                accelerators_.add(m);
+              } else {
+                acceleratorsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 74: {
+              minCpuPlatform_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 74
+            case 80: {
+              preemptibility_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 80
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.InstanceGroupConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1367,6 +1337,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNumInstances(int value) {
       
       numInstances_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1384,7 +1355,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNumInstances() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       numInstances_ = 0;
       onChanged();
       return this;
@@ -1392,9 +1363,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList instanceNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureInstanceNamesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         instanceNames_ = new com.google.protobuf.LazyStringArrayList(instanceNames_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -1462,10 +1433,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceNames(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInstanceNamesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureInstanceNamesIsMutable();
       instanceNames_.set(index, value);
       onChanged();
       return this;
@@ -1482,10 +1451,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addInstanceNames(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInstanceNamesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureInstanceNamesIsMutable();
       instanceNames_.add(value);
       onChanged();
       return this;
@@ -1519,7 +1486,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearInstanceNames() {
       instanceNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1535,10 +1502,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addInstanceNamesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureInstanceNamesIsMutable();
       instanceNames_.add(value);
       onChanged();
@@ -1631,11 +1596,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       imageUri_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1659,8 +1622,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImageUri() {
-      
       imageUri_ = getDefaultInstance().getImageUri();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1686,12 +1649,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       imageUri_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1776,11 +1737,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMachineTypeUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       machineTypeUri_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1802,8 +1761,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMachineTypeUri() {
-      
       machineTypeUri_ = getDefaultInstance().getMachineTypeUri();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1827,12 +1786,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMachineTypeUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       machineTypeUri_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1849,7 +1806,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the diskConfig field is set.
      */
     public boolean hasDiskConfig() {
-      return diskConfigBuilder_ != null || diskConfig_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1879,11 +1836,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         diskConfig_ = value;
-        onChanged();
       } else {
         diskConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1897,11 +1854,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.DiskConfig.Builder builderForValue) {
       if (diskConfigBuilder_ == null) {
         diskConfig_ = builderForValue.build();
-        onChanged();
       } else {
         diskConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1913,17 +1870,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDiskConfig(com.google.cloud.dataproc.v1.DiskConfig value) {
       if (diskConfigBuilder_ == null) {
-        if (diskConfig_ != null) {
-          diskConfig_ =
-            com.google.cloud.dataproc.v1.DiskConfig.newBuilder(diskConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          diskConfig_ != null &&
+          diskConfig_ != com.google.cloud.dataproc.v1.DiskConfig.getDefaultInstance()) {
+          getDiskConfigBuilder().mergeFrom(value);
         } else {
           diskConfig_ = value;
         }
-        onChanged();
       } else {
         diskConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1934,14 +1892,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.DiskConfig disk_config = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearDiskConfig() {
-      if (diskConfigBuilder_ == null) {
-        diskConfig_ = null;
-        onChanged();
-      } else {
-        diskConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      diskConfig_ = null;
+      if (diskConfigBuilder_ != null) {
+        diskConfigBuilder_.dispose();
         diskConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1952,7 +1909,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.DiskConfig disk_config = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.DiskConfig.Builder getDiskConfigBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getDiskConfigFieldBuilder().getBuilder();
     }
@@ -2019,6 +1976,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIsPreemptible(boolean value) {
       
       isPreemptible_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2032,7 +1990,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIsPreemptible() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       isPreemptible_ = false;
       onChanged();
       return this;
@@ -2068,8 +2026,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPreemptibilityValue(int value) {
-      
       preemptibility_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2087,8 +2045,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dataproc.v1.InstanceGroupConfig.Preemptibility getPreemptibility() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dataproc.v1.InstanceGroupConfig.Preemptibility result = com.google.cloud.dataproc.v1.InstanceGroupConfig.Preemptibility.valueOf(preemptibility_);
+      com.google.cloud.dataproc.v1.InstanceGroupConfig.Preemptibility result = com.google.cloud.dataproc.v1.InstanceGroupConfig.Preemptibility.forNumber(preemptibility_);
       return result == null ? com.google.cloud.dataproc.v1.InstanceGroupConfig.Preemptibility.UNRECOGNIZED : result;
     }
     /**
@@ -2108,7 +2065,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       preemptibility_ = value.getNumber();
       onChanged();
       return this;
@@ -2126,7 +2083,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPreemptibility() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       preemptibility_ = 0;
       onChanged();
       return this;
@@ -2146,7 +2103,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the managedGroupConfig field is set.
      */
     public boolean hasManagedGroupConfig() {
-      return managedGroupConfigBuilder_ != null || managedGroupConfig_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2180,11 +2137,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         managedGroupConfig_ = value;
-        onChanged();
       } else {
         managedGroupConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2200,11 +2157,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.ManagedGroupConfig.Builder builderForValue) {
       if (managedGroupConfigBuilder_ == null) {
         managedGroupConfig_ = builderForValue.build();
-        onChanged();
       } else {
         managedGroupConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2218,17 +2175,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeManagedGroupConfig(com.google.cloud.dataproc.v1.ManagedGroupConfig value) {
       if (managedGroupConfigBuilder_ == null) {
-        if (managedGroupConfig_ != null) {
-          managedGroupConfig_ =
-            com.google.cloud.dataproc.v1.ManagedGroupConfig.newBuilder(managedGroupConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          managedGroupConfig_ != null &&
+          managedGroupConfig_ != com.google.cloud.dataproc.v1.ManagedGroupConfig.getDefaultInstance()) {
+          getManagedGroupConfigBuilder().mergeFrom(value);
         } else {
           managedGroupConfig_ = value;
         }
-        onChanged();
       } else {
         managedGroupConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2241,14 +2199,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.ManagedGroupConfig managed_group_config = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearManagedGroupConfig() {
-      if (managedGroupConfigBuilder_ == null) {
-        managedGroupConfig_ = null;
-        onChanged();
-      } else {
-        managedGroupConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      managedGroupConfig_ = null;
+      if (managedGroupConfigBuilder_ != null) {
+        managedGroupConfigBuilder_.dispose();
         managedGroupConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2261,7 +2218,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.ManagedGroupConfig managed_group_config = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.dataproc.v1.ManagedGroupConfig.Builder getManagedGroupConfigBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getManagedGroupConfigFieldBuilder().getBuilder();
     }
@@ -2308,9 +2265,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.dataproc.v1.AcceleratorConfig> accelerators_ =
       java.util.Collections.emptyList();
     private void ensureAcceleratorsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         accelerators_ = new java.util.ArrayList<com.google.cloud.dataproc.v1.AcceleratorConfig>(accelerators_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000100;
        }
     }
 
@@ -2515,7 +2472,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearAccelerators() {
       if (acceleratorsBuilder_ == null) {
         accelerators_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
       } else {
         acceleratorsBuilder_.clear();
@@ -2627,7 +2584,7 @@ private static final long serialVersionUID = 0L;
         acceleratorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.dataproc.v1.AcceleratorConfig, com.google.cloud.dataproc.v1.AcceleratorConfig.Builder, com.google.cloud.dataproc.v1.AcceleratorConfigOrBuilder>(
                 accelerators_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000100) != 0),
                 getParentForChildren(),
                 isClean());
         accelerators_ = null;
@@ -2694,11 +2651,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMinCpuPlatform(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       minCpuPlatform_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2713,8 +2668,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinCpuPlatform() {
-      
       minCpuPlatform_ = getDefaultInstance().getMinCpuPlatform();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2731,12 +2686,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMinCpuPlatformBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       minCpuPlatform_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2773,7 +2726,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InstanceGroupConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

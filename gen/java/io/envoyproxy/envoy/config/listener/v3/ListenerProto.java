@@ -76,74 +76,76 @@ public final class ListenerProto {
       "ecation.proto\032\037udpa/annotations/security" +
       ".proto\032\035udpa/annotations/status.proto\032!u" +
       "dpa/annotations/versioning.proto\032\027valida" +
-      "te/validate.proto\"C\n\021AdditionalAddress\022." +
-      "\n\007address\030\001 \001(\0132\035.envoy.config.core.v3.A" +
-      "ddress\"C\n\022ListenerCollection\022-\n\007entries\030" +
-      "\001 \003(\0132\034.xds.core.v3.CollectionEntry\"\327\022\n\010" +
-      "Listener\022\014\n\004name\030\001 \001(\t\022.\n\007address\030\002 \001(\0132" +
-      "\035.envoy.config.core.v3.Address\022I\n\024additi" +
-      "onal_addresses\030! \003(\0132+.envoy.config.list" +
-      "ener.v3.AdditionalAddress\022\023\n\013stat_prefix" +
-      "\030\034 \001(\t\022<\n\rfilter_chains\030\003 \003(\0132%.envoy.co" +
-      "nfig.listener.v3.FilterChain\022D\n\024filter_c" +
-      "hain_matcher\030  \001(\0132\034.xds.type.matcher.v3" +
-      ".MatcherB\010\322\306\244\341\006\002\010\001\0224\n\020use_original_dst\030\004" +
-      " \001(\0132\032.google.protobuf.BoolValue\022C\n\024defa" +
-      "ult_filter_chain\030\031 \001(\0132%.envoy.config.li" +
-      "stener.v3.FilterChain\022P\n!per_connection_" +
-      "buffer_limit_bytes\030\005 \001(\0132\034.google.protob" +
-      "uf.UInt32ValueB\007\212\223\267*\002\010\001\0220\n\010metadata\030\006 \001(" +
-      "\0132\036.envoy.config.core.v3.Metadata\022S\n\rdep" +
-      "recated_v1\030\007 \001(\0132/.envoy.config.listener" +
-      ".v3.Listener.DeprecatedV1B\013\030\001\222\307\206\330\004\0033.0\022@" +
-      "\n\ndrain_type\030\010 \001(\0162,.envoy.config.listen" +
-      "er.v3.Listener.DrainType\022B\n\020listener_fil" +
-      "ters\030\t \003(\0132(.envoy.config.listener.v3.Li" +
-      "stenerFilter\022;\n\030listener_filters_timeout" +
-      "\030\017 \001(\0132\031.google.protobuf.Duration\022,\n$con" +
-      "tinue_on_listener_filters_timeout\030\021 \001(\010\022" +
-      "/\n\013transparent\030\n \001(\0132\032.google.protobuf.B" +
-      "oolValue\022,\n\010freebind\030\013 \001(\0132\032.google.prot" +
-      "obuf.BoolValue\022:\n\016socket_options\030\r \003(\0132\"" +
-      ".envoy.config.core.v3.SocketOption\022@\n\032tc" +
-      "p_fast_open_queue_length\030\014 \001(\0132\034.google." +
-      "protobuf.UInt32Value\022A\n\021traffic_directio" +
-      "n\030\020 \001(\0162&.envoy.config.core.v3.TrafficDi" +
-      "rection\022H\n\023udp_listener_config\030\022 \001(\0132+.e" +
-      "nvoy.config.listener.v3.UdpListenerConfi" +
-      "g\022;\n\014api_listener\030\023 \001(\0132%.envoy.config.l" +
-      "istener.v3.ApiListener\022]\n\031connection_bal" +
-      "ance_config\030\024 \001(\0132:.envoy.config.listene" +
-      "r.v3.Listener.ConnectionBalanceConfig\022\037\n" +
-      "\nreuse_port\030\025 \001(\010B\013\030\001\222\307\206\330\004\0033.0\0225\n\021enable" +
-      "_reuse_port\030\035 \001(\0132\032.google.protobuf.Bool" +
-      "Value\0228\n\naccess_log\030\026 \003(\0132$.envoy.config" +
-      ".accesslog.v3.AccessLog\0226\n\020tcp_backlog_s" +
-      "ize\030\030 \001(\0132\034.google.protobuf.UInt32Value\022" +
-      "0\n\014bind_to_port\030\032 \001(\0132\032.google.protobuf." +
-      "BoolValue\022V\n\021internal_listener\030\033 \001(\01329.e" +
-      "nvoy.config.listener.v3.Listener.Interna" +
-      "lListenerConfigH\000\022\024\n\014enable_mptcp\030\036 \001(\010\022" +
-      " \n\030ignore_global_conn_limit\030\037 \001(\010\032k\n\014Dep" +
-      "recatedV1\0220\n\014bind_to_port\030\001 \001(\0132\032.google" +
-      ".protobuf.BoolValue:)\232\305\210\036$\n\"envoy.api.v2" +
-      ".Listener.DeprecatedV1\032\337\002\n\027ConnectionBal" +
-      "anceConfig\022`\n\rexact_balance\030\001 \001(\0132G.envo" +
-      "y.config.listener.v3.Listener.Connection" +
-      "BalanceConfig.ExactBalanceH\000\022D\n\016extend_b" +
-      "alance\030\002 \001(\0132*.envoy.config.core.v3.Type" +
-      "dExtensionConfigH\000\032Q\n\014ExactBalance:A\232\305\210\036" +
-      "<\n:envoy.api.v2.Listener.ConnectionBalan" +
-      "ceConfig.ExactBalance:4\232\305\210\036/\n-envoy.api." +
-      "v2.Listener.ConnectionBalanceConfigB\023\n\014b" +
-      "alance_type\022\003\370B\001\032\030\n\026InternalListenerConf" +
-      "ig\")\n\tDrainType\022\013\n\007DEFAULT\020\000\022\017\n\013MODIFY_O" +
-      "NLY\020\001:\034\232\305\210\036\027\n\025envoy.api.v2.ListenerB\024\n\022l" +
-      "istener_specifierJ\004\010\016\020\017J\004\010\027\020\030B\215\001\n&io.env" +
-      "oyproxy.envoy.config.listener.v3B\rListen" +
-      "erProtoP\001ZJgithub.com/envoyproxy/go-cont" +
-      "rol-plane/envoy/config/listener/v3;liste" +
-      "nerv3\272\200\310\321\006\002\020\002b\006proto3"
+      "te/validate.proto\"\210\001\n\021AdditionalAddress\022" +
+      ".\n\007address\030\001 \001(\0132\035.envoy.config.core.v3." +
+      "Address\022C\n\016socket_options\030\002 \001(\0132+.envoy." +
+      "config.core.v3.SocketOptionsOverride\"C\n\022" +
+      "ListenerCollection\022-\n\007entries\030\001 \003(\0132\034.xd" +
+      "s.core.v3.CollectionEntry\"\327\022\n\010Listener\022\014" +
+      "\n\004name\030\001 \001(\t\022.\n\007address\030\002 \001(\0132\035.envoy.co" +
+      "nfig.core.v3.Address\022I\n\024additional_addre" +
+      "sses\030! \003(\0132+.envoy.config.listener.v3.Ad" +
+      "ditionalAddress\022\023\n\013stat_prefix\030\034 \001(\t\022<\n\r" +
+      "filter_chains\030\003 \003(\0132%.envoy.config.liste" +
+      "ner.v3.FilterChain\022D\n\024filter_chain_match" +
+      "er\030  \001(\0132\034.xds.type.matcher.v3.MatcherB\010" +
+      "\322\306\244\341\006\002\010\001\0224\n\020use_original_dst\030\004 \001(\0132\032.goo" +
+      "gle.protobuf.BoolValue\022C\n\024default_filter" +
+      "_chain\030\031 \001(\0132%.envoy.config.listener.v3." +
+      "FilterChain\022P\n!per_connection_buffer_lim" +
+      "it_bytes\030\005 \001(\0132\034.google.protobuf.UInt32V" +
+      "alueB\007\212\223\267*\002\010\001\0220\n\010metadata\030\006 \001(\0132\036.envoy." +
+      "config.core.v3.Metadata\022S\n\rdeprecated_v1" +
+      "\030\007 \001(\0132/.envoy.config.listener.v3.Listen" +
+      "er.DeprecatedV1B\013\030\001\222\307\206\330\004\0033.0\022@\n\ndrain_ty" +
+      "pe\030\010 \001(\0162,.envoy.config.listener.v3.List" +
+      "ener.DrainType\022B\n\020listener_filters\030\t \003(\013" +
+      "2(.envoy.config.listener.v3.ListenerFilt" +
+      "er\022;\n\030listener_filters_timeout\030\017 \001(\0132\031.g" +
+      "oogle.protobuf.Duration\022,\n$continue_on_l" +
+      "istener_filters_timeout\030\021 \001(\010\022/\n\013transpa" +
+      "rent\030\n \001(\0132\032.google.protobuf.BoolValue\022," +
+      "\n\010freebind\030\013 \001(\0132\032.google.protobuf.BoolV" +
+      "alue\022:\n\016socket_options\030\r \003(\0132\".envoy.con" +
+      "fig.core.v3.SocketOption\022@\n\032tcp_fast_ope" +
+      "n_queue_length\030\014 \001(\0132\034.google.protobuf.U" +
+      "Int32Value\022A\n\021traffic_direction\030\020 \001(\0162&." +
+      "envoy.config.core.v3.TrafficDirection\022H\n" +
+      "\023udp_listener_config\030\022 \001(\0132+.envoy.confi" +
+      "g.listener.v3.UdpListenerConfig\022;\n\014api_l" +
+      "istener\030\023 \001(\0132%.envoy.config.listener.v3" +
+      ".ApiListener\022]\n\031connection_balance_confi" +
+      "g\030\024 \001(\0132:.envoy.config.listener.v3.Liste" +
+      "ner.ConnectionBalanceConfig\022\037\n\nreuse_por" +
+      "t\030\025 \001(\010B\013\030\001\222\307\206\330\004\0033.0\0225\n\021enable_reuse_por" +
+      "t\030\035 \001(\0132\032.google.protobuf.BoolValue\0228\n\na" +
+      "ccess_log\030\026 \003(\0132$.envoy.config.accesslog" +
+      ".v3.AccessLog\0226\n\020tcp_backlog_size\030\030 \001(\0132" +
+      "\034.google.protobuf.UInt32Value\0220\n\014bind_to" +
+      "_port\030\032 \001(\0132\032.google.protobuf.BoolValue\022" +
+      "V\n\021internal_listener\030\033 \001(\01329.envoy.confi" +
+      "g.listener.v3.Listener.InternalListenerC" +
+      "onfigH\000\022\024\n\014enable_mptcp\030\036 \001(\010\022 \n\030ignore_" +
+      "global_conn_limit\030\037 \001(\010\032k\n\014DeprecatedV1\022" +
+      "0\n\014bind_to_port\030\001 \001(\0132\032.google.protobuf." +
+      "BoolValue:)\232\305\210\036$\n\"envoy.api.v2.Listener." +
+      "DeprecatedV1\032\337\002\n\027ConnectionBalanceConfig" +
+      "\022`\n\rexact_balance\030\001 \001(\0132G.envoy.config.l" +
+      "istener.v3.Listener.ConnectionBalanceCon" +
+      "fig.ExactBalanceH\000\022D\n\016extend_balance\030\002 \001" +
+      "(\0132*.envoy.config.core.v3.TypedExtension" +
+      "ConfigH\000\032Q\n\014ExactBalance:A\232\305\210\036<\n:envoy.a" +
+      "pi.v2.Listener.ConnectionBalanceConfig.E" +
+      "xactBalance:4\232\305\210\036/\n-envoy.api.v2.Listene" +
+      "r.ConnectionBalanceConfigB\023\n\014balance_typ" +
+      "e\022\003\370B\001\032\030\n\026InternalListenerConfig\")\n\tDrai" +
+      "nType\022\013\n\007DEFAULT\020\000\022\017\n\013MODIFY_ONLY\020\001:\034\232\305\210" +
+      "\036\027\n\025envoy.api.v2.ListenerB\024\n\022listener_sp" +
+      "ecifierJ\004\010\016\020\017J\004\010\027\020\030B\215\001\n&io.envoyproxy.en" +
+      "voy.config.listener.v3B\rListenerProtoP\001Z" +
+      "Jgithub.com/envoyproxy/go-control-plane/" +
+      "envoy/config/listener/v3;listenerv3\272\200\310\321\006" +
+      "\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -172,7 +174,7 @@ public final class ListenerProto {
     internal_static_envoy_config_listener_v3_AdditionalAddress_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_config_listener_v3_AdditionalAddress_descriptor,
-        new java.lang.String[] { "Address", });
+        new java.lang.String[] { "Address", "SocketOptions", });
     internal_static_envoy_config_listener_v3_ListenerCollection_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_envoy_config_listener_v3_ListenerCollection_fieldAccessorTable = new

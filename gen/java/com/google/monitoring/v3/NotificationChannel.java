@@ -44,140 +44,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NotificationChannel(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            type_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              userLabels_ = com.google.protobuf.MapField.newMapField(
-                  UserLabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            userLabels__ = input.readMessage(
-                UserLabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            userLabels_.getMutableMap().put(
-                userLabels__.getKey(), userLabels__.getValue());
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            verificationStatus_ = rawValue;
-            break;
-          }
-          case 90: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (enabled_ != null) {
-              subBuilder = enabled_.toBuilder();
-            }
-            enabled_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(enabled_);
-              enabled_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 98: {
-            com.google.monitoring.v3.MutationRecord.Builder subBuilder = null;
-            if (creationRecord_ != null) {
-              subBuilder = creationRecord_.toBuilder();
-            }
-            creationRecord_ = input.readMessage(com.google.monitoring.v3.MutationRecord.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(creationRecord_);
-              creationRecord_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              mutationRecords_ = new java.util.ArrayList<com.google.monitoring.v3.MutationRecord>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            mutationRecords_.add(
-                input.readMessage(com.google.monitoring.v3.MutationRecord.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        mutationRecords_ = java.util.Collections.unmodifiableList(mutationRecords_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.v3.NotificationProto.internal_static_google_monitoring_v3_NotificationChannel_descriptor;
@@ -370,7 +236,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object type_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object type_ = "";
   /**
    * <pre>
    * The type of the notification channel. This field matches the
@@ -418,7 +285,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 6;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The full REST resource name for this channel. The format is:
@@ -468,7 +336,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * An optional human-readable name for this notification channel. It is
@@ -520,7 +389,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 4;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * An optional human-readable description of this notification channel. This
@@ -581,6 +451,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -591,7 +462,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -605,7 +475,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 5;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -631,7 +500,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 5;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -646,10 +514,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 5;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -666,7 +535,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 5;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -690,6 +558,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> userLabels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -700,7 +569,6 @@ private static final long serialVersionUID = 0L;
     }
     return userLabels_;
   }
-
   public int getUserLabelsCount() {
     return internalGetUserLabels().getMap().size();
   }
@@ -718,7 +586,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; user_labels = 8;</code>
    */
-
   @java.lang.Override
   public boolean containsUserLabels(
       java.lang.String key) {
@@ -748,7 +615,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; user_labels = 8;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getUserLabelsMap() {
     return internalGetUserLabels().getMap();
   }
@@ -767,10 +633,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; user_labels = 8;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getUserLabelsOrDefault(
+  public /* nullable */
+java.lang.String getUserLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetUserLabels().getMap();
@@ -791,7 +658,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; user_labels = 8;</code>
    */
   @java.lang.Override
-
   public java.lang.String getUserLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -804,7 +670,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERIFICATION_STATUS_FIELD_NUMBER = 9;
-  private int verificationStatus_;
+  private int verificationStatus_ = 0;
   /**
    * <pre>
    * Indicates whether this channel has been verified or not. On a
@@ -855,8 +721,7 @@ private static final long serialVersionUID = 0L;
    * @return The verificationStatus.
    */
   @java.lang.Override public com.google.monitoring.v3.NotificationChannel.VerificationStatus getVerificationStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.monitoring.v3.NotificationChannel.VerificationStatus result = com.google.monitoring.v3.NotificationChannel.VerificationStatus.valueOf(verificationStatus_);
+    com.google.monitoring.v3.NotificationChannel.VerificationStatus result = com.google.monitoring.v3.NotificationChannel.VerificationStatus.forNumber(verificationStatus_);
     return result == null ? com.google.monitoring.v3.NotificationChannel.VerificationStatus.UNRECOGNIZED : result;
   }
 
@@ -910,7 +775,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getEnabledOrBuilder() {
-    return getEnabled();
+    return enabled_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : enabled_;
   }
 
   public static final int CREATION_RECORD_FIELD_NUMBER = 12;
@@ -948,10 +813,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.monitoring.v3.MutationRecordOrBuilder getCreationRecordOrBuilder() {
-    return getCreationRecord();
+    return creationRecord_ == null ? com.google.monitoring.v3.MutationRecord.getDefaultInstance() : creationRecord_;
   }
 
   public static final int MUTATION_RECORDS_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.monitoring.v3.MutationRecord> mutationRecords_;
   /**
    * <pre>
@@ -1061,7 +927,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < mutationRecords_.size(); i++) {
       output.writeMessage(13, mutationRecords_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1118,7 +984,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(13, mutationRecords_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1158,7 +1024,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getMutationRecordsList()
         .equals(other.getMutationRecordsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1199,7 +1065,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MUTATION_RECORDS_FIELD_NUMBER;
       hash = (53 * hash) + getMutationRecordsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1350,53 +1216,42 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.v3.NotificationChannel.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMutationRecordsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       type_ = "";
-
       name_ = "";
-
       displayName_ = "";
-
       description_ = "";
-
       internalGetMutableLabels().clear();
       internalGetMutableUserLabels().clear();
       verificationStatus_ = 0;
-
-      if (enabledBuilder_ == null) {
-        enabled_ = null;
-      } else {
-        enabled_ = null;
+      enabled_ = null;
+      if (enabledBuilder_ != null) {
+        enabledBuilder_.dispose();
         enabledBuilder_ = null;
       }
-      if (creationRecordBuilder_ == null) {
-        creationRecord_ = null;
-      } else {
-        creationRecord_ = null;
+      creationRecord_ = null;
+      if (creationRecordBuilder_ != null) {
+        creationRecordBuilder_.dispose();
         creationRecordBuilder_ = null;
       }
       if (mutationRecordsBuilder_ == null) {
         mutationRecords_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        mutationRecords_ = null;
         mutationRecordsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000200);
       return this;
     }
 
@@ -1423,37 +1278,59 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.v3.NotificationChannel buildPartial() {
       com.google.monitoring.v3.NotificationChannel result = new com.google.monitoring.v3.NotificationChannel(this);
-      int from_bitField0_ = bitField0_;
-      result.type_ = type_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      result.description_ = description_;
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      result.userLabels_ = internalGetUserLabels();
-      result.userLabels_.makeImmutable();
-      result.verificationStatus_ = verificationStatus_;
-      if (enabledBuilder_ == null) {
-        result.enabled_ = enabled_;
-      } else {
-        result.enabled_ = enabledBuilder_.build();
-      }
-      if (creationRecordBuilder_ == null) {
-        result.creationRecord_ = creationRecord_;
-      } else {
-        result.creationRecord_ = creationRecordBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.monitoring.v3.NotificationChannel result) {
       if (mutationRecordsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000200) != 0)) {
           mutationRecords_ = java.util.Collections.unmodifiableList(mutationRecords_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000200);
         }
         result.mutationRecords_ = mutationRecords_;
       } else {
         result.mutationRecords_ = mutationRecordsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.monitoring.v3.NotificationChannel result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.userLabels_ = internalGetUserLabels();
+        result.userLabels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.verificationStatus_ = verificationStatus_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.enabled_ = enabledBuilder_ == null
+            ? enabled_
+            : enabledBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.creationRecord_ = creationRecordBuilder_ == null
+            ? creationRecord_
+            : creationRecordBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1502,24 +1379,30 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.monitoring.v3.NotificationChannel.getDefaultInstance()) return this;
       if (!other.getType().isEmpty()) {
         type_ = other.type_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000010;
       internalGetMutableUserLabels().mergeFrom(
           other.internalGetUserLabels());
+      bitField0_ |= 0x00000020;
       if (other.verificationStatus_ != 0) {
         setVerificationStatusValue(other.getVerificationStatusValue());
       }
@@ -1533,7 +1416,7 @@ private static final long serialVersionUID = 0L;
         if (!other.mutationRecords_.isEmpty()) {
           if (mutationRecords_.isEmpty()) {
             mutationRecords_ = other.mutationRecords_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000200);
           } else {
             ensureMutationRecordsIsMutable();
             mutationRecords_.addAll(other.mutationRecords_);
@@ -1546,7 +1429,7 @@ private static final long serialVersionUID = 0L;
             mutationRecordsBuilder_.dispose();
             mutationRecordsBuilder_ = null;
             mutationRecords_ = other.mutationRecords_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000200);
             mutationRecordsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMutationRecordsFieldBuilder() : null;
@@ -1555,7 +1438,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1570,17 +1453,100 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.v3.NotificationChannel parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              type_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 50
+            case 66: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              userLabels__ = input.readMessage(
+                  UserLabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableUserLabels().getMutableMap().put(
+                  userLabels__.getKey(), userLabels__.getValue());
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 66
+            case 72: {
+              verificationStatus_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 72
+            case 90: {
+              input.readMessage(
+                  getEnabledFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getCreationRecordFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 98
+            case 106: {
+              com.google.monitoring.v3.MutationRecord m =
+                  input.readMessage(
+                      com.google.monitoring.v3.MutationRecord.parser(),
+                      extensionRegistry);
+              if (mutationRecordsBuilder_ == null) {
+                ensureMutationRecordsIsMutable();
+                mutationRecords_.add(m);
+              } else {
+                mutationRecordsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 106
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.v3.NotificationChannel) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1641,11 +1607,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       type_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1659,8 +1623,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
       type_ = getDefaultInstance().getType();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1676,12 +1640,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       type_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1745,11 +1707,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1764,8 +1724,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1782,12 +1742,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1854,11 +1812,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1874,8 +1830,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1893,12 +1849,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1962,11 +1916,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1981,8 +1933,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1999,12 +1951,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2012,7 +1962,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -2020,8 +1970,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -2029,9 +1978,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -2045,7 +1995,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 5;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -2071,7 +2020,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 5;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -2086,10 +2034,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 5;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -2106,7 +2055,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 5;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2117,8 +2065,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -2133,7 +2081,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 5;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2146,7 +2093,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -2163,12 +2111,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -2181,18 +2127,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 5;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> userLabels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetUserLabels() {
+        internalGetUserLabels() {
       if (userLabels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             UserLabelsDefaultEntryHolder.defaultEntry);
@@ -2200,8 +2146,7 @@ private static final long serialVersionUID = 0L;
       return userLabels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableUserLabels() {
-      onChanged();;
+        internalGetMutableUserLabels() {
       if (userLabels_ == null) {
         userLabels_ = com.google.protobuf.MapField.newMapField(
             UserLabelsDefaultEntryHolder.defaultEntry);
@@ -2209,9 +2154,10 @@ private static final long serialVersionUID = 0L;
       if (!userLabels_.isMutable()) {
         userLabels_ = userLabels_.copy();
       }
+      bitField0_ |= 0x00000020;
+      onChanged();
       return userLabels_;
     }
-
     public int getUserLabelsCount() {
       return internalGetUserLabels().getMap().size();
     }
@@ -2229,7 +2175,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; user_labels = 8;</code>
      */
-
     @java.lang.Override
     public boolean containsUserLabels(
         java.lang.String key) {
@@ -2259,7 +2204,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; user_labels = 8;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getUserLabelsMap() {
       return internalGetUserLabels().getMap();
     }
@@ -2278,10 +2222,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; user_labels = 8;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getUserLabelsOrDefault(
+    public /* nullable */
+java.lang.String getUserLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetUserLabels().getMap();
@@ -2302,7 +2247,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; user_labels = 8;</code>
      */
     @java.lang.Override
-
     public java.lang.String getUserLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2313,8 +2257,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearUserLabels() {
+      bitField0_ = (bitField0_ & ~0x00000020);
       internalGetMutableUserLabels().getMutableMap()
           .clear();
       return this;
@@ -2333,7 +2277,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; user_labels = 8;</code>
      */
-
     public Builder removeUserLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2346,7 +2289,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableUserLabels() {
+        getMutableUserLabels() {
+      bitField0_ |= 0x00000020;
       return internalGetMutableUserLabels().getMutableMap();
     }
     /**
@@ -2367,12 +2311,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableUserLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000020;
       return this;
     }
     /**
@@ -2389,11 +2331,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; user_labels = 8;</code>
      */
-
     public Builder putAllUserLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableUserLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000020;
       return this;
     }
 
@@ -2449,8 +2391,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setVerificationStatusValue(int value) {
-      
       verificationStatus_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2479,8 +2421,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.monitoring.v3.NotificationChannel.VerificationStatus getVerificationStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.monitoring.v3.NotificationChannel.VerificationStatus result = com.google.monitoring.v3.NotificationChannel.VerificationStatus.valueOf(verificationStatus_);
+      com.google.monitoring.v3.NotificationChannel.VerificationStatus result = com.google.monitoring.v3.NotificationChannel.VerificationStatus.forNumber(verificationStatus_);
       return result == null ? com.google.monitoring.v3.NotificationChannel.VerificationStatus.UNRECOGNIZED : result;
     }
     /**
@@ -2511,7 +2452,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       verificationStatus_ = value.getNumber();
       onChanged();
       return this;
@@ -2540,7 +2481,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVerificationStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       verificationStatus_ = 0;
       onChanged();
       return this;
@@ -2563,7 +2504,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the enabled field is set.
      */
     public boolean hasEnabled() {
-      return enabledBuilder_ != null || enabled_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2603,11 +2544,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         enabled_ = value;
-        onChanged();
       } else {
         enabledBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2626,11 +2567,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (enabledBuilder_ == null) {
         enabled_ = builderForValue.build();
-        onChanged();
       } else {
         enabledBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2647,17 +2588,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnabled(com.google.protobuf.BoolValue value) {
       if (enabledBuilder_ == null) {
-        if (enabled_ != null) {
-          enabled_ =
-            com.google.protobuf.BoolValue.newBuilder(enabled_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          enabled_ != null &&
+          enabled_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getEnabledBuilder().mergeFrom(value);
         } else {
           enabled_ = value;
         }
-        onChanged();
       } else {
         enabledBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2673,14 +2615,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue enabled = 11;</code>
      */
     public Builder clearEnabled() {
-      if (enabledBuilder_ == null) {
-        enabled_ = null;
-        onChanged();
-      } else {
-        enabled_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      enabled_ = null;
+      if (enabledBuilder_ != null) {
+        enabledBuilder_.dispose();
         enabledBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2696,7 +2637,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue enabled = 11;</code>
      */
     public com.google.protobuf.BoolValue.Builder getEnabledBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getEnabledFieldBuilder().getBuilder();
     }
@@ -2758,7 +2699,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the creationRecord field is set.
      */
     public boolean hasCreationRecord() {
-      return creationRecordBuilder_ != null || creationRecord_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2788,11 +2729,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         creationRecord_ = value;
-        onChanged();
       } else {
         creationRecordBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2806,11 +2747,11 @@ private static final long serialVersionUID = 0L;
         com.google.monitoring.v3.MutationRecord.Builder builderForValue) {
       if (creationRecordBuilder_ == null) {
         creationRecord_ = builderForValue.build();
-        onChanged();
       } else {
         creationRecordBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2822,17 +2763,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreationRecord(com.google.monitoring.v3.MutationRecord value) {
       if (creationRecordBuilder_ == null) {
-        if (creationRecord_ != null) {
-          creationRecord_ =
-            com.google.monitoring.v3.MutationRecord.newBuilder(creationRecord_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          creationRecord_ != null &&
+          creationRecord_ != com.google.monitoring.v3.MutationRecord.getDefaultInstance()) {
+          getCreationRecordBuilder().mergeFrom(value);
         } else {
           creationRecord_ = value;
         }
-        onChanged();
       } else {
         creationRecordBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2843,14 +2785,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.v3.MutationRecord creation_record = 12;</code>
      */
     public Builder clearCreationRecord() {
-      if (creationRecordBuilder_ == null) {
-        creationRecord_ = null;
-        onChanged();
-      } else {
-        creationRecord_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      creationRecord_ = null;
+      if (creationRecordBuilder_ != null) {
+        creationRecordBuilder_.dispose();
         creationRecordBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2861,7 +2802,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.v3.MutationRecord creation_record = 12;</code>
      */
     public com.google.monitoring.v3.MutationRecord.Builder getCreationRecordBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getCreationRecordFieldBuilder().getBuilder();
     }
@@ -2904,9 +2845,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.monitoring.v3.MutationRecord> mutationRecords_ =
       java.util.Collections.emptyList();
     private void ensureMutationRecordsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000200) != 0)) {
         mutationRecords_ = new java.util.ArrayList<com.google.monitoring.v3.MutationRecord>(mutationRecords_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000200;
        }
     }
 
@@ -3100,7 +3041,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMutationRecords() {
       if (mutationRecordsBuilder_ == null) {
         mutationRecords_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
       } else {
         mutationRecordsBuilder_.clear();
@@ -3205,7 +3146,7 @@ private static final long serialVersionUID = 0L;
         mutationRecordsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.monitoring.v3.MutationRecord, com.google.monitoring.v3.MutationRecord.Builder, com.google.monitoring.v3.MutationRecordOrBuilder>(
                 mutationRecords_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000200) != 0),
                 getParentForChildren(),
                 isClean());
         mutationRecords_ = null;
@@ -3245,7 +3186,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NotificationChannel(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

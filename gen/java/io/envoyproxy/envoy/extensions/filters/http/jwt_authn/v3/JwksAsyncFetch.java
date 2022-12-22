@@ -37,50 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private JwksAsyncFetch(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            fastListener_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.ConfigProto.internal_static_envoy_extensions_filters_http_jwt_authn_v3_JwksAsyncFetch_descriptor;
@@ -95,7 +51,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FAST_LISTENER_FIELD_NUMBER = 1;
-  private boolean fastListener_;
+  private boolean fastListener_ = false;
   /**
    * <pre>
    * If false, the listener is activated after the initial fetch is completed.
@@ -110,6 +66,44 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean getFastListener() {
     return fastListener_;
+  }
+
+  public static final int FAILED_REFETCH_DURATION_FIELD_NUMBER = 2;
+  private com.google.protobuf.Duration failedRefetchDuration_;
+  /**
+   * <pre>
+   * The duration to refetch after a failed fetch. If not specified, default is 1 second.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration failed_refetch_duration = 2;</code>
+   * @return Whether the failedRefetchDuration field is set.
+   */
+  @java.lang.Override
+  public boolean hasFailedRefetchDuration() {
+    return failedRefetchDuration_ != null;
+  }
+  /**
+   * <pre>
+   * The duration to refetch after a failed fetch. If not specified, default is 1 second.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration failed_refetch_duration = 2;</code>
+   * @return The failedRefetchDuration.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Duration getFailedRefetchDuration() {
+    return failedRefetchDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : failedRefetchDuration_;
+  }
+  /**
+   * <pre>
+   * The duration to refetch after a failed fetch. If not specified, default is 1 second.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration failed_refetch_duration = 2;</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.DurationOrBuilder getFailedRefetchDurationOrBuilder() {
+    return failedRefetchDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : failedRefetchDuration_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -129,7 +123,10 @@ private static final long serialVersionUID = 0L;
     if (fastListener_ != false) {
       output.writeBool(1, fastListener_);
     }
-    unknownFields.writeTo(output);
+    if (failedRefetchDuration_ != null) {
+      output.writeMessage(2, getFailedRefetchDuration());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -142,7 +139,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(1, fastListener_);
     }
-    size += unknownFields.getSerializedSize();
+    if (failedRefetchDuration_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, getFailedRefetchDuration());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -159,7 +160,12 @@ private static final long serialVersionUID = 0L;
 
     if (getFastListener()
         != other.getFastListener()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasFailedRefetchDuration() != other.hasFailedRefetchDuration()) return false;
+    if (hasFailedRefetchDuration()) {
+      if (!getFailedRefetchDuration()
+          .equals(other.getFailedRefetchDuration())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -173,7 +179,11 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + FAST_LISTENER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getFastListener());
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasFailedRefetchDuration()) {
+      hash = (37 * hash) + FAILED_REFETCH_DURATION_FIELD_NUMBER;
+      hash = (53 * hash) + getFailedRefetchDuration().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -297,24 +307,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetch.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       fastListener_ = false;
-
+      failedRefetchDuration_ = null;
+      if (failedRefetchDurationBuilder_ != null) {
+        failedRefetchDurationBuilder_.dispose();
+        failedRefetchDurationBuilder_ = null;
+      }
       return this;
     }
 
@@ -341,9 +351,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetch buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetch result = new io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetch(this);
-      result.fastListener_ = fastListener_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetch result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.fastListener_ = fastListener_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.failedRefetchDuration_ = failedRefetchDurationBuilder_ == null
+            ? failedRefetchDuration_
+            : failedRefetchDurationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -393,7 +415,10 @@ private static final long serialVersionUID = 0L;
       if (other.getFastListener() != false) {
         setFastListener(other.getFastListener());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasFailedRefetchDuration()) {
+        mergeFailedRefetchDuration(other.getFailedRefetchDuration());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -408,19 +433,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetch parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              fastListener_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getFailedRefetchDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetch) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean fastListener_ ;
     /**
@@ -453,6 +504,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFastListener(boolean value) {
       
       fastListener_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -468,10 +520,165 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFastListener() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       fastListener_ = false;
       onChanged();
       return this;
+    }
+
+    private com.google.protobuf.Duration failedRefetchDuration_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> failedRefetchDurationBuilder_;
+    /**
+     * <pre>
+     * The duration to refetch after a failed fetch. If not specified, default is 1 second.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration failed_refetch_duration = 2;</code>
+     * @return Whether the failedRefetchDuration field is set.
+     */
+    public boolean hasFailedRefetchDuration() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * The duration to refetch after a failed fetch. If not specified, default is 1 second.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration failed_refetch_duration = 2;</code>
+     * @return The failedRefetchDuration.
+     */
+    public com.google.protobuf.Duration getFailedRefetchDuration() {
+      if (failedRefetchDurationBuilder_ == null) {
+        return failedRefetchDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : failedRefetchDuration_;
+      } else {
+        return failedRefetchDurationBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * The duration to refetch after a failed fetch. If not specified, default is 1 second.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration failed_refetch_duration = 2;</code>
+     */
+    public Builder setFailedRefetchDuration(com.google.protobuf.Duration value) {
+      if (failedRefetchDurationBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        failedRefetchDuration_ = value;
+      } else {
+        failedRefetchDurationBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The duration to refetch after a failed fetch. If not specified, default is 1 second.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration failed_refetch_duration = 2;</code>
+     */
+    public Builder setFailedRefetchDuration(
+        com.google.protobuf.Duration.Builder builderForValue) {
+      if (failedRefetchDurationBuilder_ == null) {
+        failedRefetchDuration_ = builderForValue.build();
+      } else {
+        failedRefetchDurationBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The duration to refetch after a failed fetch. If not specified, default is 1 second.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration failed_refetch_duration = 2;</code>
+     */
+    public Builder mergeFailedRefetchDuration(com.google.protobuf.Duration value) {
+      if (failedRefetchDurationBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0) &&
+          failedRefetchDuration_ != null &&
+          failedRefetchDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getFailedRefetchDurationBuilder().mergeFrom(value);
+        } else {
+          failedRefetchDuration_ = value;
+        }
+      } else {
+        failedRefetchDurationBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The duration to refetch after a failed fetch. If not specified, default is 1 second.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration failed_refetch_duration = 2;</code>
+     */
+    public Builder clearFailedRefetchDuration() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      failedRefetchDuration_ = null;
+      if (failedRefetchDurationBuilder_ != null) {
+        failedRefetchDurationBuilder_.dispose();
+        failedRefetchDurationBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The duration to refetch after a failed fetch. If not specified, default is 1 second.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration failed_refetch_duration = 2;</code>
+     */
+    public com.google.protobuf.Duration.Builder getFailedRefetchDurationBuilder() {
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return getFailedRefetchDurationFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The duration to refetch after a failed fetch. If not specified, default is 1 second.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration failed_refetch_duration = 2;</code>
+     */
+    public com.google.protobuf.DurationOrBuilder getFailedRefetchDurationOrBuilder() {
+      if (failedRefetchDurationBuilder_ != null) {
+        return failedRefetchDurationBuilder_.getMessageOrBuilder();
+      } else {
+        return failedRefetchDuration_ == null ?
+            com.google.protobuf.Duration.getDefaultInstance() : failedRefetchDuration_;
+      }
+    }
+    /**
+     * <pre>
+     * The duration to refetch after a failed fetch. If not specified, default is 1 second.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration failed_refetch_duration = 2;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+        getFailedRefetchDurationFieldBuilder() {
+      if (failedRefetchDurationBuilder_ == null) {
+        failedRefetchDurationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                getFailedRefetchDuration(),
+                getParentForChildren(),
+                isClean());
+        failedRefetchDuration_ = null;
+      }
+      return failedRefetchDurationBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -506,7 +713,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new JwksAsyncFetch(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

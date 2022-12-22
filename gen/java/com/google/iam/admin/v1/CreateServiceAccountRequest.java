@@ -36,85 +36,22 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateServiceAccountRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            accountId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.iam.admin.v1.ServiceAccount.Builder subBuilder = null;
-            if (serviceAccount_ != null) {
-              subBuilder = serviceAccount_.toBuilder();
-            }
-            serviceAccount_ = input.readMessage(com.google.iam.admin.v1.ServiceAccount.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(serviceAccount_);
-              serviceAccount_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_CreateServiceAccountRequest_descriptor;
+    return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_CreateServiceAccountRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_CreateServiceAccountRequest_fieldAccessorTable
+    return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_CreateServiceAccountRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.google.iam.admin.v1.CreateServiceAccountRequest.class, com.google.iam.admin.v1.CreateServiceAccountRequest.Builder.class);
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The resource name of the project associated with the service
@@ -162,7 +99,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACCOUNT_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object accountId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object accountId_ = "";
   /**
    * <pre>
    * Required. The account id that is used to generate the service account
@@ -254,7 +192,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.iam.admin.v1.ServiceAccountOrBuilder getServiceAccountOrBuilder() {
-    return getServiceAccount();
+    return serviceAccount_ == null ? com.google.iam.admin.v1.ServiceAccount.getDefaultInstance() : serviceAccount_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -280,7 +218,7 @@ private static final long serialVersionUID = 0L;
     if (serviceAccount_ != null) {
       output.writeMessage(3, getServiceAccount());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -299,7 +237,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getServiceAccount());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -323,7 +261,7 @@ private static final long serialVersionUID = 0L;
       if (!getServiceAccount()
           .equals(other.getServiceAccount())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -342,7 +280,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SERVICE_ACCOUNT_FIELD_NUMBER;
       hash = (53 * hash) + getServiceAccount().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -450,43 +388,36 @@ private static final long serialVersionUID = 0L;
       com.google.iam.admin.v1.CreateServiceAccountRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_CreateServiceAccountRequest_descriptor;
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_CreateServiceAccountRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_CreateServiceAccountRequest_fieldAccessorTable
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_CreateServiceAccountRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.iam.admin.v1.CreateServiceAccountRequest.class, com.google.iam.admin.v1.CreateServiceAccountRequest.Builder.class);
     }
 
     // Construct using com.google.iam.admin.v1.CreateServiceAccountRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       accountId_ = "";
-
-      if (serviceAccountBuilder_ == null) {
-        serviceAccount_ = null;
-      } else {
-        serviceAccount_ = null;
+      serviceAccount_ = null;
+      if (serviceAccountBuilder_ != null) {
+        serviceAccountBuilder_.dispose();
         serviceAccountBuilder_ = null;
       }
       return this;
@@ -495,7 +426,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_CreateServiceAccountRequest_descriptor;
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_CreateServiceAccountRequest_descriptor;
     }
 
     @java.lang.Override
@@ -515,15 +446,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.iam.admin.v1.CreateServiceAccountRequest buildPartial() {
       com.google.iam.admin.v1.CreateServiceAccountRequest result = new com.google.iam.admin.v1.CreateServiceAccountRequest(this);
-      result.name_ = name_;
-      result.accountId_ = accountId_;
-      if (serviceAccountBuilder_ == null) {
-        result.serviceAccount_ = serviceAccount_;
-      } else {
-        result.serviceAccount_ = serviceAccountBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.iam.admin.v1.CreateServiceAccountRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.accountId_ = accountId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.serviceAccount_ = serviceAccountBuilder_ == null
+            ? serviceAccount_
+            : serviceAccountBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -572,16 +512,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.iam.admin.v1.CreateServiceAccountRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getAccountId().isEmpty()) {
         accountId_ = other.accountId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasServiceAccount()) {
         mergeServiceAccount(other.getServiceAccount());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -596,19 +538,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.iam.admin.v1.CreateServiceAccountRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              accountId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getServiceAccountFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.iam.admin.v1.CreateServiceAccountRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -666,11 +639,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -684,8 +655,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -701,12 +672,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -773,11 +742,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAccountId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       accountId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -793,8 +760,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAccountId() {
-      
       accountId_ = getDefaultInstance().getAccountId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -812,12 +779,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAccountIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       accountId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -836,7 +801,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the serviceAccount field is set.
      */
     public boolean hasServiceAccount() {
-      return serviceAccountBuilder_ != null || serviceAccount_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -870,11 +835,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         serviceAccount_ = value;
-        onChanged();
       } else {
         serviceAccountBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -890,11 +855,11 @@ private static final long serialVersionUID = 0L;
         com.google.iam.admin.v1.ServiceAccount.Builder builderForValue) {
       if (serviceAccountBuilder_ == null) {
         serviceAccount_ = builderForValue.build();
-        onChanged();
       } else {
         serviceAccountBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -908,17 +873,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeServiceAccount(com.google.iam.admin.v1.ServiceAccount value) {
       if (serviceAccountBuilder_ == null) {
-        if (serviceAccount_ != null) {
-          serviceAccount_ =
-            com.google.iam.admin.v1.ServiceAccount.newBuilder(serviceAccount_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          serviceAccount_ != null &&
+          serviceAccount_ != com.google.iam.admin.v1.ServiceAccount.getDefaultInstance()) {
+          getServiceAccountBuilder().mergeFrom(value);
         } else {
           serviceAccount_ = value;
         }
-        onChanged();
       } else {
         serviceAccountBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -931,14 +897,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.iam.admin.v1.ServiceAccount service_account = 3;</code>
      */
     public Builder clearServiceAccount() {
-      if (serviceAccountBuilder_ == null) {
-        serviceAccount_ = null;
-        onChanged();
-      } else {
-        serviceAccount_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      serviceAccount_ = null;
+      if (serviceAccountBuilder_ != null) {
+        serviceAccountBuilder_.dispose();
         serviceAccountBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -951,7 +916,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.iam.admin.v1.ServiceAccount service_account = 3;</code>
      */
     public com.google.iam.admin.v1.ServiceAccount.Builder getServiceAccountBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getServiceAccountFieldBuilder().getBuilder();
     }
@@ -1027,7 +992,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateServiceAccountRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

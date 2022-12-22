@@ -43,8 +43,9 @@ public interface ListInstancesRequestOrBuilder extends
   /**
    * <pre>
    * If non-empty, `page_token` should contain a
-   * [next_page_token][google.spanner.admin.instance.v1.ListInstancesResponse.next_page_token] from a
-   * previous [ListInstancesResponse][google.spanner.admin.instance.v1.ListInstancesResponse].
+   * [next_page_token][google.spanner.admin.instance.v1.ListInstancesResponse.next_page_token]
+   * from a previous
+   * [ListInstancesResponse][google.spanner.admin.instance.v1.ListInstancesResponse].
    * </pre>
    *
    * <code>string page_token = 3;</code>
@@ -54,8 +55,9 @@ public interface ListInstancesRequestOrBuilder extends
   /**
    * <pre>
    * If non-empty, `page_token` should contain a
-   * [next_page_token][google.spanner.admin.instance.v1.ListInstancesResponse.next_page_token] from a
-   * previous [ListInstancesResponse][google.spanner.admin.instance.v1.ListInstancesResponse].
+   * [next_page_token][google.spanner.admin.instance.v1.ListInstancesResponse.next_page_token]
+   * from a previous
+   * [ListInstancesResponse][google.spanner.admin.instance.v1.ListInstancesResponse].
    * </pre>
    *
    * <code>string page_token = 3;</code>

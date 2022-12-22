@@ -39,97 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LongRunningRecognizeResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              results_ = new java.util.ArrayList<com.google.cloud.speech.v1p1beta1.SpeechRecognitionResult>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            results_.add(
-                input.readMessage(com.google.cloud.speech.v1p1beta1.SpeechRecognitionResult.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (totalBilledTime_ != null) {
-              subBuilder = totalBilledTime_.toBuilder();
-            }
-            totalBilledTime_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(totalBilledTime_);
-              totalBilledTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.speech.v1p1beta1.TranscriptOutputConfig.Builder subBuilder = null;
-            if (outputConfig_ != null) {
-              subBuilder = outputConfig_.toBuilder();
-            }
-            outputConfig_ = input.readMessage(com.google.cloud.speech.v1p1beta1.TranscriptOutputConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(outputConfig_);
-              outputConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.rpc.Status.Builder subBuilder = null;
-            if (outputError_ != null) {
-              subBuilder = outputError_.toBuilder();
-            }
-            outputError_ = input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(outputError_);
-              outputError_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        results_ = java.util.Collections.unmodifiableList(results_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.speech.v1p1beta1.SpeechProto.internal_static_google_cloud_speech_v1p1beta1_LongRunningRecognizeResponse_descriptor;
@@ -144,6 +53,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESULTS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.speech.v1p1beta1.SpeechRecognitionResult> results_;
   /**
    * <pre>
@@ -243,7 +153,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getTotalBilledTimeOrBuilder() {
-    return getTotalBilledTime();
+    return totalBilledTime_ == null ? com.google.protobuf.Duration.getDefaultInstance() : totalBilledTime_;
   }
 
   public static final int OUTPUT_CONFIG_FIELD_NUMBER = 6;
@@ -281,7 +191,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.speech.v1p1beta1.TranscriptOutputConfigOrBuilder getOutputConfigOrBuilder() {
-    return getOutputConfig();
+    return outputConfig_ == null ? com.google.cloud.speech.v1p1beta1.TranscriptOutputConfig.getDefaultInstance() : outputConfig_;
   }
 
   public static final int OUTPUT_ERROR_FIELD_NUMBER = 7;
@@ -319,7 +229,61 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.rpc.StatusOrBuilder getOutputErrorOrBuilder() {
-    return getOutputError();
+    return outputError_ == null ? com.google.rpc.Status.getDefaultInstance() : outputError_;
+  }
+
+  public static final int SPEECH_ADAPTATION_INFO_FIELD_NUMBER = 8;
+  private com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo speechAdaptationInfo_;
+  /**
+   * <pre>
+   * Provides information on speech adaptation behavior in response
+   * </pre>
+   *
+   * <code>.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo speech_adaptation_info = 8;</code>
+   * @return Whether the speechAdaptationInfo field is set.
+   */
+  @java.lang.Override
+  public boolean hasSpeechAdaptationInfo() {
+    return speechAdaptationInfo_ != null;
+  }
+  /**
+   * <pre>
+   * Provides information on speech adaptation behavior in response
+   * </pre>
+   *
+   * <code>.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo speech_adaptation_info = 8;</code>
+   * @return The speechAdaptationInfo.
+   */
+  @java.lang.Override
+  public com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo getSpeechAdaptationInfo() {
+    return speechAdaptationInfo_ == null ? com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo.getDefaultInstance() : speechAdaptationInfo_;
+  }
+  /**
+   * <pre>
+   * Provides information on speech adaptation behavior in response
+   * </pre>
+   *
+   * <code>.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo speech_adaptation_info = 8;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfoOrBuilder getSpeechAdaptationInfoOrBuilder() {
+    return speechAdaptationInfo_ == null ? com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo.getDefaultInstance() : speechAdaptationInfo_;
+  }
+
+  public static final int REQUEST_ID_FIELD_NUMBER = 9;
+  private long requestId_ = 0L;
+  /**
+   * <pre>
+   * The ID associated with the request. This is a unique ID specific only to
+   * the given request.
+   * </pre>
+   *
+   * <code>int64 request_id = 9;</code>
+   * @return The requestId.
+   */
+  @java.lang.Override
+  public long getRequestId() {
+    return requestId_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -348,7 +312,13 @@ private static final long serialVersionUID = 0L;
     if (outputError_ != null) {
       output.writeMessage(7, getOutputError());
     }
-    unknownFields.writeTo(output);
+    if (speechAdaptationInfo_ != null) {
+      output.writeMessage(8, getSpeechAdaptationInfo());
+    }
+    if (requestId_ != 0L) {
+      output.writeInt64(9, requestId_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -373,7 +343,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getOutputError());
     }
-    size += unknownFields.getSerializedSize();
+    if (speechAdaptationInfo_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, getSpeechAdaptationInfo());
+    }
+    if (requestId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(9, requestId_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -405,7 +383,14 @@ private static final long serialVersionUID = 0L;
       if (!getOutputError()
           .equals(other.getOutputError())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasSpeechAdaptationInfo() != other.hasSpeechAdaptationInfo()) return false;
+    if (hasSpeechAdaptationInfo()) {
+      if (!getSpeechAdaptationInfo()
+          .equals(other.getSpeechAdaptationInfo())) return false;
+    }
+    if (getRequestId()
+        != other.getRequestId()) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -432,7 +417,14 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OUTPUT_ERROR_FIELD_NUMBER;
       hash = (53 * hash) + getOutputError().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasSpeechAdaptationInfo()) {
+      hash = (37 * hash) + SPEECH_ADAPTATION_INFO_FIELD_NUMBER;
+      hash = (53 * hash) + getSpeechAdaptationInfo().hashCode();
+    }
+    hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getRequestId());
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -557,47 +549,46 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.speech.v1p1beta1.LongRunningRecognizeResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getResultsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (resultsBuilder_ == null) {
         results_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        results_ = null;
         resultsBuilder_.clear();
       }
-      if (totalBilledTimeBuilder_ == null) {
-        totalBilledTime_ = null;
-      } else {
-        totalBilledTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      totalBilledTime_ = null;
+      if (totalBilledTimeBuilder_ != null) {
+        totalBilledTimeBuilder_.dispose();
         totalBilledTimeBuilder_ = null;
       }
-      if (outputConfigBuilder_ == null) {
-        outputConfig_ = null;
-      } else {
-        outputConfig_ = null;
+      outputConfig_ = null;
+      if (outputConfigBuilder_ != null) {
+        outputConfigBuilder_.dispose();
         outputConfigBuilder_ = null;
       }
-      if (outputErrorBuilder_ == null) {
-        outputError_ = null;
-      } else {
-        outputError_ = null;
+      outputError_ = null;
+      if (outputErrorBuilder_ != null) {
+        outputErrorBuilder_.dispose();
         outputErrorBuilder_ = null;
       }
+      speechAdaptationInfo_ = null;
+      if (speechAdaptationInfoBuilder_ != null) {
+        speechAdaptationInfoBuilder_.dispose();
+        speechAdaptationInfoBuilder_ = null;
+      }
+      requestId_ = 0L;
       return this;
     }
 
@@ -624,7 +615,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.speech.v1p1beta1.LongRunningRecognizeResponse buildPartial() {
       com.google.cloud.speech.v1p1beta1.LongRunningRecognizeResponse result = new com.google.cloud.speech.v1p1beta1.LongRunningRecognizeResponse(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.speech.v1p1beta1.LongRunningRecognizeResponse result) {
       if (resultsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           results_ = java.util.Collections.unmodifiableList(results_);
@@ -634,23 +631,33 @@ private static final long serialVersionUID = 0L;
       } else {
         result.results_ = resultsBuilder_.build();
       }
-      if (totalBilledTimeBuilder_ == null) {
-        result.totalBilledTime_ = totalBilledTime_;
-      } else {
-        result.totalBilledTime_ = totalBilledTimeBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.speech.v1p1beta1.LongRunningRecognizeResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.totalBilledTime_ = totalBilledTimeBuilder_ == null
+            ? totalBilledTime_
+            : totalBilledTimeBuilder_.build();
       }
-      if (outputConfigBuilder_ == null) {
-        result.outputConfig_ = outputConfig_;
-      } else {
-        result.outputConfig_ = outputConfigBuilder_.build();
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.outputConfig_ = outputConfigBuilder_ == null
+            ? outputConfig_
+            : outputConfigBuilder_.build();
       }
-      if (outputErrorBuilder_ == null) {
-        result.outputError_ = outputError_;
-      } else {
-        result.outputError_ = outputErrorBuilder_.build();
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.outputError_ = outputErrorBuilder_ == null
+            ? outputError_
+            : outputErrorBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.speechAdaptationInfo_ = speechAdaptationInfoBuilder_ == null
+            ? speechAdaptationInfo_
+            : speechAdaptationInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.requestId_ = requestId_;
+      }
     }
 
     @java.lang.Override
@@ -732,7 +739,13 @@ private static final long serialVersionUID = 0L;
       if (other.hasOutputError()) {
         mergeOutputError(other.getOutputError());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasSpeechAdaptationInfo()) {
+        mergeSpeechAdaptationInfo(other.getSpeechAdaptationInfo());
+      }
+      if (other.getRequestId() != 0L) {
+        setRequestId(other.getRequestId());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -747,17 +760,76 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.speech.v1p1beta1.LongRunningRecognizeResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              com.google.cloud.speech.v1p1beta1.SpeechRecognitionResult m =
+                  input.readMessage(
+                      com.google.cloud.speech.v1p1beta1.SpeechRecognitionResult.parser(),
+                      extensionRegistry);
+              if (resultsBuilder_ == null) {
+                ensureResultsIsMutable();
+                results_.add(m);
+              } else {
+                resultsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getTotalBilledTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 50: {
+              input.readMessage(
+                  getOutputConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getOutputErrorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getSpeechAdaptationInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 66
+            case 72: {
+              requestId_ = input.readInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 72
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.speech.v1p1beta1.LongRunningRecognizeResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1104,7 +1176,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the totalBilledTime field is set.
      */
     public boolean hasTotalBilledTime() {
-      return totalBilledTimeBuilder_ != null || totalBilledTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1134,11 +1206,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         totalBilledTime_ = value;
-        onChanged();
       } else {
         totalBilledTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1152,11 +1224,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (totalBilledTimeBuilder_ == null) {
         totalBilledTime_ = builderForValue.build();
-        onChanged();
       } else {
         totalBilledTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1168,17 +1240,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTotalBilledTime(com.google.protobuf.Duration value) {
       if (totalBilledTimeBuilder_ == null) {
-        if (totalBilledTime_ != null) {
-          totalBilledTime_ =
-            com.google.protobuf.Duration.newBuilder(totalBilledTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          totalBilledTime_ != null &&
+          totalBilledTime_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getTotalBilledTimeBuilder().mergeFrom(value);
         } else {
           totalBilledTime_ = value;
         }
-        onChanged();
       } else {
         totalBilledTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1189,14 +1262,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration total_billed_time = 3;</code>
      */
     public Builder clearTotalBilledTime() {
-      if (totalBilledTimeBuilder_ == null) {
-        totalBilledTime_ = null;
-        onChanged();
-      } else {
-        totalBilledTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      totalBilledTime_ = null;
+      if (totalBilledTimeBuilder_ != null) {
+        totalBilledTimeBuilder_.dispose();
         totalBilledTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1207,7 +1279,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration total_billed_time = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getTotalBilledTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTotalBilledTimeFieldBuilder().getBuilder();
     }
@@ -1259,7 +1331,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the outputConfig field is set.
      */
     public boolean hasOutputConfig() {
-      return outputConfigBuilder_ != null || outputConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1289,11 +1361,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         outputConfig_ = value;
-        onChanged();
       } else {
         outputConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1307,11 +1379,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.speech.v1p1beta1.TranscriptOutputConfig.Builder builderForValue) {
       if (outputConfigBuilder_ == null) {
         outputConfig_ = builderForValue.build();
-        onChanged();
       } else {
         outputConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1323,17 +1395,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOutputConfig(com.google.cloud.speech.v1p1beta1.TranscriptOutputConfig value) {
       if (outputConfigBuilder_ == null) {
-        if (outputConfig_ != null) {
-          outputConfig_ =
-            com.google.cloud.speech.v1p1beta1.TranscriptOutputConfig.newBuilder(outputConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          outputConfig_ != null &&
+          outputConfig_ != com.google.cloud.speech.v1p1beta1.TranscriptOutputConfig.getDefaultInstance()) {
+          getOutputConfigBuilder().mergeFrom(value);
         } else {
           outputConfig_ = value;
         }
-        onChanged();
       } else {
         outputConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1344,14 +1417,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.speech.v1p1beta1.TranscriptOutputConfig output_config = 6;</code>
      */
     public Builder clearOutputConfig() {
-      if (outputConfigBuilder_ == null) {
-        outputConfig_ = null;
-        onChanged();
-      } else {
-        outputConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      outputConfig_ = null;
+      if (outputConfigBuilder_ != null) {
+        outputConfigBuilder_.dispose();
         outputConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1362,7 +1434,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.speech.v1p1beta1.TranscriptOutputConfig output_config = 6;</code>
      */
     public com.google.cloud.speech.v1p1beta1.TranscriptOutputConfig.Builder getOutputConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getOutputConfigFieldBuilder().getBuilder();
     }
@@ -1414,7 +1486,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the outputError field is set.
      */
     public boolean hasOutputError() {
-      return outputErrorBuilder_ != null || outputError_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1444,11 +1516,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         outputError_ = value;
-        onChanged();
       } else {
         outputErrorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1462,11 +1534,11 @@ private static final long serialVersionUID = 0L;
         com.google.rpc.Status.Builder builderForValue) {
       if (outputErrorBuilder_ == null) {
         outputError_ = builderForValue.build();
-        onChanged();
       } else {
         outputErrorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1478,17 +1550,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOutputError(com.google.rpc.Status value) {
       if (outputErrorBuilder_ == null) {
-        if (outputError_ != null) {
-          outputError_ =
-            com.google.rpc.Status.newBuilder(outputError_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          outputError_ != null &&
+          outputError_ != com.google.rpc.Status.getDefaultInstance()) {
+          getOutputErrorBuilder().mergeFrom(value);
         } else {
           outputError_ = value;
         }
-        onChanged();
       } else {
         outputErrorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1499,14 +1572,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status output_error = 7;</code>
      */
     public Builder clearOutputError() {
-      if (outputErrorBuilder_ == null) {
-        outputError_ = null;
-        onChanged();
-      } else {
-        outputError_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      outputError_ = null;
+      if (outputErrorBuilder_ != null) {
+        outputErrorBuilder_.dispose();
         outputErrorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1517,7 +1589,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status output_error = 7;</code>
      */
     public com.google.rpc.Status.Builder getOutputErrorBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getOutputErrorFieldBuilder().getBuilder();
     }
@@ -1556,6 +1628,208 @@ private static final long serialVersionUID = 0L;
       }
       return outputErrorBuilder_;
     }
+
+    private com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo speechAdaptationInfo_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo, com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo.Builder, com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfoOrBuilder> speechAdaptationInfoBuilder_;
+    /**
+     * <pre>
+     * Provides information on speech adaptation behavior in response
+     * </pre>
+     *
+     * <code>.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo speech_adaptation_info = 8;</code>
+     * @return Whether the speechAdaptationInfo field is set.
+     */
+    public boolean hasSpeechAdaptationInfo() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <pre>
+     * Provides information on speech adaptation behavior in response
+     * </pre>
+     *
+     * <code>.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo speech_adaptation_info = 8;</code>
+     * @return The speechAdaptationInfo.
+     */
+    public com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo getSpeechAdaptationInfo() {
+      if (speechAdaptationInfoBuilder_ == null) {
+        return speechAdaptationInfo_ == null ? com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo.getDefaultInstance() : speechAdaptationInfo_;
+      } else {
+        return speechAdaptationInfoBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Provides information on speech adaptation behavior in response
+     * </pre>
+     *
+     * <code>.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo speech_adaptation_info = 8;</code>
+     */
+    public Builder setSpeechAdaptationInfo(com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo value) {
+      if (speechAdaptationInfoBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        speechAdaptationInfo_ = value;
+      } else {
+        speechAdaptationInfoBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Provides information on speech adaptation behavior in response
+     * </pre>
+     *
+     * <code>.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo speech_adaptation_info = 8;</code>
+     */
+    public Builder setSpeechAdaptationInfo(
+        com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo.Builder builderForValue) {
+      if (speechAdaptationInfoBuilder_ == null) {
+        speechAdaptationInfo_ = builderForValue.build();
+      } else {
+        speechAdaptationInfoBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Provides information on speech adaptation behavior in response
+     * </pre>
+     *
+     * <code>.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo speech_adaptation_info = 8;</code>
+     */
+    public Builder mergeSpeechAdaptationInfo(com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo value) {
+      if (speechAdaptationInfoBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0) &&
+          speechAdaptationInfo_ != null &&
+          speechAdaptationInfo_ != com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo.getDefaultInstance()) {
+          getSpeechAdaptationInfoBuilder().mergeFrom(value);
+        } else {
+          speechAdaptationInfo_ = value;
+        }
+      } else {
+        speechAdaptationInfoBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Provides information on speech adaptation behavior in response
+     * </pre>
+     *
+     * <code>.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo speech_adaptation_info = 8;</code>
+     */
+    public Builder clearSpeechAdaptationInfo() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      speechAdaptationInfo_ = null;
+      if (speechAdaptationInfoBuilder_ != null) {
+        speechAdaptationInfoBuilder_.dispose();
+        speechAdaptationInfoBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Provides information on speech adaptation behavior in response
+     * </pre>
+     *
+     * <code>.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo speech_adaptation_info = 8;</code>
+     */
+    public com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo.Builder getSpeechAdaptationInfoBuilder() {
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return getSpeechAdaptationInfoFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Provides information on speech adaptation behavior in response
+     * </pre>
+     *
+     * <code>.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo speech_adaptation_info = 8;</code>
+     */
+    public com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfoOrBuilder getSpeechAdaptationInfoOrBuilder() {
+      if (speechAdaptationInfoBuilder_ != null) {
+        return speechAdaptationInfoBuilder_.getMessageOrBuilder();
+      } else {
+        return speechAdaptationInfo_ == null ?
+            com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo.getDefaultInstance() : speechAdaptationInfo_;
+      }
+    }
+    /**
+     * <pre>
+     * Provides information on speech adaptation behavior in response
+     * </pre>
+     *
+     * <code>.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo speech_adaptation_info = 8;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo, com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo.Builder, com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfoOrBuilder> 
+        getSpeechAdaptationInfoFieldBuilder() {
+      if (speechAdaptationInfoBuilder_ == null) {
+        speechAdaptationInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo, com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfo.Builder, com.google.cloud.speech.v1p1beta1.SpeechAdaptationInfoOrBuilder>(
+                getSpeechAdaptationInfo(),
+                getParentForChildren(),
+                isClean());
+        speechAdaptationInfo_ = null;
+      }
+      return speechAdaptationInfoBuilder_;
+    }
+
+    private long requestId_ ;
+    /**
+     * <pre>
+     * The ID associated with the request. This is a unique ID specific only to
+     * the given request.
+     * </pre>
+     *
+     * <code>int64 request_id = 9;</code>
+     * @return The requestId.
+     */
+    @java.lang.Override
+    public long getRequestId() {
+      return requestId_;
+    }
+    /**
+     * <pre>
+     * The ID associated with the request. This is a unique ID specific only to
+     * the given request.
+     * </pre>
+     *
+     * <code>int64 request_id = 9;</code>
+     * @param value The requestId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRequestId(long value) {
+      
+      requestId_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The ID associated with the request. This is a unique ID specific only to
+     * the given request.
+     * </pre>
+     *
+     * <code>int64 request_id = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRequestId() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      requestId_ = 0L;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1589,7 +1863,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LongRunningRecognizeResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

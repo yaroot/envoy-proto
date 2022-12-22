@@ -43,145 +43,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PromotionAsset(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            promotionTarget_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            discountModifier_ = rawValue;
-            break;
-          }
-          case 24: {
-            discountType_ = input.readInt64();
-            discountTypeCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.ads.googleads.v11.common.Money.Builder subBuilder = null;
-            if (discountTypeCase_ == 4) {
-              subBuilder = ((com.google.ads.googleads.v11.common.Money) discountType_).toBuilder();
-            }
-            discountType_ =
-                input.readMessage(com.google.ads.googleads.v11.common.Money.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.common.Money) discountType_);
-              discountType_ = subBuilder.buildPartial();
-            }
-            discountTypeCase_ = 4;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            promotionTriggerCase_ = 5;
-            promotionTrigger_ = s;
-            break;
-          }
-          case 50: {
-            com.google.ads.googleads.v11.common.Money.Builder subBuilder = null;
-            if (promotionTriggerCase_ == 6) {
-              subBuilder = ((com.google.ads.googleads.v11.common.Money) promotionTrigger_).toBuilder();
-            }
-            promotionTrigger_ =
-                input.readMessage(com.google.ads.googleads.v11.common.Money.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.common.Money) promotionTrigger_);
-              promotionTrigger_ = subBuilder.buildPartial();
-            }
-            promotionTriggerCase_ = 6;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            redemptionStartDate_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            redemptionEndDate_ = s;
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            occasion_ = rawValue;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageCode_ = s;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            startDate_ = s;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            endDate_ = s;
-            break;
-          }
-          case 106: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              adScheduleTargets_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.AdScheduleInfo>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            adScheduleTargets_.add(
-                input.readMessage(com.google.ads.googleads.v11.common.AdScheduleInfo.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        adScheduleTargets_ = java.util.Collections.unmodifiableList(adScheduleTargets_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.common.AssetTypesProto.internal_static_google_ads_googleads_v11_common_PromotionAsset_descriptor;
@@ -278,7 +139,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROMOTION_TARGET_FIELD_NUMBER = 1;
-  private volatile java.lang.Object promotionTarget_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object promotionTarget_ = "";
   /**
    * <pre>
    * Required. A freeform description of what the promotion is targeting.
@@ -324,7 +186,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISCOUNT_MODIFIER_FIELD_NUMBER = 2;
-  private int discountModifier_;
+  private int discountModifier_ = 0;
   /**
    * <pre>
    * A modifier for qualification of the discount.
@@ -345,13 +207,13 @@ private static final long serialVersionUID = 0L;
    * @return The discountModifier.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.PromotionExtensionDiscountModifierEnum.PromotionExtensionDiscountModifier getDiscountModifier() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.PromotionExtensionDiscountModifierEnum.PromotionExtensionDiscountModifier result = com.google.ads.googleads.v11.enums.PromotionExtensionDiscountModifierEnum.PromotionExtensionDiscountModifier.valueOf(discountModifier_);
+    com.google.ads.googleads.v11.enums.PromotionExtensionDiscountModifierEnum.PromotionExtensionDiscountModifier result = com.google.ads.googleads.v11.enums.PromotionExtensionDiscountModifierEnum.PromotionExtensionDiscountModifier.forNumber(discountModifier_);
     return result == null ? com.google.ads.googleads.v11.enums.PromotionExtensionDiscountModifierEnum.PromotionExtensionDiscountModifier.UNRECOGNIZED : result;
   }
 
   public static final int REDEMPTION_START_DATE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object redemptionStartDate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object redemptionStartDate_ = "";
   /**
    * <pre>
    * Start date of when the promotion is eligible to be redeemed, in yyyy-MM-dd
@@ -399,7 +261,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REDEMPTION_END_DATE_FIELD_NUMBER = 8;
-  private volatile java.lang.Object redemptionEndDate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object redemptionEndDate_ = "";
   /**
    * <pre>
    * Last date of when the promotion is eligible to be redeemed, in yyyy-MM-dd
@@ -447,7 +310,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OCCASION_FIELD_NUMBER = 9;
-  private int occasion_;
+  private int occasion_ = 0;
   /**
    * <pre>
    * The occasion the promotion was intended for.
@@ -472,13 +335,13 @@ private static final long serialVersionUID = 0L;
    * @return The occasion.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.PromotionExtensionOccasionEnum.PromotionExtensionOccasion getOccasion() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.PromotionExtensionOccasionEnum.PromotionExtensionOccasion result = com.google.ads.googleads.v11.enums.PromotionExtensionOccasionEnum.PromotionExtensionOccasion.valueOf(occasion_);
+    com.google.ads.googleads.v11.enums.PromotionExtensionOccasionEnum.PromotionExtensionOccasion result = com.google.ads.googleads.v11.enums.PromotionExtensionOccasionEnum.PromotionExtensionOccasion.forNumber(occasion_);
     return result == null ? com.google.ads.googleads.v11.enums.PromotionExtensionOccasionEnum.PromotionExtensionOccasion.UNRECOGNIZED : result;
   }
 
   public static final int LANGUAGE_CODE_FIELD_NUMBER = 10;
-  private volatile java.lang.Object languageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageCode_ = "";
   /**
    * <pre>
    * The language of the promotion.
@@ -526,7 +389,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int START_DATE_FIELD_NUMBER = 11;
-  private volatile java.lang.Object startDate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object startDate_ = "";
   /**
    * <pre>
    * Start date of when this asset is effective and can begin serving, in
@@ -574,7 +438,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int END_DATE_FIELD_NUMBER = 12;
-  private volatile java.lang.Object endDate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object endDate_ = "";
   /**
    * <pre>
    * Last date of when this asset is effective and still serving, in yyyy-MM-dd
@@ -622,6 +487,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AD_SCHEDULE_TARGETS_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.common.AdScheduleInfo> adScheduleTargets_;
   /**
    * <pre>
@@ -932,7 +798,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < adScheduleTargets_.size(); i++) {
       output.writeMessage(13, adScheduleTargets_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -987,7 +853,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(13, adScheduleTargets_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1044,7 +910,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1100,7 +966,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1221,44 +1087,38 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.common.PromotionAsset.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getAdScheduleTargetsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       promotionTarget_ = "";
-
       discountModifier_ = 0;
-
       redemptionStartDate_ = "";
-
       redemptionEndDate_ = "";
-
       occasion_ = 0;
-
       languageCode_ = "";
-
       startDate_ = "";
-
       endDate_ = "";
-
       if (adScheduleTargetsBuilder_ == null) {
         adScheduleTargets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        adScheduleTargets_ = null;
         adScheduleTargetsBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000100);
+      if (moneyAmountOffBuilder_ != null) {
+        moneyAmountOffBuilder_.clear();
+      }
+      if (ordersOverAmountBuilder_ != null) {
+        ordersOverAmountBuilder_.clear();
       }
       discountTypeCase_ = 0;
       discountType_ = null;
@@ -1290,48 +1150,66 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.common.PromotionAsset buildPartial() {
       com.google.ads.googleads.v11.common.PromotionAsset result = new com.google.ads.googleads.v11.common.PromotionAsset(this);
-      int from_bitField0_ = bitField0_;
-      result.promotionTarget_ = promotionTarget_;
-      result.discountModifier_ = discountModifier_;
-      result.redemptionStartDate_ = redemptionStartDate_;
-      result.redemptionEndDate_ = redemptionEndDate_;
-      result.occasion_ = occasion_;
-      result.languageCode_ = languageCode_;
-      result.startDate_ = startDate_;
-      result.endDate_ = endDate_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v11.common.PromotionAsset result) {
       if (adScheduleTargetsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000100) != 0)) {
           adScheduleTargets_ = java.util.Collections.unmodifiableList(adScheduleTargets_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000100);
         }
         result.adScheduleTargets_ = adScheduleTargets_;
       } else {
         result.adScheduleTargets_ = adScheduleTargetsBuilder_.build();
       }
-      if (discountTypeCase_ == 3) {
-        result.discountType_ = discountType_;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.common.PromotionAsset result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.promotionTarget_ = promotionTarget_;
       }
-      if (discountTypeCase_ == 4) {
-        if (moneyAmountOffBuilder_ == null) {
-          result.discountType_ = discountType_;
-        } else {
-          result.discountType_ = moneyAmountOffBuilder_.build();
-        }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.discountModifier_ = discountModifier_;
       }
-      if (promotionTriggerCase_ == 5) {
-        result.promotionTrigger_ = promotionTrigger_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.redemptionStartDate_ = redemptionStartDate_;
       }
-      if (promotionTriggerCase_ == 6) {
-        if (ordersOverAmountBuilder_ == null) {
-          result.promotionTrigger_ = promotionTrigger_;
-        } else {
-          result.promotionTrigger_ = ordersOverAmountBuilder_.build();
-        }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.redemptionEndDate_ = redemptionEndDate_;
       }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.occasion_ = occasion_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.languageCode_ = languageCode_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.startDate_ = startDate_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.endDate_ = endDate_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.ads.googleads.v11.common.PromotionAsset result) {
       result.discountTypeCase_ = discountTypeCase_;
+      result.discountType_ = this.discountType_;
+      if (discountTypeCase_ == 4 &&
+          moneyAmountOffBuilder_ != null) {
+        result.discountType_ = moneyAmountOffBuilder_.build();
+      }
       result.promotionTriggerCase_ = promotionTriggerCase_;
-      onBuilt();
-      return result;
+      result.promotionTrigger_ = this.promotionTrigger_;
+      if (promotionTriggerCase_ == 6 &&
+          ordersOverAmountBuilder_ != null) {
+        result.promotionTrigger_ = ordersOverAmountBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1380,6 +1258,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v11.common.PromotionAsset.getDefaultInstance()) return this;
       if (!other.getPromotionTarget().isEmpty()) {
         promotionTarget_ = other.promotionTarget_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.discountModifier_ != 0) {
@@ -1387,10 +1266,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRedemptionStartDate().isEmpty()) {
         redemptionStartDate_ = other.redemptionStartDate_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getRedemptionEndDate().isEmpty()) {
         redemptionEndDate_ = other.redemptionEndDate_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.occasion_ != 0) {
@@ -1398,21 +1279,24 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLanguageCode().isEmpty()) {
         languageCode_ = other.languageCode_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getStartDate().isEmpty()) {
         startDate_ = other.startDate_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getEndDate().isEmpty()) {
         endDate_ = other.endDate_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (adScheduleTargetsBuilder_ == null) {
         if (!other.adScheduleTargets_.isEmpty()) {
           if (adScheduleTargets_.isEmpty()) {
             adScheduleTargets_ = other.adScheduleTargets_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000100);
           } else {
             ensureAdScheduleTargetsIsMutable();
             adScheduleTargets_.addAll(other.adScheduleTargets_);
@@ -1425,7 +1309,7 @@ private static final long serialVersionUID = 0L;
             adScheduleTargetsBuilder_.dispose();
             adScheduleTargetsBuilder_ = null;
             adScheduleTargets_ = other.adScheduleTargets_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000100);
             adScheduleTargetsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAdScheduleTargetsFieldBuilder() : null;
@@ -1462,7 +1346,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1477,17 +1361,108 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.common.PromotionAsset parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              promotionTarget_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              discountModifier_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              discountType_ = input.readInt64();
+              discountTypeCase_ = 3;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getMoneyAmountOffFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              discountTypeCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              promotionTriggerCase_ = 5;
+              promotionTrigger_ = s;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getOrdersOverAmountFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              promotionTriggerCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              redemptionStartDate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 58
+            case 66: {
+              redemptionEndDate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 66
+            case 72: {
+              occasion_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 72
+            case 82: {
+              languageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 82
+            case 90: {
+              startDate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 90
+            case 98: {
+              endDate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 98
+            case 106: {
+              com.google.ads.googleads.v11.common.AdScheduleInfo m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.common.AdScheduleInfo.parser(),
+                      extensionRegistry);
+              if (adScheduleTargetsBuilder_ == null) {
+                ensureAdScheduleTargetsIsMutable();
+                adScheduleTargets_.add(m);
+              } else {
+                adScheduleTargetsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 106
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.common.PromotionAsset) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int discountTypeCase_ = 0;
@@ -1575,11 +1550,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPromotionTarget(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       promotionTarget_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1592,8 +1565,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPromotionTarget() {
-      
       promotionTarget_ = getDefaultInstance().getPromotionTarget();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1608,12 +1581,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPromotionTargetBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       promotionTarget_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1640,8 +1611,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDiscountModifierValue(int value) {
-      
       discountModifier_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1655,8 +1626,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.PromotionExtensionDiscountModifierEnum.PromotionExtensionDiscountModifier getDiscountModifier() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.PromotionExtensionDiscountModifierEnum.PromotionExtensionDiscountModifier result = com.google.ads.googleads.v11.enums.PromotionExtensionDiscountModifierEnum.PromotionExtensionDiscountModifier.valueOf(discountModifier_);
+      com.google.ads.googleads.v11.enums.PromotionExtensionDiscountModifierEnum.PromotionExtensionDiscountModifier result = com.google.ads.googleads.v11.enums.PromotionExtensionDiscountModifierEnum.PromotionExtensionDiscountModifier.forNumber(discountModifier_);
       return result == null ? com.google.ads.googleads.v11.enums.PromotionExtensionDiscountModifierEnum.PromotionExtensionDiscountModifier.UNRECOGNIZED : result;
     }
     /**
@@ -1672,7 +1642,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       discountModifier_ = value.getNumber();
       onChanged();
       return this;
@@ -1686,7 +1656,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDiscountModifier() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       discountModifier_ = 0;
       onChanged();
       return this;
@@ -1748,11 +1718,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRedemptionStartDate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       redemptionStartDate_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1766,8 +1734,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRedemptionStartDate() {
-      
       redemptionStartDate_ = getDefaultInstance().getRedemptionStartDate();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1783,12 +1751,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRedemptionStartDateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       redemptionStartDate_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1849,11 +1815,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRedemptionEndDate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       redemptionEndDate_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1867,8 +1831,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRedemptionEndDate() {
-      
       redemptionEndDate_ = getDefaultInstance().getRedemptionEndDate();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1884,12 +1848,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRedemptionEndDateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       redemptionEndDate_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1920,8 +1882,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOccasionValue(int value) {
-      
       occasion_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1937,8 +1899,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.PromotionExtensionOccasionEnum.PromotionExtensionOccasion getOccasion() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.PromotionExtensionOccasionEnum.PromotionExtensionOccasion result = com.google.ads.googleads.v11.enums.PromotionExtensionOccasionEnum.PromotionExtensionOccasion.valueOf(occasion_);
+      com.google.ads.googleads.v11.enums.PromotionExtensionOccasionEnum.PromotionExtensionOccasion result = com.google.ads.googleads.v11.enums.PromotionExtensionOccasionEnum.PromotionExtensionOccasion.forNumber(occasion_);
       return result == null ? com.google.ads.googleads.v11.enums.PromotionExtensionOccasionEnum.PromotionExtensionOccasion.UNRECOGNIZED : result;
     }
     /**
@@ -1956,7 +1917,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       occasion_ = value.getNumber();
       onChanged();
       return this;
@@ -1972,7 +1933,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOccasion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       occasion_ = 0;
       onChanged();
       return this;
@@ -2034,11 +1995,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageCode_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2052,8 +2011,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguageCode() {
-      
       languageCode_ = getDefaultInstance().getLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2069,12 +2028,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageCode_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2135,11 +2092,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStartDate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       startDate_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2153,8 +2108,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStartDate() {
-      
       startDate_ = getDefaultInstance().getStartDate();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2170,12 +2125,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStartDateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       startDate_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2236,11 +2189,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEndDate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       endDate_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2254,8 +2205,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEndDate() {
-      
       endDate_ = getDefaultInstance().getEndDate();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2271,12 +2222,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEndDateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       endDate_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2284,9 +2233,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.ads.googleads.v11.common.AdScheduleInfo> adScheduleTargets_ =
       java.util.Collections.emptyList();
     private void ensureAdScheduleTargetsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         adScheduleTargets_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.AdScheduleInfo>(adScheduleTargets_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000100;
        }
     }
 
@@ -2502,7 +2451,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearAdScheduleTargets() {
       if (adScheduleTargetsBuilder_ == null) {
         adScheduleTargets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
       } else {
         adScheduleTargetsBuilder_.clear();
@@ -2621,7 +2570,7 @@ private static final long serialVersionUID = 0L;
         adScheduleTargetsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.ads.googleads.v11.common.AdScheduleInfo, com.google.ads.googleads.v11.common.AdScheduleInfo.Builder, com.google.ads.googleads.v11.common.AdScheduleInfoOrBuilder>(
                 adScheduleTargets_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000100) != 0),
                 getParentForChildren(),
                 isClean());
         adScheduleTargets_ = null;
@@ -2667,6 +2616,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPercentOff(long value) {
+      
       discountTypeCase_ = 3;
       discountType_ = value;
       onChanged();
@@ -2873,7 +2823,7 @@ private static final long serialVersionUID = 0L;
         discountType_ = null;
       }
       discountTypeCase_ = 4;
-      onChanged();;
+      onChanged();
       return moneyAmountOffBuilder_;
     }
 
@@ -2953,10 +2903,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPromotionCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  promotionTriggerCase_ = 5;
+      if (value == null) { throw new NullPointerException(); }
+      promotionTriggerCase_ = 5;
       promotionTrigger_ = value;
       onChanged();
       return this;
@@ -2988,10 +2936,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPromotionCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       promotionTriggerCase_ = 5;
       promotionTrigger_ = value;
       onChanged();
@@ -3181,7 +3127,7 @@ private static final long serialVersionUID = 0L;
         promotionTrigger_ = null;
       }
       promotionTriggerCase_ = 6;
-      onChanged();;
+      onChanged();
       return ordersOverAmountBuilder_;
     }
     @java.lang.Override
@@ -3217,7 +3163,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PromotionAsset(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

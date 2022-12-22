@@ -36,83 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateDeliveryVehicleRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.Builder subBuilder = null;
-            if (header_ != null) {
-              subBuilder = header_.toBuilder();
-            }
-            header_ = input.readMessage(google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(header_);
-              header_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            deliveryVehicleId_ = s;
-            break;
-          }
-          case 42: {
-            google.maps.fleetengine.delivery.v1.DeliveryVehicle.Builder subBuilder = null;
-            if (deliveryVehicle_ != null) {
-              subBuilder = deliveryVehicle_.toBuilder();
-            }
-            deliveryVehicle_ = input.readMessage(google.maps.fleetengine.delivery.v1.DeliveryVehicle.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(deliveryVehicle_);
-              deliveryVehicle_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.delivery.v1.DeliveryApi.internal_static_maps_fleetengine_delivery_v1_CreateDeliveryVehicleRequest_descriptor;
@@ -161,11 +84,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.delivery.v1.DeliveryRequestHeaderOrBuilder getHeaderOrBuilder() {
-    return getHeader();
+    return header_ == null ? google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.getDefaultInstance() : header_;
   }
 
   public static final int PARENT_FIELD_NUMBER = 3;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. Must be in the format `providers/{provider}`. The provider must be the
@@ -213,14 +137,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DELIVERY_VEHICLE_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object deliveryVehicleId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object deliveryVehicleId_ = "";
   /**
    * <pre>
    * Required. The Delivery Vehicle ID must be unique and subject to the following
    * restrictions:
    * * Must be a valid Unicode string.
    * * Limited to a maximum length of 64 characters.
-   * * Normalized according to Unicode Normalization Form C
+   * * Normalized according to [Unicode Normalization Form C]
    * (http://www.unicode.org/reports/tr15/).
    * * May not contain any of the following ASCII characters: '/', ':', '?',
    * ',', or '#'.
@@ -248,7 +173,7 @@ private static final long serialVersionUID = 0L;
    * restrictions:
    * * Must be a valid Unicode string.
    * * Limited to a maximum length of 64 characters.
-   * * Normalized according to Unicode Normalization Form C
+   * * Normalized according to [Unicode Normalization Form C]
    * (http://www.unicode.org/reports/tr15/).
    * * May not contain any of the following ASCII characters: '/', ':', '?',
    * ',', or '#'.
@@ -322,7 +247,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.delivery.v1.DeliveryVehicleOrBuilder getDeliveryVehicleOrBuilder() {
-    return getDeliveryVehicle();
+    return deliveryVehicle_ == null ? google.maps.fleetengine.delivery.v1.DeliveryVehicle.getDefaultInstance() : deliveryVehicle_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -351,7 +276,7 @@ private static final long serialVersionUID = 0L;
     if (deliveryVehicle_ != null) {
       output.writeMessage(5, getDeliveryVehicle());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -374,7 +299,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getDeliveryVehicle());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -403,7 +328,7 @@ private static final long serialVersionUID = 0L;
       if (!getDeliveryVehicle()
           .equals(other.getDeliveryVehicle())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -426,7 +351,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DELIVERY_VEHICLE_FIELD_NUMBER;
       hash = (53 * hash) + getDeliveryVehicle().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -547,36 +472,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.delivery.v1.CreateDeliveryVehicleRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (headerBuilder_ == null) {
-        header_ = null;
-      } else {
-        header_ = null;
+      bitField0_ = 0;
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
       parent_ = "";
-
       deliveryVehicleId_ = "";
-
-      if (deliveryVehicleBuilder_ == null) {
-        deliveryVehicle_ = null;
-      } else {
-        deliveryVehicle_ = null;
+      deliveryVehicle_ = null;
+      if (deliveryVehicleBuilder_ != null) {
+        deliveryVehicleBuilder_.dispose();
         deliveryVehicleBuilder_ = null;
       }
       return this;
@@ -605,20 +522,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.delivery.v1.CreateDeliveryVehicleRequest buildPartial() {
       google.maps.fleetengine.delivery.v1.CreateDeliveryVehicleRequest result = new google.maps.fleetengine.delivery.v1.CreateDeliveryVehicleRequest(this);
-      if (headerBuilder_ == null) {
-        result.header_ = header_;
-      } else {
-        result.header_ = headerBuilder_.build();
-      }
-      result.parent_ = parent_;
-      result.deliveryVehicleId_ = deliveryVehicleId_;
-      if (deliveryVehicleBuilder_ == null) {
-        result.deliveryVehicle_ = deliveryVehicle_;
-      } else {
-        result.deliveryVehicle_ = deliveryVehicleBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.delivery.v1.CreateDeliveryVehicleRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.header_ = headerBuilder_ == null
+            ? header_
+            : headerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.deliveryVehicleId_ = deliveryVehicleId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.deliveryVehicle_ = deliveryVehicleBuilder_ == null
+            ? deliveryVehicle_
+            : deliveryVehicleBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -670,16 +596,18 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDeliveryVehicleId().isEmpty()) {
         deliveryVehicleId_ = other.deliveryVehicleId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasDeliveryVehicle()) {
         mergeDeliveryVehicle(other.getDeliveryVehicle());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -694,19 +622,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.delivery.v1.CreateDeliveryVehicleRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getHeaderFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              deliveryVehicleId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getDeliveryVehicleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.delivery.v1.CreateDeliveryVehicleRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private google.maps.fleetengine.delivery.v1.DeliveryRequestHeader header_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -720,7 +686,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the header field is set.
      */
     public boolean hasHeader() {
-      return headerBuilder_ != null || header_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -750,11 +716,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         header_ = value;
-        onChanged();
       } else {
         headerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -768,11 +734,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.Builder builderForValue) {
       if (headerBuilder_ == null) {
         header_ = builderForValue.build();
-        onChanged();
       } else {
         headerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -784,17 +750,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHeader(google.maps.fleetengine.delivery.v1.DeliveryRequestHeader value) {
       if (headerBuilder_ == null) {
-        if (header_ != null) {
-          header_ =
-            google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          header_ != null &&
+          header_ != google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.getDefaultInstance()) {
+          getHeaderBuilder().mergeFrom(value);
         } else {
           header_ = value;
         }
-        onChanged();
       } else {
         headerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -805,14 +772,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.DeliveryRequestHeader header = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearHeader() {
-      if (headerBuilder_ == null) {
-        header_ = null;
-        onChanged();
-      } else {
-        header_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -823,7 +789,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.DeliveryRequestHeader header = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.Builder getHeaderBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getHeaderFieldBuilder().getBuilder();
     }
@@ -919,11 +885,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -937,8 +901,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -954,12 +918,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -971,7 +933,7 @@ private static final long serialVersionUID = 0L;
      * restrictions:
      * * Must be a valid Unicode string.
      * * Limited to a maximum length of 64 characters.
-     * * Normalized according to Unicode Normalization Form C
+     * * Normalized according to [Unicode Normalization Form C]
      * (http://www.unicode.org/reports/tr15/).
      * * May not contain any of the following ASCII characters: '/', ':', '?',
      * ',', or '#'.
@@ -998,7 +960,7 @@ private static final long serialVersionUID = 0L;
      * restrictions:
      * * Must be a valid Unicode string.
      * * Limited to a maximum length of 64 characters.
-     * * Normalized according to Unicode Normalization Form C
+     * * Normalized according to [Unicode Normalization Form C]
      * (http://www.unicode.org/reports/tr15/).
      * * May not contain any of the following ASCII characters: '/', ':', '?',
      * ',', or '#'.
@@ -1026,7 +988,7 @@ private static final long serialVersionUID = 0L;
      * restrictions:
      * * Must be a valid Unicode string.
      * * Limited to a maximum length of 64 characters.
-     * * Normalized according to Unicode Normalization Form C
+     * * Normalized according to [Unicode Normalization Form C]
      * (http://www.unicode.org/reports/tr15/).
      * * May not contain any of the following ASCII characters: '/', ':', '?',
      * ',', or '#'.
@@ -1038,11 +1000,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeliveryVehicleId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       deliveryVehicleId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1052,7 +1012,7 @@ private static final long serialVersionUID = 0L;
      * restrictions:
      * * Must be a valid Unicode string.
      * * Limited to a maximum length of 64 characters.
-     * * Normalized according to Unicode Normalization Form C
+     * * Normalized according to [Unicode Normalization Form C]
      * (http://www.unicode.org/reports/tr15/).
      * * May not contain any of the following ASCII characters: '/', ':', '?',
      * ',', or '#'.
@@ -1062,8 +1022,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDeliveryVehicleId() {
-      
       deliveryVehicleId_ = getDefaultInstance().getDeliveryVehicleId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1073,7 +1033,7 @@ private static final long serialVersionUID = 0L;
      * restrictions:
      * * Must be a valid Unicode string.
      * * Limited to a maximum length of 64 characters.
-     * * Normalized according to Unicode Normalization Form C
+     * * Normalized according to [Unicode Normalization Form C]
      * (http://www.unicode.org/reports/tr15/).
      * * May not contain any of the following ASCII characters: '/', ':', '?',
      * ',', or '#'.
@@ -1085,12 +1045,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeliveryVehicleIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       deliveryVehicleId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1112,7 +1070,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the deliveryVehicle field is set.
      */
     public boolean hasDeliveryVehicle() {
-      return deliveryVehicleBuilder_ != null || deliveryVehicle_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1152,11 +1110,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         deliveryVehicle_ = value;
-        onChanged();
       } else {
         deliveryVehicleBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1175,11 +1133,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.delivery.v1.DeliveryVehicle.Builder builderForValue) {
       if (deliveryVehicleBuilder_ == null) {
         deliveryVehicle_ = builderForValue.build();
-        onChanged();
       } else {
         deliveryVehicleBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1196,17 +1154,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDeliveryVehicle(google.maps.fleetengine.delivery.v1.DeliveryVehicle value) {
       if (deliveryVehicleBuilder_ == null) {
-        if (deliveryVehicle_ != null) {
-          deliveryVehicle_ =
-            google.maps.fleetengine.delivery.v1.DeliveryVehicle.newBuilder(deliveryVehicle_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          deliveryVehicle_ != null &&
+          deliveryVehicle_ != google.maps.fleetengine.delivery.v1.DeliveryVehicle.getDefaultInstance()) {
+          getDeliveryVehicleBuilder().mergeFrom(value);
         } else {
           deliveryVehicle_ = value;
         }
-        onChanged();
       } else {
         deliveryVehicleBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1222,14 +1181,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.DeliveryVehicle delivery_vehicle = 5 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearDeliveryVehicle() {
-      if (deliveryVehicleBuilder_ == null) {
-        deliveryVehicle_ = null;
-        onChanged();
-      } else {
-        deliveryVehicle_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      deliveryVehicle_ = null;
+      if (deliveryVehicleBuilder_ != null) {
+        deliveryVehicleBuilder_.dispose();
         deliveryVehicleBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1245,7 +1203,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.DeliveryVehicle delivery_vehicle = 5 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public google.maps.fleetengine.delivery.v1.DeliveryVehicle.Builder getDeliveryVehicleBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getDeliveryVehicleFieldBuilder().getBuilder();
     }
@@ -1327,7 +1285,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateDeliveryVehicleRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

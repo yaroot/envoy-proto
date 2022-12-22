@@ -140,7 +140,6 @@ public interface DocumentOrBuilder extends
    *
    * <code>map&lt;string, .google.firestore.v1beta1.Value&gt; fields = 2;</code>
    */
-
   /* nullable */
 com.google.firestore.v1beta1.Value getFieldsOrDefault(
       java.lang.String key,
@@ -171,7 +170,6 @@ com.google.firestore.v1beta1.Value defaultValue);
    *
    * <code>map&lt;string, .google.firestore.v1beta1.Value&gt; fields = 2;</code>
    */
-
   com.google.firestore.v1beta1.Value getFieldsOrThrow(
       java.lang.String key);
 

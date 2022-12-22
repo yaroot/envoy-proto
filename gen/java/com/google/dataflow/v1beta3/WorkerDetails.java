@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private WorkerDetails(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            workerName_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              workItems_ = new java.util.ArrayList<com.google.dataflow.v1beta3.WorkItemDetails>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            workItems_.add(
-                input.readMessage(com.google.dataflow.v1beta3.WorkItemDetails.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        workItems_ = java.util.Collections.unmodifiableList(workItems_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.dataflow.v1beta3.MetricsProto.internal_static_google_dataflow_v1beta3_WorkerDetails_descriptor;
@@ -108,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WORKER_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object workerName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object workerName_ = "";
   /**
    * <pre>
    * Name of this worker
@@ -154,6 +97,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WORK_ITEMS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.dataflow.v1beta3.WorkItemDetails> workItems_;
   /**
    * <pre>
@@ -233,7 +177,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < workItems_.size(); i++) {
       output.writeMessage(2, workItems_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -249,7 +193,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, workItems_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -268,7 +212,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getWorkerName())) return false;
     if (!getWorkItemsList()
         .equals(other.getWorkItemsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -285,7 +229,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + WORK_ITEMS_FIELD_NUMBER;
       hash = (53 * hash) + getWorkItemsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -406,31 +350,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.dataflow.v1beta3.WorkerDetails.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getWorkItemsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       workerName_ = "";
-
       if (workItemsBuilder_ == null) {
         workItems_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        workItems_ = null;
         workItemsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -457,19 +396,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.dataflow.v1beta3.WorkerDetails buildPartial() {
       com.google.dataflow.v1beta3.WorkerDetails result = new com.google.dataflow.v1beta3.WorkerDetails(this);
-      int from_bitField0_ = bitField0_;
-      result.workerName_ = workerName_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.dataflow.v1beta3.WorkerDetails result) {
       if (workItemsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           workItems_ = java.util.Collections.unmodifiableList(workItems_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.workItems_ = workItems_;
       } else {
         result.workItems_ = workItemsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.dataflow.v1beta3.WorkerDetails result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.workerName_ = workerName_;
+      }
     }
 
     @java.lang.Override
@@ -518,13 +467,14 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.dataflow.v1beta3.WorkerDetails.getDefaultInstance()) return this;
       if (!other.getWorkerName().isEmpty()) {
         workerName_ = other.workerName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (workItemsBuilder_ == null) {
         if (!other.workItems_.isEmpty()) {
           if (workItems_.isEmpty()) {
             workItems_ = other.workItems_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureWorkItemsIsMutable();
             workItems_.addAll(other.workItems_);
@@ -537,7 +487,7 @@ private static final long serialVersionUID = 0L;
             workItemsBuilder_.dispose();
             workItemsBuilder_ = null;
             workItems_ = other.workItems_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             workItemsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getWorkItemsFieldBuilder() : null;
@@ -546,7 +496,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -561,17 +511,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.dataflow.v1beta3.WorkerDetails parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              workerName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.dataflow.v1beta3.WorkItemDetails m =
+                  input.readMessage(
+                      com.google.dataflow.v1beta3.WorkItemDetails.parser(),
+                      extensionRegistry);
+              if (workItemsBuilder_ == null) {
+                ensureWorkItemsIsMutable();
+                workItems_.add(m);
+              } else {
+                workItemsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.dataflow.v1beta3.WorkerDetails) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -629,11 +610,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWorkerName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       workerName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -646,8 +625,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWorkerName() {
-      
       workerName_ = getDefaultInstance().getWorkerName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -662,12 +641,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWorkerNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       workerName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -675,9 +652,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.dataflow.v1beta3.WorkItemDetails> workItems_ =
       java.util.Collections.emptyList();
     private void ensureWorkItemsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         workItems_ = new java.util.ArrayList<com.google.dataflow.v1beta3.WorkItemDetails>(workItems_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -871,7 +848,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearWorkItems() {
       if (workItemsBuilder_ == null) {
         workItems_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         workItemsBuilder_.clear();
@@ -976,7 +953,7 @@ private static final long serialVersionUID = 0L;
         workItemsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.dataflow.v1beta3.WorkItemDetails, com.google.dataflow.v1beta3.WorkItemDetails.Builder, com.google.dataflow.v1beta3.WorkItemDetailsOrBuilder>(
                 workItems_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         workItems_ = null;
@@ -1016,7 +993,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WorkerDetails(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

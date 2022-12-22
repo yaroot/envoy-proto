@@ -5,7 +5,8 @@ package com.google.cloud.channel.v1;
 
 /**
  * <pre>
- * Request message for [CloudChannelService.CreateEntitlement][google.cloud.channel.v1.CloudChannelService.CreateEntitlement]
+ * Request message for
+ * [CloudChannelService.CreateEntitlement][google.cloud.channel.v1.CloudChannelService.CreateEntitlement]
  * </pre>
  *
  * Protobuf type {@code google.cloud.channel.v1.CreateEntitlementRequest}
@@ -36,70 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateEntitlementRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.channel.v1.Entitlement.Builder subBuilder = null;
-            if (entitlement_ != null) {
-              subBuilder = entitlement_.toBuilder();
-            }
-            entitlement_ = input.readMessage(com.google.cloud.channel.v1.Entitlement.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(entitlement_);
-              entitlement_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            requestId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.ServiceProto.internal_static_google_cloud_channel_v1_CreateEntitlementRequest_descriptor;
@@ -114,12 +51,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
-   * Required. The resource name of the reseller's customer account in which to create the
-   * entitlement.
-   * Parent uses the format: accounts/{account_id}/customers/{customer_id}
+   * Required. The resource name of the reseller's customer account in which to
+   * create the entitlement. Parent uses the format:
+   * accounts/{account_id}/customers/{customer_id}
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -140,9 +78,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The resource name of the reseller's customer account in which to create the
-   * entitlement.
-   * Parent uses the format: accounts/{account_id}/customers/{customer_id}
+   * Required. The resource name of the reseller's customer account in which to
+   * create the entitlement. Parent uses the format:
+   * accounts/{account_id}/customers/{customer_id}
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -198,15 +136,17 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.EntitlementOrBuilder getEntitlementOrBuilder() {
-    return getEntitlement();
+    return entitlement_ == null ? com.google.cloud.channel.v1.Entitlement.getDefaultInstance() : entitlement_;
   }
 
   public static final int REQUEST_ID_FIELD_NUMBER = 5;
-  private volatile java.lang.Object requestId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object requestId_ = "";
   /**
    * <pre>
-   * Optional. You can specify an optional unique request ID, and if you need to retry
-   * your request, the server will know to ignore the request if it's complete.
+   * Optional. You can specify an optional unique request ID, and if you need to
+   * retry your request, the server will know to ignore the request if it's
+   * complete.
    * For example, you make an initial request and the request times out. If you
    * make the request again with the same request ID, the server can check if
    * it received the original operation with the same request ID. If it did, it
@@ -234,8 +174,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. You can specify an optional unique request ID, and if you need to retry
-   * your request, the server will know to ignore the request if it's complete.
+   * Optional. You can specify an optional unique request ID, and if you need to
+   * retry your request, the server will know to ignore the request if it's
+   * complete.
    * For example, you make an initial request and the request times out. If you
    * make the request again with the same request ID, the server can check if
    * it received the original operation with the same request ID. If it did, it
@@ -286,7 +227,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, requestId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -305,7 +246,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, requestId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -329,7 +270,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getRequestId()
         .equals(other.getRequestId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -348,7 +289,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
     hash = (53 * hash) + getRequestId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -445,7 +386,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Request message for [CloudChannelService.CreateEntitlement][google.cloud.channel.v1.CloudChannelService.CreateEntitlement]
+   * Request message for
+   * [CloudChannelService.CreateEntitlement][google.cloud.channel.v1.CloudChannelService.CreateEntitlement]
    * </pre>
    *
    * Protobuf type {@code google.cloud.channel.v1.CreateEntitlementRequest}
@@ -469,32 +411,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.CreateEntitlementRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (entitlementBuilder_ == null) {
-        entitlement_ = null;
-      } else {
-        entitlement_ = null;
+      entitlement_ = null;
+      if (entitlementBuilder_ != null) {
+        entitlementBuilder_.dispose();
         entitlementBuilder_ = null;
       }
       requestId_ = "";
-
       return this;
     }
 
@@ -521,15 +456,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.CreateEntitlementRequest buildPartial() {
       com.google.cloud.channel.v1.CreateEntitlementRequest result = new com.google.cloud.channel.v1.CreateEntitlementRequest(this);
-      result.parent_ = parent_;
-      if (entitlementBuilder_ == null) {
-        result.entitlement_ = entitlement_;
-      } else {
-        result.entitlement_ = entitlementBuilder_.build();
-      }
-      result.requestId_ = requestId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.CreateEntitlementRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.entitlement_ = entitlementBuilder_ == null
+            ? entitlement_
+            : entitlementBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.requestId_ = requestId_;
+      }
     }
 
     @java.lang.Override
@@ -578,6 +522,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.channel.v1.CreateEntitlementRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasEntitlement()) {
@@ -585,9 +530,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRequestId().isEmpty()) {
         requestId_ = other.requestId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -602,26 +548,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.CreateEntitlementRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getEntitlementFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 42: {
+              requestId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.CreateEntitlementRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
      * <pre>
-     * Required. The resource name of the reseller's customer account in which to create the
-     * entitlement.
-     * Parent uses the format: accounts/{account_id}/customers/{customer_id}
+     * Required. The resource name of the reseller's customer account in which to
+     * create the entitlement. Parent uses the format:
+     * accounts/{account_id}/customers/{customer_id}
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -641,9 +618,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The resource name of the reseller's customer account in which to create the
-     * entitlement.
-     * Parent uses the format: accounts/{account_id}/customers/{customer_id}
+     * Required. The resource name of the reseller's customer account in which to
+     * create the entitlement. Parent uses the format:
+     * accounts/{account_id}/customers/{customer_id}
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -664,9 +641,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The resource name of the reseller's customer account in which to create the
-     * entitlement.
-     * Parent uses the format: accounts/{account_id}/customers/{customer_id}
+     * Required. The resource name of the reseller's customer account in which to
+     * create the entitlement. Parent uses the format:
+     * accounts/{account_id}/customers/{customer_id}
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -675,35 +652,33 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The resource name of the reseller's customer account in which to create the
-     * entitlement.
-     * Parent uses the format: accounts/{account_id}/customers/{customer_id}
+     * Required. The resource name of the reseller's customer account in which to
+     * create the entitlement. Parent uses the format:
+     * accounts/{account_id}/customers/{customer_id}
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The resource name of the reseller's customer account in which to create the
-     * entitlement.
-     * Parent uses the format: accounts/{account_id}/customers/{customer_id}
+     * Required. The resource name of the reseller's customer account in which to
+     * create the entitlement. Parent uses the format:
+     * accounts/{account_id}/customers/{customer_id}
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -712,12 +687,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -734,7 +707,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the entitlement field is set.
      */
     public boolean hasEntitlement() {
-      return entitlementBuilder_ != null || entitlement_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -764,11 +737,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         entitlement_ = value;
-        onChanged();
       } else {
         entitlementBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -782,11 +755,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.Entitlement.Builder builderForValue) {
       if (entitlementBuilder_ == null) {
         entitlement_ = builderForValue.build();
-        onChanged();
       } else {
         entitlementBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -798,17 +771,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEntitlement(com.google.cloud.channel.v1.Entitlement value) {
       if (entitlementBuilder_ == null) {
-        if (entitlement_ != null) {
-          entitlement_ =
-            com.google.cloud.channel.v1.Entitlement.newBuilder(entitlement_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          entitlement_ != null &&
+          entitlement_ != com.google.cloud.channel.v1.Entitlement.getDefaultInstance()) {
+          getEntitlementBuilder().mergeFrom(value);
         } else {
           entitlement_ = value;
         }
-        onChanged();
       } else {
         entitlementBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -819,14 +793,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.Entitlement entitlement = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearEntitlement() {
-      if (entitlementBuilder_ == null) {
-        entitlement_ = null;
-        onChanged();
-      } else {
-        entitlement_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      entitlement_ = null;
+      if (entitlementBuilder_ != null) {
+        entitlementBuilder_.dispose();
         entitlementBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -837,7 +810,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.Entitlement entitlement = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.channel.v1.Entitlement.Builder getEntitlementBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getEntitlementFieldBuilder().getBuilder();
     }
@@ -880,8 +853,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object requestId_ = "";
     /**
      * <pre>
-     * Optional. You can specify an optional unique request ID, and if you need to retry
-     * your request, the server will know to ignore the request if it's complete.
+     * Optional. You can specify an optional unique request ID, and if you need to
+     * retry your request, the server will know to ignore the request if it's
+     * complete.
      * For example, you make an initial request and the request times out. If you
      * make the request again with the same request ID, the server can check if
      * it received the original operation with the same request ID. If it did, it
@@ -908,8 +882,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. You can specify an optional unique request ID, and if you need to retry
-     * your request, the server will know to ignore the request if it's complete.
+     * Optional. You can specify an optional unique request ID, and if you need to
+     * retry your request, the server will know to ignore the request if it's
+     * complete.
      * For example, you make an initial request and the request times out. If you
      * make the request again with the same request ID, the server can check if
      * it received the original operation with the same request ID. If it did, it
@@ -937,8 +912,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. You can specify an optional unique request ID, and if you need to retry
-     * your request, the server will know to ignore the request if it's complete.
+     * Optional. You can specify an optional unique request ID, and if you need to
+     * retry your request, the server will know to ignore the request if it's
+     * complete.
      * For example, you make an initial request and the request times out. If you
      * make the request again with the same request ID, the server can check if
      * it received the original operation with the same request ID. If it did, it
@@ -954,18 +930,17 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       requestId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. You can specify an optional unique request ID, and if you need to retry
-     * your request, the server will know to ignore the request if it's complete.
+     * Optional. You can specify an optional unique request ID, and if you need to
+     * retry your request, the server will know to ignore the request if it's
+     * complete.
      * For example, you make an initial request and the request times out. If you
      * make the request again with the same request ID, the server can check if
      * it received the original operation with the same request ID. If it did, it
@@ -979,15 +954,16 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequestId() {
-      
       requestId_ = getDefaultInstance().getRequestId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. You can specify an optional unique request ID, and if you need to retry
-     * your request, the server will know to ignore the request if it's complete.
+     * Optional. You can specify an optional unique request ID, and if you need to
+     * retry your request, the server will know to ignore the request if it's
+     * complete.
      * For example, you make an initial request and the request times out. If you
      * make the request again with the same request ID, the server can check if
      * it received the original operation with the same request ID. If it did, it
@@ -1003,12 +979,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       requestId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1045,7 +1019,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateEntitlementRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

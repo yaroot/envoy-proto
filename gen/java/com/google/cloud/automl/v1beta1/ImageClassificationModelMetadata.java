@@ -37,83 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ImageClassificationModelMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            baseModelId_ = s;
-            break;
-          }
-          case 16: {
-
-            trainBudget_ = input.readInt64();
-            break;
-          }
-          case 24: {
-
-            trainCost_ = input.readInt64();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            stopReason_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            modelType_ = s;
-            break;
-          }
-          case 105: {
-
-            nodeQps_ = input.readDouble();
-            break;
-          }
-          case 112: {
-
-            nodeCount_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.automl.v1beta1.ImageProto.internal_static_google_cloud_automl_v1beta1_ImageClassificationModelMetadata_descriptor;
@@ -128,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BASE_MODEL_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object baseModelId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object baseModelId_ = "";
   /**
    * <pre>
    * Optional. The ID of the `base` model. If it is specified, the new model
@@ -182,7 +106,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRAIN_BUDGET_FIELD_NUMBER = 2;
-  private long trainBudget_;
+  private long trainBudget_ = 0L;
   /**
    * <pre>
    * Required. The train budget of creating this model, expressed in hours. The
@@ -198,7 +122,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRAIN_COST_FIELD_NUMBER = 3;
-  private long trainCost_;
+  private long trainCost_ = 0L;
   /**
    * <pre>
    * Output only. The actual train cost of creating this model, expressed in
@@ -215,7 +139,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STOP_REASON_FIELD_NUMBER = 5;
-  private volatile java.lang.Object stopReason_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object stopReason_ = "";
   /**
    * <pre>
    * Output only. The reason that this create model operation stopped,
@@ -263,7 +188,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODEL_TYPE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object modelType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object modelType_ = "";
   /**
    * <pre>
    * Optional. Type of the model. The available values are:
@@ -373,7 +299,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NODE_QPS_FIELD_NUMBER = 13;
-  private double nodeQps_;
+  private double nodeQps_ = 0D;
   /**
    * <pre>
    * Output only. An approximate number of online prediction QPS that can
@@ -389,7 +315,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NODE_COUNT_FIELD_NUMBER = 14;
-  private long nodeCount_;
+  private long nodeCount_ = 0L;
   /**
    * <pre>
    * Output only. The number of nodes this model is deployed on. A node is an
@@ -440,7 +366,7 @@ private static final long serialVersionUID = 0L;
     if (nodeCount_ != 0L) {
       output.writeInt64(14, nodeCount_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -474,7 +400,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(14, nodeCount_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -504,7 +430,7 @@ private static final long serialVersionUID = 0L;
             other.getNodeQps())) return false;
     if (getNodeCount()
         != other.getNodeCount()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -533,7 +459,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + NODE_COUNT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getNodeCount());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -654,36 +580,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.automl.v1beta1.ImageClassificationModelMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       baseModelId_ = "";
-
       trainBudget_ = 0L;
-
       trainCost_ = 0L;
-
       stopReason_ = "";
-
       modelType_ = "";
-
       nodeQps_ = 0D;
-
       nodeCount_ = 0L;
-
       return this;
     }
 
@@ -710,15 +625,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.automl.v1beta1.ImageClassificationModelMetadata buildPartial() {
       com.google.cloud.automl.v1beta1.ImageClassificationModelMetadata result = new com.google.cloud.automl.v1beta1.ImageClassificationModelMetadata(this);
-      result.baseModelId_ = baseModelId_;
-      result.trainBudget_ = trainBudget_;
-      result.trainCost_ = trainCost_;
-      result.stopReason_ = stopReason_;
-      result.modelType_ = modelType_;
-      result.nodeQps_ = nodeQps_;
-      result.nodeCount_ = nodeCount_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.automl.v1beta1.ImageClassificationModelMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.baseModelId_ = baseModelId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.trainBudget_ = trainBudget_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.trainCost_ = trainCost_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.stopReason_ = stopReason_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.modelType_ = modelType_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.nodeQps_ = nodeQps_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.nodeCount_ = nodeCount_;
+      }
     }
 
     @java.lang.Override
@@ -767,6 +701,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.automl.v1beta1.ImageClassificationModelMetadata.getDefaultInstance()) return this;
       if (!other.getBaseModelId().isEmpty()) {
         baseModelId_ = other.baseModelId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getTrainBudget() != 0L) {
@@ -777,10 +712,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getStopReason().isEmpty()) {
         stopReason_ = other.stopReason_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getModelType().isEmpty()) {
         modelType_ = other.modelType_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.getNodeQps() != 0D) {
@@ -789,7 +726,7 @@ private static final long serialVersionUID = 0L;
       if (other.getNodeCount() != 0L) {
         setNodeCount(other.getNodeCount());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -804,19 +741,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.automl.v1beta1.ImageClassificationModelMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              baseModelId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              trainBudget_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              trainCost_ = input.readInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 42: {
+              stopReason_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 58: {
+              modelType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 58
+            case 105: {
+              nodeQps_ = input.readDouble();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 105
+            case 112: {
+              nodeCount_ = input.readInt64();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 112
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.automl.v1beta1.ImageClassificationModelMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object baseModelId_ = "";
     /**
@@ -883,11 +869,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBaseModelId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       baseModelId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -904,8 +888,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBaseModelId() {
-      
       baseModelId_ = getDefaultInstance().getBaseModelId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -924,12 +908,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBaseModelIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       baseModelId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -961,6 +943,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTrainBudget(long value) {
       
       trainBudget_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -974,7 +957,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTrainBudget() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       trainBudget_ = 0L;
       onChanged();
       return this;
@@ -1009,6 +992,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTrainCost(long value) {
       
       trainCost_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1023,7 +1007,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTrainCost() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       trainCost_ = 0L;
       onChanged();
       return this;
@@ -1085,11 +1069,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStopReason(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       stopReason_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1103,8 +1085,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStopReason() {
-      
       stopReason_ = getDefaultInstance().getStopReason();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1120,12 +1102,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStopReasonBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       stopReason_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1279,11 +1259,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModelType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       modelType_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1328,8 +1306,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearModelType() {
-      
       modelType_ = getDefaultInstance().getModelType();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1376,12 +1354,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModelTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       modelType_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1413,6 +1389,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNodeQps(double value) {
       
       nodeQps_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1426,7 +1403,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNodeQps() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       nodeQps_ = 0D;
       onChanged();
       return this;
@@ -1461,6 +1438,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNodeCount(long value) {
       
       nodeCount_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1475,7 +1453,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNodeCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       nodeCount_ = 0L;
       onChanged();
       return this;
@@ -1513,7 +1491,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImageClassificationModelMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

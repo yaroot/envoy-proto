@@ -11,10 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6google/cloud/recommendationengine/v1beta1/common.proto\x12)google.cloud.recommendationengine.v1beta1\x1a\x1cgoogle/api/annotations.proto\"\x96\x04\n\nFeatureMap\x12l\n\x14\x63\x61tegorical_features\x18\x01 \x03(\x0b\x32N.google.cloud.recommendationengine.v1beta1.FeatureMap.CategoricalFeaturesEntry\x12h\n\x12numerical_features\x18\x02 \x03(\x0b\x32L.google.cloud.recommendationengine.v1beta1.FeatureMap.NumericalFeaturesEntry\x1a\x1b\n\nStringList\x12\r\n\x05value\x18\x01 \x03(\t\x1a\x1a\n\tFloatList\x12\r\n\x05value\x18\x01 \x03(\x02\x1a|\n\x18\x43\x61tegoricalFeaturesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12O\n\x05value\x18\x02 \x01(\x0b\x32@.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList:\x02\x38\x01\x1ay\n\x16NumericalFeaturesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12N\n\x05value\x18\x02 \x01(\x0b\x32?.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList:\x02\x38\x01\x42\x9f\x02\n-com.google.cloud.recommendationengine.v1beta1P\x01Z]google.golang.org/genproto/googleapis/cloud/recommendationengine/v1beta1;recommendationengine\xa2\x02\x05RECAI\xaa\x02)Google.Cloud.RecommendationEngine.V1Beta1\xca\x02)Google\\Cloud\\RecommendationEngine\\V1beta1\xea\x02,Google::Cloud::RecommendationEngine::V1beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6google/cloud/recommendationengine/v1beta1/common.proto\x12)google.cloud.recommendationengine.v1beta1\"\x96\x04\n\nFeatureMap\x12l\n\x14\x63\x61tegorical_features\x18\x01 \x03(\x0b\x32N.google.cloud.recommendationengine.v1beta1.FeatureMap.CategoricalFeaturesEntry\x12h\n\x12numerical_features\x18\x02 \x03(\x0b\x32L.google.cloud.recommendationengine.v1beta1.FeatureMap.NumericalFeaturesEntry\x1a\x1b\n\nStringList\x12\r\n\x05value\x18\x01 \x03(\t\x1a\x1a\n\tFloatList\x12\r\n\x05value\x18\x01 \x03(\x02\x1a|\n\x18\x43\x61tegoricalFeaturesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12O\n\x05value\x18\x02 \x01(\x0b\x32@.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList:\x02\x38\x01\x1ay\n\x16NumericalFeaturesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12N\n\x05value\x18\x02 \x01(\x0b\x32?.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList:\x02\x38\x01\x42\x9f\x02\n-com.google.cloud.recommendationengine.v1beta1P\x01Z]google.golang.org/genproto/googleapis/cloud/recommendationengine/v1beta1;recommendationengine\xa2\x02\x05RECAI\xaa\x02)Google.Cloud.RecommendationEngine.V1Beta1\xca\x02)Google\\Cloud\\RecommendationEngine\\V1beta1\xea\x02,Google::Cloud::RecommendationEngine::V1beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.recommendationengine.v1beta1.common_pb2', globals())
@@ -26,14 +25,14 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _FEATUREMAP_CATEGORICALFEATURESENTRY._serialized_options = b'8\001'
   _FEATUREMAP_NUMERICALFEATURESENTRY._options = None
   _FEATUREMAP_NUMERICALFEATURESENTRY._serialized_options = b'8\001'
-  _FEATUREMAP._serialized_start=132
-  _FEATUREMAP._serialized_end=666
-  _FEATUREMAP_STRINGLIST._serialized_start=362
-  _FEATUREMAP_STRINGLIST._serialized_end=389
-  _FEATUREMAP_FLOATLIST._serialized_start=391
-  _FEATUREMAP_FLOATLIST._serialized_end=417
-  _FEATUREMAP_CATEGORICALFEATURESENTRY._serialized_start=419
-  _FEATUREMAP_CATEGORICALFEATURESENTRY._serialized_end=543
-  _FEATUREMAP_NUMERICALFEATURESENTRY._serialized_start=545
-  _FEATUREMAP_NUMERICALFEATURESENTRY._serialized_end=666
+  _FEATUREMAP._serialized_start=102
+  _FEATUREMAP._serialized_end=636
+  _FEATUREMAP_STRINGLIST._serialized_start=332
+  _FEATUREMAP_STRINGLIST._serialized_end=359
+  _FEATUREMAP_FLOATLIST._serialized_start=361
+  _FEATUREMAP_FLOATLIST._serialized_end=387
+  _FEATUREMAP_CATEGORICALFEATURESENTRY._serialized_start=389
+  _FEATUREMAP_CATEGORICALFEATURESENTRY._serialized_end=513
+  _FEATUREMAP_NUMERICALFEATURESENTRY._serialized_start=515
+  _FEATUREMAP_NUMERICALFEATURESENTRY._serialized_end=636
 # @@protoc_insertion_point(module_scope)

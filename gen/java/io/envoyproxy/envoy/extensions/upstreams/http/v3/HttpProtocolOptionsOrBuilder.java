@@ -150,8 +150,15 @@ public interface HttpProtocolOptionsOrBuilder extends
 
   /**
    * <pre>
-   * [#not-implemented-hide:]
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
    * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all HTTP streams which flow through this
+   * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
    * </pre>
    *
    * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -160,8 +167,15 @@ public interface HttpProtocolOptionsOrBuilder extends
       getHttpFiltersList();
   /**
    * <pre>
-   * [#not-implemented-hide:]
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
    * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all HTTP streams which flow through this
+   * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
    * </pre>
    *
    * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -169,8 +183,15 @@ public interface HttpProtocolOptionsOrBuilder extends
   io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter getHttpFilters(int index);
   /**
    * <pre>
-   * [#not-implemented-hide:]
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
    * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all HTTP streams which flow through this
+   * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
    * </pre>
    *
    * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -178,8 +199,15 @@ public interface HttpProtocolOptionsOrBuilder extends
   int getHttpFiltersCount();
   /**
    * <pre>
-   * [#not-implemented-hide:]
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
    * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all HTTP streams which flow through this
+   * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
    * </pre>
    *
    * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -188,8 +216,15 @@ public interface HttpProtocolOptionsOrBuilder extends
       getHttpFiltersOrBuilderList();
   /**
    * <pre>
-   * [#not-implemented-hide:]
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
    * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all HTTP streams which flow through this
+   * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
    * </pre>
    *
    * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>

@@ -140,7 +140,6 @@ public interface TargetOrBuilder extends
    *
    * <code>map&lt;string, string&gt; annotations = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getAnnotationsOrDefault(
       java.lang.String key,
@@ -156,7 +155,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; annotations = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getAnnotationsOrThrow(
       java.lang.String key);
 
@@ -235,7 +233,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -257,7 +254,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -378,6 +374,33 @@ java.lang.String defaultValue);
    * <code>.google.cloud.deploy.v1.AnthosCluster anthos_cluster = 17;</code>
    */
   com.google.cloud.deploy.v1.AnthosClusterOrBuilder getAnthosClusterOrBuilder();
+
+  /**
+   * <pre>
+   * Information specifying a Cloud Run deployment target.
+   * </pre>
+   *
+   * <code>.google.cloud.deploy.v1.CloudRunLocation run = 18;</code>
+   * @return Whether the run field is set.
+   */
+  boolean hasRun();
+  /**
+   * <pre>
+   * Information specifying a Cloud Run deployment target.
+   * </pre>
+   *
+   * <code>.google.cloud.deploy.v1.CloudRunLocation run = 18;</code>
+   * @return The run.
+   */
+  com.google.cloud.deploy.v1.CloudRunLocation getRun();
+  /**
+   * <pre>
+   * Information specifying a Cloud Run deployment target.
+   * </pre>
+   *
+   * <code>.google.cloud.deploy.v1.CloudRunLocation run = 18;</code>
+   */
+  com.google.cloud.deploy.v1.CloudRunLocationOrBuilder getRunOrBuilder();
 
   /**
    * <pre>

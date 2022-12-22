@@ -34,110 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AuthorizationResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder subBuilder = null;
-            if (allowedUpstreamHeaders_ != null) {
-              subBuilder = allowedUpstreamHeaders_.toBuilder();
-            }
-            allowedUpstreamHeaders_ = input.readMessage(io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(allowedUpstreamHeaders_);
-              allowedUpstreamHeaders_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder subBuilder = null;
-            if (allowedClientHeaders_ != null) {
-              subBuilder = allowedClientHeaders_.toBuilder();
-            }
-            allowedClientHeaders_ = input.readMessage(io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(allowedClientHeaders_);
-              allowedClientHeaders_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder subBuilder = null;
-            if (allowedUpstreamHeadersToAppend_ != null) {
-              subBuilder = allowedUpstreamHeadersToAppend_.toBuilder();
-            }
-            allowedUpstreamHeadersToAppend_ = input.readMessage(io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(allowedUpstreamHeadersToAppend_);
-              allowedUpstreamHeadersToAppend_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder subBuilder = null;
-            if (allowedClientHeadersOnSuccess_ != null) {
-              subBuilder = allowedClientHeadersOnSuccess_.toBuilder();
-            }
-            allowedClientHeadersOnSuccess_ = input.readMessage(io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(allowedClientHeadersOnSuccess_);
-              allowedClientHeadersOnSuccess_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder subBuilder = null;
-            if (dynamicMetadataFromHeaders_ != null) {
-              subBuilder = dynamicMetadataFromHeaders_.toBuilder();
-            }
-            dynamicMetadataFromHeaders_ = input.readMessage(io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dynamicMetadataFromHeaders_);
-              dynamicMetadataFromHeaders_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.ExtAuthzProto.internal_static_envoy_extensions_filters_http_ext_authz_v3_AuthorizationResponse_descriptor;
@@ -192,7 +88,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder getAllowedUpstreamHeadersOrBuilder() {
-    return getAllowedUpstreamHeaders();
+    return allowedUpstreamHeaders_ == null ? io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance() : allowedUpstreamHeaders_;
   }
 
   public static final int ALLOWED_UPSTREAM_HEADERS_TO_APPEND_FIELD_NUMBER = 3;
@@ -236,14 +132,14 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder getAllowedUpstreamHeadersToAppendOrBuilder() {
-    return getAllowedUpstreamHeadersToAppend();
+    return allowedUpstreamHeadersToAppend_ == null ? io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance() : allowedUpstreamHeadersToAppend_;
   }
 
   public static final int ALLOWED_CLIENT_HEADERS_FIELD_NUMBER = 2;
   private io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher allowedClientHeaders_;
   /**
    * <pre>
-   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
    * response headers that have a correspondent match will be added to the client's response. Note
    * that when this list is *not* set, all the authorization response headers, except ``Authority
    * (Host)`` will be in the response to the client. When a header is included in this list, ``Path``,
@@ -259,7 +155,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
    * response headers that have a correspondent match will be added to the client's response. Note
    * that when this list is *not* set, all the authorization response headers, except ``Authority
    * (Host)`` will be in the response to the client. When a header is included in this list, ``Path``,
@@ -275,7 +171,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
    * response headers that have a correspondent match will be added to the client's response. Note
    * that when this list is *not* set, all the authorization response headers, except ``Authority
    * (Host)`` will be in the response to the client. When a header is included in this list, ``Path``,
@@ -286,14 +182,14 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder getAllowedClientHeadersOrBuilder() {
-    return getAllowedClientHeaders();
+    return allowedClientHeaders_ == null ? io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance() : allowedClientHeaders_;
   }
 
   public static final int ALLOWED_CLIENT_HEADERS_ON_SUCCESS_FIELD_NUMBER = 4;
   private io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher allowedClientHeadersOnSuccess_;
   /**
    * <pre>
-   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
    * response headers that have a correspondent match will be added to the client's response when
    * the authorization response itself is successful, i.e. not failed or denied. When this list is
    * *not* set, no additional headers will be added to the client's response on success.
@@ -308,7 +204,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
    * response headers that have a correspondent match will be added to the client's response when
    * the authorization response itself is successful, i.e. not failed or denied. When this list is
    * *not* set, no additional headers will be added to the client's response on success.
@@ -323,7 +219,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
    * response headers that have a correspondent match will be added to the client's response when
    * the authorization response itself is successful, i.e. not failed or denied. When this list is
    * *not* set, no additional headers will be added to the client's response on success.
@@ -333,7 +229,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder getAllowedClientHeadersOnSuccessOrBuilder() {
-    return getAllowedClientHeadersOnSuccess();
+    return allowedClientHeadersOnSuccess_ == null ? io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance() : allowedClientHeadersOnSuccess_;
   }
 
   public static final int DYNAMIC_METADATA_FROM_HEADERS_FIELD_NUMBER = 5;
@@ -386,7 +282,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder getDynamicMetadataFromHeadersOrBuilder() {
-    return getDynamicMetadataFromHeaders();
+    return dynamicMetadataFromHeaders_ == null ? io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance() : dynamicMetadataFromHeaders_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -418,7 +314,7 @@ private static final long serialVersionUID = 0L;
     if (dynamicMetadataFromHeaders_ != null) {
       output.writeMessage(5, getDynamicMetadataFromHeaders());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -447,7 +343,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getDynamicMetadataFromHeaders());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -487,7 +383,7 @@ private static final long serialVersionUID = 0L;
       if (!getDynamicMetadataFromHeaders()
           .equals(other.getDynamicMetadataFromHeaders())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -518,7 +414,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DYNAMIC_METADATA_FROM_HEADERS_FIELD_NUMBER;
       hash = (53 * hash) + getDynamicMetadataFromHeaders().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -639,50 +535,41 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.AuthorizationResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (allowedUpstreamHeadersBuilder_ == null) {
-        allowedUpstreamHeaders_ = null;
-      } else {
-        allowedUpstreamHeaders_ = null;
+      bitField0_ = 0;
+      allowedUpstreamHeaders_ = null;
+      if (allowedUpstreamHeadersBuilder_ != null) {
+        allowedUpstreamHeadersBuilder_.dispose();
         allowedUpstreamHeadersBuilder_ = null;
       }
-      if (allowedUpstreamHeadersToAppendBuilder_ == null) {
-        allowedUpstreamHeadersToAppend_ = null;
-      } else {
-        allowedUpstreamHeadersToAppend_ = null;
+      allowedUpstreamHeadersToAppend_ = null;
+      if (allowedUpstreamHeadersToAppendBuilder_ != null) {
+        allowedUpstreamHeadersToAppendBuilder_.dispose();
         allowedUpstreamHeadersToAppendBuilder_ = null;
       }
-      if (allowedClientHeadersBuilder_ == null) {
-        allowedClientHeaders_ = null;
-      } else {
-        allowedClientHeaders_ = null;
+      allowedClientHeaders_ = null;
+      if (allowedClientHeadersBuilder_ != null) {
+        allowedClientHeadersBuilder_.dispose();
         allowedClientHeadersBuilder_ = null;
       }
-      if (allowedClientHeadersOnSuccessBuilder_ == null) {
-        allowedClientHeadersOnSuccess_ = null;
-      } else {
-        allowedClientHeadersOnSuccess_ = null;
+      allowedClientHeadersOnSuccess_ = null;
+      if (allowedClientHeadersOnSuccessBuilder_ != null) {
+        allowedClientHeadersOnSuccessBuilder_.dispose();
         allowedClientHeadersOnSuccessBuilder_ = null;
       }
-      if (dynamicMetadataFromHeadersBuilder_ == null) {
-        dynamicMetadataFromHeaders_ = null;
-      } else {
-        dynamicMetadataFromHeaders_ = null;
+      dynamicMetadataFromHeaders_ = null;
+      if (dynamicMetadataFromHeadersBuilder_ != null) {
+        dynamicMetadataFromHeadersBuilder_.dispose();
         dynamicMetadataFromHeadersBuilder_ = null;
       }
       return this;
@@ -711,33 +598,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.AuthorizationResponse buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.AuthorizationResponse result = new io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.AuthorizationResponse(this);
-      if (allowedUpstreamHeadersBuilder_ == null) {
-        result.allowedUpstreamHeaders_ = allowedUpstreamHeaders_;
-      } else {
-        result.allowedUpstreamHeaders_ = allowedUpstreamHeadersBuilder_.build();
-      }
-      if (allowedUpstreamHeadersToAppendBuilder_ == null) {
-        result.allowedUpstreamHeadersToAppend_ = allowedUpstreamHeadersToAppend_;
-      } else {
-        result.allowedUpstreamHeadersToAppend_ = allowedUpstreamHeadersToAppendBuilder_.build();
-      }
-      if (allowedClientHeadersBuilder_ == null) {
-        result.allowedClientHeaders_ = allowedClientHeaders_;
-      } else {
-        result.allowedClientHeaders_ = allowedClientHeadersBuilder_.build();
-      }
-      if (allowedClientHeadersOnSuccessBuilder_ == null) {
-        result.allowedClientHeadersOnSuccess_ = allowedClientHeadersOnSuccess_;
-      } else {
-        result.allowedClientHeadersOnSuccess_ = allowedClientHeadersOnSuccessBuilder_.build();
-      }
-      if (dynamicMetadataFromHeadersBuilder_ == null) {
-        result.dynamicMetadataFromHeaders_ = dynamicMetadataFromHeaders_;
-      } else {
-        result.dynamicMetadataFromHeaders_ = dynamicMetadataFromHeadersBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.AuthorizationResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.allowedUpstreamHeaders_ = allowedUpstreamHeadersBuilder_ == null
+            ? allowedUpstreamHeaders_
+            : allowedUpstreamHeadersBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.allowedUpstreamHeadersToAppend_ = allowedUpstreamHeadersToAppendBuilder_ == null
+            ? allowedUpstreamHeadersToAppend_
+            : allowedUpstreamHeadersToAppendBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.allowedClientHeaders_ = allowedClientHeadersBuilder_ == null
+            ? allowedClientHeaders_
+            : allowedClientHeadersBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.allowedClientHeadersOnSuccess_ = allowedClientHeadersOnSuccessBuilder_ == null
+            ? allowedClientHeadersOnSuccess_
+            : allowedClientHeadersOnSuccessBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.dynamicMetadataFromHeaders_ = dynamicMetadataFromHeadersBuilder_ == null
+            ? dynamicMetadataFromHeaders_
+            : dynamicMetadataFromHeadersBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -799,7 +691,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDynamicMetadataFromHeaders()) {
         mergeDynamicMetadataFromHeaders(other.getDynamicMetadataFromHeaders());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -814,19 +706,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.AuthorizationResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAllowedUpstreamHeadersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAllowedClientHeadersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getAllowedUpstreamHeadersToAppendFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getAllowedClientHeadersOnSuccessFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getDynamicMetadataFromHeadersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.AuthorizationResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher allowedUpstreamHeaders_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -842,7 +783,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the allowedUpstreamHeaders field is set.
      */
     public boolean hasAllowedUpstreamHeaders() {
-      return allowedUpstreamHeadersBuilder_ != null || allowedUpstreamHeaders_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -876,11 +817,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         allowedUpstreamHeaders_ = value;
-        onChanged();
       } else {
         allowedUpstreamHeadersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -896,11 +837,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder builderForValue) {
       if (allowedUpstreamHeadersBuilder_ == null) {
         allowedUpstreamHeaders_ = builderForValue.build();
-        onChanged();
       } else {
         allowedUpstreamHeadersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -914,17 +855,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAllowedUpstreamHeaders(io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher value) {
       if (allowedUpstreamHeadersBuilder_ == null) {
-        if (allowedUpstreamHeaders_ != null) {
-          allowedUpstreamHeaders_ =
-            io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.newBuilder(allowedUpstreamHeaders_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          allowedUpstreamHeaders_ != null &&
+          allowedUpstreamHeaders_ != io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance()) {
+          getAllowedUpstreamHeadersBuilder().mergeFrom(value);
         } else {
           allowedUpstreamHeaders_ = value;
         }
-        onChanged();
       } else {
         allowedUpstreamHeadersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -937,14 +879,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_upstream_headers = 1;</code>
      */
     public Builder clearAllowedUpstreamHeaders() {
-      if (allowedUpstreamHeadersBuilder_ == null) {
-        allowedUpstreamHeaders_ = null;
-        onChanged();
-      } else {
-        allowedUpstreamHeaders_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      allowedUpstreamHeaders_ = null;
+      if (allowedUpstreamHeadersBuilder_ != null) {
+        allowedUpstreamHeadersBuilder_.dispose();
         allowedUpstreamHeadersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -957,7 +898,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_upstream_headers = 1;</code>
      */
     public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder getAllowedUpstreamHeadersBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAllowedUpstreamHeadersFieldBuilder().getBuilder();
     }
@@ -1015,7 +956,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the allowedUpstreamHeadersToAppend field is set.
      */
     public boolean hasAllowedUpstreamHeadersToAppend() {
-      return allowedUpstreamHeadersToAppendBuilder_ != null || allowedUpstreamHeadersToAppend_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1049,11 +990,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         allowedUpstreamHeadersToAppend_ = value;
-        onChanged();
       } else {
         allowedUpstreamHeadersToAppendBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1069,11 +1010,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder builderForValue) {
       if (allowedUpstreamHeadersToAppendBuilder_ == null) {
         allowedUpstreamHeadersToAppend_ = builderForValue.build();
-        onChanged();
       } else {
         allowedUpstreamHeadersToAppendBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1087,17 +1028,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAllowedUpstreamHeadersToAppend(io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher value) {
       if (allowedUpstreamHeadersToAppendBuilder_ == null) {
-        if (allowedUpstreamHeadersToAppend_ != null) {
-          allowedUpstreamHeadersToAppend_ =
-            io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.newBuilder(allowedUpstreamHeadersToAppend_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          allowedUpstreamHeadersToAppend_ != null &&
+          allowedUpstreamHeadersToAppend_ != io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance()) {
+          getAllowedUpstreamHeadersToAppendBuilder().mergeFrom(value);
         } else {
           allowedUpstreamHeadersToAppend_ = value;
         }
-        onChanged();
       } else {
         allowedUpstreamHeadersToAppendBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1110,14 +1052,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_upstream_headers_to_append = 3;</code>
      */
     public Builder clearAllowedUpstreamHeadersToAppend() {
-      if (allowedUpstreamHeadersToAppendBuilder_ == null) {
-        allowedUpstreamHeadersToAppend_ = null;
-        onChanged();
-      } else {
-        allowedUpstreamHeadersToAppend_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      allowedUpstreamHeadersToAppend_ = null;
+      if (allowedUpstreamHeadersToAppendBuilder_ != null) {
+        allowedUpstreamHeadersToAppendBuilder_.dispose();
         allowedUpstreamHeadersToAppendBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1130,7 +1071,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_upstream_headers_to_append = 3;</code>
      */
     public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder getAllowedUpstreamHeadersToAppendBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAllowedUpstreamHeadersToAppendFieldBuilder().getBuilder();
     }
@@ -1179,7 +1120,7 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher, io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder, io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder> allowedClientHeadersBuilder_;
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response. Note
      * that when this list is *not* set, all the authorization response headers, except ``Authority
      * (Host)`` will be in the response to the client. When a header is included in this list, ``Path``,
@@ -1190,11 +1131,11 @@ private static final long serialVersionUID = 0L;
      * @return Whether the allowedClientHeaders field is set.
      */
     public boolean hasAllowedClientHeaders() {
-      return allowedClientHeadersBuilder_ != null || allowedClientHeaders_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response. Note
      * that when this list is *not* set, all the authorization response headers, except ``Authority
      * (Host)`` will be in the response to the client. When a header is included in this list, ``Path``,
@@ -1213,7 +1154,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response. Note
      * that when this list is *not* set, all the authorization response headers, except ``Authority
      * (Host)`` will be in the response to the client. When a header is included in this list, ``Path``,
@@ -1228,16 +1169,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         allowedClientHeaders_ = value;
-        onChanged();
       } else {
         allowedClientHeadersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response. Note
      * that when this list is *not* set, all the authorization response headers, except ``Authority
      * (Host)`` will be in the response to the client. When a header is included in this list, ``Path``,
@@ -1250,16 +1191,16 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder builderForValue) {
       if (allowedClientHeadersBuilder_ == null) {
         allowedClientHeaders_ = builderForValue.build();
-        onChanged();
       } else {
         allowedClientHeadersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response. Note
      * that when this list is *not* set, all the authorization response headers, except ``Authority
      * (Host)`` will be in the response to the client. When a header is included in this list, ``Path``,
@@ -1270,22 +1211,23 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAllowedClientHeaders(io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher value) {
       if (allowedClientHeadersBuilder_ == null) {
-        if (allowedClientHeaders_ != null) {
-          allowedClientHeaders_ =
-            io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.newBuilder(allowedClientHeaders_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          allowedClientHeaders_ != null &&
+          allowedClientHeaders_ != io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance()) {
+          getAllowedClientHeadersBuilder().mergeFrom(value);
         } else {
           allowedClientHeaders_ = value;
         }
-        onChanged();
       } else {
         allowedClientHeadersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response. Note
      * that when this list is *not* set, all the authorization response headers, except ``Authority
      * (Host)`` will be in the response to the client. When a header is included in this list, ``Path``,
@@ -1295,19 +1237,18 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_client_headers = 2;</code>
      */
     public Builder clearAllowedClientHeaders() {
-      if (allowedClientHeadersBuilder_ == null) {
-        allowedClientHeaders_ = null;
-        onChanged();
-      } else {
-        allowedClientHeaders_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      allowedClientHeaders_ = null;
+      if (allowedClientHeadersBuilder_ != null) {
+        allowedClientHeadersBuilder_.dispose();
         allowedClientHeadersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response. Note
      * that when this list is *not* set, all the authorization response headers, except ``Authority
      * (Host)`` will be in the response to the client. When a header is included in this list, ``Path``,
@@ -1317,13 +1258,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_client_headers = 2;</code>
      */
     public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder getAllowedClientHeadersBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getAllowedClientHeadersFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response. Note
      * that when this list is *not* set, all the authorization response headers, except ``Authority
      * (Host)`` will be in the response to the client. When a header is included in this list, ``Path``,
@@ -1342,7 +1283,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response. Note
      * that when this list is *not* set, all the authorization response headers, except ``Authority
      * (Host)`` will be in the response to the client. When a header is included in this list, ``Path``,
@@ -1370,7 +1311,7 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher, io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder, io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder> allowedClientHeadersOnSuccessBuilder_;
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response when
      * the authorization response itself is successful, i.e. not failed or denied. When this list is
      * *not* set, no additional headers will be added to the client's response on success.
@@ -1380,11 +1321,11 @@ private static final long serialVersionUID = 0L;
      * @return Whether the allowedClientHeadersOnSuccess field is set.
      */
     public boolean hasAllowedClientHeadersOnSuccess() {
-      return allowedClientHeadersOnSuccessBuilder_ != null || allowedClientHeadersOnSuccess_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response when
      * the authorization response itself is successful, i.e. not failed or denied. When this list is
      * *not* set, no additional headers will be added to the client's response on success.
@@ -1402,7 +1343,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response when
      * the authorization response itself is successful, i.e. not failed or denied. When this list is
      * *not* set, no additional headers will be added to the client's response on success.
@@ -1416,16 +1357,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         allowedClientHeadersOnSuccess_ = value;
-        onChanged();
       } else {
         allowedClientHeadersOnSuccessBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response when
      * the authorization response itself is successful, i.e. not failed or denied. When this list is
      * *not* set, no additional headers will be added to the client's response on success.
@@ -1437,16 +1378,16 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder builderForValue) {
       if (allowedClientHeadersOnSuccessBuilder_ == null) {
         allowedClientHeadersOnSuccess_ = builderForValue.build();
-        onChanged();
       } else {
         allowedClientHeadersOnSuccessBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response when
      * the authorization response itself is successful, i.e. not failed or denied. When this list is
      * *not* set, no additional headers will be added to the client's response on success.
@@ -1456,22 +1397,23 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAllowedClientHeadersOnSuccess(io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher value) {
       if (allowedClientHeadersOnSuccessBuilder_ == null) {
-        if (allowedClientHeadersOnSuccess_ != null) {
-          allowedClientHeadersOnSuccess_ =
-            io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.newBuilder(allowedClientHeadersOnSuccess_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          allowedClientHeadersOnSuccess_ != null &&
+          allowedClientHeadersOnSuccess_ != io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance()) {
+          getAllowedClientHeadersOnSuccessBuilder().mergeFrom(value);
         } else {
           allowedClientHeadersOnSuccess_ = value;
         }
-        onChanged();
       } else {
         allowedClientHeadersOnSuccessBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response when
      * the authorization response itself is successful, i.e. not failed or denied. When this list is
      * *not* set, no additional headers will be added to the client's response on success.
@@ -1480,19 +1422,18 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_client_headers_on_success = 4;</code>
      */
     public Builder clearAllowedClientHeadersOnSuccess() {
-      if (allowedClientHeadersOnSuccessBuilder_ == null) {
-        allowedClientHeadersOnSuccess_ = null;
-        onChanged();
-      } else {
-        allowedClientHeadersOnSuccess_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      allowedClientHeadersOnSuccess_ = null;
+      if (allowedClientHeadersOnSuccessBuilder_ != null) {
+        allowedClientHeadersOnSuccessBuilder_.dispose();
         allowedClientHeadersOnSuccessBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response when
      * the authorization response itself is successful, i.e. not failed or denied. When this list is
      * *not* set, no additional headers will be added to the client's response on success.
@@ -1501,13 +1442,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_client_headers_on_success = 4;</code>
      */
     public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder getAllowedClientHeadersOnSuccessBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getAllowedClientHeadersOnSuccessFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response when
      * the authorization response itself is successful, i.e. not failed or denied. When this list is
      * *not* set, no additional headers will be added to the client's response on success.
@@ -1525,7 +1466,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+     * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
      * response headers that have a correspondent match will be added to the client's response when
      * the authorization response itself is successful, i.e. not failed or denied. When this list is
      * *not* set, no additional headers will be added to the client's response on success.
@@ -1564,7 +1505,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dynamicMetadataFromHeaders field is set.
      */
     public boolean hasDynamicMetadataFromHeaders() {
-      return dynamicMetadataFromHeadersBuilder_ != null || dynamicMetadataFromHeaders_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1604,11 +1545,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dynamicMetadataFromHeaders_ = value;
-        onChanged();
       } else {
         dynamicMetadataFromHeadersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1627,11 +1568,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder builderForValue) {
       if (dynamicMetadataFromHeadersBuilder_ == null) {
         dynamicMetadataFromHeaders_ = builderForValue.build();
-        onChanged();
       } else {
         dynamicMetadataFromHeadersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1648,17 +1589,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDynamicMetadataFromHeaders(io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher value) {
       if (dynamicMetadataFromHeadersBuilder_ == null) {
-        if (dynamicMetadataFromHeaders_ != null) {
-          dynamicMetadataFromHeaders_ =
-            io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.newBuilder(dynamicMetadataFromHeaders_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          dynamicMetadataFromHeaders_ != null &&
+          dynamicMetadataFromHeaders_ != io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance()) {
+          getDynamicMetadataFromHeadersBuilder().mergeFrom(value);
         } else {
           dynamicMetadataFromHeaders_ = value;
         }
-        onChanged();
       } else {
         dynamicMetadataFromHeadersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1674,14 +1616,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.ListStringMatcher dynamic_metadata_from_headers = 5;</code>
      */
     public Builder clearDynamicMetadataFromHeaders() {
-      if (dynamicMetadataFromHeadersBuilder_ == null) {
-        dynamicMetadataFromHeaders_ = null;
-        onChanged();
-      } else {
-        dynamicMetadataFromHeaders_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      dynamicMetadataFromHeaders_ = null;
+      if (dynamicMetadataFromHeadersBuilder_ != null) {
+        dynamicMetadataFromHeadersBuilder_.dispose();
         dynamicMetadataFromHeadersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1697,7 +1638,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.ListStringMatcher dynamic_metadata_from_headers = 5;</code>
      */
     public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder getDynamicMetadataFromHeadersBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getDynamicMetadataFromHeadersFieldBuilder().getBuilder();
     }
@@ -1779,7 +1720,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AuthorizationResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

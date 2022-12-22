@@ -331,7 +331,8 @@ public interface VehicleOrBuilder extends
    * The polyline specifying the route the driver app intends to take to
    * the next waypoint. This list is also returned in
    * `Trip.current_route_segment` for all active trips assigned to the vehicle.
-   * Note: This field is intended only for use by the Driver SDK.
+   * Note: This field is intended only for use by the Driver SDK. Decoding is
+   * not yet supported.
    * </pre>
    *
    * <code>string current_route_segment = 20;</code>
@@ -343,7 +344,8 @@ public interface VehicleOrBuilder extends
    * The polyline specifying the route the driver app intends to take to
    * the next waypoint. This list is also returned in
    * `Trip.current_route_segment` for all active trips assigned to the vehicle.
-   * Note: This field is intended only for use by the Driver SDK.
+   * Note: This field is intended only for use by the Driver SDK. Decoding is
+   * not yet supported.
    * </pre>
    *
    * <code>string current_route_segment = 20;</code>
@@ -456,12 +458,10 @@ public interface VehicleOrBuilder extends
 
   /**
    * <pre>
-   * The remaining driving distance for the `current_route_segment`. This field
-   * facilitates journey sharing between the Driver app and the Consumer app.
-   * This value is provided by the Driver SDK. This field is also returned in
-   * `Trip.remaining_distance_meters` for all active trips assigned to the
-   * vehicle. The value is unspecified if the `current_route_segment` field is
-   * empty, or if the Driver SDK has not updated its value.
+   * The remaining driving distance for the `current_route_segment`.
+   * This value is also returned in `Trip.remaining_distance_meters` for all
+   * active trips assigned to the vehicle. The value is unspecified if the
+   * `current_route_segment` field is empty.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value remaining_distance_meters = 18;</code>
@@ -470,12 +470,10 @@ public interface VehicleOrBuilder extends
   boolean hasRemainingDistanceMeters();
   /**
    * <pre>
-   * The remaining driving distance for the `current_route_segment`. This field
-   * facilitates journey sharing between the Driver app and the Consumer app.
-   * This value is provided by the Driver SDK. This field is also returned in
-   * `Trip.remaining_distance_meters` for all active trips assigned to the
-   * vehicle. The value is unspecified if the `current_route_segment` field is
-   * empty, or if the Driver SDK has not updated its value.
+   * The remaining driving distance for the `current_route_segment`.
+   * This value is also returned in `Trip.remaining_distance_meters` for all
+   * active trips assigned to the vehicle. The value is unspecified if the
+   * `current_route_segment` field is empty.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value remaining_distance_meters = 18;</code>
@@ -484,12 +482,10 @@ public interface VehicleOrBuilder extends
   com.google.protobuf.Int32Value getRemainingDistanceMeters();
   /**
    * <pre>
-   * The remaining driving distance for the `current_route_segment`. This field
-   * facilitates journey sharing between the Driver app and the Consumer app.
-   * This value is provided by the Driver SDK. This field is also returned in
-   * `Trip.remaining_distance_meters` for all active trips assigned to the
-   * vehicle. The value is unspecified if the `current_route_segment` field is
-   * empty, or if the Driver SDK has not updated its value.
+   * The remaining driving distance for the `current_route_segment`.
+   * This value is also returned in `Trip.remaining_distance_meters` for all
+   * active trips assigned to the vehicle. The value is unspecified if the
+   * `current_route_segment` field is empty.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value remaining_distance_meters = 18;</code>
@@ -498,11 +494,11 @@ public interface VehicleOrBuilder extends
 
   /**
    * <pre>
-   * The ETA to the first entry in the `waypoints` field. This field facilitates
-   * journey sharing between a driver app and a consumer app.  The Driver SDK
-   * provides the value under typical conditions. This field is also returned in
-   * `Trip.eta_to_first_waypoint` for all applicable trips assigned to the
-   * vehicle. The value is unspecified if the `waypoints` field is empty.
+   * The ETA to the first entry in the `waypoints` field.  The value is
+   * unspecified if the `waypoints` field is empty or the
+   * `Vehicle.current_route_segment` field is empty.
+   * When updating a vehicle, `remaining_time_seconds` takes precedence over
+   * `eta_to_first_waypoint` in the same request.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp eta_to_first_waypoint = 19;</code>
@@ -511,11 +507,11 @@ public interface VehicleOrBuilder extends
   boolean hasEtaToFirstWaypoint();
   /**
    * <pre>
-   * The ETA to the first entry in the `waypoints` field. This field facilitates
-   * journey sharing between a driver app and a consumer app.  The Driver SDK
-   * provides the value under typical conditions. This field is also returned in
-   * `Trip.eta_to_first_waypoint` for all applicable trips assigned to the
-   * vehicle. The value is unspecified if the `waypoints` field is empty.
+   * The ETA to the first entry in the `waypoints` field.  The value is
+   * unspecified if the `waypoints` field is empty or the
+   * `Vehicle.current_route_segment` field is empty.
+   * When updating a vehicle, `remaining_time_seconds` takes precedence over
+   * `eta_to_first_waypoint` in the same request.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp eta_to_first_waypoint = 19;</code>
@@ -524,11 +520,11 @@ public interface VehicleOrBuilder extends
   com.google.protobuf.Timestamp getEtaToFirstWaypoint();
   /**
    * <pre>
-   * The ETA to the first entry in the `waypoints` field. This field facilitates
-   * journey sharing between a driver app and a consumer app.  The Driver SDK
-   * provides the value under typical conditions. This field is also returned in
-   * `Trip.eta_to_first_waypoint` for all applicable trips assigned to the
-   * vehicle. The value is unspecified if the `waypoints` field is empty.
+   * The ETA to the first entry in the `waypoints` field.  The value is
+   * unspecified if the `waypoints` field is empty or the
+   * `Vehicle.current_route_segment` field is empty.
+   * When updating a vehicle, `remaining_time_seconds` takes precedence over
+   * `eta_to_first_waypoint` in the same request.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp eta_to_first_waypoint = 19;</code>
@@ -537,15 +533,13 @@ public interface VehicleOrBuilder extends
 
   /**
    * <pre>
-   * Input only. The remaining driving time for the `current_route_segment`. This field
-   * facilitates journey sharing between the Driver app and the Consumer app.
-   * This value is updated by the Driver SDK. The value is unspecified if the
+   * Input only. The remaining driving time for the `current_route_segment`. The value is
+   * unspecified if the `waypoints` field is empty or the
    * `Vehicle.current_route_segment` field is empty. This value should match
    * `eta_to_first_waypoint` - `current_time` if all parties are using the same
    * clock.
-   * &lt;p&gt;When updating a vehicle, if you update both `eta_to_first_waypoint` and
-   * `remaining_time_seconds` in the same request, `remaining_time_seconds`
-   * takes precedence.
+   * When updating a vehicle, `remaining_time_seconds` takes precedence over
+   * `eta_to_first_waypoint` in the same request.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value remaining_time_seconds = 25 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -554,15 +548,13 @@ public interface VehicleOrBuilder extends
   boolean hasRemainingTimeSeconds();
   /**
    * <pre>
-   * Input only. The remaining driving time for the `current_route_segment`. This field
-   * facilitates journey sharing between the Driver app and the Consumer app.
-   * This value is updated by the Driver SDK. The value is unspecified if the
+   * Input only. The remaining driving time for the `current_route_segment`. The value is
+   * unspecified if the `waypoints` field is empty or the
    * `Vehicle.current_route_segment` field is empty. This value should match
    * `eta_to_first_waypoint` - `current_time` if all parties are using the same
    * clock.
-   * &lt;p&gt;When updating a vehicle, if you update both `eta_to_first_waypoint` and
-   * `remaining_time_seconds` in the same request, `remaining_time_seconds`
-   * takes precedence.
+   * When updating a vehicle, `remaining_time_seconds` takes precedence over
+   * `eta_to_first_waypoint` in the same request.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value remaining_time_seconds = 25 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -571,15 +563,13 @@ public interface VehicleOrBuilder extends
   com.google.protobuf.Int32Value getRemainingTimeSeconds();
   /**
    * <pre>
-   * Input only. The remaining driving time for the `current_route_segment`. This field
-   * facilitates journey sharing between the Driver app and the Consumer app.
-   * This value is updated by the Driver SDK. The value is unspecified if the
+   * Input only. The remaining driving time for the `current_route_segment`. The value is
+   * unspecified if the `waypoints` field is empty or the
    * `Vehicle.current_route_segment` field is empty. This value should match
    * `eta_to_first_waypoint` - `current_time` if all parties are using the same
    * clock.
-   * &lt;p&gt;When updating a vehicle, if you update both `eta_to_first_waypoint` and
-   * `remaining_time_seconds` in the same request, `remaining_time_seconds`
-   * takes precedence.
+   * When updating a vehicle, `remaining_time_seconds` takes precedence over
+   * `eta_to_first_waypoint` in the same request.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value remaining_time_seconds = 25 [(.google.api.field_behavior) = INPUT_ONLY];</code>

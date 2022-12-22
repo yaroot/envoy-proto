@@ -40,136 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MitreAttack(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            primaryTactic_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              primaryTechniques_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            primaryTechniques_.add(rawValue);
-            break;
-          }
-          case 18: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                primaryTechniques_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              primaryTechniques_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              additionalTactics_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            additionalTactics_.add(rawValue);
-            break;
-          }
-          case 26: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                additionalTactics_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              additionalTactics_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              additionalTechniques_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            additionalTechniques_.add(rawValue);
-            break;
-          }
-          case 34: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                additionalTechniques_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              additionalTechniques_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            version_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        primaryTechniques_ = java.util.Collections.unmodifiableList(primaryTechniques_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        additionalTactics_ = java.util.Collections.unmodifiableList(additionalTactics_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        additionalTechniques_ = java.util.Collections.unmodifiableList(additionalTechniques_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.securitycenter.v1.MitreAttackProto.internal_static_google_cloud_securitycenter_v1_MitreAttack_descriptor;
@@ -807,6 +677,30 @@ private static final long serialVersionUID = 0L;
      * <code>NETWORK_SERVICE_DISCOVERY = 32;</code>
      */
     NETWORK_SERVICE_DISCOVERY(32),
+    /**
+     * <pre>
+     * T1134
+     * </pre>
+     *
+     * <code>ACCESS_TOKEN_MANIPULATION = 33;</code>
+     */
+    ACCESS_TOKEN_MANIPULATION(33),
+    /**
+     * <pre>
+     * T1548
+     * </pre>
+     *
+     * <code>ABUSE_ELEVATION_CONTROL_MECHANISM = 34;</code>
+     */
+    ABUSE_ELEVATION_CONTROL_MECHANISM(34),
+    /**
+     * <pre>
+     * T1078.001
+     * </pre>
+     *
+     * <code>DEFAULT_ACCOUNTS = 35;</code>
+     */
+    DEFAULT_ACCOUNTS(35),
     UNRECOGNIZED(-1),
     ;
 
@@ -1074,6 +968,30 @@ private static final long serialVersionUID = 0L;
      * <code>NETWORK_SERVICE_DISCOVERY = 32;</code>
      */
     public static final int NETWORK_SERVICE_DISCOVERY_VALUE = 32;
+    /**
+     * <pre>
+     * T1134
+     * </pre>
+     *
+     * <code>ACCESS_TOKEN_MANIPULATION = 33;</code>
+     */
+    public static final int ACCESS_TOKEN_MANIPULATION_VALUE = 33;
+    /**
+     * <pre>
+     * T1548
+     * </pre>
+     *
+     * <code>ABUSE_ELEVATION_CONTROL_MECHANISM = 34;</code>
+     */
+    public static final int ABUSE_ELEVATION_CONTROL_MECHANISM_VALUE = 34;
+    /**
+     * <pre>
+     * T1078.001
+     * </pre>
+     *
+     * <code>DEFAULT_ACCOUNTS = 35;</code>
+     */
+    public static final int DEFAULT_ACCOUNTS_VALUE = 35;
 
 
     public final int getNumber() {
@@ -1133,6 +1051,9 @@ private static final long serialVersionUID = 0L;
         case 30: return DOMAIN_POLICY_MODIFICATION;
         case 31: return IMPAIR_DEFENSES;
         case 32: return NETWORK_SERVICE_DISCOVERY;
+        case 33: return ACCESS_TOKEN_MANIPULATION;
+        case 34: return ABUSE_ELEVATION_CONTROL_MECHANISM;
+        case 35: return DEFAULT_ACCOUNTS;
         default: return null;
       }
     }
@@ -1190,7 +1111,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRIMARY_TACTIC_FIELD_NUMBER = 1;
-  private int primaryTactic_;
+  private int primaryTactic_ = 0;
   /**
    * <pre>
    * The MITRE ATT&amp;CK tactic most closely represented by this finding, if any.
@@ -1211,20 +1132,19 @@ private static final long serialVersionUID = 0L;
    * @return The primaryTactic.
    */
   @java.lang.Override public com.google.cloud.securitycenter.v1.MitreAttack.Tactic getPrimaryTactic() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.securitycenter.v1.MitreAttack.Tactic result = com.google.cloud.securitycenter.v1.MitreAttack.Tactic.valueOf(primaryTactic_);
+    com.google.cloud.securitycenter.v1.MitreAttack.Tactic result = com.google.cloud.securitycenter.v1.MitreAttack.Tactic.forNumber(primaryTactic_);
     return result == null ? com.google.cloud.securitycenter.v1.MitreAttack.Tactic.UNRECOGNIZED : result;
   }
 
   public static final int PRIMARY_TECHNIQUES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> primaryTechniques_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.securitycenter.v1.MitreAttack.Technique> primaryTechniques_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.securitycenter.v1.MitreAttack.Technique>() {
             public com.google.cloud.securitycenter.v1.MitreAttack.Technique convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.securitycenter.v1.MitreAttack.Technique result = com.google.cloud.securitycenter.v1.MitreAttack.Technique.valueOf(from);
+              com.google.cloud.securitycenter.v1.MitreAttack.Technique result = com.google.cloud.securitycenter.v1.MitreAttack.Technique.forNumber(from);
               return result == null ? com.google.cloud.securitycenter.v1.MitreAttack.Technique.UNRECOGNIZED : result;
             }
           };
@@ -1320,14 +1240,14 @@ private static final long serialVersionUID = 0L;
   private int primaryTechniquesMemoizedSerializedSize;
 
   public static final int ADDITIONAL_TACTICS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> additionalTactics_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.securitycenter.v1.MitreAttack.Tactic> additionalTactics_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.securitycenter.v1.MitreAttack.Tactic>() {
             public com.google.cloud.securitycenter.v1.MitreAttack.Tactic convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.securitycenter.v1.MitreAttack.Tactic result = com.google.cloud.securitycenter.v1.MitreAttack.Tactic.valueOf(from);
+              com.google.cloud.securitycenter.v1.MitreAttack.Tactic result = com.google.cloud.securitycenter.v1.MitreAttack.Tactic.forNumber(from);
               return result == null ? com.google.cloud.securitycenter.v1.MitreAttack.Tactic.UNRECOGNIZED : result;
             }
           };
@@ -1398,14 +1318,14 @@ private static final long serialVersionUID = 0L;
   private int additionalTacticsMemoizedSerializedSize;
 
   public static final int ADDITIONAL_TECHNIQUES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> additionalTechniques_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.securitycenter.v1.MitreAttack.Technique> additionalTechniques_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.securitycenter.v1.MitreAttack.Technique>() {
             public com.google.cloud.securitycenter.v1.MitreAttack.Technique convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.securitycenter.v1.MitreAttack.Technique result = com.google.cloud.securitycenter.v1.MitreAttack.Technique.valueOf(from);
+              com.google.cloud.securitycenter.v1.MitreAttack.Technique result = com.google.cloud.securitycenter.v1.MitreAttack.Technique.forNumber(from);
               return result == null ? com.google.cloud.securitycenter.v1.MitreAttack.Technique.UNRECOGNIZED : result;
             }
           };
@@ -1481,7 +1401,8 @@ private static final long serialVersionUID = 0L;
   private int additionalTechniquesMemoizedSerializedSize;
 
   public static final int VERSION_FIELD_NUMBER = 5;
-  private volatile java.lang.Object version_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object version_ = "";
   /**
    * <pre>
    * The MITRE ATT&amp;CK version referenced by the above fields. E.g. "8".
@@ -1568,7 +1489,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, version_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1620,7 +1541,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, version_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1641,7 +1562,7 @@ private static final long serialVersionUID = 0L;
     if (!additionalTechniques_.equals(other.additionalTechniques_)) return false;
     if (!getVersion()
         .equals(other.getVersion())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1668,7 +1589,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getVersion().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1790,32 +1711,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.securitycenter.v1.MitreAttack.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       primaryTactic_ = 0;
-
       primaryTechniques_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      additionalTactics_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000002);
-      additionalTechniques_ = java.util.Collections.emptyList();
+      additionalTactics_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000004);
+      additionalTechniques_ = java.util.Collections.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000008);
       version_ = "";
-
       return this;
     }
 
@@ -1842,26 +1757,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.securitycenter.v1.MitreAttack buildPartial() {
       com.google.cloud.securitycenter.v1.MitreAttack result = new com.google.cloud.securitycenter.v1.MitreAttack(this);
-      int from_bitField0_ = bitField0_;
-      result.primaryTactic_ = primaryTactic_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        primaryTechniques_ = java.util.Collections.unmodifiableList(primaryTechniques_);
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.primaryTechniques_ = primaryTechniques_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        additionalTactics_ = java.util.Collections.unmodifiableList(additionalTactics_);
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.additionalTactics_ = additionalTactics_;
-      if (((bitField0_ & 0x00000004) != 0)) {
-        additionalTechniques_ = java.util.Collections.unmodifiableList(additionalTechniques_);
-        bitField0_ = (bitField0_ & ~0x00000004);
-      }
-      result.additionalTechniques_ = additionalTechniques_;
-      result.version_ = version_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.securitycenter.v1.MitreAttack result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
+        primaryTechniques_ = java.util.Collections.unmodifiableList(primaryTechniques_);
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.primaryTechniques_ = primaryTechniques_;
+      if (((bitField0_ & 0x00000004) != 0)) {
+        additionalTactics_ = java.util.Collections.unmodifiableList(additionalTactics_);
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.additionalTactics_ = additionalTactics_;
+      if (((bitField0_ & 0x00000008) != 0)) {
+        additionalTechniques_ = java.util.Collections.unmodifiableList(additionalTechniques_);
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.additionalTechniques_ = additionalTechniques_;
+    }
+
+    private void buildPartial0(com.google.cloud.securitycenter.v1.MitreAttack result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.primaryTactic_ = primaryTactic_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.version_ = version_;
+      }
     }
 
     @java.lang.Override
@@ -1914,7 +1841,7 @@ private static final long serialVersionUID = 0L;
       if (!other.primaryTechniques_.isEmpty()) {
         if (primaryTechniques_.isEmpty()) {
           primaryTechniques_ = other.primaryTechniques_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensurePrimaryTechniquesIsMutable();
           primaryTechniques_.addAll(other.primaryTechniques_);
@@ -1924,7 +1851,7 @@ private static final long serialVersionUID = 0L;
       if (!other.additionalTactics_.isEmpty()) {
         if (additionalTactics_.isEmpty()) {
           additionalTactics_ = other.additionalTactics_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureAdditionalTacticsIsMutable();
           additionalTactics_.addAll(other.additionalTactics_);
@@ -1934,7 +1861,7 @@ private static final long serialVersionUID = 0L;
       if (!other.additionalTechniques_.isEmpty()) {
         if (additionalTechniques_.isEmpty()) {
           additionalTechniques_ = other.additionalTechniques_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureAdditionalTechniquesIsMutable();
           additionalTechniques_.addAll(other.additionalTechniques_);
@@ -1943,9 +1870,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getVersion().isEmpty()) {
         version_ = other.version_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1960,17 +1888,91 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.securitycenter.v1.MitreAttack parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              primaryTactic_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              int tmpRaw = input.readEnum();
+              ensurePrimaryTechniquesIsMutable();
+              primaryTechniques_.add(tmpRaw);
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensurePrimaryTechniquesIsMutable();
+                primaryTechniques_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 18
+            case 24: {
+              int tmpRaw = input.readEnum();
+              ensureAdditionalTacticsIsMutable();
+              additionalTactics_.add(tmpRaw);
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureAdditionalTacticsIsMutable();
+                additionalTactics_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 26
+            case 32: {
+              int tmpRaw = input.readEnum();
+              ensureAdditionalTechniquesIsMutable();
+              additionalTechniques_.add(tmpRaw);
+              break;
+            } // case 32
+            case 34: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureAdditionalTechniquesIsMutable();
+                additionalTechniques_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 34
+            case 42: {
+              version_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.securitycenter.v1.MitreAttack) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1997,8 +1999,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPrimaryTacticValue(int value) {
-      
       primaryTactic_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2012,8 +2014,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.securitycenter.v1.MitreAttack.Tactic getPrimaryTactic() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.securitycenter.v1.MitreAttack.Tactic result = com.google.cloud.securitycenter.v1.MitreAttack.Tactic.valueOf(primaryTactic_);
+      com.google.cloud.securitycenter.v1.MitreAttack.Tactic result = com.google.cloud.securitycenter.v1.MitreAttack.Tactic.forNumber(primaryTactic_);
       return result == null ? com.google.cloud.securitycenter.v1.MitreAttack.Tactic.UNRECOGNIZED : result;
     }
     /**
@@ -2029,7 +2030,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       primaryTactic_ = value.getNumber();
       onChanged();
       return this;
@@ -2043,7 +2044,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrimaryTactic() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       primaryTactic_ = 0;
       onChanged();
       return this;
@@ -2052,9 +2053,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> primaryTechniques_ =
       java.util.Collections.emptyList();
     private void ensurePrimaryTechniquesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         primaryTechniques_ = new java.util.ArrayList<java.lang.Integer>(primaryTechniques_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
       }
     }
     /**
@@ -2193,7 +2194,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPrimaryTechniques() {
       primaryTechniques_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2300,9 +2301,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> additionalTactics_ =
       java.util.Collections.emptyList();
     private void ensureAdditionalTacticsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         additionalTactics_ = new java.util.ArrayList<java.lang.Integer>(additionalTactics_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
       }
     }
     /**
@@ -2406,7 +2407,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAdditionalTactics() {
       additionalTactics_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2488,9 +2489,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> additionalTechniques_ =
       java.util.Collections.emptyList();
     private void ensureAdditionalTechniquesIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         additionalTechniques_ = new java.util.ArrayList<java.lang.Integer>(additionalTechniques_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
       }
     }
     /**
@@ -2601,7 +2602,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAdditionalTechniques() {
       additionalTechniques_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2738,11 +2739,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       version_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2755,8 +2754,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVersion() {
-      
       version_ = getDefaultInstance().getVersion();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2771,12 +2770,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       version_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2813,7 +2810,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MitreAttack(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -9,7 +9,7 @@ public interface DataProviderOrBuilder extends
 
   /**
    * <pre>
-   * Optional. Name of the Data Provider.
+   * Optional. Name of the data provider.
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -18,7 +18,7 @@ public interface DataProviderOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Optional. Name of the Data Provider.
+   * Optional. Name of the data provider.
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -29,7 +29,7 @@ public interface DataProviderOrBuilder extends
 
   /**
    * <pre>
-   * Optional. Email or URL of the Data Provider.
+   * Optional. Email or URL of the data provider.
    * Max Length: 1000 bytes.
    * </pre>
    *
@@ -39,7 +39,7 @@ public interface DataProviderOrBuilder extends
   java.lang.String getPrimaryContact();
   /**
    * <pre>
-   * Optional. Email or URL of the Data Provider.
+   * Optional. Email or URL of the data provider.
    * Max Length: 1000 bytes.
    * </pre>
    *

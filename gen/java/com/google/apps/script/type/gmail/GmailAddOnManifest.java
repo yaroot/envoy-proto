@@ -37,102 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GmailAddOnManifest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              contextualTriggers_ = new java.util.ArrayList<com.google.apps.script.type.gmail.ContextualTrigger>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            contextualTriggers_.add(
-                input.readMessage(com.google.apps.script.type.gmail.ContextualTrigger.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              universalActions_ = new java.util.ArrayList<com.google.apps.script.type.gmail.UniversalAction>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            universalActions_.add(
-                input.readMessage(com.google.apps.script.type.gmail.UniversalAction.parser(), extensionRegistry));
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            authorizationCheckFunction_ = s;
-            break;
-          }
-          case 98: {
-            com.google.apps.script.type.gmail.ComposeTrigger.Builder subBuilder = null;
-            if (composeTrigger_ != null) {
-              subBuilder = composeTrigger_.toBuilder();
-            }
-            composeTrigger_ = input.readMessage(com.google.apps.script.type.gmail.ComposeTrigger.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(composeTrigger_);
-              composeTrigger_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 114: {
-            com.google.apps.script.type.HomepageExtensionPoint.Builder subBuilder = null;
-            if (homepageTrigger_ != null) {
-              subBuilder = homepageTrigger_.toBuilder();
-            }
-            homepageTrigger_ = input.readMessage(com.google.apps.script.type.HomepageExtensionPoint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(homepageTrigger_);
-              homepageTrigger_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        contextualTriggers_ = java.util.Collections.unmodifiableList(contextualTriggers_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        universalActions_ = java.util.Collections.unmodifiableList(universalActions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.apps.script.type.gmail.GmailAddOnManifestProto.internal_static_google_apps_script_type_gmail_GmailAddOnManifest_descriptor;
@@ -196,10 +100,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.script.type.HomepageExtensionPointOrBuilder getHomepageTriggerOrBuilder() {
-    return getHomepageTrigger();
+    return homepageTrigger_ == null ? com.google.apps.script.type.HomepageExtensionPoint.getDefaultInstance() : homepageTrigger_;
   }
 
   public static final int CONTEXTUAL_TRIGGERS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.apps.script.type.gmail.ContextualTrigger> contextualTriggers_;
   /**
    * <pre>
@@ -260,6 +165,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UNIVERSAL_ACTIONS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.apps.script.type.gmail.UniversalAction> universalActions_;
   /**
    * <pre>
@@ -379,11 +285,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.script.type.gmail.ComposeTriggerOrBuilder getComposeTriggerOrBuilder() {
-    return getComposeTrigger();
+    return composeTrigger_ == null ? com.google.apps.script.type.gmail.ComposeTrigger.getDefaultInstance() : composeTrigger_;
   }
 
   public static final int AUTHORIZATION_CHECK_FUNCTION_FIELD_NUMBER = 7;
-  private volatile java.lang.Object authorizationCheckFunction_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object authorizationCheckFunction_ = "";
   /**
    * <pre>
    * The name of an endpoint that verifies that the add-on has
@@ -465,7 +372,7 @@ private static final long serialVersionUID = 0L;
     if (homepageTrigger_ != null) {
       output.writeMessage(14, getHomepageTrigger());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -493,7 +400,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(14, getHomepageTrigger());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -524,7 +431,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getAuthorizationCheckFunction()
         .equals(other.getAuthorizationCheckFunction())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -553,7 +460,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + AUTHORIZATION_CHECK_FUNCTION_FIELD_NUMBER;
     hash = (53 * hash) + getAuthorizationCheckFunction().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -674,50 +581,43 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.apps.script.type.gmail.GmailAddOnManifest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getContextualTriggersFieldBuilder();
-        getUniversalActionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (homepageTriggerBuilder_ == null) {
-        homepageTrigger_ = null;
-      } else {
-        homepageTrigger_ = null;
+      bitField0_ = 0;
+      homepageTrigger_ = null;
+      if (homepageTriggerBuilder_ != null) {
+        homepageTriggerBuilder_.dispose();
         homepageTriggerBuilder_ = null;
       }
       if (contextualTriggersBuilder_ == null) {
         contextualTriggers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        contextualTriggers_ = null;
         contextualTriggersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (universalActionsBuilder_ == null) {
         universalActions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        universalActions_ = null;
         universalActionsBuilder_.clear();
       }
-      if (composeTriggerBuilder_ == null) {
-        composeTrigger_ = null;
-      } else {
-        composeTrigger_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      composeTrigger_ = null;
+      if (composeTriggerBuilder_ != null) {
+        composeTriggerBuilder_.dispose();
         composeTriggerBuilder_ = null;
       }
       authorizationCheckFunction_ = "";
-
       return this;
     }
 
@@ -744,38 +644,48 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.apps.script.type.gmail.GmailAddOnManifest buildPartial() {
       com.google.apps.script.type.gmail.GmailAddOnManifest result = new com.google.apps.script.type.gmail.GmailAddOnManifest(this);
-      int from_bitField0_ = bitField0_;
-      if (homepageTriggerBuilder_ == null) {
-        result.homepageTrigger_ = homepageTrigger_;
-      } else {
-        result.homepageTrigger_ = homepageTriggerBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.apps.script.type.gmail.GmailAddOnManifest result) {
       if (contextualTriggersBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           contextualTriggers_ = java.util.Collections.unmodifiableList(contextualTriggers_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.contextualTriggers_ = contextualTriggers_;
       } else {
         result.contextualTriggers_ = contextualTriggersBuilder_.build();
       }
       if (universalActionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           universalActions_ = java.util.Collections.unmodifiableList(universalActions_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.universalActions_ = universalActions_;
       } else {
         result.universalActions_ = universalActionsBuilder_.build();
       }
-      if (composeTriggerBuilder_ == null) {
-        result.composeTrigger_ = composeTrigger_;
-      } else {
-        result.composeTrigger_ = composeTriggerBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.apps.script.type.gmail.GmailAddOnManifest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.homepageTrigger_ = homepageTriggerBuilder_ == null
+            ? homepageTrigger_
+            : homepageTriggerBuilder_.build();
       }
-      result.authorizationCheckFunction_ = authorizationCheckFunction_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.composeTrigger_ = composeTriggerBuilder_ == null
+            ? composeTrigger_
+            : composeTriggerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.authorizationCheckFunction_ = authorizationCheckFunction_;
+      }
     }
 
     @java.lang.Override
@@ -829,7 +739,7 @@ private static final long serialVersionUID = 0L;
         if (!other.contextualTriggers_.isEmpty()) {
           if (contextualTriggers_.isEmpty()) {
             contextualTriggers_ = other.contextualTriggers_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureContextualTriggersIsMutable();
             contextualTriggers_.addAll(other.contextualTriggers_);
@@ -842,7 +752,7 @@ private static final long serialVersionUID = 0L;
             contextualTriggersBuilder_.dispose();
             contextualTriggersBuilder_ = null;
             contextualTriggers_ = other.contextualTriggers_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             contextualTriggersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getContextualTriggersFieldBuilder() : null;
@@ -855,7 +765,7 @@ private static final long serialVersionUID = 0L;
         if (!other.universalActions_.isEmpty()) {
           if (universalActions_.isEmpty()) {
             universalActions_ = other.universalActions_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureUniversalActionsIsMutable();
             universalActions_.addAll(other.universalActions_);
@@ -868,7 +778,7 @@ private static final long serialVersionUID = 0L;
             universalActionsBuilder_.dispose();
             universalActionsBuilder_ = null;
             universalActions_ = other.universalActions_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             universalActionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getUniversalActionsFieldBuilder() : null;
@@ -882,9 +792,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAuthorizationCheckFunction().isEmpty()) {
         authorizationCheckFunction_ = other.authorizationCheckFunction_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -899,17 +810,75 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.apps.script.type.gmail.GmailAddOnManifest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26: {
+              com.google.apps.script.type.gmail.ContextualTrigger m =
+                  input.readMessage(
+                      com.google.apps.script.type.gmail.ContextualTrigger.parser(),
+                      extensionRegistry);
+              if (contextualTriggersBuilder_ == null) {
+                ensureContextualTriggersIsMutable();
+                contextualTriggers_.add(m);
+              } else {
+                contextualTriggersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              com.google.apps.script.type.gmail.UniversalAction m =
+                  input.readMessage(
+                      com.google.apps.script.type.gmail.UniversalAction.parser(),
+                      extensionRegistry);
+              if (universalActionsBuilder_ == null) {
+                ensureUniversalActionsIsMutable();
+                universalActions_.add(m);
+              } else {
+                universalActionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 58: {
+              authorizationCheckFunction_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 58
+            case 98: {
+              input.readMessage(
+                  getComposeTriggerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 98
+            case 114: {
+              input.readMessage(
+                  getHomepageTriggerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 114
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.apps.script.type.gmail.GmailAddOnManifest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -931,7 +900,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the homepageTrigger field is set.
      */
     public boolean hasHomepageTrigger() {
-      return homepageTriggerBuilder_ != null || homepageTrigger_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -971,11 +940,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         homepageTrigger_ = value;
-        onChanged();
       } else {
         homepageTriggerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -994,11 +963,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.script.type.HomepageExtensionPoint.Builder builderForValue) {
       if (homepageTriggerBuilder_ == null) {
         homepageTrigger_ = builderForValue.build();
-        onChanged();
       } else {
         homepageTriggerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1015,17 +984,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHomepageTrigger(com.google.apps.script.type.HomepageExtensionPoint value) {
       if (homepageTriggerBuilder_ == null) {
-        if (homepageTrigger_ != null) {
-          homepageTrigger_ =
-            com.google.apps.script.type.HomepageExtensionPoint.newBuilder(homepageTrigger_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          homepageTrigger_ != null &&
+          homepageTrigger_ != com.google.apps.script.type.HomepageExtensionPoint.getDefaultInstance()) {
+          getHomepageTriggerBuilder().mergeFrom(value);
         } else {
           homepageTrigger_ = value;
         }
-        onChanged();
       } else {
         homepageTriggerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1041,14 +1011,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.HomepageExtensionPoint homepage_trigger = 14;</code>
      */
     public Builder clearHomepageTrigger() {
-      if (homepageTriggerBuilder_ == null) {
-        homepageTrigger_ = null;
-        onChanged();
-      } else {
-        homepageTrigger_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      homepageTrigger_ = null;
+      if (homepageTriggerBuilder_ != null) {
+        homepageTriggerBuilder_.dispose();
         homepageTriggerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1064,7 +1033,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.HomepageExtensionPoint homepage_trigger = 14;</code>
      */
     public com.google.apps.script.type.HomepageExtensionPoint.Builder getHomepageTriggerBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getHomepageTriggerFieldBuilder().getBuilder();
     }
@@ -1117,9 +1086,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.apps.script.type.gmail.ContextualTrigger> contextualTriggers_ =
       java.util.Collections.emptyList();
     private void ensureContextualTriggersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         contextualTriggers_ = new java.util.ArrayList<com.google.apps.script.type.gmail.ContextualTrigger>(contextualTriggers_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1313,7 +1282,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearContextualTriggers() {
       if (contextualTriggersBuilder_ == null) {
         contextualTriggers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         contextualTriggersBuilder_.clear();
@@ -1418,7 +1387,7 @@ private static final long serialVersionUID = 0L;
         contextualTriggersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.apps.script.type.gmail.ContextualTrigger, com.google.apps.script.type.gmail.ContextualTrigger.Builder, com.google.apps.script.type.gmail.ContextualTriggerOrBuilder>(
                 contextualTriggers_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         contextualTriggers_ = null;
@@ -1429,9 +1398,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.apps.script.type.gmail.UniversalAction> universalActions_ =
       java.util.Collections.emptyList();
     private void ensureUniversalActionsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         universalActions_ = new java.util.ArrayList<com.google.apps.script.type.gmail.UniversalAction>(universalActions_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1647,7 +1616,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearUniversalActions() {
       if (universalActionsBuilder_ == null) {
         universalActions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         universalActionsBuilder_.clear();
@@ -1766,7 +1735,7 @@ private static final long serialVersionUID = 0L;
         universalActionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.apps.script.type.gmail.UniversalAction, com.google.apps.script.type.gmail.UniversalAction.Builder, com.google.apps.script.type.gmail.UniversalActionOrBuilder>(
                 universalActions_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         universalActions_ = null;
@@ -1791,7 +1760,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the composeTrigger field is set.
      */
     public boolean hasComposeTrigger() {
-      return composeTriggerBuilder_ != null || composeTrigger_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1831,11 +1800,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         composeTrigger_ = value;
-        onChanged();
       } else {
         composeTriggerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1854,11 +1823,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.script.type.gmail.ComposeTrigger.Builder builderForValue) {
       if (composeTriggerBuilder_ == null) {
         composeTrigger_ = builderForValue.build();
-        onChanged();
       } else {
         composeTriggerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1875,17 +1844,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeComposeTrigger(com.google.apps.script.type.gmail.ComposeTrigger value) {
       if (composeTriggerBuilder_ == null) {
-        if (composeTrigger_ != null) {
-          composeTrigger_ =
-            com.google.apps.script.type.gmail.ComposeTrigger.newBuilder(composeTrigger_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          composeTrigger_ != null &&
+          composeTrigger_ != com.google.apps.script.type.gmail.ComposeTrigger.getDefaultInstance()) {
+          getComposeTriggerBuilder().mergeFrom(value);
         } else {
           composeTrigger_ = value;
         }
-        onChanged();
       } else {
         composeTriggerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1901,14 +1871,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.gmail.ComposeTrigger compose_trigger = 12;</code>
      */
     public Builder clearComposeTrigger() {
-      if (composeTriggerBuilder_ == null) {
-        composeTrigger_ = null;
-        onChanged();
-      } else {
-        composeTrigger_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      composeTrigger_ = null;
+      if (composeTriggerBuilder_ != null) {
+        composeTriggerBuilder_.dispose();
         composeTriggerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1924,7 +1893,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.gmail.ComposeTrigger compose_trigger = 12;</code>
      */
     public com.google.apps.script.type.gmail.ComposeTrigger.Builder getComposeTriggerBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getComposeTriggerFieldBuilder().getBuilder();
     }
@@ -2039,11 +2008,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthorizationCheckFunction(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       authorizationCheckFunction_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2060,8 +2027,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAuthorizationCheckFunction() {
-      
       authorizationCheckFunction_ = getDefaultInstance().getAuthorizationCheckFunction();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2080,12 +2047,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthorizationCheckFunctionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       authorizationCheckFunction_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2122,7 +2087,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GmailAddOnManifest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

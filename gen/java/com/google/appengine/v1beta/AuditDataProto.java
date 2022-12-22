@@ -40,28 +40,26 @@ public final class AuditDataProto {
     java.lang.String[] descriptorData = {
       "\n(google/appengine/v1beta/audit_data.pro" +
       "to\022\027google.appengine.v1beta\032\'google/appe" +
-      "ngine/v1beta/appengine.proto\032\034google/api" +
-      "/annotations.proto\"\245\001\n\tAuditData\022F\n\016upda" +
-      "te_service\030\001 \001(\0132,.google.appengine.v1be" +
-      "ta.UpdateServiceMethodH\000\022F\n\016create_versi" +
-      "on\030\002 \001(\0132,.google.appengine.v1beta.Creat" +
-      "eVersionMethodH\000B\010\n\006method\"U\n\023UpdateServ" +
-      "iceMethod\022>\n\007request\030\001 \001(\0132-.google.appe" +
-      "ngine.v1beta.UpdateServiceRequest\"U\n\023Cre" +
-      "ateVersionMethod\022>\n\007request\030\001 \001(\0132-.goog" +
-      "le.appengine.v1beta.CreateVersionRequest" +
-      "B\324\001\n\033com.google.appengine.v1betaB\016AuditD" +
-      "ataProtoP\001Z@google.golang.org/genproto/g" +
-      "oogleapis/appengine/v1beta;appengine\252\002\035G" +
-      "oogle.Cloud.AppEngine.V1Beta\312\002\035Google\\Cl" +
-      "oud\\AppEngine\\V1beta\352\002 Google::Cloud::Ap" +
-      "pEngine::V1betab\006proto3"
+      "ngine/v1beta/appengine.proto\"\245\001\n\tAuditDa" +
+      "ta\022F\n\016update_service\030\001 \001(\0132,.google.appe" +
+      "ngine.v1beta.UpdateServiceMethodH\000\022F\n\016cr" +
+      "eate_version\030\002 \001(\0132,.google.appengine.v1" +
+      "beta.CreateVersionMethodH\000B\010\n\006method\"U\n\023" +
+      "UpdateServiceMethod\022>\n\007request\030\001 \001(\0132-.g" +
+      "oogle.appengine.v1beta.UpdateServiceRequ" +
+      "est\"U\n\023CreateVersionMethod\022>\n\007request\030\001 " +
+      "\001(\0132-.google.appengine.v1beta.CreateVers" +
+      "ionRequestB\324\001\n\033com.google.appengine.v1be" +
+      "taB\016AuditDataProtoP\001Z@google.golang.org/" +
+      "genproto/googleapis/appengine/v1beta;app" +
+      "engine\252\002\035Google.Cloud.AppEngine.V1Beta\312\002" +
+      "\035Google\\Cloud\\AppEngine\\V1beta\352\002 Google:" +
+      ":Cloud::AppEngine::V1betab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.appengine.v1beta.AppengineProto.getDescriptor(),
-          com.google.api.AnnotationsProto.getDescriptor(),
         });
     internal_static_google_appengine_v1beta_AuditData_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -82,7 +80,6 @@ public final class AuditDataProto {
         internal_static_google_appengine_v1beta_CreateVersionMethod_descriptor,
         new java.lang.String[] { "Request", });
     com.google.appengine.v1beta.AppengineProto.getDescriptor();
-    com.google.api.AnnotationsProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

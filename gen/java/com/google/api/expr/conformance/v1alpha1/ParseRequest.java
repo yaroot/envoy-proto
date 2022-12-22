@@ -37,68 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ParseRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            celSource_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            syntaxVersion_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sourceLocation_ = s;
-            break;
-          }
-          case 32: {
-
-            disableMacros_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.expr.conformance.v1alpha1.ConformanceServiceProto.internal_static_google_api_expr_conformance_v1alpha1_ParseRequest_descriptor;
@@ -113,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CEL_SOURCE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object celSource_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object celSource_ = "";
   /**
    * <pre>
    * Required. Source text in CEL syntax.
@@ -159,7 +98,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SYNTAX_VERSION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object syntaxVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object syntaxVersion_ = "";
   /**
    * <pre>
    * Tag for version of CEL syntax, for future use.
@@ -205,7 +145,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_LOCATION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object sourceLocation_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sourceLocation_ = "";
   /**
    * <pre>
    * File or resource for source text, used in [SourceInfo][google.api.SourceInfo].
@@ -251,7 +192,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISABLE_MACROS_FIELD_NUMBER = 4;
-  private boolean disableMacros_;
+  private boolean disableMacros_ = false;
   /**
    * <pre>
    * Prevent macro expansion.  See "Macros" in Language Defiinition.
@@ -291,7 +232,7 @@ private static final long serialVersionUID = 0L;
     if (disableMacros_ != false) {
       output.writeBool(4, disableMacros_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -313,7 +254,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, disableMacros_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -336,7 +277,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSourceLocation())) return false;
     if (getDisableMacros()
         != other.getDisableMacros()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -356,7 +297,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + DISABLE_MACROS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getDisableMacros());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -477,30 +418,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.expr.conformance.v1alpha1.ParseRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       celSource_ = "";
-
       syntaxVersion_ = "";
-
       sourceLocation_ = "";
-
       disableMacros_ = false;
-
       return this;
     }
 
@@ -527,12 +460,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.expr.conformance.v1alpha1.ParseRequest buildPartial() {
       com.google.api.expr.conformance.v1alpha1.ParseRequest result = new com.google.api.expr.conformance.v1alpha1.ParseRequest(this);
-      result.celSource_ = celSource_;
-      result.syntaxVersion_ = syntaxVersion_;
-      result.sourceLocation_ = sourceLocation_;
-      result.disableMacros_ = disableMacros_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.api.expr.conformance.v1alpha1.ParseRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.celSource_ = celSource_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.syntaxVersion_ = syntaxVersion_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.sourceLocation_ = sourceLocation_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.disableMacros_ = disableMacros_;
+      }
     }
 
     @java.lang.Override
@@ -581,20 +527,23 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.api.expr.conformance.v1alpha1.ParseRequest.getDefaultInstance()) return this;
       if (!other.getCelSource().isEmpty()) {
         celSource_ = other.celSource_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSyntaxVersion().isEmpty()) {
         syntaxVersion_ = other.syntaxVersion_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getSourceLocation().isEmpty()) {
         sourceLocation_ = other.sourceLocation_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getDisableMacros() != false) {
         setDisableMacros(other.getDisableMacros());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -609,19 +558,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.expr.conformance.v1alpha1.ParseRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              celSource_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              syntaxVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              sourceLocation_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              disableMacros_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.expr.conformance.v1alpha1.ParseRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object celSource_ = "";
     /**
@@ -676,11 +659,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCelSource(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       celSource_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -693,8 +674,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCelSource() {
-      
       celSource_ = getDefaultInstance().getCelSource();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -709,12 +690,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCelSourceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       celSource_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -772,11 +751,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSyntaxVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       syntaxVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -789,8 +766,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSyntaxVersion() {
-      
       syntaxVersion_ = getDefaultInstance().getSyntaxVersion();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -805,12 +782,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSyntaxVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       syntaxVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -868,11 +843,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceLocation(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sourceLocation_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -885,8 +858,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceLocation() {
-      
       sourceLocation_ = getDefaultInstance().getSourceLocation();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -901,12 +874,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceLocationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceLocation_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -936,6 +907,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDisableMacros(boolean value) {
       
       disableMacros_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -948,7 +920,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisableMacros() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       disableMacros_ = false;
       onChanged();
       return this;
@@ -986,7 +958,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ParseRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

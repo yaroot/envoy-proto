@@ -158,11 +158,11 @@ public final class MetricsProto {
       "entile_values\030\003 \003(\0132D.opencensus.proto.m" +
       "etrics.v1.SummaryValue.Snapshot.ValueAtP" +
       "ercentile\0326\n\021ValueAtPercentile\022\022\n\npercen" +
-      "tile\030\001 \001(\001\022\r\n\005value\030\002 \001(\001B\224\001\n\036io.opencen" +
+      "tile\030\001 \001(\001\022\r\n\005value\030\002 \001(\001B\227\001\n\036io.opencen" +
       "sus.proto.metrics.v1B\014MetricsProtoP\001ZDgi" +
       "thub.com/census-instrumentation/opencens" +
-      "us-proto/gen-go/metrics/v1\352\002\033OpenCensus." +
-      "Proto.Metrics.V1b\006proto3"
+      "us-proto/gen-go/metrics/v1\352\002\036OpenCensus:" +
+      ":Proto::Metrics::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -56,6 +56,47 @@ public interface ImportFeatureValuesOperationMetadataOrBuilder extends
 
   /**
    * <pre>
+   * The source URI from where Feature values are imported.
+   * </pre>
+   *
+   * <code>repeated string source_uris = 4;</code>
+   * @return A list containing the sourceUris.
+   */
+  java.util.List<java.lang.String>
+      getSourceUrisList();
+  /**
+   * <pre>
+   * The source URI from where Feature values are imported.
+   * </pre>
+   *
+   * <code>repeated string source_uris = 4;</code>
+   * @return The count of sourceUris.
+   */
+  int getSourceUrisCount();
+  /**
+   * <pre>
+   * The source URI from where Feature values are imported.
+   * </pre>
+   *
+   * <code>repeated string source_uris = 4;</code>
+   * @param index The index of the element to return.
+   * @return The sourceUris at the given index.
+   */
+  java.lang.String getSourceUris(int index);
+  /**
+   * <pre>
+   * The source URI from where Feature values are imported.
+   * </pre>
+   *
+   * <code>repeated string source_uris = 4;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the sourceUris at the given index.
+   */
+  com.google.protobuf.ByteString
+      getSourceUrisBytes(int index);
+
+  /**
+   * <pre>
    * The number of rows in input source that weren't imported due to either
    * * Not having any featureValues.
    * * Having a null entityId.
@@ -67,4 +108,15 @@ public interface ImportFeatureValuesOperationMetadataOrBuilder extends
    * @return The invalidRowCount.
    */
   long getInvalidRowCount();
+
+  /**
+   * <pre>
+   * The number rows that weren't ingested due to having timestamps outside the
+   * retention boundary.
+   * </pre>
+   *
+   * <code>int64 timestamp_outside_retention_rows_count = 7;</code>
+   * @return The timestampOutsideRetentionRowsCount.
+   */
+  long getTimestampOutsideRetentionRowsCount();
 }

@@ -91,57 +91,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GoogleServiceAccount(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              accountEmail_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              subjectId_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_GoogleServiceAccount_descriptor;
@@ -156,7 +105,8 @@ public final class TransferTypes {
     }
 
     public static final int ACCOUNT_EMAIL_FIELD_NUMBER = 1;
-    private volatile java.lang.Object accountEmail_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object accountEmail_ = "";
     /**
      * <pre>
      * Email address of the service account.
@@ -202,7 +152,8 @@ public final class TransferTypes {
     }
 
     public static final int SUBJECT_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object subjectId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object subjectId_ = "";
     /**
      * <pre>
      * Unique identifier for the service account.
@@ -267,7 +218,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(subjectId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, subjectId_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -282,7 +233,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(subjectId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, subjectId_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -301,7 +252,7 @@ public final class TransferTypes {
           .equals(other.getAccountEmail())) return false;
       if (!getSubjectId()
           .equals(other.getSubjectId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -316,7 +267,7 @@ public final class TransferTypes {
       hash = (53 * hash) + getAccountEmail().hashCode();
       hash = (37 * hash) + SUBJECT_ID_FIELD_NUMBER;
       hash = (53 * hash) + getSubjectId().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -437,26 +388,20 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.GoogleServiceAccount.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         accountEmail_ = "";
-
         subjectId_ = "";
-
         return this;
       }
 
@@ -483,10 +428,19 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.GoogleServiceAccount buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.GoogleServiceAccount result = new com.google.storagetransfer.v1.proto.TransferTypes.GoogleServiceAccount(this);
-        result.accountEmail_ = accountEmail_;
-        result.subjectId_ = subjectId_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.GoogleServiceAccount result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.accountEmail_ = accountEmail_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.subjectId_ = subjectId_;
+        }
       }
 
       @java.lang.Override
@@ -535,13 +489,15 @@ public final class TransferTypes {
         if (other == com.google.storagetransfer.v1.proto.TransferTypes.GoogleServiceAccount.getDefaultInstance()) return this;
         if (!other.getAccountEmail().isEmpty()) {
           accountEmail_ = other.accountEmail_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getSubjectId().isEmpty()) {
           subjectId_ = other.subjectId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -556,19 +512,43 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.GoogleServiceAccount parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                accountEmail_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                subjectId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.GoogleServiceAccount) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object accountEmail_ = "";
       /**
@@ -623,11 +603,9 @@ public final class TransferTypes {
        */
       public Builder setAccountEmail(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         accountEmail_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -640,8 +618,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearAccountEmail() {
-        
         accountEmail_ = getDefaultInstance().getAccountEmail();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -656,12 +634,10 @@ public final class TransferTypes {
        */
       public Builder setAccountEmailBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         accountEmail_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -719,11 +695,9 @@ public final class TransferTypes {
        */
       public Builder setSubjectId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         subjectId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -736,8 +710,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearSubjectId() {
-        
         subjectId_ = getDefaultInstance().getSubjectId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -752,12 +726,10 @@ public final class TransferTypes {
        */
       public Builder setSubjectIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         subjectId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -794,7 +766,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GoogleServiceAccount(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -897,57 +880,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AwsAccessKey(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              accessKeyId_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              secretAccessKey_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_AwsAccessKey_descriptor;
@@ -962,7 +894,8 @@ public final class TransferTypes {
     }
 
     public static final int ACCESS_KEY_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object accessKeyId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object accessKeyId_ = "";
     /**
      * <pre>
      * Required. AWS access key ID.
@@ -1008,7 +941,8 @@ public final class TransferTypes {
     }
 
     public static final int SECRET_ACCESS_KEY_FIELD_NUMBER = 2;
-    private volatile java.lang.Object secretAccessKey_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object secretAccessKey_ = "";
     /**
      * <pre>
      * Required. AWS secret access key. This field is not returned in RPC
@@ -1075,7 +1009,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(secretAccessKey_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, secretAccessKey_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1090,7 +1024,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(secretAccessKey_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, secretAccessKey_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1109,7 +1043,7 @@ public final class TransferTypes {
           .equals(other.getAccessKeyId())) return false;
       if (!getSecretAccessKey()
           .equals(other.getSecretAccessKey())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1124,7 +1058,7 @@ public final class TransferTypes {
       hash = (53 * hash) + getAccessKeyId().hashCode();
       hash = (37 * hash) + SECRET_ACCESS_KEY_FIELD_NUMBER;
       hash = (53 * hash) + getSecretAccessKey().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1249,26 +1183,20 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.AwsAccessKey.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         accessKeyId_ = "";
-
         secretAccessKey_ = "";
-
         return this;
       }
 
@@ -1295,10 +1223,19 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.AwsAccessKey buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.AwsAccessKey result = new com.google.storagetransfer.v1.proto.TransferTypes.AwsAccessKey(this);
-        result.accessKeyId_ = accessKeyId_;
-        result.secretAccessKey_ = secretAccessKey_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.AwsAccessKey result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.accessKeyId_ = accessKeyId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.secretAccessKey_ = secretAccessKey_;
+        }
       }
 
       @java.lang.Override
@@ -1347,13 +1284,15 @@ public final class TransferTypes {
         if (other == com.google.storagetransfer.v1.proto.TransferTypes.AwsAccessKey.getDefaultInstance()) return this;
         if (!other.getAccessKeyId().isEmpty()) {
           accessKeyId_ = other.accessKeyId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getSecretAccessKey().isEmpty()) {
           secretAccessKey_ = other.secretAccessKey_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1368,19 +1307,43 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.AwsAccessKey parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                accessKeyId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                secretAccessKey_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.AwsAccessKey) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object accessKeyId_ = "";
       /**
@@ -1435,11 +1398,9 @@ public final class TransferTypes {
        */
       public Builder setAccessKeyId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         accessKeyId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1452,8 +1413,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearAccessKeyId() {
-        
         accessKeyId_ = getDefaultInstance().getAccessKeyId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1468,12 +1429,10 @@ public final class TransferTypes {
        */
       public Builder setAccessKeyIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         accessKeyId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1534,11 +1493,9 @@ public final class TransferTypes {
        */
       public Builder setSecretAccessKey(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         secretAccessKey_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1552,8 +1509,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearSecretAccessKey() {
-        
         secretAccessKey_ = getDefaultInstance().getSecretAccessKey();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1569,12 +1526,10 @@ public final class TransferTypes {
        */
       public Builder setSecretAccessKeyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         secretAccessKey_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1611,7 +1566,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AwsAccessKey(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1697,51 +1663,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AzureCredentials(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              sasToken_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_AzureCredentials_descriptor;
@@ -1756,7 +1677,8 @@ public final class TransferTypes {
     }
 
     public static final int SAS_TOKEN_FIELD_NUMBER = 2;
-    private volatile java.lang.Object sasToken_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object sasToken_ = "";
     /**
      * <pre>
      * Required. Azure shared access signature (SAS).
@@ -1826,7 +1748,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sasToken_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, sasToken_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1838,7 +1760,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sasToken_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, sasToken_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1855,7 +1777,7 @@ public final class TransferTypes {
 
       if (!getSasToken()
           .equals(other.getSasToken())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1868,7 +1790,7 @@ public final class TransferTypes {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + SAS_TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getSasToken().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1991,24 +1913,19 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.AzureCredentials.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         sasToken_ = "";
-
         return this;
       }
 
@@ -2035,9 +1952,16 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.AzureCredentials buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.AzureCredentials result = new com.google.storagetransfer.v1.proto.TransferTypes.AzureCredentials(this);
-        result.sasToken_ = sasToken_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.AzureCredentials result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.sasToken_ = sasToken_;
+        }
       }
 
       @java.lang.Override
@@ -2086,9 +2010,10 @@ public final class TransferTypes {
         if (other == com.google.storagetransfer.v1.proto.TransferTypes.AzureCredentials.getDefaultInstance()) return this;
         if (!other.getSasToken().isEmpty()) {
           sasToken_ = other.sasToken_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2103,19 +2028,38 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.AzureCredentials parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 18: {
+                sasToken_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.AzureCredentials) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object sasToken_ = "";
       /**
@@ -2182,11 +2126,9 @@ public final class TransferTypes {
        */
       public Builder setSasToken(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         sasToken_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2203,8 +2145,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearSasToken() {
-        
         sasToken_ = getDefaultInstance().getSasToken();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2223,12 +2165,10 @@ public final class TransferTypes {
        */
       public Builder setSasTokenBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         sasToken_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2265,7 +2205,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AzureCredentials(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2751,122 +2702,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ObjectConditions(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (minTimeElapsedSinceLastModification_ != null) {
-                subBuilder = minTimeElapsedSinceLastModification_.toBuilder();
-              }
-              minTimeElapsedSinceLastModification_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(minTimeElapsedSinceLastModification_);
-                minTimeElapsedSinceLastModification_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (maxTimeElapsedSinceLastModification_ != null) {
-                subBuilder = maxTimeElapsedSinceLastModification_.toBuilder();
-              }
-              maxTimeElapsedSinceLastModification_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(maxTimeElapsedSinceLastModification_);
-                maxTimeElapsedSinceLastModification_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                includePrefixes_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              includePrefixes_.add(s);
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                excludePrefixes_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              excludePrefixes_.add(s);
-              break;
-            }
-            case 42: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (lastModifiedSince_ != null) {
-                subBuilder = lastModifiedSince_.toBuilder();
-              }
-              lastModifiedSince_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(lastModifiedSince_);
-                lastModifiedSince_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 50: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (lastModifiedBefore_ != null) {
-                subBuilder = lastModifiedBefore_.toBuilder();
-              }
-              lastModifiedBefore_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(lastModifiedBefore_);
-                lastModifiedBefore_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          includePrefixes_ = includePrefixes_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          excludePrefixes_ = excludePrefixes_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_ObjectConditions_descriptor;
@@ -2936,7 +2771,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getMinTimeElapsedSinceLastModificationOrBuilder() {
-      return getMinTimeElapsedSinceLastModification();
+      return minTimeElapsedSinceLastModification_ == null ? com.google.protobuf.Duration.getDefaultInstance() : minTimeElapsedSinceLastModification_;
     }
 
     public static final int MAX_TIME_ELAPSED_SINCE_LAST_MODIFICATION_FIELD_NUMBER = 2;
@@ -2995,10 +2830,11 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getMaxTimeElapsedSinceLastModificationOrBuilder() {
-      return getMaxTimeElapsedSinceLastModification();
+      return maxTimeElapsedSinceLastModification_ == null ? com.google.protobuf.Duration.getDefaultInstance() : maxTimeElapsedSinceLastModification_;
     }
 
     public static final int INCLUDE_PREFIXES_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList includePrefixes_;
     /**
      * <pre>
@@ -3130,6 +2966,7 @@ public final class TransferTypes {
     }
 
     public static final int EXCLUDE_PREFIXES_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList excludePrefixes_;
     /**
      * <pre>
@@ -3319,7 +3156,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getLastModifiedSinceOrBuilder() {
-      return getLastModifiedSince();
+      return lastModifiedSince_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastModifiedSince_;
     }
 
     public static final int LAST_MODIFIED_BEFORE_FIELD_NUMBER = 6;
@@ -3363,7 +3200,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getLastModifiedBeforeOrBuilder() {
-      return getLastModifiedBefore();
+      return lastModifiedBefore_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastModifiedBefore_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3398,7 +3235,7 @@ public final class TransferTypes {
       if (lastModifiedBefore_ != null) {
         output.writeMessage(6, getLastModifiedBefore());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3439,7 +3276,7 @@ public final class TransferTypes {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, getLastModifiedBefore());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3478,7 +3315,7 @@ public final class TransferTypes {
         if (!getLastModifiedBefore()
             .equals(other.getLastModifiedBefore())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3513,7 +3350,7 @@ public final class TransferTypes {
         hash = (37 * hash) + LAST_MODIFIED_BEFORE_FIELD_NUMBER;
         hash = (53 * hash) + getLastModifiedBefore().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3641,48 +3478,40 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.ObjectConditions.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (minTimeElapsedSinceLastModificationBuilder_ == null) {
-          minTimeElapsedSinceLastModification_ = null;
-        } else {
-          minTimeElapsedSinceLastModification_ = null;
+        bitField0_ = 0;
+        minTimeElapsedSinceLastModification_ = null;
+        if (minTimeElapsedSinceLastModificationBuilder_ != null) {
+          minTimeElapsedSinceLastModificationBuilder_.dispose();
           minTimeElapsedSinceLastModificationBuilder_ = null;
         }
-        if (maxTimeElapsedSinceLastModificationBuilder_ == null) {
-          maxTimeElapsedSinceLastModification_ = null;
-        } else {
-          maxTimeElapsedSinceLastModification_ = null;
+        maxTimeElapsedSinceLastModification_ = null;
+        if (maxTimeElapsedSinceLastModificationBuilder_ != null) {
+          maxTimeElapsedSinceLastModificationBuilder_.dispose();
           maxTimeElapsedSinceLastModificationBuilder_ = null;
         }
         includePrefixes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         excludePrefixes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        if (lastModifiedSinceBuilder_ == null) {
-          lastModifiedSince_ = null;
-        } else {
-          lastModifiedSince_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        lastModifiedSince_ = null;
+        if (lastModifiedSinceBuilder_ != null) {
+          lastModifiedSinceBuilder_.dispose();
           lastModifiedSinceBuilder_ = null;
         }
-        if (lastModifiedBeforeBuilder_ == null) {
-          lastModifiedBefore_ = null;
-        } else {
-          lastModifiedBefore_ = null;
+        lastModifiedBefore_ = null;
+        if (lastModifiedBeforeBuilder_ != null) {
+          lastModifiedBeforeBuilder_.dispose();
           lastModifiedBeforeBuilder_ = null;
         }
         return this;
@@ -3711,39 +3540,47 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.ObjectConditions buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.ObjectConditions result = new com.google.storagetransfer.v1.proto.TransferTypes.ObjectConditions(this);
-        int from_bitField0_ = bitField0_;
-        if (minTimeElapsedSinceLastModificationBuilder_ == null) {
-          result.minTimeElapsedSinceLastModification_ = minTimeElapsedSinceLastModification_;
-        } else {
-          result.minTimeElapsedSinceLastModification_ = minTimeElapsedSinceLastModificationBuilder_.build();
-        }
-        if (maxTimeElapsedSinceLastModificationBuilder_ == null) {
-          result.maxTimeElapsedSinceLastModification_ = maxTimeElapsedSinceLastModification_;
-        } else {
-          result.maxTimeElapsedSinceLastModification_ = maxTimeElapsedSinceLastModificationBuilder_.build();
-        }
-        if (((bitField0_ & 0x00000001) != 0)) {
-          includePrefixes_ = includePrefixes_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.includePrefixes_ = includePrefixes_;
-        if (((bitField0_ & 0x00000002) != 0)) {
-          excludePrefixes_ = excludePrefixes_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.excludePrefixes_ = excludePrefixes_;
-        if (lastModifiedSinceBuilder_ == null) {
-          result.lastModifiedSince_ = lastModifiedSince_;
-        } else {
-          result.lastModifiedSince_ = lastModifiedSinceBuilder_.build();
-        }
-        if (lastModifiedBeforeBuilder_ == null) {
-          result.lastModifiedBefore_ = lastModifiedBefore_;
-        } else {
-          result.lastModifiedBefore_ = lastModifiedBeforeBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.storagetransfer.v1.proto.TransferTypes.ObjectConditions result) {
+        if (((bitField0_ & 0x00000004) != 0)) {
+          includePrefixes_ = includePrefixes_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.includePrefixes_ = includePrefixes_;
+        if (((bitField0_ & 0x00000008) != 0)) {
+          excludePrefixes_ = excludePrefixes_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.excludePrefixes_ = excludePrefixes_;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.ObjectConditions result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.minTimeElapsedSinceLastModification_ = minTimeElapsedSinceLastModificationBuilder_ == null
+              ? minTimeElapsedSinceLastModification_
+              : minTimeElapsedSinceLastModificationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.maxTimeElapsedSinceLastModification_ = maxTimeElapsedSinceLastModificationBuilder_ == null
+              ? maxTimeElapsedSinceLastModification_
+              : maxTimeElapsedSinceLastModificationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.lastModifiedSince_ = lastModifiedSinceBuilder_ == null
+              ? lastModifiedSince_
+              : lastModifiedSinceBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.lastModifiedBefore_ = lastModifiedBeforeBuilder_ == null
+              ? lastModifiedBefore_
+              : lastModifiedBeforeBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3799,7 +3636,7 @@ public final class TransferTypes {
         if (!other.includePrefixes_.isEmpty()) {
           if (includePrefixes_.isEmpty()) {
             includePrefixes_ = other.includePrefixes_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureIncludePrefixesIsMutable();
             includePrefixes_.addAll(other.includePrefixes_);
@@ -3809,7 +3646,7 @@ public final class TransferTypes {
         if (!other.excludePrefixes_.isEmpty()) {
           if (excludePrefixes_.isEmpty()) {
             excludePrefixes_ = other.excludePrefixes_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureExcludePrefixesIsMutable();
             excludePrefixes_.addAll(other.excludePrefixes_);
@@ -3822,7 +3659,7 @@ public final class TransferTypes {
         if (other.hasLastModifiedBefore()) {
           mergeLastModifiedBefore(other.getLastModifiedBefore());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3837,17 +3674,70 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.ObjectConditions parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getMinTimeElapsedSinceLastModificationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getMaxTimeElapsedSinceLastModificationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureIncludePrefixesIsMutable();
+                includePrefixes_.add(s);
+                break;
+              } // case 26
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureExcludePrefixesIsMutable();
+                excludePrefixes_.add(s);
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getLastModifiedSinceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 50: {
+                input.readMessage(
+                    getLastModifiedBeforeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.ObjectConditions) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3871,7 +3761,7 @@ public final class TransferTypes {
        * @return Whether the minTimeElapsedSinceLastModification field is set.
        */
       public boolean hasMinTimeElapsedSinceLastModification() {
-        return minTimeElapsedSinceLastModificationBuilder_ != null || minTimeElapsedSinceLastModification_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -3915,11 +3805,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           minTimeElapsedSinceLastModification_ = value;
-          onChanged();
         } else {
           minTimeElapsedSinceLastModificationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3940,11 +3830,11 @@ public final class TransferTypes {
           com.google.protobuf.Duration.Builder builderForValue) {
         if (minTimeElapsedSinceLastModificationBuilder_ == null) {
           minTimeElapsedSinceLastModification_ = builderForValue.build();
-          onChanged();
         } else {
           minTimeElapsedSinceLastModificationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3963,17 +3853,18 @@ public final class TransferTypes {
        */
       public Builder mergeMinTimeElapsedSinceLastModification(com.google.protobuf.Duration value) {
         if (minTimeElapsedSinceLastModificationBuilder_ == null) {
-          if (minTimeElapsedSinceLastModification_ != null) {
-            minTimeElapsedSinceLastModification_ =
-              com.google.protobuf.Duration.newBuilder(minTimeElapsedSinceLastModification_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            minTimeElapsedSinceLastModification_ != null &&
+            minTimeElapsedSinceLastModification_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getMinTimeElapsedSinceLastModificationBuilder().mergeFrom(value);
           } else {
             minTimeElapsedSinceLastModification_ = value;
           }
-          onChanged();
         } else {
           minTimeElapsedSinceLastModificationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3991,14 +3882,13 @@ public final class TransferTypes {
        * <code>.google.protobuf.Duration min_time_elapsed_since_last_modification = 1;</code>
        */
       public Builder clearMinTimeElapsedSinceLastModification() {
-        if (minTimeElapsedSinceLastModificationBuilder_ == null) {
-          minTimeElapsedSinceLastModification_ = null;
-          onChanged();
-        } else {
-          minTimeElapsedSinceLastModification_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        minTimeElapsedSinceLastModification_ = null;
+        if (minTimeElapsedSinceLastModificationBuilder_ != null) {
+          minTimeElapsedSinceLastModificationBuilder_.dispose();
           minTimeElapsedSinceLastModificationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4016,7 +3906,7 @@ public final class TransferTypes {
        * <code>.google.protobuf.Duration min_time_elapsed_since_last_modification = 1;</code>
        */
       public com.google.protobuf.Duration.Builder getMinTimeElapsedSinceLastModificationBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getMinTimeElapsedSinceLastModificationFieldBuilder().getBuilder();
       }
@@ -4089,7 +3979,7 @@ public final class TransferTypes {
        * @return Whether the maxTimeElapsedSinceLastModification field is set.
        */
       public boolean hasMaxTimeElapsedSinceLastModification() {
-        return maxTimeElapsedSinceLastModificationBuilder_ != null || maxTimeElapsedSinceLastModification_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -4133,11 +4023,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           maxTimeElapsedSinceLastModification_ = value;
-          onChanged();
         } else {
           maxTimeElapsedSinceLastModificationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -4158,11 +4048,11 @@ public final class TransferTypes {
           com.google.protobuf.Duration.Builder builderForValue) {
         if (maxTimeElapsedSinceLastModificationBuilder_ == null) {
           maxTimeElapsedSinceLastModification_ = builderForValue.build();
-          onChanged();
         } else {
           maxTimeElapsedSinceLastModificationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -4181,17 +4071,18 @@ public final class TransferTypes {
        */
       public Builder mergeMaxTimeElapsedSinceLastModification(com.google.protobuf.Duration value) {
         if (maxTimeElapsedSinceLastModificationBuilder_ == null) {
-          if (maxTimeElapsedSinceLastModification_ != null) {
-            maxTimeElapsedSinceLastModification_ =
-              com.google.protobuf.Duration.newBuilder(maxTimeElapsedSinceLastModification_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            maxTimeElapsedSinceLastModification_ != null &&
+            maxTimeElapsedSinceLastModification_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getMaxTimeElapsedSinceLastModificationBuilder().mergeFrom(value);
           } else {
             maxTimeElapsedSinceLastModification_ = value;
           }
-          onChanged();
         } else {
           maxTimeElapsedSinceLastModificationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -4209,14 +4100,13 @@ public final class TransferTypes {
        * <code>.google.protobuf.Duration max_time_elapsed_since_last_modification = 2;</code>
        */
       public Builder clearMaxTimeElapsedSinceLastModification() {
-        if (maxTimeElapsedSinceLastModificationBuilder_ == null) {
-          maxTimeElapsedSinceLastModification_ = null;
-          onChanged();
-        } else {
-          maxTimeElapsedSinceLastModification_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        maxTimeElapsedSinceLastModification_ = null;
+        if (maxTimeElapsedSinceLastModificationBuilder_ != null) {
+          maxTimeElapsedSinceLastModificationBuilder_.dispose();
           maxTimeElapsedSinceLastModificationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4234,7 +4124,7 @@ public final class TransferTypes {
        * <code>.google.protobuf.Duration max_time_elapsed_since_last_modification = 2;</code>
        */
       public com.google.protobuf.Duration.Builder getMaxTimeElapsedSinceLastModificationBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getMaxTimeElapsedSinceLastModificationFieldBuilder().getBuilder();
       }
@@ -4290,9 +4180,9 @@ public final class TransferTypes {
 
       private com.google.protobuf.LazyStringList includePrefixes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureIncludePrefixesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           includePrefixes_ = new com.google.protobuf.LazyStringArrayList(includePrefixes_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000004;
          }
       }
       /**
@@ -4455,10 +4345,8 @@ public final class TransferTypes {
        */
       public Builder setIncludePrefixes(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIncludePrefixesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureIncludePrefixesIsMutable();
         includePrefixes_.set(index, value);
         onChanged();
         return this;
@@ -4494,10 +4382,8 @@ public final class TransferTypes {
        */
       public Builder addIncludePrefixes(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIncludePrefixesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureIncludePrefixesIsMutable();
         includePrefixes_.add(value);
         onChanged();
         return this;
@@ -4569,7 +4455,7 @@ public final class TransferTypes {
        */
       public Builder clearIncludePrefixes() {
         includePrefixes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -4604,10 +4490,8 @@ public final class TransferTypes {
        */
       public Builder addIncludePrefixesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureIncludePrefixesIsMutable();
         includePrefixes_.add(value);
         onChanged();
@@ -4616,9 +4500,9 @@ public final class TransferTypes {
 
       private com.google.protobuf.LazyStringList excludePrefixes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureExcludePrefixesIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           excludePrefixes_ = new com.google.protobuf.LazyStringArrayList(excludePrefixes_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000008;
          }
       }
       /**
@@ -4781,10 +4665,8 @@ public final class TransferTypes {
        */
       public Builder setExcludePrefixes(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExcludePrefixesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExcludePrefixesIsMutable();
         excludePrefixes_.set(index, value);
         onChanged();
         return this;
@@ -4820,10 +4702,8 @@ public final class TransferTypes {
        */
       public Builder addExcludePrefixes(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExcludePrefixesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExcludePrefixesIsMutable();
         excludePrefixes_.add(value);
         onChanged();
         return this;
@@ -4895,7 +4775,7 @@ public final class TransferTypes {
        */
       public Builder clearExcludePrefixes() {
         excludePrefixes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -4930,10 +4810,8 @@ public final class TransferTypes {
        */
       public Builder addExcludePrefixesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureExcludePrefixesIsMutable();
         excludePrefixes_.add(value);
         onChanged();
@@ -4960,7 +4838,7 @@ public final class TransferTypes {
        * @return Whether the lastModifiedSince field is set.
        */
       public boolean hasLastModifiedSince() {
-        return lastModifiedSinceBuilder_ != null || lastModifiedSince_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -5006,11 +4884,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           lastModifiedSince_ = value;
-          onChanged();
         } else {
           lastModifiedSinceBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -5032,11 +4910,11 @@ public final class TransferTypes {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (lastModifiedSinceBuilder_ == null) {
           lastModifiedSince_ = builderForValue.build();
-          onChanged();
         } else {
           lastModifiedSinceBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -5056,17 +4934,18 @@ public final class TransferTypes {
        */
       public Builder mergeLastModifiedSince(com.google.protobuf.Timestamp value) {
         if (lastModifiedSinceBuilder_ == null) {
-          if (lastModifiedSince_ != null) {
-            lastModifiedSince_ =
-              com.google.protobuf.Timestamp.newBuilder(lastModifiedSince_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            lastModifiedSince_ != null &&
+            lastModifiedSince_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getLastModifiedSinceBuilder().mergeFrom(value);
           } else {
             lastModifiedSince_ = value;
           }
-          onChanged();
         } else {
           lastModifiedSinceBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -5085,14 +4964,13 @@ public final class TransferTypes {
        * <code>.google.protobuf.Timestamp last_modified_since = 5;</code>
        */
       public Builder clearLastModifiedSince() {
-        if (lastModifiedSinceBuilder_ == null) {
-          lastModifiedSince_ = null;
-          onChanged();
-        } else {
-          lastModifiedSince_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        lastModifiedSince_ = null;
+        if (lastModifiedSinceBuilder_ != null) {
+          lastModifiedSinceBuilder_.dispose();
           lastModifiedSinceBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -5111,7 +4989,7 @@ public final class TransferTypes {
        * <code>.google.protobuf.Timestamp last_modified_since = 5;</code>
        */
       public com.google.protobuf.Timestamp.Builder getLastModifiedSinceBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getLastModifiedSinceFieldBuilder().getBuilder();
       }
@@ -5181,7 +5059,7 @@ public final class TransferTypes {
        * @return Whether the lastModifiedBefore field is set.
        */
       public boolean hasLastModifiedBefore() {
-        return lastModifiedBeforeBuilder_ != null || lastModifiedBefore_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -5215,11 +5093,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           lastModifiedBefore_ = value;
-          onChanged();
         } else {
           lastModifiedBeforeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -5235,11 +5113,11 @@ public final class TransferTypes {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (lastModifiedBeforeBuilder_ == null) {
           lastModifiedBefore_ = builderForValue.build();
-          onChanged();
         } else {
           lastModifiedBeforeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -5253,17 +5131,18 @@ public final class TransferTypes {
        */
       public Builder mergeLastModifiedBefore(com.google.protobuf.Timestamp value) {
         if (lastModifiedBeforeBuilder_ == null) {
-          if (lastModifiedBefore_ != null) {
-            lastModifiedBefore_ =
-              com.google.protobuf.Timestamp.newBuilder(lastModifiedBefore_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            lastModifiedBefore_ != null &&
+            lastModifiedBefore_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getLastModifiedBeforeBuilder().mergeFrom(value);
           } else {
             lastModifiedBefore_ = value;
           }
-          onChanged();
         } else {
           lastModifiedBeforeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -5276,14 +5155,13 @@ public final class TransferTypes {
        * <code>.google.protobuf.Timestamp last_modified_before = 6;</code>
        */
       public Builder clearLastModifiedBefore() {
-        if (lastModifiedBeforeBuilder_ == null) {
-          lastModifiedBefore_ = null;
-          onChanged();
-        } else {
-          lastModifiedBefore_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        lastModifiedBefore_ = null;
+        if (lastModifiedBeforeBuilder_ != null) {
+          lastModifiedBeforeBuilder_.dispose();
           lastModifiedBeforeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -5296,7 +5174,7 @@ public final class TransferTypes {
        * <code>.google.protobuf.Timestamp last_modified_before = 6;</code>
        */
       public com.google.protobuf.Timestamp.Builder getLastModifiedBeforeBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getLastModifiedBeforeFieldBuilder().getBuilder();
       }
@@ -5372,7 +5250,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ObjectConditions(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5484,57 +5373,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GcsData(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              bucketName_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              path_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_GcsData_descriptor;
@@ -5549,7 +5387,8 @@ public final class TransferTypes {
     }
 
     public static final int BUCKET_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object bucketName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object bucketName_ = "";
     /**
      * <pre>
      * Required. Cloud Storage bucket name. Must meet
@@ -5597,7 +5436,8 @@ public final class TransferTypes {
     }
 
     public static final int PATH_FIELD_NUMBER = 3;
-    private volatile java.lang.Object path_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object path_ = "";
     /**
      * <pre>
      * Root path to transfer objects.
@@ -5672,7 +5512,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, path_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5687,7 +5527,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, path_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5706,7 +5546,7 @@ public final class TransferTypes {
           .equals(other.getBucketName())) return false;
       if (!getPath()
           .equals(other.getPath())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5721,7 +5561,7 @@ public final class TransferTypes {
       hash = (53 * hash) + getBucketName().hashCode();
       hash = (37 * hash) + PATH_FIELD_NUMBER;
       hash = (53 * hash) + getPath().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5845,26 +5685,20 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.GcsData.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         bucketName_ = "";
-
         path_ = "";
-
         return this;
       }
 
@@ -5891,10 +5725,19 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.GcsData buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.GcsData result = new com.google.storagetransfer.v1.proto.TransferTypes.GcsData(this);
-        result.bucketName_ = bucketName_;
-        result.path_ = path_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.GcsData result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.bucketName_ = bucketName_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.path_ = path_;
+        }
       }
 
       @java.lang.Override
@@ -5943,13 +5786,15 @@ public final class TransferTypes {
         if (other == com.google.storagetransfer.v1.proto.TransferTypes.GcsData.getDefaultInstance()) return this;
         if (!other.getBucketName().isEmpty()) {
           bucketName_ = other.bucketName_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getPath().isEmpty()) {
           path_ = other.path_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5964,19 +5809,43 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.GcsData parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                bucketName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 26: {
+                path_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.GcsData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object bucketName_ = "";
       /**
@@ -6034,11 +5903,9 @@ public final class TransferTypes {
        */
       public Builder setBucketName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         bucketName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6052,8 +5919,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearBucketName() {
-        
         bucketName_ = getDefaultInstance().getBucketName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -6069,12 +5936,10 @@ public final class TransferTypes {
        */
       public Builder setBucketNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         bucketName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6147,11 +6012,9 @@ public final class TransferTypes {
        */
       public Builder setPath(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         path_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6169,8 +6032,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearPath() {
-        
         path_ = getDefaultInstance().getPath();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -6190,12 +6053,10 @@ public final class TransferTypes {
        */
       public Builder setPathBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         path_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6232,7 +6093,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GcsData(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6412,76 +6284,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AwsS3Data(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              bucketName_ = s;
-              break;
-            }
-            case 18: {
-              com.google.storagetransfer.v1.proto.TransferTypes.AwsAccessKey.Builder subBuilder = null;
-              if (awsAccessKey_ != null) {
-                subBuilder = awsAccessKey_.toBuilder();
-              }
-              awsAccessKey_ = input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.AwsAccessKey.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(awsAccessKey_);
-                awsAccessKey_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              path_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              roleArn_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_AwsS3Data_descriptor;
@@ -6496,7 +6298,8 @@ public final class TransferTypes {
     }
 
     public static final int BUCKET_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object bucketName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object bucketName_ = "";
     /**
      * <pre>
      * Required. S3 Bucket name (see
@@ -6592,11 +6395,12 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.storagetransfer.v1.proto.TransferTypes.AwsAccessKeyOrBuilder getAwsAccessKeyOrBuilder() {
-      return getAwsAccessKey();
+      return awsAccessKey_ == null ? com.google.storagetransfer.v1.proto.TransferTypes.AwsAccessKey.getDefaultInstance() : awsAccessKey_;
     }
 
     public static final int PATH_FIELD_NUMBER = 3;
-    private volatile java.lang.Object path_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object path_ = "";
     /**
      * <pre>
      * Root path to transfer objects.
@@ -6648,7 +6452,8 @@ public final class TransferTypes {
     }
 
     public static final int ROLE_ARN_FIELD_NUMBER = 4;
-    private volatile java.lang.Object roleArn_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object roleArn_ = "";
     /**
      * <pre>
      * The Amazon Resource Name (ARN) of the role to support temporary
@@ -6731,7 +6536,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(roleArn_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, roleArn_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6753,7 +6558,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(roleArn_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, roleArn_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6779,7 +6584,7 @@ public final class TransferTypes {
           .equals(other.getPath())) return false;
       if (!getRoleArn()
           .equals(other.getRoleArn())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6800,7 +6605,7 @@ public final class TransferTypes {
       hash = (53 * hash) + getPath().hashCode();
       hash = (37 * hash) + ROLE_ARN_FIELD_NUMBER;
       hash = (53 * hash) + getRoleArn().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6922,34 +6727,26 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.AwsS3Data.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         bucketName_ = "";
-
-        if (awsAccessKeyBuilder_ == null) {
-          awsAccessKey_ = null;
-        } else {
-          awsAccessKey_ = null;
+        awsAccessKey_ = null;
+        if (awsAccessKeyBuilder_ != null) {
+          awsAccessKeyBuilder_.dispose();
           awsAccessKeyBuilder_ = null;
         }
         path_ = "";
-
         roleArn_ = "";
-
         return this;
       }
 
@@ -6976,16 +6773,27 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.AwsS3Data buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.AwsS3Data result = new com.google.storagetransfer.v1.proto.TransferTypes.AwsS3Data(this);
-        result.bucketName_ = bucketName_;
-        if (awsAccessKeyBuilder_ == null) {
-          result.awsAccessKey_ = awsAccessKey_;
-        } else {
-          result.awsAccessKey_ = awsAccessKeyBuilder_.build();
-        }
-        result.path_ = path_;
-        result.roleArn_ = roleArn_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.AwsS3Data result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.bucketName_ = bucketName_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.awsAccessKey_ = awsAccessKeyBuilder_ == null
+              ? awsAccessKey_
+              : awsAccessKeyBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.path_ = path_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.roleArn_ = roleArn_;
+        }
       }
 
       @java.lang.Override
@@ -7034,6 +6842,7 @@ public final class TransferTypes {
         if (other == com.google.storagetransfer.v1.proto.TransferTypes.AwsS3Data.getDefaultInstance()) return this;
         if (!other.getBucketName().isEmpty()) {
           bucketName_ = other.bucketName_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasAwsAccessKey()) {
@@ -7041,13 +6850,15 @@ public final class TransferTypes {
         }
         if (!other.getPath().isEmpty()) {
           path_ = other.path_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getRoleArn().isEmpty()) {
           roleArn_ = other.roleArn_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -7062,19 +6873,55 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.AwsS3Data parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                bucketName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getAwsAccessKeyFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                path_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                roleArn_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.AwsS3Data) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object bucketName_ = "";
       /**
@@ -7135,11 +6982,9 @@ public final class TransferTypes {
        */
       public Builder setBucketName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         bucketName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7154,8 +6999,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearBucketName() {
-        
         bucketName_ = getDefaultInstance().getBucketName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -7172,12 +7017,10 @@ public final class TransferTypes {
        */
       public Builder setBucketNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         bucketName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7198,7 +7041,7 @@ public final class TransferTypes {
        * @return Whether the awsAccessKey field is set.
        */
       public boolean hasAwsAccessKey() {
-        return awsAccessKeyBuilder_ != null || awsAccessKey_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -7236,11 +7079,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           awsAccessKey_ = value;
-          onChanged();
         } else {
           awsAccessKeyBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -7258,11 +7101,11 @@ public final class TransferTypes {
           com.google.storagetransfer.v1.proto.TransferTypes.AwsAccessKey.Builder builderForValue) {
         if (awsAccessKeyBuilder_ == null) {
           awsAccessKey_ = builderForValue.build();
-          onChanged();
         } else {
           awsAccessKeyBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -7278,17 +7121,18 @@ public final class TransferTypes {
        */
       public Builder mergeAwsAccessKey(com.google.storagetransfer.v1.proto.TransferTypes.AwsAccessKey value) {
         if (awsAccessKeyBuilder_ == null) {
-          if (awsAccessKey_ != null) {
-            awsAccessKey_ =
-              com.google.storagetransfer.v1.proto.TransferTypes.AwsAccessKey.newBuilder(awsAccessKey_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            awsAccessKey_ != null &&
+            awsAccessKey_ != com.google.storagetransfer.v1.proto.TransferTypes.AwsAccessKey.getDefaultInstance()) {
+            getAwsAccessKeyBuilder().mergeFrom(value);
           } else {
             awsAccessKey_ = value;
           }
-          onChanged();
         } else {
           awsAccessKeyBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -7303,14 +7147,13 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.AwsAccessKey aws_access_key = 2 [(.google.api.field_behavior) = INPUT_ONLY];</code>
        */
       public Builder clearAwsAccessKey() {
-        if (awsAccessKeyBuilder_ == null) {
-          awsAccessKey_ = null;
-          onChanged();
-        } else {
-          awsAccessKey_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        awsAccessKey_ = null;
+        if (awsAccessKeyBuilder_ != null) {
+          awsAccessKeyBuilder_.dispose();
           awsAccessKeyBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -7325,7 +7168,7 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.AwsAccessKey aws_access_key = 2 [(.google.api.field_behavior) = INPUT_ONLY];</code>
        */
       public com.google.storagetransfer.v1.proto.TransferTypes.AwsAccessKey.Builder getAwsAccessKeyBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getAwsAccessKeyFieldBuilder().getBuilder();
       }
@@ -7435,11 +7278,9 @@ public final class TransferTypes {
        */
       public Builder setPath(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         path_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -7455,8 +7296,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearPath() {
-        
         path_ = getDefaultInstance().getPath();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -7474,12 +7315,10 @@ public final class TransferTypes {
        */
       public Builder setPathBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         path_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -7555,11 +7394,9 @@ public final class TransferTypes {
        */
       public Builder setRoleArn(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         roleArn_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -7578,8 +7415,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearRoleArn() {
-        
         roleArn_ = getDefaultInstance().getRoleArn();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -7600,12 +7437,10 @@ public final class TransferTypes {
        */
       public Builder setRoleArnBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         roleArn_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -7642,7 +7477,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AwsS3Data(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7805,76 +7651,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AzureBlobStorageData(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              storageAccount_ = s;
-              break;
-            }
-            case 18: {
-              com.google.storagetransfer.v1.proto.TransferTypes.AzureCredentials.Builder subBuilder = null;
-              if (azureCredentials_ != null) {
-                subBuilder = azureCredentials_.toBuilder();
-              }
-              azureCredentials_ = input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.AzureCredentials.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(azureCredentials_);
-                azureCredentials_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              container_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              path_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_AzureBlobStorageData_descriptor;
@@ -7889,7 +7665,8 @@ public final class TransferTypes {
     }
 
     public static final int STORAGE_ACCOUNT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object storageAccount_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object storageAccount_ = "";
     /**
      * <pre>
      * Required. The name of the Azure Storage account.
@@ -7975,11 +7752,12 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.storagetransfer.v1.proto.TransferTypes.AzureCredentialsOrBuilder getAzureCredentialsOrBuilder() {
-      return getAzureCredentials();
+      return azureCredentials_ == null ? com.google.storagetransfer.v1.proto.TransferTypes.AzureCredentials.getDefaultInstance() : azureCredentials_;
     }
 
     public static final int CONTAINER_FIELD_NUMBER = 4;
-    private volatile java.lang.Object container_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object container_ = "";
     /**
      * <pre>
      * Required. The container to transfer from the Azure Storage account.
@@ -8025,7 +7803,8 @@ public final class TransferTypes {
     }
 
     public static final int PATH_FIELD_NUMBER = 5;
-    private volatile java.lang.Object path_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object path_ = "";
     /**
      * <pre>
      * Root path to transfer objects.
@@ -8102,7 +7881,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, path_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -8124,7 +7903,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, path_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8150,7 +7929,7 @@ public final class TransferTypes {
           .equals(other.getContainer())) return false;
       if (!getPath()
           .equals(other.getPath())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -8171,7 +7950,7 @@ public final class TransferTypes {
       hash = (53 * hash) + getContainer().hashCode();
       hash = (37 * hash) + PATH_FIELD_NUMBER;
       hash = (53 * hash) + getPath().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8298,34 +8077,26 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.AzureBlobStorageData.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         storageAccount_ = "";
-
-        if (azureCredentialsBuilder_ == null) {
-          azureCredentials_ = null;
-        } else {
-          azureCredentials_ = null;
+        azureCredentials_ = null;
+        if (azureCredentialsBuilder_ != null) {
+          azureCredentialsBuilder_.dispose();
           azureCredentialsBuilder_ = null;
         }
         container_ = "";
-
         path_ = "";
-
         return this;
       }
 
@@ -8352,16 +8123,27 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.AzureBlobStorageData buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.AzureBlobStorageData result = new com.google.storagetransfer.v1.proto.TransferTypes.AzureBlobStorageData(this);
-        result.storageAccount_ = storageAccount_;
-        if (azureCredentialsBuilder_ == null) {
-          result.azureCredentials_ = azureCredentials_;
-        } else {
-          result.azureCredentials_ = azureCredentialsBuilder_.build();
-        }
-        result.container_ = container_;
-        result.path_ = path_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.AzureBlobStorageData result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.storageAccount_ = storageAccount_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.azureCredentials_ = azureCredentialsBuilder_ == null
+              ? azureCredentials_
+              : azureCredentialsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.container_ = container_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.path_ = path_;
+        }
       }
 
       @java.lang.Override
@@ -8410,6 +8192,7 @@ public final class TransferTypes {
         if (other == com.google.storagetransfer.v1.proto.TransferTypes.AzureBlobStorageData.getDefaultInstance()) return this;
         if (!other.getStorageAccount().isEmpty()) {
           storageAccount_ = other.storageAccount_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasAzureCredentials()) {
@@ -8417,13 +8200,15 @@ public final class TransferTypes {
         }
         if (!other.getContainer().isEmpty()) {
           container_ = other.container_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getPath().isEmpty()) {
           path_ = other.path_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -8438,19 +8223,55 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.AzureBlobStorageData parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                storageAccount_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getAzureCredentialsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 34: {
+                container_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 34
+              case 42: {
+                path_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.AzureBlobStorageData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object storageAccount_ = "";
       /**
@@ -8505,11 +8326,9 @@ public final class TransferTypes {
        */
       public Builder setStorageAccount(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         storageAccount_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -8522,8 +8341,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearStorageAccount() {
-        
         storageAccount_ = getDefaultInstance().getStorageAccount();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -8538,12 +8357,10 @@ public final class TransferTypes {
        */
       public Builder setStorageAccountBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         storageAccount_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -8562,7 +8379,7 @@ public final class TransferTypes {
        * @return Whether the azureCredentials field is set.
        */
       public boolean hasAzureCredentials() {
-        return azureCredentialsBuilder_ != null || azureCredentials_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -8596,11 +8413,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           azureCredentials_ = value;
-          onChanged();
         } else {
           azureCredentialsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -8616,11 +8433,11 @@ public final class TransferTypes {
           com.google.storagetransfer.v1.proto.TransferTypes.AzureCredentials.Builder builderForValue) {
         if (azureCredentialsBuilder_ == null) {
           azureCredentials_ = builderForValue.build();
-          onChanged();
         } else {
           azureCredentialsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -8634,17 +8451,18 @@ public final class TransferTypes {
        */
       public Builder mergeAzureCredentials(com.google.storagetransfer.v1.proto.TransferTypes.AzureCredentials value) {
         if (azureCredentialsBuilder_ == null) {
-          if (azureCredentials_ != null) {
-            azureCredentials_ =
-              com.google.storagetransfer.v1.proto.TransferTypes.AzureCredentials.newBuilder(azureCredentials_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            azureCredentials_ != null &&
+            azureCredentials_ != com.google.storagetransfer.v1.proto.TransferTypes.AzureCredentials.getDefaultInstance()) {
+            getAzureCredentialsBuilder().mergeFrom(value);
           } else {
             azureCredentials_ = value;
           }
-          onChanged();
         } else {
           azureCredentialsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -8657,14 +8475,13 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.AzureCredentials azure_credentials = 2 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = INPUT_ONLY];</code>
        */
       public Builder clearAzureCredentials() {
-        if (azureCredentialsBuilder_ == null) {
-          azureCredentials_ = null;
-          onChanged();
-        } else {
-          azureCredentials_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        azureCredentials_ = null;
+        if (azureCredentialsBuilder_ != null) {
+          azureCredentialsBuilder_.dispose();
           azureCredentialsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -8677,7 +8494,7 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.AzureCredentials azure_credentials = 2 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = INPUT_ONLY];</code>
        */
       public com.google.storagetransfer.v1.proto.TransferTypes.AzureCredentials.Builder getAzureCredentialsBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getAzureCredentialsFieldBuilder().getBuilder();
       }
@@ -8774,11 +8591,9 @@ public final class TransferTypes {
        */
       public Builder setContainer(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         container_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -8791,8 +8606,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearContainer() {
-        
         container_ = getDefaultInstance().getContainer();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -8807,12 +8622,10 @@ public final class TransferTypes {
        */
       public Builder setContainerBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         container_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -8879,11 +8692,9 @@ public final class TransferTypes {
        */
       public Builder setPath(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         path_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -8899,8 +8710,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearPath() {
-        
         path_ = getDefaultInstance().getPath();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -8918,12 +8729,10 @@ public final class TransferTypes {
        */
       public Builder setPathBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         path_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -8960,7 +8769,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AzureBlobStorageData(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9067,51 +8887,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private HttpData(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              listUrl_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_HttpData_descriptor;
@@ -9126,7 +8901,8 @@ public final class TransferTypes {
     }
 
     public static final int LIST_URL_FIELD_NUMBER = 1;
-    private volatile java.lang.Object listUrl_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object listUrl_ = "";
     /**
      * <pre>
      * Required. The URL that points to the file that stores the object list
@@ -9192,7 +8968,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(listUrl_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, listUrl_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -9204,7 +8980,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(listUrl_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, listUrl_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9221,7 +8997,7 @@ public final class TransferTypes {
 
       if (!getListUrl()
           .equals(other.getListUrl())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -9234,7 +9010,7 @@ public final class TransferTypes {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + LIST_URL_FIELD_NUMBER;
       hash = (53 * hash) + getListUrl().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9382,24 +9158,19 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.HttpData.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         listUrl_ = "";
-
         return this;
       }
 
@@ -9426,9 +9197,16 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.HttpData buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.HttpData result = new com.google.storagetransfer.v1.proto.TransferTypes.HttpData(this);
-        result.listUrl_ = listUrl_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.HttpData result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.listUrl_ = listUrl_;
+        }
       }
 
       @java.lang.Override
@@ -9477,9 +9255,10 @@ public final class TransferTypes {
         if (other == com.google.storagetransfer.v1.proto.TransferTypes.HttpData.getDefaultInstance()) return this;
         if (!other.getListUrl().isEmpty()) {
           listUrl_ = other.listUrl_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9494,19 +9273,38 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.HttpData parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                listUrl_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.HttpData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object listUrl_ = "";
       /**
@@ -9567,11 +9365,9 @@ public final class TransferTypes {
        */
       public Builder setListUrl(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         listUrl_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9586,8 +9382,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearListUrl() {
-        
         listUrl_ = getDefaultInstance().getListUrl();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -9604,12 +9400,10 @@ public final class TransferTypes {
        */
       public Builder setListUrlBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         listUrl_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9646,7 +9440,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new HttpData(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9722,51 +9527,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PosixFilesystem(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              rootDirectory_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_PosixFilesystem_descriptor;
@@ -9781,7 +9541,8 @@ public final class TransferTypes {
     }
 
     public static final int ROOT_DIRECTORY_FIELD_NUMBER = 1;
-    private volatile java.lang.Object rootDirectory_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object rootDirectory_ = "";
     /**
      * <pre>
      * Root directory path to the filesystem.
@@ -9843,7 +9604,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rootDirectory_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, rootDirectory_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -9855,7 +9616,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rootDirectory_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, rootDirectory_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9872,7 +9633,7 @@ public final class TransferTypes {
 
       if (!getRootDirectory()
           .equals(other.getRootDirectory())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -9885,7 +9646,7 @@ public final class TransferTypes {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ROOT_DIRECTORY_FIELD_NUMBER;
       hash = (53 * hash) + getRootDirectory().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10006,24 +9767,19 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.PosixFilesystem.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         rootDirectory_ = "";
-
         return this;
       }
 
@@ -10050,9 +9806,16 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.PosixFilesystem buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.PosixFilesystem result = new com.google.storagetransfer.v1.proto.TransferTypes.PosixFilesystem(this);
-        result.rootDirectory_ = rootDirectory_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.PosixFilesystem result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.rootDirectory_ = rootDirectory_;
+        }
       }
 
       @java.lang.Override
@@ -10101,9 +9864,10 @@ public final class TransferTypes {
         if (other == com.google.storagetransfer.v1.proto.TransferTypes.PosixFilesystem.getDefaultInstance()) return this;
         if (!other.getRootDirectory().isEmpty()) {
           rootDirectory_ = other.rootDirectory_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -10118,19 +9882,38 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.PosixFilesystem parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                rootDirectory_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.PosixFilesystem) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object rootDirectory_ = "";
       /**
@@ -10185,11 +9968,9 @@ public final class TransferTypes {
        */
       public Builder setRootDirectory(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         rootDirectory_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10202,8 +9983,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearRootDirectory() {
-        
         rootDirectory_ = getDefaultInstance().getRootDirectory();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -10218,12 +9999,10 @@ public final class TransferTypes {
        */
       public Builder setRootDirectoryBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         rootDirectory_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10260,7 +10039,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PosixFilesystem(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -10275,6 +10065,3175 @@ public final class TransferTypes {
 
     @java.lang.Override
     public com.google.storagetransfer.v1.proto.TransferTypes.PosixFilesystem getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AwsS3CompatibleDataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.storagetransfer.v1.AwsS3CompatibleData)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Required. Specifies the name of the bucket.
+     * </pre>
+     *
+     * <code>string bucket_name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The bucketName.
+     */
+    java.lang.String getBucketName();
+    /**
+     * <pre>
+     * Required. Specifies the name of the bucket.
+     * </pre>
+     *
+     * <code>string bucket_name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The bytes for bucketName.
+     */
+    com.google.protobuf.ByteString
+        getBucketNameBytes();
+
+    /**
+     * <pre>
+     * Specifies the root path to transfer objects.
+     * Must be an empty string or full path name that ends with a '/'. This
+     * field is treated as an object prefix. As such, it should generally not
+     * begin with a '/'.
+     * </pre>
+     *
+     * <code>string path = 2;</code>
+     * @return The path.
+     */
+    java.lang.String getPath();
+    /**
+     * <pre>
+     * Specifies the root path to transfer objects.
+     * Must be an empty string or full path name that ends with a '/'. This
+     * field is treated as an object prefix. As such, it should generally not
+     * begin with a '/'.
+     * </pre>
+     *
+     * <code>string path = 2;</code>
+     * @return The bytes for path.
+     */
+    com.google.protobuf.ByteString
+        getPathBytes();
+
+    /**
+     * <pre>
+     * Required. Specifies the endpoint of the storage service.
+     * </pre>
+     *
+     * <code>string endpoint = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The endpoint.
+     */
+    java.lang.String getEndpoint();
+    /**
+     * <pre>
+     * Required. Specifies the endpoint of the storage service.
+     * </pre>
+     *
+     * <code>string endpoint = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The bytes for endpoint.
+     */
+    com.google.protobuf.ByteString
+        getEndpointBytes();
+
+    /**
+     * <pre>
+     * Specifies the region to sign requests with. This can be left blank if
+     * requests should be signed with an empty region.
+     * </pre>
+     *
+     * <code>string region = 5;</code>
+     * @return The region.
+     */
+    java.lang.String getRegion();
+    /**
+     * <pre>
+     * Specifies the region to sign requests with. This can be left blank if
+     * requests should be signed with an empty region.
+     * </pre>
+     *
+     * <code>string region = 5;</code>
+     * @return The bytes for region.
+     */
+    com.google.protobuf.ByteString
+        getRegionBytes();
+
+    /**
+     * <pre>
+     * A S3 compatible metadata.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata s3_metadata = 4;</code>
+     * @return Whether the s3Metadata field is set.
+     */
+    boolean hasS3Metadata();
+    /**
+     * <pre>
+     * A S3 compatible metadata.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata s3_metadata = 4;</code>
+     * @return The s3Metadata.
+     */
+    com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata getS3Metadata();
+    /**
+     * <pre>
+     * A S3 compatible metadata.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata s3_metadata = 4;</code>
+     */
+    com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadataOrBuilder getS3MetadataOrBuilder();
+
+    public com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.DataProviderCase getDataProviderCase();
+  }
+  /**
+   * <pre>
+   * An AwsS3CompatibleData resource.
+   * </pre>
+   *
+   * Protobuf type {@code google.storagetransfer.v1.AwsS3CompatibleData}
+   */
+  public static final class AwsS3CompatibleData extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.storagetransfer.v1.AwsS3CompatibleData)
+      AwsS3CompatibleDataOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AwsS3CompatibleData.newBuilder() to construct.
+    private AwsS3CompatibleData(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AwsS3CompatibleData() {
+      bucketName_ = "";
+      path_ = "";
+      endpoint_ = "";
+      region_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AwsS3CompatibleData();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_AwsS3CompatibleData_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_AwsS3CompatibleData_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.class, com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.Builder.class);
+    }
+
+    private int dataProviderCase_ = 0;
+    private java.lang.Object dataProvider_;
+    public enum DataProviderCase
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      S3_METADATA(4),
+      DATAPROVIDER_NOT_SET(0);
+      private final int value;
+      private DataProviderCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static DataProviderCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static DataProviderCase forNumber(int value) {
+        switch (value) {
+          case 4: return S3_METADATA;
+          case 0: return DATAPROVIDER_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public DataProviderCase
+    getDataProviderCase() {
+      return DataProviderCase.forNumber(
+          dataProviderCase_);
+    }
+
+    public static final int BUCKET_NAME_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object bucketName_ = "";
+    /**
+     * <pre>
+     * Required. Specifies the name of the bucket.
+     * </pre>
+     *
+     * <code>string bucket_name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The bucketName.
+     */
+    @java.lang.Override
+    public java.lang.String getBucketName() {
+      java.lang.Object ref = bucketName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        bucketName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Required. Specifies the name of the bucket.
+     * </pre>
+     *
+     * <code>string bucket_name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The bytes for bucketName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getBucketNameBytes() {
+      java.lang.Object ref = bucketName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        bucketName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PATH_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object path_ = "";
+    /**
+     * <pre>
+     * Specifies the root path to transfer objects.
+     * Must be an empty string or full path name that ends with a '/'. This
+     * field is treated as an object prefix. As such, it should generally not
+     * begin with a '/'.
+     * </pre>
+     *
+     * <code>string path = 2;</code>
+     * @return The path.
+     */
+    @java.lang.Override
+    public java.lang.String getPath() {
+      java.lang.Object ref = path_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        path_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Specifies the root path to transfer objects.
+     * Must be an empty string or full path name that ends with a '/'. This
+     * field is treated as an object prefix. As such, it should generally not
+     * begin with a '/'.
+     * </pre>
+     *
+     * <code>string path = 2;</code>
+     * @return The bytes for path.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPathBytes() {
+      java.lang.Object ref = path_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        path_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ENDPOINT_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object endpoint_ = "";
+    /**
+     * <pre>
+     * Required. Specifies the endpoint of the storage service.
+     * </pre>
+     *
+     * <code>string endpoint = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The endpoint.
+     */
+    @java.lang.Override
+    public java.lang.String getEndpoint() {
+      java.lang.Object ref = endpoint_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        endpoint_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Required. Specifies the endpoint of the storage service.
+     * </pre>
+     *
+     * <code>string endpoint = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The bytes for endpoint.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getEndpointBytes() {
+      java.lang.Object ref = endpoint_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        endpoint_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REGION_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object region_ = "";
+    /**
+     * <pre>
+     * Specifies the region to sign requests with. This can be left blank if
+     * requests should be signed with an empty region.
+     * </pre>
+     *
+     * <code>string region = 5;</code>
+     * @return The region.
+     */
+    @java.lang.Override
+    public java.lang.String getRegion() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        region_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Specifies the region to sign requests with. This can be left blank if
+     * requests should be signed with an empty region.
+     * </pre>
+     *
+     * <code>string region = 5;</code>
+     * @return The bytes for region.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRegionBytes() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        region_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int S3_METADATA_FIELD_NUMBER = 4;
+    /**
+     * <pre>
+     * A S3 compatible metadata.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata s3_metadata = 4;</code>
+     * @return Whether the s3Metadata field is set.
+     */
+    @java.lang.Override
+    public boolean hasS3Metadata() {
+      return dataProviderCase_ == 4;
+    }
+    /**
+     * <pre>
+     * A S3 compatible metadata.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata s3_metadata = 4;</code>
+     * @return The s3Metadata.
+     */
+    @java.lang.Override
+    public com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata getS3Metadata() {
+      if (dataProviderCase_ == 4) {
+         return (com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata) dataProvider_;
+      }
+      return com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.getDefaultInstance();
+    }
+    /**
+     * <pre>
+     * A S3 compatible metadata.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata s3_metadata = 4;</code>
+     */
+    @java.lang.Override
+    public com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadataOrBuilder getS3MetadataOrBuilder() {
+      if (dataProviderCase_ == 4) {
+         return (com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata) dataProvider_;
+      }
+      return com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.getDefaultInstance();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bucketName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, bucketName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, path_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endpoint_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, endpoint_);
+      }
+      if (dataProviderCase_ == 4) {
+        output.writeMessage(4, (com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata) dataProvider_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(region_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, region_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bucketName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, bucketName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, path_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endpoint_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, endpoint_);
+      }
+      if (dataProviderCase_ == 4) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, (com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata) dataProvider_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(region_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, region_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData)) {
+        return super.equals(obj);
+      }
+      com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData other = (com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData) obj;
+
+      if (!getBucketName()
+          .equals(other.getBucketName())) return false;
+      if (!getPath()
+          .equals(other.getPath())) return false;
+      if (!getEndpoint()
+          .equals(other.getEndpoint())) return false;
+      if (!getRegion()
+          .equals(other.getRegion())) return false;
+      if (!getDataProviderCase().equals(other.getDataProviderCase())) return false;
+      switch (dataProviderCase_) {
+        case 4:
+          if (!getS3Metadata()
+              .equals(other.getS3Metadata())) return false;
+          break;
+        case 0:
+        default:
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + BUCKET_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getBucketName().hashCode();
+      hash = (37 * hash) + PATH_FIELD_NUMBER;
+      hash = (53 * hash) + getPath().hashCode();
+      hash = (37 * hash) + ENDPOINT_FIELD_NUMBER;
+      hash = (53 * hash) + getEndpoint().hashCode();
+      hash = (37 * hash) + REGION_FIELD_NUMBER;
+      hash = (53 * hash) + getRegion().hashCode();
+      switch (dataProviderCase_) {
+        case 4:
+          hash = (37 * hash) + S3_METADATA_FIELD_NUMBER;
+          hash = (53 * hash) + getS3Metadata().hashCode();
+          break;
+        case 0:
+        default:
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * An AwsS3CompatibleData resource.
+     * </pre>
+     *
+     * Protobuf type {@code google.storagetransfer.v1.AwsS3CompatibleData}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.storagetransfer.v1.AwsS3CompatibleData)
+        com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleDataOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_AwsS3CompatibleData_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_AwsS3CompatibleData_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.class, com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.Builder.class);
+      }
+
+      // Construct using com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        bucketName_ = "";
+        path_ = "";
+        endpoint_ = "";
+        region_ = "";
+        if (s3MetadataBuilder_ != null) {
+          s3MetadataBuilder_.clear();
+        }
+        dataProviderCase_ = 0;
+        dataProvider_ = null;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_AwsS3CompatibleData_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData getDefaultInstanceForType() {
+        return com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData build() {
+        com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData buildPartial() {
+        com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData result = new com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.bucketName_ = bucketName_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.path_ = path_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.endpoint_ = endpoint_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.region_ = region_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData result) {
+        result.dataProviderCase_ = dataProviderCase_;
+        result.dataProvider_ = this.dataProvider_;
+        if (dataProviderCase_ == 4 &&
+            s3MetadataBuilder_ != null) {
+          result.dataProvider_ = s3MetadataBuilder_.build();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData) {
+          return mergeFrom((com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData other) {
+        if (other == com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.getDefaultInstance()) return this;
+        if (!other.getBucketName().isEmpty()) {
+          bucketName_ = other.bucketName_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (!other.getPath().isEmpty()) {
+          path_ = other.path_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        if (!other.getEndpoint().isEmpty()) {
+          endpoint_ = other.endpoint_;
+          bitField0_ |= 0x00000004;
+          onChanged();
+        }
+        if (!other.getRegion().isEmpty()) {
+          region_ = other.region_;
+          bitField0_ |= 0x00000008;
+          onChanged();
+        }
+        switch (other.getDataProviderCase()) {
+          case S3_METADATA: {
+            mergeS3Metadata(other.getS3Metadata());
+            break;
+          }
+          case DATAPROVIDER_NOT_SET: {
+            break;
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                bucketName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                path_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                endpoint_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getS3MetadataFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataProviderCase_ = 4;
+                break;
+              } // case 34
+              case 42: {
+                region_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int dataProviderCase_ = 0;
+      private java.lang.Object dataProvider_;
+      public DataProviderCase
+          getDataProviderCase() {
+        return DataProviderCase.forNumber(
+            dataProviderCase_);
+      }
+
+      public Builder clearDataProvider() {
+        dataProviderCase_ = 0;
+        dataProvider_ = null;
+        onChanged();
+        return this;
+      }
+
+      private int bitField0_;
+
+      private java.lang.Object bucketName_ = "";
+      /**
+       * <pre>
+       * Required. Specifies the name of the bucket.
+       * </pre>
+       *
+       * <code>string bucket_name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @return The bucketName.
+       */
+      public java.lang.String getBucketName() {
+        java.lang.Object ref = bucketName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          bucketName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Required. Specifies the name of the bucket.
+       * </pre>
+       *
+       * <code>string bucket_name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @return The bytes for bucketName.
+       */
+      public com.google.protobuf.ByteString
+          getBucketNameBytes() {
+        java.lang.Object ref = bucketName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          bucketName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Required. Specifies the name of the bucket.
+       * </pre>
+       *
+       * <code>string bucket_name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @param value The bucketName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBucketName(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        bucketName_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required. Specifies the name of the bucket.
+       * </pre>
+       *
+       * <code>string bucket_name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBucketName() {
+        bucketName_ = getDefaultInstance().getBucketName();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required. Specifies the name of the bucket.
+       * </pre>
+       *
+       * <code>string bucket_name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @param value The bytes for bucketName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBucketNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        bucketName_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object path_ = "";
+      /**
+       * <pre>
+       * Specifies the root path to transfer objects.
+       * Must be an empty string or full path name that ends with a '/'. This
+       * field is treated as an object prefix. As such, it should generally not
+       * begin with a '/'.
+       * </pre>
+       *
+       * <code>string path = 2;</code>
+       * @return The path.
+       */
+      public java.lang.String getPath() {
+        java.lang.Object ref = path_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          path_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Specifies the root path to transfer objects.
+       * Must be an empty string or full path name that ends with a '/'. This
+       * field is treated as an object prefix. As such, it should generally not
+       * begin with a '/'.
+       * </pre>
+       *
+       * <code>string path = 2;</code>
+       * @return The bytes for path.
+       */
+      public com.google.protobuf.ByteString
+          getPathBytes() {
+        java.lang.Object ref = path_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          path_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Specifies the root path to transfer objects.
+       * Must be an empty string or full path name that ends with a '/'. This
+       * field is treated as an object prefix. As such, it should generally not
+       * begin with a '/'.
+       * </pre>
+       *
+       * <code>string path = 2;</code>
+       * @param value The path to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPath(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        path_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the root path to transfer objects.
+       * Must be an empty string or full path name that ends with a '/'. This
+       * field is treated as an object prefix. As such, it should generally not
+       * begin with a '/'.
+       * </pre>
+       *
+       * <code>string path = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPath() {
+        path_ = getDefaultInstance().getPath();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the root path to transfer objects.
+       * Must be an empty string or full path name that ends with a '/'. This
+       * field is treated as an object prefix. As such, it should generally not
+       * begin with a '/'.
+       * </pre>
+       *
+       * <code>string path = 2;</code>
+       * @param value The bytes for path to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        path_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object endpoint_ = "";
+      /**
+       * <pre>
+       * Required. Specifies the endpoint of the storage service.
+       * </pre>
+       *
+       * <code>string endpoint = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @return The endpoint.
+       */
+      public java.lang.String getEndpoint() {
+        java.lang.Object ref = endpoint_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          endpoint_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Required. Specifies the endpoint of the storage service.
+       * </pre>
+       *
+       * <code>string endpoint = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @return The bytes for endpoint.
+       */
+      public com.google.protobuf.ByteString
+          getEndpointBytes() {
+        java.lang.Object ref = endpoint_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          endpoint_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Required. Specifies the endpoint of the storage service.
+       * </pre>
+       *
+       * <code>string endpoint = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @param value The endpoint to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEndpoint(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        endpoint_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required. Specifies the endpoint of the storage service.
+       * </pre>
+       *
+       * <code>string endpoint = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEndpoint() {
+        endpoint_ = getDefaultInstance().getEndpoint();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required. Specifies the endpoint of the storage service.
+       * </pre>
+       *
+       * <code>string endpoint = 3 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @param value The bytes for endpoint to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEndpointBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        endpoint_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object region_ = "";
+      /**
+       * <pre>
+       * Specifies the region to sign requests with. This can be left blank if
+       * requests should be signed with an empty region.
+       * </pre>
+       *
+       * <code>string region = 5;</code>
+       * @return The region.
+       */
+      public java.lang.String getRegion() {
+        java.lang.Object ref = region_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          region_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Specifies the region to sign requests with. This can be left blank if
+       * requests should be signed with an empty region.
+       * </pre>
+       *
+       * <code>string region = 5;</code>
+       * @return The bytes for region.
+       */
+      public com.google.protobuf.ByteString
+          getRegionBytes() {
+        java.lang.Object ref = region_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          region_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Specifies the region to sign requests with. This can be left blank if
+       * requests should be signed with an empty region.
+       * </pre>
+       *
+       * <code>string region = 5;</code>
+       * @param value The region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegion(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        region_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the region to sign requests with. This can be left blank if
+       * requests should be signed with an empty region.
+       * </pre>
+       *
+       * <code>string region = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegion() {
+        region_ = getDefaultInstance().getRegion();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the region to sign requests with. This can be left blank if
+       * requests should be signed with an empty region.
+       * </pre>
+       *
+       * <code>string region = 5;</code>
+       * @param value The bytes for region to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        region_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata, com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.Builder, com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadataOrBuilder> s3MetadataBuilder_;
+      /**
+       * <pre>
+       * A S3 compatible metadata.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata s3_metadata = 4;</code>
+       * @return Whether the s3Metadata field is set.
+       */
+      @java.lang.Override
+      public boolean hasS3Metadata() {
+        return dataProviderCase_ == 4;
+      }
+      /**
+       * <pre>
+       * A S3 compatible metadata.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata s3_metadata = 4;</code>
+       * @return The s3Metadata.
+       */
+      @java.lang.Override
+      public com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata getS3Metadata() {
+        if (s3MetadataBuilder_ == null) {
+          if (dataProviderCase_ == 4) {
+            return (com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata) dataProvider_;
+          }
+          return com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.getDefaultInstance();
+        } else {
+          if (dataProviderCase_ == 4) {
+            return s3MetadataBuilder_.getMessage();
+          }
+          return com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * A S3 compatible metadata.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata s3_metadata = 4;</code>
+       */
+      public Builder setS3Metadata(com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata value) {
+        if (s3MetadataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          dataProvider_ = value;
+          onChanged();
+        } else {
+          s3MetadataBuilder_.setMessage(value);
+        }
+        dataProviderCase_ = 4;
+        return this;
+      }
+      /**
+       * <pre>
+       * A S3 compatible metadata.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata s3_metadata = 4;</code>
+       */
+      public Builder setS3Metadata(
+          com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.Builder builderForValue) {
+        if (s3MetadataBuilder_ == null) {
+          dataProvider_ = builderForValue.build();
+          onChanged();
+        } else {
+          s3MetadataBuilder_.setMessage(builderForValue.build());
+        }
+        dataProviderCase_ = 4;
+        return this;
+      }
+      /**
+       * <pre>
+       * A S3 compatible metadata.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata s3_metadata = 4;</code>
+       */
+      public Builder mergeS3Metadata(com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata value) {
+        if (s3MetadataBuilder_ == null) {
+          if (dataProviderCase_ == 4 &&
+              dataProvider_ != com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.getDefaultInstance()) {
+            dataProvider_ = com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.newBuilder((com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata) dataProvider_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            dataProvider_ = value;
+          }
+          onChanged();
+        } else {
+          if (dataProviderCase_ == 4) {
+            s3MetadataBuilder_.mergeFrom(value);
+          } else {
+            s3MetadataBuilder_.setMessage(value);
+          }
+        }
+        dataProviderCase_ = 4;
+        return this;
+      }
+      /**
+       * <pre>
+       * A S3 compatible metadata.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata s3_metadata = 4;</code>
+       */
+      public Builder clearS3Metadata() {
+        if (s3MetadataBuilder_ == null) {
+          if (dataProviderCase_ == 4) {
+            dataProviderCase_ = 0;
+            dataProvider_ = null;
+            onChanged();
+          }
+        } else {
+          if (dataProviderCase_ == 4) {
+            dataProviderCase_ = 0;
+            dataProvider_ = null;
+          }
+          s3MetadataBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * A S3 compatible metadata.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata s3_metadata = 4;</code>
+       */
+      public com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.Builder getS3MetadataBuilder() {
+        return getS3MetadataFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * A S3 compatible metadata.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata s3_metadata = 4;</code>
+       */
+      @java.lang.Override
+      public com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadataOrBuilder getS3MetadataOrBuilder() {
+        if ((dataProviderCase_ == 4) && (s3MetadataBuilder_ != null)) {
+          return s3MetadataBuilder_.getMessageOrBuilder();
+        } else {
+          if (dataProviderCase_ == 4) {
+            return (com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata) dataProvider_;
+          }
+          return com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * A S3 compatible metadata.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata s3_metadata = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata, com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.Builder, com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadataOrBuilder> 
+          getS3MetadataFieldBuilder() {
+        if (s3MetadataBuilder_ == null) {
+          if (!(dataProviderCase_ == 4)) {
+            dataProvider_ = com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.getDefaultInstance();
+          }
+          s3MetadataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata, com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.Builder, com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadataOrBuilder>(
+                  (com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata) dataProvider_,
+                  getParentForChildren(),
+                  isClean());
+          dataProvider_ = null;
+        }
+        dataProviderCase_ = 4;
+        onChanged();
+        return s3MetadataBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.storagetransfer.v1.AwsS3CompatibleData)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.storagetransfer.v1.AwsS3CompatibleData)
+    private static final com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData();
+    }
+
+    public static com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AwsS3CompatibleData>
+        PARSER = new com.google.protobuf.AbstractParser<AwsS3CompatibleData>() {
+      @java.lang.Override
+      public AwsS3CompatibleData parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<AwsS3CompatibleData> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AwsS3CompatibleData> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface S3CompatibleMetadataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.storagetransfer.v1.S3CompatibleMetadata)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Specifies the authentication and authorization method used by the storage
+     * service. When not specified, Transfer Service will attempt to determine
+     * right auth method to use.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata.AuthMethod auth_method = 1;</code>
+     * @return The enum numeric value on the wire for authMethod.
+     */
+    int getAuthMethodValue();
+    /**
+     * <pre>
+     * Specifies the authentication and authorization method used by the storage
+     * service. When not specified, Transfer Service will attempt to determine
+     * right auth method to use.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata.AuthMethod auth_method = 1;</code>
+     * @return The authMethod.
+     */
+    com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod getAuthMethod();
+
+    /**
+     * <pre>
+     * Specifies the API request model used to call the storage service. When not
+     * specified, the default value of RequestModel
+     * REQUEST_MODEL_VIRTUAL_HOSTED_STYLE is used.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata.RequestModel request_model = 2;</code>
+     * @return The enum numeric value on the wire for requestModel.
+     */
+    int getRequestModelValue();
+    /**
+     * <pre>
+     * Specifies the API request model used to call the storage service. When not
+     * specified, the default value of RequestModel
+     * REQUEST_MODEL_VIRTUAL_HOSTED_STYLE is used.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata.RequestModel request_model = 2;</code>
+     * @return The requestModel.
+     */
+    com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel getRequestModel();
+
+    /**
+     * <pre>
+     * Specifies the network protocol of the agent. When not specified, the
+     * default value of NetworkProtocol NETWORK_PROTOCOL_HTTPS is used.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata.NetworkProtocol protocol = 3;</code>
+     * @return The enum numeric value on the wire for protocol.
+     */
+    int getProtocolValue();
+    /**
+     * <pre>
+     * Specifies the network protocol of the agent. When not specified, the
+     * default value of NetworkProtocol NETWORK_PROTOCOL_HTTPS is used.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata.NetworkProtocol protocol = 3;</code>
+     * @return The protocol.
+     */
+    com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol getProtocol();
+
+    /**
+     * <pre>
+     * The Listing API to use for discovering objects. When not specified,
+     * Transfer Service will attempt to determine the right API to use.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata.ListApi list_api = 4;</code>
+     * @return The enum numeric value on the wire for listApi.
+     */
+    int getListApiValue();
+    /**
+     * <pre>
+     * The Listing API to use for discovering objects. When not specified,
+     * Transfer Service will attempt to determine the right API to use.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata.ListApi list_api = 4;</code>
+     * @return The listApi.
+     */
+    com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.ListApi getListApi();
+  }
+  /**
+   * <pre>
+   * S3CompatibleMetadata contains the metadata fields that apply to the basic
+   * types of S3-compatible data providers.
+   * </pre>
+   *
+   * Protobuf type {@code google.storagetransfer.v1.S3CompatibleMetadata}
+   */
+  public static final class S3CompatibleMetadata extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.storagetransfer.v1.S3CompatibleMetadata)
+      S3CompatibleMetadataOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use S3CompatibleMetadata.newBuilder() to construct.
+    private S3CompatibleMetadata(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private S3CompatibleMetadata() {
+      authMethod_ = 0;
+      requestModel_ = 0;
+      protocol_ = 0;
+      listApi_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new S3CompatibleMetadata();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_S3CompatibleMetadata_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_S3CompatibleMetadata_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.class, com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.Builder.class);
+    }
+
+    /**
+     * <pre>
+     * The authentication and authorization method used by the storage service.
+     * </pre>
+     *
+     * Protobuf enum {@code google.storagetransfer.v1.S3CompatibleMetadata.AuthMethod}
+     */
+    public enum AuthMethod
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <pre>
+       * AuthMethod is not specified.
+       * </pre>
+       *
+       * <code>AUTH_METHOD_UNSPECIFIED = 0;</code>
+       */
+      AUTH_METHOD_UNSPECIFIED(0),
+      /**
+       * <pre>
+       * Auth requests with AWS SigV4.
+       * </pre>
+       *
+       * <code>AUTH_METHOD_AWS_SIGNATURE_V4 = 1;</code>
+       */
+      AUTH_METHOD_AWS_SIGNATURE_V4(1),
+      /**
+       * <pre>
+       * Auth requests with AWS SigV2.
+       * </pre>
+       *
+       * <code>AUTH_METHOD_AWS_SIGNATURE_V2 = 2;</code>
+       */
+      AUTH_METHOD_AWS_SIGNATURE_V2(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <pre>
+       * AuthMethod is not specified.
+       * </pre>
+       *
+       * <code>AUTH_METHOD_UNSPECIFIED = 0;</code>
+       */
+      public static final int AUTH_METHOD_UNSPECIFIED_VALUE = 0;
+      /**
+       * <pre>
+       * Auth requests with AWS SigV4.
+       * </pre>
+       *
+       * <code>AUTH_METHOD_AWS_SIGNATURE_V4 = 1;</code>
+       */
+      public static final int AUTH_METHOD_AWS_SIGNATURE_V4_VALUE = 1;
+      /**
+       * <pre>
+       * Auth requests with AWS SigV2.
+       * </pre>
+       *
+       * <code>AUTH_METHOD_AWS_SIGNATURE_V2 = 2;</code>
+       */
+      public static final int AUTH_METHOD_AWS_SIGNATURE_V2_VALUE = 2;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static AuthMethod valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static AuthMethod forNumber(int value) {
+        switch (value) {
+          case 0: return AUTH_METHOD_UNSPECIFIED;
+          case 1: return AUTH_METHOD_AWS_SIGNATURE_V4;
+          case 2: return AUTH_METHOD_AWS_SIGNATURE_V2;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<AuthMethod>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          AuthMethod> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<AuthMethod>() {
+              public AuthMethod findValueByNumber(int number) {
+                return AuthMethod.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final AuthMethod[] VALUES = values();
+
+      public static AuthMethod valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private AuthMethod(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:google.storagetransfer.v1.S3CompatibleMetadata.AuthMethod)
+    }
+
+    /**
+     * <pre>
+     * The request model of the API.
+     * </pre>
+     *
+     * Protobuf enum {@code google.storagetransfer.v1.S3CompatibleMetadata.RequestModel}
+     */
+    public enum RequestModel
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <pre>
+       * RequestModel is not specified.
+       * </pre>
+       *
+       * <code>REQUEST_MODEL_UNSPECIFIED = 0;</code>
+       */
+      REQUEST_MODEL_UNSPECIFIED(0),
+      /**
+       * <pre>
+       * Perform requests using Virtual Hosted Style.
+       * Example: https://bucket-name.s3.region.amazonaws.com/key-name
+       * </pre>
+       *
+       * <code>REQUEST_MODEL_VIRTUAL_HOSTED_STYLE = 1;</code>
+       */
+      REQUEST_MODEL_VIRTUAL_HOSTED_STYLE(1),
+      /**
+       * <pre>
+       * Perform requests using Path Style.
+       * Example: https://s3.region.amazonaws.com/bucket-name/key-name
+       * </pre>
+       *
+       * <code>REQUEST_MODEL_PATH_STYLE = 2;</code>
+       */
+      REQUEST_MODEL_PATH_STYLE(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <pre>
+       * RequestModel is not specified.
+       * </pre>
+       *
+       * <code>REQUEST_MODEL_UNSPECIFIED = 0;</code>
+       */
+      public static final int REQUEST_MODEL_UNSPECIFIED_VALUE = 0;
+      /**
+       * <pre>
+       * Perform requests using Virtual Hosted Style.
+       * Example: https://bucket-name.s3.region.amazonaws.com/key-name
+       * </pre>
+       *
+       * <code>REQUEST_MODEL_VIRTUAL_HOSTED_STYLE = 1;</code>
+       */
+      public static final int REQUEST_MODEL_VIRTUAL_HOSTED_STYLE_VALUE = 1;
+      /**
+       * <pre>
+       * Perform requests using Path Style.
+       * Example: https://s3.region.amazonaws.com/bucket-name/key-name
+       * </pre>
+       *
+       * <code>REQUEST_MODEL_PATH_STYLE = 2;</code>
+       */
+      public static final int REQUEST_MODEL_PATH_STYLE_VALUE = 2;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static RequestModel valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static RequestModel forNumber(int value) {
+        switch (value) {
+          case 0: return REQUEST_MODEL_UNSPECIFIED;
+          case 1: return REQUEST_MODEL_VIRTUAL_HOSTED_STYLE;
+          case 2: return REQUEST_MODEL_PATH_STYLE;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<RequestModel>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          RequestModel> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<RequestModel>() {
+              public RequestModel findValueByNumber(int number) {
+                return RequestModel.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.getDescriptor().getEnumTypes().get(1);
+      }
+
+      private static final RequestModel[] VALUES = values();
+
+      public static RequestModel valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private RequestModel(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:google.storagetransfer.v1.S3CompatibleMetadata.RequestModel)
+    }
+
+    /**
+     * <pre>
+     * The agent network protocol to access the storage service.
+     * </pre>
+     *
+     * Protobuf enum {@code google.storagetransfer.v1.S3CompatibleMetadata.NetworkProtocol}
+     */
+    public enum NetworkProtocol
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <pre>
+       * NetworkProtocol is not specified.
+       * </pre>
+       *
+       * <code>NETWORK_PROTOCOL_UNSPECIFIED = 0;</code>
+       */
+      NETWORK_PROTOCOL_UNSPECIFIED(0),
+      /**
+       * <pre>
+       * Perform requests using HTTPS.
+       * </pre>
+       *
+       * <code>NETWORK_PROTOCOL_HTTPS = 1;</code>
+       */
+      NETWORK_PROTOCOL_HTTPS(1),
+      /**
+       * <pre>
+       * Not recommended: This sends data in clear-text. This is only
+       * appropriate within a closed network or for publicly available data.
+       * Perform requests using HTTP.
+       * </pre>
+       *
+       * <code>NETWORK_PROTOCOL_HTTP = 2;</code>
+       */
+      NETWORK_PROTOCOL_HTTP(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <pre>
+       * NetworkProtocol is not specified.
+       * </pre>
+       *
+       * <code>NETWORK_PROTOCOL_UNSPECIFIED = 0;</code>
+       */
+      public static final int NETWORK_PROTOCOL_UNSPECIFIED_VALUE = 0;
+      /**
+       * <pre>
+       * Perform requests using HTTPS.
+       * </pre>
+       *
+       * <code>NETWORK_PROTOCOL_HTTPS = 1;</code>
+       */
+      public static final int NETWORK_PROTOCOL_HTTPS_VALUE = 1;
+      /**
+       * <pre>
+       * Not recommended: This sends data in clear-text. This is only
+       * appropriate within a closed network or for publicly available data.
+       * Perform requests using HTTP.
+       * </pre>
+       *
+       * <code>NETWORK_PROTOCOL_HTTP = 2;</code>
+       */
+      public static final int NETWORK_PROTOCOL_HTTP_VALUE = 2;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static NetworkProtocol valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static NetworkProtocol forNumber(int value) {
+        switch (value) {
+          case 0: return NETWORK_PROTOCOL_UNSPECIFIED;
+          case 1: return NETWORK_PROTOCOL_HTTPS;
+          case 2: return NETWORK_PROTOCOL_HTTP;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<NetworkProtocol>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          NetworkProtocol> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<NetworkProtocol>() {
+              public NetworkProtocol findValueByNumber(int number) {
+                return NetworkProtocol.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.getDescriptor().getEnumTypes().get(2);
+      }
+
+      private static final NetworkProtocol[] VALUES = values();
+
+      public static NetworkProtocol valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private NetworkProtocol(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:google.storagetransfer.v1.S3CompatibleMetadata.NetworkProtocol)
+    }
+
+    /**
+     * <pre>
+     * The Listing API to use for discovering objects.
+     * </pre>
+     *
+     * Protobuf enum {@code google.storagetransfer.v1.S3CompatibleMetadata.ListApi}
+     */
+    public enum ListApi
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <pre>
+       * ListApi is not specified.
+       * </pre>
+       *
+       * <code>LIST_API_UNSPECIFIED = 0;</code>
+       */
+      LIST_API_UNSPECIFIED(0),
+      /**
+       * <pre>
+       * Perform listing using ListObjectsV2 API.
+       * </pre>
+       *
+       * <code>LIST_OBJECTS_V2 = 1;</code>
+       */
+      LIST_OBJECTS_V2(1),
+      /**
+       * <pre>
+       * Legacy ListObjects API.
+       * </pre>
+       *
+       * <code>LIST_OBJECTS = 2;</code>
+       */
+      LIST_OBJECTS(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <pre>
+       * ListApi is not specified.
+       * </pre>
+       *
+       * <code>LIST_API_UNSPECIFIED = 0;</code>
+       */
+      public static final int LIST_API_UNSPECIFIED_VALUE = 0;
+      /**
+       * <pre>
+       * Perform listing using ListObjectsV2 API.
+       * </pre>
+       *
+       * <code>LIST_OBJECTS_V2 = 1;</code>
+       */
+      public static final int LIST_OBJECTS_V2_VALUE = 1;
+      /**
+       * <pre>
+       * Legacy ListObjects API.
+       * </pre>
+       *
+       * <code>LIST_OBJECTS = 2;</code>
+       */
+      public static final int LIST_OBJECTS_VALUE = 2;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static ListApi valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static ListApi forNumber(int value) {
+        switch (value) {
+          case 0: return LIST_API_UNSPECIFIED;
+          case 1: return LIST_OBJECTS_V2;
+          case 2: return LIST_OBJECTS;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<ListApi>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          ListApi> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<ListApi>() {
+              public ListApi findValueByNumber(int number) {
+                return ListApi.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.getDescriptor().getEnumTypes().get(3);
+      }
+
+      private static final ListApi[] VALUES = values();
+
+      public static ListApi valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private ListApi(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:google.storagetransfer.v1.S3CompatibleMetadata.ListApi)
+    }
+
+    public static final int AUTH_METHOD_FIELD_NUMBER = 1;
+    private int authMethod_ = 0;
+    /**
+     * <pre>
+     * Specifies the authentication and authorization method used by the storage
+     * service. When not specified, Transfer Service will attempt to determine
+     * right auth method to use.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata.AuthMethod auth_method = 1;</code>
+     * @return The enum numeric value on the wire for authMethod.
+     */
+    @java.lang.Override public int getAuthMethodValue() {
+      return authMethod_;
+    }
+    /**
+     * <pre>
+     * Specifies the authentication and authorization method used by the storage
+     * service. When not specified, Transfer Service will attempt to determine
+     * right auth method to use.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata.AuthMethod auth_method = 1;</code>
+     * @return The authMethod.
+     */
+    @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod getAuthMethod() {
+      com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod result = com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod.forNumber(authMethod_);
+      return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod.UNRECOGNIZED : result;
+    }
+
+    public static final int REQUEST_MODEL_FIELD_NUMBER = 2;
+    private int requestModel_ = 0;
+    /**
+     * <pre>
+     * Specifies the API request model used to call the storage service. When not
+     * specified, the default value of RequestModel
+     * REQUEST_MODEL_VIRTUAL_HOSTED_STYLE is used.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata.RequestModel request_model = 2;</code>
+     * @return The enum numeric value on the wire for requestModel.
+     */
+    @java.lang.Override public int getRequestModelValue() {
+      return requestModel_;
+    }
+    /**
+     * <pre>
+     * Specifies the API request model used to call the storage service. When not
+     * specified, the default value of RequestModel
+     * REQUEST_MODEL_VIRTUAL_HOSTED_STYLE is used.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata.RequestModel request_model = 2;</code>
+     * @return The requestModel.
+     */
+    @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel getRequestModel() {
+      com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel result = com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel.forNumber(requestModel_);
+      return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel.UNRECOGNIZED : result;
+    }
+
+    public static final int PROTOCOL_FIELD_NUMBER = 3;
+    private int protocol_ = 0;
+    /**
+     * <pre>
+     * Specifies the network protocol of the agent. When not specified, the
+     * default value of NetworkProtocol NETWORK_PROTOCOL_HTTPS is used.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata.NetworkProtocol protocol = 3;</code>
+     * @return The enum numeric value on the wire for protocol.
+     */
+    @java.lang.Override public int getProtocolValue() {
+      return protocol_;
+    }
+    /**
+     * <pre>
+     * Specifies the network protocol of the agent. When not specified, the
+     * default value of NetworkProtocol NETWORK_PROTOCOL_HTTPS is used.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata.NetworkProtocol protocol = 3;</code>
+     * @return The protocol.
+     */
+    @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol getProtocol() {
+      com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol result = com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol.forNumber(protocol_);
+      return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol.UNRECOGNIZED : result;
+    }
+
+    public static final int LIST_API_FIELD_NUMBER = 4;
+    private int listApi_ = 0;
+    /**
+     * <pre>
+     * The Listing API to use for discovering objects. When not specified,
+     * Transfer Service will attempt to determine the right API to use.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata.ListApi list_api = 4;</code>
+     * @return The enum numeric value on the wire for listApi.
+     */
+    @java.lang.Override public int getListApiValue() {
+      return listApi_;
+    }
+    /**
+     * <pre>
+     * The Listing API to use for discovering objects. When not specified,
+     * Transfer Service will attempt to determine the right API to use.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.S3CompatibleMetadata.ListApi list_api = 4;</code>
+     * @return The listApi.
+     */
+    @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.ListApi getListApi() {
+      com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.ListApi result = com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.ListApi.forNumber(listApi_);
+      return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.ListApi.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (authMethod_ != com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod.AUTH_METHOD_UNSPECIFIED.getNumber()) {
+        output.writeEnum(1, authMethod_);
+      }
+      if (requestModel_ != com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel.REQUEST_MODEL_UNSPECIFIED.getNumber()) {
+        output.writeEnum(2, requestModel_);
+      }
+      if (protocol_ != com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol.NETWORK_PROTOCOL_UNSPECIFIED.getNumber()) {
+        output.writeEnum(3, protocol_);
+      }
+      if (listApi_ != com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.ListApi.LIST_API_UNSPECIFIED.getNumber()) {
+        output.writeEnum(4, listApi_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (authMethod_ != com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod.AUTH_METHOD_UNSPECIFIED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, authMethod_);
+      }
+      if (requestModel_ != com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel.REQUEST_MODEL_UNSPECIFIED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, requestModel_);
+      }
+      if (protocol_ != com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol.NETWORK_PROTOCOL_UNSPECIFIED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, protocol_);
+      }
+      if (listApi_ != com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.ListApi.LIST_API_UNSPECIFIED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, listApi_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata)) {
+        return super.equals(obj);
+      }
+      com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata other = (com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata) obj;
+
+      if (authMethod_ != other.authMethod_) return false;
+      if (requestModel_ != other.requestModel_) return false;
+      if (protocol_ != other.protocol_) return false;
+      if (listApi_ != other.listApi_) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + AUTH_METHOD_FIELD_NUMBER;
+      hash = (53 * hash) + authMethod_;
+      hash = (37 * hash) + REQUEST_MODEL_FIELD_NUMBER;
+      hash = (53 * hash) + requestModel_;
+      hash = (37 * hash) + PROTOCOL_FIELD_NUMBER;
+      hash = (53 * hash) + protocol_;
+      hash = (37 * hash) + LIST_API_FIELD_NUMBER;
+      hash = (53 * hash) + listApi_;
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * S3CompatibleMetadata contains the metadata fields that apply to the basic
+     * types of S3-compatible data providers.
+     * </pre>
+     *
+     * Protobuf type {@code google.storagetransfer.v1.S3CompatibleMetadata}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.storagetransfer.v1.S3CompatibleMetadata)
+        com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadataOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_S3CompatibleMetadata_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_S3CompatibleMetadata_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.class, com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.Builder.class);
+      }
+
+      // Construct using com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        authMethod_ = 0;
+        requestModel_ = 0;
+        protocol_ = 0;
+        listApi_ = 0;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_S3CompatibleMetadata_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata getDefaultInstanceForType() {
+        return com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata build() {
+        com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata buildPartial() {
+        com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata result = new com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.authMethod_ = authMethod_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.requestModel_ = requestModel_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.protocol_ = protocol_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.listApi_ = listApi_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata) {
+          return mergeFrom((com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata other) {
+        if (other == com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.getDefaultInstance()) return this;
+        if (other.authMethod_ != 0) {
+          setAuthMethodValue(other.getAuthMethodValue());
+        }
+        if (other.requestModel_ != 0) {
+          setRequestModelValue(other.getRequestModelValue());
+        }
+        if (other.protocol_ != 0) {
+          setProtocolValue(other.getProtocolValue());
+        }
+        if (other.listApi_ != 0) {
+          setListApiValue(other.getListApiValue());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                authMethod_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                requestModel_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                protocol_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                listApi_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private int authMethod_ = 0;
+      /**
+       * <pre>
+       * Specifies the authentication and authorization method used by the storage
+       * service. When not specified, Transfer Service will attempt to determine
+       * right auth method to use.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.AuthMethod auth_method = 1;</code>
+       * @return The enum numeric value on the wire for authMethod.
+       */
+      @java.lang.Override public int getAuthMethodValue() {
+        return authMethod_;
+      }
+      /**
+       * <pre>
+       * Specifies the authentication and authorization method used by the storage
+       * service. When not specified, Transfer Service will attempt to determine
+       * right auth method to use.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.AuthMethod auth_method = 1;</code>
+       * @param value The enum numeric value on the wire for authMethod to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAuthMethodValue(int value) {
+        authMethod_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the authentication and authorization method used by the storage
+       * service. When not specified, Transfer Service will attempt to determine
+       * right auth method to use.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.AuthMethod auth_method = 1;</code>
+       * @return The authMethod.
+       */
+      @java.lang.Override
+      public com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod getAuthMethod() {
+        com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod result = com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod.forNumber(authMethod_);
+        return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * Specifies the authentication and authorization method used by the storage
+       * service. When not specified, Transfer Service will attempt to determine
+       * right auth method to use.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.AuthMethod auth_method = 1;</code>
+       * @param value The authMethod to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAuthMethod(com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        authMethod_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the authentication and authorization method used by the storage
+       * service. When not specified, Transfer Service will attempt to determine
+       * right auth method to use.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.AuthMethod auth_method = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAuthMethod() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        authMethod_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int requestModel_ = 0;
+      /**
+       * <pre>
+       * Specifies the API request model used to call the storage service. When not
+       * specified, the default value of RequestModel
+       * REQUEST_MODEL_VIRTUAL_HOSTED_STYLE is used.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.RequestModel request_model = 2;</code>
+       * @return The enum numeric value on the wire for requestModel.
+       */
+      @java.lang.Override public int getRequestModelValue() {
+        return requestModel_;
+      }
+      /**
+       * <pre>
+       * Specifies the API request model used to call the storage service. When not
+       * specified, the default value of RequestModel
+       * REQUEST_MODEL_VIRTUAL_HOSTED_STYLE is used.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.RequestModel request_model = 2;</code>
+       * @param value The enum numeric value on the wire for requestModel to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRequestModelValue(int value) {
+        requestModel_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the API request model used to call the storage service. When not
+       * specified, the default value of RequestModel
+       * REQUEST_MODEL_VIRTUAL_HOSTED_STYLE is used.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.RequestModel request_model = 2;</code>
+       * @return The requestModel.
+       */
+      @java.lang.Override
+      public com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel getRequestModel() {
+        com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel result = com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel.forNumber(requestModel_);
+        return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * Specifies the API request model used to call the storage service. When not
+       * specified, the default value of RequestModel
+       * REQUEST_MODEL_VIRTUAL_HOSTED_STYLE is used.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.RequestModel request_model = 2;</code>
+       * @param value The requestModel to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRequestModel(com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        requestModel_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the API request model used to call the storage service. When not
+       * specified, the default value of RequestModel
+       * REQUEST_MODEL_VIRTUAL_HOSTED_STYLE is used.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.RequestModel request_model = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRequestModel() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        requestModel_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int protocol_ = 0;
+      /**
+       * <pre>
+       * Specifies the network protocol of the agent. When not specified, the
+       * default value of NetworkProtocol NETWORK_PROTOCOL_HTTPS is used.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.NetworkProtocol protocol = 3;</code>
+       * @return The enum numeric value on the wire for protocol.
+       */
+      @java.lang.Override public int getProtocolValue() {
+        return protocol_;
+      }
+      /**
+       * <pre>
+       * Specifies the network protocol of the agent. When not specified, the
+       * default value of NetworkProtocol NETWORK_PROTOCOL_HTTPS is used.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.NetworkProtocol protocol = 3;</code>
+       * @param value The enum numeric value on the wire for protocol to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProtocolValue(int value) {
+        protocol_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the network protocol of the agent. When not specified, the
+       * default value of NetworkProtocol NETWORK_PROTOCOL_HTTPS is used.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.NetworkProtocol protocol = 3;</code>
+       * @return The protocol.
+       */
+      @java.lang.Override
+      public com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol getProtocol() {
+        com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol result = com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol.forNumber(protocol_);
+        return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * Specifies the network protocol of the agent. When not specified, the
+       * default value of NetworkProtocol NETWORK_PROTOCOL_HTTPS is used.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.NetworkProtocol protocol = 3;</code>
+       * @param value The protocol to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProtocol(com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000004;
+        protocol_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the network protocol of the agent. When not specified, the
+       * default value of NetworkProtocol NETWORK_PROTOCOL_HTTPS is used.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.NetworkProtocol protocol = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProtocol() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        protocol_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int listApi_ = 0;
+      /**
+       * <pre>
+       * The Listing API to use for discovering objects. When not specified,
+       * Transfer Service will attempt to determine the right API to use.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.ListApi list_api = 4;</code>
+       * @return The enum numeric value on the wire for listApi.
+       */
+      @java.lang.Override public int getListApiValue() {
+        return listApi_;
+      }
+      /**
+       * <pre>
+       * The Listing API to use for discovering objects. When not specified,
+       * Transfer Service will attempt to determine the right API to use.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.ListApi list_api = 4;</code>
+       * @param value The enum numeric value on the wire for listApi to set.
+       * @return This builder for chaining.
+       */
+      public Builder setListApiValue(int value) {
+        listApi_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The Listing API to use for discovering objects. When not specified,
+       * Transfer Service will attempt to determine the right API to use.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.ListApi list_api = 4;</code>
+       * @return The listApi.
+       */
+      @java.lang.Override
+      public com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.ListApi getListApi() {
+        com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.ListApi result = com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.ListApi.forNumber(listApi_);
+        return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.ListApi.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * The Listing API to use for discovering objects. When not specified,
+       * Transfer Service will attempt to determine the right API to use.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.ListApi list_api = 4;</code>
+       * @param value The listApi to set.
+       * @return This builder for chaining.
+       */
+      public Builder setListApi(com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.ListApi value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000008;
+        listApi_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The Listing API to use for discovering objects. When not specified,
+       * Transfer Service will attempt to determine the right API to use.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.S3CompatibleMetadata.ListApi list_api = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearListApi() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        listApi_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.storagetransfer.v1.S3CompatibleMetadata)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.storagetransfer.v1.S3CompatibleMetadata)
+    private static final com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata();
+    }
+
+    public static com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<S3CompatibleMetadata>
+        PARSER = new com.google.protobuf.AbstractParser<S3CompatibleMetadata>() {
+      @java.lang.Override
+      public S3CompatibleMetadata parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<S3CompatibleMetadata> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<S3CompatibleMetadata> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -10408,76 +13367,6 @@ public final class TransferTypes {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private AgentPool(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              displayName_ = s;
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              state_ = rawValue;
-              break;
-            }
-            case 42: {
-              com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.BandwidthLimit.Builder subBuilder = null;
-              if (bandwidthLimit_ != null) {
-                subBuilder = bandwidthLimit_.toBuilder();
-              }
-              bandwidthLimit_ = input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.BandwidthLimit.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(bandwidthLimit_);
-                bandwidthLimit_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -10706,50 +13595,6 @@ public final class TransferTypes {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private BandwidthLimit(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-
-                limitMbps_ = input.readInt64();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_AgentPool_BandwidthLimit_descriptor;
@@ -10764,7 +13609,7 @@ public final class TransferTypes {
       }
 
       public static final int LIMIT_MBPS_FIELD_NUMBER = 1;
-      private long limitMbps_;
+      private long limitMbps_ = 0L;
       /**
        * <pre>
        * Bandwidth rate in megabytes per second, distributed across all the agents
@@ -10796,7 +13641,7 @@ public final class TransferTypes {
         if (limitMbps_ != 0L) {
           output.writeInt64(1, limitMbps_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -10809,7 +13654,7 @@ public final class TransferTypes {
           size += com.google.protobuf.CodedOutputStream
             .computeInt64Size(1, limitMbps_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -10826,7 +13671,7 @@ public final class TransferTypes {
 
         if (getLimitMbps()
             != other.getLimitMbps()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -10840,7 +13685,7 @@ public final class TransferTypes {
         hash = (37 * hash) + LIMIT_MBPS_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getLimitMbps());
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -10961,24 +13806,19 @@ public final class TransferTypes {
 
         // Construct using com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.BandwidthLimit.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           limitMbps_ = 0L;
-
           return this;
         }
 
@@ -11005,9 +13845,16 @@ public final class TransferTypes {
         @java.lang.Override
         public com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.BandwidthLimit buildPartial() {
           com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.BandwidthLimit result = new com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.BandwidthLimit(this);
-          result.limitMbps_ = limitMbps_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.BandwidthLimit result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.limitMbps_ = limitMbps_;
+          }
         }
 
         @java.lang.Override
@@ -11057,7 +13904,7 @@ public final class TransferTypes {
           if (other.getLimitMbps() != 0L) {
             setLimitMbps(other.getLimitMbps());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -11072,19 +13919,38 @@ public final class TransferTypes {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.BandwidthLimit parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  limitMbps_ = input.readInt64();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.BandwidthLimit) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private long limitMbps_ ;
         /**
@@ -11113,6 +13979,7 @@ public final class TransferTypes {
         public Builder setLimitMbps(long value) {
           
           limitMbps_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -11126,7 +13993,7 @@ public final class TransferTypes {
          * @return This builder for chaining.
          */
         public Builder clearLimitMbps() {
-          
+          bitField0_ = (bitField0_ & ~0x00000001);
           limitMbps_ = 0L;
           onChanged();
           return this;
@@ -11164,7 +14031,18 @@ public final class TransferTypes {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new BandwidthLimit(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -11185,7 +14063,8 @@ public final class TransferTypes {
     }
 
     public static final int NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Required. Specifies a unique string that identifies the agent pool.
@@ -11233,7 +14112,8 @@ public final class TransferTypes {
     }
 
     public static final int DISPLAY_NAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object displayName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object displayName_ = "";
     /**
      * <pre>
      * Specifies the client-specified AgentPool description.
@@ -11279,7 +14159,7 @@ public final class TransferTypes {
     }
 
     public static final int STATE_FIELD_NUMBER = 4;
-    private int state_;
+    private int state_ = 0;
     /**
      * <pre>
      * Output only. Specifies the state of the AgentPool.
@@ -11300,8 +14180,7 @@ public final class TransferTypes {
      * @return The state.
      */
     @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.State result = com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.State.valueOf(state_);
+      com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.State result = com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.State.forNumber(state_);
       return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.State.UNRECOGNIZED : result;
     }
 
@@ -11343,7 +14222,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.BandwidthLimitOrBuilder getBandwidthLimitOrBuilder() {
-      return getBandwidthLimit();
+      return bandwidthLimit_ == null ? com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.BandwidthLimit.getDefaultInstance() : bandwidthLimit_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -11372,7 +14251,7 @@ public final class TransferTypes {
       if (bandwidthLimit_ != null) {
         output.writeMessage(5, getBandwidthLimit());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -11395,7 +14274,7 @@ public final class TransferTypes {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getBandwidthLimit());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -11420,7 +14299,7 @@ public final class TransferTypes {
         if (!getBandwidthLimit()
             .equals(other.getBandwidthLimit())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -11441,7 +14320,7 @@ public final class TransferTypes {
         hash = (37 * hash) + BANDWIDTH_LIMIT_FIELD_NUMBER;
         hash = (53 * hash) + getBandwidthLimit().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -11562,32 +14441,24 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         displayName_ = "";
-
         state_ = 0;
-
-        if (bandwidthLimitBuilder_ == null) {
-          bandwidthLimit_ = null;
-        } else {
-          bandwidthLimit_ = null;
+        bandwidthLimit_ = null;
+        if (bandwidthLimitBuilder_ != null) {
+          bandwidthLimitBuilder_.dispose();
           bandwidthLimitBuilder_ = null;
         }
         return this;
@@ -11616,16 +14487,27 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.AgentPool buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.AgentPool result = new com.google.storagetransfer.v1.proto.TransferTypes.AgentPool(this);
-        result.name_ = name_;
-        result.displayName_ = displayName_;
-        result.state_ = state_;
-        if (bandwidthLimitBuilder_ == null) {
-          result.bandwidthLimit_ = bandwidthLimit_;
-        } else {
-          result.bandwidthLimit_ = bandwidthLimitBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.AgentPool result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.displayName_ = displayName_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.state_ = state_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.bandwidthLimit_ = bandwidthLimitBuilder_ == null
+              ? bandwidthLimit_
+              : bandwidthLimitBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -11674,10 +14556,12 @@ public final class TransferTypes {
         if (other == com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDisplayName().isEmpty()) {
           displayName_ = other.displayName_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.state_ != 0) {
@@ -11686,7 +14570,7 @@ public final class TransferTypes {
         if (other.hasBandwidthLimit()) {
           mergeBandwidthLimit(other.getBandwidthLimit());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -11701,19 +14585,55 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.AgentPool parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 18: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 18
+              case 26: {
+                displayName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 26
+              case 32: {
+                state_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 32
+              case 42: {
+                input.readMessage(
+                    getBandwidthLimitFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.AgentPool) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -11771,11 +14691,9 @@ public final class TransferTypes {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -11789,8 +14707,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -11806,12 +14724,10 @@ public final class TransferTypes {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -11869,11 +14785,9 @@ public final class TransferTypes {
        */
       public Builder setDisplayName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         displayName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -11886,8 +14800,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
-        
         displayName_ = getDefaultInstance().getDisplayName();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -11902,12 +14816,10 @@ public final class TransferTypes {
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         displayName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -11934,8 +14846,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
-        
         state_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -11949,8 +14861,7 @@ public final class TransferTypes {
        */
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.State getState() {
-        @SuppressWarnings("deprecation")
-        com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.State result = com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.State.valueOf(state_);
+        com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.State result = com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.State.forNumber(state_);
         return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.State.UNRECOGNIZED : result;
       }
       /**
@@ -11966,7 +14877,7 @@ public final class TransferTypes {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         state_ = value.getNumber();
         onChanged();
         return this;
@@ -11980,7 +14891,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         state_ = 0;
         onChanged();
         return this;
@@ -11999,7 +14910,7 @@ public final class TransferTypes {
        * @return Whether the bandwidthLimit field is set.
        */
       public boolean hasBandwidthLimit() {
-        return bandwidthLimitBuilder_ != null || bandwidthLimit_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -12031,11 +14942,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           bandwidthLimit_ = value;
-          onChanged();
         } else {
           bandwidthLimitBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -12050,11 +14961,11 @@ public final class TransferTypes {
           com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.BandwidthLimit.Builder builderForValue) {
         if (bandwidthLimitBuilder_ == null) {
           bandwidthLimit_ = builderForValue.build();
-          onChanged();
         } else {
           bandwidthLimitBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -12067,17 +14978,18 @@ public final class TransferTypes {
        */
       public Builder mergeBandwidthLimit(com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.BandwidthLimit value) {
         if (bandwidthLimitBuilder_ == null) {
-          if (bandwidthLimit_ != null) {
-            bandwidthLimit_ =
-              com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.BandwidthLimit.newBuilder(bandwidthLimit_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            bandwidthLimit_ != null &&
+            bandwidthLimit_ != com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.BandwidthLimit.getDefaultInstance()) {
+            getBandwidthLimitBuilder().mergeFrom(value);
           } else {
             bandwidthLimit_ = value;
           }
-          onChanged();
         } else {
           bandwidthLimitBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -12089,14 +15001,13 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.AgentPool.BandwidthLimit bandwidth_limit = 5;</code>
        */
       public Builder clearBandwidthLimit() {
-        if (bandwidthLimitBuilder_ == null) {
-          bandwidthLimit_ = null;
-          onChanged();
-        } else {
-          bandwidthLimit_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        bandwidthLimit_ = null;
+        if (bandwidthLimitBuilder_ != null) {
+          bandwidthLimitBuilder_.dispose();
           bandwidthLimitBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -12108,7 +15019,7 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.AgentPool.BandwidthLimit bandwidth_limit = 5;</code>
        */
       public com.google.storagetransfer.v1.proto.TransferTypes.AgentPool.BandwidthLimit.Builder getBandwidthLimitBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getBandwidthLimitFieldBuilder().getBuilder();
       }
@@ -12182,7 +15093,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AgentPool(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -12246,7 +15168,7 @@ public final class TransferTypes {
 
     /**
      * <pre>
-     * When to overwrite objects that already exist in the sink. If not set
+     * When to overwrite objects that already exist in the sink. If not set,
      * overwrite behavior is determined by
      * [overwrite_objects_already_existing_in_sink][google.storagetransfer.v1.TransferOptions.overwrite_objects_already_existing_in_sink].
      * </pre>
@@ -12257,7 +15179,7 @@ public final class TransferTypes {
     int getOverwriteWhenValue();
     /**
      * <pre>
-     * When to overwrite objects that already exist in the sink. If not set
+     * When to overwrite objects that already exist in the sink. If not set,
      * overwrite behavior is determined by
      * [overwrite_objects_already_existing_in_sink][google.storagetransfer.v1.TransferOptions.overwrite_objects_already_existing_in_sink].
      * </pre>
@@ -12269,8 +15191,7 @@ public final class TransferTypes {
 
     /**
      * <pre>
-     * Represents the selected metadata options for a transfer job. This feature
-     * is in Preview.
+     * Represents the selected metadata options for a transfer job.
      * </pre>
      *
      * <code>.google.storagetransfer.v1.MetadataOptions metadata_options = 5;</code>
@@ -12279,8 +15200,7 @@ public final class TransferTypes {
     boolean hasMetadataOptions();
     /**
      * <pre>
-     * Represents the selected metadata options for a transfer job. This feature
-     * is in Preview.
+     * Represents the selected metadata options for a transfer job.
      * </pre>
      *
      * <code>.google.storagetransfer.v1.MetadataOptions metadata_options = 5;</code>
@@ -12289,8 +15209,7 @@ public final class TransferTypes {
     com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions getMetadataOptions();
     /**
      * <pre>
-     * Represents the selected metadata options for a transfer job. This feature
-     * is in Preview.
+     * Represents the selected metadata options for a transfer job.
      * </pre>
      *
      * <code>.google.storagetransfer.v1.MetadataOptions metadata_options = 5;</code>
@@ -12329,79 +15248,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TransferOptions(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              overwriteObjectsAlreadyExistingInSink_ = input.readBool();
-              break;
-            }
-            case 16: {
-
-              deleteObjectsUniqueInSink_ = input.readBool();
-              break;
-            }
-            case 24: {
-
-              deleteObjectsFromSourceAfterTransfer_ = input.readBool();
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              overwriteWhen_ = rawValue;
-              break;
-            }
-            case 42: {
-              com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Builder subBuilder = null;
-              if (metadataOptions_ != null) {
-                subBuilder = metadataOptions_.toBuilder();
-              }
-              metadataOptions_ = input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(metadataOptions_);
-                metadataOptions_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_TransferOptions_descriptor;
@@ -12427,7 +15273,7 @@ public final class TransferTypes {
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <pre>
-       * Indicate the option is not set.
+       * Overwrite behavior is unspecified.
        * </pre>
        *
        * <code>OVERWRITE_WHEN_UNSPECIFIED = 0;</code>
@@ -12435,8 +15281,8 @@ public final class TransferTypes {
       OVERWRITE_WHEN_UNSPECIFIED(0),
       /**
        * <pre>
-       * Overwrite destination object with source if the two objects are
-       * different.
+       * Overwrites destination objects with the source objects, only if the
+       * objects have the same name but different HTTP ETags or checksum values.
        * </pre>
        *
        * <code>DIFFERENT = 1;</code>
@@ -12444,7 +15290,8 @@ public final class TransferTypes {
       DIFFERENT(1),
       /**
        * <pre>
-       * Never overwrite destination object.
+       * Never overwrites a destination object if a source object has the
+       * same name. In this case, the source object is not transferred.
        * </pre>
        *
        * <code>NEVER = 2;</code>
@@ -12452,7 +15299,8 @@ public final class TransferTypes {
       NEVER(2),
       /**
        * <pre>
-       * Always overwrite destination object.
+       * Always overwrite the destination object with the source object, even if
+       * the HTTP Etags or checksum values are the same.
        * </pre>
        *
        * <code>ALWAYS = 3;</code>
@@ -12463,7 +15311,7 @@ public final class TransferTypes {
 
       /**
        * <pre>
-       * Indicate the option is not set.
+       * Overwrite behavior is unspecified.
        * </pre>
        *
        * <code>OVERWRITE_WHEN_UNSPECIFIED = 0;</code>
@@ -12471,8 +15319,8 @@ public final class TransferTypes {
       public static final int OVERWRITE_WHEN_UNSPECIFIED_VALUE = 0;
       /**
        * <pre>
-       * Overwrite destination object with source if the two objects are
-       * different.
+       * Overwrites destination objects with the source objects, only if the
+       * objects have the same name but different HTTP ETags or checksum values.
        * </pre>
        *
        * <code>DIFFERENT = 1;</code>
@@ -12480,7 +15328,8 @@ public final class TransferTypes {
       public static final int DIFFERENT_VALUE = 1;
       /**
        * <pre>
-       * Never overwrite destination object.
+       * Never overwrites a destination object if a source object has the
+       * same name. In this case, the source object is not transferred.
        * </pre>
        *
        * <code>NEVER = 2;</code>
@@ -12488,7 +15337,8 @@ public final class TransferTypes {
       public static final int NEVER_VALUE = 2;
       /**
        * <pre>
-       * Always overwrite destination object.
+       * Always overwrite the destination object with the source object, even if
+       * the HTTP Etags or checksum values are the same.
        * </pre>
        *
        * <code>ALWAYS = 3;</code>
@@ -12581,7 +15431,7 @@ public final class TransferTypes {
     }
 
     public static final int OVERWRITE_OBJECTS_ALREADY_EXISTING_IN_SINK_FIELD_NUMBER = 1;
-    private boolean overwriteObjectsAlreadyExistingInSink_;
+    private boolean overwriteObjectsAlreadyExistingInSink_ = false;
     /**
      * <pre>
      * When to overwrite objects that already exist in the sink. The default is
@@ -12599,7 +15449,7 @@ public final class TransferTypes {
     }
 
     public static final int DELETE_OBJECTS_UNIQUE_IN_SINK_FIELD_NUMBER = 2;
-    private boolean deleteObjectsUniqueInSink_;
+    private boolean deleteObjectsUniqueInSink_ = false;
     /**
      * <pre>
      * Whether objects that exist only in the sink should be deleted.
@@ -12616,7 +15466,7 @@ public final class TransferTypes {
     }
 
     public static final int DELETE_OBJECTS_FROM_SOURCE_AFTER_TRANSFER_FIELD_NUMBER = 3;
-    private boolean deleteObjectsFromSourceAfterTransfer_;
+    private boolean deleteObjectsFromSourceAfterTransfer_ = false;
     /**
      * <pre>
      * Whether objects should be deleted from the source after they are
@@ -12634,10 +15484,10 @@ public final class TransferTypes {
     }
 
     public static final int OVERWRITE_WHEN_FIELD_NUMBER = 4;
-    private int overwriteWhen_;
+    private int overwriteWhen_ = 0;
     /**
      * <pre>
-     * When to overwrite objects that already exist in the sink. If not set
+     * When to overwrite objects that already exist in the sink. If not set,
      * overwrite behavior is determined by
      * [overwrite_objects_already_existing_in_sink][google.storagetransfer.v1.TransferOptions.overwrite_objects_already_existing_in_sink].
      * </pre>
@@ -12650,7 +15500,7 @@ public final class TransferTypes {
     }
     /**
      * <pre>
-     * When to overwrite objects that already exist in the sink. If not set
+     * When to overwrite objects that already exist in the sink. If not set,
      * overwrite behavior is determined by
      * [overwrite_objects_already_existing_in_sink][google.storagetransfer.v1.TransferOptions.overwrite_objects_already_existing_in_sink].
      * </pre>
@@ -12659,8 +15509,7 @@ public final class TransferTypes {
      * @return The overwriteWhen.
      */
     @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.OverwriteWhen getOverwriteWhen() {
-      @SuppressWarnings("deprecation")
-      com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.OverwriteWhen result = com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.OverwriteWhen.valueOf(overwriteWhen_);
+      com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.OverwriteWhen result = com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.OverwriteWhen.forNumber(overwriteWhen_);
       return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.OverwriteWhen.UNRECOGNIZED : result;
     }
 
@@ -12668,8 +15517,7 @@ public final class TransferTypes {
     private com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions metadataOptions_;
     /**
      * <pre>
-     * Represents the selected metadata options for a transfer job. This feature
-     * is in Preview.
+     * Represents the selected metadata options for a transfer job.
      * </pre>
      *
      * <code>.google.storagetransfer.v1.MetadataOptions metadata_options = 5;</code>
@@ -12681,8 +15529,7 @@ public final class TransferTypes {
     }
     /**
      * <pre>
-     * Represents the selected metadata options for a transfer job. This feature
-     * is in Preview.
+     * Represents the selected metadata options for a transfer job.
      * </pre>
      *
      * <code>.google.storagetransfer.v1.MetadataOptions metadata_options = 5;</code>
@@ -12694,15 +15541,14 @@ public final class TransferTypes {
     }
     /**
      * <pre>
-     * Represents the selected metadata options for a transfer job. This feature
-     * is in Preview.
+     * Represents the selected metadata options for a transfer job.
      * </pre>
      *
      * <code>.google.storagetransfer.v1.MetadataOptions metadata_options = 5;</code>
      */
     @java.lang.Override
     public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptionsOrBuilder getMetadataOptionsOrBuilder() {
-      return getMetadataOptions();
+      return metadataOptions_ == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.getDefaultInstance() : metadataOptions_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -12734,7 +15580,7 @@ public final class TransferTypes {
       if (metadataOptions_ != null) {
         output.writeMessage(5, getMetadataOptions());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -12763,7 +15609,7 @@ public final class TransferTypes {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getMetadataOptions());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -12790,7 +15636,7 @@ public final class TransferTypes {
         if (!getMetadataOptions()
             .equals(other.getMetadataOptions())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -12816,7 +15662,7 @@ public final class TransferTypes {
         hash = (37 * hash) + METADATA_OPTIONS_FIELD_NUMBER;
         hash = (53 * hash) + getMetadataOptions().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -12937,34 +15783,25 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         overwriteObjectsAlreadyExistingInSink_ = false;
-
         deleteObjectsUniqueInSink_ = false;
-
         deleteObjectsFromSourceAfterTransfer_ = false;
-
         overwriteWhen_ = 0;
-
-        if (metadataOptionsBuilder_ == null) {
-          metadataOptions_ = null;
-        } else {
-          metadataOptions_ = null;
+        metadataOptions_ = null;
+        if (metadataOptionsBuilder_ != null) {
+          metadataOptionsBuilder_.dispose();
           metadataOptionsBuilder_ = null;
         }
         return this;
@@ -12993,17 +15830,30 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions result = new com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions(this);
-        result.overwriteObjectsAlreadyExistingInSink_ = overwriteObjectsAlreadyExistingInSink_;
-        result.deleteObjectsUniqueInSink_ = deleteObjectsUniqueInSink_;
-        result.deleteObjectsFromSourceAfterTransfer_ = deleteObjectsFromSourceAfterTransfer_;
-        result.overwriteWhen_ = overwriteWhen_;
-        if (metadataOptionsBuilder_ == null) {
-          result.metadataOptions_ = metadataOptions_;
-        } else {
-          result.metadataOptions_ = metadataOptionsBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.overwriteObjectsAlreadyExistingInSink_ = overwriteObjectsAlreadyExistingInSink_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.deleteObjectsUniqueInSink_ = deleteObjectsUniqueInSink_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.deleteObjectsFromSourceAfterTransfer_ = deleteObjectsFromSourceAfterTransfer_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.overwriteWhen_ = overwriteWhen_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.metadataOptions_ = metadataOptionsBuilder_ == null
+              ? metadataOptions_
+              : metadataOptionsBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -13065,7 +15915,7 @@ public final class TransferTypes {
         if (other.hasMetadataOptions()) {
           mergeMetadataOptions(other.getMetadataOptions());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -13080,19 +15930,60 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                overwriteObjectsAlreadyExistingInSink_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                deleteObjectsUniqueInSink_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                deleteObjectsFromSourceAfterTransfer_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                overwriteWhen_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 42: {
+                input.readMessage(
+                    getMetadataOptionsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private boolean overwriteObjectsAlreadyExistingInSink_ ;
       /**
@@ -13125,6 +16016,7 @@ public final class TransferTypes {
       public Builder setOverwriteObjectsAlreadyExistingInSink(boolean value) {
         
         overwriteObjectsAlreadyExistingInSink_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -13140,7 +16032,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearOverwriteObjectsAlreadyExistingInSink() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         overwriteObjectsAlreadyExistingInSink_ = false;
         onChanged();
         return this;
@@ -13175,6 +16067,7 @@ public final class TransferTypes {
       public Builder setDeleteObjectsUniqueInSink(boolean value) {
         
         deleteObjectsUniqueInSink_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -13189,7 +16082,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearDeleteObjectsUniqueInSink() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         deleteObjectsUniqueInSink_ = false;
         onChanged();
         return this;
@@ -13226,6 +16119,7 @@ public final class TransferTypes {
       public Builder setDeleteObjectsFromSourceAfterTransfer(boolean value) {
         
         deleteObjectsFromSourceAfterTransfer_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -13241,7 +16135,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearDeleteObjectsFromSourceAfterTransfer() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         deleteObjectsFromSourceAfterTransfer_ = false;
         onChanged();
         return this;
@@ -13250,7 +16144,7 @@ public final class TransferTypes {
       private int overwriteWhen_ = 0;
       /**
        * <pre>
-       * When to overwrite objects that already exist in the sink. If not set
+       * When to overwrite objects that already exist in the sink. If not set,
        * overwrite behavior is determined by
        * [overwrite_objects_already_existing_in_sink][google.storagetransfer.v1.TransferOptions.overwrite_objects_already_existing_in_sink].
        * </pre>
@@ -13263,7 +16157,7 @@ public final class TransferTypes {
       }
       /**
        * <pre>
-       * When to overwrite objects that already exist in the sink. If not set
+       * When to overwrite objects that already exist in the sink. If not set,
        * overwrite behavior is determined by
        * [overwrite_objects_already_existing_in_sink][google.storagetransfer.v1.TransferOptions.overwrite_objects_already_existing_in_sink].
        * </pre>
@@ -13273,14 +16167,14 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder setOverwriteWhenValue(int value) {
-        
         overwriteWhen_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * When to overwrite objects that already exist in the sink. If not set
+       * When to overwrite objects that already exist in the sink. If not set,
        * overwrite behavior is determined by
        * [overwrite_objects_already_existing_in_sink][google.storagetransfer.v1.TransferOptions.overwrite_objects_already_existing_in_sink].
        * </pre>
@@ -13290,13 +16184,12 @@ public final class TransferTypes {
        */
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.OverwriteWhen getOverwriteWhen() {
-        @SuppressWarnings("deprecation")
-        com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.OverwriteWhen result = com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.OverwriteWhen.valueOf(overwriteWhen_);
+        com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.OverwriteWhen result = com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.OverwriteWhen.forNumber(overwriteWhen_);
         return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.OverwriteWhen.UNRECOGNIZED : result;
       }
       /**
        * <pre>
-       * When to overwrite objects that already exist in the sink. If not set
+       * When to overwrite objects that already exist in the sink. If not set,
        * overwrite behavior is determined by
        * [overwrite_objects_already_existing_in_sink][google.storagetransfer.v1.TransferOptions.overwrite_objects_already_existing_in_sink].
        * </pre>
@@ -13309,14 +16202,14 @@ public final class TransferTypes {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000008;
         overwriteWhen_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * When to overwrite objects that already exist in the sink. If not set
+       * When to overwrite objects that already exist in the sink. If not set,
        * overwrite behavior is determined by
        * [overwrite_objects_already_existing_in_sink][google.storagetransfer.v1.TransferOptions.overwrite_objects_already_existing_in_sink].
        * </pre>
@@ -13325,7 +16218,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearOverwriteWhen() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         overwriteWhen_ = 0;
         onChanged();
         return this;
@@ -13336,20 +16229,18 @@ public final class TransferTypes {
           com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions, com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Builder, com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptionsOrBuilder> metadataOptionsBuilder_;
       /**
        * <pre>
-       * Represents the selected metadata options for a transfer job. This feature
-       * is in Preview.
+       * Represents the selected metadata options for a transfer job.
        * </pre>
        *
        * <code>.google.storagetransfer.v1.MetadataOptions metadata_options = 5;</code>
        * @return Whether the metadataOptions field is set.
        */
       public boolean hasMetadataOptions() {
-        return metadataOptionsBuilder_ != null || metadataOptions_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
-       * Represents the selected metadata options for a transfer job. This feature
-       * is in Preview.
+       * Represents the selected metadata options for a transfer job.
        * </pre>
        *
        * <code>.google.storagetransfer.v1.MetadataOptions metadata_options = 5;</code>
@@ -13364,8 +16255,7 @@ public final class TransferTypes {
       }
       /**
        * <pre>
-       * Represents the selected metadata options for a transfer job. This feature
-       * is in Preview.
+       * Represents the selected metadata options for a transfer job.
        * </pre>
        *
        * <code>.google.storagetransfer.v1.MetadataOptions metadata_options = 5;</code>
@@ -13376,17 +16266,16 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           metadataOptions_ = value;
-          onChanged();
         } else {
           metadataOptionsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Represents the selected metadata options for a transfer job. This feature
-       * is in Preview.
+       * Represents the selected metadata options for a transfer job.
        * </pre>
        *
        * <code>.google.storagetransfer.v1.MetadataOptions metadata_options = 5;</code>
@@ -13395,72 +16284,68 @@ public final class TransferTypes {
           com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Builder builderForValue) {
         if (metadataOptionsBuilder_ == null) {
           metadataOptions_ = builderForValue.build();
-          onChanged();
         } else {
           metadataOptionsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Represents the selected metadata options for a transfer job. This feature
-       * is in Preview.
+       * Represents the selected metadata options for a transfer job.
        * </pre>
        *
        * <code>.google.storagetransfer.v1.MetadataOptions metadata_options = 5;</code>
        */
       public Builder mergeMetadataOptions(com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions value) {
         if (metadataOptionsBuilder_ == null) {
-          if (metadataOptions_ != null) {
-            metadataOptions_ =
-              com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.newBuilder(metadataOptions_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            metadataOptions_ != null &&
+            metadataOptions_ != com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.getDefaultInstance()) {
+            getMetadataOptionsBuilder().mergeFrom(value);
           } else {
             metadataOptions_ = value;
           }
-          onChanged();
         } else {
           metadataOptionsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Represents the selected metadata options for a transfer job. This feature
-       * is in Preview.
+       * Represents the selected metadata options for a transfer job.
        * </pre>
        *
        * <code>.google.storagetransfer.v1.MetadataOptions metadata_options = 5;</code>
        */
       public Builder clearMetadataOptions() {
-        if (metadataOptionsBuilder_ == null) {
-          metadataOptions_ = null;
-          onChanged();
-        } else {
-          metadataOptions_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        metadataOptions_ = null;
+        if (metadataOptionsBuilder_ != null) {
+          metadataOptionsBuilder_.dispose();
           metadataOptionsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Represents the selected metadata options for a transfer job. This feature
-       * is in Preview.
+       * Represents the selected metadata options for a transfer job.
        * </pre>
        *
        * <code>.google.storagetransfer.v1.MetadataOptions metadata_options = 5;</code>
        */
       public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Builder getMetadataOptionsBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getMetadataOptionsFieldBuilder().getBuilder();
       }
       /**
        * <pre>
-       * Represents the selected metadata options for a transfer job. This feature
-       * is in Preview.
+       * Represents the selected metadata options for a transfer job.
        * </pre>
        *
        * <code>.google.storagetransfer.v1.MetadataOptions metadata_options = 5;</code>
@@ -13475,8 +16360,7 @@ public final class TransferTypes {
       }
       /**
        * <pre>
-       * Represents the selected metadata options for a transfer job. This feature
-       * is in Preview.
+       * Represents the selected metadata options for a transfer job.
        * </pre>
        *
        * <code>.google.storagetransfer.v1.MetadataOptions metadata_options = 5;</code>
@@ -13527,7 +16411,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TransferOptions(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -13739,6 +16634,33 @@ public final class TransferTypes {
      * <code>.google.storagetransfer.v1.AzureBlobStorageData azure_blob_storage_data_source = 8;</code>
      */
     com.google.storagetransfer.v1.proto.TransferTypes.AzureBlobStorageDataOrBuilder getAzureBlobStorageDataSourceOrBuilder();
+
+    /**
+     * <pre>
+     * An AWS S3 compatible data source.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.AwsS3CompatibleData aws_s3_compatible_data_source = 19;</code>
+     * @return Whether the awsS3CompatibleDataSource field is set.
+     */
+    boolean hasAwsS3CompatibleDataSource();
+    /**
+     * <pre>
+     * An AWS S3 compatible data source.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.AwsS3CompatibleData aws_s3_compatible_data_source = 19;</code>
+     * @return The awsS3CompatibleDataSource.
+     */
+    com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData getAwsS3CompatibleDataSource();
+    /**
+     * <pre>
+     * An AWS S3 compatible data source.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.AwsS3CompatibleData aws_s3_compatible_data_source = 19;</code>
+     */
+    com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleDataOrBuilder getAwsS3CompatibleDataSourceOrBuilder();
 
     /**
      * <pre>
@@ -13955,208 +16877,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TransferSpec(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.storagetransfer.v1.proto.TransferTypes.GcsData.Builder subBuilder = null;
-              if (dataSourceCase_ == 1) {
-                subBuilder = ((com.google.storagetransfer.v1.proto.TransferTypes.GcsData) dataSource_).toBuilder();
-              }
-              dataSource_ =
-                  input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.GcsData.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.storagetransfer.v1.proto.TransferTypes.GcsData) dataSource_);
-                dataSource_ = subBuilder.buildPartial();
-              }
-              dataSourceCase_ = 1;
-              break;
-            }
-            case 18: {
-              com.google.storagetransfer.v1.proto.TransferTypes.AwsS3Data.Builder subBuilder = null;
-              if (dataSourceCase_ == 2) {
-                subBuilder = ((com.google.storagetransfer.v1.proto.TransferTypes.AwsS3Data) dataSource_).toBuilder();
-              }
-              dataSource_ =
-                  input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.AwsS3Data.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.storagetransfer.v1.proto.TransferTypes.AwsS3Data) dataSource_);
-                dataSource_ = subBuilder.buildPartial();
-              }
-              dataSourceCase_ = 2;
-              break;
-            }
-            case 26: {
-              com.google.storagetransfer.v1.proto.TransferTypes.HttpData.Builder subBuilder = null;
-              if (dataSourceCase_ == 3) {
-                subBuilder = ((com.google.storagetransfer.v1.proto.TransferTypes.HttpData) dataSource_).toBuilder();
-              }
-              dataSource_ =
-                  input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.HttpData.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.storagetransfer.v1.proto.TransferTypes.HttpData) dataSource_);
-                dataSource_ = subBuilder.buildPartial();
-              }
-              dataSourceCase_ = 3;
-              break;
-            }
-            case 34: {
-              com.google.storagetransfer.v1.proto.TransferTypes.GcsData.Builder subBuilder = null;
-              if (dataSinkCase_ == 4) {
-                subBuilder = ((com.google.storagetransfer.v1.proto.TransferTypes.GcsData) dataSink_).toBuilder();
-              }
-              dataSink_ =
-                  input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.GcsData.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.storagetransfer.v1.proto.TransferTypes.GcsData) dataSink_);
-                dataSink_ = subBuilder.buildPartial();
-              }
-              dataSinkCase_ = 4;
-              break;
-            }
-            case 42: {
-              com.google.storagetransfer.v1.proto.TransferTypes.ObjectConditions.Builder subBuilder = null;
-              if (objectConditions_ != null) {
-                subBuilder = objectConditions_.toBuilder();
-              }
-              objectConditions_ = input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.ObjectConditions.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(objectConditions_);
-                objectConditions_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 50: {
-              com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.Builder subBuilder = null;
-              if (transferOptions_ != null) {
-                subBuilder = transferOptions_.toBuilder();
-              }
-              transferOptions_ = input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(transferOptions_);
-                transferOptions_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 66: {
-              com.google.storagetransfer.v1.proto.TransferTypes.AzureBlobStorageData.Builder subBuilder = null;
-              if (dataSourceCase_ == 8) {
-                subBuilder = ((com.google.storagetransfer.v1.proto.TransferTypes.AzureBlobStorageData) dataSource_).toBuilder();
-              }
-              dataSource_ =
-                  input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.AzureBlobStorageData.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.storagetransfer.v1.proto.TransferTypes.AzureBlobStorageData) dataSource_);
-                dataSource_ = subBuilder.buildPartial();
-              }
-              dataSourceCase_ = 8;
-              break;
-            }
-            case 106: {
-              com.google.storagetransfer.v1.proto.TransferTypes.PosixFilesystem.Builder subBuilder = null;
-              if (dataSinkCase_ == 13) {
-                subBuilder = ((com.google.storagetransfer.v1.proto.TransferTypes.PosixFilesystem) dataSink_).toBuilder();
-              }
-              dataSink_ =
-                  input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.PosixFilesystem.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.storagetransfer.v1.proto.TransferTypes.PosixFilesystem) dataSink_);
-                dataSink_ = subBuilder.buildPartial();
-              }
-              dataSinkCase_ = 13;
-              break;
-            }
-            case 114: {
-              com.google.storagetransfer.v1.proto.TransferTypes.PosixFilesystem.Builder subBuilder = null;
-              if (dataSourceCase_ == 14) {
-                subBuilder = ((com.google.storagetransfer.v1.proto.TransferTypes.PosixFilesystem) dataSource_).toBuilder();
-              }
-              dataSource_ =
-                  input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.PosixFilesystem.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.storagetransfer.v1.proto.TransferTypes.PosixFilesystem) dataSource_);
-                dataSource_ = subBuilder.buildPartial();
-              }
-              dataSourceCase_ = 14;
-              break;
-            }
-            case 122: {
-              com.google.storagetransfer.v1.proto.TransferTypes.TransferManifest.Builder subBuilder = null;
-              if (transferManifest_ != null) {
-                subBuilder = transferManifest_.toBuilder();
-              }
-              transferManifest_ = input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.TransferManifest.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(transferManifest_);
-                transferManifest_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 130: {
-              com.google.storagetransfer.v1.proto.TransferTypes.GcsData.Builder subBuilder = null;
-              if (intermediateDataLocationCase_ == 16) {
-                subBuilder = ((com.google.storagetransfer.v1.proto.TransferTypes.GcsData) intermediateDataLocation_).toBuilder();
-              }
-              intermediateDataLocation_ =
-                  input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.GcsData.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.storagetransfer.v1.proto.TransferTypes.GcsData) intermediateDataLocation_);
-                intermediateDataLocation_ = subBuilder.buildPartial();
-              }
-              intermediateDataLocationCase_ = 16;
-              break;
-            }
-            case 138: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              sourceAgentPoolName_ = s;
-              break;
-            }
-            case 146: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              sinkAgentPoolName_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_TransferSpec_descriptor;
@@ -14221,6 +16941,7 @@ public final class TransferTypes {
       HTTP_DATA_SOURCE(3),
       POSIX_DATA_SOURCE(14),
       AZURE_BLOB_STORAGE_DATA_SOURCE(8),
+      AWS_S3_COMPATIBLE_DATA_SOURCE(19),
       DATASOURCE_NOT_SET(0);
       private final int value;
       private DataSourceCase(int value) {
@@ -14243,6 +16964,7 @@ public final class TransferTypes {
           case 3: return HTTP_DATA_SOURCE;
           case 14: return POSIX_DATA_SOURCE;
           case 8: return AZURE_BLOB_STORAGE_DATA_SOURCE;
+          case 19: return AWS_S3_COMPATIBLE_DATA_SOURCE;
           case 0: return DATASOURCE_NOT_SET;
           default: return null;
         }
@@ -14598,6 +17320,49 @@ public final class TransferTypes {
       return com.google.storagetransfer.v1.proto.TransferTypes.AzureBlobStorageData.getDefaultInstance();
     }
 
+    public static final int AWS_S3_COMPATIBLE_DATA_SOURCE_FIELD_NUMBER = 19;
+    /**
+     * <pre>
+     * An AWS S3 compatible data source.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.AwsS3CompatibleData aws_s3_compatible_data_source = 19;</code>
+     * @return Whether the awsS3CompatibleDataSource field is set.
+     */
+    @java.lang.Override
+    public boolean hasAwsS3CompatibleDataSource() {
+      return dataSourceCase_ == 19;
+    }
+    /**
+     * <pre>
+     * An AWS S3 compatible data source.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.AwsS3CompatibleData aws_s3_compatible_data_source = 19;</code>
+     * @return The awsS3CompatibleDataSource.
+     */
+    @java.lang.Override
+    public com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData getAwsS3CompatibleDataSource() {
+      if (dataSourceCase_ == 19) {
+         return (com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData) dataSource_;
+      }
+      return com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.getDefaultInstance();
+    }
+    /**
+     * <pre>
+     * An AWS S3 compatible data source.
+     * </pre>
+     *
+     * <code>.google.storagetransfer.v1.AwsS3CompatibleData aws_s3_compatible_data_source = 19;</code>
+     */
+    @java.lang.Override
+    public com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleDataOrBuilder getAwsS3CompatibleDataSourceOrBuilder() {
+      if (dataSourceCase_ == 19) {
+         return (com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData) dataSource_;
+      }
+      return com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.getDefaultInstance();
+    }
+
     public static final int GCS_INTERMEDIATE_DATA_LOCATION_FIELD_NUMBER = 16;
     /**
      * <pre>
@@ -14682,7 +17447,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.storagetransfer.v1.proto.TransferTypes.ObjectConditionsOrBuilder getObjectConditionsOrBuilder() {
-      return getObjectConditions();
+      return objectConditions_ == null ? com.google.storagetransfer.v1.proto.TransferTypes.ObjectConditions.getDefaultInstance() : objectConditions_;
     }
 
     public static final int TRANSFER_OPTIONS_FIELD_NUMBER = 6;
@@ -14732,7 +17497,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.storagetransfer.v1.proto.TransferTypes.TransferOptionsOrBuilder getTransferOptionsOrBuilder() {
-      return getTransferOptions();
+      return transferOptions_ == null ? com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.getDefaultInstance() : transferOptions_;
     }
 
     public static final int TRANSFER_MANIFEST_FIELD_NUMBER = 15;
@@ -14776,11 +17541,12 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.storagetransfer.v1.proto.TransferTypes.TransferManifestOrBuilder getTransferManifestOrBuilder() {
-      return getTransferManifest();
+      return transferManifest_ == null ? com.google.storagetransfer.v1.proto.TransferTypes.TransferManifest.getDefaultInstance() : transferManifest_;
     }
 
     public static final int SOURCE_AGENT_POOL_NAME_FIELD_NUMBER = 17;
-    private volatile java.lang.Object sourceAgentPoolName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object sourceAgentPoolName_ = "";
     /**
      * <pre>
      * Specifies the agent pool name associated with the posix data source. When
@@ -14828,7 +17594,8 @@ public final class TransferTypes {
     }
 
     public static final int SINK_AGENT_POOL_NAME_FIELD_NUMBER = 18;
-    private volatile java.lang.Object sinkAgentPoolName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object sinkAgentPoolName_ = "";
     /**
      * <pre>
      * Specifies the agent pool name associated with the posix data sink. When
@@ -14928,7 +17695,10 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sinkAgentPoolName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 18, sinkAgentPoolName_);
       }
-      unknownFields.writeTo(output);
+      if (dataSourceCase_ == 19) {
+        output.writeMessage(19, (com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData) dataSource_);
+      }
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -14987,7 +17757,11 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sinkAgentPoolName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(18, sinkAgentPoolName_);
       }
-      size += unknownFields.getSerializedSize();
+      if (dataSourceCase_ == 19) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(19, (com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData) dataSource_);
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -15056,6 +17830,10 @@ public final class TransferTypes {
           if (!getAzureBlobStorageDataSource()
               .equals(other.getAzureBlobStorageDataSource())) return false;
           break;
+        case 19:
+          if (!getAwsS3CompatibleDataSource()
+              .equals(other.getAwsS3CompatibleDataSource())) return false;
+          break;
         case 0:
         default:
       }
@@ -15068,7 +17846,7 @@ public final class TransferTypes {
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -15128,6 +17906,10 @@ public final class TransferTypes {
           hash = (37 * hash) + AZURE_BLOB_STORAGE_DATA_SOURCE_FIELD_NUMBER;
           hash = (53 * hash) + getAzureBlobStorageDataSource().hashCode();
           break;
+        case 19:
+          hash = (37 * hash) + AWS_S3_COMPATIBLE_DATA_SOURCE_FIELD_NUMBER;
+          hash = (53 * hash) + getAwsS3CompatibleDataSource().hashCode();
+          break;
         case 0:
         default:
       }
@@ -15139,7 +17921,7 @@ public final class TransferTypes {
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -15260,44 +18042,62 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (objectConditionsBuilder_ == null) {
-          objectConditions_ = null;
-        } else {
-          objectConditions_ = null;
+        bitField0_ = 0;
+        if (gcsDataSinkBuilder_ != null) {
+          gcsDataSinkBuilder_.clear();
+        }
+        if (posixDataSinkBuilder_ != null) {
+          posixDataSinkBuilder_.clear();
+        }
+        if (gcsDataSourceBuilder_ != null) {
+          gcsDataSourceBuilder_.clear();
+        }
+        if (awsS3DataSourceBuilder_ != null) {
+          awsS3DataSourceBuilder_.clear();
+        }
+        if (httpDataSourceBuilder_ != null) {
+          httpDataSourceBuilder_.clear();
+        }
+        if (posixDataSourceBuilder_ != null) {
+          posixDataSourceBuilder_.clear();
+        }
+        if (azureBlobStorageDataSourceBuilder_ != null) {
+          azureBlobStorageDataSourceBuilder_.clear();
+        }
+        if (awsS3CompatibleDataSourceBuilder_ != null) {
+          awsS3CompatibleDataSourceBuilder_.clear();
+        }
+        if (gcsIntermediateDataLocationBuilder_ != null) {
+          gcsIntermediateDataLocationBuilder_.clear();
+        }
+        objectConditions_ = null;
+        if (objectConditionsBuilder_ != null) {
+          objectConditionsBuilder_.dispose();
           objectConditionsBuilder_ = null;
         }
-        if (transferOptionsBuilder_ == null) {
-          transferOptions_ = null;
-        } else {
-          transferOptions_ = null;
+        transferOptions_ = null;
+        if (transferOptionsBuilder_ != null) {
+          transferOptionsBuilder_.dispose();
           transferOptionsBuilder_ = null;
         }
-        if (transferManifestBuilder_ == null) {
-          transferManifest_ = null;
-        } else {
-          transferManifest_ = null;
+        transferManifest_ = null;
+        if (transferManifestBuilder_ != null) {
+          transferManifestBuilder_.dispose();
           transferManifestBuilder_ = null;
         }
         sourceAgentPoolName_ = "";
-
         sinkAgentPoolName_ = "";
-
         dataSinkCase_ = 0;
         dataSink_ = null;
         dataSourceCase_ = 0;
@@ -15330,84 +18130,80 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec result = new com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec(this);
-        if (dataSinkCase_ == 4) {
-          if (gcsDataSinkBuilder_ == null) {
-            result.dataSink_ = dataSink_;
-          } else {
-            result.dataSink_ = gcsDataSinkBuilder_.build();
-          }
-        }
-        if (dataSinkCase_ == 13) {
-          if (posixDataSinkBuilder_ == null) {
-            result.dataSink_ = dataSink_;
-          } else {
-            result.dataSink_ = posixDataSinkBuilder_.build();
-          }
-        }
-        if (dataSourceCase_ == 1) {
-          if (gcsDataSourceBuilder_ == null) {
-            result.dataSource_ = dataSource_;
-          } else {
-            result.dataSource_ = gcsDataSourceBuilder_.build();
-          }
-        }
-        if (dataSourceCase_ == 2) {
-          if (awsS3DataSourceBuilder_ == null) {
-            result.dataSource_ = dataSource_;
-          } else {
-            result.dataSource_ = awsS3DataSourceBuilder_.build();
-          }
-        }
-        if (dataSourceCase_ == 3) {
-          if (httpDataSourceBuilder_ == null) {
-            result.dataSource_ = dataSource_;
-          } else {
-            result.dataSource_ = httpDataSourceBuilder_.build();
-          }
-        }
-        if (dataSourceCase_ == 14) {
-          if (posixDataSourceBuilder_ == null) {
-            result.dataSource_ = dataSource_;
-          } else {
-            result.dataSource_ = posixDataSourceBuilder_.build();
-          }
-        }
-        if (dataSourceCase_ == 8) {
-          if (azureBlobStorageDataSourceBuilder_ == null) {
-            result.dataSource_ = dataSource_;
-          } else {
-            result.dataSource_ = azureBlobStorageDataSourceBuilder_.build();
-          }
-        }
-        if (intermediateDataLocationCase_ == 16) {
-          if (gcsIntermediateDataLocationBuilder_ == null) {
-            result.intermediateDataLocation_ = intermediateDataLocation_;
-          } else {
-            result.intermediateDataLocation_ = gcsIntermediateDataLocationBuilder_.build();
-          }
-        }
-        if (objectConditionsBuilder_ == null) {
-          result.objectConditions_ = objectConditions_;
-        } else {
-          result.objectConditions_ = objectConditionsBuilder_.build();
-        }
-        if (transferOptionsBuilder_ == null) {
-          result.transferOptions_ = transferOptions_;
-        } else {
-          result.transferOptions_ = transferOptionsBuilder_.build();
-        }
-        if (transferManifestBuilder_ == null) {
-          result.transferManifest_ = transferManifest_;
-        } else {
-          result.transferManifest_ = transferManifestBuilder_.build();
-        }
-        result.sourceAgentPoolName_ = sourceAgentPoolName_;
-        result.sinkAgentPoolName_ = sinkAgentPoolName_;
-        result.dataSinkCase_ = dataSinkCase_;
-        result.dataSourceCase_ = dataSourceCase_;
-        result.intermediateDataLocationCase_ = intermediateDataLocationCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.objectConditions_ = objectConditionsBuilder_ == null
+              ? objectConditions_
+              : objectConditionsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.transferOptions_ = transferOptionsBuilder_ == null
+              ? transferOptions_
+              : transferOptionsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.transferManifest_ = transferManifestBuilder_ == null
+              ? transferManifest_
+              : transferManifestBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.sourceAgentPoolName_ = sourceAgentPoolName_;
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.sinkAgentPoolName_ = sinkAgentPoolName_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec result) {
+        result.dataSinkCase_ = dataSinkCase_;
+        result.dataSink_ = this.dataSink_;
+        if (dataSinkCase_ == 4 &&
+            gcsDataSinkBuilder_ != null) {
+          result.dataSink_ = gcsDataSinkBuilder_.build();
+        }
+        if (dataSinkCase_ == 13 &&
+            posixDataSinkBuilder_ != null) {
+          result.dataSink_ = posixDataSinkBuilder_.build();
+        }
+        result.dataSourceCase_ = dataSourceCase_;
+        result.dataSource_ = this.dataSource_;
+        if (dataSourceCase_ == 1 &&
+            gcsDataSourceBuilder_ != null) {
+          result.dataSource_ = gcsDataSourceBuilder_.build();
+        }
+        if (dataSourceCase_ == 2 &&
+            awsS3DataSourceBuilder_ != null) {
+          result.dataSource_ = awsS3DataSourceBuilder_.build();
+        }
+        if (dataSourceCase_ == 3 &&
+            httpDataSourceBuilder_ != null) {
+          result.dataSource_ = httpDataSourceBuilder_.build();
+        }
+        if (dataSourceCase_ == 14 &&
+            posixDataSourceBuilder_ != null) {
+          result.dataSource_ = posixDataSourceBuilder_.build();
+        }
+        if (dataSourceCase_ == 8 &&
+            azureBlobStorageDataSourceBuilder_ != null) {
+          result.dataSource_ = azureBlobStorageDataSourceBuilder_.build();
+        }
+        if (dataSourceCase_ == 19 &&
+            awsS3CompatibleDataSourceBuilder_ != null) {
+          result.dataSource_ = awsS3CompatibleDataSourceBuilder_.build();
+        }
+        result.intermediateDataLocationCase_ = intermediateDataLocationCase_;
+        result.intermediateDataLocation_ = this.intermediateDataLocation_;
+        if (intermediateDataLocationCase_ == 16 &&
+            gcsIntermediateDataLocationBuilder_ != null) {
+          result.intermediateDataLocation_ = gcsIntermediateDataLocationBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -15465,10 +18261,12 @@ public final class TransferTypes {
         }
         if (!other.getSourceAgentPoolName().isEmpty()) {
           sourceAgentPoolName_ = other.sourceAgentPoolName_;
+          bitField0_ |= 0x00001000;
           onChanged();
         }
         if (!other.getSinkAgentPoolName().isEmpty()) {
           sinkAgentPoolName_ = other.sinkAgentPoolName_;
+          bitField0_ |= 0x00002000;
           onChanged();
         }
         switch (other.getDataSinkCase()) {
@@ -15505,6 +18303,10 @@ public final class TransferTypes {
             mergeAzureBlobStorageDataSource(other.getAzureBlobStorageDataSource());
             break;
           }
+          case AWS_S3_COMPATIBLE_DATA_SOURCE: {
+            mergeAwsS3CompatibleDataSource(other.getAwsS3CompatibleDataSource());
+            break;
+          }
           case DATASOURCE_NOT_SET: {
             break;
           }
@@ -15518,7 +18320,7 @@ public final class TransferTypes {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -15533,17 +18335,124 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getGcsDataSourceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataSourceCase_ = 1;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getAwsS3DataSourceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataSourceCase_ = 2;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getHttpDataSourceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataSourceCase_ = 3;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getGcsDataSinkFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataSinkCase_ = 4;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getObjectConditionsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 42
+              case 50: {
+                input.readMessage(
+                    getTransferOptionsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 50
+              case 66: {
+                input.readMessage(
+                    getAzureBlobStorageDataSourceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataSourceCase_ = 8;
+                break;
+              } // case 66
+              case 106: {
+                input.readMessage(
+                    getPosixDataSinkFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataSinkCase_ = 13;
+                break;
+              } // case 106
+              case 114: {
+                input.readMessage(
+                    getPosixDataSourceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataSourceCase_ = 14;
+                break;
+              } // case 114
+              case 122: {
+                input.readMessage(
+                    getTransferManifestFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 122
+              case 130: {
+                input.readMessage(
+                    getGcsIntermediateDataLocationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                intermediateDataLocationCase_ = 16;
+                break;
+              } // case 130
+              case 138: {
+                sourceAgentPoolName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00001000;
+                break;
+              } // case 138
+              case 146: {
+                sinkAgentPoolName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00002000;
+                break;
+              } // case 146
+              case 154: {
+                input.readMessage(
+                    getAwsS3CompatibleDataSourceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataSourceCase_ = 19;
+                break;
+              } // case 154
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int dataSinkCase_ = 0;
@@ -15591,6 +18500,7 @@ public final class TransferTypes {
         return this;
       }
 
+      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.storagetransfer.v1.proto.TransferTypes.GcsData, com.google.storagetransfer.v1.proto.TransferTypes.GcsData.Builder, com.google.storagetransfer.v1.proto.TransferTypes.GcsDataOrBuilder> gcsDataSinkBuilder_;
@@ -15766,7 +18676,7 @@ public final class TransferTypes {
           dataSink_ = null;
         }
         dataSinkCase_ = 4;
-        onChanged();;
+        onChanged();
         return gcsDataSinkBuilder_;
       }
 
@@ -15944,7 +18854,7 @@ public final class TransferTypes {
           dataSink_ = null;
         }
         dataSinkCase_ = 13;
-        onChanged();;
+        onChanged();
         return posixDataSinkBuilder_;
       }
 
@@ -16122,7 +19032,7 @@ public final class TransferTypes {
           dataSource_ = null;
         }
         dataSourceCase_ = 1;
-        onChanged();;
+        onChanged();
         return gcsDataSourceBuilder_;
       }
 
@@ -16300,7 +19210,7 @@ public final class TransferTypes {
           dataSource_ = null;
         }
         dataSourceCase_ = 2;
-        onChanged();;
+        onChanged();
         return awsS3DataSourceBuilder_;
       }
 
@@ -16478,7 +19388,7 @@ public final class TransferTypes {
           dataSource_ = null;
         }
         dataSourceCase_ = 3;
-        onChanged();;
+        onChanged();
         return httpDataSourceBuilder_;
       }
 
@@ -16656,7 +19566,7 @@ public final class TransferTypes {
           dataSource_ = null;
         }
         dataSourceCase_ = 14;
-        onChanged();;
+        onChanged();
         return posixDataSourceBuilder_;
       }
 
@@ -16834,8 +19744,186 @@ public final class TransferTypes {
           dataSource_ = null;
         }
         dataSourceCase_ = 8;
-        onChanged();;
+        onChanged();
         return azureBlobStorageDataSourceBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData, com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.Builder, com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleDataOrBuilder> awsS3CompatibleDataSourceBuilder_;
+      /**
+       * <pre>
+       * An AWS S3 compatible data source.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.AwsS3CompatibleData aws_s3_compatible_data_source = 19;</code>
+       * @return Whether the awsS3CompatibleDataSource field is set.
+       */
+      @java.lang.Override
+      public boolean hasAwsS3CompatibleDataSource() {
+        return dataSourceCase_ == 19;
+      }
+      /**
+       * <pre>
+       * An AWS S3 compatible data source.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.AwsS3CompatibleData aws_s3_compatible_data_source = 19;</code>
+       * @return The awsS3CompatibleDataSource.
+       */
+      @java.lang.Override
+      public com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData getAwsS3CompatibleDataSource() {
+        if (awsS3CompatibleDataSourceBuilder_ == null) {
+          if (dataSourceCase_ == 19) {
+            return (com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData) dataSource_;
+          }
+          return com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.getDefaultInstance();
+        } else {
+          if (dataSourceCase_ == 19) {
+            return awsS3CompatibleDataSourceBuilder_.getMessage();
+          }
+          return com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * An AWS S3 compatible data source.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.AwsS3CompatibleData aws_s3_compatible_data_source = 19;</code>
+       */
+      public Builder setAwsS3CompatibleDataSource(com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData value) {
+        if (awsS3CompatibleDataSourceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          dataSource_ = value;
+          onChanged();
+        } else {
+          awsS3CompatibleDataSourceBuilder_.setMessage(value);
+        }
+        dataSourceCase_ = 19;
+        return this;
+      }
+      /**
+       * <pre>
+       * An AWS S3 compatible data source.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.AwsS3CompatibleData aws_s3_compatible_data_source = 19;</code>
+       */
+      public Builder setAwsS3CompatibleDataSource(
+          com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.Builder builderForValue) {
+        if (awsS3CompatibleDataSourceBuilder_ == null) {
+          dataSource_ = builderForValue.build();
+          onChanged();
+        } else {
+          awsS3CompatibleDataSourceBuilder_.setMessage(builderForValue.build());
+        }
+        dataSourceCase_ = 19;
+        return this;
+      }
+      /**
+       * <pre>
+       * An AWS S3 compatible data source.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.AwsS3CompatibleData aws_s3_compatible_data_source = 19;</code>
+       */
+      public Builder mergeAwsS3CompatibleDataSource(com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData value) {
+        if (awsS3CompatibleDataSourceBuilder_ == null) {
+          if (dataSourceCase_ == 19 &&
+              dataSource_ != com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.getDefaultInstance()) {
+            dataSource_ = com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.newBuilder((com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData) dataSource_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            dataSource_ = value;
+          }
+          onChanged();
+        } else {
+          if (dataSourceCase_ == 19) {
+            awsS3CompatibleDataSourceBuilder_.mergeFrom(value);
+          } else {
+            awsS3CompatibleDataSourceBuilder_.setMessage(value);
+          }
+        }
+        dataSourceCase_ = 19;
+        return this;
+      }
+      /**
+       * <pre>
+       * An AWS S3 compatible data source.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.AwsS3CompatibleData aws_s3_compatible_data_source = 19;</code>
+       */
+      public Builder clearAwsS3CompatibleDataSource() {
+        if (awsS3CompatibleDataSourceBuilder_ == null) {
+          if (dataSourceCase_ == 19) {
+            dataSourceCase_ = 0;
+            dataSource_ = null;
+            onChanged();
+          }
+        } else {
+          if (dataSourceCase_ == 19) {
+            dataSourceCase_ = 0;
+            dataSource_ = null;
+          }
+          awsS3CompatibleDataSourceBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * An AWS S3 compatible data source.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.AwsS3CompatibleData aws_s3_compatible_data_source = 19;</code>
+       */
+      public com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.Builder getAwsS3CompatibleDataSourceBuilder() {
+        return getAwsS3CompatibleDataSourceFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * An AWS S3 compatible data source.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.AwsS3CompatibleData aws_s3_compatible_data_source = 19;</code>
+       */
+      @java.lang.Override
+      public com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleDataOrBuilder getAwsS3CompatibleDataSourceOrBuilder() {
+        if ((dataSourceCase_ == 19) && (awsS3CompatibleDataSourceBuilder_ != null)) {
+          return awsS3CompatibleDataSourceBuilder_.getMessageOrBuilder();
+        } else {
+          if (dataSourceCase_ == 19) {
+            return (com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData) dataSource_;
+          }
+          return com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * An AWS S3 compatible data source.
+       * </pre>
+       *
+       * <code>.google.storagetransfer.v1.AwsS3CompatibleData aws_s3_compatible_data_source = 19;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData, com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.Builder, com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleDataOrBuilder> 
+          getAwsS3CompatibleDataSourceFieldBuilder() {
+        if (awsS3CompatibleDataSourceBuilder_ == null) {
+          if (!(dataSourceCase_ == 19)) {
+            dataSource_ = com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.getDefaultInstance();
+          }
+          awsS3CompatibleDataSourceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData, com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.Builder, com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleDataOrBuilder>(
+                  (com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData) dataSource_,
+                  getParentForChildren(),
+                  isClean());
+          dataSource_ = null;
+        }
+        dataSourceCase_ = 19;
+        onChanged();
+        return awsS3CompatibleDataSourceBuilder_;
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -17012,7 +20100,7 @@ public final class TransferTypes {
           intermediateDataLocation_ = null;
         }
         intermediateDataLocationCase_ = 16;
-        onChanged();;
+        onChanged();
         return gcsIntermediateDataLocationBuilder_;
       }
 
@@ -17030,7 +20118,7 @@ public final class TransferTypes {
        * @return Whether the objectConditions field is set.
        */
       public boolean hasObjectConditions() {
-        return objectConditionsBuilder_ != null || objectConditions_ != null;
+        return ((bitField0_ & 0x00000200) != 0);
       }
       /**
        * <pre>
@@ -17064,11 +20152,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           objectConditions_ = value;
-          onChanged();
         } else {
           objectConditionsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -17084,11 +20172,11 @@ public final class TransferTypes {
           com.google.storagetransfer.v1.proto.TransferTypes.ObjectConditions.Builder builderForValue) {
         if (objectConditionsBuilder_ == null) {
           objectConditions_ = builderForValue.build();
-          onChanged();
         } else {
           objectConditionsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -17102,17 +20190,18 @@ public final class TransferTypes {
        */
       public Builder mergeObjectConditions(com.google.storagetransfer.v1.proto.TransferTypes.ObjectConditions value) {
         if (objectConditionsBuilder_ == null) {
-          if (objectConditions_ != null) {
-            objectConditions_ =
-              com.google.storagetransfer.v1.proto.TransferTypes.ObjectConditions.newBuilder(objectConditions_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000200) != 0) &&
+            objectConditions_ != null &&
+            objectConditions_ != com.google.storagetransfer.v1.proto.TransferTypes.ObjectConditions.getDefaultInstance()) {
+            getObjectConditionsBuilder().mergeFrom(value);
           } else {
             objectConditions_ = value;
           }
-          onChanged();
         } else {
           objectConditionsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -17125,14 +20214,13 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.ObjectConditions object_conditions = 5;</code>
        */
       public Builder clearObjectConditions() {
-        if (objectConditionsBuilder_ == null) {
-          objectConditions_ = null;
-          onChanged();
-        } else {
-          objectConditions_ = null;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        objectConditions_ = null;
+        if (objectConditionsBuilder_ != null) {
+          objectConditionsBuilder_.dispose();
           objectConditionsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -17145,7 +20233,7 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.ObjectConditions object_conditions = 5;</code>
        */
       public com.google.storagetransfer.v1.proto.TransferTypes.ObjectConditions.Builder getObjectConditionsBuilder() {
-        
+        bitField0_ |= 0x00000200;
         onChanged();
         return getObjectConditionsFieldBuilder().getBuilder();
       }
@@ -17205,7 +20293,7 @@ public final class TransferTypes {
        * @return Whether the transferOptions field is set.
        */
       public boolean hasTransferOptions() {
-        return transferOptionsBuilder_ != null || transferOptions_ != null;
+        return ((bitField0_ & 0x00000400) != 0);
       }
       /**
        * <pre>
@@ -17243,11 +20331,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           transferOptions_ = value;
-          onChanged();
         } else {
           transferOptionsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000400;
+        onChanged();
         return this;
       }
       /**
@@ -17265,11 +20353,11 @@ public final class TransferTypes {
           com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.Builder builderForValue) {
         if (transferOptionsBuilder_ == null) {
           transferOptions_ = builderForValue.build();
-          onChanged();
         } else {
           transferOptionsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000400;
+        onChanged();
         return this;
       }
       /**
@@ -17285,17 +20373,18 @@ public final class TransferTypes {
        */
       public Builder mergeTransferOptions(com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions value) {
         if (transferOptionsBuilder_ == null) {
-          if (transferOptions_ != null) {
-            transferOptions_ =
-              com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.newBuilder(transferOptions_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000400) != 0) &&
+            transferOptions_ != null &&
+            transferOptions_ != com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.getDefaultInstance()) {
+            getTransferOptionsBuilder().mergeFrom(value);
           } else {
             transferOptions_ = value;
           }
-          onChanged();
         } else {
           transferOptionsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000400;
+        onChanged();
         return this;
       }
       /**
@@ -17310,14 +20399,13 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.TransferOptions transfer_options = 6;</code>
        */
       public Builder clearTransferOptions() {
-        if (transferOptionsBuilder_ == null) {
-          transferOptions_ = null;
-          onChanged();
-        } else {
-          transferOptions_ = null;
+        bitField0_ = (bitField0_ & ~0x00000400);
+        transferOptions_ = null;
+        if (transferOptionsBuilder_ != null) {
+          transferOptionsBuilder_.dispose();
           transferOptionsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -17332,7 +20420,7 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.TransferOptions transfer_options = 6;</code>
        */
       public com.google.storagetransfer.v1.proto.TransferTypes.TransferOptions.Builder getTransferOptionsBuilder() {
-        
+        bitField0_ |= 0x00000400;
         onChanged();
         return getTransferOptionsFieldBuilder().getBuilder();
       }
@@ -17394,7 +20482,7 @@ public final class TransferTypes {
        * @return Whether the transferManifest field is set.
        */
       public boolean hasTransferManifest() {
-        return transferManifestBuilder_ != null || transferManifest_ != null;
+        return ((bitField0_ & 0x00000800) != 0);
       }
       /**
        * <pre>
@@ -17428,11 +20516,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           transferManifest_ = value;
-          onChanged();
         } else {
           transferManifestBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000800;
+        onChanged();
         return this;
       }
       /**
@@ -17448,11 +20536,11 @@ public final class TransferTypes {
           com.google.storagetransfer.v1.proto.TransferTypes.TransferManifest.Builder builderForValue) {
         if (transferManifestBuilder_ == null) {
           transferManifest_ = builderForValue.build();
-          onChanged();
         } else {
           transferManifestBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000800;
+        onChanged();
         return this;
       }
       /**
@@ -17466,17 +20554,18 @@ public final class TransferTypes {
        */
       public Builder mergeTransferManifest(com.google.storagetransfer.v1.proto.TransferTypes.TransferManifest value) {
         if (transferManifestBuilder_ == null) {
-          if (transferManifest_ != null) {
-            transferManifest_ =
-              com.google.storagetransfer.v1.proto.TransferTypes.TransferManifest.newBuilder(transferManifest_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000800) != 0) &&
+            transferManifest_ != null &&
+            transferManifest_ != com.google.storagetransfer.v1.proto.TransferTypes.TransferManifest.getDefaultInstance()) {
+            getTransferManifestBuilder().mergeFrom(value);
           } else {
             transferManifest_ = value;
           }
-          onChanged();
         } else {
           transferManifestBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000800;
+        onChanged();
         return this;
       }
       /**
@@ -17489,14 +20578,13 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.TransferManifest transfer_manifest = 15;</code>
        */
       public Builder clearTransferManifest() {
-        if (transferManifestBuilder_ == null) {
-          transferManifest_ = null;
-          onChanged();
-        } else {
-          transferManifest_ = null;
+        bitField0_ = (bitField0_ & ~0x00000800);
+        transferManifest_ = null;
+        if (transferManifestBuilder_ != null) {
+          transferManifestBuilder_.dispose();
           transferManifestBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -17509,7 +20597,7 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.TransferManifest transfer_manifest = 15;</code>
        */
       public com.google.storagetransfer.v1.proto.TransferTypes.TransferManifest.Builder getTransferManifestBuilder() {
-        
+        bitField0_ |= 0x00000800;
         onChanged();
         return getTransferManifestFieldBuilder().getBuilder();
       }
@@ -17609,11 +20697,9 @@ public final class TransferTypes {
        */
       public Builder setSourceAgentPoolName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         sourceAgentPoolName_ = value;
+        bitField0_ |= 0x00001000;
         onChanged();
         return this;
       }
@@ -17627,8 +20713,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearSourceAgentPoolName() {
-        
         sourceAgentPoolName_ = getDefaultInstance().getSourceAgentPoolName();
+        bitField0_ = (bitField0_ & ~0x00001000);
         onChanged();
         return this;
       }
@@ -17644,12 +20730,10 @@ public final class TransferTypes {
        */
       public Builder setSourceAgentPoolNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         sourceAgentPoolName_ = value;
+        bitField0_ |= 0x00001000;
         onChanged();
         return this;
       }
@@ -17710,11 +20794,9 @@ public final class TransferTypes {
        */
       public Builder setSinkAgentPoolName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         sinkAgentPoolName_ = value;
+        bitField0_ |= 0x00002000;
         onChanged();
         return this;
       }
@@ -17728,8 +20810,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearSinkAgentPoolName() {
-        
         sinkAgentPoolName_ = getDefaultInstance().getSinkAgentPoolName();
+        bitField0_ = (bitField0_ & ~0x00002000);
         onChanged();
         return this;
       }
@@ -17745,12 +20827,10 @@ public final class TransferTypes {
        */
       public Builder setSinkAgentPoolNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         sinkAgentPoolName_ = value;
+        bitField0_ |= 0x00002000;
         onChanged();
         return this;
       }
@@ -17787,7 +20867,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TransferSpec(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -18063,99 +21154,6 @@ public final class TransferTypes {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private MetadataOptions(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              symlink_ = rawValue;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              mode_ = rawValue;
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              gid_ = rawValue;
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              uid_ = rawValue;
-              break;
-            }
-            case 40: {
-              int rawValue = input.readEnum();
-
-              acl_ = rawValue;
-              break;
-            }
-            case 48: {
-              int rawValue = input.readEnum();
-
-              storageClass_ = rawValue;
-              break;
-            }
-            case 56: {
-              int rawValue = input.readEnum();
-
-              temporaryHold_ = rawValue;
-              break;
-            }
-            case 64: {
-              int rawValue = input.readEnum();
-
-              kmsKey_ = rawValue;
-              break;
-            }
-            case 72: {
-              int rawValue = input.readEnum();
-
-              timeCreated_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -19565,7 +22563,7 @@ public final class TransferTypes {
     }
 
     public static final int SYMLINK_FIELD_NUMBER = 1;
-    private int symlink_;
+    private int symlink_ = 0;
     /**
      * <pre>
      * Specifies how symlinks should be handled by the transfer. By default,
@@ -19590,13 +22588,12 @@ public final class TransferTypes {
      * @return The symlink.
      */
     @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Symlink getSymlink() {
-      @SuppressWarnings("deprecation")
-      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Symlink result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Symlink.valueOf(symlink_);
+      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Symlink result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Symlink.forNumber(symlink_);
       return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Symlink.UNRECOGNIZED : result;
     }
 
     public static final int MODE_FIELD_NUMBER = 2;
-    private int mode_;
+    private int mode_ = 0;
     /**
      * <pre>
      * Specifies how each file's mode attribute should be handled by the transfer.
@@ -19621,13 +22618,12 @@ public final class TransferTypes {
      * @return The mode.
      */
     @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Mode getMode() {
-      @SuppressWarnings("deprecation")
-      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Mode result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Mode.valueOf(mode_);
+      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Mode result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Mode.forNumber(mode_);
       return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Mode.UNRECOGNIZED : result;
     }
 
     public static final int GID_FIELD_NUMBER = 3;
-    private int gid_;
+    private int gid_ = 0;
     /**
      * <pre>
      * Specifies how each file's POSIX group ID (GID) attribute should be handled
@@ -19652,13 +22648,12 @@ public final class TransferTypes {
      * @return The gid.
      */
     @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.GID getGid() {
-      @SuppressWarnings("deprecation")
-      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.GID result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.GID.valueOf(gid_);
+      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.GID result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.GID.forNumber(gid_);
       return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.GID.UNRECOGNIZED : result;
     }
 
     public static final int UID_FIELD_NUMBER = 4;
-    private int uid_;
+    private int uid_ = 0;
     /**
      * <pre>
      * Specifies how each file's POSIX user ID (UID) attribute should be handled
@@ -19683,13 +22678,12 @@ public final class TransferTypes {
      * @return The uid.
      */
     @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.UID getUid() {
-      @SuppressWarnings("deprecation")
-      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.UID result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.UID.valueOf(uid_);
+      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.UID result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.UID.forNumber(uid_);
       return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.UID.UNRECOGNIZED : result;
     }
 
     public static final int ACL_FIELD_NUMBER = 5;
-    private int acl_;
+    private int acl_ = 0;
     /**
      * <pre>
      * Specifies how each object's ACLs should be preserved for transfers between
@@ -19714,13 +22708,12 @@ public final class TransferTypes {
      * @return The acl.
      */
     @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Acl getAcl() {
-      @SuppressWarnings("deprecation")
-      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Acl result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Acl.valueOf(acl_);
+      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Acl result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Acl.forNumber(acl_);
       return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Acl.UNRECOGNIZED : result;
     }
 
     public static final int STORAGE_CLASS_FIELD_NUMBER = 6;
-    private int storageClass_;
+    private int storageClass_ = 0;
     /**
      * <pre>
      * Specifies the storage class to set on objects being transferred to Google
@@ -19745,13 +22738,12 @@ public final class TransferTypes {
      * @return The storageClass.
      */
     @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.StorageClass getStorageClass() {
-      @SuppressWarnings("deprecation")
-      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.StorageClass result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.StorageClass.valueOf(storageClass_);
+      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.StorageClass result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.StorageClass.forNumber(storageClass_);
       return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.StorageClass.UNRECOGNIZED : result;
     }
 
     public static final int TEMPORARY_HOLD_FIELD_NUMBER = 7;
-    private int temporaryHold_;
+    private int temporaryHold_ = 0;
     /**
      * <pre>
      * Specifies how each object's temporary hold status should be preserved for
@@ -19778,13 +22770,12 @@ public final class TransferTypes {
      * @return The temporaryHold.
      */
     @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TemporaryHold getTemporaryHold() {
-      @SuppressWarnings("deprecation")
-      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TemporaryHold result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TemporaryHold.valueOf(temporaryHold_);
+      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TemporaryHold result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TemporaryHold.forNumber(temporaryHold_);
       return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TemporaryHold.UNRECOGNIZED : result;
     }
 
     public static final int KMS_KEY_FIELD_NUMBER = 8;
-    private int kmsKey_;
+    private int kmsKey_ = 0;
     /**
      * <pre>
      * Specifies how each object's Cloud KMS customer-managed encryption key
@@ -19811,13 +22802,12 @@ public final class TransferTypes {
      * @return The kmsKey.
      */
     @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.KmsKey getKmsKey() {
-      @SuppressWarnings("deprecation")
-      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.KmsKey result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.KmsKey.valueOf(kmsKey_);
+      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.KmsKey result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.KmsKey.forNumber(kmsKey_);
       return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.KmsKey.UNRECOGNIZED : result;
     }
 
     public static final int TIME_CREATED_FIELD_NUMBER = 9;
-    private int timeCreated_;
+    private int timeCreated_ = 0;
     /**
      * <pre>
      * Specifies how each object's `timeCreated` metadata is preserved for
@@ -19844,8 +22834,7 @@ public final class TransferTypes {
      * @return The timeCreated.
      */
     @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TimeCreated getTimeCreated() {
-      @SuppressWarnings("deprecation")
-      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TimeCreated result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TimeCreated.valueOf(timeCreated_);
+      com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TimeCreated result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TimeCreated.forNumber(timeCreated_);
       return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TimeCreated.UNRECOGNIZED : result;
     }
 
@@ -19890,7 +22879,7 @@ public final class TransferTypes {
       if (timeCreated_ != com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TimeCreated.TIME_CREATED_UNSPECIFIED.getNumber()) {
         output.writeEnum(9, timeCreated_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -19935,7 +22924,7 @@ public final class TransferTypes {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(9, timeCreated_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -19959,7 +22948,7 @@ public final class TransferTypes {
       if (temporaryHold_ != other.temporaryHold_) return false;
       if (kmsKey_ != other.kmsKey_) return false;
       if (timeCreated_ != other.timeCreated_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -19988,7 +22977,7 @@ public final class TransferTypes {
       hash = (53 * hash) + kmsKey_;
       hash = (37 * hash) + TIME_CREATED_FIELD_NUMBER;
       hash = (53 * hash) + timeCreated_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -20109,40 +23098,27 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         symlink_ = 0;
-
         mode_ = 0;
-
         gid_ = 0;
-
         uid_ = 0;
-
         acl_ = 0;
-
         storageClass_ = 0;
-
         temporaryHold_ = 0;
-
         kmsKey_ = 0;
-
         timeCreated_ = 0;
-
         return this;
       }
 
@@ -20169,17 +23145,40 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions result = new com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions(this);
-        result.symlink_ = symlink_;
-        result.mode_ = mode_;
-        result.gid_ = gid_;
-        result.uid_ = uid_;
-        result.acl_ = acl_;
-        result.storageClass_ = storageClass_;
-        result.temporaryHold_ = temporaryHold_;
-        result.kmsKey_ = kmsKey_;
-        result.timeCreated_ = timeCreated_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.symlink_ = symlink_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.mode_ = mode_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.gid_ = gid_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.uid_ = uid_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.acl_ = acl_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.storageClass_ = storageClass_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.temporaryHold_ = temporaryHold_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.kmsKey_ = kmsKey_;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.timeCreated_ = timeCreated_;
+        }
       }
 
       @java.lang.Override
@@ -20253,7 +23252,7 @@ public final class TransferTypes {
         if (other.timeCreated_ != 0) {
           setTimeCreatedValue(other.getTimeCreatedValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -20268,19 +23267,78 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                symlink_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                mode_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                gid_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                uid_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 40: {
+                acl_ = input.readEnum();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 48: {
+                storageClass_ = input.readEnum();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
+              case 56: {
+                temporaryHold_ = input.readEnum();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              case 64: {
+                kmsKey_ = input.readEnum();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 64
+              case 72: {
+                timeCreated_ = input.readEnum();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 72
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int symlink_ = 0;
       /**
@@ -20308,8 +23366,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder setSymlinkValue(int value) {
-        
         symlink_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -20325,8 +23383,7 @@ public final class TransferTypes {
        */
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Symlink getSymlink() {
-        @SuppressWarnings("deprecation")
-        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Symlink result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Symlink.valueOf(symlink_);
+        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Symlink result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Symlink.forNumber(symlink_);
         return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Symlink.UNRECOGNIZED : result;
       }
       /**
@@ -20344,7 +23401,7 @@ public final class TransferTypes {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         symlink_ = value.getNumber();
         onChanged();
         return this;
@@ -20360,7 +23417,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearSymlink() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         symlink_ = 0;
         onChanged();
         return this;
@@ -20392,8 +23449,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder setModeValue(int value) {
-        
         mode_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -20409,8 +23466,7 @@ public final class TransferTypes {
        */
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Mode getMode() {
-        @SuppressWarnings("deprecation")
-        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Mode result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Mode.valueOf(mode_);
+        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Mode result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Mode.forNumber(mode_);
         return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Mode.UNRECOGNIZED : result;
       }
       /**
@@ -20428,7 +23484,7 @@ public final class TransferTypes {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         mode_ = value.getNumber();
         onChanged();
         return this;
@@ -20444,7 +23500,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearMode() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         mode_ = 0;
         onChanged();
         return this;
@@ -20476,8 +23532,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder setGidValue(int value) {
-        
         gid_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -20493,8 +23549,7 @@ public final class TransferTypes {
        */
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.GID getGid() {
-        @SuppressWarnings("deprecation")
-        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.GID result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.GID.valueOf(gid_);
+        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.GID result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.GID.forNumber(gid_);
         return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.GID.UNRECOGNIZED : result;
       }
       /**
@@ -20512,7 +23567,7 @@ public final class TransferTypes {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         gid_ = value.getNumber();
         onChanged();
         return this;
@@ -20528,7 +23583,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearGid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         gid_ = 0;
         onChanged();
         return this;
@@ -20560,8 +23615,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder setUidValue(int value) {
-        
         uid_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -20577,8 +23632,7 @@ public final class TransferTypes {
        */
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.UID getUid() {
-        @SuppressWarnings("deprecation")
-        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.UID result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.UID.valueOf(uid_);
+        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.UID result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.UID.forNumber(uid_);
         return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.UID.UNRECOGNIZED : result;
       }
       /**
@@ -20596,7 +23650,7 @@ public final class TransferTypes {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000008;
         uid_ = value.getNumber();
         onChanged();
         return this;
@@ -20612,7 +23666,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearUid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         uid_ = 0;
         onChanged();
         return this;
@@ -20644,8 +23698,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder setAclValue(int value) {
-        
         acl_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -20661,8 +23715,7 @@ public final class TransferTypes {
        */
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Acl getAcl() {
-        @SuppressWarnings("deprecation")
-        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Acl result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Acl.valueOf(acl_);
+        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Acl result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Acl.forNumber(acl_);
         return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.Acl.UNRECOGNIZED : result;
       }
       /**
@@ -20680,7 +23733,7 @@ public final class TransferTypes {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000010;
         acl_ = value.getNumber();
         onChanged();
         return this;
@@ -20696,7 +23749,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearAcl() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         acl_ = 0;
         onChanged();
         return this;
@@ -20728,8 +23781,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder setStorageClassValue(int value) {
-        
         storageClass_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -20745,8 +23798,7 @@ public final class TransferTypes {
        */
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.StorageClass getStorageClass() {
-        @SuppressWarnings("deprecation")
-        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.StorageClass result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.StorageClass.valueOf(storageClass_);
+        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.StorageClass result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.StorageClass.forNumber(storageClass_);
         return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.StorageClass.UNRECOGNIZED : result;
       }
       /**
@@ -20764,7 +23816,7 @@ public final class TransferTypes {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000020;
         storageClass_ = value.getNumber();
         onChanged();
         return this;
@@ -20780,7 +23832,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearStorageClass() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         storageClass_ = 0;
         onChanged();
         return this;
@@ -20814,8 +23866,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder setTemporaryHoldValue(int value) {
-        
         temporaryHold_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -20832,8 +23884,7 @@ public final class TransferTypes {
        */
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TemporaryHold getTemporaryHold() {
-        @SuppressWarnings("deprecation")
-        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TemporaryHold result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TemporaryHold.valueOf(temporaryHold_);
+        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TemporaryHold result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TemporaryHold.forNumber(temporaryHold_);
         return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TemporaryHold.UNRECOGNIZED : result;
       }
       /**
@@ -20852,7 +23903,7 @@ public final class TransferTypes {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000040;
         temporaryHold_ = value.getNumber();
         onChanged();
         return this;
@@ -20869,7 +23920,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearTemporaryHold() {
-        
+        bitField0_ = (bitField0_ & ~0x00000040);
         temporaryHold_ = 0;
         onChanged();
         return this;
@@ -20903,8 +23954,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder setKmsKeyValue(int value) {
-        
         kmsKey_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -20921,8 +23972,7 @@ public final class TransferTypes {
        */
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.KmsKey getKmsKey() {
-        @SuppressWarnings("deprecation")
-        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.KmsKey result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.KmsKey.valueOf(kmsKey_);
+        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.KmsKey result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.KmsKey.forNumber(kmsKey_);
         return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.KmsKey.UNRECOGNIZED : result;
       }
       /**
@@ -20941,7 +23991,7 @@ public final class TransferTypes {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000080;
         kmsKey_ = value.getNumber();
         onChanged();
         return this;
@@ -20958,7 +24008,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearKmsKey() {
-        
+        bitField0_ = (bitField0_ & ~0x00000080);
         kmsKey_ = 0;
         onChanged();
         return this;
@@ -20992,8 +24042,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder setTimeCreatedValue(int value) {
-        
         timeCreated_ = value;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -21010,8 +24060,7 @@ public final class TransferTypes {
        */
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TimeCreated getTimeCreated() {
-        @SuppressWarnings("deprecation")
-        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TimeCreated result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TimeCreated.valueOf(timeCreated_);
+        com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TimeCreated result = com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TimeCreated.forNumber(timeCreated_);
         return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.MetadataOptions.TimeCreated.UNRECOGNIZED : result;
       }
       /**
@@ -21030,7 +24079,7 @@ public final class TransferTypes {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000100;
         timeCreated_ = value.getNumber();
         onChanged();
         return this;
@@ -21047,7 +24096,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearTimeCreated() {
-        
+        bitField0_ = (bitField0_ & ~0x00000100);
         timeCreated_ = 0;
         onChanged();
         return this;
@@ -21085,7 +24134,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MetadataOptions(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -21167,51 +24227,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TransferManifest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              location_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_TransferManifest_descriptor;
@@ -21226,7 +24241,8 @@ public final class TransferTypes {
     }
 
     public static final int LOCATION_FIELD_NUMBER = 1;
-    private volatile java.lang.Object location_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object location_ = "";
     /**
      * <pre>
      * Specifies the path to the manifest in Cloud Storage. The Google-managed
@@ -21294,7 +24310,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(location_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, location_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -21306,7 +24322,7 @@ public final class TransferTypes {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(location_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, location_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -21323,7 +24339,7 @@ public final class TransferTypes {
 
       if (!getLocation()
           .equals(other.getLocation())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -21336,7 +24352,7 @@ public final class TransferTypes {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + LOCATION_FIELD_NUMBER;
       hash = (53 * hash) + getLocation().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -21457,24 +24473,19 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.TransferManifest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         location_ = "";
-
         return this;
       }
 
@@ -21501,9 +24512,16 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.TransferManifest buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.TransferManifest result = new com.google.storagetransfer.v1.proto.TransferTypes.TransferManifest(this);
-        result.location_ = location_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.TransferManifest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.location_ = location_;
+        }
       }
 
       @java.lang.Override
@@ -21552,9 +24570,10 @@ public final class TransferTypes {
         if (other == com.google.storagetransfer.v1.proto.TransferTypes.TransferManifest.getDefaultInstance()) return this;
         if (!other.getLocation().isEmpty()) {
           location_ = other.location_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -21569,19 +24588,38 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.TransferManifest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                location_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.TransferManifest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object location_ = "";
       /**
@@ -21645,11 +24683,9 @@ public final class TransferTypes {
        */
       public Builder setLocation(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         location_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -21665,8 +24701,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearLocation() {
-        
         location_ = getDefaultInstance().getLocation();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -21684,12 +24720,10 @@ public final class TransferTypes {
        */
       public Builder setLocationBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         location_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -21726,7 +24760,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TransferManifest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -22024,110 +25069,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Schedule(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.type.Date.Builder subBuilder = null;
-              if (scheduleStartDate_ != null) {
-                subBuilder = scheduleStartDate_.toBuilder();
-              }
-              scheduleStartDate_ = input.readMessage(com.google.type.Date.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(scheduleStartDate_);
-                scheduleStartDate_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.type.Date.Builder subBuilder = null;
-              if (scheduleEndDate_ != null) {
-                subBuilder = scheduleEndDate_.toBuilder();
-              }
-              scheduleEndDate_ = input.readMessage(com.google.type.Date.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(scheduleEndDate_);
-                scheduleEndDate_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              com.google.type.TimeOfDay.Builder subBuilder = null;
-              if (startTimeOfDay_ != null) {
-                subBuilder = startTimeOfDay_.toBuilder();
-              }
-              startTimeOfDay_ = input.readMessage(com.google.type.TimeOfDay.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(startTimeOfDay_);
-                startTimeOfDay_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              com.google.type.TimeOfDay.Builder subBuilder = null;
-              if (endTimeOfDay_ != null) {
-                subBuilder = endTimeOfDay_.toBuilder();
-              }
-              endTimeOfDay_ = input.readMessage(com.google.type.TimeOfDay.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(endTimeOfDay_);
-                endTimeOfDay_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (repeatInterval_ != null) {
-                subBuilder = repeatInterval_.toBuilder();
-              }
-              repeatInterval_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(repeatInterval_);
-                repeatInterval_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_Schedule_descriptor;
@@ -22206,7 +25147,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.type.DateOrBuilder getScheduleStartDateOrBuilder() {
-      return getScheduleStartDate();
+      return scheduleStartDate_ == null ? com.google.type.Date.getDefaultInstance() : scheduleStartDate_;
     }
 
     public static final int SCHEDULE_END_DATE_FIELD_NUMBER = 2;
@@ -22262,7 +25203,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.type.DateOrBuilder getScheduleEndDateOrBuilder() {
-      return getScheduleEndDate();
+      return scheduleEndDate_ == null ? com.google.type.Date.getDefaultInstance() : scheduleEndDate_;
     }
 
     public static final int START_TIME_OF_DAY_FIELD_NUMBER = 3;
@@ -22327,7 +25268,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.type.TimeOfDayOrBuilder getStartTimeOfDayOrBuilder() {
-      return getStartTimeOfDay();
+      return startTimeOfDay_ == null ? com.google.type.TimeOfDay.getDefaultInstance() : startTimeOfDay_;
     }
 
     public static final int END_TIME_OF_DAY_FIELD_NUMBER = 4;
@@ -22392,7 +25333,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.type.TimeOfDayOrBuilder getEndTimeOfDayOrBuilder() {
-      return getEndTimeOfDay();
+      return endTimeOfDay_ == null ? com.google.type.TimeOfDay.getDefaultInstance() : endTimeOfDay_;
     }
 
     public static final int REPEAT_INTERVAL_FIELD_NUMBER = 5;
@@ -22436,7 +25377,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getRepeatIntervalOrBuilder() {
-      return getRepeatInterval();
+      return repeatInterval_ == null ? com.google.protobuf.Duration.getDefaultInstance() : repeatInterval_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -22468,7 +25409,7 @@ public final class TransferTypes {
       if (repeatInterval_ != null) {
         output.writeMessage(5, getRepeatInterval());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -22497,7 +25438,7 @@ public final class TransferTypes {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getRepeatInterval());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -22537,7 +25478,7 @@ public final class TransferTypes {
         if (!getRepeatInterval()
             .equals(other.getRepeatInterval())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -22568,7 +25509,7 @@ public final class TransferTypes {
         hash = (37 * hash) + REPEAT_INTERVAL_FIELD_NUMBER;
         hash = (53 * hash) + getRepeatInterval().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -22689,50 +25630,41 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.Schedule.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (scheduleStartDateBuilder_ == null) {
-          scheduleStartDate_ = null;
-        } else {
-          scheduleStartDate_ = null;
+        bitField0_ = 0;
+        scheduleStartDate_ = null;
+        if (scheduleStartDateBuilder_ != null) {
+          scheduleStartDateBuilder_.dispose();
           scheduleStartDateBuilder_ = null;
         }
-        if (scheduleEndDateBuilder_ == null) {
-          scheduleEndDate_ = null;
-        } else {
-          scheduleEndDate_ = null;
+        scheduleEndDate_ = null;
+        if (scheduleEndDateBuilder_ != null) {
+          scheduleEndDateBuilder_.dispose();
           scheduleEndDateBuilder_ = null;
         }
-        if (startTimeOfDayBuilder_ == null) {
-          startTimeOfDay_ = null;
-        } else {
-          startTimeOfDay_ = null;
+        startTimeOfDay_ = null;
+        if (startTimeOfDayBuilder_ != null) {
+          startTimeOfDayBuilder_.dispose();
           startTimeOfDayBuilder_ = null;
         }
-        if (endTimeOfDayBuilder_ == null) {
-          endTimeOfDay_ = null;
-        } else {
-          endTimeOfDay_ = null;
+        endTimeOfDay_ = null;
+        if (endTimeOfDayBuilder_ != null) {
+          endTimeOfDayBuilder_.dispose();
           endTimeOfDayBuilder_ = null;
         }
-        if (repeatIntervalBuilder_ == null) {
-          repeatInterval_ = null;
-        } else {
-          repeatInterval_ = null;
+        repeatInterval_ = null;
+        if (repeatIntervalBuilder_ != null) {
+          repeatIntervalBuilder_.dispose();
           repeatIntervalBuilder_ = null;
         }
         return this;
@@ -22761,33 +25693,38 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.Schedule buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.Schedule result = new com.google.storagetransfer.v1.proto.TransferTypes.Schedule(this);
-        if (scheduleStartDateBuilder_ == null) {
-          result.scheduleStartDate_ = scheduleStartDate_;
-        } else {
-          result.scheduleStartDate_ = scheduleStartDateBuilder_.build();
-        }
-        if (scheduleEndDateBuilder_ == null) {
-          result.scheduleEndDate_ = scheduleEndDate_;
-        } else {
-          result.scheduleEndDate_ = scheduleEndDateBuilder_.build();
-        }
-        if (startTimeOfDayBuilder_ == null) {
-          result.startTimeOfDay_ = startTimeOfDay_;
-        } else {
-          result.startTimeOfDay_ = startTimeOfDayBuilder_.build();
-        }
-        if (endTimeOfDayBuilder_ == null) {
-          result.endTimeOfDay_ = endTimeOfDay_;
-        } else {
-          result.endTimeOfDay_ = endTimeOfDayBuilder_.build();
-        }
-        if (repeatIntervalBuilder_ == null) {
-          result.repeatInterval_ = repeatInterval_;
-        } else {
-          result.repeatInterval_ = repeatIntervalBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.Schedule result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.scheduleStartDate_ = scheduleStartDateBuilder_ == null
+              ? scheduleStartDate_
+              : scheduleStartDateBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.scheduleEndDate_ = scheduleEndDateBuilder_ == null
+              ? scheduleEndDate_
+              : scheduleEndDateBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.startTimeOfDay_ = startTimeOfDayBuilder_ == null
+              ? startTimeOfDay_
+              : startTimeOfDayBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.endTimeOfDay_ = endTimeOfDayBuilder_ == null
+              ? endTimeOfDay_
+              : endTimeOfDayBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.repeatInterval_ = repeatIntervalBuilder_ == null
+              ? repeatInterval_
+              : repeatIntervalBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -22849,7 +25786,7 @@ public final class TransferTypes {
         if (other.hasRepeatInterval()) {
           mergeRepeatInterval(other.getRepeatInterval());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -22864,19 +25801,68 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.Schedule parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getScheduleStartDateFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getScheduleEndDateFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getStartTimeOfDayFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getEndTimeOfDayFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getRepeatIntervalFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.Schedule) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.type.Date scheduleStartDate_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -22900,7 +25886,7 @@ public final class TransferTypes {
        * @return Whether the scheduleStartDate field is set.
        */
       public boolean hasScheduleStartDate() {
-        return scheduleStartDateBuilder_ != null || scheduleStartDate_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -22950,11 +25936,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           scheduleStartDate_ = value;
-          onChanged();
         } else {
           scheduleStartDateBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -22978,11 +25964,11 @@ public final class TransferTypes {
           com.google.type.Date.Builder builderForValue) {
         if (scheduleStartDateBuilder_ == null) {
           scheduleStartDate_ = builderForValue.build();
-          onChanged();
         } else {
           scheduleStartDateBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -23004,17 +25990,18 @@ public final class TransferTypes {
        */
       public Builder mergeScheduleStartDate(com.google.type.Date value) {
         if (scheduleStartDateBuilder_ == null) {
-          if (scheduleStartDate_ != null) {
-            scheduleStartDate_ =
-              com.google.type.Date.newBuilder(scheduleStartDate_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            scheduleStartDate_ != null &&
+            scheduleStartDate_ != com.google.type.Date.getDefaultInstance()) {
+            getScheduleStartDateBuilder().mergeFrom(value);
           } else {
             scheduleStartDate_ = value;
           }
-          onChanged();
         } else {
           scheduleStartDateBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -23035,14 +26022,13 @@ public final class TransferTypes {
        * <code>.google.type.Date schedule_start_date = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearScheduleStartDate() {
-        if (scheduleStartDateBuilder_ == null) {
-          scheduleStartDate_ = null;
-          onChanged();
-        } else {
-          scheduleStartDate_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        scheduleStartDate_ = null;
+        if (scheduleStartDateBuilder_ != null) {
+          scheduleStartDateBuilder_.dispose();
           scheduleStartDateBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -23063,7 +26049,7 @@ public final class TransferTypes {
        * <code>.google.type.Date schedule_start_date = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.type.Date.Builder getScheduleStartDateBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getScheduleStartDateFieldBuilder().getBuilder();
       }
@@ -23141,7 +26127,7 @@ public final class TransferTypes {
        * @return Whether the scheduleEndDate field is set.
        */
       public boolean hasScheduleEndDate() {
-        return scheduleEndDateBuilder_ != null || scheduleEndDate_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -23183,11 +26169,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           scheduleEndDate_ = value;
-          onChanged();
         } else {
           scheduleEndDateBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -23207,11 +26193,11 @@ public final class TransferTypes {
           com.google.type.Date.Builder builderForValue) {
         if (scheduleEndDateBuilder_ == null) {
           scheduleEndDate_ = builderForValue.build();
-          onChanged();
         } else {
           scheduleEndDateBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -23229,17 +26215,18 @@ public final class TransferTypes {
        */
       public Builder mergeScheduleEndDate(com.google.type.Date value) {
         if (scheduleEndDateBuilder_ == null) {
-          if (scheduleEndDate_ != null) {
-            scheduleEndDate_ =
-              com.google.type.Date.newBuilder(scheduleEndDate_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            scheduleEndDate_ != null &&
+            scheduleEndDate_ != com.google.type.Date.getDefaultInstance()) {
+            getScheduleEndDateBuilder().mergeFrom(value);
           } else {
             scheduleEndDate_ = value;
           }
-          onChanged();
         } else {
           scheduleEndDateBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -23256,14 +26243,13 @@ public final class TransferTypes {
        * <code>.google.type.Date schedule_end_date = 2;</code>
        */
       public Builder clearScheduleEndDate() {
-        if (scheduleEndDateBuilder_ == null) {
-          scheduleEndDate_ = null;
-          onChanged();
-        } else {
-          scheduleEndDate_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        scheduleEndDate_ = null;
+        if (scheduleEndDateBuilder_ != null) {
+          scheduleEndDateBuilder_.dispose();
           scheduleEndDateBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -23280,7 +26266,7 @@ public final class TransferTypes {
        * <code>.google.type.Date schedule_end_date = 2;</code>
        */
       public com.google.type.Date.Builder getScheduleEndDateBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getScheduleEndDateFieldBuilder().getBuilder();
       }
@@ -23353,7 +26339,7 @@ public final class TransferTypes {
        * @return Whether the startTimeOfDay field is set.
        */
       public boolean hasStartTimeOfDay() {
-        return startTimeOfDayBuilder_ != null || startTimeOfDay_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -23401,11 +26387,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           startTimeOfDay_ = value;
-          onChanged();
         } else {
           startTimeOfDayBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -23428,11 +26414,11 @@ public final class TransferTypes {
           com.google.type.TimeOfDay.Builder builderForValue) {
         if (startTimeOfDayBuilder_ == null) {
           startTimeOfDay_ = builderForValue.build();
-          onChanged();
         } else {
           startTimeOfDayBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -23453,17 +26439,18 @@ public final class TransferTypes {
        */
       public Builder mergeStartTimeOfDay(com.google.type.TimeOfDay value) {
         if (startTimeOfDayBuilder_ == null) {
-          if (startTimeOfDay_ != null) {
-            startTimeOfDay_ =
-              com.google.type.TimeOfDay.newBuilder(startTimeOfDay_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            startTimeOfDay_ != null &&
+            startTimeOfDay_ != com.google.type.TimeOfDay.getDefaultInstance()) {
+            getStartTimeOfDayBuilder().mergeFrom(value);
           } else {
             startTimeOfDay_ = value;
           }
-          onChanged();
         } else {
           startTimeOfDayBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -23483,14 +26470,13 @@ public final class TransferTypes {
        * <code>.google.type.TimeOfDay start_time_of_day = 3;</code>
        */
       public Builder clearStartTimeOfDay() {
-        if (startTimeOfDayBuilder_ == null) {
-          startTimeOfDay_ = null;
-          onChanged();
-        } else {
-          startTimeOfDay_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        startTimeOfDay_ = null;
+        if (startTimeOfDayBuilder_ != null) {
+          startTimeOfDayBuilder_.dispose();
           startTimeOfDayBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -23510,7 +26496,7 @@ public final class TransferTypes {
        * <code>.google.type.TimeOfDay start_time_of_day = 3;</code>
        */
       public com.google.type.TimeOfDay.Builder getStartTimeOfDayBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getStartTimeOfDayFieldBuilder().getBuilder();
       }
@@ -23589,7 +26575,7 @@ public final class TransferTypes {
        * @return Whether the endTimeOfDay field is set.
        */
       public boolean hasEndTimeOfDay() {
-        return endTimeOfDayBuilder_ != null || endTimeOfDay_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -23637,11 +26623,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           endTimeOfDay_ = value;
-          onChanged();
         } else {
           endTimeOfDayBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -23664,11 +26650,11 @@ public final class TransferTypes {
           com.google.type.TimeOfDay.Builder builderForValue) {
         if (endTimeOfDayBuilder_ == null) {
           endTimeOfDay_ = builderForValue.build();
-          onChanged();
         } else {
           endTimeOfDayBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -23689,17 +26675,18 @@ public final class TransferTypes {
        */
       public Builder mergeEndTimeOfDay(com.google.type.TimeOfDay value) {
         if (endTimeOfDayBuilder_ == null) {
-          if (endTimeOfDay_ != null) {
-            endTimeOfDay_ =
-              com.google.type.TimeOfDay.newBuilder(endTimeOfDay_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            endTimeOfDay_ != null &&
+            endTimeOfDay_ != com.google.type.TimeOfDay.getDefaultInstance()) {
+            getEndTimeOfDayBuilder().mergeFrom(value);
           } else {
             endTimeOfDay_ = value;
           }
-          onChanged();
         } else {
           endTimeOfDayBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -23719,14 +26706,13 @@ public final class TransferTypes {
        * <code>.google.type.TimeOfDay end_time_of_day = 4;</code>
        */
       public Builder clearEndTimeOfDay() {
-        if (endTimeOfDayBuilder_ == null) {
-          endTimeOfDay_ = null;
-          onChanged();
-        } else {
-          endTimeOfDay_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        endTimeOfDay_ = null;
+        if (endTimeOfDayBuilder_ != null) {
+          endTimeOfDayBuilder_.dispose();
           endTimeOfDayBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -23746,7 +26732,7 @@ public final class TransferTypes {
        * <code>.google.type.TimeOfDay end_time_of_day = 4;</code>
        */
       public com.google.type.TimeOfDay.Builder getEndTimeOfDayBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getEndTimeOfDayFieldBuilder().getBuilder();
       }
@@ -23818,7 +26804,7 @@ public final class TransferTypes {
        * @return Whether the repeatInterval field is set.
        */
       public boolean hasRepeatInterval() {
-        return repeatIntervalBuilder_ != null || repeatInterval_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -23852,11 +26838,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           repeatInterval_ = value;
-          onChanged();
         } else {
           repeatIntervalBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -23872,11 +26858,11 @@ public final class TransferTypes {
           com.google.protobuf.Duration.Builder builderForValue) {
         if (repeatIntervalBuilder_ == null) {
           repeatInterval_ = builderForValue.build();
-          onChanged();
         } else {
           repeatIntervalBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -23890,17 +26876,18 @@ public final class TransferTypes {
        */
       public Builder mergeRepeatInterval(com.google.protobuf.Duration value) {
         if (repeatIntervalBuilder_ == null) {
-          if (repeatInterval_ != null) {
-            repeatInterval_ =
-              com.google.protobuf.Duration.newBuilder(repeatInterval_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            repeatInterval_ != null &&
+            repeatInterval_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getRepeatIntervalBuilder().mergeFrom(value);
           } else {
             repeatInterval_ = value;
           }
-          onChanged();
         } else {
           repeatIntervalBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -23913,14 +26900,13 @@ public final class TransferTypes {
        * <code>.google.protobuf.Duration repeat_interval = 5;</code>
        */
       public Builder clearRepeatInterval() {
-        if (repeatIntervalBuilder_ == null) {
-          repeatInterval_ = null;
-          onChanged();
-        } else {
-          repeatInterval_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        repeatInterval_ = null;
+        if (repeatIntervalBuilder_ != null) {
+          repeatIntervalBuilder_.dispose();
           repeatIntervalBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -23933,7 +26919,7 @@ public final class TransferTypes {
        * <code>.google.protobuf.Duration repeat_interval = 5;</code>
        */
       public com.google.protobuf.Duration.Builder getRepeatIntervalBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getRepeatIntervalFieldBuilder().getBuilder();
       }
@@ -24009,7 +26995,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Schedule(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -24422,166 +27419,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TransferJob(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              description_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              projectId_ = s;
-              break;
-            }
-            case 34: {
-              com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.Builder subBuilder = null;
-              if (transferSpec_ != null) {
-                subBuilder = transferSpec_.toBuilder();
-              }
-              transferSpec_ = input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(transferSpec_);
-                transferSpec_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
-              com.google.storagetransfer.v1.proto.TransferTypes.Schedule.Builder subBuilder = null;
-              if (schedule_ != null) {
-                subBuilder = schedule_.toBuilder();
-              }
-              schedule_ = input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.Schedule.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(schedule_);
-                schedule_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 48: {
-              int rawValue = input.readEnum();
-
-              status_ = rawValue;
-              break;
-            }
-            case 58: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (creationTime_ != null) {
-                subBuilder = creationTime_.toBuilder();
-              }
-              creationTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(creationTime_);
-                creationTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 66: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (lastModificationTime_ != null) {
-                subBuilder = lastModificationTime_.toBuilder();
-              }
-              lastModificationTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(lastModificationTime_);
-                lastModificationTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 74: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (deletionTime_ != null) {
-                subBuilder = deletionTime_.toBuilder();
-              }
-              deletionTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(deletionTime_);
-                deletionTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 90: {
-              com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.Builder subBuilder = null;
-              if (notificationConfig_ != null) {
-                subBuilder = notificationConfig_.toBuilder();
-              }
-              notificationConfig_ = input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(notificationConfig_);
-                notificationConfig_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 98: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              latestOperationName_ = s;
-              break;
-            }
-            case 114: {
-              com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.Builder subBuilder = null;
-              if (loggingConfig_ != null) {
-                subBuilder = loggingConfig_.toBuilder();
-              }
-              loggingConfig_ = input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(loggingConfig_);
-                loggingConfig_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_TransferJob_descriptor;
@@ -24764,7 +27601,8 @@ public final class TransferTypes {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * A unique name (within the transfer project) assigned when the job is
@@ -24846,7 +27684,8 @@ public final class TransferTypes {
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object description_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object description_ = "";
     /**
      * <pre>
      * A description provided by the user for the job. Its max length is 1024
@@ -24894,7 +27733,8 @@ public final class TransferTypes {
     }
 
     public static final int PROJECT_ID_FIELD_NUMBER = 3;
-    private volatile java.lang.Object projectId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object projectId_ = "";
     /**
      * <pre>
      * The ID of the Google Cloud project that owns the job.
@@ -24974,7 +27814,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.storagetransfer.v1.proto.TransferTypes.TransferSpecOrBuilder getTransferSpecOrBuilder() {
-      return getTransferSpec();
+      return transferSpec_ == null ? com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.getDefaultInstance() : transferSpec_;
     }
 
     public static final int NOTIFICATION_CONFIG_FIELD_NUMBER = 11;
@@ -25015,7 +27855,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfigOrBuilder getNotificationConfigOrBuilder() {
-      return getNotificationConfig();
+      return notificationConfig_ == null ? com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.getDefaultInstance() : notificationConfig_;
     }
 
     public static final int LOGGING_CONFIG_FIELD_NUMBER = 14;
@@ -25053,7 +27893,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfigOrBuilder getLoggingConfigOrBuilder() {
-      return getLoggingConfig();
+      return loggingConfig_ == null ? com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.getDefaultInstance() : loggingConfig_;
     }
 
     public static final int SCHEDULE_FIELD_NUMBER = 5;
@@ -25100,11 +27940,11 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.storagetransfer.v1.proto.TransferTypes.ScheduleOrBuilder getScheduleOrBuilder() {
-      return getSchedule();
+      return schedule_ == null ? com.google.storagetransfer.v1.proto.TransferTypes.Schedule.getDefaultInstance() : schedule_;
     }
 
     public static final int STATUS_FIELD_NUMBER = 6;
-    private int status_;
+    private int status_ = 0;
     /**
      * <pre>
      * Status of the job. This value MUST be specified for
@@ -25137,8 +27977,7 @@ public final class TransferTypes {
      * @return The status.
      */
     @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.Status getStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.Status result = com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.Status.valueOf(status_);
+      com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.Status result = com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.Status.forNumber(status_);
       return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.Status.UNRECOGNIZED : result;
     }
 
@@ -25177,7 +28016,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getCreationTimeOrBuilder() {
-      return getCreationTime();
+      return creationTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : creationTime_;
     }
 
     public static final int LAST_MODIFICATION_TIME_FIELD_NUMBER = 8;
@@ -25215,7 +28054,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getLastModificationTimeOrBuilder() {
-      return getLastModificationTime();
+      return lastModificationTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastModificationTime_;
     }
 
     public static final int DELETION_TIME_FIELD_NUMBER = 9;
@@ -25253,11 +28092,12 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getDeletionTimeOrBuilder() {
-      return getDeletionTime();
+      return deletionTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : deletionTime_;
     }
 
     public static final int LATEST_OPERATION_NAME_FIELD_NUMBER = 12;
-    private volatile java.lang.Object latestOperationName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object latestOperationName_ = "";
     /**
      * <pre>
      * The name of the most recently started TransferOperation of this JobConfig.
@@ -25354,7 +28194,7 @@ public final class TransferTypes {
       if (loggingConfig_ != null) {
         output.writeMessage(14, getLoggingConfig());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -25407,7 +28247,7 @@ public final class TransferTypes {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(14, getLoggingConfig());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -25466,7 +28306,7 @@ public final class TransferTypes {
       }
       if (!getLatestOperationName()
           .equals(other.getLatestOperationName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -25515,7 +28355,7 @@ public final class TransferTypes {
       }
       hash = (37 * hash) + LATEST_OPERATION_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getLatestOperationName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -25637,74 +28477,58 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         description_ = "";
-
         projectId_ = "";
-
-        if (transferSpecBuilder_ == null) {
-          transferSpec_ = null;
-        } else {
-          transferSpec_ = null;
+        transferSpec_ = null;
+        if (transferSpecBuilder_ != null) {
+          transferSpecBuilder_.dispose();
           transferSpecBuilder_ = null;
         }
-        if (notificationConfigBuilder_ == null) {
-          notificationConfig_ = null;
-        } else {
-          notificationConfig_ = null;
+        notificationConfig_ = null;
+        if (notificationConfigBuilder_ != null) {
+          notificationConfigBuilder_.dispose();
           notificationConfigBuilder_ = null;
         }
-        if (loggingConfigBuilder_ == null) {
-          loggingConfig_ = null;
-        } else {
-          loggingConfig_ = null;
+        loggingConfig_ = null;
+        if (loggingConfigBuilder_ != null) {
+          loggingConfigBuilder_.dispose();
           loggingConfigBuilder_ = null;
         }
-        if (scheduleBuilder_ == null) {
-          schedule_ = null;
-        } else {
-          schedule_ = null;
+        schedule_ = null;
+        if (scheduleBuilder_ != null) {
+          scheduleBuilder_.dispose();
           scheduleBuilder_ = null;
         }
         status_ = 0;
-
-        if (creationTimeBuilder_ == null) {
-          creationTime_ = null;
-        } else {
-          creationTime_ = null;
+        creationTime_ = null;
+        if (creationTimeBuilder_ != null) {
+          creationTimeBuilder_.dispose();
           creationTimeBuilder_ = null;
         }
-        if (lastModificationTimeBuilder_ == null) {
-          lastModificationTime_ = null;
-        } else {
-          lastModificationTime_ = null;
+        lastModificationTime_ = null;
+        if (lastModificationTimeBuilder_ != null) {
+          lastModificationTimeBuilder_.dispose();
           lastModificationTimeBuilder_ = null;
         }
-        if (deletionTimeBuilder_ == null) {
-          deletionTime_ = null;
-        } else {
-          deletionTime_ = null;
+        deletionTime_ = null;
+        if (deletionTimeBuilder_ != null) {
+          deletionTimeBuilder_.dispose();
           deletionTimeBuilder_ = null;
         }
         latestOperationName_ = "";
-
         return this;
       }
 
@@ -25731,48 +28555,63 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.TransferJob buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.TransferJob result = new com.google.storagetransfer.v1.proto.TransferTypes.TransferJob(this);
-        result.name_ = name_;
-        result.description_ = description_;
-        result.projectId_ = projectId_;
-        if (transferSpecBuilder_ == null) {
-          result.transferSpec_ = transferSpec_;
-        } else {
-          result.transferSpec_ = transferSpecBuilder_.build();
-        }
-        if (notificationConfigBuilder_ == null) {
-          result.notificationConfig_ = notificationConfig_;
-        } else {
-          result.notificationConfig_ = notificationConfigBuilder_.build();
-        }
-        if (loggingConfigBuilder_ == null) {
-          result.loggingConfig_ = loggingConfig_;
-        } else {
-          result.loggingConfig_ = loggingConfigBuilder_.build();
-        }
-        if (scheduleBuilder_ == null) {
-          result.schedule_ = schedule_;
-        } else {
-          result.schedule_ = scheduleBuilder_.build();
-        }
-        result.status_ = status_;
-        if (creationTimeBuilder_ == null) {
-          result.creationTime_ = creationTime_;
-        } else {
-          result.creationTime_ = creationTimeBuilder_.build();
-        }
-        if (lastModificationTimeBuilder_ == null) {
-          result.lastModificationTime_ = lastModificationTime_;
-        } else {
-          result.lastModificationTime_ = lastModificationTimeBuilder_.build();
-        }
-        if (deletionTimeBuilder_ == null) {
-          result.deletionTime_ = deletionTime_;
-        } else {
-          result.deletionTime_ = deletionTimeBuilder_.build();
-        }
-        result.latestOperationName_ = latestOperationName_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.TransferJob result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.description_ = description_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.projectId_ = projectId_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.transferSpec_ = transferSpecBuilder_ == null
+              ? transferSpec_
+              : transferSpecBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.notificationConfig_ = notificationConfigBuilder_ == null
+              ? notificationConfig_
+              : notificationConfigBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.loggingConfig_ = loggingConfigBuilder_ == null
+              ? loggingConfig_
+              : loggingConfigBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.schedule_ = scheduleBuilder_ == null
+              ? schedule_
+              : scheduleBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.status_ = status_;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.creationTime_ = creationTimeBuilder_ == null
+              ? creationTime_
+              : creationTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.lastModificationTime_ = lastModificationTimeBuilder_ == null
+              ? lastModificationTime_
+              : lastModificationTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.deletionTime_ = deletionTimeBuilder_ == null
+              ? deletionTime_
+              : deletionTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.latestOperationName_ = latestOperationName_;
+        }
       }
 
       @java.lang.Override
@@ -25821,14 +28660,17 @@ public final class TransferTypes {
         if (other == com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getProjectId().isEmpty()) {
           projectId_ = other.projectId_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.hasTransferSpec()) {
@@ -25857,9 +28699,10 @@ public final class TransferTypes {
         }
         if (!other.getLatestOperationName().isEmpty()) {
           latestOperationName_ = other.latestOperationName_;
+          bitField0_ |= 0x00000800;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -25874,19 +28717,107 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.TransferJob parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                description_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                projectId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getTransferSpecFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getScheduleFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 42
+              case 48: {
+                status_ = input.readEnum();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 48
+              case 58: {
+                input.readMessage(
+                    getCreationTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 58
+              case 66: {
+                input.readMessage(
+                    getLastModificationTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 66
+              case 74: {
+                input.readMessage(
+                    getDeletionTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 74
+              case 90: {
+                input.readMessage(
+                    getNotificationConfigFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 90
+              case 98: {
+                latestOperationName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 98
+              case 114: {
+                input.readMessage(
+                    getLoggingConfigFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 114
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.TransferJob) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -25995,11 +28926,9 @@ public final class TransferTypes {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -26030,8 +28959,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -26064,12 +28993,10 @@ public final class TransferTypes {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -26130,11 +29057,9 @@ public final class TransferTypes {
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -26148,8 +29073,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
-        
         description_ = getDefaultInstance().getDescription();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -26165,12 +29090,10 @@ public final class TransferTypes {
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -26228,11 +29151,9 @@ public final class TransferTypes {
        */
       public Builder setProjectId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         projectId_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -26245,8 +29166,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearProjectId() {
-        
         projectId_ = getDefaultInstance().getProjectId();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -26261,12 +29182,10 @@ public final class TransferTypes {
        */
       public Builder setProjectIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         projectId_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -26283,7 +29202,7 @@ public final class TransferTypes {
        * @return Whether the transferSpec field is set.
        */
       public boolean hasTransferSpec() {
-        return transferSpecBuilder_ != null || transferSpec_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -26313,11 +29232,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           transferSpec_ = value;
-          onChanged();
         } else {
           transferSpecBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -26331,11 +29250,11 @@ public final class TransferTypes {
           com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.Builder builderForValue) {
         if (transferSpecBuilder_ == null) {
           transferSpec_ = builderForValue.build();
-          onChanged();
         } else {
           transferSpecBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -26347,17 +29266,18 @@ public final class TransferTypes {
        */
       public Builder mergeTransferSpec(com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec value) {
         if (transferSpecBuilder_ == null) {
-          if (transferSpec_ != null) {
-            transferSpec_ =
-              com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.newBuilder(transferSpec_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            transferSpec_ != null &&
+            transferSpec_ != com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.getDefaultInstance()) {
+            getTransferSpecBuilder().mergeFrom(value);
           } else {
             transferSpec_ = value;
           }
-          onChanged();
         } else {
           transferSpecBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -26368,14 +29288,13 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.TransferSpec transfer_spec = 4;</code>
        */
       public Builder clearTransferSpec() {
-        if (transferSpecBuilder_ == null) {
-          transferSpec_ = null;
-          onChanged();
-        } else {
-          transferSpec_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        transferSpec_ = null;
+        if (transferSpecBuilder_ != null) {
+          transferSpecBuilder_.dispose();
           transferSpecBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -26386,7 +29305,7 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.TransferSpec transfer_spec = 4;</code>
        */
       public com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.Builder getTransferSpecBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getTransferSpecFieldBuilder().getBuilder();
       }
@@ -26439,7 +29358,7 @@ public final class TransferTypes {
        * @return Whether the notificationConfig field is set.
        */
       public boolean hasNotificationConfig() {
-        return notificationConfigBuilder_ != null || notificationConfig_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -26471,11 +29390,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           notificationConfig_ = value;
-          onChanged();
         } else {
           notificationConfigBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -26490,11 +29409,11 @@ public final class TransferTypes {
           com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.Builder builderForValue) {
         if (notificationConfigBuilder_ == null) {
           notificationConfig_ = builderForValue.build();
-          onChanged();
         } else {
           notificationConfigBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -26507,17 +29426,18 @@ public final class TransferTypes {
        */
       public Builder mergeNotificationConfig(com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig value) {
         if (notificationConfigBuilder_ == null) {
-          if (notificationConfig_ != null) {
-            notificationConfig_ =
-              com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.newBuilder(notificationConfig_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            notificationConfig_ != null &&
+            notificationConfig_ != com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.getDefaultInstance()) {
+            getNotificationConfigBuilder().mergeFrom(value);
           } else {
             notificationConfig_ = value;
           }
-          onChanged();
         } else {
           notificationConfigBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -26529,14 +29449,13 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.NotificationConfig notification_config = 11;</code>
        */
       public Builder clearNotificationConfig() {
-        if (notificationConfigBuilder_ == null) {
-          notificationConfig_ = null;
-          onChanged();
-        } else {
-          notificationConfig_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        notificationConfig_ = null;
+        if (notificationConfigBuilder_ != null) {
+          notificationConfigBuilder_.dispose();
           notificationConfigBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -26548,7 +29467,7 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.NotificationConfig notification_config = 11;</code>
        */
       public com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.Builder getNotificationConfigBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getNotificationConfigFieldBuilder().getBuilder();
       }
@@ -26602,7 +29521,7 @@ public final class TransferTypes {
        * @return Whether the loggingConfig field is set.
        */
       public boolean hasLoggingConfig() {
-        return loggingConfigBuilder_ != null || loggingConfig_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -26632,11 +29551,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           loggingConfig_ = value;
-          onChanged();
         } else {
           loggingConfigBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -26650,11 +29569,11 @@ public final class TransferTypes {
           com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.Builder builderForValue) {
         if (loggingConfigBuilder_ == null) {
           loggingConfig_ = builderForValue.build();
-          onChanged();
         } else {
           loggingConfigBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -26666,17 +29585,18 @@ public final class TransferTypes {
        */
       public Builder mergeLoggingConfig(com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig value) {
         if (loggingConfigBuilder_ == null) {
-          if (loggingConfig_ != null) {
-            loggingConfig_ =
-              com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.newBuilder(loggingConfig_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            loggingConfig_ != null &&
+            loggingConfig_ != com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.getDefaultInstance()) {
+            getLoggingConfigBuilder().mergeFrom(value);
           } else {
             loggingConfig_ = value;
           }
-          onChanged();
         } else {
           loggingConfigBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -26687,14 +29607,13 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.LoggingConfig logging_config = 14;</code>
        */
       public Builder clearLoggingConfig() {
-        if (loggingConfigBuilder_ == null) {
-          loggingConfig_ = null;
-          onChanged();
-        } else {
-          loggingConfig_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        loggingConfig_ = null;
+        if (loggingConfigBuilder_ != null) {
+          loggingConfigBuilder_.dispose();
           loggingConfigBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -26705,7 +29624,7 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.LoggingConfig logging_config = 14;</code>
        */
       public com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.Builder getLoggingConfigBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getLoggingConfigFieldBuilder().getBuilder();
       }
@@ -26760,7 +29679,7 @@ public final class TransferTypes {
        * @return Whether the schedule field is set.
        */
       public boolean hasSchedule() {
-        return scheduleBuilder_ != null || schedule_ != null;
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
        * <pre>
@@ -26796,11 +29715,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           schedule_ = value;
-          onChanged();
         } else {
           scheduleBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -26817,11 +29736,11 @@ public final class TransferTypes {
           com.google.storagetransfer.v1.proto.TransferTypes.Schedule.Builder builderForValue) {
         if (scheduleBuilder_ == null) {
           schedule_ = builderForValue.build();
-          onChanged();
         } else {
           scheduleBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -26836,17 +29755,18 @@ public final class TransferTypes {
        */
       public Builder mergeSchedule(com.google.storagetransfer.v1.proto.TransferTypes.Schedule value) {
         if (scheduleBuilder_ == null) {
-          if (schedule_ != null) {
-            schedule_ =
-              com.google.storagetransfer.v1.proto.TransferTypes.Schedule.newBuilder(schedule_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000040) != 0) &&
+            schedule_ != null &&
+            schedule_ != com.google.storagetransfer.v1.proto.TransferTypes.Schedule.getDefaultInstance()) {
+            getScheduleBuilder().mergeFrom(value);
           } else {
             schedule_ = value;
           }
-          onChanged();
         } else {
           scheduleBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -26860,14 +29780,13 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.Schedule schedule = 5;</code>
        */
       public Builder clearSchedule() {
-        if (scheduleBuilder_ == null) {
-          schedule_ = null;
-          onChanged();
-        } else {
-          schedule_ = null;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        schedule_ = null;
+        if (scheduleBuilder_ != null) {
+          scheduleBuilder_.dispose();
           scheduleBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -26881,7 +29800,7 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.Schedule schedule = 5;</code>
        */
       public com.google.storagetransfer.v1.proto.TransferTypes.Schedule.Builder getScheduleBuilder() {
-        
+        bitField0_ |= 0x00000040;
         onChanged();
         return getScheduleFieldBuilder().getBuilder();
       }
@@ -26961,8 +29880,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder setStatusValue(int value) {
-        
         status_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -26982,8 +29901,7 @@ public final class TransferTypes {
        */
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.Status getStatus() {
-        @SuppressWarnings("deprecation")
-        com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.Status result = com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.Status.valueOf(status_);
+        com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.Status result = com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.Status.forNumber(status_);
         return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.Status.UNRECOGNIZED : result;
       }
       /**
@@ -27005,7 +29923,7 @@ public final class TransferTypes {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000080;
         status_ = value.getNumber();
         onChanged();
         return this;
@@ -27025,7 +29943,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
-        
+        bitField0_ = (bitField0_ & ~0x00000080);
         status_ = 0;
         onChanged();
         return this;
@@ -27043,7 +29961,7 @@ public final class TransferTypes {
        * @return Whether the creationTime field is set.
        */
       public boolean hasCreationTime() {
-        return creationTimeBuilder_ != null || creationTime_ != null;
+        return ((bitField0_ & 0x00000100) != 0);
       }
       /**
        * <pre>
@@ -27073,11 +29991,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           creationTime_ = value;
-          onChanged();
         } else {
           creationTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -27091,11 +30009,11 @@ public final class TransferTypes {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (creationTimeBuilder_ == null) {
           creationTime_ = builderForValue.build();
-          onChanged();
         } else {
           creationTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -27107,17 +30025,18 @@ public final class TransferTypes {
        */
       public Builder mergeCreationTime(com.google.protobuf.Timestamp value) {
         if (creationTimeBuilder_ == null) {
-          if (creationTime_ != null) {
-            creationTime_ =
-              com.google.protobuf.Timestamp.newBuilder(creationTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000100) != 0) &&
+            creationTime_ != null &&
+            creationTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getCreationTimeBuilder().mergeFrom(value);
           } else {
             creationTime_ = value;
           }
-          onChanged();
         } else {
           creationTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -27128,14 +30047,13 @@ public final class TransferTypes {
        * <code>.google.protobuf.Timestamp creation_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearCreationTime() {
-        if (creationTimeBuilder_ == null) {
-          creationTime_ = null;
-          onChanged();
-        } else {
-          creationTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        creationTime_ = null;
+        if (creationTimeBuilder_ != null) {
+          creationTimeBuilder_.dispose();
           creationTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -27146,7 +30064,7 @@ public final class TransferTypes {
        * <code>.google.protobuf.Timestamp creation_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.protobuf.Timestamp.Builder getCreationTimeBuilder() {
-        
+        bitField0_ |= 0x00000100;
         onChanged();
         return getCreationTimeFieldBuilder().getBuilder();
       }
@@ -27198,7 +30116,7 @@ public final class TransferTypes {
        * @return Whether the lastModificationTime field is set.
        */
       public boolean hasLastModificationTime() {
-        return lastModificationTimeBuilder_ != null || lastModificationTime_ != null;
+        return ((bitField0_ & 0x00000200) != 0);
       }
       /**
        * <pre>
@@ -27228,11 +30146,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           lastModificationTime_ = value;
-          onChanged();
         } else {
           lastModificationTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -27246,11 +30164,11 @@ public final class TransferTypes {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (lastModificationTimeBuilder_ == null) {
           lastModificationTime_ = builderForValue.build();
-          onChanged();
         } else {
           lastModificationTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -27262,17 +30180,18 @@ public final class TransferTypes {
        */
       public Builder mergeLastModificationTime(com.google.protobuf.Timestamp value) {
         if (lastModificationTimeBuilder_ == null) {
-          if (lastModificationTime_ != null) {
-            lastModificationTime_ =
-              com.google.protobuf.Timestamp.newBuilder(lastModificationTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000200) != 0) &&
+            lastModificationTime_ != null &&
+            lastModificationTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getLastModificationTimeBuilder().mergeFrom(value);
           } else {
             lastModificationTime_ = value;
           }
-          onChanged();
         } else {
           lastModificationTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -27283,14 +30202,13 @@ public final class TransferTypes {
        * <code>.google.protobuf.Timestamp last_modification_time = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearLastModificationTime() {
-        if (lastModificationTimeBuilder_ == null) {
-          lastModificationTime_ = null;
-          onChanged();
-        } else {
-          lastModificationTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        lastModificationTime_ = null;
+        if (lastModificationTimeBuilder_ != null) {
+          lastModificationTimeBuilder_.dispose();
           lastModificationTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -27301,7 +30219,7 @@ public final class TransferTypes {
        * <code>.google.protobuf.Timestamp last_modification_time = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.protobuf.Timestamp.Builder getLastModificationTimeBuilder() {
-        
+        bitField0_ |= 0x00000200;
         onChanged();
         return getLastModificationTimeFieldBuilder().getBuilder();
       }
@@ -27353,7 +30271,7 @@ public final class TransferTypes {
        * @return Whether the deletionTime field is set.
        */
       public boolean hasDeletionTime() {
-        return deletionTimeBuilder_ != null || deletionTime_ != null;
+        return ((bitField0_ & 0x00000400) != 0);
       }
       /**
        * <pre>
@@ -27383,11 +30301,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           deletionTime_ = value;
-          onChanged();
         } else {
           deletionTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000400;
+        onChanged();
         return this;
       }
       /**
@@ -27401,11 +30319,11 @@ public final class TransferTypes {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (deletionTimeBuilder_ == null) {
           deletionTime_ = builderForValue.build();
-          onChanged();
         } else {
           deletionTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000400;
+        onChanged();
         return this;
       }
       /**
@@ -27417,17 +30335,18 @@ public final class TransferTypes {
        */
       public Builder mergeDeletionTime(com.google.protobuf.Timestamp value) {
         if (deletionTimeBuilder_ == null) {
-          if (deletionTime_ != null) {
-            deletionTime_ =
-              com.google.protobuf.Timestamp.newBuilder(deletionTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000400) != 0) &&
+            deletionTime_ != null &&
+            deletionTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getDeletionTimeBuilder().mergeFrom(value);
           } else {
             deletionTime_ = value;
           }
-          onChanged();
         } else {
           deletionTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000400;
+        onChanged();
         return this;
       }
       /**
@@ -27438,14 +30357,13 @@ public final class TransferTypes {
        * <code>.google.protobuf.Timestamp deletion_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearDeletionTime() {
-        if (deletionTimeBuilder_ == null) {
-          deletionTime_ = null;
-          onChanged();
-        } else {
-          deletionTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000400);
+        deletionTime_ = null;
+        if (deletionTimeBuilder_ != null) {
+          deletionTimeBuilder_.dispose();
           deletionTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -27456,7 +30374,7 @@ public final class TransferTypes {
        * <code>.google.protobuf.Timestamp deletion_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.protobuf.Timestamp.Builder getDeletionTimeBuilder() {
-        
+        bitField0_ |= 0x00000400;
         onChanged();
         return getDeletionTimeFieldBuilder().getBuilder();
       }
@@ -27552,11 +30470,9 @@ public final class TransferTypes {
        */
       public Builder setLatestOperationName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         latestOperationName_ = value;
+        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -27570,8 +30486,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearLatestOperationName() {
-        
         latestOperationName_ = getDefaultInstance().getLatestOperationName();
+        bitField0_ = (bitField0_ & ~0x00000800);
         onChanged();
         return this;
       }
@@ -27587,12 +30503,10 @@ public final class TransferTypes {
        */
       public Builder setLatestOperationNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         latestOperationName_ = value;
+        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -27629,7 +30543,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TransferJob(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -27749,64 +30674,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ErrorLogEntry(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              url_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                errorDetails_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              errorDetails_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          errorDetails_ = errorDetails_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_ErrorLogEntry_descriptor;
@@ -27821,7 +30688,8 @@ public final class TransferTypes {
     }
 
     public static final int URL_FIELD_NUMBER = 1;
-    private volatile java.lang.Object url_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object url_ = "";
     /**
      * <pre>
      * Required. A URL that refers to the target (a data source, a data sink,
@@ -27869,6 +30737,7 @@ public final class TransferTypes {
     }
 
     public static final int ERROR_DETAILS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList errorDetails_;
     /**
      * <pre>
@@ -27939,7 +30808,7 @@ public final class TransferTypes {
       for (int i = 0; i < errorDetails_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, errorDetails_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -27959,7 +30828,7 @@ public final class TransferTypes {
         size += dataSize;
         size += 1 * getErrorDetailsList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -27978,7 +30847,7 @@ public final class TransferTypes {
           .equals(other.getUrl())) return false;
       if (!getErrorDetailsList()
           .equals(other.getErrorDetailsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -27995,7 +30864,7 @@ public final class TransferTypes {
         hash = (37 * hash) + ERROR_DETAILS_FIELD_NUMBER;
         hash = (53 * hash) + getErrorDetailsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -28116,26 +30985,21 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         url_ = "";
-
         errorDetails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -28162,15 +31026,25 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry result = new com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry(this);
-        int from_bitField0_ = bitField0_;
-        result.url_ = url_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          errorDetails_ = errorDetails_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.errorDetails_ = errorDetails_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry result) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          errorDetails_ = errorDetails_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.errorDetails_ = errorDetails_;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.url_ = url_;
+        }
       }
 
       @java.lang.Override
@@ -28219,19 +31093,20 @@ public final class TransferTypes {
         if (other == com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry.getDefaultInstance()) return this;
         if (!other.getUrl().isEmpty()) {
           url_ = other.url_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.errorDetails_.isEmpty()) {
           if (errorDetails_.isEmpty()) {
             errorDetails_ = other.errorDetails_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureErrorDetailsIsMutable();
             errorDetails_.addAll(other.errorDetails_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -28246,17 +31121,41 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                url_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureErrorDetailsIsMutable();
+                errorDetails_.add(s);
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -28317,11 +31216,9 @@ public final class TransferTypes {
        */
       public Builder setUrl(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         url_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -28335,8 +31232,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearUrl() {
-        
         url_ = getDefaultInstance().getUrl();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -28352,21 +31249,19 @@ public final class TransferTypes {
        */
       public Builder setUrlBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         url_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.LazyStringList errorDetails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureErrorDetailsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           errorDetails_ = new com.google.protobuf.LazyStringArrayList(errorDetails_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
       /**
@@ -28429,10 +31324,8 @@ public final class TransferTypes {
        */
       public Builder setErrorDetails(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureErrorDetailsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureErrorDetailsIsMutable();
         errorDetails_.set(index, value);
         onChanged();
         return this;
@@ -28448,10 +31341,8 @@ public final class TransferTypes {
        */
       public Builder addErrorDetails(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureErrorDetailsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureErrorDetailsIsMutable();
         errorDetails_.add(value);
         onChanged();
         return this;
@@ -28483,7 +31374,7 @@ public final class TransferTypes {
        */
       public Builder clearErrorDetails() {
         errorDetails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -28498,10 +31389,8 @@ public final class TransferTypes {
        */
       public Builder addErrorDetailsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureErrorDetailsIsMutable();
         errorDetails_.add(value);
         onChanged();
@@ -28540,7 +31429,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ErrorLogEntry(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -28681,69 +31581,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ErrorSummary(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              errorCode_ = rawValue;
-              break;
-            }
-            case 16: {
-
-              errorCount_ = input.readInt64();
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                errorLogEntries_ = new java.util.ArrayList<com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              errorLogEntries_.add(
-                  input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          errorLogEntries_ = java.util.Collections.unmodifiableList(errorLogEntries_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_ErrorSummary_descriptor;
@@ -28758,7 +31595,7 @@ public final class TransferTypes {
     }
 
     public static final int ERROR_CODE_FIELD_NUMBER = 1;
-    private int errorCode_;
+    private int errorCode_ = 0;
     /**
      * <pre>
      * Required.
@@ -28779,13 +31616,12 @@ public final class TransferTypes {
      * @return The errorCode.
      */
     @java.lang.Override public com.google.rpc.Code getErrorCode() {
-      @SuppressWarnings("deprecation")
-      com.google.rpc.Code result = com.google.rpc.Code.valueOf(errorCode_);
+      com.google.rpc.Code result = com.google.rpc.Code.forNumber(errorCode_);
       return result == null ? com.google.rpc.Code.UNRECOGNIZED : result;
     }
 
     public static final int ERROR_COUNT_FIELD_NUMBER = 2;
-    private long errorCount_;
+    private long errorCount_ = 0L;
     /**
      * <pre>
      * Required. Count of this type of error.
@@ -28800,6 +31636,7 @@ public final class TransferTypes {
     }
 
     public static final int ERROR_LOG_ENTRIES_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry> errorLogEntries_;
     /**
      * <pre>
@@ -28892,7 +31729,7 @@ public final class TransferTypes {
       for (int i = 0; i < errorLogEntries_.size(); i++) {
         output.writeMessage(3, errorLogEntries_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -28913,7 +31750,7 @@ public final class TransferTypes {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, errorLogEntries_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -28933,7 +31770,7 @@ public final class TransferTypes {
           != other.getErrorCount()) return false;
       if (!getErrorLogEntriesList()
           .equals(other.getErrorLogEntriesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -28953,7 +31790,7 @@ public final class TransferTypes {
         hash = (37 * hash) + ERROR_LOG_ENTRIES_FIELD_NUMBER;
         hash = (53 * hash) + getErrorLogEntriesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -29075,33 +31912,27 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummary.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getErrorLogEntriesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         errorCode_ = 0;
-
         errorCount_ = 0L;
-
         if (errorLogEntriesBuilder_ == null) {
           errorLogEntries_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          errorLogEntries_ = null;
           errorLogEntriesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -29128,20 +31959,32 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummary buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummary result = new com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummary(this);
-        int from_bitField0_ = bitField0_;
-        result.errorCode_ = errorCode_;
-        result.errorCount_ = errorCount_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummary result) {
         if (errorLogEntriesBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000004) != 0)) {
             errorLogEntries_ = java.util.Collections.unmodifiableList(errorLogEntries_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.errorLogEntries_ = errorLogEntries_;
         } else {
           result.errorLogEntries_ = errorLogEntriesBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummary result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.errorCode_ = errorCode_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.errorCount_ = errorCount_;
+        }
       }
 
       @java.lang.Override
@@ -29198,7 +32041,7 @@ public final class TransferTypes {
           if (!other.errorLogEntries_.isEmpty()) {
             if (errorLogEntries_.isEmpty()) {
               errorLogEntries_ = other.errorLogEntries_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureErrorLogEntriesIsMutable();
               errorLogEntries_.addAll(other.errorLogEntries_);
@@ -29211,7 +32054,7 @@ public final class TransferTypes {
               errorLogEntriesBuilder_.dispose();
               errorLogEntriesBuilder_ = null;
               errorLogEntries_ = other.errorLogEntries_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
               errorLogEntriesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getErrorLogEntriesFieldBuilder() : null;
@@ -29220,7 +32063,7 @@ public final class TransferTypes {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -29235,17 +32078,53 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummary parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                errorCode_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                errorCount_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry m =
+                    input.readMessage(
+                        com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry.parser(),
+                        extensionRegistry);
+                if (errorLogEntriesBuilder_ == null) {
+                  ensureErrorLogEntriesIsMutable();
+                  errorLogEntries_.add(m);
+                } else {
+                  errorLogEntriesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummary) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -29272,8 +32151,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder setErrorCodeValue(int value) {
-        
         errorCode_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -29287,8 +32166,7 @@ public final class TransferTypes {
        */
       @java.lang.Override
       public com.google.rpc.Code getErrorCode() {
-        @SuppressWarnings("deprecation")
-        com.google.rpc.Code result = com.google.rpc.Code.valueOf(errorCode_);
+        com.google.rpc.Code result = com.google.rpc.Code.forNumber(errorCode_);
         return result == null ? com.google.rpc.Code.UNRECOGNIZED : result;
       }
       /**
@@ -29304,7 +32182,7 @@ public final class TransferTypes {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         errorCode_ = value.getNumber();
         onChanged();
         return this;
@@ -29318,7 +32196,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearErrorCode() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         errorCode_ = 0;
         onChanged();
         return this;
@@ -29349,6 +32227,7 @@ public final class TransferTypes {
       public Builder setErrorCount(long value) {
         
         errorCount_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -29361,7 +32240,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearErrorCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         errorCount_ = 0L;
         onChanged();
         return this;
@@ -29370,9 +32249,9 @@ public final class TransferTypes {
       private java.util.List<com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry> errorLogEntries_ =
         java.util.Collections.emptyList();
       private void ensureErrorLogEntriesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           errorLogEntries_ = new java.util.ArrayList<com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry>(errorLogEntries_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000004;
          }
       }
 
@@ -29588,7 +32467,7 @@ public final class TransferTypes {
       public Builder clearErrorLogEntries() {
         if (errorLogEntriesBuilder_ == null) {
           errorLogEntries_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           errorLogEntriesBuilder_.clear();
@@ -29707,7 +32586,7 @@ public final class TransferTypes {
           errorLogEntriesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry, com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntry.Builder, com.google.storagetransfer.v1.proto.TransferTypes.ErrorLogEntryOrBuilder>(
                   errorLogEntries_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
           errorLogEntries_ = null;
@@ -29747,7 +32626,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ErrorSummary(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -30029,150 +32919,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TransferCounters(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              objectsFoundFromSource_ = input.readInt64();
-              break;
-            }
-            case 16: {
-
-              bytesFoundFromSource_ = input.readInt64();
-              break;
-            }
-            case 24: {
-
-              objectsFoundOnlyFromSink_ = input.readInt64();
-              break;
-            }
-            case 32: {
-
-              bytesFoundOnlyFromSink_ = input.readInt64();
-              break;
-            }
-            case 40: {
-
-              objectsFromSourceSkippedBySync_ = input.readInt64();
-              break;
-            }
-            case 48: {
-
-              bytesFromSourceSkippedBySync_ = input.readInt64();
-              break;
-            }
-            case 56: {
-
-              objectsCopiedToSink_ = input.readInt64();
-              break;
-            }
-            case 64: {
-
-              bytesCopiedToSink_ = input.readInt64();
-              break;
-            }
-            case 72: {
-
-              objectsDeletedFromSource_ = input.readInt64();
-              break;
-            }
-            case 80: {
-
-              bytesDeletedFromSource_ = input.readInt64();
-              break;
-            }
-            case 88: {
-
-              objectsDeletedFromSink_ = input.readInt64();
-              break;
-            }
-            case 96: {
-
-              bytesDeletedFromSink_ = input.readInt64();
-              break;
-            }
-            case 104: {
-
-              objectsFromSourceFailed_ = input.readInt64();
-              break;
-            }
-            case 112: {
-
-              bytesFromSourceFailed_ = input.readInt64();
-              break;
-            }
-            case 120: {
-
-              objectsFailedToDeleteFromSink_ = input.readInt64();
-              break;
-            }
-            case 128: {
-
-              bytesFailedToDeleteFromSink_ = input.readInt64();
-              break;
-            }
-            case 136: {
-
-              directoriesFoundFromSource_ = input.readInt64();
-              break;
-            }
-            case 144: {
-
-              directoriesFailedToListFromSource_ = input.readInt64();
-              break;
-            }
-            case 152: {
-
-              directoriesSuccessfullyListedFromSource_ = input.readInt64();
-              break;
-            }
-            case 176: {
-
-              intermediateObjectsCleanedUp_ = input.readInt64();
-              break;
-            }
-            case 184: {
-
-              intermediateObjectsFailedCleanedUp_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_TransferCounters_descriptor;
@@ -30187,7 +32933,7 @@ public final class TransferTypes {
     }
 
     public static final int OBJECTS_FOUND_FROM_SOURCE_FIELD_NUMBER = 1;
-    private long objectsFoundFromSource_;
+    private long objectsFoundFromSource_ = 0L;
     /**
      * <pre>
      * Objects found in the data source that are scheduled to be transferred,
@@ -30204,7 +32950,7 @@ public final class TransferTypes {
     }
 
     public static final int BYTES_FOUND_FROM_SOURCE_FIELD_NUMBER = 2;
-    private long bytesFoundFromSource_;
+    private long bytesFoundFromSource_ = 0L;
     /**
      * <pre>
      * Bytes found in the data source that are scheduled to be transferred,
@@ -30221,7 +32967,7 @@ public final class TransferTypes {
     }
 
     public static final int OBJECTS_FOUND_ONLY_FROM_SINK_FIELD_NUMBER = 3;
-    private long objectsFoundOnlyFromSink_;
+    private long objectsFoundOnlyFromSink_ = 0L;
     /**
      * <pre>
      * Objects found only in the data sink that are scheduled to be deleted.
@@ -30236,7 +32982,7 @@ public final class TransferTypes {
     }
 
     public static final int BYTES_FOUND_ONLY_FROM_SINK_FIELD_NUMBER = 4;
-    private long bytesFoundOnlyFromSink_;
+    private long bytesFoundOnlyFromSink_ = 0L;
     /**
      * <pre>
      * Bytes found only in the data sink that are scheduled to be deleted.
@@ -30251,7 +32997,7 @@ public final class TransferTypes {
     }
 
     public static final int OBJECTS_FROM_SOURCE_SKIPPED_BY_SYNC_FIELD_NUMBER = 5;
-    private long objectsFromSourceSkippedBySync_;
+    private long objectsFromSourceSkippedBySync_ = 0L;
     /**
      * <pre>
      * Objects in the data source that are not transferred because they already
@@ -30267,7 +33013,7 @@ public final class TransferTypes {
     }
 
     public static final int BYTES_FROM_SOURCE_SKIPPED_BY_SYNC_FIELD_NUMBER = 6;
-    private long bytesFromSourceSkippedBySync_;
+    private long bytesFromSourceSkippedBySync_ = 0L;
     /**
      * <pre>
      * Bytes in the data source that are not transferred because they already
@@ -30283,7 +33029,7 @@ public final class TransferTypes {
     }
 
     public static final int OBJECTS_COPIED_TO_SINK_FIELD_NUMBER = 7;
-    private long objectsCopiedToSink_;
+    private long objectsCopiedToSink_ = 0L;
     /**
      * <pre>
      * Objects that are copied to the data sink.
@@ -30298,7 +33044,7 @@ public final class TransferTypes {
     }
 
     public static final int BYTES_COPIED_TO_SINK_FIELD_NUMBER = 8;
-    private long bytesCopiedToSink_;
+    private long bytesCopiedToSink_ = 0L;
     /**
      * <pre>
      * Bytes that are copied to the data sink.
@@ -30313,7 +33059,7 @@ public final class TransferTypes {
     }
 
     public static final int OBJECTS_DELETED_FROM_SOURCE_FIELD_NUMBER = 9;
-    private long objectsDeletedFromSource_;
+    private long objectsDeletedFromSource_ = 0L;
     /**
      * <pre>
      * Objects that are deleted from the data source.
@@ -30328,7 +33074,7 @@ public final class TransferTypes {
     }
 
     public static final int BYTES_DELETED_FROM_SOURCE_FIELD_NUMBER = 10;
-    private long bytesDeletedFromSource_;
+    private long bytesDeletedFromSource_ = 0L;
     /**
      * <pre>
      * Bytes that are deleted from the data source.
@@ -30343,7 +33089,7 @@ public final class TransferTypes {
     }
 
     public static final int OBJECTS_DELETED_FROM_SINK_FIELD_NUMBER = 11;
-    private long objectsDeletedFromSink_;
+    private long objectsDeletedFromSink_ = 0L;
     /**
      * <pre>
      * Objects that are deleted from the data sink.
@@ -30358,7 +33104,7 @@ public final class TransferTypes {
     }
 
     public static final int BYTES_DELETED_FROM_SINK_FIELD_NUMBER = 12;
-    private long bytesDeletedFromSink_;
+    private long bytesDeletedFromSink_ = 0L;
     /**
      * <pre>
      * Bytes that are deleted from the data sink.
@@ -30373,7 +33119,7 @@ public final class TransferTypes {
     }
 
     public static final int OBJECTS_FROM_SOURCE_FAILED_FIELD_NUMBER = 13;
-    private long objectsFromSourceFailed_;
+    private long objectsFromSourceFailed_ = 0L;
     /**
      * <pre>
      * Objects in the data source that failed to be transferred or that failed
@@ -30389,7 +33135,7 @@ public final class TransferTypes {
     }
 
     public static final int BYTES_FROM_SOURCE_FAILED_FIELD_NUMBER = 14;
-    private long bytesFromSourceFailed_;
+    private long bytesFromSourceFailed_ = 0L;
     /**
      * <pre>
      * Bytes in the data source that failed to be transferred or that failed to
@@ -30405,7 +33151,7 @@ public final class TransferTypes {
     }
 
     public static final int OBJECTS_FAILED_TO_DELETE_FROM_SINK_FIELD_NUMBER = 15;
-    private long objectsFailedToDeleteFromSink_;
+    private long objectsFailedToDeleteFromSink_ = 0L;
     /**
      * <pre>
      * Objects that failed to be deleted from the data sink.
@@ -30420,7 +33166,7 @@ public final class TransferTypes {
     }
 
     public static final int BYTES_FAILED_TO_DELETE_FROM_SINK_FIELD_NUMBER = 16;
-    private long bytesFailedToDeleteFromSink_;
+    private long bytesFailedToDeleteFromSink_ = 0L;
     /**
      * <pre>
      * Bytes that failed to be deleted from the data sink.
@@ -30435,7 +33181,7 @@ public final class TransferTypes {
     }
 
     public static final int DIRECTORIES_FOUND_FROM_SOURCE_FIELD_NUMBER = 17;
-    private long directoriesFoundFromSource_;
+    private long directoriesFoundFromSource_ = 0L;
     /**
      * <pre>
      * For transfers involving PosixFilesystem only.
@@ -30454,7 +33200,7 @@ public final class TransferTypes {
     }
 
     public static final int DIRECTORIES_FAILED_TO_LIST_FROM_SOURCE_FIELD_NUMBER = 18;
-    private long directoriesFailedToListFromSource_;
+    private long directoriesFailedToListFromSource_ = 0L;
     /**
      * <pre>
      * For transfers involving PosixFilesystem only.
@@ -30473,7 +33219,7 @@ public final class TransferTypes {
     }
 
     public static final int DIRECTORIES_SUCCESSFULLY_LISTED_FROM_SOURCE_FIELD_NUMBER = 19;
-    private long directoriesSuccessfullyListedFromSource_;
+    private long directoriesSuccessfullyListedFromSource_ = 0L;
     /**
      * <pre>
      * For transfers involving PosixFilesystem only.
@@ -30489,7 +33235,7 @@ public final class TransferTypes {
     }
 
     public static final int INTERMEDIATE_OBJECTS_CLEANED_UP_FIELD_NUMBER = 22;
-    private long intermediateObjectsCleanedUp_;
+    private long intermediateObjectsCleanedUp_ = 0L;
     /**
      * <pre>
      * Number of successfully cleaned up intermediate objects.
@@ -30504,7 +33250,7 @@ public final class TransferTypes {
     }
 
     public static final int INTERMEDIATE_OBJECTS_FAILED_CLEANED_UP_FIELD_NUMBER = 23;
-    private long intermediateObjectsFailedCleanedUp_;
+    private long intermediateObjectsFailedCleanedUp_ = 0L;
     /**
      * <pre>
      * Number of intermediate objects failed cleaned up.
@@ -30595,7 +33341,7 @@ public final class TransferTypes {
       if (intermediateObjectsFailedCleanedUp_ != 0L) {
         output.writeInt64(23, intermediateObjectsFailedCleanedUp_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -30688,7 +33434,7 @@ public final class TransferTypes {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(23, intermediateObjectsFailedCleanedUp_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -30745,7 +33491,7 @@ public final class TransferTypes {
           != other.getIntermediateObjectsCleanedUp()) return false;
       if (getIntermediateObjectsFailedCleanedUp()
           != other.getIntermediateObjectsFailedCleanedUp()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -30819,7 +33565,7 @@ public final class TransferTypes {
       hash = (37 * hash) + INTERMEDIATE_OBJECTS_FAILED_CLEANED_UP_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getIntermediateObjectsFailedCleanedUp());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -30940,64 +33686,39 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.TransferCounters.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         objectsFoundFromSource_ = 0L;
-
         bytesFoundFromSource_ = 0L;
-
         objectsFoundOnlyFromSink_ = 0L;
-
         bytesFoundOnlyFromSink_ = 0L;
-
         objectsFromSourceSkippedBySync_ = 0L;
-
         bytesFromSourceSkippedBySync_ = 0L;
-
         objectsCopiedToSink_ = 0L;
-
         bytesCopiedToSink_ = 0L;
-
         objectsDeletedFromSource_ = 0L;
-
         bytesDeletedFromSource_ = 0L;
-
         objectsDeletedFromSink_ = 0L;
-
         bytesDeletedFromSink_ = 0L;
-
         objectsFromSourceFailed_ = 0L;
-
         bytesFromSourceFailed_ = 0L;
-
         objectsFailedToDeleteFromSink_ = 0L;
-
         bytesFailedToDeleteFromSink_ = 0L;
-
         directoriesFoundFromSource_ = 0L;
-
         directoriesFailedToListFromSource_ = 0L;
-
         directoriesSuccessfullyListedFromSource_ = 0L;
-
         intermediateObjectsCleanedUp_ = 0L;
-
         intermediateObjectsFailedCleanedUp_ = 0L;
-
         return this;
       }
 
@@ -31024,29 +33745,76 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.TransferCounters buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.TransferCounters result = new com.google.storagetransfer.v1.proto.TransferTypes.TransferCounters(this);
-        result.objectsFoundFromSource_ = objectsFoundFromSource_;
-        result.bytesFoundFromSource_ = bytesFoundFromSource_;
-        result.objectsFoundOnlyFromSink_ = objectsFoundOnlyFromSink_;
-        result.bytesFoundOnlyFromSink_ = bytesFoundOnlyFromSink_;
-        result.objectsFromSourceSkippedBySync_ = objectsFromSourceSkippedBySync_;
-        result.bytesFromSourceSkippedBySync_ = bytesFromSourceSkippedBySync_;
-        result.objectsCopiedToSink_ = objectsCopiedToSink_;
-        result.bytesCopiedToSink_ = bytesCopiedToSink_;
-        result.objectsDeletedFromSource_ = objectsDeletedFromSource_;
-        result.bytesDeletedFromSource_ = bytesDeletedFromSource_;
-        result.objectsDeletedFromSink_ = objectsDeletedFromSink_;
-        result.bytesDeletedFromSink_ = bytesDeletedFromSink_;
-        result.objectsFromSourceFailed_ = objectsFromSourceFailed_;
-        result.bytesFromSourceFailed_ = bytesFromSourceFailed_;
-        result.objectsFailedToDeleteFromSink_ = objectsFailedToDeleteFromSink_;
-        result.bytesFailedToDeleteFromSink_ = bytesFailedToDeleteFromSink_;
-        result.directoriesFoundFromSource_ = directoriesFoundFromSource_;
-        result.directoriesFailedToListFromSource_ = directoriesFailedToListFromSource_;
-        result.directoriesSuccessfullyListedFromSource_ = directoriesSuccessfullyListedFromSource_;
-        result.intermediateObjectsCleanedUp_ = intermediateObjectsCleanedUp_;
-        result.intermediateObjectsFailedCleanedUp_ = intermediateObjectsFailedCleanedUp_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.TransferCounters result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.objectsFoundFromSource_ = objectsFoundFromSource_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.bytesFoundFromSource_ = bytesFoundFromSource_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.objectsFoundOnlyFromSink_ = objectsFoundOnlyFromSink_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.bytesFoundOnlyFromSink_ = bytesFoundOnlyFromSink_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.objectsFromSourceSkippedBySync_ = objectsFromSourceSkippedBySync_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.bytesFromSourceSkippedBySync_ = bytesFromSourceSkippedBySync_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.objectsCopiedToSink_ = objectsCopiedToSink_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.bytesCopiedToSink_ = bytesCopiedToSink_;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.objectsDeletedFromSource_ = objectsDeletedFromSource_;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.bytesDeletedFromSource_ = bytesDeletedFromSource_;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.objectsDeletedFromSink_ = objectsDeletedFromSink_;
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.bytesDeletedFromSink_ = bytesDeletedFromSink_;
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.objectsFromSourceFailed_ = objectsFromSourceFailed_;
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.bytesFromSourceFailed_ = bytesFromSourceFailed_;
+        }
+        if (((from_bitField0_ & 0x00004000) != 0)) {
+          result.objectsFailedToDeleteFromSink_ = objectsFailedToDeleteFromSink_;
+        }
+        if (((from_bitField0_ & 0x00008000) != 0)) {
+          result.bytesFailedToDeleteFromSink_ = bytesFailedToDeleteFromSink_;
+        }
+        if (((from_bitField0_ & 0x00010000) != 0)) {
+          result.directoriesFoundFromSource_ = directoriesFoundFromSource_;
+        }
+        if (((from_bitField0_ & 0x00020000) != 0)) {
+          result.directoriesFailedToListFromSource_ = directoriesFailedToListFromSource_;
+        }
+        if (((from_bitField0_ & 0x00040000) != 0)) {
+          result.directoriesSuccessfullyListedFromSource_ = directoriesSuccessfullyListedFromSource_;
+        }
+        if (((from_bitField0_ & 0x00080000) != 0)) {
+          result.intermediateObjectsCleanedUp_ = intermediateObjectsCleanedUp_;
+        }
+        if (((from_bitField0_ & 0x00100000) != 0)) {
+          result.intermediateObjectsFailedCleanedUp_ = intermediateObjectsFailedCleanedUp_;
+        }
       }
 
       @java.lang.Override
@@ -31156,7 +33924,7 @@ public final class TransferTypes {
         if (other.getIntermediateObjectsFailedCleanedUp() != 0L) {
           setIntermediateObjectsFailedCleanedUp(other.getIntermediateObjectsFailedCleanedUp());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -31171,19 +33939,138 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.TransferCounters parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                objectsFoundFromSource_ = input.readInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                bytesFoundFromSource_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                objectsFoundOnlyFromSink_ = input.readInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                bytesFoundOnlyFromSink_ = input.readInt64();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 40: {
+                objectsFromSourceSkippedBySync_ = input.readInt64();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 48: {
+                bytesFromSourceSkippedBySync_ = input.readInt64();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
+              case 56: {
+                objectsCopiedToSink_ = input.readInt64();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              case 64: {
+                bytesCopiedToSink_ = input.readInt64();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 64
+              case 72: {
+                objectsDeletedFromSource_ = input.readInt64();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 72
+              case 80: {
+                bytesDeletedFromSource_ = input.readInt64();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 80
+              case 88: {
+                objectsDeletedFromSink_ = input.readInt64();
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 88
+              case 96: {
+                bytesDeletedFromSink_ = input.readInt64();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 96
+              case 104: {
+                objectsFromSourceFailed_ = input.readInt64();
+                bitField0_ |= 0x00001000;
+                break;
+              } // case 104
+              case 112: {
+                bytesFromSourceFailed_ = input.readInt64();
+                bitField0_ |= 0x00002000;
+                break;
+              } // case 112
+              case 120: {
+                objectsFailedToDeleteFromSink_ = input.readInt64();
+                bitField0_ |= 0x00004000;
+                break;
+              } // case 120
+              case 128: {
+                bytesFailedToDeleteFromSink_ = input.readInt64();
+                bitField0_ |= 0x00008000;
+                break;
+              } // case 128
+              case 136: {
+                directoriesFoundFromSource_ = input.readInt64();
+                bitField0_ |= 0x00010000;
+                break;
+              } // case 136
+              case 144: {
+                directoriesFailedToListFromSource_ = input.readInt64();
+                bitField0_ |= 0x00020000;
+                break;
+              } // case 144
+              case 152: {
+                directoriesSuccessfullyListedFromSource_ = input.readInt64();
+                bitField0_ |= 0x00040000;
+                break;
+              } // case 152
+              case 176: {
+                intermediateObjectsCleanedUp_ = input.readInt64();
+                bitField0_ |= 0x00080000;
+                break;
+              } // case 176
+              case 184: {
+                intermediateObjectsFailedCleanedUp_ = input.readInt64();
+                bitField0_ |= 0x00100000;
+                break;
+              } // case 184
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.TransferCounters) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long objectsFoundFromSource_ ;
       /**
@@ -31214,6 +34101,7 @@ public final class TransferTypes {
       public Builder setObjectsFoundFromSource(long value) {
         
         objectsFoundFromSource_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -31228,7 +34116,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearObjectsFoundFromSource() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         objectsFoundFromSource_ = 0L;
         onChanged();
         return this;
@@ -31263,6 +34151,7 @@ public final class TransferTypes {
       public Builder setBytesFoundFromSource(long value) {
         
         bytesFoundFromSource_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -31277,7 +34166,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearBytesFoundFromSource() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         bytesFoundFromSource_ = 0L;
         onChanged();
         return this;
@@ -31308,6 +34197,7 @@ public final class TransferTypes {
       public Builder setObjectsFoundOnlyFromSink(long value) {
         
         objectsFoundOnlyFromSink_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -31320,7 +34210,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearObjectsFoundOnlyFromSink() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         objectsFoundOnlyFromSink_ = 0L;
         onChanged();
         return this;
@@ -31351,6 +34241,7 @@ public final class TransferTypes {
       public Builder setBytesFoundOnlyFromSink(long value) {
         
         bytesFoundOnlyFromSink_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -31363,7 +34254,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearBytesFoundOnlyFromSink() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         bytesFoundOnlyFromSink_ = 0L;
         onChanged();
         return this;
@@ -31396,6 +34287,7 @@ public final class TransferTypes {
       public Builder setObjectsFromSourceSkippedBySync(long value) {
         
         objectsFromSourceSkippedBySync_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -31409,7 +34301,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearObjectsFromSourceSkippedBySync() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         objectsFromSourceSkippedBySync_ = 0L;
         onChanged();
         return this;
@@ -31442,6 +34334,7 @@ public final class TransferTypes {
       public Builder setBytesFromSourceSkippedBySync(long value) {
         
         bytesFromSourceSkippedBySync_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -31455,7 +34348,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearBytesFromSourceSkippedBySync() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         bytesFromSourceSkippedBySync_ = 0L;
         onChanged();
         return this;
@@ -31486,6 +34379,7 @@ public final class TransferTypes {
       public Builder setObjectsCopiedToSink(long value) {
         
         objectsCopiedToSink_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -31498,7 +34392,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearObjectsCopiedToSink() {
-        
+        bitField0_ = (bitField0_ & ~0x00000040);
         objectsCopiedToSink_ = 0L;
         onChanged();
         return this;
@@ -31529,6 +34423,7 @@ public final class TransferTypes {
       public Builder setBytesCopiedToSink(long value) {
         
         bytesCopiedToSink_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -31541,7 +34436,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearBytesCopiedToSink() {
-        
+        bitField0_ = (bitField0_ & ~0x00000080);
         bytesCopiedToSink_ = 0L;
         onChanged();
         return this;
@@ -31572,6 +34467,7 @@ public final class TransferTypes {
       public Builder setObjectsDeletedFromSource(long value) {
         
         objectsDeletedFromSource_ = value;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -31584,7 +34480,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearObjectsDeletedFromSource() {
-        
+        bitField0_ = (bitField0_ & ~0x00000100);
         objectsDeletedFromSource_ = 0L;
         onChanged();
         return this;
@@ -31615,6 +34511,7 @@ public final class TransferTypes {
       public Builder setBytesDeletedFromSource(long value) {
         
         bytesDeletedFromSource_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -31627,7 +34524,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearBytesDeletedFromSource() {
-        
+        bitField0_ = (bitField0_ & ~0x00000200);
         bytesDeletedFromSource_ = 0L;
         onChanged();
         return this;
@@ -31658,6 +34555,7 @@ public final class TransferTypes {
       public Builder setObjectsDeletedFromSink(long value) {
         
         objectsDeletedFromSink_ = value;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -31670,7 +34568,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearObjectsDeletedFromSink() {
-        
+        bitField0_ = (bitField0_ & ~0x00000400);
         objectsDeletedFromSink_ = 0L;
         onChanged();
         return this;
@@ -31701,6 +34599,7 @@ public final class TransferTypes {
       public Builder setBytesDeletedFromSink(long value) {
         
         bytesDeletedFromSink_ = value;
+        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -31713,7 +34612,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearBytesDeletedFromSink() {
-        
+        bitField0_ = (bitField0_ & ~0x00000800);
         bytesDeletedFromSink_ = 0L;
         onChanged();
         return this;
@@ -31746,6 +34645,7 @@ public final class TransferTypes {
       public Builder setObjectsFromSourceFailed(long value) {
         
         objectsFromSourceFailed_ = value;
+        bitField0_ |= 0x00001000;
         onChanged();
         return this;
       }
@@ -31759,7 +34659,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearObjectsFromSourceFailed() {
-        
+        bitField0_ = (bitField0_ & ~0x00001000);
         objectsFromSourceFailed_ = 0L;
         onChanged();
         return this;
@@ -31792,6 +34692,7 @@ public final class TransferTypes {
       public Builder setBytesFromSourceFailed(long value) {
         
         bytesFromSourceFailed_ = value;
+        bitField0_ |= 0x00002000;
         onChanged();
         return this;
       }
@@ -31805,7 +34706,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearBytesFromSourceFailed() {
-        
+        bitField0_ = (bitField0_ & ~0x00002000);
         bytesFromSourceFailed_ = 0L;
         onChanged();
         return this;
@@ -31836,6 +34737,7 @@ public final class TransferTypes {
       public Builder setObjectsFailedToDeleteFromSink(long value) {
         
         objectsFailedToDeleteFromSink_ = value;
+        bitField0_ |= 0x00004000;
         onChanged();
         return this;
       }
@@ -31848,7 +34750,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearObjectsFailedToDeleteFromSink() {
-        
+        bitField0_ = (bitField0_ & ~0x00004000);
         objectsFailedToDeleteFromSink_ = 0L;
         onChanged();
         return this;
@@ -31879,6 +34781,7 @@ public final class TransferTypes {
       public Builder setBytesFailedToDeleteFromSink(long value) {
         
         bytesFailedToDeleteFromSink_ = value;
+        bitField0_ |= 0x00008000;
         onChanged();
         return this;
       }
@@ -31891,7 +34794,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearBytesFailedToDeleteFromSink() {
-        
+        bitField0_ = (bitField0_ & ~0x00008000);
         bytesFailedToDeleteFromSink_ = 0L;
         onChanged();
         return this;
@@ -31930,6 +34833,7 @@ public final class TransferTypes {
       public Builder setDirectoriesFoundFromSource(long value) {
         
         directoriesFoundFromSource_ = value;
+        bitField0_ |= 0x00010000;
         onChanged();
         return this;
       }
@@ -31946,7 +34850,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearDirectoriesFoundFromSource() {
-        
+        bitField0_ = (bitField0_ & ~0x00010000);
         directoriesFoundFromSource_ = 0L;
         onChanged();
         return this;
@@ -31985,6 +34889,7 @@ public final class TransferTypes {
       public Builder setDirectoriesFailedToListFromSource(long value) {
         
         directoriesFailedToListFromSource_ = value;
+        bitField0_ |= 0x00020000;
         onChanged();
         return this;
       }
@@ -32001,7 +34906,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearDirectoriesFailedToListFromSource() {
-        
+        bitField0_ = (bitField0_ & ~0x00020000);
         directoriesFailedToListFromSource_ = 0L;
         onChanged();
         return this;
@@ -32034,6 +34939,7 @@ public final class TransferTypes {
       public Builder setDirectoriesSuccessfullyListedFromSource(long value) {
         
         directoriesSuccessfullyListedFromSource_ = value;
+        bitField0_ |= 0x00040000;
         onChanged();
         return this;
       }
@@ -32047,7 +34953,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearDirectoriesSuccessfullyListedFromSource() {
-        
+        bitField0_ = (bitField0_ & ~0x00040000);
         directoriesSuccessfullyListedFromSource_ = 0L;
         onChanged();
         return this;
@@ -32078,6 +34984,7 @@ public final class TransferTypes {
       public Builder setIntermediateObjectsCleanedUp(long value) {
         
         intermediateObjectsCleanedUp_ = value;
+        bitField0_ |= 0x00080000;
         onChanged();
         return this;
       }
@@ -32090,7 +34997,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearIntermediateObjectsCleanedUp() {
-        
+        bitField0_ = (bitField0_ & ~0x00080000);
         intermediateObjectsCleanedUp_ = 0L;
         onChanged();
         return this;
@@ -32121,6 +35028,7 @@ public final class TransferTypes {
       public Builder setIntermediateObjectsFailedCleanedUp(long value) {
         
         intermediateObjectsFailedCleanedUp_ = value;
+        bitField0_ |= 0x00100000;
         onChanged();
         return this;
       }
@@ -32133,7 +35041,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearIntermediateObjectsFailedCleanedUp() {
-        
+        bitField0_ = (bitField0_ & ~0x00100000);
         intermediateObjectsFailedCleanedUp_ = 0L;
         onChanged();
         return this;
@@ -32171,7 +35079,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TransferCounters(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -32340,84 +35259,6 @@ public final class TransferTypes {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private NotificationConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              pubsubTopic_ = s;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                eventTypes_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              eventTypes_.add(rawValue);
-              break;
-            }
-            case 18: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  eventTypes_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                eventTypes_.add(rawValue);
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              payloadFormat_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          eventTypes_ = java.util.Collections.unmodifiableList(eventTypes_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -32754,7 +35595,8 @@ public final class TransferTypes {
     }
 
     public static final int PUBSUB_TOPIC_FIELD_NUMBER = 1;
-    private volatile java.lang.Object pubsubTopic_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object pubsubTopic_ = "";
     /**
      * <pre>
      * Required. The `Topic.name` of the Pub/Sub topic to which to publish
@@ -32806,14 +35648,14 @@ public final class TransferTypes {
     }
 
     public static final int EVENT_TYPES_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> eventTypes_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.EventType> eventTypes_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.EventType>() {
               public com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.EventType convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.EventType result = com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.EventType.valueOf(from);
+                com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.EventType result = com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.EventType.forNumber(from);
                 return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.EventType.UNRECOGNIZED : result;
               }
             };
@@ -32889,7 +35731,7 @@ public final class TransferTypes {
     private int eventTypesMemoizedSerializedSize;
 
     public static final int PAYLOAD_FORMAT_FIELD_NUMBER = 3;
-    private int payloadFormat_;
+    private int payloadFormat_ = 0;
     /**
      * <pre>
      * Required. The desired format of the notification message payloads.
@@ -32910,8 +35752,7 @@ public final class TransferTypes {
      * @return The payloadFormat.
      */
     @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.PayloadFormat getPayloadFormat() {
-      @SuppressWarnings("deprecation")
-      com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.PayloadFormat result = com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.PayloadFormat.valueOf(payloadFormat_);
+      com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.PayloadFormat result = com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.PayloadFormat.forNumber(payloadFormat_);
       return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.PayloadFormat.UNRECOGNIZED : result;
     }
 
@@ -32943,7 +35784,7 @@ public final class TransferTypes {
       if (payloadFormat_ != com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.PayloadFormat.PAYLOAD_FORMAT_UNSPECIFIED.getNumber()) {
         output.writeEnum(3, payloadFormat_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -32971,7 +35812,7 @@ public final class TransferTypes {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, payloadFormat_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -32990,7 +35831,7 @@ public final class TransferTypes {
           .equals(other.getPubsubTopic())) return false;
       if (!eventTypes_.equals(other.eventTypes_)) return false;
       if (payloadFormat_ != other.payloadFormat_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -33009,7 +35850,7 @@ public final class TransferTypes {
       }
       hash = (37 * hash) + PAYLOAD_FORMAT_FIELD_NUMBER;
       hash = (53 * hash) + payloadFormat_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -33143,28 +35984,22 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         pubsubTopic_ = "";
-
         eventTypes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         payloadFormat_ = 0;
-
         return this;
       }
 
@@ -33191,16 +36026,28 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig result = new com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig(this);
-        int from_bitField0_ = bitField0_;
-        result.pubsubTopic_ = pubsubTopic_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          eventTypes_ = java.util.Collections.unmodifiableList(eventTypes_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.eventTypes_ = eventTypes_;
-        result.payloadFormat_ = payloadFormat_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig result) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          eventTypes_ = java.util.Collections.unmodifiableList(eventTypes_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.eventTypes_ = eventTypes_;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.pubsubTopic_ = pubsubTopic_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.payloadFormat_ = payloadFormat_;
+        }
       }
 
       @java.lang.Override
@@ -33249,12 +36096,13 @@ public final class TransferTypes {
         if (other == com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.getDefaultInstance()) return this;
         if (!other.getPubsubTopic().isEmpty()) {
           pubsubTopic_ = other.pubsubTopic_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.eventTypes_.isEmpty()) {
           if (eventTypes_.isEmpty()) {
             eventTypes_ = other.eventTypes_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureEventTypesIsMutable();
             eventTypes_.addAll(other.eventTypes_);
@@ -33264,7 +36112,7 @@ public final class TransferTypes {
         if (other.payloadFormat_ != 0) {
           setPayloadFormatValue(other.getPayloadFormatValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -33279,17 +36127,57 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                pubsubTopic_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                int tmpRaw = input.readEnum();
+                ensureEventTypesIsMutable();
+                eventTypes_.add(tmpRaw);
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  ensureEventTypesIsMutable();
+                  eventTypes_.add(tmpRaw);
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 18
+              case 24: {
+                payloadFormat_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -33356,11 +36244,9 @@ public final class TransferTypes {
        */
       public Builder setPubsubTopic(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         pubsubTopic_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -33376,8 +36262,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearPubsubTopic() {
-        
         pubsubTopic_ = getDefaultInstance().getPubsubTopic();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -33395,12 +36281,10 @@ public final class TransferTypes {
        */
       public Builder setPubsubTopicBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         pubsubTopic_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -33408,9 +36292,9 @@ public final class TransferTypes {
       private java.util.List<java.lang.Integer> eventTypes_ =
         java.util.Collections.emptyList();
       private void ensureEventTypesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           eventTypes_ = new java.util.ArrayList<java.lang.Integer>(eventTypes_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
         }
       }
       /**
@@ -33521,7 +36405,7 @@ public final class TransferTypes {
        */
       public Builder clearEventTypes() {
         eventTypes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -33627,8 +36511,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder setPayloadFormatValue(int value) {
-        
         payloadFormat_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -33642,8 +36526,7 @@ public final class TransferTypes {
        */
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.PayloadFormat getPayloadFormat() {
-        @SuppressWarnings("deprecation")
-        com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.PayloadFormat result = com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.PayloadFormat.valueOf(payloadFormat_);
+        com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.PayloadFormat result = com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.PayloadFormat.forNumber(payloadFormat_);
         return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.PayloadFormat.UNRECOGNIZED : result;
       }
       /**
@@ -33659,7 +36542,7 @@ public final class TransferTypes {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         payloadFormat_ = value.getNumber();
         onChanged();
         return this;
@@ -33673,7 +36556,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearPayloadFormat() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         payloadFormat_ = 0;
         onChanged();
         return this;
@@ -33711,7 +36594,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NotificationConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -33905,103 +36799,6 @@ public final class TransferTypes {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private LoggingConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                logActions_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              logActions_.add(rawValue);
-              break;
-            }
-            case 10: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  logActions_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                logActions_.add(rawValue);
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                logActionStates_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              logActionStates_.add(rawValue);
-              break;
-            }
-            case 18: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                  logActionStates_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000002;
-                }
-                logActionStates_.add(rawValue);
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            case 24: {
-
-              enableOnpremGcsTransferLogs_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          logActions_ = java.util.Collections.unmodifiableList(logActions_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          logActionStates_ = java.util.Collections.unmodifiableList(logActionStates_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -34328,14 +37125,14 @@ public final class TransferTypes {
     }
 
     public static final int LOG_ACTIONS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> logActions_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.LoggableAction> logActions_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.LoggableAction>() {
               public com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.LoggableAction convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.LoggableAction result = com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.LoggableAction.valueOf(from);
+                com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.LoggableAction result = com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.LoggableAction.forNumber(from);
                 return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.LoggableAction.UNRECOGNIZED : result;
               }
             };
@@ -34416,14 +37213,14 @@ public final class TransferTypes {
     private int logActionsMemoizedSerializedSize;
 
     public static final int LOG_ACTION_STATES_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> logActionStates_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.LoggableActionState> logActionStates_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.LoggableActionState>() {
               public com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.LoggableActionState convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.LoggableActionState result = com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.LoggableActionState.valueOf(from);
+                com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.LoggableActionState result = com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.LoggableActionState.forNumber(from);
                 return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.LoggableActionState.UNRECOGNIZED : result;
               }
             };
@@ -34504,7 +37301,7 @@ public final class TransferTypes {
     private int logActionStatesMemoizedSerializedSize;
 
     public static final int ENABLE_ONPREM_GCS_TRANSFER_LOGS_FIELD_NUMBER = 3;
-    private boolean enableOnpremGcsTransferLogs_;
+    private boolean enableOnpremGcsTransferLogs_ = false;
     /**
      * <pre>
      * For transfers with a PosixFilesystem source, this option enables the Cloud
@@ -34551,7 +37348,7 @@ public final class TransferTypes {
       if (enableOnpremGcsTransferLogs_ != false) {
         output.writeBool(3, enableOnpremGcsTransferLogs_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -34588,7 +37385,7 @@ public final class TransferTypes {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, enableOnpremGcsTransferLogs_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -34607,7 +37404,7 @@ public final class TransferTypes {
       if (!logActionStates_.equals(other.logActionStates_)) return false;
       if (getEnableOnpremGcsTransferLogs()
           != other.getEnableOnpremGcsTransferLogs()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -34629,7 +37426,7 @@ public final class TransferTypes {
       hash = (37 * hash) + ENABLE_ONPREM_GCS_TRANSFER_LOGS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getEnableOnpremGcsTransferLogs());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -34759,28 +37556,23 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         logActions_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
         logActionStates_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
         enableOnpremGcsTransferLogs_ = false;
-
         return this;
       }
 
@@ -34807,7 +37599,13 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig result = new com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           logActions_ = java.util.Collections.unmodifiableList(logActions_);
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -34818,9 +37616,13 @@ public final class TransferTypes {
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.logActionStates_ = logActionStates_;
-        result.enableOnpremGcsTransferLogs_ = enableOnpremGcsTransferLogs_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.enableOnpremGcsTransferLogs_ = enableOnpremGcsTransferLogs_;
+        }
       }
 
       @java.lang.Override
@@ -34890,7 +37692,7 @@ public final class TransferTypes {
         if (other.getEnableOnpremGcsTransferLogs() != false) {
           setEnableOnpremGcsTransferLogs(other.getEnableOnpremGcsTransferLogs());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -34905,17 +37707,69 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                int tmpRaw = input.readEnum();
+                ensureLogActionsIsMutable();
+                logActions_.add(tmpRaw);
+                break;
+              } // case 8
+              case 10: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  ensureLogActionsIsMutable();
+                  logActions_.add(tmpRaw);
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 10
+              case 16: {
+                int tmpRaw = input.readEnum();
+                ensureLogActionStatesIsMutable();
+                logActionStates_.add(tmpRaw);
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  ensureLogActionStatesIsMutable();
+                  logActionStates_.add(tmpRaw);
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 18
+              case 24: {
+                enableOnpremGcsTransferLogs_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.LoggingConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -35371,6 +38225,7 @@ public final class TransferTypes {
       public Builder setEnableOnpremGcsTransferLogs(boolean value) {
         
         enableOnpremGcsTransferLogs_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -35384,7 +38239,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearEnableOnpremGcsTransferLogs() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         enableOnpremGcsTransferLogs_ = false;
         onChanged();
         return this;
@@ -35422,7 +38277,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LoggingConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -35740,147 +38606,6 @@ public final class TransferTypes {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TransferOperation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              projectId_ = s;
-              break;
-            }
-            case 26: {
-              com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.Builder subBuilder = null;
-              if (transferSpec_ != null) {
-                subBuilder = transferSpec_.toBuilder();
-              }
-              transferSpec_ = input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(transferSpec_);
-                transferSpec_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (startTime_ != null) {
-                subBuilder = startTime_.toBuilder();
-              }
-              startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(startTime_);
-                startTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (endTime_ != null) {
-                subBuilder = endTime_.toBuilder();
-              }
-              endTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(endTime_);
-                endTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 48: {
-              int rawValue = input.readEnum();
-
-              status_ = rawValue;
-              break;
-            }
-            case 58: {
-              com.google.storagetransfer.v1.proto.TransferTypes.TransferCounters.Builder subBuilder = null;
-              if (counters_ != null) {
-                subBuilder = counters_.toBuilder();
-              }
-              counters_ = input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.TransferCounters.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(counters_);
-                counters_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 66: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                errorBreakdowns_ = new java.util.ArrayList<com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummary>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              errorBreakdowns_.add(
-                  input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummary.parser(), extensionRegistry));
-              break;
-            }
-            case 74: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              transferJobName_ = s;
-              break;
-            }
-            case 82: {
-              com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.Builder subBuilder = null;
-              if (notificationConfig_ != null) {
-                subBuilder = notificationConfig_.toBuilder();
-              }
-              notificationConfig_ = input.readMessage(com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(notificationConfig_);
-                notificationConfig_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          errorBreakdowns_ = java.util.Collections.unmodifiableList(errorBreakdowns_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.storagetransfer.v1.proto.TransferTypes.internal_static_google_storagetransfer_v1_TransferOperation_descriptor;
@@ -36108,7 +38833,8 @@ public final class TransferTypes {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * A globally unique ID assigned by the system.
@@ -36154,7 +38880,8 @@ public final class TransferTypes {
     }
 
     public static final int PROJECT_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object projectId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object projectId_ = "";
     /**
      * <pre>
      * The ID of the Google Cloud project that owns the operation.
@@ -36234,7 +38961,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.storagetransfer.v1.proto.TransferTypes.TransferSpecOrBuilder getTransferSpecOrBuilder() {
-      return getTransferSpec();
+      return transferSpec_ == null ? com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.getDefaultInstance() : transferSpec_;
     }
 
     public static final int NOTIFICATION_CONFIG_FIELD_NUMBER = 10;
@@ -36272,7 +38999,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfigOrBuilder getNotificationConfigOrBuilder() {
-      return getNotificationConfig();
+      return notificationConfig_ == null ? com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.getDefaultInstance() : notificationConfig_;
     }
 
     public static final int START_TIME_FIELD_NUMBER = 4;
@@ -36310,7 +39037,7 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
-      return getStartTime();
+      return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
     }
 
     public static final int END_TIME_FIELD_NUMBER = 5;
@@ -36348,11 +39075,11 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
-      return getEndTime();
+      return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
     }
 
     public static final int STATUS_FIELD_NUMBER = 6;
-    private int status_;
+    private int status_ = 0;
     /**
      * <pre>
      * Status of the transfer operation.
@@ -36373,8 +39100,7 @@ public final class TransferTypes {
      * @return The status.
      */
     @java.lang.Override public com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation.Status getStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation.Status result = com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation.Status.valueOf(status_);
+      com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation.Status result = com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation.Status.forNumber(status_);
       return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation.Status.UNRECOGNIZED : result;
     }
 
@@ -36413,10 +39139,11 @@ public final class TransferTypes {
      */
     @java.lang.Override
     public com.google.storagetransfer.v1.proto.TransferTypes.TransferCountersOrBuilder getCountersOrBuilder() {
-      return getCounters();
+      return counters_ == null ? com.google.storagetransfer.v1.proto.TransferTypes.TransferCounters.getDefaultInstance() : counters_;
     }
 
     public static final int ERROR_BREAKDOWNS_FIELD_NUMBER = 8;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummary> errorBreakdowns_;
     /**
      * <pre>
@@ -36477,7 +39204,8 @@ public final class TransferTypes {
     }
 
     public static final int TRANSFER_JOB_NAME_FIELD_NUMBER = 9;
-    private volatile java.lang.Object transferJobName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object transferJobName_ = "";
     /**
      * <pre>
      * The name of the transfer job that triggers this transfer operation.
@@ -36566,7 +39294,7 @@ public final class TransferTypes {
       if (notificationConfig_ != null) {
         output.writeMessage(10, getNotificationConfig());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -36612,7 +39340,7 @@ public final class TransferTypes {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(10, getNotificationConfig());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -36661,7 +39389,7 @@ public final class TransferTypes {
           .equals(other.getErrorBreakdownsList())) return false;
       if (!getTransferJobName()
           .equals(other.getTransferJobName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -36704,7 +39432,7 @@ public final class TransferTypes {
       }
       hash = (37 * hash) + TRANSFER_JOB_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getTransferJobName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -36825,67 +39553,54 @@ public final class TransferTypes {
 
       // Construct using com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getErrorBreakdownsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         projectId_ = "";
-
-        if (transferSpecBuilder_ == null) {
-          transferSpec_ = null;
-        } else {
-          transferSpec_ = null;
+        transferSpec_ = null;
+        if (transferSpecBuilder_ != null) {
+          transferSpecBuilder_.dispose();
           transferSpecBuilder_ = null;
         }
-        if (notificationConfigBuilder_ == null) {
-          notificationConfig_ = null;
-        } else {
-          notificationConfig_ = null;
+        notificationConfig_ = null;
+        if (notificationConfigBuilder_ != null) {
+          notificationConfigBuilder_.dispose();
           notificationConfigBuilder_ = null;
         }
-        if (startTimeBuilder_ == null) {
-          startTime_ = null;
-        } else {
-          startTime_ = null;
+        startTime_ = null;
+        if (startTimeBuilder_ != null) {
+          startTimeBuilder_.dispose();
           startTimeBuilder_ = null;
         }
-        if (endTimeBuilder_ == null) {
-          endTime_ = null;
-        } else {
-          endTime_ = null;
+        endTime_ = null;
+        if (endTimeBuilder_ != null) {
+          endTimeBuilder_.dispose();
           endTimeBuilder_ = null;
         }
         status_ = 0;
-
-        if (countersBuilder_ == null) {
-          counters_ = null;
-        } else {
-          counters_ = null;
+        counters_ = null;
+        if (countersBuilder_ != null) {
+          countersBuilder_.dispose();
           countersBuilder_ = null;
         }
         if (errorBreakdownsBuilder_ == null) {
           errorBreakdowns_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          errorBreakdowns_ = null;
           errorBreakdownsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000100);
         transferJobName_ = "";
-
         return this;
       }
 
@@ -36912,47 +39627,63 @@ public final class TransferTypes {
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation buildPartial() {
         com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation result = new com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation(this);
-        int from_bitField0_ = bitField0_;
-        result.name_ = name_;
-        result.projectId_ = projectId_;
-        if (transferSpecBuilder_ == null) {
-          result.transferSpec_ = transferSpec_;
-        } else {
-          result.transferSpec_ = transferSpecBuilder_.build();
-        }
-        if (notificationConfigBuilder_ == null) {
-          result.notificationConfig_ = notificationConfig_;
-        } else {
-          result.notificationConfig_ = notificationConfigBuilder_.build();
-        }
-        if (startTimeBuilder_ == null) {
-          result.startTime_ = startTime_;
-        } else {
-          result.startTime_ = startTimeBuilder_.build();
-        }
-        if (endTimeBuilder_ == null) {
-          result.endTime_ = endTime_;
-        } else {
-          result.endTime_ = endTimeBuilder_.build();
-        }
-        result.status_ = status_;
-        if (countersBuilder_ == null) {
-          result.counters_ = counters_;
-        } else {
-          result.counters_ = countersBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation result) {
         if (errorBreakdownsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000100) != 0)) {
             errorBreakdowns_ = java.util.Collections.unmodifiableList(errorBreakdowns_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000100);
           }
           result.errorBreakdowns_ = errorBreakdowns_;
         } else {
           result.errorBreakdowns_ = errorBreakdownsBuilder_.build();
         }
-        result.transferJobName_ = transferJobName_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.projectId_ = projectId_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.transferSpec_ = transferSpecBuilder_ == null
+              ? transferSpec_
+              : transferSpecBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.notificationConfig_ = notificationConfigBuilder_ == null
+              ? notificationConfig_
+              : notificationConfigBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.startTime_ = startTimeBuilder_ == null
+              ? startTime_
+              : startTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.endTime_ = endTimeBuilder_ == null
+              ? endTime_
+              : endTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.status_ = status_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.counters_ = countersBuilder_ == null
+              ? counters_
+              : countersBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.transferJobName_ = transferJobName_;
+        }
       }
 
       @java.lang.Override
@@ -37001,10 +39732,12 @@ public final class TransferTypes {
         if (other == com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getProjectId().isEmpty()) {
           projectId_ = other.projectId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasTransferSpec()) {
@@ -37029,7 +39762,7 @@ public final class TransferTypes {
           if (!other.errorBreakdowns_.isEmpty()) {
             if (errorBreakdowns_.isEmpty()) {
               errorBreakdowns_ = other.errorBreakdowns_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000100);
             } else {
               ensureErrorBreakdownsIsMutable();
               errorBreakdowns_.addAll(other.errorBreakdowns_);
@@ -37042,7 +39775,7 @@ public final class TransferTypes {
               errorBreakdownsBuilder_.dispose();
               errorBreakdownsBuilder_ = null;
               errorBreakdowns_ = other.errorBreakdowns_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000100);
               errorBreakdownsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getErrorBreakdownsFieldBuilder() : null;
@@ -37053,9 +39786,10 @@ public final class TransferTypes {
         }
         if (!other.getTransferJobName().isEmpty()) {
           transferJobName_ = other.transferJobName_;
+          bitField0_ |= 0x00000200;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -37070,17 +39804,98 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                projectId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getTransferSpecFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getStartTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getEndTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 42
+              case 48: {
+                status_ = input.readEnum();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 48
+              case 58: {
+                input.readMessage(
+                    getCountersFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 58
+              case 66: {
+                com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummary m =
+                    input.readMessage(
+                        com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummary.parser(),
+                        extensionRegistry);
+                if (errorBreakdownsBuilder_ == null) {
+                  ensureErrorBreakdownsIsMutable();
+                  errorBreakdowns_.add(m);
+                } else {
+                  errorBreakdownsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 66
+              case 74: {
+                transferJobName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 74
+              case 82: {
+                input.readMessage(
+                    getNotificationConfigFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 82
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -37138,11 +39953,9 @@ public final class TransferTypes {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -37155,8 +39968,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -37171,12 +39984,10 @@ public final class TransferTypes {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -37234,11 +40045,9 @@ public final class TransferTypes {
        */
       public Builder setProjectId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         projectId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -37251,8 +40060,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearProjectId() {
-        
         projectId_ = getDefaultInstance().getProjectId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -37267,12 +40076,10 @@ public final class TransferTypes {
        */
       public Builder setProjectIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         projectId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -37289,7 +40096,7 @@ public final class TransferTypes {
        * @return Whether the transferSpec field is set.
        */
       public boolean hasTransferSpec() {
-        return transferSpecBuilder_ != null || transferSpec_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -37319,11 +40126,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           transferSpec_ = value;
-          onChanged();
         } else {
           transferSpecBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -37337,11 +40144,11 @@ public final class TransferTypes {
           com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.Builder builderForValue) {
         if (transferSpecBuilder_ == null) {
           transferSpec_ = builderForValue.build();
-          onChanged();
         } else {
           transferSpecBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -37353,17 +40160,18 @@ public final class TransferTypes {
        */
       public Builder mergeTransferSpec(com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec value) {
         if (transferSpecBuilder_ == null) {
-          if (transferSpec_ != null) {
-            transferSpec_ =
-              com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.newBuilder(transferSpec_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            transferSpec_ != null &&
+            transferSpec_ != com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.getDefaultInstance()) {
+            getTransferSpecBuilder().mergeFrom(value);
           } else {
             transferSpec_ = value;
           }
-          onChanged();
         } else {
           transferSpecBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -37374,14 +40182,13 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.TransferSpec transfer_spec = 3;</code>
        */
       public Builder clearTransferSpec() {
-        if (transferSpecBuilder_ == null) {
-          transferSpec_ = null;
-          onChanged();
-        } else {
-          transferSpec_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        transferSpec_ = null;
+        if (transferSpecBuilder_ != null) {
+          transferSpecBuilder_.dispose();
           transferSpecBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -37392,7 +40199,7 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.TransferSpec transfer_spec = 3;</code>
        */
       public com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.Builder getTransferSpecBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getTransferSpecFieldBuilder().getBuilder();
       }
@@ -37444,7 +40251,7 @@ public final class TransferTypes {
        * @return Whether the notificationConfig field is set.
        */
       public boolean hasNotificationConfig() {
-        return notificationConfigBuilder_ != null || notificationConfig_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -37474,11 +40281,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           notificationConfig_ = value;
-          onChanged();
         } else {
           notificationConfigBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -37492,11 +40299,11 @@ public final class TransferTypes {
           com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.Builder builderForValue) {
         if (notificationConfigBuilder_ == null) {
           notificationConfig_ = builderForValue.build();
-          onChanged();
         } else {
           notificationConfigBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -37508,17 +40315,18 @@ public final class TransferTypes {
        */
       public Builder mergeNotificationConfig(com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig value) {
         if (notificationConfigBuilder_ == null) {
-          if (notificationConfig_ != null) {
-            notificationConfig_ =
-              com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.newBuilder(notificationConfig_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            notificationConfig_ != null &&
+            notificationConfig_ != com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.getDefaultInstance()) {
+            getNotificationConfigBuilder().mergeFrom(value);
           } else {
             notificationConfig_ = value;
           }
-          onChanged();
         } else {
           notificationConfigBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -37529,14 +40337,13 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.NotificationConfig notification_config = 10;</code>
        */
       public Builder clearNotificationConfig() {
-        if (notificationConfigBuilder_ == null) {
-          notificationConfig_ = null;
-          onChanged();
-        } else {
-          notificationConfig_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        notificationConfig_ = null;
+        if (notificationConfigBuilder_ != null) {
+          notificationConfigBuilder_.dispose();
           notificationConfigBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -37547,7 +40354,7 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.NotificationConfig notification_config = 10;</code>
        */
       public com.google.storagetransfer.v1.proto.TransferTypes.NotificationConfig.Builder getNotificationConfigBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getNotificationConfigFieldBuilder().getBuilder();
       }
@@ -37599,7 +40406,7 @@ public final class TransferTypes {
        * @return Whether the startTime field is set.
        */
       public boolean hasStartTime() {
-        return startTimeBuilder_ != null || startTime_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -37629,11 +40436,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           startTime_ = value;
-          onChanged();
         } else {
           startTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -37647,11 +40454,11 @@ public final class TransferTypes {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (startTimeBuilder_ == null) {
           startTime_ = builderForValue.build();
-          onChanged();
         } else {
           startTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -37663,17 +40470,18 @@ public final class TransferTypes {
        */
       public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
         if (startTimeBuilder_ == null) {
-          if (startTime_ != null) {
-            startTime_ =
-              com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            startTime_ != null &&
+            startTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getStartTimeBuilder().mergeFrom(value);
           } else {
             startTime_ = value;
           }
-          onChanged();
         } else {
           startTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -37684,14 +40492,13 @@ public final class TransferTypes {
        * <code>.google.protobuf.Timestamp start_time = 4;</code>
        */
       public Builder clearStartTime() {
-        if (startTimeBuilder_ == null) {
-          startTime_ = null;
-          onChanged();
-        } else {
-          startTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        startTime_ = null;
+        if (startTimeBuilder_ != null) {
+          startTimeBuilder_.dispose();
           startTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -37702,7 +40509,7 @@ public final class TransferTypes {
        * <code>.google.protobuf.Timestamp start_time = 4;</code>
        */
       public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getStartTimeFieldBuilder().getBuilder();
       }
@@ -37754,7 +40561,7 @@ public final class TransferTypes {
        * @return Whether the endTime field is set.
        */
       public boolean hasEndTime() {
-        return endTimeBuilder_ != null || endTime_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -37784,11 +40591,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           endTime_ = value;
-          onChanged();
         } else {
           endTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -37802,11 +40609,11 @@ public final class TransferTypes {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (endTimeBuilder_ == null) {
           endTime_ = builderForValue.build();
-          onChanged();
         } else {
           endTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -37818,17 +40625,18 @@ public final class TransferTypes {
        */
       public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
         if (endTimeBuilder_ == null) {
-          if (endTime_ != null) {
-            endTime_ =
-              com.google.protobuf.Timestamp.newBuilder(endTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            endTime_ != null &&
+            endTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getEndTimeBuilder().mergeFrom(value);
           } else {
             endTime_ = value;
           }
-          onChanged();
         } else {
           endTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -37839,14 +40647,13 @@ public final class TransferTypes {
        * <code>.google.protobuf.Timestamp end_time = 5;</code>
        */
       public Builder clearEndTime() {
-        if (endTimeBuilder_ == null) {
-          endTime_ = null;
-          onChanged();
-        } else {
-          endTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        endTime_ = null;
+        if (endTimeBuilder_ != null) {
+          endTimeBuilder_.dispose();
           endTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -37857,7 +40664,7 @@ public final class TransferTypes {
        * <code>.google.protobuf.Timestamp end_time = 5;</code>
        */
       public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getEndTimeFieldBuilder().getBuilder();
       }
@@ -37919,8 +40726,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder setStatusValue(int value) {
-        
         status_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -37934,8 +40741,7 @@ public final class TransferTypes {
        */
       @java.lang.Override
       public com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation.Status getStatus() {
-        @SuppressWarnings("deprecation")
-        com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation.Status result = com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation.Status.valueOf(status_);
+        com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation.Status result = com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation.Status.forNumber(status_);
         return result == null ? com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation.Status.UNRECOGNIZED : result;
       }
       /**
@@ -37951,7 +40757,7 @@ public final class TransferTypes {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000040;
         status_ = value.getNumber();
         onChanged();
         return this;
@@ -37965,7 +40771,7 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
-        
+        bitField0_ = (bitField0_ & ~0x00000040);
         status_ = 0;
         onChanged();
         return this;
@@ -37983,7 +40789,7 @@ public final class TransferTypes {
        * @return Whether the counters field is set.
        */
       public boolean hasCounters() {
-        return countersBuilder_ != null || counters_ != null;
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
        * <pre>
@@ -38013,11 +40819,11 @@ public final class TransferTypes {
             throw new NullPointerException();
           }
           counters_ = value;
-          onChanged();
         } else {
           countersBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -38031,11 +40837,11 @@ public final class TransferTypes {
           com.google.storagetransfer.v1.proto.TransferTypes.TransferCounters.Builder builderForValue) {
         if (countersBuilder_ == null) {
           counters_ = builderForValue.build();
-          onChanged();
         } else {
           countersBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -38047,17 +40853,18 @@ public final class TransferTypes {
        */
       public Builder mergeCounters(com.google.storagetransfer.v1.proto.TransferTypes.TransferCounters value) {
         if (countersBuilder_ == null) {
-          if (counters_ != null) {
-            counters_ =
-              com.google.storagetransfer.v1.proto.TransferTypes.TransferCounters.newBuilder(counters_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000080) != 0) &&
+            counters_ != null &&
+            counters_ != com.google.storagetransfer.v1.proto.TransferTypes.TransferCounters.getDefaultInstance()) {
+            getCountersBuilder().mergeFrom(value);
           } else {
             counters_ = value;
           }
-          onChanged();
         } else {
           countersBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -38068,14 +40875,13 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.TransferCounters counters = 7;</code>
        */
       public Builder clearCounters() {
-        if (countersBuilder_ == null) {
-          counters_ = null;
-          onChanged();
-        } else {
-          counters_ = null;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        counters_ = null;
+        if (countersBuilder_ != null) {
+          countersBuilder_.dispose();
           countersBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -38086,7 +40892,7 @@ public final class TransferTypes {
        * <code>.google.storagetransfer.v1.TransferCounters counters = 7;</code>
        */
       public com.google.storagetransfer.v1.proto.TransferTypes.TransferCounters.Builder getCountersBuilder() {
-        
+        bitField0_ |= 0x00000080;
         onChanged();
         return getCountersFieldBuilder().getBuilder();
       }
@@ -38129,9 +40935,9 @@ public final class TransferTypes {
       private java.util.List<com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummary> errorBreakdowns_ =
         java.util.Collections.emptyList();
       private void ensureErrorBreakdownsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000100) != 0)) {
           errorBreakdowns_ = new java.util.ArrayList<com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummary>(errorBreakdowns_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000100;
          }
       }
 
@@ -38325,7 +41131,7 @@ public final class TransferTypes {
       public Builder clearErrorBreakdowns() {
         if (errorBreakdownsBuilder_ == null) {
           errorBreakdowns_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000100);
           onChanged();
         } else {
           errorBreakdownsBuilder_.clear();
@@ -38430,7 +41236,7 @@ public final class TransferTypes {
           errorBreakdownsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummary, com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummary.Builder, com.google.storagetransfer.v1.proto.TransferTypes.ErrorSummaryOrBuilder>(
                   errorBreakdowns_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000100) != 0),
                   getParentForChildren(),
                   isClean());
           errorBreakdowns_ = null;
@@ -38491,11 +41297,9 @@ public final class TransferTypes {
        */
       public Builder setTransferJobName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         transferJobName_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -38508,8 +41312,8 @@ public final class TransferTypes {
        * @return This builder for chaining.
        */
       public Builder clearTransferJobName() {
-        
         transferJobName_ = getDefaultInstance().getTransferJobName();
+        bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
         return this;
       }
@@ -38524,12 +41328,10 @@ public final class TransferTypes {
        */
       public Builder setTransferJobNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         transferJobName_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -38566,7 +41368,18 @@ public final class TransferTypes {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TransferOperation(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -38631,6 +41444,16 @@ public final class TransferTypes {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_storagetransfer_v1_PosixFilesystem_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_storagetransfer_v1_AwsS3CompatibleData_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_storagetransfer_v1_AwsS3CompatibleData_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_storagetransfer_v1_S3CompatibleMetadata_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_storagetransfer_v1_S3CompatibleMetadata_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_storagetransfer_v1_AgentPool_descriptor;
   private static final 
@@ -38741,181 +41564,207 @@ public final class TransferTypes {
       "tialsB\006\340A\002\340A\004\022\026\n\tcontainer\030\004 \001(\tB\003\340A\002\022\014\n" +
       "\004path\030\005 \001(\t\"!\n\010HttpData\022\025\n\010list_url\030\001 \001(" +
       "\tB\003\340A\002\")\n\017PosixFilesystem\022\026\n\016root_direct" +
-      "ory\030\001 \001(\t\"\223\003\n\tAgentPool\022\021\n\004name\030\002 \001(\tB\003\340" +
-      "A\002\022\024\n\014display_name\030\003 \001(\t\022>\n\005state\030\004 \001(\0162" +
-      "*.google.storagetransfer.v1.AgentPool.St" +
-      "ateB\003\340A\003\022L\n\017bandwidth_limit\030\005 \001(\01323.goog" +
-      "le.storagetransfer.v1.AgentPool.Bandwidt" +
-      "hLimit\032$\n\016BandwidthLimit\022\022\n\nlimit_mbps\030\001" +
-      " \001(\003\"G\n\005State\022\025\n\021STATE_UNSPECIFIED\020\000\022\014\n\010" +
-      "CREATING\020\001\022\013\n\007CREATED\020\002\022\014\n\010DELETING\020\003:`\352" +
-      "A]\n)storagetransfer.googleapis.com/agent" +
-      "Pools\0220projects/{project_id}/agentPools/" +
-      "{agent_pool_id}\"\216\003\n\017TransferOptions\0222\n*o" +
-      "verwrite_objects_already_existing_in_sin" +
-      "k\030\001 \001(\010\022%\n\035delete_objects_unique_in_sink" +
-      "\030\002 \001(\010\0221\n)delete_objects_from_source_aft" +
-      "er_transfer\030\003 \001(\010\022P\n\016overwrite_when\030\004 \001(" +
-      "\01628.google.storagetransfer.v1.TransferOp" +
-      "tions.OverwriteWhen\022D\n\020metadata_options\030" +
-      "\005 \001(\0132*.google.storagetransfer.v1.Metada" +
-      "taOptions\"U\n\rOverwriteWhen\022\036\n\032OVERWRITE_" +
-      "WHEN_UNSPECIFIED\020\000\022\r\n\tDIFFERENT\020\001\022\t\n\005NEV" +
-      "ER\020\002\022\n\n\006ALWAYS\020\003\"\226\007\n\014TransferSpec\022;\n\rgcs" +
-      "_data_sink\030\004 \001(\0132\".google.storagetransfe" +
-      "r.v1.GcsDataH\000\022E\n\017posix_data_sink\030\r \001(\0132" +
-      "*.google.storagetransfer.v1.PosixFilesys" +
-      "temH\000\022=\n\017gcs_data_source\030\001 \001(\0132\".google." +
-      "storagetransfer.v1.GcsDataH\001\022B\n\022aws_s3_d" +
-      "ata_source\030\002 \001(\0132$.google.storagetransfe" +
-      "r.v1.AwsS3DataH\001\022?\n\020http_data_source\030\003 \001" +
-      "(\0132#.google.storagetransfer.v1.HttpDataH" +
-      "\001\022G\n\021posix_data_source\030\016 \001(\0132*.google.st" +
-      "oragetransfer.v1.PosixFilesystemH\001\022Y\n\036az" +
-      "ure_blob_storage_data_source\030\010 \001(\0132/.goo" +
-      "gle.storagetransfer.v1.AzureBlobStorageD" +
-      "ataH\001\022L\n\036gcs_intermediate_data_location\030" +
-      "\020 \001(\0132\".google.storagetransfer.v1.GcsDat" +
-      "aH\002\022F\n\021object_conditions\030\005 \001(\0132+.google." +
-      "storagetransfer.v1.ObjectConditions\022D\n\020t" +
-      "ransfer_options\030\006 \001(\0132*.google.storagetr" +
-      "ansfer.v1.TransferOptions\022F\n\021transfer_ma" +
-      "nifest\030\017 \001(\0132+.google.storagetransfer.v1" +
-      ".TransferManifest\022\036\n\026source_agent_pool_n" +
-      "ame\030\021 \001(\t\022\034\n\024sink_agent_pool_name\030\022 \001(\tB" +
-      "\013\n\tdata_sinkB\r\n\013data_sourceB\034\n\032intermedi" +
-      "ate_data_location\"\361\013\n\017MetadataOptions\022C\n" +
-      "\007symlink\030\001 \001(\01622.google.storagetransfer." +
-      "v1.MetadataOptions.Symlink\022=\n\004mode\030\002 \001(\016" +
-      "2/.google.storagetransfer.v1.MetadataOpt" +
-      "ions.Mode\022;\n\003gid\030\003 \001(\0162..google.storaget" +
-      "ransfer.v1.MetadataOptions.GID\022;\n\003uid\030\004 " +
-      "\001(\0162..google.storagetransfer.v1.Metadata" +
-      "Options.UID\022;\n\003acl\030\005 \001(\0162..google.storag" +
-      "etransfer.v1.MetadataOptions.Acl\022N\n\rstor" +
-      "age_class\030\006 \001(\01627.google.storagetransfer" +
-      ".v1.MetadataOptions.StorageClass\022P\n\016temp" +
-      "orary_hold\030\007 \001(\01628.google.storagetransfe" +
-      "r.v1.MetadataOptions.TemporaryHold\022B\n\007km" +
-      "s_key\030\010 \001(\01621.google.storagetransfer.v1." +
-      "MetadataOptions.KmsKey\022L\n\014time_created\030\t" +
-      " \001(\01626.google.storagetransfer.v1.Metadat" +
-      "aOptions.TimeCreated\"J\n\007Symlink\022\027\n\023SYMLI" +
-      "NK_UNSPECIFIED\020\000\022\020\n\014SYMLINK_SKIP\020\001\022\024\n\020SY" +
-      "MLINK_PRESERVE\020\002\">\n\004Mode\022\024\n\020MODE_UNSPECI" +
-      "FIED\020\000\022\r\n\tMODE_SKIP\020\001\022\021\n\rMODE_PRESERVE\020\002" +
-      "\"8\n\003GID\022\023\n\017GID_UNSPECIFIED\020\000\022\014\n\010GID_SKIP" +
-      "\020\001\022\016\n\nGID_NUMBER\020\002\"8\n\003UID\022\023\n\017UID_UNSPECI" +
-      "FIED\020\000\022\014\n\010UID_SKIP\020\001\022\016\n\nUID_NUMBER\020\002\"P\n\003" +
-      "Acl\022\023\n\017ACL_UNSPECIFIED\020\000\022\"\n\036ACL_DESTINAT" +
-      "ION_BUCKET_DEFAULT\020\001\022\020\n\014ACL_PRESERVE\020\002\"\346" +
-      "\001\n\014StorageClass\022\035\n\031STORAGE_CLASS_UNSPECI" +
-      "FIED\020\000\022,\n(STORAGE_CLASS_DESTINATION_BUCK" +
-      "ET_DEFAULT\020\001\022\032\n\026STORAGE_CLASS_PRESERVE\020\002" +
-      "\022\032\n\026STORAGE_CLASS_STANDARD\020\003\022\032\n\026STORAGE_" +
-      "CLASS_NEARLINE\020\004\022\032\n\026STORAGE_CLASS_COLDLI" +
-      "NE\020\005\022\031\n\025STORAGE_CLASS_ARCHIVE\020\006\"e\n\rTempo" +
-      "raryHold\022\036\n\032TEMPORARY_HOLD_UNSPECIFIED\020\000" +
-      "\022\027\n\023TEMPORARY_HOLD_SKIP\020\001\022\033\n\027TEMPORARY_H" +
-      "OLD_PRESERVE\020\002\"_\n\006KmsKey\022\027\n\023KMS_KEY_UNSP" +
-      "ECIFIED\020\000\022&\n\"KMS_KEY_DESTINATION_BUCKET_" +
-      "DEFAULT\020\001\022\024\n\020KMS_KEY_PRESERVE\020\002\"l\n\013TimeC" +
-      "reated\022\034\n\030TIME_CREATED_UNSPECIFIED\020\000\022\025\n\021" +
-      "TIME_CREATED_SKIP\020\001\022(\n$TIME_CREATED_PRES" +
-      "ERVE_AS_CUSTOM_TIME\020\002\"$\n\020TransferManifes" +
-      "t\022\020\n\010location\030\001 \001(\t\"\205\002\n\010Schedule\0223\n\023sche" +
-      "dule_start_date\030\001 \001(\0132\021.google.type.Date" +
-      "B\003\340A\002\022,\n\021schedule_end_date\030\002 \001(\0132\021.googl" +
-      "e.type.Date\0221\n\021start_time_of_day\030\003 \001(\0132\026" +
-      ".google.type.TimeOfDay\022/\n\017end_time_of_da" +
-      "y\030\004 \001(\0132\026.google.type.TimeOfDay\0222\n\017repea" +
-      "t_interval\030\005 \001(\0132\031.google.protobuf.Durat" +
-      "ion\"\242\005\n\013TransferJob\022\014\n\004name\030\001 \001(\t\022\023\n\013des" +
-      "cription\030\002 \001(\t\022\022\n\nproject_id\030\003 \001(\t\022>\n\rtr" +
-      "ansfer_spec\030\004 \001(\0132\'.google.storagetransf" +
-      "er.v1.TransferSpec\022J\n\023notification_confi" +
-      "g\030\013 \001(\0132-.google.storagetransfer.v1.Noti" +
-      "ficationConfig\022@\n\016logging_config\030\016 \001(\0132(" +
-      ".google.storagetransfer.v1.LoggingConfig" +
-      "\0225\n\010schedule\030\005 \001(\0132#.google.storagetrans" +
-      "fer.v1.Schedule\022=\n\006status\030\006 \001(\0162-.google" +
-      ".storagetransfer.v1.TransferJob.Status\0226" +
-      "\n\rcreation_time\030\007 \001(\0132\032.google.protobuf." +
-      "TimestampB\003\340A\003\022?\n\026last_modification_time" +
-      "\030\010 \001(\0132\032.google.protobuf.TimestampB\003\340A\003\022" +
-      "6\n\rdeletion_time\030\t \001(\0132\032.google.protobuf" +
-      ".TimestampB\003\340A\003\022\035\n\025latest_operation_name" +
-      "\030\014 \001(\t\"H\n\006Status\022\026\n\022STATUS_UNSPECIFIED\020\000" +
-      "\022\013\n\007ENABLED\020\001\022\014\n\010DISABLED\020\002\022\013\n\007DELETED\020\003" +
-      "\"8\n\rErrorLogEntry\022\020\n\003url\030\001 \001(\tB\003\340A\002\022\025\n\re" +
-      "rror_details\030\003 \003(\t\"\230\001\n\014ErrorSummary\022)\n\ne" +
-      "rror_code\030\001 \001(\0162\020.google.rpc.CodeB\003\340A\002\022\030" +
-      "\n\013error_count\030\002 \001(\003B\003\340A\002\022C\n\021error_log_en" +
-      "tries\030\003 \003(\0132(.google.storagetransfer.v1." +
-      "ErrorLogEntry\"\303\006\n\020TransferCounters\022!\n\031ob" +
-      "jects_found_from_source\030\001 \001(\003\022\037\n\027bytes_f" +
-      "ound_from_source\030\002 \001(\003\022$\n\034objects_found_" +
-      "only_from_sink\030\003 \001(\003\022\"\n\032bytes_found_only" +
-      "_from_sink\030\004 \001(\003\022+\n#objects_from_source_" +
-      "skipped_by_sync\030\005 \001(\003\022)\n!bytes_from_sour" +
-      "ce_skipped_by_sync\030\006 \001(\003\022\036\n\026objects_copi" +
-      "ed_to_sink\030\007 \001(\003\022\034\n\024bytes_copied_to_sink" +
-      "\030\010 \001(\003\022#\n\033objects_deleted_from_source\030\t " +
-      "\001(\003\022!\n\031bytes_deleted_from_source\030\n \001(\003\022!" +
-      "\n\031objects_deleted_from_sink\030\013 \001(\003\022\037\n\027byt" +
-      "es_deleted_from_sink\030\014 \001(\003\022\"\n\032objects_fr" +
-      "om_source_failed\030\r \001(\003\022 \n\030bytes_from_sou" +
-      "rce_failed\030\016 \001(\003\022*\n\"objects_failed_to_de" +
-      "lete_from_sink\030\017 \001(\003\022(\n bytes_failed_to_" +
-      "delete_from_sink\030\020 \001(\003\022%\n\035directories_fo" +
-      "und_from_source\030\021 \001(\003\022.\n&directories_fai" +
-      "led_to_list_from_source\030\022 \001(\003\0223\n+directo" +
-      "ries_successfully_listed_from_source\030\023 \001" +
-      "(\003\022\'\n\037intermediate_objects_cleaned_up\030\026 " +
-      "\001(\003\022.\n&intermediate_objects_failed_clean" +
-      "ed_up\030\027 \001(\003\"\245\003\n\022NotificationConfig\022\031\n\014pu" +
-      "bsub_topic\030\001 \001(\tB\003\340A\002\022L\n\013event_types\030\002 \003" +
-      "(\01627.google.storagetransfer.v1.Notificat" +
-      "ionConfig.EventType\022X\n\016payload_format\030\003 " +
-      "\001(\0162;.google.storagetransfer.v1.Notifica" +
-      "tionConfig.PayloadFormatB\003\340A\002\"\206\001\n\tEventT" +
-      "ype\022\032\n\026EVENT_TYPE_UNSPECIFIED\020\000\022\036\n\032TRANS" +
-      "FER_OPERATION_SUCCESS\020\001\022\035\n\031TRANSFER_OPER" +
-      "ATION_FAILED\020\002\022\036\n\032TRANSFER_OPERATION_ABO" +
-      "RTED\020\003\"C\n\rPayloadFormat\022\036\n\032PAYLOAD_FORMA" +
-      "T_UNSPECIFIED\020\000\022\010\n\004NONE\020\001\022\010\n\004JSON\020\002\"\213\003\n\r" +
-      "LoggingConfig\022L\n\013log_actions\030\001 \003(\01627.goo" +
-      "gle.storagetransfer.v1.LoggingConfig.Log" +
-      "gableAction\022W\n\021log_action_states\030\002 \003(\0162<" +
-      ".google.storagetransfer.v1.LoggingConfig" +
-      ".LoggableActionState\022\'\n\037enable_onprem_gc" +
-      "s_transfer_logs\030\003 \001(\010\"Q\n\016LoggableAction\022" +
-      "\037\n\033LOGGABLE_ACTION_UNSPECIFIED\020\000\022\010\n\004FIND" +
-      "\020\001\022\n\n\006DELETE\020\002\022\010\n\004COPY\020\003\"W\n\023LoggableActi" +
-      "onState\022%\n!LOGGABLE_ACTION_STATE_UNSPECI" +
-      "FIED\020\000\022\r\n\tSUCCEEDED\020\001\022\n\n\006FAILED\020\002\"\362\004\n\021Tr" +
-      "ansferOperation\022\014\n\004name\030\001 \001(\t\022\022\n\nproject" +
-      "_id\030\002 \001(\t\022>\n\rtransfer_spec\030\003 \001(\0132\'.googl" +
-      "e.storagetransfer.v1.TransferSpec\022J\n\023not" +
-      "ification_config\030\n \001(\0132-.google.storaget" +
-      "ransfer.v1.NotificationConfig\022.\n\nstart_t" +
-      "ime\030\004 \001(\0132\032.google.protobuf.Timestamp\022,\n" +
-      "\010end_time\030\005 \001(\0132\032.google.protobuf.Timest" +
-      "amp\022C\n\006status\030\006 \001(\01623.google.storagetran" +
-      "sfer.v1.TransferOperation.Status\022=\n\010coun" +
-      "ters\030\007 \001(\0132+.google.storagetransfer.v1.T" +
-      "ransferCounters\022A\n\020error_breakdowns\030\010 \003(" +
-      "\0132\'.google.storagetransfer.v1.ErrorSumma" +
-      "ry\022\031\n\021transfer_job_name\030\t \001(\t\"o\n\006Status\022" +
-      "\026\n\022STATUS_UNSPECIFIED\020\000\022\017\n\013IN_PROGRESS\020\001" +
-      "\022\n\n\006PAUSED\020\002\022\013\n\007SUCCESS\020\003\022\n\n\006FAILED\020\004\022\013\n" +
-      "\007ABORTED\020\005\022\n\n\006QUEUED\020\006B\352\001\n#com.google.st" +
-      "oragetransfer.v1.protoB\rTransferTypesZHg" +
-      "oogle.golang.org/genproto/googleapis/sto" +
-      "ragetransfer/v1;storagetransfer\370\001\001\252\002\037Goo" +
-      "gle.Cloud.StorageTransfer.V1\312\002\037Google\\Cl" +
-      "oud\\StorageTransfer\\V1\352\002\"Google::Cloud::" +
-      "StorageTransfer::V1b\006proto3"
+      "ory\030\001 \001(\t\"\275\001\n\023AwsS3CompatibleData\022\030\n\013buc" +
+      "ket_name\030\001 \001(\tB\003\340A\002\022\014\n\004path\030\002 \001(\t\022\025\n\010end" +
+      "point\030\003 \001(\tB\003\340A\002\022\016\n\006region\030\005 \001(\t\022F\n\013s3_m" +
+      "etadata\030\004 \001(\0132/.google.storagetransfer.v" +
+      "1.S3CompatibleMetadataH\000B\017\n\rdata_provide" +
+      "r\"\366\005\n\024S3CompatibleMetadata\022O\n\013auth_metho" +
+      "d\030\001 \001(\0162:.google.storagetransfer.v1.S3Co" +
+      "mpatibleMetadata.AuthMethod\022S\n\rrequest_m" +
+      "odel\030\002 \001(\0162<.google.storagetransfer.v1.S" +
+      "3CompatibleMetadata.RequestModel\022Q\n\010prot" +
+      "ocol\030\003 \001(\0162?.google.storagetransfer.v1.S" +
+      "3CompatibleMetadata.NetworkProtocol\022I\n\010l" +
+      "ist_api\030\004 \001(\01627.google.storagetransfer.v" +
+      "1.S3CompatibleMetadata.ListApi\"m\n\nAuthMe" +
+      "thod\022\033\n\027AUTH_METHOD_UNSPECIFIED\020\000\022 \n\034AUT" +
+      "H_METHOD_AWS_SIGNATURE_V4\020\001\022 \n\034AUTH_METH" +
+      "OD_AWS_SIGNATURE_V2\020\002\"s\n\014RequestModel\022\035\n" +
+      "\031REQUEST_MODEL_UNSPECIFIED\020\000\022&\n\"REQUEST_" +
+      "MODEL_VIRTUAL_HOSTED_STYLE\020\001\022\034\n\030REQUEST_" +
+      "MODEL_PATH_STYLE\020\002\"j\n\017NetworkProtocol\022 \n" +
+      "\034NETWORK_PROTOCOL_UNSPECIFIED\020\000\022\032\n\026NETWO" +
+      "RK_PROTOCOL_HTTPS\020\001\022\031\n\025NETWORK_PROTOCOL_" +
+      "HTTP\020\002\"J\n\007ListApi\022\030\n\024LIST_API_UNSPECIFIE" +
+      "D\020\000\022\023\n\017LIST_OBJECTS_V2\020\001\022\020\n\014LIST_OBJECTS" +
+      "\020\002\"\223\003\n\tAgentPool\022\021\n\004name\030\002 \001(\tB\003\340A\002\022\024\n\014d" +
+      "isplay_name\030\003 \001(\t\022>\n\005state\030\004 \001(\0162*.googl" +
+      "e.storagetransfer.v1.AgentPool.StateB\003\340A" +
+      "\003\022L\n\017bandwidth_limit\030\005 \001(\01323.google.stor" +
+      "agetransfer.v1.AgentPool.BandwidthLimit\032" +
+      "$\n\016BandwidthLimit\022\022\n\nlimit_mbps\030\001 \001(\003\"G\n" +
+      "\005State\022\025\n\021STATE_UNSPECIFIED\020\000\022\014\n\010CREATIN" +
+      "G\020\001\022\013\n\007CREATED\020\002\022\014\n\010DELETING\020\003:`\352A]\n)sto" +
+      "ragetransfer.googleapis.com/agentPools\0220" +
+      "projects/{project_id}/agentPools/{agent_" +
+      "pool_id}\"\216\003\n\017TransferOptions\0222\n*overwrit" +
+      "e_objects_already_existing_in_sink\030\001 \001(\010" +
+      "\022%\n\035delete_objects_unique_in_sink\030\002 \001(\010\022" +
+      "1\n)delete_objects_from_source_after_tran" +
+      "sfer\030\003 \001(\010\022P\n\016overwrite_when\030\004 \001(\01628.goo" +
+      "gle.storagetransfer.v1.TransferOptions.O" +
+      "verwriteWhen\022D\n\020metadata_options\030\005 \001(\0132*" +
+      ".google.storagetransfer.v1.MetadataOptio" +
+      "ns\"U\n\rOverwriteWhen\022\036\n\032OVERWRITE_WHEN_UN" +
+      "SPECIFIED\020\000\022\r\n\tDIFFERENT\020\001\022\t\n\005NEVER\020\002\022\n\n" +
+      "\006ALWAYS\020\003\"\357\007\n\014TransferSpec\022;\n\rgcs_data_s" +
+      "ink\030\004 \001(\0132\".google.storagetransfer.v1.Gc" +
+      "sDataH\000\022E\n\017posix_data_sink\030\r \001(\0132*.googl" +
+      "e.storagetransfer.v1.PosixFilesystemH\000\022=" +
+      "\n\017gcs_data_source\030\001 \001(\0132\".google.storage" +
+      "transfer.v1.GcsDataH\001\022B\n\022aws_s3_data_sou" +
+      "rce\030\002 \001(\0132$.google.storagetransfer.v1.Aw" +
+      "sS3DataH\001\022?\n\020http_data_source\030\003 \001(\0132#.go" +
+      "ogle.storagetransfer.v1.HttpDataH\001\022G\n\021po" +
+      "six_data_source\030\016 \001(\0132*.google.storagetr" +
+      "ansfer.v1.PosixFilesystemH\001\022Y\n\036azure_blo" +
+      "b_storage_data_source\030\010 \001(\0132/.google.sto" +
+      "ragetransfer.v1.AzureBlobStorageDataH\001\022W" +
+      "\n\035aws_s3_compatible_data_source\030\023 \001(\0132.." +
+      "google.storagetransfer.v1.AwsS3Compatibl" +
+      "eDataH\001\022L\n\036gcs_intermediate_data_locatio" +
+      "n\030\020 \001(\0132\".google.storagetransfer.v1.GcsD" +
+      "ataH\002\022F\n\021object_conditions\030\005 \001(\0132+.googl" +
+      "e.storagetransfer.v1.ObjectConditions\022D\n" +
+      "\020transfer_options\030\006 \001(\0132*.google.storage" +
+      "transfer.v1.TransferOptions\022F\n\021transfer_" +
+      "manifest\030\017 \001(\0132+.google.storagetransfer." +
+      "v1.TransferManifest\022\036\n\026source_agent_pool" +
+      "_name\030\021 \001(\t\022\034\n\024sink_agent_pool_name\030\022 \001(" +
+      "\tB\013\n\tdata_sinkB\r\n\013data_sourceB\034\n\032interme" +
+      "diate_data_location\"\361\013\n\017MetadataOptions\022" +
+      "C\n\007symlink\030\001 \001(\01622.google.storagetransfe" +
+      "r.v1.MetadataOptions.Symlink\022=\n\004mode\030\002 \001" +
+      "(\0162/.google.storagetransfer.v1.MetadataO" +
+      "ptions.Mode\022;\n\003gid\030\003 \001(\0162..google.storag" +
+      "etransfer.v1.MetadataOptions.GID\022;\n\003uid\030" +
+      "\004 \001(\0162..google.storagetransfer.v1.Metada" +
+      "taOptions.UID\022;\n\003acl\030\005 \001(\0162..google.stor" +
+      "agetransfer.v1.MetadataOptions.Acl\022N\n\rst" +
+      "orage_class\030\006 \001(\01627.google.storagetransf" +
+      "er.v1.MetadataOptions.StorageClass\022P\n\016te" +
+      "mporary_hold\030\007 \001(\01628.google.storagetrans" +
+      "fer.v1.MetadataOptions.TemporaryHold\022B\n\007" +
+      "kms_key\030\010 \001(\01621.google.storagetransfer.v" +
+      "1.MetadataOptions.KmsKey\022L\n\014time_created" +
+      "\030\t \001(\01626.google.storagetransfer.v1.Metad" +
+      "ataOptions.TimeCreated\"J\n\007Symlink\022\027\n\023SYM" +
+      "LINK_UNSPECIFIED\020\000\022\020\n\014SYMLINK_SKIP\020\001\022\024\n\020" +
+      "SYMLINK_PRESERVE\020\002\">\n\004Mode\022\024\n\020MODE_UNSPE" +
+      "CIFIED\020\000\022\r\n\tMODE_SKIP\020\001\022\021\n\rMODE_PRESERVE" +
+      "\020\002\"8\n\003GID\022\023\n\017GID_UNSPECIFIED\020\000\022\014\n\010GID_SK" +
+      "IP\020\001\022\016\n\nGID_NUMBER\020\002\"8\n\003UID\022\023\n\017UID_UNSPE" +
+      "CIFIED\020\000\022\014\n\010UID_SKIP\020\001\022\016\n\nUID_NUMBER\020\002\"P" +
+      "\n\003Acl\022\023\n\017ACL_UNSPECIFIED\020\000\022\"\n\036ACL_DESTIN" +
+      "ATION_BUCKET_DEFAULT\020\001\022\020\n\014ACL_PRESERVE\020\002" +
+      "\"\346\001\n\014StorageClass\022\035\n\031STORAGE_CLASS_UNSPE" +
+      "CIFIED\020\000\022,\n(STORAGE_CLASS_DESTINATION_BU" +
+      "CKET_DEFAULT\020\001\022\032\n\026STORAGE_CLASS_PRESERVE" +
+      "\020\002\022\032\n\026STORAGE_CLASS_STANDARD\020\003\022\032\n\026STORAG" +
+      "E_CLASS_NEARLINE\020\004\022\032\n\026STORAGE_CLASS_COLD" +
+      "LINE\020\005\022\031\n\025STORAGE_CLASS_ARCHIVE\020\006\"e\n\rTem" +
+      "poraryHold\022\036\n\032TEMPORARY_HOLD_UNSPECIFIED" +
+      "\020\000\022\027\n\023TEMPORARY_HOLD_SKIP\020\001\022\033\n\027TEMPORARY" +
+      "_HOLD_PRESERVE\020\002\"_\n\006KmsKey\022\027\n\023KMS_KEY_UN" +
+      "SPECIFIED\020\000\022&\n\"KMS_KEY_DESTINATION_BUCKE" +
+      "T_DEFAULT\020\001\022\024\n\020KMS_KEY_PRESERVE\020\002\"l\n\013Tim" +
+      "eCreated\022\034\n\030TIME_CREATED_UNSPECIFIED\020\000\022\025" +
+      "\n\021TIME_CREATED_SKIP\020\001\022(\n$TIME_CREATED_PR" +
+      "ESERVE_AS_CUSTOM_TIME\020\002\"$\n\020TransferManif" +
+      "est\022\020\n\010location\030\001 \001(\t\"\205\002\n\010Schedule\0223\n\023sc" +
+      "hedule_start_date\030\001 \001(\0132\021.google.type.Da" +
+      "teB\003\340A\002\022,\n\021schedule_end_date\030\002 \001(\0132\021.goo" +
+      "gle.type.Date\0221\n\021start_time_of_day\030\003 \001(\013" +
+      "2\026.google.type.TimeOfDay\022/\n\017end_time_of_" +
+      "day\030\004 \001(\0132\026.google.type.TimeOfDay\0222\n\017rep" +
+      "eat_interval\030\005 \001(\0132\031.google.protobuf.Dur" +
+      "ation\"\242\005\n\013TransferJob\022\014\n\004name\030\001 \001(\t\022\023\n\013d" +
+      "escription\030\002 \001(\t\022\022\n\nproject_id\030\003 \001(\t\022>\n\r" +
+      "transfer_spec\030\004 \001(\0132\'.google.storagetran" +
+      "sfer.v1.TransferSpec\022J\n\023notification_con" +
+      "fig\030\013 \001(\0132-.google.storagetransfer.v1.No" +
+      "tificationConfig\022@\n\016logging_config\030\016 \001(\013" +
+      "2(.google.storagetransfer.v1.LoggingConf" +
+      "ig\0225\n\010schedule\030\005 \001(\0132#.google.storagetra" +
+      "nsfer.v1.Schedule\022=\n\006status\030\006 \001(\0162-.goog" +
+      "le.storagetransfer.v1.TransferJob.Status" +
+      "\0226\n\rcreation_time\030\007 \001(\0132\032.google.protobu" +
+      "f.TimestampB\003\340A\003\022?\n\026last_modification_ti" +
+      "me\030\010 \001(\0132\032.google.protobuf.TimestampB\003\340A" +
+      "\003\0226\n\rdeletion_time\030\t \001(\0132\032.google.protob" +
+      "uf.TimestampB\003\340A\003\022\035\n\025latest_operation_na" +
+      "me\030\014 \001(\t\"H\n\006Status\022\026\n\022STATUS_UNSPECIFIED" +
+      "\020\000\022\013\n\007ENABLED\020\001\022\014\n\010DISABLED\020\002\022\013\n\007DELETED" +
+      "\020\003\"8\n\rErrorLogEntry\022\020\n\003url\030\001 \001(\tB\003\340A\002\022\025\n" +
+      "\rerror_details\030\003 \003(\t\"\230\001\n\014ErrorSummary\022)\n" +
+      "\nerror_code\030\001 \001(\0162\020.google.rpc.CodeB\003\340A\002" +
+      "\022\030\n\013error_count\030\002 \001(\003B\003\340A\002\022C\n\021error_log_" +
+      "entries\030\003 \003(\0132(.google.storagetransfer.v" +
+      "1.ErrorLogEntry\"\303\006\n\020TransferCounters\022!\n\031" +
+      "objects_found_from_source\030\001 \001(\003\022\037\n\027bytes" +
+      "_found_from_source\030\002 \001(\003\022$\n\034objects_foun" +
+      "d_only_from_sink\030\003 \001(\003\022\"\n\032bytes_found_on" +
+      "ly_from_sink\030\004 \001(\003\022+\n#objects_from_sourc" +
+      "e_skipped_by_sync\030\005 \001(\003\022)\n!bytes_from_so" +
+      "urce_skipped_by_sync\030\006 \001(\003\022\036\n\026objects_co" +
+      "pied_to_sink\030\007 \001(\003\022\034\n\024bytes_copied_to_si" +
+      "nk\030\010 \001(\003\022#\n\033objects_deleted_from_source\030" +
+      "\t \001(\003\022!\n\031bytes_deleted_from_source\030\n \001(\003" +
+      "\022!\n\031objects_deleted_from_sink\030\013 \001(\003\022\037\n\027b" +
+      "ytes_deleted_from_sink\030\014 \001(\003\022\"\n\032objects_" +
+      "from_source_failed\030\r \001(\003\022 \n\030bytes_from_s" +
+      "ource_failed\030\016 \001(\003\022*\n\"objects_failed_to_" +
+      "delete_from_sink\030\017 \001(\003\022(\n bytes_failed_t" +
+      "o_delete_from_sink\030\020 \001(\003\022%\n\035directories_" +
+      "found_from_source\030\021 \001(\003\022.\n&directories_f" +
+      "ailed_to_list_from_source\030\022 \001(\003\0223\n+direc" +
+      "tories_successfully_listed_from_source\030\023" +
+      " \001(\003\022\'\n\037intermediate_objects_cleaned_up\030" +
+      "\026 \001(\003\022.\n&intermediate_objects_failed_cle" +
+      "aned_up\030\027 \001(\003\"\245\003\n\022NotificationConfig\022\031\n\014" +
+      "pubsub_topic\030\001 \001(\tB\003\340A\002\022L\n\013event_types\030\002" +
+      " \003(\01627.google.storagetransfer.v1.Notific" +
+      "ationConfig.EventType\022X\n\016payload_format\030" +
+      "\003 \001(\0162;.google.storagetransfer.v1.Notifi" +
+      "cationConfig.PayloadFormatB\003\340A\002\"\206\001\n\tEven" +
+      "tType\022\032\n\026EVENT_TYPE_UNSPECIFIED\020\000\022\036\n\032TRA" +
+      "NSFER_OPERATION_SUCCESS\020\001\022\035\n\031TRANSFER_OP" +
+      "ERATION_FAILED\020\002\022\036\n\032TRANSFER_OPERATION_A" +
+      "BORTED\020\003\"C\n\rPayloadFormat\022\036\n\032PAYLOAD_FOR" +
+      "MAT_UNSPECIFIED\020\000\022\010\n\004NONE\020\001\022\010\n\004JSON\020\002\"\213\003" +
+      "\n\rLoggingConfig\022L\n\013log_actions\030\001 \003(\01627.g" +
+      "oogle.storagetransfer.v1.LoggingConfig.L" +
+      "oggableAction\022W\n\021log_action_states\030\002 \003(\016" +
+      "2<.google.storagetransfer.v1.LoggingConf" +
+      "ig.LoggableActionState\022\'\n\037enable_onprem_" +
+      "gcs_transfer_logs\030\003 \001(\010\"Q\n\016LoggableActio" +
+      "n\022\037\n\033LOGGABLE_ACTION_UNSPECIFIED\020\000\022\010\n\004FI" +
+      "ND\020\001\022\n\n\006DELETE\020\002\022\010\n\004COPY\020\003\"W\n\023LoggableAc" +
+      "tionState\022%\n!LOGGABLE_ACTION_STATE_UNSPE" +
+      "CIFIED\020\000\022\r\n\tSUCCEEDED\020\001\022\n\n\006FAILED\020\002\"\362\004\n\021" +
+      "TransferOperation\022\014\n\004name\030\001 \001(\t\022\022\n\nproje" +
+      "ct_id\030\002 \001(\t\022>\n\rtransfer_spec\030\003 \001(\0132\'.goo" +
+      "gle.storagetransfer.v1.TransferSpec\022J\n\023n" +
+      "otification_config\030\n \001(\0132-.google.storag" +
+      "etransfer.v1.NotificationConfig\022.\n\nstart" +
+      "_time\030\004 \001(\0132\032.google.protobuf.Timestamp\022" +
+      ",\n\010end_time\030\005 \001(\0132\032.google.protobuf.Time" +
+      "stamp\022C\n\006status\030\006 \001(\01623.google.storagetr" +
+      "ansfer.v1.TransferOperation.Status\022=\n\010co" +
+      "unters\030\007 \001(\0132+.google.storagetransfer.v1" +
+      ".TransferCounters\022A\n\020error_breakdowns\030\010 " +
+      "\003(\0132\'.google.storagetransfer.v1.ErrorSum" +
+      "mary\022\031\n\021transfer_job_name\030\t \001(\t\"o\n\006Statu" +
+      "s\022\026\n\022STATUS_UNSPECIFIED\020\000\022\017\n\013IN_PROGRESS" +
+      "\020\001\022\n\n\006PAUSED\020\002\022\013\n\007SUCCESS\020\003\022\n\n\006FAILED\020\004\022" +
+      "\013\n\007ABORTED\020\005\022\n\n\006QUEUED\020\006B\352\001\n#com.google." +
+      "storagetransfer.v1.protoB\rTransferTypesZ" +
+      "Hgoogle.golang.org/genproto/googleapis/s" +
+      "toragetransfer/v1;storagetransfer\370\001\001\252\002\037G" +
+      "oogle.Cloud.StorageTransfer.V1\312\002\037Google\\" +
+      "Cloud\\StorageTransfer\\V1\352\002\"Google::Cloud" +
+      "::StorageTransfer::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -38982,8 +41831,20 @@ public final class TransferTypes {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_storagetransfer_v1_PosixFilesystem_descriptor,
         new java.lang.String[] { "RootDirectory", });
-    internal_static_google_storagetransfer_v1_AgentPool_descriptor =
+    internal_static_google_storagetransfer_v1_AwsS3CompatibleData_descriptor =
       getDescriptor().getMessageTypes().get(9);
+    internal_static_google_storagetransfer_v1_AwsS3CompatibleData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_storagetransfer_v1_AwsS3CompatibleData_descriptor,
+        new java.lang.String[] { "BucketName", "Path", "Endpoint", "Region", "S3Metadata", "DataProvider", });
+    internal_static_google_storagetransfer_v1_S3CompatibleMetadata_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_google_storagetransfer_v1_S3CompatibleMetadata_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_storagetransfer_v1_S3CompatibleMetadata_descriptor,
+        new java.lang.String[] { "AuthMethod", "RequestModel", "Protocol", "ListApi", });
+    internal_static_google_storagetransfer_v1_AgentPool_descriptor =
+      getDescriptor().getMessageTypes().get(11);
     internal_static_google_storagetransfer_v1_AgentPool_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_storagetransfer_v1_AgentPool_descriptor,
@@ -38995,73 +41856,73 @@ public final class TransferTypes {
         internal_static_google_storagetransfer_v1_AgentPool_BandwidthLimit_descriptor,
         new java.lang.String[] { "LimitMbps", });
     internal_static_google_storagetransfer_v1_TransferOptions_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_google_storagetransfer_v1_TransferOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_storagetransfer_v1_TransferOptions_descriptor,
         new java.lang.String[] { "OverwriteObjectsAlreadyExistingInSink", "DeleteObjectsUniqueInSink", "DeleteObjectsFromSourceAfterTransfer", "OverwriteWhen", "MetadataOptions", });
     internal_static_google_storagetransfer_v1_TransferSpec_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_google_storagetransfer_v1_TransferSpec_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_storagetransfer_v1_TransferSpec_descriptor,
-        new java.lang.String[] { "GcsDataSink", "PosixDataSink", "GcsDataSource", "AwsS3DataSource", "HttpDataSource", "PosixDataSource", "AzureBlobStorageDataSource", "GcsIntermediateDataLocation", "ObjectConditions", "TransferOptions", "TransferManifest", "SourceAgentPoolName", "SinkAgentPoolName", "DataSink", "DataSource", "IntermediateDataLocation", });
+        new java.lang.String[] { "GcsDataSink", "PosixDataSink", "GcsDataSource", "AwsS3DataSource", "HttpDataSource", "PosixDataSource", "AzureBlobStorageDataSource", "AwsS3CompatibleDataSource", "GcsIntermediateDataLocation", "ObjectConditions", "TransferOptions", "TransferManifest", "SourceAgentPoolName", "SinkAgentPoolName", "DataSink", "DataSource", "IntermediateDataLocation", });
     internal_static_google_storagetransfer_v1_MetadataOptions_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_google_storagetransfer_v1_MetadataOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_storagetransfer_v1_MetadataOptions_descriptor,
         new java.lang.String[] { "Symlink", "Mode", "Gid", "Uid", "Acl", "StorageClass", "TemporaryHold", "KmsKey", "TimeCreated", });
     internal_static_google_storagetransfer_v1_TransferManifest_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_google_storagetransfer_v1_TransferManifest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_storagetransfer_v1_TransferManifest_descriptor,
         new java.lang.String[] { "Location", });
     internal_static_google_storagetransfer_v1_Schedule_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_google_storagetransfer_v1_Schedule_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_storagetransfer_v1_Schedule_descriptor,
         new java.lang.String[] { "ScheduleStartDate", "ScheduleEndDate", "StartTimeOfDay", "EndTimeOfDay", "RepeatInterval", });
     internal_static_google_storagetransfer_v1_TransferJob_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_google_storagetransfer_v1_TransferJob_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_storagetransfer_v1_TransferJob_descriptor,
         new java.lang.String[] { "Name", "Description", "ProjectId", "TransferSpec", "NotificationConfig", "LoggingConfig", "Schedule", "Status", "CreationTime", "LastModificationTime", "DeletionTime", "LatestOperationName", });
     internal_static_google_storagetransfer_v1_ErrorLogEntry_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_google_storagetransfer_v1_ErrorLogEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_storagetransfer_v1_ErrorLogEntry_descriptor,
         new java.lang.String[] { "Url", "ErrorDetails", });
     internal_static_google_storagetransfer_v1_ErrorSummary_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_google_storagetransfer_v1_ErrorSummary_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_storagetransfer_v1_ErrorSummary_descriptor,
         new java.lang.String[] { "ErrorCode", "ErrorCount", "ErrorLogEntries", });
     internal_static_google_storagetransfer_v1_TransferCounters_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_google_storagetransfer_v1_TransferCounters_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_storagetransfer_v1_TransferCounters_descriptor,
         new java.lang.String[] { "ObjectsFoundFromSource", "BytesFoundFromSource", "ObjectsFoundOnlyFromSink", "BytesFoundOnlyFromSink", "ObjectsFromSourceSkippedBySync", "BytesFromSourceSkippedBySync", "ObjectsCopiedToSink", "BytesCopiedToSink", "ObjectsDeletedFromSource", "BytesDeletedFromSource", "ObjectsDeletedFromSink", "BytesDeletedFromSink", "ObjectsFromSourceFailed", "BytesFromSourceFailed", "ObjectsFailedToDeleteFromSink", "BytesFailedToDeleteFromSink", "DirectoriesFoundFromSource", "DirectoriesFailedToListFromSource", "DirectoriesSuccessfullyListedFromSource", "IntermediateObjectsCleanedUp", "IntermediateObjectsFailedCleanedUp", });
     internal_static_google_storagetransfer_v1_NotificationConfig_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_google_storagetransfer_v1_NotificationConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_storagetransfer_v1_NotificationConfig_descriptor,
         new java.lang.String[] { "PubsubTopic", "EventTypes", "PayloadFormat", });
     internal_static_google_storagetransfer_v1_LoggingConfig_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_google_storagetransfer_v1_LoggingConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_storagetransfer_v1_LoggingConfig_descriptor,
         new java.lang.String[] { "LogActions", "LogActionStates", "EnableOnpremGcsTransferLogs", });
     internal_static_google_storagetransfer_v1_TransferOperation_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_google_storagetransfer_v1_TransferOperation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_storagetransfer_v1_TransferOperation_descriptor,

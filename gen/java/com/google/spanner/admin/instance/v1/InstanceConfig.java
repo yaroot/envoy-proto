@@ -23,8 +23,13 @@ private static final long serialVersionUID = 0L;
   private InstanceConfig() {
     name_ = "";
     displayName_ = "";
+    configType_ = 0;
     replicas_ = java.util.Collections.emptyList();
+    optionalReplicas_ = java.util.Collections.emptyList();
+    baseConfig_ = "";
+    etag_ = "";
     leaderOptions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    state_ = 0;
   }
 
   @java.lang.Override
@@ -39,87 +44,23 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InstanceConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              replicas_ = new java.util.ArrayList<com.google.spanner.admin.instance.v1.ReplicaInfo>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            replicas_.add(
-                input.readMessage(com.google.spanner.admin.instance.v1.ReplicaInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              leaderOptions_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            leaderOptions_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        replicas_ = java.util.Collections.unmodifiableList(replicas_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        leaderOptions_ = leaderOptions_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.spanner.admin.instance.v1.SpannerInstanceAdminProto.internal_static_google_spanner_admin_instance_v1_InstanceConfig_descriptor;
   }
 
+  @SuppressWarnings({"rawtypes"})
+  @java.lang.Override
+  protected com.google.protobuf.MapField internalGetMapField(
+      int number) {
+    switch (number) {
+      case 8:
+        return internalGetLabels();
+      default:
+        throw new RuntimeException(
+            "Invalid map field number: " + number);
+    }
+  }
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -128,8 +69,301 @@ private static final long serialVersionUID = 0L;
             com.google.spanner.admin.instance.v1.InstanceConfig.class, com.google.spanner.admin.instance.v1.InstanceConfig.Builder.class);
   }
 
+  /**
+   * <pre>
+   * The type of this configuration.
+   * </pre>
+   *
+   * Protobuf enum {@code google.spanner.admin.instance.v1.InstanceConfig.Type}
+   */
+  public enum Type
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * Unspecified.
+     * </pre>
+     *
+     * <code>TYPE_UNSPECIFIED = 0;</code>
+     */
+    TYPE_UNSPECIFIED(0),
+    /**
+     * <pre>
+     * Google managed configuration.
+     * </pre>
+     *
+     * <code>GOOGLE_MANAGED = 1;</code>
+     */
+    GOOGLE_MANAGED(1),
+    /**
+     * <pre>
+     * User managed configuration.
+     * </pre>
+     *
+     * <code>USER_MANAGED = 2;</code>
+     */
+    USER_MANAGED(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * Unspecified.
+     * </pre>
+     *
+     * <code>TYPE_UNSPECIFIED = 0;</code>
+     */
+    public static final int TYPE_UNSPECIFIED_VALUE = 0;
+    /**
+     * <pre>
+     * Google managed configuration.
+     * </pre>
+     *
+     * <code>GOOGLE_MANAGED = 1;</code>
+     */
+    public static final int GOOGLE_MANAGED_VALUE = 1;
+    /**
+     * <pre>
+     * User managed configuration.
+     * </pre>
+     *
+     * <code>USER_MANAGED = 2;</code>
+     */
+    public static final int USER_MANAGED_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static Type valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static Type forNumber(int value) {
+      switch (value) {
+        case 0: return TYPE_UNSPECIFIED;
+        case 1: return GOOGLE_MANAGED;
+        case 2: return USER_MANAGED;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<Type>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Type> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Type>() {
+            public Type findValueByNumber(int number) {
+              return Type.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.spanner.admin.instance.v1.InstanceConfig.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final Type[] VALUES = values();
+
+    public static Type valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private Type(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.spanner.admin.instance.v1.InstanceConfig.Type)
+  }
+
+  /**
+   * <pre>
+   * Indicates the current state of the instance config.
+   * </pre>
+   *
+   * Protobuf enum {@code google.spanner.admin.instance.v1.InstanceConfig.State}
+   */
+  public enum State
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * Not specified.
+     * </pre>
+     *
+     * <code>STATE_UNSPECIFIED = 0;</code>
+     */
+    STATE_UNSPECIFIED(0),
+    /**
+     * <pre>
+     * The instance config is still being created.
+     * </pre>
+     *
+     * <code>CREATING = 1;</code>
+     */
+    CREATING(1),
+    /**
+     * <pre>
+     * The instance config is fully created and ready to be used to create
+     * instances.
+     * </pre>
+     *
+     * <code>READY = 2;</code>
+     */
+    READY(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * Not specified.
+     * </pre>
+     *
+     * <code>STATE_UNSPECIFIED = 0;</code>
+     */
+    public static final int STATE_UNSPECIFIED_VALUE = 0;
+    /**
+     * <pre>
+     * The instance config is still being created.
+     * </pre>
+     *
+     * <code>CREATING = 1;</code>
+     */
+    public static final int CREATING_VALUE = 1;
+    /**
+     * <pre>
+     * The instance config is fully created and ready to be used to create
+     * instances.
+     * </pre>
+     *
+     * <code>READY = 2;</code>
+     */
+    public static final int READY_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static State valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static State forNumber(int value) {
+      switch (value) {
+        case 0: return STATE_UNSPECIFIED;
+        case 1: return CREATING;
+        case 2: return READY;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<State>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        State> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<State>() {
+            public State findValueByNumber(int number) {
+              return State.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.spanner.admin.instance.v1.InstanceConfig.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final State[] VALUES = values();
+
+    public static State valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private State(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.spanner.admin.instance.v1.InstanceConfig.State)
+  }
+
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * A unique identifier for the instance configuration.  Values
@@ -179,7 +413,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * The name of this instance configuration as it appears in UIs.
@@ -224,7 +459,36 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int CONFIG_TYPE_FIELD_NUMBER = 5;
+  private int configType_ = 0;
+  /**
+   * <pre>
+   * Output only. Whether this instance config is a Google or User Managed
+   * Configuration.
+   * </pre>
+   *
+   * <code>.google.spanner.admin.instance.v1.InstanceConfig.Type config_type = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The enum numeric value on the wire for configType.
+   */
+  @java.lang.Override public int getConfigTypeValue() {
+    return configType_;
+  }
+  /**
+   * <pre>
+   * Output only. Whether this instance config is a Google or User Managed
+   * Configuration.
+   * </pre>
+   *
+   * <code>.google.spanner.admin.instance.v1.InstanceConfig.Type config_type = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The configType.
+   */
+  @java.lang.Override public com.google.spanner.admin.instance.v1.InstanceConfig.Type getConfigType() {
+    com.google.spanner.admin.instance.v1.InstanceConfig.Type result = com.google.spanner.admin.instance.v1.InstanceConfig.Type.forNumber(configType_);
+    return result == null ? com.google.spanner.admin.instance.v1.InstanceConfig.Type.UNRECOGNIZED : result;
+  }
+
   public static final int REPLICAS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.spanner.admin.instance.v1.ReplicaInfo> replicas_;
   /**
    * <pre>
@@ -289,7 +553,355 @@ private static final long serialVersionUID = 0L;
     return replicas_.get(index);
   }
 
+  public static final int OPTIONAL_REPLICAS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
+  private java.util.List<com.google.spanner.admin.instance.v1.ReplicaInfo> optionalReplicas_;
+  /**
+   * <pre>
+   * Output only. The available optional replicas to choose from for user
+   * managed configurations. Populated for Google managed configurations.
+   * </pre>
+   *
+   * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.google.spanner.admin.instance.v1.ReplicaInfo> getOptionalReplicasList() {
+    return optionalReplicas_;
+  }
+  /**
+   * <pre>
+   * Output only. The available optional replicas to choose from for user
+   * managed configurations. Populated for Google managed configurations.
+   * </pre>
+   *
+   * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.google.spanner.admin.instance.v1.ReplicaInfoOrBuilder> 
+      getOptionalReplicasOrBuilderList() {
+    return optionalReplicas_;
+  }
+  /**
+   * <pre>
+   * Output only. The available optional replicas to choose from for user
+   * managed configurations. Populated for Google managed configurations.
+   * </pre>
+   *
+   * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public int getOptionalReplicasCount() {
+    return optionalReplicas_.size();
+  }
+  /**
+   * <pre>
+   * Output only. The available optional replicas to choose from for user
+   * managed configurations. Populated for Google managed configurations.
+   * </pre>
+   *
+   * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public com.google.spanner.admin.instance.v1.ReplicaInfo getOptionalReplicas(int index) {
+    return optionalReplicas_.get(index);
+  }
+  /**
+   * <pre>
+   * Output only. The available optional replicas to choose from for user
+   * managed configurations. Populated for Google managed configurations.
+   * </pre>
+   *
+   * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public com.google.spanner.admin.instance.v1.ReplicaInfoOrBuilder getOptionalReplicasOrBuilder(
+      int index) {
+    return optionalReplicas_.get(index);
+  }
+
+  public static final int BASE_CONFIG_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object baseConfig_ = "";
+  /**
+   * <pre>
+   * Base configuration name, e.g. projects/&lt;project_name&gt;/instanceConfigs/nam3,
+   * based on which this configuration is created. Only set for user managed
+   * configurations. `base_config` must refer to a configuration of type
+   * GOOGLE_MANAGED in the same project as this configuration.
+   * </pre>
+   *
+   * <code>string base_config = 7 [(.google.api.resource_reference) = { ... }</code>
+   * @return The baseConfig.
+   */
+  @java.lang.Override
+  public java.lang.String getBaseConfig() {
+    java.lang.Object ref = baseConfig_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      baseConfig_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Base configuration name, e.g. projects/&lt;project_name&gt;/instanceConfigs/nam3,
+   * based on which this configuration is created. Only set for user managed
+   * configurations. `base_config` must refer to a configuration of type
+   * GOOGLE_MANAGED in the same project as this configuration.
+   * </pre>
+   *
+   * <code>string base_config = 7 [(.google.api.resource_reference) = { ... }</code>
+   * @return The bytes for baseConfig.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getBaseConfigBytes() {
+    java.lang.Object ref = baseConfig_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      baseConfig_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int LABELS_FIELD_NUMBER = 8;
+  private static final class LabelsDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, java.lang.String> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, java.lang.String>newDefaultInstance(
+                com.google.spanner.admin.instance.v1.SpannerInstanceAdminProto.internal_static_google_spanner_admin_instance_v1_InstanceConfig_LabelsEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "");
+  }
+  @SuppressWarnings("serial")
+  private com.google.protobuf.MapField<
+      java.lang.String, java.lang.String> labels_;
+  private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+  internalGetLabels() {
+    if (labels_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          LabelsDefaultEntryHolder.defaultEntry);
+    }
+    return labels_;
+  }
+  public int getLabelsCount() {
+    return internalGetLabels().getMap().size();
+  }
+  /**
+   * <pre>
+   * Cloud Labels are a flexible and lightweight mechanism for organizing cloud
+   * resources into groups that reflect a customer's organizational needs and
+   * deployment strategies. Cloud Labels can be used to filter collections of
+   * resources. They can be used to control how resource metrics are aggregated.
+   * And they can be used as arguments to policy management rules (e.g. route,
+   * firewall, load balancing, etc.).
+   *  * Label keys must be between 1 and 63 characters long and must conform to
+   *    the following regular expression: `[a-z][a-z0-9_-]{0,62}`.
+   *  * Label values must be between 0 and 63 characters long and must conform
+   *    to the regular expression `[a-z0-9_-]{0,63}`.
+   *  * No more than 64 labels can be associated with a given resource.
+   * See https://goo.gl/xmQnxf for more information on and examples of labels.
+   * If you plan to use labels in your own code, please note that additional
+   * characters may be allowed in the future. Therefore, you are advised to use
+   * an internal label representation, such as JSON, which doesn't rely upon
+   * specific characters being disallowed.  For example, representing labels
+   * as the string:  name + "_" + value  would prove problematic if we were to
+   * allow "_" in a future release.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; labels = 8;</code>
+   */
+  @java.lang.Override
+  public boolean containsLabels(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    return internalGetLabels().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getLabelsMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+    return getLabelsMap();
+  }
+  /**
+   * <pre>
+   * Cloud Labels are a flexible and lightweight mechanism for organizing cloud
+   * resources into groups that reflect a customer's organizational needs and
+   * deployment strategies. Cloud Labels can be used to filter collections of
+   * resources. They can be used to control how resource metrics are aggregated.
+   * And they can be used as arguments to policy management rules (e.g. route,
+   * firewall, load balancing, etc.).
+   *  * Label keys must be between 1 and 63 characters long and must conform to
+   *    the following regular expression: `[a-z][a-z0-9_-]{0,62}`.
+   *  * Label values must be between 0 and 63 characters long and must conform
+   *    to the regular expression `[a-z0-9_-]{0,63}`.
+   *  * No more than 64 labels can be associated with a given resource.
+   * See https://goo.gl/xmQnxf for more information on and examples of labels.
+   * If you plan to use labels in your own code, please note that additional
+   * characters may be allowed in the future. Therefore, you are advised to use
+   * an internal label representation, such as JSON, which doesn't rely upon
+   * specific characters being disallowed.  For example, representing labels
+   * as the string:  name + "_" + value  would prove problematic if we were to
+   * allow "_" in a future release.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; labels = 8;</code>
+   */
+  @java.lang.Override
+  public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+    return internalGetLabels().getMap();
+  }
+  /**
+   * <pre>
+   * Cloud Labels are a flexible and lightweight mechanism for organizing cloud
+   * resources into groups that reflect a customer's organizational needs and
+   * deployment strategies. Cloud Labels can be used to filter collections of
+   * resources. They can be used to control how resource metrics are aggregated.
+   * And they can be used as arguments to policy management rules (e.g. route,
+   * firewall, load balancing, etc.).
+   *  * Label keys must be between 1 and 63 characters long and must conform to
+   *    the following regular expression: `[a-z][a-z0-9_-]{0,62}`.
+   *  * Label values must be between 0 and 63 characters long and must conform
+   *    to the regular expression `[a-z0-9_-]{0,63}`.
+   *  * No more than 64 labels can be associated with a given resource.
+   * See https://goo.gl/xmQnxf for more information on and examples of labels.
+   * If you plan to use labels in your own code, please note that additional
+   * characters may be allowed in the future. Therefore, you are advised to use
+   * an internal label representation, such as JSON, which doesn't rely upon
+   * specific characters being disallowed.  For example, representing labels
+   * as the string:  name + "_" + value  would prove problematic if we were to
+   * allow "_" in a future release.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; labels = 8;</code>
+   */
+  @java.lang.Override
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
+      java.lang.String key,
+      /* nullable */
+java.lang.String defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetLabels().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <pre>
+   * Cloud Labels are a flexible and lightweight mechanism for organizing cloud
+   * resources into groups that reflect a customer's organizational needs and
+   * deployment strategies. Cloud Labels can be used to filter collections of
+   * resources. They can be used to control how resource metrics are aggregated.
+   * And they can be used as arguments to policy management rules (e.g. route,
+   * firewall, load balancing, etc.).
+   *  * Label keys must be between 1 and 63 characters long and must conform to
+   *    the following regular expression: `[a-z][a-z0-9_-]{0,62}`.
+   *  * Label values must be between 0 and 63 characters long and must conform
+   *    to the regular expression `[a-z0-9_-]{0,63}`.
+   *  * No more than 64 labels can be associated with a given resource.
+   * See https://goo.gl/xmQnxf for more information on and examples of labels.
+   * If you plan to use labels in your own code, please note that additional
+   * characters may be allowed in the future. Therefore, you are advised to use
+   * an internal label representation, such as JSON, which doesn't rely upon
+   * specific characters being disallowed.  For example, representing labels
+   * as the string:  name + "_" + value  would prove problematic if we were to
+   * allow "_" in a future release.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; labels = 8;</code>
+   */
+  @java.lang.Override
+  public java.lang.String getLabelsOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetLabels().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
+  public static final int ETAG_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object etag_ = "";
+  /**
+   * <pre>
+   * etag is used for optimistic concurrency control as a way
+   * to help prevent simultaneous updates of a instance config from overwriting
+   * each other. It is strongly suggested that systems make use of the etag in
+   * the read-modify-write cycle to perform instance config updates in order to
+   * avoid race conditions: An etag is returned in the response which contains
+   * instance configs, and systems are expected to put that etag in the request
+   * to update instance config to ensure that their change will be applied to
+   * the same version of the instance config.
+   * If no etag is provided in the call to update instance config, then the
+   * existing instance config is overwritten blindly.
+   * </pre>
+   *
+   * <code>string etag = 9;</code>
+   * @return The etag.
+   */
+  @java.lang.Override
+  public java.lang.String getEtag() {
+    java.lang.Object ref = etag_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      etag_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * etag is used for optimistic concurrency control as a way
+   * to help prevent simultaneous updates of a instance config from overwriting
+   * each other. It is strongly suggested that systems make use of the etag in
+   * the read-modify-write cycle to perform instance config updates in order to
+   * avoid race conditions: An etag is returned in the response which contains
+   * instance configs, and systems are expected to put that etag in the request
+   * to update instance config to ensure that their change will be applied to
+   * the same version of the instance config.
+   * If no etag is provided in the call to update instance config, then the
+   * existing instance config is overwritten blindly.
+   * </pre>
+   *
+   * <code>string etag = 9;</code>
+   * @return The bytes for etag.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getEtagBytes() {
+    java.lang.Object ref = etag_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      etag_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int LEADER_OPTIONS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList leaderOptions_;
   /**
    * <pre>
@@ -344,6 +956,48 @@ private static final long serialVersionUID = 0L;
     return leaderOptions_.getByteString(index);
   }
 
+  public static final int RECONCILING_FIELD_NUMBER = 10;
+  private boolean reconciling_ = false;
+  /**
+   * <pre>
+   * Output only. If true, the instance config is being created or updated. If
+   * false, there are no ongoing operations for the instance config.
+   * </pre>
+   *
+   * <code>bool reconciling = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The reconciling.
+   */
+  @java.lang.Override
+  public boolean getReconciling() {
+    return reconciling_;
+  }
+
+  public static final int STATE_FIELD_NUMBER = 11;
+  private int state_ = 0;
+  /**
+   * <pre>
+   * Output only. The current instance config state.
+   * </pre>
+   *
+   * <code>.google.spanner.admin.instance.v1.InstanceConfig.State state = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The enum numeric value on the wire for state.
+   */
+  @java.lang.Override public int getStateValue() {
+    return state_;
+  }
+  /**
+   * <pre>
+   * Output only. The current instance config state.
+   * </pre>
+   *
+   * <code>.google.spanner.admin.instance.v1.InstanceConfig.State state = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The state.
+   */
+  @java.lang.Override public com.google.spanner.admin.instance.v1.InstanceConfig.State getState() {
+    com.google.spanner.admin.instance.v1.InstanceConfig.State result = com.google.spanner.admin.instance.v1.InstanceConfig.State.forNumber(state_);
+    return result == null ? com.google.spanner.admin.instance.v1.InstanceConfig.State.UNRECOGNIZED : result;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -370,7 +1024,31 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < leaderOptions_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, leaderOptions_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    if (configType_ != com.google.spanner.admin.instance.v1.InstanceConfig.Type.TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(5, configType_);
+    }
+    for (int i = 0; i < optionalReplicas_.size(); i++) {
+      output.writeMessage(6, optionalReplicas_.get(i));
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(baseConfig_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, baseConfig_);
+    }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetLabels(),
+        LabelsDefaultEntryHolder.defaultEntry,
+        8);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(etag_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, etag_);
+    }
+    if (reconciling_ != false) {
+      output.writeBool(10, reconciling_);
+    }
+    if (state_ != com.google.spanner.admin.instance.v1.InstanceConfig.State.STATE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(11, state_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -397,7 +1075,39 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getLeaderOptionsList().size();
     }
-    size += unknownFields.getSerializedSize();
+    if (configType_ != com.google.spanner.admin.instance.v1.InstanceConfig.Type.TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(5, configType_);
+    }
+    for (int i = 0; i < optionalReplicas_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, optionalReplicas_.get(i));
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(baseConfig_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, baseConfig_);
+    }
+    for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+         : internalGetLabels().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+      labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, labels__);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(etag_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, etag_);
+    }
+    if (reconciling_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(10, reconciling_);
+    }
+    if (state_ != com.google.spanner.admin.instance.v1.InstanceConfig.State.STATE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(11, state_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -416,11 +1126,23 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName())) return false;
     if (!getDisplayName()
         .equals(other.getDisplayName())) return false;
+    if (configType_ != other.configType_) return false;
     if (!getReplicasList()
         .equals(other.getReplicasList())) return false;
+    if (!getOptionalReplicasList()
+        .equals(other.getOptionalReplicasList())) return false;
+    if (!getBaseConfig()
+        .equals(other.getBaseConfig())) return false;
+    if (!internalGetLabels().equals(
+        other.internalGetLabels())) return false;
+    if (!getEtag()
+        .equals(other.getEtag())) return false;
     if (!getLeaderOptionsList()
         .equals(other.getLeaderOptionsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (getReconciling()
+        != other.getReconciling()) return false;
+    if (state_ != other.state_) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -435,15 +1157,34 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getDisplayName().hashCode();
+    hash = (37 * hash) + CONFIG_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + configType_;
     if (getReplicasCount() > 0) {
       hash = (37 * hash) + REPLICAS_FIELD_NUMBER;
       hash = (53 * hash) + getReplicasList().hashCode();
     }
+    if (getOptionalReplicasCount() > 0) {
+      hash = (37 * hash) + OPTIONAL_REPLICAS_FIELD_NUMBER;
+      hash = (53 * hash) + getOptionalReplicasList().hashCode();
+    }
+    hash = (37 * hash) + BASE_CONFIG_FIELD_NUMBER;
+    hash = (53 * hash) + getBaseConfig().hashCode();
+    if (!internalGetLabels().getMap().isEmpty()) {
+      hash = (37 * hash) + LABELS_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetLabels().hashCode();
+    }
+    hash = (37 * hash) + ETAG_FIELD_NUMBER;
+    hash = (53 * hash) + getEtag().hashCode();
     if (getLeaderOptionsCount() > 0) {
       hash = (37 * hash) + LEADER_OPTIONS_FIELD_NUMBER;
       hash = (53 * hash) + getLeaderOptionsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + RECONCILING_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getReconciling());
+    hash = (37 * hash) + STATE_FIELD_NUMBER;
+    hash = (53 * hash) + state_;
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -555,6 +1296,28 @@ private static final long serialVersionUID = 0L;
       return com.google.spanner.admin.instance.v1.SpannerInstanceAdminProto.internal_static_google_spanner_admin_instance_v1_InstanceConfig_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 8:
+          return internalGetLabels();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMutableMapField(
+        int number) {
+      switch (number) {
+        case 8:
+          return internalGetMutableLabels();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -565,35 +1328,42 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.spanner.admin.instance.v1.InstanceConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getReplicasFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
+      configType_ = 0;
       if (replicasBuilder_ == null) {
         replicas_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        replicas_ = null;
         replicasBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
+      if (optionalReplicasBuilder_ == null) {
+        optionalReplicas_ = java.util.Collections.emptyList();
+      } else {
+        optionalReplicas_ = null;
+        optionalReplicasBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000010);
+      baseConfig_ = "";
+      internalGetMutableLabels().clear();
+      etag_ = "";
       leaderOptions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000100);
+      reconciling_ = false;
+      state_ = 0;
       return this;
     }
 
@@ -620,25 +1390,65 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.spanner.admin.instance.v1.InstanceConfig buildPartial() {
       com.google.spanner.admin.instance.v1.InstanceConfig result = new com.google.spanner.admin.instance.v1.InstanceConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.spanner.admin.instance.v1.InstanceConfig result) {
       if (replicasBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           replicas_ = java.util.Collections.unmodifiableList(replicas_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.replicas_ = replicas_;
       } else {
         result.replicas_ = replicasBuilder_.build();
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (optionalReplicasBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0)) {
+          optionalReplicas_ = java.util.Collections.unmodifiableList(optionalReplicas_);
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.optionalReplicas_ = optionalReplicas_;
+      } else {
+        result.optionalReplicas_ = optionalReplicasBuilder_.build();
+      }
+      if (((bitField0_ & 0x00000100) != 0)) {
         leaderOptions_ = leaderOptions_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000100);
       }
       result.leaderOptions_ = leaderOptions_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.spanner.admin.instance.v1.InstanceConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.configType_ = configType_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.baseConfig_ = baseConfig_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.etag_ = etag_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.reconciling_ = reconciling_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.state_ = state_;
+      }
     }
 
     @java.lang.Override
@@ -687,17 +1497,22 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.spanner.admin.instance.v1.InstanceConfig.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
+      }
+      if (other.configType_ != 0) {
+        setConfigTypeValue(other.getConfigTypeValue());
       }
       if (replicasBuilder_ == null) {
         if (!other.replicas_.isEmpty()) {
           if (replicas_.isEmpty()) {
             replicas_ = other.replicas_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureReplicasIsMutable();
             replicas_.addAll(other.replicas_);
@@ -710,7 +1525,7 @@ private static final long serialVersionUID = 0L;
             replicasBuilder_.dispose();
             replicasBuilder_ = null;
             replicas_ = other.replicas_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             replicasBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getReplicasFieldBuilder() : null;
@@ -719,17 +1534,62 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
+      if (optionalReplicasBuilder_ == null) {
+        if (!other.optionalReplicas_.isEmpty()) {
+          if (optionalReplicas_.isEmpty()) {
+            optionalReplicas_ = other.optionalReplicas_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureOptionalReplicasIsMutable();
+            optionalReplicas_.addAll(other.optionalReplicas_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.optionalReplicas_.isEmpty()) {
+          if (optionalReplicasBuilder_.isEmpty()) {
+            optionalReplicasBuilder_.dispose();
+            optionalReplicasBuilder_ = null;
+            optionalReplicas_ = other.optionalReplicas_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+            optionalReplicasBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getOptionalReplicasFieldBuilder() : null;
+          } else {
+            optionalReplicasBuilder_.addAllMessages(other.optionalReplicas_);
+          }
+        }
+      }
+      if (!other.getBaseConfig().isEmpty()) {
+        baseConfig_ = other.baseConfig_;
+        bitField0_ |= 0x00000020;
+        onChanged();
+      }
+      internalGetMutableLabels().mergeFrom(
+          other.internalGetLabels());
+      bitField0_ |= 0x00000040;
+      if (!other.getEtag().isEmpty()) {
+        etag_ = other.etag_;
+        bitField0_ |= 0x00000080;
+        onChanged();
+      }
       if (!other.leaderOptions_.isEmpty()) {
         if (leaderOptions_.isEmpty()) {
           leaderOptions_ = other.leaderOptions_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000100);
         } else {
           ensureLeaderOptionsIsMutable();
           leaderOptions_.addAll(other.leaderOptions_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.getReconciling() != false) {
+        setReconciling(other.getReconciling());
+      }
+      if (other.state_ != 0) {
+        setStateValue(other.getStateValue());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -744,17 +1604,106 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.spanner.admin.instance.v1.InstanceConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.spanner.admin.instance.v1.ReplicaInfo m =
+                  input.readMessage(
+                      com.google.spanner.admin.instance.v1.ReplicaInfo.parser(),
+                      extensionRegistry);
+              if (replicasBuilder_ == null) {
+                ensureReplicasIsMutable();
+                replicas_.add(m);
+              } else {
+                replicasBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureLeaderOptionsIsMutable();
+              leaderOptions_.add(s);
+              break;
+            } // case 34
+            case 40: {
+              configType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 40
+            case 50: {
+              com.google.spanner.admin.instance.v1.ReplicaInfo m =
+                  input.readMessage(
+                      com.google.spanner.admin.instance.v1.ReplicaInfo.parser(),
+                      extensionRegistry);
+              if (optionalReplicasBuilder_ == null) {
+                ensureOptionalReplicasIsMutable();
+                optionalReplicas_.add(m);
+              } else {
+                optionalReplicasBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            case 58: {
+              baseConfig_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 58
+            case 66: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            case 74: {
+              etag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 74
+            case 80: {
+              reconciling_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 88: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.spanner.admin.instance.v1.InstanceConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -818,11 +1767,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -837,8 +1784,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -855,12 +1802,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -918,11 +1863,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -935,8 +1878,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -951,12 +1894,88 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+
+    private int configType_ = 0;
+    /**
+     * <pre>
+     * Output only. Whether this instance config is a Google or User Managed
+     * Configuration.
+     * </pre>
+     *
+     * <code>.google.spanner.admin.instance.v1.InstanceConfig.Type config_type = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The enum numeric value on the wire for configType.
+     */
+    @java.lang.Override public int getConfigTypeValue() {
+      return configType_;
+    }
+    /**
+     * <pre>
+     * Output only. Whether this instance config is a Google or User Managed
+     * Configuration.
+     * </pre>
+     *
+     * <code>.google.spanner.admin.instance.v1.InstanceConfig.Type config_type = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param value The enum numeric value on the wire for configType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setConfigTypeValue(int value) {
+      configType_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. Whether this instance config is a Google or User Managed
+     * Configuration.
+     * </pre>
+     *
+     * <code>.google.spanner.admin.instance.v1.InstanceConfig.Type config_type = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The configType.
+     */
+    @java.lang.Override
+    public com.google.spanner.admin.instance.v1.InstanceConfig.Type getConfigType() {
+      com.google.spanner.admin.instance.v1.InstanceConfig.Type result = com.google.spanner.admin.instance.v1.InstanceConfig.Type.forNumber(configType_);
+      return result == null ? com.google.spanner.admin.instance.v1.InstanceConfig.Type.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Output only. Whether this instance config is a Google or User Managed
+     * Configuration.
+     * </pre>
+     *
+     * <code>.google.spanner.admin.instance.v1.InstanceConfig.Type config_type = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param value The configType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setConfigType(com.google.spanner.admin.instance.v1.InstanceConfig.Type value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000004;
+      configType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. Whether this instance config is a Google or User Managed
+     * Configuration.
+     * </pre>
+     *
+     * <code>.google.spanner.admin.instance.v1.InstanceConfig.Type config_type = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearConfigType() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      configType_ = 0;
       onChanged();
       return this;
     }
@@ -964,9 +1983,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.spanner.admin.instance.v1.ReplicaInfo> replicas_ =
       java.util.Collections.emptyList();
     private void ensureReplicasIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         replicas_ = new java.util.ArrayList<com.google.spanner.admin.instance.v1.ReplicaInfo>(replicas_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1171,7 +2190,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearReplicas() {
       if (replicasBuilder_ == null) {
         replicas_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         replicasBuilder_.clear();
@@ -1283,7 +2302,7 @@ private static final long serialVersionUID = 0L;
         replicasBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.spanner.admin.instance.v1.ReplicaInfo, com.google.spanner.admin.instance.v1.ReplicaInfo.Builder, com.google.spanner.admin.instance.v1.ReplicaInfoOrBuilder>(
                 replicas_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         replicas_ = null;
@@ -1291,11 +2310,859 @@ private static final long serialVersionUID = 0L;
       return replicasBuilder_;
     }
 
+    private java.util.List<com.google.spanner.admin.instance.v1.ReplicaInfo> optionalReplicas_ =
+      java.util.Collections.emptyList();
+    private void ensureOptionalReplicasIsMutable() {
+      if (!((bitField0_ & 0x00000010) != 0)) {
+        optionalReplicas_ = new java.util.ArrayList<com.google.spanner.admin.instance.v1.ReplicaInfo>(optionalReplicas_);
+        bitField0_ |= 0x00000010;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.spanner.admin.instance.v1.ReplicaInfo, com.google.spanner.admin.instance.v1.ReplicaInfo.Builder, com.google.spanner.admin.instance.v1.ReplicaInfoOrBuilder> optionalReplicasBuilder_;
+
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public java.util.List<com.google.spanner.admin.instance.v1.ReplicaInfo> getOptionalReplicasList() {
+      if (optionalReplicasBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(optionalReplicas_);
+      } else {
+        return optionalReplicasBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public int getOptionalReplicasCount() {
+      if (optionalReplicasBuilder_ == null) {
+        return optionalReplicas_.size();
+      } else {
+        return optionalReplicasBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.spanner.admin.instance.v1.ReplicaInfo getOptionalReplicas(int index) {
+      if (optionalReplicasBuilder_ == null) {
+        return optionalReplicas_.get(index);
+      } else {
+        return optionalReplicasBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder setOptionalReplicas(
+        int index, com.google.spanner.admin.instance.v1.ReplicaInfo value) {
+      if (optionalReplicasBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOptionalReplicasIsMutable();
+        optionalReplicas_.set(index, value);
+        onChanged();
+      } else {
+        optionalReplicasBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder setOptionalReplicas(
+        int index, com.google.spanner.admin.instance.v1.ReplicaInfo.Builder builderForValue) {
+      if (optionalReplicasBuilder_ == null) {
+        ensureOptionalReplicasIsMutable();
+        optionalReplicas_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        optionalReplicasBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addOptionalReplicas(com.google.spanner.admin.instance.v1.ReplicaInfo value) {
+      if (optionalReplicasBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOptionalReplicasIsMutable();
+        optionalReplicas_.add(value);
+        onChanged();
+      } else {
+        optionalReplicasBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addOptionalReplicas(
+        int index, com.google.spanner.admin.instance.v1.ReplicaInfo value) {
+      if (optionalReplicasBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOptionalReplicasIsMutable();
+        optionalReplicas_.add(index, value);
+        onChanged();
+      } else {
+        optionalReplicasBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addOptionalReplicas(
+        com.google.spanner.admin.instance.v1.ReplicaInfo.Builder builderForValue) {
+      if (optionalReplicasBuilder_ == null) {
+        ensureOptionalReplicasIsMutable();
+        optionalReplicas_.add(builderForValue.build());
+        onChanged();
+      } else {
+        optionalReplicasBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addOptionalReplicas(
+        int index, com.google.spanner.admin.instance.v1.ReplicaInfo.Builder builderForValue) {
+      if (optionalReplicasBuilder_ == null) {
+        ensureOptionalReplicasIsMutable();
+        optionalReplicas_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        optionalReplicasBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addAllOptionalReplicas(
+        java.lang.Iterable<? extends com.google.spanner.admin.instance.v1.ReplicaInfo> values) {
+      if (optionalReplicasBuilder_ == null) {
+        ensureOptionalReplicasIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, optionalReplicas_);
+        onChanged();
+      } else {
+        optionalReplicasBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder clearOptionalReplicas() {
+      if (optionalReplicasBuilder_ == null) {
+        optionalReplicas_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+      } else {
+        optionalReplicasBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder removeOptionalReplicas(int index) {
+      if (optionalReplicasBuilder_ == null) {
+        ensureOptionalReplicasIsMutable();
+        optionalReplicas_.remove(index);
+        onChanged();
+      } else {
+        optionalReplicasBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.spanner.admin.instance.v1.ReplicaInfo.Builder getOptionalReplicasBuilder(
+        int index) {
+      return getOptionalReplicasFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.spanner.admin.instance.v1.ReplicaInfoOrBuilder getOptionalReplicasOrBuilder(
+        int index) {
+      if (optionalReplicasBuilder_ == null) {
+        return optionalReplicas_.get(index);  } else {
+        return optionalReplicasBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public java.util.List<? extends com.google.spanner.admin.instance.v1.ReplicaInfoOrBuilder> 
+         getOptionalReplicasOrBuilderList() {
+      if (optionalReplicasBuilder_ != null) {
+        return optionalReplicasBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(optionalReplicas_);
+      }
+    }
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.spanner.admin.instance.v1.ReplicaInfo.Builder addOptionalReplicasBuilder() {
+      return getOptionalReplicasFieldBuilder().addBuilder(
+          com.google.spanner.admin.instance.v1.ReplicaInfo.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.spanner.admin.instance.v1.ReplicaInfo.Builder addOptionalReplicasBuilder(
+        int index) {
+      return getOptionalReplicasFieldBuilder().addBuilder(
+          index, com.google.spanner.admin.instance.v1.ReplicaInfo.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Output only. The available optional replicas to choose from for user
+     * managed configurations. Populated for Google managed configurations.
+     * </pre>
+     *
+     * <code>repeated .google.spanner.admin.instance.v1.ReplicaInfo optional_replicas = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public java.util.List<com.google.spanner.admin.instance.v1.ReplicaInfo.Builder> 
+         getOptionalReplicasBuilderList() {
+      return getOptionalReplicasFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.spanner.admin.instance.v1.ReplicaInfo, com.google.spanner.admin.instance.v1.ReplicaInfo.Builder, com.google.spanner.admin.instance.v1.ReplicaInfoOrBuilder> 
+        getOptionalReplicasFieldBuilder() {
+      if (optionalReplicasBuilder_ == null) {
+        optionalReplicasBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.google.spanner.admin.instance.v1.ReplicaInfo, com.google.spanner.admin.instance.v1.ReplicaInfo.Builder, com.google.spanner.admin.instance.v1.ReplicaInfoOrBuilder>(
+                optionalReplicas_,
+                ((bitField0_ & 0x00000010) != 0),
+                getParentForChildren(),
+                isClean());
+        optionalReplicas_ = null;
+      }
+      return optionalReplicasBuilder_;
+    }
+
+    private java.lang.Object baseConfig_ = "";
+    /**
+     * <pre>
+     * Base configuration name, e.g. projects/&lt;project_name&gt;/instanceConfigs/nam3,
+     * based on which this configuration is created. Only set for user managed
+     * configurations. `base_config` must refer to a configuration of type
+     * GOOGLE_MANAGED in the same project as this configuration.
+     * </pre>
+     *
+     * <code>string base_config = 7 [(.google.api.resource_reference) = { ... }</code>
+     * @return The baseConfig.
+     */
+    public java.lang.String getBaseConfig() {
+      java.lang.Object ref = baseConfig_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        baseConfig_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Base configuration name, e.g. projects/&lt;project_name&gt;/instanceConfigs/nam3,
+     * based on which this configuration is created. Only set for user managed
+     * configurations. `base_config` must refer to a configuration of type
+     * GOOGLE_MANAGED in the same project as this configuration.
+     * </pre>
+     *
+     * <code>string base_config = 7 [(.google.api.resource_reference) = { ... }</code>
+     * @return The bytes for baseConfig.
+     */
+    public com.google.protobuf.ByteString
+        getBaseConfigBytes() {
+      java.lang.Object ref = baseConfig_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        baseConfig_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Base configuration name, e.g. projects/&lt;project_name&gt;/instanceConfigs/nam3,
+     * based on which this configuration is created. Only set for user managed
+     * configurations. `base_config` must refer to a configuration of type
+     * GOOGLE_MANAGED in the same project as this configuration.
+     * </pre>
+     *
+     * <code>string base_config = 7 [(.google.api.resource_reference) = { ... }</code>
+     * @param value The baseConfig to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBaseConfig(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      baseConfig_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Base configuration name, e.g. projects/&lt;project_name&gt;/instanceConfigs/nam3,
+     * based on which this configuration is created. Only set for user managed
+     * configurations. `base_config` must refer to a configuration of type
+     * GOOGLE_MANAGED in the same project as this configuration.
+     * </pre>
+     *
+     * <code>string base_config = 7 [(.google.api.resource_reference) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBaseConfig() {
+      baseConfig_ = getDefaultInstance().getBaseConfig();
+      bitField0_ = (bitField0_ & ~0x00000020);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Base configuration name, e.g. projects/&lt;project_name&gt;/instanceConfigs/nam3,
+     * based on which this configuration is created. Only set for user managed
+     * configurations. `base_config` must refer to a configuration of type
+     * GOOGLE_MANAGED in the same project as this configuration.
+     * </pre>
+     *
+     * <code>string base_config = 7 [(.google.api.resource_reference) = { ... }</code>
+     * @param value The bytes for baseConfig to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBaseConfigBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      baseConfig_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> labels_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetLabels() {
+      if (labels_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LabelsDefaultEntryHolder.defaultEntry);
+      }
+      return labels_;
+    }
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMutableLabels() {
+      if (labels_ == null) {
+        labels_ = com.google.protobuf.MapField.newMapField(
+            LabelsDefaultEntryHolder.defaultEntry);
+      }
+      if (!labels_.isMutable()) {
+        labels_ = labels_.copy();
+      }
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return labels_;
+    }
+    public int getLabelsCount() {
+      return internalGetLabels().getMap().size();
+    }
+    /**
+     * <pre>
+     * Cloud Labels are a flexible and lightweight mechanism for organizing cloud
+     * resources into groups that reflect a customer's organizational needs and
+     * deployment strategies. Cloud Labels can be used to filter collections of
+     * resources. They can be used to control how resource metrics are aggregated.
+     * And they can be used as arguments to policy management rules (e.g. route,
+     * firewall, load balancing, etc.).
+     *  * Label keys must be between 1 and 63 characters long and must conform to
+     *    the following regular expression: `[a-z][a-z0-9_-]{0,62}`.
+     *  * Label values must be between 0 and 63 characters long and must conform
+     *    to the regular expression `[a-z0-9_-]{0,63}`.
+     *  * No more than 64 labels can be associated with a given resource.
+     * See https://goo.gl/xmQnxf for more information on and examples of labels.
+     * If you plan to use labels in your own code, please note that additional
+     * characters may be allowed in the future. Therefore, you are advised to use
+     * an internal label representation, such as JSON, which doesn't rely upon
+     * specific characters being disallowed.  For example, representing labels
+     * as the string:  name + "_" + value  would prove problematic if we were to
+     * allow "_" in a future release.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; labels = 8;</code>
+     */
+    @java.lang.Override
+    public boolean containsLabels(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetLabels().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+      return getLabelsMap();
+    }
+    /**
+     * <pre>
+     * Cloud Labels are a flexible and lightweight mechanism for organizing cloud
+     * resources into groups that reflect a customer's organizational needs and
+     * deployment strategies. Cloud Labels can be used to filter collections of
+     * resources. They can be used to control how resource metrics are aggregated.
+     * And they can be used as arguments to policy management rules (e.g. route,
+     * firewall, load balancing, etc.).
+     *  * Label keys must be between 1 and 63 characters long and must conform to
+     *    the following regular expression: `[a-z][a-z0-9_-]{0,62}`.
+     *  * Label values must be between 0 and 63 characters long and must conform
+     *    to the regular expression `[a-z0-9_-]{0,63}`.
+     *  * No more than 64 labels can be associated with a given resource.
+     * See https://goo.gl/xmQnxf for more information on and examples of labels.
+     * If you plan to use labels in your own code, please note that additional
+     * characters may be allowed in the future. Therefore, you are advised to use
+     * an internal label representation, such as JSON, which doesn't rely upon
+     * specific characters being disallowed.  For example, representing labels
+     * as the string:  name + "_" + value  would prove problematic if we were to
+     * allow "_" in a future release.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; labels = 8;</code>
+     */
+    @java.lang.Override
+    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+      return internalGetLabels().getMap();
+    }
+    /**
+     * <pre>
+     * Cloud Labels are a flexible and lightweight mechanism for organizing cloud
+     * resources into groups that reflect a customer's organizational needs and
+     * deployment strategies. Cloud Labels can be used to filter collections of
+     * resources. They can be used to control how resource metrics are aggregated.
+     * And they can be used as arguments to policy management rules (e.g. route,
+     * firewall, load balancing, etc.).
+     *  * Label keys must be between 1 and 63 characters long and must conform to
+     *    the following regular expression: `[a-z][a-z0-9_-]{0,62}`.
+     *  * Label values must be between 0 and 63 characters long and must conform
+     *    to the regular expression `[a-z0-9_-]{0,63}`.
+     *  * No more than 64 labels can be associated with a given resource.
+     * See https://goo.gl/xmQnxf for more information on and examples of labels.
+     * If you plan to use labels in your own code, please note that additional
+     * characters may be allowed in the future. Therefore, you are advised to use
+     * an internal label representation, such as JSON, which doesn't rely upon
+     * specific characters being disallowed.  For example, representing labels
+     * as the string:  name + "_" + value  would prove problematic if we were to
+     * allow "_" in a future release.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; labels = 8;</code>
+     */
+    @java.lang.Override
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        /* nullable */
+java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * Cloud Labels are a flexible and lightweight mechanism for organizing cloud
+     * resources into groups that reflect a customer's organizational needs and
+     * deployment strategies. Cloud Labels can be used to filter collections of
+     * resources. They can be used to control how resource metrics are aggregated.
+     * And they can be used as arguments to policy management rules (e.g. route,
+     * firewall, load balancing, etc.).
+     *  * Label keys must be between 1 and 63 characters long and must conform to
+     *    the following regular expression: `[a-z][a-z0-9_-]{0,62}`.
+     *  * Label values must be between 0 and 63 characters long and must conform
+     *    to the regular expression `[a-z0-9_-]{0,63}`.
+     *  * No more than 64 labels can be associated with a given resource.
+     * See https://goo.gl/xmQnxf for more information on and examples of labels.
+     * If you plan to use labels in your own code, please note that additional
+     * characters may be allowed in the future. Therefore, you are advised to use
+     * an internal label representation, such as JSON, which doesn't rely upon
+     * specific characters being disallowed.  For example, representing labels
+     * as the string:  name + "_" + value  would prove problematic if we were to
+     * allow "_" in a future release.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; labels = 8;</code>
+     */
+    @java.lang.Override
+    public java.lang.String getLabelsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      internalGetMutableLabels().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <pre>
+     * Cloud Labels are a flexible and lightweight mechanism for organizing cloud
+     * resources into groups that reflect a customer's organizational needs and
+     * deployment strategies. Cloud Labels can be used to filter collections of
+     * resources. They can be used to control how resource metrics are aggregated.
+     * And they can be used as arguments to policy management rules (e.g. route,
+     * firewall, load balancing, etc.).
+     *  * Label keys must be between 1 and 63 characters long and must conform to
+     *    the following regular expression: `[a-z][a-z0-9_-]{0,62}`.
+     *  * Label values must be between 0 and 63 characters long and must conform
+     *    to the regular expression `[a-z0-9_-]{0,63}`.
+     *  * No more than 64 labels can be associated with a given resource.
+     * See https://goo.gl/xmQnxf for more information on and examples of labels.
+     * If you plan to use labels in your own code, please note that additional
+     * characters may be allowed in the future. Therefore, you are advised to use
+     * an internal label representation, such as JSON, which doesn't rely upon
+     * specific characters being disallowed.  For example, representing labels
+     * as the string:  name + "_" + value  would prove problematic if we were to
+     * allow "_" in a future release.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; labels = 8;</code>
+     */
+    public Builder removeLabels(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      internalGetMutableLabels().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String>
+        getMutableLabels() {
+      bitField0_ |= 0x00000040;
+      return internalGetMutableLabels().getMutableMap();
+    }
+    /**
+     * <pre>
+     * Cloud Labels are a flexible and lightweight mechanism for organizing cloud
+     * resources into groups that reflect a customer's organizational needs and
+     * deployment strategies. Cloud Labels can be used to filter collections of
+     * resources. They can be used to control how resource metrics are aggregated.
+     * And they can be used as arguments to policy management rules (e.g. route,
+     * firewall, load balancing, etc.).
+     *  * Label keys must be between 1 and 63 characters long and must conform to
+     *    the following regular expression: `[a-z][a-z0-9_-]{0,62}`.
+     *  * Label values must be between 0 and 63 characters long and must conform
+     *    to the regular expression `[a-z0-9_-]{0,63}`.
+     *  * No more than 64 labels can be associated with a given resource.
+     * See https://goo.gl/xmQnxf for more information on and examples of labels.
+     * If you plan to use labels in your own code, please note that additional
+     * characters may be allowed in the future. Therefore, you are advised to use
+     * an internal label representation, such as JSON, which doesn't rely upon
+     * specific characters being disallowed.  For example, representing labels
+     * as the string:  name + "_" + value  would prove problematic if we were to
+     * allow "_" in a future release.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; labels = 8;</code>
+     */
+    public Builder putLabels(
+        java.lang.String key,
+        java.lang.String value) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) { throw new NullPointerException("map value"); }
+      internalGetMutableLabels().getMutableMap()
+          .put(key, value);
+      bitField0_ |= 0x00000040;
+      return this;
+    }
+    /**
+     * <pre>
+     * Cloud Labels are a flexible and lightweight mechanism for organizing cloud
+     * resources into groups that reflect a customer's organizational needs and
+     * deployment strategies. Cloud Labels can be used to filter collections of
+     * resources. They can be used to control how resource metrics are aggregated.
+     * And they can be used as arguments to policy management rules (e.g. route,
+     * firewall, load balancing, etc.).
+     *  * Label keys must be between 1 and 63 characters long and must conform to
+     *    the following regular expression: `[a-z][a-z0-9_-]{0,62}`.
+     *  * Label values must be between 0 and 63 characters long and must conform
+     *    to the regular expression `[a-z0-9_-]{0,63}`.
+     *  * No more than 64 labels can be associated with a given resource.
+     * See https://goo.gl/xmQnxf for more information on and examples of labels.
+     * If you plan to use labels in your own code, please note that additional
+     * characters may be allowed in the future. Therefore, you are advised to use
+     * an internal label representation, such as JSON, which doesn't rely upon
+     * specific characters being disallowed.  For example, representing labels
+     * as the string:  name + "_" + value  would prove problematic if we were to
+     * allow "_" in a future release.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; labels = 8;</code>
+     */
+    public Builder putAllLabels(
+        java.util.Map<java.lang.String, java.lang.String> values) {
+      internalGetMutableLabels().getMutableMap()
+          .putAll(values);
+      bitField0_ |= 0x00000040;
+      return this;
+    }
+
+    private java.lang.Object etag_ = "";
+    /**
+     * <pre>
+     * etag is used for optimistic concurrency control as a way
+     * to help prevent simultaneous updates of a instance config from overwriting
+     * each other. It is strongly suggested that systems make use of the etag in
+     * the read-modify-write cycle to perform instance config updates in order to
+     * avoid race conditions: An etag is returned in the response which contains
+     * instance configs, and systems are expected to put that etag in the request
+     * to update instance config to ensure that their change will be applied to
+     * the same version of the instance config.
+     * If no etag is provided in the call to update instance config, then the
+     * existing instance config is overwritten blindly.
+     * </pre>
+     *
+     * <code>string etag = 9;</code>
+     * @return The etag.
+     */
+    public java.lang.String getEtag() {
+      java.lang.Object ref = etag_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        etag_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * etag is used for optimistic concurrency control as a way
+     * to help prevent simultaneous updates of a instance config from overwriting
+     * each other. It is strongly suggested that systems make use of the etag in
+     * the read-modify-write cycle to perform instance config updates in order to
+     * avoid race conditions: An etag is returned in the response which contains
+     * instance configs, and systems are expected to put that etag in the request
+     * to update instance config to ensure that their change will be applied to
+     * the same version of the instance config.
+     * If no etag is provided in the call to update instance config, then the
+     * existing instance config is overwritten blindly.
+     * </pre>
+     *
+     * <code>string etag = 9;</code>
+     * @return The bytes for etag.
+     */
+    public com.google.protobuf.ByteString
+        getEtagBytes() {
+      java.lang.Object ref = etag_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        etag_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * etag is used for optimistic concurrency control as a way
+     * to help prevent simultaneous updates of a instance config from overwriting
+     * each other. It is strongly suggested that systems make use of the etag in
+     * the read-modify-write cycle to perform instance config updates in order to
+     * avoid race conditions: An etag is returned in the response which contains
+     * instance configs, and systems are expected to put that etag in the request
+     * to update instance config to ensure that their change will be applied to
+     * the same version of the instance config.
+     * If no etag is provided in the call to update instance config, then the
+     * existing instance config is overwritten blindly.
+     * </pre>
+     *
+     * <code>string etag = 9;</code>
+     * @param value The etag to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEtag(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      etag_ = value;
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * etag is used for optimistic concurrency control as a way
+     * to help prevent simultaneous updates of a instance config from overwriting
+     * each other. It is strongly suggested that systems make use of the etag in
+     * the read-modify-write cycle to perform instance config updates in order to
+     * avoid race conditions: An etag is returned in the response which contains
+     * instance configs, and systems are expected to put that etag in the request
+     * to update instance config to ensure that their change will be applied to
+     * the same version of the instance config.
+     * If no etag is provided in the call to update instance config, then the
+     * existing instance config is overwritten blindly.
+     * </pre>
+     *
+     * <code>string etag = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEtag() {
+      etag_ = getDefaultInstance().getEtag();
+      bitField0_ = (bitField0_ & ~0x00000080);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * etag is used for optimistic concurrency control as a way
+     * to help prevent simultaneous updates of a instance config from overwriting
+     * each other. It is strongly suggested that systems make use of the etag in
+     * the read-modify-write cycle to perform instance config updates in order to
+     * avoid race conditions: An etag is returned in the response which contains
+     * instance configs, and systems are expected to put that etag in the request
+     * to update instance config to ensure that their change will be applied to
+     * the same version of the instance config.
+     * If no etag is provided in the call to update instance config, then the
+     * existing instance config is overwritten blindly.
+     * </pre>
+     *
+     * <code>string etag = 9;</code>
+     * @param value The bytes for etag to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEtagBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      etag_ = value;
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+
     private com.google.protobuf.LazyStringList leaderOptions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureLeaderOptionsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         leaderOptions_ = new com.google.protobuf.LazyStringArrayList(leaderOptions_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000100;
        }
     }
     /**
@@ -1363,10 +3230,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLeaderOptions(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLeaderOptionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureLeaderOptionsIsMutable();
       leaderOptions_.set(index, value);
       onChanged();
       return this;
@@ -1383,10 +3248,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLeaderOptions(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLeaderOptionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureLeaderOptionsIsMutable();
       leaderOptions_.add(value);
       onChanged();
       return this;
@@ -1420,7 +3283,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearLeaderOptions() {
       leaderOptions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -1436,12 +3299,130 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLeaderOptionsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureLeaderOptionsIsMutable();
       leaderOptions_.add(value);
+      onChanged();
+      return this;
+    }
+
+    private boolean reconciling_ ;
+    /**
+     * <pre>
+     * Output only. If true, the instance config is being created or updated. If
+     * false, there are no ongoing operations for the instance config.
+     * </pre>
+     *
+     * <code>bool reconciling = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The reconciling.
+     */
+    @java.lang.Override
+    public boolean getReconciling() {
+      return reconciling_;
+    }
+    /**
+     * <pre>
+     * Output only. If true, the instance config is being created or updated. If
+     * false, there are no ongoing operations for the instance config.
+     * </pre>
+     *
+     * <code>bool reconciling = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param value The reconciling to set.
+     * @return This builder for chaining.
+     */
+    public Builder setReconciling(boolean value) {
+      
+      reconciling_ = value;
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. If true, the instance config is being created or updated. If
+     * false, there are no ongoing operations for the instance config.
+     * </pre>
+     *
+     * <code>bool reconciling = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearReconciling() {
+      bitField0_ = (bitField0_ & ~0x00000200);
+      reconciling_ = false;
+      onChanged();
+      return this;
+    }
+
+    private int state_ = 0;
+    /**
+     * <pre>
+     * Output only. The current instance config state.
+     * </pre>
+     *
+     * <code>.google.spanner.admin.instance.v1.InstanceConfig.State state = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The enum numeric value on the wire for state.
+     */
+    @java.lang.Override public int getStateValue() {
+      return state_;
+    }
+    /**
+     * <pre>
+     * Output only. The current instance config state.
+     * </pre>
+     *
+     * <code>.google.spanner.admin.instance.v1.InstanceConfig.State state = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param value The enum numeric value on the wire for state to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStateValue(int value) {
+      state_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The current instance config state.
+     * </pre>
+     *
+     * <code>.google.spanner.admin.instance.v1.InstanceConfig.State state = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The state.
+     */
+    @java.lang.Override
+    public com.google.spanner.admin.instance.v1.InstanceConfig.State getState() {
+      com.google.spanner.admin.instance.v1.InstanceConfig.State result = com.google.spanner.admin.instance.v1.InstanceConfig.State.forNumber(state_);
+      return result == null ? com.google.spanner.admin.instance.v1.InstanceConfig.State.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Output only. The current instance config state.
+     * </pre>
+     *
+     * <code>.google.spanner.admin.instance.v1.InstanceConfig.State state = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param value The state to set.
+     * @return This builder for chaining.
+     */
+    public Builder setState(com.google.spanner.admin.instance.v1.InstanceConfig.State value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000400;
+      state_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The current instance config state.
+     * </pre>
+     *
+     * <code>.google.spanner.admin.instance.v1.InstanceConfig.State state = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearState() {
+      bitField0_ = (bitField0_ & ~0x00000400);
+      state_ = 0;
       onChanged();
       return this;
     }
@@ -1478,7 +3459,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InstanceConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -68,104 +68,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StreamingRecognitionResult(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            messageType_ = rawValue;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            transcript_ = s;
-            break;
-          }
-          case 24: {
-
-            isFinal_ = input.readBool();
-            break;
-          }
-          case 37: {
-
-            confidence_ = input.readFloat();
-            break;
-          }
-          case 53: {
-
-            stability_ = input.readFloat();
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              speechWordInfo_ = new java.util.ArrayList<com.google.cloud.dialogflow.cx.v3beta1.SpeechWordInfo>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            speechWordInfo_.add(
-                input.readMessage(com.google.cloud.dialogflow.cx.v3beta1.SpeechWordInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 66: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (speechEndOffset_ != null) {
-              subBuilder = speechEndOffset_.toBuilder();
-            }
-            speechEndOffset_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(speechEndOffset_);
-              speechEndOffset_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageCode_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        speechWordInfo_ = java.util.Collections.unmodifiableList(speechWordInfo_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.cx.v3beta1.SessionProto.internal_static_google_cloud_dialogflow_cx_v3beta1_StreamingRecognitionResult_descriptor;
@@ -339,7 +241,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MESSAGE_TYPE_FIELD_NUMBER = 1;
-  private int messageType_;
+  private int messageType_ = 0;
   /**
    * <pre>
    * Type of the result message.
@@ -360,13 +262,13 @@ private static final long serialVersionUID = 0L;
    * @return The messageType.
    */
   @java.lang.Override public com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult.MessageType getMessageType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult.MessageType result = com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult.MessageType.valueOf(messageType_);
+    com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult.MessageType result = com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult.MessageType.forNumber(messageType_);
     return result == null ? com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult.MessageType.UNRECOGNIZED : result;
   }
 
   public static final int TRANSCRIPT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object transcript_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object transcript_ = "";
   /**
    * <pre>
    * Transcript text representing the words that the user spoke.
@@ -414,7 +316,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IS_FINAL_FIELD_NUMBER = 3;
-  private boolean isFinal_;
+  private boolean isFinal_ = false;
   /**
    * <pre>
    * If `false`, the `StreamingRecognitionResult` represents an
@@ -432,7 +334,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONFIDENCE_FIELD_NUMBER = 4;
-  private float confidence_;
+  private float confidence_ = 0F;
   /**
    * <pre>
    * The Speech confidence between 0.0 and 1.0 for the current portion of audio.
@@ -452,7 +354,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STABILITY_FIELD_NUMBER = 6;
-  private float stability_;
+  private float stability_ = 0F;
   /**
    * <pre>
    * An estimate of the likelihood that the speech recognizer will
@@ -473,6 +375,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPEECH_WORD_INFO_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.dialogflow.cx.v3beta1.SpeechWordInfo> speechWordInfo_;
   /**
    * <pre>
@@ -583,11 +486,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getSpeechEndOffsetOrBuilder() {
-    return getSpeechEndOffset();
+    return speechEndOffset_ == null ? com.google.protobuf.Duration.getDefaultInstance() : speechEndOffset_;
   }
 
   public static final int LANGUAGE_CODE_FIELD_NUMBER = 10;
-  private volatile java.lang.Object languageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageCode_ = "";
   /**
    * <pre>
    * Detected language code for the transcript.
@@ -670,7 +574,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, languageCode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -709,7 +613,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, languageCode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -744,7 +648,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getLanguageCode()
         .equals(other.getLanguageCode())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -778,7 +682,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + LANGUAGE_CODE_FIELD_NUMBER;
     hash = (53 * hash) + getLanguageCode().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -929,47 +833,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSpeechWordInfoFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       messageType_ = 0;
-
       transcript_ = "";
-
       isFinal_ = false;
-
       confidence_ = 0F;
-
       stability_ = 0F;
-
       if (speechWordInfoBuilder_ == null) {
         speechWordInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        speechWordInfo_ = null;
         speechWordInfoBuilder_.clear();
       }
-      if (speechEndOffsetBuilder_ == null) {
-        speechEndOffset_ = null;
-      } else {
-        speechEndOffset_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      speechEndOffset_ = null;
+      if (speechEndOffsetBuilder_ != null) {
+        speechEndOffsetBuilder_.dispose();
         speechEndOffsetBuilder_ = null;
       }
       languageCode_ = "";
-
       return this;
     }
 
@@ -996,29 +889,49 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult buildPartial() {
       com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult result = new com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult(this);
-      int from_bitField0_ = bitField0_;
-      result.messageType_ = messageType_;
-      result.transcript_ = transcript_;
-      result.isFinal_ = isFinal_;
-      result.confidence_ = confidence_;
-      result.stability_ = stability_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult result) {
       if (speechWordInfoBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           speechWordInfo_ = java.util.Collections.unmodifiableList(speechWordInfo_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.speechWordInfo_ = speechWordInfo_;
       } else {
         result.speechWordInfo_ = speechWordInfoBuilder_.build();
       }
-      if (speechEndOffsetBuilder_ == null) {
-        result.speechEndOffset_ = speechEndOffset_;
-      } else {
-        result.speechEndOffset_ = speechEndOffsetBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.messageType_ = messageType_;
       }
-      result.languageCode_ = languageCode_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.transcript_ = transcript_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.isFinal_ = isFinal_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.confidence_ = confidence_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.stability_ = stability_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.speechEndOffset_ = speechEndOffsetBuilder_ == null
+            ? speechEndOffset_
+            : speechEndOffsetBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.languageCode_ = languageCode_;
+      }
     }
 
     @java.lang.Override
@@ -1070,6 +983,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTranscript().isEmpty()) {
         transcript_ = other.transcript_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getIsFinal() != false) {
@@ -1085,7 +999,7 @@ private static final long serialVersionUID = 0L;
         if (!other.speechWordInfo_.isEmpty()) {
           if (speechWordInfo_.isEmpty()) {
             speechWordInfo_ = other.speechWordInfo_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureSpeechWordInfoIsMutable();
             speechWordInfo_.addAll(other.speechWordInfo_);
@@ -1098,7 +1012,7 @@ private static final long serialVersionUID = 0L;
             speechWordInfoBuilder_.dispose();
             speechWordInfoBuilder_ = null;
             speechWordInfo_ = other.speechWordInfo_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
             speechWordInfoBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSpeechWordInfoFieldBuilder() : null;
@@ -1112,9 +1026,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLanguageCode().isEmpty()) {
         languageCode_ = other.languageCode_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1129,17 +1044,80 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              messageType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              transcript_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              isFinal_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 37: {
+              confidence_ = input.readFloat();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 37
+            case 53: {
+              stability_ = input.readFloat();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 53
+            case 58: {
+              com.google.cloud.dialogflow.cx.v3beta1.SpeechWordInfo m =
+                  input.readMessage(
+                      com.google.cloud.dialogflow.cx.v3beta1.SpeechWordInfo.parser(),
+                      extensionRegistry);
+              if (speechWordInfoBuilder_ == null) {
+                ensureSpeechWordInfoIsMutable();
+                speechWordInfo_.add(m);
+              } else {
+                speechWordInfoBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getSpeechEndOffsetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            case 82: {
+              languageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1166,8 +1144,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMessageTypeValue(int value) {
-      
       messageType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1181,8 +1159,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult.MessageType getMessageType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult.MessageType result = com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult.MessageType.valueOf(messageType_);
+      com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult.MessageType result = com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult.MessageType.forNumber(messageType_);
       return result == null ? com.google.cloud.dialogflow.cx.v3beta1.StreamingRecognitionResult.MessageType.UNRECOGNIZED : result;
     }
     /**
@@ -1198,7 +1175,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       messageType_ = value.getNumber();
       onChanged();
       return this;
@@ -1212,7 +1189,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMessageType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       messageType_ = 0;
       onChanged();
       return this;
@@ -1274,11 +1251,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTranscript(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       transcript_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1292,8 +1267,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTranscript() {
-      
       transcript_ = getDefaultInstance().getTranscript();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1309,12 +1284,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTranscriptBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       transcript_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1350,6 +1323,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIsFinal(boolean value) {
       
       isFinal_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1365,7 +1339,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIsFinal() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       isFinal_ = false;
       onChanged();
       return this;
@@ -1406,6 +1380,7 @@ private static final long serialVersionUID = 0L;
     public Builder setConfidence(float value) {
       
       confidence_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1423,7 +1398,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConfidence() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       confidence_ = 0F;
       onChanged();
       return this;
@@ -1466,6 +1441,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStability(float value) {
       
       stability_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1484,7 +1460,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStability() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       stability_ = 0F;
       onChanged();
       return this;
@@ -1493,9 +1469,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.dialogflow.cx.v3beta1.SpeechWordInfo> speechWordInfo_ =
       java.util.Collections.emptyList();
     private void ensureSpeechWordInfoIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         speechWordInfo_ = new java.util.ArrayList<com.google.cloud.dialogflow.cx.v3beta1.SpeechWordInfo>(speechWordInfo_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -1711,7 +1687,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSpeechWordInfo() {
       if (speechWordInfoBuilder_ == null) {
         speechWordInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         speechWordInfoBuilder_.clear();
@@ -1830,7 +1806,7 @@ private static final long serialVersionUID = 0L;
         speechWordInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.dialogflow.cx.v3beta1.SpeechWordInfo, com.google.cloud.dialogflow.cx.v3beta1.SpeechWordInfo.Builder, com.google.cloud.dialogflow.cx.v3beta1.SpeechWordInfoOrBuilder>(
                 speechWordInfo_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         speechWordInfo_ = null;
@@ -1852,7 +1828,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the speechEndOffset field is set.
      */
     public boolean hasSpeechEndOffset() {
-      return speechEndOffsetBuilder_ != null || speechEndOffset_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1886,11 +1862,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         speechEndOffset_ = value;
-        onChanged();
       } else {
         speechEndOffsetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1906,11 +1882,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (speechEndOffsetBuilder_ == null) {
         speechEndOffset_ = builderForValue.build();
-        onChanged();
       } else {
         speechEndOffsetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1924,17 +1900,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSpeechEndOffset(com.google.protobuf.Duration value) {
       if (speechEndOffsetBuilder_ == null) {
-        if (speechEndOffset_ != null) {
-          speechEndOffset_ =
-            com.google.protobuf.Duration.newBuilder(speechEndOffset_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          speechEndOffset_ != null &&
+          speechEndOffset_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getSpeechEndOffsetBuilder().mergeFrom(value);
         } else {
           speechEndOffset_ = value;
         }
-        onChanged();
       } else {
         speechEndOffsetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1947,14 +1924,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration speech_end_offset = 8;</code>
      */
     public Builder clearSpeechEndOffset() {
-      if (speechEndOffsetBuilder_ == null) {
-        speechEndOffset_ = null;
-        onChanged();
-      } else {
-        speechEndOffset_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      speechEndOffset_ = null;
+      if (speechEndOffsetBuilder_ != null) {
+        speechEndOffsetBuilder_.dispose();
         speechEndOffsetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1967,7 +1943,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration speech_end_offset = 8;</code>
      */
     public com.google.protobuf.Duration.Builder getSpeechEndOffsetBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getSpeechEndOffsetFieldBuilder().getBuilder();
     }
@@ -2064,11 +2040,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageCode_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2081,8 +2055,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguageCode() {
-      
       languageCode_ = getDefaultInstance().getLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2097,12 +2071,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageCode_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2139,7 +2111,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StreamingRecognitionResult(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

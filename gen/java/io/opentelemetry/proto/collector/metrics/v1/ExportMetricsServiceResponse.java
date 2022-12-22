@@ -30,58 +30,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ExportMetricsServiceResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.opentelemetry.proto.collector.metrics.v1.ExportMetricsPartialSuccess.Builder subBuilder = null;
-            if (partialSuccess_ != null) {
-              subBuilder = partialSuccess_.toBuilder();
-            }
-            partialSuccess_ = input.readMessage(io.opentelemetry.proto.collector.metrics.v1.ExportMetricsPartialSuccess.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(partialSuccess_);
-              partialSuccess_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.opentelemetry.proto.collector.metrics.v1.MetricsServiceProto.internal_static_opentelemetry_proto_collector_metrics_v1_ExportMetricsServiceResponse_descriptor;
@@ -163,7 +111,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.opentelemetry.proto.collector.metrics.v1.ExportMetricsPartialSuccessOrBuilder getPartialSuccessOrBuilder() {
-    return getPartialSuccess();
+    return partialSuccess_ == null ? io.opentelemetry.proto.collector.metrics.v1.ExportMetricsPartialSuccess.getDefaultInstance() : partialSuccess_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -183,7 +131,7 @@ private static final long serialVersionUID = 0L;
     if (partialSuccess_ != null) {
       output.writeMessage(1, getPartialSuccess());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -196,7 +144,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getPartialSuccess());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -216,7 +164,7 @@ private static final long serialVersionUID = 0L;
       if (!getPartialSuccess()
           .equals(other.getPartialSuccess())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -231,7 +179,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PARTIAL_SUCCESS_FIELD_NUMBER;
       hash = (53 * hash) + getPartialSuccess().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -348,26 +296,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.opentelemetry.proto.collector.metrics.v1.ExportMetricsServiceResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (partialSuccessBuilder_ == null) {
-        partialSuccess_ = null;
-      } else {
-        partialSuccess_ = null;
+      bitField0_ = 0;
+      partialSuccess_ = null;
+      if (partialSuccessBuilder_ != null) {
+        partialSuccessBuilder_.dispose();
         partialSuccessBuilder_ = null;
       }
       return this;
@@ -396,13 +339,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.opentelemetry.proto.collector.metrics.v1.ExportMetricsServiceResponse buildPartial() {
       io.opentelemetry.proto.collector.metrics.v1.ExportMetricsServiceResponse result = new io.opentelemetry.proto.collector.metrics.v1.ExportMetricsServiceResponse(this);
-      if (partialSuccessBuilder_ == null) {
-        result.partialSuccess_ = partialSuccess_;
-      } else {
-        result.partialSuccess_ = partialSuccessBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.opentelemetry.proto.collector.metrics.v1.ExportMetricsServiceResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.partialSuccess_ = partialSuccessBuilder_ == null
+            ? partialSuccess_
+            : partialSuccessBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -452,7 +400,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasPartialSuccess()) {
         mergePartialSuccess(other.getPartialSuccess());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -467,19 +415,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.opentelemetry.proto.collector.metrics.v1.ExportMetricsServiceResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getPartialSuccessFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.opentelemetry.proto.collector.metrics.v1.ExportMetricsServiceResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.opentelemetry.proto.collector.metrics.v1.ExportMetricsPartialSuccess partialSuccess_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -504,7 +473,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the partialSuccess field is set.
      */
     public boolean hasPartialSuccess() {
-      return partialSuccessBuilder_ != null || partialSuccess_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -556,11 +525,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         partialSuccess_ = value;
-        onChanged();
       } else {
         partialSuccessBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -585,11 +554,11 @@ private static final long serialVersionUID = 0L;
         io.opentelemetry.proto.collector.metrics.v1.ExportMetricsPartialSuccess.Builder builderForValue) {
       if (partialSuccessBuilder_ == null) {
         partialSuccess_ = builderForValue.build();
-        onChanged();
       } else {
         partialSuccessBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -612,17 +581,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePartialSuccess(io.opentelemetry.proto.collector.metrics.v1.ExportMetricsPartialSuccess value) {
       if (partialSuccessBuilder_ == null) {
-        if (partialSuccess_ != null) {
-          partialSuccess_ =
-            io.opentelemetry.proto.collector.metrics.v1.ExportMetricsPartialSuccess.newBuilder(partialSuccess_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          partialSuccess_ != null &&
+          partialSuccess_ != io.opentelemetry.proto.collector.metrics.v1.ExportMetricsPartialSuccess.getDefaultInstance()) {
+          getPartialSuccessBuilder().mergeFrom(value);
         } else {
           partialSuccess_ = value;
         }
-        onChanged();
       } else {
         partialSuccessBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -644,14 +614,13 @@ private static final long serialVersionUID = 0L;
      * <code>.opentelemetry.proto.collector.metrics.v1.ExportMetricsPartialSuccess partial_success = 1;</code>
      */
     public Builder clearPartialSuccess() {
-      if (partialSuccessBuilder_ == null) {
-        partialSuccess_ = null;
-        onChanged();
-      } else {
-        partialSuccess_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      partialSuccess_ = null;
+      if (partialSuccessBuilder_ != null) {
+        partialSuccessBuilder_.dispose();
         partialSuccessBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -673,7 +642,7 @@ private static final long serialVersionUID = 0L;
      * <code>.opentelemetry.proto.collector.metrics.v1.ExportMetricsPartialSuccess partial_success = 1;</code>
      */
     public io.opentelemetry.proto.collector.metrics.v1.ExportMetricsPartialSuccess.Builder getPartialSuccessBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getPartialSuccessFieldBuilder().getBuilder();
     }
@@ -767,7 +736,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExportMetricsServiceResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

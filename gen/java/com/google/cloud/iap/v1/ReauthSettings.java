@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ReauthSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            method_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (maxAge_ != null) {
-              subBuilder = maxAge_.toBuilder();
-            }
-            maxAge_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxAge_);
-              maxAge_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            policyType_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.iap.v1.Service.internal_static_google_cloud_iap_v1_ReauthSettings_descriptor;
@@ -132,11 +68,7 @@ private static final long serialVersionUID = 0L;
     METHOD_UNSPECIFIED(0),
     /**
      * <pre>
-     * Mimics the behavior as if the user had logged out and tried to log in
-     * again. Users with 2SV (2-step verification) enabled see their 2SV
-     * challenges if they did not opt to have their second factor responses
-     * saved. Apps Core (GSuites) admins can configure settings to disable 2SV
-     * cookies and require 2SV for all Apps Core users in their domains.
+     * Prompts the user to log in again.
      * </pre>
      *
      * <code>LOGIN = 1;</code>
@@ -144,11 +76,12 @@ private static final long serialVersionUID = 0L;
     LOGIN(1),
     /**
      * <pre>
-     * User must type their password.
+     * Deprecated, no longer accepted by IAP APIs.
      * </pre>
      *
-     * <code>PASSWORD = 2;</code>
+     * <code>PASSWORD = 2 [deprecated = true];</code>
      */
+    @java.lang.Deprecated
     PASSWORD(2),
     /**
      * <pre>
@@ -171,11 +104,7 @@ private static final long serialVersionUID = 0L;
     public static final int METHOD_UNSPECIFIED_VALUE = 0;
     /**
      * <pre>
-     * Mimics the behavior as if the user had logged out and tried to log in
-     * again. Users with 2SV (2-step verification) enabled see their 2SV
-     * challenges if they did not opt to have their second factor responses
-     * saved. Apps Core (GSuites) admins can configure settings to disable 2SV
-     * cookies and require 2SV for all Apps Core users in their domains.
+     * Prompts the user to log in again.
      * </pre>
      *
      * <code>LOGIN = 1;</code>
@@ -183,12 +112,12 @@ private static final long serialVersionUID = 0L;
     public static final int LOGIN_VALUE = 1;
     /**
      * <pre>
-     * User must type their password.
+     * Deprecated, no longer accepted by IAP APIs.
      * </pre>
      *
-     * <code>PASSWORD = 2;</code>
+     * <code>PASSWORD = 2 [deprecated = true];</code>
      */
-    public static final int PASSWORD_VALUE = 2;
+    @java.lang.Deprecated public static final int PASSWORD_VALUE = 2;
     /**
      * <pre>
      * User must use their secure key 2nd factor device.
@@ -431,10 +360,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int METHOD_FIELD_NUMBER = 1;
-  private int method_;
+  private int method_ = 0;
   /**
    * <pre>
-   * Reauth method required by the policy.
+   * Reauth method requested.
    * </pre>
    *
    * <code>.google.cloud.iap.v1.ReauthSettings.Method method = 1;</code>
@@ -445,15 +374,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Reauth method required by the policy.
+   * Reauth method requested.
    * </pre>
    *
    * <code>.google.cloud.iap.v1.ReauthSettings.Method method = 1;</code>
    * @return The method.
    */
   @java.lang.Override public com.google.cloud.iap.v1.ReauthSettings.Method getMethod() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.iap.v1.ReauthSettings.Method result = com.google.cloud.iap.v1.ReauthSettings.Method.valueOf(method_);
+    com.google.cloud.iap.v1.ReauthSettings.Method result = com.google.cloud.iap.v1.ReauthSettings.Method.forNumber(method_);
     return result == null ? com.google.cloud.iap.v1.ReauthSettings.Method.UNRECOGNIZED : result;
   }
 
@@ -495,11 +423,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMaxAgeOrBuilder() {
-    return getMaxAge();
+    return maxAge_ == null ? com.google.protobuf.Duration.getDefaultInstance() : maxAge_;
   }
 
   public static final int POLICY_TYPE_FIELD_NUMBER = 3;
-  private int policyType_;
+  private int policyType_ = 0;
   /**
    * <pre>
    * How IAP determines the effective policy in cases of hierarchial policies.
@@ -522,8 +450,7 @@ private static final long serialVersionUID = 0L;
    * @return The policyType.
    */
   @java.lang.Override public com.google.cloud.iap.v1.ReauthSettings.PolicyType getPolicyType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.iap.v1.ReauthSettings.PolicyType result = com.google.cloud.iap.v1.ReauthSettings.PolicyType.valueOf(policyType_);
+    com.google.cloud.iap.v1.ReauthSettings.PolicyType result = com.google.cloud.iap.v1.ReauthSettings.PolicyType.forNumber(policyType_);
     return result == null ? com.google.cloud.iap.v1.ReauthSettings.PolicyType.UNRECOGNIZED : result;
   }
 
@@ -550,7 +477,7 @@ private static final long serialVersionUID = 0L;
     if (policyType_ != com.google.cloud.iap.v1.ReauthSettings.PolicyType.POLICY_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, policyType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -571,7 +498,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, policyType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -593,7 +520,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getMaxAge())) return false;
     }
     if (policyType_ != other.policyType_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -612,7 +539,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + POLICY_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + policyType_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -733,32 +660,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.iap.v1.ReauthSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       method_ = 0;
-
-      if (maxAgeBuilder_ == null) {
-        maxAge_ = null;
-      } else {
-        maxAge_ = null;
+      maxAge_ = null;
+      if (maxAgeBuilder_ != null) {
+        maxAgeBuilder_.dispose();
         maxAgeBuilder_ = null;
       }
       policyType_ = 0;
-
       return this;
     }
 
@@ -785,15 +705,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.iap.v1.ReauthSettings buildPartial() {
       com.google.cloud.iap.v1.ReauthSettings result = new com.google.cloud.iap.v1.ReauthSettings(this);
-      result.method_ = method_;
-      if (maxAgeBuilder_ == null) {
-        result.maxAge_ = maxAge_;
-      } else {
-        result.maxAge_ = maxAgeBuilder_.build();
-      }
-      result.policyType_ = policyType_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.iap.v1.ReauthSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.method_ = method_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.maxAge_ = maxAgeBuilder_ == null
+            ? maxAge_
+            : maxAgeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.policyType_ = policyType_;
+      }
     }
 
     @java.lang.Override
@@ -849,7 +778,7 @@ private static final long serialVersionUID = 0L;
       if (other.policyType_ != 0) {
         setPolicyTypeValue(other.getPolicyTypeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -864,24 +793,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.iap.v1.ReauthSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              method_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getMaxAgeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              policyType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.iap.v1.ReauthSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int method_ = 0;
     /**
      * <pre>
-     * Reauth method required by the policy.
+     * Reauth method requested.
      * </pre>
      *
      * <code>.google.cloud.iap.v1.ReauthSettings.Method method = 1;</code>
@@ -892,7 +852,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Reauth method required by the policy.
+     * Reauth method requested.
      * </pre>
      *
      * <code>.google.cloud.iap.v1.ReauthSettings.Method method = 1;</code>
@@ -900,14 +860,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMethodValue(int value) {
-      
       method_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Reauth method required by the policy.
+     * Reauth method requested.
      * </pre>
      *
      * <code>.google.cloud.iap.v1.ReauthSettings.Method method = 1;</code>
@@ -915,13 +875,12 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.iap.v1.ReauthSettings.Method getMethod() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.iap.v1.ReauthSettings.Method result = com.google.cloud.iap.v1.ReauthSettings.Method.valueOf(method_);
+      com.google.cloud.iap.v1.ReauthSettings.Method result = com.google.cloud.iap.v1.ReauthSettings.Method.forNumber(method_);
       return result == null ? com.google.cloud.iap.v1.ReauthSettings.Method.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Reauth method required by the policy.
+     * Reauth method requested.
      * </pre>
      *
      * <code>.google.cloud.iap.v1.ReauthSettings.Method method = 1;</code>
@@ -932,21 +891,21 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       method_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Reauth method required by the policy.
+     * Reauth method requested.
      * </pre>
      *
      * <code>.google.cloud.iap.v1.ReauthSettings.Method method = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearMethod() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       method_ = 0;
       onChanged();
       return this;
@@ -965,7 +924,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxAge field is set.
      */
     public boolean hasMaxAge() {
-      return maxAgeBuilder_ != null || maxAge_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -997,11 +956,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxAge_ = value;
-        onChanged();
       } else {
         maxAgeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1016,11 +975,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (maxAgeBuilder_ == null) {
         maxAge_ = builderForValue.build();
-        onChanged();
       } else {
         maxAgeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1033,17 +992,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxAge(com.google.protobuf.Duration value) {
       if (maxAgeBuilder_ == null) {
-        if (maxAge_ != null) {
-          maxAge_ =
-            com.google.protobuf.Duration.newBuilder(maxAge_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          maxAge_ != null &&
+          maxAge_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMaxAgeBuilder().mergeFrom(value);
         } else {
           maxAge_ = value;
         }
-        onChanged();
       } else {
         maxAgeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1055,14 +1015,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration max_age = 2;</code>
      */
     public Builder clearMaxAge() {
-      if (maxAgeBuilder_ == null) {
-        maxAge_ = null;
-        onChanged();
-      } else {
-        maxAge_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      maxAge_ = null;
+      if (maxAgeBuilder_ != null) {
+        maxAgeBuilder_.dispose();
         maxAgeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1074,7 +1033,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration max_age = 2;</code>
      */
     public com.google.protobuf.Duration.Builder getMaxAgeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getMaxAgeFieldBuilder().getBuilder();
     }
@@ -1140,8 +1099,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPolicyTypeValue(int value) {
-      
       policyType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1156,8 +1115,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.iap.v1.ReauthSettings.PolicyType getPolicyType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.iap.v1.ReauthSettings.PolicyType result = com.google.cloud.iap.v1.ReauthSettings.PolicyType.valueOf(policyType_);
+      com.google.cloud.iap.v1.ReauthSettings.PolicyType result = com.google.cloud.iap.v1.ReauthSettings.PolicyType.forNumber(policyType_);
       return result == null ? com.google.cloud.iap.v1.ReauthSettings.PolicyType.UNRECOGNIZED : result;
     }
     /**
@@ -1174,7 +1132,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       policyType_ = value.getNumber();
       onChanged();
       return this;
@@ -1189,7 +1147,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPolicyType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       policyType_ = 0;
       onChanged();
       return this;
@@ -1227,7 +1185,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ReauthSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

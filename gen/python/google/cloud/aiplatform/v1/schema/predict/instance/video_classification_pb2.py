@@ -11,10 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nMgoogle/cloud/aiplatform/v1/schema/predict/instance/video_classification.proto\x12\x32google.cloud.aiplatform.v1.schema.predict.instance\x1a\x1cgoogle/api/annotations.proto\"\x81\x01\n%VideoClassificationPredictionInstance\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\t\x12\x11\n\tmime_type\x18\x02 \x01(\t\x12\x1a\n\x12time_segment_start\x18\x03 \x01(\t\x12\x18\n\x10time_segment_end\x18\x04 \x01(\tB\xe7\x02\n6com.google.cloud.aiplatform.v1.schema.predict.instanceB*VideoClassificationPredictionInstanceProtoP\x01ZZgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/instance;instance\xaa\x02\x32Google.Cloud.AIPlatform.V1.Schema.Predict.Instance\xca\x02\x32Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Instance\xea\x02\x38Google::Cloud::AIPlatform::V1::Schema::Predict::Instanceb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nMgoogle/cloud/aiplatform/v1/schema/predict/instance/video_classification.proto\x12\x32google.cloud.aiplatform.v1.schema.predict.instance\"\x81\x01\n%VideoClassificationPredictionInstance\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\t\x12\x11\n\tmime_type\x18\x02 \x01(\t\x12\x1a\n\x12time_segment_start\x18\x03 \x01(\t\x12\x18\n\x10time_segment_end\x18\x04 \x01(\tB\xe7\x02\n6com.google.cloud.aiplatform.v1.schema.predict.instanceB*VideoClassificationPredictionInstanceProtoP\x01ZZgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/instance;instance\xaa\x02\x32Google.Cloud.AIPlatform.V1.Schema.Predict.Instance\xca\x02\x32Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Instance\xea\x02\x38Google::Cloud::AIPlatform::V1::Schema::Predict::Instanceb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.aiplatform.v1.schema.predict.instance.video_classification_pb2', globals())
@@ -22,6 +21,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n6com.google.cloud.aiplatform.v1.schema.predict.instanceB*VideoClassificationPredictionInstanceProtoP\001ZZgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/instance;instance\252\0022Google.Cloud.AIPlatform.V1.Schema.Predict.Instance\312\0022Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Instance\352\0028Google::Cloud::AIPlatform::V1::Schema::Predict::Instance'
-  _VIDEOCLASSIFICATIONPREDICTIONINSTANCE._serialized_start=164
-  _VIDEOCLASSIFICATIONPREDICTIONINSTANCE._serialized_end=293
+  _VIDEOCLASSIFICATIONPREDICTIONINSTANCE._serialized_start=134
+  _VIDEOCLASSIFICATIONPREDICTIONINSTANCE._serialized_end=263
 # @@protoc_insertion_point(module_scope)

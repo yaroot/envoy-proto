@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DatastoreOptions(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.privacy.dlp.v2.PartitionId.Builder subBuilder = null;
-            if (partitionId_ != null) {
-              subBuilder = partitionId_.toBuilder();
-            }
-            partitionId_ = input.readMessage(com.google.privacy.dlp.v2.PartitionId.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(partitionId_);
-              partitionId_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.privacy.dlp.v2.KindExpression.Builder subBuilder = null;
-            if (kind_ != null) {
-              subBuilder = kind_.toBuilder();
-            }
-            kind_ = input.readMessage(com.google.privacy.dlp.v2.KindExpression.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(kind_);
-              kind_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpStorage.internal_static_google_privacy_dlp_v2_DatastoreOptions_descriptor;
@@ -150,7 +85,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.privacy.dlp.v2.PartitionIdOrBuilder getPartitionIdOrBuilder() {
-    return getPartitionId();
+    return partitionId_ == null ? com.google.privacy.dlp.v2.PartitionId.getDefaultInstance() : partitionId_;
   }
 
   public static final int KIND_FIELD_NUMBER = 2;
@@ -188,7 +123,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.privacy.dlp.v2.KindExpressionOrBuilder getKindOrBuilder() {
-    return getKind();
+    return kind_ == null ? com.google.privacy.dlp.v2.KindExpression.getDefaultInstance() : kind_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -211,7 +146,7 @@ private static final long serialVersionUID = 0L;
     if (kind_ != null) {
       output.writeMessage(2, getKind());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -228,7 +163,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getKind());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -253,7 +188,7 @@ private static final long serialVersionUID = 0L;
       if (!getKind()
           .equals(other.getKind())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -272,7 +207,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + KIND_FIELD_NUMBER;
       hash = (53 * hash) + getKind().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -393,32 +328,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.DatastoreOptions.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (partitionIdBuilder_ == null) {
-        partitionId_ = null;
-      } else {
-        partitionId_ = null;
+      bitField0_ = 0;
+      partitionId_ = null;
+      if (partitionIdBuilder_ != null) {
+        partitionIdBuilder_.dispose();
         partitionIdBuilder_ = null;
       }
-      if (kindBuilder_ == null) {
-        kind_ = null;
-      } else {
-        kind_ = null;
+      kind_ = null;
+      if (kindBuilder_ != null) {
+        kindBuilder_.dispose();
         kindBuilder_ = null;
       }
       return this;
@@ -447,18 +376,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.DatastoreOptions buildPartial() {
       com.google.privacy.dlp.v2.DatastoreOptions result = new com.google.privacy.dlp.v2.DatastoreOptions(this);
-      if (partitionIdBuilder_ == null) {
-        result.partitionId_ = partitionId_;
-      } else {
-        result.partitionId_ = partitionIdBuilder_.build();
-      }
-      if (kindBuilder_ == null) {
-        result.kind_ = kind_;
-      } else {
-        result.kind_ = kindBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.DatastoreOptions result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.partitionId_ = partitionIdBuilder_ == null
+            ? partitionId_
+            : partitionIdBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.kind_ = kindBuilder_ == null
+            ? kind_
+            : kindBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -511,7 +445,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasKind()) {
         mergeKind(other.getKind());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -526,19 +460,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.DatastoreOptions parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getPartitionIdFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getKindFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.DatastoreOptions) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.privacy.dlp.v2.PartitionId partitionId_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -553,7 +515,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the partitionId field is set.
      */
     public boolean hasPartitionId() {
-      return partitionIdBuilder_ != null || partitionId_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -585,11 +547,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         partitionId_ = value;
-        onChanged();
       } else {
         partitionIdBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -604,11 +566,11 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.PartitionId.Builder builderForValue) {
       if (partitionIdBuilder_ == null) {
         partitionId_ = builderForValue.build();
-        onChanged();
       } else {
         partitionIdBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -621,17 +583,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePartitionId(com.google.privacy.dlp.v2.PartitionId value) {
       if (partitionIdBuilder_ == null) {
-        if (partitionId_ != null) {
-          partitionId_ =
-            com.google.privacy.dlp.v2.PartitionId.newBuilder(partitionId_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          partitionId_ != null &&
+          partitionId_ != com.google.privacy.dlp.v2.PartitionId.getDefaultInstance()) {
+          getPartitionIdBuilder().mergeFrom(value);
         } else {
           partitionId_ = value;
         }
-        onChanged();
       } else {
         partitionIdBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -643,14 +606,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.PartitionId partition_id = 1;</code>
      */
     public Builder clearPartitionId() {
-      if (partitionIdBuilder_ == null) {
-        partitionId_ = null;
-        onChanged();
-      } else {
-        partitionId_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      partitionId_ = null;
+      if (partitionIdBuilder_ != null) {
+        partitionIdBuilder_.dispose();
         partitionIdBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -662,7 +624,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.PartitionId partition_id = 1;</code>
      */
     public com.google.privacy.dlp.v2.PartitionId.Builder getPartitionIdBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getPartitionIdFieldBuilder().getBuilder();
     }
@@ -716,7 +678,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the kind field is set.
      */
     public boolean hasKind() {
-      return kindBuilder_ != null || kind_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -746,11 +708,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         kind_ = value;
-        onChanged();
       } else {
         kindBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -764,11 +726,11 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.KindExpression.Builder builderForValue) {
       if (kindBuilder_ == null) {
         kind_ = builderForValue.build();
-        onChanged();
       } else {
         kindBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -780,17 +742,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeKind(com.google.privacy.dlp.v2.KindExpression value) {
       if (kindBuilder_ == null) {
-        if (kind_ != null) {
-          kind_ =
-            com.google.privacy.dlp.v2.KindExpression.newBuilder(kind_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          kind_ != null &&
+          kind_ != com.google.privacy.dlp.v2.KindExpression.getDefaultInstance()) {
+          getKindBuilder().mergeFrom(value);
         } else {
           kind_ = value;
         }
-        onChanged();
       } else {
         kindBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -801,14 +764,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.KindExpression kind = 2;</code>
      */
     public Builder clearKind() {
-      if (kindBuilder_ == null) {
-        kind_ = null;
-        onChanged();
-      } else {
-        kind_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      kind_ = null;
+      if (kindBuilder_ != null) {
+        kindBuilder_.dispose();
         kindBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -819,7 +781,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.KindExpression kind = 2;</code>
      */
     public com.google.privacy.dlp.v2.KindExpression.Builder getKindBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getKindFieldBuilder().getBuilder();
     }
@@ -891,7 +853,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DatastoreOptions(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

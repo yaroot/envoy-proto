@@ -37,70 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateEntryGroupRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.datacatalog.v1.EntryGroup.Builder subBuilder = null;
-            if (entryGroup_ != null) {
-              subBuilder = entryGroup_.toBuilder();
-            }
-            entryGroup_ = input.readMessage(com.google.cloud.datacatalog.v1.EntryGroup.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(entryGroup_);
-              entryGroup_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            entryGroupId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datacatalog.v1.Datacatalog.internal_static_google_cloud_datacatalog_v1_CreateEntryGroupRequest_descriptor;
@@ -115,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The names of the project and location that the new entry group belongs to.
@@ -165,7 +102,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENTRY_GROUP_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object entryGroupId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object entryGroupId_ = "";
   /**
    * <pre>
    * Required. The ID of the entry group to create.
@@ -251,7 +189,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datacatalog.v1.EntryGroupOrBuilder getEntryGroupOrBuilder() {
-    return getEntryGroup();
+    return entryGroup_ == null ? com.google.cloud.datacatalog.v1.EntryGroup.getDefaultInstance() : entryGroup_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -277,7 +215,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(entryGroupId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, entryGroupId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -296,7 +234,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(entryGroupId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, entryGroupId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -320,7 +258,7 @@ private static final long serialVersionUID = 0L;
       if (!getEntryGroup()
           .equals(other.getEntryGroup())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -339,7 +277,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ENTRY_GROUP_FIELD_NUMBER;
       hash = (53 * hash) + getEntryGroup().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -461,30 +399,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datacatalog.v1.CreateEntryGroupRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       entryGroupId_ = "";
-
-      if (entryGroupBuilder_ == null) {
-        entryGroup_ = null;
-      } else {
-        entryGroup_ = null;
+      entryGroup_ = null;
+      if (entryGroupBuilder_ != null) {
+        entryGroupBuilder_.dispose();
         entryGroupBuilder_ = null;
       }
       return this;
@@ -513,15 +444,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datacatalog.v1.CreateEntryGroupRequest buildPartial() {
       com.google.cloud.datacatalog.v1.CreateEntryGroupRequest result = new com.google.cloud.datacatalog.v1.CreateEntryGroupRequest(this);
-      result.parent_ = parent_;
-      result.entryGroupId_ = entryGroupId_;
-      if (entryGroupBuilder_ == null) {
-        result.entryGroup_ = entryGroup_;
-      } else {
-        result.entryGroup_ = entryGroupBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datacatalog.v1.CreateEntryGroupRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.entryGroupId_ = entryGroupId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.entryGroup_ = entryGroupBuilder_ == null
+            ? entryGroup_
+            : entryGroupBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -570,16 +510,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.datacatalog.v1.CreateEntryGroupRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getEntryGroupId().isEmpty()) {
         entryGroupId_ = other.entryGroupId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasEntryGroup()) {
         mergeEntryGroup(other.getEntryGroup());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -594,19 +536,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datacatalog.v1.CreateEntryGroupRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getEntryGroupFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              entryGroupId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datacatalog.v1.CreateEntryGroupRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -667,11 +640,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -686,8 +657,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -704,12 +675,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -776,11 +745,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEntryGroupId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       entryGroupId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -796,8 +763,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEntryGroupId() {
-      
       entryGroupId_ = getDefaultInstance().getEntryGroupId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -815,12 +782,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEntryGroupIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       entryGroupId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -837,7 +802,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the entryGroup field is set.
      */
     public boolean hasEntryGroup() {
-      return entryGroupBuilder_ != null || entryGroup_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -867,11 +832,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         entryGroup_ = value;
-        onChanged();
       } else {
         entryGroupBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -885,11 +850,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datacatalog.v1.EntryGroup.Builder builderForValue) {
       if (entryGroupBuilder_ == null) {
         entryGroup_ = builderForValue.build();
-        onChanged();
       } else {
         entryGroupBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -901,17 +866,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEntryGroup(com.google.cloud.datacatalog.v1.EntryGroup value) {
       if (entryGroupBuilder_ == null) {
-        if (entryGroup_ != null) {
-          entryGroup_ =
-            com.google.cloud.datacatalog.v1.EntryGroup.newBuilder(entryGroup_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          entryGroup_ != null &&
+          entryGroup_ != com.google.cloud.datacatalog.v1.EntryGroup.getDefaultInstance()) {
+          getEntryGroupBuilder().mergeFrom(value);
         } else {
           entryGroup_ = value;
         }
-        onChanged();
       } else {
         entryGroupBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -922,14 +888,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.EntryGroup entry_group = 2;</code>
      */
     public Builder clearEntryGroup() {
-      if (entryGroupBuilder_ == null) {
-        entryGroup_ = null;
-        onChanged();
-      } else {
-        entryGroup_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      entryGroup_ = null;
+      if (entryGroupBuilder_ != null) {
+        entryGroupBuilder_.dispose();
         entryGroupBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -940,7 +905,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.EntryGroup entry_group = 2;</code>
      */
     public com.google.cloud.datacatalog.v1.EntryGroup.Builder getEntryGroupBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getEntryGroupFieldBuilder().getBuilder();
     }
@@ -1012,7 +977,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateEntryGroupRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

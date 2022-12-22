@@ -35,74 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateReadSessionRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.bigquery.storage.v1.ReadSession.Builder subBuilder = null;
-            if (readSession_ != null) {
-              subBuilder = readSession_.toBuilder();
-            }
-            readSession_ = input.readMessage(com.google.cloud.bigquery.storage.v1.ReadSession.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(readSession_);
-              readSession_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-
-            maxStreamCount_ = input.readInt32();
-            break;
-          }
-          case 32: {
-
-            preferredMinStreamCount_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.storage.v1.StorageProto.internal_static_google_cloud_bigquery_storage_v1_CreateReadSessionRequest_descriptor;
@@ -117,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The request project that owns the session, in the form of
@@ -199,11 +132,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.storage.v1.ReadSessionOrBuilder getReadSessionOrBuilder() {
-    return getReadSession();
+    return readSession_ == null ? com.google.cloud.bigquery.storage.v1.ReadSession.getDefaultInstance() : readSession_;
   }
 
   public static final int MAX_STREAM_COUNT_FIELD_NUMBER = 3;
-  private int maxStreamCount_;
+  private int maxStreamCount_ = 0;
   /**
    * <pre>
    * Max initial number of streams. If unset or zero, the server will
@@ -226,7 +159,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PREFERRED_MIN_STREAM_COUNT_FIELD_NUMBER = 4;
-  private int preferredMinStreamCount_;
+  private int preferredMinStreamCount_ = 0;
   /**
    * <pre>
    * The minimum preferred stream count. This parameter can be used to inform
@@ -272,7 +205,7 @@ private static final long serialVersionUID = 0L;
     if (preferredMinStreamCount_ != 0) {
       output.writeInt32(4, preferredMinStreamCount_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -296,7 +229,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(4, preferredMinStreamCount_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -322,7 +255,7 @@ private static final long serialVersionUID = 0L;
         != other.getMaxStreamCount()) return false;
     if (getPreferredMinStreamCount()
         != other.getPreferredMinStreamCount()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -343,7 +276,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getMaxStreamCount();
     hash = (37 * hash) + PREFERRED_MIN_STREAM_COUNT_FIELD_NUMBER;
     hash = (53 * hash) + getPreferredMinStreamCount();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -464,34 +397,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.storage.v1.CreateReadSessionRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (readSessionBuilder_ == null) {
-        readSession_ = null;
-      } else {
-        readSession_ = null;
+      readSession_ = null;
+      if (readSessionBuilder_ != null) {
+        readSessionBuilder_.dispose();
         readSessionBuilder_ = null;
       }
       maxStreamCount_ = 0;
-
       preferredMinStreamCount_ = 0;
-
       return this;
     }
 
@@ -518,16 +443,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.storage.v1.CreateReadSessionRequest buildPartial() {
       com.google.cloud.bigquery.storage.v1.CreateReadSessionRequest result = new com.google.cloud.bigquery.storage.v1.CreateReadSessionRequest(this);
-      result.parent_ = parent_;
-      if (readSessionBuilder_ == null) {
-        result.readSession_ = readSession_;
-      } else {
-        result.readSession_ = readSessionBuilder_.build();
-      }
-      result.maxStreamCount_ = maxStreamCount_;
-      result.preferredMinStreamCount_ = preferredMinStreamCount_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.storage.v1.CreateReadSessionRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.readSession_ = readSessionBuilder_ == null
+            ? readSession_
+            : readSessionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.maxStreamCount_ = maxStreamCount_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.preferredMinStreamCount_ = preferredMinStreamCount_;
+      }
     }
 
     @java.lang.Override
@@ -576,6 +512,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.bigquery.storage.v1.CreateReadSessionRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasReadSession()) {
@@ -587,7 +524,7 @@ private static final long serialVersionUID = 0L;
       if (other.getPreferredMinStreamCount() != 0) {
         setPreferredMinStreamCount(other.getPreferredMinStreamCount());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -602,19 +539,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.storage.v1.CreateReadSessionRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getReadSessionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              maxStreamCount_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              preferredMinStreamCount_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.storage.v1.CreateReadSessionRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -672,11 +645,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -690,8 +661,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -707,12 +678,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -729,7 +698,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the readSession field is set.
      */
     public boolean hasReadSession() {
-      return readSessionBuilder_ != null || readSession_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -759,11 +728,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         readSession_ = value;
-        onChanged();
       } else {
         readSessionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -777,11 +746,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.storage.v1.ReadSession.Builder builderForValue) {
       if (readSessionBuilder_ == null) {
         readSession_ = builderForValue.build();
-        onChanged();
       } else {
         readSessionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -793,17 +762,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeReadSession(com.google.cloud.bigquery.storage.v1.ReadSession value) {
       if (readSessionBuilder_ == null) {
-        if (readSession_ != null) {
-          readSession_ =
-            com.google.cloud.bigquery.storage.v1.ReadSession.newBuilder(readSession_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          readSession_ != null &&
+          readSession_ != com.google.cloud.bigquery.storage.v1.ReadSession.getDefaultInstance()) {
+          getReadSessionBuilder().mergeFrom(value);
         } else {
           readSession_ = value;
         }
-        onChanged();
       } else {
         readSessionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -814,14 +784,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.storage.v1.ReadSession read_session = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearReadSession() {
-      if (readSessionBuilder_ == null) {
-        readSession_ = null;
-        onChanged();
-      } else {
-        readSession_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      readSession_ = null;
+      if (readSessionBuilder_ != null) {
+        readSessionBuilder_.dispose();
         readSessionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -832,7 +801,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.storage.v1.ReadSession read_session = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.bigquery.storage.v1.ReadSession.Builder getReadSessionBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getReadSessionFieldBuilder().getBuilder();
     }
@@ -913,6 +882,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxStreamCount(int value) {
       
       maxStreamCount_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -933,7 +903,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxStreamCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       maxStreamCount_ = 0;
       onChanged();
       return this;
@@ -976,6 +946,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPreferredMinStreamCount(int value) {
       
       preferredMinStreamCount_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -994,7 +965,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPreferredMinStreamCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       preferredMinStreamCount_ = 0;
       onChanged();
       return this;
@@ -1032,7 +1003,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateReadSessionRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

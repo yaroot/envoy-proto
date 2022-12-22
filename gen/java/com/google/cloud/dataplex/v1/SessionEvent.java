@@ -39,83 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SessionEvent(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            message_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            userId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sessionId_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 42: {
-            com.google.cloud.dataplex.v1.SessionEvent.QueryDetail.Builder subBuilder = null;
-            if (detailCase_ == 5) {
-              subBuilder = ((com.google.cloud.dataplex.v1.SessionEvent.QueryDetail) detail_).toBuilder();
-            }
-            detail_ =
-                input.readMessage(com.google.cloud.dataplex.v1.SessionEvent.QueryDetail.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dataplex.v1.SessionEvent.QueryDetail) detail_);
-              detail_ = subBuilder.buildPartial();
-            }
-            detailCase_ = 5;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataplex.v1.LogsProto.internal_static_google_cloud_dataplex_v1_SessionEvent_descriptor;
@@ -148,7 +71,7 @@ private static final long serialVersionUID = 0L;
     EVENT_TYPE_UNSPECIFIED(0),
     /**
      * <pre>
-     * Event for start of a session.
+     * Event when the session is assigned to a user.
      * </pre>
      *
      * <code>START = 1;</code>
@@ -170,6 +93,15 @@ private static final long serialVersionUID = 0L;
      * <code>QUERY = 3;</code>
      */
     QUERY(3),
+    /**
+     * <pre>
+     * Event for creation of a cluster. It is not yet assigned to a user.
+     * This comes before START in the sequence
+     * </pre>
+     *
+     * <code>CREATE = 4;</code>
+     */
+    CREATE(4),
     UNRECOGNIZED(-1),
     ;
 
@@ -183,7 +115,7 @@ private static final long serialVersionUID = 0L;
     public static final int EVENT_TYPE_UNSPECIFIED_VALUE = 0;
     /**
      * <pre>
-     * Event for start of a session.
+     * Event when the session is assigned to a user.
      * </pre>
      *
      * <code>START = 1;</code>
@@ -205,6 +137,15 @@ private static final long serialVersionUID = 0L;
      * <code>QUERY = 3;</code>
      */
     public static final int QUERY_VALUE = 3;
+    /**
+     * <pre>
+     * Event for creation of a cluster. It is not yet assigned to a user.
+     * This comes before START in the sequence
+     * </pre>
+     *
+     * <code>CREATE = 4;</code>
+     */
+    public static final int CREATE_VALUE = 4;
 
 
     public final int getNumber() {
@@ -235,6 +176,7 @@ private static final long serialVersionUID = 0L;
         case 1: return START;
         case 2: return STOP;
         case 3: return QUERY;
+        case 4: return CREATE;
         default: return null;
       }
     }
@@ -435,86 +377,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private QueryDetail(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              queryId_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              queryText_ = s;
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              engine_ = rawValue;
-              break;
-            }
-            case 34: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (duration_ != null) {
-                subBuilder = duration_.toBuilder();
-              }
-              duration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(duration_);
-                duration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 40: {
-
-              resultSizeBytes_ = input.readInt64();
-              break;
-            }
-            case 48: {
-
-              dataProcessedBytes_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dataplex.v1.LogsProto.internal_static_google_cloud_dataplex_v1_SessionEvent_QueryDetail_descriptor;
@@ -674,7 +536,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int QUERY_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object queryId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object queryId_ = "";
     /**
      * <pre>
      * The unique Query id identifying the query.
@@ -720,7 +583,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int QUERY_TEXT_FIELD_NUMBER = 2;
-    private volatile java.lang.Object queryText_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object queryText_ = "";
     /**
      * <pre>
      * The query text executed.
@@ -766,7 +630,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ENGINE_FIELD_NUMBER = 3;
-    private int engine_;
+    private int engine_ = 0;
     /**
      * <pre>
      * Query Execution engine.
@@ -787,8 +651,7 @@ private static final long serialVersionUID = 0L;
      * @return The engine.
      */
     @java.lang.Override public com.google.cloud.dataplex.v1.SessionEvent.QueryDetail.Engine getEngine() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dataplex.v1.SessionEvent.QueryDetail.Engine result = com.google.cloud.dataplex.v1.SessionEvent.QueryDetail.Engine.valueOf(engine_);
+      com.google.cloud.dataplex.v1.SessionEvent.QueryDetail.Engine result = com.google.cloud.dataplex.v1.SessionEvent.QueryDetail.Engine.forNumber(engine_);
       return result == null ? com.google.cloud.dataplex.v1.SessionEvent.QueryDetail.Engine.UNRECOGNIZED : result;
     }
 
@@ -827,11 +690,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getDurationOrBuilder() {
-      return getDuration();
+      return duration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : duration_;
     }
 
     public static final int RESULT_SIZE_BYTES_FIELD_NUMBER = 5;
-    private long resultSizeBytes_;
+    private long resultSizeBytes_ = 0L;
     /**
      * <pre>
      * The size of results the query produced.
@@ -846,7 +709,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DATA_PROCESSED_BYTES_FIELD_NUMBER = 6;
-    private long dataProcessedBytes_;
+    private long dataProcessedBytes_ = 0L;
     /**
      * <pre>
      * The data processed by the query.
@@ -892,7 +755,7 @@ private static final long serialVersionUID = 0L;
       if (dataProcessedBytes_ != 0L) {
         output.writeInt64(6, dataProcessedBytes_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -923,7 +786,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(6, dataProcessedBytes_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -952,7 +815,7 @@ private static final long serialVersionUID = 0L;
           != other.getResultSizeBytes()) return false;
       if (getDataProcessedBytes()
           != other.getDataProcessedBytes()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -979,7 +842,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DATA_PROCESSED_BYTES_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getDataProcessedBytes());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1100,38 +963,28 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dataplex.v1.SessionEvent.QueryDetail.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         queryId_ = "";
-
         queryText_ = "";
-
         engine_ = 0;
-
-        if (durationBuilder_ == null) {
-          duration_ = null;
-        } else {
-          duration_ = null;
+        duration_ = null;
+        if (durationBuilder_ != null) {
+          durationBuilder_.dispose();
           durationBuilder_ = null;
         }
         resultSizeBytes_ = 0L;
-
         dataProcessedBytes_ = 0L;
-
         return this;
       }
 
@@ -1158,18 +1011,33 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dataplex.v1.SessionEvent.QueryDetail buildPartial() {
         com.google.cloud.dataplex.v1.SessionEvent.QueryDetail result = new com.google.cloud.dataplex.v1.SessionEvent.QueryDetail(this);
-        result.queryId_ = queryId_;
-        result.queryText_ = queryText_;
-        result.engine_ = engine_;
-        if (durationBuilder_ == null) {
-          result.duration_ = duration_;
-        } else {
-          result.duration_ = durationBuilder_.build();
-        }
-        result.resultSizeBytes_ = resultSizeBytes_;
-        result.dataProcessedBytes_ = dataProcessedBytes_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dataplex.v1.SessionEvent.QueryDetail result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.queryId_ = queryId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.queryText_ = queryText_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.engine_ = engine_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.duration_ = durationBuilder_ == null
+              ? duration_
+              : durationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.resultSizeBytes_ = resultSizeBytes_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.dataProcessedBytes_ = dataProcessedBytes_;
+        }
       }
 
       @java.lang.Override
@@ -1218,10 +1086,12 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.dataplex.v1.SessionEvent.QueryDetail.getDefaultInstance()) return this;
         if (!other.getQueryId().isEmpty()) {
           queryId_ = other.queryId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getQueryText().isEmpty()) {
           queryText_ = other.queryText_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.engine_ != 0) {
@@ -1236,7 +1106,7 @@ private static final long serialVersionUID = 0L;
         if (other.getDataProcessedBytes() != 0L) {
           setDataProcessedBytes(other.getDataProcessedBytes());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1251,19 +1121,65 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataplex.v1.SessionEvent.QueryDetail parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                queryId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                queryText_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                engine_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                input.readMessage(
+                    getDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 40: {
+                resultSizeBytes_ = input.readInt64();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 48: {
+                dataProcessedBytes_ = input.readInt64();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataplex.v1.SessionEvent.QueryDetail) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object queryId_ = "";
       /**
@@ -1318,11 +1234,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setQueryId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         queryId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1335,8 +1249,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearQueryId() {
-        
         queryId_ = getDefaultInstance().getQueryId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1351,12 +1265,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setQueryIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         queryId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1414,11 +1326,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setQueryText(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         queryText_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1431,8 +1341,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearQueryText() {
-        
         queryText_ = getDefaultInstance().getQueryText();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1447,12 +1357,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setQueryTextBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         queryText_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1479,8 +1387,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setEngineValue(int value) {
-        
         engine_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1494,8 +1402,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.dataplex.v1.SessionEvent.QueryDetail.Engine getEngine() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.dataplex.v1.SessionEvent.QueryDetail.Engine result = com.google.cloud.dataplex.v1.SessionEvent.QueryDetail.Engine.valueOf(engine_);
+        com.google.cloud.dataplex.v1.SessionEvent.QueryDetail.Engine result = com.google.cloud.dataplex.v1.SessionEvent.QueryDetail.Engine.forNumber(engine_);
         return result == null ? com.google.cloud.dataplex.v1.SessionEvent.QueryDetail.Engine.UNRECOGNIZED : result;
       }
       /**
@@ -1511,7 +1418,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         engine_ = value.getNumber();
         onChanged();
         return this;
@@ -1525,7 +1432,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearEngine() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         engine_ = 0;
         onChanged();
         return this;
@@ -1543,7 +1450,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the duration field is set.
        */
       public boolean hasDuration() {
-        return durationBuilder_ != null || duration_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -1573,11 +1480,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           duration_ = value;
-          onChanged();
         } else {
           durationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -1591,11 +1498,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration.Builder builderForValue) {
         if (durationBuilder_ == null) {
           duration_ = builderForValue.build();
-          onChanged();
         } else {
           durationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -1607,17 +1514,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeDuration(com.google.protobuf.Duration value) {
         if (durationBuilder_ == null) {
-          if (duration_ != null) {
-            duration_ =
-              com.google.protobuf.Duration.newBuilder(duration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            duration_ != null &&
+            duration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getDurationBuilder().mergeFrom(value);
           } else {
             duration_ = value;
           }
-          onChanged();
         } else {
           durationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -1628,14 +1536,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration duration = 4;</code>
        */
       public Builder clearDuration() {
-        if (durationBuilder_ == null) {
-          duration_ = null;
-          onChanged();
-        } else {
-          duration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        duration_ = null;
+        if (durationBuilder_ != null) {
+          durationBuilder_.dispose();
           durationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1646,7 +1553,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration duration = 4;</code>
        */
       public com.google.protobuf.Duration.Builder getDurationBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getDurationFieldBuilder().getBuilder();
       }
@@ -1711,6 +1618,7 @@ private static final long serialVersionUID = 0L;
       public Builder setResultSizeBytes(long value) {
         
         resultSizeBytes_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1723,7 +1631,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearResultSizeBytes() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         resultSizeBytes_ = 0L;
         onChanged();
         return this;
@@ -1754,6 +1662,7 @@ private static final long serialVersionUID = 0L;
       public Builder setDataProcessedBytes(long value) {
         
         dataProcessedBytes_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1766,7 +1675,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDataProcessedBytes() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         dataProcessedBytes_ = 0L;
         onChanged();
         return this;
@@ -1804,7 +1713,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new QueryDetail(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1864,7 +1784,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object message_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object message_ = "";
   /**
    * <pre>
    * The log message.
@@ -1910,10 +1831,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object userId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object userId_ = "";
   /**
    * <pre>
-   * The information about the user that created the session.
+   * The information about the user that created the session. It will be the
+   * email address of the user.
    * </pre>
    *
    * <code>string user_id = 2;</code>
@@ -1934,7 +1857,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The information about the user that created the session.
+   * The information about the user that created the session. It will be the
+   * email address of the user.
    * </pre>
    *
    * <code>string user_id = 2;</code>
@@ -1956,7 +1880,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SESSION_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object sessionId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sessionId_ = "";
   /**
    * <pre>
    * Unique identifier for the session.
@@ -2002,7 +1927,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 4;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * The type of the event.
@@ -2023,8 +1948,7 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.cloud.dataplex.v1.SessionEvent.EventType getType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dataplex.v1.SessionEvent.EventType result = com.google.cloud.dataplex.v1.SessionEvent.EventType.valueOf(type_);
+    com.google.cloud.dataplex.v1.SessionEvent.EventType result = com.google.cloud.dataplex.v1.SessionEvent.EventType.forNumber(type_);
     return result == null ? com.google.cloud.dataplex.v1.SessionEvent.EventType.UNRECOGNIZED : result;
   }
 
@@ -2071,6 +1995,75 @@ private static final long serialVersionUID = 0L;
     return com.google.cloud.dataplex.v1.SessionEvent.QueryDetail.getDefaultInstance();
   }
 
+  public static final int EVENT_SUCCEEDED_FIELD_NUMBER = 6;
+  private boolean eventSucceeded_ = false;
+  /**
+   * <pre>
+   * The status of the event.
+   * </pre>
+   *
+   * <code>bool event_succeeded = 6;</code>
+   * @return The eventSucceeded.
+   */
+  @java.lang.Override
+  public boolean getEventSucceeded() {
+    return eventSucceeded_;
+  }
+
+  public static final int FAST_STARTUP_ENABLED_FIELD_NUMBER = 7;
+  private boolean fastStartupEnabled_ = false;
+  /**
+   * <pre>
+   * If the session is associated with an environment with fast startup enabled,
+   * and was created before being assigned to a user.
+   * </pre>
+   *
+   * <code>bool fast_startup_enabled = 7;</code>
+   * @return The fastStartupEnabled.
+   */
+  @java.lang.Override
+  public boolean getFastStartupEnabled() {
+    return fastStartupEnabled_;
+  }
+
+  public static final int UNASSIGNED_DURATION_FIELD_NUMBER = 8;
+  private com.google.protobuf.Duration unassignedDuration_;
+  /**
+   * <pre>
+   * The idle duration of a warm pooled session before it is assigned to user.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration unassigned_duration = 8;</code>
+   * @return Whether the unassignedDuration field is set.
+   */
+  @java.lang.Override
+  public boolean hasUnassignedDuration() {
+    return unassignedDuration_ != null;
+  }
+  /**
+   * <pre>
+   * The idle duration of a warm pooled session before it is assigned to user.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration unassigned_duration = 8;</code>
+   * @return The unassignedDuration.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Duration getUnassignedDuration() {
+    return unassignedDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : unassignedDuration_;
+  }
+  /**
+   * <pre>
+   * The idle duration of a warm pooled session before it is assigned to user.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration unassigned_duration = 8;</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.DurationOrBuilder getUnassignedDurationOrBuilder() {
+    return unassignedDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : unassignedDuration_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -2100,7 +2093,16 @@ private static final long serialVersionUID = 0L;
     if (detailCase_ == 5) {
       output.writeMessage(5, (com.google.cloud.dataplex.v1.SessionEvent.QueryDetail) detail_);
     }
-    unknownFields.writeTo(output);
+    if (eventSucceeded_ != false) {
+      output.writeBool(6, eventSucceeded_);
+    }
+    if (fastStartupEnabled_ != false) {
+      output.writeBool(7, fastStartupEnabled_);
+    }
+    if (unassignedDuration_ != null) {
+      output.writeMessage(8, getUnassignedDuration());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2126,7 +2128,19 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, (com.google.cloud.dataplex.v1.SessionEvent.QueryDetail) detail_);
     }
-    size += unknownFields.getSerializedSize();
+    if (eventSucceeded_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(6, eventSucceeded_);
+    }
+    if (fastStartupEnabled_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(7, fastStartupEnabled_);
+    }
+    if (unassignedDuration_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, getUnassignedDuration());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2148,6 +2162,15 @@ private static final long serialVersionUID = 0L;
     if (!getSessionId()
         .equals(other.getSessionId())) return false;
     if (type_ != other.type_) return false;
+    if (getEventSucceeded()
+        != other.getEventSucceeded()) return false;
+    if (getFastStartupEnabled()
+        != other.getFastStartupEnabled()) return false;
+    if (hasUnassignedDuration() != other.hasUnassignedDuration()) return false;
+    if (hasUnassignedDuration()) {
+      if (!getUnassignedDuration()
+          .equals(other.getUnassignedDuration())) return false;
+    }
     if (!getDetailCase().equals(other.getDetailCase())) return false;
     switch (detailCase_) {
       case 5:
@@ -2157,7 +2180,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2176,6 +2199,16 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getSessionId().hashCode();
     hash = (37 * hash) + TYPE_FIELD_NUMBER;
     hash = (53 * hash) + type_;
+    hash = (37 * hash) + EVENT_SUCCEEDED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getEventSucceeded());
+    hash = (37 * hash) + FAST_STARTUP_ENABLED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getFastStartupEnabled());
+    if (hasUnassignedDuration()) {
+      hash = (37 * hash) + UNASSIGNED_DURATION_FIELD_NUMBER;
+      hash = (53 * hash) + getUnassignedDuration().hashCode();
+    }
     switch (detailCase_) {
       case 5:
         hash = (37 * hash) + QUERY_FIELD_NUMBER;
@@ -2184,7 +2217,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2306,30 +2339,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataplex.v1.SessionEvent.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       message_ = "";
-
       userId_ = "";
-
       sessionId_ = "";
-
       type_ = 0;
-
+      if (queryBuilder_ != null) {
+        queryBuilder_.clear();
+      }
+      eventSucceeded_ = false;
+      fastStartupEnabled_ = false;
+      unassignedDuration_ = null;
+      if (unassignedDurationBuilder_ != null) {
+        unassignedDurationBuilder_.dispose();
+        unassignedDurationBuilder_ = null;
+      }
       detailCase_ = 0;
       detail_ = null;
       return this;
@@ -2358,20 +2393,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataplex.v1.SessionEvent buildPartial() {
       com.google.cloud.dataplex.v1.SessionEvent result = new com.google.cloud.dataplex.v1.SessionEvent(this);
-      result.message_ = message_;
-      result.userId_ = userId_;
-      result.sessionId_ = sessionId_;
-      result.type_ = type_;
-      if (detailCase_ == 5) {
-        if (queryBuilder_ == null) {
-          result.detail_ = detail_;
-        } else {
-          result.detail_ = queryBuilder_.build();
-        }
-      }
-      result.detailCase_ = detailCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataplex.v1.SessionEvent result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.message_ = message_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.userId_ = userId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.sessionId_ = sessionId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.eventSucceeded_ = eventSucceeded_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.fastStartupEnabled_ = fastStartupEnabled_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.unassignedDuration_ = unassignedDurationBuilder_ == null
+            ? unassignedDuration_
+            : unassignedDurationBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.dataplex.v1.SessionEvent result) {
+      result.detailCase_ = detailCase_;
+      result.detail_ = this.detail_;
+      if (detailCase_ == 5 &&
+          queryBuilder_ != null) {
+        result.detail_ = queryBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2420,18 +2481,30 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dataplex.v1.SessionEvent.getDefaultInstance()) return this;
       if (!other.getMessage().isEmpty()) {
         message_ = other.message_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getUserId().isEmpty()) {
         userId_ = other.userId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getSessionId().isEmpty()) {
         sessionId_ = other.sessionId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.type_ != 0) {
         setTypeValue(other.getTypeValue());
+      }
+      if (other.getEventSucceeded() != false) {
+        setEventSucceeded(other.getEventSucceeded());
+      }
+      if (other.getFastStartupEnabled() != false) {
+        setFastStartupEnabled(other.getFastStartupEnabled());
+      }
+      if (other.hasUnassignedDuration()) {
+        mergeUnassignedDuration(other.getUnassignedDuration());
       }
       switch (other.getDetailCase()) {
         case QUERY: {
@@ -2442,7 +2515,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2457,17 +2530,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataplex.v1.SessionEvent parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              message_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              userId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              sessionId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getQueryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detailCase_ = 5;
+              break;
+            } // case 42
+            case 48: {
+              eventSucceeded_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              fastStartupEnabled_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 66: {
+              input.readMessage(
+                  getUnassignedDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataplex.v1.SessionEvent) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int detailCase_ = 0;
@@ -2485,6 +2615,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object message_ = "";
     /**
@@ -2539,11 +2670,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMessage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       message_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2556,8 +2685,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMessage() {
-      
       message_ = getDefaultInstance().getMessage();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2572,12 +2701,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMessageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       message_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2585,7 +2712,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object userId_ = "";
     /**
      * <pre>
-     * The information about the user that created the session.
+     * The information about the user that created the session. It will be the
+     * email address of the user.
      * </pre>
      *
      * <code>string user_id = 2;</code>
@@ -2605,7 +2733,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The information about the user that created the session.
+     * The information about the user that created the session. It will be the
+     * email address of the user.
      * </pre>
      *
      * <code>string user_id = 2;</code>
@@ -2626,7 +2755,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The information about the user that created the session.
+     * The information about the user that created the session. It will be the
+     * email address of the user.
      * </pre>
      *
      * <code>string user_id = 2;</code>
@@ -2635,31 +2765,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       userId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The information about the user that created the session.
+     * The information about the user that created the session. It will be the
+     * email address of the user.
      * </pre>
      *
      * <code>string user_id = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
-      
       userId_ = getDefaultInstance().getUserId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The information about the user that created the session.
+     * The information about the user that created the session. It will be the
+     * email address of the user.
      * </pre>
      *
      * <code>string user_id = 2;</code>
@@ -2668,12 +2798,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       userId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2731,11 +2859,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSessionId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sessionId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2748,8 +2874,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSessionId() {
-      
       sessionId_ = getDefaultInstance().getSessionId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2764,12 +2890,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSessionIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sessionId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2796,8 +2920,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2811,8 +2935,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dataplex.v1.SessionEvent.EventType getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dataplex.v1.SessionEvent.EventType result = com.google.cloud.dataplex.v1.SessionEvent.EventType.valueOf(type_);
+      com.google.cloud.dataplex.v1.SessionEvent.EventType result = com.google.cloud.dataplex.v1.SessionEvent.EventType.forNumber(type_);
       return result == null ? com.google.cloud.dataplex.v1.SessionEvent.EventType.UNRECOGNIZED : result;
     }
     /**
@@ -2828,7 +2951,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -2842,7 +2965,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       type_ = 0;
       onChanged();
       return this;
@@ -3022,8 +3145,254 @@ private static final long serialVersionUID = 0L;
         detail_ = null;
       }
       detailCase_ = 5;
-      onChanged();;
+      onChanged();
       return queryBuilder_;
+    }
+
+    private boolean eventSucceeded_ ;
+    /**
+     * <pre>
+     * The status of the event.
+     * </pre>
+     *
+     * <code>bool event_succeeded = 6;</code>
+     * @return The eventSucceeded.
+     */
+    @java.lang.Override
+    public boolean getEventSucceeded() {
+      return eventSucceeded_;
+    }
+    /**
+     * <pre>
+     * The status of the event.
+     * </pre>
+     *
+     * <code>bool event_succeeded = 6;</code>
+     * @param value The eventSucceeded to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEventSucceeded(boolean value) {
+      
+      eventSucceeded_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The status of the event.
+     * </pre>
+     *
+     * <code>bool event_succeeded = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEventSucceeded() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      eventSucceeded_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean fastStartupEnabled_ ;
+    /**
+     * <pre>
+     * If the session is associated with an environment with fast startup enabled,
+     * and was created before being assigned to a user.
+     * </pre>
+     *
+     * <code>bool fast_startup_enabled = 7;</code>
+     * @return The fastStartupEnabled.
+     */
+    @java.lang.Override
+    public boolean getFastStartupEnabled() {
+      return fastStartupEnabled_;
+    }
+    /**
+     * <pre>
+     * If the session is associated with an environment with fast startup enabled,
+     * and was created before being assigned to a user.
+     * </pre>
+     *
+     * <code>bool fast_startup_enabled = 7;</code>
+     * @param value The fastStartupEnabled to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFastStartupEnabled(boolean value) {
+      
+      fastStartupEnabled_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * If the session is associated with an environment with fast startup enabled,
+     * and was created before being assigned to a user.
+     * </pre>
+     *
+     * <code>bool fast_startup_enabled = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFastStartupEnabled() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      fastStartupEnabled_ = false;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.Duration unassignedDuration_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> unassignedDurationBuilder_;
+    /**
+     * <pre>
+     * The idle duration of a warm pooled session before it is assigned to user.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration unassigned_duration = 8;</code>
+     * @return Whether the unassignedDuration field is set.
+     */
+    public boolean hasUnassignedDuration() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <pre>
+     * The idle duration of a warm pooled session before it is assigned to user.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration unassigned_duration = 8;</code>
+     * @return The unassignedDuration.
+     */
+    public com.google.protobuf.Duration getUnassignedDuration() {
+      if (unassignedDurationBuilder_ == null) {
+        return unassignedDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : unassignedDuration_;
+      } else {
+        return unassignedDurationBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * The idle duration of a warm pooled session before it is assigned to user.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration unassigned_duration = 8;</code>
+     */
+    public Builder setUnassignedDuration(com.google.protobuf.Duration value) {
+      if (unassignedDurationBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        unassignedDuration_ = value;
+      } else {
+        unassignedDurationBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The idle duration of a warm pooled session before it is assigned to user.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration unassigned_duration = 8;</code>
+     */
+    public Builder setUnassignedDuration(
+        com.google.protobuf.Duration.Builder builderForValue) {
+      if (unassignedDurationBuilder_ == null) {
+        unassignedDuration_ = builderForValue.build();
+      } else {
+        unassignedDurationBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The idle duration of a warm pooled session before it is assigned to user.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration unassigned_duration = 8;</code>
+     */
+    public Builder mergeUnassignedDuration(com.google.protobuf.Duration value) {
+      if (unassignedDurationBuilder_ == null) {
+        if (((bitField0_ & 0x00000080) != 0) &&
+          unassignedDuration_ != null &&
+          unassignedDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getUnassignedDurationBuilder().mergeFrom(value);
+        } else {
+          unassignedDuration_ = value;
+        }
+      } else {
+        unassignedDurationBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The idle duration of a warm pooled session before it is assigned to user.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration unassigned_duration = 8;</code>
+     */
+    public Builder clearUnassignedDuration() {
+      bitField0_ = (bitField0_ & ~0x00000080);
+      unassignedDuration_ = null;
+      if (unassignedDurationBuilder_ != null) {
+        unassignedDurationBuilder_.dispose();
+        unassignedDurationBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The idle duration of a warm pooled session before it is assigned to user.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration unassigned_duration = 8;</code>
+     */
+    public com.google.protobuf.Duration.Builder getUnassignedDurationBuilder() {
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return getUnassignedDurationFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The idle duration of a warm pooled session before it is assigned to user.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration unassigned_duration = 8;</code>
+     */
+    public com.google.protobuf.DurationOrBuilder getUnassignedDurationOrBuilder() {
+      if (unassignedDurationBuilder_ != null) {
+        return unassignedDurationBuilder_.getMessageOrBuilder();
+      } else {
+        return unassignedDuration_ == null ?
+            com.google.protobuf.Duration.getDefaultInstance() : unassignedDuration_;
+      }
+    }
+    /**
+     * <pre>
+     * The idle duration of a warm pooled session before it is assigned to user.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration unassigned_duration = 8;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+        getUnassignedDurationFieldBuilder() {
+      if (unassignedDurationBuilder_ == null) {
+        unassignedDurationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                getUnassignedDuration(),
+                getParentForChildren(),
+                isClean());
+        unassignedDuration_ = null;
+      }
+      return unassignedDurationBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -3058,7 +3427,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SessionEvent(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

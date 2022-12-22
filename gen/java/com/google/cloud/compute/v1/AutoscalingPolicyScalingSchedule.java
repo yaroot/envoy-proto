@@ -37,79 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AutoscalingPolicyScalingSchedule(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 294784754: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000020;
-            timeZone_ = s;
-            break;
-          }
-          case 1698855216: {
-            bitField0_ |= 0x00000004;
-            durationSec_ = input.readInt32();
-            break;
-          }
-          case -2127440928: {
-            bitField0_ |= 0x00000002;
-            disabled_ = input.readBool();
-            break;
-          }
-          case -1370851984: {
-            bitField0_ |= 0x00000008;
-            minRequiredReplicas_ = input.readInt32();
-            break;
-          }
-          case -1288399686: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            schedule_ = s;
-            break;
-          }
-          case -911466526: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            description_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_AutoscalingPolicyScalingSchedule_descriptor;
@@ -125,7 +52,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int DESCRIPTION_FIELD_NUMBER = 422937596;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * A description of a scaling schedule.
@@ -183,7 +111,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISABLED_FIELD_NUMBER = 270940796;
-  private boolean disabled_;
+  private boolean disabled_ = false;
   /**
    * <pre>
    * A boolean value that specifies whether a scaling schedule can influence autoscaler recommendations. If set to true, then a scaling schedule has no effect. This field is optional, and its value is false by default.
@@ -210,7 +138,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DURATION_SEC_FIELD_NUMBER = 212356902;
-  private int durationSec_;
+  private int durationSec_ = 0;
   /**
    * <pre>
    * The duration of time intervals, in seconds, for which this scaling schedule is to run. The minimum allowed value is 300. This field is required.
@@ -237,7 +165,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_REQUIRED_REPLICAS_FIELD_NUMBER = 365514414;
-  private int minRequiredReplicas_;
+  private int minRequiredReplicas_ = 0;
   /**
    * <pre>
    * The minimum number of VM instances that the autoscaler will recommend in time intervals starting according to schedule. This field is required.
@@ -264,7 +192,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCHEDULE_FIELD_NUMBER = 375820951;
-  private volatile java.lang.Object schedule_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object schedule_ = "";
   /**
    * <pre>
    * The start timestamps of time intervals when this scaling schedule is to provide a scaling signal. This field uses the extended cron format (with an optional year field). The expression can describe a single timestamp if the optional year is set, in which case the scaling schedule runs once. The schedule is interpreted with respect to time_zone. This field is required. Note: These timestamps only describe when autoscaler starts providing the scaling signal. The VMs need additional time to become serving.
@@ -322,7 +251,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TIME_ZONE_FIELD_NUMBER = 36848094;
-  private volatile java.lang.Object timeZone_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object timeZone_ = "";
   /**
    * <pre>
    * The time zone to use when interpreting the schedule. The value of this field must be a time zone name from the tz database: http://en.wikipedia.org/wiki/Tz_database. This field is assigned a default value of ���UTC��� if left empty.
@@ -411,7 +341,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 422937596, description_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -441,7 +371,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(422937596, description_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -486,7 +416,7 @@ private static final long serialVersionUID = 0L;
       if (!getTimeZone()
           .equals(other.getTimeZone())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -522,7 +452,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TIME_ZONE_FIELD_NUMBER;
       hash = (53 * hash) + getTimeZone().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -643,34 +573,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       description_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       disabled_ = false;
-      bitField0_ = (bitField0_ & ~0x00000002);
       durationSec_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000004);
       minRequiredReplicas_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000008);
       schedule_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       timeZone_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -697,12 +617,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule buildPartial() {
       com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule result = new com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.description_ = description_;
         to_bitField0_ |= 0x00000001;
       }
-      result.description_ = description_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.disabled_ = disabled_;
         to_bitField0_ |= 0x00000002;
@@ -716,16 +642,14 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000008;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.schedule_ = schedule_;
         to_bitField0_ |= 0x00000010;
       }
-      result.schedule_ = schedule_;
       if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.timeZone_ = timeZone_;
         to_bitField0_ |= 0x00000020;
       }
-      result.timeZone_ = timeZone_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -773,8 +697,8 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule other) {
       if (other == com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule.getDefaultInstance()) return this;
       if (other.hasDescription()) {
-        bitField0_ |= 0x00000001;
         description_ = other.description_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasDisabled()) {
@@ -787,16 +711,16 @@ private static final long serialVersionUID = 0L;
         setMinRequiredReplicas(other.getMinRequiredReplicas());
       }
       if (other.hasSchedule()) {
-        bitField0_ |= 0x00000010;
         schedule_ = other.schedule_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasTimeZone()) {
-        bitField0_ |= 0x00000020;
         timeZone_ = other.timeZone_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -811,17 +735,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 294784754: {
+              timeZone_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 294784754
+            case 1698855216: {
+              durationSec_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 1698855216
+            case -2127440928: {
+              disabled_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -2127440928
+            case -1370851984: {
+              minRequiredReplicas_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -1370851984
+            case -1288399686: {
+              schedule_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case -1288399686
+            case -911466526: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -911466526
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -890,11 +857,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -907,8 +872,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -923,12 +888,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -968,8 +931,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDisabled(boolean value) {
-      bitField0_ |= 0x00000002;
+      
       disabled_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1023,8 +987,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDurationSec(int value) {
-      bitField0_ |= 0x00000004;
+      
       durationSec_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1078,8 +1043,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMinRequiredReplicas(int value) {
-      bitField0_ |= 0x00000008;
+      
       minRequiredReplicas_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1162,11 +1128,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSchedule(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       schedule_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1179,8 +1143,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSchedule() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       schedule_ = getDefaultInstance().getSchedule();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1195,12 +1159,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setScheduleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       schedule_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1269,11 +1231,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTimeZone(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       timeZone_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1286,8 +1246,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTimeZone() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       timeZone_ = getDefaultInstance().getTimeZone();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1302,12 +1262,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTimeZoneBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       timeZone_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1344,7 +1302,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AutoscalingPolicyScalingSchedule(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

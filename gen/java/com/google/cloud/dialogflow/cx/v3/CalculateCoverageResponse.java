@@ -35,93 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CalculateCoverageResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            com.google.cloud.dialogflow.cx.v3.IntentCoverage.Builder subBuilder = null;
-            if (coverageTypeCase_ == 2) {
-              subBuilder = ((com.google.cloud.dialogflow.cx.v3.IntentCoverage) coverageType_).toBuilder();
-            }
-            coverageType_ =
-                input.readMessage(com.google.cloud.dialogflow.cx.v3.IntentCoverage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dialogflow.cx.v3.IntentCoverage) coverageType_);
-              coverageType_ = subBuilder.buildPartial();
-            }
-            coverageTypeCase_ = 2;
-            break;
-          }
-          case 34: {
-            com.google.cloud.dialogflow.cx.v3.TransitionCoverage.Builder subBuilder = null;
-            if (coverageTypeCase_ == 4) {
-              subBuilder = ((com.google.cloud.dialogflow.cx.v3.TransitionCoverage) coverageType_).toBuilder();
-            }
-            coverageType_ =
-                input.readMessage(com.google.cloud.dialogflow.cx.v3.TransitionCoverage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dialogflow.cx.v3.TransitionCoverage) coverageType_);
-              coverageType_ = subBuilder.buildPartial();
-            }
-            coverageTypeCase_ = 4;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            agent_ = s;
-            break;
-          }
-          case 50: {
-            com.google.cloud.dialogflow.cx.v3.TransitionRouteGroupCoverage.Builder subBuilder = null;
-            if (coverageTypeCase_ == 6) {
-              subBuilder = ((com.google.cloud.dialogflow.cx.v3.TransitionRouteGroupCoverage) coverageType_).toBuilder();
-            }
-            coverageType_ =
-                input.readMessage(com.google.cloud.dialogflow.cx.v3.TransitionRouteGroupCoverage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dialogflow.cx.v3.TransitionRouteGroupCoverage) coverageType_);
-              coverageType_ = subBuilder.buildPartial();
-            }
-            coverageTypeCase_ = 6;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.cx.v3.TestCaseProto.internal_static_google_cloud_dialogflow_cx_v3_CalculateCoverageResponse_descriptor;
@@ -179,7 +92,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AGENT_FIELD_NUMBER = 5;
-  private volatile java.lang.Object agent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object agent_ = "";
   /**
    * <pre>
    * The agent to calculate coverage for.
@@ -381,7 +295,7 @@ private static final long serialVersionUID = 0L;
     if (coverageTypeCase_ == 6) {
       output.writeMessage(6, (com.google.cloud.dialogflow.cx.v3.TransitionRouteGroupCoverage) coverageType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -405,7 +319,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, (com.google.cloud.dialogflow.cx.v3.TransitionRouteGroupCoverage) coverageType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -439,7 +353,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -468,7 +382,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -589,24 +503,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.cx.v3.CalculateCoverageResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       agent_ = "";
-
+      if (intentCoverageBuilder_ != null) {
+        intentCoverageBuilder_.clear();
+      }
+      if (transitionCoverageBuilder_ != null) {
+        transitionCoverageBuilder_.clear();
+      }
+      if (routeGroupCoverageBuilder_ != null) {
+        routeGroupCoverageBuilder_.clear();
+      }
       coverageTypeCase_ = 0;
       coverageType_ = null;
       return this;
@@ -635,31 +553,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.cx.v3.CalculateCoverageResponse buildPartial() {
       com.google.cloud.dialogflow.cx.v3.CalculateCoverageResponse result = new com.google.cloud.dialogflow.cx.v3.CalculateCoverageResponse(this);
-      result.agent_ = agent_;
-      if (coverageTypeCase_ == 2) {
-        if (intentCoverageBuilder_ == null) {
-          result.coverageType_ = coverageType_;
-        } else {
-          result.coverageType_ = intentCoverageBuilder_.build();
-        }
-      }
-      if (coverageTypeCase_ == 4) {
-        if (transitionCoverageBuilder_ == null) {
-          result.coverageType_ = coverageType_;
-        } else {
-          result.coverageType_ = transitionCoverageBuilder_.build();
-        }
-      }
-      if (coverageTypeCase_ == 6) {
-        if (routeGroupCoverageBuilder_ == null) {
-          result.coverageType_ = coverageType_;
-        } else {
-          result.coverageType_ = routeGroupCoverageBuilder_.build();
-        }
-      }
-      result.coverageTypeCase_ = coverageTypeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.cx.v3.CalculateCoverageResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.agent_ = agent_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.dialogflow.cx.v3.CalculateCoverageResponse result) {
+      result.coverageTypeCase_ = coverageTypeCase_;
+      result.coverageType_ = this.coverageType_;
+      if (coverageTypeCase_ == 2 &&
+          intentCoverageBuilder_ != null) {
+        result.coverageType_ = intentCoverageBuilder_.build();
+      }
+      if (coverageTypeCase_ == 4 &&
+          transitionCoverageBuilder_ != null) {
+        result.coverageType_ = transitionCoverageBuilder_.build();
+      }
+      if (coverageTypeCase_ == 6 &&
+          routeGroupCoverageBuilder_ != null) {
+        result.coverageType_ = routeGroupCoverageBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -708,6 +629,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dialogflow.cx.v3.CalculateCoverageResponse.getDefaultInstance()) return this;
       if (!other.getAgent().isEmpty()) {
         agent_ = other.agent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       switch (other.getCoverageTypeCase()) {
@@ -727,7 +649,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -742,17 +664,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.cx.v3.CalculateCoverageResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              input.readMessage(
+                  getIntentCoverageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              coverageTypeCase_ = 2;
+              break;
+            } // case 18
+            case 34: {
+              input.readMessage(
+                  getTransitionCoverageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              coverageTypeCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              agent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getRouteGroupCoverageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              coverageTypeCase_ = 6;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.cx.v3.CalculateCoverageResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int coverageTypeCase_ = 0;
@@ -770,6 +731,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object agent_ = "";
     /**
@@ -827,11 +789,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAgent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       agent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -845,8 +805,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAgent() {
-      
       agent_ = getDefaultInstance().getAgent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -862,12 +822,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAgentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       agent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1046,7 +1004,7 @@ private static final long serialVersionUID = 0L;
         coverageType_ = null;
       }
       coverageTypeCase_ = 2;
-      onChanged();;
+      onChanged();
       return intentCoverageBuilder_;
     }
 
@@ -1224,7 +1182,7 @@ private static final long serialVersionUID = 0L;
         coverageType_ = null;
       }
       coverageTypeCase_ = 4;
-      onChanged();;
+      onChanged();
       return transitionCoverageBuilder_;
     }
 
@@ -1402,7 +1360,7 @@ private static final long serialVersionUID = 0L;
         coverageType_ = null;
       }
       coverageTypeCase_ = 6;
-      onChanged();;
+      onChanged();
       return routeGroupCoverageBuilder_;
     }
     @java.lang.Override
@@ -1438,7 +1396,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CalculateCoverageResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

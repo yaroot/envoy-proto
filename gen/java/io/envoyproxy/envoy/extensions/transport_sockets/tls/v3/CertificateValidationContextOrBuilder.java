@@ -36,6 +36,9 @@ public interface CertificateValidationContextOrBuilder extends
    * directory for any file moves to support rotation. This currently only
    * applies to dynamic secrets, when the ``CertificateValidationContext`` is
    * delivered via SDS.
+   * X509_V_FLAG_PARTIAL_CHAIN is set by default, so non-root/intermediate ca certificate in ``trusted_ca``
+   * can be treated as trust anchor as well. It allows verification with building valid partial chain instead
+   * of a full chain.
    * Only one of ``trusted_ca`` and ``ca_certificate_provider_instance`` may be specified.
    * [#next-major-version: This field and watched_directory below should ideally be moved into a
    * separate sub-message, since there's no point in specifying the latter field without this one.]
@@ -74,6 +77,9 @@ public interface CertificateValidationContextOrBuilder extends
    * directory for any file moves to support rotation. This currently only
    * applies to dynamic secrets, when the ``CertificateValidationContext`` is
    * delivered via SDS.
+   * X509_V_FLAG_PARTIAL_CHAIN is set by default, so non-root/intermediate ca certificate in ``trusted_ca``
+   * can be treated as trust anchor as well. It allows verification with building valid partial chain instead
+   * of a full chain.
    * Only one of ``trusted_ca`` and ``ca_certificate_provider_instance`` may be specified.
    * [#next-major-version: This field and watched_directory below should ideally be moved into a
    * separate sub-message, since there's no point in specifying the latter field without this one.]
@@ -112,6 +118,9 @@ public interface CertificateValidationContextOrBuilder extends
    * directory for any file moves to support rotation. This currently only
    * applies to dynamic secrets, when the ``CertificateValidationContext`` is
    * delivered via SDS.
+   * X509_V_FLAG_PARTIAL_CHAIN is set by default, so non-root/intermediate ca certificate in ``trusted_ca``
+   * can be treated as trust anchor as well. It allows verification with building valid partial chain instead
+   * of a full chain.
    * Only one of ``trusted_ca`` and ``ca_certificate_provider_instance`` may be specified.
    * [#next-major-version: This field and watched_directory below should ideally be moved into a
    * separate sub-message, since there's no point in specifying the latter field without this one.]
@@ -795,11 +804,14 @@ public interface CertificateValidationContextOrBuilder extends
 
   /**
    * <pre>
-   * Config for the max number of intermediate certificates in chain that are parsed during verification.
-   * This does not include the leaf certificate. If configured, and the certificate chain is longer than allowed, the certificates
-   * above the limit are ignored, and certificate validation will fail. The default limit is 100,
-   * though this can be system-dependent.
-   * https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html
+   * Defines maximum depth of a certificate chain accepted in verification, the default limit is 100, though this can be system-dependent.
+   * This number does not include the leaf, so a depth of 1 allows the leaf and one CA certificate. If a trusted issuer appears in the chain,
+   * but in a depth larger than configured, the certificate validation will fail.
+   * See `BoringSSL SSL_CTX_set_verify_depth &lt;https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#SSL_CTX_set_verify_depth&gt;`
+   * If you use OpenSSL, its behavior is different from BoringSSL, this will define a limit on the number of certificates between the end-entity and trust-anchor certificates.
+   * Neither the end-entity nor the trust-anchor certificates count against depth.
+   * See `OpenSSL SSL set_verify_depth &lt;https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html&gt;`_.
+   * Trusted issues are specified by setting :ref:`trusted_ca &lt;envoy_v3_api_field_extensions.transport_sockets.tls.v3.CertificateValidationContext.trusted_ca&gt;`
    * </pre>
    *
    * <code>.google.protobuf.UInt32Value max_verify_depth = 16 [(.validate.rules) = { ... }</code>
@@ -808,11 +820,14 @@ public interface CertificateValidationContextOrBuilder extends
   boolean hasMaxVerifyDepth();
   /**
    * <pre>
-   * Config for the max number of intermediate certificates in chain that are parsed during verification.
-   * This does not include the leaf certificate. If configured, and the certificate chain is longer than allowed, the certificates
-   * above the limit are ignored, and certificate validation will fail. The default limit is 100,
-   * though this can be system-dependent.
-   * https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html
+   * Defines maximum depth of a certificate chain accepted in verification, the default limit is 100, though this can be system-dependent.
+   * This number does not include the leaf, so a depth of 1 allows the leaf and one CA certificate. If a trusted issuer appears in the chain,
+   * but in a depth larger than configured, the certificate validation will fail.
+   * See `BoringSSL SSL_CTX_set_verify_depth &lt;https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#SSL_CTX_set_verify_depth&gt;`
+   * If you use OpenSSL, its behavior is different from BoringSSL, this will define a limit on the number of certificates between the end-entity and trust-anchor certificates.
+   * Neither the end-entity nor the trust-anchor certificates count against depth.
+   * See `OpenSSL SSL set_verify_depth &lt;https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html&gt;`_.
+   * Trusted issues are specified by setting :ref:`trusted_ca &lt;envoy_v3_api_field_extensions.transport_sockets.tls.v3.CertificateValidationContext.trusted_ca&gt;`
    * </pre>
    *
    * <code>.google.protobuf.UInt32Value max_verify_depth = 16 [(.validate.rules) = { ... }</code>
@@ -821,11 +836,14 @@ public interface CertificateValidationContextOrBuilder extends
   com.google.protobuf.UInt32Value getMaxVerifyDepth();
   /**
    * <pre>
-   * Config for the max number of intermediate certificates in chain that are parsed during verification.
-   * This does not include the leaf certificate. If configured, and the certificate chain is longer than allowed, the certificates
-   * above the limit are ignored, and certificate validation will fail. The default limit is 100,
-   * though this can be system-dependent.
-   * https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html
+   * Defines maximum depth of a certificate chain accepted in verification, the default limit is 100, though this can be system-dependent.
+   * This number does not include the leaf, so a depth of 1 allows the leaf and one CA certificate. If a trusted issuer appears in the chain,
+   * but in a depth larger than configured, the certificate validation will fail.
+   * See `BoringSSL SSL_CTX_set_verify_depth &lt;https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#SSL_CTX_set_verify_depth&gt;`
+   * If you use OpenSSL, its behavior is different from BoringSSL, this will define a limit on the number of certificates between the end-entity and trust-anchor certificates.
+   * Neither the end-entity nor the trust-anchor certificates count against depth.
+   * See `OpenSSL SSL set_verify_depth &lt;https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html&gt;`_.
+   * Trusted issues are specified by setting :ref:`trusted_ca &lt;envoy_v3_api_field_extensions.transport_sockets.tls.v3.CertificateValidationContext.trusted_ca&gt;`
    * </pre>
    *
    * <code>.google.protobuf.UInt32Value max_verify_depth = 16 [(.validate.rules) = { ... }</code>

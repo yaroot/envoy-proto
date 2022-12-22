@@ -23,7 +23,7 @@ public enum EntryType
   ENTRY_TYPE_UNSPECIFIED(0),
   /**
    * <pre>
-   * Output only. The entry type that has a GoogleSQL schema, including
+   * The entry type that has a GoogleSQL schema, including
    * logical views.
    * </pre>
    *
@@ -127,7 +127,7 @@ public enum EntryType
   public static final int ENTRY_TYPE_UNSPECIFIED_VALUE = 0;
   /**
    * <pre>
-   * Output only. The entry type that has a GoogleSQL schema, including
+   * The entry type that has a GoogleSQL schema, including
    * logical views.
    * </pre>
    *

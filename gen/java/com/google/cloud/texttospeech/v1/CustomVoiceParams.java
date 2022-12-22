@@ -36,57 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CustomVoiceParams(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            model_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            reportedUsage_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.texttospeech.v1.TextToSpeechProto.internal_static_google_cloud_texttospeech_v1_CustomVoiceParams_descriptor;
@@ -254,7 +203,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODEL_FIELD_NUMBER = 1;
-  private volatile java.lang.Object model_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object model_ = "";
   /**
    * <pre>
    * Required. The name of the AutoML model that synthesizes the custom voice.
@@ -300,7 +250,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REPORTED_USAGE_FIELD_NUMBER = 3;
-  private int reportedUsage_;
+  private int reportedUsage_ = 0;
   /**
    * <pre>
    * Optional. The usage of the synthesized audio to be reported.
@@ -321,8 +271,7 @@ private static final long serialVersionUID = 0L;
    * @return The reportedUsage.
    */
   @java.lang.Override public com.google.cloud.texttospeech.v1.CustomVoiceParams.ReportedUsage getReportedUsage() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.texttospeech.v1.CustomVoiceParams.ReportedUsage result = com.google.cloud.texttospeech.v1.CustomVoiceParams.ReportedUsage.valueOf(reportedUsage_);
+    com.google.cloud.texttospeech.v1.CustomVoiceParams.ReportedUsage result = com.google.cloud.texttospeech.v1.CustomVoiceParams.ReportedUsage.forNumber(reportedUsage_);
     return result == null ? com.google.cloud.texttospeech.v1.CustomVoiceParams.ReportedUsage.UNRECOGNIZED : result;
   }
 
@@ -346,7 +295,7 @@ private static final long serialVersionUID = 0L;
     if (reportedUsage_ != com.google.cloud.texttospeech.v1.CustomVoiceParams.ReportedUsage.REPORTED_USAGE_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, reportedUsage_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -362,7 +311,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, reportedUsage_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -380,7 +329,7 @@ private static final long serialVersionUID = 0L;
     if (!getModel()
         .equals(other.getModel())) return false;
     if (reportedUsage_ != other.reportedUsage_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -395,7 +344,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getModel().hashCode();
     hash = (37 * hash) + REPORTED_USAGE_FIELD_NUMBER;
     hash = (53 * hash) + reportedUsage_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -516,26 +465,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.texttospeech.v1.CustomVoiceParams.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       model_ = "";
-
       reportedUsage_ = 0;
-
       return this;
     }
 
@@ -562,10 +505,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.texttospeech.v1.CustomVoiceParams buildPartial() {
       com.google.cloud.texttospeech.v1.CustomVoiceParams result = new com.google.cloud.texttospeech.v1.CustomVoiceParams(this);
-      result.model_ = model_;
-      result.reportedUsage_ = reportedUsage_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.texttospeech.v1.CustomVoiceParams result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.model_ = model_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.reportedUsage_ = reportedUsage_;
+      }
     }
 
     @java.lang.Override
@@ -614,12 +566,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.texttospeech.v1.CustomVoiceParams.getDefaultInstance()) return this;
       if (!other.getModel().isEmpty()) {
         model_ = other.model_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.reportedUsage_ != 0) {
         setReportedUsageValue(other.getReportedUsageValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -634,19 +587,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.texttospeech.v1.CustomVoiceParams parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              model_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 24: {
+              reportedUsage_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.texttospeech.v1.CustomVoiceParams) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object model_ = "";
     /**
@@ -701,11 +678,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       model_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -718,8 +693,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearModel() {
-      
       model_ = getDefaultInstance().getModel();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -734,12 +709,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       model_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -766,8 +739,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setReportedUsageValue(int value) {
-      
       reportedUsage_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -781,8 +754,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.texttospeech.v1.CustomVoiceParams.ReportedUsage getReportedUsage() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.texttospeech.v1.CustomVoiceParams.ReportedUsage result = com.google.cloud.texttospeech.v1.CustomVoiceParams.ReportedUsage.valueOf(reportedUsage_);
+      com.google.cloud.texttospeech.v1.CustomVoiceParams.ReportedUsage result = com.google.cloud.texttospeech.v1.CustomVoiceParams.ReportedUsage.forNumber(reportedUsage_);
       return result == null ? com.google.cloud.texttospeech.v1.CustomVoiceParams.ReportedUsage.UNRECOGNIZED : result;
     }
     /**
@@ -798,7 +770,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       reportedUsage_ = value.getNumber();
       onChanged();
       return this;
@@ -812,7 +784,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReportedUsage() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       reportedUsage_ = 0;
       onChanged();
       return this;
@@ -850,7 +822,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CustomVoiceParams(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

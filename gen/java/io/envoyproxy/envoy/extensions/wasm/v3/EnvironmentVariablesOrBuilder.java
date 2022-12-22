@@ -91,7 +91,6 @@ public interface EnvironmentVariablesOrBuilder extends
    *
    * <code>map&lt;string, string&gt; key_values = 2;</code>
    */
-
   /* nullable */
 java.lang.String getKeyValuesOrDefault(
       java.lang.String key,
@@ -104,7 +103,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; key_values = 2;</code>
    */
-
   java.lang.String getKeyValuesOrThrow(
       java.lang.String key);
 }

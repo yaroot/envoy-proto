@@ -38,89 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AnnotateAssessmentRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            annotation_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              reasons_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            reasons_.add(rawValue);
-            break;
-          }
-          case 26: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                reasons_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              reasons_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 34: {
-
-            hashedAccountId_ = input.readBytes();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        reasons_ = java.util.Collections.unmodifiableList(reasons_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.recaptchaenterprise.v1.RecaptchaEnterpriseProto.internal_static_google_cloud_recaptchaenterprise_v1_AnnotateAssessmentRequest_descriptor;
@@ -342,8 +259,8 @@ private static final long serialVersionUID = 0L;
     REASON_UNSPECIFIED(0),
     /**
      * <pre>
-     * Indicates a chargeback issued for the transaction with no other details.
-     * When possible, specify the type by using CHARGEBACK_FRAUD or
+     * Indicates that the transaction had a chargeback issued with no other
+     * details. When possible, specify the type by using CHARGEBACK_FRAUD or
      * CHARGEBACK_DISPUTE instead.
      * </pre>
      *
@@ -352,9 +269,9 @@ private static final long serialVersionUID = 0L;
     CHARGEBACK(1),
     /**
      * <pre>
-     * Indicates a chargeback related to an alleged unauthorized transaction
-     * from the cardholder's perspective (for example, the card number was
-     * stolen).
+     * Indicates that the transaction had a chargeback issued related to an
+     * alleged unauthorized transaction from the cardholder's perspective (for
+     * example, the card number was stolen).
      * </pre>
      *
      * <code>CHARGEBACK_FRAUD = 8;</code>
@@ -362,14 +279,51 @@ private static final long serialVersionUID = 0L;
     CHARGEBACK_FRAUD(8),
     /**
      * <pre>
-     * Indicates a chargeback related to the cardholder having provided their
-     * card details but allegedly not being satisfied with the purchase
-     * (for example, misrepresentation, attempted cancellation).
+     * Indicates that the transaction had a chargeback issued related to the
+     * cardholder having provided their card details but allegedly not being
+     * satisfied with the purchase (for example, misrepresentation, attempted
+     * cancellation).
      * </pre>
      *
      * <code>CHARGEBACK_DISPUTE = 9;</code>
      */
     CHARGEBACK_DISPUTE(9),
+    /**
+     * <pre>
+     * Indicates that the completed payment transaction was refunded by the
+     * seller.
+     * </pre>
+     *
+     * <code>REFUND = 10;</code>
+     */
+    REFUND(10),
+    /**
+     * <pre>
+     * Indicates that the completed payment transaction was determined to be
+     * fraudulent by the seller, and was cancelled and refunded as a result.
+     * </pre>
+     *
+     * <code>REFUND_FRAUD = 11;</code>
+     */
+    REFUND_FRAUD(11),
+    /**
+     * <pre>
+     * Indicates that the payment transaction was accepted, and the user was
+     * charged.
+     * </pre>
+     *
+     * <code>TRANSACTION_ACCEPTED = 12;</code>
+     */
+    TRANSACTION_ACCEPTED(12),
+    /**
+     * <pre>
+     * Indicates that the payment transaction was declined, for example due to
+     * invalid card details.
+     * </pre>
+     *
+     * <code>TRANSACTION_DECLINED = 13;</code>
+     */
+    TRANSACTION_DECLINED(13),
     /**
      * <pre>
      * Indicates the transaction associated with the assessment is suspected of
@@ -423,6 +377,15 @@ private static final long serialVersionUID = 0L;
      * <code>INCORRECT_PASSWORD = 6;</code>
      */
     INCORRECT_PASSWORD(6),
+    /**
+     * <pre>
+     * Indicates that the user sent unwanted and abusive messages to other users
+     * of the platform, such as spam, scams, phishing, or social engineering.
+     * </pre>
+     *
+     * <code>SOCIAL_SPAM = 14;</code>
+     */
+    SOCIAL_SPAM(14),
     UNRECOGNIZED(-1),
     ;
 
@@ -436,8 +399,8 @@ private static final long serialVersionUID = 0L;
     public static final int REASON_UNSPECIFIED_VALUE = 0;
     /**
      * <pre>
-     * Indicates a chargeback issued for the transaction with no other details.
-     * When possible, specify the type by using CHARGEBACK_FRAUD or
+     * Indicates that the transaction had a chargeback issued with no other
+     * details. When possible, specify the type by using CHARGEBACK_FRAUD or
      * CHARGEBACK_DISPUTE instead.
      * </pre>
      *
@@ -446,9 +409,9 @@ private static final long serialVersionUID = 0L;
     public static final int CHARGEBACK_VALUE = 1;
     /**
      * <pre>
-     * Indicates a chargeback related to an alleged unauthorized transaction
-     * from the cardholder's perspective (for example, the card number was
-     * stolen).
+     * Indicates that the transaction had a chargeback issued related to an
+     * alleged unauthorized transaction from the cardholder's perspective (for
+     * example, the card number was stolen).
      * </pre>
      *
      * <code>CHARGEBACK_FRAUD = 8;</code>
@@ -456,14 +419,51 @@ private static final long serialVersionUID = 0L;
     public static final int CHARGEBACK_FRAUD_VALUE = 8;
     /**
      * <pre>
-     * Indicates a chargeback related to the cardholder having provided their
-     * card details but allegedly not being satisfied with the purchase
-     * (for example, misrepresentation, attempted cancellation).
+     * Indicates that the transaction had a chargeback issued related to the
+     * cardholder having provided their card details but allegedly not being
+     * satisfied with the purchase (for example, misrepresentation, attempted
+     * cancellation).
      * </pre>
      *
      * <code>CHARGEBACK_DISPUTE = 9;</code>
      */
     public static final int CHARGEBACK_DISPUTE_VALUE = 9;
+    /**
+     * <pre>
+     * Indicates that the completed payment transaction was refunded by the
+     * seller.
+     * </pre>
+     *
+     * <code>REFUND = 10;</code>
+     */
+    public static final int REFUND_VALUE = 10;
+    /**
+     * <pre>
+     * Indicates that the completed payment transaction was determined to be
+     * fraudulent by the seller, and was cancelled and refunded as a result.
+     * </pre>
+     *
+     * <code>REFUND_FRAUD = 11;</code>
+     */
+    public static final int REFUND_FRAUD_VALUE = 11;
+    /**
+     * <pre>
+     * Indicates that the payment transaction was accepted, and the user was
+     * charged.
+     * </pre>
+     *
+     * <code>TRANSACTION_ACCEPTED = 12;</code>
+     */
+    public static final int TRANSACTION_ACCEPTED_VALUE = 12;
+    /**
+     * <pre>
+     * Indicates that the payment transaction was declined, for example due to
+     * invalid card details.
+     * </pre>
+     *
+     * <code>TRANSACTION_DECLINED = 13;</code>
+     */
+    public static final int TRANSACTION_DECLINED_VALUE = 13;
     /**
      * <pre>
      * Indicates the transaction associated with the assessment is suspected of
@@ -517,6 +517,15 @@ private static final long serialVersionUID = 0L;
      * <code>INCORRECT_PASSWORD = 6;</code>
      */
     public static final int INCORRECT_PASSWORD_VALUE = 6;
+    /**
+     * <pre>
+     * Indicates that the user sent unwanted and abusive messages to other users
+     * of the platform, such as spam, scams, phishing, or social engineering.
+     * </pre>
+     *
+     * <code>SOCIAL_SPAM = 14;</code>
+     */
+    public static final int SOCIAL_SPAM_VALUE = 14;
 
 
     public final int getNumber() {
@@ -547,12 +556,17 @@ private static final long serialVersionUID = 0L;
         case 1: return CHARGEBACK;
         case 8: return CHARGEBACK_FRAUD;
         case 9: return CHARGEBACK_DISPUTE;
+        case 10: return REFUND;
+        case 11: return REFUND_FRAUD;
+        case 12: return TRANSACTION_ACCEPTED;
+        case 13: return TRANSACTION_DECLINED;
         case 2: return PAYMENT_HEURISTICS;
         case 7: return INITIATED_TWO_FACTOR;
         case 3: return PASSED_TWO_FACTOR;
         case 4: return FAILED_TWO_FACTOR;
         case 5: return CORRECT_PASSWORD;
         case 6: return INCORRECT_PASSWORD;
+        case 14: return SOCIAL_SPAM;
         default: return null;
       }
     }
@@ -610,7 +624,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The resource name of the Assessment, in the format
@@ -658,7 +673,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ANNOTATION_FIELD_NUMBER = 2;
-  private int annotation_;
+  private int annotation_ = 0;
   /**
    * <pre>
    * Optional. The annotation that will be assigned to the Event. This field can
@@ -683,20 +698,19 @@ private static final long serialVersionUID = 0L;
    * @return The annotation.
    */
   @java.lang.Override public com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Annotation getAnnotation() {
-    @SuppressWarnings("deprecation")
-    com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Annotation result = com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Annotation.valueOf(annotation_);
+    com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Annotation result = com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Annotation.forNumber(annotation_);
     return result == null ? com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Annotation.UNRECOGNIZED : result;
   }
 
   public static final int REASONS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> reasons_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Reason> reasons_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Reason>() {
             public com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Reason convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Reason result = com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Reason.valueOf(from);
+              com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Reason result = com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Reason.forNumber(from);
               return result == null ? com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Reason.UNRECOGNIZED : result;
             }
           };
@@ -772,11 +786,11 @@ private static final long serialVersionUID = 0L;
   private int reasonsMemoizedSerializedSize;
 
   public static final int HASHED_ACCOUNT_ID_FIELD_NUMBER = 4;
-  private com.google.protobuf.ByteString hashedAccountId_;
+  private com.google.protobuf.ByteString hashedAccountId_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
-   * Optional. Optional unique stable hashed user identifier to apply to the
-   * assessment. This is an alternative to setting the hashed_account_id in
+   * Optional. Unique stable hashed user identifier to apply to the assessment.
+   * This is an alternative to setting the hashed_account_id in
    * CreateAssessment, for example when the account identifier is not yet known
    * in the initial request. It is recommended that the identifier is hashed
    * using hmac-sha256 with stable secret.
@@ -821,7 +835,7 @@ private static final long serialVersionUID = 0L;
     if (!hashedAccountId_.isEmpty()) {
       output.writeBytes(4, hashedAccountId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -853,7 +867,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBytesSize(4, hashedAccountId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -874,7 +888,7 @@ private static final long serialVersionUID = 0L;
     if (!reasons_.equals(other.reasons_)) return false;
     if (!getHashedAccountId()
         .equals(other.getHashedAccountId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -895,7 +909,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + HASHED_ACCOUNT_ID_FIELD_NUMBER;
     hash = (53 * hash) + getHashedAccountId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1016,30 +1030,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       annotation_ = 0;
-
       reasons_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       hashedAccountId_ = com.google.protobuf.ByteString.EMPTY;
-
       return this;
     }
 
@@ -1066,17 +1073,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest buildPartial() {
       com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest result = new com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.annotation_ = annotation_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        reasons_ = java.util.Collections.unmodifiableList(reasons_);
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.reasons_ = reasons_;
-      result.hashedAccountId_ = hashedAccountId_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        reasons_ = java.util.Collections.unmodifiableList(reasons_);
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.reasons_ = reasons_;
+    }
+
+    private void buildPartial0(com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.annotation_ = annotation_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.hashedAccountId_ = hashedAccountId_;
+      }
     }
 
     @java.lang.Override
@@ -1125,6 +1146,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.annotation_ != 0) {
@@ -1133,7 +1155,7 @@ private static final long serialVersionUID = 0L;
       if (!other.reasons_.isEmpty()) {
         if (reasons_.isEmpty()) {
           reasons_ = other.reasons_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureReasonsIsMutable();
           reasons_.addAll(other.reasons_);
@@ -1143,7 +1165,7 @@ private static final long serialVersionUID = 0L;
       if (other.getHashedAccountId() != com.google.protobuf.ByteString.EMPTY) {
         setHashedAccountId(other.getHashedAccountId());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1158,17 +1180,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              annotation_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              int tmpRaw = input.readEnum();
+              ensureReasonsIsMutable();
+              reasons_.add(tmpRaw);
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureReasonsIsMutable();
+                reasons_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 26
+            case 34: {
+              hashedAccountId_ = input.readBytes();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1229,11 +1296,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1247,8 +1312,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1264,12 +1329,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1300,8 +1363,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAnnotationValue(int value) {
-      
       annotation_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1317,8 +1380,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Annotation getAnnotation() {
-      @SuppressWarnings("deprecation")
-      com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Annotation result = com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Annotation.valueOf(annotation_);
+      com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Annotation result = com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Annotation.forNumber(annotation_);
       return result == null ? com.google.recaptchaenterprise.v1.AnnotateAssessmentRequest.Annotation.UNRECOGNIZED : result;
     }
     /**
@@ -1336,7 +1398,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       annotation_ = value.getNumber();
       onChanged();
       return this;
@@ -1352,7 +1414,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAnnotation() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       annotation_ = 0;
       onChanged();
       return this;
@@ -1361,9 +1423,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> reasons_ =
       java.util.Collections.emptyList();
     private void ensureReasonsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         reasons_ = new java.util.ArrayList<java.lang.Integer>(reasons_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
       }
     }
     /**
@@ -1474,7 +1536,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearReasons() {
       reasons_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1561,8 +1623,8 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.ByteString hashedAccountId_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
-     * Optional. Optional unique stable hashed user identifier to apply to the
-     * assessment. This is an alternative to setting the hashed_account_id in
+     * Optional. Unique stable hashed user identifier to apply to the assessment.
+     * This is an alternative to setting the hashed_account_id in
      * CreateAssessment, for example when the account identifier is not yet known
      * in the initial request. It is recommended that the identifier is hashed
      * using hmac-sha256 with stable secret.
@@ -1577,8 +1639,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Optional unique stable hashed user identifier to apply to the
-     * assessment. This is an alternative to setting the hashed_account_id in
+     * Optional. Unique stable hashed user identifier to apply to the assessment.
+     * This is an alternative to setting the hashed_account_id in
      * CreateAssessment, for example when the account identifier is not yet known
      * in the initial request. It is recommended that the identifier is hashed
      * using hmac-sha256 with stable secret.
@@ -1589,18 +1651,16 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHashedAccountId(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       hashedAccountId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Optional unique stable hashed user identifier to apply to the
-     * assessment. This is an alternative to setting the hashed_account_id in
+     * Optional. Unique stable hashed user identifier to apply to the assessment.
+     * This is an alternative to setting the hashed_account_id in
      * CreateAssessment, for example when the account identifier is not yet known
      * in the initial request. It is recommended that the identifier is hashed
      * using hmac-sha256 with stable secret.
@@ -1610,7 +1670,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHashedAccountId() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       hashedAccountId_ = getDefaultInstance().getHashedAccountId();
       onChanged();
       return this;
@@ -1648,7 +1708,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AnnotateAssessmentRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InputAttachment(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            key_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            input_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover.Builder subBuilder = null;
-            if (automaticFailover_ != null) {
-              subBuilder = automaticFailover_.toBuilder();
-            }
-            automaticFailover_ = input.readMessage(com.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(automaticFailover_);
-              automaticFailover_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.video.livestream.v1.ResourcesProto.internal_static_google_cloud_video_livestream_v1_InputAttachment_descriptor;
@@ -194,58 +130,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AutomaticFailover(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                inputKeys_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              inputKeys_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          inputKeys_ = inputKeys_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.video.livestream.v1.ResourcesProto.internal_static_google_cloud_video_livestream_v1_InputAttachment_AutomaticFailover_descriptor;
@@ -260,6 +144,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int INPUT_KEYS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList inputKeys_;
     /**
      * <pre>
@@ -331,7 +216,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < inputKeys_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, inputKeys_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -348,7 +233,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getInputKeysList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -365,7 +250,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getInputKeysList()
           .equals(other.getInputKeysList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -380,7 +265,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + INPUT_KEYS_FIELD_NUMBER;
         hash = (53 * hash) + getInputKeysList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -501,22 +386,18 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         inputKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -545,14 +426,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover buildPartial() {
         com.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover result = new com.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           inputKeys_ = inputKeys_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.inputKeys_ = inputKeys_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -609,7 +498,7 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -624,17 +513,36 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureInputKeysIsMutable();
+                inputKeys_.add(s);
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -711,10 +619,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setInputKeys(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInputKeysIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureInputKeysIsMutable();
         inputKeys_.set(index, value);
         onChanged();
         return this;
@@ -731,10 +637,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addInputKeys(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInputKeysIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureInputKeysIsMutable();
         inputKeys_.add(value);
         onChanged();
         return this;
@@ -784,10 +688,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addInputKeysBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureInputKeysIsMutable();
         inputKeys_.add(value);
         onChanged();
@@ -826,7 +728,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AutomaticFailover(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -847,7 +760,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KEY_FIELD_NUMBER = 1;
-  private volatile java.lang.Object key_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object key_ = "";
   /**
    * <pre>
    * A unique key for this input attachment.
@@ -893,7 +807,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INPUT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object input_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object input_ = "";
   /**
    * <pre>
    * The resource name of an existing input, in the form of:
@@ -975,7 +890,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailoverOrBuilder getAutomaticFailoverOrBuilder() {
-    return getAutomaticFailover();
+    return automaticFailover_ == null ? com.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover.getDefaultInstance() : automaticFailover_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1001,7 +916,7 @@ private static final long serialVersionUID = 0L;
     if (automaticFailover_ != null) {
       output.writeMessage(3, getAutomaticFailover());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1020,7 +935,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getAutomaticFailover());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1044,7 +959,7 @@ private static final long serialVersionUID = 0L;
       if (!getAutomaticFailover()
           .equals(other.getAutomaticFailover())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1063,7 +978,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + AUTOMATIC_FAILOVER_FIELD_NUMBER;
       hash = (53 * hash) + getAutomaticFailover().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1184,30 +1099,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.video.livestream.v1.InputAttachment.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       key_ = "";
-
       input_ = "";
-
-      if (automaticFailoverBuilder_ == null) {
-        automaticFailover_ = null;
-      } else {
-        automaticFailover_ = null;
+      automaticFailover_ = null;
+      if (automaticFailoverBuilder_ != null) {
+        automaticFailoverBuilder_.dispose();
         automaticFailoverBuilder_ = null;
       }
       return this;
@@ -1236,15 +1144,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.video.livestream.v1.InputAttachment buildPartial() {
       com.google.cloud.video.livestream.v1.InputAttachment result = new com.google.cloud.video.livestream.v1.InputAttachment(this);
-      result.key_ = key_;
-      result.input_ = input_;
-      if (automaticFailoverBuilder_ == null) {
-        result.automaticFailover_ = automaticFailover_;
-      } else {
-        result.automaticFailover_ = automaticFailoverBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.video.livestream.v1.InputAttachment result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.key_ = key_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.input_ = input_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.automaticFailover_ = automaticFailoverBuilder_ == null
+            ? automaticFailover_
+            : automaticFailoverBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1293,16 +1210,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.video.livestream.v1.InputAttachment.getDefaultInstance()) return this;
       if (!other.getKey().isEmpty()) {
         key_ = other.key_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getInput().isEmpty()) {
         input_ = other.input_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasAutomaticFailover()) {
         mergeAutomaticFailover(other.getAutomaticFailover());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1317,19 +1236,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.video.livestream.v1.InputAttachment parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              key_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getAutomaticFailoverFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.video.livestream.v1.InputAttachment) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object key_ = "";
     /**
@@ -1384,11 +1334,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       key_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1401,8 +1349,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKey() {
-      
       key_ = getDefaultInstance().getKey();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1417,12 +1365,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       key_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1483,11 +1429,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInput(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       input_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1501,8 +1445,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInput() {
-      
       input_ = getDefaultInstance().getInput();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1518,12 +1462,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInputBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       input_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1540,7 +1482,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the automaticFailover field is set.
      */
     public boolean hasAutomaticFailover() {
-      return automaticFailoverBuilder_ != null || automaticFailover_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1570,11 +1512,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         automaticFailover_ = value;
-        onChanged();
       } else {
         automaticFailoverBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1588,11 +1530,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover.Builder builderForValue) {
       if (automaticFailoverBuilder_ == null) {
         automaticFailover_ = builderForValue.build();
-        onChanged();
       } else {
         automaticFailoverBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1604,17 +1546,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAutomaticFailover(com.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover value) {
       if (automaticFailoverBuilder_ == null) {
-        if (automaticFailover_ != null) {
-          automaticFailover_ =
-            com.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover.newBuilder(automaticFailover_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          automaticFailover_ != null &&
+          automaticFailover_ != com.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover.getDefaultInstance()) {
+          getAutomaticFailoverBuilder().mergeFrom(value);
         } else {
           automaticFailover_ = value;
         }
-        onChanged();
       } else {
         automaticFailoverBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1625,14 +1568,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover automatic_failover = 3;</code>
      */
     public Builder clearAutomaticFailover() {
-      if (automaticFailoverBuilder_ == null) {
-        automaticFailover_ = null;
-        onChanged();
-      } else {
-        automaticFailover_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      automaticFailover_ = null;
+      if (automaticFailoverBuilder_ != null) {
+        automaticFailoverBuilder_.dispose();
         automaticFailoverBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1643,7 +1585,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover automatic_failover = 3;</code>
      */
     public com.google.cloud.video.livestream.v1.InputAttachment.AutomaticFailover.Builder getAutomaticFailoverBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getAutomaticFailoverFieldBuilder().getBuilder();
     }
@@ -1715,7 +1657,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InputAttachment(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

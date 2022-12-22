@@ -50,159 +50,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DynamicCustomAsset(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id2_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            itemTitle_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            itemSubtitle_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            itemDescription_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            itemAddress_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            itemCategory_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            price_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            salePrice_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            formattedPrice_ = s;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            formattedSalePrice_ = s;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            imageUrl_ = s;
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              contextualKeywords_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            contextualKeywords_.add(s);
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            androidAppLink_ = s;
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              similarIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            similarIds_.add(s);
-            break;
-          }
-          case 130: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            iosAppLink_ = s;
-            break;
-          }
-          case 136: {
-
-            iosAppStoreId_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        contextualKeywords_ = contextualKeywords_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        similarIds_ = similarIds_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.common.AssetTypesProto.internal_static_google_ads_googleads_v11_common_DynamicCustomAsset_descriptor;
@@ -217,11 +64,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * Required. ID which can be any sequence of letters and digits, and must be
-   * unique and match the values of remarketing tag, e.g. sedan. Required.
+   * unique and match the values of remarketing tag, for example, sedan.
+   * Required.
    * </pre>
    *
    * <code>string id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -243,7 +92,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Required. ID which can be any sequence of letters and digits, and must be
-   * unique and match the values of remarketing tag, e.g. sedan. Required.
+   * unique and match the values of remarketing tag, for example, sedan.
+   * Required.
    * </pre>
    *
    * <code>string id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -265,11 +115,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID2_FIELD_NUMBER = 2;
-  private volatile java.lang.Object id2_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id2_ = "";
   /**
    * <pre>
-   * ID2 which can be any sequence of letters and digits, e.g. red. ID sequence
-   * (ID + ID2) must be unique.
+   * ID2 which can be any sequence of letters and digits, for example, red. ID
+   * sequence (ID + ID2) must be unique.
    * </pre>
    *
    * <code>string id2 = 2;</code>
@@ -290,8 +141,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * ID2 which can be any sequence of letters and digits, e.g. red. ID sequence
-   * (ID + ID2) must be unique.
+   * ID2 which can be any sequence of letters and digits, for example, red. ID
+   * sequence (ID + ID2) must be unique.
    * </pre>
    *
    * <code>string id2 = 2;</code>
@@ -313,10 +164,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ITEM_TITLE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object itemTitle_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object itemTitle_ = "";
   /**
    * <pre>
-   * Required. Item title, e.g. Mid-size sedan. Required.
+   * Required. Item title, for example, Mid-size sedan. Required.
    * </pre>
    *
    * <code>string item_title = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -337,7 +189,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Item title, e.g. Mid-size sedan. Required.
+   * Required. Item title, for example, Mid-size sedan. Required.
    * </pre>
    *
    * <code>string item_title = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -359,10 +211,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ITEM_SUBTITLE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object itemSubtitle_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object itemSubtitle_ = "";
   /**
    * <pre>
-   * Item subtitle, e.g. At your Mountain View dealership.
+   * Item subtitle, for example, At your Mountain View dealership.
    * </pre>
    *
    * <code>string item_subtitle = 4;</code>
@@ -383,7 +236,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Item subtitle, e.g. At your Mountain View dealership.
+   * Item subtitle, for example, At your Mountain View dealership.
    * </pre>
    *
    * <code>string item_subtitle = 4;</code>
@@ -405,10 +258,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ITEM_DESCRIPTION_FIELD_NUMBER = 5;
-  private volatile java.lang.Object itemDescription_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object itemDescription_ = "";
   /**
    * <pre>
-   * Item description, e.g. Best selling mid-size car.
+   * Item description, for example, Best selling mid-size car.
    * </pre>
    *
    * <code>string item_description = 5;</code>
@@ -429,7 +283,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Item description, e.g. Best selling mid-size car.
+   * Item description, for example, Best selling mid-size car.
    * </pre>
    *
    * <code>string item_description = 5;</code>
@@ -451,13 +305,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ITEM_ADDRESS_FIELD_NUMBER = 6;
-  private volatile java.lang.Object itemAddress_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object itemAddress_ = "";
   /**
    * <pre>
    * Item address which can be specified in one of the following formats.
-   * (1) City, state, code, country, e.g. Mountain View, CA, USA.
-   * (2) Full address, e.g. 123 Boulevard St, Mountain View, CA 94043.
-   * (3) Latitude-longitude in the DDD format, e.g. 41.40338, 2.17403
+   * (1) City, state, code, country, for example, Mountain View, CA, USA.
+   * (2) Full address, for example, 123 Boulevard St, Mountain View, CA 94043.
+   * (3) Latitude-longitude in the DDD format, for example, 41.40338, 2.17403
    * </pre>
    *
    * <code>string item_address = 6;</code>
@@ -479,9 +334,9 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Item address which can be specified in one of the following formats.
-   * (1) City, state, code, country, e.g. Mountain View, CA, USA.
-   * (2) Full address, e.g. 123 Boulevard St, Mountain View, CA 94043.
-   * (3) Latitude-longitude in the DDD format, e.g. 41.40338, 2.17403
+   * (1) City, state, code, country, for example, Mountain View, CA, USA.
+   * (2) Full address, for example, 123 Boulevard St, Mountain View, CA 94043.
+   * (3) Latitude-longitude in the DDD format, for example, 41.40338, 2.17403
    * </pre>
    *
    * <code>string item_address = 6;</code>
@@ -503,10 +358,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ITEM_CATEGORY_FIELD_NUMBER = 7;
-  private volatile java.lang.Object itemCategory_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object itemCategory_ = "";
   /**
    * <pre>
-   * Item category, e.g. Sedans.
+   * Item category, for example, Sedans.
    * </pre>
    *
    * <code>string item_category = 7;</code>
@@ -527,7 +383,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Item category, e.g. Sedans.
+   * Item category, for example, Sedans.
    * </pre>
    *
    * <code>string item_category = 7;</code>
@@ -549,11 +405,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRICE_FIELD_NUMBER = 8;
-  private volatile java.lang.Object price_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object price_ = "";
   /**
    * <pre>
    * Price which can be number followed by the alphabetic currency code,
-   * ISO 4217 standard. Use '.' as the decimal mark, e.g. 20,000.00 USD.
+   * ISO 4217 standard. Use '.' as the decimal mark, for example, 20,000.00 USD.
    * </pre>
    *
    * <code>string price = 8;</code>
@@ -575,7 +432,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Price which can be number followed by the alphabetic currency code,
-   * ISO 4217 standard. Use '.' as the decimal mark, e.g. 20,000.00 USD.
+   * ISO 4217 standard. Use '.' as the decimal mark, for example, 20,000.00 USD.
    * </pre>
    *
    * <code>string price = 8;</code>
@@ -597,11 +454,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SALE_PRICE_FIELD_NUMBER = 9;
-  private volatile java.lang.Object salePrice_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object salePrice_ = "";
   /**
    * <pre>
    * Sale price which can be number followed by the alphabetic currency code,
-   * ISO 4217 standard. Use '.' as the decimal mark, e.g. 15,000.00 USD.
+   * ISO 4217 standard. Use '.' as the decimal mark, for example, 15,000.00 USD.
    * Must be less than the 'price' field.
    * </pre>
    *
@@ -624,7 +482,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Sale price which can be number followed by the alphabetic currency code,
-   * ISO 4217 standard. Use '.' as the decimal mark, e.g. 15,000.00 USD.
+   * ISO 4217 standard. Use '.' as the decimal mark, for example, 15,000.00 USD.
    * Must be less than the 'price' field.
    * </pre>
    *
@@ -647,11 +505,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORMATTED_PRICE_FIELD_NUMBER = 10;
-  private volatile java.lang.Object formattedPrice_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object formattedPrice_ = "";
   /**
    * <pre>
    * Formatted price which can be any characters. If set, this attribute will be
-   * used instead of 'price', e.g. Starting at $20,000.00.
+   * used instead of 'price', for example, Starting at $20,000.00.
    * </pre>
    *
    * <code>string formatted_price = 10;</code>
@@ -673,7 +532,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Formatted price which can be any characters. If set, this attribute will be
-   * used instead of 'price', e.g. Starting at $20,000.00.
+   * used instead of 'price', for example, Starting at $20,000.00.
    * </pre>
    *
    * <code>string formatted_price = 10;</code>
@@ -695,11 +554,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORMATTED_SALE_PRICE_FIELD_NUMBER = 11;
-  private volatile java.lang.Object formattedSalePrice_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object formattedSalePrice_ = "";
   /**
    * <pre>
    * Formatted sale price which can be any characters. If set, this attribute
-   * will be used instead of 'sale price', e.g. On sale for $15,000.00.
+   * will be used instead of 'sale price', for example, On sale for $15,000.00.
    * </pre>
    *
    * <code>string formatted_sale_price = 11;</code>
@@ -721,7 +581,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Formatted sale price which can be any characters. If set, this attribute
-   * will be used instead of 'sale price', e.g. On sale for $15,000.00.
+   * will be used instead of 'sale price', for example, On sale for $15,000.00.
    * </pre>
    *
    * <code>string formatted_sale_price = 11;</code>
@@ -743,11 +603,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGE_URL_FIELD_NUMBER = 12;
-  private volatile java.lang.Object imageUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object imageUrl_ = "";
   /**
    * <pre>
-   * Image URL, e.g. http://www.example.com/image.png. The image will not be
-   * uploaded as image asset.
+   * Image URL, for example, http://www.example.com/image.png. The image will
+   * not be uploaded as image asset.
    * </pre>
    *
    * <code>string image_url = 12;</code>
@@ -768,8 +629,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Image URL, e.g. http://www.example.com/image.png. The image will not be
-   * uploaded as image asset.
+   * Image URL, for example, http://www.example.com/image.png. The image will
+   * not be uploaded as image asset.
    * </pre>
    *
    * <code>string image_url = 12;</code>
@@ -791,10 +652,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTEXTUAL_KEYWORDS_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList contextualKeywords_;
   /**
    * <pre>
-   * Contextual keywords, e.g. Sedans, 4 door sedans.
+   * Contextual keywords, for example, Sedans, 4 door sedans.
    * </pre>
    *
    * <code>repeated string contextual_keywords = 13;</code>
@@ -806,7 +668,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Contextual keywords, e.g. Sedans, 4 door sedans.
+   * Contextual keywords, for example, Sedans, 4 door sedans.
    * </pre>
    *
    * <code>repeated string contextual_keywords = 13;</code>
@@ -817,7 +679,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Contextual keywords, e.g. Sedans, 4 door sedans.
+   * Contextual keywords, for example, Sedans, 4 door sedans.
    * </pre>
    *
    * <code>repeated string contextual_keywords = 13;</code>
@@ -829,7 +691,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Contextual keywords, e.g. Sedans, 4 door sedans.
+   * Contextual keywords, for example, Sedans, 4 door sedans.
    * </pre>
    *
    * <code>repeated string contextual_keywords = 13;</code>
@@ -842,10 +704,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ANDROID_APP_LINK_FIELD_NUMBER = 14;
-  private volatile java.lang.Object androidAppLink_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object androidAppLink_ = "";
   /**
    * <pre>
-   * Android deep link, e.g.
+   * Android deep link, for example,
    * android-app://com.example.android/http/example.com/gizmos?1234.
    * </pre>
    *
@@ -867,7 +730,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Android deep link, e.g.
+   * Android deep link, for example,
    * android-app://com.example.android/http/example.com/gizmos?1234.
    * </pre>
    *
@@ -890,10 +753,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IOS_APP_LINK_FIELD_NUMBER = 16;
-  private volatile java.lang.Object iosAppLink_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object iosAppLink_ = "";
   /**
    * <pre>
-   * iOS deep link, e.g. exampleApp://content/page.
+   * iOS deep link, for example, exampleApp://content/page.
    * </pre>
    *
    * <code>string ios_app_link = 16;</code>
@@ -914,7 +778,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * iOS deep link, e.g. exampleApp://content/page.
+   * iOS deep link, for example, exampleApp://content/page.
    * </pre>
    *
    * <code>string ios_app_link = 16;</code>
@@ -936,7 +800,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IOS_APP_STORE_ID_FIELD_NUMBER = 17;
-  private long iosAppStoreId_;
+  private long iosAppStoreId_ = 0L;
   /**
    * <pre>
    * iOS app store ID. This is used to check if the user has the app installed
@@ -953,6 +817,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SIMILAR_IDS_FIELD_NUMBER = 15;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList similarIds_;
   /**
    * <pre>
@@ -1068,7 +933,7 @@ private static final long serialVersionUID = 0L;
     if (iosAppStoreId_ != 0L) {
       output.writeInt64(17, iosAppStoreId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1139,7 +1004,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(17, iosAppStoreId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1188,7 +1053,7 @@ private static final long serialVersionUID = 0L;
         != other.getIosAppStoreId()) return false;
     if (!getSimilarIdsList()
         .equals(other.getSimilarIdsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1238,7 +1103,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SIMILAR_IDS_FIELD_NUMBER;
       hash = (53 * hash) + getSimilarIdsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1359,56 +1224,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.common.DynamicCustomAsset.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       id_ = "";
-
       id2_ = "";
-
       itemTitle_ = "";
-
       itemSubtitle_ = "";
-
       itemDescription_ = "";
-
       itemAddress_ = "";
-
       itemCategory_ = "";
-
       price_ = "";
-
       salePrice_ = "";
-
       formattedPrice_ = "";
-
       formattedSalePrice_ = "";
-
       imageUrl_ = "";
-
       contextualKeywords_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00001000);
       androidAppLink_ = "";
-
       iosAppLink_ = "";
-
       iosAppStoreId_ = 0L;
-
       similarIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00010000);
       return this;
     }
 
@@ -1435,34 +1281,72 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.common.DynamicCustomAsset buildPartial() {
       com.google.ads.googleads.v11.common.DynamicCustomAsset result = new com.google.ads.googleads.v11.common.DynamicCustomAsset(this);
-      int from_bitField0_ = bitField0_;
-      result.id_ = id_;
-      result.id2_ = id2_;
-      result.itemTitle_ = itemTitle_;
-      result.itemSubtitle_ = itemSubtitle_;
-      result.itemDescription_ = itemDescription_;
-      result.itemAddress_ = itemAddress_;
-      result.itemCategory_ = itemCategory_;
-      result.price_ = price_;
-      result.salePrice_ = salePrice_;
-      result.formattedPrice_ = formattedPrice_;
-      result.formattedSalePrice_ = formattedSalePrice_;
-      result.imageUrl_ = imageUrl_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        contextualKeywords_ = contextualKeywords_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.contextualKeywords_ = contextualKeywords_;
-      result.androidAppLink_ = androidAppLink_;
-      result.iosAppLink_ = iosAppLink_;
-      result.iosAppStoreId_ = iosAppStoreId_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        similarIds_ = similarIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.similarIds_ = similarIds_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v11.common.DynamicCustomAsset result) {
+      if (((bitField0_ & 0x00001000) != 0)) {
+        contextualKeywords_ = contextualKeywords_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00001000);
+      }
+      result.contextualKeywords_ = contextualKeywords_;
+      if (((bitField0_ & 0x00010000) != 0)) {
+        similarIds_ = similarIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00010000);
+      }
+      result.similarIds_ = similarIds_;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.common.DynamicCustomAsset result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.id2_ = id2_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.itemTitle_ = itemTitle_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.itemSubtitle_ = itemSubtitle_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.itemDescription_ = itemDescription_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.itemAddress_ = itemAddress_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.itemCategory_ = itemCategory_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.price_ = price_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.salePrice_ = salePrice_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.formattedPrice_ = formattedPrice_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.formattedSalePrice_ = formattedSalePrice_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.imageUrl_ = imageUrl_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.androidAppLink_ = androidAppLink_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.iosAppLink_ = iosAppLink_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.iosAppStoreId_ = iosAppStoreId_;
+      }
     }
 
     @java.lang.Override
@@ -1511,56 +1395,68 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v11.common.DynamicCustomAsset.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getId2().isEmpty()) {
         id2_ = other.id2_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getItemTitle().isEmpty()) {
         itemTitle_ = other.itemTitle_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getItemSubtitle().isEmpty()) {
         itemSubtitle_ = other.itemSubtitle_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getItemDescription().isEmpty()) {
         itemDescription_ = other.itemDescription_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getItemAddress().isEmpty()) {
         itemAddress_ = other.itemAddress_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getItemCategory().isEmpty()) {
         itemCategory_ = other.itemCategory_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getPrice().isEmpty()) {
         price_ = other.price_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.getSalePrice().isEmpty()) {
         salePrice_ = other.salePrice_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (!other.getFormattedPrice().isEmpty()) {
         formattedPrice_ = other.formattedPrice_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (!other.getFormattedSalePrice().isEmpty()) {
         formattedSalePrice_ = other.formattedSalePrice_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (!other.getImageUrl().isEmpty()) {
         imageUrl_ = other.imageUrl_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (!other.contextualKeywords_.isEmpty()) {
         if (contextualKeywords_.isEmpty()) {
           contextualKeywords_ = other.contextualKeywords_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00001000);
         } else {
           ensureContextualKeywordsIsMutable();
           contextualKeywords_.addAll(other.contextualKeywords_);
@@ -1569,10 +1465,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAndroidAppLink().isEmpty()) {
         androidAppLink_ = other.androidAppLink_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
       if (!other.getIosAppLink().isEmpty()) {
         iosAppLink_ = other.iosAppLink_;
+        bitField0_ |= 0x00004000;
         onChanged();
       }
       if (other.getIosAppStoreId() != 0L) {
@@ -1581,14 +1479,14 @@ private static final long serialVersionUID = 0L;
       if (!other.similarIds_.isEmpty()) {
         if (similarIds_.isEmpty()) {
           similarIds_ = other.similarIds_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00010000);
         } else {
           ensureSimilarIdsIsMutable();
           similarIds_.addAll(other.similarIds_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1603,17 +1501,117 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.common.DynamicCustomAsset parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              id2_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              itemTitle_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              itemSubtitle_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              itemDescription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              itemAddress_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              itemCategory_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              price_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              salePrice_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              formattedPrice_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              formattedSalePrice_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 98: {
+              imageUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureContextualKeywordsIsMutable();
+              contextualKeywords_.add(s);
+              break;
+            } // case 106
+            case 114: {
+              androidAppLink_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 114
+            case 122: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSimilarIdsIsMutable();
+              similarIds_.add(s);
+              break;
+            } // case 122
+            case 130: {
+              iosAppLink_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 130
+            case 136: {
+              iosAppStoreId_ = input.readInt64();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 136
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.common.DynamicCustomAsset) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1622,7 +1620,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. ID which can be any sequence of letters and digits, and must be
-     * unique and match the values of remarketing tag, e.g. sedan. Required.
+     * unique and match the values of remarketing tag, for example, sedan.
+     * Required.
      * </pre>
      *
      * <code>string id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1643,7 +1642,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. ID which can be any sequence of letters and digits, and must be
-     * unique and match the values of remarketing tag, e.g. sedan. Required.
+     * unique and match the values of remarketing tag, for example, sedan.
+     * Required.
      * </pre>
      *
      * <code>string id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1665,7 +1665,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. ID which can be any sequence of letters and digits, and must be
-     * unique and match the values of remarketing tag, e.g. sedan. Required.
+     * unique and match the values of remarketing tag, for example, sedan.
+     * Required.
      * </pre>
      *
      * <code>string id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1674,33 +1675,33 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. ID which can be any sequence of letters and digits, and must be
-     * unique and match the values of remarketing tag, e.g. sedan. Required.
+     * unique and match the values of remarketing tag, for example, sedan.
+     * Required.
      * </pre>
      *
      * <code>string id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. ID which can be any sequence of letters and digits, and must be
-     * unique and match the values of remarketing tag, e.g. sedan. Required.
+     * unique and match the values of remarketing tag, for example, sedan.
+     * Required.
      * </pre>
      *
      * <code>string id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1709,12 +1710,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1722,8 +1721,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object id2_ = "";
     /**
      * <pre>
-     * ID2 which can be any sequence of letters and digits, e.g. red. ID sequence
-     * (ID + ID2) must be unique.
+     * ID2 which can be any sequence of letters and digits, for example, red. ID
+     * sequence (ID + ID2) must be unique.
      * </pre>
      *
      * <code>string id2 = 2;</code>
@@ -1743,8 +1742,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID2 which can be any sequence of letters and digits, e.g. red. ID sequence
-     * (ID + ID2) must be unique.
+     * ID2 which can be any sequence of letters and digits, for example, red. ID
+     * sequence (ID + ID2) must be unique.
      * </pre>
      *
      * <code>string id2 = 2;</code>
@@ -1765,8 +1764,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * ID2 which can be any sequence of letters and digits, e.g. red. ID sequence
-     * (ID + ID2) must be unique.
+     * ID2 which can be any sequence of letters and digits, for example, red. ID
+     * sequence (ID + ID2) must be unique.
      * </pre>
      *
      * <code>string id2 = 2;</code>
@@ -1775,33 +1774,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId2(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id2_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * ID2 which can be any sequence of letters and digits, e.g. red. ID sequence
-     * (ID + ID2) must be unique.
+     * ID2 which can be any sequence of letters and digits, for example, red. ID
+     * sequence (ID + ID2) must be unique.
      * </pre>
      *
      * <code>string id2 = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearId2() {
-      
       id2_ = getDefaultInstance().getId2();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * ID2 which can be any sequence of letters and digits, e.g. red. ID sequence
-     * (ID + ID2) must be unique.
+     * ID2 which can be any sequence of letters and digits, for example, red. ID
+     * sequence (ID + ID2) must be unique.
      * </pre>
      *
      * <code>string id2 = 2;</code>
@@ -1810,12 +1807,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId2Bytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id2_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1823,7 +1818,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object itemTitle_ = "";
     /**
      * <pre>
-     * Required. Item title, e.g. Mid-size sedan. Required.
+     * Required. Item title, for example, Mid-size sedan. Required.
      * </pre>
      *
      * <code>string item_title = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1843,7 +1838,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Item title, e.g. Mid-size sedan. Required.
+     * Required. Item title, for example, Mid-size sedan. Required.
      * </pre>
      *
      * <code>string item_title = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1864,7 +1859,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Item title, e.g. Mid-size sedan. Required.
+     * Required. Item title, for example, Mid-size sedan. Required.
      * </pre>
      *
      * <code>string item_title = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1873,31 +1868,29 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setItemTitle(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       itemTitle_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Item title, e.g. Mid-size sedan. Required.
+     * Required. Item title, for example, Mid-size sedan. Required.
      * </pre>
      *
      * <code>string item_title = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearItemTitle() {
-      
       itemTitle_ = getDefaultInstance().getItemTitle();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Item title, e.g. Mid-size sedan. Required.
+     * Required. Item title, for example, Mid-size sedan. Required.
      * </pre>
      *
      * <code>string item_title = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1906,12 +1899,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setItemTitleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       itemTitle_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1919,7 +1910,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object itemSubtitle_ = "";
     /**
      * <pre>
-     * Item subtitle, e.g. At your Mountain View dealership.
+     * Item subtitle, for example, At your Mountain View dealership.
      * </pre>
      *
      * <code>string item_subtitle = 4;</code>
@@ -1939,7 +1930,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Item subtitle, e.g. At your Mountain View dealership.
+     * Item subtitle, for example, At your Mountain View dealership.
      * </pre>
      *
      * <code>string item_subtitle = 4;</code>
@@ -1960,7 +1951,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Item subtitle, e.g. At your Mountain View dealership.
+     * Item subtitle, for example, At your Mountain View dealership.
      * </pre>
      *
      * <code>string item_subtitle = 4;</code>
@@ -1969,31 +1960,29 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setItemSubtitle(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       itemSubtitle_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Item subtitle, e.g. At your Mountain View dealership.
+     * Item subtitle, for example, At your Mountain View dealership.
      * </pre>
      *
      * <code>string item_subtitle = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearItemSubtitle() {
-      
       itemSubtitle_ = getDefaultInstance().getItemSubtitle();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Item subtitle, e.g. At your Mountain View dealership.
+     * Item subtitle, for example, At your Mountain View dealership.
      * </pre>
      *
      * <code>string item_subtitle = 4;</code>
@@ -2002,12 +1991,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setItemSubtitleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       itemSubtitle_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2015,7 +2002,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object itemDescription_ = "";
     /**
      * <pre>
-     * Item description, e.g. Best selling mid-size car.
+     * Item description, for example, Best selling mid-size car.
      * </pre>
      *
      * <code>string item_description = 5;</code>
@@ -2035,7 +2022,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Item description, e.g. Best selling mid-size car.
+     * Item description, for example, Best selling mid-size car.
      * </pre>
      *
      * <code>string item_description = 5;</code>
@@ -2056,7 +2043,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Item description, e.g. Best selling mid-size car.
+     * Item description, for example, Best selling mid-size car.
      * </pre>
      *
      * <code>string item_description = 5;</code>
@@ -2065,31 +2052,29 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setItemDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       itemDescription_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Item description, e.g. Best selling mid-size car.
+     * Item description, for example, Best selling mid-size car.
      * </pre>
      *
      * <code>string item_description = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearItemDescription() {
-      
       itemDescription_ = getDefaultInstance().getItemDescription();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Item description, e.g. Best selling mid-size car.
+     * Item description, for example, Best selling mid-size car.
      * </pre>
      *
      * <code>string item_description = 5;</code>
@@ -2098,12 +2083,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setItemDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       itemDescription_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2112,9 +2095,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Item address which can be specified in one of the following formats.
-     * (1) City, state, code, country, e.g. Mountain View, CA, USA.
-     * (2) Full address, e.g. 123 Boulevard St, Mountain View, CA 94043.
-     * (3) Latitude-longitude in the DDD format, e.g. 41.40338, 2.17403
+     * (1) City, state, code, country, for example, Mountain View, CA, USA.
+     * (2) Full address, for example, 123 Boulevard St, Mountain View, CA 94043.
+     * (3) Latitude-longitude in the DDD format, for example, 41.40338, 2.17403
      * </pre>
      *
      * <code>string item_address = 6;</code>
@@ -2135,9 +2118,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Item address which can be specified in one of the following formats.
-     * (1) City, state, code, country, e.g. Mountain View, CA, USA.
-     * (2) Full address, e.g. 123 Boulevard St, Mountain View, CA 94043.
-     * (3) Latitude-longitude in the DDD format, e.g. 41.40338, 2.17403
+     * (1) City, state, code, country, for example, Mountain View, CA, USA.
+     * (2) Full address, for example, 123 Boulevard St, Mountain View, CA 94043.
+     * (3) Latitude-longitude in the DDD format, for example, 41.40338, 2.17403
      * </pre>
      *
      * <code>string item_address = 6;</code>
@@ -2159,9 +2142,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Item address which can be specified in one of the following formats.
-     * (1) City, state, code, country, e.g. Mountain View, CA, USA.
-     * (2) Full address, e.g. 123 Boulevard St, Mountain View, CA 94043.
-     * (3) Latitude-longitude in the DDD format, e.g. 41.40338, 2.17403
+     * (1) City, state, code, country, for example, Mountain View, CA, USA.
+     * (2) Full address, for example, 123 Boulevard St, Mountain View, CA 94043.
+     * (3) Latitude-longitude in the DDD format, for example, 41.40338, 2.17403
      * </pre>
      *
      * <code>string item_address = 6;</code>
@@ -2170,37 +2153,35 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setItemAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       itemAddress_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Item address which can be specified in one of the following formats.
-     * (1) City, state, code, country, e.g. Mountain View, CA, USA.
-     * (2) Full address, e.g. 123 Boulevard St, Mountain View, CA 94043.
-     * (3) Latitude-longitude in the DDD format, e.g. 41.40338, 2.17403
+     * (1) City, state, code, country, for example, Mountain View, CA, USA.
+     * (2) Full address, for example, 123 Boulevard St, Mountain View, CA 94043.
+     * (3) Latitude-longitude in the DDD format, for example, 41.40338, 2.17403
      * </pre>
      *
      * <code>string item_address = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearItemAddress() {
-      
       itemAddress_ = getDefaultInstance().getItemAddress();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Item address which can be specified in one of the following formats.
-     * (1) City, state, code, country, e.g. Mountain View, CA, USA.
-     * (2) Full address, e.g. 123 Boulevard St, Mountain View, CA 94043.
-     * (3) Latitude-longitude in the DDD format, e.g. 41.40338, 2.17403
+     * (1) City, state, code, country, for example, Mountain View, CA, USA.
+     * (2) Full address, for example, 123 Boulevard St, Mountain View, CA 94043.
+     * (3) Latitude-longitude in the DDD format, for example, 41.40338, 2.17403
      * </pre>
      *
      * <code>string item_address = 6;</code>
@@ -2209,12 +2190,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setItemAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       itemAddress_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2222,7 +2201,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object itemCategory_ = "";
     /**
      * <pre>
-     * Item category, e.g. Sedans.
+     * Item category, for example, Sedans.
      * </pre>
      *
      * <code>string item_category = 7;</code>
@@ -2242,7 +2221,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Item category, e.g. Sedans.
+     * Item category, for example, Sedans.
      * </pre>
      *
      * <code>string item_category = 7;</code>
@@ -2263,7 +2242,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Item category, e.g. Sedans.
+     * Item category, for example, Sedans.
      * </pre>
      *
      * <code>string item_category = 7;</code>
@@ -2272,31 +2251,29 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setItemCategory(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       itemCategory_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Item category, e.g. Sedans.
+     * Item category, for example, Sedans.
      * </pre>
      *
      * <code>string item_category = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearItemCategory() {
-      
       itemCategory_ = getDefaultInstance().getItemCategory();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Item category, e.g. Sedans.
+     * Item category, for example, Sedans.
      * </pre>
      *
      * <code>string item_category = 7;</code>
@@ -2305,12 +2282,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setItemCategoryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       itemCategory_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2319,7 +2294,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Price which can be number followed by the alphabetic currency code,
-     * ISO 4217 standard. Use '.' as the decimal mark, e.g. 20,000.00 USD.
+     * ISO 4217 standard. Use '.' as the decimal mark, for example, 20,000.00 USD.
      * </pre>
      *
      * <code>string price = 8;</code>
@@ -2340,7 +2315,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Price which can be number followed by the alphabetic currency code,
-     * ISO 4217 standard. Use '.' as the decimal mark, e.g. 20,000.00 USD.
+     * ISO 4217 standard. Use '.' as the decimal mark, for example, 20,000.00 USD.
      * </pre>
      *
      * <code>string price = 8;</code>
@@ -2362,7 +2337,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Price which can be number followed by the alphabetic currency code,
-     * ISO 4217 standard. Use '.' as the decimal mark, e.g. 20,000.00 USD.
+     * ISO 4217 standard. Use '.' as the decimal mark, for example, 20,000.00 USD.
      * </pre>
      *
      * <code>string price = 8;</code>
@@ -2371,33 +2346,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrice(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       price_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Price which can be number followed by the alphabetic currency code,
-     * ISO 4217 standard. Use '.' as the decimal mark, e.g. 20,000.00 USD.
+     * ISO 4217 standard. Use '.' as the decimal mark, for example, 20,000.00 USD.
      * </pre>
      *
      * <code>string price = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearPrice() {
-      
       price_ = getDefaultInstance().getPrice();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Price which can be number followed by the alphabetic currency code,
-     * ISO 4217 standard. Use '.' as the decimal mark, e.g. 20,000.00 USD.
+     * ISO 4217 standard. Use '.' as the decimal mark, for example, 20,000.00 USD.
      * </pre>
      *
      * <code>string price = 8;</code>
@@ -2406,12 +2379,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPriceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       price_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2420,7 +2391,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Sale price which can be number followed by the alphabetic currency code,
-     * ISO 4217 standard. Use '.' as the decimal mark, e.g. 15,000.00 USD.
+     * ISO 4217 standard. Use '.' as the decimal mark, for example, 15,000.00 USD.
      * Must be less than the 'price' field.
      * </pre>
      *
@@ -2442,7 +2413,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Sale price which can be number followed by the alphabetic currency code,
-     * ISO 4217 standard. Use '.' as the decimal mark, e.g. 15,000.00 USD.
+     * ISO 4217 standard. Use '.' as the decimal mark, for example, 15,000.00 USD.
      * Must be less than the 'price' field.
      * </pre>
      *
@@ -2465,7 +2436,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Sale price which can be number followed by the alphabetic currency code,
-     * ISO 4217 standard. Use '.' as the decimal mark, e.g. 15,000.00 USD.
+     * ISO 4217 standard. Use '.' as the decimal mark, for example, 15,000.00 USD.
      * Must be less than the 'price' field.
      * </pre>
      *
@@ -2475,18 +2446,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSalePrice(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       salePrice_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Sale price which can be number followed by the alphabetic currency code,
-     * ISO 4217 standard. Use '.' as the decimal mark, e.g. 15,000.00 USD.
+     * ISO 4217 standard. Use '.' as the decimal mark, for example, 15,000.00 USD.
      * Must be less than the 'price' field.
      * </pre>
      *
@@ -2494,15 +2463,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSalePrice() {
-      
       salePrice_ = getDefaultInstance().getSalePrice();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Sale price which can be number followed by the alphabetic currency code,
-     * ISO 4217 standard. Use '.' as the decimal mark, e.g. 15,000.00 USD.
+     * ISO 4217 standard. Use '.' as the decimal mark, for example, 15,000.00 USD.
      * Must be less than the 'price' field.
      * </pre>
      *
@@ -2512,12 +2481,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSalePriceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       salePrice_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2526,7 +2493,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Formatted price which can be any characters. If set, this attribute will be
-     * used instead of 'price', e.g. Starting at $20,000.00.
+     * used instead of 'price', for example, Starting at $20,000.00.
      * </pre>
      *
      * <code>string formatted_price = 10;</code>
@@ -2547,7 +2514,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Formatted price which can be any characters. If set, this attribute will be
-     * used instead of 'price', e.g. Starting at $20,000.00.
+     * used instead of 'price', for example, Starting at $20,000.00.
      * </pre>
      *
      * <code>string formatted_price = 10;</code>
@@ -2569,7 +2536,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Formatted price which can be any characters. If set, this attribute will be
-     * used instead of 'price', e.g. Starting at $20,000.00.
+     * used instead of 'price', for example, Starting at $20,000.00.
      * </pre>
      *
      * <code>string formatted_price = 10;</code>
@@ -2578,33 +2545,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFormattedPrice(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       formattedPrice_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Formatted price which can be any characters. If set, this attribute will be
-     * used instead of 'price', e.g. Starting at $20,000.00.
+     * used instead of 'price', for example, Starting at $20,000.00.
      * </pre>
      *
      * <code>string formatted_price = 10;</code>
      * @return This builder for chaining.
      */
     public Builder clearFormattedPrice() {
-      
       formattedPrice_ = getDefaultInstance().getFormattedPrice();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Formatted price which can be any characters. If set, this attribute will be
-     * used instead of 'price', e.g. Starting at $20,000.00.
+     * used instead of 'price', for example, Starting at $20,000.00.
      * </pre>
      *
      * <code>string formatted_price = 10;</code>
@@ -2613,12 +2578,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFormattedPriceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       formattedPrice_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2627,7 +2590,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Formatted sale price which can be any characters. If set, this attribute
-     * will be used instead of 'sale price', e.g. On sale for $15,000.00.
+     * will be used instead of 'sale price', for example, On sale for $15,000.00.
      * </pre>
      *
      * <code>string formatted_sale_price = 11;</code>
@@ -2648,7 +2611,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Formatted sale price which can be any characters. If set, this attribute
-     * will be used instead of 'sale price', e.g. On sale for $15,000.00.
+     * will be used instead of 'sale price', for example, On sale for $15,000.00.
      * </pre>
      *
      * <code>string formatted_sale_price = 11;</code>
@@ -2670,7 +2633,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Formatted sale price which can be any characters. If set, this attribute
-     * will be used instead of 'sale price', e.g. On sale for $15,000.00.
+     * will be used instead of 'sale price', for example, On sale for $15,000.00.
      * </pre>
      *
      * <code>string formatted_sale_price = 11;</code>
@@ -2679,33 +2642,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFormattedSalePrice(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       formattedSalePrice_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Formatted sale price which can be any characters. If set, this attribute
-     * will be used instead of 'sale price', e.g. On sale for $15,000.00.
+     * will be used instead of 'sale price', for example, On sale for $15,000.00.
      * </pre>
      *
      * <code>string formatted_sale_price = 11;</code>
      * @return This builder for chaining.
      */
     public Builder clearFormattedSalePrice() {
-      
       formattedSalePrice_ = getDefaultInstance().getFormattedSalePrice();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Formatted sale price which can be any characters. If set, this attribute
-     * will be used instead of 'sale price', e.g. On sale for $15,000.00.
+     * will be used instead of 'sale price', for example, On sale for $15,000.00.
      * </pre>
      *
      * <code>string formatted_sale_price = 11;</code>
@@ -2714,12 +2675,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFormattedSalePriceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       formattedSalePrice_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2727,8 +2686,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object imageUrl_ = "";
     /**
      * <pre>
-     * Image URL, e.g. http://www.example.com/image.png. The image will not be
-     * uploaded as image asset.
+     * Image URL, for example, http://www.example.com/image.png. The image will
+     * not be uploaded as image asset.
      * </pre>
      *
      * <code>string image_url = 12;</code>
@@ -2748,8 +2707,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Image URL, e.g. http://www.example.com/image.png. The image will not be
-     * uploaded as image asset.
+     * Image URL, for example, http://www.example.com/image.png. The image will
+     * not be uploaded as image asset.
      * </pre>
      *
      * <code>string image_url = 12;</code>
@@ -2770,8 +2729,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Image URL, e.g. http://www.example.com/image.png. The image will not be
-     * uploaded as image asset.
+     * Image URL, for example, http://www.example.com/image.png. The image will
+     * not be uploaded as image asset.
      * </pre>
      *
      * <code>string image_url = 12;</code>
@@ -2780,33 +2739,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       imageUrl_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Image URL, e.g. http://www.example.com/image.png. The image will not be
-     * uploaded as image asset.
+     * Image URL, for example, http://www.example.com/image.png. The image will
+     * not be uploaded as image asset.
      * </pre>
      *
      * <code>string image_url = 12;</code>
      * @return This builder for chaining.
      */
     public Builder clearImageUrl() {
-      
       imageUrl_ = getDefaultInstance().getImageUrl();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Image URL, e.g. http://www.example.com/image.png. The image will not be
-     * uploaded as image asset.
+     * Image URL, for example, http://www.example.com/image.png. The image will
+     * not be uploaded as image asset.
      * </pre>
      *
      * <code>string image_url = 12;</code>
@@ -2815,26 +2772,24 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       imageUrl_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList contextualKeywords_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureContextualKeywordsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00001000) != 0)) {
         contextualKeywords_ = new com.google.protobuf.LazyStringArrayList(contextualKeywords_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00001000;
        }
     }
     /**
      * <pre>
-     * Contextual keywords, e.g. Sedans, 4 door sedans.
+     * Contextual keywords, for example, Sedans, 4 door sedans.
      * </pre>
      *
      * <code>repeated string contextual_keywords = 13;</code>
@@ -2846,7 +2801,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contextual keywords, e.g. Sedans, 4 door sedans.
+     * Contextual keywords, for example, Sedans, 4 door sedans.
      * </pre>
      *
      * <code>repeated string contextual_keywords = 13;</code>
@@ -2857,7 +2812,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contextual keywords, e.g. Sedans, 4 door sedans.
+     * Contextual keywords, for example, Sedans, 4 door sedans.
      * </pre>
      *
      * <code>repeated string contextual_keywords = 13;</code>
@@ -2869,7 +2824,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contextual keywords, e.g. Sedans, 4 door sedans.
+     * Contextual keywords, for example, Sedans, 4 door sedans.
      * </pre>
      *
      * <code>repeated string contextual_keywords = 13;</code>
@@ -2882,7 +2837,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contextual keywords, e.g. Sedans, 4 door sedans.
+     * Contextual keywords, for example, Sedans, 4 door sedans.
      * </pre>
      *
      * <code>repeated string contextual_keywords = 13;</code>
@@ -2892,17 +2847,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setContextualKeywords(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureContextualKeywordsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureContextualKeywordsIsMutable();
       contextualKeywords_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Contextual keywords, e.g. Sedans, 4 door sedans.
+     * Contextual keywords, for example, Sedans, 4 door sedans.
      * </pre>
      *
      * <code>repeated string contextual_keywords = 13;</code>
@@ -2911,17 +2864,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addContextualKeywords(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureContextualKeywordsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureContextualKeywordsIsMutable();
       contextualKeywords_.add(value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Contextual keywords, e.g. Sedans, 4 door sedans.
+     * Contextual keywords, for example, Sedans, 4 door sedans.
      * </pre>
      *
      * <code>repeated string contextual_keywords = 13;</code>
@@ -2938,7 +2889,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Contextual keywords, e.g. Sedans, 4 door sedans.
+     * Contextual keywords, for example, Sedans, 4 door sedans.
      * </pre>
      *
      * <code>repeated string contextual_keywords = 13;</code>
@@ -2946,13 +2897,13 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearContextualKeywords() {
       contextualKeywords_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Contextual keywords, e.g. Sedans, 4 door sedans.
+     * Contextual keywords, for example, Sedans, 4 door sedans.
      * </pre>
      *
      * <code>repeated string contextual_keywords = 13;</code>
@@ -2961,10 +2912,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addContextualKeywordsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureContextualKeywordsIsMutable();
       contextualKeywords_.add(value);
       onChanged();
@@ -2974,7 +2923,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object androidAppLink_ = "";
     /**
      * <pre>
-     * Android deep link, e.g.
+     * Android deep link, for example,
      * android-app://com.example.android/http/example.com/gizmos?1234.
      * </pre>
      *
@@ -2995,7 +2944,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Android deep link, e.g.
+     * Android deep link, for example,
      * android-app://com.example.android/http/example.com/gizmos?1234.
      * </pre>
      *
@@ -3017,7 +2966,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Android deep link, e.g.
+     * Android deep link, for example,
      * android-app://com.example.android/http/example.com/gizmos?1234.
      * </pre>
      *
@@ -3027,17 +2976,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAndroidAppLink(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       androidAppLink_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Android deep link, e.g.
+     * Android deep link, for example,
      * android-app://com.example.android/http/example.com/gizmos?1234.
      * </pre>
      *
@@ -3045,14 +2992,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAndroidAppLink() {
-      
       androidAppLink_ = getDefaultInstance().getAndroidAppLink();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Android deep link, e.g.
+     * Android deep link, for example,
      * android-app://com.example.android/http/example.com/gizmos?1234.
      * </pre>
      *
@@ -3062,12 +3009,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAndroidAppLinkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       androidAppLink_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3075,7 +3020,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object iosAppLink_ = "";
     /**
      * <pre>
-     * iOS deep link, e.g. exampleApp://content/page.
+     * iOS deep link, for example, exampleApp://content/page.
      * </pre>
      *
      * <code>string ios_app_link = 16;</code>
@@ -3095,7 +3040,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * iOS deep link, e.g. exampleApp://content/page.
+     * iOS deep link, for example, exampleApp://content/page.
      * </pre>
      *
      * <code>string ios_app_link = 16;</code>
@@ -3116,7 +3061,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * iOS deep link, e.g. exampleApp://content/page.
+     * iOS deep link, for example, exampleApp://content/page.
      * </pre>
      *
      * <code>string ios_app_link = 16;</code>
@@ -3125,31 +3070,29 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIosAppLink(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       iosAppLink_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * iOS deep link, e.g. exampleApp://content/page.
+     * iOS deep link, for example, exampleApp://content/page.
      * </pre>
      *
      * <code>string ios_app_link = 16;</code>
      * @return This builder for chaining.
      */
     public Builder clearIosAppLink() {
-      
       iosAppLink_ = getDefaultInstance().getIosAppLink();
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * iOS deep link, e.g. exampleApp://content/page.
+     * iOS deep link, for example, exampleApp://content/page.
      * </pre>
      *
      * <code>string ios_app_link = 16;</code>
@@ -3158,12 +3101,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIosAppLinkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       iosAppLink_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -3197,6 +3138,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIosAppStoreId(long value) {
       
       iosAppStoreId_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -3211,7 +3153,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIosAppStoreId() {
-      
+      bitField0_ = (bitField0_ & ~0x00008000);
       iosAppStoreId_ = 0L;
       onChanged();
       return this;
@@ -3219,9 +3161,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList similarIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureSimilarIdsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00010000) != 0)) {
         similarIds_ = new com.google.protobuf.LazyStringArrayList(similarIds_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00010000;
        }
     }
     /**
@@ -3284,10 +3226,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSimilarIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSimilarIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSimilarIdsIsMutable();
       similarIds_.set(index, value);
       onChanged();
       return this;
@@ -3303,10 +3243,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSimilarIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSimilarIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSimilarIdsIsMutable();
       similarIds_.add(value);
       onChanged();
       return this;
@@ -3338,7 +3276,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSimilarIds() {
       similarIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00010000);
       onChanged();
       return this;
     }
@@ -3353,10 +3291,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSimilarIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureSimilarIdsIsMutable();
       similarIds_.add(value);
       onChanged();
@@ -3395,7 +3331,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DynamicCustomAsset(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

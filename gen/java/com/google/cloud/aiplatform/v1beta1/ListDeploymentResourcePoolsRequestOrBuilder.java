@@ -10,7 +10,7 @@ public interface ListDeploymentResourcePoolsRequestOrBuilder extends
   /**
    * <pre>
    * Required. The parent Location which owns this collection of DeploymentResourcePools.
-   * Format: projects/{project}/locations/{location}
+   * Format: `projects/{project}/locations/{location}`
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -20,7 +20,7 @@ public interface ListDeploymentResourcePoolsRequestOrBuilder extends
   /**
    * <pre>
    * Required. The parent Location which owns this collection of DeploymentResourcePools.
-   * Format: projects/{project}/locations/{location}
+   * Format: `projects/{project}/locations/{location}`
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

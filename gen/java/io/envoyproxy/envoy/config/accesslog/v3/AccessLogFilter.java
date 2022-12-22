@@ -34,213 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AccessLogFilter(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.accesslog.v3.StatusCodeFilter.Builder subBuilder = null;
-            if (filterSpecifierCase_ == 1) {
-              subBuilder = ((io.envoyproxy.envoy.config.accesslog.v3.StatusCodeFilter) filterSpecifier_).toBuilder();
-            }
-            filterSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.config.accesslog.v3.StatusCodeFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.accesslog.v3.StatusCodeFilter) filterSpecifier_);
-              filterSpecifier_ = subBuilder.buildPartial();
-            }
-            filterSpecifierCase_ = 1;
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.config.accesslog.v3.DurationFilter.Builder subBuilder = null;
-            if (filterSpecifierCase_ == 2) {
-              subBuilder = ((io.envoyproxy.envoy.config.accesslog.v3.DurationFilter) filterSpecifier_).toBuilder();
-            }
-            filterSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.config.accesslog.v3.DurationFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.accesslog.v3.DurationFilter) filterSpecifier_);
-              filterSpecifier_ = subBuilder.buildPartial();
-            }
-            filterSpecifierCase_ = 2;
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.config.accesslog.v3.NotHealthCheckFilter.Builder subBuilder = null;
-            if (filterSpecifierCase_ == 3) {
-              subBuilder = ((io.envoyproxy.envoy.config.accesslog.v3.NotHealthCheckFilter) filterSpecifier_).toBuilder();
-            }
-            filterSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.config.accesslog.v3.NotHealthCheckFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.accesslog.v3.NotHealthCheckFilter) filterSpecifier_);
-              filterSpecifier_ = subBuilder.buildPartial();
-            }
-            filterSpecifierCase_ = 3;
-            break;
-          }
-          case 34: {
-            io.envoyproxy.envoy.config.accesslog.v3.TraceableFilter.Builder subBuilder = null;
-            if (filterSpecifierCase_ == 4) {
-              subBuilder = ((io.envoyproxy.envoy.config.accesslog.v3.TraceableFilter) filterSpecifier_).toBuilder();
-            }
-            filterSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.config.accesslog.v3.TraceableFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.accesslog.v3.TraceableFilter) filterSpecifier_);
-              filterSpecifier_ = subBuilder.buildPartial();
-            }
-            filterSpecifierCase_ = 4;
-            break;
-          }
-          case 42: {
-            io.envoyproxy.envoy.config.accesslog.v3.RuntimeFilter.Builder subBuilder = null;
-            if (filterSpecifierCase_ == 5) {
-              subBuilder = ((io.envoyproxy.envoy.config.accesslog.v3.RuntimeFilter) filterSpecifier_).toBuilder();
-            }
-            filterSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.config.accesslog.v3.RuntimeFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.accesslog.v3.RuntimeFilter) filterSpecifier_);
-              filterSpecifier_ = subBuilder.buildPartial();
-            }
-            filterSpecifierCase_ = 5;
-            break;
-          }
-          case 50: {
-            io.envoyproxy.envoy.config.accesslog.v3.AndFilter.Builder subBuilder = null;
-            if (filterSpecifierCase_ == 6) {
-              subBuilder = ((io.envoyproxy.envoy.config.accesslog.v3.AndFilter) filterSpecifier_).toBuilder();
-            }
-            filterSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.config.accesslog.v3.AndFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.accesslog.v3.AndFilter) filterSpecifier_);
-              filterSpecifier_ = subBuilder.buildPartial();
-            }
-            filterSpecifierCase_ = 6;
-            break;
-          }
-          case 58: {
-            io.envoyproxy.envoy.config.accesslog.v3.OrFilter.Builder subBuilder = null;
-            if (filterSpecifierCase_ == 7) {
-              subBuilder = ((io.envoyproxy.envoy.config.accesslog.v3.OrFilter) filterSpecifier_).toBuilder();
-            }
-            filterSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.config.accesslog.v3.OrFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.accesslog.v3.OrFilter) filterSpecifier_);
-              filterSpecifier_ = subBuilder.buildPartial();
-            }
-            filterSpecifierCase_ = 7;
-            break;
-          }
-          case 66: {
-            io.envoyproxy.envoy.config.accesslog.v3.HeaderFilter.Builder subBuilder = null;
-            if (filterSpecifierCase_ == 8) {
-              subBuilder = ((io.envoyproxy.envoy.config.accesslog.v3.HeaderFilter) filterSpecifier_).toBuilder();
-            }
-            filterSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.config.accesslog.v3.HeaderFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.accesslog.v3.HeaderFilter) filterSpecifier_);
-              filterSpecifier_ = subBuilder.buildPartial();
-            }
-            filterSpecifierCase_ = 8;
-            break;
-          }
-          case 74: {
-            io.envoyproxy.envoy.config.accesslog.v3.ResponseFlagFilter.Builder subBuilder = null;
-            if (filterSpecifierCase_ == 9) {
-              subBuilder = ((io.envoyproxy.envoy.config.accesslog.v3.ResponseFlagFilter) filterSpecifier_).toBuilder();
-            }
-            filterSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.config.accesslog.v3.ResponseFlagFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.accesslog.v3.ResponseFlagFilter) filterSpecifier_);
-              filterSpecifier_ = subBuilder.buildPartial();
-            }
-            filterSpecifierCase_ = 9;
-            break;
-          }
-          case 82: {
-            io.envoyproxy.envoy.config.accesslog.v3.GrpcStatusFilter.Builder subBuilder = null;
-            if (filterSpecifierCase_ == 10) {
-              subBuilder = ((io.envoyproxy.envoy.config.accesslog.v3.GrpcStatusFilter) filterSpecifier_).toBuilder();
-            }
-            filterSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.config.accesslog.v3.GrpcStatusFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.accesslog.v3.GrpcStatusFilter) filterSpecifier_);
-              filterSpecifier_ = subBuilder.buildPartial();
-            }
-            filterSpecifierCase_ = 10;
-            break;
-          }
-          case 90: {
-            io.envoyproxy.envoy.config.accesslog.v3.ExtensionFilter.Builder subBuilder = null;
-            if (filterSpecifierCase_ == 11) {
-              subBuilder = ((io.envoyproxy.envoy.config.accesslog.v3.ExtensionFilter) filterSpecifier_).toBuilder();
-            }
-            filterSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.config.accesslog.v3.ExtensionFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.accesslog.v3.ExtensionFilter) filterSpecifier_);
-              filterSpecifier_ = subBuilder.buildPartial();
-            }
-            filterSpecifierCase_ = 11;
-            break;
-          }
-          case 98: {
-            io.envoyproxy.envoy.config.accesslog.v3.MetadataFilter.Builder subBuilder = null;
-            if (filterSpecifierCase_ == 12) {
-              subBuilder = ((io.envoyproxy.envoy.config.accesslog.v3.MetadataFilter) filterSpecifier_).toBuilder();
-            }
-            filterSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.config.accesslog.v3.MetadataFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.accesslog.v3.MetadataFilter) filterSpecifier_);
-              filterSpecifier_ = subBuilder.buildPartial();
-            }
-            filterSpecifierCase_ = 12;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.accesslog.v3.AccesslogProto.internal_static_envoy_config_accesslog_v3_AccessLogFilter_descriptor;
@@ -884,7 +677,7 @@ private static final long serialVersionUID = 0L;
     if (filterSpecifierCase_ == 12) {
       output.writeMessage(12, (io.envoyproxy.envoy.config.accesslog.v3.MetadataFilter) filterSpecifier_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -941,7 +734,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, (io.envoyproxy.envoy.config.accesslog.v3.MetadataFilter) filterSpecifier_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1009,7 +802,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1072,7 +865,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1193,22 +986,54 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.accesslog.v3.AccessLogFilter.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (statusCodeFilterBuilder_ != null) {
+        statusCodeFilterBuilder_.clear();
+      }
+      if (durationFilterBuilder_ != null) {
+        durationFilterBuilder_.clear();
+      }
+      if (notHealthCheckFilterBuilder_ != null) {
+        notHealthCheckFilterBuilder_.clear();
+      }
+      if (traceableFilterBuilder_ != null) {
+        traceableFilterBuilder_.clear();
+      }
+      if (runtimeFilterBuilder_ != null) {
+        runtimeFilterBuilder_.clear();
+      }
+      if (andFilterBuilder_ != null) {
+        andFilterBuilder_.clear();
+      }
+      if (orFilterBuilder_ != null) {
+        orFilterBuilder_.clear();
+      }
+      if (headerFilterBuilder_ != null) {
+        headerFilterBuilder_.clear();
+      }
+      if (responseFlagFilterBuilder_ != null) {
+        responseFlagFilterBuilder_.clear();
+      }
+      if (grpcStatusFilterBuilder_ != null) {
+        grpcStatusFilterBuilder_.clear();
+      }
+      if (extensionFilterBuilder_ != null) {
+        extensionFilterBuilder_.clear();
+      }
+      if (metadataFilterBuilder_ != null) {
+        metadataFilterBuilder_.clear();
+      }
       filterSpecifierCase_ = 0;
       filterSpecifier_ = null;
       return this;
@@ -1237,93 +1062,67 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.accesslog.v3.AccessLogFilter buildPartial() {
       io.envoyproxy.envoy.config.accesslog.v3.AccessLogFilter result = new io.envoyproxy.envoy.config.accesslog.v3.AccessLogFilter(this);
-      if (filterSpecifierCase_ == 1) {
-        if (statusCodeFilterBuilder_ == null) {
-          result.filterSpecifier_ = filterSpecifier_;
-        } else {
-          result.filterSpecifier_ = statusCodeFilterBuilder_.build();
-        }
-      }
-      if (filterSpecifierCase_ == 2) {
-        if (durationFilterBuilder_ == null) {
-          result.filterSpecifier_ = filterSpecifier_;
-        } else {
-          result.filterSpecifier_ = durationFilterBuilder_.build();
-        }
-      }
-      if (filterSpecifierCase_ == 3) {
-        if (notHealthCheckFilterBuilder_ == null) {
-          result.filterSpecifier_ = filterSpecifier_;
-        } else {
-          result.filterSpecifier_ = notHealthCheckFilterBuilder_.build();
-        }
-      }
-      if (filterSpecifierCase_ == 4) {
-        if (traceableFilterBuilder_ == null) {
-          result.filterSpecifier_ = filterSpecifier_;
-        } else {
-          result.filterSpecifier_ = traceableFilterBuilder_.build();
-        }
-      }
-      if (filterSpecifierCase_ == 5) {
-        if (runtimeFilterBuilder_ == null) {
-          result.filterSpecifier_ = filterSpecifier_;
-        } else {
-          result.filterSpecifier_ = runtimeFilterBuilder_.build();
-        }
-      }
-      if (filterSpecifierCase_ == 6) {
-        if (andFilterBuilder_ == null) {
-          result.filterSpecifier_ = filterSpecifier_;
-        } else {
-          result.filterSpecifier_ = andFilterBuilder_.build();
-        }
-      }
-      if (filterSpecifierCase_ == 7) {
-        if (orFilterBuilder_ == null) {
-          result.filterSpecifier_ = filterSpecifier_;
-        } else {
-          result.filterSpecifier_ = orFilterBuilder_.build();
-        }
-      }
-      if (filterSpecifierCase_ == 8) {
-        if (headerFilterBuilder_ == null) {
-          result.filterSpecifier_ = filterSpecifier_;
-        } else {
-          result.filterSpecifier_ = headerFilterBuilder_.build();
-        }
-      }
-      if (filterSpecifierCase_ == 9) {
-        if (responseFlagFilterBuilder_ == null) {
-          result.filterSpecifier_ = filterSpecifier_;
-        } else {
-          result.filterSpecifier_ = responseFlagFilterBuilder_.build();
-        }
-      }
-      if (filterSpecifierCase_ == 10) {
-        if (grpcStatusFilterBuilder_ == null) {
-          result.filterSpecifier_ = filterSpecifier_;
-        } else {
-          result.filterSpecifier_ = grpcStatusFilterBuilder_.build();
-        }
-      }
-      if (filterSpecifierCase_ == 11) {
-        if (extensionFilterBuilder_ == null) {
-          result.filterSpecifier_ = filterSpecifier_;
-        } else {
-          result.filterSpecifier_ = extensionFilterBuilder_.build();
-        }
-      }
-      if (filterSpecifierCase_ == 12) {
-        if (metadataFilterBuilder_ == null) {
-          result.filterSpecifier_ = filterSpecifier_;
-        } else {
-          result.filterSpecifier_ = metadataFilterBuilder_.build();
-        }
-      }
-      result.filterSpecifierCase_ = filterSpecifierCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.accesslog.v3.AccessLogFilter result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.config.accesslog.v3.AccessLogFilter result) {
+      result.filterSpecifierCase_ = filterSpecifierCase_;
+      result.filterSpecifier_ = this.filterSpecifier_;
+      if (filterSpecifierCase_ == 1 &&
+          statusCodeFilterBuilder_ != null) {
+        result.filterSpecifier_ = statusCodeFilterBuilder_.build();
+      }
+      if (filterSpecifierCase_ == 2 &&
+          durationFilterBuilder_ != null) {
+        result.filterSpecifier_ = durationFilterBuilder_.build();
+      }
+      if (filterSpecifierCase_ == 3 &&
+          notHealthCheckFilterBuilder_ != null) {
+        result.filterSpecifier_ = notHealthCheckFilterBuilder_.build();
+      }
+      if (filterSpecifierCase_ == 4 &&
+          traceableFilterBuilder_ != null) {
+        result.filterSpecifier_ = traceableFilterBuilder_.build();
+      }
+      if (filterSpecifierCase_ == 5 &&
+          runtimeFilterBuilder_ != null) {
+        result.filterSpecifier_ = runtimeFilterBuilder_.build();
+      }
+      if (filterSpecifierCase_ == 6 &&
+          andFilterBuilder_ != null) {
+        result.filterSpecifier_ = andFilterBuilder_.build();
+      }
+      if (filterSpecifierCase_ == 7 &&
+          orFilterBuilder_ != null) {
+        result.filterSpecifier_ = orFilterBuilder_.build();
+      }
+      if (filterSpecifierCase_ == 8 &&
+          headerFilterBuilder_ != null) {
+        result.filterSpecifier_ = headerFilterBuilder_.build();
+      }
+      if (filterSpecifierCase_ == 9 &&
+          responseFlagFilterBuilder_ != null) {
+        result.filterSpecifier_ = responseFlagFilterBuilder_.build();
+      }
+      if (filterSpecifierCase_ == 10 &&
+          grpcStatusFilterBuilder_ != null) {
+        result.filterSpecifier_ = grpcStatusFilterBuilder_.build();
+      }
+      if (filterSpecifierCase_ == 11 &&
+          extensionFilterBuilder_ != null) {
+        result.filterSpecifier_ = extensionFilterBuilder_.build();
+      }
+      if (filterSpecifierCase_ == 12 &&
+          metadataFilterBuilder_ != null) {
+        result.filterSpecifier_ = metadataFilterBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1423,7 +1222,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1438,17 +1237,114 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.accesslog.v3.AccessLogFilter parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getStatusCodeFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              filterSpecifierCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDurationFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              filterSpecifierCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getNotHealthCheckFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              filterSpecifierCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getTraceableFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              filterSpecifierCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getRuntimeFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              filterSpecifierCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getAndFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              filterSpecifierCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getOrFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              filterSpecifierCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getHeaderFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              filterSpecifierCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getResponseFlagFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              filterSpecifierCase_ = 9;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getGrpcStatusFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              filterSpecifierCase_ = 10;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getExtensionFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              filterSpecifierCase_ = 11;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getMetadataFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              filterSpecifierCase_ = 12;
+              break;
+            } // case 98
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.accesslog.v3.AccessLogFilter) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int filterSpecifierCase_ = 0;
@@ -1466,6 +1362,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         io.envoyproxy.envoy.config.accesslog.v3.StatusCodeFilter, io.envoyproxy.envoy.config.accesslog.v3.StatusCodeFilter.Builder, io.envoyproxy.envoy.config.accesslog.v3.StatusCodeFilterOrBuilder> statusCodeFilterBuilder_;
@@ -1641,7 +1538,7 @@ private static final long serialVersionUID = 0L;
         filterSpecifier_ = null;
       }
       filterSpecifierCase_ = 1;
-      onChanged();;
+      onChanged();
       return statusCodeFilterBuilder_;
     }
 
@@ -1819,7 +1716,7 @@ private static final long serialVersionUID = 0L;
         filterSpecifier_ = null;
       }
       filterSpecifierCase_ = 2;
-      onChanged();;
+      onChanged();
       return durationFilterBuilder_;
     }
 
@@ -1997,7 +1894,7 @@ private static final long serialVersionUID = 0L;
         filterSpecifier_ = null;
       }
       filterSpecifierCase_ = 3;
-      onChanged();;
+      onChanged();
       return notHealthCheckFilterBuilder_;
     }
 
@@ -2175,7 +2072,7 @@ private static final long serialVersionUID = 0L;
         filterSpecifier_ = null;
       }
       filterSpecifierCase_ = 4;
-      onChanged();;
+      onChanged();
       return traceableFilterBuilder_;
     }
 
@@ -2353,7 +2250,7 @@ private static final long serialVersionUID = 0L;
         filterSpecifier_ = null;
       }
       filterSpecifierCase_ = 5;
-      onChanged();;
+      onChanged();
       return runtimeFilterBuilder_;
     }
 
@@ -2531,7 +2428,7 @@ private static final long serialVersionUID = 0L;
         filterSpecifier_ = null;
       }
       filterSpecifierCase_ = 6;
-      onChanged();;
+      onChanged();
       return andFilterBuilder_;
     }
 
@@ -2709,7 +2606,7 @@ private static final long serialVersionUID = 0L;
         filterSpecifier_ = null;
       }
       filterSpecifierCase_ = 7;
-      onChanged();;
+      onChanged();
       return orFilterBuilder_;
     }
 
@@ -2887,7 +2784,7 @@ private static final long serialVersionUID = 0L;
         filterSpecifier_ = null;
       }
       filterSpecifierCase_ = 8;
-      onChanged();;
+      onChanged();
       return headerFilterBuilder_;
     }
 
@@ -3065,7 +2962,7 @@ private static final long serialVersionUID = 0L;
         filterSpecifier_ = null;
       }
       filterSpecifierCase_ = 9;
-      onChanged();;
+      onChanged();
       return responseFlagFilterBuilder_;
     }
 
@@ -3243,7 +3140,7 @@ private static final long serialVersionUID = 0L;
         filterSpecifier_ = null;
       }
       filterSpecifierCase_ = 10;
-      onChanged();;
+      onChanged();
       return grpcStatusFilterBuilder_;
     }
 
@@ -3430,7 +3327,7 @@ private static final long serialVersionUID = 0L;
         filterSpecifier_ = null;
       }
       filterSpecifierCase_ = 11;
-      onChanged();;
+      onChanged();
       return extensionFilterBuilder_;
     }
 
@@ -3608,7 +3505,7 @@ private static final long serialVersionUID = 0L;
         filterSpecifier_ = null;
       }
       filterSpecifierCase_ = 12;
-      onChanged();;
+      onChanged();
       return metadataFilterBuilder_;
     }
     @java.lang.Override
@@ -3644,7 +3541,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AccessLogFilter(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

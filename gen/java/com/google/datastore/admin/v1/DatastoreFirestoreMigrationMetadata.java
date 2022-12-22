@@ -41,57 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DatastoreFirestoreMigrationMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            migrationState_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            migrationStep_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.datastore.admin.v1.DatastoreAdminProto.internal_static_google_datastore_admin_v1_DatastoreFirestoreMigrationMetadata_descriptor;
@@ -106,7 +55,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIGRATION_STATE_FIELD_NUMBER = 1;
-  private int migrationState_;
+  private int migrationState_ = 0;
   /**
    * <pre>
    * The current state of migration from Cloud Datastore to Cloud Firestore in
@@ -129,13 +78,12 @@ private static final long serialVersionUID = 0L;
    * @return The migrationState.
    */
   @java.lang.Override public com.google.datastore.admin.v1.MigrationState getMigrationState() {
-    @SuppressWarnings("deprecation")
-    com.google.datastore.admin.v1.MigrationState result = com.google.datastore.admin.v1.MigrationState.valueOf(migrationState_);
+    com.google.datastore.admin.v1.MigrationState result = com.google.datastore.admin.v1.MigrationState.forNumber(migrationState_);
     return result == null ? com.google.datastore.admin.v1.MigrationState.UNRECOGNIZED : result;
   }
 
   public static final int MIGRATION_STEP_FIELD_NUMBER = 2;
-  private int migrationStep_;
+  private int migrationStep_ = 0;
   /**
    * <pre>
    * The current step of migration from Cloud Datastore to Cloud Firestore in
@@ -158,8 +106,7 @@ private static final long serialVersionUID = 0L;
    * @return The migrationStep.
    */
   @java.lang.Override public com.google.datastore.admin.v1.MigrationStep getMigrationStep() {
-    @SuppressWarnings("deprecation")
-    com.google.datastore.admin.v1.MigrationStep result = com.google.datastore.admin.v1.MigrationStep.valueOf(migrationStep_);
+    com.google.datastore.admin.v1.MigrationStep result = com.google.datastore.admin.v1.MigrationStep.forNumber(migrationStep_);
     return result == null ? com.google.datastore.admin.v1.MigrationStep.UNRECOGNIZED : result;
   }
 
@@ -183,7 +130,7 @@ private static final long serialVersionUID = 0L;
     if (migrationStep_ != com.google.datastore.admin.v1.MigrationStep.MIGRATION_STEP_UNSPECIFIED.getNumber()) {
       output.writeEnum(2, migrationStep_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -200,7 +147,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, migrationStep_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -217,7 +164,7 @@ private static final long serialVersionUID = 0L;
 
     if (migrationState_ != other.migrationState_) return false;
     if (migrationStep_ != other.migrationStep_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -232,7 +179,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + migrationState_;
     hash = (37 * hash) + MIGRATION_STEP_FIELD_NUMBER;
     hash = (53 * hash) + migrationStep_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -358,26 +305,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.datastore.admin.v1.DatastoreFirestoreMigrationMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       migrationState_ = 0;
-
       migrationStep_ = 0;
-
       return this;
     }
 
@@ -404,10 +345,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.datastore.admin.v1.DatastoreFirestoreMigrationMetadata buildPartial() {
       com.google.datastore.admin.v1.DatastoreFirestoreMigrationMetadata result = new com.google.datastore.admin.v1.DatastoreFirestoreMigrationMetadata(this);
-      result.migrationState_ = migrationState_;
-      result.migrationStep_ = migrationStep_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.datastore.admin.v1.DatastoreFirestoreMigrationMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.migrationState_ = migrationState_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.migrationStep_ = migrationStep_;
+      }
     }
 
     @java.lang.Override
@@ -460,7 +410,7 @@ private static final long serialVersionUID = 0L;
       if (other.migrationStep_ != 0) {
         setMigrationStepValue(other.getMigrationStepValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -475,19 +425,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.datastore.admin.v1.DatastoreFirestoreMigrationMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              migrationState_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              migrationStep_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.datastore.admin.v1.DatastoreFirestoreMigrationMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int migrationState_ = 0;
     /**
@@ -513,8 +487,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMigrationStateValue(int value) {
-      
       migrationState_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -529,8 +503,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.datastore.admin.v1.MigrationState getMigrationState() {
-      @SuppressWarnings("deprecation")
-      com.google.datastore.admin.v1.MigrationState result = com.google.datastore.admin.v1.MigrationState.valueOf(migrationState_);
+      com.google.datastore.admin.v1.MigrationState result = com.google.datastore.admin.v1.MigrationState.forNumber(migrationState_);
       return result == null ? com.google.datastore.admin.v1.MigrationState.UNRECOGNIZED : result;
     }
     /**
@@ -547,7 +520,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       migrationState_ = value.getNumber();
       onChanged();
       return this;
@@ -562,7 +535,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMigrationState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       migrationState_ = 0;
       onChanged();
       return this;
@@ -592,8 +565,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMigrationStepValue(int value) {
-      
       migrationStep_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -608,8 +581,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.datastore.admin.v1.MigrationStep getMigrationStep() {
-      @SuppressWarnings("deprecation")
-      com.google.datastore.admin.v1.MigrationStep result = com.google.datastore.admin.v1.MigrationStep.valueOf(migrationStep_);
+      com.google.datastore.admin.v1.MigrationStep result = com.google.datastore.admin.v1.MigrationStep.forNumber(migrationStep_);
       return result == null ? com.google.datastore.admin.v1.MigrationStep.UNRECOGNIZED : result;
     }
     /**
@@ -626,7 +598,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       migrationStep_ = value.getNumber();
       onChanged();
       return this;
@@ -641,7 +613,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMigrationStep() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       migrationStep_ = 0;
       onChanged();
       return this;
@@ -679,7 +651,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DatastoreFirestoreMigrationMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

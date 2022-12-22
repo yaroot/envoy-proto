@@ -12,10 +12,9 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nQgoogle/cloud/aiplatform/v1/schema/predict/prediction/image_object_detection.proto\x12\x34google.cloud.aiplatform.v1.schema.predict.prediction\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1cgoogle/api/annotations.proto\"\x8b\x01\n$ImageObjectDetectionPredictionResult\x12\x0b\n\x03ids\x18\x01 \x03(\x03\x12\x15\n\rdisplay_names\x18\x02 \x03(\t\x12\x13\n\x0b\x63onfidences\x18\x03 \x03(\x02\x12*\n\x06\x62\x62oxes\x18\x04 \x03(\x0b\x32\x1a.google.protobuf.ListValueB\xf2\x02\n8com.google.cloud.aiplatform.v1.schema.predict.predictionB)ImageObjectDetectionPredictionResultProtoP\x01Z^google.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/prediction;prediction\xaa\x02\x34Google.Cloud.AIPlatform.V1.Schema.Predict.Prediction\xca\x02\x34Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Prediction\xea\x02:Google::Cloud::AIPlatform::V1::Schema::Predict::Predictionb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nQgoogle/cloud/aiplatform/v1/schema/predict/prediction/image_object_detection.proto\x12\x34google.cloud.aiplatform.v1.schema.predict.prediction\x1a\x1cgoogle/protobuf/struct.proto\"\x8b\x01\n$ImageObjectDetectionPredictionResult\x12\x0b\n\x03ids\x18\x01 \x03(\x03\x12\x15\n\rdisplay_names\x18\x02 \x03(\t\x12\x13\n\x0b\x63onfidences\x18\x03 \x03(\x02\x12*\n\x06\x62\x62oxes\x18\x04 \x03(\x0b\x32\x1a.google.protobuf.ListValueB\xf2\x02\n8com.google.cloud.aiplatform.v1.schema.predict.predictionB)ImageObjectDetectionPredictionResultProtoP\x01Z^google.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/prediction;prediction\xaa\x02\x34Google.Cloud.AIPlatform.V1.Schema.Predict.Prediction\xca\x02\x34Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Prediction\xea\x02:Google::Cloud::AIPlatform::V1::Schema::Predict::Predictionb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.aiplatform.v1.schema.predict.prediction.image_object_detection_pb2', globals())
@@ -23,6 +22,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n8com.google.cloud.aiplatform.v1.schema.predict.predictionB)ImageObjectDetectionPredictionResultProtoP\001Z^google.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/prediction;prediction\252\0024Google.Cloud.AIPlatform.V1.Schema.Predict.Prediction\312\0024Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Prediction\352\002:Google::Cloud::AIPlatform::V1::Schema::Predict::Prediction'
-  _IMAGEOBJECTDETECTIONPREDICTIONRESULT._serialized_start=200
-  _IMAGEOBJECTDETECTIONPREDICTIONRESULT._serialized_end=339
+  _IMAGEOBJECTDETECTIONPREDICTIONRESULT._serialized_start=170
+  _IMAGEOBJECTDETECTIONPREDICTIONRESULT._serialized_end=309
 # @@protoc_insertion_point(module_scope)

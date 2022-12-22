@@ -41,132 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AutoprovisioningNodePoolDefaults(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              oauthScopes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            oauthScopes_.add(s);
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceAccount_ = s;
-            break;
-          }
-          case 26: {
-            com.google.container.v1beta1.NodePool.UpgradeSettings.Builder subBuilder = null;
-            if (upgradeSettings_ != null) {
-              subBuilder = upgradeSettings_.toBuilder();
-            }
-            upgradeSettings_ = input.readMessage(com.google.container.v1beta1.NodePool.UpgradeSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(upgradeSettings_);
-              upgradeSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.container.v1beta1.NodeManagement.Builder subBuilder = null;
-            if (management_ != null) {
-              subBuilder = management_.toBuilder();
-            }
-            management_ = input.readMessage(com.google.container.v1beta1.NodeManagement.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(management_);
-              management_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            minCpuPlatform_ = s;
-            break;
-          }
-          case 48: {
-
-            diskSizeGb_ = input.readInt32();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            diskType_ = s;
-            break;
-          }
-          case 66: {
-            com.google.container.v1beta1.ShieldedInstanceConfig.Builder subBuilder = null;
-            if (shieldedInstanceConfig_ != null) {
-              subBuilder = shieldedInstanceConfig_.toBuilder();
-            }
-            shieldedInstanceConfig_ = input.readMessage(com.google.container.v1beta1.ShieldedInstanceConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(shieldedInstanceConfig_);
-              shieldedInstanceConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            bootDiskKmsKey_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            imageType_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        oauthScopes_ = oauthScopes_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_AutoprovisioningNodePoolDefaults_descriptor;
@@ -181,6 +55,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OAUTH_SCOPES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList oauthScopes_;
   /**
    * <pre>
@@ -276,7 +151,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_ACCOUNT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object serviceAccount_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceAccount_ = "";
   /**
    * <pre>
    * The Google Cloud Platform Service Account to be used by the node VMs.
@@ -360,7 +236,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1beta1.NodePool.UpgradeSettingsOrBuilder getUpgradeSettingsOrBuilder() {
-    return getUpgradeSettings();
+    return upgradeSettings_ == null ? com.google.container.v1beta1.NodePool.UpgradeSettings.getDefaultInstance() : upgradeSettings_;
   }
 
   public static final int MANAGEMENT_FIELD_NUMBER = 4;
@@ -398,11 +274,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1beta1.NodeManagementOrBuilder getManagementOrBuilder() {
-    return getManagement();
+    return management_ == null ? com.google.container.v1beta1.NodeManagement.getDefaultInstance() : management_;
   }
 
   public static final int MIN_CPU_PLATFORM_FIELD_NUMBER = 5;
-  private volatile java.lang.Object minCpuPlatform_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object minCpuPlatform_ = "";
   /**
    * <pre>
    * Deprecated. Minimum CPU platform to be used for NAP created node pools.
@@ -411,7 +288,7 @@ private static final long serialVersionUID = 0L;
    * minCpuPlatform: Intel Haswell or
    * minCpuPlatform: Intel Sandy Bridge. For more
    * information, read [how to specify min CPU
-   * platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform)
+   * platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform).
    * This field is deprecated, min_cpu_platform should be specified using
    * https://cloud.google.com/requested-min-cpu-platform label selector on the
    * pod.
@@ -421,7 +298,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string min_cpu_platform = 5 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.AutoprovisioningNodePoolDefaults.min_cpu_platform is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=3856
+   *     See google/container/v1beta1/cluster_service.proto;l=3927
    * @return The minCpuPlatform.
    */
   @java.lang.Override
@@ -445,7 +322,7 @@ private static final long serialVersionUID = 0L;
    * minCpuPlatform: Intel Haswell or
    * minCpuPlatform: Intel Sandy Bridge. For more
    * information, read [how to specify min CPU
-   * platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform)
+   * platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform).
    * This field is deprecated, min_cpu_platform should be specified using
    * https://cloud.google.com/requested-min-cpu-platform label selector on the
    * pod.
@@ -455,7 +332,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string min_cpu_platform = 5 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.AutoprovisioningNodePoolDefaults.min_cpu_platform is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=3856
+   *     See google/container/v1beta1/cluster_service.proto;l=3927
    * @return The bytes for minCpuPlatform.
    */
   @java.lang.Override
@@ -474,7 +351,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISK_SIZE_GB_FIELD_NUMBER = 6;
-  private int diskSizeGb_;
+  private int diskSizeGb_ = 0;
   /**
    * <pre>
    * Size of the disk attached to each node, specified in GB.
@@ -491,7 +368,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISK_TYPE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object diskType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object diskType_ = "";
   /**
    * <pre>
    * Type of the disk attached to each node (e.g. 'pd-standard', 'pd-ssd' or
@@ -575,11 +453,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1beta1.ShieldedInstanceConfigOrBuilder getShieldedInstanceConfigOrBuilder() {
-    return getShieldedInstanceConfig();
+    return shieldedInstanceConfig_ == null ? com.google.container.v1beta1.ShieldedInstanceConfig.getDefaultInstance() : shieldedInstanceConfig_;
   }
 
   public static final int BOOT_DISK_KMS_KEY_FIELD_NUMBER = 9;
-  private volatile java.lang.Object bootDiskKmsKey_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object bootDiskKmsKey_ = "";
   /**
    * <pre>
    * The Customer Managed Encryption Key used to encrypt the boot disk attached
@@ -635,7 +514,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGE_TYPE_FIELD_NUMBER = 10;
-  private volatile java.lang.Object imageType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object imageType_ = "";
   /**
    * <pre>
    * The image type to use for NAP created node.
@@ -724,7 +604,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, imageType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -772,7 +652,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, imageType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -816,7 +696,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getBootDiskKmsKey())) return false;
     if (!getImageType()
         .equals(other.getImageType())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -855,7 +735,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getBootDiskKmsKey().hashCode();
     hash = (37 * hash) + IMAGE_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getImageType().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -977,54 +857,41 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1beta1.AutoprovisioningNodePoolDefaults.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       oauthScopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       serviceAccount_ = "";
-
-      if (upgradeSettingsBuilder_ == null) {
-        upgradeSettings_ = null;
-      } else {
-        upgradeSettings_ = null;
+      upgradeSettings_ = null;
+      if (upgradeSettingsBuilder_ != null) {
+        upgradeSettingsBuilder_.dispose();
         upgradeSettingsBuilder_ = null;
       }
-      if (managementBuilder_ == null) {
-        management_ = null;
-      } else {
-        management_ = null;
+      management_ = null;
+      if (managementBuilder_ != null) {
+        managementBuilder_.dispose();
         managementBuilder_ = null;
       }
       minCpuPlatform_ = "";
-
       diskSizeGb_ = 0;
-
       diskType_ = "";
-
-      if (shieldedInstanceConfigBuilder_ == null) {
-        shieldedInstanceConfig_ = null;
-      } else {
-        shieldedInstanceConfig_ = null;
+      shieldedInstanceConfig_ = null;
+      if (shieldedInstanceConfigBuilder_ != null) {
+        shieldedInstanceConfigBuilder_.dispose();
         shieldedInstanceConfigBuilder_ = null;
       }
       bootDiskKmsKey_ = "";
-
       imageType_ = "";
-
       return this;
     }
 
@@ -1051,35 +918,55 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1beta1.AutoprovisioningNodePoolDefaults buildPartial() {
       com.google.container.v1beta1.AutoprovisioningNodePoolDefaults result = new com.google.container.v1beta1.AutoprovisioningNodePoolDefaults(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.container.v1beta1.AutoprovisioningNodePoolDefaults result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         oauthScopes_ = oauthScopes_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.oauthScopes_ = oauthScopes_;
-      result.serviceAccount_ = serviceAccount_;
-      if (upgradeSettingsBuilder_ == null) {
-        result.upgradeSettings_ = upgradeSettings_;
-      } else {
-        result.upgradeSettings_ = upgradeSettingsBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.container.v1beta1.AutoprovisioningNodePoolDefaults result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.serviceAccount_ = serviceAccount_;
       }
-      if (managementBuilder_ == null) {
-        result.management_ = management_;
-      } else {
-        result.management_ = managementBuilder_.build();
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.upgradeSettings_ = upgradeSettingsBuilder_ == null
+            ? upgradeSettings_
+            : upgradeSettingsBuilder_.build();
       }
-      result.minCpuPlatform_ = minCpuPlatform_;
-      result.diskSizeGb_ = diskSizeGb_;
-      result.diskType_ = diskType_;
-      if (shieldedInstanceConfigBuilder_ == null) {
-        result.shieldedInstanceConfig_ = shieldedInstanceConfig_;
-      } else {
-        result.shieldedInstanceConfig_ = shieldedInstanceConfigBuilder_.build();
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.management_ = managementBuilder_ == null
+            ? management_
+            : managementBuilder_.build();
       }
-      result.bootDiskKmsKey_ = bootDiskKmsKey_;
-      result.imageType_ = imageType_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.minCpuPlatform_ = minCpuPlatform_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.diskSizeGb_ = diskSizeGb_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.diskType_ = diskType_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.shieldedInstanceConfig_ = shieldedInstanceConfigBuilder_ == null
+            ? shieldedInstanceConfig_
+            : shieldedInstanceConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.bootDiskKmsKey_ = bootDiskKmsKey_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.imageType_ = imageType_;
+      }
     }
 
     @java.lang.Override
@@ -1138,6 +1025,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getServiceAccount().isEmpty()) {
         serviceAccount_ = other.serviceAccount_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasUpgradeSettings()) {
@@ -1148,6 +1036,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getMinCpuPlatform().isEmpty()) {
         minCpuPlatform_ = other.minCpuPlatform_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.getDiskSizeGb() != 0) {
@@ -1155,6 +1044,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDiskType().isEmpty()) {
         diskType_ = other.diskType_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasShieldedInstanceConfig()) {
@@ -1162,13 +1052,15 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getBootDiskKmsKey().isEmpty()) {
         bootDiskKmsKey_ = other.bootDiskKmsKey_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (!other.getImageType().isEmpty()) {
         imageType_ = other.imageType_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1183,17 +1075,87 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1beta1.AutoprovisioningNodePoolDefaults parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureOauthScopesIsMutable();
+              oauthScopes_.add(s);
+              break;
+            } // case 10
+            case 18: {
+              serviceAccount_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getUpgradeSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getManagementFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              minCpuPlatform_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              diskSizeGb_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              diskType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getShieldedInstanceConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              bootDiskKmsKey_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              imageType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1beta1.AutoprovisioningNodePoolDefaults) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1320,10 +1282,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOauthScopes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureOauthScopesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureOauthScopesIsMutable();
       oauthScopes_.set(index, value);
       onChanged();
       return this;
@@ -1350,10 +1310,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addOauthScopes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureOauthScopesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureOauthScopesIsMutable();
       oauthScopes_.add(value);
       onChanged();
       return this;
@@ -1433,10 +1391,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addOauthScopesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureOauthScopesIsMutable();
       oauthScopes_.add(value);
       onChanged();
@@ -1502,11 +1458,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccount(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceAccount_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1521,8 +1475,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServiceAccount() {
-      
       serviceAccount_ = getDefaultInstance().getServiceAccount();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1539,12 +1493,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccountBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceAccount_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1561,7 +1513,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the upgradeSettings field is set.
      */
     public boolean hasUpgradeSettings() {
-      return upgradeSettingsBuilder_ != null || upgradeSettings_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1591,11 +1543,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         upgradeSettings_ = value;
-        onChanged();
       } else {
         upgradeSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1609,11 +1561,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.NodePool.UpgradeSettings.Builder builderForValue) {
       if (upgradeSettingsBuilder_ == null) {
         upgradeSettings_ = builderForValue.build();
-        onChanged();
       } else {
         upgradeSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1625,17 +1577,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpgradeSettings(com.google.container.v1beta1.NodePool.UpgradeSettings value) {
       if (upgradeSettingsBuilder_ == null) {
-        if (upgradeSettings_ != null) {
-          upgradeSettings_ =
-            com.google.container.v1beta1.NodePool.UpgradeSettings.newBuilder(upgradeSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          upgradeSettings_ != null &&
+          upgradeSettings_ != com.google.container.v1beta1.NodePool.UpgradeSettings.getDefaultInstance()) {
+          getUpgradeSettingsBuilder().mergeFrom(value);
         } else {
           upgradeSettings_ = value;
         }
-        onChanged();
       } else {
         upgradeSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1646,14 +1599,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.NodePool.UpgradeSettings upgrade_settings = 3;</code>
      */
     public Builder clearUpgradeSettings() {
-      if (upgradeSettingsBuilder_ == null) {
-        upgradeSettings_ = null;
-        onChanged();
-      } else {
-        upgradeSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      upgradeSettings_ = null;
+      if (upgradeSettingsBuilder_ != null) {
+        upgradeSettingsBuilder_.dispose();
         upgradeSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1664,7 +1616,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.NodePool.UpgradeSettings upgrade_settings = 3;</code>
      */
     public com.google.container.v1beta1.NodePool.UpgradeSettings.Builder getUpgradeSettingsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getUpgradeSettingsFieldBuilder().getBuilder();
     }
@@ -1716,7 +1668,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the management field is set.
      */
     public boolean hasManagement() {
-      return managementBuilder_ != null || management_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1746,11 +1698,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         management_ = value;
-        onChanged();
       } else {
         managementBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1764,11 +1716,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.NodeManagement.Builder builderForValue) {
       if (managementBuilder_ == null) {
         management_ = builderForValue.build();
-        onChanged();
       } else {
         managementBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1780,17 +1732,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeManagement(com.google.container.v1beta1.NodeManagement value) {
       if (managementBuilder_ == null) {
-        if (management_ != null) {
-          management_ =
-            com.google.container.v1beta1.NodeManagement.newBuilder(management_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          management_ != null &&
+          management_ != com.google.container.v1beta1.NodeManagement.getDefaultInstance()) {
+          getManagementBuilder().mergeFrom(value);
         } else {
           management_ = value;
         }
-        onChanged();
       } else {
         managementBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1801,14 +1754,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.NodeManagement management = 4;</code>
      */
     public Builder clearManagement() {
-      if (managementBuilder_ == null) {
-        management_ = null;
-        onChanged();
-      } else {
-        management_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      management_ = null;
+      if (managementBuilder_ != null) {
+        managementBuilder_.dispose();
         managementBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1819,7 +1771,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.NodeManagement management = 4;</code>
      */
     public com.google.container.v1beta1.NodeManagement.Builder getManagementBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getManagementFieldBuilder().getBuilder();
     }
@@ -1868,7 +1820,7 @@ private static final long serialVersionUID = 0L;
      * minCpuPlatform: Intel Haswell or
      * minCpuPlatform: Intel Sandy Bridge. For more
      * information, read [how to specify min CPU
-     * platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform)
+     * platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform).
      * This field is deprecated, min_cpu_platform should be specified using
      * https://cloud.google.com/requested-min-cpu-platform label selector on the
      * pod.
@@ -1878,7 +1830,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string min_cpu_platform = 5 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.AutoprovisioningNodePoolDefaults.min_cpu_platform is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=3856
+     *     See google/container/v1beta1/cluster_service.proto;l=3927
      * @return The minCpuPlatform.
      */
     @java.lang.Deprecated public java.lang.String getMinCpuPlatform() {
@@ -1901,7 +1853,7 @@ private static final long serialVersionUID = 0L;
      * minCpuPlatform: Intel Haswell or
      * minCpuPlatform: Intel Sandy Bridge. For more
      * information, read [how to specify min CPU
-     * platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform)
+     * platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform).
      * This field is deprecated, min_cpu_platform should be specified using
      * https://cloud.google.com/requested-min-cpu-platform label selector on the
      * pod.
@@ -1911,7 +1863,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string min_cpu_platform = 5 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.AutoprovisioningNodePoolDefaults.min_cpu_platform is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=3856
+     *     See google/container/v1beta1/cluster_service.proto;l=3927
      * @return The bytes for minCpuPlatform.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -1935,7 +1887,7 @@ private static final long serialVersionUID = 0L;
      * minCpuPlatform: Intel Haswell or
      * minCpuPlatform: Intel Sandy Bridge. For more
      * information, read [how to specify min CPU
-     * platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform)
+     * platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform).
      * This field is deprecated, min_cpu_platform should be specified using
      * https://cloud.google.com/requested-min-cpu-platform label selector on the
      * pod.
@@ -1945,17 +1897,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string min_cpu_platform = 5 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.AutoprovisioningNodePoolDefaults.min_cpu_platform is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=3856
+     *     See google/container/v1beta1/cluster_service.proto;l=3927
      * @param value The minCpuPlatform to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setMinCpuPlatform(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       minCpuPlatform_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1967,7 +1917,7 @@ private static final long serialVersionUID = 0L;
      * minCpuPlatform: Intel Haswell or
      * minCpuPlatform: Intel Sandy Bridge. For more
      * information, read [how to specify min CPU
-     * platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform)
+     * platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform).
      * This field is deprecated, min_cpu_platform should be specified using
      * https://cloud.google.com/requested-min-cpu-platform label selector on the
      * pod.
@@ -1977,12 +1927,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string min_cpu_platform = 5 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.AutoprovisioningNodePoolDefaults.min_cpu_platform is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=3856
+     *     See google/container/v1beta1/cluster_service.proto;l=3927
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearMinCpuPlatform() {
-      
       minCpuPlatform_ = getDefaultInstance().getMinCpuPlatform();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1994,7 +1944,7 @@ private static final long serialVersionUID = 0L;
      * minCpuPlatform: Intel Haswell or
      * minCpuPlatform: Intel Sandy Bridge. For more
      * information, read [how to specify min CPU
-     * platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform)
+     * platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform).
      * This field is deprecated, min_cpu_platform should be specified using
      * https://cloud.google.com/requested-min-cpu-platform label selector on the
      * pod.
@@ -2004,18 +1954,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string min_cpu_platform = 5 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.AutoprovisioningNodePoolDefaults.min_cpu_platform is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=3856
+     *     See google/container/v1beta1/cluster_service.proto;l=3927
      * @param value The bytes for minCpuPlatform to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setMinCpuPlatformBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       minCpuPlatform_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2049,6 +1997,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDiskSizeGb(int value) {
       
       diskSizeGb_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2063,7 +2012,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDiskSizeGb() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       diskSizeGb_ = 0;
       onChanged();
       return this;
@@ -2128,11 +2077,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDiskType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       diskType_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2147,8 +2094,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDiskType() {
-      
       diskType_ = getDefaultInstance().getDiskType();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2165,12 +2112,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDiskTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       diskType_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2187,7 +2132,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the shieldedInstanceConfig field is set.
      */
     public boolean hasShieldedInstanceConfig() {
-      return shieldedInstanceConfigBuilder_ != null || shieldedInstanceConfig_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2217,11 +2162,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         shieldedInstanceConfig_ = value;
-        onChanged();
       } else {
         shieldedInstanceConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2235,11 +2180,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.ShieldedInstanceConfig.Builder builderForValue) {
       if (shieldedInstanceConfigBuilder_ == null) {
         shieldedInstanceConfig_ = builderForValue.build();
-        onChanged();
       } else {
         shieldedInstanceConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2251,17 +2196,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeShieldedInstanceConfig(com.google.container.v1beta1.ShieldedInstanceConfig value) {
       if (shieldedInstanceConfigBuilder_ == null) {
-        if (shieldedInstanceConfig_ != null) {
-          shieldedInstanceConfig_ =
-            com.google.container.v1beta1.ShieldedInstanceConfig.newBuilder(shieldedInstanceConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          shieldedInstanceConfig_ != null &&
+          shieldedInstanceConfig_ != com.google.container.v1beta1.ShieldedInstanceConfig.getDefaultInstance()) {
+          getShieldedInstanceConfigBuilder().mergeFrom(value);
         } else {
           shieldedInstanceConfig_ = value;
         }
-        onChanged();
       } else {
         shieldedInstanceConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2272,14 +2218,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.ShieldedInstanceConfig shielded_instance_config = 8;</code>
      */
     public Builder clearShieldedInstanceConfig() {
-      if (shieldedInstanceConfigBuilder_ == null) {
-        shieldedInstanceConfig_ = null;
-        onChanged();
-      } else {
-        shieldedInstanceConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      shieldedInstanceConfig_ = null;
+      if (shieldedInstanceConfigBuilder_ != null) {
+        shieldedInstanceConfigBuilder_.dispose();
         shieldedInstanceConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2290,7 +2235,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.ShieldedInstanceConfig shielded_instance_config = 8;</code>
      */
     public com.google.container.v1beta1.ShieldedInstanceConfig.Builder getShieldedInstanceConfigBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getShieldedInstanceConfigFieldBuilder().getBuilder();
     }
@@ -2398,11 +2343,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBootDiskKmsKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       bootDiskKmsKey_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2420,8 +2363,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBootDiskKmsKey() {
-      
       bootDiskKmsKey_ = getDefaultInstance().getBootDiskKmsKey();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2441,12 +2384,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBootDiskKmsKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       bootDiskKmsKey_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2504,11 +2445,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       imageType_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2521,8 +2460,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImageType() {
-      
       imageType_ = getDefaultInstance().getImageType();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2537,12 +2476,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       imageType_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2579,7 +2516,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AutoprovisioningNodePoolDefaults(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

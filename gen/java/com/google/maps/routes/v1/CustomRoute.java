@@ -37,64 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CustomRoute(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 90: {
-            com.google.maps.routes.v1.Route.Builder subBuilder = null;
-            if (route_ != null) {
-              subBuilder = route_.toBuilder();
-            }
-            route_ = input.readMessage(com.google.maps.routes.v1.Route.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(route_);
-              route_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            token_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.routes.v1.CustomRouteProto.internal_static_google_maps_routes_v1_CustomRoute_descriptor;
@@ -143,11 +85,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.maps.routes.v1.RouteOrBuilder getRouteOrBuilder() {
-    return getRoute();
+    return route_ == null ? com.google.maps.routes.v1.Route.getDefaultInstance() : route_;
   }
 
   public static final int TOKEN_FIELD_NUMBER = 12;
-  private volatile java.lang.Object token_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object token_ = "";
   /**
    * <pre>
    * Web-safe base64 encoded route token that can be passed to NavSDK, which
@@ -220,7 +163,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, token_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -236,7 +179,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, token_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -258,7 +201,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getToken()
         .equals(other.getToken())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -275,7 +218,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + TOKEN_FIELD_NUMBER;
     hash = (53 * hash) + getToken().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -398,30 +341,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.routes.v1.CustomRoute.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (routeBuilder_ == null) {
-        route_ = null;
-      } else {
-        route_ = null;
+      bitField0_ = 0;
+      route_ = null;
+      if (routeBuilder_ != null) {
+        routeBuilder_.dispose();
         routeBuilder_ = null;
       }
       token_ = "";
-
       return this;
     }
 
@@ -448,14 +385,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.routes.v1.CustomRoute buildPartial() {
       com.google.maps.routes.v1.CustomRoute result = new com.google.maps.routes.v1.CustomRoute(this);
-      if (routeBuilder_ == null) {
-        result.route_ = route_;
-      } else {
-        result.route_ = routeBuilder_.build();
-      }
-      result.token_ = token_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.maps.routes.v1.CustomRoute result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.route_ = routeBuilder_ == null
+            ? route_
+            : routeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.token_ = token_;
+      }
     }
 
     @java.lang.Override
@@ -507,9 +451,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getToken().isEmpty()) {
         token_ = other.token_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -524,19 +469,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.routes.v1.CustomRoute parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 90: {
+              input.readMessage(
+                  getRouteFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 90
+            case 98: {
+              token_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 98
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.routes.v1.CustomRoute) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.maps.routes.v1.Route route_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -550,7 +521,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the route field is set.
      */
     public boolean hasRoute() {
-      return routeBuilder_ != null || route_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -580,11 +551,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         route_ = value;
-        onChanged();
       } else {
         routeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -598,11 +569,11 @@ private static final long serialVersionUID = 0L;
         com.google.maps.routes.v1.Route.Builder builderForValue) {
       if (routeBuilder_ == null) {
         route_ = builderForValue.build();
-        onChanged();
       } else {
         routeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -614,17 +585,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRoute(com.google.maps.routes.v1.Route value) {
       if (routeBuilder_ == null) {
-        if (route_ != null) {
-          route_ =
-            com.google.maps.routes.v1.Route.newBuilder(route_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          route_ != null &&
+          route_ != com.google.maps.routes.v1.Route.getDefaultInstance()) {
+          getRouteBuilder().mergeFrom(value);
         } else {
           route_ = value;
         }
-        onChanged();
       } else {
         routeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -635,14 +607,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routes.v1.Route route = 11;</code>
      */
     public Builder clearRoute() {
-      if (routeBuilder_ == null) {
-        route_ = null;
-        onChanged();
-      } else {
-        route_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      route_ = null;
+      if (routeBuilder_ != null) {
+        routeBuilder_.dispose();
         routeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -653,7 +624,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routes.v1.Route route = 11;</code>
      */
     public com.google.maps.routes.v1.Route.Builder getRouteBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getRouteFieldBuilder().getBuilder();
     }
@@ -758,11 +729,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       token_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -779,8 +748,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearToken() {
-      
       token_ = getDefaultInstance().getToken();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -799,12 +768,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       token_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -841,7 +808,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CustomRoute(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

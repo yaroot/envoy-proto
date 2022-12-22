@@ -35,97 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AddonsConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.container.v1alpha1.HttpLoadBalancing.Builder subBuilder = null;
-            if (httpLoadBalancing_ != null) {
-              subBuilder = httpLoadBalancing_.toBuilder();
-            }
-            httpLoadBalancing_ = input.readMessage(com.google.container.v1alpha1.HttpLoadBalancing.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(httpLoadBalancing_);
-              httpLoadBalancing_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.container.v1alpha1.HorizontalPodAutoscaling.Builder subBuilder = null;
-            if (horizontalPodAutoscaling_ != null) {
-              subBuilder = horizontalPodAutoscaling_.toBuilder();
-            }
-            horizontalPodAutoscaling_ = input.readMessage(com.google.container.v1alpha1.HorizontalPodAutoscaling.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(horizontalPodAutoscaling_);
-              horizontalPodAutoscaling_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.container.v1alpha1.KubernetesDashboard.Builder subBuilder = null;
-            if (kubernetesDashboard_ != null) {
-              subBuilder = kubernetesDashboard_.toBuilder();
-            }
-            kubernetesDashboard_ = input.readMessage(com.google.container.v1alpha1.KubernetesDashboard.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(kubernetesDashboard_);
-              kubernetesDashboard_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.container.v1alpha1.NetworkPolicyConfig.Builder subBuilder = null;
-            if (networkPolicyConfig_ != null) {
-              subBuilder = networkPolicyConfig_.toBuilder();
-            }
-            networkPolicyConfig_ = input.readMessage(com.google.container.v1alpha1.NetworkPolicyConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(networkPolicyConfig_);
-              networkPolicyConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1alpha1.ClusterServiceProto.internal_static_google_container_v1alpha1_AddonsConfig_descriptor;
@@ -177,7 +86,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1alpha1.HttpLoadBalancingOrBuilder getHttpLoadBalancingOrBuilder() {
-    return getHttpLoadBalancing();
+    return httpLoadBalancing_ == null ? com.google.container.v1alpha1.HttpLoadBalancing.getDefaultInstance() : httpLoadBalancing_;
   }
 
   public static final int HORIZONTAL_POD_AUTOSCALING_FIELD_NUMBER = 2;
@@ -221,7 +130,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1alpha1.HorizontalPodAutoscalingOrBuilder getHorizontalPodAutoscalingOrBuilder() {
-    return getHorizontalPodAutoscaling();
+    return horizontalPodAutoscaling_ == null ? com.google.container.v1alpha1.HorizontalPodAutoscaling.getDefaultInstance() : horizontalPodAutoscaling_;
   }
 
   public static final int KUBERNETES_DASHBOARD_FIELD_NUMBER = 3;
@@ -259,7 +168,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1alpha1.KubernetesDashboardOrBuilder getKubernetesDashboardOrBuilder() {
-    return getKubernetesDashboard();
+    return kubernetesDashboard_ == null ? com.google.container.v1alpha1.KubernetesDashboard.getDefaultInstance() : kubernetesDashboard_;
   }
 
   public static final int NETWORK_POLICY_CONFIG_FIELD_NUMBER = 4;
@@ -303,7 +212,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1alpha1.NetworkPolicyConfigOrBuilder getNetworkPolicyConfigOrBuilder() {
-    return getNetworkPolicyConfig();
+    return networkPolicyConfig_ == null ? com.google.container.v1alpha1.NetworkPolicyConfig.getDefaultInstance() : networkPolicyConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -332,7 +241,7 @@ private static final long serialVersionUID = 0L;
     if (networkPolicyConfig_ != null) {
       output.writeMessage(4, getNetworkPolicyConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -357,7 +266,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getNetworkPolicyConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -392,7 +301,7 @@ private static final long serialVersionUID = 0L;
       if (!getNetworkPolicyConfig()
           .equals(other.getNetworkPolicyConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -419,7 +328,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NETWORK_POLICY_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getNetworkPolicyConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -541,44 +450,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1alpha1.AddonsConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (httpLoadBalancingBuilder_ == null) {
-        httpLoadBalancing_ = null;
-      } else {
-        httpLoadBalancing_ = null;
+      bitField0_ = 0;
+      httpLoadBalancing_ = null;
+      if (httpLoadBalancingBuilder_ != null) {
+        httpLoadBalancingBuilder_.dispose();
         httpLoadBalancingBuilder_ = null;
       }
-      if (horizontalPodAutoscalingBuilder_ == null) {
-        horizontalPodAutoscaling_ = null;
-      } else {
-        horizontalPodAutoscaling_ = null;
+      horizontalPodAutoscaling_ = null;
+      if (horizontalPodAutoscalingBuilder_ != null) {
+        horizontalPodAutoscalingBuilder_.dispose();
         horizontalPodAutoscalingBuilder_ = null;
       }
-      if (kubernetesDashboardBuilder_ == null) {
-        kubernetesDashboard_ = null;
-      } else {
-        kubernetesDashboard_ = null;
+      kubernetesDashboard_ = null;
+      if (kubernetesDashboardBuilder_ != null) {
+        kubernetesDashboardBuilder_.dispose();
         kubernetesDashboardBuilder_ = null;
       }
-      if (networkPolicyConfigBuilder_ == null) {
-        networkPolicyConfig_ = null;
-      } else {
-        networkPolicyConfig_ = null;
+      networkPolicyConfig_ = null;
+      if (networkPolicyConfigBuilder_ != null) {
+        networkPolicyConfigBuilder_.dispose();
         networkPolicyConfigBuilder_ = null;
       }
       return this;
@@ -607,28 +508,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1alpha1.AddonsConfig buildPartial() {
       com.google.container.v1alpha1.AddonsConfig result = new com.google.container.v1alpha1.AddonsConfig(this);
-      if (httpLoadBalancingBuilder_ == null) {
-        result.httpLoadBalancing_ = httpLoadBalancing_;
-      } else {
-        result.httpLoadBalancing_ = httpLoadBalancingBuilder_.build();
-      }
-      if (horizontalPodAutoscalingBuilder_ == null) {
-        result.horizontalPodAutoscaling_ = horizontalPodAutoscaling_;
-      } else {
-        result.horizontalPodAutoscaling_ = horizontalPodAutoscalingBuilder_.build();
-      }
-      if (kubernetesDashboardBuilder_ == null) {
-        result.kubernetesDashboard_ = kubernetesDashboard_;
-      } else {
-        result.kubernetesDashboard_ = kubernetesDashboardBuilder_.build();
-      }
-      if (networkPolicyConfigBuilder_ == null) {
-        result.networkPolicyConfig_ = networkPolicyConfig_;
-      } else {
-        result.networkPolicyConfig_ = networkPolicyConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.container.v1alpha1.AddonsConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.httpLoadBalancing_ = httpLoadBalancingBuilder_ == null
+            ? httpLoadBalancing_
+            : httpLoadBalancingBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.horizontalPodAutoscaling_ = horizontalPodAutoscalingBuilder_ == null
+            ? horizontalPodAutoscaling_
+            : horizontalPodAutoscalingBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.kubernetesDashboard_ = kubernetesDashboardBuilder_ == null
+            ? kubernetesDashboard_
+            : kubernetesDashboardBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.networkPolicyConfig_ = networkPolicyConfigBuilder_ == null
+            ? networkPolicyConfig_
+            : networkPolicyConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -687,7 +593,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasNetworkPolicyConfig()) {
         mergeNetworkPolicyConfig(other.getNetworkPolicyConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -702,19 +608,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1alpha1.AddonsConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getHttpLoadBalancingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getHorizontalPodAutoscalingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getKubernetesDashboardFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getNetworkPolicyConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1alpha1.AddonsConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.container.v1alpha1.HttpLoadBalancing httpLoadBalancing_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -729,7 +677,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the httpLoadBalancing field is set.
      */
     public boolean hasHttpLoadBalancing() {
-      return httpLoadBalancingBuilder_ != null || httpLoadBalancing_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -761,11 +709,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         httpLoadBalancing_ = value;
-        onChanged();
       } else {
         httpLoadBalancingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -780,11 +728,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1alpha1.HttpLoadBalancing.Builder builderForValue) {
       if (httpLoadBalancingBuilder_ == null) {
         httpLoadBalancing_ = builderForValue.build();
-        onChanged();
       } else {
         httpLoadBalancingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -797,17 +745,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHttpLoadBalancing(com.google.container.v1alpha1.HttpLoadBalancing value) {
       if (httpLoadBalancingBuilder_ == null) {
-        if (httpLoadBalancing_ != null) {
-          httpLoadBalancing_ =
-            com.google.container.v1alpha1.HttpLoadBalancing.newBuilder(httpLoadBalancing_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          httpLoadBalancing_ != null &&
+          httpLoadBalancing_ != com.google.container.v1alpha1.HttpLoadBalancing.getDefaultInstance()) {
+          getHttpLoadBalancingBuilder().mergeFrom(value);
         } else {
           httpLoadBalancing_ = value;
         }
-        onChanged();
       } else {
         httpLoadBalancingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -819,14 +768,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1alpha1.HttpLoadBalancing http_load_balancing = 1;</code>
      */
     public Builder clearHttpLoadBalancing() {
-      if (httpLoadBalancingBuilder_ == null) {
-        httpLoadBalancing_ = null;
-        onChanged();
-      } else {
-        httpLoadBalancing_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      httpLoadBalancing_ = null;
+      if (httpLoadBalancingBuilder_ != null) {
+        httpLoadBalancingBuilder_.dispose();
         httpLoadBalancingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -838,7 +786,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1alpha1.HttpLoadBalancing http_load_balancing = 1;</code>
      */
     public com.google.container.v1alpha1.HttpLoadBalancing.Builder getHttpLoadBalancingBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getHttpLoadBalancingFieldBuilder().getBuilder();
     }
@@ -894,7 +842,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the horizontalPodAutoscaling field is set.
      */
     public boolean hasHorizontalPodAutoscaling() {
-      return horizontalPodAutoscalingBuilder_ != null || horizontalPodAutoscaling_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -928,11 +876,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         horizontalPodAutoscaling_ = value;
-        onChanged();
       } else {
         horizontalPodAutoscalingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -948,11 +896,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1alpha1.HorizontalPodAutoscaling.Builder builderForValue) {
       if (horizontalPodAutoscalingBuilder_ == null) {
         horizontalPodAutoscaling_ = builderForValue.build();
-        onChanged();
       } else {
         horizontalPodAutoscalingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -966,17 +914,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHorizontalPodAutoscaling(com.google.container.v1alpha1.HorizontalPodAutoscaling value) {
       if (horizontalPodAutoscalingBuilder_ == null) {
-        if (horizontalPodAutoscaling_ != null) {
-          horizontalPodAutoscaling_ =
-            com.google.container.v1alpha1.HorizontalPodAutoscaling.newBuilder(horizontalPodAutoscaling_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          horizontalPodAutoscaling_ != null &&
+          horizontalPodAutoscaling_ != com.google.container.v1alpha1.HorizontalPodAutoscaling.getDefaultInstance()) {
+          getHorizontalPodAutoscalingBuilder().mergeFrom(value);
         } else {
           horizontalPodAutoscaling_ = value;
         }
-        onChanged();
       } else {
         horizontalPodAutoscalingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -989,14 +938,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1alpha1.HorizontalPodAutoscaling horizontal_pod_autoscaling = 2;</code>
      */
     public Builder clearHorizontalPodAutoscaling() {
-      if (horizontalPodAutoscalingBuilder_ == null) {
-        horizontalPodAutoscaling_ = null;
-        onChanged();
-      } else {
-        horizontalPodAutoscaling_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      horizontalPodAutoscaling_ = null;
+      if (horizontalPodAutoscalingBuilder_ != null) {
+        horizontalPodAutoscalingBuilder_.dispose();
         horizontalPodAutoscalingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1009,7 +957,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1alpha1.HorizontalPodAutoscaling horizontal_pod_autoscaling = 2;</code>
      */
     public com.google.container.v1alpha1.HorizontalPodAutoscaling.Builder getHorizontalPodAutoscalingBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getHorizontalPodAutoscalingFieldBuilder().getBuilder();
     }
@@ -1065,7 +1013,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the kubernetesDashboard field is set.
      */
     public boolean hasKubernetesDashboard() {
-      return kubernetesDashboardBuilder_ != null || kubernetesDashboard_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1095,11 +1043,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         kubernetesDashboard_ = value;
-        onChanged();
       } else {
         kubernetesDashboardBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1113,11 +1061,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1alpha1.KubernetesDashboard.Builder builderForValue) {
       if (kubernetesDashboardBuilder_ == null) {
         kubernetesDashboard_ = builderForValue.build();
-        onChanged();
       } else {
         kubernetesDashboardBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1129,17 +1077,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeKubernetesDashboard(com.google.container.v1alpha1.KubernetesDashboard value) {
       if (kubernetesDashboardBuilder_ == null) {
-        if (kubernetesDashboard_ != null) {
-          kubernetesDashboard_ =
-            com.google.container.v1alpha1.KubernetesDashboard.newBuilder(kubernetesDashboard_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          kubernetesDashboard_ != null &&
+          kubernetesDashboard_ != com.google.container.v1alpha1.KubernetesDashboard.getDefaultInstance()) {
+          getKubernetesDashboardBuilder().mergeFrom(value);
         } else {
           kubernetesDashboard_ = value;
         }
-        onChanged();
       } else {
         kubernetesDashboardBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1150,14 +1099,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1alpha1.KubernetesDashboard kubernetes_dashboard = 3;</code>
      */
     public Builder clearKubernetesDashboard() {
-      if (kubernetesDashboardBuilder_ == null) {
-        kubernetesDashboard_ = null;
-        onChanged();
-      } else {
-        kubernetesDashboard_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      kubernetesDashboard_ = null;
+      if (kubernetesDashboardBuilder_ != null) {
+        kubernetesDashboardBuilder_.dispose();
         kubernetesDashboardBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1168,7 +1116,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1alpha1.KubernetesDashboard kubernetes_dashboard = 3;</code>
      */
     public com.google.container.v1alpha1.KubernetesDashboard.Builder getKubernetesDashboardBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getKubernetesDashboardFieldBuilder().getBuilder();
     }
@@ -1222,7 +1170,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the networkPolicyConfig field is set.
      */
     public boolean hasNetworkPolicyConfig() {
-      return networkPolicyConfigBuilder_ != null || networkPolicyConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1256,11 +1204,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         networkPolicyConfig_ = value;
-        onChanged();
       } else {
         networkPolicyConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1276,11 +1224,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1alpha1.NetworkPolicyConfig.Builder builderForValue) {
       if (networkPolicyConfigBuilder_ == null) {
         networkPolicyConfig_ = builderForValue.build();
-        onChanged();
       } else {
         networkPolicyConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1294,17 +1242,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNetworkPolicyConfig(com.google.container.v1alpha1.NetworkPolicyConfig value) {
       if (networkPolicyConfigBuilder_ == null) {
-        if (networkPolicyConfig_ != null) {
-          networkPolicyConfig_ =
-            com.google.container.v1alpha1.NetworkPolicyConfig.newBuilder(networkPolicyConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          networkPolicyConfig_ != null &&
+          networkPolicyConfig_ != com.google.container.v1alpha1.NetworkPolicyConfig.getDefaultInstance()) {
+          getNetworkPolicyConfigBuilder().mergeFrom(value);
         } else {
           networkPolicyConfig_ = value;
         }
-        onChanged();
       } else {
         networkPolicyConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1317,14 +1266,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1alpha1.NetworkPolicyConfig network_policy_config = 4;</code>
      */
     public Builder clearNetworkPolicyConfig() {
-      if (networkPolicyConfigBuilder_ == null) {
-        networkPolicyConfig_ = null;
-        onChanged();
-      } else {
-        networkPolicyConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      networkPolicyConfig_ = null;
+      if (networkPolicyConfigBuilder_ != null) {
+        networkPolicyConfigBuilder_.dispose();
         networkPolicyConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1337,7 +1285,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1alpha1.NetworkPolicyConfig network_policy_config = 4;</code>
      */
     public com.google.container.v1alpha1.NetworkPolicyConfig.Builder getNetworkPolicyConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getNetworkPolicyConfigFieldBuilder().getBuilder();
     }
@@ -1413,7 +1361,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AddonsConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

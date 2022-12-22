@@ -40,115 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private IosModel(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              supportedVersionIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            supportedVersionIds_.add(s);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              tags_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            tags_.add(s);
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              deviceCapabilities_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            deviceCapabilities_.add(s);
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            formFactor_ = rawValue;
-            break;
-          }
-          case 56: {
-
-            screenX_ = input.readInt32();
-            break;
-          }
-          case 64: {
-
-            screenY_ = input.readInt32();
-            break;
-          }
-          case 72: {
-
-            screenDensity_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        supportedVersionIds_ = supportedVersionIds_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        tags_ = tags_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        deviceCapabilities_ = deviceCapabilities_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.TestEnvironmentDiscoveryProto.internal_static_google_devtools_testing_v1_IosModel_descriptor;
@@ -163,7 +54,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * The unique opaque id for this model.
@@ -211,7 +103,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The human-readable name for this device model.
@@ -259,6 +152,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUPPORTED_VERSION_IDS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList supportedVersionIds_;
   /**
    * <pre>
@@ -310,6 +204,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TAGS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList tags_;
   /**
    * <pre>
@@ -365,6 +260,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEVICE_CAPABILITIES_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList deviceCapabilities_;
   /**
    * <pre>
@@ -424,7 +320,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCREEN_X_FIELD_NUMBER = 7;
-  private int screenX_;
+  private int screenX_ = 0;
   /**
    * <pre>
    * Screen size in the horizontal (X) dimension measured in pixels.
@@ -439,7 +335,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCREEN_Y_FIELD_NUMBER = 8;
-  private int screenY_;
+  private int screenY_ = 0;
   /**
    * <pre>
    * Screen size in the vertical (Y) dimension measured in pixels.
@@ -454,7 +350,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCREEN_DENSITY_FIELD_NUMBER = 9;
-  private int screenDensity_;
+  private int screenDensity_ = 0;
   /**
    * <pre>
    * Screen density in DPI.
@@ -469,7 +365,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORM_FACTOR_FIELD_NUMBER = 6;
-  private int formFactor_;
+  private int formFactor_ = 0;
   /**
    * <pre>
    * Whether this device is a phone, tablet, wearable, etc.
@@ -490,8 +386,7 @@ private static final long serialVersionUID = 0L;
    * @return The formFactor.
    */
   @java.lang.Override public com.google.devtools.testing.v1.DeviceFormFactor getFormFactor() {
-    @SuppressWarnings("deprecation")
-    com.google.devtools.testing.v1.DeviceFormFactor result = com.google.devtools.testing.v1.DeviceFormFactor.valueOf(formFactor_);
+    com.google.devtools.testing.v1.DeviceFormFactor result = com.google.devtools.testing.v1.DeviceFormFactor.forNumber(formFactor_);
     return result == null ? com.google.devtools.testing.v1.DeviceFormFactor.UNRECOGNIZED : result;
   }
 
@@ -536,7 +431,7 @@ private static final long serialVersionUID = 0L;
     if (screenDensity_ != 0) {
       output.writeInt32(9, screenDensity_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -591,7 +486,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(9, screenDensity_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -623,7 +518,7 @@ private static final long serialVersionUID = 0L;
     if (getScreenDensity()
         != other.getScreenDensity()) return false;
     if (formFactor_ != other.formFactor_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -658,7 +553,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getScreenDensity();
     hash = (37 * hash) + FORM_FACTOR_FIELD_NUMBER;
     hash = (53 * hash) + formFactor_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -779,40 +674,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.IosModel.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       id_ = "";
-
       name_ = "";
-
       supportedVersionIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
-      deviceCapabilities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000004);
+      tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      deviceCapabilities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000010);
       screenX_ = 0;
-
       screenY_ = 0;
-
       screenDensity_ = 0;
-
       formFactor_ = 0;
-
       return this;
     }
 
@@ -839,30 +724,50 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.IosModel buildPartial() {
       com.google.devtools.testing.v1.IosModel result = new com.google.devtools.testing.v1.IosModel(this);
-      int from_bitField0_ = bitField0_;
-      result.id_ = id_;
-      result.name_ = name_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        supportedVersionIds_ = supportedVersionIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.supportedVersionIds_ = supportedVersionIds_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        tags_ = tags_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.tags_ = tags_;
-      if (((bitField0_ & 0x00000004) != 0)) {
-        deviceCapabilities_ = deviceCapabilities_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
-      }
-      result.deviceCapabilities_ = deviceCapabilities_;
-      result.screenX_ = screenX_;
-      result.screenY_ = screenY_;
-      result.screenDensity_ = screenDensity_;
-      result.formFactor_ = formFactor_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.devtools.testing.v1.IosModel result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        supportedVersionIds_ = supportedVersionIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.supportedVersionIds_ = supportedVersionIds_;
+      if (((bitField0_ & 0x00000008) != 0)) {
+        tags_ = tags_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.tags_ = tags_;
+      if (((bitField0_ & 0x00000010) != 0)) {
+        deviceCapabilities_ = deviceCapabilities_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
+      result.deviceCapabilities_ = deviceCapabilities_;
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.IosModel result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.screenX_ = screenX_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.screenY_ = screenY_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.screenDensity_ = screenDensity_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.formFactor_ = formFactor_;
+      }
     }
 
     @java.lang.Override
@@ -911,16 +816,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.testing.v1.IosModel.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.supportedVersionIds_.isEmpty()) {
         if (supportedVersionIds_.isEmpty()) {
           supportedVersionIds_ = other.supportedVersionIds_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureSupportedVersionIdsIsMutable();
           supportedVersionIds_.addAll(other.supportedVersionIds_);
@@ -930,7 +837,7 @@ private static final long serialVersionUID = 0L;
       if (!other.tags_.isEmpty()) {
         if (tags_.isEmpty()) {
           tags_ = other.tags_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureTagsIsMutable();
           tags_.addAll(other.tags_);
@@ -940,7 +847,7 @@ private static final long serialVersionUID = 0L;
       if (!other.deviceCapabilities_.isEmpty()) {
         if (deviceCapabilities_.isEmpty()) {
           deviceCapabilities_ = other.deviceCapabilities_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureDeviceCapabilitiesIsMutable();
           deviceCapabilities_.addAll(other.deviceCapabilities_);
@@ -959,7 +866,7 @@ private static final long serialVersionUID = 0L;
       if (other.formFactor_ != 0) {
         setFormFactorValue(other.getFormFactorValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -974,17 +881,78 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.IosModel parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSupportedVersionIdsIsMutable();
+              supportedVersionIds_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureTagsIsMutable();
+              tags_.add(s);
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDeviceCapabilitiesIsMutable();
+              deviceCapabilities_.add(s);
+              break;
+            } // case 42
+            case 48: {
+              formFactor_ = input.readEnum();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 48
+            case 56: {
+              screenX_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 56
+            case 64: {
+              screenY_ = input.readInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 64
+            case 72: {
+              screenDensity_ = input.readInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 72
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.IosModel) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1045,11 +1013,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1063,8 +1029,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1080,12 +1046,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1146,11 +1110,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1164,8 +1126,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1181,21 +1143,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList supportedVersionIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureSupportedVersionIdsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         supportedVersionIds_ = new com.google.protobuf.LazyStringArrayList(supportedVersionIds_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1258,10 +1218,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSupportedVersionIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSupportedVersionIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSupportedVersionIdsIsMutable();
       supportedVersionIds_.set(index, value);
       onChanged();
       return this;
@@ -1277,10 +1235,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSupportedVersionIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSupportedVersionIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSupportedVersionIdsIsMutable();
       supportedVersionIds_.add(value);
       onChanged();
       return this;
@@ -1312,7 +1268,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSupportedVersionIds() {
       supportedVersionIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1327,10 +1283,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSupportedVersionIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureSupportedVersionIdsIsMutable();
       supportedVersionIds_.add(value);
       onChanged();
@@ -1339,9 +1293,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureTagsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -1409,10 +1363,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTags(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTagsIsMutable();
       tags_.set(index, value);
       onChanged();
       return this;
@@ -1429,10 +1381,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTags(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTagsIsMutable();
       tags_.add(value);
       onChanged();
       return this;
@@ -1466,7 +1416,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearTags() {
       tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1482,10 +1432,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTagsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureTagsIsMutable();
       tags_.add(value);
       onChanged();
@@ -1494,9 +1442,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList deviceCapabilities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureDeviceCapabilitiesIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         deviceCapabilities_ = new com.google.protobuf.LazyStringArrayList(deviceCapabilities_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -1569,10 +1517,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeviceCapabilities(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDeviceCapabilitiesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDeviceCapabilitiesIsMutable();
       deviceCapabilities_.set(index, value);
       onChanged();
       return this;
@@ -1590,10 +1536,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDeviceCapabilities(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDeviceCapabilitiesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDeviceCapabilitiesIsMutable();
       deviceCapabilities_.add(value);
       onChanged();
       return this;
@@ -1629,7 +1573,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearDeviceCapabilities() {
       deviceCapabilities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1646,10 +1590,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDeviceCapabilitiesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDeviceCapabilitiesIsMutable();
       deviceCapabilities_.add(value);
       onChanged();
@@ -1681,6 +1623,7 @@ private static final long serialVersionUID = 0L;
     public Builder setScreenX(int value) {
       
       screenX_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1693,7 +1636,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScreenX() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       screenX_ = 0;
       onChanged();
       return this;
@@ -1724,6 +1667,7 @@ private static final long serialVersionUID = 0L;
     public Builder setScreenY(int value) {
       
       screenY_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1736,7 +1680,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScreenY() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       screenY_ = 0;
       onChanged();
       return this;
@@ -1767,6 +1711,7 @@ private static final long serialVersionUID = 0L;
     public Builder setScreenDensity(int value) {
       
       screenDensity_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1779,7 +1724,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScreenDensity() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       screenDensity_ = 0;
       onChanged();
       return this;
@@ -1807,8 +1752,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFormFactorValue(int value) {
-      
       formFactor_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -1822,8 +1767,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.devtools.testing.v1.DeviceFormFactor getFormFactor() {
-      @SuppressWarnings("deprecation")
-      com.google.devtools.testing.v1.DeviceFormFactor result = com.google.devtools.testing.v1.DeviceFormFactor.valueOf(formFactor_);
+      com.google.devtools.testing.v1.DeviceFormFactor result = com.google.devtools.testing.v1.DeviceFormFactor.forNumber(formFactor_);
       return result == null ? com.google.devtools.testing.v1.DeviceFormFactor.UNRECOGNIZED : result;
     }
     /**
@@ -1839,7 +1783,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000100;
       formFactor_ = value.getNumber();
       onChanged();
       return this;
@@ -1853,7 +1797,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFormFactor() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       formFactor_ = 0;
       onChanged();
       return this;
@@ -1891,7 +1835,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new IosModel(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

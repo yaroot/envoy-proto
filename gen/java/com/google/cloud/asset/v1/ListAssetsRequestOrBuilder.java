@@ -9,11 +9,11 @@ public interface ListAssetsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. Name of the organization, folder, or project the assets belong
-   * to. Format: "organizations/[organization-number]" (such as
-   * "organizations/123"), "projects/[project-id]" (such as
-   * "projects/my-project-id"), "projects/[project-number]" (such as
-   * "projects/12345"), or "folders/[folder-number]" (such as "folders/12345").
+   * Required. Name of the organization, folder, or project the assets belong to. Format:
+   * "organizations/[organization-number]" (such as "organizations/123"),
+   * "projects/[project-id]" (such as "projects/my-project-id"),
+   * "projects/[project-number]" (such as "projects/12345"), or
+   * "folders/[folder-number]" (such as "folders/12345").
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -22,11 +22,11 @@ public interface ListAssetsRequestOrBuilder extends
   java.lang.String getParent();
   /**
    * <pre>
-   * Required. Name of the organization, folder, or project the assets belong
-   * to. Format: "organizations/[organization-number]" (such as
-   * "organizations/123"), "projects/[project-id]" (such as
-   * "projects/my-project-id"), "projects/[project-number]" (such as
-   * "projects/12345"), or "folders/[folder-number]" (such as "folders/12345").
+   * Required. Name of the organization, folder, or project the assets belong to. Format:
+   * "organizations/[organization-number]" (such as "organizations/123"),
+   * "projects/[project-id]" (such as "projects/my-project-id"),
+   * "projects/[project-number]" (such as "projects/12345"), or
+   * "folders/[folder-number]" (such as "folders/12345").
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

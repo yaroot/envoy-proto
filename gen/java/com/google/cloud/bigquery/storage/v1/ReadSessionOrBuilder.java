@@ -31,9 +31,10 @@ public interface ReadSessionOrBuilder extends
 
   /**
    * <pre>
-   * Output only. Time at which the session becomes invalid. After this time, subsequent
-   * requests to read this Session will return errors. The expire_time is
-   * automatically assigned and currently cannot be specified or updated.
+   * Output only. Time at which the session becomes invalid. After this time,
+   * subsequent requests to read this Session will return errors. The
+   * expire_time is automatically assigned and currently cannot be specified or
+   * updated.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_time = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -42,9 +43,10 @@ public interface ReadSessionOrBuilder extends
   boolean hasExpireTime();
   /**
    * <pre>
-   * Output only. Time at which the session becomes invalid. After this time, subsequent
-   * requests to read this Session will return errors. The expire_time is
-   * automatically assigned and currently cannot be specified or updated.
+   * Output only. Time at which the session becomes invalid. After this time,
+   * subsequent requests to read this Session will return errors. The
+   * expire_time is automatically assigned and currently cannot be specified or
+   * updated.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_time = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -53,9 +55,10 @@ public interface ReadSessionOrBuilder extends
   com.google.protobuf.Timestamp getExpireTime();
   /**
    * <pre>
-   * Output only. Time at which the session becomes invalid. After this time, subsequent
-   * requests to read this Session will return errors. The expire_time is
-   * automatically assigned and currently cannot be specified or updated.
+   * Output only. Time at which the session becomes invalid. After this time,
+   * subsequent requests to read this Session will return errors. The
+   * expire_time is automatically assigned and currently cannot be specified or
+   * updated.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_time = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -64,7 +67,8 @@ public interface ReadSessionOrBuilder extends
 
   /**
    * <pre>
-   * Immutable. Data format of the output data. DATA_FORMAT_UNSPECIFIED not supported.
+   * Immutable. Data format of the output data. DATA_FORMAT_UNSPECIFIED not
+   * supported.
    * </pre>
    *
    * <code>.google.cloud.bigquery.storage.v1.DataFormat data_format = 3 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -73,7 +77,8 @@ public interface ReadSessionOrBuilder extends
   int getDataFormatValue();
   /**
    * <pre>
-   * Immutable. Data format of the output data. DATA_FORMAT_UNSPECIFIED not supported.
+   * Immutable. Data format of the output data. DATA_FORMAT_UNSPECIFIED not
+   * supported.
    * </pre>
    *
    * <code>.google.cloud.bigquery.storage.v1.DataFormat data_format = 3 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -159,7 +164,8 @@ public interface ReadSessionOrBuilder extends
 
   /**
    * <pre>
-   * Optional. Any modifiers which are applied when reading from the specified table.
+   * Optional. Any modifiers which are applied when reading from the specified
+   * table.
    * </pre>
    *
    * <code>.google.cloud.bigquery.storage.v1.ReadSession.TableModifiers table_modifiers = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -168,7 +174,8 @@ public interface ReadSessionOrBuilder extends
   boolean hasTableModifiers();
   /**
    * <pre>
-   * Optional. Any modifiers which are applied when reading from the specified table.
+   * Optional. Any modifiers which are applied when reading from the specified
+   * table.
    * </pre>
    *
    * <code>.google.cloud.bigquery.storage.v1.ReadSession.TableModifiers table_modifiers = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -177,7 +184,8 @@ public interface ReadSessionOrBuilder extends
   com.google.cloud.bigquery.storage.v1.ReadSession.TableModifiers getTableModifiers();
   /**
    * <pre>
-   * Optional. Any modifiers which are applied when reading from the specified table.
+   * Optional. Any modifiers which are applied when reading from the specified
+   * table.
    * </pre>
    *
    * <code>.google.cloud.bigquery.storage.v1.ReadSession.TableModifiers table_modifiers = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -289,8 +297,20 @@ public interface ReadSessionOrBuilder extends
 
   /**
    * <pre>
-   * Optional. ID set by client to annotate a session identity.  This does not need
-   * to be strictly unique, but instead the same ID should be used to group
+   * Output only. An estimate on the number of rows present in this session's
+   * streams. This estimate is based on metadata from the table which might be
+   * incomplete or stale.
+   * </pre>
+   *
+   * <code>int64 estimated_row_count = 14 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The estimatedRowCount.
+   */
+  long getEstimatedRowCount();
+
+  /**
+   * <pre>
+   * Optional. ID set by client to annotate a session identity.  This does not
+   * need to be strictly unique, but instead the same ID should be used to group
    * logically connected sessions (e.g. All using the same ID for all sessions
    * needed to complete a Spark SQL query is reasonable).
    * Maximum length is 256 bytes.
@@ -302,8 +322,8 @@ public interface ReadSessionOrBuilder extends
   java.lang.String getTraceId();
   /**
    * <pre>
-   * Optional. ID set by client to annotate a session identity.  This does not need
-   * to be strictly unique, but instead the same ID should be used to group
+   * Optional. ID set by client to annotate a session identity.  This does not
+   * need to be strictly unique, but instead the same ID should be used to group
    * logically connected sessions (e.g. All using the same ID for all sessions
    * needed to complete a Spark SQL query is reasonable).
    * Maximum length is 256 bytes.

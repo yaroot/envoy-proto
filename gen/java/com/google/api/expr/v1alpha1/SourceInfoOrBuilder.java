@@ -137,7 +137,6 @@ public interface SourceInfoOrBuilder extends
    *
    * <code>map&lt;int64, int32&gt; positions = 4;</code>
    */
-
   int getPositionsOrDefault(
       long key,
       int defaultValue);
@@ -149,7 +148,6 @@ public interface SourceInfoOrBuilder extends
    *
    * <code>map&lt;int64, int32&gt; positions = 4;</code>
    */
-
   int getPositionsOrThrow(
       long key);
 
@@ -216,7 +214,6 @@ public interface SourceInfoOrBuilder extends
    *
    * <code>map&lt;int64, .google.api.expr.v1alpha1.Expr&gt; macro_calls = 5;</code>
    */
-
   /* nullable */
 com.google.api.expr.v1alpha1.Expr getMacroCallsOrDefault(
       long key,
@@ -235,7 +232,6 @@ com.google.api.expr.v1alpha1.Expr defaultValue);
    *
    * <code>map&lt;int64, .google.api.expr.v1alpha1.Expr&gt; macro_calls = 5;</code>
    */
-
   com.google.api.expr.v1alpha1.Expr getMacroCallsOrThrow(
       long key);
 }

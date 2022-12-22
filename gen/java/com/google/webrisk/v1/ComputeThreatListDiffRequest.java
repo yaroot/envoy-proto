@@ -36,69 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ComputeThreatListDiffRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            threatType_ = rawValue;
-            break;
-          }
-          case 18: {
-
-            versionToken_ = input.readBytes();
-            break;
-          }
-          case 26: {
-            com.google.webrisk.v1.ComputeThreatListDiffRequest.Constraints.Builder subBuilder = null;
-            if (constraints_ != null) {
-              subBuilder = constraints_.toBuilder();
-            }
-            constraints_ = input.readMessage(com.google.webrisk.v1.ComputeThreatListDiffRequest.Constraints.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(constraints_);
-              constraints_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.webrisk.v1.WebRiskProto.internal_static_google_cloud_webrisk_v1_ComputeThreatListDiffRequest_descriptor;
@@ -221,82 +158,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Constraints(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              maxDiffEntries_ = input.readInt32();
-              break;
-            }
-            case 16: {
-
-              maxDatabaseEntries_ = input.readInt32();
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                supportedCompressions_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              supportedCompressions_.add(rawValue);
-              break;
-            }
-            case 26: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  supportedCompressions_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                supportedCompressions_.add(rawValue);
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          supportedCompressions_ = java.util.Collections.unmodifiableList(supportedCompressions_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.webrisk.v1.WebRiskProto.internal_static_google_cloud_webrisk_v1_ComputeThreatListDiffRequest_Constraints_descriptor;
@@ -311,7 +172,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MAX_DIFF_ENTRIES_FIELD_NUMBER = 1;
-    private int maxDiffEntries_;
+    private int maxDiffEntries_ = 0;
     /**
      * <pre>
      * The maximum size in number of entries. The diff will not contain more
@@ -328,7 +189,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MAX_DATABASE_ENTRIES_FIELD_NUMBER = 2;
-    private int maxDatabaseEntries_;
+    private int maxDatabaseEntries_ = 0;
     /**
      * <pre>
      * Sets the maximum number of entries that the client is willing to have
@@ -345,14 +206,14 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SUPPORTED_COMPRESSIONS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> supportedCompressions_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, com.google.webrisk.v1.CompressionType> supportedCompressions_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, com.google.webrisk.v1.CompressionType>() {
               public com.google.webrisk.v1.CompressionType convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                com.google.webrisk.v1.CompressionType result = com.google.webrisk.v1.CompressionType.valueOf(from);
+                com.google.webrisk.v1.CompressionType result = com.google.webrisk.v1.CompressionType.forNumber(from);
                 return result == null ? com.google.webrisk.v1.CompressionType.UNRECOGNIZED : result;
               }
             };
@@ -450,7 +311,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < supportedCompressions_.size(); i++) {
         output.writeEnumNoTag(supportedCompressions_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -479,7 +340,7 @@ private static final long serialVersionUID = 0L;
             .computeUInt32SizeNoTag(dataSize);
         }supportedCompressionsMemoizedSerializedSize = dataSize;
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -499,7 +360,7 @@ private static final long serialVersionUID = 0L;
       if (getMaxDatabaseEntries()
           != other.getMaxDatabaseEntries()) return false;
       if (!supportedCompressions_.equals(other.supportedCompressions_)) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -518,7 +379,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + SUPPORTED_COMPRESSIONS_FIELD_NUMBER;
         hash = (53 * hash) + supportedCompressions_.hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -639,28 +500,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.webrisk.v1.ComputeThreatListDiffRequest.Constraints.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         maxDiffEntries_ = 0;
-
         maxDatabaseEntries_ = 0;
-
         supportedCompressions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -687,16 +542,28 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.webrisk.v1.ComputeThreatListDiffRequest.Constraints buildPartial() {
         com.google.webrisk.v1.ComputeThreatListDiffRequest.Constraints result = new com.google.webrisk.v1.ComputeThreatListDiffRequest.Constraints(this);
-        int from_bitField0_ = bitField0_;
-        result.maxDiffEntries_ = maxDiffEntries_;
-        result.maxDatabaseEntries_ = maxDatabaseEntries_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          supportedCompressions_ = java.util.Collections.unmodifiableList(supportedCompressions_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.supportedCompressions_ = supportedCompressions_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.webrisk.v1.ComputeThreatListDiffRequest.Constraints result) {
+        if (((bitField0_ & 0x00000004) != 0)) {
+          supportedCompressions_ = java.util.Collections.unmodifiableList(supportedCompressions_);
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.supportedCompressions_ = supportedCompressions_;
+      }
+
+      private void buildPartial0(com.google.webrisk.v1.ComputeThreatListDiffRequest.Constraints result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.maxDiffEntries_ = maxDiffEntries_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.maxDatabaseEntries_ = maxDatabaseEntries_;
+        }
       }
 
       @java.lang.Override
@@ -752,14 +619,14 @@ private static final long serialVersionUID = 0L;
         if (!other.supportedCompressions_.isEmpty()) {
           if (supportedCompressions_.isEmpty()) {
             supportedCompressions_ = other.supportedCompressions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureSupportedCompressionsIsMutable();
             supportedCompressions_.addAll(other.supportedCompressions_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -774,17 +641,57 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.webrisk.v1.ComputeThreatListDiffRequest.Constraints parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                maxDiffEntries_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                maxDatabaseEntries_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                int tmpRaw = input.readEnum();
+                ensureSupportedCompressionsIsMutable();
+                supportedCompressions_.add(tmpRaw);
+                break;
+              } // case 24
+              case 26: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  ensureSupportedCompressionsIsMutable();
+                  supportedCompressions_.add(tmpRaw);
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.webrisk.v1.ComputeThreatListDiffRequest.Constraints) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -818,6 +725,7 @@ private static final long serialVersionUID = 0L;
       public Builder setMaxDiffEntries(int value) {
         
         maxDiffEntries_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -832,7 +740,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMaxDiffEntries() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         maxDiffEntries_ = 0;
         onChanged();
         return this;
@@ -867,6 +775,7 @@ private static final long serialVersionUID = 0L;
       public Builder setMaxDatabaseEntries(int value) {
         
         maxDatabaseEntries_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -881,7 +790,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMaxDatabaseEntries() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         maxDatabaseEntries_ = 0;
         onChanged();
         return this;
@@ -890,9 +799,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<java.lang.Integer> supportedCompressions_ =
         java.util.Collections.emptyList();
       private void ensureSupportedCompressionsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           supportedCompressions_ = new java.util.ArrayList<java.lang.Integer>(supportedCompressions_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000004;
         }
       }
       /**
@@ -996,7 +905,7 @@ private static final long serialVersionUID = 0L;
        */
       public Builder clearSupportedCompressions() {
         supportedCompressions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1107,7 +1016,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Constraints(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1128,10 +1048,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int THREAT_TYPE_FIELD_NUMBER = 1;
-  private int threatType_;
+  private int threatType_ = 0;
   /**
    * <pre>
-   * Required. The threat list to update. Only a single ThreatType should be specified.
+   * Required. The threat list to update. Only a single ThreatType should be specified
+   * per request. If you want to handle multiple ThreatTypes, you must make one
+   * request per ThreatType.
    * </pre>
    *
    * <code>.google.cloud.webrisk.v1.ThreatType threat_type = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1142,20 +1064,21 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The threat list to update. Only a single ThreatType should be specified.
+   * Required. The threat list to update. Only a single ThreatType should be specified
+   * per request. If you want to handle multiple ThreatTypes, you must make one
+   * request per ThreatType.
    * </pre>
    *
    * <code>.google.cloud.webrisk.v1.ThreatType threat_type = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The threatType.
    */
   @java.lang.Override public com.google.webrisk.v1.ThreatType getThreatType() {
-    @SuppressWarnings("deprecation")
-    com.google.webrisk.v1.ThreatType result = com.google.webrisk.v1.ThreatType.valueOf(threatType_);
+    com.google.webrisk.v1.ThreatType result = com.google.webrisk.v1.ThreatType.forNumber(threatType_);
     return result == null ? com.google.webrisk.v1.ThreatType.UNRECOGNIZED : result;
   }
 
   public static final int VERSION_TOKEN_FIELD_NUMBER = 2;
-  private com.google.protobuf.ByteString versionToken_;
+  private com.google.protobuf.ByteString versionToken_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * The current version token of the client for the requested list (the
@@ -1208,7 +1131,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.webrisk.v1.ComputeThreatListDiffRequest.ConstraintsOrBuilder getConstraintsOrBuilder() {
-    return getConstraints();
+    return constraints_ == null ? com.google.webrisk.v1.ComputeThreatListDiffRequest.Constraints.getDefaultInstance() : constraints_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1234,7 +1157,7 @@ private static final long serialVersionUID = 0L;
     if (constraints_ != null) {
       output.writeMessage(3, getConstraints());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1255,7 +1178,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getConstraints());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1278,7 +1201,7 @@ private static final long serialVersionUID = 0L;
       if (!getConstraints()
           .equals(other.getConstraints())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1297,7 +1220,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CONSTRAINTS_FIELD_NUMBER;
       hash = (53 * hash) + getConstraints().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1418,30 +1341,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.webrisk.v1.ComputeThreatListDiffRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       threatType_ = 0;
-
       versionToken_ = com.google.protobuf.ByteString.EMPTY;
-
-      if (constraintsBuilder_ == null) {
-        constraints_ = null;
-      } else {
-        constraints_ = null;
+      constraints_ = null;
+      if (constraintsBuilder_ != null) {
+        constraintsBuilder_.dispose();
         constraintsBuilder_ = null;
       }
       return this;
@@ -1470,15 +1386,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.webrisk.v1.ComputeThreatListDiffRequest buildPartial() {
       com.google.webrisk.v1.ComputeThreatListDiffRequest result = new com.google.webrisk.v1.ComputeThreatListDiffRequest(this);
-      result.threatType_ = threatType_;
-      result.versionToken_ = versionToken_;
-      if (constraintsBuilder_ == null) {
-        result.constraints_ = constraints_;
-      } else {
-        result.constraints_ = constraintsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.webrisk.v1.ComputeThreatListDiffRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.threatType_ = threatType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.versionToken_ = versionToken_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.constraints_ = constraintsBuilder_ == null
+            ? constraints_
+            : constraintsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1534,7 +1459,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasConstraints()) {
         mergeConstraints(other.getConstraints());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1549,24 +1474,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.webrisk.v1.ComputeThreatListDiffRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              threatType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              versionToken_ = input.readBytes();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getConstraintsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.webrisk.v1.ComputeThreatListDiffRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int threatType_ = 0;
     /**
      * <pre>
-     * Required. The threat list to update. Only a single ThreatType should be specified.
+     * Required. The threat list to update. Only a single ThreatType should be specified
+     * per request. If you want to handle multiple ThreatTypes, you must make one
+     * request per ThreatType.
      * </pre>
      *
      * <code>.google.cloud.webrisk.v1.ThreatType threat_type = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1577,7 +1535,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The threat list to update. Only a single ThreatType should be specified.
+     * Required. The threat list to update. Only a single ThreatType should be specified
+     * per request. If you want to handle multiple ThreatTypes, you must make one
+     * request per ThreatType.
      * </pre>
      *
      * <code>.google.cloud.webrisk.v1.ThreatType threat_type = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1585,14 +1545,16 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setThreatTypeValue(int value) {
-      
       threatType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The threat list to update. Only a single ThreatType should be specified.
+     * Required. The threat list to update. Only a single ThreatType should be specified
+     * per request. If you want to handle multiple ThreatTypes, you must make one
+     * request per ThreatType.
      * </pre>
      *
      * <code>.google.cloud.webrisk.v1.ThreatType threat_type = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1600,13 +1562,14 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.webrisk.v1.ThreatType getThreatType() {
-      @SuppressWarnings("deprecation")
-      com.google.webrisk.v1.ThreatType result = com.google.webrisk.v1.ThreatType.valueOf(threatType_);
+      com.google.webrisk.v1.ThreatType result = com.google.webrisk.v1.ThreatType.forNumber(threatType_);
       return result == null ? com.google.webrisk.v1.ThreatType.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Required. The threat list to update. Only a single ThreatType should be specified.
+     * Required. The threat list to update. Only a single ThreatType should be specified
+     * per request. If you want to handle multiple ThreatTypes, you must make one
+     * request per ThreatType.
      * </pre>
      *
      * <code>.google.cloud.webrisk.v1.ThreatType threat_type = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1617,21 +1580,23 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       threatType_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The threat list to update. Only a single ThreatType should be specified.
+     * Required. The threat list to update. Only a single ThreatType should be specified
+     * per request. If you want to handle multiple ThreatTypes, you must make one
+     * request per ThreatType.
      * </pre>
      *
      * <code>.google.cloud.webrisk.v1.ThreatType threat_type = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearThreatType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       threatType_ = 0;
       onChanged();
       return this;
@@ -1668,11 +1633,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setVersionToken(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       versionToken_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1689,7 +1652,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVersionToken() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       versionToken_ = getDefaultInstance().getVersionToken();
       onChanged();
       return this;
@@ -1707,7 +1670,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the constraints field is set.
      */
     public boolean hasConstraints() {
-      return constraintsBuilder_ != null || constraints_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1737,11 +1700,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         constraints_ = value;
-        onChanged();
       } else {
         constraintsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1755,11 +1718,11 @@ private static final long serialVersionUID = 0L;
         com.google.webrisk.v1.ComputeThreatListDiffRequest.Constraints.Builder builderForValue) {
       if (constraintsBuilder_ == null) {
         constraints_ = builderForValue.build();
-        onChanged();
       } else {
         constraintsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1771,17 +1734,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConstraints(com.google.webrisk.v1.ComputeThreatListDiffRequest.Constraints value) {
       if (constraintsBuilder_ == null) {
-        if (constraints_ != null) {
-          constraints_ =
-            com.google.webrisk.v1.ComputeThreatListDiffRequest.Constraints.newBuilder(constraints_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          constraints_ != null &&
+          constraints_ != com.google.webrisk.v1.ComputeThreatListDiffRequest.Constraints.getDefaultInstance()) {
+          getConstraintsBuilder().mergeFrom(value);
         } else {
           constraints_ = value;
         }
-        onChanged();
       } else {
         constraintsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1792,14 +1756,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.webrisk.v1.ComputeThreatListDiffRequest.Constraints constraints = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearConstraints() {
-      if (constraintsBuilder_ == null) {
-        constraints_ = null;
-        onChanged();
-      } else {
-        constraints_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      constraints_ = null;
+      if (constraintsBuilder_ != null) {
+        constraintsBuilder_.dispose();
         constraintsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1810,7 +1773,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.webrisk.v1.ComputeThreatListDiffRequest.Constraints constraints = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.webrisk.v1.ComputeThreatListDiffRequest.Constraints.Builder getConstraintsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getConstraintsFieldBuilder().getBuilder();
     }
@@ -1882,7 +1845,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ComputeThreatListDiffRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

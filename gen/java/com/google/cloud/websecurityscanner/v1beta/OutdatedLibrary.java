@@ -37,70 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OutdatedLibrary(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            libraryName_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            version_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              learnMoreUrls_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            learnMoreUrls_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        learnMoreUrls_ = learnMoreUrls_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.websecurityscanner.v1beta.FindingAddonProto.internal_static_google_cloud_websecurityscanner_v1beta_OutdatedLibrary_descriptor;
@@ -115,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LIBRARY_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object libraryName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object libraryName_ = "";
   /**
    * <pre>
    * The name of the outdated library.
@@ -161,7 +98,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object version_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object version_ = "";
   /**
    * <pre>
    * The version number.
@@ -207,6 +145,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LEARN_MORE_URLS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList learnMoreUrls_;
   /**
    * <pre>
@@ -280,7 +219,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < learnMoreUrls_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, learnMoreUrls_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -303,7 +242,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getLearnMoreUrlsList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -324,7 +263,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getVersion())) return false;
     if (!getLearnMoreUrlsList()
         .equals(other.getLearnMoreUrlsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -343,7 +282,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LEARN_MORE_URLS_FIELD_NUMBER;
       hash = (53 * hash) + getLearnMoreUrlsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -464,28 +403,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.websecurityscanner.v1beta.OutdatedLibrary.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       libraryName_ = "";
-
       version_ = "";
-
       learnMoreUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -512,16 +445,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.websecurityscanner.v1beta.OutdatedLibrary buildPartial() {
       com.google.cloud.websecurityscanner.v1beta.OutdatedLibrary result = new com.google.cloud.websecurityscanner.v1beta.OutdatedLibrary(this);
-      int from_bitField0_ = bitField0_;
-      result.libraryName_ = libraryName_;
-      result.version_ = version_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        learnMoreUrls_ = learnMoreUrls_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.learnMoreUrls_ = learnMoreUrls_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.websecurityscanner.v1beta.OutdatedLibrary result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        learnMoreUrls_ = learnMoreUrls_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.learnMoreUrls_ = learnMoreUrls_;
+    }
+
+    private void buildPartial0(com.google.cloud.websecurityscanner.v1beta.OutdatedLibrary result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.libraryName_ = libraryName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.version_ = version_;
+      }
     }
 
     @java.lang.Override
@@ -570,23 +515,25 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.websecurityscanner.v1beta.OutdatedLibrary.getDefaultInstance()) return this;
       if (!other.getLibraryName().isEmpty()) {
         libraryName_ = other.libraryName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getVersion().isEmpty()) {
         version_ = other.version_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.learnMoreUrls_.isEmpty()) {
         if (learnMoreUrls_.isEmpty()) {
           learnMoreUrls_ = other.learnMoreUrls_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureLearnMoreUrlsIsMutable();
           learnMoreUrls_.addAll(other.learnMoreUrls_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -601,17 +548,46 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.websecurityscanner.v1beta.OutdatedLibrary parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              libraryName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              version_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureLearnMoreUrlsIsMutable();
+              learnMoreUrls_.add(s);
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.websecurityscanner.v1beta.OutdatedLibrary) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -669,11 +645,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLibraryName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       libraryName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -686,8 +660,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLibraryName() {
-      
       libraryName_ = getDefaultInstance().getLibraryName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -702,12 +676,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLibraryNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       libraryName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -765,11 +737,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       version_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -782,8 +752,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVersion() {
-      
       version_ = getDefaultInstance().getVersion();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -798,21 +768,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       version_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList learnMoreUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureLearnMoreUrlsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         learnMoreUrls_ = new com.google.protobuf.LazyStringArrayList(learnMoreUrls_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -875,10 +843,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLearnMoreUrls(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLearnMoreUrlsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureLearnMoreUrlsIsMutable();
       learnMoreUrls_.set(index, value);
       onChanged();
       return this;
@@ -894,10 +860,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLearnMoreUrls(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLearnMoreUrlsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureLearnMoreUrlsIsMutable();
       learnMoreUrls_.add(value);
       onChanged();
       return this;
@@ -929,7 +893,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearLearnMoreUrls() {
       learnMoreUrls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -944,10 +908,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLearnMoreUrlsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureLearnMoreUrlsIsMutable();
       learnMoreUrls_.add(value);
       onChanged();
@@ -986,7 +948,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OutdatedLibrary(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

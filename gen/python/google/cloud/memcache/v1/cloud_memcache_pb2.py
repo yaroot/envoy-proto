@@ -16,11 +16,14 @@ from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
+from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.type import dayofweek_pb2 as google_dot_type_dot_dayofweek__pb2
+from google.type import timeofday_pb2 as google_dot_type_dot_timeofday__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-google/cloud/memcache/v1/cloud_memcache.proto\x12\x18google.cloud.memcache.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa3\x0c\n\x08Instance\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12>\n\x06labels\x18\x03 \x03(\x0b\x32..google.cloud.memcache.v1.Instance.LabelsEntry\x12\x1a\n\x12\x61uthorized_network\x18\x04 \x01(\t\x12\r\n\x05zones\x18\x05 \x03(\t\x12\x17\n\nnode_count\x18\x06 \x01(\x05\x42\x03\xe0\x41\x02\x12G\n\x0bnode_config\x18\x07 \x01(\x0b\x32-.google.cloud.memcache.v1.Instance.NodeConfigB\x03\xe0\x41\x02\x12\x43\n\x10memcache_version\x18\t \x01(\x0e\x32).google.cloud.memcache.v1.MemcacheVersion\x12@\n\nparameters\x18\x0b \x01(\x0b\x32,.google.cloud.memcache.v1.MemcacheParameters\x12\x44\n\x0ememcache_nodes\x18\x0c \x03(\x0b\x32\'.google.cloud.memcache.v1.Instance.NodeB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\r \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x0e \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12<\n\x05state\x18\x0f \x01(\x0e\x32(.google.cloud.memcache.v1.Instance.StateB\x03\xe0\x41\x03\x12\"\n\x15memcache_full_version\x18\x12 \x01(\tB\x03\xe0\x41\x03\x12M\n\x11instance_messages\x18\x13 \x03(\x0b\x32\x32.google.cloud.memcache.v1.Instance.InstanceMessage\x12\x1f\n\x12\x64iscovery_endpoint\x18\x14 \x01(\tB\x03\xe0\x41\x03\x1a\x41\n\nNodeConfig\x12\x16\n\tcpu_count\x18\x01 \x01(\x05\x42\x03\xe0\x41\x02\x12\x1b\n\x0ememory_size_mb\x18\x02 \x01(\x05\x42\x03\xe0\x41\x02\x1a\xaf\x02\n\x04Node\x12\x14\n\x07node_id\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04zone\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x41\n\x05state\x18\x03 \x01(\x0e\x32-.google.cloud.memcache.v1.Instance.Node.StateB\x03\xe0\x41\x03\x12\x11\n\x04host\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04port\x18\x05 \x01(\x05\x42\x03\xe0\x41\x03\x12@\n\nparameters\x18\x06 \x01(\x0b\x32,.google.cloud.memcache.v1.MemcacheParameters\"S\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\t\n\x05READY\x10\x02\x12\x0c\n\x08\x44\x45LETING\x10\x03\x12\x0c\n\x08UPDATING\x10\x04\x1a\xa9\x01\n\x0fInstanceMessage\x12\x45\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x37.google.cloud.memcache.v1.Instance.InstanceMessage.Code\x12\x0f\n\x07message\x18\x02 \x01(\t\">\n\x04\x43ode\x12\x14\n\x10\x43ODE_UNSPECIFIED\x10\x00\x12 \n\x1cZONE_DISTRIBUTION_UNBALANCED\x10\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"a\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\t\n\x05READY\x10\x02\x12\x0c\n\x08\x44\x45LETING\x10\x04\x12\x1a\n\x16PERFORMING_MAINTENANCE\x10\x05:c\xea\x41`\n memcache.googleapis.com/Instance\x12<projects/{project}/locations/{location}/instances/{instance}\"\x9a\x01\n\x14ListInstancesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\x12\x10\n\x08order_by\x18\x05 \x01(\t\"|\n\x15ListInstancesResponse\x12\x35\n\tinstances\x18\x01 \x03(\x0b\x32\".google.cloud.memcache.v1.Instance\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"L\n\x12GetInstanceRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n memcache.googleapis.com/Instance\"\xa7\x01\n\x15\x43reateInstanceRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x18\n\x0binstance_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x39\n\x08instance\x18\x03 \x01(\x0b\x32\".google.cloud.memcache.v1.InstanceB\x03\xe0\x41\x02\"\x88\x01\n\x15UpdateInstanceRequest\x12\x34\n\x0bupdate_mask\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x39\n\x08instance\x18\x02 \x01(\x0b\x32\".google.cloud.memcache.v1.InstanceB\x03\xe0\x41\x02\"O\n\x15\x44\x65leteInstanceRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n memcache.googleapis.com/Instance\"u\n\x16\x41pplyParametersRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n memcache.googleapis.com/Instance\x12\x10\n\x08node_ids\x18\x02 \x03(\t\x12\x11\n\tapply_all\x18\x03 \x01(\x08\"\xc9\x01\n\x17UpdateParametersRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n memcache.googleapis.com/Instance\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12@\n\nparameters\x18\x03 \x01(\x0b\x32,.google.cloud.memcache.v1.MemcacheParameters\"\x9e\x01\n\x12MemcacheParameters\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12H\n\x06params\x18\x03 \x03(\x0b\x32\x38.google.cloud.memcache.v1.MemcacheParameters.ParamsEntry\x1a-\n\x0bParamsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xf9\x01\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04verb\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x1a\n\rstatus_detail\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12\x1d\n\x10\x63\x61ncel_requested\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x61pi_version\x18\x07 \x01(\tB\x03\xe0\x41\x03*E\n\x0fMemcacheVersion\x12 \n\x1cMEMCACHE_VERSION_UNSPECIFIED\x10\x00\x12\x10\n\x0cMEMCACHE_1_5\x10\x01\x32\x82\x0e\n\rCloudMemcache\x12\xb0\x01\n\rListInstances\x12..google.cloud.memcache.v1.ListInstancesRequest\x1a/.google.cloud.memcache.v1.ListInstancesResponse\">\x82\xd3\xe4\x93\x02/\x12-/v1/{parent=projects/*/locations/*}/instances\xda\x41\x06parent\x12\x9d\x01\n\x0bGetInstance\x12,.google.cloud.memcache.v1.GetInstanceRequest\x1a\".google.cloud.memcache.v1.Instance\"<\x82\xd3\xe4\x93\x02/\x12-/v1/{name=projects/*/locations/*/instances/*}\xda\x41\x04name\x12\x92\x02\n\x0e\x43reateInstance\x12/.google.cloud.memcache.v1.CreateInstanceRequest\x1a\x1d.google.longrunning.Operation\"\xaf\x01\x82\xd3\xe4\x93\x02\x39\"-/v1/{parent=projects/*/locations/*}/instances:\x08instance\xda\x41\x1bparent,instance,instance_id\xca\x41O\n!google.cloud.memcache.v1.Instance\x12*google.cloud.memcache.v1.OperationMetadata\x12\x94\x02\n\x0eUpdateInstance\x12/.google.cloud.memcache.v1.UpdateInstanceRequest\x1a\x1d.google.longrunning.Operation\"\xb1\x01\x82\xd3\xe4\x93\x02\x42\x32\x36/v1/{instance.name=projects/*/locations/*/instances/*}:\x08instance\xda\x41\x14instance,update_mask\xca\x41O\n!google.cloud.memcache.v1.Instance\x12*google.cloud.memcache.v1.OperationMetadata\x12\xa0\x02\n\x10UpdateParameters\x12\x31.google.cloud.memcache.v1.UpdateParametersRequest\x1a\x1d.google.longrunning.Operation\"\xb9\x01\x82\xd3\xe4\x93\x02\x43\x32>/v1/{name=projects/*/locations/*/instances/*}:updateParameters:\x01*\xda\x41\x1bname,update_mask,parameters\xca\x41O\n!google.cloud.memcache.v1.Instance\x12*google.cloud.memcache.v1.OperationMetadata\x12\xe5\x01\n\x0e\x44\x65leteInstance\x12/.google.cloud.memcache.v1.DeleteInstanceRequest\x1a\x1d.google.longrunning.Operation\"\x82\x01\x82\xd3\xe4\x93\x02/*-/v1/{name=projects/*/locations/*/instances/*}\xda\x41\x04name\xca\x41\x43\n\x15google.protobuf.Empty\x12*google.cloud.memcache.v1.OperationMetadata\x12\x99\x02\n\x0f\x41pplyParameters\x12\x30.google.cloud.memcache.v1.ApplyParametersRequest\x1a\x1d.google.longrunning.Operation\"\xb4\x01\x82\xd3\xe4\x93\x02\x42\"=/v1/{name=projects/*/locations/*/instances/*}:applyParameters:\x01*\xda\x41\x17name,node_ids,apply_all\xca\x41O\n!google.cloud.memcache.v1.Instance\x12*google.cloud.memcache.v1.OperationMetadata\x1aK\xca\x41\x17memcache.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformBv\n\x1c\x63om.google.cloud.memcache.v1B\x12\x43loudMemcacheProtoP\x01Z@google.golang.org/genproto/googleapis/cloud/memcache/v1;memcacheb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-google/cloud/memcache/v1/cloud_memcache.proto\x12\x18google.cloud.memcache.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/type/dayofweek.proto\x1a\x1bgoogle/type/timeofday.proto\"\xcc\r\n\x08Instance\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12>\n\x06labels\x18\x03 \x03(\x0b\x32..google.cloud.memcache.v1.Instance.LabelsEntry\x12\x1a\n\x12\x61uthorized_network\x18\x04 \x01(\t\x12\r\n\x05zones\x18\x05 \x03(\t\x12\x17\n\nnode_count\x18\x06 \x01(\x05\x42\x03\xe0\x41\x02\x12G\n\x0bnode_config\x18\x07 \x01(\x0b\x32-.google.cloud.memcache.v1.Instance.NodeConfigB\x03\xe0\x41\x02\x12\x43\n\x10memcache_version\x18\t \x01(\x0e\x32).google.cloud.memcache.v1.MemcacheVersion\x12@\n\nparameters\x18\x0b \x01(\x0b\x32,.google.cloud.memcache.v1.MemcacheParameters\x12\x44\n\x0ememcache_nodes\x18\x0c \x03(\x0b\x32\'.google.cloud.memcache.v1.Instance.NodeB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\r \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x0e \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12<\n\x05state\x18\x0f \x01(\x0e\x32(.google.cloud.memcache.v1.Instance.StateB\x03\xe0\x41\x03\x12\"\n\x15memcache_full_version\x18\x12 \x01(\tB\x03\xe0\x41\x03\x12M\n\x11instance_messages\x18\x13 \x03(\x0b\x32\x32.google.cloud.memcache.v1.Instance.InstanceMessage\x12\x1f\n\x12\x64iscovery_endpoint\x18\x14 \x01(\tB\x03\xe0\x41\x03\x12G\n\x12maintenance_policy\x18\x15 \x01(\x0b\x32+.google.cloud.memcache.v1.MaintenancePolicy\x12P\n\x14maintenance_schedule\x18\x16 \x01(\x0b\x32-.google.cloud.memcache.v1.MaintenanceScheduleB\x03\xe0\x41\x03\x1a\x41\n\nNodeConfig\x12\x16\n\tcpu_count\x18\x01 \x01(\x05\x42\x03\xe0\x41\x02\x12\x1b\n\x0ememory_size_mb\x18\x02 \x01(\x05\x42\x03\xe0\x41\x02\x1a\xaf\x02\n\x04Node\x12\x14\n\x07node_id\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04zone\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x41\n\x05state\x18\x03 \x01(\x0e\x32-.google.cloud.memcache.v1.Instance.Node.StateB\x03\xe0\x41\x03\x12\x11\n\x04host\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04port\x18\x05 \x01(\x05\x42\x03\xe0\x41\x03\x12@\n\nparameters\x18\x06 \x01(\x0b\x32,.google.cloud.memcache.v1.MemcacheParameters\"S\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\t\n\x05READY\x10\x02\x12\x0c\n\x08\x44\x45LETING\x10\x03\x12\x0c\n\x08UPDATING\x10\x04\x1a\xa9\x01\n\x0fInstanceMessage\x12\x45\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x37.google.cloud.memcache.v1.Instance.InstanceMessage.Code\x12\x0f\n\x07message\x18\x02 \x01(\t\">\n\x04\x43ode\x12\x14\n\x10\x43ODE_UNSPECIFIED\x10\x00\x12 \n\x1cZONE_DISTRIBUTION_UNBALANCED\x10\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"o\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\t\n\x05READY\x10\x02\x12\x0c\n\x08UPDATING\x10\x03\x12\x0c\n\x08\x44\x45LETING\x10\x04\x12\x1a\n\x16PERFORMING_MAINTENANCE\x10\x05:c\xea\x41`\n memcache.googleapis.com/Instance\x12<projects/{project}/locations/{location}/instances/{instance}\"\xef\x01\n\x11MaintenancePolicy\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12Y\n\x19weekly_maintenance_window\x18\x04 \x03(\x0b\x32\x31.google.cloud.memcache.v1.WeeklyMaintenanceWindowB\x03\xe0\x41\x02\"\xa6\x01\n\x17WeeklyMaintenanceWindow\x12(\n\x03\x64\x61y\x18\x01 \x01(\x0e\x32\x16.google.type.DayOfWeekB\x03\xe0\x41\x02\x12/\n\nstart_time\x18\x02 \x01(\x0b\x32\x16.google.type.TimeOfDayB\x03\xe0\x41\x02\x12\x30\n\x08\x64uration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x02\"\xbe\x01\n\x13MaintenanceSchedule\x12\x33\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12?\n\x16schedule_deadline_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\"\xe2\x02\n\x1cRescheduleMaintenanceRequest\x12:\n\x08instance\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n memcache.googleapis.com/Instance\x12\x63\n\x0freschedule_type\x18\x02 \x01(\x0e\x32\x45.google.cloud.memcache.v1.RescheduleMaintenanceRequest.RescheduleTypeB\x03\xe0\x41\x02\x12\x31\n\rschedule_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"n\n\x0eRescheduleType\x12\x1f\n\x1bRESCHEDULE_TYPE_UNSPECIFIED\x10\x00\x12\r\n\tIMMEDIATE\x10\x01\x12\x19\n\x15NEXT_AVAILABLE_WINDOW\x10\x02\x12\x11\n\rSPECIFIC_TIME\x10\x03\"\x9a\x01\n\x14ListInstancesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\x12\x10\n\x08order_by\x18\x05 \x01(\t\"|\n\x15ListInstancesResponse\x12\x35\n\tinstances\x18\x01 \x03(\x0b\x32\".google.cloud.memcache.v1.Instance\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"L\n\x12GetInstanceRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n memcache.googleapis.com/Instance\"\xa7\x01\n\x15\x43reateInstanceRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x18\n\x0binstance_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x39\n\x08instance\x18\x03 \x01(\x0b\x32\".google.cloud.memcache.v1.InstanceB\x03\xe0\x41\x02\"\x88\x01\n\x15UpdateInstanceRequest\x12\x34\n\x0bupdate_mask\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x39\n\x08instance\x18\x02 \x01(\x0b\x32\".google.cloud.memcache.v1.InstanceB\x03\xe0\x41\x02\"O\n\x15\x44\x65leteInstanceRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n memcache.googleapis.com/Instance\"u\n\x16\x41pplyParametersRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n memcache.googleapis.com/Instance\x12\x10\n\x08node_ids\x18\x02 \x03(\t\x12\x11\n\tapply_all\x18\x03 \x01(\x08\"\xc9\x01\n\x17UpdateParametersRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n memcache.googleapis.com/Instance\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12@\n\nparameters\x18\x03 \x01(\x0b\x32,.google.cloud.memcache.v1.MemcacheParameters\"\x9e\x01\n\x12MemcacheParameters\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12H\n\x06params\x18\x03 \x03(\x0b\x32\x38.google.cloud.memcache.v1.MemcacheParameters.ParamsEntry\x1a-\n\x0bParamsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xf9\x01\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04verb\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x1a\n\rstatus_detail\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12\x1d\n\x10\x63\x61ncel_requested\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x61pi_version\x18\x07 \x01(\tB\x03\xe0\x41\x03\"\xcf\x01\n\x10LocationMetadata\x12\\\n\x0f\x61vailable_zones\x18\x01 \x03(\x0b\x32>.google.cloud.memcache.v1.LocationMetadata.AvailableZonesEntryB\x03\xe0\x41\x03\x1a]\n\x13\x41vailableZonesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x35\n\x05value\x18\x02 \x01(\x0b\x32&.google.cloud.memcache.v1.ZoneMetadata:\x02\x38\x01\"\x0e\n\x0cZoneMetadata*E\n\x0fMemcacheVersion\x12 \n\x1cMEMCACHE_VERSION_UNSPECIFIED\x10\x00\x12\x10\n\x0cMEMCACHE_1_5\x10\x01\x32\xc5\x10\n\rCloudMemcache\x12\xb0\x01\n\rListInstances\x12..google.cloud.memcache.v1.ListInstancesRequest\x1a/.google.cloud.memcache.v1.ListInstancesResponse\">\x82\xd3\xe4\x93\x02/\x12-/v1/{parent=projects/*/locations/*}/instances\xda\x41\x06parent\x12\x9d\x01\n\x0bGetInstance\x12,.google.cloud.memcache.v1.GetInstanceRequest\x1a\".google.cloud.memcache.v1.Instance\"<\x82\xd3\xe4\x93\x02/\x12-/v1/{name=projects/*/locations/*/instances/*}\xda\x41\x04name\x12\x92\x02\n\x0e\x43reateInstance\x12/.google.cloud.memcache.v1.CreateInstanceRequest\x1a\x1d.google.longrunning.Operation\"\xaf\x01\x82\xd3\xe4\x93\x02\x39\"-/v1/{parent=projects/*/locations/*}/instances:\x08instance\xda\x41\x1bparent,instance,instance_id\xca\x41O\n!google.cloud.memcache.v1.Instance\x12*google.cloud.memcache.v1.OperationMetadata\x12\x94\x02\n\x0eUpdateInstance\x12/.google.cloud.memcache.v1.UpdateInstanceRequest\x1a\x1d.google.longrunning.Operation\"\xb1\x01\x82\xd3\xe4\x93\x02\x42\x32\x36/v1/{instance.name=projects/*/locations/*/instances/*}:\x08instance\xda\x41\x14instance,update_mask\xca\x41O\n!google.cloud.memcache.v1.Instance\x12*google.cloud.memcache.v1.OperationMetadata\x12\xa0\x02\n\x10UpdateParameters\x12\x31.google.cloud.memcache.v1.UpdateParametersRequest\x1a\x1d.google.longrunning.Operation\"\xb9\x01\x82\xd3\xe4\x93\x02\x43\x32>/v1/{name=projects/*/locations/*/instances/*}:updateParameters:\x01*\xda\x41\x1bname,update_mask,parameters\xca\x41O\n!google.cloud.memcache.v1.Instance\x12*google.cloud.memcache.v1.OperationMetadata\x12\xe5\x01\n\x0e\x44\x65leteInstance\x12/.google.cloud.memcache.v1.DeleteInstanceRequest\x1a\x1d.google.longrunning.Operation\"\x82\x01\x82\xd3\xe4\x93\x02/*-/v1/{name=projects/*/locations/*/instances/*}\xda\x41\x04name\xca\x41\x43\n\x15google.protobuf.Empty\x12*google.cloud.memcache.v1.OperationMetadata\x12\x99\x02\n\x0f\x41pplyParameters\x12\x30.google.cloud.memcache.v1.ApplyParametersRequest\x1a\x1d.google.longrunning.Operation\"\xb4\x01\x82\xd3\xe4\x93\x02\x42\"=/v1/{name=projects/*/locations/*/instances/*}:applyParameters:\x01*\xda\x41\x17name,node_ids,apply_all\xca\x41O\n!google.cloud.memcache.v1.Instance\x12*google.cloud.memcache.v1.OperationMetadata\x12\xc0\x02\n\x15RescheduleMaintenance\x12\x36.google.cloud.memcache.v1.RescheduleMaintenanceRequest\x1a\x1d.google.longrunning.Operation\"\xcf\x01\x82\xd3\xe4\x93\x02L\"G/v1/{instance=projects/*/locations/*/instances/*}:rescheduleMaintenance:\x01*\xda\x41(instance, reschedule_type, schedule_time\xca\x41O\n!google.cloud.memcache.v1.Instance\x12*google.cloud.memcache.v1.OperationMetadata\x1aK\xca\x41\x17memcache.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformBv\n\x1c\x63om.google.cloud.memcache.v1B\x12\x43loudMemcacheProtoP\x01Z@google.golang.org/genproto/googleapis/cloud/memcache/v1;memcacheb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.memcache.v1.cloud_memcache_pb2', globals())
@@ -62,8 +65,32 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _INSTANCE.fields_by_name['memcache_full_version']._serialized_options = b'\340A\003'
   _INSTANCE.fields_by_name['discovery_endpoint']._options = None
   _INSTANCE.fields_by_name['discovery_endpoint']._serialized_options = b'\340A\003'
+  _INSTANCE.fields_by_name['maintenance_schedule']._options = None
+  _INSTANCE.fields_by_name['maintenance_schedule']._serialized_options = b'\340A\003'
   _INSTANCE._options = None
   _INSTANCE._serialized_options = b'\352A`\n memcache.googleapis.com/Instance\022<projects/{project}/locations/{location}/instances/{instance}'
+  _MAINTENANCEPOLICY.fields_by_name['create_time']._options = None
+  _MAINTENANCEPOLICY.fields_by_name['create_time']._serialized_options = b'\340A\003'
+  _MAINTENANCEPOLICY.fields_by_name['update_time']._options = None
+  _MAINTENANCEPOLICY.fields_by_name['update_time']._serialized_options = b'\340A\003'
+  _MAINTENANCEPOLICY.fields_by_name['weekly_maintenance_window']._options = None
+  _MAINTENANCEPOLICY.fields_by_name['weekly_maintenance_window']._serialized_options = b'\340A\002'
+  _WEEKLYMAINTENANCEWINDOW.fields_by_name['day']._options = None
+  _WEEKLYMAINTENANCEWINDOW.fields_by_name['day']._serialized_options = b'\340A\002'
+  _WEEKLYMAINTENANCEWINDOW.fields_by_name['start_time']._options = None
+  _WEEKLYMAINTENANCEWINDOW.fields_by_name['start_time']._serialized_options = b'\340A\002'
+  _WEEKLYMAINTENANCEWINDOW.fields_by_name['duration']._options = None
+  _WEEKLYMAINTENANCEWINDOW.fields_by_name['duration']._serialized_options = b'\340A\002'
+  _MAINTENANCESCHEDULE.fields_by_name['start_time']._options = None
+  _MAINTENANCESCHEDULE.fields_by_name['start_time']._serialized_options = b'\340A\003'
+  _MAINTENANCESCHEDULE.fields_by_name['end_time']._options = None
+  _MAINTENANCESCHEDULE.fields_by_name['end_time']._serialized_options = b'\340A\003'
+  _MAINTENANCESCHEDULE.fields_by_name['schedule_deadline_time']._options = None
+  _MAINTENANCESCHEDULE.fields_by_name['schedule_deadline_time']._serialized_options = b'\340A\003'
+  _RESCHEDULEMAINTENANCEREQUEST.fields_by_name['instance']._options = None
+  _RESCHEDULEMAINTENANCEREQUEST.fields_by_name['instance']._serialized_options = b'\340A\002\372A\"\n memcache.googleapis.com/Instance'
+  _RESCHEDULEMAINTENANCEREQUEST.fields_by_name['reschedule_type']._options = None
+  _RESCHEDULEMAINTENANCEREQUEST.fields_by_name['reschedule_type']._serialized_options = b'\340A\002'
   _LISTINSTANCESREQUEST.fields_by_name['parent']._options = None
   _LISTINSTANCESREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A#\n!locations.googleapis.com/Location'
   _GETINSTANCEREQUEST.fields_by_name['name']._options = None
@@ -104,6 +131,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _OPERATIONMETADATA.fields_by_name['cancel_requested']._serialized_options = b'\340A\003'
   _OPERATIONMETADATA.fields_by_name['api_version']._options = None
   _OPERATIONMETADATA.fields_by_name['api_version']._serialized_options = b'\340A\003'
+  _LOCATIONMETADATA_AVAILABLEZONESENTRY._options = None
+  _LOCATIONMETADATA_AVAILABLEZONESENTRY._serialized_options = b'8\001'
+  _LOCATIONMETADATA.fields_by_name['available_zones']._options = None
+  _LOCATIONMETADATA.fields_by_name['available_zones']._serialized_options = b'\340A\003'
   _CLOUDMEMCACHE._options = None
   _CLOUDMEMCACHE._serialized_options = b'\312A\027memcache.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform'
   _CLOUDMEMCACHE.methods_by_name['ListInstances']._options = None
@@ -120,46 +151,64 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CLOUDMEMCACHE.methods_by_name['DeleteInstance']._serialized_options = b'\202\323\344\223\002/*-/v1/{name=projects/*/locations/*/instances/*}\332A\004name\312AC\n\025google.protobuf.Empty\022*google.cloud.memcache.v1.OperationMetadata'
   _CLOUDMEMCACHE.methods_by_name['ApplyParameters']._options = None
   _CLOUDMEMCACHE.methods_by_name['ApplyParameters']._serialized_options = b'\202\323\344\223\002B\"=/v1/{name=projects/*/locations/*/instances/*}:applyParameters:\001*\332A\027name,node_ids,apply_all\312AO\n!google.cloud.memcache.v1.Instance\022*google.cloud.memcache.v1.OperationMetadata'
-  _MEMCACHEVERSION._serialized_start=3355
-  _MEMCACHEVERSION._serialized_end=3424
-  _INSTANCE._serialized_start=295
-  _INSTANCE._serialized_end=1866
-  _INSTANCE_NODECONFIG._serialized_start=1076
-  _INSTANCE_NODECONFIG._serialized_end=1141
-  _INSTANCE_NODE._serialized_start=1144
-  _INSTANCE_NODE._serialized_end=1447
-  _INSTANCE_NODE_STATE._serialized_start=1364
-  _INSTANCE_NODE_STATE._serialized_end=1447
-  _INSTANCE_INSTANCEMESSAGE._serialized_start=1450
-  _INSTANCE_INSTANCEMESSAGE._serialized_end=1619
-  _INSTANCE_INSTANCEMESSAGE_CODE._serialized_start=1557
-  _INSTANCE_INSTANCEMESSAGE_CODE._serialized_end=1619
-  _INSTANCE_LABELSENTRY._serialized_start=1621
-  _INSTANCE_LABELSENTRY._serialized_end=1666
-  _INSTANCE_STATE._serialized_start=1668
-  _INSTANCE_STATE._serialized_end=1765
-  _LISTINSTANCESREQUEST._serialized_start=1869
-  _LISTINSTANCESREQUEST._serialized_end=2023
-  _LISTINSTANCESRESPONSE._serialized_start=2025
-  _LISTINSTANCESRESPONSE._serialized_end=2149
-  _GETINSTANCEREQUEST._serialized_start=2151
-  _GETINSTANCEREQUEST._serialized_end=2227
-  _CREATEINSTANCEREQUEST._serialized_start=2230
-  _CREATEINSTANCEREQUEST._serialized_end=2397
-  _UPDATEINSTANCEREQUEST._serialized_start=2400
-  _UPDATEINSTANCEREQUEST._serialized_end=2536
-  _DELETEINSTANCEREQUEST._serialized_start=2538
-  _DELETEINSTANCEREQUEST._serialized_end=2617
-  _APPLYPARAMETERSREQUEST._serialized_start=2619
-  _APPLYPARAMETERSREQUEST._serialized_end=2736
-  _UPDATEPARAMETERSREQUEST._serialized_start=2739
-  _UPDATEPARAMETERSREQUEST._serialized_end=2940
-  _MEMCACHEPARAMETERS._serialized_start=2943
-  _MEMCACHEPARAMETERS._serialized_end=3101
-  _MEMCACHEPARAMETERS_PARAMSENTRY._serialized_start=3056
-  _MEMCACHEPARAMETERS_PARAMSENTRY._serialized_end=3101
-  _OPERATIONMETADATA._serialized_start=3104
-  _OPERATIONMETADATA._serialized_end=3353
-  _CLOUDMEMCACHE._serialized_start=3427
-  _CLOUDMEMCACHE._serialized_end=5221
+  _CLOUDMEMCACHE.methods_by_name['RescheduleMaintenance']._options = None
+  _CLOUDMEMCACHE.methods_by_name['RescheduleMaintenance']._serialized_options = b'\202\323\344\223\002L\"G/v1/{instance=projects/*/locations/*/instances/*}:rescheduleMaintenance:\001*\332A(instance, reschedule_type, schedule_time\312AO\n!google.cloud.memcache.v1.Instance\022*google.cloud.memcache.v1.OperationMetadata'
+  _MEMCACHEVERSION._serialized_start=4801
+  _MEMCACHEVERSION._serialized_end=4870
+  _INSTANCE._serialized_start=385
+  _INSTANCE._serialized_end=2125
+  _INSTANCE_NODECONFIG._serialized_start=1321
+  _INSTANCE_NODECONFIG._serialized_end=1386
+  _INSTANCE_NODE._serialized_start=1389
+  _INSTANCE_NODE._serialized_end=1692
+  _INSTANCE_NODE_STATE._serialized_start=1609
+  _INSTANCE_NODE_STATE._serialized_end=1692
+  _INSTANCE_INSTANCEMESSAGE._serialized_start=1695
+  _INSTANCE_INSTANCEMESSAGE._serialized_end=1864
+  _INSTANCE_INSTANCEMESSAGE_CODE._serialized_start=1802
+  _INSTANCE_INSTANCEMESSAGE_CODE._serialized_end=1864
+  _INSTANCE_LABELSENTRY._serialized_start=1866
+  _INSTANCE_LABELSENTRY._serialized_end=1911
+  _INSTANCE_STATE._serialized_start=1913
+  _INSTANCE_STATE._serialized_end=2024
+  _MAINTENANCEPOLICY._serialized_start=2128
+  _MAINTENANCEPOLICY._serialized_end=2367
+  _WEEKLYMAINTENANCEWINDOW._serialized_start=2370
+  _WEEKLYMAINTENANCEWINDOW._serialized_end=2536
+  _MAINTENANCESCHEDULE._serialized_start=2539
+  _MAINTENANCESCHEDULE._serialized_end=2729
+  _RESCHEDULEMAINTENANCEREQUEST._serialized_start=2732
+  _RESCHEDULEMAINTENANCEREQUEST._serialized_end=3086
+  _RESCHEDULEMAINTENANCEREQUEST_RESCHEDULETYPE._serialized_start=2976
+  _RESCHEDULEMAINTENANCEREQUEST_RESCHEDULETYPE._serialized_end=3086
+  _LISTINSTANCESREQUEST._serialized_start=3089
+  _LISTINSTANCESREQUEST._serialized_end=3243
+  _LISTINSTANCESRESPONSE._serialized_start=3245
+  _LISTINSTANCESRESPONSE._serialized_end=3369
+  _GETINSTANCEREQUEST._serialized_start=3371
+  _GETINSTANCEREQUEST._serialized_end=3447
+  _CREATEINSTANCEREQUEST._serialized_start=3450
+  _CREATEINSTANCEREQUEST._serialized_end=3617
+  _UPDATEINSTANCEREQUEST._serialized_start=3620
+  _UPDATEINSTANCEREQUEST._serialized_end=3756
+  _DELETEINSTANCEREQUEST._serialized_start=3758
+  _DELETEINSTANCEREQUEST._serialized_end=3837
+  _APPLYPARAMETERSREQUEST._serialized_start=3839
+  _APPLYPARAMETERSREQUEST._serialized_end=3956
+  _UPDATEPARAMETERSREQUEST._serialized_start=3959
+  _UPDATEPARAMETERSREQUEST._serialized_end=4160
+  _MEMCACHEPARAMETERS._serialized_start=4163
+  _MEMCACHEPARAMETERS._serialized_end=4321
+  _MEMCACHEPARAMETERS_PARAMSENTRY._serialized_start=4276
+  _MEMCACHEPARAMETERS_PARAMSENTRY._serialized_end=4321
+  _OPERATIONMETADATA._serialized_start=4324
+  _OPERATIONMETADATA._serialized_end=4573
+  _LOCATIONMETADATA._serialized_start=4576
+  _LOCATIONMETADATA._serialized_end=4783
+  _LOCATIONMETADATA_AVAILABLEZONESENTRY._serialized_start=4690
+  _LOCATIONMETADATA_AVAILABLEZONESENTRY._serialized_end=4783
+  _ZONEMETADATA._serialized_start=4785
+  _ZONEMETADATA._serialized_end=4799
+  _CLOUDMEMCACHE._serialized_start=4873
+  _CLOUDMEMCACHE._serialized_end=6990
 # @@protoc_insertion_point(module_scope)

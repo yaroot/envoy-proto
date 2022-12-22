@@ -36,58 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AuditData(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.iam.admin.v1.AuditData.PermissionDelta.Builder subBuilder = null;
-            if (permissionDelta_ != null) {
-              subBuilder = permissionDelta_.toBuilder();
-            }
-            permissionDelta_ = input.readMessage(com.google.iam.admin.v1.AuditData.PermissionDelta.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(permissionDelta_);
-              permissionDelta_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.iam.admin.v1.AuditDataProto.internal_static_google_iam_admin_v1_AuditData_descriptor;
@@ -221,70 +169,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PermissionDelta(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                addedPermissions_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              addedPermissions_.add(s);
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                removedPermissions_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              removedPermissions_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          addedPermissions_ = addedPermissions_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          removedPermissions_ = removedPermissions_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.iam.admin.v1.AuditDataProto.internal_static_google_iam_admin_v1_AuditData_PermissionDelta_descriptor;
@@ -299,6 +183,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ADDED_PERMISSIONS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList addedPermissions_;
     /**
      * <pre>
@@ -350,6 +235,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int REMOVED_PERMISSIONS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList removedPermissions_;
     /**
      * <pre>
@@ -420,7 +306,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < removedPermissions_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, removedPermissions_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -445,7 +331,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getRemovedPermissionsList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -464,7 +350,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getAddedPermissionsList())) return false;
       if (!getRemovedPermissionsList()
           .equals(other.getRemovedPermissionsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -483,7 +369,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + REMOVED_PERMISSIONS_FIELD_NUMBER;
         hash = (53 * hash) + getRemovedPermissionsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -605,22 +491,18 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.iam.admin.v1.AuditData.PermissionDelta.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         addedPermissions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         removedPermissions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -651,7 +533,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.iam.admin.v1.AuditData.PermissionDelta buildPartial() {
         com.google.iam.admin.v1.AuditData.PermissionDelta result = new com.google.iam.admin.v1.AuditData.PermissionDelta(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.iam.admin.v1.AuditData.PermissionDelta result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           addedPermissions_ = addedPermissions_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -662,8 +550,10 @@ private static final long serialVersionUID = 0L;
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.removedPermissions_ = removedPermissions_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.iam.admin.v1.AuditData.PermissionDelta result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -730,7 +620,7 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -745,17 +635,42 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.iam.admin.v1.AuditData.PermissionDelta parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureAddedPermissionsIsMutable();
+                addedPermissions_.add(s);
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureRemovedPermissionsIsMutable();
+                removedPermissions_.add(s);
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.iam.admin.v1.AuditData.PermissionDelta) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -827,10 +742,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAddedPermissions(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAddedPermissionsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAddedPermissionsIsMutable();
         addedPermissions_.set(index, value);
         onChanged();
         return this;
@@ -846,10 +759,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addAddedPermissions(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAddedPermissionsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAddedPermissionsIsMutable();
         addedPermissions_.add(value);
         onChanged();
         return this;
@@ -896,10 +807,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addAddedPermissionsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureAddedPermissionsIsMutable();
         addedPermissions_.add(value);
         onChanged();
@@ -973,10 +882,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setRemovedPermissions(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRemovedPermissionsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRemovedPermissionsIsMutable();
         removedPermissions_.set(index, value);
         onChanged();
         return this;
@@ -992,10 +899,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addRemovedPermissions(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRemovedPermissionsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRemovedPermissionsIsMutable();
         removedPermissions_.add(value);
         onChanged();
         return this;
@@ -1042,10 +947,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addRemovedPermissionsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureRemovedPermissionsIsMutable();
         removedPermissions_.add(value);
         onChanged();
@@ -1084,7 +987,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PermissionDelta(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1139,7 +1053,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.iam.admin.v1.AuditData.PermissionDeltaOrBuilder getPermissionDeltaOrBuilder() {
-    return getPermissionDelta();
+    return permissionDelta_ == null ? com.google.iam.admin.v1.AuditData.PermissionDelta.getDefaultInstance() : permissionDelta_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1159,7 +1073,7 @@ private static final long serialVersionUID = 0L;
     if (permissionDelta_ != null) {
       output.writeMessage(1, getPermissionDelta());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1172,7 +1086,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getPermissionDelta());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1192,7 +1106,7 @@ private static final long serialVersionUID = 0L;
       if (!getPermissionDelta()
           .equals(other.getPermissionDelta())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1207,7 +1121,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PERMISSION_DELTA_FIELD_NUMBER;
       hash = (53 * hash) + getPermissionDelta().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1330,26 +1244,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.iam.admin.v1.AuditData.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (permissionDeltaBuilder_ == null) {
-        permissionDelta_ = null;
-      } else {
-        permissionDelta_ = null;
+      bitField0_ = 0;
+      permissionDelta_ = null;
+      if (permissionDeltaBuilder_ != null) {
+        permissionDeltaBuilder_.dispose();
         permissionDeltaBuilder_ = null;
       }
       return this;
@@ -1378,13 +1287,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.iam.admin.v1.AuditData buildPartial() {
       com.google.iam.admin.v1.AuditData result = new com.google.iam.admin.v1.AuditData(this);
-      if (permissionDeltaBuilder_ == null) {
-        result.permissionDelta_ = permissionDelta_;
-      } else {
-        result.permissionDelta_ = permissionDeltaBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.iam.admin.v1.AuditData result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.permissionDelta_ = permissionDeltaBuilder_ == null
+            ? permissionDelta_
+            : permissionDeltaBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1434,7 +1348,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasPermissionDelta()) {
         mergePermissionDelta(other.getPermissionDelta());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1449,19 +1363,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.iam.admin.v1.AuditData parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getPermissionDeltaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.iam.admin.v1.AuditData) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.iam.admin.v1.AuditData.PermissionDelta permissionDelta_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1475,7 +1410,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the permissionDelta field is set.
      */
     public boolean hasPermissionDelta() {
-      return permissionDeltaBuilder_ != null || permissionDelta_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1505,11 +1440,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         permissionDelta_ = value;
-        onChanged();
       } else {
         permissionDeltaBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1523,11 +1458,11 @@ private static final long serialVersionUID = 0L;
         com.google.iam.admin.v1.AuditData.PermissionDelta.Builder builderForValue) {
       if (permissionDeltaBuilder_ == null) {
         permissionDelta_ = builderForValue.build();
-        onChanged();
       } else {
         permissionDeltaBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1539,17 +1474,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePermissionDelta(com.google.iam.admin.v1.AuditData.PermissionDelta value) {
       if (permissionDeltaBuilder_ == null) {
-        if (permissionDelta_ != null) {
-          permissionDelta_ =
-            com.google.iam.admin.v1.AuditData.PermissionDelta.newBuilder(permissionDelta_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          permissionDelta_ != null &&
+          permissionDelta_ != com.google.iam.admin.v1.AuditData.PermissionDelta.getDefaultInstance()) {
+          getPermissionDeltaBuilder().mergeFrom(value);
         } else {
           permissionDelta_ = value;
         }
-        onChanged();
       } else {
         permissionDeltaBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1560,14 +1496,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.iam.admin.v1.AuditData.PermissionDelta permission_delta = 1;</code>
      */
     public Builder clearPermissionDelta() {
-      if (permissionDeltaBuilder_ == null) {
-        permissionDelta_ = null;
-        onChanged();
-      } else {
-        permissionDelta_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      permissionDelta_ = null;
+      if (permissionDeltaBuilder_ != null) {
+        permissionDeltaBuilder_.dispose();
         permissionDeltaBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1578,7 +1513,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.iam.admin.v1.AuditData.PermissionDelta permission_delta = 1;</code>
      */
     public com.google.iam.admin.v1.AuditData.PermissionDelta.Builder getPermissionDeltaBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getPermissionDeltaFieldBuilder().getBuilder();
     }
@@ -1650,7 +1585,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AuditData(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

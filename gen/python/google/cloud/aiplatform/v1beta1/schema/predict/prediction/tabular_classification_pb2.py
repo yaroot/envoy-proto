@@ -11,10 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nVgoogle/cloud/aiplatform/v1beta1/schema/predict/prediction/tabular_classification.proto\x12\x39google.cloud.aiplatform.v1beta1.schema.predict.prediction\x1a\x1cgoogle/api/annotations.proto\"H\n%TabularClassificationPredictionResult\x12\x0f\n\x07\x63lasses\x18\x01 \x03(\t\x12\x0e\n\x06scores\x18\x02 \x03(\x02\x42\x8c\x03\n=com.google.cloud.aiplatform.v1beta1.schema.predict.predictionB*TabularClassificationPredictionResultProtoP\x01Zcgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/predict/prediction;prediction\xaa\x02\x39Google.Cloud.AIPlatform.V1Beta1.Schema.Predict.Prediction\xca\x02\x39Google\\Cloud\\AIPlatform\\V1beta1\\Schema\\Predict\\Prediction\xea\x02?Google::Cloud::AIPlatform::V1beta1::Schema::Predict::Predictionb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nVgoogle/cloud/aiplatform/v1beta1/schema/predict/prediction/tabular_classification.proto\x12\x39google.cloud.aiplatform.v1beta1.schema.predict.prediction\"H\n%TabularClassificationPredictionResult\x12\x0f\n\x07\x63lasses\x18\x01 \x03(\t\x12\x0e\n\x06scores\x18\x02 \x03(\x02\x42\x8c\x03\n=com.google.cloud.aiplatform.v1beta1.schema.predict.predictionB*TabularClassificationPredictionResultProtoP\x01Zcgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/predict/prediction;prediction\xaa\x02\x39Google.Cloud.AIPlatform.V1Beta1.Schema.Predict.Prediction\xca\x02\x39Google\\Cloud\\AIPlatform\\V1beta1\\Schema\\Predict\\Prediction\xea\x02?Google::Cloud::AIPlatform::V1beta1::Schema::Predict::Predictionb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.aiplatform.v1beta1.schema.predict.prediction.tabular_classification_pb2', globals())
@@ -22,6 +21,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n=com.google.cloud.aiplatform.v1beta1.schema.predict.predictionB*TabularClassificationPredictionResultProtoP\001Zcgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/predict/prediction;prediction\252\0029Google.Cloud.AIPlatform.V1Beta1.Schema.Predict.Prediction\312\0029Google\\Cloud\\AIPlatform\\V1beta1\\Schema\\Predict\\Prediction\352\002?Google::Cloud::AIPlatform::V1beta1::Schema::Predict::Prediction'
-  _TABULARCLASSIFICATIONPREDICTIONRESULT._serialized_start=179
-  _TABULARCLASSIFICATIONPREDICTIONRESULT._serialized_end=251
+  _TABULARCLASSIFICATIONPREDICTIONRESULT._serialized_start=149
+  _TABULARCLASSIFICATIONPREDICTIONRESULT._serialized_end=221
 # @@protoc_insertion_point(module_scope)

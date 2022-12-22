@@ -36,62 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NluSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            modelType_ = rawValue;
-            break;
-          }
-          case 29: {
-
-            classificationThreshold_ = input.readFloat();
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            modelTrainingMode_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.cx.v3beta1.FlowProto.internal_static_google_cloud_dialogflow_cx_v3beta1_NluSettings_descriptor;
@@ -400,7 +344,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODEL_TYPE_FIELD_NUMBER = 1;
-  private int modelType_;
+  private int modelType_ = 0;
   /**
    * <pre>
    * Indicates the type of NLU model.
@@ -421,13 +365,12 @@ private static final long serialVersionUID = 0L;
    * @return The modelType.
    */
   @java.lang.Override public com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelType getModelType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelType result = com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelType.valueOf(modelType_);
+    com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelType result = com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelType.forNumber(modelType_);
     return result == null ? com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelType.UNRECOGNIZED : result;
   }
 
   public static final int CLASSIFICATION_THRESHOLD_FIELD_NUMBER = 3;
-  private float classificationThreshold_;
+  private float classificationThreshold_ = 0F;
   /**
    * <pre>
    * To filter out false positive results and still get variety in matched
@@ -447,7 +390,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODEL_TRAINING_MODE_FIELD_NUMBER = 4;
-  private int modelTrainingMode_;
+  private int modelTrainingMode_ = 0;
   /**
    * <pre>
    * Indicates NLU model training mode.
@@ -468,8 +411,7 @@ private static final long serialVersionUID = 0L;
    * @return The modelTrainingMode.
    */
   @java.lang.Override public com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelTrainingMode getModelTrainingMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelTrainingMode result = com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelTrainingMode.valueOf(modelTrainingMode_);
+    com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelTrainingMode result = com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelTrainingMode.forNumber(modelTrainingMode_);
     return result == null ? com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelTrainingMode.UNRECOGNIZED : result;
   }
 
@@ -496,7 +438,7 @@ private static final long serialVersionUID = 0L;
     if (modelTrainingMode_ != com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelTrainingMode.MODEL_TRAINING_MODE_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, modelTrainingMode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -517,7 +459,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, modelTrainingMode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -537,7 +479,7 @@ private static final long serialVersionUID = 0L;
         != java.lang.Float.floatToIntBits(
             other.getClassificationThreshold())) return false;
     if (modelTrainingMode_ != other.modelTrainingMode_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -555,7 +497,7 @@ private static final long serialVersionUID = 0L;
         getClassificationThreshold());
     hash = (37 * hash) + MODEL_TRAINING_MODE_FIELD_NUMBER;
     hash = (53 * hash) + modelTrainingMode_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -676,28 +618,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.cx.v3beta1.NluSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       modelType_ = 0;
-
       classificationThreshold_ = 0F;
-
       modelTrainingMode_ = 0;
-
       return this;
     }
 
@@ -724,11 +659,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.cx.v3beta1.NluSettings buildPartial() {
       com.google.cloud.dialogflow.cx.v3beta1.NluSettings result = new com.google.cloud.dialogflow.cx.v3beta1.NluSettings(this);
-      result.modelType_ = modelType_;
-      result.classificationThreshold_ = classificationThreshold_;
-      result.modelTrainingMode_ = modelTrainingMode_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.cx.v3beta1.NluSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.modelType_ = modelType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.classificationThreshold_ = classificationThreshold_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.modelTrainingMode_ = modelTrainingMode_;
+      }
     }
 
     @java.lang.Override
@@ -784,7 +730,7 @@ private static final long serialVersionUID = 0L;
       if (other.modelTrainingMode_ != 0) {
         setModelTrainingModeValue(other.getModelTrainingModeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -799,19 +745,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.cx.v3beta1.NluSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              modelType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 29: {
+              classificationThreshold_ = input.readFloat();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 29
+            case 32: {
+              modelTrainingMode_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.cx.v3beta1.NluSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int modelType_ = 0;
     /**
@@ -835,8 +810,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setModelTypeValue(int value) {
-      
       modelType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -850,8 +825,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelType getModelType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelType result = com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelType.valueOf(modelType_);
+      com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelType result = com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelType.forNumber(modelType_);
       return result == null ? com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelType.UNRECOGNIZED : result;
     }
     /**
@@ -867,7 +841,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       modelType_ = value.getNumber();
       onChanged();
       return this;
@@ -881,7 +855,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearModelType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       modelType_ = 0;
       onChanged();
       return this;
@@ -922,6 +896,7 @@ private static final long serialVersionUID = 0L;
     public Builder setClassificationThreshold(float value) {
       
       classificationThreshold_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -939,7 +914,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClassificationThreshold() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       classificationThreshold_ = 0F;
       onChanged();
       return this;
@@ -967,8 +942,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setModelTrainingModeValue(int value) {
-      
       modelTrainingMode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -982,8 +957,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelTrainingMode getModelTrainingMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelTrainingMode result = com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelTrainingMode.valueOf(modelTrainingMode_);
+      com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelTrainingMode result = com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelTrainingMode.forNumber(modelTrainingMode_);
       return result == null ? com.google.cloud.dialogflow.cx.v3beta1.NluSettings.ModelTrainingMode.UNRECOGNIZED : result;
     }
     /**
@@ -999,7 +973,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       modelTrainingMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1013,7 +987,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearModelTrainingMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       modelTrainingMode_ = 0;
       onChanged();
       return this;
@@ -1051,7 +1025,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NluSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

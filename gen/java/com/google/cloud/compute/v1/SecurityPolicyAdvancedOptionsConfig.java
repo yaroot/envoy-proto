@@ -35,58 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SecurityPolicyAdvancedOptionsConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 1124660810: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            logLevel_ = s;
-            break;
-          }
-          case -2035019062: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            jsonParsing_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_SecurityPolicyAdvancedOptionsConfig_descriptor;
@@ -357,8 +305,47 @@ private static final long serialVersionUID = 0L;
   }
 
   private int bitField0_;
+  public static final int JSON_CUSTOM_CONFIG_FIELD_NUMBER = 111570105;
+  private com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig jsonCustomConfig_;
+  /**
+   * <pre>
+   * Custom configuration to apply the JSON parsing. Only applicable when json_parsing is set to STANDARD.
+   * </pre>
+   *
+   * <code>optional .google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig json_custom_config = 111570105;</code>
+   * @return Whether the jsonCustomConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasJsonCustomConfig() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * Custom configuration to apply the JSON parsing. Only applicable when json_parsing is set to STANDARD.
+   * </pre>
+   *
+   * <code>optional .google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig json_custom_config = 111570105;</code>
+   * @return The jsonCustomConfig.
+   */
+  @java.lang.Override
+  public com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig getJsonCustomConfig() {
+    return jsonCustomConfig_ == null ? com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig.getDefaultInstance() : jsonCustomConfig_;
+  }
+  /**
+   * <pre>
+   * Custom configuration to apply the JSON parsing. Only applicable when json_parsing is set to STANDARD.
+   * </pre>
+   *
+   * <code>optional .google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig json_custom_config = 111570105;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfigOrBuilder getJsonCustomConfigOrBuilder() {
+    return jsonCustomConfig_ == null ? com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig.getDefaultInstance() : jsonCustomConfig_;
+  }
+
   public static final int JSON_PARSING_FIELD_NUMBER = 282493529;
-  private volatile java.lang.Object jsonParsing_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object jsonParsing_ = "";
   /**
    * <pre>
    * 
@@ -370,7 +357,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasJsonParsing() {
-    return ((bitField0_ & 0x00000001) != 0);
+    return ((bitField0_ & 0x00000002) != 0);
   }
   /**
    * <pre>
@@ -419,7 +406,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOG_LEVEL_FIELD_NUMBER = 140582601;
-  private volatile java.lang.Object logLevel_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object logLevel_ = "";
   /**
    * <pre>
    * 
@@ -431,7 +419,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasLogLevel() {
-    return ((bitField0_ & 0x00000002) != 0);
+    return ((bitField0_ & 0x00000004) != 0);
   }
   /**
    * <pre>
@@ -493,13 +481,16 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (((bitField0_ & 0x00000002) != 0)) {
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(111570105, getJsonCustomConfig());
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 140582601, logLevel_);
     }
-    if (((bitField0_ & 0x00000001) != 0)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 282493529, jsonParsing_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -508,13 +499,17 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (((bitField0_ & 0x00000002) != 0)) {
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(111570105, getJsonCustomConfig());
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(140582601, logLevel_);
     }
-    if (((bitField0_ & 0x00000001) != 0)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(282493529, jsonParsing_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -529,6 +524,11 @@ private static final long serialVersionUID = 0L;
     }
     com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig other = (com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig) obj;
 
+    if (hasJsonCustomConfig() != other.hasJsonCustomConfig()) return false;
+    if (hasJsonCustomConfig()) {
+      if (!getJsonCustomConfig()
+          .equals(other.getJsonCustomConfig())) return false;
+    }
     if (hasJsonParsing() != other.hasJsonParsing()) return false;
     if (hasJsonParsing()) {
       if (!getJsonParsing()
@@ -539,7 +539,7 @@ private static final long serialVersionUID = 0L;
       if (!getLogLevel()
           .equals(other.getLogLevel())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -550,6 +550,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    if (hasJsonCustomConfig()) {
+      hash = (37 * hash) + JSON_CUSTOM_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getJsonCustomConfig().hashCode();
+    }
     if (hasJsonParsing()) {
       hash = (37 * hash) + JSON_PARSING_FIELD_NUMBER;
       hash = (53 * hash) + getJsonParsing().hashCode();
@@ -558,7 +562,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LOG_LEVEL_FIELD_NUMBER;
       hash = (53 * hash) + getLogLevel().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -689,15 +693,20 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getJsonCustomConfigFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      jsonCustomConfig_ = null;
+      if (jsonCustomConfigBuilder_ != null) {
+        jsonCustomConfigBuilder_.dispose();
+        jsonCustomConfigBuilder_ = null;
+      }
       jsonParsing_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       logLevel_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -724,19 +733,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig buildPartial() {
       com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig result = new com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.jsonCustomConfig_ = jsonCustomConfigBuilder_ == null
+            ? jsonCustomConfig_
+            : jsonCustomConfigBuilder_.build();
         to_bitField0_ |= 0x00000001;
       }
-      result.jsonParsing_ = jsonParsing_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.jsonParsing_ = jsonParsing_;
         to_bitField0_ |= 0x00000002;
       }
-      result.logLevel_ = logLevel_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.logLevel_ = logLevel_;
+        to_bitField0_ |= 0x00000004;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -783,17 +802,20 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig other) {
       if (other == com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig.getDefaultInstance()) return this;
+      if (other.hasJsonCustomConfig()) {
+        mergeJsonCustomConfig(other.getJsonCustomConfig());
+      }
       if (other.hasJsonParsing()) {
-        bitField0_ |= 0x00000001;
         jsonParsing_ = other.jsonParsing_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasLogLevel()) {
-        bitField0_ |= 0x00000002;
         logLevel_ = other.logLevel_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -808,20 +830,205 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 892560842: {
+              input.readMessage(
+                  getJsonCustomConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 892560842
+            case 1124660810: {
+              logLevel_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 1124660810
+            case -2035019062: {
+              jsonParsing_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -2035019062
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
+
+    private com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig jsonCustomConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig, com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig.Builder, com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfigOrBuilder> jsonCustomConfigBuilder_;
+    /**
+     * <pre>
+     * Custom configuration to apply the JSON parsing. Only applicable when json_parsing is set to STANDARD.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig json_custom_config = 111570105;</code>
+     * @return Whether the jsonCustomConfig field is set.
+     */
+    public boolean hasJsonCustomConfig() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * Custom configuration to apply the JSON parsing. Only applicable when json_parsing is set to STANDARD.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig json_custom_config = 111570105;</code>
+     * @return The jsonCustomConfig.
+     */
+    public com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig getJsonCustomConfig() {
+      if (jsonCustomConfigBuilder_ == null) {
+        return jsonCustomConfig_ == null ? com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig.getDefaultInstance() : jsonCustomConfig_;
+      } else {
+        return jsonCustomConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Custom configuration to apply the JSON parsing. Only applicable when json_parsing is set to STANDARD.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig json_custom_config = 111570105;</code>
+     */
+    public Builder setJsonCustomConfig(com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig value) {
+      if (jsonCustomConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        jsonCustomConfig_ = value;
+      } else {
+        jsonCustomConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Custom configuration to apply the JSON parsing. Only applicable when json_parsing is set to STANDARD.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig json_custom_config = 111570105;</code>
+     */
+    public Builder setJsonCustomConfig(
+        com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig.Builder builderForValue) {
+      if (jsonCustomConfigBuilder_ == null) {
+        jsonCustomConfig_ = builderForValue.build();
+      } else {
+        jsonCustomConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Custom configuration to apply the JSON parsing. Only applicable when json_parsing is set to STANDARD.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig json_custom_config = 111570105;</code>
+     */
+    public Builder mergeJsonCustomConfig(com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig value) {
+      if (jsonCustomConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0) &&
+          jsonCustomConfig_ != null &&
+          jsonCustomConfig_ != com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig.getDefaultInstance()) {
+          getJsonCustomConfigBuilder().mergeFrom(value);
+        } else {
+          jsonCustomConfig_ = value;
+        }
+      } else {
+        jsonCustomConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Custom configuration to apply the JSON parsing. Only applicable when json_parsing is set to STANDARD.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig json_custom_config = 111570105;</code>
+     */
+    public Builder clearJsonCustomConfig() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      jsonCustomConfig_ = null;
+      if (jsonCustomConfigBuilder_ != null) {
+        jsonCustomConfigBuilder_.dispose();
+        jsonCustomConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Custom configuration to apply the JSON parsing. Only applicable when json_parsing is set to STANDARD.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig json_custom_config = 111570105;</code>
+     */
+    public com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig.Builder getJsonCustomConfigBuilder() {
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return getJsonCustomConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Custom configuration to apply the JSON parsing. Only applicable when json_parsing is set to STANDARD.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig json_custom_config = 111570105;</code>
+     */
+    public com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfigOrBuilder getJsonCustomConfigOrBuilder() {
+      if (jsonCustomConfigBuilder_ != null) {
+        return jsonCustomConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return jsonCustomConfig_ == null ?
+            com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig.getDefaultInstance() : jsonCustomConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * Custom configuration to apply the JSON parsing. Only applicable when json_parsing is set to STANDARD.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig json_custom_config = 111570105;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig, com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig.Builder, com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfigOrBuilder> 
+        getJsonCustomConfigFieldBuilder() {
+      if (jsonCustomConfigBuilder_ == null) {
+        jsonCustomConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig, com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig.Builder, com.google.cloud.compute.v1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfigOrBuilder>(
+                getJsonCustomConfig(),
+                getParentForChildren(),
+                isClean());
+        jsonCustomConfig_ = null;
+      }
+      return jsonCustomConfigBuilder_;
+    }
 
     private java.lang.Object jsonParsing_ = "";
     /**
@@ -834,7 +1041,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the jsonParsing field is set.
      */
     public boolean hasJsonParsing() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -891,11 +1098,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setJsonParsing(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       jsonParsing_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -909,8 +1114,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearJsonParsing() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       jsonParsing_ = getDefaultInstance().getJsonParsing();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -926,12 +1131,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setJsonParsingBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       jsonParsing_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -947,7 +1150,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the logLevel field is set.
      */
     public boolean hasLogLevel() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1004,11 +1207,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLogLevel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       logLevel_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1022,8 +1223,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLogLevel() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       logLevel_ = getDefaultInstance().getLogLevel();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1039,12 +1240,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLogLevelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       logLevel_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1081,7 +1280,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SecurityPolicyAdvancedOptionsConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

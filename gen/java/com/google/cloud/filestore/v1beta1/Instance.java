@@ -5,7 +5,7 @@ package com.google.cloud.filestore.v1beta1;
 
 /**
  * <pre>
- * A Cloud Filestore instance.
+ * A Filestore instance.
  * </pre>
  *
  * Protobuf type {@code google.cloud.filestore.v1beta1.Instance}
@@ -28,6 +28,8 @@ private static final long serialVersionUID = 0L;
     fileShares_ = java.util.Collections.emptyList();
     networks_ = java.util.Collections.emptyList();
     etag_ = "";
+    kmsKeyName_ = "";
+    suspensionReasons_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -41,145 +43,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Instance(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            statusMessage_ = s;
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-
-            tier_ = rawValue;
-            break;
-          }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              fileShares_ = new java.util.ArrayList<com.google.cloud.filestore.v1beta1.FileShareConfig>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            fileShares_.add(
-                input.readMessage(com.google.cloud.filestore.v1beta1.FileShareConfig.parser(), extensionRegistry));
-            break;
-          }
-          case 90: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              networks_ = new java.util.ArrayList<com.google.cloud.filestore.v1beta1.NetworkConfig>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            networks_.add(
-                input.readMessage(com.google.cloud.filestore.v1beta1.NetworkConfig.parser(), extensionRegistry));
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            etag_ = s;
-            break;
-          }
-          case 106: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (satisfiesPzs_ != null) {
-              subBuilder = satisfiesPzs_.toBuilder();
-            }
-            satisfiesPzs_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(satisfiesPzs_);
-              satisfiesPzs_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        fileShares_ = java.util.Collections.unmodifiableList(fileShares_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        networks_ = java.util.Collections.unmodifiableList(networks_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -275,6 +138,39 @@ private static final long serialVersionUID = 0L;
      * <code>RESTORING = 7;</code>
      */
     RESTORING(7),
+    /**
+     * <pre>
+     * The instance is suspended. You can get further details from
+     * the `suspension_reasons` field of the `Instance` resource.
+     * </pre>
+     *
+     * <code>SUSPENDED = 8;</code>
+     */
+    SUSPENDED(8),
+    /**
+     * <pre>
+     * The instance is reverting to a snapshot.
+     * </pre>
+     *
+     * <code>REVERTING = 9;</code>
+     */
+    REVERTING(9),
+    /**
+     * <pre>
+     * The instance is in the process of becoming suspended.
+     * </pre>
+     *
+     * <code>SUSPENDING = 10;</code>
+     */
+    SUSPENDING(10),
+    /**
+     * <pre>
+     * The instance is in the process of becoming active.
+     * </pre>
+     *
+     * <code>RESUMING = 11;</code>
+     */
+    RESUMING(11),
     UNRECOGNIZED(-1),
     ;
 
@@ -338,6 +234,39 @@ private static final long serialVersionUID = 0L;
      * <code>RESTORING = 7;</code>
      */
     public static final int RESTORING_VALUE = 7;
+    /**
+     * <pre>
+     * The instance is suspended. You can get further details from
+     * the `suspension_reasons` field of the `Instance` resource.
+     * </pre>
+     *
+     * <code>SUSPENDED = 8;</code>
+     */
+    public static final int SUSPENDED_VALUE = 8;
+    /**
+     * <pre>
+     * The instance is reverting to a snapshot.
+     * </pre>
+     *
+     * <code>REVERTING = 9;</code>
+     */
+    public static final int REVERTING_VALUE = 9;
+    /**
+     * <pre>
+     * The instance is in the process of becoming suspended.
+     * </pre>
+     *
+     * <code>SUSPENDING = 10;</code>
+     */
+    public static final int SUSPENDING_VALUE = 10;
+    /**
+     * <pre>
+     * The instance is in the process of becoming active.
+     * </pre>
+     *
+     * <code>RESUMING = 11;</code>
+     */
+    public static final int RESUMING_VALUE = 11;
 
 
     public final int getNumber() {
@@ -371,6 +300,10 @@ private static final long serialVersionUID = 0L;
         case 4: return DELETING;
         case 6: return ERROR;
         case 7: return RESTORING;
+        case 8: return SUSPENDED;
+        case 9: return REVERTING;
+        case 10: return SUSPENDING;
+        case 11: return RESUMING;
         default: return null;
       }
     }
@@ -489,6 +422,15 @@ private static final long serialVersionUID = 0L;
      * <code>HIGH_SCALE_SSD = 6;</code>
      */
     HIGH_SCALE_SSD(6),
+    /**
+     * <pre>
+     * ENTERPRISE instances offer the features and availability needed for
+     * mission-critical workloads.
+     * </pre>
+     *
+     * <code>ENTERPRISE = 7;</code>
+     */
+    ENTERPRISE(7),
     UNRECOGNIZED(-1),
     ;
 
@@ -545,6 +487,15 @@ private static final long serialVersionUID = 0L;
      * <code>HIGH_SCALE_SSD = 6;</code>
      */
     public static final int HIGH_SCALE_SSD_VALUE = 6;
+    /**
+     * <pre>
+     * ENTERPRISE instances offer the features and availability needed for
+     * mission-critical workloads.
+     * </pre>
+     *
+     * <code>ENTERPRISE = 7;</code>
+     */
+    public static final int ENTERPRISE_VALUE = 7;
 
 
     public final int getNumber() {
@@ -577,6 +528,7 @@ private static final long serialVersionUID = 0L;
         case 3: return BASIC_HDD;
         case 4: return BASIC_SSD;
         case 6: return HIGH_SCALE_SSD;
+        case 7: return ENTERPRISE;
         default: return null;
       }
     }
@@ -633,8 +585,137 @@ private static final long serialVersionUID = 0L;
     // @@protoc_insertion_point(enum_scope:google.cloud.filestore.v1beta1.Instance.Tier)
   }
 
+  /**
+   * <pre>
+   * SuspensionReason contains the possible reasons for a suspension.
+   * </pre>
+   *
+   * Protobuf enum {@code google.cloud.filestore.v1beta1.Instance.SuspensionReason}
+   */
+  public enum SuspensionReason
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * Not set.
+     * </pre>
+     *
+     * <code>SUSPENSION_REASON_UNSPECIFIED = 0;</code>
+     */
+    SUSPENSION_REASON_UNSPECIFIED(0),
+    /**
+     * <pre>
+     * The KMS key used by the instance is either revoked or denied access to.
+     * </pre>
+     *
+     * <code>KMS_KEY_ISSUE = 1;</code>
+     */
+    KMS_KEY_ISSUE(1),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * Not set.
+     * </pre>
+     *
+     * <code>SUSPENSION_REASON_UNSPECIFIED = 0;</code>
+     */
+    public static final int SUSPENSION_REASON_UNSPECIFIED_VALUE = 0;
+    /**
+     * <pre>
+     * The KMS key used by the instance is either revoked or denied access to.
+     * </pre>
+     *
+     * <code>KMS_KEY_ISSUE = 1;</code>
+     */
+    public static final int KMS_KEY_ISSUE_VALUE = 1;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static SuspensionReason valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static SuspensionReason forNumber(int value) {
+      switch (value) {
+        case 0: return SUSPENSION_REASON_UNSPECIFIED;
+        case 1: return KMS_KEY_ISSUE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<SuspensionReason>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        SuspensionReason> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<SuspensionReason>() {
+            public SuspensionReason findValueByNumber(int number) {
+              return SuspensionReason.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.cloud.filestore.v1beta1.Instance.getDescriptor().getEnumTypes().get(2);
+    }
+
+    private static final SuspensionReason[] VALUES = values();
+
+    public static SuspensionReason valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private SuspensionReason(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.cloud.filestore.v1beta1.Instance.SuspensionReason)
+  }
+
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The resource name of the instance, in the format
@@ -682,7 +763,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * The description of the instance (2048 characters or less).
@@ -728,7 +810,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 5;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The instance state.
@@ -749,13 +831,13 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.filestore.v1beta1.Instance.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.filestore.v1beta1.Instance.State result = com.google.cloud.filestore.v1beta1.Instance.State.valueOf(state_);
+    com.google.cloud.filestore.v1beta1.Instance.State result = com.google.cloud.filestore.v1beta1.Instance.State.forNumber(state_);
     return result == null ? com.google.cloud.filestore.v1beta1.Instance.State.UNRECOGNIZED : result;
   }
 
   public static final int STATUS_MESSAGE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object statusMessage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object statusMessage_ = "";
   /**
    * <pre>
    * Output only. Additional information about the instance state, if available.
@@ -835,11 +917,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int TIER_FIELD_NUMBER = 8;
-  private int tier_;
+  private int tier_ = 0;
   /**
    * <pre>
    * The service tier of the instance.
@@ -860,8 +942,7 @@ private static final long serialVersionUID = 0L;
    * @return The tier.
    */
   @java.lang.Override public com.google.cloud.filestore.v1beta1.Instance.Tier getTier() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.filestore.v1beta1.Instance.Tier result = com.google.cloud.filestore.v1beta1.Instance.Tier.valueOf(tier_);
+    com.google.cloud.filestore.v1beta1.Instance.Tier result = com.google.cloud.filestore.v1beta1.Instance.Tier.forNumber(tier_);
     return result == null ? com.google.cloud.filestore.v1beta1.Instance.Tier.UNRECOGNIZED : result;
   }
 
@@ -877,6 +958,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -887,7 +969,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -898,7 +979,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 9;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -921,7 +1001,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 9;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -933,10 +1012,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 9;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -950,7 +1030,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 9;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -963,6 +1042,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILE_SHARES_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.filestore.v1beta1.FileShareConfig> fileShares_;
   /**
    * <pre>
@@ -1028,6 +1108,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORKS_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.filestore.v1beta1.NetworkConfig> networks_;
   /**
    * <pre>
@@ -1093,7 +1174,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ETAG_FIELD_NUMBER = 12;
-  private volatile java.lang.Object etag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object etag_ = "";
   /**
    * <pre>
    * Server-specified ETag for the instance resource to prevent simultaneous
@@ -1175,7 +1257,211 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getSatisfiesPzsOrBuilder() {
-    return getSatisfiesPzs();
+    return satisfiesPzs_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : satisfiesPzs_;
+  }
+
+  public static final int KMS_KEY_NAME_FIELD_NUMBER = 14;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kmsKeyName_ = "";
+  /**
+   * <pre>
+   * KMS key name used for data encryption.
+   * </pre>
+   *
+   * <code>string kms_key_name = 14;</code>
+   * @return The kmsKeyName.
+   */
+  @java.lang.Override
+  public java.lang.String getKmsKeyName() {
+    java.lang.Object ref = kmsKeyName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      kmsKeyName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * KMS key name used for data encryption.
+   * </pre>
+   *
+   * <code>string kms_key_name = 14;</code>
+   * @return The bytes for kmsKeyName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getKmsKeyNameBytes() {
+    java.lang.Object ref = kmsKeyName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      kmsKeyName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int SUSPENSION_REASONS_FIELD_NUMBER = 15;
+  @SuppressWarnings("serial")
+  private java.util.List<java.lang.Integer> suspensionReasons_;
+  private static final com.google.protobuf.Internal.ListAdapter.Converter<
+      java.lang.Integer, com.google.cloud.filestore.v1beta1.Instance.SuspensionReason> suspensionReasons_converter_ =
+          new com.google.protobuf.Internal.ListAdapter.Converter<
+              java.lang.Integer, com.google.cloud.filestore.v1beta1.Instance.SuspensionReason>() {
+            public com.google.cloud.filestore.v1beta1.Instance.SuspensionReason convert(java.lang.Integer from) {
+              com.google.cloud.filestore.v1beta1.Instance.SuspensionReason result = com.google.cloud.filestore.v1beta1.Instance.SuspensionReason.forNumber(from);
+              return result == null ? com.google.cloud.filestore.v1beta1.Instance.SuspensionReason.UNRECOGNIZED : result;
+            }
+          };
+  /**
+   * <pre>
+   * Output only. Field indicates all the reasons the instance is in "SUSPENDED" state.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.filestore.v1beta1.Instance.SuspensionReason suspension_reasons = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return A list containing the suspensionReasons.
+   */
+  @java.lang.Override
+  public java.util.List<com.google.cloud.filestore.v1beta1.Instance.SuspensionReason> getSuspensionReasonsList() {
+    return new com.google.protobuf.Internal.ListAdapter<
+        java.lang.Integer, com.google.cloud.filestore.v1beta1.Instance.SuspensionReason>(suspensionReasons_, suspensionReasons_converter_);
+  }
+  /**
+   * <pre>
+   * Output only. Field indicates all the reasons the instance is in "SUSPENDED" state.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.filestore.v1beta1.Instance.SuspensionReason suspension_reasons = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The count of suspensionReasons.
+   */
+  @java.lang.Override
+  public int getSuspensionReasonsCount() {
+    return suspensionReasons_.size();
+  }
+  /**
+   * <pre>
+   * Output only. Field indicates all the reasons the instance is in "SUSPENDED" state.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.filestore.v1beta1.Instance.SuspensionReason suspension_reasons = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @param index The index of the element to return.
+   * @return The suspensionReasons at the given index.
+   */
+  @java.lang.Override
+  public com.google.cloud.filestore.v1beta1.Instance.SuspensionReason getSuspensionReasons(int index) {
+    return suspensionReasons_converter_.convert(suspensionReasons_.get(index));
+  }
+  /**
+   * <pre>
+   * Output only. Field indicates all the reasons the instance is in "SUSPENDED" state.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.filestore.v1beta1.Instance.SuspensionReason suspension_reasons = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return A list containing the enum numeric values on the wire for suspensionReasons.
+   */
+  @java.lang.Override
+  public java.util.List<java.lang.Integer>
+  getSuspensionReasonsValueList() {
+    return suspensionReasons_;
+  }
+  /**
+   * <pre>
+   * Output only. Field indicates all the reasons the instance is in "SUSPENDED" state.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.filestore.v1beta1.Instance.SuspensionReason suspension_reasons = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of suspensionReasons at the given index.
+   */
+  @java.lang.Override
+  public int getSuspensionReasonsValue(int index) {
+    return suspensionReasons_.get(index);
+  }
+  private int suspensionReasonsMemoizedSerializedSize;
+
+  public static final int MAX_CAPACITY_GB_FIELD_NUMBER = 16;
+  private long maxCapacityGb_ = 0L;
+  /**
+   * <pre>
+   * Output only. The max capacity of the instance.
+   * </pre>
+   *
+   * <code>int64 max_capacity_gb = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The maxCapacityGb.
+   */
+  @java.lang.Override
+  public long getMaxCapacityGb() {
+    return maxCapacityGb_;
+  }
+
+  public static final int CAPACITY_STEP_SIZE_GB_FIELD_NUMBER = 17;
+  private long capacityStepSizeGb_ = 0L;
+  /**
+   * <pre>
+   * Output only. The increase/decrease capacity step size.
+   * </pre>
+   *
+   * <code>int64 capacity_step_size_gb = 17 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The capacityStepSizeGb.
+   */
+  @java.lang.Override
+  public long getCapacityStepSizeGb() {
+    return capacityStepSizeGb_;
+  }
+
+  public static final int MAX_SHARE_COUNT_FIELD_NUMBER = 18;
+  private long maxShareCount_ = 0L;
+  /**
+   * <pre>
+   * Output only. The max number of shares allowed.
+   * </pre>
+   *
+   * <code>int64 max_share_count = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The maxShareCount.
+   */
+  @java.lang.Override
+  public long getMaxShareCount() {
+    return maxShareCount_;
+  }
+
+  public static final int CAPACITY_GB_FIELD_NUMBER = 19;
+  private long capacityGb_ = 0L;
+  /**
+   * <pre>
+   * The storage capacity of the instance in gigabytes (GB = 1024^3 bytes).
+   * This capacity can be increased up to `max_capacity_gb` GB in multipliers
+   * of `capacity_step_size_gb` GB.
+   * </pre>
+   *
+   * <code>int64 capacity_gb = 19;</code>
+   * @return The capacityGb.
+   */
+  @java.lang.Override
+  public long getCapacityGb() {
+    return capacityGb_;
+  }
+
+  public static final int MULTI_SHARE_ENABLED_FIELD_NUMBER = 20;
+  private boolean multiShareEnabled_ = false;
+  /**
+   * <pre>
+   * Indicates whether this instance uses a multi-share configuration with which
+   * it can have more than one file-share or none at all. File-shares are added,
+   * updated and removed through the separate file-share APIs.
+   * </pre>
+   *
+   * <code>bool multi_share_enabled = 20;</code>
+   * @return The multiShareEnabled.
+   */
+  @java.lang.Override
+  public boolean getMultiShareEnabled() {
+    return multiShareEnabled_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1192,6 +1478,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    getSerializedSize();
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
@@ -1228,7 +1515,32 @@ private static final long serialVersionUID = 0L;
     if (satisfiesPzs_ != null) {
       output.writeMessage(13, getSatisfiesPzs());
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kmsKeyName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, kmsKeyName_);
+    }
+    if (getSuspensionReasonsList().size() > 0) {
+      output.writeUInt32NoTag(122);
+      output.writeUInt32NoTag(suspensionReasonsMemoizedSerializedSize);
+    }
+    for (int i = 0; i < suspensionReasons_.size(); i++) {
+      output.writeEnumNoTag(suspensionReasons_.get(i));
+    }
+    if (maxCapacityGb_ != 0L) {
+      output.writeInt64(16, maxCapacityGb_);
+    }
+    if (capacityStepSizeGb_ != 0L) {
+      output.writeInt64(17, capacityStepSizeGb_);
+    }
+    if (maxShareCount_ != 0L) {
+      output.writeInt64(18, maxShareCount_);
+    }
+    if (capacityGb_ != 0L) {
+      output.writeInt64(19, capacityGb_);
+    }
+    if (multiShareEnabled_ != false) {
+      output.writeBool(20, multiShareEnabled_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1283,7 +1595,42 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(13, getSatisfiesPzs());
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kmsKeyName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, kmsKeyName_);
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < suspensionReasons_.size(); i++) {
+        dataSize += com.google.protobuf.CodedOutputStream
+          .computeEnumSizeNoTag(suspensionReasons_.get(i));
+      }
+      size += dataSize;
+      if (!getSuspensionReasonsList().isEmpty()) {  size += 1;
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32SizeNoTag(dataSize);
+      }suspensionReasonsMemoizedSerializedSize = dataSize;
+    }
+    if (maxCapacityGb_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(16, maxCapacityGb_);
+    }
+    if (capacityStepSizeGb_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(17, capacityStepSizeGb_);
+    }
+    if (maxShareCount_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(18, maxShareCount_);
+    }
+    if (capacityGb_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(19, capacityGb_);
+    }
+    if (multiShareEnabled_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(20, multiShareEnabled_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1324,7 +1671,20 @@ private static final long serialVersionUID = 0L;
       if (!getSatisfiesPzs()
           .equals(other.getSatisfiesPzs())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getKmsKeyName()
+        .equals(other.getKmsKeyName())) return false;
+    if (!suspensionReasons_.equals(other.suspensionReasons_)) return false;
+    if (getMaxCapacityGb()
+        != other.getMaxCapacityGb()) return false;
+    if (getCapacityStepSizeGb()
+        != other.getCapacityStepSizeGb()) return false;
+    if (getMaxShareCount()
+        != other.getMaxShareCount()) return false;
+    if (getCapacityGb()
+        != other.getCapacityGb()) return false;
+    if (getMultiShareEnabled()
+        != other.getMultiShareEnabled()) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1367,7 +1727,28 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SATISFIES_PZS_FIELD_NUMBER;
       hash = (53 * hash) + getSatisfiesPzs().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + KMS_KEY_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getKmsKeyName().hashCode();
+    if (getSuspensionReasonsCount() > 0) {
+      hash = (37 * hash) + SUSPENSION_REASONS_FIELD_NUMBER;
+      hash = (53 * hash) + suspensionReasons_.hashCode();
+    }
+    hash = (37 * hash) + MAX_CAPACITY_GB_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getMaxCapacityGb());
+    hash = (37 * hash) + CAPACITY_STEP_SIZE_GB_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getCapacityStepSizeGb());
+    hash = (37 * hash) + MAX_SHARE_COUNT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getMaxShareCount());
+    hash = (37 * hash) + CAPACITY_GB_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getCapacityGb());
+    hash = (37 * hash) + MULTI_SHARE_ENABLED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getMultiShareEnabled());
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1464,7 +1845,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A Cloud Filestore instance.
+   * A Filestore instance.
    * </pre>
    *
    * Protobuf type {@code google.cloud.filestore.v1beta1.Instance}
@@ -1510,61 +1891,57 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.filestore.v1beta1.Instance.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getFileSharesFieldBuilder();
-        getNetworksFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       description_ = "";
-
       state_ = 0;
-
       statusMessage_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
       tier_ = 0;
-
       internalGetMutableLabels().clear();
       if (fileSharesBuilder_ == null) {
         fileShares_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        fileShares_ = null;
         fileSharesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       if (networksBuilder_ == null) {
         networks_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        networks_ = null;
         networksBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000100);
       etag_ = "";
-
-      if (satisfiesPzsBuilder_ == null) {
-        satisfiesPzs_ = null;
-      } else {
-        satisfiesPzs_ = null;
+      satisfiesPzs_ = null;
+      if (satisfiesPzsBuilder_ != null) {
+        satisfiesPzsBuilder_.dispose();
         satisfiesPzsBuilder_ = null;
       }
+      kmsKeyName_ = "";
+      suspensionReasons_ = java.util.Collections.emptyList();
+      bitField0_ = (bitField0_ & ~0x00001000);
+      maxCapacityGb_ = 0L;
+      capacityStepSizeGb_ = 0L;
+      maxShareCount_ = 0L;
+      capacityGb_ = 0L;
+      multiShareEnabled_ = false;
       return this;
     }
 
@@ -1591,45 +1968,90 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.filestore.v1beta1.Instance buildPartial() {
       com.google.cloud.filestore.v1beta1.Instance result = new com.google.cloud.filestore.v1beta1.Instance(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.description_ = description_;
-      result.state_ = state_;
-      result.statusMessage_ = statusMessage_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      result.tier_ = tier_;
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.filestore.v1beta1.Instance result) {
       if (fileSharesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           fileShares_ = java.util.Collections.unmodifiableList(fileShares_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.fileShares_ = fileShares_;
       } else {
         result.fileShares_ = fileSharesBuilder_.build();
       }
       if (networksBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000100) != 0)) {
           networks_ = java.util.Collections.unmodifiableList(networks_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000100);
         }
         result.networks_ = networks_;
       } else {
         result.networks_ = networksBuilder_.build();
       }
-      result.etag_ = etag_;
-      if (satisfiesPzsBuilder_ == null) {
-        result.satisfiesPzs_ = satisfiesPzs_;
-      } else {
-        result.satisfiesPzs_ = satisfiesPzsBuilder_.build();
+      if (((bitField0_ & 0x00001000) != 0)) {
+        suspensionReasons_ = java.util.Collections.unmodifiableList(suspensionReasons_);
+        bitField0_ = (bitField0_ & ~0x00001000);
       }
-      onBuilt();
-      return result;
+      result.suspensionReasons_ = suspensionReasons_;
+    }
+
+    private void buildPartial0(com.google.cloud.filestore.v1beta1.Instance result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.statusMessage_ = statusMessage_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.tier_ = tier_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.etag_ = etag_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.satisfiesPzs_ = satisfiesPzsBuilder_ == null
+            ? satisfiesPzs_
+            : satisfiesPzsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.kmsKeyName_ = kmsKeyName_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.maxCapacityGb_ = maxCapacityGb_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.capacityStepSizeGb_ = capacityStepSizeGb_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.maxShareCount_ = maxShareCount_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.capacityGb_ = capacityGb_;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.multiShareEnabled_ = multiShareEnabled_;
+      }
     }
 
     @java.lang.Override
@@ -1678,10 +2100,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.filestore.v1beta1.Instance.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -1689,6 +2113,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getStatusMessage().isEmpty()) {
         statusMessage_ = other.statusMessage_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -1699,11 +2124,12 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000040;
       if (fileSharesBuilder_ == null) {
         if (!other.fileShares_.isEmpty()) {
           if (fileShares_.isEmpty()) {
             fileShares_ = other.fileShares_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureFileSharesIsMutable();
             fileShares_.addAll(other.fileShares_);
@@ -1716,7 +2142,7 @@ private static final long serialVersionUID = 0L;
             fileSharesBuilder_.dispose();
             fileSharesBuilder_ = null;
             fileShares_ = other.fileShares_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000080);
             fileSharesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFileSharesFieldBuilder() : null;
@@ -1729,7 +2155,7 @@ private static final long serialVersionUID = 0L;
         if (!other.networks_.isEmpty()) {
           if (networks_.isEmpty()) {
             networks_ = other.networks_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000100);
           } else {
             ensureNetworksIsMutable();
             networks_.addAll(other.networks_);
@@ -1742,7 +2168,7 @@ private static final long serialVersionUID = 0L;
             networksBuilder_.dispose();
             networksBuilder_ = null;
             networks_ = other.networks_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000100);
             networksBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getNetworksFieldBuilder() : null;
@@ -1753,12 +2179,43 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEtag().isEmpty()) {
         etag_ = other.etag_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (other.hasSatisfiesPzs()) {
         mergeSatisfiesPzs(other.getSatisfiesPzs());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getKmsKeyName().isEmpty()) {
+        kmsKeyName_ = other.kmsKeyName_;
+        bitField0_ |= 0x00000800;
+        onChanged();
+      }
+      if (!other.suspensionReasons_.isEmpty()) {
+        if (suspensionReasons_.isEmpty()) {
+          suspensionReasons_ = other.suspensionReasons_;
+          bitField0_ = (bitField0_ & ~0x00001000);
+        } else {
+          ensureSuspensionReasonsIsMutable();
+          suspensionReasons_.addAll(other.suspensionReasons_);
+        }
+        onChanged();
+      }
+      if (other.getMaxCapacityGb() != 0L) {
+        setMaxCapacityGb(other.getMaxCapacityGb());
+      }
+      if (other.getCapacityStepSizeGb() != 0L) {
+        setCapacityStepSizeGb(other.getCapacityStepSizeGb());
+      }
+      if (other.getMaxShareCount() != 0L) {
+        setMaxShareCount(other.getMaxShareCount());
+      }
+      if (other.getCapacityGb() != 0L) {
+        setCapacityGb(other.getCapacityGb());
+      }
+      if (other.getMultiShareEnabled() != false) {
+        setMultiShareEnabled(other.getMultiShareEnabled());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1773,17 +2230,156 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.filestore.v1beta1.Instance parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 40: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 40
+            case 50: {
+              statusMessage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 58
+            case 64: {
+              tier_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 64
+            case 74: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 74
+            case 82: {
+              com.google.cloud.filestore.v1beta1.FileShareConfig m =
+                  input.readMessage(
+                      com.google.cloud.filestore.v1beta1.FileShareConfig.parser(),
+                      extensionRegistry);
+              if (fileSharesBuilder_ == null) {
+                ensureFileSharesIsMutable();
+                fileShares_.add(m);
+              } else {
+                fileSharesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 82
+            case 90: {
+              com.google.cloud.filestore.v1beta1.NetworkConfig m =
+                  input.readMessage(
+                      com.google.cloud.filestore.v1beta1.NetworkConfig.parser(),
+                      extensionRegistry);
+              if (networksBuilder_ == null) {
+                ensureNetworksIsMutable();
+                networks_.add(m);
+              } else {
+                networksBuilder_.addMessage(m);
+              }
+              break;
+            } // case 90
+            case 98: {
+              etag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getSatisfiesPzsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 106
+            case 114: {
+              kmsKeyName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 114
+            case 120: {
+              int tmpRaw = input.readEnum();
+              ensureSuspensionReasonsIsMutable();
+              suspensionReasons_.add(tmpRaw);
+              break;
+            } // case 120
+            case 122: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureSuspensionReasonsIsMutable();
+                suspensionReasons_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 122
+            case 128: {
+              maxCapacityGb_ = input.readInt64();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 128
+            case 136: {
+              capacityStepSizeGb_ = input.readInt64();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 136
+            case 144: {
+              maxShareCount_ = input.readInt64();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 144
+            case 152: {
+              capacityGb_ = input.readInt64();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 152
+            case 160: {
+              multiShareEnabled_ = input.readBool();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 160
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.filestore.v1beta1.Instance) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1844,11 +2440,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1862,8 +2456,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1879,12 +2473,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1942,11 +2534,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1959,8 +2549,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1975,12 +2565,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2007,8 +2595,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2022,8 +2610,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.filestore.v1beta1.Instance.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.filestore.v1beta1.Instance.State result = com.google.cloud.filestore.v1beta1.Instance.State.valueOf(state_);
+      com.google.cloud.filestore.v1beta1.Instance.State result = com.google.cloud.filestore.v1beta1.Instance.State.forNumber(state_);
       return result == null ? com.google.cloud.filestore.v1beta1.Instance.State.UNRECOGNIZED : result;
     }
     /**
@@ -2039,7 +2626,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -2053,7 +2640,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       state_ = 0;
       onChanged();
       return this;
@@ -2112,11 +2699,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatusMessage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       statusMessage_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2129,8 +2714,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatusMessage() {
-      
       statusMessage_ = getDefaultInstance().getStatusMessage();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2145,12 +2730,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatusMessageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       statusMessage_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2167,7 +2750,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2197,11 +2780,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2215,11 +2798,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2231,17 +2814,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2252,14 +2836,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2270,7 +2853,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -2332,8 +2915,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTierValue(int value) {
-      
       tier_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2347,8 +2930,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.filestore.v1beta1.Instance.Tier getTier() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.filestore.v1beta1.Instance.Tier result = com.google.cloud.filestore.v1beta1.Instance.Tier.valueOf(tier_);
+      com.google.cloud.filestore.v1beta1.Instance.Tier result = com.google.cloud.filestore.v1beta1.Instance.Tier.forNumber(tier_);
       return result == null ? com.google.cloud.filestore.v1beta1.Instance.Tier.UNRECOGNIZED : result;
     }
     /**
@@ -2364,7 +2946,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       tier_ = value.getNumber();
       onChanged();
       return this;
@@ -2378,7 +2960,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTier() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       tier_ = 0;
       onChanged();
       return this;
@@ -2387,7 +2969,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -2395,8 +2977,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -2404,9 +2985,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000040;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -2417,7 +2999,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 9;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -2440,7 +3021,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 9;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -2452,10 +3032,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 9;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -2469,7 +3050,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 9;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2480,8 +3060,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000040);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -2493,7 +3073,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 9;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2506,7 +3085,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000040;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -2520,12 +3100,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000040;
       return this;
     }
     /**
@@ -2535,20 +3113,20 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 9;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000040;
       return this;
     }
 
     private java.util.List<com.google.cloud.filestore.v1beta1.FileShareConfig> fileShares_ =
       java.util.Collections.emptyList();
     private void ensureFileSharesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         fileShares_ = new java.util.ArrayList<com.google.cloud.filestore.v1beta1.FileShareConfig>(fileShares_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -2753,7 +3331,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearFileShares() {
       if (fileSharesBuilder_ == null) {
         fileShares_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         fileSharesBuilder_.clear();
@@ -2865,7 +3443,7 @@ private static final long serialVersionUID = 0L;
         fileSharesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.filestore.v1beta1.FileShareConfig, com.google.cloud.filestore.v1beta1.FileShareConfig.Builder, com.google.cloud.filestore.v1beta1.FileShareConfigOrBuilder>(
                 fileShares_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         fileShares_ = null;
@@ -2876,9 +3454,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.filestore.v1beta1.NetworkConfig> networks_ =
       java.util.Collections.emptyList();
     private void ensureNetworksIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         networks_ = new java.util.ArrayList<com.google.cloud.filestore.v1beta1.NetworkConfig>(networks_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000100;
        }
     }
 
@@ -3083,7 +3661,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearNetworks() {
       if (networksBuilder_ == null) {
         networks_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
       } else {
         networksBuilder_.clear();
@@ -3195,7 +3773,7 @@ private static final long serialVersionUID = 0L;
         networksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.filestore.v1beta1.NetworkConfig, com.google.cloud.filestore.v1beta1.NetworkConfig.Builder, com.google.cloud.filestore.v1beta1.NetworkConfigOrBuilder>(
                 networks_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000100) != 0),
                 getParentForChildren(),
                 isClean());
         networks_ = null;
@@ -3259,11 +3837,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       etag_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3277,8 +3853,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEtag() {
-      
       etag_ = getDefaultInstance().getEtag();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -3294,12 +3870,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       etag_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3316,7 +3890,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the satisfiesPzs field is set.
      */
     public boolean hasSatisfiesPzs() {
-      return satisfiesPzsBuilder_ != null || satisfiesPzs_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -3346,11 +3920,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         satisfiesPzs_ = value;
-        onChanged();
       } else {
         satisfiesPzsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3364,11 +3938,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (satisfiesPzsBuilder_ == null) {
         satisfiesPzs_ = builderForValue.build();
-        onChanged();
       } else {
         satisfiesPzsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3380,17 +3954,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSatisfiesPzs(com.google.protobuf.BoolValue value) {
       if (satisfiesPzsBuilder_ == null) {
-        if (satisfiesPzs_ != null) {
-          satisfiesPzs_ =
-            com.google.protobuf.BoolValue.newBuilder(satisfiesPzs_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          satisfiesPzs_ != null &&
+          satisfiesPzs_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getSatisfiesPzsBuilder().mergeFrom(value);
         } else {
           satisfiesPzs_ = value;
         }
-        onChanged();
       } else {
         satisfiesPzsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3401,14 +3976,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue satisfies_pzs = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearSatisfiesPzs() {
-      if (satisfiesPzsBuilder_ == null) {
-        satisfiesPzs_ = null;
-        onChanged();
-      } else {
-        satisfiesPzs_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      satisfiesPzs_ = null;
+      if (satisfiesPzsBuilder_ != null) {
+        satisfiesPzsBuilder_.dispose();
         satisfiesPzsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3419,7 +3993,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue satisfies_pzs = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.BoolValue.Builder getSatisfiesPzsBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getSatisfiesPzsFieldBuilder().getBuilder();
     }
@@ -3458,6 +4032,518 @@ private static final long serialVersionUID = 0L;
       }
       return satisfiesPzsBuilder_;
     }
+
+    private java.lang.Object kmsKeyName_ = "";
+    /**
+     * <pre>
+     * KMS key name used for data encryption.
+     * </pre>
+     *
+     * <code>string kms_key_name = 14;</code>
+     * @return The kmsKeyName.
+     */
+    public java.lang.String getKmsKeyName() {
+      java.lang.Object ref = kmsKeyName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        kmsKeyName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * KMS key name used for data encryption.
+     * </pre>
+     *
+     * <code>string kms_key_name = 14;</code>
+     * @return The bytes for kmsKeyName.
+     */
+    public com.google.protobuf.ByteString
+        getKmsKeyNameBytes() {
+      java.lang.Object ref = kmsKeyName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        kmsKeyName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * KMS key name used for data encryption.
+     * </pre>
+     *
+     * <code>string kms_key_name = 14;</code>
+     * @param value The kmsKeyName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKmsKeyName(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      kmsKeyName_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * KMS key name used for data encryption.
+     * </pre>
+     *
+     * <code>string kms_key_name = 14;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearKmsKeyName() {
+      kmsKeyName_ = getDefaultInstance().getKmsKeyName();
+      bitField0_ = (bitField0_ & ~0x00000800);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * KMS key name used for data encryption.
+     * </pre>
+     *
+     * <code>string kms_key_name = 14;</code>
+     * @param value The bytes for kmsKeyName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKmsKeyNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      kmsKeyName_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+
+    private java.util.List<java.lang.Integer> suspensionReasons_ =
+      java.util.Collections.emptyList();
+    private void ensureSuspensionReasonsIsMutable() {
+      if (!((bitField0_ & 0x00001000) != 0)) {
+        suspensionReasons_ = new java.util.ArrayList<java.lang.Integer>(suspensionReasons_);
+        bitField0_ |= 0x00001000;
+      }
+    }
+    /**
+     * <pre>
+     * Output only. Field indicates all the reasons the instance is in "SUSPENDED" state.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.filestore.v1beta1.Instance.SuspensionReason suspension_reasons = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return A list containing the suspensionReasons.
+     */
+    public java.util.List<com.google.cloud.filestore.v1beta1.Instance.SuspensionReason> getSuspensionReasonsList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          java.lang.Integer, com.google.cloud.filestore.v1beta1.Instance.SuspensionReason>(suspensionReasons_, suspensionReasons_converter_);
+    }
+    /**
+     * <pre>
+     * Output only. Field indicates all the reasons the instance is in "SUSPENDED" state.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.filestore.v1beta1.Instance.SuspensionReason suspension_reasons = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The count of suspensionReasons.
+     */
+    public int getSuspensionReasonsCount() {
+      return suspensionReasons_.size();
+    }
+    /**
+     * <pre>
+     * Output only. Field indicates all the reasons the instance is in "SUSPENDED" state.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.filestore.v1beta1.Instance.SuspensionReason suspension_reasons = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param index The index of the element to return.
+     * @return The suspensionReasons at the given index.
+     */
+    public com.google.cloud.filestore.v1beta1.Instance.SuspensionReason getSuspensionReasons(int index) {
+      return suspensionReasons_converter_.convert(suspensionReasons_.get(index));
+    }
+    /**
+     * <pre>
+     * Output only. Field indicates all the reasons the instance is in "SUSPENDED" state.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.filestore.v1beta1.Instance.SuspensionReason suspension_reasons = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param index The index to set the value at.
+     * @param value The suspensionReasons to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSuspensionReasons(
+        int index, com.google.cloud.filestore.v1beta1.Instance.SuspensionReason value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureSuspensionReasonsIsMutable();
+      suspensionReasons_.set(index, value.getNumber());
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. Field indicates all the reasons the instance is in "SUSPENDED" state.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.filestore.v1beta1.Instance.SuspensionReason suspension_reasons = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param value The suspensionReasons to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSuspensionReasons(com.google.cloud.filestore.v1beta1.Instance.SuspensionReason value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureSuspensionReasonsIsMutable();
+      suspensionReasons_.add(value.getNumber());
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. Field indicates all the reasons the instance is in "SUSPENDED" state.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.filestore.v1beta1.Instance.SuspensionReason suspension_reasons = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param values The suspensionReasons to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllSuspensionReasons(
+        java.lang.Iterable<? extends com.google.cloud.filestore.v1beta1.Instance.SuspensionReason> values) {
+      ensureSuspensionReasonsIsMutable();
+      for (com.google.cloud.filestore.v1beta1.Instance.SuspensionReason value : values) {
+        suspensionReasons_.add(value.getNumber());
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. Field indicates all the reasons the instance is in "SUSPENDED" state.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.filestore.v1beta1.Instance.SuspensionReason suspension_reasons = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSuspensionReasons() {
+      suspensionReasons_ = java.util.Collections.emptyList();
+      bitField0_ = (bitField0_ & ~0x00001000);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. Field indicates all the reasons the instance is in "SUSPENDED" state.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.filestore.v1beta1.Instance.SuspensionReason suspension_reasons = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return A list containing the enum numeric values on the wire for suspensionReasons.
+     */
+    public java.util.List<java.lang.Integer>
+    getSuspensionReasonsValueList() {
+      return java.util.Collections.unmodifiableList(suspensionReasons_);
+    }
+    /**
+     * <pre>
+     * Output only. Field indicates all the reasons the instance is in "SUSPENDED" state.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.filestore.v1beta1.Instance.SuspensionReason suspension_reasons = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of suspensionReasons at the given index.
+     */
+    public int getSuspensionReasonsValue(int index) {
+      return suspensionReasons_.get(index);
+    }
+    /**
+     * <pre>
+     * Output only. Field indicates all the reasons the instance is in "SUSPENDED" state.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.filestore.v1beta1.Instance.SuspensionReason suspension_reasons = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param index The index to set the value at.
+     * @param value The enum numeric value on the wire for suspensionReasons to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSuspensionReasonsValue(
+        int index, int value) {
+      ensureSuspensionReasonsIsMutable();
+      suspensionReasons_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. Field indicates all the reasons the instance is in "SUSPENDED" state.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.filestore.v1beta1.Instance.SuspensionReason suspension_reasons = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param value The enum numeric value on the wire for suspensionReasons to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSuspensionReasonsValue(int value) {
+      ensureSuspensionReasonsIsMutable();
+      suspensionReasons_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. Field indicates all the reasons the instance is in "SUSPENDED" state.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.filestore.v1beta1.Instance.SuspensionReason suspension_reasons = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param values The enum numeric values on the wire for suspensionReasons to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllSuspensionReasonsValue(
+        java.lang.Iterable<java.lang.Integer> values) {
+      ensureSuspensionReasonsIsMutable();
+      for (int value : values) {
+        suspensionReasons_.add(value);
+      }
+      onChanged();
+      return this;
+    }
+
+    private long maxCapacityGb_ ;
+    /**
+     * <pre>
+     * Output only. The max capacity of the instance.
+     * </pre>
+     *
+     * <code>int64 max_capacity_gb = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The maxCapacityGb.
+     */
+    @java.lang.Override
+    public long getMaxCapacityGb() {
+      return maxCapacityGb_;
+    }
+    /**
+     * <pre>
+     * Output only. The max capacity of the instance.
+     * </pre>
+     *
+     * <code>int64 max_capacity_gb = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param value The maxCapacityGb to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMaxCapacityGb(long value) {
+      
+      maxCapacityGb_ = value;
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The max capacity of the instance.
+     * </pre>
+     *
+     * <code>int64 max_capacity_gb = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMaxCapacityGb() {
+      bitField0_ = (bitField0_ & ~0x00002000);
+      maxCapacityGb_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long capacityStepSizeGb_ ;
+    /**
+     * <pre>
+     * Output only. The increase/decrease capacity step size.
+     * </pre>
+     *
+     * <code>int64 capacity_step_size_gb = 17 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The capacityStepSizeGb.
+     */
+    @java.lang.Override
+    public long getCapacityStepSizeGb() {
+      return capacityStepSizeGb_;
+    }
+    /**
+     * <pre>
+     * Output only. The increase/decrease capacity step size.
+     * </pre>
+     *
+     * <code>int64 capacity_step_size_gb = 17 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param value The capacityStepSizeGb to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCapacityStepSizeGb(long value) {
+      
+      capacityStepSizeGb_ = value;
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The increase/decrease capacity step size.
+     * </pre>
+     *
+     * <code>int64 capacity_step_size_gb = 17 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCapacityStepSizeGb() {
+      bitField0_ = (bitField0_ & ~0x00004000);
+      capacityStepSizeGb_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long maxShareCount_ ;
+    /**
+     * <pre>
+     * Output only. The max number of shares allowed.
+     * </pre>
+     *
+     * <code>int64 max_share_count = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The maxShareCount.
+     */
+    @java.lang.Override
+    public long getMaxShareCount() {
+      return maxShareCount_;
+    }
+    /**
+     * <pre>
+     * Output only. The max number of shares allowed.
+     * </pre>
+     *
+     * <code>int64 max_share_count = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param value The maxShareCount to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMaxShareCount(long value) {
+      
+      maxShareCount_ = value;
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The max number of shares allowed.
+     * </pre>
+     *
+     * <code>int64 max_share_count = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMaxShareCount() {
+      bitField0_ = (bitField0_ & ~0x00008000);
+      maxShareCount_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long capacityGb_ ;
+    /**
+     * <pre>
+     * The storage capacity of the instance in gigabytes (GB = 1024^3 bytes).
+     * This capacity can be increased up to `max_capacity_gb` GB in multipliers
+     * of `capacity_step_size_gb` GB.
+     * </pre>
+     *
+     * <code>int64 capacity_gb = 19;</code>
+     * @return The capacityGb.
+     */
+    @java.lang.Override
+    public long getCapacityGb() {
+      return capacityGb_;
+    }
+    /**
+     * <pre>
+     * The storage capacity of the instance in gigabytes (GB = 1024^3 bytes).
+     * This capacity can be increased up to `max_capacity_gb` GB in multipliers
+     * of `capacity_step_size_gb` GB.
+     * </pre>
+     *
+     * <code>int64 capacity_gb = 19;</code>
+     * @param value The capacityGb to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCapacityGb(long value) {
+      
+      capacityGb_ = value;
+      bitField0_ |= 0x00010000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The storage capacity of the instance in gigabytes (GB = 1024^3 bytes).
+     * This capacity can be increased up to `max_capacity_gb` GB in multipliers
+     * of `capacity_step_size_gb` GB.
+     * </pre>
+     *
+     * <code>int64 capacity_gb = 19;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCapacityGb() {
+      bitField0_ = (bitField0_ & ~0x00010000);
+      capacityGb_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private boolean multiShareEnabled_ ;
+    /**
+     * <pre>
+     * Indicates whether this instance uses a multi-share configuration with which
+     * it can have more than one file-share or none at all. File-shares are added,
+     * updated and removed through the separate file-share APIs.
+     * </pre>
+     *
+     * <code>bool multi_share_enabled = 20;</code>
+     * @return The multiShareEnabled.
+     */
+    @java.lang.Override
+    public boolean getMultiShareEnabled() {
+      return multiShareEnabled_;
+    }
+    /**
+     * <pre>
+     * Indicates whether this instance uses a multi-share configuration with which
+     * it can have more than one file-share or none at all. File-shares are added,
+     * updated and removed through the separate file-share APIs.
+     * </pre>
+     *
+     * <code>bool multi_share_enabled = 20;</code>
+     * @param value The multiShareEnabled to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMultiShareEnabled(boolean value) {
+      
+      multiShareEnabled_ = value;
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Indicates whether this instance uses a multi-share configuration with which
+     * it can have more than one file-share or none at all. File-shares are added,
+     * updated and removed through the separate file-share APIs.
+     * </pre>
+     *
+     * <code>bool multi_share_enabled = 20;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMultiShareEnabled() {
+      bitField0_ = (bitField0_ & ~0x00020000);
+      multiShareEnabled_ = false;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3491,7 +4577,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Instance(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

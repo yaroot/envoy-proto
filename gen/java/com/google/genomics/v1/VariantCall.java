@@ -42,125 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VariantCall(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              info_ = com.google.protobuf.MapField.newMapField(
-                  InfoDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ListValue>
-            info__ = input.readMessage(
-                InfoDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            info_.getMutableMap().put(
-                info__.getKey(), info__.getValue());
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            phaseset_ = s;
-            break;
-          }
-          case 49: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              genotypeLikelihood_ = newDoubleList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            genotypeLikelihood_.addDouble(input.readDouble());
-            break;
-          }
-          case 50: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
-              genotypeLikelihood_ = newDoubleList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              genotypeLikelihood_.addDouble(input.readDouble());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 56: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              genotype_ = newIntList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            genotype_.addInt(input.readInt32());
-            break;
-          }
-          case 58: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              genotype_ = newIntList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              genotype_.addInt(input.readInt32());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            callSetId_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            callSetName_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        genotypeLikelihood_.makeImmutable(); // C
-      }
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        genotype_.makeImmutable(); // C
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.genomics.v1.VariantsProto.internal_static_google_genomics_v1_VariantCall_descriptor;
@@ -187,7 +68,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CALL_SET_ID_FIELD_NUMBER = 8;
-  private volatile java.lang.Object callSetId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object callSetId_ = "";
   /**
    * <pre>
    * The ID of the call set this variant call belongs to.
@@ -233,7 +115,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CALL_SET_NAME_FIELD_NUMBER = 9;
-  private volatile java.lang.Object callSetName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object callSetName_ = "";
   /**
    * <pre>
    * The name of the call set this variant call belongs to.
@@ -279,6 +162,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GENOTYPE_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.IntList genotype_;
   /**
    * <pre>
@@ -352,7 +236,8 @@ private static final long serialVersionUID = 0L;
   private int genotypeMemoizedSerializedSize = -1;
 
   public static final int PHASESET_FIELD_NUMBER = 5;
-  private volatile java.lang.Object phaseset_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object phaseset_ = "";
   /**
    * <pre>
    * If this field is present, this variant call's genotype ordering implies
@@ -406,6 +291,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GENOTYPE_LIKELIHOOD_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.DoubleList genotypeLikelihood_;
   /**
    * <pre>
@@ -472,6 +358,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.ListValue.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.protobuf.ListValue> info_;
   private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ListValue>
@@ -482,7 +369,6 @@ private static final long serialVersionUID = 0L;
     }
     return info_;
   }
-
   public int getInfoCount() {
     return internalGetInfo().getMap().size();
   }
@@ -494,7 +380,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsInfo(
       java.lang.String key) {
@@ -518,7 +403,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.protobuf.ListValue> getInfoMap() {
     return internalGetInfo().getMap();
   }
@@ -531,10 +415,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 2;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.ListValue getInfoOrDefault(
+  public /* nullable */
+com.google.protobuf.ListValue getInfoOrDefault(
       java.lang.String key,
-      com.google.protobuf.ListValue defaultValue) {
+      /* nullable */
+com.google.protobuf.ListValue defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.protobuf.ListValue> map =
         internalGetInfo().getMap();
@@ -549,7 +434,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 2;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.ListValue getInfoOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -605,7 +489,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callSetName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, callSetName_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -658,7 +542,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callSetName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, callSetName_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -685,7 +569,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getGenotypeLikelihoodList())) return false;
     if (!internalGetInfo().equals(
         other.internalGetInfo())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -714,7 +598,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + INFO_FIELD_NUMBER;
       hash = (53 * hash) + internalGetInfo().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -860,32 +744,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.genomics.v1.VariantCall.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       callSetId_ = "";
-
       callSetName_ = "";
-
       genotype_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000001);
       phaseset_ = "";
-
       genotypeLikelihood_ = emptyDoubleList();
-      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableInfo().clear();
       return this;
     }
@@ -913,24 +788,40 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.genomics.v1.VariantCall buildPartial() {
       com.google.genomics.v1.VariantCall result = new com.google.genomics.v1.VariantCall(this);
-      int from_bitField0_ = bitField0_;
-      result.callSetId_ = callSetId_;
-      result.callSetName_ = callSetName_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        genotype_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.genotype_ = genotype_;
-      result.phaseset_ = phaseset_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        genotypeLikelihood_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.genotypeLikelihood_ = genotypeLikelihood_;
-      result.info_ = internalGetInfo();
-      result.info_.makeImmutable();
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.genomics.v1.VariantCall result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        genotype_.makeImmutable();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.genotype_ = genotype_;
+      if (((bitField0_ & 0x00000010) != 0)) {
+        genotypeLikelihood_.makeImmutable();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
+      result.genotypeLikelihood_ = genotypeLikelihood_;
+    }
+
+    private void buildPartial0(com.google.genomics.v1.VariantCall result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.callSetId_ = callSetId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.callSetName_ = callSetName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.phaseset_ = phaseset_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.info_ = internalGetInfo();
+        result.info_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -979,16 +870,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.genomics.v1.VariantCall.getDefaultInstance()) return this;
       if (!other.getCallSetId().isEmpty()) {
         callSetId_ = other.callSetId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getCallSetName().isEmpty()) {
         callSetName_ = other.callSetName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.genotype_.isEmpty()) {
         if (genotype_.isEmpty()) {
           genotype_ = other.genotype_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureGenotypeIsMutable();
           genotype_.addAll(other.genotype_);
@@ -997,12 +890,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPhaseset().isEmpty()) {
         phaseset_ = other.phaseset_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.genotypeLikelihood_.isEmpty()) {
         if (genotypeLikelihood_.isEmpty()) {
           genotypeLikelihood_ = other.genotypeLikelihood_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureGenotypeLikelihoodIsMutable();
           genotypeLikelihood_.addAll(other.genotypeLikelihood_);
@@ -1011,7 +905,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableInfo().mergeFrom(
           other.internalGetInfo());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000020;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1026,17 +921,86 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.genomics.v1.VariantCall parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ListValue>
+              info__ = input.readMessage(
+                  InfoDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableInfo().getMutableMap().put(
+                  info__.getKey(), info__.getValue());
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 18
+            case 42: {
+              phaseset_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 49: {
+              double v = input.readDouble();
+              ensureGenotypeLikelihoodIsMutable();
+              genotypeLikelihood_.addDouble(v);
+              break;
+            } // case 49
+            case 50: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureGenotypeLikelihoodIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                genotypeLikelihood_.addDouble(input.readDouble());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 50
+            case 56: {
+              int v = input.readInt32();
+              ensureGenotypeIsMutable();
+              genotype_.addInt(v);
+              break;
+            } // case 56
+            case 58: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureGenotypeIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                genotype_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 58
+            case 66: {
+              callSetId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 66
+            case 74: {
+              callSetName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.genomics.v1.VariantCall) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1094,11 +1058,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCallSetId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       callSetId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1111,8 +1073,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCallSetId() {
-      
       callSetId_ = getDefaultInstance().getCallSetId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1127,12 +1089,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCallSetIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       callSetId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1190,11 +1150,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCallSetName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       callSetName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1207,8 +1165,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCallSetName() {
-      
       callSetName_ = getDefaultInstance().getCallSetName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1223,22 +1181,20 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCallSetNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       callSetName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.Internal.IntList genotype_ = emptyIntList();
     private void ensureGenotypeIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         genotype_ = mutableCopy(genotype_);
-        bitField0_ |= 0x00000001;
-       }
+        bitField0_ |= 0x00000004;
+      }
     }
     /**
      * <pre>
@@ -1261,7 +1217,7 @@ private static final long serialVersionUID = 0L;
      */
     public java.util.List<java.lang.Integer>
         getGenotypeList() {
-      return ((bitField0_ & 0x00000001) != 0) ?
+      return ((bitField0_ & 0x00000004) != 0) ?
                java.util.Collections.unmodifiableList(genotype_) : genotype_;
     }
     /**
@@ -1332,6 +1288,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGenotype(
         int index, int value) {
+      
       ensureGenotypeIsMutable();
       genotype_.setInt(index, value);
       onChanged();
@@ -1358,6 +1315,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addGenotype(int value) {
+      
       ensureGenotypeIsMutable();
       genotype_.addInt(value);
       onChanged();
@@ -1412,7 +1370,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearGenotype() {
       genotype_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1482,11 +1440,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPhaseset(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       phaseset_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1503,8 +1459,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPhaseset() {
-      
       phaseset_ = getDefaultInstance().getPhaseset();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1523,22 +1479,20 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPhasesetBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       phaseset_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.Internal.DoubleList genotypeLikelihood_ = emptyDoubleList();
     private void ensureGenotypeLikelihoodIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         genotypeLikelihood_ = mutableCopy(genotypeLikelihood_);
-        bitField0_ |= 0x00000002;
-       }
+        bitField0_ |= 0x00000010;
+      }
     }
     /**
      * <pre>
@@ -1555,7 +1509,7 @@ private static final long serialVersionUID = 0L;
      */
     public java.util.List<java.lang.Double>
         getGenotypeLikelihoodList() {
-      return ((bitField0_ & 0x00000002) != 0) ?
+      return ((bitField0_ & 0x00000010) != 0) ?
                java.util.Collections.unmodifiableList(genotypeLikelihood_) : genotypeLikelihood_;
     }
     /**
@@ -1608,6 +1562,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGenotypeLikelihood(
         int index, double value) {
+      
       ensureGenotypeLikelihoodIsMutable();
       genotypeLikelihood_.setDouble(index, value);
       onChanged();
@@ -1628,6 +1583,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addGenotypeLikelihood(double value) {
+      
       ensureGenotypeLikelihoodIsMutable();
       genotypeLikelihood_.addDouble(value);
       onChanged();
@@ -1670,7 +1626,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearGenotypeLikelihood() {
       genotypeLikelihood_ = emptyDoubleList();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1678,7 +1634,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf.ListValue> info_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ListValue>
-    internalGetInfo() {
+        internalGetInfo() {
       if (info_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             InfoDefaultEntryHolder.defaultEntry);
@@ -1686,8 +1642,7 @@ private static final long serialVersionUID = 0L;
       return info_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ListValue>
-    internalGetMutableInfo() {
-      onChanged();;
+        internalGetMutableInfo() {
       if (info_ == null) {
         info_ = com.google.protobuf.MapField.newMapField(
             InfoDefaultEntryHolder.defaultEntry);
@@ -1695,9 +1650,10 @@ private static final long serialVersionUID = 0L;
       if (!info_.isMutable()) {
         info_ = info_.copy();
       }
+      bitField0_ |= 0x00000020;
+      onChanged();
       return info_;
     }
-
     public int getInfoCount() {
       return internalGetInfo().getMap().size();
     }
@@ -1709,7 +1665,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsInfo(
         java.lang.String key) {
@@ -1733,7 +1688,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf.ListValue> getInfoMap() {
       return internalGetInfo().getMap();
     }
@@ -1746,10 +1700,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 2;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.ListValue getInfoOrDefault(
+    public /* nullable */
+com.google.protobuf.ListValue getInfoOrDefault(
         java.lang.String key,
-        com.google.protobuf.ListValue defaultValue) {
+        /* nullable */
+com.google.protobuf.ListValue defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.ListValue> map =
           internalGetInfo().getMap();
@@ -1764,7 +1719,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 2;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.ListValue getInfoOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1775,8 +1729,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearInfo() {
+      bitField0_ = (bitField0_ & ~0x00000020);
       internalGetMutableInfo().getMutableMap()
           .clear();
       return this;
@@ -1789,7 +1743,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 2;</code>
      */
-
     public Builder removeInfo(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1802,7 +1755,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.protobuf.ListValue>
-    getMutableInfo() {
+        getMutableInfo() {
+      bitField0_ |= 0x00000020;
       return internalGetMutableInfo().getMutableMap();
     }
     /**
@@ -1817,12 +1771,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.protobuf.ListValue value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableInfo().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000020;
       return this;
     }
     /**
@@ -1833,11 +1785,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 2;</code>
      */
-
     public Builder putAllInfo(
         java.util.Map<java.lang.String, com.google.protobuf.ListValue> values) {
       internalGetMutableInfo().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000020;
       return this;
     }
     @java.lang.Override
@@ -1873,7 +1825,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VariantCall(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

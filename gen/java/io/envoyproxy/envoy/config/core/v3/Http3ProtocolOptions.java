@@ -35,76 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Http3ProtocolOptions(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions.Builder subBuilder = null;
-            if (quicProtocolOptions_ != null) {
-              subBuilder = quicProtocolOptions_.toBuilder();
-            }
-            quicProtocolOptions_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(quicProtocolOptions_);
-              quicProtocolOptions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (overrideStreamErrorOnInvalidHttpMessage_ != null) {
-              subBuilder = overrideStreamErrorOnInvalidHttpMessage_.toBuilder();
-            }
-            overrideStreamErrorOnInvalidHttpMessage_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(overrideStreamErrorOnInvalidHttpMessage_);
-              overrideStreamErrorOnInvalidHttpMessage_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            allowExtendedConnect_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.core.v3.ProtocolProto.internal_static_envoy_config_core_v3_Http3ProtocolOptions_descriptor;
@@ -141,7 +71,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.QuicProtocolOptionsOrBuilder getQuicProtocolOptionsOrBuilder() {
-    return getQuicProtocolOptions();
+    return quicProtocolOptions_ == null ? io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions.getDefaultInstance() : quicProtocolOptions_;
   }
 
   public static final int OVERRIDE_STREAM_ERROR_ON_INVALID_HTTP_MESSAGE_FIELD_NUMBER = 2;
@@ -191,11 +121,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getOverrideStreamErrorOnInvalidHttpMessageOrBuilder() {
-    return getOverrideStreamErrorOnInvalidHttpMessage();
+    return overrideStreamErrorOnInvalidHttpMessage_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : overrideStreamErrorOnInvalidHttpMessage_;
   }
 
   public static final int ALLOW_EXTENDED_CONNECT_FIELD_NUMBER = 5;
-  private boolean allowExtendedConnect_;
+  private boolean allowExtendedConnect_ = false;
   /**
    * <pre>
    * Allows proxying Websocket and other upgrades over HTTP/3 CONNECT using
@@ -237,7 +167,7 @@ private static final long serialVersionUID = 0L;
     if (allowExtendedConnect_ != false) {
       output.writeBool(5, allowExtendedConnect_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -258,7 +188,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, allowExtendedConnect_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -285,7 +215,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getAllowExtendedConnect()
         != other.getAllowExtendedConnect()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -307,7 +237,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ALLOW_EXTENDED_CONNECT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getAllowExtendedConnect());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -429,36 +359,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (quicProtocolOptionsBuilder_ == null) {
-        quicProtocolOptions_ = null;
-      } else {
-        quicProtocolOptions_ = null;
+      bitField0_ = 0;
+      quicProtocolOptions_ = null;
+      if (quicProtocolOptionsBuilder_ != null) {
+        quicProtocolOptionsBuilder_.dispose();
         quicProtocolOptionsBuilder_ = null;
       }
-      if (overrideStreamErrorOnInvalidHttpMessageBuilder_ == null) {
-        overrideStreamErrorOnInvalidHttpMessage_ = null;
-      } else {
-        overrideStreamErrorOnInvalidHttpMessage_ = null;
+      overrideStreamErrorOnInvalidHttpMessage_ = null;
+      if (overrideStreamErrorOnInvalidHttpMessageBuilder_ != null) {
+        overrideStreamErrorOnInvalidHttpMessageBuilder_.dispose();
         overrideStreamErrorOnInvalidHttpMessageBuilder_ = null;
       }
       allowExtendedConnect_ = false;
-
       return this;
     }
 
@@ -485,19 +408,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions buildPartial() {
       io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions result = new io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions(this);
-      if (quicProtocolOptionsBuilder_ == null) {
-        result.quicProtocolOptions_ = quicProtocolOptions_;
-      } else {
-        result.quicProtocolOptions_ = quicProtocolOptionsBuilder_.build();
-      }
-      if (overrideStreamErrorOnInvalidHttpMessageBuilder_ == null) {
-        result.overrideStreamErrorOnInvalidHttpMessage_ = overrideStreamErrorOnInvalidHttpMessage_;
-      } else {
-        result.overrideStreamErrorOnInvalidHttpMessage_ = overrideStreamErrorOnInvalidHttpMessageBuilder_.build();
-      }
-      result.allowExtendedConnect_ = allowExtendedConnect_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.quicProtocolOptions_ = quicProtocolOptionsBuilder_ == null
+            ? quicProtocolOptions_
+            : quicProtocolOptionsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.overrideStreamErrorOnInvalidHttpMessage_ = overrideStreamErrorOnInvalidHttpMessageBuilder_ == null
+            ? overrideStreamErrorOnInvalidHttpMessage_
+            : overrideStreamErrorOnInvalidHttpMessageBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.allowExtendedConnect_ = allowExtendedConnect_;
+      }
     }
 
     @java.lang.Override
@@ -553,7 +483,7 @@ private static final long serialVersionUID = 0L;
       if (other.getAllowExtendedConnect() != false) {
         setAllowExtendedConnect(other.getAllowExtendedConnect());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -568,19 +498,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getQuicProtocolOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getOverrideStreamErrorOnInvalidHttpMessageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 40: {
+              allowExtendedConnect_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions quicProtocolOptions_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -590,7 +553,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the quicProtocolOptions field is set.
      */
     public boolean hasQuicProtocolOptions() {
-      return quicProtocolOptionsBuilder_ != null || quicProtocolOptions_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.envoy.config.core.v3.QuicProtocolOptions quic_protocol_options = 1;</code>
@@ -612,11 +575,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         quicProtocolOptions_ = value;
-        onChanged();
       } else {
         quicProtocolOptionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -626,11 +589,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions.Builder builderForValue) {
       if (quicProtocolOptionsBuilder_ == null) {
         quicProtocolOptions_ = builderForValue.build();
-        onChanged();
       } else {
         quicProtocolOptionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -638,38 +601,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeQuicProtocolOptions(io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions value) {
       if (quicProtocolOptionsBuilder_ == null) {
-        if (quicProtocolOptions_ != null) {
-          quicProtocolOptions_ =
-            io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions.newBuilder(quicProtocolOptions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          quicProtocolOptions_ != null &&
+          quicProtocolOptions_ != io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions.getDefaultInstance()) {
+          getQuicProtocolOptionsBuilder().mergeFrom(value);
         } else {
           quicProtocolOptions_ = value;
         }
-        onChanged();
       } else {
         quicProtocolOptionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.config.core.v3.QuicProtocolOptions quic_protocol_options = 1;</code>
      */
     public Builder clearQuicProtocolOptions() {
-      if (quicProtocolOptionsBuilder_ == null) {
-        quicProtocolOptions_ = null;
-        onChanged();
-      } else {
-        quicProtocolOptions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      quicProtocolOptions_ = null;
+      if (quicProtocolOptionsBuilder_ != null) {
+        quicProtocolOptionsBuilder_.dispose();
         quicProtocolOptionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.config.core.v3.QuicProtocolOptions quic_protocol_options = 1;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions.Builder getQuicProtocolOptionsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getQuicProtocolOptionsFieldBuilder().getBuilder();
     }
@@ -717,7 +680,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the overrideStreamErrorOnInvalidHttpMessage field is set.
      */
     public boolean hasOverrideStreamErrorOnInvalidHttpMessage() {
-      return overrideStreamErrorOnInvalidHttpMessageBuilder_ != null || overrideStreamErrorOnInvalidHttpMessage_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -755,11 +718,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         overrideStreamErrorOnInvalidHttpMessage_ = value;
-        onChanged();
       } else {
         overrideStreamErrorOnInvalidHttpMessageBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -777,11 +740,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (overrideStreamErrorOnInvalidHttpMessageBuilder_ == null) {
         overrideStreamErrorOnInvalidHttpMessage_ = builderForValue.build();
-        onChanged();
       } else {
         overrideStreamErrorOnInvalidHttpMessageBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -797,17 +760,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOverrideStreamErrorOnInvalidHttpMessage(com.google.protobuf.BoolValue value) {
       if (overrideStreamErrorOnInvalidHttpMessageBuilder_ == null) {
-        if (overrideStreamErrorOnInvalidHttpMessage_ != null) {
-          overrideStreamErrorOnInvalidHttpMessage_ =
-            com.google.protobuf.BoolValue.newBuilder(overrideStreamErrorOnInvalidHttpMessage_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          overrideStreamErrorOnInvalidHttpMessage_ != null &&
+          overrideStreamErrorOnInvalidHttpMessage_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getOverrideStreamErrorOnInvalidHttpMessageBuilder().mergeFrom(value);
         } else {
           overrideStreamErrorOnInvalidHttpMessage_ = value;
         }
-        onChanged();
       } else {
         overrideStreamErrorOnInvalidHttpMessageBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -822,14 +786,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue override_stream_error_on_invalid_http_message = 2;</code>
      */
     public Builder clearOverrideStreamErrorOnInvalidHttpMessage() {
-      if (overrideStreamErrorOnInvalidHttpMessageBuilder_ == null) {
-        overrideStreamErrorOnInvalidHttpMessage_ = null;
-        onChanged();
-      } else {
-        overrideStreamErrorOnInvalidHttpMessage_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      overrideStreamErrorOnInvalidHttpMessage_ = null;
+      if (overrideStreamErrorOnInvalidHttpMessageBuilder_ != null) {
+        overrideStreamErrorOnInvalidHttpMessageBuilder_.dispose();
         overrideStreamErrorOnInvalidHttpMessageBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -844,7 +807,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue override_stream_error_on_invalid_http_message = 2;</code>
      */
     public com.google.protobuf.BoolValue.Builder getOverrideStreamErrorOnInvalidHttpMessageBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getOverrideStreamErrorOnInvalidHttpMessageFieldBuilder().getBuilder();
     }
@@ -927,6 +890,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAllowExtendedConnect(boolean value) {
       
       allowExtendedConnect_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -944,7 +908,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAllowExtendedConnect() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       allowExtendedConnect_ = false;
       onChanged();
       return this;
@@ -982,7 +946,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Http3ProtocolOptions(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

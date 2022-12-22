@@ -28,31 +28,31 @@ public interface DatabaseTableSpecOrBuilder extends
 
   /**
    * <pre>
-   * Fields specific to a Dataplex table and present only in the Dataplex table
-   * entries.
+   * Output only. Fields specific to a Dataplex table and present only in the
+   * Dataplex table entries.
    * </pre>
    *
-   * <code>.google.cloud.datacatalog.v1.DataplexTableSpec dataplex_table = 2;</code>
+   * <code>.google.cloud.datacatalog.v1.DataplexTableSpec dataplex_table = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return Whether the dataplexTable field is set.
    */
   boolean hasDataplexTable();
   /**
    * <pre>
-   * Fields specific to a Dataplex table and present only in the Dataplex table
-   * entries.
+   * Output only. Fields specific to a Dataplex table and present only in the
+   * Dataplex table entries.
    * </pre>
    *
-   * <code>.google.cloud.datacatalog.v1.DataplexTableSpec dataplex_table = 2;</code>
+   * <code>.google.cloud.datacatalog.v1.DataplexTableSpec dataplex_table = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The dataplexTable.
    */
   com.google.cloud.datacatalog.v1.DataplexTableSpec getDataplexTable();
   /**
    * <pre>
-   * Fields specific to a Dataplex table and present only in the Dataplex table
-   * entries.
+   * Output only. Fields specific to a Dataplex table and present only in the
+   * Dataplex table entries.
    * </pre>
    *
-   * <code>.google.cloud.datacatalog.v1.DataplexTableSpec dataplex_table = 2;</code>
+   * <code>.google.cloud.datacatalog.v1.DataplexTableSpec dataplex_table = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   com.google.cloud.datacatalog.v1.DataplexTableSpecOrBuilder getDataplexTableOrBuilder();
 }

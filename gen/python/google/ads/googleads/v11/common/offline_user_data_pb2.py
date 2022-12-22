@@ -12,9 +12,10 @@ _sym_db = _symbol_database.Default()
 
 
 from google.ads.googleads.v11.enums import user_identifier_source_pb2 as google_dot_ads_dot_googleads_dot_v11_dot_enums_dot_user__identifier__source__pb2
+from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7google/ads/googleads/v11/common/offline_user_data.proto\x12\x1fgoogle.ads.googleads.v11.common\x1a;google/ads/googleads/v11/enums/user_identifier_source.proto\"\xd0\x02\n\x16OfflineUserAddressInfo\x12\x1e\n\x11hashed_first_name\x18\x07 \x01(\tH\x00\x88\x01\x01\x12\x1d\n\x10hashed_last_name\x18\x08 \x01(\tH\x01\x88\x01\x01\x12\x11\n\x04\x63ity\x18\t \x01(\tH\x02\x88\x01\x01\x12\x12\n\x05state\x18\n \x01(\tH\x03\x88\x01\x01\x12\x19\n\x0c\x63ountry_code\x18\x0b \x01(\tH\x04\x88\x01\x01\x12\x18\n\x0bpostal_code\x18\x0c \x01(\tH\x05\x88\x01\x01\x12\"\n\x15hashed_street_address\x18\r \x01(\tH\x06\x88\x01\x01\x42\x14\n\x12_hashed_first_nameB\x13\n\x11_hashed_last_nameB\x07\n\x05_cityB\x08\n\x06_stateB\x0f\n\r_country_codeB\x0e\n\x0c_postal_codeB\x18\n\x16_hashed_street_address\"\xc9\x02\n\x0eUserIdentifier\x12m\n\x16user_identifier_source\x18\x06 \x01(\x0e\x32M.google.ads.googleads.v11.enums.UserIdentifierSourceEnum.UserIdentifierSource\x12\x16\n\x0chashed_email\x18\x07 \x01(\tH\x00\x12\x1d\n\x13hashed_phone_number\x18\x08 \x01(\tH\x00\x12\x13\n\tmobile_id\x18\t \x01(\tH\x00\x12\x1d\n\x13third_party_user_id\x18\n \x01(\tH\x00\x12O\n\x0c\x61\x64\x64ress_info\x18\x05 \x01(\x0b\x32\x37.google.ads.googleads.v11.common.OfflineUserAddressInfoH\x00\x42\x0c\n\nidentifier\"\xe0\x03\n\x14TransactionAttribute\x12\"\n\x15transaction_date_time\x18\x08 \x01(\tH\x00\x88\x01\x01\x12&\n\x19transaction_amount_micros\x18\t \x01(\x01H\x01\x88\x01\x01\x12\x1a\n\rcurrency_code\x18\n \x01(\tH\x02\x88\x01\x01\x12\x1e\n\x11\x63onversion_action\x18\x0b \x01(\tH\x03\x88\x01\x01\x12\x15\n\x08order_id\x18\x0c \x01(\tH\x04\x88\x01\x01\x12H\n\x0fstore_attribute\x18\x06 \x01(\x0b\x32/.google.ads.googleads.v11.common.StoreAttribute\x12\x19\n\x0c\x63ustom_value\x18\r \x01(\tH\x05\x88\x01\x01\x12\x46\n\x0eitem_attribute\x18\x0e \x01(\x0b\x32..google.ads.googleads.v11.common.ItemAttributeB\x18\n\x16_transaction_date_timeB\x1c\n\x1a_transaction_amount_microsB\x10\n\x0e_currency_codeB\x14\n\x12_conversion_actionB\x0b\n\t_order_idB\x0f\n\r_custom_value\"8\n\x0eStoreAttribute\x12\x17\n\nstore_code\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\r\n\x0b_store_code\"\x89\x01\n\rItemAttribute\x12\x0f\n\x07item_id\x18\x01 \x01(\t\x12\x18\n\x0bmerchant_id\x18\x02 \x01(\x03H\x00\x88\x01\x01\x12\x14\n\x0c\x63ountry_code\x18\x03 \x01(\t\x12\x15\n\rlanguage_code\x18\x04 \x01(\t\x12\x10\n\x08quantity\x18\x05 \x01(\x03\x42\x0e\n\x0c_merchant_id\"\xf3\x01\n\x08UserData\x12I\n\x10user_identifiers\x18\x01 \x03(\x0b\x32/.google.ads.googleads.v11.common.UserIdentifier\x12T\n\x15transaction_attribute\x18\x02 \x01(\x0b\x32\x35.google.ads.googleads.v11.common.TransactionAttribute\x12\x46\n\x0euser_attribute\x18\x03 \x01(\x0b\x32..google.ads.googleads.v11.common.UserAttribute\"\xf8\x02\n\rUserAttribute\x12\"\n\x15lifetime_value_micros\x18\x01 \x01(\x03H\x00\x88\x01\x01\x12\"\n\x15lifetime_value_bucket\x18\x02 \x01(\x05H\x01\x88\x01\x01\x12\x1f\n\x17last_purchase_date_time\x18\x03 \x01(\t\x12\x1e\n\x16\x61verage_purchase_count\x18\x04 \x01(\x05\x12%\n\x1d\x61verage_purchase_value_micros\x18\x05 \x01(\x03\x12\x1d\n\x15\x61\x63quisition_date_time\x18\x06 \x01(\t\x12O\n\x10shopping_loyalty\x18\x07 \x01(\x0b\x32\x30.google.ads.googleads.v11.common.ShoppingLoyaltyH\x02\x88\x01\x01\x42\x18\n\x16_lifetime_value_microsB\x18\n\x16_lifetime_value_bucketB\x13\n\x11_shopping_loyalty\"=\n\x0fShoppingLoyalty\x12\x19\n\x0cloyalty_tier\x18\x01 \x01(\tH\x00\x88\x01\x01\x42\x0f\n\r_loyalty_tier\"E\n\x1d\x43ustomerMatchUserListMetadata\x12\x16\n\tuser_list\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\x0c\n\n_user_list\"\x97\x02\n\x12StoreSalesMetadata\x12\x1d\n\x10loyalty_fraction\x18\x05 \x01(\x01H\x00\x88\x01\x01\x12(\n\x1btransaction_upload_fraction\x18\x06 \x01(\x01H\x01\x88\x01\x01\x12\x17\n\ncustom_key\x18\x07 \x01(\tH\x02\x88\x01\x01\x12[\n\x14third_party_metadata\x18\x03 \x01(\x0b\x32=.google.ads.googleads.v11.common.StoreSalesThirdPartyMetadataB\x13\n\x11_loyalty_fractionB\x1e\n\x1c_transaction_upload_fractionB\r\n\x0b_custom_key\"\x98\x03\n\x1cStoreSalesThirdPartyMetadata\x12(\n\x1b\x61\x64vertiser_upload_date_time\x18\x07 \x01(\tH\x00\x88\x01\x01\x12\'\n\x1avalid_transaction_fraction\x18\x08 \x01(\x01H\x01\x88\x01\x01\x12#\n\x16partner_match_fraction\x18\t \x01(\x01H\x02\x88\x01\x01\x12$\n\x17partner_upload_fraction\x18\n \x01(\x01H\x03\x88\x01\x01\x12\"\n\x15\x62ridge_map_version_id\x18\x0b \x01(\tH\x04\x88\x01\x01\x12\x17\n\npartner_id\x18\x0c \x01(\x03H\x05\x88\x01\x01\x42\x1e\n\x1c_advertiser_upload_date_timeB\x1d\n\x1b_valid_transaction_fractionB\x19\n\x17_partner_match_fractionB\x1a\n\x18_partner_upload_fractionB\x18\n\x16_bridge_map_version_idB\r\n\x0b_partner_idB\xf4\x01\n#com.google.ads.googleads.v11.commonB\x14OfflineUserDataProtoP\x01ZEgoogle.golang.org/genproto/googleapis/ads/googleads/v11/common;common\xa2\x02\x03GAA\xaa\x02\x1fGoogle.Ads.GoogleAds.V11.Common\xca\x02\x1fGoogle\\Ads\\GoogleAds\\V11\\Common\xea\x02#Google::Ads::GoogleAds::V11::Commonb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7google/ads/googleads/v11/common/offline_user_data.proto\x12\x1fgoogle.ads.googleads.v11.common\x1a;google/ads/googleads/v11/enums/user_identifier_source.proto\x1a\x1fgoogle/api/field_behavior.proto\"\xd0\x02\n\x16OfflineUserAddressInfo\x12\x1e\n\x11hashed_first_name\x18\x07 \x01(\tH\x00\x88\x01\x01\x12\x1d\n\x10hashed_last_name\x18\x08 \x01(\tH\x01\x88\x01\x01\x12\x11\n\x04\x63ity\x18\t \x01(\tH\x02\x88\x01\x01\x12\x12\n\x05state\x18\n \x01(\tH\x03\x88\x01\x01\x12\x19\n\x0c\x63ountry_code\x18\x0b \x01(\tH\x04\x88\x01\x01\x12\x18\n\x0bpostal_code\x18\x0c \x01(\tH\x05\x88\x01\x01\x12\"\n\x15hashed_street_address\x18\r \x01(\tH\x06\x88\x01\x01\x42\x14\n\x12_hashed_first_nameB\x13\n\x11_hashed_last_nameB\x07\n\x05_cityB\x08\n\x06_stateB\x0f\n\r_country_codeB\x0e\n\x0c_postal_codeB\x18\n\x16_hashed_street_address\"\xc9\x02\n\x0eUserIdentifier\x12m\n\x16user_identifier_source\x18\x06 \x01(\x0e\x32M.google.ads.googleads.v11.enums.UserIdentifierSourceEnum.UserIdentifierSource\x12\x16\n\x0chashed_email\x18\x07 \x01(\tH\x00\x12\x1d\n\x13hashed_phone_number\x18\x08 \x01(\tH\x00\x12\x13\n\tmobile_id\x18\t \x01(\tH\x00\x12\x1d\n\x13third_party_user_id\x18\n \x01(\tH\x00\x12O\n\x0c\x61\x64\x64ress_info\x18\x05 \x01(\x0b\x32\x37.google.ads.googleads.v11.common.OfflineUserAddressInfoH\x00\x42\x0c\n\nidentifier\"\xe0\x03\n\x14TransactionAttribute\x12\"\n\x15transaction_date_time\x18\x08 \x01(\tH\x00\x88\x01\x01\x12&\n\x19transaction_amount_micros\x18\t \x01(\x01H\x01\x88\x01\x01\x12\x1a\n\rcurrency_code\x18\n \x01(\tH\x02\x88\x01\x01\x12\x1e\n\x11\x63onversion_action\x18\x0b \x01(\tH\x03\x88\x01\x01\x12\x15\n\x08order_id\x18\x0c \x01(\tH\x04\x88\x01\x01\x12H\n\x0fstore_attribute\x18\x06 \x01(\x0b\x32/.google.ads.googleads.v11.common.StoreAttribute\x12\x19\n\x0c\x63ustom_value\x18\r \x01(\tH\x05\x88\x01\x01\x12\x46\n\x0eitem_attribute\x18\x0e \x01(\x0b\x32..google.ads.googleads.v11.common.ItemAttributeB\x18\n\x16_transaction_date_timeB\x1c\n\x1a_transaction_amount_microsB\x10\n\x0e_currency_codeB\x14\n\x12_conversion_actionB\x0b\n\t_order_idB\x0f\n\r_custom_value\"8\n\x0eStoreAttribute\x12\x17\n\nstore_code\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\r\n\x0b_store_code\"\x89\x01\n\rItemAttribute\x12\x0f\n\x07item_id\x18\x01 \x01(\t\x12\x18\n\x0bmerchant_id\x18\x02 \x01(\x03H\x00\x88\x01\x01\x12\x14\n\x0c\x63ountry_code\x18\x03 \x01(\t\x12\x15\n\rlanguage_code\x18\x04 \x01(\t\x12\x10\n\x08quantity\x18\x05 \x01(\x03\x42\x0e\n\x0c_merchant_id\"\xf3\x01\n\x08UserData\x12I\n\x10user_identifiers\x18\x01 \x03(\x0b\x32/.google.ads.googleads.v11.common.UserIdentifier\x12T\n\x15transaction_attribute\x18\x02 \x01(\x0b\x32\x35.google.ads.googleads.v11.common.TransactionAttribute\x12\x46\n\x0euser_attribute\x18\x03 \x01(\x0b\x32..google.ads.googleads.v11.common.UserAttribute\"\x8c\x04\n\rUserAttribute\x12\"\n\x15lifetime_value_micros\x18\x01 \x01(\x03H\x00\x88\x01\x01\x12\"\n\x15lifetime_value_bucket\x18\x02 \x01(\x05H\x01\x88\x01\x01\x12\x1f\n\x17last_purchase_date_time\x18\x03 \x01(\t\x12\x1e\n\x16\x61verage_purchase_count\x18\x04 \x01(\x05\x12%\n\x1d\x61verage_purchase_value_micros\x18\x05 \x01(\x03\x12\x1d\n\x15\x61\x63quisition_date_time\x18\x06 \x01(\t\x12O\n\x10shopping_loyalty\x18\x07 \x01(\x0b\x32\x30.google.ads.googleads.v11.common.ShoppingLoyaltyH\x02\x88\x01\x01\x12\x1c\n\x0flifecycle_stage\x18\x08 \x01(\tB\x03\xe0\x41\x01\x12%\n\x18\x66irst_purchase_date_time\x18\t \x01(\tB\x03\xe0\x41\x01\x12M\n\x0f\x65vent_attribute\x18\n \x03(\x0b\x32/.google.ads.googleads.v11.common.EventAttributeB\x03\xe0\x41\x01\x42\x18\n\x16_lifetime_value_microsB\x18\n\x16_lifetime_value_bucketB\x13\n\x11_shopping_loyalty\"\x94\x01\n\x0e\x45ventAttribute\x12\x12\n\x05\x65vent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1c\n\x0f\x65vent_date_time\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12P\n\x0eitem_attribute\x18\x03 \x03(\x0b\x32\x33.google.ads.googleads.v11.common.EventItemAttributeB\x03\xe0\x41\x02\"*\n\x12\x45ventItemAttribute\x12\x14\n\x07item_id\x18\x01 \x01(\tB\x03\xe0\x41\x01\"=\n\x0fShoppingLoyalty\x12\x19\n\x0cloyalty_tier\x18\x01 \x01(\tH\x00\x88\x01\x01\x42\x0f\n\r_loyalty_tier\"E\n\x1d\x43ustomerMatchUserListMetadata\x12\x16\n\tuser_list\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\x0c\n\n_user_list\"\x97\x02\n\x12StoreSalesMetadata\x12\x1d\n\x10loyalty_fraction\x18\x05 \x01(\x01H\x00\x88\x01\x01\x12(\n\x1btransaction_upload_fraction\x18\x06 \x01(\x01H\x01\x88\x01\x01\x12\x17\n\ncustom_key\x18\x07 \x01(\tH\x02\x88\x01\x01\x12[\n\x14third_party_metadata\x18\x03 \x01(\x0b\x32=.google.ads.googleads.v11.common.StoreSalesThirdPartyMetadataB\x13\n\x11_loyalty_fractionB\x1e\n\x1c_transaction_upload_fractionB\r\n\x0b_custom_key\"\x98\x03\n\x1cStoreSalesThirdPartyMetadata\x12(\n\x1b\x61\x64vertiser_upload_date_time\x18\x07 \x01(\tH\x00\x88\x01\x01\x12\'\n\x1avalid_transaction_fraction\x18\x08 \x01(\x01H\x01\x88\x01\x01\x12#\n\x16partner_match_fraction\x18\t \x01(\x01H\x02\x88\x01\x01\x12$\n\x17partner_upload_fraction\x18\n \x01(\x01H\x03\x88\x01\x01\x12\"\n\x15\x62ridge_map_version_id\x18\x0b \x01(\tH\x04\x88\x01\x01\x12\x17\n\npartner_id\x18\x0c \x01(\x03H\x05\x88\x01\x01\x42\x1e\n\x1c_advertiser_upload_date_timeB\x1d\n\x1b_valid_transaction_fractionB\x19\n\x17_partner_match_fractionB\x1a\n\x18_partner_upload_fractionB\x18\n\x16_bridge_map_version_idB\r\n\x0b_partner_idB\xf4\x01\n#com.google.ads.googleads.v11.commonB\x14OfflineUserDataProtoP\x01ZEgoogle.golang.org/genproto/googleapis/ads/googleads/v11/common;common\xa2\x02\x03GAA\xaa\x02\x1fGoogle.Ads.GoogleAds.V11.Common\xca\x02\x1fGoogle\\Ads\\GoogleAds\\V11\\Common\xea\x02#Google::Ads::GoogleAds::V11::Commonb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.ads.googleads.v11.common.offline_user_data_pb2', globals())
@@ -22,26 +23,44 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n#com.google.ads.googleads.v11.commonB\024OfflineUserDataProtoP\001ZEgoogle.golang.org/genproto/googleapis/ads/googleads/v11/common;common\242\002\003GAA\252\002\037Google.Ads.GoogleAds.V11.Common\312\002\037Google\\Ads\\GoogleAds\\V11\\Common\352\002#Google::Ads::GoogleAds::V11::Common'
-  _OFFLINEUSERADDRESSINFO._serialized_start=154
-  _OFFLINEUSERADDRESSINFO._serialized_end=490
-  _USERIDENTIFIER._serialized_start=493
-  _USERIDENTIFIER._serialized_end=822
-  _TRANSACTIONATTRIBUTE._serialized_start=825
-  _TRANSACTIONATTRIBUTE._serialized_end=1305
-  _STOREATTRIBUTE._serialized_start=1307
-  _STOREATTRIBUTE._serialized_end=1363
-  _ITEMATTRIBUTE._serialized_start=1366
-  _ITEMATTRIBUTE._serialized_end=1503
-  _USERDATA._serialized_start=1506
-  _USERDATA._serialized_end=1749
-  _USERATTRIBUTE._serialized_start=1752
-  _USERATTRIBUTE._serialized_end=2128
-  _SHOPPINGLOYALTY._serialized_start=2130
-  _SHOPPINGLOYALTY._serialized_end=2191
-  _CUSTOMERMATCHUSERLISTMETADATA._serialized_start=2193
-  _CUSTOMERMATCHUSERLISTMETADATA._serialized_end=2262
-  _STORESALESMETADATA._serialized_start=2265
-  _STORESALESMETADATA._serialized_end=2544
-  _STORESALESTHIRDPARTYMETADATA._serialized_start=2547
-  _STORESALESTHIRDPARTYMETADATA._serialized_end=2955
+  _USERATTRIBUTE.fields_by_name['lifecycle_stage']._options = None
+  _USERATTRIBUTE.fields_by_name['lifecycle_stage']._serialized_options = b'\340A\001'
+  _USERATTRIBUTE.fields_by_name['first_purchase_date_time']._options = None
+  _USERATTRIBUTE.fields_by_name['first_purchase_date_time']._serialized_options = b'\340A\001'
+  _USERATTRIBUTE.fields_by_name['event_attribute']._options = None
+  _USERATTRIBUTE.fields_by_name['event_attribute']._serialized_options = b'\340A\001'
+  _EVENTATTRIBUTE.fields_by_name['event']._options = None
+  _EVENTATTRIBUTE.fields_by_name['event']._serialized_options = b'\340A\002'
+  _EVENTATTRIBUTE.fields_by_name['event_date_time']._options = None
+  _EVENTATTRIBUTE.fields_by_name['event_date_time']._serialized_options = b'\340A\002'
+  _EVENTATTRIBUTE.fields_by_name['item_attribute']._options = None
+  _EVENTATTRIBUTE.fields_by_name['item_attribute']._serialized_options = b'\340A\002'
+  _EVENTITEMATTRIBUTE.fields_by_name['item_id']._options = None
+  _EVENTITEMATTRIBUTE.fields_by_name['item_id']._serialized_options = b'\340A\001'
+  _OFFLINEUSERADDRESSINFO._serialized_start=187
+  _OFFLINEUSERADDRESSINFO._serialized_end=523
+  _USERIDENTIFIER._serialized_start=526
+  _USERIDENTIFIER._serialized_end=855
+  _TRANSACTIONATTRIBUTE._serialized_start=858
+  _TRANSACTIONATTRIBUTE._serialized_end=1338
+  _STOREATTRIBUTE._serialized_start=1340
+  _STOREATTRIBUTE._serialized_end=1396
+  _ITEMATTRIBUTE._serialized_start=1399
+  _ITEMATTRIBUTE._serialized_end=1536
+  _USERDATA._serialized_start=1539
+  _USERDATA._serialized_end=1782
+  _USERATTRIBUTE._serialized_start=1785
+  _USERATTRIBUTE._serialized_end=2309
+  _EVENTATTRIBUTE._serialized_start=2312
+  _EVENTATTRIBUTE._serialized_end=2460
+  _EVENTITEMATTRIBUTE._serialized_start=2462
+  _EVENTITEMATTRIBUTE._serialized_end=2504
+  _SHOPPINGLOYALTY._serialized_start=2506
+  _SHOPPINGLOYALTY._serialized_end=2567
+  _CUSTOMERMATCHUSERLISTMETADATA._serialized_start=2569
+  _CUSTOMERMATCHUSERLISTMETADATA._serialized_end=2638
+  _STORESALESMETADATA._serialized_start=2641
+  _STORESALESMETADATA._serialized_end=2920
+  _STORESALESTHIRDPARTYMETADATA._serialized_start=2923
+  _STORESALESTHIRDPARTYMETADATA._serialized_end=3331
 # @@protoc_insertion_point(module_scope)

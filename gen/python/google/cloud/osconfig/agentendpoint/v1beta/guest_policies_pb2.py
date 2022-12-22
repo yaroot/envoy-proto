@@ -11,11 +11,10 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n?google/cloud/osconfig/agentendpoint/v1beta/guest_policies.proto\x12*google.cloud.osconfig.agentendpoint.v1beta\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\"\x8a\x02\n\x07Package\x12\x0c\n\x04name\x18\x01 \x01(\t\x12O\n\rdesired_state\x18\x02 \x01(\x0e\x32\x38.google.cloud.osconfig.agentendpoint.v1beta.DesiredState\x12L\n\x07manager\x18\x03 \x01(\x0e\x32;.google.cloud.osconfig.agentendpoint.v1beta.Package.Manager\"R\n\x07Manager\x12\x17\n\x13MANAGER_UNSPECIFIED\x10\x00\x12\x07\n\x03\x41NY\x10\x01\x12\x07\n\x03\x41PT\x10\x02\x12\x07\n\x03YUM\x10\x03\x12\n\n\x06ZYPPER\x10\x04\x12\x07\n\x03GOO\x10\x05\"\xf7\x01\n\rAptRepository\x12[\n\x0c\x61rchive_type\x18\x01 \x01(\x0e\x32\x45.google.cloud.osconfig.agentendpoint.v1beta.AptRepository.ArchiveType\x12\x0b\n\x03uri\x18\x02 \x01(\t\x12\x14\n\x0c\x64istribution\x18\x03 \x01(\t\x12\x12\n\ncomponents\x18\x04 \x03(\t\x12\x0f\n\x07gpg_key\x18\x05 \x01(\t\"A\n\x0b\x41rchiveType\x12\x1c\n\x18\x41RCHIVE_TYPE_UNSPECIFIED\x10\x00\x12\x07\n\x03\x44\x45\x42\x10\x01\x12\x0b\n\x07\x44\x45\x42_SRC\x10\x02\"U\n\rYumRepository\x12\n\n\x02id\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x10\n\x08\x62\x61se_url\x18\x03 \x01(\t\x12\x10\n\x08gpg_keys\x18\x04 \x03(\t\"X\n\x10ZypperRepository\x12\n\n\x02id\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x10\n\x08\x62\x61se_url\x18\x03 \x01(\t\x12\x10\n\x08gpg_keys\x18\x04 \x03(\t\"*\n\rGooRepository\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03url\x18\x02 \x01(\t\"\xcf\x02\n\x11PackageRepository\x12H\n\x03\x61pt\x18\x01 \x01(\x0b\x32\x39.google.cloud.osconfig.agentendpoint.v1beta.AptRepositoryH\x00\x12H\n\x03yum\x18\x02 \x01(\x0b\x32\x39.google.cloud.osconfig.agentendpoint.v1beta.YumRepositoryH\x00\x12N\n\x06zypper\x18\x03 \x01(\x0b\x32<.google.cloud.osconfig.agentendpoint.v1beta.ZypperRepositoryH\x00\x12H\n\x03goo\x18\x04 \x01(\x0b\x32\x39.google.cloud.osconfig.agentendpoint.v1beta.GooRepositoryH\x00\x42\x0c\n\nrepository\"\xa6\x12\n\x0eSoftwareRecipe\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12V\n\tartifacts\x18\x03 \x03(\x0b\x32\x43.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Artifact\x12V\n\rinstall_steps\x18\x04 \x03(\x0b\x32?.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step\x12U\n\x0cupdate_steps\x18\x05 \x03(\x0b\x32?.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step\x12O\n\rdesired_state\x18\x06 \x01(\x0e\x32\x38.google.cloud.osconfig.agentendpoint.v1beta.DesiredState\x1a\xd4\x02\n\x08\x41rtifact\x12\n\n\x02id\x18\x01 \x01(\t\x12\\\n\x06remote\x18\x02 \x01(\x0b\x32J.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Artifact.RemoteH\x00\x12V\n\x03gcs\x18\x03 \x01(\x0b\x32G.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Artifact.GcsH\x00\x12\x16\n\x0e\x61llow_insecure\x18\x04 \x01(\x08\x1a\'\n\x06Remote\x12\x0b\n\x03uri\x18\x01 \x01(\t\x12\x10\n\x08\x63hecksum\x18\x02 \x01(\t\x1a\x39\n\x03Gcs\x12\x0e\n\x06\x62ucket\x18\x01 \x01(\t\x12\x0e\n\x06object\x18\x02 \x01(\t\x12\x12\n\ngeneration\x18\x03 \x01(\x03\x42\n\n\x08\x61rtifact\x1a\xc5\x0c\n\x04Step\x12]\n\tfile_copy\x18\x01 \x01(\x0b\x32H.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.CopyFileH\x00\x12l\n\x12\x61rchive_extraction\x18\x02 \x01(\x0b\x32N.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.ExtractArchiveH\x00\x12\x66\n\x10msi_installation\x18\x03 \x01(\x0b\x32J.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.InstallMsiH\x00\x12h\n\x11\x64pkg_installation\x18\x04 \x01(\x0b\x32K.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.InstallDpkgH\x00\x12\x66\n\x10rpm_installation\x18\x05 \x01(\x0b\x32J.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.InstallRpmH\x00\x12]\n\tfile_exec\x18\x06 \x01(\x0b\x32H.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.ExecFileH\x00\x12_\n\nscript_run\x18\x07 \x01(\x0b\x32I.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.RunScriptH\x00\x1a\\\n\x08\x43opyFile\x12\x13\n\x0b\x61rtifact_id\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65stination\x18\x02 \x01(\t\x12\x11\n\toverwrite\x18\x03 \x01(\x08\x12\x13\n\x0bpermissions\x18\x04 \x01(\t\x1a\x99\x02\n\x0e\x45xtractArchive\x12\x13\n\x0b\x61rtifact_id\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65stination\x18\x02 \x01(\t\x12h\n\x04type\x18\x03 \x01(\x0e\x32Z.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.ExtractArchive.ArchiveType\"s\n\x0b\x41rchiveType\x12\x1c\n\x18\x41RCHIVE_TYPE_UNSPECIFIED\x10\x00\x12\x07\n\x03TAR\x10\x01\x12\x0c\n\x08TAR_GZIP\x10\x02\x12\x0c\n\x08TAR_BZIP\x10\x03\x12\x0c\n\x08TAR_LZMA\x10\x04\x12\n\n\x06TAR_XZ\x10\x05\x12\x07\n\x03ZIP\x10\x0b\x1aL\n\nInstallMsi\x12\x13\n\x0b\x61rtifact_id\x18\x01 \x01(\t\x12\r\n\x05\x66lags\x18\x02 \x03(\t\x12\x1a\n\x12\x61llowed_exit_codes\x18\x03 \x03(\x05\x1a\"\n\x0bInstallDpkg\x12\x13\n\x0b\x61rtifact_id\x18\x01 \x01(\t\x1a!\n\nInstallRpm\x12\x13\n\x0b\x61rtifact_id\x18\x01 \x01(\t\x1ar\n\x08\x45xecFile\x12\x15\n\x0b\x61rtifact_id\x18\x01 \x01(\tH\x00\x12\x14\n\nlocal_path\x18\x02 \x01(\tH\x00\x12\x0c\n\x04\x61rgs\x18\x03 \x03(\t\x12\x1a\n\x12\x61llowed_exit_codes\x18\x04 \x03(\x05\x42\x0f\n\rlocation_type\x1a\xea\x01\n\tRunScript\x12\x0e\n\x06script\x18\x01 \x01(\t\x12\x1a\n\x12\x61llowed_exit_codes\x18\x02 \x03(\x05\x12j\n\x0binterpreter\x18\x03 \x01(\x0e\x32U.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.RunScript.Interpreter\"E\n\x0bInterpreter\x12\x1b\n\x17INTERPRETER_UNSPECIFIED\x10\x00\x12\t\n\x05SHELL\x10\x01\x12\x0e\n\nPOWERSHELL\x10\x03\x42\x06\n\x04step\"\x87\x01\n!LookupEffectiveGuestPolicyRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\ros_short_name\x18\x02 \x01(\t\x12\x12\n\nos_version\x18\x03 \x01(\t\x12\x17\n\x0fos_architecture\x18\x04 \x01(\t\"\xd2\x05\n\x14\x45\x66\x66\x65\x63tiveGuestPolicy\x12\x61\n\x08packages\x18\x01 \x03(\x0b\x32O.google.cloud.osconfig.agentendpoint.v1beta.EffectiveGuestPolicy.SourcedPackage\x12w\n\x14package_repositories\x18\x02 \x03(\x0b\x32Y.google.cloud.osconfig.agentendpoint.v1beta.EffectiveGuestPolicy.SourcedPackageRepository\x12p\n\x10software_recipes\x18\x03 \x03(\x0b\x32V.google.cloud.osconfig.agentendpoint.v1beta.EffectiveGuestPolicy.SourcedSoftwareRecipe\x1a\x66\n\x0eSourcedPackage\x12\x0e\n\x06source\x18\x01 \x01(\t\x12\x44\n\x07package\x18\x02 \x01(\x0b\x32\x33.google.cloud.osconfig.agentendpoint.v1beta.Package\x1a\x85\x01\n\x18SourcedPackageRepository\x12\x0e\n\x06source\x18\x01 \x01(\t\x12Y\n\x12package_repository\x18\x02 \x01(\x0b\x32=.google.cloud.osconfig.agentendpoint.v1beta.PackageRepository\x1a|\n\x15SourcedSoftwareRecipe\x12\x0e\n\x06source\x18\x01 \x01(\t\x12S\n\x0fsoftware_recipe\x18\x02 \x01(\x0b\x32:.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe*V\n\x0c\x44\x65siredState\x12\x1d\n\x19\x44\x45SIRED_STATE_UNSPECIFIED\x10\x00\x12\r\n\tINSTALLED\x10\x01\x12\x0b\n\x07UPDATED\x10\x02\x12\x0b\n\x07REMOVED\x10\x03\x42\xb7\x01\n.com.google.cloud.osconfig.agentendpoint.v1betaB\rGuestPoliciesZWgoogle.golang.org/genproto/googleapis/cloud/osconfig/agentendpoint/v1beta;agentendpoint\xca\x02\x1cGoogle\\Cloud\\OsConfig\\V1betab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n?google/cloud/osconfig/agentendpoint/v1beta/guest_policies.proto\x12*google.cloud.osconfig.agentendpoint.v1beta\x1a\x1fgoogle/api/field_behavior.proto\"\x8a\x02\n\x07Package\x12\x0c\n\x04name\x18\x01 \x01(\t\x12O\n\rdesired_state\x18\x02 \x01(\x0e\x32\x38.google.cloud.osconfig.agentendpoint.v1beta.DesiredState\x12L\n\x07manager\x18\x03 \x01(\x0e\x32;.google.cloud.osconfig.agentendpoint.v1beta.Package.Manager\"R\n\x07Manager\x12\x17\n\x13MANAGER_UNSPECIFIED\x10\x00\x12\x07\n\x03\x41NY\x10\x01\x12\x07\n\x03\x41PT\x10\x02\x12\x07\n\x03YUM\x10\x03\x12\n\n\x06ZYPPER\x10\x04\x12\x07\n\x03GOO\x10\x05\"\xf7\x01\n\rAptRepository\x12[\n\x0c\x61rchive_type\x18\x01 \x01(\x0e\x32\x45.google.cloud.osconfig.agentendpoint.v1beta.AptRepository.ArchiveType\x12\x0b\n\x03uri\x18\x02 \x01(\t\x12\x14\n\x0c\x64istribution\x18\x03 \x01(\t\x12\x12\n\ncomponents\x18\x04 \x03(\t\x12\x0f\n\x07gpg_key\x18\x05 \x01(\t\"A\n\x0b\x41rchiveType\x12\x1c\n\x18\x41RCHIVE_TYPE_UNSPECIFIED\x10\x00\x12\x07\n\x03\x44\x45\x42\x10\x01\x12\x0b\n\x07\x44\x45\x42_SRC\x10\x02\"U\n\rYumRepository\x12\n\n\x02id\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x10\n\x08\x62\x61se_url\x18\x03 \x01(\t\x12\x10\n\x08gpg_keys\x18\x04 \x03(\t\"X\n\x10ZypperRepository\x12\n\n\x02id\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x10\n\x08\x62\x61se_url\x18\x03 \x01(\t\x12\x10\n\x08gpg_keys\x18\x04 \x03(\t\"*\n\rGooRepository\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03url\x18\x02 \x01(\t\"\xcf\x02\n\x11PackageRepository\x12H\n\x03\x61pt\x18\x01 \x01(\x0b\x32\x39.google.cloud.osconfig.agentendpoint.v1beta.AptRepositoryH\x00\x12H\n\x03yum\x18\x02 \x01(\x0b\x32\x39.google.cloud.osconfig.agentendpoint.v1beta.YumRepositoryH\x00\x12N\n\x06zypper\x18\x03 \x01(\x0b\x32<.google.cloud.osconfig.agentendpoint.v1beta.ZypperRepositoryH\x00\x12H\n\x03goo\x18\x04 \x01(\x0b\x32\x39.google.cloud.osconfig.agentendpoint.v1beta.GooRepositoryH\x00\x42\x0c\n\nrepository\"\xa6\x12\n\x0eSoftwareRecipe\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12V\n\tartifacts\x18\x03 \x03(\x0b\x32\x43.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Artifact\x12V\n\rinstall_steps\x18\x04 \x03(\x0b\x32?.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step\x12U\n\x0cupdate_steps\x18\x05 \x03(\x0b\x32?.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step\x12O\n\rdesired_state\x18\x06 \x01(\x0e\x32\x38.google.cloud.osconfig.agentendpoint.v1beta.DesiredState\x1a\xd4\x02\n\x08\x41rtifact\x12\n\n\x02id\x18\x01 \x01(\t\x12\\\n\x06remote\x18\x02 \x01(\x0b\x32J.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Artifact.RemoteH\x00\x12V\n\x03gcs\x18\x03 \x01(\x0b\x32G.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Artifact.GcsH\x00\x12\x16\n\x0e\x61llow_insecure\x18\x04 \x01(\x08\x1a\'\n\x06Remote\x12\x0b\n\x03uri\x18\x01 \x01(\t\x12\x10\n\x08\x63hecksum\x18\x02 \x01(\t\x1a\x39\n\x03Gcs\x12\x0e\n\x06\x62ucket\x18\x01 \x01(\t\x12\x0e\n\x06object\x18\x02 \x01(\t\x12\x12\n\ngeneration\x18\x03 \x01(\x03\x42\n\n\x08\x61rtifact\x1a\xc5\x0c\n\x04Step\x12]\n\tfile_copy\x18\x01 \x01(\x0b\x32H.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.CopyFileH\x00\x12l\n\x12\x61rchive_extraction\x18\x02 \x01(\x0b\x32N.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.ExtractArchiveH\x00\x12\x66\n\x10msi_installation\x18\x03 \x01(\x0b\x32J.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.InstallMsiH\x00\x12h\n\x11\x64pkg_installation\x18\x04 \x01(\x0b\x32K.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.InstallDpkgH\x00\x12\x66\n\x10rpm_installation\x18\x05 \x01(\x0b\x32J.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.InstallRpmH\x00\x12]\n\tfile_exec\x18\x06 \x01(\x0b\x32H.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.ExecFileH\x00\x12_\n\nscript_run\x18\x07 \x01(\x0b\x32I.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.RunScriptH\x00\x1a\\\n\x08\x43opyFile\x12\x13\n\x0b\x61rtifact_id\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65stination\x18\x02 \x01(\t\x12\x11\n\toverwrite\x18\x03 \x01(\x08\x12\x13\n\x0bpermissions\x18\x04 \x01(\t\x1a\x99\x02\n\x0e\x45xtractArchive\x12\x13\n\x0b\x61rtifact_id\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65stination\x18\x02 \x01(\t\x12h\n\x04type\x18\x03 \x01(\x0e\x32Z.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.ExtractArchive.ArchiveType\"s\n\x0b\x41rchiveType\x12\x1c\n\x18\x41RCHIVE_TYPE_UNSPECIFIED\x10\x00\x12\x07\n\x03TAR\x10\x01\x12\x0c\n\x08TAR_GZIP\x10\x02\x12\x0c\n\x08TAR_BZIP\x10\x03\x12\x0c\n\x08TAR_LZMA\x10\x04\x12\n\n\x06TAR_XZ\x10\x05\x12\x07\n\x03ZIP\x10\x0b\x1aL\n\nInstallMsi\x12\x13\n\x0b\x61rtifact_id\x18\x01 \x01(\t\x12\r\n\x05\x66lags\x18\x02 \x03(\t\x12\x1a\n\x12\x61llowed_exit_codes\x18\x03 \x03(\x05\x1a\"\n\x0bInstallDpkg\x12\x13\n\x0b\x61rtifact_id\x18\x01 \x01(\t\x1a!\n\nInstallRpm\x12\x13\n\x0b\x61rtifact_id\x18\x01 \x01(\t\x1ar\n\x08\x45xecFile\x12\x15\n\x0b\x61rtifact_id\x18\x01 \x01(\tH\x00\x12\x14\n\nlocal_path\x18\x02 \x01(\tH\x00\x12\x0c\n\x04\x61rgs\x18\x03 \x03(\t\x12\x1a\n\x12\x61llowed_exit_codes\x18\x04 \x03(\x05\x42\x0f\n\rlocation_type\x1a\xea\x01\n\tRunScript\x12\x0e\n\x06script\x18\x01 \x01(\t\x12\x1a\n\x12\x61llowed_exit_codes\x18\x02 \x03(\x05\x12j\n\x0binterpreter\x18\x03 \x01(\x0e\x32U.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe.Step.RunScript.Interpreter\"E\n\x0bInterpreter\x12\x1b\n\x17INTERPRETER_UNSPECIFIED\x10\x00\x12\t\n\x05SHELL\x10\x01\x12\x0e\n\nPOWERSHELL\x10\x03\x42\x06\n\x04step\"\x87\x01\n!LookupEffectiveGuestPolicyRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\ros_short_name\x18\x02 \x01(\t\x12\x12\n\nos_version\x18\x03 \x01(\t\x12\x17\n\x0fos_architecture\x18\x04 \x01(\t\"\xd2\x05\n\x14\x45\x66\x66\x65\x63tiveGuestPolicy\x12\x61\n\x08packages\x18\x01 \x03(\x0b\x32O.google.cloud.osconfig.agentendpoint.v1beta.EffectiveGuestPolicy.SourcedPackage\x12w\n\x14package_repositories\x18\x02 \x03(\x0b\x32Y.google.cloud.osconfig.agentendpoint.v1beta.EffectiveGuestPolicy.SourcedPackageRepository\x12p\n\x10software_recipes\x18\x03 \x03(\x0b\x32V.google.cloud.osconfig.agentendpoint.v1beta.EffectiveGuestPolicy.SourcedSoftwareRecipe\x1a\x66\n\x0eSourcedPackage\x12\x0e\n\x06source\x18\x01 \x01(\t\x12\x44\n\x07package\x18\x02 \x01(\x0b\x32\x33.google.cloud.osconfig.agentendpoint.v1beta.Package\x1a\x85\x01\n\x18SourcedPackageRepository\x12\x0e\n\x06source\x18\x01 \x01(\t\x12Y\n\x12package_repository\x18\x02 \x01(\x0b\x32=.google.cloud.osconfig.agentendpoint.v1beta.PackageRepository\x1a|\n\x15SourcedSoftwareRecipe\x12\x0e\n\x06source\x18\x01 \x01(\t\x12S\n\x0fsoftware_recipe\x18\x02 \x01(\x0b\x32:.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe*V\n\x0c\x44\x65siredState\x12\x1d\n\x19\x44\x45SIRED_STATE_UNSPECIFIED\x10\x00\x12\r\n\tINSTALLED\x10\x01\x12\x0b\n\x07UPDATED\x10\x02\x12\x0b\n\x07REMOVED\x10\x03\x42\xb7\x01\n.com.google.cloud.osconfig.agentendpoint.v1betaB\rGuestPoliciesZWgoogle.golang.org/genproto/googleapis/cloud/osconfig/agentendpoint/v1beta;agentendpoint\xca\x02\x1cGoogle\\Cloud\\OsConfig\\V1betab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.osconfig.agentendpoint.v1beta.guest_policies_pb2', globals())
@@ -25,60 +24,60 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'\n.com.google.cloud.osconfig.agentendpoint.v1betaB\rGuestPoliciesZWgoogle.golang.org/genproto/googleapis/cloud/osconfig/agentendpoint/v1beta;agentendpoint\312\002\034Google\\Cloud\\OsConfig\\V1beta'
   _LOOKUPEFFECTIVEGUESTPOLICYREQUEST.fields_by_name['instance_id_token']._options = None
   _LOOKUPEFFECTIVEGUESTPOLICYREQUEST.fields_by_name['instance_id_token']._serialized_options = b'\340A\002'
-  _DESIREDSTATE._serialized_start=4460
-  _DESIREDSTATE._serialized_end=4546
-  _PACKAGE._serialized_start=175
-  _PACKAGE._serialized_end=441
-  _PACKAGE_MANAGER._serialized_start=359
-  _PACKAGE_MANAGER._serialized_end=441
-  _APTREPOSITORY._serialized_start=444
-  _APTREPOSITORY._serialized_end=691
-  _APTREPOSITORY_ARCHIVETYPE._serialized_start=626
-  _APTREPOSITORY_ARCHIVETYPE._serialized_end=691
-  _YUMREPOSITORY._serialized_start=693
-  _YUMREPOSITORY._serialized_end=778
-  _ZYPPERREPOSITORY._serialized_start=780
-  _ZYPPERREPOSITORY._serialized_end=868
-  _GOOREPOSITORY._serialized_start=870
-  _GOOREPOSITORY._serialized_end=912
-  _PACKAGEREPOSITORY._serialized_start=915
-  _PACKAGEREPOSITORY._serialized_end=1250
-  _SOFTWARERECIPE._serialized_start=1253
-  _SOFTWARERECIPE._serialized_end=3595
-  _SOFTWARERECIPE_ARTIFACT._serialized_start=1647
-  _SOFTWARERECIPE_ARTIFACT._serialized_end=1987
-  _SOFTWARERECIPE_ARTIFACT_REMOTE._serialized_start=1877
-  _SOFTWARERECIPE_ARTIFACT_REMOTE._serialized_end=1916
-  _SOFTWARERECIPE_ARTIFACT_GCS._serialized_start=1918
-  _SOFTWARERECIPE_ARTIFACT_GCS._serialized_end=1975
-  _SOFTWARERECIPE_STEP._serialized_start=1990
-  _SOFTWARERECIPE_STEP._serialized_end=3595
-  _SOFTWARERECIPE_STEP_COPYFILE._serialized_start=2709
-  _SOFTWARERECIPE_STEP_COPYFILE._serialized_end=2801
-  _SOFTWARERECIPE_STEP_EXTRACTARCHIVE._serialized_start=2804
-  _SOFTWARERECIPE_STEP_EXTRACTARCHIVE._serialized_end=3085
-  _SOFTWARERECIPE_STEP_EXTRACTARCHIVE_ARCHIVETYPE._serialized_start=2970
-  _SOFTWARERECIPE_STEP_EXTRACTARCHIVE_ARCHIVETYPE._serialized_end=3085
-  _SOFTWARERECIPE_STEP_INSTALLMSI._serialized_start=3087
-  _SOFTWARERECIPE_STEP_INSTALLMSI._serialized_end=3163
-  _SOFTWARERECIPE_STEP_INSTALLDPKG._serialized_start=3165
-  _SOFTWARERECIPE_STEP_INSTALLDPKG._serialized_end=3199
-  _SOFTWARERECIPE_STEP_INSTALLRPM._serialized_start=3201
-  _SOFTWARERECIPE_STEP_INSTALLRPM._serialized_end=3234
-  _SOFTWARERECIPE_STEP_EXECFILE._serialized_start=3236
-  _SOFTWARERECIPE_STEP_EXECFILE._serialized_end=3350
-  _SOFTWARERECIPE_STEP_RUNSCRIPT._serialized_start=3353
-  _SOFTWARERECIPE_STEP_RUNSCRIPT._serialized_end=3587
-  _SOFTWARERECIPE_STEP_RUNSCRIPT_INTERPRETER._serialized_start=3518
-  _SOFTWARERECIPE_STEP_RUNSCRIPT_INTERPRETER._serialized_end=3587
-  _LOOKUPEFFECTIVEGUESTPOLICYREQUEST._serialized_start=3598
-  _LOOKUPEFFECTIVEGUESTPOLICYREQUEST._serialized_end=3733
-  _EFFECTIVEGUESTPOLICY._serialized_start=3736
-  _EFFECTIVEGUESTPOLICY._serialized_end=4458
-  _EFFECTIVEGUESTPOLICY_SOURCEDPACKAGE._serialized_start=4094
-  _EFFECTIVEGUESTPOLICY_SOURCEDPACKAGE._serialized_end=4196
-  _EFFECTIVEGUESTPOLICY_SOURCEDPACKAGEREPOSITORY._serialized_start=4199
-  _EFFECTIVEGUESTPOLICY_SOURCEDPACKAGEREPOSITORY._serialized_end=4332
-  _EFFECTIVEGUESTPOLICY_SOURCEDSOFTWARERECIPE._serialized_start=4334
-  _EFFECTIVEGUESTPOLICY_SOURCEDSOFTWARERECIPE._serialized_end=4458
+  _DESIREDSTATE._serialized_start=4430
+  _DESIREDSTATE._serialized_end=4516
+  _PACKAGE._serialized_start=145
+  _PACKAGE._serialized_end=411
+  _PACKAGE_MANAGER._serialized_start=329
+  _PACKAGE_MANAGER._serialized_end=411
+  _APTREPOSITORY._serialized_start=414
+  _APTREPOSITORY._serialized_end=661
+  _APTREPOSITORY_ARCHIVETYPE._serialized_start=596
+  _APTREPOSITORY_ARCHIVETYPE._serialized_end=661
+  _YUMREPOSITORY._serialized_start=663
+  _YUMREPOSITORY._serialized_end=748
+  _ZYPPERREPOSITORY._serialized_start=750
+  _ZYPPERREPOSITORY._serialized_end=838
+  _GOOREPOSITORY._serialized_start=840
+  _GOOREPOSITORY._serialized_end=882
+  _PACKAGEREPOSITORY._serialized_start=885
+  _PACKAGEREPOSITORY._serialized_end=1220
+  _SOFTWARERECIPE._serialized_start=1223
+  _SOFTWARERECIPE._serialized_end=3565
+  _SOFTWARERECIPE_ARTIFACT._serialized_start=1617
+  _SOFTWARERECIPE_ARTIFACT._serialized_end=1957
+  _SOFTWARERECIPE_ARTIFACT_REMOTE._serialized_start=1847
+  _SOFTWARERECIPE_ARTIFACT_REMOTE._serialized_end=1886
+  _SOFTWARERECIPE_ARTIFACT_GCS._serialized_start=1888
+  _SOFTWARERECIPE_ARTIFACT_GCS._serialized_end=1945
+  _SOFTWARERECIPE_STEP._serialized_start=1960
+  _SOFTWARERECIPE_STEP._serialized_end=3565
+  _SOFTWARERECIPE_STEP_COPYFILE._serialized_start=2679
+  _SOFTWARERECIPE_STEP_COPYFILE._serialized_end=2771
+  _SOFTWARERECIPE_STEP_EXTRACTARCHIVE._serialized_start=2774
+  _SOFTWARERECIPE_STEP_EXTRACTARCHIVE._serialized_end=3055
+  _SOFTWARERECIPE_STEP_EXTRACTARCHIVE_ARCHIVETYPE._serialized_start=2940
+  _SOFTWARERECIPE_STEP_EXTRACTARCHIVE_ARCHIVETYPE._serialized_end=3055
+  _SOFTWARERECIPE_STEP_INSTALLMSI._serialized_start=3057
+  _SOFTWARERECIPE_STEP_INSTALLMSI._serialized_end=3133
+  _SOFTWARERECIPE_STEP_INSTALLDPKG._serialized_start=3135
+  _SOFTWARERECIPE_STEP_INSTALLDPKG._serialized_end=3169
+  _SOFTWARERECIPE_STEP_INSTALLRPM._serialized_start=3171
+  _SOFTWARERECIPE_STEP_INSTALLRPM._serialized_end=3204
+  _SOFTWARERECIPE_STEP_EXECFILE._serialized_start=3206
+  _SOFTWARERECIPE_STEP_EXECFILE._serialized_end=3320
+  _SOFTWARERECIPE_STEP_RUNSCRIPT._serialized_start=3323
+  _SOFTWARERECIPE_STEP_RUNSCRIPT._serialized_end=3557
+  _SOFTWARERECIPE_STEP_RUNSCRIPT_INTERPRETER._serialized_start=3488
+  _SOFTWARERECIPE_STEP_RUNSCRIPT_INTERPRETER._serialized_end=3557
+  _LOOKUPEFFECTIVEGUESTPOLICYREQUEST._serialized_start=3568
+  _LOOKUPEFFECTIVEGUESTPOLICYREQUEST._serialized_end=3703
+  _EFFECTIVEGUESTPOLICY._serialized_start=3706
+  _EFFECTIVEGUESTPOLICY._serialized_end=4428
+  _EFFECTIVEGUESTPOLICY_SOURCEDPACKAGE._serialized_start=4064
+  _EFFECTIVEGUESTPOLICY_SOURCEDPACKAGE._serialized_end=4166
+  _EFFECTIVEGUESTPOLICY_SOURCEDPACKAGEREPOSITORY._serialized_start=4169
+  _EFFECTIVEGUESTPOLICY_SOURCEDPACKAGEREPOSITORY._serialized_end=4302
+  _EFFECTIVEGUESTPOLICY_SOURCEDSOFTWARERECIPE._serialized_start=4304
+  _EFFECTIVEGUESTPOLICY_SOURCEDSOFTWARERECIPE._serialized_end=4428
 # @@protoc_insertion_point(module_scope)

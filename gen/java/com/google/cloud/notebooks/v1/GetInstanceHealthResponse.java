@@ -35,65 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GetInstanceHealthResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            healthState_ = rawValue;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              healthInfo_ = com.google.protobuf.MapField.newMapField(
-                  HealthInfoDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            healthInfo__ = input.readMessage(
-                HealthInfoDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            healthInfo_.getMutableMap().put(
-                healthInfo__.getKey(), healthInfo__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.notebooks.v1.NotebooksProto.internal_static_google_cloud_notebooks_v1_GetInstanceHealthResponse_descriptor;
@@ -311,7 +252,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HEALTH_STATE_FIELD_NUMBER = 1;
-  private int healthState_;
+  private int healthState_ = 0;
   /**
    * <pre>
    * Output only. Runtime health_state.
@@ -332,8 +273,7 @@ private static final long serialVersionUID = 0L;
    * @return The healthState.
    */
   @java.lang.Override public com.google.cloud.notebooks.v1.GetInstanceHealthResponse.HealthState getHealthState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.notebooks.v1.GetInstanceHealthResponse.HealthState result = com.google.cloud.notebooks.v1.GetInstanceHealthResponse.HealthState.valueOf(healthState_);
+    com.google.cloud.notebooks.v1.GetInstanceHealthResponse.HealthState result = com.google.cloud.notebooks.v1.GetInstanceHealthResponse.HealthState.forNumber(healthState_);
     return result == null ? com.google.cloud.notebooks.v1.GetInstanceHealthResponse.HealthState.UNRECOGNIZED : result;
   }
 
@@ -349,6 +289,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> healthInfo_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -359,7 +300,6 @@ private static final long serialVersionUID = 0L;
     }
     return healthInfo_;
   }
-
   public int getHealthInfoCount() {
     return internalGetHealthInfo().getMap().size();
   }
@@ -378,7 +318,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; health_info = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   @java.lang.Override
   public boolean containsHealthInfo(
       java.lang.String key) {
@@ -409,7 +348,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; health_info = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getHealthInfoMap() {
     return internalGetHealthInfo().getMap();
   }
@@ -429,10 +367,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; health_info = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getHealthInfoOrDefault(
+  public /* nullable */
+java.lang.String getHealthInfoOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetHealthInfo().getMap();
@@ -454,7 +393,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; health_info = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
   public java.lang.String getHealthInfoOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -489,7 +427,7 @@ private static final long serialVersionUID = 0L;
         internalGetHealthInfo(),
         HealthInfoDefaultEntryHolder.defaultEntry,
         2);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -512,7 +450,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, healthInfo__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -530,7 +468,7 @@ private static final long serialVersionUID = 0L;
     if (healthState_ != other.healthState_) return false;
     if (!internalGetHealthInfo().equals(
         other.internalGetHealthInfo())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -547,7 +485,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + HEALTH_INFO_FIELD_NUMBER;
       hash = (53 * hash) + internalGetHealthInfo().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -690,24 +628,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.notebooks.v1.GetInstanceHealthResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       healthState_ = 0;
-
       internalGetMutableHealthInfo().clear();
       return this;
     }
@@ -735,12 +668,20 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.notebooks.v1.GetInstanceHealthResponse buildPartial() {
       com.google.cloud.notebooks.v1.GetInstanceHealthResponse result = new com.google.cloud.notebooks.v1.GetInstanceHealthResponse(this);
-      int from_bitField0_ = bitField0_;
-      result.healthState_ = healthState_;
-      result.healthInfo_ = internalGetHealthInfo();
-      result.healthInfo_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.notebooks.v1.GetInstanceHealthResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.healthState_ = healthState_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.healthInfo_ = internalGetHealthInfo();
+        result.healthInfo_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -792,7 +733,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableHealthInfo().mergeFrom(
           other.internalGetHealthInfo());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000002;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -807,17 +749,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.notebooks.v1.GetInstanceHealthResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              healthState_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              healthInfo__ = input.readMessage(
+                  HealthInfoDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableHealthInfo().getMutableMap().put(
+                  healthInfo__.getKey(), healthInfo__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.notebooks.v1.GetInstanceHealthResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -844,8 +813,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHealthStateValue(int value) {
-      
       healthState_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -859,8 +828,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.notebooks.v1.GetInstanceHealthResponse.HealthState getHealthState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.notebooks.v1.GetInstanceHealthResponse.HealthState result = com.google.cloud.notebooks.v1.GetInstanceHealthResponse.HealthState.valueOf(healthState_);
+      com.google.cloud.notebooks.v1.GetInstanceHealthResponse.HealthState result = com.google.cloud.notebooks.v1.GetInstanceHealthResponse.HealthState.forNumber(healthState_);
       return result == null ? com.google.cloud.notebooks.v1.GetInstanceHealthResponse.HealthState.UNRECOGNIZED : result;
     }
     /**
@@ -876,7 +844,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       healthState_ = value.getNumber();
       onChanged();
       return this;
@@ -890,7 +858,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHealthState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       healthState_ = 0;
       onChanged();
       return this;
@@ -899,7 +867,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> healthInfo_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetHealthInfo() {
+        internalGetHealthInfo() {
       if (healthInfo_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             HealthInfoDefaultEntryHolder.defaultEntry);
@@ -907,8 +875,7 @@ private static final long serialVersionUID = 0L;
       return healthInfo_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableHealthInfo() {
-      onChanged();;
+        internalGetMutableHealthInfo() {
       if (healthInfo_ == null) {
         healthInfo_ = com.google.protobuf.MapField.newMapField(
             HealthInfoDefaultEntryHolder.defaultEntry);
@@ -916,9 +883,10 @@ private static final long serialVersionUID = 0L;
       if (!healthInfo_.isMutable()) {
         healthInfo_ = healthInfo_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return healthInfo_;
     }
-
     public int getHealthInfoCount() {
       return internalGetHealthInfo().getMap().size();
     }
@@ -937,7 +905,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; health_info = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     @java.lang.Override
     public boolean containsHealthInfo(
         java.lang.String key) {
@@ -968,7 +935,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; health_info = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getHealthInfoMap() {
       return internalGetHealthInfo().getMap();
     }
@@ -988,10 +954,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; health_info = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getHealthInfoOrDefault(
+    public /* nullable */
+java.lang.String getHealthInfoOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetHealthInfo().getMap();
@@ -1013,7 +980,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; health_info = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
     public java.lang.String getHealthInfoOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1024,8 +990,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearHealthInfo() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableHealthInfo().getMutableMap()
           .clear();
       return this;
@@ -1045,7 +1011,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; health_info = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     public Builder removeHealthInfo(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1058,7 +1023,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableHealthInfo() {
+        getMutableHealthInfo() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableHealthInfo().getMutableMap();
     }
     /**
@@ -1080,12 +1046,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableHealthInfo().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -1103,11 +1067,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; health_info = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     public Builder putAllHealthInfo(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableHealthInfo().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
     @java.lang.Override
@@ -1143,7 +1107,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GetInstanceHealthResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

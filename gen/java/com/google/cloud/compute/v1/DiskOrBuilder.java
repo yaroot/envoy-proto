@@ -284,7 +284,6 @@ public interface DiskOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 500195327;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -297,7 +296,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 500195327;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -515,6 +513,33 @@ java.lang.String defaultValue);
    */
   com.google.protobuf.ByteString
       getOptionsBytes();
+
+  /**
+   * <pre>
+   * Input only. [Input Only] Additional params passed with the request, but not persisted as part of resource payload.
+   * </pre>
+   *
+   * <code>optional .google.cloud.compute.v1.DiskParams params = 78313862;</code>
+   * @return Whether the params field is set.
+   */
+  boolean hasParams();
+  /**
+   * <pre>
+   * Input only. [Input Only] Additional params passed with the request, but not persisted as part of resource payload.
+   * </pre>
+   *
+   * <code>optional .google.cloud.compute.v1.DiskParams params = 78313862;</code>
+   * @return The params.
+   */
+  com.google.cloud.compute.v1.DiskParams getParams();
+  /**
+   * <pre>
+   * Input only. [Input Only] Additional params passed with the request, but not persisted as part of resource payload.
+   * </pre>
+   *
+   * <code>optional .google.cloud.compute.v1.DiskParams params = 78313862;</code>
+   */
+  com.google.cloud.compute.v1.DiskParamsOrBuilder getParamsOrBuilder();
 
   /**
    * <pre>

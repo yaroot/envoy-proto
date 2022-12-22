@@ -166,7 +166,6 @@ public interface TagOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.datacatalog.v1.TagField&gt; fields = 3 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   /* nullable */
 com.google.cloud.datacatalog.v1.TagField getFieldsOrDefault(
       java.lang.String key,
@@ -182,7 +181,6 @@ com.google.cloud.datacatalog.v1.TagField defaultValue);
    *
    * <code>map&lt;string, .google.cloud.datacatalog.v1.TagField&gt; fields = 3 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   com.google.cloud.datacatalog.v1.TagField getFieldsOrThrow(
       java.lang.String key);
 

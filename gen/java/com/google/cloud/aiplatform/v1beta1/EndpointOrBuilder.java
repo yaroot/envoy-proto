@@ -30,7 +30,7 @@ public interface EndpointOrBuilder extends
   /**
    * <pre>
    * Required. The display name of the Endpoint.
-   * The name can be up to 128 characters long and can be consist of any UTF-8
+   * The name can be up to 128 characters long and can consist of any UTF-8
    * characters.
    * </pre>
    *
@@ -41,7 +41,7 @@ public interface EndpointOrBuilder extends
   /**
    * <pre>
    * Required. The display name of the Endpoint.
-   * The name can be up to 128 characters long and can be consist of any UTF-8
+   * The name can be up to 128 characters long and can consist of any UTF-8
    * characters.
    * </pre>
    *
@@ -184,7 +184,6 @@ public interface EndpointOrBuilder extends
    *
    * <code>map&lt;string, int32&gt; traffic_split = 5;</code>
    */
-
   int getTrafficSplitOrDefault(
       java.lang.String key,
       int defaultValue);
@@ -200,7 +199,6 @@ public interface EndpointOrBuilder extends
    *
    * <code>map&lt;string, int32&gt; traffic_split = 5;</code>
    */
-
   int getTrafficSplitOrThrow(
       java.lang.String key);
 
@@ -281,7 +279,6 @@ public interface EndpointOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 7;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -298,7 +295,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 7;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 

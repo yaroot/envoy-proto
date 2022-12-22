@@ -322,7 +322,6 @@ public interface PipelineTaskDetailOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.PipelineTaskDetail.ArtifactList&gt; inputs = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 com.google.cloud.aiplatform.v1beta1.PipelineTaskDetail.ArtifactList getInputsOrDefault(
       java.lang.String key,
@@ -335,7 +334,6 @@ com.google.cloud.aiplatform.v1beta1.PipelineTaskDetail.ArtifactList defaultValue
    *
    * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.PipelineTaskDetail.ArtifactList&gt; inputs = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   com.google.cloud.aiplatform.v1beta1.PipelineTaskDetail.ArtifactList getInputsOrThrow(
       java.lang.String key);
 
@@ -378,7 +376,6 @@ com.google.cloud.aiplatform.v1beta1.PipelineTaskDetail.ArtifactList defaultValue
    *
    * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.PipelineTaskDetail.ArtifactList&gt; outputs = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 com.google.cloud.aiplatform.v1beta1.PipelineTaskDetail.ArtifactList getOutputsOrDefault(
       java.lang.String key,
@@ -391,7 +388,6 @@ com.google.cloud.aiplatform.v1beta1.PipelineTaskDetail.ArtifactList defaultValue
    *
    * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.PipelineTaskDetail.ArtifactList&gt; outputs = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   com.google.cloud.aiplatform.v1beta1.PipelineTaskDetail.ArtifactList getOutputsOrThrow(
       java.lang.String key);
 }

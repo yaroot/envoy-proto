@@ -35,7 +35,8 @@ public interface NotificationOrBuilder extends
 
   /**
    * <pre>
-   * Required. The Pub/Sub topic to which this subscription publishes. Formatted as:
+   * Required. The Pub/Sub topic to which this subscription publishes. Formatted
+   * as:
    * '//pubsub.googleapis.com/projects/{project-identifier}/topics/{my-topic}'
    * </pre>
    *
@@ -45,7 +46,8 @@ public interface NotificationOrBuilder extends
   java.lang.String getTopic();
   /**
    * <pre>
-   * Required. The Pub/Sub topic to which this subscription publishes. Formatted as:
+   * Required. The Pub/Sub topic to which this subscription publishes. Formatted
+   * as:
    * '//pubsub.googleapis.com/projects/{project-identifier}/topics/{my-topic}'
    * </pre>
    *
@@ -81,43 +83,43 @@ public interface NotificationOrBuilder extends
 
   /**
    * <pre>
-   * Optional. If present, only send notifications about listed event types. If empty,
+   * If present, only send notifications about listed event types. If empty,
    * sent notifications for all event types.
    * </pre>
    *
-   * <code>repeated string event_types = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>repeated string event_types = 3;</code>
    * @return A list containing the eventTypes.
    */
   java.util.List<java.lang.String>
       getEventTypesList();
   /**
    * <pre>
-   * Optional. If present, only send notifications about listed event types. If empty,
+   * If present, only send notifications about listed event types. If empty,
    * sent notifications for all event types.
    * </pre>
    *
-   * <code>repeated string event_types = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>repeated string event_types = 3;</code>
    * @return The count of eventTypes.
    */
   int getEventTypesCount();
   /**
    * <pre>
-   * Optional. If present, only send notifications about listed event types. If empty,
+   * If present, only send notifications about listed event types. If empty,
    * sent notifications for all event types.
    * </pre>
    *
-   * <code>repeated string event_types = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>repeated string event_types = 3;</code>
    * @param index The index of the element to return.
    * @return The eventTypes at the given index.
    */
   java.lang.String getEventTypes(int index);
   /**
    * <pre>
-   * Optional. If present, only send notifications about listed event types. If empty,
+   * If present, only send notifications about listed event types. If empty,
    * sent notifications for all event types.
    * </pre>
    *
-   * <code>repeated string event_types = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>repeated string event_types = 3;</code>
    * @param index The index of the value to return.
    * @return The bytes of the eventTypes at the given index.
    */
@@ -126,20 +128,20 @@ public interface NotificationOrBuilder extends
 
   /**
    * <pre>
-   * Optional. An optional list of additional attributes to attach to each Pub/Sub
+   * A list of additional attributes to attach to each Pub/Sub
    * message published for this notification subscription.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; custom_attributes = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>map&lt;string, string&gt; custom_attributes = 4;</code>
    */
   int getCustomAttributesCount();
   /**
    * <pre>
-   * Optional. An optional list of additional attributes to attach to each Pub/Sub
+   * A list of additional attributes to attach to each Pub/Sub
    * message published for this notification subscription.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; custom_attributes = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>map&lt;string, string&gt; custom_attributes = 4;</code>
    */
   boolean containsCustomAttributes(
       java.lang.String key);
@@ -151,23 +153,22 @@ public interface NotificationOrBuilder extends
   getCustomAttributes();
   /**
    * <pre>
-   * Optional. An optional list of additional attributes to attach to each Pub/Sub
+   * A list of additional attributes to attach to each Pub/Sub
    * message published for this notification subscription.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; custom_attributes = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>map&lt;string, string&gt; custom_attributes = 4;</code>
    */
   java.util.Map<java.lang.String, java.lang.String>
   getCustomAttributesMap();
   /**
    * <pre>
-   * Optional. An optional list of additional attributes to attach to each Pub/Sub
+   * A list of additional attributes to attach to each Pub/Sub
    * message published for this notification subscription.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; custom_attributes = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>map&lt;string, string&gt; custom_attributes = 4;</code>
    */
-
   /* nullable */
 java.lang.String getCustomAttributesOrDefault(
       java.lang.String key,
@@ -175,33 +176,32 @@ java.lang.String getCustomAttributesOrDefault(
 java.lang.String defaultValue);
   /**
    * <pre>
-   * Optional. An optional list of additional attributes to attach to each Pub/Sub
+   * A list of additional attributes to attach to each Pub/Sub
    * message published for this notification subscription.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; custom_attributes = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>map&lt;string, string&gt; custom_attributes = 4;</code>
    */
-
   java.lang.String getCustomAttributesOrThrow(
       java.lang.String key);
 
   /**
    * <pre>
-   * Optional. If present, only apply this notification config to object names that
+   * If present, only apply this notification config to object names that
    * begin with this prefix.
    * </pre>
    *
-   * <code>string object_name_prefix = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>string object_name_prefix = 5;</code>
    * @return The objectNamePrefix.
    */
   java.lang.String getObjectNamePrefix();
   /**
    * <pre>
-   * Optional. If present, only apply this notification config to object names that
+   * If present, only apply this notification config to object names that
    * begin with this prefix.
    * </pre>
    *
-   * <code>string object_name_prefix = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>string object_name_prefix = 5;</code>
    * @return The bytes for objectNamePrefix.
    */
   com.google.protobuf.ByteString

@@ -36,75 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateWorkerPoolRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloudbuild.v1.WorkerPool.Builder subBuilder = null;
-            if (workerPool_ != null) {
-              subBuilder = workerPool_.toBuilder();
-            }
-            workerPool_ = input.readMessage(com.google.cloudbuild.v1.WorkerPool.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(workerPool_);
-              workerPool_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            workerPoolId_ = s;
-            break;
-          }
-          case 32: {
-
-            validateOnly_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloudbuild.v1.Cloudbuild.internal_static_google_devtools_cloudbuild_v1_CreateWorkerPoolRequest_descriptor;
@@ -119,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The parent resource where this worker pool will be created.
@@ -201,11 +133,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloudbuild.v1.WorkerPoolOrBuilder getWorkerPoolOrBuilder() {
-    return getWorkerPool();
+    return workerPool_ == null ? com.google.cloudbuild.v1.WorkerPool.getDefaultInstance() : workerPool_;
   }
 
   public static final int WORKER_POOL_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object workerPoolId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object workerPoolId_ = "";
   /**
    * <pre>
    * Required. Immutable. The ID to use for the `WorkerPool`, which will become
@@ -257,7 +190,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALIDATE_ONLY_FIELD_NUMBER = 4;
-  private boolean validateOnly_;
+  private boolean validateOnly_ = false;
   /**
    * <pre>
    * If set, validate the request and preview the response, but do not actually
@@ -298,7 +231,7 @@ private static final long serialVersionUID = 0L;
     if (validateOnly_ != false) {
       output.writeBool(4, validateOnly_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -321,7 +254,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, validateOnly_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -347,7 +280,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getWorkerPoolId())) return false;
     if (getValidateOnly()
         != other.getValidateOnly()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -369,7 +302,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + VALIDATE_ONLY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getValidateOnly());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -490,34 +423,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloudbuild.v1.CreateWorkerPoolRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (workerPoolBuilder_ == null) {
-        workerPool_ = null;
-      } else {
-        workerPool_ = null;
+      workerPool_ = null;
+      if (workerPoolBuilder_ != null) {
+        workerPoolBuilder_.dispose();
         workerPoolBuilder_ = null;
       }
       workerPoolId_ = "";
-
       validateOnly_ = false;
-
       return this;
     }
 
@@ -544,16 +469,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloudbuild.v1.CreateWorkerPoolRequest buildPartial() {
       com.google.cloudbuild.v1.CreateWorkerPoolRequest result = new com.google.cloudbuild.v1.CreateWorkerPoolRequest(this);
-      result.parent_ = parent_;
-      if (workerPoolBuilder_ == null) {
-        result.workerPool_ = workerPool_;
-      } else {
-        result.workerPool_ = workerPoolBuilder_.build();
-      }
-      result.workerPoolId_ = workerPoolId_;
-      result.validateOnly_ = validateOnly_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloudbuild.v1.CreateWorkerPoolRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.workerPool_ = workerPoolBuilder_ == null
+            ? workerPool_
+            : workerPoolBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.workerPoolId_ = workerPoolId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.validateOnly_ = validateOnly_;
+      }
     }
 
     @java.lang.Override
@@ -602,6 +538,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloudbuild.v1.CreateWorkerPoolRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasWorkerPool()) {
@@ -609,12 +546,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getWorkerPoolId().isEmpty()) {
         workerPoolId_ = other.workerPoolId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getValidateOnly() != false) {
         setValidateOnly(other.getValidateOnly());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -629,19 +567,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloudbuild.v1.CreateWorkerPoolRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getWorkerPoolFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              workerPoolId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              validateOnly_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloudbuild.v1.CreateWorkerPoolRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -699,11 +673,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -717,8 +689,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -734,12 +706,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -756,7 +726,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the workerPool field is set.
      */
     public boolean hasWorkerPool() {
-      return workerPoolBuilder_ != null || workerPool_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -786,11 +756,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         workerPool_ = value;
-        onChanged();
       } else {
         workerPoolBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -804,11 +774,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloudbuild.v1.WorkerPool.Builder builderForValue) {
       if (workerPoolBuilder_ == null) {
         workerPool_ = builderForValue.build();
-        onChanged();
       } else {
         workerPoolBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -820,17 +790,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWorkerPool(com.google.cloudbuild.v1.WorkerPool value) {
       if (workerPoolBuilder_ == null) {
-        if (workerPool_ != null) {
-          workerPool_ =
-            com.google.cloudbuild.v1.WorkerPool.newBuilder(workerPool_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          workerPool_ != null &&
+          workerPool_ != com.google.cloudbuild.v1.WorkerPool.getDefaultInstance()) {
+          getWorkerPoolBuilder().mergeFrom(value);
         } else {
           workerPool_ = value;
         }
-        onChanged();
       } else {
         workerPoolBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -841,14 +812,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.cloudbuild.v1.WorkerPool worker_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearWorkerPool() {
-      if (workerPoolBuilder_ == null) {
-        workerPool_ = null;
-        onChanged();
-      } else {
-        workerPool_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      workerPool_ = null;
+      if (workerPoolBuilder_ != null) {
+        workerPoolBuilder_.dispose();
         workerPoolBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -859,7 +829,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.cloudbuild.v1.WorkerPool worker_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloudbuild.v1.WorkerPool.Builder getWorkerPoolBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getWorkerPoolFieldBuilder().getBuilder();
     }
@@ -961,11 +931,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWorkerPoolId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       workerPoolId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -981,8 +949,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWorkerPoolId() {
-      
       workerPoolId_ = getDefaultInstance().getWorkerPoolId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1000,12 +968,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWorkerPoolIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       workerPoolId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1037,6 +1003,7 @@ private static final long serialVersionUID = 0L;
     public Builder setValidateOnly(boolean value) {
       
       validateOnly_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1050,7 +1017,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidateOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       validateOnly_ = false;
       onChanged();
       return this;
@@ -1088,7 +1055,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateWorkerPoolRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

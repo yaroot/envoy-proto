@@ -23,6 +23,7 @@ private static final long serialVersionUID = 0L;
     parent_ = "";
     parentModel_ = "";
     modelId_ = "";
+    serviceAccount_ = "";
   }
 
   @java.lang.Override
@@ -36,76 +37,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private UploadModelRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.aiplatform.v1beta1.Model.Builder subBuilder = null;
-            if (model_ != null) {
-              subBuilder = model_.toBuilder();
-            }
-            model_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.Model.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(model_);
-              model_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parentModel_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            modelId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -121,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The resource name of the Location into which to upload the Model.
@@ -169,7 +101,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_MODEL_FIELD_NUMBER = 4;
-  private volatile java.lang.Object parentModel_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parentModel_ = "";
   /**
    * <pre>
    * Optional. The resource name of the model into which to upload the version. Only
@@ -217,7 +150,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODEL_ID_FIELD_NUMBER = 5;
-  private volatile java.lang.Object modelId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object modelId_ = "";
   /**
    * <pre>
    * Optional. The ID to use for the uploaded Model, which will become the final
@@ -303,7 +237,66 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.ModelOrBuilder getModelOrBuilder() {
-    return getModel();
+    return model_ == null ? com.google.cloud.aiplatform.v1beta1.Model.getDefaultInstance() : model_;
+  }
+
+  public static final int SERVICE_ACCOUNT_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceAccount_ = "";
+  /**
+   * <pre>
+   * Optional. The user-provided custom service account to use to do the model
+   * upload. If empty, [Vertex AI Service
+   * Agent](https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents)
+   * will be used. Users uploading the Model must have the
+   * `iam.serviceAccounts.actAs` permission on this service account. Also, this
+   * account must belong to the project specified in the `parent` field and have
+   * all necessary read permissions.
+   * </pre>
+   *
+   * <code>string service_account = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The serviceAccount.
+   */
+  @java.lang.Override
+  public java.lang.String getServiceAccount() {
+    java.lang.Object ref = serviceAccount_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      serviceAccount_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Optional. The user-provided custom service account to use to do the model
+   * upload. If empty, [Vertex AI Service
+   * Agent](https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents)
+   * will be used. Users uploading the Model must have the
+   * `iam.serviceAccounts.actAs` permission on this service account. Also, this
+   * account must belong to the project specified in the `parent` field and have
+   * all necessary read permissions.
+   * </pre>
+   *
+   * <code>string service_account = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The bytes for serviceAccount.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getServiceAccountBytes() {
+    java.lang.Object ref = serviceAccount_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      serviceAccount_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -332,7 +325,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(modelId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, modelId_);
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serviceAccount_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, serviceAccount_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -354,7 +350,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(modelId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, modelId_);
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serviceAccount_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, serviceAccount_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -380,7 +379,9 @@ private static final long serialVersionUID = 0L;
       if (!getModel()
           .equals(other.getModel())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getServiceAccount()
+        .equals(other.getServiceAccount())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -401,7 +402,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MODEL_FIELD_NUMBER;
       hash = (53 * hash) + getModel().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + SERVICE_ACCOUNT_FIELD_NUMBER;
+    hash = (53 * hash) + getServiceAccount().hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -522,34 +525,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.UploadModelRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       parentModel_ = "";
-
       modelId_ = "";
-
-      if (modelBuilder_ == null) {
-        model_ = null;
-      } else {
-        model_ = null;
+      model_ = null;
+      if (modelBuilder_ != null) {
+        modelBuilder_.dispose();
         modelBuilder_ = null;
       }
+      serviceAccount_ = "";
       return this;
     }
 
@@ -576,16 +572,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.UploadModelRequest buildPartial() {
       com.google.cloud.aiplatform.v1beta1.UploadModelRequest result = new com.google.cloud.aiplatform.v1beta1.UploadModelRequest(this);
-      result.parent_ = parent_;
-      result.parentModel_ = parentModel_;
-      result.modelId_ = modelId_;
-      if (modelBuilder_ == null) {
-        result.model_ = model_;
-      } else {
-        result.model_ = modelBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.UploadModelRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.parentModel_ = parentModel_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.modelId_ = modelId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.model_ = modelBuilder_ == null
+            ? model_
+            : modelBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.serviceAccount_ = serviceAccount_;
+      }
     }
 
     @java.lang.Override
@@ -634,20 +644,28 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.aiplatform.v1beta1.UploadModelRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getParentModel().isEmpty()) {
         parentModel_ = other.parentModel_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getModelId().isEmpty()) {
         modelId_ = other.modelId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasModel()) {
         mergeModel(other.getModel());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getServiceAccount().isEmpty()) {
+        serviceAccount_ = other.serviceAccount_;
+        bitField0_ |= 0x00000010;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -662,19 +680,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.UploadModelRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getModelFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 18
+            case 34: {
+              parentModel_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 34
+            case 42: {
+              modelId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            case 50: {
+              serviceAccount_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.UploadModelRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -732,11 +791,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -750,8 +807,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -767,12 +824,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -833,11 +888,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentModel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parentModel_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -851,8 +904,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParentModel() {
-      
       parentModel_ = getDefaultInstance().getParentModel();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -868,12 +921,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentModelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parentModel_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -940,11 +991,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModelId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       modelId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -960,8 +1009,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearModelId() {
-      
       modelId_ = getDefaultInstance().getModelId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -979,12 +1028,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModelIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       modelId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1001,7 +1048,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the model field is set.
      */
     public boolean hasModel() {
-      return modelBuilder_ != null || model_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1031,11 +1078,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         model_ = value;
-        onChanged();
       } else {
         modelBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1049,11 +1096,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.Model.Builder builderForValue) {
       if (modelBuilder_ == null) {
         model_ = builderForValue.build();
-        onChanged();
       } else {
         modelBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1065,17 +1112,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeModel(com.google.cloud.aiplatform.v1beta1.Model value) {
       if (modelBuilder_ == null) {
-        if (model_ != null) {
-          model_ =
-            com.google.cloud.aiplatform.v1beta1.Model.newBuilder(model_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          model_ != null &&
+          model_ != com.google.cloud.aiplatform.v1beta1.Model.getDefaultInstance()) {
+          getModelBuilder().mergeFrom(value);
         } else {
           model_ = value;
         }
-        onChanged();
       } else {
         modelBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1086,14 +1134,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.Model model = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearModel() {
-      if (modelBuilder_ == null) {
-        model_ = null;
-        onChanged();
-      } else {
-        model_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      model_ = null;
+      if (modelBuilder_ != null) {
+        modelBuilder_.dispose();
         modelBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1104,7 +1151,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.Model model = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.aiplatform.v1beta1.Model.Builder getModelBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getModelFieldBuilder().getBuilder();
     }
@@ -1143,6 +1190,128 @@ private static final long serialVersionUID = 0L;
       }
       return modelBuilder_;
     }
+
+    private java.lang.Object serviceAccount_ = "";
+    /**
+     * <pre>
+     * Optional. The user-provided custom service account to use to do the model
+     * upload. If empty, [Vertex AI Service
+     * Agent](https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents)
+     * will be used. Users uploading the Model must have the
+     * `iam.serviceAccounts.actAs` permission on this service account. Also, this
+     * account must belong to the project specified in the `parent` field and have
+     * all necessary read permissions.
+     * </pre>
+     *
+     * <code>string service_account = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The serviceAccount.
+     */
+    public java.lang.String getServiceAccount() {
+      java.lang.Object ref = serviceAccount_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        serviceAccount_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The user-provided custom service account to use to do the model
+     * upload. If empty, [Vertex AI Service
+     * Agent](https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents)
+     * will be used. Users uploading the Model must have the
+     * `iam.serviceAccounts.actAs` permission on this service account. Also, this
+     * account must belong to the project specified in the `parent` field and have
+     * all necessary read permissions.
+     * </pre>
+     *
+     * <code>string service_account = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The bytes for serviceAccount.
+     */
+    public com.google.protobuf.ByteString
+        getServiceAccountBytes() {
+      java.lang.Object ref = serviceAccount_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        serviceAccount_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The user-provided custom service account to use to do the model
+     * upload. If empty, [Vertex AI Service
+     * Agent](https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents)
+     * will be used. Users uploading the Model must have the
+     * `iam.serviceAccounts.actAs` permission on this service account. Also, this
+     * account must belong to the project specified in the `parent` field and have
+     * all necessary read permissions.
+     * </pre>
+     *
+     * <code>string service_account = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The serviceAccount to set.
+     * @return This builder for chaining.
+     */
+    public Builder setServiceAccount(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      serviceAccount_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The user-provided custom service account to use to do the model
+     * upload. If empty, [Vertex AI Service
+     * Agent](https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents)
+     * will be used. Users uploading the Model must have the
+     * `iam.serviceAccounts.actAs` permission on this service account. Also, this
+     * account must belong to the project specified in the `parent` field and have
+     * all necessary read permissions.
+     * </pre>
+     *
+     * <code>string service_account = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearServiceAccount() {
+      serviceAccount_ = getDefaultInstance().getServiceAccount();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The user-provided custom service account to use to do the model
+     * upload. If empty, [Vertex AI Service
+     * Agent](https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents)
+     * will be used. Users uploading the Model must have the
+     * `iam.serviceAccounts.actAs` permission on this service account. Also, this
+     * account must belong to the project specified in the `parent` field and have
+     * all necessary read permissions.
+     * </pre>
+     *
+     * <code>string service_account = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The bytes for serviceAccount to set.
+     * @return This builder for chaining.
+     */
+    public Builder setServiceAccountBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      serviceAccount_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1176,7 +1345,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UploadModelRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

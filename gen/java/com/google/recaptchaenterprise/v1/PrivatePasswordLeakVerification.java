@@ -38,72 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PrivatePasswordLeakVerification(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-
-            lookupHashPrefix_ = input.readBytes();
-            break;
-          }
-          case 18: {
-
-            encryptedUserCredentialsHash_ = input.readBytes();
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              encryptedLeakMatchPrefixes_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            encryptedLeakMatchPrefixes_.add(input.readBytes());
-            break;
-          }
-          case 34: {
-
-            reencryptedUserCredentialsHash_ = input.readBytes();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        encryptedLeakMatchPrefixes_ = java.util.Collections.unmodifiableList(encryptedLeakMatchPrefixes_); // C
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.recaptchaenterprise.v1.RecaptchaEnterpriseProto.internal_static_google_cloud_recaptchaenterprise_v1_PrivatePasswordLeakVerification_descriptor;
@@ -118,11 +52,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOOKUP_HASH_PREFIX_FIELD_NUMBER = 1;
-  private com.google.protobuf.ByteString lookupHashPrefix_;
+  private com.google.protobuf.ByteString lookupHashPrefix_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
-   * Exactly 26-bit prefix of the SHA-256 hash of the canonicalized username. It
-   * is used to look up password leaks associated with that hash prefix.
+   * Optional. Exactly 26-bit prefix of the SHA-256 hash of the canonicalized
+   * username. It is used to look up password leaks associated with that hash
+   * prefix.
    * </pre>
    *
    * <code>bytes lookup_hash_prefix = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -134,11 +69,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENCRYPTED_USER_CREDENTIALS_HASH_FIELD_NUMBER = 2;
-  private com.google.protobuf.ByteString encryptedUserCredentialsHash_;
+  private com.google.protobuf.ByteString encryptedUserCredentialsHash_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
-   * Encrypted Scrypt hash of the canonicalized username+password. It is
-   * re-encrypted by the server and returned through
+   * Optional. Encrypted Scrypt hash of the canonicalized username+password. It
+   * is re-encrypted by the server and returned through
    * `reencrypted_user_credentials_hash`.
    * </pre>
    *
@@ -151,12 +86,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENCRYPTED_LEAK_MATCH_PREFIXES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.protobuf.ByteString> encryptedLeakMatchPrefixes_;
   /**
    * <pre>
-   * List of prefixes of the encrypted potential password leaks that matched the
-   * given parameters. They should be compared with the client-side decryption
-   * prefix of `reencrypted_user_credentials_hash`
+   * Output only. List of prefixes of the encrypted potential password leaks
+   * that matched the given parameters. They must be compared with the
+   * client-side decryption prefix of `reencrypted_user_credentials_hash`
    * </pre>
    *
    * <code>repeated bytes encrypted_leak_match_prefixes = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -169,9 +105,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * List of prefixes of the encrypted potential password leaks that matched the
-   * given parameters. They should be compared with the client-side decryption
-   * prefix of `reencrypted_user_credentials_hash`
+   * Output only. List of prefixes of the encrypted potential password leaks
+   * that matched the given parameters. They must be compared with the
+   * client-side decryption prefix of `reencrypted_user_credentials_hash`
    * </pre>
    *
    * <code>repeated bytes encrypted_leak_match_prefixes = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -182,9 +118,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * List of prefixes of the encrypted potential password leaks that matched the
-   * given parameters. They should be compared with the client-side decryption
-   * prefix of `reencrypted_user_credentials_hash`
+   * Output only. List of prefixes of the encrypted potential password leaks
+   * that matched the given parameters. They must be compared with the
+   * client-side decryption prefix of `reencrypted_user_credentials_hash`
    * </pre>
    *
    * <code>repeated bytes encrypted_leak_match_prefixes = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -196,12 +132,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REENCRYPTED_USER_CREDENTIALS_HASH_FIELD_NUMBER = 4;
-  private com.google.protobuf.ByteString reencryptedUserCredentialsHash_;
+  private com.google.protobuf.ByteString reencryptedUserCredentialsHash_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
-   * Corresponds to the re-encryption of the `encrypted_user_credentials_hash`
-   * field. Used to match potential password leaks within
-   * `encrypted_leak_match_prefixes`.
+   * Output only. Corresponds to the re-encryption of the
+   * `encrypted_user_credentials_hash` field. It is used to match potential
+   * password leaks within `encrypted_leak_match_prefixes`.
    * </pre>
    *
    * <code>bytes reencrypted_user_credentials_hash = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -238,7 +174,7 @@ private static final long serialVersionUID = 0L;
     if (!reencryptedUserCredentialsHash_.isEmpty()) {
       output.writeBytes(4, reencryptedUserCredentialsHash_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -268,7 +204,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBytesSize(4, reencryptedUserCredentialsHash_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -291,7 +227,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getEncryptedLeakMatchPrefixesList())) return false;
     if (!getReencryptedUserCredentialsHash()
         .equals(other.getReencryptedUserCredentialsHash())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -312,7 +248,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + REENCRYPTED_USER_CREDENTIALS_HASH_FIELD_NUMBER;
     hash = (53 * hash) + getReencryptedUserCredentialsHash().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -433,30 +369,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       lookupHashPrefix_ = com.google.protobuf.ByteString.EMPTY;
-
       encryptedUserCredentialsHash_ = com.google.protobuf.ByteString.EMPTY;
-
       encryptedLeakMatchPrefixes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
       reencryptedUserCredentialsHash_ = com.google.protobuf.ByteString.EMPTY;
-
       return this;
     }
 
@@ -483,17 +411,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification buildPartial() {
       com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification result = new com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification(this);
-      int from_bitField0_ = bitField0_;
-      result.lookupHashPrefix_ = lookupHashPrefix_;
-      result.encryptedUserCredentialsHash_ = encryptedUserCredentialsHash_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        encryptedLeakMatchPrefixes_ = java.util.Collections.unmodifiableList(encryptedLeakMatchPrefixes_);
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.encryptedLeakMatchPrefixes_ = encryptedLeakMatchPrefixes_;
-      result.reencryptedUserCredentialsHash_ = reencryptedUserCredentialsHash_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        encryptedLeakMatchPrefixes_ = java.util.Collections.unmodifiableList(encryptedLeakMatchPrefixes_);
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.encryptedLeakMatchPrefixes_ = encryptedLeakMatchPrefixes_;
+    }
+
+    private void buildPartial0(com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.lookupHashPrefix_ = lookupHashPrefix_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.encryptedUserCredentialsHash_ = encryptedUserCredentialsHash_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.reencryptedUserCredentialsHash_ = reencryptedUserCredentialsHash_;
+      }
     }
 
     @java.lang.Override
@@ -549,7 +491,7 @@ private static final long serialVersionUID = 0L;
       if (!other.encryptedLeakMatchPrefixes_.isEmpty()) {
         if (encryptedLeakMatchPrefixes_.isEmpty()) {
           encryptedLeakMatchPrefixes_ = other.encryptedLeakMatchPrefixes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureEncryptedLeakMatchPrefixesIsMutable();
           encryptedLeakMatchPrefixes_.addAll(other.encryptedLeakMatchPrefixes_);
@@ -559,7 +501,7 @@ private static final long serialVersionUID = 0L;
       if (other.getReencryptedUserCredentialsHash() != com.google.protobuf.ByteString.EMPTY) {
         setReencryptedUserCredentialsHash(other.getReencryptedUserCredentialsHash());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -574,17 +516,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              lookupHashPrefix_ = input.readBytes();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              encryptedUserCredentialsHash_ = input.readBytes();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.ByteString v = input.readBytes();
+              ensureEncryptedLeakMatchPrefixesIsMutable();
+              encryptedLeakMatchPrefixes_.add(v);
+              break;
+            } // case 26
+            case 34: {
+              reencryptedUserCredentialsHash_ = input.readBytes();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -592,8 +568,9 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.ByteString lookupHashPrefix_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
-     * Exactly 26-bit prefix of the SHA-256 hash of the canonicalized username. It
-     * is used to look up password leaks associated with that hash prefix.
+     * Optional. Exactly 26-bit prefix of the SHA-256 hash of the canonicalized
+     * username. It is used to look up password leaks associated with that hash
+     * prefix.
      * </pre>
      *
      * <code>bytes lookup_hash_prefix = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -605,8 +582,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Exactly 26-bit prefix of the SHA-256 hash of the canonicalized username. It
-     * is used to look up password leaks associated with that hash prefix.
+     * Optional. Exactly 26-bit prefix of the SHA-256 hash of the canonicalized
+     * username. It is used to look up password leaks associated with that hash
+     * prefix.
      * </pre>
      *
      * <code>bytes lookup_hash_prefix = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -614,25 +592,24 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLookupHashPrefix(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       lookupHashPrefix_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Exactly 26-bit prefix of the SHA-256 hash of the canonicalized username. It
-     * is used to look up password leaks associated with that hash prefix.
+     * Optional. Exactly 26-bit prefix of the SHA-256 hash of the canonicalized
+     * username. It is used to look up password leaks associated with that hash
+     * prefix.
      * </pre>
      *
      * <code>bytes lookup_hash_prefix = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearLookupHashPrefix() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       lookupHashPrefix_ = getDefaultInstance().getLookupHashPrefix();
       onChanged();
       return this;
@@ -641,8 +618,8 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.ByteString encryptedUserCredentialsHash_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
-     * Encrypted Scrypt hash of the canonicalized username+password. It is
-     * re-encrypted by the server and returned through
+     * Optional. Encrypted Scrypt hash of the canonicalized username+password. It
+     * is re-encrypted by the server and returned through
      * `reencrypted_user_credentials_hash`.
      * </pre>
      *
@@ -655,8 +632,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Encrypted Scrypt hash of the canonicalized username+password. It is
-     * re-encrypted by the server and returned through
+     * Optional. Encrypted Scrypt hash of the canonicalized username+password. It
+     * is re-encrypted by the server and returned through
      * `reencrypted_user_credentials_hash`.
      * </pre>
      *
@@ -665,18 +642,16 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEncryptedUserCredentialsHash(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       encryptedUserCredentialsHash_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Encrypted Scrypt hash of the canonicalized username+password. It is
-     * re-encrypted by the server and returned through
+     * Optional. Encrypted Scrypt hash of the canonicalized username+password. It
+     * is re-encrypted by the server and returned through
      * `reencrypted_user_credentials_hash`.
      * </pre>
      *
@@ -684,7 +659,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEncryptedUserCredentialsHash() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       encryptedUserCredentialsHash_ = getDefaultInstance().getEncryptedUserCredentialsHash();
       onChanged();
       return this;
@@ -692,16 +667,16 @@ private static final long serialVersionUID = 0L;
 
     private java.util.List<com.google.protobuf.ByteString> encryptedLeakMatchPrefixes_ = java.util.Collections.emptyList();
     private void ensureEncryptedLeakMatchPrefixesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         encryptedLeakMatchPrefixes_ = new java.util.ArrayList<com.google.protobuf.ByteString>(encryptedLeakMatchPrefixes_);
-        bitField0_ |= 0x00000001;
-       }
+        bitField0_ |= 0x00000004;
+      }
     }
     /**
      * <pre>
-     * List of prefixes of the encrypted potential password leaks that matched the
-     * given parameters. They should be compared with the client-side decryption
-     * prefix of `reencrypted_user_credentials_hash`
+     * Output only. List of prefixes of the encrypted potential password leaks
+     * that matched the given parameters. They must be compared with the
+     * client-side decryption prefix of `reencrypted_user_credentials_hash`
      * </pre>
      *
      * <code>repeated bytes encrypted_leak_match_prefixes = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -709,14 +684,14 @@ private static final long serialVersionUID = 0L;
      */
     public java.util.List<com.google.protobuf.ByteString>
         getEncryptedLeakMatchPrefixesList() {
-      return ((bitField0_ & 0x00000001) != 0) ?
+      return ((bitField0_ & 0x00000004) != 0) ?
                java.util.Collections.unmodifiableList(encryptedLeakMatchPrefixes_) : encryptedLeakMatchPrefixes_;
     }
     /**
      * <pre>
-     * List of prefixes of the encrypted potential password leaks that matched the
-     * given parameters. They should be compared with the client-side decryption
-     * prefix of `reencrypted_user_credentials_hash`
+     * Output only. List of prefixes of the encrypted potential password leaks
+     * that matched the given parameters. They must be compared with the
+     * client-side decryption prefix of `reencrypted_user_credentials_hash`
      * </pre>
      *
      * <code>repeated bytes encrypted_leak_match_prefixes = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -727,9 +702,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of prefixes of the encrypted potential password leaks that matched the
-     * given parameters. They should be compared with the client-side decryption
-     * prefix of `reencrypted_user_credentials_hash`
+     * Output only. List of prefixes of the encrypted potential password leaks
+     * that matched the given parameters. They must be compared with the
+     * client-side decryption prefix of `reencrypted_user_credentials_hash`
      * </pre>
      *
      * <code>repeated bytes encrypted_leak_match_prefixes = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -741,9 +716,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of prefixes of the encrypted potential password leaks that matched the
-     * given parameters. They should be compared with the client-side decryption
-     * prefix of `reencrypted_user_credentials_hash`
+     * Output only. List of prefixes of the encrypted potential password leaks
+     * that matched the given parameters. They must be compared with the
+     * client-side decryption prefix of `reencrypted_user_credentials_hash`
      * </pre>
      *
      * <code>repeated bytes encrypted_leak_match_prefixes = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -753,19 +728,17 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEncryptedLeakMatchPrefixes(
         int index, com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEncryptedLeakMatchPrefixesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEncryptedLeakMatchPrefixesIsMutable();
       encryptedLeakMatchPrefixes_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * List of prefixes of the encrypted potential password leaks that matched the
-     * given parameters. They should be compared with the client-side decryption
-     * prefix of `reencrypted_user_credentials_hash`
+     * Output only. List of prefixes of the encrypted potential password leaks
+     * that matched the given parameters. They must be compared with the
+     * client-side decryption prefix of `reencrypted_user_credentials_hash`
      * </pre>
      *
      * <code>repeated bytes encrypted_leak_match_prefixes = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -773,19 +746,17 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addEncryptedLeakMatchPrefixes(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEncryptedLeakMatchPrefixesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEncryptedLeakMatchPrefixesIsMutable();
       encryptedLeakMatchPrefixes_.add(value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * List of prefixes of the encrypted potential password leaks that matched the
-     * given parameters. They should be compared with the client-side decryption
-     * prefix of `reencrypted_user_credentials_hash`
+     * Output only. List of prefixes of the encrypted potential password leaks
+     * that matched the given parameters. They must be compared with the
+     * client-side decryption prefix of `reencrypted_user_credentials_hash`
      * </pre>
      *
      * <code>repeated bytes encrypted_leak_match_prefixes = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -802,9 +773,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of prefixes of the encrypted potential password leaks that matched the
-     * given parameters. They should be compared with the client-side decryption
-     * prefix of `reencrypted_user_credentials_hash`
+     * Output only. List of prefixes of the encrypted potential password leaks
+     * that matched the given parameters. They must be compared with the
+     * client-side decryption prefix of `reencrypted_user_credentials_hash`
      * </pre>
      *
      * <code>repeated bytes encrypted_leak_match_prefixes = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -812,7 +783,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearEncryptedLeakMatchPrefixes() {
       encryptedLeakMatchPrefixes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -820,9 +791,9 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.ByteString reencryptedUserCredentialsHash_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
-     * Corresponds to the re-encryption of the `encrypted_user_credentials_hash`
-     * field. Used to match potential password leaks within
-     * `encrypted_leak_match_prefixes`.
+     * Output only. Corresponds to the re-encryption of the
+     * `encrypted_user_credentials_hash` field. It is used to match potential
+     * password leaks within `encrypted_leak_match_prefixes`.
      * </pre>
      *
      * <code>bytes reencrypted_user_credentials_hash = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -834,9 +805,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Corresponds to the re-encryption of the `encrypted_user_credentials_hash`
-     * field. Used to match potential password leaks within
-     * `encrypted_leak_match_prefixes`.
+     * Output only. Corresponds to the re-encryption of the
+     * `encrypted_user_credentials_hash` field. It is used to match potential
+     * password leaks within `encrypted_leak_match_prefixes`.
      * </pre>
      *
      * <code>bytes reencrypted_user_credentials_hash = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -844,26 +815,24 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setReencryptedUserCredentialsHash(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       reencryptedUserCredentialsHash_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Corresponds to the re-encryption of the `encrypted_user_credentials_hash`
-     * field. Used to match potential password leaks within
-     * `encrypted_leak_match_prefixes`.
+     * Output only. Corresponds to the re-encryption of the
+     * `encrypted_user_credentials_hash` field. It is used to match potential
+     * password leaks within `encrypted_leak_match_prefixes`.
      * </pre>
      *
      * <code>bytes reencrypted_user_credentials_hash = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearReencryptedUserCredentialsHash() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       reencryptedUserCredentialsHash_ = getDefaultInstance().getReencryptedUserCredentialsHash();
       onChanged();
       return this;
@@ -901,7 +870,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PrivatePasswordLeakVerification(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

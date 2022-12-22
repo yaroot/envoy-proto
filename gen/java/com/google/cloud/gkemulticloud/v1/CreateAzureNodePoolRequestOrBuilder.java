@@ -9,7 +9,8 @@ public interface CreateAzureNodePoolRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource where this node pool will be created.
+   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+   * resource where this node pool will be created.
    * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
    * for more details on Google Cloud resource names.
@@ -21,7 +22,8 @@ public interface CreateAzureNodePoolRequestOrBuilder extends
   java.lang.String getParent();
   /**
    * <pre>
-   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource where this node pool will be created.
+   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+   * resource where this node pool will be created.
    * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
    * for more details on Google Cloud resource names.
@@ -35,7 +37,8 @@ public interface CreateAzureNodePoolRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The specification of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
+   * Required. The specification of the
+   * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -44,7 +47,8 @@ public interface CreateAzureNodePoolRequestOrBuilder extends
   boolean hasAzureNodePool();
   /**
    * <pre>
-   * Required. The specification of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
+   * Required. The specification of the
+   * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -53,7 +57,8 @@ public interface CreateAzureNodePoolRequestOrBuilder extends
   com.google.cloud.gkemulticloud.v1.AzureNodePool getAzureNodePool();
   /**
    * <pre>
-   * Required. The specification of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
+   * Required. The specification of the
+   * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -62,12 +67,13 @@ public interface CreateAzureNodePoolRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. A client provided ID the resource. Must be unique within the parent
-   * resource.
-   * The provided ID will be part of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool]
-   * resource name formatted as
+   * Required. A client provided ID the resource. Must be unique within the
+   * parent resource.
+   * The provided ID will be part of the
+   * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] resource name
+   * formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;/azureNodePools/&lt;node-pool-id&gt;`.
-   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
    * </pre>
    *
    * <code>string azure_node_pool_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -76,12 +82,13 @@ public interface CreateAzureNodePoolRequestOrBuilder extends
   java.lang.String getAzureNodePoolId();
   /**
    * <pre>
-   * Required. A client provided ID the resource. Must be unique within the parent
-   * resource.
-   * The provided ID will be part of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool]
-   * resource name formatted as
+   * Required. A client provided ID the resource. Must be unique within the
+   * parent resource.
+   * The provided ID will be part of the
+   * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] resource name
+   * formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;/azureNodePools/&lt;node-pool-id&gt;`.
-   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
    * </pre>
    *
    * <code>string azure_node_pool_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>

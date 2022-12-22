@@ -36,62 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Config(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            arn_ = s;
-            break;
-          }
-          case 16: {
-
-            payloadPassthrough_ = input.readBool();
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            invocationMode_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.AwsLambdaProto.internal_static_envoy_extensions_filters_http_aws_lambda_v3_Config_descriptor;
@@ -236,7 +180,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ARN_FIELD_NUMBER = 1;
-  private volatile java.lang.Object arn_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object arn_ = "";
   /**
    * <pre>
    * The ARN of the AWS Lambda to invoke when the filter is engaged
@@ -286,7 +231,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAYLOAD_PASSTHROUGH_FIELD_NUMBER = 2;
-  private boolean payloadPassthrough_;
+  private boolean payloadPassthrough_ = false;
   /**
    * <pre>
    * Whether to transform the request (headers and body) to a JSON payload or pass it as is.
@@ -301,7 +246,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INVOCATION_MODE_FIELD_NUMBER = 3;
-  private int invocationMode_;
+  private int invocationMode_ = 0;
   /**
    * <pre>
    * Determines the way to invoke the Lambda function.
@@ -322,8 +267,7 @@ private static final long serialVersionUID = 0L;
    * @return The invocationMode.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config.InvocationMode getInvocationMode() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config.InvocationMode result = io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config.InvocationMode.valueOf(invocationMode_);
+    io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config.InvocationMode result = io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config.InvocationMode.forNumber(invocationMode_);
     return result == null ? io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config.InvocationMode.UNRECOGNIZED : result;
   }
 
@@ -350,7 +294,7 @@ private static final long serialVersionUID = 0L;
     if (invocationMode_ != io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config.InvocationMode.SYNCHRONOUS.getNumber()) {
       output.writeEnum(3, invocationMode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -370,7 +314,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, invocationMode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -390,7 +334,7 @@ private static final long serialVersionUID = 0L;
     if (getPayloadPassthrough()
         != other.getPayloadPassthrough()) return false;
     if (invocationMode_ != other.invocationMode_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -408,7 +352,7 @@ private static final long serialVersionUID = 0L;
         getPayloadPassthrough());
     hash = (37 * hash) + INVOCATION_MODE_FIELD_NUMBER;
     hash = (53 * hash) + invocationMode_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -529,28 +473,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       arn_ = "";
-
       payloadPassthrough_ = false;
-
       invocationMode_ = 0;
-
       return this;
     }
 
@@ -577,11 +514,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config result = new io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config(this);
-      result.arn_ = arn_;
-      result.payloadPassthrough_ = payloadPassthrough_;
-      result.invocationMode_ = invocationMode_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.arn_ = arn_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.payloadPassthrough_ = payloadPassthrough_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.invocationMode_ = invocationMode_;
+      }
     }
 
     @java.lang.Override
@@ -630,6 +578,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config.getDefaultInstance()) return this;
       if (!other.getArn().isEmpty()) {
         arn_ = other.arn_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getPayloadPassthrough() != false) {
@@ -638,7 +587,7 @@ private static final long serialVersionUID = 0L;
       if (other.invocationMode_ != 0) {
         setInvocationModeValue(other.getInvocationModeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -653,19 +602,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              arn_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              payloadPassthrough_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              invocationMode_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object arn_ = "";
     /**
@@ -726,11 +704,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setArn(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       arn_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -745,8 +721,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearArn() {
-      
       arn_ = getDefaultInstance().getArn();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -763,12 +739,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setArnBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       arn_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -798,6 +772,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPayloadPassthrough(boolean value) {
       
       payloadPassthrough_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -810,7 +785,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPayloadPassthrough() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       payloadPassthrough_ = false;
       onChanged();
       return this;
@@ -838,8 +813,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setInvocationModeValue(int value) {
-      
       invocationMode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -853,8 +828,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config.InvocationMode getInvocationMode() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config.InvocationMode result = io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config.InvocationMode.valueOf(invocationMode_);
+      io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config.InvocationMode result = io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config.InvocationMode.forNumber(invocationMode_);
       return result == null ? io.envoyproxy.envoy.extensions.filters.http.aws_lambda.v3.Config.InvocationMode.UNRECOGNIZED : result;
     }
     /**
@@ -870,7 +844,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       invocationMode_ = value.getNumber();
       onChanged();
       return this;
@@ -884,7 +858,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInvocationMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       invocationMode_ = 0;
       onChanged();
       return this;
@@ -922,7 +896,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Config(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

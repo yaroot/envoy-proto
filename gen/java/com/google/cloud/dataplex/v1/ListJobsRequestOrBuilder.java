@@ -31,8 +31,8 @@ public interface ListJobsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Optional. Maximum number of jobs to return. The service may return fewer than
-   * this value. If unspecified, at most 10 jobs will be returned. The
+   * Optional. Maximum number of jobs to return. The service may return fewer
+   * than this value. If unspecified, at most 10 jobs will be returned. The
    * maximum value is 1000; values above 1000 will be coerced to 1000.
    * </pre>
    *
@@ -43,8 +43,8 @@ public interface ListJobsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Optional. Page token received from a previous `ListJobs` call. Provide this to
-   * retrieve the subsequent page. When paginating, all other parameters
+   * Optional. Page token received from a previous `ListJobs` call. Provide this
+   * to retrieve the subsequent page. When paginating, all other parameters
    * provided to `ListJobs` must match the call that provided the page
    * token.
    * </pre>
@@ -55,8 +55,8 @@ public interface ListJobsRequestOrBuilder extends
   java.lang.String getPageToken();
   /**
    * <pre>
-   * Optional. Page token received from a previous `ListJobs` call. Provide this to
-   * retrieve the subsequent page. When paginating, all other parameters
+   * Optional. Page token received from a previous `ListJobs` call. Provide this
+   * to retrieve the subsequent page. When paginating, all other parameters
    * provided to `ListJobs` must match the call that provided the page
    * token.
    * </pre>

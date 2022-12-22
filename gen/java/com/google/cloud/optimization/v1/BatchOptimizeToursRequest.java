@@ -40,64 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BatchOptimizeToursRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              modelConfigs_ = new java.util.ArrayList<com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            modelConfigs_.add(
-                input.readMessage(com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        modelConfigs_ = java.util.Collections.unmodifiableList(modelConfigs_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_BatchOptimizeToursRequest_descriptor;
@@ -240,82 +182,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AsyncModelConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              displayName_ = s;
-              break;
-            }
-            case 18: {
-              com.google.cloud.optimization.v1.InputConfig.Builder subBuilder = null;
-              if (inputConfig_ != null) {
-                subBuilder = inputConfig_.toBuilder();
-              }
-              inputConfig_ = input.readMessage(com.google.cloud.optimization.v1.InputConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(inputConfig_);
-                inputConfig_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              com.google.cloud.optimization.v1.OutputConfig.Builder subBuilder = null;
-              if (outputConfig_ != null) {
-                subBuilder = outputConfig_.toBuilder();
-              }
-              outputConfig_ = input.readMessage(com.google.cloud.optimization.v1.OutputConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(outputConfig_);
-                outputConfig_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 32: {
-
-              enableCheckpoints_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_BatchOptimizeToursRequest_AsyncModelConfig_descriptor;
@@ -330,7 +196,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DISPLAY_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object displayName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object displayName_ = "";
     /**
      * <pre>
      * User defined model name, can be used as alias by users to keep track of
@@ -412,7 +279,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.optimization.v1.InputConfigOrBuilder getInputConfigOrBuilder() {
-      return getInputConfig();
+      return inputConfig_ == null ? com.google.cloud.optimization.v1.InputConfig.getDefaultInstance() : inputConfig_;
     }
 
     public static final int OUTPUT_CONFIG_FIELD_NUMBER = 3;
@@ -450,11 +317,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.optimization.v1.OutputConfigOrBuilder getOutputConfigOrBuilder() {
-      return getOutputConfig();
+      return outputConfig_ == null ? com.google.cloud.optimization.v1.OutputConfig.getDefaultInstance() : outputConfig_;
     }
 
     public static final int ENABLE_CHECKPOINTS_FIELD_NUMBER = 4;
-    private boolean enableCheckpoints_;
+    private boolean enableCheckpoints_ = false;
     /**
      * <pre>
      * If this is set, the model will be solved in the checkpoint mode. In this
@@ -501,7 +368,7 @@ private static final long serialVersionUID = 0L;
       if (enableCheckpoints_ != false) {
         output.writeBool(4, enableCheckpoints_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -525,7 +392,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, enableCheckpoints_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -554,7 +421,7 @@ private static final long serialVersionUID = 0L;
       }
       if (getEnableCheckpoints()
           != other.getEnableCheckpoints()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -578,7 +445,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ENABLE_CHECKPOINTS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getEnableCheckpoints());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -699,38 +566,30 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         displayName_ = "";
-
-        if (inputConfigBuilder_ == null) {
-          inputConfig_ = null;
-        } else {
-          inputConfig_ = null;
+        inputConfig_ = null;
+        if (inputConfigBuilder_ != null) {
+          inputConfigBuilder_.dispose();
           inputConfigBuilder_ = null;
         }
-        if (outputConfigBuilder_ == null) {
-          outputConfig_ = null;
-        } else {
-          outputConfig_ = null;
+        outputConfig_ = null;
+        if (outputConfigBuilder_ != null) {
+          outputConfigBuilder_.dispose();
           outputConfigBuilder_ = null;
         }
         enableCheckpoints_ = false;
-
         return this;
       }
 
@@ -757,20 +616,29 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig buildPartial() {
         com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig result = new com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig(this);
-        result.displayName_ = displayName_;
-        if (inputConfigBuilder_ == null) {
-          result.inputConfig_ = inputConfig_;
-        } else {
-          result.inputConfig_ = inputConfigBuilder_.build();
-        }
-        if (outputConfigBuilder_ == null) {
-          result.outputConfig_ = outputConfig_;
-        } else {
-          result.outputConfig_ = outputConfigBuilder_.build();
-        }
-        result.enableCheckpoints_ = enableCheckpoints_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.displayName_ = displayName_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.inputConfig_ = inputConfigBuilder_ == null
+              ? inputConfig_
+              : inputConfigBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.outputConfig_ = outputConfigBuilder_ == null
+              ? outputConfig_
+              : outputConfigBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.enableCheckpoints_ = enableCheckpoints_;
+        }
       }
 
       @java.lang.Override
@@ -819,6 +687,7 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig.getDefaultInstance()) return this;
         if (!other.getDisplayName().isEmpty()) {
           displayName_ = other.displayName_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasInputConfig()) {
@@ -830,7 +699,7 @@ private static final long serialVersionUID = 0L;
         if (other.getEnableCheckpoints() != false) {
           setEnableCheckpoints(other.getEnableCheckpoints());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -845,19 +714,57 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                displayName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getInputConfigFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getOutputConfigFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                enableCheckpoints_ = input.readBool();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object displayName_ = "";
       /**
@@ -915,11 +822,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDisplayName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         displayName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -933,8 +838,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
-        
         displayName_ = getDefaultInstance().getDisplayName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -950,12 +855,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         displayName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -972,7 +875,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the inputConfig field is set.
        */
       public boolean hasInputConfig() {
-        return inputConfigBuilder_ != null || inputConfig_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -1002,11 +905,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           inputConfig_ = value;
-          onChanged();
         } else {
           inputConfigBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1020,11 +923,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.optimization.v1.InputConfig.Builder builderForValue) {
         if (inputConfigBuilder_ == null) {
           inputConfig_ = builderForValue.build();
-          onChanged();
         } else {
           inputConfigBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1036,17 +939,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeInputConfig(com.google.cloud.optimization.v1.InputConfig value) {
         if (inputConfigBuilder_ == null) {
-          if (inputConfig_ != null) {
-            inputConfig_ =
-              com.google.cloud.optimization.v1.InputConfig.newBuilder(inputConfig_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            inputConfig_ != null &&
+            inputConfig_ != com.google.cloud.optimization.v1.InputConfig.getDefaultInstance()) {
+            getInputConfigBuilder().mergeFrom(value);
           } else {
             inputConfig_ = value;
           }
-          onChanged();
         } else {
           inputConfigBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1057,14 +961,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.optimization.v1.InputConfig input_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearInputConfig() {
-        if (inputConfigBuilder_ == null) {
-          inputConfig_ = null;
-          onChanged();
-        } else {
-          inputConfig_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        inputConfig_ = null;
+        if (inputConfigBuilder_ != null) {
+          inputConfigBuilder_.dispose();
           inputConfigBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1075,7 +978,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.optimization.v1.InputConfig input_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.cloud.optimization.v1.InputConfig.Builder getInputConfigBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getInputConfigFieldBuilder().getBuilder();
       }
@@ -1127,7 +1030,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the outputConfig field is set.
        */
       public boolean hasOutputConfig() {
-        return outputConfigBuilder_ != null || outputConfig_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -1157,11 +1060,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           outputConfig_ = value;
-          onChanged();
         } else {
           outputConfigBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1175,11 +1078,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.optimization.v1.OutputConfig.Builder builderForValue) {
         if (outputConfigBuilder_ == null) {
           outputConfig_ = builderForValue.build();
-          onChanged();
         } else {
           outputConfigBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1191,17 +1094,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeOutputConfig(com.google.cloud.optimization.v1.OutputConfig value) {
         if (outputConfigBuilder_ == null) {
-          if (outputConfig_ != null) {
-            outputConfig_ =
-              com.google.cloud.optimization.v1.OutputConfig.newBuilder(outputConfig_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            outputConfig_ != null &&
+            outputConfig_ != com.google.cloud.optimization.v1.OutputConfig.getDefaultInstance()) {
+            getOutputConfigBuilder().mergeFrom(value);
           } else {
             outputConfig_ = value;
           }
-          onChanged();
         } else {
           outputConfigBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1212,14 +1116,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.optimization.v1.OutputConfig output_config = 3 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearOutputConfig() {
-        if (outputConfigBuilder_ == null) {
-          outputConfig_ = null;
-          onChanged();
-        } else {
-          outputConfig_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        outputConfig_ = null;
+        if (outputConfigBuilder_ != null) {
+          outputConfigBuilder_.dispose();
           outputConfigBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1230,7 +1133,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.optimization.v1.OutputConfig output_config = 3 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.cloud.optimization.v1.OutputConfig.Builder getOutputConfigBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getOutputConfigFieldBuilder().getBuilder();
       }
@@ -1309,6 +1212,7 @@ private static final long serialVersionUID = 0L;
       public Builder setEnableCheckpoints(boolean value) {
         
         enableCheckpoints_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1328,7 +1232,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearEnableCheckpoints() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         enableCheckpoints_ = false;
         onChanged();
         return this;
@@ -1366,7 +1270,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AsyncModelConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1387,7 +1302,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. Target project and location to make a call.
@@ -1437,11 +1353,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODEL_CONFIGS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig> modelConfigs_;
   /**
    * <pre>
-   * Required. Input/Output information each purchase model, such as file paths and data
-   * formats.
+   * Required. Input/Output information each purchase model, such as file paths
+   * and data formats.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1452,8 +1369,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Input/Output information each purchase model, such as file paths and data
-   * formats.
+   * Required. Input/Output information each purchase model, such as file paths
+   * and data formats.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1465,8 +1382,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Input/Output information each purchase model, such as file paths and data
-   * formats.
+   * Required. Input/Output information each purchase model, such as file paths
+   * and data formats.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1477,8 +1394,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Input/Output information each purchase model, such as file paths and data
-   * formats.
+   * Required. Input/Output information each purchase model, such as file paths
+   * and data formats.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1489,8 +1406,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Input/Output information each purchase model, such as file paths and data
-   * formats.
+   * Required. Input/Output information each purchase model, such as file paths
+   * and data formats.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1521,7 +1438,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < modelConfigs_.size(); i++) {
       output.writeMessage(2, modelConfigs_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1537,7 +1454,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, modelConfigs_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1556,7 +1473,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getParent())) return false;
     if (!getModelConfigsList()
         .equals(other.getModelConfigsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1573,7 +1490,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MODEL_CONFIGS_FIELD_NUMBER;
       hash = (53 * hash) + getModelConfigsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1698,31 +1615,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.optimization.v1.BatchOptimizeToursRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getModelConfigsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       if (modelConfigsBuilder_ == null) {
         modelConfigs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        modelConfigs_ = null;
         modelConfigsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -1749,19 +1661,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.optimization.v1.BatchOptimizeToursRequest buildPartial() {
       com.google.cloud.optimization.v1.BatchOptimizeToursRequest result = new com.google.cloud.optimization.v1.BatchOptimizeToursRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.parent_ = parent_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.BatchOptimizeToursRequest result) {
       if (modelConfigsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           modelConfigs_ = java.util.Collections.unmodifiableList(modelConfigs_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.modelConfigs_ = modelConfigs_;
       } else {
         result.modelConfigs_ = modelConfigsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.optimization.v1.BatchOptimizeToursRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
     }
 
     @java.lang.Override
@@ -1810,13 +1732,14 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.optimization.v1.BatchOptimizeToursRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (modelConfigsBuilder_ == null) {
         if (!other.modelConfigs_.isEmpty()) {
           if (modelConfigs_.isEmpty()) {
             modelConfigs_ = other.modelConfigs_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureModelConfigsIsMutable();
             modelConfigs_.addAll(other.modelConfigs_);
@@ -1829,7 +1752,7 @@ private static final long serialVersionUID = 0L;
             modelConfigsBuilder_.dispose();
             modelConfigsBuilder_ = null;
             modelConfigs_ = other.modelConfigs_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             modelConfigsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getModelConfigsFieldBuilder() : null;
@@ -1838,7 +1761,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1853,17 +1776,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.optimization.v1.BatchOptimizeToursRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig.parser(),
+                      extensionRegistry);
+              if (modelConfigsBuilder_ == null) {
+                ensureModelConfigsIsMutable();
+                modelConfigs_.add(m);
+              } else {
+                modelConfigsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.optimization.v1.BatchOptimizeToursRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1927,11 +1881,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1946,8 +1898,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1964,12 +1916,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1977,9 +1927,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig> modelConfigs_ =
       java.util.Collections.emptyList();
     private void ensureModelConfigsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         modelConfigs_ = new java.util.ArrayList<com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig>(modelConfigs_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1988,8 +1938,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2003,8 +1953,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2018,8 +1968,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2033,8 +1983,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2055,8 +2005,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2074,8 +2024,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2095,8 +2045,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2117,8 +2067,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2136,8 +2086,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2155,8 +2105,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2175,8 +2125,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2184,7 +2134,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearModelConfigs() {
       if (modelConfigsBuilder_ == null) {
         modelConfigs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         modelConfigsBuilder_.clear();
@@ -2193,8 +2143,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2211,8 +2161,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2223,8 +2173,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2238,8 +2188,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2254,8 +2204,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2266,8 +2216,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2279,8 +2229,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Input/Output information each purchase model, such as file paths and data
-     * formats.
+     * Required. Input/Output information each purchase model, such as file paths
+     * and data formats.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2296,7 +2246,7 @@ private static final long serialVersionUID = 0L;
         modelConfigsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig, com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig.Builder, com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfigOrBuilder>(
                 modelConfigs_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         modelConfigs_ = null;
@@ -2336,7 +2286,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BatchOptimizeToursRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

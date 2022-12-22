@@ -1191,7 +1191,6 @@ public interface BootstrapOrBuilder extends
    *
    * <code>map&lt;string, .envoy.config.core.v3.TypedExtensionConfig&gt; certificate_provider_instances = 25;</code>
    */
-
   /* nullable */
 io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig getCertificateProviderInstancesOrDefault(
       java.lang.String key,
@@ -1208,7 +1207,6 @@ io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig defaultValue);
    *
    * <code>map&lt;string, .envoy.config.core.v3.TypedExtensionConfig&gt; certificate_provider_instances = 25;</code>
    */
-
   io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig getCertificateProviderInstancesOrThrow(
       java.lang.String key);
 
@@ -1325,6 +1323,93 @@ io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig defaultValue);
    * <code>.envoy.config.core.v3.TypedExtensionConfig default_regex_engine = 34;</code>
    */
   io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder getDefaultRegexEngineOrBuilder();
+
+  /**
+   * <pre>
+   * Optional XdsResourcesDelegate configuration, which allows plugging custom logic into both
+   * fetch and load events during xDS processing.
+   * If a value is not specified, no XdsResourcesDelegate will be used.
+   * TODO(abeyad): Add public-facing documentation.
+   * [#not-implemented-hide:]
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.TypedExtensionConfig xds_delegate_extension = 35;</code>
+   * @return Whether the xdsDelegateExtension field is set.
+   */
+  boolean hasXdsDelegateExtension();
+  /**
+   * <pre>
+   * Optional XdsResourcesDelegate configuration, which allows plugging custom logic into both
+   * fetch and load events during xDS processing.
+   * If a value is not specified, no XdsResourcesDelegate will be used.
+   * TODO(abeyad): Add public-facing documentation.
+   * [#not-implemented-hide:]
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.TypedExtensionConfig xds_delegate_extension = 35;</code>
+   * @return The xdsDelegateExtension.
+   */
+  io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig getXdsDelegateExtension();
+  /**
+   * <pre>
+   * Optional XdsResourcesDelegate configuration, which allows plugging custom logic into both
+   * fetch and load events during xDS processing.
+   * If a value is not specified, no XdsResourcesDelegate will be used.
+   * TODO(abeyad): Add public-facing documentation.
+   * [#not-implemented-hide:]
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.TypedExtensionConfig xds_delegate_extension = 35;</code>
+   */
+  io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder getXdsDelegateExtensionOrBuilder();
+
+  /**
+   * <pre>
+   * Optional XdsConfigTracker configuration, which allows tracking xDS responses in external components,
+   * e.g., external tracer or monitor. It provides the process point when receive, ingest, or fail to
+   * process xDS resources and messages. If a value is not specified, no XdsConfigTracker will be used.
+   * .. note::
+   *    There are no in-repo extensions currently, and the :repo:`XdsConfigTracker &lt;envoy/config/xds_config_tracker.h&gt;`
+   *    interface should be implemented before using.
+   *    See :repo:`xds_config_tracker_integration_test &lt;test/integration/xds_config_tracker_integration_test.cc&gt;`
+   *    for an example usage of the interface.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.TypedExtensionConfig xds_config_tracker_extension = 36;</code>
+   * @return Whether the xdsConfigTrackerExtension field is set.
+   */
+  boolean hasXdsConfigTrackerExtension();
+  /**
+   * <pre>
+   * Optional XdsConfigTracker configuration, which allows tracking xDS responses in external components,
+   * e.g., external tracer or monitor. It provides the process point when receive, ingest, or fail to
+   * process xDS resources and messages. If a value is not specified, no XdsConfigTracker will be used.
+   * .. note::
+   *    There are no in-repo extensions currently, and the :repo:`XdsConfigTracker &lt;envoy/config/xds_config_tracker.h&gt;`
+   *    interface should be implemented before using.
+   *    See :repo:`xds_config_tracker_integration_test &lt;test/integration/xds_config_tracker_integration_test.cc&gt;`
+   *    for an example usage of the interface.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.TypedExtensionConfig xds_config_tracker_extension = 36;</code>
+   * @return The xdsConfigTrackerExtension.
+   */
+  io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig getXdsConfigTrackerExtension();
+  /**
+   * <pre>
+   * Optional XdsConfigTracker configuration, which allows tracking xDS responses in external components,
+   * e.g., external tracer or monitor. It provides the process point when receive, ingest, or fail to
+   * process xDS resources and messages. If a value is not specified, no XdsConfigTracker will be used.
+   * .. note::
+   *    There are no in-repo extensions currently, and the :repo:`XdsConfigTracker &lt;envoy/config/xds_config_tracker.h&gt;`
+   *    interface should be implemented before using.
+   *    See :repo:`xds_config_tracker_integration_test &lt;test/integration/xds_config_tracker_integration_test.cc&gt;`
+   *    for an example usage of the interface.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.TypedExtensionConfig xds_config_tracker_extension = 36;</code>
+   */
+  io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder getXdsConfigTrackerExtensionOrBuilder();
 
   public io.envoyproxy.envoy.config.bootstrap.v3.Bootstrap.StatsFlushCase getStatsFlushCase();
 }

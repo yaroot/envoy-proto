@@ -36,101 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AnswerFeedback(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            correctnessLevel_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.cloud.dialogflow.v2.AgentAssistantFeedback.Builder subBuilder = null;
-            if (detailFeedbackCase_ == 2) {
-              subBuilder = ((com.google.cloud.dialogflow.v2.AgentAssistantFeedback) detailFeedback_).toBuilder();
-            }
-            detailFeedback_ =
-                input.readMessage(com.google.cloud.dialogflow.v2.AgentAssistantFeedback.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dialogflow.v2.AgentAssistantFeedback) detailFeedback_);
-              detailFeedback_ = subBuilder.buildPartial();
-            }
-            detailFeedbackCase_ = 2;
-            break;
-          }
-          case 24: {
-
-            clicked_ = input.readBool();
-            break;
-          }
-          case 32: {
-
-            displayed_ = input.readBool();
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (clickTime_ != null) {
-              subBuilder = clickTime_.toBuilder();
-            }
-            clickTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(clickTime_);
-              clickTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (displayTime_ != null) {
-              subBuilder = displayTime_.toBuilder();
-            }
-            displayTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(displayTime_);
-              displayTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.v2.AnswerRecordsProto.internal_static_google_cloud_dialogflow_v2_AnswerFeedback_descriptor;
@@ -346,7 +251,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CORRECTNESS_LEVEL_FIELD_NUMBER = 1;
-  private int correctnessLevel_;
+  private int correctnessLevel_ = 0;
   /**
    * <pre>
    * The correctness level of the specific answer.
@@ -367,8 +272,7 @@ private static final long serialVersionUID = 0L;
    * @return The correctnessLevel.
    */
   @java.lang.Override public com.google.cloud.dialogflow.v2.AnswerFeedback.CorrectnessLevel getCorrectnessLevel() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dialogflow.v2.AnswerFeedback.CorrectnessLevel result = com.google.cloud.dialogflow.v2.AnswerFeedback.CorrectnessLevel.valueOf(correctnessLevel_);
+    com.google.cloud.dialogflow.v2.AnswerFeedback.CorrectnessLevel result = com.google.cloud.dialogflow.v2.AnswerFeedback.CorrectnessLevel.forNumber(correctnessLevel_);
     return result == null ? com.google.cloud.dialogflow.v2.AnswerFeedback.CorrectnessLevel.UNRECOGNIZED : result;
   }
 
@@ -416,7 +320,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLICKED_FIELD_NUMBER = 3;
-  private boolean clicked_;
+  private boolean clicked_ = false;
   /**
    * <pre>
    * Indicates whether the answer/item was clicked by the human agent
@@ -466,11 +370,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getClickTimeOrBuilder() {
-    return getClickTime();
+    return clickTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : clickTime_;
   }
 
   public static final int DISPLAYED_FIELD_NUMBER = 4;
-  private boolean displayed_;
+  private boolean displayed_ = false;
   /**
    * <pre>
    * Indicates whether the answer/item was displayed to the human
@@ -520,7 +424,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getDisplayTimeOrBuilder() {
-    return getDisplayTime();
+    return displayTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : displayTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -555,7 +459,7 @@ private static final long serialVersionUID = 0L;
     if (displayTime_ != null) {
       output.writeMessage(6, getDisplayTime());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -588,7 +492,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getDisplayTime());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -627,7 +531,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -662,7 +566,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -784,38 +688,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.v2.AnswerFeedback.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       correctnessLevel_ = 0;
-
+      if (agentAssistantDetailFeedbackBuilder_ != null) {
+        agentAssistantDetailFeedbackBuilder_.clear();
+      }
       clicked_ = false;
-
-      if (clickTimeBuilder_ == null) {
-        clickTime_ = null;
-      } else {
-        clickTime_ = null;
+      clickTime_ = null;
+      if (clickTimeBuilder_ != null) {
+        clickTimeBuilder_.dispose();
         clickTimeBuilder_ = null;
       }
       displayed_ = false;
-
-      if (displayTimeBuilder_ == null) {
-        displayTime_ = null;
-      } else {
-        displayTime_ = null;
+      displayTime_ = null;
+      if (displayTimeBuilder_ != null) {
+        displayTimeBuilder_.dispose();
         displayTimeBuilder_ = null;
       }
       detailFeedbackCase_ = 0;
@@ -846,29 +744,42 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.v2.AnswerFeedback buildPartial() {
       com.google.cloud.dialogflow.v2.AnswerFeedback result = new com.google.cloud.dialogflow.v2.AnswerFeedback(this);
-      result.correctnessLevel_ = correctnessLevel_;
-      if (detailFeedbackCase_ == 2) {
-        if (agentAssistantDetailFeedbackBuilder_ == null) {
-          result.detailFeedback_ = detailFeedback_;
-        } else {
-          result.detailFeedback_ = agentAssistantDetailFeedbackBuilder_.build();
-        }
-      }
-      result.clicked_ = clicked_;
-      if (clickTimeBuilder_ == null) {
-        result.clickTime_ = clickTime_;
-      } else {
-        result.clickTime_ = clickTimeBuilder_.build();
-      }
-      result.displayed_ = displayed_;
-      if (displayTimeBuilder_ == null) {
-        result.displayTime_ = displayTime_;
-      } else {
-        result.displayTime_ = displayTimeBuilder_.build();
-      }
-      result.detailFeedbackCase_ = detailFeedbackCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.v2.AnswerFeedback result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.correctnessLevel_ = correctnessLevel_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.clicked_ = clicked_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.clickTime_ = clickTimeBuilder_ == null
+            ? clickTime_
+            : clickTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.displayed_ = displayed_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.displayTime_ = displayTimeBuilder_ == null
+            ? displayTime_
+            : displayTimeBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.dialogflow.v2.AnswerFeedback result) {
+      result.detailFeedbackCase_ = detailFeedbackCase_;
+      result.detailFeedback_ = this.detailFeedback_;
+      if (detailFeedbackCase_ == 2 &&
+          agentAssistantDetailFeedbackBuilder_ != null) {
+        result.detailFeedback_ = agentAssistantDetailFeedbackBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -939,7 +850,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -954,17 +865,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.v2.AnswerFeedback parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              correctnessLevel_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getAgentAssistantDetailFeedbackFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detailFeedbackCase_ = 2;
+              break;
+            } // case 18
+            case 24: {
+              clicked_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              displayed_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getClickTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getDisplayTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.v2.AnswerFeedback) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int detailFeedbackCase_ = 0;
@@ -982,6 +942,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private int correctnessLevel_ = 0;
     /**
@@ -1005,8 +966,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCorrectnessLevelValue(int value) {
-      
       correctnessLevel_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1020,8 +981,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dialogflow.v2.AnswerFeedback.CorrectnessLevel getCorrectnessLevel() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dialogflow.v2.AnswerFeedback.CorrectnessLevel result = com.google.cloud.dialogflow.v2.AnswerFeedback.CorrectnessLevel.valueOf(correctnessLevel_);
+      com.google.cloud.dialogflow.v2.AnswerFeedback.CorrectnessLevel result = com.google.cloud.dialogflow.v2.AnswerFeedback.CorrectnessLevel.forNumber(correctnessLevel_);
       return result == null ? com.google.cloud.dialogflow.v2.AnswerFeedback.CorrectnessLevel.UNRECOGNIZED : result;
     }
     /**
@@ -1037,7 +997,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       correctnessLevel_ = value.getNumber();
       onChanged();
       return this;
@@ -1051,7 +1011,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCorrectnessLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       correctnessLevel_ = 0;
       onChanged();
       return this;
@@ -1231,7 +1191,7 @@ private static final long serialVersionUID = 0L;
         detailFeedback_ = null;
       }
       detailFeedbackCase_ = 2;
-      onChanged();;
+      onChanged();
       return agentAssistantDetailFeedbackBuilder_;
     }
 
@@ -1262,6 +1222,7 @@ private static final long serialVersionUID = 0L;
     public Builder setClicked(boolean value) {
       
       clicked_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1275,7 +1236,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClicked() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       clicked_ = false;
       onChanged();
       return this;
@@ -1293,7 +1254,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the clickTime field is set.
      */
     public boolean hasClickTime() {
-      return clickTimeBuilder_ != null || clickTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1323,11 +1284,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         clickTime_ = value;
-        onChanged();
       } else {
         clickTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1341,11 +1302,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (clickTimeBuilder_ == null) {
         clickTime_ = builderForValue.build();
-        onChanged();
       } else {
         clickTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1357,17 +1318,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeClickTime(com.google.protobuf.Timestamp value) {
       if (clickTimeBuilder_ == null) {
-        if (clickTime_ != null) {
-          clickTime_ =
-            com.google.protobuf.Timestamp.newBuilder(clickTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          clickTime_ != null &&
+          clickTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getClickTimeBuilder().mergeFrom(value);
         } else {
           clickTime_ = value;
         }
-        onChanged();
       } else {
         clickTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1378,14 +1340,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp click_time = 5;</code>
      */
     public Builder clearClickTime() {
-      if (clickTimeBuilder_ == null) {
-        clickTime_ = null;
-        onChanged();
-      } else {
-        clickTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      clickTime_ = null;
+      if (clickTimeBuilder_ != null) {
+        clickTimeBuilder_.dispose();
         clickTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1396,7 +1357,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp click_time = 5;</code>
      */
     public com.google.protobuf.Timestamp.Builder getClickTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getClickTimeFieldBuilder().getBuilder();
     }
@@ -1463,6 +1424,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDisplayed(boolean value) {
       
       displayed_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1476,7 +1438,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayed() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       displayed_ = false;
       onChanged();
       return this;
@@ -1494,7 +1456,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the displayTime field is set.
      */
     public boolean hasDisplayTime() {
-      return displayTimeBuilder_ != null || displayTime_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1524,11 +1486,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         displayTime_ = value;
-        onChanged();
       } else {
         displayTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1542,11 +1504,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (displayTimeBuilder_ == null) {
         displayTime_ = builderForValue.build();
-        onChanged();
       } else {
         displayTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1558,17 +1520,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDisplayTime(com.google.protobuf.Timestamp value) {
       if (displayTimeBuilder_ == null) {
-        if (displayTime_ != null) {
-          displayTime_ =
-            com.google.protobuf.Timestamp.newBuilder(displayTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          displayTime_ != null &&
+          displayTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getDisplayTimeBuilder().mergeFrom(value);
         } else {
           displayTime_ = value;
         }
-        onChanged();
       } else {
         displayTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1579,14 +1542,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp display_time = 6;</code>
      */
     public Builder clearDisplayTime() {
-      if (displayTimeBuilder_ == null) {
-        displayTime_ = null;
-        onChanged();
-      } else {
-        displayTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      displayTime_ = null;
+      if (displayTimeBuilder_ != null) {
+        displayTimeBuilder_.dispose();
         displayTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1597,7 +1559,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp display_time = 6;</code>
      */
     public com.google.protobuf.Timestamp.Builder getDisplayTimeBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getDisplayTimeFieldBuilder().getBuilder();
     }
@@ -1669,7 +1631,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AnswerFeedback(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

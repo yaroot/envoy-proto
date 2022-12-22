@@ -34,23 +34,24 @@ public final class ZipkinProto {
       "on.proto\032\036udpa/annotations/migrate.proto" +
       "\032\035udpa/annotations/status.proto\032!udpa/an" +
       "notations/versioning.proto\032\027validate/val" +
-      "idate.proto\"\314\003\n\014ZipkinConfig\022\"\n\021collecto" +
+      "idate.proto\"\355\003\n\014ZipkinConfig\022\"\n\021collecto" +
       "r_cluster\030\001 \001(\tB\007\372B\004r\002\020\001\022#\n\022collector_en" +
       "dpoint\030\002 \001(\tB\007\372B\004r\002\020\001\022\027\n\017trace_id_128bit" +
       "\030\003 \001(\010\0227\n\023shared_span_context\030\004 \001(\0132\032.go" +
       "ogle.protobuf.BoolValue\022`\n\032collector_end" +
       "point_version\030\005 \001(\0162<.envoy.config.trace" +
       ".v3.ZipkinConfig.CollectorEndpointVersio" +
-      "n\022\032\n\022collector_hostname\030\006 \001(\t\"x\n\030Collect" +
-      "orEndpointVersion\0223\n%DEPRECATED_AND_UNAV" +
-      "AILABLE_DO_NOT_USE\020\000\032\010\010\001\250\367\264\213\002\001\022\r\n\tHTTP_J" +
-      "SON\020\001\022\016\n\nHTTP_PROTO\020\002\022\010\n\004GRPC\020\003:)\232\305\210\036$\n\"" +
-      "envoy.config.trace.v2.ZipkinConfigB\261\001\n#i" +
-      "o.envoyproxy.envoy.config.trace.v3B\013Zipk" +
-      "inProtoP\001ZDgithub.com/envoyproxy/go-cont" +
-      "rol-plane/envoy/config/trace/v3;tracev3\362" +
-      "\230\376\217\005)\022\'envoy.extensions.tracers.zipkin.v" +
-      "4alpha\272\200\310\321\006\002\020\002b\006proto3"
+      "n\022\032\n\022collector_hostname\030\006 \001(\t\022\037\n\027split_s" +
+      "pans_for_request\030\007 \001(\010\"x\n\030CollectorEndpo" +
+      "intVersion\0223\n%DEPRECATED_AND_UNAVAILABLE" +
+      "_DO_NOT_USE\020\000\032\010\010\001\250\367\264\213\002\001\022\r\n\tHTTP_JSON\020\001\022\016" +
+      "\n\nHTTP_PROTO\020\002\022\010\n\004GRPC\020\003:)\232\305\210\036$\n\"envoy.c" +
+      "onfig.trace.v2.ZipkinConfigB\261\001\n#io.envoy" +
+      "proxy.envoy.config.trace.v3B\013ZipkinProto" +
+      "P\001ZDgithub.com/envoyproxy/go-control-pla" +
+      "ne/envoy/config/trace/v3;tracev3\362\230\376\217\005)\022\'" +
+      "envoy.extensions.tracers.zipkin.v4alpha\272" +
+      "\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -67,7 +68,7 @@ public final class ZipkinProto {
     internal_static_envoy_config_trace_v3_ZipkinConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_config_trace_v3_ZipkinConfig_descriptor,
-        new java.lang.String[] { "CollectorCluster", "CollectorEndpoint", "TraceId128Bit", "SharedSpanContext", "CollectorEndpointVersion", "CollectorHostname", });
+        new java.lang.String[] { "CollectorCluster", "CollectorEndpoint", "TraceId128Bit", "SharedSpanContext", "CollectorEndpointVersion", "CollectorHostname", "SplitSpansForRequest", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(envoy.annotations.Deprecation.disallowedByDefaultEnum);

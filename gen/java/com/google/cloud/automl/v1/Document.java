@@ -35,102 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Document(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.automl.v1.DocumentInputConfig.Builder subBuilder = null;
-            if (inputConfig_ != null) {
-              subBuilder = inputConfig_.toBuilder();
-            }
-            inputConfig_ = input.readMessage(com.google.cloud.automl.v1.DocumentInputConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(inputConfig_);
-              inputConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.automl.v1.TextSnippet.Builder subBuilder = null;
-            if (documentText_ != null) {
-              subBuilder = documentText_.toBuilder();
-            }
-            documentText_ = input.readMessage(com.google.cloud.automl.v1.TextSnippet.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(documentText_);
-              documentText_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              layout_ = new java.util.ArrayList<com.google.cloud.automl.v1.Document.Layout>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            layout_.add(
-                input.readMessage(com.google.cloud.automl.v1.Document.Layout.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            com.google.cloud.automl.v1.DocumentDimensions.Builder subBuilder = null;
-            if (documentDimensions_ != null) {
-              subBuilder = documentDimensions_.toBuilder();
-            }
-            documentDimensions_ = input.readMessage(com.google.cloud.automl.v1.DocumentDimensions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(documentDimensions_);
-              documentDimensions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            pageCount_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        layout_ = java.util.Collections.unmodifiableList(layout_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.automl.v1.DataItems.internal_static_google_cloud_automl_v1_Document_descriptor;
@@ -287,82 +191,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Layout(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.automl.v1.TextSegment.Builder subBuilder = null;
-              if (textSegment_ != null) {
-                subBuilder = textSegment_.toBuilder();
-              }
-              textSegment_ = input.readMessage(com.google.cloud.automl.v1.TextSegment.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(textSegment_);
-                textSegment_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 16: {
-
-              pageNumber_ = input.readInt32();
-              break;
-            }
-            case 26: {
-              com.google.cloud.automl.v1.BoundingPoly.Builder subBuilder = null;
-              if (boundingPoly_ != null) {
-                subBuilder = boundingPoly_.toBuilder();
-              }
-              boundingPoly_ = input.readMessage(com.google.cloud.automl.v1.BoundingPoly.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(boundingPoly_);
-                boundingPoly_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              textSegmentType_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -699,11 +527,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.automl.v1.TextSegmentOrBuilder getTextSegmentOrBuilder() {
-      return getTextSegment();
+      return textSegment_ == null ? com.google.cloud.automl.v1.TextSegment.getDefaultInstance() : textSegment_;
     }
 
     public static final int PAGE_NUMBER_FIELD_NUMBER = 2;
-    private int pageNumber_;
+    private int pageNumber_ = 0;
     /**
      * <pre>
      * Page number of the [text_segment][google.cloud.automl.v1.Document.Layout.text_segment] in the original document, starts
@@ -774,11 +602,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.automl.v1.BoundingPolyOrBuilder getBoundingPolyOrBuilder() {
-      return getBoundingPoly();
+      return boundingPoly_ == null ? com.google.cloud.automl.v1.BoundingPoly.getDefaultInstance() : boundingPoly_;
     }
 
     public static final int TEXT_SEGMENT_TYPE_FIELD_NUMBER = 4;
-    private int textSegmentType_;
+    private int textSegmentType_ = 0;
     /**
      * <pre>
      * The type of the [text_segment][google.cloud.automl.v1.Document.Layout.text_segment] in document.
@@ -799,8 +627,7 @@ private static final long serialVersionUID = 0L;
      * @return The textSegmentType.
      */
     @java.lang.Override public com.google.cloud.automl.v1.Document.Layout.TextSegmentType getTextSegmentType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.automl.v1.Document.Layout.TextSegmentType result = com.google.cloud.automl.v1.Document.Layout.TextSegmentType.valueOf(textSegmentType_);
+      com.google.cloud.automl.v1.Document.Layout.TextSegmentType result = com.google.cloud.automl.v1.Document.Layout.TextSegmentType.forNumber(textSegmentType_);
       return result == null ? com.google.cloud.automl.v1.Document.Layout.TextSegmentType.UNRECOGNIZED : result;
     }
 
@@ -830,7 +657,7 @@ private static final long serialVersionUID = 0L;
       if (textSegmentType_ != com.google.cloud.automl.v1.Document.Layout.TextSegmentType.TEXT_SEGMENT_TYPE_UNSPECIFIED.getNumber()) {
         output.writeEnum(4, textSegmentType_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -855,7 +682,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, textSegmentType_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -883,7 +710,7 @@ private static final long serialVersionUID = 0L;
             .equals(other.getBoundingPoly())) return false;
       }
       if (textSegmentType_ != other.textSegmentType_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -906,7 +733,7 @@ private static final long serialVersionUID = 0L;
       }
       hash = (37 * hash) + TEXT_SEGMENT_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + textSegmentType_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1027,38 +854,30 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.automl.v1.Document.Layout.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (textSegmentBuilder_ == null) {
-          textSegment_ = null;
-        } else {
-          textSegment_ = null;
+        bitField0_ = 0;
+        textSegment_ = null;
+        if (textSegmentBuilder_ != null) {
+          textSegmentBuilder_.dispose();
           textSegmentBuilder_ = null;
         }
         pageNumber_ = 0;
-
-        if (boundingPolyBuilder_ == null) {
-          boundingPoly_ = null;
-        } else {
-          boundingPoly_ = null;
+        boundingPoly_ = null;
+        if (boundingPolyBuilder_ != null) {
+          boundingPolyBuilder_.dispose();
           boundingPolyBuilder_ = null;
         }
         textSegmentType_ = 0;
-
         return this;
       }
 
@@ -1085,20 +904,29 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.automl.v1.Document.Layout buildPartial() {
         com.google.cloud.automl.v1.Document.Layout result = new com.google.cloud.automl.v1.Document.Layout(this);
-        if (textSegmentBuilder_ == null) {
-          result.textSegment_ = textSegment_;
-        } else {
-          result.textSegment_ = textSegmentBuilder_.build();
-        }
-        result.pageNumber_ = pageNumber_;
-        if (boundingPolyBuilder_ == null) {
-          result.boundingPoly_ = boundingPoly_;
-        } else {
-          result.boundingPoly_ = boundingPolyBuilder_.build();
-        }
-        result.textSegmentType_ = textSegmentType_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.automl.v1.Document.Layout result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.textSegment_ = textSegmentBuilder_ == null
+              ? textSegment_
+              : textSegmentBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.pageNumber_ = pageNumber_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.boundingPoly_ = boundingPolyBuilder_ == null
+              ? boundingPoly_
+              : boundingPolyBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.textSegmentType_ = textSegmentType_;
+        }
       }
 
       @java.lang.Override
@@ -1157,7 +985,7 @@ private static final long serialVersionUID = 0L;
         if (other.textSegmentType_ != 0) {
           setTextSegmentTypeValue(other.getTextSegmentTypeValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1172,19 +1000,57 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.automl.v1.Document.Layout parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getTextSegmentFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                pageNumber_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                input.readMessage(
+                    getBoundingPolyFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                textSegmentType_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.automl.v1.Document.Layout) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.automl.v1.TextSegment textSegment_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1199,7 +1065,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the textSegment field is set.
        */
       public boolean hasTextSegment() {
-        return textSegmentBuilder_ != null || textSegment_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -1231,11 +1097,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           textSegment_ = value;
-          onChanged();
         } else {
           textSegmentBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1250,11 +1116,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.automl.v1.TextSegment.Builder builderForValue) {
         if (textSegmentBuilder_ == null) {
           textSegment_ = builderForValue.build();
-          onChanged();
         } else {
           textSegmentBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1267,17 +1133,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeTextSegment(com.google.cloud.automl.v1.TextSegment value) {
         if (textSegmentBuilder_ == null) {
-          if (textSegment_ != null) {
-            textSegment_ =
-              com.google.cloud.automl.v1.TextSegment.newBuilder(textSegment_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            textSegment_ != null &&
+            textSegment_ != com.google.cloud.automl.v1.TextSegment.getDefaultInstance()) {
+            getTextSegmentBuilder().mergeFrom(value);
           } else {
             textSegment_ = value;
           }
-          onChanged();
         } else {
           textSegmentBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1289,14 +1156,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.automl.v1.TextSegment text_segment = 1;</code>
        */
       public Builder clearTextSegment() {
-        if (textSegmentBuilder_ == null) {
-          textSegment_ = null;
-          onChanged();
-        } else {
-          textSegment_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        textSegment_ = null;
+        if (textSegmentBuilder_ != null) {
+          textSegmentBuilder_.dispose();
           textSegmentBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1308,7 +1174,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.automl.v1.TextSegment text_segment = 1;</code>
        */
       public com.google.cloud.automl.v1.TextSegment.Builder getTextSegmentBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getTextSegmentFieldBuilder().getBuilder();
       }
@@ -1377,6 +1243,7 @@ private static final long serialVersionUID = 0L;
       public Builder setPageNumber(int value) {
         
         pageNumber_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1390,7 +1257,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPageNumber() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         pageNumber_ = 0;
         onChanged();
         return this;
@@ -1415,7 +1282,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the boundingPoly field is set.
        */
       public boolean hasBoundingPoly() {
-        return boundingPolyBuilder_ != null || boundingPoly_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -1459,11 +1326,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           boundingPoly_ = value;
-          onChanged();
         } else {
           boundingPolyBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1484,11 +1351,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.automl.v1.BoundingPoly.Builder builderForValue) {
         if (boundingPolyBuilder_ == null) {
           boundingPoly_ = builderForValue.build();
-          onChanged();
         } else {
           boundingPolyBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1507,17 +1374,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeBoundingPoly(com.google.cloud.automl.v1.BoundingPoly value) {
         if (boundingPolyBuilder_ == null) {
-          if (boundingPoly_ != null) {
-            boundingPoly_ =
-              com.google.cloud.automl.v1.BoundingPoly.newBuilder(boundingPoly_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            boundingPoly_ != null &&
+            boundingPoly_ != com.google.cloud.automl.v1.BoundingPoly.getDefaultInstance()) {
+            getBoundingPolyBuilder().mergeFrom(value);
           } else {
             boundingPoly_ = value;
           }
-          onChanged();
         } else {
           boundingPolyBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1535,14 +1403,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.automl.v1.BoundingPoly bounding_poly = 3;</code>
        */
       public Builder clearBoundingPoly() {
-        if (boundingPolyBuilder_ == null) {
-          boundingPoly_ = null;
-          onChanged();
-        } else {
-          boundingPoly_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        boundingPoly_ = null;
+        if (boundingPolyBuilder_ != null) {
+          boundingPolyBuilder_.dispose();
           boundingPolyBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1560,7 +1427,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.automl.v1.BoundingPoly bounding_poly = 3;</code>
        */
       public com.google.cloud.automl.v1.BoundingPoly.Builder getBoundingPolyBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getBoundingPolyFieldBuilder().getBuilder();
       }
@@ -1636,8 +1503,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setTextSegmentTypeValue(int value) {
-        
         textSegmentType_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1651,8 +1518,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.automl.v1.Document.Layout.TextSegmentType getTextSegmentType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.automl.v1.Document.Layout.TextSegmentType result = com.google.cloud.automl.v1.Document.Layout.TextSegmentType.valueOf(textSegmentType_);
+        com.google.cloud.automl.v1.Document.Layout.TextSegmentType result = com.google.cloud.automl.v1.Document.Layout.TextSegmentType.forNumber(textSegmentType_);
         return result == null ? com.google.cloud.automl.v1.Document.Layout.TextSegmentType.UNRECOGNIZED : result;
       }
       /**
@@ -1668,7 +1534,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000008;
         textSegmentType_ = value.getNumber();
         onChanged();
         return this;
@@ -1682,7 +1548,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearTextSegmentType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         textSegmentType_ = 0;
         onChanged();
         return this;
@@ -1720,7 +1586,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Layout(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1775,7 +1652,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.automl.v1.DocumentInputConfigOrBuilder getInputConfigOrBuilder() {
-    return getInputConfig();
+    return inputConfig_ == null ? com.google.cloud.automl.v1.DocumentInputConfig.getDefaultInstance() : inputConfig_;
   }
 
   public static final int DOCUMENT_TEXT_FIELD_NUMBER = 2;
@@ -1813,10 +1690,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.automl.v1.TextSnippetOrBuilder getDocumentTextOrBuilder() {
-    return getDocumentText();
+    return documentText_ == null ? com.google.cloud.automl.v1.TextSnippet.getDefaultInstance() : documentText_;
   }
 
   public static final int LAYOUT_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.automl.v1.Document.Layout> layout_;
   /**
    * <pre>
@@ -1916,11 +1794,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.automl.v1.DocumentDimensionsOrBuilder getDocumentDimensionsOrBuilder() {
-    return getDocumentDimensions();
+    return documentDimensions_ == null ? com.google.cloud.automl.v1.DocumentDimensions.getDefaultInstance() : documentDimensions_;
   }
 
   public static final int PAGE_COUNT_FIELD_NUMBER = 5;
-  private int pageCount_;
+  private int pageCount_ = 0;
   /**
    * <pre>
    * Number of pages in the document.
@@ -1963,7 +1841,7 @@ private static final long serialVersionUID = 0L;
     if (pageCount_ != 0) {
       output.writeInt32(5, pageCount_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1992,7 +1870,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(5, pageCount_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2026,7 +1904,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getPageCount()
         != other.getPageCount()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2055,7 +1933,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + PAGE_COUNT_FIELD_NUMBER;
     hash = (53 * hash) + getPageCount();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2176,49 +2054,41 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.automl.v1.Document.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getLayoutFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (inputConfigBuilder_ == null) {
-        inputConfig_ = null;
-      } else {
-        inputConfig_ = null;
+      bitField0_ = 0;
+      inputConfig_ = null;
+      if (inputConfigBuilder_ != null) {
+        inputConfigBuilder_.dispose();
         inputConfigBuilder_ = null;
       }
-      if (documentTextBuilder_ == null) {
-        documentText_ = null;
-      } else {
-        documentText_ = null;
+      documentText_ = null;
+      if (documentTextBuilder_ != null) {
+        documentTextBuilder_.dispose();
         documentTextBuilder_ = null;
       }
       if (layoutBuilder_ == null) {
         layout_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        layout_ = null;
         layoutBuilder_.clear();
       }
-      if (documentDimensionsBuilder_ == null) {
-        documentDimensions_ = null;
-      } else {
-        documentDimensions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      documentDimensions_ = null;
+      if (documentDimensionsBuilder_ != null) {
+        documentDimensionsBuilder_.dispose();
         documentDimensionsBuilder_ = null;
       }
       pageCount_ = 0;
-
       return this;
     }
 
@@ -2245,34 +2115,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.automl.v1.Document buildPartial() {
       com.google.cloud.automl.v1.Document result = new com.google.cloud.automl.v1.Document(this);
-      int from_bitField0_ = bitField0_;
-      if (inputConfigBuilder_ == null) {
-        result.inputConfig_ = inputConfig_;
-      } else {
-        result.inputConfig_ = inputConfigBuilder_.build();
-      }
-      if (documentTextBuilder_ == null) {
-        result.documentText_ = documentText_;
-      } else {
-        result.documentText_ = documentTextBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.automl.v1.Document result) {
       if (layoutBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           layout_ = java.util.Collections.unmodifiableList(layout_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.layout_ = layout_;
       } else {
         result.layout_ = layoutBuilder_.build();
       }
-      if (documentDimensionsBuilder_ == null) {
-        result.documentDimensions_ = documentDimensions_;
-      } else {
-        result.documentDimensions_ = documentDimensionsBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.automl.v1.Document result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.inputConfig_ = inputConfigBuilder_ == null
+            ? inputConfig_
+            : inputConfigBuilder_.build();
       }
-      result.pageCount_ = pageCount_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.documentText_ = documentTextBuilder_ == null
+            ? documentText_
+            : documentTextBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.documentDimensions_ = documentDimensionsBuilder_ == null
+            ? documentDimensions_
+            : documentDimensionsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.pageCount_ = pageCount_;
+      }
     }
 
     @java.lang.Override
@@ -2329,7 +2209,7 @@ private static final long serialVersionUID = 0L;
         if (!other.layout_.isEmpty()) {
           if (layout_.isEmpty()) {
             layout_ = other.layout_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureLayoutIsMutable();
             layout_.addAll(other.layout_);
@@ -2342,7 +2222,7 @@ private static final long serialVersionUID = 0L;
             layoutBuilder_.dispose();
             layoutBuilder_ = null;
             layout_ = other.layout_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             layoutBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getLayoutFieldBuilder() : null;
@@ -2357,7 +2237,7 @@ private static final long serialVersionUID = 0L;
       if (other.getPageCount() != 0) {
         setPageCount(other.getPageCount());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2372,17 +2252,69 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.automl.v1.Document parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getInputConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDocumentTextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.automl.v1.Document.Layout m =
+                  input.readMessage(
+                      com.google.cloud.automl.v1.Document.Layout.parser(),
+                      extensionRegistry);
+              if (layoutBuilder_ == null) {
+                ensureLayoutIsMutable();
+                layout_.add(m);
+              } else {
+                layoutBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getDocumentDimensionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              pageCount_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.automl.v1.Document) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2399,7 +2331,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the inputConfig field is set.
      */
     public boolean hasInputConfig() {
-      return inputConfigBuilder_ != null || inputConfig_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -2429,11 +2361,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         inputConfig_ = value;
-        onChanged();
       } else {
         inputConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2447,11 +2379,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.automl.v1.DocumentInputConfig.Builder builderForValue) {
       if (inputConfigBuilder_ == null) {
         inputConfig_ = builderForValue.build();
-        onChanged();
       } else {
         inputConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2463,17 +2395,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInputConfig(com.google.cloud.automl.v1.DocumentInputConfig value) {
       if (inputConfigBuilder_ == null) {
-        if (inputConfig_ != null) {
-          inputConfig_ =
-            com.google.cloud.automl.v1.DocumentInputConfig.newBuilder(inputConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          inputConfig_ != null &&
+          inputConfig_ != com.google.cloud.automl.v1.DocumentInputConfig.getDefaultInstance()) {
+          getInputConfigBuilder().mergeFrom(value);
         } else {
           inputConfig_ = value;
         }
-        onChanged();
       } else {
         inputConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2484,14 +2417,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.automl.v1.DocumentInputConfig input_config = 1;</code>
      */
     public Builder clearInputConfig() {
-      if (inputConfigBuilder_ == null) {
-        inputConfig_ = null;
-        onChanged();
-      } else {
-        inputConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      inputConfig_ = null;
+      if (inputConfigBuilder_ != null) {
+        inputConfigBuilder_.dispose();
         inputConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2502,7 +2434,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.automl.v1.DocumentInputConfig input_config = 1;</code>
      */
     public com.google.cloud.automl.v1.DocumentInputConfig.Builder getInputConfigBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getInputConfigFieldBuilder().getBuilder();
     }
@@ -2554,7 +2486,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the documentText field is set.
      */
     public boolean hasDocumentText() {
-      return documentTextBuilder_ != null || documentText_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -2584,11 +2516,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         documentText_ = value;
-        onChanged();
       } else {
         documentTextBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2602,11 +2534,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.automl.v1.TextSnippet.Builder builderForValue) {
       if (documentTextBuilder_ == null) {
         documentText_ = builderForValue.build();
-        onChanged();
       } else {
         documentTextBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2618,17 +2550,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDocumentText(com.google.cloud.automl.v1.TextSnippet value) {
       if (documentTextBuilder_ == null) {
-        if (documentText_ != null) {
-          documentText_ =
-            com.google.cloud.automl.v1.TextSnippet.newBuilder(documentText_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          documentText_ != null &&
+          documentText_ != com.google.cloud.automl.v1.TextSnippet.getDefaultInstance()) {
+          getDocumentTextBuilder().mergeFrom(value);
         } else {
           documentText_ = value;
         }
-        onChanged();
       } else {
         documentTextBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2639,14 +2572,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.automl.v1.TextSnippet document_text = 2;</code>
      */
     public Builder clearDocumentText() {
-      if (documentTextBuilder_ == null) {
-        documentText_ = null;
-        onChanged();
-      } else {
-        documentText_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      documentText_ = null;
+      if (documentTextBuilder_ != null) {
+        documentTextBuilder_.dispose();
         documentTextBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2657,7 +2589,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.automl.v1.TextSnippet document_text = 2;</code>
      */
     public com.google.cloud.automl.v1.TextSnippet.Builder getDocumentTextBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDocumentTextFieldBuilder().getBuilder();
     }
@@ -2700,9 +2632,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.automl.v1.Document.Layout> layout_ =
       java.util.Collections.emptyList();
     private void ensureLayoutIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         layout_ = new java.util.ArrayList<com.google.cloud.automl.v1.Document.Layout>(layout_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -2907,7 +2839,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearLayout() {
       if (layoutBuilder_ == null) {
         layout_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         layoutBuilder_.clear();
@@ -3019,7 +2951,7 @@ private static final long serialVersionUID = 0L;
         layoutBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.automl.v1.Document.Layout, com.google.cloud.automl.v1.Document.Layout.Builder, com.google.cloud.automl.v1.Document.LayoutOrBuilder>(
                 layout_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         layout_ = null;
@@ -3039,7 +2971,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the documentDimensions field is set.
      */
     public boolean hasDocumentDimensions() {
-      return documentDimensionsBuilder_ != null || documentDimensions_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -3069,11 +3001,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         documentDimensions_ = value;
-        onChanged();
       } else {
         documentDimensionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -3087,11 +3019,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.automl.v1.DocumentDimensions.Builder builderForValue) {
       if (documentDimensionsBuilder_ == null) {
         documentDimensions_ = builderForValue.build();
-        onChanged();
       } else {
         documentDimensionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -3103,17 +3035,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDocumentDimensions(com.google.cloud.automl.v1.DocumentDimensions value) {
       if (documentDimensionsBuilder_ == null) {
-        if (documentDimensions_ != null) {
-          documentDimensions_ =
-            com.google.cloud.automl.v1.DocumentDimensions.newBuilder(documentDimensions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          documentDimensions_ != null &&
+          documentDimensions_ != com.google.cloud.automl.v1.DocumentDimensions.getDefaultInstance()) {
+          getDocumentDimensionsBuilder().mergeFrom(value);
         } else {
           documentDimensions_ = value;
         }
-        onChanged();
       } else {
         documentDimensionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -3124,14 +3057,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.automl.v1.DocumentDimensions document_dimensions = 4;</code>
      */
     public Builder clearDocumentDimensions() {
-      if (documentDimensionsBuilder_ == null) {
-        documentDimensions_ = null;
-        onChanged();
-      } else {
-        documentDimensions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      documentDimensions_ = null;
+      if (documentDimensionsBuilder_ != null) {
+        documentDimensionsBuilder_.dispose();
         documentDimensionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3142,7 +3074,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.automl.v1.DocumentDimensions document_dimensions = 4;</code>
      */
     public com.google.cloud.automl.v1.DocumentDimensions.Builder getDocumentDimensionsBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getDocumentDimensionsFieldBuilder().getBuilder();
     }
@@ -3207,6 +3139,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageCount(int value) {
       
       pageCount_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3219,7 +3152,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       pageCount_ = 0;
       onChanged();
       return this;
@@ -3257,7 +3190,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Document(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

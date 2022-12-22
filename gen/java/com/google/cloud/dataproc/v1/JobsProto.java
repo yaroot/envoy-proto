@@ -160,6 +160,11 @@ public final class JobsProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_cloud_dataproc_v1_Job_LabelsEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_dataproc_v1_DriverSchedulingConfig_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_dataproc_v1_DriverSchedulingConfig_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_cloud_dataproc_v1_JobScheduling_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -336,7 +341,7 @@ public final class JobsProto {
       "ing_url\030\004 \001(\tB\003\340A\001\"\207\001\n\005State\022\025\n\021STATE_UN" +
       "SPECIFIED\020\000\022\007\n\003NEW\020\001\022\016\n\nNEW_SAVING\020\002\022\r\n\t" +
       "SUBMITTED\020\003\022\014\n\010ACCEPTED\020\004\022\013\n\007RUNNING\020\005\022\014" +
-      "\n\010FINISHED\020\006\022\n\n\006FAILED\020\007\022\n\n\006KILLED\020\010\"\377\010\n" +
+      "\n\010FINISHED\020\006\022\n\n\006FAILED\020\007\022\n\n\006KILLED\020\010\"\330\t\n" +
       "\003Job\022>\n\treference\030\001 \001(\0132&.google.cloud.d" +
       "ataproc.v1.JobReferenceB\003\340A\001\022>\n\tplacemen" +
       "t\030\002 \001(\0132&.google.cloud.dataproc.v1.JobPl" +
@@ -364,8 +369,12 @@ public final class JobsProto {
       "v1.Job.LabelsEntryB\003\340A\001\022@\n\nscheduling\030\024 " +
       "\001(\0132\'.google.cloud.dataproc.v1.JobSchedu" +
       "lingB\003\340A\001\022\025\n\010job_uuid\030\026 \001(\tB\003\340A\003\022\021\n\004done" +
-      "\030\030 \001(\010B\003\340A\003\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022" +
-      "\r\n\005value\030\002 \001(\t:\0028\001B\n\n\010type_job\"T\n\rJobSch" +
+      "\030\030 \001(\010B\003\340A\003\022W\n\030driver_scheduling_config\030" +
+      "\033 \001(\01320.google.cloud.dataproc.v1.DriverS" +
+      "chedulingConfigB\003\340A\001\032-\n\013LabelsEntry\022\013\n\003k" +
+      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001B\n\n\010type_job\"" +
+      "E\n\026DriverSchedulingConfig\022\026\n\tmemory_mb\030\001" +
+      " \001(\005B\003\340A\002\022\023\n\006vcores\030\002 \001(\005B\003\340A\002\"T\n\rJobSch" +
       "eduling\022\"\n\025max_failures_per_hour\030\001 \001(\005B\003" +
       "\340A\001\022\037\n\022max_failures_total\030\002 \001(\005B\003\340A\001\"\212\001\n" +
       "\020SubmitJobRequest\022\027\n\nproject_id\030\001 \001(\tB\003\340" +
@@ -615,63 +624,69 @@ public final class JobsProto {
     internal_static_google_cloud_dataproc_v1_Job_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_dataproc_v1_Job_descriptor,
-        new java.lang.String[] { "Reference", "Placement", "HadoopJob", "SparkJob", "PysparkJob", "HiveJob", "PigJob", "SparkRJob", "SparkSqlJob", "PrestoJob", "Status", "StatusHistory", "YarnApplications", "DriverOutputResourceUri", "DriverControlFilesUri", "Labels", "Scheduling", "JobUuid", "Done", "TypeJob", });
+        new java.lang.String[] { "Reference", "Placement", "HadoopJob", "SparkJob", "PysparkJob", "HiveJob", "PigJob", "SparkRJob", "SparkSqlJob", "PrestoJob", "Status", "StatusHistory", "YarnApplications", "DriverOutputResourceUri", "DriverControlFilesUri", "Labels", "Scheduling", "JobUuid", "Done", "DriverSchedulingConfig", "TypeJob", });
     internal_static_google_cloud_dataproc_v1_Job_LabelsEntry_descriptor =
       internal_static_google_cloud_dataproc_v1_Job_descriptor.getNestedTypes().get(0);
     internal_static_google_cloud_dataproc_v1_Job_LabelsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_dataproc_v1_Job_LabelsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_google_cloud_dataproc_v1_JobScheduling_descriptor =
+    internal_static_google_cloud_dataproc_v1_DriverSchedulingConfig_descriptor =
       getDescriptor().getMessageTypes().get(15);
+    internal_static_google_cloud_dataproc_v1_DriverSchedulingConfig_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_dataproc_v1_DriverSchedulingConfig_descriptor,
+        new java.lang.String[] { "MemoryMb", "Vcores", });
+    internal_static_google_cloud_dataproc_v1_JobScheduling_descriptor =
+      getDescriptor().getMessageTypes().get(16);
     internal_static_google_cloud_dataproc_v1_JobScheduling_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_dataproc_v1_JobScheduling_descriptor,
         new java.lang.String[] { "MaxFailuresPerHour", "MaxFailuresTotal", });
     internal_static_google_cloud_dataproc_v1_SubmitJobRequest_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_google_cloud_dataproc_v1_SubmitJobRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_dataproc_v1_SubmitJobRequest_descriptor,
         new java.lang.String[] { "ProjectId", "Region", "Job", "RequestId", });
     internal_static_google_cloud_dataproc_v1_JobMetadata_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_google_cloud_dataproc_v1_JobMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_dataproc_v1_JobMetadata_descriptor,
         new java.lang.String[] { "JobId", "Status", "OperationType", "StartTime", });
     internal_static_google_cloud_dataproc_v1_GetJobRequest_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_google_cloud_dataproc_v1_GetJobRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_dataproc_v1_GetJobRequest_descriptor,
         new java.lang.String[] { "ProjectId", "Region", "JobId", });
     internal_static_google_cloud_dataproc_v1_ListJobsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_google_cloud_dataproc_v1_ListJobsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_dataproc_v1_ListJobsRequest_descriptor,
         new java.lang.String[] { "ProjectId", "Region", "PageSize", "PageToken", "ClusterName", "JobStateMatcher", "Filter", });
     internal_static_google_cloud_dataproc_v1_UpdateJobRequest_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_google_cloud_dataproc_v1_UpdateJobRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_dataproc_v1_UpdateJobRequest_descriptor,
         new java.lang.String[] { "ProjectId", "Region", "JobId", "Job", "UpdateMask", });
     internal_static_google_cloud_dataproc_v1_ListJobsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_google_cloud_dataproc_v1_ListJobsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_dataproc_v1_ListJobsResponse_descriptor,
         new java.lang.String[] { "Jobs", "NextPageToken", });
     internal_static_google_cloud_dataproc_v1_CancelJobRequest_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_google_cloud_dataproc_v1_CancelJobRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_dataproc_v1_CancelJobRequest_descriptor,
         new java.lang.String[] { "ProjectId", "Region", "JobId", });
     internal_static_google_cloud_dataproc_v1_DeleteJobRequest_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_google_cloud_dataproc_v1_DeleteJobRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_dataproc_v1_DeleteJobRequest_descriptor,

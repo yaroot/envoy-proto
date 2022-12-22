@@ -162,20 +162,21 @@ public final class DiscoveryProto {
       "ExistsH\000\032\010\n\006ExistsB\026\n\017constraint_type\022\003\370" +
       "B\001\032^\n\016ConstraintList\022L\n\013constraints\030\001 \003(" +
       "\01327.envoy.service.discovery.v3.DynamicPa" +
-      "rameterConstraintsB\006\n\004type\"\331\002\n\010Resource\022" +
+      "rameterConstraintsB\006\n\004type\"\213\003\n\010Resource\022" +
       "\014\n\004name\030\003 \001(\t\022?\n\rresource_name\030\010 \001(\0132(.e" +
       "nvoy.service.discovery.v3.ResourceName\022\017" +
       "\n\007aliases\030\004 \003(\t\022\017\n\007version\030\001 \001(\t\022&\n\010reso" +
       "urce\030\002 \001(\0132\024.google.protobuf.Any\022&\n\003ttl\030" +
       "\006 \001(\0132\031.google.protobuf.Duration\022H\n\rcach" +
       "e_control\030\007 \001(\01321.envoy.service.discover" +
-      "y.v3.Resource.CacheControl\032$\n\014CacheContr" +
-      "ol\022\024\n\014do_not_cache\030\001 \001(\010:\034\232\305\210\036\027\n\025envoy.a" +
-      "pi.v2.ResourceB\223\001\n(io.envoyproxy.envoy.s" +
-      "ervice.discovery.v3B\016DiscoveryProtoP\001ZMg" +
-      "ithub.com/envoyproxy/go-control-plane/en" +
-      "voy/service/discovery/v3;discoveryv3\272\200\310\321" +
-      "\006\002\020\002b\006proto3"
+      "y.v3.Resource.CacheControl\0220\n\010metadata\030\t" +
+      " \001(\0132\036.envoy.config.core.v3.Metadata\032$\n\014" +
+      "CacheControl\022\024\n\014do_not_cache\030\001 \001(\010:\034\232\305\210\036" +
+      "\027\n\025envoy.api.v2.ResourceB\223\001\n(io.envoypro" +
+      "xy.envoy.service.discovery.v3B\016Discovery" +
+      "ProtoP\001ZMgithub.com/envoyproxy/go-contro" +
+      "l-plane/envoy/service/discovery/v3;disco" +
+      "veryv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -265,7 +266,7 @@ public final class DiscoveryProto {
     internal_static_envoy_service_discovery_v3_Resource_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_service_discovery_v3_Resource_descriptor,
-        new java.lang.String[] { "Name", "ResourceName", "Aliases", "Version", "Resource", "Ttl", "CacheControl", });
+        new java.lang.String[] { "Name", "ResourceName", "Aliases", "Version", "Resource", "Ttl", "CacheControl", "Metadata", });
     internal_static_envoy_service_discovery_v3_Resource_CacheControl_descriptor =
       internal_static_envoy_service_discovery_v3_Resource_descriptor.getNestedTypes().get(0);
     internal_static_envoy_service_discovery_v3_Resource_CacheControl_fieldAccessorTable = new

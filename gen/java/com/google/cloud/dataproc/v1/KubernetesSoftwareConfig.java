@@ -34,72 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private KubernetesSoftwareConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              componentVersion_ = com.google.protobuf.MapField.newMapField(
-                  ComponentVersionDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            componentVersion__ = input.readMessage(
-                ComponentVersionDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            componentVersion_.getMutableMap().put(
-                componentVersion__.getKey(), componentVersion__.getValue());
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              properties_ = com.google.protobuf.MapField.newMapField(
-                  PropertiesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            properties__ = input.readMessage(
-                PropertiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            properties_.getMutableMap().put(
-                properties__.getKey(), properties__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.v1.SharedProto.internal_static_google_cloud_dataproc_v1_KubernetesSoftwareConfig_descriptor;
@@ -139,6 +73,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> componentVersion_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -149,7 +84,6 @@ private static final long serialVersionUID = 0L;
     }
     return componentVersion_;
   }
-
   public int getComponentVersionCount() {
     return internalGetComponentVersion().getMap().size();
   }
@@ -163,7 +97,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; component_version = 1;</code>
    */
-
   @java.lang.Override
   public boolean containsComponentVersion(
       java.lang.String key) {
@@ -189,7 +122,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; component_version = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getComponentVersionMap() {
     return internalGetComponentVersion().getMap();
   }
@@ -204,10 +136,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; component_version = 1;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getComponentVersionOrDefault(
+  public /* nullable */
+java.lang.String getComponentVersionOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetComponentVersion().getMap();
@@ -224,7 +157,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; component_version = 1;</code>
    */
   @java.lang.Override
-
   public java.lang.String getComponentVersionOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -248,6 +180,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> properties_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -258,7 +191,6 @@ private static final long serialVersionUID = 0L;
     }
     return properties_;
   }
-
   public int getPropertiesCount() {
     return internalGetProperties().getMap().size();
   }
@@ -275,7 +207,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; properties = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsProperties(
       java.lang.String key) {
@@ -304,7 +235,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; properties = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getPropertiesMap() {
     return internalGetProperties().getMap();
   }
@@ -322,10 +252,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; properties = 2;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getPropertiesOrDefault(
+  public /* nullable */
+java.lang.String getPropertiesOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetProperties().getMap();
@@ -345,7 +276,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; properties = 2;</code>
    */
   @java.lang.Override
-
   public java.lang.String getPropertiesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -383,7 +313,7 @@ private static final long serialVersionUID = 0L;
         internalGetProperties(),
         PropertiesDefaultEntryHolder.defaultEntry,
         2);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -412,7 +342,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, properties__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -431,7 +361,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetComponentVersion())) return false;
     if (!internalGetProperties().equals(
         other.internalGetProperties())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -450,7 +380,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PROPERTIES_FIELD_NUMBER;
       hash = (53 * hash) + internalGetProperties().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -597,22 +527,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.KubernetesSoftwareConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableComponentVersion().clear();
       internalGetMutableProperties().clear();
       return this;
@@ -641,13 +567,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.KubernetesSoftwareConfig buildPartial() {
       com.google.cloud.dataproc.v1.KubernetesSoftwareConfig result = new com.google.cloud.dataproc.v1.KubernetesSoftwareConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.componentVersion_ = internalGetComponentVersion();
-      result.componentVersion_.makeImmutable();
-      result.properties_ = internalGetProperties();
-      result.properties_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.KubernetesSoftwareConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.componentVersion_ = internalGetComponentVersion();
+        result.componentVersion_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.properties_ = internalGetProperties();
+        result.properties_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -696,9 +630,11 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dataproc.v1.KubernetesSoftwareConfig.getDefaultInstance()) return this;
       internalGetMutableComponentVersion().mergeFrom(
           other.internalGetComponentVersion());
+      bitField0_ |= 0x00000001;
       internalGetMutableProperties().mergeFrom(
           other.internalGetProperties());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000002;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -713,17 +649,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.KubernetesSoftwareConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              componentVersion__ = input.readMessage(
+                  ComponentVersionDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableComponentVersion().getMutableMap().put(
+                  componentVersion__.getKey(), componentVersion__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              properties__ = input.readMessage(
+                  PropertiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableProperties().getMutableMap().put(
+                  properties__.getKey(), properties__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.KubernetesSoftwareConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -731,7 +698,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> componentVersion_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetComponentVersion() {
+        internalGetComponentVersion() {
       if (componentVersion_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ComponentVersionDefaultEntryHolder.defaultEntry);
@@ -739,8 +706,7 @@ private static final long serialVersionUID = 0L;
       return componentVersion_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableComponentVersion() {
-      onChanged();;
+        internalGetMutableComponentVersion() {
       if (componentVersion_ == null) {
         componentVersion_ = com.google.protobuf.MapField.newMapField(
             ComponentVersionDefaultEntryHolder.defaultEntry);
@@ -748,9 +714,10 @@ private static final long serialVersionUID = 0L;
       if (!componentVersion_.isMutable()) {
         componentVersion_ = componentVersion_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return componentVersion_;
     }
-
     public int getComponentVersionCount() {
       return internalGetComponentVersion().getMap().size();
     }
@@ -764,7 +731,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; component_version = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsComponentVersion(
         java.lang.String key) {
@@ -790,7 +756,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; component_version = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getComponentVersionMap() {
       return internalGetComponentVersion().getMap();
     }
@@ -805,10 +770,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; component_version = 1;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getComponentVersionOrDefault(
+    public /* nullable */
+java.lang.String getComponentVersionOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetComponentVersion().getMap();
@@ -825,7 +791,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; component_version = 1;</code>
      */
     @java.lang.Override
-
     public java.lang.String getComponentVersionOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -836,8 +801,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearComponentVersion() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableComponentVersion().getMutableMap()
           .clear();
       return this;
@@ -852,7 +817,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; component_version = 1;</code>
      */
-
     public Builder removeComponentVersion(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -865,7 +829,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableComponentVersion() {
+        getMutableComponentVersion() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableComponentVersion().getMutableMap();
     }
     /**
@@ -882,12 +847,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableComponentVersion().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -900,18 +863,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; component_version = 1;</code>
      */
-
     public Builder putAllComponentVersion(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableComponentVersion().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> properties_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetProperties() {
+        internalGetProperties() {
       if (properties_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             PropertiesDefaultEntryHolder.defaultEntry);
@@ -919,8 +882,7 @@ private static final long serialVersionUID = 0L;
       return properties_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableProperties() {
-      onChanged();;
+        internalGetMutableProperties() {
       if (properties_ == null) {
         properties_ = com.google.protobuf.MapField.newMapField(
             PropertiesDefaultEntryHolder.defaultEntry);
@@ -928,9 +890,10 @@ private static final long serialVersionUID = 0L;
       if (!properties_.isMutable()) {
         properties_ = properties_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return properties_;
     }
-
     public int getPropertiesCount() {
       return internalGetProperties().getMap().size();
     }
@@ -947,7 +910,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; properties = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsProperties(
         java.lang.String key) {
@@ -976,7 +938,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; properties = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getPropertiesMap() {
       return internalGetProperties().getMap();
     }
@@ -994,10 +955,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; properties = 2;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getPropertiesOrDefault(
+    public /* nullable */
+java.lang.String getPropertiesOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetProperties().getMap();
@@ -1017,7 +979,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; properties = 2;</code>
      */
     @java.lang.Override
-
     public java.lang.String getPropertiesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1028,8 +989,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearProperties() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableProperties().getMutableMap()
           .clear();
       return this;
@@ -1047,7 +1008,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; properties = 2;</code>
      */
-
     public Builder removeProperties(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1060,7 +1020,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableProperties() {
+        getMutableProperties() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableProperties().getMutableMap();
     }
     /**
@@ -1080,12 +1041,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableProperties().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -1101,11 +1060,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; properties = 2;</code>
      */
-
     public Builder putAllProperties(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableProperties().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
     @java.lang.Override
@@ -1141,7 +1100,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new KubernetesSoftwareConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

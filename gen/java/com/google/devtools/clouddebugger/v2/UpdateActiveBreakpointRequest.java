@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateActiveBreakpointRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            debuggeeId_ = s;
-            break;
-          }
-          case 18: {
-            com.google.devtools.clouddebugger.v2.Breakpoint.Builder subBuilder = null;
-            if (breakpoint_ != null) {
-              subBuilder = breakpoint_.toBuilder();
-            }
-            breakpoint_ = input.readMessage(com.google.devtools.clouddebugger.v2.Breakpoint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(breakpoint_);
-              breakpoint_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.clouddebugger.v2.ControllerProto.internal_static_google_devtools_clouddebugger_v2_UpdateActiveBreakpointRequest_descriptor;
@@ -107,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEBUGGEE_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object debuggeeId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object debuggeeId_ = "";
   /**
    * <pre>
    * Required. Identifies the debuggee being debugged.
@@ -193,7 +136,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.clouddebugger.v2.BreakpointOrBuilder getBreakpointOrBuilder() {
-    return getBreakpoint();
+    return breakpoint_ == null ? com.google.devtools.clouddebugger.v2.Breakpoint.getDefaultInstance() : breakpoint_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -216,7 +159,7 @@ private static final long serialVersionUID = 0L;
     if (breakpoint_ != null) {
       output.writeMessage(2, getBreakpoint());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -232,7 +175,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getBreakpoint());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -254,7 +197,7 @@ private static final long serialVersionUID = 0L;
       if (!getBreakpoint()
           .equals(other.getBreakpoint())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -271,7 +214,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BREAKPOINT_FIELD_NUMBER;
       hash = (53 * hash) + getBreakpoint().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -392,28 +335,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.clouddebugger.v2.UpdateActiveBreakpointRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       debuggeeId_ = "";
-
-      if (breakpointBuilder_ == null) {
-        breakpoint_ = null;
-      } else {
-        breakpoint_ = null;
+      breakpoint_ = null;
+      if (breakpointBuilder_ != null) {
+        breakpointBuilder_.dispose();
         breakpointBuilder_ = null;
       }
       return this;
@@ -442,14 +379,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.clouddebugger.v2.UpdateActiveBreakpointRequest buildPartial() {
       com.google.devtools.clouddebugger.v2.UpdateActiveBreakpointRequest result = new com.google.devtools.clouddebugger.v2.UpdateActiveBreakpointRequest(this);
-      result.debuggeeId_ = debuggeeId_;
-      if (breakpointBuilder_ == null) {
-        result.breakpoint_ = breakpoint_;
-      } else {
-        result.breakpoint_ = breakpointBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.clouddebugger.v2.UpdateActiveBreakpointRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.debuggeeId_ = debuggeeId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.breakpoint_ = breakpointBuilder_ == null
+            ? breakpoint_
+            : breakpointBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -498,12 +442,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.clouddebugger.v2.UpdateActiveBreakpointRequest.getDefaultInstance()) return this;
       if (!other.getDebuggeeId().isEmpty()) {
         debuggeeId_ = other.debuggeeId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasBreakpoint()) {
         mergeBreakpoint(other.getBreakpoint());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -518,19 +463,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.clouddebugger.v2.UpdateActiveBreakpointRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              debuggeeId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getBreakpointFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.clouddebugger.v2.UpdateActiveBreakpointRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object debuggeeId_ = "";
     /**
@@ -585,11 +556,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDebuggeeId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       debuggeeId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -602,8 +571,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDebuggeeId() {
-      
       debuggeeId_ = getDefaultInstance().getDebuggeeId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -618,12 +587,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDebuggeeIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       debuggeeId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -642,7 +609,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the breakpoint field is set.
      */
     public boolean hasBreakpoint() {
-      return breakpointBuilder_ != null || breakpoint_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -676,11 +643,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         breakpoint_ = value;
-        onChanged();
       } else {
         breakpointBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -696,11 +663,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.clouddebugger.v2.Breakpoint.Builder builderForValue) {
       if (breakpointBuilder_ == null) {
         breakpoint_ = builderForValue.build();
-        onChanged();
       } else {
         breakpointBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -714,17 +681,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBreakpoint(com.google.devtools.clouddebugger.v2.Breakpoint value) {
       if (breakpointBuilder_ == null) {
-        if (breakpoint_ != null) {
-          breakpoint_ =
-            com.google.devtools.clouddebugger.v2.Breakpoint.newBuilder(breakpoint_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          breakpoint_ != null &&
+          breakpoint_ != com.google.devtools.clouddebugger.v2.Breakpoint.getDefaultInstance()) {
+          getBreakpointBuilder().mergeFrom(value);
         } else {
           breakpoint_ = value;
         }
-        onChanged();
       } else {
         breakpointBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -737,14 +705,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.clouddebugger.v2.Breakpoint breakpoint = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearBreakpoint() {
-      if (breakpointBuilder_ == null) {
-        breakpoint_ = null;
-        onChanged();
-      } else {
-        breakpoint_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      breakpoint_ = null;
+      if (breakpointBuilder_ != null) {
+        breakpointBuilder_.dispose();
         breakpointBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -757,7 +724,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.clouddebugger.v2.Breakpoint breakpoint = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.devtools.clouddebugger.v2.Breakpoint.Builder getBreakpointBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getBreakpointFieldBuilder().getBuilder();
     }
@@ -833,7 +800,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateActiveBreakpointRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

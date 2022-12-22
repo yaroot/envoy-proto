@@ -36,83 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SqlServerAuditConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kind_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            bucket_ = s;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (retentionInterval_ != null) {
-              subBuilder = retentionInterval_.toBuilder();
-            }
-            retentionInterval_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(retentionInterval_);
-              retentionInterval_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (uploadInterval_ != null) {
-              subBuilder = uploadInterval_.toBuilder();
-            }
-            uploadInterval_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(uploadInterval_);
-              uploadInterval_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.sql.v1beta4.CloudSqlResourcesProto.internal_static_google_cloud_sql_v1beta4_SqlServerAuditConfig_descriptor;
@@ -127,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 1;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * This is always sql#sqlServerAuditConfig
@@ -173,7 +97,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BUCKET_FIELD_NUMBER = 2;
-  private volatile java.lang.Object bucket_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object bucket_ = "";
   /**
    * <pre>
    * The name of the destination bucket (e.g., gs://mybucket).
@@ -253,7 +178,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getRetentionIntervalOrBuilder() {
-    return getRetentionInterval();
+    return retentionInterval_ == null ? com.google.protobuf.Duration.getDefaultInstance() : retentionInterval_;
   }
 
   public static final int UPLOAD_INTERVAL_FIELD_NUMBER = 4;
@@ -291,7 +216,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getUploadIntervalOrBuilder() {
-    return getUploadInterval();
+    return uploadInterval_ == null ? com.google.protobuf.Duration.getDefaultInstance() : uploadInterval_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -320,7 +245,7 @@ private static final long serialVersionUID = 0L;
     if (uploadInterval_ != null) {
       output.writeMessage(4, getUploadInterval());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -343,7 +268,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getUploadInterval());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -372,7 +297,7 @@ private static final long serialVersionUID = 0L;
       if (!getUploadInterval()
           .equals(other.getUploadInterval())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -395,7 +320,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UPLOAD_INTERVAL_FIELD_NUMBER;
       hash = (53 * hash) + getUploadInterval().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -516,36 +441,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.sql.v1beta4.SqlServerAuditConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       kind_ = "";
-
       bucket_ = "";
-
-      if (retentionIntervalBuilder_ == null) {
-        retentionInterval_ = null;
-      } else {
-        retentionInterval_ = null;
+      retentionInterval_ = null;
+      if (retentionIntervalBuilder_ != null) {
+        retentionIntervalBuilder_.dispose();
         retentionIntervalBuilder_ = null;
       }
-      if (uploadIntervalBuilder_ == null) {
-        uploadInterval_ = null;
-      } else {
-        uploadInterval_ = null;
+      uploadInterval_ = null;
+      if (uploadIntervalBuilder_ != null) {
+        uploadIntervalBuilder_.dispose();
         uploadIntervalBuilder_ = null;
       }
       return this;
@@ -574,20 +491,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.sql.v1beta4.SqlServerAuditConfig buildPartial() {
       com.google.cloud.sql.v1beta4.SqlServerAuditConfig result = new com.google.cloud.sql.v1beta4.SqlServerAuditConfig(this);
-      result.kind_ = kind_;
-      result.bucket_ = bucket_;
-      if (retentionIntervalBuilder_ == null) {
-        result.retentionInterval_ = retentionInterval_;
-      } else {
-        result.retentionInterval_ = retentionIntervalBuilder_.build();
-      }
-      if (uploadIntervalBuilder_ == null) {
-        result.uploadInterval_ = uploadInterval_;
-      } else {
-        result.uploadInterval_ = uploadIntervalBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.sql.v1beta4.SqlServerAuditConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.kind_ = kind_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.bucket_ = bucket_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.retentionInterval_ = retentionIntervalBuilder_ == null
+            ? retentionInterval_
+            : retentionIntervalBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.uploadInterval_ = uploadIntervalBuilder_ == null
+            ? uploadInterval_
+            : uploadIntervalBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -636,10 +562,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.sql.v1beta4.SqlServerAuditConfig.getDefaultInstance()) return this;
       if (!other.getKind().isEmpty()) {
         kind_ = other.kind_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getBucket().isEmpty()) {
         bucket_ = other.bucket_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasRetentionInterval()) {
@@ -648,7 +576,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasUploadInterval()) {
         mergeUploadInterval(other.getUploadInterval());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -663,19 +591,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.sql.v1beta4.SqlServerAuditConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              bucket_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getRetentionIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getUploadIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.sql.v1beta4.SqlServerAuditConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object kind_ = "";
     /**
@@ -730,11 +696,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -747,8 +711,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -763,12 +727,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -826,11 +788,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBucket(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       bucket_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -843,8 +803,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBucket() {
-      
       bucket_ = getDefaultInstance().getBucket();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -859,12 +819,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBucketBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       bucket_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -881,7 +839,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the retentionInterval field is set.
      */
     public boolean hasRetentionInterval() {
-      return retentionIntervalBuilder_ != null || retentionInterval_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -911,11 +869,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         retentionInterval_ = value;
-        onChanged();
       } else {
         retentionIntervalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -929,11 +887,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (retentionIntervalBuilder_ == null) {
         retentionInterval_ = builderForValue.build();
-        onChanged();
       } else {
         retentionIntervalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -945,17 +903,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRetentionInterval(com.google.protobuf.Duration value) {
       if (retentionIntervalBuilder_ == null) {
-        if (retentionInterval_ != null) {
-          retentionInterval_ =
-            com.google.protobuf.Duration.newBuilder(retentionInterval_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          retentionInterval_ != null &&
+          retentionInterval_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getRetentionIntervalBuilder().mergeFrom(value);
         } else {
           retentionInterval_ = value;
         }
-        onChanged();
       } else {
         retentionIntervalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -966,14 +925,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration retention_interval = 3;</code>
      */
     public Builder clearRetentionInterval() {
-      if (retentionIntervalBuilder_ == null) {
-        retentionInterval_ = null;
-        onChanged();
-      } else {
-        retentionInterval_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      retentionInterval_ = null;
+      if (retentionIntervalBuilder_ != null) {
+        retentionIntervalBuilder_.dispose();
         retentionIntervalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -984,7 +942,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration retention_interval = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getRetentionIntervalBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getRetentionIntervalFieldBuilder().getBuilder();
     }
@@ -1036,7 +994,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the uploadInterval field is set.
      */
     public boolean hasUploadInterval() {
-      return uploadIntervalBuilder_ != null || uploadInterval_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1066,11 +1024,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         uploadInterval_ = value;
-        onChanged();
       } else {
         uploadIntervalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1084,11 +1042,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (uploadIntervalBuilder_ == null) {
         uploadInterval_ = builderForValue.build();
-        onChanged();
       } else {
         uploadIntervalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1100,17 +1058,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUploadInterval(com.google.protobuf.Duration value) {
       if (uploadIntervalBuilder_ == null) {
-        if (uploadInterval_ != null) {
-          uploadInterval_ =
-            com.google.protobuf.Duration.newBuilder(uploadInterval_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          uploadInterval_ != null &&
+          uploadInterval_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getUploadIntervalBuilder().mergeFrom(value);
         } else {
           uploadInterval_ = value;
         }
-        onChanged();
       } else {
         uploadIntervalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1121,14 +1080,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration upload_interval = 4;</code>
      */
     public Builder clearUploadInterval() {
-      if (uploadIntervalBuilder_ == null) {
-        uploadInterval_ = null;
-        onChanged();
-      } else {
-        uploadInterval_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      uploadInterval_ = null;
+      if (uploadIntervalBuilder_ != null) {
+        uploadIntervalBuilder_.dispose();
         uploadIntervalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1139,7 +1097,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration upload_interval = 4;</code>
      */
     public com.google.protobuf.Duration.Builder getUploadIntervalBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getUploadIntervalFieldBuilder().getBuilder();
     }
@@ -1211,7 +1169,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SqlServerAuditConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

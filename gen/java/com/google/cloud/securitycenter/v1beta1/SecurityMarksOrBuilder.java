@@ -98,7 +98,6 @@ public interface SecurityMarksOrBuilder extends
    *
    * <code>map&lt;string, string&gt; marks = 2;</code>
    */
-
   /* nullable */
 java.lang.String getMarksOrDefault(
       java.lang.String key,
@@ -117,7 +116,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; marks = 2;</code>
    */
-
   java.lang.String getMarksOrThrow(
       java.lang.String key);
 }

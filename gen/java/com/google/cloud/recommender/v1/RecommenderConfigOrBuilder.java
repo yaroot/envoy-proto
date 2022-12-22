@@ -201,7 +201,6 @@ public interface RecommenderConfigOrBuilder extends
    *
    * <code>map&lt;string, string&gt; annotations = 6;</code>
    */
-
   /* nullable */
 java.lang.String getAnnotationsOrDefault(
       java.lang.String key,
@@ -221,7 +220,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; annotations = 6;</code>
    */
-
   java.lang.String getAnnotationsOrThrow(
       java.lang.String key);
 

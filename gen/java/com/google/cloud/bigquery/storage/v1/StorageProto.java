@@ -70,6 +70,11 @@ public final class StorageProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_ProtoData_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_MissingValueInterpretationsEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_MissingValueInterpretationsEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_cloud_bigquery_storage_v1_AppendRowsResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -182,123 +187,134 @@ public final class StorageProto {
       "iteStreamRequest\0225\n\006parent\030\001 \001(\tB%\340A\002\372A\037" +
       "\n\035bigquery.googleapis.com/Table\022H\n\014write" +
       "_stream\030\002 \001(\0132-.google.cloud.bigquery.st" +
-      "orage.v1.WriteStreamB\003\340A\002\"\210\003\n\021AppendRows" +
+      "orage.v1.WriteStreamB\003\340A\002\"\211\006\n\021AppendRows" +
       "Request\022H\n\014write_stream\030\001 \001(\tB2\340A\002\372A,\n*b" +
       "igquerystorage.googleapis.com/WriteStrea" +
       "m\022+\n\006offset\030\002 \001(\0132\033.google.protobuf.Int6" +
       "4Value\022S\n\nproto_rows\030\004 \001(\0132=.google.clou" +
       "d.bigquery.storage.v1.AppendRowsRequest." +
-      "ProtoDataH\000\022\020\n\010trace_id\030\006 \001(\t\032\214\001\n\tProtoD" +
-      "ata\022D\n\rwriter_schema\030\001 \001(\0132-.google.clou" +
-      "d.bigquery.storage.v1.ProtoSchema\0229\n\004row" +
-      "s\030\002 \001(\0132+.google.cloud.bigquery.storage." +
-      "v1.ProtoRowsB\006\n\004rows\"\373\002\n\022AppendRowsRespo" +
-      "nse\022Z\n\rappend_result\030\001 \001(\0132A.google.clou" +
-      "d.bigquery.storage.v1.AppendRowsResponse" +
-      ".AppendResultH\000\022#\n\005error\030\002 \001(\0132\022.google." +
-      "rpc.StatusH\000\022E\n\016updated_schema\030\003 \001(\0132-.g" +
-      "oogle.cloud.bigquery.storage.v1.TableSch" +
-      "ema\022>\n\nrow_errors\030\004 \003(\0132*.google.cloud.b" +
-      "igquery.storage.v1.RowError\022\024\n\014write_str" +
-      "eam\030\005 \001(\t\032;\n\014AppendResult\022+\n\006offset\030\001 \001(" +
-      "\0132\033.google.protobuf.Int64ValueB\n\n\010respon" +
-      "se\"Y\n\025GetWriteStreamRequest\022@\n\004name\030\001 \001(" +
-      "\tB2\340A\002\372A,\n*bigquerystorage.googleapis.co" +
-      "m/WriteStream\"s\n\036BatchCommitWriteStreams" +
-      "Request\0225\n\006parent\030\001 \001(\tB%\340A\002\372A\037\n\035bigquer" +
-      "y.googleapis.com/Table\022\032\n\rwrite_streams\030" +
-      "\002 \003(\tB\003\340A\002\"\231\001\n\037BatchCommitWriteStreamsRe" +
-      "sponse\022/\n\013commit_time\030\001 \001(\0132\032.google.pro" +
-      "tobuf.Timestamp\022E\n\rstream_errors\030\002 \003(\0132." +
-      ".google.cloud.bigquery.storage.v1.Storag" +
-      "eError\"^\n\032FinalizeWriteStreamRequest\022@\n\004" +
-      "name\030\001 \001(\tB2\340A\002\372A,\n*bigquerystorage.goog" +
-      "leapis.com/WriteStream\"0\n\033FinalizeWriteS" +
-      "treamResponse\022\021\n\trow_count\030\001 \001(\003\"\211\001\n\020Flu" +
-      "shRowsRequest\022H\n\014write_stream\030\001 \001(\tB2\340A\002" +
-      "\372A,\n*bigquerystorage.googleapis.com/Writ" +
-      "eStream\022+\n\006offset\030\002 \001(\0132\033.google.protobu" +
-      "f.Int64Value\"#\n\021FlushRowsResponse\022\016\n\006off" +
-      "set\030\001 \001(\003\"\245\003\n\014StorageError\022M\n\004code\030\001 \001(\016" +
-      "2?.google.cloud.bigquery.storage.v1.Stor" +
-      "ageError.StorageErrorCode\022\016\n\006entity\030\002 \001(" +
-      "\t\022\025\n\rerror_message\030\003 \001(\t\"\236\002\n\020StorageErro" +
-      "rCode\022\"\n\036STORAGE_ERROR_CODE_UNSPECIFIED\020" +
-      "\000\022\023\n\017TABLE_NOT_FOUND\020\001\022\034\n\030STREAM_ALREADY" +
-      "_COMMITTED\020\002\022\024\n\020STREAM_NOT_FOUND\020\003\022\027\n\023IN" +
-      "VALID_STREAM_TYPE\020\004\022\030\n\024INVALID_STREAM_ST" +
-      "ATE\020\005\022\024\n\020STREAM_FINALIZED\020\006\022 \n\034SCHEMA_MI" +
-      "SMATCH_EXTRA_FIELDS\020\007\022\031\n\025OFFSET_ALREADY_" +
-      "EXISTS\020\010\022\027\n\023OFFSET_OUT_OF_RANGE\020\t\"\263\001\n\010Ro" +
-      "wError\022\r\n\005index\030\001 \001(\003\022E\n\004code\030\002 \001(\01627.go" +
-      "ogle.cloud.bigquery.storage.v1.RowError." +
-      "RowErrorCode\022\017\n\007message\030\003 \001(\t\"@\n\014RowErro" +
-      "rCode\022\036\n\032ROW_ERROR_CODE_UNSPECIFIED\020\000\022\020\n" +
-      "\014FIELDS_ERROR\020\0012\222\006\n\014BigQueryRead\022\351\001\n\021Cre" +
-      "ateReadSession\022:.google.cloud.bigquery.s" +
-      "torage.v1.CreateReadSessionRequest\032-.goo" +
-      "gle.cloud.bigquery.storage.v1.ReadSessio" +
-      "n\"i\202\323\344\223\002<\"7/v1/{read_session.table=proje" +
-      "cts/*/datasets/*/tables/*}:\001*\332A$parent,r" +
-      "ead_session,max_stream_count\022\317\001\n\010ReadRow" +
-      "s\0221.google.cloud.bigquery.storage.v1.Rea" +
-      "dRowsRequest\0322.google.cloud.bigquery.sto" +
-      "rage.v1.ReadRowsResponse\"Z\202\323\344\223\002?\022=/v1/{r" +
-      "ead_stream=projects/*/locations/*/sessio" +
-      "ns/*/streams/*}\332A\022read_stream,offset0\001\022\306" +
-      "\001\n\017SplitReadStream\0228.google.cloud.bigque" +
-      "ry.storage.v1.SplitReadStreamRequest\0329.g" +
-      "oogle.cloud.bigquery.storage.v1.SplitRea" +
-      "dStreamResponse\">\202\323\344\223\0028\0226/v1/{name=proje" +
-      "cts/*/locations/*/sessions/*/streams/*}\032" +
-      "{\312A\036bigquerystorage.googleapis.com\322AWhtt" +
-      "ps://www.googleapis.com/auth/bigquery,ht" +
-      "tps://www.googleapis.com/auth/cloud-plat" +
-      "form2\274\013\n\rBigQueryWrite\022\327\001\n\021CreateWriteSt" +
-      "ream\022:.google.cloud.bigquery.storage.v1." +
-      "CreateWriteStreamRequest\032-.google.cloud." +
-      "bigquery.storage.v1.WriteStream\"W\202\323\344\223\002;\"" +
-      "+/v1/{parent=projects/*/datasets/*/table" +
-      "s/*}:\014write_stream\332A\023parent,write_stream" +
-      "\022\322\001\n\nAppendRows\0223.google.cloud.bigquery." +
-      "storage.v1.AppendRowsRequest\0324.google.cl" +
-      "oud.bigquery.storage.v1.AppendRowsRespon" +
-      "se\"U\202\323\344\223\002@\";/v1/{write_stream=projects/*" +
-      "/datasets/*/tables/*/streams/*}:\001*\332A\014wri" +
-      "te_stream(\0010\001\022\277\001\n\016GetWriteStream\0227.googl" +
-      "e.cloud.bigquery.storage.v1.GetWriteStre" +
-      "amRequest\032-.google.cloud.bigquery.storag" +
-      "e.v1.WriteStream\"E\202\323\344\223\0028\"3/v1/{name=proj" +
-      "ects/*/datasets/*/tables/*/streams/*}:\001*" +
-      "\332A\004name\022\331\001\n\023FinalizeWriteStream\022<.google" +
-      ".cloud.bigquery.storage.v1.FinalizeWrite" +
-      "StreamRequest\032=.google.cloud.bigquery.st" +
-      "orage.v1.FinalizeWriteStreamResponse\"E\202\323" +
-      "\344\223\0028\"3/v1/{name=projects/*/datasets/*/ta" +
-      "bles/*/streams/*}:\001*\332A\004name\022\334\001\n\027BatchCom" +
-      "mitWriteStreams\022@.google.cloud.bigquery." +
-      "storage.v1.BatchCommitWriteStreamsReques" +
-      "t\032A.google.cloud.bigquery.storage.v1.Bat" +
-      "chCommitWriteStreamsResponse\"<\202\323\344\223\002-\022+/v" +
-      "1/{parent=projects/*/datasets/*/tables/*" +
-      "}\332A\006parent\022\313\001\n\tFlushRows\0222.google.cloud." +
-      "bigquery.storage.v1.FlushRowsRequest\0323.g" +
-      "oogle.cloud.bigquery.storage.v1.FlushRow" +
-      "sResponse\"U\202\323\344\223\002@\";/v1/{write_stream=pro" +
-      "jects/*/datasets/*/tables/*/streams/*}:\001" +
-      "*\332A\014write_stream\032\260\001\312A\036bigquerystorage.go" +
-      "ogleapis.com\322A\213\001https://www.googleapis.c" +
-      "om/auth/bigquery,https://www.googleapis." +
-      "com/auth/bigquery.insertdata,https://www" +
-      ".googleapis.com/auth/cloud-platformB\235\002\n$" +
-      "com.google.cloud.bigquery.storage.v1B\014St" +
-      "orageProtoP\001ZGgoogle.golang.org/genproto" +
-      "/googleapis/cloud/bigquery/storage/v1;st" +
-      "orage\252\002 Google.Cloud.BigQuery.Storage.V1" +
-      "\312\002 Google\\Cloud\\BigQuery\\Storage\\V1\352AU\n\035" +
-      "bigquery.googleapis.com/Table\0224projects/" +
-      "{project}/datasets/{dataset}/tables/{tab" +
-      "le}b\006proto3"
+      "ProtoDataH\000\022\020\n\010trace_id\030\006 \001(\t\022{\n\035missing" +
+      "_value_interpretations\030\007 \003(\0132T.google.cl" +
+      "oud.bigquery.storage.v1.AppendRowsReques" +
+      "t.MissingValueInterpretationsEntry\032\214\001\n\tP" +
+      "rotoData\022D\n\rwriter_schema\030\001 \001(\0132-.google" +
+      ".cloud.bigquery.storage.v1.ProtoSchema\0229" +
+      "\n\004rows\030\002 \001(\0132+.google.cloud.bigquery.sto" +
+      "rage.v1.ProtoRows\032\222\001\n MissingValueInterp" +
+      "retationsEntry\022\013\n\003key\030\001 \001(\t\022]\n\005value\030\002 \001" +
+      "(\0162N.google.cloud.bigquery.storage.v1.Ap" +
+      "pendRowsRequest.MissingValueInterpretati" +
+      "on:\0028\001\"m\n\032MissingValueInterpretation\022,\n(" +
+      "MISSING_VALUE_INTERPRETATION_UNSPECIFIED" +
+      "\020\000\022\016\n\nNULL_VALUE\020\001\022\021\n\rDEFAULT_VALUE\020\002B\006\n" +
+      "\004rows\"\373\002\n\022AppendRowsResponse\022Z\n\rappend_r" +
+      "esult\030\001 \001(\0132A.google.cloud.bigquery.stor" +
+      "age.v1.AppendRowsResponse.AppendResultH\000" +
+      "\022#\n\005error\030\002 \001(\0132\022.google.rpc.StatusH\000\022E\n" +
+      "\016updated_schema\030\003 \001(\0132-.google.cloud.big" +
+      "query.storage.v1.TableSchema\022>\n\nrow_erro" +
+      "rs\030\004 \003(\0132*.google.cloud.bigquery.storage" +
+      ".v1.RowError\022\024\n\014write_stream\030\005 \001(\t\032;\n\014Ap" +
+      "pendResult\022+\n\006offset\030\001 \001(\0132\033.google.prot" +
+      "obuf.Int64ValueB\n\n\010response\"\232\001\n\025GetWrite" +
+      "StreamRequest\022@\n\004name\030\001 \001(\tB2\340A\002\372A,\n*big" +
+      "querystorage.googleapis.com/WriteStream\022" +
+      "?\n\004view\030\003 \001(\01621.google.cloud.bigquery.st" +
+      "orage.v1.WriteStreamView\"s\n\036BatchCommitW" +
+      "riteStreamsRequest\0225\n\006parent\030\001 \001(\tB%\340A\002\372" +
+      "A\037\n\035bigquery.googleapis.com/Table\022\032\n\rwri" +
+      "te_streams\030\002 \003(\tB\003\340A\002\"\231\001\n\037BatchCommitWri" +
+      "teStreamsResponse\022/\n\013commit_time\030\001 \001(\0132\032" +
+      ".google.protobuf.Timestamp\022E\n\rstream_err" +
+      "ors\030\002 \003(\0132..google.cloud.bigquery.storag" +
+      "e.v1.StorageError\"^\n\032FinalizeWriteStream" +
+      "Request\022@\n\004name\030\001 \001(\tB2\340A\002\372A,\n*bigquerys" +
+      "torage.googleapis.com/WriteStream\"0\n\033Fin" +
+      "alizeWriteStreamResponse\022\021\n\trow_count\030\001 " +
+      "\001(\003\"\211\001\n\020FlushRowsRequest\022H\n\014write_stream" +
+      "\030\001 \001(\tB2\340A\002\372A,\n*bigquerystorage.googleap" +
+      "is.com/WriteStream\022+\n\006offset\030\002 \001(\0132\033.goo" +
+      "gle.protobuf.Int64Value\"#\n\021FlushRowsResp" +
+      "onse\022\016\n\006offset\030\001 \001(\003\"\245\003\n\014StorageError\022M\n" +
+      "\004code\030\001 \001(\0162?.google.cloud.bigquery.stor" +
+      "age.v1.StorageError.StorageErrorCode\022\016\n\006" +
+      "entity\030\002 \001(\t\022\025\n\rerror_message\030\003 \001(\t\"\236\002\n\020" +
+      "StorageErrorCode\022\"\n\036STORAGE_ERROR_CODE_U" +
+      "NSPECIFIED\020\000\022\023\n\017TABLE_NOT_FOUND\020\001\022\034\n\030STR" +
+      "EAM_ALREADY_COMMITTED\020\002\022\024\n\020STREAM_NOT_FO" +
+      "UND\020\003\022\027\n\023INVALID_STREAM_TYPE\020\004\022\030\n\024INVALI" +
+      "D_STREAM_STATE\020\005\022\024\n\020STREAM_FINALIZED\020\006\022 " +
+      "\n\034SCHEMA_MISMATCH_EXTRA_FIELDS\020\007\022\031\n\025OFFS" +
+      "ET_ALREADY_EXISTS\020\010\022\027\n\023OFFSET_OUT_OF_RAN" +
+      "GE\020\t\"\263\001\n\010RowError\022\r\n\005index\030\001 \001(\003\022E\n\004code" +
+      "\030\002 \001(\01627.google.cloud.bigquery.storage.v" +
+      "1.RowError.RowErrorCode\022\017\n\007message\030\003 \001(\t" +
+      "\"@\n\014RowErrorCode\022\036\n\032ROW_ERROR_CODE_UNSPE" +
+      "CIFIED\020\000\022\020\n\014FIELDS_ERROR\020\0012\222\006\n\014BigQueryR" +
+      "ead\022\351\001\n\021CreateReadSession\022:.google.cloud" +
+      ".bigquery.storage.v1.CreateReadSessionRe" +
+      "quest\032-.google.cloud.bigquery.storage.v1" +
+      ".ReadSession\"i\202\323\344\223\002<\"7/v1/{read_session." +
+      "table=projects/*/datasets/*/tables/*}:\001*" +
+      "\332A$parent,read_session,max_stream_count\022" +
+      "\317\001\n\010ReadRows\0221.google.cloud.bigquery.sto" +
+      "rage.v1.ReadRowsRequest\0322.google.cloud.b" +
+      "igquery.storage.v1.ReadRowsResponse\"Z\202\323\344" +
+      "\223\002?\022=/v1/{read_stream=projects/*/locatio" +
+      "ns/*/sessions/*/streams/*}\332A\022read_stream" +
+      ",offset0\001\022\306\001\n\017SplitReadStream\0228.google.c" +
+      "loud.bigquery.storage.v1.SplitReadStream" +
+      "Request\0329.google.cloud.bigquery.storage." +
+      "v1.SplitReadStreamResponse\">\202\323\344\223\0028\0226/v1/" +
+      "{name=projects/*/locations/*/sessions/*/" +
+      "streams/*}\032{\312A\036bigquerystorage.googleapi" +
+      "s.com\322AWhttps://www.googleapis.com/auth/" +
+      "bigquery,https://www.googleapis.com/auth" +
+      "/cloud-platform2\274\013\n\rBigQueryWrite\022\327\001\n\021Cr" +
+      "eateWriteStream\022:.google.cloud.bigquery." +
+      "storage.v1.CreateWriteStreamRequest\032-.go" +
+      "ogle.cloud.bigquery.storage.v1.WriteStre" +
+      "am\"W\202\323\344\223\002;\"+/v1/{parent=projects/*/datas" +
+      "ets/*/tables/*}:\014write_stream\332A\023parent,w" +
+      "rite_stream\022\322\001\n\nAppendRows\0223.google.clou" +
+      "d.bigquery.storage.v1.AppendRowsRequest\032" +
+      "4.google.cloud.bigquery.storage.v1.Appen" +
+      "dRowsResponse\"U\202\323\344\223\002@\";/v1/{write_stream" +
+      "=projects/*/datasets/*/tables/*/streams/" +
+      "*}:\001*\332A\014write_stream(\0010\001\022\277\001\n\016GetWriteStr" +
+      "eam\0227.google.cloud.bigquery.storage.v1.G" +
+      "etWriteStreamRequest\032-.google.cloud.bigq" +
+      "uery.storage.v1.WriteStream\"E\202\323\344\223\0028\"3/v1" +
+      "/{name=projects/*/datasets/*/tables/*/st" +
+      "reams/*}:\001*\332A\004name\022\331\001\n\023FinalizeWriteStre" +
+      "am\022<.google.cloud.bigquery.storage.v1.Fi" +
+      "nalizeWriteStreamRequest\032=.google.cloud." +
+      "bigquery.storage.v1.FinalizeWriteStreamR" +
+      "esponse\"E\202\323\344\223\0028\"3/v1/{name=projects/*/da" +
+      "tasets/*/tables/*/streams/*}:\001*\332A\004name\022\334" +
+      "\001\n\027BatchCommitWriteStreams\022@.google.clou" +
+      "d.bigquery.storage.v1.BatchCommitWriteSt" +
+      "reamsRequest\032A.google.cloud.bigquery.sto" +
+      "rage.v1.BatchCommitWriteStreamsResponse\"" +
+      "<\202\323\344\223\002-\022+/v1/{parent=projects/*/datasets" +
+      "/*/tables/*}\332A\006parent\022\313\001\n\tFlushRows\0222.go" +
+      "ogle.cloud.bigquery.storage.v1.FlushRows" +
+      "Request\0323.google.cloud.bigquery.storage." +
+      "v1.FlushRowsResponse\"U\202\323\344\223\002@\";/v1/{write" +
+      "_stream=projects/*/datasets/*/tables/*/s" +
+      "treams/*}:\001*\332A\014write_stream\032\260\001\312A\036bigquer" +
+      "ystorage.googleapis.com\322A\213\001https://www.g" +
+      "oogleapis.com/auth/bigquery,https://www." +
+      "googleapis.com/auth/bigquery.insertdata," +
+      "https://www.googleapis.com/auth/cloud-pl" +
+      "atformB\235\002\n$com.google.cloud.bigquery.sto" +
+      "rage.v1B\014StorageProtoP\001ZGgoogle.golang.o" +
+      "rg/genproto/googleapis/cloud/bigquery/st" +
+      "orage/v1;storage\252\002 Google.Cloud.BigQuery" +
+      ".Storage.V1\312\002 Google\\Cloud\\BigQuery\\Stor" +
+      "age\\V1\352AU\n\035bigquery.googleapis.com/Table" +
+      "\0224projects/{project}/datasets/{dataset}/" +
+      "tables/{table}b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -375,13 +391,19 @@ public final class StorageProto {
     internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_descriptor,
-        new java.lang.String[] { "WriteStream", "Offset", "ProtoRows", "TraceId", "Rows", });
+        new java.lang.String[] { "WriteStream", "Offset", "ProtoRows", "TraceId", "MissingValueInterpretations", "Rows", });
     internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_ProtoData_descriptor =
       internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_descriptor.getNestedTypes().get(0);
     internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_ProtoData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_ProtoData_descriptor,
         new java.lang.String[] { "WriterSchema", "Rows", });
+    internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_MissingValueInterpretationsEntry_descriptor =
+      internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_descriptor.getNestedTypes().get(1);
+    internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_MissingValueInterpretationsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_MissingValueInterpretationsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_google_cloud_bigquery_storage_v1_AppendRowsResponse_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_google_cloud_bigquery_storage_v1_AppendRowsResponse_fieldAccessorTable = new
@@ -399,7 +421,7 @@ public final class StorageProto {
     internal_static_google_cloud_bigquery_storage_v1_GetWriteStreamRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_bigquery_storage_v1_GetWriteStreamRequest_descriptor,
-        new java.lang.String[] { "Name", });
+        new java.lang.String[] { "Name", "View", });
     internal_static_google_cloud_bigquery_storage_v1_BatchCommitWriteStreamsRequest_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_google_cloud_bigquery_storage_v1_BatchCommitWriteStreamsRequest_fieldAccessorTable = new

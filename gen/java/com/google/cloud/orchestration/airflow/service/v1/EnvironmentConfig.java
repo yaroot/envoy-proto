@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
   private EnvironmentConfig() {
     gkeCluster_ = "";
     dagGcsPrefix_ = "";
+    environmentSize_ = 0;
     airflowUri_ = "";
   }
 
@@ -37,159 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EnvironmentConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            gkeCluster_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            dagGcsPrefix_ = s;
-            break;
-          }
-          case 24: {
-
-            nodeCount_ = input.readInt32();
-            break;
-          }
-          case 34: {
-            com.google.cloud.orchestration.airflow.service.v1.SoftwareConfig.Builder subBuilder = null;
-            if (softwareConfig_ != null) {
-              subBuilder = softwareConfig_.toBuilder();
-            }
-            softwareConfig_ = input.readMessage(com.google.cloud.orchestration.airflow.service.v1.SoftwareConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(softwareConfig_);
-              softwareConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.cloud.orchestration.airflow.service.v1.NodeConfig.Builder subBuilder = null;
-            if (nodeConfig_ != null) {
-              subBuilder = nodeConfig_.toBuilder();
-            }
-            nodeConfig_ = input.readMessage(com.google.cloud.orchestration.airflow.service.v1.NodeConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(nodeConfig_);
-              nodeConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            airflowUri_ = s;
-            break;
-          }
-          case 58: {
-            com.google.cloud.orchestration.airflow.service.v1.PrivateEnvironmentConfig.Builder subBuilder = null;
-            if (privateEnvironmentConfig_ != null) {
-              subBuilder = privateEnvironmentConfig_.toBuilder();
-            }
-            privateEnvironmentConfig_ = input.readMessage(com.google.cloud.orchestration.airflow.service.v1.PrivateEnvironmentConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(privateEnvironmentConfig_);
-              privateEnvironmentConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.cloud.orchestration.airflow.service.v1.WebServerNetworkAccessControl.Builder subBuilder = null;
-            if (webServerNetworkAccessControl_ != null) {
-              subBuilder = webServerNetworkAccessControl_.toBuilder();
-            }
-            webServerNetworkAccessControl_ = input.readMessage(com.google.cloud.orchestration.airflow.service.v1.WebServerNetworkAccessControl.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(webServerNetworkAccessControl_);
-              webServerNetworkAccessControl_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            com.google.cloud.orchestration.airflow.service.v1.DatabaseConfig.Builder subBuilder = null;
-            if (databaseConfig_ != null) {
-              subBuilder = databaseConfig_.toBuilder();
-            }
-            databaseConfig_ = input.readMessage(com.google.cloud.orchestration.airflow.service.v1.DatabaseConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(databaseConfig_);
-              databaseConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.google.cloud.orchestration.airflow.service.v1.WebServerConfig.Builder subBuilder = null;
-            if (webServerConfig_ != null) {
-              subBuilder = webServerConfig_.toBuilder();
-            }
-            webServerConfig_ = input.readMessage(com.google.cloud.orchestration.airflow.service.v1.WebServerConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(webServerConfig_);
-              webServerConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            com.google.cloud.orchestration.airflow.service.v1.EncryptionConfig.Builder subBuilder = null;
-            if (encryptionConfig_ != null) {
-              subBuilder = encryptionConfig_.toBuilder();
-            }
-            encryptionConfig_ = input.readMessage(com.google.cloud.orchestration.airflow.service.v1.EncryptionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(encryptionConfig_);
-              encryptionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.orchestration.airflow.service.v1.EnvironmentsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1_EnvironmentConfig_descriptor;
@@ -203,8 +51,171 @@ private static final long serialVersionUID = 0L;
             com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.class, com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.Builder.class);
   }
 
+  /**
+   * <pre>
+   * The size of the Cloud Composer environment.
+   * </pre>
+   *
+   * Protobuf enum {@code google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize}
+   */
+  public enum EnvironmentSize
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * The size of the environment is unspecified.
+     * </pre>
+     *
+     * <code>ENVIRONMENT_SIZE_UNSPECIFIED = 0;</code>
+     */
+    ENVIRONMENT_SIZE_UNSPECIFIED(0),
+    /**
+     * <pre>
+     * The environment size is small.
+     * </pre>
+     *
+     * <code>ENVIRONMENT_SIZE_SMALL = 1;</code>
+     */
+    ENVIRONMENT_SIZE_SMALL(1),
+    /**
+     * <pre>
+     * The environment size is medium.
+     * </pre>
+     *
+     * <code>ENVIRONMENT_SIZE_MEDIUM = 2;</code>
+     */
+    ENVIRONMENT_SIZE_MEDIUM(2),
+    /**
+     * <pre>
+     * The environment size is large.
+     * </pre>
+     *
+     * <code>ENVIRONMENT_SIZE_LARGE = 3;</code>
+     */
+    ENVIRONMENT_SIZE_LARGE(3),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * The size of the environment is unspecified.
+     * </pre>
+     *
+     * <code>ENVIRONMENT_SIZE_UNSPECIFIED = 0;</code>
+     */
+    public static final int ENVIRONMENT_SIZE_UNSPECIFIED_VALUE = 0;
+    /**
+     * <pre>
+     * The environment size is small.
+     * </pre>
+     *
+     * <code>ENVIRONMENT_SIZE_SMALL = 1;</code>
+     */
+    public static final int ENVIRONMENT_SIZE_SMALL_VALUE = 1;
+    /**
+     * <pre>
+     * The environment size is medium.
+     * </pre>
+     *
+     * <code>ENVIRONMENT_SIZE_MEDIUM = 2;</code>
+     */
+    public static final int ENVIRONMENT_SIZE_MEDIUM_VALUE = 2;
+    /**
+     * <pre>
+     * The environment size is large.
+     * </pre>
+     *
+     * <code>ENVIRONMENT_SIZE_LARGE = 3;</code>
+     */
+    public static final int ENVIRONMENT_SIZE_LARGE_VALUE = 3;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static EnvironmentSize valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static EnvironmentSize forNumber(int value) {
+      switch (value) {
+        case 0: return ENVIRONMENT_SIZE_UNSPECIFIED;
+        case 1: return ENVIRONMENT_SIZE_SMALL;
+        case 2: return ENVIRONMENT_SIZE_MEDIUM;
+        case 3: return ENVIRONMENT_SIZE_LARGE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<EnvironmentSize>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        EnvironmentSize> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<EnvironmentSize>() {
+            public EnvironmentSize findValueByNumber(int number) {
+              return EnvironmentSize.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final EnvironmentSize[] VALUES = values();
+
+    public static EnvironmentSize valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private EnvironmentSize(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize)
+  }
+
   public static final int GKE_CLUSTER_FIELD_NUMBER = 1;
-  private volatile java.lang.Object gkeCluster_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object gkeCluster_ = "";
   /**
    * <pre>
    * Output only. The Kubernetes Engine cluster used to run this environment.
@@ -250,7 +261,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DAG_GCS_PREFIX_FIELD_NUMBER = 2;
-  private volatile java.lang.Object dagGcsPrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object dagGcsPrefix_ = "";
   /**
    * <pre>
    * Output only. The Cloud Storage prefix of the DAGs for this environment. Although Cloud
@@ -302,11 +314,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NODE_COUNT_FIELD_NUMBER = 3;
-  private int nodeCount_;
+  private int nodeCount_ = 0;
   /**
    * <pre>
    * The number of nodes in the Kubernetes Engine cluster that will be
    * used to run this environment.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>int32 node_count = 3;</code>
@@ -352,7 +366,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.orchestration.airflow.service.v1.SoftwareConfigOrBuilder getSoftwareConfigOrBuilder() {
-    return getSoftwareConfig();
+    return softwareConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1.SoftwareConfig.getDefaultInstance() : softwareConfig_;
   }
 
   public static final int NODE_CONFIG_FIELD_NUMBER = 5;
@@ -390,7 +404,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.orchestration.airflow.service.v1.NodeConfigOrBuilder getNodeConfigOrBuilder() {
-    return getNodeConfig();
+    return nodeConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1.NodeConfig.getDefaultInstance() : nodeConfig_;
   }
 
   public static final int PRIVATE_ENVIRONMENT_CONFIG_FIELD_NUMBER = 7;
@@ -428,7 +442,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.orchestration.airflow.service.v1.PrivateEnvironmentConfigOrBuilder getPrivateEnvironmentConfigOrBuilder() {
-    return getPrivateEnvironmentConfig();
+    return privateEnvironmentConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1.PrivateEnvironmentConfig.getDefaultInstance() : privateEnvironmentConfig_;
   }
 
   public static final int WEB_SERVER_NETWORK_ACCESS_CONTROL_FIELD_NUMBER = 8;
@@ -469,7 +483,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.orchestration.airflow.service.v1.WebServerNetworkAccessControlOrBuilder getWebServerNetworkAccessControlOrBuilder() {
-    return getWebServerNetworkAccessControl();
+    return webServerNetworkAccessControl_ == null ? com.google.cloud.orchestration.airflow.service.v1.WebServerNetworkAccessControl.getDefaultInstance() : webServerNetworkAccessControl_;
   }
 
   public static final int DATABASE_CONFIG_FIELD_NUMBER = 9;
@@ -510,7 +524,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.orchestration.airflow.service.v1.DatabaseConfigOrBuilder getDatabaseConfigOrBuilder() {
-    return getDatabaseConfig();
+    return databaseConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1.DatabaseConfig.getDefaultInstance() : databaseConfig_;
   }
 
   public static final int WEB_SERVER_CONFIG_FIELD_NUMBER = 10;
@@ -548,7 +562,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.orchestration.airflow.service.v1.WebServerConfigOrBuilder getWebServerConfigOrBuilder() {
-    return getWebServerConfig();
+    return webServerConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1.WebServerConfig.getDefaultInstance() : webServerConfig_;
   }
 
   public static final int ENCRYPTION_CONFIG_FIELD_NUMBER = 11;
@@ -589,11 +603,160 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.orchestration.airflow.service.v1.EncryptionConfigOrBuilder getEncryptionConfigOrBuilder() {
-    return getEncryptionConfig();
+    return encryptionConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1.EncryptionConfig.getDefaultInstance() : encryptionConfig_;
+  }
+
+  public static final int MAINTENANCE_WINDOW_FIELD_NUMBER = 12;
+  private com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow maintenanceWindow_;
+  /**
+   * <pre>
+   * Optional. The maintenance window is the period when Cloud Composer components may
+   * undergo maintenance. It is defined so that maintenance is not executed
+   * during peak hours or critical time periods.
+   * The system will not be under maintenance for every occurrence of this
+   * window, but when maintenance is planned, it will be scheduled
+   * during the window.
+   * The maintenance window period must encompass at least 12 hours per week.
+   * This may be split into multiple chunks, each with a size of
+   * at least 4 hours.
+   * If this value is omitted, the default value for maintenance window will be
+   * applied. The default value is Saturday and Sunday 00-06 GMT.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow maintenance_window = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return Whether the maintenanceWindow field is set.
+   */
+  @java.lang.Override
+  public boolean hasMaintenanceWindow() {
+    return maintenanceWindow_ != null;
+  }
+  /**
+   * <pre>
+   * Optional. The maintenance window is the period when Cloud Composer components may
+   * undergo maintenance. It is defined so that maintenance is not executed
+   * during peak hours or critical time periods.
+   * The system will not be under maintenance for every occurrence of this
+   * window, but when maintenance is planned, it will be scheduled
+   * during the window.
+   * The maintenance window period must encompass at least 12 hours per week.
+   * This may be split into multiple chunks, each with a size of
+   * at least 4 hours.
+   * If this value is omitted, the default value for maintenance window will be
+   * applied. The default value is Saturday and Sunday 00-06 GMT.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow maintenance_window = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The maintenanceWindow.
+   */
+  @java.lang.Override
+  public com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow getMaintenanceWindow() {
+    return maintenanceWindow_ == null ? com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow.getDefaultInstance() : maintenanceWindow_;
+  }
+  /**
+   * <pre>
+   * Optional. The maintenance window is the period when Cloud Composer components may
+   * undergo maintenance. It is defined so that maintenance is not executed
+   * during peak hours or critical time periods.
+   * The system will not be under maintenance for every occurrence of this
+   * window, but when maintenance is planned, it will be scheduled
+   * during the window.
+   * The maintenance window period must encompass at least 12 hours per week.
+   * This may be split into multiple chunks, each with a size of
+   * at least 4 hours.
+   * If this value is omitted, the default value for maintenance window will be
+   * applied. The default value is Saturday and Sunday 00-06 GMT.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow maintenance_window = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindowOrBuilder getMaintenanceWindowOrBuilder() {
+    return maintenanceWindow_ == null ? com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow.getDefaultInstance() : maintenanceWindow_;
+  }
+
+  public static final int WORKLOADS_CONFIG_FIELD_NUMBER = 15;
+  private com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig workloadsConfig_;
+  /**
+   * <pre>
+   * Optional. The workloads configuration settings for the GKE cluster associated with
+   * the Cloud Composer environment. The GKE cluster runs Airflow scheduler, web
+   * server and workers workloads.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-2.*.*-airflow-*.*.* and newer.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig workloads_config = 15 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return Whether the workloadsConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasWorkloadsConfig() {
+    return workloadsConfig_ != null;
+  }
+  /**
+   * <pre>
+   * Optional. The workloads configuration settings for the GKE cluster associated with
+   * the Cloud Composer environment. The GKE cluster runs Airflow scheduler, web
+   * server and workers workloads.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-2.*.*-airflow-*.*.* and newer.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig workloads_config = 15 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The workloadsConfig.
+   */
+  @java.lang.Override
+  public com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig getWorkloadsConfig() {
+    return workloadsConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig.getDefaultInstance() : workloadsConfig_;
+  }
+  /**
+   * <pre>
+   * Optional. The workloads configuration settings for the GKE cluster associated with
+   * the Cloud Composer environment. The GKE cluster runs Airflow scheduler, web
+   * server and workers workloads.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-2.*.*-airflow-*.*.* and newer.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig workloads_config = 15 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfigOrBuilder getWorkloadsConfigOrBuilder() {
+    return workloadsConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig.getDefaultInstance() : workloadsConfig_;
+  }
+
+  public static final int ENVIRONMENT_SIZE_FIELD_NUMBER = 16;
+  private int environmentSize_ = 0;
+  /**
+   * <pre>
+   * Optional. The size of the Cloud Composer environment.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-2.*.*-airflow-*.*.* and newer.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize environment_size = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The enum numeric value on the wire for environmentSize.
+   */
+  @java.lang.Override public int getEnvironmentSizeValue() {
+    return environmentSize_;
+  }
+  /**
+   * <pre>
+   * Optional. The size of the Cloud Composer environment.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-2.*.*-airflow-*.*.* and newer.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize environment_size = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The environmentSize.
+   */
+  @java.lang.Override public com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize getEnvironmentSize() {
+    com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize result = com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize.forNumber(environmentSize_);
+    return result == null ? com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize.UNRECOGNIZED : result;
   }
 
   public static final int AIRFLOW_URI_FIELD_NUMBER = 6;
-  private volatile java.lang.Object airflowUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object airflowUri_ = "";
   /**
    * <pre>
    * Output only. The URI of the Apache Airflow Web UI hosted within this environment (see
@@ -640,6 +803,100 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int MASTER_AUTHORIZED_NETWORKS_CONFIG_FIELD_NUMBER = 17;
+  private com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig masterAuthorizedNetworksConfig_;
+  /**
+   * <pre>
+   * Optional. The configuration options for GKE cluster master authorized networks.
+   * By default master authorized networks feature is:
+   * - in case of private environment: enabled with no external networks
+   * allowlisted.
+   * - in case of public environment: disabled.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig master_authorized_networks_config = 17 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return Whether the masterAuthorizedNetworksConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasMasterAuthorizedNetworksConfig() {
+    return masterAuthorizedNetworksConfig_ != null;
+  }
+  /**
+   * <pre>
+   * Optional. The configuration options for GKE cluster master authorized networks.
+   * By default master authorized networks feature is:
+   * - in case of private environment: enabled with no external networks
+   * allowlisted.
+   * - in case of public environment: disabled.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig master_authorized_networks_config = 17 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The masterAuthorizedNetworksConfig.
+   */
+  @java.lang.Override
+  public com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig getMasterAuthorizedNetworksConfig() {
+    return masterAuthorizedNetworksConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig.getDefaultInstance() : masterAuthorizedNetworksConfig_;
+  }
+  /**
+   * <pre>
+   * Optional. The configuration options for GKE cluster master authorized networks.
+   * By default master authorized networks feature is:
+   * - in case of private environment: enabled with no external networks
+   * allowlisted.
+   * - in case of public environment: disabled.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig master_authorized_networks_config = 17 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfigOrBuilder getMasterAuthorizedNetworksConfigOrBuilder() {
+    return masterAuthorizedNetworksConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig.getDefaultInstance() : masterAuthorizedNetworksConfig_;
+  }
+
+  public static final int RECOVERY_CONFIG_FIELD_NUMBER = 18;
+  private com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig recoveryConfig_;
+  /**
+   * <pre>
+   * Optional. The Recovery settings configuration of an environment.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-2.*.*-airflow-*.*.* and newer.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1.RecoveryConfig recovery_config = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return Whether the recoveryConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasRecoveryConfig() {
+    return recoveryConfig_ != null;
+  }
+  /**
+   * <pre>
+   * Optional. The Recovery settings configuration of an environment.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-2.*.*-airflow-*.*.* and newer.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1.RecoveryConfig recovery_config = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The recoveryConfig.
+   */
+  @java.lang.Override
+  public com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig getRecoveryConfig() {
+    return recoveryConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig.getDefaultInstance() : recoveryConfig_;
+  }
+  /**
+   * <pre>
+   * Optional. The Recovery settings configuration of an environment.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-2.*.*-airflow-*.*.* and newer.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1.RecoveryConfig recovery_config = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.orchestration.airflow.service.v1.RecoveryConfigOrBuilder getRecoveryConfigOrBuilder() {
+    return recoveryConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig.getDefaultInstance() : recoveryConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -689,7 +946,22 @@ private static final long serialVersionUID = 0L;
     if (encryptionConfig_ != null) {
       output.writeMessage(11, getEncryptionConfig());
     }
-    unknownFields.writeTo(output);
+    if (maintenanceWindow_ != null) {
+      output.writeMessage(12, getMaintenanceWindow());
+    }
+    if (workloadsConfig_ != null) {
+      output.writeMessage(15, getWorkloadsConfig());
+    }
+    if (environmentSize_ != com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize.ENVIRONMENT_SIZE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(16, environmentSize_);
+    }
+    if (masterAuthorizedNetworksConfig_ != null) {
+      output.writeMessage(17, getMasterAuthorizedNetworksConfig());
+    }
+    if (recoveryConfig_ != null) {
+      output.writeMessage(18, getRecoveryConfig());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -739,7 +1011,27 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, getEncryptionConfig());
     }
-    size += unknownFields.getSerializedSize();
+    if (maintenanceWindow_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(12, getMaintenanceWindow());
+    }
+    if (workloadsConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(15, getWorkloadsConfig());
+    }
+    if (environmentSize_ != com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize.ENVIRONMENT_SIZE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(16, environmentSize_);
+    }
+    if (masterAuthorizedNetworksConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(17, getMasterAuthorizedNetworksConfig());
+    }
+    if (recoveryConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(18, getRecoveryConfig());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -795,9 +1087,30 @@ private static final long serialVersionUID = 0L;
       if (!getEncryptionConfig()
           .equals(other.getEncryptionConfig())) return false;
     }
+    if (hasMaintenanceWindow() != other.hasMaintenanceWindow()) return false;
+    if (hasMaintenanceWindow()) {
+      if (!getMaintenanceWindow()
+          .equals(other.getMaintenanceWindow())) return false;
+    }
+    if (hasWorkloadsConfig() != other.hasWorkloadsConfig()) return false;
+    if (hasWorkloadsConfig()) {
+      if (!getWorkloadsConfig()
+          .equals(other.getWorkloadsConfig())) return false;
+    }
+    if (environmentSize_ != other.environmentSize_) return false;
     if (!getAirflowUri()
         .equals(other.getAirflowUri())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasMasterAuthorizedNetworksConfig() != other.hasMasterAuthorizedNetworksConfig()) return false;
+    if (hasMasterAuthorizedNetworksConfig()) {
+      if (!getMasterAuthorizedNetworksConfig()
+          .equals(other.getMasterAuthorizedNetworksConfig())) return false;
+    }
+    if (hasRecoveryConfig() != other.hasRecoveryConfig()) return false;
+    if (hasRecoveryConfig()) {
+      if (!getRecoveryConfig()
+          .equals(other.getRecoveryConfig())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -842,9 +1155,27 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ENCRYPTION_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getEncryptionConfig().hashCode();
     }
+    if (hasMaintenanceWindow()) {
+      hash = (37 * hash) + MAINTENANCE_WINDOW_FIELD_NUMBER;
+      hash = (53 * hash) + getMaintenanceWindow().hashCode();
+    }
+    if (hasWorkloadsConfig()) {
+      hash = (37 * hash) + WORKLOADS_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getWorkloadsConfig().hashCode();
+    }
+    hash = (37 * hash) + ENVIRONMENT_SIZE_FIELD_NUMBER;
+    hash = (53 * hash) + environmentSize_;
     hash = (37 * hash) + AIRFLOW_URI_FIELD_NUMBER;
     hash = (53 * hash) + getAirflowUri().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasMasterAuthorizedNetworksConfig()) {
+      hash = (37 * hash) + MASTER_AUTHORIZED_NETWORKS_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getMasterAuthorizedNetworksConfig().hashCode();
+    }
+    if (hasRecoveryConfig()) {
+      hash = (37 * hash) + RECOVERY_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getRecoveryConfig().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -965,72 +1296,78 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       gkeCluster_ = "";
-
       dagGcsPrefix_ = "";
-
       nodeCount_ = 0;
-
-      if (softwareConfigBuilder_ == null) {
-        softwareConfig_ = null;
-      } else {
-        softwareConfig_ = null;
+      softwareConfig_ = null;
+      if (softwareConfigBuilder_ != null) {
+        softwareConfigBuilder_.dispose();
         softwareConfigBuilder_ = null;
       }
-      if (nodeConfigBuilder_ == null) {
-        nodeConfig_ = null;
-      } else {
-        nodeConfig_ = null;
+      nodeConfig_ = null;
+      if (nodeConfigBuilder_ != null) {
+        nodeConfigBuilder_.dispose();
         nodeConfigBuilder_ = null;
       }
-      if (privateEnvironmentConfigBuilder_ == null) {
-        privateEnvironmentConfig_ = null;
-      } else {
-        privateEnvironmentConfig_ = null;
+      privateEnvironmentConfig_ = null;
+      if (privateEnvironmentConfigBuilder_ != null) {
+        privateEnvironmentConfigBuilder_.dispose();
         privateEnvironmentConfigBuilder_ = null;
       }
-      if (webServerNetworkAccessControlBuilder_ == null) {
-        webServerNetworkAccessControl_ = null;
-      } else {
-        webServerNetworkAccessControl_ = null;
+      webServerNetworkAccessControl_ = null;
+      if (webServerNetworkAccessControlBuilder_ != null) {
+        webServerNetworkAccessControlBuilder_.dispose();
         webServerNetworkAccessControlBuilder_ = null;
       }
-      if (databaseConfigBuilder_ == null) {
-        databaseConfig_ = null;
-      } else {
-        databaseConfig_ = null;
+      databaseConfig_ = null;
+      if (databaseConfigBuilder_ != null) {
+        databaseConfigBuilder_.dispose();
         databaseConfigBuilder_ = null;
       }
-      if (webServerConfigBuilder_ == null) {
-        webServerConfig_ = null;
-      } else {
-        webServerConfig_ = null;
+      webServerConfig_ = null;
+      if (webServerConfigBuilder_ != null) {
+        webServerConfigBuilder_.dispose();
         webServerConfigBuilder_ = null;
       }
-      if (encryptionConfigBuilder_ == null) {
-        encryptionConfig_ = null;
-      } else {
-        encryptionConfig_ = null;
+      encryptionConfig_ = null;
+      if (encryptionConfigBuilder_ != null) {
+        encryptionConfigBuilder_.dispose();
         encryptionConfigBuilder_ = null;
       }
+      maintenanceWindow_ = null;
+      if (maintenanceWindowBuilder_ != null) {
+        maintenanceWindowBuilder_.dispose();
+        maintenanceWindowBuilder_ = null;
+      }
+      workloadsConfig_ = null;
+      if (workloadsConfigBuilder_ != null) {
+        workloadsConfigBuilder_.dispose();
+        workloadsConfigBuilder_ = null;
+      }
+      environmentSize_ = 0;
       airflowUri_ = "";
-
+      masterAuthorizedNetworksConfig_ = null;
+      if (masterAuthorizedNetworksConfigBuilder_ != null) {
+        masterAuthorizedNetworksConfigBuilder_.dispose();
+        masterAuthorizedNetworksConfigBuilder_ = null;
+      }
+      recoveryConfig_ = null;
+      if (recoveryConfigBuilder_ != null) {
+        recoveryConfigBuilder_.dispose();
+        recoveryConfigBuilder_ = null;
+      }
       return this;
     }
 
@@ -1057,47 +1394,83 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig buildPartial() {
       com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig result = new com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig(this);
-      result.gkeCluster_ = gkeCluster_;
-      result.dagGcsPrefix_ = dagGcsPrefix_;
-      result.nodeCount_ = nodeCount_;
-      if (softwareConfigBuilder_ == null) {
-        result.softwareConfig_ = softwareConfig_;
-      } else {
-        result.softwareConfig_ = softwareConfigBuilder_.build();
-      }
-      if (nodeConfigBuilder_ == null) {
-        result.nodeConfig_ = nodeConfig_;
-      } else {
-        result.nodeConfig_ = nodeConfigBuilder_.build();
-      }
-      if (privateEnvironmentConfigBuilder_ == null) {
-        result.privateEnvironmentConfig_ = privateEnvironmentConfig_;
-      } else {
-        result.privateEnvironmentConfig_ = privateEnvironmentConfigBuilder_.build();
-      }
-      if (webServerNetworkAccessControlBuilder_ == null) {
-        result.webServerNetworkAccessControl_ = webServerNetworkAccessControl_;
-      } else {
-        result.webServerNetworkAccessControl_ = webServerNetworkAccessControlBuilder_.build();
-      }
-      if (databaseConfigBuilder_ == null) {
-        result.databaseConfig_ = databaseConfig_;
-      } else {
-        result.databaseConfig_ = databaseConfigBuilder_.build();
-      }
-      if (webServerConfigBuilder_ == null) {
-        result.webServerConfig_ = webServerConfig_;
-      } else {
-        result.webServerConfig_ = webServerConfigBuilder_.build();
-      }
-      if (encryptionConfigBuilder_ == null) {
-        result.encryptionConfig_ = encryptionConfig_;
-      } else {
-        result.encryptionConfig_ = encryptionConfigBuilder_.build();
-      }
-      result.airflowUri_ = airflowUri_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.gkeCluster_ = gkeCluster_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.dagGcsPrefix_ = dagGcsPrefix_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.nodeCount_ = nodeCount_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.softwareConfig_ = softwareConfigBuilder_ == null
+            ? softwareConfig_
+            : softwareConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.nodeConfig_ = nodeConfigBuilder_ == null
+            ? nodeConfig_
+            : nodeConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.privateEnvironmentConfig_ = privateEnvironmentConfigBuilder_ == null
+            ? privateEnvironmentConfig_
+            : privateEnvironmentConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.webServerNetworkAccessControl_ = webServerNetworkAccessControlBuilder_ == null
+            ? webServerNetworkAccessControl_
+            : webServerNetworkAccessControlBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.databaseConfig_ = databaseConfigBuilder_ == null
+            ? databaseConfig_
+            : databaseConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.webServerConfig_ = webServerConfigBuilder_ == null
+            ? webServerConfig_
+            : webServerConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.encryptionConfig_ = encryptionConfigBuilder_ == null
+            ? encryptionConfig_
+            : encryptionConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.maintenanceWindow_ = maintenanceWindowBuilder_ == null
+            ? maintenanceWindow_
+            : maintenanceWindowBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.workloadsConfig_ = workloadsConfigBuilder_ == null
+            ? workloadsConfig_
+            : workloadsConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.environmentSize_ = environmentSize_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.airflowUri_ = airflowUri_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.masterAuthorizedNetworksConfig_ = masterAuthorizedNetworksConfigBuilder_ == null
+            ? masterAuthorizedNetworksConfig_
+            : masterAuthorizedNetworksConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.recoveryConfig_ = recoveryConfigBuilder_ == null
+            ? recoveryConfig_
+            : recoveryConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1146,10 +1519,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.getDefaultInstance()) return this;
       if (!other.getGkeCluster().isEmpty()) {
         gkeCluster_ = other.gkeCluster_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDagGcsPrefix().isEmpty()) {
         dagGcsPrefix_ = other.dagGcsPrefix_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getNodeCount() != 0) {
@@ -1176,11 +1551,27 @@ private static final long serialVersionUID = 0L;
       if (other.hasEncryptionConfig()) {
         mergeEncryptionConfig(other.getEncryptionConfig());
       }
+      if (other.hasMaintenanceWindow()) {
+        mergeMaintenanceWindow(other.getMaintenanceWindow());
+      }
+      if (other.hasWorkloadsConfig()) {
+        mergeWorkloadsConfig(other.getWorkloadsConfig());
+      }
+      if (other.environmentSize_ != 0) {
+        setEnvironmentSizeValue(other.getEnvironmentSizeValue());
+      }
       if (!other.getAirflowUri().isEmpty()) {
         airflowUri_ = other.airflowUri_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasMasterAuthorizedNetworksConfig()) {
+        mergeMasterAuthorizedNetworksConfig(other.getMasterAuthorizedNetworksConfig());
+      }
+      if (other.hasRecoveryConfig()) {
+        mergeRecoveryConfig(other.getRecoveryConfig());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1195,19 +1586,135 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              gkeCluster_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              dagGcsPrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              nodeCount_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getSoftwareConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getNodeConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              airflowUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getPrivateEnvironmentConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getWebServerNetworkAccessControlFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getDatabaseConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getWebServerConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getEncryptionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getMaintenanceWindowFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 98
+            case 122: {
+              input.readMessage(
+                  getWorkloadsConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 122
+            case 128: {
+              environmentSize_ = input.readEnum();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 128
+            case 138: {
+              input.readMessage(
+                  getMasterAuthorizedNetworksConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 138
+            case 146: {
+              input.readMessage(
+                  getRecoveryConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 146
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object gkeCluster_ = "";
     /**
@@ -1262,11 +1769,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGkeCluster(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       gkeCluster_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1279,8 +1784,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGkeCluster() {
-      
       gkeCluster_ = getDefaultInstance().getGkeCluster();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1295,12 +1800,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGkeClusterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       gkeCluster_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1367,11 +1870,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDagGcsPrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       dagGcsPrefix_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1387,8 +1888,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDagGcsPrefix() {
-      
       dagGcsPrefix_ = getDefaultInstance().getDagGcsPrefix();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1406,12 +1907,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDagGcsPrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       dagGcsPrefix_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1421,6 +1920,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The number of nodes in the Kubernetes Engine cluster that will be
      * used to run this environment.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>int32 node_count = 3;</code>
@@ -1434,6 +1935,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The number of nodes in the Kubernetes Engine cluster that will be
      * used to run this environment.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>int32 node_count = 3;</code>
@@ -1443,6 +1946,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNodeCount(int value) {
       
       nodeCount_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1450,13 +1954,15 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The number of nodes in the Kubernetes Engine cluster that will be
      * used to run this environment.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>int32 node_count = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearNodeCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       nodeCount_ = 0;
       onChanged();
       return this;
@@ -1474,7 +1980,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the softwareConfig field is set.
      */
     public boolean hasSoftwareConfig() {
-      return softwareConfigBuilder_ != null || softwareConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1504,11 +2010,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         softwareConfig_ = value;
-        onChanged();
       } else {
         softwareConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1522,11 +2028,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.orchestration.airflow.service.v1.SoftwareConfig.Builder builderForValue) {
       if (softwareConfigBuilder_ == null) {
         softwareConfig_ = builderForValue.build();
-        onChanged();
       } else {
         softwareConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1538,17 +2044,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSoftwareConfig(com.google.cloud.orchestration.airflow.service.v1.SoftwareConfig value) {
       if (softwareConfigBuilder_ == null) {
-        if (softwareConfig_ != null) {
-          softwareConfig_ =
-            com.google.cloud.orchestration.airflow.service.v1.SoftwareConfig.newBuilder(softwareConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          softwareConfig_ != null &&
+          softwareConfig_ != com.google.cloud.orchestration.airflow.service.v1.SoftwareConfig.getDefaultInstance()) {
+          getSoftwareConfigBuilder().mergeFrom(value);
         } else {
           softwareConfig_ = value;
         }
-        onChanged();
       } else {
         softwareConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1559,14 +2066,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1.SoftwareConfig software_config = 4;</code>
      */
     public Builder clearSoftwareConfig() {
-      if (softwareConfigBuilder_ == null) {
-        softwareConfig_ = null;
-        onChanged();
-      } else {
-        softwareConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      softwareConfig_ = null;
+      if (softwareConfigBuilder_ != null) {
+        softwareConfigBuilder_.dispose();
         softwareConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1577,7 +2083,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1.SoftwareConfig software_config = 4;</code>
      */
     public com.google.cloud.orchestration.airflow.service.v1.SoftwareConfig.Builder getSoftwareConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getSoftwareConfigFieldBuilder().getBuilder();
     }
@@ -1629,7 +2135,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the nodeConfig field is set.
      */
     public boolean hasNodeConfig() {
-      return nodeConfigBuilder_ != null || nodeConfig_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1659,11 +2165,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         nodeConfig_ = value;
-        onChanged();
       } else {
         nodeConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1677,11 +2183,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.orchestration.airflow.service.v1.NodeConfig.Builder builderForValue) {
       if (nodeConfigBuilder_ == null) {
         nodeConfig_ = builderForValue.build();
-        onChanged();
       } else {
         nodeConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1693,17 +2199,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNodeConfig(com.google.cloud.orchestration.airflow.service.v1.NodeConfig value) {
       if (nodeConfigBuilder_ == null) {
-        if (nodeConfig_ != null) {
-          nodeConfig_ =
-            com.google.cloud.orchestration.airflow.service.v1.NodeConfig.newBuilder(nodeConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          nodeConfig_ != null &&
+          nodeConfig_ != com.google.cloud.orchestration.airflow.service.v1.NodeConfig.getDefaultInstance()) {
+          getNodeConfigBuilder().mergeFrom(value);
         } else {
           nodeConfig_ = value;
         }
-        onChanged();
       } else {
         nodeConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1714,14 +2221,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1.NodeConfig node_config = 5;</code>
      */
     public Builder clearNodeConfig() {
-      if (nodeConfigBuilder_ == null) {
-        nodeConfig_ = null;
-        onChanged();
-      } else {
-        nodeConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      nodeConfig_ = null;
+      if (nodeConfigBuilder_ != null) {
+        nodeConfigBuilder_.dispose();
         nodeConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1732,7 +2238,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1.NodeConfig node_config = 5;</code>
      */
     public com.google.cloud.orchestration.airflow.service.v1.NodeConfig.Builder getNodeConfigBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getNodeConfigFieldBuilder().getBuilder();
     }
@@ -1784,7 +2290,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the privateEnvironmentConfig field is set.
      */
     public boolean hasPrivateEnvironmentConfig() {
-      return privateEnvironmentConfigBuilder_ != null || privateEnvironmentConfig_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1814,11 +2320,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         privateEnvironmentConfig_ = value;
-        onChanged();
       } else {
         privateEnvironmentConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1832,11 +2338,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.orchestration.airflow.service.v1.PrivateEnvironmentConfig.Builder builderForValue) {
       if (privateEnvironmentConfigBuilder_ == null) {
         privateEnvironmentConfig_ = builderForValue.build();
-        onChanged();
       } else {
         privateEnvironmentConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1848,17 +2354,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePrivateEnvironmentConfig(com.google.cloud.orchestration.airflow.service.v1.PrivateEnvironmentConfig value) {
       if (privateEnvironmentConfigBuilder_ == null) {
-        if (privateEnvironmentConfig_ != null) {
-          privateEnvironmentConfig_ =
-            com.google.cloud.orchestration.airflow.service.v1.PrivateEnvironmentConfig.newBuilder(privateEnvironmentConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          privateEnvironmentConfig_ != null &&
+          privateEnvironmentConfig_ != com.google.cloud.orchestration.airflow.service.v1.PrivateEnvironmentConfig.getDefaultInstance()) {
+          getPrivateEnvironmentConfigBuilder().mergeFrom(value);
         } else {
           privateEnvironmentConfig_ = value;
         }
-        onChanged();
       } else {
         privateEnvironmentConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1869,14 +2376,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1.PrivateEnvironmentConfig private_environment_config = 7;</code>
      */
     public Builder clearPrivateEnvironmentConfig() {
-      if (privateEnvironmentConfigBuilder_ == null) {
-        privateEnvironmentConfig_ = null;
-        onChanged();
-      } else {
-        privateEnvironmentConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      privateEnvironmentConfig_ = null;
+      if (privateEnvironmentConfigBuilder_ != null) {
+        privateEnvironmentConfigBuilder_.dispose();
         privateEnvironmentConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1887,7 +2393,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1.PrivateEnvironmentConfig private_environment_config = 7;</code>
      */
     public com.google.cloud.orchestration.airflow.service.v1.PrivateEnvironmentConfig.Builder getPrivateEnvironmentConfigBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getPrivateEnvironmentConfigFieldBuilder().getBuilder();
     }
@@ -1940,7 +2446,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the webServerNetworkAccessControl field is set.
      */
     public boolean hasWebServerNetworkAccessControl() {
-      return webServerNetworkAccessControlBuilder_ != null || webServerNetworkAccessControl_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1972,11 +2478,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         webServerNetworkAccessControl_ = value;
-        onChanged();
       } else {
         webServerNetworkAccessControlBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1991,11 +2497,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.orchestration.airflow.service.v1.WebServerNetworkAccessControl.Builder builderForValue) {
       if (webServerNetworkAccessControlBuilder_ == null) {
         webServerNetworkAccessControl_ = builderForValue.build();
-        onChanged();
       } else {
         webServerNetworkAccessControlBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2008,17 +2514,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWebServerNetworkAccessControl(com.google.cloud.orchestration.airflow.service.v1.WebServerNetworkAccessControl value) {
       if (webServerNetworkAccessControlBuilder_ == null) {
-        if (webServerNetworkAccessControl_ != null) {
-          webServerNetworkAccessControl_ =
-            com.google.cloud.orchestration.airflow.service.v1.WebServerNetworkAccessControl.newBuilder(webServerNetworkAccessControl_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          webServerNetworkAccessControl_ != null &&
+          webServerNetworkAccessControl_ != com.google.cloud.orchestration.airflow.service.v1.WebServerNetworkAccessControl.getDefaultInstance()) {
+          getWebServerNetworkAccessControlBuilder().mergeFrom(value);
         } else {
           webServerNetworkAccessControl_ = value;
         }
-        onChanged();
       } else {
         webServerNetworkAccessControlBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2030,14 +2537,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1.WebServerNetworkAccessControl web_server_network_access_control = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearWebServerNetworkAccessControl() {
-      if (webServerNetworkAccessControlBuilder_ == null) {
-        webServerNetworkAccessControl_ = null;
-        onChanged();
-      } else {
-        webServerNetworkAccessControl_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      webServerNetworkAccessControl_ = null;
+      if (webServerNetworkAccessControlBuilder_ != null) {
+        webServerNetworkAccessControlBuilder_.dispose();
         webServerNetworkAccessControlBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2049,7 +2555,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1.WebServerNetworkAccessControl web_server_network_access_control = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.orchestration.airflow.service.v1.WebServerNetworkAccessControl.Builder getWebServerNetworkAccessControlBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getWebServerNetworkAccessControlFieldBuilder().getBuilder();
     }
@@ -2104,7 +2610,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the databaseConfig field is set.
      */
     public boolean hasDatabaseConfig() {
-      return databaseConfigBuilder_ != null || databaseConfig_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2136,11 +2642,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         databaseConfig_ = value;
-        onChanged();
       } else {
         databaseConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2155,11 +2661,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.orchestration.airflow.service.v1.DatabaseConfig.Builder builderForValue) {
       if (databaseConfigBuilder_ == null) {
         databaseConfig_ = builderForValue.build();
-        onChanged();
       } else {
         databaseConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2172,17 +2678,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDatabaseConfig(com.google.cloud.orchestration.airflow.service.v1.DatabaseConfig value) {
       if (databaseConfigBuilder_ == null) {
-        if (databaseConfig_ != null) {
-          databaseConfig_ =
-            com.google.cloud.orchestration.airflow.service.v1.DatabaseConfig.newBuilder(databaseConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          databaseConfig_ != null &&
+          databaseConfig_ != com.google.cloud.orchestration.airflow.service.v1.DatabaseConfig.getDefaultInstance()) {
+          getDatabaseConfigBuilder().mergeFrom(value);
         } else {
           databaseConfig_ = value;
         }
-        onChanged();
       } else {
         databaseConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2194,14 +2701,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1.DatabaseConfig database_config = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearDatabaseConfig() {
-      if (databaseConfigBuilder_ == null) {
-        databaseConfig_ = null;
-        onChanged();
-      } else {
-        databaseConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      databaseConfig_ = null;
+      if (databaseConfigBuilder_ != null) {
+        databaseConfigBuilder_.dispose();
         databaseConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2213,7 +2719,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1.DatabaseConfig database_config = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.orchestration.airflow.service.v1.DatabaseConfig.Builder getDatabaseConfigBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getDatabaseConfigFieldBuilder().getBuilder();
     }
@@ -2267,7 +2773,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the webServerConfig field is set.
      */
     public boolean hasWebServerConfig() {
-      return webServerConfigBuilder_ != null || webServerConfig_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2297,11 +2803,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         webServerConfig_ = value;
-        onChanged();
       } else {
         webServerConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2315,11 +2821,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.orchestration.airflow.service.v1.WebServerConfig.Builder builderForValue) {
       if (webServerConfigBuilder_ == null) {
         webServerConfig_ = builderForValue.build();
-        onChanged();
       } else {
         webServerConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2331,17 +2837,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWebServerConfig(com.google.cloud.orchestration.airflow.service.v1.WebServerConfig value) {
       if (webServerConfigBuilder_ == null) {
-        if (webServerConfig_ != null) {
-          webServerConfig_ =
-            com.google.cloud.orchestration.airflow.service.v1.WebServerConfig.newBuilder(webServerConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          webServerConfig_ != null &&
+          webServerConfig_ != com.google.cloud.orchestration.airflow.service.v1.WebServerConfig.getDefaultInstance()) {
+          getWebServerConfigBuilder().mergeFrom(value);
         } else {
           webServerConfig_ = value;
         }
-        onChanged();
       } else {
         webServerConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2352,14 +2859,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1.WebServerConfig web_server_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearWebServerConfig() {
-      if (webServerConfigBuilder_ == null) {
-        webServerConfig_ = null;
-        onChanged();
-      } else {
-        webServerConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      webServerConfig_ = null;
+      if (webServerConfigBuilder_ != null) {
+        webServerConfigBuilder_.dispose();
         webServerConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2370,7 +2876,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1.WebServerConfig web_server_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.orchestration.airflow.service.v1.WebServerConfig.Builder getWebServerConfigBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getWebServerConfigFieldBuilder().getBuilder();
     }
@@ -2423,7 +2929,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the encryptionConfig field is set.
      */
     public boolean hasEncryptionConfig() {
-      return encryptionConfigBuilder_ != null || encryptionConfig_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -2455,11 +2961,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         encryptionConfig_ = value;
-        onChanged();
       } else {
         encryptionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2474,11 +2980,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.orchestration.airflow.service.v1.EncryptionConfig.Builder builderForValue) {
       if (encryptionConfigBuilder_ == null) {
         encryptionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         encryptionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2491,17 +2997,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEncryptionConfig(com.google.cloud.orchestration.airflow.service.v1.EncryptionConfig value) {
       if (encryptionConfigBuilder_ == null) {
-        if (encryptionConfig_ != null) {
-          encryptionConfig_ =
-            com.google.cloud.orchestration.airflow.service.v1.EncryptionConfig.newBuilder(encryptionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          encryptionConfig_ != null &&
+          encryptionConfig_ != com.google.cloud.orchestration.airflow.service.v1.EncryptionConfig.getDefaultInstance()) {
+          getEncryptionConfigBuilder().mergeFrom(value);
         } else {
           encryptionConfig_ = value;
         }
-        onChanged();
       } else {
         encryptionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2513,14 +3020,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1.EncryptionConfig encryption_config = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearEncryptionConfig() {
-      if (encryptionConfigBuilder_ == null) {
-        encryptionConfig_ = null;
-        onChanged();
-      } else {
-        encryptionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      encryptionConfig_ = null;
+      if (encryptionConfigBuilder_ != null) {
+        encryptionConfigBuilder_.dispose();
         encryptionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2532,7 +3038,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1.EncryptionConfig encryption_config = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.orchestration.airflow.service.v1.EncryptionConfig.Builder getEncryptionConfigBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getEncryptionConfigFieldBuilder().getBuilder();
     }
@@ -2572,6 +3078,525 @@ private static final long serialVersionUID = 0L;
         encryptionConfig_ = null;
       }
       return encryptionConfigBuilder_;
+    }
+
+    private com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow maintenanceWindow_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow, com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow.Builder, com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindowOrBuilder> maintenanceWindowBuilder_;
+    /**
+     * <pre>
+     * Optional. The maintenance window is the period when Cloud Composer components may
+     * undergo maintenance. It is defined so that maintenance is not executed
+     * during peak hours or critical time periods.
+     * The system will not be under maintenance for every occurrence of this
+     * window, but when maintenance is planned, it will be scheduled
+     * during the window.
+     * The maintenance window period must encompass at least 12 hours per week.
+     * This may be split into multiple chunks, each with a size of
+     * at least 4 hours.
+     * If this value is omitted, the default value for maintenance window will be
+     * applied. The default value is Saturday and Sunday 00-06 GMT.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow maintenance_window = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return Whether the maintenanceWindow field is set.
+     */
+    public boolean hasMaintenanceWindow() {
+      return ((bitField0_ & 0x00000400) != 0);
+    }
+    /**
+     * <pre>
+     * Optional. The maintenance window is the period when Cloud Composer components may
+     * undergo maintenance. It is defined so that maintenance is not executed
+     * during peak hours or critical time periods.
+     * The system will not be under maintenance for every occurrence of this
+     * window, but when maintenance is planned, it will be scheduled
+     * during the window.
+     * The maintenance window period must encompass at least 12 hours per week.
+     * This may be split into multiple chunks, each with a size of
+     * at least 4 hours.
+     * If this value is omitted, the default value for maintenance window will be
+     * applied. The default value is Saturday and Sunday 00-06 GMT.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow maintenance_window = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The maintenanceWindow.
+     */
+    public com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow getMaintenanceWindow() {
+      if (maintenanceWindowBuilder_ == null) {
+        return maintenanceWindow_ == null ? com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow.getDefaultInstance() : maintenanceWindow_;
+      } else {
+        return maintenanceWindowBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The maintenance window is the period when Cloud Composer components may
+     * undergo maintenance. It is defined so that maintenance is not executed
+     * during peak hours or critical time periods.
+     * The system will not be under maintenance for every occurrence of this
+     * window, but when maintenance is planned, it will be scheduled
+     * during the window.
+     * The maintenance window period must encompass at least 12 hours per week.
+     * This may be split into multiple chunks, each with a size of
+     * at least 4 hours.
+     * If this value is omitted, the default value for maintenance window will be
+     * applied. The default value is Saturday and Sunday 00-06 GMT.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow maintenance_window = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setMaintenanceWindow(com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow value) {
+      if (maintenanceWindowBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        maintenanceWindow_ = value;
+      } else {
+        maintenanceWindowBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The maintenance window is the period when Cloud Composer components may
+     * undergo maintenance. It is defined so that maintenance is not executed
+     * during peak hours or critical time periods.
+     * The system will not be under maintenance for every occurrence of this
+     * window, but when maintenance is planned, it will be scheduled
+     * during the window.
+     * The maintenance window period must encompass at least 12 hours per week.
+     * This may be split into multiple chunks, each with a size of
+     * at least 4 hours.
+     * If this value is omitted, the default value for maintenance window will be
+     * applied. The default value is Saturday and Sunday 00-06 GMT.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow maintenance_window = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setMaintenanceWindow(
+        com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow.Builder builderForValue) {
+      if (maintenanceWindowBuilder_ == null) {
+        maintenanceWindow_ = builderForValue.build();
+      } else {
+        maintenanceWindowBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The maintenance window is the period when Cloud Composer components may
+     * undergo maintenance. It is defined so that maintenance is not executed
+     * during peak hours or critical time periods.
+     * The system will not be under maintenance for every occurrence of this
+     * window, but when maintenance is planned, it will be scheduled
+     * during the window.
+     * The maintenance window period must encompass at least 12 hours per week.
+     * This may be split into multiple chunks, each with a size of
+     * at least 4 hours.
+     * If this value is omitted, the default value for maintenance window will be
+     * applied. The default value is Saturday and Sunday 00-06 GMT.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow maintenance_window = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder mergeMaintenanceWindow(com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow value) {
+      if (maintenanceWindowBuilder_ == null) {
+        if (((bitField0_ & 0x00000400) != 0) &&
+          maintenanceWindow_ != null &&
+          maintenanceWindow_ != com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow.getDefaultInstance()) {
+          getMaintenanceWindowBuilder().mergeFrom(value);
+        } else {
+          maintenanceWindow_ = value;
+        }
+      } else {
+        maintenanceWindowBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The maintenance window is the period when Cloud Composer components may
+     * undergo maintenance. It is defined so that maintenance is not executed
+     * during peak hours or critical time periods.
+     * The system will not be under maintenance for every occurrence of this
+     * window, but when maintenance is planned, it will be scheduled
+     * during the window.
+     * The maintenance window period must encompass at least 12 hours per week.
+     * This may be split into multiple chunks, each with a size of
+     * at least 4 hours.
+     * If this value is omitted, the default value for maintenance window will be
+     * applied. The default value is Saturday and Sunday 00-06 GMT.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow maintenance_window = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder clearMaintenanceWindow() {
+      bitField0_ = (bitField0_ & ~0x00000400);
+      maintenanceWindow_ = null;
+      if (maintenanceWindowBuilder_ != null) {
+        maintenanceWindowBuilder_.dispose();
+        maintenanceWindowBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The maintenance window is the period when Cloud Composer components may
+     * undergo maintenance. It is defined so that maintenance is not executed
+     * during peak hours or critical time periods.
+     * The system will not be under maintenance for every occurrence of this
+     * window, but when maintenance is planned, it will be scheduled
+     * during the window.
+     * The maintenance window period must encompass at least 12 hours per week.
+     * This may be split into multiple chunks, each with a size of
+     * at least 4 hours.
+     * If this value is omitted, the default value for maintenance window will be
+     * applied. The default value is Saturday and Sunday 00-06 GMT.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow maintenance_window = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow.Builder getMaintenanceWindowBuilder() {
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return getMaintenanceWindowFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Optional. The maintenance window is the period when Cloud Composer components may
+     * undergo maintenance. It is defined so that maintenance is not executed
+     * during peak hours or critical time periods.
+     * The system will not be under maintenance for every occurrence of this
+     * window, but when maintenance is planned, it will be scheduled
+     * during the window.
+     * The maintenance window period must encompass at least 12 hours per week.
+     * This may be split into multiple chunks, each with a size of
+     * at least 4 hours.
+     * If this value is omitted, the default value for maintenance window will be
+     * applied. The default value is Saturday and Sunday 00-06 GMT.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow maintenance_window = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindowOrBuilder getMaintenanceWindowOrBuilder() {
+      if (maintenanceWindowBuilder_ != null) {
+        return maintenanceWindowBuilder_.getMessageOrBuilder();
+      } else {
+        return maintenanceWindow_ == null ?
+            com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow.getDefaultInstance() : maintenanceWindow_;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The maintenance window is the period when Cloud Composer components may
+     * undergo maintenance. It is defined so that maintenance is not executed
+     * during peak hours or critical time periods.
+     * The system will not be under maintenance for every occurrence of this
+     * window, but when maintenance is planned, it will be scheduled
+     * during the window.
+     * The maintenance window period must encompass at least 12 hours per week.
+     * This may be split into multiple chunks, each with a size of
+     * at least 4 hours.
+     * If this value is omitted, the default value for maintenance window will be
+     * applied. The default value is Saturday and Sunday 00-06 GMT.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow maintenance_window = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow, com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow.Builder, com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindowOrBuilder> 
+        getMaintenanceWindowFieldBuilder() {
+      if (maintenanceWindowBuilder_ == null) {
+        maintenanceWindowBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow, com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindow.Builder, com.google.cloud.orchestration.airflow.service.v1.MaintenanceWindowOrBuilder>(
+                getMaintenanceWindow(),
+                getParentForChildren(),
+                isClean());
+        maintenanceWindow_ = null;
+      }
+      return maintenanceWindowBuilder_;
+    }
+
+    private com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig workloadsConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig, com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig.Builder, com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfigOrBuilder> workloadsConfigBuilder_;
+    /**
+     * <pre>
+     * Optional. The workloads configuration settings for the GKE cluster associated with
+     * the Cloud Composer environment. The GKE cluster runs Airflow scheduler, web
+     * server and workers workloads.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig workloads_config = 15 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return Whether the workloadsConfig field is set.
+     */
+    public boolean hasWorkloadsConfig() {
+      return ((bitField0_ & 0x00000800) != 0);
+    }
+    /**
+     * <pre>
+     * Optional. The workloads configuration settings for the GKE cluster associated with
+     * the Cloud Composer environment. The GKE cluster runs Airflow scheduler, web
+     * server and workers workloads.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig workloads_config = 15 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The workloadsConfig.
+     */
+    public com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig getWorkloadsConfig() {
+      if (workloadsConfigBuilder_ == null) {
+        return workloadsConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig.getDefaultInstance() : workloadsConfig_;
+      } else {
+        return workloadsConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The workloads configuration settings for the GKE cluster associated with
+     * the Cloud Composer environment. The GKE cluster runs Airflow scheduler, web
+     * server and workers workloads.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig workloads_config = 15 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setWorkloadsConfig(com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig value) {
+      if (workloadsConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        workloadsConfig_ = value;
+      } else {
+        workloadsConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The workloads configuration settings for the GKE cluster associated with
+     * the Cloud Composer environment. The GKE cluster runs Airflow scheduler, web
+     * server and workers workloads.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig workloads_config = 15 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setWorkloadsConfig(
+        com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig.Builder builderForValue) {
+      if (workloadsConfigBuilder_ == null) {
+        workloadsConfig_ = builderForValue.build();
+      } else {
+        workloadsConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The workloads configuration settings for the GKE cluster associated with
+     * the Cloud Composer environment. The GKE cluster runs Airflow scheduler, web
+     * server and workers workloads.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig workloads_config = 15 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder mergeWorkloadsConfig(com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig value) {
+      if (workloadsConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00000800) != 0) &&
+          workloadsConfig_ != null &&
+          workloadsConfig_ != com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig.getDefaultInstance()) {
+          getWorkloadsConfigBuilder().mergeFrom(value);
+        } else {
+          workloadsConfig_ = value;
+        }
+      } else {
+        workloadsConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The workloads configuration settings for the GKE cluster associated with
+     * the Cloud Composer environment. The GKE cluster runs Airflow scheduler, web
+     * server and workers workloads.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig workloads_config = 15 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder clearWorkloadsConfig() {
+      bitField0_ = (bitField0_ & ~0x00000800);
+      workloadsConfig_ = null;
+      if (workloadsConfigBuilder_ != null) {
+        workloadsConfigBuilder_.dispose();
+        workloadsConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The workloads configuration settings for the GKE cluster associated with
+     * the Cloud Composer environment. The GKE cluster runs Airflow scheduler, web
+     * server and workers workloads.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig workloads_config = 15 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig.Builder getWorkloadsConfigBuilder() {
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return getWorkloadsConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Optional. The workloads configuration settings for the GKE cluster associated with
+     * the Cloud Composer environment. The GKE cluster runs Airflow scheduler, web
+     * server and workers workloads.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig workloads_config = 15 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfigOrBuilder getWorkloadsConfigOrBuilder() {
+      if (workloadsConfigBuilder_ != null) {
+        return workloadsConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return workloadsConfig_ == null ?
+            com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig.getDefaultInstance() : workloadsConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The workloads configuration settings for the GKE cluster associated with
+     * the Cloud Composer environment. The GKE cluster runs Airflow scheduler, web
+     * server and workers workloads.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig workloads_config = 15 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig, com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig.Builder, com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfigOrBuilder> 
+        getWorkloadsConfigFieldBuilder() {
+      if (workloadsConfigBuilder_ == null) {
+        workloadsConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig, com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfig.Builder, com.google.cloud.orchestration.airflow.service.v1.WorkloadsConfigOrBuilder>(
+                getWorkloadsConfig(),
+                getParentForChildren(),
+                isClean());
+        workloadsConfig_ = null;
+      }
+      return workloadsConfigBuilder_;
+    }
+
+    private int environmentSize_ = 0;
+    /**
+     * <pre>
+     * Optional. The size of the Cloud Composer environment.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize environment_size = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The enum numeric value on the wire for environmentSize.
+     */
+    @java.lang.Override public int getEnvironmentSizeValue() {
+      return environmentSize_;
+    }
+    /**
+     * <pre>
+     * Optional. The size of the Cloud Composer environment.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize environment_size = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The enum numeric value on the wire for environmentSize to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEnvironmentSizeValue(int value) {
+      environmentSize_ = value;
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The size of the Cloud Composer environment.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize environment_size = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The environmentSize.
+     */
+    @java.lang.Override
+    public com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize getEnvironmentSize() {
+      com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize result = com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize.forNumber(environmentSize_);
+      return result == null ? com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Optional. The size of the Cloud Composer environment.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize environment_size = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The environmentSize to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEnvironmentSize(com.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00001000;
+      environmentSize_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The size of the Cloud Composer environment.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.EnvironmentConfig.EnvironmentSize environment_size = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEnvironmentSize() {
+      bitField0_ = (bitField0_ & ~0x00001000);
+      environmentSize_ = 0;
+      onChanged();
+      return this;
     }
 
     private java.lang.Object airflowUri_ = "";
@@ -2633,11 +3658,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAirflowUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       airflowUri_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -2652,8 +3675,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAirflowUri() {
-      
       airflowUri_ = getDefaultInstance().getAirflowUri();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -2670,14 +3693,376 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAirflowUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       airflowUri_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
+    }
+
+    private com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig masterAuthorizedNetworksConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig, com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig.Builder, com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfigOrBuilder> masterAuthorizedNetworksConfigBuilder_;
+    /**
+     * <pre>
+     * Optional. The configuration options for GKE cluster master authorized networks.
+     * By default master authorized networks feature is:
+     * - in case of private environment: enabled with no external networks
+     * allowlisted.
+     * - in case of public environment: disabled.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig master_authorized_networks_config = 17 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return Whether the masterAuthorizedNetworksConfig field is set.
+     */
+    public boolean hasMasterAuthorizedNetworksConfig() {
+      return ((bitField0_ & 0x00004000) != 0);
+    }
+    /**
+     * <pre>
+     * Optional. The configuration options for GKE cluster master authorized networks.
+     * By default master authorized networks feature is:
+     * - in case of private environment: enabled with no external networks
+     * allowlisted.
+     * - in case of public environment: disabled.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig master_authorized_networks_config = 17 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The masterAuthorizedNetworksConfig.
+     */
+    public com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig getMasterAuthorizedNetworksConfig() {
+      if (masterAuthorizedNetworksConfigBuilder_ == null) {
+        return masterAuthorizedNetworksConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig.getDefaultInstance() : masterAuthorizedNetworksConfig_;
+      } else {
+        return masterAuthorizedNetworksConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The configuration options for GKE cluster master authorized networks.
+     * By default master authorized networks feature is:
+     * - in case of private environment: enabled with no external networks
+     * allowlisted.
+     * - in case of public environment: disabled.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig master_authorized_networks_config = 17 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setMasterAuthorizedNetworksConfig(com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig value) {
+      if (masterAuthorizedNetworksConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        masterAuthorizedNetworksConfig_ = value;
+      } else {
+        masterAuthorizedNetworksConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The configuration options for GKE cluster master authorized networks.
+     * By default master authorized networks feature is:
+     * - in case of private environment: enabled with no external networks
+     * allowlisted.
+     * - in case of public environment: disabled.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig master_authorized_networks_config = 17 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setMasterAuthorizedNetworksConfig(
+        com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig.Builder builderForValue) {
+      if (masterAuthorizedNetworksConfigBuilder_ == null) {
+        masterAuthorizedNetworksConfig_ = builderForValue.build();
+      } else {
+        masterAuthorizedNetworksConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The configuration options for GKE cluster master authorized networks.
+     * By default master authorized networks feature is:
+     * - in case of private environment: enabled with no external networks
+     * allowlisted.
+     * - in case of public environment: disabled.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig master_authorized_networks_config = 17 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder mergeMasterAuthorizedNetworksConfig(com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig value) {
+      if (masterAuthorizedNetworksConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00004000) != 0) &&
+          masterAuthorizedNetworksConfig_ != null &&
+          masterAuthorizedNetworksConfig_ != com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig.getDefaultInstance()) {
+          getMasterAuthorizedNetworksConfigBuilder().mergeFrom(value);
+        } else {
+          masterAuthorizedNetworksConfig_ = value;
+        }
+      } else {
+        masterAuthorizedNetworksConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The configuration options for GKE cluster master authorized networks.
+     * By default master authorized networks feature is:
+     * - in case of private environment: enabled with no external networks
+     * allowlisted.
+     * - in case of public environment: disabled.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig master_authorized_networks_config = 17 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder clearMasterAuthorizedNetworksConfig() {
+      bitField0_ = (bitField0_ & ~0x00004000);
+      masterAuthorizedNetworksConfig_ = null;
+      if (masterAuthorizedNetworksConfigBuilder_ != null) {
+        masterAuthorizedNetworksConfigBuilder_.dispose();
+        masterAuthorizedNetworksConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The configuration options for GKE cluster master authorized networks.
+     * By default master authorized networks feature is:
+     * - in case of private environment: enabled with no external networks
+     * allowlisted.
+     * - in case of public environment: disabled.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig master_authorized_networks_config = 17 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig.Builder getMasterAuthorizedNetworksConfigBuilder() {
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return getMasterAuthorizedNetworksConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Optional. The configuration options for GKE cluster master authorized networks.
+     * By default master authorized networks feature is:
+     * - in case of private environment: enabled with no external networks
+     * allowlisted.
+     * - in case of public environment: disabled.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig master_authorized_networks_config = 17 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfigOrBuilder getMasterAuthorizedNetworksConfigOrBuilder() {
+      if (masterAuthorizedNetworksConfigBuilder_ != null) {
+        return masterAuthorizedNetworksConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return masterAuthorizedNetworksConfig_ == null ?
+            com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig.getDefaultInstance() : masterAuthorizedNetworksConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The configuration options for GKE cluster master authorized networks.
+     * By default master authorized networks feature is:
+     * - in case of private environment: enabled with no external networks
+     * allowlisted.
+     * - in case of public environment: disabled.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig master_authorized_networks_config = 17 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig, com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig.Builder, com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfigOrBuilder> 
+        getMasterAuthorizedNetworksConfigFieldBuilder() {
+      if (masterAuthorizedNetworksConfigBuilder_ == null) {
+        masterAuthorizedNetworksConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig, com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfig.Builder, com.google.cloud.orchestration.airflow.service.v1.MasterAuthorizedNetworksConfigOrBuilder>(
+                getMasterAuthorizedNetworksConfig(),
+                getParentForChildren(),
+                isClean());
+        masterAuthorizedNetworksConfig_ = null;
+      }
+      return masterAuthorizedNetworksConfigBuilder_;
+    }
+
+    private com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig recoveryConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig, com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig.Builder, com.google.cloud.orchestration.airflow.service.v1.RecoveryConfigOrBuilder> recoveryConfigBuilder_;
+    /**
+     * <pre>
+     * Optional. The Recovery settings configuration of an environment.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.RecoveryConfig recovery_config = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return Whether the recoveryConfig field is set.
+     */
+    public boolean hasRecoveryConfig() {
+      return ((bitField0_ & 0x00008000) != 0);
+    }
+    /**
+     * <pre>
+     * Optional. The Recovery settings configuration of an environment.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.RecoveryConfig recovery_config = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The recoveryConfig.
+     */
+    public com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig getRecoveryConfig() {
+      if (recoveryConfigBuilder_ == null) {
+        return recoveryConfig_ == null ? com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig.getDefaultInstance() : recoveryConfig_;
+      } else {
+        return recoveryConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The Recovery settings configuration of an environment.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.RecoveryConfig recovery_config = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setRecoveryConfig(com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig value) {
+      if (recoveryConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        recoveryConfig_ = value;
+      } else {
+        recoveryConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The Recovery settings configuration of an environment.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.RecoveryConfig recovery_config = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setRecoveryConfig(
+        com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig.Builder builderForValue) {
+      if (recoveryConfigBuilder_ == null) {
+        recoveryConfig_ = builderForValue.build();
+      } else {
+        recoveryConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The Recovery settings configuration of an environment.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.RecoveryConfig recovery_config = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder mergeRecoveryConfig(com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig value) {
+      if (recoveryConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00008000) != 0) &&
+          recoveryConfig_ != null &&
+          recoveryConfig_ != com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig.getDefaultInstance()) {
+          getRecoveryConfigBuilder().mergeFrom(value);
+        } else {
+          recoveryConfig_ = value;
+        }
+      } else {
+        recoveryConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The Recovery settings configuration of an environment.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.RecoveryConfig recovery_config = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder clearRecoveryConfig() {
+      bitField0_ = (bitField0_ & ~0x00008000);
+      recoveryConfig_ = null;
+      if (recoveryConfigBuilder_ != null) {
+        recoveryConfigBuilder_.dispose();
+        recoveryConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The Recovery settings configuration of an environment.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.RecoveryConfig recovery_config = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig.Builder getRecoveryConfigBuilder() {
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return getRecoveryConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Optional. The Recovery settings configuration of an environment.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.RecoveryConfig recovery_config = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.orchestration.airflow.service.v1.RecoveryConfigOrBuilder getRecoveryConfigOrBuilder() {
+      if (recoveryConfigBuilder_ != null) {
+        return recoveryConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return recoveryConfig_ == null ?
+            com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig.getDefaultInstance() : recoveryConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The Recovery settings configuration of an environment.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-2.*.*-airflow-*.*.* and newer.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1.RecoveryConfig recovery_config = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig, com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig.Builder, com.google.cloud.orchestration.airflow.service.v1.RecoveryConfigOrBuilder> 
+        getRecoveryConfigFieldBuilder() {
+      if (recoveryConfigBuilder_ == null) {
+        recoveryConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig, com.google.cloud.orchestration.airflow.service.v1.RecoveryConfig.Builder, com.google.cloud.orchestration.airflow.service.v1.RecoveryConfigOrBuilder>(
+                getRecoveryConfig(),
+                getParentForChildren(),
+                isClean());
+        recoveryConfig_ = null;
+      }
+      return recoveryConfigBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -2712,7 +4097,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EnvironmentConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -106,7 +106,6 @@ public interface JwtAuthenticationOrBuilder extends
    *
    * <code>map&lt;string, .envoy.config.filter.http.jwt_authn.v2alpha.JwtProvider&gt; providers = 1;</code>
    */
-
   /* nullable */
 io.envoyproxy.envoy.config.filter.http.jwt_authn.v2alpha.JwtProvider getProvidersOrDefault(
       java.lang.String key,
@@ -134,7 +133,6 @@ io.envoyproxy.envoy.config.filter.http.jwt_authn.v2alpha.JwtProvider defaultValu
    *
    * <code>map&lt;string, .envoy.config.filter.http.jwt_authn.v2alpha.JwtProvider&gt; providers = 1;</code>
    */
-
   io.envoyproxy.envoy.config.filter.http.jwt_authn.v2alpha.JwtProvider getProvidersOrThrow(
       java.lang.String key);
 

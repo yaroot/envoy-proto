@@ -323,7 +323,6 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType    
    *
    * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType&gt; special_token_map = 6;</code>
    */
-
   int getSpecialTokenMapValueOrDefault(
       java.lang.String key,
       int defaultValue);
@@ -339,7 +338,6 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType    
    *
    * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType&gt; special_token_map = 6;</code>
    */
-
   int getSpecialTokenMapValueOrThrow(
       java.lang.String key);
 

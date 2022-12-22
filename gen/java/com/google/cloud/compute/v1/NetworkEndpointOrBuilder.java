@@ -46,7 +46,6 @@ public interface NetworkEndpointOrBuilder extends
    *
    * <code>map&lt;string, string&gt; annotations = 112032548;</code>
    */
-
   /* nullable */
 java.lang.String getAnnotationsOrDefault(
       java.lang.String key,
@@ -59,7 +58,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; annotations = 112032548;</code>
    */
-
   java.lang.String getAnnotationsOrThrow(
       java.lang.String key);
 

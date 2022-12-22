@@ -35,90 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GetTemplateResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.rpc.Status.Builder subBuilder = null;
-            if (status_ != null) {
-              subBuilder = status_.toBuilder();
-            }
-            status_ = input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(status_);
-              status_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.dataflow.v1beta3.TemplateMetadata.Builder subBuilder = null;
-            if (metadata_ != null) {
-              subBuilder = metadata_.toBuilder();
-            }
-            metadata_ = input.readMessage(com.google.dataflow.v1beta3.TemplateMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(metadata_);
-              metadata_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            templateType_ = rawValue;
-            break;
-          }
-          case 34: {
-            com.google.dataflow.v1beta3.RuntimeMetadata.Builder subBuilder = null;
-            if (runtimeMetadata_ != null) {
-              subBuilder = runtimeMetadata_.toBuilder();
-            }
-            runtimeMetadata_ = input.readMessage(com.google.dataflow.v1beta3.RuntimeMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(runtimeMetadata_);
-              runtimeMetadata_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.dataflow.v1beta3.TemplatesProto.internal_static_google_dataflow_v1beta3_GetTemplateResponse_descriptor;
@@ -315,7 +231,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.rpc.StatusOrBuilder getStatusOrBuilder() {
-    return getStatus();
+    return status_ == null ? com.google.rpc.Status.getDefaultInstance() : status_;
   }
 
   public static final int METADATA_FIELD_NUMBER = 2;
@@ -356,11 +272,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.dataflow.v1beta3.TemplateMetadataOrBuilder getMetadataOrBuilder() {
-    return getMetadata();
+    return metadata_ == null ? com.google.dataflow.v1beta3.TemplateMetadata.getDefaultInstance() : metadata_;
   }
 
   public static final int TEMPLATE_TYPE_FIELD_NUMBER = 3;
-  private int templateType_;
+  private int templateType_ = 0;
   /**
    * <pre>
    * Template Type.
@@ -381,8 +297,7 @@ private static final long serialVersionUID = 0L;
    * @return The templateType.
    */
   @java.lang.Override public com.google.dataflow.v1beta3.GetTemplateResponse.TemplateType getTemplateType() {
-    @SuppressWarnings("deprecation")
-    com.google.dataflow.v1beta3.GetTemplateResponse.TemplateType result = com.google.dataflow.v1beta3.GetTemplateResponse.TemplateType.valueOf(templateType_);
+    com.google.dataflow.v1beta3.GetTemplateResponse.TemplateType result = com.google.dataflow.v1beta3.GetTemplateResponse.TemplateType.forNumber(templateType_);
     return result == null ? com.google.dataflow.v1beta3.GetTemplateResponse.TemplateType.UNRECOGNIZED : result;
   }
 
@@ -421,7 +336,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.dataflow.v1beta3.RuntimeMetadataOrBuilder getRuntimeMetadataOrBuilder() {
-    return getRuntimeMetadata();
+    return runtimeMetadata_ == null ? com.google.dataflow.v1beta3.RuntimeMetadata.getDefaultInstance() : runtimeMetadata_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -450,7 +365,7 @@ private static final long serialVersionUID = 0L;
     if (runtimeMetadata_ != null) {
       output.writeMessage(4, getRuntimeMetadata());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -475,7 +390,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getRuntimeMetadata());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -506,7 +421,7 @@ private static final long serialVersionUID = 0L;
       if (!getRuntimeMetadata()
           .equals(other.getRuntimeMetadata())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -531,7 +446,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RUNTIME_METADATA_FIELD_NUMBER;
       hash = (53 * hash) + getRuntimeMetadata().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -652,40 +567,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.dataflow.v1beta3.GetTemplateResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (statusBuilder_ == null) {
-        status_ = null;
-      } else {
-        status_ = null;
+      bitField0_ = 0;
+      status_ = null;
+      if (statusBuilder_ != null) {
+        statusBuilder_.dispose();
         statusBuilder_ = null;
       }
-      if (metadataBuilder_ == null) {
-        metadata_ = null;
-      } else {
-        metadata_ = null;
+      metadata_ = null;
+      if (metadataBuilder_ != null) {
+        metadataBuilder_.dispose();
         metadataBuilder_ = null;
       }
       templateType_ = 0;
-
-      if (runtimeMetadataBuilder_ == null) {
-        runtimeMetadata_ = null;
-      } else {
-        runtimeMetadata_ = null;
+      runtimeMetadata_ = null;
+      if (runtimeMetadataBuilder_ != null) {
+        runtimeMetadataBuilder_.dispose();
         runtimeMetadataBuilder_ = null;
       }
       return this;
@@ -714,24 +621,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.dataflow.v1beta3.GetTemplateResponse buildPartial() {
       com.google.dataflow.v1beta3.GetTemplateResponse result = new com.google.dataflow.v1beta3.GetTemplateResponse(this);
-      if (statusBuilder_ == null) {
-        result.status_ = status_;
-      } else {
-        result.status_ = statusBuilder_.build();
-      }
-      if (metadataBuilder_ == null) {
-        result.metadata_ = metadata_;
-      } else {
-        result.metadata_ = metadataBuilder_.build();
-      }
-      result.templateType_ = templateType_;
-      if (runtimeMetadataBuilder_ == null) {
-        result.runtimeMetadata_ = runtimeMetadata_;
-      } else {
-        result.runtimeMetadata_ = runtimeMetadataBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.dataflow.v1beta3.GetTemplateResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.status_ = statusBuilder_ == null
+            ? status_
+            : statusBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.metadata_ = metadataBuilder_ == null
+            ? metadata_
+            : metadataBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.templateType_ = templateType_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.runtimeMetadata_ = runtimeMetadataBuilder_ == null
+            ? runtimeMetadata_
+            : runtimeMetadataBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -790,7 +704,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRuntimeMetadata()) {
         mergeRuntimeMetadata(other.getRuntimeMetadata());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -805,19 +719,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.dataflow.v1beta3.GetTemplateResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              templateType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getRuntimeMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.dataflow.v1beta3.GetTemplateResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.rpc.Status status_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -832,7 +786,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the status field is set.
      */
     public boolean hasStatus() {
-      return statusBuilder_ != null || status_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -864,11 +818,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         status_ = value;
-        onChanged();
       } else {
         statusBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -883,11 +837,11 @@ private static final long serialVersionUID = 0L;
         com.google.rpc.Status.Builder builderForValue) {
       if (statusBuilder_ == null) {
         status_ = builderForValue.build();
-        onChanged();
       } else {
         statusBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -900,17 +854,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStatus(com.google.rpc.Status value) {
       if (statusBuilder_ == null) {
-        if (status_ != null) {
-          status_ =
-            com.google.rpc.Status.newBuilder(status_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          status_ != null &&
+          status_ != com.google.rpc.Status.getDefaultInstance()) {
+          getStatusBuilder().mergeFrom(value);
         } else {
           status_ = value;
         }
-        onChanged();
       } else {
         statusBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -922,14 +877,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status status = 1;</code>
      */
     public Builder clearStatus() {
-      if (statusBuilder_ == null) {
-        status_ = null;
-        onChanged();
-      } else {
-        status_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      status_ = null;
+      if (statusBuilder_ != null) {
+        statusBuilder_.dispose();
         statusBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -941,7 +895,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status status = 1;</code>
      */
     public com.google.rpc.Status.Builder getStatusBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getStatusFieldBuilder().getBuilder();
     }
@@ -996,7 +950,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the metadata field is set.
      */
     public boolean hasMetadata() {
-      return metadataBuilder_ != null || metadata_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1028,11 +982,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         metadata_ = value;
-        onChanged();
       } else {
         metadataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1047,11 +1001,11 @@ private static final long serialVersionUID = 0L;
         com.google.dataflow.v1beta3.TemplateMetadata.Builder builderForValue) {
       if (metadataBuilder_ == null) {
         metadata_ = builderForValue.build();
-        onChanged();
       } else {
         metadataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1064,17 +1018,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMetadata(com.google.dataflow.v1beta3.TemplateMetadata value) {
       if (metadataBuilder_ == null) {
-        if (metadata_ != null) {
-          metadata_ =
-            com.google.dataflow.v1beta3.TemplateMetadata.newBuilder(metadata_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          metadata_ != null &&
+          metadata_ != com.google.dataflow.v1beta3.TemplateMetadata.getDefaultInstance()) {
+          getMetadataBuilder().mergeFrom(value);
         } else {
           metadata_ = value;
         }
-        onChanged();
       } else {
         metadataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1086,14 +1041,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.dataflow.v1beta3.TemplateMetadata metadata = 2;</code>
      */
     public Builder clearMetadata() {
-      if (metadataBuilder_ == null) {
-        metadata_ = null;
-        onChanged();
-      } else {
-        metadata_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      metadata_ = null;
+      if (metadataBuilder_ != null) {
+        metadataBuilder_.dispose();
         metadataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1105,7 +1059,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.dataflow.v1beta3.TemplateMetadata metadata = 2;</code>
      */
     public com.google.dataflow.v1beta3.TemplateMetadata.Builder getMetadataBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getMetadataFieldBuilder().getBuilder();
     }
@@ -1169,8 +1123,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTemplateTypeValue(int value) {
-      
       templateType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1184,8 +1138,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.dataflow.v1beta3.GetTemplateResponse.TemplateType getTemplateType() {
-      @SuppressWarnings("deprecation")
-      com.google.dataflow.v1beta3.GetTemplateResponse.TemplateType result = com.google.dataflow.v1beta3.GetTemplateResponse.TemplateType.valueOf(templateType_);
+      com.google.dataflow.v1beta3.GetTemplateResponse.TemplateType result = com.google.dataflow.v1beta3.GetTemplateResponse.TemplateType.forNumber(templateType_);
       return result == null ? com.google.dataflow.v1beta3.GetTemplateResponse.TemplateType.UNRECOGNIZED : result;
     }
     /**
@@ -1201,7 +1154,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       templateType_ = value.getNumber();
       onChanged();
       return this;
@@ -1215,7 +1168,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTemplateType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       templateType_ = 0;
       onChanged();
       return this;
@@ -1233,7 +1186,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the runtimeMetadata field is set.
      */
     public boolean hasRuntimeMetadata() {
-      return runtimeMetadataBuilder_ != null || runtimeMetadata_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1263,11 +1216,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         runtimeMetadata_ = value;
-        onChanged();
       } else {
         runtimeMetadataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1281,11 +1234,11 @@ private static final long serialVersionUID = 0L;
         com.google.dataflow.v1beta3.RuntimeMetadata.Builder builderForValue) {
       if (runtimeMetadataBuilder_ == null) {
         runtimeMetadata_ = builderForValue.build();
-        onChanged();
       } else {
         runtimeMetadataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1297,17 +1250,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRuntimeMetadata(com.google.dataflow.v1beta3.RuntimeMetadata value) {
       if (runtimeMetadataBuilder_ == null) {
-        if (runtimeMetadata_ != null) {
-          runtimeMetadata_ =
-            com.google.dataflow.v1beta3.RuntimeMetadata.newBuilder(runtimeMetadata_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          runtimeMetadata_ != null &&
+          runtimeMetadata_ != com.google.dataflow.v1beta3.RuntimeMetadata.getDefaultInstance()) {
+          getRuntimeMetadataBuilder().mergeFrom(value);
         } else {
           runtimeMetadata_ = value;
         }
-        onChanged();
       } else {
         runtimeMetadataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1318,14 +1272,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.dataflow.v1beta3.RuntimeMetadata runtime_metadata = 4;</code>
      */
     public Builder clearRuntimeMetadata() {
-      if (runtimeMetadataBuilder_ == null) {
-        runtimeMetadata_ = null;
-        onChanged();
-      } else {
-        runtimeMetadata_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      runtimeMetadata_ = null;
+      if (runtimeMetadataBuilder_ != null) {
+        runtimeMetadataBuilder_.dispose();
         runtimeMetadataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1336,7 +1289,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.dataflow.v1beta3.RuntimeMetadata runtime_metadata = 4;</code>
      */
     public com.google.dataflow.v1beta3.RuntimeMetadata.Builder getRuntimeMetadataBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getRuntimeMetadataFieldBuilder().getBuilder();
     }
@@ -1408,7 +1361,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GetTemplateResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

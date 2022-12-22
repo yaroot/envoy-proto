@@ -36,72 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UsageSignal(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              usageWithinTimeRange_ = com.google.protobuf.MapField.newMapField(
-                  UsageWithinTimeRangeDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.datacatalog.v1.UsageStats>
-            usageWithinTimeRange__ = input.readMessage(
-                UsageWithinTimeRangeDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            usageWithinTimeRange_.getMutableMap().put(
-                usageWithinTimeRange__.getKey(), usageWithinTimeRange__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datacatalog.v1.Usage.internal_static_google_cloud_datacatalog_v1_UsageSignal_descriptor;
@@ -162,7 +96,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int USAGE_WITHIN_TIME_RANGE_FIELD_NUMBER = 2;
@@ -177,6 +111,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.datacatalog.v1.UsageStats.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.datacatalog.v1.UsageStats> usageWithinTimeRange_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.datacatalog.v1.UsageStats>
@@ -187,19 +122,17 @@ private static final long serialVersionUID = 0L;
     }
     return usageWithinTimeRange_;
   }
-
   public int getUsageWithinTimeRangeCount() {
     return internalGetUsageWithinTimeRange().getMap().size();
   }
   /**
    * <pre>
-   * Usage statistics over each of the predefined time ranges.
+   * Output only. BigQuery usage statistics over each of the predefined time ranges.
    * Supported time ranges are `{"24H", "7D", "30D"}`.
    * </pre>
    *
-   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2;</code>
+   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   @java.lang.Override
   public boolean containsUsageWithinTimeRange(
       java.lang.String key) {
@@ -216,30 +149,30 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Usage statistics over each of the predefined time ranges.
+   * Output only. BigQuery usage statistics over each of the predefined time ranges.
    * Supported time ranges are `{"24H", "7D", "30D"}`.
    * </pre>
    *
-   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2;</code>
+   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.datacatalog.v1.UsageStats> getUsageWithinTimeRangeMap() {
     return internalGetUsageWithinTimeRange().getMap();
   }
   /**
    * <pre>
-   * Usage statistics over each of the predefined time ranges.
+   * Output only. BigQuery usage statistics over each of the predefined time ranges.
    * Supported time ranges are `{"24H", "7D", "30D"}`.
    * </pre>
    *
-   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2;</code>
+   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.datacatalog.v1.UsageStats getUsageWithinTimeRangeOrDefault(
+  public /* nullable */
+com.google.cloud.datacatalog.v1.UsageStats getUsageWithinTimeRangeOrDefault(
       java.lang.String key,
-      com.google.cloud.datacatalog.v1.UsageStats defaultValue) {
+      /* nullable */
+com.google.cloud.datacatalog.v1.UsageStats defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.datacatalog.v1.UsageStats> map =
         internalGetUsageWithinTimeRange().getMap();
@@ -247,14 +180,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Usage statistics over each of the predefined time ranges.
+   * Output only. BigQuery usage statistics over each of the predefined time ranges.
    * Supported time ranges are `{"24H", "7D", "30D"}`.
    * </pre>
    *
-   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2;</code>
+   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
   public com.google.cloud.datacatalog.v1.UsageStats getUsageWithinTimeRangeOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -289,7 +221,7 @@ private static final long serialVersionUID = 0L;
         internalGetUsageWithinTimeRange(),
         UsageWithinTimeRangeDefaultEntryHolder.defaultEntry,
         2);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -312,7 +244,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, usageWithinTimeRange__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -334,7 +266,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!internalGetUsageWithinTimeRange().equals(
         other.internalGetUsageWithinTimeRange())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -353,7 +285,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + USAGE_WITHIN_TIME_RANGE_FIELD_NUMBER;
       hash = (53 * hash) + internalGetUsageWithinTimeRange().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -498,26 +430,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datacatalog.v1.UsageSignal.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      bitField0_ = 0;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       internalGetMutableUsageWithinTimeRange().clear();
@@ -547,16 +474,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datacatalog.v1.UsageSignal buildPartial() {
       com.google.cloud.datacatalog.v1.UsageSignal result = new com.google.cloud.datacatalog.v1.UsageSignal(this);
-      int from_bitField0_ = bitField0_;
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.usageWithinTimeRange_ = internalGetUsageWithinTimeRange();
-      result.usageWithinTimeRange_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datacatalog.v1.UsageSignal result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.usageWithinTimeRange_ = internalGetUsageWithinTimeRange();
+        result.usageWithinTimeRange_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -608,7 +541,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableUsageWithinTimeRange().mergeFrom(
           other.internalGetUsageWithinTimeRange());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000002;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -623,17 +557,46 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datacatalog.v1.UsageSignal parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.datacatalog.v1.UsageStats>
+              usageWithinTimeRange__ = input.readMessage(
+                  UsageWithinTimeRangeDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableUsageWithinTimeRange().getMutableMap().put(
+                  usageWithinTimeRange__.getKey(), usageWithinTimeRange__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datacatalog.v1.UsageSignal) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -650,7 +613,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -680,11 +643,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -698,11 +661,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -714,17 +677,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -735,14 +699,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 1;</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -753,7 +716,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 1;</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -796,7 +759,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.datacatalog.v1.UsageStats> usageWithinTimeRange_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.datacatalog.v1.UsageStats>
-    internalGetUsageWithinTimeRange() {
+        internalGetUsageWithinTimeRange() {
       if (usageWithinTimeRange_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             UsageWithinTimeRangeDefaultEntryHolder.defaultEntry);
@@ -804,8 +767,7 @@ private static final long serialVersionUID = 0L;
       return usageWithinTimeRange_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.datacatalog.v1.UsageStats>
-    internalGetMutableUsageWithinTimeRange() {
-      onChanged();;
+        internalGetMutableUsageWithinTimeRange() {
       if (usageWithinTimeRange_ == null) {
         usageWithinTimeRange_ = com.google.protobuf.MapField.newMapField(
             UsageWithinTimeRangeDefaultEntryHolder.defaultEntry);
@@ -813,21 +775,21 @@ private static final long serialVersionUID = 0L;
       if (!usageWithinTimeRange_.isMutable()) {
         usageWithinTimeRange_ = usageWithinTimeRange_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return usageWithinTimeRange_;
     }
-
     public int getUsageWithinTimeRangeCount() {
       return internalGetUsageWithinTimeRange().getMap().size();
     }
     /**
      * <pre>
-     * Usage statistics over each of the predefined time ranges.
+     * Output only. BigQuery usage statistics over each of the predefined time ranges.
      * Supported time ranges are `{"24H", "7D", "30D"}`.
      * </pre>
      *
-     * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2;</code>
+     * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     @java.lang.Override
     public boolean containsUsageWithinTimeRange(
         java.lang.String key) {
@@ -844,30 +806,30 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Usage statistics over each of the predefined time ranges.
+     * Output only. BigQuery usage statistics over each of the predefined time ranges.
      * Supported time ranges are `{"24H", "7D", "30D"}`.
      * </pre>
      *
-     * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2;</code>
+     * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.datacatalog.v1.UsageStats> getUsageWithinTimeRangeMap() {
       return internalGetUsageWithinTimeRange().getMap();
     }
     /**
      * <pre>
-     * Usage statistics over each of the predefined time ranges.
+     * Output only. BigQuery usage statistics over each of the predefined time ranges.
      * Supported time ranges are `{"24H", "7D", "30D"}`.
      * </pre>
      *
-     * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2;</code>
+     * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.datacatalog.v1.UsageStats getUsageWithinTimeRangeOrDefault(
+    public /* nullable */
+com.google.cloud.datacatalog.v1.UsageStats getUsageWithinTimeRangeOrDefault(
         java.lang.String key,
-        com.google.cloud.datacatalog.v1.UsageStats defaultValue) {
+        /* nullable */
+com.google.cloud.datacatalog.v1.UsageStats defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.datacatalog.v1.UsageStats> map =
           internalGetUsageWithinTimeRange().getMap();
@@ -875,14 +837,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Usage statistics over each of the predefined time ranges.
+     * Output only. BigQuery usage statistics over each of the predefined time ranges.
      * Supported time ranges are `{"24H", "7D", "30D"}`.
      * </pre>
      *
-     * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2;</code>
+     * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
     public com.google.cloud.datacatalog.v1.UsageStats getUsageWithinTimeRangeOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -893,21 +854,20 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearUsageWithinTimeRange() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableUsageWithinTimeRange().getMutableMap()
           .clear();
       return this;
     }
     /**
      * <pre>
-     * Usage statistics over each of the predefined time ranges.
+     * Output only. BigQuery usage statistics over each of the predefined time ranges.
      * Supported time ranges are `{"24H", "7D", "30D"}`.
      * </pre>
      *
-     * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2;</code>
+     * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     public Builder removeUsageWithinTimeRange(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -920,42 +880,41 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.datacatalog.v1.UsageStats>
-    getMutableUsageWithinTimeRange() {
+        getMutableUsageWithinTimeRange() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableUsageWithinTimeRange().getMutableMap();
     }
     /**
      * <pre>
-     * Usage statistics over each of the predefined time ranges.
+     * Output only. BigQuery usage statistics over each of the predefined time ranges.
      * Supported time ranges are `{"24H", "7D", "30D"}`.
      * </pre>
      *
-     * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2;</code>
+     * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder putUsageWithinTimeRange(
         java.lang.String key,
         com.google.cloud.datacatalog.v1.UsageStats value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableUsageWithinTimeRange().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
      * <pre>
-     * Usage statistics over each of the predefined time ranges.
+     * Output only. BigQuery usage statistics over each of the predefined time ranges.
      * Supported time ranges are `{"24H", "7D", "30D"}`.
      * </pre>
      *
-     * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2;</code>
+     * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     public Builder putAllUsageWithinTimeRange(
         java.util.Map<java.lang.String, com.google.cloud.datacatalog.v1.UsageStats> values) {
       internalGetMutableUsageWithinTimeRange().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
     @java.lang.Override
@@ -991,7 +950,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UsageSignal(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

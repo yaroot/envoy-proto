@@ -40,186 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Entitlement(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            offer_ = s;
-            break;
-          }
-          case 98: {
-            com.google.cloud.channel.v1.CommitmentSettings.Builder subBuilder = null;
-            if (commitmentSettings_ != null) {
-              subBuilder = commitmentSettings_.toBuilder();
-            }
-            commitmentSettings_ = input.readMessage(com.google.cloud.channel.v1.CommitmentSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(commitmentSettings_);
-              commitmentSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 104: {
-            int rawValue = input.readEnum();
-
-            provisioningState_ = rawValue;
-            break;
-          }
-          case 130: {
-            com.google.cloud.channel.v1.ProvisionedService.Builder subBuilder = null;
-            if (provisionedService_ != null) {
-              subBuilder = provisionedService_.toBuilder();
-            }
-            provisionedService_ = input.readMessage(com.google.cloud.channel.v1.ProvisionedService.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(provisionedService_);
-              provisionedService_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 144: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              suspensionReasons_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            suspensionReasons_.add(rawValue);
-            break;
-          }
-          case 146: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                suspensionReasons_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              suspensionReasons_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 154: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            purchaseOrderId_ = s;
-            break;
-          }
-          case 170: {
-            com.google.cloud.channel.v1.TrialSettings.Builder subBuilder = null;
-            if (trialSettings_ != null) {
-              subBuilder = trialSettings_.toBuilder();
-            }
-            trialSettings_ = input.readMessage(com.google.cloud.channel.v1.TrialSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(trialSettings_);
-              trialSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 186: {
-            com.google.cloud.channel.v1.AssociationInfo.Builder subBuilder = null;
-            if (associationInfo_ != null) {
-              subBuilder = associationInfo_.toBuilder();
-            }
-            associationInfo_ = input.readMessage(com.google.cloud.channel.v1.AssociationInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(associationInfo_);
-              associationInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 210: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              parameters_ = new java.util.ArrayList<com.google.cloud.channel.v1.Parameter>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            parameters_.add(
-                input.readMessage(com.google.cloud.channel.v1.Parameter.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        suspensionReasons_ = java.util.Collections.unmodifiableList(suspensionReasons_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        parameters_ = java.util.Collections.unmodifiableList(parameters_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.EntitlementsProto.internal_static_google_cloud_channel_v1_Entitlement_descriptor;
@@ -380,7 +200,9 @@ private static final long serialVersionUID = 0L;
 
   /**
    * <pre>
-   * Suspension reason for an entitlement if [provisioning_state][google.cloud.channel.v1.Entitlement.provisioning_state] = SUSPENDED.
+   * Suspension reason for an entitlement if
+   * [provisioning_state][google.cloud.channel.v1.Entitlement.provisioning_state]
+   * = SUSPENDED.
    * </pre>
    *
    * Protobuf enum {@code google.cloud.channel.v1.Entitlement.SuspensionReason}
@@ -577,7 +399,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. Resource name of an entitlement in the form:
@@ -659,7 +482,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 6;
@@ -697,11 +520,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int OFFER_FIELD_NUMBER = 8;
-  private volatile java.lang.Object offer_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object offer_ = "";
   /**
    * <pre>
    * Required. The offer resource name for which the entitlement is to be
@@ -786,11 +610,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.CommitmentSettingsOrBuilder getCommitmentSettingsOrBuilder() {
-    return getCommitmentSettings();
+    return commitmentSettings_ == null ? com.google.cloud.channel.v1.CommitmentSettings.getDefaultInstance() : commitmentSettings_;
   }
 
   public static final int PROVISIONING_STATE_FIELD_NUMBER = 13;
-  private int provisioningState_;
+  private int provisioningState_ = 0;
   /**
    * <pre>
    * Output only. Current provisioning state of the entitlement.
@@ -811,8 +635,7 @@ private static final long serialVersionUID = 0L;
    * @return The provisioningState.
    */
   @java.lang.Override public com.google.cloud.channel.v1.Entitlement.ProvisioningState getProvisioningState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.channel.v1.Entitlement.ProvisioningState result = com.google.cloud.channel.v1.Entitlement.ProvisioningState.valueOf(provisioningState_);
+    com.google.cloud.channel.v1.Entitlement.ProvisioningState result = com.google.cloud.channel.v1.Entitlement.ProvisioningState.forNumber(provisioningState_);
     return result == null ? com.google.cloud.channel.v1.Entitlement.ProvisioningState.UNRECOGNIZED : result;
   }
 
@@ -851,24 +674,25 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.ProvisionedServiceOrBuilder getProvisionedServiceOrBuilder() {
-    return getProvisionedService();
+    return provisionedService_ == null ? com.google.cloud.channel.v1.ProvisionedService.getDefaultInstance() : provisionedService_;
   }
 
   public static final int SUSPENSION_REASONS_FIELD_NUMBER = 18;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> suspensionReasons_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.channel.v1.Entitlement.SuspensionReason> suspensionReasons_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.channel.v1.Entitlement.SuspensionReason>() {
             public com.google.cloud.channel.v1.Entitlement.SuspensionReason convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.channel.v1.Entitlement.SuspensionReason result = com.google.cloud.channel.v1.Entitlement.SuspensionReason.valueOf(from);
+              com.google.cloud.channel.v1.Entitlement.SuspensionReason result = com.google.cloud.channel.v1.Entitlement.SuspensionReason.forNumber(from);
               return result == null ? com.google.cloud.channel.v1.Entitlement.SuspensionReason.UNRECOGNIZED : result;
             }
           };
   /**
    * <pre>
-   * Output only. Enumerable of all current suspension reasons for an entitlement.
+   * Output only. Enumerable of all current suspension reasons for an
+   * entitlement.
    * </pre>
    *
    * <code>repeated .google.cloud.channel.v1.Entitlement.SuspensionReason suspension_reasons = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -881,7 +705,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. Enumerable of all current suspension reasons for an entitlement.
+   * Output only. Enumerable of all current suspension reasons for an
+   * entitlement.
    * </pre>
    *
    * <code>repeated .google.cloud.channel.v1.Entitlement.SuspensionReason suspension_reasons = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -893,7 +718,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. Enumerable of all current suspension reasons for an entitlement.
+   * Output only. Enumerable of all current suspension reasons for an
+   * entitlement.
    * </pre>
    *
    * <code>repeated .google.cloud.channel.v1.Entitlement.SuspensionReason suspension_reasons = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -906,7 +732,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. Enumerable of all current suspension reasons for an entitlement.
+   * Output only. Enumerable of all current suspension reasons for an
+   * entitlement.
    * </pre>
    *
    * <code>repeated .google.cloud.channel.v1.Entitlement.SuspensionReason suspension_reasons = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -919,7 +746,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. Enumerable of all current suspension reasons for an entitlement.
+   * Output only. Enumerable of all current suspension reasons for an
+   * entitlement.
    * </pre>
    *
    * <code>repeated .google.cloud.channel.v1.Entitlement.SuspensionReason suspension_reasons = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -933,14 +761,15 @@ private static final long serialVersionUID = 0L;
   private int suspensionReasonsMemoizedSerializedSize;
 
   public static final int PURCHASE_ORDER_ID_FIELD_NUMBER = 19;
-  private volatile java.lang.Object purchaseOrderId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object purchaseOrderId_ = "";
   /**
    * <pre>
-   * Optional. This purchase order (PO) information is for resellers to use for their
-   * company tracking usage. If a purchaseOrderId value is given, it appears in
-   * the API responses and shows up in the invoice. The property accepts up to
-   * 80 plain text characters. This is only supported for Google Workspace
-   * entitlements.
+   * Optional. This purchase order (PO) information is for resellers to use for
+   * their company tracking usage. If a purchaseOrderId value is given, it
+   * appears in the API responses and shows up in the invoice. The property
+   * accepts up to 80 plain text characters. This is only supported for Google
+   * Workspace entitlements.
    * </pre>
    *
    * <code>string purchase_order_id = 19 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -961,11 +790,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. This purchase order (PO) information is for resellers to use for their
-   * company tracking usage. If a purchaseOrderId value is given, it appears in
-   * the API responses and shows up in the invoice. The property accepts up to
-   * 80 plain text characters. This is only supported for Google Workspace
-   * entitlements.
+   * Optional. This purchase order (PO) information is for resellers to use for
+   * their company tracking usage. If a purchaseOrderId value is given, it
+   * appears in the API responses and shows up in the invoice. The property
+   * accepts up to 80 plain text characters. This is only supported for Google
+   * Workspace entitlements.
    * </pre>
    *
    * <code>string purchase_order_id = 19 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1021,7 +850,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.TrialSettingsOrBuilder getTrialSettingsOrBuilder() {
-    return getTrialSettings();
+    return trialSettings_ == null ? com.google.cloud.channel.v1.TrialSettings.getDefaultInstance() : trialSettings_;
   }
 
   public static final int ASSOCIATION_INFO_FIELD_NUMBER = 23;
@@ -1059,10 +888,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.AssociationInfoOrBuilder getAssociationInfoOrBuilder() {
-    return getAssociationInfo();
+    return associationInfo_ == null ? com.google.cloud.channel.v1.AssociationInfo.getDefaultInstance() : associationInfo_;
   }
 
   public static final int PARAMETERS_FIELD_NUMBER = 26;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.channel.v1.Parameter> parameters_;
   /**
    * <pre>
@@ -1207,7 +1037,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < parameters_.size(); i++) {
       output.writeMessage(26, parameters_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1269,7 +1099,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(26, parameters_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1324,7 +1154,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getParametersList()
         .equals(other.getParametersList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1375,7 +1205,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PARAMETERS_FIELD_NUMBER;
       hash = (53 * hash) + getParametersList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1496,75 +1326,61 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.Entitlement.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getParametersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       offer_ = "";
-
-      if (commitmentSettingsBuilder_ == null) {
-        commitmentSettings_ = null;
-      } else {
-        commitmentSettings_ = null;
+      commitmentSettings_ = null;
+      if (commitmentSettingsBuilder_ != null) {
+        commitmentSettingsBuilder_.dispose();
         commitmentSettingsBuilder_ = null;
       }
       provisioningState_ = 0;
-
-      if (provisionedServiceBuilder_ == null) {
-        provisionedService_ = null;
-      } else {
-        provisionedService_ = null;
+      provisionedService_ = null;
+      if (provisionedServiceBuilder_ != null) {
+        provisionedServiceBuilder_.dispose();
         provisionedServiceBuilder_ = null;
       }
       suspensionReasons_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000080);
       purchaseOrderId_ = "";
-
-      if (trialSettingsBuilder_ == null) {
-        trialSettings_ = null;
-      } else {
-        trialSettings_ = null;
+      trialSettings_ = null;
+      if (trialSettingsBuilder_ != null) {
+        trialSettingsBuilder_.dispose();
         trialSettingsBuilder_ = null;
       }
-      if (associationInfoBuilder_ == null) {
-        associationInfo_ = null;
-      } else {
-        associationInfo_ = null;
+      associationInfo_ = null;
+      if (associationInfoBuilder_ != null) {
+        associationInfoBuilder_.dispose();
         associationInfoBuilder_ = null;
       }
       if (parametersBuilder_ == null) {
         parameters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        parameters_ = null;
         parametersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000800);
       return this;
     }
 
@@ -1591,57 +1407,73 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.Entitlement buildPartial() {
       com.google.cloud.channel.v1.Entitlement result = new com.google.cloud.channel.v1.Entitlement(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.offer_ = offer_;
-      if (commitmentSettingsBuilder_ == null) {
-        result.commitmentSettings_ = commitmentSettings_;
-      } else {
-        result.commitmentSettings_ = commitmentSettingsBuilder_.build();
-      }
-      result.provisioningState_ = provisioningState_;
-      if (provisionedServiceBuilder_ == null) {
-        result.provisionedService_ = provisionedService_;
-      } else {
-        result.provisionedService_ = provisionedServiceBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.channel.v1.Entitlement result) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         suspensionReasons_ = java.util.Collections.unmodifiableList(suspensionReasons_);
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000080);
       }
       result.suspensionReasons_ = suspensionReasons_;
-      result.purchaseOrderId_ = purchaseOrderId_;
-      if (trialSettingsBuilder_ == null) {
-        result.trialSettings_ = trialSettings_;
-      } else {
-        result.trialSettings_ = trialSettingsBuilder_.build();
-      }
-      if (associationInfoBuilder_ == null) {
-        result.associationInfo_ = associationInfo_;
-      } else {
-        result.associationInfo_ = associationInfoBuilder_.build();
-      }
       if (parametersBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000800) != 0)) {
           parameters_ = java.util.Collections.unmodifiableList(parameters_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000800);
         }
         result.parameters_ = parameters_;
       } else {
         result.parameters_ = parametersBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.Entitlement result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.offer_ = offer_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.commitmentSettings_ = commitmentSettingsBuilder_ == null
+            ? commitmentSettings_
+            : commitmentSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.provisioningState_ = provisioningState_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.provisionedService_ = provisionedServiceBuilder_ == null
+            ? provisionedService_
+            : provisionedServiceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.purchaseOrderId_ = purchaseOrderId_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.trialSettings_ = trialSettingsBuilder_ == null
+            ? trialSettings_
+            : trialSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.associationInfo_ = associationInfoBuilder_ == null
+            ? associationInfo_
+            : associationInfoBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1690,6 +1522,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.channel.v1.Entitlement.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -1700,6 +1533,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getOffer().isEmpty()) {
         offer_ = other.offer_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasCommitmentSettings()) {
@@ -1714,7 +1548,7 @@ private static final long serialVersionUID = 0L;
       if (!other.suspensionReasons_.isEmpty()) {
         if (suspensionReasons_.isEmpty()) {
           suspensionReasons_ = other.suspensionReasons_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensureSuspensionReasonsIsMutable();
           suspensionReasons_.addAll(other.suspensionReasons_);
@@ -1723,6 +1557,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPurchaseOrderId().isEmpty()) {
         purchaseOrderId_ = other.purchaseOrderId_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.hasTrialSettings()) {
@@ -1735,7 +1570,7 @@ private static final long serialVersionUID = 0L;
         if (!other.parameters_.isEmpty()) {
           if (parameters_.isEmpty()) {
             parameters_ = other.parameters_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000800);
           } else {
             ensureParametersIsMutable();
             parameters_.addAll(other.parameters_);
@@ -1748,7 +1583,7 @@ private static final long serialVersionUID = 0L;
             parametersBuilder_.dispose();
             parametersBuilder_ = null;
             parameters_ = other.parameters_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000800);
             parametersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getParametersFieldBuilder() : null;
@@ -1757,7 +1592,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1772,17 +1607,122 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.Entitlement parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 42: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 50
+            case 66: {
+              offer_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 66
+            case 98: {
+              input.readMessage(
+                  getCommitmentSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 98
+            case 104: {
+              provisioningState_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 104
+            case 130: {
+              input.readMessage(
+                  getProvisionedServiceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 130
+            case 144: {
+              int tmpRaw = input.readEnum();
+              ensureSuspensionReasonsIsMutable();
+              suspensionReasons_.add(tmpRaw);
+              break;
+            } // case 144
+            case 146: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureSuspensionReasonsIsMutable();
+                suspensionReasons_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 146
+            case 154: {
+              purchaseOrderId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 154
+            case 170: {
+              input.readMessage(
+                  getTrialSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 170
+            case 186: {
+              input.readMessage(
+                  getAssociationInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 186
+            case 210: {
+              com.google.cloud.channel.v1.Parameter m =
+                  input.readMessage(
+                      com.google.cloud.channel.v1.Parameter.parser(),
+                      extensionRegistry);
+              if (parametersBuilder_ == null) {
+                ensureParametersIsMutable();
+                parameters_.add(m);
+              } else {
+                parametersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 210
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.Entitlement) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1843,11 +1783,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1861,8 +1799,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1878,12 +1816,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1900,7 +1836,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1930,11 +1866,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1948,11 +1884,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1964,17 +1900,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1985,14 +1922,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2003,7 +1939,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -2055,7 +1991,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2085,11 +2021,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2103,11 +2039,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2119,17 +2055,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2140,14 +2077,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2158,7 +2094,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -2254,11 +2190,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOffer(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       offer_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2272,8 +2206,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOffer() {
-      
       offer_ = getDefaultInstance().getOffer();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2289,12 +2223,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOfferBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       offer_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2312,7 +2244,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the commitmentSettings field is set.
      */
     public boolean hasCommitmentSettings() {
-      return commitmentSettingsBuilder_ != null || commitmentSettings_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2344,11 +2276,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         commitmentSettings_ = value;
-        onChanged();
       } else {
         commitmentSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2363,11 +2295,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.CommitmentSettings.Builder builderForValue) {
       if (commitmentSettingsBuilder_ == null) {
         commitmentSettings_ = builderForValue.build();
-        onChanged();
       } else {
         commitmentSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2380,17 +2312,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCommitmentSettings(com.google.cloud.channel.v1.CommitmentSettings value) {
       if (commitmentSettingsBuilder_ == null) {
-        if (commitmentSettings_ != null) {
-          commitmentSettings_ =
-            com.google.cloud.channel.v1.CommitmentSettings.newBuilder(commitmentSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          commitmentSettings_ != null &&
+          commitmentSettings_ != com.google.cloud.channel.v1.CommitmentSettings.getDefaultInstance()) {
+          getCommitmentSettingsBuilder().mergeFrom(value);
         } else {
           commitmentSettings_ = value;
         }
-        onChanged();
       } else {
         commitmentSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2402,14 +2335,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.CommitmentSettings commitment_settings = 12;</code>
      */
     public Builder clearCommitmentSettings() {
-      if (commitmentSettingsBuilder_ == null) {
-        commitmentSettings_ = null;
-        onChanged();
-      } else {
-        commitmentSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      commitmentSettings_ = null;
+      if (commitmentSettingsBuilder_ != null) {
+        commitmentSettingsBuilder_.dispose();
         commitmentSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2421,7 +2353,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.CommitmentSettings commitment_settings = 12;</code>
      */
     public com.google.cloud.channel.v1.CommitmentSettings.Builder getCommitmentSettingsBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getCommitmentSettingsFieldBuilder().getBuilder();
     }
@@ -2485,8 +2417,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setProvisioningStateValue(int value) {
-      
       provisioningState_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2500,8 +2432,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.channel.v1.Entitlement.ProvisioningState getProvisioningState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.channel.v1.Entitlement.ProvisioningState result = com.google.cloud.channel.v1.Entitlement.ProvisioningState.valueOf(provisioningState_);
+      com.google.cloud.channel.v1.Entitlement.ProvisioningState result = com.google.cloud.channel.v1.Entitlement.ProvisioningState.forNumber(provisioningState_);
       return result == null ? com.google.cloud.channel.v1.Entitlement.ProvisioningState.UNRECOGNIZED : result;
     }
     /**
@@ -2517,7 +2448,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       provisioningState_ = value.getNumber();
       onChanged();
       return this;
@@ -2531,7 +2462,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProvisioningState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       provisioningState_ = 0;
       onChanged();
       return this;
@@ -2549,7 +2480,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the provisionedService field is set.
      */
     public boolean hasProvisionedService() {
-      return provisionedServiceBuilder_ != null || provisionedService_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2579,11 +2510,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         provisionedService_ = value;
-        onChanged();
       } else {
         provisionedServiceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2597,11 +2528,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.ProvisionedService.Builder builderForValue) {
       if (provisionedServiceBuilder_ == null) {
         provisionedService_ = builderForValue.build();
-        onChanged();
       } else {
         provisionedServiceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2613,17 +2544,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeProvisionedService(com.google.cloud.channel.v1.ProvisionedService value) {
       if (provisionedServiceBuilder_ == null) {
-        if (provisionedService_ != null) {
-          provisionedService_ =
-            com.google.cloud.channel.v1.ProvisionedService.newBuilder(provisionedService_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          provisionedService_ != null &&
+          provisionedService_ != com.google.cloud.channel.v1.ProvisionedService.getDefaultInstance()) {
+          getProvisionedServiceBuilder().mergeFrom(value);
         } else {
           provisionedService_ = value;
         }
-        onChanged();
       } else {
         provisionedServiceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2634,14 +2566,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.ProvisionedService provisioned_service = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearProvisionedService() {
-      if (provisionedServiceBuilder_ == null) {
-        provisionedService_ = null;
-        onChanged();
-      } else {
-        provisionedService_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      provisionedService_ = null;
+      if (provisionedServiceBuilder_ != null) {
+        provisionedServiceBuilder_.dispose();
         provisionedServiceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2652,7 +2583,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.ProvisionedService provisioned_service = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.channel.v1.ProvisionedService.Builder getProvisionedServiceBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getProvisionedServiceFieldBuilder().getBuilder();
     }
@@ -2695,14 +2626,15 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> suspensionReasons_ =
       java.util.Collections.emptyList();
     private void ensureSuspensionReasonsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         suspensionReasons_ = new java.util.ArrayList<java.lang.Integer>(suspensionReasons_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000080;
       }
     }
     /**
      * <pre>
-     * Output only. Enumerable of all current suspension reasons for an entitlement.
+     * Output only. Enumerable of all current suspension reasons for an
+     * entitlement.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Entitlement.SuspensionReason suspension_reasons = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2714,7 +2646,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Enumerable of all current suspension reasons for an entitlement.
+     * Output only. Enumerable of all current suspension reasons for an
+     * entitlement.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Entitlement.SuspensionReason suspension_reasons = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2725,7 +2658,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Enumerable of all current suspension reasons for an entitlement.
+     * Output only. Enumerable of all current suspension reasons for an
+     * entitlement.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Entitlement.SuspensionReason suspension_reasons = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2737,7 +2671,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Enumerable of all current suspension reasons for an entitlement.
+     * Output only. Enumerable of all current suspension reasons for an
+     * entitlement.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Entitlement.SuspensionReason suspension_reasons = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2757,7 +2692,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Enumerable of all current suspension reasons for an entitlement.
+     * Output only. Enumerable of all current suspension reasons for an
+     * entitlement.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Entitlement.SuspensionReason suspension_reasons = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2775,7 +2711,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Enumerable of all current suspension reasons for an entitlement.
+     * Output only. Enumerable of all current suspension reasons for an
+     * entitlement.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Entitlement.SuspensionReason suspension_reasons = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2793,7 +2730,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Enumerable of all current suspension reasons for an entitlement.
+     * Output only. Enumerable of all current suspension reasons for an
+     * entitlement.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Entitlement.SuspensionReason suspension_reasons = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2801,13 +2739,14 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSuspensionReasons() {
       suspensionReasons_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. Enumerable of all current suspension reasons for an entitlement.
+     * Output only. Enumerable of all current suspension reasons for an
+     * entitlement.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Entitlement.SuspensionReason suspension_reasons = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2819,7 +2758,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Enumerable of all current suspension reasons for an entitlement.
+     * Output only. Enumerable of all current suspension reasons for an
+     * entitlement.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Entitlement.SuspensionReason suspension_reasons = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2831,7 +2771,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Enumerable of all current suspension reasons for an entitlement.
+     * Output only. Enumerable of all current suspension reasons for an
+     * entitlement.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Entitlement.SuspensionReason suspension_reasons = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2848,7 +2789,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Enumerable of all current suspension reasons for an entitlement.
+     * Output only. Enumerable of all current suspension reasons for an
+     * entitlement.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Entitlement.SuspensionReason suspension_reasons = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2863,7 +2805,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Enumerable of all current suspension reasons for an entitlement.
+     * Output only. Enumerable of all current suspension reasons for an
+     * entitlement.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Entitlement.SuspensionReason suspension_reasons = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2883,11 +2826,11 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object purchaseOrderId_ = "";
     /**
      * <pre>
-     * Optional. This purchase order (PO) information is for resellers to use for their
-     * company tracking usage. If a purchaseOrderId value is given, it appears in
-     * the API responses and shows up in the invoice. The property accepts up to
-     * 80 plain text characters. This is only supported for Google Workspace
-     * entitlements.
+     * Optional. This purchase order (PO) information is for resellers to use for
+     * their company tracking usage. If a purchaseOrderId value is given, it
+     * appears in the API responses and shows up in the invoice. The property
+     * accepts up to 80 plain text characters. This is only supported for Google
+     * Workspace entitlements.
      * </pre>
      *
      * <code>string purchase_order_id = 19 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2907,11 +2850,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. This purchase order (PO) information is for resellers to use for their
-     * company tracking usage. If a purchaseOrderId value is given, it appears in
-     * the API responses and shows up in the invoice. The property accepts up to
-     * 80 plain text characters. This is only supported for Google Workspace
-     * entitlements.
+     * Optional. This purchase order (PO) information is for resellers to use for
+     * their company tracking usage. If a purchaseOrderId value is given, it
+     * appears in the API responses and shows up in the invoice. The property
+     * accepts up to 80 plain text characters. This is only supported for Google
+     * Workspace entitlements.
      * </pre>
      *
      * <code>string purchase_order_id = 19 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2932,11 +2875,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. This purchase order (PO) information is for resellers to use for their
-     * company tracking usage. If a purchaseOrderId value is given, it appears in
-     * the API responses and shows up in the invoice. The property accepts up to
-     * 80 plain text characters. This is only supported for Google Workspace
-     * entitlements.
+     * Optional. This purchase order (PO) information is for resellers to use for
+     * their company tracking usage. If a purchaseOrderId value is given, it
+     * appears in the API responses and shows up in the invoice. The property
+     * accepts up to 80 plain text characters. This is only supported for Google
+     * Workspace entitlements.
      * </pre>
      *
      * <code>string purchase_order_id = 19 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2945,39 +2888,37 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPurchaseOrderId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       purchaseOrderId_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. This purchase order (PO) information is for resellers to use for their
-     * company tracking usage. If a purchaseOrderId value is given, it appears in
-     * the API responses and shows up in the invoice. The property accepts up to
-     * 80 plain text characters. This is only supported for Google Workspace
-     * entitlements.
+     * Optional. This purchase order (PO) information is for resellers to use for
+     * their company tracking usage. If a purchaseOrderId value is given, it
+     * appears in the API responses and shows up in the invoice. The property
+     * accepts up to 80 plain text characters. This is only supported for Google
+     * Workspace entitlements.
      * </pre>
      *
      * <code>string purchase_order_id = 19 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearPurchaseOrderId() {
-      
       purchaseOrderId_ = getDefaultInstance().getPurchaseOrderId();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. This purchase order (PO) information is for resellers to use for their
-     * company tracking usage. If a purchaseOrderId value is given, it appears in
-     * the API responses and shows up in the invoice. The property accepts up to
-     * 80 plain text characters. This is only supported for Google Workspace
-     * entitlements.
+     * Optional. This purchase order (PO) information is for resellers to use for
+     * their company tracking usage. If a purchaseOrderId value is given, it
+     * appears in the API responses and shows up in the invoice. The property
+     * accepts up to 80 plain text characters. This is only supported for Google
+     * Workspace entitlements.
      * </pre>
      *
      * <code>string purchase_order_id = 19 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2986,12 +2927,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPurchaseOrderIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       purchaseOrderId_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3008,7 +2947,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the trialSettings field is set.
      */
     public boolean hasTrialSettings() {
-      return trialSettingsBuilder_ != null || trialSettings_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -3038,11 +2977,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         trialSettings_ = value;
-        onChanged();
       } else {
         trialSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3056,11 +2995,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.TrialSettings.Builder builderForValue) {
       if (trialSettingsBuilder_ == null) {
         trialSettings_ = builderForValue.build();
-        onChanged();
       } else {
         trialSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3072,17 +3011,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTrialSettings(com.google.cloud.channel.v1.TrialSettings value) {
       if (trialSettingsBuilder_ == null) {
-        if (trialSettings_ != null) {
-          trialSettings_ =
-            com.google.cloud.channel.v1.TrialSettings.newBuilder(trialSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          trialSettings_ != null &&
+          trialSettings_ != com.google.cloud.channel.v1.TrialSettings.getDefaultInstance()) {
+          getTrialSettingsBuilder().mergeFrom(value);
         } else {
           trialSettings_ = value;
         }
-        onChanged();
       } else {
         trialSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3093,14 +3033,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.TrialSettings trial_settings = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearTrialSettings() {
-      if (trialSettingsBuilder_ == null) {
-        trialSettings_ = null;
-        onChanged();
-      } else {
-        trialSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      trialSettings_ = null;
+      if (trialSettingsBuilder_ != null) {
+        trialSettingsBuilder_.dispose();
         trialSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3111,7 +3050,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.TrialSettings trial_settings = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.channel.v1.TrialSettings.Builder getTrialSettingsBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getTrialSettingsFieldBuilder().getBuilder();
     }
@@ -3163,7 +3102,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the associationInfo field is set.
      */
     public boolean hasAssociationInfo() {
-      return associationInfoBuilder_ != null || associationInfo_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -3193,11 +3132,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         associationInfo_ = value;
-        onChanged();
       } else {
         associationInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3211,11 +3150,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.AssociationInfo.Builder builderForValue) {
       if (associationInfoBuilder_ == null) {
         associationInfo_ = builderForValue.build();
-        onChanged();
       } else {
         associationInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3227,17 +3166,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAssociationInfo(com.google.cloud.channel.v1.AssociationInfo value) {
       if (associationInfoBuilder_ == null) {
-        if (associationInfo_ != null) {
-          associationInfo_ =
-            com.google.cloud.channel.v1.AssociationInfo.newBuilder(associationInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          associationInfo_ != null &&
+          associationInfo_ != com.google.cloud.channel.v1.AssociationInfo.getDefaultInstance()) {
+          getAssociationInfoBuilder().mergeFrom(value);
         } else {
           associationInfo_ = value;
         }
-        onChanged();
       } else {
         associationInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3248,14 +3188,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.AssociationInfo association_info = 23;</code>
      */
     public Builder clearAssociationInfo() {
-      if (associationInfoBuilder_ == null) {
-        associationInfo_ = null;
-        onChanged();
-      } else {
-        associationInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      associationInfo_ = null;
+      if (associationInfoBuilder_ != null) {
+        associationInfoBuilder_.dispose();
         associationInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3266,7 +3205,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.AssociationInfo association_info = 23;</code>
      */
     public com.google.cloud.channel.v1.AssociationInfo.Builder getAssociationInfoBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getAssociationInfoFieldBuilder().getBuilder();
     }
@@ -3309,9 +3248,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.channel.v1.Parameter> parameters_ =
       java.util.Collections.emptyList();
     private void ensureParametersIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000800) != 0)) {
         parameters_ = new java.util.ArrayList<com.google.cloud.channel.v1.Parameter>(parameters_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000800;
        }
     }
 
@@ -3571,7 +3510,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearParameters() {
       if (parametersBuilder_ == null) {
         parameters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000800);
         onChanged();
       } else {
         parametersBuilder_.clear();
@@ -3718,7 +3657,7 @@ private static final long serialVersionUID = 0L;
         parametersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.channel.v1.Parameter, com.google.cloud.channel.v1.Parameter.Builder, com.google.cloud.channel.v1.ParameterOrBuilder>(
                 parameters_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000800) != 0),
                 getParentForChildren(),
                 isClean());
         parameters_ = null;
@@ -3758,7 +3697,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Entitlement(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

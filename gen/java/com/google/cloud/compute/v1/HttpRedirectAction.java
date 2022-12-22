@@ -38,80 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HttpRedirectAction(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 418277128: {
-            bitField0_ |= 0x00000020;
-            stripQuery_ = input.readBool();
-            break;
-          }
-          case 859341978: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            hostRedirect_ = s;
-            break;
-          }
-          case 1362085248: {
-            bitField0_ |= 0x00000002;
-            httpsRedirect_ = input.readBool();
-            break;
-          }
-          case -2116225614: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            pathRedirect_ = s;
-            break;
-          }
-          case -801284030: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            redirectResponseCode_ = s;
-            break;
-          }
-          case -725493942: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            prefixRedirect_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_HttpRedirectAction_descriptor;
@@ -323,7 +249,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int HOST_REDIRECT_FIELD_NUMBER = 107417747;
-  private volatile java.lang.Object hostRedirect_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object hostRedirect_ = "";
   /**
    * <pre>
    * The host that is used in the redirect response instead of the one that was supplied in the request. The value must be from 1 to 255 characters.
@@ -381,7 +308,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HTTPS_REDIRECT_FIELD_NUMBER = 170260656;
-  private boolean httpsRedirect_;
+  private boolean httpsRedirect_ = false;
   /**
    * <pre>
    * If set to true, the URL scheme in the redirected request is set to HTTPS. If set to false, the URL scheme of the redirected request remains the same as that of the request. This must only be set for URL maps used in TargetHttpProxys. Setting this true for TargetHttpsProxy is not permitted. The default is set to false.
@@ -408,7 +335,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PATH_REDIRECT_FIELD_NUMBER = 272342710;
-  private volatile java.lang.Object pathRedirect_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pathRedirect_ = "";
   /**
    * <pre>
    * The path that is used in the redirect response instead of the one that was supplied in the request. pathRedirect cannot be supplied together with prefixRedirect. Supply one alone or neither. If neither is supplied, the path of the original request is used for the redirect. The value must be from 1 to 1024 characters.
@@ -466,7 +394,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PREFIX_REDIRECT_FIELD_NUMBER = 446184169;
-  private volatile java.lang.Object prefixRedirect_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object prefixRedirect_ = "";
   /**
    * <pre>
    * The prefix that replaces the prefixMatch specified in the HttpRouteRuleMatch, retaining the remaining portion of the URL before redirecting the request. prefixRedirect cannot be supplied together with pathRedirect. Supply one alone or neither. If neither is supplied, the path of the original request is used for the redirect. The value must be from 1 to 1024 characters.
@@ -524,7 +453,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REDIRECT_RESPONSE_CODE_FIELD_NUMBER = 436710408;
-  private volatile java.lang.Object redirectResponseCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object redirectResponseCode_ = "";
   /**
    * <pre>
    * The HTTP Status code to use for this RedirectAction. Supported values are: - MOVED_PERMANENTLY_DEFAULT, which is the default value and corresponds to 301. - FOUND, which corresponds to 302. - SEE_OTHER which corresponds to 303. - TEMPORARY_REDIRECT, which corresponds to 307. In this case, the request method is retained. - PERMANENT_REDIRECT, which corresponds to 308. In this case, the request method is retained.
@@ -585,7 +515,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STRIP_QUERY_FIELD_NUMBER = 52284641;
-  private boolean stripQuery_;
+  private boolean stripQuery_ = false;
   /**
    * <pre>
    * If set to true, any accompanying query portion of the original URL is removed before redirecting the request. If set to false, the query portion of the original URL is retained. The default is set to false. 
@@ -643,7 +573,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000008) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 446184169, prefixRedirect_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -672,7 +602,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000008) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(446184169, prefixRedirect_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -717,7 +647,7 @@ private static final long serialVersionUID = 0L;
       if (getStripQuery()
           != other.getStripQuery()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -754,7 +684,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getStripQuery());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -875,34 +805,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.HttpRedirectAction.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       hostRedirect_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       httpsRedirect_ = false;
-      bitField0_ = (bitField0_ & ~0x00000002);
       pathRedirect_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       prefixRedirect_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       redirectResponseCode_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       stripQuery_ = false;
-      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -929,35 +849,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.HttpRedirectAction buildPartial() {
       com.google.cloud.compute.v1.HttpRedirectAction result = new com.google.cloud.compute.v1.HttpRedirectAction(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.HttpRedirectAction result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.hostRedirect_ = hostRedirect_;
         to_bitField0_ |= 0x00000001;
       }
-      result.hostRedirect_ = hostRedirect_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.httpsRedirect_ = httpsRedirect_;
         to_bitField0_ |= 0x00000002;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pathRedirect_ = pathRedirect_;
         to_bitField0_ |= 0x00000004;
       }
-      result.pathRedirect_ = pathRedirect_;
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.prefixRedirect_ = prefixRedirect_;
         to_bitField0_ |= 0x00000008;
       }
-      result.prefixRedirect_ = prefixRedirect_;
       if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.redirectResponseCode_ = redirectResponseCode_;
         to_bitField0_ |= 0x00000010;
       }
-      result.redirectResponseCode_ = redirectResponseCode_;
       if (((from_bitField0_ & 0x00000020) != 0)) {
         result.stripQuery_ = stripQuery_;
         to_bitField0_ |= 0x00000020;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1005,32 +929,32 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.HttpRedirectAction other) {
       if (other == com.google.cloud.compute.v1.HttpRedirectAction.getDefaultInstance()) return this;
       if (other.hasHostRedirect()) {
-        bitField0_ |= 0x00000001;
         hostRedirect_ = other.hostRedirect_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasHttpsRedirect()) {
         setHttpsRedirect(other.getHttpsRedirect());
       }
       if (other.hasPathRedirect()) {
-        bitField0_ |= 0x00000004;
         pathRedirect_ = other.pathRedirect_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasPrefixRedirect()) {
-        bitField0_ |= 0x00000008;
         prefixRedirect_ = other.prefixRedirect_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasRedirectResponseCode()) {
-        bitField0_ |= 0x00000010;
         redirectResponseCode_ = other.redirectResponseCode_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasStripQuery()) {
         setStripQuery(other.getStripQuery());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1045,17 +969,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.HttpRedirectAction parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 418277128: {
+              stripQuery_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 418277128
+            case 859341978: {
+              hostRedirect_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 859341978
+            case 1362085248: {
+              httpsRedirect_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1362085248
+            case -2116225614: {
+              pathRedirect_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -2116225614
+            case -801284030: {
+              redirectResponseCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case -801284030
+            case -725493942: {
+              prefixRedirect_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -725493942
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.HttpRedirectAction) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1124,11 +1091,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostRedirect(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       hostRedirect_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1141,8 +1106,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHostRedirect() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       hostRedirect_ = getDefaultInstance().getHostRedirect();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1157,12 +1122,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostRedirectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       hostRedirect_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1202,8 +1165,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHttpsRedirect(boolean value) {
-      bitField0_ |= 0x00000002;
+      
       httpsRedirect_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1286,11 +1250,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPathRedirect(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       pathRedirect_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1303,8 +1265,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPathRedirect() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       pathRedirect_ = getDefaultInstance().getPathRedirect();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1319,12 +1281,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPathRedirectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pathRedirect_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1393,11 +1353,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrefixRedirect(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       prefixRedirect_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1410,8 +1368,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrefixRedirect() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       prefixRedirect_ = getDefaultInstance().getPrefixRedirect();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1426,12 +1384,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrefixRedirectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       prefixRedirect_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1504,11 +1460,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRedirectResponseCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       redirectResponseCode_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1522,8 +1476,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRedirectResponseCode() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       redirectResponseCode_ = getDefaultInstance().getRedirectResponseCode();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1539,12 +1493,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRedirectResponseCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       redirectResponseCode_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1584,8 +1536,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStripQuery(boolean value) {
-      bitField0_ |= 0x00000020;
+      
       stripQuery_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1636,7 +1589,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HttpRedirectAction(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

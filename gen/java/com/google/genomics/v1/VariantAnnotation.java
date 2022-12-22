@@ -37,100 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VariantAnnotation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            effect_ = rawValue;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            alternateBases_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            geneId_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              transcriptIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            transcriptIds_.add(s);
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              conditions_ = new java.util.ArrayList<com.google.genomics.v1.VariantAnnotation.ClinicalCondition>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            conditions_.add(
-                input.readMessage(com.google.genomics.v1.VariantAnnotation.ClinicalCondition.parser(), extensionRegistry));
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            clinicalSignificance_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        transcriptIds_ = transcriptIds_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        conditions_ = java.util.Collections.unmodifiableList(conditions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.genomics.v1.AnnotationsProto.internal_static_google_genomics_v1_VariantAnnotation_descriptor;
@@ -1029,82 +935,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ClinicalCondition(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                names_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              names_.add(s);
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                externalIds_ = new java.util.ArrayList<com.google.genomics.v1.ExternalId>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              externalIds_.add(
-                  input.readMessage(com.google.genomics.v1.ExternalId.parser(), extensionRegistry));
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              conceptId_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              omimId_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          names_ = names_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          externalIds_ = java.util.Collections.unmodifiableList(externalIds_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.genomics.v1.AnnotationsProto.internal_static_google_genomics_v1_VariantAnnotation_ClinicalCondition_descriptor;
@@ -1119,6 +949,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int NAMES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList names_;
     /**
      * <pre>
@@ -1170,6 +1001,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int EXTERNAL_IDS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.genomics.v1.ExternalId> externalIds_;
     /**
      * <pre>
@@ -1230,7 +1062,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int CONCEPT_ID_FIELD_NUMBER = 3;
-    private volatile java.lang.Object conceptId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object conceptId_ = "";
     /**
      * <pre>
      * The MedGen concept id associated with this gene.
@@ -1278,7 +1111,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int OMIM_ID_FIELD_NUMBER = 4;
-    private volatile java.lang.Object omimId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object omimId_ = "";
     /**
      * <pre>
      * The OMIM id for this condition.
@@ -1351,7 +1185,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(omimId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, omimId_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1378,7 +1212,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(omimId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, omimId_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1401,7 +1235,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getConceptId())) return false;
       if (!getOmimId()
           .equals(other.getOmimId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1424,7 +1258,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getConceptId().hashCode();
       hash = (37 * hash) + OMIM_ID_FIELD_NUMBER;
       hash = (53 * hash) + getOmimId().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1541,35 +1375,29 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.genomics.v1.VariantAnnotation.ClinicalCondition.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getExternalIdsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         names_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (externalIdsBuilder_ == null) {
           externalIds_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          externalIds_ = null;
           externalIdsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         conceptId_ = "";
-
         omimId_ = "";
-
         return this;
       }
 
@@ -1596,7 +1424,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.genomics.v1.VariantAnnotation.ClinicalCondition buildPartial() {
         com.google.genomics.v1.VariantAnnotation.ClinicalCondition result = new com.google.genomics.v1.VariantAnnotation.ClinicalCondition(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.genomics.v1.VariantAnnotation.ClinicalCondition result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           names_ = names_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -1611,10 +1445,16 @@ private static final long serialVersionUID = 0L;
         } else {
           result.externalIds_ = externalIdsBuilder_.build();
         }
-        result.conceptId_ = conceptId_;
-        result.omimId_ = omimId_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.genomics.v1.VariantAnnotation.ClinicalCondition result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.conceptId_ = conceptId_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.omimId_ = omimId_;
+        }
       }
 
       @java.lang.Override
@@ -1699,13 +1539,15 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getConceptId().isEmpty()) {
           conceptId_ = other.conceptId_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getOmimId().isEmpty()) {
           omimId_ = other.omimId_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1720,17 +1562,59 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.genomics.v1.VariantAnnotation.ClinicalCondition parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureNamesIsMutable();
+                names_.add(s);
+                break;
+              } // case 10
+              case 18: {
+                com.google.genomics.v1.ExternalId m =
+                    input.readMessage(
+                        com.google.genomics.v1.ExternalId.parser(),
+                        extensionRegistry);
+                if (externalIdsBuilder_ == null) {
+                  ensureExternalIdsIsMutable();
+                  externalIds_.add(m);
+                } else {
+                  externalIdsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              case 26: {
+                conceptId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                omimId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.genomics.v1.VariantAnnotation.ClinicalCondition) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1802,10 +1686,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNames(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNamesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureNamesIsMutable();
         names_.set(index, value);
         onChanged();
         return this;
@@ -1821,10 +1703,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addNames(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNamesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureNamesIsMutable();
         names_.add(value);
         onChanged();
         return this;
@@ -1871,10 +1751,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addNamesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureNamesIsMutable();
         names_.add(value);
         onChanged();
@@ -2249,11 +2127,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setConceptId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         conceptId_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2267,8 +2143,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearConceptId() {
-        
         conceptId_ = getDefaultInstance().getConceptId();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -2284,12 +2160,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setConceptIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         conceptId_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2350,11 +2224,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOmimId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         omimId_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2368,8 +2240,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOmimId() {
-        
         omimId_ = getDefaultInstance().getOmimId();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -2385,12 +2257,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOmimIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         omimId_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2427,7 +2297,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ClinicalCondition(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2448,7 +2329,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 1;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Type has been adapted from ClinVar's list of variant types.
@@ -2469,13 +2350,12 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.genomics.v1.VariantAnnotation.Type getType() {
-    @SuppressWarnings("deprecation")
-    com.google.genomics.v1.VariantAnnotation.Type result = com.google.genomics.v1.VariantAnnotation.Type.valueOf(type_);
+    com.google.genomics.v1.VariantAnnotation.Type result = com.google.genomics.v1.VariantAnnotation.Type.forNumber(type_);
     return result == null ? com.google.genomics.v1.VariantAnnotation.Type.UNRECOGNIZED : result;
   }
 
   public static final int EFFECT_FIELD_NUMBER = 2;
-  private int effect_;
+  private int effect_ = 0;
   /**
    * <pre>
    * Effect of the variant on the coding sequence.
@@ -2496,13 +2376,13 @@ private static final long serialVersionUID = 0L;
    * @return The effect.
    */
   @java.lang.Override public com.google.genomics.v1.VariantAnnotation.Effect getEffect() {
-    @SuppressWarnings("deprecation")
-    com.google.genomics.v1.VariantAnnotation.Effect result = com.google.genomics.v1.VariantAnnotation.Effect.valueOf(effect_);
+    com.google.genomics.v1.VariantAnnotation.Effect result = com.google.genomics.v1.VariantAnnotation.Effect.forNumber(effect_);
     return result == null ? com.google.genomics.v1.VariantAnnotation.Effect.UNRECOGNIZED : result;
   }
 
   public static final int ALTERNATE_BASES_FIELD_NUMBER = 3;
-  private volatile java.lang.Object alternateBases_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object alternateBases_ = "";
   /**
    * <pre>
    * The alternate allele for this variant. If multiple alternate alleles
@@ -2552,7 +2432,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GENE_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object geneId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object geneId_ = "";
   /**
    * <pre>
    * Google annotation ID of the gene affected by this variant. This should
@@ -2600,6 +2481,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRANSCRIPT_IDS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList transcriptIds_;
   /**
    * <pre>
@@ -2655,6 +2537,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONDITIONS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.genomics.v1.VariantAnnotation.ClinicalCondition> conditions_;
   /**
    * <pre>
@@ -2720,7 +2603,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLINICAL_SIGNIFICANCE_FIELD_NUMBER = 7;
-  private int clinicalSignificance_;
+  private int clinicalSignificance_ = 0;
   /**
    * <pre>
    * Describes the clinical significance of a variant.
@@ -2747,8 +2630,7 @@ private static final long serialVersionUID = 0L;
    * @return The clinicalSignificance.
    */
   @java.lang.Override public com.google.genomics.v1.VariantAnnotation.ClinicalSignificance getClinicalSignificance() {
-    @SuppressWarnings("deprecation")
-    com.google.genomics.v1.VariantAnnotation.ClinicalSignificance result = com.google.genomics.v1.VariantAnnotation.ClinicalSignificance.valueOf(clinicalSignificance_);
+    com.google.genomics.v1.VariantAnnotation.ClinicalSignificance result = com.google.genomics.v1.VariantAnnotation.ClinicalSignificance.forNumber(clinicalSignificance_);
     return result == null ? com.google.genomics.v1.VariantAnnotation.ClinicalSignificance.UNRECOGNIZED : result;
   }
 
@@ -2787,7 +2669,7 @@ private static final long serialVersionUID = 0L;
     if (clinicalSignificance_ != com.google.genomics.v1.VariantAnnotation.ClinicalSignificance.CLINICAL_SIGNIFICANCE_UNSPECIFIED.getNumber()) {
       output.writeEnum(7, clinicalSignificance_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2826,7 +2708,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(7, clinicalSignificance_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2852,7 +2734,7 @@ private static final long serialVersionUID = 0L;
     if (!getConditionsList()
         .equals(other.getConditionsList())) return false;
     if (clinicalSignificance_ != other.clinicalSignificance_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2881,7 +2763,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + CLINICAL_SIGNIFICANCE_FIELD_NUMBER;
     hash = (53 * hash) + clinicalSignificance_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2998,41 +2880,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.genomics.v1.VariantAnnotation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getConditionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       type_ = 0;
-
       effect_ = 0;
-
       alternateBases_ = "";
-
       geneId_ = "";
-
       transcriptIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       if (conditionsBuilder_ == null) {
         conditions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        conditions_ = null;
         conditionsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       clinicalSignificance_ = 0;
-
       return this;
     }
 
@@ -3059,28 +2932,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.genomics.v1.VariantAnnotation buildPartial() {
       com.google.genomics.v1.VariantAnnotation result = new com.google.genomics.v1.VariantAnnotation(this);
-      int from_bitField0_ = bitField0_;
-      result.type_ = type_;
-      result.effect_ = effect_;
-      result.alternateBases_ = alternateBases_;
-      result.geneId_ = geneId_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.genomics.v1.VariantAnnotation result) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         transcriptIds_ = transcriptIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
       }
       result.transcriptIds_ = transcriptIds_;
       if (conditionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           conditions_ = java.util.Collections.unmodifiableList(conditions_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.conditions_ = conditions_;
       } else {
         result.conditions_ = conditionsBuilder_.build();
       }
-      result.clinicalSignificance_ = clinicalSignificance_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.genomics.v1.VariantAnnotation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.effect_ = effect_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.alternateBases_ = alternateBases_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.geneId_ = geneId_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.clinicalSignificance_ = clinicalSignificance_;
+      }
     }
 
     @java.lang.Override
@@ -3135,16 +3026,18 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAlternateBases().isEmpty()) {
         alternateBases_ = other.alternateBases_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getGeneId().isEmpty()) {
         geneId_ = other.geneId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.transcriptIds_.isEmpty()) {
         if (transcriptIds_.isEmpty()) {
           transcriptIds_ = other.transcriptIds_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureTranscriptIdsIsMutable();
           transcriptIds_.addAll(other.transcriptIds_);
@@ -3155,7 +3048,7 @@ private static final long serialVersionUID = 0L;
         if (!other.conditions_.isEmpty()) {
           if (conditions_.isEmpty()) {
             conditions_ = other.conditions_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureConditionsIsMutable();
             conditions_.addAll(other.conditions_);
@@ -3168,7 +3061,7 @@ private static final long serialVersionUID = 0L;
             conditionsBuilder_.dispose();
             conditionsBuilder_ = null;
             conditions_ = other.conditions_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
             conditionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getConditionsFieldBuilder() : null;
@@ -3180,7 +3073,7 @@ private static final long serialVersionUID = 0L;
       if (other.clinicalSignificance_ != 0) {
         setClinicalSignificanceValue(other.getClinicalSignificanceValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3195,17 +3088,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.genomics.v1.VariantAnnotation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              effect_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              alternateBases_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              geneId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureTranscriptIdsIsMutable();
+              transcriptIds_.add(s);
+              break;
+            } // case 42
+            case 50: {
+              com.google.genomics.v1.VariantAnnotation.ClinicalCondition m =
+                  input.readMessage(
+                      com.google.genomics.v1.VariantAnnotation.ClinicalCondition.parser(),
+                      extensionRegistry);
+              if (conditionsBuilder_ == null) {
+                ensureConditionsIsMutable();
+                conditions_.add(m);
+              } else {
+                conditionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            case 56: {
+              clinicalSignificance_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.genomics.v1.VariantAnnotation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -3232,8 +3182,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3247,8 +3197,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.genomics.v1.VariantAnnotation.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.genomics.v1.VariantAnnotation.Type result = com.google.genomics.v1.VariantAnnotation.Type.valueOf(type_);
+      com.google.genomics.v1.VariantAnnotation.Type result = com.google.genomics.v1.VariantAnnotation.Type.forNumber(type_);
       return result == null ? com.google.genomics.v1.VariantAnnotation.Type.UNRECOGNIZED : result;
     }
     /**
@@ -3264,7 +3213,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -3278,7 +3227,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       type_ = 0;
       onChanged();
       return this;
@@ -3306,8 +3255,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEffectValue(int value) {
-      
       effect_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3321,8 +3270,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.genomics.v1.VariantAnnotation.Effect getEffect() {
-      @SuppressWarnings("deprecation")
-      com.google.genomics.v1.VariantAnnotation.Effect result = com.google.genomics.v1.VariantAnnotation.Effect.valueOf(effect_);
+      com.google.genomics.v1.VariantAnnotation.Effect result = com.google.genomics.v1.VariantAnnotation.Effect.forNumber(effect_);
       return result == null ? com.google.genomics.v1.VariantAnnotation.Effect.UNRECOGNIZED : result;
     }
     /**
@@ -3338,7 +3286,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       effect_ = value.getNumber();
       onChanged();
       return this;
@@ -3352,7 +3300,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEffect() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       effect_ = 0;
       onChanged();
       return this;
@@ -3417,11 +3365,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAlternateBases(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       alternateBases_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3436,8 +3382,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAlternateBases() {
-      
       alternateBases_ = getDefaultInstance().getAlternateBases();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -3454,12 +3400,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAlternateBasesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       alternateBases_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3520,11 +3464,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGeneId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       geneId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3538,8 +3480,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGeneId() {
-      
       geneId_ = getDefaultInstance().getGeneId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -3555,21 +3497,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGeneIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       geneId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList transcriptIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureTranscriptIdsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         transcriptIds_ = new com.google.protobuf.LazyStringArrayList(transcriptIds_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -3637,10 +3577,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTranscriptIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTranscriptIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTranscriptIdsIsMutable();
       transcriptIds_.set(index, value);
       onChanged();
       return this;
@@ -3657,10 +3595,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTranscriptIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTranscriptIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTranscriptIdsIsMutable();
       transcriptIds_.add(value);
       onChanged();
       return this;
@@ -3694,7 +3630,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearTranscriptIds() {
       transcriptIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -3710,10 +3646,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTranscriptIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureTranscriptIdsIsMutable();
       transcriptIds_.add(value);
       onChanged();
@@ -3723,9 +3657,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.genomics.v1.VariantAnnotation.ClinicalCondition> conditions_ =
       java.util.Collections.emptyList();
     private void ensureConditionsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         conditions_ = new java.util.ArrayList<com.google.genomics.v1.VariantAnnotation.ClinicalCondition>(conditions_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -3930,7 +3864,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearConditions() {
       if (conditionsBuilder_ == null) {
         conditions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         conditionsBuilder_.clear();
@@ -4042,7 +3976,7 @@ private static final long serialVersionUID = 0L;
         conditionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.genomics.v1.VariantAnnotation.ClinicalCondition, com.google.genomics.v1.VariantAnnotation.ClinicalCondition.Builder, com.google.genomics.v1.VariantAnnotation.ClinicalConditionOrBuilder>(
                 conditions_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         conditions_ = null;
@@ -4078,8 +4012,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setClinicalSignificanceValue(int value) {
-      
       clinicalSignificance_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -4096,8 +4030,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.genomics.v1.VariantAnnotation.ClinicalSignificance getClinicalSignificance() {
-      @SuppressWarnings("deprecation")
-      com.google.genomics.v1.VariantAnnotation.ClinicalSignificance result = com.google.genomics.v1.VariantAnnotation.ClinicalSignificance.valueOf(clinicalSignificance_);
+      com.google.genomics.v1.VariantAnnotation.ClinicalSignificance result = com.google.genomics.v1.VariantAnnotation.ClinicalSignificance.forNumber(clinicalSignificance_);
       return result == null ? com.google.genomics.v1.VariantAnnotation.ClinicalSignificance.UNRECOGNIZED : result;
     }
     /**
@@ -4116,7 +4049,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       clinicalSignificance_ = value.getNumber();
       onChanged();
       return this;
@@ -4133,7 +4066,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClinicalSignificance() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       clinicalSignificance_ = 0;
       onChanged();
       return this;
@@ -4171,7 +4104,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VariantAnnotation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

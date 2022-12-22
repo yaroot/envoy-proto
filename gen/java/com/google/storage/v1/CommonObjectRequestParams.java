@@ -37,78 +37,22 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CommonObjectRequestParams(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            encryptionAlgorithm_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            encryptionKey_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            encryptionKeySha256_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.google.storage.v1.StorageOuterClass.internal_static_google_storage_v1_CommonObjectRequestParams_descriptor;
+    return com.google.storage.v1.Storage.internal_static_google_storage_v1_CommonObjectRequestParams_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.google.storage.v1.StorageOuterClass.internal_static_google_storage_v1_CommonObjectRequestParams_fieldAccessorTable
+    return com.google.storage.v1.Storage.internal_static_google_storage_v1_CommonObjectRequestParams_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.google.storage.v1.CommonObjectRequestParams.class, com.google.storage.v1.CommonObjectRequestParams.Builder.class);
   }
 
   public static final int ENCRYPTION_ALGORITHM_FIELD_NUMBER = 1;
-  private volatile java.lang.Object encryptionAlgorithm_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object encryptionAlgorithm_ = "";
   /**
    * <pre>
    * Encryption algorithm used with Customer-Supplied Encryption Keys feature.
@@ -154,7 +98,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENCRYPTION_KEY_FIELD_NUMBER = 2;
-  private volatile java.lang.Object encryptionKey_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object encryptionKey_ = "";
   /**
    * <pre>
    * Encryption key used with Customer-Supplied Encryption Keys feature.
@@ -200,7 +145,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENCRYPTION_KEY_SHA256_FIELD_NUMBER = 3;
-  private volatile java.lang.Object encryptionKeySha256_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object encryptionKeySha256_ = "";
   /**
    * <pre>
    * SHA256 hash of encryption key used with Customer-Supplied Encryption Keys
@@ -270,7 +216,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(encryptionKeySha256_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, encryptionKeySha256_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -288,7 +234,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(encryptionKeySha256_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, encryptionKeySha256_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -309,7 +255,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getEncryptionKey())) return false;
     if (!getEncryptionKeySha256()
         .equals(other.getEncryptionKeySha256())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -326,7 +272,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getEncryptionKey().hashCode();
     hash = (37 * hash) + ENCRYPTION_KEY_SHA256_FIELD_NUMBER;
     hash = (53 * hash) + getEncryptionKeySha256().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -434,48 +380,41 @@ private static final long serialVersionUID = 0L;
       com.google.storage.v1.CommonObjectRequestParamsOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.google.storage.v1.StorageOuterClass.internal_static_google_storage_v1_CommonObjectRequestParams_descriptor;
+      return com.google.storage.v1.Storage.internal_static_google_storage_v1_CommonObjectRequestParams_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.google.storage.v1.StorageOuterClass.internal_static_google_storage_v1_CommonObjectRequestParams_fieldAccessorTable
+      return com.google.storage.v1.Storage.internal_static_google_storage_v1_CommonObjectRequestParams_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.storage.v1.CommonObjectRequestParams.class, com.google.storage.v1.CommonObjectRequestParams.Builder.class);
     }
 
     // Construct using com.google.storage.v1.CommonObjectRequestParams.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       encryptionAlgorithm_ = "";
-
       encryptionKey_ = "";
-
       encryptionKeySha256_ = "";
-
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.google.storage.v1.StorageOuterClass.internal_static_google_storage_v1_CommonObjectRequestParams_descriptor;
+      return com.google.storage.v1.Storage.internal_static_google_storage_v1_CommonObjectRequestParams_descriptor;
     }
 
     @java.lang.Override
@@ -495,11 +434,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.storage.v1.CommonObjectRequestParams buildPartial() {
       com.google.storage.v1.CommonObjectRequestParams result = new com.google.storage.v1.CommonObjectRequestParams(this);
-      result.encryptionAlgorithm_ = encryptionAlgorithm_;
-      result.encryptionKey_ = encryptionKey_;
-      result.encryptionKeySha256_ = encryptionKeySha256_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.storage.v1.CommonObjectRequestParams result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.encryptionAlgorithm_ = encryptionAlgorithm_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.encryptionKey_ = encryptionKey_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.encryptionKeySha256_ = encryptionKeySha256_;
+      }
     }
 
     @java.lang.Override
@@ -548,17 +498,20 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.storage.v1.CommonObjectRequestParams.getDefaultInstance()) return this;
       if (!other.getEncryptionAlgorithm().isEmpty()) {
         encryptionAlgorithm_ = other.encryptionAlgorithm_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getEncryptionKey().isEmpty()) {
         encryptionKey_ = other.encryptionKey_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getEncryptionKeySha256().isEmpty()) {
         encryptionKeySha256_ = other.encryptionKeySha256_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -573,19 +526,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.storage.v1.CommonObjectRequestParams parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              encryptionAlgorithm_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              encryptionKey_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              encryptionKeySha256_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.storage.v1.CommonObjectRequestParams) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object encryptionAlgorithm_ = "";
     /**
@@ -640,11 +622,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEncryptionAlgorithm(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       encryptionAlgorithm_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -657,8 +637,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEncryptionAlgorithm() {
-      
       encryptionAlgorithm_ = getDefaultInstance().getEncryptionAlgorithm();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -673,12 +653,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEncryptionAlgorithmBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       encryptionAlgorithm_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -736,11 +714,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEncryptionKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       encryptionKey_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -753,8 +729,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEncryptionKey() {
-      
       encryptionKey_ = getDefaultInstance().getEncryptionKey();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -769,12 +745,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEncryptionKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       encryptionKey_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -835,11 +809,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEncryptionKeySha256(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       encryptionKeySha256_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -853,8 +825,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEncryptionKeySha256() {
-      
       encryptionKeySha256_ = getDefaultInstance().getEncryptionKeySha256();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -870,12 +842,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEncryptionKeySha256Bytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       encryptionKeySha256_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -912,7 +882,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CommonObjectRequestParams(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

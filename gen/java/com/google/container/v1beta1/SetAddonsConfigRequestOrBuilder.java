@@ -16,7 +16,7 @@ public interface SetAddonsConfigRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.SetAddonsConfigRequest.project_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2632
+   *     See google/container/v1beta1/cluster_service.proto;l=2703
    * @return The projectId.
    */
   @java.lang.Deprecated java.lang.String getProjectId();
@@ -29,7 +29,7 @@ public interface SetAddonsConfigRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.SetAddonsConfigRequest.project_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2632
+   *     See google/container/v1beta1/cluster_service.proto;l=2703
    * @return The bytes for projectId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -45,7 +45,7 @@ public interface SetAddonsConfigRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.SetAddonsConfigRequest.zone is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2641
+   *     See google/container/v1beta1/cluster_service.proto;l=2712
    * @return The zone.
    */
   @java.lang.Deprecated java.lang.String getZone();
@@ -59,7 +59,7 @@ public interface SetAddonsConfigRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.SetAddonsConfigRequest.zone is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2641
+   *     See google/container/v1beta1/cluster_service.proto;l=2712
    * @return The bytes for zone.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -73,7 +73,7 @@ public interface SetAddonsConfigRequestOrBuilder extends
    *
    * <code>string cluster_id = 3 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.SetAddonsConfigRequest.cluster_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2648
+   *     See google/container/v1beta1/cluster_service.proto;l=2719
    * @return The clusterId.
    */
   @java.lang.Deprecated java.lang.String getClusterId();
@@ -85,7 +85,7 @@ public interface SetAddonsConfigRequestOrBuilder extends
    *
    * <code>string cluster_id = 3 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.SetAddonsConfigRequest.cluster_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2648
+   *     See google/container/v1beta1/cluster_service.proto;l=2719
    * @return The bytes for clusterId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

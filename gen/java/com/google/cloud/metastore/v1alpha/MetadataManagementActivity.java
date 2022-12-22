@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MetadataManagementActivity(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              metadataExports_ = new java.util.ArrayList<com.google.cloud.metastore.v1alpha.MetadataExport>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            metadataExports_.add(
-                input.readMessage(com.google.cloud.metastore.v1alpha.MetadataExport.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              restores_ = new java.util.ArrayList<com.google.cloud.metastore.v1alpha.Restore>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            restores_.add(
-                input.readMessage(com.google.cloud.metastore.v1alpha.Restore.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        metadataExports_ = java.util.Collections.unmodifiableList(metadataExports_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        restores_ = java.util.Collections.unmodifiableList(restores_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.metastore.v1alpha.MetastoreProto.internal_static_google_cloud_metastore_v1alpha_MetadataManagementActivity_descriptor;
@@ -114,6 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int METADATA_EXPORTS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.metastore.v1alpha.MetadataExport> metadataExports_;
   /**
    * <pre>
@@ -174,6 +111,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESTORES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.metastore.v1alpha.Restore> restores_;
   /**
    * <pre>
@@ -253,7 +191,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < restores_.size(); i++) {
       output.writeMessage(2, restores_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -270,7 +208,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, restores_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -289,7 +227,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getMetadataExportsList())) return false;
     if (!getRestoresList()
         .equals(other.getRestoresList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -308,7 +246,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RESTORES_FIELD_NUMBER;
       hash = (53 * hash) + getRestoresList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -429,36 +367,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.metastore.v1alpha.MetadataManagementActivity.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMetadataExportsFieldBuilder();
-        getRestoresFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (metadataExportsBuilder_ == null) {
         metadataExports_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        metadataExports_ = null;
         metadataExportsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (restoresBuilder_ == null) {
         restores_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        restores_ = null;
         restoresBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -485,7 +419,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.metastore.v1alpha.MetadataManagementActivity buildPartial() {
       com.google.cloud.metastore.v1alpha.MetadataManagementActivity result = new com.google.cloud.metastore.v1alpha.MetadataManagementActivity(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.metastore.v1alpha.MetadataManagementActivity result) {
       if (metadataExportsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           metadataExports_ = java.util.Collections.unmodifiableList(metadataExports_);
@@ -504,8 +444,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.restores_ = restoresBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.metastore.v1alpha.MetadataManagementActivity result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -604,7 +546,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -619,17 +561,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.metastore.v1alpha.MetadataManagementActivity parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.metastore.v1alpha.MetadataExport m =
+                  input.readMessage(
+                      com.google.cloud.metastore.v1alpha.MetadataExport.parser(),
+                      extensionRegistry);
+              if (metadataExportsBuilder_ == null) {
+                ensureMetadataExportsIsMutable();
+                metadataExports_.add(m);
+              } else {
+                metadataExportsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.metastore.v1alpha.Restore m =
+                  input.readMessage(
+                      com.google.cloud.metastore.v1alpha.Restore.parser(),
+                      extensionRegistry);
+              if (restoresBuilder_ == null) {
+                ensureRestoresIsMutable();
+                restores_.add(m);
+              } else {
+                restoresBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.metastore.v1alpha.MetadataManagementActivity) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1290,7 +1271,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MetadataManagementActivity(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

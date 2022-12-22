@@ -62,7 +62,6 @@ public interface ActionsOrBuilder extends
    *
    * <code>map&lt;string, .google.actions.sdk.v2.Actions.CustomAction&gt; custom = 3;</code>
    */
-
   /* nullable */
 com.google.actions.sdk.v2.Actions.CustomAction getCustomOrDefault(
       java.lang.String key,
@@ -79,7 +78,6 @@ com.google.actions.sdk.v2.Actions.CustomAction defaultValue);
    *
    * <code>map&lt;string, .google.actions.sdk.v2.Actions.CustomAction&gt; custom = 3;</code>
    */
-
   com.google.actions.sdk.v2.Actions.CustomAction getCustomOrThrow(
       java.lang.String key);
 }

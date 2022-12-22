@@ -37,76 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SetIamPolicyRegionNetworkFirewallPolicyRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 1111570338: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            region_ = s;
-            break;
-          }
-          case 1566449778: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resource_ = s;
-            break;
-          }
-          case 1820481738: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            project_ = s;
-            break;
-          }
-          case -2083054566: {
-            com.google.cloud.compute.v1.RegionSetPolicyRequest.Builder subBuilder = null;
-            if (regionSetPolicyRequestResource_ != null) {
-              subBuilder = regionSetPolicyRequestResource_.toBuilder();
-            }
-            regionSetPolicyRequestResource_ = input.readMessage(com.google.cloud.compute.v1.RegionSetPolicyRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(regionSetPolicyRequestResource_);
-              regionSetPolicyRequestResource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_SetIamPolicyRegionNetworkFirewallPolicyRequest_descriptor;
@@ -121,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_FIELD_NUMBER = 227560217;
-  private volatile java.lang.Object project_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object project_ = "";
   /**
    * <pre>
    * Project ID for this request.
@@ -167,7 +98,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REGION_FIELD_NUMBER = 138946292;
-  private volatile java.lang.Object region_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object region_ = "";
   /**
    * <pre>
    * The name of the region for this request.
@@ -247,11 +179,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.compute.v1.RegionSetPolicyRequestOrBuilder getRegionSetPolicyRequestResourceOrBuilder() {
-    return getRegionSetPolicyRequestResource();
+    return regionSetPolicyRequestResource_ == null ? com.google.cloud.compute.v1.RegionSetPolicyRequest.getDefaultInstance() : regionSetPolicyRequestResource_;
   }
 
   public static final int RESOURCE_FIELD_NUMBER = 195806222;
-  private volatile java.lang.Object resource_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resource_ = "";
   /**
    * <pre>
    * Name or id of the resource for this request.
@@ -322,7 +255,7 @@ private static final long serialVersionUID = 0L;
     if (regionSetPolicyRequestResource_ != null) {
       output.writeMessage(276489091, getRegionSetPolicyRequestResource());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -344,7 +277,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(276489091, getRegionSetPolicyRequestResource());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -370,7 +303,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getResource()
         .equals(other.getResource())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -391,7 +324,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + RESOURCE_FIELD_NUMBER;
     hash = (53 * hash) + getResource().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -512,34 +445,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.SetIamPolicyRegionNetworkFirewallPolicyRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       project_ = "";
-
       region_ = "";
-
-      if (regionSetPolicyRequestResourceBuilder_ == null) {
-        regionSetPolicyRequestResource_ = null;
-      } else {
-        regionSetPolicyRequestResource_ = null;
+      regionSetPolicyRequestResource_ = null;
+      if (regionSetPolicyRequestResourceBuilder_ != null) {
+        regionSetPolicyRequestResourceBuilder_.dispose();
         regionSetPolicyRequestResourceBuilder_ = null;
       }
       resource_ = "";
-
       return this;
     }
 
@@ -566,16 +491,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.SetIamPolicyRegionNetworkFirewallPolicyRequest buildPartial() {
       com.google.cloud.compute.v1.SetIamPolicyRegionNetworkFirewallPolicyRequest result = new com.google.cloud.compute.v1.SetIamPolicyRegionNetworkFirewallPolicyRequest(this);
-      result.project_ = project_;
-      result.region_ = region_;
-      if (regionSetPolicyRequestResourceBuilder_ == null) {
-        result.regionSetPolicyRequestResource_ = regionSetPolicyRequestResource_;
-      } else {
-        result.regionSetPolicyRequestResource_ = regionSetPolicyRequestResourceBuilder_.build();
-      }
-      result.resource_ = resource_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.SetIamPolicyRegionNetworkFirewallPolicyRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.project_ = project_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.region_ = region_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.regionSetPolicyRequestResource_ = regionSetPolicyRequestResourceBuilder_ == null
+            ? regionSetPolicyRequestResource_
+            : regionSetPolicyRequestResourceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.resource_ = resource_;
+      }
     }
 
     @java.lang.Override
@@ -624,10 +560,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.compute.v1.SetIamPolicyRegionNetworkFirewallPolicyRequest.getDefaultInstance()) return this;
       if (!other.getProject().isEmpty()) {
         project_ = other.project_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getRegion().isEmpty()) {
         region_ = other.region_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasRegionSetPolicyRequestResource()) {
@@ -635,9 +573,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getResource().isEmpty()) {
         resource_ = other.resource_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -652,19 +591,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.SetIamPolicyRegionNetworkFirewallPolicyRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 1111570338: {
+              region_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1111570338
+            case 1566449778: {
+              resource_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 1566449778
+            case 1820481738: {
+              project_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 1820481738
+            case -2083054566: {
+              input.readMessage(
+                  getRegionSetPolicyRequestResourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -2083054566
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.SetIamPolicyRegionNetworkFirewallPolicyRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object project_ = "";
     /**
@@ -719,11 +694,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProject(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       project_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -736,8 +709,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProject() {
-      
       project_ = getDefaultInstance().getProject();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -752,12 +725,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       project_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -815,11 +786,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       region_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -832,8 +801,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRegion() {
-      
       region_ = getDefaultInstance().getRegion();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -848,12 +817,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       region_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -870,7 +837,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the regionSetPolicyRequestResource field is set.
      */
     public boolean hasRegionSetPolicyRequestResource() {
-      return regionSetPolicyRequestResourceBuilder_ != null || regionSetPolicyRequestResource_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -900,11 +867,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         regionSetPolicyRequestResource_ = value;
-        onChanged();
       } else {
         regionSetPolicyRequestResourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -918,11 +885,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.RegionSetPolicyRequest.Builder builderForValue) {
       if (regionSetPolicyRequestResourceBuilder_ == null) {
         regionSetPolicyRequestResource_ = builderForValue.build();
-        onChanged();
       } else {
         regionSetPolicyRequestResourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -934,17 +901,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRegionSetPolicyRequestResource(com.google.cloud.compute.v1.RegionSetPolicyRequest value) {
       if (regionSetPolicyRequestResourceBuilder_ == null) {
-        if (regionSetPolicyRequestResource_ != null) {
-          regionSetPolicyRequestResource_ =
-            com.google.cloud.compute.v1.RegionSetPolicyRequest.newBuilder(regionSetPolicyRequestResource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          regionSetPolicyRequestResource_ != null &&
+          regionSetPolicyRequestResource_ != com.google.cloud.compute.v1.RegionSetPolicyRequest.getDefaultInstance()) {
+          getRegionSetPolicyRequestResourceBuilder().mergeFrom(value);
         } else {
           regionSetPolicyRequestResource_ = value;
         }
-        onChanged();
       } else {
         regionSetPolicyRequestResourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -955,14 +923,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.compute.v1.RegionSetPolicyRequest region_set_policy_request_resource = 276489091 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearRegionSetPolicyRequestResource() {
-      if (regionSetPolicyRequestResourceBuilder_ == null) {
-        regionSetPolicyRequestResource_ = null;
-        onChanged();
-      } else {
-        regionSetPolicyRequestResource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      regionSetPolicyRequestResource_ = null;
+      if (regionSetPolicyRequestResourceBuilder_ != null) {
+        regionSetPolicyRequestResourceBuilder_.dispose();
         regionSetPolicyRequestResourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -973,7 +940,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.compute.v1.RegionSetPolicyRequest region_set_policy_request_resource = 276489091 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.compute.v1.RegionSetPolicyRequest.Builder getRegionSetPolicyRequestResourceBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getRegionSetPolicyRequestResourceFieldBuilder().getBuilder();
     }
@@ -1066,11 +1033,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResource(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resource_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1083,8 +1048,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResource() {
-      
       resource_ = getDefaultInstance().getResource();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1099,12 +1064,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resource_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1141,7 +1104,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SetIamPolicyRegionNetworkFirewallPolicyRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

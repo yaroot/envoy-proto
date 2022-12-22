@@ -35,77 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private IapSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 42: {
-            com.google.cloud.iap.v1.AccessSettings.Builder subBuilder = null;
-            if (accessSettings_ != null) {
-              subBuilder = accessSettings_.toBuilder();
-            }
-            accessSettings_ = input.readMessage(com.google.cloud.iap.v1.AccessSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(accessSettings_);
-              accessSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.iap.v1.ApplicationSettings.Builder subBuilder = null;
-            if (applicationSettings_ != null) {
-              subBuilder = applicationSettings_.toBuilder();
-            }
-            applicationSettings_ = input.readMessage(com.google.cloud.iap.v1.ApplicationSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(applicationSettings_);
-              applicationSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.iap.v1.Service.internal_static_google_cloud_iap_v1_IapSettings_descriptor;
@@ -120,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The resource name of the IAP protected resource.
@@ -200,7 +130,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.iap.v1.AccessSettingsOrBuilder getAccessSettingsOrBuilder() {
-    return getAccessSettings();
+    return accessSettings_ == null ? com.google.cloud.iap.v1.AccessSettings.getDefaultInstance() : accessSettings_;
   }
 
   public static final int APPLICATION_SETTINGS_FIELD_NUMBER = 6;
@@ -238,7 +168,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.iap.v1.ApplicationSettingsOrBuilder getApplicationSettingsOrBuilder() {
-    return getApplicationSettings();
+    return applicationSettings_ == null ? com.google.cloud.iap.v1.ApplicationSettings.getDefaultInstance() : applicationSettings_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -264,7 +194,7 @@ private static final long serialVersionUID = 0L;
     if (applicationSettings_ != null) {
       output.writeMessage(6, getApplicationSettings());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -284,7 +214,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getApplicationSettings());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -311,7 +241,7 @@ private static final long serialVersionUID = 0L;
       if (!getApplicationSettings()
           .equals(other.getApplicationSettings())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -332,7 +262,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + APPLICATION_SETTINGS_FIELD_NUMBER;
       hash = (53 * hash) + getApplicationSettings().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -453,34 +383,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.iap.v1.IapSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (accessSettingsBuilder_ == null) {
-        accessSettings_ = null;
-      } else {
-        accessSettings_ = null;
+      accessSettings_ = null;
+      if (accessSettingsBuilder_ != null) {
+        accessSettingsBuilder_.dispose();
         accessSettingsBuilder_ = null;
       }
-      if (applicationSettingsBuilder_ == null) {
-        applicationSettings_ = null;
-      } else {
-        applicationSettings_ = null;
+      applicationSettings_ = null;
+      if (applicationSettingsBuilder_ != null) {
+        applicationSettingsBuilder_.dispose();
         applicationSettingsBuilder_ = null;
       }
       return this;
@@ -509,19 +432,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.iap.v1.IapSettings buildPartial() {
       com.google.cloud.iap.v1.IapSettings result = new com.google.cloud.iap.v1.IapSettings(this);
-      result.name_ = name_;
-      if (accessSettingsBuilder_ == null) {
-        result.accessSettings_ = accessSettings_;
-      } else {
-        result.accessSettings_ = accessSettingsBuilder_.build();
-      }
-      if (applicationSettingsBuilder_ == null) {
-        result.applicationSettings_ = applicationSettings_;
-      } else {
-        result.applicationSettings_ = applicationSettingsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.iap.v1.IapSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.accessSettings_ = accessSettingsBuilder_ == null
+            ? accessSettings_
+            : accessSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.applicationSettings_ = applicationSettingsBuilder_ == null
+            ? applicationSettings_
+            : applicationSettingsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -570,6 +500,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.iap.v1.IapSettings.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasAccessSettings()) {
@@ -578,7 +509,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasApplicationSettings()) {
         mergeApplicationSettings(other.getApplicationSettings());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -593,19 +524,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.iap.v1.IapSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 42: {
+              input.readMessage(
+                  getAccessSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getApplicationSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.iap.v1.IapSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -660,11 +624,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -677,8 +639,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -693,12 +655,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -715,7 +675,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the accessSettings field is set.
      */
     public boolean hasAccessSettings() {
-      return accessSettingsBuilder_ != null || accessSettings_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -745,11 +705,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         accessSettings_ = value;
-        onChanged();
       } else {
         accessSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -763,11 +723,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.iap.v1.AccessSettings.Builder builderForValue) {
       if (accessSettingsBuilder_ == null) {
         accessSettings_ = builderForValue.build();
-        onChanged();
       } else {
         accessSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -779,17 +739,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAccessSettings(com.google.cloud.iap.v1.AccessSettings value) {
       if (accessSettingsBuilder_ == null) {
-        if (accessSettings_ != null) {
-          accessSettings_ =
-            com.google.cloud.iap.v1.AccessSettings.newBuilder(accessSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          accessSettings_ != null &&
+          accessSettings_ != com.google.cloud.iap.v1.AccessSettings.getDefaultInstance()) {
+          getAccessSettingsBuilder().mergeFrom(value);
         } else {
           accessSettings_ = value;
         }
-        onChanged();
       } else {
         accessSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -800,14 +761,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iap.v1.AccessSettings access_settings = 5;</code>
      */
     public Builder clearAccessSettings() {
-      if (accessSettingsBuilder_ == null) {
-        accessSettings_ = null;
-        onChanged();
-      } else {
-        accessSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      accessSettings_ = null;
+      if (accessSettingsBuilder_ != null) {
+        accessSettingsBuilder_.dispose();
         accessSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -818,7 +778,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iap.v1.AccessSettings access_settings = 5;</code>
      */
     public com.google.cloud.iap.v1.AccessSettings.Builder getAccessSettingsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAccessSettingsFieldBuilder().getBuilder();
     }
@@ -870,7 +830,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the applicationSettings field is set.
      */
     public boolean hasApplicationSettings() {
-      return applicationSettingsBuilder_ != null || applicationSettings_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -900,11 +860,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         applicationSettings_ = value;
-        onChanged();
       } else {
         applicationSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -918,11 +878,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.iap.v1.ApplicationSettings.Builder builderForValue) {
       if (applicationSettingsBuilder_ == null) {
         applicationSettings_ = builderForValue.build();
-        onChanged();
       } else {
         applicationSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -934,17 +894,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeApplicationSettings(com.google.cloud.iap.v1.ApplicationSettings value) {
       if (applicationSettingsBuilder_ == null) {
-        if (applicationSettings_ != null) {
-          applicationSettings_ =
-            com.google.cloud.iap.v1.ApplicationSettings.newBuilder(applicationSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          applicationSettings_ != null &&
+          applicationSettings_ != com.google.cloud.iap.v1.ApplicationSettings.getDefaultInstance()) {
+          getApplicationSettingsBuilder().mergeFrom(value);
         } else {
           applicationSettings_ = value;
         }
-        onChanged();
       } else {
         applicationSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -955,14 +916,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iap.v1.ApplicationSettings application_settings = 6;</code>
      */
     public Builder clearApplicationSettings() {
-      if (applicationSettingsBuilder_ == null) {
-        applicationSettings_ = null;
-        onChanged();
-      } else {
-        applicationSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      applicationSettings_ = null;
+      if (applicationSettingsBuilder_ != null) {
+        applicationSettingsBuilder_.dispose();
         applicationSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -973,7 +933,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iap.v1.ApplicationSettings application_settings = 6;</code>
      */
     public com.google.cloud.iap.v1.ApplicationSettings.Builder getApplicationSettingsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getApplicationSettingsFieldBuilder().getBuilder();
     }
@@ -1045,7 +1005,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new IapSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

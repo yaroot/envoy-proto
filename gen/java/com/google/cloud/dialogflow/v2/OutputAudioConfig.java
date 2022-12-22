@@ -37,69 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OutputAudioConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            audioEncoding_ = rawValue;
-            break;
-          }
-          case 16: {
-
-            sampleRateHertz_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            com.google.cloud.dialogflow.v2.SynthesizeSpeechConfig.Builder subBuilder = null;
-            if (synthesizeSpeechConfig_ != null) {
-              subBuilder = synthesizeSpeechConfig_.toBuilder();
-            }
-            synthesizeSpeechConfig_ = input.readMessage(com.google.cloud.dialogflow.v2.SynthesizeSpeechConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(synthesizeSpeechConfig_);
-              synthesizeSpeechConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.v2.AudioConfigProto.internal_static_google_cloud_dialogflow_v2_OutputAudioConfig_descriptor;
@@ -114,7 +51,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUDIO_ENCODING_FIELD_NUMBER = 1;
-  private int audioEncoding_;
+  private int audioEncoding_ = 0;
   /**
    * <pre>
    * Required. Audio encoding of the synthesized audio content.
@@ -135,13 +72,12 @@ private static final long serialVersionUID = 0L;
    * @return The audioEncoding.
    */
   @java.lang.Override public com.google.cloud.dialogflow.v2.OutputAudioEncoding getAudioEncoding() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dialogflow.v2.OutputAudioEncoding result = com.google.cloud.dialogflow.v2.OutputAudioEncoding.valueOf(audioEncoding_);
+    com.google.cloud.dialogflow.v2.OutputAudioEncoding result = com.google.cloud.dialogflow.v2.OutputAudioEncoding.forNumber(audioEncoding_);
     return result == null ? com.google.cloud.dialogflow.v2.OutputAudioEncoding.UNRECOGNIZED : result;
   }
 
   public static final int SAMPLE_RATE_HERTZ_FIELD_NUMBER = 2;
-  private int sampleRateHertz_;
+  private int sampleRateHertz_ = 0;
   /**
    * <pre>
    * The synthesis sample rate (in hertz) for this audio. If not
@@ -194,7 +130,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.v2.SynthesizeSpeechConfigOrBuilder getSynthesizeSpeechConfigOrBuilder() {
-    return getSynthesizeSpeechConfig();
+    return synthesizeSpeechConfig_ == null ? com.google.cloud.dialogflow.v2.SynthesizeSpeechConfig.getDefaultInstance() : synthesizeSpeechConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -220,7 +156,7 @@ private static final long serialVersionUID = 0L;
     if (synthesizeSpeechConfig_ != null) {
       output.writeMessage(3, getSynthesizeSpeechConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -241,7 +177,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getSynthesizeSpeechConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -264,7 +200,7 @@ private static final long serialVersionUID = 0L;
       if (!getSynthesizeSpeechConfig()
           .equals(other.getSynthesizeSpeechConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -283,7 +219,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SYNTHESIZE_SPEECH_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getSynthesizeSpeechConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -406,30 +342,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.v2.OutputAudioConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       audioEncoding_ = 0;
-
       sampleRateHertz_ = 0;
-
-      if (synthesizeSpeechConfigBuilder_ == null) {
-        synthesizeSpeechConfig_ = null;
-      } else {
-        synthesizeSpeechConfig_ = null;
+      synthesizeSpeechConfig_ = null;
+      if (synthesizeSpeechConfigBuilder_ != null) {
+        synthesizeSpeechConfigBuilder_.dispose();
         synthesizeSpeechConfigBuilder_ = null;
       }
       return this;
@@ -458,15 +387,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.v2.OutputAudioConfig buildPartial() {
       com.google.cloud.dialogflow.v2.OutputAudioConfig result = new com.google.cloud.dialogflow.v2.OutputAudioConfig(this);
-      result.audioEncoding_ = audioEncoding_;
-      result.sampleRateHertz_ = sampleRateHertz_;
-      if (synthesizeSpeechConfigBuilder_ == null) {
-        result.synthesizeSpeechConfig_ = synthesizeSpeechConfig_;
-      } else {
-        result.synthesizeSpeechConfig_ = synthesizeSpeechConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.v2.OutputAudioConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.audioEncoding_ = audioEncoding_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.sampleRateHertz_ = sampleRateHertz_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.synthesizeSpeechConfig_ = synthesizeSpeechConfigBuilder_ == null
+            ? synthesizeSpeechConfig_
+            : synthesizeSpeechConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -522,7 +460,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSynthesizeSpeechConfig()) {
         mergeSynthesizeSpeechConfig(other.getSynthesizeSpeechConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -537,19 +475,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.v2.OutputAudioConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              audioEncoding_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              sampleRateHertz_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getSynthesizeSpeechConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.v2.OutputAudioConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int audioEncoding_ = 0;
     /**
@@ -573,8 +542,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAudioEncodingValue(int value) {
-      
       audioEncoding_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -588,8 +557,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dialogflow.v2.OutputAudioEncoding getAudioEncoding() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dialogflow.v2.OutputAudioEncoding result = com.google.cloud.dialogflow.v2.OutputAudioEncoding.valueOf(audioEncoding_);
+      com.google.cloud.dialogflow.v2.OutputAudioEncoding result = com.google.cloud.dialogflow.v2.OutputAudioEncoding.forNumber(audioEncoding_);
       return result == null ? com.google.cloud.dialogflow.v2.OutputAudioEncoding.UNRECOGNIZED : result;
     }
     /**
@@ -605,7 +573,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       audioEncoding_ = value.getNumber();
       onChanged();
       return this;
@@ -619,7 +587,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAudioEncoding() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       audioEncoding_ = 0;
       onChanged();
       return this;
@@ -658,6 +626,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSampleRateHertz(int value) {
       
       sampleRateHertz_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -674,7 +643,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSampleRateHertz() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       sampleRateHertz_ = 0;
       onChanged();
       return this;
@@ -692,7 +661,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the synthesizeSpeechConfig field is set.
      */
     public boolean hasSynthesizeSpeechConfig() {
-      return synthesizeSpeechConfigBuilder_ != null || synthesizeSpeechConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -722,11 +691,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         synthesizeSpeechConfig_ = value;
-        onChanged();
       } else {
         synthesizeSpeechConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -740,11 +709,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dialogflow.v2.SynthesizeSpeechConfig.Builder builderForValue) {
       if (synthesizeSpeechConfigBuilder_ == null) {
         synthesizeSpeechConfig_ = builderForValue.build();
-        onChanged();
       } else {
         synthesizeSpeechConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -756,17 +725,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSynthesizeSpeechConfig(com.google.cloud.dialogflow.v2.SynthesizeSpeechConfig value) {
       if (synthesizeSpeechConfigBuilder_ == null) {
-        if (synthesizeSpeechConfig_ != null) {
-          synthesizeSpeechConfig_ =
-            com.google.cloud.dialogflow.v2.SynthesizeSpeechConfig.newBuilder(synthesizeSpeechConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          synthesizeSpeechConfig_ != null &&
+          synthesizeSpeechConfig_ != com.google.cloud.dialogflow.v2.SynthesizeSpeechConfig.getDefaultInstance()) {
+          getSynthesizeSpeechConfigBuilder().mergeFrom(value);
         } else {
           synthesizeSpeechConfig_ = value;
         }
-        onChanged();
       } else {
         synthesizeSpeechConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -777,14 +747,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.v2.SynthesizeSpeechConfig synthesize_speech_config = 3;</code>
      */
     public Builder clearSynthesizeSpeechConfig() {
-      if (synthesizeSpeechConfigBuilder_ == null) {
-        synthesizeSpeechConfig_ = null;
-        onChanged();
-      } else {
-        synthesizeSpeechConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      synthesizeSpeechConfig_ = null;
+      if (synthesizeSpeechConfigBuilder_ != null) {
+        synthesizeSpeechConfigBuilder_.dispose();
         synthesizeSpeechConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -795,7 +764,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.v2.SynthesizeSpeechConfig synthesize_speech_config = 3;</code>
      */
     public com.google.cloud.dialogflow.v2.SynthesizeSpeechConfig.Builder getSynthesizeSpeechConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getSynthesizeSpeechConfigFieldBuilder().getBuilder();
     }
@@ -867,7 +836,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OutputAudioConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

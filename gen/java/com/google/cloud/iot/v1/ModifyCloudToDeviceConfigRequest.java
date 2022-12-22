@@ -36,61 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ModifyCloudToDeviceConfigRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-
-            versionToUpdate_ = input.readInt64();
-            break;
-          }
-          case 26: {
-
-            binaryData_ = input.readBytes();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.iot.v1.DeviceManagerProto.internal_static_google_cloud_iot_v1_ModifyCloudToDeviceConfigRequest_descriptor;
@@ -105,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The name of the device. For example,
@@ -155,7 +101,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSION_TO_UPDATE_FIELD_NUMBER = 2;
-  private long versionToUpdate_;
+  private long versionToUpdate_ = 0L;
   /**
    * <pre>
    * The version number to update. If this value is zero, it will not check the
@@ -174,7 +120,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BINARY_DATA_FIELD_NUMBER = 3;
-  private com.google.protobuf.ByteString binaryData_;
+  private com.google.protobuf.ByteString binaryData_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * Required. The configuration data for the device.
@@ -211,7 +157,7 @@ private static final long serialVersionUID = 0L;
     if (!binaryData_.isEmpty()) {
       output.writeBytes(3, binaryData_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -231,7 +177,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBytesSize(3, binaryData_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -252,7 +198,7 @@ private static final long serialVersionUID = 0L;
         != other.getVersionToUpdate()) return false;
     if (!getBinaryData()
         .equals(other.getBinaryData())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -270,7 +216,7 @@ private static final long serialVersionUID = 0L;
         getVersionToUpdate());
     hash = (37 * hash) + BINARY_DATA_FIELD_NUMBER;
     hash = (53 * hash) + getBinaryData().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -391,28 +337,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.iot.v1.ModifyCloudToDeviceConfigRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       versionToUpdate_ = 0L;
-
       binaryData_ = com.google.protobuf.ByteString.EMPTY;
-
       return this;
     }
 
@@ -439,11 +378,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.iot.v1.ModifyCloudToDeviceConfigRequest buildPartial() {
       com.google.cloud.iot.v1.ModifyCloudToDeviceConfigRequest result = new com.google.cloud.iot.v1.ModifyCloudToDeviceConfigRequest(this);
-      result.name_ = name_;
-      result.versionToUpdate_ = versionToUpdate_;
-      result.binaryData_ = binaryData_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.iot.v1.ModifyCloudToDeviceConfigRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.versionToUpdate_ = versionToUpdate_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.binaryData_ = binaryData_;
+      }
     }
 
     @java.lang.Override
@@ -492,6 +442,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.iot.v1.ModifyCloudToDeviceConfigRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getVersionToUpdate() != 0L) {
@@ -500,7 +451,7 @@ private static final long serialVersionUID = 0L;
       if (other.getBinaryData() != com.google.protobuf.ByteString.EMPTY) {
         setBinaryData(other.getBinaryData());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -515,19 +466,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.iot.v1.ModifyCloudToDeviceConfigRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              versionToUpdate_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              binaryData_ = input.readBytes();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.iot.v1.ModifyCloudToDeviceConfigRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -588,11 +568,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -607,8 +585,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -625,12 +603,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -668,6 +644,7 @@ private static final long serialVersionUID = 0L;
     public Builder setVersionToUpdate(long value) {
       
       versionToUpdate_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -684,7 +661,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVersionToUpdate() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       versionToUpdate_ = 0L;
       onChanged();
       return this;
@@ -713,11 +690,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBinaryData(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       binaryData_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -730,7 +705,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBinaryData() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       binaryData_ = getDefaultInstance().getBinaryData();
       onChanged();
       return this;
@@ -768,7 +743,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ModifyCloudToDeviceConfigRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

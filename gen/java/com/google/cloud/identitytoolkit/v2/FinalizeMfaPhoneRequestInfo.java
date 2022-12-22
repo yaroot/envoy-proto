@@ -38,69 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private FinalizeMfaPhoneRequestInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sessionInfo_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            code_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            androidVerificationProof_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            phoneNumber_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.identitytoolkit.v2.MfaInfo.internal_static_google_cloud_identitytoolkit_v2_FinalizeMfaPhoneRequestInfo_descriptor;
@@ -115,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SESSION_INFO_FIELD_NUMBER = 1;
-  private volatile java.lang.Object sessionInfo_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sessionInfo_ = "";
   /**
    * <pre>
    * An opaque string that represents the enrollment session.
@@ -161,7 +99,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CODE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object code_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object code_ = "";
   /**
    * <pre>
    * User-entered verification code.
@@ -207,7 +146,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ANDROID_VERIFICATION_PROOF_FIELD_NUMBER = 3;
-  private volatile java.lang.Object androidVerificationProof_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object androidVerificationProof_ = "";
   /**
    * <pre>
    * Android only. Uses for "instant" phone number verification though GmsCore.
@@ -253,7 +193,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PHONE_NUMBER_FIELD_NUMBER = 4;
-  private volatile java.lang.Object phoneNumber_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object phoneNumber_ = "";
   /**
    * <pre>
    * Required if Android verification proof is presented.
@@ -324,7 +265,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phoneNumber_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, phoneNumber_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -345,7 +286,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(phoneNumber_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, phoneNumber_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -368,7 +309,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAndroidVerificationProof())) return false;
     if (!getPhoneNumber()
         .equals(other.getPhoneNumber())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -387,7 +328,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getAndroidVerificationProof().hashCode();
     hash = (37 * hash) + PHONE_NUMBER_FIELD_NUMBER;
     hash = (53 * hash) + getPhoneNumber().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -508,30 +449,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.identitytoolkit.v2.FinalizeMfaPhoneRequestInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       sessionInfo_ = "";
-
       code_ = "";
-
       androidVerificationProof_ = "";
-
       phoneNumber_ = "";
-
       return this;
     }
 
@@ -558,12 +491,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.identitytoolkit.v2.FinalizeMfaPhoneRequestInfo buildPartial() {
       com.google.cloud.identitytoolkit.v2.FinalizeMfaPhoneRequestInfo result = new com.google.cloud.identitytoolkit.v2.FinalizeMfaPhoneRequestInfo(this);
-      result.sessionInfo_ = sessionInfo_;
-      result.code_ = code_;
-      result.androidVerificationProof_ = androidVerificationProof_;
-      result.phoneNumber_ = phoneNumber_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.identitytoolkit.v2.FinalizeMfaPhoneRequestInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.sessionInfo_ = sessionInfo_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.code_ = code_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.androidVerificationProof_ = androidVerificationProof_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.phoneNumber_ = phoneNumber_;
+      }
     }
 
     @java.lang.Override
@@ -612,21 +558,25 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.identitytoolkit.v2.FinalizeMfaPhoneRequestInfo.getDefaultInstance()) return this;
       if (!other.getSessionInfo().isEmpty()) {
         sessionInfo_ = other.sessionInfo_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getCode().isEmpty()) {
         code_ = other.code_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getAndroidVerificationProof().isEmpty()) {
         androidVerificationProof_ = other.androidVerificationProof_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getPhoneNumber().isEmpty()) {
         phoneNumber_ = other.phoneNumber_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -641,19 +591,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.identitytoolkit.v2.FinalizeMfaPhoneRequestInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              sessionInfo_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              code_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              androidVerificationProof_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              phoneNumber_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.identitytoolkit.v2.FinalizeMfaPhoneRequestInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object sessionInfo_ = "";
     /**
@@ -708,11 +692,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSessionInfo(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sessionInfo_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -725,8 +707,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSessionInfo() {
-      
       sessionInfo_ = getDefaultInstance().getSessionInfo();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -741,12 +723,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSessionInfoBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sessionInfo_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -804,11 +784,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       code_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -821,8 +799,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCode() {
-      
       code_ = getDefaultInstance().getCode();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -837,12 +815,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       code_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -900,11 +876,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAndroidVerificationProof(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       androidVerificationProof_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -917,8 +891,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAndroidVerificationProof() {
-      
       androidVerificationProof_ = getDefaultInstance().getAndroidVerificationProof();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -933,12 +907,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAndroidVerificationProofBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       androidVerificationProof_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -996,11 +968,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPhoneNumber(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       phoneNumber_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1013,8 +983,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPhoneNumber() {
-      
       phoneNumber_ = getDefaultInstance().getPhoneNumber();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1029,12 +999,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPhoneNumberBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       phoneNumber_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1071,7 +1039,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FinalizeMfaPhoneRequestInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

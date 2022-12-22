@@ -40,105 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HttpRouteRuleMatch(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 859102826: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            regexMatch_ = s;
-            break;
-          }
-          case 1716791002: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            fullPathMatch_ = s;
-            break;
-          }
-          case 2063191746: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            prefixMatch_ = s;
-            break;
-          }
-          case -2005117134: {
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              queryParameterMatches_ = new java.util.ArrayList<com.google.cloud.compute.v1.HttpQueryParameterMatch>();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            queryParameterMatches_.add(
-                input.readMessage(com.google.cloud.compute.v1.HttpQueryParameterMatch.parser(), extensionRegistry));
-            break;
-          }
-          case -1399739382: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              headerMatches_ = new java.util.ArrayList<com.google.cloud.compute.v1.HttpHeaderMatch>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            headerMatches_.add(
-                input.readMessage(com.google.cloud.compute.v1.HttpHeaderMatch.parser(), extensionRegistry));
-            break;
-          }
-          case -580367384: {
-            bitField0_ |= 0x00000002;
-            ignoreCase_ = input.readBool();
-            break;
-          }
-          case -577161382: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              metadataFilters_ = new java.util.ArrayList<com.google.cloud.compute.v1.MetadataFilter>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            metadataFilters_.add(
-                input.readMessage(com.google.cloud.compute.v1.MetadataFilter.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
-        queryParameterMatches_ = java.util.Collections.unmodifiableList(queryParameterMatches_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        headerMatches_ = java.util.Collections.unmodifiableList(headerMatches_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        metadataFilters_ = java.util.Collections.unmodifiableList(metadataFilters_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_HttpRouteRuleMatch_descriptor;
@@ -154,7 +55,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int FULL_PATH_MATCH_FIELD_NUMBER = 214598875;
-  private volatile java.lang.Object fullPathMatch_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object fullPathMatch_ = "";
   /**
    * <pre>
    * For satisfying the matchRule condition, the path of the request must exactly match the value specified in fullPathMatch after removing any query parameters and anchor that may be part of the original URL. fullPathMatch must be from 1 to 1024 characters. Only one of prefixMatch, fullPathMatch or regexMatch must be specified.
@@ -212,6 +114,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HEADER_MATCHES_FIELD_NUMBER = 361903489;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.HttpHeaderMatch> headerMatches_;
   /**
    * <pre>
@@ -272,7 +175,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IGNORE_CASE_FIELD_NUMBER = 464324989;
-  private boolean ignoreCase_;
+  private boolean ignoreCase_ = false;
   /**
    * <pre>
    * Specifies that prefixMatch and fullPathMatch matches are case sensitive. The default value is false. ignoreCase must not be used with regexMatch. Not supported when the URL map is bound to a target gRPC proxy.
@@ -299,6 +202,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int METADATA_FILTERS_FIELD_NUMBER = 464725739;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.MetadataFilter> metadataFilters_;
   /**
    * <pre>
@@ -359,7 +263,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PREFIX_MATCH_FIELD_NUMBER = 257898968;
-  private volatile java.lang.Object prefixMatch_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object prefixMatch_ = "";
   /**
    * <pre>
    * For satisfying the matchRule condition, the request's path must begin with the specified prefixMatch. prefixMatch must begin with a /. The value must be from 1 to 1024 characters. Only one of prefixMatch, fullPathMatch or regexMatch must be specified.
@@ -417,6 +322,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUERY_PARAMETER_MATCHES_FIELD_NUMBER = 286231270;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.HttpQueryParameterMatch> queryParameterMatches_;
   /**
    * <pre>
@@ -477,10 +383,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REGEX_MATCH_FIELD_NUMBER = 107387853;
-  private volatile java.lang.Object regexMatch_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object regexMatch_ = "";
   /**
    * <pre>
-   * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+   * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
    * </pre>
    *
    * <code>optional string regex_match = 107387853;</code>
@@ -492,7 +399,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+   * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
    * </pre>
    *
    * <code>optional string regex_match = 107387853;</code>
@@ -513,7 +420,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+   * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
    * </pre>
    *
    * <code>optional string regex_match = 107387853;</code>
@@ -569,7 +476,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < metadataFilters_.size(); i++) {
       output.writeMessage(464725739, metadataFilters_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -603,7 +510,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(464725739, metadataFilters_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -644,7 +551,7 @@ private static final long serialVersionUID = 0L;
       if (!getRegexMatch()
           .equals(other.getRegexMatch())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -684,7 +591,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REGEX_MATCH_FIELD_NUMBER;
       hash = (53 * hash) + getRegexMatch().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -805,51 +712,43 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.HttpRouteRuleMatch.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getHeaderMatchesFieldBuilder();
-        getMetadataFiltersFieldBuilder();
-        getQueryParameterMatchesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       fullPathMatch_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       if (headerMatchesBuilder_ == null) {
         headerMatches_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        headerMatches_ = null;
         headerMatchesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       ignoreCase_ = false;
-      bitField0_ = (bitField0_ & ~0x00000004);
       if (metadataFiltersBuilder_ == null) {
         metadataFilters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        metadataFilters_ = null;
         metadataFiltersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       prefixMatch_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       if (queryParameterMatchesBuilder_ == null) {
         queryParameterMatches_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
       } else {
+        queryParameterMatches_ = null;
         queryParameterMatchesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       regexMatch_ = "";
-      bitField0_ = (bitField0_ & ~0x00000040);
       return this;
     }
 
@@ -876,12 +775,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.HttpRouteRuleMatch buildPartial() {
       com.google.cloud.compute.v1.HttpRouteRuleMatch result = new com.google.cloud.compute.v1.HttpRouteRuleMatch(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.fullPathMatch_ = fullPathMatch_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.HttpRouteRuleMatch result) {
       if (headerMatchesBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0)) {
           headerMatches_ = java.util.Collections.unmodifiableList(headerMatches_);
@@ -890,10 +790,6 @@ private static final long serialVersionUID = 0L;
         result.headerMatches_ = headerMatches_;
       } else {
         result.headerMatches_ = headerMatchesBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.ignoreCase_ = ignoreCase_;
-        to_bitField0_ |= 0x00000002;
       }
       if (metadataFiltersBuilder_ == null) {
         if (((bitField0_ & 0x00000008) != 0)) {
@@ -904,10 +800,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.metadataFilters_ = metadataFiltersBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        to_bitField0_ |= 0x00000004;
-      }
-      result.prefixMatch_ = prefixMatch_;
       if (queryParameterMatchesBuilder_ == null) {
         if (((bitField0_ & 0x00000020) != 0)) {
           queryParameterMatches_ = java.util.Collections.unmodifiableList(queryParameterMatches_);
@@ -917,13 +809,28 @@ private static final long serialVersionUID = 0L;
       } else {
         result.queryParameterMatches_ = queryParameterMatchesBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.HttpRouteRuleMatch result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.fullPathMatch_ = fullPathMatch_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.ignoreCase_ = ignoreCase_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.prefixMatch_ = prefixMatch_;
+        to_bitField0_ |= 0x00000004;
+      }
       if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.regexMatch_ = regexMatch_;
         to_bitField0_ |= 0x00000008;
       }
-      result.regexMatch_ = regexMatch_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -971,8 +878,8 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.HttpRouteRuleMatch other) {
       if (other == com.google.cloud.compute.v1.HttpRouteRuleMatch.getDefaultInstance()) return this;
       if (other.hasFullPathMatch()) {
-        bitField0_ |= 0x00000001;
         fullPathMatch_ = other.fullPathMatch_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (headerMatchesBuilder_ == null) {
@@ -1031,8 +938,8 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (other.hasPrefixMatch()) {
-        bitField0_ |= 0x00000010;
         prefixMatch_ = other.prefixMatch_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (queryParameterMatchesBuilder_ == null) {
@@ -1062,11 +969,11 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (other.hasRegexMatch()) {
-        bitField0_ |= 0x00000040;
         regexMatch_ = other.regexMatch_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1081,17 +988,89 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.HttpRouteRuleMatch parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 859102826: {
+              regexMatch_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 859102826
+            case 1716791002: {
+              fullPathMatch_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 1716791002
+            case 2063191746: {
+              prefixMatch_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 2063191746
+            case -2005117134: {
+              com.google.cloud.compute.v1.HttpQueryParameterMatch m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.HttpQueryParameterMatch.parser(),
+                      extensionRegistry);
+              if (queryParameterMatchesBuilder_ == null) {
+                ensureQueryParameterMatchesIsMutable();
+                queryParameterMatches_.add(m);
+              } else {
+                queryParameterMatchesBuilder_.addMessage(m);
+              }
+              break;
+            } // case -2005117134
+            case -1399739382: {
+              com.google.cloud.compute.v1.HttpHeaderMatch m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.HttpHeaderMatch.parser(),
+                      extensionRegistry);
+              if (headerMatchesBuilder_ == null) {
+                ensureHeaderMatchesIsMutable();
+                headerMatches_.add(m);
+              } else {
+                headerMatchesBuilder_.addMessage(m);
+              }
+              break;
+            } // case -1399739382
+            case -580367384: {
+              ignoreCase_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -580367384
+            case -577161382: {
+              com.google.cloud.compute.v1.MetadataFilter m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.MetadataFilter.parser(),
+                      extensionRegistry);
+              if (metadataFiltersBuilder_ == null) {
+                ensureMetadataFiltersIsMutable();
+                metadataFilters_.add(m);
+              } else {
+                metadataFiltersBuilder_.addMessage(m);
+              }
+              break;
+            } // case -577161382
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.HttpRouteRuleMatch) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1160,11 +1139,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFullPathMatch(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       fullPathMatch_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1177,8 +1154,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFullPathMatch() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       fullPathMatch_ = getDefaultInstance().getFullPathMatch();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1193,12 +1170,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFullPathMatchBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       fullPathMatch_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1550,8 +1525,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIgnoreCase(boolean value) {
-      bitField0_ |= 0x00000004;
+      
       ignoreCase_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1946,11 +1922,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrefixMatch(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       prefixMatch_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1963,8 +1937,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrefixMatch() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       prefixMatch_ = getDefaultInstance().getPrefixMatch();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1979,12 +1953,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrefixMatchBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       prefixMatch_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2304,7 +2276,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object regexMatch_ = "";
     /**
      * <pre>
-     * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+     * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
      * </pre>
      *
      * <code>optional string regex_match = 107387853;</code>
@@ -2315,7 +2287,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+     * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
      * </pre>
      *
      * <code>optional string regex_match = 107387853;</code>
@@ -2335,7 +2307,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+     * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
      * </pre>
      *
      * <code>optional string regex_match = 107387853;</code>
@@ -2356,7 +2328,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+     * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
      * </pre>
      *
      * <code>optional string regex_match = 107387853;</code>
@@ -2365,31 +2337,29 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegexMatch(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
       regexMatch_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+     * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
      * </pre>
      *
      * <code>optional string regex_match = 107387853;</code>
      * @return This builder for chaining.
      */
     public Builder clearRegexMatch() {
-      bitField0_ = (bitField0_ & ~0x00000040);
       regexMatch_ = getDefaultInstance().getRegexMatch();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+     * For satisfying the matchRule condition, the path of the request must satisfy the regular expression specified in regexMatch after removing any query parameters and anchor supplied with the original URL. For more information about regular expression syntax, see Syntax. Only one of prefixMatch, fullPathMatch or regexMatch must be specified. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
      * </pre>
      *
      * <code>optional string regex_match = 107387853;</code>
@@ -2398,12 +2368,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegexMatchBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       regexMatch_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2440,7 +2408,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HttpRouteRuleMatch(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

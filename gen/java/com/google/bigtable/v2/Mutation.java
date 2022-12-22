@@ -34,101 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Mutation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.bigtable.v2.Mutation.SetCell.Builder subBuilder = null;
-            if (mutationCase_ == 1) {
-              subBuilder = ((com.google.bigtable.v2.Mutation.SetCell) mutation_).toBuilder();
-            }
-            mutation_ =
-                input.readMessage(com.google.bigtable.v2.Mutation.SetCell.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.bigtable.v2.Mutation.SetCell) mutation_);
-              mutation_ = subBuilder.buildPartial();
-            }
-            mutationCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.bigtable.v2.Mutation.DeleteFromColumn.Builder subBuilder = null;
-            if (mutationCase_ == 2) {
-              subBuilder = ((com.google.bigtable.v2.Mutation.DeleteFromColumn) mutation_).toBuilder();
-            }
-            mutation_ =
-                input.readMessage(com.google.bigtable.v2.Mutation.DeleteFromColumn.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.bigtable.v2.Mutation.DeleteFromColumn) mutation_);
-              mutation_ = subBuilder.buildPartial();
-            }
-            mutationCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.bigtable.v2.Mutation.DeleteFromFamily.Builder subBuilder = null;
-            if (mutationCase_ == 3) {
-              subBuilder = ((com.google.bigtable.v2.Mutation.DeleteFromFamily) mutation_).toBuilder();
-            }
-            mutation_ =
-                input.readMessage(com.google.bigtable.v2.Mutation.DeleteFromFamily.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.bigtable.v2.Mutation.DeleteFromFamily) mutation_);
-              mutation_ = subBuilder.buildPartial();
-            }
-            mutationCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.bigtable.v2.Mutation.DeleteFromRow.Builder subBuilder = null;
-            if (mutationCase_ == 4) {
-              subBuilder = ((com.google.bigtable.v2.Mutation.DeleteFromRow) mutation_).toBuilder();
-            }
-            mutation_ =
-                input.readMessage(com.google.bigtable.v2.Mutation.DeleteFromRow.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.bigtable.v2.Mutation.DeleteFromRow) mutation_);
-              mutation_ = subBuilder.buildPartial();
-            }
-            mutationCase_ = 4;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.bigtable.v2.DataProto.internal_static_google_bigtable_v2_Mutation_descriptor;
@@ -237,66 +142,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SetCell(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              familyName_ = s;
-              break;
-            }
-            case 18: {
-
-              columnQualifier_ = input.readBytes();
-              break;
-            }
-            case 24: {
-
-              timestampMicros_ = input.readInt64();
-              break;
-            }
-            case 34: {
-
-              value_ = input.readBytes();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.bigtable.v2.DataProto.internal_static_google_bigtable_v2_Mutation_SetCell_descriptor;
@@ -311,7 +156,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int FAMILY_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object familyName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object familyName_ = "";
     /**
      * <pre>
      * The name of the family into which new data should be written.
@@ -359,7 +205,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int COLUMN_QUALIFIER_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString columnQualifier_;
+    private com.google.protobuf.ByteString columnQualifier_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
      * The qualifier of the column into which new data should be written.
@@ -375,7 +221,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TIMESTAMP_MICROS_FIELD_NUMBER = 3;
-    private long timestampMicros_;
+    private long timestampMicros_ = 0L;
     /**
      * <pre>
      * The timestamp of the cell into which new data should be written.
@@ -394,7 +240,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int VALUE_FIELD_NUMBER = 4;
-    private com.google.protobuf.ByteString value_;
+    private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
      * The value to be written into the specified cell.
@@ -434,7 +280,7 @@ private static final long serialVersionUID = 0L;
       if (!value_.isEmpty()) {
         output.writeBytes(4, value_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -458,7 +304,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, value_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -481,7 +327,7 @@ private static final long serialVersionUID = 0L;
           != other.getTimestampMicros()) return false;
       if (!getValue()
           .equals(other.getValue())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -501,7 +347,7 @@ private static final long serialVersionUID = 0L;
           getTimestampMicros());
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
       hash = (53 * hash) + getValue().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -622,30 +468,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.bigtable.v2.Mutation.SetCell.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         familyName_ = "";
-
         columnQualifier_ = com.google.protobuf.ByteString.EMPTY;
-
         timestampMicros_ = 0L;
-
         value_ = com.google.protobuf.ByteString.EMPTY;
-
         return this;
       }
 
@@ -672,12 +510,25 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.bigtable.v2.Mutation.SetCell buildPartial() {
         com.google.bigtable.v2.Mutation.SetCell result = new com.google.bigtable.v2.Mutation.SetCell(this);
-        result.familyName_ = familyName_;
-        result.columnQualifier_ = columnQualifier_;
-        result.timestampMicros_ = timestampMicros_;
-        result.value_ = value_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.bigtable.v2.Mutation.SetCell result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.familyName_ = familyName_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.columnQualifier_ = columnQualifier_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.timestampMicros_ = timestampMicros_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.value_ = value_;
+        }
       }
 
       @java.lang.Override
@@ -726,6 +577,7 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.bigtable.v2.Mutation.SetCell.getDefaultInstance()) return this;
         if (!other.getFamilyName().isEmpty()) {
           familyName_ = other.familyName_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getColumnQualifier() != com.google.protobuf.ByteString.EMPTY) {
@@ -737,7 +589,7 @@ private static final long serialVersionUID = 0L;
         if (other.getValue() != com.google.protobuf.ByteString.EMPTY) {
           setValue(other.getValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -752,19 +604,53 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.bigtable.v2.Mutation.SetCell parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                familyName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                columnQualifier_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                timestampMicros_ = input.readInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                value_ = input.readBytes();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.bigtable.v2.Mutation.SetCell) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object familyName_ = "";
       /**
@@ -822,11 +708,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setFamilyName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         familyName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -840,8 +724,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearFamilyName() {
-        
         familyName_ = getDefaultInstance().getFamilyName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -857,12 +741,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setFamilyNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         familyName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -892,11 +774,9 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setColumnQualifier(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         columnQualifier_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -910,7 +790,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearColumnQualifier() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         columnQualifier_ = getDefaultInstance().getColumnQualifier();
         onChanged();
         return this;
@@ -949,6 +829,7 @@ private static final long serialVersionUID = 0L;
       public Builder setTimestampMicros(long value) {
         
         timestampMicros_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -965,7 +846,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearTimestampMicros() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         timestampMicros_ = 0L;
         onChanged();
         return this;
@@ -994,11 +875,9 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setValue(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         value_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1011,7 +890,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearValue() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         value_ = getDefaultInstance().getValue();
         onChanged();
         return this;
@@ -1049,7 +928,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SetCell(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1167,69 +1057,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DeleteFromColumn(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              familyName_ = s;
-              break;
-            }
-            case 18: {
-
-              columnQualifier_ = input.readBytes();
-              break;
-            }
-            case 26: {
-              com.google.bigtable.v2.TimestampRange.Builder subBuilder = null;
-              if (timeRange_ != null) {
-                subBuilder = timeRange_.toBuilder();
-              }
-              timeRange_ = input.readMessage(com.google.bigtable.v2.TimestampRange.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(timeRange_);
-                timeRange_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.bigtable.v2.DataProto.internal_static_google_bigtable_v2_Mutation_DeleteFromColumn_descriptor;
@@ -1244,7 +1071,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int FAMILY_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object familyName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object familyName_ = "";
     /**
      * <pre>
      * The name of the family from which cells should be deleted.
@@ -1292,7 +1120,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int COLUMN_QUALIFIER_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString columnQualifier_;
+    private com.google.protobuf.ByteString columnQualifier_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
      * The qualifier of the column from which cells should be deleted.
@@ -1342,7 +1170,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.bigtable.v2.TimestampRangeOrBuilder getTimeRangeOrBuilder() {
-      return getTimeRange();
+      return timeRange_ == null ? com.google.bigtable.v2.TimestampRange.getDefaultInstance() : timeRange_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1368,7 +1196,7 @@ private static final long serialVersionUID = 0L;
       if (timeRange_ != null) {
         output.writeMessage(3, getTimeRange());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1388,7 +1216,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getTimeRange());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1412,7 +1240,7 @@ private static final long serialVersionUID = 0L;
         if (!getTimeRange()
             .equals(other.getTimeRange())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1431,7 +1259,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + TIME_RANGE_FIELD_NUMBER;
         hash = (53 * hash) + getTimeRange().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1553,30 +1381,23 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.bigtable.v2.Mutation.DeleteFromColumn.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         familyName_ = "";
-
         columnQualifier_ = com.google.protobuf.ByteString.EMPTY;
-
-        if (timeRangeBuilder_ == null) {
-          timeRange_ = null;
-        } else {
-          timeRange_ = null;
+        timeRange_ = null;
+        if (timeRangeBuilder_ != null) {
+          timeRangeBuilder_.dispose();
           timeRangeBuilder_ = null;
         }
         return this;
@@ -1605,15 +1426,24 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.bigtable.v2.Mutation.DeleteFromColumn buildPartial() {
         com.google.bigtable.v2.Mutation.DeleteFromColumn result = new com.google.bigtable.v2.Mutation.DeleteFromColumn(this);
-        result.familyName_ = familyName_;
-        result.columnQualifier_ = columnQualifier_;
-        if (timeRangeBuilder_ == null) {
-          result.timeRange_ = timeRange_;
-        } else {
-          result.timeRange_ = timeRangeBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.bigtable.v2.Mutation.DeleteFromColumn result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.familyName_ = familyName_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.columnQualifier_ = columnQualifier_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.timeRange_ = timeRangeBuilder_ == null
+              ? timeRange_
+              : timeRangeBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1662,6 +1492,7 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.bigtable.v2.Mutation.DeleteFromColumn.getDefaultInstance()) return this;
         if (!other.getFamilyName().isEmpty()) {
           familyName_ = other.familyName_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getColumnQualifier() != com.google.protobuf.ByteString.EMPTY) {
@@ -1670,7 +1501,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasTimeRange()) {
           mergeTimeRange(other.getTimeRange());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1685,19 +1516,50 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.bigtable.v2.Mutation.DeleteFromColumn parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                familyName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                columnQualifier_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getTimeRangeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.bigtable.v2.Mutation.DeleteFromColumn) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object familyName_ = "";
       /**
@@ -1755,11 +1617,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setFamilyName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         familyName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1773,8 +1633,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearFamilyName() {
-        
         familyName_ = getDefaultInstance().getFamilyName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1790,12 +1650,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setFamilyNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         familyName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1825,11 +1683,9 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setColumnQualifier(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         columnQualifier_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1843,7 +1699,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearColumnQualifier() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         columnQualifier_ = getDefaultInstance().getColumnQualifier();
         onChanged();
         return this;
@@ -1861,7 +1717,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the timeRange field is set.
        */
       public boolean hasTimeRange() {
-        return timeRangeBuilder_ != null || timeRange_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -1891,11 +1747,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           timeRange_ = value;
-          onChanged();
         } else {
           timeRangeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1909,11 +1765,11 @@ private static final long serialVersionUID = 0L;
           com.google.bigtable.v2.TimestampRange.Builder builderForValue) {
         if (timeRangeBuilder_ == null) {
           timeRange_ = builderForValue.build();
-          onChanged();
         } else {
           timeRangeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1925,17 +1781,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeTimeRange(com.google.bigtable.v2.TimestampRange value) {
         if (timeRangeBuilder_ == null) {
-          if (timeRange_ != null) {
-            timeRange_ =
-              com.google.bigtable.v2.TimestampRange.newBuilder(timeRange_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            timeRange_ != null &&
+            timeRange_ != com.google.bigtable.v2.TimestampRange.getDefaultInstance()) {
+            getTimeRangeBuilder().mergeFrom(value);
           } else {
             timeRange_ = value;
           }
-          onChanged();
         } else {
           timeRangeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1946,14 +1803,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.bigtable.v2.TimestampRange time_range = 3;</code>
        */
       public Builder clearTimeRange() {
-        if (timeRangeBuilder_ == null) {
-          timeRange_ = null;
-          onChanged();
-        } else {
-          timeRange_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        timeRange_ = null;
+        if (timeRangeBuilder_ != null) {
+          timeRangeBuilder_.dispose();
           timeRangeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1964,7 +1820,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.bigtable.v2.TimestampRange time_range = 3;</code>
        */
       public com.google.bigtable.v2.TimestampRange.Builder getTimeRangeBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getTimeRangeFieldBuilder().getBuilder();
       }
@@ -2036,7 +1892,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DeleteFromColumn(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2114,51 +1981,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DeleteFromFamily(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              familyName_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.bigtable.v2.DataProto.internal_static_google_bigtable_v2_Mutation_DeleteFromFamily_descriptor;
@@ -2173,7 +1995,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int FAMILY_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object familyName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object familyName_ = "";
     /**
      * <pre>
      * The name of the family from which cells should be deleted.
@@ -2237,7 +2060,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(familyName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, familyName_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2249,7 +2072,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(familyName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, familyName_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2266,7 +2089,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getFamilyName()
           .equals(other.getFamilyName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2279,7 +2102,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + FAMILY_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getFamilyName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2400,24 +2223,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.bigtable.v2.Mutation.DeleteFromFamily.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         familyName_ = "";
-
         return this;
       }
 
@@ -2444,9 +2262,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.bigtable.v2.Mutation.DeleteFromFamily buildPartial() {
         com.google.bigtable.v2.Mutation.DeleteFromFamily result = new com.google.bigtable.v2.Mutation.DeleteFromFamily(this);
-        result.familyName_ = familyName_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.bigtable.v2.Mutation.DeleteFromFamily result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.familyName_ = familyName_;
+        }
       }
 
       @java.lang.Override
@@ -2495,9 +2320,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.bigtable.v2.Mutation.DeleteFromFamily.getDefaultInstance()) return this;
         if (!other.getFamilyName().isEmpty()) {
           familyName_ = other.familyName_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2512,19 +2338,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.bigtable.v2.Mutation.DeleteFromFamily parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                familyName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.bigtable.v2.Mutation.DeleteFromFamily) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object familyName_ = "";
       /**
@@ -2582,11 +2427,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setFamilyName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         familyName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2600,8 +2443,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearFamilyName() {
-        
         familyName_ = getDefaultInstance().getFamilyName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2617,12 +2460,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setFamilyNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         familyName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2659,7 +2500,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DeleteFromFamily(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2714,45 +2566,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DeleteFromRow(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.bigtable.v2.DataProto.internal_static_google_bigtable_v2_Mutation_DeleteFromRow_descriptor;
@@ -2780,7 +2593,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2789,7 +2602,7 @@ private static final long serialVersionUID = 0L;
       if (size != -1) return size;
 
       size = 0;
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2804,7 +2617,7 @@ private static final long serialVersionUID = 0L;
       }
       com.google.bigtable.v2.Mutation.DeleteFromRow other = (com.google.bigtable.v2.Mutation.DeleteFromRow) obj;
 
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2815,7 +2628,7 @@ private static final long serialVersionUID = 0L;
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2936,18 +2749,13 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.bigtable.v2.Mutation.DeleteFromRow.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -3026,7 +2834,7 @@ private static final long serialVersionUID = 0L;
 
       public Builder mergeFrom(com.google.bigtable.v2.Mutation.DeleteFromRow other) {
         if (other == com.google.bigtable.v2.Mutation.DeleteFromRow.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3041,17 +2849,30 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.bigtable.v2.Mutation.DeleteFromRow parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.bigtable.v2.Mutation.DeleteFromRow) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       @java.lang.Override
@@ -3087,7 +2908,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DeleteFromRow(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3350,7 +3182,7 @@ private static final long serialVersionUID = 0L;
     if (mutationCase_ == 4) {
       output.writeMessage(4, (com.google.bigtable.v2.Mutation.DeleteFromRow) mutation_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3375,7 +3207,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, (com.google.bigtable.v2.Mutation.DeleteFromRow) mutation_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3411,7 +3243,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3442,7 +3274,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3563,22 +3395,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.bigtable.v2.Mutation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (setCellBuilder_ != null) {
+        setCellBuilder_.clear();
+      }
+      if (deleteFromColumnBuilder_ != null) {
+        deleteFromColumnBuilder_.clear();
+      }
+      if (deleteFromFamilyBuilder_ != null) {
+        deleteFromFamilyBuilder_.clear();
+      }
+      if (deleteFromRowBuilder_ != null) {
+        deleteFromRowBuilder_.clear();
+      }
       mutationCase_ = 0;
       mutation_ = null;
       return this;
@@ -3607,37 +3447,35 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.bigtable.v2.Mutation buildPartial() {
       com.google.bigtable.v2.Mutation result = new com.google.bigtable.v2.Mutation(this);
-      if (mutationCase_ == 1) {
-        if (setCellBuilder_ == null) {
-          result.mutation_ = mutation_;
-        } else {
-          result.mutation_ = setCellBuilder_.build();
-        }
-      }
-      if (mutationCase_ == 2) {
-        if (deleteFromColumnBuilder_ == null) {
-          result.mutation_ = mutation_;
-        } else {
-          result.mutation_ = deleteFromColumnBuilder_.build();
-        }
-      }
-      if (mutationCase_ == 3) {
-        if (deleteFromFamilyBuilder_ == null) {
-          result.mutation_ = mutation_;
-        } else {
-          result.mutation_ = deleteFromFamilyBuilder_.build();
-        }
-      }
-      if (mutationCase_ == 4) {
-        if (deleteFromRowBuilder_ == null) {
-          result.mutation_ = mutation_;
-        } else {
-          result.mutation_ = deleteFromRowBuilder_.build();
-        }
-      }
-      result.mutationCase_ = mutationCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.bigtable.v2.Mutation result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.bigtable.v2.Mutation result) {
+      result.mutationCase_ = mutationCase_;
+      result.mutation_ = this.mutation_;
+      if (mutationCase_ == 1 &&
+          setCellBuilder_ != null) {
+        result.mutation_ = setCellBuilder_.build();
+      }
+      if (mutationCase_ == 2 &&
+          deleteFromColumnBuilder_ != null) {
+        result.mutation_ = deleteFromColumnBuilder_.build();
+      }
+      if (mutationCase_ == 3 &&
+          deleteFromFamilyBuilder_ != null) {
+        result.mutation_ = deleteFromFamilyBuilder_.build();
+      }
+      if (mutationCase_ == 4 &&
+          deleteFromRowBuilder_ != null) {
+        result.mutation_ = deleteFromRowBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -3705,7 +3543,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3720,17 +3558,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.bigtable.v2.Mutation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getSetCellFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              mutationCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDeleteFromColumnFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              mutationCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getDeleteFromFamilyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              mutationCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getDeleteFromRowFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              mutationCase_ = 4;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.bigtable.v2.Mutation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int mutationCase_ = 0;
@@ -3748,6 +3627,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.bigtable.v2.Mutation.SetCell, com.google.bigtable.v2.Mutation.SetCell.Builder, com.google.bigtable.v2.Mutation.SetCellOrBuilder> setCellBuilder_;
@@ -3923,7 +3803,7 @@ private static final long serialVersionUID = 0L;
         mutation_ = null;
       }
       mutationCase_ = 1;
-      onChanged();;
+      onChanged();
       return setCellBuilder_;
     }
 
@@ -4101,7 +3981,7 @@ private static final long serialVersionUID = 0L;
         mutation_ = null;
       }
       mutationCase_ = 2;
-      onChanged();;
+      onChanged();
       return deleteFromColumnBuilder_;
     }
 
@@ -4279,7 +4159,7 @@ private static final long serialVersionUID = 0L;
         mutation_ = null;
       }
       mutationCase_ = 3;
-      onChanged();;
+      onChanged();
       return deleteFromFamilyBuilder_;
     }
 
@@ -4457,7 +4337,7 @@ private static final long serialVersionUID = 0L;
         mutation_ = null;
       }
       mutationCase_ = 4;
-      onChanged();;
+      onChanged();
       return deleteFromRowBuilder_;
     }
     @java.lang.Override
@@ -4493,7 +4373,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Mutation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

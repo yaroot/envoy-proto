@@ -36,123 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Dataset(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.bigquery.logging.v1.DatasetName.Builder subBuilder = null;
-            if (datasetName_ != null) {
-              subBuilder = datasetName_.toBuilder();
-            }
-            datasetName_ = input.readMessage(com.google.cloud.bigquery.logging.v1.DatasetName.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(datasetName_);
-              datasetName_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.bigquery.logging.v1.DatasetInfo.Builder subBuilder = null;
-            if (info_ != null) {
-              subBuilder = info_.toBuilder();
-            }
-            info_ = input.readMessage(com.google.cloud.bigquery.logging.v1.DatasetInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(info_);
-              info_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.bigquery.logging.v1.BigQueryAcl.Builder subBuilder = null;
-            if (acl_ != null) {
-              subBuilder = acl_.toBuilder();
-            }
-            acl_ = input.readMessage(com.google.cloud.bigquery.logging.v1.BigQueryAcl.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(acl_);
-              acl_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (defaultTableExpireDuration_ != null) {
-              subBuilder = defaultTableExpireDuration_.toBuilder();
-            }
-            defaultTableExpireDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(defaultTableExpireDuration_);
-              defaultTableExpireDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.logging.v1.AuditDataProto.internal_static_google_cloud_bigquery_logging_v1_Dataset_descriptor;
@@ -201,7 +84,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.logging.v1.DatasetNameOrBuilder getDatasetNameOrBuilder() {
-    return getDatasetName();
+    return datasetName_ == null ? com.google.cloud.bigquery.logging.v1.DatasetName.getDefaultInstance() : datasetName_;
   }
 
   public static final int INFO_FIELD_NUMBER = 2;
@@ -239,7 +122,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.logging.v1.DatasetInfoOrBuilder getInfoOrBuilder() {
-    return getInfo();
+    return info_ == null ? com.google.cloud.bigquery.logging.v1.DatasetInfo.getDefaultInstance() : info_;
   }
 
   public static final int CREATE_TIME_FIELD_NUMBER = 4;
@@ -277,7 +160,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 5;
@@ -315,7 +198,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int ACL_FIELD_NUMBER = 6;
@@ -353,7 +236,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.logging.v1.BigQueryAclOrBuilder getAclOrBuilder() {
-    return getAcl();
+    return acl_ == null ? com.google.cloud.bigquery.logging.v1.BigQueryAcl.getDefaultInstance() : acl_;
   }
 
   public static final int DEFAULT_TABLE_EXPIRE_DURATION_FIELD_NUMBER = 8;
@@ -400,7 +283,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getDefaultTableExpireDurationOrBuilder() {
-    return getDefaultTableExpireDuration();
+    return defaultTableExpireDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : defaultTableExpireDuration_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -435,7 +318,7 @@ private static final long serialVersionUID = 0L;
     if (defaultTableExpireDuration_ != null) {
       output.writeMessage(8, getDefaultTableExpireDuration());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -468,7 +351,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getDefaultTableExpireDuration());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -513,7 +396,7 @@ private static final long serialVersionUID = 0L;
       if (!getDefaultTableExpireDuration()
           .equals(other.getDefaultTableExpireDuration())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -548,7 +431,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DEFAULT_TABLE_EXPIRE_DURATION_FIELD_NUMBER;
       hash = (53 * hash) + getDefaultTableExpireDuration().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -671,56 +554,46 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.logging.v1.Dataset.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (datasetNameBuilder_ == null) {
-        datasetName_ = null;
-      } else {
-        datasetName_ = null;
+      bitField0_ = 0;
+      datasetName_ = null;
+      if (datasetNameBuilder_ != null) {
+        datasetNameBuilder_.dispose();
         datasetNameBuilder_ = null;
       }
-      if (infoBuilder_ == null) {
-        info_ = null;
-      } else {
-        info_ = null;
+      info_ = null;
+      if (infoBuilder_ != null) {
+        infoBuilder_.dispose();
         infoBuilder_ = null;
       }
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-      if (aclBuilder_ == null) {
-        acl_ = null;
-      } else {
-        acl_ = null;
+      acl_ = null;
+      if (aclBuilder_ != null) {
+        aclBuilder_.dispose();
         aclBuilder_ = null;
       }
-      if (defaultTableExpireDurationBuilder_ == null) {
-        defaultTableExpireDuration_ = null;
-      } else {
-        defaultTableExpireDuration_ = null;
+      defaultTableExpireDuration_ = null;
+      if (defaultTableExpireDurationBuilder_ != null) {
+        defaultTableExpireDurationBuilder_.dispose();
         defaultTableExpireDurationBuilder_ = null;
       }
       return this;
@@ -749,38 +622,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.logging.v1.Dataset buildPartial() {
       com.google.cloud.bigquery.logging.v1.Dataset result = new com.google.cloud.bigquery.logging.v1.Dataset(this);
-      if (datasetNameBuilder_ == null) {
-        result.datasetName_ = datasetName_;
-      } else {
-        result.datasetName_ = datasetNameBuilder_.build();
-      }
-      if (infoBuilder_ == null) {
-        result.info_ = info_;
-      } else {
-        result.info_ = infoBuilder_.build();
-      }
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      if (aclBuilder_ == null) {
-        result.acl_ = acl_;
-      } else {
-        result.acl_ = aclBuilder_.build();
-      }
-      if (defaultTableExpireDurationBuilder_ == null) {
-        result.defaultTableExpireDuration_ = defaultTableExpireDuration_;
-      } else {
-        result.defaultTableExpireDuration_ = defaultTableExpireDurationBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.logging.v1.Dataset result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.datasetName_ = datasetNameBuilder_ == null
+            ? datasetName_
+            : datasetNameBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.info_ = infoBuilder_ == null
+            ? info_
+            : infoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.acl_ = aclBuilder_ == null
+            ? acl_
+            : aclBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.defaultTableExpireDuration_ = defaultTableExpireDurationBuilder_ == null
+            ? defaultTableExpireDuration_
+            : defaultTableExpireDurationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -845,7 +723,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDefaultTableExpireDuration()) {
         mergeDefaultTableExpireDuration(other.getDefaultTableExpireDuration());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -860,19 +738,75 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.logging.v1.Dataset parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getDatasetNameFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 34: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getAclFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            case 66: {
+              input.readMessage(
+                  getDefaultTableExpireDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.logging.v1.Dataset) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.bigquery.logging.v1.DatasetName datasetName_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -886,7 +820,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the datasetName field is set.
      */
     public boolean hasDatasetName() {
-      return datasetNameBuilder_ != null || datasetName_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -916,11 +850,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         datasetName_ = value;
-        onChanged();
       } else {
         datasetNameBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -934,11 +868,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.logging.v1.DatasetName.Builder builderForValue) {
       if (datasetNameBuilder_ == null) {
         datasetName_ = builderForValue.build();
-        onChanged();
       } else {
         datasetNameBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -950,17 +884,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDatasetName(com.google.cloud.bigquery.logging.v1.DatasetName value) {
       if (datasetNameBuilder_ == null) {
-        if (datasetName_ != null) {
-          datasetName_ =
-            com.google.cloud.bigquery.logging.v1.DatasetName.newBuilder(datasetName_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          datasetName_ != null &&
+          datasetName_ != com.google.cloud.bigquery.logging.v1.DatasetName.getDefaultInstance()) {
+          getDatasetNameBuilder().mergeFrom(value);
         } else {
           datasetName_ = value;
         }
-        onChanged();
       } else {
         datasetNameBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -971,14 +906,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.DatasetName dataset_name = 1;</code>
      */
     public Builder clearDatasetName() {
-      if (datasetNameBuilder_ == null) {
-        datasetName_ = null;
-        onChanged();
-      } else {
-        datasetName_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      datasetName_ = null;
+      if (datasetNameBuilder_ != null) {
+        datasetNameBuilder_.dispose();
         datasetNameBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -989,7 +923,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.DatasetName dataset_name = 1;</code>
      */
     public com.google.cloud.bigquery.logging.v1.DatasetName.Builder getDatasetNameBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getDatasetNameFieldBuilder().getBuilder();
     }
@@ -1041,7 +975,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the info field is set.
      */
     public boolean hasInfo() {
-      return infoBuilder_ != null || info_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1071,11 +1005,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         info_ = value;
-        onChanged();
       } else {
         infoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1089,11 +1023,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.logging.v1.DatasetInfo.Builder builderForValue) {
       if (infoBuilder_ == null) {
         info_ = builderForValue.build();
-        onChanged();
       } else {
         infoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1105,17 +1039,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInfo(com.google.cloud.bigquery.logging.v1.DatasetInfo value) {
       if (infoBuilder_ == null) {
-        if (info_ != null) {
-          info_ =
-            com.google.cloud.bigquery.logging.v1.DatasetInfo.newBuilder(info_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          info_ != null &&
+          info_ != com.google.cloud.bigquery.logging.v1.DatasetInfo.getDefaultInstance()) {
+          getInfoBuilder().mergeFrom(value);
         } else {
           info_ = value;
         }
-        onChanged();
       } else {
         infoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1126,14 +1061,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.DatasetInfo info = 2;</code>
      */
     public Builder clearInfo() {
-      if (infoBuilder_ == null) {
-        info_ = null;
-        onChanged();
-      } else {
-        info_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      info_ = null;
+      if (infoBuilder_ != null) {
+        infoBuilder_.dispose();
         infoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1144,7 +1078,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.DatasetInfo info = 2;</code>
      */
     public com.google.cloud.bigquery.logging.v1.DatasetInfo.Builder getInfoBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getInfoFieldBuilder().getBuilder();
     }
@@ -1196,7 +1130,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1226,11 +1160,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1244,11 +1178,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1260,17 +1194,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1281,14 +1216,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 4;</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1299,7 +1233,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 4;</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -1351,7 +1285,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1381,11 +1315,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1399,11 +1333,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1415,17 +1349,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1436,14 +1371,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 5;</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1454,7 +1388,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 5;</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -1506,7 +1440,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the acl field is set.
      */
     public boolean hasAcl() {
-      return aclBuilder_ != null || acl_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1536,11 +1470,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         acl_ = value;
-        onChanged();
       } else {
         aclBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1554,11 +1488,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.logging.v1.BigQueryAcl.Builder builderForValue) {
       if (aclBuilder_ == null) {
         acl_ = builderForValue.build();
-        onChanged();
       } else {
         aclBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1570,17 +1504,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAcl(com.google.cloud.bigquery.logging.v1.BigQueryAcl value) {
       if (aclBuilder_ == null) {
-        if (acl_ != null) {
-          acl_ =
-            com.google.cloud.bigquery.logging.v1.BigQueryAcl.newBuilder(acl_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          acl_ != null &&
+          acl_ != com.google.cloud.bigquery.logging.v1.BigQueryAcl.getDefaultInstance()) {
+          getAclBuilder().mergeFrom(value);
         } else {
           acl_ = value;
         }
-        onChanged();
       } else {
         aclBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1591,14 +1526,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.BigQueryAcl acl = 6;</code>
      */
     public Builder clearAcl() {
-      if (aclBuilder_ == null) {
-        acl_ = null;
-        onChanged();
-      } else {
-        acl_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      acl_ = null;
+      if (aclBuilder_ != null) {
+        aclBuilder_.dispose();
         aclBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1609,7 +1543,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.BigQueryAcl acl = 6;</code>
      */
     public com.google.cloud.bigquery.logging.v1.BigQueryAcl.Builder getAclBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getAclFieldBuilder().getBuilder();
     }
@@ -1664,7 +1598,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the defaultTableExpireDuration field is set.
      */
     public boolean hasDefaultTableExpireDuration() {
-      return defaultTableExpireDurationBuilder_ != null || defaultTableExpireDuration_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1700,11 +1634,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         defaultTableExpireDuration_ = value;
-        onChanged();
       } else {
         defaultTableExpireDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1721,11 +1655,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (defaultTableExpireDurationBuilder_ == null) {
         defaultTableExpireDuration_ = builderForValue.build();
-        onChanged();
       } else {
         defaultTableExpireDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1740,17 +1674,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDefaultTableExpireDuration(com.google.protobuf.Duration value) {
       if (defaultTableExpireDurationBuilder_ == null) {
-        if (defaultTableExpireDuration_ != null) {
-          defaultTableExpireDuration_ =
-            com.google.protobuf.Duration.newBuilder(defaultTableExpireDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          defaultTableExpireDuration_ != null &&
+          defaultTableExpireDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getDefaultTableExpireDurationBuilder().mergeFrom(value);
         } else {
           defaultTableExpireDuration_ = value;
         }
-        onChanged();
       } else {
         defaultTableExpireDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1764,14 +1699,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration default_table_expire_duration = 8;</code>
      */
     public Builder clearDefaultTableExpireDuration() {
-      if (defaultTableExpireDurationBuilder_ == null) {
-        defaultTableExpireDuration_ = null;
-        onChanged();
-      } else {
-        defaultTableExpireDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      defaultTableExpireDuration_ = null;
+      if (defaultTableExpireDurationBuilder_ != null) {
+        defaultTableExpireDurationBuilder_.dispose();
         defaultTableExpireDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1785,7 +1719,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration default_table_expire_duration = 8;</code>
      */
     public com.google.protobuf.Duration.Builder getDefaultTableExpireDurationBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getDefaultTableExpireDurationFieldBuilder().getBuilder();
     }
@@ -1863,7 +1797,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Dataset(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

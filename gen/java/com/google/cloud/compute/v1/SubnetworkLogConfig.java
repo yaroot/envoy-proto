@@ -38,86 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SubnetworkLogConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 694933882: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            metadata_ = s;
-            break;
-          }
-          case 1399352338: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            aggregationInterval_ = s;
-            break;
-          }
-          case 1466995426: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            filterExpr_ = s;
-            break;
-          }
-          case -1800852456: {
-            bitField0_ |= 0x00000002;
-            enable_ = input.readBool();
-            break;
-          }
-          case -1267274166: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              metadataFields_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            metadataFields_.add(s);
-            break;
-          }
-          case -53764411: {
-            bitField0_ |= 0x00000008;
-            flowSampling_ = input.readFloat();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
-        metadataFields_ = metadataFields_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_SubnetworkLogConfig_descriptor;
@@ -436,7 +356,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int AGGREGATION_INTERVAL_FIELD_NUMBER = 174919042;
-  private volatile java.lang.Object aggregationInterval_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object aggregationInterval_ = "";
   /**
    * <pre>
    * Can only be specified if VPC flow logging for this subnetwork is enabled. Toggles the aggregation interval for collecting flow logs. Increasing the interval time will reduce the amount of generated flow logs for long lasting connections. Default is an interval of 5 seconds per connection.
@@ -497,7 +418,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_FIELD_NUMBER = 311764355;
-  private boolean enable_;
+  private boolean enable_ = false;
   /**
    * <pre>
    * Whether to enable flow logging for this subnetwork. If this field is not explicitly set, it will not appear in get listings. If not set the default behavior is determined by the org policy, if there is no org policy specified, then it will default to disabled.
@@ -524,7 +445,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILTER_EXPR_FIELD_NUMBER = 183374428;
-  private volatile java.lang.Object filterExpr_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object filterExpr_ = "";
   /**
    * <pre>
    * Can only be specified if VPC flow logs for this subnetwork is enabled. The filter expression is used to define which VPC flow logs should be exported to Cloud Logging.
@@ -582,7 +504,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FLOW_SAMPLING_FIELD_NUMBER = 530150360;
-  private float flowSampling_;
+  private float flowSampling_ = 0F;
   /**
    * <pre>
    * Can only be specified if VPC flow logging for this subnetwork is enabled. The value of the field must be in [0, 1]. Set the sampling rate of VPC flow logs within the subnetwork where 1.0 means all collected logs are reported and 0.0 means no logs are reported. Default is 0.5 unless otherwise specified by the org policy, which means half of all collected logs are reported.
@@ -609,7 +531,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int METADATA_FIELD_NUMBER = 86866735;
-  private volatile java.lang.Object metadata_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object metadata_ = "";
   /**
    * <pre>
    * Can only be specified if VPC flow logs for this subnetwork is enabled. Configures whether all, none or a subset of metadata fields should be added to the reported VPC flow logs. Default is EXCLUDE_ALL_METADATA.
@@ -670,6 +593,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int METADATA_FIELDS_FIELD_NUMBER = 378461641;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList metadataFields_;
   /**
    * <pre>
@@ -752,7 +676,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000008) != 0)) {
       output.writeFloat(530150360, flowSampling_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -786,7 +710,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(530150360, flowSampling_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -829,7 +753,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getMetadataFieldsList()
         .equals(other.getMetadataFieldsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -866,7 +790,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + METADATA_FIELDS_FIELD_NUMBER;
       hash = (53 * hash) + getMetadataFieldsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -987,32 +911,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.SubnetworkLogConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       aggregationInterval_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       enable_ = false;
-      bitField0_ = (bitField0_ & ~0x00000002);
       filterExpr_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       flowSampling_ = 0F;
-      bitField0_ = (bitField0_ & ~0x00000008);
       metadata_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       metadataFields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000020);
       return this;
@@ -1041,36 +956,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.SubnetworkLogConfig buildPartial() {
       com.google.cloud.compute.v1.SubnetworkLogConfig result = new com.google.cloud.compute.v1.SubnetworkLogConfig(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.aggregationInterval_ = aggregationInterval_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.enable_ = enable_;
-        to_bitField0_ |= 0x00000002;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        to_bitField0_ |= 0x00000004;
-      }
-      result.filterExpr_ = filterExpr_;
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.flowSampling_ = flowSampling_;
-        to_bitField0_ |= 0x00000008;
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        to_bitField0_ |= 0x00000010;
-      }
-      result.metadata_ = metadata_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.SubnetworkLogConfig result) {
       if (((bitField0_ & 0x00000020) != 0)) {
         metadataFields_ = metadataFields_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000020);
       }
       result.metadataFields_ = metadataFields_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.SubnetworkLogConfig result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.aggregationInterval_ = aggregationInterval_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.enable_ = enable_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.filterExpr_ = filterExpr_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.flowSampling_ = flowSampling_;
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.metadata_ = metadata_;
+        to_bitField0_ |= 0x00000010;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1118,24 +1041,24 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.SubnetworkLogConfig other) {
       if (other == com.google.cloud.compute.v1.SubnetworkLogConfig.getDefaultInstance()) return this;
       if (other.hasAggregationInterval()) {
-        bitField0_ |= 0x00000001;
         aggregationInterval_ = other.aggregationInterval_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasEnable()) {
         setEnable(other.getEnable());
       }
       if (other.hasFilterExpr()) {
-        bitField0_ |= 0x00000004;
         filterExpr_ = other.filterExpr_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasFlowSampling()) {
         setFlowSampling(other.getFlowSampling());
       }
       if (other.hasMetadata()) {
-        bitField0_ |= 0x00000010;
         metadata_ = other.metadata_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.metadataFields_.isEmpty()) {
@@ -1148,7 +1071,7 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1163,17 +1086,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.SubnetworkLogConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 694933882: {
+              metadata_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 694933882
+            case 1399352338: {
+              aggregationInterval_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 1399352338
+            case 1466995426: {
+              filterExpr_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 1466995426
+            case -1800852456: {
+              enable_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -1800852456
+            case -1267274166: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureMetadataFieldsIsMutable();
+              metadataFields_.add(s);
+              break;
+            } // case -1267274166
+            case -53764411: {
+              flowSampling_ = input.readFloat();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -53764411
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.SubnetworkLogConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1246,11 +1213,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAggregationInterval(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       aggregationInterval_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1264,8 +1229,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAggregationInterval() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       aggregationInterval_ = getDefaultInstance().getAggregationInterval();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1281,12 +1246,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAggregationIntervalBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       aggregationInterval_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1326,8 +1289,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEnable(boolean value) {
-      bitField0_ |= 0x00000002;
+      
       enable_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1410,11 +1374,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilterExpr(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       filterExpr_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1427,8 +1389,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFilterExpr() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       filterExpr_ = getDefaultInstance().getFilterExpr();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1443,12 +1405,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilterExprBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       filterExpr_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1488,8 +1448,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFlowSampling(float value) {
-      bitField0_ |= 0x00000008;
+      
       flowSampling_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1576,11 +1537,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMetadata(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       metadata_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1594,8 +1553,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMetadata() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       metadata_ = getDefaultInstance().getMetadata();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1611,12 +1570,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMetadataBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       metadata_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1688,10 +1645,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMetadataFields(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMetadataFieldsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureMetadataFieldsIsMutable();
       metadataFields_.set(index, value);
       onChanged();
       return this;
@@ -1707,10 +1662,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addMetadataFields(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMetadataFieldsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureMetadataFieldsIsMutable();
       metadataFields_.add(value);
       onChanged();
       return this;
@@ -1757,10 +1710,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addMetadataFieldsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureMetadataFieldsIsMutable();
       metadataFields_.add(value);
       onChanged();
@@ -1799,7 +1750,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SubnetworkLogConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

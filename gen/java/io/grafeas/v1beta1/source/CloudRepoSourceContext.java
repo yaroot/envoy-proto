@@ -35,78 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CloudRepoSourceContext(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.grafeas.v1beta1.source.RepoId.Builder subBuilder = null;
-            if (repoId_ != null) {
-              subBuilder = repoId_.toBuilder();
-            }
-            repoId_ = input.readMessage(io.grafeas.v1beta1.source.RepoId.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(repoId_);
-              repoId_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            revisionCase_ = 2;
-            revision_ = s;
-            break;
-          }
-          case 26: {
-            io.grafeas.v1beta1.source.AliasContext.Builder subBuilder = null;
-            if (revisionCase_ == 3) {
-              subBuilder = ((io.grafeas.v1beta1.source.AliasContext) revision_).toBuilder();
-            }
-            revision_ =
-                input.readMessage(io.grafeas.v1beta1.source.AliasContext.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.grafeas.v1beta1.source.AliasContext) revision_);
-              revision_ = subBuilder.buildPartial();
-            }
-            revisionCase_ = 3;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.grafeas.v1beta1.source.Source.internal_static_grafeas_v1beta1_source_CloudRepoSourceContext_descriptor;
@@ -196,7 +124,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.grafeas.v1beta1.source.RepoIdOrBuilder getRepoIdOrBuilder() {
-    return getRepoId();
+    return repoId_ == null ? io.grafeas.v1beta1.source.RepoId.getDefaultInstance() : repoId_;
   }
 
   public static final int REVISION_ID_FIELD_NUMBER = 2;
@@ -329,7 +257,7 @@ private static final long serialVersionUID = 0L;
     if (revisionCase_ == 3) {
       output.writeMessage(3, (io.grafeas.v1beta1.source.AliasContext) revision_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -349,7 +277,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, (io.grafeas.v1beta1.source.AliasContext) revision_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -382,7 +310,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -409,7 +337,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -531,27 +459,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.grafeas.v1beta1.source.CloudRepoSourceContext.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (repoIdBuilder_ == null) {
-        repoId_ = null;
-      } else {
-        repoId_ = null;
+      bitField0_ = 0;
+      repoId_ = null;
+      if (repoIdBuilder_ != null) {
+        repoIdBuilder_.dispose();
         repoIdBuilder_ = null;
+      }
+      if (aliasContextBuilder_ != null) {
+        aliasContextBuilder_.clear();
       }
       revisionCase_ = 0;
       revision_ = null;
@@ -581,24 +507,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.grafeas.v1beta1.source.CloudRepoSourceContext buildPartial() {
       io.grafeas.v1beta1.source.CloudRepoSourceContext result = new io.grafeas.v1beta1.source.CloudRepoSourceContext(this);
-      if (repoIdBuilder_ == null) {
-        result.repoId_ = repoId_;
-      } else {
-        result.repoId_ = repoIdBuilder_.build();
-      }
-      if (revisionCase_ == 2) {
-        result.revision_ = revision_;
-      }
-      if (revisionCase_ == 3) {
-        if (aliasContextBuilder_ == null) {
-          result.revision_ = revision_;
-        } else {
-          result.revision_ = aliasContextBuilder_.build();
-        }
-      }
-      result.revisionCase_ = revisionCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.grafeas.v1beta1.source.CloudRepoSourceContext result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.repoId_ = repoIdBuilder_ == null
+            ? repoId_
+            : repoIdBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(io.grafeas.v1beta1.source.CloudRepoSourceContext result) {
+      result.revisionCase_ = revisionCase_;
+      result.revision_ = this.revision_;
+      if (revisionCase_ == 3 &&
+          aliasContextBuilder_ != null) {
+        result.revision_ = aliasContextBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -663,7 +593,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -678,17 +608,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.grafeas.v1beta1.source.CloudRepoSourceContext parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getRepoIdFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              revisionCase_ = 2;
+              revision_ = s;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getAliasContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              revisionCase_ = 3;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.grafeas.v1beta1.source.CloudRepoSourceContext) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int revisionCase_ = 0;
@@ -706,6 +669,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private io.grafeas.v1beta1.source.RepoId repoId_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -719,7 +683,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the repoId field is set.
      */
     public boolean hasRepoId() {
-      return repoIdBuilder_ != null || repoId_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -749,11 +713,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         repoId_ = value;
-        onChanged();
       } else {
         repoIdBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -767,11 +731,11 @@ private static final long serialVersionUID = 0L;
         io.grafeas.v1beta1.source.RepoId.Builder builderForValue) {
       if (repoIdBuilder_ == null) {
         repoId_ = builderForValue.build();
-        onChanged();
       } else {
         repoIdBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -783,17 +747,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRepoId(io.grafeas.v1beta1.source.RepoId value) {
       if (repoIdBuilder_ == null) {
-        if (repoId_ != null) {
-          repoId_ =
-            io.grafeas.v1beta1.source.RepoId.newBuilder(repoId_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          repoId_ != null &&
+          repoId_ != io.grafeas.v1beta1.source.RepoId.getDefaultInstance()) {
+          getRepoIdBuilder().mergeFrom(value);
         } else {
           repoId_ = value;
         }
-        onChanged();
       } else {
         repoIdBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -804,14 +769,13 @@ private static final long serialVersionUID = 0L;
      * <code>.grafeas.v1beta1.source.RepoId repo_id = 1;</code>
      */
     public Builder clearRepoId() {
-      if (repoIdBuilder_ == null) {
-        repoId_ = null;
-        onChanged();
-      } else {
-        repoId_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      repoId_ = null;
+      if (repoIdBuilder_ != null) {
+        repoIdBuilder_.dispose();
         repoIdBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -822,7 +786,7 @@ private static final long serialVersionUID = 0L;
      * <code>.grafeas.v1beta1.source.RepoId repo_id = 1;</code>
      */
     public io.grafeas.v1beta1.source.RepoId.Builder getRepoIdBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getRepoIdFieldBuilder().getBuilder();
     }
@@ -938,10 +902,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRevisionId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  revisionCase_ = 2;
+      if (value == null) { throw new NullPointerException(); }
+      revisionCase_ = 2;
       revision_ = value;
       onChanged();
       return this;
@@ -973,10 +935,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRevisionIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       revisionCase_ = 2;
       revision_ = value;
       onChanged();
@@ -1157,7 +1117,7 @@ private static final long serialVersionUID = 0L;
         revision_ = null;
       }
       revisionCase_ = 3;
-      onChanged();;
+      onChanged();
       return aliasContextBuilder_;
     }
     @java.lang.Override
@@ -1193,7 +1153,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CloudRepoSourceContext(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

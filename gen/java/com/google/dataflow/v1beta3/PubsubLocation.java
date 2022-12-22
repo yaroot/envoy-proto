@@ -40,85 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PubsubLocation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            topic_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            subscription_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            timestampLabel_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            idLabel_ = s;
-            break;
-          }
-          case 40: {
-
-            dropLateData_ = input.readBool();
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            trackingSubscription_ = s;
-            break;
-          }
-          case 56: {
-
-            withAttributes_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.dataflow.v1beta3.StreamingProto.internal_static_google_dataflow_v1beta3_PubsubLocation_descriptor;
@@ -133,7 +54,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOPIC_FIELD_NUMBER = 1;
-  private volatile java.lang.Object topic_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object topic_ = "";
   /**
    * <pre>
    * A pubsub topic, in the form of
@@ -181,7 +103,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBSCRIPTION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object subscription_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object subscription_ = "";
   /**
    * <pre>
    * A pubsub subscription, in the form of
@@ -229,7 +152,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TIMESTAMP_LABEL_FIELD_NUMBER = 3;
-  private volatile java.lang.Object timestampLabel_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object timestampLabel_ = "";
   /**
    * <pre>
    * If set, contains a pubsub label from which to extract record timestamps.
@@ -277,7 +201,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_LABEL_FIELD_NUMBER = 4;
-  private volatile java.lang.Object idLabel_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object idLabel_ = "";
   /**
    * <pre>
    * If set, contains a pubsub label from which to extract record ids.
@@ -325,7 +250,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DROP_LATE_DATA_FIELD_NUMBER = 5;
-  private boolean dropLateData_;
+  private boolean dropLateData_ = false;
   /**
    * <pre>
    * Indicates whether the pipeline allows late-arriving data.
@@ -340,7 +265,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRACKING_SUBSCRIPTION_FIELD_NUMBER = 6;
-  private volatile java.lang.Object trackingSubscription_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object trackingSubscription_ = "";
   /**
    * <pre>
    * If set, specifies the pubsub subscription that will be used for tracking
@@ -388,7 +314,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WITH_ATTRIBUTES_FIELD_NUMBER = 7;
-  private boolean withAttributes_;
+  private boolean withAttributes_ = false;
   /**
    * <pre>
    * If true, then the client has requested to get pubsub attributes.
@@ -437,7 +363,7 @@ private static final long serialVersionUID = 0L;
     if (withAttributes_ != false) {
       output.writeBool(7, withAttributes_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -469,7 +395,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(7, withAttributes_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -498,7 +424,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTrackingSubscription())) return false;
     if (getWithAttributes()
         != other.getWithAttributes()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -525,7 +451,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + WITH_ATTRIBUTES_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getWithAttributes());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -647,36 +573,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.dataflow.v1beta3.PubsubLocation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       topic_ = "";
-
       subscription_ = "";
-
       timestampLabel_ = "";
-
       idLabel_ = "";
-
       dropLateData_ = false;
-
       trackingSubscription_ = "";
-
       withAttributes_ = false;
-
       return this;
     }
 
@@ -703,15 +618,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.dataflow.v1beta3.PubsubLocation buildPartial() {
       com.google.dataflow.v1beta3.PubsubLocation result = new com.google.dataflow.v1beta3.PubsubLocation(this);
-      result.topic_ = topic_;
-      result.subscription_ = subscription_;
-      result.timestampLabel_ = timestampLabel_;
-      result.idLabel_ = idLabel_;
-      result.dropLateData_ = dropLateData_;
-      result.trackingSubscription_ = trackingSubscription_;
-      result.withAttributes_ = withAttributes_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.dataflow.v1beta3.PubsubLocation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.topic_ = topic_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.subscription_ = subscription_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.timestampLabel_ = timestampLabel_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.idLabel_ = idLabel_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.dropLateData_ = dropLateData_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.trackingSubscription_ = trackingSubscription_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.withAttributes_ = withAttributes_;
+      }
     }
 
     @java.lang.Override
@@ -760,18 +694,22 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.dataflow.v1beta3.PubsubLocation.getDefaultInstance()) return this;
       if (!other.getTopic().isEmpty()) {
         topic_ = other.topic_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSubscription().isEmpty()) {
         subscription_ = other.subscription_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getTimestampLabel().isEmpty()) {
         timestampLabel_ = other.timestampLabel_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getIdLabel().isEmpty()) {
         idLabel_ = other.idLabel_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.getDropLateData() != false) {
@@ -779,12 +717,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTrackingSubscription().isEmpty()) {
         trackingSubscription_ = other.trackingSubscription_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.getWithAttributes() != false) {
         setWithAttributes(other.getWithAttributes());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -799,19 +738,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.dataflow.v1beta3.PubsubLocation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              topic_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              subscription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              timestampLabel_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              idLabel_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              dropLateData_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              trackingSubscription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 56: {
+              withAttributes_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.dataflow.v1beta3.PubsubLocation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object topic_ = "";
     /**
@@ -869,11 +857,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTopic(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       topic_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -887,8 +873,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTopic() {
-      
       topic_ = getDefaultInstance().getTopic();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -904,12 +890,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTopicBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       topic_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -970,11 +954,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubscription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       subscription_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -988,8 +970,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSubscription() {
-      
       subscription_ = getDefaultInstance().getSubscription();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1005,12 +987,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubscriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       subscription_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1071,11 +1051,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTimestampLabel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       timestampLabel_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1089,8 +1067,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTimestampLabel() {
-      
       timestampLabel_ = getDefaultInstance().getTimestampLabel();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1106,12 +1084,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTimestampLabelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       timestampLabel_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1172,11 +1148,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdLabel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       idLabel_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1190,8 +1164,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIdLabel() {
-      
       idLabel_ = getDefaultInstance().getIdLabel();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1207,12 +1181,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdLabelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       idLabel_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1242,6 +1214,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDropLateData(boolean value) {
       
       dropLateData_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1254,7 +1227,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDropLateData() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       dropLateData_ = false;
       onChanged();
       return this;
@@ -1316,11 +1289,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTrackingSubscription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       trackingSubscription_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1334,8 +1305,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTrackingSubscription() {
-      
       trackingSubscription_ = getDefaultInstance().getTrackingSubscription();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1351,12 +1322,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTrackingSubscriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       trackingSubscription_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1386,6 +1355,7 @@ private static final long serialVersionUID = 0L;
     public Builder setWithAttributes(boolean value) {
       
       withAttributes_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1398,7 +1368,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWithAttributes() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       withAttributes_ = false;
       onChanged();
       return this;
@@ -1436,7 +1406,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PubsubLocation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

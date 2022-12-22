@@ -34,72 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BasicAutoscalingAlgorithm(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.dataproc.v1.BasicYarnAutoscalingConfig.Builder subBuilder = null;
-            if (configCase_ == 1) {
-              subBuilder = ((com.google.cloud.dataproc.v1.BasicYarnAutoscalingConfig) config_).toBuilder();
-            }
-            config_ =
-                input.readMessage(com.google.cloud.dataproc.v1.BasicYarnAutoscalingConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dataproc.v1.BasicYarnAutoscalingConfig) config_);
-              config_ = subBuilder.buildPartial();
-            }
-            configCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (cooldownPeriod_ != null) {
-              subBuilder = cooldownPeriod_.toBuilder();
-            }
-            cooldownPeriod_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cooldownPeriod_);
-              cooldownPeriod_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.v1.AutoscalingPoliciesProto.internal_static_google_cloud_dataproc_v1_BasicAutoscalingAlgorithm_descriptor;
@@ -236,7 +170,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getCooldownPeriodOrBuilder() {
-    return getCooldownPeriod();
+    return cooldownPeriod_ == null ? com.google.protobuf.Duration.getDefaultInstance() : cooldownPeriod_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -259,7 +193,7 @@ private static final long serialVersionUID = 0L;
     if (cooldownPeriod_ != null) {
       output.writeMessage(2, getCooldownPeriod());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -276,7 +210,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getCooldownPeriod());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -305,7 +239,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -328,7 +262,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -449,26 +383,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.BasicAutoscalingAlgorithm.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (cooldownPeriodBuilder_ == null) {
-        cooldownPeriod_ = null;
-      } else {
-        cooldownPeriod_ = null;
+      bitField0_ = 0;
+      if (yarnConfigBuilder_ != null) {
+        yarnConfigBuilder_.clear();
+      }
+      cooldownPeriod_ = null;
+      if (cooldownPeriodBuilder_ != null) {
+        cooldownPeriodBuilder_.dispose();
         cooldownPeriodBuilder_ = null;
       }
       configCase_ = 0;
@@ -499,21 +431,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.BasicAutoscalingAlgorithm buildPartial() {
       com.google.cloud.dataproc.v1.BasicAutoscalingAlgorithm result = new com.google.cloud.dataproc.v1.BasicAutoscalingAlgorithm(this);
-      if (configCase_ == 1) {
-        if (yarnConfigBuilder_ == null) {
-          result.config_ = config_;
-        } else {
-          result.config_ = yarnConfigBuilder_.build();
-        }
-      }
-      if (cooldownPeriodBuilder_ == null) {
-        result.cooldownPeriod_ = cooldownPeriod_;
-      } else {
-        result.cooldownPeriod_ = cooldownPeriodBuilder_.build();
-      }
-      result.configCase_ = configCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.BasicAutoscalingAlgorithm result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.cooldownPeriod_ = cooldownPeriodBuilder_ == null
+            ? cooldownPeriod_
+            : cooldownPeriodBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.dataproc.v1.BasicAutoscalingAlgorithm result) {
+      result.configCase_ = configCase_;
+      result.config_ = this.config_;
+      if (configCase_ == 1 &&
+          yarnConfigBuilder_ != null) {
+        result.config_ = yarnConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -572,7 +511,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -587,17 +526,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.BasicAutoscalingAlgorithm parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getYarnConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              configCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCooldownPeriodFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.BasicAutoscalingAlgorithm) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int configCase_ = 0;
@@ -615,6 +581,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.dataproc.v1.BasicYarnAutoscalingConfig, com.google.cloud.dataproc.v1.BasicYarnAutoscalingConfig.Builder, com.google.cloud.dataproc.v1.BasicYarnAutoscalingConfigOrBuilder> yarnConfigBuilder_;
@@ -790,7 +757,7 @@ private static final long serialVersionUID = 0L;
         config_ = null;
       }
       configCase_ = 1;
-      onChanged();;
+      onChanged();
       return yarnConfigBuilder_;
     }
 
@@ -808,7 +775,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cooldownPeriod field is set.
      */
     public boolean hasCooldownPeriod() {
-      return cooldownPeriodBuilder_ != null || cooldownPeriod_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -842,11 +809,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cooldownPeriod_ = value;
-        onChanged();
       } else {
         cooldownPeriodBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -862,11 +829,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (cooldownPeriodBuilder_ == null) {
         cooldownPeriod_ = builderForValue.build();
-        onChanged();
       } else {
         cooldownPeriodBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -880,17 +847,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCooldownPeriod(com.google.protobuf.Duration value) {
       if (cooldownPeriodBuilder_ == null) {
-        if (cooldownPeriod_ != null) {
-          cooldownPeriod_ =
-            com.google.protobuf.Duration.newBuilder(cooldownPeriod_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          cooldownPeriod_ != null &&
+          cooldownPeriod_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getCooldownPeriodBuilder().mergeFrom(value);
         } else {
           cooldownPeriod_ = value;
         }
-        onChanged();
       } else {
         cooldownPeriodBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -903,14 +871,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration cooldown_period = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearCooldownPeriod() {
-      if (cooldownPeriodBuilder_ == null) {
-        cooldownPeriod_ = null;
-        onChanged();
-      } else {
-        cooldownPeriod_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      cooldownPeriod_ = null;
+      if (cooldownPeriodBuilder_ != null) {
+        cooldownPeriodBuilder_.dispose();
         cooldownPeriodBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -923,7 +890,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration cooldown_period = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.protobuf.Duration.Builder getCooldownPeriodBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCooldownPeriodFieldBuilder().getBuilder();
     }
@@ -999,7 +966,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BasicAutoscalingAlgorithm(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

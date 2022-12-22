@@ -79,7 +79,6 @@ public interface PurchaseTransactionOrBuilder extends
    *
    * <code>map&lt;string, float&gt; taxes = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   float getTaxesOrDefault(
       java.lang.String key,
       float defaultValue);
@@ -90,7 +89,6 @@ public interface PurchaseTransactionOrBuilder extends
    *
    * <code>map&lt;string, float&gt; taxes = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   float getTaxesOrThrow(
       java.lang.String key);
 
@@ -165,7 +163,6 @@ public interface PurchaseTransactionOrBuilder extends
    *
    * <code>map&lt;string, float&gt; costs = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   float getCostsOrDefault(
       java.lang.String key,
       float defaultValue);
@@ -184,7 +181,6 @@ public interface PurchaseTransactionOrBuilder extends
    *
    * <code>map&lt;string, float&gt; costs = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   float getCostsOrThrow(
       java.lang.String key);
 

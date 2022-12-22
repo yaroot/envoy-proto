@@ -35,97 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GcsDestinationConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            path_ = s;
-            break;
-          }
-          case 16: {
-
-            fileRotationMb_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (fileRotationInterval_ != null) {
-              subBuilder = fileRotationInterval_.toBuilder();
-            }
-            fileRotationInterval_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(fileRotationInterval_);
-              fileRotationInterval_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 802: {
-            com.google.cloud.datastream.v1.AvroFileFormat.Builder subBuilder = null;
-            if (fileFormatCase_ == 100) {
-              subBuilder = ((com.google.cloud.datastream.v1.AvroFileFormat) fileFormat_).toBuilder();
-            }
-            fileFormat_ =
-                input.readMessage(com.google.cloud.datastream.v1.AvroFileFormat.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datastream.v1.AvroFileFormat) fileFormat_);
-              fileFormat_ = subBuilder.buildPartial();
-            }
-            fileFormatCase_ = 100;
-            break;
-          }
-          case 810: {
-            com.google.cloud.datastream.v1.JsonFileFormat.Builder subBuilder = null;
-            if (fileFormatCase_ == 101) {
-              subBuilder = ((com.google.cloud.datastream.v1.JsonFileFormat) fileFormat_).toBuilder();
-            }
-            fileFormat_ =
-                input.readMessage(com.google.cloud.datastream.v1.JsonFileFormat.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datastream.v1.JsonFileFormat) fileFormat_);
-              fileFormat_ = subBuilder.buildPartial();
-            }
-            fileFormatCase_ = 101;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datastream.v1.DatastreamResourcesProto.internal_static_google_cloud_datastream_v1_GcsDestinationConfig_descriptor;
@@ -181,7 +90,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PATH_FIELD_NUMBER = 1;
-  private volatile java.lang.Object path_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object path_ = "";
   /**
    * <pre>
    * Path inside the Cloud Storage bucket to write data to.
@@ -227,7 +137,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILE_ROTATION_MB_FIELD_NUMBER = 2;
-  private int fileRotationMb_;
+  private int fileRotationMb_ = 0;
   /**
    * <pre>
    * The maximum file size to be saved in the bucket.
@@ -279,7 +189,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getFileRotationIntervalOrBuilder() {
-    return getFileRotationInterval();
+    return fileRotationInterval_ == null ? com.google.protobuf.Duration.getDefaultInstance() : fileRotationInterval_;
   }
 
   public static final int AVRO_FILE_FORMAT_FIELD_NUMBER = 100;
@@ -397,7 +307,7 @@ private static final long serialVersionUID = 0L;
     if (fileFormatCase_ == 101) {
       output.writeMessage(101, (com.google.cloud.datastream.v1.JsonFileFormat) fileFormat_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -425,7 +335,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(101, (com.google.cloud.datastream.v1.JsonFileFormat) fileFormat_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -462,7 +372,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -493,7 +403,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -614,31 +524,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datastream.v1.GcsDestinationConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       path_ = "";
-
       fileRotationMb_ = 0;
-
-      if (fileRotationIntervalBuilder_ == null) {
-        fileRotationInterval_ = null;
-      } else {
-        fileRotationInterval_ = null;
+      fileRotationInterval_ = null;
+      if (fileRotationIntervalBuilder_ != null) {
+        fileRotationIntervalBuilder_.dispose();
         fileRotationIntervalBuilder_ = null;
+      }
+      if (avroFileFormatBuilder_ != null) {
+        avroFileFormatBuilder_.clear();
+      }
+      if (jsonFileFormatBuilder_ != null) {
+        jsonFileFormatBuilder_.clear();
       }
       fileFormatCase_ = 0;
       fileFormat_ = null;
@@ -668,30 +577,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datastream.v1.GcsDestinationConfig buildPartial() {
       com.google.cloud.datastream.v1.GcsDestinationConfig result = new com.google.cloud.datastream.v1.GcsDestinationConfig(this);
-      result.path_ = path_;
-      result.fileRotationMb_ = fileRotationMb_;
-      if (fileRotationIntervalBuilder_ == null) {
-        result.fileRotationInterval_ = fileRotationInterval_;
-      } else {
-        result.fileRotationInterval_ = fileRotationIntervalBuilder_.build();
-      }
-      if (fileFormatCase_ == 100) {
-        if (avroFileFormatBuilder_ == null) {
-          result.fileFormat_ = fileFormat_;
-        } else {
-          result.fileFormat_ = avroFileFormatBuilder_.build();
-        }
-      }
-      if (fileFormatCase_ == 101) {
-        if (jsonFileFormatBuilder_ == null) {
-          result.fileFormat_ = fileFormat_;
-        } else {
-          result.fileFormat_ = jsonFileFormatBuilder_.build();
-        }
-      }
-      result.fileFormatCase_ = fileFormatCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datastream.v1.GcsDestinationConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.path_ = path_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.fileRotationMb_ = fileRotationMb_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.fileRotationInterval_ = fileRotationIntervalBuilder_ == null
+            ? fileRotationInterval_
+            : fileRotationIntervalBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.datastream.v1.GcsDestinationConfig result) {
+      result.fileFormatCase_ = fileFormatCase_;
+      result.fileFormat_ = this.fileFormat_;
+      if (fileFormatCase_ == 100 &&
+          avroFileFormatBuilder_ != null) {
+        result.fileFormat_ = avroFileFormatBuilder_.build();
+      }
+      if (fileFormatCase_ == 101 &&
+          jsonFileFormatBuilder_ != null) {
+        result.fileFormat_ = jsonFileFormatBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -740,6 +657,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.datastream.v1.GcsDestinationConfig.getDefaultInstance()) return this;
       if (!other.getPath().isEmpty()) {
         path_ = other.path_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getFileRotationMb() != 0) {
@@ -761,7 +679,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -776,17 +694,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datastream.v1.GcsDestinationConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              path_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              fileRotationMb_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getFileRotationIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 802: {
+              input.readMessage(
+                  getAvroFileFormatFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              fileFormatCase_ = 100;
+              break;
+            } // case 802
+            case 810: {
+              input.readMessage(
+                  getJsonFileFormatFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              fileFormatCase_ = 101;
+              break;
+            } // case 810
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datastream.v1.GcsDestinationConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int fileFormatCase_ = 0;
@@ -804,6 +766,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object path_ = "";
     /**
@@ -858,11 +821,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       path_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -875,8 +836,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPath() {
-      
       path_ = getDefaultInstance().getPath();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -891,12 +852,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       path_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -926,6 +885,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFileRotationMb(int value) {
       
       fileRotationMb_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -938,7 +898,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFileRotationMb() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       fileRotationMb_ = 0;
       onChanged();
       return this;
@@ -957,7 +917,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the fileRotationInterval field is set.
      */
     public boolean hasFileRotationInterval() {
-      return fileRotationIntervalBuilder_ != null || fileRotationInterval_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -989,11 +949,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         fileRotationInterval_ = value;
-        onChanged();
       } else {
         fileRotationIntervalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1008,11 +968,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (fileRotationIntervalBuilder_ == null) {
         fileRotationInterval_ = builderForValue.build();
-        onChanged();
       } else {
         fileRotationIntervalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1025,17 +985,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFileRotationInterval(com.google.protobuf.Duration value) {
       if (fileRotationIntervalBuilder_ == null) {
-        if (fileRotationInterval_ != null) {
-          fileRotationInterval_ =
-            com.google.protobuf.Duration.newBuilder(fileRotationInterval_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          fileRotationInterval_ != null &&
+          fileRotationInterval_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getFileRotationIntervalBuilder().mergeFrom(value);
         } else {
           fileRotationInterval_ = value;
         }
-        onChanged();
       } else {
         fileRotationIntervalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1047,14 +1008,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration file_rotation_interval = 3;</code>
      */
     public Builder clearFileRotationInterval() {
-      if (fileRotationIntervalBuilder_ == null) {
-        fileRotationInterval_ = null;
-        onChanged();
-      } else {
-        fileRotationInterval_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      fileRotationInterval_ = null;
+      if (fileRotationIntervalBuilder_ != null) {
+        fileRotationIntervalBuilder_.dispose();
         fileRotationIntervalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1066,7 +1026,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration file_rotation_interval = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getFileRotationIntervalBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getFileRotationIntervalFieldBuilder().getBuilder();
     }
@@ -1282,7 +1242,7 @@ private static final long serialVersionUID = 0L;
         fileFormat_ = null;
       }
       fileFormatCase_ = 100;
-      onChanged();;
+      onChanged();
       return avroFileFormatBuilder_;
     }
 
@@ -1460,7 +1420,7 @@ private static final long serialVersionUID = 0L;
         fileFormat_ = null;
       }
       fileFormatCase_ = 101;
-      onChanged();;
+      onChanged();
       return jsonFileFormatBuilder_;
     }
     @java.lang.Override
@@ -1496,7 +1456,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GcsDestinationConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

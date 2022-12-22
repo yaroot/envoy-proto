@@ -37,59 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LocationMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              availableZones_ = com.google.protobuf.MapField.newMapField(
-                  AvailableZonesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.redis.v1beta1.ZoneMetadata>
-            availableZones__ = input.readMessage(
-                AvailableZonesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            availableZones_.getMutableMap().put(
-                availableZones__.getKey(), availableZones__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.redis.v1beta1.CloudRedisServiceBetaProto.internal_static_google_cloud_redis_v1beta1_LocationMetadata_descriptor;
@@ -127,6 +74,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.redis.v1beta1.ZoneMetadata.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.redis.v1beta1.ZoneMetadata> availableZones_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.redis.v1beta1.ZoneMetadata>
@@ -137,7 +85,6 @@ private static final long serialVersionUID = 0L;
     }
     return availableZones_;
   }
-
   public int getAvailableZonesCount() {
     return internalGetAvailableZones().getMap().size();
   }
@@ -151,7 +98,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.redis.v1beta1.ZoneMetadata&gt; available_zones = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   @java.lang.Override
   public boolean containsAvailableZones(
       java.lang.String key) {
@@ -177,7 +123,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.redis.v1beta1.ZoneMetadata&gt; available_zones = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.redis.v1beta1.ZoneMetadata> getAvailableZonesMap() {
     return internalGetAvailableZones().getMap();
   }
@@ -192,10 +137,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.redis.v1beta1.ZoneMetadata&gt; available_zones = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.redis.v1beta1.ZoneMetadata getAvailableZonesOrDefault(
+  public /* nullable */
+com.google.cloud.redis.v1beta1.ZoneMetadata getAvailableZonesOrDefault(
       java.lang.String key,
-      com.google.cloud.redis.v1beta1.ZoneMetadata defaultValue) {
+      /* nullable */
+com.google.cloud.redis.v1beta1.ZoneMetadata defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.redis.v1beta1.ZoneMetadata> map =
         internalGetAvailableZones().getMap();
@@ -212,7 +158,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.redis.v1beta1.ZoneMetadata&gt; available_zones = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
   public com.google.cloud.redis.v1beta1.ZoneMetadata getAvailableZonesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -244,7 +189,7 @@ private static final long serialVersionUID = 0L;
         internalGetAvailableZones(),
         AvailableZonesDefaultEntryHolder.defaultEntry,
         1);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -263,7 +208,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, availableZones__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -280,7 +225,7 @@ private static final long serialVersionUID = 0L;
 
     if (!internalGetAvailableZones().equals(
         other.internalGetAvailableZones())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -295,7 +240,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + AVAILABLE_ZONES_FIELD_NUMBER;
       hash = (53 * hash) + internalGetAvailableZones().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -441,22 +386,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.redis.v1beta1.LocationMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableAvailableZones().clear();
       return this;
     }
@@ -484,11 +425,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.redis.v1beta1.LocationMetadata buildPartial() {
       com.google.cloud.redis.v1beta1.LocationMetadata result = new com.google.cloud.redis.v1beta1.LocationMetadata(this);
-      int from_bitField0_ = bitField0_;
-      result.availableZones_ = internalGetAvailableZones();
-      result.availableZones_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.redis.v1beta1.LocationMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.availableZones_ = internalGetAvailableZones();
+        result.availableZones_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -537,7 +484,8 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.redis.v1beta1.LocationMetadata.getDefaultInstance()) return this;
       internalGetMutableAvailableZones().mergeFrom(
           other.internalGetAvailableZones());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000001;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -552,17 +500,39 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.redis.v1beta1.LocationMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.redis.v1beta1.ZoneMetadata>
+              availableZones__ = input.readMessage(
+                  AvailableZonesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableAvailableZones().getMutableMap().put(
+                  availableZones__.getKey(), availableZones__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.redis.v1beta1.LocationMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -570,7 +540,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.redis.v1beta1.ZoneMetadata> availableZones_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.redis.v1beta1.ZoneMetadata>
-    internalGetAvailableZones() {
+        internalGetAvailableZones() {
       if (availableZones_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             AvailableZonesDefaultEntryHolder.defaultEntry);
@@ -578,8 +548,7 @@ private static final long serialVersionUID = 0L;
       return availableZones_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.redis.v1beta1.ZoneMetadata>
-    internalGetMutableAvailableZones() {
-      onChanged();;
+        internalGetMutableAvailableZones() {
       if (availableZones_ == null) {
         availableZones_ = com.google.protobuf.MapField.newMapField(
             AvailableZonesDefaultEntryHolder.defaultEntry);
@@ -587,9 +556,10 @@ private static final long serialVersionUID = 0L;
       if (!availableZones_.isMutable()) {
         availableZones_ = availableZones_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return availableZones_;
     }
-
     public int getAvailableZonesCount() {
       return internalGetAvailableZones().getMap().size();
     }
@@ -603,7 +573,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.redis.v1beta1.ZoneMetadata&gt; available_zones = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     @java.lang.Override
     public boolean containsAvailableZones(
         java.lang.String key) {
@@ -629,7 +598,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.redis.v1beta1.ZoneMetadata&gt; available_zones = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.redis.v1beta1.ZoneMetadata> getAvailableZonesMap() {
       return internalGetAvailableZones().getMap();
     }
@@ -644,10 +612,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.redis.v1beta1.ZoneMetadata&gt; available_zones = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.redis.v1beta1.ZoneMetadata getAvailableZonesOrDefault(
+    public /* nullable */
+com.google.cloud.redis.v1beta1.ZoneMetadata getAvailableZonesOrDefault(
         java.lang.String key,
-        com.google.cloud.redis.v1beta1.ZoneMetadata defaultValue) {
+        /* nullable */
+com.google.cloud.redis.v1beta1.ZoneMetadata defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.redis.v1beta1.ZoneMetadata> map =
           internalGetAvailableZones().getMap();
@@ -664,7 +633,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.redis.v1beta1.ZoneMetadata&gt; available_zones = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
     public com.google.cloud.redis.v1beta1.ZoneMetadata getAvailableZonesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -675,8 +643,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearAvailableZones() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableAvailableZones().getMutableMap()
           .clear();
       return this;
@@ -691,7 +659,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.redis.v1beta1.ZoneMetadata&gt; available_zones = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     public Builder removeAvailableZones(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -704,7 +671,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.redis.v1beta1.ZoneMetadata>
-    getMutableAvailableZones() {
+        getMutableAvailableZones() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableAvailableZones().getMutableMap();
     }
     /**
@@ -721,12 +689,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.redis.v1beta1.ZoneMetadata value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableAvailableZones().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -739,11 +705,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.redis.v1beta1.ZoneMetadata&gt; available_zones = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     public Builder putAllAvailableZones(
         java.util.Map<java.lang.String, com.google.cloud.redis.v1beta1.ZoneMetadata> values) {
       internalGetMutableAvailableZones().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
     @java.lang.Override
@@ -779,7 +745,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LocationMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

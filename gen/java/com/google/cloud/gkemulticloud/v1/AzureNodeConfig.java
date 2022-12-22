@@ -38,148 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AzureNodeConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            vmSize_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.Builder subBuilder = null;
-            if (rootVolume_ != null) {
-              subBuilder = rootVolume_.toBuilder();
-            }
-            rootVolume_ = input.readMessage(com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rootVolume_);
-              rootVolume_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              tags_ = com.google.protobuf.MapField.newMapField(
-                  TagsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            tags__ = input.readMessage(
-                TagsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            tags_.getMutableMap().put(
-                tags__.getKey(), tags__.getValue());
-            break;
-          }
-          case 58: {
-            com.google.cloud.gkemulticloud.v1.AzureSshConfig.Builder subBuilder = null;
-            if (sshConfig_ != null) {
-              subBuilder = sshConfig_.toBuilder();
-            }
-            sshConfig_ = input.readMessage(com.google.cloud.gkemulticloud.v1.AzureSshConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sshConfig_);
-              sshConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            imageType_ = s;
-            break;
-          }
-          case 74: {
-            com.google.cloud.gkemulticloud.v1.AzureProxyConfig.Builder subBuilder = null;
-            if (proxyConfig_ != null) {
-              subBuilder = proxyConfig_.toBuilder();
-            }
-            proxyConfig_ = input.readMessage(com.google.cloud.gkemulticloud.v1.AzureProxyConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(proxyConfig_);
-              proxyConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              taints_ = new java.util.ArrayList<com.google.cloud.gkemulticloud.v1.NodeTaint>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            taints_.add(
-                input.readMessage(com.google.cloud.gkemulticloud.v1.NodeTaint.parser(), extensionRegistry));
-            break;
-          }
-          case 90: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 98: {
-            com.google.cloud.gkemulticloud.v1.AzureConfigEncryption.Builder subBuilder = null;
-            if (configEncryption_ != null) {
-              subBuilder = configEncryption_.toBuilder();
-            }
-            configEncryption_ = input.readMessage(com.google.cloud.gkemulticloud.v1.AzureConfigEncryption.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(configEncryption_);
-              configEncryption_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        taints_ = java.util.Collections.unmodifiableList(taints_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkemulticloud.v1.AzureResourcesProto.internal_static_google_cloud_gkemulticloud_v1_AzureNodeConfig_descriptor;
@@ -208,7 +66,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VM_SIZE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object vmSize_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object vmSize_ = "";
   /**
    * <pre>
    * Optional. The Azure VM size name. Example: `Standard_DS2_v2`.
@@ -300,7 +159,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.AzureDiskTemplateOrBuilder getRootVolumeOrBuilder() {
-    return getRootVolume();
+    return rootVolume_ == null ? com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.getDefaultInstance() : rootVolume_;
   }
 
   public static final int TAGS_FIELD_NUMBER = 3;
@@ -315,6 +174,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> tags_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -325,14 +185,13 @@ private static final long serialVersionUID = 0L;
     }
     return tags_;
   }
-
   public int getTagsCount() {
     return internalGetTags().getMap().size();
   }
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying Azure resources for this node
-   * pool. This currently only includes Virtual Machine Scale Sets.
+   * Optional. A set of tags to apply to all underlying Azure resources for this
+   * node pool. This currently only includes Virtual Machine Scale Sets.
    * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
    * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
    * 255 Unicode characters.
@@ -340,7 +199,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; tags = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsTags(
       java.lang.String key) {
@@ -357,8 +215,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying Azure resources for this node
-   * pool. This currently only includes Virtual Machine Scale Sets.
+   * Optional. A set of tags to apply to all underlying Azure resources for this
+   * node pool. This currently only includes Virtual Machine Scale Sets.
    * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
    * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
    * 255 Unicode characters.
@@ -367,14 +225,13 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; tags = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getTagsMap() {
     return internalGetTags().getMap();
   }
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying Azure resources for this node
-   * pool. This currently only includes Virtual Machine Scale Sets.
+   * Optional. A set of tags to apply to all underlying Azure resources for this
+   * node pool. This currently only includes Virtual Machine Scale Sets.
    * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
    * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
    * 255 Unicode characters.
@@ -383,10 +240,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; tags = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getTagsOrDefault(
+  public /* nullable */
+java.lang.String getTagsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetTags().getMap();
@@ -394,8 +252,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying Azure resources for this node
-   * pool. This currently only includes Virtual Machine Scale Sets.
+   * Optional. A set of tags to apply to all underlying Azure resources for this
+   * node pool. This currently only includes Virtual Machine Scale Sets.
    * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
    * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
    * 255 Unicode characters.
@@ -404,7 +262,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; tags = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.lang.String getTagsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -417,7 +274,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGE_TYPE_FIELD_NUMBER = 8;
-  private volatile java.lang.Object imageType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object imageType_ = "";
   /**
    * <pre>
    * Optional. The OS image type to use on node pool instances.
@@ -503,7 +361,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.AzureSshConfigOrBuilder getSshConfigOrBuilder() {
-    return getSshConfig();
+    return sshConfig_ == null ? com.google.cloud.gkemulticloud.v1.AzureSshConfig.getDefaultInstance() : sshConfig_;
   }
 
   public static final int PROXY_CONFIG_FIELD_NUMBER = 9;
@@ -541,7 +399,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.AzureProxyConfigOrBuilder getProxyConfigOrBuilder() {
-    return getProxyConfig();
+    return proxyConfig_ == null ? com.google.cloud.gkemulticloud.v1.AzureProxyConfig.getDefaultInstance() : proxyConfig_;
   }
 
   public static final int CONFIG_ENCRYPTION_FIELD_NUMBER = 12;
@@ -579,10 +437,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.AzureConfigEncryptionOrBuilder getConfigEncryptionOrBuilder() {
-    return getConfigEncryption();
+    return configEncryption_ == null ? com.google.cloud.gkemulticloud.v1.AzureConfigEncryption.getDefaultInstance() : configEncryption_;
   }
 
   public static final int TAINTS_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.gkemulticloud.v1.NodeTaint> taints_;
   /**
    * <pre>
@@ -654,6 +513,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -664,7 +524,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -677,7 +536,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -702,7 +560,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -716,10 +573,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -735,7 +593,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -794,7 +651,7 @@ private static final long serialVersionUID = 0L;
     if (configEncryption_ != null) {
       output.writeMessage(12, getConfigEncryption());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -849,7 +706,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, getConfigEncryption());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -894,7 +751,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTaintsList())) return false;
     if (!internalGetLabels().equals(
         other.internalGetLabels())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -937,7 +794,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LABELS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetLabels().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1085,58 +942,48 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkemulticloud.v1.AzureNodeConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTaintsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       vmSize_ = "";
-
-      if (rootVolumeBuilder_ == null) {
-        rootVolume_ = null;
-      } else {
-        rootVolume_ = null;
+      rootVolume_ = null;
+      if (rootVolumeBuilder_ != null) {
+        rootVolumeBuilder_.dispose();
         rootVolumeBuilder_ = null;
       }
       internalGetMutableTags().clear();
       imageType_ = "";
-
-      if (sshConfigBuilder_ == null) {
-        sshConfig_ = null;
-      } else {
-        sshConfig_ = null;
+      sshConfig_ = null;
+      if (sshConfigBuilder_ != null) {
+        sshConfigBuilder_.dispose();
         sshConfigBuilder_ = null;
       }
-      if (proxyConfigBuilder_ == null) {
-        proxyConfig_ = null;
-      } else {
-        proxyConfig_ = null;
+      proxyConfig_ = null;
+      if (proxyConfigBuilder_ != null) {
+        proxyConfigBuilder_.dispose();
         proxyConfigBuilder_ = null;
       }
-      if (configEncryptionBuilder_ == null) {
-        configEncryption_ = null;
-      } else {
-        configEncryption_ = null;
+      configEncryption_ = null;
+      if (configEncryptionBuilder_ != null) {
+        configEncryptionBuilder_.dispose();
         configEncryptionBuilder_ = null;
       }
       if (taintsBuilder_ == null) {
         taints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        taints_ = null;
         taintsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       internalGetMutableLabels().clear();
       return this;
     }
@@ -1164,44 +1011,60 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.AzureNodeConfig buildPartial() {
       com.google.cloud.gkemulticloud.v1.AzureNodeConfig result = new com.google.cloud.gkemulticloud.v1.AzureNodeConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.vmSize_ = vmSize_;
-      if (rootVolumeBuilder_ == null) {
-        result.rootVolume_ = rootVolume_;
-      } else {
-        result.rootVolume_ = rootVolumeBuilder_.build();
-      }
-      result.tags_ = internalGetTags();
-      result.tags_.makeImmutable();
-      result.imageType_ = imageType_;
-      if (sshConfigBuilder_ == null) {
-        result.sshConfig_ = sshConfig_;
-      } else {
-        result.sshConfig_ = sshConfigBuilder_.build();
-      }
-      if (proxyConfigBuilder_ == null) {
-        result.proxyConfig_ = proxyConfig_;
-      } else {
-        result.proxyConfig_ = proxyConfigBuilder_.build();
-      }
-      if (configEncryptionBuilder_ == null) {
-        result.configEncryption_ = configEncryption_;
-      } else {
-        result.configEncryption_ = configEncryptionBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.gkemulticloud.v1.AzureNodeConfig result) {
       if (taintsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           taints_ = java.util.Collections.unmodifiableList(taints_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.taints_ = taints_;
       } else {
         result.taints_ = taintsBuilder_.build();
       }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkemulticloud.v1.AzureNodeConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.vmSize_ = vmSize_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.rootVolume_ = rootVolumeBuilder_ == null
+            ? rootVolume_
+            : rootVolumeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.tags_ = internalGetTags();
+        result.tags_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.imageType_ = imageType_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.sshConfig_ = sshConfigBuilder_ == null
+            ? sshConfig_
+            : sshConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.proxyConfig_ = proxyConfigBuilder_ == null
+            ? proxyConfig_
+            : proxyConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.configEncryption_ = configEncryptionBuilder_ == null
+            ? configEncryption_
+            : configEncryptionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -1250,6 +1113,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gkemulticloud.v1.AzureNodeConfig.getDefaultInstance()) return this;
       if (!other.getVmSize().isEmpty()) {
         vmSize_ = other.vmSize_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasRootVolume()) {
@@ -1257,8 +1121,10 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableTags().mergeFrom(
           other.internalGetTags());
+      bitField0_ |= 0x00000004;
       if (!other.getImageType().isEmpty()) {
         imageType_ = other.imageType_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasSshConfig()) {
@@ -1274,7 +1140,7 @@ private static final long serialVersionUID = 0L;
         if (!other.taints_.isEmpty()) {
           if (taints_.isEmpty()) {
             taints_ = other.taints_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureTaintsIsMutable();
             taints_.addAll(other.taints_);
@@ -1287,7 +1153,7 @@ private static final long serialVersionUID = 0L;
             taintsBuilder_.dispose();
             taintsBuilder_ = null;
             taints_ = other.taints_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000080);
             taintsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTaintsFieldBuilder() : null;
@@ -1298,7 +1164,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000100;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1313,17 +1180,99 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkemulticloud.v1.AzureNodeConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              vmSize_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getRootVolumeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              tags__ = input.readMessage(
+                  TagsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableTags().getMutableMap().put(
+                  tags__.getKey(), tags__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 58: {
+              input.readMessage(
+                  getSshConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 58
+            case 66: {
+              imageType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getProxyConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 74
+            case 82: {
+              com.google.cloud.gkemulticloud.v1.NodeTaint m =
+                  input.readMessage(
+                      com.google.cloud.gkemulticloud.v1.NodeTaint.parser(),
+                      extensionRegistry);
+              if (taintsBuilder_ == null) {
+                ensureTaintsIsMutable();
+                taints_.add(m);
+              } else {
+                taintsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 82
+            case 90: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getConfigEncryptionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 98
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkemulticloud.v1.AzureNodeConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1390,11 +1339,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVmSize(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       vmSize_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1410,8 +1357,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVmSize() {
-      
       vmSize_ = getDefaultInstance().getVmSize();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1429,12 +1376,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVmSizeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       vmSize_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1453,7 +1398,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rootVolume field is set.
      */
     public boolean hasRootVolume() {
-      return rootVolumeBuilder_ != null || rootVolume_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1487,11 +1432,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rootVolume_ = value;
-        onChanged();
       } else {
         rootVolumeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1507,11 +1452,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.Builder builderForValue) {
       if (rootVolumeBuilder_ == null) {
         rootVolume_ = builderForValue.build();
-        onChanged();
       } else {
         rootVolumeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1525,17 +1470,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRootVolume(com.google.cloud.gkemulticloud.v1.AzureDiskTemplate value) {
       if (rootVolumeBuilder_ == null) {
-        if (rootVolume_ != null) {
-          rootVolume_ =
-            com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.newBuilder(rootVolume_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          rootVolume_ != null &&
+          rootVolume_ != com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.getDefaultInstance()) {
+          getRootVolumeBuilder().mergeFrom(value);
         } else {
           rootVolume_ = value;
         }
-        onChanged();
       } else {
         rootVolumeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1548,14 +1494,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureDiskTemplate root_volume = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearRootVolume() {
-      if (rootVolumeBuilder_ == null) {
-        rootVolume_ = null;
-        onChanged();
-      } else {
-        rootVolume_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      rootVolume_ = null;
+      if (rootVolumeBuilder_ != null) {
+        rootVolumeBuilder_.dispose();
         rootVolumeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1568,7 +1513,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureDiskTemplate root_volume = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.Builder getRootVolumeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getRootVolumeFieldBuilder().getBuilder();
     }
@@ -1615,7 +1560,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> tags_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetTags() {
+        internalGetTags() {
       if (tags_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             TagsDefaultEntryHolder.defaultEntry);
@@ -1623,8 +1568,7 @@ private static final long serialVersionUID = 0L;
       return tags_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableTags() {
-      onChanged();;
+        internalGetMutableTags() {
       if (tags_ == null) {
         tags_ = com.google.protobuf.MapField.newMapField(
             TagsDefaultEntryHolder.defaultEntry);
@@ -1632,16 +1576,17 @@ private static final long serialVersionUID = 0L;
       if (!tags_.isMutable()) {
         tags_ = tags_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return tags_;
     }
-
     public int getTagsCount() {
       return internalGetTags().getMap().size();
     }
     /**
      * <pre>
-     * Optional. A set of tags to apply to all underlying Azure resources for this node
-     * pool. This currently only includes Virtual Machine Scale Sets.
+     * Optional. A set of tags to apply to all underlying Azure resources for this
+     * node pool. This currently only includes Virtual Machine Scale Sets.
      * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
      * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
      * 255 Unicode characters.
@@ -1649,7 +1594,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; tags = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsTags(
         java.lang.String key) {
@@ -1666,8 +1610,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A set of tags to apply to all underlying Azure resources for this node
-     * pool. This currently only includes Virtual Machine Scale Sets.
+     * Optional. A set of tags to apply to all underlying Azure resources for this
+     * node pool. This currently only includes Virtual Machine Scale Sets.
      * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
      * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
      * 255 Unicode characters.
@@ -1676,14 +1620,13 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; tags = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getTagsMap() {
       return internalGetTags().getMap();
     }
     /**
      * <pre>
-     * Optional. A set of tags to apply to all underlying Azure resources for this node
-     * pool. This currently only includes Virtual Machine Scale Sets.
+     * Optional. A set of tags to apply to all underlying Azure resources for this
+     * node pool. This currently only includes Virtual Machine Scale Sets.
      * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
      * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
      * 255 Unicode characters.
@@ -1692,10 +1635,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; tags = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getTagsOrDefault(
+    public /* nullable */
+java.lang.String getTagsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetTags().getMap();
@@ -1703,8 +1647,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A set of tags to apply to all underlying Azure resources for this node
-     * pool. This currently only includes Virtual Machine Scale Sets.
+     * Optional. A set of tags to apply to all underlying Azure resources for this
+     * node pool. This currently only includes Virtual Machine Scale Sets.
      * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
      * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
      * 255 Unicode characters.
@@ -1713,7 +1657,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; tags = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.lang.String getTagsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1724,16 +1667,16 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearTags() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableTags().getMutableMap()
           .clear();
       return this;
     }
     /**
      * <pre>
-     * Optional. A set of tags to apply to all underlying Azure resources for this node
-     * pool. This currently only includes Virtual Machine Scale Sets.
+     * Optional. A set of tags to apply to all underlying Azure resources for this
+     * node pool. This currently only includes Virtual Machine Scale Sets.
      * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
      * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
      * 255 Unicode characters.
@@ -1741,7 +1684,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; tags = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeTags(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1754,13 +1696,14 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableTags() {
+        getMutableTags() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableTags().getMutableMap();
     }
     /**
      * <pre>
-     * Optional. A set of tags to apply to all underlying Azure resources for this node
-     * pool. This currently only includes Virtual Machine Scale Sets.
+     * Optional. A set of tags to apply to all underlying Azure resources for this
+     * node pool. This currently only includes Virtual Machine Scale Sets.
      * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
      * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
      * 255 Unicode characters.
@@ -1772,18 +1715,16 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableTags().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
      * <pre>
-     * Optional. A set of tags to apply to all underlying Azure resources for this node
-     * pool. This currently only includes Virtual Machine Scale Sets.
+     * Optional. A set of tags to apply to all underlying Azure resources for this
+     * node pool. This currently only includes Virtual Machine Scale Sets.
      * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
      * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
      * 255 Unicode characters.
@@ -1791,11 +1732,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; tags = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllTags(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableTags().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
@@ -1861,11 +1802,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       imageType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1881,8 +1820,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImageType() {
-      
       imageType_ = getDefaultInstance().getImageType();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1900,12 +1839,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       imageType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1922,7 +1859,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sshConfig field is set.
      */
     public boolean hasSshConfig() {
-      return sshConfigBuilder_ != null || sshConfig_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1952,11 +1889,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sshConfig_ = value;
-        onChanged();
       } else {
         sshConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1970,11 +1907,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AzureSshConfig.Builder builderForValue) {
       if (sshConfigBuilder_ == null) {
         sshConfig_ = builderForValue.build();
-        onChanged();
       } else {
         sshConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1986,17 +1923,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSshConfig(com.google.cloud.gkemulticloud.v1.AzureSshConfig value) {
       if (sshConfigBuilder_ == null) {
-        if (sshConfig_ != null) {
-          sshConfig_ =
-            com.google.cloud.gkemulticloud.v1.AzureSshConfig.newBuilder(sshConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          sshConfig_ != null &&
+          sshConfig_ != com.google.cloud.gkemulticloud.v1.AzureSshConfig.getDefaultInstance()) {
+          getSshConfigBuilder().mergeFrom(value);
         } else {
           sshConfig_ = value;
         }
-        onChanged();
       } else {
         sshConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2007,14 +1945,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureSshConfig ssh_config = 7 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearSshConfig() {
-      if (sshConfigBuilder_ == null) {
-        sshConfig_ = null;
-        onChanged();
-      } else {
-        sshConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      sshConfig_ = null;
+      if (sshConfigBuilder_ != null) {
+        sshConfigBuilder_.dispose();
         sshConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2025,7 +1962,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureSshConfig ssh_config = 7 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.gkemulticloud.v1.AzureSshConfig.Builder getSshConfigBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getSshConfigFieldBuilder().getBuilder();
     }
@@ -2077,7 +2014,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the proxyConfig field is set.
      */
     public boolean hasProxyConfig() {
-      return proxyConfigBuilder_ != null || proxyConfig_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2107,11 +2044,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         proxyConfig_ = value;
-        onChanged();
       } else {
         proxyConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2125,11 +2062,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AzureProxyConfig.Builder builderForValue) {
       if (proxyConfigBuilder_ == null) {
         proxyConfig_ = builderForValue.build();
-        onChanged();
       } else {
         proxyConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2141,17 +2078,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeProxyConfig(com.google.cloud.gkemulticloud.v1.AzureProxyConfig value) {
       if (proxyConfigBuilder_ == null) {
-        if (proxyConfig_ != null) {
-          proxyConfig_ =
-            com.google.cloud.gkemulticloud.v1.AzureProxyConfig.newBuilder(proxyConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          proxyConfig_ != null &&
+          proxyConfig_ != com.google.cloud.gkemulticloud.v1.AzureProxyConfig.getDefaultInstance()) {
+          getProxyConfigBuilder().mergeFrom(value);
         } else {
           proxyConfig_ = value;
         }
-        onChanged();
       } else {
         proxyConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2162,14 +2100,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureProxyConfig proxy_config = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearProxyConfig() {
-      if (proxyConfigBuilder_ == null) {
-        proxyConfig_ = null;
-        onChanged();
-      } else {
-        proxyConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      proxyConfig_ = null;
+      if (proxyConfigBuilder_ != null) {
+        proxyConfigBuilder_.dispose();
         proxyConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2180,7 +2117,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureProxyConfig proxy_config = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.gkemulticloud.v1.AzureProxyConfig.Builder getProxyConfigBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getProxyConfigFieldBuilder().getBuilder();
     }
@@ -2232,7 +2169,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the configEncryption field is set.
      */
     public boolean hasConfigEncryption() {
-      return configEncryptionBuilder_ != null || configEncryption_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2262,11 +2199,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         configEncryption_ = value;
-        onChanged();
       } else {
         configEncryptionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2280,11 +2217,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AzureConfigEncryption.Builder builderForValue) {
       if (configEncryptionBuilder_ == null) {
         configEncryption_ = builderForValue.build();
-        onChanged();
       } else {
         configEncryptionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2296,17 +2233,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConfigEncryption(com.google.cloud.gkemulticloud.v1.AzureConfigEncryption value) {
       if (configEncryptionBuilder_ == null) {
-        if (configEncryption_ != null) {
-          configEncryption_ =
-            com.google.cloud.gkemulticloud.v1.AzureConfigEncryption.newBuilder(configEncryption_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          configEncryption_ != null &&
+          configEncryption_ != com.google.cloud.gkemulticloud.v1.AzureConfigEncryption.getDefaultInstance()) {
+          getConfigEncryptionBuilder().mergeFrom(value);
         } else {
           configEncryption_ = value;
         }
-        onChanged();
       } else {
         configEncryptionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2317,14 +2255,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureConfigEncryption config_encryption = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearConfigEncryption() {
-      if (configEncryptionBuilder_ == null) {
-        configEncryption_ = null;
-        onChanged();
-      } else {
-        configEncryption_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      configEncryption_ = null;
+      if (configEncryptionBuilder_ != null) {
+        configEncryptionBuilder_.dispose();
         configEncryptionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2335,7 +2272,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureConfigEncryption config_encryption = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.gkemulticloud.v1.AzureConfigEncryption.Builder getConfigEncryptionBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getConfigEncryptionFieldBuilder().getBuilder();
     }
@@ -2378,9 +2315,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.gkemulticloud.v1.NodeTaint> taints_ =
       java.util.Collections.emptyList();
     private void ensureTaintsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         taints_ = new java.util.ArrayList<com.google.cloud.gkemulticloud.v1.NodeTaint>(taints_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -2574,7 +2511,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTaints() {
       if (taintsBuilder_ == null) {
         taints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         taintsBuilder_.clear();
@@ -2679,7 +2616,7 @@ private static final long serialVersionUID = 0L;
         taintsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.gkemulticloud.v1.NodeTaint, com.google.cloud.gkemulticloud.v1.NodeTaint.Builder, com.google.cloud.gkemulticloud.v1.NodeTaintOrBuilder>(
                 taints_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         taints_ = null;
@@ -2690,7 +2627,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -2698,8 +2635,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -2707,9 +2643,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000100;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -2722,7 +2659,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -2747,7 +2683,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -2761,10 +2696,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -2780,7 +2716,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2791,8 +2726,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000100);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -2806,7 +2741,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2819,7 +2753,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000100;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -2835,12 +2770,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000100;
       return this;
     }
     /**
@@ -2852,11 +2785,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000100;
       return this;
     }
     @java.lang.Override
@@ -2892,7 +2825,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AzureNodeConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

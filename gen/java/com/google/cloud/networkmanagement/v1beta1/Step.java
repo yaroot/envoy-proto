@@ -38,306 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Step(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 24: {
-
-            causesDrop_ = input.readBool();
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            projectId_ = s;
-            break;
-          }
-          case 42: {
-            com.google.cloud.networkmanagement.v1beta1.InstanceInfo.Builder subBuilder = null;
-            if (stepInfoCase_ == 5) {
-              subBuilder = ((com.google.cloud.networkmanagement.v1beta1.InstanceInfo) stepInfo_).toBuilder();
-            }
-            stepInfo_ =
-                input.readMessage(com.google.cloud.networkmanagement.v1beta1.InstanceInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkmanagement.v1beta1.InstanceInfo) stepInfo_);
-              stepInfo_ = subBuilder.buildPartial();
-            }
-            stepInfoCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.cloud.networkmanagement.v1beta1.FirewallInfo.Builder subBuilder = null;
-            if (stepInfoCase_ == 6) {
-              subBuilder = ((com.google.cloud.networkmanagement.v1beta1.FirewallInfo) stepInfo_).toBuilder();
-            }
-            stepInfo_ =
-                input.readMessage(com.google.cloud.networkmanagement.v1beta1.FirewallInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkmanagement.v1beta1.FirewallInfo) stepInfo_);
-              stepInfo_ = subBuilder.buildPartial();
-            }
-            stepInfoCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.cloud.networkmanagement.v1beta1.RouteInfo.Builder subBuilder = null;
-            if (stepInfoCase_ == 7) {
-              subBuilder = ((com.google.cloud.networkmanagement.v1beta1.RouteInfo) stepInfo_).toBuilder();
-            }
-            stepInfo_ =
-                input.readMessage(com.google.cloud.networkmanagement.v1beta1.RouteInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkmanagement.v1beta1.RouteInfo) stepInfo_);
-              stepInfo_ = subBuilder.buildPartial();
-            }
-            stepInfoCase_ = 7;
-            break;
-          }
-          case 66: {
-            com.google.cloud.networkmanagement.v1beta1.EndpointInfo.Builder subBuilder = null;
-            if (stepInfoCase_ == 8) {
-              subBuilder = ((com.google.cloud.networkmanagement.v1beta1.EndpointInfo) stepInfo_).toBuilder();
-            }
-            stepInfo_ =
-                input.readMessage(com.google.cloud.networkmanagement.v1beta1.EndpointInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkmanagement.v1beta1.EndpointInfo) stepInfo_);
-              stepInfo_ = subBuilder.buildPartial();
-            }
-            stepInfoCase_ = 8;
-            break;
-          }
-          case 74: {
-            com.google.cloud.networkmanagement.v1beta1.ForwardingRuleInfo.Builder subBuilder = null;
-            if (stepInfoCase_ == 9) {
-              subBuilder = ((com.google.cloud.networkmanagement.v1beta1.ForwardingRuleInfo) stepInfo_).toBuilder();
-            }
-            stepInfo_ =
-                input.readMessage(com.google.cloud.networkmanagement.v1beta1.ForwardingRuleInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkmanagement.v1beta1.ForwardingRuleInfo) stepInfo_);
-              stepInfo_ = subBuilder.buildPartial();
-            }
-            stepInfoCase_ = 9;
-            break;
-          }
-          case 82: {
-            com.google.cloud.networkmanagement.v1beta1.VpnGatewayInfo.Builder subBuilder = null;
-            if (stepInfoCase_ == 10) {
-              subBuilder = ((com.google.cloud.networkmanagement.v1beta1.VpnGatewayInfo) stepInfo_).toBuilder();
-            }
-            stepInfo_ =
-                input.readMessage(com.google.cloud.networkmanagement.v1beta1.VpnGatewayInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkmanagement.v1beta1.VpnGatewayInfo) stepInfo_);
-              stepInfo_ = subBuilder.buildPartial();
-            }
-            stepInfoCase_ = 10;
-            break;
-          }
-          case 90: {
-            com.google.cloud.networkmanagement.v1beta1.VpnTunnelInfo.Builder subBuilder = null;
-            if (stepInfoCase_ == 11) {
-              subBuilder = ((com.google.cloud.networkmanagement.v1beta1.VpnTunnelInfo) stepInfo_).toBuilder();
-            }
-            stepInfo_ =
-                input.readMessage(com.google.cloud.networkmanagement.v1beta1.VpnTunnelInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkmanagement.v1beta1.VpnTunnelInfo) stepInfo_);
-              stepInfo_ = subBuilder.buildPartial();
-            }
-            stepInfoCase_ = 11;
-            break;
-          }
-          case 98: {
-            com.google.cloud.networkmanagement.v1beta1.DeliverInfo.Builder subBuilder = null;
-            if (stepInfoCase_ == 12) {
-              subBuilder = ((com.google.cloud.networkmanagement.v1beta1.DeliverInfo) stepInfo_).toBuilder();
-            }
-            stepInfo_ =
-                input.readMessage(com.google.cloud.networkmanagement.v1beta1.DeliverInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkmanagement.v1beta1.DeliverInfo) stepInfo_);
-              stepInfo_ = subBuilder.buildPartial();
-            }
-            stepInfoCase_ = 12;
-            break;
-          }
-          case 106: {
-            com.google.cloud.networkmanagement.v1beta1.ForwardInfo.Builder subBuilder = null;
-            if (stepInfoCase_ == 13) {
-              subBuilder = ((com.google.cloud.networkmanagement.v1beta1.ForwardInfo) stepInfo_).toBuilder();
-            }
-            stepInfo_ =
-                input.readMessage(com.google.cloud.networkmanagement.v1beta1.ForwardInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkmanagement.v1beta1.ForwardInfo) stepInfo_);
-              stepInfo_ = subBuilder.buildPartial();
-            }
-            stepInfoCase_ = 13;
-            break;
-          }
-          case 114: {
-            com.google.cloud.networkmanagement.v1beta1.AbortInfo.Builder subBuilder = null;
-            if (stepInfoCase_ == 14) {
-              subBuilder = ((com.google.cloud.networkmanagement.v1beta1.AbortInfo) stepInfo_).toBuilder();
-            }
-            stepInfo_ =
-                input.readMessage(com.google.cloud.networkmanagement.v1beta1.AbortInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkmanagement.v1beta1.AbortInfo) stepInfo_);
-              stepInfo_ = subBuilder.buildPartial();
-            }
-            stepInfoCase_ = 14;
-            break;
-          }
-          case 122: {
-            com.google.cloud.networkmanagement.v1beta1.DropInfo.Builder subBuilder = null;
-            if (stepInfoCase_ == 15) {
-              subBuilder = ((com.google.cloud.networkmanagement.v1beta1.DropInfo) stepInfo_).toBuilder();
-            }
-            stepInfo_ =
-                input.readMessage(com.google.cloud.networkmanagement.v1beta1.DropInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkmanagement.v1beta1.DropInfo) stepInfo_);
-              stepInfo_ = subBuilder.buildPartial();
-            }
-            stepInfoCase_ = 15;
-            break;
-          }
-          case 130: {
-            com.google.cloud.networkmanagement.v1beta1.LoadBalancerInfo.Builder subBuilder = null;
-            if (stepInfoCase_ == 16) {
-              subBuilder = ((com.google.cloud.networkmanagement.v1beta1.LoadBalancerInfo) stepInfo_).toBuilder();
-            }
-            stepInfo_ =
-                input.readMessage(com.google.cloud.networkmanagement.v1beta1.LoadBalancerInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkmanagement.v1beta1.LoadBalancerInfo) stepInfo_);
-              stepInfo_ = subBuilder.buildPartial();
-            }
-            stepInfoCase_ = 16;
-            break;
-          }
-          case 138: {
-            com.google.cloud.networkmanagement.v1beta1.NetworkInfo.Builder subBuilder = null;
-            if (stepInfoCase_ == 17) {
-              subBuilder = ((com.google.cloud.networkmanagement.v1beta1.NetworkInfo) stepInfo_).toBuilder();
-            }
-            stepInfo_ =
-                input.readMessage(com.google.cloud.networkmanagement.v1beta1.NetworkInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkmanagement.v1beta1.NetworkInfo) stepInfo_);
-              stepInfo_ = subBuilder.buildPartial();
-            }
-            stepInfoCase_ = 17;
-            break;
-          }
-          case 146: {
-            com.google.cloud.networkmanagement.v1beta1.GKEMasterInfo.Builder subBuilder = null;
-            if (stepInfoCase_ == 18) {
-              subBuilder = ((com.google.cloud.networkmanagement.v1beta1.GKEMasterInfo) stepInfo_).toBuilder();
-            }
-            stepInfo_ =
-                input.readMessage(com.google.cloud.networkmanagement.v1beta1.GKEMasterInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkmanagement.v1beta1.GKEMasterInfo) stepInfo_);
-              stepInfo_ = subBuilder.buildPartial();
-            }
-            stepInfoCase_ = 18;
-            break;
-          }
-          case 154: {
-            com.google.cloud.networkmanagement.v1beta1.CloudSQLInstanceInfo.Builder subBuilder = null;
-            if (stepInfoCase_ == 19) {
-              subBuilder = ((com.google.cloud.networkmanagement.v1beta1.CloudSQLInstanceInfo) stepInfo_).toBuilder();
-            }
-            stepInfo_ =
-                input.readMessage(com.google.cloud.networkmanagement.v1beta1.CloudSQLInstanceInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkmanagement.v1beta1.CloudSQLInstanceInfo) stepInfo_);
-              stepInfo_ = subBuilder.buildPartial();
-            }
-            stepInfoCase_ = 19;
-            break;
-          }
-          case 162: {
-            com.google.cloud.networkmanagement.v1beta1.CloudFunctionInfo.Builder subBuilder = null;
-            if (stepInfoCase_ == 20) {
-              subBuilder = ((com.google.cloud.networkmanagement.v1beta1.CloudFunctionInfo) stepInfo_).toBuilder();
-            }
-            stepInfo_ =
-                input.readMessage(com.google.cloud.networkmanagement.v1beta1.CloudFunctionInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkmanagement.v1beta1.CloudFunctionInfo) stepInfo_);
-              stepInfo_ = subBuilder.buildPartial();
-            }
-            stepInfoCase_ = 20;
-            break;
-          }
-          case 170: {
-            com.google.cloud.networkmanagement.v1beta1.VpcConnectorInfo.Builder subBuilder = null;
-            if (stepInfoCase_ == 21) {
-              subBuilder = ((com.google.cloud.networkmanagement.v1beta1.VpcConnectorInfo) stepInfo_).toBuilder();
-            }
-            stepInfo_ =
-                input.readMessage(com.google.cloud.networkmanagement.v1beta1.VpcConnectorInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkmanagement.v1beta1.VpcConnectorInfo) stepInfo_);
-              stepInfo_ = subBuilder.buildPartial();
-            }
-            stepInfoCase_ = 21;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.networkmanagement.v1beta1.TraceProto.internal_static_google_cloud_networkmanagement_v1beta1_Step_descriptor;
@@ -967,7 +667,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * A description of the step. Usually this is a summary of the state.
@@ -1013,7 +714,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 2;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Each step is in one of the pre-defined states.
@@ -1034,13 +735,12 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.networkmanagement.v1beta1.Step.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.networkmanagement.v1beta1.Step.State result = com.google.cloud.networkmanagement.v1beta1.Step.State.valueOf(state_);
+    com.google.cloud.networkmanagement.v1beta1.Step.State result = com.google.cloud.networkmanagement.v1beta1.Step.State.forNumber(state_);
     return result == null ? com.google.cloud.networkmanagement.v1beta1.Step.State.UNRECOGNIZED : result;
   }
 
   public static final int CAUSES_DROP_FIELD_NUMBER = 3;
-  private boolean causesDrop_;
+  private boolean causesDrop_ = false;
   /**
    * <pre>
    * This is a step that leads to the final state Drop.
@@ -1055,7 +755,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object projectId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object projectId_ = "";
   /**
    * <pre>
    * Project ID that contains the configuration this step is validating.
@@ -1917,7 +1618,7 @@ private static final long serialVersionUID = 0L;
     if (stepInfoCase_ == 21) {
       output.writeMessage(21, (com.google.cloud.networkmanagement.v1beta1.VpcConnectorInfo) stepInfo_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2008,7 +1709,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(21, (com.google.cloud.networkmanagement.v1beta1.VpcConnectorInfo) stepInfo_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2103,7 +1804,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2195,7 +1896,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2317,30 +2018,73 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.networkmanagement.v1beta1.Step.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       description_ = "";
-
       state_ = 0;
-
       causesDrop_ = false;
-
       projectId_ = "";
-
+      if (instanceBuilder_ != null) {
+        instanceBuilder_.clear();
+      }
+      if (firewallBuilder_ != null) {
+        firewallBuilder_.clear();
+      }
+      if (routeBuilder_ != null) {
+        routeBuilder_.clear();
+      }
+      if (endpointBuilder_ != null) {
+        endpointBuilder_.clear();
+      }
+      if (forwardingRuleBuilder_ != null) {
+        forwardingRuleBuilder_.clear();
+      }
+      if (vpnGatewayBuilder_ != null) {
+        vpnGatewayBuilder_.clear();
+      }
+      if (vpnTunnelBuilder_ != null) {
+        vpnTunnelBuilder_.clear();
+      }
+      if (vpcConnectorBuilder_ != null) {
+        vpcConnectorBuilder_.clear();
+      }
+      if (deliverBuilder_ != null) {
+        deliverBuilder_.clear();
+      }
+      if (forwardBuilder_ != null) {
+        forwardBuilder_.clear();
+      }
+      if (abortBuilder_ != null) {
+        abortBuilder_.clear();
+      }
+      if (dropBuilder_ != null) {
+        dropBuilder_.clear();
+      }
+      if (loadBalancerBuilder_ != null) {
+        loadBalancerBuilder_.clear();
+      }
+      if (networkBuilder_ != null) {
+        networkBuilder_.clear();
+      }
+      if (gkeMasterBuilder_ != null) {
+        gkeMasterBuilder_.clear();
+      }
+      if (cloudSqlInstanceBuilder_ != null) {
+        cloudSqlInstanceBuilder_.clear();
+      }
+      if (cloudFunctionBuilder_ != null) {
+        cloudFunctionBuilder_.clear();
+      }
       stepInfoCase_ = 0;
       stepInfo_ = null;
       return this;
@@ -2369,132 +2113,99 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.networkmanagement.v1beta1.Step buildPartial() {
       com.google.cloud.networkmanagement.v1beta1.Step result = new com.google.cloud.networkmanagement.v1beta1.Step(this);
-      result.description_ = description_;
-      result.state_ = state_;
-      result.causesDrop_ = causesDrop_;
-      result.projectId_ = projectId_;
-      if (stepInfoCase_ == 5) {
-        if (instanceBuilder_ == null) {
-          result.stepInfo_ = stepInfo_;
-        } else {
-          result.stepInfo_ = instanceBuilder_.build();
-        }
-      }
-      if (stepInfoCase_ == 6) {
-        if (firewallBuilder_ == null) {
-          result.stepInfo_ = stepInfo_;
-        } else {
-          result.stepInfo_ = firewallBuilder_.build();
-        }
-      }
-      if (stepInfoCase_ == 7) {
-        if (routeBuilder_ == null) {
-          result.stepInfo_ = stepInfo_;
-        } else {
-          result.stepInfo_ = routeBuilder_.build();
-        }
-      }
-      if (stepInfoCase_ == 8) {
-        if (endpointBuilder_ == null) {
-          result.stepInfo_ = stepInfo_;
-        } else {
-          result.stepInfo_ = endpointBuilder_.build();
-        }
-      }
-      if (stepInfoCase_ == 9) {
-        if (forwardingRuleBuilder_ == null) {
-          result.stepInfo_ = stepInfo_;
-        } else {
-          result.stepInfo_ = forwardingRuleBuilder_.build();
-        }
-      }
-      if (stepInfoCase_ == 10) {
-        if (vpnGatewayBuilder_ == null) {
-          result.stepInfo_ = stepInfo_;
-        } else {
-          result.stepInfo_ = vpnGatewayBuilder_.build();
-        }
-      }
-      if (stepInfoCase_ == 11) {
-        if (vpnTunnelBuilder_ == null) {
-          result.stepInfo_ = stepInfo_;
-        } else {
-          result.stepInfo_ = vpnTunnelBuilder_.build();
-        }
-      }
-      if (stepInfoCase_ == 21) {
-        if (vpcConnectorBuilder_ == null) {
-          result.stepInfo_ = stepInfo_;
-        } else {
-          result.stepInfo_ = vpcConnectorBuilder_.build();
-        }
-      }
-      if (stepInfoCase_ == 12) {
-        if (deliverBuilder_ == null) {
-          result.stepInfo_ = stepInfo_;
-        } else {
-          result.stepInfo_ = deliverBuilder_.build();
-        }
-      }
-      if (stepInfoCase_ == 13) {
-        if (forwardBuilder_ == null) {
-          result.stepInfo_ = stepInfo_;
-        } else {
-          result.stepInfo_ = forwardBuilder_.build();
-        }
-      }
-      if (stepInfoCase_ == 14) {
-        if (abortBuilder_ == null) {
-          result.stepInfo_ = stepInfo_;
-        } else {
-          result.stepInfo_ = abortBuilder_.build();
-        }
-      }
-      if (stepInfoCase_ == 15) {
-        if (dropBuilder_ == null) {
-          result.stepInfo_ = stepInfo_;
-        } else {
-          result.stepInfo_ = dropBuilder_.build();
-        }
-      }
-      if (stepInfoCase_ == 16) {
-        if (loadBalancerBuilder_ == null) {
-          result.stepInfo_ = stepInfo_;
-        } else {
-          result.stepInfo_ = loadBalancerBuilder_.build();
-        }
-      }
-      if (stepInfoCase_ == 17) {
-        if (networkBuilder_ == null) {
-          result.stepInfo_ = stepInfo_;
-        } else {
-          result.stepInfo_ = networkBuilder_.build();
-        }
-      }
-      if (stepInfoCase_ == 18) {
-        if (gkeMasterBuilder_ == null) {
-          result.stepInfo_ = stepInfo_;
-        } else {
-          result.stepInfo_ = gkeMasterBuilder_.build();
-        }
-      }
-      if (stepInfoCase_ == 19) {
-        if (cloudSqlInstanceBuilder_ == null) {
-          result.stepInfo_ = stepInfo_;
-        } else {
-          result.stepInfo_ = cloudSqlInstanceBuilder_.build();
-        }
-      }
-      if (stepInfoCase_ == 20) {
-        if (cloudFunctionBuilder_ == null) {
-          result.stepInfo_ = stepInfo_;
-        } else {
-          result.stepInfo_ = cloudFunctionBuilder_.build();
-        }
-      }
-      result.stepInfoCase_ = stepInfoCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.networkmanagement.v1beta1.Step result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.causesDrop_ = causesDrop_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.projectId_ = projectId_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.networkmanagement.v1beta1.Step result) {
+      result.stepInfoCase_ = stepInfoCase_;
+      result.stepInfo_ = this.stepInfo_;
+      if (stepInfoCase_ == 5 &&
+          instanceBuilder_ != null) {
+        result.stepInfo_ = instanceBuilder_.build();
+      }
+      if (stepInfoCase_ == 6 &&
+          firewallBuilder_ != null) {
+        result.stepInfo_ = firewallBuilder_.build();
+      }
+      if (stepInfoCase_ == 7 &&
+          routeBuilder_ != null) {
+        result.stepInfo_ = routeBuilder_.build();
+      }
+      if (stepInfoCase_ == 8 &&
+          endpointBuilder_ != null) {
+        result.stepInfo_ = endpointBuilder_.build();
+      }
+      if (stepInfoCase_ == 9 &&
+          forwardingRuleBuilder_ != null) {
+        result.stepInfo_ = forwardingRuleBuilder_.build();
+      }
+      if (stepInfoCase_ == 10 &&
+          vpnGatewayBuilder_ != null) {
+        result.stepInfo_ = vpnGatewayBuilder_.build();
+      }
+      if (stepInfoCase_ == 11 &&
+          vpnTunnelBuilder_ != null) {
+        result.stepInfo_ = vpnTunnelBuilder_.build();
+      }
+      if (stepInfoCase_ == 21 &&
+          vpcConnectorBuilder_ != null) {
+        result.stepInfo_ = vpcConnectorBuilder_.build();
+      }
+      if (stepInfoCase_ == 12 &&
+          deliverBuilder_ != null) {
+        result.stepInfo_ = deliverBuilder_.build();
+      }
+      if (stepInfoCase_ == 13 &&
+          forwardBuilder_ != null) {
+        result.stepInfo_ = forwardBuilder_.build();
+      }
+      if (stepInfoCase_ == 14 &&
+          abortBuilder_ != null) {
+        result.stepInfo_ = abortBuilder_.build();
+      }
+      if (stepInfoCase_ == 15 &&
+          dropBuilder_ != null) {
+        result.stepInfo_ = dropBuilder_.build();
+      }
+      if (stepInfoCase_ == 16 &&
+          loadBalancerBuilder_ != null) {
+        result.stepInfo_ = loadBalancerBuilder_.build();
+      }
+      if (stepInfoCase_ == 17 &&
+          networkBuilder_ != null) {
+        result.stepInfo_ = networkBuilder_.build();
+      }
+      if (stepInfoCase_ == 18 &&
+          gkeMasterBuilder_ != null) {
+        result.stepInfo_ = gkeMasterBuilder_.build();
+      }
+      if (stepInfoCase_ == 19 &&
+          cloudSqlInstanceBuilder_ != null) {
+        result.stepInfo_ = cloudSqlInstanceBuilder_.build();
+      }
+      if (stepInfoCase_ == 20 &&
+          cloudFunctionBuilder_ != null) {
+        result.stepInfo_ = cloudFunctionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2543,6 +2254,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.networkmanagement.v1beta1.Step.getDefaultInstance()) return this;
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -2553,6 +2265,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getProjectId().isEmpty()) {
         projectId_ = other.projectId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       switch (other.getStepInfoCase()) {
@@ -2628,7 +2341,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2643,17 +2356,169 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.networkmanagement.v1beta1.Step parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              causesDrop_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              projectId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getInstanceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepInfoCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getFirewallFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepInfoCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getRouteFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepInfoCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getEndpointFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepInfoCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getForwardingRuleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepInfoCase_ = 9;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getVpnGatewayFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepInfoCase_ = 10;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getVpnTunnelFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepInfoCase_ = 11;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getDeliverFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepInfoCase_ = 12;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getForwardFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepInfoCase_ = 13;
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getAbortFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepInfoCase_ = 14;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getDropFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepInfoCase_ = 15;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getLoadBalancerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepInfoCase_ = 16;
+              break;
+            } // case 130
+            case 138: {
+              input.readMessage(
+                  getNetworkFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepInfoCase_ = 17;
+              break;
+            } // case 138
+            case 146: {
+              input.readMessage(
+                  getGkeMasterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepInfoCase_ = 18;
+              break;
+            } // case 146
+            case 154: {
+              input.readMessage(
+                  getCloudSqlInstanceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepInfoCase_ = 19;
+              break;
+            } // case 154
+            case 162: {
+              input.readMessage(
+                  getCloudFunctionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepInfoCase_ = 20;
+              break;
+            } // case 162
+            case 170: {
+              input.readMessage(
+                  getVpcConnectorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepInfoCase_ = 21;
+              break;
+            } // case 170
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.networkmanagement.v1beta1.Step) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int stepInfoCase_ = 0;
@@ -2671,6 +2536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object description_ = "";
     /**
@@ -2725,11 +2591,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2742,8 +2606,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2758,12 +2622,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2790,8 +2652,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2805,8 +2667,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.networkmanagement.v1beta1.Step.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.networkmanagement.v1beta1.Step.State result = com.google.cloud.networkmanagement.v1beta1.Step.State.valueOf(state_);
+      com.google.cloud.networkmanagement.v1beta1.Step.State result = com.google.cloud.networkmanagement.v1beta1.Step.State.forNumber(state_);
       return result == null ? com.google.cloud.networkmanagement.v1beta1.Step.State.UNRECOGNIZED : result;
     }
     /**
@@ -2822,7 +2683,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -2836,7 +2697,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       state_ = 0;
       onChanged();
       return this;
@@ -2867,6 +2728,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCausesDrop(boolean value) {
       
       causesDrop_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2879,7 +2741,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCausesDrop() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       causesDrop_ = false;
       onChanged();
       return this;
@@ -2938,11 +2800,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       projectId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2955,8 +2815,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProjectId() {
-      
       projectId_ = getDefaultInstance().getProjectId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2971,12 +2831,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3155,7 +3013,7 @@ private static final long serialVersionUID = 0L;
         stepInfo_ = null;
       }
       stepInfoCase_ = 5;
-      onChanged();;
+      onChanged();
       return instanceBuilder_;
     }
 
@@ -3333,7 +3191,7 @@ private static final long serialVersionUID = 0L;
         stepInfo_ = null;
       }
       stepInfoCase_ = 6;
-      onChanged();;
+      onChanged();
       return firewallBuilder_;
     }
 
@@ -3511,7 +3369,7 @@ private static final long serialVersionUID = 0L;
         stepInfo_ = null;
       }
       stepInfoCase_ = 7;
-      onChanged();;
+      onChanged();
       return routeBuilder_;
     }
 
@@ -3716,7 +3574,7 @@ private static final long serialVersionUID = 0L;
         stepInfo_ = null;
       }
       stepInfoCase_ = 8;
-      onChanged();;
+      onChanged();
       return endpointBuilder_;
     }
 
@@ -3894,7 +3752,7 @@ private static final long serialVersionUID = 0L;
         stepInfo_ = null;
       }
       stepInfoCase_ = 9;
-      onChanged();;
+      onChanged();
       return forwardingRuleBuilder_;
     }
 
@@ -4072,7 +3930,7 @@ private static final long serialVersionUID = 0L;
         stepInfo_ = null;
       }
       stepInfoCase_ = 10;
-      onChanged();;
+      onChanged();
       return vpnGatewayBuilder_;
     }
 
@@ -4250,7 +4108,7 @@ private static final long serialVersionUID = 0L;
         stepInfo_ = null;
       }
       stepInfoCase_ = 11;
-      onChanged();;
+      onChanged();
       return vpnTunnelBuilder_;
     }
 
@@ -4428,7 +4286,7 @@ private static final long serialVersionUID = 0L;
         stepInfo_ = null;
       }
       stepInfoCase_ = 21;
-      onChanged();;
+      onChanged();
       return vpcConnectorBuilder_;
     }
 
@@ -4606,7 +4464,7 @@ private static final long serialVersionUID = 0L;
         stepInfo_ = null;
       }
       stepInfoCase_ = 12;
-      onChanged();;
+      onChanged();
       return deliverBuilder_;
     }
 
@@ -4784,7 +4642,7 @@ private static final long serialVersionUID = 0L;
         stepInfo_ = null;
       }
       stepInfoCase_ = 13;
-      onChanged();;
+      onChanged();
       return forwardBuilder_;
     }
 
@@ -4962,7 +4820,7 @@ private static final long serialVersionUID = 0L;
         stepInfo_ = null;
       }
       stepInfoCase_ = 14;
-      onChanged();;
+      onChanged();
       return abortBuilder_;
     }
 
@@ -5140,7 +4998,7 @@ private static final long serialVersionUID = 0L;
         stepInfo_ = null;
       }
       stepInfoCase_ = 15;
-      onChanged();;
+      onChanged();
       return dropBuilder_;
     }
 
@@ -5318,7 +5176,7 @@ private static final long serialVersionUID = 0L;
         stepInfo_ = null;
       }
       stepInfoCase_ = 16;
-      onChanged();;
+      onChanged();
       return loadBalancerBuilder_;
     }
 
@@ -5496,7 +5354,7 @@ private static final long serialVersionUID = 0L;
         stepInfo_ = null;
       }
       stepInfoCase_ = 17;
-      onChanged();;
+      onChanged();
       return networkBuilder_;
     }
 
@@ -5674,7 +5532,7 @@ private static final long serialVersionUID = 0L;
         stepInfo_ = null;
       }
       stepInfoCase_ = 18;
-      onChanged();;
+      onChanged();
       return gkeMasterBuilder_;
     }
 
@@ -5852,7 +5710,7 @@ private static final long serialVersionUID = 0L;
         stepInfo_ = null;
       }
       stepInfoCase_ = 19;
-      onChanged();;
+      onChanged();
       return cloudSqlInstanceBuilder_;
     }
 
@@ -6030,7 +5888,7 @@ private static final long serialVersionUID = 0L;
         stepInfo_ = null;
       }
       stepInfoCase_ = 20;
-      onChanged();;
+      onChanged();
       return cloudFunctionBuilder_;
     }
     @java.lang.Override
@@ -6066,7 +5924,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Step(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

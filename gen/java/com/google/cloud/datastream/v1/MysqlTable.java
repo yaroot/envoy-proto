@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MysqlTable(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            table_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              mysqlColumns_ = new java.util.ArrayList<com.google.cloud.datastream.v1.MysqlColumn>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            mysqlColumns_.add(
-                input.readMessage(com.google.cloud.datastream.v1.MysqlColumn.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        mysqlColumns_ = java.util.Collections.unmodifiableList(mysqlColumns_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datastream.v1.DatastreamResourcesProto.internal_static_google_cloud_datastream_v1_MysqlTable_descriptor;
@@ -108,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TABLE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object table_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object table_ = "";
   /**
    * <pre>
    * Table name.
@@ -154,11 +97,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MYSQL_COLUMNS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.datastream.v1.MysqlColumn> mysqlColumns_;
   /**
    * <pre>
    * MySQL columns in the database.
-   * When unspecified as part of include/exclude lists, includes/excludes
+   * When unspecified as part of include/exclude objects, includes/excludes
    * everything.
    * </pre>
    *
@@ -171,7 +115,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * MySQL columns in the database.
-   * When unspecified as part of include/exclude lists, includes/excludes
+   * When unspecified as part of include/exclude objects, includes/excludes
    * everything.
    * </pre>
    *
@@ -185,7 +129,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * MySQL columns in the database.
-   * When unspecified as part of include/exclude lists, includes/excludes
+   * When unspecified as part of include/exclude objects, includes/excludes
    * everything.
    * </pre>
    *
@@ -198,7 +142,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * MySQL columns in the database.
-   * When unspecified as part of include/exclude lists, includes/excludes
+   * When unspecified as part of include/exclude objects, includes/excludes
    * everything.
    * </pre>
    *
@@ -211,7 +155,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * MySQL columns in the database.
-   * When unspecified as part of include/exclude lists, includes/excludes
+   * When unspecified as part of include/exclude objects, includes/excludes
    * everything.
    * </pre>
    *
@@ -243,7 +187,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < mysqlColumns_.size(); i++) {
       output.writeMessage(2, mysqlColumns_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -259,7 +203,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, mysqlColumns_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -278,7 +222,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTable())) return false;
     if (!getMysqlColumnsList()
         .equals(other.getMysqlColumnsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -295,7 +239,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MYSQL_COLUMNS_FIELD_NUMBER;
       hash = (53 * hash) + getMysqlColumnsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -416,31 +360,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datastream.v1.MysqlTable.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMysqlColumnsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       table_ = "";
-
       if (mysqlColumnsBuilder_ == null) {
         mysqlColumns_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        mysqlColumns_ = null;
         mysqlColumnsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -467,19 +406,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datastream.v1.MysqlTable buildPartial() {
       com.google.cloud.datastream.v1.MysqlTable result = new com.google.cloud.datastream.v1.MysqlTable(this);
-      int from_bitField0_ = bitField0_;
-      result.table_ = table_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.datastream.v1.MysqlTable result) {
       if (mysqlColumnsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           mysqlColumns_ = java.util.Collections.unmodifiableList(mysqlColumns_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.mysqlColumns_ = mysqlColumns_;
       } else {
         result.mysqlColumns_ = mysqlColumnsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datastream.v1.MysqlTable result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.table_ = table_;
+      }
     }
 
     @java.lang.Override
@@ -528,13 +477,14 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.datastream.v1.MysqlTable.getDefaultInstance()) return this;
       if (!other.getTable().isEmpty()) {
         table_ = other.table_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (mysqlColumnsBuilder_ == null) {
         if (!other.mysqlColumns_.isEmpty()) {
           if (mysqlColumns_.isEmpty()) {
             mysqlColumns_ = other.mysqlColumns_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureMysqlColumnsIsMutable();
             mysqlColumns_.addAll(other.mysqlColumns_);
@@ -547,7 +497,7 @@ private static final long serialVersionUID = 0L;
             mysqlColumnsBuilder_.dispose();
             mysqlColumnsBuilder_ = null;
             mysqlColumns_ = other.mysqlColumns_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             mysqlColumnsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMysqlColumnsFieldBuilder() : null;
@@ -556,7 +506,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -571,17 +521,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datastream.v1.MysqlTable parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              table_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.datastream.v1.MysqlColumn m =
+                  input.readMessage(
+                      com.google.cloud.datastream.v1.MysqlColumn.parser(),
+                      extensionRegistry);
+              if (mysqlColumnsBuilder_ == null) {
+                ensureMysqlColumnsIsMutable();
+                mysqlColumns_.add(m);
+              } else {
+                mysqlColumnsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datastream.v1.MysqlTable) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -639,11 +620,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTable(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       table_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -656,8 +635,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTable() {
-      
       table_ = getDefaultInstance().getTable();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -672,12 +651,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTableBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       table_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -685,9 +662,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.datastream.v1.MysqlColumn> mysqlColumns_ =
       java.util.Collections.emptyList();
     private void ensureMysqlColumnsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         mysqlColumns_ = new java.util.ArrayList<com.google.cloud.datastream.v1.MysqlColumn>(mysqlColumns_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -697,7 +674,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -713,7 +690,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -729,7 +706,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -745,7 +722,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -768,7 +745,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -788,7 +765,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -810,7 +787,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -833,7 +810,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -853,7 +830,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -873,7 +850,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -894,7 +871,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -903,7 +880,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMysqlColumns() {
       if (mysqlColumnsBuilder_ == null) {
         mysqlColumns_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         mysqlColumnsBuilder_.clear();
@@ -913,7 +890,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -932,7 +909,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -945,7 +922,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -961,7 +938,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -978,7 +955,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -991,7 +968,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -1005,7 +982,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * MySQL columns in the database.
-     * When unspecified as part of include/exclude lists, includes/excludes
+     * When unspecified as part of include/exclude objects, includes/excludes
      * everything.
      * </pre>
      *
@@ -1022,7 +999,7 @@ private static final long serialVersionUID = 0L;
         mysqlColumnsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.datastream.v1.MysqlColumn, com.google.cloud.datastream.v1.MysqlColumn.Builder, com.google.cloud.datastream.v1.MysqlColumnOrBuilder>(
                 mysqlColumns_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         mysqlColumns_ = null;
@@ -1062,7 +1039,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MysqlTable(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

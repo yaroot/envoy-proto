@@ -20,6 +20,11 @@ public final class RouteProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_envoy_config_route_v3_RouteConfiguration_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_envoy_config_route_v3_RouteConfiguration_TypedPerFilterConfigEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_envoy_config_route_v3_RouteConfiguration_TypedPerFilterConfigEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_envoy_config_route_v3_Vhds_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -37,40 +42,45 @@ public final class RouteProto {
       "oy.config.route.v3\032\037envoy/config/core/v3" +
       "/base.proto\032(envoy/config/core/v3/config" +
       "_source.proto\032,envoy/config/route/v3/rou" +
-      "te_components.proto\032\036google/protobuf/wra" +
-      "ppers.proto\032\035udpa/annotations/status.pro" +
-      "to\032!udpa/annotations/versioning.proto\032\027v" +
-      "alidate/validate.proto\"\246\007\n\022RouteConfigur" +
-      "ation\022\014\n\004name\030\001 \001(\t\0229\n\rvirtual_hosts\030\002 \003" +
-      "(\0132\".envoy.config.route.v3.VirtualHost\022)" +
-      "\n\004vhds\030\t \001(\0132\033.envoy.config.route.v3.Vhd" +
-      "s\022/\n\025internal_only_headers\030\003 \003(\tB\020\372B\r\222\001\n" +
-      "\"\010r\006\300\001\001\310\001\000\022S\n\027response_headers_to_add\030\004 " +
-      "\003(\0132\'.envoy.config.core.v3.HeaderValueOp" +
-      "tionB\t\372B\006\222\001\003\020\350\007\0224\n\032response_headers_to_r" +
-      "emove\030\005 \003(\tB\020\372B\r\222\001\n\"\010r\006\300\001\001\310\001\000\022R\n\026request" +
-      "_headers_to_add\030\006 \003(\0132\'.envoy.config.cor" +
-      "e.v3.HeaderValueOptionB\t\372B\006\222\001\003\020\350\007\0223\n\031req" +
-      "uest_headers_to_remove\030\010 \003(\tB\020\372B\r\222\001\n\"\010r\006" +
-      "\300\001\001\310\001\000\022+\n#most_specific_header_mutations" +
-      "_wins\030\n \001(\010\0225\n\021validate_clusters\030\007 \001(\0132\032" +
-      ".google.protobuf.BoolValue\022I\n#max_direct" +
-      "_response_body_size_bytes\030\013 \001(\0132\034.google" +
-      ".protobuf.UInt32Value\022P\n\031cluster_specifi" +
-      "er_plugins\030\014 \003(\0132-.envoy.config.route.v3" +
-      ".ClusterSpecifierPlugin\022W\n\027request_mirro" +
-      "r_policies\030\r \003(\01326.envoy.config.route.v3" +
-      ".RouteAction.RequestMirrorPolicy\022$\n\034igno" +
-      "re_port_in_host_matching\030\016 \001(\010\022/\n\'ignore" +
-      "_path_parameters_in_path_matching\030\017 \001(\010:" +
-      "&\232\305\210\036!\n\037envoy.api.v2.RouteConfiguration\"" +
-      "e\n\004Vhds\022C\n\rconfig_source\030\001 \001(\0132\".envoy.c" +
-      "onfig.core.v3.ConfigSourceB\010\372B\005\212\001\002\020\001:\030\232\305" +
-      "\210\036\023\n\021envoy.api.v2.VhdsB\201\001\n#io.envoyproxy" +
-      ".envoy.config.route.v3B\nRouteProtoP\001ZDgi" +
-      "thub.com/envoyproxy/go-control-plane/env" +
-      "oy/config/route/v3;routev3\272\200\310\321\006\002\020\002b\006prot" +
-      "o3"
+      "te_components.proto\032\031google/protobuf/any" +
+      ".proto\032\036google/protobuf/wrappers.proto\032\035" +
+      "udpa/annotations/status.proto\032!udpa/anno" +
+      "tations/versioning.proto\032\027validate/valid" +
+      "ate.proto\"\337\010\n\022RouteConfiguration\022\014\n\004name" +
+      "\030\001 \001(\t\0229\n\rvirtual_hosts\030\002 \003(\0132\".envoy.co" +
+      "nfig.route.v3.VirtualHost\022)\n\004vhds\030\t \001(\0132" +
+      "\033.envoy.config.route.v3.Vhds\022/\n\025internal" +
+      "_only_headers\030\003 \003(\tB\020\372B\r\222\001\n\"\010r\006\300\001\001\310\001\000\022S\n" +
+      "\027response_headers_to_add\030\004 \003(\0132\'.envoy.c" +
+      "onfig.core.v3.HeaderValueOptionB\t\372B\006\222\001\003\020" +
+      "\350\007\0224\n\032response_headers_to_remove\030\005 \003(\tB\020" +
+      "\372B\r\222\001\n\"\010r\006\300\001\001\310\001\000\022R\n\026request_headers_to_a" +
+      "dd\030\006 \003(\0132\'.envoy.config.core.v3.HeaderVa" +
+      "lueOptionB\t\372B\006\222\001\003\020\350\007\0223\n\031request_headers_" +
+      "to_remove\030\010 \003(\tB\020\372B\r\222\001\n\"\010r\006\300\001\001\310\001\000\022+\n#mos" +
+      "t_specific_header_mutations_wins\030\n \001(\010\0225" +
+      "\n\021validate_clusters\030\007 \001(\0132\032.google.proto" +
+      "buf.BoolValue\022I\n#max_direct_response_bod" +
+      "y_size_bytes\030\013 \001(\0132\034.google.protobuf.UIn" +
+      "t32Value\022P\n\031cluster_specifier_plugins\030\014 " +
+      "\003(\0132-.envoy.config.route.v3.ClusterSpeci" +
+      "fierPlugin\022W\n\027request_mirror_policies\030\r " +
+      "\003(\01326.envoy.config.route.v3.RouteAction." +
+      "RequestMirrorPolicy\022$\n\034ignore_port_in_ho" +
+      "st_matching\030\016 \001(\010\022/\n\'ignore_path_paramet" +
+      "ers_in_path_matching\030\017 \001(\010\022d\n\027typed_per_" +
+      "filter_config\030\020 \003(\0132C.envoy.config.route" +
+      ".v3.RouteConfiguration.TypedPerFilterCon" +
+      "figEntry\032Q\n\031TypedPerFilterConfigEntry\022\013\n" +
+      "\003key\030\001 \001(\t\022#\n\005value\030\002 \001(\0132\024.google.proto" +
+      "buf.Any:\0028\001:&\232\305\210\036!\n\037envoy.api.v2.RouteCo" +
+      "nfiguration\"e\n\004Vhds\022C\n\rconfig_source\030\001 \001" +
+      "(\0132\".envoy.config.core.v3.ConfigSourceB\010" +
+      "\372B\005\212\001\002\020\001:\030\232\305\210\036\023\n\021envoy.api.v2.VhdsB\201\001\n#i" +
+      "o.envoyproxy.envoy.config.route.v3B\nRout" +
+      "eProtoP\001ZDgithub.com/envoyproxy/go-contr" +
+      "ol-plane/envoy/config/route/v3;routev3\272\200" +
+      "\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -78,6 +88,7 @@ public final class RouteProto {
           io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor(),
           io.envoyproxy.envoy.config.core.v3.ConfigSourceProto.getDescriptor(),
           io.envoyproxy.envoy.config.route.v3.RouteComponentsProto.getDescriptor(),
+          com.google.protobuf.AnyProto.getDescriptor(),
           com.google.protobuf.WrappersProto.getDescriptor(),
           udpa.annotations.Status.getDescriptor(),
           udpa.annotations.Versioning.getDescriptor(),
@@ -88,7 +99,13 @@ public final class RouteProto {
     internal_static_envoy_config_route_v3_RouteConfiguration_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_config_route_v3_RouteConfiguration_descriptor,
-        new java.lang.String[] { "Name", "VirtualHosts", "Vhds", "InternalOnlyHeaders", "ResponseHeadersToAdd", "ResponseHeadersToRemove", "RequestHeadersToAdd", "RequestHeadersToRemove", "MostSpecificHeaderMutationsWins", "ValidateClusters", "MaxDirectResponseBodySizeBytes", "ClusterSpecifierPlugins", "RequestMirrorPolicies", "IgnorePortInHostMatching", "IgnorePathParametersInPathMatching", });
+        new java.lang.String[] { "Name", "VirtualHosts", "Vhds", "InternalOnlyHeaders", "ResponseHeadersToAdd", "ResponseHeadersToRemove", "RequestHeadersToAdd", "RequestHeadersToRemove", "MostSpecificHeaderMutationsWins", "ValidateClusters", "MaxDirectResponseBodySizeBytes", "ClusterSpecifierPlugins", "RequestMirrorPolicies", "IgnorePortInHostMatching", "IgnorePathParametersInPathMatching", "TypedPerFilterConfig", });
+    internal_static_envoy_config_route_v3_RouteConfiguration_TypedPerFilterConfigEntry_descriptor =
+      internal_static_envoy_config_route_v3_RouteConfiguration_descriptor.getNestedTypes().get(0);
+    internal_static_envoy_config_route_v3_RouteConfiguration_TypedPerFilterConfigEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_envoy_config_route_v3_RouteConfiguration_TypedPerFilterConfigEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_envoy_config_route_v3_Vhds_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_envoy_config_route_v3_Vhds_fieldAccessorTable = new
@@ -105,6 +122,7 @@ public final class RouteProto {
     io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor();
     io.envoyproxy.envoy.config.core.v3.ConfigSourceProto.getDescriptor();
     io.envoyproxy.envoy.config.route.v3.RouteComponentsProto.getDescriptor();
+    com.google.protobuf.AnyProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
     udpa.annotations.Status.getDescriptor();
     udpa.annotations.Versioning.getDescriptor();

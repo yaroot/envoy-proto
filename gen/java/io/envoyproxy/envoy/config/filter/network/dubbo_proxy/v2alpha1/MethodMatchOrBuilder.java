@@ -81,7 +81,6 @@ public interface MethodMatchOrBuilder extends
    *
    * <code>map&lt;uint32, .envoy.config.filter.network.dubbo_proxy.v2alpha1.MethodMatch.ParameterMatchSpecifier&gt; params_match = 2;</code>
    */
-
   /* nullable */
 io.envoyproxy.envoy.config.filter.network.dubbo_proxy.v2alpha1.MethodMatch.ParameterMatchSpecifier getParamsMatchOrDefault(
       int key,
@@ -96,7 +95,6 @@ io.envoyproxy.envoy.config.filter.network.dubbo_proxy.v2alpha1.MethodMatch.Param
    *
    * <code>map&lt;uint32, .envoy.config.filter.network.dubbo_proxy.v2alpha1.MethodMatch.ParameterMatchSpecifier&gt; params_match = 2;</code>
    */
-
   io.envoyproxy.envoy.config.filter.network.dubbo_proxy.v2alpha1.MethodMatch.ParameterMatchSpecifier getParamsMatchOrThrow(
       int key);
 }

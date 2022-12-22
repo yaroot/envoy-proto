@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GetServiceIdentityResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.api.serviceusage.v1beta1.ServiceIdentity.Builder subBuilder = null;
-            if (identity_ != null) {
-              subBuilder = identity_.toBuilder();
-            }
-            identity_ = input.readMessage(com.google.api.serviceusage.v1beta1.ServiceIdentity.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(identity_);
-              identity_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.serviceusage.v1beta1.ServiceUsageProto.internal_static_google_api_serviceusage_v1beta1_GetServiceIdentityResponse_descriptor;
@@ -277,11 +219,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.api.serviceusage.v1beta1.ServiceIdentityOrBuilder getIdentityOrBuilder() {
-    return getIdentity();
+    return identity_ == null ? com.google.api.serviceusage.v1beta1.ServiceIdentity.getDefaultInstance() : identity_;
   }
 
   public static final int STATE_FIELD_NUMBER = 2;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Service identity state.
@@ -302,8 +244,7 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse.IdentityState getState() {
-    @SuppressWarnings("deprecation")
-    com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse.IdentityState result = com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse.IdentityState.valueOf(state_);
+    com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse.IdentityState result = com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse.IdentityState.forNumber(state_);
     return result == null ? com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse.IdentityState.UNRECOGNIZED : result;
   }
 
@@ -327,7 +268,7 @@ private static final long serialVersionUID = 0L;
     if (state_ != com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse.IdentityState.IDENTITY_STATE_UNSPECIFIED.getNumber()) {
       output.writeEnum(2, state_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -344,7 +285,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, state_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -365,7 +306,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getIdentity())) return false;
     }
     if (state_ != other.state_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -382,7 +323,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + STATE_FIELD_NUMBER;
     hash = (53 * hash) + state_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -503,30 +444,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (identityBuilder_ == null) {
-        identity_ = null;
-      } else {
-        identity_ = null;
+      bitField0_ = 0;
+      identity_ = null;
+      if (identityBuilder_ != null) {
+        identityBuilder_.dispose();
         identityBuilder_ = null;
       }
       state_ = 0;
-
       return this;
     }
 
@@ -553,14 +488,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse buildPartial() {
       com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse result = new com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse(this);
-      if (identityBuilder_ == null) {
-        result.identity_ = identity_;
-      } else {
-        result.identity_ = identityBuilder_.build();
-      }
-      result.state_ = state_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.identity_ = identityBuilder_ == null
+            ? identity_
+            : identityBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.state_ = state_;
+      }
     }
 
     @java.lang.Override
@@ -613,7 +555,7 @@ private static final long serialVersionUID = 0L;
       if (other.state_ != 0) {
         setStateValue(other.getStateValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -628,19 +570,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getIdentityFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.api.serviceusage.v1beta1.ServiceIdentity identity_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -656,7 +624,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the identity field is set.
      */
     public boolean hasIdentity() {
-      return identityBuilder_ != null || identity_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -690,11 +658,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         identity_ = value;
-        onChanged();
       } else {
         identityBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -710,11 +678,11 @@ private static final long serialVersionUID = 0L;
         com.google.api.serviceusage.v1beta1.ServiceIdentity.Builder builderForValue) {
       if (identityBuilder_ == null) {
         identity_ = builderForValue.build();
-        onChanged();
       } else {
         identityBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -728,17 +696,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeIdentity(com.google.api.serviceusage.v1beta1.ServiceIdentity value) {
       if (identityBuilder_ == null) {
-        if (identity_ != null) {
-          identity_ =
-            com.google.api.serviceusage.v1beta1.ServiceIdentity.newBuilder(identity_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          identity_ != null &&
+          identity_ != com.google.api.serviceusage.v1beta1.ServiceIdentity.getDefaultInstance()) {
+          getIdentityBuilder().mergeFrom(value);
         } else {
           identity_ = value;
         }
-        onChanged();
       } else {
         identityBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -751,14 +720,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.serviceusage.v1beta1.ServiceIdentity identity = 1;</code>
      */
     public Builder clearIdentity() {
-      if (identityBuilder_ == null) {
-        identity_ = null;
-        onChanged();
-      } else {
-        identity_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      identity_ = null;
+      if (identityBuilder_ != null) {
+        identityBuilder_.dispose();
         identityBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -771,7 +739,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.api.serviceusage.v1beta1.ServiceIdentity identity = 1;</code>
      */
     public com.google.api.serviceusage.v1beta1.ServiceIdentity.Builder getIdentityBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getIdentityFieldBuilder().getBuilder();
     }
@@ -837,8 +805,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -852,8 +820,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse.IdentityState getState() {
-      @SuppressWarnings("deprecation")
-      com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse.IdentityState result = com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse.IdentityState.valueOf(state_);
+      com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse.IdentityState result = com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse.IdentityState.forNumber(state_);
       return result == null ? com.google.api.serviceusage.v1beta1.GetServiceIdentityResponse.IdentityState.UNRECOGNIZED : result;
     }
     /**
@@ -869,7 +836,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -883,7 +850,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       state_ = 0;
       onChanged();
       return this;
@@ -921,7 +888,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GetServiceIdentityResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

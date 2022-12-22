@@ -37,94 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ListDeliveryVehiclesRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.Builder subBuilder = null;
-            if (header_ != null) {
-              subBuilder = header_.toBuilder();
-            }
-            header_ = input.readMessage(google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(header_);
-              header_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 32: {
-
-            pageSize_ = input.readInt32();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            filter_ = s;
-            break;
-          }
-          case 58: {
-            com.google.geo.type.Viewport.Builder subBuilder = null;
-            if (viewport_ != null) {
-              subBuilder = viewport_.toBuilder();
-            }
-            viewport_ = input.readMessage(com.google.geo.type.Viewport.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(viewport_);
-              viewport_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.delivery.v1.DeliveryApi.internal_static_maps_fleetengine_delivery_v1_ListDeliveryVehiclesRequest_descriptor;
@@ -173,11 +85,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.delivery.v1.DeliveryRequestHeaderOrBuilder getHeaderOrBuilder() {
-    return getHeader();
+    return header_ == null ? google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.getDefaultInstance() : header_;
   }
 
   public static final int PARENT_FIELD_NUMBER = 3;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. Must be in the format `providers/{provider}`.
@@ -227,7 +140,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 4;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
    * Optional. The maximum number of vehicles to return. The service may return fewer than
@@ -244,7 +157,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 5;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
    * Optional. A page token, received from a previous `ListDeliveryVehicles` call. You
@@ -296,7 +210,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILTER_FIELD_NUMBER = 6;
-  private volatile java.lang.Object filter_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object filter_ = "";
   /**
    * <pre>
    * Optional. A filter query to apply when listing delivery vehicles. See
@@ -304,11 +219,17 @@ private static final long serialVersionUID = 0L;
    * a value, or if you specify an empty string for the filter, then all
    * delivery vehicles are returned.
    * Note that the only queries supported for `ListDeliveryVehicles` are
-   * equality comparisons on vehicle attributes (`attributes.&lt;key&gt; = &lt;value&gt;`).
-   * Comparison operators besides `=` (like `!=`, `&gt;`, `&lt;`, etc.) aren't
-   * supported. Queries that include them are rejected. You can combine
-   * attribute equality queries with **AND**, but not with any other boolean
-   * operator.
+   * on vehicle attributes (for example, `attributes.&lt;key&gt; = &lt;value&gt;` or
+   * `attributes.&lt;key1&gt; = &lt;value1&gt; AND attributes.&lt;key2&gt; = &lt;value2&gt;`). Also, all
+   * attributes are stored as strings, so the only supported comparisons against
+   * attributes are string comparisons. In order to compare against number or
+   * boolean values, the values must be explicitly quoted to be treated as
+   * strings (for example, `attributes.&lt;key&gt; = "10"` or
+   * `attributes.&lt;key&gt; = "true"`).
+   * The maximum number of restrictions allowed in a filter query is 50. A
+   * restriction is a part of the query of the form
+   * `attribute.&lt;KEY&gt; &lt;COMPARATOR&gt; &lt;VALUE&gt;`, for example `attributes.foo = bar`
+   * is 1 restriction.
    * </pre>
    *
    * <code>string filter = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -334,11 +255,17 @@ private static final long serialVersionUID = 0L;
    * a value, or if you specify an empty string for the filter, then all
    * delivery vehicles are returned.
    * Note that the only queries supported for `ListDeliveryVehicles` are
-   * equality comparisons on vehicle attributes (`attributes.&lt;key&gt; = &lt;value&gt;`).
-   * Comparison operators besides `=` (like `!=`, `&gt;`, `&lt;`, etc.) aren't
-   * supported. Queries that include them are rejected. You can combine
-   * attribute equality queries with **AND**, but not with any other boolean
-   * operator.
+   * on vehicle attributes (for example, `attributes.&lt;key&gt; = &lt;value&gt;` or
+   * `attributes.&lt;key1&gt; = &lt;value1&gt; AND attributes.&lt;key2&gt; = &lt;value2&gt;`). Also, all
+   * attributes are stored as strings, so the only supported comparisons against
+   * attributes are string comparisons. In order to compare against number or
+   * boolean values, the values must be explicitly quoted to be treated as
+   * strings (for example, `attributes.&lt;key&gt; = "10"` or
+   * `attributes.&lt;key&gt; = "true"`).
+   * The maximum number of restrictions allowed in a filter query is 50. A
+   * restriction is a part of the query of the form
+   * `attribute.&lt;KEY&gt; &lt;COMPARATOR&gt; &lt;VALUE&gt;`, for example `attributes.foo = bar`
+   * is 1 restriction.
    * </pre>
    *
    * <code>string filter = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -400,7 +327,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.geo.type.ViewportOrBuilder getViewportOrBuilder() {
-    return getViewport();
+    return viewport_ == null ? com.google.geo.type.Viewport.getDefaultInstance() : viewport_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -435,7 +362,7 @@ private static final long serialVersionUID = 0L;
     if (viewport_ != null) {
       output.writeMessage(7, getViewport());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -465,7 +392,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getViewport());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -498,7 +425,7 @@ private static final long serialVersionUID = 0L;
       if (!getViewport()
           .equals(other.getViewport())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -525,7 +452,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VIEWPORT_FIELD_NUMBER;
       hash = (53 * hash) + getViewport().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -646,40 +573,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.delivery.v1.ListDeliveryVehiclesRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (headerBuilder_ == null) {
-        header_ = null;
-      } else {
-        header_ = null;
+      bitField0_ = 0;
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
       parent_ = "";
-
       pageSize_ = 0;
-
       pageToken_ = "";
-
       filter_ = "";
-
-      if (viewportBuilder_ == null) {
-        viewport_ = null;
-      } else {
-        viewport_ = null;
+      viewport_ = null;
+      if (viewportBuilder_ != null) {
+        viewportBuilder_.dispose();
         viewportBuilder_ = null;
       }
       return this;
@@ -708,22 +625,35 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.delivery.v1.ListDeliveryVehiclesRequest buildPartial() {
       google.maps.fleetengine.delivery.v1.ListDeliveryVehiclesRequest result = new google.maps.fleetengine.delivery.v1.ListDeliveryVehiclesRequest(this);
-      if (headerBuilder_ == null) {
-        result.header_ = header_;
-      } else {
-        result.header_ = headerBuilder_.build();
-      }
-      result.parent_ = parent_;
-      result.pageSize_ = pageSize_;
-      result.pageToken_ = pageToken_;
-      result.filter_ = filter_;
-      if (viewportBuilder_ == null) {
-        result.viewport_ = viewport_;
-      } else {
-        result.viewport_ = viewportBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.delivery.v1.ListDeliveryVehiclesRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.header_ = headerBuilder_ == null
+            ? header_
+            : headerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.filter_ = filter_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.viewport_ = viewportBuilder_ == null
+            ? viewport_
+            : viewportBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -775,6 +705,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getPageSize() != 0) {
@@ -782,16 +713,18 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getFilter().isEmpty()) {
         filter_ = other.filter_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasViewport()) {
         mergeViewport(other.getViewport());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -806,19 +739,67 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.delivery.v1.ListDeliveryVehiclesRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getHeaderFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 32: {
+              pageSize_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 32
+            case 42: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 50: {
+              filter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getViewportFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.delivery.v1.ListDeliveryVehiclesRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private google.maps.fleetengine.delivery.v1.DeliveryRequestHeader header_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -832,7 +813,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the header field is set.
      */
     public boolean hasHeader() {
-      return headerBuilder_ != null || header_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -862,11 +843,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         header_ = value;
-        onChanged();
       } else {
         headerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -880,11 +861,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.Builder builderForValue) {
       if (headerBuilder_ == null) {
         header_ = builderForValue.build();
-        onChanged();
       } else {
         headerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -896,17 +877,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHeader(google.maps.fleetengine.delivery.v1.DeliveryRequestHeader value) {
       if (headerBuilder_ == null) {
-        if (header_ != null) {
-          header_ =
-            google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          header_ != null &&
+          header_ != google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.getDefaultInstance()) {
+          getHeaderBuilder().mergeFrom(value);
         } else {
           header_ = value;
         }
-        onChanged();
       } else {
         headerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -917,14 +899,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.DeliveryRequestHeader header = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearHeader() {
-      if (headerBuilder_ == null) {
-        header_ = null;
-        onChanged();
-      } else {
-        header_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -935,7 +916,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.DeliveryRequestHeader header = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public google.maps.fleetengine.delivery.v1.DeliveryRequestHeader.Builder getHeaderBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getHeaderFieldBuilder().getBuilder();
     }
@@ -1034,11 +1015,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1053,8 +1032,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1071,12 +1050,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1110,6 +1087,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
       
       pageSize_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1124,7 +1102,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -1192,11 +1170,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1212,8 +1188,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1231,12 +1207,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1249,11 +1223,17 @@ private static final long serialVersionUID = 0L;
      * a value, or if you specify an empty string for the filter, then all
      * delivery vehicles are returned.
      * Note that the only queries supported for `ListDeliveryVehicles` are
-     * equality comparisons on vehicle attributes (`attributes.&lt;key&gt; = &lt;value&gt;`).
-     * Comparison operators besides `=` (like `!=`, `&gt;`, `&lt;`, etc.) aren't
-     * supported. Queries that include them are rejected. You can combine
-     * attribute equality queries with **AND**, but not with any other boolean
-     * operator.
+     * on vehicle attributes (for example, `attributes.&lt;key&gt; = &lt;value&gt;` or
+     * `attributes.&lt;key1&gt; = &lt;value1&gt; AND attributes.&lt;key2&gt; = &lt;value2&gt;`). Also, all
+     * attributes are stored as strings, so the only supported comparisons against
+     * attributes are string comparisons. In order to compare against number or
+     * boolean values, the values must be explicitly quoted to be treated as
+     * strings (for example, `attributes.&lt;key&gt; = "10"` or
+     * `attributes.&lt;key&gt; = "true"`).
+     * The maximum number of restrictions allowed in a filter query is 50. A
+     * restriction is a part of the query of the form
+     * `attribute.&lt;KEY&gt; &lt;COMPARATOR&gt; &lt;VALUE&gt;`, for example `attributes.foo = bar`
+     * is 1 restriction.
      * </pre>
      *
      * <code>string filter = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1278,11 +1258,17 @@ private static final long serialVersionUID = 0L;
      * a value, or if you specify an empty string for the filter, then all
      * delivery vehicles are returned.
      * Note that the only queries supported for `ListDeliveryVehicles` are
-     * equality comparisons on vehicle attributes (`attributes.&lt;key&gt; = &lt;value&gt;`).
-     * Comparison operators besides `=` (like `!=`, `&gt;`, `&lt;`, etc.) aren't
-     * supported. Queries that include them are rejected. You can combine
-     * attribute equality queries with **AND**, but not with any other boolean
-     * operator.
+     * on vehicle attributes (for example, `attributes.&lt;key&gt; = &lt;value&gt;` or
+     * `attributes.&lt;key1&gt; = &lt;value1&gt; AND attributes.&lt;key2&gt; = &lt;value2&gt;`). Also, all
+     * attributes are stored as strings, so the only supported comparisons against
+     * attributes are string comparisons. In order to compare against number or
+     * boolean values, the values must be explicitly quoted to be treated as
+     * strings (for example, `attributes.&lt;key&gt; = "10"` or
+     * `attributes.&lt;key&gt; = "true"`).
+     * The maximum number of restrictions allowed in a filter query is 50. A
+     * restriction is a part of the query of the form
+     * `attribute.&lt;KEY&gt; &lt;COMPARATOR&gt; &lt;VALUE&gt;`, for example `attributes.foo = bar`
+     * is 1 restriction.
      * </pre>
      *
      * <code>string filter = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1308,11 +1294,17 @@ private static final long serialVersionUID = 0L;
      * a value, or if you specify an empty string for the filter, then all
      * delivery vehicles are returned.
      * Note that the only queries supported for `ListDeliveryVehicles` are
-     * equality comparisons on vehicle attributes (`attributes.&lt;key&gt; = &lt;value&gt;`).
-     * Comparison operators besides `=` (like `!=`, `&gt;`, `&lt;`, etc.) aren't
-     * supported. Queries that include them are rejected. You can combine
-     * attribute equality queries with **AND**, but not with any other boolean
-     * operator.
+     * on vehicle attributes (for example, `attributes.&lt;key&gt; = &lt;value&gt;` or
+     * `attributes.&lt;key1&gt; = &lt;value1&gt; AND attributes.&lt;key2&gt; = &lt;value2&gt;`). Also, all
+     * attributes are stored as strings, so the only supported comparisons against
+     * attributes are string comparisons. In order to compare against number or
+     * boolean values, the values must be explicitly quoted to be treated as
+     * strings (for example, `attributes.&lt;key&gt; = "10"` or
+     * `attributes.&lt;key&gt; = "true"`).
+     * The maximum number of restrictions allowed in a filter query is 50. A
+     * restriction is a part of the query of the form
+     * `attribute.&lt;KEY&gt; &lt;COMPARATOR&gt; &lt;VALUE&gt;`, for example `attributes.foo = bar`
+     * is 1 restriction.
      * </pre>
      *
      * <code>string filter = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1321,11 +1313,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       filter_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1336,19 +1326,25 @@ private static final long serialVersionUID = 0L;
      * a value, or if you specify an empty string for the filter, then all
      * delivery vehicles are returned.
      * Note that the only queries supported for `ListDeliveryVehicles` are
-     * equality comparisons on vehicle attributes (`attributes.&lt;key&gt; = &lt;value&gt;`).
-     * Comparison operators besides `=` (like `!=`, `&gt;`, `&lt;`, etc.) aren't
-     * supported. Queries that include them are rejected. You can combine
-     * attribute equality queries with **AND**, but not with any other boolean
-     * operator.
+     * on vehicle attributes (for example, `attributes.&lt;key&gt; = &lt;value&gt;` or
+     * `attributes.&lt;key1&gt; = &lt;value1&gt; AND attributes.&lt;key2&gt; = &lt;value2&gt;`). Also, all
+     * attributes are stored as strings, so the only supported comparisons against
+     * attributes are string comparisons. In order to compare against number or
+     * boolean values, the values must be explicitly quoted to be treated as
+     * strings (for example, `attributes.&lt;key&gt; = "10"` or
+     * `attributes.&lt;key&gt; = "true"`).
+     * The maximum number of restrictions allowed in a filter query is 50. A
+     * restriction is a part of the query of the form
+     * `attribute.&lt;KEY&gt; &lt;COMPARATOR&gt; &lt;VALUE&gt;`, for example `attributes.foo = bar`
+     * is 1 restriction.
      * </pre>
      *
      * <code>string filter = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearFilter() {
-      
       filter_ = getDefaultInstance().getFilter();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1359,11 +1355,17 @@ private static final long serialVersionUID = 0L;
      * a value, or if you specify an empty string for the filter, then all
      * delivery vehicles are returned.
      * Note that the only queries supported for `ListDeliveryVehicles` are
-     * equality comparisons on vehicle attributes (`attributes.&lt;key&gt; = &lt;value&gt;`).
-     * Comparison operators besides `=` (like `!=`, `&gt;`, `&lt;`, etc.) aren't
-     * supported. Queries that include them are rejected. You can combine
-     * attribute equality queries with **AND**, but not with any other boolean
-     * operator.
+     * on vehicle attributes (for example, `attributes.&lt;key&gt; = &lt;value&gt;` or
+     * `attributes.&lt;key1&gt; = &lt;value1&gt; AND attributes.&lt;key2&gt; = &lt;value2&gt;`). Also, all
+     * attributes are stored as strings, so the only supported comparisons against
+     * attributes are string comparisons. In order to compare against number or
+     * boolean values, the values must be explicitly quoted to be treated as
+     * strings (for example, `attributes.&lt;key&gt; = "10"` or
+     * `attributes.&lt;key&gt; = "true"`).
+     * The maximum number of restrictions allowed in a filter query is 50. A
+     * restriction is a part of the query of the form
+     * `attribute.&lt;KEY&gt; &lt;COMPARATOR&gt; &lt;VALUE&gt;`, for example `attributes.foo = bar`
+     * is 1 restriction.
      * </pre>
      *
      * <code>string filter = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1372,12 +1374,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       filter_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1396,7 +1396,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the viewport field is set.
      */
     public boolean hasViewport() {
-      return viewportBuilder_ != null || viewport_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1430,11 +1430,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         viewport_ = value;
-        onChanged();
       } else {
         viewportBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1450,11 +1450,11 @@ private static final long serialVersionUID = 0L;
         com.google.geo.type.Viewport.Builder builderForValue) {
       if (viewportBuilder_ == null) {
         viewport_ = builderForValue.build();
-        onChanged();
       } else {
         viewportBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1468,17 +1468,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeViewport(com.google.geo.type.Viewport value) {
       if (viewportBuilder_ == null) {
-        if (viewport_ != null) {
-          viewport_ =
-            com.google.geo.type.Viewport.newBuilder(viewport_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          viewport_ != null &&
+          viewport_ != com.google.geo.type.Viewport.getDefaultInstance()) {
+          getViewportBuilder().mergeFrom(value);
         } else {
           viewport_ = value;
         }
-        onChanged();
       } else {
         viewportBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1491,14 +1492,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.geo.type.Viewport viewport = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearViewport() {
-      if (viewportBuilder_ == null) {
-        viewport_ = null;
-        onChanged();
-      } else {
-        viewport_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      viewport_ = null;
+      if (viewportBuilder_ != null) {
+        viewportBuilder_.dispose();
         viewportBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1511,7 +1511,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.geo.type.Viewport viewport = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.geo.type.Viewport.Builder getViewportBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getViewportFieldBuilder().getBuilder();
     }
@@ -1587,7 +1587,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListDeliveryVehiclesRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -10,6 +10,10 @@ public interface TlsParametersOrBuilder extends
   /**
    * <pre>
    * Minimum TLS protocol version. By default, it's ``TLSv1_2`` for both clients and servers.
+   * TLS protocol versions below TLSv1_2 require setting compatible ciphers with the
+   * ``cipher_suites`` setting as the default ciphers no longer include compatible ciphers.
+   * .. attention::
+   *   Using TLS protocol versions below TLSv1_2 has serious security considerations and risks.
    * </pre>
    *
    * <code>.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol tls_minimum_protocol_version = 1 [(.validate.rules) = { ... }</code>
@@ -19,6 +23,10 @@ public interface TlsParametersOrBuilder extends
   /**
    * <pre>
    * Minimum TLS protocol version. By default, it's ``TLSv1_2`` for both clients and servers.
+   * TLS protocol versions below TLSv1_2 require setting compatible ciphers with the
+   * ``cipher_suites`` setting as the default ciphers no longer include compatible ciphers.
+   * .. attention::
+   *   Using TLS protocol versions below TLSv1_2 has serious security considerations and risks.
    * </pre>
    *
    * <code>.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol tls_minimum_protocol_version = 1 [(.validate.rules) = { ... }</code>

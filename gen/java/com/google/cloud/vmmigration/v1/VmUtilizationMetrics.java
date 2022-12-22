@@ -34,85 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VmUtilizationMetrics(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 72: {
-
-            cpuMaxPercent_ = input.readInt32();
-            break;
-          }
-          case 80: {
-
-            cpuAveragePercent_ = input.readInt32();
-            break;
-          }
-          case 88: {
-
-            memoryMaxPercent_ = input.readInt32();
-            break;
-          }
-          case 96: {
-
-            memoryAveragePercent_ = input.readInt32();
-            break;
-          }
-          case 104: {
-
-            diskIoRateMaxKbps_ = input.readInt64();
-            break;
-          }
-          case 112: {
-
-            diskIoRateAverageKbps_ = input.readInt64();
-            break;
-          }
-          case 120: {
-
-            networkThroughputMaxKbps_ = input.readInt64();
-            break;
-          }
-          case 128: {
-
-            networkThroughputAverageKbps_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.vmmigration.v1.VmMigrationProto.internal_static_google_cloud_vmmigration_v1_VmUtilizationMetrics_descriptor;
@@ -127,7 +48,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CPU_MAX_PERCENT_FIELD_NUMBER = 9;
-  private int cpuMaxPercent_;
+  private int cpuMaxPercent_ = 0;
   /**
    * <pre>
    * Max CPU usage, percent.
@@ -142,7 +63,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CPU_AVERAGE_PERCENT_FIELD_NUMBER = 10;
-  private int cpuAveragePercent_;
+  private int cpuAveragePercent_ = 0;
   /**
    * <pre>
    * Average CPU usage, percent.
@@ -157,7 +78,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MEMORY_MAX_PERCENT_FIELD_NUMBER = 11;
-  private int memoryMaxPercent_;
+  private int memoryMaxPercent_ = 0;
   /**
    * <pre>
    * Max memory usage, percent.
@@ -172,7 +93,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MEMORY_AVERAGE_PERCENT_FIELD_NUMBER = 12;
-  private int memoryAveragePercent_;
+  private int memoryAveragePercent_ = 0;
   /**
    * <pre>
    * Average memory usage, percent.
@@ -187,7 +108,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISK_IO_RATE_MAX_KBPS_FIELD_NUMBER = 13;
-  private long diskIoRateMaxKbps_;
+  private long diskIoRateMaxKbps_ = 0L;
   /**
    * <pre>
    * Max disk IO rate, in kilobytes per second.
@@ -202,7 +123,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISK_IO_RATE_AVERAGE_KBPS_FIELD_NUMBER = 14;
-  private long diskIoRateAverageKbps_;
+  private long diskIoRateAverageKbps_ = 0L;
   /**
    * <pre>
    * Average disk IO rate, in kilobytes per second.
@@ -217,7 +138,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_THROUGHPUT_MAX_KBPS_FIELD_NUMBER = 15;
-  private long networkThroughputMaxKbps_;
+  private long networkThroughputMaxKbps_ = 0L;
   /**
    * <pre>
    * Max network throughput (combined transmit-rates and receive-rates), in
@@ -233,7 +154,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_THROUGHPUT_AVERAGE_KBPS_FIELD_NUMBER = 16;
-  private long networkThroughputAverageKbps_;
+  private long networkThroughputAverageKbps_ = 0L;
   /**
    * <pre>
    * Average network throughput (combined transmit-rates and receive-rates), in
@@ -286,7 +207,7 @@ private static final long serialVersionUID = 0L;
     if (networkThroughputAverageKbps_ != 0L) {
       output.writeInt64(16, networkThroughputAverageKbps_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -327,7 +248,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(16, networkThroughputAverageKbps_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -358,7 +279,7 @@ private static final long serialVersionUID = 0L;
         != other.getNetworkThroughputMaxKbps()) return false;
     if (getNetworkThroughputAverageKbps()
         != other.getNetworkThroughputAverageKbps()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -389,7 +310,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + NETWORK_THROUGHPUT_AVERAGE_KBPS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getNetworkThroughputAverageKbps());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -510,38 +431,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.vmmigration.v1.VmUtilizationMetrics.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       cpuMaxPercent_ = 0;
-
       cpuAveragePercent_ = 0;
-
       memoryMaxPercent_ = 0;
-
       memoryAveragePercent_ = 0;
-
       diskIoRateMaxKbps_ = 0L;
-
       diskIoRateAverageKbps_ = 0L;
-
       networkThroughputMaxKbps_ = 0L;
-
       networkThroughputAverageKbps_ = 0L;
-
       return this;
     }
 
@@ -568,16 +477,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.vmmigration.v1.VmUtilizationMetrics buildPartial() {
       com.google.cloud.vmmigration.v1.VmUtilizationMetrics result = new com.google.cloud.vmmigration.v1.VmUtilizationMetrics(this);
-      result.cpuMaxPercent_ = cpuMaxPercent_;
-      result.cpuAveragePercent_ = cpuAveragePercent_;
-      result.memoryMaxPercent_ = memoryMaxPercent_;
-      result.memoryAveragePercent_ = memoryAveragePercent_;
-      result.diskIoRateMaxKbps_ = diskIoRateMaxKbps_;
-      result.diskIoRateAverageKbps_ = diskIoRateAverageKbps_;
-      result.networkThroughputMaxKbps_ = networkThroughputMaxKbps_;
-      result.networkThroughputAverageKbps_ = networkThroughputAverageKbps_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.vmmigration.v1.VmUtilizationMetrics result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.cpuMaxPercent_ = cpuMaxPercent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.cpuAveragePercent_ = cpuAveragePercent_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.memoryMaxPercent_ = memoryMaxPercent_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.memoryAveragePercent_ = memoryAveragePercent_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.diskIoRateMaxKbps_ = diskIoRateMaxKbps_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.diskIoRateAverageKbps_ = diskIoRateAverageKbps_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.networkThroughputMaxKbps_ = networkThroughputMaxKbps_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.networkThroughputAverageKbps_ = networkThroughputAverageKbps_;
+      }
     }
 
     @java.lang.Override
@@ -648,7 +578,7 @@ private static final long serialVersionUID = 0L;
       if (other.getNetworkThroughputAverageKbps() != 0L) {
         setNetworkThroughputAverageKbps(other.getNetworkThroughputAverageKbps());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -663,19 +593,73 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.vmmigration.v1.VmUtilizationMetrics parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 72: {
+              cpuMaxPercent_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 72
+            case 80: {
+              cpuAveragePercent_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 80
+            case 88: {
+              memoryMaxPercent_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 88
+            case 96: {
+              memoryAveragePercent_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 96
+            case 104: {
+              diskIoRateMaxKbps_ = input.readInt64();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 104
+            case 112: {
+              diskIoRateAverageKbps_ = input.readInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 112
+            case 120: {
+              networkThroughputMaxKbps_ = input.readInt64();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 120
+            case 128: {
+              networkThroughputAverageKbps_ = input.readInt64();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 128
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.vmmigration.v1.VmUtilizationMetrics) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int cpuMaxPercent_ ;
     /**
@@ -702,6 +686,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCpuMaxPercent(int value) {
       
       cpuMaxPercent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -714,7 +699,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCpuMaxPercent() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       cpuMaxPercent_ = 0;
       onChanged();
       return this;
@@ -745,6 +730,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCpuAveragePercent(int value) {
       
       cpuAveragePercent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -757,7 +743,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCpuAveragePercent() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       cpuAveragePercent_ = 0;
       onChanged();
       return this;
@@ -788,6 +774,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMemoryMaxPercent(int value) {
       
       memoryMaxPercent_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -800,7 +787,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMemoryMaxPercent() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       memoryMaxPercent_ = 0;
       onChanged();
       return this;
@@ -831,6 +818,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMemoryAveragePercent(int value) {
       
       memoryAveragePercent_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -843,7 +831,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMemoryAveragePercent() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       memoryAveragePercent_ = 0;
       onChanged();
       return this;
@@ -874,6 +862,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDiskIoRateMaxKbps(long value) {
       
       diskIoRateMaxKbps_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -886,7 +875,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDiskIoRateMaxKbps() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       diskIoRateMaxKbps_ = 0L;
       onChanged();
       return this;
@@ -917,6 +906,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDiskIoRateAverageKbps(long value) {
       
       diskIoRateAverageKbps_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -929,7 +919,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDiskIoRateAverageKbps() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       diskIoRateAverageKbps_ = 0L;
       onChanged();
       return this;
@@ -962,6 +952,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNetworkThroughputMaxKbps(long value) {
       
       networkThroughputMaxKbps_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -975,7 +966,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNetworkThroughputMaxKbps() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       networkThroughputMaxKbps_ = 0L;
       onChanged();
       return this;
@@ -1008,6 +999,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNetworkThroughputAverageKbps(long value) {
       
       networkThroughputAverageKbps_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1021,7 +1013,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNetworkThroughputAverageKbps() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       networkThroughputAverageKbps_ = 0L;
       onChanged();
       return this;
@@ -1059,7 +1051,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VmUtilizationMetrics(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

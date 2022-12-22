@@ -145,7 +145,7 @@ public final class HttpConnectionManagerProto {
       "\032\036udpa/annotations/migrate.proto\032\037udpa/a" +
       "nnotations/security.proto\032\035udpa/annotati" +
       "ons/status.proto\032!udpa/annotations/versi" +
-      "oning.proto\032\027validate/validate.proto\"\217/\n" +
+      "oning.proto\032\027validate/validate.proto\"\2060\n" +
       "\025HttpConnectionManager\022z\n\ncodec_type\030\001 \001" +
       "(\0162\\.envoy.extensions.filters.network.ht" +
       "tp_connection_manager.v3.HttpConnectionM" +
@@ -193,202 +193,205 @@ public final class HttpConnectionManagerProto {
       "\032.google.protobuf.BoolValueB\007\212\223\267*\002\010\001\022\034\n\024" +
       "xff_num_trusted_hops\030\023 \001(\r\022T\n original_i" +
       "p_detection_extensions\030. \003(\0132*.envoy.con" +
-      "fig.core.v3.TypedExtensionConfig\022\211\001\n\027int" +
-      "ernal_address_config\030\031 \001(\0132h.envoy.exten" +
-      "sions.filters.network.http_connection_ma" +
-      "nager.v3.HttpConnectionManager.InternalA" +
-      "ddressConfig\022\027\n\017skip_xff_append\030\025 \001(\010\022\030\n" +
-      "\003via\030\026 \001(\tB\013\372B\010r\006\300\001\002\310\001\000\0227\n\023generate_requ" +
-      "est_id\030\017 \001(\0132\032.google.protobuf.BoolValue" +
-      "\022$\n\034preserve_external_request_id\030  \001(\010\022)" +
-      "\n!always_set_request_id_in_response\030% \001(" +
-      "\010\022\232\001\n\033forward_client_cert_details\030\020 \001(\0162" +
-      "k.envoy.extensions.filters.network.http_" +
-      "connection_manager.v3.HttpConnectionMana" +
-      "ger.ForwardClientCertDetailsB\010\372B\005\202\001\002\020\001\022\227" +
-      "\001\n\037set_current_client_cert_details\030\021 \001(\013" +
-      "2n.envoy.extensions.filters.network.http" +
-      "_connection_manager.v3.HttpConnectionMan" +
-      "ager.SetCurrentClientCertDetails\022\032\n\022prox" +
-      "y_100_continue\030\022 \001(\010\0229\n1represent_ipv4_r" +
-      "emote_address_as_ipv4_mapped_ipv6\030\024 \001(\010\022" +
-      "y\n\017upgrade_configs\030\027 \003(\0132`.envoy.extensi" +
-      "ons.filters.network.http_connection_mana" +
-      "ger.v3.HttpConnectionManager.UpgradeConf" +
-      "ig\0222\n\016normalize_path\030\036 \001(\0132\032.google.prot" +
-      "obuf.BoolValue\022\025\n\rmerge_slashes\030! \001(\010\022\231\001" +
-      "\n path_with_escaped_slashes_action\030- \001(\016" +
-      "2o.envoy.extensions.filters.network.http" +
-      "_connection_manager.v3.HttpConnectionMan" +
-      "ager.PathWithEscapedSlashesAction\022m\n\024req" +
-      "uest_id_extension\030$ \001(\0132O.envoy.extensio" +
-      "ns.filters.network.http_connection_manag" +
-      "er.v3.RequestIDExtension\022i\n\022local_reply_" +
-      "config\030& \001(\0132M.envoy.extensions.filters." +
-      "network.http_connection_manager.v3.Local" +
-      "ReplyConfig\0229\n\030strip_matching_host_port\030" +
-      "\' \001(\010B\027\362\230\376\217\005\021\022\017strip_port_mode\022\035\n\023strip_" +
-      "any_host_port\030* \001(\010H\001\022H\n$stream_error_on" +
-      "_invalid_http_message\030( \001(\0132\032.google.pro" +
-      "tobuf.BoolValue\022\217\001\n\032path_normalization_o" +
-      "ptions\030+ \001(\0132k.envoy.extensions.filters." +
-      "network.http_connection_manager.v3.HttpC" +
-      "onnectionManager.PathNormalizationOption" +
-      "s\022\037\n\027strip_trailing_host_dot\030/ \001(\010\022\201\001\n\023p" +
-      "roxy_status_config\0301 \001(\0132d.envoy.extensi" +
-      "ons.filters.network.http_connection_mana" +
-      "ger.v3.HttpConnectionManager.ProxyStatus" +
-      "Config\022R\n\036typed_header_validation_config" +
-      "\0302 \001(\0132*.envoy.config.core.v3.TypedExten" +
-      "sionConfig\032\224\004\n\007Tracing\022/\n\017client_samplin" +
-      "g\030\003 \001(\0132\026.envoy.type.v3.Percent\022/\n\017rando" +
-      "m_sampling\030\004 \001(\0132\026.envoy.type.v3.Percent" +
-      "\0220\n\020overall_sampling\030\005 \001(\0132\026.envoy.type." +
-      "v3.Percent\022\017\n\007verbose\030\006 \001(\010\0229\n\023max_path_" +
-      "tag_length\030\007 \001(\0132\034.google.protobuf.UInt3" +
-      "2Value\0225\n\013custom_tags\030\010 \003(\0132 .envoy.type" +
-      ".tracing.v3.CustomTag\0225\n\010provider\030\t \001(\0132" +
-      "#.envoy.config.trace.v3.Tracing.Http\"(\n\r" +
-      "OperationName\022\013\n\007INGRESS\020\000\022\n\n\006EGRESS\020\001:[" +
-      "\232\305\210\036V\nTenvoy.config.filter.network.http_" +
-      "connection_manager.v2.HttpConnectionMana" +
-      "ger.TracingJ\004\010\001\020\002J\004\010\002\020\003R\016operation_nameR" +
-      "\030request_headers_for_tags\032\316\001\n\025InternalAd" +
-      "dressConfig\022\024\n\014unix_sockets\030\001 \001(\010\0224\n\013cid" +
-      "r_ranges\030\002 \003(\0132\037.envoy.config.core.v3.Ci" +
-      "drRange:i\232\305\210\036d\nbenvoy.config.filter.netw" +
-      "ork.http_connection_manager.v2.HttpConne" +
-      "ctionManager.InternalAddressConfig\032\370\001\n\033S" +
-      "etCurrentClientCertDetails\022+\n\007subject\030\001 " +
-      "\001(\0132\032.google.protobuf.BoolValue\022\014\n\004cert\030" +
-      "\003 \001(\010\022\r\n\005chain\030\006 \001(\010\022\013\n\003dns\030\004 \001(\010\022\013\n\003uri" +
-      "\030\005 \001(\010:o\232\305\210\036j\nhenvoy.config.filter.netwo" +
-      "rk.http_connection_manager.v2.HttpConnec" +
-      "tionManager.SetCurrentClientCertDetailsJ" +
-      "\004\010\002\020\003\032\217\002\n\rUpgradeConfig\022\024\n\014upgrade_type\030" +
-      "\001 \001(\t\022X\n\007filters\030\002 \003(\0132G.envoy.extension" +
-      "s.filters.network.http_connection_manage" +
-      "r.v3.HttpFilter\022+\n\007enabled\030\003 \001(\0132\032.googl" +
-      "e.protobuf.BoolValue:a\232\305\210\036\\\nZenvoy.confi" +
-      "g.filter.network.http_connection_manager" +
-      ".v2.HttpConnectionManager.UpgradeConfig\032" +
-      "\261\001\n\030PathNormalizationOptions\022I\n\031forwardi" +
-      "ng_transformation\030\001 \001(\0132&.envoy.type.htt" +
-      "p.v3.PathTransformation\022J\n\032http_filter_t" +
-      "ransformation\030\002 \001(\0132&.envoy.type.http.v3" +
-      ".PathTransformation\032\343\001\n\021ProxyStatusConfi" +
-      "g\022\026\n\016remove_details\030\001 \001(\010\022-\n%remove_conn" +
-      "ection_termination_details\030\002 \001(\010\022\035\n\025remo" +
-      "ve_response_flags\030\003 \001(\010\022%\n\035set_recommend" +
-      "ed_response_code\030\004 \001(\010\022\025\n\013use_node_id\030\005 " +
-      "\001(\010H\000\022\034\n\022literal_proxy_name\030\006 \001(\tH\000B\014\n\np" +
-      "roxy_name\"6\n\tCodecType\022\010\n\004AUTO\020\000\022\t\n\005HTTP" +
-      "1\020\001\022\t\n\005HTTP2\020\002\022\t\n\005HTTP3\020\003\"S\n\032ServerHeade" +
-      "rTransformation\022\r\n\tOVERWRITE\020\000\022\024\n\020APPEND" +
-      "_IF_ABSENT\020\001\022\020\n\014PASS_THROUGH\020\002\"y\n\030Forwar" +
-      "dClientCertDetails\022\014\n\010SANITIZE\020\000\022\020\n\014FORW" +
-      "ARD_ONLY\020\001\022\022\n\016APPEND_FORWARD\020\002\022\020\n\014SANITI" +
-      "ZE_SET\020\003\022\027\n\023ALWAYS_FORWARD_ONLY\020\004\"\240\001\n\034Pa" +
-      "thWithEscapedSlashesAction\022#\n\037IMPLEMENTA" +
-      "TION_SPECIFIC_DEFAULT\020\000\022\022\n\016KEEP_UNCHANGE" +
-      "D\020\001\022\022\n\016REJECT_REQUEST\020\002\022\031\n\025UNESCAPE_AND_" +
-      "REDIRECT\020\003\022\030\n\024UNESCAPE_AND_FORWARD\020\004:S\232\305" +
-      "\210\036N\nLenvoy.config.filter.network.http_co" +
-      "nnection_manager.v2.HttpConnectionManage" +
-      "rB\026\n\017route_specifier\022\003\370B\001B\021\n\017strip_port_" +
-      "modeJ\004\010\033\020\034J\004\010\013\020\014R\014idle_timeout\"\265\001\n\020Local" +
-      "ReplyConfig\022\\\n\007mappers\030\001 \003(\0132K.envoy.ext" +
-      "ensions.filters.network.http_connection_" +
-      "manager.v3.ResponseMapper\022C\n\013body_format" +
-      "\030\002 \001(\0132..envoy.config.core.v3.Substituti" +
-      "onFormatString\"\340\002\n\016ResponseMapper\022D\n\006fil" +
-      "ter\030\001 \001(\0132*.envoy.config.accesslog.v3.Ac" +
-      "cessLogFilterB\010\372B\005\212\001\002\020\001\022>\n\013status_code\030\002" +
-      " \001(\0132\034.google.protobuf.UInt32ValueB\013\372B\010*" +
-      "\006\020\330\004(\310\001\022.\n\004body\030\003 \001(\0132 .envoy.config.cor" +
-      "e.v3.DataSource\022L\n\024body_format_override\030" +
-      "\004 \001(\0132..envoy.config.core.v3.Substitutio" +
-      "nFormatString\022J\n\016headers_to_add\030\005 \003(\0132\'." +
-      "envoy.config.core.v3.HeaderValueOptionB\t" +
-      "\372B\006\222\001\003\020\350\007\"\250\001\n\003Rds\022C\n\rconfig_source\030\001 \001(\013" +
-      "2\".envoy.config.core.v3.ConfigSourceB\010\372B" +
-      "\005\212\001\002\020\001\022\031\n\021route_config_name\030\002 \001(\t:A\232\305\210\036<" +
-      "\n:envoy.config.filter.network.http_conne" +
-      "ction_manager.v2.Rds\"\334\001\n\035ScopedRouteConf" +
-      "igurationsList\022^\n\033scoped_route_configura" +
-      "tions\030\001 \003(\0132/.envoy.config.route.v3.Scop" +
-      "edRouteConfigurationB\010\372B\005\222\001\002\010\001:[\232\305\210\036V\nTe" +
-      "nvoy.config.filter.network.http_connecti" +
-      "on_manager.v2.ScopedRouteConfigurationsL" +
-      "ist\"\263\r\n\014ScopedRoutes\022\025\n\004name\030\001 \001(\tB\007\372B\004r" +
-      "\002\020\001\022~\n\021scope_key_builder\030\002 \001(\0132Y.envoy.e" +
+      "fig.core.v3.TypedExtensionConfig\022T\n earl" +
+      "y_header_mutation_extensions\0304 \003(\0132*.env" +
+      "oy.config.core.v3.TypedExtensionConfig\022\211" +
+      "\001\n\027internal_address_config\030\031 \001(\0132h.envoy" +
+      ".extensions.filters.network.http_connect" +
+      "ion_manager.v3.HttpConnectionManager.Int" +
+      "ernalAddressConfig\022\027\n\017skip_xff_append\030\025 " +
+      "\001(\010\022\030\n\003via\030\026 \001(\tB\013\372B\010r\006\300\001\002\310\001\000\0227\n\023generat" +
+      "e_request_id\030\017 \001(\0132\032.google.protobuf.Boo" +
+      "lValue\022$\n\034preserve_external_request_id\030 " +
+      " \001(\010\022)\n!always_set_request_id_in_respons" +
+      "e\030% \001(\010\022\232\001\n\033forward_client_cert_details\030" +
+      "\020 \001(\0162k.envoy.extensions.filters.network" +
+      ".http_connection_manager.v3.HttpConnecti" +
+      "onManager.ForwardClientCertDetailsB\010\372B\005\202" +
+      "\001\002\020\001\022\227\001\n\037set_current_client_cert_details" +
+      "\030\021 \001(\0132n.envoy.extensions.filters.networ" +
+      "k.http_connection_manager.v3.HttpConnect" +
+      "ionManager.SetCurrentClientCertDetails\022\032" +
+      "\n\022proxy_100_continue\030\022 \001(\010\0229\n1represent_" +
+      "ipv4_remote_address_as_ipv4_mapped_ipv6\030" +
+      "\024 \001(\010\022y\n\017upgrade_configs\030\027 \003(\0132`.envoy.e" +
       "xtensions.filters.network.http_connectio" +
-      "n_manager.v3.ScopedRoutes.ScopeKeyBuilde" +
-      "rB\010\372B\005\212\001\002\020\001\022=\n\021rds_config_source\030\003 \001(\0132\"" +
-      ".envoy.config.core.v3.ConfigSource\022\206\001\n s" +
-      "coped_route_configurations_list\030\004 \001(\0132Z." +
-      "envoy.extensions.filters.network.http_co" +
-      "nnection_manager.v3.ScopedRouteConfigura" +
-      "tionsListH\000\022\\\n\nscoped_rds\030\005 \001(\0132F.envoy." +
-      "extensions.filters.network.http_connecti" +
-      "on_manager.v3.ScopedRdsH\000\032\200\t\n\017ScopeKeyBu" +
-      "ilder\022\206\001\n\tfragments\030\001 \003(\0132i.envoy.extens" +
-      "ions.filters.network.http_connection_man" +
-      "ager.v3.ScopedRoutes.ScopeKeyBuilder.Fra" +
-      "gmentBuilderB\010\372B\005\222\001\002\010\001\032\207\007\n\017FragmentBuild" +
-      "er\022\240\001\n\026header_value_extractor\030\001 \001(\0132~.en" +
+      "n_manager.v3.HttpConnectionManager.Upgra" +
+      "deConfig\0222\n\016normalize_path\030\036 \001(\0132\032.googl" +
+      "e.protobuf.BoolValue\022\025\n\rmerge_slashes\030! " +
+      "\001(\010\022\231\001\n path_with_escaped_slashes_action" +
+      "\030- \001(\0162o.envoy.extensions.filters.networ" +
+      "k.http_connection_manager.v3.HttpConnect" +
+      "ionManager.PathWithEscapedSlashesAction\022" +
+      "m\n\024request_id_extension\030$ \001(\0132O.envoy.ex" +
+      "tensions.filters.network.http_connection" +
+      "_manager.v3.RequestIDExtension\022i\n\022local_" +
+      "reply_config\030& \001(\0132M.envoy.extensions.fi" +
+      "lters.network.http_connection_manager.v3" +
+      ".LocalReplyConfig\0229\n\030strip_matching_host" +
+      "_port\030\' \001(\010B\027\362\230\376\217\005\021\022\017strip_port_mode\022\035\n\023" +
+      "strip_any_host_port\030* \001(\010H\001\022H\n$stream_er" +
+      "ror_on_invalid_http_message\030( \001(\0132\032.goog" +
+      "le.protobuf.BoolValue\022\217\001\n\032path_normaliza" +
+      "tion_options\030+ \001(\0132k.envoy.extensions.fi" +
+      "lters.network.http_connection_manager.v3" +
+      ".HttpConnectionManager.PathNormalization" +
+      "Options\022\037\n\027strip_trailing_host_dot\030/ \001(\010" +
+      "\022\201\001\n\023proxy_status_config\0301 \001(\0132d.envoy.e" +
+      "xtensions.filters.network.http_connectio" +
+      "n_manager.v3.HttpConnectionManager.Proxy" +
+      "StatusConfig\022R\n\036typed_header_validation_" +
+      "config\0302 \001(\0132*.envoy.config.core.v3.Type" +
+      "dExtensionConfig\022\037\n\027append_x_forwarded_p" +
+      "ort\0303 \001(\010\032\224\004\n\007Tracing\022/\n\017client_sampling" +
+      "\030\003 \001(\0132\026.envoy.type.v3.Percent\022/\n\017random" +
+      "_sampling\030\004 \001(\0132\026.envoy.type.v3.Percent\022" +
+      "0\n\020overall_sampling\030\005 \001(\0132\026.envoy.type.v" +
+      "3.Percent\022\017\n\007verbose\030\006 \001(\010\0229\n\023max_path_t" +
+      "ag_length\030\007 \001(\0132\034.google.protobuf.UInt32" +
+      "Value\0225\n\013custom_tags\030\010 \003(\0132 .envoy.type." +
+      "tracing.v3.CustomTag\0225\n\010provider\030\t \001(\0132#" +
+      ".envoy.config.trace.v3.Tracing.Http\"(\n\rO" +
+      "perationName\022\013\n\007INGRESS\020\000\022\n\n\006EGRESS\020\001:[\232" +
+      "\305\210\036V\nTenvoy.config.filter.network.http_c" +
+      "onnection_manager.v2.HttpConnectionManag" +
+      "er.TracingJ\004\010\001\020\002J\004\010\002\020\003R\016operation_nameR\030" +
+      "request_headers_for_tags\032\316\001\n\025InternalAdd" +
+      "ressConfig\022\024\n\014unix_sockets\030\001 \001(\010\0224\n\013cidr" +
+      "_ranges\030\002 \003(\0132\037.envoy.config.core.v3.Cid" +
+      "rRange:i\232\305\210\036d\nbenvoy.config.filter.netwo" +
+      "rk.http_connection_manager.v2.HttpConnec" +
+      "tionManager.InternalAddressConfig\032\370\001\n\033Se" +
+      "tCurrentClientCertDetails\022+\n\007subject\030\001 \001" +
+      "(\0132\032.google.protobuf.BoolValue\022\014\n\004cert\030\003" +
+      " \001(\010\022\r\n\005chain\030\006 \001(\010\022\013\n\003dns\030\004 \001(\010\022\013\n\003uri\030" +
+      "\005 \001(\010:o\232\305\210\036j\nhenvoy.config.filter.networ" +
+      "k.http_connection_manager.v2.HttpConnect" +
+      "ionManager.SetCurrentClientCertDetailsJ\004" +
+      "\010\002\020\003\032\217\002\n\rUpgradeConfig\022\024\n\014upgrade_type\030\001" +
+      " \001(\t\022X\n\007filters\030\002 \003(\0132G.envoy.extensions" +
+      ".filters.network.http_connection_manager" +
+      ".v3.HttpFilter\022+\n\007enabled\030\003 \001(\0132\032.google" +
+      ".protobuf.BoolValue:a\232\305\210\036\\\nZenvoy.config" +
+      ".filter.network.http_connection_manager." +
+      "v2.HttpConnectionManager.UpgradeConfig\032\261" +
+      "\001\n\030PathNormalizationOptions\022I\n\031forwardin" +
+      "g_transformation\030\001 \001(\0132&.envoy.type.http" +
+      ".v3.PathTransformation\022J\n\032http_filter_tr" +
+      "ansformation\030\002 \001(\0132&.envoy.type.http.v3." +
+      "PathTransformation\032\343\001\n\021ProxyStatusConfig" +
+      "\022\026\n\016remove_details\030\001 \001(\010\022-\n%remove_conne" +
+      "ction_termination_details\030\002 \001(\010\022\035\n\025remov" +
+      "e_response_flags\030\003 \001(\010\022%\n\035set_recommende" +
+      "d_response_code\030\004 \001(\010\022\025\n\013use_node_id\030\005 \001" +
+      "(\010H\000\022\034\n\022literal_proxy_name\030\006 \001(\tH\000B\014\n\npr" +
+      "oxy_name\"6\n\tCodecType\022\010\n\004AUTO\020\000\022\t\n\005HTTP1" +
+      "\020\001\022\t\n\005HTTP2\020\002\022\t\n\005HTTP3\020\003\"S\n\032ServerHeader" +
+      "Transformation\022\r\n\tOVERWRITE\020\000\022\024\n\020APPEND_" +
+      "IF_ABSENT\020\001\022\020\n\014PASS_THROUGH\020\002\"y\n\030Forward" +
+      "ClientCertDetails\022\014\n\010SANITIZE\020\000\022\020\n\014FORWA" +
+      "RD_ONLY\020\001\022\022\n\016APPEND_FORWARD\020\002\022\020\n\014SANITIZ" +
+      "E_SET\020\003\022\027\n\023ALWAYS_FORWARD_ONLY\020\004\"\240\001\n\034Pat" +
+      "hWithEscapedSlashesAction\022#\n\037IMPLEMENTAT" +
+      "ION_SPECIFIC_DEFAULT\020\000\022\022\n\016KEEP_UNCHANGED" +
+      "\020\001\022\022\n\016REJECT_REQUEST\020\002\022\031\n\025UNESCAPE_AND_R" +
+      "EDIRECT\020\003\022\030\n\024UNESCAPE_AND_FORWARD\020\004:S\232\305\210" +
+      "\036N\nLenvoy.config.filter.network.http_con" +
+      "nection_manager.v2.HttpConnectionManager" +
+      "B\026\n\017route_specifier\022\003\370B\001B\021\n\017strip_port_m" +
+      "odeJ\004\010\033\020\034J\004\010\013\020\014R\014idle_timeout\"\265\001\n\020LocalR" +
+      "eplyConfig\022\\\n\007mappers\030\001 \003(\0132K.envoy.exte" +
+      "nsions.filters.network.http_connection_m" +
+      "anager.v3.ResponseMapper\022C\n\013body_format\030" +
+      "\002 \001(\0132..envoy.config.core.v3.Substitutio" +
+      "nFormatString\"\340\002\n\016ResponseMapper\022D\n\006filt" +
+      "er\030\001 \001(\0132*.envoy.config.accesslog.v3.Acc" +
+      "essLogFilterB\010\372B\005\212\001\002\020\001\022>\n\013status_code\030\002 " +
+      "\001(\0132\034.google.protobuf.UInt32ValueB\013\372B\010*\006" +
+      "\020\330\004(\310\001\022.\n\004body\030\003 \001(\0132 .envoy.config.core" +
+      ".v3.DataSource\022L\n\024body_format_override\030\004" +
+      " \001(\0132..envoy.config.core.v3.Substitution" +
+      "FormatString\022J\n\016headers_to_add\030\005 \003(\0132\'.e" +
+      "nvoy.config.core.v3.HeaderValueOptionB\t\372" +
+      "B\006\222\001\003\020\350\007\"\250\001\n\003Rds\022C\n\rconfig_source\030\001 \001(\0132" +
+      "\".envoy.config.core.v3.ConfigSourceB\010\372B\005" +
+      "\212\001\002\020\001\022\031\n\021route_config_name\030\002 \001(\t:A\232\305\210\036<\n" +
+      ":envoy.config.filter.network.http_connec" +
+      "tion_manager.v2.Rds\"\334\001\n\035ScopedRouteConfi" +
+      "gurationsList\022^\n\033scoped_route_configurat" +
+      "ions\030\001 \003(\0132/.envoy.config.route.v3.Scope" +
+      "dRouteConfigurationB\010\372B\005\222\001\002\010\001:[\232\305\210\036V\nTen" +
+      "voy.config.filter.network.http_connectio" +
+      "n_manager.v2.ScopedRouteConfigurationsLi" +
+      "st\"\263\r\n\014ScopedRoutes\022\025\n\004name\030\001 \001(\tB\007\372B\004r\002" +
+      "\020\001\022~\n\021scope_key_builder\030\002 \001(\0132Y.envoy.ex" +
+      "tensions.filters.network.http_connection" +
+      "_manager.v3.ScopedRoutes.ScopeKeyBuilder" +
+      "B\010\372B\005\212\001\002\020\001\022=\n\021rds_config_source\030\003 \001(\0132\"." +
+      "envoy.config.core.v3.ConfigSource\022\206\001\n sc" +
+      "oped_route_configurations_list\030\004 \001(\0132Z.e" +
+      "nvoy.extensions.filters.network.http_con" +
+      "nection_manager.v3.ScopedRouteConfigurat" +
+      "ionsListH\000\022\\\n\nscoped_rds\030\005 \001(\0132F.envoy.e" +
+      "xtensions.filters.network.http_connectio" +
+      "n_manager.v3.ScopedRdsH\000\032\200\t\n\017ScopeKeyBui" +
+      "lder\022\206\001\n\tfragments\030\001 \003(\0132i.envoy.extensi" +
+      "ons.filters.network.http_connection_mana" +
+      "ger.v3.ScopedRoutes.ScopeKeyBuilder.Frag" +
+      "mentBuilderB\010\372B\005\222\001\002\010\001\032\207\007\n\017FragmentBuilde" +
+      "r\022\240\001\n\026header_value_extractor\030\001 \001(\0132~.env" +
+      "oy.extensions.filters.network.http_conne" +
+      "ction_manager.v3.ScopedRoutes.ScopeKeyBu" +
+      "ilder.FragmentBuilder.HeaderValueExtract" +
+      "orH\000\032\327\004\n\024HeaderValueExtractor\022\025\n\004name\030\001 " +
+      "\001(\tB\007\372B\004r\002\020\001\022\031\n\021element_separator\030\002 \001(\t\022" +
+      "\017\n\005index\030\003 \001(\rH\000\022\234\001\n\007element\030\004 \001(\0132\210\001.en" +
       "voy.extensions.filters.network.http_conn" +
       "ection_manager.v3.ScopedRoutes.ScopeKeyB" +
       "uilder.FragmentBuilder.HeaderValueExtrac" +
-      "torH\000\032\327\004\n\024HeaderValueExtractor\022\025\n\004name\030\001" +
-      " \001(\tB\007\372B\004r\002\020\001\022\031\n\021element_separator\030\002 \001(\t" +
-      "\022\017\n\005index\030\003 \001(\rH\000\022\234\001\n\007element\030\004 \001(\0132\210\001.e" +
-      "nvoy.extensions.filters.network.http_con" +
-      "nection_manager.v3.ScopedRoutes.ScopeKey" +
-      "Builder.FragmentBuilder.HeaderValueExtra" +
-      "ctor.KvElementH\000\032\313\001\n\tKvElement\022\032\n\tsepara" +
-      "tor\030\001 \001(\tB\007\372B\004r\002\020\001\022\024\n\003key\030\002 \001(\tB\007\372B\004r\002\020\001" +
-      ":\213\001\232\305\210\036\205\001\n\202\001envoy.config.filter.network." +
-      "http_connection_manager.v2.ScopedRoutes." +
-      "ScopeKeyBuilder.FragmentBuilder.HeaderVa" +
-      "lueExtractor.KvElement:\177\232\305\210\036z\nxenvoy.con" +
-      "fig.filter.network.http_connection_manag" +
-      "er.v2.ScopedRoutes.ScopeKeyBuilder.Fragm" +
-      "entBuilder.HeaderValueExtractorB\016\n\014extra" +
-      "ct_type:j\232\305\210\036e\ncenvoy.config.filter.netw" +
+      "tor.KvElementH\000\032\313\001\n\tKvElement\022\032\n\tseparat" +
+      "or\030\001 \001(\tB\007\372B\004r\002\020\001\022\024\n\003key\030\002 \001(\tB\007\372B\004r\002\020\001:" +
+      "\213\001\232\305\210\036\205\001\n\202\001envoy.config.filter.network.h" +
+      "ttp_connection_manager.v2.ScopedRoutes.S" +
+      "copeKeyBuilder.FragmentBuilder.HeaderVal" +
+      "ueExtractor.KvElement:\177\232\305\210\036z\nxenvoy.conf" +
+      "ig.filter.network.http_connection_manage" +
+      "r.v2.ScopedRoutes.ScopeKeyBuilder.Fragme" +
+      "ntBuilder.HeaderValueExtractorB\016\n\014extrac" +
+      "t_type:j\232\305\210\036e\ncenvoy.config.filter.netwo" +
+      "rk.http_connection_manager.v2.ScopedRout" +
+      "es.ScopeKeyBuilder.FragmentBuilderB\013\n\004ty" +
+      "pe\022\003\370B\001:Z\232\305\210\036U\nSenvoy.config.filter.netw" +
       "ork.http_connection_manager.v2.ScopedRou" +
-      "tes.ScopeKeyBuilder.FragmentBuilderB\013\n\004t" +
-      "ype\022\003\370B\001:Z\232\305\210\036U\nSenvoy.config.filter.net" +
-      "work.http_connection_manager.v2.ScopedRo" +
-      "utes.ScopeKeyBuilder:J\232\305\210\036E\nCenvoy.confi" +
-      "g.filter.network.http_connection_manager" +
-      ".v2.ScopedRoutesB\027\n\020config_specifier\022\003\370B" +
-      "\001\"\304\001\n\tScopedRds\022N\n\030scoped_rds_config_sou" +
-      "rce\030\001 \001(\0132\".envoy.config.core.v3.ConfigS" +
-      "ourceB\010\372B\005\212\001\002\020\001\022\036\n\026srds_resources_locato" +
-      "r\030\002 \001(\t:G\232\305\210\036B\n@envoy.config.filter.netw" +
-      "ork.http_connection_manager.v2.ScopedRds" +
-      "\"\234\002\n\nHttpFilter\022\025\n\004name\030\001 \001(\tB\007\372B\004r\002\020\001\022," +
-      "\n\014typed_config\030\004 \001(\0132\024.google.protobuf.A" +
-      "nyH\000\022G\n\020config_discovery\030\005 \001(\0132+.envoy.c" +
-      "onfig.core.v3.ExtensionConfigSourceH\000\022\023\n" +
-      "\013is_optional\030\006 \001(\010:H\232\305\210\036C\nAenvoy.config." +
-      "filter.network.http_connection_manager.v" +
-      "2.HttpFilterB\r\n\013config_typeJ\004\010\003\020\004J\004\010\002\020\003R" +
-      "\006config\"\222\001\n\022RequestIDExtension\022*\n\014typed_" +
-      "config\030\001 \001(\0132\024.google.protobuf.Any:P\232\305\210\036" +
-      "K\nIenvoy.config.filter.network.http_conn" +
-      "ection_manager.v2.RequestIDExtension\"\206\001\n" +
-      " EnvoyMobileHttpConnectionManager\022b\n\006con" +
-      "fig\030\001 \001(\0132R.envoy.extensions.filters.net" +
-      "work.http_connection_manager.v3.HttpConn" +
-      "ectionManagerB\357\001\nIio.envoyproxy.envoy.ex" +
-      "tensions.filters.network.http_connection" +
-      "_manager.v3B\032HttpConnectionManagerProtoP" +
-      "\001Z|github.com/envoyproxy/go-control-plan" +
-      "e/envoy/extensions/filters/network/http_" +
-      "connection_manager/v3;http_connection_ma" +
-      "nagerv3\272\200\310\321\006\002\020\002b\006proto3"
+      "tes.ScopeKeyBuilder:J\232\305\210\036E\nCenvoy.config" +
+      ".filter.network.http_connection_manager." +
+      "v2.ScopedRoutesB\027\n\020config_specifier\022\003\370B\001" +
+      "\"\304\001\n\tScopedRds\022N\n\030scoped_rds_config_sour" +
+      "ce\030\001 \001(\0132\".envoy.config.core.v3.ConfigSo" +
+      "urceB\010\372B\005\212\001\002\020\001\022\036\n\026srds_resources_locator" +
+      "\030\002 \001(\t:G\232\305\210\036B\n@envoy.config.filter.netwo" +
+      "rk.http_connection_manager.v2.ScopedRds\"" +
+      "\234\002\n\nHttpFilter\022\025\n\004name\030\001 \001(\tB\007\372B\004r\002\020\001\022,\n" +
+      "\014typed_config\030\004 \001(\0132\024.google.protobuf.An" +
+      "yH\000\022G\n\020config_discovery\030\005 \001(\0132+.envoy.co" +
+      "nfig.core.v3.ExtensionConfigSourceH\000\022\023\n\013" +
+      "is_optional\030\006 \001(\010:H\232\305\210\036C\nAenvoy.config.f" +
+      "ilter.network.http_connection_manager.v2" +
+      ".HttpFilterB\r\n\013config_typeJ\004\010\003\020\004J\004\010\002\020\003R\006" +
+      "config\"\222\001\n\022RequestIDExtension\022*\n\014typed_c" +
+      "onfig\030\001 \001(\0132\024.google.protobuf.Any:P\232\305\210\036K" +
+      "\nIenvoy.config.filter.network.http_conne" +
+      "ction_manager.v2.RequestIDExtension\"\206\001\n " +
+      "EnvoyMobileHttpConnectionManager\022b\n\006conf" +
+      "ig\030\001 \001(\0132R.envoy.extensions.filters.netw" +
+      "ork.http_connection_manager.v3.HttpConne" +
+      "ctionManagerB\357\001\nIio.envoyproxy.envoy.ext" +
+      "ensions.filters.network.http_connection_" +
+      "manager.v3B\032HttpConnectionManagerProtoP\001" +
+      "Z|github.com/envoyproxy/go-control-plane" +
+      "/envoy/extensions/filters/network/http_c" +
+      "onnection_manager/v3;http_connection_man" +
+      "agerv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -420,7 +423,7 @@ public final class HttpConnectionManagerProto {
     internal_static_envoy_extensions_filters_network_http_connection_manager_v3_HttpConnectionManager_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_network_http_connection_manager_v3_HttpConnectionManager_descriptor,
-        new java.lang.String[] { "CodecType", "StatPrefix", "Rds", "RouteConfig", "ScopedRoutes", "HttpFilters", "AddUserAgent", "Tracing", "CommonHttpProtocolOptions", "HttpProtocolOptions", "Http2ProtocolOptions", "Http3ProtocolOptions", "ServerName", "ServerHeaderTransformation", "SchemeHeaderTransformation", "MaxRequestHeadersKb", "StreamIdleTimeout", "RequestTimeout", "RequestHeadersTimeout", "DrainTimeout", "DelayedCloseTimeout", "AccessLog", "UseRemoteAddress", "XffNumTrustedHops", "OriginalIpDetectionExtensions", "InternalAddressConfig", "SkipXffAppend", "Via", "GenerateRequestId", "PreserveExternalRequestId", "AlwaysSetRequestIdInResponse", "ForwardClientCertDetails", "SetCurrentClientCertDetails", "Proxy100Continue", "RepresentIpv4RemoteAddressAsIpv4MappedIpv6", "UpgradeConfigs", "NormalizePath", "MergeSlashes", "PathWithEscapedSlashesAction", "RequestIdExtension", "LocalReplyConfig", "StripMatchingHostPort", "StripAnyHostPort", "StreamErrorOnInvalidHttpMessage", "PathNormalizationOptions", "StripTrailingHostDot", "ProxyStatusConfig", "TypedHeaderValidationConfig", "RouteSpecifier", "StripPortMode", });
+        new java.lang.String[] { "CodecType", "StatPrefix", "Rds", "RouteConfig", "ScopedRoutes", "HttpFilters", "AddUserAgent", "Tracing", "CommonHttpProtocolOptions", "HttpProtocolOptions", "Http2ProtocolOptions", "Http3ProtocolOptions", "ServerName", "ServerHeaderTransformation", "SchemeHeaderTransformation", "MaxRequestHeadersKb", "StreamIdleTimeout", "RequestTimeout", "RequestHeadersTimeout", "DrainTimeout", "DelayedCloseTimeout", "AccessLog", "UseRemoteAddress", "XffNumTrustedHops", "OriginalIpDetectionExtensions", "EarlyHeaderMutationExtensions", "InternalAddressConfig", "SkipXffAppend", "Via", "GenerateRequestId", "PreserveExternalRequestId", "AlwaysSetRequestIdInResponse", "ForwardClientCertDetails", "SetCurrentClientCertDetails", "Proxy100Continue", "RepresentIpv4RemoteAddressAsIpv4MappedIpv6", "UpgradeConfigs", "NormalizePath", "MergeSlashes", "PathWithEscapedSlashesAction", "RequestIdExtension", "LocalReplyConfig", "StripMatchingHostPort", "StripAnyHostPort", "StreamErrorOnInvalidHttpMessage", "PathNormalizationOptions", "StripTrailingHostDot", "ProxyStatusConfig", "TypedHeaderValidationConfig", "AppendXForwardedPort", "RouteSpecifier", "StripPortMode", });
     internal_static_envoy_extensions_filters_network_http_connection_manager_v3_HttpConnectionManager_Tracing_descriptor =
       internal_static_envoy_extensions_filters_network_http_connection_manager_v3_HttpConnectionManager_descriptor.getNestedTypes().get(0);
     internal_static_envoy_extensions_filters_network_http_connection_manager_v3_HttpConnectionManager_Tracing_fieldAccessorTable = new

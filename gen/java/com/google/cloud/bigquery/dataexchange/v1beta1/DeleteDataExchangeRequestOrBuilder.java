@@ -9,8 +9,8 @@ public interface DeleteDataExchangeRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. Resource name of the DataExchange to delete.
-   * e.g. `projects/myproject/locations/US/dataExchanges/123`.
+   * Required. The full name of the data exchange resource that you want to delete.
+   * For example, `projects/myproject/locations/US/dataExchanges/123`.
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -19,8 +19,8 @@ public interface DeleteDataExchangeRequestOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Required. Resource name of the DataExchange to delete.
-   * e.g. `projects/myproject/locations/US/dataExchanges/123`.
+   * Required. The full name of the data exchange resource that you want to delete.
+   * For example, `projects/myproject/locations/US/dataExchanges/123`.
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

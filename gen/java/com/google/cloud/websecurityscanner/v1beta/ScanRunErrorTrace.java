@@ -36,69 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ScanRunErrorTrace(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            code_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.cloud.websecurityscanner.v1beta.ScanConfigError.Builder subBuilder = null;
-            if (scanConfigError_ != null) {
-              subBuilder = scanConfigError_.toBuilder();
-            }
-            scanConfigError_ = input.readMessage(com.google.cloud.websecurityscanner.v1beta.ScanConfigError.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(scanConfigError_);
-              scanConfigError_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-
-            mostCommonHttpErrorCode_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTraceProto.internal_static_google_cloud_websecurityscanner_v1beta_ScanRunErrorTrace_descriptor;
@@ -338,7 +275,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CODE_FIELD_NUMBER = 1;
-  private int code_;
+  private int code_ = 0;
   /**
    * <pre>
    * Indicates the error reason code.
@@ -359,8 +296,7 @@ private static final long serialVersionUID = 0L;
    * @return The code.
    */
   @java.lang.Override public com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace.Code getCode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace.Code result = com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace.Code.valueOf(code_);
+    com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace.Code result = com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace.Code.forNumber(code_);
     return result == null ? com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace.Code.UNRECOGNIZED : result;
   }
 
@@ -405,11 +341,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.websecurityscanner.v1beta.ScanConfigErrorOrBuilder getScanConfigErrorOrBuilder() {
-    return getScanConfigError();
+    return scanConfigError_ == null ? com.google.cloud.websecurityscanner.v1beta.ScanConfigError.getDefaultInstance() : scanConfigError_;
   }
 
   public static final int MOST_COMMON_HTTP_ERROR_CODE_FIELD_NUMBER = 3;
-  private int mostCommonHttpErrorCode_;
+  private int mostCommonHttpErrorCode_ = 0;
   /**
    * <pre>
    * If the scan encounters TOO_MANY_HTTP_ERRORS, this field indicates the most
@@ -448,7 +384,7 @@ private static final long serialVersionUID = 0L;
     if (mostCommonHttpErrorCode_ != 0) {
       output.writeInt32(3, mostCommonHttpErrorCode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -469,7 +405,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, mostCommonHttpErrorCode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -492,7 +428,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getMostCommonHttpErrorCode()
         != other.getMostCommonHttpErrorCode()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -511,7 +447,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + MOST_COMMON_HTTP_ERROR_CODE_FIELD_NUMBER;
     hash = (53 * hash) + getMostCommonHttpErrorCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -633,32 +569,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       code_ = 0;
-
-      if (scanConfigErrorBuilder_ == null) {
-        scanConfigError_ = null;
-      } else {
-        scanConfigError_ = null;
+      scanConfigError_ = null;
+      if (scanConfigErrorBuilder_ != null) {
+        scanConfigErrorBuilder_.dispose();
         scanConfigErrorBuilder_ = null;
       }
       mostCommonHttpErrorCode_ = 0;
-
       return this;
     }
 
@@ -685,15 +614,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace buildPartial() {
       com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace result = new com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace(this);
-      result.code_ = code_;
-      if (scanConfigErrorBuilder_ == null) {
-        result.scanConfigError_ = scanConfigError_;
-      } else {
-        result.scanConfigError_ = scanConfigErrorBuilder_.build();
-      }
-      result.mostCommonHttpErrorCode_ = mostCommonHttpErrorCode_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.code_ = code_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.scanConfigError_ = scanConfigErrorBuilder_ == null
+            ? scanConfigError_
+            : scanConfigErrorBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.mostCommonHttpErrorCode_ = mostCommonHttpErrorCode_;
+      }
     }
 
     @java.lang.Override
@@ -749,7 +687,7 @@ private static final long serialVersionUID = 0L;
       if (other.getMostCommonHttpErrorCode() != 0) {
         setMostCommonHttpErrorCode(other.getMostCommonHttpErrorCode());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -764,19 +702,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              code_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getScanConfigErrorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              mostCommonHttpErrorCode_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int code_ = 0;
     /**
@@ -800,8 +769,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCodeValue(int value) {
-      
       code_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -815,8 +784,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace.Code getCode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace.Code result = com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace.Code.valueOf(code_);
+      com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace.Code result = com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace.Code.forNumber(code_);
       return result == null ? com.google.cloud.websecurityscanner.v1beta.ScanRunErrorTrace.Code.UNRECOGNIZED : result;
     }
     /**
@@ -832,7 +800,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       code_ = value.getNumber();
       onChanged();
       return this;
@@ -846,7 +814,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       code_ = 0;
       onChanged();
       return this;
@@ -866,7 +834,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the scanConfigError field is set.
      */
     public boolean hasScanConfigError() {
-      return scanConfigErrorBuilder_ != null || scanConfigError_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -900,11 +868,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         scanConfigError_ = value;
-        onChanged();
       } else {
         scanConfigErrorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -920,11 +888,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.websecurityscanner.v1beta.ScanConfigError.Builder builderForValue) {
       if (scanConfigErrorBuilder_ == null) {
         scanConfigError_ = builderForValue.build();
-        onChanged();
       } else {
         scanConfigErrorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -938,17 +906,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeScanConfigError(com.google.cloud.websecurityscanner.v1beta.ScanConfigError value) {
       if (scanConfigErrorBuilder_ == null) {
-        if (scanConfigError_ != null) {
-          scanConfigError_ =
-            com.google.cloud.websecurityscanner.v1beta.ScanConfigError.newBuilder(scanConfigError_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          scanConfigError_ != null &&
+          scanConfigError_ != com.google.cloud.websecurityscanner.v1beta.ScanConfigError.getDefaultInstance()) {
+          getScanConfigErrorBuilder().mergeFrom(value);
         } else {
           scanConfigError_ = value;
         }
-        onChanged();
       } else {
         scanConfigErrorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -961,14 +930,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.websecurityscanner.v1beta.ScanConfigError scan_config_error = 2;</code>
      */
     public Builder clearScanConfigError() {
-      if (scanConfigErrorBuilder_ == null) {
-        scanConfigError_ = null;
-        onChanged();
-      } else {
-        scanConfigError_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      scanConfigError_ = null;
+      if (scanConfigErrorBuilder_ != null) {
+        scanConfigErrorBuilder_.dispose();
         scanConfigErrorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -981,7 +949,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.websecurityscanner.v1beta.ScanConfigError scan_config_error = 2;</code>
      */
     public com.google.cloud.websecurityscanner.v1beta.ScanConfigError.Builder getScanConfigErrorBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getScanConfigErrorFieldBuilder().getBuilder();
     }
@@ -1054,6 +1022,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMostCommonHttpErrorCode(int value) {
       
       mostCommonHttpErrorCode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1068,7 +1037,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMostCommonHttpErrorCode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       mostCommonHttpErrorCode_ = 0;
       onChanged();
       return this;
@@ -1106,7 +1075,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ScanRunErrorTrace(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

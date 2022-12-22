@@ -135,7 +135,6 @@ public interface ComponentSettingsOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings&gt; detector_settings = 4;</code>
    */
-
   /* nullable */
 com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings getDetectorSettingsOrDefault(
       java.lang.String key,
@@ -151,7 +150,6 @@ com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSetti
    *
    * <code>map&lt;string, .google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings&gt; detector_settings = 4;</code>
    */
-
   com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings getDetectorSettingsOrThrow(
       java.lang.String key);
 

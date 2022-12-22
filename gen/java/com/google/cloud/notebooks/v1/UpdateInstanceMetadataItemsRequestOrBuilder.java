@@ -68,7 +68,6 @@ public interface UpdateInstanceMetadataItemsRequestOrBuilder extends
    *
    * <code>map&lt;string, string&gt; items = 2;</code>
    */
-
   /* nullable */
 java.lang.String getItemsOrDefault(
       java.lang.String key,
@@ -81,7 +80,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; items = 2;</code>
    */
-
   java.lang.String getItemsOrThrow(
       java.lang.String key);
 }

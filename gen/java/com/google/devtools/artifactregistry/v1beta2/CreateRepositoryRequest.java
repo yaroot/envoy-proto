@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateRepositoryRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            repositoryId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.devtools.artifactregistry.v1beta2.Repository.Builder subBuilder = null;
-            if (repository_ != null) {
-              subBuilder = repository_.toBuilder();
-            }
-            repository_ = input.readMessage(com.google.devtools.artifactregistry.v1beta2.Repository.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(repository_);
-              repository_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.artifactregistry.v1beta2.RepositoryProto.internal_static_google_devtools_artifactregistry_v1beta2_CreateRepositoryRequest_descriptor;
@@ -114,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The name of the parent resource where the repository will be created.
@@ -160,7 +97,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REPOSITORY_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object repositoryId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object repositoryId_ = "";
   /**
    * <pre>
    * The repository id to use for this repository.
@@ -240,7 +178,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.artifactregistry.v1beta2.RepositoryOrBuilder getRepositoryOrBuilder() {
-    return getRepository();
+    return repository_ == null ? com.google.devtools.artifactregistry.v1beta2.Repository.getDefaultInstance() : repository_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -266,7 +204,7 @@ private static final long serialVersionUID = 0L;
     if (repository_ != null) {
       output.writeMessage(3, getRepository());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -285,7 +223,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getRepository());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -309,7 +247,7 @@ private static final long serialVersionUID = 0L;
       if (!getRepository()
           .equals(other.getRepository())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -328,7 +266,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REPOSITORY_FIELD_NUMBER;
       hash = (53 * hash) + getRepository().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -449,30 +387,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.artifactregistry.v1beta2.CreateRepositoryRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       repositoryId_ = "";
-
-      if (repositoryBuilder_ == null) {
-        repository_ = null;
-      } else {
-        repository_ = null;
+      repository_ = null;
+      if (repositoryBuilder_ != null) {
+        repositoryBuilder_.dispose();
         repositoryBuilder_ = null;
       }
       return this;
@@ -501,15 +432,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.artifactregistry.v1beta2.CreateRepositoryRequest buildPartial() {
       com.google.devtools.artifactregistry.v1beta2.CreateRepositoryRequest result = new com.google.devtools.artifactregistry.v1beta2.CreateRepositoryRequest(this);
-      result.parent_ = parent_;
-      result.repositoryId_ = repositoryId_;
-      if (repositoryBuilder_ == null) {
-        result.repository_ = repository_;
-      } else {
-        result.repository_ = repositoryBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.artifactregistry.v1beta2.CreateRepositoryRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.repositoryId_ = repositoryId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.repository_ = repositoryBuilder_ == null
+            ? repository_
+            : repositoryBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -558,16 +498,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.artifactregistry.v1beta2.CreateRepositoryRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getRepositoryId().isEmpty()) {
         repositoryId_ = other.repositoryId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasRepository()) {
         mergeRepository(other.getRepository());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -582,19 +524,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.artifactregistry.v1beta2.CreateRepositoryRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              repositoryId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getRepositoryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.artifactregistry.v1beta2.CreateRepositoryRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -649,11 +622,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -666,8 +637,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -682,12 +653,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -745,11 +714,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRepositoryId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       repositoryId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -762,8 +729,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRepositoryId() {
-      
       repositoryId_ = getDefaultInstance().getRepositoryId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -778,12 +745,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRepositoryIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       repositoryId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -800,7 +765,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the repository field is set.
      */
     public boolean hasRepository() {
-      return repositoryBuilder_ != null || repository_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -830,11 +795,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         repository_ = value;
-        onChanged();
       } else {
         repositoryBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -848,11 +813,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.artifactregistry.v1beta2.Repository.Builder builderForValue) {
       if (repositoryBuilder_ == null) {
         repository_ = builderForValue.build();
-        onChanged();
       } else {
         repositoryBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -864,17 +829,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRepository(com.google.devtools.artifactregistry.v1beta2.Repository value) {
       if (repositoryBuilder_ == null) {
-        if (repository_ != null) {
-          repository_ =
-            com.google.devtools.artifactregistry.v1beta2.Repository.newBuilder(repository_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          repository_ != null &&
+          repository_ != com.google.devtools.artifactregistry.v1beta2.Repository.getDefaultInstance()) {
+          getRepositoryBuilder().mergeFrom(value);
         } else {
           repository_ = value;
         }
-        onChanged();
       } else {
         repositoryBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -885,14 +851,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.artifactregistry.v1beta2.Repository repository = 3;</code>
      */
     public Builder clearRepository() {
-      if (repositoryBuilder_ == null) {
-        repository_ = null;
-        onChanged();
-      } else {
-        repository_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      repository_ = null;
+      if (repositoryBuilder_ != null) {
+        repositoryBuilder_.dispose();
         repositoryBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -903,7 +868,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.artifactregistry.v1beta2.Repository repository = 3;</code>
      */
     public com.google.devtools.artifactregistry.v1beta2.Repository.Builder getRepositoryBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getRepositoryFieldBuilder().getBuilder();
     }
@@ -975,7 +940,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateRepositoryRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -30,20 +30,19 @@ public final class GeometryProto {
     java.lang.String[] descriptorData = {
       "\n5google/cloud/aiplatform/v1beta1/schema" +
       "/geometry.proto\022&google.cloud.aiplatform" +
-      ".v1beta1.schema\032\034google/api/annotations." +
-      "proto\"\036\n\006Vertex\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001B\212\002" +
-      "\n*com.google.cloud.aiplatform.v1beta1.sc" +
-      "hemaB\rGeometryProtoP\001ZLgoogle.golang.org" +
-      "/genproto/googleapis/cloud/aiplatform/v1" +
-      "beta1/schema;schema\252\002&Google.Cloud.AIPla" +
-      "tform.V1Beta1.Schema\312\002&Google\\Cloud\\AIPl" +
-      "atform\\V1beta1\\Schema\352\002*Google::Cloud::A" +
-      "IPlatform::V1beta1::Schemab\006proto3"
+      ".v1beta1.schema\"\036\n\006Vertex\022\t\n\001x\030\001 \001(\001\022\t\n\001" +
+      "y\030\002 \001(\001B\212\002\n*com.google.cloud.aiplatform." +
+      "v1beta1.schemaB\rGeometryProtoP\001ZLgoogle." +
+      "golang.org/genproto/googleapis/cloud/aip" +
+      "latform/v1beta1/schema;schema\252\002&Google.C" +
+      "loud.AIPlatform.V1Beta1.Schema\312\002&Google\\" +
+      "Cloud\\AIPlatform\\V1beta1\\Schema\352\002*Google" +
+      "::Cloud::AIPlatform::V1beta1::Schemab\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.api.AnnotationsProto.getDescriptor(),
         });
     internal_static_google_cloud_aiplatform_v1beta1_schema_Vertex_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -51,7 +50,6 @@ public final class GeometryProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_aiplatform_v1beta1_schema_Vertex_descriptor,
         new java.lang.String[] { "X", "Y", });
-    com.google.api.AnnotationsProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

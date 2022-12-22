@@ -38,96 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BackupPlanChange(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            backupPlan_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            changeType_ = rawValue;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.FieldMask.Builder subBuilder = null;
-            if (updateMask_ != null) {
-              subBuilder = updateMask_.toBuilder();
-            }
-            updateMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateMask_);
-              updateMask_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            google.cloud.gkebackup.logging.v1.LoggedBackupPlan.Builder subBuilder = null;
-            if (inputBackupPlan_ != null) {
-              subBuilder = inputBackupPlan_.toBuilder();
-            }
-            inputBackupPlan_ = input.readMessage(google.cloud.gkebackup.logging.v1.LoggedBackupPlan.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(inputBackupPlan_);
-              inputBackupPlan_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.rpc.Status.Builder subBuilder = null;
-            if (error_ != null) {
-              subBuilder = error_.toBuilder();
-            }
-            error_ = input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(error_);
-              error_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.cloud.gkebackup.logging.v1.LoggingProto.internal_static_google_cloud_gkebackup_logging_v1_BackupPlanChange_descriptor;
@@ -142,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BACKUP_PLAN_FIELD_NUMBER = 1;
-  private volatile java.lang.Object backupPlan_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object backupPlan_ = "";
   /**
    * <pre>
    * The full name of the old BackupPlan resource that is being modified.
@@ -192,7 +103,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CHANGE_TYPE_FIELD_NUMBER = 2;
-  private int changeType_;
+  private int changeType_ = 0;
   /**
    * <pre>
    * Type of the change is being made.
@@ -213,8 +124,7 @@ private static final long serialVersionUID = 0L;
    * @return The changeType.
    */
   @java.lang.Override public google.cloud.gkebackup.logging.v1.ChangeType getChangeType() {
-    @SuppressWarnings("deprecation")
-    google.cloud.gkebackup.logging.v1.ChangeType result = google.cloud.gkebackup.logging.v1.ChangeType.valueOf(changeType_);
+    google.cloud.gkebackup.logging.v1.ChangeType result = google.cloud.gkebackup.logging.v1.ChangeType.forNumber(changeType_);
     return result == null ? google.cloud.gkebackup.logging.v1.ChangeType.UNRECOGNIZED : result;
   }
 
@@ -253,7 +163,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
-    return getUpdateMask();
+    return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
   }
 
   public static final int INPUT_BACKUP_PLAN_FIELD_NUMBER = 4;
@@ -294,7 +204,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.cloud.gkebackup.logging.v1.LoggedBackupPlanOrBuilder getInputBackupPlanOrBuilder() {
-    return getInputBackupPlan();
+    return inputBackupPlan_ == null ? google.cloud.gkebackup.logging.v1.LoggedBackupPlan.getDefaultInstance() : inputBackupPlan_;
   }
 
   public static final int ERROR_FIELD_NUMBER = 5;
@@ -332,7 +242,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.rpc.StatusOrBuilder getErrorOrBuilder() {
-    return getError();
+    return error_ == null ? com.google.rpc.Status.getDefaultInstance() : error_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -364,7 +274,7 @@ private static final long serialVersionUID = 0L;
     if (error_ != null) {
       output.writeMessage(5, getError());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -392,7 +302,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getError());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -425,7 +335,7 @@ private static final long serialVersionUID = 0L;
       if (!getError()
           .equals(other.getError())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -452,7 +362,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ERROR_FIELD_NUMBER;
       hash = (53 * hash) + getError().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -575,42 +485,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.cloud.gkebackup.logging.v1.BackupPlanChange.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       backupPlan_ = "";
-
       changeType_ = 0;
-
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-      } else {
-        updateMask_ = null;
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
-      if (inputBackupPlanBuilder_ == null) {
-        inputBackupPlan_ = null;
-      } else {
-        inputBackupPlan_ = null;
+      inputBackupPlan_ = null;
+      if (inputBackupPlanBuilder_ != null) {
+        inputBackupPlanBuilder_.dispose();
         inputBackupPlanBuilder_ = null;
       }
-      if (errorBuilder_ == null) {
-        error_ = null;
-      } else {
-        error_ = null;
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
         errorBuilder_ = null;
       }
       return this;
@@ -639,25 +540,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.cloud.gkebackup.logging.v1.BackupPlanChange buildPartial() {
       google.cloud.gkebackup.logging.v1.BackupPlanChange result = new google.cloud.gkebackup.logging.v1.BackupPlanChange(this);
-      result.backupPlan_ = backupPlan_;
-      result.changeType_ = changeType_;
-      if (updateMaskBuilder_ == null) {
-        result.updateMask_ = updateMask_;
-      } else {
-        result.updateMask_ = updateMaskBuilder_.build();
-      }
-      if (inputBackupPlanBuilder_ == null) {
-        result.inputBackupPlan_ = inputBackupPlan_;
-      } else {
-        result.inputBackupPlan_ = inputBackupPlanBuilder_.build();
-      }
-      if (errorBuilder_ == null) {
-        result.error_ = error_;
-      } else {
-        result.error_ = errorBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(google.cloud.gkebackup.logging.v1.BackupPlanChange result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.backupPlan_ = backupPlan_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.changeType_ = changeType_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.updateMask_ = updateMaskBuilder_ == null
+            ? updateMask_
+            : updateMaskBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.inputBackupPlan_ = inputBackupPlanBuilder_ == null
+            ? inputBackupPlan_
+            : inputBackupPlanBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.error_ = errorBuilder_ == null
+            ? error_
+            : errorBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -706,6 +616,7 @@ private static final long serialVersionUID = 0L;
       if (other == google.cloud.gkebackup.logging.v1.BackupPlanChange.getDefaultInstance()) return this;
       if (!other.getBackupPlan().isEmpty()) {
         backupPlan_ = other.backupPlan_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.changeType_ != 0) {
@@ -720,7 +631,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasError()) {
         mergeError(other.getError());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -735,19 +646,64 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.cloud.gkebackup.logging.v1.BackupPlanChange parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              backupPlan_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              changeType_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getUpdateMaskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getInputBackupPlanFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getErrorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.cloud.gkebackup.logging.v1.BackupPlanChange) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object backupPlan_ = "";
     /**
@@ -808,11 +764,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBackupPlan(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       backupPlan_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -827,8 +781,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBackupPlan() {
-      
       backupPlan_ = getDefaultInstance().getBackupPlan();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -845,12 +799,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBackupPlanBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       backupPlan_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -877,8 +829,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setChangeTypeValue(int value) {
-      
       changeType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -892,8 +844,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.cloud.gkebackup.logging.v1.ChangeType getChangeType() {
-      @SuppressWarnings("deprecation")
-      google.cloud.gkebackup.logging.v1.ChangeType result = google.cloud.gkebackup.logging.v1.ChangeType.valueOf(changeType_);
+      google.cloud.gkebackup.logging.v1.ChangeType result = google.cloud.gkebackup.logging.v1.ChangeType.forNumber(changeType_);
       return result == null ? google.cloud.gkebackup.logging.v1.ChangeType.UNRECOGNIZED : result;
     }
     /**
@@ -909,7 +860,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       changeType_ = value.getNumber();
       onChanged();
       return this;
@@ -923,7 +874,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearChangeType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       changeType_ = 0;
       onChanged();
       return this;
@@ -941,7 +892,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateMask field is set.
      */
     public boolean hasUpdateMask() {
-      return updateMaskBuilder_ != null || updateMask_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -971,11 +922,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateMask_ = value;
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -989,11 +940,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.FieldMask.Builder builderForValue) {
       if (updateMaskBuilder_ == null) {
         updateMask_ = builderForValue.build();
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1005,17 +956,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateMask(com.google.protobuf.FieldMask value) {
       if (updateMaskBuilder_ == null) {
-        if (updateMask_ != null) {
-          updateMask_ =
-            com.google.protobuf.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          updateMask_ != null &&
+          updateMask_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
+          getUpdateMaskBuilder().mergeFrom(value);
         } else {
           updateMask_ = value;
         }
-        onChanged();
       } else {
         updateMaskBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1026,14 +978,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FieldMask update_mask = 3;</code>
      */
     public Builder clearUpdateMask() {
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-        onChanged();
-      } else {
-        updateMask_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1044,7 +995,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FieldMask update_mask = 3;</code>
      */
     public com.google.protobuf.FieldMask.Builder getUpdateMaskBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getUpdateMaskFieldBuilder().getBuilder();
     }
@@ -1097,7 +1048,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the inputBackupPlan field is set.
      */
     public boolean hasInputBackupPlan() {
-      return inputBackupPlanBuilder_ != null || inputBackupPlan_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1129,11 +1080,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         inputBackupPlan_ = value;
-        onChanged();
       } else {
         inputBackupPlanBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1148,11 +1099,11 @@ private static final long serialVersionUID = 0L;
         google.cloud.gkebackup.logging.v1.LoggedBackupPlan.Builder builderForValue) {
       if (inputBackupPlanBuilder_ == null) {
         inputBackupPlan_ = builderForValue.build();
-        onChanged();
       } else {
         inputBackupPlanBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1165,17 +1116,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInputBackupPlan(google.cloud.gkebackup.logging.v1.LoggedBackupPlan value) {
       if (inputBackupPlanBuilder_ == null) {
-        if (inputBackupPlan_ != null) {
-          inputBackupPlan_ =
-            google.cloud.gkebackup.logging.v1.LoggedBackupPlan.newBuilder(inputBackupPlan_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          inputBackupPlan_ != null &&
+          inputBackupPlan_ != google.cloud.gkebackup.logging.v1.LoggedBackupPlan.getDefaultInstance()) {
+          getInputBackupPlanBuilder().mergeFrom(value);
         } else {
           inputBackupPlan_ = value;
         }
-        onChanged();
       } else {
         inputBackupPlanBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1187,14 +1139,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkebackup.logging.v1.LoggedBackupPlan input_backup_plan = 4;</code>
      */
     public Builder clearInputBackupPlan() {
-      if (inputBackupPlanBuilder_ == null) {
-        inputBackupPlan_ = null;
-        onChanged();
-      } else {
-        inputBackupPlan_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      inputBackupPlan_ = null;
+      if (inputBackupPlanBuilder_ != null) {
+        inputBackupPlanBuilder_.dispose();
         inputBackupPlanBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1206,7 +1157,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkebackup.logging.v1.LoggedBackupPlan input_backup_plan = 4;</code>
      */
     public google.cloud.gkebackup.logging.v1.LoggedBackupPlan.Builder getInputBackupPlanBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getInputBackupPlanFieldBuilder().getBuilder();
     }
@@ -1260,7 +1211,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the error field is set.
      */
     public boolean hasError() {
-      return errorBuilder_ != null || error_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1290,11 +1241,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         error_ = value;
-        onChanged();
       } else {
         errorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1308,11 +1259,11 @@ private static final long serialVersionUID = 0L;
         com.google.rpc.Status.Builder builderForValue) {
       if (errorBuilder_ == null) {
         error_ = builderForValue.build();
-        onChanged();
       } else {
         errorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1324,17 +1275,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeError(com.google.rpc.Status value) {
       if (errorBuilder_ == null) {
-        if (error_ != null) {
-          error_ =
-            com.google.rpc.Status.newBuilder(error_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          error_ != null &&
+          error_ != com.google.rpc.Status.getDefaultInstance()) {
+          getErrorBuilder().mergeFrom(value);
         } else {
           error_ = value;
         }
-        onChanged();
       } else {
         errorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1345,14 +1297,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status error = 5;</code>
      */
     public Builder clearError() {
-      if (errorBuilder_ == null) {
-        error_ = null;
-        onChanged();
-      } else {
-        error_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
         errorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1363,7 +1314,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status error = 5;</code>
      */
     public com.google.rpc.Status.Builder getErrorBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getErrorFieldBuilder().getBuilder();
     }
@@ -1435,7 +1386,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BackupPlanChange(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

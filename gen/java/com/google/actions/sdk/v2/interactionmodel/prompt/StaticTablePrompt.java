@@ -38,108 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StaticTablePrompt(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            title_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            subtitle_ = s;
-            break;
-          }
-          case 26: {
-            com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt.Builder subBuilder = null;
-            if (image_ != null) {
-              subBuilder = image_.toBuilder();
-            }
-            image_ = input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(image_);
-              image_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              columns_ = new java.util.ArrayList<com.google.actions.sdk.v2.interactionmodel.prompt.TableColumn>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            columns_.add(
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.TableColumn.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              rows_ = new java.util.ArrayList<com.google.actions.sdk.v2.interactionmodel.prompt.TableRow>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            rows_.add(
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.TableRow.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt.Builder subBuilder = null;
-            if (button_ != null) {
-              subBuilder = button_.toBuilder();
-            }
-            button_ = input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(button_);
-              button_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        columns_ = java.util.Collections.unmodifiableList(columns_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        rows_ = java.util.Collections.unmodifiableList(rows_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.interactionmodel.prompt.StaticTablePromptProto.internal_static_google_actions_sdk_v2_interactionmodel_prompt_StaticTablePrompt_descriptor;
@@ -154,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TITLE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object title_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object title_ = "";
   /**
    * <pre>
    * Optional. Overall title of the table. Must be set if subtitle is set.
@@ -200,7 +99,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBTITLE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object subtitle_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object subtitle_ = "";
   /**
    * <pre>
    * Optional. Subtitle for the table.
@@ -280,10 +180,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePromptOrBuilder getImageOrBuilder() {
-    return getImage();
+    return image_ == null ? com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt.getDefaultInstance() : image_;
   }
 
   public static final int COLUMNS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.actions.sdk.v2.interactionmodel.prompt.TableColumn> columns_;
   /**
    * <pre>
@@ -344,6 +245,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROWS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.actions.sdk.v2.interactionmodel.prompt.TableRow> rows_;
   /**
    * <pre>
@@ -458,7 +360,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPromptOrBuilder getButtonOrBuilder() {
-    return getButton();
+    return button_ == null ? com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt.getDefaultInstance() : button_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -493,7 +395,7 @@ private static final long serialVersionUID = 0L;
     if (button_ != null) {
       output.writeMessage(6, getButton());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -524,7 +426,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getButton());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -557,7 +459,7 @@ private static final long serialVersionUID = 0L;
       if (!getButton()
           .equals(other.getButton())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -588,7 +490,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BUTTON_FIELD_NUMBER;
       hash = (53 * hash) + getButton().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -709,50 +611,42 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.interactionmodel.prompt.StaticTablePrompt.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getColumnsFieldBuilder();
-        getRowsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       title_ = "";
-
       subtitle_ = "";
-
-      if (imageBuilder_ == null) {
-        image_ = null;
-      } else {
-        image_ = null;
+      image_ = null;
+      if (imageBuilder_ != null) {
+        imageBuilder_.dispose();
         imageBuilder_ = null;
       }
       if (columnsBuilder_ == null) {
         columns_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        columns_ = null;
         columnsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       if (rowsBuilder_ == null) {
         rows_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        rows_ = null;
         rowsBuilder_.clear();
       }
-      if (buttonBuilder_ == null) {
-        button_ = null;
-      } else {
-        button_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      button_ = null;
+      if (buttonBuilder_ != null) {
+        buttonBuilder_.dispose();
         buttonBuilder_ = null;
       }
       return this;
@@ -781,39 +675,51 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.interactionmodel.prompt.StaticTablePrompt buildPartial() {
       com.google.actions.sdk.v2.interactionmodel.prompt.StaticTablePrompt result = new com.google.actions.sdk.v2.interactionmodel.prompt.StaticTablePrompt(this);
-      int from_bitField0_ = bitField0_;
-      result.title_ = title_;
-      result.subtitle_ = subtitle_;
-      if (imageBuilder_ == null) {
-        result.image_ = image_;
-      } else {
-        result.image_ = imageBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.actions.sdk.v2.interactionmodel.prompt.StaticTablePrompt result) {
       if (columnsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           columns_ = java.util.Collections.unmodifiableList(columns_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.columns_ = columns_;
       } else {
         result.columns_ = columnsBuilder_.build();
       }
       if (rowsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           rows_ = java.util.Collections.unmodifiableList(rows_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.rows_ = rows_;
       } else {
         result.rows_ = rowsBuilder_.build();
       }
-      if (buttonBuilder_ == null) {
-        result.button_ = button_;
-      } else {
-        result.button_ = buttonBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.interactionmodel.prompt.StaticTablePrompt result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.title_ = title_;
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.subtitle_ = subtitle_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.image_ = imageBuilder_ == null
+            ? image_
+            : imageBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.button_ = buttonBuilder_ == null
+            ? button_
+            : buttonBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -862,10 +768,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.actions.sdk.v2.interactionmodel.prompt.StaticTablePrompt.getDefaultInstance()) return this;
       if (!other.getTitle().isEmpty()) {
         title_ = other.title_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSubtitle().isEmpty()) {
         subtitle_ = other.subtitle_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasImage()) {
@@ -875,7 +783,7 @@ private static final long serialVersionUID = 0L;
         if (!other.columns_.isEmpty()) {
           if (columns_.isEmpty()) {
             columns_ = other.columns_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureColumnsIsMutable();
             columns_.addAll(other.columns_);
@@ -888,7 +796,7 @@ private static final long serialVersionUID = 0L;
             columnsBuilder_.dispose();
             columnsBuilder_ = null;
             columns_ = other.columns_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             columnsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getColumnsFieldBuilder() : null;
@@ -901,7 +809,7 @@ private static final long serialVersionUID = 0L;
         if (!other.rows_.isEmpty()) {
           if (rows_.isEmpty()) {
             rows_ = other.rows_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureRowsIsMutable();
             rows_.addAll(other.rows_);
@@ -914,7 +822,7 @@ private static final long serialVersionUID = 0L;
             rowsBuilder_.dispose();
             rowsBuilder_ = null;
             rows_ = other.rows_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
             rowsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getRowsFieldBuilder() : null;
@@ -926,7 +834,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasButton()) {
         mergeButton(other.getButton());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -941,17 +849,80 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.interactionmodel.prompt.StaticTablePrompt parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              title_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              subtitle_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getImageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.actions.sdk.v2.interactionmodel.prompt.TableColumn m =
+                  input.readMessage(
+                      com.google.actions.sdk.v2.interactionmodel.prompt.TableColumn.parser(),
+                      extensionRegistry);
+              if (columnsBuilder_ == null) {
+                ensureColumnsIsMutable();
+                columns_.add(m);
+              } else {
+                columnsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              com.google.actions.sdk.v2.interactionmodel.prompt.TableRow m =
+                  input.readMessage(
+                      com.google.actions.sdk.v2.interactionmodel.prompt.TableRow.parser(),
+                      extensionRegistry);
+              if (rowsBuilder_ == null) {
+                ensureRowsIsMutable();
+                rows_.add(m);
+              } else {
+                rowsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getButtonFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.interactionmodel.prompt.StaticTablePrompt) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1009,11 +980,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTitle(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       title_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1026,8 +995,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTitle() {
-      
       title_ = getDefaultInstance().getTitle();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1042,12 +1011,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTitleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       title_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1105,11 +1072,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubtitle(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       subtitle_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1122,8 +1087,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSubtitle() {
-      
       subtitle_ = getDefaultInstance().getSubtitle();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1138,12 +1103,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubtitleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       subtitle_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1160,7 +1123,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the image field is set.
      */
     public boolean hasImage() {
-      return imageBuilder_ != null || image_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1190,11 +1153,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         image_ = value;
-        onChanged();
       } else {
         imageBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1208,11 +1171,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt.Builder builderForValue) {
       if (imageBuilder_ == null) {
         image_ = builderForValue.build();
-        onChanged();
       } else {
         imageBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1224,17 +1187,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeImage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt value) {
       if (imageBuilder_ == null) {
-        if (image_ != null) {
-          image_ =
-            com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt.newBuilder(image_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          image_ != null &&
+          image_ != com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt.getDefaultInstance()) {
+          getImageBuilder().mergeFrom(value);
         } else {
           image_ = value;
         }
-        onChanged();
       } else {
         imageBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1245,14 +1209,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt image = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearImage() {
-      if (imageBuilder_ == null) {
-        image_ = null;
-        onChanged();
-      } else {
-        image_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      image_ = null;
+      if (imageBuilder_ != null) {
+        imageBuilder_.dispose();
         imageBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1263,7 +1226,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt image = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt.Builder getImageBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getImageFieldBuilder().getBuilder();
     }
@@ -1306,9 +1269,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.actions.sdk.v2.interactionmodel.prompt.TableColumn> columns_ =
       java.util.Collections.emptyList();
     private void ensureColumnsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         columns_ = new java.util.ArrayList<com.google.actions.sdk.v2.interactionmodel.prompt.TableColumn>(columns_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1502,7 +1465,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearColumns() {
       if (columnsBuilder_ == null) {
         columns_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         columnsBuilder_.clear();
@@ -1607,7 +1570,7 @@ private static final long serialVersionUID = 0L;
         columnsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.actions.sdk.v2.interactionmodel.prompt.TableColumn, com.google.actions.sdk.v2.interactionmodel.prompt.TableColumn.Builder, com.google.actions.sdk.v2.interactionmodel.prompt.TableColumnOrBuilder>(
                 columns_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         columns_ = null;
@@ -1618,9 +1581,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.actions.sdk.v2.interactionmodel.prompt.TableRow> rows_ =
       java.util.Collections.emptyList();
     private void ensureRowsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         rows_ = new java.util.ArrayList<com.google.actions.sdk.v2.interactionmodel.prompt.TableRow>(rows_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1858,7 +1821,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearRows() {
       if (rowsBuilder_ == null) {
         rows_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         rowsBuilder_.clear();
@@ -1991,7 +1954,7 @@ private static final long serialVersionUID = 0L;
         rowsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.actions.sdk.v2.interactionmodel.prompt.TableRow, com.google.actions.sdk.v2.interactionmodel.prompt.TableRow.Builder, com.google.actions.sdk.v2.interactionmodel.prompt.TableRowOrBuilder>(
                 rows_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         rows_ = null;
@@ -2011,7 +1974,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the button field is set.
      */
     public boolean hasButton() {
-      return buttonBuilder_ != null || button_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2041,11 +2004,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         button_ = value;
-        onChanged();
       } else {
         buttonBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2059,11 +2022,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt.Builder builderForValue) {
       if (buttonBuilder_ == null) {
         button_ = builderForValue.build();
-        onChanged();
       } else {
         buttonBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2075,17 +2038,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeButton(com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt value) {
       if (buttonBuilder_ == null) {
-        if (button_ != null) {
-          button_ =
-            com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt.newBuilder(button_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          button_ != null &&
+          button_ != com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt.getDefaultInstance()) {
+          getButtonBuilder().mergeFrom(value);
         } else {
           button_ = value;
         }
-        onChanged();
       } else {
         buttonBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2096,14 +2060,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt button = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearButton() {
-      if (buttonBuilder_ == null) {
-        button_ = null;
-        onChanged();
-      } else {
-        button_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      button_ = null;
+      if (buttonBuilder_ != null) {
+        buttonBuilder_.dispose();
         buttonBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2114,7 +2077,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt button = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt.Builder getButtonBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getButtonFieldBuilder().getBuilder();
     }
@@ -2186,7 +2149,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StaticTablePrompt(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -386,8 +386,9 @@ public interface RouteActionOrBuilder extends
    * Indicates that during forwarding, the host header will be swapped with
    * the hostname of the upstream host chosen by the cluster manager. This
    * option is applicable only when the destination cluster for a route is of
-   * type *strict_dns* or *logical_dns*. Setting this to true with other cluster
-   * types has no effect.
+   * type ``STRICT_DNS``,  ``LOGICAL_DNS`` or ``STATIC``. For ``STATIC`` clusters, the
+   * hostname attribute of the endpoint must be configured. Setting this to true
+   * with other cluster types has no effect.
    * </pre>
    *
    * <code>.google.protobuf.BoolValue auto_host_rewrite = 7;</code>
@@ -399,8 +400,9 @@ public interface RouteActionOrBuilder extends
    * Indicates that during forwarding, the host header will be swapped with
    * the hostname of the upstream host chosen by the cluster manager. This
    * option is applicable only when the destination cluster for a route is of
-   * type *strict_dns* or *logical_dns*. Setting this to true with other cluster
-   * types has no effect.
+   * type ``STRICT_DNS``,  ``LOGICAL_DNS`` or ``STATIC``. For ``STATIC`` clusters, the
+   * hostname attribute of the endpoint must be configured. Setting this to true
+   * with other cluster types has no effect.
    * </pre>
    *
    * <code>.google.protobuf.BoolValue auto_host_rewrite = 7;</code>
@@ -412,8 +414,9 @@ public interface RouteActionOrBuilder extends
    * Indicates that during forwarding, the host header will be swapped with
    * the hostname of the upstream host chosen by the cluster manager. This
    * option is applicable only when the destination cluster for a route is of
-   * type *strict_dns* or *logical_dns*. Setting this to true with other cluster
-   * types has no effect.
+   * type ``STRICT_DNS``,  ``LOGICAL_DNS`` or ``STATIC``. For ``STATIC`` clusters, the
+   * hostname attribute of the endpoint must be configured. Setting this to true
+   * with other cluster types has no effect.
    * </pre>
    *
    * <code>.google.protobuf.BoolValue auto_host_rewrite = 7;</code>
@@ -675,7 +678,7 @@ public interface RouteActionOrBuilder extends
    *
    * <code>.envoy.api.v2.route.RouteAction.RequestMirrorPolicy request_mirror_policy = 10 [deprecated = true];</code>
    * @deprecated envoy.api.v2.route.RouteAction.request_mirror_policy is deprecated.
-   *     See envoy/api/v2/route/route_components.proto;l=933
+   *     See envoy/api/v2/route/route_components.proto;l=934
    * @return Whether the requestMirrorPolicy field is set.
    */
   @java.lang.Deprecated boolean hasRequestMirrorPolicy();
@@ -689,7 +692,7 @@ public interface RouteActionOrBuilder extends
    *
    * <code>.envoy.api.v2.route.RouteAction.RequestMirrorPolicy request_mirror_policy = 10 [deprecated = true];</code>
    * @deprecated envoy.api.v2.route.RouteAction.request_mirror_policy is deprecated.
-   *     See envoy/api/v2/route/route_components.proto;l=933
+   *     See envoy/api/v2/route/route_components.proto;l=934
    * @return The requestMirrorPolicy.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.api.v2.route.RouteAction.RequestMirrorPolicy getRequestMirrorPolicy();

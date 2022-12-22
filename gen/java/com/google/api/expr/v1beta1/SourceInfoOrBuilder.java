@@ -114,7 +114,6 @@ public interface SourceInfoOrBuilder extends
    *
    * <code>map&lt;int32, int32&gt; positions = 4;</code>
    */
-
   int getPositionsOrDefault(
       int key,
       int defaultValue);
@@ -126,7 +125,6 @@ public interface SourceInfoOrBuilder extends
    *
    * <code>map&lt;int32, int32&gt; positions = 4;</code>
    */
-
   int getPositionsOrThrow(
       int key);
 }

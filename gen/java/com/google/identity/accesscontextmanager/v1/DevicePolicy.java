@@ -45,125 +45,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DevicePolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            requireScreenlock_ = input.readBool();
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              allowedEncryptionStatuses_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            allowedEncryptionStatuses_.add(rawValue);
-            break;
-          }
-          case 18: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                allowedEncryptionStatuses_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              allowedEncryptionStatuses_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              osConstraints_ = new java.util.ArrayList<com.google.identity.accesscontextmanager.v1.OsConstraint>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            osConstraints_.add(
-                input.readMessage(com.google.identity.accesscontextmanager.v1.OsConstraint.parser(), extensionRegistry));
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              allowedDeviceManagementLevels_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            allowedDeviceManagementLevels_.add(rawValue);
-            break;
-          }
-          case 50: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                allowedDeviceManagementLevels_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              allowedDeviceManagementLevels_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 56: {
-
-            requireAdminApproval_ = input.readBool();
-            break;
-          }
-          case 64: {
-
-            requireCorpOwned_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        allowedEncryptionStatuses_ = java.util.Collections.unmodifiableList(allowedEncryptionStatuses_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        osConstraints_ = java.util.Collections.unmodifiableList(osConstraints_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        allowedDeviceManagementLevels_ = java.util.Collections.unmodifiableList(allowedDeviceManagementLevels_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.identity.accesscontextmanager.v1.AccessLevelProto.internal_static_google_identity_accesscontextmanager_v1_DevicePolicy_descriptor;
@@ -178,7 +59,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUIRE_SCREENLOCK_FIELD_NUMBER = 1;
-  private boolean requireScreenlock_;
+  private boolean requireScreenlock_ = false;
   /**
    * <pre>
    * Whether or not screenlock is required for the DevicePolicy to be true.
@@ -194,14 +75,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOWED_ENCRYPTION_STATUSES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> allowedEncryptionStatuses_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.identity.accesscontextmanager.type.DeviceEncryptionStatus> allowedEncryptionStatuses_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.identity.accesscontextmanager.type.DeviceEncryptionStatus>() {
             public com.google.identity.accesscontextmanager.type.DeviceEncryptionStatus convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.identity.accesscontextmanager.type.DeviceEncryptionStatus result = com.google.identity.accesscontextmanager.type.DeviceEncryptionStatus.valueOf(from);
+              com.google.identity.accesscontextmanager.type.DeviceEncryptionStatus result = com.google.identity.accesscontextmanager.type.DeviceEncryptionStatus.forNumber(from);
               return result == null ? com.google.identity.accesscontextmanager.type.DeviceEncryptionStatus.UNRECOGNIZED : result;
             }
           };
@@ -272,6 +153,7 @@ private static final long serialVersionUID = 0L;
   private int allowedEncryptionStatusesMemoizedSerializedSize;
 
   public static final int OS_CONSTRAINTS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.identity.accesscontextmanager.v1.OsConstraint> osConstraints_;
   /**
    * <pre>
@@ -332,14 +214,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOWED_DEVICE_MANAGEMENT_LEVELS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> allowedDeviceManagementLevels_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.identity.accesscontextmanager.type.DeviceManagementLevel> allowedDeviceManagementLevels_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.identity.accesscontextmanager.type.DeviceManagementLevel>() {
             public com.google.identity.accesscontextmanager.type.DeviceManagementLevel convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.identity.accesscontextmanager.type.DeviceManagementLevel result = com.google.identity.accesscontextmanager.type.DeviceManagementLevel.valueOf(from);
+              com.google.identity.accesscontextmanager.type.DeviceManagementLevel result = com.google.identity.accesscontextmanager.type.DeviceManagementLevel.forNumber(from);
               return result == null ? com.google.identity.accesscontextmanager.type.DeviceManagementLevel.UNRECOGNIZED : result;
             }
           };
@@ -415,7 +297,7 @@ private static final long serialVersionUID = 0L;
   private int allowedDeviceManagementLevelsMemoizedSerializedSize;
 
   public static final int REQUIRE_ADMIN_APPROVAL_FIELD_NUMBER = 7;
-  private boolean requireAdminApproval_;
+  private boolean requireAdminApproval_ = false;
   /**
    * <pre>
    * Whether the device needs to be approved by the customer admin.
@@ -430,7 +312,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUIRE_CORP_OWNED_FIELD_NUMBER = 8;
-  private boolean requireCorpOwned_;
+  private boolean requireCorpOwned_ = false;
   /**
    * <pre>
    * Whether the device needs to be corp owned.
@@ -485,7 +367,7 @@ private static final long serialVersionUID = 0L;
     if (requireCorpOwned_ != false) {
       output.writeBool(8, requireCorpOwned_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -534,7 +416,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(8, requireCorpOwned_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -559,7 +441,7 @@ private static final long serialVersionUID = 0L;
         != other.getRequireAdminApproval()) return false;
     if (getRequireCorpOwned()
         != other.getRequireCorpOwned()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -591,7 +473,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + REQUIRE_CORP_OWNED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getRequireCorpOwned());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -720,39 +602,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.identity.accesscontextmanager.v1.DevicePolicy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getOsConstraintsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       requireScreenlock_ = false;
-
       allowedEncryptionStatuses_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (osConstraintsBuilder_ == null) {
         osConstraints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        osConstraints_ = null;
         osConstraintsBuilder_.clear();
       }
-      allowedDeviceManagementLevels_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000004);
+      allowedDeviceManagementLevels_ = java.util.Collections.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000008);
       requireAdminApproval_ = false;
-
       requireCorpOwned_ = false;
-
       return this;
     }
 
@@ -779,31 +654,45 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.identity.accesscontextmanager.v1.DevicePolicy buildPartial() {
       com.google.identity.accesscontextmanager.v1.DevicePolicy result = new com.google.identity.accesscontextmanager.v1.DevicePolicy(this);
-      int from_bitField0_ = bitField0_;
-      result.requireScreenlock_ = requireScreenlock_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.identity.accesscontextmanager.v1.DevicePolicy result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         allowedEncryptionStatuses_ = java.util.Collections.unmodifiableList(allowedEncryptionStatuses_);
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.allowedEncryptionStatuses_ = allowedEncryptionStatuses_;
       if (osConstraintsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           osConstraints_ = java.util.Collections.unmodifiableList(osConstraints_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.osConstraints_ = osConstraints_;
       } else {
         result.osConstraints_ = osConstraintsBuilder_.build();
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         allowedDeviceManagementLevels_ = java.util.Collections.unmodifiableList(allowedDeviceManagementLevels_);
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.allowedDeviceManagementLevels_ = allowedDeviceManagementLevels_;
-      result.requireAdminApproval_ = requireAdminApproval_;
-      result.requireCorpOwned_ = requireCorpOwned_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.identity.accesscontextmanager.v1.DevicePolicy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.requireScreenlock_ = requireScreenlock_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.requireAdminApproval_ = requireAdminApproval_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.requireCorpOwned_ = requireCorpOwned_;
+      }
     }
 
     @java.lang.Override
@@ -856,7 +745,7 @@ private static final long serialVersionUID = 0L;
       if (!other.allowedEncryptionStatuses_.isEmpty()) {
         if (allowedEncryptionStatuses_.isEmpty()) {
           allowedEncryptionStatuses_ = other.allowedEncryptionStatuses_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureAllowedEncryptionStatusesIsMutable();
           allowedEncryptionStatuses_.addAll(other.allowedEncryptionStatuses_);
@@ -867,7 +756,7 @@ private static final long serialVersionUID = 0L;
         if (!other.osConstraints_.isEmpty()) {
           if (osConstraints_.isEmpty()) {
             osConstraints_ = other.osConstraints_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureOsConstraintsIsMutable();
             osConstraints_.addAll(other.osConstraints_);
@@ -880,7 +769,7 @@ private static final long serialVersionUID = 0L;
             osConstraintsBuilder_.dispose();
             osConstraintsBuilder_ = null;
             osConstraints_ = other.osConstraints_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             osConstraintsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getOsConstraintsFieldBuilder() : null;
@@ -892,7 +781,7 @@ private static final long serialVersionUID = 0L;
       if (!other.allowedDeviceManagementLevels_.isEmpty()) {
         if (allowedDeviceManagementLevels_.isEmpty()) {
           allowedDeviceManagementLevels_ = other.allowedDeviceManagementLevels_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureAllowedDeviceManagementLevelsIsMutable();
           allowedDeviceManagementLevels_.addAll(other.allowedDeviceManagementLevels_);
@@ -905,7 +794,7 @@ private static final long serialVersionUID = 0L;
       if (other.getRequireCorpOwned() != false) {
         setRequireCorpOwned(other.getRequireCorpOwned());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -920,17 +809,92 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.identity.accesscontextmanager.v1.DevicePolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              requireScreenlock_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              int tmpRaw = input.readEnum();
+              ensureAllowedEncryptionStatusesIsMutable();
+              allowedEncryptionStatuses_.add(tmpRaw);
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureAllowedEncryptionStatusesIsMutable();
+                allowedEncryptionStatuses_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 18
+            case 26: {
+              com.google.identity.accesscontextmanager.v1.OsConstraint m =
+                  input.readMessage(
+                      com.google.identity.accesscontextmanager.v1.OsConstraint.parser(),
+                      extensionRegistry);
+              if (osConstraintsBuilder_ == null) {
+                ensureOsConstraintsIsMutable();
+                osConstraints_.add(m);
+              } else {
+                osConstraintsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 48: {
+              int tmpRaw = input.readEnum();
+              ensureAllowedDeviceManagementLevelsIsMutable();
+              allowedDeviceManagementLevels_.add(tmpRaw);
+              break;
+            } // case 48
+            case 50: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureAllowedDeviceManagementLevelsIsMutable();
+                allowedDeviceManagementLevels_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 50
+            case 56: {
+              requireAdminApproval_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 56
+            case 64: {
+              requireCorpOwned_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 64
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.identity.accesscontextmanager.v1.DevicePolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -962,6 +926,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRequireScreenlock(boolean value) {
       
       requireScreenlock_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -975,7 +940,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequireScreenlock() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       requireScreenlock_ = false;
       onChanged();
       return this;
@@ -984,9 +949,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> allowedEncryptionStatuses_ =
       java.util.Collections.emptyList();
     private void ensureAllowedEncryptionStatusesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         allowedEncryptionStatuses_ = new java.util.ArrayList<java.lang.Integer>(allowedEncryptionStatuses_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
       }
     }
     /**
@@ -1090,7 +1055,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAllowedEncryptionStatuses() {
       allowedEncryptionStatuses_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1172,9 +1137,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.identity.accesscontextmanager.v1.OsConstraint> osConstraints_ =
       java.util.Collections.emptyList();
     private void ensureOsConstraintsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         osConstraints_ = new java.util.ArrayList<com.google.identity.accesscontextmanager.v1.OsConstraint>(osConstraints_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1368,7 +1333,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearOsConstraints() {
       if (osConstraintsBuilder_ == null) {
         osConstraints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         osConstraintsBuilder_.clear();
@@ -1473,7 +1438,7 @@ private static final long serialVersionUID = 0L;
         osConstraintsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.identity.accesscontextmanager.v1.OsConstraint, com.google.identity.accesscontextmanager.v1.OsConstraint.Builder, com.google.identity.accesscontextmanager.v1.OsConstraintOrBuilder>(
                 osConstraints_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         osConstraints_ = null;
@@ -1484,9 +1449,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> allowedDeviceManagementLevels_ =
       java.util.Collections.emptyList();
     private void ensureAllowedDeviceManagementLevelsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         allowedDeviceManagementLevels_ = new java.util.ArrayList<java.lang.Integer>(allowedDeviceManagementLevels_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
       }
     }
     /**
@@ -1597,7 +1562,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAllowedDeviceManagementLevels() {
       allowedDeviceManagementLevels_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1706,6 +1671,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRequireAdminApproval(boolean value) {
       
       requireAdminApproval_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1718,7 +1684,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequireAdminApproval() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       requireAdminApproval_ = false;
       onChanged();
       return this;
@@ -1749,6 +1715,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRequireCorpOwned(boolean value) {
       
       requireCorpOwned_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1761,7 +1728,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequireCorpOwned() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       requireCorpOwned_ = false;
       onChanged();
       return this;
@@ -1799,7 +1766,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DevicePolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

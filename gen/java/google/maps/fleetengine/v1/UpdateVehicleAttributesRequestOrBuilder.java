@@ -62,8 +62,8 @@ public interface UpdateVehicleAttributesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The vehicle attributes to update. Unmentioned attributes will not be
-   * altered or removed.
+   * Required. The vehicle attributes to update. Unmentioned attributes will not
+   * be altered or removed.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute attributes = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -72,8 +72,8 @@ public interface UpdateVehicleAttributesRequestOrBuilder extends
       getAttributesList();
   /**
    * <pre>
-   * Required. The vehicle attributes to update. Unmentioned attributes will not be
-   * altered or removed.
+   * Required. The vehicle attributes to update. Unmentioned attributes will not
+   * be altered or removed.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute attributes = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -81,8 +81,8 @@ public interface UpdateVehicleAttributesRequestOrBuilder extends
   google.maps.fleetengine.v1.VehicleAttribute getAttributes(int index);
   /**
    * <pre>
-   * Required. The vehicle attributes to update. Unmentioned attributes will not be
-   * altered or removed.
+   * Required. The vehicle attributes to update. Unmentioned attributes will not
+   * be altered or removed.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute attributes = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -90,8 +90,8 @@ public interface UpdateVehicleAttributesRequestOrBuilder extends
   int getAttributesCount();
   /**
    * <pre>
-   * Required. The vehicle attributes to update. Unmentioned attributes will not be
-   * altered or removed.
+   * Required. The vehicle attributes to update. Unmentioned attributes will not
+   * be altered or removed.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute attributes = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -100,8 +100,8 @@ public interface UpdateVehicleAttributesRequestOrBuilder extends
       getAttributesOrBuilderList();
   /**
    * <pre>
-   * Required. The vehicle attributes to update. Unmentioned attributes will not be
-   * altered or removed.
+   * Required. The vehicle attributes to update. Unmentioned attributes will not
+   * be altered or removed.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute attributes = 4 [(.google.api.field_behavior) = REQUIRED];</code>

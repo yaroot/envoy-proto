@@ -85,7 +85,8 @@ public interface ListVehiclesResponseOrBuilder extends
 
   /**
    * <pre>
-   * Required. Total number of vehicles matching the request criteria across all pages.
+   * Required. Total number of vehicles matching the request criteria across all
+   * pages.
    * </pre>
    *
    * <code>int64 total_size = 3 [(.google.api.field_behavior) = REQUIRED];</code>

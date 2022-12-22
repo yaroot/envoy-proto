@@ -39,90 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpgradeOccurrence(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            package_ = s;
-            break;
-          }
-          case 26: {
-            io.grafeas.v1.Version.Builder subBuilder = null;
-            if (parsedVersion_ != null) {
-              subBuilder = parsedVersion_.toBuilder();
-            }
-            parsedVersion_ = input.readMessage(io.grafeas.v1.Version.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(parsedVersion_);
-              parsedVersion_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            io.grafeas.v1.UpgradeDistribution.Builder subBuilder = null;
-            if (distribution_ != null) {
-              subBuilder = distribution_.toBuilder();
-            }
-            distribution_ = input.readMessage(io.grafeas.v1.UpgradeDistribution.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(distribution_);
-              distribution_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            io.grafeas.v1.WindowsUpdate.Builder subBuilder = null;
-            if (windowsUpdate_ != null) {
-              subBuilder = windowsUpdate_.toBuilder();
-            }
-            windowsUpdate_ = input.readMessage(io.grafeas.v1.WindowsUpdate.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(windowsUpdate_);
-              windowsUpdate_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.grafeas.v1.Upgrade.internal_static_grafeas_v1_UpgradeOccurrence_descriptor;
@@ -137,7 +53,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PACKAGE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object package_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object package_ = "";
   /**
    * <pre>
    * Required for non-Windows OS. The package this Upgrade is for.
@@ -220,7 +137,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.grafeas.v1.VersionOrBuilder getParsedVersionOrBuilder() {
-    return getParsedVersion();
+    return parsedVersion_ == null ? io.grafeas.v1.Version.getDefaultInstance() : parsedVersion_;
   }
 
   public static final int DISTRIBUTION_FIELD_NUMBER = 4;
@@ -264,7 +181,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.grafeas.v1.UpgradeDistributionOrBuilder getDistributionOrBuilder() {
-    return getDistribution();
+    return distribution_ == null ? io.grafeas.v1.UpgradeDistribution.getDefaultInstance() : distribution_;
   }
 
   public static final int WINDOWS_UPDATE_FIELD_NUMBER = 5;
@@ -302,7 +219,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.grafeas.v1.WindowsUpdateOrBuilder getWindowsUpdateOrBuilder() {
-    return getWindowsUpdate();
+    return windowsUpdate_ == null ? io.grafeas.v1.WindowsUpdate.getDefaultInstance() : windowsUpdate_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -331,7 +248,7 @@ private static final long serialVersionUID = 0L;
     if (windowsUpdate_ != null) {
       output.writeMessage(5, getWindowsUpdate());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -355,7 +272,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getWindowsUpdate());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -387,7 +304,7 @@ private static final long serialVersionUID = 0L;
       if (!getWindowsUpdate()
           .equals(other.getWindowsUpdate())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -412,7 +329,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + WINDOWS_UPDATE_FIELD_NUMBER;
       hash = (53 * hash) + getWindowsUpdate().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -537,40 +454,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.grafeas.v1.UpgradeOccurrence.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       package_ = "";
-
-      if (parsedVersionBuilder_ == null) {
-        parsedVersion_ = null;
-      } else {
-        parsedVersion_ = null;
+      parsedVersion_ = null;
+      if (parsedVersionBuilder_ != null) {
+        parsedVersionBuilder_.dispose();
         parsedVersionBuilder_ = null;
       }
-      if (distributionBuilder_ == null) {
-        distribution_ = null;
-      } else {
-        distribution_ = null;
+      distribution_ = null;
+      if (distributionBuilder_ != null) {
+        distributionBuilder_.dispose();
         distributionBuilder_ = null;
       }
-      if (windowsUpdateBuilder_ == null) {
-        windowsUpdate_ = null;
-      } else {
-        windowsUpdate_ = null;
+      windowsUpdate_ = null;
+      if (windowsUpdateBuilder_ != null) {
+        windowsUpdateBuilder_.dispose();
         windowsUpdateBuilder_ = null;
       }
       return this;
@@ -599,24 +508,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.grafeas.v1.UpgradeOccurrence buildPartial() {
       io.grafeas.v1.UpgradeOccurrence result = new io.grafeas.v1.UpgradeOccurrence(this);
-      result.package_ = package_;
-      if (parsedVersionBuilder_ == null) {
-        result.parsedVersion_ = parsedVersion_;
-      } else {
-        result.parsedVersion_ = parsedVersionBuilder_.build();
-      }
-      if (distributionBuilder_ == null) {
-        result.distribution_ = distribution_;
-      } else {
-        result.distribution_ = distributionBuilder_.build();
-      }
-      if (windowsUpdateBuilder_ == null) {
-        result.windowsUpdate_ = windowsUpdate_;
-      } else {
-        result.windowsUpdate_ = windowsUpdateBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.grafeas.v1.UpgradeOccurrence result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.package_ = package_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.parsedVersion_ = parsedVersionBuilder_ == null
+            ? parsedVersion_
+            : parsedVersionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.distribution_ = distributionBuilder_ == null
+            ? distribution_
+            : distributionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.windowsUpdate_ = windowsUpdateBuilder_ == null
+            ? windowsUpdate_
+            : windowsUpdateBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -665,6 +581,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.grafeas.v1.UpgradeOccurrence.getDefaultInstance()) return this;
       if (!other.getPackage().isEmpty()) {
         package_ = other.package_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasParsedVersion()) {
@@ -676,7 +593,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasWindowsUpdate()) {
         mergeWindowsUpdate(other.getWindowsUpdate());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -691,19 +608,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.grafeas.v1.UpgradeOccurrence parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              package_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              input.readMessage(
+                  getParsedVersionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getDistributionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getWindowsUpdateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.grafeas.v1.UpgradeOccurrence) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object package_ = "";
     /**
@@ -758,11 +715,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPackage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       package_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -775,8 +730,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPackage() {
-      
       package_ = getDefaultInstance().getPackage();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -791,12 +746,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPackageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       package_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -814,7 +767,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the parsedVersion field is set.
      */
     public boolean hasParsedVersion() {
-      return parsedVersionBuilder_ != null || parsedVersion_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -846,11 +799,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         parsedVersion_ = value;
-        onChanged();
       } else {
         parsedVersionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -865,11 +818,11 @@ private static final long serialVersionUID = 0L;
         io.grafeas.v1.Version.Builder builderForValue) {
       if (parsedVersionBuilder_ == null) {
         parsedVersion_ = builderForValue.build();
-        onChanged();
       } else {
         parsedVersionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -882,17 +835,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeParsedVersion(io.grafeas.v1.Version value) {
       if (parsedVersionBuilder_ == null) {
-        if (parsedVersion_ != null) {
-          parsedVersion_ =
-            io.grafeas.v1.Version.newBuilder(parsedVersion_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          parsedVersion_ != null &&
+          parsedVersion_ != io.grafeas.v1.Version.getDefaultInstance()) {
+          getParsedVersionBuilder().mergeFrom(value);
         } else {
           parsedVersion_ = value;
         }
-        onChanged();
       } else {
         parsedVersionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -904,14 +858,13 @@ private static final long serialVersionUID = 0L;
      * <code>.grafeas.v1.Version parsed_version = 3;</code>
      */
     public Builder clearParsedVersion() {
-      if (parsedVersionBuilder_ == null) {
-        parsedVersion_ = null;
-        onChanged();
-      } else {
-        parsedVersion_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      parsedVersion_ = null;
+      if (parsedVersionBuilder_ != null) {
+        parsedVersionBuilder_.dispose();
         parsedVersionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -923,7 +876,7 @@ private static final long serialVersionUID = 0L;
      * <code>.grafeas.v1.Version parsed_version = 3;</code>
      */
     public io.grafeas.v1.Version.Builder getParsedVersionBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getParsedVersionFieldBuilder().getBuilder();
     }
@@ -979,7 +932,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the distribution field is set.
      */
     public boolean hasDistribution() {
-      return distributionBuilder_ != null || distribution_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1013,11 +966,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         distribution_ = value;
-        onChanged();
       } else {
         distributionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1033,11 +986,11 @@ private static final long serialVersionUID = 0L;
         io.grafeas.v1.UpgradeDistribution.Builder builderForValue) {
       if (distributionBuilder_ == null) {
         distribution_ = builderForValue.build();
-        onChanged();
       } else {
         distributionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1051,17 +1004,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDistribution(io.grafeas.v1.UpgradeDistribution value) {
       if (distributionBuilder_ == null) {
-        if (distribution_ != null) {
-          distribution_ =
-            io.grafeas.v1.UpgradeDistribution.newBuilder(distribution_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          distribution_ != null &&
+          distribution_ != io.grafeas.v1.UpgradeDistribution.getDefaultInstance()) {
+          getDistributionBuilder().mergeFrom(value);
         } else {
           distribution_ = value;
         }
-        onChanged();
       } else {
         distributionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1074,14 +1028,13 @@ private static final long serialVersionUID = 0L;
      * <code>.grafeas.v1.UpgradeDistribution distribution = 4;</code>
      */
     public Builder clearDistribution() {
-      if (distributionBuilder_ == null) {
-        distribution_ = null;
-        onChanged();
-      } else {
-        distribution_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      distribution_ = null;
+      if (distributionBuilder_ != null) {
+        distributionBuilder_.dispose();
         distributionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1094,7 +1047,7 @@ private static final long serialVersionUID = 0L;
      * <code>.grafeas.v1.UpgradeDistribution distribution = 4;</code>
      */
     public io.grafeas.v1.UpgradeDistribution.Builder getDistributionBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDistributionFieldBuilder().getBuilder();
     }
@@ -1150,7 +1103,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the windowsUpdate field is set.
      */
     public boolean hasWindowsUpdate() {
-      return windowsUpdateBuilder_ != null || windowsUpdate_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1180,11 +1133,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         windowsUpdate_ = value;
-        onChanged();
       } else {
         windowsUpdateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1198,11 +1151,11 @@ private static final long serialVersionUID = 0L;
         io.grafeas.v1.WindowsUpdate.Builder builderForValue) {
       if (windowsUpdateBuilder_ == null) {
         windowsUpdate_ = builderForValue.build();
-        onChanged();
       } else {
         windowsUpdateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1214,17 +1167,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWindowsUpdate(io.grafeas.v1.WindowsUpdate value) {
       if (windowsUpdateBuilder_ == null) {
-        if (windowsUpdate_ != null) {
-          windowsUpdate_ =
-            io.grafeas.v1.WindowsUpdate.newBuilder(windowsUpdate_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          windowsUpdate_ != null &&
+          windowsUpdate_ != io.grafeas.v1.WindowsUpdate.getDefaultInstance()) {
+          getWindowsUpdateBuilder().mergeFrom(value);
         } else {
           windowsUpdate_ = value;
         }
-        onChanged();
       } else {
         windowsUpdateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1235,14 +1189,13 @@ private static final long serialVersionUID = 0L;
      * <code>.grafeas.v1.WindowsUpdate windows_update = 5;</code>
      */
     public Builder clearWindowsUpdate() {
-      if (windowsUpdateBuilder_ == null) {
-        windowsUpdate_ = null;
-        onChanged();
-      } else {
-        windowsUpdate_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      windowsUpdate_ = null;
+      if (windowsUpdateBuilder_ != null) {
+        windowsUpdateBuilder_.dispose();
         windowsUpdateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1253,7 +1206,7 @@ private static final long serialVersionUID = 0L;
      * <code>.grafeas.v1.WindowsUpdate windows_update = 5;</code>
      */
     public io.grafeas.v1.WindowsUpdate.Builder getWindowsUpdateBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getWindowsUpdateFieldBuilder().getBuilder();
     }
@@ -1325,7 +1278,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpgradeOccurrence(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

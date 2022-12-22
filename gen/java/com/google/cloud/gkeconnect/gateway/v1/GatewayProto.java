@@ -25,32 +25,27 @@ public final class GatewayProto {
     java.lang.String[] descriptorData = {
       "\n0google/cloud/gkeconnect/gateway/v1/gat" +
       "eway.proto\022\"google.cloud.gkeconnect.gate" +
-      "way.v1\032\034google/api/annotations.proto\032\027go" +
-      "ogle/api/client.proto\032\031google/api/httpbo" +
-      "dy.proto22\n\016GatewayService\032 \312A\035connectga" +
-      "teway.googleapis.comB\366\001\n&com.google.clou" +
-      "d.gkeconnect.gateway.v1B\014GatewayProtoP\001Z" +
-      "Igoogle.golang.org/genproto/googleapis/c" +
-      "loud/gkeconnect/gateway/v1;gateway\252\002\"Goo" +
-      "gle.Cloud.GkeConnect.Gateway.V1\312\002\"Google" +
-      "\\Cloud\\GkeConnect\\Gateway\\V1\352\002&Google::C" +
-      "loud::GkeConnect::Gateway::V1b\006proto3"
+      "way.v1\032\027google/api/client.proto22\n\016Gatew" +
+      "ayService\032 \312A\035connectgateway.googleapis." +
+      "comB\366\001\n&com.google.cloud.gkeconnect.gate" +
+      "way.v1B\014GatewayProtoP\001ZIgoogle.golang.or" +
+      "g/genproto/googleapis/cloud/gkeconnect/g" +
+      "ateway/v1;gateway\252\002\"Google.Cloud.GkeConn" +
+      "ect.Gateway.V1\312\002\"Google\\Cloud\\GkeConnect" +
+      "\\Gateway\\V1\352\002&Google::Cloud::GkeConnect:" +
+      ":Gateway::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.api.AnnotationsProto.getDescriptor(),
           com.google.api.ClientProto.getDescriptor(),
-          com.google.api.HttpBodyProto.getDescriptor(),
         });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.ClientProto.defaultHost);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
-    com.google.api.AnnotationsProto.getDescriptor();
     com.google.api.ClientProto.getDescriptor();
-    com.google.api.HttpBodyProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

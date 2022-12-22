@@ -167,7 +167,6 @@ public interface BulkInsertInstanceResourceOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties&gt; per_instance_properties = 108502267;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties getPerInstancePropertiesOrDefault(
       java.lang.String key,
@@ -180,7 +179,6 @@ com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties defa
    *
    * <code>map&lt;string, .google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties&gt; per_instance_properties = 108502267;</code>
    */
-
   com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties getPerInstancePropertiesOrThrow(
       java.lang.String key);
 

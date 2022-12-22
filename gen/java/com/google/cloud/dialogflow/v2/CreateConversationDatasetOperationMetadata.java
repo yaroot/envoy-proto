@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private CreateConversationDatasetOperationMetadata() {
+    conversationDataset_ = "";
   }
 
   @java.lang.Override
@@ -34,45 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateConversationDatasetOperationMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.v2.ConversationDatasetProto.internal_static_google_cloud_dialogflow_v2_CreateConversationDatasetOperationMetadata_descriptor;
@@ -84,6 +46,57 @@ private static final long serialVersionUID = 0L;
     return com.google.cloud.dialogflow.v2.ConversationDatasetProto.internal_static_google_cloud_dialogflow_v2_CreateConversationDatasetOperationMetadata_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.google.cloud.dialogflow.v2.CreateConversationDatasetOperationMetadata.class, com.google.cloud.dialogflow.v2.CreateConversationDatasetOperationMetadata.Builder.class);
+  }
+
+  public static final int CONVERSATION_DATASET_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object conversationDataset_ = "";
+  /**
+   * <pre>
+   * The resource name of the conversation dataset that will be created. Format:
+   * `projects/&lt;Project ID&gt;/locations/&lt;Location
+   * ID&gt;/conversationDatasets/&lt;Conversation Dataset Id&gt;`
+   * </pre>
+   *
+   * <code>string conversation_dataset = 1 [(.google.api.resource_reference) = { ... }</code>
+   * @return The conversationDataset.
+   */
+  @java.lang.Override
+  public java.lang.String getConversationDataset() {
+    java.lang.Object ref = conversationDataset_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      conversationDataset_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * The resource name of the conversation dataset that will be created. Format:
+   * `projects/&lt;Project ID&gt;/locations/&lt;Location
+   * ID&gt;/conversationDatasets/&lt;Conversation Dataset Id&gt;`
+   * </pre>
+   *
+   * <code>string conversation_dataset = 1 [(.google.api.resource_reference) = { ... }</code>
+   * @return The bytes for conversationDataset.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getConversationDatasetBytes() {
+    java.lang.Object ref = conversationDataset_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      conversationDataset_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -100,7 +113,10 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(conversationDataset_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, conversationDataset_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -109,7 +125,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(conversationDataset_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, conversationDataset_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -124,7 +143,9 @@ private static final long serialVersionUID = 0L;
     }
     com.google.cloud.dialogflow.v2.CreateConversationDatasetOperationMetadata other = (com.google.cloud.dialogflow.v2.CreateConversationDatasetOperationMetadata) obj;
 
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getConversationDataset()
+        .equals(other.getConversationDataset())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -135,7 +156,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + CONVERSATION_DATASET_FIELD_NUMBER;
+    hash = (53 * hash) + getConversationDataset().hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -256,22 +279,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.v2.CreateConversationDatasetOperationMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      conversationDataset_ = "";
       return this;
     }
 
@@ -298,8 +318,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.v2.CreateConversationDatasetOperationMetadata buildPartial() {
       com.google.cloud.dialogflow.v2.CreateConversationDatasetOperationMetadata result = new com.google.cloud.dialogflow.v2.CreateConversationDatasetOperationMetadata(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.v2.CreateConversationDatasetOperationMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.conversationDataset_ = conversationDataset_;
+      }
     }
 
     @java.lang.Override
@@ -346,7 +374,12 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.google.cloud.dialogflow.v2.CreateConversationDatasetOperationMetadata other) {
       if (other == com.google.cloud.dialogflow.v2.CreateConversationDatasetOperationMetadata.getDefaultInstance()) return this;
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getConversationDataset().isEmpty()) {
+        conversationDataset_ = other.conversationDataset_;
+        bitField0_ |= 0x00000001;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -361,17 +394,138 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.v2.CreateConversationDatasetOperationMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              conversationDataset_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.v2.CreateConversationDatasetOperationMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
+        onChanged();
+      } // finally
+      return this;
+    }
+    private int bitField0_;
+
+    private java.lang.Object conversationDataset_ = "";
+    /**
+     * <pre>
+     * The resource name of the conversation dataset that will be created. Format:
+     * `projects/&lt;Project ID&gt;/locations/&lt;Location
+     * ID&gt;/conversationDatasets/&lt;Conversation Dataset Id&gt;`
+     * </pre>
+     *
+     * <code>string conversation_dataset = 1 [(.google.api.resource_reference) = { ... }</code>
+     * @return The conversationDataset.
+     */
+    public java.lang.String getConversationDataset() {
+      java.lang.Object ref = conversationDataset_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        conversationDataset_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
       }
+    }
+    /**
+     * <pre>
+     * The resource name of the conversation dataset that will be created. Format:
+     * `projects/&lt;Project ID&gt;/locations/&lt;Location
+     * ID&gt;/conversationDatasets/&lt;Conversation Dataset Id&gt;`
+     * </pre>
+     *
+     * <code>string conversation_dataset = 1 [(.google.api.resource_reference) = { ... }</code>
+     * @return The bytes for conversationDataset.
+     */
+    public com.google.protobuf.ByteString
+        getConversationDatasetBytes() {
+      java.lang.Object ref = conversationDataset_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        conversationDataset_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The resource name of the conversation dataset that will be created. Format:
+     * `projects/&lt;Project ID&gt;/locations/&lt;Location
+     * ID&gt;/conversationDatasets/&lt;Conversation Dataset Id&gt;`
+     * </pre>
+     *
+     * <code>string conversation_dataset = 1 [(.google.api.resource_reference) = { ... }</code>
+     * @param value The conversationDataset to set.
+     * @return This builder for chaining.
+     */
+    public Builder setConversationDataset(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      conversationDataset_ = value;
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The resource name of the conversation dataset that will be created. Format:
+     * `projects/&lt;Project ID&gt;/locations/&lt;Location
+     * ID&gt;/conversationDatasets/&lt;Conversation Dataset Id&gt;`
+     * </pre>
+     *
+     * <code>string conversation_dataset = 1 [(.google.api.resource_reference) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearConversationDataset() {
+      conversationDataset_ = getDefaultInstance().getConversationDataset();
+      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The resource name of the conversation dataset that will be created. Format:
+     * `projects/&lt;Project ID&gt;/locations/&lt;Location
+     * ID&gt;/conversationDatasets/&lt;Conversation Dataset Id&gt;`
+     * </pre>
+     *
+     * <code>string conversation_dataset = 1 [(.google.api.resource_reference) = { ... }</code>
+     * @param value The bytes for conversationDataset to set.
+     * @return This builder for chaining.
+     */
+    public Builder setConversationDatasetBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      conversationDataset_ = value;
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     @java.lang.Override
@@ -407,7 +561,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateConversationDatasetOperationMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

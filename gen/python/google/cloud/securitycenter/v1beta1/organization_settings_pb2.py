@@ -12,10 +12,9 @@ _sym_db = _symbol_database.Default()
 
 
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n?google/cloud/securitycenter/v1beta1/organization_settings.proto\x12#google.cloud.securitycenter.v1beta1\x1a\x19google/api/resource.proto\x1a\x1cgoogle/api/annotations.proto\"\x94\x04\n\x14OrganizationSettings\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x1e\n\x16\x65nable_asset_discovery\x18\x02 \x01(\x08\x12n\n\x16\x61sset_discovery_config\x18\x03 \x01(\x0b\x32N.google.cloud.securitycenter.v1beta1.OrganizationSettings.AssetDiscoveryConfig\x1a\xf1\x01\n\x14\x41ssetDiscoveryConfig\x12\x13\n\x0bproject_ids\x18\x01 \x03(\t\x12t\n\x0einclusion_mode\x18\x02 \x01(\x0e\x32\\.google.cloud.securitycenter.v1beta1.OrganizationSettings.AssetDiscoveryConfig.InclusionMode\"N\n\rInclusionMode\x12\x1e\n\x1aINCLUSION_MODE_UNSPECIFIED\x10\x00\x12\x10\n\x0cINCLUDE_ONLY\x10\x01\x12\x0b\n\x07\x45XCLUDE\x10\x02:j\xea\x41g\n2securitycenter.googleapis.com/OrganizationSettings\x12\x31organizations/{organization}/organizationSettingsB~\n\'com.google.cloud.securitycenter.v1beta1P\x01ZQgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1beta1;securitycenterb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n?google/cloud/securitycenter/v1beta1/organization_settings.proto\x12#google.cloud.securitycenter.v1beta1\x1a\x19google/api/resource.proto\"\x94\x04\n\x14OrganizationSettings\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x1e\n\x16\x65nable_asset_discovery\x18\x02 \x01(\x08\x12n\n\x16\x61sset_discovery_config\x18\x03 \x01(\x0b\x32N.google.cloud.securitycenter.v1beta1.OrganizationSettings.AssetDiscoveryConfig\x1a\xf1\x01\n\x14\x41ssetDiscoveryConfig\x12\x13\n\x0bproject_ids\x18\x01 \x03(\t\x12t\n\x0einclusion_mode\x18\x02 \x01(\x0e\x32\\.google.cloud.securitycenter.v1beta1.OrganizationSettings.AssetDiscoveryConfig.InclusionMode\"N\n\rInclusionMode\x12\x1e\n\x1aINCLUSION_MODE_UNSPECIFIED\x10\x00\x12\x10\n\x0cINCLUDE_ONLY\x10\x01\x12\x0b\n\x07\x45XCLUDE\x10\x02:j\xea\x41g\n2securitycenter.googleapis.com/OrganizationSettings\x12\x31organizations/{organization}/organizationSettingsB~\n\'com.google.cloud.securitycenter.v1beta1P\x01ZQgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1beta1;securitycenterb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.securitycenter.v1beta1.organization_settings_pb2', globals())
@@ -25,10 +24,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'\n\'com.google.cloud.securitycenter.v1beta1P\001ZQgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1beta1;securitycenter'
   _ORGANIZATIONSETTINGS._options = None
   _ORGANIZATIONSETTINGS._serialized_options = b'\352Ag\n2securitycenter.googleapis.com/OrganizationSettings\0221organizations/{organization}/organizationSettings'
-  _ORGANIZATIONSETTINGS._serialized_start=162
-  _ORGANIZATIONSETTINGS._serialized_end=694
-  _ORGANIZATIONSETTINGS_ASSETDISCOVERYCONFIG._serialized_start=345
-  _ORGANIZATIONSETTINGS_ASSETDISCOVERYCONFIG._serialized_end=586
-  _ORGANIZATIONSETTINGS_ASSETDISCOVERYCONFIG_INCLUSIONMODE._serialized_start=508
-  _ORGANIZATIONSETTINGS_ASSETDISCOVERYCONFIG_INCLUSIONMODE._serialized_end=586
+  _ORGANIZATIONSETTINGS._serialized_start=132
+  _ORGANIZATIONSETTINGS._serialized_end=664
+  _ORGANIZATIONSETTINGS_ASSETDISCOVERYCONFIG._serialized_start=315
+  _ORGANIZATIONSETTINGS_ASSETDISCOVERYCONFIG._serialized_end=556
+  _ORGANIZATIONSETTINGS_ASSETDISCOVERYCONFIG_INCLUSIONMODE._serialized_start=478
+  _ORGANIZATIONSETTINGS_ASSETDISCOVERYCONFIG_INCLUSIONMODE._serialized_end=556
 # @@protoc_insertion_point(module_scope)

@@ -41,155 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TranslationTaskDetails(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            inputPath_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            outputPath_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            schemaPath_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            fileEncoding_ = rawValue;
-            break;
-          }
-          case 42: {
-            com.google.cloud.bigquery.migration.v2alpha.IdentifierSettings.Builder subBuilder = null;
-            if (identifierSettings_ != null) {
-              subBuilder = identifierSettings_.toBuilder();
-            }
-            identifierSettings_ = input.readMessage(com.google.cloud.bigquery.migration.v2alpha.IdentifierSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(identifierSettings_);
-              identifierSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              specialTokenMap_ = com.google.protobuf.MapField.newMapField(
-                  SpecialTokenMapDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-            specialTokenMap__ = input.readMessage(
-                SpecialTokenMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            specialTokenMap_.getMutableMap().put(
-                specialTokenMap__.getKey(), specialTokenMap__.getValue());
-            break;
-          }
-          case 58: {
-            com.google.cloud.bigquery.migration.v2alpha.Filter.Builder subBuilder = null;
-            if (filter_ != null) {
-              subBuilder = filter_.toBuilder();
-            }
-            filter_ = input.readMessage(com.google.cloud.bigquery.migration.v2alpha.Filter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(filter_);
-              filter_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.google.cloud.bigquery.migration.v2alpha.TeradataOptions.Builder subBuilder = null;
-            if (languageOptionsCase_ == 10) {
-              subBuilder = ((com.google.cloud.bigquery.migration.v2alpha.TeradataOptions) languageOptions_).toBuilder();
-            }
-            languageOptions_ =
-                input.readMessage(com.google.cloud.bigquery.migration.v2alpha.TeradataOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.migration.v2alpha.TeradataOptions) languageOptions_);
-              languageOptions_ = subBuilder.buildPartial();
-            }
-            languageOptionsCase_ = 10;
-            break;
-          }
-          case 90: {
-            com.google.cloud.bigquery.migration.v2alpha.BteqOptions.Builder subBuilder = null;
-            if (languageOptionsCase_ == 11) {
-              subBuilder = ((com.google.cloud.bigquery.migration.v2alpha.BteqOptions) languageOptions_).toBuilder();
-            }
-            languageOptions_ =
-                input.readMessage(com.google.cloud.bigquery.migration.v2alpha.BteqOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.migration.v2alpha.BteqOptions) languageOptions_);
-              languageOptions_ = subBuilder.buildPartial();
-            }
-            languageOptionsCase_ = 11;
-            break;
-          }
-          case 98: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              filePaths_ = new java.util.ArrayList<com.google.cloud.bigquery.migration.v2alpha.TranslationFileMapping>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            filePaths_.add(
-                input.readMessage(com.google.cloud.bigquery.migration.v2alpha.TranslationFileMapping.parser(), extensionRegistry));
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            translationExceptionTable_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        filePaths_ = java.util.Collections.unmodifiableList(filePaths_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.migration.v2alpha.TranslationTaskProto.internal_static_google_cloud_bigquery_migration_v2alpha_TranslationTaskDetails_descriptor;
@@ -786,7 +637,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INPUT_PATH_FIELD_NUMBER = 1;
-  private volatile java.lang.Object inputPath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object inputPath_ = "";
   /**
    * <pre>
    * The Cloud Storage path for translation input files.
@@ -832,7 +684,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OUTPUT_PATH_FIELD_NUMBER = 2;
-  private volatile java.lang.Object outputPath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object outputPath_ = "";
   /**
    * <pre>
    * The Cloud Storage path for translation output files.
@@ -878,6 +731,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILE_PATHS_FIELD_NUMBER = 12;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.bigquery.migration.v2alpha.TranslationFileMapping> filePaths_;
   /**
    * <pre>
@@ -938,7 +792,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCHEMA_PATH_FIELD_NUMBER = 3;
-  private volatile java.lang.Object schemaPath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object schemaPath_ = "";
   /**
    * <pre>
    * The Cloud Storage path to DDL files as table schema to assist semantic
@@ -986,7 +841,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILE_ENCODING_FIELD_NUMBER = 4;
-  private int fileEncoding_;
+  private int fileEncoding_ = 0;
   /**
    * <pre>
    * The file encoding type.
@@ -1007,8 +862,7 @@ private static final long serialVersionUID = 0L;
    * @return The fileEncoding.
    */
   @java.lang.Override public com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.FileEncoding getFileEncoding() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.FileEncoding result = com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.FileEncoding.valueOf(fileEncoding_);
+    com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.FileEncoding result = com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.FileEncoding.forNumber(fileEncoding_);
     return result == null ? com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.FileEncoding.UNRECOGNIZED : result;
   }
 
@@ -1047,7 +901,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.migration.v2alpha.IdentifierSettingsOrBuilder getIdentifierSettingsOrBuilder() {
-    return getIdentifierSettings();
+    return identifierSettings_ == null ? com.google.cloud.bigquery.migration.v2alpha.IdentifierSettings.getDefaultInstance() : identifierSettings_;
   }
 
   public static final int SPECIAL_TOKEN_MAP_FIELD_NUMBER = 6;
@@ -1062,6 +916,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.ENUM,
                 com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType.TOKEN_TYPE_UNSPECIFIED.getNumber());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Integer> specialTokenMap_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
@@ -1085,7 +940,6 @@ private static final long serialVersionUID = 0L;
         java.lang.String, com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType, java.lang.Integer>(
             map, specialTokenMapValueConverter);
   }
-
   public int getSpecialTokenMapCount() {
     return internalGetSpecialTokenMap().getMap().size();
   }
@@ -1101,7 +955,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType&gt; special_token_map = 6;</code>
    */
-
   @java.lang.Override
   public boolean containsSpecialTokenMap(
       java.lang.String key) {
@@ -1130,7 +983,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType&gt; special_token_map = 6;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType>
   getSpecialTokenMapMap() {
     return internalGetAdaptedSpecialTokenMapMap(
@@ -1148,7 +1000,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType&gt; special_token_map = 6;</code>
    */
   @java.lang.Override
-
   public /* nullable */
 com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType getSpecialTokenMapOrDefault(
       java.lang.String key,
@@ -1174,7 +1025,6 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
    * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType&gt; special_token_map = 6;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType getSpecialTokenMapOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1207,7 +1057,6 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
    * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType&gt; special_token_map = 6;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Integer>
   getSpecialTokenMapValueMap() {
     return internalGetSpecialTokenMap().getMap();
@@ -1225,7 +1074,6 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
    * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType&gt; special_token_map = 6;</code>
    */
   @java.lang.Override
-
   public int getSpecialTokenMapValueOrDefault(
       java.lang.String key,
       int defaultValue) {
@@ -1247,7 +1095,6 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
    * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType&gt; special_token_map = 6;</code>
    */
   @java.lang.Override
-
   public int getSpecialTokenMapValueOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1294,11 +1141,12 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
    */
   @java.lang.Override
   public com.google.cloud.bigquery.migration.v2alpha.FilterOrBuilder getFilterOrBuilder() {
-    return getFilter();
+    return filter_ == null ? com.google.cloud.bigquery.migration.v2alpha.Filter.getDefaultInstance() : filter_;
   }
 
   public static final int TRANSLATION_EXCEPTION_TABLE_FIELD_NUMBER = 13;
-  private volatile java.lang.Object translationExceptionTable_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object translationExceptionTable_ = "";
   /**
    * <pre>
    * Specifies the exact name of the bigquery table ("dataset.table") to be used
@@ -1399,7 +1247,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(translationExceptionTable_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 13, translationExceptionTable_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1454,7 +1302,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(translationExceptionTable_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, translationExceptionTable_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1505,7 +1353,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1554,7 +1402,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1698,52 +1546,47 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
 
     // Construct using com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getFilePathsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (teradataOptionsBuilder_ != null) {
+        teradataOptionsBuilder_.clear();
+      }
+      if (bteqOptionsBuilder_ != null) {
+        bteqOptionsBuilder_.clear();
+      }
       inputPath_ = "";
-
       outputPath_ = "";
-
       if (filePathsBuilder_ == null) {
         filePaths_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        filePaths_ = null;
         filePathsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       schemaPath_ = "";
-
       fileEncoding_ = 0;
-
-      if (identifierSettingsBuilder_ == null) {
-        identifierSettings_ = null;
-      } else {
-        identifierSettings_ = null;
+      identifierSettings_ = null;
+      if (identifierSettingsBuilder_ != null) {
+        identifierSettingsBuilder_.dispose();
         identifierSettingsBuilder_ = null;
       }
       internalGetMutableSpecialTokenMap().clear();
-      if (filterBuilder_ == null) {
-        filter_ = null;
-      } else {
-        filter_ = null;
+      filter_ = null;
+      if (filterBuilder_ != null) {
+        filterBuilder_.dispose();
         filterBuilder_ = null;
       }
       translationExceptionTable_ = "";
-
       languageOptionsCase_ = 0;
       languageOptions_ = null;
       return this;
@@ -1772,50 +1615,69 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
     @java.lang.Override
     public com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails buildPartial() {
       com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails result = new com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails(this);
-      int from_bitField0_ = bitField0_;
-      if (languageOptionsCase_ == 10) {
-        if (teradataOptionsBuilder_ == null) {
-          result.languageOptions_ = languageOptions_;
-        } else {
-          result.languageOptions_ = teradataOptionsBuilder_.build();
-        }
-      }
-      if (languageOptionsCase_ == 11) {
-        if (bteqOptionsBuilder_ == null) {
-          result.languageOptions_ = languageOptions_;
-        } else {
-          result.languageOptions_ = bteqOptionsBuilder_.build();
-        }
-      }
-      result.inputPath_ = inputPath_;
-      result.outputPath_ = outputPath_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails result) {
       if (filePathsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           filePaths_ = java.util.Collections.unmodifiableList(filePaths_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.filePaths_ = filePaths_;
       } else {
         result.filePaths_ = filePathsBuilder_.build();
       }
-      result.schemaPath_ = schemaPath_;
-      result.fileEncoding_ = fileEncoding_;
-      if (identifierSettingsBuilder_ == null) {
-        result.identifierSettings_ = identifierSettings_;
-      } else {
-        result.identifierSettings_ = identifierSettingsBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.inputPath_ = inputPath_;
       }
-      result.specialTokenMap_ = internalGetSpecialTokenMap();
-      result.specialTokenMap_.makeImmutable();
-      if (filterBuilder_ == null) {
-        result.filter_ = filter_;
-      } else {
-        result.filter_ = filterBuilder_.build();
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.outputPath_ = outputPath_;
       }
-      result.translationExceptionTable_ = translationExceptionTable_;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.schemaPath_ = schemaPath_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.fileEncoding_ = fileEncoding_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.identifierSettings_ = identifierSettingsBuilder_ == null
+            ? identifierSettings_
+            : identifierSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.specialTokenMap_ = internalGetSpecialTokenMap();
+        result.specialTokenMap_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.filter_ = filterBuilder_ == null
+            ? filter_
+            : filterBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.translationExceptionTable_ = translationExceptionTable_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails result) {
       result.languageOptionsCase_ = languageOptionsCase_;
-      onBuilt();
-      return result;
+      result.languageOptions_ = this.languageOptions_;
+      if (languageOptionsCase_ == 10 &&
+          teradataOptionsBuilder_ != null) {
+        result.languageOptions_ = teradataOptionsBuilder_.build();
+      }
+      if (languageOptionsCase_ == 11 &&
+          bteqOptionsBuilder_ != null) {
+        result.languageOptions_ = bteqOptionsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1864,17 +1726,19 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
       if (other == com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.getDefaultInstance()) return this;
       if (!other.getInputPath().isEmpty()) {
         inputPath_ = other.inputPath_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getOutputPath().isEmpty()) {
         outputPath_ = other.outputPath_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (filePathsBuilder_ == null) {
         if (!other.filePaths_.isEmpty()) {
           if (filePaths_.isEmpty()) {
             filePaths_ = other.filePaths_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureFilePathsIsMutable();
             filePaths_.addAll(other.filePaths_);
@@ -1887,7 +1751,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
             filePathsBuilder_.dispose();
             filePathsBuilder_ = null;
             filePaths_ = other.filePaths_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             filePathsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFilePathsFieldBuilder() : null;
@@ -1898,6 +1762,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
       }
       if (!other.getSchemaPath().isEmpty()) {
         schemaPath_ = other.schemaPath_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.fileEncoding_ != 0) {
@@ -1908,11 +1773,13 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
       }
       internalGetMutableSpecialTokenMap().mergeFrom(
           other.internalGetSpecialTokenMap());
+      bitField0_ |= 0x00000100;
       if (other.hasFilter()) {
         mergeFilter(other.getFilter());
       }
       if (!other.getTranslationExceptionTable().isEmpty()) {
         translationExceptionTable_ = other.translationExceptionTable_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       switch (other.getLanguageOptionsCase()) {
@@ -1928,7 +1795,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1943,17 +1810,105 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              inputPath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 10
+            case 18: {
+              outputPath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 18
+            case 26: {
+              schemaPath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 26
+            case 32: {
+              fileEncoding_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getIdentifierSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              specialTokenMap__ = input.readMessage(
+                  SpecialTokenMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableSpecialTokenMap().getMutableMap().put(
+                  specialTokenMap__.getKey(), specialTokenMap__.getValue());
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 58
+            case 82: {
+              input.readMessage(
+                  getTeradataOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              languageOptionsCase_ = 10;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getBteqOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              languageOptionsCase_ = 11;
+              break;
+            } // case 90
+            case 98: {
+              com.google.cloud.bigquery.migration.v2alpha.TranslationFileMapping m =
+                  input.readMessage(
+                      com.google.cloud.bigquery.migration.v2alpha.TranslationFileMapping.parser(),
+                      extensionRegistry);
+              if (filePathsBuilder_ == null) {
+                ensureFilePathsIsMutable();
+                filePaths_.add(m);
+              } else {
+                filePathsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 98
+            case 106: {
+              translationExceptionTable_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 106
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int languageOptionsCase_ = 0;
@@ -2147,7 +2102,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
         languageOptions_ = null;
       }
       languageOptionsCase_ = 10;
-      onChanged();;
+      onChanged();
       return teradataOptionsBuilder_;
     }
 
@@ -2325,7 +2280,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
         languageOptions_ = null;
       }
       languageOptionsCase_ = 11;
-      onChanged();;
+      onChanged();
       return bteqOptionsBuilder_;
     }
 
@@ -2382,11 +2337,9 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      */
     public Builder setInputPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       inputPath_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2399,8 +2352,8 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * @return This builder for chaining.
      */
     public Builder clearInputPath() {
-      
       inputPath_ = getDefaultInstance().getInputPath();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2415,12 +2368,10 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      */
     public Builder setInputPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       inputPath_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2478,11 +2429,9 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      */
     public Builder setOutputPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       outputPath_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2495,8 +2444,8 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * @return This builder for chaining.
      */
     public Builder clearOutputPath() {
-      
       outputPath_ = getDefaultInstance().getOutputPath();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2511,12 +2460,10 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      */
     public Builder setOutputPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       outputPath_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2524,9 +2471,9 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
     private java.util.List<com.google.cloud.bigquery.migration.v2alpha.TranslationFileMapping> filePaths_ =
       java.util.Collections.emptyList();
     private void ensureFilePathsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         filePaths_ = new java.util.ArrayList<com.google.cloud.bigquery.migration.v2alpha.TranslationFileMapping>(filePaths_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -2720,7 +2667,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
     public Builder clearFilePaths() {
       if (filePathsBuilder_ == null) {
         filePaths_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         filePathsBuilder_.clear();
@@ -2825,7 +2772,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
         filePathsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.bigquery.migration.v2alpha.TranslationFileMapping, com.google.cloud.bigquery.migration.v2alpha.TranslationFileMapping.Builder, com.google.cloud.bigquery.migration.v2alpha.TranslationFileMappingOrBuilder>(
                 filePaths_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         filePaths_ = null;
@@ -2889,11 +2836,9 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      */
     public Builder setSchemaPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       schemaPath_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2907,8 +2852,8 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * @return This builder for chaining.
      */
     public Builder clearSchemaPath() {
-      
       schemaPath_ = getDefaultInstance().getSchemaPath();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2924,12 +2869,10 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      */
     public Builder setSchemaPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       schemaPath_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2956,8 +2899,8 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * @return This builder for chaining.
      */
     public Builder setFileEncodingValue(int value) {
-      
       fileEncoding_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2971,8 +2914,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      */
     @java.lang.Override
     public com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.FileEncoding getFileEncoding() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.FileEncoding result = com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.FileEncoding.valueOf(fileEncoding_);
+      com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.FileEncoding result = com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.FileEncoding.forNumber(fileEncoding_);
       return result == null ? com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.FileEncoding.UNRECOGNIZED : result;
     }
     /**
@@ -2988,7 +2930,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       fileEncoding_ = value.getNumber();
       onChanged();
       return this;
@@ -3002,7 +2944,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * @return This builder for chaining.
      */
     public Builder clearFileEncoding() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       fileEncoding_ = 0;
       onChanged();
       return this;
@@ -3020,7 +2962,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * @return Whether the identifierSettings field is set.
      */
     public boolean hasIdentifierSettings() {
-      return identifierSettingsBuilder_ != null || identifierSettings_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -3050,11 +2992,11 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
           throw new NullPointerException();
         }
         identifierSettings_ = value;
-        onChanged();
       } else {
         identifierSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3068,11 +3010,11 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
         com.google.cloud.bigquery.migration.v2alpha.IdentifierSettings.Builder builderForValue) {
       if (identifierSettingsBuilder_ == null) {
         identifierSettings_ = builderForValue.build();
-        onChanged();
       } else {
         identifierSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3084,17 +3026,18 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      */
     public Builder mergeIdentifierSettings(com.google.cloud.bigquery.migration.v2alpha.IdentifierSettings value) {
       if (identifierSettingsBuilder_ == null) {
-        if (identifierSettings_ != null) {
-          identifierSettings_ =
-            com.google.cloud.bigquery.migration.v2alpha.IdentifierSettings.newBuilder(identifierSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          identifierSettings_ != null &&
+          identifierSettings_ != com.google.cloud.bigquery.migration.v2alpha.IdentifierSettings.getDefaultInstance()) {
+          getIdentifierSettingsBuilder().mergeFrom(value);
         } else {
           identifierSettings_ = value;
         }
-        onChanged();
       } else {
         identifierSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3105,14 +3048,13 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * <code>.google.cloud.bigquery.migration.v2alpha.IdentifierSettings identifier_settings = 5;</code>
      */
     public Builder clearIdentifierSettings() {
-      if (identifierSettingsBuilder_ == null) {
-        identifierSettings_ = null;
-        onChanged();
-      } else {
-        identifierSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      identifierSettings_ = null;
+      if (identifierSettingsBuilder_ != null) {
+        identifierSettingsBuilder_.dispose();
         identifierSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3123,7 +3065,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * <code>.google.cloud.bigquery.migration.v2alpha.IdentifierSettings identifier_settings = 5;</code>
      */
     public com.google.cloud.bigquery.migration.v2alpha.IdentifierSettings.Builder getIdentifierSettingsBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getIdentifierSettingsFieldBuilder().getBuilder();
     }
@@ -3166,7 +3108,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Integer> specialTokenMap_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetSpecialTokenMap() {
+        internalGetSpecialTokenMap() {
       if (specialTokenMap_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             SpecialTokenMapDefaultEntryHolder.defaultEntry);
@@ -3174,8 +3116,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
       return specialTokenMap_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetMutableSpecialTokenMap() {
-      onChanged();;
+        internalGetMutableSpecialTokenMap() {
       if (specialTokenMap_ == null) {
         specialTokenMap_ = com.google.protobuf.MapField.newMapField(
             SpecialTokenMapDefaultEntryHolder.defaultEntry);
@@ -3183,9 +3124,10 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
       if (!specialTokenMap_.isMutable()) {
         specialTokenMap_ = specialTokenMap_.copy();
       }
+      bitField0_ |= 0x00000100;
+      onChanged();
       return specialTokenMap_;
     }
-
     public int getSpecialTokenMapCount() {
       return internalGetSpecialTokenMap().getMap().size();
     }
@@ -3201,7 +3143,6 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      *
      * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType&gt; special_token_map = 6;</code>
      */
-
     @java.lang.Override
     public boolean containsSpecialTokenMap(
         java.lang.String key) {
@@ -3230,7 +3171,6 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType&gt; special_token_map = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType>
     getSpecialTokenMapMap() {
       return internalGetAdaptedSpecialTokenMapMap(
@@ -3248,7 +3188,6 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType&gt; special_token_map = 6;</code>
      */
     @java.lang.Override
-
     public /* nullable */
 com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType getSpecialTokenMapOrDefault(
         java.lang.String key,
@@ -3274,7 +3213,6 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType&gt; special_token_map = 6;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType getSpecialTokenMapOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3307,7 +3245,6 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType&gt; special_token_map = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Integer>
     getSpecialTokenMapValueMap() {
       return internalGetSpecialTokenMap().getMap();
@@ -3325,7 +3262,6 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType&gt; special_token_map = 6;</code>
      */
     @java.lang.Override
-
     public int getSpecialTokenMapValueOrDefault(
         java.lang.String key,
         int defaultValue) {
@@ -3347,7 +3283,6 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType&gt; special_token_map = 6;</code>
      */
     @java.lang.Override
-
     public int getSpecialTokenMapValueOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3358,8 +3293,8 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
       }
       return map.get(key);
     }
-
     public Builder clearSpecialTokenMap() {
+      bitField0_ = (bitField0_ & ~0x00000100);
       internalGetMutableSpecialTokenMap().getMutableMap()
           .clear();
       return this;
@@ -3376,7 +3311,6 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      *
      * <code>map&lt;string, .google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType&gt; special_token_map = 6;</code>
      */
-
     public Builder removeSpecialTokenMap(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3389,7 +3323,8 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType>
-    getMutableSpecialTokenMap() {
+        getMutableSpecialTokenMap() {
+      bitField0_ |= 0x00000100;
       return internalGetAdaptedSpecialTokenMapMap(
            internalGetMutableSpecialTokenMap().getMutableMap());
     }
@@ -3412,6 +3347,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
       
       internalGetMutableSpecialTokenMap().getMutableMap()
           .put(key, specialTokenMapValueConverter.doBackward(value));
+      bitField0_ |= 0x00000100;
       return this;
     }
     /**
@@ -3431,6 +3367,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
       internalGetAdaptedSpecialTokenMapMap(
           internalGetMutableSpecialTokenMap().getMutableMap())
               .putAll(values);
+      bitField0_ |= 0x00000100;
       return this;
     }
     /**
@@ -3439,6 +3376,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Integer>
     getMutableSpecialTokenMapValue() {
+      bitField0_ |= 0x00000100;
       return internalGetMutableSpecialTokenMap().getMutableMap();
     }
     /**
@@ -3460,6 +3398,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
       
       internalGetMutableSpecialTokenMap().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000100;
       return this;
     }
     /**
@@ -3478,6 +3417,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
         java.util.Map<java.lang.String, java.lang.Integer> values) {
       internalGetMutableSpecialTokenMap().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000100;
       return this;
     }
 
@@ -3493,7 +3433,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * @return Whether the filter field is set.
      */
     public boolean hasFilter() {
-      return filterBuilder_ != null || filter_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -3523,11 +3463,11 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
           throw new NullPointerException();
         }
         filter_ = value;
-        onChanged();
       } else {
         filterBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3541,11 +3481,11 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
         com.google.cloud.bigquery.migration.v2alpha.Filter.Builder builderForValue) {
       if (filterBuilder_ == null) {
         filter_ = builderForValue.build();
-        onChanged();
       } else {
         filterBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3557,17 +3497,18 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      */
     public Builder mergeFilter(com.google.cloud.bigquery.migration.v2alpha.Filter value) {
       if (filterBuilder_ == null) {
-        if (filter_ != null) {
-          filter_ =
-            com.google.cloud.bigquery.migration.v2alpha.Filter.newBuilder(filter_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          filter_ != null &&
+          filter_ != com.google.cloud.bigquery.migration.v2alpha.Filter.getDefaultInstance()) {
+          getFilterBuilder().mergeFrom(value);
         } else {
           filter_ = value;
         }
-        onChanged();
       } else {
         filterBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3578,14 +3519,13 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * <code>.google.cloud.bigquery.migration.v2alpha.Filter filter = 7;</code>
      */
     public Builder clearFilter() {
-      if (filterBuilder_ == null) {
-        filter_ = null;
-        onChanged();
-      } else {
-        filter_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      filter_ = null;
+      if (filterBuilder_ != null) {
+        filterBuilder_.dispose();
         filterBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3596,7 +3536,7 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * <code>.google.cloud.bigquery.migration.v2alpha.Filter filter = 7;</code>
      */
     public com.google.cloud.bigquery.migration.v2alpha.Filter.Builder getFilterBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getFilterFieldBuilder().getBuilder();
     }
@@ -3698,11 +3638,9 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      */
     public Builder setTranslationExceptionTable(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       translationExceptionTable_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3718,8 +3656,8 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      * @return This builder for chaining.
      */
     public Builder clearTranslationExceptionTable() {
-      
       translationExceptionTable_ = getDefaultInstance().getTranslationExceptionTable();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -3737,12 +3675,10 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
      */
     public Builder setTranslationExceptionTableBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       translationExceptionTable_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3779,7 +3715,18 @@ com.google.cloud.bigquery.migration.v2alpha.TranslationTaskDetails.TokenType def
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TranslationTaskDetails(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

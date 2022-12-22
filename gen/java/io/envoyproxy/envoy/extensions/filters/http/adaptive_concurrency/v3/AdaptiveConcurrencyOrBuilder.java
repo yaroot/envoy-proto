@@ -64,5 +64,44 @@ public interface AdaptiveConcurrencyOrBuilder extends
    */
   io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlagOrBuilder getEnabledOrBuilder();
 
+  /**
+   * <pre>
+   * This field allows for a custom HTTP response status code to the downstream client when
+   * the concurrency limit has been exceeded.
+   * Defaults to 503 (Service Unavailable).
+   * .. note::
+   *   If this is set to &lt; 400, 503 will be used instead.
+   * </pre>
+   *
+   * <code>.envoy.type.v3.HttpStatus concurrency_limit_exceeded_status = 3;</code>
+   * @return Whether the concurrencyLimitExceededStatus field is set.
+   */
+  boolean hasConcurrencyLimitExceededStatus();
+  /**
+   * <pre>
+   * This field allows for a custom HTTP response status code to the downstream client when
+   * the concurrency limit has been exceeded.
+   * Defaults to 503 (Service Unavailable).
+   * .. note::
+   *   If this is set to &lt; 400, 503 will be used instead.
+   * </pre>
+   *
+   * <code>.envoy.type.v3.HttpStatus concurrency_limit_exceeded_status = 3;</code>
+   * @return The concurrencyLimitExceededStatus.
+   */
+  io.envoyproxy.envoy.type.v3.HttpStatus getConcurrencyLimitExceededStatus();
+  /**
+   * <pre>
+   * This field allows for a custom HTTP response status code to the downstream client when
+   * the concurrency limit has been exceeded.
+   * Defaults to 503 (Service Unavailable).
+   * .. note::
+   *   If this is set to &lt; 400, 503 will be used instead.
+   * </pre>
+   *
+   * <code>.envoy.type.v3.HttpStatus concurrency_limit_exceeded_status = 3;</code>
+   */
+  io.envoyproxy.envoy.type.v3.HttpStatusOrBuilder getConcurrencyLimitExceededStatusOrBuilder();
+
   public io.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3.AdaptiveConcurrency.ConcurrencyControllerConfigCase getConcurrencyControllerConfigCase();
 }

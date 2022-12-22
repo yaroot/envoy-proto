@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BasicLevel(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              conditions_ = new java.util.ArrayList<com.google.identity.accesscontextmanager.v1.Condition>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            conditions_.add(
-                input.readMessage(com.google.identity.accesscontextmanager.v1.Condition.parser(), extensionRegistry));
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            combiningFunction_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        conditions_ = java.util.Collections.unmodifiableList(conditions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.identity.accesscontextmanager.v1.AccessLevelProto.internal_static_google_identity_accesscontextmanager_v1_BasicLevel_descriptor;
@@ -237,6 +179,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONDITIONS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.identity.accesscontextmanager.v1.Condition> conditions_;
   /**
    * <pre>
@@ -297,7 +240,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COMBINING_FUNCTION_FIELD_NUMBER = 2;
-  private int combiningFunction_;
+  private int combiningFunction_ = 0;
   /**
    * <pre>
    * How the `conditions` list should be combined to determine if a request is
@@ -326,8 +269,7 @@ private static final long serialVersionUID = 0L;
    * @return The combiningFunction.
    */
   @java.lang.Override public com.google.identity.accesscontextmanager.v1.BasicLevel.ConditionCombiningFunction getCombiningFunction() {
-    @SuppressWarnings("deprecation")
-    com.google.identity.accesscontextmanager.v1.BasicLevel.ConditionCombiningFunction result = com.google.identity.accesscontextmanager.v1.BasicLevel.ConditionCombiningFunction.valueOf(combiningFunction_);
+    com.google.identity.accesscontextmanager.v1.BasicLevel.ConditionCombiningFunction result = com.google.identity.accesscontextmanager.v1.BasicLevel.ConditionCombiningFunction.forNumber(combiningFunction_);
     return result == null ? com.google.identity.accesscontextmanager.v1.BasicLevel.ConditionCombiningFunction.UNRECOGNIZED : result;
   }
 
@@ -351,7 +293,7 @@ private static final long serialVersionUID = 0L;
     if (combiningFunction_ != com.google.identity.accesscontextmanager.v1.BasicLevel.ConditionCombiningFunction.AND.getNumber()) {
       output.writeEnum(2, combiningFunction_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -368,7 +310,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, combiningFunction_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -386,7 +328,7 @@ private static final long serialVersionUID = 0L;
     if (!getConditionsList()
         .equals(other.getConditionsList())) return false;
     if (combiningFunction_ != other.combiningFunction_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -403,7 +345,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + COMBINING_FUNCTION_FIELD_NUMBER;
     hash = (53 * hash) + combiningFunction_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -524,31 +466,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.identity.accesscontextmanager.v1.BasicLevel.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getConditionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (conditionsBuilder_ == null) {
         conditions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        conditions_ = null;
         conditionsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       combiningFunction_ = 0;
-
       return this;
     }
 
@@ -575,7 +512,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.identity.accesscontextmanager.v1.BasicLevel buildPartial() {
       com.google.identity.accesscontextmanager.v1.BasicLevel result = new com.google.identity.accesscontextmanager.v1.BasicLevel(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.identity.accesscontextmanager.v1.BasicLevel result) {
       if (conditionsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           conditions_ = java.util.Collections.unmodifiableList(conditions_);
@@ -585,9 +528,13 @@ private static final long serialVersionUID = 0L;
       } else {
         result.conditions_ = conditionsBuilder_.build();
       }
-      result.combiningFunction_ = combiningFunction_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.identity.accesscontextmanager.v1.BasicLevel result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.combiningFunction_ = combiningFunction_;
+      }
     }
 
     @java.lang.Override
@@ -663,7 +610,7 @@ private static final long serialVersionUID = 0L;
       if (other.combiningFunction_ != 0) {
         setCombiningFunctionValue(other.getCombiningFunctionValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -678,17 +625,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.identity.accesscontextmanager.v1.BasicLevel parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.identity.accesscontextmanager.v1.Condition m =
+                  input.readMessage(
+                      com.google.identity.accesscontextmanager.v1.Condition.parser(),
+                      extensionRegistry);
+              if (conditionsBuilder_ == null) {
+                ensureConditionsIsMutable();
+                conditions_.add(m);
+              } else {
+                conditionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 16: {
+              combiningFunction_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.identity.accesscontextmanager.v1.BasicLevel) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1035,8 +1013,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCombiningFunctionValue(int value) {
-      
       combiningFunction_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1054,8 +1032,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.identity.accesscontextmanager.v1.BasicLevel.ConditionCombiningFunction getCombiningFunction() {
-      @SuppressWarnings("deprecation")
-      com.google.identity.accesscontextmanager.v1.BasicLevel.ConditionCombiningFunction result = com.google.identity.accesscontextmanager.v1.BasicLevel.ConditionCombiningFunction.valueOf(combiningFunction_);
+      com.google.identity.accesscontextmanager.v1.BasicLevel.ConditionCombiningFunction result = com.google.identity.accesscontextmanager.v1.BasicLevel.ConditionCombiningFunction.forNumber(combiningFunction_);
       return result == null ? com.google.identity.accesscontextmanager.v1.BasicLevel.ConditionCombiningFunction.UNRECOGNIZED : result;
     }
     /**
@@ -1075,7 +1052,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       combiningFunction_ = value.getNumber();
       onChanged();
       return this;
@@ -1093,7 +1070,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCombiningFunction() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       combiningFunction_ = 0;
       onChanged();
       return this;
@@ -1131,7 +1108,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BasicLevel(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -42,112 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Condition(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              ipSubnetworks_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            ipSubnetworks_.add(s);
-            break;
-          }
-          case 18: {
-            com.google.identity.accesscontextmanager.v1.DevicePolicy.Builder subBuilder = null;
-            if (devicePolicy_ != null) {
-              subBuilder = devicePolicy_.toBuilder();
-            }
-            devicePolicy_ = input.readMessage(com.google.identity.accesscontextmanager.v1.DevicePolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(devicePolicy_);
-              devicePolicy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              requiredAccessLevels_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            requiredAccessLevels_.add(s);
-            break;
-          }
-          case 40: {
-
-            negate_ = input.readBool();
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              members_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            members_.add(s);
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              regions_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            regions_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        ipSubnetworks_ = ipSubnetworks_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        requiredAccessLevels_ = requiredAccessLevels_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        members_ = members_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        regions_ = regions_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.identity.accesscontextmanager.v1.AccessLevelProto.internal_static_google_identity_accesscontextmanager_v1_Condition_descriptor;
@@ -162,6 +56,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IP_SUBNETWORKS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList ipSubnetworks_;
   /**
    * <pre>
@@ -278,10 +173,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.identity.accesscontextmanager.v1.DevicePolicyOrBuilder getDevicePolicyOrBuilder() {
-    return getDevicePolicy();
+    return devicePolicy_ == null ? com.google.identity.accesscontextmanager.v1.DevicePolicy.getDefaultInstance() : devicePolicy_;
   }
 
   public static final int REQUIRED_ACCESS_LEVELS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList requiredAccessLevels_;
   /**
    * <pre>
@@ -349,7 +245,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEGATE_FIELD_NUMBER = 5;
-  private boolean negate_;
+  private boolean negate_ = false;
   /**
    * <pre>
    * Whether to negate the Condition. If true, the Condition becomes a NAND over
@@ -366,6 +262,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MEMBERS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList members_;
   /**
    * <pre>
@@ -437,6 +334,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REGIONS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList regions_;
   /**
    * <pre>
@@ -523,7 +421,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < regions_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, regions_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -572,7 +470,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getRegionsList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -602,7 +500,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getMembersList())) return false;
     if (!getRegionsList()
         .equals(other.getRegionsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -636,7 +534,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REGIONS_FIELD_NUMBER;
       hash = (53 * hash) + getRegionsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -761,38 +659,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.identity.accesscontextmanager.v1.Condition.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       ipSubnetworks_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
-      if (devicePolicyBuilder_ == null) {
-        devicePolicy_ = null;
-      } else {
-        devicePolicy_ = null;
+      devicePolicy_ = null;
+      if (devicePolicyBuilder_ != null) {
+        devicePolicyBuilder_.dispose();
         devicePolicyBuilder_ = null;
       }
       requiredAccessLevels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
-      negate_ = false;
-
-      members_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000004);
+      negate_ = false;
+      members_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000010);
       regions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -819,35 +711,45 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.identity.accesscontextmanager.v1.Condition buildPartial() {
       com.google.identity.accesscontextmanager.v1.Condition result = new com.google.identity.accesscontextmanager.v1.Condition(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.identity.accesscontextmanager.v1.Condition result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         ipSubnetworks_ = ipSubnetworks_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.ipSubnetworks_ = ipSubnetworks_;
-      if (devicePolicyBuilder_ == null) {
-        result.devicePolicy_ = devicePolicy_;
-      } else {
-        result.devicePolicy_ = devicePolicyBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        requiredAccessLevels_ = requiredAccessLevels_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.requiredAccessLevels_ = requiredAccessLevels_;
-      result.negate_ = negate_;
       if (((bitField0_ & 0x00000004) != 0)) {
-        members_ = members_.getUnmodifiableView();
+        requiredAccessLevels_ = requiredAccessLevels_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000004);
       }
+      result.requiredAccessLevels_ = requiredAccessLevels_;
+      if (((bitField0_ & 0x00000010) != 0)) {
+        members_ = members_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
       result.members_ = members_;
-      if (((bitField0_ & 0x00000008) != 0)) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         regions_ = regions_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000020);
       }
       result.regions_ = regions_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.identity.accesscontextmanager.v1.Condition result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.devicePolicy_ = devicePolicyBuilder_ == null
+            ? devicePolicy_
+            : devicePolicyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.negate_ = negate_;
+      }
     }
 
     @java.lang.Override
@@ -910,7 +812,7 @@ private static final long serialVersionUID = 0L;
       if (!other.requiredAccessLevels_.isEmpty()) {
         if (requiredAccessLevels_.isEmpty()) {
           requiredAccessLevels_ = other.requiredAccessLevels_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureRequiredAccessLevelsIsMutable();
           requiredAccessLevels_.addAll(other.requiredAccessLevels_);
@@ -923,7 +825,7 @@ private static final long serialVersionUID = 0L;
       if (!other.members_.isEmpty()) {
         if (members_.isEmpty()) {
           members_ = other.members_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureMembersIsMutable();
           members_.addAll(other.members_);
@@ -933,14 +835,14 @@ private static final long serialVersionUID = 0L;
       if (!other.regions_.isEmpty()) {
         if (regions_.isEmpty()) {
           regions_ = other.regions_;
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureRegionsIsMutable();
           regions_.addAll(other.regions_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -955,17 +857,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.identity.accesscontextmanager.v1.Condition parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureIpSubnetworksIsMutable();
+              ipSubnetworks_.add(s);
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDevicePolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureRequiredAccessLevelsIsMutable();
+              requiredAccessLevels_.add(s);
+              break;
+            } // case 26
+            case 40: {
+              negate_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 40
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureMembersIsMutable();
+              members_.add(s);
+              break;
+            } // case 50
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureRegionsIsMutable();
+              regions_.add(s);
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.identity.accesscontextmanager.v1.Condition) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1072,10 +1023,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIpSubnetworks(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIpSubnetworksIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIpSubnetworksIsMutable();
       ipSubnetworks_.set(index, value);
       onChanged();
       return this;
@@ -1098,10 +1047,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIpSubnetworks(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIpSubnetworksIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIpSubnetworksIsMutable();
       ipSubnetworks_.add(value);
       onChanged();
       return this;
@@ -1169,10 +1116,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIpSubnetworksBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureIpSubnetworksIsMutable();
       ipSubnetworks_.add(value);
       onChanged();
@@ -1192,7 +1137,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the devicePolicy field is set.
      */
     public boolean hasDevicePolicy() {
-      return devicePolicyBuilder_ != null || devicePolicy_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1224,11 +1169,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         devicePolicy_ = value;
-        onChanged();
       } else {
         devicePolicyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1243,11 +1188,11 @@ private static final long serialVersionUID = 0L;
         com.google.identity.accesscontextmanager.v1.DevicePolicy.Builder builderForValue) {
       if (devicePolicyBuilder_ == null) {
         devicePolicy_ = builderForValue.build();
-        onChanged();
       } else {
         devicePolicyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1260,17 +1205,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDevicePolicy(com.google.identity.accesscontextmanager.v1.DevicePolicy value) {
       if (devicePolicyBuilder_ == null) {
-        if (devicePolicy_ != null) {
-          devicePolicy_ =
-            com.google.identity.accesscontextmanager.v1.DevicePolicy.newBuilder(devicePolicy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          devicePolicy_ != null &&
+          devicePolicy_ != com.google.identity.accesscontextmanager.v1.DevicePolicy.getDefaultInstance()) {
+          getDevicePolicyBuilder().mergeFrom(value);
         } else {
           devicePolicy_ = value;
         }
-        onChanged();
       } else {
         devicePolicyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1282,14 +1228,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.identity.accesscontextmanager.v1.DevicePolicy device_policy = 2;</code>
      */
     public Builder clearDevicePolicy() {
-      if (devicePolicyBuilder_ == null) {
-        devicePolicy_ = null;
-        onChanged();
-      } else {
-        devicePolicy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      devicePolicy_ = null;
+      if (devicePolicyBuilder_ != null) {
+        devicePolicyBuilder_.dispose();
         devicePolicyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1301,7 +1246,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.identity.accesscontextmanager.v1.DevicePolicy device_policy = 2;</code>
      */
     public com.google.identity.accesscontextmanager.v1.DevicePolicy.Builder getDevicePolicyBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDevicePolicyFieldBuilder().getBuilder();
     }
@@ -1345,9 +1290,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList requiredAccessLevels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureRequiredAccessLevelsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         requiredAccessLevels_ = new com.google.protobuf.LazyStringArrayList(requiredAccessLevels_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1430,10 +1375,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequiredAccessLevels(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequiredAccessLevelsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequiredAccessLevelsIsMutable();
       requiredAccessLevels_.set(index, value);
       onChanged();
       return this;
@@ -1453,10 +1396,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequiredAccessLevels(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequiredAccessLevelsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequiredAccessLevelsIsMutable();
       requiredAccessLevels_.add(value);
       onChanged();
       return this;
@@ -1496,7 +1437,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearRequiredAccessLevels() {
       requiredAccessLevels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1515,10 +1456,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequiredAccessLevelsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureRequiredAccessLevelsIsMutable();
       requiredAccessLevels_.add(value);
       onChanged();
@@ -1554,6 +1493,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNegate(boolean value) {
       
       negate_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1568,7 +1508,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNegate() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       negate_ = false;
       onChanged();
       return this;
@@ -1576,9 +1516,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList members_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureMembersIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         members_ = new com.google.protobuf.LazyStringArrayList(members_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -1666,10 +1606,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMembers(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMembersIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureMembersIsMutable();
       members_.set(index, value);
       onChanged();
       return this;
@@ -1690,10 +1628,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addMembers(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMembersIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureMembersIsMutable();
       members_.add(value);
       onChanged();
       return this;
@@ -1735,7 +1671,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearMembers() {
       members_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1755,10 +1691,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addMembersBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureMembersIsMutable();
       members_.add(value);
       onChanged();
@@ -1767,9 +1701,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList regions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureRegionsIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         regions_ = new com.google.protobuf.LazyStringArrayList(regions_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000020;
        }
     }
     /**
@@ -1837,10 +1771,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegions(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRegionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRegionsIsMutable();
       regions_.set(index, value);
       onChanged();
       return this;
@@ -1857,10 +1789,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRegions(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRegionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRegionsIsMutable();
       regions_.add(value);
       onChanged();
       return this;
@@ -1894,7 +1824,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearRegions() {
       regions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1910,10 +1840,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRegionsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureRegionsIsMutable();
       regions_.add(value);
       onChanged();
@@ -1952,7 +1880,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Condition(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

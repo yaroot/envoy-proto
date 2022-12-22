@@ -46,7 +46,6 @@ public interface RegularExpressionTypeOrBuilder extends
    *
    * <code>map&lt;string, .google.actions.sdk.v2.interactionmodel.type.RegularExpressionType.Entity&gt; entities = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   /* nullable */
 com.google.actions.sdk.v2.interactionmodel.type.RegularExpressionType.Entity getEntitiesOrDefault(
       java.lang.String key,
@@ -59,7 +58,6 @@ com.google.actions.sdk.v2.interactionmodel.type.RegularExpressionType.Entity def
    *
    * <code>map&lt;string, .google.actions.sdk.v2.interactionmodel.type.RegularExpressionType.Entity&gt; entities = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   com.google.actions.sdk.v2.interactionmodel.type.RegularExpressionType.Entity getEntitiesOrThrow(
       java.lang.String key);
 }

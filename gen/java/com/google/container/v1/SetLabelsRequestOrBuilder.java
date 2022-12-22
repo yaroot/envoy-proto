@@ -16,7 +16,7 @@ public interface SetLabelsRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true];</code>
    * @deprecated google.container.v1.SetLabelsRequest.project_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=3409
+   *     See google/container/v1/cluster_service.proto;l=3524
    * @return The projectId.
    */
   @java.lang.Deprecated java.lang.String getProjectId();
@@ -29,7 +29,7 @@ public interface SetLabelsRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true];</code>
    * @deprecated google.container.v1.SetLabelsRequest.project_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=3409
+   *     See google/container/v1/cluster_service.proto;l=3524
    * @return The bytes for projectId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -45,7 +45,7 @@ public interface SetLabelsRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true];</code>
    * @deprecated google.container.v1.SetLabelsRequest.zone is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=3415
+   *     See google/container/v1/cluster_service.proto;l=3530
    * @return The zone.
    */
   @java.lang.Deprecated java.lang.String getZone();
@@ -59,7 +59,7 @@ public interface SetLabelsRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true];</code>
    * @deprecated google.container.v1.SetLabelsRequest.zone is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=3415
+   *     See google/container/v1/cluster_service.proto;l=3530
    * @return The bytes for zone.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -73,7 +73,7 @@ public interface SetLabelsRequestOrBuilder extends
    *
    * <code>string cluster_id = 3 [deprecated = true];</code>
    * @deprecated google.container.v1.SetLabelsRequest.cluster_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=3419
+   *     See google/container/v1/cluster_service.proto;l=3534
    * @return The clusterId.
    */
   @java.lang.Deprecated java.lang.String getClusterId();
@@ -85,7 +85,7 @@ public interface SetLabelsRequestOrBuilder extends
    *
    * <code>string cluster_id = 3 [deprecated = true];</code>
    * @deprecated google.container.v1.SetLabelsRequest.cluster_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=3419
+   *     See google/container/v1/cluster_service.proto;l=3534
    * @return The bytes for clusterId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -130,7 +130,6 @@ public interface SetLabelsRequestOrBuilder extends
    *
    * <code>map&lt;string, string&gt; resource_labels = 4 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   /* nullable */
 java.lang.String getResourceLabelsOrDefault(
       java.lang.String key,
@@ -143,7 +142,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; resource_labels = 4 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   java.lang.String getResourceLabelsOrThrow(
       java.lang.String key);
 

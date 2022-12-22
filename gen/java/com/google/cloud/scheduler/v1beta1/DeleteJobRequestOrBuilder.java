@@ -28,4 +28,16 @@ public interface DeleteJobRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getNameBytes();
+
+  /**
+   * <pre>
+   * This field is used to manage the legacy App Engine Cron jobs using the
+   * Cloud Scheduler API. If the field is set to true, the job in the __cron
+   * queue with the corresponding name will be deleted instead.
+   * </pre>
+   *
+   * <code>bool legacy_app_engine_cron = 2;</code>
+   * @return The legacyAppEngineCron.
+   */
+  boolean getLegacyAppEngineCron();
 }

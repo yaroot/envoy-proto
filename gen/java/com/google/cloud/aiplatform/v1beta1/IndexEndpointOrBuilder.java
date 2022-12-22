@@ -192,7 +192,6 @@ public interface IndexEndpointOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -209,7 +208,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -287,7 +285,7 @@ java.lang.String defaultValue);
    * [private_service_connect_config][google.cloud.aiplatform.v1beta1.IndexEndpoint.private_service_connect_config]
    * are mutually exclusive.
    * [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert):
-   * projects/{project}/global/networks/{network}.
+   * `projects/{project}/global/networks/{network}`.
    * Where {project} is a project number, as in '12345', and {network} is
    * network name.
    * </pre>
@@ -307,7 +305,7 @@ java.lang.String defaultValue);
    * [private_service_connect_config][google.cloud.aiplatform.v1beta1.IndexEndpoint.private_service_connect_config]
    * are mutually exclusive.
    * [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert):
-   * projects/{project}/global/networks/{network}.
+   * `projects/{project}/global/networks/{network}`.
    * Where {project} is a project number, as in '12345', and {network} is
    * network name.
    * </pre>

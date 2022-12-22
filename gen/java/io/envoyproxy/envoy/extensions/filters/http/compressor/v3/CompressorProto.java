@@ -34,6 +34,21 @@ public final class CompressorProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_envoy_extensions_filters_http_compressor_v3_Compressor_ResponseDirectionConfig_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_envoy_extensions_filters_http_compressor_v3_ResponseDirectionOverrides_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_envoy_extensions_filters_http_compressor_v3_ResponseDirectionOverrides_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_envoy_extensions_filters_http_compressor_v3_CompressorOverrides_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_envoy_extensions_filters_http_compressor_v3_CompressorOverrides_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_envoy_extensions_filters_http_compressor_v3_CompressorPerRoute_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_envoy_extensions_filters_http_compressor_v3_CompressorPerRoute_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -51,7 +66,7 @@ public final class CompressorProto {
       "pers.proto\032#envoy/annotations/deprecatio" +
       "n.proto\032\035udpa/annotations/status.proto\032!" +
       "udpa/annotations/versioning.proto\032\027valid" +
-      "ate/validate.proto\"\203\t\n\nCompressor\022A\n\016con" +
+      "ate/validate.proto\"\231\t\n\nCompressor\022A\n\016con" +
       "tent_length\030\001 \001(\0132\034.google.protobuf.UInt" +
       "32ValueB\013\030\001\222\307\206\330\004\0033.0\022!\n\014content_type\030\002 \003" +
       "(\tB\013\030\001\222\307\206\330\004\0033.0\022+\n\026disable_on_etag_heade" +
@@ -66,26 +81,34 @@ public final class CompressorProto {
       "essor.RequestDirectionConfig\022r\n\031response" +
       "_direction_config\030\010 \001(\0132O.envoy.extensio" +
       "ns.filters.http.compressor.v3.Compressor" +
-      ".ResponseDirectionConfig\032\242\001\n\025CommonDirec" +
-      "tionConfig\0229\n\007enabled\030\001 \001(\0132(.envoy.conf" +
-      "ig.core.v3.RuntimeFeatureFlag\0228\n\022min_con" +
-      "tent_length\030\002 \001(\0132\034.google.protobuf.UInt" +
-      "32Value\022\024\n\014content_type\030\003 \003(\t\032~\n\026Request" +
-      "DirectionConfig\022d\n\rcommon_config\030\001 \001(\0132M" +
-      ".envoy.extensions.filters.http.compresso" +
-      "r.v3.Compressor.CommonDirectionConfig\032\306\001" +
-      "\n\027ResponseDirectionConfig\022d\n\rcommon_conf" +
-      "ig\030\001 \001(\0132M.envoy.extensions.filters.http" +
-      ".compressor.v3.Compressor.CommonDirectio" +
-      "nConfig\022\036\n\026disable_on_etag_header\030\002 \001(\010\022" +
-      "%\n\035remove_accept_encoding_header\030\003 \001(\010:8" +
-      "\232\305\210\0363\n1envoy.config.filter.http.compress" +
-      "or.v2.CompressorB\267\001\n9io.envoyproxy.envoy" +
-      ".extensions.filters.http.compressor.v3B\017" +
-      "CompressorProtoP\001Z_github.com/envoyproxy" +
-      "/go-control-plane/envoy/extensions/filte" +
-      "rs/http/compressor/v3;compressorv3\272\200\310\321\006\002" +
-      "\020\002b\006proto3"
+      ".ResponseDirectionConfig\022\024\n\014choose_first" +
+      "\030\t \001(\010\032\242\001\n\025CommonDirectionConfig\0229\n\007enab" +
+      "led\030\001 \001(\0132(.envoy.config.core.v3.Runtime" +
+      "FeatureFlag\0228\n\022min_content_length\030\002 \001(\0132" +
+      "\034.google.protobuf.UInt32Value\022\024\n\014content" +
+      "_type\030\003 \003(\t\032~\n\026RequestDirectionConfig\022d\n" +
+      "\rcommon_config\030\001 \001(\0132M.envoy.extensions." +
+      "filters.http.compressor.v3.Compressor.Co" +
+      "mmonDirectionConfig\032\306\001\n\027ResponseDirectio" +
+      "nConfig\022d\n\rcommon_config\030\001 \001(\0132M.envoy.e" +
+      "xtensions.filters.http.compressor.v3.Com" +
+      "pressor.CommonDirectionConfig\022\036\n\026disable" +
+      "_on_etag_header\030\002 \001(\010\022%\n\035remove_accept_e" +
+      "ncoding_header\030\003 \001(\010:8\232\305\210\0363\n1envoy.confi" +
+      "g.filter.http.compressor.v2.Compressor\"\034" +
+      "\n\032ResponseDirectionOverrides\"\201\001\n\023Compres" +
+      "sorOverrides\022j\n\031response_direction_confi" +
+      "g\030\001 \001(\0132G.envoy.extensions.filters.http." +
+      "compressor.v3.ResponseDirectionOverrides" +
+      "\"\231\001\n\022CompressorPerRoute\022\033\n\010disabled\030\001 \001(" +
+      "\010B\007\372B\004j\002\010\001H\000\022U\n\toverrides\030\002 \001(\0132@.envoy." +
+      "extensions.filters.http.compressor.v3.Co" +
+      "mpressorOverridesH\000B\017\n\010override\022\003\370B\001B\267\001\n" +
+      "9io.envoyproxy.envoy.extensions.filters." +
+      "http.compressor.v3B\017CompressorProtoP\001Z_g" +
+      "ithub.com/envoyproxy/go-control-plane/en" +
+      "voy/extensions/filters/http/compressor/v" +
+      "3;compressorv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -103,7 +126,7 @@ public final class CompressorProto {
     internal_static_envoy_extensions_filters_http_compressor_v3_Compressor_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_http_compressor_v3_Compressor_descriptor,
-        new java.lang.String[] { "ContentLength", "ContentType", "DisableOnEtagHeader", "RemoveAcceptEncodingHeader", "RuntimeEnabled", "CompressorLibrary", "RequestDirectionConfig", "ResponseDirectionConfig", });
+        new java.lang.String[] { "ContentLength", "ContentType", "DisableOnEtagHeader", "RemoveAcceptEncodingHeader", "RuntimeEnabled", "CompressorLibrary", "RequestDirectionConfig", "ResponseDirectionConfig", "ChooseFirst", });
     internal_static_envoy_extensions_filters_http_compressor_v3_Compressor_CommonDirectionConfig_descriptor =
       internal_static_envoy_extensions_filters_http_compressor_v3_Compressor_descriptor.getNestedTypes().get(0);
     internal_static_envoy_extensions_filters_http_compressor_v3_Compressor_CommonDirectionConfig_fieldAccessorTable = new
@@ -122,11 +145,30 @@ public final class CompressorProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_http_compressor_v3_Compressor_ResponseDirectionConfig_descriptor,
         new java.lang.String[] { "CommonConfig", "DisableOnEtagHeader", "RemoveAcceptEncodingHeader", });
+    internal_static_envoy_extensions_filters_http_compressor_v3_ResponseDirectionOverrides_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_envoy_extensions_filters_http_compressor_v3_ResponseDirectionOverrides_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_envoy_extensions_filters_http_compressor_v3_ResponseDirectionOverrides_descriptor,
+        new java.lang.String[] { });
+    internal_static_envoy_extensions_filters_http_compressor_v3_CompressorOverrides_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_envoy_extensions_filters_http_compressor_v3_CompressorOverrides_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_envoy_extensions_filters_http_compressor_v3_CompressorOverrides_descriptor,
+        new java.lang.String[] { "ResponseDirectionConfig", });
+    internal_static_envoy_extensions_filters_http_compressor_v3_CompressorPerRoute_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_envoy_extensions_filters_http_compressor_v3_CompressorPerRoute_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_envoy_extensions_filters_http_compressor_v3_CompressorPerRoute_descriptor,
+        new java.lang.String[] { "Disabled", "Overrides", "Override", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(envoy.annotations.Deprecation.deprecatedAtMinorVersion);
     registry.add(udpa.annotations.Status.fileStatus);
     registry.add(udpa.annotations.Versioning.versioning);
+    registry.add(io.envoyproxy.pgv.validate.Validate.required);
     registry.add(io.envoyproxy.pgv.validate.Validate.rules);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);

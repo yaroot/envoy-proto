@@ -246,8 +246,7 @@ public interface TaskSpecOrBuilder extends
 
   /**
    * <pre>
-   * Environment variables to set before running the Task.
-   * You can set up to 100 environments.
+   * Deprecated: please use environment(non-plural) instead.
    * </pre>
    *
    * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
@@ -255,8 +254,7 @@ public interface TaskSpecOrBuilder extends
   @java.lang.Deprecated int getEnvironmentsCount();
   /**
    * <pre>
-   * Environment variables to set before running the Task.
-   * You can set up to 100 environments.
+   * Deprecated: please use environment(non-plural) instead.
    * </pre>
    *
    * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
@@ -271,8 +269,7 @@ public interface TaskSpecOrBuilder extends
   getEnvironments();
   /**
    * <pre>
-   * Environment variables to set before running the Task.
-   * You can set up to 100 environments.
+   * Deprecated: please use environment(non-plural) instead.
    * </pre>
    *
    * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
@@ -281,28 +278,24 @@ public interface TaskSpecOrBuilder extends
   getEnvironmentsMap();
   /**
    * <pre>
-   * Environment variables to set before running the Task.
-   * You can set up to 100 environments.
+   * Deprecated: please use environment(non-plural) instead.
    * </pre>
    *
    * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
    */
-  @java.lang.Deprecated 
-  /* nullable */
+  @java.lang.Deprecated /* nullable */
 java.lang.String getEnvironmentsOrDefault(
       java.lang.String key,
       /* nullable */
 java.lang.String defaultValue);
   /**
    * <pre>
-   * Environment variables to set before running the Task.
-   * You can set up to 100 environments.
+   * Deprecated: please use environment(non-plural) instead.
    * </pre>
    *
    * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
    */
-  @java.lang.Deprecated 
-  java.lang.String getEnvironmentsOrThrow(
+  @java.lang.Deprecated java.lang.String getEnvironmentsOrThrow(
       java.lang.String key);
 
   /**

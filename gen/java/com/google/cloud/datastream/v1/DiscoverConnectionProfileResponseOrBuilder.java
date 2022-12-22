@@ -61,5 +61,32 @@ public interface DiscoverConnectionProfileResponseOrBuilder extends
    */
   com.google.cloud.datastream.v1.MysqlRdbmsOrBuilder getMysqlRdbmsOrBuilder();
 
+  /**
+   * <pre>
+   * Enriched PostgreSQL RDBMS object.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+   * @return Whether the postgresqlRdbms field is set.
+   */
+  boolean hasPostgresqlRdbms();
+  /**
+   * <pre>
+   * Enriched PostgreSQL RDBMS object.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+   * @return The postgresqlRdbms.
+   */
+  com.google.cloud.datastream.v1.PostgresqlRdbms getPostgresqlRdbms();
+  /**
+   * <pre>
+   * Enriched PostgreSQL RDBMS object.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+   */
+  com.google.cloud.datastream.v1.PostgresqlRdbmsOrBuilder getPostgresqlRdbmsOrBuilder();
+
   public com.google.cloud.datastream.v1.DiscoverConnectionProfileResponse.DataObjectCase getDataObjectCase();
 }

@@ -15,7 +15,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4google/cloud/gkemulticloud/v1/common_resources.proto\x12\x1dgoogle.cloud.gkemulticloud.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"^\n\x16WorkloadIdentityConfig\x12\x12\n\nissuer_uri\x18\x01 \x01(\t\x12\x15\n\rworkload_pool\x18\x02 \x01(\t\x12\x19\n\x11identity_provider\x18\x03 \x01(\t\"3\n\x11MaxPodsConstraint\x12\x1e\n\x11max_pods_per_node\x18\x01 \x01(\x03\x42\x03\xe0\x41\x02\"\xc8\x01\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x1a\n\rstatus_detail\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0c\x65rror_detail\x18\x05 \x01(\tB\x03\xe0\x41\x03\"\xd2\x01\n\tNodeTaint\x12\x10\n\x03key\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05value\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x44\n\x06\x65\x66\x66\x65\x63t\x18\x03 \x01(\x0e\x32/.google.cloud.gkemulticloud.v1.NodeTaint.EffectB\x03\xe0\x41\x02\"Y\n\x06\x45\x66\x66\x65\x63t\x12\x16\n\x12\x45\x46\x46\x45\x43T_UNSPECIFIED\x10\x00\x12\x0f\n\x0bNO_SCHEDULE\x10\x01\x12\x16\n\x12PREFER_NO_SCHEDULE\x10\x02\x12\x0e\n\nNO_EXECUTE\x10\x03\"6\n\x05\x46leet\x12\x14\n\x07project\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nmembership\x18\x02 \x01(\tB\x03\xe0\x41\x03\"`\n\rLoggingConfig\x12O\n\x10\x63omponent_config\x18\x01 \x01(\x0b\x32\x35.google.cloud.gkemulticloud.v1.LoggingComponentConfig\"\xc2\x01\n\x16LoggingComponentConfig\x12Z\n\x11\x65nable_components\x18\x01 \x03(\x0e\x32?.google.cloud.gkemulticloud.v1.LoggingComponentConfig.Component\"L\n\tComponent\x12\x19\n\x15\x43OMPONENT_UNSPECIFIED\x10\x00\x12\x15\n\x11SYSTEM_COMPONENTS\x10\x01\x12\r\n\tWORKLOADS\x10\x02\x42\xea\x01\n!com.google.cloud.gkemulticloud.v1B\x14\x43ommonResourcesProtoP\x01ZJgoogle.golang.org/genproto/googleapis/cloud/gkemulticloud/v1;gkemulticloud\xaa\x02\x1dGoogle.Cloud.GkeMultiCloud.V1\xca\x02\x1dGoogle\\Cloud\\GkeMultiCloud\\V1\xea\x02 Google::Cloud::GkeMultiCloud::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4google/cloud/gkemulticloud/v1/common_resources.proto\x12\x1dgoogle.cloud.gkemulticloud.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"^\n\x16WorkloadIdentityConfig\x12\x12\n\nissuer_uri\x18\x01 \x01(\t\x12\x15\n\rworkload_pool\x18\x02 \x01(\t\x12\x19\n\x11identity_provider\x18\x03 \x01(\t\"3\n\x11MaxPodsConstraint\x12\x1e\n\x11max_pods_per_node\x18\x01 \x01(\x03\x42\x03\xe0\x41\x02\"\x80\x02\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x1a\n\rstatus_detail\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0c\x65rror_detail\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04verb\x18\x07 \x01(\tB\x03\xe0\x41\x03\x12#\n\x16requested_cancellation\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03\"\xd2\x01\n\tNodeTaint\x12\x10\n\x03key\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05value\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x44\n\x06\x65\x66\x66\x65\x63t\x18\x03 \x01(\x0e\x32/.google.cloud.gkemulticloud.v1.NodeTaint.EffectB\x03\xe0\x41\x02\"Y\n\x06\x45\x66\x66\x65\x63t\x12\x16\n\x12\x45\x46\x46\x45\x43T_UNSPECIFIED\x10\x00\x12\x0f\n\x0bNO_SCHEDULE\x10\x01\x12\x16\n\x12PREFER_NO_SCHEDULE\x10\x02\x12\x0e\n\nNO_EXECUTE\x10\x03\"6\n\x05\x46leet\x12\x14\n\x07project\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nmembership\x18\x02 \x01(\tB\x03\xe0\x41\x03\"`\n\rLoggingConfig\x12O\n\x10\x63omponent_config\x18\x01 \x01(\x0b\x32\x35.google.cloud.gkemulticloud.v1.LoggingComponentConfig\"\xc2\x01\n\x16LoggingComponentConfig\x12Z\n\x11\x65nable_components\x18\x01 \x03(\x0e\x32?.google.cloud.gkemulticloud.v1.LoggingComponentConfig.Component\"L\n\tComponent\x12\x19\n\x15\x43OMPONENT_UNSPECIFIED\x10\x00\x12\x15\n\x11SYSTEM_COMPONENTS\x10\x01\x12\r\n\tWORKLOADS\x10\x02\"m\n\x10MonitoringConfig\x12Y\n\x19managed_prometheus_config\x18\x02 \x01(\x0b\x32\x36.google.cloud.gkemulticloud.v1.ManagedPrometheusConfig\"*\n\x17ManagedPrometheusConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x42\xea\x01\n!com.google.cloud.gkemulticloud.v1B\x14\x43ommonResourcesProtoP\x01ZJgoogle.golang.org/genproto/googleapis/cloud/gkemulticloud/v1;gkemulticloud\xaa\x02\x1dGoogle.Cloud.GkeMultiCloud.V1\xca\x02\x1dGoogle\\Cloud\\GkeMultiCloud\\V1\xea\x02 Google::Cloud::GkeMultiCloud::V1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.gkemulticloud.v1.common_resources_pb2', globals())
@@ -35,6 +35,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _OPERATIONMETADATA.fields_by_name['status_detail']._serialized_options = b'\340A\003'
   _OPERATIONMETADATA.fields_by_name['error_detail']._options = None
   _OPERATIONMETADATA.fields_by_name['error_detail']._serialized_options = b'\340A\003'
+  _OPERATIONMETADATA.fields_by_name['verb']._options = None
+  _OPERATIONMETADATA.fields_by_name['verb']._serialized_options = b'\340A\003'
+  _OPERATIONMETADATA.fields_by_name['requested_cancellation']._options = None
+  _OPERATIONMETADATA.fields_by_name['requested_cancellation']._serialized_options = b'\340A\003'
   _NODETAINT.fields_by_name['key']._options = None
   _NODETAINT.fields_by_name['key']._serialized_options = b'\340A\002'
   _NODETAINT.fields_by_name['value']._options = None
@@ -50,17 +54,21 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _MAXPODSCONSTRAINT._serialized_start=249
   _MAXPODSCONSTRAINT._serialized_end=300
   _OPERATIONMETADATA._serialized_start=303
-  _OPERATIONMETADATA._serialized_end=503
-  _NODETAINT._serialized_start=506
-  _NODETAINT._serialized_end=716
-  _NODETAINT_EFFECT._serialized_start=627
-  _NODETAINT_EFFECT._serialized_end=716
-  _FLEET._serialized_start=718
-  _FLEET._serialized_end=772
-  _LOGGINGCONFIG._serialized_start=774
-  _LOGGINGCONFIG._serialized_end=870
-  _LOGGINGCOMPONENTCONFIG._serialized_start=873
-  _LOGGINGCOMPONENTCONFIG._serialized_end=1067
-  _LOGGINGCOMPONENTCONFIG_COMPONENT._serialized_start=991
-  _LOGGINGCOMPONENTCONFIG_COMPONENT._serialized_end=1067
+  _OPERATIONMETADATA._serialized_end=559
+  _NODETAINT._serialized_start=562
+  _NODETAINT._serialized_end=772
+  _NODETAINT_EFFECT._serialized_start=683
+  _NODETAINT_EFFECT._serialized_end=772
+  _FLEET._serialized_start=774
+  _FLEET._serialized_end=828
+  _LOGGINGCONFIG._serialized_start=830
+  _LOGGINGCONFIG._serialized_end=926
+  _LOGGINGCOMPONENTCONFIG._serialized_start=929
+  _LOGGINGCOMPONENTCONFIG._serialized_end=1123
+  _LOGGINGCOMPONENTCONFIG_COMPONENT._serialized_start=1047
+  _LOGGINGCOMPONENTCONFIG_COMPONENT._serialized_end=1123
+  _MONITORINGCONFIG._serialized_start=1125
+  _MONITORINGCONFIG._serialized_end=1234
+  _MANAGEDPROMETHEUSCONFIG._serialized_start=1236
+  _MANAGEDPROMETHEUSCONFIG._serialized_end=1278
 # @@protoc_insertion_point(module_scope)

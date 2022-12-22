@@ -35,174 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AutomaticScaling(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (coolDownPeriod_ != null) {
-              subBuilder = coolDownPeriod_.toBuilder();
-            }
-            coolDownPeriod_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(coolDownPeriod_);
-              coolDownPeriod_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.appengine.v1.CpuUtilization.Builder subBuilder = null;
-            if (cpuUtilization_ != null) {
-              subBuilder = cpuUtilization_.toBuilder();
-            }
-            cpuUtilization_ = input.readMessage(com.google.appengine.v1.CpuUtilization.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cpuUtilization_);
-              cpuUtilization_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-
-            maxConcurrentRequests_ = input.readInt32();
-            break;
-          }
-          case 32: {
-
-            maxIdleInstances_ = input.readInt32();
-            break;
-          }
-          case 40: {
-
-            maxTotalInstances_ = input.readInt32();
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (maxPendingLatency_ != null) {
-              subBuilder = maxPendingLatency_.toBuilder();
-            }
-            maxPendingLatency_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxPendingLatency_);
-              maxPendingLatency_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 56: {
-
-            minIdleInstances_ = input.readInt32();
-            break;
-          }
-          case 64: {
-
-            minTotalInstances_ = input.readInt32();
-            break;
-          }
-          case 74: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (minPendingLatency_ != null) {
-              subBuilder = minPendingLatency_.toBuilder();
-            }
-            minPendingLatency_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(minPendingLatency_);
-              minPendingLatency_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.google.appengine.v1.RequestUtilization.Builder subBuilder = null;
-            if (requestUtilization_ != null) {
-              subBuilder = requestUtilization_.toBuilder();
-            }
-            requestUtilization_ = input.readMessage(com.google.appengine.v1.RequestUtilization.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(requestUtilization_);
-              requestUtilization_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            com.google.appengine.v1.DiskUtilization.Builder subBuilder = null;
-            if (diskUtilization_ != null) {
-              subBuilder = diskUtilization_.toBuilder();
-            }
-            diskUtilization_ = input.readMessage(com.google.appengine.v1.DiskUtilization.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(diskUtilization_);
-              diskUtilization_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 98: {
-            com.google.appengine.v1.NetworkUtilization.Builder subBuilder = null;
-            if (networkUtilization_ != null) {
-              subBuilder = networkUtilization_.toBuilder();
-            }
-            networkUtilization_ = input.readMessage(com.google.appengine.v1.NetworkUtilization.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(networkUtilization_);
-              networkUtilization_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 162: {
-            com.google.appengine.v1.StandardSchedulerSettings.Builder subBuilder = null;
-            if (standardSchedulerSettings_ != null) {
-              subBuilder = standardSchedulerSettings_.toBuilder();
-            }
-            standardSchedulerSettings_ = input.readMessage(com.google.appengine.v1.StandardSchedulerSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(standardSchedulerSettings_);
-              standardSchedulerSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.appengine.v1.VersionProto.internal_static_google_appengine_v1_AutomaticScaling_descriptor;
@@ -266,7 +98,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getCoolDownPeriodOrBuilder() {
-    return getCoolDownPeriod();
+    return coolDownPeriod_ == null ? com.google.protobuf.Duration.getDefaultInstance() : coolDownPeriod_;
   }
 
   public static final int CPU_UTILIZATION_FIELD_NUMBER = 2;
@@ -304,11 +136,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.appengine.v1.CpuUtilizationOrBuilder getCpuUtilizationOrBuilder() {
-    return getCpuUtilization();
+    return cpuUtilization_ == null ? com.google.appengine.v1.CpuUtilization.getDefaultInstance() : cpuUtilization_;
   }
 
   public static final int MAX_CONCURRENT_REQUESTS_FIELD_NUMBER = 3;
-  private int maxConcurrentRequests_;
+  private int maxConcurrentRequests_ = 0;
   /**
    * <pre>
    * Number of concurrent requests an automatic scaling instance can accept
@@ -325,7 +157,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_IDLE_INSTANCES_FIELD_NUMBER = 4;
-  private int maxIdleInstances_;
+  private int maxIdleInstances_ = 0;
   /**
    * <pre>
    * Maximum number of idle instances that should be maintained for this
@@ -341,7 +173,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_TOTAL_INSTANCES_FIELD_NUMBER = 5;
-  private int maxTotalInstances_;
+  private int maxTotalInstances_ = 0;
   /**
    * <pre>
    * Maximum number of instances that should be started to handle requests for
@@ -394,11 +226,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMaxPendingLatencyOrBuilder() {
-    return getMaxPendingLatency();
+    return maxPendingLatency_ == null ? com.google.protobuf.Duration.getDefaultInstance() : maxPendingLatency_;
   }
 
   public static final int MIN_IDLE_INSTANCES_FIELD_NUMBER = 7;
-  private int minIdleInstances_;
+  private int minIdleInstances_ = 0;
   /**
    * <pre>
    * Minimum number of idle instances that should be maintained for
@@ -414,7 +246,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_TOTAL_INSTANCES_FIELD_NUMBER = 8;
-  private int minTotalInstances_;
+  private int minTotalInstances_ = 0;
   /**
    * <pre>
    * Minimum number of running instances that should be maintained for this
@@ -467,7 +299,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMinPendingLatencyOrBuilder() {
-    return getMinPendingLatency();
+    return minPendingLatency_ == null ? com.google.protobuf.Duration.getDefaultInstance() : minPendingLatency_;
   }
 
   public static final int REQUEST_UTILIZATION_FIELD_NUMBER = 10;
@@ -505,7 +337,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.appengine.v1.RequestUtilizationOrBuilder getRequestUtilizationOrBuilder() {
-    return getRequestUtilization();
+    return requestUtilization_ == null ? com.google.appengine.v1.RequestUtilization.getDefaultInstance() : requestUtilization_;
   }
 
   public static final int DISK_UTILIZATION_FIELD_NUMBER = 11;
@@ -543,7 +375,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.appengine.v1.DiskUtilizationOrBuilder getDiskUtilizationOrBuilder() {
-    return getDiskUtilization();
+    return diskUtilization_ == null ? com.google.appengine.v1.DiskUtilization.getDefaultInstance() : diskUtilization_;
   }
 
   public static final int NETWORK_UTILIZATION_FIELD_NUMBER = 12;
@@ -581,7 +413,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.appengine.v1.NetworkUtilizationOrBuilder getNetworkUtilizationOrBuilder() {
-    return getNetworkUtilization();
+    return networkUtilization_ == null ? com.google.appengine.v1.NetworkUtilization.getDefaultInstance() : networkUtilization_;
   }
 
   public static final int STANDARD_SCHEDULER_SETTINGS_FIELD_NUMBER = 20;
@@ -619,7 +451,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.appengine.v1.StandardSchedulerSettingsOrBuilder getStandardSchedulerSettingsOrBuilder() {
-    return getStandardSchedulerSettings();
+    return standardSchedulerSettings_ == null ? com.google.appengine.v1.StandardSchedulerSettings.getDefaultInstance() : standardSchedulerSettings_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -675,7 +507,7 @@ private static final long serialVersionUID = 0L;
     if (standardSchedulerSettings_ != null) {
       output.writeMessage(20, getStandardSchedulerSettings());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -736,7 +568,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(20, getStandardSchedulerSettings());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -801,7 +633,7 @@ private static final long serialVersionUID = 0L;
       if (!getStandardSchedulerSettings()
           .equals(other.getStandardSchedulerSettings())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -854,7 +686,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + STANDARD_SCHEDULER_SETTINGS_FIELD_NUMBER;
       hash = (53 * hash) + getStandardSchedulerSettings().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -976,78 +808,61 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.appengine.v1.AutomaticScaling.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (coolDownPeriodBuilder_ == null) {
-        coolDownPeriod_ = null;
-      } else {
-        coolDownPeriod_ = null;
+      bitField0_ = 0;
+      coolDownPeriod_ = null;
+      if (coolDownPeriodBuilder_ != null) {
+        coolDownPeriodBuilder_.dispose();
         coolDownPeriodBuilder_ = null;
       }
-      if (cpuUtilizationBuilder_ == null) {
-        cpuUtilization_ = null;
-      } else {
-        cpuUtilization_ = null;
+      cpuUtilization_ = null;
+      if (cpuUtilizationBuilder_ != null) {
+        cpuUtilizationBuilder_.dispose();
         cpuUtilizationBuilder_ = null;
       }
       maxConcurrentRequests_ = 0;
-
       maxIdleInstances_ = 0;
-
       maxTotalInstances_ = 0;
-
-      if (maxPendingLatencyBuilder_ == null) {
-        maxPendingLatency_ = null;
-      } else {
-        maxPendingLatency_ = null;
+      maxPendingLatency_ = null;
+      if (maxPendingLatencyBuilder_ != null) {
+        maxPendingLatencyBuilder_.dispose();
         maxPendingLatencyBuilder_ = null;
       }
       minIdleInstances_ = 0;
-
       minTotalInstances_ = 0;
-
-      if (minPendingLatencyBuilder_ == null) {
-        minPendingLatency_ = null;
-      } else {
-        minPendingLatency_ = null;
+      minPendingLatency_ = null;
+      if (minPendingLatencyBuilder_ != null) {
+        minPendingLatencyBuilder_.dispose();
         minPendingLatencyBuilder_ = null;
       }
-      if (requestUtilizationBuilder_ == null) {
-        requestUtilization_ = null;
-      } else {
-        requestUtilization_ = null;
+      requestUtilization_ = null;
+      if (requestUtilizationBuilder_ != null) {
+        requestUtilizationBuilder_.dispose();
         requestUtilizationBuilder_ = null;
       }
-      if (diskUtilizationBuilder_ == null) {
-        diskUtilization_ = null;
-      } else {
-        diskUtilization_ = null;
+      diskUtilization_ = null;
+      if (diskUtilizationBuilder_ != null) {
+        diskUtilizationBuilder_.dispose();
         diskUtilizationBuilder_ = null;
       }
-      if (networkUtilizationBuilder_ == null) {
-        networkUtilization_ = null;
-      } else {
-        networkUtilization_ = null;
+      networkUtilization_ = null;
+      if (networkUtilizationBuilder_ != null) {
+        networkUtilizationBuilder_.dispose();
         networkUtilizationBuilder_ = null;
       }
-      if (standardSchedulerSettingsBuilder_ == null) {
-        standardSchedulerSettings_ = null;
-      } else {
-        standardSchedulerSettings_ = null;
+      standardSchedulerSettings_ = null;
+      if (standardSchedulerSettingsBuilder_ != null) {
+        standardSchedulerSettingsBuilder_.dispose();
         standardSchedulerSettingsBuilder_ = null;
       }
       return this;
@@ -1076,53 +891,68 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.appengine.v1.AutomaticScaling buildPartial() {
       com.google.appengine.v1.AutomaticScaling result = new com.google.appengine.v1.AutomaticScaling(this);
-      if (coolDownPeriodBuilder_ == null) {
-        result.coolDownPeriod_ = coolDownPeriod_;
-      } else {
-        result.coolDownPeriod_ = coolDownPeriodBuilder_.build();
-      }
-      if (cpuUtilizationBuilder_ == null) {
-        result.cpuUtilization_ = cpuUtilization_;
-      } else {
-        result.cpuUtilization_ = cpuUtilizationBuilder_.build();
-      }
-      result.maxConcurrentRequests_ = maxConcurrentRequests_;
-      result.maxIdleInstances_ = maxIdleInstances_;
-      result.maxTotalInstances_ = maxTotalInstances_;
-      if (maxPendingLatencyBuilder_ == null) {
-        result.maxPendingLatency_ = maxPendingLatency_;
-      } else {
-        result.maxPendingLatency_ = maxPendingLatencyBuilder_.build();
-      }
-      result.minIdleInstances_ = minIdleInstances_;
-      result.minTotalInstances_ = minTotalInstances_;
-      if (minPendingLatencyBuilder_ == null) {
-        result.minPendingLatency_ = minPendingLatency_;
-      } else {
-        result.minPendingLatency_ = minPendingLatencyBuilder_.build();
-      }
-      if (requestUtilizationBuilder_ == null) {
-        result.requestUtilization_ = requestUtilization_;
-      } else {
-        result.requestUtilization_ = requestUtilizationBuilder_.build();
-      }
-      if (diskUtilizationBuilder_ == null) {
-        result.diskUtilization_ = diskUtilization_;
-      } else {
-        result.diskUtilization_ = diskUtilizationBuilder_.build();
-      }
-      if (networkUtilizationBuilder_ == null) {
-        result.networkUtilization_ = networkUtilization_;
-      } else {
-        result.networkUtilization_ = networkUtilizationBuilder_.build();
-      }
-      if (standardSchedulerSettingsBuilder_ == null) {
-        result.standardSchedulerSettings_ = standardSchedulerSettings_;
-      } else {
-        result.standardSchedulerSettings_ = standardSchedulerSettingsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.appengine.v1.AutomaticScaling result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.coolDownPeriod_ = coolDownPeriodBuilder_ == null
+            ? coolDownPeriod_
+            : coolDownPeriodBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.cpuUtilization_ = cpuUtilizationBuilder_ == null
+            ? cpuUtilization_
+            : cpuUtilizationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.maxConcurrentRequests_ = maxConcurrentRequests_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.maxIdleInstances_ = maxIdleInstances_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.maxTotalInstances_ = maxTotalInstances_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.maxPendingLatency_ = maxPendingLatencyBuilder_ == null
+            ? maxPendingLatency_
+            : maxPendingLatencyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.minIdleInstances_ = minIdleInstances_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.minTotalInstances_ = minTotalInstances_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.minPendingLatency_ = minPendingLatencyBuilder_ == null
+            ? minPendingLatency_
+            : minPendingLatencyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.requestUtilization_ = requestUtilizationBuilder_ == null
+            ? requestUtilization_
+            : requestUtilizationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.diskUtilization_ = diskUtilizationBuilder_ == null
+            ? diskUtilization_
+            : diskUtilizationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.networkUtilization_ = networkUtilizationBuilder_ == null
+            ? networkUtilization_
+            : networkUtilizationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.standardSchedulerSettings_ = standardSchedulerSettingsBuilder_ == null
+            ? standardSchedulerSettings_
+            : standardSchedulerSettingsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1208,7 +1038,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasStandardSchedulerSettings()) {
         mergeStandardSchedulerSettings(other.getStandardSchedulerSettings());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1223,19 +1053,114 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.appengine.v1.AutomaticScaling parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCoolDownPeriodFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCpuUtilizationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              maxConcurrentRequests_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              maxIdleInstances_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              maxTotalInstances_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              input.readMessage(
+                  getMaxPendingLatencyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 56: {
+              minIdleInstances_ = input.readInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              minTotalInstances_ = input.readInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 74: {
+              input.readMessage(
+                  getMinPendingLatencyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getRequestUtilizationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getDiskUtilizationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getNetworkUtilizationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 162: {
+              input.readMessage(
+                  getStandardSchedulerSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 162
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.appengine.v1.AutomaticScaling) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.Duration coolDownPeriod_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1254,7 +1179,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the coolDownPeriod field is set.
      */
     public boolean hasCoolDownPeriod() {
-      return coolDownPeriodBuilder_ != null || coolDownPeriod_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1294,11 +1219,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         coolDownPeriod_ = value;
-        onChanged();
       } else {
         coolDownPeriodBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1317,11 +1242,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (coolDownPeriodBuilder_ == null) {
         coolDownPeriod_ = builderForValue.build();
-        onChanged();
       } else {
         coolDownPeriodBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1338,17 +1263,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCoolDownPeriod(com.google.protobuf.Duration value) {
       if (coolDownPeriodBuilder_ == null) {
-        if (coolDownPeriod_ != null) {
-          coolDownPeriod_ =
-            com.google.protobuf.Duration.newBuilder(coolDownPeriod_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          coolDownPeriod_ != null &&
+          coolDownPeriod_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getCoolDownPeriodBuilder().mergeFrom(value);
         } else {
           coolDownPeriod_ = value;
         }
-        onChanged();
       } else {
         coolDownPeriodBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1364,14 +1290,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration cool_down_period = 1;</code>
      */
     public Builder clearCoolDownPeriod() {
-      if (coolDownPeriodBuilder_ == null) {
-        coolDownPeriod_ = null;
-        onChanged();
-      } else {
-        coolDownPeriod_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      coolDownPeriod_ = null;
+      if (coolDownPeriodBuilder_ != null) {
+        coolDownPeriodBuilder_.dispose();
         coolDownPeriodBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1387,7 +1312,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration cool_down_period = 1;</code>
      */
     public com.google.protobuf.Duration.Builder getCoolDownPeriodBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getCoolDownPeriodFieldBuilder().getBuilder();
     }
@@ -1449,7 +1374,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cpuUtilization field is set.
      */
     public boolean hasCpuUtilization() {
-      return cpuUtilizationBuilder_ != null || cpuUtilization_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1479,11 +1404,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cpuUtilization_ = value;
-        onChanged();
       } else {
         cpuUtilizationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1497,11 +1422,11 @@ private static final long serialVersionUID = 0L;
         com.google.appengine.v1.CpuUtilization.Builder builderForValue) {
       if (cpuUtilizationBuilder_ == null) {
         cpuUtilization_ = builderForValue.build();
-        onChanged();
       } else {
         cpuUtilizationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1513,17 +1438,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCpuUtilization(com.google.appengine.v1.CpuUtilization value) {
       if (cpuUtilizationBuilder_ == null) {
-        if (cpuUtilization_ != null) {
-          cpuUtilization_ =
-            com.google.appengine.v1.CpuUtilization.newBuilder(cpuUtilization_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          cpuUtilization_ != null &&
+          cpuUtilization_ != com.google.appengine.v1.CpuUtilization.getDefaultInstance()) {
+          getCpuUtilizationBuilder().mergeFrom(value);
         } else {
           cpuUtilization_ = value;
         }
-        onChanged();
       } else {
         cpuUtilizationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1534,14 +1460,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1.CpuUtilization cpu_utilization = 2;</code>
      */
     public Builder clearCpuUtilization() {
-      if (cpuUtilizationBuilder_ == null) {
-        cpuUtilization_ = null;
-        onChanged();
-      } else {
-        cpuUtilization_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      cpuUtilization_ = null;
+      if (cpuUtilizationBuilder_ != null) {
+        cpuUtilizationBuilder_.dispose();
         cpuUtilizationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1552,7 +1477,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1.CpuUtilization cpu_utilization = 2;</code>
      */
     public com.google.appengine.v1.CpuUtilization.Builder getCpuUtilizationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCpuUtilizationFieldBuilder().getBuilder();
     }
@@ -1621,6 +1546,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxConcurrentRequests(int value) {
       
       maxConcurrentRequests_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1635,7 +1561,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxConcurrentRequests() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       maxConcurrentRequests_ = 0;
       onChanged();
       return this;
@@ -1668,6 +1594,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxIdleInstances(int value) {
       
       maxIdleInstances_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1681,7 +1608,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxIdleInstances() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       maxIdleInstances_ = 0;
       onChanged();
       return this;
@@ -1714,6 +1641,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxTotalInstances(int value) {
       
       maxTotalInstances_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1727,7 +1655,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxTotalInstances() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       maxTotalInstances_ = 0;
       onChanged();
       return this;
@@ -1746,7 +1674,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxPendingLatency field is set.
      */
     public boolean hasMaxPendingLatency() {
-      return maxPendingLatencyBuilder_ != null || maxPendingLatency_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1778,11 +1706,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxPendingLatency_ = value;
-        onChanged();
       } else {
         maxPendingLatencyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1797,11 +1725,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (maxPendingLatencyBuilder_ == null) {
         maxPendingLatency_ = builderForValue.build();
-        onChanged();
       } else {
         maxPendingLatencyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1814,17 +1742,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxPendingLatency(com.google.protobuf.Duration value) {
       if (maxPendingLatencyBuilder_ == null) {
-        if (maxPendingLatency_ != null) {
-          maxPendingLatency_ =
-            com.google.protobuf.Duration.newBuilder(maxPendingLatency_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          maxPendingLatency_ != null &&
+          maxPendingLatency_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMaxPendingLatencyBuilder().mergeFrom(value);
         } else {
           maxPendingLatency_ = value;
         }
-        onChanged();
       } else {
         maxPendingLatencyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1836,14 +1765,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration max_pending_latency = 6;</code>
      */
     public Builder clearMaxPendingLatency() {
-      if (maxPendingLatencyBuilder_ == null) {
-        maxPendingLatency_ = null;
-        onChanged();
-      } else {
-        maxPendingLatency_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      maxPendingLatency_ = null;
+      if (maxPendingLatencyBuilder_ != null) {
+        maxPendingLatencyBuilder_.dispose();
         maxPendingLatencyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1855,7 +1783,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration max_pending_latency = 6;</code>
      */
     public com.google.protobuf.Duration.Builder getMaxPendingLatencyBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getMaxPendingLatencyFieldBuilder().getBuilder();
     }
@@ -1924,6 +1852,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMinIdleInstances(int value) {
       
       minIdleInstances_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1937,7 +1866,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinIdleInstances() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       minIdleInstances_ = 0;
       onChanged();
       return this;
@@ -1970,6 +1899,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMinTotalInstances(int value) {
       
       minTotalInstances_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1983,7 +1913,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinTotalInstances() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       minTotalInstances_ = 0;
       onChanged();
       return this;
@@ -2002,7 +1932,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the minPendingLatency field is set.
      */
     public boolean hasMinPendingLatency() {
-      return minPendingLatencyBuilder_ != null || minPendingLatency_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2034,11 +1964,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         minPendingLatency_ = value;
-        onChanged();
       } else {
         minPendingLatencyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2053,11 +1983,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (minPendingLatencyBuilder_ == null) {
         minPendingLatency_ = builderForValue.build();
-        onChanged();
       } else {
         minPendingLatencyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2070,17 +2000,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMinPendingLatency(com.google.protobuf.Duration value) {
       if (minPendingLatencyBuilder_ == null) {
-        if (minPendingLatency_ != null) {
-          minPendingLatency_ =
-            com.google.protobuf.Duration.newBuilder(minPendingLatency_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          minPendingLatency_ != null &&
+          minPendingLatency_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMinPendingLatencyBuilder().mergeFrom(value);
         } else {
           minPendingLatency_ = value;
         }
-        onChanged();
       } else {
         minPendingLatencyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2092,14 +2023,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration min_pending_latency = 9;</code>
      */
     public Builder clearMinPendingLatency() {
-      if (minPendingLatencyBuilder_ == null) {
-        minPendingLatency_ = null;
-        onChanged();
-      } else {
-        minPendingLatency_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      minPendingLatency_ = null;
+      if (minPendingLatencyBuilder_ != null) {
+        minPendingLatencyBuilder_.dispose();
         minPendingLatencyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2111,7 +2041,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration min_pending_latency = 9;</code>
      */
     public com.google.protobuf.Duration.Builder getMinPendingLatencyBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getMinPendingLatencyFieldBuilder().getBuilder();
     }
@@ -2165,7 +2095,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the requestUtilization field is set.
      */
     public boolean hasRequestUtilization() {
-      return requestUtilizationBuilder_ != null || requestUtilization_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -2195,11 +2125,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         requestUtilization_ = value;
-        onChanged();
       } else {
         requestUtilizationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2213,11 +2143,11 @@ private static final long serialVersionUID = 0L;
         com.google.appengine.v1.RequestUtilization.Builder builderForValue) {
       if (requestUtilizationBuilder_ == null) {
         requestUtilization_ = builderForValue.build();
-        onChanged();
       } else {
         requestUtilizationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2229,17 +2159,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRequestUtilization(com.google.appengine.v1.RequestUtilization value) {
       if (requestUtilizationBuilder_ == null) {
-        if (requestUtilization_ != null) {
-          requestUtilization_ =
-            com.google.appengine.v1.RequestUtilization.newBuilder(requestUtilization_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          requestUtilization_ != null &&
+          requestUtilization_ != com.google.appengine.v1.RequestUtilization.getDefaultInstance()) {
+          getRequestUtilizationBuilder().mergeFrom(value);
         } else {
           requestUtilization_ = value;
         }
-        onChanged();
       } else {
         requestUtilizationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2250,14 +2181,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1.RequestUtilization request_utilization = 10;</code>
      */
     public Builder clearRequestUtilization() {
-      if (requestUtilizationBuilder_ == null) {
-        requestUtilization_ = null;
-        onChanged();
-      } else {
-        requestUtilization_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      requestUtilization_ = null;
+      if (requestUtilizationBuilder_ != null) {
+        requestUtilizationBuilder_.dispose();
         requestUtilizationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2268,7 +2198,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1.RequestUtilization request_utilization = 10;</code>
      */
     public com.google.appengine.v1.RequestUtilization.Builder getRequestUtilizationBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getRequestUtilizationFieldBuilder().getBuilder();
     }
@@ -2320,7 +2250,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the diskUtilization field is set.
      */
     public boolean hasDiskUtilization() {
-      return diskUtilizationBuilder_ != null || diskUtilization_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -2350,11 +2280,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         diskUtilization_ = value;
-        onChanged();
       } else {
         diskUtilizationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2368,11 +2298,11 @@ private static final long serialVersionUID = 0L;
         com.google.appengine.v1.DiskUtilization.Builder builderForValue) {
       if (diskUtilizationBuilder_ == null) {
         diskUtilization_ = builderForValue.build();
-        onChanged();
       } else {
         diskUtilizationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2384,17 +2314,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDiskUtilization(com.google.appengine.v1.DiskUtilization value) {
       if (diskUtilizationBuilder_ == null) {
-        if (diskUtilization_ != null) {
-          diskUtilization_ =
-            com.google.appengine.v1.DiskUtilization.newBuilder(diskUtilization_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          diskUtilization_ != null &&
+          diskUtilization_ != com.google.appengine.v1.DiskUtilization.getDefaultInstance()) {
+          getDiskUtilizationBuilder().mergeFrom(value);
         } else {
           diskUtilization_ = value;
         }
-        onChanged();
       } else {
         diskUtilizationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2405,14 +2336,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1.DiskUtilization disk_utilization = 11;</code>
      */
     public Builder clearDiskUtilization() {
-      if (diskUtilizationBuilder_ == null) {
-        diskUtilization_ = null;
-        onChanged();
-      } else {
-        diskUtilization_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      diskUtilization_ = null;
+      if (diskUtilizationBuilder_ != null) {
+        diskUtilizationBuilder_.dispose();
         diskUtilizationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2423,7 +2353,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1.DiskUtilization disk_utilization = 11;</code>
      */
     public com.google.appengine.v1.DiskUtilization.Builder getDiskUtilizationBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getDiskUtilizationFieldBuilder().getBuilder();
     }
@@ -2475,7 +2405,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the networkUtilization field is set.
      */
     public boolean hasNetworkUtilization() {
-      return networkUtilizationBuilder_ != null || networkUtilization_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -2505,11 +2435,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         networkUtilization_ = value;
-        onChanged();
       } else {
         networkUtilizationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -2523,11 +2453,11 @@ private static final long serialVersionUID = 0L;
         com.google.appengine.v1.NetworkUtilization.Builder builderForValue) {
       if (networkUtilizationBuilder_ == null) {
         networkUtilization_ = builderForValue.build();
-        onChanged();
       } else {
         networkUtilizationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -2539,17 +2469,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNetworkUtilization(com.google.appengine.v1.NetworkUtilization value) {
       if (networkUtilizationBuilder_ == null) {
-        if (networkUtilization_ != null) {
-          networkUtilization_ =
-            com.google.appengine.v1.NetworkUtilization.newBuilder(networkUtilization_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          networkUtilization_ != null &&
+          networkUtilization_ != com.google.appengine.v1.NetworkUtilization.getDefaultInstance()) {
+          getNetworkUtilizationBuilder().mergeFrom(value);
         } else {
           networkUtilization_ = value;
         }
-        onChanged();
       } else {
         networkUtilizationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -2560,14 +2491,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1.NetworkUtilization network_utilization = 12;</code>
      */
     public Builder clearNetworkUtilization() {
-      if (networkUtilizationBuilder_ == null) {
-        networkUtilization_ = null;
-        onChanged();
-      } else {
-        networkUtilization_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      networkUtilization_ = null;
+      if (networkUtilizationBuilder_ != null) {
+        networkUtilizationBuilder_.dispose();
         networkUtilizationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2578,7 +2508,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1.NetworkUtilization network_utilization = 12;</code>
      */
     public com.google.appengine.v1.NetworkUtilization.Builder getNetworkUtilizationBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getNetworkUtilizationFieldBuilder().getBuilder();
     }
@@ -2630,7 +2560,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the standardSchedulerSettings field is set.
      */
     public boolean hasStandardSchedulerSettings() {
-      return standardSchedulerSettingsBuilder_ != null || standardSchedulerSettings_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -2660,11 +2590,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         standardSchedulerSettings_ = value;
-        onChanged();
       } else {
         standardSchedulerSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -2678,11 +2608,11 @@ private static final long serialVersionUID = 0L;
         com.google.appengine.v1.StandardSchedulerSettings.Builder builderForValue) {
       if (standardSchedulerSettingsBuilder_ == null) {
         standardSchedulerSettings_ = builderForValue.build();
-        onChanged();
       } else {
         standardSchedulerSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -2694,17 +2624,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStandardSchedulerSettings(com.google.appengine.v1.StandardSchedulerSettings value) {
       if (standardSchedulerSettingsBuilder_ == null) {
-        if (standardSchedulerSettings_ != null) {
-          standardSchedulerSettings_ =
-            com.google.appengine.v1.StandardSchedulerSettings.newBuilder(standardSchedulerSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          standardSchedulerSettings_ != null &&
+          standardSchedulerSettings_ != com.google.appengine.v1.StandardSchedulerSettings.getDefaultInstance()) {
+          getStandardSchedulerSettingsBuilder().mergeFrom(value);
         } else {
           standardSchedulerSettings_ = value;
         }
-        onChanged();
       } else {
         standardSchedulerSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -2715,14 +2646,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1.StandardSchedulerSettings standard_scheduler_settings = 20;</code>
      */
     public Builder clearStandardSchedulerSettings() {
-      if (standardSchedulerSettingsBuilder_ == null) {
-        standardSchedulerSettings_ = null;
-        onChanged();
-      } else {
-        standardSchedulerSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      standardSchedulerSettings_ = null;
+      if (standardSchedulerSettingsBuilder_ != null) {
+        standardSchedulerSettingsBuilder_.dispose();
         standardSchedulerSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2733,7 +2663,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.appengine.v1.StandardSchedulerSettings standard_scheduler_settings = 20;</code>
      */
     public com.google.appengine.v1.StandardSchedulerSettings.Builder getStandardSchedulerSettingsBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getStandardSchedulerSettingsFieldBuilder().getBuilder();
     }
@@ -2805,7 +2735,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AutomaticScaling(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

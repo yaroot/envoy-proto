@@ -30,7 +30,6 @@ public interface BucketIdOrBuilder extends
   /**
    * <code>map&lt;string, string&gt; bucket = 1 [(.validate.rules) = { ... }</code>
    */
-
   /* nullable */
 java.lang.String getBucketOrDefault(
       java.lang.String key,
@@ -39,7 +38,6 @@ java.lang.String defaultValue);
   /**
    * <code>map&lt;string, string&gt; bucket = 1 [(.validate.rules) = { ... }</code>
    */
-
   java.lang.String getBucketOrThrow(
       java.lang.String key);
 }

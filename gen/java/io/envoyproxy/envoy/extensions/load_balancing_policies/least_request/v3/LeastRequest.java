@@ -8,7 +8,6 @@ package io.envoyproxy.envoy.extensions.load_balancing_policies.least_request.v3;
  * This configuration allows the built-in LEAST_REQUEST LB policy to be configured via the LB policy
  * extension point. See the :ref:`load balancing architecture overview
  * &lt;arch_overview_load_balancing_types&gt;` for more information.
- * [#extension: envoy.clusters.lb_policy]
  * </pre>
  *
  * Protobuf type {@code envoy.extensions.load_balancing_policies.least_request.v3.LeastRequest}
@@ -36,84 +35,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private LeastRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (choiceCount_ != null) {
-              subBuilder = choiceCount_.toBuilder();
-            }
-            choiceCount_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(choiceCount_);
-              choiceCount_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.config.core.v3.RuntimeDouble.Builder subBuilder = null;
-            if (activeRequestBias_ != null) {
-              subBuilder = activeRequestBias_.toBuilder();
-            }
-            activeRequestBias_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.RuntimeDouble.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(activeRequestBias_);
-              activeRequestBias_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig.Builder subBuilder = null;
-            if (slowStartConfig_ != null) {
-              subBuilder = slowStartConfig_.toBuilder();
-            }
-            slowStartConfig_ = input.readMessage(io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(slowStartConfig_);
-              slowStartConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -166,7 +87,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getChoiceCountOrBuilder() {
-    return getChoiceCount();
+    return choiceCount_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : choiceCount_;
   }
 
   public static final int ACTIVE_REQUEST_BIAS_FIELD_NUMBER = 2;
@@ -249,18 +170,18 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.RuntimeDoubleOrBuilder getActiveRequestBiasOrBuilder() {
-    return getActiveRequestBias();
+    return activeRequestBias_ == null ? io.envoyproxy.envoy.config.core.v3.RuntimeDouble.getDefaultInstance() : activeRequestBias_;
   }
 
   public static final int SLOW_START_CONFIG_FIELD_NUMBER = 3;
-  private io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig slowStartConfig_;
+  private io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig slowStartConfig_;
   /**
    * <pre>
    * Configuration for slow start mode.
    * If this configuration is not set, slow start will not be not enabled.
    * </pre>
    *
-   * <code>.envoy.config.cluster.v3.Cluster.SlowStartConfig slow_start_config = 3;</code>
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig slow_start_config = 3;</code>
    * @return Whether the slowStartConfig field is set.
    */
   @java.lang.Override
@@ -273,12 +194,12 @@ private static final long serialVersionUID = 0L;
    * If this configuration is not set, slow start will not be not enabled.
    * </pre>
    *
-   * <code>.envoy.config.cluster.v3.Cluster.SlowStartConfig slow_start_config = 3;</code>
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig slow_start_config = 3;</code>
    * @return The slowStartConfig.
    */
   @java.lang.Override
-  public io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig getSlowStartConfig() {
-    return slowStartConfig_ == null ? io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig.getDefaultInstance() : slowStartConfig_;
+  public io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig getSlowStartConfig() {
+    return slowStartConfig_ == null ? io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig.getDefaultInstance() : slowStartConfig_;
   }
   /**
    * <pre>
@@ -286,11 +207,49 @@ private static final long serialVersionUID = 0L;
    * If this configuration is not set, slow start will not be not enabled.
    * </pre>
    *
-   * <code>.envoy.config.cluster.v3.Cluster.SlowStartConfig slow_start_config = 3;</code>
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig slow_start_config = 3;</code>
    */
   @java.lang.Override
-  public io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfigOrBuilder getSlowStartConfigOrBuilder() {
-    return getSlowStartConfig();
+  public io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfigOrBuilder getSlowStartConfigOrBuilder() {
+    return slowStartConfig_ == null ? io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig.getDefaultInstance() : slowStartConfig_;
+  }
+
+  public static final int LOCALITY_LB_CONFIG_FIELD_NUMBER = 4;
+  private io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig localityLbConfig_;
+  /**
+   * <pre>
+   * Configuration for local zone aware load balancing or locality weighted load balancing.
+   * </pre>
+   *
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig locality_lb_config = 4;</code>
+   * @return Whether the localityLbConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasLocalityLbConfig() {
+    return localityLbConfig_ != null;
+  }
+  /**
+   * <pre>
+   * Configuration for local zone aware load balancing or locality weighted load balancing.
+   * </pre>
+   *
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig locality_lb_config = 4;</code>
+   * @return The localityLbConfig.
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig getLocalityLbConfig() {
+    return localityLbConfig_ == null ? io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig.getDefaultInstance() : localityLbConfig_;
+  }
+  /**
+   * <pre>
+   * Configuration for local zone aware load balancing or locality weighted load balancing.
+   * </pre>
+   *
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig locality_lb_config = 4;</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfigOrBuilder getLocalityLbConfigOrBuilder() {
+    return localityLbConfig_ == null ? io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig.getDefaultInstance() : localityLbConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -316,7 +275,10 @@ private static final long serialVersionUID = 0L;
     if (slowStartConfig_ != null) {
       output.writeMessage(3, getSlowStartConfig());
     }
-    unknownFields.writeTo(output);
+    if (localityLbConfig_ != null) {
+      output.writeMessage(4, getLocalityLbConfig());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -337,7 +299,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getSlowStartConfig());
     }
-    size += unknownFields.getSerializedSize();
+    if (localityLbConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getLocalityLbConfig());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -367,7 +333,12 @@ private static final long serialVersionUID = 0L;
       if (!getSlowStartConfig()
           .equals(other.getSlowStartConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasLocalityLbConfig() != other.hasLocalityLbConfig()) return false;
+    if (hasLocalityLbConfig()) {
+      if (!getLocalityLbConfig()
+          .equals(other.getLocalityLbConfig())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -390,7 +361,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SLOW_START_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getSlowStartConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasLocalityLbConfig()) {
+      hash = (37 * hash) + LOCALITY_LB_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getLocalityLbConfig().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -490,7 +465,6 @@ private static final long serialVersionUID = 0L;
    * This configuration allows the built-in LEAST_REQUEST LB policy to be configured via the LB policy
    * extension point. See the :ref:`load balancing architecture overview
    * &lt;arch_overview_load_balancing_types&gt;` for more information.
-   * [#extension: envoy.clusters.lb_policy]
    * </pre>
    *
    * Protobuf type {@code envoy.extensions.load_balancing_policies.least_request.v3.LeastRequest}
@@ -514,39 +488,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.load_balancing_policies.least_request.v3.LeastRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (choiceCountBuilder_ == null) {
-        choiceCount_ = null;
-      } else {
-        choiceCount_ = null;
+      bitField0_ = 0;
+      choiceCount_ = null;
+      if (choiceCountBuilder_ != null) {
+        choiceCountBuilder_.dispose();
         choiceCountBuilder_ = null;
       }
-      if (activeRequestBiasBuilder_ == null) {
-        activeRequestBias_ = null;
-      } else {
-        activeRequestBias_ = null;
+      activeRequestBias_ = null;
+      if (activeRequestBiasBuilder_ != null) {
+        activeRequestBiasBuilder_.dispose();
         activeRequestBiasBuilder_ = null;
       }
-      if (slowStartConfigBuilder_ == null) {
-        slowStartConfig_ = null;
-      } else {
-        slowStartConfig_ = null;
+      slowStartConfig_ = null;
+      if (slowStartConfigBuilder_ != null) {
+        slowStartConfigBuilder_.dispose();
         slowStartConfigBuilder_ = null;
+      }
+      localityLbConfig_ = null;
+      if (localityLbConfigBuilder_ != null) {
+        localityLbConfigBuilder_.dispose();
+        localityLbConfigBuilder_ = null;
       }
       return this;
     }
@@ -574,23 +546,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.load_balancing_policies.least_request.v3.LeastRequest buildPartial() {
       io.envoyproxy.envoy.extensions.load_balancing_policies.least_request.v3.LeastRequest result = new io.envoyproxy.envoy.extensions.load_balancing_policies.least_request.v3.LeastRequest(this);
-      if (choiceCountBuilder_ == null) {
-        result.choiceCount_ = choiceCount_;
-      } else {
-        result.choiceCount_ = choiceCountBuilder_.build();
-      }
-      if (activeRequestBiasBuilder_ == null) {
-        result.activeRequestBias_ = activeRequestBias_;
-      } else {
-        result.activeRequestBias_ = activeRequestBiasBuilder_.build();
-      }
-      if (slowStartConfigBuilder_ == null) {
-        result.slowStartConfig_ = slowStartConfig_;
-      } else {
-        result.slowStartConfig_ = slowStartConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.load_balancing_policies.least_request.v3.LeastRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.choiceCount_ = choiceCountBuilder_ == null
+            ? choiceCount_
+            : choiceCountBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.activeRequestBias_ = activeRequestBiasBuilder_ == null
+            ? activeRequestBias_
+            : activeRequestBiasBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.slowStartConfig_ = slowStartConfigBuilder_ == null
+            ? slowStartConfig_
+            : slowStartConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.localityLbConfig_ = localityLbConfigBuilder_ == null
+            ? localityLbConfig_
+            : localityLbConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -646,7 +628,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasSlowStartConfig()) {
         mergeSlowStartConfig(other.getSlowStartConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasLocalityLbConfig()) {
+        mergeLocalityLbConfig(other.getLocalityLbConfig());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -661,19 +646,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.load_balancing_policies.least_request.v3.LeastRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getChoiceCountFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getActiveRequestBiasFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getSlowStartConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getLocalityLbConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.load_balancing_policies.least_request.v3.LeastRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.UInt32Value choiceCount_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -688,7 +715,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the choiceCount field is set.
      */
     public boolean hasChoiceCount() {
-      return choiceCountBuilder_ != null || choiceCount_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -720,11 +747,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         choiceCount_ = value;
-        onChanged();
       } else {
         choiceCountBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -739,11 +766,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (choiceCountBuilder_ == null) {
         choiceCount_ = builderForValue.build();
-        onChanged();
       } else {
         choiceCountBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -756,17 +783,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeChoiceCount(com.google.protobuf.UInt32Value value) {
       if (choiceCountBuilder_ == null) {
-        if (choiceCount_ != null) {
-          choiceCount_ =
-            com.google.protobuf.UInt32Value.newBuilder(choiceCount_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          choiceCount_ != null &&
+          choiceCount_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getChoiceCountBuilder().mergeFrom(value);
         } else {
           choiceCount_ = value;
         }
-        onChanged();
       } else {
         choiceCountBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -778,14 +806,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value choice_count = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearChoiceCount() {
-      if (choiceCountBuilder_ == null) {
-        choiceCount_ = null;
-        onChanged();
-      } else {
-        choiceCount_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      choiceCount_ = null;
+      if (choiceCountBuilder_ != null) {
+        choiceCountBuilder_.dispose();
         choiceCountBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -797,7 +824,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value choice_count = 1 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getChoiceCountBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getChoiceCountFieldBuilder().getBuilder();
     }
@@ -866,7 +893,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the activeRequestBias field is set.
      */
     public boolean hasActiveRequestBias() {
-      return activeRequestBiasBuilder_ != null || activeRequestBias_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -926,11 +953,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         activeRequestBias_ = value;
-        onChanged();
       } else {
         activeRequestBiasBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -959,11 +986,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.RuntimeDouble.Builder builderForValue) {
       if (activeRequestBiasBuilder_ == null) {
         activeRequestBias_ = builderForValue.build();
-        onChanged();
       } else {
         activeRequestBiasBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -990,17 +1017,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeActiveRequestBias(io.envoyproxy.envoy.config.core.v3.RuntimeDouble value) {
       if (activeRequestBiasBuilder_ == null) {
-        if (activeRequestBias_ != null) {
-          activeRequestBias_ =
-            io.envoyproxy.envoy.config.core.v3.RuntimeDouble.newBuilder(activeRequestBias_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          activeRequestBias_ != null &&
+          activeRequestBias_ != io.envoyproxy.envoy.config.core.v3.RuntimeDouble.getDefaultInstance()) {
+          getActiveRequestBiasBuilder().mergeFrom(value);
         } else {
           activeRequestBias_ = value;
         }
-        onChanged();
       } else {
         activeRequestBiasBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1026,14 +1054,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeDouble active_request_bias = 2;</code>
      */
     public Builder clearActiveRequestBias() {
-      if (activeRequestBiasBuilder_ == null) {
-        activeRequestBias_ = null;
-        onChanged();
-      } else {
-        activeRequestBias_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      activeRequestBias_ = null;
+      if (activeRequestBiasBuilder_ != null) {
+        activeRequestBiasBuilder_.dispose();
         activeRequestBiasBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1059,7 +1086,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeDouble active_request_bias = 2;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.RuntimeDouble.Builder getActiveRequestBiasBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getActiveRequestBiasFieldBuilder().getBuilder();
     }
@@ -1129,20 +1156,20 @@ private static final long serialVersionUID = 0L;
       return activeRequestBiasBuilder_;
     }
 
-    private io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig slowStartConfig_;
+    private io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig slowStartConfig_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig, io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig.Builder, io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfigOrBuilder> slowStartConfigBuilder_;
+        io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig.Builder, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfigOrBuilder> slowStartConfigBuilder_;
     /**
      * <pre>
      * Configuration for slow start mode.
      * If this configuration is not set, slow start will not be not enabled.
      * </pre>
      *
-     * <code>.envoy.config.cluster.v3.Cluster.SlowStartConfig slow_start_config = 3;</code>
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig slow_start_config = 3;</code>
      * @return Whether the slowStartConfig field is set.
      */
     public boolean hasSlowStartConfig() {
-      return slowStartConfigBuilder_ != null || slowStartConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1150,12 +1177,12 @@ private static final long serialVersionUID = 0L;
      * If this configuration is not set, slow start will not be not enabled.
      * </pre>
      *
-     * <code>.envoy.config.cluster.v3.Cluster.SlowStartConfig slow_start_config = 3;</code>
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig slow_start_config = 3;</code>
      * @return The slowStartConfig.
      */
-    public io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig getSlowStartConfig() {
+    public io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig getSlowStartConfig() {
       if (slowStartConfigBuilder_ == null) {
-        return slowStartConfig_ == null ? io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig.getDefaultInstance() : slowStartConfig_;
+        return slowStartConfig_ == null ? io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig.getDefaultInstance() : slowStartConfig_;
       } else {
         return slowStartConfigBuilder_.getMessage();
       }
@@ -1166,19 +1193,19 @@ private static final long serialVersionUID = 0L;
      * If this configuration is not set, slow start will not be not enabled.
      * </pre>
      *
-     * <code>.envoy.config.cluster.v3.Cluster.SlowStartConfig slow_start_config = 3;</code>
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig slow_start_config = 3;</code>
      */
-    public Builder setSlowStartConfig(io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig value) {
+    public Builder setSlowStartConfig(io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig value) {
       if (slowStartConfigBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
         slowStartConfig_ = value;
-        onChanged();
       } else {
         slowStartConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1187,17 +1214,17 @@ private static final long serialVersionUID = 0L;
      * If this configuration is not set, slow start will not be not enabled.
      * </pre>
      *
-     * <code>.envoy.config.cluster.v3.Cluster.SlowStartConfig slow_start_config = 3;</code>
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig slow_start_config = 3;</code>
      */
     public Builder setSlowStartConfig(
-        io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig.Builder builderForValue) {
+        io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig.Builder builderForValue) {
       if (slowStartConfigBuilder_ == null) {
         slowStartConfig_ = builderForValue.build();
-        onChanged();
       } else {
         slowStartConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1206,21 +1233,22 @@ private static final long serialVersionUID = 0L;
      * If this configuration is not set, slow start will not be not enabled.
      * </pre>
      *
-     * <code>.envoy.config.cluster.v3.Cluster.SlowStartConfig slow_start_config = 3;</code>
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig slow_start_config = 3;</code>
      */
-    public Builder mergeSlowStartConfig(io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig value) {
+    public Builder mergeSlowStartConfig(io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig value) {
       if (slowStartConfigBuilder_ == null) {
-        if (slowStartConfig_ != null) {
-          slowStartConfig_ =
-            io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig.newBuilder(slowStartConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          slowStartConfig_ != null &&
+          slowStartConfig_ != io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig.getDefaultInstance()) {
+          getSlowStartConfigBuilder().mergeFrom(value);
         } else {
           slowStartConfig_ = value;
         }
-        onChanged();
       } else {
         slowStartConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1229,17 +1257,16 @@ private static final long serialVersionUID = 0L;
      * If this configuration is not set, slow start will not be not enabled.
      * </pre>
      *
-     * <code>.envoy.config.cluster.v3.Cluster.SlowStartConfig slow_start_config = 3;</code>
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig slow_start_config = 3;</code>
      */
     public Builder clearSlowStartConfig() {
-      if (slowStartConfigBuilder_ == null) {
-        slowStartConfig_ = null;
-        onChanged();
-      } else {
-        slowStartConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      slowStartConfig_ = null;
+      if (slowStartConfigBuilder_ != null) {
+        slowStartConfigBuilder_.dispose();
         slowStartConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1248,10 +1275,10 @@ private static final long serialVersionUID = 0L;
      * If this configuration is not set, slow start will not be not enabled.
      * </pre>
      *
-     * <code>.envoy.config.cluster.v3.Cluster.SlowStartConfig slow_start_config = 3;</code>
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig slow_start_config = 3;</code>
      */
-    public io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig.Builder getSlowStartConfigBuilder() {
-      
+    public io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig.Builder getSlowStartConfigBuilder() {
+      bitField0_ |= 0x00000004;
       onChanged();
       return getSlowStartConfigFieldBuilder().getBuilder();
     }
@@ -1261,14 +1288,14 @@ private static final long serialVersionUID = 0L;
      * If this configuration is not set, slow start will not be not enabled.
      * </pre>
      *
-     * <code>.envoy.config.cluster.v3.Cluster.SlowStartConfig slow_start_config = 3;</code>
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig slow_start_config = 3;</code>
      */
-    public io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfigOrBuilder getSlowStartConfigOrBuilder() {
+    public io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfigOrBuilder getSlowStartConfigOrBuilder() {
       if (slowStartConfigBuilder_ != null) {
         return slowStartConfigBuilder_.getMessageOrBuilder();
       } else {
         return slowStartConfig_ == null ?
-            io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig.getDefaultInstance() : slowStartConfig_;
+            io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig.getDefaultInstance() : slowStartConfig_;
       }
     }
     /**
@@ -1277,20 +1304,175 @@ private static final long serialVersionUID = 0L;
      * If this configuration is not set, slow start will not be not enabled.
      * </pre>
      *
-     * <code>.envoy.config.cluster.v3.Cluster.SlowStartConfig slow_start_config = 3;</code>
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig slow_start_config = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig, io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig.Builder, io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfigOrBuilder> 
+        io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig.Builder, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfigOrBuilder> 
         getSlowStartConfigFieldBuilder() {
       if (slowStartConfigBuilder_ == null) {
         slowStartConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig, io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig.Builder, io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfigOrBuilder>(
+            io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig.Builder, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfigOrBuilder>(
                 getSlowStartConfig(),
                 getParentForChildren(),
                 isClean());
         slowStartConfig_ = null;
       }
       return slowStartConfigBuilder_;
+    }
+
+    private io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig localityLbConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig.Builder, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfigOrBuilder> localityLbConfigBuilder_;
+    /**
+     * <pre>
+     * Configuration for local zone aware load balancing or locality weighted load balancing.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig locality_lb_config = 4;</code>
+     * @return Whether the localityLbConfig field is set.
+     */
+    public boolean hasLocalityLbConfig() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * Configuration for local zone aware load balancing or locality weighted load balancing.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig locality_lb_config = 4;</code>
+     * @return The localityLbConfig.
+     */
+    public io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig getLocalityLbConfig() {
+      if (localityLbConfigBuilder_ == null) {
+        return localityLbConfig_ == null ? io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig.getDefaultInstance() : localityLbConfig_;
+      } else {
+        return localityLbConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Configuration for local zone aware load balancing or locality weighted load balancing.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig locality_lb_config = 4;</code>
+     */
+    public Builder setLocalityLbConfig(io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig value) {
+      if (localityLbConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        localityLbConfig_ = value;
+      } else {
+        localityLbConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Configuration for local zone aware load balancing or locality weighted load balancing.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig locality_lb_config = 4;</code>
+     */
+    public Builder setLocalityLbConfig(
+        io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig.Builder builderForValue) {
+      if (localityLbConfigBuilder_ == null) {
+        localityLbConfig_ = builderForValue.build();
+      } else {
+        localityLbConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Configuration for local zone aware load balancing or locality weighted load balancing.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig locality_lb_config = 4;</code>
+     */
+    public Builder mergeLocalityLbConfig(io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig value) {
+      if (localityLbConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0) &&
+          localityLbConfig_ != null &&
+          localityLbConfig_ != io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig.getDefaultInstance()) {
+          getLocalityLbConfigBuilder().mergeFrom(value);
+        } else {
+          localityLbConfig_ = value;
+        }
+      } else {
+        localityLbConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Configuration for local zone aware load balancing or locality weighted load balancing.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig locality_lb_config = 4;</code>
+     */
+    public Builder clearLocalityLbConfig() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      localityLbConfig_ = null;
+      if (localityLbConfigBuilder_ != null) {
+        localityLbConfigBuilder_.dispose();
+        localityLbConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Configuration for local zone aware load balancing or locality weighted load balancing.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig locality_lb_config = 4;</code>
+     */
+    public io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig.Builder getLocalityLbConfigBuilder() {
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return getLocalityLbConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Configuration for local zone aware load balancing or locality weighted load balancing.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig locality_lb_config = 4;</code>
+     */
+    public io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfigOrBuilder getLocalityLbConfigOrBuilder() {
+      if (localityLbConfigBuilder_ != null) {
+        return localityLbConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return localityLbConfig_ == null ?
+            io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig.getDefaultInstance() : localityLbConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * Configuration for local zone aware load balancing or locality weighted load balancing.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig locality_lb_config = 4;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig.Builder, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfigOrBuilder> 
+        getLocalityLbConfigFieldBuilder() {
+      if (localityLbConfigBuilder_ == null) {
+        localityLbConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig.Builder, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfigOrBuilder>(
+                getLocalityLbConfig(),
+                getParentForChildren(),
+                isClean());
+        localityLbConfig_ = null;
+      }
+      return localityLbConfigBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1325,7 +1507,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LeastRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -38,125 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ListDevicesRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 16: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              deviceNumIds_ = newLongList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            deviceNumIds_.addLong(input.readUInt64());
-            break;
-          }
-          case 18: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              deviceNumIds_ = newLongList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              deviceNumIds_.addLong(input.readUInt64());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              deviceIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            deviceIds_.add(s);
-            break;
-          }
-          case 34: {
-            com.google.protobuf.FieldMask.Builder subBuilder = null;
-            if (fieldMask_ != null) {
-              subBuilder = fieldMask_.toBuilder();
-            }
-            fieldMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(fieldMask_);
-              fieldMask_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.iot.v1.GatewayListOptions.Builder subBuilder = null;
-            if (gatewayListOptions_ != null) {
-              subBuilder = gatewayListOptions_.toBuilder();
-            }
-            gatewayListOptions_ = input.readMessage(com.google.cloud.iot.v1.GatewayListOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(gatewayListOptions_);
-              gatewayListOptions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 800: {
-
-            pageSize_ = input.readInt32();
-            break;
-          }
-          case 810: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        deviceNumIds_.makeImmutable(); // C
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        deviceIds_ = deviceIds_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.iot.v1.DeviceManagerProto.internal_static_google_cloud_iot_v1_ListDevicesRequest_descriptor;
@@ -171,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The device registry path. Required. For example,
@@ -219,6 +101,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEVICE_NUM_IDS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.LongList deviceNumIds_;
   /**
    * <pre>
@@ -262,6 +145,7 @@ private static final long serialVersionUID = 0L;
   private int deviceNumIdsMemoizedSerializedSize = -1;
 
   public static final int DEVICE_IDS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList deviceIds_;
   /**
    * <pre>
@@ -360,7 +244,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.FieldMaskOrBuilder getFieldMaskOrBuilder() {
-    return getFieldMask();
+    return fieldMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : fieldMask_;
   }
 
   public static final int GATEWAY_LIST_OPTIONS_FIELD_NUMBER = 6;
@@ -398,11 +282,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.iot.v1.GatewayListOptionsOrBuilder getGatewayListOptionsOrBuilder() {
-    return getGatewayListOptions();
+    return gatewayListOptions_ == null ? com.google.cloud.iot.v1.GatewayListOptions.getDefaultInstance() : gatewayListOptions_;
   }
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 100;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
    * The maximum number of devices to return in the response. If this value
@@ -420,7 +304,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 101;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
    * The value returned by the last `ListDevicesResponse`; indicates
@@ -509,7 +394,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 101, pageToken_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -558,7 +443,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(101, pageToken_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -593,7 +478,7 @@ private static final long serialVersionUID = 0L;
         != other.getPageSize()) return false;
     if (!getPageToken()
         .equals(other.getPageToken())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -626,7 +511,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPageSize();
     hash = (37 * hash) + PAGE_TOKEN_FIELD_NUMBER;
     hash = (53 * hash) + getPageToken().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -747,44 +632,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.iot.v1.ListDevicesRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       deviceNumIds_ = emptyLongList();
-      bitField0_ = (bitField0_ & ~0x00000001);
       deviceIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
-      if (fieldMaskBuilder_ == null) {
-        fieldMask_ = null;
-      } else {
-        fieldMask_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      fieldMask_ = null;
+      if (fieldMaskBuilder_ != null) {
+        fieldMaskBuilder_.dispose();
         fieldMaskBuilder_ = null;
       }
-      if (gatewayListOptionsBuilder_ == null) {
-        gatewayListOptions_ = null;
-      } else {
-        gatewayListOptions_ = null;
+      gatewayListOptions_ = null;
+      if (gatewayListOptionsBuilder_ != null) {
+        gatewayListOptionsBuilder_.dispose();
         gatewayListOptionsBuilder_ = null;
       }
       pageSize_ = 0;
-
       pageToken_ = "";
-
       return this;
     }
 
@@ -811,32 +686,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.iot.v1.ListDevicesRequest buildPartial() {
       com.google.cloud.iot.v1.ListDevicesRequest result = new com.google.cloud.iot.v1.ListDevicesRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.parent_ = parent_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        deviceNumIds_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.deviceNumIds_ = deviceNumIds_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        deviceIds_ = deviceIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.deviceIds_ = deviceIds_;
-      if (fieldMaskBuilder_ == null) {
-        result.fieldMask_ = fieldMask_;
-      } else {
-        result.fieldMask_ = fieldMaskBuilder_.build();
-      }
-      if (gatewayListOptionsBuilder_ == null) {
-        result.gatewayListOptions_ = gatewayListOptions_;
-      } else {
-        result.gatewayListOptions_ = gatewayListOptionsBuilder_.build();
-      }
-      result.pageSize_ = pageSize_;
-      result.pageToken_ = pageToken_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.iot.v1.ListDevicesRequest result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
+        deviceNumIds_.makeImmutable();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.deviceNumIds_ = deviceNumIds_;
+      if (((bitField0_ & 0x00000004) != 0)) {
+        deviceIds_ = deviceIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.deviceIds_ = deviceIds_;
+    }
+
+    private void buildPartial0(com.google.cloud.iot.v1.ListDevicesRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.fieldMask_ = fieldMaskBuilder_ == null
+            ? fieldMask_
+            : fieldMaskBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.gatewayListOptions_ = gatewayListOptionsBuilder_ == null
+            ? gatewayListOptions_
+            : gatewayListOptionsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
     }
 
     @java.lang.Override
@@ -885,12 +774,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.iot.v1.ListDevicesRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.deviceNumIds_.isEmpty()) {
         if (deviceNumIds_.isEmpty()) {
           deviceNumIds_ = other.deviceNumIds_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureDeviceNumIdsIsMutable();
           deviceNumIds_.addAll(other.deviceNumIds_);
@@ -900,7 +790,7 @@ private static final long serialVersionUID = 0L;
       if (!other.deviceIds_.isEmpty()) {
         if (deviceIds_.isEmpty()) {
           deviceIds_ = other.deviceIds_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureDeviceIdsIsMutable();
           deviceIds_.addAll(other.deviceIds_);
@@ -918,9 +808,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -935,17 +826,81 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.iot.v1.ListDevicesRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              long v = input.readUInt64();
+              ensureDeviceNumIdsIsMutable();
+              deviceNumIds_.addLong(v);
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureDeviceNumIdsIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                deviceNumIds_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDeviceIdsIsMutable();
+              deviceIds_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getFieldMaskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 50: {
+              input.readMessage(
+                  getGatewayListOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            case 800: {
+              pageSize_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 800
+            case 810: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 810
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.iot.v1.ListDevicesRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1006,11 +961,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1024,8 +977,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1041,22 +994,20 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.Internal.LongList deviceNumIds_ = emptyLongList();
     private void ensureDeviceNumIdsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         deviceNumIds_ = mutableCopy(deviceNumIds_);
-        bitField0_ |= 0x00000001;
-       }
+        bitField0_ |= 0x00000002;
+      }
     }
     /**
      * <pre>
@@ -1069,7 +1020,7 @@ private static final long serialVersionUID = 0L;
      */
     public java.util.List<java.lang.Long>
         getDeviceNumIdsList() {
-      return ((bitField0_ & 0x00000001) != 0) ?
+      return ((bitField0_ & 0x00000002) != 0) ?
                java.util.Collections.unmodifiableList(deviceNumIds_) : deviceNumIds_;
     }
     /**
@@ -1110,6 +1061,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeviceNumIds(
         int index, long value) {
+      
       ensureDeviceNumIdsIsMutable();
       deviceNumIds_.setLong(index, value);
       onChanged();
@@ -1126,6 +1078,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addDeviceNumIds(long value) {
+      
       ensureDeviceNumIdsIsMutable();
       deviceNumIds_.addLong(value);
       onChanged();
@@ -1160,16 +1113,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearDeviceNumIds() {
       deviceNumIds_ = emptyLongList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList deviceIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureDeviceIdsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         deviceIds_ = new com.google.protobuf.LazyStringArrayList(deviceIds_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1237,10 +1190,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeviceIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDeviceIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDeviceIdsIsMutable();
       deviceIds_.set(index, value);
       onChanged();
       return this;
@@ -1257,10 +1208,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDeviceIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDeviceIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDeviceIdsIsMutable();
       deviceIds_.add(value);
       onChanged();
       return this;
@@ -1294,7 +1243,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearDeviceIds() {
       deviceIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1310,10 +1259,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDeviceIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDeviceIdsIsMutable();
       deviceIds_.add(value);
       onChanged();
@@ -1335,7 +1282,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the fieldMask field is set.
      */
     public boolean hasFieldMask() {
-      return fieldMaskBuilder_ != null || fieldMask_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1371,11 +1318,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         fieldMask_ = value;
-        onChanged();
       } else {
         fieldMaskBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1392,11 +1339,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.FieldMask.Builder builderForValue) {
       if (fieldMaskBuilder_ == null) {
         fieldMask_ = builderForValue.build();
-        onChanged();
       } else {
         fieldMaskBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1411,17 +1358,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFieldMask(com.google.protobuf.FieldMask value) {
       if (fieldMaskBuilder_ == null) {
-        if (fieldMask_ != null) {
-          fieldMask_ =
-            com.google.protobuf.FieldMask.newBuilder(fieldMask_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          fieldMask_ != null &&
+          fieldMask_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
+          getFieldMaskBuilder().mergeFrom(value);
         } else {
           fieldMask_ = value;
         }
-        onChanged();
       } else {
         fieldMaskBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1435,14 +1383,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FieldMask field_mask = 4;</code>
      */
     public Builder clearFieldMask() {
-      if (fieldMaskBuilder_ == null) {
-        fieldMask_ = null;
-        onChanged();
-      } else {
-        fieldMask_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      fieldMask_ = null;
+      if (fieldMaskBuilder_ != null) {
+        fieldMaskBuilder_.dispose();
         fieldMaskBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1456,7 +1403,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FieldMask field_mask = 4;</code>
      */
     public com.google.protobuf.FieldMask.Builder getFieldMaskBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getFieldMaskFieldBuilder().getBuilder();
     }
@@ -1514,7 +1461,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the gatewayListOptions field is set.
      */
     public boolean hasGatewayListOptions() {
-      return gatewayListOptionsBuilder_ != null || gatewayListOptions_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1544,11 +1491,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         gatewayListOptions_ = value;
-        onChanged();
       } else {
         gatewayListOptionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1562,11 +1509,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.iot.v1.GatewayListOptions.Builder builderForValue) {
       if (gatewayListOptionsBuilder_ == null) {
         gatewayListOptions_ = builderForValue.build();
-        onChanged();
       } else {
         gatewayListOptionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1578,17 +1525,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGatewayListOptions(com.google.cloud.iot.v1.GatewayListOptions value) {
       if (gatewayListOptionsBuilder_ == null) {
-        if (gatewayListOptions_ != null) {
-          gatewayListOptions_ =
-            com.google.cloud.iot.v1.GatewayListOptions.newBuilder(gatewayListOptions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          gatewayListOptions_ != null &&
+          gatewayListOptions_ != com.google.cloud.iot.v1.GatewayListOptions.getDefaultInstance()) {
+          getGatewayListOptionsBuilder().mergeFrom(value);
         } else {
           gatewayListOptions_ = value;
         }
-        onChanged();
       } else {
         gatewayListOptionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1599,14 +1547,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iot.v1.GatewayListOptions gateway_list_options = 6;</code>
      */
     public Builder clearGatewayListOptions() {
-      if (gatewayListOptionsBuilder_ == null) {
-        gatewayListOptions_ = null;
-        onChanged();
-      } else {
-        gatewayListOptions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      gatewayListOptions_ = null;
+      if (gatewayListOptionsBuilder_ != null) {
+        gatewayListOptionsBuilder_.dispose();
         gatewayListOptionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1617,7 +1564,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iot.v1.GatewayListOptions gateway_list_options = 6;</code>
      */
     public com.google.cloud.iot.v1.GatewayListOptions.Builder getGatewayListOptionsBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getGatewayListOptionsFieldBuilder().getBuilder();
     }
@@ -1688,6 +1635,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
       
       pageSize_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1703,7 +1651,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -1768,11 +1716,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1787,8 +1733,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1805,12 +1751,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1847,7 +1791,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListDevicesRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

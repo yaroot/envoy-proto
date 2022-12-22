@@ -81,78 +81,75 @@ public final class SmartDeviceManagementServiceOuterClass {
       "\nCgoogle/home/enterprise/sdm/v1/smart_de" +
       "vice_management_service.proto\022\035google.ho" +
       "me.enterprise.sdm.v1\032\034google/api/annotat" +
-      "ions.proto\032\027google/api/client.proto\032\037goo" +
-      "gle/api/field_behavior.proto\032\031google/api" +
-      "/resource.proto\032*google/home/enterprise/" +
-      "sdm/v1/device.proto\032(google/home/enterpr" +
-      "ise/sdm/v1/site.proto\032\034google/protobuf/s" +
-      "truct.proto\" \n\020GetDeviceRequest\022\014\n\004name\030" +
-      "\001 \001(\t\"[\n\022ListDevicesRequest\022\016\n\006parent\030\001 " +
-      "\001(\t\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001" +
-      "(\t\022\016\n\006filter\030\004 \001(\t\"f\n\023ListDevicesRespons" +
-      "e\0226\n\007devices\030\001 \003(\0132%.google.home.enterpr" +
-      "ise.sdm.v1.Device\022\027\n\017next_page_token\030\002 \001" +
-      "(\t\"e\n\033ExecuteDeviceCommandRequest\022\014\n\004nam" +
-      "e\030\001 \001(\t\022\017\n\007command\030\002 \001(\t\022\'\n\006params\030\003 \001(\013" +
-      "2\027.google.protobuf.Struct\"H\n\034ExecuteDevi" +
-      "ceCommandResponse\022(\n\007results\030\001 \001(\0132\027.goo" +
-      "gle.protobuf.Struct\"#\n\023GetStructureReque" +
-      "st\022\014\n\004name\030\001 \001(\t\"^\n\025ListStructuresReques" +
-      "t\022\016\n\006parent\030\001 \001(\t\022\021\n\tpage_size\030\002 \001(\005\022\022\n\n" +
-      "page_token\030\003 \001(\t\022\016\n\006filter\030\004 \001(\t\"o\n\026List" +
-      "StructuresResponse\022<\n\nstructures\030\001 \003(\0132(" +
-      ".google.home.enterprise.sdm.v1.Structure" +
-      "\022\027\n\017next_page_token\030\002 \001(\t\"\036\n\016GetRoomRequ" +
-      "est\022\014\n\004name\030\001 \001(\t\"I\n\020ListRoomsRequest\022\016\n" +
-      "\006parent\030\001 \001(\t\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npage" +
-      "_token\030\003 \001(\t\"`\n\021ListRoomsResponse\0222\n\005roo" +
-      "ms\030\001 \003(\0132#.google.home.enterprise.sdm.v1" +
-      ".Room\022\027\n\017next_page_token\030\002 \001(\t2\206\n\n\034Smart" +
-      "DeviceManagementService\022\217\001\n\tGetDevice\022/." +
-      "google.home.enterprise.sdm.v1.GetDeviceR" +
-      "equest\032%.google.home.enterprise.sdm.v1.D" +
-      "evice\"*\202\323\344\223\002$\022\"/v1/{name=enterprises/*/d" +
-      "evices/*}\022\240\001\n\013ListDevices\0221.google.home." +
-      "enterprise.sdm.v1.ListDevicesRequest\0322.g" +
-      "oogle.home.enterprise.sdm.v1.ListDevices" +
-      "Response\"*\202\323\344\223\002$\022\"/v1/{parent=enterprise" +
-      "s/*}/devices\022\315\001\n\024ExecuteDeviceCommand\022:." +
+      "ions.proto\032\027google/api/client.proto\032*goo" +
+      "gle/home/enterprise/sdm/v1/device.proto\032" +
+      "(google/home/enterprise/sdm/v1/site.prot" +
+      "o\032\034google/protobuf/struct.proto\" \n\020GetDe" +
+      "viceRequest\022\014\n\004name\030\001 \001(\t\"[\n\022ListDevices" +
+      "Request\022\016\n\006parent\030\001 \001(\t\022\021\n\tpage_size\030\002 \001" +
+      "(\005\022\022\n\npage_token\030\003 \001(\t\022\016\n\006filter\030\004 \001(\t\"f" +
+      "\n\023ListDevicesResponse\0226\n\007devices\030\001 \003(\0132%" +
+      ".google.home.enterprise.sdm.v1.Device\022\027\n" +
+      "\017next_page_token\030\002 \001(\t\"e\n\033ExecuteDeviceC" +
+      "ommandRequest\022\014\n\004name\030\001 \001(\t\022\017\n\007command\030\002" +
+      " \001(\t\022\'\n\006params\030\003 \001(\0132\027.google.protobuf.S" +
+      "truct\"H\n\034ExecuteDeviceCommandResponse\022(\n" +
+      "\007results\030\001 \001(\0132\027.google.protobuf.Struct\"" +
+      "#\n\023GetStructureRequest\022\014\n\004name\030\001 \001(\t\"^\n\025" +
+      "ListStructuresRequest\022\016\n\006parent\030\001 \001(\t\022\021\n" +
+      "\tpage_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001(\t\022\016\n\006" +
+      "filter\030\004 \001(\t\"o\n\026ListStructuresResponse\022<" +
+      "\n\nstructures\030\001 \003(\0132(.google.home.enterpr" +
+      "ise.sdm.v1.Structure\022\027\n\017next_page_token\030" +
+      "\002 \001(\t\"\036\n\016GetRoomRequest\022\014\n\004name\030\001 \001(\t\"I\n" +
+      "\020ListRoomsRequest\022\016\n\006parent\030\001 \001(\t\022\021\n\tpag" +
+      "e_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001(\t\"`\n\021List" +
+      "RoomsResponse\0222\n\005rooms\030\001 \003(\0132#.google.ho" +
+      "me.enterprise.sdm.v1.Room\022\027\n\017next_page_t" +
+      "oken\030\002 \001(\t2\206\n\n\034SmartDeviceManagementServ" +
+      "ice\022\217\001\n\tGetDevice\022/.google.home.enterpri" +
+      "se.sdm.v1.GetDeviceRequest\032%.google.home" +
+      ".enterprise.sdm.v1.Device\"*\202\323\344\223\002$\022\"/v1/{" +
+      "name=enterprises/*/devices/*}\022\240\001\n\013ListDe" +
+      "vices\0221.google.home.enterprise.sdm.v1.Li" +
+      "stDevicesRequest\0322.google.home.enterpris" +
+      "e.sdm.v1.ListDevicesResponse\"*\202\323\344\223\002$\022\"/v" +
+      "1/{parent=enterprises/*}/devices\022\315\001\n\024Exe" +
+      "cuteDeviceCommand\022:.google.home.enterpri" +
+      "se.sdm.v1.ExecuteDeviceCommandRequest\032;." +
       "google.home.enterprise.sdm.v1.ExecuteDev" +
-      "iceCommandRequest\032;.google.home.enterpri" +
-      "se.sdm.v1.ExecuteDeviceCommandResponse\"<" +
-      "\202\323\344\223\0026\"1/v1/{name=enterprises/*/devices/" +
-      "*}:executeCommand:\001*\022\233\001\n\014GetStructure\0222." +
-      "google.home.enterprise.sdm.v1.GetStructu" +
-      "reRequest\032(.google.home.enterprise.sdm.v" +
-      "1.Structure\"-\202\323\344\223\002\'\022%/v1/{name=enterpris" +
-      "es/*/structures/*}\022\254\001\n\016ListStructures\0224." +
-      "google.home.enterprise.sdm.v1.ListStruct" +
-      "uresRequest\0325.google.home.enterprise.sdm" +
-      ".v1.ListStructuresResponse\"-\202\323\344\223\002\'\022%/v1/" +
-      "{parent=enterprises/*}/structures\022\224\001\n\007Ge" +
-      "tRoom\022-.google.home.enterprise.sdm.v1.Ge" +
-      "tRoomRequest\032#.google.home.enterprise.sd" +
-      "m.v1.Room\"5\202\323\344\223\002/\022-/v1/{name=enterprises" +
-      "/*/structures/*/rooms/*}\022\245\001\n\tListRooms\022/" +
-      ".google.home.enterprise.sdm.v1.ListRooms" +
-      "Request\0320.google.home.enterprise.sdm.v1." +
-      "ListRoomsResponse\"5\202\323\344\223\002/\022-/v1/{parent=e" +
-      "nterprises/*/structures/*}/rooms\032U\312A$sma" +
-      "rtdevicemanagement.googleapis.com\322A+http" +
-      "s://www.googleapis.com/auth/sdm.serviceB" +
-      "\262\001\n!com.google.home.enterprise.sdm.v1P\001Z" +
-      "@google.golang.org/genproto/googleapis/h" +
-      "ome/enterprise/sdm/v1;sdm\242\002\010GHENTSDM\252\002\035G" +
-      "oogle.Home.Enterprise.Sdm.V1\312\002\035Google\\Ho" +
-      "me\\Enterprise\\Sdm\\V1b\006proto3"
+      "iceCommandResponse\"<\202\323\344\223\0026\"1/v1/{name=en" +
+      "terprises/*/devices/*}:executeCommand:\001*" +
+      "\022\233\001\n\014GetStructure\0222.google.home.enterpri" +
+      "se.sdm.v1.GetStructureRequest\032(.google.h" +
+      "ome.enterprise.sdm.v1.Structure\"-\202\323\344\223\002\'\022" +
+      "%/v1/{name=enterprises/*/structures/*}\022\254" +
+      "\001\n\016ListStructures\0224.google.home.enterpri" +
+      "se.sdm.v1.ListStructuresRequest\0325.google" +
+      ".home.enterprise.sdm.v1.ListStructuresRe" +
+      "sponse\"-\202\323\344\223\002\'\022%/v1/{parent=enterprises/" +
+      "*}/structures\022\224\001\n\007GetRoom\022-.google.home." +
+      "enterprise.sdm.v1.GetRoomRequest\032#.googl" +
+      "e.home.enterprise.sdm.v1.Room\"5\202\323\344\223\002/\022-/" +
+      "v1/{name=enterprises/*/structures/*/room" +
+      "s/*}\022\245\001\n\tListRooms\022/.google.home.enterpr" +
+      "ise.sdm.v1.ListRoomsRequest\0320.google.hom" +
+      "e.enterprise.sdm.v1.ListRoomsResponse\"5\202" +
+      "\323\344\223\002/\022-/v1/{parent=enterprises/*/structu" +
+      "res/*}/rooms\032U\312A$smartdevicemanagement.g" +
+      "oogleapis.com\322A+https://www.googleapis.c" +
+      "om/auth/sdm.serviceB\262\001\n!com.google.home." +
+      "enterprise.sdm.v1P\001Z@google.golang.org/g" +
+      "enproto/googleapis/home/enterprise/sdm/v" +
+      "1;sdm\242\002\010GHENTSDM\252\002\035Google.Home.Enterpris" +
+      "e.Sdm.V1\312\002\035Google\\Home\\Enterprise\\Sdm\\V1" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
           com.google.api.ClientProto.getDescriptor(),
-          com.google.api.FieldBehaviorProto.getDescriptor(),
-          com.google.api.ResourceProto.getDescriptor(),
           com.google.home.enterprise.sdm.v1.DeviceOuterClass.getDescriptor(),
           com.google.home.enterprise.sdm.v1.Site.getDescriptor(),
           com.google.protobuf.StructProto.getDescriptor(),
@@ -232,8 +229,6 @@ public final class SmartDeviceManagementServiceOuterClass {
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.api.AnnotationsProto.getDescriptor();
     com.google.api.ClientProto.getDescriptor();
-    com.google.api.FieldBehaviorProto.getDescriptor();
-    com.google.api.ResourceProto.getDescriptor();
     com.google.home.enterprise.sdm.v1.DeviceOuterClass.getDescriptor();
     com.google.home.enterprise.sdm.v1.Site.getDescriptor();
     com.google.protobuf.StructProto.getDescriptor();

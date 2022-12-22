@@ -70,6 +70,14 @@ public enum AcceleratorType
   NVIDIA_TESLA_A100(8),
   /**
    * <pre>
+   * Nvidia A2 Ultra GPU.
+   * </pre>
+   *
+   * <code>NVIDIA_A100_80GB = 9;</code>
+   */
+  NVIDIA_A100_80GB(9),
+  /**
+   * <pre>
    * TPU v2.
    * </pre>
    *
@@ -145,6 +153,14 @@ public enum AcceleratorType
   public static final int NVIDIA_TESLA_A100_VALUE = 8;
   /**
    * <pre>
+   * Nvidia A2 Ultra GPU.
+   * </pre>
+   *
+   * <code>NVIDIA_A100_80GB = 9;</code>
+   */
+  public static final int NVIDIA_A100_80GB_VALUE = 9;
+  /**
+   * <pre>
    * TPU v2.
    * </pre>
    *
@@ -192,6 +208,7 @@ public enum AcceleratorType
       case 4: return NVIDIA_TESLA_P4;
       case 5: return NVIDIA_TESLA_T4;
       case 8: return NVIDIA_TESLA_A100;
+      case 9: return NVIDIA_A100_80GB;
       case 6: return TPU_V2;
       case 7: return TPU_V3;
       default: return null;

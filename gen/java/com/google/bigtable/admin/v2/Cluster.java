@@ -40,101 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Cluster(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            location_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 32: {
-
-            serveNodes_ = input.readInt32();
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            defaultStorageType_ = rawValue;
-            break;
-          }
-          case 50: {
-            com.google.bigtable.admin.v2.Cluster.EncryptionConfig.Builder subBuilder = null;
-            if (encryptionConfig_ != null) {
-              subBuilder = encryptionConfig_.toBuilder();
-            }
-            encryptionConfig_ = input.readMessage(com.google.bigtable.admin.v2.Cluster.EncryptionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(encryptionConfig_);
-              encryptionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.bigtable.admin.v2.Cluster.ClusterConfig.Builder subBuilder = null;
-            if (configCase_ == 7) {
-              subBuilder = ((com.google.bigtable.admin.v2.Cluster.ClusterConfig) config_).toBuilder();
-            }
-            config_ =
-                input.readMessage(com.google.bigtable.admin.v2.Cluster.ClusterConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.bigtable.admin.v2.Cluster.ClusterConfig) config_);
-              config_ = subBuilder.buildPartial();
-            }
-            configCase_ = 7;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.bigtable.admin.v2.InstanceProto.internal_static_google_bigtable_admin_v2_Cluster_descriptor;
@@ -430,71 +335,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ClusterAutoscalingConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.bigtable.admin.v2.AutoscalingLimits.Builder subBuilder = null;
-              if (autoscalingLimits_ != null) {
-                subBuilder = autoscalingLimits_.toBuilder();
-              }
-              autoscalingLimits_ = input.readMessage(com.google.bigtable.admin.v2.AutoscalingLimits.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(autoscalingLimits_);
-                autoscalingLimits_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.bigtable.admin.v2.AutoscalingTargets.Builder subBuilder = null;
-              if (autoscalingTargets_ != null) {
-                subBuilder = autoscalingTargets_.toBuilder();
-              }
-              autoscalingTargets_ = input.readMessage(com.google.bigtable.admin.v2.AutoscalingTargets.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(autoscalingTargets_);
-                autoscalingTargets_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.bigtable.admin.v2.InstanceProto.internal_static_google_bigtable_admin_v2_Cluster_ClusterAutoscalingConfig_descriptor;
@@ -543,7 +383,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.bigtable.admin.v2.AutoscalingLimitsOrBuilder getAutoscalingLimitsOrBuilder() {
-      return getAutoscalingLimits();
+      return autoscalingLimits_ == null ? com.google.bigtable.admin.v2.AutoscalingLimits.getDefaultInstance() : autoscalingLimits_;
     }
 
     public static final int AUTOSCALING_TARGETS_FIELD_NUMBER = 2;
@@ -581,7 +421,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.bigtable.admin.v2.AutoscalingTargetsOrBuilder getAutoscalingTargetsOrBuilder() {
-      return getAutoscalingTargets();
+      return autoscalingTargets_ == null ? com.google.bigtable.admin.v2.AutoscalingTargets.getDefaultInstance() : autoscalingTargets_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -604,7 +444,7 @@ private static final long serialVersionUID = 0L;
       if (autoscalingTargets_ != null) {
         output.writeMessage(2, getAutoscalingTargets());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -621,7 +461,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getAutoscalingTargets());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -646,7 +486,7 @@ private static final long serialVersionUID = 0L;
         if (!getAutoscalingTargets()
             .equals(other.getAutoscalingTargets())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -665,7 +505,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + AUTOSCALING_TARGETS_FIELD_NUMBER;
         hash = (53 * hash) + getAutoscalingTargets().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -786,32 +626,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (autoscalingLimitsBuilder_ == null) {
-          autoscalingLimits_ = null;
-        } else {
-          autoscalingLimits_ = null;
+        bitField0_ = 0;
+        autoscalingLimits_ = null;
+        if (autoscalingLimitsBuilder_ != null) {
+          autoscalingLimitsBuilder_.dispose();
           autoscalingLimitsBuilder_ = null;
         }
-        if (autoscalingTargetsBuilder_ == null) {
-          autoscalingTargets_ = null;
-        } else {
-          autoscalingTargets_ = null;
+        autoscalingTargets_ = null;
+        if (autoscalingTargetsBuilder_ != null) {
+          autoscalingTargetsBuilder_.dispose();
           autoscalingTargetsBuilder_ = null;
         }
         return this;
@@ -840,18 +674,23 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig buildPartial() {
         com.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig result = new com.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig(this);
-        if (autoscalingLimitsBuilder_ == null) {
-          result.autoscalingLimits_ = autoscalingLimits_;
-        } else {
-          result.autoscalingLimits_ = autoscalingLimitsBuilder_.build();
-        }
-        if (autoscalingTargetsBuilder_ == null) {
-          result.autoscalingTargets_ = autoscalingTargets_;
-        } else {
-          result.autoscalingTargets_ = autoscalingTargetsBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.autoscalingLimits_ = autoscalingLimitsBuilder_ == null
+              ? autoscalingLimits_
+              : autoscalingLimitsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.autoscalingTargets_ = autoscalingTargetsBuilder_ == null
+              ? autoscalingTargets_
+              : autoscalingTargetsBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -904,7 +743,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasAutoscalingTargets()) {
           mergeAutoscalingTargets(other.getAutoscalingTargets());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -919,19 +758,47 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getAutoscalingLimitsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getAutoscalingTargetsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.bigtable.admin.v2.AutoscalingLimits autoscalingLimits_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -945,7 +812,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the autoscalingLimits field is set.
        */
       public boolean hasAutoscalingLimits() {
-        return autoscalingLimitsBuilder_ != null || autoscalingLimits_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -975,11 +842,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           autoscalingLimits_ = value;
-          onChanged();
         } else {
           autoscalingLimitsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -993,11 +860,11 @@ private static final long serialVersionUID = 0L;
           com.google.bigtable.admin.v2.AutoscalingLimits.Builder builderForValue) {
         if (autoscalingLimitsBuilder_ == null) {
           autoscalingLimits_ = builderForValue.build();
-          onChanged();
         } else {
           autoscalingLimitsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1009,17 +876,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeAutoscalingLimits(com.google.bigtable.admin.v2.AutoscalingLimits value) {
         if (autoscalingLimitsBuilder_ == null) {
-          if (autoscalingLimits_ != null) {
-            autoscalingLimits_ =
-              com.google.bigtable.admin.v2.AutoscalingLimits.newBuilder(autoscalingLimits_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            autoscalingLimits_ != null &&
+            autoscalingLimits_ != com.google.bigtable.admin.v2.AutoscalingLimits.getDefaultInstance()) {
+            getAutoscalingLimitsBuilder().mergeFrom(value);
           } else {
             autoscalingLimits_ = value;
           }
-          onChanged();
         } else {
           autoscalingLimitsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1030,14 +898,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.bigtable.admin.v2.AutoscalingLimits autoscaling_limits = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearAutoscalingLimits() {
-        if (autoscalingLimitsBuilder_ == null) {
-          autoscalingLimits_ = null;
-          onChanged();
-        } else {
-          autoscalingLimits_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        autoscalingLimits_ = null;
+        if (autoscalingLimitsBuilder_ != null) {
+          autoscalingLimitsBuilder_.dispose();
           autoscalingLimitsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1048,7 +915,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.bigtable.admin.v2.AutoscalingLimits autoscaling_limits = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.bigtable.admin.v2.AutoscalingLimits.Builder getAutoscalingLimitsBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getAutoscalingLimitsFieldBuilder().getBuilder();
       }
@@ -1100,7 +967,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the autoscalingTargets field is set.
        */
       public boolean hasAutoscalingTargets() {
-        return autoscalingTargetsBuilder_ != null || autoscalingTargets_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -1130,11 +997,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           autoscalingTargets_ = value;
-          onChanged();
         } else {
           autoscalingTargetsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1148,11 +1015,11 @@ private static final long serialVersionUID = 0L;
           com.google.bigtable.admin.v2.AutoscalingTargets.Builder builderForValue) {
         if (autoscalingTargetsBuilder_ == null) {
           autoscalingTargets_ = builderForValue.build();
-          onChanged();
         } else {
           autoscalingTargetsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1164,17 +1031,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeAutoscalingTargets(com.google.bigtable.admin.v2.AutoscalingTargets value) {
         if (autoscalingTargetsBuilder_ == null) {
-          if (autoscalingTargets_ != null) {
-            autoscalingTargets_ =
-              com.google.bigtable.admin.v2.AutoscalingTargets.newBuilder(autoscalingTargets_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            autoscalingTargets_ != null &&
+            autoscalingTargets_ != com.google.bigtable.admin.v2.AutoscalingTargets.getDefaultInstance()) {
+            getAutoscalingTargetsBuilder().mergeFrom(value);
           } else {
             autoscalingTargets_ = value;
           }
-          onChanged();
         } else {
           autoscalingTargetsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1185,14 +1053,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.bigtable.admin.v2.AutoscalingTargets autoscaling_targets = 2 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearAutoscalingTargets() {
-        if (autoscalingTargetsBuilder_ == null) {
-          autoscalingTargets_ = null;
-          onChanged();
-        } else {
-          autoscalingTargets_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        autoscalingTargets_ = null;
+        if (autoscalingTargetsBuilder_ != null) {
+          autoscalingTargetsBuilder_.dispose();
           autoscalingTargetsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1203,7 +1070,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.bigtable.admin.v2.AutoscalingTargets autoscaling_targets = 2 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.bigtable.admin.v2.AutoscalingTargets.Builder getAutoscalingTargetsBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getAutoscalingTargetsFieldBuilder().getBuilder();
       }
@@ -1275,7 +1142,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ClusterAutoscalingConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1357,58 +1235,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ClusterConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig.Builder subBuilder = null;
-              if (clusterAutoscalingConfig_ != null) {
-                subBuilder = clusterAutoscalingConfig_.toBuilder();
-              }
-              clusterAutoscalingConfig_ = input.readMessage(com.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(clusterAutoscalingConfig_);
-                clusterAutoscalingConfig_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.bigtable.admin.v2.InstanceProto.internal_static_google_bigtable_admin_v2_Cluster_ClusterConfig_descriptor;
@@ -1457,7 +1283,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfigOrBuilder getClusterAutoscalingConfigOrBuilder() {
-      return getClusterAutoscalingConfig();
+      return clusterAutoscalingConfig_ == null ? com.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig.getDefaultInstance() : clusterAutoscalingConfig_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1477,7 +1303,7 @@ private static final long serialVersionUID = 0L;
       if (clusterAutoscalingConfig_ != null) {
         output.writeMessage(1, getClusterAutoscalingConfig());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1490,7 +1316,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getClusterAutoscalingConfig());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1510,7 +1336,7 @@ private static final long serialVersionUID = 0L;
         if (!getClusterAutoscalingConfig()
             .equals(other.getClusterAutoscalingConfig())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1525,7 +1351,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + CLUSTER_AUTOSCALING_CONFIG_FIELD_NUMBER;
         hash = (53 * hash) + getClusterAutoscalingConfig().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1646,26 +1472,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.bigtable.admin.v2.Cluster.ClusterConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (clusterAutoscalingConfigBuilder_ == null) {
-          clusterAutoscalingConfig_ = null;
-        } else {
-          clusterAutoscalingConfig_ = null;
+        bitField0_ = 0;
+        clusterAutoscalingConfig_ = null;
+        if (clusterAutoscalingConfigBuilder_ != null) {
+          clusterAutoscalingConfigBuilder_.dispose();
           clusterAutoscalingConfigBuilder_ = null;
         }
         return this;
@@ -1694,13 +1515,18 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.bigtable.admin.v2.Cluster.ClusterConfig buildPartial() {
         com.google.bigtable.admin.v2.Cluster.ClusterConfig result = new com.google.bigtable.admin.v2.Cluster.ClusterConfig(this);
-        if (clusterAutoscalingConfigBuilder_ == null) {
-          result.clusterAutoscalingConfig_ = clusterAutoscalingConfig_;
-        } else {
-          result.clusterAutoscalingConfig_ = clusterAutoscalingConfigBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.bigtable.admin.v2.Cluster.ClusterConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.clusterAutoscalingConfig_ = clusterAutoscalingConfigBuilder_ == null
+              ? clusterAutoscalingConfig_
+              : clusterAutoscalingConfigBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1750,7 +1576,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasClusterAutoscalingConfig()) {
           mergeClusterAutoscalingConfig(other.getClusterAutoscalingConfig());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1765,19 +1591,40 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.bigtable.admin.v2.Cluster.ClusterConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getClusterAutoscalingConfigFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.bigtable.admin.v2.Cluster.ClusterConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig clusterAutoscalingConfig_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1791,7 +1638,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the clusterAutoscalingConfig field is set.
        */
       public boolean hasClusterAutoscalingConfig() {
-        return clusterAutoscalingConfigBuilder_ != null || clusterAutoscalingConfig_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -1821,11 +1668,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           clusterAutoscalingConfig_ = value;
-          onChanged();
         } else {
           clusterAutoscalingConfigBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1839,11 +1686,11 @@ private static final long serialVersionUID = 0L;
           com.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig.Builder builderForValue) {
         if (clusterAutoscalingConfigBuilder_ == null) {
           clusterAutoscalingConfig_ = builderForValue.build();
-          onChanged();
         } else {
           clusterAutoscalingConfigBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1855,17 +1702,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeClusterAutoscalingConfig(com.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig value) {
         if (clusterAutoscalingConfigBuilder_ == null) {
-          if (clusterAutoscalingConfig_ != null) {
-            clusterAutoscalingConfig_ =
-              com.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig.newBuilder(clusterAutoscalingConfig_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            clusterAutoscalingConfig_ != null &&
+            clusterAutoscalingConfig_ != com.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig.getDefaultInstance()) {
+            getClusterAutoscalingConfigBuilder().mergeFrom(value);
           } else {
             clusterAutoscalingConfig_ = value;
           }
-          onChanged();
         } else {
           clusterAutoscalingConfigBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1876,14 +1724,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig cluster_autoscaling_config = 1;</code>
        */
       public Builder clearClusterAutoscalingConfig() {
-        if (clusterAutoscalingConfigBuilder_ == null) {
-          clusterAutoscalingConfig_ = null;
-          onChanged();
-        } else {
-          clusterAutoscalingConfig_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        clusterAutoscalingConfig_ = null;
+        if (clusterAutoscalingConfigBuilder_ != null) {
+          clusterAutoscalingConfigBuilder_.dispose();
           clusterAutoscalingConfigBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1894,7 +1741,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig cluster_autoscaling_config = 1;</code>
        */
       public com.google.bigtable.admin.v2.Cluster.ClusterAutoscalingConfig.Builder getClusterAutoscalingConfigBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getClusterAutoscalingConfigFieldBuilder().getBuilder();
       }
@@ -1966,7 +1813,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ClusterConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2061,51 +1919,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private EncryptionConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              kmsKeyName_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.bigtable.admin.v2.InstanceProto.internal_static_google_bigtable_admin_v2_Cluster_EncryptionConfig_descriptor;
@@ -2120,7 +1933,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int KMS_KEY_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object kmsKeyName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object kmsKeyName_ = "";
     /**
      * <pre>
      * Describes the Cloud KMS encryption key that will be used to protect the
@@ -2200,7 +2014,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kmsKeyName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, kmsKeyName_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2212,7 +2026,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kmsKeyName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, kmsKeyName_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2229,7 +2043,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getKmsKeyName()
           .equals(other.getKmsKeyName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2242,7 +2056,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + KMS_KEY_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getKmsKeyName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2364,24 +2178,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.bigtable.admin.v2.Cluster.EncryptionConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         kmsKeyName_ = "";
-
         return this;
       }
 
@@ -2408,9 +2217,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.bigtable.admin.v2.Cluster.EncryptionConfig buildPartial() {
         com.google.bigtable.admin.v2.Cluster.EncryptionConfig result = new com.google.bigtable.admin.v2.Cluster.EncryptionConfig(this);
-        result.kmsKeyName_ = kmsKeyName_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.bigtable.admin.v2.Cluster.EncryptionConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.kmsKeyName_ = kmsKeyName_;
+        }
       }
 
       @java.lang.Override
@@ -2459,9 +2275,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.bigtable.admin.v2.Cluster.EncryptionConfig.getDefaultInstance()) return this;
         if (!other.getKmsKeyName().isEmpty()) {
           kmsKeyName_ = other.kmsKeyName_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2476,19 +2293,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.bigtable.admin.v2.Cluster.EncryptionConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                kmsKeyName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.bigtable.admin.v2.Cluster.EncryptionConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object kmsKeyName_ = "";
       /**
@@ -2570,11 +2406,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setKmsKeyName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         kmsKeyName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2596,8 +2430,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearKmsKeyName() {
-        
         kmsKeyName_ = getDefaultInstance().getKmsKeyName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2621,12 +2455,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setKmsKeyNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         kmsKeyName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2663,7 +2495,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new EncryptionConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2723,7 +2566,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The unique name of the cluster. Values are of the form
@@ -2771,7 +2615,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCATION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object location_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object location_ = "";
   /**
    * <pre>
    * Immutable. The location where this cluster's nodes and storage reside. For best
@@ -2823,7 +2668,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 3;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The current state of the cluster.
@@ -2844,13 +2689,12 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.bigtable.admin.v2.Cluster.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.bigtable.admin.v2.Cluster.State result = com.google.bigtable.admin.v2.Cluster.State.valueOf(state_);
+    com.google.bigtable.admin.v2.Cluster.State result = com.google.bigtable.admin.v2.Cluster.State.forNumber(state_);
     return result == null ? com.google.bigtable.admin.v2.Cluster.State.UNRECOGNIZED : result;
   }
 
   public static final int SERVE_NODES_FIELD_NUMBER = 4;
-  private int serveNodes_;
+  private int serveNodes_ = 0;
   /**
    * <pre>
    * The number of nodes allocated to this cluster. More nodes enable higher
@@ -2909,7 +2753,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEFAULT_STORAGE_TYPE_FIELD_NUMBER = 5;
-  private int defaultStorageType_;
+  private int defaultStorageType_ = 0;
   /**
    * <pre>
    * Immutable. The type of storage used by this cluster to serve its
@@ -2932,8 +2776,7 @@ private static final long serialVersionUID = 0L;
    * @return The defaultStorageType.
    */
   @java.lang.Override public com.google.bigtable.admin.v2.StorageType getDefaultStorageType() {
-    @SuppressWarnings("deprecation")
-    com.google.bigtable.admin.v2.StorageType result = com.google.bigtable.admin.v2.StorageType.valueOf(defaultStorageType_);
+    com.google.bigtable.admin.v2.StorageType result = com.google.bigtable.admin.v2.StorageType.forNumber(defaultStorageType_);
     return result == null ? com.google.bigtable.admin.v2.StorageType.UNRECOGNIZED : result;
   }
 
@@ -2972,7 +2815,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.bigtable.admin.v2.Cluster.EncryptionConfigOrBuilder getEncryptionConfigOrBuilder() {
-    return getEncryptionConfig();
+    return encryptionConfig_ == null ? com.google.bigtable.admin.v2.Cluster.EncryptionConfig.getDefaultInstance() : encryptionConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -3010,7 +2853,7 @@ private static final long serialVersionUID = 0L;
     if (configCase_ == 7) {
       output.writeMessage(7, (com.google.bigtable.admin.v2.Cluster.ClusterConfig) config_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3045,7 +2888,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, (com.google.bigtable.admin.v2.Cluster.ClusterConfig) config_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3082,7 +2925,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3115,7 +2958,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3238,36 +3081,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.bigtable.admin.v2.Cluster.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       location_ = "";
-
       state_ = 0;
-
       serveNodes_ = 0;
-
+      if (clusterConfigBuilder_ != null) {
+        clusterConfigBuilder_.clear();
+      }
       defaultStorageType_ = 0;
-
-      if (encryptionConfigBuilder_ == null) {
-        encryptionConfig_ = null;
-      } else {
-        encryptionConfig_ = null;
+      encryptionConfig_ = null;
+      if (encryptionConfigBuilder_ != null) {
+        encryptionConfigBuilder_.dispose();
         encryptionConfigBuilder_ = null;
       }
       configCase_ = 0;
@@ -3298,26 +3134,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.bigtable.admin.v2.Cluster buildPartial() {
       com.google.bigtable.admin.v2.Cluster result = new com.google.bigtable.admin.v2.Cluster(this);
-      result.name_ = name_;
-      result.location_ = location_;
-      result.state_ = state_;
-      result.serveNodes_ = serveNodes_;
-      if (configCase_ == 7) {
-        if (clusterConfigBuilder_ == null) {
-          result.config_ = config_;
-        } else {
-          result.config_ = clusterConfigBuilder_.build();
-        }
-      }
-      result.defaultStorageType_ = defaultStorageType_;
-      if (encryptionConfigBuilder_ == null) {
-        result.encryptionConfig_ = encryptionConfig_;
-      } else {
-        result.encryptionConfig_ = encryptionConfigBuilder_.build();
-      }
-      result.configCase_ = configCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.bigtable.admin.v2.Cluster result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.location_ = location_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.serveNodes_ = serveNodes_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.defaultStorageType_ = defaultStorageType_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.encryptionConfig_ = encryptionConfigBuilder_ == null
+            ? encryptionConfig_
+            : encryptionConfigBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.bigtable.admin.v2.Cluster result) {
+      result.configCase_ = configCase_;
+      result.config_ = this.config_;
+      if (configCase_ == 7 &&
+          clusterConfigBuilder_ != null) {
+        result.config_ = clusterConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -3366,10 +3219,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.bigtable.admin.v2.Cluster.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getLocation().isEmpty()) {
         location_ = other.location_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -3393,7 +3248,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3408,17 +3263,69 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.bigtable.admin.v2.Cluster parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              location_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              serveNodes_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              defaultStorageType_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 40
+            case 50: {
+              input.readMessage(
+                  getEncryptionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getClusterConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              configCase_ = 7;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.bigtable.admin.v2.Cluster) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int configCase_ = 0;
@@ -3436,6 +3343,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -3493,11 +3401,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3511,8 +3417,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -3528,12 +3434,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3600,11 +3504,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocation(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       location_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3620,8 +3522,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocation() {
-      
       location_ = getDefaultInstance().getLocation();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -3639,12 +3541,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       location_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3671,8 +3571,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3686,8 +3586,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.bigtable.admin.v2.Cluster.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.bigtable.admin.v2.Cluster.State result = com.google.bigtable.admin.v2.Cluster.State.valueOf(state_);
+      com.google.bigtable.admin.v2.Cluster.State result = com.google.bigtable.admin.v2.Cluster.State.forNumber(state_);
       return result == null ? com.google.bigtable.admin.v2.Cluster.State.UNRECOGNIZED : result;
     }
     /**
@@ -3703,7 +3602,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -3717,7 +3616,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       state_ = 0;
       onChanged();
       return this;
@@ -3750,6 +3649,7 @@ private static final long serialVersionUID = 0L;
     public Builder setServeNodes(int value) {
       
       serveNodes_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3763,7 +3663,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServeNodes() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       serveNodes_ = 0;
       onChanged();
       return this;
@@ -3943,7 +3843,7 @@ private static final long serialVersionUID = 0L;
         config_ = null;
       }
       configCase_ = 7;
-      onChanged();;
+      onChanged();
       return clusterConfigBuilder_;
     }
 
@@ -3971,8 +3871,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDefaultStorageTypeValue(int value) {
-      
       defaultStorageType_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3987,8 +3887,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.bigtable.admin.v2.StorageType getDefaultStorageType() {
-      @SuppressWarnings("deprecation")
-      com.google.bigtable.admin.v2.StorageType result = com.google.bigtable.admin.v2.StorageType.valueOf(defaultStorageType_);
+      com.google.bigtable.admin.v2.StorageType result = com.google.bigtable.admin.v2.StorageType.forNumber(defaultStorageType_);
       return result == null ? com.google.bigtable.admin.v2.StorageType.UNRECOGNIZED : result;
     }
     /**
@@ -4005,7 +3904,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       defaultStorageType_ = value.getNumber();
       onChanged();
       return this;
@@ -4020,7 +3919,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDefaultStorageType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       defaultStorageType_ = 0;
       onChanged();
       return this;
@@ -4038,7 +3937,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the encryptionConfig field is set.
      */
     public boolean hasEncryptionConfig() {
-      return encryptionConfigBuilder_ != null || encryptionConfig_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -4068,11 +3967,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         encryptionConfig_ = value;
-        onChanged();
       } else {
         encryptionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -4086,11 +3985,11 @@ private static final long serialVersionUID = 0L;
         com.google.bigtable.admin.v2.Cluster.EncryptionConfig.Builder builderForValue) {
       if (encryptionConfigBuilder_ == null) {
         encryptionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         encryptionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -4102,17 +4001,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEncryptionConfig(com.google.bigtable.admin.v2.Cluster.EncryptionConfig value) {
       if (encryptionConfigBuilder_ == null) {
-        if (encryptionConfig_ != null) {
-          encryptionConfig_ =
-            com.google.bigtable.admin.v2.Cluster.EncryptionConfig.newBuilder(encryptionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          encryptionConfig_ != null &&
+          encryptionConfig_ != com.google.bigtable.admin.v2.Cluster.EncryptionConfig.getDefaultInstance()) {
+          getEncryptionConfigBuilder().mergeFrom(value);
         } else {
           encryptionConfig_ = value;
         }
-        onChanged();
       } else {
         encryptionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -4123,14 +4023,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.bigtable.admin.v2.Cluster.EncryptionConfig encryption_config = 6 [(.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public Builder clearEncryptionConfig() {
-      if (encryptionConfigBuilder_ == null) {
-        encryptionConfig_ = null;
-        onChanged();
-      } else {
-        encryptionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      encryptionConfig_ = null;
+      if (encryptionConfigBuilder_ != null) {
+        encryptionConfigBuilder_.dispose();
         encryptionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4141,7 +4040,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.bigtable.admin.v2.Cluster.EncryptionConfig encryption_config = 6 [(.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public com.google.bigtable.admin.v2.Cluster.EncryptionConfig.Builder getEncryptionConfigBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getEncryptionConfigFieldBuilder().getBuilder();
     }
@@ -4213,7 +4112,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Cluster(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

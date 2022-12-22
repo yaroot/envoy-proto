@@ -9,9 +9,10 @@ public interface TopicOrBuilder extends
 
   /**
    * <pre>
-   * Required. The resource name of the Pub/Sub topic that will be published to, in the
-   * following format: `projects/&#42;&#47;topics/&#42;`. For publication to succeed, the
-   * Secret Manager P4SA must have `pubsub.publisher` permissions on the topic.
+   * Required. The resource name of the Pub/Sub topic that will be published to,
+   * in the following format: `projects/&#42;&#47;topics/&#42;`. For publication to succeed,
+   * the Secret Manager P4SA must have `pubsub.publisher` permissions on the
+   * topic.
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -20,9 +21,10 @@ public interface TopicOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Required. The resource name of the Pub/Sub topic that will be published to, in the
-   * following format: `projects/&#42;&#47;topics/&#42;`. For publication to succeed, the
-   * Secret Manager P4SA must have `pubsub.publisher` permissions on the topic.
+   * Required. The resource name of the Pub/Sub topic that will be published to,
+   * in the following format: `projects/&#42;&#47;topics/&#42;`. For publication to succeed,
+   * the Secret Manager P4SA must have `pubsub.publisher` permissions on the
+   * topic.
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>

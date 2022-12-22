@@ -80,8 +80,7 @@ public interface AnalyzeIamPolicyLongrunningRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. Output configuration indicating where the results will be output
-   * to.
+   * Required. Output configuration indicating where the results will be output to.
    * </pre>
    *
    * <code>.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig output_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -90,8 +89,7 @@ public interface AnalyzeIamPolicyLongrunningRequestOrBuilder extends
   boolean hasOutputConfig();
   /**
    * <pre>
-   * Required. Output configuration indicating where the results will be output
-   * to.
+   * Required. Output configuration indicating where the results will be output to.
    * </pre>
    *
    * <code>.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig output_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -100,8 +98,7 @@ public interface AnalyzeIamPolicyLongrunningRequestOrBuilder extends
   com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig getOutputConfig();
   /**
    * <pre>
-   * Required. Output configuration indicating where the results will be output
-   * to.
+   * Required. Output configuration indicating where the results will be output to.
    * </pre>
    *
    * <code>.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig output_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>

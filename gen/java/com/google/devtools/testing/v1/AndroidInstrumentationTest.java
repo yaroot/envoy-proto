@@ -46,136 +46,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AndroidInstrumentationTest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.devtools.testing.v1.FileReference.Builder subBuilder = null;
-            if (appUnderTestCase_ == 1) {
-              subBuilder = ((com.google.devtools.testing.v1.FileReference) appUnderTest_).toBuilder();
-            }
-            appUnderTest_ =
-                input.readMessage(com.google.devtools.testing.v1.FileReference.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.FileReference) appUnderTest_);
-              appUnderTest_ = subBuilder.buildPartial();
-            }
-            appUnderTestCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.devtools.testing.v1.FileReference.Builder subBuilder = null;
-            if (testApk_ != null) {
-              subBuilder = testApk_.toBuilder();
-            }
-            testApk_ = input.readMessage(com.google.devtools.testing.v1.FileReference.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(testApk_);
-              testApk_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            appPackageId_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            testPackageId_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            testRunnerClass_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              testTargets_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            testTargets_.add(s);
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            orchestratorOption_ = rawValue;
-            break;
-          }
-          case 66: {
-            com.google.devtools.testing.v1.AppBundle.Builder subBuilder = null;
-            if (appUnderTestCase_ == 8) {
-              subBuilder = ((com.google.devtools.testing.v1.AppBundle) appUnderTest_).toBuilder();
-            }
-            appUnderTest_ =
-                input.readMessage(com.google.devtools.testing.v1.AppBundle.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.AppBundle) appUnderTest_);
-              appUnderTest_ = subBuilder.buildPartial();
-            }
-            appUnderTestCase_ = 8;
-            break;
-          }
-          case 74: {
-            com.google.devtools.testing.v1.ShardingOption.Builder subBuilder = null;
-            if (shardingOption_ != null) {
-              subBuilder = shardingOption_.toBuilder();
-            }
-            shardingOption_ = input.readMessage(com.google.devtools.testing.v1.ShardingOption.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(shardingOption_);
-              shardingOption_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        testTargets_ = testTargets_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.TestExecutionProto.internal_static_google_devtools_testing_v1_AndroidInstrumentationTest_descriptor;
@@ -351,11 +221,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.testing.v1.FileReferenceOrBuilder getTestApkOrBuilder() {
-    return getTestApk();
+    return testApk_ == null ? com.google.devtools.testing.v1.FileReference.getDefaultInstance() : testApk_;
   }
 
   public static final int APP_PACKAGE_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object appPackageId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object appPackageId_ = "";
   /**
    * <pre>
    * The java package for the application under test.
@@ -403,7 +274,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TEST_PACKAGE_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object testPackageId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object testPackageId_ = "";
   /**
    * <pre>
    * The java package for the test to be executed.
@@ -451,7 +323,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TEST_RUNNER_CLASS_FIELD_NUMBER = 5;
-  private volatile java.lang.Object testRunnerClass_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object testRunnerClass_ = "";
   /**
    * <pre>
    * The InstrumentationTestRunner class.
@@ -499,6 +372,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TEST_TARGETS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList testTargets_;
   /**
    * <pre>
@@ -570,7 +444,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ORCHESTRATOR_OPTION_FIELD_NUMBER = 7;
-  private int orchestratorOption_;
+  private int orchestratorOption_ = 0;
   /**
    * <pre>
    * The option of whether running each test within its own invocation of
@@ -613,8 +487,7 @@ private static final long serialVersionUID = 0L;
    * @return The orchestratorOption.
    */
   @java.lang.Override public com.google.devtools.testing.v1.OrchestratorOption getOrchestratorOption() {
-    @SuppressWarnings("deprecation")
-    com.google.devtools.testing.v1.OrchestratorOption result = com.google.devtools.testing.v1.OrchestratorOption.valueOf(orchestratorOption_);
+    com.google.devtools.testing.v1.OrchestratorOption result = com.google.devtools.testing.v1.OrchestratorOption.forNumber(orchestratorOption_);
     return result == null ? com.google.devtools.testing.v1.OrchestratorOption.UNRECOGNIZED : result;
   }
 
@@ -653,7 +526,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.testing.v1.ShardingOptionOrBuilder getShardingOptionOrBuilder() {
-    return getShardingOption();
+    return shardingOption_ == null ? com.google.devtools.testing.v1.ShardingOption.getDefaultInstance() : shardingOption_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -697,7 +570,7 @@ private static final long serialVersionUID = 0L;
     if (shardingOption_ != null) {
       output.writeMessage(9, getShardingOption());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -743,7 +616,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, getShardingOption());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -790,7 +663,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -833,7 +706,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -961,42 +834,38 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.AndroidInstrumentationTest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (testApkBuilder_ == null) {
-        testApk_ = null;
-      } else {
-        testApk_ = null;
+      bitField0_ = 0;
+      if (appApkBuilder_ != null) {
+        appApkBuilder_.clear();
+      }
+      if (appBundleBuilder_ != null) {
+        appBundleBuilder_.clear();
+      }
+      testApk_ = null;
+      if (testApkBuilder_ != null) {
+        testApkBuilder_.dispose();
         testApkBuilder_ = null;
       }
       appPackageId_ = "";
-
       testPackageId_ = "";
-
       testRunnerClass_ = "";
-
       testTargets_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000040);
       orchestratorOption_ = 0;
-
-      if (shardingOptionBuilder_ == null) {
-        shardingOption_ = null;
-      } else {
-        shardingOption_ = null;
+      shardingOption_ = null;
+      if (shardingOptionBuilder_ != null) {
+        shardingOptionBuilder_.dispose();
         shardingOptionBuilder_ = null;
       }
       appUnderTestCase_ = 0;
@@ -1027,43 +896,58 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.AndroidInstrumentationTest buildPartial() {
       com.google.devtools.testing.v1.AndroidInstrumentationTest result = new com.google.devtools.testing.v1.AndroidInstrumentationTest(this);
-      int from_bitField0_ = bitField0_;
-      if (appUnderTestCase_ == 1) {
-        if (appApkBuilder_ == null) {
-          result.appUnderTest_ = appUnderTest_;
-        } else {
-          result.appUnderTest_ = appApkBuilder_.build();
-        }
-      }
-      if (appUnderTestCase_ == 8) {
-        if (appBundleBuilder_ == null) {
-          result.appUnderTest_ = appUnderTest_;
-        } else {
-          result.appUnderTest_ = appBundleBuilder_.build();
-        }
-      }
-      if (testApkBuilder_ == null) {
-        result.testApk_ = testApk_;
-      } else {
-        result.testApk_ = testApkBuilder_.build();
-      }
-      result.appPackageId_ = appPackageId_;
-      result.testPackageId_ = testPackageId_;
-      result.testRunnerClass_ = testRunnerClass_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        testTargets_ = testTargets_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.testTargets_ = testTargets_;
-      result.orchestratorOption_ = orchestratorOption_;
-      if (shardingOptionBuilder_ == null) {
-        result.shardingOption_ = shardingOption_;
-      } else {
-        result.shardingOption_ = shardingOptionBuilder_.build();
-      }
-      result.appUnderTestCase_ = appUnderTestCase_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.devtools.testing.v1.AndroidInstrumentationTest result) {
+      if (((bitField0_ & 0x00000040) != 0)) {
+        testTargets_ = testTargets_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000040);
+      }
+      result.testTargets_ = testTargets_;
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.AndroidInstrumentationTest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.testApk_ = testApkBuilder_ == null
+            ? testApk_
+            : testApkBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.appPackageId_ = appPackageId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.testPackageId_ = testPackageId_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.testRunnerClass_ = testRunnerClass_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.orchestratorOption_ = orchestratorOption_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.shardingOption_ = shardingOptionBuilder_ == null
+            ? shardingOption_
+            : shardingOptionBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.devtools.testing.v1.AndroidInstrumentationTest result) {
+      result.appUnderTestCase_ = appUnderTestCase_;
+      result.appUnderTest_ = this.appUnderTest_;
+      if (appUnderTestCase_ == 1 &&
+          appApkBuilder_ != null) {
+        result.appUnderTest_ = appApkBuilder_.build();
+      }
+      if (appUnderTestCase_ == 8 &&
+          appBundleBuilder_ != null) {
+        result.appUnderTest_ = appBundleBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1115,20 +999,23 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAppPackageId().isEmpty()) {
         appPackageId_ = other.appPackageId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getTestPackageId().isEmpty()) {
         testPackageId_ = other.testPackageId_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getTestRunnerClass().isEmpty()) {
         testRunnerClass_ = other.testRunnerClass_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.testTargets_.isEmpty()) {
         if (testTargets_.isEmpty()) {
           testTargets_ = other.testTargets_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           ensureTestTargetsIsMutable();
           testTargets_.addAll(other.testTargets_);
@@ -1154,7 +1041,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1169,17 +1056,84 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.AndroidInstrumentationTest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAppApkFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              appUnderTestCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTestApkFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              appPackageId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              testPackageId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              testRunnerClass_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureTestTargetsIsMutable();
+              testTargets_.add(s);
+              break;
+            } // case 50
+            case 56: {
+              orchestratorOption_ = input.readEnum();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 56
+            case 66: {
+              input.readMessage(
+                  getAppBundleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              appUnderTestCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getShardingOptionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.AndroidInstrumentationTest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int appUnderTestCase_ = 0;
@@ -1373,7 +1327,7 @@ private static final long serialVersionUID = 0L;
         appUnderTest_ = null;
       }
       appUnderTestCase_ = 1;
-      onChanged();;
+      onChanged();
       return appApkBuilder_;
     }
 
@@ -1551,7 +1505,7 @@ private static final long serialVersionUID = 0L;
         appUnderTest_ = null;
       }
       appUnderTestCase_ = 8;
-      onChanged();;
+      onChanged();
       return appBundleBuilder_;
     }
 
@@ -1567,7 +1521,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the testApk field is set.
      */
     public boolean hasTestApk() {
-      return testApkBuilder_ != null || testApk_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1597,11 +1551,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         testApk_ = value;
-        onChanged();
       } else {
         testApkBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1615,11 +1569,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.testing.v1.FileReference.Builder builderForValue) {
       if (testApkBuilder_ == null) {
         testApk_ = builderForValue.build();
-        onChanged();
       } else {
         testApkBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1631,17 +1585,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTestApk(com.google.devtools.testing.v1.FileReference value) {
       if (testApkBuilder_ == null) {
-        if (testApk_ != null) {
-          testApk_ =
-            com.google.devtools.testing.v1.FileReference.newBuilder(testApk_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          testApk_ != null &&
+          testApk_ != com.google.devtools.testing.v1.FileReference.getDefaultInstance()) {
+          getTestApkBuilder().mergeFrom(value);
         } else {
           testApk_ = value;
         }
-        onChanged();
       } else {
         testApkBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1652,14 +1607,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.FileReference test_apk = 2;</code>
      */
     public Builder clearTestApk() {
-      if (testApkBuilder_ == null) {
-        testApk_ = null;
-        onChanged();
-      } else {
-        testApk_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      testApk_ = null;
+      if (testApkBuilder_ != null) {
+        testApkBuilder_.dispose();
         testApkBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1670,7 +1624,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.FileReference test_apk = 2;</code>
      */
     public com.google.devtools.testing.v1.FileReference.Builder getTestApkBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getTestApkFieldBuilder().getBuilder();
     }
@@ -1766,11 +1720,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAppPackageId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       appPackageId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1784,8 +1736,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAppPackageId() {
-      
       appPackageId_ = getDefaultInstance().getAppPackageId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1801,12 +1753,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAppPackageIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       appPackageId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1867,11 +1817,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTestPackageId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       testPackageId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1885,8 +1833,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTestPackageId() {
-      
       testPackageId_ = getDefaultInstance().getTestPackageId();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1902,12 +1850,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTestPackageIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       testPackageId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1968,11 +1914,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTestRunnerClass(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       testRunnerClass_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1986,8 +1930,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTestRunnerClass() {
-      
       testRunnerClass_ = getDefaultInstance().getTestRunnerClass();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2003,21 +1947,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTestRunnerClassBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       testRunnerClass_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList testTargets_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureTestTargetsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         testTargets_ = new com.google.protobuf.LazyStringArrayList(testTargets_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000040;
        }
     }
     /**
@@ -2105,10 +2047,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTestTargets(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTestTargetsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTestTargetsIsMutable();
       testTargets_.set(index, value);
       onChanged();
       return this;
@@ -2129,10 +2069,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTestTargets(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTestTargetsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTestTargetsIsMutable();
       testTargets_.add(value);
       onChanged();
       return this;
@@ -2174,7 +2112,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearTestTargets() {
       testTargets_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2194,10 +2132,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTestTargetsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureTestTargetsIsMutable();
       testTargets_.add(value);
       onChanged();
@@ -2248,8 +2184,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOrchestratorOptionValue(int value) {
-      
       orchestratorOption_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2274,8 +2210,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.devtools.testing.v1.OrchestratorOption getOrchestratorOption() {
-      @SuppressWarnings("deprecation")
-      com.google.devtools.testing.v1.OrchestratorOption result = com.google.devtools.testing.v1.OrchestratorOption.valueOf(orchestratorOption_);
+      com.google.devtools.testing.v1.OrchestratorOption result = com.google.devtools.testing.v1.OrchestratorOption.forNumber(orchestratorOption_);
       return result == null ? com.google.devtools.testing.v1.OrchestratorOption.UNRECOGNIZED : result;
     }
     /**
@@ -2302,7 +2237,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000080;
       orchestratorOption_ = value.getNumber();
       onChanged();
       return this;
@@ -2327,7 +2262,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOrchestratorOption() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       orchestratorOption_ = 0;
       onChanged();
       return this;
@@ -2345,7 +2280,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the shardingOption field is set.
      */
     public boolean hasShardingOption() {
-      return shardingOptionBuilder_ != null || shardingOption_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2375,11 +2310,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         shardingOption_ = value;
-        onChanged();
       } else {
         shardingOptionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2393,11 +2328,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.testing.v1.ShardingOption.Builder builderForValue) {
       if (shardingOptionBuilder_ == null) {
         shardingOption_ = builderForValue.build();
-        onChanged();
       } else {
         shardingOptionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2409,17 +2344,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeShardingOption(com.google.devtools.testing.v1.ShardingOption value) {
       if (shardingOptionBuilder_ == null) {
-        if (shardingOption_ != null) {
-          shardingOption_ =
-            com.google.devtools.testing.v1.ShardingOption.newBuilder(shardingOption_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          shardingOption_ != null &&
+          shardingOption_ != com.google.devtools.testing.v1.ShardingOption.getDefaultInstance()) {
+          getShardingOptionBuilder().mergeFrom(value);
         } else {
           shardingOption_ = value;
         }
-        onChanged();
       } else {
         shardingOptionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2430,14 +2366,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.ShardingOption sharding_option = 9;</code>
      */
     public Builder clearShardingOption() {
-      if (shardingOptionBuilder_ == null) {
-        shardingOption_ = null;
-        onChanged();
-      } else {
-        shardingOption_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      shardingOption_ = null;
+      if (shardingOptionBuilder_ != null) {
+        shardingOptionBuilder_.dispose();
         shardingOptionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2448,7 +2383,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.ShardingOption sharding_option = 9;</code>
      */
     public com.google.devtools.testing.v1.ShardingOption.Builder getShardingOptionBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getShardingOptionFieldBuilder().getBuilder();
     }
@@ -2520,7 +2455,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AndroidInstrumentationTest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

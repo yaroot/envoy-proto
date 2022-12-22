@@ -9,7 +9,8 @@ public interface UpdateAzureClusterRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to update.
+   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+   * resource to update.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -18,7 +19,8 @@ public interface UpdateAzureClusterRequestOrBuilder extends
   boolean hasAzureCluster();
   /**
    * <pre>
-   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to update.
+   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+   * resource to update.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -27,7 +29,8 @@ public interface UpdateAzureClusterRequestOrBuilder extends
   com.google.cloud.gkemulticloud.v1.AzureCluster getAzureCluster();
   /**
    * <pre>
-   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to update.
+   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+   * resource to update.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -50,13 +53,18 @@ public interface UpdateAzureClusterRequestOrBuilder extends
    * this field. The elements of the repeated paths field can only include these
    * fields from [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]:
    *  *   `description`.
-   *  *   `annotations`.
    *  *   `azureClient`.
    *  *   `control_plane.version`.
    *  *   `control_plane.vm_size`.
+   *  *   `annotations`.
    *  *   `authorization.admin_users`.
    *  *   `control_plane.root_volume.size_gib`.
-   *  *   `logging_config`
+   *  *   `control_plane.proxy_config`.
+   *  *   `control_plane.proxy_config.resource_group_id`.
+   *  *   `control_plane.proxy_config.secret_id`.
+   *  *   `control_plane.ssh_config.authorized_key`.
+   *  *   `logging_config.component_config.enable_components`
+   *  *   `monitoring_config.managed_prometheus_config.enabled`.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -69,13 +77,18 @@ public interface UpdateAzureClusterRequestOrBuilder extends
    * this field. The elements of the repeated paths field can only include these
    * fields from [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]:
    *  *   `description`.
-   *  *   `annotations`.
    *  *   `azureClient`.
    *  *   `control_plane.version`.
    *  *   `control_plane.vm_size`.
+   *  *   `annotations`.
    *  *   `authorization.admin_users`.
    *  *   `control_plane.root_volume.size_gib`.
-   *  *   `logging_config`
+   *  *   `control_plane.proxy_config`.
+   *  *   `control_plane.proxy_config.resource_group_id`.
+   *  *   `control_plane.proxy_config.secret_id`.
+   *  *   `control_plane.ssh_config.authorized_key`.
+   *  *   `logging_config.component_config.enable_components`
+   *  *   `monitoring_config.managed_prometheus_config.enabled`.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -88,13 +101,18 @@ public interface UpdateAzureClusterRequestOrBuilder extends
    * this field. The elements of the repeated paths field can only include these
    * fields from [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]:
    *  *   `description`.
-   *  *   `annotations`.
    *  *   `azureClient`.
    *  *   `control_plane.version`.
    *  *   `control_plane.vm_size`.
+   *  *   `annotations`.
    *  *   `authorization.admin_users`.
    *  *   `control_plane.root_volume.size_gib`.
-   *  *   `logging_config`
+   *  *   `control_plane.proxy_config`.
+   *  *   `control_plane.proxy_config.resource_group_id`.
+   *  *   `control_plane.proxy_config.secret_id`.
+   *  *   `control_plane.ssh_config.authorized_key`.
+   *  *   `logging_config.component_config.enable_components`
+   *  *   `monitoring_config.managed_prometheus_config.enabled`.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>

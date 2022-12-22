@@ -41,121 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OfflineUserDataJob(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceName_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            status_ = rawValue;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            failureReason_ = rawValue;
-            break;
-          }
-          case 58: {
-            com.google.ads.googleads.v11.common.CustomerMatchUserListMetadata.Builder subBuilder = null;
-            if (metadataCase_ == 7) {
-              subBuilder = ((com.google.ads.googleads.v11.common.CustomerMatchUserListMetadata) metadata_).toBuilder();
-            }
-            metadata_ =
-                input.readMessage(com.google.ads.googleads.v11.common.CustomerMatchUserListMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.common.CustomerMatchUserListMetadata) metadata_);
-              metadata_ = subBuilder.buildPartial();
-            }
-            metadataCase_ = 7;
-            break;
-          }
-          case 66: {
-            com.google.ads.googleads.v11.common.StoreSalesMetadata.Builder subBuilder = null;
-            if (metadataCase_ == 8) {
-              subBuilder = ((com.google.ads.googleads.v11.common.StoreSalesMetadata) metadata_).toBuilder();
-            }
-            metadata_ =
-                input.readMessage(com.google.ads.googleads.v11.common.StoreSalesMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.common.StoreSalesMetadata) metadata_);
-              metadata_ = subBuilder.buildPartial();
-            }
-            metadataCase_ = 8;
-            break;
-          }
-          case 72: {
-            bitField0_ |= 0x00000001;
-            id_ = input.readInt64();
-            break;
-          }
-          case 80: {
-            bitField0_ |= 0x00000002;
-            externalId_ = input.readInt64();
-            break;
-          }
-          case 90: {
-            com.google.ads.googleads.v11.resources.OfflineUserDataJobMetadata.Builder subBuilder = null;
-            if (operationMetadata_ != null) {
-              subBuilder = operationMetadata_.toBuilder();
-            }
-            operationMetadata_ = input.readMessage(com.google.ads.googleads.v11.resources.OfflineUserDataJobMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(operationMetadata_);
-              operationMetadata_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.resources.OfflineUserDataJobProto.internal_static_google_ads_googleads_v11_resources_OfflineUserDataJob_descriptor;
@@ -212,7 +97,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object resourceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceName_ = "";
   /**
    * <pre>
    * Immutable. The resource name of the offline user data job.
@@ -262,7 +148,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 9;
-  private long id_;
+  private long id_ = 0L;
   /**
    * <pre>
    * Output only. ID of this offline user data job.
@@ -289,7 +175,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXTERNAL_ID_FIELD_NUMBER = 10;
-  private long externalId_;
+  private long externalId_ = 0L;
   /**
    * <pre>
    * Immutable. User specified job ID.
@@ -316,7 +202,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 4;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Immutable. Type of the job.
@@ -337,13 +223,12 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.OfflineUserDataJobTypeEnum.OfflineUserDataJobType getType() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.OfflineUserDataJobTypeEnum.OfflineUserDataJobType result = com.google.ads.googleads.v11.enums.OfflineUserDataJobTypeEnum.OfflineUserDataJobType.valueOf(type_);
+    com.google.ads.googleads.v11.enums.OfflineUserDataJobTypeEnum.OfflineUserDataJobType result = com.google.ads.googleads.v11.enums.OfflineUserDataJobTypeEnum.OfflineUserDataJobType.forNumber(type_);
     return result == null ? com.google.ads.googleads.v11.enums.OfflineUserDataJobTypeEnum.OfflineUserDataJobType.UNRECOGNIZED : result;
   }
 
   public static final int STATUS_FIELD_NUMBER = 5;
-  private int status_;
+  private int status_ = 0;
   /**
    * <pre>
    * Output only. Status of the job.
@@ -364,13 +249,12 @@ private static final long serialVersionUID = 0L;
    * @return The status.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.OfflineUserDataJobStatusEnum.OfflineUserDataJobStatus getStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.OfflineUserDataJobStatusEnum.OfflineUserDataJobStatus result = com.google.ads.googleads.v11.enums.OfflineUserDataJobStatusEnum.OfflineUserDataJobStatus.valueOf(status_);
+    com.google.ads.googleads.v11.enums.OfflineUserDataJobStatusEnum.OfflineUserDataJobStatus result = com.google.ads.googleads.v11.enums.OfflineUserDataJobStatusEnum.OfflineUserDataJobStatus.forNumber(status_);
     return result == null ? com.google.ads.googleads.v11.enums.OfflineUserDataJobStatusEnum.OfflineUserDataJobStatus.UNRECOGNIZED : result;
   }
 
   public static final int FAILURE_REASON_FIELD_NUMBER = 6;
-  private int failureReason_;
+  private int failureReason_ = 0;
   /**
    * <pre>
    * Output only. Reason for the processing failure, if status is FAILED.
@@ -391,8 +275,7 @@ private static final long serialVersionUID = 0L;
    * @return The failureReason.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.OfflineUserDataJobFailureReasonEnum.OfflineUserDataJobFailureReason getFailureReason() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.OfflineUserDataJobFailureReasonEnum.OfflineUserDataJobFailureReason result = com.google.ads.googleads.v11.enums.OfflineUserDataJobFailureReasonEnum.OfflineUserDataJobFailureReason.valueOf(failureReason_);
+    com.google.ads.googleads.v11.enums.OfflineUserDataJobFailureReasonEnum.OfflineUserDataJobFailureReason result = com.google.ads.googleads.v11.enums.OfflineUserDataJobFailureReasonEnum.OfflineUserDataJobFailureReason.forNumber(failureReason_);
     return result == null ? com.google.ads.googleads.v11.enums.OfflineUserDataJobFailureReasonEnum.OfflineUserDataJobFailureReason.UNRECOGNIZED : result;
   }
 
@@ -431,7 +314,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v11.resources.OfflineUserDataJobMetadataOrBuilder getOperationMetadataOrBuilder() {
-    return getOperationMetadata();
+    return operationMetadata_ == null ? com.google.ads.googleads.v11.resources.OfflineUserDataJobMetadata.getDefaultInstance() : operationMetadata_;
   }
 
   public static final int CUSTOMER_MATCH_USER_LIST_METADATA_FIELD_NUMBER = 7;
@@ -561,7 +444,7 @@ private static final long serialVersionUID = 0L;
     if (operationMetadata_ != null) {
       output.writeMessage(11, getOperationMetadata());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -605,7 +488,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, getOperationMetadata());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -653,7 +536,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -698,7 +581,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -822,39 +705,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.resources.OfflineUserDataJob.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       resourceName_ = "";
-
       id_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000001);
       externalId_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000002);
       type_ = 0;
-
       status_ = 0;
-
       failureReason_ = 0;
-
-      if (operationMetadataBuilder_ == null) {
-        operationMetadata_ = null;
-      } else {
-        operationMetadata_ = null;
+      operationMetadata_ = null;
+      if (operationMetadataBuilder_ != null) {
+        operationMetadataBuilder_.dispose();
         operationMetadataBuilder_ = null;
+      }
+      if (customerMatchUserListMetadataBuilder_ != null) {
+        customerMatchUserListMetadataBuilder_.clear();
+      }
+      if (storeSalesMetadataBuilder_ != null) {
+        storeSalesMetadataBuilder_.clear();
       }
       metadataCase_ = 0;
       metadata_ = null;
@@ -884,43 +762,54 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.resources.OfflineUserDataJob buildPartial() {
       com.google.ads.googleads.v11.resources.OfflineUserDataJob result = new com.google.ads.googleads.v11.resources.OfflineUserDataJob(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.resources.OfflineUserDataJob result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.resourceName_ = resourceName_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resourceName_ = resourceName_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.id_ = id_;
         to_bitField0_ |= 0x00000001;
       }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (((from_bitField0_ & 0x00000004) != 0)) {
         result.externalId_ = externalId_;
         to_bitField0_ |= 0x00000002;
       }
-      result.type_ = type_;
-      result.status_ = status_;
-      result.failureReason_ = failureReason_;
-      if (operationMetadataBuilder_ == null) {
-        result.operationMetadata_ = operationMetadata_;
-      } else {
-        result.operationMetadata_ = operationMetadataBuilder_.build();
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.type_ = type_;
       }
-      if (metadataCase_ == 7) {
-        if (customerMatchUserListMetadataBuilder_ == null) {
-          result.metadata_ = metadata_;
-        } else {
-          result.metadata_ = customerMatchUserListMetadataBuilder_.build();
-        }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.status_ = status_;
       }
-      if (metadataCase_ == 8) {
-        if (storeSalesMetadataBuilder_ == null) {
-          result.metadata_ = metadata_;
-        } else {
-          result.metadata_ = storeSalesMetadataBuilder_.build();
-        }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.failureReason_ = failureReason_;
       }
-      result.bitField0_ = to_bitField0_;
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.operationMetadata_ = operationMetadataBuilder_ == null
+            ? operationMetadata_
+            : operationMetadataBuilder_.build();
+      }
+      result.bitField0_ |= to_bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.ads.googleads.v11.resources.OfflineUserDataJob result) {
       result.metadataCase_ = metadataCase_;
-      onBuilt();
-      return result;
+      result.metadata_ = this.metadata_;
+      if (metadataCase_ == 7 &&
+          customerMatchUserListMetadataBuilder_ != null) {
+        result.metadata_ = customerMatchUserListMetadataBuilder_.build();
+      }
+      if (metadataCase_ == 8 &&
+          storeSalesMetadataBuilder_ != null) {
+        result.metadata_ = storeSalesMetadataBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -969,6 +858,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v11.resources.OfflineUserDataJob.getDefaultInstance()) return this;
       if (!other.getResourceName().isEmpty()) {
         resourceName_ = other.resourceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasId()) {
@@ -1002,7 +892,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1017,17 +907,81 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.resources.OfflineUserDataJob parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              resourceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 32: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              status_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              failureReason_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              input.readMessage(
+                  getCustomerMatchUserListMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              metadataCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getStoreSalesMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              metadataCase_ = 8;
+              break;
+            } // case 66
+            case 72: {
+              id_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 72
+            case 80: {
+              externalId_ = input.readInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 80
+            case 90: {
+              input.readMessage(
+                  getOperationMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.resources.OfflineUserDataJob) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int metadataCase_ = 0;
@@ -1106,11 +1060,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1125,8 +1077,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceName() {
-      
       resourceName_ = getDefaultInstance().getResourceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1143,12 +1095,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1164,7 +1114,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasId() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1188,8 +1138,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(long value) {
-      bitField0_ |= 0x00000001;
+      
       id_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1202,7 +1153,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       id_ = 0L;
       onChanged();
       return this;
@@ -1219,7 +1170,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasExternalId() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1243,8 +1194,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setExternalId(long value) {
-      bitField0_ |= 0x00000002;
+      
       externalId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1257,7 +1209,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExternalId() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       externalId_ = 0L;
       onChanged();
       return this;
@@ -1285,8 +1237,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1300,8 +1252,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.OfflineUserDataJobTypeEnum.OfflineUserDataJobType getType() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.OfflineUserDataJobTypeEnum.OfflineUserDataJobType result = com.google.ads.googleads.v11.enums.OfflineUserDataJobTypeEnum.OfflineUserDataJobType.valueOf(type_);
+      com.google.ads.googleads.v11.enums.OfflineUserDataJobTypeEnum.OfflineUserDataJobType result = com.google.ads.googleads.v11.enums.OfflineUserDataJobTypeEnum.OfflineUserDataJobType.forNumber(type_);
       return result == null ? com.google.ads.googleads.v11.enums.OfflineUserDataJobTypeEnum.OfflineUserDataJobType.UNRECOGNIZED : result;
     }
     /**
@@ -1317,7 +1268,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -1331,7 +1282,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       type_ = 0;
       onChanged();
       return this;
@@ -1359,8 +1310,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
-      
       status_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1374,8 +1325,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.OfflineUserDataJobStatusEnum.OfflineUserDataJobStatus getStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.OfflineUserDataJobStatusEnum.OfflineUserDataJobStatus result = com.google.ads.googleads.v11.enums.OfflineUserDataJobStatusEnum.OfflineUserDataJobStatus.valueOf(status_);
+      com.google.ads.googleads.v11.enums.OfflineUserDataJobStatusEnum.OfflineUserDataJobStatus result = com.google.ads.googleads.v11.enums.OfflineUserDataJobStatusEnum.OfflineUserDataJobStatus.forNumber(status_);
       return result == null ? com.google.ads.googleads.v11.enums.OfflineUserDataJobStatusEnum.OfflineUserDataJobStatus.UNRECOGNIZED : result;
     }
     /**
@@ -1391,7 +1341,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       status_ = value.getNumber();
       onChanged();
       return this;
@@ -1405,7 +1355,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       status_ = 0;
       onChanged();
       return this;
@@ -1433,8 +1383,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFailureReasonValue(int value) {
-      
       failureReason_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1448,8 +1398,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.OfflineUserDataJobFailureReasonEnum.OfflineUserDataJobFailureReason getFailureReason() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.OfflineUserDataJobFailureReasonEnum.OfflineUserDataJobFailureReason result = com.google.ads.googleads.v11.enums.OfflineUserDataJobFailureReasonEnum.OfflineUserDataJobFailureReason.valueOf(failureReason_);
+      com.google.ads.googleads.v11.enums.OfflineUserDataJobFailureReasonEnum.OfflineUserDataJobFailureReason result = com.google.ads.googleads.v11.enums.OfflineUserDataJobFailureReasonEnum.OfflineUserDataJobFailureReason.forNumber(failureReason_);
       return result == null ? com.google.ads.googleads.v11.enums.OfflineUserDataJobFailureReasonEnum.OfflineUserDataJobFailureReason.UNRECOGNIZED : result;
     }
     /**
@@ -1465,7 +1414,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       failureReason_ = value.getNumber();
       onChanged();
       return this;
@@ -1479,7 +1428,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFailureReason() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       failureReason_ = 0;
       onChanged();
       return this;
@@ -1497,7 +1446,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the operationMetadata field is set.
      */
     public boolean hasOperationMetadata() {
-      return operationMetadataBuilder_ != null || operationMetadata_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1527,11 +1476,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         operationMetadata_ = value;
-        onChanged();
       } else {
         operationMetadataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1545,11 +1494,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.resources.OfflineUserDataJobMetadata.Builder builderForValue) {
       if (operationMetadataBuilder_ == null) {
         operationMetadata_ = builderForValue.build();
-        onChanged();
       } else {
         operationMetadataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1561,17 +1510,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOperationMetadata(com.google.ads.googleads.v11.resources.OfflineUserDataJobMetadata value) {
       if (operationMetadataBuilder_ == null) {
-        if (operationMetadata_ != null) {
-          operationMetadata_ =
-            com.google.ads.googleads.v11.resources.OfflineUserDataJobMetadata.newBuilder(operationMetadata_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          operationMetadata_ != null &&
+          operationMetadata_ != com.google.ads.googleads.v11.resources.OfflineUserDataJobMetadata.getDefaultInstance()) {
+          getOperationMetadataBuilder().mergeFrom(value);
         } else {
           operationMetadata_ = value;
         }
-        onChanged();
       } else {
         operationMetadataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1582,14 +1532,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.resources.OfflineUserDataJobMetadata operation_metadata = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearOperationMetadata() {
-      if (operationMetadataBuilder_ == null) {
-        operationMetadata_ = null;
-        onChanged();
-      } else {
-        operationMetadata_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      operationMetadata_ = null;
+      if (operationMetadataBuilder_ != null) {
+        operationMetadataBuilder_.dispose();
         operationMetadataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1600,7 +1549,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.resources.OfflineUserDataJobMetadata operation_metadata = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.ads.googleads.v11.resources.OfflineUserDataJobMetadata.Builder getOperationMetadataBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getOperationMetadataFieldBuilder().getBuilder();
     }
@@ -1814,7 +1763,7 @@ private static final long serialVersionUID = 0L;
         metadata_ = null;
       }
       metadataCase_ = 7;
-      onChanged();;
+      onChanged();
       return customerMatchUserListMetadataBuilder_;
     }
 
@@ -1992,7 +1941,7 @@ private static final long serialVersionUID = 0L;
         metadata_ = null;
       }
       metadataCase_ = 8;
-      onChanged();;
+      onChanged();
       return storeSalesMetadataBuilder_;
     }
     @java.lang.Override
@@ -2028,7 +1977,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OfflineUserDataJob(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

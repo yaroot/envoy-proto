@@ -37,61 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DistanceLimit(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            bitField0_ |= 0x00000001;
-            maxMeters_ = input.readInt64();
-            break;
-          }
-          case 16: {
-            bitField0_ |= 0x00000002;
-            softMaxMeters_ = input.readInt64();
-            break;
-          }
-          case 25: {
-            bitField0_ |= 0x00000004;
-            costPerKilometerAboveSoftMax_ = input.readDouble();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_DistanceLimit_descriptor;
@@ -107,7 +52,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int MAX_METERS_FIELD_NUMBER = 1;
-  private long maxMeters_;
+  private long maxMeters_ = 0L;
   /**
    * <pre>
    * A hard limit constraining the distance to be at most max_meters. The limit
@@ -136,7 +81,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOFT_MAX_METERS_FIELD_NUMBER = 2;
-  private long softMaxMeters_;
+  private long softMaxMeters_ = 0L;
   /**
    * <pre>
    * A soft limit not enforcing a maximum distance limit, but when violated
@@ -171,7 +116,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COST_PER_KILOMETER_ABOVE_SOFT_MAX_FIELD_NUMBER = 3;
-  private double costPerKilometerAboveSoftMax_;
+  private double costPerKilometerAboveSoftMax_ = 0D;
   /**
    * <pre>
    * Cost per kilometer incurred if `soft_max_meters` limit is violated. The
@@ -234,7 +179,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       output.writeDouble(3, costPerKilometerAboveSoftMax_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -255,7 +200,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(3, costPerKilometerAboveSoftMax_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -286,7 +231,7 @@ private static final long serialVersionUID = 0L;
           != java.lang.Double.doubleToLongBits(
               other.getCostPerKilometerAboveSoftMax())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -312,7 +257,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getCostPerKilometerAboveSoftMax()));
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -436,28 +381,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.optimization.v1.DistanceLimit.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       maxMeters_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000001);
       softMaxMeters_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000002);
       costPerKilometerAboveSoftMax_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -484,6 +422,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.optimization.v1.DistanceLimit buildPartial() {
       com.google.cloud.optimization.v1.DistanceLimit result = new com.google.cloud.optimization.v1.DistanceLimit(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.optimization.v1.DistanceLimit result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -498,9 +442,7 @@ private static final long serialVersionUID = 0L;
         result.costPerKilometerAboveSoftMax_ = costPerKilometerAboveSoftMax_;
         to_bitField0_ |= 0x00000004;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -556,7 +498,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasCostPerKilometerAboveSoftMax()) {
         setCostPerKilometerAboveSoftMax(other.getCostPerKilometerAboveSoftMax());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -571,17 +513,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.optimization.v1.DistanceLimit parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              maxMeters_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              softMaxMeters_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 25: {
+              costPerKilometerAboveSoftMax_ = input.readDouble();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 25
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.optimization.v1.DistanceLimit) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -624,8 +594,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxMeters(long value) {
-      bitField0_ |= 0x00000001;
+      
       maxMeters_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -692,8 +663,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSoftMaxMeters(long value) {
-      bitField0_ |= 0x00000002;
+      
       softMaxMeters_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -772,8 +744,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCostPerKilometerAboveSoftMax(double value) {
-      bitField0_ |= 0x00000004;
+      
       costPerKilometerAboveSoftMax_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -831,7 +804,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DistanceLimit(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -153,7 +153,6 @@ com.google.genomics.v1.InfoMergeOperation         defaultValue);
    *
    * <code>map&lt;string, .google.genomics.v1.InfoMergeOperation&gt; info_merge_config = 3;</code>
    */
-
   int getInfoMergeConfigValueOrDefault(
       java.lang.String key,
       int defaultValue);
@@ -165,7 +164,6 @@ com.google.genomics.v1.InfoMergeOperation         defaultValue);
    *
    * <code>map&lt;string, .google.genomics.v1.InfoMergeOperation&gt; info_merge_config = 3;</code>
    */
-
   int getInfoMergeConfigValueOrThrow(
       java.lang.String key);
 }

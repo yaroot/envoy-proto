@@ -61,10 +61,11 @@ public final class TraceConfigProto {
       ".ConstantDecision\"D\n\020ConstantDecision\022\016\n" +
       "\nALWAYS_OFF\020\000\022\r\n\tALWAYS_ON\020\001\022\021\n\rALWAYS_P" +
       "ARENT\020\002\"\"\n\023RateLimitingSampler\022\013\n\003qps\030\001 " +
-      "\001(\003B\222\001\n\034io.opencensus.proto.trace.v1B\020Tr" +
+      "\001(\003B\225\001\n\034io.opencensus.proto.trace.v1B\020Tr" +
       "aceConfigProtoP\001ZBgithub.com/census-inst" +
       "rumentation/opencensus-proto/gen-go/trac" +
-      "e/v1\352\002\031OpenCensus.Proto.Trace.V1b\006proto3"
+      "e/v1\352\002\034OpenCensus::Proto::Trace::V1b\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

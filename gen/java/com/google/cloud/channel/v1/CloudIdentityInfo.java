@@ -40,99 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CloudIdentityInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            customerType_ = rawValue;
-            break;
-          }
-          case 32: {
-
-            isDomainVerified_ = input.readBool();
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            alternateEmail_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            phoneNumber_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageCode_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            primaryDomain_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            adminConsoleUri_ = s;
-            break;
-          }
-          case 178: {
-            com.google.cloud.channel.v1.EduData.Builder subBuilder = null;
-            if (eduData_ != null) {
-              subBuilder = eduData_.toBuilder();
-            }
-            eduData_ = input.readMessage(com.google.cloud.channel.v1.EduData.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(eduData_);
-              eduData_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.CommonProto.internal_static_google_cloud_channel_v1_CloudIdentityInfo_descriptor;
@@ -292,7 +199,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOMER_TYPE_FIELD_NUMBER = 1;
-  private int customerType_;
+  private int customerType_ = 0;
   /**
    * <pre>
    * CustomerType indicates verification type needed for using services.
@@ -313,13 +220,13 @@ private static final long serialVersionUID = 0L;
    * @return The customerType.
    */
   @java.lang.Override public com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType getCustomerType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType result = com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType.valueOf(customerType_);
+    com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType result = com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType.forNumber(customerType_);
     return result == null ? com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType.UNRECOGNIZED : result;
   }
 
   public static final int PRIMARY_DOMAIN_FIELD_NUMBER = 9;
-  private volatile java.lang.Object primaryDomain_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object primaryDomain_ = "";
   /**
    * <pre>
    * Output only. The primary domain name.
@@ -365,7 +272,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IS_DOMAIN_VERIFIED_FIELD_NUMBER = 4;
-  private boolean isDomainVerified_;
+  private boolean isDomainVerified_ = false;
   /**
    * <pre>
    * Output only. Whether the domain is verified.
@@ -384,7 +291,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALTERNATE_EMAIL_FIELD_NUMBER = 6;
-  private volatile java.lang.Object alternateEmail_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object alternateEmail_ = "";
   /**
    * <pre>
    * The alternate email.
@@ -430,7 +338,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PHONE_NUMBER_FIELD_NUMBER = 7;
-  private volatile java.lang.Object phoneNumber_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object phoneNumber_ = "";
   /**
    * <pre>
    * Phone number associated with the Cloud Identity.
@@ -476,7 +385,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LANGUAGE_CODE_FIELD_NUMBER = 8;
-  private volatile java.lang.Object languageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageCode_ = "";
   /**
    * <pre>
    * Language code.
@@ -522,7 +432,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADMIN_CONSOLE_URI_FIELD_NUMBER = 10;
-  private volatile java.lang.Object adminConsoleUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object adminConsoleUri_ = "";
   /**
    * <pre>
    * Output only. URI of Customer's Admin console dashboard.
@@ -602,7 +513,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.EduDataOrBuilder getEduDataOrBuilder() {
-    return getEduData();
+    return eduData_ == null ? com.google.cloud.channel.v1.EduData.getDefaultInstance() : eduData_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -643,7 +554,7 @@ private static final long serialVersionUID = 0L;
     if (eduData_ != null) {
       output.writeMessage(22, getEduData());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -679,7 +590,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(22, getEduData());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -712,7 +623,7 @@ private static final long serialVersionUID = 0L;
       if (!getEduData()
           .equals(other.getEduData())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -742,7 +653,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EDU_DATA_FIELD_NUMBER;
       hash = (53 * hash) + getEduData().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -863,40 +774,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.CloudIdentityInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       customerType_ = 0;
-
       primaryDomain_ = "";
-
       isDomainVerified_ = false;
-
       alternateEmail_ = "";
-
       phoneNumber_ = "";
-
       languageCode_ = "";
-
       adminConsoleUri_ = "";
-
-      if (eduDataBuilder_ == null) {
-        eduData_ = null;
-      } else {
-        eduData_ = null;
+      eduData_ = null;
+      if (eduDataBuilder_ != null) {
+        eduDataBuilder_.dispose();
         eduDataBuilder_ = null;
       }
       return this;
@@ -925,20 +824,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.CloudIdentityInfo buildPartial() {
       com.google.cloud.channel.v1.CloudIdentityInfo result = new com.google.cloud.channel.v1.CloudIdentityInfo(this);
-      result.customerType_ = customerType_;
-      result.primaryDomain_ = primaryDomain_;
-      result.isDomainVerified_ = isDomainVerified_;
-      result.alternateEmail_ = alternateEmail_;
-      result.phoneNumber_ = phoneNumber_;
-      result.languageCode_ = languageCode_;
-      result.adminConsoleUri_ = adminConsoleUri_;
-      if (eduDataBuilder_ == null) {
-        result.eduData_ = eduData_;
-      } else {
-        result.eduData_ = eduDataBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.CloudIdentityInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.customerType_ = customerType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.primaryDomain_ = primaryDomain_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.isDomainVerified_ = isDomainVerified_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.alternateEmail_ = alternateEmail_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.phoneNumber_ = phoneNumber_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.languageCode_ = languageCode_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.adminConsoleUri_ = adminConsoleUri_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.eduData_ = eduDataBuilder_ == null
+            ? eduData_
+            : eduDataBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -990,6 +908,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPrimaryDomain().isEmpty()) {
         primaryDomain_ = other.primaryDomain_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getIsDomainVerified() != false) {
@@ -997,24 +916,28 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAlternateEmail().isEmpty()) {
         alternateEmail_ = other.alternateEmail_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getPhoneNumber().isEmpty()) {
         phoneNumber_ = other.phoneNumber_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getLanguageCode().isEmpty()) {
         languageCode_ = other.languageCode_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getAdminConsoleUri().isEmpty()) {
         adminConsoleUri_ = other.adminConsoleUri_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasEduData()) {
         mergeEduData(other.getEduData());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1029,19 +952,75 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.CloudIdentityInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              customerType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 32: {
+              isDomainVerified_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 32
+            case 50: {
+              alternateEmail_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 50
+            case 58: {
+              phoneNumber_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 58
+            case 66: {
+              languageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 66
+            case 74: {
+              primaryDomain_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 74
+            case 82: {
+              adminConsoleUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 82
+            case 178: {
+              input.readMessage(
+                  getEduDataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 178
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.CloudIdentityInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int customerType_ = 0;
     /**
@@ -1065,8 +1044,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCustomerTypeValue(int value) {
-      
       customerType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1080,8 +1059,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType getCustomerType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType result = com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType.valueOf(customerType_);
+      com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType result = com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType.forNumber(customerType_);
       return result == null ? com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType.UNRECOGNIZED : result;
     }
     /**
@@ -1097,7 +1075,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       customerType_ = value.getNumber();
       onChanged();
       return this;
@@ -1111,7 +1089,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomerType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       customerType_ = 0;
       onChanged();
       return this;
@@ -1170,11 +1148,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrimaryDomain(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       primaryDomain_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1187,8 +1163,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrimaryDomain() {
-      
       primaryDomain_ = getDefaultInstance().getPrimaryDomain();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1203,12 +1179,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrimaryDomainBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       primaryDomain_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1246,6 +1220,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIsDomainVerified(boolean value) {
       
       isDomainVerified_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1262,7 +1237,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIsDomainVerified() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       isDomainVerified_ = false;
       onChanged();
       return this;
@@ -1321,11 +1296,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAlternateEmail(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       alternateEmail_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1338,8 +1311,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAlternateEmail() {
-      
       alternateEmail_ = getDefaultInstance().getAlternateEmail();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1354,12 +1327,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAlternateEmailBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       alternateEmail_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1417,11 +1388,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPhoneNumber(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       phoneNumber_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1434,8 +1403,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPhoneNumber() {
-      
       phoneNumber_ = getDefaultInstance().getPhoneNumber();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1450,12 +1419,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPhoneNumberBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       phoneNumber_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1513,11 +1480,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageCode_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1530,8 +1495,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguageCode() {
-      
       languageCode_ = getDefaultInstance().getLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1546,12 +1511,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageCode_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1609,11 +1572,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdminConsoleUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       adminConsoleUri_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1626,8 +1587,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAdminConsoleUri() {
-      
       adminConsoleUri_ = getDefaultInstance().getAdminConsoleUri();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1642,12 +1603,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdminConsoleUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       adminConsoleUri_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1664,7 +1623,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the eduData field is set.
      */
     public boolean hasEduData() {
-      return eduDataBuilder_ != null || eduData_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -1694,11 +1653,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         eduData_ = value;
-        onChanged();
       } else {
         eduDataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1712,11 +1671,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.EduData.Builder builderForValue) {
       if (eduDataBuilder_ == null) {
         eduData_ = builderForValue.build();
-        onChanged();
       } else {
         eduDataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1728,17 +1687,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEduData(com.google.cloud.channel.v1.EduData value) {
       if (eduDataBuilder_ == null) {
-        if (eduData_ != null) {
-          eduData_ =
-            com.google.cloud.channel.v1.EduData.newBuilder(eduData_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          eduData_ != null &&
+          eduData_ != com.google.cloud.channel.v1.EduData.getDefaultInstance()) {
+          getEduDataBuilder().mergeFrom(value);
         } else {
           eduData_ = value;
         }
-        onChanged();
       } else {
         eduDataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1749,14 +1709,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.EduData edu_data = 22;</code>
      */
     public Builder clearEduData() {
-      if (eduDataBuilder_ == null) {
-        eduData_ = null;
-        onChanged();
-      } else {
-        eduData_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      eduData_ = null;
+      if (eduDataBuilder_ != null) {
+        eduDataBuilder_.dispose();
         eduDataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1767,7 +1726,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.EduData edu_data = 22;</code>
      */
     public com.google.cloud.channel.v1.EduData.Builder getEduDataBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getEduDataFieldBuilder().getBuilder();
     }
@@ -1839,7 +1798,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CloudIdentityInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -36,163 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Widget(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            title_ = s;
-            break;
-          }
-          case 18: {
-            com.google.monitoring.dashboard.v1.XyChart.Builder subBuilder = null;
-            if (contentCase_ == 2) {
-              subBuilder = ((com.google.monitoring.dashboard.v1.XyChart) content_).toBuilder();
-            }
-            content_ =
-                input.readMessage(com.google.monitoring.dashboard.v1.XyChart.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.dashboard.v1.XyChart) content_);
-              content_ = subBuilder.buildPartial();
-            }
-            contentCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.monitoring.dashboard.v1.Scorecard.Builder subBuilder = null;
-            if (contentCase_ == 3) {
-              subBuilder = ((com.google.monitoring.dashboard.v1.Scorecard) content_).toBuilder();
-            }
-            content_ =
-                input.readMessage(com.google.monitoring.dashboard.v1.Scorecard.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.dashboard.v1.Scorecard) content_);
-              content_ = subBuilder.buildPartial();
-            }
-            contentCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.monitoring.dashboard.v1.Text.Builder subBuilder = null;
-            if (contentCase_ == 4) {
-              subBuilder = ((com.google.monitoring.dashboard.v1.Text) content_).toBuilder();
-            }
-            content_ =
-                input.readMessage(com.google.monitoring.dashboard.v1.Text.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.dashboard.v1.Text) content_);
-              content_ = subBuilder.buildPartial();
-            }
-            contentCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Empty.Builder subBuilder = null;
-            if (contentCase_ == 5) {
-              subBuilder = ((com.google.protobuf.Empty) content_).toBuilder();
-            }
-            content_ =
-                input.readMessage(com.google.protobuf.Empty.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Empty) content_);
-              content_ = subBuilder.buildPartial();
-            }
-            contentCase_ = 5;
-            break;
-          }
-          case 58: {
-            com.google.monitoring.dashboard.v1.AlertChart.Builder subBuilder = null;
-            if (contentCase_ == 7) {
-              subBuilder = ((com.google.monitoring.dashboard.v1.AlertChart) content_).toBuilder();
-            }
-            content_ =
-                input.readMessage(com.google.monitoring.dashboard.v1.AlertChart.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.dashboard.v1.AlertChart) content_);
-              content_ = subBuilder.buildPartial();
-            }
-            contentCase_ = 7;
-            break;
-          }
-          case 66: {
-            com.google.monitoring.dashboard.v1.TimeSeriesTable.Builder subBuilder = null;
-            if (contentCase_ == 8) {
-              subBuilder = ((com.google.monitoring.dashboard.v1.TimeSeriesTable) content_).toBuilder();
-            }
-            content_ =
-                input.readMessage(com.google.monitoring.dashboard.v1.TimeSeriesTable.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.dashboard.v1.TimeSeriesTable) content_);
-              content_ = subBuilder.buildPartial();
-            }
-            contentCase_ = 8;
-            break;
-          }
-          case 74: {
-            com.google.monitoring.dashboard.v1.CollapsibleGroup.Builder subBuilder = null;
-            if (contentCase_ == 9) {
-              subBuilder = ((com.google.monitoring.dashboard.v1.CollapsibleGroup) content_).toBuilder();
-            }
-            content_ =
-                input.readMessage(com.google.monitoring.dashboard.v1.CollapsibleGroup.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.dashboard.v1.CollapsibleGroup) content_);
-              content_ = subBuilder.buildPartial();
-            }
-            contentCase_ = 9;
-            break;
-          }
-          case 82: {
-            com.google.monitoring.dashboard.v1.LogsPanel.Builder subBuilder = null;
-            if (contentCase_ == 10) {
-              subBuilder = ((com.google.monitoring.dashboard.v1.LogsPanel) content_).toBuilder();
-            }
-            content_ =
-                input.readMessage(com.google.monitoring.dashboard.v1.LogsPanel.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.dashboard.v1.LogsPanel) content_);
-              content_ = subBuilder.buildPartial();
-            }
-            contentCase_ = 10;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.dashboard.v1.WidgetProto.internal_static_google_monitoring_dashboard_v1_Widget_descriptor;
@@ -260,7 +103,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TITLE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object title_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object title_ = "";
   /**
    * <pre>
    * Optional. The title of the widget.
@@ -693,7 +537,7 @@ private static final long serialVersionUID = 0L;
     if (contentCase_ == 10) {
       output.writeMessage(10, (com.google.monitoring.dashboard.v1.LogsPanel) content_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -737,7 +581,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, (com.google.monitoring.dashboard.v1.LogsPanel) content_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -791,7 +635,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -840,7 +684,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -962,24 +806,43 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.dashboard.v1.Widget.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       title_ = "";
-
+      if (xyChartBuilder_ != null) {
+        xyChartBuilder_.clear();
+      }
+      if (scorecardBuilder_ != null) {
+        scorecardBuilder_.clear();
+      }
+      if (textBuilder_ != null) {
+        textBuilder_.clear();
+      }
+      if (blankBuilder_ != null) {
+        blankBuilder_.clear();
+      }
+      if (alertChartBuilder_ != null) {
+        alertChartBuilder_.clear();
+      }
+      if (timeSeriesTableBuilder_ != null) {
+        timeSeriesTableBuilder_.clear();
+      }
+      if (collapsibleGroupBuilder_ != null) {
+        collapsibleGroupBuilder_.clear();
+      }
+      if (logsPanelBuilder_ != null) {
+        logsPanelBuilder_.clear();
+      }
       contentCase_ = 0;
       content_ = null;
       return this;
@@ -1008,66 +871,54 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.Widget buildPartial() {
       com.google.monitoring.dashboard.v1.Widget result = new com.google.monitoring.dashboard.v1.Widget(this);
-      result.title_ = title_;
-      if (contentCase_ == 2) {
-        if (xyChartBuilder_ == null) {
-          result.content_ = content_;
-        } else {
-          result.content_ = xyChartBuilder_.build();
-        }
-      }
-      if (contentCase_ == 3) {
-        if (scorecardBuilder_ == null) {
-          result.content_ = content_;
-        } else {
-          result.content_ = scorecardBuilder_.build();
-        }
-      }
-      if (contentCase_ == 4) {
-        if (textBuilder_ == null) {
-          result.content_ = content_;
-        } else {
-          result.content_ = textBuilder_.build();
-        }
-      }
-      if (contentCase_ == 5) {
-        if (blankBuilder_ == null) {
-          result.content_ = content_;
-        } else {
-          result.content_ = blankBuilder_.build();
-        }
-      }
-      if (contentCase_ == 7) {
-        if (alertChartBuilder_ == null) {
-          result.content_ = content_;
-        } else {
-          result.content_ = alertChartBuilder_.build();
-        }
-      }
-      if (contentCase_ == 8) {
-        if (timeSeriesTableBuilder_ == null) {
-          result.content_ = content_;
-        } else {
-          result.content_ = timeSeriesTableBuilder_.build();
-        }
-      }
-      if (contentCase_ == 9) {
-        if (collapsibleGroupBuilder_ == null) {
-          result.content_ = content_;
-        } else {
-          result.content_ = collapsibleGroupBuilder_.build();
-        }
-      }
-      if (contentCase_ == 10) {
-        if (logsPanelBuilder_ == null) {
-          result.content_ = content_;
-        } else {
-          result.content_ = logsPanelBuilder_.build();
-        }
-      }
-      result.contentCase_ = contentCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.monitoring.dashboard.v1.Widget result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.title_ = title_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.monitoring.dashboard.v1.Widget result) {
+      result.contentCase_ = contentCase_;
+      result.content_ = this.content_;
+      if (contentCase_ == 2 &&
+          xyChartBuilder_ != null) {
+        result.content_ = xyChartBuilder_.build();
+      }
+      if (contentCase_ == 3 &&
+          scorecardBuilder_ != null) {
+        result.content_ = scorecardBuilder_.build();
+      }
+      if (contentCase_ == 4 &&
+          textBuilder_ != null) {
+        result.content_ = textBuilder_.build();
+      }
+      if (contentCase_ == 5 &&
+          blankBuilder_ != null) {
+        result.content_ = blankBuilder_.build();
+      }
+      if (contentCase_ == 7 &&
+          alertChartBuilder_ != null) {
+        result.content_ = alertChartBuilder_.build();
+      }
+      if (contentCase_ == 8 &&
+          timeSeriesTableBuilder_ != null) {
+        result.content_ = timeSeriesTableBuilder_.build();
+      }
+      if (contentCase_ == 9 &&
+          collapsibleGroupBuilder_ != null) {
+        result.content_ = collapsibleGroupBuilder_.build();
+      }
+      if (contentCase_ == 10 &&
+          logsPanelBuilder_ != null) {
+        result.content_ = logsPanelBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1116,6 +967,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.monitoring.dashboard.v1.Widget.getDefaultInstance()) return this;
       if (!other.getTitle().isEmpty()) {
         title_ = other.title_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       switch (other.getContentCase()) {
@@ -1155,7 +1007,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1170,17 +1022,91 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.dashboard.v1.Widget parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              title_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getXyChartFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              contentCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getScorecardFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              contentCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getTextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              contentCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getBlankFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              contentCase_ = 5;
+              break;
+            } // case 42
+            case 58: {
+              input.readMessage(
+                  getAlertChartFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              contentCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getTimeSeriesTableFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              contentCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getCollapsibleGroupFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              contentCase_ = 9;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getLogsPanelFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              contentCase_ = 10;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.dashboard.v1.Widget) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int contentCase_ = 0;
@@ -1198,6 +1124,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object title_ = "";
     /**
@@ -1252,11 +1179,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTitle(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       title_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1269,8 +1194,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTitle() {
-      
       title_ = getDefaultInstance().getTitle();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1285,12 +1210,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTitleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       title_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1469,7 +1392,7 @@ private static final long serialVersionUID = 0L;
         content_ = null;
       }
       contentCase_ = 2;
-      onChanged();;
+      onChanged();
       return xyChartBuilder_;
     }
 
@@ -1647,7 +1570,7 @@ private static final long serialVersionUID = 0L;
         content_ = null;
       }
       contentCase_ = 3;
-      onChanged();;
+      onChanged();
       return scorecardBuilder_;
     }
 
@@ -1825,7 +1748,7 @@ private static final long serialVersionUID = 0L;
         content_ = null;
       }
       contentCase_ = 4;
-      onChanged();;
+      onChanged();
       return textBuilder_;
     }
 
@@ -2003,7 +1926,7 @@ private static final long serialVersionUID = 0L;
         content_ = null;
       }
       contentCase_ = 5;
-      onChanged();;
+      onChanged();
       return blankBuilder_;
     }
 
@@ -2181,7 +2104,7 @@ private static final long serialVersionUID = 0L;
         content_ = null;
       }
       contentCase_ = 7;
-      onChanged();;
+      onChanged();
       return alertChartBuilder_;
     }
 
@@ -2359,7 +2282,7 @@ private static final long serialVersionUID = 0L;
         content_ = null;
       }
       contentCase_ = 8;
-      onChanged();;
+      onChanged();
       return timeSeriesTableBuilder_;
     }
 
@@ -2546,7 +2469,7 @@ private static final long serialVersionUID = 0L;
         content_ = null;
       }
       contentCase_ = 9;
-      onChanged();;
+      onChanged();
       return collapsibleGroupBuilder_;
     }
 
@@ -2724,7 +2647,7 @@ private static final long serialVersionUID = 0L;
         content_ = null;
       }
       contentCase_ = 10;
-      onChanged();;
+      onChanged();
       return logsPanelBuilder_;
     }
     @java.lang.Override
@@ -2760,7 +2683,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Widget(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -75,7 +75,6 @@ public interface InstanceGroupManagerAggregatedListOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.InstanceGroupManagersScopedList&gt; items = 100526016;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.InstanceGroupManagersScopedList getItemsOrDefault(
       java.lang.String key,
@@ -88,7 +87,6 @@ com.google.cloud.compute.v1.InstanceGroupManagersScopedList defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.InstanceGroupManagersScopedList&gt; items = 100526016;</code>
    */
-
   com.google.cloud.compute.v1.InstanceGroupManagersScopedList getItemsOrThrow(
       java.lang.String key);
 

@@ -11,10 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nXgoogle/cloud/aiplatform/v1/schema/trainingjob/definition/automl_image_segmentation.proto\x12\x38google.cloud.aiplatform.v1.schema.trainingjob.definition\x1a\x1cgoogle/api/annotations.proto\"\xef\x01\n\x17\x41utoMlImageSegmentation\x12g\n\x06inputs\x18\x01 \x01(\x0b\x32W.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageSegmentationInputs\x12k\n\x08metadata\x18\x02 \x01(\x0b\x32Y.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageSegmentationMetadata\"\xc9\x02\n\x1d\x41utoMlImageSegmentationInputs\x12u\n\nmodel_type\x18\x01 \x01(\x0e\x32\x61.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageSegmentationInputs.ModelType\x12\x1f\n\x17\x62udget_milli_node_hours\x18\x02 \x01(\x03\x12\x15\n\rbase_model_id\x18\x03 \x01(\t\"y\n\tModelType\x12\x1a\n\x16MODEL_TYPE_UNSPECIFIED\x10\x00\x12\x19\n\x15\x43LOUD_HIGH_ACCURACY_1\x10\x01\x12\x18\n\x14\x43LOUD_LOW_ACCURACY_1\x10\x02\x12\x1b\n\x17MOBILE_TF_LOW_LATENCY_1\x10\x03\"\xba\x02\n\x1f\x41utoMlImageSegmentationMetadata\x12\x1d\n\x15\x63ost_milli_node_hours\x18\x01 \x01(\x03\x12\x8e\x01\n\x16successful_stop_reason\x18\x02 \x01(\x0e\x32n.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageSegmentationMetadata.SuccessfulStopReason\"g\n\x14SuccessfulStopReason\x12&\n\"SUCCESSFUL_STOP_REASON_UNSPECIFIED\x10\x00\x12\x12\n\x0e\x42UDGET_REACHED\x10\x01\x12\x13\n\x0fMODEL_CONVERGED\x10\x02\x42\xf9\x02\n<com.google.cloud.aiplatform.v1.schema.trainingjob.definitionB\x1c\x41utoMLImageSegmentationProtoP\x01Zbgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/trainingjob/definition;definition\xaa\x02\x38Google.Cloud.AIPlatform.V1.Schema.TrainingJob.Definition\xca\x02\x38Google\\Cloud\\AIPlatform\\V1\\Schema\\TrainingJob\\Definition\xea\x02>Google::Cloud::AIPlatform::V1::Schema::TrainingJob::Definitionb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nXgoogle/cloud/aiplatform/v1/schema/trainingjob/definition/automl_image_segmentation.proto\x12\x38google.cloud.aiplatform.v1.schema.trainingjob.definition\"\xef\x01\n\x17\x41utoMlImageSegmentation\x12g\n\x06inputs\x18\x01 \x01(\x0b\x32W.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageSegmentationInputs\x12k\n\x08metadata\x18\x02 \x01(\x0b\x32Y.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageSegmentationMetadata\"\xc9\x02\n\x1d\x41utoMlImageSegmentationInputs\x12u\n\nmodel_type\x18\x01 \x01(\x0e\x32\x61.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageSegmentationInputs.ModelType\x12\x1f\n\x17\x62udget_milli_node_hours\x18\x02 \x01(\x03\x12\x15\n\rbase_model_id\x18\x03 \x01(\t\"y\n\tModelType\x12\x1a\n\x16MODEL_TYPE_UNSPECIFIED\x10\x00\x12\x19\n\x15\x43LOUD_HIGH_ACCURACY_1\x10\x01\x12\x18\n\x14\x43LOUD_LOW_ACCURACY_1\x10\x02\x12\x1b\n\x17MOBILE_TF_LOW_LATENCY_1\x10\x03\"\xba\x02\n\x1f\x41utoMlImageSegmentationMetadata\x12\x1d\n\x15\x63ost_milli_node_hours\x18\x01 \x01(\x03\x12\x8e\x01\n\x16successful_stop_reason\x18\x02 \x01(\x0e\x32n.google.cloud.aiplatform.v1.schema.trainingjob.definition.AutoMlImageSegmentationMetadata.SuccessfulStopReason\"g\n\x14SuccessfulStopReason\x12&\n\"SUCCESSFUL_STOP_REASON_UNSPECIFIED\x10\x00\x12\x12\n\x0e\x42UDGET_REACHED\x10\x01\x12\x13\n\x0fMODEL_CONVERGED\x10\x02\x42\xf9\x02\n<com.google.cloud.aiplatform.v1.schema.trainingjob.definitionB\x1c\x41utoMLImageSegmentationProtoP\x01Zbgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/trainingjob/definition;definition\xaa\x02\x38Google.Cloud.AIPlatform.V1.Schema.TrainingJob.Definition\xca\x02\x38Google\\Cloud\\AIPlatform\\V1\\Schema\\TrainingJob\\Definition\xea\x02>Google::Cloud::AIPlatform::V1::Schema::TrainingJob::Definitionb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.aiplatform.v1.schema.trainingjob.definition.automl_image_segmentation_pb2', globals())
@@ -22,14 +21,14 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n<com.google.cloud.aiplatform.v1.schema.trainingjob.definitionB\034AutoMLImageSegmentationProtoP\001Zbgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/trainingjob/definition;definition\252\0028Google.Cloud.AIPlatform.V1.Schema.TrainingJob.Definition\312\0028Google\\Cloud\\AIPlatform\\V1\\Schema\\TrainingJob\\Definition\352\002>Google::Cloud::AIPlatform::V1::Schema::TrainingJob::Definition'
-  _AUTOMLIMAGESEGMENTATION._serialized_start=181
-  _AUTOMLIMAGESEGMENTATION._serialized_end=420
-  _AUTOMLIMAGESEGMENTATIONINPUTS._serialized_start=423
-  _AUTOMLIMAGESEGMENTATIONINPUTS._serialized_end=752
-  _AUTOMLIMAGESEGMENTATIONINPUTS_MODELTYPE._serialized_start=631
-  _AUTOMLIMAGESEGMENTATIONINPUTS_MODELTYPE._serialized_end=752
-  _AUTOMLIMAGESEGMENTATIONMETADATA._serialized_start=755
-  _AUTOMLIMAGESEGMENTATIONMETADATA._serialized_end=1069
-  _AUTOMLIMAGESEGMENTATIONMETADATA_SUCCESSFULSTOPREASON._serialized_start=966
-  _AUTOMLIMAGESEGMENTATIONMETADATA_SUCCESSFULSTOPREASON._serialized_end=1069
+  _AUTOMLIMAGESEGMENTATION._serialized_start=151
+  _AUTOMLIMAGESEGMENTATION._serialized_end=390
+  _AUTOMLIMAGESEGMENTATIONINPUTS._serialized_start=393
+  _AUTOMLIMAGESEGMENTATIONINPUTS._serialized_end=722
+  _AUTOMLIMAGESEGMENTATIONINPUTS_MODELTYPE._serialized_start=601
+  _AUTOMLIMAGESEGMENTATIONINPUTS_MODELTYPE._serialized_end=722
+  _AUTOMLIMAGESEGMENTATIONMETADATA._serialized_start=725
+  _AUTOMLIMAGESEGMENTATIONMETADATA._serialized_end=1039
+  _AUTOMLIMAGESEGMENTATIONMETADATA_SUCCESSFULSTOPREASON._serialized_start=936
+  _AUTOMLIMAGESEGMENTATIONMETADATA_SUCCESSFULSTOPREASON._serialized_end=1039
 # @@protoc_insertion_point(module_scope)

@@ -37,102 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VideoClassificationPredictionResult(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            type_ = s;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (timeSegmentStart_ != null) {
-              subBuilder = timeSegmentStart_.toBuilder();
-            }
-            timeSegmentStart_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timeSegmentStart_);
-              timeSegmentStart_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (timeSegmentEnd_ != null) {
-              subBuilder = timeSegmentEnd_.toBuilder();
-            }
-            timeSegmentEnd_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timeSegmentEnd_);
-              timeSegmentEnd_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.FloatValue.Builder subBuilder = null;
-            if (confidence_ != null) {
-              subBuilder = confidence_.toBuilder();
-            }
-            confidence_ = input.readMessage(com.google.protobuf.FloatValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(confidence_);
-              confidence_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.schema.predict.prediction.VideoClassificationPredictionResultProto.internal_static_google_cloud_aiplatform_v1beta1_schema_predict_prediction_VideoClassificationPredictionResult_descriptor;
@@ -147,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * The resource ID of the AnnotationSpec that had been identified.
@@ -193,7 +98,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * The display name of the AnnotationSpec that had been identified.
@@ -239,7 +145,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object type_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object type_ = "";
   /**
    * <pre>
    * The type of the prediction. The requested types can be configured
@@ -345,7 +252,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getTimeSegmentStartOrBuilder() {
-    return getTimeSegmentStart();
+    return timeSegmentStart_ == null ? com.google.protobuf.Duration.getDefaultInstance() : timeSegmentStart_;
   }
 
   public static final int TIME_SEGMENT_END_FIELD_NUMBER = 5;
@@ -401,7 +308,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getTimeSegmentEndOrBuilder() {
-    return getTimeSegmentEnd();
+    return timeSegmentEnd_ == null ? com.google.protobuf.Duration.getDefaultInstance() : timeSegmentEnd_;
   }
 
   public static final int CONFIDENCE_FIELD_NUMBER = 6;
@@ -442,7 +349,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.FloatValueOrBuilder getConfidenceOrBuilder() {
-    return getConfidence();
+    return confidence_ == null ? com.google.protobuf.FloatValue.getDefaultInstance() : confidence_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -477,7 +384,7 @@ private static final long serialVersionUID = 0L;
     if (confidence_ != null) {
       output.writeMessage(6, getConfidence());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -507,7 +414,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getConfidence());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -543,7 +450,7 @@ private static final long serialVersionUID = 0L;
       if (!getConfidence()
           .equals(other.getConfidence())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -572,7 +479,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CONFIDENCE_FIELD_NUMBER;
       hash = (53 * hash) + getConfidence().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -693,44 +600,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.schema.predict.prediction.VideoClassificationPredictionResult.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       id_ = "";
-
       displayName_ = "";
-
       type_ = "";
-
-      if (timeSegmentStartBuilder_ == null) {
-        timeSegmentStart_ = null;
-      } else {
-        timeSegmentStart_ = null;
+      timeSegmentStart_ = null;
+      if (timeSegmentStartBuilder_ != null) {
+        timeSegmentStartBuilder_.dispose();
         timeSegmentStartBuilder_ = null;
       }
-      if (timeSegmentEndBuilder_ == null) {
-        timeSegmentEnd_ = null;
-      } else {
-        timeSegmentEnd_ = null;
+      timeSegmentEnd_ = null;
+      if (timeSegmentEndBuilder_ != null) {
+        timeSegmentEndBuilder_.dispose();
         timeSegmentEndBuilder_ = null;
       }
-      if (confidenceBuilder_ == null) {
-        confidence_ = null;
-      } else {
-        confidence_ = null;
+      confidence_ = null;
+      if (confidenceBuilder_ != null) {
+        confidenceBuilder_.dispose();
         confidenceBuilder_ = null;
       }
       return this;
@@ -759,26 +656,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.schema.predict.prediction.VideoClassificationPredictionResult buildPartial() {
       com.google.cloud.aiplatform.v1beta1.schema.predict.prediction.VideoClassificationPredictionResult result = new com.google.cloud.aiplatform.v1beta1.schema.predict.prediction.VideoClassificationPredictionResult(this);
-      result.id_ = id_;
-      result.displayName_ = displayName_;
-      result.type_ = type_;
-      if (timeSegmentStartBuilder_ == null) {
-        result.timeSegmentStart_ = timeSegmentStart_;
-      } else {
-        result.timeSegmentStart_ = timeSegmentStartBuilder_.build();
-      }
-      if (timeSegmentEndBuilder_ == null) {
-        result.timeSegmentEnd_ = timeSegmentEnd_;
-      } else {
-        result.timeSegmentEnd_ = timeSegmentEndBuilder_.build();
-      }
-      if (confidenceBuilder_ == null) {
-        result.confidence_ = confidence_;
-      } else {
-        result.confidence_ = confidenceBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.schema.predict.prediction.VideoClassificationPredictionResult result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.timeSegmentStart_ = timeSegmentStartBuilder_ == null
+            ? timeSegmentStart_
+            : timeSegmentStartBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.timeSegmentEnd_ = timeSegmentEndBuilder_ == null
+            ? timeSegmentEnd_
+            : timeSegmentEndBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.confidence_ = confidenceBuilder_ == null
+            ? confidence_
+            : confidenceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -827,14 +735,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.aiplatform.v1beta1.schema.predict.prediction.VideoClassificationPredictionResult.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getType().isEmpty()) {
         type_ = other.type_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasTimeSegmentStart()) {
@@ -846,7 +757,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasConfidence()) {
         mergeConfidence(other.getConfidence());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -861,19 +772,69 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.schema.predict.prediction.VideoClassificationPredictionResult parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              type_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getTimeSegmentStartFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getTimeSegmentEndFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getConfidenceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.schema.predict.prediction.VideoClassificationPredictionResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object id_ = "";
     /**
@@ -928,11 +889,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -945,8 +904,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -961,12 +920,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1024,11 +981,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1041,8 +996,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1057,12 +1012,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1132,11 +1085,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       type_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1153,8 +1104,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
       type_ = getDefaultInstance().getType();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1173,12 +1124,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       type_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1201,7 +1150,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timeSegmentStart field is set.
      */
     public boolean hasTimeSegmentStart() {
-      return timeSegmentStartBuilder_ != null || timeSegmentStart_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1243,11 +1192,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timeSegmentStart_ = value;
-        onChanged();
       } else {
         timeSegmentStartBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1267,11 +1216,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (timeSegmentStartBuilder_ == null) {
         timeSegmentStart_ = builderForValue.build();
-        onChanged();
       } else {
         timeSegmentStartBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1289,17 +1238,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimeSegmentStart(com.google.protobuf.Duration value) {
       if (timeSegmentStartBuilder_ == null) {
-        if (timeSegmentStart_ != null) {
-          timeSegmentStart_ =
-            com.google.protobuf.Duration.newBuilder(timeSegmentStart_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          timeSegmentStart_ != null &&
+          timeSegmentStart_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getTimeSegmentStartBuilder().mergeFrom(value);
         } else {
           timeSegmentStart_ = value;
         }
-        onChanged();
       } else {
         timeSegmentStartBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1316,14 +1266,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration time_segment_start = 4;</code>
      */
     public Builder clearTimeSegmentStart() {
-      if (timeSegmentStartBuilder_ == null) {
-        timeSegmentStart_ = null;
-        onChanged();
-      } else {
-        timeSegmentStart_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      timeSegmentStart_ = null;
+      if (timeSegmentStartBuilder_ != null) {
+        timeSegmentStartBuilder_.dispose();
         timeSegmentStartBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1340,7 +1289,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration time_segment_start = 4;</code>
      */
     public com.google.protobuf.Duration.Builder getTimeSegmentStartBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getTimeSegmentStartFieldBuilder().getBuilder();
     }
@@ -1410,7 +1359,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timeSegmentEnd field is set.
      */
     public boolean hasTimeSegmentEnd() {
-      return timeSegmentEndBuilder_ != null || timeSegmentEnd_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1452,11 +1401,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timeSegmentEnd_ = value;
-        onChanged();
       } else {
         timeSegmentEndBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1476,11 +1425,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (timeSegmentEndBuilder_ == null) {
         timeSegmentEnd_ = builderForValue.build();
-        onChanged();
       } else {
         timeSegmentEndBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1498,17 +1447,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimeSegmentEnd(com.google.protobuf.Duration value) {
       if (timeSegmentEndBuilder_ == null) {
-        if (timeSegmentEnd_ != null) {
-          timeSegmentEnd_ =
-            com.google.protobuf.Duration.newBuilder(timeSegmentEnd_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          timeSegmentEnd_ != null &&
+          timeSegmentEnd_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getTimeSegmentEndBuilder().mergeFrom(value);
         } else {
           timeSegmentEnd_ = value;
         }
-        onChanged();
       } else {
         timeSegmentEndBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1525,14 +1475,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration time_segment_end = 5;</code>
      */
     public Builder clearTimeSegmentEnd() {
-      if (timeSegmentEndBuilder_ == null) {
-        timeSegmentEnd_ = null;
-        onChanged();
-      } else {
-        timeSegmentEnd_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      timeSegmentEnd_ = null;
+      if (timeSegmentEndBuilder_ != null) {
+        timeSegmentEndBuilder_.dispose();
         timeSegmentEndBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1549,7 +1498,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration time_segment_end = 5;</code>
      */
     public com.google.protobuf.Duration.Builder getTimeSegmentEndBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getTimeSegmentEndFieldBuilder().getBuilder();
     }
@@ -1614,7 +1563,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the confidence field is set.
      */
     public boolean hasConfidence() {
-      return confidenceBuilder_ != null || confidence_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1646,11 +1595,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         confidence_ = value;
-        onChanged();
       } else {
         confidenceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1665,11 +1614,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.FloatValue.Builder builderForValue) {
       if (confidenceBuilder_ == null) {
         confidence_ = builderForValue.build();
-        onChanged();
       } else {
         confidenceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1682,17 +1631,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConfidence(com.google.protobuf.FloatValue value) {
       if (confidenceBuilder_ == null) {
-        if (confidence_ != null) {
-          confidence_ =
-            com.google.protobuf.FloatValue.newBuilder(confidence_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          confidence_ != null &&
+          confidence_ != com.google.protobuf.FloatValue.getDefaultInstance()) {
+          getConfidenceBuilder().mergeFrom(value);
         } else {
           confidence_ = value;
         }
-        onChanged();
       } else {
         confidenceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1704,14 +1654,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FloatValue confidence = 6;</code>
      */
     public Builder clearConfidence() {
-      if (confidenceBuilder_ == null) {
-        confidence_ = null;
-        onChanged();
-      } else {
-        confidence_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      confidence_ = null;
+      if (confidenceBuilder_ != null) {
+        confidenceBuilder_.dispose();
         confidenceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1723,7 +1672,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FloatValue confidence = 6;</code>
      */
     public com.google.protobuf.FloatValue.Builder getConfidenceBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getConfidenceFieldBuilder().getBuilder();
     }
@@ -1797,7 +1746,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VideoClassificationPredictionResult(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

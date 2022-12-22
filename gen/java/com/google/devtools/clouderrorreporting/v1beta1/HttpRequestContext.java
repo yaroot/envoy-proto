@@ -42,80 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HttpRequestContext(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            method_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            url_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            userAgent_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            referrer_ = s;
-            break;
-          }
-          case 40: {
-
-            responseStatusCode_ = input.readInt32();
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            remoteIp_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.clouderrorreporting.v1beta1.CommonProto.internal_static_google_devtools_clouderrorreporting_v1beta1_HttpRequestContext_descriptor;
@@ -130,7 +56,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int METHOD_FIELD_NUMBER = 1;
-  private volatile java.lang.Object method_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object method_ = "";
   /**
    * <pre>
    * The type of HTTP request, such as `GET`, `POST`, etc.
@@ -176,7 +103,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int URL_FIELD_NUMBER = 2;
-  private volatile java.lang.Object url_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object url_ = "";
   /**
    * <pre>
    * The URL of the request.
@@ -222,7 +150,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_AGENT_FIELD_NUMBER = 3;
-  private volatile java.lang.Object userAgent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object userAgent_ = "";
   /**
    * <pre>
    * The user agent information that is provided with the request.
@@ -268,7 +197,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REFERRER_FIELD_NUMBER = 4;
-  private volatile java.lang.Object referrer_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object referrer_ = "";
   /**
    * <pre>
    * The referrer information that is provided with the request.
@@ -314,7 +244,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESPONSE_STATUS_CODE_FIELD_NUMBER = 5;
-  private int responseStatusCode_;
+  private int responseStatusCode_ = 0;
   /**
    * <pre>
    * The HTTP response status code for the request.
@@ -329,7 +259,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REMOTE_IP_FIELD_NUMBER = 6;
-  private volatile java.lang.Object remoteIp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object remoteIp_ = "";
   /**
    * <pre>
    * The IP address from which the request originated.
@@ -412,7 +343,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(remoteIp_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, remoteIp_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -440,7 +371,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(remoteIp_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, remoteIp_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -467,7 +398,7 @@ private static final long serialVersionUID = 0L;
         != other.getResponseStatusCode()) return false;
     if (!getRemoteIp()
         .equals(other.getRemoteIp())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -490,7 +421,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getResponseStatusCode();
     hash = (37 * hash) + REMOTE_IP_FIELD_NUMBER;
     hash = (53 * hash) + getRemoteIp().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -614,34 +545,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.clouderrorreporting.v1beta1.HttpRequestContext.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       method_ = "";
-
       url_ = "";
-
       userAgent_ = "";
-
       referrer_ = "";
-
       responseStatusCode_ = 0;
-
       remoteIp_ = "";
-
       return this;
     }
 
@@ -668,14 +589,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.clouderrorreporting.v1beta1.HttpRequestContext buildPartial() {
       com.google.devtools.clouderrorreporting.v1beta1.HttpRequestContext result = new com.google.devtools.clouderrorreporting.v1beta1.HttpRequestContext(this);
-      result.method_ = method_;
-      result.url_ = url_;
-      result.userAgent_ = userAgent_;
-      result.referrer_ = referrer_;
-      result.responseStatusCode_ = responseStatusCode_;
-      result.remoteIp_ = remoteIp_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.clouderrorreporting.v1beta1.HttpRequestContext result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.method_ = method_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.url_ = url_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.userAgent_ = userAgent_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.referrer_ = referrer_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.responseStatusCode_ = responseStatusCode_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.remoteIp_ = remoteIp_;
+      }
     }
 
     @java.lang.Override
@@ -724,18 +662,22 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.clouderrorreporting.v1beta1.HttpRequestContext.getDefaultInstance()) return this;
       if (!other.getMethod().isEmpty()) {
         method_ = other.method_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getUrl().isEmpty()) {
         url_ = other.url_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getUserAgent().isEmpty()) {
         userAgent_ = other.userAgent_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getReferrer().isEmpty()) {
         referrer_ = other.referrer_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.getResponseStatusCode() != 0) {
@@ -743,9 +685,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRemoteIp().isEmpty()) {
         remoteIp_ = other.remoteIp_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -760,19 +703,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.clouderrorreporting.v1beta1.HttpRequestContext parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              method_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              url_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              userAgent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              referrer_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              responseStatusCode_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              remoteIp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.clouderrorreporting.v1beta1.HttpRequestContext) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object method_ = "";
     /**
@@ -827,11 +814,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMethod(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       method_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -844,8 +829,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMethod() {
-      
       method_ = getDefaultInstance().getMethod();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -860,12 +845,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMethodBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       method_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -923,11 +906,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       url_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -940,8 +921,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUrl() {
-      
       url_ = getDefaultInstance().getUrl();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -956,12 +937,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       url_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1019,11 +998,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserAgent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       userAgent_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1036,8 +1013,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUserAgent() {
-      
       userAgent_ = getDefaultInstance().getUserAgent();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1052,12 +1029,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserAgentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       userAgent_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1115,11 +1090,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReferrer(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       referrer_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1132,8 +1105,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReferrer() {
-      
       referrer_ = getDefaultInstance().getReferrer();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1148,12 +1121,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReferrerBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       referrer_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1183,6 +1154,7 @@ private static final long serialVersionUID = 0L;
     public Builder setResponseStatusCode(int value) {
       
       responseStatusCode_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1195,7 +1167,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResponseStatusCode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       responseStatusCode_ = 0;
       onChanged();
       return this;
@@ -1263,11 +1235,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRemoteIp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       remoteIp_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1283,8 +1253,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRemoteIp() {
-      
       remoteIp_ = getDefaultInstance().getRemoteIp();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1302,12 +1272,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRemoteIpBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       remoteIp_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1344,7 +1312,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HttpRequestContext(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

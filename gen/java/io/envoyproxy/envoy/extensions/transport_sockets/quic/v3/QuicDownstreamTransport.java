@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private QuicDownstreamTransport(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext.Builder subBuilder = null;
-            if (downstreamTlsContext_ != null) {
-              subBuilder = downstreamTlsContext_.toBuilder();
-            }
-            downstreamTlsContext_ = input.readMessage(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(downstreamTlsContext_);
-              downstreamTlsContext_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (enableEarlyData_ != null) {
-              subBuilder = enableEarlyData_.toBuilder();
-            }
-            enableEarlyData_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(enableEarlyData_);
-              enableEarlyData_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.transport_sockets.quic.v3.QuicTransportProto.internal_static_envoy_extensions_transport_sockets_quic_v3_QuicDownstreamTransport_descriptor;
@@ -135,7 +70,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContextOrBuilder getDownstreamTlsContextOrBuilder() {
-    return getDownstreamTlsContext();
+    return downstreamTlsContext_ == null ? io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext.getDefaultInstance() : downstreamTlsContext_;
   }
 
   public static final int ENABLE_EARLY_DATA_FIELD_NUMBER = 2;
@@ -176,7 +111,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getEnableEarlyDataOrBuilder() {
-    return getEnableEarlyData();
+    return enableEarlyData_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : enableEarlyData_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -199,7 +134,7 @@ private static final long serialVersionUID = 0L;
     if (enableEarlyData_ != null) {
       output.writeMessage(2, getEnableEarlyData());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -216,7 +151,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getEnableEarlyData());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -241,7 +176,7 @@ private static final long serialVersionUID = 0L;
       if (!getEnableEarlyData()
           .equals(other.getEnableEarlyData())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -260,7 +195,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ENABLE_EARLY_DATA_FIELD_NUMBER;
       hash = (53 * hash) + getEnableEarlyData().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -381,32 +316,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.transport_sockets.quic.v3.QuicDownstreamTransport.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (downstreamTlsContextBuilder_ == null) {
-        downstreamTlsContext_ = null;
-      } else {
-        downstreamTlsContext_ = null;
+      bitField0_ = 0;
+      downstreamTlsContext_ = null;
+      if (downstreamTlsContextBuilder_ != null) {
+        downstreamTlsContextBuilder_.dispose();
         downstreamTlsContextBuilder_ = null;
       }
-      if (enableEarlyDataBuilder_ == null) {
-        enableEarlyData_ = null;
-      } else {
-        enableEarlyData_ = null;
+      enableEarlyData_ = null;
+      if (enableEarlyDataBuilder_ != null) {
+        enableEarlyDataBuilder_.dispose();
         enableEarlyDataBuilder_ = null;
       }
       return this;
@@ -435,18 +364,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.transport_sockets.quic.v3.QuicDownstreamTransport buildPartial() {
       io.envoyproxy.envoy.extensions.transport_sockets.quic.v3.QuicDownstreamTransport result = new io.envoyproxy.envoy.extensions.transport_sockets.quic.v3.QuicDownstreamTransport(this);
-      if (downstreamTlsContextBuilder_ == null) {
-        result.downstreamTlsContext_ = downstreamTlsContext_;
-      } else {
-        result.downstreamTlsContext_ = downstreamTlsContextBuilder_.build();
-      }
-      if (enableEarlyDataBuilder_ == null) {
-        result.enableEarlyData_ = enableEarlyData_;
-      } else {
-        result.enableEarlyData_ = enableEarlyDataBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.transport_sockets.quic.v3.QuicDownstreamTransport result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.downstreamTlsContext_ = downstreamTlsContextBuilder_ == null
+            ? downstreamTlsContext_
+            : downstreamTlsContextBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.enableEarlyData_ = enableEarlyDataBuilder_ == null
+            ? enableEarlyData_
+            : enableEarlyDataBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -499,7 +433,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasEnableEarlyData()) {
         mergeEnableEarlyData(other.getEnableEarlyData());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -514,19 +448,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.transport_sockets.quic.v3.QuicDownstreamTransport parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getDownstreamTlsContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getEnableEarlyDataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.transport_sockets.quic.v3.QuicDownstreamTransport) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext downstreamTlsContext_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -536,7 +498,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the downstreamTlsContext field is set.
      */
     public boolean hasDownstreamTlsContext() {
-      return downstreamTlsContextBuilder_ != null || downstreamTlsContext_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext downstream_tls_context = 1 [(.validate.rules) = { ... }</code>
@@ -558,11 +520,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         downstreamTlsContext_ = value;
-        onChanged();
       } else {
         downstreamTlsContextBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -572,11 +534,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext.Builder builderForValue) {
       if (downstreamTlsContextBuilder_ == null) {
         downstreamTlsContext_ = builderForValue.build();
-        onChanged();
       } else {
         downstreamTlsContextBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -584,38 +546,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDownstreamTlsContext(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext value) {
       if (downstreamTlsContextBuilder_ == null) {
-        if (downstreamTlsContext_ != null) {
-          downstreamTlsContext_ =
-            io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext.newBuilder(downstreamTlsContext_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          downstreamTlsContext_ != null &&
+          downstreamTlsContext_ != io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext.getDefaultInstance()) {
+          getDownstreamTlsContextBuilder().mergeFrom(value);
         } else {
           downstreamTlsContext_ = value;
         }
-        onChanged();
       } else {
         downstreamTlsContextBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext downstream_tls_context = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearDownstreamTlsContext() {
-      if (downstreamTlsContextBuilder_ == null) {
-        downstreamTlsContext_ = null;
-        onChanged();
-      } else {
-        downstreamTlsContext_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      downstreamTlsContext_ = null;
+      if (downstreamTlsContextBuilder_ != null) {
+        downstreamTlsContextBuilder_.dispose();
         downstreamTlsContextBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext downstream_tls_context = 1 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext.Builder getDownstreamTlsContextBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getDownstreamTlsContextFieldBuilder().getBuilder();
     }
@@ -660,7 +622,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the enableEarlyData field is set.
      */
     public boolean hasEnableEarlyData() {
-      return enableEarlyDataBuilder_ != null || enableEarlyData_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -692,11 +654,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         enableEarlyData_ = value;
-        onChanged();
       } else {
         enableEarlyDataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -711,11 +673,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (enableEarlyDataBuilder_ == null) {
         enableEarlyData_ = builderForValue.build();
-        onChanged();
       } else {
         enableEarlyDataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -728,17 +690,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnableEarlyData(com.google.protobuf.BoolValue value) {
       if (enableEarlyDataBuilder_ == null) {
-        if (enableEarlyData_ != null) {
-          enableEarlyData_ =
-            com.google.protobuf.BoolValue.newBuilder(enableEarlyData_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          enableEarlyData_ != null &&
+          enableEarlyData_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getEnableEarlyDataBuilder().mergeFrom(value);
         } else {
           enableEarlyData_ = value;
         }
-        onChanged();
       } else {
         enableEarlyDataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -750,14 +713,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue enable_early_data = 2;</code>
      */
     public Builder clearEnableEarlyData() {
-      if (enableEarlyDataBuilder_ == null) {
-        enableEarlyData_ = null;
-        onChanged();
-      } else {
-        enableEarlyData_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      enableEarlyData_ = null;
+      if (enableEarlyDataBuilder_ != null) {
+        enableEarlyDataBuilder_.dispose();
         enableEarlyDataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -769,7 +731,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue enable_early_data = 2;</code>
      */
     public com.google.protobuf.BoolValue.Builder getEnableEarlyDataBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getEnableEarlyDataFieldBuilder().getBuilder();
     }
@@ -843,7 +805,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new QuicDownstreamTransport(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

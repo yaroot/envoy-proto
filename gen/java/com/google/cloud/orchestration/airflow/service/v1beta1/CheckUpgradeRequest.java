@@ -36,57 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CheckUpgradeRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            environment_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            imageVersion_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.orchestration.airflow.service.v1beta1.EnvironmentsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1beta1_CheckUpgradeRequest_descriptor;
@@ -101,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENVIRONMENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object environment_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object environment_ = "";
   /**
    * <pre>
    * The resource name of the environment to check upgrade for, in the
@@ -151,26 +101,30 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGE_VERSION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object imageVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object imageVersion_ = "";
   /**
    * <pre>
    * The version of the software running in the environment.
    * This encapsulates both the version of Cloud Composer functionality and the
    * version of Apache Airflow. It must match the regular expression
-   * `composer-([0-9]+&#92;.[0-9]+&#92;.[0-9]+|latest)-airflow-[0-9]+&#92;.[0-9]+(&#92;.[0-9]+.*)?`.
+   * `composer-([0-9]+(&#92;.[0-9]+&#92;.[0-9]+(-preview&#92;.[0-9]+)?)?|latest)-airflow-([0-9]+(&#92;.[0-9]+(&#92;.[0-9]+)?)?)`.
    * When used as input, the server also checks if the provided version is
    * supported and denies the request for an unsupported version.
-   * The Cloud Composer portion of the version is a
-   * [semantic version](https://semver.org) or `latest`. When the patch version
-   * is omitted, the current Cloud Composer patch version is selected.
-   * When `latest` is provided instead of an explicit version number,
-   * the server replaces `latest` with the current Cloud Composer version
-   * and stores that version number in the same field.
-   * The portion of the image version that follows `airflow-` is an
-   * official Apache Airflow repository
-   * [release name](https://github.com/apache/incubator-airflow/releases).
-   * See also [Version List]
-   * (/composer/docs/concepts/versioning/composer-versions).
+   * The Cloud Composer portion of the image version is a full
+   * [semantic version](https://semver.org), or an alias in the form of major
+   * version number or `latest`. When an alias is provided, the server replaces
+   * it with the current Cloud Composer version that satisfies the alias.
+   * The Apache Airflow portion of the image version is a full semantic version
+   * that points to one of the supported Apache Airflow versions, or an alias in
+   * the form of only major or major.minor versions specified. When an alias is
+   * provided, the server replaces it with the latest Apache Airflow version
+   * that satisfies the alias and is supported in the given Cloud Composer
+   * version.
+   * In all cases, the resolved image version is stored in the same field.
+   * See also [version
+   * list](/composer/docs/concepts/versioning/composer-versions) and [versioning
+   * overview](/composer/docs/concepts/versioning/composer-versioning-overview).
    * </pre>
    *
    * <code>string image_version = 2;</code>
@@ -194,20 +148,23 @@ private static final long serialVersionUID = 0L;
    * The version of the software running in the environment.
    * This encapsulates both the version of Cloud Composer functionality and the
    * version of Apache Airflow. It must match the regular expression
-   * `composer-([0-9]+&#92;.[0-9]+&#92;.[0-9]+|latest)-airflow-[0-9]+&#92;.[0-9]+(&#92;.[0-9]+.*)?`.
+   * `composer-([0-9]+(&#92;.[0-9]+&#92;.[0-9]+(-preview&#92;.[0-9]+)?)?|latest)-airflow-([0-9]+(&#92;.[0-9]+(&#92;.[0-9]+)?)?)`.
    * When used as input, the server also checks if the provided version is
    * supported and denies the request for an unsupported version.
-   * The Cloud Composer portion of the version is a
-   * [semantic version](https://semver.org) or `latest`. When the patch version
-   * is omitted, the current Cloud Composer patch version is selected.
-   * When `latest` is provided instead of an explicit version number,
-   * the server replaces `latest` with the current Cloud Composer version
-   * and stores that version number in the same field.
-   * The portion of the image version that follows `airflow-` is an
-   * official Apache Airflow repository
-   * [release name](https://github.com/apache/incubator-airflow/releases).
-   * See also [Version List]
-   * (/composer/docs/concepts/versioning/composer-versions).
+   * The Cloud Composer portion of the image version is a full
+   * [semantic version](https://semver.org), or an alias in the form of major
+   * version number or `latest`. When an alias is provided, the server replaces
+   * it with the current Cloud Composer version that satisfies the alias.
+   * The Apache Airflow portion of the image version is a full semantic version
+   * that points to one of the supported Apache Airflow versions, or an alias in
+   * the form of only major or major.minor versions specified. When an alias is
+   * provided, the server replaces it with the latest Apache Airflow version
+   * that satisfies the alias and is supported in the given Cloud Composer
+   * version.
+   * In all cases, the resolved image version is stored in the same field.
+   * See also [version
+   * list](/composer/docs/concepts/versioning/composer-versions) and [versioning
+   * overview](/composer/docs/concepts/versioning/composer-versioning-overview).
    * </pre>
    *
    * <code>string image_version = 2;</code>
@@ -248,7 +205,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageVersion_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, imageVersion_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -263,7 +220,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageVersion_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, imageVersion_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -282,7 +239,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getEnvironment())) return false;
     if (!getImageVersion()
         .equals(other.getImageVersion())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -297,7 +254,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getEnvironment().hashCode();
     hash = (37 * hash) + IMAGE_VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getImageVersion().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -418,26 +375,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.orchestration.airflow.service.v1beta1.CheckUpgradeRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       environment_ = "";
-
       imageVersion_ = "";
-
       return this;
     }
 
@@ -464,10 +415,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.orchestration.airflow.service.v1beta1.CheckUpgradeRequest buildPartial() {
       com.google.cloud.orchestration.airflow.service.v1beta1.CheckUpgradeRequest result = new com.google.cloud.orchestration.airflow.service.v1beta1.CheckUpgradeRequest(this);
-      result.environment_ = environment_;
-      result.imageVersion_ = imageVersion_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.orchestration.airflow.service.v1beta1.CheckUpgradeRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.environment_ = environment_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.imageVersion_ = imageVersion_;
+      }
     }
 
     @java.lang.Override
@@ -516,13 +476,15 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.orchestration.airflow.service.v1beta1.CheckUpgradeRequest.getDefaultInstance()) return this;
       if (!other.getEnvironment().isEmpty()) {
         environment_ = other.environment_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getImageVersion().isEmpty()) {
         imageVersion_ = other.imageVersion_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -537,19 +499,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.orchestration.airflow.service.v1beta1.CheckUpgradeRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              environment_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              imageVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.orchestration.airflow.service.v1beta1.CheckUpgradeRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object environment_ = "";
     /**
@@ -610,11 +596,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEnvironment(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       environment_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -629,8 +613,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnvironment() {
-      
       environment_ = getDefaultInstance().getEnvironment();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -647,12 +631,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEnvironmentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       environment_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -663,20 +645,23 @@ private static final long serialVersionUID = 0L;
      * The version of the software running in the environment.
      * This encapsulates both the version of Cloud Composer functionality and the
      * version of Apache Airflow. It must match the regular expression
-     * `composer-([0-9]+&#92;.[0-9]+&#92;.[0-9]+|latest)-airflow-[0-9]+&#92;.[0-9]+(&#92;.[0-9]+.*)?`.
+     * `composer-([0-9]+(&#92;.[0-9]+&#92;.[0-9]+(-preview&#92;.[0-9]+)?)?|latest)-airflow-([0-9]+(&#92;.[0-9]+(&#92;.[0-9]+)?)?)`.
      * When used as input, the server also checks if the provided version is
      * supported and denies the request for an unsupported version.
-     * The Cloud Composer portion of the version is a
-     * [semantic version](https://semver.org) or `latest`. When the patch version
-     * is omitted, the current Cloud Composer patch version is selected.
-     * When `latest` is provided instead of an explicit version number,
-     * the server replaces `latest` with the current Cloud Composer version
-     * and stores that version number in the same field.
-     * The portion of the image version that follows `airflow-` is an
-     * official Apache Airflow repository
-     * [release name](https://github.com/apache/incubator-airflow/releases).
-     * See also [Version List]
-     * (/composer/docs/concepts/versioning/composer-versions).
+     * The Cloud Composer portion of the image version is a full
+     * [semantic version](https://semver.org), or an alias in the form of major
+     * version number or `latest`. When an alias is provided, the server replaces
+     * it with the current Cloud Composer version that satisfies the alias.
+     * The Apache Airflow portion of the image version is a full semantic version
+     * that points to one of the supported Apache Airflow versions, or an alias in
+     * the form of only major or major.minor versions specified. When an alias is
+     * provided, the server replaces it with the latest Apache Airflow version
+     * that satisfies the alias and is supported in the given Cloud Composer
+     * version.
+     * In all cases, the resolved image version is stored in the same field.
+     * See also [version
+     * list](/composer/docs/concepts/versioning/composer-versions) and [versioning
+     * overview](/composer/docs/concepts/versioning/composer-versioning-overview).
      * </pre>
      *
      * <code>string image_version = 2;</code>
@@ -699,20 +684,23 @@ private static final long serialVersionUID = 0L;
      * The version of the software running in the environment.
      * This encapsulates both the version of Cloud Composer functionality and the
      * version of Apache Airflow. It must match the regular expression
-     * `composer-([0-9]+&#92;.[0-9]+&#92;.[0-9]+|latest)-airflow-[0-9]+&#92;.[0-9]+(&#92;.[0-9]+.*)?`.
+     * `composer-([0-9]+(&#92;.[0-9]+&#92;.[0-9]+(-preview&#92;.[0-9]+)?)?|latest)-airflow-([0-9]+(&#92;.[0-9]+(&#92;.[0-9]+)?)?)`.
      * When used as input, the server also checks if the provided version is
      * supported and denies the request for an unsupported version.
-     * The Cloud Composer portion of the version is a
-     * [semantic version](https://semver.org) or `latest`. When the patch version
-     * is omitted, the current Cloud Composer patch version is selected.
-     * When `latest` is provided instead of an explicit version number,
-     * the server replaces `latest` with the current Cloud Composer version
-     * and stores that version number in the same field.
-     * The portion of the image version that follows `airflow-` is an
-     * official Apache Airflow repository
-     * [release name](https://github.com/apache/incubator-airflow/releases).
-     * See also [Version List]
-     * (/composer/docs/concepts/versioning/composer-versions).
+     * The Cloud Composer portion of the image version is a full
+     * [semantic version](https://semver.org), or an alias in the form of major
+     * version number or `latest`. When an alias is provided, the server replaces
+     * it with the current Cloud Composer version that satisfies the alias.
+     * The Apache Airflow portion of the image version is a full semantic version
+     * that points to one of the supported Apache Airflow versions, or an alias in
+     * the form of only major or major.minor versions specified. When an alias is
+     * provided, the server replaces it with the latest Apache Airflow version
+     * that satisfies the alias and is supported in the given Cloud Composer
+     * version.
+     * In all cases, the resolved image version is stored in the same field.
+     * See also [version
+     * list](/composer/docs/concepts/versioning/composer-versions) and [versioning
+     * overview](/composer/docs/concepts/versioning/composer-versioning-overview).
      * </pre>
      *
      * <code>string image_version = 2;</code>
@@ -736,20 +724,23 @@ private static final long serialVersionUID = 0L;
      * The version of the software running in the environment.
      * This encapsulates both the version of Cloud Composer functionality and the
      * version of Apache Airflow. It must match the regular expression
-     * `composer-([0-9]+&#92;.[0-9]+&#92;.[0-9]+|latest)-airflow-[0-9]+&#92;.[0-9]+(&#92;.[0-9]+.*)?`.
+     * `composer-([0-9]+(&#92;.[0-9]+&#92;.[0-9]+(-preview&#92;.[0-9]+)?)?|latest)-airflow-([0-9]+(&#92;.[0-9]+(&#92;.[0-9]+)?)?)`.
      * When used as input, the server also checks if the provided version is
      * supported and denies the request for an unsupported version.
-     * The Cloud Composer portion of the version is a
-     * [semantic version](https://semver.org) or `latest`. When the patch version
-     * is omitted, the current Cloud Composer patch version is selected.
-     * When `latest` is provided instead of an explicit version number,
-     * the server replaces `latest` with the current Cloud Composer version
-     * and stores that version number in the same field.
-     * The portion of the image version that follows `airflow-` is an
-     * official Apache Airflow repository
-     * [release name](https://github.com/apache/incubator-airflow/releases).
-     * See also [Version List]
-     * (/composer/docs/concepts/versioning/composer-versions).
+     * The Cloud Composer portion of the image version is a full
+     * [semantic version](https://semver.org), or an alias in the form of major
+     * version number or `latest`. When an alias is provided, the server replaces
+     * it with the current Cloud Composer version that satisfies the alias.
+     * The Apache Airflow portion of the image version is a full semantic version
+     * that points to one of the supported Apache Airflow versions, or an alias in
+     * the form of only major or major.minor versions specified. When an alias is
+     * provided, the server replaces it with the latest Apache Airflow version
+     * that satisfies the alias and is supported in the given Cloud Composer
+     * version.
+     * In all cases, the resolved image version is stored in the same field.
+     * See also [version
+     * list](/composer/docs/concepts/versioning/composer-versions) and [versioning
+     * overview](/composer/docs/concepts/versioning/composer-versioning-overview).
      * </pre>
      *
      * <code>string image_version = 2;</code>
@@ -758,11 +749,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       imageVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -771,28 +760,31 @@ private static final long serialVersionUID = 0L;
      * The version of the software running in the environment.
      * This encapsulates both the version of Cloud Composer functionality and the
      * version of Apache Airflow. It must match the regular expression
-     * `composer-([0-9]+&#92;.[0-9]+&#92;.[0-9]+|latest)-airflow-[0-9]+&#92;.[0-9]+(&#92;.[0-9]+.*)?`.
+     * `composer-([0-9]+(&#92;.[0-9]+&#92;.[0-9]+(-preview&#92;.[0-9]+)?)?|latest)-airflow-([0-9]+(&#92;.[0-9]+(&#92;.[0-9]+)?)?)`.
      * When used as input, the server also checks if the provided version is
      * supported and denies the request for an unsupported version.
-     * The Cloud Composer portion of the version is a
-     * [semantic version](https://semver.org) or `latest`. When the patch version
-     * is omitted, the current Cloud Composer patch version is selected.
-     * When `latest` is provided instead of an explicit version number,
-     * the server replaces `latest` with the current Cloud Composer version
-     * and stores that version number in the same field.
-     * The portion of the image version that follows `airflow-` is an
-     * official Apache Airflow repository
-     * [release name](https://github.com/apache/incubator-airflow/releases).
-     * See also [Version List]
-     * (/composer/docs/concepts/versioning/composer-versions).
+     * The Cloud Composer portion of the image version is a full
+     * [semantic version](https://semver.org), or an alias in the form of major
+     * version number or `latest`. When an alias is provided, the server replaces
+     * it with the current Cloud Composer version that satisfies the alias.
+     * The Apache Airflow portion of the image version is a full semantic version
+     * that points to one of the supported Apache Airflow versions, or an alias in
+     * the form of only major or major.minor versions specified. When an alias is
+     * provided, the server replaces it with the latest Apache Airflow version
+     * that satisfies the alias and is supported in the given Cloud Composer
+     * version.
+     * In all cases, the resolved image version is stored in the same field.
+     * See also [version
+     * list](/composer/docs/concepts/versioning/composer-versions) and [versioning
+     * overview](/composer/docs/concepts/versioning/composer-versioning-overview).
      * </pre>
      *
      * <code>string image_version = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearImageVersion() {
-      
       imageVersion_ = getDefaultInstance().getImageVersion();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -801,20 +793,23 @@ private static final long serialVersionUID = 0L;
      * The version of the software running in the environment.
      * This encapsulates both the version of Cloud Composer functionality and the
      * version of Apache Airflow. It must match the regular expression
-     * `composer-([0-9]+&#92;.[0-9]+&#92;.[0-9]+|latest)-airflow-[0-9]+&#92;.[0-9]+(&#92;.[0-9]+.*)?`.
+     * `composer-([0-9]+(&#92;.[0-9]+&#92;.[0-9]+(-preview&#92;.[0-9]+)?)?|latest)-airflow-([0-9]+(&#92;.[0-9]+(&#92;.[0-9]+)?)?)`.
      * When used as input, the server also checks if the provided version is
      * supported and denies the request for an unsupported version.
-     * The Cloud Composer portion of the version is a
-     * [semantic version](https://semver.org) or `latest`. When the patch version
-     * is omitted, the current Cloud Composer patch version is selected.
-     * When `latest` is provided instead of an explicit version number,
-     * the server replaces `latest` with the current Cloud Composer version
-     * and stores that version number in the same field.
-     * The portion of the image version that follows `airflow-` is an
-     * official Apache Airflow repository
-     * [release name](https://github.com/apache/incubator-airflow/releases).
-     * See also [Version List]
-     * (/composer/docs/concepts/versioning/composer-versions).
+     * The Cloud Composer portion of the image version is a full
+     * [semantic version](https://semver.org), or an alias in the form of major
+     * version number or `latest`. When an alias is provided, the server replaces
+     * it with the current Cloud Composer version that satisfies the alias.
+     * The Apache Airflow portion of the image version is a full semantic version
+     * that points to one of the supported Apache Airflow versions, or an alias in
+     * the form of only major or major.minor versions specified. When an alias is
+     * provided, the server replaces it with the latest Apache Airflow version
+     * that satisfies the alias and is supported in the given Cloud Composer
+     * version.
+     * In all cases, the resolved image version is stored in the same field.
+     * See also [version
+     * list](/composer/docs/concepts/versioning/composer-versions) and [versioning
+     * overview](/composer/docs/concepts/versioning/composer-versioning-overview).
      * </pre>
      *
      * <code>string image_version = 2;</code>
@@ -823,12 +818,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       imageVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -865,7 +858,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CheckUpgradeRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

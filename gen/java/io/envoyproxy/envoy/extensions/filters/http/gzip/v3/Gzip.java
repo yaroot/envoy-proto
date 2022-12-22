@@ -36,109 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Gzip(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (memoryLevel_ != null) {
-              subBuilder = memoryLevel_.toBuilder();
-            }
-            memoryLevel_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(memoryLevel_);
-              memoryLevel_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            compressionLevel_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            compressionStrategy_ = rawValue;
-            break;
-          }
-          case 74: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (windowBits_ != null) {
-              subBuilder = windowBits_.toBuilder();
-            }
-            windowBits_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(windowBits_);
-              windowBits_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.Builder subBuilder = null;
-            if (compressor_ != null) {
-              subBuilder = compressor_.toBuilder();
-            }
-            compressor_ = input.readMessage(io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(compressor_);
-              compressor_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (chunkSize_ != null) {
-              subBuilder = chunkSize_.toBuilder();
-            }
-            chunkSize_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(chunkSize_);
-              chunkSize_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.gzip.v3.GzipProto.internal_static_envoy_extensions_filters_http_gzip_v3_Gzip_descriptor;
@@ -309,45 +206,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CompressionLevel(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.extensions.filters.http.gzip.v3.GzipProto.internal_static_envoy_extensions_filters_http_gzip_v3_Gzip_CompressionLevel_descriptor;
@@ -492,7 +350,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -501,7 +359,7 @@ private static final long serialVersionUID = 0L;
       if (size != -1) return size;
 
       size = 0;
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -516,7 +374,7 @@ private static final long serialVersionUID = 0L;
       }
       io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel other = (io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel) obj;
 
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -527,7 +385,7 @@ private static final long serialVersionUID = 0L;
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -644,18 +502,13 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -734,7 +587,7 @@ private static final long serialVersionUID = 0L;
 
       public Builder mergeFrom(io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel other) {
         if (other == io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -749,17 +602,30 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       @java.lang.Override
@@ -795,7 +661,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CompressionLevel(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -853,11 +730,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getMemoryLevelOrBuilder() {
-    return getMemoryLevel();
+    return memoryLevel_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : memoryLevel_;
   }
 
   public static final int COMPRESSION_LEVEL_FIELD_NUMBER = 3;
-  private int compressionLevel_;
+  private int compressionLevel_ = 0;
   /**
    * <pre>
    * A value used for selecting the zlib compression level. This setting will affect speed and
@@ -886,13 +763,12 @@ private static final long serialVersionUID = 0L;
    * @return The compressionLevel.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel.Enum getCompressionLevel() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel.Enum result = io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel.Enum.valueOf(compressionLevel_);
+    io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel.Enum result = io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel.Enum.forNumber(compressionLevel_);
     return result == null ? io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel.Enum.UNRECOGNIZED : result;
   }
 
   public static final int COMPRESSION_STRATEGY_FIELD_NUMBER = 4;
-  private int compressionStrategy_;
+  private int compressionStrategy_ = 0;
   /**
    * <pre>
    * A value used for selecting the zlib compression strategy which is directly related to the
@@ -923,8 +799,7 @@ private static final long serialVersionUID = 0L;
    * @return The compressionStrategy.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionStrategy getCompressionStrategy() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionStrategy result = io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionStrategy.valueOf(compressionStrategy_);
+    io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionStrategy result = io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionStrategy.forNumber(compressionStrategy_);
     return result == null ? io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionStrategy.UNRECOGNIZED : result;
   }
 
@@ -972,7 +847,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getWindowBitsOrBuilder() {
-    return getWindowBits();
+    return windowBits_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : windowBits_;
   }
 
   public static final int COMPRESSOR_FIELD_NUMBER = 10;
@@ -1013,7 +888,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.filters.http.compressor.v3.CompressorOrBuilder getCompressorOrBuilder() {
-    return getCompressor();
+    return compressor_ == null ? io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.getDefaultInstance() : compressor_;
   }
 
   public static final int CHUNK_SIZE_FIELD_NUMBER = 11;
@@ -1057,7 +932,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getChunkSizeOrBuilder() {
-    return getChunkSize();
+    return chunkSize_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : chunkSize_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1092,7 +967,7 @@ private static final long serialVersionUID = 0L;
     if (chunkSize_ != null) {
       output.writeMessage(11, getChunkSize());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1125,7 +1000,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, getChunkSize());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1162,7 +1037,7 @@ private static final long serialVersionUID = 0L;
       if (!getChunkSize()
           .equals(other.getChunkSize())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1193,7 +1068,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CHUNK_SIZE_FIELD_NUMBER;
       hash = (53 * hash) + getChunkSize().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1314,48 +1189,38 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (memoryLevelBuilder_ == null) {
-        memoryLevel_ = null;
-      } else {
-        memoryLevel_ = null;
+      bitField0_ = 0;
+      memoryLevel_ = null;
+      if (memoryLevelBuilder_ != null) {
+        memoryLevelBuilder_.dispose();
         memoryLevelBuilder_ = null;
       }
       compressionLevel_ = 0;
-
       compressionStrategy_ = 0;
-
-      if (windowBitsBuilder_ == null) {
-        windowBits_ = null;
-      } else {
-        windowBits_ = null;
+      windowBits_ = null;
+      if (windowBitsBuilder_ != null) {
+        windowBitsBuilder_.dispose();
         windowBitsBuilder_ = null;
       }
-      if (compressorBuilder_ == null) {
-        compressor_ = null;
-      } else {
-        compressor_ = null;
+      compressor_ = null;
+      if (compressorBuilder_ != null) {
+        compressorBuilder_.dispose();
         compressorBuilder_ = null;
       }
-      if (chunkSizeBuilder_ == null) {
-        chunkSize_ = null;
-      } else {
-        chunkSize_ = null;
+      chunkSize_ = null;
+      if (chunkSizeBuilder_ != null) {
+        chunkSizeBuilder_.dispose();
         chunkSizeBuilder_ = null;
       }
       return this;
@@ -1384,30 +1249,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip result = new io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip(this);
-      if (memoryLevelBuilder_ == null) {
-        result.memoryLevel_ = memoryLevel_;
-      } else {
-        result.memoryLevel_ = memoryLevelBuilder_.build();
-      }
-      result.compressionLevel_ = compressionLevel_;
-      result.compressionStrategy_ = compressionStrategy_;
-      if (windowBitsBuilder_ == null) {
-        result.windowBits_ = windowBits_;
-      } else {
-        result.windowBits_ = windowBitsBuilder_.build();
-      }
-      if (compressorBuilder_ == null) {
-        result.compressor_ = compressor_;
-      } else {
-        result.compressor_ = compressorBuilder_.build();
-      }
-      if (chunkSizeBuilder_ == null) {
-        result.chunkSize_ = chunkSize_;
-      } else {
-        result.chunkSize_ = chunkSizeBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.memoryLevel_ = memoryLevelBuilder_ == null
+            ? memoryLevel_
+            : memoryLevelBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.compressionLevel_ = compressionLevel_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.compressionStrategy_ = compressionStrategy_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.windowBits_ = windowBitsBuilder_ == null
+            ? windowBits_
+            : windowBitsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.compressor_ = compressorBuilder_ == null
+            ? compressor_
+            : compressorBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.chunkSize_ = chunkSizeBuilder_ == null
+            ? chunkSize_
+            : chunkSizeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1472,7 +1346,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasChunkSize()) {
         mergeChunkSize(other.getChunkSize());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1487,19 +1361,71 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMemoryLevelFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 24: {
+              compressionLevel_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 24
+            case 32: {
+              compressionStrategy_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 32
+            case 74: {
+              input.readMessage(
+                  getWindowBitsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getCompressorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getChunkSizeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.UInt32Value memoryLevel_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1514,7 +1440,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the memoryLevel field is set.
      */
     public boolean hasMemoryLevel() {
-      return memoryLevelBuilder_ != null || memoryLevel_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1546,11 +1472,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         memoryLevel_ = value;
-        onChanged();
       } else {
         memoryLevelBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1565,11 +1491,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (memoryLevelBuilder_ == null) {
         memoryLevel_ = builderForValue.build();
-        onChanged();
       } else {
         memoryLevelBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1582,17 +1508,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMemoryLevel(com.google.protobuf.UInt32Value value) {
       if (memoryLevelBuilder_ == null) {
-        if (memoryLevel_ != null) {
-          memoryLevel_ =
-            com.google.protobuf.UInt32Value.newBuilder(memoryLevel_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          memoryLevel_ != null &&
+          memoryLevel_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getMemoryLevelBuilder().mergeFrom(value);
         } else {
           memoryLevel_ = value;
         }
-        onChanged();
       } else {
         memoryLevelBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1604,14 +1531,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value memory_level = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearMemoryLevel() {
-      if (memoryLevelBuilder_ == null) {
-        memoryLevel_ = null;
-        onChanged();
-      } else {
-        memoryLevel_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      memoryLevel_ = null;
+      if (memoryLevelBuilder_ != null) {
+        memoryLevelBuilder_.dispose();
         memoryLevelBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1623,7 +1549,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value memory_level = 1 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getMemoryLevelBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMemoryLevelFieldBuilder().getBuilder();
     }
@@ -1695,8 +1621,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCompressionLevelValue(int value) {
-      
       compressionLevel_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1714,8 +1640,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel.Enum getCompressionLevel() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel.Enum result = io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel.Enum.valueOf(compressionLevel_);
+      io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel.Enum result = io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel.Enum.forNumber(compressionLevel_);
       return result == null ? io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionLevel.Enum.UNRECOGNIZED : result;
     }
     /**
@@ -1735,7 +1660,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       compressionLevel_ = value.getNumber();
       onChanged();
       return this;
@@ -1753,7 +1678,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCompressionLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       compressionLevel_ = 0;
       onChanged();
       return this;
@@ -1791,8 +1716,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCompressionStrategyValue(int value) {
-      
       compressionStrategy_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1811,8 +1736,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionStrategy getCompressionStrategy() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionStrategy result = io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionStrategy.valueOf(compressionStrategy_);
+      io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionStrategy result = io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionStrategy.forNumber(compressionStrategy_);
       return result == null ? io.envoyproxy.envoy.extensions.filters.http.gzip.v3.Gzip.CompressionStrategy.UNRECOGNIZED : result;
     }
     /**
@@ -1833,7 +1757,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       compressionStrategy_ = value.getNumber();
       onChanged();
       return this;
@@ -1852,7 +1776,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCompressionStrategy() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       compressionStrategy_ = 0;
       onChanged();
       return this;
@@ -1873,7 +1797,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the windowBits field is set.
      */
     public boolean hasWindowBits() {
-      return windowBitsBuilder_ != null || windowBits_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1909,11 +1833,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         windowBits_ = value;
-        onChanged();
       } else {
         windowBitsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1930,11 +1854,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (windowBitsBuilder_ == null) {
         windowBits_ = builderForValue.build();
-        onChanged();
       } else {
         windowBitsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1949,17 +1873,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWindowBits(com.google.protobuf.UInt32Value value) {
       if (windowBitsBuilder_ == null) {
-        if (windowBits_ != null) {
-          windowBits_ =
-            com.google.protobuf.UInt32Value.newBuilder(windowBits_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          windowBits_ != null &&
+          windowBits_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getWindowBitsBuilder().mergeFrom(value);
         } else {
           windowBits_ = value;
         }
-        onChanged();
       } else {
         windowBitsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1973,14 +1898,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value window_bits = 9 [(.validate.rules) = { ... }</code>
      */
     public Builder clearWindowBits() {
-      if (windowBitsBuilder_ == null) {
-        windowBits_ = null;
-        onChanged();
-      } else {
-        windowBits_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      windowBits_ = null;
+      if (windowBitsBuilder_ != null) {
+        windowBitsBuilder_.dispose();
         windowBitsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1994,7 +1918,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value window_bits = 9 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getWindowBitsBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getWindowBitsFieldBuilder().getBuilder();
     }
@@ -2053,7 +1977,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the compressor field is set.
      */
     public boolean hasCompressor() {
-      return compressorBuilder_ != null || compressor_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2085,11 +2009,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         compressor_ = value;
-        onChanged();
       } else {
         compressorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2104,11 +2028,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.Builder builderForValue) {
       if (compressorBuilder_ == null) {
         compressor_ = builderForValue.build();
-        onChanged();
       } else {
         compressorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2121,17 +2045,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCompressor(io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor value) {
       if (compressorBuilder_ == null) {
-        if (compressor_ != null) {
-          compressor_ =
-            io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.newBuilder(compressor_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          compressor_ != null &&
+          compressor_ != io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.getDefaultInstance()) {
+          getCompressorBuilder().mergeFrom(value);
         } else {
           compressor_ = value;
         }
-        onChanged();
       } else {
         compressorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2143,14 +2068,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.compressor.v3.Compressor compressor = 10;</code>
      */
     public Builder clearCompressor() {
-      if (compressorBuilder_ == null) {
-        compressor_ = null;
-        onChanged();
-      } else {
-        compressor_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      compressor_ = null;
+      if (compressorBuilder_ != null) {
+        compressorBuilder_.dispose();
         compressorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2162,7 +2086,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.compressor.v3.Compressor compressor = 10;</code>
      */
     public io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.Builder getCompressorBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getCompressorFieldBuilder().getBuilder();
     }
@@ -2218,7 +2142,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the chunkSize field is set.
      */
     public boolean hasChunkSize() {
-      return chunkSizeBuilder_ != null || chunkSize_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2252,11 +2176,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         chunkSize_ = value;
-        onChanged();
       } else {
         chunkSizeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2272,11 +2196,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (chunkSizeBuilder_ == null) {
         chunkSize_ = builderForValue.build();
-        onChanged();
       } else {
         chunkSizeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2290,17 +2214,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeChunkSize(com.google.protobuf.UInt32Value value) {
       if (chunkSizeBuilder_ == null) {
-        if (chunkSize_ != null) {
-          chunkSize_ =
-            com.google.protobuf.UInt32Value.newBuilder(chunkSize_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          chunkSize_ != null &&
+          chunkSize_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getChunkSizeBuilder().mergeFrom(value);
         } else {
           chunkSize_ = value;
         }
-        onChanged();
       } else {
         chunkSizeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2313,14 +2238,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value chunk_size = 11 [(.validate.rules) = { ... }</code>
      */
     public Builder clearChunkSize() {
-      if (chunkSizeBuilder_ == null) {
-        chunkSize_ = null;
-        onChanged();
-      } else {
-        chunkSize_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      chunkSize_ = null;
+      if (chunkSizeBuilder_ != null) {
+        chunkSizeBuilder_.dispose();
         chunkSizeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2333,7 +2257,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value chunk_size = 11 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getChunkSizeBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getChunkSizeFieldBuilder().getBuilder();
     }
@@ -2409,7 +2333,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Gzip(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -62,7 +62,6 @@ public interface LabelStatsOrBuilder extends
    *
    * <code>map&lt;string, int64&gt; example_count = 1;</code>
    */
-
   long getExampleCountOrDefault(
       java.lang.String key,
       long defaultValue);
@@ -77,7 +76,6 @@ public interface LabelStatsOrBuilder extends
    *
    * <code>map&lt;string, int64&gt; example_count = 1;</code>
    */
-
   long getExampleCountOrThrow(
       java.lang.String key);
 }

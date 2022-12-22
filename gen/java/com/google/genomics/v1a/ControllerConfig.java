@@ -40,122 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ControllerConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            image_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            cmd_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            gcsLogPath_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            machineType_ = s;
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              vars_ = com.google.protobuf.MapField.newMapField(
-                  VarsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            vars__ = input.readMessage(
-                VarsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            vars_.getMutableMap().put(
-                vars__.getKey(), vars__.getValue());
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              disks_ = com.google.protobuf.MapField.newMapField(
-                  DisksDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            disks__ = input.readMessage(
-                DisksDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            disks_.getMutableMap().put(
-                disks__.getKey(), disks__.getValue());
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              gcsSources_ = com.google.protobuf.MapField.newMapField(
-                  GcsSourcesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString>
-            gcsSources__ = input.readMessage(
-                GcsSourcesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            gcsSources_.getMutableMap().put(
-                gcsSources__.getKey(), gcsSources__.getValue());
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              gcsSinks_ = com.google.protobuf.MapField.newMapField(
-                  GcsSinksDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000008;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString>
-            gcsSinks__ = input.readMessage(
-                GcsSinksDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            gcsSinks_.getMutableMap().put(
-                gcsSinks__.getKey(), gcsSinks__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.genomics.v1a.PipelinesProto.internal_static_google_genomics_v1alpha2_ControllerConfig_descriptor;
@@ -244,58 +128,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RepeatedString(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                values_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              values_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          values_ = values_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.genomics.v1a.PipelinesProto.internal_static_google_genomics_v1alpha2_ControllerConfig_RepeatedString_descriptor;
@@ -310,6 +142,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int VALUES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList values_;
     /**
      * <code>repeated string values = 1;</code>
@@ -361,7 +194,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < values_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, values_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -378,7 +211,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getValuesList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -395,7 +228,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getValuesList()
           .equals(other.getValuesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -410,7 +243,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + VALUES_FIELD_NUMBER;
         hash = (53 * hash) + getValuesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -527,22 +360,18 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.genomics.v1a.ControllerConfig.RepeatedString.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         values_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -571,14 +400,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.genomics.v1a.ControllerConfig.RepeatedString buildPartial() {
         com.google.genomics.v1a.ControllerConfig.RepeatedString result = new com.google.genomics.v1a.ControllerConfig.RepeatedString(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.genomics.v1a.ControllerConfig.RepeatedString result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           values_ = values_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.values_ = values_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.genomics.v1a.ControllerConfig.RepeatedString result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -635,7 +472,7 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -650,17 +487,36 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.genomics.v1a.ControllerConfig.RepeatedString parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureValuesIsMutable();
+                values_.add(s);
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.genomics.v1a.ControllerConfig.RepeatedString) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -712,10 +568,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setValues(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureValuesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureValuesIsMutable();
         values_.set(index, value);
         onChanged();
         return this;
@@ -727,10 +581,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addValues(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureValuesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureValuesIsMutable();
         values_.add(value);
         onChanged();
         return this;
@@ -765,10 +617,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addValuesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureValuesIsMutable();
         values_.add(value);
         onChanged();
@@ -807,7 +657,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RepeatedString(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -828,7 +689,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object image_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object image_ = "";
   /**
    * <code>string image = 1;</code>
    * @return The image.
@@ -866,7 +728,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CMD_FIELD_NUMBER = 2;
-  private volatile java.lang.Object cmd_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cmd_ = "";
   /**
    * <code>string cmd = 2;</code>
    * @return The cmd.
@@ -904,7 +767,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GCS_LOG_PATH_FIELD_NUMBER = 3;
-  private volatile java.lang.Object gcsLogPath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object gcsLogPath_ = "";
   /**
    * <code>string gcs_log_path = 3;</code>
    * @return The gcsLogPath.
@@ -942,7 +806,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MACHINE_TYPE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object machineType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object machineType_ = "";
   /**
    * <code>string machine_type = 4;</code>
    * @return The machineType.
@@ -991,6 +856,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> vars_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -1001,14 +867,12 @@ private static final long serialVersionUID = 0L;
     }
     return vars_;
   }
-
   public int getVarsCount() {
     return internalGetVars().getMap().size();
   }
   /**
    * <code>map&lt;string, string&gt; vars = 5;</code>
    */
-
   @java.lang.Override
   public boolean containsVars(
       java.lang.String key) {
@@ -1027,7 +891,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; vars = 5;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getVarsMap() {
     return internalGetVars().getMap();
   }
@@ -1035,10 +898,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; vars = 5;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getVarsOrDefault(
+  public /* nullable */
+java.lang.String getVarsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetVars().getMap();
@@ -1048,7 +912,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; vars = 5;</code>
    */
   @java.lang.Override
-
   public java.lang.String getVarsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1072,6 +935,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> disks_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -1082,14 +946,12 @@ private static final long serialVersionUID = 0L;
     }
     return disks_;
   }
-
   public int getDisksCount() {
     return internalGetDisks().getMap().size();
   }
   /**
    * <code>map&lt;string, string&gt; disks = 6;</code>
    */
-
   @java.lang.Override
   public boolean containsDisks(
       java.lang.String key) {
@@ -1108,7 +970,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; disks = 6;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getDisksMap() {
     return internalGetDisks().getMap();
   }
@@ -1116,10 +977,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; disks = 6;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getDisksOrDefault(
+  public /* nullable */
+java.lang.String getDisksOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetDisks().getMap();
@@ -1129,7 +991,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; disks = 6;</code>
    */
   @java.lang.Override
-
   public java.lang.String getDisksOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1153,6 +1014,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.genomics.v1a.ControllerConfig.RepeatedString.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString> gcsSources_;
   private com.google.protobuf.MapField<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString>
@@ -1163,14 +1025,12 @@ private static final long serialVersionUID = 0L;
     }
     return gcsSources_;
   }
-
   public int getGcsSourcesCount() {
     return internalGetGcsSources().getMap().size();
   }
   /**
    * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sources = 7;</code>
    */
-
   @java.lang.Override
   public boolean containsGcsSources(
       java.lang.String key) {
@@ -1189,7 +1049,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sources = 7;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString> getGcsSourcesMap() {
     return internalGetGcsSources().getMap();
   }
@@ -1197,10 +1056,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sources = 7;</code>
    */
   @java.lang.Override
-
-  public com.google.genomics.v1a.ControllerConfig.RepeatedString getGcsSourcesOrDefault(
+  public /* nullable */
+com.google.genomics.v1a.ControllerConfig.RepeatedString getGcsSourcesOrDefault(
       java.lang.String key,
-      com.google.genomics.v1a.ControllerConfig.RepeatedString defaultValue) {
+      /* nullable */
+com.google.genomics.v1a.ControllerConfig.RepeatedString defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString> map =
         internalGetGcsSources().getMap();
@@ -1210,7 +1070,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sources = 7;</code>
    */
   @java.lang.Override
-
   public com.google.genomics.v1a.ControllerConfig.RepeatedString getGcsSourcesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1234,6 +1093,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.genomics.v1a.ControllerConfig.RepeatedString.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString> gcsSinks_;
   private com.google.protobuf.MapField<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString>
@@ -1244,14 +1104,12 @@ private static final long serialVersionUID = 0L;
     }
     return gcsSinks_;
   }
-
   public int getGcsSinksCount() {
     return internalGetGcsSinks().getMap().size();
   }
   /**
    * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sinks = 8;</code>
    */
-
   @java.lang.Override
   public boolean containsGcsSinks(
       java.lang.String key) {
@@ -1270,7 +1128,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sinks = 8;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString> getGcsSinksMap() {
     return internalGetGcsSinks().getMap();
   }
@@ -1278,10 +1135,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sinks = 8;</code>
    */
   @java.lang.Override
-
-  public com.google.genomics.v1a.ControllerConfig.RepeatedString getGcsSinksOrDefault(
+  public /* nullable */
+com.google.genomics.v1a.ControllerConfig.RepeatedString getGcsSinksOrDefault(
       java.lang.String key,
-      com.google.genomics.v1a.ControllerConfig.RepeatedString defaultValue) {
+      /* nullable */
+com.google.genomics.v1a.ControllerConfig.RepeatedString defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString> map =
         internalGetGcsSinks().getMap();
@@ -1291,7 +1149,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sinks = 8;</code>
    */
   @java.lang.Override
-
   public com.google.genomics.v1a.ControllerConfig.RepeatedString getGcsSinksOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1353,7 +1210,7 @@ private static final long serialVersionUID = 0L;
         internalGetGcsSinks(),
         GcsSinksDefaultEntryHolder.defaultEntry,
         8);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1414,7 +1271,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, gcsSinks__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1445,7 +1302,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetGcsSources())) return false;
     if (!internalGetGcsSinks().equals(
         other.internalGetGcsSinks())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1480,7 +1337,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + GCS_SINKS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetGcsSinks().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1637,30 +1494,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.genomics.v1a.ControllerConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       image_ = "";
-
       cmd_ = "";
-
       gcsLogPath_ = "";
-
       machineType_ = "";
-
       internalGetMutableVars().clear();
       internalGetMutableDisks().clear();
       internalGetMutableGcsSources().clear();
@@ -1691,21 +1540,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.genomics.v1a.ControllerConfig buildPartial() {
       com.google.genomics.v1a.ControllerConfig result = new com.google.genomics.v1a.ControllerConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.image_ = image_;
-      result.cmd_ = cmd_;
-      result.gcsLogPath_ = gcsLogPath_;
-      result.machineType_ = machineType_;
-      result.vars_ = internalGetVars();
-      result.vars_.makeImmutable();
-      result.disks_ = internalGetDisks();
-      result.disks_.makeImmutable();
-      result.gcsSources_ = internalGetGcsSources();
-      result.gcsSources_.makeImmutable();
-      result.gcsSinks_ = internalGetGcsSinks();
-      result.gcsSinks_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.genomics.v1a.ControllerConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.image_ = image_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.cmd_ = cmd_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.gcsLogPath_ = gcsLogPath_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.machineType_ = machineType_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.vars_ = internalGetVars();
+        result.vars_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.disks_ = internalGetDisks();
+        result.disks_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.gcsSources_ = internalGetGcsSources();
+        result.gcsSources_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.gcsSinks_ = internalGetGcsSinks();
+        result.gcsSinks_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -1754,29 +1623,37 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.genomics.v1a.ControllerConfig.getDefaultInstance()) return this;
       if (!other.getImage().isEmpty()) {
         image_ = other.image_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getCmd().isEmpty()) {
         cmd_ = other.cmd_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getGcsLogPath().isEmpty()) {
         gcsLogPath_ = other.gcsLogPath_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getMachineType().isEmpty()) {
         machineType_ = other.machineType_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       internalGetMutableVars().mergeFrom(
           other.internalGetVars());
+      bitField0_ |= 0x00000010;
       internalGetMutableDisks().mergeFrom(
           other.internalGetDisks());
+      bitField0_ |= 0x00000020;
       internalGetMutableGcsSources().mergeFrom(
           other.internalGetGcsSources());
+      bitField0_ |= 0x00000040;
       internalGetMutableGcsSinks().mergeFrom(
           other.internalGetGcsSinks());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000080;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1791,17 +1668,86 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.genomics.v1a.ControllerConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              image_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              cmd_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              gcsLogPath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              machineType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              vars__ = input.readMessage(
+                  VarsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableVars().getMutableMap().put(
+                  vars__.getKey(), vars__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              disks__ = input.readMessage(
+                  DisksDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableDisks().getMutableMap().put(
+                  disks__.getKey(), disks__.getValue());
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString>
+              gcsSources__ = input.readMessage(
+                  GcsSourcesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableGcsSources().getMutableMap().put(
+                  gcsSources__.getKey(), gcsSources__.getValue());
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString>
+              gcsSinks__ = input.readMessage(
+                  GcsSinksDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableGcsSinks().getMutableMap().put(
+                  gcsSinks__.getKey(), gcsSinks__.getValue());
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.genomics.v1a.ControllerConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1847,11 +1793,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       image_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1860,8 +1804,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImage() {
-      
       image_ = getDefaultInstance().getImage();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1872,12 +1816,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       image_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1923,11 +1865,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCmd(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       cmd_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1936,8 +1876,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCmd() {
-      
       cmd_ = getDefaultInstance().getCmd();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1948,12 +1888,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCmdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       cmd_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1999,11 +1937,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGcsLogPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       gcsLogPath_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2012,8 +1948,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGcsLogPath() {
-      
       gcsLogPath_ = getDefaultInstance().getGcsLogPath();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2024,12 +1960,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGcsLogPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       gcsLogPath_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2075,11 +2009,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMachineType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       machineType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2088,8 +2020,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMachineType() {
-      
       machineType_ = getDefaultInstance().getMachineType();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2100,12 +2032,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMachineTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       machineType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2113,7 +2043,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> vars_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetVars() {
+        internalGetVars() {
       if (vars_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             VarsDefaultEntryHolder.defaultEntry);
@@ -2121,8 +2051,7 @@ private static final long serialVersionUID = 0L;
       return vars_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableVars() {
-      onChanged();;
+        internalGetMutableVars() {
       if (vars_ == null) {
         vars_ = com.google.protobuf.MapField.newMapField(
             VarsDefaultEntryHolder.defaultEntry);
@@ -2130,16 +2059,16 @@ private static final long serialVersionUID = 0L;
       if (!vars_.isMutable()) {
         vars_ = vars_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return vars_;
     }
-
     public int getVarsCount() {
       return internalGetVars().getMap().size();
     }
     /**
      * <code>map&lt;string, string&gt; vars = 5;</code>
      */
-
     @java.lang.Override
     public boolean containsVars(
         java.lang.String key) {
@@ -2158,7 +2087,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; vars = 5;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getVarsMap() {
       return internalGetVars().getMap();
     }
@@ -2166,10 +2094,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; vars = 5;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getVarsOrDefault(
+    public /* nullable */
+java.lang.String getVarsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetVars().getMap();
@@ -2179,7 +2108,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; vars = 5;</code>
      */
     @java.lang.Override
-
     public java.lang.String getVarsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2190,8 +2118,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearVars() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableVars().getMutableMap()
           .clear();
       return this;
@@ -2199,7 +2127,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;string, string&gt; vars = 5;</code>
      */
-
     public Builder removeVars(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2212,7 +2139,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableVars() {
+        getMutableVars() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableVars().getMutableMap();
     }
     /**
@@ -2222,29 +2150,27 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableVars().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
      * <code>map&lt;string, string&gt; vars = 5;</code>
      */
-
     public Builder putAllVars(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableVars().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> disks_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetDisks() {
+        internalGetDisks() {
       if (disks_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             DisksDefaultEntryHolder.defaultEntry);
@@ -2252,8 +2178,7 @@ private static final long serialVersionUID = 0L;
       return disks_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableDisks() {
-      onChanged();;
+        internalGetMutableDisks() {
       if (disks_ == null) {
         disks_ = com.google.protobuf.MapField.newMapField(
             DisksDefaultEntryHolder.defaultEntry);
@@ -2261,16 +2186,16 @@ private static final long serialVersionUID = 0L;
       if (!disks_.isMutable()) {
         disks_ = disks_.copy();
       }
+      bitField0_ |= 0x00000020;
+      onChanged();
       return disks_;
     }
-
     public int getDisksCount() {
       return internalGetDisks().getMap().size();
     }
     /**
      * <code>map&lt;string, string&gt; disks = 6;</code>
      */
-
     @java.lang.Override
     public boolean containsDisks(
         java.lang.String key) {
@@ -2289,7 +2214,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; disks = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getDisksMap() {
       return internalGetDisks().getMap();
     }
@@ -2297,10 +2221,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; disks = 6;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getDisksOrDefault(
+    public /* nullable */
+java.lang.String getDisksOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetDisks().getMap();
@@ -2310,7 +2235,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; disks = 6;</code>
      */
     @java.lang.Override
-
     public java.lang.String getDisksOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2321,8 +2245,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearDisks() {
+      bitField0_ = (bitField0_ & ~0x00000020);
       internalGetMutableDisks().getMutableMap()
           .clear();
       return this;
@@ -2330,7 +2254,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;string, string&gt; disks = 6;</code>
      */
-
     public Builder removeDisks(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2343,7 +2266,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableDisks() {
+        getMutableDisks() {
+      bitField0_ |= 0x00000020;
       return internalGetMutableDisks().getMutableMap();
     }
     /**
@@ -2353,29 +2277,27 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableDisks().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000020;
       return this;
     }
     /**
      * <code>map&lt;string, string&gt; disks = 6;</code>
      */
-
     public Builder putAllDisks(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableDisks().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000020;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString> gcsSources_;
     private com.google.protobuf.MapField<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString>
-    internalGetGcsSources() {
+        internalGetGcsSources() {
       if (gcsSources_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             GcsSourcesDefaultEntryHolder.defaultEntry);
@@ -2383,8 +2305,7 @@ private static final long serialVersionUID = 0L;
       return gcsSources_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString>
-    internalGetMutableGcsSources() {
-      onChanged();;
+        internalGetMutableGcsSources() {
       if (gcsSources_ == null) {
         gcsSources_ = com.google.protobuf.MapField.newMapField(
             GcsSourcesDefaultEntryHolder.defaultEntry);
@@ -2392,16 +2313,16 @@ private static final long serialVersionUID = 0L;
       if (!gcsSources_.isMutable()) {
         gcsSources_ = gcsSources_.copy();
       }
+      bitField0_ |= 0x00000040;
+      onChanged();
       return gcsSources_;
     }
-
     public int getGcsSourcesCount() {
       return internalGetGcsSources().getMap().size();
     }
     /**
      * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sources = 7;</code>
      */
-
     @java.lang.Override
     public boolean containsGcsSources(
         java.lang.String key) {
@@ -2420,7 +2341,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sources = 7;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString> getGcsSourcesMap() {
       return internalGetGcsSources().getMap();
     }
@@ -2428,10 +2348,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sources = 7;</code>
      */
     @java.lang.Override
-
-    public com.google.genomics.v1a.ControllerConfig.RepeatedString getGcsSourcesOrDefault(
+    public /* nullable */
+com.google.genomics.v1a.ControllerConfig.RepeatedString getGcsSourcesOrDefault(
         java.lang.String key,
-        com.google.genomics.v1a.ControllerConfig.RepeatedString defaultValue) {
+        /* nullable */
+com.google.genomics.v1a.ControllerConfig.RepeatedString defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString> map =
           internalGetGcsSources().getMap();
@@ -2441,7 +2362,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sources = 7;</code>
      */
     @java.lang.Override
-
     public com.google.genomics.v1a.ControllerConfig.RepeatedString getGcsSourcesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2452,8 +2372,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearGcsSources() {
+      bitField0_ = (bitField0_ & ~0x00000040);
       internalGetMutableGcsSources().getMutableMap()
           .clear();
       return this;
@@ -2461,7 +2381,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sources = 7;</code>
      */
-
     public Builder removeGcsSources(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2474,7 +2393,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString>
-    getMutableGcsSources() {
+        getMutableGcsSources() {
+      bitField0_ |= 0x00000040;
       return internalGetMutableGcsSources().getMutableMap();
     }
     /**
@@ -2484,29 +2404,27 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.genomics.v1a.ControllerConfig.RepeatedString value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableGcsSources().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000040;
       return this;
     }
     /**
      * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sources = 7;</code>
      */
-
     public Builder putAllGcsSources(
         java.util.Map<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString> values) {
       internalGetMutableGcsSources().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000040;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString> gcsSinks_;
     private com.google.protobuf.MapField<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString>
-    internalGetGcsSinks() {
+        internalGetGcsSinks() {
       if (gcsSinks_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             GcsSinksDefaultEntryHolder.defaultEntry);
@@ -2514,8 +2432,7 @@ private static final long serialVersionUID = 0L;
       return gcsSinks_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString>
-    internalGetMutableGcsSinks() {
-      onChanged();;
+        internalGetMutableGcsSinks() {
       if (gcsSinks_ == null) {
         gcsSinks_ = com.google.protobuf.MapField.newMapField(
             GcsSinksDefaultEntryHolder.defaultEntry);
@@ -2523,16 +2440,16 @@ private static final long serialVersionUID = 0L;
       if (!gcsSinks_.isMutable()) {
         gcsSinks_ = gcsSinks_.copy();
       }
+      bitField0_ |= 0x00000080;
+      onChanged();
       return gcsSinks_;
     }
-
     public int getGcsSinksCount() {
       return internalGetGcsSinks().getMap().size();
     }
     /**
      * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sinks = 8;</code>
      */
-
     @java.lang.Override
     public boolean containsGcsSinks(
         java.lang.String key) {
@@ -2551,7 +2468,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sinks = 8;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString> getGcsSinksMap() {
       return internalGetGcsSinks().getMap();
     }
@@ -2559,10 +2475,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sinks = 8;</code>
      */
     @java.lang.Override
-
-    public com.google.genomics.v1a.ControllerConfig.RepeatedString getGcsSinksOrDefault(
+    public /* nullable */
+com.google.genomics.v1a.ControllerConfig.RepeatedString getGcsSinksOrDefault(
         java.lang.String key,
-        com.google.genomics.v1a.ControllerConfig.RepeatedString defaultValue) {
+        /* nullable */
+com.google.genomics.v1a.ControllerConfig.RepeatedString defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString> map =
           internalGetGcsSinks().getMap();
@@ -2572,7 +2489,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sinks = 8;</code>
      */
     @java.lang.Override
-
     public com.google.genomics.v1a.ControllerConfig.RepeatedString getGcsSinksOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2583,8 +2499,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearGcsSinks() {
+      bitField0_ = (bitField0_ & ~0x00000080);
       internalGetMutableGcsSinks().getMutableMap()
           .clear();
       return this;
@@ -2592,7 +2508,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sinks = 8;</code>
      */
-
     public Builder removeGcsSinks(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2605,7 +2520,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString>
-    getMutableGcsSinks() {
+        getMutableGcsSinks() {
+      bitField0_ |= 0x00000080;
       return internalGetMutableGcsSinks().getMutableMap();
     }
     /**
@@ -2615,22 +2531,20 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.genomics.v1a.ControllerConfig.RepeatedString value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableGcsSinks().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000080;
       return this;
     }
     /**
      * <code>map&lt;string, .google.genomics.v1alpha2.ControllerConfig.RepeatedString&gt; gcs_sinks = 8;</code>
      */
-
     public Builder putAllGcsSinks(
         java.util.Map<java.lang.String, com.google.genomics.v1a.ControllerConfig.RepeatedString> values) {
       internalGetMutableGcsSinks().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000080;
       return this;
     }
     @java.lang.Override
@@ -2666,7 +2580,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ControllerConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

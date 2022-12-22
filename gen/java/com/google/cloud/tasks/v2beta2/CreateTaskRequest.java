@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateTaskRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.tasks.v2beta2.Task.Builder subBuilder = null;
-            if (task_ != null) {
-              subBuilder = task_.toBuilder();
-            }
-            task_ = input.readMessage(com.google.cloud.tasks.v2beta2.Task.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(task_);
-              task_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            responseView_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.tasks.v2beta2.CloudTasksProto.internal_static_google_cloud_tasks_v2beta2_CreateTaskRequest_descriptor;
@@ -114,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The queue name. For example:
@@ -279,11 +216,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.tasks.v2beta2.TaskOrBuilder getTaskOrBuilder() {
-    return getTask();
+    return task_ == null ? com.google.cloud.tasks.v2beta2.Task.getDefaultInstance() : task_;
   }
 
   public static final int RESPONSE_VIEW_FIELD_NUMBER = 3;
-  private int responseView_;
+  private int responseView_ = 0;
   /**
    * <pre>
    * The response_view specifies which subset of the [Task][google.cloud.tasks.v2beta2.Task] will be
@@ -322,8 +259,7 @@ private static final long serialVersionUID = 0L;
    * @return The responseView.
    */
   @java.lang.Override public com.google.cloud.tasks.v2beta2.Task.View getResponseView() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.tasks.v2beta2.Task.View result = com.google.cloud.tasks.v2beta2.Task.View.valueOf(responseView_);
+    com.google.cloud.tasks.v2beta2.Task.View result = com.google.cloud.tasks.v2beta2.Task.View.forNumber(responseView_);
     return result == null ? com.google.cloud.tasks.v2beta2.Task.View.UNRECOGNIZED : result;
   }
 
@@ -350,7 +286,7 @@ private static final long serialVersionUID = 0L;
     if (responseView_ != com.google.cloud.tasks.v2beta2.Task.View.VIEW_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, responseView_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -370,7 +306,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, responseView_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -393,7 +329,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getTask())) return false;
     }
     if (responseView_ != other.responseView_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -412,7 +348,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + RESPONSE_VIEW_FIELD_NUMBER;
     hash = (53 * hash) + responseView_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -533,32 +469,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.tasks.v2beta2.CreateTaskRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (taskBuilder_ == null) {
-        task_ = null;
-      } else {
-        task_ = null;
+      task_ = null;
+      if (taskBuilder_ != null) {
+        taskBuilder_.dispose();
         taskBuilder_ = null;
       }
       responseView_ = 0;
-
       return this;
     }
 
@@ -585,15 +514,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.tasks.v2beta2.CreateTaskRequest buildPartial() {
       com.google.cloud.tasks.v2beta2.CreateTaskRequest result = new com.google.cloud.tasks.v2beta2.CreateTaskRequest(this);
-      result.parent_ = parent_;
-      if (taskBuilder_ == null) {
-        result.task_ = task_;
-      } else {
-        result.task_ = taskBuilder_.build();
-      }
-      result.responseView_ = responseView_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.tasks.v2beta2.CreateTaskRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.task_ = taskBuilder_ == null
+            ? task_
+            : taskBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.responseView_ = responseView_;
+      }
     }
 
     @java.lang.Override
@@ -642,6 +580,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.tasks.v2beta2.CreateTaskRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasTask()) {
@@ -650,7 +589,7 @@ private static final long serialVersionUID = 0L;
       if (other.responseView_ != 0) {
         setResponseViewValue(other.getResponseViewValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -665,19 +604,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.tasks.v2beta2.CreateTaskRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTaskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              responseView_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.tasks.v2beta2.CreateTaskRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -738,11 +708,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -757,8 +725,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -775,12 +743,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -824,7 +790,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the task field is set.
      */
     public boolean hasTask() {
-      return taskBuilder_ != null || task_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -908,11 +874,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         task_ = value;
-        onChanged();
       } else {
         taskBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -953,11 +919,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.tasks.v2beta2.Task.Builder builderForValue) {
       if (taskBuilder_ == null) {
         task_ = builderForValue.build();
-        onChanged();
       } else {
         taskBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -996,17 +962,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTask(com.google.cloud.tasks.v2beta2.Task value) {
       if (taskBuilder_ == null) {
-        if (task_ != null) {
-          task_ =
-            com.google.cloud.tasks.v2beta2.Task.newBuilder(task_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          task_ != null &&
+          task_ != com.google.cloud.tasks.v2beta2.Task.getDefaultInstance()) {
+          getTaskBuilder().mergeFrom(value);
         } else {
           task_ = value;
         }
-        onChanged();
       } else {
         taskBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1044,14 +1011,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.tasks.v2beta2.Task task = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearTask() {
-      if (taskBuilder_ == null) {
-        task_ = null;
-        onChanged();
-      } else {
-        task_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      task_ = null;
+      if (taskBuilder_ != null) {
+        taskBuilder_.dispose();
         taskBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1089,7 +1055,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.tasks.v2beta2.Task task = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.tasks.v2beta2.Task.Builder getTaskBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTaskFieldBuilder().getBuilder();
     }
@@ -1223,8 +1189,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setResponseViewValue(int value) {
-      
       responseView_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1247,8 +1213,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.tasks.v2beta2.Task.View getResponseView() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.tasks.v2beta2.Task.View result = com.google.cloud.tasks.v2beta2.Task.View.valueOf(responseView_);
+      com.google.cloud.tasks.v2beta2.Task.View result = com.google.cloud.tasks.v2beta2.Task.View.forNumber(responseView_);
       return result == null ? com.google.cloud.tasks.v2beta2.Task.View.UNRECOGNIZED : result;
     }
     /**
@@ -1273,7 +1238,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       responseView_ = value.getNumber();
       onChanged();
       return this;
@@ -1296,7 +1261,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResponseView() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       responseView_ = 0;
       onChanged();
       return this;
@@ -1334,7 +1299,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateTaskRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

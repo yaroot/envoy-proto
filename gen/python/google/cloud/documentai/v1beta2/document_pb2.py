@@ -15,10 +15,9 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.cloud.documentai.v1beta2 import geometry_pb2 as google_dot_cloud_dot_documentai_dot_v1beta2_dot_geometry__pb2
 from google.rpc import status_pb2 as google_dot_rpc_dot_status__pb2
 from google.type import color_pb2 as google_dot_type_dot_color__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.google/cloud/documentai/v1beta2/document.proto\x12\x1fgoogle.cloud.documentai.v1beta2\x1a\x1fgoogle/api/field_behavior.proto\x1a.google/cloud/documentai/v1beta2/geometry.proto\x1a\x17google/rpc/status.proto\x1a\x17google/type/color.proto\x1a\x1cgoogle/api/annotations.proto\"\xfb*\n\x08\x44ocument\x12\r\n\x03uri\x18\x01 \x01(\tH\x00\x12\x11\n\x07\x63ontent\x18\x02 \x01(\x0cH\x00\x12\x11\n\tmime_type\x18\x03 \x01(\t\x12\x0c\n\x04text\x18\x04 \x01(\t\x12\x44\n\x0btext_styles\x18\x05 \x03(\x0b\x32/.google.cloud.documentai.v1beta2.Document.Style\x12=\n\x05pages\x18\x06 \x03(\x0b\x32..google.cloud.documentai.v1beta2.Document.Page\x12\x42\n\x08\x65ntities\x18\x07 \x03(\x0b\x32\x30.google.cloud.documentai.v1beta2.Document.Entity\x12R\n\x10\x65ntity_relations\x18\x08 \x03(\x0b\x32\x38.google.cloud.documentai.v1beta2.Document.EntityRelation\x12G\n\nshard_info\x18\t \x01(\x0b\x32\x33.google.cloud.documentai.v1beta2.Document.ShardInfo\x12?\n\x06labels\x18\x0b \x03(\x0b\x32/.google.cloud.documentai.v1beta2.Document.Label\x12!\n\x05\x65rror\x18\n \x01(\x0b\x32\x12.google.rpc.Status\x1aJ\n\tShardInfo\x12\x13\n\x0bshard_index\x18\x01 \x01(\x03\x12\x13\n\x0bshard_count\x18\x02 \x01(\x03\x12\x13\n\x0btext_offset\x18\x03 \x01(\x03\x1aK\n\x05Label\x12\x16\n\x0c\x61utoml_model\x18\x02 \x01(\tH\x00\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x03 \x01(\x02\x42\x08\n\x06source\x1a\xda\x02\n\x05Style\x12I\n\x0btext_anchor\x18\x01 \x01(\x0b\x32\x34.google.cloud.documentai.v1beta2.Document.TextAnchor\x12!\n\x05\x63olor\x18\x02 \x01(\x0b\x32\x12.google.type.Color\x12,\n\x10\x62\x61\x63kground_color\x18\x03 \x01(\x0b\x32\x12.google.type.Color\x12\x13\n\x0b\x66ont_weight\x18\x04 \x01(\t\x12\x12\n\ntext_style\x18\x05 \x01(\t\x12\x17\n\x0ftext_decoration\x18\x06 \x01(\t\x12K\n\tfont_size\x18\x07 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta2.Document.Style.FontSize\x1a&\n\x08\x46ontSize\x12\x0c\n\x04size\x18\x01 \x01(\x02\x12\x0c\n\x04unit\x18\x02 \x01(\t\x1a\xd5\x1b\n\x04Page\x12\x13\n\x0bpage_number\x18\x01 \x01(\x05\x12K\n\tdimension\x18\x02 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta2.Document.Page.Dimension\x12\x45\n\x06layout\x18\x03 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12[\n\x12\x64\x65tected_languages\x18\x04 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x12\x44\n\x06\x62locks\x18\x05 \x03(\x0b\x32\x34.google.cloud.documentai.v1beta2.Document.Page.Block\x12L\n\nparagraphs\x18\x06 \x03(\x0b\x32\x38.google.cloud.documentai.v1beta2.Document.Page.Paragraph\x12\x42\n\x05lines\x18\x07 \x03(\x0b\x32\x33.google.cloud.documentai.v1beta2.Document.Page.Line\x12\x44\n\x06tokens\x18\x08 \x03(\x0b\x32\x34.google.cloud.documentai.v1beta2.Document.Page.Token\x12U\n\x0fvisual_elements\x18\t \x03(\x0b\x32<.google.cloud.documentai.v1beta2.Document.Page.VisualElement\x12\x44\n\x06tables\x18\n \x03(\x0b\x32\x34.google.cloud.documentai.v1beta2.Document.Page.Table\x12M\n\x0b\x66orm_fields\x18\x0b \x03(\x0b\x32\x38.google.cloud.documentai.v1beta2.Document.Page.FormField\x1a\x38\n\tDimension\x12\r\n\x05width\x18\x01 \x01(\x02\x12\x0e\n\x06height\x18\x02 \x01(\x02\x12\x0c\n\x04unit\x18\x03 \x01(\t\x1a\xfd\x02\n\x06Layout\x12I\n\x0btext_anchor\x18\x01 \x01(\x0b\x32\x34.google.cloud.documentai.v1beta2.Document.TextAnchor\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12\x44\n\rbounding_poly\x18\x03 \x01(\x0b\x32-.google.cloud.documentai.v1beta2.BoundingPoly\x12V\n\x0borientation\x18\x04 \x01(\x0e\x32\x41.google.cloud.documentai.v1beta2.Document.Page.Layout.Orientation\x12\x0f\n\x02id\x18\x05 \x01(\tB\x03\xe0\x41\x01\"e\n\x0bOrientation\x12\x1b\n\x17ORIENTATION_UNSPECIFIED\x10\x00\x12\x0b\n\x07PAGE_UP\x10\x01\x12\x0e\n\nPAGE_RIGHT\x10\x02\x12\r\n\tPAGE_DOWN\x10\x03\x12\r\n\tPAGE_LEFT\x10\x04\x1a\xab\x01\n\x05\x42lock\x12\x45\n\x06layout\x18\x01 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12[\n\x12\x64\x65tected_languages\x18\x02 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x1a\xaf\x01\n\tParagraph\x12\x45\n\x06layout\x18\x01 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12[\n\x12\x64\x65tected_languages\x18\x02 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x1a\xaa\x01\n\x04Line\x12\x45\n\x06layout\x18\x01 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12[\n\x12\x64\x65tected_languages\x18\x02 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x1a\xb5\x03\n\x05Token\x12\x45\n\x06layout\x18\x01 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12Z\n\x0e\x64\x65tected_break\x18\x02 \x01(\x0b\x32\x42.google.cloud.documentai.v1beta2.Document.Page.Token.DetectedBreak\x12[\n\x12\x64\x65tected_languages\x18\x03 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x1a\xab\x01\n\rDetectedBreak\x12U\n\x04type\x18\x01 \x01(\x0e\x32G.google.cloud.documentai.v1beta2.Document.Page.Token.DetectedBreak.Type\"C\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05SPACE\x10\x01\x12\x0e\n\nWIDE_SPACE\x10\x02\x12\n\n\x06HYPHEN\x10\x03\x1a\xc1\x01\n\rVisualElement\x12\x45\n\x06layout\x18\x01 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12\x0c\n\x04type\x18\x02 \x01(\t\x12[\n\x12\x64\x65tected_languages\x18\x03 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x1a\x82\x05\n\x05Table\x12\x45\n\x06layout\x18\x01 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12R\n\x0bheader_rows\x18\x02 \x03(\x0b\x32=.google.cloud.documentai.v1beta2.Document.Page.Table.TableRow\x12P\n\tbody_rows\x18\x03 \x03(\x0b\x32=.google.cloud.documentai.v1beta2.Document.Page.Table.TableRow\x12[\n\x12\x64\x65tected_languages\x18\x04 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x1aY\n\x08TableRow\x12M\n\x05\x63\x65lls\x18\x01 \x03(\x0b\x32>.google.cloud.documentai.v1beta2.Document.Page.Table.TableCell\x1a\xd3\x01\n\tTableCell\x12\x45\n\x06layout\x18\x01 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12\x10\n\x08row_span\x18\x02 \x01(\x05\x12\x10\n\x08\x63ol_span\x18\x03 \x01(\x05\x12[\n\x12\x64\x65tected_languages\x18\x04 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x1a\xb5\x03\n\tFormField\x12I\n\nfield_name\x18\x01 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12J\n\x0b\x66ield_value\x18\x02 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12`\n\x17name_detected_languages\x18\x03 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x12\x61\n\x18value_detected_languages\x18\x04 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x12\x12\n\nvalue_type\x18\x05 \x01(\t\x12\x1a\n\x12\x63orrected_key_text\x18\x06 \x01(\t\x12\x1c\n\x14\x63orrected_value_text\x18\x07 \x01(\t\x1a=\n\x10\x44\x65tectedLanguage\x12\x15\n\rlanguage_code\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x1a\x8a\x02\n\x06\x45ntity\x12I\n\x0btext_anchor\x18\x01 \x01(\x0b\x32\x34.google.cloud.documentai.v1beta2.Document.TextAnchor\x12\x11\n\x04type\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0cmention_text\x18\x03 \x01(\t\x12\x12\n\nmention_id\x18\x04 \x01(\t\x12\x17\n\nconfidence\x18\x05 \x01(\x02\x42\x03\xe0\x41\x01\x12N\n\x0bpage_anchor\x18\x06 \x01(\x0b\x32\x34.google.cloud.documentai.v1beta2.Document.PageAnchorB\x03\xe0\x41\x01\x12\x0f\n\x02id\x18\x07 \x01(\tB\x03\xe0\x41\x01\x1aI\n\x0e\x45ntityRelation\x12\x12\n\nsubject_id\x18\x01 \x01(\t\x12\x11\n\tobject_id\x18\x02 \x01(\t\x12\x10\n\x08relation\x18\x03 \x01(\t\x1a\xad\x01\n\nTextAnchor\x12W\n\rtext_segments\x18\x01 \x03(\x0b\x32@.google.cloud.documentai.v1beta2.Document.TextAnchor.TextSegment\x12\x0f\n\x07\x63ontent\x18\x02 \x01(\t\x1a\x35\n\x0bTextSegment\x12\x13\n\x0bstart_index\x18\x01 \x01(\x03\x12\x11\n\tend_index\x18\x02 \x01(\x03\x1a\x81\x03\n\nPageAnchor\x12O\n\tpage_refs\x18\x01 \x03(\x0b\x32<.google.cloud.documentai.v1beta2.Document.PageAnchor.PageRef\x1a\xa1\x02\n\x07PageRef\x12\x11\n\x04page\x18\x01 \x01(\x03\x42\x03\xe0\x41\x02\x12\x61\n\x0blayout_type\x18\x02 \x01(\x0e\x32G.google.cloud.documentai.v1beta2.Document.PageAnchor.PageRef.LayoutTypeB\x03\xe0\x41\x01\x12\x16\n\tlayout_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\x87\x01\n\nLayoutType\x12\x1b\n\x17LAYOUT_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05\x42LOCK\x10\x01\x12\r\n\tPARAGRAPH\x10\x02\x12\x08\n\x04LINE\x10\x03\x12\t\n\x05TOKEN\x10\x04\x12\x12\n\x0eVISUAL_ELEMENT\x10\x05\x12\t\n\x05TABLE\x10\x06\x12\x0e\n\nFORM_FIELD\x10\x07\x42\x08\n\x06sourceB\xea\x01\n#com.google.cloud.documentai.v1beta2B\rDocumentProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/documentai/v1beta2;documentai\xaa\x02\x1fGoogle.Cloud.DocumentAI.V1Beta2\xca\x02\x1fGoogle\\Cloud\\DocumentAI\\V1beta2\xea\x02\"Google::Cloud::DocumentAI::V1beta2b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.google/cloud/documentai/v1beta2/document.proto\x12\x1fgoogle.cloud.documentai.v1beta2\x1a\x1fgoogle/api/field_behavior.proto\x1a.google/cloud/documentai/v1beta2/geometry.proto\x1a\x17google/rpc/status.proto\x1a\x17google/type/color.proto\"\xfb*\n\x08\x44ocument\x12\r\n\x03uri\x18\x01 \x01(\tH\x00\x12\x11\n\x07\x63ontent\x18\x02 \x01(\x0cH\x00\x12\x11\n\tmime_type\x18\x03 \x01(\t\x12\x0c\n\x04text\x18\x04 \x01(\t\x12\x44\n\x0btext_styles\x18\x05 \x03(\x0b\x32/.google.cloud.documentai.v1beta2.Document.Style\x12=\n\x05pages\x18\x06 \x03(\x0b\x32..google.cloud.documentai.v1beta2.Document.Page\x12\x42\n\x08\x65ntities\x18\x07 \x03(\x0b\x32\x30.google.cloud.documentai.v1beta2.Document.Entity\x12R\n\x10\x65ntity_relations\x18\x08 \x03(\x0b\x32\x38.google.cloud.documentai.v1beta2.Document.EntityRelation\x12G\n\nshard_info\x18\t \x01(\x0b\x32\x33.google.cloud.documentai.v1beta2.Document.ShardInfo\x12?\n\x06labels\x18\x0b \x03(\x0b\x32/.google.cloud.documentai.v1beta2.Document.Label\x12!\n\x05\x65rror\x18\n \x01(\x0b\x32\x12.google.rpc.Status\x1aJ\n\tShardInfo\x12\x13\n\x0bshard_index\x18\x01 \x01(\x03\x12\x13\n\x0bshard_count\x18\x02 \x01(\x03\x12\x13\n\x0btext_offset\x18\x03 \x01(\x03\x1aK\n\x05Label\x12\x16\n\x0c\x61utoml_model\x18\x02 \x01(\tH\x00\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x03 \x01(\x02\x42\x08\n\x06source\x1a\xda\x02\n\x05Style\x12I\n\x0btext_anchor\x18\x01 \x01(\x0b\x32\x34.google.cloud.documentai.v1beta2.Document.TextAnchor\x12!\n\x05\x63olor\x18\x02 \x01(\x0b\x32\x12.google.type.Color\x12,\n\x10\x62\x61\x63kground_color\x18\x03 \x01(\x0b\x32\x12.google.type.Color\x12\x13\n\x0b\x66ont_weight\x18\x04 \x01(\t\x12\x12\n\ntext_style\x18\x05 \x01(\t\x12\x17\n\x0ftext_decoration\x18\x06 \x01(\t\x12K\n\tfont_size\x18\x07 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta2.Document.Style.FontSize\x1a&\n\x08\x46ontSize\x12\x0c\n\x04size\x18\x01 \x01(\x02\x12\x0c\n\x04unit\x18\x02 \x01(\t\x1a\xd5\x1b\n\x04Page\x12\x13\n\x0bpage_number\x18\x01 \x01(\x05\x12K\n\tdimension\x18\x02 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta2.Document.Page.Dimension\x12\x45\n\x06layout\x18\x03 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12[\n\x12\x64\x65tected_languages\x18\x04 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x12\x44\n\x06\x62locks\x18\x05 \x03(\x0b\x32\x34.google.cloud.documentai.v1beta2.Document.Page.Block\x12L\n\nparagraphs\x18\x06 \x03(\x0b\x32\x38.google.cloud.documentai.v1beta2.Document.Page.Paragraph\x12\x42\n\x05lines\x18\x07 \x03(\x0b\x32\x33.google.cloud.documentai.v1beta2.Document.Page.Line\x12\x44\n\x06tokens\x18\x08 \x03(\x0b\x32\x34.google.cloud.documentai.v1beta2.Document.Page.Token\x12U\n\x0fvisual_elements\x18\t \x03(\x0b\x32<.google.cloud.documentai.v1beta2.Document.Page.VisualElement\x12\x44\n\x06tables\x18\n \x03(\x0b\x32\x34.google.cloud.documentai.v1beta2.Document.Page.Table\x12M\n\x0b\x66orm_fields\x18\x0b \x03(\x0b\x32\x38.google.cloud.documentai.v1beta2.Document.Page.FormField\x1a\x38\n\tDimension\x12\r\n\x05width\x18\x01 \x01(\x02\x12\x0e\n\x06height\x18\x02 \x01(\x02\x12\x0c\n\x04unit\x18\x03 \x01(\t\x1a\xfd\x02\n\x06Layout\x12I\n\x0btext_anchor\x18\x01 \x01(\x0b\x32\x34.google.cloud.documentai.v1beta2.Document.TextAnchor\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12\x44\n\rbounding_poly\x18\x03 \x01(\x0b\x32-.google.cloud.documentai.v1beta2.BoundingPoly\x12V\n\x0borientation\x18\x04 \x01(\x0e\x32\x41.google.cloud.documentai.v1beta2.Document.Page.Layout.Orientation\x12\x0f\n\x02id\x18\x05 \x01(\tB\x03\xe0\x41\x01\"e\n\x0bOrientation\x12\x1b\n\x17ORIENTATION_UNSPECIFIED\x10\x00\x12\x0b\n\x07PAGE_UP\x10\x01\x12\x0e\n\nPAGE_RIGHT\x10\x02\x12\r\n\tPAGE_DOWN\x10\x03\x12\r\n\tPAGE_LEFT\x10\x04\x1a\xab\x01\n\x05\x42lock\x12\x45\n\x06layout\x18\x01 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12[\n\x12\x64\x65tected_languages\x18\x02 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x1a\xaf\x01\n\tParagraph\x12\x45\n\x06layout\x18\x01 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12[\n\x12\x64\x65tected_languages\x18\x02 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x1a\xaa\x01\n\x04Line\x12\x45\n\x06layout\x18\x01 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12[\n\x12\x64\x65tected_languages\x18\x02 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x1a\xb5\x03\n\x05Token\x12\x45\n\x06layout\x18\x01 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12Z\n\x0e\x64\x65tected_break\x18\x02 \x01(\x0b\x32\x42.google.cloud.documentai.v1beta2.Document.Page.Token.DetectedBreak\x12[\n\x12\x64\x65tected_languages\x18\x03 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x1a\xab\x01\n\rDetectedBreak\x12U\n\x04type\x18\x01 \x01(\x0e\x32G.google.cloud.documentai.v1beta2.Document.Page.Token.DetectedBreak.Type\"C\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05SPACE\x10\x01\x12\x0e\n\nWIDE_SPACE\x10\x02\x12\n\n\x06HYPHEN\x10\x03\x1a\xc1\x01\n\rVisualElement\x12\x45\n\x06layout\x18\x01 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12\x0c\n\x04type\x18\x02 \x01(\t\x12[\n\x12\x64\x65tected_languages\x18\x03 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x1a\x82\x05\n\x05Table\x12\x45\n\x06layout\x18\x01 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12R\n\x0bheader_rows\x18\x02 \x03(\x0b\x32=.google.cloud.documentai.v1beta2.Document.Page.Table.TableRow\x12P\n\tbody_rows\x18\x03 \x03(\x0b\x32=.google.cloud.documentai.v1beta2.Document.Page.Table.TableRow\x12[\n\x12\x64\x65tected_languages\x18\x04 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x1aY\n\x08TableRow\x12M\n\x05\x63\x65lls\x18\x01 \x03(\x0b\x32>.google.cloud.documentai.v1beta2.Document.Page.Table.TableCell\x1a\xd3\x01\n\tTableCell\x12\x45\n\x06layout\x18\x01 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12\x10\n\x08row_span\x18\x02 \x01(\x05\x12\x10\n\x08\x63ol_span\x18\x03 \x01(\x05\x12[\n\x12\x64\x65tected_languages\x18\x04 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x1a\xb5\x03\n\tFormField\x12I\n\nfield_name\x18\x01 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12J\n\x0b\x66ield_value\x18\x02 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta2.Document.Page.Layout\x12`\n\x17name_detected_languages\x18\x03 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x12\x61\n\x18value_detected_languages\x18\x04 \x03(\x0b\x32?.google.cloud.documentai.v1beta2.Document.Page.DetectedLanguage\x12\x12\n\nvalue_type\x18\x05 \x01(\t\x12\x1a\n\x12\x63orrected_key_text\x18\x06 \x01(\t\x12\x1c\n\x14\x63orrected_value_text\x18\x07 \x01(\t\x1a=\n\x10\x44\x65tectedLanguage\x12\x15\n\rlanguage_code\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x1a\x8a\x02\n\x06\x45ntity\x12I\n\x0btext_anchor\x18\x01 \x01(\x0b\x32\x34.google.cloud.documentai.v1beta2.Document.TextAnchor\x12\x11\n\x04type\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0cmention_text\x18\x03 \x01(\t\x12\x12\n\nmention_id\x18\x04 \x01(\t\x12\x17\n\nconfidence\x18\x05 \x01(\x02\x42\x03\xe0\x41\x01\x12N\n\x0bpage_anchor\x18\x06 \x01(\x0b\x32\x34.google.cloud.documentai.v1beta2.Document.PageAnchorB\x03\xe0\x41\x01\x12\x0f\n\x02id\x18\x07 \x01(\tB\x03\xe0\x41\x01\x1aI\n\x0e\x45ntityRelation\x12\x12\n\nsubject_id\x18\x01 \x01(\t\x12\x11\n\tobject_id\x18\x02 \x01(\t\x12\x10\n\x08relation\x18\x03 \x01(\t\x1a\xad\x01\n\nTextAnchor\x12W\n\rtext_segments\x18\x01 \x03(\x0b\x32@.google.cloud.documentai.v1beta2.Document.TextAnchor.TextSegment\x12\x0f\n\x07\x63ontent\x18\x02 \x01(\t\x1a\x35\n\x0bTextSegment\x12\x13\n\x0bstart_index\x18\x01 \x01(\x03\x12\x11\n\tend_index\x18\x02 \x01(\x03\x1a\x81\x03\n\nPageAnchor\x12O\n\tpage_refs\x18\x01 \x03(\x0b\x32<.google.cloud.documentai.v1beta2.Document.PageAnchor.PageRef\x1a\xa1\x02\n\x07PageRef\x12\x11\n\x04page\x18\x01 \x01(\x03\x42\x03\xe0\x41\x02\x12\x61\n\x0blayout_type\x18\x02 \x01(\x0e\x32G.google.cloud.documentai.v1beta2.Document.PageAnchor.PageRef.LayoutTypeB\x03\xe0\x41\x01\x12\x16\n\tlayout_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\x87\x01\n\nLayoutType\x12\x1b\n\x17LAYOUT_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05\x42LOCK\x10\x01\x12\r\n\tPARAGRAPH\x10\x02\x12\x08\n\x04LINE\x10\x03\x12\t\n\x05TOKEN\x10\x04\x12\x12\n\x0eVISUAL_ELEMENT\x10\x05\x12\t\n\x05TABLE\x10\x06\x12\x0e\n\nFORM_FIELD\x10\x07\x42\x08\n\x06sourceB\xea\x01\n#com.google.cloud.documentai.v1beta2B\rDocumentProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/documentai/v1beta2;documentai\xaa\x02\x1fGoogle.Cloud.DocumentAI.V1Beta2\xca\x02\x1fGoogle\\Cloud\\DocumentAI\\V1beta2\xea\x02\"Google::Cloud::DocumentAI::V1beta2b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.documentai.v1beta2.document_pb2', globals())
@@ -42,60 +41,60 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _DOCUMENT_PAGEANCHOR_PAGEREF.fields_by_name['layout_type']._serialized_options = b'\340A\001'
   _DOCUMENT_PAGEANCHOR_PAGEREF.fields_by_name['layout_id']._options = None
   _DOCUMENT_PAGEANCHOR_PAGEREF.fields_by_name['layout_id']._serialized_options = b'\340A\001'
-  _DOCUMENT._serialized_start=245
-  _DOCUMENT._serialized_end=5744
-  _DOCUMENT_SHARDINFO._serialized_start=782
-  _DOCUMENT_SHARDINFO._serialized_end=856
-  _DOCUMENT_LABEL._serialized_start=858
-  _DOCUMENT_LABEL._serialized_end=933
-  _DOCUMENT_STYLE._serialized_start=936
-  _DOCUMENT_STYLE._serialized_end=1282
-  _DOCUMENT_STYLE_FONTSIZE._serialized_start=1244
-  _DOCUMENT_STYLE_FONTSIZE._serialized_end=1282
-  _DOCUMENT_PAGE._serialized_start=1285
-  _DOCUMENT_PAGE._serialized_end=4826
-  _DOCUMENT_PAGE_DIMENSION._serialized_start=2077
-  _DOCUMENT_PAGE_DIMENSION._serialized_end=2133
-  _DOCUMENT_PAGE_LAYOUT._serialized_start=2136
-  _DOCUMENT_PAGE_LAYOUT._serialized_end=2517
-  _DOCUMENT_PAGE_LAYOUT_ORIENTATION._serialized_start=2416
-  _DOCUMENT_PAGE_LAYOUT_ORIENTATION._serialized_end=2517
-  _DOCUMENT_PAGE_BLOCK._serialized_start=2520
-  _DOCUMENT_PAGE_BLOCK._serialized_end=2691
-  _DOCUMENT_PAGE_PARAGRAPH._serialized_start=2694
-  _DOCUMENT_PAGE_PARAGRAPH._serialized_end=2869
-  _DOCUMENT_PAGE_LINE._serialized_start=2872
-  _DOCUMENT_PAGE_LINE._serialized_end=3042
-  _DOCUMENT_PAGE_TOKEN._serialized_start=3045
-  _DOCUMENT_PAGE_TOKEN._serialized_end=3482
-  _DOCUMENT_PAGE_TOKEN_DETECTEDBREAK._serialized_start=3311
-  _DOCUMENT_PAGE_TOKEN_DETECTEDBREAK._serialized_end=3482
-  _DOCUMENT_PAGE_TOKEN_DETECTEDBREAK_TYPE._serialized_start=3415
-  _DOCUMENT_PAGE_TOKEN_DETECTEDBREAK_TYPE._serialized_end=3482
-  _DOCUMENT_PAGE_VISUALELEMENT._serialized_start=3485
-  _DOCUMENT_PAGE_VISUALELEMENT._serialized_end=3678
-  _DOCUMENT_PAGE_TABLE._serialized_start=3681
-  _DOCUMENT_PAGE_TABLE._serialized_end=4323
-  _DOCUMENT_PAGE_TABLE_TABLEROW._serialized_start=4020
-  _DOCUMENT_PAGE_TABLE_TABLEROW._serialized_end=4109
-  _DOCUMENT_PAGE_TABLE_TABLECELL._serialized_start=4112
-  _DOCUMENT_PAGE_TABLE_TABLECELL._serialized_end=4323
-  _DOCUMENT_PAGE_FORMFIELD._serialized_start=4326
-  _DOCUMENT_PAGE_FORMFIELD._serialized_end=4763
-  _DOCUMENT_PAGE_DETECTEDLANGUAGE._serialized_start=4765
-  _DOCUMENT_PAGE_DETECTEDLANGUAGE._serialized_end=4826
-  _DOCUMENT_ENTITY._serialized_start=4829
-  _DOCUMENT_ENTITY._serialized_end=5095
-  _DOCUMENT_ENTITYRELATION._serialized_start=5097
-  _DOCUMENT_ENTITYRELATION._serialized_end=5170
-  _DOCUMENT_TEXTANCHOR._serialized_start=5173
-  _DOCUMENT_TEXTANCHOR._serialized_end=5346
-  _DOCUMENT_TEXTANCHOR_TEXTSEGMENT._serialized_start=5293
-  _DOCUMENT_TEXTANCHOR_TEXTSEGMENT._serialized_end=5346
-  _DOCUMENT_PAGEANCHOR._serialized_start=5349
-  _DOCUMENT_PAGEANCHOR._serialized_end=5734
-  _DOCUMENT_PAGEANCHOR_PAGEREF._serialized_start=5445
-  _DOCUMENT_PAGEANCHOR_PAGEREF._serialized_end=5734
-  _DOCUMENT_PAGEANCHOR_PAGEREF_LAYOUTTYPE._serialized_start=5599
-  _DOCUMENT_PAGEANCHOR_PAGEREF_LAYOUTTYPE._serialized_end=5734
+  _DOCUMENT._serialized_start=215
+  _DOCUMENT._serialized_end=5714
+  _DOCUMENT_SHARDINFO._serialized_start=752
+  _DOCUMENT_SHARDINFO._serialized_end=826
+  _DOCUMENT_LABEL._serialized_start=828
+  _DOCUMENT_LABEL._serialized_end=903
+  _DOCUMENT_STYLE._serialized_start=906
+  _DOCUMENT_STYLE._serialized_end=1252
+  _DOCUMENT_STYLE_FONTSIZE._serialized_start=1214
+  _DOCUMENT_STYLE_FONTSIZE._serialized_end=1252
+  _DOCUMENT_PAGE._serialized_start=1255
+  _DOCUMENT_PAGE._serialized_end=4796
+  _DOCUMENT_PAGE_DIMENSION._serialized_start=2047
+  _DOCUMENT_PAGE_DIMENSION._serialized_end=2103
+  _DOCUMENT_PAGE_LAYOUT._serialized_start=2106
+  _DOCUMENT_PAGE_LAYOUT._serialized_end=2487
+  _DOCUMENT_PAGE_LAYOUT_ORIENTATION._serialized_start=2386
+  _DOCUMENT_PAGE_LAYOUT_ORIENTATION._serialized_end=2487
+  _DOCUMENT_PAGE_BLOCK._serialized_start=2490
+  _DOCUMENT_PAGE_BLOCK._serialized_end=2661
+  _DOCUMENT_PAGE_PARAGRAPH._serialized_start=2664
+  _DOCUMENT_PAGE_PARAGRAPH._serialized_end=2839
+  _DOCUMENT_PAGE_LINE._serialized_start=2842
+  _DOCUMENT_PAGE_LINE._serialized_end=3012
+  _DOCUMENT_PAGE_TOKEN._serialized_start=3015
+  _DOCUMENT_PAGE_TOKEN._serialized_end=3452
+  _DOCUMENT_PAGE_TOKEN_DETECTEDBREAK._serialized_start=3281
+  _DOCUMENT_PAGE_TOKEN_DETECTEDBREAK._serialized_end=3452
+  _DOCUMENT_PAGE_TOKEN_DETECTEDBREAK_TYPE._serialized_start=3385
+  _DOCUMENT_PAGE_TOKEN_DETECTEDBREAK_TYPE._serialized_end=3452
+  _DOCUMENT_PAGE_VISUALELEMENT._serialized_start=3455
+  _DOCUMENT_PAGE_VISUALELEMENT._serialized_end=3648
+  _DOCUMENT_PAGE_TABLE._serialized_start=3651
+  _DOCUMENT_PAGE_TABLE._serialized_end=4293
+  _DOCUMENT_PAGE_TABLE_TABLEROW._serialized_start=3990
+  _DOCUMENT_PAGE_TABLE_TABLEROW._serialized_end=4079
+  _DOCUMENT_PAGE_TABLE_TABLECELL._serialized_start=4082
+  _DOCUMENT_PAGE_TABLE_TABLECELL._serialized_end=4293
+  _DOCUMENT_PAGE_FORMFIELD._serialized_start=4296
+  _DOCUMENT_PAGE_FORMFIELD._serialized_end=4733
+  _DOCUMENT_PAGE_DETECTEDLANGUAGE._serialized_start=4735
+  _DOCUMENT_PAGE_DETECTEDLANGUAGE._serialized_end=4796
+  _DOCUMENT_ENTITY._serialized_start=4799
+  _DOCUMENT_ENTITY._serialized_end=5065
+  _DOCUMENT_ENTITYRELATION._serialized_start=5067
+  _DOCUMENT_ENTITYRELATION._serialized_end=5140
+  _DOCUMENT_TEXTANCHOR._serialized_start=5143
+  _DOCUMENT_TEXTANCHOR._serialized_end=5316
+  _DOCUMENT_TEXTANCHOR_TEXTSEGMENT._serialized_start=5263
+  _DOCUMENT_TEXTANCHOR_TEXTSEGMENT._serialized_end=5316
+  _DOCUMENT_PAGEANCHOR._serialized_start=5319
+  _DOCUMENT_PAGEANCHOR._serialized_end=5704
+  _DOCUMENT_PAGEANCHOR_PAGEREF._serialized_start=5415
+  _DOCUMENT_PAGEANCHOR_PAGEREF._serialized_end=5704
+  _DOCUMENT_PAGEANCHOR_PAGEREF_LAYOUTTYPE._serialized_start=5569
+  _DOCUMENT_PAGEANCHOR_PAGEREF_LAYOUTTYPE._serialized_end=5704
 # @@protoc_insertion_point(module_scope)

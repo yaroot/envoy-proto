@@ -27,13 +27,14 @@ public final class TraceProto {
       "oy.config.trace.v2\032#envoy/config/trace/v" +
       "2/datadog.proto\032&envoy/config/trace/v2/d" +
       "ynamic_ot.proto\032\'envoy/config/trace/v2/h" +
-      "ttp_tracer.proto\032&envoy/config/trace/v2/" +
-      "opencensus.proto\032#envoy/config/trace/v2/" +
-      "service.proto\032\"envoy/config/trace/v2/zip" +
-      "kin.protoBy\n#io.envoyproxy.envoy.config." +
-      "trace.v2B\nTraceProtoP\001ZDgithub.com/envoy" +
-      "proxy/go-control-plane/envoy/config/trac" +
-      "e/v2;tracev2P\000P\001P\002P\003P\004P\005b\006proto3"
+      "ttp_tracer.proto\032%envoy/config/trace/v2/" +
+      "lightstep.proto\032&envoy/config/trace/v2/o" +
+      "pencensus.proto\032#envoy/config/trace/v2/s" +
+      "ervice.proto\032\"envoy/config/trace/v2/zipk" +
+      "in.protoBy\n#io.envoyproxy.envoy.config.t" +
+      "race.v2B\nTraceProtoP\001ZDgithub.com/envoyp" +
+      "roxy/go-control-plane/envoy/config/trace" +
+      "/v2;tracev2P\000P\001P\002P\003P\004P\005P\006b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -41,6 +42,7 @@ public final class TraceProto {
           io.envoyproxy.envoy.config.trace.v2.DatadogProto.getDescriptor(),
           io.envoyproxy.envoy.config.trace.v2.DynamicOtProto.getDescriptor(),
           io.envoyproxy.envoy.config.trace.v2.HttpTracerProto.getDescriptor(),
+          io.envoyproxy.envoy.config.trace.v2.LightstepProto.getDescriptor(),
           io.envoyproxy.envoy.config.trace.v2.OpencensusProto.getDescriptor(),
           io.envoyproxy.envoy.config.trace.v2.ServiceProto.getDescriptor(),
           io.envoyproxy.envoy.config.trace.v2.ZipkinProto.getDescriptor(),
@@ -48,6 +50,7 @@ public final class TraceProto {
     io.envoyproxy.envoy.config.trace.v2.DatadogProto.getDescriptor();
     io.envoyproxy.envoy.config.trace.v2.DynamicOtProto.getDescriptor();
     io.envoyproxy.envoy.config.trace.v2.HttpTracerProto.getDescriptor();
+    io.envoyproxy.envoy.config.trace.v2.LightstepProto.getDescriptor();
     io.envoyproxy.envoy.config.trace.v2.OpencensusProto.getDescriptor();
     io.envoyproxy.envoy.config.trace.v2.ServiceProto.getDescriptor();
     io.envoyproxy.envoy.config.trace.v2.ZipkinProto.getDescriptor();

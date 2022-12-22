@@ -36,83 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SendInteractionRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            project_ = s;
-            break;
-          }
-          case 18: {
-            com.google.actions.sdk.v2.UserInput.Builder subBuilder = null;
-            if (input_ != null) {
-              subBuilder = input_.toBuilder();
-            }
-            input_ = input.readMessage(com.google.actions.sdk.v2.UserInput.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(input_);
-              input_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.actions.sdk.v2.DeviceProperties.Builder subBuilder = null;
-            if (deviceProperties_ != null) {
-              subBuilder = deviceProperties_.toBuilder();
-            }
-            deviceProperties_ = input.readMessage(com.google.actions.sdk.v2.DeviceProperties.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(deviceProperties_);
-              deviceProperties_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            conversationToken_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.ActionsTestingProto.internal_static_google_actions_sdk_v2_SendInteractionRequest_descriptor;
@@ -127,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object project_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object project_ = "";
   /**
    * <pre>
    * Required. The project being tested, indicated by the Project ID.
@@ -209,7 +133,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.UserInputOrBuilder getInputOrBuilder() {
-    return getInput();
+    return input_ == null ? com.google.actions.sdk.v2.UserInput.getDefaultInstance() : input_;
   }
 
   public static final int DEVICE_PROPERTIES_FIELD_NUMBER = 3;
@@ -247,11 +171,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.DevicePropertiesOrBuilder getDevicePropertiesOrBuilder() {
-    return getDeviceProperties();
+    return deviceProperties_ == null ? com.google.actions.sdk.v2.DeviceProperties.getDefaultInstance() : deviceProperties_;
   }
 
   public static final int CONVERSATION_TOKEN_FIELD_NUMBER = 4;
-  private volatile java.lang.Object conversationToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object conversationToken_ = "";
   /**
    * <pre>
    * Opaque token that must be passed as received from SendInteractionResponse
@@ -328,7 +253,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(conversationToken_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, conversationToken_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -351,7 +276,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(conversationToken_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, conversationToken_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -380,7 +305,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getConversationToken()
         .equals(other.getConversationToken())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -403,7 +328,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + CONVERSATION_TOKEN_FIELD_NUMBER;
     hash = (53 * hash) + getConversationToken().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -524,38 +449,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.SendInteractionRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       project_ = "";
-
-      if (inputBuilder_ == null) {
-        input_ = null;
-      } else {
-        input_ = null;
+      input_ = null;
+      if (inputBuilder_ != null) {
+        inputBuilder_.dispose();
         inputBuilder_ = null;
       }
-      if (devicePropertiesBuilder_ == null) {
-        deviceProperties_ = null;
-      } else {
-        deviceProperties_ = null;
+      deviceProperties_ = null;
+      if (devicePropertiesBuilder_ != null) {
+        devicePropertiesBuilder_.dispose();
         devicePropertiesBuilder_ = null;
       }
       conversationToken_ = "";
-
       return this;
     }
 
@@ -582,20 +499,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.SendInteractionRequest buildPartial() {
       com.google.actions.sdk.v2.SendInteractionRequest result = new com.google.actions.sdk.v2.SendInteractionRequest(this);
-      result.project_ = project_;
-      if (inputBuilder_ == null) {
-        result.input_ = input_;
-      } else {
-        result.input_ = inputBuilder_.build();
-      }
-      if (devicePropertiesBuilder_ == null) {
-        result.deviceProperties_ = deviceProperties_;
-      } else {
-        result.deviceProperties_ = devicePropertiesBuilder_.build();
-      }
-      result.conversationToken_ = conversationToken_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.SendInteractionRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.project_ = project_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.input_ = inputBuilder_ == null
+            ? input_
+            : inputBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.deviceProperties_ = devicePropertiesBuilder_ == null
+            ? deviceProperties_
+            : devicePropertiesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.conversationToken_ = conversationToken_;
+      }
     }
 
     @java.lang.Override
@@ -644,6 +570,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.actions.sdk.v2.SendInteractionRequest.getDefaultInstance()) return this;
       if (!other.getProject().isEmpty()) {
         project_ = other.project_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasInput()) {
@@ -654,9 +581,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getConversationToken().isEmpty()) {
         conversationToken_ = other.conversationToken_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -671,19 +599,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.SendInteractionRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              project_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getInputFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getDevicePropertiesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              conversationToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.SendInteractionRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object project_ = "";
     /**
@@ -741,11 +707,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProject(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       project_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -759,8 +723,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProject() {
-      
       project_ = getDefaultInstance().getProject();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -776,12 +740,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       project_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -798,7 +760,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the input field is set.
      */
     public boolean hasInput() {
-      return inputBuilder_ != null || input_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -828,11 +790,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         input_ = value;
-        onChanged();
       } else {
         inputBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -846,11 +808,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.UserInput.Builder builderForValue) {
       if (inputBuilder_ == null) {
         input_ = builderForValue.build();
-        onChanged();
       } else {
         inputBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -862,17 +824,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInput(com.google.actions.sdk.v2.UserInput value) {
       if (inputBuilder_ == null) {
-        if (input_ != null) {
-          input_ =
-            com.google.actions.sdk.v2.UserInput.newBuilder(input_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          input_ != null &&
+          input_ != com.google.actions.sdk.v2.UserInput.getDefaultInstance()) {
+          getInputBuilder().mergeFrom(value);
         } else {
           input_ = value;
         }
-        onChanged();
       } else {
         inputBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -883,14 +846,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.UserInput input = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearInput() {
-      if (inputBuilder_ == null) {
-        input_ = null;
-        onChanged();
-      } else {
-        input_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      input_ = null;
+      if (inputBuilder_ != null) {
+        inputBuilder_.dispose();
         inputBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -901,7 +863,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.UserInput input = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.actions.sdk.v2.UserInput.Builder getInputBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getInputFieldBuilder().getBuilder();
     }
@@ -953,7 +915,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the deviceProperties field is set.
      */
     public boolean hasDeviceProperties() {
-      return devicePropertiesBuilder_ != null || deviceProperties_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -983,11 +945,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         deviceProperties_ = value;
-        onChanged();
       } else {
         devicePropertiesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1001,11 +963,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.DeviceProperties.Builder builderForValue) {
       if (devicePropertiesBuilder_ == null) {
         deviceProperties_ = builderForValue.build();
-        onChanged();
       } else {
         devicePropertiesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1017,17 +979,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDeviceProperties(com.google.actions.sdk.v2.DeviceProperties value) {
       if (devicePropertiesBuilder_ == null) {
-        if (deviceProperties_ != null) {
-          deviceProperties_ =
-            com.google.actions.sdk.v2.DeviceProperties.newBuilder(deviceProperties_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          deviceProperties_ != null &&
+          deviceProperties_ != com.google.actions.sdk.v2.DeviceProperties.getDefaultInstance()) {
+          getDevicePropertiesBuilder().mergeFrom(value);
         } else {
           deviceProperties_ = value;
         }
-        onChanged();
       } else {
         devicePropertiesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1038,14 +1001,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.DeviceProperties device_properties = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearDeviceProperties() {
-      if (devicePropertiesBuilder_ == null) {
-        deviceProperties_ = null;
-        onChanged();
-      } else {
-        deviceProperties_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      deviceProperties_ = null;
+      if (devicePropertiesBuilder_ != null) {
+        devicePropertiesBuilder_.dispose();
         devicePropertiesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1056,7 +1018,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.DeviceProperties device_properties = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.actions.sdk.v2.DeviceProperties.Builder getDevicePropertiesBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDevicePropertiesFieldBuilder().getBuilder();
     }
@@ -1158,11 +1120,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConversationToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       conversationToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1178,8 +1138,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConversationToken() {
-      
       conversationToken_ = getDefaultInstance().getConversationToken();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1197,12 +1157,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConversationTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       conversationToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1239,7 +1197,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SendInteractionRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

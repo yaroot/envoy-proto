@@ -31,23 +31,21 @@ public final class OrcaProto {
       "\n\037udpa/service/orca/v1/orca.proto\022\024udpa." +
       "service.orca.v1\032(udpa/data/orca/v1/orca_" +
       "load_report.proto\032\036google/protobuf/durat" +
-      "ion.proto\032\027validate/validate.proto\"g\n\025Or" +
-      "caLoadReportRequest\0222\n\017report_interval\030\001" +
-      " \001(\0132\031.google.protobuf.Duration\022\032\n\022reque" +
-      "st_cost_names\030\002 \003(\t2w\n\016OpenRcaService\022e\n" +
-      "\021StreamCoreMetrics\022+.udpa.service.orca.v" +
-      "1.OrcaLoadReportRequest\032!.udpa.data.orca" +
-      ".v1.OrcaLoadReport0\001B`\n$com.github.udpa." +
-      "udpa.service.orca.v1B\tOrcaProtoP\001Z+githu" +
-      "b.com/cncf/xds/go/udpa/service/orca/v1b\006" +
-      "proto3"
+      "ion.proto\"g\n\025OrcaLoadReportRequest\0222\n\017re" +
+      "port_interval\030\001 \001(\0132\031.google.protobuf.Du" +
+      "ration\022\032\n\022request_cost_names\030\002 \003(\t2w\n\016Op" +
+      "enRcaService\022e\n\021StreamCoreMetrics\022+.udpa" +
+      ".service.orca.v1.OrcaLoadReportRequest\032!" +
+      ".udpa.data.orca.v1.OrcaLoadReport0\001B`\n$c" +
+      "om.github.udpa.udpa.service.orca.v1B\tOrc" +
+      "aProtoP\001Z+github.com/cncf/xds/go/udpa/se" +
+      "rvice/orca/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.github.udpa.udpa.data.orca.v1.OrcaLoadReportProto.getDescriptor(),
           com.google.protobuf.DurationProto.getDescriptor(),
-          io.envoyproxy.pgv.validate.Validate.getDescriptor(),
         });
     internal_static_udpa_service_orca_v1_OrcaLoadReportRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -57,7 +55,6 @@ public final class OrcaProto {
         new java.lang.String[] { "ReportInterval", "RequestCostNames", });
     com.github.udpa.udpa.data.orca.v1.OrcaLoadReportProto.getDescriptor();
     com.google.protobuf.DurationProto.getDescriptor();
-    io.envoyproxy.pgv.validate.Validate.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LifecyclePolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            action_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.cloud.batch.v1.LifecyclePolicy.ActionCondition.Builder subBuilder = null;
-            if (actionCondition_ != null) {
-              subBuilder = actionCondition_.toBuilder();
-            }
-            actionCondition_ = input.readMessage(com.google.cloud.batch.v1.LifecyclePolicy.ActionCondition.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(actionCondition_);
-              actionCondition_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.batch.v1.TaskProto.internal_static_google_cloud_batch_v1_LifecyclePolicy_descriptor;
@@ -326,70 +268,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ActionCondition(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                exitCodes_ = newIntList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              exitCodes_.addInt(input.readInt32());
-              break;
-            }
-            case 10: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-                exitCodes_ = newIntList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                exitCodes_.addInt(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          exitCodes_.makeImmutable(); // C
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.batch.v1.TaskProto.internal_static_google_cloud_batch_v1_LifecyclePolicy_ActionCondition_descriptor;
@@ -404,6 +282,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int EXIT_CODES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList exitCodes_;
     /**
      * <pre>
@@ -474,7 +353,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < exitCodes_.size(); i++) {
         output.writeInt32NoTag(exitCodes_.getInt(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -497,7 +376,7 @@ private static final long serialVersionUID = 0L;
         }
         exitCodesMemoizedSerializedSize = dataSize;
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -514,7 +393,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getExitCodesList()
           .equals(other.getExitCodesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -529,7 +408,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + EXIT_CODES_FIELD_NUMBER;
         hash = (53 * hash) + getExitCodesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -650,24 +529,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.batch.v1.LifecyclePolicy.ActionCondition.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         exitCodes_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -694,14 +568,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.batch.v1.LifecyclePolicy.ActionCondition buildPartial() {
         com.google.cloud.batch.v1.LifecyclePolicy.ActionCondition result = new com.google.cloud.batch.v1.LifecyclePolicy.ActionCondition(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.batch.v1.LifecyclePolicy.ActionCondition result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           exitCodes_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.exitCodes_ = exitCodes_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.batch.v1.LifecyclePolicy.ActionCondition result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -758,7 +640,7 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -773,17 +655,46 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.batch.v1.LifecyclePolicy.ActionCondition parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                int v = input.readInt32();
+                ensureExitCodesIsMutable();
+                exitCodes_.addInt(v);
+                break;
+              } // case 8
+              case 10: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureExitCodesIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  exitCodes_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.batch.v1.LifecyclePolicy.ActionCondition) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -793,7 +704,7 @@ private static final long serialVersionUID = 0L;
         if (!((bitField0_ & 0x00000001) != 0)) {
           exitCodes_ = mutableCopy(exitCodes_);
           bitField0_ |= 0x00000001;
-         }
+        }
       }
       /**
        * <pre>
@@ -855,6 +766,7 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setExitCodes(
           int index, int value) {
+        
         ensureExitCodesIsMutable();
         exitCodes_.setInt(index, value);
         onChanged();
@@ -873,6 +785,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder addExitCodes(int value) {
+        
         ensureExitCodesIsMutable();
         exitCodes_.addInt(value);
         onChanged();
@@ -948,7 +861,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ActionCondition(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -969,7 +893,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACTION_FIELD_NUMBER = 1;
-  private int action_;
+  private int action_ = 0;
   /**
    * <pre>
    * Action to execute when ActionCondition is true.
@@ -990,8 +914,7 @@ private static final long serialVersionUID = 0L;
    * @return The action.
    */
   @java.lang.Override public com.google.cloud.batch.v1.LifecyclePolicy.Action getAction() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.batch.v1.LifecyclePolicy.Action result = com.google.cloud.batch.v1.LifecyclePolicy.Action.valueOf(action_);
+    com.google.cloud.batch.v1.LifecyclePolicy.Action result = com.google.cloud.batch.v1.LifecyclePolicy.Action.forNumber(action_);
     return result == null ? com.google.cloud.batch.v1.LifecyclePolicy.Action.UNRECOGNIZED : result;
   }
 
@@ -1030,7 +953,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.batch.v1.LifecyclePolicy.ActionConditionOrBuilder getActionConditionOrBuilder() {
-    return getActionCondition();
+    return actionCondition_ == null ? com.google.cloud.batch.v1.LifecyclePolicy.ActionCondition.getDefaultInstance() : actionCondition_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1053,7 +976,7 @@ private static final long serialVersionUID = 0L;
     if (actionCondition_ != null) {
       output.writeMessage(2, getActionCondition());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1070,7 +993,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getActionCondition());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1091,7 +1014,7 @@ private static final long serialVersionUID = 0L;
       if (!getActionCondition()
           .equals(other.getActionCondition())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1108,7 +1031,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ACTION_CONDITION_FIELD_NUMBER;
       hash = (53 * hash) + getActionCondition().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1230,28 +1153,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.batch.v1.LifecyclePolicy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       action_ = 0;
-
-      if (actionConditionBuilder_ == null) {
-        actionCondition_ = null;
-      } else {
-        actionCondition_ = null;
+      actionCondition_ = null;
+      if (actionConditionBuilder_ != null) {
+        actionConditionBuilder_.dispose();
         actionConditionBuilder_ = null;
       }
       return this;
@@ -1280,14 +1197,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.batch.v1.LifecyclePolicy buildPartial() {
       com.google.cloud.batch.v1.LifecyclePolicy result = new com.google.cloud.batch.v1.LifecyclePolicy(this);
-      result.action_ = action_;
-      if (actionConditionBuilder_ == null) {
-        result.actionCondition_ = actionCondition_;
-      } else {
-        result.actionCondition_ = actionConditionBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.batch.v1.LifecyclePolicy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.action_ = action_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.actionCondition_ = actionConditionBuilder_ == null
+            ? actionCondition_
+            : actionConditionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1340,7 +1264,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasActionCondition()) {
         mergeActionCondition(other.getActionCondition());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1355,19 +1279,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.batch.v1.LifecyclePolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              action_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getActionConditionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.batch.v1.LifecyclePolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int action_ = 0;
     /**
@@ -1391,8 +1341,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setActionValue(int value) {
-      
       action_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1406,8 +1356,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.batch.v1.LifecyclePolicy.Action getAction() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.batch.v1.LifecyclePolicy.Action result = com.google.cloud.batch.v1.LifecyclePolicy.Action.valueOf(action_);
+      com.google.cloud.batch.v1.LifecyclePolicy.Action result = com.google.cloud.batch.v1.LifecyclePolicy.Action.forNumber(action_);
       return result == null ? com.google.cloud.batch.v1.LifecyclePolicy.Action.UNRECOGNIZED : result;
     }
     /**
@@ -1423,7 +1372,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       action_ = value.getNumber();
       onChanged();
       return this;
@@ -1437,7 +1386,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAction() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       action_ = 0;
       onChanged();
       return this;
@@ -1455,7 +1404,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the actionCondition field is set.
      */
     public boolean hasActionCondition() {
-      return actionConditionBuilder_ != null || actionCondition_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1485,11 +1434,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         actionCondition_ = value;
-        onChanged();
       } else {
         actionConditionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1503,11 +1452,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1.LifecyclePolicy.ActionCondition.Builder builderForValue) {
       if (actionConditionBuilder_ == null) {
         actionCondition_ = builderForValue.build();
-        onChanged();
       } else {
         actionConditionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1519,17 +1468,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeActionCondition(com.google.cloud.batch.v1.LifecyclePolicy.ActionCondition value) {
       if (actionConditionBuilder_ == null) {
-        if (actionCondition_ != null) {
-          actionCondition_ =
-            com.google.cloud.batch.v1.LifecyclePolicy.ActionCondition.newBuilder(actionCondition_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          actionCondition_ != null &&
+          actionCondition_ != com.google.cloud.batch.v1.LifecyclePolicy.ActionCondition.getDefaultInstance()) {
+          getActionConditionBuilder().mergeFrom(value);
         } else {
           actionCondition_ = value;
         }
-        onChanged();
       } else {
         actionConditionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1540,14 +1490,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1.LifecyclePolicy.ActionCondition action_condition = 2;</code>
      */
     public Builder clearActionCondition() {
-      if (actionConditionBuilder_ == null) {
-        actionCondition_ = null;
-        onChanged();
-      } else {
-        actionCondition_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      actionCondition_ = null;
+      if (actionConditionBuilder_ != null) {
+        actionConditionBuilder_.dispose();
         actionConditionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1558,7 +1507,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1.LifecyclePolicy.ActionCondition action_condition = 2;</code>
      */
     public com.google.cloud.batch.v1.LifecyclePolicy.ActionCondition.Builder getActionConditionBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getActionConditionFieldBuilder().getBuilder();
     }
@@ -1630,7 +1579,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LifecyclePolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

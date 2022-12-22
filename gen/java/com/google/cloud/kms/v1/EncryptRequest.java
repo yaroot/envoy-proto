@@ -38,87 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EncryptRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-
-            plaintext_ = input.readBytes();
-            break;
-          }
-          case 26: {
-
-            additionalAuthenticatedData_ = input.readBytes();
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Int64Value.Builder subBuilder = null;
-            if (plaintextCrc32C_ != null) {
-              subBuilder = plaintextCrc32C_.toBuilder();
-            }
-            plaintextCrc32C_ = input.readMessage(com.google.protobuf.Int64Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(plaintextCrc32C_);
-              plaintextCrc32C_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.protobuf.Int64Value.Builder subBuilder = null;
-            if (additionalAuthenticatedDataCrc32C_ != null) {
-              subBuilder = additionalAuthenticatedDataCrc32C_.toBuilder();
-            }
-            additionalAuthenticatedDataCrc32C_ = input.readMessage(com.google.protobuf.Int64Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(additionalAuthenticatedDataCrc32C_);
-              additionalAuthenticatedDataCrc32C_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.kms.v1.KmsProto.internal_static_google_cloud_kms_v1_EncryptRequest_descriptor;
@@ -133,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The resource name of the
@@ -189,13 +109,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PLAINTEXT_FIELD_NUMBER = 2;
-  private com.google.protobuf.ByteString plaintext_;
+  private com.google.protobuf.ByteString plaintext_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * Required. The data to encrypt. Must be no larger than 64KiB.
    * The maximum size depends on the key version's
    * [protection_level][google.cloud.kms.v1.CryptoKeyVersionTemplate.protection_level].
-   * For [SOFTWARE][google.cloud.kms.v1.ProtectionLevel.SOFTWARE] keys, the
+   * For [SOFTWARE][google.cloud.kms.v1.ProtectionLevel.SOFTWARE],
+   * [EXTERNAL][google.cloud.kms.v1.ProtectionLevel.EXTERNAL], and
+   * [EXTERNAL_VPC][google.cloud.kms.v1.ProtectionLevel.EXTERNAL_VPC] keys, the
    * plaintext must be no larger than 64KiB. For
    * [HSM][google.cloud.kms.v1.ProtectionLevel.HSM] keys, the combined length of
    * the plaintext and additional_authenticated_data fields must be no larger
@@ -211,7 +133,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADDITIONAL_AUTHENTICATED_DATA_FIELD_NUMBER = 3;
-  private com.google.protobuf.ByteString additionalAuthenticatedData_;
+  private com.google.protobuf.ByteString additionalAuthenticatedData_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * Optional. Optional data that, if specified, must also be provided during
@@ -219,8 +141,10 @@ private static final long serialVersionUID = 0L;
    * [DecryptRequest.additional_authenticated_data][google.cloud.kms.v1.DecryptRequest.additional_authenticated_data].
    * The maximum size depends on the key version's
    * [protection_level][google.cloud.kms.v1.CryptoKeyVersionTemplate.protection_level].
-   * For [SOFTWARE][google.cloud.kms.v1.ProtectionLevel.SOFTWARE] keys, the AAD
-   * must be no larger than 64KiB. For
+   * For [SOFTWARE][google.cloud.kms.v1.ProtectionLevel.SOFTWARE],
+   * [EXTERNAL][google.cloud.kms.v1.ProtectionLevel.EXTERNAL], and
+   * [EXTERNAL_VPC][google.cloud.kms.v1.ProtectionLevel.EXTERNAL_VPC] keys the
+   * AAD must be no larger than 64KiB. For
    * [HSM][google.cloud.kms.v1.ProtectionLevel.HSM] keys, the combined length of
    * the plaintext and additional_authenticated_data fields must be no larger
    * than 8KiB.
@@ -323,7 +247,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int64ValueOrBuilder getPlaintextCrc32COrBuilder() {
-    return getPlaintextCrc32C();
+    return plaintextCrc32C_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : plaintextCrc32C_;
   }
 
   public static final int ADDITIONAL_AUTHENTICATED_DATA_CRC32C_FIELD_NUMBER = 8;
@@ -415,7 +339,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int64ValueOrBuilder getAdditionalAuthenticatedDataCrc32COrBuilder() {
-    return getAdditionalAuthenticatedDataCrc32C();
+    return additionalAuthenticatedDataCrc32C_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : additionalAuthenticatedDataCrc32C_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -447,7 +371,7 @@ private static final long serialVersionUID = 0L;
     if (additionalAuthenticatedDataCrc32C_ != null) {
       output.writeMessage(8, getAdditionalAuthenticatedDataCrc32C());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -475,7 +399,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getAdditionalAuthenticatedDataCrc32C());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -506,7 +430,7 @@ private static final long serialVersionUID = 0L;
       if (!getAdditionalAuthenticatedDataCrc32C()
           .equals(other.getAdditionalAuthenticatedDataCrc32C())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -531,7 +455,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ADDITIONAL_AUTHENTICATED_DATA_CRC32C_FIELD_NUMBER;
       hash = (53 * hash) + getAdditionalAuthenticatedDataCrc32C().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -653,38 +577,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.kms.v1.EncryptRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       plaintext_ = com.google.protobuf.ByteString.EMPTY;
-
       additionalAuthenticatedData_ = com.google.protobuf.ByteString.EMPTY;
-
-      if (plaintextCrc32CBuilder_ == null) {
-        plaintextCrc32C_ = null;
-      } else {
-        plaintextCrc32C_ = null;
+      plaintextCrc32C_ = null;
+      if (plaintextCrc32CBuilder_ != null) {
+        plaintextCrc32CBuilder_.dispose();
         plaintextCrc32CBuilder_ = null;
       }
-      if (additionalAuthenticatedDataCrc32CBuilder_ == null) {
-        additionalAuthenticatedDataCrc32C_ = null;
-      } else {
-        additionalAuthenticatedDataCrc32C_ = null;
+      additionalAuthenticatedDataCrc32C_ = null;
+      if (additionalAuthenticatedDataCrc32CBuilder_ != null) {
+        additionalAuthenticatedDataCrc32CBuilder_.dispose();
         additionalAuthenticatedDataCrc32CBuilder_ = null;
       }
       return this;
@@ -713,21 +628,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.kms.v1.EncryptRequest buildPartial() {
       com.google.cloud.kms.v1.EncryptRequest result = new com.google.cloud.kms.v1.EncryptRequest(this);
-      result.name_ = name_;
-      result.plaintext_ = plaintext_;
-      result.additionalAuthenticatedData_ = additionalAuthenticatedData_;
-      if (plaintextCrc32CBuilder_ == null) {
-        result.plaintextCrc32C_ = plaintextCrc32C_;
-      } else {
-        result.plaintextCrc32C_ = plaintextCrc32CBuilder_.build();
-      }
-      if (additionalAuthenticatedDataCrc32CBuilder_ == null) {
-        result.additionalAuthenticatedDataCrc32C_ = additionalAuthenticatedDataCrc32C_;
-      } else {
-        result.additionalAuthenticatedDataCrc32C_ = additionalAuthenticatedDataCrc32CBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.kms.v1.EncryptRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.plaintext_ = plaintext_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.additionalAuthenticatedData_ = additionalAuthenticatedData_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.plaintextCrc32C_ = plaintextCrc32CBuilder_ == null
+            ? plaintextCrc32C_
+            : plaintextCrc32CBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.additionalAuthenticatedDataCrc32C_ = additionalAuthenticatedDataCrc32CBuilder_ == null
+            ? additionalAuthenticatedDataCrc32C_
+            : additionalAuthenticatedDataCrc32CBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -776,6 +702,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.kms.v1.EncryptRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getPlaintext() != com.google.protobuf.ByteString.EMPTY) {
@@ -790,7 +717,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasAdditionalAuthenticatedDataCrc32C()) {
         mergeAdditionalAuthenticatedDataCrc32C(other.getAdditionalAuthenticatedDataCrc32C());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -805,19 +732,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.kms.v1.EncryptRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              plaintext_ = input.readBytes();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              additionalAuthenticatedData_ = input.readBytes();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 58: {
+              input.readMessage(
+                  getPlaintextCrc32CFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getAdditionalAuthenticatedDataCrc32CFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.kms.v1.EncryptRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -887,11 +857,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -909,8 +877,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -930,12 +898,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -946,7 +912,9 @@ private static final long serialVersionUID = 0L;
      * Required. The data to encrypt. Must be no larger than 64KiB.
      * The maximum size depends on the key version's
      * [protection_level][google.cloud.kms.v1.CryptoKeyVersionTemplate.protection_level].
-     * For [SOFTWARE][google.cloud.kms.v1.ProtectionLevel.SOFTWARE] keys, the
+     * For [SOFTWARE][google.cloud.kms.v1.ProtectionLevel.SOFTWARE],
+     * [EXTERNAL][google.cloud.kms.v1.ProtectionLevel.EXTERNAL], and
+     * [EXTERNAL_VPC][google.cloud.kms.v1.ProtectionLevel.EXTERNAL_VPC] keys, the
      * plaintext must be no larger than 64KiB. For
      * [HSM][google.cloud.kms.v1.ProtectionLevel.HSM] keys, the combined length of
      * the plaintext and additional_authenticated_data fields must be no larger
@@ -965,7 +933,9 @@ private static final long serialVersionUID = 0L;
      * Required. The data to encrypt. Must be no larger than 64KiB.
      * The maximum size depends on the key version's
      * [protection_level][google.cloud.kms.v1.CryptoKeyVersionTemplate.protection_level].
-     * For [SOFTWARE][google.cloud.kms.v1.ProtectionLevel.SOFTWARE] keys, the
+     * For [SOFTWARE][google.cloud.kms.v1.ProtectionLevel.SOFTWARE],
+     * [EXTERNAL][google.cloud.kms.v1.ProtectionLevel.EXTERNAL], and
+     * [EXTERNAL_VPC][google.cloud.kms.v1.ProtectionLevel.EXTERNAL_VPC] keys, the
      * plaintext must be no larger than 64KiB. For
      * [HSM][google.cloud.kms.v1.ProtectionLevel.HSM] keys, the combined length of
      * the plaintext and additional_authenticated_data fields must be no larger
@@ -977,11 +947,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPlaintext(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       plaintext_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -990,7 +958,9 @@ private static final long serialVersionUID = 0L;
      * Required. The data to encrypt. Must be no larger than 64KiB.
      * The maximum size depends on the key version's
      * [protection_level][google.cloud.kms.v1.CryptoKeyVersionTemplate.protection_level].
-     * For [SOFTWARE][google.cloud.kms.v1.ProtectionLevel.SOFTWARE] keys, the
+     * For [SOFTWARE][google.cloud.kms.v1.ProtectionLevel.SOFTWARE],
+     * [EXTERNAL][google.cloud.kms.v1.ProtectionLevel.EXTERNAL], and
+     * [EXTERNAL_VPC][google.cloud.kms.v1.ProtectionLevel.EXTERNAL_VPC] keys, the
      * plaintext must be no larger than 64KiB. For
      * [HSM][google.cloud.kms.v1.ProtectionLevel.HSM] keys, the combined length of
      * the plaintext and additional_authenticated_data fields must be no larger
@@ -1001,7 +971,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPlaintext() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       plaintext_ = getDefaultInstance().getPlaintext();
       onChanged();
       return this;
@@ -1015,8 +985,10 @@ private static final long serialVersionUID = 0L;
      * [DecryptRequest.additional_authenticated_data][google.cloud.kms.v1.DecryptRequest.additional_authenticated_data].
      * The maximum size depends on the key version's
      * [protection_level][google.cloud.kms.v1.CryptoKeyVersionTemplate.protection_level].
-     * For [SOFTWARE][google.cloud.kms.v1.ProtectionLevel.SOFTWARE] keys, the AAD
-     * must be no larger than 64KiB. For
+     * For [SOFTWARE][google.cloud.kms.v1.ProtectionLevel.SOFTWARE],
+     * [EXTERNAL][google.cloud.kms.v1.ProtectionLevel.EXTERNAL], and
+     * [EXTERNAL_VPC][google.cloud.kms.v1.ProtectionLevel.EXTERNAL_VPC] keys the
+     * AAD must be no larger than 64KiB. For
      * [HSM][google.cloud.kms.v1.ProtectionLevel.HSM] keys, the combined length of
      * the plaintext and additional_authenticated_data fields must be no larger
      * than 8KiB.
@@ -1036,8 +1008,10 @@ private static final long serialVersionUID = 0L;
      * [DecryptRequest.additional_authenticated_data][google.cloud.kms.v1.DecryptRequest.additional_authenticated_data].
      * The maximum size depends on the key version's
      * [protection_level][google.cloud.kms.v1.CryptoKeyVersionTemplate.protection_level].
-     * For [SOFTWARE][google.cloud.kms.v1.ProtectionLevel.SOFTWARE] keys, the AAD
-     * must be no larger than 64KiB. For
+     * For [SOFTWARE][google.cloud.kms.v1.ProtectionLevel.SOFTWARE],
+     * [EXTERNAL][google.cloud.kms.v1.ProtectionLevel.EXTERNAL], and
+     * [EXTERNAL_VPC][google.cloud.kms.v1.ProtectionLevel.EXTERNAL_VPC] keys the
+     * AAD must be no larger than 64KiB. For
      * [HSM][google.cloud.kms.v1.ProtectionLevel.HSM] keys, the combined length of
      * the plaintext and additional_authenticated_data fields must be no larger
      * than 8KiB.
@@ -1048,11 +1022,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAdditionalAuthenticatedData(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       additionalAuthenticatedData_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1063,8 +1035,10 @@ private static final long serialVersionUID = 0L;
      * [DecryptRequest.additional_authenticated_data][google.cloud.kms.v1.DecryptRequest.additional_authenticated_data].
      * The maximum size depends on the key version's
      * [protection_level][google.cloud.kms.v1.CryptoKeyVersionTemplate.protection_level].
-     * For [SOFTWARE][google.cloud.kms.v1.ProtectionLevel.SOFTWARE] keys, the AAD
-     * must be no larger than 64KiB. For
+     * For [SOFTWARE][google.cloud.kms.v1.ProtectionLevel.SOFTWARE],
+     * [EXTERNAL][google.cloud.kms.v1.ProtectionLevel.EXTERNAL], and
+     * [EXTERNAL_VPC][google.cloud.kms.v1.ProtectionLevel.EXTERNAL_VPC] keys the
+     * AAD must be no larger than 64KiB. For
      * [HSM][google.cloud.kms.v1.ProtectionLevel.HSM] keys, the combined length of
      * the plaintext and additional_authenticated_data fields must be no larger
      * than 8KiB.
@@ -1074,7 +1048,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAdditionalAuthenticatedData() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       additionalAuthenticatedData_ = getDefaultInstance().getAdditionalAuthenticatedData();
       onChanged();
       return this;
@@ -1110,7 +1084,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the plaintextCrc32c field is set.
      */
     public boolean hasPlaintextCrc32C() {
-      return plaintextCrc32CBuilder_ != null || plaintextCrc32C_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1176,11 +1150,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         plaintextCrc32C_ = value;
-        onChanged();
       } else {
         plaintextCrc32CBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1212,11 +1186,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int64Value.Builder builderForValue) {
       if (plaintextCrc32CBuilder_ == null) {
         plaintextCrc32C_ = builderForValue.build();
-        onChanged();
       } else {
         plaintextCrc32CBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1246,17 +1220,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePlaintextCrc32C(com.google.protobuf.Int64Value value) {
       if (plaintextCrc32CBuilder_ == null) {
-        if (plaintextCrc32C_ != null) {
-          plaintextCrc32C_ =
-            com.google.protobuf.Int64Value.newBuilder(plaintextCrc32C_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          plaintextCrc32C_ != null &&
+          plaintextCrc32C_ != com.google.protobuf.Int64Value.getDefaultInstance()) {
+          getPlaintextCrc32CBuilder().mergeFrom(value);
         } else {
           plaintextCrc32C_ = value;
         }
-        onChanged();
       } else {
         plaintextCrc32CBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1285,14 +1260,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int64Value plaintext_crc32c = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearPlaintextCrc32C() {
-      if (plaintextCrc32CBuilder_ == null) {
-        plaintextCrc32C_ = null;
-        onChanged();
-      } else {
-        plaintextCrc32C_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      plaintextCrc32C_ = null;
+      if (plaintextCrc32CBuilder_ != null) {
+        plaintextCrc32CBuilder_.dispose();
         plaintextCrc32CBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1321,7 +1295,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int64Value plaintext_crc32c = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.protobuf.Int64Value.Builder getPlaintextCrc32CBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getPlaintextCrc32CFieldBuilder().getBuilder();
     }
@@ -1427,7 +1401,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the additionalAuthenticatedDataCrc32c field is set.
      */
     public boolean hasAdditionalAuthenticatedDataCrc32C() {
-      return additionalAuthenticatedDataCrc32CBuilder_ != null || additionalAuthenticatedDataCrc32C_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1493,11 +1467,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         additionalAuthenticatedDataCrc32C_ = value;
-        onChanged();
       } else {
         additionalAuthenticatedDataCrc32CBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1529,11 +1503,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int64Value.Builder builderForValue) {
       if (additionalAuthenticatedDataCrc32CBuilder_ == null) {
         additionalAuthenticatedDataCrc32C_ = builderForValue.build();
-        onChanged();
       } else {
         additionalAuthenticatedDataCrc32CBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1563,17 +1537,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAdditionalAuthenticatedDataCrc32C(com.google.protobuf.Int64Value value) {
       if (additionalAuthenticatedDataCrc32CBuilder_ == null) {
-        if (additionalAuthenticatedDataCrc32C_ != null) {
-          additionalAuthenticatedDataCrc32C_ =
-            com.google.protobuf.Int64Value.newBuilder(additionalAuthenticatedDataCrc32C_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          additionalAuthenticatedDataCrc32C_ != null &&
+          additionalAuthenticatedDataCrc32C_ != com.google.protobuf.Int64Value.getDefaultInstance()) {
+          getAdditionalAuthenticatedDataCrc32CBuilder().mergeFrom(value);
         } else {
           additionalAuthenticatedDataCrc32C_ = value;
         }
-        onChanged();
       } else {
         additionalAuthenticatedDataCrc32CBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1602,14 +1577,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int64Value additional_authenticated_data_crc32c = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearAdditionalAuthenticatedDataCrc32C() {
-      if (additionalAuthenticatedDataCrc32CBuilder_ == null) {
-        additionalAuthenticatedDataCrc32C_ = null;
-        onChanged();
-      } else {
-        additionalAuthenticatedDataCrc32C_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      additionalAuthenticatedDataCrc32C_ = null;
+      if (additionalAuthenticatedDataCrc32CBuilder_ != null) {
+        additionalAuthenticatedDataCrc32CBuilder_.dispose();
         additionalAuthenticatedDataCrc32CBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1638,7 +1612,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int64Value additional_authenticated_data_crc32c = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.protobuf.Int64Value.Builder getAdditionalAuthenticatedDataCrc32CBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getAdditionalAuthenticatedDataCrc32CFieldBuilder().getBuilder();
     }
@@ -1746,7 +1720,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EncryptRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

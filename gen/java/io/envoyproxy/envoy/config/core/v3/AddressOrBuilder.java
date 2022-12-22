@@ -39,7 +39,8 @@ public interface AddressOrBuilder extends
 
   /**
    * <pre>
-   * [#not-implemented-hide:]
+   * Specifies a user-space address handled by :ref:`internal listeners
+   * &lt;envoy_v3_api_field_config.listener.v3.Listener.internal_listener&gt;`.
    * </pre>
    *
    * <code>.envoy.config.core.v3.EnvoyInternalAddress envoy_internal_address = 3;</code>
@@ -48,7 +49,8 @@ public interface AddressOrBuilder extends
   boolean hasEnvoyInternalAddress();
   /**
    * <pre>
-   * [#not-implemented-hide:]
+   * Specifies a user-space address handled by :ref:`internal listeners
+   * &lt;envoy_v3_api_field_config.listener.v3.Listener.internal_listener&gt;`.
    * </pre>
    *
    * <code>.envoy.config.core.v3.EnvoyInternalAddress envoy_internal_address = 3;</code>
@@ -57,7 +59,8 @@ public interface AddressOrBuilder extends
   io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress getEnvoyInternalAddress();
   /**
    * <pre>
-   * [#not-implemented-hide:]
+   * Specifies a user-space address handled by :ref:`internal listeners
+   * &lt;envoy_v3_api_field_config.listener.v3.Listener.internal_listener&gt;`.
    * </pre>
    *
    * <code>.envoy.config.core.v3.EnvoyInternalAddress envoy_internal_address = 3;</code>

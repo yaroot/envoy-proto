@@ -38,88 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OracleProfile(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            hostname_ = s;
-            break;
-          }
-          case 16: {
-
-            port_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            username_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            password_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            databaseService_ = s;
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              connectionAttributes_ = com.google.protobuf.MapField.newMapField(
-                  ConnectionAttributesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            connectionAttributes__ = input.readMessage(
-                ConnectionAttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            connectionAttributes_.getMutableMap().put(
-                connectionAttributes__.getKey(), connectionAttributes__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datastream.v1alpha1.CloudDatastreamResourcesProto.internal_static_google_cloud_datastream_v1alpha1_OracleProfile_descriptor;
@@ -146,7 +64,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HOSTNAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object hostname_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object hostname_ = "";
   /**
    * <pre>
    * Required. Hostname for the Oracle connection.
@@ -192,7 +111,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PORT_FIELD_NUMBER = 2;
-  private int port_;
+  private int port_ = 0;
   /**
    * <pre>
    * Port for the Oracle connection, default value is 1521.
@@ -207,7 +126,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USERNAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object username_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object username_ = "";
   /**
    * <pre>
    * Required. Username for the Oracle connection.
@@ -253,7 +173,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PASSWORD_FIELD_NUMBER = 4;
-  private volatile java.lang.Object password_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object password_ = "";
   /**
    * <pre>
    * Required. Password for the Oracle connection.
@@ -299,7 +220,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATABASE_SERVICE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object databaseService_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object databaseService_ = "";
   /**
    * <pre>
    * Required. Database for the Oracle connection.
@@ -356,6 +278,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> connectionAttributes_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -366,7 +289,6 @@ private static final long serialVersionUID = 0L;
     }
     return connectionAttributes_;
   }
-
   public int getConnectionAttributesCount() {
     return internalGetConnectionAttributes().getMap().size();
   }
@@ -377,7 +299,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; connection_attributes = 6;</code>
    */
-
   @java.lang.Override
   public boolean containsConnectionAttributes(
       java.lang.String key) {
@@ -400,7 +321,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; connection_attributes = 6;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getConnectionAttributesMap() {
     return internalGetConnectionAttributes().getMap();
   }
@@ -412,10 +332,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; connection_attributes = 6;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getConnectionAttributesOrDefault(
+  public /* nullable */
+java.lang.String getConnectionAttributesOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetConnectionAttributes().getMap();
@@ -429,7 +350,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; connection_attributes = 6;</code>
    */
   @java.lang.Override
-
   public java.lang.String getConnectionAttributesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -476,7 +396,7 @@ private static final long serialVersionUID = 0L;
         internalGetConnectionAttributes(),
         ConnectionAttributesDefaultEntryHolder.defaultEntry,
         6);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -511,7 +431,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, connectionAttributes__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -538,7 +458,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDatabaseService())) return false;
     if (!internalGetConnectionAttributes().equals(
         other.internalGetConnectionAttributes())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -563,7 +483,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CONNECTION_ATTRIBUTES_FIELD_NUMBER;
       hash = (53 * hash) + internalGetConnectionAttributes().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -706,32 +626,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datastream.v1alpha1.OracleProfile.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       hostname_ = "";
-
       port_ = 0;
-
       username_ = "";
-
       password_ = "";
-
       databaseService_ = "";
-
       internalGetMutableConnectionAttributes().clear();
       return this;
     }
@@ -759,16 +670,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datastream.v1alpha1.OracleProfile buildPartial() {
       com.google.cloud.datastream.v1alpha1.OracleProfile result = new com.google.cloud.datastream.v1alpha1.OracleProfile(this);
-      int from_bitField0_ = bitField0_;
-      result.hostname_ = hostname_;
-      result.port_ = port_;
-      result.username_ = username_;
-      result.password_ = password_;
-      result.databaseService_ = databaseService_;
-      result.connectionAttributes_ = internalGetConnectionAttributes();
-      result.connectionAttributes_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datastream.v1alpha1.OracleProfile result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.hostname_ = hostname_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.port_ = port_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.username_ = username_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.password_ = password_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.databaseService_ = databaseService_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.connectionAttributes_ = internalGetConnectionAttributes();
+        result.connectionAttributes_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -817,6 +744,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.datastream.v1alpha1.OracleProfile.getDefaultInstance()) return this;
       if (!other.getHostname().isEmpty()) {
         hostname_ = other.hostname_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getPort() != 0) {
@@ -824,19 +752,23 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getUsername().isEmpty()) {
         username_ = other.username_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getPassword().isEmpty()) {
         password_ = other.password_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getDatabaseService().isEmpty()) {
         databaseService_ = other.databaseService_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       internalGetMutableConnectionAttributes().mergeFrom(
           other.internalGetConnectionAttributes());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000020;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -851,17 +783,64 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datastream.v1alpha1.OracleProfile parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              hostname_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              port_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              username_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              password_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              databaseService_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              connectionAttributes__ = input.readMessage(
+                  ConnectionAttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableConnectionAttributes().getMutableMap().put(
+                  connectionAttributes__.getKey(), connectionAttributes__.getValue());
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datastream.v1alpha1.OracleProfile) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -919,11 +898,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostname(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       hostname_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -936,8 +913,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHostname() {
-      
       hostname_ = getDefaultInstance().getHostname();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -952,12 +929,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostnameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       hostname_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -987,6 +962,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPort(int value) {
       
       port_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -999,7 +975,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPort() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       port_ = 0;
       onChanged();
       return this;
@@ -1058,11 +1034,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUsername(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       username_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1075,8 +1049,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUsername() {
-      
       username_ = getDefaultInstance().getUsername();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1091,12 +1065,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUsernameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       username_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1154,11 +1126,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPassword(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       password_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1171,8 +1141,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPassword() {
-      
       password_ = getDefaultInstance().getPassword();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1187,12 +1157,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPasswordBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       password_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1250,11 +1218,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDatabaseService(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       databaseService_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1267,8 +1233,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDatabaseService() {
-      
       databaseService_ = getDefaultInstance().getDatabaseService();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1283,12 +1249,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDatabaseServiceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       databaseService_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1296,7 +1260,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> connectionAttributes_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetConnectionAttributes() {
+        internalGetConnectionAttributes() {
       if (connectionAttributes_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ConnectionAttributesDefaultEntryHolder.defaultEntry);
@@ -1304,8 +1268,7 @@ private static final long serialVersionUID = 0L;
       return connectionAttributes_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableConnectionAttributes() {
-      onChanged();;
+        internalGetMutableConnectionAttributes() {
       if (connectionAttributes_ == null) {
         connectionAttributes_ = com.google.protobuf.MapField.newMapField(
             ConnectionAttributesDefaultEntryHolder.defaultEntry);
@@ -1313,9 +1276,10 @@ private static final long serialVersionUID = 0L;
       if (!connectionAttributes_.isMutable()) {
         connectionAttributes_ = connectionAttributes_.copy();
       }
+      bitField0_ |= 0x00000020;
+      onChanged();
       return connectionAttributes_;
     }
-
     public int getConnectionAttributesCount() {
       return internalGetConnectionAttributes().getMap().size();
     }
@@ -1326,7 +1290,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; connection_attributes = 6;</code>
      */
-
     @java.lang.Override
     public boolean containsConnectionAttributes(
         java.lang.String key) {
@@ -1349,7 +1312,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; connection_attributes = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getConnectionAttributesMap() {
       return internalGetConnectionAttributes().getMap();
     }
@@ -1361,10 +1323,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; connection_attributes = 6;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getConnectionAttributesOrDefault(
+    public /* nullable */
+java.lang.String getConnectionAttributesOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetConnectionAttributes().getMap();
@@ -1378,7 +1341,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; connection_attributes = 6;</code>
      */
     @java.lang.Override
-
     public java.lang.String getConnectionAttributesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1389,8 +1351,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearConnectionAttributes() {
+      bitField0_ = (bitField0_ & ~0x00000020);
       internalGetMutableConnectionAttributes().getMutableMap()
           .clear();
       return this;
@@ -1402,7 +1364,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; connection_attributes = 6;</code>
      */
-
     public Builder removeConnectionAttributes(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1415,7 +1376,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableConnectionAttributes() {
+        getMutableConnectionAttributes() {
+      bitField0_ |= 0x00000020;
       return internalGetMutableConnectionAttributes().getMutableMap();
     }
     /**
@@ -1429,12 +1391,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableConnectionAttributes().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000020;
       return this;
     }
     /**
@@ -1444,11 +1404,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; connection_attributes = 6;</code>
      */
-
     public Builder putAllConnectionAttributes(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableConnectionAttributes().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000020;
       return this;
     }
     @java.lang.Override
@@ -1484,7 +1444,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OracleProfile(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

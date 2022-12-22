@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ThreatEntryRemovals(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.webrisk.v1.RawIndices.Builder subBuilder = null;
-            if (rawIndices_ != null) {
-              subBuilder = rawIndices_.toBuilder();
-            }
-            rawIndices_ = input.readMessage(com.google.webrisk.v1.RawIndices.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rawIndices_);
-              rawIndices_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.webrisk.v1.RiceDeltaEncoding.Builder subBuilder = null;
-            if (riceIndices_ != null) {
-              subBuilder = riceIndices_.toBuilder();
-            }
-            riceIndices_ = input.readMessage(com.google.webrisk.v1.RiceDeltaEncoding.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(riceIndices_);
-              riceIndices_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.webrisk.v1.WebRiskProto.internal_static_google_cloud_webrisk_v1_ThreatEntryRemovals_descriptor;
@@ -147,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.webrisk.v1.RawIndicesOrBuilder getRawIndicesOrBuilder() {
-    return getRawIndices();
+    return rawIndices_ == null ? com.google.webrisk.v1.RawIndices.getDefaultInstance() : rawIndices_;
   }
 
   public static final int RICE_INDICES_FIELD_NUMBER = 2;
@@ -194,7 +129,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.webrisk.v1.RiceDeltaEncodingOrBuilder getRiceIndicesOrBuilder() {
-    return getRiceIndices();
+    return riceIndices_ == null ? com.google.webrisk.v1.RiceDeltaEncoding.getDefaultInstance() : riceIndices_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -217,7 +152,7 @@ private static final long serialVersionUID = 0L;
     if (riceIndices_ != null) {
       output.writeMessage(2, getRiceIndices());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -234,7 +169,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getRiceIndices());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -259,7 +194,7 @@ private static final long serialVersionUID = 0L;
       if (!getRiceIndices()
           .equals(other.getRiceIndices())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -278,7 +213,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RICE_INDICES_FIELD_NUMBER;
       hash = (53 * hash) + getRiceIndices().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -399,32 +334,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.webrisk.v1.ThreatEntryRemovals.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (rawIndicesBuilder_ == null) {
-        rawIndices_ = null;
-      } else {
-        rawIndices_ = null;
+      bitField0_ = 0;
+      rawIndices_ = null;
+      if (rawIndicesBuilder_ != null) {
+        rawIndicesBuilder_.dispose();
         rawIndicesBuilder_ = null;
       }
-      if (riceIndicesBuilder_ == null) {
-        riceIndices_ = null;
-      } else {
-        riceIndices_ = null;
+      riceIndices_ = null;
+      if (riceIndicesBuilder_ != null) {
+        riceIndicesBuilder_.dispose();
         riceIndicesBuilder_ = null;
       }
       return this;
@@ -453,18 +382,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.webrisk.v1.ThreatEntryRemovals buildPartial() {
       com.google.webrisk.v1.ThreatEntryRemovals result = new com.google.webrisk.v1.ThreatEntryRemovals(this);
-      if (rawIndicesBuilder_ == null) {
-        result.rawIndices_ = rawIndices_;
-      } else {
-        result.rawIndices_ = rawIndicesBuilder_.build();
-      }
-      if (riceIndicesBuilder_ == null) {
-        result.riceIndices_ = riceIndices_;
-      } else {
-        result.riceIndices_ = riceIndicesBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.webrisk.v1.ThreatEntryRemovals result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.rawIndices_ = rawIndicesBuilder_ == null
+            ? rawIndices_
+            : rawIndicesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.riceIndices_ = riceIndicesBuilder_ == null
+            ? riceIndices_
+            : riceIndicesBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -517,7 +451,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRiceIndices()) {
         mergeRiceIndices(other.getRiceIndices());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -532,19 +466,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.webrisk.v1.ThreatEntryRemovals parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getRawIndicesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getRiceIndicesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.webrisk.v1.ThreatEntryRemovals) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.webrisk.v1.RawIndices rawIndices_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -558,7 +520,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rawIndices field is set.
      */
     public boolean hasRawIndices() {
-      return rawIndicesBuilder_ != null || rawIndices_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -588,11 +550,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rawIndices_ = value;
-        onChanged();
       } else {
         rawIndicesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -606,11 +568,11 @@ private static final long serialVersionUID = 0L;
         com.google.webrisk.v1.RawIndices.Builder builderForValue) {
       if (rawIndicesBuilder_ == null) {
         rawIndices_ = builderForValue.build();
-        onChanged();
       } else {
         rawIndicesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -622,17 +584,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRawIndices(com.google.webrisk.v1.RawIndices value) {
       if (rawIndicesBuilder_ == null) {
-        if (rawIndices_ != null) {
-          rawIndices_ =
-            com.google.webrisk.v1.RawIndices.newBuilder(rawIndices_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          rawIndices_ != null &&
+          rawIndices_ != com.google.webrisk.v1.RawIndices.getDefaultInstance()) {
+          getRawIndicesBuilder().mergeFrom(value);
         } else {
           rawIndices_ = value;
         }
-        onChanged();
       } else {
         rawIndicesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -643,14 +606,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.webrisk.v1.RawIndices raw_indices = 1;</code>
      */
     public Builder clearRawIndices() {
-      if (rawIndicesBuilder_ == null) {
-        rawIndices_ = null;
-        onChanged();
-      } else {
-        rawIndices_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      rawIndices_ = null;
+      if (rawIndicesBuilder_ != null) {
+        rawIndicesBuilder_.dispose();
         rawIndicesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -661,7 +623,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.webrisk.v1.RawIndices raw_indices = 1;</code>
      */
     public com.google.webrisk.v1.RawIndices.Builder getRawIndicesBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getRawIndicesFieldBuilder().getBuilder();
     }
@@ -716,7 +678,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the riceIndices field is set.
      */
     public boolean hasRiceIndices() {
-      return riceIndicesBuilder_ != null || riceIndices_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -752,11 +714,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         riceIndices_ = value;
-        onChanged();
       } else {
         riceIndicesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -773,11 +735,11 @@ private static final long serialVersionUID = 0L;
         com.google.webrisk.v1.RiceDeltaEncoding.Builder builderForValue) {
       if (riceIndicesBuilder_ == null) {
         riceIndices_ = builderForValue.build();
-        onChanged();
       } else {
         riceIndicesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -792,17 +754,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRiceIndices(com.google.webrisk.v1.RiceDeltaEncoding value) {
       if (riceIndicesBuilder_ == null) {
-        if (riceIndices_ != null) {
-          riceIndices_ =
-            com.google.webrisk.v1.RiceDeltaEncoding.newBuilder(riceIndices_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          riceIndices_ != null &&
+          riceIndices_ != com.google.webrisk.v1.RiceDeltaEncoding.getDefaultInstance()) {
+          getRiceIndicesBuilder().mergeFrom(value);
         } else {
           riceIndices_ = value;
         }
-        onChanged();
       } else {
         riceIndicesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -816,14 +779,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.webrisk.v1.RiceDeltaEncoding rice_indices = 2;</code>
      */
     public Builder clearRiceIndices() {
-      if (riceIndicesBuilder_ == null) {
-        riceIndices_ = null;
-        onChanged();
-      } else {
-        riceIndices_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      riceIndices_ = null;
+      if (riceIndicesBuilder_ != null) {
+        riceIndicesBuilder_.dispose();
         riceIndicesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -837,7 +799,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.webrisk.v1.RiceDeltaEncoding rice_indices = 2;</code>
      */
     public com.google.webrisk.v1.RiceDeltaEncoding.Builder getRiceIndicesBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getRiceIndicesFieldBuilder().getBuilder();
     }
@@ -915,7 +877,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ThreatEntryRemovals(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

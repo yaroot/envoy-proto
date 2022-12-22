@@ -11,11 +11,10 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n;google/cloud/bigquery/storage/v1beta1/table_reference.proto\x12%google.cloud.bigquery.storage.v1beta1\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"J\n\x0eTableReference\x12\x12\n\nproject_id\x18\x01 \x01(\t\x12\x12\n\ndataset_id\x18\x02 \x01(\t\x12\x10\n\x08table_id\x18\x03 \x01(\t\"C\n\x0eTableModifiers\x12\x31\n\rsnapshot_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x8e\x01\n)com.google.cloud.bigquery.storage.v1beta1B\x13TableReferenceProtoZLgoogle.golang.org/genproto/googleapis/cloud/bigquery/storage/v1beta1;storageb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n;google/cloud/bigquery/storage/v1beta1/table_reference.proto\x12%google.cloud.bigquery.storage.v1beta1\x1a\x1fgoogle/protobuf/timestamp.proto\"J\n\x0eTableReference\x12\x12\n\nproject_id\x18\x01 \x01(\t\x12\x12\n\ndataset_id\x18\x02 \x01(\t\x12\x10\n\x08table_id\x18\x03 \x01(\t\"C\n\x0eTableModifiers\x12\x31\n\rsnapshot_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x8e\x01\n)com.google.cloud.bigquery.storage.v1beta1B\x13TableReferenceProtoZLgoogle.golang.org/genproto/googleapis/cloud/bigquery/storage/v1beta1;storageb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.bigquery.storage.v1beta1.table_reference_pb2', globals())
@@ -23,8 +22,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n)com.google.cloud.bigquery.storage.v1beta1B\023TableReferenceProtoZLgoogle.golang.org/genproto/googleapis/cloud/bigquery/storage/v1beta1;storage'
-  _TABLEREFERENCE._serialized_start=162
-  _TABLEREFERENCE._serialized_end=236
-  _TABLEMODIFIERS._serialized_start=238
-  _TABLEMODIFIERS._serialized_end=305
+  _TABLEREFERENCE._serialized_start=135
+  _TABLEREFERENCE._serialized_end=209
+  _TABLEMODIFIERS._serialized_start=211
+  _TABLEMODIFIERS._serialized_end=278
 # @@protoc_insertion_point(module_scope)

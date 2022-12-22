@@ -34,60 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ImportFeatureValuesResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            importedEntityCount_ = input.readInt64();
-            break;
-          }
-          case 16: {
-
-            importedFeatureValueCount_ = input.readInt64();
-            break;
-          }
-          case 48: {
-
-            invalidRowCount_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1.FeaturestoreServiceProto.internal_static_google_cloud_aiplatform_v1_ImportFeatureValuesResponse_descriptor;
@@ -102,7 +48,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMPORTED_ENTITY_COUNT_FIELD_NUMBER = 1;
-  private long importedEntityCount_;
+  private long importedEntityCount_ = 0L;
   /**
    * <pre>
    * Number of entities that have been imported by the operation.
@@ -117,7 +63,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMPORTED_FEATURE_VALUE_COUNT_FIELD_NUMBER = 2;
-  private long importedFeatureValueCount_;
+  private long importedFeatureValueCount_ = 0L;
   /**
    * <pre>
    * Number of Feature values that have been imported by the operation.
@@ -132,7 +78,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INVALID_ROW_COUNT_FIELD_NUMBER = 6;
-  private long invalidRowCount_;
+  private long invalidRowCount_ = 0L;
   /**
    * <pre>
    * The number of rows in input source that weren't imported due to either
@@ -148,6 +94,22 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public long getInvalidRowCount() {
     return invalidRowCount_;
+  }
+
+  public static final int TIMESTAMP_OUTSIDE_RETENTION_ROWS_COUNT_FIELD_NUMBER = 4;
+  private long timestampOutsideRetentionRowsCount_ = 0L;
+  /**
+   * <pre>
+   * The number rows that weren't ingested due to having feature timestamps
+   * outside the retention boundary.
+   * </pre>
+   *
+   * <code>int64 timestamp_outside_retention_rows_count = 4;</code>
+   * @return The timestampOutsideRetentionRowsCount.
+   */
+  @java.lang.Override
+  public long getTimestampOutsideRetentionRowsCount() {
+    return timestampOutsideRetentionRowsCount_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -170,10 +132,13 @@ private static final long serialVersionUID = 0L;
     if (importedFeatureValueCount_ != 0L) {
       output.writeInt64(2, importedFeatureValueCount_);
     }
+    if (timestampOutsideRetentionRowsCount_ != 0L) {
+      output.writeInt64(4, timestampOutsideRetentionRowsCount_);
+    }
     if (invalidRowCount_ != 0L) {
       output.writeInt64(6, invalidRowCount_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -190,11 +155,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, importedFeatureValueCount_);
     }
+    if (timestampOutsideRetentionRowsCount_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(4, timestampOutsideRetentionRowsCount_);
+    }
     if (invalidRowCount_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(6, invalidRowCount_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -215,7 +184,9 @@ private static final long serialVersionUID = 0L;
         != other.getImportedFeatureValueCount()) return false;
     if (getInvalidRowCount()
         != other.getInvalidRowCount()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (getTimestampOutsideRetentionRowsCount()
+        != other.getTimestampOutsideRetentionRowsCount()) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -235,7 +206,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + INVALID_ROW_COUNT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getInvalidRowCount());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + TIMESTAMP_OUTSIDE_RETENTION_ROWS_COUNT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getTimestampOutsideRetentionRowsCount());
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -356,28 +330,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1.ImportFeatureValuesResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       importedEntityCount_ = 0L;
-
       importedFeatureValueCount_ = 0L;
-
       invalidRowCount_ = 0L;
-
+      timestampOutsideRetentionRowsCount_ = 0L;
       return this;
     }
 
@@ -404,11 +372,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.ImportFeatureValuesResponse buildPartial() {
       com.google.cloud.aiplatform.v1.ImportFeatureValuesResponse result = new com.google.cloud.aiplatform.v1.ImportFeatureValuesResponse(this);
-      result.importedEntityCount_ = importedEntityCount_;
-      result.importedFeatureValueCount_ = importedFeatureValueCount_;
-      result.invalidRowCount_ = invalidRowCount_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1.ImportFeatureValuesResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.importedEntityCount_ = importedEntityCount_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.importedFeatureValueCount_ = importedFeatureValueCount_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.invalidRowCount_ = invalidRowCount_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.timestampOutsideRetentionRowsCount_ = timestampOutsideRetentionRowsCount_;
+      }
     }
 
     @java.lang.Override
@@ -464,7 +446,10 @@ private static final long serialVersionUID = 0L;
       if (other.getInvalidRowCount() != 0L) {
         setInvalidRowCount(other.getInvalidRowCount());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.getTimestampOutsideRetentionRowsCount() != 0L) {
+        setTimestampOutsideRetentionRowsCount(other.getTimestampOutsideRetentionRowsCount());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -479,19 +464,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1.ImportFeatureValuesResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              importedEntityCount_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              importedFeatureValueCount_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 32: {
+              timestampOutsideRetentionRowsCount_ = input.readInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 48: {
+              invalidRowCount_ = input.readInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1.ImportFeatureValuesResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private long importedEntityCount_ ;
     /**
@@ -518,6 +537,7 @@ private static final long serialVersionUID = 0L;
     public Builder setImportedEntityCount(long value) {
       
       importedEntityCount_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -530,7 +550,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImportedEntityCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       importedEntityCount_ = 0L;
       onChanged();
       return this;
@@ -561,6 +581,7 @@ private static final long serialVersionUID = 0L;
     public Builder setImportedFeatureValueCount(long value) {
       
       importedFeatureValueCount_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -573,7 +594,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImportedFeatureValueCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       importedFeatureValueCount_ = 0L;
       onChanged();
       return this;
@@ -612,6 +633,7 @@ private static final long serialVersionUID = 0L;
     public Builder setInvalidRowCount(long value) {
       
       invalidRowCount_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -628,8 +650,55 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInvalidRowCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       invalidRowCount_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long timestampOutsideRetentionRowsCount_ ;
+    /**
+     * <pre>
+     * The number rows that weren't ingested due to having feature timestamps
+     * outside the retention boundary.
+     * </pre>
+     *
+     * <code>int64 timestamp_outside_retention_rows_count = 4;</code>
+     * @return The timestampOutsideRetentionRowsCount.
+     */
+    @java.lang.Override
+    public long getTimestampOutsideRetentionRowsCount() {
+      return timestampOutsideRetentionRowsCount_;
+    }
+    /**
+     * <pre>
+     * The number rows that weren't ingested due to having feature timestamps
+     * outside the retention boundary.
+     * </pre>
+     *
+     * <code>int64 timestamp_outside_retention_rows_count = 4;</code>
+     * @param value The timestampOutsideRetentionRowsCount to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTimestampOutsideRetentionRowsCount(long value) {
+      
+      timestampOutsideRetentionRowsCount_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The number rows that weren't ingested due to having feature timestamps
+     * outside the retention boundary.
+     * </pre>
+     *
+     * <code>int64 timestamp_outside_retention_rows_count = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTimestampOutsideRetentionRowsCount() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      timestampOutsideRetentionRowsCount_ = 0L;
       onChanged();
       return this;
     }
@@ -666,7 +735,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImportFeatureValuesResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

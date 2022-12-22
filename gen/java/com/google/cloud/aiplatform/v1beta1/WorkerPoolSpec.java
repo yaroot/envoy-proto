@@ -35,117 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private WorkerPoolSpec(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.aiplatform.v1beta1.MachineSpec.Builder subBuilder = null;
-            if (machineSpec_ != null) {
-              subBuilder = machineSpec_.toBuilder();
-            }
-            machineSpec_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.MachineSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(machineSpec_);
-              machineSpec_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-
-            replicaCount_ = input.readInt64();
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              nfsMounts_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1beta1.NfsMount>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            nfsMounts_.add(
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.NfsMount.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            com.google.cloud.aiplatform.v1beta1.DiskSpec.Builder subBuilder = null;
-            if (diskSpec_ != null) {
-              subBuilder = diskSpec_.toBuilder();
-            }
-            diskSpec_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.DiskSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(diskSpec_);
-              diskSpec_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.aiplatform.v1beta1.ContainerSpec.Builder subBuilder = null;
-            if (taskCase_ == 6) {
-              subBuilder = ((com.google.cloud.aiplatform.v1beta1.ContainerSpec) task_).toBuilder();
-            }
-            task_ =
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.ContainerSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1beta1.ContainerSpec) task_);
-              task_ = subBuilder.buildPartial();
-            }
-            taskCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.cloud.aiplatform.v1beta1.PythonPackageSpec.Builder subBuilder = null;
-            if (taskCase_ == 7) {
-              subBuilder = ((com.google.cloud.aiplatform.v1beta1.PythonPackageSpec) task_).toBuilder();
-            }
-            task_ =
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.PythonPackageSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1beta1.PythonPackageSpec) task_);
-              task_ = subBuilder.buildPartial();
-            }
-            taskCase_ = 7;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        nfsMounts_ = java.util.Collections.unmodifiableList(nfsMounts_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.CustomJobProto.internal_static_google_cloud_aiplatform_v1beta1_WorkerPoolSpec_descriptor;
@@ -321,11 +210,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.MachineSpecOrBuilder getMachineSpecOrBuilder() {
-    return getMachineSpec();
+    return machineSpec_ == null ? com.google.cloud.aiplatform.v1beta1.MachineSpec.getDefaultInstance() : machineSpec_;
   }
 
   public static final int REPLICA_COUNT_FIELD_NUMBER = 2;
-  private long replicaCount_;
+  private long replicaCount_ = 0L;
   /**
    * <pre>
    * Optional. The number of worker replicas to use for this worker pool.
@@ -340,6 +229,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NFS_MOUNTS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.aiplatform.v1beta1.NfsMount> nfsMounts_;
   /**
    * <pre>
@@ -434,7 +324,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.DiskSpecOrBuilder getDiskSpecOrBuilder() {
-    return getDiskSpec();
+    return diskSpec_ == null ? com.google.cloud.aiplatform.v1beta1.DiskSpec.getDefaultInstance() : diskSpec_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -469,7 +359,7 @@ private static final long serialVersionUID = 0L;
     if (taskCase_ == 7) {
       output.writeMessage(7, (com.google.cloud.aiplatform.v1beta1.PythonPackageSpec) task_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -502,7 +392,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, (com.google.cloud.aiplatform.v1beta1.PythonPackageSpec) task_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -544,7 +434,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -582,7 +472,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -703,41 +593,40 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.WorkerPoolSpec.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getNfsMountsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (machineSpecBuilder_ == null) {
-        machineSpec_ = null;
-      } else {
-        machineSpec_ = null;
+      bitField0_ = 0;
+      if (containerSpecBuilder_ != null) {
+        containerSpecBuilder_.clear();
+      }
+      if (pythonPackageSpecBuilder_ != null) {
+        pythonPackageSpecBuilder_.clear();
+      }
+      machineSpec_ = null;
+      if (machineSpecBuilder_ != null) {
+        machineSpecBuilder_.dispose();
         machineSpecBuilder_ = null;
       }
       replicaCount_ = 0L;
-
       if (nfsMountsBuilder_ == null) {
         nfsMounts_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        nfsMounts_ = null;
         nfsMountsBuilder_.clear();
       }
-      if (diskSpecBuilder_ == null) {
-        diskSpec_ = null;
-      } else {
-        diskSpec_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      diskSpec_ = null;
+      if (diskSpecBuilder_ != null) {
+        diskSpecBuilder_.dispose();
         diskSpecBuilder_ = null;
       }
       taskCase_ = 0;
@@ -768,44 +657,53 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.WorkerPoolSpec buildPartial() {
       com.google.cloud.aiplatform.v1beta1.WorkerPoolSpec result = new com.google.cloud.aiplatform.v1beta1.WorkerPoolSpec(this);
-      int from_bitField0_ = bitField0_;
-      if (taskCase_ == 6) {
-        if (containerSpecBuilder_ == null) {
-          result.task_ = task_;
-        } else {
-          result.task_ = containerSpecBuilder_.build();
-        }
-      }
-      if (taskCase_ == 7) {
-        if (pythonPackageSpecBuilder_ == null) {
-          result.task_ = task_;
-        } else {
-          result.task_ = pythonPackageSpecBuilder_.build();
-        }
-      }
-      if (machineSpecBuilder_ == null) {
-        result.machineSpec_ = machineSpec_;
-      } else {
-        result.machineSpec_ = machineSpecBuilder_.build();
-      }
-      result.replicaCount_ = replicaCount_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.aiplatform.v1beta1.WorkerPoolSpec result) {
       if (nfsMountsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           nfsMounts_ = java.util.Collections.unmodifiableList(nfsMounts_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.nfsMounts_ = nfsMounts_;
       } else {
         result.nfsMounts_ = nfsMountsBuilder_.build();
       }
-      if (diskSpecBuilder_ == null) {
-        result.diskSpec_ = diskSpec_;
-      } else {
-        result.diskSpec_ = diskSpecBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.WorkerPoolSpec result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.machineSpec_ = machineSpecBuilder_ == null
+            ? machineSpec_
+            : machineSpecBuilder_.build();
       }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.replicaCount_ = replicaCount_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.diskSpec_ = diskSpecBuilder_ == null
+            ? diskSpec_
+            : diskSpecBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.aiplatform.v1beta1.WorkerPoolSpec result) {
       result.taskCase_ = taskCase_;
-      onBuilt();
-      return result;
+      result.task_ = this.task_;
+      if (taskCase_ == 6 &&
+          containerSpecBuilder_ != null) {
+        result.task_ = containerSpecBuilder_.build();
+      }
+      if (taskCase_ == 7 &&
+          pythonPackageSpecBuilder_ != null) {
+        result.task_ = pythonPackageSpecBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -862,7 +760,7 @@ private static final long serialVersionUID = 0L;
         if (!other.nfsMounts_.isEmpty()) {
           if (nfsMounts_.isEmpty()) {
             nfsMounts_ = other.nfsMounts_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureNfsMountsIsMutable();
             nfsMounts_.addAll(other.nfsMounts_);
@@ -875,7 +773,7 @@ private static final long serialVersionUID = 0L;
             nfsMountsBuilder_.dispose();
             nfsMountsBuilder_ = null;
             nfsMounts_ = other.nfsMounts_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             nfsMountsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getNfsMountsFieldBuilder() : null;
@@ -900,7 +798,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -915,17 +813,76 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.WorkerPoolSpec parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMachineSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 10
+            case 16: {
+              replicaCount_ = input.readInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 16
+            case 34: {
+              com.google.cloud.aiplatform.v1beta1.NfsMount m =
+                  input.readMessage(
+                      com.google.cloud.aiplatform.v1beta1.NfsMount.parser(),
+                      extensionRegistry);
+              if (nfsMountsBuilder_ == null) {
+                ensureNfsMountsIsMutable();
+                nfsMounts_.add(m);
+              } else {
+                nfsMountsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getDiskSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getContainerSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              taskCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getPythonPackageSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              taskCase_ = 7;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.WorkerPoolSpec) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int taskCase_ = 0;
@@ -1119,7 +1076,7 @@ private static final long serialVersionUID = 0L;
         task_ = null;
       }
       taskCase_ = 6;
-      onChanged();;
+      onChanged();
       return containerSpecBuilder_;
     }
 
@@ -1297,7 +1254,7 @@ private static final long serialVersionUID = 0L;
         task_ = null;
       }
       taskCase_ = 7;
-      onChanged();;
+      onChanged();
       return pythonPackageSpecBuilder_;
     }
 
@@ -1313,7 +1270,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the machineSpec field is set.
      */
     public boolean hasMachineSpec() {
-      return machineSpecBuilder_ != null || machineSpec_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1343,11 +1300,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         machineSpec_ = value;
-        onChanged();
       } else {
         machineSpecBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1361,11 +1318,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.MachineSpec.Builder builderForValue) {
       if (machineSpecBuilder_ == null) {
         machineSpec_ = builderForValue.build();
-        onChanged();
       } else {
         machineSpecBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1377,17 +1334,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMachineSpec(com.google.cloud.aiplatform.v1beta1.MachineSpec value) {
       if (machineSpecBuilder_ == null) {
-        if (machineSpec_ != null) {
-          machineSpec_ =
-            com.google.cloud.aiplatform.v1beta1.MachineSpec.newBuilder(machineSpec_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          machineSpec_ != null &&
+          machineSpec_ != com.google.cloud.aiplatform.v1beta1.MachineSpec.getDefaultInstance()) {
+          getMachineSpecBuilder().mergeFrom(value);
         } else {
           machineSpec_ = value;
         }
-        onChanged();
       } else {
         machineSpecBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1398,14 +1356,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.MachineSpec machine_spec = 1 [(.google.api.field_behavior) = OPTIONAL, (.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public Builder clearMachineSpec() {
-      if (machineSpecBuilder_ == null) {
-        machineSpec_ = null;
-        onChanged();
-      } else {
-        machineSpec_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      machineSpec_ = null;
+      if (machineSpecBuilder_ != null) {
+        machineSpecBuilder_.dispose();
         machineSpecBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1416,7 +1373,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.MachineSpec machine_spec = 1 [(.google.api.field_behavior) = OPTIONAL, (.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public com.google.cloud.aiplatform.v1beta1.MachineSpec.Builder getMachineSpecBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getMachineSpecFieldBuilder().getBuilder();
     }
@@ -1481,6 +1438,7 @@ private static final long serialVersionUID = 0L;
     public Builder setReplicaCount(long value) {
       
       replicaCount_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1493,7 +1451,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReplicaCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       replicaCount_ = 0L;
       onChanged();
       return this;
@@ -1502,9 +1460,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.aiplatform.v1beta1.NfsMount> nfsMounts_ =
       java.util.Collections.emptyList();
     private void ensureNfsMountsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         nfsMounts_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1beta1.NfsMount>(nfsMounts_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1698,7 +1656,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearNfsMounts() {
       if (nfsMountsBuilder_ == null) {
         nfsMounts_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         nfsMountsBuilder_.clear();
@@ -1803,7 +1761,7 @@ private static final long serialVersionUID = 0L;
         nfsMountsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.aiplatform.v1beta1.NfsMount, com.google.cloud.aiplatform.v1beta1.NfsMount.Builder, com.google.cloud.aiplatform.v1beta1.NfsMountOrBuilder>(
                 nfsMounts_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         nfsMounts_ = null;
@@ -1823,7 +1781,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the diskSpec field is set.
      */
     public boolean hasDiskSpec() {
-      return diskSpecBuilder_ != null || diskSpec_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1853,11 +1811,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         diskSpec_ = value;
-        onChanged();
       } else {
         diskSpecBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1871,11 +1829,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.DiskSpec.Builder builderForValue) {
       if (diskSpecBuilder_ == null) {
         diskSpec_ = builderForValue.build();
-        onChanged();
       } else {
         diskSpecBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1887,17 +1845,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDiskSpec(com.google.cloud.aiplatform.v1beta1.DiskSpec value) {
       if (diskSpecBuilder_ == null) {
-        if (diskSpec_ != null) {
-          diskSpec_ =
-            com.google.cloud.aiplatform.v1beta1.DiskSpec.newBuilder(diskSpec_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          diskSpec_ != null &&
+          diskSpec_ != com.google.cloud.aiplatform.v1beta1.DiskSpec.getDefaultInstance()) {
+          getDiskSpecBuilder().mergeFrom(value);
         } else {
           diskSpec_ = value;
         }
-        onChanged();
       } else {
         diskSpecBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1908,14 +1867,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.DiskSpec disk_spec = 5;</code>
      */
     public Builder clearDiskSpec() {
-      if (diskSpecBuilder_ == null) {
-        diskSpec_ = null;
-        onChanged();
-      } else {
-        diskSpec_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      diskSpec_ = null;
+      if (diskSpecBuilder_ != null) {
+        diskSpecBuilder_.dispose();
         diskSpecBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1926,7 +1884,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.DiskSpec disk_spec = 5;</code>
      */
     public com.google.cloud.aiplatform.v1beta1.DiskSpec.Builder getDiskSpecBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getDiskSpecFieldBuilder().getBuilder();
     }
@@ -1998,7 +1956,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WorkerPoolSpec(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

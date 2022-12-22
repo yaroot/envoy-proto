@@ -36,79 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Resources(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 9: {
-
-            cpu_ = input.readDouble();
-            break;
-          }
-          case 17: {
-
-            diskGb_ = input.readDouble();
-            break;
-          }
-          case 25: {
-
-            memoryGb_ = input.readDouble();
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              volumes_ = new java.util.ArrayList<com.google.appengine.v1beta.Volume>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            volumes_.add(
-                input.readMessage(com.google.appengine.v1beta.Volume.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kmsKeyReference_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        volumes_ = java.util.Collections.unmodifiableList(volumes_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.appengine.v1beta.VersionProto.internal_static_google_appengine_v1beta_Resources_descriptor;
@@ -123,7 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CPU_FIELD_NUMBER = 1;
-  private double cpu_;
+  private double cpu_ = 0D;
   /**
    * <pre>
    * Number of CPU cores needed.
@@ -138,7 +65,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISK_GB_FIELD_NUMBER = 2;
-  private double diskGb_;
+  private double diskGb_ = 0D;
   /**
    * <pre>
    * Disk size (GB) needed.
@@ -153,7 +80,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MEMORY_GB_FIELD_NUMBER = 3;
-  private double memoryGb_;
+  private double memoryGb_ = 0D;
   /**
    * <pre>
    * Memory (GB) needed.
@@ -168,6 +95,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VOLUMES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.appengine.v1beta.Volume> volumes_;
   /**
    * <pre>
@@ -228,7 +156,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KMS_KEY_REFERENCE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object kmsKeyReference_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kmsKeyReference_ = "";
   /**
    * <pre>
    * The name of the encryption key that is stored in Google Cloud KMS.
@@ -304,7 +233,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kmsKeyReference_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, kmsKeyReference_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -332,7 +261,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kmsKeyReference_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, kmsKeyReference_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -360,7 +289,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getVolumesList())) return false;
     if (!getKmsKeyReference()
         .equals(other.getKmsKeyReference())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -386,7 +315,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + KMS_KEY_REFERENCE_FIELD_NUMBER;
     hash = (53 * hash) + getKmsKeyReference().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -507,37 +436,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.appengine.v1beta.Resources.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getVolumesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       cpu_ = 0D;
-
       diskGb_ = 0D;
-
       memoryGb_ = 0D;
-
       if (volumesBuilder_ == null) {
         volumes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        volumes_ = null;
         volumesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       kmsKeyReference_ = "";
-
       return this;
     }
 
@@ -564,22 +485,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.appengine.v1beta.Resources buildPartial() {
       com.google.appengine.v1beta.Resources result = new com.google.appengine.v1beta.Resources(this);
-      int from_bitField0_ = bitField0_;
-      result.cpu_ = cpu_;
-      result.diskGb_ = diskGb_;
-      result.memoryGb_ = memoryGb_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.appengine.v1beta.Resources result) {
       if (volumesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           volumes_ = java.util.Collections.unmodifiableList(volumes_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.volumes_ = volumes_;
       } else {
         result.volumes_ = volumesBuilder_.build();
       }
-      result.kmsKeyReference_ = kmsKeyReference_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.appengine.v1beta.Resources result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.cpu_ = cpu_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.diskGb_ = diskGb_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.memoryGb_ = memoryGb_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.kmsKeyReference_ = kmsKeyReference_;
+      }
     }
 
     @java.lang.Override
@@ -639,7 +576,7 @@ private static final long serialVersionUID = 0L;
         if (!other.volumes_.isEmpty()) {
           if (volumes_.isEmpty()) {
             volumes_ = other.volumes_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureVolumesIsMutable();
             volumes_.addAll(other.volumes_);
@@ -652,7 +589,7 @@ private static final long serialVersionUID = 0L;
             volumesBuilder_.dispose();
             volumesBuilder_ = null;
             volumes_ = other.volumes_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             volumesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getVolumesFieldBuilder() : null;
@@ -663,9 +600,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getKmsKeyReference().isEmpty()) {
         kmsKeyReference_ = other.kmsKeyReference_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -680,17 +618,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.appengine.v1beta.Resources parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 9: {
+              cpu_ = input.readDouble();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 9
+            case 17: {
+              diskGb_ = input.readDouble();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 17
+            case 25: {
+              memoryGb_ = input.readDouble();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 25
+            case 34: {
+              com.google.appengine.v1beta.Volume m =
+                  input.readMessage(
+                      com.google.appengine.v1beta.Volume.parser(),
+                      extensionRegistry);
+              if (volumesBuilder_ == null) {
+                ensureVolumesIsMutable();
+                volumes_.add(m);
+              } else {
+                volumesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              kmsKeyReference_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.appengine.v1beta.Resources) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -720,6 +704,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCpu(double value) {
       
       cpu_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -732,7 +717,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCpu() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       cpu_ = 0D;
       onChanged();
       return this;
@@ -763,6 +748,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDiskGb(double value) {
       
       diskGb_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -775,7 +761,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDiskGb() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       diskGb_ = 0D;
       onChanged();
       return this;
@@ -806,6 +792,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMemoryGb(double value) {
       
       memoryGb_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -818,7 +805,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMemoryGb() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       memoryGb_ = 0D;
       onChanged();
       return this;
@@ -827,9 +814,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.appengine.v1beta.Volume> volumes_ =
       java.util.Collections.emptyList();
     private void ensureVolumesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         volumes_ = new java.util.ArrayList<com.google.appengine.v1beta.Volume>(volumes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1023,7 +1010,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearVolumes() {
       if (volumesBuilder_ == null) {
         volumes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         volumesBuilder_.clear();
@@ -1128,7 +1115,7 @@ private static final long serialVersionUID = 0L;
         volumesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.appengine.v1beta.Volume, com.google.appengine.v1beta.Volume.Builder, com.google.appengine.v1beta.VolumeOrBuilder>(
                 volumes_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         volumes_ = null;
@@ -1192,11 +1179,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKeyReference(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kmsKeyReference_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1210,8 +1195,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKmsKeyReference() {
-      
       kmsKeyReference_ = getDefaultInstance().getKmsKeyReference();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1227,12 +1212,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKeyReferenceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kmsKeyReference_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1269,7 +1252,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Resources(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

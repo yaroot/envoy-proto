@@ -55,179 +55,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AccountBudget(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceName_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            status_ = rawValue;
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-            proposedEndTimeCase_ = 9;
-            proposedEndTime_ = rawValue;
-            break;
-          }
-          case 88: {
-            int rawValue = input.readEnum();
-            approvedEndTimeCase_ = 11;
-            approvedEndTime_ = rawValue;
-            break;
-          }
-          case 104: {
-            int rawValue = input.readEnum();
-            proposedSpendingLimitCase_ = 13;
-            proposedSpendingLimit_ = rawValue;
-            break;
-          }
-          case 120: {
-            int rawValue = input.readEnum();
-            approvedSpendingLimitCase_ = 15;
-            approvedSpendingLimit_ = rawValue;
-            break;
-          }
-          case 136: {
-            int rawValue = input.readEnum();
-            adjustedSpendingLimitCase_ = 17;
-            adjustedSpendingLimit_ = rawValue;
-            break;
-          }
-          case 178: {
-            com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal.Builder subBuilder = null;
-            if (pendingProposal_ != null) {
-              subBuilder = pendingProposal_.toBuilder();
-            }
-            pendingProposal_ = input.readMessage(com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(pendingProposal_);
-              pendingProposal_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 184: {
-            bitField0_ |= 0x00000001;
-            id_ = input.readInt64();
-            break;
-          }
-          case 194: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            billingSetup_ = s;
-            break;
-          }
-          case 202: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            name_ = s;
-            break;
-          }
-          case 210: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            proposedStartDateTime_ = s;
-            break;
-          }
-          case 218: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            approvedStartDateTime_ = s;
-            break;
-          }
-          case 226: {
-            java.lang.String s = input.readStringRequireUtf8();
-            proposedEndTimeCase_ = 28;
-            proposedEndTime_ = s;
-            break;
-          }
-          case 234: {
-            java.lang.String s = input.readStringRequireUtf8();
-            approvedEndTimeCase_ = 29;
-            approvedEndTime_ = s;
-            break;
-          }
-          case 240: {
-            proposedSpendingLimit_ = input.readInt64();
-            proposedSpendingLimitCase_ = 30;
-            break;
-          }
-          case 248: {
-            approvedSpendingLimit_ = input.readInt64();
-            approvedSpendingLimitCase_ = 31;
-            break;
-          }
-          case 256: {
-            adjustedSpendingLimit_ = input.readInt64();
-            adjustedSpendingLimitCase_ = 32;
-            break;
-          }
-          case 264: {
-
-            totalAdjustmentsMicros_ = input.readInt64();
-            break;
-          }
-          case 272: {
-
-            amountServedMicros_ = input.readInt64();
-            break;
-          }
-          case 282: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000020;
-            purchaseOrderNumber_ = s;
-            break;
-          }
-          case 290: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000040;
-            notes_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.resources.AccountBudgetProto.internal_static_google_ads_googleads_v10_resources_AccountBudget_descriptor;
@@ -601,111 +428,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PendingAccountBudgetProposal(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 16: {
-              int rawValue = input.readEnum();
-
-              proposalType_ = rawValue;
-              break;
-            }
-            case 48: {
-              int rawValue = input.readEnum();
-              endTimeCase_ = 6;
-              endTime_ = rawValue;
-              break;
-            }
-            case 64: {
-              int rawValue = input.readEnum();
-              spendingLimitCase_ = 8;
-              spendingLimit_ = rawValue;
-              break;
-            }
-            case 98: {
-              java.lang.String s = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
-              accountBudgetProposal_ = s;
-              break;
-            }
-            case 106: {
-              java.lang.String s = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
-              name_ = s;
-              break;
-            }
-            case 114: {
-              java.lang.String s = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
-              startDateTime_ = s;
-              break;
-            }
-            case 122: {
-              java.lang.String s = input.readStringRequireUtf8();
-              endTimeCase_ = 15;
-              endTime_ = s;
-              break;
-            }
-            case 128: {
-              spendingLimit_ = input.readInt64();
-              spendingLimitCase_ = 16;
-              break;
-            }
-            case 138: {
-              java.lang.String s = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000008;
-              purchaseOrderNumber_ = s;
-              break;
-            }
-            case 146: {
-              java.lang.String s = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000010;
-              notes_ = s;
-              break;
-            }
-            case 154: {
-              java.lang.String s = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000020;
-              creationDateTime_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.googleads.v10.resources.AccountBudgetProto.internal_static_google_ads_googleads_v10_resources_AccountBudget_PendingAccountBudgetProposal_descriptor;
@@ -803,7 +525,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ACCOUNT_BUDGET_PROPOSAL_FIELD_NUMBER = 12;
-    private volatile java.lang.Object accountBudgetProposal_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object accountBudgetProposal_ = "";
     /**
      * <pre>
      * Output only. The resource name of the proposal.
@@ -867,7 +590,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PROPOSAL_TYPE_FIELD_NUMBER = 2;
-    private int proposalType_;
+    private int proposalType_ = 0;
     /**
      * <pre>
      * Output only. The type of this proposal, e.g. END to end the budget associated
@@ -890,13 +613,13 @@ private static final long serialVersionUID = 0L;
      * @return The proposalType.
      */
     @java.lang.Override public com.google.ads.googleads.v10.enums.AccountBudgetProposalTypeEnum.AccountBudgetProposalType getProposalType() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.AccountBudgetProposalTypeEnum.AccountBudgetProposalType result = com.google.ads.googleads.v10.enums.AccountBudgetProposalTypeEnum.AccountBudgetProposalType.valueOf(proposalType_);
+      com.google.ads.googleads.v10.enums.AccountBudgetProposalTypeEnum.AccountBudgetProposalType result = com.google.ads.googleads.v10.enums.AccountBudgetProposalTypeEnum.AccountBudgetProposalType.forNumber(proposalType_);
       return result == null ? com.google.ads.googleads.v10.enums.AccountBudgetProposalTypeEnum.AccountBudgetProposalType.UNRECOGNIZED : result;
     }
 
     public static final int NAME_FIELD_NUMBER = 13;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Output only. The name to assign to the account-level budget.
@@ -954,7 +677,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int START_DATE_TIME_FIELD_NUMBER = 14;
-    private volatile java.lang.Object startDateTime_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object startDateTime_ = "";
     /**
      * <pre>
      * Output only. The start time in yyyy-MM-dd HH:mm:ss format.
@@ -1012,7 +736,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PURCHASE_ORDER_NUMBER_FIELD_NUMBER = 17;
-    private volatile java.lang.Object purchaseOrderNumber_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object purchaseOrderNumber_ = "";
     /**
      * <pre>
      * Output only. A purchase order number is a value that helps users reference this budget
@@ -1073,7 +798,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int NOTES_FIELD_NUMBER = 18;
-    private volatile java.lang.Object notes_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object notes_ = "";
     /**
      * <pre>
      * Output only. Notes associated with this budget.
@@ -1131,7 +857,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int CREATION_DATE_TIME_FIELD_NUMBER = 19;
-    private volatile java.lang.Object creationDateTime_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object creationDateTime_ = "";
     /**
      * <pre>
      * Output only. The time when this account-level budget proposal was created.
@@ -1291,8 +1018,7 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType getEndTimeType() {
       if (endTimeCase_ == 6) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType result = com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.valueOf(
+        com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType result = com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.forNumber(
             (java.lang.Integer) endTime_);
         return result == null ? com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.UNRECOGNIZED : result;
       }
@@ -1366,8 +1092,7 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType getSpendingLimitType() {
       if (spendingLimitCase_ == 8) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType result = com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.valueOf(
+        com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType result = com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.forNumber(
             (java.lang.Integer) spendingLimit_);
         return result == null ? com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.UNRECOGNIZED : result;
       }
@@ -1422,7 +1147,7 @@ private static final long serialVersionUID = 0L;
       if (((bitField0_ & 0x00000020) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 19, creationDateTime_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1469,7 +1194,7 @@ private static final long serialVersionUID = 0L;
       if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(19, creationDateTime_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1541,7 +1266,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1603,7 +1328,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1725,36 +1450,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         accountBudgetProposal_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
         proposalType_ = 0;
-
         name_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
         startDateTime_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
         purchaseOrderNumber_ = "";
-        bitField0_ = (bitField0_ & ~0x00000008);
         notes_ = "";
-        bitField0_ = (bitField0_ & ~0x00000010);
         creationDateTime_ = "";
-        bitField0_ = (bitField0_ & ~0x00000020);
         endTimeCase_ = 0;
         endTime_ = null;
         spendingLimitCase_ = 0;
@@ -1785,50 +1499,50 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal buildPartial() {
         com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal result = new com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.accountBudgetProposal_ = accountBudgetProposal_;
           to_bitField0_ |= 0x00000001;
         }
-        result.accountBudgetProposal_ = accountBudgetProposal_;
-        result.proposalType_ = proposalType_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.proposalType_ = proposalType_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.name_ = name_;
           to_bitField0_ |= 0x00000002;
         }
-        result.name_ = name_;
-        if (((from_bitField0_ & 0x00000004) != 0)) {
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.startDateTime_ = startDateTime_;
           to_bitField0_ |= 0x00000004;
         }
-        result.startDateTime_ = startDateTime_;
-        if (((from_bitField0_ & 0x00000008) != 0)) {
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.purchaseOrderNumber_ = purchaseOrderNumber_;
           to_bitField0_ |= 0x00000008;
         }
-        result.purchaseOrderNumber_ = purchaseOrderNumber_;
-        if (((from_bitField0_ & 0x00000010) != 0)) {
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.notes_ = notes_;
           to_bitField0_ |= 0x00000010;
         }
-        result.notes_ = notes_;
-        if (((from_bitField0_ & 0x00000020) != 0)) {
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.creationDateTime_ = creationDateTime_;
           to_bitField0_ |= 0x00000020;
         }
-        result.creationDateTime_ = creationDateTime_;
-        if (endTimeCase_ == 15) {
-          result.endTime_ = endTime_;
-        }
-        if (endTimeCase_ == 6) {
-          result.endTime_ = endTime_;
-        }
-        if (spendingLimitCase_ == 16) {
-          result.spendingLimit_ = spendingLimit_;
-        }
-        if (spendingLimitCase_ == 8) {
-          result.spendingLimit_ = spendingLimit_;
-        }
-        result.bitField0_ = to_bitField0_;
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      private void buildPartialOneofs(com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal result) {
         result.endTimeCase_ = endTimeCase_;
+        result.endTime_ = this.endTime_;
         result.spendingLimitCase_ = spendingLimitCase_;
-        onBuilt();
-        return result;
+        result.spendingLimit_ = this.spendingLimit_;
       }
 
       @java.lang.Override
@@ -1876,36 +1590,36 @@ private static final long serialVersionUID = 0L;
       public Builder mergeFrom(com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal other) {
         if (other == com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal.getDefaultInstance()) return this;
         if (other.hasAccountBudgetProposal()) {
-          bitField0_ |= 0x00000001;
           accountBudgetProposal_ = other.accountBudgetProposal_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.proposalType_ != 0) {
           setProposalTypeValue(other.getProposalTypeValue());
         }
         if (other.hasName()) {
-          bitField0_ |= 0x00000002;
           name_ = other.name_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.hasStartDateTime()) {
-          bitField0_ |= 0x00000004;
           startDateTime_ = other.startDateTime_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (other.hasPurchaseOrderNumber()) {
-          bitField0_ |= 0x00000008;
           purchaseOrderNumber_ = other.purchaseOrderNumber_;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
         if (other.hasNotes()) {
-          bitField0_ |= 0x00000010;
           notes_ = other.notes_;
+          bitField0_ |= 0x00000020;
           onChanged();
         }
         if (other.hasCreationDateTime()) {
-          bitField0_ |= 0x00000020;
           creationDateTime_ = other.creationDateTime_;
+          bitField0_ |= 0x00000040;
           onChanged();
         }
         switch (other.getEndTimeCase()) {
@@ -1936,7 +1650,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1951,17 +1665,88 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 16: {
+                proposalType_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 48: {
+                int rawValue = input.readEnum();
+                endTimeCase_ = 6;
+                endTime_ = rawValue;
+                break;
+              } // case 48
+              case 64: {
+                int rawValue = input.readEnum();
+                spendingLimitCase_ = 8;
+                spendingLimit_ = rawValue;
+                break;
+              } // case 64
+              case 98: {
+                accountBudgetProposal_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 98
+              case 106: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 106
+              case 114: {
+                startDateTime_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 114
+              case 122: {
+                java.lang.String s = input.readStringRequireUtf8();
+                endTimeCase_ = 15;
+                endTime_ = s;
+                break;
+              } // case 122
+              case 128: {
+                spendingLimit_ = input.readInt64();
+                spendingLimitCase_ = 16;
+                break;
+              } // case 128
+              case 138: {
+                purchaseOrderNumber_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 138
+              case 146: {
+                notes_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 146
+              case 154: {
+                creationDateTime_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 154
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int endTimeCase_ = 0;
@@ -2068,11 +1853,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAccountBudgetProposal(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+        if (value == null) { throw new NullPointerException(); }
         accountBudgetProposal_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2087,8 +1870,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAccountBudgetProposal() {
-        bitField0_ = (bitField0_ & ~0x00000001);
         accountBudgetProposal_ = getDefaultInstance().getAccountBudgetProposal();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2105,12 +1888,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAccountBudgetProposalBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        bitField0_ |= 0x00000001;
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         accountBudgetProposal_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2139,8 +1920,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setProposalTypeValue(int value) {
-        
         proposalType_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2155,8 +1936,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.ads.googleads.v10.enums.AccountBudgetProposalTypeEnum.AccountBudgetProposalType getProposalType() {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v10.enums.AccountBudgetProposalTypeEnum.AccountBudgetProposalType result = com.google.ads.googleads.v10.enums.AccountBudgetProposalTypeEnum.AccountBudgetProposalType.valueOf(proposalType_);
+        com.google.ads.googleads.v10.enums.AccountBudgetProposalTypeEnum.AccountBudgetProposalType result = com.google.ads.googleads.v10.enums.AccountBudgetProposalTypeEnum.AccountBudgetProposalType.forNumber(proposalType_);
         return result == null ? com.google.ads.googleads.v10.enums.AccountBudgetProposalTypeEnum.AccountBudgetProposalType.UNRECOGNIZED : result;
       }
       /**
@@ -2173,7 +1953,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         proposalType_ = value.getNumber();
         onChanged();
         return this;
@@ -2188,7 +1968,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearProposalType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         proposalType_ = 0;
         onChanged();
         return this;
@@ -2204,7 +1984,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the name field is set.
        */
       public boolean hasName() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -2258,11 +2038,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2275,8 +2053,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        bitField0_ = (bitField0_ & ~0x00000002);
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -2291,12 +2069,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        bitField0_ |= 0x00000002;
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2311,7 +2087,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the startDateTime field is set.
        */
       public boolean hasStartDateTime() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -2365,11 +2141,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setStartDateTime(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+        if (value == null) { throw new NullPointerException(); }
         startDateTime_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2382,8 +2156,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearStartDateTime() {
-        bitField0_ = (bitField0_ & ~0x00000004);
         startDateTime_ = getDefaultInstance().getStartDateTime();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -2398,12 +2172,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setStartDateTimeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        bitField0_ |= 0x00000004;
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         startDateTime_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2419,7 +2191,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the purchaseOrderNumber field is set.
        */
       public boolean hasPurchaseOrderNumber() {
-        return ((bitField0_ & 0x00000008) != 0);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -2476,11 +2248,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPurchaseOrderNumber(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+        if (value == null) { throw new NullPointerException(); }
         purchaseOrderNumber_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -2494,8 +2264,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPurchaseOrderNumber() {
-        bitField0_ = (bitField0_ & ~0x00000008);
         purchaseOrderNumber_ = getDefaultInstance().getPurchaseOrderNumber();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -2511,12 +2281,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPurchaseOrderNumberBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        bitField0_ |= 0x00000008;
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         purchaseOrderNumber_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -2531,7 +2299,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the notes field is set.
        */
       public boolean hasNotes() {
-        return ((bitField0_ & 0x00000010) != 0);
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -2585,11 +2353,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNotes(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+        if (value == null) { throw new NullPointerException(); }
         notes_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -2602,8 +2368,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearNotes() {
-        bitField0_ = (bitField0_ & ~0x00000010);
         notes_ = getDefaultInstance().getNotes();
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -2618,12 +2384,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNotesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        bitField0_ |= 0x00000010;
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         notes_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -2639,7 +2403,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the creationDateTime field is set.
        */
       public boolean hasCreationDateTime() {
-        return ((bitField0_ & 0x00000020) != 0);
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
        * <pre>
@@ -2696,11 +2460,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setCreationDateTime(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+        if (value == null) { throw new NullPointerException(); }
         creationDateTime_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -2714,8 +2476,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCreationDateTime() {
-        bitField0_ = (bitField0_ & ~0x00000020);
         creationDateTime_ = getDefaultInstance().getCreationDateTime();
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -2731,12 +2493,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setCreationDateTimeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        bitField0_ |= 0x00000020;
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         creationDateTime_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -2817,10 +2577,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEndDateTime(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  endTimeCase_ = 15;
+        if (value == null) { throw new NullPointerException(); }
+        endTimeCase_ = 15;
         endTime_ = value;
         onChanged();
         return this;
@@ -2852,10 +2610,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEndDateTimeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         endTimeCase_ = 15;
         endTime_ = value;
         onChanged();
@@ -2915,8 +2671,7 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType getEndTimeType() {
         if (endTimeCase_ == 6) {
-          @SuppressWarnings("deprecation")
-          com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType result = com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.valueOf(
+          com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType result = com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.forNumber(
               (java.lang.Integer) endTime_);
           return result == null ? com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.UNRECOGNIZED : result;
         }
@@ -2995,6 +2750,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setSpendingLimitMicros(long value) {
+        
         spendingLimitCase_ = 16;
         spendingLimit_ = value;
         onChanged();
@@ -3071,8 +2827,7 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType getSpendingLimitType() {
         if (spendingLimitCase_ == 8) {
-          @SuppressWarnings("deprecation")
-          com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType result = com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.valueOf(
+          com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType result = com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.forNumber(
               (java.lang.Integer) spendingLimit_);
           return result == null ? com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.UNRECOGNIZED : result;
         }
@@ -3145,7 +2900,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PendingAccountBudgetProposal(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3372,7 +3138,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object resourceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceName_ = "";
   /**
    * <pre>
    * Output only. The resource name of the account-level budget.
@@ -3422,7 +3189,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 23;
-  private long id_;
+  private long id_ = 0L;
   /**
    * <pre>
    * Output only. The ID of the account-level budget.
@@ -3449,7 +3216,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BILLING_SETUP_FIELD_NUMBER = 24;
-  private volatile java.lang.Object billingSetup_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object billingSetup_ = "";
   /**
    * <pre>
    * Output only. The resource name of the billing setup associated with this account-level
@@ -3513,7 +3281,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 4;
-  private int status_;
+  private int status_ = 0;
   /**
    * <pre>
    * Output only. The status of this account-level budget.
@@ -3534,13 +3302,13 @@ private static final long serialVersionUID = 0L;
    * @return The status.
    */
   @java.lang.Override public com.google.ads.googleads.v10.enums.AccountBudgetStatusEnum.AccountBudgetStatus getStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v10.enums.AccountBudgetStatusEnum.AccountBudgetStatus result = com.google.ads.googleads.v10.enums.AccountBudgetStatusEnum.AccountBudgetStatus.valueOf(status_);
+    com.google.ads.googleads.v10.enums.AccountBudgetStatusEnum.AccountBudgetStatus result = com.google.ads.googleads.v10.enums.AccountBudgetStatusEnum.AccountBudgetStatus.forNumber(status_);
     return result == null ? com.google.ads.googleads.v10.enums.AccountBudgetStatusEnum.AccountBudgetStatus.UNRECOGNIZED : result;
   }
 
   public static final int NAME_FIELD_NUMBER = 25;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The name of the account-level budget.
@@ -3598,7 +3366,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROPOSED_START_DATE_TIME_FIELD_NUMBER = 26;
-  private volatile java.lang.Object proposedStartDateTime_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object proposedStartDateTime_ = "";
   /**
    * <pre>
    * Output only. The proposed start time of the account-level budget in
@@ -3662,7 +3431,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int APPROVED_START_DATE_TIME_FIELD_NUMBER = 27;
-  private volatile java.lang.Object approvedStartDateTime_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object approvedStartDateTime_ = "";
   /**
    * <pre>
    * Output only. The approved start time of the account-level budget in yyyy-MM-dd HH:mm:ss
@@ -3729,7 +3499,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOTAL_ADJUSTMENTS_MICROS_FIELD_NUMBER = 33;
-  private long totalAdjustmentsMicros_;
+  private long totalAdjustmentsMicros_ = 0L;
   /**
    * <pre>
    * Output only. The total adjustments amount.
@@ -3745,7 +3515,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AMOUNT_SERVED_MICROS_FIELD_NUMBER = 34;
-  private long amountServedMicros_;
+  private long amountServedMicros_ = 0L;
   /**
    * <pre>
    * Output only. The value of Ads that have been served, in micros.
@@ -3762,7 +3532,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PURCHASE_ORDER_NUMBER_FIELD_NUMBER = 35;
-  private volatile java.lang.Object purchaseOrderNumber_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object purchaseOrderNumber_ = "";
   /**
    * <pre>
    * Output only. A purchase order number is a value that helps users reference this budget
@@ -3823,7 +3594,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NOTES_FIELD_NUMBER = 36;
-  private volatile java.lang.Object notes_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object notes_ = "";
   /**
    * <pre>
    * Output only. Notes associated with the budget.
@@ -3915,7 +3687,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposalOrBuilder getPendingProposalOrBuilder() {
-    return getPendingProposal();
+    return pendingProposal_ == null ? com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal.getDefaultInstance() : pendingProposal_;
   }
 
   public static final int PROPOSED_END_DATE_TIME_FIELD_NUMBER = 28;
@@ -4018,8 +3790,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType getProposedEndTimeType() {
     if (proposedEndTimeCase_ == 9) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType result = com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.valueOf(
+      com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType result = com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.forNumber(
           (java.lang.Integer) proposedEndTime_);
       return result == null ? com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.UNRECOGNIZED : result;
     }
@@ -4126,8 +3897,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType getApprovedEndTimeType() {
     if (approvedEndTimeCase_ == 11) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType result = com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.valueOf(
+      com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType result = com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.forNumber(
           (java.lang.Integer) approvedEndTime_);
       return result == null ? com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.UNRECOGNIZED : result;
     }
@@ -4201,8 +3971,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType getProposedSpendingLimitType() {
     if (proposedSpendingLimitCase_ == 13) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType result = com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.valueOf(
+      com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType result = com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.forNumber(
           (java.lang.Integer) proposedSpendingLimit_);
       return result == null ? com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.UNRECOGNIZED : result;
     }
@@ -4283,8 +4052,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType getApprovedSpendingLimitType() {
     if (approvedSpendingLimitCase_ == 15) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType result = com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.valueOf(
+      com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType result = com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.forNumber(
           (java.lang.Integer) approvedSpendingLimit_);
       return result == null ? com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.UNRECOGNIZED : result;
     }
@@ -4381,8 +4149,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType getAdjustedSpendingLimitType() {
     if (adjustedSpendingLimitCase_ == 17) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType result = com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.valueOf(
+      com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType result = com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.forNumber(
           (java.lang.Integer) adjustedSpendingLimit_);
       return result == null ? com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.UNRECOGNIZED : result;
     }
@@ -4472,7 +4239,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000040) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 36, notes_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -4563,7 +4330,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000040) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(36, notes_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -4690,7 +4457,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -4807,7 +4574,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -4941,48 +4708,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.resources.AccountBudget.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       resourceName_ = "";
-
       id_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000001);
       billingSetup_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       status_ = 0;
-
       name_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       proposedStartDateTime_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       approvedStartDateTime_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       totalAdjustmentsMicros_ = 0L;
-
       amountServedMicros_ = 0L;
-
       purchaseOrderNumber_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
       notes_ = "";
-      bitField0_ = (bitField0_ & ~0x00000040);
-      if (pendingProposalBuilder_ == null) {
-        pendingProposal_ = null;
-      } else {
-        pendingProposal_ = null;
+      pendingProposal_ = null;
+      if (pendingProposalBuilder_ != null) {
+        pendingProposalBuilder_.dispose();
         pendingProposalBuilder_ = null;
       }
       proposedEndTimeCase_ = 0;
@@ -5021,83 +4772,74 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.resources.AccountBudget buildPartial() {
       com.google.ads.googleads.v10.resources.AccountBudget result = new com.google.ads.googleads.v10.resources.AccountBudget(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.resources.AccountBudget result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.resourceName_ = resourceName_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resourceName_ = resourceName_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.id_ = id_;
         to_bitField0_ |= 0x00000001;
       }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.billingSetup_ = billingSetup_;
         to_bitField0_ |= 0x00000002;
       }
-      result.billingSetup_ = billingSetup_;
-      result.status_ = status_;
-      if (((from_bitField0_ & 0x00000004) != 0)) {
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.status_ = status_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.name_ = name_;
         to_bitField0_ |= 0x00000004;
       }
-      result.name_ = name_;
-      if (((from_bitField0_ & 0x00000008) != 0)) {
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.proposedStartDateTime_ = proposedStartDateTime_;
         to_bitField0_ |= 0x00000008;
       }
-      result.proposedStartDateTime_ = proposedStartDateTime_;
-      if (((from_bitField0_ & 0x00000010) != 0)) {
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.approvedStartDateTime_ = approvedStartDateTime_;
         to_bitField0_ |= 0x00000010;
       }
-      result.approvedStartDateTime_ = approvedStartDateTime_;
-      result.totalAdjustmentsMicros_ = totalAdjustmentsMicros_;
-      result.amountServedMicros_ = amountServedMicros_;
-      if (((from_bitField0_ & 0x00000020) != 0)) {
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.totalAdjustmentsMicros_ = totalAdjustmentsMicros_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.amountServedMicros_ = amountServedMicros_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.purchaseOrderNumber_ = purchaseOrderNumber_;
         to_bitField0_ |= 0x00000020;
       }
-      result.purchaseOrderNumber_ = purchaseOrderNumber_;
-      if (((from_bitField0_ & 0x00000040) != 0)) {
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.notes_ = notes_;
         to_bitField0_ |= 0x00000040;
       }
-      result.notes_ = notes_;
-      if (pendingProposalBuilder_ == null) {
-        result.pendingProposal_ = pendingProposal_;
-      } else {
-        result.pendingProposal_ = pendingProposalBuilder_.build();
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.pendingProposal_ = pendingProposalBuilder_ == null
+            ? pendingProposal_
+            : pendingProposalBuilder_.build();
       }
-      if (proposedEndTimeCase_ == 28) {
-        result.proposedEndTime_ = proposedEndTime_;
-      }
-      if (proposedEndTimeCase_ == 9) {
-        result.proposedEndTime_ = proposedEndTime_;
-      }
-      if (approvedEndTimeCase_ == 29) {
-        result.approvedEndTime_ = approvedEndTime_;
-      }
-      if (approvedEndTimeCase_ == 11) {
-        result.approvedEndTime_ = approvedEndTime_;
-      }
-      if (proposedSpendingLimitCase_ == 30) {
-        result.proposedSpendingLimit_ = proposedSpendingLimit_;
-      }
-      if (proposedSpendingLimitCase_ == 13) {
-        result.proposedSpendingLimit_ = proposedSpendingLimit_;
-      }
-      if (approvedSpendingLimitCase_ == 31) {
-        result.approvedSpendingLimit_ = approvedSpendingLimit_;
-      }
-      if (approvedSpendingLimitCase_ == 15) {
-        result.approvedSpendingLimit_ = approvedSpendingLimit_;
-      }
-      if (adjustedSpendingLimitCase_ == 32) {
-        result.adjustedSpendingLimit_ = adjustedSpendingLimit_;
-      }
-      if (adjustedSpendingLimitCase_ == 17) {
-        result.adjustedSpendingLimit_ = adjustedSpendingLimit_;
-      }
-      result.bitField0_ = to_bitField0_;
+      result.bitField0_ |= to_bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.ads.googleads.v10.resources.AccountBudget result) {
       result.proposedEndTimeCase_ = proposedEndTimeCase_;
+      result.proposedEndTime_ = this.proposedEndTime_;
       result.approvedEndTimeCase_ = approvedEndTimeCase_;
+      result.approvedEndTime_ = this.approvedEndTime_;
       result.proposedSpendingLimitCase_ = proposedSpendingLimitCase_;
+      result.proposedSpendingLimit_ = this.proposedSpendingLimit_;
       result.approvedSpendingLimitCase_ = approvedSpendingLimitCase_;
+      result.approvedSpendingLimit_ = this.approvedSpendingLimit_;
       result.adjustedSpendingLimitCase_ = adjustedSpendingLimitCase_;
-      onBuilt();
-      return result;
+      result.adjustedSpendingLimit_ = this.adjustedSpendingLimit_;
     }
 
     @java.lang.Override
@@ -5146,32 +4888,33 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v10.resources.AccountBudget.getDefaultInstance()) return this;
       if (!other.getResourceName().isEmpty()) {
         resourceName_ = other.resourceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasId()) {
         setId(other.getId());
       }
       if (other.hasBillingSetup()) {
-        bitField0_ |= 0x00000002;
         billingSetup_ = other.billingSetup_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.status_ != 0) {
         setStatusValue(other.getStatusValue());
       }
       if (other.hasName()) {
-        bitField0_ |= 0x00000004;
         name_ = other.name_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasProposedStartDateTime()) {
-        bitField0_ |= 0x00000008;
         proposedStartDateTime_ = other.proposedStartDateTime_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasApprovedStartDateTime()) {
-        bitField0_ |= 0x00000010;
         approvedStartDateTime_ = other.approvedStartDateTime_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.getTotalAdjustmentsMicros() != 0L) {
@@ -5181,13 +4924,13 @@ private static final long serialVersionUID = 0L;
         setAmountServedMicros(other.getAmountServedMicros());
       }
       if (other.hasPurchaseOrderNumber()) {
-        bitField0_ |= 0x00000020;
         purchaseOrderNumber_ = other.purchaseOrderNumber_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (other.hasNotes()) {
-        bitField0_ |= 0x00000040;
         notes_ = other.notes_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.hasPendingProposal()) {
@@ -5262,7 +5005,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -5277,17 +5020,149 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.resources.AccountBudget parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              resourceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 32: {
+              status_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 72: {
+              int rawValue = input.readEnum();
+              proposedEndTimeCase_ = 9;
+              proposedEndTime_ = rawValue;
+              break;
+            } // case 72
+            case 88: {
+              int rawValue = input.readEnum();
+              approvedEndTimeCase_ = 11;
+              approvedEndTime_ = rawValue;
+              break;
+            } // case 88
+            case 104: {
+              int rawValue = input.readEnum();
+              proposedSpendingLimitCase_ = 13;
+              proposedSpendingLimit_ = rawValue;
+              break;
+            } // case 104
+            case 120: {
+              int rawValue = input.readEnum();
+              approvedSpendingLimitCase_ = 15;
+              approvedSpendingLimit_ = rawValue;
+              break;
+            } // case 120
+            case 136: {
+              int rawValue = input.readEnum();
+              adjustedSpendingLimitCase_ = 17;
+              adjustedSpendingLimit_ = rawValue;
+              break;
+            } // case 136
+            case 178: {
+              input.readMessage(
+                  getPendingProposalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 178
+            case 184: {
+              id_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 184
+            case 194: {
+              billingSetup_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 194
+            case 202: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 202
+            case 210: {
+              proposedStartDateTime_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 210
+            case 218: {
+              approvedStartDateTime_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 218
+            case 226: {
+              java.lang.String s = input.readStringRequireUtf8();
+              proposedEndTimeCase_ = 28;
+              proposedEndTime_ = s;
+              break;
+            } // case 226
+            case 234: {
+              java.lang.String s = input.readStringRequireUtf8();
+              approvedEndTimeCase_ = 29;
+              approvedEndTime_ = s;
+              break;
+            } // case 234
+            case 240: {
+              proposedSpendingLimit_ = input.readInt64();
+              proposedSpendingLimitCase_ = 30;
+              break;
+            } // case 240
+            case 248: {
+              approvedSpendingLimit_ = input.readInt64();
+              approvedSpendingLimitCase_ = 31;
+              break;
+            } // case 248
+            case 256: {
+              adjustedSpendingLimit_ = input.readInt64();
+              adjustedSpendingLimitCase_ = 32;
+              break;
+            } // case 256
+            case 264: {
+              totalAdjustmentsMicros_ = input.readInt64();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 264
+            case 272: {
+              amountServedMicros_ = input.readInt64();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 272
+            case 282: {
+              purchaseOrderNumber_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 282
+            case 290: {
+              notes_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 290
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.resources.AccountBudget) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int proposedEndTimeCase_ = 0;
@@ -5426,11 +5301,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -5445,8 +5318,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceName() {
-      
       resourceName_ = getDefaultInstance().getResourceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -5463,12 +5336,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -5484,7 +5355,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasId() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -5508,8 +5379,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(long value) {
-      bitField0_ |= 0x00000001;
+      
       id_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -5522,7 +5394,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       id_ = 0L;
       onChanged();
       return this;
@@ -5540,7 +5412,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the billingSetup field is set.
      */
     public boolean hasBillingSetup() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -5600,11 +5472,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBillingSetup(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       billingSetup_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -5619,8 +5489,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBillingSetup() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       billingSetup_ = getDefaultInstance().getBillingSetup();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -5637,12 +5507,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBillingSetupBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       billingSetup_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -5669,8 +5537,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
-      
       status_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -5684,8 +5552,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.AccountBudgetStatusEnum.AccountBudgetStatus getStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.AccountBudgetStatusEnum.AccountBudgetStatus result = com.google.ads.googleads.v10.enums.AccountBudgetStatusEnum.AccountBudgetStatus.valueOf(status_);
+      com.google.ads.googleads.v10.enums.AccountBudgetStatusEnum.AccountBudgetStatus result = com.google.ads.googleads.v10.enums.AccountBudgetStatusEnum.AccountBudgetStatus.forNumber(status_);
       return result == null ? com.google.ads.googleads.v10.enums.AccountBudgetStatusEnum.AccountBudgetStatus.UNRECOGNIZED : result;
     }
     /**
@@ -5701,7 +5568,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       status_ = value.getNumber();
       onChanged();
       return this;
@@ -5715,7 +5582,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       status_ = 0;
       onChanged();
       return this;
@@ -5731,7 +5598,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the name field is set.
      */
     public boolean hasName() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -5785,11 +5652,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -5802,8 +5667,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -5818,12 +5683,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -5840,7 +5703,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the proposedStartDateTime field is set.
      */
     public boolean hasProposedStartDateTime() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -5900,11 +5763,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProposedStartDateTime(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       proposedStartDateTime_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -5919,8 +5780,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProposedStartDateTime() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       proposedStartDateTime_ = getDefaultInstance().getProposedStartDateTime();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -5937,12 +5798,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProposedStartDateTimeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       proposedStartDateTime_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -5960,7 +5819,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the approvedStartDateTime field is set.
      */
     public boolean hasApprovedStartDateTime() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -6023,11 +5882,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApprovedStartDateTime(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       approvedStartDateTime_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -6043,8 +5900,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApprovedStartDateTime() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       approvedStartDateTime_ = getDefaultInstance().getApprovedStartDateTime();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -6062,12 +5919,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApprovedStartDateTimeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       approvedStartDateTime_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -6099,6 +5954,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTotalAdjustmentsMicros(long value) {
       
       totalAdjustmentsMicros_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -6112,7 +5968,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTotalAdjustmentsMicros() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       totalAdjustmentsMicros_ = 0L;
       onChanged();
       return this;
@@ -6147,6 +6003,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAmountServedMicros(long value) {
       
       amountServedMicros_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -6161,7 +6018,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAmountServedMicros() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       amountServedMicros_ = 0L;
       onChanged();
       return this;
@@ -6178,7 +6035,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the purchaseOrderNumber field is set.
      */
     public boolean hasPurchaseOrderNumber() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -6235,11 +6092,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPurchaseOrderNumber(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       purchaseOrderNumber_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -6253,8 +6108,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPurchaseOrderNumber() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       purchaseOrderNumber_ = getDefaultInstance().getPurchaseOrderNumber();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -6270,12 +6125,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPurchaseOrderNumberBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       purchaseOrderNumber_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -6290,7 +6143,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the notes field is set.
      */
     public boolean hasNotes() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -6344,11 +6197,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNotes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
       notes_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -6361,8 +6212,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNotes() {
-      bitField0_ = (bitField0_ & ~0x00000040);
       notes_ = getDefaultInstance().getNotes();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -6377,12 +6228,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNotesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       notes_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -6399,7 +6248,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the pendingProposal field is set.
      */
     public boolean hasPendingProposal() {
-      return pendingProposalBuilder_ != null || pendingProposal_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -6429,11 +6278,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         pendingProposal_ = value;
-        onChanged();
       } else {
         pendingProposalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -6447,11 +6296,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal.Builder builderForValue) {
       if (pendingProposalBuilder_ == null) {
         pendingProposal_ = builderForValue.build();
-        onChanged();
       } else {
         pendingProposalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -6463,17 +6312,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePendingProposal(com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal value) {
       if (pendingProposalBuilder_ == null) {
-        if (pendingProposal_ != null) {
-          pendingProposal_ =
-            com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal.newBuilder(pendingProposal_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          pendingProposal_ != null &&
+          pendingProposal_ != com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal.getDefaultInstance()) {
+          getPendingProposalBuilder().mergeFrom(value);
         } else {
           pendingProposal_ = value;
         }
-        onChanged();
       } else {
         pendingProposalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -6484,14 +6334,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal pending_proposal = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearPendingProposal() {
-      if (pendingProposalBuilder_ == null) {
-        pendingProposal_ = null;
-        onChanged();
-      } else {
-        pendingProposal_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      pendingProposal_ = null;
+      if (pendingProposalBuilder_ != null) {
+        pendingProposalBuilder_.dispose();
         pendingProposalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6502,7 +6351,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal pending_proposal = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.ads.googleads.v10.resources.AccountBudget.PendingAccountBudgetProposal.Builder getPendingProposalBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getPendingProposalFieldBuilder().getBuilder();
     }
@@ -6618,10 +6467,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProposedEndDateTime(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  proposedEndTimeCase_ = 28;
+      if (value == null) { throw new NullPointerException(); }
+      proposedEndTimeCase_ = 28;
       proposedEndTime_ = value;
       onChanged();
       return this;
@@ -6653,10 +6500,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProposedEndDateTimeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       proposedEndTimeCase_ = 28;
       proposedEndTime_ = value;
       onChanged();
@@ -6716,8 +6561,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType getProposedEndTimeType() {
       if (proposedEndTimeCase_ == 9) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType result = com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.valueOf(
+        com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType result = com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.forNumber(
             (java.lang.Integer) proposedEndTime_);
         return result == null ? com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.UNRECOGNIZED : result;
       }
@@ -6834,10 +6678,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApprovedEndDateTime(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  approvedEndTimeCase_ = 29;
+      if (value == null) { throw new NullPointerException(); }
+      approvedEndTimeCase_ = 29;
       approvedEndTime_ = value;
       onChanged();
       return this;
@@ -6869,10 +6711,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApprovedEndDateTimeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       approvedEndTimeCase_ = 29;
       approvedEndTime_ = value;
       onChanged();
@@ -6932,8 +6772,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType getApprovedEndTimeType() {
       if (approvedEndTimeCase_ == 11) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType result = com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.valueOf(
+        com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType result = com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.forNumber(
             (java.lang.Integer) approvedEndTime_);
         return result == null ? com.google.ads.googleads.v10.enums.TimeTypeEnum.TimeType.UNRECOGNIZED : result;
       }
@@ -7012,6 +6851,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setProposedSpendingLimitMicros(long value) {
+      
       proposedSpendingLimitCase_ = 30;
       proposedSpendingLimit_ = value;
       onChanged();
@@ -7088,8 +6928,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType getProposedSpendingLimitType() {
       if (proposedSpendingLimitCase_ == 13) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType result = com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.valueOf(
+        com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType result = com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.forNumber(
             (java.lang.Integer) proposedSpendingLimit_);
         return result == null ? com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.UNRECOGNIZED : result;
       }
@@ -7174,6 +7013,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setApprovedSpendingLimitMicros(long value) {
+      
       approvedSpendingLimitCase_ = 31;
       approvedSpendingLimit_ = value;
       onChanged();
@@ -7256,8 +7096,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType getApprovedSpendingLimitType() {
       if (approvedSpendingLimitCase_ == 15) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType result = com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.valueOf(
+        com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType result = com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.forNumber(
             (java.lang.Integer) approvedSpendingLimit_);
         return result == null ? com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.UNRECOGNIZED : result;
       }
@@ -7359,6 +7198,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAdjustedSpendingLimitMicros(long value) {
+      
       adjustedSpendingLimitCase_ = 32;
       adjustedSpendingLimit_ = value;
       onChanged();
@@ -7454,8 +7294,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType getAdjustedSpendingLimitType() {
       if (adjustedSpendingLimitCase_ == 17) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType result = com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.valueOf(
+        com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType result = com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.forNumber(
             (java.lang.Integer) adjustedSpendingLimit_);
         return result == null ? com.google.ads.googleads.v10.enums.SpendingLimitTypeEnum.SpendingLimitType.UNRECOGNIZED : result;
       }
@@ -7534,7 +7373,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AccountBudget(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

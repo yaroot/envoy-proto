@@ -34,149 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AddOns(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.apps.script.type.CommonAddOnManifest.Builder subBuilder = null;
-            if (common_ != null) {
-              subBuilder = common_.toBuilder();
-            }
-            common_ = input.readMessage(com.google.apps.script.type.CommonAddOnManifest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(common_);
-              common_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.apps.script.type.gmail.GmailAddOnManifest.Builder subBuilder = null;
-            if (gmail_ != null) {
-              subBuilder = gmail_.toBuilder();
-            }
-            gmail_ = input.readMessage(com.google.apps.script.type.gmail.GmailAddOnManifest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(gmail_);
-              gmail_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.apps.script.type.drive.DriveAddOnManifest.Builder subBuilder = null;
-            if (drive_ != null) {
-              subBuilder = drive_.toBuilder();
-            }
-            drive_ = input.readMessage(com.google.apps.script.type.drive.DriveAddOnManifest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(drive_);
-              drive_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.apps.script.type.calendar.CalendarAddOnManifest.Builder subBuilder = null;
-            if (calendar_ != null) {
-              subBuilder = calendar_.toBuilder();
-            }
-            calendar_ = input.readMessage(com.google.apps.script.type.calendar.CalendarAddOnManifest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(calendar_);
-              calendar_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.apps.script.type.docs.DocsAddOnManifest.Builder subBuilder = null;
-            if (docs_ != null) {
-              subBuilder = docs_.toBuilder();
-            }
-            docs_ = input.readMessage(com.google.apps.script.type.docs.DocsAddOnManifest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(docs_);
-              docs_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.apps.script.type.sheets.SheetsAddOnManifest.Builder subBuilder = null;
-            if (sheets_ != null) {
-              subBuilder = sheets_.toBuilder();
-            }
-            sheets_ = input.readMessage(com.google.apps.script.type.sheets.SheetsAddOnManifest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sheets_);
-              sheets_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.google.apps.script.type.slides.SlidesAddOnManifest.Builder subBuilder = null;
-            if (slides_ != null) {
-              subBuilder = slides_.toBuilder();
-            }
-            slides_ = input.readMessage(com.google.apps.script.type.slides.SlidesAddOnManifest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(slides_);
-              slides_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            com.google.apps.script.type.HttpOptions.Builder subBuilder = null;
-            if (httpOptions_ != null) {
-              subBuilder = httpOptions_.toBuilder();
-            }
-            httpOptions_ = input.readMessage(com.google.apps.script.type.HttpOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(httpOptions_);
-              httpOptions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gsuiteaddons.v1.GSuiteAddOnsProto.internal_static_google_cloud_gsuiteaddons_v1_AddOns_descriptor;
@@ -225,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.script.type.CommonAddOnManifestOrBuilder getCommonOrBuilder() {
-    return getCommon();
+    return common_ == null ? com.google.apps.script.type.CommonAddOnManifest.getDefaultInstance() : common_;
   }
 
   public static final int GMAIL_FIELD_NUMBER = 2;
@@ -263,7 +120,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.script.type.gmail.GmailAddOnManifestOrBuilder getGmailOrBuilder() {
-    return getGmail();
+    return gmail_ == null ? com.google.apps.script.type.gmail.GmailAddOnManifest.getDefaultInstance() : gmail_;
   }
 
   public static final int DRIVE_FIELD_NUMBER = 5;
@@ -301,7 +158,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.script.type.drive.DriveAddOnManifestOrBuilder getDriveOrBuilder() {
-    return getDrive();
+    return drive_ == null ? com.google.apps.script.type.drive.DriveAddOnManifest.getDefaultInstance() : drive_;
   }
 
   public static final int CALENDAR_FIELD_NUMBER = 6;
@@ -339,7 +196,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.script.type.calendar.CalendarAddOnManifestOrBuilder getCalendarOrBuilder() {
-    return getCalendar();
+    return calendar_ == null ? com.google.apps.script.type.calendar.CalendarAddOnManifest.getDefaultInstance() : calendar_;
   }
 
   public static final int DOCS_FIELD_NUMBER = 7;
@@ -377,7 +234,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.script.type.docs.DocsAddOnManifestOrBuilder getDocsOrBuilder() {
-    return getDocs();
+    return docs_ == null ? com.google.apps.script.type.docs.DocsAddOnManifest.getDefaultInstance() : docs_;
   }
 
   public static final int SHEETS_FIELD_NUMBER = 8;
@@ -415,7 +272,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.script.type.sheets.SheetsAddOnManifestOrBuilder getSheetsOrBuilder() {
-    return getSheets();
+    return sheets_ == null ? com.google.apps.script.type.sheets.SheetsAddOnManifest.getDefaultInstance() : sheets_;
   }
 
   public static final int SLIDES_FIELD_NUMBER = 10;
@@ -453,7 +310,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.script.type.slides.SlidesAddOnManifestOrBuilder getSlidesOrBuilder() {
-    return getSlides();
+    return slides_ == null ? com.google.apps.script.type.slides.SlidesAddOnManifest.getDefaultInstance() : slides_;
   }
 
   public static final int HTTP_OPTIONS_FIELD_NUMBER = 15;
@@ -491,7 +348,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.script.type.HttpOptionsOrBuilder getHttpOptionsOrBuilder() {
-    return getHttpOptions();
+    return httpOptions_ == null ? com.google.apps.script.type.HttpOptions.getDefaultInstance() : httpOptions_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -532,7 +389,7 @@ private static final long serialVersionUID = 0L;
     if (httpOptions_ != null) {
       output.writeMessage(15, getHttpOptions());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -573,7 +430,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(15, getHttpOptions());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -628,7 +485,7 @@ private static final long serialVersionUID = 0L;
       if (!getHttpOptions()
           .equals(other.getHttpOptions())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -671,7 +528,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + HTTP_OPTIONS_FIELD_NUMBER;
       hash = (53 * hash) + getHttpOptions().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -792,68 +649,56 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gsuiteaddons.v1.AddOns.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (commonBuilder_ == null) {
-        common_ = null;
-      } else {
-        common_ = null;
+      bitField0_ = 0;
+      common_ = null;
+      if (commonBuilder_ != null) {
+        commonBuilder_.dispose();
         commonBuilder_ = null;
       }
-      if (gmailBuilder_ == null) {
-        gmail_ = null;
-      } else {
-        gmail_ = null;
+      gmail_ = null;
+      if (gmailBuilder_ != null) {
+        gmailBuilder_.dispose();
         gmailBuilder_ = null;
       }
-      if (driveBuilder_ == null) {
-        drive_ = null;
-      } else {
-        drive_ = null;
+      drive_ = null;
+      if (driveBuilder_ != null) {
+        driveBuilder_.dispose();
         driveBuilder_ = null;
       }
-      if (calendarBuilder_ == null) {
-        calendar_ = null;
-      } else {
-        calendar_ = null;
+      calendar_ = null;
+      if (calendarBuilder_ != null) {
+        calendarBuilder_.dispose();
         calendarBuilder_ = null;
       }
-      if (docsBuilder_ == null) {
-        docs_ = null;
-      } else {
-        docs_ = null;
+      docs_ = null;
+      if (docsBuilder_ != null) {
+        docsBuilder_.dispose();
         docsBuilder_ = null;
       }
-      if (sheetsBuilder_ == null) {
-        sheets_ = null;
-      } else {
-        sheets_ = null;
+      sheets_ = null;
+      if (sheetsBuilder_ != null) {
+        sheetsBuilder_.dispose();
         sheetsBuilder_ = null;
       }
-      if (slidesBuilder_ == null) {
-        slides_ = null;
-      } else {
-        slides_ = null;
+      slides_ = null;
+      if (slidesBuilder_ != null) {
+        slidesBuilder_.dispose();
         slidesBuilder_ = null;
       }
-      if (httpOptionsBuilder_ == null) {
-        httpOptions_ = null;
-      } else {
-        httpOptions_ = null;
+      httpOptions_ = null;
+      if (httpOptionsBuilder_ != null) {
+        httpOptionsBuilder_.dispose();
         httpOptionsBuilder_ = null;
       }
       return this;
@@ -882,48 +727,53 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gsuiteaddons.v1.AddOns buildPartial() {
       com.google.cloud.gsuiteaddons.v1.AddOns result = new com.google.cloud.gsuiteaddons.v1.AddOns(this);
-      if (commonBuilder_ == null) {
-        result.common_ = common_;
-      } else {
-        result.common_ = commonBuilder_.build();
-      }
-      if (gmailBuilder_ == null) {
-        result.gmail_ = gmail_;
-      } else {
-        result.gmail_ = gmailBuilder_.build();
-      }
-      if (driveBuilder_ == null) {
-        result.drive_ = drive_;
-      } else {
-        result.drive_ = driveBuilder_.build();
-      }
-      if (calendarBuilder_ == null) {
-        result.calendar_ = calendar_;
-      } else {
-        result.calendar_ = calendarBuilder_.build();
-      }
-      if (docsBuilder_ == null) {
-        result.docs_ = docs_;
-      } else {
-        result.docs_ = docsBuilder_.build();
-      }
-      if (sheetsBuilder_ == null) {
-        result.sheets_ = sheets_;
-      } else {
-        result.sheets_ = sheetsBuilder_.build();
-      }
-      if (slidesBuilder_ == null) {
-        result.slides_ = slides_;
-      } else {
-        result.slides_ = slidesBuilder_.build();
-      }
-      if (httpOptionsBuilder_ == null) {
-        result.httpOptions_ = httpOptions_;
-      } else {
-        result.httpOptions_ = httpOptionsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gsuiteaddons.v1.AddOns result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.common_ = commonBuilder_ == null
+            ? common_
+            : commonBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.gmail_ = gmailBuilder_ == null
+            ? gmail_
+            : gmailBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.drive_ = driveBuilder_ == null
+            ? drive_
+            : driveBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.calendar_ = calendarBuilder_ == null
+            ? calendar_
+            : calendarBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.docs_ = docsBuilder_ == null
+            ? docs_
+            : docsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.sheets_ = sheetsBuilder_ == null
+            ? sheets_
+            : sheetsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.slides_ = slidesBuilder_ == null
+            ? slides_
+            : slidesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.httpOptions_ = httpOptionsBuilder_ == null
+            ? httpOptions_
+            : httpOptionsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -994,7 +844,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasHttpOptions()) {
         mergeHttpOptions(other.getHttpOptions());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1009,19 +859,89 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gsuiteaddons.v1.AddOns parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCommonFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getGmailFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 42: {
+              input.readMessage(
+                  getDriveFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getCalendarFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getDocsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getSheetsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 66
+            case 82: {
+              input.readMessage(
+                  getSlidesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 82
+            case 122: {
+              input.readMessage(
+                  getHttpOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 122
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gsuiteaddons.v1.AddOns) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.apps.script.type.CommonAddOnManifest common_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1035,7 +955,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the common field is set.
      */
     public boolean hasCommon() {
-      return commonBuilder_ != null || common_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1065,11 +985,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         common_ = value;
-        onChanged();
       } else {
         commonBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1083,11 +1003,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.script.type.CommonAddOnManifest.Builder builderForValue) {
       if (commonBuilder_ == null) {
         common_ = builderForValue.build();
-        onChanged();
       } else {
         commonBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1099,17 +1019,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCommon(com.google.apps.script.type.CommonAddOnManifest value) {
       if (commonBuilder_ == null) {
-        if (common_ != null) {
-          common_ =
-            com.google.apps.script.type.CommonAddOnManifest.newBuilder(common_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          common_ != null &&
+          common_ != com.google.apps.script.type.CommonAddOnManifest.getDefaultInstance()) {
+          getCommonBuilder().mergeFrom(value);
         } else {
           common_ = value;
         }
-        onChanged();
       } else {
         commonBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1120,14 +1041,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.CommonAddOnManifest common = 1;</code>
      */
     public Builder clearCommon() {
-      if (commonBuilder_ == null) {
-        common_ = null;
-        onChanged();
-      } else {
-        common_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      common_ = null;
+      if (commonBuilder_ != null) {
+        commonBuilder_.dispose();
         commonBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1138,7 +1058,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.CommonAddOnManifest common = 1;</code>
      */
     public com.google.apps.script.type.CommonAddOnManifest.Builder getCommonBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getCommonFieldBuilder().getBuilder();
     }
@@ -1190,7 +1110,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the gmail field is set.
      */
     public boolean hasGmail() {
-      return gmailBuilder_ != null || gmail_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1220,11 +1140,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         gmail_ = value;
-        onChanged();
       } else {
         gmailBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1238,11 +1158,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.script.type.gmail.GmailAddOnManifest.Builder builderForValue) {
       if (gmailBuilder_ == null) {
         gmail_ = builderForValue.build();
-        onChanged();
       } else {
         gmailBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1254,17 +1174,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGmail(com.google.apps.script.type.gmail.GmailAddOnManifest value) {
       if (gmailBuilder_ == null) {
-        if (gmail_ != null) {
-          gmail_ =
-            com.google.apps.script.type.gmail.GmailAddOnManifest.newBuilder(gmail_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          gmail_ != null &&
+          gmail_ != com.google.apps.script.type.gmail.GmailAddOnManifest.getDefaultInstance()) {
+          getGmailBuilder().mergeFrom(value);
         } else {
           gmail_ = value;
         }
-        onChanged();
       } else {
         gmailBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1275,14 +1196,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.gmail.GmailAddOnManifest gmail = 2;</code>
      */
     public Builder clearGmail() {
-      if (gmailBuilder_ == null) {
-        gmail_ = null;
-        onChanged();
-      } else {
-        gmail_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      gmail_ = null;
+      if (gmailBuilder_ != null) {
+        gmailBuilder_.dispose();
         gmailBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1293,7 +1213,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.gmail.GmailAddOnManifest gmail = 2;</code>
      */
     public com.google.apps.script.type.gmail.GmailAddOnManifest.Builder getGmailBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getGmailFieldBuilder().getBuilder();
     }
@@ -1345,7 +1265,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the drive field is set.
      */
     public boolean hasDrive() {
-      return driveBuilder_ != null || drive_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1375,11 +1295,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         drive_ = value;
-        onChanged();
       } else {
         driveBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1393,11 +1313,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.script.type.drive.DriveAddOnManifest.Builder builderForValue) {
       if (driveBuilder_ == null) {
         drive_ = builderForValue.build();
-        onChanged();
       } else {
         driveBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1409,17 +1329,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDrive(com.google.apps.script.type.drive.DriveAddOnManifest value) {
       if (driveBuilder_ == null) {
-        if (drive_ != null) {
-          drive_ =
-            com.google.apps.script.type.drive.DriveAddOnManifest.newBuilder(drive_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          drive_ != null &&
+          drive_ != com.google.apps.script.type.drive.DriveAddOnManifest.getDefaultInstance()) {
+          getDriveBuilder().mergeFrom(value);
         } else {
           drive_ = value;
         }
-        onChanged();
       } else {
         driveBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1430,14 +1351,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.drive.DriveAddOnManifest drive = 5;</code>
      */
     public Builder clearDrive() {
-      if (driveBuilder_ == null) {
-        drive_ = null;
-        onChanged();
-      } else {
-        drive_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      drive_ = null;
+      if (driveBuilder_ != null) {
+        driveBuilder_.dispose();
         driveBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1448,7 +1368,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.drive.DriveAddOnManifest drive = 5;</code>
      */
     public com.google.apps.script.type.drive.DriveAddOnManifest.Builder getDriveBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDriveFieldBuilder().getBuilder();
     }
@@ -1500,7 +1420,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the calendar field is set.
      */
     public boolean hasCalendar() {
-      return calendarBuilder_ != null || calendar_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1530,11 +1450,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         calendar_ = value;
-        onChanged();
       } else {
         calendarBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1548,11 +1468,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.script.type.calendar.CalendarAddOnManifest.Builder builderForValue) {
       if (calendarBuilder_ == null) {
         calendar_ = builderForValue.build();
-        onChanged();
       } else {
         calendarBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1564,17 +1484,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCalendar(com.google.apps.script.type.calendar.CalendarAddOnManifest value) {
       if (calendarBuilder_ == null) {
-        if (calendar_ != null) {
-          calendar_ =
-            com.google.apps.script.type.calendar.CalendarAddOnManifest.newBuilder(calendar_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          calendar_ != null &&
+          calendar_ != com.google.apps.script.type.calendar.CalendarAddOnManifest.getDefaultInstance()) {
+          getCalendarBuilder().mergeFrom(value);
         } else {
           calendar_ = value;
         }
-        onChanged();
       } else {
         calendarBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1585,14 +1506,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.calendar.CalendarAddOnManifest calendar = 6;</code>
      */
     public Builder clearCalendar() {
-      if (calendarBuilder_ == null) {
-        calendar_ = null;
-        onChanged();
-      } else {
-        calendar_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      calendar_ = null;
+      if (calendarBuilder_ != null) {
+        calendarBuilder_.dispose();
         calendarBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1603,7 +1523,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.calendar.CalendarAddOnManifest calendar = 6;</code>
      */
     public com.google.apps.script.type.calendar.CalendarAddOnManifest.Builder getCalendarBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getCalendarFieldBuilder().getBuilder();
     }
@@ -1655,7 +1575,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the docs field is set.
      */
     public boolean hasDocs() {
-      return docsBuilder_ != null || docs_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1685,11 +1605,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         docs_ = value;
-        onChanged();
       } else {
         docsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1703,11 +1623,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.script.type.docs.DocsAddOnManifest.Builder builderForValue) {
       if (docsBuilder_ == null) {
         docs_ = builderForValue.build();
-        onChanged();
       } else {
         docsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1719,17 +1639,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDocs(com.google.apps.script.type.docs.DocsAddOnManifest value) {
       if (docsBuilder_ == null) {
-        if (docs_ != null) {
-          docs_ =
-            com.google.apps.script.type.docs.DocsAddOnManifest.newBuilder(docs_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          docs_ != null &&
+          docs_ != com.google.apps.script.type.docs.DocsAddOnManifest.getDefaultInstance()) {
+          getDocsBuilder().mergeFrom(value);
         } else {
           docs_ = value;
         }
-        onChanged();
       } else {
         docsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1740,14 +1661,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.docs.DocsAddOnManifest docs = 7;</code>
      */
     public Builder clearDocs() {
-      if (docsBuilder_ == null) {
-        docs_ = null;
-        onChanged();
-      } else {
-        docs_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      docs_ = null;
+      if (docsBuilder_ != null) {
+        docsBuilder_.dispose();
         docsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1758,7 +1678,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.docs.DocsAddOnManifest docs = 7;</code>
      */
     public com.google.apps.script.type.docs.DocsAddOnManifest.Builder getDocsBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getDocsFieldBuilder().getBuilder();
     }
@@ -1810,7 +1730,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sheets field is set.
      */
     public boolean hasSheets() {
-      return sheetsBuilder_ != null || sheets_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1840,11 +1760,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sheets_ = value;
-        onChanged();
       } else {
         sheetsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1858,11 +1778,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.script.type.sheets.SheetsAddOnManifest.Builder builderForValue) {
       if (sheetsBuilder_ == null) {
         sheets_ = builderForValue.build();
-        onChanged();
       } else {
         sheetsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1874,17 +1794,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSheets(com.google.apps.script.type.sheets.SheetsAddOnManifest value) {
       if (sheetsBuilder_ == null) {
-        if (sheets_ != null) {
-          sheets_ =
-            com.google.apps.script.type.sheets.SheetsAddOnManifest.newBuilder(sheets_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          sheets_ != null &&
+          sheets_ != com.google.apps.script.type.sheets.SheetsAddOnManifest.getDefaultInstance()) {
+          getSheetsBuilder().mergeFrom(value);
         } else {
           sheets_ = value;
         }
-        onChanged();
       } else {
         sheetsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1895,14 +1816,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.sheets.SheetsAddOnManifest sheets = 8;</code>
      */
     public Builder clearSheets() {
-      if (sheetsBuilder_ == null) {
-        sheets_ = null;
-        onChanged();
-      } else {
-        sheets_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      sheets_ = null;
+      if (sheetsBuilder_ != null) {
+        sheetsBuilder_.dispose();
         sheetsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1913,7 +1833,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.sheets.SheetsAddOnManifest sheets = 8;</code>
      */
     public com.google.apps.script.type.sheets.SheetsAddOnManifest.Builder getSheetsBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getSheetsFieldBuilder().getBuilder();
     }
@@ -1965,7 +1885,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the slides field is set.
      */
     public boolean hasSlides() {
-      return slidesBuilder_ != null || slides_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1995,11 +1915,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         slides_ = value;
-        onChanged();
       } else {
         slidesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2013,11 +1933,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.script.type.slides.SlidesAddOnManifest.Builder builderForValue) {
       if (slidesBuilder_ == null) {
         slides_ = builderForValue.build();
-        onChanged();
       } else {
         slidesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2029,17 +1949,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSlides(com.google.apps.script.type.slides.SlidesAddOnManifest value) {
       if (slidesBuilder_ == null) {
-        if (slides_ != null) {
-          slides_ =
-            com.google.apps.script.type.slides.SlidesAddOnManifest.newBuilder(slides_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          slides_ != null &&
+          slides_ != com.google.apps.script.type.slides.SlidesAddOnManifest.getDefaultInstance()) {
+          getSlidesBuilder().mergeFrom(value);
         } else {
           slides_ = value;
         }
-        onChanged();
       } else {
         slidesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2050,14 +1971,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.slides.SlidesAddOnManifest slides = 10;</code>
      */
     public Builder clearSlides() {
-      if (slidesBuilder_ == null) {
-        slides_ = null;
-        onChanged();
-      } else {
-        slides_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      slides_ = null;
+      if (slidesBuilder_ != null) {
+        slidesBuilder_.dispose();
         slidesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2068,7 +1988,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.slides.SlidesAddOnManifest slides = 10;</code>
      */
     public com.google.apps.script.type.slides.SlidesAddOnManifest.Builder getSlidesBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getSlidesFieldBuilder().getBuilder();
     }
@@ -2120,7 +2040,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the httpOptions field is set.
      */
     public boolean hasHttpOptions() {
-      return httpOptionsBuilder_ != null || httpOptions_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2150,11 +2070,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         httpOptions_ = value;
-        onChanged();
       } else {
         httpOptionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2168,11 +2088,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.script.type.HttpOptions.Builder builderForValue) {
       if (httpOptionsBuilder_ == null) {
         httpOptions_ = builderForValue.build();
-        onChanged();
       } else {
         httpOptionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2184,17 +2104,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHttpOptions(com.google.apps.script.type.HttpOptions value) {
       if (httpOptionsBuilder_ == null) {
-        if (httpOptions_ != null) {
-          httpOptions_ =
-            com.google.apps.script.type.HttpOptions.newBuilder(httpOptions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          httpOptions_ != null &&
+          httpOptions_ != com.google.apps.script.type.HttpOptions.getDefaultInstance()) {
+          getHttpOptionsBuilder().mergeFrom(value);
         } else {
           httpOptions_ = value;
         }
-        onChanged();
       } else {
         httpOptionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2205,14 +2126,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.HttpOptions http_options = 15;</code>
      */
     public Builder clearHttpOptions() {
-      if (httpOptionsBuilder_ == null) {
-        httpOptions_ = null;
-        onChanged();
-      } else {
-        httpOptions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      httpOptions_ = null;
+      if (httpOptionsBuilder_ != null) {
+        httpOptionsBuilder_.dispose();
         httpOptionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2223,7 +2143,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.HttpOptions http_options = 15;</code>
      */
     public com.google.apps.script.type.HttpOptions.Builder getHttpOptionsBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getHttpOptionsFieldBuilder().getBuilder();
     }
@@ -2295,7 +2215,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AddOns(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

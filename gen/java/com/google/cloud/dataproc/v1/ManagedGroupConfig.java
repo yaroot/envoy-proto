@@ -36,57 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ManagedGroupConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            instanceTemplateName_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            instanceGroupManagerName_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.v1.ClustersProto.internal_static_google_cloud_dataproc_v1_ManagedGroupConfig_descriptor;
@@ -101,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INSTANCE_TEMPLATE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object instanceTemplateName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object instanceTemplateName_ = "";
   /**
    * <pre>
    * Output only. The name of the Instance Template used for the Managed
@@ -149,7 +99,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INSTANCE_GROUP_MANAGER_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object instanceGroupManagerName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object instanceGroupManagerName_ = "";
   /**
    * <pre>
    * Output only. The name of the Instance Group Manager for this group.
@@ -214,7 +165,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(instanceGroupManagerName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, instanceGroupManagerName_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -229,7 +180,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(instanceGroupManagerName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, instanceGroupManagerName_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -248,7 +199,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getInstanceTemplateName())) return false;
     if (!getInstanceGroupManagerName()
         .equals(other.getInstanceGroupManagerName())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -263,7 +214,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getInstanceTemplateName().hashCode();
     hash = (37 * hash) + INSTANCE_GROUP_MANAGER_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getInstanceGroupManagerName().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -384,26 +335,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.ManagedGroupConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       instanceTemplateName_ = "";
-
       instanceGroupManagerName_ = "";
-
       return this;
     }
 
@@ -430,10 +375,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.ManagedGroupConfig buildPartial() {
       com.google.cloud.dataproc.v1.ManagedGroupConfig result = new com.google.cloud.dataproc.v1.ManagedGroupConfig(this);
-      result.instanceTemplateName_ = instanceTemplateName_;
-      result.instanceGroupManagerName_ = instanceGroupManagerName_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.ManagedGroupConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.instanceTemplateName_ = instanceTemplateName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.instanceGroupManagerName_ = instanceGroupManagerName_;
+      }
     }
 
     @java.lang.Override
@@ -482,13 +436,15 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dataproc.v1.ManagedGroupConfig.getDefaultInstance()) return this;
       if (!other.getInstanceTemplateName().isEmpty()) {
         instanceTemplateName_ = other.instanceTemplateName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getInstanceGroupManagerName().isEmpty()) {
         instanceGroupManagerName_ = other.instanceGroupManagerName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -503,19 +459,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.ManagedGroupConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instanceTemplateName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              instanceGroupManagerName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.ManagedGroupConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object instanceTemplateName_ = "";
     /**
@@ -573,11 +553,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceTemplateName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       instanceTemplateName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -591,8 +569,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInstanceTemplateName() {
-      
       instanceTemplateName_ = getDefaultInstance().getInstanceTemplateName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -608,12 +586,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceTemplateNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       instanceTemplateName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -671,11 +647,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceGroupManagerName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       instanceGroupManagerName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -688,8 +662,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInstanceGroupManagerName() {
-      
       instanceGroupManagerName_ = getDefaultInstance().getInstanceGroupManagerName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -704,12 +678,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceGroupManagerNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       instanceGroupManagerName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -746,7 +718,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ManagedGroupConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

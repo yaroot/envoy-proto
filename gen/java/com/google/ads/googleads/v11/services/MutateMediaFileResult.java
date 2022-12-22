@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MutateMediaFileResult(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceName_ = s;
-            break;
-          }
-          case 18: {
-            com.google.ads.googleads.v11.resources.MediaFile.Builder subBuilder = null;
-            if (mediaFile_ != null) {
-              subBuilder = mediaFile_.toBuilder();
-            }
-            mediaFile_ = input.readMessage(com.google.ads.googleads.v11.resources.MediaFile.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(mediaFile_);
-              mediaFile_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.services.MediaFileServiceProto.internal_static_google_ads_googleads_v11_services_MutateMediaFileResult_descriptor;
@@ -107,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object resourceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceName_ = "";
   /**
    * <pre>
    * The resource name returned for successful operations.
@@ -193,7 +136,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v11.resources.MediaFileOrBuilder getMediaFileOrBuilder() {
-    return getMediaFile();
+    return mediaFile_ == null ? com.google.ads.googleads.v11.resources.MediaFile.getDefaultInstance() : mediaFile_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -216,7 +159,7 @@ private static final long serialVersionUID = 0L;
     if (mediaFile_ != null) {
       output.writeMessage(2, getMediaFile());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -232,7 +175,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getMediaFile());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -254,7 +197,7 @@ private static final long serialVersionUID = 0L;
       if (!getMediaFile()
           .equals(other.getMediaFile())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -271,7 +214,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MEDIA_FILE_FIELD_NUMBER;
       hash = (53 * hash) + getMediaFile().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -392,28 +335,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.services.MutateMediaFileResult.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       resourceName_ = "";
-
-      if (mediaFileBuilder_ == null) {
-        mediaFile_ = null;
-      } else {
-        mediaFile_ = null;
+      mediaFile_ = null;
+      if (mediaFileBuilder_ != null) {
+        mediaFileBuilder_.dispose();
         mediaFileBuilder_ = null;
       }
       return this;
@@ -442,14 +379,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.services.MutateMediaFileResult buildPartial() {
       com.google.ads.googleads.v11.services.MutateMediaFileResult result = new com.google.ads.googleads.v11.services.MutateMediaFileResult(this);
-      result.resourceName_ = resourceName_;
-      if (mediaFileBuilder_ == null) {
-        result.mediaFile_ = mediaFile_;
-      } else {
-        result.mediaFile_ = mediaFileBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.services.MutateMediaFileResult result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resourceName_ = resourceName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.mediaFile_ = mediaFileBuilder_ == null
+            ? mediaFile_
+            : mediaFileBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -498,12 +442,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v11.services.MutateMediaFileResult.getDefaultInstance()) return this;
       if (!other.getResourceName().isEmpty()) {
         resourceName_ = other.resourceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasMediaFile()) {
         mergeMediaFile(other.getMediaFile());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -518,19 +463,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.services.MutateMediaFileResult parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              resourceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getMediaFileFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.services.MutateMediaFileResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object resourceName_ = "";
     /**
@@ -585,11 +556,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -602,8 +571,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceName() {
-      
       resourceName_ = getDefaultInstance().getResourceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -618,12 +587,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -642,7 +609,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the mediaFile field is set.
      */
     public boolean hasMediaFile() {
-      return mediaFileBuilder_ != null || mediaFile_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -676,11 +643,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         mediaFile_ = value;
-        onChanged();
       } else {
         mediaFileBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -696,11 +663,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.resources.MediaFile.Builder builderForValue) {
       if (mediaFileBuilder_ == null) {
         mediaFile_ = builderForValue.build();
-        onChanged();
       } else {
         mediaFileBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -714,17 +681,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMediaFile(com.google.ads.googleads.v11.resources.MediaFile value) {
       if (mediaFileBuilder_ == null) {
-        if (mediaFile_ != null) {
-          mediaFile_ =
-            com.google.ads.googleads.v11.resources.MediaFile.newBuilder(mediaFile_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          mediaFile_ != null &&
+          mediaFile_ != com.google.ads.googleads.v11.resources.MediaFile.getDefaultInstance()) {
+          getMediaFileBuilder().mergeFrom(value);
         } else {
           mediaFile_ = value;
         }
-        onChanged();
       } else {
         mediaFileBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -737,14 +705,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.resources.MediaFile media_file = 2;</code>
      */
     public Builder clearMediaFile() {
-      if (mediaFileBuilder_ == null) {
-        mediaFile_ = null;
-        onChanged();
-      } else {
-        mediaFile_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      mediaFile_ = null;
+      if (mediaFileBuilder_ != null) {
+        mediaFileBuilder_.dispose();
         mediaFileBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -757,7 +724,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.resources.MediaFile media_file = 2;</code>
      */
     public com.google.ads.googleads.v11.resources.MediaFile.Builder getMediaFileBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getMediaFileFieldBuilder().getBuilder();
     }
@@ -833,7 +800,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MutateMediaFileResult(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

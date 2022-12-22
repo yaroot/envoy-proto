@@ -34,91 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CpcBidSimulationPoint(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 73: {
-            bitField0_ |= 0x00000001;
-            biddableConversions_ = input.readDouble();
-            break;
-          }
-          case 81: {
-            bitField0_ |= 0x00000002;
-            biddableConversionsValue_ = input.readDouble();
-            break;
-          }
-          case 88: {
-            bitField0_ |= 0x00000004;
-            clicks_ = input.readInt64();
-            break;
-          }
-          case 96: {
-            bitField0_ |= 0x00000008;
-            costMicros_ = input.readInt64();
-            break;
-          }
-          case 104: {
-            bitField0_ |= 0x00000010;
-            impressions_ = input.readInt64();
-            break;
-          }
-          case 112: {
-            bitField0_ |= 0x00000020;
-            topSlotImpressions_ = input.readInt64();
-            break;
-          }
-          case 120: {
-            cpcSimulationKeyValue_ = input.readInt64();
-            cpcSimulationKeyValueCase_ = 15;
-            break;
-          }
-          case 129: {
-            cpcSimulationKeyValue_ = input.readDouble();
-            cpcSimulationKeyValueCase_ = 16;
-            break;
-          }
-          case 136: {
-
-            requiredBudgetAmountMicros_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.common.SimulationProto.internal_static_google_ads_googleads_v11_common_CpcBidSimulationPoint_descriptor;
@@ -175,7 +90,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUIRED_BUDGET_AMOUNT_MICROS_FIELD_NUMBER = 17;
-  private long requiredBudgetAmountMicros_;
+  private long requiredBudgetAmountMicros_ = 0L;
   /**
    * <pre>
    * Projected required daily budget that the advertiser must set in order to
@@ -191,7 +106,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BIDDABLE_CONVERSIONS_FIELD_NUMBER = 9;
-  private double biddableConversions_;
+  private double biddableConversions_ = 0D;
   /**
    * <pre>
    * Projected number of biddable conversions.
@@ -218,7 +133,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BIDDABLE_CONVERSIONS_VALUE_FIELD_NUMBER = 10;
-  private double biddableConversionsValue_;
+  private double biddableConversionsValue_ = 0D;
   /**
    * <pre>
    * Projected total value of biddable conversions.
@@ -245,7 +160,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLICKS_FIELD_NUMBER = 11;
-  private long clicks_;
+  private long clicks_ = 0L;
   /**
    * <pre>
    * Projected number of clicks.
@@ -272,7 +187,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COST_MICROS_FIELD_NUMBER = 12;
-  private long costMicros_;
+  private long costMicros_ = 0L;
   /**
    * <pre>
    * Projected cost in micros.
@@ -299,7 +214,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMPRESSIONS_FIELD_NUMBER = 13;
-  private long impressions_;
+  private long impressions_ = 0L;
   /**
    * <pre>
    * Projected number of impressions.
@@ -326,7 +241,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOP_SLOT_IMPRESSIONS_FIELD_NUMBER = 14;
-  private long topSlotImpressions_;
+  private long topSlotImpressions_ = 0L;
   /**
    * <pre>
    * Projected number of top slot impressions.
@@ -459,7 +374,7 @@ private static final long serialVersionUID = 0L;
     if (requiredBudgetAmountMicros_ != 0L) {
       output.writeInt64(17, requiredBudgetAmountMicros_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -506,7 +421,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(17, requiredBudgetAmountMicros_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -569,7 +484,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -627,7 +542,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -748,36 +663,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.common.CpcBidSimulationPoint.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       requiredBudgetAmountMicros_ = 0L;
-
       biddableConversions_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000001);
       biddableConversionsValue_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000002);
       clicks_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000004);
       costMicros_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000008);
       impressions_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000010);
       topSlotImpressions_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000020);
       cpcSimulationKeyValueCase_ = 0;
       cpcSimulationKeyValue_ = null;
       return this;
@@ -806,43 +710,48 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.common.CpcBidSimulationPoint buildPartial() {
       com.google.ads.googleads.v11.common.CpcBidSimulationPoint result = new com.google.ads.googleads.v11.common.CpcBidSimulationPoint(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.common.CpcBidSimulationPoint result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.requiredBudgetAmountMicros_ = requiredBudgetAmountMicros_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.requiredBudgetAmountMicros_ = requiredBudgetAmountMicros_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.biddableConversions_ = biddableConversions_;
         to_bitField0_ |= 0x00000001;
       }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (((from_bitField0_ & 0x00000004) != 0)) {
         result.biddableConversionsValue_ = biddableConversionsValue_;
         to_bitField0_ |= 0x00000002;
       }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
+      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.clicks_ = clicks_;
         to_bitField0_ |= 0x00000004;
       }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
+      if (((from_bitField0_ & 0x00000010) != 0)) {
         result.costMicros_ = costMicros_;
         to_bitField0_ |= 0x00000008;
       }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
+      if (((from_bitField0_ & 0x00000020) != 0)) {
         result.impressions_ = impressions_;
         to_bitField0_ |= 0x00000010;
       }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
+      if (((from_bitField0_ & 0x00000040) != 0)) {
         result.topSlotImpressions_ = topSlotImpressions_;
         to_bitField0_ |= 0x00000020;
       }
-      if (cpcSimulationKeyValueCase_ == 15) {
-        result.cpcSimulationKeyValue_ = cpcSimulationKeyValue_;
-      }
-      if (cpcSimulationKeyValueCase_ == 16) {
-        result.cpcSimulationKeyValue_ = cpcSimulationKeyValue_;
-      }
-      result.bitField0_ = to_bitField0_;
+      result.bitField0_ |= to_bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.ads.googleads.v11.common.CpcBidSimulationPoint result) {
       result.cpcSimulationKeyValueCase_ = cpcSimulationKeyValueCase_;
-      onBuilt();
-      return result;
+      result.cpcSimulationKeyValue_ = this.cpcSimulationKeyValue_;
     }
 
     @java.lang.Override
@@ -923,7 +832,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -938,17 +847,75 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.common.CpcBidSimulationPoint parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 73: {
+              biddableConversions_ = input.readDouble();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 73
+            case 81: {
+              biddableConversionsValue_ = input.readDouble();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 81
+            case 88: {
+              clicks_ = input.readInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 88
+            case 96: {
+              costMicros_ = input.readInt64();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 96
+            case 104: {
+              impressions_ = input.readInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 104
+            case 112: {
+              topSlotImpressions_ = input.readInt64();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 112
+            case 120: {
+              cpcSimulationKeyValue_ = input.readInt64();
+              cpcSimulationKeyValueCase_ = 15;
+              break;
+            } // case 120
+            case 129: {
+              cpcSimulationKeyValue_ = input.readDouble();
+              cpcSimulationKeyValueCase_ = 16;
+              break;
+            } // case 129
+            case 136: {
+              requiredBudgetAmountMicros_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 136
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.common.CpcBidSimulationPoint) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int cpcSimulationKeyValueCase_ = 0;
@@ -995,6 +962,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRequiredBudgetAmountMicros(long value) {
       
       requiredBudgetAmountMicros_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1008,7 +976,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequiredBudgetAmountMicros() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       requiredBudgetAmountMicros_ = 0L;
       onChanged();
       return this;
@@ -1025,7 +993,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasBiddableConversions() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1049,8 +1017,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBiddableConversions(double value) {
-      bitField0_ |= 0x00000001;
+      
       biddableConversions_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1063,7 +1032,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBiddableConversions() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       biddableConversions_ = 0D;
       onChanged();
       return this;
@@ -1080,7 +1049,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasBiddableConversionsValue() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1104,8 +1073,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBiddableConversionsValue(double value) {
-      bitField0_ |= 0x00000002;
+      
       biddableConversionsValue_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1118,7 +1088,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBiddableConversionsValue() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       biddableConversionsValue_ = 0D;
       onChanged();
       return this;
@@ -1135,7 +1105,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasClicks() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1159,8 +1129,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setClicks(long value) {
-      bitField0_ |= 0x00000004;
+      
       clicks_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1173,7 +1144,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClicks() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       clicks_ = 0L;
       onChanged();
       return this;
@@ -1190,7 +1161,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasCostMicros() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1214,8 +1185,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCostMicros(long value) {
-      bitField0_ |= 0x00000008;
+      
       costMicros_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1228,7 +1200,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCostMicros() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000010);
       costMicros_ = 0L;
       onChanged();
       return this;
@@ -1245,7 +1217,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasImpressions() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1269,8 +1241,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setImpressions(long value) {
-      bitField0_ |= 0x00000010;
+      
       impressions_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1283,7 +1256,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImpressions() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000020);
       impressions_ = 0L;
       onChanged();
       return this;
@@ -1301,7 +1274,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasTopSlotImpressions() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1327,8 +1300,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTopSlotImpressions(long value) {
-      bitField0_ |= 0x00000020;
+      
       topSlotImpressions_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1342,7 +1316,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTopSlotImpressions() {
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000040);
       topSlotImpressions_ = 0L;
       onChanged();
       return this;
@@ -1383,6 +1357,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCpcBidMicros(long value) {
+      
       cpcSimulationKeyValueCase_ = 15;
       cpcSimulationKeyValue_ = value;
       onChanged();
@@ -1446,6 +1421,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCpcBidScalingModifier(double value) {
+      
       cpcSimulationKeyValueCase_ = 16;
       cpcSimulationKeyValue_ = value;
       onChanged();
@@ -1502,7 +1478,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CpcBidSimulationPoint(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

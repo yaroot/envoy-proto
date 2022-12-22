@@ -38,102 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ColumnDescription(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            dataType_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = new java.util.ArrayList<com.google.area120.tables.v1alpha1.LabeledItem>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            labels_.add(
-                input.readMessage(com.google.area120.tables.v1alpha1.LabeledItem.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            com.google.area120.tables.v1alpha1.RelationshipDetails.Builder subBuilder = null;
-            if (relationshipDetails_ != null) {
-              subBuilder = relationshipDetails_.toBuilder();
-            }
-            relationshipDetails_ = input.readMessage(com.google.area120.tables.v1alpha1.RelationshipDetails.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(relationshipDetails_);
-              relationshipDetails_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.area120.tables.v1alpha1.LookupDetails.Builder subBuilder = null;
-            if (lookupDetails_ != null) {
-              subBuilder = lookupDetails_.toBuilder();
-            }
-            lookupDetails_ = input.readMessage(com.google.area120.tables.v1alpha1.LookupDetails.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lookupDetails_);
-              lookupDetails_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        labels_ = java.util.Collections.unmodifiableList(labels_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.area120.tables.v1alpha1.TablesProto.internal_static_google_area120_tables_v1alpha1_ColumnDescription_descriptor;
@@ -148,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * column name
@@ -194,7 +99,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATA_TYPE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object dataType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object dataType_ = "";
   /**
    * <pre>
    * Data type of the column
@@ -252,7 +158,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * Internal id for a column.
@@ -298,6 +205,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LABELS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.area120.tables.v1alpha1.LabeledItem> labels_;
   /**
    * <pre>
@@ -410,7 +318,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.area120.tables.v1alpha1.RelationshipDetailsOrBuilder getRelationshipDetailsOrBuilder() {
-    return getRelationshipDetails();
+    return relationshipDetails_ == null ? com.google.area120.tables.v1alpha1.RelationshipDetails.getDefaultInstance() : relationshipDetails_;
   }
 
   public static final int LOOKUP_DETAILS_FIELD_NUMBER = 6;
@@ -457,7 +365,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.area120.tables.v1alpha1.LookupDetailsOrBuilder getLookupDetailsOrBuilder() {
-    return getLookupDetails();
+    return lookupDetails_ == null ? com.google.area120.tables.v1alpha1.LookupDetails.getDefaultInstance() : lookupDetails_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -492,7 +400,7 @@ private static final long serialVersionUID = 0L;
     if (lookupDetails_ != null) {
       output.writeMessage(6, getLookupDetails());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -522,7 +430,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getLookupDetails());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -555,7 +463,7 @@ private static final long serialVersionUID = 0L;
       if (!getLookupDetails()
           .equals(other.getLookupDetails())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -584,7 +492,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LOOKUP_DETAILS_FIELD_NUMBER;
       hash = (53 * hash) + getLookupDetails().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -705,45 +613,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.area120.tables.v1alpha1.ColumnDescription.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getLabelsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       dataType_ = "";
-
       id_ = "";
-
       if (labelsBuilder_ == null) {
         labels_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        labels_ = null;
         labelsBuilder_.clear();
       }
-      if (relationshipDetailsBuilder_ == null) {
-        relationshipDetails_ = null;
-      } else {
-        relationshipDetails_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      relationshipDetails_ = null;
+      if (relationshipDetailsBuilder_ != null) {
+        relationshipDetailsBuilder_.dispose();
         relationshipDetailsBuilder_ = null;
       }
-      if (lookupDetailsBuilder_ == null) {
-        lookupDetails_ = null;
-      } else {
-        lookupDetails_ = null;
+      lookupDetails_ = null;
+      if (lookupDetailsBuilder_ != null) {
+        lookupDetailsBuilder_.dispose();
         lookupDetailsBuilder_ = null;
       }
       return this;
@@ -772,31 +671,45 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.area120.tables.v1alpha1.ColumnDescription buildPartial() {
       com.google.area120.tables.v1alpha1.ColumnDescription result = new com.google.area120.tables.v1alpha1.ColumnDescription(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.dataType_ = dataType_;
-      result.id_ = id_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.area120.tables.v1alpha1.ColumnDescription result) {
       if (labelsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           labels_ = java.util.Collections.unmodifiableList(labels_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.labels_ = labels_;
       } else {
         result.labels_ = labelsBuilder_.build();
       }
-      if (relationshipDetailsBuilder_ == null) {
-        result.relationshipDetails_ = relationshipDetails_;
-      } else {
-        result.relationshipDetails_ = relationshipDetailsBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.area120.tables.v1alpha1.ColumnDescription result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
       }
-      if (lookupDetailsBuilder_ == null) {
-        result.lookupDetails_ = lookupDetails_;
-      } else {
-        result.lookupDetails_ = lookupDetailsBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.dataType_ = dataType_;
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.relationshipDetails_ = relationshipDetailsBuilder_ == null
+            ? relationshipDetails_
+            : relationshipDetailsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.lookupDetails_ = lookupDetailsBuilder_ == null
+            ? lookupDetails_
+            : lookupDetailsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -845,21 +758,24 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.area120.tables.v1alpha1.ColumnDescription.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDataType().isEmpty()) {
         dataType_ = other.dataType_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (labelsBuilder_ == null) {
         if (!other.labels_.isEmpty()) {
           if (labels_.isEmpty()) {
             labels_ = other.labels_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureLabelsIsMutable();
             labels_.addAll(other.labels_);
@@ -872,7 +788,7 @@ private static final long serialVersionUID = 0L;
             labelsBuilder_.dispose();
             labelsBuilder_ = null;
             labels_ = other.labels_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             labelsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getLabelsFieldBuilder() : null;
@@ -887,7 +803,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasLookupDetails()) {
         mergeLookupDetails(other.getLookupDetails());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -902,17 +818,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.area120.tables.v1alpha1.ColumnDescription parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              dataType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.area120.tables.v1alpha1.LabeledItem m =
+                  input.readMessage(
+                      com.google.area120.tables.v1alpha1.LabeledItem.parser(),
+                      extensionRegistry);
+              if (labelsBuilder_ == null) {
+                ensureLabelsIsMutable();
+                labels_.add(m);
+              } else {
+                labelsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getRelationshipDetailsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getLookupDetailsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.area120.tables.v1alpha1.ColumnDescription) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -970,11 +941,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -987,8 +956,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1003,12 +972,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1084,11 +1051,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDataType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       dataType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1107,8 +1072,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDataType() {
-      
       dataType_ = getDefaultInstance().getDataType();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1129,12 +1094,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDataTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       dataType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1192,11 +1155,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1209,8 +1170,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1225,12 +1186,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1238,9 +1197,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.area120.tables.v1alpha1.LabeledItem> labels_ =
       java.util.Collections.emptyList();
     private void ensureLabelsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         labels_ = new java.util.ArrayList<com.google.area120.tables.v1alpha1.LabeledItem>(labels_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1467,7 +1426,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearLabels() {
       if (labelsBuilder_ == null) {
         labels_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         labelsBuilder_.clear();
@@ -1593,7 +1552,7 @@ private static final long serialVersionUID = 0L;
         labelsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.area120.tables.v1alpha1.LabeledItem, com.google.area120.tables.v1alpha1.LabeledItem.Builder, com.google.area120.tables.v1alpha1.LabeledItemOrBuilder>(
                 labels_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         labels_ = null;
@@ -1614,7 +1573,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the relationshipDetails field is set.
      */
     public boolean hasRelationshipDetails() {
-      return relationshipDetailsBuilder_ != null || relationshipDetails_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1646,11 +1605,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         relationshipDetails_ = value;
-        onChanged();
       } else {
         relationshipDetailsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1665,11 +1624,11 @@ private static final long serialVersionUID = 0L;
         com.google.area120.tables.v1alpha1.RelationshipDetails.Builder builderForValue) {
       if (relationshipDetailsBuilder_ == null) {
         relationshipDetails_ = builderForValue.build();
-        onChanged();
       } else {
         relationshipDetailsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1682,17 +1641,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRelationshipDetails(com.google.area120.tables.v1alpha1.RelationshipDetails value) {
       if (relationshipDetailsBuilder_ == null) {
-        if (relationshipDetails_ != null) {
-          relationshipDetails_ =
-            com.google.area120.tables.v1alpha1.RelationshipDetails.newBuilder(relationshipDetails_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          relationshipDetails_ != null &&
+          relationshipDetails_ != com.google.area120.tables.v1alpha1.RelationshipDetails.getDefaultInstance()) {
+          getRelationshipDetailsBuilder().mergeFrom(value);
         } else {
           relationshipDetails_ = value;
         }
-        onChanged();
       } else {
         relationshipDetailsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1704,14 +1664,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.area120.tables.v1alpha1.RelationshipDetails relationship_details = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearRelationshipDetails() {
-      if (relationshipDetailsBuilder_ == null) {
-        relationshipDetails_ = null;
-        onChanged();
-      } else {
-        relationshipDetails_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      relationshipDetails_ = null;
+      if (relationshipDetailsBuilder_ != null) {
+        relationshipDetailsBuilder_.dispose();
         relationshipDetailsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1723,7 +1682,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.area120.tables.v1alpha1.RelationshipDetails relationship_details = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.area120.tables.v1alpha1.RelationshipDetails.Builder getRelationshipDetailsBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getRelationshipDetailsFieldBuilder().getBuilder();
     }
@@ -1780,7 +1739,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lookupDetails field is set.
      */
     public boolean hasLookupDetails() {
-      return lookupDetailsBuilder_ != null || lookupDetails_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1816,11 +1775,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         lookupDetails_ = value;
-        onChanged();
       } else {
         lookupDetailsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1837,11 +1796,11 @@ private static final long serialVersionUID = 0L;
         com.google.area120.tables.v1alpha1.LookupDetails.Builder builderForValue) {
       if (lookupDetailsBuilder_ == null) {
         lookupDetails_ = builderForValue.build();
-        onChanged();
       } else {
         lookupDetailsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1856,17 +1815,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLookupDetails(com.google.area120.tables.v1alpha1.LookupDetails value) {
       if (lookupDetailsBuilder_ == null) {
-        if (lookupDetails_ != null) {
-          lookupDetails_ =
-            com.google.area120.tables.v1alpha1.LookupDetails.newBuilder(lookupDetails_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          lookupDetails_ != null &&
+          lookupDetails_ != com.google.area120.tables.v1alpha1.LookupDetails.getDefaultInstance()) {
+          getLookupDetailsBuilder().mergeFrom(value);
         } else {
           lookupDetails_ = value;
         }
-        onChanged();
       } else {
         lookupDetailsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1880,14 +1840,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.area120.tables.v1alpha1.LookupDetails lookup_details = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearLookupDetails() {
-      if (lookupDetailsBuilder_ == null) {
-        lookupDetails_ = null;
-        onChanged();
-      } else {
-        lookupDetails_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      lookupDetails_ = null;
+      if (lookupDetailsBuilder_ != null) {
+        lookupDetailsBuilder_.dispose();
         lookupDetailsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1901,7 +1860,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.area120.tables.v1alpha1.LookupDetails lookup_details = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.area120.tables.v1alpha1.LookupDetails.Builder getLookupDetailsBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getLookupDetailsFieldBuilder().getBuilder();
     }
@@ -1979,7 +1938,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ColumnDescription(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

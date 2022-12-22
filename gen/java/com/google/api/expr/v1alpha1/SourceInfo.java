@@ -37,108 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SourceInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            syntaxVersion_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            location_ = s;
-            break;
-          }
-          case 24: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              lineOffsets_ = newIntList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            lineOffsets_.addInt(input.readInt32());
-            break;
-          }
-          case 26: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              lineOffsets_ = newIntList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              lineOffsets_.addInt(input.readInt32());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              positions_ = com.google.protobuf.MapField.newMapField(
-                  PositionsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.Long, java.lang.Integer>
-            positions__ = input.readMessage(
-                PositionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            positions_.getMutableMap().put(
-                positions__.getKey(), positions__.getValue());
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              macroCalls_ = com.google.protobuf.MapField.newMapField(
-                  MacroCallsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.Long, com.google.api.expr.v1alpha1.Expr>
-            macroCalls__ = input.readMessage(
-                MacroCallsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            macroCalls_.getMutableMap().put(
-                macroCalls__.getKey(), macroCalls__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        lineOffsets_.makeImmutable(); // C
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.expr.v1alpha1.SyntaxProto.internal_static_google_api_expr_v1alpha1_SourceInfo_descriptor;
@@ -167,7 +65,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SYNTAX_VERSION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object syntaxVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object syntaxVersion_ = "";
   /**
    * <pre>
    * The syntax version of the source, e.g. `cel1`.
@@ -213,7 +112,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCATION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object location_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object location_ = "";
   /**
    * <pre>
    * The location name. All position information attached to an expression is
@@ -265,6 +165,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LINE_OFFSETS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.IntList lineOffsets_;
   /**
    * <pre>
@@ -328,6 +229,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.INT32,
                 0);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Long, java.lang.Integer> positions_;
   private com.google.protobuf.MapField<java.lang.Long, java.lang.Integer>
@@ -338,7 +240,6 @@ private static final long serialVersionUID = 0L;
     }
     return positions_;
   }
-
   public int getPositionsCount() {
     return internalGetPositions().getMap().size();
   }
@@ -350,7 +251,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;int64, int32&gt; positions = 4;</code>
    */
-
   @java.lang.Override
   public boolean containsPositions(
       long key) {
@@ -374,7 +274,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int64, int32&gt; positions = 4;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Long, java.lang.Integer> getPositionsMap() {
     return internalGetPositions().getMap();
   }
@@ -387,7 +286,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int64, int32&gt; positions = 4;</code>
    */
   @java.lang.Override
-
   public int getPositionsOrDefault(
       long key,
       int defaultValue) {
@@ -405,7 +303,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int64, int32&gt; positions = 4;</code>
    */
   @java.lang.Override
-
   public int getPositionsOrThrow(
       long key) {
     
@@ -429,6 +326,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.api.expr.v1alpha1.Expr.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Long, com.google.api.expr.v1alpha1.Expr> macroCalls_;
   private com.google.protobuf.MapField<java.lang.Long, com.google.api.expr.v1alpha1.Expr>
@@ -439,7 +337,6 @@ private static final long serialVersionUID = 0L;
     }
     return macroCalls_;
   }
-
   public int getMacroCallsCount() {
     return internalGetMacroCalls().getMap().size();
   }
@@ -456,7 +353,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;int64, .google.api.expr.v1alpha1.Expr&gt; macro_calls = 5;</code>
    */
-
   @java.lang.Override
   public boolean containsMacroCalls(
       long key) {
@@ -485,7 +381,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int64, .google.api.expr.v1alpha1.Expr&gt; macro_calls = 5;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Long, com.google.api.expr.v1alpha1.Expr> getMacroCallsMap() {
     return internalGetMacroCalls().getMap();
   }
@@ -503,10 +398,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int64, .google.api.expr.v1alpha1.Expr&gt; macro_calls = 5;</code>
    */
   @java.lang.Override
-
-  public com.google.api.expr.v1alpha1.Expr getMacroCallsOrDefault(
+  public /* nullable */
+com.google.api.expr.v1alpha1.Expr getMacroCallsOrDefault(
       long key,
-      com.google.api.expr.v1alpha1.Expr defaultValue) {
+      /* nullable */
+com.google.api.expr.v1alpha1.Expr defaultValue) {
     
     java.util.Map<java.lang.Long, com.google.api.expr.v1alpha1.Expr> map =
         internalGetMacroCalls().getMap();
@@ -526,7 +422,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int64, .google.api.expr.v1alpha1.Expr&gt; macro_calls = 5;</code>
    */
   @java.lang.Override
-
   public com.google.api.expr.v1alpha1.Expr getMacroCallsOrThrow(
       long key) {
     
@@ -578,7 +473,7 @@ private static final long serialVersionUID = 0L;
         internalGetMacroCalls(),
         MacroCallsDefaultEntryHolder.defaultEntry,
         5);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -627,7 +522,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, macroCalls__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -652,7 +547,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetPositions())) return false;
     if (!internalGetMacroCalls().equals(
         other.internalGetMacroCalls())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -679,7 +574,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MACRO_CALLS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetMacroCalls().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -826,28 +721,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.expr.v1alpha1.SourceInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       syntaxVersion_ = "";
-
       location_ = "";
-
       lineOffsets_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutablePositions().clear();
       internalGetMutableMacroCalls().clear();
       return this;
@@ -876,20 +764,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.expr.v1alpha1.SourceInfo buildPartial() {
       com.google.api.expr.v1alpha1.SourceInfo result = new com.google.api.expr.v1alpha1.SourceInfo(this);
-      int from_bitField0_ = bitField0_;
-      result.syntaxVersion_ = syntaxVersion_;
-      result.location_ = location_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        lineOffsets_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.lineOffsets_ = lineOffsets_;
-      result.positions_ = internalGetPositions();
-      result.positions_.makeImmutable();
-      result.macroCalls_ = internalGetMacroCalls();
-      result.macroCalls_.makeImmutable();
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.api.expr.v1alpha1.SourceInfo result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        lineOffsets_.makeImmutable();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.lineOffsets_ = lineOffsets_;
+    }
+
+    private void buildPartial0(com.google.api.expr.v1alpha1.SourceInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.syntaxVersion_ = syntaxVersion_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.location_ = location_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.positions_ = internalGetPositions();
+        result.positions_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.macroCalls_ = internalGetMacroCalls();
+        result.macroCalls_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -938,16 +842,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.api.expr.v1alpha1.SourceInfo.getDefaultInstance()) return this;
       if (!other.getSyntaxVersion().isEmpty()) {
         syntaxVersion_ = other.syntaxVersion_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getLocation().isEmpty()) {
         location_ = other.location_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.lineOffsets_.isEmpty()) {
         if (lineOffsets_.isEmpty()) {
           lineOffsets_ = other.lineOffsets_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureLineOffsetsIsMutable();
           lineOffsets_.addAll(other.lineOffsets_);
@@ -956,9 +862,11 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutablePositions().mergeFrom(
           other.internalGetPositions());
+      bitField0_ |= 0x00000008;
       internalGetMutableMacroCalls().mergeFrom(
           other.internalGetMacroCalls());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000010;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -973,17 +881,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.expr.v1alpha1.SourceInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              syntaxVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              location_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              int v = input.readInt32();
+              ensureLineOffsetsIsMutable();
+              lineOffsets_.addInt(v);
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureLineOffsetsIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                lineOffsets_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Integer>
+              positions__ = input.readMessage(
+                  PositionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutablePositions().getMutableMap().put(
+                  positions__.getKey(), positions__.getValue());
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.Long, com.google.api.expr.v1alpha1.Expr>
+              macroCalls__ = input.readMessage(
+                  MacroCallsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMacroCalls().getMutableMap().put(
+                  macroCalls__.getKey(), macroCalls__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.expr.v1alpha1.SourceInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1041,11 +1006,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSyntaxVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       syntaxVersion_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1058,8 +1021,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSyntaxVersion() {
-      
       syntaxVersion_ = getDefaultInstance().getSyntaxVersion();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1074,12 +1037,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSyntaxVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       syntaxVersion_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1146,11 +1107,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocation(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       location_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1166,8 +1125,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocation() {
-      
       location_ = getDefaultInstance().getLocation();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1185,22 +1144,20 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       location_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.Internal.IntList lineOffsets_ = emptyIntList();
     private void ensureLineOffsetsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         lineOffsets_ = mutableCopy(lineOffsets_);
-        bitField0_ |= 0x00000001;
-       }
+        bitField0_ |= 0x00000004;
+      }
     }
     /**
      * <pre>
@@ -1216,7 +1173,7 @@ private static final long serialVersionUID = 0L;
      */
     public java.util.List<java.lang.Integer>
         getLineOffsetsList() {
-      return ((bitField0_ & 0x00000001) != 0) ?
+      return ((bitField0_ & 0x00000004) != 0) ?
                java.util.Collections.unmodifiableList(lineOffsets_) : lineOffsets_;
     }
     /**
@@ -1266,6 +1223,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLineOffsets(
         int index, int value) {
+      
       ensureLineOffsetsIsMutable();
       lineOffsets_.setInt(index, value);
       onChanged();
@@ -1285,6 +1243,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addLineOffsets(int value) {
+      
       ensureLineOffsetsIsMutable();
       lineOffsets_.addInt(value);
       onChanged();
@@ -1325,7 +1284,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearLineOffsets() {
       lineOffsets_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1333,7 +1292,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.Long, java.lang.Integer> positions_;
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Integer>
-    internalGetPositions() {
+        internalGetPositions() {
       if (positions_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             PositionsDefaultEntryHolder.defaultEntry);
@@ -1341,8 +1300,7 @@ private static final long serialVersionUID = 0L;
       return positions_;
     }
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Integer>
-    internalGetMutablePositions() {
-      onChanged();;
+        internalGetMutablePositions() {
       if (positions_ == null) {
         positions_ = com.google.protobuf.MapField.newMapField(
             PositionsDefaultEntryHolder.defaultEntry);
@@ -1350,9 +1308,10 @@ private static final long serialVersionUID = 0L;
       if (!positions_.isMutable()) {
         positions_ = positions_.copy();
       }
+      bitField0_ |= 0x00000008;
+      onChanged();
       return positions_;
     }
-
     public int getPositionsCount() {
       return internalGetPositions().getMap().size();
     }
@@ -1364,7 +1323,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int64, int32&gt; positions = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsPositions(
         long key) {
@@ -1388,7 +1346,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int64, int32&gt; positions = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Long, java.lang.Integer> getPositionsMap() {
       return internalGetPositions().getMap();
     }
@@ -1401,7 +1358,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int64, int32&gt; positions = 4;</code>
      */
     @java.lang.Override
-
     public int getPositionsOrDefault(
         long key,
         int defaultValue) {
@@ -1419,7 +1375,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int64, int32&gt; positions = 4;</code>
      */
     @java.lang.Override
-
     public int getPositionsOrThrow(
         long key) {
       
@@ -1430,8 +1385,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearPositions() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutablePositions().getMutableMap()
           .clear();
       return this;
@@ -1444,7 +1399,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int64, int32&gt; positions = 4;</code>
      */
-
     public Builder removePositions(
         long key) {
       
@@ -1457,7 +1411,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Long, java.lang.Integer>
-    getMutablePositions() {
+        getMutablePositions() {
+      bitField0_ |= 0x00000008;
       return internalGetMutablePositions().getMutableMap();
     }
     /**
@@ -1475,6 +1430,7 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutablePositions().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
@@ -1485,18 +1441,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int64, int32&gt; positions = 4;</code>
      */
-
     public Builder putAllPositions(
         java.util.Map<java.lang.Long, java.lang.Integer> values) {
       internalGetMutablePositions().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000008;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.Long, com.google.api.expr.v1alpha1.Expr> macroCalls_;
     private com.google.protobuf.MapField<java.lang.Long, com.google.api.expr.v1alpha1.Expr>
-    internalGetMacroCalls() {
+        internalGetMacroCalls() {
       if (macroCalls_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             MacroCallsDefaultEntryHolder.defaultEntry);
@@ -1504,8 +1460,7 @@ private static final long serialVersionUID = 0L;
       return macroCalls_;
     }
     private com.google.protobuf.MapField<java.lang.Long, com.google.api.expr.v1alpha1.Expr>
-    internalGetMutableMacroCalls() {
-      onChanged();;
+        internalGetMutableMacroCalls() {
       if (macroCalls_ == null) {
         macroCalls_ = com.google.protobuf.MapField.newMapField(
             MacroCallsDefaultEntryHolder.defaultEntry);
@@ -1513,9 +1468,10 @@ private static final long serialVersionUID = 0L;
       if (!macroCalls_.isMutable()) {
         macroCalls_ = macroCalls_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return macroCalls_;
     }
-
     public int getMacroCallsCount() {
       return internalGetMacroCalls().getMap().size();
     }
@@ -1532,7 +1488,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int64, .google.api.expr.v1alpha1.Expr&gt; macro_calls = 5;</code>
      */
-
     @java.lang.Override
     public boolean containsMacroCalls(
         long key) {
@@ -1561,7 +1516,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int64, .google.api.expr.v1alpha1.Expr&gt; macro_calls = 5;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Long, com.google.api.expr.v1alpha1.Expr> getMacroCallsMap() {
       return internalGetMacroCalls().getMap();
     }
@@ -1579,10 +1533,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int64, .google.api.expr.v1alpha1.Expr&gt; macro_calls = 5;</code>
      */
     @java.lang.Override
-
-    public com.google.api.expr.v1alpha1.Expr getMacroCallsOrDefault(
+    public /* nullable */
+com.google.api.expr.v1alpha1.Expr getMacroCallsOrDefault(
         long key,
-        com.google.api.expr.v1alpha1.Expr defaultValue) {
+        /* nullable */
+com.google.api.expr.v1alpha1.Expr defaultValue) {
       
       java.util.Map<java.lang.Long, com.google.api.expr.v1alpha1.Expr> map =
           internalGetMacroCalls().getMap();
@@ -1602,7 +1557,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int64, .google.api.expr.v1alpha1.Expr&gt; macro_calls = 5;</code>
      */
     @java.lang.Override
-
     public com.google.api.expr.v1alpha1.Expr getMacroCallsOrThrow(
         long key) {
       
@@ -1613,8 +1567,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearMacroCalls() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableMacroCalls().getMutableMap()
           .clear();
       return this;
@@ -1632,7 +1586,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int64, .google.api.expr.v1alpha1.Expr&gt; macro_calls = 5;</code>
      */
-
     public Builder removeMacroCalls(
         long key) {
       
@@ -1645,7 +1598,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Long, com.google.api.expr.v1alpha1.Expr>
-    getMutableMacroCalls() {
+        getMutableMacroCalls() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableMacroCalls().getMutableMap();
     }
     /**
@@ -1665,12 +1619,10 @@ private static final long serialVersionUID = 0L;
         long key,
         com.google.api.expr.v1alpha1.Expr value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableMacroCalls().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -1686,11 +1638,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int64, .google.api.expr.v1alpha1.Expr&gt; macro_calls = 5;</code>
      */
-
     public Builder putAllMacroCalls(
         java.util.Map<java.lang.Long, com.google.api.expr.v1alpha1.Expr> values) {
       internalGetMutableMacroCalls().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
     @java.lang.Override
@@ -1726,7 +1678,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SourceInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -34,84 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StopLocation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.type.LatLng.Builder subBuilder = null;
-            if (point_ != null) {
-              subBuilder = point_.toBuilder();
-            }
-            point_ = input.readMessage(com.google.type.LatLng.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(point_);
-              point_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (timestamp_ != null) {
-              subBuilder = timestamp_.toBuilder();
-            }
-            timestamp_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timestamp_);
-              timestamp_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (stopTime_ != null) {
-              subBuilder = stopTime_.toBuilder();
-            }
-            stopTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(stopTime_);
-              stopTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.v1.Trips.internal_static_maps_fleetengine_v1_StopLocation_descriptor;
@@ -160,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.LatLngOrBuilder getPointOrBuilder() {
-    return getPoint();
+    return point_ == null ? com.google.type.LatLng.getDefaultInstance() : point_;
   }
 
   public static final int TIMESTAMP_FIELD_NUMBER = 2;
@@ -198,7 +120,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
-    return getTimestamp();
+    return timestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
   }
 
   public static final int STOP_TIME_FIELD_NUMBER = 3;
@@ -210,7 +132,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.protobuf.Timestamp stop_time = 3 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY];</code>
    * @deprecated maps.fleetengine.v1.StopLocation.stop_time is deprecated.
-   *     See google/maps/fleetengine/v1/trips.proto;l=208
+   *     See google/maps/fleetengine/v1/trips.proto;l=234
    * @return Whether the stopTime field is set.
    */
   @java.lang.Override
@@ -224,7 +146,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.protobuf.Timestamp stop_time = 3 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY];</code>
    * @deprecated maps.fleetengine.v1.StopLocation.stop_time is deprecated.
-   *     See google/maps/fleetengine/v1/trips.proto;l=208
+   *     See google/maps/fleetengine/v1/trips.proto;l=234
    * @return The stopTime.
    */
   @java.lang.Override
@@ -240,7 +162,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   @java.lang.Deprecated public com.google.protobuf.TimestampOrBuilder getStopTimeOrBuilder() {
-    return getStopTime();
+    return stopTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : stopTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -266,7 +188,7 @@ private static final long serialVersionUID = 0L;
     if (stopTime_ != null) {
       output.writeMessage(3, getStopTime());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -287,7 +209,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getStopTime());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -317,7 +239,7 @@ private static final long serialVersionUID = 0L;
       if (!getStopTime()
           .equals(other.getStopTime())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -340,7 +262,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + STOP_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getStopTime().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -461,38 +383,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.v1.StopLocation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (pointBuilder_ == null) {
-        point_ = null;
-      } else {
-        point_ = null;
+      bitField0_ = 0;
+      point_ = null;
+      if (pointBuilder_ != null) {
+        pointBuilder_.dispose();
         pointBuilder_ = null;
       }
-      if (timestampBuilder_ == null) {
-        timestamp_ = null;
-      } else {
-        timestamp_ = null;
+      timestamp_ = null;
+      if (timestampBuilder_ != null) {
+        timestampBuilder_.dispose();
         timestampBuilder_ = null;
       }
-      if (stopTimeBuilder_ == null) {
-        stopTime_ = null;
-      } else {
-        stopTime_ = null;
+      stopTime_ = null;
+      if (stopTimeBuilder_ != null) {
+        stopTimeBuilder_.dispose();
         stopTimeBuilder_ = null;
       }
       return this;
@@ -521,23 +436,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.v1.StopLocation buildPartial() {
       google.maps.fleetengine.v1.StopLocation result = new google.maps.fleetengine.v1.StopLocation(this);
-      if (pointBuilder_ == null) {
-        result.point_ = point_;
-      } else {
-        result.point_ = pointBuilder_.build();
-      }
-      if (timestampBuilder_ == null) {
-        result.timestamp_ = timestamp_;
-      } else {
-        result.timestamp_ = timestampBuilder_.build();
-      }
-      if (stopTimeBuilder_ == null) {
-        result.stopTime_ = stopTime_;
-      } else {
-        result.stopTime_ = stopTimeBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.v1.StopLocation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.point_ = pointBuilder_ == null
+            ? point_
+            : pointBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.timestamp_ = timestampBuilder_ == null
+            ? timestamp_
+            : timestampBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.stopTime_ = stopTimeBuilder_ == null
+            ? stopTime_
+            : stopTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -593,7 +513,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasStopTime()) {
         mergeStopTime(other.getStopTime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -608,19 +528,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.v1.StopLocation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getPointFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTimestampFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getStopTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.v1.StopLocation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.type.LatLng point_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -634,7 +589,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the point field is set.
      */
     public boolean hasPoint() {
-      return pointBuilder_ != null || point_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -664,11 +619,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         point_ = value;
-        onChanged();
       } else {
         pointBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -682,11 +637,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.LatLng.Builder builderForValue) {
       if (pointBuilder_ == null) {
         point_ = builderForValue.build();
-        onChanged();
       } else {
         pointBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -698,17 +653,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePoint(com.google.type.LatLng value) {
       if (pointBuilder_ == null) {
-        if (point_ != null) {
-          point_ =
-            com.google.type.LatLng.newBuilder(point_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          point_ != null &&
+          point_ != com.google.type.LatLng.getDefaultInstance()) {
+          getPointBuilder().mergeFrom(value);
         } else {
           point_ = value;
         }
-        onChanged();
       } else {
         pointBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -719,14 +675,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng point = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearPoint() {
-      if (pointBuilder_ == null) {
-        point_ = null;
-        onChanged();
-      } else {
-        point_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      point_ = null;
+      if (pointBuilder_ != null) {
+        pointBuilder_.dispose();
         pointBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -737,7 +692,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng point = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.type.LatLng.Builder getPointBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getPointFieldBuilder().getBuilder();
     }
@@ -789,7 +744,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timestamp field is set.
      */
     public boolean hasTimestamp() {
-      return timestampBuilder_ != null || timestamp_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -819,11 +774,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timestamp_ = value;
-        onChanged();
       } else {
         timestampBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -837,11 +792,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (timestampBuilder_ == null) {
         timestamp_ = builderForValue.build();
-        onChanged();
       } else {
         timestampBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -853,17 +808,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimestamp(com.google.protobuf.Timestamp value) {
       if (timestampBuilder_ == null) {
-        if (timestamp_ != null) {
-          timestamp_ =
-            com.google.protobuf.Timestamp.newBuilder(timestamp_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          timestamp_ != null &&
+          timestamp_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getTimestampBuilder().mergeFrom(value);
         } else {
           timestamp_ = value;
         }
-        onChanged();
       } else {
         timestampBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -874,14 +830,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp timestamp = 2;</code>
      */
     public Builder clearTimestamp() {
-      if (timestampBuilder_ == null) {
-        timestamp_ = null;
-        onChanged();
-      } else {
-        timestamp_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      timestamp_ = null;
+      if (timestampBuilder_ != null) {
+        timestampBuilder_.dispose();
         timestampBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -892,7 +847,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp timestamp = 2;</code>
      */
     public com.google.protobuf.Timestamp.Builder getTimestampBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTimestampFieldBuilder().getBuilder();
     }
@@ -942,11 +897,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.protobuf.Timestamp stop_time = 3 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY];</code>
      * @deprecated maps.fleetengine.v1.StopLocation.stop_time is deprecated.
-     *     See google/maps/fleetengine/v1/trips.proto;l=208
+     *     See google/maps/fleetengine/v1/trips.proto;l=234
      * @return Whether the stopTime field is set.
      */
     @java.lang.Deprecated public boolean hasStopTime() {
-      return stopTimeBuilder_ != null || stopTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -955,7 +910,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.protobuf.Timestamp stop_time = 3 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY];</code>
      * @deprecated maps.fleetengine.v1.StopLocation.stop_time is deprecated.
-     *     See google/maps/fleetengine/v1/trips.proto;l=208
+     *     See google/maps/fleetengine/v1/trips.proto;l=234
      * @return The stopTime.
      */
     @java.lang.Deprecated public com.google.protobuf.Timestamp getStopTime() {
@@ -978,11 +933,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         stopTime_ = value;
-        onChanged();
       } else {
         stopTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -996,11 +951,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (stopTimeBuilder_ == null) {
         stopTime_ = builderForValue.build();
-        onChanged();
       } else {
         stopTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1012,17 +967,18 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder mergeStopTime(com.google.protobuf.Timestamp value) {
       if (stopTimeBuilder_ == null) {
-        if (stopTime_ != null) {
-          stopTime_ =
-            com.google.protobuf.Timestamp.newBuilder(stopTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          stopTime_ != null &&
+          stopTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getStopTimeBuilder().mergeFrom(value);
         } else {
           stopTime_ = value;
         }
-        onChanged();
       } else {
         stopTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1033,14 +989,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp stop_time = 3 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     @java.lang.Deprecated public Builder clearStopTime() {
-      if (stopTimeBuilder_ == null) {
-        stopTime_ = null;
-        onChanged();
-      } else {
-        stopTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      stopTime_ = null;
+      if (stopTimeBuilder_ != null) {
+        stopTimeBuilder_.dispose();
         stopTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1051,7 +1006,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp stop_time = 3 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     @java.lang.Deprecated public com.google.protobuf.Timestamp.Builder getStopTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getStopTimeFieldBuilder().getBuilder();
     }
@@ -1123,7 +1078,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StopLocation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

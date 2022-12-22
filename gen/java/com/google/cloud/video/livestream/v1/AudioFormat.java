@@ -36,69 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AudioFormat(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            codec_ = s;
-            break;
-          }
-          case 16: {
-
-            channelCount_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              channelLayout_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            channelLayout_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        channelLayout_ = channelLayout_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.video.livestream.v1.ResourcesProto.internal_static_google_cloud_video_livestream_v1_AudioFormat_descriptor;
@@ -113,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CODEC_FIELD_NUMBER = 1;
-  private volatile java.lang.Object codec_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object codec_ = "";
   /**
    * <pre>
    * Audio codec used in this audio stream.
@@ -159,7 +97,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CHANNEL_COUNT_FIELD_NUMBER = 2;
-  private int channelCount_;
+  private int channelCount_ = 0;
   /**
    * <pre>
    * The number of audio channels.
@@ -174,6 +112,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CHANNEL_LAYOUT_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList channelLayout_;
   /**
    * <pre>
@@ -247,7 +186,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < channelLayout_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, channelLayout_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -271,7 +210,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getChannelLayoutList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -292,7 +231,7 @@ private static final long serialVersionUID = 0L;
         != other.getChannelCount()) return false;
     if (!getChannelLayoutList()
         .equals(other.getChannelLayoutList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -311,7 +250,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CHANNEL_LAYOUT_FIELD_NUMBER;
       hash = (53 * hash) + getChannelLayoutList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -432,28 +371,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.video.livestream.v1.AudioFormat.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       codec_ = "";
-
       channelCount_ = 0;
-
       channelLayout_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -480,16 +413,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.video.livestream.v1.AudioFormat buildPartial() {
       com.google.cloud.video.livestream.v1.AudioFormat result = new com.google.cloud.video.livestream.v1.AudioFormat(this);
-      int from_bitField0_ = bitField0_;
-      result.codec_ = codec_;
-      result.channelCount_ = channelCount_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        channelLayout_ = channelLayout_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.channelLayout_ = channelLayout_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.video.livestream.v1.AudioFormat result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        channelLayout_ = channelLayout_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.channelLayout_ = channelLayout_;
+    }
+
+    private void buildPartial0(com.google.cloud.video.livestream.v1.AudioFormat result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.codec_ = codec_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.channelCount_ = channelCount_;
+      }
     }
 
     @java.lang.Override
@@ -538,6 +483,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.video.livestream.v1.AudioFormat.getDefaultInstance()) return this;
       if (!other.getCodec().isEmpty()) {
         codec_ = other.codec_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getChannelCount() != 0) {
@@ -546,14 +492,14 @@ private static final long serialVersionUID = 0L;
       if (!other.channelLayout_.isEmpty()) {
         if (channelLayout_.isEmpty()) {
           channelLayout_ = other.channelLayout_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureChannelLayoutIsMutable();
           channelLayout_.addAll(other.channelLayout_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -568,17 +514,46 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.video.livestream.v1.AudioFormat parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              codec_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              channelCount_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureChannelLayoutIsMutable();
+              channelLayout_.add(s);
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.video.livestream.v1.AudioFormat) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -636,11 +611,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCodec(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       codec_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -653,8 +626,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCodec() {
-      
       codec_ = getDefaultInstance().getCodec();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -669,12 +642,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCodecBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       codec_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -704,6 +675,7 @@ private static final long serialVersionUID = 0L;
     public Builder setChannelCount(int value) {
       
       channelCount_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -716,7 +688,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearChannelCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       channelCount_ = 0;
       onChanged();
       return this;
@@ -724,9 +696,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList channelLayout_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureChannelLayoutIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         channelLayout_ = new com.google.protobuf.LazyStringArrayList(channelLayout_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -789,10 +761,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setChannelLayout(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureChannelLayoutIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureChannelLayoutIsMutable();
       channelLayout_.set(index, value);
       onChanged();
       return this;
@@ -808,10 +778,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addChannelLayout(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureChannelLayoutIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureChannelLayoutIsMutable();
       channelLayout_.add(value);
       onChanged();
       return this;
@@ -843,7 +811,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearChannelLayout() {
       channelLayout_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -858,10 +826,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addChannelLayoutBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureChannelLayoutIsMutable();
       channelLayout_.add(value);
       onChanged();
@@ -900,7 +866,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AudioFormat(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

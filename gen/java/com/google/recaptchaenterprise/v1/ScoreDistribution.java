@@ -34,59 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ScoreDistribution(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              scoreBuckets_ = com.google.protobuf.MapField.newMapField(
-                  ScoreBucketsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Long>
-            scoreBuckets__ = input.readMessage(
-                ScoreBucketsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            scoreBuckets_.getMutableMap().put(
-                scoreBuckets__.getKey(), scoreBuckets__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.recaptchaenterprise.v1.RecaptchaEnterpriseProto.internal_static_google_cloud_recaptchaenterprise_v1_ScoreDistribution_descriptor;
@@ -124,6 +71,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.INT64,
                 0L);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, java.lang.Long> scoreBuckets_;
   private com.google.protobuf.MapField<java.lang.Integer, java.lang.Long>
@@ -134,7 +82,6 @@ private static final long serialVersionUID = 0L;
     }
     return scoreBuckets_;
   }
-
   public int getScoreBucketsCount() {
     return internalGetScoreBuckets().getMap().size();
   }
@@ -147,7 +94,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;int32, int64&gt; score_buckets = 1;</code>
    */
-
   @java.lang.Override
   public boolean containsScoreBuckets(
       int key) {
@@ -172,7 +118,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, int64&gt; score_buckets = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, java.lang.Long> getScoreBucketsMap() {
     return internalGetScoreBuckets().getMap();
   }
@@ -186,7 +131,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, int64&gt; score_buckets = 1;</code>
    */
   @java.lang.Override
-
   public long getScoreBucketsOrDefault(
       int key,
       long defaultValue) {
@@ -205,7 +149,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, int64&gt; score_buckets = 1;</code>
    */
   @java.lang.Override
-
   public long getScoreBucketsOrThrow(
       int key) {
     
@@ -237,7 +180,7 @@ private static final long serialVersionUID = 0L;
         internalGetScoreBuckets(),
         ScoreBucketsDefaultEntryHolder.defaultEntry,
         1);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -256,7 +199,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, scoreBuckets__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -273,7 +216,7 @@ private static final long serialVersionUID = 0L;
 
     if (!internalGetScoreBuckets().equals(
         other.internalGetScoreBuckets())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -288,7 +231,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SCORE_BUCKETS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetScoreBuckets().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -431,22 +374,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.recaptchaenterprise.v1.ScoreDistribution.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableScoreBuckets().clear();
       return this;
     }
@@ -474,11 +413,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.recaptchaenterprise.v1.ScoreDistribution buildPartial() {
       com.google.recaptchaenterprise.v1.ScoreDistribution result = new com.google.recaptchaenterprise.v1.ScoreDistribution(this);
-      int from_bitField0_ = bitField0_;
-      result.scoreBuckets_ = internalGetScoreBuckets();
-      result.scoreBuckets_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.recaptchaenterprise.v1.ScoreDistribution result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.scoreBuckets_ = internalGetScoreBuckets();
+        result.scoreBuckets_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -527,7 +472,8 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.recaptchaenterprise.v1.ScoreDistribution.getDefaultInstance()) return this;
       internalGetMutableScoreBuckets().mergeFrom(
           other.internalGetScoreBuckets());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000001;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -542,17 +488,39 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.recaptchaenterprise.v1.ScoreDistribution parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Long>
+              scoreBuckets__ = input.readMessage(
+                  ScoreBucketsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableScoreBuckets().getMutableMap().put(
+                  scoreBuckets__.getKey(), scoreBuckets__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.recaptchaenterprise.v1.ScoreDistribution) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -560,7 +528,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Long> scoreBuckets_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Long>
-    internalGetScoreBuckets() {
+        internalGetScoreBuckets() {
       if (scoreBuckets_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ScoreBucketsDefaultEntryHolder.defaultEntry);
@@ -568,8 +536,7 @@ private static final long serialVersionUID = 0L;
       return scoreBuckets_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Long>
-    internalGetMutableScoreBuckets() {
-      onChanged();;
+        internalGetMutableScoreBuckets() {
       if (scoreBuckets_ == null) {
         scoreBuckets_ = com.google.protobuf.MapField.newMapField(
             ScoreBucketsDefaultEntryHolder.defaultEntry);
@@ -577,9 +544,10 @@ private static final long serialVersionUID = 0L;
       if (!scoreBuckets_.isMutable()) {
         scoreBuckets_ = scoreBuckets_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return scoreBuckets_;
     }
-
     public int getScoreBucketsCount() {
       return internalGetScoreBuckets().getMap().size();
     }
@@ -592,7 +560,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int32, int64&gt; score_buckets = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsScoreBuckets(
         int key) {
@@ -617,7 +584,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, int64&gt; score_buckets = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Long> getScoreBucketsMap() {
       return internalGetScoreBuckets().getMap();
     }
@@ -631,7 +597,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, int64&gt; score_buckets = 1;</code>
      */
     @java.lang.Override
-
     public long getScoreBucketsOrDefault(
         int key,
         long defaultValue) {
@@ -650,7 +615,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, int64&gt; score_buckets = 1;</code>
      */
     @java.lang.Override
-
     public long getScoreBucketsOrThrow(
         int key) {
       
@@ -661,8 +625,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearScoreBuckets() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableScoreBuckets().getMutableMap()
           .clear();
       return this;
@@ -676,7 +640,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int32, int64&gt; score_buckets = 1;</code>
      */
-
     public Builder removeScoreBuckets(
         int key) {
       
@@ -689,7 +652,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, java.lang.Long>
-    getMutableScoreBuckets() {
+        getMutableScoreBuckets() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableScoreBuckets().getMutableMap();
     }
     /**
@@ -708,6 +672,7 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutableScoreBuckets().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -719,11 +684,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int32, int64&gt; score_buckets = 1;</code>
      */
-
     public Builder putAllScoreBuckets(
         java.util.Map<java.lang.Integer, java.lang.Long> values) {
       internalGetMutableScoreBuckets().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
     @java.lang.Override
@@ -759,7 +724,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ScoreDistribution(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -40,108 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Scene(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.actions.sdk.v2.interactionmodel.EventHandler.Builder subBuilder = null;
-            if (onEnter_ != null) {
-              subBuilder = onEnter_.toBuilder();
-            }
-            onEnter_ = input.readMessage(com.google.actions.sdk.v2.interactionmodel.EventHandler.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(onEnter_);
-              onEnter_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              intentEvents_ = new java.util.ArrayList<com.google.actions.sdk.v2.interactionmodel.IntentEvent>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            intentEvents_.add(
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.IntentEvent.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              conditionalEvents_ = new java.util.ArrayList<com.google.actions.sdk.v2.interactionmodel.ConditionalEvent>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            conditionalEvents_.add(
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.ConditionalEvent.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              slots_ = new java.util.ArrayList<com.google.actions.sdk.v2.interactionmodel.Slot>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            slots_.add(
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.Slot.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            com.google.actions.sdk.v2.interactionmodel.EventHandler.Builder subBuilder = null;
-            if (onSlotUpdated_ != null) {
-              subBuilder = onSlotUpdated_.toBuilder();
-            }
-            onSlotUpdated_ = input.readMessage(com.google.actions.sdk.v2.interactionmodel.EventHandler.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(onSlotUpdated_);
-              onSlotUpdated_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        intentEvents_ = java.util.Collections.unmodifiableList(intentEvents_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        conditionalEvents_ = java.util.Collections.unmodifiableList(conditionalEvents_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        slots_ = java.util.Collections.unmodifiableList(slots_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.interactionmodel.SceneProto.internal_static_google_actions_sdk_v2_interactionmodel_Scene_descriptor;
@@ -190,10 +88,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.interactionmodel.EventHandlerOrBuilder getOnEnterOrBuilder() {
-    return getOnEnter();
+    return onEnter_ == null ? com.google.actions.sdk.v2.interactionmodel.EventHandler.getDefaultInstance() : onEnter_;
   }
 
   public static final int INTENT_EVENTS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.actions.sdk.v2.interactionmodel.IntentEvent> intentEvents_;
   /**
    * <pre>
@@ -279,6 +178,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONDITIONAL_EVENTS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.actions.sdk.v2.interactionmodel.ConditionalEvent> conditionalEvents_;
   /**
    * <pre>
@@ -354,6 +254,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SLOTS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.actions.sdk.v2.interactionmodel.Slot> slots_;
   /**
    * <pre>
@@ -464,7 +365,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.interactionmodel.EventHandlerOrBuilder getOnSlotUpdatedOrBuilder() {
-    return getOnSlotUpdated();
+    return onSlotUpdated_ == null ? com.google.actions.sdk.v2.interactionmodel.EventHandler.getDefaultInstance() : onSlotUpdated_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -496,7 +397,7 @@ private static final long serialVersionUID = 0L;
     if (onSlotUpdated_ != null) {
       output.writeMessage(5, getOnSlotUpdated());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -525,7 +426,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getOnSlotUpdated());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -556,7 +457,7 @@ private static final long serialVersionUID = 0L;
       if (!getOnSlotUpdated()
           .equals(other.getOnSlotUpdated())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -587,7 +488,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ON_SLOT_UPDATED_FIELD_NUMBER;
       hash = (53 * hash) + getOnSlotUpdated().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -711,53 +612,47 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.interactionmodel.Scene.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getIntentEventsFieldBuilder();
-        getConditionalEventsFieldBuilder();
-        getSlotsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (onEnterBuilder_ == null) {
-        onEnter_ = null;
-      } else {
-        onEnter_ = null;
+      bitField0_ = 0;
+      onEnter_ = null;
+      if (onEnterBuilder_ != null) {
+        onEnterBuilder_.dispose();
         onEnterBuilder_ = null;
       }
       if (intentEventsBuilder_ == null) {
         intentEvents_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        intentEvents_ = null;
         intentEventsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (conditionalEventsBuilder_ == null) {
         conditionalEvents_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        conditionalEvents_ = null;
         conditionalEventsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (slotsBuilder_ == null) {
         slots_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        slots_ = null;
         slotsBuilder_.clear();
       }
-      if (onSlotUpdatedBuilder_ == null) {
-        onSlotUpdated_ = null;
-      } else {
-        onSlotUpdated_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      onSlotUpdated_ = null;
+      if (onSlotUpdatedBuilder_ != null) {
+        onSlotUpdatedBuilder_.dispose();
         onSlotUpdatedBuilder_ = null;
       }
       return this;
@@ -786,46 +681,54 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.interactionmodel.Scene buildPartial() {
       com.google.actions.sdk.v2.interactionmodel.Scene result = new com.google.actions.sdk.v2.interactionmodel.Scene(this);
-      int from_bitField0_ = bitField0_;
-      if (onEnterBuilder_ == null) {
-        result.onEnter_ = onEnter_;
-      } else {
-        result.onEnter_ = onEnterBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.actions.sdk.v2.interactionmodel.Scene result) {
       if (intentEventsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           intentEvents_ = java.util.Collections.unmodifiableList(intentEvents_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.intentEvents_ = intentEvents_;
       } else {
         result.intentEvents_ = intentEventsBuilder_.build();
       }
       if (conditionalEventsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           conditionalEvents_ = java.util.Collections.unmodifiableList(conditionalEvents_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.conditionalEvents_ = conditionalEvents_;
       } else {
         result.conditionalEvents_ = conditionalEventsBuilder_.build();
       }
       if (slotsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           slots_ = java.util.Collections.unmodifiableList(slots_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.slots_ = slots_;
       } else {
         result.slots_ = slotsBuilder_.build();
       }
-      if (onSlotUpdatedBuilder_ == null) {
-        result.onSlotUpdated_ = onSlotUpdated_;
-      } else {
-        result.onSlotUpdated_ = onSlotUpdatedBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.interactionmodel.Scene result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.onEnter_ = onEnterBuilder_ == null
+            ? onEnter_
+            : onEnterBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.onSlotUpdated_ = onSlotUpdatedBuilder_ == null
+            ? onSlotUpdated_
+            : onSlotUpdatedBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -879,7 +782,7 @@ private static final long serialVersionUID = 0L;
         if (!other.intentEvents_.isEmpty()) {
           if (intentEvents_.isEmpty()) {
             intentEvents_ = other.intentEvents_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureIntentEventsIsMutable();
             intentEvents_.addAll(other.intentEvents_);
@@ -892,7 +795,7 @@ private static final long serialVersionUID = 0L;
             intentEventsBuilder_.dispose();
             intentEventsBuilder_ = null;
             intentEvents_ = other.intentEvents_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             intentEventsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getIntentEventsFieldBuilder() : null;
@@ -905,7 +808,7 @@ private static final long serialVersionUID = 0L;
         if (!other.conditionalEvents_.isEmpty()) {
           if (conditionalEvents_.isEmpty()) {
             conditionalEvents_ = other.conditionalEvents_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureConditionalEventsIsMutable();
             conditionalEvents_.addAll(other.conditionalEvents_);
@@ -918,7 +821,7 @@ private static final long serialVersionUID = 0L;
             conditionalEventsBuilder_.dispose();
             conditionalEventsBuilder_ = null;
             conditionalEvents_ = other.conditionalEvents_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             conditionalEventsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getConditionalEventsFieldBuilder() : null;
@@ -931,7 +834,7 @@ private static final long serialVersionUID = 0L;
         if (!other.slots_.isEmpty()) {
           if (slots_.isEmpty()) {
             slots_ = other.slots_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureSlotsIsMutable();
             slots_.addAll(other.slots_);
@@ -944,7 +847,7 @@ private static final long serialVersionUID = 0L;
             slotsBuilder_.dispose();
             slotsBuilder_ = null;
             slots_ = other.slots_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
             slotsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSlotsFieldBuilder() : null;
@@ -956,7 +859,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasOnSlotUpdated()) {
         mergeOnSlotUpdated(other.getOnSlotUpdated());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -971,17 +874,83 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.interactionmodel.Scene parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getOnEnterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.actions.sdk.v2.interactionmodel.IntentEvent m =
+                  input.readMessage(
+                      com.google.actions.sdk.v2.interactionmodel.IntentEvent.parser(),
+                      extensionRegistry);
+              if (intentEventsBuilder_ == null) {
+                ensureIntentEventsIsMutable();
+                intentEvents_.add(m);
+              } else {
+                intentEventsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              com.google.actions.sdk.v2.interactionmodel.ConditionalEvent m =
+                  input.readMessage(
+                      com.google.actions.sdk.v2.interactionmodel.ConditionalEvent.parser(),
+                      extensionRegistry);
+              if (conditionalEventsBuilder_ == null) {
+                ensureConditionalEventsIsMutable();
+                conditionalEvents_.add(m);
+              } else {
+                conditionalEventsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              com.google.actions.sdk.v2.interactionmodel.Slot m =
+                  input.readMessage(
+                      com.google.actions.sdk.v2.interactionmodel.Slot.parser(),
+                      extensionRegistry);
+              if (slotsBuilder_ == null) {
+                ensureSlotsIsMutable();
+                slots_.add(m);
+              } else {
+                slotsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getOnSlotUpdatedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.interactionmodel.Scene) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -998,7 +967,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the onEnter field is set.
      */
     public boolean hasOnEnter() {
-      return onEnterBuilder_ != null || onEnter_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1028,11 +997,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         onEnter_ = value;
-        onChanged();
       } else {
         onEnterBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1046,11 +1015,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.interactionmodel.EventHandler.Builder builderForValue) {
       if (onEnterBuilder_ == null) {
         onEnter_ = builderForValue.build();
-        onChanged();
       } else {
         onEnterBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1062,17 +1031,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOnEnter(com.google.actions.sdk.v2.interactionmodel.EventHandler value) {
       if (onEnterBuilder_ == null) {
-        if (onEnter_ != null) {
-          onEnter_ =
-            com.google.actions.sdk.v2.interactionmodel.EventHandler.newBuilder(onEnter_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          onEnter_ != null &&
+          onEnter_ != com.google.actions.sdk.v2.interactionmodel.EventHandler.getDefaultInstance()) {
+          getOnEnterBuilder().mergeFrom(value);
         } else {
           onEnter_ = value;
         }
-        onChanged();
       } else {
         onEnterBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1083,14 +1053,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.interactionmodel.EventHandler on_enter = 1;</code>
      */
     public Builder clearOnEnter() {
-      if (onEnterBuilder_ == null) {
-        onEnter_ = null;
-        onChanged();
-      } else {
-        onEnter_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      onEnter_ = null;
+      if (onEnterBuilder_ != null) {
+        onEnterBuilder_.dispose();
         onEnterBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1101,7 +1070,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.interactionmodel.EventHandler on_enter = 1;</code>
      */
     public com.google.actions.sdk.v2.interactionmodel.EventHandler.Builder getOnEnterBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getOnEnterFieldBuilder().getBuilder();
     }
@@ -1144,9 +1113,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.actions.sdk.v2.interactionmodel.IntentEvent> intentEvents_ =
       java.util.Collections.emptyList();
     private void ensureIntentEventsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         intentEvents_ = new java.util.ArrayList<com.google.actions.sdk.v2.interactionmodel.IntentEvent>(intentEvents_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1395,7 +1364,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearIntentEvents() {
       if (intentEventsBuilder_ == null) {
         intentEvents_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         intentEventsBuilder_.clear();
@@ -1535,7 +1504,7 @@ private static final long serialVersionUID = 0L;
         intentEventsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.actions.sdk.v2.interactionmodel.IntentEvent, com.google.actions.sdk.v2.interactionmodel.IntentEvent.Builder, com.google.actions.sdk.v2.interactionmodel.IntentEventOrBuilder>(
                 intentEvents_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         intentEvents_ = null;
@@ -1546,9 +1515,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.actions.sdk.v2.interactionmodel.ConditionalEvent> conditionalEvents_ =
       java.util.Collections.emptyList();
     private void ensureConditionalEventsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         conditionalEvents_ = new java.util.ArrayList<com.google.actions.sdk.v2.interactionmodel.ConditionalEvent>(conditionalEvents_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1775,7 +1744,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearConditionalEvents() {
       if (conditionalEventsBuilder_ == null) {
         conditionalEvents_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         conditionalEventsBuilder_.clear();
@@ -1901,7 +1870,7 @@ private static final long serialVersionUID = 0L;
         conditionalEventsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.actions.sdk.v2.interactionmodel.ConditionalEvent, com.google.actions.sdk.v2.interactionmodel.ConditionalEvent.Builder, com.google.actions.sdk.v2.interactionmodel.ConditionalEventOrBuilder>(
                 conditionalEvents_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         conditionalEvents_ = null;
@@ -1912,9 +1881,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.actions.sdk.v2.interactionmodel.Slot> slots_ =
       java.util.Collections.emptyList();
     private void ensureSlotsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         slots_ = new java.util.ArrayList<com.google.actions.sdk.v2.interactionmodel.Slot>(slots_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -2130,7 +2099,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSlots() {
       if (slotsBuilder_ == null) {
         slots_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         slotsBuilder_.clear();
@@ -2249,7 +2218,7 @@ private static final long serialVersionUID = 0L;
         slotsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.actions.sdk.v2.interactionmodel.Slot, com.google.actions.sdk.v2.interactionmodel.Slot.Builder, com.google.actions.sdk.v2.interactionmodel.SlotOrBuilder>(
                 slots_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         slots_ = null;
@@ -2271,7 +2240,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the onSlotUpdated field is set.
      */
     public boolean hasOnSlotUpdated() {
-      return onSlotUpdatedBuilder_ != null || onSlotUpdated_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2305,11 +2274,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         onSlotUpdated_ = value;
-        onChanged();
       } else {
         onSlotUpdatedBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2325,11 +2294,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.interactionmodel.EventHandler.Builder builderForValue) {
       if (onSlotUpdatedBuilder_ == null) {
         onSlotUpdated_ = builderForValue.build();
-        onChanged();
       } else {
         onSlotUpdatedBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2343,17 +2312,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOnSlotUpdated(com.google.actions.sdk.v2.interactionmodel.EventHandler value) {
       if (onSlotUpdatedBuilder_ == null) {
-        if (onSlotUpdated_ != null) {
-          onSlotUpdated_ =
-            com.google.actions.sdk.v2.interactionmodel.EventHandler.newBuilder(onSlotUpdated_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          onSlotUpdated_ != null &&
+          onSlotUpdated_ != com.google.actions.sdk.v2.interactionmodel.EventHandler.getDefaultInstance()) {
+          getOnSlotUpdatedBuilder().mergeFrom(value);
         } else {
           onSlotUpdated_ = value;
         }
-        onChanged();
       } else {
         onSlotUpdatedBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2366,14 +2336,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.interactionmodel.EventHandler on_slot_updated = 5;</code>
      */
     public Builder clearOnSlotUpdated() {
-      if (onSlotUpdatedBuilder_ == null) {
-        onSlotUpdated_ = null;
-        onChanged();
-      } else {
-        onSlotUpdated_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onSlotUpdated_ = null;
+      if (onSlotUpdatedBuilder_ != null) {
+        onSlotUpdatedBuilder_.dispose();
         onSlotUpdatedBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2386,7 +2355,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.interactionmodel.EventHandler on_slot_updated = 5;</code>
      */
     public com.google.actions.sdk.v2.interactionmodel.EventHandler.Builder getOnSlotUpdatedBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getOnSlotUpdatedFieldBuilder().getBuilder();
     }
@@ -2462,7 +2431,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Scene(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

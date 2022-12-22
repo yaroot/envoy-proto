@@ -78,7 +78,6 @@ public interface IntentOrBuilder extends
    *
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; params = 2;</code>
    */
-
   /* nullable */
 com.google.actions.sdk.v2.conversation.IntentParameterValue getParamsOrDefault(
       java.lang.String key,
@@ -94,7 +93,6 @@ com.google.actions.sdk.v2.conversation.IntentParameterValue defaultValue);
    *
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; params = 2;</code>
    */
-
   com.google.actions.sdk.v2.conversation.IntentParameterValue getParamsOrThrow(
       java.lang.String key);
 

@@ -11,10 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'google/cloud/tasks/v2beta3/target.proto\x12\x1agoogle.cloud.tasks.v2beta3\x1a\x1cgoogle/api/annotations.proto\"+\n\x0bPullMessage\x12\x0f\n\x07payload\x18\x01 \x01(\x0c\x12\x0b\n\x03tag\x18\x02 \x01(\t\"\xf0\x02\n\x0bHttpRequest\x12\x0b\n\x03url\x18\x01 \x01(\t\x12;\n\x0bhttp_method\x18\x02 \x01(\x0e\x32&.google.cloud.tasks.v2beta3.HttpMethod\x12\x45\n\x07headers\x18\x03 \x03(\x0b\x32\x34.google.cloud.tasks.v2beta3.HttpRequest.HeadersEntry\x12\x0c\n\x04\x62ody\x18\x04 \x01(\x0c\x12=\n\x0boauth_token\x18\x05 \x01(\x0b\x32&.google.cloud.tasks.v2beta3.OAuthTokenH\x00\x12;\n\noidc_token\x18\x06 \x01(\x0b\x32%.google.cloud.tasks.v2beta3.OidcTokenH\x00\x1a.\n\x0cHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\x16\n\x14\x61uthorization_header\"g\n\x12\x41ppEngineHttpQueue\x12Q\n\x1b\x61pp_engine_routing_override\x18\x01 \x01(\x0b\x32,.google.cloud.tasks.v2beta3.AppEngineRouting\"\xc1\x02\n\x14\x41ppEngineHttpRequest\x12;\n\x0bhttp_method\x18\x01 \x01(\x0e\x32&.google.cloud.tasks.v2beta3.HttpMethod\x12H\n\x12\x61pp_engine_routing\x18\x02 \x01(\x0b\x32,.google.cloud.tasks.v2beta3.AppEngineRouting\x12\x14\n\x0crelative_uri\x18\x03 \x01(\t\x12N\n\x07headers\x18\x04 \x03(\x0b\x32=.google.cloud.tasks.v2beta3.AppEngineHttpRequest.HeadersEntry\x12\x0c\n\x04\x62ody\x18\x05 \x01(\x0c\x1a.\n\x0cHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"T\n\x10\x41ppEngineRouting\x12\x0f\n\x07service\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x10\n\x08instance\x18\x03 \x01(\t\x12\x0c\n\x04host\x18\x04 \x01(\t\":\n\nOAuthToken\x12\x1d\n\x15service_account_email\x18\x01 \x01(\t\x12\r\n\x05scope\x18\x02 \x01(\t\"<\n\tOidcToken\x12\x1d\n\x15service_account_email\x18\x01 \x01(\t\x12\x10\n\x08\x61udience\x18\x02 \x01(\t*s\n\nHttpMethod\x12\x1b\n\x17HTTP_METHOD_UNSPECIFIED\x10\x00\x12\x08\n\x04POST\x10\x01\x12\x07\n\x03GET\x10\x02\x12\x08\n\x04HEAD\x10\x03\x12\x07\n\x03PUT\x10\x04\x12\n\n\x06\x44\x45LETE\x10\x05\x12\t\n\x05PATCH\x10\x06\x12\x0b\n\x07OPTIONS\x10\x07\x42p\n\x1e\x63om.google.cloud.tasks.v2beta3B\x0bTargetProtoP\x01Z?google.golang.org/genproto/googleapis/cloud/tasks/v2beta3;tasksb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'google/cloud/tasks/v2beta3/target.proto\x12\x1agoogle.cloud.tasks.v2beta3\"+\n\x0bPullMessage\x12\x0f\n\x07payload\x18\x01 \x01(\x0c\x12\x0b\n\x03tag\x18\x02 \x01(\t\"\xf0\x02\n\x0bHttpRequest\x12\x0b\n\x03url\x18\x01 \x01(\t\x12;\n\x0bhttp_method\x18\x02 \x01(\x0e\x32&.google.cloud.tasks.v2beta3.HttpMethod\x12\x45\n\x07headers\x18\x03 \x03(\x0b\x32\x34.google.cloud.tasks.v2beta3.HttpRequest.HeadersEntry\x12\x0c\n\x04\x62ody\x18\x04 \x01(\x0c\x12=\n\x0boauth_token\x18\x05 \x01(\x0b\x32&.google.cloud.tasks.v2beta3.OAuthTokenH\x00\x12;\n\noidc_token\x18\x06 \x01(\x0b\x32%.google.cloud.tasks.v2beta3.OidcTokenH\x00\x1a.\n\x0cHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\x16\n\x14\x61uthorization_header\"g\n\x12\x41ppEngineHttpQueue\x12Q\n\x1b\x61pp_engine_routing_override\x18\x01 \x01(\x0b\x32,.google.cloud.tasks.v2beta3.AppEngineRouting\"\xc1\x02\n\x14\x41ppEngineHttpRequest\x12;\n\x0bhttp_method\x18\x01 \x01(\x0e\x32&.google.cloud.tasks.v2beta3.HttpMethod\x12H\n\x12\x61pp_engine_routing\x18\x02 \x01(\x0b\x32,.google.cloud.tasks.v2beta3.AppEngineRouting\x12\x14\n\x0crelative_uri\x18\x03 \x01(\t\x12N\n\x07headers\x18\x04 \x03(\x0b\x32=.google.cloud.tasks.v2beta3.AppEngineHttpRequest.HeadersEntry\x12\x0c\n\x04\x62ody\x18\x05 \x01(\x0c\x1a.\n\x0cHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"T\n\x10\x41ppEngineRouting\x12\x0f\n\x07service\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x10\n\x08instance\x18\x03 \x01(\t\x12\x0c\n\x04host\x18\x04 \x01(\t\":\n\nOAuthToken\x12\x1d\n\x15service_account_email\x18\x01 \x01(\t\x12\r\n\x05scope\x18\x02 \x01(\t\"<\n\tOidcToken\x12\x1d\n\x15service_account_email\x18\x01 \x01(\t\x12\x10\n\x08\x61udience\x18\x02 \x01(\t*s\n\nHttpMethod\x12\x1b\n\x17HTTP_METHOD_UNSPECIFIED\x10\x00\x12\x08\n\x04POST\x10\x01\x12\x07\n\x03GET\x10\x02\x12\x08\n\x04HEAD\x10\x03\x12\x07\n\x03PUT\x10\x04\x12\n\n\x06\x44\x45LETE\x10\x05\x12\t\n\x05PATCH\x10\x06\x12\x0b\n\x07OPTIONS\x10\x07\x42p\n\x1e\x63om.google.cloud.tasks.v2beta3B\x0bTargetProtoP\x01Z?google.golang.org/genproto/googleapis/cloud/tasks/v2beta3;tasksb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.tasks.v2beta3.target_pb2', globals())
@@ -26,24 +25,24 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _HTTPREQUEST_HEADERSENTRY._serialized_options = b'8\001'
   _APPENGINEHTTPREQUEST_HEADERSENTRY._options = None
   _APPENGINEHTTPREQUEST_HEADERSENTRY._serialized_options = b'8\001'
-  _HTTPMETHOD._serialized_start=1154
-  _HTTPMETHOD._serialized_end=1269
-  _PULLMESSAGE._serialized_start=101
-  _PULLMESSAGE._serialized_end=144
-  _HTTPREQUEST._serialized_start=147
-  _HTTPREQUEST._serialized_end=515
-  _HTTPREQUEST_HEADERSENTRY._serialized_start=445
-  _HTTPREQUEST_HEADERSENTRY._serialized_end=491
-  _APPENGINEHTTPQUEUE._serialized_start=517
-  _APPENGINEHTTPQUEUE._serialized_end=620
-  _APPENGINEHTTPREQUEST._serialized_start=623
-  _APPENGINEHTTPREQUEST._serialized_end=944
-  _APPENGINEHTTPREQUEST_HEADERSENTRY._serialized_start=445
-  _APPENGINEHTTPREQUEST_HEADERSENTRY._serialized_end=491
-  _APPENGINEROUTING._serialized_start=946
-  _APPENGINEROUTING._serialized_end=1030
-  _OAUTHTOKEN._serialized_start=1032
-  _OAUTHTOKEN._serialized_end=1090
-  _OIDCTOKEN._serialized_start=1092
-  _OIDCTOKEN._serialized_end=1152
+  _HTTPMETHOD._serialized_start=1124
+  _HTTPMETHOD._serialized_end=1239
+  _PULLMESSAGE._serialized_start=71
+  _PULLMESSAGE._serialized_end=114
+  _HTTPREQUEST._serialized_start=117
+  _HTTPREQUEST._serialized_end=485
+  _HTTPREQUEST_HEADERSENTRY._serialized_start=415
+  _HTTPREQUEST_HEADERSENTRY._serialized_end=461
+  _APPENGINEHTTPQUEUE._serialized_start=487
+  _APPENGINEHTTPQUEUE._serialized_end=590
+  _APPENGINEHTTPREQUEST._serialized_start=593
+  _APPENGINEHTTPREQUEST._serialized_end=914
+  _APPENGINEHTTPREQUEST_HEADERSENTRY._serialized_start=415
+  _APPENGINEHTTPREQUEST_HEADERSENTRY._serialized_end=461
+  _APPENGINEROUTING._serialized_start=916
+  _APPENGINEROUTING._serialized_end=1000
+  _OAUTHTOKEN._serialized_start=1002
+  _OAUTHTOKEN._serialized_end=1060
+  _OIDCTOKEN._serialized_start=1062
+  _OIDCTOKEN._serialized_end=1122
 # @@protoc_insertion_point(module_scope)

@@ -9,7 +9,8 @@ public interface UpdateAzureNodePoolRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] resource to update.
+   * Required. The [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool]
+   * resource to update.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -18,7 +19,8 @@ public interface UpdateAzureNodePoolRequestOrBuilder extends
   boolean hasAzureNodePool();
   /**
    * <pre>
-   * Required. The [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] resource to update.
+   * Required. The [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool]
+   * resource to update.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -27,7 +29,8 @@ public interface UpdateAzureNodePoolRequestOrBuilder extends
   com.google.cloud.gkemulticloud.v1.AzureNodePool getAzureNodePool();
   /**
    * <pre>
-   * Required. The [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] resource to update.
+   * Required. The [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool]
+   * resource to update.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -53,7 +56,7 @@ public interface UpdateAzureNodePoolRequestOrBuilder extends
    *  *   `version`.
    *  *   `autoscaling.min_node_count`.
    *  *   `autoscaling.max_node_count`.
-   *  *   `config.vm_size`.
+   *  *   `config.ssh_config.authorized_key`.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -69,7 +72,7 @@ public interface UpdateAzureNodePoolRequestOrBuilder extends
    *  *   `version`.
    *  *   `autoscaling.min_node_count`.
    *  *   `autoscaling.max_node_count`.
-   *  *   `config.vm_size`.
+   *  *   `config.ssh_config.authorized_key`.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -85,7 +88,7 @@ public interface UpdateAzureNodePoolRequestOrBuilder extends
    *  *   `version`.
    *  *   `autoscaling.min_node_count`.
    *  *   `autoscaling.max_node_count`.
-   *  *   `config.vm_size`.
+   *  *   `config.ssh_config.authorized_key`.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>

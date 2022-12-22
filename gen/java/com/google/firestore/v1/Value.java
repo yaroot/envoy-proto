@@ -34,139 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Value(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            valueType_ = input.readBool();
-            valueTypeCase_ = 1;
-            break;
-          }
-          case 16: {
-            valueType_ = input.readInt64();
-            valueTypeCase_ = 2;
-            break;
-          }
-          case 25: {
-            valueType_ = input.readDouble();
-            valueTypeCase_ = 3;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            valueTypeCase_ = 5;
-            valueType_ = s;
-            break;
-          }
-          case 50: {
-            com.google.firestore.v1.MapValue.Builder subBuilder = null;
-            if (valueTypeCase_ == 6) {
-              subBuilder = ((com.google.firestore.v1.MapValue) valueType_).toBuilder();
-            }
-            valueType_ =
-                input.readMessage(com.google.firestore.v1.MapValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.firestore.v1.MapValue) valueType_);
-              valueType_ = subBuilder.buildPartial();
-            }
-            valueTypeCase_ = 6;
-            break;
-          }
-          case 66: {
-            com.google.type.LatLng.Builder subBuilder = null;
-            if (valueTypeCase_ == 8) {
-              subBuilder = ((com.google.type.LatLng) valueType_).toBuilder();
-            }
-            valueType_ =
-                input.readMessage(com.google.type.LatLng.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.type.LatLng) valueType_);
-              valueType_ = subBuilder.buildPartial();
-            }
-            valueTypeCase_ = 8;
-            break;
-          }
-          case 74: {
-            com.google.firestore.v1.ArrayValue.Builder subBuilder = null;
-            if (valueTypeCase_ == 9) {
-              subBuilder = ((com.google.firestore.v1.ArrayValue) valueType_).toBuilder();
-            }
-            valueType_ =
-                input.readMessage(com.google.firestore.v1.ArrayValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.firestore.v1.ArrayValue) valueType_);
-              valueType_ = subBuilder.buildPartial();
-            }
-            valueTypeCase_ = 9;
-            break;
-          }
-          case 82: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (valueTypeCase_ == 10) {
-              subBuilder = ((com.google.protobuf.Timestamp) valueType_).toBuilder();
-            }
-            valueType_ =
-                input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Timestamp) valueType_);
-              valueType_ = subBuilder.buildPartial();
-            }
-            valueTypeCase_ = 10;
-            break;
-          }
-          case 88: {
-            int rawValue = input.readEnum();
-            valueTypeCase_ = 11;
-            valueType_ = rawValue;
-            break;
-          }
-          case 138: {
-            java.lang.String s = input.readStringRequireUtf8();
-            valueTypeCase_ = 17;
-            valueType_ = s;
-            break;
-          }
-          case 146: {
-            valueType_ = input.readBytes();
-            valueTypeCase_ = 18;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.firestore.v1.DocumentProto.internal_static_google_firestore_v1_Value_descriptor;
@@ -275,8 +142,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.protobuf.NullValue getNullValue() {
     if (valueTypeCase_ == 11) {
-      @SuppressWarnings("deprecation")
-      com.google.protobuf.NullValue result = com.google.protobuf.NullValue.valueOf(
+      com.google.protobuf.NullValue result = com.google.protobuf.NullValue.forNumber(
           (java.lang.Integer) valueType_);
       return result == null ? com.google.protobuf.NullValue.UNRECOGNIZED : result;
     }
@@ -778,7 +644,7 @@ private static final long serialVersionUID = 0L;
       output.writeBytes(
           18, (com.google.protobuf.ByteString) valueType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -833,7 +699,7 @@ private static final long serialVersionUID = 0L;
         .computeBytesSize(
             18, (com.google.protobuf.ByteString) valueType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -898,7 +764,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -960,7 +826,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1081,22 +947,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.firestore.v1.Value.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (timestampValueBuilder_ != null) {
+        timestampValueBuilder_.clear();
+      }
+      if (geoPointValueBuilder_ != null) {
+        geoPointValueBuilder_.clear();
+      }
+      if (arrayValueBuilder_ != null) {
+        arrayValueBuilder_.clear();
+      }
+      if (mapValueBuilder_ != null) {
+        mapValueBuilder_.clear();
+      }
       valueTypeCase_ = 0;
       valueType_ = null;
       return this;
@@ -1125,58 +999,35 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.firestore.v1.Value buildPartial() {
       com.google.firestore.v1.Value result = new com.google.firestore.v1.Value(this);
-      if (valueTypeCase_ == 11) {
-        result.valueType_ = valueType_;
-      }
-      if (valueTypeCase_ == 1) {
-        result.valueType_ = valueType_;
-      }
-      if (valueTypeCase_ == 2) {
-        result.valueType_ = valueType_;
-      }
-      if (valueTypeCase_ == 3) {
-        result.valueType_ = valueType_;
-      }
-      if (valueTypeCase_ == 10) {
-        if (timestampValueBuilder_ == null) {
-          result.valueType_ = valueType_;
-        } else {
-          result.valueType_ = timestampValueBuilder_.build();
-        }
-      }
-      if (valueTypeCase_ == 17) {
-        result.valueType_ = valueType_;
-      }
-      if (valueTypeCase_ == 18) {
-        result.valueType_ = valueType_;
-      }
-      if (valueTypeCase_ == 5) {
-        result.valueType_ = valueType_;
-      }
-      if (valueTypeCase_ == 8) {
-        if (geoPointValueBuilder_ == null) {
-          result.valueType_ = valueType_;
-        } else {
-          result.valueType_ = geoPointValueBuilder_.build();
-        }
-      }
-      if (valueTypeCase_ == 9) {
-        if (arrayValueBuilder_ == null) {
-          result.valueType_ = valueType_;
-        } else {
-          result.valueType_ = arrayValueBuilder_.build();
-        }
-      }
-      if (valueTypeCase_ == 6) {
-        if (mapValueBuilder_ == null) {
-          result.valueType_ = valueType_;
-        } else {
-          result.valueType_ = mapValueBuilder_.build();
-        }
-      }
-      result.valueTypeCase_ = valueTypeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.firestore.v1.Value result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.firestore.v1.Value result) {
+      result.valueTypeCase_ = valueTypeCase_;
+      result.valueType_ = this.valueType_;
+      if (valueTypeCase_ == 10 &&
+          timestampValueBuilder_ != null) {
+        result.valueType_ = timestampValueBuilder_.build();
+      }
+      if (valueTypeCase_ == 8 &&
+          geoPointValueBuilder_ != null) {
+        result.valueType_ = geoPointValueBuilder_.build();
+      }
+      if (valueTypeCase_ == 9 &&
+          arrayValueBuilder_ != null) {
+        result.valueType_ = arrayValueBuilder_.build();
+      }
+      if (valueTypeCase_ == 6 &&
+          mapValueBuilder_ != null) {
+        result.valueType_ = mapValueBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1276,7 +1127,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1291,17 +1142,96 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.firestore.v1.Value parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              valueType_ = input.readBool();
+              valueTypeCase_ = 1;
+              break;
+            } // case 8
+            case 16: {
+              valueType_ = input.readInt64();
+              valueTypeCase_ = 2;
+              break;
+            } // case 16
+            case 25: {
+              valueType_ = input.readDouble();
+              valueTypeCase_ = 3;
+              break;
+            } // case 25
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              valueTypeCase_ = 5;
+              valueType_ = s;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getMapValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              valueTypeCase_ = 6;
+              break;
+            } // case 50
+            case 66: {
+              input.readMessage(
+                  getGeoPointValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              valueTypeCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getArrayValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              valueTypeCase_ = 9;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getTimestampValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              valueTypeCase_ = 10;
+              break;
+            } // case 82
+            case 88: {
+              int rawValue = input.readEnum();
+              valueTypeCase_ = 11;
+              valueType_ = rawValue;
+              break;
+            } // case 88
+            case 138: {
+              java.lang.String s = input.readStringRequireUtf8();
+              valueTypeCase_ = 17;
+              valueType_ = s;
+              break;
+            } // case 138
+            case 146: {
+              valueType_ = input.readBytes();
+              valueTypeCase_ = 18;
+              break;
+            } // case 146
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.firestore.v1.Value) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int valueTypeCase_ = 0;
@@ -1319,6 +1249,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -1373,8 +1304,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.NullValue getNullValue() {
       if (valueTypeCase_ == 11) {
-        @SuppressWarnings("deprecation")
-        com.google.protobuf.NullValue result = com.google.protobuf.NullValue.valueOf(
+        com.google.protobuf.NullValue result = com.google.protobuf.NullValue.forNumber(
             (java.lang.Integer) valueType_);
         return result == null ? com.google.protobuf.NullValue.UNRECOGNIZED : result;
       }
@@ -1450,6 +1380,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBooleanValue(boolean value) {
+      
       valueTypeCase_ = 1;
       valueType_ = value;
       onChanged();
@@ -1507,6 +1438,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIntegerValue(long value) {
+      
       valueTypeCase_ = 2;
       valueType_ = value;
       onChanged();
@@ -1564,6 +1496,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDoubleValue(double value) {
+      
       valueTypeCase_ = 3;
       valueType_ = value;
       onChanged();
@@ -1778,7 +1711,7 @@ private static final long serialVersionUID = 0L;
         valueType_ = null;
       }
       valueTypeCase_ = 10;
-      onChanged();;
+      onChanged();
       return timestampValueBuilder_;
     }
 
@@ -1870,10 +1803,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStringValue(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  valueTypeCase_ = 17;
+      if (value == null) { throw new NullPointerException(); }
+      valueTypeCase_ = 17;
       valueType_ = value;
       onChanged();
       return this;
@@ -1911,10 +1842,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStringValueBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       valueTypeCase_ = 17;
       valueType_ = value;
       onChanged();
@@ -1962,10 +1891,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBytesValue(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  valueTypeCase_ = 18;
+      if (value == null) { throw new NullPointerException(); }
+      valueTypeCase_ = 18;
       valueType_ = value;
       onChanged();
       return this;
@@ -2069,10 +1996,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReferenceValue(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  valueTypeCase_ = 5;
+      if (value == null) { throw new NullPointerException(); }
+      valueTypeCase_ = 5;
       valueType_ = value;
       onChanged();
       return this;
@@ -2106,10 +2031,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReferenceValueBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       valueTypeCase_ = 5;
       valueType_ = value;
       onChanged();
@@ -2290,7 +2213,7 @@ private static final long serialVersionUID = 0L;
         valueType_ = null;
       }
       valueTypeCase_ = 8;
-      onChanged();;
+      onChanged();
       return geoPointValueBuilder_;
     }
 
@@ -2486,7 +2409,7 @@ private static final long serialVersionUID = 0L;
         valueType_ = null;
       }
       valueTypeCase_ = 9;
-      onChanged();;
+      onChanged();
       return arrayValueBuilder_;
     }
 
@@ -2664,7 +2587,7 @@ private static final long serialVersionUID = 0L;
         valueType_ = null;
       }
       valueTypeCase_ = 6;
-      onChanged();;
+      onChanged();
       return mapValueBuilder_;
     }
     @java.lang.Override
@@ -2700,7 +2623,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Value(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

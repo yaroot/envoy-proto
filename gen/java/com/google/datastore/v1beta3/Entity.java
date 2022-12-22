@@ -37,72 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Entity(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.datastore.v1beta3.Key.Builder subBuilder = null;
-            if (key_ != null) {
-              subBuilder = key_.toBuilder();
-            }
-            key_ = input.readMessage(com.google.datastore.v1beta3.Key.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(key_);
-              key_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              properties_ = com.google.protobuf.MapField.newMapField(
-                  PropertiesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.datastore.v1beta3.Value>
-            properties__ = input.readMessage(
-                PropertiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            properties_.getMutableMap().put(
-                properties__.getKey(), properties__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.datastore.v1beta3.EntityProto.internal_static_google_datastore_v1beta3_Entity_descriptor;
@@ -175,7 +109,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.datastore.v1beta3.KeyOrBuilder getKeyOrBuilder() {
-    return getKey();
+    return key_ == null ? com.google.datastore.v1beta3.Key.getDefaultInstance() : key_;
   }
 
   public static final int PROPERTIES_FIELD_NUMBER = 3;
@@ -190,6 +124,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.datastore.v1beta3.Value.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.datastore.v1beta3.Value> properties_;
   private com.google.protobuf.MapField<java.lang.String, com.google.datastore.v1beta3.Value>
@@ -200,7 +135,6 @@ private static final long serialVersionUID = 0L;
     }
     return properties_;
   }
-
   public int getPropertiesCount() {
     return internalGetProperties().getMap().size();
   }
@@ -216,7 +150,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.datastore.v1beta3.Value&gt; properties = 3;</code>
    */
-
   @java.lang.Override
   public boolean containsProperties(
       java.lang.String key) {
@@ -244,7 +177,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.datastore.v1beta3.Value&gt; properties = 3;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.datastore.v1beta3.Value> getPropertiesMap() {
     return internalGetProperties().getMap();
   }
@@ -261,10 +193,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.datastore.v1beta3.Value&gt; properties = 3;</code>
    */
   @java.lang.Override
-
-  public com.google.datastore.v1beta3.Value getPropertiesOrDefault(
+  public /* nullable */
+com.google.datastore.v1beta3.Value getPropertiesOrDefault(
       java.lang.String key,
-      com.google.datastore.v1beta3.Value defaultValue) {
+      /* nullable */
+com.google.datastore.v1beta3.Value defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.datastore.v1beta3.Value> map =
         internalGetProperties().getMap();
@@ -283,7 +216,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.datastore.v1beta3.Value&gt; properties = 3;</code>
    */
   @java.lang.Override
-
   public com.google.datastore.v1beta3.Value getPropertiesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -318,7 +250,7 @@ private static final long serialVersionUID = 0L;
         internalGetProperties(),
         PropertiesDefaultEntryHolder.defaultEntry,
         3);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -341,7 +273,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, properties__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -363,7 +295,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!internalGetProperties().equals(
         other.internalGetProperties())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -382,7 +314,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PROPERTIES_FIELD_NUMBER;
       hash = (53 * hash) + internalGetProperties().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -528,26 +460,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.datastore.v1beta3.Entity.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (keyBuilder_ == null) {
-        key_ = null;
-      } else {
-        key_ = null;
+      bitField0_ = 0;
+      key_ = null;
+      if (keyBuilder_ != null) {
+        keyBuilder_.dispose();
         keyBuilder_ = null;
       }
       internalGetMutableProperties().clear();
@@ -577,16 +504,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.datastore.v1beta3.Entity buildPartial() {
       com.google.datastore.v1beta3.Entity result = new com.google.datastore.v1beta3.Entity(this);
-      int from_bitField0_ = bitField0_;
-      if (keyBuilder_ == null) {
-        result.key_ = key_;
-      } else {
-        result.key_ = keyBuilder_.build();
-      }
-      result.properties_ = internalGetProperties();
-      result.properties_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.datastore.v1beta3.Entity result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.key_ = keyBuilder_ == null
+            ? key_
+            : keyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.properties_ = internalGetProperties();
+        result.properties_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -638,7 +571,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableProperties().mergeFrom(
           other.internalGetProperties());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000002;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -653,17 +587,46 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.datastore.v1beta3.Entity parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getKeyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.datastore.v1beta3.Value>
+              properties__ = input.readMessage(
+                  PropertiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableProperties().getMutableMap().put(
+                  properties__.getKey(), properties__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.datastore.v1beta3.Entity) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -684,7 +647,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the key field is set.
      */
     public boolean hasKey() {
-      return keyBuilder_ != null || key_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -722,11 +685,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         key_ = value;
-        onChanged();
       } else {
         keyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -744,11 +707,11 @@ private static final long serialVersionUID = 0L;
         com.google.datastore.v1beta3.Key.Builder builderForValue) {
       if (keyBuilder_ == null) {
         key_ = builderForValue.build();
-        onChanged();
       } else {
         keyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -764,17 +727,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeKey(com.google.datastore.v1beta3.Key value) {
       if (keyBuilder_ == null) {
-        if (key_ != null) {
-          key_ =
-            com.google.datastore.v1beta3.Key.newBuilder(key_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          key_ != null &&
+          key_ != com.google.datastore.v1beta3.Key.getDefaultInstance()) {
+          getKeyBuilder().mergeFrom(value);
         } else {
           key_ = value;
         }
-        onChanged();
       } else {
         keyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -789,14 +753,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.datastore.v1beta3.Key key = 1;</code>
      */
     public Builder clearKey() {
-      if (keyBuilder_ == null) {
-        key_ = null;
-        onChanged();
-      } else {
-        key_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      key_ = null;
+      if (keyBuilder_ != null) {
+        keyBuilder_.dispose();
         keyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -811,7 +774,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.datastore.v1beta3.Key key = 1;</code>
      */
     public com.google.datastore.v1beta3.Key.Builder getKeyBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getKeyFieldBuilder().getBuilder();
     }
@@ -862,7 +825,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.datastore.v1beta3.Value> properties_;
     private com.google.protobuf.MapField<java.lang.String, com.google.datastore.v1beta3.Value>
-    internalGetProperties() {
+        internalGetProperties() {
       if (properties_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             PropertiesDefaultEntryHolder.defaultEntry);
@@ -870,8 +833,7 @@ private static final long serialVersionUID = 0L;
       return properties_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.datastore.v1beta3.Value>
-    internalGetMutableProperties() {
-      onChanged();;
+        internalGetMutableProperties() {
       if (properties_ == null) {
         properties_ = com.google.protobuf.MapField.newMapField(
             PropertiesDefaultEntryHolder.defaultEntry);
@@ -879,9 +841,10 @@ private static final long serialVersionUID = 0L;
       if (!properties_.isMutable()) {
         properties_ = properties_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return properties_;
     }
-
     public int getPropertiesCount() {
       return internalGetProperties().getMap().size();
     }
@@ -897,7 +860,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.datastore.v1beta3.Value&gt; properties = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsProperties(
         java.lang.String key) {
@@ -925,7 +887,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.datastore.v1beta3.Value&gt; properties = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.datastore.v1beta3.Value> getPropertiesMap() {
       return internalGetProperties().getMap();
     }
@@ -942,10 +903,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.datastore.v1beta3.Value&gt; properties = 3;</code>
      */
     @java.lang.Override
-
-    public com.google.datastore.v1beta3.Value getPropertiesOrDefault(
+    public /* nullable */
+com.google.datastore.v1beta3.Value getPropertiesOrDefault(
         java.lang.String key,
-        com.google.datastore.v1beta3.Value defaultValue) {
+        /* nullable */
+com.google.datastore.v1beta3.Value defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.datastore.v1beta3.Value> map =
           internalGetProperties().getMap();
@@ -964,7 +926,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.datastore.v1beta3.Value&gt; properties = 3;</code>
      */
     @java.lang.Override
-
     public com.google.datastore.v1beta3.Value getPropertiesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -975,8 +936,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearProperties() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableProperties().getMutableMap()
           .clear();
       return this;
@@ -993,7 +954,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.datastore.v1beta3.Value&gt; properties = 3;</code>
      */
-
     public Builder removeProperties(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1006,7 +966,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.datastore.v1beta3.Value>
-    getMutableProperties() {
+        getMutableProperties() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableProperties().getMutableMap();
     }
     /**
@@ -1025,12 +986,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.datastore.v1beta3.Value value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableProperties().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -1045,11 +1004,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.datastore.v1beta3.Value&gt; properties = 3;</code>
      */
-
     public Builder putAllProperties(
         java.util.Map<java.lang.String, com.google.datastore.v1beta3.Value> values) {
       internalGetMutableProperties().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
     @java.lang.Override
@@ -1085,7 +1044,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Entity(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

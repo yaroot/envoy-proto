@@ -113,9 +113,10 @@ public interface ListTransferableSkusRequestOrBuilder extends
    * <pre>
    * A token for a page of results other than the first page.
    * Obtained using
-   * [ListTransferableSkusResponse.next_page_token][google.cloud.channel.v1.ListTransferableSkusResponse.next_page_token] of the previous
-   * [CloudChannelService.ListTransferableSkus][google.cloud.channel.v1.CloudChannelService.ListTransferableSkus] call.
-   * Optional.
+   * [ListTransferableSkusResponse.next_page_token][google.cloud.channel.v1.ListTransferableSkusResponse.next_page_token]
+   * of the previous
+   * [CloudChannelService.ListTransferableSkus][google.cloud.channel.v1.CloudChannelService.ListTransferableSkus]
+   * call. Optional.
    * </pre>
    *
    * <code>string page_token = 3;</code>
@@ -126,9 +127,10 @@ public interface ListTransferableSkusRequestOrBuilder extends
    * <pre>
    * A token for a page of results other than the first page.
    * Obtained using
-   * [ListTransferableSkusResponse.next_page_token][google.cloud.channel.v1.ListTransferableSkusResponse.next_page_token] of the previous
-   * [CloudChannelService.ListTransferableSkus][google.cloud.channel.v1.CloudChannelService.ListTransferableSkus] call.
-   * Optional.
+   * [ListTransferableSkusResponse.next_page_token][google.cloud.channel.v1.ListTransferableSkusResponse.next_page_token]
+   * of the previous
+   * [CloudChannelService.ListTransferableSkus][google.cloud.channel.v1.CloudChannelService.ListTransferableSkus]
+   * call. Optional.
    * </pre>
    *
    * <code>string page_token = 3;</code>
@@ -139,25 +141,25 @@ public interface ListTransferableSkusRequestOrBuilder extends
 
   /**
    * <pre>
-   * The super admin of the resold customer generates this token to
+   * Optional. The super admin of the resold customer generates this token to
    * authorize a reseller to access their Cloud Identity and purchase
    * entitlements on their behalf. You can omit this token after authorization.
    * See https://support.google.com/a/answer/7643790 for more details.
    * </pre>
    *
-   * <code>string auth_token = 5;</code>
+   * <code>string auth_token = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The authToken.
    */
   java.lang.String getAuthToken();
   /**
    * <pre>
-   * The super admin of the resold customer generates this token to
+   * Optional. The super admin of the resold customer generates this token to
    * authorize a reseller to access their Cloud Identity and purchase
    * entitlements on their behalf. You can omit this token after authorization.
    * See https://support.google.com/a/answer/7643790 for more details.
    * </pre>
    *
-   * <code>string auth_token = 5;</code>
+   * <code>string auth_token = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The bytes for authToken.
    */
   com.google.protobuf.ByteString

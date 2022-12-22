@@ -11,13 +11,12 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7google/devtools/artifactregistry/v1beta2/settings.proto\x12(google.devtools.artifactregistry.v1beta2\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a google/protobuf/field_mask.proto\"\x91\x03\n\x0fProjectSettings\x12\x0c\n\x04name\x18\x01 \x01(\t\x12l\n\x18legacy_redirection_state\x18\x02 \x01(\x0e\x32J.google.devtools.artifactregistry.v1beta2.ProjectSettings.RedirectionState\"\xa7\x01\n\x10RedirectionState\x12!\n\x1dREDIRECTION_STATE_UNSPECIFIED\x10\x00\x12$\n REDIRECTION_FROM_GCR_IO_DISABLED\x10\x01\x12#\n\x1fREDIRECTION_FROM_GCR_IO_ENABLED\x10\x02\x12%\n!REDIRECTION_FROM_GCR_IO_FINALIZED\x10\x03:X\xea\x41U\n/artifactregistry.googleapis.com/ProjectSettings\x12\"projects/{project}/projectSettings\"b\n\x19GetProjectSettingsRequest\x12\x45\n\x04name\x18\x01 \x01(\tB7\xe0\x41\x02\xfa\x41\x31\n/artifactregistry.googleapis.com/ProjectSettings\"\xa4\x01\n\x1cUpdateProjectSettingsRequest\x12S\n\x10project_settings\x18\x02 \x01(\x0b\x32\x39.google.devtools.artifactregistry.v1beta2.ProjectSettings\x12/\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x94\x02\n,com.google.devtools.artifactregistry.v1beta2B\rSettingsProtoP\x01ZXgoogle.golang.org/genproto/googleapis/devtools/artifactregistry/v1beta2;artifactregistry\xaa\x02%Google.Cloud.ArtifactRegistry.V1Beta2\xca\x02%Google\\Cloud\\ArtifactRegistry\\V1beta2\xea\x02(Google::Cloud::ArtifactRegistry::V1beta2b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n7google/devtools/artifactregistry/v1beta2/settings.proto\x12(google.devtools.artifactregistry.v1beta2\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a google/protobuf/field_mask.proto\"\x91\x03\n\x0fProjectSettings\x12\x0c\n\x04name\x18\x01 \x01(\t\x12l\n\x18legacy_redirection_state\x18\x02 \x01(\x0e\x32J.google.devtools.artifactregistry.v1beta2.ProjectSettings.RedirectionState\"\xa7\x01\n\x10RedirectionState\x12!\n\x1dREDIRECTION_STATE_UNSPECIFIED\x10\x00\x12$\n REDIRECTION_FROM_GCR_IO_DISABLED\x10\x01\x12#\n\x1fREDIRECTION_FROM_GCR_IO_ENABLED\x10\x02\x12%\n!REDIRECTION_FROM_GCR_IO_FINALIZED\x10\x03:X\xea\x41U\n/artifactregistry.googleapis.com/ProjectSettings\x12\"projects/{project}/projectSettings\"b\n\x19GetProjectSettingsRequest\x12\x45\n\x04name\x18\x01 \x01(\tB7\xe0\x41\x02\xfa\x41\x31\n/artifactregistry.googleapis.com/ProjectSettings\"\xa4\x01\n\x1cUpdateProjectSettingsRequest\x12S\n\x10project_settings\x18\x02 \x01(\x0b\x32\x39.google.devtools.artifactregistry.v1beta2.ProjectSettings\x12/\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x94\x02\n,com.google.devtools.artifactregistry.v1beta2B\rSettingsProtoP\x01ZXgoogle.golang.org/genproto/googleapis/devtools/artifactregistry/v1beta2;artifactregistry\xaa\x02%Google.Cloud.ArtifactRegistry.V1Beta2\xca\x02%Google\\Cloud\\ArtifactRegistry\\V1beta2\xea\x02(Google::Cloud::ArtifactRegistry::V1beta2b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.devtools.artifactregistry.v1beta2.settings_pb2', globals())
@@ -29,12 +28,12 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _PROJECTSETTINGS._serialized_options = b'\352AU\n/artifactregistry.googleapis.com/ProjectSettings\022\"projects/{project}/projectSettings'
   _GETPROJECTSETTINGSREQUEST.fields_by_name['name']._options = None
   _GETPROJECTSETTINGSREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A1\n/artifactregistry.googleapis.com/ProjectSettings'
-  _PROJECTSETTINGS._serialized_start=226
-  _PROJECTSETTINGS._serialized_end=627
-  _PROJECTSETTINGS_REDIRECTIONSTATE._serialized_start=370
-  _PROJECTSETTINGS_REDIRECTIONSTATE._serialized_end=537
-  _GETPROJECTSETTINGSREQUEST._serialized_start=629
-  _GETPROJECTSETTINGSREQUEST._serialized_end=727
-  _UPDATEPROJECTSETTINGSREQUEST._serialized_start=730
-  _UPDATEPROJECTSETTINGSREQUEST._serialized_end=894
+  _PROJECTSETTINGS._serialized_start=196
+  _PROJECTSETTINGS._serialized_end=597
+  _PROJECTSETTINGS_REDIRECTIONSTATE._serialized_start=340
+  _PROJECTSETTINGS_REDIRECTIONSTATE._serialized_end=507
+  _GETPROJECTSETTINGSREQUEST._serialized_start=599
+  _GETPROJECTSETTINGSREQUEST._serialized_end=697
+  _UPDATEPROJECTSETTINGSREQUEST._serialized_start=700
+  _UPDATEPROJECTSETTINGSREQUEST._serialized_end=864
 # @@protoc_insertion_point(module_scope)

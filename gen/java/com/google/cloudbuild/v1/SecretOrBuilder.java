@@ -82,7 +82,6 @@ public interface SecretOrBuilder extends
    *
    * <code>map&lt;string, bytes&gt; secret_env = 3;</code>
    */
-
   /* nullable */
 com.google.protobuf.ByteString getSecretEnvOrDefault(
       java.lang.String key,
@@ -99,7 +98,6 @@ com.google.protobuf.ByteString defaultValue);
    *
    * <code>map&lt;string, bytes&gt; secret_env = 3;</code>
    */
-
   com.google.protobuf.ByteString getSecretEnvOrThrow(
       java.lang.String key);
 }

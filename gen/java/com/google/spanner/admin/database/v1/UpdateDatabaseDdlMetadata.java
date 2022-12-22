@@ -39,93 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateDatabaseDdlMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            database_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              statements_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            statements_.add(s);
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              commitTimestamps_ = new java.util.ArrayList<com.google.protobuf.Timestamp>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            commitTimestamps_.add(
-                input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry));
-            break;
-          }
-          case 32: {
-
-            throttled_ = input.readBool();
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              progress_ = new java.util.ArrayList<com.google.spanner.admin.database.v1.OperationProgress>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            progress_.add(
-                input.readMessage(com.google.spanner.admin.database.v1.OperationProgress.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        statements_ = statements_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        commitTimestamps_ = java.util.Collections.unmodifiableList(commitTimestamps_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        progress_ = java.util.Collections.unmodifiableList(progress_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.spanner.admin.database.v1.SpannerDatabaseAdminProto.internal_static_google_spanner_admin_database_v1_UpdateDatabaseDdlMetadata_descriptor;
@@ -140,7 +53,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATABASE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object database_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object database_ = "";
   /**
    * <pre>
    * The database being modified.
@@ -186,6 +100,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATEMENTS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList statements_;
   /**
    * <pre>
@@ -241,6 +156,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COMMIT_TIMESTAMPS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.protobuf.Timestamp> commitTimestamps_;
   /**
    * <pre>
@@ -311,7 +227,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int THROTTLED_FIELD_NUMBER = 4;
-  private boolean throttled_;
+  private boolean throttled_ = false;
   /**
    * <pre>
    * Output only. When true, indicates that the operation is throttled e.g
@@ -328,6 +244,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROGRESS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.spanner.admin.database.v1.OperationProgress> progress_;
   /**
    * <pre>
@@ -451,7 +368,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < progress_.size(); i++) {
       output.writeMessage(5, progress_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -483,7 +400,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, progress_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -508,7 +425,7 @@ private static final long serialVersionUID = 0L;
         != other.getThrottled()) return false;
     if (!getProgressList()
         .equals(other.getProgressList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -536,7 +453,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PROGRESS_FIELD_NUMBER;
       hash = (53 * hash) + getProgressList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -658,42 +575,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.spanner.admin.database.v1.UpdateDatabaseDdlMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getCommitTimestampsFieldBuilder();
-        getProgressFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       database_ = "";
-
       statements_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (commitTimestampsBuilder_ == null) {
         commitTimestamps_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        commitTimestamps_ = null;
         commitTimestampsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       throttled_ = false;
-
       if (progressBuilder_ == null) {
         progress_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        progress_ = null;
         progressBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -720,34 +631,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.spanner.admin.database.v1.UpdateDatabaseDdlMetadata buildPartial() {
       com.google.spanner.admin.database.v1.UpdateDatabaseDdlMetadata result = new com.google.spanner.admin.database.v1.UpdateDatabaseDdlMetadata(this);
-      int from_bitField0_ = bitField0_;
-      result.database_ = database_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.spanner.admin.database.v1.UpdateDatabaseDdlMetadata result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         statements_ = statements_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.statements_ = statements_;
       if (commitTimestampsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           commitTimestamps_ = java.util.Collections.unmodifiableList(commitTimestamps_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.commitTimestamps_ = commitTimestamps_;
       } else {
         result.commitTimestamps_ = commitTimestampsBuilder_.build();
       }
-      result.throttled_ = throttled_;
       if (progressBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           progress_ = java.util.Collections.unmodifiableList(progress_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.progress_ = progress_;
       } else {
         result.progress_ = progressBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.spanner.admin.database.v1.UpdateDatabaseDdlMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.database_ = database_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.throttled_ = throttled_;
+      }
     }
 
     @java.lang.Override
@@ -796,12 +719,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.spanner.admin.database.v1.UpdateDatabaseDdlMetadata.getDefaultInstance()) return this;
       if (!other.getDatabase().isEmpty()) {
         database_ = other.database_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.statements_.isEmpty()) {
         if (statements_.isEmpty()) {
           statements_ = other.statements_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureStatementsIsMutable();
           statements_.addAll(other.statements_);
@@ -812,7 +736,7 @@ private static final long serialVersionUID = 0L;
         if (!other.commitTimestamps_.isEmpty()) {
           if (commitTimestamps_.isEmpty()) {
             commitTimestamps_ = other.commitTimestamps_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureCommitTimestampsIsMutable();
             commitTimestamps_.addAll(other.commitTimestamps_);
@@ -825,7 +749,7 @@ private static final long serialVersionUID = 0L;
             commitTimestampsBuilder_.dispose();
             commitTimestampsBuilder_ = null;
             commitTimestamps_ = other.commitTimestamps_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             commitTimestampsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getCommitTimestampsFieldBuilder() : null;
@@ -841,7 +765,7 @@ private static final long serialVersionUID = 0L;
         if (!other.progress_.isEmpty()) {
           if (progress_.isEmpty()) {
             progress_ = other.progress_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureProgressIsMutable();
             progress_.addAll(other.progress_);
@@ -854,7 +778,7 @@ private static final long serialVersionUID = 0L;
             progressBuilder_.dispose();
             progressBuilder_ = null;
             progress_ = other.progress_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000010);
             progressBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getProgressFieldBuilder() : null;
@@ -863,7 +787,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -878,17 +802,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.spanner.admin.database.v1.UpdateDatabaseDdlMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              database_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureStatementsIsMutable();
+              statements_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.Timestamp m =
+                  input.readMessage(
+                      com.google.protobuf.Timestamp.parser(),
+                      extensionRegistry);
+              if (commitTimestampsBuilder_ == null) {
+                ensureCommitTimestampsIsMutable();
+                commitTimestamps_.add(m);
+              } else {
+                commitTimestampsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 32: {
+              throttled_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              com.google.spanner.admin.database.v1.OperationProgress m =
+                  input.readMessage(
+                      com.google.spanner.admin.database.v1.OperationProgress.parser(),
+                      extensionRegistry);
+              if (progressBuilder_ == null) {
+                ensureProgressIsMutable();
+                progress_.add(m);
+              } else {
+                progressBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.spanner.admin.database.v1.UpdateDatabaseDdlMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -946,11 +925,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDatabase(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       database_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -963,8 +940,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDatabase() {
-      
       database_ = getDefaultInstance().getDatabase();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -979,21 +956,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDatabaseBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       database_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList statements_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureStatementsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         statements_ = new com.google.protobuf.LazyStringArrayList(statements_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -1061,10 +1036,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatements(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureStatementsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureStatementsIsMutable();
       statements_.set(index, value);
       onChanged();
       return this;
@@ -1081,10 +1054,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addStatements(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureStatementsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureStatementsIsMutable();
       statements_.add(value);
       onChanged();
       return this;
@@ -1118,7 +1089,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearStatements() {
       statements_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1134,10 +1105,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addStatementsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureStatementsIsMutable();
       statements_.add(value);
       onChanged();
@@ -1147,9 +1116,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.protobuf.Timestamp> commitTimestamps_ =
       java.util.Collections.emptyList();
     private void ensureCommitTimestampsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         commitTimestamps_ = new java.util.ArrayList<com.google.protobuf.Timestamp>(commitTimestamps_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1365,7 +1334,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearCommitTimestamps() {
       if (commitTimestampsBuilder_ == null) {
         commitTimestamps_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         commitTimestampsBuilder_.clear();
@@ -1484,7 +1453,7 @@ private static final long serialVersionUID = 0L;
         commitTimestampsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
                 commitTimestamps_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         commitTimestamps_ = null;
@@ -1521,6 +1490,7 @@ private static final long serialVersionUID = 0L;
     public Builder setThrottled(boolean value) {
       
       throttled_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1535,7 +1505,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearThrottled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       throttled_ = false;
       onChanged();
       return this;
@@ -1544,9 +1514,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.spanner.admin.database.v1.OperationProgress> progress_ =
       java.util.Collections.emptyList();
     private void ensureProgressIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         progress_ = new java.util.ArrayList<com.google.spanner.admin.database.v1.OperationProgress>(progress_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1817,7 +1787,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearProgress() {
       if (progressBuilder_ == null) {
         progress_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         progressBuilder_.clear();
@@ -1971,7 +1941,7 @@ private static final long serialVersionUID = 0L;
         progressBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.spanner.admin.database.v1.OperationProgress, com.google.spanner.admin.database.v1.OperationProgress.Builder, com.google.spanner.admin.database.v1.OperationProgressOrBuilder>(
                 progress_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         progress_ = null;
@@ -2011,7 +1981,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateDatabaseDdlMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

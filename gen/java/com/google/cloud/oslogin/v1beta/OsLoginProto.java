@@ -25,6 +25,11 @@ public final class OsLoginProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_cloud_oslogin_v1beta_LoginProfile_SshPublicKeysEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_oslogin_v1beta_CreateSshPublicKeyRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_oslogin_v1beta_CreateSshPublicKeyRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_cloud_oslogin_v1beta_DeletePosixAccountRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -59,6 +64,21 @@ public final class OsLoginProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_cloud_oslogin_v1beta_UpdateSshPublicKeyRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_oslogin_v1beta_SecurityKey_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_oslogin_v1beta_SecurityKey_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_oslogin_v1beta_UniversalTwoFactor_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_oslogin_v1beta_UniversalTwoFactor_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_oslogin_v1beta_WebAuthn_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_oslogin_v1beta_WebAuthn_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -75,76 +95,100 @@ public final class OsLoginProto {
       "\032\031google/api/resource.proto\032(google/clou" +
       "d/oslogin/common/common.proto\032\033google/pr" +
       "otobuf/empty.proto\032 google/protobuf/fiel" +
-      "d_mask.proto\"\234\002\n\014LoginProfile\022\021\n\004name\030\001 " +
+      "d_mask.proto\"\335\002\n\014LoginProfile\022\021\n\004name\030\001 " +
       "\001(\tB\003\340A\002\022A\n\016posix_accounts\030\002 \003(\0132).googl" +
       "e.cloud.oslogin.common.PosixAccount\022U\n\017s" +
       "sh_public_keys\030\003 \003(\0132<.google.cloud.oslo" +
       "gin.v1beta.LoginProfile.SshPublicKeysEnt" +
-      "ry\032_\n\022SshPublicKeysEntry\022\013\n\003key\030\001 \001(\t\0228\n" +
-      "\005value\030\002 \001(\0132).google.cloud.oslogin.comm" +
-      "on.SshPublicKey:\0028\001\"V\n\031DeletePosixAccoun" +
-      "tRequest\0229\n\004name\030\001 \001(\tB+\340A\002\372A%\n#oslogin." +
-      "googleapis.com/PosixAccount\"V\n\031DeleteSsh" +
-      "PublicKeyRequest\0229\n\004name\030\001 \001(\tB+\340A\002\372A%\n#" +
-      "oslogin.googleapis.com/SshPublicKey\"r\n\026G" +
-      "etLoginProfileRequest\0221\n\004name\030\001 \001(\tB#\340A\002" +
-      "\372A\035\n\033oslogin.googleapis.com/User\022\022\n\nproj" +
-      "ect_id\030\002 \001(\t\022\021\n\tsystem_id\030\003 \001(\t\"S\n\026GetSs" +
-      "hPublicKeyRequest\0229\n\004name\030\001 \001(\tB+\340A\002\372A%\n" +
-      "#oslogin.googleapis.com/SshPublicKey\"\261\001\n" +
-      "\031ImportSshPublicKeyRequest\0228\n\006parent\030\001 \001" +
-      "(\tB(\372A%\022#oslogin.googleapis.com/SshPubli" +
-      "cKey\022F\n\016ssh_public_key\030\002 \001(\0132).google.cl" +
-      "oud.oslogin.common.SshPublicKeyB\003\340A\002\022\022\n\n" +
-      "project_id\030\003 \001(\t\"^\n\032ImportSshPublicKeyRe" +
-      "sponse\022@\n\rlogin_profile\030\001 \001(\0132).google.c" +
-      "loud.oslogin.v1beta.LoginProfile\"\317\001\n\031Upd" +
-      "ateSshPublicKeyRequest\0229\n\004name\030\001 \001(\tB+\340A" +
-      "\002\372A%\n#oslogin.googleapis.com/SshPublicKe" +
-      "y\022F\n\016ssh_public_key\030\002 \001(\0132).google.cloud" +
-      ".oslogin.common.SshPublicKeyB\003\340A\002\022/\n\013upd" +
-      "ate_mask\030\003 \001(\0132\032.google.protobuf.FieldMa" +
-      "sk2\364\n\n\016OsLoginService\022\226\001\n\022DeletePosixAcc" +
-      "ount\0226.google.cloud.oslogin.v1beta.Delet" +
-      "ePosixAccountRequest\032\026.google.protobuf.E" +
-      "mpty\"0\202\323\344\223\002#*!/v1beta/{name=users/*/proj" +
-      "ects/*}\332A\004name\022\233\001\n\022DeleteSshPublicKey\0226." +
-      "google.cloud.oslogin.v1beta.DeleteSshPub" +
-      "licKeyRequest\032\026.google.protobuf.Empty\"5\202" +
-      "\323\344\223\002(*&/v1beta/{name=users/*/sshPublicKe" +
-      "ys/*}\332A\004name\022\245\001\n\017GetLoginProfile\0223.googl" +
-      "e.cloud.oslogin.v1beta.GetLoginProfileRe" +
-      "quest\032).google.cloud.oslogin.v1beta.Logi" +
-      "nProfile\"2\202\323\344\223\002%\022#/v1beta/{name=users/*}" +
-      "/loginProfile\332A\004name\022\250\001\n\017GetSshPublicKey" +
-      "\0223.google.cloud.oslogin.v1beta.GetSshPub" +
-      "licKeyRequest\032).google.cloud.oslogin.com" +
-      "mon.SshPublicKey\"5\202\323\344\223\002(\022&/v1beta/{name=" +
-      "users/*/sshPublicKeys/*}\332A\004name\022\205\002\n\022Impo" +
-      "rtSshPublicKey\0226.google.cloud.oslogin.v1" +
-      "beta.ImportSshPublicKeyRequest\0327.google." +
-      "cloud.oslogin.v1beta.ImportSshPublicKeyR" +
-      "esponse\"~\202\323\344\223\002=\"+/v1beta/{parent=users/*" +
-      "}:importSshPublicKey:\016ssh_public_key\332A\025p" +
-      "arent,ssh_public_key\332A parent,ssh_public" +
-      "_key,project_id\022\357\001\n\022UpdateSshPublicKey\0226" +
-      ".google.cloud.oslogin.v1beta.UpdateSshPu" +
-      "blicKeyRequest\032).google.cloud.oslogin.co" +
-      "mmon.SshPublicKey\"v\202\323\344\223\00282&/v1beta/{name" +
-      "=users/*/sshPublicKeys/*}:\016ssh_public_ke" +
-      "y\332A\023name,ssh_public_key\332A\037name,ssh_publi" +
-      "c_key,update_mask\032\335\001\312A\026oslogin.googleapi" +
-      "s.com\322A\300\001https://www.googleapis.com/auth" +
-      "/cloud-platform,https://www.googleapis.c" +
-      "om/auth/cloud-platform.read-only,https:/" +
-      "/www.googleapis.com/auth/compute,https:/" +
-      "/www.googleapis.com/auth/compute.readonl" +
-      "yB\322\001\n\037com.google.cloud.oslogin.v1betaB\014O" +
-      "sLoginProtoP\001ZBgoogle.golang.org/genprot" +
-      "o/googleapis/cloud/oslogin/v1beta;oslogi" +
-      "n\252\002\033Google.Cloud.OsLogin.V1Beta\312\002\033Google" +
-      "\\Cloud\\OsLogin\\V1beta\352\002\036Google::Cloud::O" +
-      "sLogin::V1betab\006proto3"
+      "ry\022?\n\rsecurity_keys\030\005 \003(\0132(.google.cloud" +
+      ".oslogin.v1beta.SecurityKey\032_\n\022SshPublic" +
+      "KeysEntry\022\013\n\003key\030\001 \001(\t\0228\n\005value\030\002 \001(\0132)." +
+      "google.cloud.oslogin.common.SshPublicKey" +
+      ":\0028\001\"\240\001\n\031CreateSshPublicKeyRequest\022;\n\006pa" +
+      "rent\030\001 \001(\tB+\340A\002\372A%\022#oslogin.googleapis.c" +
+      "om/SshPublicKey\022F\n\016ssh_public_key\030\002 \001(\0132" +
+      ").google.cloud.oslogin.common.SshPublicK" +
+      "eyB\003\340A\002\"V\n\031DeletePosixAccountRequest\0229\n\004" +
+      "name\030\001 \001(\tB+\340A\002\372A%\n#oslogin.googleapis.c" +
+      "om/PosixAccount\"V\n\031DeleteSshPublicKeyReq" +
+      "uest\0229\n\004name\030\001 \001(\tB+\340A\002\372A%\n#oslogin.goog" +
+      "leapis.com/SshPublicKey\"\257\001\n\026GetLoginProf" +
+      "ileRequest\0221\n\004name\030\001 \001(\tB#\340A\002\372A\035\n\033oslogi" +
+      "n.googleapis.com/User\022\022\n\nproject_id\030\002 \001(" +
+      "\t\022\021\n\tsystem_id\030\003 \001(\t\022;\n\004view\030\004 \001(\0162-.goo" +
+      "gle.cloud.oslogin.v1beta.LoginProfileVie" +
+      "w\"S\n\026GetSshPublicKeyRequest\0229\n\004name\030\001 \001(" +
+      "\tB+\340A\002\372A%\n#oslogin.googleapis.com/SshPub" +
+      "licKey\"\356\001\n\031ImportSshPublicKeyRequest\0228\n\006" +
+      "parent\030\001 \001(\tB(\372A%\022#oslogin.googleapis.co" +
+      "m/SshPublicKey\022F\n\016ssh_public_key\030\002 \001(\0132)" +
+      ".google.cloud.oslogin.common.SshPublicKe" +
+      "yB\003\340A\002\022\022\n\nproject_id\030\003 \001(\t\022;\n\004view\030\004 \001(\016" +
+      "2-.google.cloud.oslogin.v1beta.LoginProf" +
+      "ileView\"o\n\032ImportSshPublicKeyResponse\022@\n" +
+      "\rlogin_profile\030\001 \001(\0132).google.cloud.oslo" +
+      "gin.v1beta.LoginProfile\022\017\n\007details\030\002 \001(\t" +
+      "\"\317\001\n\031UpdateSshPublicKeyRequest\0229\n\004name\030\001" +
+      " \001(\tB+\340A\002\372A%\n#oslogin.googleapis.com/Ssh" +
+      "PublicKey\022F\n\016ssh_public_key\030\002 \001(\0132).goog" +
+      "le.cloud.oslogin.common.SshPublicKeyB\003\340A" +
+      "\002\022/\n\013update_mask\030\003 \001(\0132\032.google.protobuf" +
+      ".FieldMask\"\324\001\n\013SecurityKey\022\022\n\npublic_key" +
+      "\030\001 \001(\t\022\023\n\013private_key\030\002 \001(\t\022O\n\024universal" +
+      "_two_factor\030\003 \001(\0132/.google.cloud.oslogin" +
+      ".v1beta.UniversalTwoFactorH\000\022:\n\tweb_auth" +
+      "n\030\004 \001(\0132%.google.cloud.oslogin.v1beta.We" +
+      "bAuthnH\000B\017\n\rprotocol_type\"$\n\022UniversalTw" +
+      "oFactor\022\016\n\006app_id\030\001 \001(\t\"\031\n\010WebAuthn\022\r\n\005r" +
+      "p_id\030\001 \001(\t*S\n\020LoginProfileView\022\"\n\036LOGIN_" +
+      "PROFILE_VIEW_UNSPECIFIED\020\000\022\t\n\005BASIC\020\001\022\020\n" +
+      "\014SECURITY_KEY\020\0022\306\014\n\016OsLoginService\022\317\001\n\022C" +
+      "reateSshPublicKey\0226.google.cloud.oslogin" +
+      ".v1beta.CreateSshPublicKeyRequest\032).goog" +
+      "le.cloud.oslogin.common.SshPublicKey\"V\202\323" +
+      "\344\223\0028\"&/v1beta/{parent=users/*}/sshPublic" +
+      "Keys:\016ssh_public_key\332A\025parent,ssh_public" +
+      "_key\022\226\001\n\022DeletePosixAccount\0226.google.clo" +
+      "ud.oslogin.v1beta.DeletePosixAccountRequ" +
+      "est\032\026.google.protobuf.Empty\"0\202\323\344\223\002#*!/v1" +
+      "beta/{name=users/*/projects/*}\332A\004name\022\233\001" +
+      "\n\022DeleteSshPublicKey\0226.google.cloud.oslo" +
+      "gin.v1beta.DeleteSshPublicKeyRequest\032\026.g" +
+      "oogle.protobuf.Empty\"5\202\323\344\223\002(*&/v1beta/{n" +
+      "ame=users/*/sshPublicKeys/*}\332A\004name\022\245\001\n\017" +
+      "GetLoginProfile\0223.google.cloud.oslogin.v" +
+      "1beta.GetLoginProfileRequest\032).google.cl" +
+      "oud.oslogin.v1beta.LoginProfile\"2\202\323\344\223\002%\022" +
+      "#/v1beta/{name=users/*}/loginProfile\332A\004n" +
+      "ame\022\250\001\n\017GetSshPublicKey\0223.google.cloud.o" +
+      "slogin.v1beta.GetSshPublicKeyRequest\032).g" +
+      "oogle.cloud.oslogin.common.SshPublicKey\"" +
+      "5\202\323\344\223\002(\022&/v1beta/{name=users/*/sshPublic" +
+      "Keys/*}\332A\004name\022\205\002\n\022ImportSshPublicKey\0226." +
+      "google.cloud.oslogin.v1beta.ImportSshPub" +
+      "licKeyRequest\0327.google.cloud.oslogin.v1b" +
+      "eta.ImportSshPublicKeyResponse\"~\202\323\344\223\002=\"+" +
+      "/v1beta/{parent=users/*}:importSshPublic" +
+      "Key:\016ssh_public_key\332A\025parent,ssh_public_" +
+      "key\332A parent,ssh_public_key,project_id\022\357" +
+      "\001\n\022UpdateSshPublicKey\0226.google.cloud.osl" +
+      "ogin.v1beta.UpdateSshPublicKeyRequest\032)." +
+      "google.cloud.oslogin.common.SshPublicKey" +
+      "\"v\202\323\344\223\00282&/v1beta/{name=users/*/sshPubli" +
+      "cKeys/*}:\016ssh_public_key\332A\023name,ssh_publ" +
+      "ic_key\332A\037name,ssh_public_key,update_mask" +
+      "\032\335\001\312A\026oslogin.googleapis.com\322A\300\001https://" +
+      "www.googleapis.com/auth/cloud-platform,h" +
+      "ttps://www.googleapis.com/auth/cloud-pla" +
+      "tform.read-only,https://www.googleapis.c" +
+      "om/auth/compute,https://www.googleapis.c" +
+      "om/auth/compute.readonlyB\322\001\n\037com.google." +
+      "cloud.oslogin.v1betaB\014OsLoginProtoP\001ZBgo" +
+      "ogle.golang.org/genproto/googleapis/clou" +
+      "d/oslogin/v1beta;oslogin\252\002\033Google.Cloud." +
+      "OsLogin.V1Beta\312\002\033Google\\Cloud\\OsLogin\\V1" +
+      "beta\352\002\036Google::Cloud::OsLogin::V1betab\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -162,55 +206,79 @@ public final class OsLoginProto {
     internal_static_google_cloud_oslogin_v1beta_LoginProfile_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_oslogin_v1beta_LoginProfile_descriptor,
-        new java.lang.String[] { "Name", "PosixAccounts", "SshPublicKeys", });
+        new java.lang.String[] { "Name", "PosixAccounts", "SshPublicKeys", "SecurityKeys", });
     internal_static_google_cloud_oslogin_v1beta_LoginProfile_SshPublicKeysEntry_descriptor =
       internal_static_google_cloud_oslogin_v1beta_LoginProfile_descriptor.getNestedTypes().get(0);
     internal_static_google_cloud_oslogin_v1beta_LoginProfile_SshPublicKeysEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_oslogin_v1beta_LoginProfile_SshPublicKeysEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_google_cloud_oslogin_v1beta_DeletePosixAccountRequest_descriptor =
+    internal_static_google_cloud_oslogin_v1beta_CreateSshPublicKeyRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_google_cloud_oslogin_v1beta_CreateSshPublicKeyRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_oslogin_v1beta_CreateSshPublicKeyRequest_descriptor,
+        new java.lang.String[] { "Parent", "SshPublicKey", });
+    internal_static_google_cloud_oslogin_v1beta_DeletePosixAccountRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_google_cloud_oslogin_v1beta_DeletePosixAccountRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_oslogin_v1beta_DeletePosixAccountRequest_descriptor,
         new java.lang.String[] { "Name", });
     internal_static_google_cloud_oslogin_v1beta_DeleteSshPublicKeyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_google_cloud_oslogin_v1beta_DeleteSshPublicKeyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_oslogin_v1beta_DeleteSshPublicKeyRequest_descriptor,
         new java.lang.String[] { "Name", });
     internal_static_google_cloud_oslogin_v1beta_GetLoginProfileRequest_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_google_cloud_oslogin_v1beta_GetLoginProfileRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_oslogin_v1beta_GetLoginProfileRequest_descriptor,
-        new java.lang.String[] { "Name", "ProjectId", "SystemId", });
+        new java.lang.String[] { "Name", "ProjectId", "SystemId", "View", });
     internal_static_google_cloud_oslogin_v1beta_GetSshPublicKeyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_google_cloud_oslogin_v1beta_GetSshPublicKeyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_oslogin_v1beta_GetSshPublicKeyRequest_descriptor,
         new java.lang.String[] { "Name", });
     internal_static_google_cloud_oslogin_v1beta_ImportSshPublicKeyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_google_cloud_oslogin_v1beta_ImportSshPublicKeyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_oslogin_v1beta_ImportSshPublicKeyRequest_descriptor,
-        new java.lang.String[] { "Parent", "SshPublicKey", "ProjectId", });
+        new java.lang.String[] { "Parent", "SshPublicKey", "ProjectId", "View", });
     internal_static_google_cloud_oslogin_v1beta_ImportSshPublicKeyResponse_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_google_cloud_oslogin_v1beta_ImportSshPublicKeyResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_oslogin_v1beta_ImportSshPublicKeyResponse_descriptor,
-        new java.lang.String[] { "LoginProfile", });
+        new java.lang.String[] { "LoginProfile", "Details", });
     internal_static_google_cloud_oslogin_v1beta_UpdateSshPublicKeyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_google_cloud_oslogin_v1beta_UpdateSshPublicKeyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_oslogin_v1beta_UpdateSshPublicKeyRequest_descriptor,
         new java.lang.String[] { "Name", "SshPublicKey", "UpdateMask", });
+    internal_static_google_cloud_oslogin_v1beta_SecurityKey_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_google_cloud_oslogin_v1beta_SecurityKey_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_oslogin_v1beta_SecurityKey_descriptor,
+        new java.lang.String[] { "PublicKey", "PrivateKey", "UniversalTwoFactor", "WebAuthn", "ProtocolType", });
+    internal_static_google_cloud_oslogin_v1beta_UniversalTwoFactor_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_google_cloud_oslogin_v1beta_UniversalTwoFactor_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_oslogin_v1beta_UniversalTwoFactor_descriptor,
+        new java.lang.String[] { "AppId", });
+    internal_static_google_cloud_oslogin_v1beta_WebAuthn_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_google_cloud_oslogin_v1beta_WebAuthn_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_oslogin_v1beta_WebAuthn_descriptor,
+        new java.lang.String[] { "RpId", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.ClientProto.defaultHost);

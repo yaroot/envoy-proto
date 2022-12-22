@@ -30,73 +30,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DiscoverConnectionProfileResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 802: {
-            com.google.cloud.datastream.v1alpha1.OracleRdbms.Builder subBuilder = null;
-            if (dataObjectCase_ == 100) {
-              subBuilder = ((com.google.cloud.datastream.v1alpha1.OracleRdbms) dataObject_).toBuilder();
-            }
-            dataObject_ =
-                input.readMessage(com.google.cloud.datastream.v1alpha1.OracleRdbms.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datastream.v1alpha1.OracleRdbms) dataObject_);
-              dataObject_ = subBuilder.buildPartial();
-            }
-            dataObjectCase_ = 100;
-            break;
-          }
-          case 810: {
-            com.google.cloud.datastream.v1alpha1.MysqlRdbms.Builder subBuilder = null;
-            if (dataObjectCase_ == 101) {
-              subBuilder = ((com.google.cloud.datastream.v1alpha1.MysqlRdbms) dataObject_).toBuilder();
-            }
-            dataObject_ =
-                input.readMessage(com.google.cloud.datastream.v1alpha1.MysqlRdbms.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datastream.v1alpha1.MysqlRdbms) dataObject_);
-              dataObject_ = subBuilder.buildPartial();
-            }
-            dataObjectCase_ = 101;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datastream.v1alpha1.CloudDatastreamServiceProto.internal_static_google_cloud_datastream_v1alpha1_DiscoverConnectionProfileResponse_descriptor;
@@ -257,7 +190,7 @@ private static final long serialVersionUID = 0L;
     if (dataObjectCase_ == 101) {
       output.writeMessage(101, (com.google.cloud.datastream.v1alpha1.MysqlRdbms) dataObject_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -274,7 +207,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(101, (com.google.cloud.datastream.v1alpha1.MysqlRdbms) dataObject_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -302,7 +235,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -325,7 +258,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -442,22 +375,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datastream.v1alpha1.DiscoverConnectionProfileResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (oracleRdbmsBuilder_ != null) {
+        oracleRdbmsBuilder_.clear();
+      }
+      if (mysqlRdbmsBuilder_ != null) {
+        mysqlRdbmsBuilder_.clear();
+      }
       dataObjectCase_ = 0;
       dataObject_ = null;
       return this;
@@ -486,23 +421,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datastream.v1alpha1.DiscoverConnectionProfileResponse buildPartial() {
       com.google.cloud.datastream.v1alpha1.DiscoverConnectionProfileResponse result = new com.google.cloud.datastream.v1alpha1.DiscoverConnectionProfileResponse(this);
-      if (dataObjectCase_ == 100) {
-        if (oracleRdbmsBuilder_ == null) {
-          result.dataObject_ = dataObject_;
-        } else {
-          result.dataObject_ = oracleRdbmsBuilder_.build();
-        }
-      }
-      if (dataObjectCase_ == 101) {
-        if (mysqlRdbmsBuilder_ == null) {
-          result.dataObject_ = dataObject_;
-        } else {
-          result.dataObject_ = mysqlRdbmsBuilder_.build();
-        }
-      }
-      result.dataObjectCase_ = dataObjectCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datastream.v1alpha1.DiscoverConnectionProfileResponse result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.cloud.datastream.v1alpha1.DiscoverConnectionProfileResponse result) {
+      result.dataObjectCase_ = dataObjectCase_;
+      result.dataObject_ = this.dataObject_;
+      if (dataObjectCase_ == 100 &&
+          oracleRdbmsBuilder_ != null) {
+        result.dataObject_ = oracleRdbmsBuilder_.build();
+      }
+      if (dataObjectCase_ == 101 &&
+          mysqlRdbmsBuilder_ != null) {
+        result.dataObject_ = mysqlRdbmsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -562,7 +501,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -577,17 +516,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datastream.v1alpha1.DiscoverConnectionProfileResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 802: {
+              input.readMessage(
+                  getOracleRdbmsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              dataObjectCase_ = 100;
+              break;
+            } // case 802
+            case 810: {
+              input.readMessage(
+                  getMysqlRdbmsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              dataObjectCase_ = 101;
+              break;
+            } // case 810
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datastream.v1alpha1.DiscoverConnectionProfileResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int dataObjectCase_ = 0;
@@ -605,6 +571,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.datastream.v1alpha1.OracleRdbms, com.google.cloud.datastream.v1alpha1.OracleRdbms.Builder, com.google.cloud.datastream.v1alpha1.OracleRdbmsOrBuilder> oracleRdbmsBuilder_;
@@ -780,7 +747,7 @@ private static final long serialVersionUID = 0L;
         dataObject_ = null;
       }
       dataObjectCase_ = 100;
-      onChanged();;
+      onChanged();
       return oracleRdbmsBuilder_;
     }
 
@@ -958,7 +925,7 @@ private static final long serialVersionUID = 0L;
         dataObject_ = null;
       }
       dataObjectCase_ = 101;
-      onChanged();;
+      onChanged();
       return mysqlRdbmsBuilder_;
     }
     @java.lang.Override
@@ -994,7 +961,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DiscoverConnectionProfileResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

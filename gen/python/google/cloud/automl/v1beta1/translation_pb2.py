@@ -13,10 +13,9 @@ _sym_db = _symbol_database.Default()
 
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.cloud.automl.v1beta1 import data_items_pb2 as google_dot_cloud_dot_automl_dot_v1beta1_dot_data__items__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-google/cloud/automl/v1beta1/translation.proto\x12\x1bgoogle.cloud.automl.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a,google/cloud/automl/v1beta1/data_items.proto\x1a\x1cgoogle/api/annotations.proto\"b\n\x1aTranslationDatasetMetadata\x12!\n\x14source_language_code\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12!\n\x14target_language_code\x18\x02 \x01(\tB\x03\xe0\x41\x02\"K\n\x1cTranslationEvaluationMetrics\x12\x12\n\nbleu_score\x18\x01 \x01(\x01\x12\x17\n\x0f\x62\x61se_bleu_score\x18\x02 \x01(\x01\"j\n\x18TranslationModelMetadata\x12\x12\n\nbase_model\x18\x01 \x01(\t\x12\x1c\n\x14source_language_code\x18\x02 \x01(\t\x12\x1c\n\x14target_language_code\x18\x03 \x01(\t\"]\n\x15TranslationAnnotation\x12\x44\n\x12translated_content\x18\x01 \x01(\x0b\x32(.google.cloud.automl.v1beta1.TextSnippetB\xb7\x01\n\x1f\x63om.google.cloud.automl.v1beta1B\x10TranslationProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/automl/v1beta1;automl\xca\x02\x1bGoogle\\Cloud\\AutoMl\\V1beta1\xea\x02\x1eGoogle::Cloud::AutoML::V1beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-google/cloud/automl/v1beta1/translation.proto\x12\x1bgoogle.cloud.automl.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a,google/cloud/automl/v1beta1/data_items.proto\"b\n\x1aTranslationDatasetMetadata\x12!\n\x14source_language_code\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12!\n\x14target_language_code\x18\x02 \x01(\tB\x03\xe0\x41\x02\"K\n\x1cTranslationEvaluationMetrics\x12\x12\n\nbleu_score\x18\x01 \x01(\x01\x12\x17\n\x0f\x62\x61se_bleu_score\x18\x02 \x01(\x01\"j\n\x18TranslationModelMetadata\x12\x12\n\nbase_model\x18\x01 \x01(\t\x12\x1c\n\x14source_language_code\x18\x02 \x01(\t\x12\x1c\n\x14target_language_code\x18\x03 \x01(\t\"]\n\x15TranslationAnnotation\x12\x44\n\x12translated_content\x18\x01 \x01(\x0b\x32(.google.cloud.automl.v1beta1.TextSnippetB\xb7\x01\n\x1f\x63om.google.cloud.automl.v1beta1B\x10TranslationProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/automl/v1beta1;automl\xca\x02\x1bGoogle\\Cloud\\AutoMl\\V1beta1\xea\x02\x1eGoogle::Cloud::AutoML::V1beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.automl.v1beta1.translation_pb2', globals())
@@ -28,12 +27,12 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _TRANSLATIONDATASETMETADATA.fields_by_name['source_language_code']._serialized_options = b'\340A\002'
   _TRANSLATIONDATASETMETADATA.fields_by_name['target_language_code']._options = None
   _TRANSLATIONDATASETMETADATA.fields_by_name['target_language_code']._serialized_options = b'\340A\002'
-  _TRANSLATIONDATASETMETADATA._serialized_start=187
-  _TRANSLATIONDATASETMETADATA._serialized_end=285
-  _TRANSLATIONEVALUATIONMETRICS._serialized_start=287
-  _TRANSLATIONEVALUATIONMETRICS._serialized_end=362
-  _TRANSLATIONMODELMETADATA._serialized_start=364
-  _TRANSLATIONMODELMETADATA._serialized_end=470
-  _TRANSLATIONANNOTATION._serialized_start=472
-  _TRANSLATIONANNOTATION._serialized_end=565
+  _TRANSLATIONDATASETMETADATA._serialized_start=157
+  _TRANSLATIONDATASETMETADATA._serialized_end=255
+  _TRANSLATIONEVALUATIONMETRICS._serialized_start=257
+  _TRANSLATIONEVALUATIONMETRICS._serialized_end=332
+  _TRANSLATIONMODELMETADATA._serialized_start=334
+  _TRANSLATIONMODELMETADATA._serialized_end=440
+  _TRANSLATIONANNOTATION._serialized_start=442
+  _TRANSLATIONANNOTATION._serialized_end=535
 # @@protoc_insertion_point(module_scope)

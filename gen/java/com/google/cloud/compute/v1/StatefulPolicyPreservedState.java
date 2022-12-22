@@ -34,59 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StatefulPolicyPreservedState(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 764752818: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              disks_ = com.google.protobuf.MapField.newMapField(
-                  DisksDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice>
-            disks__ = input.readMessage(
-                DisksDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            disks_.getMutableMap().put(
-                disks__.getKey(), disks__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_StatefulPolicyPreservedState_descriptor;
@@ -124,6 +71,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice> disks_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice>
@@ -134,7 +82,6 @@ private static final long serialVersionUID = 0L;
     }
     return disks_;
   }
-
   public int getDisksCount() {
     return internalGetDisks().getMap().size();
   }
@@ -145,7 +92,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice&gt; disks = 95594102;</code>
    */
-
   @java.lang.Override
   public boolean containsDisks(
       java.lang.String key) {
@@ -168,7 +114,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice&gt; disks = 95594102;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice> getDisksMap() {
     return internalGetDisks().getMap();
   }
@@ -180,10 +125,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice&gt; disks = 95594102;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice getDisksOrDefault(
+  public /* nullable */
+com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice getDisksOrDefault(
       java.lang.String key,
-      com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice defaultValue) {
+      /* nullable */
+com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice> map =
         internalGetDisks().getMap();
@@ -197,7 +143,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice&gt; disks = 95594102;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice getDisksOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -229,7 +174,7 @@ private static final long serialVersionUID = 0L;
         internalGetDisks(),
         DisksDefaultEntryHolder.defaultEntry,
         95594102);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -248,7 +193,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(95594102, disks__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -265,7 +210,7 @@ private static final long serialVersionUID = 0L;
 
     if (!internalGetDisks().equals(
         other.internalGetDisks())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -280,7 +225,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DISKS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetDisks().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -423,22 +368,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.StatefulPolicyPreservedState.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableDisks().clear();
       return this;
     }
@@ -466,11 +407,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.StatefulPolicyPreservedState buildPartial() {
       com.google.cloud.compute.v1.StatefulPolicyPreservedState result = new com.google.cloud.compute.v1.StatefulPolicyPreservedState(this);
-      int from_bitField0_ = bitField0_;
-      result.disks_ = internalGetDisks();
-      result.disks_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.StatefulPolicyPreservedState result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.disks_ = internalGetDisks();
+        result.disks_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -519,7 +466,8 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.compute.v1.StatefulPolicyPreservedState.getDefaultInstance()) return this;
       internalGetMutableDisks().mergeFrom(
           other.internalGetDisks());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000001;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -534,17 +482,39 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.StatefulPolicyPreservedState parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 764752818: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice>
+              disks__ = input.readMessage(
+                  DisksDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableDisks().getMutableMap().put(
+                  disks__.getKey(), disks__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 764752818
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.StatefulPolicyPreservedState) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -552,7 +522,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice> disks_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice>
-    internalGetDisks() {
+        internalGetDisks() {
       if (disks_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             DisksDefaultEntryHolder.defaultEntry);
@@ -560,8 +530,7 @@ private static final long serialVersionUID = 0L;
       return disks_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice>
-    internalGetMutableDisks() {
-      onChanged();;
+        internalGetMutableDisks() {
       if (disks_ == null) {
         disks_ = com.google.protobuf.MapField.newMapField(
             DisksDefaultEntryHolder.defaultEntry);
@@ -569,9 +538,10 @@ private static final long serialVersionUID = 0L;
       if (!disks_.isMutable()) {
         disks_ = disks_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return disks_;
     }
-
     public int getDisksCount() {
       return internalGetDisks().getMap().size();
     }
@@ -582,7 +552,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice&gt; disks = 95594102;</code>
      */
-
     @java.lang.Override
     public boolean containsDisks(
         java.lang.String key) {
@@ -605,7 +574,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice&gt; disks = 95594102;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice> getDisksMap() {
       return internalGetDisks().getMap();
     }
@@ -617,10 +585,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice&gt; disks = 95594102;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice getDisksOrDefault(
+    public /* nullable */
+com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice getDisksOrDefault(
         java.lang.String key,
-        com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice defaultValue) {
+        /* nullable */
+com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice> map =
           internalGetDisks().getMap();
@@ -634,7 +603,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice&gt; disks = 95594102;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice getDisksOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -645,8 +613,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearDisks() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableDisks().getMutableMap()
           .clear();
       return this;
@@ -658,7 +626,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice&gt; disks = 95594102;</code>
      */
-
     public Builder removeDisks(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -671,7 +638,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice>
-    getMutableDisks() {
+        getMutableDisks() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableDisks().getMutableMap();
     }
     /**
@@ -685,12 +653,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableDisks().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -700,11 +666,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice&gt; disks = 95594102;</code>
      */
-
     public Builder putAllDisks(
         java.util.Map<java.lang.String, com.google.cloud.compute.v1.StatefulPolicyPreservedStateDiskDevice> values) {
       internalGetMutableDisks().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
     @java.lang.Override
@@ -740,7 +706,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StatefulPolicyPreservedState(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

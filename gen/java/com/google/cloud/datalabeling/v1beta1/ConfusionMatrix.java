@@ -37,58 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConfusionMatrix(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              row_ = new java.util.ArrayList<com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.Row>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            row_.add(
-                input.readMessage(com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.Row.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        row_ = java.util.Collections.unmodifiableList(row_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datalabeling.v1beta1.EvaluationOuterClass.internal_static_google_cloud_datalabeling_v1beta1_ConfusionMatrix_descriptor;
@@ -171,63 +119,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ConfusionMatrixEntry(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.datalabeling.v1beta1.AnnotationSpec.Builder subBuilder = null;
-              if (annotationSpec_ != null) {
-                subBuilder = annotationSpec_.toBuilder();
-              }
-              annotationSpec_ = input.readMessage(com.google.cloud.datalabeling.v1beta1.AnnotationSpec.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(annotationSpec_);
-                annotationSpec_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 16: {
-
-              itemCount_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.datalabeling.v1beta1.EvaluationOuterClass.internal_static_google_cloud_datalabeling_v1beta1_ConfusionMatrix_ConfusionMatrixEntry_descriptor;
@@ -276,11 +167,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.datalabeling.v1beta1.AnnotationSpecOrBuilder getAnnotationSpecOrBuilder() {
-      return getAnnotationSpec();
+      return annotationSpec_ == null ? com.google.cloud.datalabeling.v1beta1.AnnotationSpec.getDefaultInstance() : annotationSpec_;
     }
 
     public static final int ITEM_COUNT_FIELD_NUMBER = 2;
-    private int itemCount_;
+    private int itemCount_ = 0;
     /**
      * <pre>
      * Number of items predicted to have this label. (The ground truth label for
@@ -315,7 +206,7 @@ private static final long serialVersionUID = 0L;
       if (itemCount_ != 0) {
         output.writeInt32(2, itemCount_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -332,7 +223,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, itemCount_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -354,7 +245,7 @@ private static final long serialVersionUID = 0L;
       }
       if (getItemCount()
           != other.getItemCount()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -371,7 +262,7 @@ private static final long serialVersionUID = 0L;
       }
       hash = (37 * hash) + ITEM_COUNT_FIELD_NUMBER;
       hash = (53 * hash) + getItemCount();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -488,30 +379,24 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntry.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (annotationSpecBuilder_ == null) {
-          annotationSpec_ = null;
-        } else {
-          annotationSpec_ = null;
+        bitField0_ = 0;
+        annotationSpec_ = null;
+        if (annotationSpecBuilder_ != null) {
+          annotationSpecBuilder_.dispose();
           annotationSpecBuilder_ = null;
         }
         itemCount_ = 0;
-
         return this;
       }
 
@@ -538,14 +423,21 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntry buildPartial() {
         com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntry result = new com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntry(this);
-        if (annotationSpecBuilder_ == null) {
-          result.annotationSpec_ = annotationSpec_;
-        } else {
-          result.annotationSpec_ = annotationSpecBuilder_.build();
-        }
-        result.itemCount_ = itemCount_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntry result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.annotationSpec_ = annotationSpecBuilder_ == null
+              ? annotationSpec_
+              : annotationSpecBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.itemCount_ = itemCount_;
+        }
       }
 
       @java.lang.Override
@@ -598,7 +490,7 @@ private static final long serialVersionUID = 0L;
         if (other.getItemCount() != 0) {
           setItemCount(other.getItemCount());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -613,19 +505,45 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntry parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getAnnotationSpecFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                itemCount_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntry) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.datalabeling.v1beta1.AnnotationSpec annotationSpec_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -639,7 +557,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the annotationSpec field is set.
        */
       public boolean hasAnnotationSpec() {
-        return annotationSpecBuilder_ != null || annotationSpec_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -669,11 +587,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           annotationSpec_ = value;
-          onChanged();
         } else {
           annotationSpecBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -687,11 +605,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.datalabeling.v1beta1.AnnotationSpec.Builder builderForValue) {
         if (annotationSpecBuilder_ == null) {
           annotationSpec_ = builderForValue.build();
-          onChanged();
         } else {
           annotationSpecBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -703,17 +621,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeAnnotationSpec(com.google.cloud.datalabeling.v1beta1.AnnotationSpec value) {
         if (annotationSpecBuilder_ == null) {
-          if (annotationSpec_ != null) {
-            annotationSpec_ =
-              com.google.cloud.datalabeling.v1beta1.AnnotationSpec.newBuilder(annotationSpec_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            annotationSpec_ != null &&
+            annotationSpec_ != com.google.cloud.datalabeling.v1beta1.AnnotationSpec.getDefaultInstance()) {
+            getAnnotationSpecBuilder().mergeFrom(value);
           } else {
             annotationSpec_ = value;
           }
-          onChanged();
         } else {
           annotationSpecBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -724,14 +643,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.datalabeling.v1beta1.AnnotationSpec annotation_spec = 1;</code>
        */
       public Builder clearAnnotationSpec() {
-        if (annotationSpecBuilder_ == null) {
-          annotationSpec_ = null;
-          onChanged();
-        } else {
-          annotationSpec_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        annotationSpec_ = null;
+        if (annotationSpecBuilder_ != null) {
+          annotationSpecBuilder_.dispose();
           annotationSpecBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -742,7 +660,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.datalabeling.v1beta1.AnnotationSpec annotation_spec = 1;</code>
        */
       public com.google.cloud.datalabeling.v1beta1.AnnotationSpec.Builder getAnnotationSpecBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getAnnotationSpecFieldBuilder().getBuilder();
       }
@@ -809,6 +727,7 @@ private static final long serialVersionUID = 0L;
       public Builder setItemCount(int value) {
         
         itemCount_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -822,7 +741,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearItemCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         itemCount_ = 0;
         onChanged();
         return this;
@@ -860,7 +779,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ConfusionMatrixEntry(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -993,71 +923,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Row(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.datalabeling.v1beta1.AnnotationSpec.Builder subBuilder = null;
-              if (annotationSpec_ != null) {
-                subBuilder = annotationSpec_.toBuilder();
-              }
-              annotationSpec_ = input.readMessage(com.google.cloud.datalabeling.v1beta1.AnnotationSpec.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(annotationSpec_);
-                annotationSpec_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                entries_ = new java.util.ArrayList<com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntry>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              entries_.add(
-                  input.readMessage(com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntry.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          entries_ = java.util.Collections.unmodifiableList(entries_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.datalabeling.v1beta1.EvaluationOuterClass.internal_static_google_cloud_datalabeling_v1beta1_ConfusionMatrix_Row_descriptor;
@@ -1106,10 +971,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.datalabeling.v1beta1.AnnotationSpecOrBuilder getAnnotationSpecOrBuilder() {
-      return getAnnotationSpec();
+      return annotationSpec_ == null ? com.google.cloud.datalabeling.v1beta1.AnnotationSpec.getDefaultInstance() : annotationSpec_;
     }
 
     public static final int ENTRIES_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntry> entries_;
     /**
      * <pre>
@@ -1194,7 +1060,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < entries_.size(); i++) {
         output.writeMessage(2, entries_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1211,7 +1077,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, entries_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1233,7 +1099,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!getEntriesList()
           .equals(other.getEntriesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1252,7 +1118,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + ENTRIES_FIELD_NUMBER;
         hash = (53 * hash) + getEntriesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1374,35 +1240,30 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.Row.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getEntriesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (annotationSpecBuilder_ == null) {
-          annotationSpec_ = null;
-        } else {
-          annotationSpec_ = null;
+        bitField0_ = 0;
+        annotationSpec_ = null;
+        if (annotationSpecBuilder_ != null) {
+          annotationSpecBuilder_.dispose();
           annotationSpecBuilder_ = null;
         }
         if (entriesBuilder_ == null) {
           entries_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          entries_ = null;
           entriesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -1429,23 +1290,31 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.Row buildPartial() {
         com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.Row result = new com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.Row(this);
-        int from_bitField0_ = bitField0_;
-        if (annotationSpecBuilder_ == null) {
-          result.annotationSpec_ = annotationSpec_;
-        } else {
-          result.annotationSpec_ = annotationSpecBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.Row result) {
         if (entriesBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             entries_ = java.util.Collections.unmodifiableList(entries_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.entries_ = entries_;
         } else {
           result.entries_ = entriesBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.Row result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.annotationSpec_ = annotationSpecBuilder_ == null
+              ? annotationSpec_
+              : annotationSpecBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1499,7 +1368,7 @@ private static final long serialVersionUID = 0L;
           if (!other.entries_.isEmpty()) {
             if (entries_.isEmpty()) {
               entries_ = other.entries_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureEntriesIsMutable();
               entries_.addAll(other.entries_);
@@ -1512,7 +1381,7 @@ private static final long serialVersionUID = 0L;
               entriesBuilder_.dispose();
               entriesBuilder_ = null;
               entries_ = other.entries_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               entriesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getEntriesFieldBuilder() : null;
@@ -1521,7 +1390,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1536,17 +1405,50 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.Row parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getAnnotationSpecFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntry m =
+                    input.readMessage(
+                        com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntry.parser(),
+                        extensionRegistry);
+                if (entriesBuilder_ == null) {
+                  ensureEntriesIsMutable();
+                  entries_.add(m);
+                } else {
+                  entriesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.Row) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1563,7 +1465,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the annotationSpec field is set.
        */
       public boolean hasAnnotationSpec() {
-        return annotationSpecBuilder_ != null || annotationSpec_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -1593,11 +1495,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           annotationSpec_ = value;
-          onChanged();
         } else {
           annotationSpecBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1611,11 +1513,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.datalabeling.v1beta1.AnnotationSpec.Builder builderForValue) {
         if (annotationSpecBuilder_ == null) {
           annotationSpec_ = builderForValue.build();
-          onChanged();
         } else {
           annotationSpecBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1627,17 +1529,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeAnnotationSpec(com.google.cloud.datalabeling.v1beta1.AnnotationSpec value) {
         if (annotationSpecBuilder_ == null) {
-          if (annotationSpec_ != null) {
-            annotationSpec_ =
-              com.google.cloud.datalabeling.v1beta1.AnnotationSpec.newBuilder(annotationSpec_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            annotationSpec_ != null &&
+            annotationSpec_ != com.google.cloud.datalabeling.v1beta1.AnnotationSpec.getDefaultInstance()) {
+            getAnnotationSpecBuilder().mergeFrom(value);
           } else {
             annotationSpec_ = value;
           }
-          onChanged();
         } else {
           annotationSpecBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1648,14 +1551,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.datalabeling.v1beta1.AnnotationSpec annotation_spec = 1;</code>
        */
       public Builder clearAnnotationSpec() {
-        if (annotationSpecBuilder_ == null) {
-          annotationSpec_ = null;
-          onChanged();
-        } else {
-          annotationSpec_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        annotationSpec_ = null;
+        if (annotationSpecBuilder_ != null) {
+          annotationSpecBuilder_.dispose();
           annotationSpecBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1666,7 +1568,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.datalabeling.v1beta1.AnnotationSpec annotation_spec = 1;</code>
        */
       public com.google.cloud.datalabeling.v1beta1.AnnotationSpec.Builder getAnnotationSpecBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getAnnotationSpecFieldBuilder().getBuilder();
       }
@@ -1709,9 +1611,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntry> entries_ =
         java.util.Collections.emptyList();
       private void ensureEntriesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           entries_ = new java.util.ArrayList<com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntry>(entries_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -1916,7 +1818,7 @@ private static final long serialVersionUID = 0L;
       public Builder clearEntries() {
         if (entriesBuilder_ == null) {
           entries_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           entriesBuilder_.clear();
@@ -2028,7 +1930,7 @@ private static final long serialVersionUID = 0L;
           entriesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntry, com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntry.Builder, com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntryOrBuilder>(
                   entries_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           entries_ = null;
@@ -2068,7 +1970,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Row(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2089,6 +2002,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROW_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.Row> row_;
   /**
    * <code>repeated .google.cloud.datalabeling.v1beta1.ConfusionMatrix.Row row = 1;</code>
@@ -2145,7 +2059,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < row_.size(); i++) {
       output.writeMessage(1, row_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2158,7 +2072,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, row_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2175,7 +2089,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getRowList()
         .equals(other.getRowList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2190,7 +2104,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ROW_FIELD_NUMBER;
       hash = (53 * hash) + getRowList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2313,29 +2227,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRowFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (rowBuilder_ == null) {
         row_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        row_ = null;
         rowBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -2362,7 +2272,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datalabeling.v1beta1.ConfusionMatrix buildPartial() {
       com.google.cloud.datalabeling.v1beta1.ConfusionMatrix result = new com.google.cloud.datalabeling.v1beta1.ConfusionMatrix(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.datalabeling.v1beta1.ConfusionMatrix result) {
       if (rowBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           row_ = java.util.Collections.unmodifiableList(row_);
@@ -2372,8 +2288,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.row_ = rowBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datalabeling.v1beta1.ConfusionMatrix result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -2446,7 +2364,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2461,17 +2379,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datalabeling.v1beta1.ConfusionMatrix parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.Row m =
+                  input.readMessage(
+                      com.google.cloud.datalabeling.v1beta1.ConfusionMatrix.Row.parser(),
+                      extensionRegistry);
+              if (rowBuilder_ == null) {
+                ensureRowIsMutable();
+                row_.add(m);
+              } else {
+                rowBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datalabeling.v1beta1.ConfusionMatrix) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2748,7 +2692,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConfusionMatrix(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

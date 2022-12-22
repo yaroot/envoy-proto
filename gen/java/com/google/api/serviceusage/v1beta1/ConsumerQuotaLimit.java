@@ -38,86 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConsumerQuotaLimit(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            unit_ = s;
-            break;
-          }
-          case 24: {
-
-            isPrecise_ = input.readBool();
-            break;
-          }
-          case 56: {
-
-            allowsAdminOverrides_ = input.readBool();
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            metric_ = s;
-            break;
-          }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              quotaBuckets_ = new java.util.ArrayList<com.google.api.serviceusage.v1beta1.QuotaBucket>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            quotaBuckets_.add(
-                input.readMessage(com.google.api.serviceusage.v1beta1.QuotaBucket.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        quotaBuckets_ = java.util.Collections.unmodifiableList(quotaBuckets_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.serviceusage.v1beta1.ResourcesProto.internal_static_google_api_serviceusage_v1beta1_ConsumerQuotaLimit_descriptor;
@@ -132,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The resource name of the quota limit.
@@ -186,7 +107,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int METRIC_FIELD_NUMBER = 8;
-  private volatile java.lang.Object metric_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object metric_ = "";
   /**
    * <pre>
    * The name of the parent metric of this limit.
@@ -236,7 +158,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UNIT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object unit_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object unit_ = "";
   /**
    * <pre>
    * The limit unit.
@@ -290,7 +213,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IS_PRECISE_FIELD_NUMBER = 3;
-  private boolean isPrecise_;
+  private boolean isPrecise_ = false;
   /**
    * <pre>
    * Whether this limit is precise or imprecise.
@@ -305,7 +228,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOWS_ADMIN_OVERRIDES_FIELD_NUMBER = 7;
-  private boolean allowsAdminOverrides_;
+  private boolean allowsAdminOverrides_ = false;
   /**
    * <pre>
    * Whether admin overrides are allowed on this limit
@@ -320,6 +243,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUOTA_BUCKETS_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.api.serviceusage.v1beta1.QuotaBucket> quotaBuckets_;
   /**
    * <pre>
@@ -421,7 +345,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < quotaBuckets_.size(); i++) {
       output.writeMessage(9, quotaBuckets_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -451,7 +375,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, quotaBuckets_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -478,7 +402,7 @@ private static final long serialVersionUID = 0L;
         != other.getAllowsAdminOverrides()) return false;
     if (!getQuotaBucketsList()
         .equals(other.getQuotaBucketsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -505,7 +429,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + QUOTA_BUCKETS_FIELD_NUMBER;
       hash = (53 * hash) + getQuotaBucketsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -626,39 +550,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.serviceusage.v1beta1.ConsumerQuotaLimit.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getQuotaBucketsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       metric_ = "";
-
       unit_ = "";
-
       isPrecise_ = false;
-
       allowsAdminOverrides_ = false;
-
       if (quotaBucketsBuilder_ == null) {
         quotaBuckets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        quotaBuckets_ = null;
         quotaBucketsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -685,23 +600,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.serviceusage.v1beta1.ConsumerQuotaLimit buildPartial() {
       com.google.api.serviceusage.v1beta1.ConsumerQuotaLimit result = new com.google.api.serviceusage.v1beta1.ConsumerQuotaLimit(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.metric_ = metric_;
-      result.unit_ = unit_;
-      result.isPrecise_ = isPrecise_;
-      result.allowsAdminOverrides_ = allowsAdminOverrides_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.api.serviceusage.v1beta1.ConsumerQuotaLimit result) {
       if (quotaBucketsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           quotaBuckets_ = java.util.Collections.unmodifiableList(quotaBuckets_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.quotaBuckets_ = quotaBuckets_;
       } else {
         result.quotaBuckets_ = quotaBucketsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.api.serviceusage.v1beta1.ConsumerQuotaLimit result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.metric_ = metric_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.unit_ = unit_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.isPrecise_ = isPrecise_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.allowsAdminOverrides_ = allowsAdminOverrides_;
+      }
     }
 
     @java.lang.Override
@@ -750,14 +683,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.api.serviceusage.v1beta1.ConsumerQuotaLimit.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getMetric().isEmpty()) {
         metric_ = other.metric_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getUnit().isEmpty()) {
         unit_ = other.unit_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getIsPrecise() != false) {
@@ -770,7 +706,7 @@ private static final long serialVersionUID = 0L;
         if (!other.quotaBuckets_.isEmpty()) {
           if (quotaBuckets_.isEmpty()) {
             quotaBuckets_ = other.quotaBuckets_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureQuotaBucketsIsMutable();
             quotaBuckets_.addAll(other.quotaBuckets_);
@@ -783,7 +719,7 @@ private static final long serialVersionUID = 0L;
             quotaBucketsBuilder_.dispose();
             quotaBucketsBuilder_ = null;
             quotaBuckets_ = other.quotaBuckets_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
             quotaBucketsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getQuotaBucketsFieldBuilder() : null;
@@ -792,7 +728,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -807,17 +743,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.serviceusage.v1beta1.ConsumerQuotaLimit parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              unit_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 24: {
+              isPrecise_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 24
+            case 56: {
+              allowsAdminOverrides_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 56
+            case 66: {
+              metric_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 66
+            case 74: {
+              com.google.api.serviceusage.v1beta1.QuotaBucket m =
+                  input.readMessage(
+                      com.google.api.serviceusage.v1beta1.QuotaBucket.parser(),
+                      extensionRegistry);
+              if (quotaBucketsBuilder_ == null) {
+                ensureQuotaBucketsIsMutable();
+                quotaBuckets_.add(m);
+              } else {
+                quotaBucketsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.serviceusage.v1beta1.ConsumerQuotaLimit) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -887,11 +874,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -908,8 +893,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -928,12 +913,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -997,11 +980,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMetric(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       metric_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1016,8 +997,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMetric() {
-      
       metric_ = getDefaultInstance().getMetric();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1034,12 +1015,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMetricBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       metric_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1109,11 +1088,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUnit(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       unit_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1130,8 +1107,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUnit() {
-      
       unit_ = getDefaultInstance().getUnit();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1150,12 +1127,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUnitBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       unit_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1185,6 +1160,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIsPrecise(boolean value) {
       
       isPrecise_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1197,7 +1173,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIsPrecise() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       isPrecise_ = false;
       onChanged();
       return this;
@@ -1228,6 +1204,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAllowsAdminOverrides(boolean value) {
       
       allowsAdminOverrides_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1240,7 +1217,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAllowsAdminOverrides() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       allowsAdminOverrides_ = false;
       onChanged();
       return this;
@@ -1249,9 +1226,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.api.serviceusage.v1beta1.QuotaBucket> quotaBuckets_ =
       java.util.Collections.emptyList();
     private void ensureQuotaBucketsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         quotaBuckets_ = new java.util.ArrayList<com.google.api.serviceusage.v1beta1.QuotaBucket>(quotaBuckets_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -1467,7 +1444,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearQuotaBuckets() {
       if (quotaBucketsBuilder_ == null) {
         quotaBuckets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         quotaBucketsBuilder_.clear();
@@ -1586,7 +1563,7 @@ private static final long serialVersionUID = 0L;
         quotaBucketsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.api.serviceusage.v1beta1.QuotaBucket, com.google.api.serviceusage.v1beta1.QuotaBucket.Builder, com.google.api.serviceusage.v1beta1.QuotaBucketOrBuilder>(
                 quotaBuckets_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         quotaBuckets_ = null;
@@ -1626,7 +1603,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConsumerQuotaLimit(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

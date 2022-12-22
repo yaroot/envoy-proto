@@ -37,127 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CommonAddOnManifest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            logoUrl_ = s;
-            break;
-          }
-          case 26: {
-            com.google.apps.script.type.LayoutProperties.Builder subBuilder = null;
-            if (layoutProperties_ != null) {
-              subBuilder = layoutProperties_.toBuilder();
-            }
-            layoutProperties_ = input.readMessage(com.google.apps.script.type.LayoutProperties.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(layoutProperties_);
-              layoutProperties_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.apps.script.type.AddOnWidgetSet.Builder subBuilder = null;
-            if (addOnWidgetSet_ != null) {
-              subBuilder = addOnWidgetSet_.toBuilder();
-            }
-            addOnWidgetSet_ = input.readMessage(com.google.apps.script.type.AddOnWidgetSet.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(addOnWidgetSet_);
-              addOnWidgetSet_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            useLocaleFromApp_ = input.readBool();
-            break;
-          }
-          case 50: {
-            com.google.apps.script.type.HomepageExtensionPoint.Builder subBuilder = null;
-            if (homepageTrigger_ != null) {
-              subBuilder = homepageTrigger_.toBuilder();
-            }
-            homepageTrigger_ = input.readMessage(com.google.apps.script.type.HomepageExtensionPoint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(homepageTrigger_);
-              homepageTrigger_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              universalActions_ = new java.util.ArrayList<com.google.apps.script.type.UniversalActionExtensionPoint>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            universalActions_.add(
-                input.readMessage(com.google.apps.script.type.UniversalActionExtensionPoint.parser(), extensionRegistry));
-            break;
-          }
-          case 66: {
-            com.google.protobuf.ListValue.Builder subBuilder = null;
-            if (openLinkUrlPrefixes_ != null) {
-              subBuilder = openLinkUrlPrefixes_.toBuilder();
-            }
-            openLinkUrlPrefixes_ = input.readMessage(com.google.protobuf.ListValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(openLinkUrlPrefixes_);
-              openLinkUrlPrefixes_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        universalActions_ = java.util.Collections.unmodifiableList(universalActions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.apps.script.type.ScriptManifest.internal_static_google_apps_script_type_CommonAddOnManifest_descriptor;
@@ -172,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The display name of the add-on.
@@ -218,7 +98,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOGO_URL_FIELD_NUMBER = 2;
-  private volatile java.lang.Object logoUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object logoUrl_ = "";
   /**
    * <pre>
    * Required. The URL for the logo image shown in the add-on toolbar.
@@ -298,7 +179,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.script.type.LayoutPropertiesOrBuilder getLayoutPropertiesOrBuilder() {
-    return getLayoutProperties();
+    return layoutProperties_ == null ? com.google.apps.script.type.LayoutProperties.getDefaultInstance() : layoutProperties_;
   }
 
   public static final int ADD_ON_WIDGET_SET_FIELD_NUMBER = 4;
@@ -339,11 +220,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.script.type.AddOnWidgetSetOrBuilder getAddOnWidgetSetOrBuilder() {
-    return getAddOnWidgetSet();
+    return addOnWidgetSet_ == null ? com.google.apps.script.type.AddOnWidgetSet.getDefaultInstance() : addOnWidgetSet_;
   }
 
   public static final int USE_LOCALE_FROM_APP_FIELD_NUMBER = 5;
-  private boolean useLocaleFromApp_;
+  private boolean useLocaleFromApp_ = false;
   /**
    * <pre>
    * Whether to pass locale information from host app.
@@ -401,10 +282,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.script.type.HomepageExtensionPointOrBuilder getHomepageTriggerOrBuilder() {
-    return getHomepageTrigger();
+    return homepageTrigger_ == null ? com.google.apps.script.type.HomepageExtensionPoint.getDefaultInstance() : homepageTrigger_;
   }
 
   public static final int UNIVERSAL_ACTIONS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.apps.script.type.UniversalActionExtensionPoint> universalActions_;
   /**
    * <pre>
@@ -532,7 +414,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ListValueOrBuilder getOpenLinkUrlPrefixesOrBuilder() {
-    return getOpenLinkUrlPrefixes();
+    return openLinkUrlPrefixes_ == null ? com.google.protobuf.ListValue.getDefaultInstance() : openLinkUrlPrefixes_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -573,7 +455,7 @@ private static final long serialVersionUID = 0L;
     if (openLinkUrlPrefixes_ != null) {
       output.writeMessage(8, getOpenLinkUrlPrefixes());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -612,7 +494,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getOpenLinkUrlPrefixes());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -655,7 +537,7 @@ private static final long serialVersionUID = 0L;
       if (!getOpenLinkUrlPrefixes()
           .equals(other.getOpenLinkUrlPrefixes())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -693,7 +575,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OPEN_LINK_URL_PREFIXES_FIELD_NUMBER;
       hash = (53 * hash) + getOpenLinkUrlPrefixes().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -814,57 +696,46 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.apps.script.type.CommonAddOnManifest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getUniversalActionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       logoUrl_ = "";
-
-      if (layoutPropertiesBuilder_ == null) {
-        layoutProperties_ = null;
-      } else {
-        layoutProperties_ = null;
+      layoutProperties_ = null;
+      if (layoutPropertiesBuilder_ != null) {
+        layoutPropertiesBuilder_.dispose();
         layoutPropertiesBuilder_ = null;
       }
-      if (addOnWidgetSetBuilder_ == null) {
-        addOnWidgetSet_ = null;
-      } else {
-        addOnWidgetSet_ = null;
+      addOnWidgetSet_ = null;
+      if (addOnWidgetSetBuilder_ != null) {
+        addOnWidgetSetBuilder_.dispose();
         addOnWidgetSetBuilder_ = null;
       }
       useLocaleFromApp_ = false;
-
-      if (homepageTriggerBuilder_ == null) {
-        homepageTrigger_ = null;
-      } else {
-        homepageTrigger_ = null;
+      homepageTrigger_ = null;
+      if (homepageTriggerBuilder_ != null) {
+        homepageTriggerBuilder_.dispose();
         homepageTriggerBuilder_ = null;
       }
       if (universalActionsBuilder_ == null) {
         universalActions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        universalActions_ = null;
         universalActionsBuilder_.clear();
       }
-      if (openLinkUrlPrefixesBuilder_ == null) {
-        openLinkUrlPrefixes_ = null;
-      } else {
-        openLinkUrlPrefixes_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      openLinkUrlPrefixes_ = null;
+      if (openLinkUrlPrefixesBuilder_ != null) {
+        openLinkUrlPrefixesBuilder_.dispose();
         openLinkUrlPrefixesBuilder_ = null;
       }
       return this;
@@ -893,41 +764,55 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.apps.script.type.CommonAddOnManifest buildPartial() {
       com.google.apps.script.type.CommonAddOnManifest result = new com.google.apps.script.type.CommonAddOnManifest(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.logoUrl_ = logoUrl_;
-      if (layoutPropertiesBuilder_ == null) {
-        result.layoutProperties_ = layoutProperties_;
-      } else {
-        result.layoutProperties_ = layoutPropertiesBuilder_.build();
-      }
-      if (addOnWidgetSetBuilder_ == null) {
-        result.addOnWidgetSet_ = addOnWidgetSet_;
-      } else {
-        result.addOnWidgetSet_ = addOnWidgetSetBuilder_.build();
-      }
-      result.useLocaleFromApp_ = useLocaleFromApp_;
-      if (homepageTriggerBuilder_ == null) {
-        result.homepageTrigger_ = homepageTrigger_;
-      } else {
-        result.homepageTrigger_ = homepageTriggerBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.apps.script.type.CommonAddOnManifest result) {
       if (universalActionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           universalActions_ = java.util.Collections.unmodifiableList(universalActions_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.universalActions_ = universalActions_;
       } else {
         result.universalActions_ = universalActionsBuilder_.build();
       }
-      if (openLinkUrlPrefixesBuilder_ == null) {
-        result.openLinkUrlPrefixes_ = openLinkUrlPrefixes_;
-      } else {
-        result.openLinkUrlPrefixes_ = openLinkUrlPrefixesBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.apps.script.type.CommonAddOnManifest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.logoUrl_ = logoUrl_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.layoutProperties_ = layoutPropertiesBuilder_ == null
+            ? layoutProperties_
+            : layoutPropertiesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.addOnWidgetSet_ = addOnWidgetSetBuilder_ == null
+            ? addOnWidgetSet_
+            : addOnWidgetSetBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.useLocaleFromApp_ = useLocaleFromApp_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.homepageTrigger_ = homepageTriggerBuilder_ == null
+            ? homepageTrigger_
+            : homepageTriggerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.openLinkUrlPrefixes_ = openLinkUrlPrefixesBuilder_ == null
+            ? openLinkUrlPrefixes_
+            : openLinkUrlPrefixesBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -976,10 +861,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.apps.script.type.CommonAddOnManifest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getLogoUrl().isEmpty()) {
         logoUrl_ = other.logoUrl_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasLayoutProperties()) {
@@ -998,7 +885,7 @@ private static final long serialVersionUID = 0L;
         if (!other.universalActions_.isEmpty()) {
           if (universalActions_.isEmpty()) {
             universalActions_ = other.universalActions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureUniversalActionsIsMutable();
             universalActions_.addAll(other.universalActions_);
@@ -1011,7 +898,7 @@ private static final long serialVersionUID = 0L;
             universalActionsBuilder_.dispose();
             universalActionsBuilder_ = null;
             universalActions_ = other.universalActions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000040);
             universalActionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getUniversalActionsFieldBuilder() : null;
@@ -1023,7 +910,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasOpenLinkUrlPrefixes()) {
         mergeOpenLinkUrlPrefixes(other.getOpenLinkUrlPrefixes());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1038,17 +925,86 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.apps.script.type.CommonAddOnManifest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              logoUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getLayoutPropertiesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getAddOnWidgetSetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              useLocaleFromApp_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              input.readMessage(
+                  getHomepageTriggerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              com.google.apps.script.type.UniversalActionExtensionPoint m =
+                  input.readMessage(
+                      com.google.apps.script.type.UniversalActionExtensionPoint.parser(),
+                      extensionRegistry);
+              if (universalActionsBuilder_ == null) {
+                ensureUniversalActionsIsMutable();
+                universalActions_.add(m);
+              } else {
+                universalActionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getOpenLinkUrlPrefixesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.apps.script.type.CommonAddOnManifest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1106,11 +1062,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1123,8 +1077,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1139,12 +1093,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1202,11 +1154,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLogoUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       logoUrl_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1219,8 +1169,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLogoUrl() {
-      
       logoUrl_ = getDefaultInstance().getLogoUrl();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1235,12 +1185,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLogoUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       logoUrl_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1257,7 +1205,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the layoutProperties field is set.
      */
     public boolean hasLayoutProperties() {
-      return layoutPropertiesBuilder_ != null || layoutProperties_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1287,11 +1235,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         layoutProperties_ = value;
-        onChanged();
       } else {
         layoutPropertiesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1305,11 +1253,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.script.type.LayoutProperties.Builder builderForValue) {
       if (layoutPropertiesBuilder_ == null) {
         layoutProperties_ = builderForValue.build();
-        onChanged();
       } else {
         layoutPropertiesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1321,17 +1269,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLayoutProperties(com.google.apps.script.type.LayoutProperties value) {
       if (layoutPropertiesBuilder_ == null) {
-        if (layoutProperties_ != null) {
-          layoutProperties_ =
-            com.google.apps.script.type.LayoutProperties.newBuilder(layoutProperties_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          layoutProperties_ != null &&
+          layoutProperties_ != com.google.apps.script.type.LayoutProperties.getDefaultInstance()) {
+          getLayoutPropertiesBuilder().mergeFrom(value);
         } else {
           layoutProperties_ = value;
         }
-        onChanged();
       } else {
         layoutPropertiesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1342,14 +1291,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.LayoutProperties layout_properties = 3;</code>
      */
     public Builder clearLayoutProperties() {
-      if (layoutPropertiesBuilder_ == null) {
-        layoutProperties_ = null;
-        onChanged();
-      } else {
-        layoutProperties_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      layoutProperties_ = null;
+      if (layoutPropertiesBuilder_ != null) {
+        layoutPropertiesBuilder_.dispose();
         layoutPropertiesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1360,7 +1308,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.LayoutProperties layout_properties = 3;</code>
      */
     public com.google.apps.script.type.LayoutProperties.Builder getLayoutPropertiesBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getLayoutPropertiesFieldBuilder().getBuilder();
     }
@@ -1413,7 +1361,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the addOnWidgetSet field is set.
      */
     public boolean hasAddOnWidgetSet() {
-      return addOnWidgetSetBuilder_ != null || addOnWidgetSet_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1445,11 +1393,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         addOnWidgetSet_ = value;
-        onChanged();
       } else {
         addOnWidgetSetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1464,11 +1412,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.script.type.AddOnWidgetSet.Builder builderForValue) {
       if (addOnWidgetSetBuilder_ == null) {
         addOnWidgetSet_ = builderForValue.build();
-        onChanged();
       } else {
         addOnWidgetSetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1481,17 +1429,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAddOnWidgetSet(com.google.apps.script.type.AddOnWidgetSet value) {
       if (addOnWidgetSetBuilder_ == null) {
-        if (addOnWidgetSet_ != null) {
-          addOnWidgetSet_ =
-            com.google.apps.script.type.AddOnWidgetSet.newBuilder(addOnWidgetSet_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          addOnWidgetSet_ != null &&
+          addOnWidgetSet_ != com.google.apps.script.type.AddOnWidgetSet.getDefaultInstance()) {
+          getAddOnWidgetSetBuilder().mergeFrom(value);
         } else {
           addOnWidgetSet_ = value;
         }
-        onChanged();
       } else {
         addOnWidgetSetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1503,14 +1452,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.AddOnWidgetSet add_on_widget_set = 4;</code>
      */
     public Builder clearAddOnWidgetSet() {
-      if (addOnWidgetSetBuilder_ == null) {
-        addOnWidgetSet_ = null;
-        onChanged();
-      } else {
-        addOnWidgetSet_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      addOnWidgetSet_ = null;
+      if (addOnWidgetSetBuilder_ != null) {
+        addOnWidgetSetBuilder_.dispose();
         addOnWidgetSetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1522,7 +1470,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.AddOnWidgetSet add_on_widget_set = 4;</code>
      */
     public com.google.apps.script.type.AddOnWidgetSet.Builder getAddOnWidgetSetBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getAddOnWidgetSetFieldBuilder().getBuilder();
     }
@@ -1589,6 +1537,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUseLocaleFromApp(boolean value) {
       
       useLocaleFromApp_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1601,7 +1550,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUseLocaleFromApp() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       useLocaleFromApp_ = false;
       onChanged();
       return this;
@@ -1622,7 +1571,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the homepageTrigger field is set.
      */
     public boolean hasHomepageTrigger() {
-      return homepageTriggerBuilder_ != null || homepageTrigger_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1658,11 +1607,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         homepageTrigger_ = value;
-        onChanged();
       } else {
         homepageTriggerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1679,11 +1628,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.script.type.HomepageExtensionPoint.Builder builderForValue) {
       if (homepageTriggerBuilder_ == null) {
         homepageTrigger_ = builderForValue.build();
-        onChanged();
       } else {
         homepageTriggerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1698,17 +1647,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHomepageTrigger(com.google.apps.script.type.HomepageExtensionPoint value) {
       if (homepageTriggerBuilder_ == null) {
-        if (homepageTrigger_ != null) {
-          homepageTrigger_ =
-            com.google.apps.script.type.HomepageExtensionPoint.newBuilder(homepageTrigger_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          homepageTrigger_ != null &&
+          homepageTrigger_ != com.google.apps.script.type.HomepageExtensionPoint.getDefaultInstance()) {
+          getHomepageTriggerBuilder().mergeFrom(value);
         } else {
           homepageTrigger_ = value;
         }
-        onChanged();
       } else {
         homepageTriggerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1722,14 +1672,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.HomepageExtensionPoint homepage_trigger = 6;</code>
      */
     public Builder clearHomepageTrigger() {
-      if (homepageTriggerBuilder_ == null) {
-        homepageTrigger_ = null;
-        onChanged();
-      } else {
-        homepageTrigger_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      homepageTrigger_ = null;
+      if (homepageTriggerBuilder_ != null) {
+        homepageTriggerBuilder_.dispose();
         homepageTriggerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1743,7 +1692,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.script.type.HomepageExtensionPoint homepage_trigger = 6;</code>
      */
     public com.google.apps.script.type.HomepageExtensionPoint.Builder getHomepageTriggerBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getHomepageTriggerFieldBuilder().getBuilder();
     }
@@ -1792,9 +1741,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.apps.script.type.UniversalActionExtensionPoint> universalActions_ =
       java.util.Collections.emptyList();
     private void ensureUniversalActionsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         universalActions_ = new java.util.ArrayList<com.google.apps.script.type.UniversalActionExtensionPoint>(universalActions_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000040;
        }
     }
 
@@ -2021,7 +1970,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearUniversalActions() {
       if (universalActionsBuilder_ == null) {
         universalActions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         universalActionsBuilder_.clear();
@@ -2147,7 +2096,7 @@ private static final long serialVersionUID = 0L;
         universalActionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.apps.script.type.UniversalActionExtensionPoint, com.google.apps.script.type.UniversalActionExtensionPoint.Builder, com.google.apps.script.type.UniversalActionExtensionPointOrBuilder>(
                 universalActions_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
         universalActions_ = null;
@@ -2173,7 +2122,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the openLinkUrlPrefixes field is set.
      */
     public boolean hasOpenLinkUrlPrefixes() {
-      return openLinkUrlPrefixesBuilder_ != null || openLinkUrlPrefixes_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2215,11 +2164,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         openLinkUrlPrefixes_ = value;
-        onChanged();
       } else {
         openLinkUrlPrefixesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2239,11 +2188,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ListValue.Builder builderForValue) {
       if (openLinkUrlPrefixesBuilder_ == null) {
         openLinkUrlPrefixes_ = builderForValue.build();
-        onChanged();
       } else {
         openLinkUrlPrefixesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2261,17 +2210,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOpenLinkUrlPrefixes(com.google.protobuf.ListValue value) {
       if (openLinkUrlPrefixesBuilder_ == null) {
-        if (openLinkUrlPrefixes_ != null) {
-          openLinkUrlPrefixes_ =
-            com.google.protobuf.ListValue.newBuilder(openLinkUrlPrefixes_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          openLinkUrlPrefixes_ != null &&
+          openLinkUrlPrefixes_ != com.google.protobuf.ListValue.getDefaultInstance()) {
+          getOpenLinkUrlPrefixesBuilder().mergeFrom(value);
         } else {
           openLinkUrlPrefixes_ = value;
         }
-        onChanged();
       } else {
         openLinkUrlPrefixesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2288,14 +2238,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.ListValue open_link_url_prefixes = 8;</code>
      */
     public Builder clearOpenLinkUrlPrefixes() {
-      if (openLinkUrlPrefixesBuilder_ == null) {
-        openLinkUrlPrefixes_ = null;
-        onChanged();
-      } else {
-        openLinkUrlPrefixes_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      openLinkUrlPrefixes_ = null;
+      if (openLinkUrlPrefixesBuilder_ != null) {
+        openLinkUrlPrefixesBuilder_.dispose();
         openLinkUrlPrefixesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2312,7 +2261,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.ListValue open_link_url_prefixes = 8;</code>
      */
     public com.google.protobuf.ListValue.Builder getOpenLinkUrlPrefixesBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getOpenLinkUrlPrefixesFieldBuilder().getBuilder();
     }
@@ -2396,7 +2345,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CommonAddOnManifest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

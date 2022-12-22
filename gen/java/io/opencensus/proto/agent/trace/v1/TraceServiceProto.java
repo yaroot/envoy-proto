@@ -68,12 +68,12 @@ public final class TraceServiceProto {
       "raryConfig\"\000(\0010\001\022\207\001\n\006Export\022:.opencensus" +
       ".proto.agent.trace.v1.ExportTraceService" +
       "Request\032;.opencensus.proto.agent.trace.v" +
-      "1.ExportTraceServiceResponse\"\000(\0010\001B\245\001\n\"i" +
+      "1.ExportTraceServiceResponse\"\000(\0010\001B\251\001\n\"i" +
       "o.opencensus.proto.agent.trace.v1B\021Trace" +
       "ServiceProtoP\001ZHgithub.com/census-instru" +
       "mentation/opencensus-proto/gen-go/agent/" +
-      "trace/v1\352\002\037OpenCensus.Proto.Agent.Trace." +
-      "V1b\006proto3"
+      "trace/v1\352\002#OpenCensus::Proto::Agent::Tra" +
+      "ce::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

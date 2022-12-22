@@ -212,7 +212,6 @@ public interface TablesDatasetMetadataOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.automl.v1beta1.CorrelationStats&gt; target_column_correlations = 6;</code>
    */
-
   /* nullable */
 com.google.cloud.automl.v1beta1.CorrelationStats getTargetColumnCorrelationsOrDefault(
       java.lang.String key,
@@ -232,7 +231,6 @@ com.google.cloud.automl.v1beta1.CorrelationStats defaultValue);
    *
    * <code>map&lt;string, .google.cloud.automl.v1beta1.CorrelationStats&gt; target_column_correlations = 6;</code>
    */
-
   com.google.cloud.automl.v1beta1.CorrelationStats getTargetColumnCorrelationsOrThrow(
       java.lang.String key);
 

@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BusinessContext(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.datacatalog.v1.EntryOverview.Builder subBuilder = null;
-            if (entryOverview_ != null) {
-              subBuilder = entryOverview_.toBuilder();
-            }
-            entryOverview_ = input.readMessage(com.google.cloud.datacatalog.v1.EntryOverview.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(entryOverview_);
-              entryOverview_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.datacatalog.v1.Contacts.Builder subBuilder = null;
-            if (contacts_ != null) {
-              subBuilder = contacts_.toBuilder();
-            }
-            contacts_ = input.readMessage(com.google.cloud.datacatalog.v1.Contacts.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(contacts_);
-              contacts_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datacatalog.v1.Datacatalog.internal_static_google_cloud_datacatalog_v1_BusinessContext_descriptor;
@@ -147,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datacatalog.v1.EntryOverviewOrBuilder getEntryOverviewOrBuilder() {
-    return getEntryOverview();
+    return entryOverview_ == null ? com.google.cloud.datacatalog.v1.EntryOverview.getDefaultInstance() : entryOverview_;
   }
 
   public static final int CONTACTS_FIELD_NUMBER = 2;
@@ -185,7 +120,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datacatalog.v1.ContactsOrBuilder getContactsOrBuilder() {
-    return getContacts();
+    return contacts_ == null ? com.google.cloud.datacatalog.v1.Contacts.getDefaultInstance() : contacts_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -208,7 +143,7 @@ private static final long serialVersionUID = 0L;
     if (contacts_ != null) {
       output.writeMessage(2, getContacts());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -225,7 +160,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getContacts());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +185,7 @@ private static final long serialVersionUID = 0L;
       if (!getContacts()
           .equals(other.getContacts())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -269,7 +204,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CONTACTS_FIELD_NUMBER;
       hash = (53 * hash) + getContacts().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -390,32 +325,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datacatalog.v1.BusinessContext.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (entryOverviewBuilder_ == null) {
-        entryOverview_ = null;
-      } else {
-        entryOverview_ = null;
+      bitField0_ = 0;
+      entryOverview_ = null;
+      if (entryOverviewBuilder_ != null) {
+        entryOverviewBuilder_.dispose();
         entryOverviewBuilder_ = null;
       }
-      if (contactsBuilder_ == null) {
-        contacts_ = null;
-      } else {
-        contacts_ = null;
+      contacts_ = null;
+      if (contactsBuilder_ != null) {
+        contactsBuilder_.dispose();
         contactsBuilder_ = null;
       }
       return this;
@@ -444,18 +373,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datacatalog.v1.BusinessContext buildPartial() {
       com.google.cloud.datacatalog.v1.BusinessContext result = new com.google.cloud.datacatalog.v1.BusinessContext(this);
-      if (entryOverviewBuilder_ == null) {
-        result.entryOverview_ = entryOverview_;
-      } else {
-        result.entryOverview_ = entryOverviewBuilder_.build();
-      }
-      if (contactsBuilder_ == null) {
-        result.contacts_ = contacts_;
-      } else {
-        result.contacts_ = contactsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datacatalog.v1.BusinessContext result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.entryOverview_ = entryOverviewBuilder_ == null
+            ? entryOverview_
+            : entryOverviewBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.contacts_ = contactsBuilder_ == null
+            ? contacts_
+            : contactsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -508,7 +442,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasContacts()) {
         mergeContacts(other.getContacts());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -523,19 +457,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datacatalog.v1.BusinessContext parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getEntryOverviewFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getContactsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datacatalog.v1.BusinessContext) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.datacatalog.v1.EntryOverview entryOverview_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -549,7 +511,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the entryOverview field is set.
      */
     public boolean hasEntryOverview() {
-      return entryOverviewBuilder_ != null || entryOverview_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -579,11 +541,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         entryOverview_ = value;
-        onChanged();
       } else {
         entryOverviewBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -597,11 +559,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datacatalog.v1.EntryOverview.Builder builderForValue) {
       if (entryOverviewBuilder_ == null) {
         entryOverview_ = builderForValue.build();
-        onChanged();
       } else {
         entryOverviewBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -613,17 +575,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEntryOverview(com.google.cloud.datacatalog.v1.EntryOverview value) {
       if (entryOverviewBuilder_ == null) {
-        if (entryOverview_ != null) {
-          entryOverview_ =
-            com.google.cloud.datacatalog.v1.EntryOverview.newBuilder(entryOverview_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          entryOverview_ != null &&
+          entryOverview_ != com.google.cloud.datacatalog.v1.EntryOverview.getDefaultInstance()) {
+          getEntryOverviewBuilder().mergeFrom(value);
         } else {
           entryOverview_ = value;
         }
-        onChanged();
       } else {
         entryOverviewBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -634,14 +597,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.EntryOverview entry_overview = 1;</code>
      */
     public Builder clearEntryOverview() {
-      if (entryOverviewBuilder_ == null) {
-        entryOverview_ = null;
-        onChanged();
-      } else {
-        entryOverview_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      entryOverview_ = null;
+      if (entryOverviewBuilder_ != null) {
+        entryOverviewBuilder_.dispose();
         entryOverviewBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -652,7 +614,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.EntryOverview entry_overview = 1;</code>
      */
     public com.google.cloud.datacatalog.v1.EntryOverview.Builder getEntryOverviewBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getEntryOverviewFieldBuilder().getBuilder();
     }
@@ -704,7 +666,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the contacts field is set.
      */
     public boolean hasContacts() {
-      return contactsBuilder_ != null || contacts_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -734,11 +696,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         contacts_ = value;
-        onChanged();
       } else {
         contactsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -752,11 +714,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datacatalog.v1.Contacts.Builder builderForValue) {
       if (contactsBuilder_ == null) {
         contacts_ = builderForValue.build();
-        onChanged();
       } else {
         contactsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -768,17 +730,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeContacts(com.google.cloud.datacatalog.v1.Contacts value) {
       if (contactsBuilder_ == null) {
-        if (contacts_ != null) {
-          contacts_ =
-            com.google.cloud.datacatalog.v1.Contacts.newBuilder(contacts_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          contacts_ != null &&
+          contacts_ != com.google.cloud.datacatalog.v1.Contacts.getDefaultInstance()) {
+          getContactsBuilder().mergeFrom(value);
         } else {
           contacts_ = value;
         }
-        onChanged();
       } else {
         contactsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -789,14 +752,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.Contacts contacts = 2;</code>
      */
     public Builder clearContacts() {
-      if (contactsBuilder_ == null) {
-        contacts_ = null;
-        onChanged();
-      } else {
-        contacts_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      contacts_ = null;
+      if (contactsBuilder_ != null) {
+        contactsBuilder_.dispose();
         contactsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -807,7 +769,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.Contacts contacts = 2;</code>
      */
     public com.google.cloud.datacatalog.v1.Contacts.Builder getContactsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getContactsFieldBuilder().getBuilder();
     }
@@ -879,7 +841,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BusinessContext(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -39,82 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ReportBillableTripRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            countryCode_ = s;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            platform_ = rawValue;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              relatedIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            relatedIds_.add(s);
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            solutionType_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        relatedIds_ = relatedIds_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.v1.TripApi.internal_static_maps_fleetengine_v1_ReportBillableTripRequest_descriptor;
@@ -261,7 +185,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. Must be in the format
@@ -315,7 +240,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COUNTRY_CODE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object countryCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object countryCode_ = "";
   /**
    * <pre>
    * Required. Two letter country code of the country where the trip takes place. Price is
@@ -363,7 +289,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PLATFORM_FIELD_NUMBER = 5;
-  private int platform_;
+  private int platform_ = 0;
   /**
    * <pre>
    * The platform upon which the request was issued.
@@ -384,12 +310,12 @@ private static final long serialVersionUID = 0L;
    * @return The platform.
    */
   @java.lang.Override public google.maps.fleetengine.v1.BillingPlatformIdentifier getPlatform() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.v1.BillingPlatformIdentifier result = google.maps.fleetengine.v1.BillingPlatformIdentifier.valueOf(platform_);
+    google.maps.fleetengine.v1.BillingPlatformIdentifier result = google.maps.fleetengine.v1.BillingPlatformIdentifier.forNumber(platform_);
     return result == null ? google.maps.fleetengine.v1.BillingPlatformIdentifier.UNRECOGNIZED : result;
   }
 
   public static final int RELATED_IDS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList relatedIds_;
   /**
    * <pre>
@@ -453,7 +379,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOLUTION_TYPE_FIELD_NUMBER = 7;
-  private int solutionType_;
+  private int solutionType_ = 0;
   /**
    * <pre>
    * The type of GMP product solution (for example,
@@ -476,8 +402,7 @@ private static final long serialVersionUID = 0L;
    * @return The solutionType.
    */
   @java.lang.Override public google.maps.fleetengine.v1.ReportBillableTripRequest.SolutionType getSolutionType() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.v1.ReportBillableTripRequest.SolutionType result = google.maps.fleetengine.v1.ReportBillableTripRequest.SolutionType.valueOf(solutionType_);
+    google.maps.fleetengine.v1.ReportBillableTripRequest.SolutionType result = google.maps.fleetengine.v1.ReportBillableTripRequest.SolutionType.forNumber(solutionType_);
     return result == null ? google.maps.fleetengine.v1.ReportBillableTripRequest.SolutionType.UNRECOGNIZED : result;
   }
 
@@ -510,7 +435,7 @@ private static final long serialVersionUID = 0L;
     if (solutionType_ != google.maps.fleetengine.v1.ReportBillableTripRequest.SolutionType.SOLUTION_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(7, solutionType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -541,7 +466,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(7, solutionType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -564,7 +489,7 @@ private static final long serialVersionUID = 0L;
     if (!getRelatedIdsList()
         .equals(other.getRelatedIdsList())) return false;
     if (solutionType_ != other.solutionType_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -587,7 +512,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + SOLUTION_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + solutionType_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -708,32 +633,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.v1.ReportBillableTripRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       countryCode_ = "";
-
       platform_ = 0;
-
       relatedIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       solutionType_ = 0;
-
       return this;
     }
 
@@ -760,18 +677,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.v1.ReportBillableTripRequest buildPartial() {
       google.maps.fleetengine.v1.ReportBillableTripRequest result = new google.maps.fleetengine.v1.ReportBillableTripRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.countryCode_ = countryCode_;
-      result.platform_ = platform_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        relatedIds_ = relatedIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.relatedIds_ = relatedIds_;
-      result.solutionType_ = solutionType_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(google.maps.fleetengine.v1.ReportBillableTripRequest result) {
+      if (((bitField0_ & 0x00000008) != 0)) {
+        relatedIds_ = relatedIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.relatedIds_ = relatedIds_;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.v1.ReportBillableTripRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.countryCode_ = countryCode_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.platform_ = platform_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.solutionType_ = solutionType_;
+      }
     }
 
     @java.lang.Override
@@ -820,10 +753,12 @@ private static final long serialVersionUID = 0L;
       if (other == google.maps.fleetengine.v1.ReportBillableTripRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getCountryCode().isEmpty()) {
         countryCode_ = other.countryCode_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.platform_ != 0) {
@@ -832,7 +767,7 @@ private static final long serialVersionUID = 0L;
       if (!other.relatedIds_.isEmpty()) {
         if (relatedIds_.isEmpty()) {
           relatedIds_ = other.relatedIds_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureRelatedIdsIsMutable();
           relatedIds_.addAll(other.relatedIds_);
@@ -842,7 +777,7 @@ private static final long serialVersionUID = 0L;
       if (other.solutionType_ != 0) {
         setSolutionTypeValue(other.getSolutionTypeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -857,17 +792,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.v1.ReportBillableTripRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 18
+            case 26: {
+              countryCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 40: {
+              platform_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 40
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureRelatedIdsIsMutable();
+              relatedIds_.add(s);
+              break;
+            } // case 50
+            case 56: {
+              solutionType_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 56
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.v1.ReportBillableTripRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -937,11 +911,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -958,8 +930,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -978,12 +950,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1044,11 +1014,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCountryCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       countryCode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1062,8 +1030,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCountryCode() {
-      
       countryCode_ = getDefaultInstance().getCountryCode();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1079,12 +1047,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCountryCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       countryCode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1111,8 +1077,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPlatformValue(int value) {
-      
       platform_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1126,8 +1092,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.v1.BillingPlatformIdentifier getPlatform() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.BillingPlatformIdentifier result = google.maps.fleetengine.v1.BillingPlatformIdentifier.valueOf(platform_);
+      google.maps.fleetengine.v1.BillingPlatformIdentifier result = google.maps.fleetengine.v1.BillingPlatformIdentifier.forNumber(platform_);
       return result == null ? google.maps.fleetengine.v1.BillingPlatformIdentifier.UNRECOGNIZED : result;
     }
     /**
@@ -1143,7 +1108,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       platform_ = value.getNumber();
       onChanged();
       return this;
@@ -1157,7 +1122,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPlatform() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       platform_ = 0;
       onChanged();
       return this;
@@ -1165,9 +1130,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList relatedIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureRelatedIdsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         relatedIds_ = new com.google.protobuf.LazyStringArrayList(relatedIds_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -1245,10 +1210,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRelatedIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRelatedIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRelatedIdsIsMutable();
       relatedIds_.set(index, value);
       onChanged();
       return this;
@@ -1267,10 +1230,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRelatedIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRelatedIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRelatedIdsIsMutable();
       relatedIds_.add(value);
       onChanged();
       return this;
@@ -1308,7 +1269,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearRelatedIds() {
       relatedIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1326,10 +1287,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRelatedIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureRelatedIdsIsMutable();
       relatedIds_.add(value);
       onChanged();
@@ -1360,8 +1319,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSolutionTypeValue(int value) {
-      
       solutionType_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1376,8 +1335,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.v1.ReportBillableTripRequest.SolutionType getSolutionType() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.ReportBillableTripRequest.SolutionType result = google.maps.fleetengine.v1.ReportBillableTripRequest.SolutionType.valueOf(solutionType_);
+      google.maps.fleetengine.v1.ReportBillableTripRequest.SolutionType result = google.maps.fleetengine.v1.ReportBillableTripRequest.SolutionType.forNumber(solutionType_);
       return result == null ? google.maps.fleetengine.v1.ReportBillableTripRequest.SolutionType.UNRECOGNIZED : result;
     }
     /**
@@ -1394,7 +1352,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       solutionType_ = value.getNumber();
       onChanged();
       return this;
@@ -1409,7 +1367,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSolutionType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       solutionType_ = 0;
       onChanged();
       return this;
@@ -1447,7 +1405,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ReportBillableTripRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

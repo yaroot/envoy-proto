@@ -42,69 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PrivateEndpoints(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            predictHttpUri_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            explainHttpUri_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            healthHttpUri_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceAttachment_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1.EndpointProto.internal_static_google_cloud_aiplatform_v1_PrivateEndpoints_descriptor;
@@ -119,7 +56,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PREDICT_HTTP_URI_FIELD_NUMBER = 1;
-  private volatile java.lang.Object predictHttpUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object predictHttpUri_ = "";
   /**
    * <pre>
    * Output only. Http(s) path to send prediction requests.
@@ -165,7 +103,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXPLAIN_HTTP_URI_FIELD_NUMBER = 2;
-  private volatile java.lang.Object explainHttpUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object explainHttpUri_ = "";
   /**
    * <pre>
    * Output only. Http(s) path to send explain requests.
@@ -211,7 +150,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HEALTH_HTTP_URI_FIELD_NUMBER = 3;
-  private volatile java.lang.Object healthHttpUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object healthHttpUri_ = "";
   /**
    * <pre>
    * Output only. Http(s) path to send health check requests.
@@ -257,7 +197,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_ATTACHMENT_FIELD_NUMBER = 4;
-  private volatile java.lang.Object serviceAttachment_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceAttachment_ = "";
   /**
    * <pre>
    * Output only. The name of the service attachment resource. Populated if private service
@@ -330,7 +271,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serviceAttachment_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, serviceAttachment_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -351,7 +292,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serviceAttachment_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, serviceAttachment_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -374,7 +315,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getHealthHttpUri())) return false;
     if (!getServiceAttachment()
         .equals(other.getServiceAttachment())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -393,7 +334,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getHealthHttpUri().hashCode();
     hash = (37 * hash) + SERVICE_ATTACHMENT_FIELD_NUMBER;
     hash = (53 * hash) + getServiceAttachment().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -518,30 +459,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1.PrivateEndpoints.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       predictHttpUri_ = "";
-
       explainHttpUri_ = "";
-
       healthHttpUri_ = "";
-
       serviceAttachment_ = "";
-
       return this;
     }
 
@@ -568,12 +501,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.PrivateEndpoints buildPartial() {
       com.google.cloud.aiplatform.v1.PrivateEndpoints result = new com.google.cloud.aiplatform.v1.PrivateEndpoints(this);
-      result.predictHttpUri_ = predictHttpUri_;
-      result.explainHttpUri_ = explainHttpUri_;
-      result.healthHttpUri_ = healthHttpUri_;
-      result.serviceAttachment_ = serviceAttachment_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1.PrivateEndpoints result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.predictHttpUri_ = predictHttpUri_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.explainHttpUri_ = explainHttpUri_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.healthHttpUri_ = healthHttpUri_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.serviceAttachment_ = serviceAttachment_;
+      }
     }
 
     @java.lang.Override
@@ -622,21 +568,25 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.aiplatform.v1.PrivateEndpoints.getDefaultInstance()) return this;
       if (!other.getPredictHttpUri().isEmpty()) {
         predictHttpUri_ = other.predictHttpUri_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getExplainHttpUri().isEmpty()) {
         explainHttpUri_ = other.explainHttpUri_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getHealthHttpUri().isEmpty()) {
         healthHttpUri_ = other.healthHttpUri_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getServiceAttachment().isEmpty()) {
         serviceAttachment_ = other.serviceAttachment_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -651,19 +601,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1.PrivateEndpoints parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              predictHttpUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              explainHttpUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              healthHttpUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              serviceAttachment_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1.PrivateEndpoints) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object predictHttpUri_ = "";
     /**
@@ -718,11 +702,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPredictHttpUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       predictHttpUri_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -735,8 +717,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPredictHttpUri() {
-      
       predictHttpUri_ = getDefaultInstance().getPredictHttpUri();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -751,12 +733,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPredictHttpUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       predictHttpUri_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -814,11 +794,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExplainHttpUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       explainHttpUri_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -831,8 +809,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExplainHttpUri() {
-      
       explainHttpUri_ = getDefaultInstance().getExplainHttpUri();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -847,12 +825,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExplainHttpUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       explainHttpUri_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -910,11 +886,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHealthHttpUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       healthHttpUri_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -927,8 +901,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHealthHttpUri() {
-      
       healthHttpUri_ = getDefaultInstance().getHealthHttpUri();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -943,12 +917,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHealthHttpUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       healthHttpUri_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1009,11 +981,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAttachment(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceAttachment_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1027,8 +997,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServiceAttachment() {
-      
       serviceAttachment_ = getDefaultInstance().getServiceAttachment();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1044,12 +1014,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAttachmentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceAttachment_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1086,7 +1054,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PrivateEndpoints(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -45,112 +45,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TransactionInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            apiType_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            transactionType_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            transactionSubType_ = rawValue;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            errorCode_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            errorMessage_ = s;
-            break;
-          }
-          case 66: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            bankAdapterRequestIds_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            upiErrorCode_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.paymentgateway.issuerswitch.v1.TransactionsProto.internal_static_google_cloud_paymentgateway_issuerswitch_v1_TransactionInfo_descriptor;
@@ -175,7 +69,7 @@ private static final long serialVersionUID = 0L;
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
-     * Unspecicifed state.
+     * Unspecified state.
      * </pre>
      *
      * <code>STATE_UNSPECIFIED = 0;</code>
@@ -202,7 +96,7 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Unspecicifed state.
+     * Unspecified state.
      * </pre>
      *
      * <code>STATE_UNSPECIFIED = 0;</code>
@@ -527,7 +421,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * Output only. An identifier that is mandatorily present in every transaction processed
@@ -575,7 +470,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int API_TYPE_FIELD_NUMBER = 2;
-  private int apiType_;
+  private int apiType_ = 0;
   /**
    * <pre>
    * Output only. The API type of the transaction.
@@ -596,13 +491,12 @@ private static final long serialVersionUID = 0L;
    * @return The apiType.
    */
   @java.lang.Override public com.google.cloud.paymentgateway.issuerswitch.v1.ApiType getApiType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.paymentgateway.issuerswitch.v1.ApiType result = com.google.cloud.paymentgateway.issuerswitch.v1.ApiType.valueOf(apiType_);
+    com.google.cloud.paymentgateway.issuerswitch.v1.ApiType result = com.google.cloud.paymentgateway.issuerswitch.v1.ApiType.forNumber(apiType_);
     return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.ApiType.UNRECOGNIZED : result;
   }
 
   public static final int TRANSACTION_TYPE_FIELD_NUMBER = 3;
-  private int transactionType_;
+  private int transactionType_ = 0;
   /**
    * <pre>
    * Output only. The transaction type.
@@ -623,13 +517,12 @@ private static final long serialVersionUID = 0L;
    * @return The transactionType.
    */
   @java.lang.Override public com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType getTransactionType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType result = com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType.valueOf(transactionType_);
+    com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType result = com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType.forNumber(transactionType_);
     return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType.UNRECOGNIZED : result;
   }
 
   public static final int TRANSACTION_SUB_TYPE_FIELD_NUMBER = 4;
-  private int transactionSubType_;
+  private int transactionSubType_ = 0;
   /**
    * <pre>
    * Output only. The transaction sub-type.
@@ -650,13 +543,12 @@ private static final long serialVersionUID = 0L;
    * @return The transactionSubType.
    */
   @java.lang.Override public com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.TransactionSubType getTransactionSubType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.TransactionSubType result = com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.TransactionSubType.valueOf(transactionSubType_);
+    com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.TransactionSubType result = com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.TransactionSubType.forNumber(transactionSubType_);
     return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.TransactionSubType.UNRECOGNIZED : result;
   }
 
   public static final int STATE_FIELD_NUMBER = 5;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The transaction's state.
@@ -677,13 +569,13 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.State result = com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.State.valueOf(state_);
+    com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.State result = com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.State.forNumber(state_);
     return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.State.UNRECOGNIZED : result;
   }
 
   public static final int ERROR_CODE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object errorCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object errorCode_ = "";
   /**
    * <pre>
    * Output only. Error code of the failed transaction.
@@ -729,7 +621,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ERROR_MESSAGE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object errorMessage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object errorMessage_ = "";
   /**
    * <pre>
    * Output only. Error description for the failed transaction.
@@ -812,18 +705,60 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
-  public static final int BANK_ADAPTER_REQUEST_IDS_FIELD_NUMBER = 9;
-  private volatile java.lang.Object bankAdapterRequestIds_;
+  public static final int UPDATE_TIME_FIELD_NUMBER = 9;
+  private com.google.protobuf.Timestamp updateTime_;
+  /**
+   * <pre>
+   * Output only. The time at which the transaction resource was last updated by the
+   * issuer switch.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp update_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return Whether the updateTime field is set.
+   */
+  @java.lang.Override
+  public boolean hasUpdateTime() {
+    return updateTime_ != null;
+  }
+  /**
+   * <pre>
+   * Output only. The time at which the transaction resource was last updated by the
+   * issuer switch.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp update_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The updateTime.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getUpdateTime() {
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
+  }
+  /**
+   * <pre>
+   * Output only. The time at which the transaction resource was last updated by the
+   * issuer switch.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp update_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
+  }
+
+  public static final int BANK_ADAPTER_REQUEST_IDS_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object bankAdapterRequestIds_ = "";
   /**
    * <pre>
    * Output only. List of Request IDs (colon separated) used when
    * invoking the Bank Adapter APIs for fulfilling a transaction request.
    * </pre>
    *
-   * <code>string bank_adapter_request_ids = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * <code>string bank_adapter_request_ids = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The bankAdapterRequestIds.
    */
   @java.lang.Override
@@ -845,7 +780,7 @@ private static final long serialVersionUID = 0L;
    * invoking the Bank Adapter APIs for fulfilling a transaction request.
    * </pre>
    *
-   * <code>string bank_adapter_request_ids = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * <code>string bank_adapter_request_ids = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The bytes for bankAdapterRequestIds.
    */
   @java.lang.Override
@@ -863,8 +798,9 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int UPI_ERROR_CODE_FIELD_NUMBER = 10;
-  private volatile java.lang.Object upiErrorCode_;
+  public static final int UPI_ERROR_CODE_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object upiErrorCode_ = "";
   /**
    * <pre>
    * Output only. Error code as per the UPI specification. The issuer switch maps the
@@ -872,7 +808,7 @@ private static final long serialVersionUID = 0L;
    * specification.
    * </pre>
    *
-   * <code>string upi_error_code = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * <code>string upi_error_code = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The upiErrorCode.
    */
   @java.lang.Override
@@ -895,7 +831,7 @@ private static final long serialVersionUID = 0L;
    * specification.
    * </pre>
    *
-   * <code>string upi_error_code = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * <code>string upi_error_code = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The bytes for upiErrorCode.
    */
   @java.lang.Override
@@ -951,13 +887,16 @@ private static final long serialVersionUID = 0L;
     if (createTime_ != null) {
       output.writeMessage(8, getCreateTime());
     }
+    if (updateTime_ != null) {
+      output.writeMessage(9, getUpdateTime());
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bankAdapterRequestIds_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, bankAdapterRequestIds_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, bankAdapterRequestIds_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(upiErrorCode_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, upiErrorCode_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, upiErrorCode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -995,13 +934,17 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getCreateTime());
     }
+    if (updateTime_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, getUpdateTime());
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bankAdapterRequestIds_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, bankAdapterRequestIds_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, bankAdapterRequestIds_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(upiErrorCode_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, upiErrorCode_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, upiErrorCode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1031,11 +974,16 @@ private static final long serialVersionUID = 0L;
       if (!getCreateTime()
           .equals(other.getCreateTime())) return false;
     }
+    if (hasUpdateTime() != other.hasUpdateTime()) return false;
+    if (hasUpdateTime()) {
+      if (!getUpdateTime()
+          .equals(other.getUpdateTime())) return false;
+    }
     if (!getBankAdapterRequestIds()
         .equals(other.getBankAdapterRequestIds())) return false;
     if (!getUpiErrorCode()
         .equals(other.getUpiErrorCode())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1064,11 +1012,15 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getCreateTime().hashCode();
     }
+    if (hasUpdateTime()) {
+      hash = (37 * hash) + UPDATE_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getUpdateTime().hashCode();
+    }
     hash = (37 * hash) + BANK_ADAPTER_REQUEST_IDS_FIELD_NUMBER;
     hash = (53 * hash) + getBankAdapterRequestIds().hashCode();
     hash = (37 * hash) + UPI_ERROR_CODE_FIELD_NUMBER;
     hash = (53 * hash) + getUpiErrorCode().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1191,46 +1143,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       id_ = "";
-
       apiType_ = 0;
-
       transactionType_ = 0;
-
       transactionSubType_ = 0;
-
       state_ = 0;
-
       errorCode_ = "";
-
       errorMessage_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
+        updateTimeBuilder_ = null;
+      }
       bankAdapterRequestIds_ = "";
-
       upiErrorCode_ = "";
-
       return this;
     }
 
@@ -1257,22 +1200,50 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo buildPartial() {
       com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo result = new com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo(this);
-      result.id_ = id_;
-      result.apiType_ = apiType_;
-      result.transactionType_ = transactionType_;
-      result.transactionSubType_ = transactionSubType_;
-      result.state_ = state_;
-      result.errorCode_ = errorCode_;
-      result.errorMessage_ = errorMessage_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      result.bankAdapterRequestIds_ = bankAdapterRequestIds_;
-      result.upiErrorCode_ = upiErrorCode_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.apiType_ = apiType_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.transactionType_ = transactionType_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.transactionSubType_ = transactionSubType_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.errorCode_ = errorCode_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.errorMessage_ = errorMessage_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.bankAdapterRequestIds_ = bankAdapterRequestIds_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.upiErrorCode_ = upiErrorCode_;
+      }
     }
 
     @java.lang.Override
@@ -1321,6 +1292,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.apiType_ != 0) {
@@ -1337,24 +1309,31 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getErrorCode().isEmpty()) {
         errorCode_ = other.errorCode_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getErrorMessage().isEmpty()) {
         errorMessage_ = other.errorMessage_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasCreateTime()) {
         mergeCreateTime(other.getCreateTime());
       }
+      if (other.hasUpdateTime()) {
+        mergeUpdateTime(other.getUpdateTime());
+      }
       if (!other.getBankAdapterRequestIds().isEmpty()) {
         bankAdapterRequestIds_ = other.bankAdapterRequestIds_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (!other.getUpiErrorCode().isEmpty()) {
         upiErrorCode_ = other.upiErrorCode_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1369,19 +1348,92 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              apiType_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              transactionType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              transactionSubType_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              errorCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              errorMessage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              bankAdapterRequestIds_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              upiErrorCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object id_ = "";
     /**
@@ -1439,11 +1491,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1457,8 +1507,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1474,12 +1524,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1506,8 +1554,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setApiTypeValue(int value) {
-      
       apiType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1521,8 +1569,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.ApiType getApiType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.paymentgateway.issuerswitch.v1.ApiType result = com.google.cloud.paymentgateway.issuerswitch.v1.ApiType.valueOf(apiType_);
+      com.google.cloud.paymentgateway.issuerswitch.v1.ApiType result = com.google.cloud.paymentgateway.issuerswitch.v1.ApiType.forNumber(apiType_);
       return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.ApiType.UNRECOGNIZED : result;
     }
     /**
@@ -1538,7 +1585,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       apiType_ = value.getNumber();
       onChanged();
       return this;
@@ -1552,7 +1599,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApiType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       apiType_ = 0;
       onChanged();
       return this;
@@ -1580,8 +1627,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTransactionTypeValue(int value) {
-      
       transactionType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1595,8 +1642,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType getTransactionType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType result = com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType.valueOf(transactionType_);
+      com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType result = com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType.forNumber(transactionType_);
       return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType.UNRECOGNIZED : result;
     }
     /**
@@ -1612,7 +1658,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       transactionType_ = value.getNumber();
       onChanged();
       return this;
@@ -1626,7 +1672,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTransactionType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       transactionType_ = 0;
       onChanged();
       return this;
@@ -1654,8 +1700,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTransactionSubTypeValue(int value) {
-      
       transactionSubType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1669,8 +1715,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.TransactionSubType getTransactionSubType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.TransactionSubType result = com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.TransactionSubType.valueOf(transactionSubType_);
+      com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.TransactionSubType result = com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.TransactionSubType.forNumber(transactionSubType_);
       return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.TransactionSubType.UNRECOGNIZED : result;
     }
     /**
@@ -1686,7 +1731,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       transactionSubType_ = value.getNumber();
       onChanged();
       return this;
@@ -1700,7 +1745,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTransactionSubType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       transactionSubType_ = 0;
       onChanged();
       return this;
@@ -1728,8 +1773,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1743,8 +1788,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.State result = com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.State.valueOf(state_);
+      com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.State result = com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.State.forNumber(state_);
       return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.TransactionInfo.State.UNRECOGNIZED : result;
     }
     /**
@@ -1760,7 +1804,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -1774,7 +1818,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       state_ = 0;
       onChanged();
       return this;
@@ -1833,11 +1877,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setErrorCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       errorCode_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1850,8 +1892,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearErrorCode() {
-      
       errorCode_ = getDefaultInstance().getErrorCode();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1866,12 +1908,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setErrorCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       errorCode_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1929,11 +1969,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setErrorMessage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       errorMessage_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1946,8 +1984,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearErrorMessage() {
-      
       errorMessage_ = getDefaultInstance().getErrorMessage();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1962,12 +2000,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setErrorMessageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       errorMessage_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1985,7 +2021,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2017,11 +2053,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2036,11 +2072,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2053,17 +2089,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2075,14 +2112,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2094,7 +2130,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -2136,6 +2172,170 @@ private static final long serialVersionUID = 0L;
       return createTimeBuilder_;
     }
 
+    private com.google.protobuf.Timestamp updateTime_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> updateTimeBuilder_;
+    /**
+     * <pre>
+     * Output only. The time at which the transaction resource was last updated by the
+     * issuer switch.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp update_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return Whether the updateTime field is set.
+     */
+    public boolean hasUpdateTime() {
+      return ((bitField0_ & 0x00000100) != 0);
+    }
+    /**
+     * <pre>
+     * Output only. The time at which the transaction resource was last updated by the
+     * issuer switch.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp update_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The updateTime.
+     */
+    public com.google.protobuf.Timestamp getUpdateTime() {
+      if (updateTimeBuilder_ == null) {
+        return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
+      } else {
+        return updateTimeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Output only. The time at which the transaction resource was last updated by the
+     * issuer switch.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp update_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder setUpdateTime(com.google.protobuf.Timestamp value) {
+      if (updateTimeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        updateTime_ = value;
+      } else {
+        updateTimeBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The time at which the transaction resource was last updated by the
+     * issuer switch.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp update_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder setUpdateTime(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (updateTimeBuilder_ == null) {
+        updateTime_ = builderForValue.build();
+      } else {
+        updateTimeBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The time at which the transaction resource was last updated by the
+     * issuer switch.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp update_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
+      if (updateTimeBuilder_ == null) {
+        if (((bitField0_ & 0x00000100) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
+        } else {
+          updateTime_ = value;
+        }
+      } else {
+        updateTimeBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The time at which the transaction resource was last updated by the
+     * issuer switch.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp update_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder clearUpdateTime() {
+      bitField0_ = (bitField0_ & ~0x00000100);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
+        updateTimeBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The time at which the transaction resource was last updated by the
+     * issuer switch.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp update_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return getUpdateTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Output only. The time at which the transaction resource was last updated by the
+     * issuer switch.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp update_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
+      if (updateTimeBuilder_ != null) {
+        return updateTimeBuilder_.getMessageOrBuilder();
+      } else {
+        return updateTime_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
+      }
+    }
+    /**
+     * <pre>
+     * Output only. The time at which the transaction resource was last updated by the
+     * issuer switch.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp update_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getUpdateTimeFieldBuilder() {
+      if (updateTimeBuilder_ == null) {
+        updateTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getUpdateTime(),
+                getParentForChildren(),
+                isClean());
+        updateTime_ = null;
+      }
+      return updateTimeBuilder_;
+    }
+
     private java.lang.Object bankAdapterRequestIds_ = "";
     /**
      * <pre>
@@ -2143,7 +2343,7 @@ private static final long serialVersionUID = 0L;
      * invoking the Bank Adapter APIs for fulfilling a transaction request.
      * </pre>
      *
-     * <code>string bank_adapter_request_ids = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string bank_adapter_request_ids = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The bankAdapterRequestIds.
      */
     public java.lang.String getBankAdapterRequestIds() {
@@ -2164,7 +2364,7 @@ private static final long serialVersionUID = 0L;
      * invoking the Bank Adapter APIs for fulfilling a transaction request.
      * </pre>
      *
-     * <code>string bank_adapter_request_ids = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string bank_adapter_request_ids = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The bytes for bankAdapterRequestIds.
      */
     public com.google.protobuf.ByteString
@@ -2186,17 +2386,15 @@ private static final long serialVersionUID = 0L;
      * invoking the Bank Adapter APIs for fulfilling a transaction request.
      * </pre>
      *
-     * <code>string bank_adapter_request_ids = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string bank_adapter_request_ids = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @param value The bankAdapterRequestIds to set.
      * @return This builder for chaining.
      */
     public Builder setBankAdapterRequestIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       bankAdapterRequestIds_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2206,12 +2404,12 @@ private static final long serialVersionUID = 0L;
      * invoking the Bank Adapter APIs for fulfilling a transaction request.
      * </pre>
      *
-     * <code>string bank_adapter_request_ids = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string bank_adapter_request_ids = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearBankAdapterRequestIds() {
-      
       bankAdapterRequestIds_ = getDefaultInstance().getBankAdapterRequestIds();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2221,18 +2419,16 @@ private static final long serialVersionUID = 0L;
      * invoking the Bank Adapter APIs for fulfilling a transaction request.
      * </pre>
      *
-     * <code>string bank_adapter_request_ids = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string bank_adapter_request_ids = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @param value The bytes for bankAdapterRequestIds to set.
      * @return This builder for chaining.
      */
     public Builder setBankAdapterRequestIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       bankAdapterRequestIds_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2245,7 +2441,7 @@ private static final long serialVersionUID = 0L;
      * specification.
      * </pre>
      *
-     * <code>string upi_error_code = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string upi_error_code = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The upiErrorCode.
      */
     public java.lang.String getUpiErrorCode() {
@@ -2267,7 +2463,7 @@ private static final long serialVersionUID = 0L;
      * specification.
      * </pre>
      *
-     * <code>string upi_error_code = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string upi_error_code = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The bytes for upiErrorCode.
      */
     public com.google.protobuf.ByteString
@@ -2290,17 +2486,15 @@ private static final long serialVersionUID = 0L;
      * specification.
      * </pre>
      *
-     * <code>string upi_error_code = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string upi_error_code = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @param value The upiErrorCode to set.
      * @return This builder for chaining.
      */
     public Builder setUpiErrorCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       upiErrorCode_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2311,12 +2505,12 @@ private static final long serialVersionUID = 0L;
      * specification.
      * </pre>
      *
-     * <code>string upi_error_code = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string upi_error_code = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearUpiErrorCode() {
-      
       upiErrorCode_ = getDefaultInstance().getUpiErrorCode();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -2327,18 +2521,16 @@ private static final long serialVersionUID = 0L;
      * specification.
      * </pre>
      *
-     * <code>string upi_error_code = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>string upi_error_code = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @param value The bytes for upiErrorCode to set.
      * @return This builder for chaining.
      */
     public Builder setUpiErrorCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       upiErrorCode_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2375,7 +2567,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TransactionInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

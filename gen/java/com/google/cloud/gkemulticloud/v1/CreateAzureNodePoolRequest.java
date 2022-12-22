@@ -36,75 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateAzureNodePoolRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.gkemulticloud.v1.AzureNodePool.Builder subBuilder = null;
-            if (azureNodePool_ != null) {
-              subBuilder = azureNodePool_.toBuilder();
-            }
-            azureNodePool_ = input.readMessage(com.google.cloud.gkemulticloud.v1.AzureNodePool.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(azureNodePool_);
-              azureNodePool_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            azureNodePoolId_ = s;
-            break;
-          }
-          case 32: {
-
-            validateOnly_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkemulticloud.v1.AzureServiceProto.internal_static_google_cloud_gkemulticloud_v1_CreateAzureNodePoolRequest_descriptor;
@@ -119,10 +50,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
-   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource where this node pool will be created.
+   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+   * resource where this node pool will be created.
    * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
    * for more details on Google Cloud resource names.
@@ -146,7 +79,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource where this node pool will be created.
+   * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+   * resource where this node pool will be created.
    * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
    * for more details on Google Cloud resource names.
@@ -174,7 +108,8 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.gkemulticloud.v1.AzureNodePool azureNodePool_;
   /**
    * <pre>
-   * Required. The specification of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
+   * Required. The specification of the
+   * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -186,7 +121,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The specification of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
+   * Required. The specification of the
+   * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -198,26 +134,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The specification of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
+   * Required. The specification of the
+   * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.AzureNodePoolOrBuilder getAzureNodePoolOrBuilder() {
-    return getAzureNodePool();
+    return azureNodePool_ == null ? com.google.cloud.gkemulticloud.v1.AzureNodePool.getDefaultInstance() : azureNodePool_;
   }
 
   public static final int AZURE_NODE_POOL_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object azureNodePoolId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object azureNodePoolId_ = "";
   /**
    * <pre>
-   * Required. A client provided ID the resource. Must be unique within the parent
-   * resource.
-   * The provided ID will be part of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool]
-   * resource name formatted as
+   * Required. A client provided ID the resource. Must be unique within the
+   * parent resource.
+   * The provided ID will be part of the
+   * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] resource name
+   * formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;/azureNodePools/&lt;node-pool-id&gt;`.
-   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
    * </pre>
    *
    * <code>string azure_node_pool_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -238,12 +177,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. A client provided ID the resource. Must be unique within the parent
-   * resource.
-   * The provided ID will be part of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool]
-   * resource name formatted as
+   * Required. A client provided ID the resource. Must be unique within the
+   * parent resource.
+   * The provided ID will be part of the
+   * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] resource name
+   * formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;/azureNodePools/&lt;node-pool-id&gt;`.
-   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
    * </pre>
    *
    * <code>string azure_node_pool_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -265,7 +205,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALIDATE_ONLY_FIELD_NUMBER = 4;
-  private boolean validateOnly_;
+  private boolean validateOnly_ = false;
   /**
    * <pre>
    * If set, only validate the request, but do not actually create the node
@@ -306,7 +246,7 @@ private static final long serialVersionUID = 0L;
     if (validateOnly_ != false) {
       output.writeBool(4, validateOnly_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -329,7 +269,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, validateOnly_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -355,7 +295,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAzureNodePoolId())) return false;
     if (getValidateOnly()
         != other.getValidateOnly()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -377,7 +317,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + VALIDATE_ONLY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getValidateOnly());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -498,34 +438,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkemulticloud.v1.CreateAzureNodePoolRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (azureNodePoolBuilder_ == null) {
-        azureNodePool_ = null;
-      } else {
-        azureNodePool_ = null;
+      azureNodePool_ = null;
+      if (azureNodePoolBuilder_ != null) {
+        azureNodePoolBuilder_.dispose();
         azureNodePoolBuilder_ = null;
       }
       azureNodePoolId_ = "";
-
       validateOnly_ = false;
-
       return this;
     }
 
@@ -552,16 +484,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.CreateAzureNodePoolRequest buildPartial() {
       com.google.cloud.gkemulticloud.v1.CreateAzureNodePoolRequest result = new com.google.cloud.gkemulticloud.v1.CreateAzureNodePoolRequest(this);
-      result.parent_ = parent_;
-      if (azureNodePoolBuilder_ == null) {
-        result.azureNodePool_ = azureNodePool_;
-      } else {
-        result.azureNodePool_ = azureNodePoolBuilder_.build();
-      }
-      result.azureNodePoolId_ = azureNodePoolId_;
-      result.validateOnly_ = validateOnly_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkemulticloud.v1.CreateAzureNodePoolRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.azureNodePool_ = azureNodePoolBuilder_ == null
+            ? azureNodePool_
+            : azureNodePoolBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.azureNodePoolId_ = azureNodePoolId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.validateOnly_ = validateOnly_;
+      }
     }
 
     @java.lang.Override
@@ -610,6 +553,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gkemulticloud.v1.CreateAzureNodePoolRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasAzureNodePool()) {
@@ -617,12 +561,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAzureNodePoolId().isEmpty()) {
         azureNodePoolId_ = other.azureNodePoolId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getValidateOnly() != false) {
         setValidateOnly(other.getValidateOnly());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -637,24 +582,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkemulticloud.v1.CreateAzureNodePoolRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAzureNodePoolFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              azureNodePoolId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              validateOnly_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkemulticloud.v1.CreateAzureNodePoolRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
      * <pre>
-     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource where this node pool will be created.
+     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+     * resource where this node pool will be created.
      * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
      * for more details on Google Cloud resource names.
@@ -677,7 +659,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource where this node pool will be created.
+     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+     * resource where this node pool will be created.
      * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
      * for more details on Google Cloud resource names.
@@ -701,7 +684,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource where this node pool will be created.
+     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+     * resource where this node pool will be created.
      * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
      * for more details on Google Cloud resource names.
@@ -713,17 +697,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource where this node pool will be created.
+     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+     * resource where this node pool will be created.
      * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
      * for more details on Google Cloud resource names.
@@ -733,14 +716,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource where this node pool will be created.
+     * Required. The [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+     * resource where this node pool will be created.
      * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
      * for more details on Google Cloud resource names.
@@ -752,12 +736,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -767,18 +749,20 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AzureNodePool, com.google.cloud.gkemulticloud.v1.AzureNodePool.Builder, com.google.cloud.gkemulticloud.v1.AzureNodePoolOrBuilder> azureNodePoolBuilder_;
     /**
      * <pre>
-     * Required. The specification of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
+     * Required. The specification of the
+     * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the azureNodePool field is set.
      */
     public boolean hasAzureNodePool() {
-      return azureNodePoolBuilder_ != null || azureNodePool_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
-     * Required. The specification of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
+     * Required. The specification of the
+     * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -793,7 +777,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The specification of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
+     * Required. The specification of the
+     * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -804,16 +789,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         azureNodePool_ = value;
-        onChanged();
       } else {
         azureNodePoolBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The specification of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
+     * Required. The specification of the
+     * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -822,68 +808,72 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AzureNodePool.Builder builderForValue) {
       if (azureNodePoolBuilder_ == null) {
         azureNodePool_ = builderForValue.build();
-        onChanged();
       } else {
         azureNodePoolBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The specification of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
+     * Required. The specification of the
+     * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeAzureNodePool(com.google.cloud.gkemulticloud.v1.AzureNodePool value) {
       if (azureNodePoolBuilder_ == null) {
-        if (azureNodePool_ != null) {
-          azureNodePool_ =
-            com.google.cloud.gkemulticloud.v1.AzureNodePool.newBuilder(azureNodePool_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          azureNodePool_ != null &&
+          azureNodePool_ != com.google.cloud.gkemulticloud.v1.AzureNodePool.getDefaultInstance()) {
+          getAzureNodePoolBuilder().mergeFrom(value);
         } else {
           azureNodePool_ = value;
         }
-        onChanged();
       } else {
         azureNodePoolBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The specification of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
+     * Required. The specification of the
+     * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearAzureNodePool() {
-      if (azureNodePoolBuilder_ == null) {
-        azureNodePool_ = null;
-        onChanged();
-      } else {
-        azureNodePool_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      azureNodePool_ = null;
+      if (azureNodePoolBuilder_ != null) {
+        azureNodePoolBuilder_.dispose();
         azureNodePoolBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The specification of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
+     * Required. The specification of the
+     * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.gkemulticloud.v1.AzureNodePool.Builder getAzureNodePoolBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAzureNodePoolFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Required. The specification of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
+     * Required. The specification of the
+     * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -898,7 +888,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The specification of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
+     * Required. The specification of the
+     * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureNodePool azure_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -920,12 +911,13 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object azureNodePoolId_ = "";
     /**
      * <pre>
-     * Required. A client provided ID the resource. Must be unique within the parent
-     * resource.
-     * The provided ID will be part of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool]
-     * resource name formatted as
+     * Required. A client provided ID the resource. Must be unique within the
+     * parent resource.
+     * The provided ID will be part of the
+     * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] resource name
+     * formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;/azureNodePools/&lt;node-pool-id&gt;`.
-     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
      * </pre>
      *
      * <code>string azure_node_pool_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -945,12 +937,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. A client provided ID the resource. Must be unique within the parent
-     * resource.
-     * The provided ID will be part of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool]
-     * resource name formatted as
+     * Required. A client provided ID the resource. Must be unique within the
+     * parent resource.
+     * The provided ID will be part of the
+     * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] resource name
+     * formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;/azureNodePools/&lt;node-pool-id&gt;`.
-     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
      * </pre>
      *
      * <code>string azure_node_pool_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -971,12 +964,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. A client provided ID the resource. Must be unique within the parent
-     * resource.
-     * The provided ID will be part of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool]
-     * resource name formatted as
+     * Required. A client provided ID the resource. Must be unique within the
+     * parent resource.
+     * The provided ID will be part of the
+     * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] resource name
+     * formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;/azureNodePools/&lt;node-pool-id&gt;`.
-     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
      * </pre>
      *
      * <code>string azure_node_pool_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -985,41 +979,41 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAzureNodePoolId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       azureNodePoolId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. A client provided ID the resource. Must be unique within the parent
-     * resource.
-     * The provided ID will be part of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool]
-     * resource name formatted as
+     * Required. A client provided ID the resource. Must be unique within the
+     * parent resource.
+     * The provided ID will be part of the
+     * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] resource name
+     * formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;/azureNodePools/&lt;node-pool-id&gt;`.
-     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
      * </pre>
      *
      * <code>string azure_node_pool_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearAzureNodePoolId() {
-      
       azureNodePoolId_ = getDefaultInstance().getAzureNodePoolId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. A client provided ID the resource. Must be unique within the parent
-     * resource.
-     * The provided ID will be part of the [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool]
-     * resource name formatted as
+     * Required. A client provided ID the resource. Must be unique within the
+     * parent resource.
+     * The provided ID will be part of the
+     * [AzureNodePool][google.cloud.gkemulticloud.v1.AzureNodePool] resource name
+     * formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;/azureNodePools/&lt;node-pool-id&gt;`.
-     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
      * </pre>
      *
      * <code>string azure_node_pool_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1028,12 +1022,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAzureNodePoolIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       azureNodePoolId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1065,6 +1057,7 @@ private static final long serialVersionUID = 0L;
     public Builder setValidateOnly(boolean value) {
       
       validateOnly_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1078,7 +1071,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidateOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       validateOnly_ = false;
       onChanged();
       return this;
@@ -1116,7 +1109,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateAzureNodePoolRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

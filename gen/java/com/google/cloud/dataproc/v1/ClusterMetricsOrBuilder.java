@@ -46,7 +46,6 @@ public interface ClusterMetricsOrBuilder extends
    *
    * <code>map&lt;string, int64&gt; hdfs_metrics = 1;</code>
    */
-
   long getHdfsMetricsOrDefault(
       java.lang.String key,
       long defaultValue);
@@ -57,7 +56,6 @@ public interface ClusterMetricsOrBuilder extends
    *
    * <code>map&lt;string, int64&gt; hdfs_metrics = 1;</code>
    */
-
   long getHdfsMetricsOrThrow(
       java.lang.String key);
 
@@ -100,7 +98,6 @@ public interface ClusterMetricsOrBuilder extends
    *
    * <code>map&lt;string, int64&gt; yarn_metrics = 2;</code>
    */
-
   long getYarnMetricsOrDefault(
       java.lang.String key,
       long defaultValue);
@@ -111,7 +108,6 @@ public interface ClusterMetricsOrBuilder extends
    *
    * <code>map&lt;string, int64&gt; yarn_metrics = 2;</code>
    */
-
   long getYarnMetricsOrThrow(
       java.lang.String key);
 }

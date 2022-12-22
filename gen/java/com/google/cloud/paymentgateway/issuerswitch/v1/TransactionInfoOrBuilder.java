@@ -177,11 +177,41 @@ public interface TransactionInfoOrBuilder extends
 
   /**
    * <pre>
+   * Output only. The time at which the transaction resource was last updated by the
+   * issuer switch.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp update_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return Whether the updateTime field is set.
+   */
+  boolean hasUpdateTime();
+  /**
+   * <pre>
+   * Output only. The time at which the transaction resource was last updated by the
+   * issuer switch.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp update_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The updateTime.
+   */
+  com.google.protobuf.Timestamp getUpdateTime();
+  /**
+   * <pre>
+   * Output only. The time at which the transaction resource was last updated by the
+   * issuer switch.
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp update_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder();
+
+  /**
+   * <pre>
    * Output only. List of Request IDs (colon separated) used when
    * invoking the Bank Adapter APIs for fulfilling a transaction request.
    * </pre>
    *
-   * <code>string bank_adapter_request_ids = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * <code>string bank_adapter_request_ids = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The bankAdapterRequestIds.
    */
   java.lang.String getBankAdapterRequestIds();
@@ -191,7 +221,7 @@ public interface TransactionInfoOrBuilder extends
    * invoking the Bank Adapter APIs for fulfilling a transaction request.
    * </pre>
    *
-   * <code>string bank_adapter_request_ids = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * <code>string bank_adapter_request_ids = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The bytes for bankAdapterRequestIds.
    */
   com.google.protobuf.ByteString
@@ -204,7 +234,7 @@ public interface TransactionInfoOrBuilder extends
    * specification.
    * </pre>
    *
-   * <code>string upi_error_code = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * <code>string upi_error_code = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The upiErrorCode.
    */
   java.lang.String getUpiErrorCode();
@@ -215,7 +245,7 @@ public interface TransactionInfoOrBuilder extends
    * specification.
    * </pre>
    *
-   * <code>string upi_error_code = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * <code>string upi_error_code = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The bytes for upiErrorCode.
    */
   com.google.protobuf.ByteString

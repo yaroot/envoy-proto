@@ -37,82 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Cve(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              references_ = new java.util.ArrayList<com.google.cloud.securitycenter.v1.Reference>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            references_.add(
-                input.readMessage(com.google.cloud.securitycenter.v1.Reference.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            com.google.cloud.securitycenter.v1.Cvssv3.Builder subBuilder = null;
-            if (cvssv3_ != null) {
-              subBuilder = cvssv3_.toBuilder();
-            }
-            cvssv3_ = input.readMessage(com.google.cloud.securitycenter.v1.Cvssv3.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cvssv3_);
-              cvssv3_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-
-            upstreamFixAvailable_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        references_ = java.util.Collections.unmodifiableList(references_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.securitycenter.v1.VulnerabilityProto.internal_static_google_cloud_securitycenter_v1_Cve_descriptor;
@@ -127,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * The unique identifier for the vulnerability. e.g. CVE-2021-34527
@@ -173,6 +98,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REFERENCES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.securitycenter.v1.Reference> references_;
   /**
    * <pre>
@@ -275,11 +201,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.securitycenter.v1.Cvssv3OrBuilder getCvssv3OrBuilder() {
-    return getCvssv3();
+    return cvssv3_ == null ? com.google.cloud.securitycenter.v1.Cvssv3.getDefaultInstance() : cvssv3_;
   }
 
   public static final int UPSTREAM_FIX_AVAILABLE_FIELD_NUMBER = 4;
-  private boolean upstreamFixAvailable_;
+  private boolean upstreamFixAvailable_ = false;
   /**
    * <pre>
    * Whether upstream fix is available for the CVE.
@@ -319,7 +245,7 @@ private static final long serialVersionUID = 0L;
     if (upstreamFixAvailable_ != false) {
       output.writeBool(4, upstreamFixAvailable_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -343,7 +269,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, upstreamFixAvailable_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -369,7 +295,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getUpstreamFixAvailable()
         != other.getUpstreamFixAvailable()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -393,7 +319,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + UPSTREAM_FIX_AVAILABLE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getUpstreamFixAvailable());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -515,39 +441,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.securitycenter.v1.Cve.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getReferencesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       id_ = "";
-
       if (referencesBuilder_ == null) {
         references_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        references_ = null;
         referencesBuilder_.clear();
       }
-      if (cvssv3Builder_ == null) {
-        cvssv3_ = null;
-      } else {
-        cvssv3_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      cvssv3_ = null;
+      if (cvssv3Builder_ != null) {
+        cvssv3Builder_.dispose();
         cvssv3Builder_ = null;
       }
       upstreamFixAvailable_ = false;
-
       return this;
     }
 
@@ -574,25 +493,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.securitycenter.v1.Cve buildPartial() {
       com.google.cloud.securitycenter.v1.Cve result = new com.google.cloud.securitycenter.v1.Cve(this);
-      int from_bitField0_ = bitField0_;
-      result.id_ = id_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.securitycenter.v1.Cve result) {
       if (referencesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           references_ = java.util.Collections.unmodifiableList(references_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.references_ = references_;
       } else {
         result.references_ = referencesBuilder_.build();
       }
-      if (cvssv3Builder_ == null) {
-        result.cvssv3_ = cvssv3_;
-      } else {
-        result.cvssv3_ = cvssv3Builder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.securitycenter.v1.Cve result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.id_ = id_;
       }
-      result.upstreamFixAvailable_ = upstreamFixAvailable_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.cvssv3_ = cvssv3Builder_ == null
+            ? cvssv3_
+            : cvssv3Builder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.upstreamFixAvailable_ = upstreamFixAvailable_;
+      }
     }
 
     @java.lang.Override
@@ -641,13 +572,14 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.securitycenter.v1.Cve.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (referencesBuilder_ == null) {
         if (!other.references_.isEmpty()) {
           if (references_.isEmpty()) {
             references_ = other.references_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureReferencesIsMutable();
             references_.addAll(other.references_);
@@ -660,7 +592,7 @@ private static final long serialVersionUID = 0L;
             referencesBuilder_.dispose();
             referencesBuilder_ = null;
             references_ = other.references_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             referencesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getReferencesFieldBuilder() : null;
@@ -675,7 +607,7 @@ private static final long serialVersionUID = 0L;
       if (other.getUpstreamFixAvailable() != false) {
         setUpstreamFixAvailable(other.getUpstreamFixAvailable());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -690,17 +622,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.securitycenter.v1.Cve parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.securitycenter.v1.Reference m =
+                  input.readMessage(
+                      com.google.cloud.securitycenter.v1.Reference.parser(),
+                      extensionRegistry);
+              if (referencesBuilder_ == null) {
+                ensureReferencesIsMutable();
+                references_.add(m);
+              } else {
+                referencesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCvssv3FieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              upstreamFixAvailable_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.securitycenter.v1.Cve) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -758,11 +733,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -775,8 +748,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -791,12 +764,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -804,9 +775,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.securitycenter.v1.Reference> references_ =
       java.util.Collections.emptyList();
     private void ensureReferencesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         references_ = new java.util.ArrayList<com.google.cloud.securitycenter.v1.Reference>(references_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1011,7 +982,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearReferences() {
       if (referencesBuilder_ == null) {
         references_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         referencesBuilder_.clear();
@@ -1123,7 +1094,7 @@ private static final long serialVersionUID = 0L;
         referencesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.securitycenter.v1.Reference, com.google.cloud.securitycenter.v1.Reference.Builder, com.google.cloud.securitycenter.v1.ReferenceOrBuilder>(
                 references_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         references_ = null;
@@ -1144,7 +1115,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cvssv3 field is set.
      */
     public boolean hasCvssv3() {
-      return cvssv3Builder_ != null || cvssv3_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1176,11 +1147,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cvssv3_ = value;
-        onChanged();
       } else {
         cvssv3Builder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1195,11 +1166,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.securitycenter.v1.Cvssv3.Builder builderForValue) {
       if (cvssv3Builder_ == null) {
         cvssv3_ = builderForValue.build();
-        onChanged();
       } else {
         cvssv3Builder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1212,17 +1183,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCvssv3(com.google.cloud.securitycenter.v1.Cvssv3 value) {
       if (cvssv3Builder_ == null) {
-        if (cvssv3_ != null) {
-          cvssv3_ =
-            com.google.cloud.securitycenter.v1.Cvssv3.newBuilder(cvssv3_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          cvssv3_ != null &&
+          cvssv3_ != com.google.cloud.securitycenter.v1.Cvssv3.getDefaultInstance()) {
+          getCvssv3Builder().mergeFrom(value);
         } else {
           cvssv3_ = value;
         }
-        onChanged();
       } else {
         cvssv3Builder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1234,14 +1206,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.securitycenter.v1.Cvssv3 cvssv3 = 3;</code>
      */
     public Builder clearCvssv3() {
-      if (cvssv3Builder_ == null) {
-        cvssv3_ = null;
-        onChanged();
-      } else {
-        cvssv3_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      cvssv3_ = null;
+      if (cvssv3Builder_ != null) {
+        cvssv3Builder_.dispose();
         cvssv3Builder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1253,7 +1224,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.securitycenter.v1.Cvssv3 cvssv3 = 3;</code>
      */
     public com.google.cloud.securitycenter.v1.Cvssv3.Builder getCvssv3Builder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCvssv3FieldBuilder().getBuilder();
     }
@@ -1320,6 +1291,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUpstreamFixAvailable(boolean value) {
       
       upstreamFixAvailable_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1332,7 +1304,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUpstreamFixAvailable() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       upstreamFixAvailable_ = false;
       onChanged();
       return this;
@@ -1370,7 +1342,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Cve(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

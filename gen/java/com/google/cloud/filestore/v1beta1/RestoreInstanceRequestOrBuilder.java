@@ -31,7 +31,7 @@ public interface RestoreInstanceRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. Name of the file share in the Cloud Filestore instance that the snapshot
+   * Required. Name of the file share in the Filestore instance that the snapshot
    * is being restored to.
    * </pre>
    *
@@ -41,7 +41,7 @@ public interface RestoreInstanceRequestOrBuilder extends
   java.lang.String getFileShare();
   /**
    * <pre>
-   * Required. Name of the file share in the Cloud Filestore instance that the snapshot
+   * Required. Name of the file share in the Filestore instance that the snapshot
    * is being restored to.
    * </pre>
    *

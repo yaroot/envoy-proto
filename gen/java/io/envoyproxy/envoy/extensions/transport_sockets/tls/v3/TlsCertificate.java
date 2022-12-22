@@ -35,149 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TlsCertificate(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.core.v3.DataSource.Builder subBuilder = null;
-            if (certificateChain_ != null) {
-              subBuilder = certificateChain_.toBuilder();
-            }
-            certificateChain_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.DataSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(certificateChain_);
-              certificateChain_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.config.core.v3.DataSource.Builder subBuilder = null;
-            if (privateKey_ != null) {
-              subBuilder = privateKey_.toBuilder();
-            }
-            privateKey_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.DataSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(privateKey_);
-              privateKey_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.config.core.v3.DataSource.Builder subBuilder = null;
-            if (password_ != null) {
-              subBuilder = password_.toBuilder();
-            }
-            password_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.DataSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(password_);
-              password_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            io.envoyproxy.envoy.config.core.v3.DataSource.Builder subBuilder = null;
-            if (ocspStaple_ != null) {
-              subBuilder = ocspStaple_.toBuilder();
-            }
-            ocspStaple_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.DataSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(ocspStaple_);
-              ocspStaple_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              signedCertificateTimestamp_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.DataSource>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            signedCertificateTimestamp_.add(
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.DataSource.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.PrivateKeyProvider.Builder subBuilder = null;
-            if (privateKeyProvider_ != null) {
-              subBuilder = privateKeyProvider_.toBuilder();
-            }
-            privateKeyProvider_ = input.readMessage(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.PrivateKeyProvider.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(privateKeyProvider_);
-              privateKeyProvider_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            io.envoyproxy.envoy.config.core.v3.WatchedDirectory.Builder subBuilder = null;
-            if (watchedDirectory_ != null) {
-              subBuilder = watchedDirectory_.toBuilder();
-            }
-            watchedDirectory_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.WatchedDirectory.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(watchedDirectory_);
-              watchedDirectory_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            io.envoyproxy.envoy.config.core.v3.DataSource.Builder subBuilder = null;
-            if (pkcs12_ != null) {
-              subBuilder = pkcs12_.toBuilder();
-            }
-            pkcs12_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.DataSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(pkcs12_);
-              pkcs12_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        signedCertificateTimestamp_ = java.util.Collections.unmodifiableList(signedCertificateTimestamp_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonProto.internal_static_envoy_extensions_transport_sockets_tls_v3_TlsCertificate_descriptor;
@@ -238,7 +95,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.DataSourceOrBuilder getCertificateChainOrBuilder() {
-    return getCertificateChain();
+    return certificateChain_ == null ? io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance() : certificateChain_;
   }
 
   public static final int PRIVATE_KEY_FIELD_NUMBER = 2;
@@ -285,7 +142,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.DataSourceOrBuilder getPrivateKeyOrBuilder() {
-    return getPrivateKey();
+    return privateKey_ == null ? io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance() : privateKey_;
   }
 
   public static final int PKCS12_FIELD_NUMBER = 8;
@@ -356,7 +213,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.DataSourceOrBuilder getPkcs12OrBuilder() {
-    return getPkcs12();
+    return pkcs12_ == null ? io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance() : pkcs12_;
   }
 
   public static final int WATCHED_DIRECTORY_FIELD_NUMBER = 7;
@@ -421,7 +278,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.WatchedDirectoryOrBuilder getWatchedDirectoryOrBuilder() {
-    return getWatchedDirectory();
+    return watchedDirectory_ == null ? io.envoyproxy.envoy.config.core.v3.WatchedDirectory.getDefaultInstance() : watchedDirectory_;
   }
 
   public static final int PRIVATE_KEY_PROVIDER_FIELD_NUMBER = 6;
@@ -477,7 +334,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.PrivateKeyProviderOrBuilder getPrivateKeyProviderOrBuilder() {
-    return getPrivateKeyProvider();
+    return privateKeyProvider_ == null ? io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.PrivateKeyProvider.getDefaultInstance() : privateKeyProvider_;
   }
 
   public static final int PASSWORD_FIELD_NUMBER = 3;
@@ -518,7 +375,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.DataSourceOrBuilder getPasswordOrBuilder() {
-    return getPassword();
+    return password_ == null ? io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance() : password_;
   }
 
   public static final int OCSP_STAPLE_FIELD_NUMBER = 4;
@@ -562,10 +419,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.DataSourceOrBuilder getOcspStapleOrBuilder() {
-    return getOcspStaple();
+    return ocspStaple_ == null ? io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance() : ocspStaple_;
   }
 
   public static final int SIGNED_CERTIFICATE_TIMESTAMP_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.core.v3.DataSource> signedCertificateTimestamp_;
   /**
    * <pre>
@@ -663,7 +521,7 @@ private static final long serialVersionUID = 0L;
     if (pkcs12_ != null) {
       output.writeMessage(8, getPkcs12());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -704,7 +562,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getPkcs12());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -756,7 +614,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getSignedCertificateTimestampList()
         .equals(other.getSignedCertificateTimestampList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -799,7 +657,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SIGNED_CERTIFICATE_TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + getSignedCertificateTimestampList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -920,71 +778,60 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsCertificate.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSignedCertificateTimestampFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (certificateChainBuilder_ == null) {
-        certificateChain_ = null;
-      } else {
-        certificateChain_ = null;
+      bitField0_ = 0;
+      certificateChain_ = null;
+      if (certificateChainBuilder_ != null) {
+        certificateChainBuilder_.dispose();
         certificateChainBuilder_ = null;
       }
-      if (privateKeyBuilder_ == null) {
-        privateKey_ = null;
-      } else {
-        privateKey_ = null;
+      privateKey_ = null;
+      if (privateKeyBuilder_ != null) {
+        privateKeyBuilder_.dispose();
         privateKeyBuilder_ = null;
       }
-      if (pkcs12Builder_ == null) {
-        pkcs12_ = null;
-      } else {
-        pkcs12_ = null;
+      pkcs12_ = null;
+      if (pkcs12Builder_ != null) {
+        pkcs12Builder_.dispose();
         pkcs12Builder_ = null;
       }
-      if (watchedDirectoryBuilder_ == null) {
-        watchedDirectory_ = null;
-      } else {
-        watchedDirectory_ = null;
+      watchedDirectory_ = null;
+      if (watchedDirectoryBuilder_ != null) {
+        watchedDirectoryBuilder_.dispose();
         watchedDirectoryBuilder_ = null;
       }
-      if (privateKeyProviderBuilder_ == null) {
-        privateKeyProvider_ = null;
-      } else {
-        privateKeyProvider_ = null;
+      privateKeyProvider_ = null;
+      if (privateKeyProviderBuilder_ != null) {
+        privateKeyProviderBuilder_.dispose();
         privateKeyProviderBuilder_ = null;
       }
-      if (passwordBuilder_ == null) {
-        password_ = null;
-      } else {
-        password_ = null;
+      password_ = null;
+      if (passwordBuilder_ != null) {
+        passwordBuilder_.dispose();
         passwordBuilder_ = null;
       }
-      if (ocspStapleBuilder_ == null) {
-        ocspStaple_ = null;
-      } else {
-        ocspStaple_ = null;
+      ocspStaple_ = null;
+      if (ocspStapleBuilder_ != null) {
+        ocspStapleBuilder_.dispose();
         ocspStapleBuilder_ = null;
       }
       if (signedCertificateTimestampBuilder_ == null) {
         signedCertificateTimestamp_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        signedCertificateTimestamp_ = null;
         signedCertificateTimestampBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       return this;
     }
 
@@ -1011,53 +858,61 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsCertificate buildPartial() {
       io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsCertificate result = new io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsCertificate(this);
-      int from_bitField0_ = bitField0_;
-      if (certificateChainBuilder_ == null) {
-        result.certificateChain_ = certificateChain_;
-      } else {
-        result.certificateChain_ = certificateChainBuilder_.build();
-      }
-      if (privateKeyBuilder_ == null) {
-        result.privateKey_ = privateKey_;
-      } else {
-        result.privateKey_ = privateKeyBuilder_.build();
-      }
-      if (pkcs12Builder_ == null) {
-        result.pkcs12_ = pkcs12_;
-      } else {
-        result.pkcs12_ = pkcs12Builder_.build();
-      }
-      if (watchedDirectoryBuilder_ == null) {
-        result.watchedDirectory_ = watchedDirectory_;
-      } else {
-        result.watchedDirectory_ = watchedDirectoryBuilder_.build();
-      }
-      if (privateKeyProviderBuilder_ == null) {
-        result.privateKeyProvider_ = privateKeyProvider_;
-      } else {
-        result.privateKeyProvider_ = privateKeyProviderBuilder_.build();
-      }
-      if (passwordBuilder_ == null) {
-        result.password_ = password_;
-      } else {
-        result.password_ = passwordBuilder_.build();
-      }
-      if (ocspStapleBuilder_ == null) {
-        result.ocspStaple_ = ocspStaple_;
-      } else {
-        result.ocspStaple_ = ocspStapleBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsCertificate result) {
       if (signedCertificateTimestampBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           signedCertificateTimestamp_ = java.util.Collections.unmodifiableList(signedCertificateTimestamp_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.signedCertificateTimestamp_ = signedCertificateTimestamp_;
       } else {
         result.signedCertificateTimestamp_ = signedCertificateTimestampBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsCertificate result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.certificateChain_ = certificateChainBuilder_ == null
+            ? certificateChain_
+            : certificateChainBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.privateKey_ = privateKeyBuilder_ == null
+            ? privateKey_
+            : privateKeyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pkcs12_ = pkcs12Builder_ == null
+            ? pkcs12_
+            : pkcs12Builder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.watchedDirectory_ = watchedDirectoryBuilder_ == null
+            ? watchedDirectory_
+            : watchedDirectoryBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.privateKeyProvider_ = privateKeyProviderBuilder_ == null
+            ? privateKeyProvider_
+            : privateKeyProviderBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.password_ = passwordBuilder_ == null
+            ? password_
+            : passwordBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.ocspStaple_ = ocspStapleBuilder_ == null
+            ? ocspStaple_
+            : ocspStapleBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1129,7 +984,7 @@ private static final long serialVersionUID = 0L;
         if (!other.signedCertificateTimestamp_.isEmpty()) {
           if (signedCertificateTimestamp_.isEmpty()) {
             signedCertificateTimestamp_ = other.signedCertificateTimestamp_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureSignedCertificateTimestampIsMutable();
             signedCertificateTimestamp_.addAll(other.signedCertificateTimestamp_);
@@ -1142,7 +997,7 @@ private static final long serialVersionUID = 0L;
             signedCertificateTimestampBuilder_.dispose();
             signedCertificateTimestampBuilder_ = null;
             signedCertificateTimestamp_ = other.signedCertificateTimestamp_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000080);
             signedCertificateTimestampBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSignedCertificateTimestampFieldBuilder() : null;
@@ -1151,7 +1006,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1166,17 +1021,92 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsCertificate parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCertificateChainFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPrivateKeyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getPasswordFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getOcspStapleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 34
+            case 42: {
+              io.envoyproxy.envoy.config.core.v3.DataSource m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.core.v3.DataSource.parser(),
+                      extensionRegistry);
+              if (signedCertificateTimestampBuilder_ == null) {
+                ensureSignedCertificateTimestampIsMutable();
+                signedCertificateTimestamp_.add(m);
+              } else {
+                signedCertificateTimestampBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getPrivateKeyProviderFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getWatchedDirectoryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getPkcs12FieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsCertificate) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1197,7 +1127,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the certificateChain field is set.
      */
     public boolean hasCertificateChain() {
-      return certificateChainBuilder_ != null || certificateChain_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1235,11 +1165,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         certificateChain_ = value;
-        onChanged();
       } else {
         certificateChainBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1257,11 +1187,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.DataSource.Builder builderForValue) {
       if (certificateChainBuilder_ == null) {
         certificateChain_ = builderForValue.build();
-        onChanged();
       } else {
         certificateChainBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1277,17 +1207,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCertificateChain(io.envoyproxy.envoy.config.core.v3.DataSource value) {
       if (certificateChainBuilder_ == null) {
-        if (certificateChain_ != null) {
-          certificateChain_ =
-            io.envoyproxy.envoy.config.core.v3.DataSource.newBuilder(certificateChain_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          certificateChain_ != null &&
+          certificateChain_ != io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance()) {
+          getCertificateChainBuilder().mergeFrom(value);
         } else {
           certificateChain_ = value;
         }
-        onChanged();
       } else {
         certificateChainBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1302,14 +1233,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.DataSource certificate_chain = 1;</code>
      */
     public Builder clearCertificateChain() {
-      if (certificateChainBuilder_ == null) {
-        certificateChain_ = null;
-        onChanged();
-      } else {
-        certificateChain_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      certificateChain_ = null;
+      if (certificateChainBuilder_ != null) {
+        certificateChainBuilder_.dispose();
         certificateChainBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1324,7 +1254,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.DataSource certificate_chain = 1;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.DataSource.Builder getCertificateChainBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getCertificateChainFieldBuilder().getBuilder();
     }
@@ -1387,7 +1317,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the privateKey field is set.
      */
     public boolean hasPrivateKey() {
-      return privateKeyBuilder_ != null || privateKey_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1423,11 +1353,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         privateKey_ = value;
-        onChanged();
       } else {
         privateKeyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1444,11 +1374,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.DataSource.Builder builderForValue) {
       if (privateKeyBuilder_ == null) {
         privateKey_ = builderForValue.build();
-        onChanged();
       } else {
         privateKeyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1463,17 +1393,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePrivateKey(io.envoyproxy.envoy.config.core.v3.DataSource value) {
       if (privateKeyBuilder_ == null) {
-        if (privateKey_ != null) {
-          privateKey_ =
-            io.envoyproxy.envoy.config.core.v3.DataSource.newBuilder(privateKey_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          privateKey_ != null &&
+          privateKey_ != io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance()) {
+          getPrivateKeyBuilder().mergeFrom(value);
         } else {
           privateKey_ = value;
         }
-        onChanged();
       } else {
         privateKeyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1487,14 +1418,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.DataSource private_key = 2 [(.udpa.annotations.sensitive) = true];</code>
      */
     public Builder clearPrivateKey() {
-      if (privateKeyBuilder_ == null) {
-        privateKey_ = null;
-        onChanged();
-      } else {
-        privateKey_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      privateKey_ = null;
+      if (privateKeyBuilder_ != null) {
+        privateKeyBuilder_.dispose();
         privateKeyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1508,7 +1438,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.DataSource private_key = 2 [(.udpa.annotations.sensitive) = true];</code>
      */
     public io.envoyproxy.envoy.config.core.v3.DataSource.Builder getPrivateKeyBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getPrivateKeyFieldBuilder().getBuilder();
     }
@@ -1577,7 +1507,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the pkcs12 field is set.
      */
     public boolean hasPkcs12() {
-      return pkcs12Builder_ != null || pkcs12_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1629,11 +1559,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         pkcs12_ = value;
-        onChanged();
       } else {
         pkcs12Builder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1658,11 +1588,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.DataSource.Builder builderForValue) {
       if (pkcs12Builder_ == null) {
         pkcs12_ = builderForValue.build();
-        onChanged();
       } else {
         pkcs12Builder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1685,17 +1615,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePkcs12(io.envoyproxy.envoy.config.core.v3.DataSource value) {
       if (pkcs12Builder_ == null) {
-        if (pkcs12_ != null) {
-          pkcs12_ =
-            io.envoyproxy.envoy.config.core.v3.DataSource.newBuilder(pkcs12_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          pkcs12_ != null &&
+          pkcs12_ != io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance()) {
+          getPkcs12Builder().mergeFrom(value);
         } else {
           pkcs12_ = value;
         }
-        onChanged();
       } else {
         pkcs12Builder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1717,14 +1648,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.DataSource pkcs12 = 8 [(.udpa.annotations.sensitive) = true];</code>
      */
     public Builder clearPkcs12() {
-      if (pkcs12Builder_ == null) {
-        pkcs12_ = null;
-        onChanged();
-      } else {
-        pkcs12_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      pkcs12_ = null;
+      if (pkcs12Builder_ != null) {
+        pkcs12Builder_.dispose();
         pkcs12Builder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1746,7 +1676,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.DataSource pkcs12 = 8 [(.udpa.annotations.sensitive) = true];</code>
      */
     public io.envoyproxy.envoy.config.core.v3.DataSource.Builder getPkcs12Builder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getPkcs12FieldBuilder().getBuilder();
     }
@@ -1829,7 +1759,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the watchedDirectory field is set.
      */
     public boolean hasWatchedDirectory() {
-      return watchedDirectoryBuilder_ != null || watchedDirectory_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1877,11 +1807,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         watchedDirectory_ = value;
-        onChanged();
       } else {
         watchedDirectoryBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1904,11 +1834,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.WatchedDirectory.Builder builderForValue) {
       if (watchedDirectoryBuilder_ == null) {
         watchedDirectory_ = builderForValue.build();
-        onChanged();
       } else {
         watchedDirectoryBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1929,17 +1859,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWatchedDirectory(io.envoyproxy.envoy.config.core.v3.WatchedDirectory value) {
       if (watchedDirectoryBuilder_ == null) {
-        if (watchedDirectory_ != null) {
-          watchedDirectory_ =
-            io.envoyproxy.envoy.config.core.v3.WatchedDirectory.newBuilder(watchedDirectory_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          watchedDirectory_ != null &&
+          watchedDirectory_ != io.envoyproxy.envoy.config.core.v3.WatchedDirectory.getDefaultInstance()) {
+          getWatchedDirectoryBuilder().mergeFrom(value);
         } else {
           watchedDirectory_ = value;
         }
-        onChanged();
       } else {
         watchedDirectoryBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1959,14 +1890,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.WatchedDirectory watched_directory = 7;</code>
      */
     public Builder clearWatchedDirectory() {
-      if (watchedDirectoryBuilder_ == null) {
-        watchedDirectory_ = null;
-        onChanged();
-      } else {
-        watchedDirectory_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      watchedDirectory_ = null;
+      if (watchedDirectoryBuilder_ != null) {
+        watchedDirectoryBuilder_.dispose();
         watchedDirectoryBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1986,7 +1916,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.WatchedDirectory watched_directory = 7;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.WatchedDirectory.Builder getWatchedDirectoryBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getWatchedDirectoryFieldBuilder().getBuilder();
     }
@@ -2062,7 +1992,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the privateKeyProvider field is set.
      */
     public boolean hasPrivateKeyProvider() {
-      return privateKeyProviderBuilder_ != null || privateKeyProvider_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2104,11 +2034,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         privateKeyProvider_ = value;
-        onChanged();
       } else {
         privateKeyProviderBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2128,11 +2058,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.PrivateKeyProvider.Builder builderForValue) {
       if (privateKeyProviderBuilder_ == null) {
         privateKeyProvider_ = builderForValue.build();
-        onChanged();
       } else {
         privateKeyProviderBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2150,17 +2080,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePrivateKeyProvider(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.PrivateKeyProvider value) {
       if (privateKeyProviderBuilder_ == null) {
-        if (privateKeyProvider_ != null) {
-          privateKeyProvider_ =
-            io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.PrivateKeyProvider.newBuilder(privateKeyProvider_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          privateKeyProvider_ != null &&
+          privateKeyProvider_ != io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.PrivateKeyProvider.getDefaultInstance()) {
+          getPrivateKeyProviderBuilder().mergeFrom(value);
         } else {
           privateKeyProvider_ = value;
         }
-        onChanged();
       } else {
         privateKeyProviderBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2177,14 +2108,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.transport_sockets.tls.v3.PrivateKeyProvider private_key_provider = 6;</code>
      */
     public Builder clearPrivateKeyProvider() {
-      if (privateKeyProviderBuilder_ == null) {
-        privateKeyProvider_ = null;
-        onChanged();
-      } else {
-        privateKeyProvider_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      privateKeyProvider_ = null;
+      if (privateKeyProviderBuilder_ != null) {
+        privateKeyProviderBuilder_.dispose();
         privateKeyProviderBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2201,7 +2131,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.transport_sockets.tls.v3.PrivateKeyProvider private_key_provider = 6;</code>
      */
     public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.PrivateKeyProvider.Builder getPrivateKeyProviderBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getPrivateKeyProviderFieldBuilder().getBuilder();
     }
@@ -2266,7 +2196,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the password field is set.
      */
     public boolean hasPassword() {
-      return passwordBuilder_ != null || password_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2298,11 +2228,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         password_ = value;
-        onChanged();
       } else {
         passwordBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2317,11 +2247,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.DataSource.Builder builderForValue) {
       if (passwordBuilder_ == null) {
         password_ = builderForValue.build();
-        onChanged();
       } else {
         passwordBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2334,17 +2264,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePassword(io.envoyproxy.envoy.config.core.v3.DataSource value) {
       if (passwordBuilder_ == null) {
-        if (password_ != null) {
-          password_ =
-            io.envoyproxy.envoy.config.core.v3.DataSource.newBuilder(password_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          password_ != null &&
+          password_ != io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance()) {
+          getPasswordBuilder().mergeFrom(value);
         } else {
           password_ = value;
         }
-        onChanged();
       } else {
         passwordBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2356,14 +2287,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.DataSource password = 3 [(.udpa.annotations.sensitive) = true];</code>
      */
     public Builder clearPassword() {
-      if (passwordBuilder_ == null) {
-        password_ = null;
-        onChanged();
-      } else {
-        password_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      password_ = null;
+      if (passwordBuilder_ != null) {
+        passwordBuilder_.dispose();
         passwordBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2375,7 +2305,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.DataSource password = 3 [(.udpa.annotations.sensitive) = true];</code>
      */
     public io.envoyproxy.envoy.config.core.v3.DataSource.Builder getPasswordBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getPasswordFieldBuilder().getBuilder();
     }
@@ -2431,7 +2361,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the ocspStaple field is set.
      */
     public boolean hasOcspStaple() {
-      return ocspStapleBuilder_ != null || ocspStaple_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2465,11 +2395,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         ocspStaple_ = value;
-        onChanged();
       } else {
         ocspStapleBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2485,11 +2415,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.DataSource.Builder builderForValue) {
       if (ocspStapleBuilder_ == null) {
         ocspStaple_ = builderForValue.build();
-        onChanged();
       } else {
         ocspStapleBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2503,17 +2433,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOcspStaple(io.envoyproxy.envoy.config.core.v3.DataSource value) {
       if (ocspStapleBuilder_ == null) {
-        if (ocspStaple_ != null) {
-          ocspStaple_ =
-            io.envoyproxy.envoy.config.core.v3.DataSource.newBuilder(ocspStaple_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          ocspStaple_ != null &&
+          ocspStaple_ != io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance()) {
+          getOcspStapleBuilder().mergeFrom(value);
         } else {
           ocspStaple_ = value;
         }
-        onChanged();
       } else {
         ocspStapleBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2526,14 +2457,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.DataSource ocsp_staple = 4;</code>
      */
     public Builder clearOcspStaple() {
-      if (ocspStapleBuilder_ == null) {
-        ocspStaple_ = null;
-        onChanged();
-      } else {
-        ocspStaple_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      ocspStaple_ = null;
+      if (ocspStapleBuilder_ != null) {
+        ocspStapleBuilder_.dispose();
         ocspStapleBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2546,7 +2476,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.DataSource ocsp_staple = 4;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.DataSource.Builder getOcspStapleBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getOcspStapleFieldBuilder().getBuilder();
     }
@@ -2593,9 +2523,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.config.core.v3.DataSource> signedCertificateTimestamp_ =
       java.util.Collections.emptyList();
     private void ensureSignedCertificateTimestampIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         signedCertificateTimestamp_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.DataSource>(signedCertificateTimestamp_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -2789,7 +2719,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSignedCertificateTimestamp() {
       if (signedCertificateTimestampBuilder_ == null) {
         signedCertificateTimestamp_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         signedCertificateTimestampBuilder_.clear();
@@ -2894,7 +2824,7 @@ private static final long serialVersionUID = 0L;
         signedCertificateTimestampBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.config.core.v3.DataSource, io.envoyproxy.envoy.config.core.v3.DataSource.Builder, io.envoyproxy.envoy.config.core.v3.DataSourceOrBuilder>(
                 signedCertificateTimestamp_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         signedCertificateTimestamp_ = null;
@@ -2934,7 +2864,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TlsCertificate(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

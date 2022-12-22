@@ -34,84 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ApplicationSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.iap.v1.CsmSettings.Builder subBuilder = null;
-            if (csmSettings_ != null) {
-              subBuilder = csmSettings_.toBuilder();
-            }
-            csmSettings_ = input.readMessage(com.google.cloud.iap.v1.CsmSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(csmSettings_);
-              csmSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.iap.v1.AccessDeniedPageSettings.Builder subBuilder = null;
-            if (accessDeniedPageSettings_ != null) {
-              subBuilder = accessDeniedPageSettings_.toBuilder();
-            }
-            accessDeniedPageSettings_ = input.readMessage(com.google.cloud.iap.v1.AccessDeniedPageSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(accessDeniedPageSettings_);
-              accessDeniedPageSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.StringValue.Builder subBuilder = null;
-            if (cookieDomain_ != null) {
-              subBuilder = cookieDomain_.toBuilder();
-            }
-            cookieDomain_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cookieDomain_);
-              cookieDomain_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.iap.v1.Service.internal_static_google_cloud_iap_v1_ApplicationSettings_descriptor;
@@ -129,7 +51,7 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.iap.v1.CsmSettings csmSettings_;
   /**
    * <pre>
-   * Settings to configure IAP's behavior for a CSM mesh.
+   * Settings to configure IAP's behavior for a service mesh.
    * </pre>
    *
    * <code>.google.cloud.iap.v1.CsmSettings csm_settings = 1;</code>
@@ -141,7 +63,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Settings to configure IAP's behavior for a CSM mesh.
+   * Settings to configure IAP's behavior for a service mesh.
    * </pre>
    *
    * <code>.google.cloud.iap.v1.CsmSettings csm_settings = 1;</code>
@@ -153,14 +75,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Settings to configure IAP's behavior for a CSM mesh.
+   * Settings to configure IAP's behavior for a service mesh.
    * </pre>
    *
    * <code>.google.cloud.iap.v1.CsmSettings csm_settings = 1;</code>
    */
   @java.lang.Override
   public com.google.cloud.iap.v1.CsmSettingsOrBuilder getCsmSettingsOrBuilder() {
-    return getCsmSettings();
+    return csmSettings_ == null ? com.google.cloud.iap.v1.CsmSettings.getDefaultInstance() : csmSettings_;
   }
 
   public static final int ACCESS_DENIED_PAGE_SETTINGS_FIELD_NUMBER = 2;
@@ -198,7 +120,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.iap.v1.AccessDeniedPageSettingsOrBuilder getAccessDeniedPageSettingsOrBuilder() {
-    return getAccessDeniedPageSettings();
+    return accessDeniedPageSettings_ == null ? com.google.cloud.iap.v1.AccessDeniedPageSettings.getDefaultInstance() : accessDeniedPageSettings_;
   }
 
   public static final int COOKIE_DOMAIN_FIELD_NUMBER = 3;
@@ -239,7 +161,45 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.StringValueOrBuilder getCookieDomainOrBuilder() {
-    return getCookieDomain();
+    return cookieDomain_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : cookieDomain_;
+  }
+
+  public static final int ATTRIBUTE_PROPAGATION_SETTINGS_FIELD_NUMBER = 4;
+  private com.google.cloud.iap.v1.AttributePropagationSettings attributePropagationSettings_;
+  /**
+   * <pre>
+   * Settings to configure attribute propagation.
+   * </pre>
+   *
+   * <code>.google.cloud.iap.v1.AttributePropagationSettings attribute_propagation_settings = 4;</code>
+   * @return Whether the attributePropagationSettings field is set.
+   */
+  @java.lang.Override
+  public boolean hasAttributePropagationSettings() {
+    return attributePropagationSettings_ != null;
+  }
+  /**
+   * <pre>
+   * Settings to configure attribute propagation.
+   * </pre>
+   *
+   * <code>.google.cloud.iap.v1.AttributePropagationSettings attribute_propagation_settings = 4;</code>
+   * @return The attributePropagationSettings.
+   */
+  @java.lang.Override
+  public com.google.cloud.iap.v1.AttributePropagationSettings getAttributePropagationSettings() {
+    return attributePropagationSettings_ == null ? com.google.cloud.iap.v1.AttributePropagationSettings.getDefaultInstance() : attributePropagationSettings_;
+  }
+  /**
+   * <pre>
+   * Settings to configure attribute propagation.
+   * </pre>
+   *
+   * <code>.google.cloud.iap.v1.AttributePropagationSettings attribute_propagation_settings = 4;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.iap.v1.AttributePropagationSettingsOrBuilder getAttributePropagationSettingsOrBuilder() {
+    return attributePropagationSettings_ == null ? com.google.cloud.iap.v1.AttributePropagationSettings.getDefaultInstance() : attributePropagationSettings_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -265,7 +225,10 @@ private static final long serialVersionUID = 0L;
     if (cookieDomain_ != null) {
       output.writeMessage(3, getCookieDomain());
     }
-    unknownFields.writeTo(output);
+    if (attributePropagationSettings_ != null) {
+      output.writeMessage(4, getAttributePropagationSettings());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -286,7 +249,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getCookieDomain());
     }
-    size += unknownFields.getSerializedSize();
+    if (attributePropagationSettings_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getAttributePropagationSettings());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -316,7 +283,12 @@ private static final long serialVersionUID = 0L;
       if (!getCookieDomain()
           .equals(other.getCookieDomain())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasAttributePropagationSettings() != other.hasAttributePropagationSettings()) return false;
+    if (hasAttributePropagationSettings()) {
+      if (!getAttributePropagationSettings()
+          .equals(other.getAttributePropagationSettings())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -339,7 +311,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + COOKIE_DOMAIN_FIELD_NUMBER;
       hash = (53 * hash) + getCookieDomain().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasAttributePropagationSettings()) {
+      hash = (37 * hash) + ATTRIBUTE_PROPAGATION_SETTINGS_FIELD_NUMBER;
+      hash = (53 * hash) + getAttributePropagationSettings().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -460,39 +436,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.iap.v1.ApplicationSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (csmSettingsBuilder_ == null) {
-        csmSettings_ = null;
-      } else {
-        csmSettings_ = null;
+      bitField0_ = 0;
+      csmSettings_ = null;
+      if (csmSettingsBuilder_ != null) {
+        csmSettingsBuilder_.dispose();
         csmSettingsBuilder_ = null;
       }
-      if (accessDeniedPageSettingsBuilder_ == null) {
-        accessDeniedPageSettings_ = null;
-      } else {
-        accessDeniedPageSettings_ = null;
+      accessDeniedPageSettings_ = null;
+      if (accessDeniedPageSettingsBuilder_ != null) {
+        accessDeniedPageSettingsBuilder_.dispose();
         accessDeniedPageSettingsBuilder_ = null;
       }
-      if (cookieDomainBuilder_ == null) {
-        cookieDomain_ = null;
-      } else {
-        cookieDomain_ = null;
+      cookieDomain_ = null;
+      if (cookieDomainBuilder_ != null) {
+        cookieDomainBuilder_.dispose();
         cookieDomainBuilder_ = null;
+      }
+      attributePropagationSettings_ = null;
+      if (attributePropagationSettingsBuilder_ != null) {
+        attributePropagationSettingsBuilder_.dispose();
+        attributePropagationSettingsBuilder_ = null;
       }
       return this;
     }
@@ -520,23 +494,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.iap.v1.ApplicationSettings buildPartial() {
       com.google.cloud.iap.v1.ApplicationSettings result = new com.google.cloud.iap.v1.ApplicationSettings(this);
-      if (csmSettingsBuilder_ == null) {
-        result.csmSettings_ = csmSettings_;
-      } else {
-        result.csmSettings_ = csmSettingsBuilder_.build();
-      }
-      if (accessDeniedPageSettingsBuilder_ == null) {
-        result.accessDeniedPageSettings_ = accessDeniedPageSettings_;
-      } else {
-        result.accessDeniedPageSettings_ = accessDeniedPageSettingsBuilder_.build();
-      }
-      if (cookieDomainBuilder_ == null) {
-        result.cookieDomain_ = cookieDomain_;
-      } else {
-        result.cookieDomain_ = cookieDomainBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.iap.v1.ApplicationSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.csmSettings_ = csmSettingsBuilder_ == null
+            ? csmSettings_
+            : csmSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.accessDeniedPageSettings_ = accessDeniedPageSettingsBuilder_ == null
+            ? accessDeniedPageSettings_
+            : accessDeniedPageSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.cookieDomain_ = cookieDomainBuilder_ == null
+            ? cookieDomain_
+            : cookieDomainBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.attributePropagationSettings_ = attributePropagationSettingsBuilder_ == null
+            ? attributePropagationSettings_
+            : attributePropagationSettingsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -592,7 +576,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasCookieDomain()) {
         mergeCookieDomain(other.getCookieDomain());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasAttributePropagationSettings()) {
+        mergeAttributePropagationSettings(other.getAttributePropagationSettings());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -607,37 +594,79 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.iap.v1.ApplicationSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCsmSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAccessDeniedPageSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCookieDomainFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getAttributePropagationSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.iap.v1.ApplicationSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.iap.v1.CsmSettings csmSettings_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.iap.v1.CsmSettings, com.google.cloud.iap.v1.CsmSettings.Builder, com.google.cloud.iap.v1.CsmSettingsOrBuilder> csmSettingsBuilder_;
     /**
      * <pre>
-     * Settings to configure IAP's behavior for a CSM mesh.
+     * Settings to configure IAP's behavior for a service mesh.
      * </pre>
      *
      * <code>.google.cloud.iap.v1.CsmSettings csm_settings = 1;</code>
      * @return Whether the csmSettings field is set.
      */
     public boolean hasCsmSettings() {
-      return csmSettingsBuilder_ != null || csmSettings_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
-     * Settings to configure IAP's behavior for a CSM mesh.
+     * Settings to configure IAP's behavior for a service mesh.
      * </pre>
      *
      * <code>.google.cloud.iap.v1.CsmSettings csm_settings = 1;</code>
@@ -652,7 +681,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Settings to configure IAP's behavior for a CSM mesh.
+     * Settings to configure IAP's behavior for a service mesh.
      * </pre>
      *
      * <code>.google.cloud.iap.v1.CsmSettings csm_settings = 1;</code>
@@ -663,16 +692,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         csmSettings_ = value;
-        onChanged();
       } else {
         csmSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Settings to configure IAP's behavior for a CSM mesh.
+     * Settings to configure IAP's behavior for a service mesh.
      * </pre>
      *
      * <code>.google.cloud.iap.v1.CsmSettings csm_settings = 1;</code>
@@ -681,68 +710,68 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.iap.v1.CsmSettings.Builder builderForValue) {
       if (csmSettingsBuilder_ == null) {
         csmSettings_ = builderForValue.build();
-        onChanged();
       } else {
         csmSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Settings to configure IAP's behavior for a CSM mesh.
+     * Settings to configure IAP's behavior for a service mesh.
      * </pre>
      *
      * <code>.google.cloud.iap.v1.CsmSettings csm_settings = 1;</code>
      */
     public Builder mergeCsmSettings(com.google.cloud.iap.v1.CsmSettings value) {
       if (csmSettingsBuilder_ == null) {
-        if (csmSettings_ != null) {
-          csmSettings_ =
-            com.google.cloud.iap.v1.CsmSettings.newBuilder(csmSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          csmSettings_ != null &&
+          csmSettings_ != com.google.cloud.iap.v1.CsmSettings.getDefaultInstance()) {
+          getCsmSettingsBuilder().mergeFrom(value);
         } else {
           csmSettings_ = value;
         }
-        onChanged();
       } else {
         csmSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Settings to configure IAP's behavior for a CSM mesh.
+     * Settings to configure IAP's behavior for a service mesh.
      * </pre>
      *
      * <code>.google.cloud.iap.v1.CsmSettings csm_settings = 1;</code>
      */
     public Builder clearCsmSettings() {
-      if (csmSettingsBuilder_ == null) {
-        csmSettings_ = null;
-        onChanged();
-      } else {
-        csmSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      csmSettings_ = null;
+      if (csmSettingsBuilder_ != null) {
+        csmSettingsBuilder_.dispose();
         csmSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Settings to configure IAP's behavior for a CSM mesh.
+     * Settings to configure IAP's behavior for a service mesh.
      * </pre>
      *
      * <code>.google.cloud.iap.v1.CsmSettings csm_settings = 1;</code>
      */
     public com.google.cloud.iap.v1.CsmSettings.Builder getCsmSettingsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getCsmSettingsFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Settings to configure IAP's behavior for a CSM mesh.
+     * Settings to configure IAP's behavior for a service mesh.
      * </pre>
      *
      * <code>.google.cloud.iap.v1.CsmSettings csm_settings = 1;</code>
@@ -757,7 +786,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Settings to configure IAP's behavior for a CSM mesh.
+     * Settings to configure IAP's behavior for a service mesh.
      * </pre>
      *
      * <code>.google.cloud.iap.v1.CsmSettings csm_settings = 1;</code>
@@ -788,7 +817,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the accessDeniedPageSettings field is set.
      */
     public boolean hasAccessDeniedPageSettings() {
-      return accessDeniedPageSettingsBuilder_ != null || accessDeniedPageSettings_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -818,11 +847,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         accessDeniedPageSettings_ = value;
-        onChanged();
       } else {
         accessDeniedPageSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -836,11 +865,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.iap.v1.AccessDeniedPageSettings.Builder builderForValue) {
       if (accessDeniedPageSettingsBuilder_ == null) {
         accessDeniedPageSettings_ = builderForValue.build();
-        onChanged();
       } else {
         accessDeniedPageSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -852,17 +881,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAccessDeniedPageSettings(com.google.cloud.iap.v1.AccessDeniedPageSettings value) {
       if (accessDeniedPageSettingsBuilder_ == null) {
-        if (accessDeniedPageSettings_ != null) {
-          accessDeniedPageSettings_ =
-            com.google.cloud.iap.v1.AccessDeniedPageSettings.newBuilder(accessDeniedPageSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          accessDeniedPageSettings_ != null &&
+          accessDeniedPageSettings_ != com.google.cloud.iap.v1.AccessDeniedPageSettings.getDefaultInstance()) {
+          getAccessDeniedPageSettingsBuilder().mergeFrom(value);
         } else {
           accessDeniedPageSettings_ = value;
         }
-        onChanged();
       } else {
         accessDeniedPageSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -873,14 +903,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iap.v1.AccessDeniedPageSettings access_denied_page_settings = 2;</code>
      */
     public Builder clearAccessDeniedPageSettings() {
-      if (accessDeniedPageSettingsBuilder_ == null) {
-        accessDeniedPageSettings_ = null;
-        onChanged();
-      } else {
-        accessDeniedPageSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      accessDeniedPageSettings_ = null;
+      if (accessDeniedPageSettingsBuilder_ != null) {
+        accessDeniedPageSettingsBuilder_.dispose();
         accessDeniedPageSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -891,7 +920,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iap.v1.AccessDeniedPageSettings access_denied_page_settings = 2;</code>
      */
     public com.google.cloud.iap.v1.AccessDeniedPageSettings.Builder getAccessDeniedPageSettingsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAccessDeniedPageSettingsFieldBuilder().getBuilder();
     }
@@ -944,7 +973,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cookieDomain field is set.
      */
     public boolean hasCookieDomain() {
-      return cookieDomainBuilder_ != null || cookieDomain_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -976,11 +1005,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cookieDomain_ = value;
-        onChanged();
       } else {
         cookieDomainBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -995,11 +1024,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.StringValue.Builder builderForValue) {
       if (cookieDomainBuilder_ == null) {
         cookieDomain_ = builderForValue.build();
-        onChanged();
       } else {
         cookieDomainBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1012,17 +1041,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCookieDomain(com.google.protobuf.StringValue value) {
       if (cookieDomainBuilder_ == null) {
-        if (cookieDomain_ != null) {
-          cookieDomain_ =
-            com.google.protobuf.StringValue.newBuilder(cookieDomain_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          cookieDomain_ != null &&
+          cookieDomain_ != com.google.protobuf.StringValue.getDefaultInstance()) {
+          getCookieDomainBuilder().mergeFrom(value);
         } else {
           cookieDomain_ = value;
         }
-        onChanged();
       } else {
         cookieDomainBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1034,14 +1064,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.StringValue cookie_domain = 3;</code>
      */
     public Builder clearCookieDomain() {
-      if (cookieDomainBuilder_ == null) {
-        cookieDomain_ = null;
-        onChanged();
-      } else {
-        cookieDomain_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      cookieDomain_ = null;
+      if (cookieDomainBuilder_ != null) {
+        cookieDomainBuilder_.dispose();
         cookieDomainBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1053,7 +1082,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.StringValue cookie_domain = 3;</code>
      */
     public com.google.protobuf.StringValue.Builder getCookieDomainBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCookieDomainFieldBuilder().getBuilder();
     }
@@ -1094,6 +1123,161 @@ private static final long serialVersionUID = 0L;
       }
       return cookieDomainBuilder_;
     }
+
+    private com.google.cloud.iap.v1.AttributePropagationSettings attributePropagationSettings_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.iap.v1.AttributePropagationSettings, com.google.cloud.iap.v1.AttributePropagationSettings.Builder, com.google.cloud.iap.v1.AttributePropagationSettingsOrBuilder> attributePropagationSettingsBuilder_;
+    /**
+     * <pre>
+     * Settings to configure attribute propagation.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AttributePropagationSettings attribute_propagation_settings = 4;</code>
+     * @return Whether the attributePropagationSettings field is set.
+     */
+    public boolean hasAttributePropagationSettings() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * Settings to configure attribute propagation.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AttributePropagationSettings attribute_propagation_settings = 4;</code>
+     * @return The attributePropagationSettings.
+     */
+    public com.google.cloud.iap.v1.AttributePropagationSettings getAttributePropagationSettings() {
+      if (attributePropagationSettingsBuilder_ == null) {
+        return attributePropagationSettings_ == null ? com.google.cloud.iap.v1.AttributePropagationSettings.getDefaultInstance() : attributePropagationSettings_;
+      } else {
+        return attributePropagationSettingsBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Settings to configure attribute propagation.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AttributePropagationSettings attribute_propagation_settings = 4;</code>
+     */
+    public Builder setAttributePropagationSettings(com.google.cloud.iap.v1.AttributePropagationSettings value) {
+      if (attributePropagationSettingsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        attributePropagationSettings_ = value;
+      } else {
+        attributePropagationSettingsBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Settings to configure attribute propagation.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AttributePropagationSettings attribute_propagation_settings = 4;</code>
+     */
+    public Builder setAttributePropagationSettings(
+        com.google.cloud.iap.v1.AttributePropagationSettings.Builder builderForValue) {
+      if (attributePropagationSettingsBuilder_ == null) {
+        attributePropagationSettings_ = builderForValue.build();
+      } else {
+        attributePropagationSettingsBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Settings to configure attribute propagation.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AttributePropagationSettings attribute_propagation_settings = 4;</code>
+     */
+    public Builder mergeAttributePropagationSettings(com.google.cloud.iap.v1.AttributePropagationSettings value) {
+      if (attributePropagationSettingsBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0) &&
+          attributePropagationSettings_ != null &&
+          attributePropagationSettings_ != com.google.cloud.iap.v1.AttributePropagationSettings.getDefaultInstance()) {
+          getAttributePropagationSettingsBuilder().mergeFrom(value);
+        } else {
+          attributePropagationSettings_ = value;
+        }
+      } else {
+        attributePropagationSettingsBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Settings to configure attribute propagation.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AttributePropagationSettings attribute_propagation_settings = 4;</code>
+     */
+    public Builder clearAttributePropagationSettings() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      attributePropagationSettings_ = null;
+      if (attributePropagationSettingsBuilder_ != null) {
+        attributePropagationSettingsBuilder_.dispose();
+        attributePropagationSettingsBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Settings to configure attribute propagation.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AttributePropagationSettings attribute_propagation_settings = 4;</code>
+     */
+    public com.google.cloud.iap.v1.AttributePropagationSettings.Builder getAttributePropagationSettingsBuilder() {
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return getAttributePropagationSettingsFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Settings to configure attribute propagation.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AttributePropagationSettings attribute_propagation_settings = 4;</code>
+     */
+    public com.google.cloud.iap.v1.AttributePropagationSettingsOrBuilder getAttributePropagationSettingsOrBuilder() {
+      if (attributePropagationSettingsBuilder_ != null) {
+        return attributePropagationSettingsBuilder_.getMessageOrBuilder();
+      } else {
+        return attributePropagationSettings_ == null ?
+            com.google.cloud.iap.v1.AttributePropagationSettings.getDefaultInstance() : attributePropagationSettings_;
+      }
+    }
+    /**
+     * <pre>
+     * Settings to configure attribute propagation.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AttributePropagationSettings attribute_propagation_settings = 4;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.iap.v1.AttributePropagationSettings, com.google.cloud.iap.v1.AttributePropagationSettings.Builder, com.google.cloud.iap.v1.AttributePropagationSettingsOrBuilder> 
+        getAttributePropagationSettingsFieldBuilder() {
+      if (attributePropagationSettingsBuilder_ == null) {
+        attributePropagationSettingsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.iap.v1.AttributePropagationSettings, com.google.cloud.iap.v1.AttributePropagationSettings.Builder, com.google.cloud.iap.v1.AttributePropagationSettingsOrBuilder>(
+                getAttributePropagationSettings(),
+                getParentForChildren(),
+                isClean());
+        attributePropagationSettings_ = null;
+      }
+      return attributePropagationSettingsBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1127,7 +1311,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ApplicationSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

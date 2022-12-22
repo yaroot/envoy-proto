@@ -264,4 +264,53 @@ public interface RateLimitOrBuilder extends
    * <code>.envoy.type.v3.HttpStatus rate_limited_status = 10;</code>
    */
   io.envoyproxy.envoy.type.v3.HttpStatusOrBuilder getRateLimitedStatusOrBuilder();
+
+  /**
+   * <pre>
+   * Specifies a list of HTTP headers that should be added to each response for requests that
+   * have been rate limited.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+   */
+  java.util.List<io.envoyproxy.envoy.config.core.v3.HeaderValueOption> 
+      getResponseHeadersToAddList();
+  /**
+   * <pre>
+   * Specifies a list of HTTP headers that should be added to each response for requests that
+   * have been rate limited.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+   */
+  io.envoyproxy.envoy.config.core.v3.HeaderValueOption getResponseHeadersToAdd(int index);
+  /**
+   * <pre>
+   * Specifies a list of HTTP headers that should be added to each response for requests that
+   * have been rate limited.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+   */
+  int getResponseHeadersToAddCount();
+  /**
+   * <pre>
+   * Specifies a list of HTTP headers that should be added to each response for requests that
+   * have been rate limited.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+   */
+  java.util.List<? extends io.envoyproxy.envoy.config.core.v3.HeaderValueOptionOrBuilder> 
+      getResponseHeadersToAddOrBuilderList();
+  /**
+   * <pre>
+   * Specifies a list of HTTP headers that should be added to each response for requests that
+   * have been rate limited.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+   */
+  io.envoyproxy.envoy.config.core.v3.HeaderValueOptionOrBuilder getResponseHeadersToAddOrBuilder(
+      int index);
 }

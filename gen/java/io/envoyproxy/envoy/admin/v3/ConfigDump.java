@@ -36,58 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConfigDump(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              configs_ = new java.util.ArrayList<com.google.protobuf.Any>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            configs_.add(
-                input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        configs_ = java.util.Collections.unmodifiableList(configs_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.admin.v3.ConfigDumpProto.internal_static_envoy_admin_v3_ConfigDump_descriptor;
@@ -102,6 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONFIGS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.protobuf.Any> configs_;
   /**
    * <pre>
@@ -111,12 +60,16 @@ private static final long serialVersionUID = 0L;
    * below:
    * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
    * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+   * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+   * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
    * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
    * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
    * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
    * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
    * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
    * EDS Configuration will only be dumped by using parameter ``?include_eds``
+   * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+   * either HTTP or listener filter will only be dumped if it is actually configured.
    * You can filter output with the resource and mask query parameters.
    * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
    * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -138,12 +91,16 @@ private static final long serialVersionUID = 0L;
    * below:
    * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
    * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+   * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+   * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
    * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
    * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
    * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
    * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
    * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
    * EDS Configuration will only be dumped by using parameter ``?include_eds``
+   * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+   * either HTTP or listener filter will only be dumped if it is actually configured.
    * You can filter output with the resource and mask query parameters.
    * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
    * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -166,12 +123,16 @@ private static final long serialVersionUID = 0L;
    * below:
    * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
    * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+   * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+   * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
    * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
    * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
    * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
    * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
    * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
    * EDS Configuration will only be dumped by using parameter ``?include_eds``
+   * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+   * either HTTP or listener filter will only be dumped if it is actually configured.
    * You can filter output with the resource and mask query parameters.
    * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
    * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -193,12 +154,16 @@ private static final long serialVersionUID = 0L;
    * below:
    * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
    * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+   * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+   * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
    * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
    * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
    * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
    * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
    * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
    * EDS Configuration will only be dumped by using parameter ``?include_eds``
+   * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+   * either HTTP or listener filter will only be dumped if it is actually configured.
    * You can filter output with the resource and mask query parameters.
    * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
    * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -220,12 +185,16 @@ private static final long serialVersionUID = 0L;
    * below:
    * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
    * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+   * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+   * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
    * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
    * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
    * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
    * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
    * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
    * EDS Configuration will only be dumped by using parameter ``?include_eds``
+   * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+   * either HTTP or listener filter will only be dumped if it is actually configured.
    * You can filter output with the resource and mask query parameters.
    * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
    * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -258,7 +227,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < configs_.size(); i++) {
       output.writeMessage(1, configs_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -271,7 +240,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, configs_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -288,7 +257,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getConfigsList()
         .equals(other.getConfigsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -303,7 +272,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CONFIGS_FIELD_NUMBER;
       hash = (53 * hash) + getConfigsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -425,29 +394,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.admin.v3.ConfigDump.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getConfigsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (configsBuilder_ == null) {
         configs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        configs_ = null;
         configsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -474,7 +439,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.admin.v3.ConfigDump buildPartial() {
       io.envoyproxy.envoy.admin.v3.ConfigDump result = new io.envoyproxy.envoy.admin.v3.ConfigDump(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.admin.v3.ConfigDump result) {
       if (configsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           configs_ = java.util.Collections.unmodifiableList(configs_);
@@ -484,8 +455,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.configs_ = configsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.admin.v3.ConfigDump result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -558,7 +531,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -573,17 +546,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.admin.v3.ConfigDump parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.Any m =
+                  input.readMessage(
+                      com.google.protobuf.Any.parser(),
+                      extensionRegistry);
+              if (configsBuilder_ == null) {
+                ensureConfigsIsMutable();
+                configs_.add(m);
+              } else {
+                configsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.admin.v3.ConfigDump) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -608,12 +607,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -638,12 +641,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -668,12 +675,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -698,12 +709,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -735,12 +750,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -769,12 +788,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -805,12 +828,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -842,12 +869,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -876,12 +907,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -910,12 +945,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -945,12 +984,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -978,12 +1021,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -1011,12 +1058,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -1038,12 +1089,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -1068,12 +1123,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -1099,12 +1158,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -1126,12 +1189,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -1154,12 +1221,16 @@ private static final long serialVersionUID = 0L;
      * below:
      * * ``bootstrap``: :ref:`BootstrapConfigDump &lt;envoy_v3_api_msg_admin.v3.BootstrapConfigDump&gt;`
      * * ``clusters``: :ref:`ClustersConfigDump &lt;envoy_v3_api_msg_admin.v3.ClustersConfigDump&gt;`
+     * * ``ecds_filter_http``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
+     * * ``ecds_filter_tcp_listener``: :ref:`EcdsConfigDump &lt;envoy_v3_api_msg_admin.v3.EcdsConfigDump&gt;`
      * * ``endpoints``:  :ref:`EndpointsConfigDump &lt;envoy_v3_api_msg_admin.v3.EndpointsConfigDump&gt;`
      * * ``listeners``: :ref:`ListenersConfigDump &lt;envoy_v3_api_msg_admin.v3.ListenersConfigDump&gt;`
      * * ``scoped_routes``: :ref:`ScopedRoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.ScopedRoutesConfigDump&gt;`
      * * ``routes``:  :ref:`RoutesConfigDump &lt;envoy_v3_api_msg_admin.v3.RoutesConfigDump&gt;`
      * * ``secrets``:  :ref:`SecretsConfigDump &lt;envoy_v3_api_msg_admin.v3.SecretsConfigDump&gt;`
      * EDS Configuration will only be dumped by using parameter ``?include_eds``
+     * Currently ECDS is supported in HTTP and listener filters. Note, ECDS configuration for
+     * either HTTP or listener filter will only be dumped if it is actually configured.
      * You can filter output with the resource and mask query parameters.
      * See :ref:`/config_dump?resource={} &lt;operations_admin_interface_config_dump_by_resource&gt;`,
      * :ref:`/config_dump?mask={} &lt;operations_admin_interface_config_dump_by_mask&gt;`,
@@ -1220,7 +1291,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConfigDump(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -9,7 +9,11 @@ public interface MemcacheParametersOrBuilder extends
 
   /**
    * <pre>
-   * Output only.
+   * Output only. The unique ID associated with this set of parameters. Users
+   * can use this id to determine if the parameters associated with the instance
+   * differ from the parameters associated with the nodes. A discrepancy between
+   * parameter ids can inform users that they may need to take action to apply
+   * parameters on nodes.
    * </pre>
    *
    * <code>string id = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -18,7 +22,11 @@ public interface MemcacheParametersOrBuilder extends
   java.lang.String getId();
   /**
    * <pre>
-   * Output only.
+   * Output only. The unique ID associated with this set of parameters. Users
+   * can use this id to determine if the parameters associated with the instance
+   * differ from the parameters associated with the nodes. A discrepancy between
+   * parameter ids can inform users that they may need to take action to apply
+   * parameters on nodes.
    * </pre>
    *
    * <code>string id = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -66,7 +74,6 @@ public interface MemcacheParametersOrBuilder extends
    *
    * <code>map&lt;string, string&gt; params = 3;</code>
    */
-
   /* nullable */
 java.lang.String getParamsOrDefault(
       java.lang.String key,
@@ -79,7 +86,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; params = 3;</code>
    */
-
   java.lang.String getParamsOrThrow(
       java.lang.String key);
 }

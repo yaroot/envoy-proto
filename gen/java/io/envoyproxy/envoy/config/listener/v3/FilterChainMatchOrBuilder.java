@@ -312,6 +312,7 @@ public interface FilterChainMatchOrBuilder extends
    * The server name will be matched against all wildcard domains, i.e. ``www.example.com``
    * will be first matched against ``www.example.com``, then ``*.example.com``, then ``*.com``.
    * Note that partial wildcards are not supported, and values like ``*w.example.com`` are invalid.
+   * The value ``*`` is also not supported, and ``server_names`` should be omitted instead.
    * .. attention::
    *   See the :ref:`FAQ entry &lt;faq_how_to_setup_sni&gt;` on how to configure SNI for more
    *   information.
@@ -330,6 +331,7 @@ public interface FilterChainMatchOrBuilder extends
    * The server name will be matched against all wildcard domains, i.e. ``www.example.com``
    * will be first matched against ``www.example.com``, then ``*.example.com``, then ``*.com``.
    * Note that partial wildcards are not supported, and values like ``*w.example.com`` are invalid.
+   * The value ``*`` is also not supported, and ``server_names`` should be omitted instead.
    * .. attention::
    *   See the :ref:`FAQ entry &lt;faq_how_to_setup_sni&gt;` on how to configure SNI for more
    *   information.
@@ -347,6 +349,7 @@ public interface FilterChainMatchOrBuilder extends
    * The server name will be matched against all wildcard domains, i.e. ``www.example.com``
    * will be first matched against ``www.example.com``, then ``*.example.com``, then ``*.com``.
    * Note that partial wildcards are not supported, and values like ``*w.example.com`` are invalid.
+   * The value ``*`` is also not supported, and ``server_names`` should be omitted instead.
    * .. attention::
    *   See the :ref:`FAQ entry &lt;faq_how_to_setup_sni&gt;` on how to configure SNI for more
    *   information.
@@ -365,6 +368,7 @@ public interface FilterChainMatchOrBuilder extends
    * The server name will be matched against all wildcard domains, i.e. ``www.example.com``
    * will be first matched against ``www.example.com``, then ``*.example.com``, then ``*.com``.
    * Note that partial wildcards are not supported, and values like ``*w.example.com`` are invalid.
+   * The value ``*`` is also not supported, and ``server_names`` should be omitted instead.
    * .. attention::
    *   See the :ref:`FAQ entry &lt;faq_how_to_setup_sni&gt;` on how to configure SNI for more
    *   information.

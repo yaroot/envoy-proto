@@ -25,6 +25,7 @@ private static final long serialVersionUID = 0L;
     ipCidrRange_ = "";
     state_ = 0;
     connectedProjects_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    machineType_ = "";
   }
 
   @java.lang.Override
@@ -38,105 +39,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Connector(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            network_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            ipCidrRange_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 40: {
-
-            minThroughput_ = input.readInt32();
-            break;
-          }
-          case 48: {
-
-            maxThroughput_ = input.readInt32();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              connectedProjects_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            connectedProjects_.add(s);
-            break;
-          }
-          case 66: {
-            com.google.cloud.vpcaccess.v1.Connector.Subnet.Builder subBuilder = null;
-            if (subnet_ != null) {
-              subBuilder = subnet_.toBuilder();
-            }
-            subnet_ = input.readMessage(com.google.cloud.vpcaccess.v1.Connector.Subnet.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(subnet_);
-              subnet_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        connectedProjects_ = connectedProjects_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -434,57 +336,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Subnet(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              projectId_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.vpcaccess.v1.VpcAccessProto.internal_static_google_cloud_vpcaccess_v1_Connector_Subnet_descriptor;
@@ -499,7 +350,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Subnet name (relative, not fully qualified).
@@ -551,7 +403,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PROJECT_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object projectId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object projectId_ = "";
     /**
      * <pre>
      * Project in which the subnet exists.
@@ -620,7 +473,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, projectId_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -635,7 +488,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, projectId_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -654,7 +507,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getName())) return false;
       if (!getProjectId()
           .equals(other.getProjectId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -669,7 +522,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + PROJECT_ID_FIELD_NUMBER;
       hash = (53 * hash) + getProjectId().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -790,26 +643,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.vpcaccess.v1.Connector.Subnet.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         projectId_ = "";
-
         return this;
       }
 
@@ -836,10 +683,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.vpcaccess.v1.Connector.Subnet buildPartial() {
         com.google.cloud.vpcaccess.v1.Connector.Subnet result = new com.google.cloud.vpcaccess.v1.Connector.Subnet(this);
-        result.name_ = name_;
-        result.projectId_ = projectId_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.vpcaccess.v1.Connector.Subnet result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.projectId_ = projectId_;
+        }
       }
 
       @java.lang.Override
@@ -888,13 +744,15 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.vpcaccess.v1.Connector.Subnet.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getProjectId().isEmpty()) {
           projectId_ = other.projectId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -909,19 +767,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.vpcaccess.v1.Connector.Subnet parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                projectId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.vpcaccess.v1.Connector.Subnet) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -985,11 +867,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1005,8 +885,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1024,12 +904,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1093,11 +971,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setProjectId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         projectId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1112,8 +988,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearProjectId() {
-        
         projectId_ = getDefaultInstance().getProjectId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1130,12 +1006,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setProjectIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         projectId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1172,7 +1046,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Subnet(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1193,7 +1078,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The resource name in the format `projects/&#42;&#47;locations/&#42;&#47;connectors/&#42;`.
@@ -1239,7 +1125,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_FIELD_NUMBER = 2;
-  private volatile java.lang.Object network_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object network_ = "";
   /**
    * <pre>
    * Name of a VPC network.
@@ -1285,7 +1172,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IP_CIDR_RANGE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object ipCidrRange_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object ipCidrRange_ = "";
   /**
    * <pre>
    * The range of internal addresses that follows RFC 4632 notation.
@@ -1333,7 +1221,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 4;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. State of the VPC access connector.
@@ -1354,13 +1242,12 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.vpcaccess.v1.Connector.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.vpcaccess.v1.Connector.State result = com.google.cloud.vpcaccess.v1.Connector.State.valueOf(state_);
+    com.google.cloud.vpcaccess.v1.Connector.State result = com.google.cloud.vpcaccess.v1.Connector.State.forNumber(state_);
     return result == null ? com.google.cloud.vpcaccess.v1.Connector.State.UNRECOGNIZED : result;
   }
 
   public static final int MIN_THROUGHPUT_FIELD_NUMBER = 5;
-  private int minThroughput_;
+  private int minThroughput_ = 0;
   /**
    * <pre>
    * Minimum throughput of the connector in Mbps. Default and min is 200.
@@ -1375,10 +1262,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_THROUGHPUT_FIELD_NUMBER = 6;
-  private int maxThroughput_;
+  private int maxThroughput_ = 0;
   /**
    * <pre>
-   * Maximum throughput of the connector in Mbps. Default is 200, max is 1000.
+   * Maximum throughput of the connector in Mbps. Default is 300, max is 1000.
    * </pre>
    *
    * <code>int32 max_throughput = 6;</code>
@@ -1390,6 +1277,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONNECTED_PROJECTS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList connectedProjects_;
   /**
    * <pre>
@@ -1475,7 +1363,84 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.vpcaccess.v1.Connector.SubnetOrBuilder getSubnetOrBuilder() {
-    return getSubnet();
+    return subnet_ == null ? com.google.cloud.vpcaccess.v1.Connector.Subnet.getDefaultInstance() : subnet_;
+  }
+
+  public static final int MACHINE_TYPE_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object machineType_ = "";
+  /**
+   * <pre>
+   * Machine type of VM Instance underlying connector. Default is e2-micro
+   * </pre>
+   *
+   * <code>string machine_type = 10;</code>
+   * @return The machineType.
+   */
+  @java.lang.Override
+  public java.lang.String getMachineType() {
+    java.lang.Object ref = machineType_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      machineType_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Machine type of VM Instance underlying connector. Default is e2-micro
+   * </pre>
+   *
+   * <code>string machine_type = 10;</code>
+   * @return The bytes for machineType.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getMachineTypeBytes() {
+    java.lang.Object ref = machineType_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      machineType_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int MIN_INSTANCES_FIELD_NUMBER = 11;
+  private int minInstances_ = 0;
+  /**
+   * <pre>
+   * Minimum value of instances in autoscaling group underlying the connector.
+   * </pre>
+   *
+   * <code>int32 min_instances = 11;</code>
+   * @return The minInstances.
+   */
+  @java.lang.Override
+  public int getMinInstances() {
+    return minInstances_;
+  }
+
+  public static final int MAX_INSTANCES_FIELD_NUMBER = 12;
+  private int maxInstances_ = 0;
+  /**
+   * <pre>
+   * Maximum value of instances in autoscaling group underlying the connector.
+   * </pre>
+   *
+   * <code>int32 max_instances = 12;</code>
+   * @return The maxInstances.
+   */
+  @java.lang.Override
+  public int getMaxInstances() {
+    return maxInstances_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1516,7 +1481,16 @@ private static final long serialVersionUID = 0L;
     if (subnet_ != null) {
       output.writeMessage(8, getSubnet());
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(machineType_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, machineType_);
+    }
+    if (minInstances_ != 0) {
+      output.writeInt32(11, minInstances_);
+    }
+    if (maxInstances_ != 0) {
+      output.writeInt32(12, maxInstances_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1558,7 +1532,18 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getSubnet());
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(machineType_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, machineType_);
+    }
+    if (minInstances_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(11, minInstances_);
+    }
+    if (maxInstances_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(12, maxInstances_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1591,7 +1576,13 @@ private static final long serialVersionUID = 0L;
       if (!getSubnet()
           .equals(other.getSubnet())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getMachineType()
+        .equals(other.getMachineType())) return false;
+    if (getMinInstances()
+        != other.getMinInstances()) return false;
+    if (getMaxInstances()
+        != other.getMaxInstances()) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1622,7 +1613,13 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SUBNET_FIELD_NUMBER;
       hash = (53 * hash) + getSubnet().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + MACHINE_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getMachineType().hashCode();
+    hash = (37 * hash) + MIN_INSTANCES_FIELD_NUMBER;
+    hash = (53 * hash) + getMinInstances();
+    hash = (37 * hash) + MAX_INSTANCES_FIELD_NUMBER;
+    hash = (53 * hash) + getMaxInstances();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1743,42 +1740,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.vpcaccess.v1.Connector.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       network_ = "";
-
       ipCidrRange_ = "";
-
       state_ = 0;
-
       minThroughput_ = 0;
-
       maxThroughput_ = 0;
-
       connectedProjects_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (subnetBuilder_ == null) {
-        subnet_ = null;
-      } else {
-        subnet_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      subnet_ = null;
+      if (subnetBuilder_ != null) {
+        subnetBuilder_.dispose();
         subnetBuilder_ = null;
       }
+      machineType_ = "";
+      minInstances_ = 0;
+      maxInstances_ = 0;
       return this;
     }
 
@@ -1805,25 +1794,54 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.vpcaccess.v1.Connector buildPartial() {
       com.google.cloud.vpcaccess.v1.Connector result = new com.google.cloud.vpcaccess.v1.Connector(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.network_ = network_;
-      result.ipCidrRange_ = ipCidrRange_;
-      result.state_ = state_;
-      result.minThroughput_ = minThroughput_;
-      result.maxThroughput_ = maxThroughput_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        connectedProjects_ = connectedProjects_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.connectedProjects_ = connectedProjects_;
-      if (subnetBuilder_ == null) {
-        result.subnet_ = subnet_;
-      } else {
-        result.subnet_ = subnetBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.vpcaccess.v1.Connector result) {
+      if (((bitField0_ & 0x00000040) != 0)) {
+        connectedProjects_ = connectedProjects_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000040);
+      }
+      result.connectedProjects_ = connectedProjects_;
+    }
+
+    private void buildPartial0(com.google.cloud.vpcaccess.v1.Connector result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.network_ = network_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.ipCidrRange_ = ipCidrRange_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.minThroughput_ = minThroughput_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.maxThroughput_ = maxThroughput_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.subnet_ = subnetBuilder_ == null
+            ? subnet_
+            : subnetBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.machineType_ = machineType_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.minInstances_ = minInstances_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.maxInstances_ = maxInstances_;
+      }
     }
 
     @java.lang.Override
@@ -1872,14 +1890,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.vpcaccess.v1.Connector.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getNetwork().isEmpty()) {
         network_ = other.network_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getIpCidrRange().isEmpty()) {
         ipCidrRange_ = other.ipCidrRange_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -1894,7 +1915,7 @@ private static final long serialVersionUID = 0L;
       if (!other.connectedProjects_.isEmpty()) {
         if (connectedProjects_.isEmpty()) {
           connectedProjects_ = other.connectedProjects_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           ensureConnectedProjectsIsMutable();
           connectedProjects_.addAll(other.connectedProjects_);
@@ -1904,7 +1925,18 @@ private static final long serialVersionUID = 0L;
       if (other.hasSubnet()) {
         mergeSubnet(other.getSubnet());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getMachineType().isEmpty()) {
+        machineType_ = other.machineType_;
+        bitField0_ |= 0x00000100;
+        onChanged();
+      }
+      if (other.getMinInstances() != 0) {
+        setMinInstances(other.getMinInstances());
+      }
+      if (other.getMaxInstances() != 0) {
+        setMaxInstances(other.getMaxInstances());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1919,17 +1951,88 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.vpcaccess.v1.Connector parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              network_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              ipCidrRange_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              minThroughput_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              maxThroughput_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureConnectedProjectsIsMutable();
+              connectedProjects_.add(s);
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getSubnetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 82: {
+              machineType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 82
+            case 88: {
+              minInstances_ = input.readInt32();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 88
+            case 96: {
+              maxInstances_ = input.readInt32();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 96
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.vpcaccess.v1.Connector) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1987,11 +2090,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2004,8 +2105,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2020,12 +2121,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2083,11 +2182,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetwork(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       network_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2100,8 +2197,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNetwork() {
-      
       network_ = getDefaultInstance().getNetwork();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2116,12 +2213,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetworkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       network_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2182,11 +2277,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIpCidrRange(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       ipCidrRange_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2200,8 +2293,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIpCidrRange() {
-      
       ipCidrRange_ = getDefaultInstance().getIpCidrRange();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2217,12 +2310,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIpCidrRangeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ipCidrRange_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2249,8 +2340,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2264,8 +2355,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.vpcaccess.v1.Connector.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.vpcaccess.v1.Connector.State result = com.google.cloud.vpcaccess.v1.Connector.State.valueOf(state_);
+      com.google.cloud.vpcaccess.v1.Connector.State result = com.google.cloud.vpcaccess.v1.Connector.State.forNumber(state_);
       return result == null ? com.google.cloud.vpcaccess.v1.Connector.State.UNRECOGNIZED : result;
     }
     /**
@@ -2281,7 +2371,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -2295,7 +2385,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       state_ = 0;
       onChanged();
       return this;
@@ -2326,6 +2416,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMinThroughput(int value) {
       
       minThroughput_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2338,7 +2429,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinThroughput() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       minThroughput_ = 0;
       onChanged();
       return this;
@@ -2347,7 +2438,7 @@ private static final long serialVersionUID = 0L;
     private int maxThroughput_ ;
     /**
      * <pre>
-     * Maximum throughput of the connector in Mbps. Default is 200, max is 1000.
+     * Maximum throughput of the connector in Mbps. Default is 300, max is 1000.
      * </pre>
      *
      * <code>int32 max_throughput = 6;</code>
@@ -2359,7 +2450,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Maximum throughput of the connector in Mbps. Default is 200, max is 1000.
+     * Maximum throughput of the connector in Mbps. Default is 300, max is 1000.
      * </pre>
      *
      * <code>int32 max_throughput = 6;</code>
@@ -2369,19 +2460,20 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxThroughput(int value) {
       
       maxThroughput_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Maximum throughput of the connector in Mbps. Default is 200, max is 1000.
+     * Maximum throughput of the connector in Mbps. Default is 300, max is 1000.
      * </pre>
      *
      * <code>int32 max_throughput = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearMaxThroughput() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       maxThroughput_ = 0;
       onChanged();
       return this;
@@ -2389,9 +2481,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList connectedProjects_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureConnectedProjectsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         connectedProjects_ = new com.google.protobuf.LazyStringArrayList(connectedProjects_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000040;
        }
     }
     /**
@@ -2454,10 +2546,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConnectedProjects(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureConnectedProjectsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureConnectedProjectsIsMutable();
       connectedProjects_.set(index, value);
       onChanged();
       return this;
@@ -2473,10 +2563,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addConnectedProjects(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureConnectedProjectsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureConnectedProjectsIsMutable();
       connectedProjects_.add(value);
       onChanged();
       return this;
@@ -2508,7 +2596,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearConnectedProjects() {
       connectedProjects_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2523,10 +2611,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addConnectedProjectsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureConnectedProjectsIsMutable();
       connectedProjects_.add(value);
       onChanged();
@@ -2545,7 +2631,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the subnet field is set.
      */
     public boolean hasSubnet() {
-      return subnetBuilder_ != null || subnet_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2575,11 +2661,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         subnet_ = value;
-        onChanged();
       } else {
         subnetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2593,11 +2679,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.vpcaccess.v1.Connector.Subnet.Builder builderForValue) {
       if (subnetBuilder_ == null) {
         subnet_ = builderForValue.build();
-        onChanged();
       } else {
         subnetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2609,17 +2695,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSubnet(com.google.cloud.vpcaccess.v1.Connector.Subnet value) {
       if (subnetBuilder_ == null) {
-        if (subnet_ != null) {
-          subnet_ =
-            com.google.cloud.vpcaccess.v1.Connector.Subnet.newBuilder(subnet_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          subnet_ != null &&
+          subnet_ != com.google.cloud.vpcaccess.v1.Connector.Subnet.getDefaultInstance()) {
+          getSubnetBuilder().mergeFrom(value);
         } else {
           subnet_ = value;
         }
-        onChanged();
       } else {
         subnetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2630,14 +2717,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vpcaccess.v1.Connector.Subnet subnet = 8;</code>
      */
     public Builder clearSubnet() {
-      if (subnetBuilder_ == null) {
-        subnet_ = null;
-        onChanged();
-      } else {
-        subnet_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      subnet_ = null;
+      if (subnetBuilder_ != null) {
+        subnetBuilder_.dispose();
         subnetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2648,7 +2734,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vpcaccess.v1.Connector.Subnet subnet = 8;</code>
      */
     public com.google.cloud.vpcaccess.v1.Connector.Subnet.Builder getSubnetBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getSubnetFieldBuilder().getBuilder();
     }
@@ -2687,6 +2773,186 @@ private static final long serialVersionUID = 0L;
       }
       return subnetBuilder_;
     }
+
+    private java.lang.Object machineType_ = "";
+    /**
+     * <pre>
+     * Machine type of VM Instance underlying connector. Default is e2-micro
+     * </pre>
+     *
+     * <code>string machine_type = 10;</code>
+     * @return The machineType.
+     */
+    public java.lang.String getMachineType() {
+      java.lang.Object ref = machineType_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        machineType_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Machine type of VM Instance underlying connector. Default is e2-micro
+     * </pre>
+     *
+     * <code>string machine_type = 10;</code>
+     * @return The bytes for machineType.
+     */
+    public com.google.protobuf.ByteString
+        getMachineTypeBytes() {
+      java.lang.Object ref = machineType_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        machineType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Machine type of VM Instance underlying connector. Default is e2-micro
+     * </pre>
+     *
+     * <code>string machine_type = 10;</code>
+     * @param value The machineType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMachineType(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      machineType_ = value;
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Machine type of VM Instance underlying connector. Default is e2-micro
+     * </pre>
+     *
+     * <code>string machine_type = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMachineType() {
+      machineType_ = getDefaultInstance().getMachineType();
+      bitField0_ = (bitField0_ & ~0x00000100);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Machine type of VM Instance underlying connector. Default is e2-micro
+     * </pre>
+     *
+     * <code>string machine_type = 10;</code>
+     * @param value The bytes for machineType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMachineTypeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      machineType_ = value;
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+
+    private int minInstances_ ;
+    /**
+     * <pre>
+     * Minimum value of instances in autoscaling group underlying the connector.
+     * </pre>
+     *
+     * <code>int32 min_instances = 11;</code>
+     * @return The minInstances.
+     */
+    @java.lang.Override
+    public int getMinInstances() {
+      return minInstances_;
+    }
+    /**
+     * <pre>
+     * Minimum value of instances in autoscaling group underlying the connector.
+     * </pre>
+     *
+     * <code>int32 min_instances = 11;</code>
+     * @param value The minInstances to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMinInstances(int value) {
+      
+      minInstances_ = value;
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Minimum value of instances in autoscaling group underlying the connector.
+     * </pre>
+     *
+     * <code>int32 min_instances = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMinInstances() {
+      bitField0_ = (bitField0_ & ~0x00000200);
+      minInstances_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int maxInstances_ ;
+    /**
+     * <pre>
+     * Maximum value of instances in autoscaling group underlying the connector.
+     * </pre>
+     *
+     * <code>int32 max_instances = 12;</code>
+     * @return The maxInstances.
+     */
+    @java.lang.Override
+    public int getMaxInstances() {
+      return maxInstances_;
+    }
+    /**
+     * <pre>
+     * Maximum value of instances in autoscaling group underlying the connector.
+     * </pre>
+     *
+     * <code>int32 max_instances = 12;</code>
+     * @param value The maxInstances to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMaxInstances(int value) {
+      
+      maxInstances_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Maximum value of instances in autoscaling group underlying the connector.
+     * </pre>
+     *
+     * <code>int32 max_instances = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMaxInstances() {
+      bitField0_ = (bitField0_ & ~0x00000400);
+      maxInstances_ = 0;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2720,7 +2986,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Connector(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

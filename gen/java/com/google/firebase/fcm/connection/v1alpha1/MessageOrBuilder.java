@@ -124,7 +124,6 @@ public interface MessageOrBuilder extends
    *
    * <code>map&lt;string, string&gt; data = 4;</code>
    */
-
   /* nullable */
 java.lang.String getDataOrDefault(
       java.lang.String key,
@@ -138,7 +137,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; data = 4;</code>
    */
-
   java.lang.String getDataOrThrow(
       java.lang.String key);
 }

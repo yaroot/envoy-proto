@@ -34,55 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private JobScheduling(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            maxFailuresPerHour_ = input.readInt32();
-            break;
-          }
-          case 16: {
-
-            maxFailuresTotal_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.v1.JobsProto.internal_static_google_cloud_dataproc_v1_JobScheduling_descriptor;
@@ -97,20 +48,18 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_FAILURES_PER_HOUR_FIELD_NUMBER = 1;
-  private int maxFailuresPerHour_;
+  private int maxFailuresPerHour_ = 0;
   /**
    * <pre>
    * Optional. Maximum number of times per hour a driver may be restarted as
    * a result of driver exiting with non-zero code before job is
    * reported failed.
-   * A job may be reported as thrashing if driver exits with non-zero code
-   * 4 times within 10 minute window.
+   * A job may be reported as thrashing if the driver exits with a non-zero code
+   * four times within a 10-minute window.
    * Maximum value is 10.
-   * **Note:** Currently, this restartable job option is
-   * not supported in Dataproc
-   * [workflow
-   * template](https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template)
-   * jobs.
+   * **Note:** This restartable job option is not supported in Dataproc
+   * [workflow templates]
+   * (https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template).
    * </pre>
    *
    * <code>int32 max_failures_per_hour = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -122,17 +71,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_FAILURES_TOTAL_FIELD_NUMBER = 2;
-  private int maxFailuresTotal_;
+  private int maxFailuresTotal_ = 0;
   /**
    * <pre>
-   * Optional. Maximum number of times in total a driver may be restarted as a result of
-   * driver exiting with non-zero code before job is reported failed.
+   * Optional. Maximum total number of times a driver may be restarted as a
+   * result of the driver exiting with a non-zero code. After the maximum number
+   * is reached, the job will be reported as failed.
    * Maximum value is 240.
    * **Note:** Currently, this restartable job option is
    * not supported in Dataproc
    * [workflow
-   * template](https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template)
-   * jobs.
+   * templates](https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template).
    * </pre>
    *
    * <code>int32 max_failures_total = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -163,7 +112,7 @@ private static final long serialVersionUID = 0L;
     if (maxFailuresTotal_ != 0) {
       output.writeInt32(2, maxFailuresTotal_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -180,7 +129,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, maxFailuresTotal_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -199,7 +148,7 @@ private static final long serialVersionUID = 0L;
         != other.getMaxFailuresPerHour()) return false;
     if (getMaxFailuresTotal()
         != other.getMaxFailuresTotal()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -214,7 +163,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getMaxFailuresPerHour();
     hash = (37 * hash) + MAX_FAILURES_TOTAL_FIELD_NUMBER;
     hash = (53 * hash) + getMaxFailuresTotal();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -335,26 +284,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.JobScheduling.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       maxFailuresPerHour_ = 0;
-
       maxFailuresTotal_ = 0;
-
       return this;
     }
 
@@ -381,10 +324,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.JobScheduling buildPartial() {
       com.google.cloud.dataproc.v1.JobScheduling result = new com.google.cloud.dataproc.v1.JobScheduling(this);
-      result.maxFailuresPerHour_ = maxFailuresPerHour_;
-      result.maxFailuresTotal_ = maxFailuresTotal_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.JobScheduling result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.maxFailuresPerHour_ = maxFailuresPerHour_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.maxFailuresTotal_ = maxFailuresTotal_;
+      }
     }
 
     @java.lang.Override
@@ -437,7 +389,7 @@ private static final long serialVersionUID = 0L;
       if (other.getMaxFailuresTotal() != 0) {
         setMaxFailuresTotal(other.getMaxFailuresTotal());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -452,19 +404,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.JobScheduling parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              maxFailuresPerHour_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              maxFailuresTotal_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.JobScheduling) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int maxFailuresPerHour_ ;
     /**
@@ -472,14 +448,12 @@ private static final long serialVersionUID = 0L;
      * Optional. Maximum number of times per hour a driver may be restarted as
      * a result of driver exiting with non-zero code before job is
      * reported failed.
-     * A job may be reported as thrashing if driver exits with non-zero code
-     * 4 times within 10 minute window.
+     * A job may be reported as thrashing if the driver exits with a non-zero code
+     * four times within a 10-minute window.
      * Maximum value is 10.
-     * **Note:** Currently, this restartable job option is
-     * not supported in Dataproc
-     * [workflow
-     * template](https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template)
-     * jobs.
+     * **Note:** This restartable job option is not supported in Dataproc
+     * [workflow templates]
+     * (https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template).
      * </pre>
      *
      * <code>int32 max_failures_per_hour = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -494,14 +468,12 @@ private static final long serialVersionUID = 0L;
      * Optional. Maximum number of times per hour a driver may be restarted as
      * a result of driver exiting with non-zero code before job is
      * reported failed.
-     * A job may be reported as thrashing if driver exits with non-zero code
-     * 4 times within 10 minute window.
+     * A job may be reported as thrashing if the driver exits with a non-zero code
+     * four times within a 10-minute window.
      * Maximum value is 10.
-     * **Note:** Currently, this restartable job option is
-     * not supported in Dataproc
-     * [workflow
-     * template](https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template)
-     * jobs.
+     * **Note:** This restartable job option is not supported in Dataproc
+     * [workflow templates]
+     * (https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template).
      * </pre>
      *
      * <code>int32 max_failures_per_hour = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -511,6 +483,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxFailuresPerHour(int value) {
       
       maxFailuresPerHour_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -519,21 +492,19 @@ private static final long serialVersionUID = 0L;
      * Optional. Maximum number of times per hour a driver may be restarted as
      * a result of driver exiting with non-zero code before job is
      * reported failed.
-     * A job may be reported as thrashing if driver exits with non-zero code
-     * 4 times within 10 minute window.
+     * A job may be reported as thrashing if the driver exits with a non-zero code
+     * four times within a 10-minute window.
      * Maximum value is 10.
-     * **Note:** Currently, this restartable job option is
-     * not supported in Dataproc
-     * [workflow
-     * template](https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template)
-     * jobs.
+     * **Note:** This restartable job option is not supported in Dataproc
+     * [workflow templates]
+     * (https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template).
      * </pre>
      *
      * <code>int32 max_failures_per_hour = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearMaxFailuresPerHour() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       maxFailuresPerHour_ = 0;
       onChanged();
       return this;
@@ -542,14 +513,14 @@ private static final long serialVersionUID = 0L;
     private int maxFailuresTotal_ ;
     /**
      * <pre>
-     * Optional. Maximum number of times in total a driver may be restarted as a result of
-     * driver exiting with non-zero code before job is reported failed.
+     * Optional. Maximum total number of times a driver may be restarted as a
+     * result of the driver exiting with a non-zero code. After the maximum number
+     * is reached, the job will be reported as failed.
      * Maximum value is 240.
      * **Note:** Currently, this restartable job option is
      * not supported in Dataproc
      * [workflow
-     * template](https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template)
-     * jobs.
+     * templates](https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template).
      * </pre>
      *
      * <code>int32 max_failures_total = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -561,14 +532,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Maximum number of times in total a driver may be restarted as a result of
-     * driver exiting with non-zero code before job is reported failed.
+     * Optional. Maximum total number of times a driver may be restarted as a
+     * result of the driver exiting with a non-zero code. After the maximum number
+     * is reached, the job will be reported as failed.
      * Maximum value is 240.
      * **Note:** Currently, this restartable job option is
      * not supported in Dataproc
      * [workflow
-     * template](https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template)
-     * jobs.
+     * templates](https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template).
      * </pre>
      *
      * <code>int32 max_failures_total = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -578,26 +549,27 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxFailuresTotal(int value) {
       
       maxFailuresTotal_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Maximum number of times in total a driver may be restarted as a result of
-     * driver exiting with non-zero code before job is reported failed.
+     * Optional. Maximum total number of times a driver may be restarted as a
+     * result of the driver exiting with a non-zero code. After the maximum number
+     * is reached, the job will be reported as failed.
      * Maximum value is 240.
      * **Note:** Currently, this restartable job option is
      * not supported in Dataproc
      * [workflow
-     * template](https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template)
-     * jobs.
+     * templates](https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template).
      * </pre>
      *
      * <code>int32 max_failures_total = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearMaxFailuresTotal() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       maxFailuresTotal_ = 0;
       onChanged();
       return this;
@@ -635,7 +607,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new JobScheduling(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

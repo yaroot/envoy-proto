@@ -30,63 +30,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpstreamConnectionOptions(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.core.v3.TcpKeepalive.Builder subBuilder = null;
-            if (tcpKeepalive_ != null) {
-              subBuilder = tcpKeepalive_.toBuilder();
-            }
-            tcpKeepalive_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.TcpKeepalive.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tcpKeepalive_);
-              tcpKeepalive_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-
-            setLocalInterfaceNameOnUpstreamConnections_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.cluster.v3.ClusterProto.internal_static_envoy_config_cluster_v3_UpstreamConnectionOptions_descriptor;
@@ -135,11 +78,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.TcpKeepaliveOrBuilder getTcpKeepaliveOrBuilder() {
-    return getTcpKeepalive();
+    return tcpKeepalive_ == null ? io.envoyproxy.envoy.config.core.v3.TcpKeepalive.getDefaultInstance() : tcpKeepalive_;
   }
 
   public static final int SET_LOCAL_INTERFACE_NAME_ON_UPSTREAM_CONNECTIONS_FIELD_NUMBER = 2;
-  private boolean setLocalInterfaceNameOnUpstreamConnections_;
+  private boolean setLocalInterfaceNameOnUpstreamConnections_ = false;
   /**
    * <pre>
    * If enabled, associates the interface name of the local address with the upstream connection.
@@ -175,7 +118,7 @@ private static final long serialVersionUID = 0L;
     if (setLocalInterfaceNameOnUpstreamConnections_ != false) {
       output.writeBool(2, setLocalInterfaceNameOnUpstreamConnections_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -192,7 +135,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(2, setLocalInterfaceNameOnUpstreamConnections_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -214,7 +157,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getSetLocalInterfaceNameOnUpstreamConnections()
         != other.getSetLocalInterfaceNameOnUpstreamConnections()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -232,7 +175,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SET_LOCAL_INTERFACE_NAME_ON_UPSTREAM_CONNECTIONS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getSetLocalInterfaceNameOnUpstreamConnections());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -349,30 +292,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.cluster.v3.UpstreamConnectionOptions.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (tcpKeepaliveBuilder_ == null) {
-        tcpKeepalive_ = null;
-      } else {
-        tcpKeepalive_ = null;
+      bitField0_ = 0;
+      tcpKeepalive_ = null;
+      if (tcpKeepaliveBuilder_ != null) {
+        tcpKeepaliveBuilder_.dispose();
         tcpKeepaliveBuilder_ = null;
       }
       setLocalInterfaceNameOnUpstreamConnections_ = false;
-
       return this;
     }
 
@@ -399,14 +336,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.cluster.v3.UpstreamConnectionOptions buildPartial() {
       io.envoyproxy.envoy.config.cluster.v3.UpstreamConnectionOptions result = new io.envoyproxy.envoy.config.cluster.v3.UpstreamConnectionOptions(this);
-      if (tcpKeepaliveBuilder_ == null) {
-        result.tcpKeepalive_ = tcpKeepalive_;
-      } else {
-        result.tcpKeepalive_ = tcpKeepaliveBuilder_.build();
-      }
-      result.setLocalInterfaceNameOnUpstreamConnections_ = setLocalInterfaceNameOnUpstreamConnections_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.cluster.v3.UpstreamConnectionOptions result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.tcpKeepalive_ = tcpKeepaliveBuilder_ == null
+            ? tcpKeepalive_
+            : tcpKeepaliveBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.setLocalInterfaceNameOnUpstreamConnections_ = setLocalInterfaceNameOnUpstreamConnections_;
+      }
     }
 
     @java.lang.Override
@@ -459,7 +403,7 @@ private static final long serialVersionUID = 0L;
       if (other.getSetLocalInterfaceNameOnUpstreamConnections() != false) {
         setSetLocalInterfaceNameOnUpstreamConnections(other.getSetLocalInterfaceNameOnUpstreamConnections());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -474,19 +418,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.cluster.v3.UpstreamConnectionOptions parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTcpKeepaliveFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              setLocalInterfaceNameOnUpstreamConnections_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.cluster.v3.UpstreamConnectionOptions) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.config.core.v3.TcpKeepalive tcpKeepalive_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -500,7 +470,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the tcpKeepalive field is set.
      */
     public boolean hasTcpKeepalive() {
-      return tcpKeepaliveBuilder_ != null || tcpKeepalive_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -530,11 +500,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tcpKeepalive_ = value;
-        onChanged();
       } else {
         tcpKeepaliveBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -548,11 +518,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.TcpKeepalive.Builder builderForValue) {
       if (tcpKeepaliveBuilder_ == null) {
         tcpKeepalive_ = builderForValue.build();
-        onChanged();
       } else {
         tcpKeepaliveBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -564,17 +534,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTcpKeepalive(io.envoyproxy.envoy.config.core.v3.TcpKeepalive value) {
       if (tcpKeepaliveBuilder_ == null) {
-        if (tcpKeepalive_ != null) {
-          tcpKeepalive_ =
-            io.envoyproxy.envoy.config.core.v3.TcpKeepalive.newBuilder(tcpKeepalive_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          tcpKeepalive_ != null &&
+          tcpKeepalive_ != io.envoyproxy.envoy.config.core.v3.TcpKeepalive.getDefaultInstance()) {
+          getTcpKeepaliveBuilder().mergeFrom(value);
         } else {
           tcpKeepalive_ = value;
         }
-        onChanged();
       } else {
         tcpKeepaliveBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -585,14 +556,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.TcpKeepalive tcp_keepalive = 1;</code>
      */
     public Builder clearTcpKeepalive() {
-      if (tcpKeepaliveBuilder_ == null) {
-        tcpKeepalive_ = null;
-        onChanged();
-      } else {
-        tcpKeepalive_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      tcpKeepalive_ = null;
+      if (tcpKeepaliveBuilder_ != null) {
+        tcpKeepaliveBuilder_.dispose();
         tcpKeepaliveBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -603,7 +573,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.TcpKeepalive tcp_keepalive = 1;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.TcpKeepalive.Builder getTcpKeepaliveBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getTcpKeepaliveFieldBuilder().getBuilder();
     }
@@ -672,6 +642,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSetLocalInterfaceNameOnUpstreamConnections(boolean value) {
       
       setLocalInterfaceNameOnUpstreamConnections_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -686,7 +657,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSetLocalInterfaceNameOnUpstreamConnections() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       setLocalInterfaceNameOnUpstreamConnections_ = false;
       onChanged();
       return this;
@@ -724,7 +695,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpstreamConnectionOptions(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

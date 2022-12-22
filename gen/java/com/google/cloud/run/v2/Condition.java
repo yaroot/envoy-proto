@@ -38,100 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Condition(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            type_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            message_ = s;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (lastTransitionTime_ != null) {
-              subBuilder = lastTransitionTime_.toBuilder();
-            }
-            lastTransitionTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lastTransitionTime_);
-              lastTransitionTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            severity_ = rawValue;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-            reasonsCase_ = 6;
-            reasons_ = rawValue;
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-            reasonsCase_ = 9;
-            reasons_ = rawValue;
-            break;
-          }
-          case 88: {
-            int rawValue = input.readEnum();
-            reasonsCase_ = 11;
-            reasons_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.run.v2.ConditionProto.internal_static_google_cloud_run_v2_Condition_descriptor;
@@ -1179,6 +1085,14 @@ private static final long serialVersionUID = 0L;
      * <code>NON_ZERO_EXIT_CODE = 2;</code>
      */
     NON_ZERO_EXIT_CODE(2),
+    /**
+     * <pre>
+     * The execution was cancelled by users.
+     * </pre>
+     *
+     * <code>CANCELLED = 3;</code>
+     */
+    CANCELLED(3),
     UNRECOGNIZED(-1),
     ;
 
@@ -1207,6 +1121,14 @@ private static final long serialVersionUID = 0L;
      * <code>NON_ZERO_EXIT_CODE = 2;</code>
      */
     public static final int NON_ZERO_EXIT_CODE_VALUE = 2;
+    /**
+     * <pre>
+     * The execution was cancelled by users.
+     * </pre>
+     *
+     * <code>CANCELLED = 3;</code>
+     */
+    public static final int CANCELLED_VALUE = 3;
 
 
     public final int getNumber() {
@@ -1236,6 +1158,7 @@ private static final long serialVersionUID = 0L;
         case 0: return EXECUTION_REASON_UNDEFINED;
         case 1: return JOB_STATUS_SERVICE_POLLING_ERROR;
         case 2: return NON_ZERO_EXIT_CODE;
+        case 3: return CANCELLED;
         default: return null;
       }
     }
@@ -1336,7 +1259,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object type_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object type_ = "";
   /**
    * <pre>
    * type is used to communicate the status of the reconciliation process.
@@ -1390,7 +1314,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 2;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * State of the condition.
@@ -1411,13 +1335,13 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.run.v2.Condition.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.run.v2.Condition.State result = com.google.cloud.run.v2.Condition.State.valueOf(state_);
+    com.google.cloud.run.v2.Condition.State result = com.google.cloud.run.v2.Condition.State.forNumber(state_);
     return result == null ? com.google.cloud.run.v2.Condition.State.UNRECOGNIZED : result;
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object message_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object message_ = "";
   /**
    * <pre>
    * Human readable message indicating details about the current status.
@@ -1497,11 +1421,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getLastTransitionTimeOrBuilder() {
-    return getLastTransitionTime();
+    return lastTransitionTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastTransitionTime_;
   }
 
   public static final int SEVERITY_FIELD_NUMBER = 5;
-  private int severity_;
+  private int severity_ = 0;
   /**
    * <pre>
    * How to interpret failures of this condition, one of Error, Warning, Info
@@ -1522,8 +1446,7 @@ private static final long serialVersionUID = 0L;
    * @return The severity.
    */
   @java.lang.Override public com.google.cloud.run.v2.Condition.Severity getSeverity() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.run.v2.Condition.Severity result = com.google.cloud.run.v2.Condition.Severity.valueOf(severity_);
+    com.google.cloud.run.v2.Condition.Severity result = com.google.cloud.run.v2.Condition.Severity.forNumber(severity_);
     return result == null ? com.google.cloud.run.v2.Condition.Severity.UNRECOGNIZED : result;
   }
 
@@ -1563,8 +1486,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.cloud.run.v2.Condition.CommonReason getReason() {
     if (reasonsCase_ == 6) {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.run.v2.Condition.CommonReason result = com.google.cloud.run.v2.Condition.CommonReason.valueOf(
+      com.google.cloud.run.v2.Condition.CommonReason result = com.google.cloud.run.v2.Condition.CommonReason.forNumber(
           (java.lang.Integer) reasons_);
       return result == null ? com.google.cloud.run.v2.Condition.CommonReason.UNRECOGNIZED : result;
     }
@@ -1607,8 +1529,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.cloud.run.v2.Condition.RevisionReason getRevisionReason() {
     if (reasonsCase_ == 9) {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.run.v2.Condition.RevisionReason result = com.google.cloud.run.v2.Condition.RevisionReason.valueOf(
+      com.google.cloud.run.v2.Condition.RevisionReason result = com.google.cloud.run.v2.Condition.RevisionReason.forNumber(
           (java.lang.Integer) reasons_);
       return result == null ? com.google.cloud.run.v2.Condition.RevisionReason.UNRECOGNIZED : result;
     }
@@ -1651,8 +1572,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.cloud.run.v2.Condition.ExecutionReason getExecutionReason() {
     if (reasonsCase_ == 11) {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.run.v2.Condition.ExecutionReason result = com.google.cloud.run.v2.Condition.ExecutionReason.valueOf(
+      com.google.cloud.run.v2.Condition.ExecutionReason result = com.google.cloud.run.v2.Condition.ExecutionReason.forNumber(
           (java.lang.Integer) reasons_);
       return result == null ? com.google.cloud.run.v2.Condition.ExecutionReason.UNRECOGNIZED : result;
     }
@@ -1697,7 +1617,7 @@ private static final long serialVersionUID = 0L;
     if (reasonsCase_ == 11) {
       output.writeEnum(11, ((java.lang.Integer) reasons_));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1736,7 +1656,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(11, ((java.lang.Integer) reasons_));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1779,7 +1699,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1818,7 +1738,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1939,36 +1859,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.run.v2.Condition.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       type_ = "";
-
       state_ = 0;
-
       message_ = "";
-
-      if (lastTransitionTimeBuilder_ == null) {
-        lastTransitionTime_ = null;
-      } else {
-        lastTransitionTime_ = null;
+      lastTransitionTime_ = null;
+      if (lastTransitionTimeBuilder_ != null) {
+        lastTransitionTimeBuilder_.dispose();
         lastTransitionTimeBuilder_ = null;
       }
       severity_ = 0;
-
       reasonsCase_ = 0;
       reasons_ = null;
       return this;
@@ -1997,27 +1908,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.run.v2.Condition buildPartial() {
       com.google.cloud.run.v2.Condition result = new com.google.cloud.run.v2.Condition(this);
-      result.type_ = type_;
-      result.state_ = state_;
-      result.message_ = message_;
-      if (lastTransitionTimeBuilder_ == null) {
-        result.lastTransitionTime_ = lastTransitionTime_;
-      } else {
-        result.lastTransitionTime_ = lastTransitionTimeBuilder_.build();
-      }
-      result.severity_ = severity_;
-      if (reasonsCase_ == 6) {
-        result.reasons_ = reasons_;
-      }
-      if (reasonsCase_ == 9) {
-        result.reasons_ = reasons_;
-      }
-      if (reasonsCase_ == 11) {
-        result.reasons_ = reasons_;
-      }
-      result.reasonsCase_ = reasonsCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.run.v2.Condition result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.message_ = message_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.lastTransitionTime_ = lastTransitionTimeBuilder_ == null
+            ? lastTransitionTime_
+            : lastTransitionTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.severity_ = severity_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.run.v2.Condition result) {
+      result.reasonsCase_ = reasonsCase_;
+      result.reasons_ = this.reasons_;
     }
 
     @java.lang.Override
@@ -2066,6 +1986,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.run.v2.Condition.getDefaultInstance()) return this;
       if (!other.getType().isEmpty()) {
         type_ = other.type_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -2073,6 +1994,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getMessage().isEmpty()) {
         message_ = other.message_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasLastTransitionTime()) {
@@ -2098,7 +2020,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2113,17 +2035,75 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.run.v2.Condition parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              type_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              message_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getLastTransitionTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              severity_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              int rawValue = input.readEnum();
+              reasonsCase_ = 6;
+              reasons_ = rawValue;
+              break;
+            } // case 48
+            case 72: {
+              int rawValue = input.readEnum();
+              reasonsCase_ = 9;
+              reasons_ = rawValue;
+              break;
+            } // case 72
+            case 88: {
+              int rawValue = input.readEnum();
+              reasonsCase_ = 11;
+              reasons_ = rawValue;
+              break;
+            } // case 88
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.run.v2.Condition) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int reasonsCase_ = 0;
@@ -2141,6 +2121,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object type_ = "";
     /**
@@ -2207,11 +2188,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       type_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2228,8 +2207,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
       type_ = getDefaultInstance().getType();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2248,12 +2227,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       type_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2280,8 +2257,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2295,8 +2272,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.run.v2.Condition.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.run.v2.Condition.State result = com.google.cloud.run.v2.Condition.State.valueOf(state_);
+      com.google.cloud.run.v2.Condition.State result = com.google.cloud.run.v2.Condition.State.forNumber(state_);
       return result == null ? com.google.cloud.run.v2.Condition.State.UNRECOGNIZED : result;
     }
     /**
@@ -2312,7 +2288,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -2326,7 +2302,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       state_ = 0;
       onChanged();
       return this;
@@ -2385,11 +2361,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMessage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       message_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2402,8 +2376,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMessage() {
-      
       message_ = getDefaultInstance().getMessage();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2418,12 +2392,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMessageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       message_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2440,7 +2412,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lastTransitionTime field is set.
      */
     public boolean hasLastTransitionTime() {
-      return lastTransitionTimeBuilder_ != null || lastTransitionTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2470,11 +2442,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         lastTransitionTime_ = value;
-        onChanged();
       } else {
         lastTransitionTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2488,11 +2460,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (lastTransitionTimeBuilder_ == null) {
         lastTransitionTime_ = builderForValue.build();
-        onChanged();
       } else {
         lastTransitionTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2504,17 +2476,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLastTransitionTime(com.google.protobuf.Timestamp value) {
       if (lastTransitionTimeBuilder_ == null) {
-        if (lastTransitionTime_ != null) {
-          lastTransitionTime_ =
-            com.google.protobuf.Timestamp.newBuilder(lastTransitionTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          lastTransitionTime_ != null &&
+          lastTransitionTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getLastTransitionTimeBuilder().mergeFrom(value);
         } else {
           lastTransitionTime_ = value;
         }
-        onChanged();
       } else {
         lastTransitionTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2525,14 +2498,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_transition_time = 4;</code>
      */
     public Builder clearLastTransitionTime() {
-      if (lastTransitionTimeBuilder_ == null) {
-        lastTransitionTime_ = null;
-        onChanged();
-      } else {
-        lastTransitionTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      lastTransitionTime_ = null;
+      if (lastTransitionTimeBuilder_ != null) {
+        lastTransitionTimeBuilder_.dispose();
         lastTransitionTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2543,7 +2515,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_transition_time = 4;</code>
      */
     public com.google.protobuf.Timestamp.Builder getLastTransitionTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getLastTransitionTimeFieldBuilder().getBuilder();
     }
@@ -2605,8 +2577,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSeverityValue(int value) {
-      
       severity_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2620,8 +2592,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.run.v2.Condition.Severity getSeverity() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.run.v2.Condition.Severity result = com.google.cloud.run.v2.Condition.Severity.valueOf(severity_);
+      com.google.cloud.run.v2.Condition.Severity result = com.google.cloud.run.v2.Condition.Severity.forNumber(severity_);
       return result == null ? com.google.cloud.run.v2.Condition.Severity.UNRECOGNIZED : result;
     }
     /**
@@ -2637,7 +2608,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       severity_ = value.getNumber();
       onChanged();
       return this;
@@ -2651,7 +2622,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSeverity() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       severity_ = 0;
       onChanged();
       return this;
@@ -2710,8 +2681,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.run.v2.Condition.CommonReason getReason() {
       if (reasonsCase_ == 6) {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.run.v2.Condition.CommonReason result = com.google.cloud.run.v2.Condition.CommonReason.valueOf(
+        com.google.cloud.run.v2.Condition.CommonReason result = com.google.cloud.run.v2.Condition.CommonReason.forNumber(
             (java.lang.Integer) reasons_);
         return result == null ? com.google.cloud.run.v2.Condition.CommonReason.UNRECOGNIZED : result;
       }
@@ -2805,8 +2775,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.run.v2.Condition.RevisionReason getRevisionReason() {
       if (reasonsCase_ == 9) {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.run.v2.Condition.RevisionReason result = com.google.cloud.run.v2.Condition.RevisionReason.valueOf(
+        com.google.cloud.run.v2.Condition.RevisionReason result = com.google.cloud.run.v2.Condition.RevisionReason.forNumber(
             (java.lang.Integer) reasons_);
         return result == null ? com.google.cloud.run.v2.Condition.RevisionReason.UNRECOGNIZED : result;
       }
@@ -2900,8 +2869,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.run.v2.Condition.ExecutionReason getExecutionReason() {
       if (reasonsCase_ == 11) {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.run.v2.Condition.ExecutionReason result = com.google.cloud.run.v2.Condition.ExecutionReason.valueOf(
+        com.google.cloud.run.v2.Condition.ExecutionReason result = com.google.cloud.run.v2.Condition.ExecutionReason.forNumber(
             (java.lang.Integer) reasons_);
         return result == null ? com.google.cloud.run.v2.Condition.ExecutionReason.UNRECOGNIZED : result;
       }
@@ -2974,7 +2942,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Condition(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

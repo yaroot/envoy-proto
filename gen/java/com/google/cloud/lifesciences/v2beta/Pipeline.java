@@ -35,97 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Pipeline(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              actions_ = new java.util.ArrayList<com.google.cloud.lifesciences.v2beta.Action>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            actions_.add(
-                input.readMessage(com.google.cloud.lifesciences.v2beta.Action.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            com.google.cloud.lifesciences.v2beta.Resources.Builder subBuilder = null;
-            if (resources_ != null) {
-              subBuilder = resources_.toBuilder();
-            }
-            resources_ = input.readMessage(com.google.cloud.lifesciences.v2beta.Resources.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resources_);
-              resources_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              environment_ = com.google.protobuf.MapField.newMapField(
-                  EnvironmentDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            environment__ = input.readMessage(
-                EnvironmentDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            environment_.getMutableMap().put(
-                environment__.getKey(), environment__.getValue());
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (timeout_ != null) {
-              subBuilder = timeout_.toBuilder();
-            }
-            timeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timeout_);
-              timeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        actions_ = java.util.Collections.unmodifiableList(actions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.lifesciences.v2beta.WorkflowsProto.internal_static_google_cloud_lifesciences_v2beta_Pipeline_descriptor;
@@ -152,6 +61,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACTIONS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.lifesciences.v2beta.Action> actions_;
   /**
    * <pre>
@@ -246,7 +156,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.lifesciences.v2beta.ResourcesOrBuilder getResourcesOrBuilder() {
-    return getResources();
+    return resources_ == null ? com.google.cloud.lifesciences.v2beta.Resources.getDefaultInstance() : resources_;
   }
 
   public static final int ENVIRONMENT_FIELD_NUMBER = 3;
@@ -261,6 +171,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> environment_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -271,7 +182,6 @@ private static final long serialVersionUID = 0L;
     }
     return environment_;
   }
-
   public int getEnvironmentCount() {
     return internalGetEnvironment().getMap().size();
   }
@@ -284,7 +194,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; environment = 3;</code>
    */
-
   @java.lang.Override
   public boolean containsEnvironment(
       java.lang.String key) {
@@ -309,7 +218,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; environment = 3;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getEnvironmentMap() {
     return internalGetEnvironment().getMap();
   }
@@ -323,10 +231,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; environment = 3;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getEnvironmentOrDefault(
+  public /* nullable */
+java.lang.String getEnvironmentOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetEnvironment().getMap();
@@ -342,7 +251,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; environment = 3;</code>
    */
   @java.lang.Override
-
   public java.lang.String getEnvironmentOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -352,6 +260,59 @@ private static final long serialVersionUID = 0L;
       throw new java.lang.IllegalArgumentException();
     }
     return map.get(key);
+  }
+
+  public static final int ENCRYPTED_ENVIRONMENT_FIELD_NUMBER = 5;
+  private com.google.cloud.lifesciences.v2beta.Secret encryptedEnvironment_;
+  /**
+   * <pre>
+   * The encrypted environment to pass into every action. Each action can also
+   * specify its own encrypted environment.
+   * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+   * serve as environment variable names and their values. The decoded
+   * environment variables can overwrite the values specified by the
+   * `environment` field.
+   * </pre>
+   *
+   * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 5;</code>
+   * @return Whether the encryptedEnvironment field is set.
+   */
+  @java.lang.Override
+  public boolean hasEncryptedEnvironment() {
+    return encryptedEnvironment_ != null;
+  }
+  /**
+   * <pre>
+   * The encrypted environment to pass into every action. Each action can also
+   * specify its own encrypted environment.
+   * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+   * serve as environment variable names and their values. The decoded
+   * environment variables can overwrite the values specified by the
+   * `environment` field.
+   * </pre>
+   *
+   * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 5;</code>
+   * @return The encryptedEnvironment.
+   */
+  @java.lang.Override
+  public com.google.cloud.lifesciences.v2beta.Secret getEncryptedEnvironment() {
+    return encryptedEnvironment_ == null ? com.google.cloud.lifesciences.v2beta.Secret.getDefaultInstance() : encryptedEnvironment_;
+  }
+  /**
+   * <pre>
+   * The encrypted environment to pass into every action. Each action can also
+   * specify its own encrypted environment.
+   * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+   * serve as environment variable names and their values. The decoded
+   * environment variables can overwrite the values specified by the
+   * `environment` field.
+   * </pre>
+   *
+   * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 5;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.lifesciences.v2beta.SecretOrBuilder getEncryptedEnvironmentOrBuilder() {
+    return encryptedEnvironment_ == null ? com.google.cloud.lifesciences.v2beta.Secret.getDefaultInstance() : encryptedEnvironment_;
   }
 
   public static final int TIMEOUT_FIELD_NUMBER = 4;
@@ -401,7 +362,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getTimeoutOrBuilder() {
-    return getTimeout();
+    return timeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : timeout_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -433,7 +394,10 @@ private static final long serialVersionUID = 0L;
     if (timeout_ != null) {
       output.writeMessage(4, getTimeout());
     }
-    unknownFields.writeTo(output);
+    if (encryptedEnvironment_ != null) {
+      output.writeMessage(5, getEncryptedEnvironment());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -464,7 +428,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getTimeout());
     }
-    size += unknownFields.getSerializedSize();
+    if (encryptedEnvironment_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getEncryptedEnvironment());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -488,12 +456,17 @@ private static final long serialVersionUID = 0L;
     }
     if (!internalGetEnvironment().equals(
         other.internalGetEnvironment())) return false;
+    if (hasEncryptedEnvironment() != other.hasEncryptedEnvironment()) return false;
+    if (hasEncryptedEnvironment()) {
+      if (!getEncryptedEnvironment()
+          .equals(other.getEncryptedEnvironment())) return false;
+    }
     if (hasTimeout() != other.hasTimeout()) return false;
     if (hasTimeout()) {
       if (!getTimeout()
           .equals(other.getTimeout())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -516,11 +489,15 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ENVIRONMENT_FIELD_NUMBER;
       hash = (53 * hash) + internalGetEnvironment().hashCode();
     }
+    if (hasEncryptedEnvironment()) {
+      hash = (37 * hash) + ENCRYPTED_ENVIRONMENT_FIELD_NUMBER;
+      hash = (53 * hash) + getEncryptedEnvironment().hashCode();
+    }
     if (hasTimeout()) {
       hash = (37 * hash) + TIMEOUT_FIELD_NUMBER;
       hash = (53 * hash) + getTimeout().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -663,40 +640,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.lifesciences.v2beta.Pipeline.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getActionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (actionsBuilder_ == null) {
         actions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        actions_ = null;
         actionsBuilder_.clear();
       }
-      if (resourcesBuilder_ == null) {
-        resources_ = null;
-      } else {
-        resources_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      resources_ = null;
+      if (resourcesBuilder_ != null) {
+        resourcesBuilder_.dispose();
         resourcesBuilder_ = null;
       }
       internalGetMutableEnvironment().clear();
-      if (timeoutBuilder_ == null) {
-        timeout_ = null;
-      } else {
-        timeout_ = null;
+      encryptedEnvironment_ = null;
+      if (encryptedEnvironmentBuilder_ != null) {
+        encryptedEnvironmentBuilder_.dispose();
+        encryptedEnvironmentBuilder_ = null;
+      }
+      timeout_ = null;
+      if (timeoutBuilder_ != null) {
+        timeoutBuilder_.dispose();
         timeoutBuilder_ = null;
       }
       return this;
@@ -725,7 +701,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.lifesciences.v2beta.Pipeline buildPartial() {
       com.google.cloud.lifesciences.v2beta.Pipeline result = new com.google.cloud.lifesciences.v2beta.Pipeline(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.lifesciences.v2beta.Pipeline result) {
       if (actionsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           actions_ = java.util.Collections.unmodifiableList(actions_);
@@ -735,20 +717,29 @@ private static final long serialVersionUID = 0L;
       } else {
         result.actions_ = actionsBuilder_.build();
       }
-      if (resourcesBuilder_ == null) {
-        result.resources_ = resources_;
-      } else {
-        result.resources_ = resourcesBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.lifesciences.v2beta.Pipeline result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.resources_ = resourcesBuilder_ == null
+            ? resources_
+            : resourcesBuilder_.build();
       }
-      result.environment_ = internalGetEnvironment();
-      result.environment_.makeImmutable();
-      if (timeoutBuilder_ == null) {
-        result.timeout_ = timeout_;
-      } else {
-        result.timeout_ = timeoutBuilder_.build();
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.environment_ = internalGetEnvironment();
+        result.environment_.makeImmutable();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.encryptedEnvironment_ = encryptedEnvironmentBuilder_ == null
+            ? encryptedEnvironment_
+            : encryptedEnvironmentBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.timeout_ = timeoutBuilder_ == null
+            ? timeout_
+            : timeoutBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -826,10 +817,14 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableEnvironment().mergeFrom(
           other.internalGetEnvironment());
+      bitField0_ |= 0x00000004;
+      if (other.hasEncryptedEnvironment()) {
+        mergeEncryptedEnvironment(other.getEncryptedEnvironment());
+      }
       if (other.hasTimeout()) {
         mergeTimeout(other.getTimeout());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -844,17 +839,73 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.lifesciences.v2beta.Pipeline parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.lifesciences.v2beta.Action m =
+                  input.readMessage(
+                      com.google.cloud.lifesciences.v2beta.Action.parser(),
+                      extensionRegistry);
+              if (actionsBuilder_ == null) {
+                ensureActionsIsMutable();
+                actions_.add(m);
+              } else {
+                actionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getResourcesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              environment__ = input.readMessage(
+                  EnvironmentDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableEnvironment().getMutableMap().put(
+                  environment__.getKey(), environment__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getEncryptedEnvironmentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.lifesciences.v2beta.Pipeline) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1183,7 +1234,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the resources field is set.
      */
     public boolean hasResources() {
-      return resourcesBuilder_ != null || resources_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1213,11 +1264,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resources_ = value;
-        onChanged();
       } else {
         resourcesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1231,11 +1282,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.lifesciences.v2beta.Resources.Builder builderForValue) {
       if (resourcesBuilder_ == null) {
         resources_ = builderForValue.build();
-        onChanged();
       } else {
         resourcesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1247,17 +1298,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResources(com.google.cloud.lifesciences.v2beta.Resources value) {
       if (resourcesBuilder_ == null) {
-        if (resources_ != null) {
-          resources_ =
-            com.google.cloud.lifesciences.v2beta.Resources.newBuilder(resources_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          resources_ != null &&
+          resources_ != com.google.cloud.lifesciences.v2beta.Resources.getDefaultInstance()) {
+          getResourcesBuilder().mergeFrom(value);
         } else {
           resources_ = value;
         }
-        onChanged();
       } else {
         resourcesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1268,14 +1320,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.lifesciences.v2beta.Resources resources = 2;</code>
      */
     public Builder clearResources() {
-      if (resourcesBuilder_ == null) {
-        resources_ = null;
-        onChanged();
-      } else {
-        resources_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      resources_ = null;
+      if (resourcesBuilder_ != null) {
+        resourcesBuilder_.dispose();
         resourcesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1286,7 +1337,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.lifesciences.v2beta.Resources resources = 2;</code>
      */
     public com.google.cloud.lifesciences.v2beta.Resources.Builder getResourcesBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getResourcesFieldBuilder().getBuilder();
     }
@@ -1329,7 +1380,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> environment_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetEnvironment() {
+        internalGetEnvironment() {
       if (environment_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             EnvironmentDefaultEntryHolder.defaultEntry);
@@ -1337,8 +1388,7 @@ private static final long serialVersionUID = 0L;
       return environment_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableEnvironment() {
-      onChanged();;
+        internalGetMutableEnvironment() {
       if (environment_ == null) {
         environment_ = com.google.protobuf.MapField.newMapField(
             EnvironmentDefaultEntryHolder.defaultEntry);
@@ -1346,9 +1396,10 @@ private static final long serialVersionUID = 0L;
       if (!environment_.isMutable()) {
         environment_ = environment_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return environment_;
     }
-
     public int getEnvironmentCount() {
       return internalGetEnvironment().getMap().size();
     }
@@ -1361,7 +1412,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; environment = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsEnvironment(
         java.lang.String key) {
@@ -1386,7 +1436,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; environment = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getEnvironmentMap() {
       return internalGetEnvironment().getMap();
     }
@@ -1400,10 +1449,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; environment = 3;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getEnvironmentOrDefault(
+    public /* nullable */
+java.lang.String getEnvironmentOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetEnvironment().getMap();
@@ -1419,7 +1469,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; environment = 3;</code>
      */
     @java.lang.Override
-
     public java.lang.String getEnvironmentOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1430,8 +1479,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearEnvironment() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableEnvironment().getMutableMap()
           .clear();
       return this;
@@ -1445,7 +1494,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; environment = 3;</code>
      */
-
     public Builder removeEnvironment(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1458,7 +1506,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableEnvironment() {
+        getMutableEnvironment() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableEnvironment().getMutableMap();
     }
     /**
@@ -1474,12 +1523,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableEnvironment().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -1491,12 +1538,212 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; environment = 3;</code>
      */
-
     public Builder putAllEnvironment(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableEnvironment().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
+    }
+
+    private com.google.cloud.lifesciences.v2beta.Secret encryptedEnvironment_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.lifesciences.v2beta.Secret, com.google.cloud.lifesciences.v2beta.Secret.Builder, com.google.cloud.lifesciences.v2beta.SecretOrBuilder> encryptedEnvironmentBuilder_;
+    /**
+     * <pre>
+     * The encrypted environment to pass into every action. Each action can also
+     * specify its own encrypted environment.
+     * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+     * serve as environment variable names and their values. The decoded
+     * environment variables can overwrite the values specified by the
+     * `environment` field.
+     * </pre>
+     *
+     * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 5;</code>
+     * @return Whether the encryptedEnvironment field is set.
+     */
+    public boolean hasEncryptedEnvironment() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * The encrypted environment to pass into every action. Each action can also
+     * specify its own encrypted environment.
+     * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+     * serve as environment variable names and their values. The decoded
+     * environment variables can overwrite the values specified by the
+     * `environment` field.
+     * </pre>
+     *
+     * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 5;</code>
+     * @return The encryptedEnvironment.
+     */
+    public com.google.cloud.lifesciences.v2beta.Secret getEncryptedEnvironment() {
+      if (encryptedEnvironmentBuilder_ == null) {
+        return encryptedEnvironment_ == null ? com.google.cloud.lifesciences.v2beta.Secret.getDefaultInstance() : encryptedEnvironment_;
+      } else {
+        return encryptedEnvironmentBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * The encrypted environment to pass into every action. Each action can also
+     * specify its own encrypted environment.
+     * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+     * serve as environment variable names and their values. The decoded
+     * environment variables can overwrite the values specified by the
+     * `environment` field.
+     * </pre>
+     *
+     * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 5;</code>
+     */
+    public Builder setEncryptedEnvironment(com.google.cloud.lifesciences.v2beta.Secret value) {
+      if (encryptedEnvironmentBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        encryptedEnvironment_ = value;
+      } else {
+        encryptedEnvironmentBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The encrypted environment to pass into every action. Each action can also
+     * specify its own encrypted environment.
+     * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+     * serve as environment variable names and their values. The decoded
+     * environment variables can overwrite the values specified by the
+     * `environment` field.
+     * </pre>
+     *
+     * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 5;</code>
+     */
+    public Builder setEncryptedEnvironment(
+        com.google.cloud.lifesciences.v2beta.Secret.Builder builderForValue) {
+      if (encryptedEnvironmentBuilder_ == null) {
+        encryptedEnvironment_ = builderForValue.build();
+      } else {
+        encryptedEnvironmentBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The encrypted environment to pass into every action. Each action can also
+     * specify its own encrypted environment.
+     * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+     * serve as environment variable names and their values. The decoded
+     * environment variables can overwrite the values specified by the
+     * `environment` field.
+     * </pre>
+     *
+     * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 5;</code>
+     */
+    public Builder mergeEncryptedEnvironment(com.google.cloud.lifesciences.v2beta.Secret value) {
+      if (encryptedEnvironmentBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0) &&
+          encryptedEnvironment_ != null &&
+          encryptedEnvironment_ != com.google.cloud.lifesciences.v2beta.Secret.getDefaultInstance()) {
+          getEncryptedEnvironmentBuilder().mergeFrom(value);
+        } else {
+          encryptedEnvironment_ = value;
+        }
+      } else {
+        encryptedEnvironmentBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The encrypted environment to pass into every action. Each action can also
+     * specify its own encrypted environment.
+     * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+     * serve as environment variable names and their values. The decoded
+     * environment variables can overwrite the values specified by the
+     * `environment` field.
+     * </pre>
+     *
+     * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 5;</code>
+     */
+    public Builder clearEncryptedEnvironment() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      encryptedEnvironment_ = null;
+      if (encryptedEnvironmentBuilder_ != null) {
+        encryptedEnvironmentBuilder_.dispose();
+        encryptedEnvironmentBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The encrypted environment to pass into every action. Each action can also
+     * specify its own encrypted environment.
+     * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+     * serve as environment variable names and their values. The decoded
+     * environment variables can overwrite the values specified by the
+     * `environment` field.
+     * </pre>
+     *
+     * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 5;</code>
+     */
+    public com.google.cloud.lifesciences.v2beta.Secret.Builder getEncryptedEnvironmentBuilder() {
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return getEncryptedEnvironmentFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The encrypted environment to pass into every action. Each action can also
+     * specify its own encrypted environment.
+     * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+     * serve as environment variable names and their values. The decoded
+     * environment variables can overwrite the values specified by the
+     * `environment` field.
+     * </pre>
+     *
+     * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 5;</code>
+     */
+    public com.google.cloud.lifesciences.v2beta.SecretOrBuilder getEncryptedEnvironmentOrBuilder() {
+      if (encryptedEnvironmentBuilder_ != null) {
+        return encryptedEnvironmentBuilder_.getMessageOrBuilder();
+      } else {
+        return encryptedEnvironment_ == null ?
+            com.google.cloud.lifesciences.v2beta.Secret.getDefaultInstance() : encryptedEnvironment_;
+      }
+    }
+    /**
+     * <pre>
+     * The encrypted environment to pass into every action. Each action can also
+     * specify its own encrypted environment.
+     * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+     * serve as environment variable names and their values. The decoded
+     * environment variables can overwrite the values specified by the
+     * `environment` field.
+     * </pre>
+     *
+     * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 5;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.lifesciences.v2beta.Secret, com.google.cloud.lifesciences.v2beta.Secret.Builder, com.google.cloud.lifesciences.v2beta.SecretOrBuilder> 
+        getEncryptedEnvironmentFieldBuilder() {
+      if (encryptedEnvironmentBuilder_ == null) {
+        encryptedEnvironmentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.lifesciences.v2beta.Secret, com.google.cloud.lifesciences.v2beta.Secret.Builder, com.google.cloud.lifesciences.v2beta.SecretOrBuilder>(
+                getEncryptedEnvironment(),
+                getParentForChildren(),
+                isClean());
+        encryptedEnvironment_ = null;
+      }
+      return encryptedEnvironmentBuilder_;
     }
 
     private com.google.protobuf.Duration timeout_;
@@ -1515,7 +1762,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timeout field is set.
      */
     public boolean hasTimeout() {
-      return timeoutBuilder_ != null || timeout_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1553,11 +1800,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timeout_ = value;
-        onChanged();
       } else {
         timeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1575,11 +1822,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (timeoutBuilder_ == null) {
         timeout_ = builderForValue.build();
-        onChanged();
       } else {
         timeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1595,17 +1842,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimeout(com.google.protobuf.Duration value) {
       if (timeoutBuilder_ == null) {
-        if (timeout_ != null) {
-          timeout_ =
-            com.google.protobuf.Duration.newBuilder(timeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          timeout_ != null &&
+          timeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getTimeoutBuilder().mergeFrom(value);
         } else {
           timeout_ = value;
         }
-        onChanged();
       } else {
         timeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1620,14 +1868,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration timeout = 4;</code>
      */
     public Builder clearTimeout() {
-      if (timeoutBuilder_ == null) {
-        timeout_ = null;
-        onChanged();
-      } else {
-        timeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      timeout_ = null;
+      if (timeoutBuilder_ != null) {
+        timeoutBuilder_.dispose();
         timeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1642,7 +1889,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration timeout = 4;</code>
      */
     public com.google.protobuf.Duration.Builder getTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getTimeoutFieldBuilder().getBuilder();
     }
@@ -1722,7 +1969,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Pipeline(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -12,7 +12,16 @@ public interface RouteMatrixElementOrBuilder extends
    * Zero-based index of the origin in the request.
    * </pre>
    *
-   * <code>int32 origin_index = 1;</code>
+   * <code>optional int32 origin_index = 1;</code>
+   * @return Whether the originIndex field is set.
+   */
+  boolean hasOriginIndex();
+  /**
+   * <pre>
+   * Zero-based index of the origin in the request.
+   * </pre>
+   *
+   * <code>optional int32 origin_index = 1;</code>
    * @return The originIndex.
    */
   int getOriginIndex();
@@ -22,7 +31,16 @@ public interface RouteMatrixElementOrBuilder extends
    * Zero-based index of the destination in the request.
    * </pre>
    *
-   * <code>int32 destination_index = 2;</code>
+   * <code>optional int32 destination_index = 2;</code>
+   * @return Whether the destinationIndex field is set.
+   */
+  boolean hasDestinationIndex();
+  /**
+   * <pre>
+   * Zero-based index of the destination in the request.
+   * </pre>
+   *
+   * <code>optional int32 destination_index = 2;</code>
    * @return The destinationIndex.
    */
   int getDestinationIndex();
@@ -86,8 +104,8 @@ public interface RouteMatrixElementOrBuilder extends
   /**
    * <pre>
    * The length of time needed to navigate the route. If you set the
-   * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-   * `static_duration`. If you set the `route_preference` to either
+   * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+   * `static_duration`. If you set the `routing_preference` to either
    * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
    * taking traffic conditions into account.
    * </pre>
@@ -99,8 +117,8 @@ public interface RouteMatrixElementOrBuilder extends
   /**
    * <pre>
    * The length of time needed to navigate the route. If you set the
-   * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-   * `static_duration`. If you set the `route_preference` to either
+   * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+   * `static_duration`. If you set the `routing_preference` to either
    * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
    * taking traffic conditions into account.
    * </pre>
@@ -112,8 +130,8 @@ public interface RouteMatrixElementOrBuilder extends
   /**
    * <pre>
    * The length of time needed to navigate the route. If you set the
-   * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-   * `static_duration`. If you set the `route_preference` to either
+   * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+   * `static_duration`. If you set the `routing_preference` to either
    * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
    * taking traffic conditions into account.
    * </pre>

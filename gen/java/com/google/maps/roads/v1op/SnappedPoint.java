@@ -35,77 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SnappedPoint(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.type.LatLng.Builder subBuilder = null;
-            if (location_ != null) {
-              subBuilder = location_.toBuilder();
-            }
-            location_ = input.readMessage(com.google.type.LatLng.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(location_);
-              location_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (originalIndex_ != null) {
-              subBuilder = originalIndex_.toBuilder();
-            }
-            originalIndex_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(originalIndex_);
-              originalIndex_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            placeId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.roads.v1op.RoadsProto.internal_static_google_maps_roads_v1op_SnappedPoint_descriptor;
@@ -154,7 +83,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.LatLngOrBuilder getLocationOrBuilder() {
-    return getLocation();
+    return location_ == null ? com.google.type.LatLng.getDefaultInstance() : location_;
   }
 
   public static final int ORIGINAL_INDEX_FIELD_NUMBER = 2;
@@ -198,11 +127,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getOriginalIndexOrBuilder() {
-    return getOriginalIndex();
+    return originalIndex_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : originalIndex_;
   }
 
   public static final int PLACE_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object placeId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object placeId_ = "";
   /**
    * <pre>
    * The place ID for this snapped location (road segment). These are the same
@@ -272,7 +202,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(placeId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, placeId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -292,7 +222,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(placeId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, placeId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -319,7 +249,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getPlaceId()
         .equals(other.getPlaceId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -340,7 +270,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + PLACE_ID_FIELD_NUMBER;
     hash = (53 * hash) + getPlaceId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -461,36 +391,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.roads.v1op.SnappedPoint.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (locationBuilder_ == null) {
-        location_ = null;
-      } else {
-        location_ = null;
+      bitField0_ = 0;
+      location_ = null;
+      if (locationBuilder_ != null) {
+        locationBuilder_.dispose();
         locationBuilder_ = null;
       }
-      if (originalIndexBuilder_ == null) {
-        originalIndex_ = null;
-      } else {
-        originalIndex_ = null;
+      originalIndex_ = null;
+      if (originalIndexBuilder_ != null) {
+        originalIndexBuilder_.dispose();
         originalIndexBuilder_ = null;
       }
       placeId_ = "";
-
       return this;
     }
 
@@ -517,19 +440,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.roads.v1op.SnappedPoint buildPartial() {
       com.google.maps.roads.v1op.SnappedPoint result = new com.google.maps.roads.v1op.SnappedPoint(this);
-      if (locationBuilder_ == null) {
-        result.location_ = location_;
-      } else {
-        result.location_ = locationBuilder_.build();
-      }
-      if (originalIndexBuilder_ == null) {
-        result.originalIndex_ = originalIndex_;
-      } else {
-        result.originalIndex_ = originalIndexBuilder_.build();
-      }
-      result.placeId_ = placeId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.maps.roads.v1op.SnappedPoint result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.location_ = locationBuilder_ == null
+            ? location_
+            : locationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.originalIndex_ = originalIndexBuilder_ == null
+            ? originalIndex_
+            : originalIndexBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.placeId_ = placeId_;
+      }
     }
 
     @java.lang.Override
@@ -584,9 +514,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPlaceId().isEmpty()) {
         placeId_ = other.placeId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -601,19 +532,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.roads.v1op.SnappedPoint parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getOriginalIndexFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              placeId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.roads.v1op.SnappedPoint) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.type.LatLng location_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -627,7 +591,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the location field is set.
      */
     public boolean hasLocation() {
-      return locationBuilder_ != null || location_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -657,11 +621,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         location_ = value;
-        onChanged();
       } else {
         locationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -675,11 +639,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.LatLng.Builder builderForValue) {
       if (locationBuilder_ == null) {
         location_ = builderForValue.build();
-        onChanged();
       } else {
         locationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -691,17 +655,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLocation(com.google.type.LatLng value) {
       if (locationBuilder_ == null) {
-        if (location_ != null) {
-          location_ =
-            com.google.type.LatLng.newBuilder(location_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          location_ != null &&
+          location_ != com.google.type.LatLng.getDefaultInstance()) {
+          getLocationBuilder().mergeFrom(value);
         } else {
           location_ = value;
         }
-        onChanged();
       } else {
         locationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -712,14 +677,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng location = 1;</code>
      */
     public Builder clearLocation() {
-      if (locationBuilder_ == null) {
-        location_ = null;
-        onChanged();
-      } else {
-        location_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      location_ = null;
+      if (locationBuilder_ != null) {
+        locationBuilder_.dispose();
         locationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -730,7 +694,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng location = 1;</code>
      */
     public com.google.type.LatLng.Builder getLocationBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getLocationFieldBuilder().getBuilder();
     }
@@ -784,7 +748,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the originalIndex field is set.
      */
     public boolean hasOriginalIndex() {
-      return originalIndexBuilder_ != null || originalIndex_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -818,11 +782,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         originalIndex_ = value;
-        onChanged();
       } else {
         originalIndexBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -838,11 +802,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (originalIndexBuilder_ == null) {
         originalIndex_ = builderForValue.build();
-        onChanged();
       } else {
         originalIndexBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -856,17 +820,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOriginalIndex(com.google.protobuf.UInt32Value value) {
       if (originalIndexBuilder_ == null) {
-        if (originalIndex_ != null) {
-          originalIndex_ =
-            com.google.protobuf.UInt32Value.newBuilder(originalIndex_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          originalIndex_ != null &&
+          originalIndex_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getOriginalIndexBuilder().mergeFrom(value);
         } else {
           originalIndex_ = value;
         }
-        onChanged();
       } else {
         originalIndexBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -879,14 +844,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value original_index = 2;</code>
      */
     public Builder clearOriginalIndex() {
-      if (originalIndexBuilder_ == null) {
-        originalIndex_ = null;
-        onChanged();
-      } else {
-        originalIndex_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      originalIndex_ = null;
+      if (originalIndexBuilder_ != null) {
+        originalIndexBuilder_.dispose();
         originalIndexBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -899,7 +863,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value original_index = 2;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getOriginalIndexBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getOriginalIndexFieldBuilder().getBuilder();
     }
@@ -999,11 +963,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPlaceId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       placeId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1017,8 +979,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPlaceId() {
-      
       placeId_ = getDefaultInstance().getPlaceId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1034,12 +996,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPlaceIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       placeId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1076,7 +1036,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SnappedPoint(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

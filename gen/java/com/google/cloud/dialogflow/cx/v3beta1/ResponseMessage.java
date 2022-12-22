@@ -47,171 +47,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ResponseMessage(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.Text.Builder subBuilder = null;
-            if (messageCase_ == 1) {
-              subBuilder = ((com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.Text) message_).toBuilder();
-            }
-            message_ =
-                input.readMessage(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.Text.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.Text) message_);
-              message_ = subBuilder.buildPartial();
-            }
-            messageCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (messageCase_ == 2) {
-              subBuilder = ((com.google.protobuf.Struct) message_).toBuilder();
-            }
-            message_ =
-                input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Struct) message_);
-              message_ = subBuilder.buildPartial();
-            }
-            messageCase_ = 2;
-            break;
-          }
-          case 66: {
-            com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.OutputAudioText.Builder subBuilder = null;
-            if (messageCase_ == 8) {
-              subBuilder = ((com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.OutputAudioText) message_).toBuilder();
-            }
-            message_ =
-                input.readMessage(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.OutputAudioText.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.OutputAudioText) message_);
-              message_ = subBuilder.buildPartial();
-            }
-            messageCase_ = 8;
-            break;
-          }
-          case 74: {
-            com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.ConversationSuccess.Builder subBuilder = null;
-            if (messageCase_ == 9) {
-              subBuilder = ((com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.ConversationSuccess) message_).toBuilder();
-            }
-            message_ =
-                input.readMessage(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.ConversationSuccess.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.ConversationSuccess) message_);
-              message_ = subBuilder.buildPartial();
-            }
-            messageCase_ = 9;
-            break;
-          }
-          case 82: {
-            com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.LiveAgentHandoff.Builder subBuilder = null;
-            if (messageCase_ == 10) {
-              subBuilder = ((com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.LiveAgentHandoff) message_).toBuilder();
-            }
-            message_ =
-                input.readMessage(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.LiveAgentHandoff.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.LiveAgentHandoff) message_);
-              message_ = subBuilder.buildPartial();
-            }
-            messageCase_ = 10;
-            break;
-          }
-          case 90: {
-            com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.EndInteraction.Builder subBuilder = null;
-            if (messageCase_ == 11) {
-              subBuilder = ((com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.EndInteraction) message_).toBuilder();
-            }
-            message_ =
-                input.readMessage(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.EndInteraction.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.EndInteraction) message_);
-              message_ = subBuilder.buildPartial();
-            }
-            messageCase_ = 11;
-            break;
-          }
-          case 98: {
-            com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.PlayAudio.Builder subBuilder = null;
-            if (messageCase_ == 12) {
-              subBuilder = ((com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.PlayAudio) message_).toBuilder();
-            }
-            message_ =
-                input.readMessage(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.PlayAudio.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.PlayAudio) message_);
-              message_ = subBuilder.buildPartial();
-            }
-            messageCase_ = 12;
-            break;
-          }
-          case 106: {
-            com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.Builder subBuilder = null;
-            if (messageCase_ == 13) {
-              subBuilder = ((com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio) message_).toBuilder();
-            }
-            message_ =
-                input.readMessage(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio) message_);
-              message_ = subBuilder.buildPartial();
-            }
-            messageCase_ = 13;
-            break;
-          }
-          case 146: {
-            com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.TelephonyTransferCall.Builder subBuilder = null;
-            if (messageCase_ == 18) {
-              subBuilder = ((com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.TelephonyTransferCall) message_).toBuilder();
-            }
-            message_ =
-                input.readMessage(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.TelephonyTransferCall.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.TelephonyTransferCall) message_);
-              message_ = subBuilder.buildPartial();
-            }
-            messageCase_ = 18;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.cx.v3beta1.ResponseMessageProto.internal_static_google_cloud_dialogflow_cx_v3beta1_ResponseMessage_descriptor;
@@ -314,63 +149,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Text(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                text_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              text_.add(s);
-              break;
-            }
-            case 16: {
-
-              allowPlaybackInterruption_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          text_ = text_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dialogflow.cx.v3beta1.ResponseMessageProto.internal_static_google_cloud_dialogflow_cx_v3beta1_ResponseMessage_Text_descriptor;
@@ -385,6 +163,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TEXT_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList text_;
     /**
      * <pre>
@@ -436,7 +215,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ALLOW_PLAYBACK_INTERRUPTION_FIELD_NUMBER = 2;
-    private boolean allowPlaybackInterruption_;
+    private boolean allowPlaybackInterruption_ = false;
     /**
      * <pre>
      * Output only. Whether the playback of this message can be interrupted by the end
@@ -472,7 +251,7 @@ private static final long serialVersionUID = 0L;
       if (allowPlaybackInterruption_ != false) {
         output.writeBool(2, allowPlaybackInterruption_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -493,7 +272,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, allowPlaybackInterruption_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -512,7 +291,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getTextList())) return false;
       if (getAllowPlaybackInterruption()
           != other.getAllowPlaybackInterruption()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -530,7 +309,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ALLOW_PLAYBACK_INTERRUPTION_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getAllowPlaybackInterruption());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -651,26 +430,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.Text.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         text_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         allowPlaybackInterruption_ = false;
-
         return this;
       }
 
@@ -697,15 +471,25 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.Text buildPartial() {
         com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.Text result = new com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.Text(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.Text result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           text_ = text_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.text_ = text_;
-        result.allowPlaybackInterruption_ = allowPlaybackInterruption_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.Text result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.allowPlaybackInterruption_ = allowPlaybackInterruption_;
+        }
       }
 
       @java.lang.Override
@@ -765,7 +549,7 @@ private static final long serialVersionUID = 0L;
         if (other.getAllowPlaybackInterruption() != false) {
           setAllowPlaybackInterruption(other.getAllowPlaybackInterruption());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -780,17 +564,41 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.Text parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureTextIsMutable();
+                text_.add(s);
+                break;
+              } // case 10
+              case 16: {
+                allowPlaybackInterruption_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.Text) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -862,10 +670,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setText(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTextIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureTextIsMutable();
         text_.set(index, value);
         onChanged();
         return this;
@@ -881,10 +687,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addText(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTextIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureTextIsMutable();
         text_.add(value);
         onChanged();
         return this;
@@ -931,10 +735,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addTextBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureTextIsMutable();
         text_.add(value);
         onChanged();
@@ -970,6 +772,7 @@ private static final long serialVersionUID = 0L;
       public Builder setAllowPlaybackInterruption(boolean value) {
         
         allowPlaybackInterruption_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -984,7 +787,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAllowPlaybackInterruption() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         allowPlaybackInterruption_ = false;
         onChanged();
         return this;
@@ -1022,7 +825,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Text(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1116,58 +930,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LiveAgentHandoff(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Struct.Builder subBuilder = null;
-              if (metadata_ != null) {
-                subBuilder = metadata_.toBuilder();
-              }
-              metadata_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(metadata_);
-                metadata_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dialogflow.cx.v3beta1.ResponseMessageProto.internal_static_google_cloud_dialogflow_cx_v3beta1_ResponseMessage_LiveAgentHandoff_descriptor;
@@ -1219,7 +981,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.StructOrBuilder getMetadataOrBuilder() {
-      return getMetadata();
+      return metadata_ == null ? com.google.protobuf.Struct.getDefaultInstance() : metadata_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1239,7 +1001,7 @@ private static final long serialVersionUID = 0L;
       if (metadata_ != null) {
         output.writeMessage(1, getMetadata());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1252,7 +1014,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getMetadata());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1272,7 +1034,7 @@ private static final long serialVersionUID = 0L;
         if (!getMetadata()
             .equals(other.getMetadata())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1287,7 +1049,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + METADATA_FIELD_NUMBER;
         hash = (53 * hash) + getMetadata().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1417,26 +1179,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.LiveAgentHandoff.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (metadataBuilder_ == null) {
-          metadata_ = null;
-        } else {
-          metadata_ = null;
+        bitField0_ = 0;
+        metadata_ = null;
+        if (metadataBuilder_ != null) {
+          metadataBuilder_.dispose();
           metadataBuilder_ = null;
         }
         return this;
@@ -1465,13 +1222,18 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.LiveAgentHandoff buildPartial() {
         com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.LiveAgentHandoff result = new com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.LiveAgentHandoff(this);
-        if (metadataBuilder_ == null) {
-          result.metadata_ = metadata_;
-        } else {
-          result.metadata_ = metadataBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.LiveAgentHandoff result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.metadata_ = metadataBuilder_ == null
+              ? metadata_
+              : metadataBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1521,7 +1283,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasMetadata()) {
           mergeMetadata(other.getMetadata());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1536,19 +1298,40 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.LiveAgentHandoff parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getMetadataFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.LiveAgentHandoff) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.Struct metadata_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1563,7 +1346,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the metadata field is set.
        */
       public boolean hasMetadata() {
-        return metadataBuilder_ != null || metadata_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -1595,11 +1378,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           metadata_ = value;
-          onChanged();
         } else {
           metadataBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1614,11 +1397,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Struct.Builder builderForValue) {
         if (metadataBuilder_ == null) {
           metadata_ = builderForValue.build();
-          onChanged();
         } else {
           metadataBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1631,17 +1414,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeMetadata(com.google.protobuf.Struct value) {
         if (metadataBuilder_ == null) {
-          if (metadata_ != null) {
-            metadata_ =
-              com.google.protobuf.Struct.newBuilder(metadata_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            metadata_ != null &&
+            metadata_ != com.google.protobuf.Struct.getDefaultInstance()) {
+            getMetadataBuilder().mergeFrom(value);
           } else {
             metadata_ = value;
           }
-          onChanged();
         } else {
           metadataBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1653,14 +1437,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Struct metadata = 1;</code>
        */
       public Builder clearMetadata() {
-        if (metadataBuilder_ == null) {
-          metadata_ = null;
-          onChanged();
-        } else {
-          metadata_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        metadata_ = null;
+        if (metadataBuilder_ != null) {
+          metadataBuilder_.dispose();
           metadataBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1672,7 +1455,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Struct metadata = 1;</code>
        */
       public com.google.protobuf.Struct.Builder getMetadataBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getMetadataFieldBuilder().getBuilder();
       }
@@ -1746,7 +1529,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LiveAgentHandoff(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1839,58 +1633,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ConversationSuccess(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Struct.Builder subBuilder = null;
-              if (metadata_ != null) {
-                subBuilder = metadata_.toBuilder();
-              }
-              metadata_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(metadata_);
-                metadata_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dialogflow.cx.v3beta1.ResponseMessageProto.internal_static_google_cloud_dialogflow_cx_v3beta1_ResponseMessage_ConversationSuccess_descriptor;
@@ -1939,7 +1681,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.StructOrBuilder getMetadataOrBuilder() {
-      return getMetadata();
+      return metadata_ == null ? com.google.protobuf.Struct.getDefaultInstance() : metadata_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1959,7 +1701,7 @@ private static final long serialVersionUID = 0L;
       if (metadata_ != null) {
         output.writeMessage(1, getMetadata());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1972,7 +1714,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getMetadata());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1992,7 +1734,7 @@ private static final long serialVersionUID = 0L;
         if (!getMetadata()
             .equals(other.getMetadata())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2007,7 +1749,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + METADATA_FIELD_NUMBER;
         hash = (53 * hash) + getMetadata().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2139,26 +1881,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.ConversationSuccess.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (metadataBuilder_ == null) {
-          metadata_ = null;
-        } else {
-          metadata_ = null;
+        bitField0_ = 0;
+        metadata_ = null;
+        if (metadataBuilder_ != null) {
+          metadataBuilder_.dispose();
           metadataBuilder_ = null;
         }
         return this;
@@ -2187,13 +1924,18 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.ConversationSuccess buildPartial() {
         com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.ConversationSuccess result = new com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.ConversationSuccess(this);
-        if (metadataBuilder_ == null) {
-          result.metadata_ = metadata_;
-        } else {
-          result.metadata_ = metadataBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.ConversationSuccess result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.metadata_ = metadataBuilder_ == null
+              ? metadata_
+              : metadataBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -2243,7 +1985,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasMetadata()) {
           mergeMetadata(other.getMetadata());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2258,19 +2000,40 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.ConversationSuccess parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getMetadataFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.ConversationSuccess) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.Struct metadata_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2284,7 +2047,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the metadata field is set.
        */
       public boolean hasMetadata() {
-        return metadataBuilder_ != null || metadata_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -2314,11 +2077,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           metadata_ = value;
-          onChanged();
         } else {
           metadataBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2332,11 +2095,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Struct.Builder builderForValue) {
         if (metadataBuilder_ == null) {
           metadata_ = builderForValue.build();
-          onChanged();
         } else {
           metadataBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2348,17 +2111,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeMetadata(com.google.protobuf.Struct value) {
         if (metadataBuilder_ == null) {
-          if (metadata_ != null) {
-            metadata_ =
-              com.google.protobuf.Struct.newBuilder(metadata_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            metadata_ != null &&
+            metadata_ != com.google.protobuf.Struct.getDefaultInstance()) {
+            getMetadataBuilder().mergeFrom(value);
           } else {
             metadata_ = value;
           }
-          onChanged();
         } else {
           metadataBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2369,14 +2133,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Struct metadata = 1;</code>
        */
       public Builder clearMetadata() {
-        if (metadataBuilder_ == null) {
-          metadata_ = null;
-          onChanged();
-        } else {
-          metadata_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        metadata_ = null;
+        if (metadataBuilder_ != null) {
+          metadataBuilder_.dispose();
           metadataBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2387,7 +2150,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Struct metadata = 1;</code>
        */
       public com.google.protobuf.Struct.Builder getMetadataBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getMetadataFieldBuilder().getBuilder();
       }
@@ -2459,7 +2222,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ConversationSuccess(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2589,62 +2363,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private OutputAudioText(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              sourceCase_ = 1;
-              source_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              sourceCase_ = 2;
-              source_ = s;
-              break;
-            }
-            case 24: {
-
-              allowPlaybackInterruption_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -2832,7 +2550,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ALLOW_PLAYBACK_INTERRUPTION_FIELD_NUMBER = 3;
-    private boolean allowPlaybackInterruption_;
+    private boolean allowPlaybackInterruption_ = false;
     /**
      * <pre>
      * Output only. Whether the playback of this message can be interrupted by the end
@@ -2871,7 +2589,7 @@ private static final long serialVersionUID = 0L;
       if (allowPlaybackInterruption_ != false) {
         output.writeBool(3, allowPlaybackInterruption_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2890,7 +2608,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, allowPlaybackInterruption_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2920,7 +2638,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2946,7 +2664,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3068,24 +2786,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.OutputAudioText.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         allowPlaybackInterruption_ = false;
-
         sourceCase_ = 0;
         source_ = null;
         return this;
@@ -3114,16 +2827,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.OutputAudioText buildPartial() {
         com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.OutputAudioText result = new com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.OutputAudioText(this);
-        if (sourceCase_ == 1) {
-          result.source_ = source_;
-        }
-        if (sourceCase_ == 2) {
-          result.source_ = source_;
-        }
-        result.allowPlaybackInterruption_ = allowPlaybackInterruption_;
-        result.sourceCase_ = sourceCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.OutputAudioText result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.allowPlaybackInterruption_ = allowPlaybackInterruption_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.OutputAudioText result) {
+        result.sourceCase_ = sourceCase_;
+        result.source_ = this.source_;
       }
 
       @java.lang.Override
@@ -3190,7 +2909,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3205,17 +2924,47 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.OutputAudioText parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                sourceCase_ = 1;
+                source_ = s;
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                sourceCase_ = 2;
+                source_ = s;
+                break;
+              } // case 18
+              case 24: {
+                allowPlaybackInterruption_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.OutputAudioText) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int sourceCase_ = 0;
@@ -3233,6 +2982,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       /**
        * <pre>
@@ -3310,10 +3060,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setText(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  sourceCase_ = 1;
+        if (value == null) { throw new NullPointerException(); }
+        sourceCase_ = 1;
         source_ = value;
         onChanged();
         return this;
@@ -3345,10 +3093,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setTextBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         sourceCase_ = 1;
         source_ = value;
         onChanged();
@@ -3435,10 +3181,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSsml(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  sourceCase_ = 2;
+        if (value == null) { throw new NullPointerException(); }
+        sourceCase_ = 2;
         source_ = value;
         onChanged();
         return this;
@@ -3472,10 +3216,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSsmlBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         sourceCase_ = 2;
         source_ = value;
         onChanged();
@@ -3511,6 +3253,7 @@ private static final long serialVersionUID = 0L;
       public Builder setAllowPlaybackInterruption(boolean value) {
         
         allowPlaybackInterruption_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3525,7 +3268,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAllowPlaybackInterruption() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         allowPlaybackInterruption_ = false;
         onChanged();
         return this;
@@ -3563,7 +3306,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new OutputAudioText(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3620,45 +3374,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private EndInteraction(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dialogflow.cx.v3beta1.ResponseMessageProto.internal_static_google_cloud_dialogflow_cx_v3beta1_ResponseMessage_EndInteraction_descriptor;
@@ -3686,7 +3401,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3695,7 +3410,7 @@ private static final long serialVersionUID = 0L;
       if (size != -1) return size;
 
       size = 0;
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3710,7 +3425,7 @@ private static final long serialVersionUID = 0L;
       }
       com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.EndInteraction other = (com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.EndInteraction) obj;
 
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3721,7 +3436,7 @@ private static final long serialVersionUID = 0L;
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3844,18 +3559,13 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.EndInteraction.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -3934,7 +3644,7 @@ private static final long serialVersionUID = 0L;
 
       public Builder mergeFrom(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.EndInteraction other) {
         if (other == com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.EndInteraction.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3949,17 +3659,30 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.EndInteraction parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.EndInteraction) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       @java.lang.Override
@@ -3995,7 +3718,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new EndInteraction(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4085,56 +3819,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PlayAudio(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              audioUri_ = s;
-              break;
-            }
-            case 16: {
-
-              allowPlaybackInterruption_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dialogflow.cx.v3beta1.ResponseMessageProto.internal_static_google_cloud_dialogflow_cx_v3beta1_ResponseMessage_PlayAudio_descriptor;
@@ -4149,7 +3833,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int AUDIO_URI_FIELD_NUMBER = 1;
-    private volatile java.lang.Object audioUri_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object audioUri_ = "";
     /**
      * <pre>
      * Required. URI of the audio clip. Dialogflow does not impose any validation on this
@@ -4197,7 +3882,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ALLOW_PLAYBACK_INTERRUPTION_FIELD_NUMBER = 2;
-    private boolean allowPlaybackInterruption_;
+    private boolean allowPlaybackInterruption_ = false;
     /**
      * <pre>
      * Output only. Whether the playback of this message can be interrupted by the end
@@ -4233,7 +3918,7 @@ private static final long serialVersionUID = 0L;
       if (allowPlaybackInterruption_ != false) {
         output.writeBool(2, allowPlaybackInterruption_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4249,7 +3934,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, allowPlaybackInterruption_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4268,7 +3953,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getAudioUri())) return false;
       if (getAllowPlaybackInterruption()
           != other.getAllowPlaybackInterruption()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4284,7 +3969,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ALLOW_PLAYBACK_INTERRUPTION_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getAllowPlaybackInterruption());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4405,26 +4090,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.PlayAudio.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         audioUri_ = "";
-
         allowPlaybackInterruption_ = false;
-
         return this;
       }
 
@@ -4451,10 +4130,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.PlayAudio buildPartial() {
         com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.PlayAudio result = new com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.PlayAudio(this);
-        result.audioUri_ = audioUri_;
-        result.allowPlaybackInterruption_ = allowPlaybackInterruption_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.PlayAudio result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.audioUri_ = audioUri_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.allowPlaybackInterruption_ = allowPlaybackInterruption_;
+        }
       }
 
       @java.lang.Override
@@ -4503,12 +4191,13 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.PlayAudio.getDefaultInstance()) return this;
         if (!other.getAudioUri().isEmpty()) {
           audioUri_ = other.audioUri_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getAllowPlaybackInterruption() != false) {
           setAllowPlaybackInterruption(other.getAllowPlaybackInterruption());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4523,19 +4212,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.PlayAudio parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                audioUri_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                allowPlaybackInterruption_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.PlayAudio) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object audioUri_ = "";
       /**
@@ -4593,11 +4306,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAudioUri(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         audioUri_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4611,8 +4322,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAudioUri() {
-        
         audioUri_ = getDefaultInstance().getAudioUri();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4628,12 +4339,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAudioUriBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         audioUri_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4667,6 +4376,7 @@ private static final long serialVersionUID = 0L;
       public Builder setAllowPlaybackInterruption(boolean value) {
         
         allowPlaybackInterruption_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4681,7 +4391,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAllowPlaybackInterruption() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         allowPlaybackInterruption_ = false;
         onChanged();
         return this;
@@ -4719,7 +4429,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PlayAudio(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4824,58 +4545,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private MixedAudio(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                segments_ = new java.util.ArrayList<com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.Segment>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              segments_.add(
-                  input.readMessage(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.Segment.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          segments_ = java.util.Collections.unmodifiableList(segments_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -4991,61 +4660,6 @@ private static final long serialVersionUID = 0L;
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
-      }
-      private Segment(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                content_ = input.readBytes();
-                contentCase_ = 1;
-                break;
-              }
-              case 18: {
-                java.lang.String s = input.readStringRequireUtf8();
-                contentCase_ = 2;
-                content_ = s;
-                break;
-              }
-              case 24: {
-
-                allowPlaybackInterruption_ = input.readBool();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -5200,7 +4814,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int ALLOW_PLAYBACK_INTERRUPTION_FIELD_NUMBER = 3;
-      private boolean allowPlaybackInterruption_;
+      private boolean allowPlaybackInterruption_ = false;
       /**
        * <pre>
        * Output only. Whether the playback of this segment can be interrupted by the end
@@ -5240,7 +4854,7 @@ private static final long serialVersionUID = 0L;
         if (allowPlaybackInterruption_ != false) {
           output.writeBool(3, allowPlaybackInterruption_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -5261,7 +4875,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeBoolSize(3, allowPlaybackInterruption_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -5291,7 +4905,7 @@ private static final long serialVersionUID = 0L;
           case 0:
           default:
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -5317,7 +4931,7 @@ private static final long serialVersionUID = 0L;
           case 0:
           default:
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -5438,24 +5052,19 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.Segment.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           allowPlaybackInterruption_ = false;
-
           contentCase_ = 0;
           content_ = null;
           return this;
@@ -5484,16 +5093,22 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.Segment buildPartial() {
           com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.Segment result = new com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.Segment(this);
-          if (contentCase_ == 1) {
-            result.content_ = content_;
-          }
-          if (contentCase_ == 2) {
-            result.content_ = content_;
-          }
-          result.allowPlaybackInterruption_ = allowPlaybackInterruption_;
-          result.contentCase_ = contentCase_;
+          if (bitField0_ != 0) { buildPartial0(result); }
+          buildPartialOneofs(result);
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.Segment result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.allowPlaybackInterruption_ = allowPlaybackInterruption_;
+          }
+        }
+
+        private void buildPartialOneofs(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.Segment result) {
+          result.contentCase_ = contentCase_;
+          result.content_ = this.content_;
         }
 
         @java.lang.Override
@@ -5558,7 +5173,7 @@ private static final long serialVersionUID = 0L;
               break;
             }
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -5573,17 +5188,46 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.Segment parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  content_ = input.readBytes();
+                  contentCase_ = 1;
+                  break;
+                } // case 10
+                case 18: {
+                  java.lang.String s = input.readStringRequireUtf8();
+                  contentCase_ = 2;
+                  content_ = s;
+                  break;
+                } // case 18
+                case 24: {
+                  allowPlaybackInterruption_ = input.readBool();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 24
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.Segment) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int contentCase_ = 0;
@@ -5601,6 +5245,7 @@ private static final long serialVersionUID = 0L;
           return this;
         }
 
+        private int bitField0_;
 
         /**
          * <pre>
@@ -5640,10 +5285,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder setAudio(com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  contentCase_ = 1;
+          if (value == null) { throw new NullPointerException(); }
+          contentCase_ = 1;
           content_ = value;
           onChanged();
           return this;
@@ -5746,10 +5389,8 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setUri(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  contentCase_ = 2;
+          if (value == null) { throw new NullPointerException(); }
+          contentCase_ = 2;
           content_ = value;
           onChanged();
           return this;
@@ -5783,10 +5424,8 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setUriBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           contentCase_ = 2;
           content_ = value;
           onChanged();
@@ -5822,6 +5461,7 @@ private static final long serialVersionUID = 0L;
         public Builder setAllowPlaybackInterruption(boolean value) {
           
           allowPlaybackInterruption_ = value;
+          bitField0_ |= 0x00000004;
           onChanged();
           return this;
         }
@@ -5836,7 +5476,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearAllowPlaybackInterruption() {
-          
+          bitField0_ = (bitField0_ & ~0x00000004);
           allowPlaybackInterruption_ = false;
           onChanged();
           return this;
@@ -5874,7 +5514,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Segment(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -5895,6 +5546,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SEGMENTS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.Segment> segments_;
     /**
      * <pre>
@@ -5971,7 +5623,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < segments_.size(); i++) {
         output.writeMessage(1, segments_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5984,7 +5636,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, segments_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6001,7 +5653,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getSegmentsList()
           .equals(other.getSegmentsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6016,7 +5668,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + SEGMENTS_FIELD_NUMBER;
         hash = (53 * hash) + getSegmentsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6143,29 +5795,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getSegmentsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (segmentsBuilder_ == null) {
           segments_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          segments_ = null;
           segmentsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -6192,7 +5840,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio buildPartial() {
         com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio result = new com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio result) {
         if (segmentsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             segments_ = java.util.Collections.unmodifiableList(segments_);
@@ -6202,8 +5856,10 @@ private static final long serialVersionUID = 0L;
         } else {
           result.segments_ = segmentsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -6276,7 +5932,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6291,17 +5947,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.Segment m =
+                    input.readMessage(
+                        com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.Segment.parser(),
+                        extensionRegistry);
+                if (segmentsBuilder_ == null) {
+                  ensureSegmentsIsMutable();
+                  segments_.add(m);
+                } else {
+                  segmentsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -6650,7 +6332,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MixedAudio(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6739,51 +6432,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private TelephonyTransferCall(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              endpointCase_ = 1;
-              endpoint_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -6921,7 +6569,7 @@ private static final long serialVersionUID = 0L;
       if (endpointCase_ == 1) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, endpoint_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6933,7 +6581,7 @@ private static final long serialVersionUID = 0L;
       if (endpointCase_ == 1) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, endpoint_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6957,7 +6605,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6976,7 +6624,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7098,22 +6746,18 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.TelephonyTransferCall.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         endpointCase_ = 0;
         endpoint_ = null;
         return this;
@@ -7142,12 +6786,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.TelephonyTransferCall buildPartial() {
         com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.TelephonyTransferCall result = new com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.TelephonyTransferCall(this);
-        if (endpointCase_ == 1) {
-          result.endpoint_ = endpoint_;
-        }
-        result.endpointCase_ = endpointCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.TelephonyTransferCall result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      private void buildPartialOneofs(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.TelephonyTransferCall result) {
+        result.endpointCase_ = endpointCase_;
+        result.endpoint_ = this.endpoint_;
       }
 
       @java.lang.Override
@@ -7205,7 +6856,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -7220,17 +6871,36 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.TelephonyTransferCall parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                endpointCase_ = 1;
+                endpoint_ = s;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.TelephonyTransferCall) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int endpointCase_ = 0;
@@ -7248,6 +6918,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       /**
        * <pre>
@@ -7329,10 +7000,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPhoneNumber(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  endpointCase_ = 1;
+        if (value == null) { throw new NullPointerException(); }
+        endpointCase_ = 1;
         endpoint_ = value;
         onChanged();
         return this;
@@ -7366,10 +7035,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPhoneNumberBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         endpointCase_ = 1;
         endpoint_ = value;
         onChanged();
@@ -7408,7 +7075,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TelephonyTransferCall(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7950,7 +7628,7 @@ private static final long serialVersionUID = 0L;
     if (messageCase_ == 18) {
       output.writeMessage(18, (com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.TelephonyTransferCall) message_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -7995,7 +7673,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(18, (com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.TelephonyTransferCall) message_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -8051,7 +7729,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -8102,7 +7780,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -8236,22 +7914,45 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (textBuilder_ != null) {
+        textBuilder_.clear();
+      }
+      if (payloadBuilder_ != null) {
+        payloadBuilder_.clear();
+      }
+      if (conversationSuccessBuilder_ != null) {
+        conversationSuccessBuilder_.clear();
+      }
+      if (outputAudioTextBuilder_ != null) {
+        outputAudioTextBuilder_.clear();
+      }
+      if (liveAgentHandoffBuilder_ != null) {
+        liveAgentHandoffBuilder_.clear();
+      }
+      if (endInteractionBuilder_ != null) {
+        endInteractionBuilder_.clear();
+      }
+      if (playAudioBuilder_ != null) {
+        playAudioBuilder_.clear();
+      }
+      if (mixedAudioBuilder_ != null) {
+        mixedAudioBuilder_.clear();
+      }
+      if (telephonyTransferCallBuilder_ != null) {
+        telephonyTransferCallBuilder_.clear();
+      }
       messageCase_ = 0;
       message_ = null;
       return this;
@@ -8280,72 +7981,55 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage buildPartial() {
       com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage result = new com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage(this);
-      if (messageCase_ == 1) {
-        if (textBuilder_ == null) {
-          result.message_ = message_;
-        } else {
-          result.message_ = textBuilder_.build();
-        }
-      }
-      if (messageCase_ == 2) {
-        if (payloadBuilder_ == null) {
-          result.message_ = message_;
-        } else {
-          result.message_ = payloadBuilder_.build();
-        }
-      }
-      if (messageCase_ == 9) {
-        if (conversationSuccessBuilder_ == null) {
-          result.message_ = message_;
-        } else {
-          result.message_ = conversationSuccessBuilder_.build();
-        }
-      }
-      if (messageCase_ == 8) {
-        if (outputAudioTextBuilder_ == null) {
-          result.message_ = message_;
-        } else {
-          result.message_ = outputAudioTextBuilder_.build();
-        }
-      }
-      if (messageCase_ == 10) {
-        if (liveAgentHandoffBuilder_ == null) {
-          result.message_ = message_;
-        } else {
-          result.message_ = liveAgentHandoffBuilder_.build();
-        }
-      }
-      if (messageCase_ == 11) {
-        if (endInteractionBuilder_ == null) {
-          result.message_ = message_;
-        } else {
-          result.message_ = endInteractionBuilder_.build();
-        }
-      }
-      if (messageCase_ == 12) {
-        if (playAudioBuilder_ == null) {
-          result.message_ = message_;
-        } else {
-          result.message_ = playAudioBuilder_.build();
-        }
-      }
-      if (messageCase_ == 13) {
-        if (mixedAudioBuilder_ == null) {
-          result.message_ = message_;
-        } else {
-          result.message_ = mixedAudioBuilder_.build();
-        }
-      }
-      if (messageCase_ == 18) {
-        if (telephonyTransferCallBuilder_ == null) {
-          result.message_ = message_;
-        } else {
-          result.message_ = telephonyTransferCallBuilder_.build();
-        }
-      }
-      result.messageCase_ = messageCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage result) {
+      result.messageCase_ = messageCase_;
+      result.message_ = this.message_;
+      if (messageCase_ == 1 &&
+          textBuilder_ != null) {
+        result.message_ = textBuilder_.build();
+      }
+      if (messageCase_ == 2 &&
+          payloadBuilder_ != null) {
+        result.message_ = payloadBuilder_.build();
+      }
+      if (messageCase_ == 9 &&
+          conversationSuccessBuilder_ != null) {
+        result.message_ = conversationSuccessBuilder_.build();
+      }
+      if (messageCase_ == 8 &&
+          outputAudioTextBuilder_ != null) {
+        result.message_ = outputAudioTextBuilder_.build();
+      }
+      if (messageCase_ == 10 &&
+          liveAgentHandoffBuilder_ != null) {
+        result.message_ = liveAgentHandoffBuilder_.build();
+      }
+      if (messageCase_ == 11 &&
+          endInteractionBuilder_ != null) {
+        result.message_ = endInteractionBuilder_.build();
+      }
+      if (messageCase_ == 12 &&
+          playAudioBuilder_ != null) {
+        result.message_ = playAudioBuilder_.build();
+      }
+      if (messageCase_ == 13 &&
+          mixedAudioBuilder_ != null) {
+        result.message_ = mixedAudioBuilder_.build();
+      }
+      if (messageCase_ == 18 &&
+          telephonyTransferCallBuilder_ != null) {
+        result.message_ = telephonyTransferCallBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -8433,7 +8117,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -8448,17 +8132,93 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              messageCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPayloadFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              messageCase_ = 2;
+              break;
+            } // case 18
+            case 66: {
+              input.readMessage(
+                  getOutputAudioTextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              messageCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getConversationSuccessFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              messageCase_ = 9;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getLiveAgentHandoffFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              messageCase_ = 10;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getEndInteractionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              messageCase_ = 11;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getPlayAudioFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              messageCase_ = 12;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getMixedAudioFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              messageCase_ = 13;
+              break;
+            } // case 106
+            case 146: {
+              input.readMessage(
+                  getTelephonyTransferCallFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              messageCase_ = 18;
+              break;
+            } // case 146
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int messageCase_ = 0;
@@ -8476,6 +8236,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.Text, com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.Text.Builder, com.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.TextOrBuilder> textBuilder_;
@@ -8651,7 +8412,7 @@ private static final long serialVersionUID = 0L;
         message_ = null;
       }
       messageCase_ = 1;
-      onChanged();;
+      onChanged();
       return textBuilder_;
     }
 
@@ -8829,7 +8590,7 @@ private static final long serialVersionUID = 0L;
         message_ = null;
       }
       messageCase_ = 2;
-      onChanged();;
+      onChanged();
       return payloadBuilder_;
     }
 
@@ -9007,7 +8768,7 @@ private static final long serialVersionUID = 0L;
         message_ = null;
       }
       messageCase_ = 9;
-      onChanged();;
+      onChanged();
       return conversationSuccessBuilder_;
     }
 
@@ -9194,7 +8955,7 @@ private static final long serialVersionUID = 0L;
         message_ = null;
       }
       messageCase_ = 8;
-      onChanged();;
+      onChanged();
       return outputAudioTextBuilder_;
     }
 
@@ -9372,7 +9133,7 @@ private static final long serialVersionUID = 0L;
         message_ = null;
       }
       messageCase_ = 10;
-      onChanged();;
+      onChanged();
       return liveAgentHandoffBuilder_;
     }
 
@@ -9586,7 +9347,7 @@ private static final long serialVersionUID = 0L;
         message_ = null;
       }
       messageCase_ = 11;
-      onChanged();;
+      onChanged();
       return endInteractionBuilder_;
     }
 
@@ -9791,7 +9552,7 @@ private static final long serialVersionUID = 0L;
         message_ = null;
       }
       messageCase_ = 12;
-      onChanged();;
+      onChanged();
       return playAudioBuilder_;
     }
 
@@ -10005,7 +9766,7 @@ private static final long serialVersionUID = 0L;
         message_ = null;
       }
       messageCase_ = 13;
-      onChanged();;
+      onChanged();
       return mixedAudioBuilder_;
     }
 
@@ -10192,7 +9953,7 @@ private static final long serialVersionUID = 0L;
         message_ = null;
       }
       messageCase_ = 18;
-      onChanged();;
+      onChanged();
       return telephonyTransferCallBuilder_;
     }
     @java.lang.Override
@@ -10228,7 +9989,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ResponseMessage(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private QuicUpstreamTransport(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext.Builder subBuilder = null;
-            if (upstreamTlsContext_ != null) {
-              subBuilder = upstreamTlsContext_.toBuilder();
-            }
-            upstreamTlsContext_ = input.readMessage(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(upstreamTlsContext_);
-              upstreamTlsContext_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.transport_sockets.quic.v3.QuicTransportProto.internal_static_envoy_extensions_transport_sockets_quic_v3_QuicUpstreamTransport_descriptor;
@@ -122,7 +70,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContextOrBuilder getUpstreamTlsContextOrBuilder() {
-    return getUpstreamTlsContext();
+    return upstreamTlsContext_ == null ? io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext.getDefaultInstance() : upstreamTlsContext_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -142,7 +90,7 @@ private static final long serialVersionUID = 0L;
     if (upstreamTlsContext_ != null) {
       output.writeMessage(1, getUpstreamTlsContext());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -155,7 +103,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getUpstreamTlsContext());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -175,7 +123,7 @@ private static final long serialVersionUID = 0L;
       if (!getUpstreamTlsContext()
           .equals(other.getUpstreamTlsContext())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -190,7 +138,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UPSTREAM_TLS_CONTEXT_FIELD_NUMBER;
       hash = (53 * hash) + getUpstreamTlsContext().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -311,26 +259,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.transport_sockets.quic.v3.QuicUpstreamTransport.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (upstreamTlsContextBuilder_ == null) {
-        upstreamTlsContext_ = null;
-      } else {
-        upstreamTlsContext_ = null;
+      bitField0_ = 0;
+      upstreamTlsContext_ = null;
+      if (upstreamTlsContextBuilder_ != null) {
+        upstreamTlsContextBuilder_.dispose();
         upstreamTlsContextBuilder_ = null;
       }
       return this;
@@ -359,13 +302,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.transport_sockets.quic.v3.QuicUpstreamTransport buildPartial() {
       io.envoyproxy.envoy.extensions.transport_sockets.quic.v3.QuicUpstreamTransport result = new io.envoyproxy.envoy.extensions.transport_sockets.quic.v3.QuicUpstreamTransport(this);
-      if (upstreamTlsContextBuilder_ == null) {
-        result.upstreamTlsContext_ = upstreamTlsContext_;
-      } else {
-        result.upstreamTlsContext_ = upstreamTlsContextBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.transport_sockets.quic.v3.QuicUpstreamTransport result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.upstreamTlsContext_ = upstreamTlsContextBuilder_ == null
+            ? upstreamTlsContext_
+            : upstreamTlsContextBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -415,7 +363,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasUpstreamTlsContext()) {
         mergeUpstreamTlsContext(other.getUpstreamTlsContext());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -430,19 +378,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.transport_sockets.quic.v3.QuicUpstreamTransport parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getUpstreamTlsContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.transport_sockets.quic.v3.QuicUpstreamTransport) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext upstreamTlsContext_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -452,7 +421,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the upstreamTlsContext field is set.
      */
     public boolean hasUpstreamTlsContext() {
-      return upstreamTlsContextBuilder_ != null || upstreamTlsContext_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext upstream_tls_context = 1 [(.validate.rules) = { ... }</code>
@@ -474,11 +443,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         upstreamTlsContext_ = value;
-        onChanged();
       } else {
         upstreamTlsContextBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -488,11 +457,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext.Builder builderForValue) {
       if (upstreamTlsContextBuilder_ == null) {
         upstreamTlsContext_ = builderForValue.build();
-        onChanged();
       } else {
         upstreamTlsContextBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -500,38 +469,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpstreamTlsContext(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext value) {
       if (upstreamTlsContextBuilder_ == null) {
-        if (upstreamTlsContext_ != null) {
-          upstreamTlsContext_ =
-            io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext.newBuilder(upstreamTlsContext_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          upstreamTlsContext_ != null &&
+          upstreamTlsContext_ != io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext.getDefaultInstance()) {
+          getUpstreamTlsContextBuilder().mergeFrom(value);
         } else {
           upstreamTlsContext_ = value;
         }
-        onChanged();
       } else {
         upstreamTlsContextBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext upstream_tls_context = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearUpstreamTlsContext() {
-      if (upstreamTlsContextBuilder_ == null) {
-        upstreamTlsContext_ = null;
-        onChanged();
-      } else {
-        upstreamTlsContext_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      upstreamTlsContext_ = null;
+      if (upstreamTlsContextBuilder_ != null) {
+        upstreamTlsContextBuilder_.dispose();
         upstreamTlsContextBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext upstream_tls_context = 1 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext.Builder getUpstreamTlsContextBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getUpstreamTlsContextFieldBuilder().getBuilder();
     }
@@ -595,7 +564,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new QuicUpstreamTransport(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

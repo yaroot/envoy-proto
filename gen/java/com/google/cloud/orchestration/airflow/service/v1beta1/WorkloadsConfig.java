@@ -36,84 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private WorkloadsConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource.Builder subBuilder = null;
-            if (scheduler_ != null) {
-              subBuilder = scheduler_.toBuilder();
-            }
-            scheduler_ = input.readMessage(com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(scheduler_);
-              scheduler_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResource.Builder subBuilder = null;
-            if (webServer_ != null) {
-              subBuilder = webServer_.toBuilder();
-            }
-            webServer_ = input.readMessage(com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(webServer_);
-              webServer_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource.Builder subBuilder = null;
-            if (worker_ != null) {
-              subBuilder = worker_.toBuilder();
-            }
-            worker_ = input.readMessage(com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(worker_);
-              worker_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.orchestration.airflow.service.v1beta1.EnvironmentsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1beta1_WorkloadsConfig_descriptor;
@@ -202,65 +124,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SchedulerResource(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 13: {
-
-              cpu_ = input.readFloat();
-              break;
-            }
-            case 21: {
-
-              memoryGb_ = input.readFloat();
-              break;
-            }
-            case 29: {
-
-              storageGb_ = input.readFloat();
-              break;
-            }
-            case 32: {
-
-              count_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.orchestration.airflow.service.v1beta1.EnvironmentsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1beta1_WorkloadsConfig_SchedulerResource_descriptor;
@@ -275,7 +138,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int CPU_FIELD_NUMBER = 1;
-    private float cpu_;
+    private float cpu_ = 0F;
     /**
      * <pre>
      * Optional. CPU request and limit for a single Airflow scheduler replica.
@@ -290,7 +153,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MEMORY_GB_FIELD_NUMBER = 2;
-    private float memoryGb_;
+    private float memoryGb_ = 0F;
     /**
      * <pre>
      * Optional. Memory (GB) request and limit for a single Airflow scheduler replica.
@@ -305,7 +168,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int STORAGE_GB_FIELD_NUMBER = 3;
-    private float storageGb_;
+    private float storageGb_ = 0F;
     /**
      * <pre>
      * Optional. Storage (GB) request and limit for a single Airflow scheduler replica.
@@ -320,7 +183,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int COUNT_FIELD_NUMBER = 4;
-    private int count_;
+    private int count_ = 0;
     /**
      * <pre>
      * Optional. The number of schedulers.
@@ -360,7 +223,7 @@ private static final long serialVersionUID = 0L;
       if (count_ != 0) {
         output.writeInt32(4, count_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -385,7 +248,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, count_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -411,7 +274,7 @@ private static final long serialVersionUID = 0L;
               other.getStorageGb())) return false;
       if (getCount()
           != other.getCount()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -433,7 +296,7 @@ private static final long serialVersionUID = 0L;
           getStorageGb());
       hash = (37 * hash) + COUNT_FIELD_NUMBER;
       hash = (53 * hash) + getCount();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -554,30 +417,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         cpu_ = 0F;
-
         memoryGb_ = 0F;
-
         storageGb_ = 0F;
-
         count_ = 0;
-
         return this;
       }
 
@@ -604,12 +459,25 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource buildPartial() {
         com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource result = new com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource(this);
-        result.cpu_ = cpu_;
-        result.memoryGb_ = memoryGb_;
-        result.storageGb_ = storageGb_;
-        result.count_ = count_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.cpu_ = cpu_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.memoryGb_ = memoryGb_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.storageGb_ = storageGb_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.count_ = count_;
+        }
       }
 
       @java.lang.Override
@@ -668,7 +536,7 @@ private static final long serialVersionUID = 0L;
         if (other.getCount() != 0) {
           setCount(other.getCount());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -683,19 +551,53 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 13: {
+                cpu_ = input.readFloat();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 13
+              case 21: {
+                memoryGb_ = input.readFloat();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 21
+              case 29: {
+                storageGb_ = input.readFloat();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 29
+              case 32: {
+                count_ = input.readInt32();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private float cpu_ ;
       /**
@@ -722,6 +624,7 @@ private static final long serialVersionUID = 0L;
       public Builder setCpu(float value) {
         
         cpu_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -734,7 +637,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCpu() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         cpu_ = 0F;
         onChanged();
         return this;
@@ -765,6 +668,7 @@ private static final long serialVersionUID = 0L;
       public Builder setMemoryGb(float value) {
         
         memoryGb_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -777,7 +681,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMemoryGb() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         memoryGb_ = 0F;
         onChanged();
         return this;
@@ -808,6 +712,7 @@ private static final long serialVersionUID = 0L;
       public Builder setStorageGb(float value) {
         
         storageGb_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -820,7 +725,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearStorageGb() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         storageGb_ = 0F;
         onChanged();
         return this;
@@ -851,6 +756,7 @@ private static final long serialVersionUID = 0L;
       public Builder setCount(int value) {
         
         count_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -863,7 +769,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         count_ = 0;
         onChanged();
         return this;
@@ -901,7 +807,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SchedulerResource(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -986,60 +903,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private WebServerResource(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 13: {
-
-              cpu_ = input.readFloat();
-              break;
-            }
-            case 21: {
-
-              memoryGb_ = input.readFloat();
-              break;
-            }
-            case 29: {
-
-              storageGb_ = input.readFloat();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.orchestration.airflow.service.v1beta1.EnvironmentsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1beta1_WorkloadsConfig_WebServerResource_descriptor;
@@ -1054,7 +917,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int CPU_FIELD_NUMBER = 1;
-    private float cpu_;
+    private float cpu_ = 0F;
     /**
      * <pre>
      * Optional. CPU request and limit for Airflow web server.
@@ -1069,7 +932,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MEMORY_GB_FIELD_NUMBER = 2;
-    private float memoryGb_;
+    private float memoryGb_ = 0F;
     /**
      * <pre>
      * Optional. Memory (GB) request and limit for Airflow web server.
@@ -1084,7 +947,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int STORAGE_GB_FIELD_NUMBER = 3;
-    private float storageGb_;
+    private float storageGb_ = 0F;
     /**
      * <pre>
      * Optional. Storage (GB) request and limit for Airflow web server.
@@ -1121,7 +984,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Float.floatToRawIntBits(storageGb_) != 0) {
         output.writeFloat(3, storageGb_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1142,7 +1005,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(3, storageGb_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1166,7 +1029,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Float.floatToIntBits(getStorageGb())
           != java.lang.Float.floatToIntBits(
               other.getStorageGb())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1186,7 +1049,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + STORAGE_GB_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getStorageGb());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1307,28 +1170,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResource.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         cpu_ = 0F;
-
         memoryGb_ = 0F;
-
         storageGb_ = 0F;
-
         return this;
       }
 
@@ -1355,11 +1211,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResource buildPartial() {
         com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResource result = new com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResource(this);
-        result.cpu_ = cpu_;
-        result.memoryGb_ = memoryGb_;
-        result.storageGb_ = storageGb_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResource result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.cpu_ = cpu_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.memoryGb_ = memoryGb_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.storageGb_ = storageGb_;
+        }
       }
 
       @java.lang.Override
@@ -1415,7 +1282,7 @@ private static final long serialVersionUID = 0L;
         if (other.getStorageGb() != 0F) {
           setStorageGb(other.getStorageGb());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1430,19 +1297,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResource parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 13: {
+                cpu_ = input.readFloat();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 13
+              case 21: {
+                memoryGb_ = input.readFloat();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 21
+              case 29: {
+                storageGb_ = input.readFloat();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 29
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResource) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private float cpu_ ;
       /**
@@ -1469,6 +1365,7 @@ private static final long serialVersionUID = 0L;
       public Builder setCpu(float value) {
         
         cpu_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1481,7 +1378,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCpu() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         cpu_ = 0F;
         onChanged();
         return this;
@@ -1512,6 +1409,7 @@ private static final long serialVersionUID = 0L;
       public Builder setMemoryGb(float value) {
         
         memoryGb_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1524,7 +1422,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMemoryGb() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         memoryGb_ = 0F;
         onChanged();
         return this;
@@ -1555,6 +1453,7 @@ private static final long serialVersionUID = 0L;
       public Builder setStorageGb(float value) {
         
         storageGb_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1567,7 +1466,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearStorageGb() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         storageGb_ = 0F;
         onChanged();
         return this;
@@ -1605,7 +1504,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new WebServerResource(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1710,70 +1620,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private WorkerResource(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 13: {
-
-              cpu_ = input.readFloat();
-              break;
-            }
-            case 21: {
-
-              memoryGb_ = input.readFloat();
-              break;
-            }
-            case 29: {
-
-              storageGb_ = input.readFloat();
-              break;
-            }
-            case 32: {
-
-              minCount_ = input.readInt32();
-              break;
-            }
-            case 40: {
-
-              maxCount_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.orchestration.airflow.service.v1beta1.EnvironmentsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1beta1_WorkloadsConfig_WorkerResource_descriptor;
@@ -1788,7 +1634,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int CPU_FIELD_NUMBER = 1;
-    private float cpu_;
+    private float cpu_ = 0F;
     /**
      * <pre>
      * Optional. CPU request and limit for a single Airflow worker replica.
@@ -1803,7 +1649,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MEMORY_GB_FIELD_NUMBER = 2;
-    private float memoryGb_;
+    private float memoryGb_ = 0F;
     /**
      * <pre>
      * Optional. Memory (GB) request and limit for a single Airflow worker replica.
@@ -1818,7 +1664,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int STORAGE_GB_FIELD_NUMBER = 3;
-    private float storageGb_;
+    private float storageGb_ = 0F;
     /**
      * <pre>
      * Optional. Storage (GB) request and limit for a single Airflow worker replica.
@@ -1833,7 +1679,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MIN_COUNT_FIELD_NUMBER = 4;
-    private int minCount_;
+    private int minCount_ = 0;
     /**
      * <pre>
      * Optional. Minimum number of workers for autoscaling.
@@ -1848,7 +1694,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MAX_COUNT_FIELD_NUMBER = 5;
-    private int maxCount_;
+    private int maxCount_ = 0;
     /**
      * <pre>
      * Optional. Maximum number of workers for autoscaling.
@@ -1891,7 +1737,7 @@ private static final long serialVersionUID = 0L;
       if (maxCount_ != 0) {
         output.writeInt32(5, maxCount_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1920,7 +1766,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, maxCount_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1948,7 +1794,7 @@ private static final long serialVersionUID = 0L;
           != other.getMinCount()) return false;
       if (getMaxCount()
           != other.getMaxCount()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1972,7 +1818,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getMinCount();
       hash = (37 * hash) + MAX_COUNT_FIELD_NUMBER;
       hash = (53 * hash) + getMaxCount();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2093,32 +1939,23 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         cpu_ = 0F;
-
         memoryGb_ = 0F;
-
         storageGb_ = 0F;
-
         minCount_ = 0;
-
         maxCount_ = 0;
-
         return this;
       }
 
@@ -2145,13 +1982,28 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource buildPartial() {
         com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource result = new com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource(this);
-        result.cpu_ = cpu_;
-        result.memoryGb_ = memoryGb_;
-        result.storageGb_ = storageGb_;
-        result.minCount_ = minCount_;
-        result.maxCount_ = maxCount_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.cpu_ = cpu_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.memoryGb_ = memoryGb_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.storageGb_ = storageGb_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.minCount_ = minCount_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.maxCount_ = maxCount_;
+        }
       }
 
       @java.lang.Override
@@ -2213,7 +2065,7 @@ private static final long serialVersionUID = 0L;
         if (other.getMaxCount() != 0) {
           setMaxCount(other.getMaxCount());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2228,19 +2080,58 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 13: {
+                cpu_ = input.readFloat();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 13
+              case 21: {
+                memoryGb_ = input.readFloat();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 21
+              case 29: {
+                storageGb_ = input.readFloat();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 29
+              case 32: {
+                minCount_ = input.readInt32();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 40: {
+                maxCount_ = input.readInt32();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private float cpu_ ;
       /**
@@ -2267,6 +2158,7 @@ private static final long serialVersionUID = 0L;
       public Builder setCpu(float value) {
         
         cpu_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2279,7 +2171,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCpu() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         cpu_ = 0F;
         onChanged();
         return this;
@@ -2310,6 +2202,7 @@ private static final long serialVersionUID = 0L;
       public Builder setMemoryGb(float value) {
         
         memoryGb_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2322,7 +2215,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMemoryGb() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         memoryGb_ = 0F;
         onChanged();
         return this;
@@ -2353,6 +2246,7 @@ private static final long serialVersionUID = 0L;
       public Builder setStorageGb(float value) {
         
         storageGb_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2365,7 +2259,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearStorageGb() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         storageGb_ = 0F;
         onChanged();
         return this;
@@ -2396,6 +2290,7 @@ private static final long serialVersionUID = 0L;
       public Builder setMinCount(int value) {
         
         minCount_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2408,7 +2303,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMinCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         minCount_ = 0;
         onChanged();
         return this;
@@ -2439,6 +2334,7 @@ private static final long serialVersionUID = 0L;
       public Builder setMaxCount(int value) {
         
         maxCount_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -2451,7 +2347,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMaxCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         maxCount_ = 0;
         onChanged();
         return this;
@@ -2489,7 +2385,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new WorkerResource(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2504,6 +2411,701 @@ private static final long serialVersionUID = 0L;
 
     @java.lang.Override
     public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TriggererResourceOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Optional. The number of triggerers.
+     * </pre>
+     *
+     * <code>int32 count = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The count.
+     */
+    int getCount();
+
+    /**
+     * <pre>
+     * Optional. CPU request and limit for a single Airflow triggerer replica.
+     * </pre>
+     *
+     * <code>float cpu = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The cpu.
+     */
+    float getCpu();
+
+    /**
+     * <pre>
+     * Optional. Memory (GB) request and limit for a single Airflow triggerer replica.
+     * </pre>
+     *
+     * <code>float memory_gb = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The memoryGb.
+     */
+    float getMemoryGb();
+  }
+  /**
+   * <pre>
+   * Configuration for resources used by Airflow triggerers.
+   * </pre>
+   *
+   * Protobuf type {@code google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource}
+   */
+  public static final class TriggererResource extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource)
+      TriggererResourceOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TriggererResource.newBuilder() to construct.
+    private TriggererResource(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TriggererResource() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new TriggererResource();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.cloud.orchestration.airflow.service.v1beta1.EnvironmentsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1beta1_WorkloadsConfig_TriggererResource_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.cloud.orchestration.airflow.service.v1beta1.EnvironmentsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1beta1_WorkloadsConfig_TriggererResource_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource.class, com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource.Builder.class);
+    }
+
+    public static final int COUNT_FIELD_NUMBER = 1;
+    private int count_ = 0;
+    /**
+     * <pre>
+     * Optional. The number of triggerers.
+     * </pre>
+     *
+     * <code>int32 count = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The count.
+     */
+    @java.lang.Override
+    public int getCount() {
+      return count_;
+    }
+
+    public static final int CPU_FIELD_NUMBER = 2;
+    private float cpu_ = 0F;
+    /**
+     * <pre>
+     * Optional. CPU request and limit for a single Airflow triggerer replica.
+     * </pre>
+     *
+     * <code>float cpu = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The cpu.
+     */
+    @java.lang.Override
+    public float getCpu() {
+      return cpu_;
+    }
+
+    public static final int MEMORY_GB_FIELD_NUMBER = 3;
+    private float memoryGb_ = 0F;
+    /**
+     * <pre>
+     * Optional. Memory (GB) request and limit for a single Airflow triggerer replica.
+     * </pre>
+     *
+     * <code>float memory_gb = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The memoryGb.
+     */
+    @java.lang.Override
+    public float getMemoryGb() {
+      return memoryGb_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (count_ != 0) {
+        output.writeInt32(1, count_);
+      }
+      if (java.lang.Float.floatToRawIntBits(cpu_) != 0) {
+        output.writeFloat(2, cpu_);
+      }
+      if (java.lang.Float.floatToRawIntBits(memoryGb_) != 0) {
+        output.writeFloat(3, memoryGb_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (count_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, count_);
+      }
+      if (java.lang.Float.floatToRawIntBits(cpu_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(2, cpu_);
+      }
+      if (java.lang.Float.floatToRawIntBits(memoryGb_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(3, memoryGb_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource)) {
+        return super.equals(obj);
+      }
+      com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource other = (com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource) obj;
+
+      if (getCount()
+          != other.getCount()) return false;
+      if (java.lang.Float.floatToIntBits(getCpu())
+          != java.lang.Float.floatToIntBits(
+              other.getCpu())) return false;
+      if (java.lang.Float.floatToIntBits(getMemoryGb())
+          != java.lang.Float.floatToIntBits(
+              other.getMemoryGb())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + getCount();
+      hash = (37 * hash) + CPU_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getCpu());
+      hash = (37 * hash) + MEMORY_GB_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getMemoryGb());
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Configuration for resources used by Airflow triggerers.
+     * </pre>
+     *
+     * Protobuf type {@code google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource)
+        com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResourceOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.cloud.orchestration.airflow.service.v1beta1.EnvironmentsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1beta1_WorkloadsConfig_TriggererResource_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.cloud.orchestration.airflow.service.v1beta1.EnvironmentsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1beta1_WorkloadsConfig_TriggererResource_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource.class, com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource.Builder.class);
+      }
+
+      // Construct using com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        count_ = 0;
+        cpu_ = 0F;
+        memoryGb_ = 0F;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.cloud.orchestration.airflow.service.v1beta1.EnvironmentsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1beta1_WorkloadsConfig_TriggererResource_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource getDefaultInstanceForType() {
+        return com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource build() {
+        com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource buildPartial() {
+        com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource result = new com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.count_ = count_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.cpu_ = cpu_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.memoryGb_ = memoryGb_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource) {
+          return mergeFrom((com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource other) {
+        if (other == com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource.getDefaultInstance()) return this;
+        if (other.getCount() != 0) {
+          setCount(other.getCount());
+        }
+        if (other.getCpu() != 0F) {
+          setCpu(other.getCpu());
+        }
+        if (other.getMemoryGb() != 0F) {
+          setMemoryGb(other.getMemoryGb());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                count_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 21: {
+                cpu_ = input.readFloat();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 21
+              case 29: {
+                memoryGb_ = input.readFloat();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 29
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private int count_ ;
+      /**
+       * <pre>
+       * Optional. The number of triggerers.
+       * </pre>
+       *
+       * <code>int32 count = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return The count.
+       */
+      @java.lang.Override
+      public int getCount() {
+        return count_;
+      }
+      /**
+       * <pre>
+       * Optional. The number of triggerers.
+       * </pre>
+       *
+       * <code>int32 count = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @param value The count to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCount(int value) {
+        
+        count_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional. The number of triggerers.
+       * </pre>
+       *
+       * <code>int32 count = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCount() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        count_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private float cpu_ ;
+      /**
+       * <pre>
+       * Optional. CPU request and limit for a single Airflow triggerer replica.
+       * </pre>
+       *
+       * <code>float cpu = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return The cpu.
+       */
+      @java.lang.Override
+      public float getCpu() {
+        return cpu_;
+      }
+      /**
+       * <pre>
+       * Optional. CPU request and limit for a single Airflow triggerer replica.
+       * </pre>
+       *
+       * <code>float cpu = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @param value The cpu to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCpu(float value) {
+        
+        cpu_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional. CPU request and limit for a single Airflow triggerer replica.
+       * </pre>
+       *
+       * <code>float cpu = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCpu() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        cpu_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float memoryGb_ ;
+      /**
+       * <pre>
+       * Optional. Memory (GB) request and limit for a single Airflow triggerer replica.
+       * </pre>
+       *
+       * <code>float memory_gb = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return The memoryGb.
+       */
+      @java.lang.Override
+      public float getMemoryGb() {
+        return memoryGb_;
+      }
+      /**
+       * <pre>
+       * Optional. Memory (GB) request and limit for a single Airflow triggerer replica.
+       * </pre>
+       *
+       * <code>float memory_gb = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @param value The memoryGb to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMemoryGb(float value) {
+        
+        memoryGb_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional. Memory (GB) request and limit for a single Airflow triggerer replica.
+       * </pre>
+       *
+       * <code>float memory_gb = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMemoryGb() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        memoryGb_ = 0F;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource)
+    private static final com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource();
+    }
+
+    public static com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TriggererResource>
+        PARSER = new com.google.protobuf.AbstractParser<TriggererResource>() {
+      @java.lang.Override
+      public TriggererResource parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<TriggererResource> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TriggererResource> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2544,7 +3146,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResourceOrBuilder getSchedulerOrBuilder() {
-    return getScheduler();
+    return scheduler_ == null ? com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource.getDefaultInstance() : scheduler_;
   }
 
   public static final int WEB_SERVER_FIELD_NUMBER = 2;
@@ -2582,7 +3184,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResourceOrBuilder getWebServerOrBuilder() {
-    return getWebServer();
+    return webServer_ == null ? com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResource.getDefaultInstance() : webServer_;
   }
 
   public static final int WORKER_FIELD_NUMBER = 3;
@@ -2620,7 +3222,45 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResourceOrBuilder getWorkerOrBuilder() {
-    return getWorker();
+    return worker_ == null ? com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource.getDefaultInstance() : worker_;
+  }
+
+  public static final int TRIGGERER_FIELD_NUMBER = 4;
+  private com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource triggerer_;
+  /**
+   * <pre>
+   * Optional. Resources used by Airflow triggerers.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource triggerer = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return Whether the triggerer field is set.
+   */
+  @java.lang.Override
+  public boolean hasTriggerer() {
+    return triggerer_ != null;
+  }
+  /**
+   * <pre>
+   * Optional. Resources used by Airflow triggerers.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource triggerer = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The triggerer.
+   */
+  @java.lang.Override
+  public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource getTriggerer() {
+    return triggerer_ == null ? com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource.getDefaultInstance() : triggerer_;
+  }
+  /**
+   * <pre>
+   * Optional. Resources used by Airflow triggerers.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource triggerer = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResourceOrBuilder getTriggererOrBuilder() {
+    return triggerer_ == null ? com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource.getDefaultInstance() : triggerer_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -2646,7 +3286,10 @@ private static final long serialVersionUID = 0L;
     if (worker_ != null) {
       output.writeMessage(3, getWorker());
     }
-    unknownFields.writeTo(output);
+    if (triggerer_ != null) {
+      output.writeMessage(4, getTriggerer());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2667,7 +3310,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getWorker());
     }
-    size += unknownFields.getSerializedSize();
+    if (triggerer_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getTriggerer());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2697,7 +3344,12 @@ private static final long serialVersionUID = 0L;
       if (!getWorker()
           .equals(other.getWorker())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasTriggerer() != other.hasTriggerer()) return false;
+    if (hasTriggerer()) {
+      if (!getTriggerer()
+          .equals(other.getTriggerer())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2720,7 +3372,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + WORKER_FIELD_NUMBER;
       hash = (53 * hash) + getWorker().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasTriggerer()) {
+      hash = (37 * hash) + TRIGGERER_FIELD_NUMBER;
+      hash = (53 * hash) + getTriggerer().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2843,39 +3499,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (schedulerBuilder_ == null) {
-        scheduler_ = null;
-      } else {
-        scheduler_ = null;
+      bitField0_ = 0;
+      scheduler_ = null;
+      if (schedulerBuilder_ != null) {
+        schedulerBuilder_.dispose();
         schedulerBuilder_ = null;
       }
-      if (webServerBuilder_ == null) {
-        webServer_ = null;
-      } else {
-        webServer_ = null;
+      webServer_ = null;
+      if (webServerBuilder_ != null) {
+        webServerBuilder_.dispose();
         webServerBuilder_ = null;
       }
-      if (workerBuilder_ == null) {
-        worker_ = null;
-      } else {
-        worker_ = null;
+      worker_ = null;
+      if (workerBuilder_ != null) {
+        workerBuilder_.dispose();
         workerBuilder_ = null;
+      }
+      triggerer_ = null;
+      if (triggererBuilder_ != null) {
+        triggererBuilder_.dispose();
+        triggererBuilder_ = null;
       }
       return this;
     }
@@ -2903,23 +3557,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig buildPartial() {
       com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig result = new com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig(this);
-      if (schedulerBuilder_ == null) {
-        result.scheduler_ = scheduler_;
-      } else {
-        result.scheduler_ = schedulerBuilder_.build();
-      }
-      if (webServerBuilder_ == null) {
-        result.webServer_ = webServer_;
-      } else {
-        result.webServer_ = webServerBuilder_.build();
-      }
-      if (workerBuilder_ == null) {
-        result.worker_ = worker_;
-      } else {
-        result.worker_ = workerBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.scheduler_ = schedulerBuilder_ == null
+            ? scheduler_
+            : schedulerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.webServer_ = webServerBuilder_ == null
+            ? webServer_
+            : webServerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.worker_ = workerBuilder_ == null
+            ? worker_
+            : workerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.triggerer_ = triggererBuilder_ == null
+            ? triggerer_
+            : triggererBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2975,7 +3639,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasWorker()) {
         mergeWorker(other.getWorker());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasTriggerer()) {
+        mergeTriggerer(other.getTriggerer());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2990,19 +3657,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getSchedulerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getWebServerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getWorkerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getTriggererFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource scheduler_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -3016,7 +3725,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the scheduler field is set.
      */
     public boolean hasScheduler() {
-      return schedulerBuilder_ != null || scheduler_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -3046,11 +3755,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         scheduler_ = value;
-        onChanged();
       } else {
         schedulerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -3064,11 +3773,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource.Builder builderForValue) {
       if (schedulerBuilder_ == null) {
         scheduler_ = builderForValue.build();
-        onChanged();
       } else {
         schedulerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -3080,17 +3789,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeScheduler(com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource value) {
       if (schedulerBuilder_ == null) {
-        if (scheduler_ != null) {
-          scheduler_ =
-            com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource.newBuilder(scheduler_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          scheduler_ != null &&
+          scheduler_ != com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource.getDefaultInstance()) {
+          getSchedulerBuilder().mergeFrom(value);
         } else {
           scheduler_ = value;
         }
-        onChanged();
       } else {
         schedulerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -3101,14 +3811,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource scheduler = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearScheduler() {
-      if (schedulerBuilder_ == null) {
-        scheduler_ = null;
-        onChanged();
-      } else {
-        scheduler_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      scheduler_ = null;
+      if (schedulerBuilder_ != null) {
+        schedulerBuilder_.dispose();
         schedulerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3119,7 +3828,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource scheduler = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.SchedulerResource.Builder getSchedulerBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getSchedulerFieldBuilder().getBuilder();
     }
@@ -3171,7 +3880,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the webServer field is set.
      */
     public boolean hasWebServer() {
-      return webServerBuilder_ != null || webServer_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -3201,11 +3910,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         webServer_ = value;
-        onChanged();
       } else {
         webServerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -3219,11 +3928,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResource.Builder builderForValue) {
       if (webServerBuilder_ == null) {
         webServer_ = builderForValue.build();
-        onChanged();
       } else {
         webServerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -3235,17 +3944,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWebServer(com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResource value) {
       if (webServerBuilder_ == null) {
-        if (webServer_ != null) {
-          webServer_ =
-            com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResource.newBuilder(webServer_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          webServer_ != null &&
+          webServer_ != com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResource.getDefaultInstance()) {
+          getWebServerBuilder().mergeFrom(value);
         } else {
           webServer_ = value;
         }
-        onChanged();
       } else {
         webServerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -3256,14 +3966,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResource web_server = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearWebServer() {
-      if (webServerBuilder_ == null) {
-        webServer_ = null;
-        onChanged();
-      } else {
-        webServer_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      webServer_ = null;
+      if (webServerBuilder_ != null) {
+        webServerBuilder_.dispose();
         webServerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3274,7 +3983,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResource web_server = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WebServerResource.Builder getWebServerBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getWebServerFieldBuilder().getBuilder();
     }
@@ -3326,7 +4035,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the worker field is set.
      */
     public boolean hasWorker() {
-      return workerBuilder_ != null || worker_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -3356,11 +4065,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         worker_ = value;
-        onChanged();
       } else {
         workerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3374,11 +4083,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource.Builder builderForValue) {
       if (workerBuilder_ == null) {
         worker_ = builderForValue.build();
-        onChanged();
       } else {
         workerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3390,17 +4099,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWorker(com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource value) {
       if (workerBuilder_ == null) {
-        if (worker_ != null) {
-          worker_ =
-            com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource.newBuilder(worker_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          worker_ != null &&
+          worker_ != com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource.getDefaultInstance()) {
+          getWorkerBuilder().mergeFrom(value);
         } else {
           worker_ = value;
         }
-        onChanged();
       } else {
         workerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3411,14 +4121,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource worker = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearWorker() {
-      if (workerBuilder_ == null) {
-        worker_ = null;
-        onChanged();
-      } else {
-        worker_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      worker_ = null;
+      if (workerBuilder_ != null) {
+        workerBuilder_.dispose();
         workerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3429,7 +4138,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource worker = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.WorkerResource.Builder getWorkerBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getWorkerFieldBuilder().getBuilder();
     }
@@ -3468,6 +4177,161 @@ private static final long serialVersionUID = 0L;
       }
       return workerBuilder_;
     }
+
+    private com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource triggerer_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource, com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource.Builder, com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResourceOrBuilder> triggererBuilder_;
+    /**
+     * <pre>
+     * Optional. Resources used by Airflow triggerers.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource triggerer = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return Whether the triggerer field is set.
+     */
+    public boolean hasTriggerer() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * Optional. Resources used by Airflow triggerers.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource triggerer = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The triggerer.
+     */
+    public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource getTriggerer() {
+      if (triggererBuilder_ == null) {
+        return triggerer_ == null ? com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource.getDefaultInstance() : triggerer_;
+      } else {
+        return triggererBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Resources used by Airflow triggerers.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource triggerer = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setTriggerer(com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource value) {
+      if (triggererBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        triggerer_ = value;
+      } else {
+        triggererBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Resources used by Airflow triggerers.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource triggerer = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setTriggerer(
+        com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource.Builder builderForValue) {
+      if (triggererBuilder_ == null) {
+        triggerer_ = builderForValue.build();
+      } else {
+        triggererBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Resources used by Airflow triggerers.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource triggerer = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder mergeTriggerer(com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource value) {
+      if (triggererBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0) &&
+          triggerer_ != null &&
+          triggerer_ != com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource.getDefaultInstance()) {
+          getTriggererBuilder().mergeFrom(value);
+        } else {
+          triggerer_ = value;
+        }
+      } else {
+        triggererBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Resources used by Airflow triggerers.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource triggerer = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder clearTriggerer() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      triggerer_ = null;
+      if (triggererBuilder_ != null) {
+        triggererBuilder_.dispose();
+        triggererBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Resources used by Airflow triggerers.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource triggerer = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource.Builder getTriggererBuilder() {
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return getTriggererFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Optional. Resources used by Airflow triggerers.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource triggerer = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResourceOrBuilder getTriggererOrBuilder() {
+      if (triggererBuilder_ != null) {
+        return triggererBuilder_.getMessageOrBuilder();
+      } else {
+        return triggerer_ == null ?
+            com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource.getDefaultInstance() : triggerer_;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Resources used by Airflow triggerers.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource triggerer = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource, com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource.Builder, com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResourceOrBuilder> 
+        getTriggererFieldBuilder() {
+      if (triggererBuilder_ == null) {
+        triggererBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource, com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResource.Builder, com.google.cloud.orchestration.airflow.service.v1beta1.WorkloadsConfig.TriggererResourceOrBuilder>(
+                getTriggerer(),
+                getParentForChildren(),
+                isClean());
+        triggerer_ = null;
+      }
+      return triggererBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3501,7 +4365,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WorkloadsConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

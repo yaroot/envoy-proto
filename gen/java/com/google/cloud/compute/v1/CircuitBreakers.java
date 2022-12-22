@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CircuitBreakers(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 224780792: {
-            bitField0_ |= 0x00000004;
-            maxRequests_ = input.readInt32();
-            break;
-          }
-          case 444369752: {
-            bitField0_ |= 0x00000010;
-            maxRetries_ = input.readInt32();
-            break;
-          }
-          case 885217232: {
-            bitField0_ |= 0x00000001;
-            maxConnections_ = input.readInt32();
-            break;
-          }
-          case -1401923072: {
-            bitField0_ |= 0x00000008;
-            maxRequestsPerConnection_ = input.readInt32();
-            break;
-          }
-          case -1290496200: {
-            bitField0_ |= 0x00000002;
-            maxPendingRequests_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_CircuitBreakers_descriptor;
@@ -114,7 +49,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int MAX_CONNECTIONS_FIELD_NUMBER = 110652154;
-  private int maxConnections_;
+  private int maxConnections_ = 0;
   /**
    * <pre>
    * The maximum number of connections to the backend service. If not specified, there is no limit. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
@@ -141,7 +76,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_PENDING_REQUESTS_FIELD_NUMBER = 375558887;
-  private int maxPendingRequests_;
+  private int maxPendingRequests_ = 0;
   /**
    * <pre>
    * The maximum number of pending requests allowed to the backend service. If not specified, there is no limit. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
@@ -168,7 +103,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_REQUESTS_FIELD_NUMBER = 28097599;
-  private int maxRequests_;
+  private int maxRequests_ = 0;
   /**
    * <pre>
    * The maximum number of parallel requests that allowed to the backend service. If not specified, there is no limit.
@@ -195,7 +130,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_REQUESTS_PER_CONNECTION_FIELD_NUMBER = 361630528;
-  private int maxRequestsPerConnection_;
+  private int maxRequestsPerConnection_ = 0;
   /**
    * <pre>
    * Maximum requests for a single connection to the backend service. This parameter is respected by both the HTTP/1.1 and HTTP/2 implementations. If not specified, there is no limit. Setting this parameter to 1 will effectively disable keep alive. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
@@ -222,7 +157,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_RETRIES_FIELD_NUMBER = 55546219;
-  private int maxRetries_;
+  private int maxRetries_ = 0;
   /**
    * <pre>
    * The maximum number of parallel retries allowed to the backend cluster. If not specified, the default is 1. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
@@ -277,7 +212,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       output.writeInt32(375558887, maxPendingRequests_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -306,7 +241,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(375558887, maxPendingRequests_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -346,7 +281,7 @@ private static final long serialVersionUID = 0L;
       if (getMaxRetries()
           != other.getMaxRetries()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -377,7 +312,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MAX_RETRIES_FIELD_NUMBER;
       hash = (53 * hash) + getMaxRetries();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -498,32 +433,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.CircuitBreakers.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       maxConnections_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000001);
       maxPendingRequests_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000002);
       maxRequests_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000004);
       maxRequestsPerConnection_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000008);
       maxRetries_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -550,6 +476,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.CircuitBreakers buildPartial() {
       com.google.cloud.compute.v1.CircuitBreakers result = new com.google.cloud.compute.v1.CircuitBreakers(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.CircuitBreakers result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -572,9 +504,7 @@ private static final long serialVersionUID = 0L;
         result.maxRetries_ = maxRetries_;
         to_bitField0_ |= 0x00000010;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -636,7 +566,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasMaxRetries()) {
         setMaxRetries(other.getMaxRetries());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -651,17 +581,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.CircuitBreakers parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 224780792: {
+              maxRequests_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 224780792
+            case 444369752: {
+              maxRetries_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 444369752
+            case 885217232: {
+              maxConnections_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 885217232
+            case -1401923072: {
+              maxRequestsPerConnection_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -1401923072
+            case -1290496200: {
+              maxPendingRequests_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -1290496200
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.CircuitBreakers) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -701,8 +669,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxConnections(int value) {
-      bitField0_ |= 0x00000001;
+      
       maxConnections_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -756,8 +725,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxPendingRequests(int value) {
-      bitField0_ |= 0x00000002;
+      
       maxPendingRequests_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -811,8 +781,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxRequests(int value) {
-      bitField0_ |= 0x00000004;
+      
       maxRequests_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -866,8 +837,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxRequestsPerConnection(int value) {
-      bitField0_ |= 0x00000008;
+      
       maxRequestsPerConnection_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -921,8 +893,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxRetries(int value) {
-      bitField0_ |= 0x00000010;
+      
       maxRetries_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -973,7 +946,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CircuitBreakers(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

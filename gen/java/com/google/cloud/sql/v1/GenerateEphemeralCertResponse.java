@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GenerateEphemeralCertResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.sql.v1.SslCert.Builder subBuilder = null;
-            if (ephemeralCert_ != null) {
-              subBuilder = ephemeralCert_.toBuilder();
-            }
-            ephemeralCert_ = input.readMessage(com.google.cloud.sql.v1.SslCert.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(ephemeralCert_);
-              ephemeralCert_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.sql.v1.CloudSqlConnectProto.internal_static_google_cloud_sql_v1_GenerateEphemeralCertResponse_descriptor;
@@ -134,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.sql.v1.SslCertOrBuilder getEphemeralCertOrBuilder() {
-    return getEphemeralCert();
+    return ephemeralCert_ == null ? com.google.cloud.sql.v1.SslCert.getDefaultInstance() : ephemeralCert_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -154,7 +102,7 @@ private static final long serialVersionUID = 0L;
     if (ephemeralCert_ != null) {
       output.writeMessage(1, getEphemeralCert());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -167,7 +115,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getEphemeralCert());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -187,7 +135,7 @@ private static final long serialVersionUID = 0L;
       if (!getEphemeralCert()
           .equals(other.getEphemeralCert())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -202,7 +150,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EPHEMERAL_CERT_FIELD_NUMBER;
       hash = (53 * hash) + getEphemeralCert().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -323,26 +271,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.sql.v1.GenerateEphemeralCertResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (ephemeralCertBuilder_ == null) {
-        ephemeralCert_ = null;
-      } else {
-        ephemeralCert_ = null;
+      bitField0_ = 0;
+      ephemeralCert_ = null;
+      if (ephemeralCertBuilder_ != null) {
+        ephemeralCertBuilder_.dispose();
         ephemeralCertBuilder_ = null;
       }
       return this;
@@ -371,13 +314,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.sql.v1.GenerateEphemeralCertResponse buildPartial() {
       com.google.cloud.sql.v1.GenerateEphemeralCertResponse result = new com.google.cloud.sql.v1.GenerateEphemeralCertResponse(this);
-      if (ephemeralCertBuilder_ == null) {
-        result.ephemeralCert_ = ephemeralCert_;
-      } else {
-        result.ephemeralCert_ = ephemeralCertBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.sql.v1.GenerateEphemeralCertResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.ephemeralCert_ = ephemeralCertBuilder_ == null
+            ? ephemeralCert_
+            : ephemeralCertBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -427,7 +375,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasEphemeralCert()) {
         mergeEphemeralCert(other.getEphemeralCert());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -442,19 +390,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.sql.v1.GenerateEphemeralCertResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getEphemeralCertFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.sql.v1.GenerateEphemeralCertResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.sql.v1.SslCert ephemeralCert_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -468,7 +437,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the ephemeralCert field is set.
      */
     public boolean hasEphemeralCert() {
-      return ephemeralCertBuilder_ != null || ephemeralCert_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -498,11 +467,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         ephemeralCert_ = value;
-        onChanged();
       } else {
         ephemeralCertBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -516,11 +485,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.sql.v1.SslCert.Builder builderForValue) {
       if (ephemeralCertBuilder_ == null) {
         ephemeralCert_ = builderForValue.build();
-        onChanged();
       } else {
         ephemeralCertBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -532,17 +501,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEphemeralCert(com.google.cloud.sql.v1.SslCert value) {
       if (ephemeralCertBuilder_ == null) {
-        if (ephemeralCert_ != null) {
-          ephemeralCert_ =
-            com.google.cloud.sql.v1.SslCert.newBuilder(ephemeralCert_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          ephemeralCert_ != null &&
+          ephemeralCert_ != com.google.cloud.sql.v1.SslCert.getDefaultInstance()) {
+          getEphemeralCertBuilder().mergeFrom(value);
         } else {
           ephemeralCert_ = value;
         }
-        onChanged();
       } else {
         ephemeralCertBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -553,14 +523,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.sql.v1.SslCert ephemeral_cert = 1;</code>
      */
     public Builder clearEphemeralCert() {
-      if (ephemeralCertBuilder_ == null) {
-        ephemeralCert_ = null;
-        onChanged();
-      } else {
-        ephemeralCert_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      ephemeralCert_ = null;
+      if (ephemeralCertBuilder_ != null) {
+        ephemeralCertBuilder_.dispose();
         ephemeralCertBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -571,7 +540,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.sql.v1.SslCert ephemeral_cert = 1;</code>
      */
     public com.google.cloud.sql.v1.SslCert.Builder getEphemeralCertBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getEphemeralCertFieldBuilder().getBuilder();
     }
@@ -643,7 +612,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GenerateEphemeralCertResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

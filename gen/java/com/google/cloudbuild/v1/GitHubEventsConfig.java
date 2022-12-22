@@ -38,90 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GitHubEventsConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            installationId_ = input.readInt64();
-            break;
-          }
-          case 34: {
-            com.google.cloudbuild.v1.PullRequestFilter.Builder subBuilder = null;
-            if (eventCase_ == 4) {
-              subBuilder = ((com.google.cloudbuild.v1.PullRequestFilter) event_).toBuilder();
-            }
-            event_ =
-                input.readMessage(com.google.cloudbuild.v1.PullRequestFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloudbuild.v1.PullRequestFilter) event_);
-              event_ = subBuilder.buildPartial();
-            }
-            eventCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.cloudbuild.v1.PushFilter.Builder subBuilder = null;
-            if (eventCase_ == 5) {
-              subBuilder = ((com.google.cloudbuild.v1.PushFilter) event_).toBuilder();
-            }
-            event_ =
-                input.readMessage(com.google.cloudbuild.v1.PushFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloudbuild.v1.PushFilter) event_);
-              event_ = subBuilder.buildPartial();
-            }
-            eventCase_ = 5;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            owner_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloudbuild.v1.Cloudbuild.internal_static_google_devtools_cloudbuild_v1_GitHubEventsConfig_descriptor;
@@ -177,7 +93,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INSTALLATION_ID_FIELD_NUMBER = 1;
-  private long installationId_;
+  private long installationId_ = 0L;
   /**
    * <pre>
    * The installationID that emits the GitHub event.
@@ -185,7 +101,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>int64 installation_id = 1 [deprecated = true];</code>
    * @deprecated google.devtools.cloudbuild.v1.GitHubEventsConfig.installation_id is deprecated.
-   *     See google/devtools/cloudbuild/v1/cloudbuild.proto;l=1396
+   *     See google/devtools/cloudbuild/v1/cloudbuild.proto;l=1507
    * @return The installationId.
    */
   @java.lang.Override
@@ -194,7 +110,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OWNER_FIELD_NUMBER = 6;
-  private volatile java.lang.Object owner_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object owner_ = "";
   /**
    * <pre>
    * Owner of the repository. For example: The owner for
@@ -244,7 +161,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 7;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Name of the repository. For example: The name for
@@ -406,7 +324,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, name_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -433,7 +351,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, name_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -467,7 +385,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -497,7 +415,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -620,28 +538,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloudbuild.v1.GitHubEventsConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       installationId_ = 0L;
-
       owner_ = "";
-
       name_ = "";
-
+      if (pullRequestBuilder_ != null) {
+        pullRequestBuilder_.clear();
+      }
+      if (pushBuilder_ != null) {
+        pushBuilder_.clear();
+      }
       eventCase_ = 0;
       event_ = null;
       return this;
@@ -670,26 +587,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloudbuild.v1.GitHubEventsConfig buildPartial() {
       com.google.cloudbuild.v1.GitHubEventsConfig result = new com.google.cloudbuild.v1.GitHubEventsConfig(this);
-      result.installationId_ = installationId_;
-      result.owner_ = owner_;
-      result.name_ = name_;
-      if (eventCase_ == 4) {
-        if (pullRequestBuilder_ == null) {
-          result.event_ = event_;
-        } else {
-          result.event_ = pullRequestBuilder_.build();
-        }
-      }
-      if (eventCase_ == 5) {
-        if (pushBuilder_ == null) {
-          result.event_ = event_;
-        } else {
-          result.event_ = pushBuilder_.build();
-        }
-      }
-      result.eventCase_ = eventCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloudbuild.v1.GitHubEventsConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.installationId_ = installationId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.owner_ = owner_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.name_ = name_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloudbuild.v1.GitHubEventsConfig result) {
+      result.eventCase_ = eventCase_;
+      result.event_ = this.event_;
+      if (eventCase_ == 4 &&
+          pullRequestBuilder_ != null) {
+        result.event_ = pullRequestBuilder_.build();
+      }
+      if (eventCase_ == 5 &&
+          pushBuilder_ != null) {
+        result.event_ = pushBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -741,10 +668,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getOwner().isEmpty()) {
         owner_ = other.owner_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       switch (other.getEventCase()) {
@@ -760,7 +689,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -775,17 +704,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloudbuild.v1.GitHubEventsConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              installationId_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 34: {
+              input.readMessage(
+                  getPullRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getPushFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              owner_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 50
+            case 58: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloudbuild.v1.GitHubEventsConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int eventCase_ = 0;
@@ -803,6 +774,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private long installationId_ ;
     /**
@@ -812,7 +784,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int64 installation_id = 1 [deprecated = true];</code>
      * @deprecated google.devtools.cloudbuild.v1.GitHubEventsConfig.installation_id is deprecated.
-     *     See google/devtools/cloudbuild/v1/cloudbuild.proto;l=1396
+     *     See google/devtools/cloudbuild/v1/cloudbuild.proto;l=1507
      * @return The installationId.
      */
     @java.lang.Override
@@ -826,13 +798,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int64 installation_id = 1 [deprecated = true];</code>
      * @deprecated google.devtools.cloudbuild.v1.GitHubEventsConfig.installation_id is deprecated.
-     *     See google/devtools/cloudbuild/v1/cloudbuild.proto;l=1396
+     *     See google/devtools/cloudbuild/v1/cloudbuild.proto;l=1507
      * @param value The installationId to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setInstallationId(long value) {
       
       installationId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -843,11 +816,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int64 installation_id = 1 [deprecated = true];</code>
      * @deprecated google.devtools.cloudbuild.v1.GitHubEventsConfig.installation_id is deprecated.
-     *     See google/devtools/cloudbuild/v1/cloudbuild.proto;l=1396
+     *     See google/devtools/cloudbuild/v1/cloudbuild.proto;l=1507
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearInstallationId() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       installationId_ = 0L;
       onChanged();
       return this;
@@ -912,11 +885,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOwner(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       owner_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -931,8 +902,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOwner() {
-      
       owner_ = getDefaultInstance().getOwner();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -949,12 +920,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOwnerBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       owner_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1015,11 +984,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1033,8 +1000,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1050,12 +1017,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1234,7 +1199,7 @@ private static final long serialVersionUID = 0L;
         event_ = null;
       }
       eventCase_ = 4;
-      onChanged();;
+      onChanged();
       return pullRequestBuilder_;
     }
 
@@ -1412,7 +1377,7 @@ private static final long serialVersionUID = 0L;
         event_ = null;
       }
       eventCase_ = 5;
-      onChanged();;
+      onChanged();
       return pushBuilder_;
     }
     @java.lang.Override
@@ -1448,7 +1413,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GitHubEventsConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

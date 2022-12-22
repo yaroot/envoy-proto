@@ -35,128 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BfdPacket(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 27573752: {
-            bitField0_ |= 0x00001000;
-            poll_ = input.readBool();
-            break;
-          }
-          case 498908584: {
-            bitField0_ |= 0x00000002;
-            controlPlaneIndependent_ = input.readBool();
-            break;
-          }
-          case 501669178: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            diagnostic_ = s;
-            break;
-          }
-          case 613304904: {
-            bitField0_ |= 0x00000800;
-            myDiscriminator_ = input.readUInt32();
-            break;
-          }
-          case 778294944: {
-            bitField0_ |= 0x00000040;
-            minEchoRxIntervalMs_ = input.readUInt32();
-            break;
-          }
-          case 779488176: {
-            bitField0_ |= 0x00000010;
-            final_ = input.readBool();
-            break;
-          }
-          case 847794080: {
-            bitField0_ |= 0x00000001;
-            authenticationPresent_ = input.readBool();
-            break;
-          }
-          case 878060682: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00002000;
-            state_ = s;
-            break;
-          }
-          case 1530654216: {
-            bitField0_ |= 0x00000200;
-            multiplier_ = input.readUInt32();
-            break;
-          }
-          case 1531371448: {
-            bitField0_ |= 0x00000400;
-            multipoint_ = input.readBool();
-            break;
-          }
-          case -2093526440: {
-            bitField0_ |= 0x00000004;
-            demand_ = input.readBool();
-            break;
-          }
-          case -1482103104: {
-            bitField0_ |= 0x00004000;
-            version_ = input.readUInt32();
-            break;
-          }
-          case -587775072: {
-            bitField0_ |= 0x00000080;
-            minRxIntervalMs_ = input.readUInt32();
-            break;
-          }
-          case -260974800: {
-            bitField0_ |= 0x00000020;
-            length_ = input.readUInt32();
-            break;
-          }
-          case -169894784: {
-            bitField0_ |= 0x00008000;
-            yourDiscriminator_ = input.readUInt32();
-            break;
-          }
-          case -86778480: {
-            bitField0_ |= 0x00000100;
-            minTxIntervalMs_ = input.readUInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_BfdPacket_descriptor;
@@ -529,7 +407,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int AUTHENTICATION_PRESENT_FIELD_NUMBER = 105974260;
-  private boolean authenticationPresent_;
+  private boolean authenticationPresent_ = false;
   /**
    * <pre>
    * The Authentication Present bit of the BFD packet. This is specified in section 4.1 of RFC5880
@@ -556,7 +434,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTROL_PLANE_INDEPENDENT_FIELD_NUMBER = 62363573;
-  private boolean controlPlaneIndependent_;
+  private boolean controlPlaneIndependent_ = false;
   /**
    * <pre>
    * The Control Plane Independent bit of the BFD packet. This is specified in section 4.1 of RFC5880
@@ -583,7 +461,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEMAND_FIELD_NUMBER = 275180107;
-  private boolean demand_;
+  private boolean demand_ = false;
   /**
    * <pre>
    * The demand bit of the BFD packet. This is specified in section 4.1 of RFC5880
@@ -610,7 +488,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DIAGNOSTIC_FIELD_NUMBER = 62708647;
-  private volatile java.lang.Object diagnostic_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object diagnostic_ = "";
   /**
    * <pre>
    * The diagnostic code specifies the local system's reason for the last change in session state. This allows remote systems to determine the reason that the previous session failed, for example. These diagnostic codes are specified in section 4.1 of RFC5880
@@ -671,7 +550,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FINAL_FIELD_NUMBER = 97436022;
-  private boolean final_;
+  private boolean final_ = false;
   /**
    * <pre>
    * The Final bit of the BFD packet. This is specified in section 4.1 of RFC5880
@@ -698,7 +577,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LENGTH_FIELD_NUMBER = 504249062;
-  private int length_;
+  private int length_ = 0;
   /**
    * <pre>
    * The length of the BFD Control packet in bytes. This is specified in section 4.1 of RFC5880
@@ -725,7 +604,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_ECHO_RX_INTERVAL_MS_FIELD_NUMBER = 97286868;
-  private int minEchoRxIntervalMs_;
+  private int minEchoRxIntervalMs_ = 0;
   /**
    * <pre>
    * The Required Min Echo RX Interval value in the BFD packet. This is specified in section 4.1 of RFC5880
@@ -752,7 +631,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_RX_INTERVAL_MS_FIELD_NUMBER = 463399028;
-  private int minRxIntervalMs_;
+  private int minRxIntervalMs_ = 0;
   /**
    * <pre>
    * The Required Min RX Interval value in the BFD packet. This is specified in section 4.1 of RFC5880
@@ -779,7 +658,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_TX_INTERVAL_MS_FIELD_NUMBER = 526023602;
-  private int minTxIntervalMs_;
+  private int minTxIntervalMs_ = 0;
   /**
    * <pre>
    * The Desired Min TX Interval value in the BFD packet. This is specified in section 4.1 of RFC5880
@@ -806,7 +685,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MULTIPLIER_FIELD_NUMBER = 191331777;
-  private int multiplier_;
+  private int multiplier_ = 0;
   /**
    * <pre>
    * The detection time multiplier of the BFD packet. This is specified in section 4.1 of RFC5880
@@ -833,7 +712,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MULTIPOINT_FIELD_NUMBER = 191421431;
-  private boolean multipoint_;
+  private boolean multipoint_ = false;
   /**
    * <pre>
    * The multipoint bit of the BFD packet. This is specified in section 4.1 of RFC5880
@@ -860,7 +739,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MY_DISCRIMINATOR_FIELD_NUMBER = 76663113;
-  private int myDiscriminator_;
+  private int myDiscriminator_ = 0;
   /**
    * <pre>
    * The My Discriminator value in the BFD packet. This is specified in section 4.1 of RFC5880
@@ -887,7 +766,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POLL_FIELD_NUMBER = 3446719;
-  private boolean poll_;
+  private boolean poll_ = false;
   /**
    * <pre>
    * The Poll bit of the BFD packet. This is specified in section 4.1 of RFC5880
@@ -914,7 +793,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 109757585;
-  private volatile java.lang.Object state_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object state_ = "";
   /**
    * <pre>
    * The current BFD session state as seen by the transmitting system. These states are specified in section 4.1 of RFC5880
@@ -975,7 +855,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSION_FIELD_NUMBER = 351608024;
-  private int version_;
+  private int version_ = 0;
   /**
    * <pre>
    * The version number of the BFD protocol, as specified in section 4.1 of RFC5880.
@@ -1002,7 +882,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int YOUR_DISCRIMINATOR_FIELD_NUMBER = 515634064;
-  private int yourDiscriminator_;
+  private int yourDiscriminator_ = 0;
   /**
    * <pre>
    * The Your Discriminator value in the BFD packet. This is specified in section 4.1 of RFC5880
@@ -1090,7 +970,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000100) != 0)) {
       output.writeUInt32(526023602, minTxIntervalMs_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1161,7 +1041,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(526023602, minTxIntervalMs_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1256,7 +1136,7 @@ private static final long serialVersionUID = 0L;
       if (getYourDiscriminator()
           != other.getYourDiscriminator()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1337,7 +1217,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + YOUR_DISCRIMINATOR_FIELD_NUMBER;
       hash = (53 * hash) + getYourDiscriminator();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1457,54 +1337,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.BfdPacket.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       authenticationPresent_ = false;
-      bitField0_ = (bitField0_ & ~0x00000001);
       controlPlaneIndependent_ = false;
-      bitField0_ = (bitField0_ & ~0x00000002);
       demand_ = false;
-      bitField0_ = (bitField0_ & ~0x00000004);
       diagnostic_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       final_ = false;
-      bitField0_ = (bitField0_ & ~0x00000010);
       length_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000020);
       minEchoRxIntervalMs_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000040);
       minRxIntervalMs_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000080);
       minTxIntervalMs_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000100);
       multiplier_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000200);
       multipoint_ = false;
-      bitField0_ = (bitField0_ & ~0x00000400);
       myDiscriminator_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000800);
       poll_ = false;
-      bitField0_ = (bitField0_ & ~0x00001000);
       state_ = "";
-      bitField0_ = (bitField0_ & ~0x00002000);
       version_ = 0;
-      bitField0_ = (bitField0_ & ~0x00004000);
       yourDiscriminator_ = 0;
-      bitField0_ = (bitField0_ & ~0x00008000);
       return this;
     }
 
@@ -1531,6 +1391,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.BfdPacket buildPartial() {
       com.google.cloud.compute.v1.BfdPacket result = new com.google.cloud.compute.v1.BfdPacket(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.BfdPacket result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -1546,9 +1412,9 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000004;
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.diagnostic_ = diagnostic_;
         to_bitField0_ |= 0x00000008;
       }
-      result.diagnostic_ = diagnostic_;
       if (((from_bitField0_ & 0x00000010) != 0)) {
         result.final_ = final_;
         to_bitField0_ |= 0x00000010;
@@ -1586,9 +1452,9 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00001000;
       }
       if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.state_ = state_;
         to_bitField0_ |= 0x00002000;
       }
-      result.state_ = state_;
       if (((from_bitField0_ & 0x00004000) != 0)) {
         result.version_ = version_;
         to_bitField0_ |= 0x00004000;
@@ -1597,9 +1463,7 @@ private static final long serialVersionUID = 0L;
         result.yourDiscriminator_ = yourDiscriminator_;
         to_bitField0_ |= 0x00008000;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1656,8 +1520,8 @@ private static final long serialVersionUID = 0L;
         setDemand(other.getDemand());
       }
       if (other.hasDiagnostic()) {
-        bitField0_ |= 0x00000008;
         diagnostic_ = other.diagnostic_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasFinal()) {
@@ -1688,8 +1552,8 @@ private static final long serialVersionUID = 0L;
         setPoll(other.getPoll());
       }
       if (other.hasState()) {
-        bitField0_ |= 0x00002000;
         state_ = other.state_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
       if (other.hasVersion()) {
@@ -1698,7 +1562,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasYourDiscriminator()) {
         setYourDiscriminator(other.getYourDiscriminator());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1713,17 +1577,110 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.BfdPacket parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 27573752: {
+              poll_ = input.readBool();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 27573752
+            case 498908584: {
+              controlPlaneIndependent_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 498908584
+            case 501669178: {
+              diagnostic_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 501669178
+            case 613304904: {
+              myDiscriminator_ = input.readUInt32();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 613304904
+            case 778294944: {
+              minEchoRxIntervalMs_ = input.readUInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 778294944
+            case 779488176: {
+              final_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 779488176
+            case 847794080: {
+              authenticationPresent_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 847794080
+            case 878060682: {
+              state_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 878060682
+            case 1530654216: {
+              multiplier_ = input.readUInt32();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 1530654216
+            case 1531371448: {
+              multipoint_ = input.readBool();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 1531371448
+            case -2093526440: {
+              demand_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -2093526440
+            case -1482103104: {
+              version_ = input.readUInt32();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case -1482103104
+            case -587775072: {
+              minRxIntervalMs_ = input.readUInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case -587775072
+            case -260974800: {
+              length_ = input.readUInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case -260974800
+            case -169894784: {
+              yourDiscriminator_ = input.readUInt32();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case -169894784
+            case -86778480: {
+              minTxIntervalMs_ = input.readUInt32();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case -86778480
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.BfdPacket) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1763,8 +1720,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAuthenticationPresent(boolean value) {
-      bitField0_ |= 0x00000001;
+      
       authenticationPresent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1818,8 +1776,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setControlPlaneIndependent(boolean value) {
-      bitField0_ |= 0x00000002;
+      
       controlPlaneIndependent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1873,8 +1832,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDemand(boolean value) {
-      bitField0_ |= 0x00000004;
+      
       demand_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1961,11 +1921,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDiagnostic(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       diagnostic_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1979,8 +1937,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDiagnostic() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       diagnostic_ = getDefaultInstance().getDiagnostic();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1996,12 +1954,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDiagnosticBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       diagnostic_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2041,8 +1997,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFinal(boolean value) {
-      bitField0_ |= 0x00000010;
+      
       final_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2096,8 +2053,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLength(int value) {
-      bitField0_ |= 0x00000020;
+      
       length_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2151,8 +2109,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMinEchoRxIntervalMs(int value) {
-      bitField0_ |= 0x00000040;
+      
       minEchoRxIntervalMs_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2206,8 +2165,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMinRxIntervalMs(int value) {
-      bitField0_ |= 0x00000080;
+      
       minRxIntervalMs_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2261,8 +2221,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMinTxIntervalMs(int value) {
-      bitField0_ |= 0x00000100;
+      
       minTxIntervalMs_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2316,8 +2277,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMultiplier(int value) {
-      bitField0_ |= 0x00000200;
+      
       multiplier_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2371,8 +2333,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMultipoint(boolean value) {
-      bitField0_ |= 0x00000400;
+      
       multipoint_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2426,8 +2389,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMyDiscriminator(int value) {
-      bitField0_ |= 0x00000800;
+      
       myDiscriminator_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2481,8 +2445,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPoll(boolean value) {
-      bitField0_ |= 0x00001000;
+      
       poll_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -2569,11 +2534,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setState(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00002000;
+      if (value == null) { throw new NullPointerException(); }
       state_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -2587,8 +2550,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      bitField0_ = (bitField0_ & ~0x00002000);
       state_ = getDefaultInstance().getState();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -2604,12 +2567,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00002000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       state_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -2649,8 +2610,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setVersion(int value) {
-      bitField0_ |= 0x00004000;
+      
       version_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -2704,8 +2666,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setYourDiscriminator(int value) {
-      bitField0_ |= 0x00008000;
+      
       yourDiscriminator_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -2756,7 +2719,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BfdPacket(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

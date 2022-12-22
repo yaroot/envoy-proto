@@ -14,6 +14,677 @@ public final class StreetViewPublishResources {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  /**
+   * <pre>
+   * The processing state of the sequence. The states move as follows:
+   * ```
+   *      +-------------------------+
+   *      |                         |
+   *  +---v---+  +----------+  +----+----+
+   *  |PENDING+--&gt;PROCESSING+--&gt;PROCESSED|
+   *  +---+---+  +----+-----+  +----+----+
+   *      |           |             |
+   *      |        +--v---+         |
+   *      +--------&gt;FAILED&lt;---------+
+   *               +------+
+   * ```
+   * The sequence may move to FAILED from any state. Additionally, a processed
+   * sequence may be re-processed at any time.
+   * </pre>
+   *
+   * Protobuf enum {@code google.streetview.publish.v1.ProcessingState}
+   */
+  public enum ProcessingState
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * The state is unspecified, this is the default value.
+     * </pre>
+     *
+     * <code>PROCESSING_STATE_UNSPECIFIED = 0;</code>
+     */
+    PROCESSING_STATE_UNSPECIFIED(0),
+    /**
+     * <pre>
+     * The sequence has not yet started processing.
+     * </pre>
+     *
+     * <code>PENDING = 1;</code>
+     */
+    PENDING(1),
+    /**
+     * <pre>
+     * The sequence is currently in processing.
+     * </pre>
+     *
+     * <code>PROCESSING = 2;</code>
+     */
+    PROCESSING(2),
+    /**
+     * <pre>
+     * The sequence has finished processing including refining position.
+     * </pre>
+     *
+     * <code>PROCESSED = 3;</code>
+     */
+    PROCESSED(3),
+    /**
+     * <pre>
+     * The sequence failed processing. See FailureReason for more details.
+     * </pre>
+     *
+     * <code>FAILED = 4;</code>
+     */
+    FAILED(4),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * The state is unspecified, this is the default value.
+     * </pre>
+     *
+     * <code>PROCESSING_STATE_UNSPECIFIED = 0;</code>
+     */
+    public static final int PROCESSING_STATE_UNSPECIFIED_VALUE = 0;
+    /**
+     * <pre>
+     * The sequence has not yet started processing.
+     * </pre>
+     *
+     * <code>PENDING = 1;</code>
+     */
+    public static final int PENDING_VALUE = 1;
+    /**
+     * <pre>
+     * The sequence is currently in processing.
+     * </pre>
+     *
+     * <code>PROCESSING = 2;</code>
+     */
+    public static final int PROCESSING_VALUE = 2;
+    /**
+     * <pre>
+     * The sequence has finished processing including refining position.
+     * </pre>
+     *
+     * <code>PROCESSED = 3;</code>
+     */
+    public static final int PROCESSED_VALUE = 3;
+    /**
+     * <pre>
+     * The sequence failed processing. See FailureReason for more details.
+     * </pre>
+     *
+     * <code>FAILED = 4;</code>
+     */
+    public static final int FAILED_VALUE = 4;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static ProcessingState valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static ProcessingState forNumber(int value) {
+      switch (value) {
+        case 0: return PROCESSING_STATE_UNSPECIFIED;
+        case 1: return PENDING;
+        case 2: return PROCESSING;
+        case 3: return PROCESSED;
+        case 4: return FAILED;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<ProcessingState>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        ProcessingState> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<ProcessingState>() {
+            public ProcessingState findValueByNumber(int number) {
+              return ProcessingState.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final ProcessingState[] VALUES = values();
+
+    public static ProcessingState valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private ProcessingState(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.streetview.publish.v1.ProcessingState)
+  }
+
+  /**
+   * <pre>
+   * The possible reasons this [PhotoSequence]
+   * [google.streetview.publish.v1.PhotoSequence] failed to process.
+   * </pre>
+   *
+   * Protobuf enum {@code google.streetview.publish.v1.ProcessingFailureReason}
+   */
+  public enum ProcessingFailureReason
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * The failure reason is unspecified, this is the default value.
+     * </pre>
+     *
+     * <code>PROCESSING_FAILURE_REASON_UNSPECIFIED = 0;</code>
+     */
+    PROCESSING_FAILURE_REASON_UNSPECIFIED(0),
+    /**
+     * <pre>
+     * Video frame's resolution is too small.
+     * </pre>
+     *
+     * <code>LOW_RESOLUTION = 1;</code>
+     */
+    LOW_RESOLUTION(1),
+    /**
+     * <pre>
+     * This video has been uploaded before.
+     * </pre>
+     *
+     * <code>DUPLICATE = 2;</code>
+     */
+    DUPLICATE(2),
+    /**
+     * <pre>
+     * Too few GPS points.
+     * </pre>
+     *
+     * <code>INSUFFICIENT_GPS = 3;</code>
+     */
+    INSUFFICIENT_GPS(3),
+    /**
+     * <pre>
+     * No overlap between the time frame of GPS track and the time frame of
+     * video.
+     * </pre>
+     *
+     * <code>NO_OVERLAP_GPS = 4;</code>
+     */
+    NO_OVERLAP_GPS(4),
+    /**
+     * <pre>
+     * GPS is invalid (e.x. all GPS points are at (0,0))
+     * </pre>
+     *
+     * <code>INVALID_GPS = 5;</code>
+     */
+    INVALID_GPS(5),
+    /**
+     * <pre>
+     * The sequence of photos could not be accurately located in the world.
+     * </pre>
+     *
+     * <code>FAILED_TO_REFINE_POSITIONS = 6;</code>
+     */
+    FAILED_TO_REFINE_POSITIONS(6),
+    /**
+     * <pre>
+     * The sequence was taken down for policy reasons.
+     * </pre>
+     *
+     * <code>TAKEDOWN = 7;</code>
+     */
+    TAKEDOWN(7),
+    /**
+     * <pre>
+     * The video file was corrupt or could not be decoded.
+     * </pre>
+     *
+     * <code>CORRUPT_VIDEO = 8;</code>
+     */
+    CORRUPT_VIDEO(8),
+    /**
+     * <pre>
+     * A permanent failure in the underlying system occurred.
+     * </pre>
+     *
+     * <code>INTERNAL = 9;</code>
+     */
+    INTERNAL(9),
+    /**
+     * <pre>
+     * The video format is invalid or unsupported.
+     * </pre>
+     *
+     * <code>INVALID_VIDEO_FORMAT = 10;</code>
+     */
+    INVALID_VIDEO_FORMAT(10),
+    /**
+     * <pre>
+     * Invalid image aspect ratio found.
+     * </pre>
+     *
+     * <code>INVALID_VIDEO_DIMENSIONS = 11;</code>
+     */
+    INVALID_VIDEO_DIMENSIONS(11),
+    /**
+     * <pre>
+     * Invalid capture time. Timestamps were from the future.
+     * </pre>
+     *
+     * <code>INVALID_CAPTURE_TIME = 12;</code>
+     */
+    INVALID_CAPTURE_TIME(12),
+    /**
+     * <pre>
+     * GPS data contains a gap greater than 5 seconds in duration.
+     * </pre>
+     *
+     * <code>GPS_DATA_GAP = 13;</code>
+     */
+    GPS_DATA_GAP(13),
+    /**
+     * <pre>
+     * GPS data is too erratic to be processed.
+     * </pre>
+     *
+     * <code>JUMPY_GPS = 14;</code>
+     */
+    JUMPY_GPS(14),
+    /**
+     * <pre>
+     * IMU (Accelerometer, Gyroscope, etc.) data are not valid. They may be
+     * missing required fields (x, y, z or time), may not be formatted correctly,
+     * or any other issue that prevents our systems from parsing it.
+     * </pre>
+     *
+     * <code>INVALID_IMU = 15;</code>
+     */
+    INVALID_IMU(15),
+    /**
+     * <pre>
+     * Too few IMU points.
+     * </pre>
+     *
+     * <code>INSUFFICIENT_IMU = 21;</code>
+     */
+    INSUFFICIENT_IMU(21),
+    /**
+     * <pre>
+     * Insufficient overlap in the time frame between GPS, IMU, and other time
+     * series data.
+     * </pre>
+     *
+     * <code>INSUFFICIENT_OVERLAP_TIME_SERIES = 22;</code>
+     */
+    INSUFFICIENT_OVERLAP_TIME_SERIES(22),
+    /**
+     * <pre>
+     * IMU (Accelerometer, Gyroscope, etc.) data contain gaps greater than 0.1
+     * seconds in duration.
+     * </pre>
+     *
+     * <code>IMU_DATA_GAP = 16;</code>
+     */
+    IMU_DATA_GAP(16),
+    /**
+     * <pre>
+     * The camera is not supported.
+     * </pre>
+     *
+     * <code>UNSUPPORTED_CAMERA = 17;</code>
+     */
+    UNSUPPORTED_CAMERA(17),
+    /**
+     * <pre>
+     * Some frames were indoors, which is unsupported.
+     * </pre>
+     *
+     * <code>NOT_OUTDOORS = 18;</code>
+     */
+    NOT_OUTDOORS(18),
+    /**
+     * <pre>
+     * Not enough video frames.
+     * </pre>
+     *
+     * <code>INSUFFICIENT_VIDEO_FRAMES = 19;</code>
+     */
+    INSUFFICIENT_VIDEO_FRAMES(19),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * The failure reason is unspecified, this is the default value.
+     * </pre>
+     *
+     * <code>PROCESSING_FAILURE_REASON_UNSPECIFIED = 0;</code>
+     */
+    public static final int PROCESSING_FAILURE_REASON_UNSPECIFIED_VALUE = 0;
+    /**
+     * <pre>
+     * Video frame's resolution is too small.
+     * </pre>
+     *
+     * <code>LOW_RESOLUTION = 1;</code>
+     */
+    public static final int LOW_RESOLUTION_VALUE = 1;
+    /**
+     * <pre>
+     * This video has been uploaded before.
+     * </pre>
+     *
+     * <code>DUPLICATE = 2;</code>
+     */
+    public static final int DUPLICATE_VALUE = 2;
+    /**
+     * <pre>
+     * Too few GPS points.
+     * </pre>
+     *
+     * <code>INSUFFICIENT_GPS = 3;</code>
+     */
+    public static final int INSUFFICIENT_GPS_VALUE = 3;
+    /**
+     * <pre>
+     * No overlap between the time frame of GPS track and the time frame of
+     * video.
+     * </pre>
+     *
+     * <code>NO_OVERLAP_GPS = 4;</code>
+     */
+    public static final int NO_OVERLAP_GPS_VALUE = 4;
+    /**
+     * <pre>
+     * GPS is invalid (e.x. all GPS points are at (0,0))
+     * </pre>
+     *
+     * <code>INVALID_GPS = 5;</code>
+     */
+    public static final int INVALID_GPS_VALUE = 5;
+    /**
+     * <pre>
+     * The sequence of photos could not be accurately located in the world.
+     * </pre>
+     *
+     * <code>FAILED_TO_REFINE_POSITIONS = 6;</code>
+     */
+    public static final int FAILED_TO_REFINE_POSITIONS_VALUE = 6;
+    /**
+     * <pre>
+     * The sequence was taken down for policy reasons.
+     * </pre>
+     *
+     * <code>TAKEDOWN = 7;</code>
+     */
+    public static final int TAKEDOWN_VALUE = 7;
+    /**
+     * <pre>
+     * The video file was corrupt or could not be decoded.
+     * </pre>
+     *
+     * <code>CORRUPT_VIDEO = 8;</code>
+     */
+    public static final int CORRUPT_VIDEO_VALUE = 8;
+    /**
+     * <pre>
+     * A permanent failure in the underlying system occurred.
+     * </pre>
+     *
+     * <code>INTERNAL = 9;</code>
+     */
+    public static final int INTERNAL_VALUE = 9;
+    /**
+     * <pre>
+     * The video format is invalid or unsupported.
+     * </pre>
+     *
+     * <code>INVALID_VIDEO_FORMAT = 10;</code>
+     */
+    public static final int INVALID_VIDEO_FORMAT_VALUE = 10;
+    /**
+     * <pre>
+     * Invalid image aspect ratio found.
+     * </pre>
+     *
+     * <code>INVALID_VIDEO_DIMENSIONS = 11;</code>
+     */
+    public static final int INVALID_VIDEO_DIMENSIONS_VALUE = 11;
+    /**
+     * <pre>
+     * Invalid capture time. Timestamps were from the future.
+     * </pre>
+     *
+     * <code>INVALID_CAPTURE_TIME = 12;</code>
+     */
+    public static final int INVALID_CAPTURE_TIME_VALUE = 12;
+    /**
+     * <pre>
+     * GPS data contains a gap greater than 5 seconds in duration.
+     * </pre>
+     *
+     * <code>GPS_DATA_GAP = 13;</code>
+     */
+    public static final int GPS_DATA_GAP_VALUE = 13;
+    /**
+     * <pre>
+     * GPS data is too erratic to be processed.
+     * </pre>
+     *
+     * <code>JUMPY_GPS = 14;</code>
+     */
+    public static final int JUMPY_GPS_VALUE = 14;
+    /**
+     * <pre>
+     * IMU (Accelerometer, Gyroscope, etc.) data are not valid. They may be
+     * missing required fields (x, y, z or time), may not be formatted correctly,
+     * or any other issue that prevents our systems from parsing it.
+     * </pre>
+     *
+     * <code>INVALID_IMU = 15;</code>
+     */
+    public static final int INVALID_IMU_VALUE = 15;
+    /**
+     * <pre>
+     * Too few IMU points.
+     * </pre>
+     *
+     * <code>INSUFFICIENT_IMU = 21;</code>
+     */
+    public static final int INSUFFICIENT_IMU_VALUE = 21;
+    /**
+     * <pre>
+     * Insufficient overlap in the time frame between GPS, IMU, and other time
+     * series data.
+     * </pre>
+     *
+     * <code>INSUFFICIENT_OVERLAP_TIME_SERIES = 22;</code>
+     */
+    public static final int INSUFFICIENT_OVERLAP_TIME_SERIES_VALUE = 22;
+    /**
+     * <pre>
+     * IMU (Accelerometer, Gyroscope, etc.) data contain gaps greater than 0.1
+     * seconds in duration.
+     * </pre>
+     *
+     * <code>IMU_DATA_GAP = 16;</code>
+     */
+    public static final int IMU_DATA_GAP_VALUE = 16;
+    /**
+     * <pre>
+     * The camera is not supported.
+     * </pre>
+     *
+     * <code>UNSUPPORTED_CAMERA = 17;</code>
+     */
+    public static final int UNSUPPORTED_CAMERA_VALUE = 17;
+    /**
+     * <pre>
+     * Some frames were indoors, which is unsupported.
+     * </pre>
+     *
+     * <code>NOT_OUTDOORS = 18;</code>
+     */
+    public static final int NOT_OUTDOORS_VALUE = 18;
+    /**
+     * <pre>
+     * Not enough video frames.
+     * </pre>
+     *
+     * <code>INSUFFICIENT_VIDEO_FRAMES = 19;</code>
+     */
+    public static final int INSUFFICIENT_VIDEO_FRAMES_VALUE = 19;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static ProcessingFailureReason valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static ProcessingFailureReason forNumber(int value) {
+      switch (value) {
+        case 0: return PROCESSING_FAILURE_REASON_UNSPECIFIED;
+        case 1: return LOW_RESOLUTION;
+        case 2: return DUPLICATE;
+        case 3: return INSUFFICIENT_GPS;
+        case 4: return NO_OVERLAP_GPS;
+        case 5: return INVALID_GPS;
+        case 6: return FAILED_TO_REFINE_POSITIONS;
+        case 7: return TAKEDOWN;
+        case 8: return CORRUPT_VIDEO;
+        case 9: return INTERNAL;
+        case 10: return INVALID_VIDEO_FORMAT;
+        case 11: return INVALID_VIDEO_DIMENSIONS;
+        case 12: return INVALID_CAPTURE_TIME;
+        case 13: return GPS_DATA_GAP;
+        case 14: return JUMPY_GPS;
+        case 15: return INVALID_IMU;
+        case 21: return INSUFFICIENT_IMU;
+        case 22: return INSUFFICIENT_OVERLAP_TIME_SERIES;
+        case 16: return IMU_DATA_GAP;
+        case 17: return UNSUPPORTED_CAMERA;
+        case 18: return NOT_OUTDOORS;
+        case 19: return INSUFFICIENT_VIDEO_FRAMES;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<ProcessingFailureReason>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        ProcessingFailureReason> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<ProcessingFailureReason>() {
+            public ProcessingFailureReason findValueByNumber(int number) {
+              return ProcessingFailureReason.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final ProcessingFailureReason[] VALUES = values();
+
+    public static ProcessingFailureReason valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private ProcessingFailureReason(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.streetview.publish.v1.ProcessingFailureReason)
+  }
+
   public interface UploadRefOrBuilder extends
       // @@protoc_insertion_point(interface_extends:google.streetview.publish.v1.UploadRef)
       com.google.protobuf.MessageOrBuilder {
@@ -85,51 +756,6 @@ public final class StreetViewPublishResources {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private UploadRef(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              fileSourceCase_ = 1;
-              fileSource_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -270,7 +896,7 @@ public final class StreetViewPublishResources {
       if (fileSourceCase_ == 1) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, fileSource_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -282,7 +908,7 @@ public final class StreetViewPublishResources {
       if (fileSourceCase_ == 1) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, fileSource_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -306,7 +932,7 @@ public final class StreetViewPublishResources {
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -325,7 +951,7 @@ public final class StreetViewPublishResources {
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -446,22 +1072,18 @@ public final class StreetViewPublishResources {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         fileSourceCase_ = 0;
         fileSource_ = null;
         return this;
@@ -490,12 +1112,19 @@ public final class StreetViewPublishResources {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef(this);
-        if (fileSourceCase_ == 1) {
-          result.fileSource_ = fileSource_;
-        }
-        result.fileSourceCase_ = fileSourceCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      private void buildPartialOneofs(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef result) {
+        result.fileSourceCase_ = fileSourceCase_;
+        result.fileSource_ = this.fileSource_;
       }
 
       @java.lang.Override
@@ -553,7 +1182,7 @@ public final class StreetViewPublishResources {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -568,17 +1197,36 @@ public final class StreetViewPublishResources {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                fileSourceCase_ = 1;
+                fileSource_ = s;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int fileSourceCase_ = 0;
@@ -596,6 +1244,7 @@ public final class StreetViewPublishResources {
         return this;
       }
 
+      private int bitField0_;
 
       /**
        * <pre>
@@ -681,10 +1330,8 @@ public final class StreetViewPublishResources {
        */
       public Builder setUploadUrl(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  fileSourceCase_ = 1;
+        if (value == null) { throw new NullPointerException(); }
+        fileSourceCase_ = 1;
         fileSource_ = value;
         onChanged();
         return this;
@@ -720,10 +1367,8 @@ public final class StreetViewPublishResources {
        */
       public Builder setUploadUrlBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         fileSourceCase_ = 1;
         fileSource_ = value;
         onChanged();
@@ -762,7 +1407,18 @@ public final class StreetViewPublishResources {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UploadRef(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -838,51 +1494,6 @@ public final class StreetViewPublishResources {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PhotoId(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              id_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_PhotoId_descriptor;
@@ -897,7 +1508,8 @@ public final class StreetViewPublishResources {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
     /**
      * <pre>
      * A unique identifier for a photo.
@@ -959,7 +1571,7 @@ public final class StreetViewPublishResources {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -971,7 +1583,7 @@ public final class StreetViewPublishResources {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -988,7 +1600,7 @@ public final class StreetViewPublishResources {
 
       if (!getId()
           .equals(other.getId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1001,7 +1613,7 @@ public final class StreetViewPublishResources {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1122,24 +1734,19 @@ public final class StreetViewPublishResources {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         id_ = "";
-
         return this;
       }
 
@@ -1166,9 +1773,16 @@ public final class StreetViewPublishResources {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId(this);
-        result.id_ = id_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
       }
 
       @java.lang.Override
@@ -1217,9 +1831,10 @@ public final class StreetViewPublishResources {
         if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId.getDefaultInstance()) return this;
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1234,19 +1849,38 @@ public final class StreetViewPublishResources {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object id_ = "";
       /**
@@ -1301,11 +1935,9 @@ public final class StreetViewPublishResources {
        */
       public Builder setId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1318,8 +1950,8 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder clearId() {
-        
         id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1334,12 +1966,10 @@ public final class StreetViewPublishResources {
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1376,7 +2006,18 @@ public final class StreetViewPublishResources {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PhotoId(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1468,56 +2109,6 @@ public final class StreetViewPublishResources {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Level(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 9: {
-
-              number_ = input.readDouble();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_Level_descriptor;
@@ -1532,7 +2123,7 @@ public final class StreetViewPublishResources {
     }
 
     public static final int NUMBER_FIELD_NUMBER = 1;
-    private double number_;
+    private double number_ = 0D;
     /**
      * <pre>
      * Optional. Floor number, used for ordering. 0 indicates the ground level, 1 indicates
@@ -1549,7 +2140,8 @@ public final class StreetViewPublishResources {
     }
 
     public static final int NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Required. A name assigned to this Level, restricted to 3 characters.
@@ -1618,7 +2210,7 @@ public final class StreetViewPublishResources {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1634,7 +2226,7 @@ public final class StreetViewPublishResources {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1654,7 +2246,7 @@ public final class StreetViewPublishResources {
               other.getNumber())) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1670,7 +2262,7 @@ public final class StreetViewPublishResources {
           java.lang.Double.doubleToLongBits(getNumber()));
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1791,26 +2383,20 @@ public final class StreetViewPublishResources {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Level.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         number_ = 0D;
-
         name_ = "";
-
         return this;
       }
 
@@ -1837,10 +2423,19 @@ public final class StreetViewPublishResources {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Level buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Level result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Level(this);
-        result.number_ = number_;
-        result.name_ = name_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Level result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.number_ = number_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.name_ = name_;
+        }
       }
 
       @java.lang.Override
@@ -1892,9 +2487,10 @@ public final class StreetViewPublishResources {
         }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1909,19 +2505,43 @@ public final class StreetViewPublishResources {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Level parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                number_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              case 18: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Level) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private double number_ ;
       /**
@@ -1952,6 +2572,7 @@ public final class StreetViewPublishResources {
       public Builder setNumber(double value) {
         
         number_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1966,7 +2587,7 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder clearNumber() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         number_ = 0D;
         onChanged();
         return this;
@@ -2031,11 +2652,9 @@ public final class StreetViewPublishResources {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2050,8 +2669,8 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2068,12 +2687,10 @@ public final class StreetViewPublishResources {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2110,7 +2727,18 @@ public final class StreetViewPublishResources {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Level(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2228,6 +2856,33 @@ public final class StreetViewPublishResources {
 
     /**
      * <pre>
+     * Time of the GPS record since UTC epoch.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp gps_record_timestamp_unix_epoch = 6;</code>
+     * @return Whether the gpsRecordTimestampUnixEpoch field is set.
+     */
+    boolean hasGpsRecordTimestampUnixEpoch();
+    /**
+     * <pre>
+     * Time of the GPS record since UTC epoch.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp gps_record_timestamp_unix_epoch = 6;</code>
+     * @return The gpsRecordTimestampUnixEpoch.
+     */
+    com.google.protobuf.Timestamp getGpsRecordTimestampUnixEpoch();
+    /**
+     * <pre>
+     * Time of the GPS record since UTC epoch.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp gps_record_timestamp_unix_epoch = 6;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getGpsRecordTimestampUnixEpochOrBuilder();
+
+    /**
+     * <pre>
      * Level (the floor in a building) used to configure vertical navigation.
      * </pre>
      *
@@ -2299,96 +2954,6 @@ public final class StreetViewPublishResources {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Pose(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.type.LatLng.Builder subBuilder = null;
-              if (latLngPair_ != null) {
-                subBuilder = latLngPair_.toBuilder();
-              }
-              latLngPair_ = input.readMessage(com.google.type.LatLng.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(latLngPair_);
-                latLngPair_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 17: {
-
-              altitude_ = input.readDouble();
-              break;
-            }
-            case 25: {
-
-              heading_ = input.readDouble();
-              break;
-            }
-            case 33: {
-
-              pitch_ = input.readDouble();
-              break;
-            }
-            case 41: {
-
-              roll_ = input.readDouble();
-              break;
-            }
-            case 58: {
-              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Level.Builder subBuilder = null;
-              if (level_ != null) {
-                subBuilder = level_.toBuilder();
-              }
-              level_ = input.readMessage(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Level.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(level_);
-                level_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 77: {
-
-              accuracyMeters_ = input.readFloat();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_Pose_descriptor;
@@ -2452,11 +3017,11 @@ public final class StreetViewPublishResources {
      */
     @java.lang.Override
     public com.google.type.LatLngOrBuilder getLatLngPairOrBuilder() {
-      return getLatLngPair();
+      return latLngPair_ == null ? com.google.type.LatLng.getDefaultInstance() : latLngPair_;
     }
 
     public static final int ALTITUDE_FIELD_NUMBER = 2;
-    private double altitude_;
+    private double altitude_ = 0D;
     /**
      * <pre>
      * Altitude of the pose in meters above WGS84 ellipsoid.
@@ -2472,7 +3037,7 @@ public final class StreetViewPublishResources {
     }
 
     public static final int HEADING_FIELD_NUMBER = 3;
-    private double heading_;
+    private double heading_ = 0D;
     /**
      * <pre>
      * The following pose parameters pertain to the center of the photo. They
@@ -2491,7 +3056,7 @@ public final class StreetViewPublishResources {
     }
 
     public static final int PITCH_FIELD_NUMBER = 4;
-    private double pitch_;
+    private double pitch_ = 0D;
     /**
      * <pre>
      * Pitch, measured at the center of the photo in degrees. Value must be &gt;=-90
@@ -2509,7 +3074,7 @@ public final class StreetViewPublishResources {
     }
 
     public static final int ROLL_FIELD_NUMBER = 5;
-    private double roll_;
+    private double roll_ = 0D;
     /**
      * <pre>
      * Roll, measured in degrees. Value must be &gt;= 0 and &lt;360. A value of 0
@@ -2523,6 +3088,44 @@ public final class StreetViewPublishResources {
     @java.lang.Override
     public double getRoll() {
       return roll_;
+    }
+
+    public static final int GPS_RECORD_TIMESTAMP_UNIX_EPOCH_FIELD_NUMBER = 6;
+    private com.google.protobuf.Timestamp gpsRecordTimestampUnixEpoch_;
+    /**
+     * <pre>
+     * Time of the GPS record since UTC epoch.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp gps_record_timestamp_unix_epoch = 6;</code>
+     * @return Whether the gpsRecordTimestampUnixEpoch field is set.
+     */
+    @java.lang.Override
+    public boolean hasGpsRecordTimestampUnixEpoch() {
+      return gpsRecordTimestampUnixEpoch_ != null;
+    }
+    /**
+     * <pre>
+     * Time of the GPS record since UTC epoch.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp gps_record_timestamp_unix_epoch = 6;</code>
+     * @return The gpsRecordTimestampUnixEpoch.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getGpsRecordTimestampUnixEpoch() {
+      return gpsRecordTimestampUnixEpoch_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : gpsRecordTimestampUnixEpoch_;
+    }
+    /**
+     * <pre>
+     * Time of the GPS record since UTC epoch.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp gps_record_timestamp_unix_epoch = 6;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getGpsRecordTimestampUnixEpochOrBuilder() {
+      return gpsRecordTimestampUnixEpoch_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : gpsRecordTimestampUnixEpoch_;
     }
 
     public static final int LEVEL_FIELD_NUMBER = 7;
@@ -2560,11 +3163,11 @@ public final class StreetViewPublishResources {
      */
     @java.lang.Override
     public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LevelOrBuilder getLevelOrBuilder() {
-      return getLevel();
+      return level_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Level.getDefaultInstance() : level_;
     }
 
     public static final int ACCURACY_METERS_FIELD_NUMBER = 9;
-    private float accuracyMeters_;
+    private float accuracyMeters_ = 0F;
     /**
      * <pre>
      * The estimated horizontal accuracy of this pose in meters with 68%
@@ -2612,13 +3215,16 @@ public final class StreetViewPublishResources {
       if (java.lang.Double.doubleToRawLongBits(roll_) != 0) {
         output.writeDouble(5, roll_);
       }
+      if (gpsRecordTimestampUnixEpoch_ != null) {
+        output.writeMessage(6, getGpsRecordTimestampUnixEpoch());
+      }
       if (level_ != null) {
         output.writeMessage(7, getLevel());
       }
       if (java.lang.Float.floatToRawIntBits(accuracyMeters_) != 0) {
         output.writeFloat(9, accuracyMeters_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2647,6 +3253,10 @@ public final class StreetViewPublishResources {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(5, roll_);
       }
+      if (gpsRecordTimestampUnixEpoch_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getGpsRecordTimestampUnixEpoch());
+      }
       if (level_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, getLevel());
@@ -2655,7 +3265,7 @@ public final class StreetViewPublishResources {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(9, accuracyMeters_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2687,6 +3297,11 @@ public final class StreetViewPublishResources {
       if (java.lang.Double.doubleToLongBits(getRoll())
           != java.lang.Double.doubleToLongBits(
               other.getRoll())) return false;
+      if (hasGpsRecordTimestampUnixEpoch() != other.hasGpsRecordTimestampUnixEpoch()) return false;
+      if (hasGpsRecordTimestampUnixEpoch()) {
+        if (!getGpsRecordTimestampUnixEpoch()
+            .equals(other.getGpsRecordTimestampUnixEpoch())) return false;
+      }
       if (hasLevel() != other.hasLevel()) return false;
       if (hasLevel()) {
         if (!getLevel()
@@ -2695,7 +3310,7 @@ public final class StreetViewPublishResources {
       if (java.lang.Float.floatToIntBits(getAccuracyMeters())
           != java.lang.Float.floatToIntBits(
               other.getAccuracyMeters())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2722,6 +3337,10 @@ public final class StreetViewPublishResources {
       hash = (37 * hash) + ROLL_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getRoll()));
+      if (hasGpsRecordTimestampUnixEpoch()) {
+        hash = (37 * hash) + GPS_RECORD_TIMESTAMP_UNIX_EPOCH_FIELD_NUMBER;
+        hash = (53 * hash) + getGpsRecordTimestampUnixEpoch().hashCode();
+      }
       if (hasLevel()) {
         hash = (37 * hash) + LEVEL_FIELD_NUMBER;
         hash = (53 * hash) + getLevel().hashCode();
@@ -2729,7 +3348,7 @@ public final class StreetViewPublishResources {
       hash = (37 * hash) + ACCURACY_METERS_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getAccuracyMeters());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2850,44 +3469,38 @@ public final class StreetViewPublishResources {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (latLngPairBuilder_ == null) {
-          latLngPair_ = null;
-        } else {
-          latLngPair_ = null;
+        bitField0_ = 0;
+        latLngPair_ = null;
+        if (latLngPairBuilder_ != null) {
+          latLngPairBuilder_.dispose();
           latLngPairBuilder_ = null;
         }
         altitude_ = 0D;
-
         heading_ = 0D;
-
         pitch_ = 0D;
-
         roll_ = 0D;
-
-        if (levelBuilder_ == null) {
-          level_ = null;
-        } else {
-          level_ = null;
+        gpsRecordTimestampUnixEpoch_ = null;
+        if (gpsRecordTimestampUnixEpochBuilder_ != null) {
+          gpsRecordTimestampUnixEpochBuilder_.dispose();
+          gpsRecordTimestampUnixEpochBuilder_ = null;
+        }
+        level_ = null;
+        if (levelBuilder_ != null) {
+          levelBuilder_.dispose();
           levelBuilder_ = null;
         }
         accuracyMeters_ = 0F;
-
         return this;
       }
 
@@ -2914,23 +3527,43 @@ public final class StreetViewPublishResources {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose(this);
-        if (latLngPairBuilder_ == null) {
-          result.latLngPair_ = latLngPair_;
-        } else {
-          result.latLngPair_ = latLngPairBuilder_.build();
-        }
-        result.altitude_ = altitude_;
-        result.heading_ = heading_;
-        result.pitch_ = pitch_;
-        result.roll_ = roll_;
-        if (levelBuilder_ == null) {
-          result.level_ = level_;
-        } else {
-          result.level_ = levelBuilder_.build();
-        }
-        result.accuracyMeters_ = accuracyMeters_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.latLngPair_ = latLngPairBuilder_ == null
+              ? latLngPair_
+              : latLngPairBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.altitude_ = altitude_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.heading_ = heading_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.pitch_ = pitch_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.roll_ = roll_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.gpsRecordTimestampUnixEpoch_ = gpsRecordTimestampUnixEpochBuilder_ == null
+              ? gpsRecordTimestampUnixEpoch_
+              : gpsRecordTimestampUnixEpochBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.level_ = levelBuilder_ == null
+              ? level_
+              : levelBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.accuracyMeters_ = accuracyMeters_;
+        }
       }
 
       @java.lang.Override
@@ -2992,13 +3625,16 @@ public final class StreetViewPublishResources {
         if (other.getRoll() != 0D) {
           setRoll(other.getRoll());
         }
+        if (other.hasGpsRecordTimestampUnixEpoch()) {
+          mergeGpsRecordTimestampUnixEpoch(other.getGpsRecordTimestampUnixEpoch());
+        }
         if (other.hasLevel()) {
           mergeLevel(other.getLevel());
         }
         if (other.getAccuracyMeters() != 0F) {
           setAccuracyMeters(other.getAccuracyMeters());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3013,19 +3649,79 @@ public final class StreetViewPublishResources {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getLatLngPairFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 17: {
+                altitude_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 17
+              case 25: {
+                heading_ = input.readDouble();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 25
+              case 33: {
+                pitch_ = input.readDouble();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 33
+              case 41: {
+                roll_ = input.readDouble();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 41
+              case 50: {
+                input.readMessage(
+                    getGpsRecordTimestampUnixEpochFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                input.readMessage(
+                    getLevelFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 77: {
+                accuracyMeters_ = input.readFloat();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 77
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.type.LatLng latLngPair_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -3044,7 +3740,7 @@ public final class StreetViewPublishResources {
        * @return Whether the latLngPair field is set.
        */
       public boolean hasLatLngPair() {
-        return latLngPairBuilder_ != null || latLngPair_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -3084,11 +3780,11 @@ public final class StreetViewPublishResources {
             throw new NullPointerException();
           }
           latLngPair_ = value;
-          onChanged();
         } else {
           latLngPairBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3107,11 +3803,11 @@ public final class StreetViewPublishResources {
           com.google.type.LatLng.Builder builderForValue) {
         if (latLngPairBuilder_ == null) {
           latLngPair_ = builderForValue.build();
-          onChanged();
         } else {
           latLngPairBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3128,17 +3824,18 @@ public final class StreetViewPublishResources {
        */
       public Builder mergeLatLngPair(com.google.type.LatLng value) {
         if (latLngPairBuilder_ == null) {
-          if (latLngPair_ != null) {
-            latLngPair_ =
-              com.google.type.LatLng.newBuilder(latLngPair_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            latLngPair_ != null &&
+            latLngPair_ != com.google.type.LatLng.getDefaultInstance()) {
+            getLatLngPairBuilder().mergeFrom(value);
           } else {
             latLngPair_ = value;
           }
-          onChanged();
         } else {
           latLngPairBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3154,14 +3851,13 @@ public final class StreetViewPublishResources {
        * <code>.google.type.LatLng lat_lng_pair = 1;</code>
        */
       public Builder clearLatLngPair() {
-        if (latLngPairBuilder_ == null) {
-          latLngPair_ = null;
-          onChanged();
-        } else {
-          latLngPair_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        latLngPair_ = null;
+        if (latLngPairBuilder_ != null) {
+          latLngPairBuilder_.dispose();
           latLngPairBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3177,7 +3873,7 @@ public final class StreetViewPublishResources {
        * <code>.google.type.LatLng lat_lng_pair = 1;</code>
        */
       public com.google.type.LatLng.Builder getLatLngPairBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getLatLngPairFieldBuilder().getBuilder();
       }
@@ -3254,6 +3950,7 @@ public final class StreetViewPublishResources {
       public Builder setAltitude(double value) {
         
         altitude_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3267,7 +3964,7 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder clearAltitude() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         altitude_ = 0D;
         onChanged();
         return this;
@@ -3306,6 +4003,7 @@ public final class StreetViewPublishResources {
       public Builder setHeading(double value) {
         
         heading_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3322,7 +4020,7 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder clearHeading() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         heading_ = 0D;
         onChanged();
         return this;
@@ -3359,6 +4057,7 @@ public final class StreetViewPublishResources {
       public Builder setPitch(double value) {
         
         pitch_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -3374,7 +4073,7 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder clearPitch() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         pitch_ = 0D;
         onChanged();
         return this;
@@ -3409,6 +4108,7 @@ public final class StreetViewPublishResources {
       public Builder setRoll(double value) {
         
         roll_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -3423,10 +4123,165 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder clearRoll() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         roll_ = 0D;
         onChanged();
         return this;
+      }
+
+      private com.google.protobuf.Timestamp gpsRecordTimestampUnixEpoch_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> gpsRecordTimestampUnixEpochBuilder_;
+      /**
+       * <pre>
+       * Time of the GPS record since UTC epoch.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp gps_record_timestamp_unix_epoch = 6;</code>
+       * @return Whether the gpsRecordTimestampUnixEpoch field is set.
+       */
+      public boolean hasGpsRecordTimestampUnixEpoch() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <pre>
+       * Time of the GPS record since UTC epoch.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp gps_record_timestamp_unix_epoch = 6;</code>
+       * @return The gpsRecordTimestampUnixEpoch.
+       */
+      public com.google.protobuf.Timestamp getGpsRecordTimestampUnixEpoch() {
+        if (gpsRecordTimestampUnixEpochBuilder_ == null) {
+          return gpsRecordTimestampUnixEpoch_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : gpsRecordTimestampUnixEpoch_;
+        } else {
+          return gpsRecordTimestampUnixEpochBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Time of the GPS record since UTC epoch.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp gps_record_timestamp_unix_epoch = 6;</code>
+       */
+      public Builder setGpsRecordTimestampUnixEpoch(com.google.protobuf.Timestamp value) {
+        if (gpsRecordTimestampUnixEpochBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          gpsRecordTimestampUnixEpoch_ = value;
+        } else {
+          gpsRecordTimestampUnixEpochBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Time of the GPS record since UTC epoch.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp gps_record_timestamp_unix_epoch = 6;</code>
+       */
+      public Builder setGpsRecordTimestampUnixEpoch(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (gpsRecordTimestampUnixEpochBuilder_ == null) {
+          gpsRecordTimestampUnixEpoch_ = builderForValue.build();
+        } else {
+          gpsRecordTimestampUnixEpochBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Time of the GPS record since UTC epoch.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp gps_record_timestamp_unix_epoch = 6;</code>
+       */
+      public Builder mergeGpsRecordTimestampUnixEpoch(com.google.protobuf.Timestamp value) {
+        if (gpsRecordTimestampUnixEpochBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) != 0) &&
+            gpsRecordTimestampUnixEpoch_ != null &&
+            gpsRecordTimestampUnixEpoch_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getGpsRecordTimestampUnixEpochBuilder().mergeFrom(value);
+          } else {
+            gpsRecordTimestampUnixEpoch_ = value;
+          }
+        } else {
+          gpsRecordTimestampUnixEpochBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Time of the GPS record since UTC epoch.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp gps_record_timestamp_unix_epoch = 6;</code>
+       */
+      public Builder clearGpsRecordTimestampUnixEpoch() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        gpsRecordTimestampUnixEpoch_ = null;
+        if (gpsRecordTimestampUnixEpochBuilder_ != null) {
+          gpsRecordTimestampUnixEpochBuilder_.dispose();
+          gpsRecordTimestampUnixEpochBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Time of the GPS record since UTC epoch.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp gps_record_timestamp_unix_epoch = 6;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getGpsRecordTimestampUnixEpochBuilder() {
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return getGpsRecordTimestampUnixEpochFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Time of the GPS record since UTC epoch.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp gps_record_timestamp_unix_epoch = 6;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getGpsRecordTimestampUnixEpochOrBuilder() {
+        if (gpsRecordTimestampUnixEpochBuilder_ != null) {
+          return gpsRecordTimestampUnixEpochBuilder_.getMessageOrBuilder();
+        } else {
+          return gpsRecordTimestampUnixEpoch_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : gpsRecordTimestampUnixEpoch_;
+        }
+      }
+      /**
+       * <pre>
+       * Time of the GPS record since UTC epoch.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp gps_record_timestamp_unix_epoch = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getGpsRecordTimestampUnixEpochFieldBuilder() {
+        if (gpsRecordTimestampUnixEpochBuilder_ == null) {
+          gpsRecordTimestampUnixEpochBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getGpsRecordTimestampUnixEpoch(),
+                  getParentForChildren(),
+                  isClean());
+          gpsRecordTimestampUnixEpoch_ = null;
+        }
+        return gpsRecordTimestampUnixEpochBuilder_;
       }
 
       private com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Level level_;
@@ -3441,7 +4296,7 @@ public final class StreetViewPublishResources {
        * @return Whether the level field is set.
        */
       public boolean hasLevel() {
-        return levelBuilder_ != null || level_ != null;
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
        * <pre>
@@ -3471,11 +4326,11 @@ public final class StreetViewPublishResources {
             throw new NullPointerException();
           }
           level_ = value;
-          onChanged();
         } else {
           levelBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -3489,11 +4344,11 @@ public final class StreetViewPublishResources {
           com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Level.Builder builderForValue) {
         if (levelBuilder_ == null) {
           level_ = builderForValue.build();
-          onChanged();
         } else {
           levelBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -3505,17 +4360,18 @@ public final class StreetViewPublishResources {
        */
       public Builder mergeLevel(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Level value) {
         if (levelBuilder_ == null) {
-          if (level_ != null) {
-            level_ =
-              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Level.newBuilder(level_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000040) != 0) &&
+            level_ != null &&
+            level_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Level.getDefaultInstance()) {
+            getLevelBuilder().mergeFrom(value);
           } else {
             level_ = value;
           }
-          onChanged();
         } else {
           levelBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -3526,14 +4382,13 @@ public final class StreetViewPublishResources {
        * <code>.google.streetview.publish.v1.Level level = 7;</code>
        */
       public Builder clearLevel() {
-        if (levelBuilder_ == null) {
-          level_ = null;
-          onChanged();
-        } else {
-          level_ = null;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        level_ = null;
+        if (levelBuilder_ != null) {
+          levelBuilder_.dispose();
           levelBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3544,7 +4399,7 @@ public final class StreetViewPublishResources {
        * <code>.google.streetview.publish.v1.Level level = 7;</code>
        */
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Level.Builder getLevelBuilder() {
-        
+        bitField0_ |= 0x00000040;
         onChanged();
         return getLevelFieldBuilder().getBuilder();
       }
@@ -3619,6 +4474,7 @@ public final class StreetViewPublishResources {
       public Builder setAccuracyMeters(float value) {
         
         accuracyMeters_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -3636,7 +4492,7 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder clearAccuracyMeters() {
-        
+        bitField0_ = (bitField0_ & ~0x00000080);
         accuracyMeters_ = 0F;
         onChanged();
         return this;
@@ -3674,7 +4530,18 @@ public final class StreetViewPublishResources {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Pose(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3689,6 +4556,2920 @@ public final class StreetViewPublishResources {
 
     @java.lang.Override
     public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ImuOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.streetview.publish.v1.Imu)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * The accelerometer measurements in meters/sec^2 with increasing timestamps
+     * from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+     */
+    java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> 
+        getAccelMpspsList();
+    /**
+     * <pre>
+     * The accelerometer measurements in meters/sec^2 with increasing timestamps
+     * from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d getAccelMpsps(int index);
+    /**
+     * <pre>
+     * The accelerometer measurements in meters/sec^2 with increasing timestamps
+     * from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+     */
+    int getAccelMpspsCount();
+    /**
+     * <pre>
+     * The accelerometer measurements in meters/sec^2 with increasing timestamps
+     * from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+     */
+    java.util.List<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder> 
+        getAccelMpspsOrBuilderList();
+    /**
+     * <pre>
+     * The accelerometer measurements in meters/sec^2 with increasing timestamps
+     * from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder getAccelMpspsOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * The gyroscope measurements in radians/sec with increasing timestamps from
+     * devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+     */
+    java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> 
+        getGyroRpsList();
+    /**
+     * <pre>
+     * The gyroscope measurements in radians/sec with increasing timestamps from
+     * devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d getGyroRps(int index);
+    /**
+     * <pre>
+     * The gyroscope measurements in radians/sec with increasing timestamps from
+     * devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+     */
+    int getGyroRpsCount();
+    /**
+     * <pre>
+     * The gyroscope measurements in radians/sec with increasing timestamps from
+     * devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+     */
+    java.util.List<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder> 
+        getGyroRpsOrBuilderList();
+    /**
+     * <pre>
+     * The gyroscope measurements in radians/sec with increasing timestamps from
+     * devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder getGyroRpsOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * The magnetometer measurements of the magnetic field in microtesla (uT) with
+     * increasing timestamps from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+     */
+    java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> 
+        getMagUtList();
+    /**
+     * <pre>
+     * The magnetometer measurements of the magnetic field in microtesla (uT) with
+     * increasing timestamps from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d getMagUt(int index);
+    /**
+     * <pre>
+     * The magnetometer measurements of the magnetic field in microtesla (uT) with
+     * increasing timestamps from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+     */
+    int getMagUtCount();
+    /**
+     * <pre>
+     * The magnetometer measurements of the magnetic field in microtesla (uT) with
+     * increasing timestamps from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+     */
+    java.util.List<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder> 
+        getMagUtOrBuilderList();
+    /**
+     * <pre>
+     * The magnetometer measurements of the magnetic field in microtesla (uT) with
+     * increasing timestamps from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder getMagUtOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   * IMU data from the device sensors.
+   * </pre>
+   *
+   * Protobuf type {@code google.streetview.publish.v1.Imu}
+   */
+  public static final class Imu extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.streetview.publish.v1.Imu)
+      ImuOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Imu.newBuilder() to construct.
+    private Imu(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Imu() {
+      accelMpsps_ = java.util.Collections.emptyList();
+      gyroRps_ = java.util.Collections.emptyList();
+      magUt_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Imu();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_Imu_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_Imu_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Builder.class);
+    }
+
+    public interface Measurement3dOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:google.streetview.publish.v1.Imu.Measurement3d)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <pre>
+       * The timestamp of the IMU measurement.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp capture_time = 1;</code>
+       * @return Whether the captureTime field is set.
+       */
+      boolean hasCaptureTime();
+      /**
+       * <pre>
+       * The timestamp of the IMU measurement.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp capture_time = 1;</code>
+       * @return The captureTime.
+       */
+      com.google.protobuf.Timestamp getCaptureTime();
+      /**
+       * <pre>
+       * The timestamp of the IMU measurement.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp capture_time = 1;</code>
+       */
+      com.google.protobuf.TimestampOrBuilder getCaptureTimeOrBuilder();
+
+      /**
+       * <pre>
+       * The sensor measurement in the x axis.
+       * </pre>
+       *
+       * <code>float x = 2;</code>
+       * @return The x.
+       */
+      float getX();
+
+      /**
+       * <pre>
+       * The sensor measurement in the y axis.
+       * </pre>
+       *
+       * <code>float y = 3;</code>
+       * @return The y.
+       */
+      float getY();
+
+      /**
+       * <pre>
+       * The sensor measurement in the z axis.
+       * </pre>
+       *
+       * <code>float z = 4;</code>
+       * @return The z.
+       */
+      float getZ();
+    }
+    /**
+     * <pre>
+     * A Generic 3d measurement sample.
+     * </pre>
+     *
+     * Protobuf type {@code google.streetview.publish.v1.Imu.Measurement3d}
+     */
+    public static final class Measurement3d extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:google.streetview.publish.v1.Imu.Measurement3d)
+        Measurement3dOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use Measurement3d.newBuilder() to construct.
+      private Measurement3d(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private Measurement3d() {
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new Measurement3d();
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_Imu_Measurement3d_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_Imu_Measurement3d_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder.class);
+      }
+
+      public static final int CAPTURE_TIME_FIELD_NUMBER = 1;
+      private com.google.protobuf.Timestamp captureTime_;
+      /**
+       * <pre>
+       * The timestamp of the IMU measurement.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp capture_time = 1;</code>
+       * @return Whether the captureTime field is set.
+       */
+      @java.lang.Override
+      public boolean hasCaptureTime() {
+        return captureTime_ != null;
+      }
+      /**
+       * <pre>
+       * The timestamp of the IMU measurement.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp capture_time = 1;</code>
+       * @return The captureTime.
+       */
+      @java.lang.Override
+      public com.google.protobuf.Timestamp getCaptureTime() {
+        return captureTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : captureTime_;
+      }
+      /**
+       * <pre>
+       * The timestamp of the IMU measurement.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp capture_time = 1;</code>
+       */
+      @java.lang.Override
+      public com.google.protobuf.TimestampOrBuilder getCaptureTimeOrBuilder() {
+        return captureTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : captureTime_;
+      }
+
+      public static final int X_FIELD_NUMBER = 2;
+      private float x_ = 0F;
+      /**
+       * <pre>
+       * The sensor measurement in the x axis.
+       * </pre>
+       *
+       * <code>float x = 2;</code>
+       * @return The x.
+       */
+      @java.lang.Override
+      public float getX() {
+        return x_;
+      }
+
+      public static final int Y_FIELD_NUMBER = 3;
+      private float y_ = 0F;
+      /**
+       * <pre>
+       * The sensor measurement in the y axis.
+       * </pre>
+       *
+       * <code>float y = 3;</code>
+       * @return The y.
+       */
+      @java.lang.Override
+      public float getY() {
+        return y_;
+      }
+
+      public static final int Z_FIELD_NUMBER = 4;
+      private float z_ = 0F;
+      /**
+       * <pre>
+       * The sensor measurement in the z axis.
+       * </pre>
+       *
+       * <code>float z = 4;</code>
+       * @return The z.
+       */
+      @java.lang.Override
+      public float getZ() {
+        return z_;
+      }
+
+      private byte memoizedIsInitialized = -1;
+      @java.lang.Override
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      @java.lang.Override
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (captureTime_ != null) {
+          output.writeMessage(1, getCaptureTime());
+        }
+        if (java.lang.Float.floatToRawIntBits(x_) != 0) {
+          output.writeFloat(2, x_);
+        }
+        if (java.lang.Float.floatToRawIntBits(y_) != 0) {
+          output.writeFloat(3, y_);
+        }
+        if (java.lang.Float.floatToRawIntBits(z_) != 0) {
+          output.writeFloat(4, z_);
+        }
+        getUnknownFields().writeTo(output);
+      }
+
+      @java.lang.Override
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (captureTime_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(1, getCaptureTime());
+        }
+        if (java.lang.Float.floatToRawIntBits(x_) != 0) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeFloatSize(2, x_);
+        }
+        if (java.lang.Float.floatToRawIntBits(y_) != 0) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeFloatSize(3, y_);
+        }
+        if (java.lang.Float.floatToRawIntBits(z_) != 0) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeFloatSize(4, z_);
+        }
+        size += getUnknownFields().getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d)) {
+          return super.equals(obj);
+        }
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d other = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d) obj;
+
+        if (hasCaptureTime() != other.hasCaptureTime()) return false;
+        if (hasCaptureTime()) {
+          if (!getCaptureTime()
+              .equals(other.getCaptureTime())) return false;
+        }
+        if (java.lang.Float.floatToIntBits(getX())
+            != java.lang.Float.floatToIntBits(
+                other.getX())) return false;
+        if (java.lang.Float.floatToIntBits(getY())
+            != java.lang.Float.floatToIntBits(
+                other.getY())) return false;
+        if (java.lang.Float.floatToIntBits(getZ())
+            != java.lang.Float.floatToIntBits(
+                other.getZ())) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+        return true;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        if (hasCaptureTime()) {
+          hash = (37 * hash) + CAPTURE_TIME_FIELD_NUMBER;
+          hash = (53 * hash) + getCaptureTime().hashCode();
+        }
+        hash = (37 * hash) + X_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getX());
+        hash = (37 * hash) + Y_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getY());
+        hash = (37 * hash) + Z_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getZ());
+        hash = (29 * hash) + getUnknownFields().hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      @java.lang.Override
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * <pre>
+       * A Generic 3d measurement sample.
+       * </pre>
+       *
+       * Protobuf type {@code google.streetview.publish.v1.Imu.Measurement3d}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:google.streetview.publish.v1.Imu.Measurement3d)
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_Imu_Measurement3d_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_Imu_Measurement3d_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder.class);
+        }
+
+        // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.newBuilder()
+        private Builder() {
+
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+
+        }
+        @java.lang.Override
+        public Builder clear() {
+          super.clear();
+          bitField0_ = 0;
+          captureTime_ = null;
+          if (captureTimeBuilder_ != null) {
+            captureTimeBuilder_.dispose();
+            captureTimeBuilder_ = null;
+          }
+          x_ = 0F;
+          y_ = 0F;
+          z_ = 0F;
+          return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_Imu_Measurement3d_descriptor;
+        }
+
+        @java.lang.Override
+        public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d getDefaultInstanceForType() {
+          return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d build() {
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        @java.lang.Override
+        public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d buildPartial() {
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d(this);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.captureTime_ = captureTimeBuilder_ == null
+                ? captureTime_
+                : captureTimeBuilder_.build();
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.x_ = x_;
+          }
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.y_ = y_;
+          }
+          if (((from_bitField0_ & 0x00000008) != 0)) {
+            result.z_ = z_;
+          }
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+          return super.clone();
+        }
+        @java.lang.Override
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.setField(field, value);
+        }
+        @java.lang.Override
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return super.clearField(field);
+        }
+        @java.lang.Override
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return super.clearOneof(oneof);
+        }
+        @java.lang.Override
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return super.setRepeatedField(field, index, value);
+        }
+        @java.lang.Override
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.addRepeatedField(field, value);
+        }
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d) {
+            return mergeFrom((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d other) {
+          if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.getDefaultInstance()) return this;
+          if (other.hasCaptureTime()) {
+            mergeCaptureTime(other.getCaptureTime());
+          }
+          if (other.getX() != 0F) {
+            setX(other.getX());
+          }
+          if (other.getY() != 0F) {
+            setY(other.getY());
+          }
+          if (other.getZ() != 0F) {
+            setZ(other.getZ());
+          }
+          this.mergeUnknownFields(other.getUnknownFields());
+          onChanged();
+          return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  input.readMessage(
+                      getCaptureTimeFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 21: {
+                  x_ = input.readFloat();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 21
+                case 29: {
+                  y_ = input.readFloat();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 29
+                case 37: {
+                  z_ = input.readFloat();
+                  bitField0_ |= 0x00000008;
+                  break;
+                } // case 37
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.unwrapIOException();
+          } finally {
+            onChanged();
+          } // finally
+          return this;
+        }
+        private int bitField0_;
+
+        private com.google.protobuf.Timestamp captureTime_;
+        private com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> captureTimeBuilder_;
+        /**
+         * <pre>
+         * The timestamp of the IMU measurement.
+         * </pre>
+         *
+         * <code>.google.protobuf.Timestamp capture_time = 1;</code>
+         * @return Whether the captureTime field is set.
+         */
+        public boolean hasCaptureTime() {
+          return ((bitField0_ & 0x00000001) != 0);
+        }
+        /**
+         * <pre>
+         * The timestamp of the IMU measurement.
+         * </pre>
+         *
+         * <code>.google.protobuf.Timestamp capture_time = 1;</code>
+         * @return The captureTime.
+         */
+        public com.google.protobuf.Timestamp getCaptureTime() {
+          if (captureTimeBuilder_ == null) {
+            return captureTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : captureTime_;
+          } else {
+            return captureTimeBuilder_.getMessage();
+          }
+        }
+        /**
+         * <pre>
+         * The timestamp of the IMU measurement.
+         * </pre>
+         *
+         * <code>.google.protobuf.Timestamp capture_time = 1;</code>
+         */
+        public Builder setCaptureTime(com.google.protobuf.Timestamp value) {
+          if (captureTimeBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            captureTime_ = value;
+          } else {
+            captureTimeBuilder_.setMessage(value);
+          }
+          bitField0_ |= 0x00000001;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * The timestamp of the IMU measurement.
+         * </pre>
+         *
+         * <code>.google.protobuf.Timestamp capture_time = 1;</code>
+         */
+        public Builder setCaptureTime(
+            com.google.protobuf.Timestamp.Builder builderForValue) {
+          if (captureTimeBuilder_ == null) {
+            captureTime_ = builderForValue.build();
+          } else {
+            captureTimeBuilder_.setMessage(builderForValue.build());
+          }
+          bitField0_ |= 0x00000001;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * The timestamp of the IMU measurement.
+         * </pre>
+         *
+         * <code>.google.protobuf.Timestamp capture_time = 1;</code>
+         */
+        public Builder mergeCaptureTime(com.google.protobuf.Timestamp value) {
+          if (captureTimeBuilder_ == null) {
+            if (((bitField0_ & 0x00000001) != 0) &&
+              captureTime_ != null &&
+              captureTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+              getCaptureTimeBuilder().mergeFrom(value);
+            } else {
+              captureTime_ = value;
+            }
+          } else {
+            captureTimeBuilder_.mergeFrom(value);
+          }
+          bitField0_ |= 0x00000001;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * The timestamp of the IMU measurement.
+         * </pre>
+         *
+         * <code>.google.protobuf.Timestamp capture_time = 1;</code>
+         */
+        public Builder clearCaptureTime() {
+          bitField0_ = (bitField0_ & ~0x00000001);
+          captureTime_ = null;
+          if (captureTimeBuilder_ != null) {
+            captureTimeBuilder_.dispose();
+            captureTimeBuilder_ = null;
+          }
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * The timestamp of the IMU measurement.
+         * </pre>
+         *
+         * <code>.google.protobuf.Timestamp capture_time = 1;</code>
+         */
+        public com.google.protobuf.Timestamp.Builder getCaptureTimeBuilder() {
+          bitField0_ |= 0x00000001;
+          onChanged();
+          return getCaptureTimeFieldBuilder().getBuilder();
+        }
+        /**
+         * <pre>
+         * The timestamp of the IMU measurement.
+         * </pre>
+         *
+         * <code>.google.protobuf.Timestamp capture_time = 1;</code>
+         */
+        public com.google.protobuf.TimestampOrBuilder getCaptureTimeOrBuilder() {
+          if (captureTimeBuilder_ != null) {
+            return captureTimeBuilder_.getMessageOrBuilder();
+          } else {
+            return captureTime_ == null ?
+                com.google.protobuf.Timestamp.getDefaultInstance() : captureTime_;
+          }
+        }
+        /**
+         * <pre>
+         * The timestamp of the IMU measurement.
+         * </pre>
+         *
+         * <code>.google.protobuf.Timestamp capture_time = 1;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+            getCaptureTimeFieldBuilder() {
+          if (captureTimeBuilder_ == null) {
+            captureTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                    getCaptureTime(),
+                    getParentForChildren(),
+                    isClean());
+            captureTime_ = null;
+          }
+          return captureTimeBuilder_;
+        }
+
+        private float x_ ;
+        /**
+         * <pre>
+         * The sensor measurement in the x axis.
+         * </pre>
+         *
+         * <code>float x = 2;</code>
+         * @return The x.
+         */
+        @java.lang.Override
+        public float getX() {
+          return x_;
+        }
+        /**
+         * <pre>
+         * The sensor measurement in the x axis.
+         * </pre>
+         *
+         * <code>float x = 2;</code>
+         * @param value The x to set.
+         * @return This builder for chaining.
+         */
+        public Builder setX(float value) {
+          
+          x_ = value;
+          bitField0_ |= 0x00000002;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * The sensor measurement in the x axis.
+         * </pre>
+         *
+         * <code>float x = 2;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearX() {
+          bitField0_ = (bitField0_ & ~0x00000002);
+          x_ = 0F;
+          onChanged();
+          return this;
+        }
+
+        private float y_ ;
+        /**
+         * <pre>
+         * The sensor measurement in the y axis.
+         * </pre>
+         *
+         * <code>float y = 3;</code>
+         * @return The y.
+         */
+        @java.lang.Override
+        public float getY() {
+          return y_;
+        }
+        /**
+         * <pre>
+         * The sensor measurement in the y axis.
+         * </pre>
+         *
+         * <code>float y = 3;</code>
+         * @param value The y to set.
+         * @return This builder for chaining.
+         */
+        public Builder setY(float value) {
+          
+          y_ = value;
+          bitField0_ |= 0x00000004;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * The sensor measurement in the y axis.
+         * </pre>
+         *
+         * <code>float y = 3;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearY() {
+          bitField0_ = (bitField0_ & ~0x00000004);
+          y_ = 0F;
+          onChanged();
+          return this;
+        }
+
+        private float z_ ;
+        /**
+         * <pre>
+         * The sensor measurement in the z axis.
+         * </pre>
+         *
+         * <code>float z = 4;</code>
+         * @return The z.
+         */
+        @java.lang.Override
+        public float getZ() {
+          return z_;
+        }
+        /**
+         * <pre>
+         * The sensor measurement in the z axis.
+         * </pre>
+         *
+         * <code>float z = 4;</code>
+         * @param value The z to set.
+         * @return This builder for chaining.
+         */
+        public Builder setZ(float value) {
+          
+          z_ = value;
+          bitField0_ |= 0x00000008;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * The sensor measurement in the z axis.
+         * </pre>
+         *
+         * <code>float z = 4;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearZ() {
+          bitField0_ = (bitField0_ & ~0x00000008);
+          z_ = 0F;
+          onChanged();
+          return this;
+        }
+        @java.lang.Override
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:google.streetview.publish.v1.Imu.Measurement3d)
+      }
+
+      // @@protoc_insertion_point(class_scope:google.streetview.publish.v1.Imu.Measurement3d)
+      private static final com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d();
+      }
+
+      public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<Measurement3d>
+          PARSER = new com.google.protobuf.AbstractParser<Measurement3d>() {
+        @java.lang.Override
+        public Measurement3d parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
+        }
+      };
+
+      public static com.google.protobuf.Parser<Measurement3d> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<Measurement3d> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    public static final int ACCEL_MPSPS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> accelMpsps_;
+    /**
+     * <pre>
+     * The accelerometer measurements in meters/sec^2 with increasing timestamps
+     * from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> getAccelMpspsList() {
+      return accelMpsps_;
+    }
+    /**
+     * <pre>
+     * The accelerometer measurements in meters/sec^2 with increasing timestamps
+     * from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder> 
+        getAccelMpspsOrBuilderList() {
+      return accelMpsps_;
+    }
+    /**
+     * <pre>
+     * The accelerometer measurements in meters/sec^2 with increasing timestamps
+     * from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+     */
+    @java.lang.Override
+    public int getAccelMpspsCount() {
+      return accelMpsps_.size();
+    }
+    /**
+     * <pre>
+     * The accelerometer measurements in meters/sec^2 with increasing timestamps
+     * from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d getAccelMpsps(int index) {
+      return accelMpsps_.get(index);
+    }
+    /**
+     * <pre>
+     * The accelerometer measurements in meters/sec^2 with increasing timestamps
+     * from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder getAccelMpspsOrBuilder(
+        int index) {
+      return accelMpsps_.get(index);
+    }
+
+    public static final int GYRO_RPS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> gyroRps_;
+    /**
+     * <pre>
+     * The gyroscope measurements in radians/sec with increasing timestamps from
+     * devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> getGyroRpsList() {
+      return gyroRps_;
+    }
+    /**
+     * <pre>
+     * The gyroscope measurements in radians/sec with increasing timestamps from
+     * devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder> 
+        getGyroRpsOrBuilderList() {
+      return gyroRps_;
+    }
+    /**
+     * <pre>
+     * The gyroscope measurements in radians/sec with increasing timestamps from
+     * devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+     */
+    @java.lang.Override
+    public int getGyroRpsCount() {
+      return gyroRps_.size();
+    }
+    /**
+     * <pre>
+     * The gyroscope measurements in radians/sec with increasing timestamps from
+     * devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d getGyroRps(int index) {
+      return gyroRps_.get(index);
+    }
+    /**
+     * <pre>
+     * The gyroscope measurements in radians/sec with increasing timestamps from
+     * devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder getGyroRpsOrBuilder(
+        int index) {
+      return gyroRps_.get(index);
+    }
+
+    public static final int MAG_UT_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> magUt_;
+    /**
+     * <pre>
+     * The magnetometer measurements of the magnetic field in microtesla (uT) with
+     * increasing timestamps from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> getMagUtList() {
+      return magUt_;
+    }
+    /**
+     * <pre>
+     * The magnetometer measurements of the magnetic field in microtesla (uT) with
+     * increasing timestamps from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder> 
+        getMagUtOrBuilderList() {
+      return magUt_;
+    }
+    /**
+     * <pre>
+     * The magnetometer measurements of the magnetic field in microtesla (uT) with
+     * increasing timestamps from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+     */
+    @java.lang.Override
+    public int getMagUtCount() {
+      return magUt_.size();
+    }
+    /**
+     * <pre>
+     * The magnetometer measurements of the magnetic field in microtesla (uT) with
+     * increasing timestamps from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d getMagUt(int index) {
+      return magUt_.get(index);
+    }
+    /**
+     * <pre>
+     * The magnetometer measurements of the magnetic field in microtesla (uT) with
+     * increasing timestamps from devices.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder getMagUtOrBuilder(
+        int index) {
+      return magUt_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < accelMpsps_.size(); i++) {
+        output.writeMessage(1, accelMpsps_.get(i));
+      }
+      for (int i = 0; i < gyroRps_.size(); i++) {
+        output.writeMessage(2, gyroRps_.get(i));
+      }
+      for (int i = 0; i < magUt_.size(); i++) {
+        output.writeMessage(3, magUt_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < accelMpsps_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, accelMpsps_.get(i));
+      }
+      for (int i = 0; i < gyroRps_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, gyroRps_.get(i));
+      }
+      for (int i = 0; i < magUt_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, magUt_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu)) {
+        return super.equals(obj);
+      }
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu other = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu) obj;
+
+      if (!getAccelMpspsList()
+          .equals(other.getAccelMpspsList())) return false;
+      if (!getGyroRpsList()
+          .equals(other.getGyroRpsList())) return false;
+      if (!getMagUtList()
+          .equals(other.getMagUtList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getAccelMpspsCount() > 0) {
+        hash = (37 * hash) + ACCEL_MPSPS_FIELD_NUMBER;
+        hash = (53 * hash) + getAccelMpspsList().hashCode();
+      }
+      if (getGyroRpsCount() > 0) {
+        hash = (37 * hash) + GYRO_RPS_FIELD_NUMBER;
+        hash = (53 * hash) + getGyroRpsList().hashCode();
+      }
+      if (getMagUtCount() > 0) {
+        hash = (37 * hash) + MAG_UT_FIELD_NUMBER;
+        hash = (53 * hash) + getMagUtList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * IMU data from the device sensors.
+     * </pre>
+     *
+     * Protobuf type {@code google.streetview.publish.v1.Imu}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.streetview.publish.v1.Imu)
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_Imu_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_Imu_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Builder.class);
+      }
+
+      // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        if (accelMpspsBuilder_ == null) {
+          accelMpsps_ = java.util.Collections.emptyList();
+        } else {
+          accelMpsps_ = null;
+          accelMpspsBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (gyroRpsBuilder_ == null) {
+          gyroRps_ = java.util.Collections.emptyList();
+        } else {
+          gyroRps_ = null;
+          gyroRpsBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (magUtBuilder_ == null) {
+          magUt_ = java.util.Collections.emptyList();
+        } else {
+          magUt_ = null;
+          magUtBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_Imu_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu getDefaultInstanceForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu build() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu buildPartial() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu(this);
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu result) {
+        if (accelMpspsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            accelMpsps_ = java.util.Collections.unmodifiableList(accelMpsps_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.accelMpsps_ = accelMpsps_;
+        } else {
+          result.accelMpsps_ = accelMpspsBuilder_.build();
+        }
+        if (gyroRpsBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0)) {
+            gyroRps_ = java.util.Collections.unmodifiableList(gyroRps_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.gyroRps_ = gyroRps_;
+        } else {
+          result.gyroRps_ = gyroRpsBuilder_.build();
+        }
+        if (magUtBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0)) {
+            magUt_ = java.util.Collections.unmodifiableList(magUt_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.magUt_ = magUt_;
+        } else {
+          result.magUt_ = magUtBuilder_.build();
+        }
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu) {
+          return mergeFrom((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu other) {
+        if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.getDefaultInstance()) return this;
+        if (accelMpspsBuilder_ == null) {
+          if (!other.accelMpsps_.isEmpty()) {
+            if (accelMpsps_.isEmpty()) {
+              accelMpsps_ = other.accelMpsps_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureAccelMpspsIsMutable();
+              accelMpsps_.addAll(other.accelMpsps_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.accelMpsps_.isEmpty()) {
+            if (accelMpspsBuilder_.isEmpty()) {
+              accelMpspsBuilder_.dispose();
+              accelMpspsBuilder_ = null;
+              accelMpsps_ = other.accelMpsps_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              accelMpspsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getAccelMpspsFieldBuilder() : null;
+            } else {
+              accelMpspsBuilder_.addAllMessages(other.accelMpsps_);
+            }
+          }
+        }
+        if (gyroRpsBuilder_ == null) {
+          if (!other.gyroRps_.isEmpty()) {
+            if (gyroRps_.isEmpty()) {
+              gyroRps_ = other.gyroRps_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureGyroRpsIsMutable();
+              gyroRps_.addAll(other.gyroRps_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.gyroRps_.isEmpty()) {
+            if (gyroRpsBuilder_.isEmpty()) {
+              gyroRpsBuilder_.dispose();
+              gyroRpsBuilder_ = null;
+              gyroRps_ = other.gyroRps_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              gyroRpsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getGyroRpsFieldBuilder() : null;
+            } else {
+              gyroRpsBuilder_.addAllMessages(other.gyroRps_);
+            }
+          }
+        }
+        if (magUtBuilder_ == null) {
+          if (!other.magUt_.isEmpty()) {
+            if (magUt_.isEmpty()) {
+              magUt_ = other.magUt_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureMagUtIsMutable();
+              magUt_.addAll(other.magUt_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.magUt_.isEmpty()) {
+            if (magUtBuilder_.isEmpty()) {
+              magUtBuilder_.dispose();
+              magUtBuilder_ = null;
+              magUt_ = other.magUt_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              magUtBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getMagUtFieldBuilder() : null;
+            } else {
+              magUtBuilder_.addAllMessages(other.magUt_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d m =
+                    input.readMessage(
+                        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.parser(),
+                        extensionRegistry);
+                if (accelMpspsBuilder_ == null) {
+                  ensureAccelMpspsIsMutable();
+                  accelMpsps_.add(m);
+                } else {
+                  accelMpspsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d m =
+                    input.readMessage(
+                        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.parser(),
+                        extensionRegistry);
+                if (gyroRpsBuilder_ == null) {
+                  ensureGyroRpsIsMutable();
+                  gyroRps_.add(m);
+                } else {
+                  gyroRpsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              case 26: {
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d m =
+                    input.readMessage(
+                        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.parser(),
+                        extensionRegistry);
+                if (magUtBuilder_ == null) {
+                  ensureMagUtIsMutable();
+                  magUt_.add(m);
+                } else {
+                  magUtBuilder_.addMessage(m);
+                }
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> accelMpsps_ =
+        java.util.Collections.emptyList();
+      private void ensureAccelMpspsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          accelMpsps_ = new java.util.ArrayList<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d>(accelMpsps_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder> accelMpspsBuilder_;
+
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> getAccelMpspsList() {
+        if (accelMpspsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(accelMpsps_);
+        } else {
+          return accelMpspsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public int getAccelMpspsCount() {
+        if (accelMpspsBuilder_ == null) {
+          return accelMpsps_.size();
+        } else {
+          return accelMpspsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d getAccelMpsps(int index) {
+        if (accelMpspsBuilder_ == null) {
+          return accelMpsps_.get(index);
+        } else {
+          return accelMpspsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public Builder setAccelMpsps(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d value) {
+        if (accelMpspsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAccelMpspsIsMutable();
+          accelMpsps_.set(index, value);
+          onChanged();
+        } else {
+          accelMpspsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public Builder setAccelMpsps(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder builderForValue) {
+        if (accelMpspsBuilder_ == null) {
+          ensureAccelMpspsIsMutable();
+          accelMpsps_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          accelMpspsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public Builder addAccelMpsps(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d value) {
+        if (accelMpspsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAccelMpspsIsMutable();
+          accelMpsps_.add(value);
+          onChanged();
+        } else {
+          accelMpspsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public Builder addAccelMpsps(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d value) {
+        if (accelMpspsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAccelMpspsIsMutable();
+          accelMpsps_.add(index, value);
+          onChanged();
+        } else {
+          accelMpspsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public Builder addAccelMpsps(
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder builderForValue) {
+        if (accelMpspsBuilder_ == null) {
+          ensureAccelMpspsIsMutable();
+          accelMpsps_.add(builderForValue.build());
+          onChanged();
+        } else {
+          accelMpspsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public Builder addAccelMpsps(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder builderForValue) {
+        if (accelMpspsBuilder_ == null) {
+          ensureAccelMpspsIsMutable();
+          accelMpsps_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          accelMpspsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public Builder addAllAccelMpsps(
+          java.lang.Iterable<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> values) {
+        if (accelMpspsBuilder_ == null) {
+          ensureAccelMpspsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, accelMpsps_);
+          onChanged();
+        } else {
+          accelMpspsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public Builder clearAccelMpsps() {
+        if (accelMpspsBuilder_ == null) {
+          accelMpsps_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          accelMpspsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public Builder removeAccelMpsps(int index) {
+        if (accelMpspsBuilder_ == null) {
+          ensureAccelMpspsIsMutable();
+          accelMpsps_.remove(index);
+          onChanged();
+        } else {
+          accelMpspsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder getAccelMpspsBuilder(
+          int index) {
+        return getAccelMpspsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder getAccelMpspsOrBuilder(
+          int index) {
+        if (accelMpspsBuilder_ == null) {
+          return accelMpsps_.get(index);  } else {
+          return accelMpspsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public java.util.List<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder> 
+           getAccelMpspsOrBuilderList() {
+        if (accelMpspsBuilder_ != null) {
+          return accelMpspsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(accelMpsps_);
+        }
+      }
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder addAccelMpspsBuilder() {
+        return getAccelMpspsFieldBuilder().addBuilder(
+            com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder addAccelMpspsBuilder(
+          int index) {
+        return getAccelMpspsFieldBuilder().addBuilder(
+            index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * The accelerometer measurements in meters/sec^2 with increasing timestamps
+       * from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d accel_mpsps = 1;</code>
+       */
+      public java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder> 
+           getAccelMpspsBuilderList() {
+        return getAccelMpspsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder> 
+          getAccelMpspsFieldBuilder() {
+        if (accelMpspsBuilder_ == null) {
+          accelMpspsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder>(
+                  accelMpsps_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          accelMpsps_ = null;
+        }
+        return accelMpspsBuilder_;
+      }
+
+      private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> gyroRps_ =
+        java.util.Collections.emptyList();
+      private void ensureGyroRpsIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          gyroRps_ = new java.util.ArrayList<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d>(gyroRps_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder> gyroRpsBuilder_;
+
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> getGyroRpsList() {
+        if (gyroRpsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(gyroRps_);
+        } else {
+          return gyroRpsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public int getGyroRpsCount() {
+        if (gyroRpsBuilder_ == null) {
+          return gyroRps_.size();
+        } else {
+          return gyroRpsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d getGyroRps(int index) {
+        if (gyroRpsBuilder_ == null) {
+          return gyroRps_.get(index);
+        } else {
+          return gyroRpsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public Builder setGyroRps(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d value) {
+        if (gyroRpsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureGyroRpsIsMutable();
+          gyroRps_.set(index, value);
+          onChanged();
+        } else {
+          gyroRpsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public Builder setGyroRps(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder builderForValue) {
+        if (gyroRpsBuilder_ == null) {
+          ensureGyroRpsIsMutable();
+          gyroRps_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          gyroRpsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public Builder addGyroRps(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d value) {
+        if (gyroRpsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureGyroRpsIsMutable();
+          gyroRps_.add(value);
+          onChanged();
+        } else {
+          gyroRpsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public Builder addGyroRps(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d value) {
+        if (gyroRpsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureGyroRpsIsMutable();
+          gyroRps_.add(index, value);
+          onChanged();
+        } else {
+          gyroRpsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public Builder addGyroRps(
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder builderForValue) {
+        if (gyroRpsBuilder_ == null) {
+          ensureGyroRpsIsMutable();
+          gyroRps_.add(builderForValue.build());
+          onChanged();
+        } else {
+          gyroRpsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public Builder addGyroRps(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder builderForValue) {
+        if (gyroRpsBuilder_ == null) {
+          ensureGyroRpsIsMutable();
+          gyroRps_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          gyroRpsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public Builder addAllGyroRps(
+          java.lang.Iterable<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> values) {
+        if (gyroRpsBuilder_ == null) {
+          ensureGyroRpsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, gyroRps_);
+          onChanged();
+        } else {
+          gyroRpsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public Builder clearGyroRps() {
+        if (gyroRpsBuilder_ == null) {
+          gyroRps_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          gyroRpsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public Builder removeGyroRps(int index) {
+        if (gyroRpsBuilder_ == null) {
+          ensureGyroRpsIsMutable();
+          gyroRps_.remove(index);
+          onChanged();
+        } else {
+          gyroRpsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder getGyroRpsBuilder(
+          int index) {
+        return getGyroRpsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder getGyroRpsOrBuilder(
+          int index) {
+        if (gyroRpsBuilder_ == null) {
+          return gyroRps_.get(index);  } else {
+          return gyroRpsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public java.util.List<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder> 
+           getGyroRpsOrBuilderList() {
+        if (gyroRpsBuilder_ != null) {
+          return gyroRpsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(gyroRps_);
+        }
+      }
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder addGyroRpsBuilder() {
+        return getGyroRpsFieldBuilder().addBuilder(
+            com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder addGyroRpsBuilder(
+          int index) {
+        return getGyroRpsFieldBuilder().addBuilder(
+            index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * The gyroscope measurements in radians/sec with increasing timestamps from
+       * devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d gyro_rps = 2;</code>
+       */
+      public java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder> 
+           getGyroRpsBuilderList() {
+        return getGyroRpsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder> 
+          getGyroRpsFieldBuilder() {
+        if (gyroRpsBuilder_ == null) {
+          gyroRpsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder>(
+                  gyroRps_,
+                  ((bitField0_ & 0x00000002) != 0),
+                  getParentForChildren(),
+                  isClean());
+          gyroRps_ = null;
+        }
+        return gyroRpsBuilder_;
+      }
+
+      private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> magUt_ =
+        java.util.Collections.emptyList();
+      private void ensureMagUtIsMutable() {
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          magUt_ = new java.util.ArrayList<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d>(magUt_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder> magUtBuilder_;
+
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> getMagUtList() {
+        if (magUtBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(magUt_);
+        } else {
+          return magUtBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public int getMagUtCount() {
+        if (magUtBuilder_ == null) {
+          return magUt_.size();
+        } else {
+          return magUtBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d getMagUt(int index) {
+        if (magUtBuilder_ == null) {
+          return magUt_.get(index);
+        } else {
+          return magUtBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public Builder setMagUt(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d value) {
+        if (magUtBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMagUtIsMutable();
+          magUt_.set(index, value);
+          onChanged();
+        } else {
+          magUtBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public Builder setMagUt(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder builderForValue) {
+        if (magUtBuilder_ == null) {
+          ensureMagUtIsMutable();
+          magUt_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          magUtBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public Builder addMagUt(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d value) {
+        if (magUtBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMagUtIsMutable();
+          magUt_.add(value);
+          onChanged();
+        } else {
+          magUtBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public Builder addMagUt(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d value) {
+        if (magUtBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMagUtIsMutable();
+          magUt_.add(index, value);
+          onChanged();
+        } else {
+          magUtBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public Builder addMagUt(
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder builderForValue) {
+        if (magUtBuilder_ == null) {
+          ensureMagUtIsMutable();
+          magUt_.add(builderForValue.build());
+          onChanged();
+        } else {
+          magUtBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public Builder addMagUt(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder builderForValue) {
+        if (magUtBuilder_ == null) {
+          ensureMagUtIsMutable();
+          magUt_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          magUtBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public Builder addAllMagUt(
+          java.lang.Iterable<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d> values) {
+        if (magUtBuilder_ == null) {
+          ensureMagUtIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, magUt_);
+          onChanged();
+        } else {
+          magUtBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public Builder clearMagUt() {
+        if (magUtBuilder_ == null) {
+          magUt_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          magUtBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public Builder removeMagUt(int index) {
+        if (magUtBuilder_ == null) {
+          ensureMagUtIsMutable();
+          magUt_.remove(index);
+          onChanged();
+        } else {
+          magUtBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder getMagUtBuilder(
+          int index) {
+        return getMagUtFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder getMagUtOrBuilder(
+          int index) {
+        if (magUtBuilder_ == null) {
+          return magUt_.get(index);  } else {
+          return magUtBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public java.util.List<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder> 
+           getMagUtOrBuilderList() {
+        if (magUtBuilder_ != null) {
+          return magUtBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(magUt_);
+        }
+      }
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder addMagUtBuilder() {
+        return getMagUtFieldBuilder().addBuilder(
+            com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder addMagUtBuilder(
+          int index) {
+        return getMagUtFieldBuilder().addBuilder(
+            index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * The magnetometer measurements of the magnetic field in microtesla (uT) with
+       * increasing timestamps from devices.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Imu.Measurement3d mag_ut = 3;</code>
+       */
+      public java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder> 
+           getMagUtBuilderList() {
+        return getMagUtFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder> 
+          getMagUtFieldBuilder() {
+        if (magUtBuilder_ == null) {
+          magUtBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3d.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Measurement3dOrBuilder>(
+                  magUt_,
+                  ((bitField0_ & 0x00000004) != 0),
+                  getParentForChildren(),
+                  isClean());
+          magUt_ = null;
+        }
+        return magUtBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.streetview.publish.v1.Imu)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.streetview.publish.v1.Imu)
+    private static final com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu();
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Imu>
+        PARSER = new com.google.protobuf.AbstractParser<Imu>() {
+      @java.lang.Override
+      public Imu parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<Imu> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Imu> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3796,63 +7577,6 @@ public final class StreetViewPublishResources {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Place(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              placeId_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              languageCode_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_Place_descriptor;
@@ -3867,7 +7591,8 @@ public final class StreetViewPublishResources {
     }
 
     public static final int PLACE_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object placeId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object placeId_ = "";
     /**
      * <pre>
      * Place identifier, as described in
@@ -3915,7 +7640,8 @@ public final class StreetViewPublishResources {
     }
 
     public static final int NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Output only. The name of the place, localized to the language_code.
@@ -3961,7 +7687,8 @@ public final class StreetViewPublishResources {
     }
 
     public static final int LANGUAGE_CODE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object languageCode_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object languageCode_ = "";
     /**
      * <pre>
      * Output only. The language_code that the name is localized with. This should
@@ -4031,7 +7758,7 @@ public final class StreetViewPublishResources {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, languageCode_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4049,7 +7776,7 @@ public final class StreetViewPublishResources {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, languageCode_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4070,7 +7797,7 @@ public final class StreetViewPublishResources {
           .equals(other.getName())) return false;
       if (!getLanguageCode()
           .equals(other.getLanguageCode())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4087,7 +7814,7 @@ public final class StreetViewPublishResources {
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + LANGUAGE_CODE_FIELD_NUMBER;
       hash = (53 * hash) + getLanguageCode().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4208,28 +7935,21 @@ public final class StreetViewPublishResources {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Place.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         placeId_ = "";
-
         name_ = "";
-
         languageCode_ = "";
-
         return this;
       }
 
@@ -4256,11 +7976,22 @@ public final class StreetViewPublishResources {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Place buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Place result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Place(this);
-        result.placeId_ = placeId_;
-        result.name_ = name_;
-        result.languageCode_ = languageCode_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Place result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.placeId_ = placeId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.languageCode_ = languageCode_;
+        }
       }
 
       @java.lang.Override
@@ -4309,17 +8040,20 @@ public final class StreetViewPublishResources {
         if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Place.getDefaultInstance()) return this;
         if (!other.getPlaceId().isEmpty()) {
           placeId_ = other.placeId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getLanguageCode().isEmpty()) {
           languageCode_ = other.languageCode_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4334,19 +8068,48 @@ public final class StreetViewPublishResources {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Place parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                placeId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                languageCode_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Place) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object placeId_ = "";
       /**
@@ -4404,11 +8167,9 @@ public final class StreetViewPublishResources {
        */
       public Builder setPlaceId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         placeId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4422,8 +8183,8 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder clearPlaceId() {
-        
         placeId_ = getDefaultInstance().getPlaceId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4439,12 +8200,10 @@ public final class StreetViewPublishResources {
        */
       public Builder setPlaceIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         placeId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4502,11 +8261,9 @@ public final class StreetViewPublishResources {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4519,8 +8276,8 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -4535,12 +8292,10 @@ public final class StreetViewPublishResources {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4601,11 +8356,9 @@ public final class StreetViewPublishResources {
        */
       public Builder setLanguageCode(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         languageCode_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -4619,8 +8372,8 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder clearLanguageCode() {
-        
         languageCode_ = getDefaultInstance().getLanguageCode();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -4636,12 +8389,10 @@ public final class StreetViewPublishResources {
        */
       public Builder setLanguageCodeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         languageCode_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -4678,7 +8429,18 @@ public final class StreetViewPublishResources {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Place(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4763,58 +8525,6 @@ public final class StreetViewPublishResources {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Connection(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId.Builder subBuilder = null;
-              if (target_ != null) {
-                subBuilder = target_.toBuilder();
-              }
-              target_ = input.readMessage(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(target_);
-                target_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_Connection_descriptor;
@@ -4866,7 +8576,7 @@ public final class StreetViewPublishResources {
      */
     @java.lang.Override
     public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoIdOrBuilder getTargetOrBuilder() {
-      return getTarget();
+      return target_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId.getDefaultInstance() : target_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4886,7 +8596,7 @@ public final class StreetViewPublishResources {
       if (target_ != null) {
         output.writeMessage(1, getTarget());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4899,7 +8609,7 @@ public final class StreetViewPublishResources {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getTarget());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4919,7 +8629,7 @@ public final class StreetViewPublishResources {
         if (!getTarget()
             .equals(other.getTarget())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4934,7 +8644,7 @@ public final class StreetViewPublishResources {
         hash = (37 * hash) + TARGET_FIELD_NUMBER;
         hash = (53 * hash) + getTarget().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5055,26 +8765,21 @@ public final class StreetViewPublishResources {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Connection.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (targetBuilder_ == null) {
-          target_ = null;
-        } else {
-          target_ = null;
+        bitField0_ = 0;
+        target_ = null;
+        if (targetBuilder_ != null) {
+          targetBuilder_.dispose();
           targetBuilder_ = null;
         }
         return this;
@@ -5103,13 +8808,18 @@ public final class StreetViewPublishResources {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Connection buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Connection result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Connection(this);
-        if (targetBuilder_ == null) {
-          result.target_ = target_;
-        } else {
-          result.target_ = targetBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Connection result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.target_ = targetBuilder_ == null
+              ? target_
+              : targetBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -5159,7 +8869,7 @@ public final class StreetViewPublishResources {
         if (other.hasTarget()) {
           mergeTarget(other.getTarget());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5174,19 +8884,40 @@ public final class StreetViewPublishResources {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Connection parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getTargetFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Connection) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId target_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -5201,7 +8932,7 @@ public final class StreetViewPublishResources {
        * @return Whether the target field is set.
        */
       public boolean hasTarget() {
-        return targetBuilder_ != null || target_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -5233,11 +8964,11 @@ public final class StreetViewPublishResources {
             throw new NullPointerException();
           }
           target_ = value;
-          onChanged();
         } else {
           targetBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -5252,11 +8983,11 @@ public final class StreetViewPublishResources {
           com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId.Builder builderForValue) {
         if (targetBuilder_ == null) {
           target_ = builderForValue.build();
-          onChanged();
         } else {
           targetBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -5269,17 +9000,18 @@ public final class StreetViewPublishResources {
        */
       public Builder mergeTarget(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId value) {
         if (targetBuilder_ == null) {
-          if (target_ != null) {
-            target_ =
-              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId.newBuilder(target_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            target_ != null &&
+            target_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId.getDefaultInstance()) {
+            getTargetBuilder().mergeFrom(value);
           } else {
             target_ = value;
           }
-          onChanged();
         } else {
           targetBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -5291,14 +9023,13 @@ public final class StreetViewPublishResources {
        * <code>.google.streetview.publish.v1.PhotoId target = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearTarget() {
-        if (targetBuilder_ == null) {
-          target_ = null;
-          onChanged();
-        } else {
-          target_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        target_ = null;
+        if (targetBuilder_ != null) {
+          targetBuilder_.dispose();
           targetBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -5310,7 +9041,7 @@ public final class StreetViewPublishResources {
        * <code>.google.streetview.publish.v1.PhotoId target = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId.Builder getTargetBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getTargetFieldBuilder().getBuilder();
       }
@@ -5384,7 +9115,18 @@ public final class StreetViewPublishResources {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Connection(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5804,170 +9546,6 @@ public final class StreetViewPublishResources {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Photo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId.Builder subBuilder = null;
-              if (photoId_ != null) {
-                subBuilder = photoId_.toBuilder();
-              }
-              photoId_ = input.readMessage(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(photoId_);
-                photoId_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.Builder subBuilder = null;
-              if (uploadReference_ != null) {
-                subBuilder = uploadReference_.toBuilder();
-              }
-              uploadReference_ = input.readMessage(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(uploadReference_);
-                uploadReference_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              downloadUrl_ = s;
-              break;
-            }
-            case 34: {
-              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.Builder subBuilder = null;
-              if (pose_ != null) {
-                subBuilder = pose_.toBuilder();
-              }
-              pose_ = input.readMessage(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(pose_);
-                pose_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                connections_ = new java.util.ArrayList<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Connection>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              connections_.add(
-                  input.readMessage(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Connection.parser(), extensionRegistry));
-              break;
-            }
-            case 50: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (captureTime_ != null) {
-                subBuilder = captureTime_.toBuilder();
-              }
-              captureTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(captureTime_);
-                captureTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 58: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                places_ = new java.util.ArrayList<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Place>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              places_.add(
-                  input.readMessage(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Place.parser(), extensionRegistry));
-              break;
-            }
-            case 74: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              thumbnailUrl_ = s;
-              break;
-            }
-            case 80: {
-
-              viewCount_ = input.readInt64();
-              break;
-            }
-            case 90: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              shareLink_ = s;
-              break;
-            }
-            case 96: {
-              int rawValue = input.readEnum();
-
-              transferStatus_ = rawValue;
-              break;
-            }
-            case 104: {
-              int rawValue = input.readEnum();
-
-              mapsPublishStatus_ = rawValue;
-              break;
-            }
-            case 114: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (uploadTime_ != null) {
-                subBuilder = uploadTime_.toBuilder();
-              }
-              uploadTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(uploadTime_);
-                uploadTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          connections_ = java.util.Collections.unmodifiableList(connections_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          places_ = java.util.Collections.unmodifiableList(places_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -6402,7 +9980,7 @@ public final class StreetViewPublishResources {
      */
     @java.lang.Override
     public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoIdOrBuilder getPhotoIdOrBuilder() {
-      return getPhotoId();
+      return photoId_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId.getDefaultInstance() : photoId_;
     }
 
     public static final int UPLOAD_REFERENCE_FIELD_NUMBER = 2;
@@ -6443,11 +10021,12 @@ public final class StreetViewPublishResources {
      */
     @java.lang.Override
     public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRefOrBuilder getUploadReferenceOrBuilder() {
-      return getUploadReference();
+      return uploadReference_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.getDefaultInstance() : uploadReference_;
     }
 
     public static final int DOWNLOAD_URL_FIELD_NUMBER = 3;
-    private volatile java.lang.Object downloadUrl_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object downloadUrl_ = "";
     /**
      * <pre>
      * Output only. The download URL for the photo bytes. This field is set only
@@ -6501,7 +10080,8 @@ public final class StreetViewPublishResources {
     }
 
     public static final int THUMBNAIL_URL_FIELD_NUMBER = 9;
-    private volatile java.lang.Object thumbnailUrl_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object thumbnailUrl_ = "";
     /**
      * <pre>
      * Output only. The thumbnail URL for showing a preview of the given photo.
@@ -6547,7 +10127,8 @@ public final class StreetViewPublishResources {
     }
 
     public static final int SHARE_LINK_FIELD_NUMBER = 11;
-    private volatile java.lang.Object shareLink_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object shareLink_ = "";
     /**
      * <pre>
      * Output only. The share link for the photo.
@@ -6627,10 +10208,11 @@ public final class StreetViewPublishResources {
      */
     @java.lang.Override
     public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PoseOrBuilder getPoseOrBuilder() {
-      return getPose();
+      return pose_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.getDefaultInstance() : pose_;
     }
 
     public static final int CONNECTIONS_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Connection> connections_;
     /**
      * <pre>
@@ -6736,7 +10318,7 @@ public final class StreetViewPublishResources {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getCaptureTimeOrBuilder() {
-      return getCaptureTime();
+      return captureTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : captureTime_;
     }
 
     public static final int UPLOAD_TIME_FIELD_NUMBER = 14;
@@ -6774,10 +10356,11 @@ public final class StreetViewPublishResources {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getUploadTimeOrBuilder() {
-      return getUploadTime();
+      return uploadTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : uploadTime_;
     }
 
     public static final int PLACES_FIELD_NUMBER = 7;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Place> places_;
     /**
      * <pre>
@@ -6838,7 +10421,7 @@ public final class StreetViewPublishResources {
     }
 
     public static final int VIEW_COUNT_FIELD_NUMBER = 10;
-    private long viewCount_;
+    private long viewCount_ = 0L;
     /**
      * <pre>
      * Output only. View count of the photo.
@@ -6853,7 +10436,7 @@ public final class StreetViewPublishResources {
     }
 
     public static final int TRANSFER_STATUS_FIELD_NUMBER = 12;
-    private int transferStatus_;
+    private int transferStatus_ = 0;
     /**
      * <pre>
      * Output only. Status of rights transfer on this photo.
@@ -6874,13 +10457,12 @@ public final class StreetViewPublishResources {
      * @return The transferStatus.
      */
     @java.lang.Override public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.TransferStatus getTransferStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.TransferStatus result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.TransferStatus.valueOf(transferStatus_);
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.TransferStatus result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.TransferStatus.forNumber(transferStatus_);
       return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.TransferStatus.UNRECOGNIZED : result;
     }
 
     public static final int MAPS_PUBLISH_STATUS_FIELD_NUMBER = 13;
-    private int mapsPublishStatus_;
+    private int mapsPublishStatus_ = 0;
     /**
      * <pre>
      * Output only. Status in Google Maps, whether this photo was published or rejected.
@@ -6901,8 +10483,7 @@ public final class StreetViewPublishResources {
      * @return The mapsPublishStatus.
      */
     @java.lang.Override public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.MapsPublishStatus getMapsPublishStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.MapsPublishStatus result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.MapsPublishStatus.valueOf(mapsPublishStatus_);
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.MapsPublishStatus result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.MapsPublishStatus.forNumber(mapsPublishStatus_);
       return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.MapsPublishStatus.UNRECOGNIZED : result;
     }
 
@@ -6959,7 +10540,7 @@ public final class StreetViewPublishResources {
       if (uploadTime_ != null) {
         output.writeMessage(14, getUploadTime());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -7017,7 +10598,7 @@ public final class StreetViewPublishResources {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(14, getUploadTime());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7071,7 +10652,7 @@ public final class StreetViewPublishResources {
           != other.getViewCount()) return false;
       if (transferStatus_ != other.transferStatus_) return false;
       if (mapsPublishStatus_ != other.mapsPublishStatus_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -7123,7 +10704,7 @@ public final class StreetViewPublishResources {
       hash = (53 * hash) + transferStatus_;
       hash = (37 * hash) + MAPS_PUBLISH_STATUS_FIELD_NUMBER;
       hash = (53 * hash) + mapsPublishStatus_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7244,78 +10825,63 @@ public final class StreetViewPublishResources {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getConnectionsFieldBuilder();
-          getPlacesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (photoIdBuilder_ == null) {
-          photoId_ = null;
-        } else {
-          photoId_ = null;
+        bitField0_ = 0;
+        photoId_ = null;
+        if (photoIdBuilder_ != null) {
+          photoIdBuilder_.dispose();
           photoIdBuilder_ = null;
         }
-        if (uploadReferenceBuilder_ == null) {
-          uploadReference_ = null;
-        } else {
-          uploadReference_ = null;
+        uploadReference_ = null;
+        if (uploadReferenceBuilder_ != null) {
+          uploadReferenceBuilder_.dispose();
           uploadReferenceBuilder_ = null;
         }
         downloadUrl_ = "";
-
         thumbnailUrl_ = "";
-
         shareLink_ = "";
-
-        if (poseBuilder_ == null) {
-          pose_ = null;
-        } else {
-          pose_ = null;
+        pose_ = null;
+        if (poseBuilder_ != null) {
+          poseBuilder_.dispose();
           poseBuilder_ = null;
         }
         if (connectionsBuilder_ == null) {
           connections_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          connections_ = null;
           connectionsBuilder_.clear();
         }
-        if (captureTimeBuilder_ == null) {
-          captureTime_ = null;
-        } else {
-          captureTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        captureTime_ = null;
+        if (captureTimeBuilder_ != null) {
+          captureTimeBuilder_.dispose();
           captureTimeBuilder_ = null;
         }
-        if (uploadTimeBuilder_ == null) {
-          uploadTime_ = null;
-        } else {
-          uploadTime_ = null;
+        uploadTime_ = null;
+        if (uploadTimeBuilder_ != null) {
+          uploadTimeBuilder_.dispose();
           uploadTimeBuilder_ = null;
         }
         if (placesBuilder_ == null) {
           places_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          places_ = null;
           placesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000200);
         viewCount_ = 0L;
-
         transferStatus_ = 0;
-
         mapsPublishStatus_ = 0;
-
         return this;
       }
 
@@ -7342,58 +10908,78 @@ public final class StreetViewPublishResources {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo(this);
-        int from_bitField0_ = bitField0_;
-        if (photoIdBuilder_ == null) {
-          result.photoId_ = photoId_;
-        } else {
-          result.photoId_ = photoIdBuilder_.build();
-        }
-        if (uploadReferenceBuilder_ == null) {
-          result.uploadReference_ = uploadReference_;
-        } else {
-          result.uploadReference_ = uploadReferenceBuilder_.build();
-        }
-        result.downloadUrl_ = downloadUrl_;
-        result.thumbnailUrl_ = thumbnailUrl_;
-        result.shareLink_ = shareLink_;
-        if (poseBuilder_ == null) {
-          result.pose_ = pose_;
-        } else {
-          result.pose_ = poseBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo result) {
         if (connectionsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000040) != 0)) {
             connections_ = java.util.Collections.unmodifiableList(connections_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000040);
           }
           result.connections_ = connections_;
         } else {
           result.connections_ = connectionsBuilder_.build();
         }
-        if (captureTimeBuilder_ == null) {
-          result.captureTime_ = captureTime_;
-        } else {
-          result.captureTime_ = captureTimeBuilder_.build();
-        }
-        if (uploadTimeBuilder_ == null) {
-          result.uploadTime_ = uploadTime_;
-        } else {
-          result.uploadTime_ = uploadTimeBuilder_.build();
-        }
         if (placesBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000200) != 0)) {
             places_ = java.util.Collections.unmodifiableList(places_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000200);
           }
           result.places_ = places_;
         } else {
           result.places_ = placesBuilder_.build();
         }
-        result.viewCount_ = viewCount_;
-        result.transferStatus_ = transferStatus_;
-        result.mapsPublishStatus_ = mapsPublishStatus_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.photoId_ = photoIdBuilder_ == null
+              ? photoId_
+              : photoIdBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.uploadReference_ = uploadReferenceBuilder_ == null
+              ? uploadReference_
+              : uploadReferenceBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.downloadUrl_ = downloadUrl_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.thumbnailUrl_ = thumbnailUrl_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.shareLink_ = shareLink_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.pose_ = poseBuilder_ == null
+              ? pose_
+              : poseBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.captureTime_ = captureTimeBuilder_ == null
+              ? captureTime_
+              : captureTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.uploadTime_ = uploadTimeBuilder_ == null
+              ? uploadTime_
+              : uploadTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.viewCount_ = viewCount_;
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.transferStatus_ = transferStatus_;
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.mapsPublishStatus_ = mapsPublishStatus_;
+        }
       }
 
       @java.lang.Override
@@ -7448,14 +11034,17 @@ public final class StreetViewPublishResources {
         }
         if (!other.getDownloadUrl().isEmpty()) {
           downloadUrl_ = other.downloadUrl_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getThumbnailUrl().isEmpty()) {
           thumbnailUrl_ = other.thumbnailUrl_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (!other.getShareLink().isEmpty()) {
           shareLink_ = other.shareLink_;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
         if (other.hasPose()) {
@@ -7465,7 +11054,7 @@ public final class StreetViewPublishResources {
           if (!other.connections_.isEmpty()) {
             if (connections_.isEmpty()) {
               connections_ = other.connections_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000040);
             } else {
               ensureConnectionsIsMutable();
               connections_.addAll(other.connections_);
@@ -7478,7 +11067,7 @@ public final class StreetViewPublishResources {
               connectionsBuilder_.dispose();
               connectionsBuilder_ = null;
               connections_ = other.connections_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000040);
               connectionsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getConnectionsFieldBuilder() : null;
@@ -7497,7 +11086,7 @@ public final class StreetViewPublishResources {
           if (!other.places_.isEmpty()) {
             if (places_.isEmpty()) {
               places_ = other.places_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000200);
             } else {
               ensurePlacesIsMutable();
               places_.addAll(other.places_);
@@ -7510,7 +11099,7 @@ public final class StreetViewPublishResources {
               placesBuilder_.dispose();
               placesBuilder_ = null;
               places_ = other.places_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000200);
               placesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getPlacesFieldBuilder() : null;
@@ -7528,7 +11117,7 @@ public final class StreetViewPublishResources {
         if (other.mapsPublishStatus_ != 0) {
           setMapsPublishStatusValue(other.getMapsPublishStatusValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -7543,17 +11132,121 @@ public final class StreetViewPublishResources {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getPhotoIdFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getUploadReferenceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                downloadUrl_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getPoseFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 34
+              case 42: {
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Connection m =
+                    input.readMessage(
+                        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Connection.parser(),
+                        extensionRegistry);
+                if (connectionsBuilder_ == null) {
+                  ensureConnectionsIsMutable();
+                  connections_.add(m);
+                } else {
+                  connectionsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 42
+              case 50: {
+                input.readMessage(
+                    getCaptureTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 50
+              case 58: {
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Place m =
+                    input.readMessage(
+                        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Place.parser(),
+                        extensionRegistry);
+                if (placesBuilder_ == null) {
+                  ensurePlacesIsMutable();
+                  places_.add(m);
+                } else {
+                  placesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 58
+              case 74: {
+                thumbnailUrl_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 74
+              case 80: {
+                viewCount_ = input.readInt64();
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 80
+              case 90: {
+                shareLink_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 90
+              case 96: {
+                transferStatus_ = input.readEnum();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 96
+              case 104: {
+                mapsPublishStatus_ = input.readEnum();
+                bitField0_ |= 0x00001000;
+                break;
+              } // case 104
+              case 114: {
+                input.readMessage(
+                    getUploadTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 114
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -7572,7 +11265,7 @@ public final class StreetViewPublishResources {
        * @return Whether the photoId field is set.
        */
       public boolean hasPhotoId() {
-        return photoIdBuilder_ != null || photoId_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -7606,11 +11299,11 @@ public final class StreetViewPublishResources {
             throw new NullPointerException();
           }
           photoId_ = value;
-          onChanged();
         } else {
           photoIdBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -7626,11 +11319,11 @@ public final class StreetViewPublishResources {
           com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId.Builder builderForValue) {
         if (photoIdBuilder_ == null) {
           photoId_ = builderForValue.build();
-          onChanged();
         } else {
           photoIdBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -7644,17 +11337,18 @@ public final class StreetViewPublishResources {
        */
       public Builder mergePhotoId(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId value) {
         if (photoIdBuilder_ == null) {
-          if (photoId_ != null) {
-            photoId_ =
-              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId.newBuilder(photoId_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            photoId_ != null &&
+            photoId_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId.getDefaultInstance()) {
+            getPhotoIdBuilder().mergeFrom(value);
           } else {
             photoId_ = value;
           }
-          onChanged();
         } else {
           photoIdBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -7667,14 +11361,13 @@ public final class StreetViewPublishResources {
        * <code>.google.streetview.publish.v1.PhotoId photo_id = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearPhotoId() {
-        if (photoIdBuilder_ == null) {
-          photoId_ = null;
-          onChanged();
-        } else {
-          photoId_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        photoId_ = null;
+        if (photoIdBuilder_ != null) {
+          photoIdBuilder_.dispose();
           photoIdBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -7687,7 +11380,7 @@ public final class StreetViewPublishResources {
        * <code>.google.streetview.publish.v1.PhotoId photo_id = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoId.Builder getPhotoIdBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getPhotoIdFieldBuilder().getBuilder();
       }
@@ -7744,7 +11437,7 @@ public final class StreetViewPublishResources {
        * @return Whether the uploadReference field is set.
        */
       public boolean hasUploadReference() {
-        return uploadReferenceBuilder_ != null || uploadReference_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -7776,11 +11469,11 @@ public final class StreetViewPublishResources {
             throw new NullPointerException();
           }
           uploadReference_ = value;
-          onChanged();
         } else {
           uploadReferenceBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -7795,11 +11488,11 @@ public final class StreetViewPublishResources {
           com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.Builder builderForValue) {
         if (uploadReferenceBuilder_ == null) {
           uploadReference_ = builderForValue.build();
-          onChanged();
         } else {
           uploadReferenceBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -7812,17 +11505,18 @@ public final class StreetViewPublishResources {
        */
       public Builder mergeUploadReference(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef value) {
         if (uploadReferenceBuilder_ == null) {
-          if (uploadReference_ != null) {
-            uploadReference_ =
-              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.newBuilder(uploadReference_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            uploadReference_ != null &&
+            uploadReference_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.getDefaultInstance()) {
+            getUploadReferenceBuilder().mergeFrom(value);
           } else {
             uploadReference_ = value;
           }
-          onChanged();
         } else {
           uploadReferenceBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -7834,14 +11528,13 @@ public final class StreetViewPublishResources {
        * <code>.google.streetview.publish.v1.UploadRef upload_reference = 2 [(.google.api.field_behavior) = INPUT_ONLY];</code>
        */
       public Builder clearUploadReference() {
-        if (uploadReferenceBuilder_ == null) {
-          uploadReference_ = null;
-          onChanged();
-        } else {
-          uploadReference_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        uploadReference_ = null;
+        if (uploadReferenceBuilder_ != null) {
+          uploadReferenceBuilder_.dispose();
           uploadReferenceBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -7853,7 +11546,7 @@ public final class StreetViewPublishResources {
        * <code>.google.streetview.publish.v1.UploadRef upload_reference = 2 [(.google.api.field_behavior) = INPUT_ONLY];</code>
        */
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.Builder getUploadReferenceBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getUploadReferenceFieldBuilder().getBuilder();
       }
@@ -7960,11 +11653,9 @@ public final class StreetViewPublishResources {
        */
       public Builder setDownloadUrl(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         downloadUrl_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -7981,8 +11672,8 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder clearDownloadUrl() {
-        
         downloadUrl_ = getDefaultInstance().getDownloadUrl();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -8001,12 +11692,10 @@ public final class StreetViewPublishResources {
        */
       public Builder setDownloadUrlBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         downloadUrl_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -8064,11 +11753,9 @@ public final class StreetViewPublishResources {
        */
       public Builder setThumbnailUrl(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         thumbnailUrl_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -8081,8 +11768,8 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder clearThumbnailUrl() {
-        
         thumbnailUrl_ = getDefaultInstance().getThumbnailUrl();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -8097,12 +11784,10 @@ public final class StreetViewPublishResources {
        */
       public Builder setThumbnailUrlBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         thumbnailUrl_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -8160,11 +11845,9 @@ public final class StreetViewPublishResources {
        */
       public Builder setShareLink(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         shareLink_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -8177,8 +11860,8 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder clearShareLink() {
-        
         shareLink_ = getDefaultInstance().getShareLink();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -8193,12 +11876,10 @@ public final class StreetViewPublishResources {
        */
       public Builder setShareLinkBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         shareLink_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -8215,7 +11896,7 @@ public final class StreetViewPublishResources {
        * @return Whether the pose field is set.
        */
       public boolean hasPose() {
-        return poseBuilder_ != null || pose_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -8245,11 +11926,11 @@ public final class StreetViewPublishResources {
             throw new NullPointerException();
           }
           pose_ = value;
-          onChanged();
         } else {
           poseBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -8263,11 +11944,11 @@ public final class StreetViewPublishResources {
           com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.Builder builderForValue) {
         if (poseBuilder_ == null) {
           pose_ = builderForValue.build();
-          onChanged();
         } else {
           poseBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -8279,17 +11960,18 @@ public final class StreetViewPublishResources {
        */
       public Builder mergePose(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose value) {
         if (poseBuilder_ == null) {
-          if (pose_ != null) {
-            pose_ =
-              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.newBuilder(pose_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            pose_ != null &&
+            pose_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.getDefaultInstance()) {
+            getPoseBuilder().mergeFrom(value);
           } else {
             pose_ = value;
           }
-          onChanged();
         } else {
           poseBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -8300,14 +11982,13 @@ public final class StreetViewPublishResources {
        * <code>.google.streetview.publish.v1.Pose pose = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearPose() {
-        if (poseBuilder_ == null) {
-          pose_ = null;
-          onChanged();
-        } else {
-          pose_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        pose_ = null;
+        if (poseBuilder_ != null) {
+          poseBuilder_.dispose();
           poseBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -8318,7 +11999,7 @@ public final class StreetViewPublishResources {
        * <code>.google.streetview.publish.v1.Pose pose = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.Builder getPoseBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getPoseFieldBuilder().getBuilder();
       }
@@ -8361,9 +12042,9 @@ public final class StreetViewPublishResources {
       private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Connection> connections_ =
         java.util.Collections.emptyList();
       private void ensureConnectionsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000040) != 0)) {
           connections_ = new java.util.ArrayList<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Connection>(connections_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000040;
          }
       }
 
@@ -8568,7 +12249,7 @@ public final class StreetViewPublishResources {
       public Builder clearConnections() {
         if (connectionsBuilder_ == null) {
           connections_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000040);
           onChanged();
         } else {
           connectionsBuilder_.clear();
@@ -8680,7 +12361,7 @@ public final class StreetViewPublishResources {
           connectionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Connection, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Connection.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ConnectionOrBuilder>(
                   connections_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000040) != 0),
                   getParentForChildren(),
                   isClean());
           connections_ = null;
@@ -8702,7 +12383,7 @@ public final class StreetViewPublishResources {
        * @return Whether the captureTime field is set.
        */
       public boolean hasCaptureTime() {
-        return captureTimeBuilder_ != null || captureTime_ != null;
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
        * <pre>
@@ -8736,11 +12417,11 @@ public final class StreetViewPublishResources {
             throw new NullPointerException();
           }
           captureTime_ = value;
-          onChanged();
         } else {
           captureTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -8756,11 +12437,11 @@ public final class StreetViewPublishResources {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (captureTimeBuilder_ == null) {
           captureTime_ = builderForValue.build();
-          onChanged();
         } else {
           captureTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -8774,17 +12455,18 @@ public final class StreetViewPublishResources {
        */
       public Builder mergeCaptureTime(com.google.protobuf.Timestamp value) {
         if (captureTimeBuilder_ == null) {
-          if (captureTime_ != null) {
-            captureTime_ =
-              com.google.protobuf.Timestamp.newBuilder(captureTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000080) != 0) &&
+            captureTime_ != null &&
+            captureTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getCaptureTimeBuilder().mergeFrom(value);
           } else {
             captureTime_ = value;
           }
-          onChanged();
         } else {
           captureTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -8797,14 +12479,13 @@ public final class StreetViewPublishResources {
        * <code>.google.protobuf.Timestamp capture_time = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearCaptureTime() {
-        if (captureTimeBuilder_ == null) {
-          captureTime_ = null;
-          onChanged();
-        } else {
-          captureTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        captureTime_ = null;
+        if (captureTimeBuilder_ != null) {
+          captureTimeBuilder_.dispose();
           captureTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -8817,7 +12498,7 @@ public final class StreetViewPublishResources {
        * <code>.google.protobuf.Timestamp capture_time = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.protobuf.Timestamp.Builder getCaptureTimeBuilder() {
-        
+        bitField0_ |= 0x00000080;
         onChanged();
         return getCaptureTimeFieldBuilder().getBuilder();
       }
@@ -8873,7 +12554,7 @@ public final class StreetViewPublishResources {
        * @return Whether the uploadTime field is set.
        */
       public boolean hasUploadTime() {
-        return uploadTimeBuilder_ != null || uploadTime_ != null;
+        return ((bitField0_ & 0x00000100) != 0);
       }
       /**
        * <pre>
@@ -8903,11 +12584,11 @@ public final class StreetViewPublishResources {
             throw new NullPointerException();
           }
           uploadTime_ = value;
-          onChanged();
         } else {
           uploadTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -8921,11 +12602,11 @@ public final class StreetViewPublishResources {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (uploadTimeBuilder_ == null) {
           uploadTime_ = builderForValue.build();
-          onChanged();
         } else {
           uploadTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -8937,17 +12618,18 @@ public final class StreetViewPublishResources {
        */
       public Builder mergeUploadTime(com.google.protobuf.Timestamp value) {
         if (uploadTimeBuilder_ == null) {
-          if (uploadTime_ != null) {
-            uploadTime_ =
-              com.google.protobuf.Timestamp.newBuilder(uploadTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000100) != 0) &&
+            uploadTime_ != null &&
+            uploadTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getUploadTimeBuilder().mergeFrom(value);
           } else {
             uploadTime_ = value;
           }
-          onChanged();
         } else {
           uploadTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -8958,14 +12640,13 @@ public final class StreetViewPublishResources {
        * <code>.google.protobuf.Timestamp upload_time = 14 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearUploadTime() {
-        if (uploadTimeBuilder_ == null) {
-          uploadTime_ = null;
-          onChanged();
-        } else {
-          uploadTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        uploadTime_ = null;
+        if (uploadTimeBuilder_ != null) {
+          uploadTimeBuilder_.dispose();
           uploadTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -8976,7 +12657,7 @@ public final class StreetViewPublishResources {
        * <code>.google.protobuf.Timestamp upload_time = 14 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.protobuf.Timestamp.Builder getUploadTimeBuilder() {
-        
+        bitField0_ |= 0x00000100;
         onChanged();
         return getUploadTimeFieldBuilder().getBuilder();
       }
@@ -9019,9 +12700,9 @@ public final class StreetViewPublishResources {
       private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Place> places_ =
         java.util.Collections.emptyList();
       private void ensurePlacesIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000200) != 0)) {
           places_ = new java.util.ArrayList<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Place>(places_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000200;
          }
       }
 
@@ -9215,7 +12896,7 @@ public final class StreetViewPublishResources {
       public Builder clearPlaces() {
         if (placesBuilder_ == null) {
           places_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000200);
           onChanged();
         } else {
           placesBuilder_.clear();
@@ -9320,7 +13001,7 @@ public final class StreetViewPublishResources {
           placesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Place, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Place.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PlaceOrBuilder>(
                   places_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000200) != 0),
                   getParentForChildren(),
                   isClean());
           places_ = null;
@@ -9353,6 +13034,7 @@ public final class StreetViewPublishResources {
       public Builder setViewCount(long value) {
         
         viewCount_ = value;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -9365,7 +13047,7 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder clearViewCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000400);
         viewCount_ = 0L;
         onChanged();
         return this;
@@ -9393,8 +13075,8 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder setTransferStatusValue(int value) {
-        
         transferStatus_ = value;
+        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -9408,8 +13090,7 @@ public final class StreetViewPublishResources {
        */
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.TransferStatus getTransferStatus() {
-        @SuppressWarnings("deprecation")
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.TransferStatus result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.TransferStatus.valueOf(transferStatus_);
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.TransferStatus result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.TransferStatus.forNumber(transferStatus_);
         return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.TransferStatus.UNRECOGNIZED : result;
       }
       /**
@@ -9425,7 +13106,7 @@ public final class StreetViewPublishResources {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000800;
         transferStatus_ = value.getNumber();
         onChanged();
         return this;
@@ -9439,7 +13120,7 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder clearTransferStatus() {
-        
+        bitField0_ = (bitField0_ & ~0x00000800);
         transferStatus_ = 0;
         onChanged();
         return this;
@@ -9467,8 +13148,8 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder setMapsPublishStatusValue(int value) {
-        
         mapsPublishStatus_ = value;
+        bitField0_ |= 0x00001000;
         onChanged();
         return this;
       }
@@ -9482,8 +13163,7 @@ public final class StreetViewPublishResources {
        */
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.MapsPublishStatus getMapsPublishStatus() {
-        @SuppressWarnings("deprecation")
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.MapsPublishStatus result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.MapsPublishStatus.valueOf(mapsPublishStatus_);
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.MapsPublishStatus result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.MapsPublishStatus.forNumber(mapsPublishStatus_);
         return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.MapsPublishStatus.UNRECOGNIZED : result;
       }
       /**
@@ -9499,7 +13179,7 @@ public final class StreetViewPublishResources {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00001000;
         mapsPublishStatus_ = value.getNumber();
         onChanged();
         return this;
@@ -9513,7 +13193,7 @@ public final class StreetViewPublishResources {
        * @return This builder for chaining.
        */
       public Builder clearMapsPublishStatus() {
-        
+        bitField0_ = (bitField0_ & ~0x00001000);
         mapsPublishStatus_ = 0;
         onChanged();
         return this;
@@ -9551,7 +13231,18 @@ public final class StreetViewPublishResources {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Photo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9566,6 +13257,10121 @@ public final class StreetViewPublishResources {
 
     @java.lang.Override
     public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PhotoSequenceOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.streetview.publish.v1.PhotoSequence)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Output only. Unique identifier for the photo sequence.
+     * This also acts as a long running operation ID if uploading is performed
+     * asynchronously.
+     * </pre>
+     *
+     * <code>string id = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <pre>
+     * Output only. Unique identifier for the photo sequence.
+     * This also acts as a long running operation ID if uploading is performed
+     * asynchronously.
+     * </pre>
+     *
+     * <code>string id = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <pre>
+     * Output only. Photos with increasing timestamps.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo> 
+        getPhotosList();
+    /**
+     * <pre>
+     * Output only. Photos with increasing timestamps.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo getPhotos(int index);
+    /**
+     * <pre>
+     * Output only. Photos with increasing timestamps.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    int getPhotosCount();
+    /**
+     * <pre>
+     * Output only. Photos with increasing timestamps.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    java.util.List<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoOrBuilder> 
+        getPhotosOrBuilderList();
+    /**
+     * <pre>
+     * Output only. Photos with increasing timestamps.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoOrBuilder getPhotosOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * Input only. Required when creating photo sequence. The resource name
+     * where the bytes of the photo sequence (in the form of video) are uploaded.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.UploadRef upload_reference = 3 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     * @return Whether the uploadReference field is set.
+     */
+    boolean hasUploadReference();
+    /**
+     * <pre>
+     * Input only. Required when creating photo sequence. The resource name
+     * where the bytes of the photo sequence (in the form of video) are uploaded.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.UploadRef upload_reference = 3 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     * @return The uploadReference.
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef getUploadReference();
+    /**
+     * <pre>
+     * Input only. Required when creating photo sequence. The resource name
+     * where the bytes of the photo sequence (in the form of video) are uploaded.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.UploadRef upload_reference = 3 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRefOrBuilder getUploadReferenceOrBuilder();
+
+    /**
+     * <pre>
+     * Optional. Absolute time when the photo sequence starts to be captured.
+     * If the photo sequence is a video, this is the start time of the video.
+     * If this field is populated in input, it overrides the capture time in the
+     * video or XDM file.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp capture_time_override = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return Whether the captureTimeOverride field is set.
+     */
+    boolean hasCaptureTimeOverride();
+    /**
+     * <pre>
+     * Optional. Absolute time when the photo sequence starts to be captured.
+     * If the photo sequence is a video, this is the start time of the video.
+     * If this field is populated in input, it overrides the capture time in the
+     * video or XDM file.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp capture_time_override = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The captureTimeOverride.
+     */
+    com.google.protobuf.Timestamp getCaptureTimeOverride();
+    /**
+     * <pre>
+     * Optional. Absolute time when the photo sequence starts to be captured.
+     * If the photo sequence is a video, this is the start time of the video.
+     * If this field is populated in input, it overrides the capture time in the
+     * video or XDM file.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp capture_time_override = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getCaptureTimeOverrideOrBuilder();
+
+    /**
+     * <pre>
+     * Output only. The time this photo sequence was created in uSV Store service.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp upload_time = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return Whether the uploadTime field is set.
+     */
+    boolean hasUploadTime();
+    /**
+     * <pre>
+     * Output only. The time this photo sequence was created in uSV Store service.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp upload_time = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The uploadTime.
+     */
+    com.google.protobuf.Timestamp getUploadTime();
+    /**
+     * <pre>
+     * Output only. The time this photo sequence was created in uSV Store service.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp upload_time = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getUploadTimeOrBuilder();
+
+    /**
+     * <pre>
+     * Input only. Raw GPS measurements with increasing timestamps from the device that
+     * aren't time synced with each photo.
+     * These raw measurements will be used to infer the pose of each frame.
+     * Required in input when InputType is VIDEO and raw GPS measurements are not
+     * in Camera Motion Metadata Track (CAMM).
+     * User can indicate which takes precedence using gps_source if raw GPS
+     * measurements are provided in both raw_gps_timeline and
+     * Camera Motion Metadata Track (CAMM).
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     */
+    java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose> 
+        getRawGpsTimelineList();
+    /**
+     * <pre>
+     * Input only. Raw GPS measurements with increasing timestamps from the device that
+     * aren't time synced with each photo.
+     * These raw measurements will be used to infer the pose of each frame.
+     * Required in input when InputType is VIDEO and raw GPS measurements are not
+     * in Camera Motion Metadata Track (CAMM).
+     * User can indicate which takes precedence using gps_source if raw GPS
+     * measurements are provided in both raw_gps_timeline and
+     * Camera Motion Metadata Track (CAMM).
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose getRawGpsTimeline(int index);
+    /**
+     * <pre>
+     * Input only. Raw GPS measurements with increasing timestamps from the device that
+     * aren't time synced with each photo.
+     * These raw measurements will be used to infer the pose of each frame.
+     * Required in input when InputType is VIDEO and raw GPS measurements are not
+     * in Camera Motion Metadata Track (CAMM).
+     * User can indicate which takes precedence using gps_source if raw GPS
+     * measurements are provided in both raw_gps_timeline and
+     * Camera Motion Metadata Track (CAMM).
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     */
+    int getRawGpsTimelineCount();
+    /**
+     * <pre>
+     * Input only. Raw GPS measurements with increasing timestamps from the device that
+     * aren't time synced with each photo.
+     * These raw measurements will be used to infer the pose of each frame.
+     * Required in input when InputType is VIDEO and raw GPS measurements are not
+     * in Camera Motion Metadata Track (CAMM).
+     * User can indicate which takes precedence using gps_source if raw GPS
+     * measurements are provided in both raw_gps_timeline and
+     * Camera Motion Metadata Track (CAMM).
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     */
+    java.util.List<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PoseOrBuilder> 
+        getRawGpsTimelineOrBuilderList();
+    /**
+     * <pre>
+     * Input only. Raw GPS measurements with increasing timestamps from the device that
+     * aren't time synced with each photo.
+     * These raw measurements will be used to infer the pose of each frame.
+     * Required in input when InputType is VIDEO and raw GPS measurements are not
+     * in Camera Motion Metadata Track (CAMM).
+     * User can indicate which takes precedence using gps_source if raw GPS
+     * measurements are provided in both raw_gps_timeline and
+     * Camera Motion Metadata Track (CAMM).
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PoseOrBuilder getRawGpsTimelineOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * Input only. If both raw_gps_timeline and
+     * the Camera Motion Metadata Track (CAMM) contain GPS measurements,
+     * indicate which takes precedence.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.PhotoSequence.GpsSource gps_source = 8 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     * @return The enum numeric value on the wire for gpsSource.
+     */
+    int getGpsSourceValue();
+    /**
+     * <pre>
+     * Input only. If both raw_gps_timeline and
+     * the Camera Motion Metadata Track (CAMM) contain GPS measurements,
+     * indicate which takes precedence.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.PhotoSequence.GpsSource gps_source = 8 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     * @return The gpsSource.
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.GpsSource getGpsSource();
+
+    /**
+     * <pre>
+     * Input only. Three axis IMU data for the collection.
+     * If this data is too large to put in the request, then it should be put in
+     * the CAMM track for the video. This data always takes precedence over the
+     * equivalent CAMM data, if it exists.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.Imu imu = 11 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     * @return Whether the imu field is set.
+     */
+    boolean hasImu();
+    /**
+     * <pre>
+     * Input only. Three axis IMU data for the collection.
+     * If this data is too large to put in the request, then it should be put in
+     * the CAMM track for the video. This data always takes precedence over the
+     * equivalent CAMM data, if it exists.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.Imu imu = 11 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     * @return The imu.
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu getImu();
+    /**
+     * <pre>
+     * Input only. Three axis IMU data for the collection.
+     * If this data is too large to put in the request, then it should be put in
+     * the CAMM track for the video. This data always takes precedence over the
+     * equivalent CAMM data, if it exists.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.Imu imu = 11 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuOrBuilder getImuOrBuilder();
+
+    /**
+     * <pre>
+     * Output only. The processing state of this sequence.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ProcessingState processing_state = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The enum numeric value on the wire for processingState.
+     */
+    int getProcessingStateValue();
+    /**
+     * <pre>
+     * Output only. The processing state of this sequence.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ProcessingState processing_state = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The processingState.
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingState getProcessingState();
+
+    /**
+     * <pre>
+     * Output only. If this sequence has processing_state = FAILED, this will contain the
+     * reason why it failed. If the processing_state is any other value, this
+     * field will be unset.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ProcessingFailureReason failure_reason = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The enum numeric value on the wire for failureReason.
+     */
+    int getFailureReasonValue();
+    /**
+     * <pre>
+     * Output only. If this sequence has processing_state = FAILED, this will contain the
+     * reason why it failed. If the processing_state is any other value, this
+     * field will be unset.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ProcessingFailureReason failure_reason = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The failureReason.
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureReason getFailureReason();
+
+    /**
+     * <pre>
+     * Output only. If this sequence has `failure_reason` set, this may contain additional
+     * details about the failure.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ProcessingFailureDetails failure_details = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return Whether the failureDetails field is set.
+     */
+    boolean hasFailureDetails();
+    /**
+     * <pre>
+     * Output only. If this sequence has `failure_reason` set, this may contain additional
+     * details about the failure.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ProcessingFailureDetails failure_details = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The failureDetails.
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails getFailureDetails();
+    /**
+     * <pre>
+     * Output only. If this sequence has `failure_reason` set, this may contain additional
+     * details about the failure.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ProcessingFailureDetails failure_details = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetailsOrBuilder getFailureDetailsOrBuilder();
+
+    /**
+     * <pre>
+     * Output only. The computed distance of the photo sequence in meters.
+     * </pre>
+     *
+     * <code>double distance_meters = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The distanceMeters.
+     */
+    double getDistanceMeters();
+
+    /**
+     * <pre>
+     * Output only. A rectangular box that encapsulates every image in this photo sequence.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.LatLngBounds sequence_bounds = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return Whether the sequenceBounds field is set.
+     */
+    boolean hasSequenceBounds();
+    /**
+     * <pre>
+     * Output only. A rectangular box that encapsulates every image in this photo sequence.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.LatLngBounds sequence_bounds = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The sequenceBounds.
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds getSequenceBounds();
+    /**
+     * <pre>
+     * Output only. A rectangular box that encapsulates every image in this photo sequence.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.LatLngBounds sequence_bounds = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBoundsOrBuilder getSequenceBoundsOrBuilder();
+
+    /**
+     * <pre>
+     * Output only. The total number of views that all the published images in this
+     * PhotoSequence have received.
+     * </pre>
+     *
+     * <code>int64 view_count = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The viewCount.
+     */
+    long getViewCount();
+
+    /**
+     * <pre>
+     * Output only. The filename of the upload. Does not include the directory path. Only
+     * available if the sequence was uploaded on a platform that provides the
+     * filename.
+     * </pre>
+     *
+     * <code>string filename = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The filename.
+     */
+    java.lang.String getFilename();
+    /**
+     * <pre>
+     * Output only. The filename of the upload. Does not include the directory path. Only
+     * available if the sequence was uploaded on a platform that provides the
+     * filename.
+     * </pre>
+     *
+     * <code>string filename = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The bytes for filename.
+     */
+    com.google.protobuf.ByteString
+        getFilenameBytes();
+  }
+  /**
+   * <pre>
+   * A sequence of 360 photos along with metadata.
+   * </pre>
+   *
+   * Protobuf type {@code google.streetview.publish.v1.PhotoSequence}
+   */
+  public static final class PhotoSequence extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.streetview.publish.v1.PhotoSequence)
+      PhotoSequenceOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PhotoSequence.newBuilder() to construct.
+    private PhotoSequence(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PhotoSequence() {
+      id_ = "";
+      photos_ = java.util.Collections.emptyList();
+      rawGpsTimeline_ = java.util.Collections.emptyList();
+      gpsSource_ = 0;
+      processingState_ = 0;
+      failureReason_ = 0;
+      filename_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PhotoSequence();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_PhotoSequence_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_PhotoSequence_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.Builder.class);
+    }
+
+    /**
+     * <pre>
+     * Primary source of GPS measurements.
+     * </pre>
+     *
+     * Protobuf enum {@code google.streetview.publish.v1.PhotoSequence.GpsSource}
+     */
+    public enum GpsSource
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <pre>
+       * GPS in raw_gps_timeline takes precedence if it exists.
+       * </pre>
+       *
+       * <code>PHOTO_SEQUENCE = 0;</code>
+       */
+      PHOTO_SEQUENCE(0),
+      /**
+       * <pre>
+       * GPS in Camera Motion Metadata Track (CAMM) takes precedence if it exists.
+       * </pre>
+       *
+       * <code>CAMERA_MOTION_METADATA_TRACK = 1;</code>
+       */
+      CAMERA_MOTION_METADATA_TRACK(1),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <pre>
+       * GPS in raw_gps_timeline takes precedence if it exists.
+       * </pre>
+       *
+       * <code>PHOTO_SEQUENCE = 0;</code>
+       */
+      public static final int PHOTO_SEQUENCE_VALUE = 0;
+      /**
+       * <pre>
+       * GPS in Camera Motion Metadata Track (CAMM) takes precedence if it exists.
+       * </pre>
+       *
+       * <code>CAMERA_MOTION_METADATA_TRACK = 1;</code>
+       */
+      public static final int CAMERA_MOTION_METADATA_TRACK_VALUE = 1;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static GpsSource valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static GpsSource forNumber(int value) {
+        switch (value) {
+          case 0: return PHOTO_SEQUENCE;
+          case 1: return CAMERA_MOTION_METADATA_TRACK;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<GpsSource>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          GpsSource> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<GpsSource>() {
+              public GpsSource findValueByNumber(int number) {
+                return GpsSource.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final GpsSource[] VALUES = values();
+
+      public static GpsSource valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private GpsSource(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:google.streetview.publish.v1.PhotoSequence.GpsSource)
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
+    /**
+     * <pre>
+     * Output only. Unique identifier for the photo sequence.
+     * This also acts as a long running operation ID if uploading is performed
+     * asynchronously.
+     * </pre>
+     *
+     * <code>string id = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Output only. Unique identifier for the photo sequence.
+     * This also acts as a long running operation ID if uploading is performed
+     * asynchronously.
+     * </pre>
+     *
+     * <code>string id = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PHOTOS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo> photos_;
+    /**
+     * <pre>
+     * Output only. Photos with increasing timestamps.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo> getPhotosList() {
+      return photos_;
+    }
+    /**
+     * <pre>
+     * Output only. Photos with increasing timestamps.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoOrBuilder> 
+        getPhotosOrBuilderList() {
+      return photos_;
+    }
+    /**
+     * <pre>
+     * Output only. Photos with increasing timestamps.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    @java.lang.Override
+    public int getPhotosCount() {
+      return photos_.size();
+    }
+    /**
+     * <pre>
+     * Output only. Photos with increasing timestamps.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo getPhotos(int index) {
+      return photos_.get(index);
+    }
+    /**
+     * <pre>
+     * Output only. Photos with increasing timestamps.
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoOrBuilder getPhotosOrBuilder(
+        int index) {
+      return photos_.get(index);
+    }
+
+    public static final int UPLOAD_REFERENCE_FIELD_NUMBER = 3;
+    private com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef uploadReference_;
+    /**
+     * <pre>
+     * Input only. Required when creating photo sequence. The resource name
+     * where the bytes of the photo sequence (in the form of video) are uploaded.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.UploadRef upload_reference = 3 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     * @return Whether the uploadReference field is set.
+     */
+    @java.lang.Override
+    public boolean hasUploadReference() {
+      return uploadReference_ != null;
+    }
+    /**
+     * <pre>
+     * Input only. Required when creating photo sequence. The resource name
+     * where the bytes of the photo sequence (in the form of video) are uploaded.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.UploadRef upload_reference = 3 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     * @return The uploadReference.
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef getUploadReference() {
+      return uploadReference_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.getDefaultInstance() : uploadReference_;
+    }
+    /**
+     * <pre>
+     * Input only. Required when creating photo sequence. The resource name
+     * where the bytes of the photo sequence (in the form of video) are uploaded.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.UploadRef upload_reference = 3 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRefOrBuilder getUploadReferenceOrBuilder() {
+      return uploadReference_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.getDefaultInstance() : uploadReference_;
+    }
+
+    public static final int CAPTURE_TIME_OVERRIDE_FIELD_NUMBER = 4;
+    private com.google.protobuf.Timestamp captureTimeOverride_;
+    /**
+     * <pre>
+     * Optional. Absolute time when the photo sequence starts to be captured.
+     * If the photo sequence is a video, this is the start time of the video.
+     * If this field is populated in input, it overrides the capture time in the
+     * video or XDM file.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp capture_time_override = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return Whether the captureTimeOverride field is set.
+     */
+    @java.lang.Override
+    public boolean hasCaptureTimeOverride() {
+      return captureTimeOverride_ != null;
+    }
+    /**
+     * <pre>
+     * Optional. Absolute time when the photo sequence starts to be captured.
+     * If the photo sequence is a video, this is the start time of the video.
+     * If this field is populated in input, it overrides the capture time in the
+     * video or XDM file.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp capture_time_override = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The captureTimeOverride.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getCaptureTimeOverride() {
+      return captureTimeOverride_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : captureTimeOverride_;
+    }
+    /**
+     * <pre>
+     * Optional. Absolute time when the photo sequence starts to be captured.
+     * If the photo sequence is a video, this is the start time of the video.
+     * If this field is populated in input, it overrides the capture time in the
+     * video or XDM file.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp capture_time_override = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getCaptureTimeOverrideOrBuilder() {
+      return captureTimeOverride_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : captureTimeOverride_;
+    }
+
+    public static final int UPLOAD_TIME_FIELD_NUMBER = 18;
+    private com.google.protobuf.Timestamp uploadTime_;
+    /**
+     * <pre>
+     * Output only. The time this photo sequence was created in uSV Store service.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp upload_time = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return Whether the uploadTime field is set.
+     */
+    @java.lang.Override
+    public boolean hasUploadTime() {
+      return uploadTime_ != null;
+    }
+    /**
+     * <pre>
+     * Output only. The time this photo sequence was created in uSV Store service.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp upload_time = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The uploadTime.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getUploadTime() {
+      return uploadTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : uploadTime_;
+    }
+    /**
+     * <pre>
+     * Output only. The time this photo sequence was created in uSV Store service.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp upload_time = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getUploadTimeOrBuilder() {
+      return uploadTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : uploadTime_;
+    }
+
+    public static final int RAW_GPS_TIMELINE_FIELD_NUMBER = 7;
+    @SuppressWarnings("serial")
+    private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose> rawGpsTimeline_;
+    /**
+     * <pre>
+     * Input only. Raw GPS measurements with increasing timestamps from the device that
+     * aren't time synced with each photo.
+     * These raw measurements will be used to infer the pose of each frame.
+     * Required in input when InputType is VIDEO and raw GPS measurements are not
+     * in Camera Motion Metadata Track (CAMM).
+     * User can indicate which takes precedence using gps_source if raw GPS
+     * measurements are provided in both raw_gps_timeline and
+     * Camera Motion Metadata Track (CAMM).
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose> getRawGpsTimelineList() {
+      return rawGpsTimeline_;
+    }
+    /**
+     * <pre>
+     * Input only. Raw GPS measurements with increasing timestamps from the device that
+     * aren't time synced with each photo.
+     * These raw measurements will be used to infer the pose of each frame.
+     * Required in input when InputType is VIDEO and raw GPS measurements are not
+     * in Camera Motion Metadata Track (CAMM).
+     * User can indicate which takes precedence using gps_source if raw GPS
+     * measurements are provided in both raw_gps_timeline and
+     * Camera Motion Metadata Track (CAMM).
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PoseOrBuilder> 
+        getRawGpsTimelineOrBuilderList() {
+      return rawGpsTimeline_;
+    }
+    /**
+     * <pre>
+     * Input only. Raw GPS measurements with increasing timestamps from the device that
+     * aren't time synced with each photo.
+     * These raw measurements will be used to infer the pose of each frame.
+     * Required in input when InputType is VIDEO and raw GPS measurements are not
+     * in Camera Motion Metadata Track (CAMM).
+     * User can indicate which takes precedence using gps_source if raw GPS
+     * measurements are provided in both raw_gps_timeline and
+     * Camera Motion Metadata Track (CAMM).
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     */
+    @java.lang.Override
+    public int getRawGpsTimelineCount() {
+      return rawGpsTimeline_.size();
+    }
+    /**
+     * <pre>
+     * Input only. Raw GPS measurements with increasing timestamps from the device that
+     * aren't time synced with each photo.
+     * These raw measurements will be used to infer the pose of each frame.
+     * Required in input when InputType is VIDEO and raw GPS measurements are not
+     * in Camera Motion Metadata Track (CAMM).
+     * User can indicate which takes precedence using gps_source if raw GPS
+     * measurements are provided in both raw_gps_timeline and
+     * Camera Motion Metadata Track (CAMM).
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose getRawGpsTimeline(int index) {
+      return rawGpsTimeline_.get(index);
+    }
+    /**
+     * <pre>
+     * Input only. Raw GPS measurements with increasing timestamps from the device that
+     * aren't time synced with each photo.
+     * These raw measurements will be used to infer the pose of each frame.
+     * Required in input when InputType is VIDEO and raw GPS measurements are not
+     * in Camera Motion Metadata Track (CAMM).
+     * User can indicate which takes precedence using gps_source if raw GPS
+     * measurements are provided in both raw_gps_timeline and
+     * Camera Motion Metadata Track (CAMM).
+     * </pre>
+     *
+     * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PoseOrBuilder getRawGpsTimelineOrBuilder(
+        int index) {
+      return rawGpsTimeline_.get(index);
+    }
+
+    public static final int GPS_SOURCE_FIELD_NUMBER = 8;
+    private int gpsSource_ = 0;
+    /**
+     * <pre>
+     * Input only. If both raw_gps_timeline and
+     * the Camera Motion Metadata Track (CAMM) contain GPS measurements,
+     * indicate which takes precedence.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.PhotoSequence.GpsSource gps_source = 8 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     * @return The enum numeric value on the wire for gpsSource.
+     */
+    @java.lang.Override public int getGpsSourceValue() {
+      return gpsSource_;
+    }
+    /**
+     * <pre>
+     * Input only. If both raw_gps_timeline and
+     * the Camera Motion Metadata Track (CAMM) contain GPS measurements,
+     * indicate which takes precedence.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.PhotoSequence.GpsSource gps_source = 8 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     * @return The gpsSource.
+     */
+    @java.lang.Override public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.GpsSource getGpsSource() {
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.GpsSource result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.GpsSource.forNumber(gpsSource_);
+      return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.GpsSource.UNRECOGNIZED : result;
+    }
+
+    public static final int IMU_FIELD_NUMBER = 11;
+    private com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu imu_;
+    /**
+     * <pre>
+     * Input only. Three axis IMU data for the collection.
+     * If this data is too large to put in the request, then it should be put in
+     * the CAMM track for the video. This data always takes precedence over the
+     * equivalent CAMM data, if it exists.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.Imu imu = 11 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     * @return Whether the imu field is set.
+     */
+    @java.lang.Override
+    public boolean hasImu() {
+      return imu_ != null;
+    }
+    /**
+     * <pre>
+     * Input only. Three axis IMU data for the collection.
+     * If this data is too large to put in the request, then it should be put in
+     * the CAMM track for the video. This data always takes precedence over the
+     * equivalent CAMM data, if it exists.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.Imu imu = 11 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     * @return The imu.
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu getImu() {
+      return imu_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.getDefaultInstance() : imu_;
+    }
+    /**
+     * <pre>
+     * Input only. Three axis IMU data for the collection.
+     * If this data is too large to put in the request, then it should be put in
+     * the CAMM track for the video. This data always takes precedence over the
+     * equivalent CAMM data, if it exists.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.Imu imu = 11 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuOrBuilder getImuOrBuilder() {
+      return imu_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.getDefaultInstance() : imu_;
+    }
+
+    public static final int PROCESSING_STATE_FIELD_NUMBER = 12;
+    private int processingState_ = 0;
+    /**
+     * <pre>
+     * Output only. The processing state of this sequence.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ProcessingState processing_state = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The enum numeric value on the wire for processingState.
+     */
+    @java.lang.Override public int getProcessingStateValue() {
+      return processingState_;
+    }
+    /**
+     * <pre>
+     * Output only. The processing state of this sequence.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ProcessingState processing_state = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The processingState.
+     */
+    @java.lang.Override public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingState getProcessingState() {
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingState result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingState.forNumber(processingState_);
+      return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingState.UNRECOGNIZED : result;
+    }
+
+    public static final int FAILURE_REASON_FIELD_NUMBER = 13;
+    private int failureReason_ = 0;
+    /**
+     * <pre>
+     * Output only. If this sequence has processing_state = FAILED, this will contain the
+     * reason why it failed. If the processing_state is any other value, this
+     * field will be unset.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ProcessingFailureReason failure_reason = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The enum numeric value on the wire for failureReason.
+     */
+    @java.lang.Override public int getFailureReasonValue() {
+      return failureReason_;
+    }
+    /**
+     * <pre>
+     * Output only. If this sequence has processing_state = FAILED, this will contain the
+     * reason why it failed. If the processing_state is any other value, this
+     * field will be unset.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ProcessingFailureReason failure_reason = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The failureReason.
+     */
+    @java.lang.Override public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureReason getFailureReason() {
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureReason result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureReason.forNumber(failureReason_);
+      return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureReason.UNRECOGNIZED : result;
+    }
+
+    public static final int FAILURE_DETAILS_FIELD_NUMBER = 23;
+    private com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails failureDetails_;
+    /**
+     * <pre>
+     * Output only. If this sequence has `failure_reason` set, this may contain additional
+     * details about the failure.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ProcessingFailureDetails failure_details = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return Whether the failureDetails field is set.
+     */
+    @java.lang.Override
+    public boolean hasFailureDetails() {
+      return failureDetails_ != null;
+    }
+    /**
+     * <pre>
+     * Output only. If this sequence has `failure_reason` set, this may contain additional
+     * details about the failure.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ProcessingFailureDetails failure_details = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The failureDetails.
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails getFailureDetails() {
+      return failureDetails_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.getDefaultInstance() : failureDetails_;
+    }
+    /**
+     * <pre>
+     * Output only. If this sequence has `failure_reason` set, this may contain additional
+     * details about the failure.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ProcessingFailureDetails failure_details = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetailsOrBuilder getFailureDetailsOrBuilder() {
+      return failureDetails_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.getDefaultInstance() : failureDetails_;
+    }
+
+    public static final int DISTANCE_METERS_FIELD_NUMBER = 16;
+    private double distanceMeters_ = 0D;
+    /**
+     * <pre>
+     * Output only. The computed distance of the photo sequence in meters.
+     * </pre>
+     *
+     * <code>double distance_meters = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The distanceMeters.
+     */
+    @java.lang.Override
+    public double getDistanceMeters() {
+      return distanceMeters_;
+    }
+
+    public static final int SEQUENCE_BOUNDS_FIELD_NUMBER = 20;
+    private com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds sequenceBounds_;
+    /**
+     * <pre>
+     * Output only. A rectangular box that encapsulates every image in this photo sequence.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.LatLngBounds sequence_bounds = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return Whether the sequenceBounds field is set.
+     */
+    @java.lang.Override
+    public boolean hasSequenceBounds() {
+      return sequenceBounds_ != null;
+    }
+    /**
+     * <pre>
+     * Output only. A rectangular box that encapsulates every image in this photo sequence.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.LatLngBounds sequence_bounds = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The sequenceBounds.
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds getSequenceBounds() {
+      return sequenceBounds_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds.getDefaultInstance() : sequenceBounds_;
+    }
+    /**
+     * <pre>
+     * Output only. A rectangular box that encapsulates every image in this photo sequence.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.LatLngBounds sequence_bounds = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBoundsOrBuilder getSequenceBoundsOrBuilder() {
+      return sequenceBounds_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds.getDefaultInstance() : sequenceBounds_;
+    }
+
+    public static final int VIEW_COUNT_FIELD_NUMBER = 21;
+    private long viewCount_ = 0L;
+    /**
+     * <pre>
+     * Output only. The total number of views that all the published images in this
+     * PhotoSequence have received.
+     * </pre>
+     *
+     * <code>int64 view_count = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The viewCount.
+     */
+    @java.lang.Override
+    public long getViewCount() {
+      return viewCount_;
+    }
+
+    public static final int FILENAME_FIELD_NUMBER = 22;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object filename_ = "";
+    /**
+     * <pre>
+     * Output only. The filename of the upload. Does not include the directory path. Only
+     * available if the sequence was uploaded on a platform that provides the
+     * filename.
+     * </pre>
+     *
+     * <code>string filename = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The filename.
+     */
+    @java.lang.Override
+    public java.lang.String getFilename() {
+      java.lang.Object ref = filename_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        filename_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Output only. The filename of the upload. Does not include the directory path. Only
+     * available if the sequence was uploaded on a platform that provides the
+     * filename.
+     * </pre>
+     *
+     * <code>string filename = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The bytes for filename.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFilenameBytes() {
+      java.lang.Object ref = filename_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        filename_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      for (int i = 0; i < photos_.size(); i++) {
+        output.writeMessage(2, photos_.get(i));
+      }
+      if (uploadReference_ != null) {
+        output.writeMessage(3, getUploadReference());
+      }
+      if (captureTimeOverride_ != null) {
+        output.writeMessage(4, getCaptureTimeOverride());
+      }
+      for (int i = 0; i < rawGpsTimeline_.size(); i++) {
+        output.writeMessage(7, rawGpsTimeline_.get(i));
+      }
+      if (gpsSource_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.GpsSource.PHOTO_SEQUENCE.getNumber()) {
+        output.writeEnum(8, gpsSource_);
+      }
+      if (imu_ != null) {
+        output.writeMessage(11, getImu());
+      }
+      if (processingState_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingState.PROCESSING_STATE_UNSPECIFIED.getNumber()) {
+        output.writeEnum(12, processingState_);
+      }
+      if (failureReason_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureReason.PROCESSING_FAILURE_REASON_UNSPECIFIED.getNumber()) {
+        output.writeEnum(13, failureReason_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(distanceMeters_) != 0) {
+        output.writeDouble(16, distanceMeters_);
+      }
+      if (uploadTime_ != null) {
+        output.writeMessage(18, getUploadTime());
+      }
+      if (sequenceBounds_ != null) {
+        output.writeMessage(20, getSequenceBounds());
+      }
+      if (viewCount_ != 0L) {
+        output.writeInt64(21, viewCount_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filename_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 22, filename_);
+      }
+      if (failureDetails_ != null) {
+        output.writeMessage(23, getFailureDetails());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      for (int i = 0; i < photos_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, photos_.get(i));
+      }
+      if (uploadReference_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getUploadReference());
+      }
+      if (captureTimeOverride_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getCaptureTimeOverride());
+      }
+      for (int i = 0; i < rawGpsTimeline_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, rawGpsTimeline_.get(i));
+      }
+      if (gpsSource_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.GpsSource.PHOTO_SEQUENCE.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(8, gpsSource_);
+      }
+      if (imu_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(11, getImu());
+      }
+      if (processingState_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingState.PROCESSING_STATE_UNSPECIFIED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(12, processingState_);
+      }
+      if (failureReason_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureReason.PROCESSING_FAILURE_REASON_UNSPECIFIED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(13, failureReason_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(distanceMeters_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(16, distanceMeters_);
+      }
+      if (uploadTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(18, getUploadTime());
+      }
+      if (sequenceBounds_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(20, getSequenceBounds());
+      }
+      if (viewCount_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(21, viewCount_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filename_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(22, filename_);
+      }
+      if (failureDetails_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(23, getFailureDetails());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence)) {
+        return super.equals(obj);
+      }
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence other = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (!getPhotosList()
+          .equals(other.getPhotosList())) return false;
+      if (hasUploadReference() != other.hasUploadReference()) return false;
+      if (hasUploadReference()) {
+        if (!getUploadReference()
+            .equals(other.getUploadReference())) return false;
+      }
+      if (hasCaptureTimeOverride() != other.hasCaptureTimeOverride()) return false;
+      if (hasCaptureTimeOverride()) {
+        if (!getCaptureTimeOverride()
+            .equals(other.getCaptureTimeOverride())) return false;
+      }
+      if (hasUploadTime() != other.hasUploadTime()) return false;
+      if (hasUploadTime()) {
+        if (!getUploadTime()
+            .equals(other.getUploadTime())) return false;
+      }
+      if (!getRawGpsTimelineList()
+          .equals(other.getRawGpsTimelineList())) return false;
+      if (gpsSource_ != other.gpsSource_) return false;
+      if (hasImu() != other.hasImu()) return false;
+      if (hasImu()) {
+        if (!getImu()
+            .equals(other.getImu())) return false;
+      }
+      if (processingState_ != other.processingState_) return false;
+      if (failureReason_ != other.failureReason_) return false;
+      if (hasFailureDetails() != other.hasFailureDetails()) return false;
+      if (hasFailureDetails()) {
+        if (!getFailureDetails()
+            .equals(other.getFailureDetails())) return false;
+      }
+      if (java.lang.Double.doubleToLongBits(getDistanceMeters())
+          != java.lang.Double.doubleToLongBits(
+              other.getDistanceMeters())) return false;
+      if (hasSequenceBounds() != other.hasSequenceBounds()) return false;
+      if (hasSequenceBounds()) {
+        if (!getSequenceBounds()
+            .equals(other.getSequenceBounds())) return false;
+      }
+      if (getViewCount()
+          != other.getViewCount()) return false;
+      if (!getFilename()
+          .equals(other.getFilename())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      if (getPhotosCount() > 0) {
+        hash = (37 * hash) + PHOTOS_FIELD_NUMBER;
+        hash = (53 * hash) + getPhotosList().hashCode();
+      }
+      if (hasUploadReference()) {
+        hash = (37 * hash) + UPLOAD_REFERENCE_FIELD_NUMBER;
+        hash = (53 * hash) + getUploadReference().hashCode();
+      }
+      if (hasCaptureTimeOverride()) {
+        hash = (37 * hash) + CAPTURE_TIME_OVERRIDE_FIELD_NUMBER;
+        hash = (53 * hash) + getCaptureTimeOverride().hashCode();
+      }
+      if (hasUploadTime()) {
+        hash = (37 * hash) + UPLOAD_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getUploadTime().hashCode();
+      }
+      if (getRawGpsTimelineCount() > 0) {
+        hash = (37 * hash) + RAW_GPS_TIMELINE_FIELD_NUMBER;
+        hash = (53 * hash) + getRawGpsTimelineList().hashCode();
+      }
+      hash = (37 * hash) + GPS_SOURCE_FIELD_NUMBER;
+      hash = (53 * hash) + gpsSource_;
+      if (hasImu()) {
+        hash = (37 * hash) + IMU_FIELD_NUMBER;
+        hash = (53 * hash) + getImu().hashCode();
+      }
+      hash = (37 * hash) + PROCESSING_STATE_FIELD_NUMBER;
+      hash = (53 * hash) + processingState_;
+      hash = (37 * hash) + FAILURE_REASON_FIELD_NUMBER;
+      hash = (53 * hash) + failureReason_;
+      if (hasFailureDetails()) {
+        hash = (37 * hash) + FAILURE_DETAILS_FIELD_NUMBER;
+        hash = (53 * hash) + getFailureDetails().hashCode();
+      }
+      hash = (37 * hash) + DISTANCE_METERS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getDistanceMeters()));
+      if (hasSequenceBounds()) {
+        hash = (37 * hash) + SEQUENCE_BOUNDS_FIELD_NUMBER;
+        hash = (53 * hash) + getSequenceBounds().hashCode();
+      }
+      hash = (37 * hash) + VIEW_COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getViewCount());
+      hash = (37 * hash) + FILENAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFilename().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * A sequence of 360 photos along with metadata.
+     * </pre>
+     *
+     * Protobuf type {@code google.streetview.publish.v1.PhotoSequence}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.streetview.publish.v1.PhotoSequence)
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequenceOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_PhotoSequence_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_PhotoSequence_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.Builder.class);
+      }
+
+      // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        id_ = "";
+        if (photosBuilder_ == null) {
+          photos_ = java.util.Collections.emptyList();
+        } else {
+          photos_ = null;
+          photosBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        uploadReference_ = null;
+        if (uploadReferenceBuilder_ != null) {
+          uploadReferenceBuilder_.dispose();
+          uploadReferenceBuilder_ = null;
+        }
+        captureTimeOverride_ = null;
+        if (captureTimeOverrideBuilder_ != null) {
+          captureTimeOverrideBuilder_.dispose();
+          captureTimeOverrideBuilder_ = null;
+        }
+        uploadTime_ = null;
+        if (uploadTimeBuilder_ != null) {
+          uploadTimeBuilder_.dispose();
+          uploadTimeBuilder_ = null;
+        }
+        if (rawGpsTimelineBuilder_ == null) {
+          rawGpsTimeline_ = java.util.Collections.emptyList();
+        } else {
+          rawGpsTimeline_ = null;
+          rawGpsTimelineBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        gpsSource_ = 0;
+        imu_ = null;
+        if (imuBuilder_ != null) {
+          imuBuilder_.dispose();
+          imuBuilder_ = null;
+        }
+        processingState_ = 0;
+        failureReason_ = 0;
+        failureDetails_ = null;
+        if (failureDetailsBuilder_ != null) {
+          failureDetailsBuilder_.dispose();
+          failureDetailsBuilder_ = null;
+        }
+        distanceMeters_ = 0D;
+        sequenceBounds_ = null;
+        if (sequenceBoundsBuilder_ != null) {
+          sequenceBoundsBuilder_.dispose();
+          sequenceBoundsBuilder_ = null;
+        }
+        viewCount_ = 0L;
+        filename_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_PhotoSequence_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence getDefaultInstanceForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence build() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence buildPartial() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence(this);
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence result) {
+        if (photosBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0)) {
+            photos_ = java.util.Collections.unmodifiableList(photos_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.photos_ = photos_;
+        } else {
+          result.photos_ = photosBuilder_.build();
+        }
+        if (rawGpsTimelineBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) != 0)) {
+            rawGpsTimeline_ = java.util.Collections.unmodifiableList(rawGpsTimeline_);
+            bitField0_ = (bitField0_ & ~0x00000020);
+          }
+          result.rawGpsTimeline_ = rawGpsTimeline_;
+        } else {
+          result.rawGpsTimeline_ = rawGpsTimelineBuilder_.build();
+        }
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.uploadReference_ = uploadReferenceBuilder_ == null
+              ? uploadReference_
+              : uploadReferenceBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.captureTimeOverride_ = captureTimeOverrideBuilder_ == null
+              ? captureTimeOverride_
+              : captureTimeOverrideBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.uploadTime_ = uploadTimeBuilder_ == null
+              ? uploadTime_
+              : uploadTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.gpsSource_ = gpsSource_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.imu_ = imuBuilder_ == null
+              ? imu_
+              : imuBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.processingState_ = processingState_;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.failureReason_ = failureReason_;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.failureDetails_ = failureDetailsBuilder_ == null
+              ? failureDetails_
+              : failureDetailsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.distanceMeters_ = distanceMeters_;
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.sequenceBounds_ = sequenceBoundsBuilder_ == null
+              ? sequenceBounds_
+              : sequenceBoundsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.viewCount_ = viewCount_;
+        }
+        if (((from_bitField0_ & 0x00004000) != 0)) {
+          result.filename_ = filename_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence) {
+          return mergeFrom((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence other) {
+        if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (photosBuilder_ == null) {
+          if (!other.photos_.isEmpty()) {
+            if (photos_.isEmpty()) {
+              photos_ = other.photos_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensurePhotosIsMutable();
+              photos_.addAll(other.photos_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.photos_.isEmpty()) {
+            if (photosBuilder_.isEmpty()) {
+              photosBuilder_.dispose();
+              photosBuilder_ = null;
+              photos_ = other.photos_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              photosBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getPhotosFieldBuilder() : null;
+            } else {
+              photosBuilder_.addAllMessages(other.photos_);
+            }
+          }
+        }
+        if (other.hasUploadReference()) {
+          mergeUploadReference(other.getUploadReference());
+        }
+        if (other.hasCaptureTimeOverride()) {
+          mergeCaptureTimeOverride(other.getCaptureTimeOverride());
+        }
+        if (other.hasUploadTime()) {
+          mergeUploadTime(other.getUploadTime());
+        }
+        if (rawGpsTimelineBuilder_ == null) {
+          if (!other.rawGpsTimeline_.isEmpty()) {
+            if (rawGpsTimeline_.isEmpty()) {
+              rawGpsTimeline_ = other.rawGpsTimeline_;
+              bitField0_ = (bitField0_ & ~0x00000020);
+            } else {
+              ensureRawGpsTimelineIsMutable();
+              rawGpsTimeline_.addAll(other.rawGpsTimeline_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.rawGpsTimeline_.isEmpty()) {
+            if (rawGpsTimelineBuilder_.isEmpty()) {
+              rawGpsTimelineBuilder_.dispose();
+              rawGpsTimelineBuilder_ = null;
+              rawGpsTimeline_ = other.rawGpsTimeline_;
+              bitField0_ = (bitField0_ & ~0x00000020);
+              rawGpsTimelineBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getRawGpsTimelineFieldBuilder() : null;
+            } else {
+              rawGpsTimelineBuilder_.addAllMessages(other.rawGpsTimeline_);
+            }
+          }
+        }
+        if (other.gpsSource_ != 0) {
+          setGpsSourceValue(other.getGpsSourceValue());
+        }
+        if (other.hasImu()) {
+          mergeImu(other.getImu());
+        }
+        if (other.processingState_ != 0) {
+          setProcessingStateValue(other.getProcessingStateValue());
+        }
+        if (other.failureReason_ != 0) {
+          setFailureReasonValue(other.getFailureReasonValue());
+        }
+        if (other.hasFailureDetails()) {
+          mergeFailureDetails(other.getFailureDetails());
+        }
+        if (other.getDistanceMeters() != 0D) {
+          setDistanceMeters(other.getDistanceMeters());
+        }
+        if (other.hasSequenceBounds()) {
+          mergeSequenceBounds(other.getSequenceBounds());
+        }
+        if (other.getViewCount() != 0L) {
+          setViewCount(other.getViewCount());
+        }
+        if (!other.getFilename().isEmpty()) {
+          filename_ = other.filename_;
+          bitField0_ |= 0x00004000;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo m =
+                    input.readMessage(
+                        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.parser(),
+                        extensionRegistry);
+                if (photosBuilder_ == null) {
+                  ensurePhotosIsMutable();
+                  photos_.add(m);
+                } else {
+                  photosBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getUploadReferenceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getCaptureTimeOverrideFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 58: {
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose m =
+                    input.readMessage(
+                        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.parser(),
+                        extensionRegistry);
+                if (rawGpsTimelineBuilder_ == null) {
+                  ensureRawGpsTimelineIsMutable();
+                  rawGpsTimeline_.add(m);
+                } else {
+                  rawGpsTimelineBuilder_.addMessage(m);
+                }
+                break;
+              } // case 58
+              case 64: {
+                gpsSource_ = input.readEnum();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 64
+              case 90: {
+                input.readMessage(
+                    getImuFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 90
+              case 96: {
+                processingState_ = input.readEnum();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 96
+              case 104: {
+                failureReason_ = input.readEnum();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 104
+              case 129: {
+                distanceMeters_ = input.readDouble();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 129
+              case 146: {
+                input.readMessage(
+                    getUploadTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 146
+              case 162: {
+                input.readMessage(
+                    getSequenceBoundsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00001000;
+                break;
+              } // case 162
+              case 168: {
+                viewCount_ = input.readInt64();
+                bitField0_ |= 0x00002000;
+                break;
+              } // case 168
+              case 178: {
+                filename_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00004000;
+                break;
+              } // case 178
+              case 186: {
+                input.readMessage(
+                    getFailureDetailsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 186
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object id_ = "";
+      /**
+       * <pre>
+       * Output only. Unique identifier for the photo sequence.
+       * This also acts as a long running operation ID if uploading is performed
+       * asynchronously.
+       * </pre>
+       *
+       * <code>string id = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Output only. Unique identifier for the photo sequence.
+       * This also acts as a long running operation ID if uploading is performed
+       * asynchronously.
+       * </pre>
+       *
+       * <code>string id = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Output only. Unique identifier for the photo sequence.
+       * This also acts as a long running operation ID if uploading is performed
+       * asynchronously.
+       * </pre>
+       *
+       * <code>string id = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. Unique identifier for the photo sequence.
+       * This also acts as a long running operation ID if uploading is performed
+       * asynchronously.
+       * </pre>
+       *
+       * <code>string id = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. Unique identifier for the photo sequence.
+       * This also acts as a long running operation ID if uploading is performed
+       * asynchronously.
+       * </pre>
+       *
+       * <code>string id = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        id_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo> photos_ =
+        java.util.Collections.emptyList();
+      private void ensurePhotosIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          photos_ = new java.util.ArrayList<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo>(photos_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoOrBuilder> photosBuilder_;
+
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo> getPhotosList() {
+        if (photosBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(photos_);
+        } else {
+          return photosBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public int getPhotosCount() {
+        if (photosBuilder_ == null) {
+          return photos_.size();
+        } else {
+          return photosBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo getPhotos(int index) {
+        if (photosBuilder_ == null) {
+          return photos_.get(index);
+        } else {
+          return photosBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder setPhotos(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo value) {
+        if (photosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePhotosIsMutable();
+          photos_.set(index, value);
+          onChanged();
+        } else {
+          photosBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder setPhotos(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder builderForValue) {
+        if (photosBuilder_ == null) {
+          ensurePhotosIsMutable();
+          photos_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          photosBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder addPhotos(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo value) {
+        if (photosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePhotosIsMutable();
+          photos_.add(value);
+          onChanged();
+        } else {
+          photosBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder addPhotos(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo value) {
+        if (photosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePhotosIsMutable();
+          photos_.add(index, value);
+          onChanged();
+        } else {
+          photosBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder addPhotos(
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder builderForValue) {
+        if (photosBuilder_ == null) {
+          ensurePhotosIsMutable();
+          photos_.add(builderForValue.build());
+          onChanged();
+        } else {
+          photosBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder addPhotos(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder builderForValue) {
+        if (photosBuilder_ == null) {
+          ensurePhotosIsMutable();
+          photos_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          photosBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder addAllPhotos(
+          java.lang.Iterable<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo> values) {
+        if (photosBuilder_ == null) {
+          ensurePhotosIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, photos_);
+          onChanged();
+        } else {
+          photosBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder clearPhotos() {
+        if (photosBuilder_ == null) {
+          photos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          photosBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder removePhotos(int index) {
+        if (photosBuilder_ == null) {
+          ensurePhotosIsMutable();
+          photos_.remove(index);
+          onChanged();
+        } else {
+          photosBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder getPhotosBuilder(
+          int index) {
+        return getPhotosFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoOrBuilder getPhotosOrBuilder(
+          int index) {
+        if (photosBuilder_ == null) {
+          return photos_.get(index);  } else {
+          return photosBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public java.util.List<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoOrBuilder> 
+           getPhotosOrBuilderList() {
+        if (photosBuilder_ != null) {
+          return photosBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(photos_);
+        }
+      }
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder addPhotosBuilder() {
+        return getPhotosFieldBuilder().addBuilder(
+            com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder addPhotosBuilder(
+          int index) {
+        return getPhotosFieldBuilder().addBuilder(
+            index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Output only. Photos with increasing timestamps.
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Photo photos = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder> 
+           getPhotosBuilderList() {
+        return getPhotosFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoOrBuilder> 
+          getPhotosFieldBuilder() {
+        if (photosBuilder_ == null) {
+          photosBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoOrBuilder>(
+                  photos_,
+                  ((bitField0_ & 0x00000002) != 0),
+                  getParentForChildren(),
+                  isClean());
+          photos_ = null;
+        }
+        return photosBuilder_;
+      }
+
+      private com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef uploadReference_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRefOrBuilder> uploadReferenceBuilder_;
+      /**
+       * <pre>
+       * Input only. Required when creating photo sequence. The resource name
+       * where the bytes of the photo sequence (in the form of video) are uploaded.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.UploadRef upload_reference = 3 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       * @return Whether the uploadReference field is set.
+       */
+      public boolean hasUploadReference() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <pre>
+       * Input only. Required when creating photo sequence. The resource name
+       * where the bytes of the photo sequence (in the form of video) are uploaded.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.UploadRef upload_reference = 3 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       * @return The uploadReference.
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef getUploadReference() {
+        if (uploadReferenceBuilder_ == null) {
+          return uploadReference_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.getDefaultInstance() : uploadReference_;
+        } else {
+          return uploadReferenceBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Input only. Required when creating photo sequence. The resource name
+       * where the bytes of the photo sequence (in the form of video) are uploaded.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.UploadRef upload_reference = 3 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public Builder setUploadReference(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef value) {
+        if (uploadReferenceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          uploadReference_ = value;
+        } else {
+          uploadReferenceBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. Required when creating photo sequence. The resource name
+       * where the bytes of the photo sequence (in the form of video) are uploaded.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.UploadRef upload_reference = 3 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public Builder setUploadReference(
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.Builder builderForValue) {
+        if (uploadReferenceBuilder_ == null) {
+          uploadReference_ = builderForValue.build();
+        } else {
+          uploadReferenceBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. Required when creating photo sequence. The resource name
+       * where the bytes of the photo sequence (in the form of video) are uploaded.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.UploadRef upload_reference = 3 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public Builder mergeUploadReference(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef value) {
+        if (uploadReferenceBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0) &&
+            uploadReference_ != null &&
+            uploadReference_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.getDefaultInstance()) {
+            getUploadReferenceBuilder().mergeFrom(value);
+          } else {
+            uploadReference_ = value;
+          }
+        } else {
+          uploadReferenceBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. Required when creating photo sequence. The resource name
+       * where the bytes of the photo sequence (in the form of video) are uploaded.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.UploadRef upload_reference = 3 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public Builder clearUploadReference() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        uploadReference_ = null;
+        if (uploadReferenceBuilder_ != null) {
+          uploadReferenceBuilder_.dispose();
+          uploadReferenceBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. Required when creating photo sequence. The resource name
+       * where the bytes of the photo sequence (in the form of video) are uploaded.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.UploadRef upload_reference = 3 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.Builder getUploadReferenceBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getUploadReferenceFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Input only. Required when creating photo sequence. The resource name
+       * where the bytes of the photo sequence (in the form of video) are uploaded.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.UploadRef upload_reference = 3 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRefOrBuilder getUploadReferenceOrBuilder() {
+        if (uploadReferenceBuilder_ != null) {
+          return uploadReferenceBuilder_.getMessageOrBuilder();
+        } else {
+          return uploadReference_ == null ?
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.getDefaultInstance() : uploadReference_;
+        }
+      }
+      /**
+       * <pre>
+       * Input only. Required when creating photo sequence. The resource name
+       * where the bytes of the photo sequence (in the form of video) are uploaded.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.UploadRef upload_reference = 3 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRefOrBuilder> 
+          getUploadReferenceFieldBuilder() {
+        if (uploadReferenceBuilder_ == null) {
+          uploadReferenceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRef.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.UploadRefOrBuilder>(
+                  getUploadReference(),
+                  getParentForChildren(),
+                  isClean());
+          uploadReference_ = null;
+        }
+        return uploadReferenceBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp captureTimeOverride_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> captureTimeOverrideBuilder_;
+      /**
+       * <pre>
+       * Optional. Absolute time when the photo sequence starts to be captured.
+       * If the photo sequence is a video, this is the start time of the video.
+       * If this field is populated in input, it overrides the capture time in the
+       * video or XDM file.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp capture_time_override = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return Whether the captureTimeOverride field is set.
+       */
+      public boolean hasCaptureTimeOverride() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <pre>
+       * Optional. Absolute time when the photo sequence starts to be captured.
+       * If the photo sequence is a video, this is the start time of the video.
+       * If this field is populated in input, it overrides the capture time in the
+       * video or XDM file.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp capture_time_override = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return The captureTimeOverride.
+       */
+      public com.google.protobuf.Timestamp getCaptureTimeOverride() {
+        if (captureTimeOverrideBuilder_ == null) {
+          return captureTimeOverride_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : captureTimeOverride_;
+        } else {
+          return captureTimeOverrideBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Optional. Absolute time when the photo sequence starts to be captured.
+       * If the photo sequence is a video, this is the start time of the video.
+       * If this field is populated in input, it overrides the capture time in the
+       * video or XDM file.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp capture_time_override = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+       */
+      public Builder setCaptureTimeOverride(com.google.protobuf.Timestamp value) {
+        if (captureTimeOverrideBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          captureTimeOverride_ = value;
+        } else {
+          captureTimeOverrideBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional. Absolute time when the photo sequence starts to be captured.
+       * If the photo sequence is a video, this is the start time of the video.
+       * If this field is populated in input, it overrides the capture time in the
+       * video or XDM file.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp capture_time_override = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+       */
+      public Builder setCaptureTimeOverride(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (captureTimeOverrideBuilder_ == null) {
+          captureTimeOverride_ = builderForValue.build();
+        } else {
+          captureTimeOverrideBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional. Absolute time when the photo sequence starts to be captured.
+       * If the photo sequence is a video, this is the start time of the video.
+       * If this field is populated in input, it overrides the capture time in the
+       * video or XDM file.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp capture_time_override = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+       */
+      public Builder mergeCaptureTimeOverride(com.google.protobuf.Timestamp value) {
+        if (captureTimeOverrideBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) != 0) &&
+            captureTimeOverride_ != null &&
+            captureTimeOverride_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getCaptureTimeOverrideBuilder().mergeFrom(value);
+          } else {
+            captureTimeOverride_ = value;
+          }
+        } else {
+          captureTimeOverrideBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional. Absolute time when the photo sequence starts to be captured.
+       * If the photo sequence is a video, this is the start time of the video.
+       * If this field is populated in input, it overrides the capture time in the
+       * video or XDM file.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp capture_time_override = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+       */
+      public Builder clearCaptureTimeOverride() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        captureTimeOverride_ = null;
+        if (captureTimeOverrideBuilder_ != null) {
+          captureTimeOverrideBuilder_.dispose();
+          captureTimeOverrideBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional. Absolute time when the photo sequence starts to be captured.
+       * If the photo sequence is a video, this is the start time of the video.
+       * If this field is populated in input, it overrides the capture time in the
+       * video or XDM file.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp capture_time_override = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getCaptureTimeOverrideBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getCaptureTimeOverrideFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Optional. Absolute time when the photo sequence starts to be captured.
+       * If the photo sequence is a video, this is the start time of the video.
+       * If this field is populated in input, it overrides the capture time in the
+       * video or XDM file.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp capture_time_override = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getCaptureTimeOverrideOrBuilder() {
+        if (captureTimeOverrideBuilder_ != null) {
+          return captureTimeOverrideBuilder_.getMessageOrBuilder();
+        } else {
+          return captureTimeOverride_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : captureTimeOverride_;
+        }
+      }
+      /**
+       * <pre>
+       * Optional. Absolute time when the photo sequence starts to be captured.
+       * If the photo sequence is a video, this is the start time of the video.
+       * If this field is populated in input, it overrides the capture time in the
+       * video or XDM file.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp capture_time_override = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getCaptureTimeOverrideFieldBuilder() {
+        if (captureTimeOverrideBuilder_ == null) {
+          captureTimeOverrideBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getCaptureTimeOverride(),
+                  getParentForChildren(),
+                  isClean());
+          captureTimeOverride_ = null;
+        }
+        return captureTimeOverrideBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp uploadTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> uploadTimeBuilder_;
+      /**
+       * <pre>
+       * Output only. The time this photo sequence was created in uSV Store service.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp upload_time = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return Whether the uploadTime field is set.
+       */
+      public boolean hasUploadTime() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <pre>
+       * Output only. The time this photo sequence was created in uSV Store service.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp upload_time = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return The uploadTime.
+       */
+      public com.google.protobuf.Timestamp getUploadTime() {
+        if (uploadTimeBuilder_ == null) {
+          return uploadTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : uploadTime_;
+        } else {
+          return uploadTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Output only. The time this photo sequence was created in uSV Store service.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp upload_time = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder setUploadTime(com.google.protobuf.Timestamp value) {
+        if (uploadTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          uploadTime_ = value;
+        } else {
+          uploadTimeBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The time this photo sequence was created in uSV Store service.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp upload_time = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder setUploadTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (uploadTimeBuilder_ == null) {
+          uploadTime_ = builderForValue.build();
+        } else {
+          uploadTimeBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The time this photo sequence was created in uSV Store service.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp upload_time = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder mergeUploadTime(com.google.protobuf.Timestamp value) {
+        if (uploadTimeBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) != 0) &&
+            uploadTime_ != null &&
+            uploadTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getUploadTimeBuilder().mergeFrom(value);
+          } else {
+            uploadTime_ = value;
+          }
+        } else {
+          uploadTimeBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The time this photo sequence was created in uSV Store service.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp upload_time = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder clearUploadTime() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        uploadTime_ = null;
+        if (uploadTimeBuilder_ != null) {
+          uploadTimeBuilder_.dispose();
+          uploadTimeBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The time this photo sequence was created in uSV Store service.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp upload_time = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getUploadTimeBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getUploadTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Output only. The time this photo sequence was created in uSV Store service.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp upload_time = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getUploadTimeOrBuilder() {
+        if (uploadTimeBuilder_ != null) {
+          return uploadTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return uploadTime_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : uploadTime_;
+        }
+      }
+      /**
+       * <pre>
+       * Output only. The time this photo sequence was created in uSV Store service.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp upload_time = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getUploadTimeFieldBuilder() {
+        if (uploadTimeBuilder_ == null) {
+          uploadTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getUploadTime(),
+                  getParentForChildren(),
+                  isClean());
+          uploadTime_ = null;
+        }
+        return uploadTimeBuilder_;
+      }
+
+      private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose> rawGpsTimeline_ =
+        java.util.Collections.emptyList();
+      private void ensureRawGpsTimelineIsMutable() {
+        if (!((bitField0_ & 0x00000020) != 0)) {
+          rawGpsTimeline_ = new java.util.ArrayList<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose>(rawGpsTimeline_);
+          bitField0_ |= 0x00000020;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PoseOrBuilder> rawGpsTimelineBuilder_;
+
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose> getRawGpsTimelineList() {
+        if (rawGpsTimelineBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(rawGpsTimeline_);
+        } else {
+          return rawGpsTimelineBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public int getRawGpsTimelineCount() {
+        if (rawGpsTimelineBuilder_ == null) {
+          return rawGpsTimeline_.size();
+        } else {
+          return rawGpsTimelineBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose getRawGpsTimeline(int index) {
+        if (rawGpsTimelineBuilder_ == null) {
+          return rawGpsTimeline_.get(index);
+        } else {
+          return rawGpsTimelineBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public Builder setRawGpsTimeline(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose value) {
+        if (rawGpsTimelineBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRawGpsTimelineIsMutable();
+          rawGpsTimeline_.set(index, value);
+          onChanged();
+        } else {
+          rawGpsTimelineBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public Builder setRawGpsTimeline(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.Builder builderForValue) {
+        if (rawGpsTimelineBuilder_ == null) {
+          ensureRawGpsTimelineIsMutable();
+          rawGpsTimeline_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          rawGpsTimelineBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public Builder addRawGpsTimeline(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose value) {
+        if (rawGpsTimelineBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRawGpsTimelineIsMutable();
+          rawGpsTimeline_.add(value);
+          onChanged();
+        } else {
+          rawGpsTimelineBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public Builder addRawGpsTimeline(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose value) {
+        if (rawGpsTimelineBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRawGpsTimelineIsMutable();
+          rawGpsTimeline_.add(index, value);
+          onChanged();
+        } else {
+          rawGpsTimelineBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public Builder addRawGpsTimeline(
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.Builder builderForValue) {
+        if (rawGpsTimelineBuilder_ == null) {
+          ensureRawGpsTimelineIsMutable();
+          rawGpsTimeline_.add(builderForValue.build());
+          onChanged();
+        } else {
+          rawGpsTimelineBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public Builder addRawGpsTimeline(
+          int index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.Builder builderForValue) {
+        if (rawGpsTimelineBuilder_ == null) {
+          ensureRawGpsTimelineIsMutable();
+          rawGpsTimeline_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          rawGpsTimelineBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public Builder addAllRawGpsTimeline(
+          java.lang.Iterable<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose> values) {
+        if (rawGpsTimelineBuilder_ == null) {
+          ensureRawGpsTimelineIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, rawGpsTimeline_);
+          onChanged();
+        } else {
+          rawGpsTimelineBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public Builder clearRawGpsTimeline() {
+        if (rawGpsTimelineBuilder_ == null) {
+          rawGpsTimeline_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000020);
+          onChanged();
+        } else {
+          rawGpsTimelineBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public Builder removeRawGpsTimeline(int index) {
+        if (rawGpsTimelineBuilder_ == null) {
+          ensureRawGpsTimelineIsMutable();
+          rawGpsTimeline_.remove(index);
+          onChanged();
+        } else {
+          rawGpsTimelineBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.Builder getRawGpsTimelineBuilder(
+          int index) {
+        return getRawGpsTimelineFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PoseOrBuilder getRawGpsTimelineOrBuilder(
+          int index) {
+        if (rawGpsTimelineBuilder_ == null) {
+          return rawGpsTimeline_.get(index);  } else {
+          return rawGpsTimelineBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public java.util.List<? extends com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PoseOrBuilder> 
+           getRawGpsTimelineOrBuilderList() {
+        if (rawGpsTimelineBuilder_ != null) {
+          return rawGpsTimelineBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(rawGpsTimeline_);
+        }
+      }
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.Builder addRawGpsTimelineBuilder() {
+        return getRawGpsTimelineFieldBuilder().addBuilder(
+            com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.Builder addRawGpsTimelineBuilder(
+          int index) {
+        return getRawGpsTimelineFieldBuilder().addBuilder(
+            index, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Input only. Raw GPS measurements with increasing timestamps from the device that
+       * aren't time synced with each photo.
+       * These raw measurements will be used to infer the pose of each frame.
+       * Required in input when InputType is VIDEO and raw GPS measurements are not
+       * in Camera Motion Metadata Track (CAMM).
+       * User can indicate which takes precedence using gps_source if raw GPS
+       * measurements are provided in both raw_gps_timeline and
+       * Camera Motion Metadata Track (CAMM).
+       * </pre>
+       *
+       * <code>repeated .google.streetview.publish.v1.Pose raw_gps_timeline = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.Builder> 
+           getRawGpsTimelineBuilderList() {
+        return getRawGpsTimelineFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PoseOrBuilder> 
+          getRawGpsTimelineFieldBuilder() {
+        if (rawGpsTimelineBuilder_ == null) {
+          rawGpsTimelineBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Pose.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PoseOrBuilder>(
+                  rawGpsTimeline_,
+                  ((bitField0_ & 0x00000020) != 0),
+                  getParentForChildren(),
+                  isClean());
+          rawGpsTimeline_ = null;
+        }
+        return rawGpsTimelineBuilder_;
+      }
+
+      private int gpsSource_ = 0;
+      /**
+       * <pre>
+       * Input only. If both raw_gps_timeline and
+       * the Camera Motion Metadata Track (CAMM) contain GPS measurements,
+       * indicate which takes precedence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoSequence.GpsSource gps_source = 8 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       * @return The enum numeric value on the wire for gpsSource.
+       */
+      @java.lang.Override public int getGpsSourceValue() {
+        return gpsSource_;
+      }
+      /**
+       * <pre>
+       * Input only. If both raw_gps_timeline and
+       * the Camera Motion Metadata Track (CAMM) contain GPS measurements,
+       * indicate which takes precedence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoSequence.GpsSource gps_source = 8 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       * @param value The enum numeric value on the wire for gpsSource to set.
+       * @return This builder for chaining.
+       */
+      public Builder setGpsSourceValue(int value) {
+        gpsSource_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. If both raw_gps_timeline and
+       * the Camera Motion Metadata Track (CAMM) contain GPS measurements,
+       * indicate which takes precedence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoSequence.GpsSource gps_source = 8 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       * @return The gpsSource.
+       */
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.GpsSource getGpsSource() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.GpsSource result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.GpsSource.forNumber(gpsSource_);
+        return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.GpsSource.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * Input only. If both raw_gps_timeline and
+       * the Camera Motion Metadata Track (CAMM) contain GPS measurements,
+       * indicate which takes precedence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoSequence.GpsSource gps_source = 8 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       * @param value The gpsSource to set.
+       * @return This builder for chaining.
+       */
+      public Builder setGpsSource(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.GpsSource value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000040;
+        gpsSource_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. If both raw_gps_timeline and
+       * the Camera Motion Metadata Track (CAMM) contain GPS measurements,
+       * indicate which takes precedence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoSequence.GpsSource gps_source = 8 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearGpsSource() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        gpsSource_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu imu_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuOrBuilder> imuBuilder_;
+      /**
+       * <pre>
+       * Input only. Three axis IMU data for the collection.
+       * If this data is too large to put in the request, then it should be put in
+       * the CAMM track for the video. This data always takes precedence over the
+       * equivalent CAMM data, if it exists.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.Imu imu = 11 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       * @return Whether the imu field is set.
+       */
+      public boolean hasImu() {
+        return ((bitField0_ & 0x00000080) != 0);
+      }
+      /**
+       * <pre>
+       * Input only. Three axis IMU data for the collection.
+       * If this data is too large to put in the request, then it should be put in
+       * the CAMM track for the video. This data always takes precedence over the
+       * equivalent CAMM data, if it exists.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.Imu imu = 11 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       * @return The imu.
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu getImu() {
+        if (imuBuilder_ == null) {
+          return imu_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.getDefaultInstance() : imu_;
+        } else {
+          return imuBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Input only. Three axis IMU data for the collection.
+       * If this data is too large to put in the request, then it should be put in
+       * the CAMM track for the video. This data always takes precedence over the
+       * equivalent CAMM data, if it exists.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.Imu imu = 11 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public Builder setImu(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu value) {
+        if (imuBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          imu_ = value;
+        } else {
+          imuBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. Three axis IMU data for the collection.
+       * If this data is too large to put in the request, then it should be put in
+       * the CAMM track for the video. This data always takes precedence over the
+       * equivalent CAMM data, if it exists.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.Imu imu = 11 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public Builder setImu(
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Builder builderForValue) {
+        if (imuBuilder_ == null) {
+          imu_ = builderForValue.build();
+        } else {
+          imuBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. Three axis IMU data for the collection.
+       * If this data is too large to put in the request, then it should be put in
+       * the CAMM track for the video. This data always takes precedence over the
+       * equivalent CAMM data, if it exists.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.Imu imu = 11 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public Builder mergeImu(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu value) {
+        if (imuBuilder_ == null) {
+          if (((bitField0_ & 0x00000080) != 0) &&
+            imu_ != null &&
+            imu_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.getDefaultInstance()) {
+            getImuBuilder().mergeFrom(value);
+          } else {
+            imu_ = value;
+          }
+        } else {
+          imuBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. Three axis IMU data for the collection.
+       * If this data is too large to put in the request, then it should be put in
+       * the CAMM track for the video. This data always takes precedence over the
+       * equivalent CAMM data, if it exists.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.Imu imu = 11 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public Builder clearImu() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        imu_ = null;
+        if (imuBuilder_ != null) {
+          imuBuilder_.dispose();
+          imuBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Input only. Three axis IMU data for the collection.
+       * If this data is too large to put in the request, then it should be put in
+       * the CAMM track for the video. This data always takes precedence over the
+       * equivalent CAMM data, if it exists.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.Imu imu = 11 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Builder getImuBuilder() {
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return getImuFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Input only. Three axis IMU data for the collection.
+       * If this data is too large to put in the request, then it should be put in
+       * the CAMM track for the video. This data always takes precedence over the
+       * equivalent CAMM data, if it exists.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.Imu imu = 11 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuOrBuilder getImuOrBuilder() {
+        if (imuBuilder_ != null) {
+          return imuBuilder_.getMessageOrBuilder();
+        } else {
+          return imu_ == null ?
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.getDefaultInstance() : imu_;
+        }
+      }
+      /**
+       * <pre>
+       * Input only. Three axis IMU data for the collection.
+       * If this data is too large to put in the request, then it should be put in
+       * the CAMM track for the video. This data always takes precedence over the
+       * equivalent CAMM data, if it exists.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.Imu imu = 11 [(.google.api.field_behavior) = INPUT_ONLY];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuOrBuilder> 
+          getImuFieldBuilder() {
+        if (imuBuilder_ == null) {
+          imuBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Imu.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuOrBuilder>(
+                  getImu(),
+                  getParentForChildren(),
+                  isClean());
+          imu_ = null;
+        }
+        return imuBuilder_;
+      }
+
+      private int processingState_ = 0;
+      /**
+       * <pre>
+       * Output only. The processing state of this sequence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingState processing_state = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return The enum numeric value on the wire for processingState.
+       */
+      @java.lang.Override public int getProcessingStateValue() {
+        return processingState_;
+      }
+      /**
+       * <pre>
+       * Output only. The processing state of this sequence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingState processing_state = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param value The enum numeric value on the wire for processingState to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProcessingStateValue(int value) {
+        processingState_ = value;
+        bitField0_ |= 0x00000100;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The processing state of this sequence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingState processing_state = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return The processingState.
+       */
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingState getProcessingState() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingState result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingState.forNumber(processingState_);
+        return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingState.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * Output only. The processing state of this sequence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingState processing_state = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param value The processingState to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProcessingState(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingState value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000100;
+        processingState_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The processing state of this sequence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingState processing_state = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProcessingState() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        processingState_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int failureReason_ = 0;
+      /**
+       * <pre>
+       * Output only. If this sequence has processing_state = FAILED, this will contain the
+       * reason why it failed. If the processing_state is any other value, this
+       * field will be unset.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingFailureReason failure_reason = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return The enum numeric value on the wire for failureReason.
+       */
+      @java.lang.Override public int getFailureReasonValue() {
+        return failureReason_;
+      }
+      /**
+       * <pre>
+       * Output only. If this sequence has processing_state = FAILED, this will contain the
+       * reason why it failed. If the processing_state is any other value, this
+       * field will be unset.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingFailureReason failure_reason = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param value The enum numeric value on the wire for failureReason to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFailureReasonValue(int value) {
+        failureReason_ = value;
+        bitField0_ |= 0x00000200;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. If this sequence has processing_state = FAILED, this will contain the
+       * reason why it failed. If the processing_state is any other value, this
+       * field will be unset.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingFailureReason failure_reason = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return The failureReason.
+       */
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureReason getFailureReason() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureReason result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureReason.forNumber(failureReason_);
+        return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureReason.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * Output only. If this sequence has processing_state = FAILED, this will contain the
+       * reason why it failed. If the processing_state is any other value, this
+       * field will be unset.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingFailureReason failure_reason = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param value The failureReason to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFailureReason(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureReason value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000200;
+        failureReason_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. If this sequence has processing_state = FAILED, this will contain the
+       * reason why it failed. If the processing_state is any other value, this
+       * field will be unset.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingFailureReason failure_reason = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFailureReason() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        failureReason_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails failureDetails_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetailsOrBuilder> failureDetailsBuilder_;
+      /**
+       * <pre>
+       * Output only. If this sequence has `failure_reason` set, this may contain additional
+       * details about the failure.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingFailureDetails failure_details = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return Whether the failureDetails field is set.
+       */
+      public boolean hasFailureDetails() {
+        return ((bitField0_ & 0x00000400) != 0);
+      }
+      /**
+       * <pre>
+       * Output only. If this sequence has `failure_reason` set, this may contain additional
+       * details about the failure.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingFailureDetails failure_details = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return The failureDetails.
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails getFailureDetails() {
+        if (failureDetailsBuilder_ == null) {
+          return failureDetails_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.getDefaultInstance() : failureDetails_;
+        } else {
+          return failureDetailsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Output only. If this sequence has `failure_reason` set, this may contain additional
+       * details about the failure.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingFailureDetails failure_details = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder setFailureDetails(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails value) {
+        if (failureDetailsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          failureDetails_ = value;
+        } else {
+          failureDetailsBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000400;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. If this sequence has `failure_reason` set, this may contain additional
+       * details about the failure.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingFailureDetails failure_details = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder setFailureDetails(
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.Builder builderForValue) {
+        if (failureDetailsBuilder_ == null) {
+          failureDetails_ = builderForValue.build();
+        } else {
+          failureDetailsBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000400;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. If this sequence has `failure_reason` set, this may contain additional
+       * details about the failure.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingFailureDetails failure_details = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder mergeFailureDetails(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails value) {
+        if (failureDetailsBuilder_ == null) {
+          if (((bitField0_ & 0x00000400) != 0) &&
+            failureDetails_ != null &&
+            failureDetails_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.getDefaultInstance()) {
+            getFailureDetailsBuilder().mergeFrom(value);
+          } else {
+            failureDetails_ = value;
+          }
+        } else {
+          failureDetailsBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000400;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. If this sequence has `failure_reason` set, this may contain additional
+       * details about the failure.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingFailureDetails failure_details = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder clearFailureDetails() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        failureDetails_ = null;
+        if (failureDetailsBuilder_ != null) {
+          failureDetailsBuilder_.dispose();
+          failureDetailsBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. If this sequence has `failure_reason` set, this may contain additional
+       * details about the failure.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingFailureDetails failure_details = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.Builder getFailureDetailsBuilder() {
+        bitField0_ |= 0x00000400;
+        onChanged();
+        return getFailureDetailsFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Output only. If this sequence has `failure_reason` set, this may contain additional
+       * details about the failure.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingFailureDetails failure_details = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetailsOrBuilder getFailureDetailsOrBuilder() {
+        if (failureDetailsBuilder_ != null) {
+          return failureDetailsBuilder_.getMessageOrBuilder();
+        } else {
+          return failureDetails_ == null ?
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.getDefaultInstance() : failureDetails_;
+        }
+      }
+      /**
+       * <pre>
+       * Output only. If this sequence has `failure_reason` set, this may contain additional
+       * details about the failure.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ProcessingFailureDetails failure_details = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetailsOrBuilder> 
+          getFailureDetailsFieldBuilder() {
+        if (failureDetailsBuilder_ == null) {
+          failureDetailsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetailsOrBuilder>(
+                  getFailureDetails(),
+                  getParentForChildren(),
+                  isClean());
+          failureDetails_ = null;
+        }
+        return failureDetailsBuilder_;
+      }
+
+      private double distanceMeters_ ;
+      /**
+       * <pre>
+       * Output only. The computed distance of the photo sequence in meters.
+       * </pre>
+       *
+       * <code>double distance_meters = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return The distanceMeters.
+       */
+      @java.lang.Override
+      public double getDistanceMeters() {
+        return distanceMeters_;
+      }
+      /**
+       * <pre>
+       * Output only. The computed distance of the photo sequence in meters.
+       * </pre>
+       *
+       * <code>double distance_meters = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param value The distanceMeters to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDistanceMeters(double value) {
+        
+        distanceMeters_ = value;
+        bitField0_ |= 0x00000800;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The computed distance of the photo sequence in meters.
+       * </pre>
+       *
+       * <code>double distance_meters = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDistanceMeters() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        distanceMeters_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds sequenceBounds_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBoundsOrBuilder> sequenceBoundsBuilder_;
+      /**
+       * <pre>
+       * Output only. A rectangular box that encapsulates every image in this photo sequence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.LatLngBounds sequence_bounds = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return Whether the sequenceBounds field is set.
+       */
+      public boolean hasSequenceBounds() {
+        return ((bitField0_ & 0x00001000) != 0);
+      }
+      /**
+       * <pre>
+       * Output only. A rectangular box that encapsulates every image in this photo sequence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.LatLngBounds sequence_bounds = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return The sequenceBounds.
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds getSequenceBounds() {
+        if (sequenceBoundsBuilder_ == null) {
+          return sequenceBounds_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds.getDefaultInstance() : sequenceBounds_;
+        } else {
+          return sequenceBoundsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Output only. A rectangular box that encapsulates every image in this photo sequence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.LatLngBounds sequence_bounds = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder setSequenceBounds(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds value) {
+        if (sequenceBoundsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          sequenceBounds_ = value;
+        } else {
+          sequenceBoundsBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00001000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. A rectangular box that encapsulates every image in this photo sequence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.LatLngBounds sequence_bounds = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder setSequenceBounds(
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds.Builder builderForValue) {
+        if (sequenceBoundsBuilder_ == null) {
+          sequenceBounds_ = builderForValue.build();
+        } else {
+          sequenceBoundsBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00001000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. A rectangular box that encapsulates every image in this photo sequence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.LatLngBounds sequence_bounds = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder mergeSequenceBounds(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds value) {
+        if (sequenceBoundsBuilder_ == null) {
+          if (((bitField0_ & 0x00001000) != 0) &&
+            sequenceBounds_ != null &&
+            sequenceBounds_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds.getDefaultInstance()) {
+            getSequenceBoundsBuilder().mergeFrom(value);
+          } else {
+            sequenceBounds_ = value;
+          }
+        } else {
+          sequenceBoundsBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00001000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. A rectangular box that encapsulates every image in this photo sequence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.LatLngBounds sequence_bounds = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public Builder clearSequenceBounds() {
+        bitField0_ = (bitField0_ & ~0x00001000);
+        sequenceBounds_ = null;
+        if (sequenceBoundsBuilder_ != null) {
+          sequenceBoundsBuilder_.dispose();
+          sequenceBoundsBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. A rectangular box that encapsulates every image in this photo sequence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.LatLngBounds sequence_bounds = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds.Builder getSequenceBoundsBuilder() {
+        bitField0_ |= 0x00001000;
+        onChanged();
+        return getSequenceBoundsFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Output only. A rectangular box that encapsulates every image in this photo sequence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.LatLngBounds sequence_bounds = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBoundsOrBuilder getSequenceBoundsOrBuilder() {
+        if (sequenceBoundsBuilder_ != null) {
+          return sequenceBoundsBuilder_.getMessageOrBuilder();
+        } else {
+          return sequenceBounds_ == null ?
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds.getDefaultInstance() : sequenceBounds_;
+        }
+      }
+      /**
+       * <pre>
+       * Output only. A rectangular box that encapsulates every image in this photo sequence.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.LatLngBounds sequence_bounds = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBoundsOrBuilder> 
+          getSequenceBoundsFieldBuilder() {
+        if (sequenceBoundsBuilder_ == null) {
+          sequenceBoundsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBoundsOrBuilder>(
+                  getSequenceBounds(),
+                  getParentForChildren(),
+                  isClean());
+          sequenceBounds_ = null;
+        }
+        return sequenceBoundsBuilder_;
+      }
+
+      private long viewCount_ ;
+      /**
+       * <pre>
+       * Output only. The total number of views that all the published images in this
+       * PhotoSequence have received.
+       * </pre>
+       *
+       * <code>int64 view_count = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return The viewCount.
+       */
+      @java.lang.Override
+      public long getViewCount() {
+        return viewCount_;
+      }
+      /**
+       * <pre>
+       * Output only. The total number of views that all the published images in this
+       * PhotoSequence have received.
+       * </pre>
+       *
+       * <code>int64 view_count = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param value The viewCount to set.
+       * @return This builder for chaining.
+       */
+      public Builder setViewCount(long value) {
+        
+        viewCount_ = value;
+        bitField0_ |= 0x00002000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The total number of views that all the published images in this
+       * PhotoSequence have received.
+       * </pre>
+       *
+       * <code>int64 view_count = 21 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearViewCount() {
+        bitField0_ = (bitField0_ & ~0x00002000);
+        viewCount_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object filename_ = "";
+      /**
+       * <pre>
+       * Output only. The filename of the upload. Does not include the directory path. Only
+       * available if the sequence was uploaded on a platform that provides the
+       * filename.
+       * </pre>
+       *
+       * <code>string filename = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return The filename.
+       */
+      public java.lang.String getFilename() {
+        java.lang.Object ref = filename_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          filename_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Output only. The filename of the upload. Does not include the directory path. Only
+       * available if the sequence was uploaded on a platform that provides the
+       * filename.
+       * </pre>
+       *
+       * <code>string filename = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return The bytes for filename.
+       */
+      public com.google.protobuf.ByteString
+          getFilenameBytes() {
+        java.lang.Object ref = filename_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          filename_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Output only. The filename of the upload. Does not include the directory path. Only
+       * available if the sequence was uploaded on a platform that provides the
+       * filename.
+       * </pre>
+       *
+       * <code>string filename = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param value The filename to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilename(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        filename_ = value;
+        bitField0_ |= 0x00004000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The filename of the upload. Does not include the directory path. Only
+       * available if the sequence was uploaded on a platform that provides the
+       * filename.
+       * </pre>
+       *
+       * <code>string filename = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFilename() {
+        filename_ = getDefaultInstance().getFilename();
+        bitField0_ = (bitField0_ & ~0x00004000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The filename of the upload. Does not include the directory path. Only
+       * available if the sequence was uploaded on a platform that provides the
+       * filename.
+       * </pre>
+       *
+       * <code>string filename = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param value The bytes for filename to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilenameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        filename_ = value;
+        bitField0_ |= 0x00004000;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.streetview.publish.v1.PhotoSequence)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.streetview.publish.v1.PhotoSequence)
+    private static final com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence();
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PhotoSequence>
+        PARSER = new com.google.protobuf.AbstractParser<PhotoSequence>() {
+      @java.lang.Override
+      public PhotoSequence parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<PhotoSequence> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PhotoSequence> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface LatLngBoundsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.streetview.publish.v1.LatLngBounds)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * The southwest corner of these bounds.
+     * </pre>
+     *
+     * <code>.google.type.LatLng southwest = 1;</code>
+     * @return Whether the southwest field is set.
+     */
+    boolean hasSouthwest();
+    /**
+     * <pre>
+     * The southwest corner of these bounds.
+     * </pre>
+     *
+     * <code>.google.type.LatLng southwest = 1;</code>
+     * @return The southwest.
+     */
+    com.google.type.LatLng getSouthwest();
+    /**
+     * <pre>
+     * The southwest corner of these bounds.
+     * </pre>
+     *
+     * <code>.google.type.LatLng southwest = 1;</code>
+     */
+    com.google.type.LatLngOrBuilder getSouthwestOrBuilder();
+
+    /**
+     * <pre>
+     * The northeast corner of these bounds.
+     * </pre>
+     *
+     * <code>.google.type.LatLng northeast = 2;</code>
+     * @return Whether the northeast field is set.
+     */
+    boolean hasNortheast();
+    /**
+     * <pre>
+     * The northeast corner of these bounds.
+     * </pre>
+     *
+     * <code>.google.type.LatLng northeast = 2;</code>
+     * @return The northeast.
+     */
+    com.google.type.LatLng getNortheast();
+    /**
+     * <pre>
+     * The northeast corner of these bounds.
+     * </pre>
+     *
+     * <code>.google.type.LatLng northeast = 2;</code>
+     */
+    com.google.type.LatLngOrBuilder getNortheastOrBuilder();
+  }
+  /**
+   * <pre>
+   * A rectangle in geographical coordinates.
+   * </pre>
+   *
+   * Protobuf type {@code google.streetview.publish.v1.LatLngBounds}
+   */
+  public static final class LatLngBounds extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.streetview.publish.v1.LatLngBounds)
+      LatLngBoundsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use LatLngBounds.newBuilder() to construct.
+    private LatLngBounds(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LatLngBounds() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LatLngBounds();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_LatLngBounds_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_LatLngBounds_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds.Builder.class);
+    }
+
+    public static final int SOUTHWEST_FIELD_NUMBER = 1;
+    private com.google.type.LatLng southwest_;
+    /**
+     * <pre>
+     * The southwest corner of these bounds.
+     * </pre>
+     *
+     * <code>.google.type.LatLng southwest = 1;</code>
+     * @return Whether the southwest field is set.
+     */
+    @java.lang.Override
+    public boolean hasSouthwest() {
+      return southwest_ != null;
+    }
+    /**
+     * <pre>
+     * The southwest corner of these bounds.
+     * </pre>
+     *
+     * <code>.google.type.LatLng southwest = 1;</code>
+     * @return The southwest.
+     */
+    @java.lang.Override
+    public com.google.type.LatLng getSouthwest() {
+      return southwest_ == null ? com.google.type.LatLng.getDefaultInstance() : southwest_;
+    }
+    /**
+     * <pre>
+     * The southwest corner of these bounds.
+     * </pre>
+     *
+     * <code>.google.type.LatLng southwest = 1;</code>
+     */
+    @java.lang.Override
+    public com.google.type.LatLngOrBuilder getSouthwestOrBuilder() {
+      return southwest_ == null ? com.google.type.LatLng.getDefaultInstance() : southwest_;
+    }
+
+    public static final int NORTHEAST_FIELD_NUMBER = 2;
+    private com.google.type.LatLng northeast_;
+    /**
+     * <pre>
+     * The northeast corner of these bounds.
+     * </pre>
+     *
+     * <code>.google.type.LatLng northeast = 2;</code>
+     * @return Whether the northeast field is set.
+     */
+    @java.lang.Override
+    public boolean hasNortheast() {
+      return northeast_ != null;
+    }
+    /**
+     * <pre>
+     * The northeast corner of these bounds.
+     * </pre>
+     *
+     * <code>.google.type.LatLng northeast = 2;</code>
+     * @return The northeast.
+     */
+    @java.lang.Override
+    public com.google.type.LatLng getNortheast() {
+      return northeast_ == null ? com.google.type.LatLng.getDefaultInstance() : northeast_;
+    }
+    /**
+     * <pre>
+     * The northeast corner of these bounds.
+     * </pre>
+     *
+     * <code>.google.type.LatLng northeast = 2;</code>
+     */
+    @java.lang.Override
+    public com.google.type.LatLngOrBuilder getNortheastOrBuilder() {
+      return northeast_ == null ? com.google.type.LatLng.getDefaultInstance() : northeast_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (southwest_ != null) {
+        output.writeMessage(1, getSouthwest());
+      }
+      if (northeast_ != null) {
+        output.writeMessage(2, getNortheast());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (southwest_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getSouthwest());
+      }
+      if (northeast_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getNortheast());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds)) {
+        return super.equals(obj);
+      }
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds other = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds) obj;
+
+      if (hasSouthwest() != other.hasSouthwest()) return false;
+      if (hasSouthwest()) {
+        if (!getSouthwest()
+            .equals(other.getSouthwest())) return false;
+      }
+      if (hasNortheast() != other.hasNortheast()) return false;
+      if (hasNortheast()) {
+        if (!getNortheast()
+            .equals(other.getNortheast())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasSouthwest()) {
+        hash = (37 * hash) + SOUTHWEST_FIELD_NUMBER;
+        hash = (53 * hash) + getSouthwest().hashCode();
+      }
+      if (hasNortheast()) {
+        hash = (37 * hash) + NORTHEAST_FIELD_NUMBER;
+        hash = (53 * hash) + getNortheast().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * A rectangle in geographical coordinates.
+     * </pre>
+     *
+     * Protobuf type {@code google.streetview.publish.v1.LatLngBounds}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.streetview.publish.v1.LatLngBounds)
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBoundsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_LatLngBounds_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_LatLngBounds_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds.Builder.class);
+      }
+
+      // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        southwest_ = null;
+        if (southwestBuilder_ != null) {
+          southwestBuilder_.dispose();
+          southwestBuilder_ = null;
+        }
+        northeast_ = null;
+        if (northeastBuilder_ != null) {
+          northeastBuilder_.dispose();
+          northeastBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_LatLngBounds_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds getDefaultInstanceForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds build() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds buildPartial() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.southwest_ = southwestBuilder_ == null
+              ? southwest_
+              : southwestBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.northeast_ = northeastBuilder_ == null
+              ? northeast_
+              : northeastBuilder_.build();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds) {
+          return mergeFrom((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds other) {
+        if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds.getDefaultInstance()) return this;
+        if (other.hasSouthwest()) {
+          mergeSouthwest(other.getSouthwest());
+        }
+        if (other.hasNortheast()) {
+          mergeNortheast(other.getNortheast());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getSouthwestFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getNortheastFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.type.LatLng southwest_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.type.LatLng, com.google.type.LatLng.Builder, com.google.type.LatLngOrBuilder> southwestBuilder_;
+      /**
+       * <pre>
+       * The southwest corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng southwest = 1;</code>
+       * @return Whether the southwest field is set.
+       */
+      public boolean hasSouthwest() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * The southwest corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng southwest = 1;</code>
+       * @return The southwest.
+       */
+      public com.google.type.LatLng getSouthwest() {
+        if (southwestBuilder_ == null) {
+          return southwest_ == null ? com.google.type.LatLng.getDefaultInstance() : southwest_;
+        } else {
+          return southwestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * The southwest corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng southwest = 1;</code>
+       */
+      public Builder setSouthwest(com.google.type.LatLng value) {
+        if (southwestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          southwest_ = value;
+        } else {
+          southwestBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The southwest corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng southwest = 1;</code>
+       */
+      public Builder setSouthwest(
+          com.google.type.LatLng.Builder builderForValue) {
+        if (southwestBuilder_ == null) {
+          southwest_ = builderForValue.build();
+        } else {
+          southwestBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The southwest corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng southwest = 1;</code>
+       */
+      public Builder mergeSouthwest(com.google.type.LatLng value) {
+        if (southwestBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0) &&
+            southwest_ != null &&
+            southwest_ != com.google.type.LatLng.getDefaultInstance()) {
+            getSouthwestBuilder().mergeFrom(value);
+          } else {
+            southwest_ = value;
+          }
+        } else {
+          southwestBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The southwest corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng southwest = 1;</code>
+       */
+      public Builder clearSouthwest() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        southwest_ = null;
+        if (southwestBuilder_ != null) {
+          southwestBuilder_.dispose();
+          southwestBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The southwest corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng southwest = 1;</code>
+       */
+      public com.google.type.LatLng.Builder getSouthwestBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getSouthwestFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * The southwest corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng southwest = 1;</code>
+       */
+      public com.google.type.LatLngOrBuilder getSouthwestOrBuilder() {
+        if (southwestBuilder_ != null) {
+          return southwestBuilder_.getMessageOrBuilder();
+        } else {
+          return southwest_ == null ?
+              com.google.type.LatLng.getDefaultInstance() : southwest_;
+        }
+      }
+      /**
+       * <pre>
+       * The southwest corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng southwest = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.type.LatLng, com.google.type.LatLng.Builder, com.google.type.LatLngOrBuilder> 
+          getSouthwestFieldBuilder() {
+        if (southwestBuilder_ == null) {
+          southwestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.type.LatLng, com.google.type.LatLng.Builder, com.google.type.LatLngOrBuilder>(
+                  getSouthwest(),
+                  getParentForChildren(),
+                  isClean());
+          southwest_ = null;
+        }
+        return southwestBuilder_;
+      }
+
+      private com.google.type.LatLng northeast_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.type.LatLng, com.google.type.LatLng.Builder, com.google.type.LatLngOrBuilder> northeastBuilder_;
+      /**
+       * <pre>
+       * The northeast corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng northeast = 2;</code>
+       * @return Whether the northeast field is set.
+       */
+      public boolean hasNortheast() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * The northeast corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng northeast = 2;</code>
+       * @return The northeast.
+       */
+      public com.google.type.LatLng getNortheast() {
+        if (northeastBuilder_ == null) {
+          return northeast_ == null ? com.google.type.LatLng.getDefaultInstance() : northeast_;
+        } else {
+          return northeastBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * The northeast corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng northeast = 2;</code>
+       */
+      public Builder setNortheast(com.google.type.LatLng value) {
+        if (northeastBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          northeast_ = value;
+        } else {
+          northeastBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The northeast corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng northeast = 2;</code>
+       */
+      public Builder setNortheast(
+          com.google.type.LatLng.Builder builderForValue) {
+        if (northeastBuilder_ == null) {
+          northeast_ = builderForValue.build();
+        } else {
+          northeastBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The northeast corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng northeast = 2;</code>
+       */
+      public Builder mergeNortheast(com.google.type.LatLng value) {
+        if (northeastBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0) &&
+            northeast_ != null &&
+            northeast_ != com.google.type.LatLng.getDefaultInstance()) {
+            getNortheastBuilder().mergeFrom(value);
+          } else {
+            northeast_ = value;
+          }
+        } else {
+          northeastBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The northeast corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng northeast = 2;</code>
+       */
+      public Builder clearNortheast() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        northeast_ = null;
+        if (northeastBuilder_ != null) {
+          northeastBuilder_.dispose();
+          northeastBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The northeast corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng northeast = 2;</code>
+       */
+      public com.google.type.LatLng.Builder getNortheastBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getNortheastFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * The northeast corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng northeast = 2;</code>
+       */
+      public com.google.type.LatLngOrBuilder getNortheastOrBuilder() {
+        if (northeastBuilder_ != null) {
+          return northeastBuilder_.getMessageOrBuilder();
+        } else {
+          return northeast_ == null ?
+              com.google.type.LatLng.getDefaultInstance() : northeast_;
+        }
+      }
+      /**
+       * <pre>
+       * The northeast corner of these bounds.
+       * </pre>
+       *
+       * <code>.google.type.LatLng northeast = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.type.LatLng, com.google.type.LatLng.Builder, com.google.type.LatLngOrBuilder> 
+          getNortheastFieldBuilder() {
+        if (northeastBuilder_ == null) {
+          northeastBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.type.LatLng, com.google.type.LatLng.Builder, com.google.type.LatLngOrBuilder>(
+                  getNortheast(),
+                  getParentForChildren(),
+                  isClean());
+          northeast_ = null;
+        }
+        return northeastBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.streetview.publish.v1.LatLngBounds)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.streetview.publish.v1.LatLngBounds)
+    private static final com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds();
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LatLngBounds>
+        PARSER = new com.google.protobuf.AbstractParser<LatLngBounds>() {
+      @java.lang.Override
+      public LatLngBounds parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<LatLngBounds> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LatLngBounds> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.LatLngBounds getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ProcessingFailureDetailsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.streetview.publish.v1.ProcessingFailureDetails)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * See InsufficientGpsFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.InsufficientGpsFailureDetails insufficient_gps_details = 1;</code>
+     * @return Whether the insufficientGpsDetails field is set.
+     */
+    boolean hasInsufficientGpsDetails();
+    /**
+     * <pre>
+     * See InsufficientGpsFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.InsufficientGpsFailureDetails insufficient_gps_details = 1;</code>
+     * @return The insufficientGpsDetails.
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails getInsufficientGpsDetails();
+    /**
+     * <pre>
+     * See InsufficientGpsFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.InsufficientGpsFailureDetails insufficient_gps_details = 1;</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetailsOrBuilder getInsufficientGpsDetailsOrBuilder();
+
+    /**
+     * <pre>
+     * See GpsDataGapFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.GpsDataGapFailureDetails gps_data_gap_details = 2;</code>
+     * @return Whether the gpsDataGapDetails field is set.
+     */
+    boolean hasGpsDataGapDetails();
+    /**
+     * <pre>
+     * See GpsDataGapFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.GpsDataGapFailureDetails gps_data_gap_details = 2;</code>
+     * @return The gpsDataGapDetails.
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails getGpsDataGapDetails();
+    /**
+     * <pre>
+     * See GpsDataGapFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.GpsDataGapFailureDetails gps_data_gap_details = 2;</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetailsOrBuilder getGpsDataGapDetailsOrBuilder();
+
+    /**
+     * <pre>
+     * See ImuDataGapFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ImuDataGapFailureDetails imu_data_gap_details = 3;</code>
+     * @return Whether the imuDataGapDetails field is set.
+     */
+    boolean hasImuDataGapDetails();
+    /**
+     * <pre>
+     * See ImuDataGapFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ImuDataGapFailureDetails imu_data_gap_details = 3;</code>
+     * @return The imuDataGapDetails.
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails getImuDataGapDetails();
+    /**
+     * <pre>
+     * See ImuDataGapFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ImuDataGapFailureDetails imu_data_gap_details = 3;</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetailsOrBuilder getImuDataGapDetailsOrBuilder();
+
+    /**
+     * <pre>
+     * See NotOutdoorsFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.NotOutdoorsFailureDetails not_outdoors_details = 4;</code>
+     * @return Whether the notOutdoorsDetails field is set.
+     */
+    boolean hasNotOutdoorsDetails();
+    /**
+     * <pre>
+     * See NotOutdoorsFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.NotOutdoorsFailureDetails not_outdoors_details = 4;</code>
+     * @return The notOutdoorsDetails.
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails getNotOutdoorsDetails();
+    /**
+     * <pre>
+     * See NotOutdoorsFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.NotOutdoorsFailureDetails not_outdoors_details = 4;</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetailsOrBuilder getNotOutdoorsDetailsOrBuilder();
+
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.DetailsCase getDetailsCase();
+  }
+  /**
+   * <pre>
+   * Additional details to accompany the ProcessingFailureReason enum.
+   * This message is always expected to be used in conjunction with
+   * ProcessingFailureReason, and the oneof value set in this message should match
+   * the FailureReason.
+   * </pre>
+   *
+   * Protobuf type {@code google.streetview.publish.v1.ProcessingFailureDetails}
+   */
+  public static final class ProcessingFailureDetails extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.streetview.publish.v1.ProcessingFailureDetails)
+      ProcessingFailureDetailsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ProcessingFailureDetails.newBuilder() to construct.
+    private ProcessingFailureDetails(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ProcessingFailureDetails() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ProcessingFailureDetails();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_ProcessingFailureDetails_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_ProcessingFailureDetails_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.Builder.class);
+    }
+
+    private int detailsCase_ = 0;
+    private java.lang.Object details_;
+    public enum DetailsCase
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      INSUFFICIENT_GPS_DETAILS(1),
+      GPS_DATA_GAP_DETAILS(2),
+      IMU_DATA_GAP_DETAILS(3),
+      NOT_OUTDOORS_DETAILS(4),
+      DETAILS_NOT_SET(0);
+      private final int value;
+      private DetailsCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static DetailsCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static DetailsCase forNumber(int value) {
+        switch (value) {
+          case 1: return INSUFFICIENT_GPS_DETAILS;
+          case 2: return GPS_DATA_GAP_DETAILS;
+          case 3: return IMU_DATA_GAP_DETAILS;
+          case 4: return NOT_OUTDOORS_DETAILS;
+          case 0: return DETAILS_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public DetailsCase
+    getDetailsCase() {
+      return DetailsCase.forNumber(
+          detailsCase_);
+    }
+
+    public static final int INSUFFICIENT_GPS_DETAILS_FIELD_NUMBER = 1;
+    /**
+     * <pre>
+     * See InsufficientGpsFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.InsufficientGpsFailureDetails insufficient_gps_details = 1;</code>
+     * @return Whether the insufficientGpsDetails field is set.
+     */
+    @java.lang.Override
+    public boolean hasInsufficientGpsDetails() {
+      return detailsCase_ == 1;
+    }
+    /**
+     * <pre>
+     * See InsufficientGpsFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.InsufficientGpsFailureDetails insufficient_gps_details = 1;</code>
+     * @return The insufficientGpsDetails.
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails getInsufficientGpsDetails() {
+      if (detailsCase_ == 1) {
+         return (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails) details_;
+      }
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.getDefaultInstance();
+    }
+    /**
+     * <pre>
+     * See InsufficientGpsFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.InsufficientGpsFailureDetails insufficient_gps_details = 1;</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetailsOrBuilder getInsufficientGpsDetailsOrBuilder() {
+      if (detailsCase_ == 1) {
+         return (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails) details_;
+      }
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.getDefaultInstance();
+    }
+
+    public static final int GPS_DATA_GAP_DETAILS_FIELD_NUMBER = 2;
+    /**
+     * <pre>
+     * See GpsDataGapFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.GpsDataGapFailureDetails gps_data_gap_details = 2;</code>
+     * @return Whether the gpsDataGapDetails field is set.
+     */
+    @java.lang.Override
+    public boolean hasGpsDataGapDetails() {
+      return detailsCase_ == 2;
+    }
+    /**
+     * <pre>
+     * See GpsDataGapFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.GpsDataGapFailureDetails gps_data_gap_details = 2;</code>
+     * @return The gpsDataGapDetails.
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails getGpsDataGapDetails() {
+      if (detailsCase_ == 2) {
+         return (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails) details_;
+      }
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.getDefaultInstance();
+    }
+    /**
+     * <pre>
+     * See GpsDataGapFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.GpsDataGapFailureDetails gps_data_gap_details = 2;</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetailsOrBuilder getGpsDataGapDetailsOrBuilder() {
+      if (detailsCase_ == 2) {
+         return (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails) details_;
+      }
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.getDefaultInstance();
+    }
+
+    public static final int IMU_DATA_GAP_DETAILS_FIELD_NUMBER = 3;
+    /**
+     * <pre>
+     * See ImuDataGapFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ImuDataGapFailureDetails imu_data_gap_details = 3;</code>
+     * @return Whether the imuDataGapDetails field is set.
+     */
+    @java.lang.Override
+    public boolean hasImuDataGapDetails() {
+      return detailsCase_ == 3;
+    }
+    /**
+     * <pre>
+     * See ImuDataGapFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ImuDataGapFailureDetails imu_data_gap_details = 3;</code>
+     * @return The imuDataGapDetails.
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails getImuDataGapDetails() {
+      if (detailsCase_ == 3) {
+         return (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails) details_;
+      }
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.getDefaultInstance();
+    }
+    /**
+     * <pre>
+     * See ImuDataGapFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.ImuDataGapFailureDetails imu_data_gap_details = 3;</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetailsOrBuilder getImuDataGapDetailsOrBuilder() {
+      if (detailsCase_ == 3) {
+         return (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails) details_;
+      }
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.getDefaultInstance();
+    }
+
+    public static final int NOT_OUTDOORS_DETAILS_FIELD_NUMBER = 4;
+    /**
+     * <pre>
+     * See NotOutdoorsFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.NotOutdoorsFailureDetails not_outdoors_details = 4;</code>
+     * @return Whether the notOutdoorsDetails field is set.
+     */
+    @java.lang.Override
+    public boolean hasNotOutdoorsDetails() {
+      return detailsCase_ == 4;
+    }
+    /**
+     * <pre>
+     * See NotOutdoorsFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.NotOutdoorsFailureDetails not_outdoors_details = 4;</code>
+     * @return The notOutdoorsDetails.
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails getNotOutdoorsDetails() {
+      if (detailsCase_ == 4) {
+         return (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails) details_;
+      }
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.getDefaultInstance();
+    }
+    /**
+     * <pre>
+     * See NotOutdoorsFailureDetails.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.NotOutdoorsFailureDetails not_outdoors_details = 4;</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetailsOrBuilder getNotOutdoorsDetailsOrBuilder() {
+      if (detailsCase_ == 4) {
+         return (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails) details_;
+      }
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.getDefaultInstance();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (detailsCase_ == 1) {
+        output.writeMessage(1, (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails) details_);
+      }
+      if (detailsCase_ == 2) {
+        output.writeMessage(2, (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails) details_);
+      }
+      if (detailsCase_ == 3) {
+        output.writeMessage(3, (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails) details_);
+      }
+      if (detailsCase_ == 4) {
+        output.writeMessage(4, (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails) details_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (detailsCase_ == 1) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails) details_);
+      }
+      if (detailsCase_ == 2) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails) details_);
+      }
+      if (detailsCase_ == 3) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails) details_);
+      }
+      if (detailsCase_ == 4) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails) details_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails)) {
+        return super.equals(obj);
+      }
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails other = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails) obj;
+
+      if (!getDetailsCase().equals(other.getDetailsCase())) return false;
+      switch (detailsCase_) {
+        case 1:
+          if (!getInsufficientGpsDetails()
+              .equals(other.getInsufficientGpsDetails())) return false;
+          break;
+        case 2:
+          if (!getGpsDataGapDetails()
+              .equals(other.getGpsDataGapDetails())) return false;
+          break;
+        case 3:
+          if (!getImuDataGapDetails()
+              .equals(other.getImuDataGapDetails())) return false;
+          break;
+        case 4:
+          if (!getNotOutdoorsDetails()
+              .equals(other.getNotOutdoorsDetails())) return false;
+          break;
+        case 0:
+        default:
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      switch (detailsCase_) {
+        case 1:
+          hash = (37 * hash) + INSUFFICIENT_GPS_DETAILS_FIELD_NUMBER;
+          hash = (53 * hash) + getInsufficientGpsDetails().hashCode();
+          break;
+        case 2:
+          hash = (37 * hash) + GPS_DATA_GAP_DETAILS_FIELD_NUMBER;
+          hash = (53 * hash) + getGpsDataGapDetails().hashCode();
+          break;
+        case 3:
+          hash = (37 * hash) + IMU_DATA_GAP_DETAILS_FIELD_NUMBER;
+          hash = (53 * hash) + getImuDataGapDetails().hashCode();
+          break;
+        case 4:
+          hash = (37 * hash) + NOT_OUTDOORS_DETAILS_FIELD_NUMBER;
+          hash = (53 * hash) + getNotOutdoorsDetails().hashCode();
+          break;
+        case 0:
+        default:
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Additional details to accompany the ProcessingFailureReason enum.
+     * This message is always expected to be used in conjunction with
+     * ProcessingFailureReason, and the oneof value set in this message should match
+     * the FailureReason.
+     * </pre>
+     *
+     * Protobuf type {@code google.streetview.publish.v1.ProcessingFailureDetails}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.streetview.publish.v1.ProcessingFailureDetails)
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetailsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_ProcessingFailureDetails_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_ProcessingFailureDetails_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.Builder.class);
+      }
+
+      // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        if (insufficientGpsDetailsBuilder_ != null) {
+          insufficientGpsDetailsBuilder_.clear();
+        }
+        if (gpsDataGapDetailsBuilder_ != null) {
+          gpsDataGapDetailsBuilder_.clear();
+        }
+        if (imuDataGapDetailsBuilder_ != null) {
+          imuDataGapDetailsBuilder_.clear();
+        }
+        if (notOutdoorsDetailsBuilder_ != null) {
+          notOutdoorsDetailsBuilder_.clear();
+        }
+        detailsCase_ = 0;
+        details_ = null;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_ProcessingFailureDetails_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails getDefaultInstanceForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails build() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails buildPartial() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      private void buildPartialOneofs(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails result) {
+        result.detailsCase_ = detailsCase_;
+        result.details_ = this.details_;
+        if (detailsCase_ == 1 &&
+            insufficientGpsDetailsBuilder_ != null) {
+          result.details_ = insufficientGpsDetailsBuilder_.build();
+        }
+        if (detailsCase_ == 2 &&
+            gpsDataGapDetailsBuilder_ != null) {
+          result.details_ = gpsDataGapDetailsBuilder_.build();
+        }
+        if (detailsCase_ == 3 &&
+            imuDataGapDetailsBuilder_ != null) {
+          result.details_ = imuDataGapDetailsBuilder_.build();
+        }
+        if (detailsCase_ == 4 &&
+            notOutdoorsDetailsBuilder_ != null) {
+          result.details_ = notOutdoorsDetailsBuilder_.build();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails) {
+          return mergeFrom((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails other) {
+        if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails.getDefaultInstance()) return this;
+        switch (other.getDetailsCase()) {
+          case INSUFFICIENT_GPS_DETAILS: {
+            mergeInsufficientGpsDetails(other.getInsufficientGpsDetails());
+            break;
+          }
+          case GPS_DATA_GAP_DETAILS: {
+            mergeGpsDataGapDetails(other.getGpsDataGapDetails());
+            break;
+          }
+          case IMU_DATA_GAP_DETAILS: {
+            mergeImuDataGapDetails(other.getImuDataGapDetails());
+            break;
+          }
+          case NOT_OUTDOORS_DETAILS: {
+            mergeNotOutdoorsDetails(other.getNotOutdoorsDetails());
+            break;
+          }
+          case DETAILS_NOT_SET: {
+            break;
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getInsufficientGpsDetailsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                detailsCase_ = 1;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getGpsDataGapDetailsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                detailsCase_ = 2;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getImuDataGapDetailsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                detailsCase_ = 3;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getNotOutdoorsDetailsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                detailsCase_ = 4;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int detailsCase_ = 0;
+      private java.lang.Object details_;
+      public DetailsCase
+          getDetailsCase() {
+        return DetailsCase.forNumber(
+            detailsCase_);
+      }
+
+      public Builder clearDetails() {
+        detailsCase_ = 0;
+        details_ = null;
+        onChanged();
+        return this;
+      }
+
+      private int bitField0_;
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetailsOrBuilder> insufficientGpsDetailsBuilder_;
+      /**
+       * <pre>
+       * See InsufficientGpsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.InsufficientGpsFailureDetails insufficient_gps_details = 1;</code>
+       * @return Whether the insufficientGpsDetails field is set.
+       */
+      @java.lang.Override
+      public boolean hasInsufficientGpsDetails() {
+        return detailsCase_ == 1;
+      }
+      /**
+       * <pre>
+       * See InsufficientGpsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.InsufficientGpsFailureDetails insufficient_gps_details = 1;</code>
+       * @return The insufficientGpsDetails.
+       */
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails getInsufficientGpsDetails() {
+        if (insufficientGpsDetailsBuilder_ == null) {
+          if (detailsCase_ == 1) {
+            return (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails) details_;
+          }
+          return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.getDefaultInstance();
+        } else {
+          if (detailsCase_ == 1) {
+            return insufficientGpsDetailsBuilder_.getMessage();
+          }
+          return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * See InsufficientGpsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.InsufficientGpsFailureDetails insufficient_gps_details = 1;</code>
+       */
+      public Builder setInsufficientGpsDetails(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails value) {
+        if (insufficientGpsDetailsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          details_ = value;
+          onChanged();
+        } else {
+          insufficientGpsDetailsBuilder_.setMessage(value);
+        }
+        detailsCase_ = 1;
+        return this;
+      }
+      /**
+       * <pre>
+       * See InsufficientGpsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.InsufficientGpsFailureDetails insufficient_gps_details = 1;</code>
+       */
+      public Builder setInsufficientGpsDetails(
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.Builder builderForValue) {
+        if (insufficientGpsDetailsBuilder_ == null) {
+          details_ = builderForValue.build();
+          onChanged();
+        } else {
+          insufficientGpsDetailsBuilder_.setMessage(builderForValue.build());
+        }
+        detailsCase_ = 1;
+        return this;
+      }
+      /**
+       * <pre>
+       * See InsufficientGpsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.InsufficientGpsFailureDetails insufficient_gps_details = 1;</code>
+       */
+      public Builder mergeInsufficientGpsDetails(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails value) {
+        if (insufficientGpsDetailsBuilder_ == null) {
+          if (detailsCase_ == 1 &&
+              details_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.getDefaultInstance()) {
+            details_ = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.newBuilder((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails) details_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            details_ = value;
+          }
+          onChanged();
+        } else {
+          if (detailsCase_ == 1) {
+            insufficientGpsDetailsBuilder_.mergeFrom(value);
+          } else {
+            insufficientGpsDetailsBuilder_.setMessage(value);
+          }
+        }
+        detailsCase_ = 1;
+        return this;
+      }
+      /**
+       * <pre>
+       * See InsufficientGpsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.InsufficientGpsFailureDetails insufficient_gps_details = 1;</code>
+       */
+      public Builder clearInsufficientGpsDetails() {
+        if (insufficientGpsDetailsBuilder_ == null) {
+          if (detailsCase_ == 1) {
+            detailsCase_ = 0;
+            details_ = null;
+            onChanged();
+          }
+        } else {
+          if (detailsCase_ == 1) {
+            detailsCase_ = 0;
+            details_ = null;
+          }
+          insufficientGpsDetailsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * See InsufficientGpsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.InsufficientGpsFailureDetails insufficient_gps_details = 1;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.Builder getInsufficientGpsDetailsBuilder() {
+        return getInsufficientGpsDetailsFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * See InsufficientGpsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.InsufficientGpsFailureDetails insufficient_gps_details = 1;</code>
+       */
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetailsOrBuilder getInsufficientGpsDetailsOrBuilder() {
+        if ((detailsCase_ == 1) && (insufficientGpsDetailsBuilder_ != null)) {
+          return insufficientGpsDetailsBuilder_.getMessageOrBuilder();
+        } else {
+          if (detailsCase_ == 1) {
+            return (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails) details_;
+          }
+          return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * See InsufficientGpsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.InsufficientGpsFailureDetails insufficient_gps_details = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetailsOrBuilder> 
+          getInsufficientGpsDetailsFieldBuilder() {
+        if (insufficientGpsDetailsBuilder_ == null) {
+          if (!(detailsCase_ == 1)) {
+            details_ = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.getDefaultInstance();
+          }
+          insufficientGpsDetailsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetailsOrBuilder>(
+                  (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails) details_,
+                  getParentForChildren(),
+                  isClean());
+          details_ = null;
+        }
+        detailsCase_ = 1;
+        onChanged();
+        return insufficientGpsDetailsBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetailsOrBuilder> gpsDataGapDetailsBuilder_;
+      /**
+       * <pre>
+       * See GpsDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.GpsDataGapFailureDetails gps_data_gap_details = 2;</code>
+       * @return Whether the gpsDataGapDetails field is set.
+       */
+      @java.lang.Override
+      public boolean hasGpsDataGapDetails() {
+        return detailsCase_ == 2;
+      }
+      /**
+       * <pre>
+       * See GpsDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.GpsDataGapFailureDetails gps_data_gap_details = 2;</code>
+       * @return The gpsDataGapDetails.
+       */
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails getGpsDataGapDetails() {
+        if (gpsDataGapDetailsBuilder_ == null) {
+          if (detailsCase_ == 2) {
+            return (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails) details_;
+          }
+          return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.getDefaultInstance();
+        } else {
+          if (detailsCase_ == 2) {
+            return gpsDataGapDetailsBuilder_.getMessage();
+          }
+          return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * See GpsDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.GpsDataGapFailureDetails gps_data_gap_details = 2;</code>
+       */
+      public Builder setGpsDataGapDetails(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails value) {
+        if (gpsDataGapDetailsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          details_ = value;
+          onChanged();
+        } else {
+          gpsDataGapDetailsBuilder_.setMessage(value);
+        }
+        detailsCase_ = 2;
+        return this;
+      }
+      /**
+       * <pre>
+       * See GpsDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.GpsDataGapFailureDetails gps_data_gap_details = 2;</code>
+       */
+      public Builder setGpsDataGapDetails(
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.Builder builderForValue) {
+        if (gpsDataGapDetailsBuilder_ == null) {
+          details_ = builderForValue.build();
+          onChanged();
+        } else {
+          gpsDataGapDetailsBuilder_.setMessage(builderForValue.build());
+        }
+        detailsCase_ = 2;
+        return this;
+      }
+      /**
+       * <pre>
+       * See GpsDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.GpsDataGapFailureDetails gps_data_gap_details = 2;</code>
+       */
+      public Builder mergeGpsDataGapDetails(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails value) {
+        if (gpsDataGapDetailsBuilder_ == null) {
+          if (detailsCase_ == 2 &&
+              details_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.getDefaultInstance()) {
+            details_ = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.newBuilder((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails) details_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            details_ = value;
+          }
+          onChanged();
+        } else {
+          if (detailsCase_ == 2) {
+            gpsDataGapDetailsBuilder_.mergeFrom(value);
+          } else {
+            gpsDataGapDetailsBuilder_.setMessage(value);
+          }
+        }
+        detailsCase_ = 2;
+        return this;
+      }
+      /**
+       * <pre>
+       * See GpsDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.GpsDataGapFailureDetails gps_data_gap_details = 2;</code>
+       */
+      public Builder clearGpsDataGapDetails() {
+        if (gpsDataGapDetailsBuilder_ == null) {
+          if (detailsCase_ == 2) {
+            detailsCase_ = 0;
+            details_ = null;
+            onChanged();
+          }
+        } else {
+          if (detailsCase_ == 2) {
+            detailsCase_ = 0;
+            details_ = null;
+          }
+          gpsDataGapDetailsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * See GpsDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.GpsDataGapFailureDetails gps_data_gap_details = 2;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.Builder getGpsDataGapDetailsBuilder() {
+        return getGpsDataGapDetailsFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * See GpsDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.GpsDataGapFailureDetails gps_data_gap_details = 2;</code>
+       */
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetailsOrBuilder getGpsDataGapDetailsOrBuilder() {
+        if ((detailsCase_ == 2) && (gpsDataGapDetailsBuilder_ != null)) {
+          return gpsDataGapDetailsBuilder_.getMessageOrBuilder();
+        } else {
+          if (detailsCase_ == 2) {
+            return (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails) details_;
+          }
+          return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * See GpsDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.GpsDataGapFailureDetails gps_data_gap_details = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetailsOrBuilder> 
+          getGpsDataGapDetailsFieldBuilder() {
+        if (gpsDataGapDetailsBuilder_ == null) {
+          if (!(detailsCase_ == 2)) {
+            details_ = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.getDefaultInstance();
+          }
+          gpsDataGapDetailsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetailsOrBuilder>(
+                  (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails) details_,
+                  getParentForChildren(),
+                  isClean());
+          details_ = null;
+        }
+        detailsCase_ = 2;
+        onChanged();
+        return gpsDataGapDetailsBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetailsOrBuilder> imuDataGapDetailsBuilder_;
+      /**
+       * <pre>
+       * See ImuDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ImuDataGapFailureDetails imu_data_gap_details = 3;</code>
+       * @return Whether the imuDataGapDetails field is set.
+       */
+      @java.lang.Override
+      public boolean hasImuDataGapDetails() {
+        return detailsCase_ == 3;
+      }
+      /**
+       * <pre>
+       * See ImuDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ImuDataGapFailureDetails imu_data_gap_details = 3;</code>
+       * @return The imuDataGapDetails.
+       */
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails getImuDataGapDetails() {
+        if (imuDataGapDetailsBuilder_ == null) {
+          if (detailsCase_ == 3) {
+            return (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails) details_;
+          }
+          return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.getDefaultInstance();
+        } else {
+          if (detailsCase_ == 3) {
+            return imuDataGapDetailsBuilder_.getMessage();
+          }
+          return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * See ImuDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ImuDataGapFailureDetails imu_data_gap_details = 3;</code>
+       */
+      public Builder setImuDataGapDetails(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails value) {
+        if (imuDataGapDetailsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          details_ = value;
+          onChanged();
+        } else {
+          imuDataGapDetailsBuilder_.setMessage(value);
+        }
+        detailsCase_ = 3;
+        return this;
+      }
+      /**
+       * <pre>
+       * See ImuDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ImuDataGapFailureDetails imu_data_gap_details = 3;</code>
+       */
+      public Builder setImuDataGapDetails(
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.Builder builderForValue) {
+        if (imuDataGapDetailsBuilder_ == null) {
+          details_ = builderForValue.build();
+          onChanged();
+        } else {
+          imuDataGapDetailsBuilder_.setMessage(builderForValue.build());
+        }
+        detailsCase_ = 3;
+        return this;
+      }
+      /**
+       * <pre>
+       * See ImuDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ImuDataGapFailureDetails imu_data_gap_details = 3;</code>
+       */
+      public Builder mergeImuDataGapDetails(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails value) {
+        if (imuDataGapDetailsBuilder_ == null) {
+          if (detailsCase_ == 3 &&
+              details_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.getDefaultInstance()) {
+            details_ = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.newBuilder((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails) details_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            details_ = value;
+          }
+          onChanged();
+        } else {
+          if (detailsCase_ == 3) {
+            imuDataGapDetailsBuilder_.mergeFrom(value);
+          } else {
+            imuDataGapDetailsBuilder_.setMessage(value);
+          }
+        }
+        detailsCase_ = 3;
+        return this;
+      }
+      /**
+       * <pre>
+       * See ImuDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ImuDataGapFailureDetails imu_data_gap_details = 3;</code>
+       */
+      public Builder clearImuDataGapDetails() {
+        if (imuDataGapDetailsBuilder_ == null) {
+          if (detailsCase_ == 3) {
+            detailsCase_ = 0;
+            details_ = null;
+            onChanged();
+          }
+        } else {
+          if (detailsCase_ == 3) {
+            detailsCase_ = 0;
+            details_ = null;
+          }
+          imuDataGapDetailsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * See ImuDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ImuDataGapFailureDetails imu_data_gap_details = 3;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.Builder getImuDataGapDetailsBuilder() {
+        return getImuDataGapDetailsFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * See ImuDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ImuDataGapFailureDetails imu_data_gap_details = 3;</code>
+       */
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetailsOrBuilder getImuDataGapDetailsOrBuilder() {
+        if ((detailsCase_ == 3) && (imuDataGapDetailsBuilder_ != null)) {
+          return imuDataGapDetailsBuilder_.getMessageOrBuilder();
+        } else {
+          if (detailsCase_ == 3) {
+            return (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails) details_;
+          }
+          return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * See ImuDataGapFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.ImuDataGapFailureDetails imu_data_gap_details = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetailsOrBuilder> 
+          getImuDataGapDetailsFieldBuilder() {
+        if (imuDataGapDetailsBuilder_ == null) {
+          if (!(detailsCase_ == 3)) {
+            details_ = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.getDefaultInstance();
+          }
+          imuDataGapDetailsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetailsOrBuilder>(
+                  (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails) details_,
+                  getParentForChildren(),
+                  isClean());
+          details_ = null;
+        }
+        detailsCase_ = 3;
+        onChanged();
+        return imuDataGapDetailsBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetailsOrBuilder> notOutdoorsDetailsBuilder_;
+      /**
+       * <pre>
+       * See NotOutdoorsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.NotOutdoorsFailureDetails not_outdoors_details = 4;</code>
+       * @return Whether the notOutdoorsDetails field is set.
+       */
+      @java.lang.Override
+      public boolean hasNotOutdoorsDetails() {
+        return detailsCase_ == 4;
+      }
+      /**
+       * <pre>
+       * See NotOutdoorsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.NotOutdoorsFailureDetails not_outdoors_details = 4;</code>
+       * @return The notOutdoorsDetails.
+       */
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails getNotOutdoorsDetails() {
+        if (notOutdoorsDetailsBuilder_ == null) {
+          if (detailsCase_ == 4) {
+            return (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails) details_;
+          }
+          return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.getDefaultInstance();
+        } else {
+          if (detailsCase_ == 4) {
+            return notOutdoorsDetailsBuilder_.getMessage();
+          }
+          return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * See NotOutdoorsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.NotOutdoorsFailureDetails not_outdoors_details = 4;</code>
+       */
+      public Builder setNotOutdoorsDetails(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails value) {
+        if (notOutdoorsDetailsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          details_ = value;
+          onChanged();
+        } else {
+          notOutdoorsDetailsBuilder_.setMessage(value);
+        }
+        detailsCase_ = 4;
+        return this;
+      }
+      /**
+       * <pre>
+       * See NotOutdoorsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.NotOutdoorsFailureDetails not_outdoors_details = 4;</code>
+       */
+      public Builder setNotOutdoorsDetails(
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.Builder builderForValue) {
+        if (notOutdoorsDetailsBuilder_ == null) {
+          details_ = builderForValue.build();
+          onChanged();
+        } else {
+          notOutdoorsDetailsBuilder_.setMessage(builderForValue.build());
+        }
+        detailsCase_ = 4;
+        return this;
+      }
+      /**
+       * <pre>
+       * See NotOutdoorsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.NotOutdoorsFailureDetails not_outdoors_details = 4;</code>
+       */
+      public Builder mergeNotOutdoorsDetails(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails value) {
+        if (notOutdoorsDetailsBuilder_ == null) {
+          if (detailsCase_ == 4 &&
+              details_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.getDefaultInstance()) {
+            details_ = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.newBuilder((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails) details_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            details_ = value;
+          }
+          onChanged();
+        } else {
+          if (detailsCase_ == 4) {
+            notOutdoorsDetailsBuilder_.mergeFrom(value);
+          } else {
+            notOutdoorsDetailsBuilder_.setMessage(value);
+          }
+        }
+        detailsCase_ = 4;
+        return this;
+      }
+      /**
+       * <pre>
+       * See NotOutdoorsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.NotOutdoorsFailureDetails not_outdoors_details = 4;</code>
+       */
+      public Builder clearNotOutdoorsDetails() {
+        if (notOutdoorsDetailsBuilder_ == null) {
+          if (detailsCase_ == 4) {
+            detailsCase_ = 0;
+            details_ = null;
+            onChanged();
+          }
+        } else {
+          if (detailsCase_ == 4) {
+            detailsCase_ = 0;
+            details_ = null;
+          }
+          notOutdoorsDetailsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * See NotOutdoorsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.NotOutdoorsFailureDetails not_outdoors_details = 4;</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.Builder getNotOutdoorsDetailsBuilder() {
+        return getNotOutdoorsDetailsFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * See NotOutdoorsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.NotOutdoorsFailureDetails not_outdoors_details = 4;</code>
+       */
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetailsOrBuilder getNotOutdoorsDetailsOrBuilder() {
+        if ((detailsCase_ == 4) && (notOutdoorsDetailsBuilder_ != null)) {
+          return notOutdoorsDetailsBuilder_.getMessageOrBuilder();
+        } else {
+          if (detailsCase_ == 4) {
+            return (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails) details_;
+          }
+          return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * See NotOutdoorsFailureDetails.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.NotOutdoorsFailureDetails not_outdoors_details = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetailsOrBuilder> 
+          getNotOutdoorsDetailsFieldBuilder() {
+        if (notOutdoorsDetailsBuilder_ == null) {
+          if (!(detailsCase_ == 4)) {
+            details_ = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.getDefaultInstance();
+          }
+          notOutdoorsDetailsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetailsOrBuilder>(
+                  (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails) details_,
+                  getParentForChildren(),
+                  isClean());
+          details_ = null;
+        }
+        detailsCase_ = 4;
+        onChanged();
+        return notOutdoorsDetailsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.streetview.publish.v1.ProcessingFailureDetails)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.streetview.publish.v1.ProcessingFailureDetails)
+    private static final com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails();
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ProcessingFailureDetails>
+        PARSER = new com.google.protobuf.AbstractParser<ProcessingFailureDetails>() {
+      @java.lang.Override
+      public ProcessingFailureDetails parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<ProcessingFailureDetails> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ProcessingFailureDetails> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ProcessingFailureDetails getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface InsufficientGpsFailureDetailsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.streetview.publish.v1.InsufficientGpsFailureDetails)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * The number of GPS points that were found in the video.
+     * </pre>
+     *
+     * <code>optional int32 gps_points_found = 1;</code>
+     * @return Whether the gpsPointsFound field is set.
+     */
+    boolean hasGpsPointsFound();
+    /**
+     * <pre>
+     * The number of GPS points that were found in the video.
+     * </pre>
+     *
+     * <code>optional int32 gps_points_found = 1;</code>
+     * @return The gpsPointsFound.
+     */
+    int getGpsPointsFound();
+  }
+  /**
+   * <pre>
+   * Details related to ProcessingFailureReason#INSUFFICIENT_GPS.
+   * </pre>
+   *
+   * Protobuf type {@code google.streetview.publish.v1.InsufficientGpsFailureDetails}
+   */
+  public static final class InsufficientGpsFailureDetails extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.streetview.publish.v1.InsufficientGpsFailureDetails)
+      InsufficientGpsFailureDetailsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use InsufficientGpsFailureDetails.newBuilder() to construct.
+    private InsufficientGpsFailureDetails(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private InsufficientGpsFailureDetails() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new InsufficientGpsFailureDetails();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_InsufficientGpsFailureDetails_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_InsufficientGpsFailureDetails_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int GPS_POINTS_FOUND_FIELD_NUMBER = 1;
+    private int gpsPointsFound_ = 0;
+    /**
+     * <pre>
+     * The number of GPS points that were found in the video.
+     * </pre>
+     *
+     * <code>optional int32 gps_points_found = 1;</code>
+     * @return Whether the gpsPointsFound field is set.
+     */
+    @java.lang.Override
+    public boolean hasGpsPointsFound() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * The number of GPS points that were found in the video.
+     * </pre>
+     *
+     * <code>optional int32 gps_points_found = 1;</code>
+     * @return The gpsPointsFound.
+     */
+    @java.lang.Override
+    public int getGpsPointsFound() {
+      return gpsPointsFound_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeInt32(1, gpsPointsFound_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, gpsPointsFound_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails)) {
+        return super.equals(obj);
+      }
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails other = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails) obj;
+
+      if (hasGpsPointsFound() != other.hasGpsPointsFound()) return false;
+      if (hasGpsPointsFound()) {
+        if (getGpsPointsFound()
+            != other.getGpsPointsFound()) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasGpsPointsFound()) {
+        hash = (37 * hash) + GPS_POINTS_FOUND_FIELD_NUMBER;
+        hash = (53 * hash) + getGpsPointsFound();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Details related to ProcessingFailureReason#INSUFFICIENT_GPS.
+     * </pre>
+     *
+     * Protobuf type {@code google.streetview.publish.v1.InsufficientGpsFailureDetails}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.streetview.publish.v1.InsufficientGpsFailureDetails)
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetailsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_InsufficientGpsFailureDetails_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_InsufficientGpsFailureDetails_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.Builder.class);
+      }
+
+      // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        gpsPointsFound_ = 0;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_InsufficientGpsFailureDetails_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails getDefaultInstanceForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails build() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails buildPartial() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.gpsPointsFound_ = gpsPointsFound_;
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails) {
+          return mergeFrom((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails other) {
+        if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails.getDefaultInstance()) return this;
+        if (other.hasGpsPointsFound()) {
+          setGpsPointsFound(other.getGpsPointsFound());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                gpsPointsFound_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private int gpsPointsFound_ ;
+      /**
+       * <pre>
+       * The number of GPS points that were found in the video.
+       * </pre>
+       *
+       * <code>optional int32 gps_points_found = 1;</code>
+       * @return Whether the gpsPointsFound field is set.
+       */
+      @java.lang.Override
+      public boolean hasGpsPointsFound() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * The number of GPS points that were found in the video.
+       * </pre>
+       *
+       * <code>optional int32 gps_points_found = 1;</code>
+       * @return The gpsPointsFound.
+       */
+      @java.lang.Override
+      public int getGpsPointsFound() {
+        return gpsPointsFound_;
+      }
+      /**
+       * <pre>
+       * The number of GPS points that were found in the video.
+       * </pre>
+       *
+       * <code>optional int32 gps_points_found = 1;</code>
+       * @param value The gpsPointsFound to set.
+       * @return This builder for chaining.
+       */
+      public Builder setGpsPointsFound(int value) {
+        
+        gpsPointsFound_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The number of GPS points that were found in the video.
+       * </pre>
+       *
+       * <code>optional int32 gps_points_found = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearGpsPointsFound() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        gpsPointsFound_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.streetview.publish.v1.InsufficientGpsFailureDetails)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.streetview.publish.v1.InsufficientGpsFailureDetails)
+    private static final com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails();
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<InsufficientGpsFailureDetails>
+        PARSER = new com.google.protobuf.AbstractParser<InsufficientGpsFailureDetails>() {
+      @java.lang.Override
+      public InsufficientGpsFailureDetails parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<InsufficientGpsFailureDetails> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<InsufficientGpsFailureDetails> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.InsufficientGpsFailureDetails getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GpsDataGapFailureDetailsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.streetview.publish.v1.GpsDataGapFailureDetails)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * The duration of the gap in GPS data that was found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+     * @return Whether the gapDuration field is set.
+     */
+    boolean hasGapDuration();
+    /**
+     * <pre>
+     * The duration of the gap in GPS data that was found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+     * @return The gapDuration.
+     */
+    com.google.protobuf.Duration getGapDuration();
+    /**
+     * <pre>
+     * The duration of the gap in GPS data that was found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+     */
+    com.google.protobuf.DurationOrBuilder getGapDurationOrBuilder();
+
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when the gap started.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+     * @return Whether the gapStartTime field is set.
+     */
+    boolean hasGapStartTime();
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when the gap started.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+     * @return The gapStartTime.
+     */
+    com.google.protobuf.Duration getGapStartTime();
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when the gap started.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+     */
+    com.google.protobuf.DurationOrBuilder getGapStartTimeOrBuilder();
+  }
+  /**
+   * <pre>
+   * Details related to ProcessingFailureReason#GPS_DATA_GAP.
+   * If there are multiple GPS data gaps, only the one with the largest duration
+   * is reported here.
+   * </pre>
+   *
+   * Protobuf type {@code google.streetview.publish.v1.GpsDataGapFailureDetails}
+   */
+  public static final class GpsDataGapFailureDetails extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.streetview.publish.v1.GpsDataGapFailureDetails)
+      GpsDataGapFailureDetailsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GpsDataGapFailureDetails.newBuilder() to construct.
+    private GpsDataGapFailureDetails(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GpsDataGapFailureDetails() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GpsDataGapFailureDetails();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_GpsDataGapFailureDetails_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_GpsDataGapFailureDetails_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int GAP_DURATION_FIELD_NUMBER = 1;
+    private com.google.protobuf.Duration gapDuration_;
+    /**
+     * <pre>
+     * The duration of the gap in GPS data that was found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+     * @return Whether the gapDuration field is set.
+     */
+    @java.lang.Override
+    public boolean hasGapDuration() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * The duration of the gap in GPS data that was found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+     * @return The gapDuration.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Duration getGapDuration() {
+      return gapDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gapDuration_;
+    }
+    /**
+     * <pre>
+     * The duration of the gap in GPS data that was found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.DurationOrBuilder getGapDurationOrBuilder() {
+      return gapDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gapDuration_;
+    }
+
+    public static final int GAP_START_TIME_FIELD_NUMBER = 2;
+    private com.google.protobuf.Duration gapStartTime_;
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when the gap started.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+     * @return Whether the gapStartTime field is set.
+     */
+    @java.lang.Override
+    public boolean hasGapStartTime() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when the gap started.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+     * @return The gapStartTime.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Duration getGapStartTime() {
+      return gapStartTime_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gapStartTime_;
+    }
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when the gap started.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.DurationOrBuilder getGapStartTimeOrBuilder() {
+      return gapStartTime_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gapStartTime_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeMessage(1, getGapDuration());
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeMessage(2, getGapStartTime());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getGapDuration());
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getGapStartTime());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails)) {
+        return super.equals(obj);
+      }
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails other = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails) obj;
+
+      if (hasGapDuration() != other.hasGapDuration()) return false;
+      if (hasGapDuration()) {
+        if (!getGapDuration()
+            .equals(other.getGapDuration())) return false;
+      }
+      if (hasGapStartTime() != other.hasGapStartTime()) return false;
+      if (hasGapStartTime()) {
+        if (!getGapStartTime()
+            .equals(other.getGapStartTime())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasGapDuration()) {
+        hash = (37 * hash) + GAP_DURATION_FIELD_NUMBER;
+        hash = (53 * hash) + getGapDuration().hashCode();
+      }
+      if (hasGapStartTime()) {
+        hash = (37 * hash) + GAP_START_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getGapStartTime().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Details related to ProcessingFailureReason#GPS_DATA_GAP.
+     * If there are multiple GPS data gaps, only the one with the largest duration
+     * is reported here.
+     * </pre>
+     *
+     * Protobuf type {@code google.streetview.publish.v1.GpsDataGapFailureDetails}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.streetview.publish.v1.GpsDataGapFailureDetails)
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetailsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_GpsDataGapFailureDetails_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_GpsDataGapFailureDetails_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.Builder.class);
+      }
+
+      // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getGapDurationFieldBuilder();
+          getGapStartTimeFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        gapDuration_ = null;
+        if (gapDurationBuilder_ != null) {
+          gapDurationBuilder_.dispose();
+          gapDurationBuilder_ = null;
+        }
+        gapStartTime_ = null;
+        if (gapStartTimeBuilder_ != null) {
+          gapStartTimeBuilder_.dispose();
+          gapStartTimeBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_GpsDataGapFailureDetails_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails getDefaultInstanceForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails build() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails buildPartial() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.gapDuration_ = gapDurationBuilder_ == null
+              ? gapDuration_
+              : gapDurationBuilder_.build();
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.gapStartTime_ = gapStartTimeBuilder_ == null
+              ? gapStartTime_
+              : gapStartTimeBuilder_.build();
+          to_bitField0_ |= 0x00000002;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails) {
+          return mergeFrom((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails other) {
+        if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails.getDefaultInstance()) return this;
+        if (other.hasGapDuration()) {
+          mergeGapDuration(other.getGapDuration());
+        }
+        if (other.hasGapStartTime()) {
+          mergeGapStartTime(other.getGapStartTime());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getGapDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getGapStartTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.Duration gapDuration_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> gapDurationBuilder_;
+      /**
+       * <pre>
+       * The duration of the gap in GPS data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       * @return Whether the gapDuration field is set.
+       */
+      public boolean hasGapDuration() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * The duration of the gap in GPS data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       * @return The gapDuration.
+       */
+      public com.google.protobuf.Duration getGapDuration() {
+        if (gapDurationBuilder_ == null) {
+          return gapDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gapDuration_;
+        } else {
+          return gapDurationBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * The duration of the gap in GPS data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       */
+      public Builder setGapDuration(com.google.protobuf.Duration value) {
+        if (gapDurationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          gapDuration_ = value;
+        } else {
+          gapDurationBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The duration of the gap in GPS data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       */
+      public Builder setGapDuration(
+          com.google.protobuf.Duration.Builder builderForValue) {
+        if (gapDurationBuilder_ == null) {
+          gapDuration_ = builderForValue.build();
+        } else {
+          gapDurationBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The duration of the gap in GPS data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       */
+      public Builder mergeGapDuration(com.google.protobuf.Duration value) {
+        if (gapDurationBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0) &&
+            gapDuration_ != null &&
+            gapDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getGapDurationBuilder().mergeFrom(value);
+          } else {
+            gapDuration_ = value;
+          }
+        } else {
+          gapDurationBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The duration of the gap in GPS data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       */
+      public Builder clearGapDuration() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        gapDuration_ = null;
+        if (gapDurationBuilder_ != null) {
+          gapDurationBuilder_.dispose();
+          gapDurationBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The duration of the gap in GPS data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       */
+      public com.google.protobuf.Duration.Builder getGapDurationBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getGapDurationFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * The duration of the gap in GPS data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       */
+      public com.google.protobuf.DurationOrBuilder getGapDurationOrBuilder() {
+        if (gapDurationBuilder_ != null) {
+          return gapDurationBuilder_.getMessageOrBuilder();
+        } else {
+          return gapDuration_ == null ?
+              com.google.protobuf.Duration.getDefaultInstance() : gapDuration_;
+        }
+      }
+      /**
+       * <pre>
+       * The duration of the gap in GPS data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+          getGapDurationFieldBuilder() {
+        if (gapDurationBuilder_ == null) {
+          gapDurationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                  getGapDuration(),
+                  getParentForChildren(),
+                  isClean());
+          gapDuration_ = null;
+        }
+        return gapDurationBuilder_;
+      }
+
+      private com.google.protobuf.Duration gapStartTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> gapStartTimeBuilder_;
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       * @return Whether the gapStartTime field is set.
+       */
+      public boolean hasGapStartTime() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       * @return The gapStartTime.
+       */
+      public com.google.protobuf.Duration getGapStartTime() {
+        if (gapStartTimeBuilder_ == null) {
+          return gapStartTime_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gapStartTime_;
+        } else {
+          return gapStartTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       */
+      public Builder setGapStartTime(com.google.protobuf.Duration value) {
+        if (gapStartTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          gapStartTime_ = value;
+        } else {
+          gapStartTimeBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       */
+      public Builder setGapStartTime(
+          com.google.protobuf.Duration.Builder builderForValue) {
+        if (gapStartTimeBuilder_ == null) {
+          gapStartTime_ = builderForValue.build();
+        } else {
+          gapStartTimeBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       */
+      public Builder mergeGapStartTime(com.google.protobuf.Duration value) {
+        if (gapStartTimeBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0) &&
+            gapStartTime_ != null &&
+            gapStartTime_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getGapStartTimeBuilder().mergeFrom(value);
+          } else {
+            gapStartTime_ = value;
+          }
+        } else {
+          gapStartTimeBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       */
+      public Builder clearGapStartTime() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        gapStartTime_ = null;
+        if (gapStartTimeBuilder_ != null) {
+          gapStartTimeBuilder_.dispose();
+          gapStartTimeBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       */
+      public com.google.protobuf.Duration.Builder getGapStartTimeBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getGapStartTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       */
+      public com.google.protobuf.DurationOrBuilder getGapStartTimeOrBuilder() {
+        if (gapStartTimeBuilder_ != null) {
+          return gapStartTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return gapStartTime_ == null ?
+              com.google.protobuf.Duration.getDefaultInstance() : gapStartTime_;
+        }
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+          getGapStartTimeFieldBuilder() {
+        if (gapStartTimeBuilder_ == null) {
+          gapStartTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                  getGapStartTime(),
+                  getParentForChildren(),
+                  isClean());
+          gapStartTime_ = null;
+        }
+        return gapStartTimeBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.streetview.publish.v1.GpsDataGapFailureDetails)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.streetview.publish.v1.GpsDataGapFailureDetails)
+    private static final com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails();
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GpsDataGapFailureDetails>
+        PARSER = new com.google.protobuf.AbstractParser<GpsDataGapFailureDetails>() {
+      @java.lang.Override
+      public GpsDataGapFailureDetails parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<GpsDataGapFailureDetails> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GpsDataGapFailureDetails> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.GpsDataGapFailureDetails getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ImuDataGapFailureDetailsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.streetview.publish.v1.ImuDataGapFailureDetails)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * The duration of the gap in IMU data that was found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+     * @return Whether the gapDuration field is set.
+     */
+    boolean hasGapDuration();
+    /**
+     * <pre>
+     * The duration of the gap in IMU data that was found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+     * @return The gapDuration.
+     */
+    com.google.protobuf.Duration getGapDuration();
+    /**
+     * <pre>
+     * The duration of the gap in IMU data that was found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+     */
+    com.google.protobuf.DurationOrBuilder getGapDurationOrBuilder();
+
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when the gap started.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+     * @return Whether the gapStartTime field is set.
+     */
+    boolean hasGapStartTime();
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when the gap started.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+     * @return The gapStartTime.
+     */
+    com.google.protobuf.Duration getGapStartTime();
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when the gap started.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+     */
+    com.google.protobuf.DurationOrBuilder getGapStartTimeOrBuilder();
+  }
+  /**
+   * <pre>
+   * Details related to ProcessingFailureReason#IMU_DATA_GAP.
+   * If there are multiple IMU data gaps, only the one with the largest duration
+   * is reported here.
+   * </pre>
+   *
+   * Protobuf type {@code google.streetview.publish.v1.ImuDataGapFailureDetails}
+   */
+  public static final class ImuDataGapFailureDetails extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.streetview.publish.v1.ImuDataGapFailureDetails)
+      ImuDataGapFailureDetailsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ImuDataGapFailureDetails.newBuilder() to construct.
+    private ImuDataGapFailureDetails(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ImuDataGapFailureDetails() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ImuDataGapFailureDetails();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_ImuDataGapFailureDetails_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_ImuDataGapFailureDetails_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int GAP_DURATION_FIELD_NUMBER = 1;
+    private com.google.protobuf.Duration gapDuration_;
+    /**
+     * <pre>
+     * The duration of the gap in IMU data that was found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+     * @return Whether the gapDuration field is set.
+     */
+    @java.lang.Override
+    public boolean hasGapDuration() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * The duration of the gap in IMU data that was found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+     * @return The gapDuration.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Duration getGapDuration() {
+      return gapDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gapDuration_;
+    }
+    /**
+     * <pre>
+     * The duration of the gap in IMU data that was found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.DurationOrBuilder getGapDurationOrBuilder() {
+      return gapDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gapDuration_;
+    }
+
+    public static final int GAP_START_TIME_FIELD_NUMBER = 2;
+    private com.google.protobuf.Duration gapStartTime_;
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when the gap started.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+     * @return Whether the gapStartTime field is set.
+     */
+    @java.lang.Override
+    public boolean hasGapStartTime() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when the gap started.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+     * @return The gapStartTime.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Duration getGapStartTime() {
+      return gapStartTime_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gapStartTime_;
+    }
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when the gap started.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.DurationOrBuilder getGapStartTimeOrBuilder() {
+      return gapStartTime_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gapStartTime_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeMessage(1, getGapDuration());
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeMessage(2, getGapStartTime());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getGapDuration());
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getGapStartTime());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails)) {
+        return super.equals(obj);
+      }
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails other = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails) obj;
+
+      if (hasGapDuration() != other.hasGapDuration()) return false;
+      if (hasGapDuration()) {
+        if (!getGapDuration()
+            .equals(other.getGapDuration())) return false;
+      }
+      if (hasGapStartTime() != other.hasGapStartTime()) return false;
+      if (hasGapStartTime()) {
+        if (!getGapStartTime()
+            .equals(other.getGapStartTime())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasGapDuration()) {
+        hash = (37 * hash) + GAP_DURATION_FIELD_NUMBER;
+        hash = (53 * hash) + getGapDuration().hashCode();
+      }
+      if (hasGapStartTime()) {
+        hash = (37 * hash) + GAP_START_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getGapStartTime().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Details related to ProcessingFailureReason#IMU_DATA_GAP.
+     * If there are multiple IMU data gaps, only the one with the largest duration
+     * is reported here.
+     * </pre>
+     *
+     * Protobuf type {@code google.streetview.publish.v1.ImuDataGapFailureDetails}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.streetview.publish.v1.ImuDataGapFailureDetails)
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetailsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_ImuDataGapFailureDetails_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_ImuDataGapFailureDetails_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.Builder.class);
+      }
+
+      // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getGapDurationFieldBuilder();
+          getGapStartTimeFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        gapDuration_ = null;
+        if (gapDurationBuilder_ != null) {
+          gapDurationBuilder_.dispose();
+          gapDurationBuilder_ = null;
+        }
+        gapStartTime_ = null;
+        if (gapStartTimeBuilder_ != null) {
+          gapStartTimeBuilder_.dispose();
+          gapStartTimeBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_ImuDataGapFailureDetails_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails getDefaultInstanceForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails build() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails buildPartial() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.gapDuration_ = gapDurationBuilder_ == null
+              ? gapDuration_
+              : gapDurationBuilder_.build();
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.gapStartTime_ = gapStartTimeBuilder_ == null
+              ? gapStartTime_
+              : gapStartTimeBuilder_.build();
+          to_bitField0_ |= 0x00000002;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails) {
+          return mergeFrom((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails other) {
+        if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails.getDefaultInstance()) return this;
+        if (other.hasGapDuration()) {
+          mergeGapDuration(other.getGapDuration());
+        }
+        if (other.hasGapStartTime()) {
+          mergeGapStartTime(other.getGapStartTime());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getGapDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getGapStartTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.Duration gapDuration_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> gapDurationBuilder_;
+      /**
+       * <pre>
+       * The duration of the gap in IMU data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       * @return Whether the gapDuration field is set.
+       */
+      public boolean hasGapDuration() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * The duration of the gap in IMU data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       * @return The gapDuration.
+       */
+      public com.google.protobuf.Duration getGapDuration() {
+        if (gapDurationBuilder_ == null) {
+          return gapDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gapDuration_;
+        } else {
+          return gapDurationBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * The duration of the gap in IMU data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       */
+      public Builder setGapDuration(com.google.protobuf.Duration value) {
+        if (gapDurationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          gapDuration_ = value;
+        } else {
+          gapDurationBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The duration of the gap in IMU data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       */
+      public Builder setGapDuration(
+          com.google.protobuf.Duration.Builder builderForValue) {
+        if (gapDurationBuilder_ == null) {
+          gapDuration_ = builderForValue.build();
+        } else {
+          gapDurationBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The duration of the gap in IMU data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       */
+      public Builder mergeGapDuration(com.google.protobuf.Duration value) {
+        if (gapDurationBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0) &&
+            gapDuration_ != null &&
+            gapDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getGapDurationBuilder().mergeFrom(value);
+          } else {
+            gapDuration_ = value;
+          }
+        } else {
+          gapDurationBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The duration of the gap in IMU data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       */
+      public Builder clearGapDuration() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        gapDuration_ = null;
+        if (gapDurationBuilder_ != null) {
+          gapDurationBuilder_.dispose();
+          gapDurationBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The duration of the gap in IMU data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       */
+      public com.google.protobuf.Duration.Builder getGapDurationBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getGapDurationFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * The duration of the gap in IMU data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       */
+      public com.google.protobuf.DurationOrBuilder getGapDurationOrBuilder() {
+        if (gapDurationBuilder_ != null) {
+          return gapDurationBuilder_.getMessageOrBuilder();
+        } else {
+          return gapDuration_ == null ?
+              com.google.protobuf.Duration.getDefaultInstance() : gapDuration_;
+        }
+      }
+      /**
+       * <pre>
+       * The duration of the gap in IMU data that was found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_duration = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+          getGapDurationFieldBuilder() {
+        if (gapDurationBuilder_ == null) {
+          gapDurationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                  getGapDuration(),
+                  getParentForChildren(),
+                  isClean());
+          gapDuration_ = null;
+        }
+        return gapDurationBuilder_;
+      }
+
+      private com.google.protobuf.Duration gapStartTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> gapStartTimeBuilder_;
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       * @return Whether the gapStartTime field is set.
+       */
+      public boolean hasGapStartTime() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       * @return The gapStartTime.
+       */
+      public com.google.protobuf.Duration getGapStartTime() {
+        if (gapStartTimeBuilder_ == null) {
+          return gapStartTime_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gapStartTime_;
+        } else {
+          return gapStartTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       */
+      public Builder setGapStartTime(com.google.protobuf.Duration value) {
+        if (gapStartTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          gapStartTime_ = value;
+        } else {
+          gapStartTimeBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       */
+      public Builder setGapStartTime(
+          com.google.protobuf.Duration.Builder builderForValue) {
+        if (gapStartTimeBuilder_ == null) {
+          gapStartTime_ = builderForValue.build();
+        } else {
+          gapStartTimeBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       */
+      public Builder mergeGapStartTime(com.google.protobuf.Duration value) {
+        if (gapStartTimeBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0) &&
+            gapStartTime_ != null &&
+            gapStartTime_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getGapStartTimeBuilder().mergeFrom(value);
+          } else {
+            gapStartTime_ = value;
+          }
+        } else {
+          gapStartTimeBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       */
+      public Builder clearGapStartTime() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        gapStartTime_ = null;
+        if (gapStartTimeBuilder_ != null) {
+          gapStartTimeBuilder_.dispose();
+          gapStartTimeBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       */
+      public com.google.protobuf.Duration.Builder getGapStartTimeBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getGapStartTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       */
+      public com.google.protobuf.DurationOrBuilder getGapStartTimeOrBuilder() {
+        if (gapStartTimeBuilder_ != null) {
+          return gapStartTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return gapStartTime_ == null ?
+              com.google.protobuf.Duration.getDefaultInstance() : gapStartTime_;
+        }
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when the gap started.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration gap_start_time = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+          getGapStartTimeFieldBuilder() {
+        if (gapStartTimeBuilder_ == null) {
+          gapStartTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                  getGapStartTime(),
+                  getParentForChildren(),
+                  isClean());
+          gapStartTime_ = null;
+        }
+        return gapStartTimeBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.streetview.publish.v1.ImuDataGapFailureDetails)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.streetview.publish.v1.ImuDataGapFailureDetails)
+    private static final com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails();
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ImuDataGapFailureDetails>
+        PARSER = new com.google.protobuf.AbstractParser<ImuDataGapFailureDetails>() {
+      @java.lang.Override
+      public ImuDataGapFailureDetails parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<ImuDataGapFailureDetails> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ImuDataGapFailureDetails> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.ImuDataGapFailureDetails getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface NotOutdoorsFailureDetailsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.streetview.publish.v1.NotOutdoorsFailureDetails)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when an indoor frame was
+     * found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration start_time = 1;</code>
+     * @return Whether the startTime field is set.
+     */
+    boolean hasStartTime();
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when an indoor frame was
+     * found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration start_time = 1;</code>
+     * @return The startTime.
+     */
+    com.google.protobuf.Duration getStartTime();
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when an indoor frame was
+     * found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration start_time = 1;</code>
+     */
+    com.google.protobuf.DurationOrBuilder getStartTimeOrBuilder();
+  }
+  /**
+   * <pre>
+   * Details related to ProcessingFailureReason#NOT_OUTDOORS.
+   * If there are multiple indoor frames found, the first frame is recorded here.
+   * </pre>
+   *
+   * Protobuf type {@code google.streetview.publish.v1.NotOutdoorsFailureDetails}
+   */
+  public static final class NotOutdoorsFailureDetails extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.streetview.publish.v1.NotOutdoorsFailureDetails)
+      NotOutdoorsFailureDetailsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use NotOutdoorsFailureDetails.newBuilder() to construct.
+    private NotOutdoorsFailureDetails(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private NotOutdoorsFailureDetails() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NotOutdoorsFailureDetails();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_NotOutdoorsFailureDetails_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_NotOutdoorsFailureDetails_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int START_TIME_FIELD_NUMBER = 1;
+    private com.google.protobuf.Duration startTime_;
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when an indoor frame was
+     * found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration start_time = 1;</code>
+     * @return Whether the startTime field is set.
+     */
+    @java.lang.Override
+    public boolean hasStartTime() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when an indoor frame was
+     * found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration start_time = 1;</code>
+     * @return The startTime.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Duration getStartTime() {
+      return startTime_ == null ? com.google.protobuf.Duration.getDefaultInstance() : startTime_;
+    }
+    /**
+     * <pre>
+     * Relative time (from the start of the video stream) when an indoor frame was
+     * found.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.Duration start_time = 1;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.DurationOrBuilder getStartTimeOrBuilder() {
+      return startTime_ == null ? com.google.protobuf.Duration.getDefaultInstance() : startTime_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeMessage(1, getStartTime());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getStartTime());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails)) {
+        return super.equals(obj);
+      }
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails other = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails) obj;
+
+      if (hasStartTime() != other.hasStartTime()) return false;
+      if (hasStartTime()) {
+        if (!getStartTime()
+            .equals(other.getStartTime())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasStartTime()) {
+        hash = (37 * hash) + START_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getStartTime().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Details related to ProcessingFailureReason#NOT_OUTDOORS.
+     * If there are multiple indoor frames found, the first frame is recorded here.
+     * </pre>
+     *
+     * Protobuf type {@code google.streetview.publish.v1.NotOutdoorsFailureDetails}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.streetview.publish.v1.NotOutdoorsFailureDetails)
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetailsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_NotOutdoorsFailureDetails_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_NotOutdoorsFailureDetails_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.Builder.class);
+      }
+
+      // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getStartTimeFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        startTime_ = null;
+        if (startTimeBuilder_ != null) {
+          startTimeBuilder_.dispose();
+          startTimeBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.internal_static_google_streetview_publish_v1_NotOutdoorsFailureDetails_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails getDefaultInstanceForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails build() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails buildPartial() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.startTime_ = startTimeBuilder_ == null
+              ? startTime_
+              : startTimeBuilder_.build();
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails) {
+          return mergeFrom((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails other) {
+        if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails.getDefaultInstance()) return this;
+        if (other.hasStartTime()) {
+          mergeStartTime(other.getStartTime());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getStartTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.Duration startTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> startTimeBuilder_;
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when an indoor frame was
+       * found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration start_time = 1;</code>
+       * @return Whether the startTime field is set.
+       */
+      public boolean hasStartTime() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when an indoor frame was
+       * found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration start_time = 1;</code>
+       * @return The startTime.
+       */
+      public com.google.protobuf.Duration getStartTime() {
+        if (startTimeBuilder_ == null) {
+          return startTime_ == null ? com.google.protobuf.Duration.getDefaultInstance() : startTime_;
+        } else {
+          return startTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when an indoor frame was
+       * found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration start_time = 1;</code>
+       */
+      public Builder setStartTime(com.google.protobuf.Duration value) {
+        if (startTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          startTime_ = value;
+        } else {
+          startTimeBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when an indoor frame was
+       * found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration start_time = 1;</code>
+       */
+      public Builder setStartTime(
+          com.google.protobuf.Duration.Builder builderForValue) {
+        if (startTimeBuilder_ == null) {
+          startTime_ = builderForValue.build();
+        } else {
+          startTimeBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when an indoor frame was
+       * found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration start_time = 1;</code>
+       */
+      public Builder mergeStartTime(com.google.protobuf.Duration value) {
+        if (startTimeBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0) &&
+            startTime_ != null &&
+            startTime_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getStartTimeBuilder().mergeFrom(value);
+          } else {
+            startTime_ = value;
+          }
+        } else {
+          startTimeBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when an indoor frame was
+       * found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration start_time = 1;</code>
+       */
+      public Builder clearStartTime() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        startTime_ = null;
+        if (startTimeBuilder_ != null) {
+          startTimeBuilder_.dispose();
+          startTimeBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when an indoor frame was
+       * found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration start_time = 1;</code>
+       */
+      public com.google.protobuf.Duration.Builder getStartTimeBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getStartTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when an indoor frame was
+       * found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration start_time = 1;</code>
+       */
+      public com.google.protobuf.DurationOrBuilder getStartTimeOrBuilder() {
+        if (startTimeBuilder_ != null) {
+          return startTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return startTime_ == null ?
+              com.google.protobuf.Duration.getDefaultInstance() : startTime_;
+        }
+      }
+      /**
+       * <pre>
+       * Relative time (from the start of the video stream) when an indoor frame was
+       * found.
+       * </pre>
+       *
+       * <code>optional .google.protobuf.Duration start_time = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+          getStartTimeFieldBuilder() {
+        if (startTimeBuilder_ == null) {
+          startTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                  getStartTime(),
+                  getParentForChildren(),
+                  isClean());
+          startTime_ = null;
+        }
+        return startTimeBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.streetview.publish.v1.NotOutdoorsFailureDetails)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.streetview.publish.v1.NotOutdoorsFailureDetails)
+    private static final com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails();
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<NotOutdoorsFailureDetails>
+        PARSER = new com.google.protobuf.AbstractParser<NotOutdoorsFailureDetails>() {
+      @java.lang.Override
+      public NotOutdoorsFailureDetails parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<NotOutdoorsFailureDetails> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<NotOutdoorsFailureDetails> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.NotOutdoorsFailureDetails getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -9592,6 +23398,16 @@ public final class StreetViewPublishResources {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_streetview_publish_v1_Pose_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_streetview_publish_v1_Imu_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_streetview_publish_v1_Imu_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_streetview_publish_v1_Imu_Measurement3d_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_streetview_publish_v1_Imu_Measurement3d_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_streetview_publish_v1_Place_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -9606,6 +23422,41 @@ public final class StreetViewPublishResources {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_streetview_publish_v1_Photo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_streetview_publish_v1_PhotoSequence_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_streetview_publish_v1_PhotoSequence_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_streetview_publish_v1_LatLngBounds_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_streetview_publish_v1_LatLngBounds_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_streetview_publish_v1_ProcessingFailureDetails_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_streetview_publish_v1_ProcessingFailureDetails_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_streetview_publish_v1_InsufficientGpsFailureDetails_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_streetview_publish_v1_InsufficientGpsFailureDetails_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_streetview_publish_v1_GpsDataGapFailureDetails_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_streetview_publish_v1_GpsDataGapFailureDetails_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_streetview_publish_v1_ImuDataGapFailureDetails_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_streetview_publish_v1_ImuDataGapFailureDetails_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_streetview_publish_v1_NotOutdoorsFailureDetails_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_streetview_publish_v1_NotOutdoorsFailureDetails_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -9617,53 +23468,130 @@ public final class StreetViewPublishResources {
     java.lang.String[] descriptorData = {
       "\n,google/streetview/publish/v1/resources" +
       ".proto\022\034google.streetview.publish.v1\032\037go" +
-      "ogle/api/field_behavior.proto\032\037google/pr" +
-      "otobuf/timestamp.proto\032\030google/type/latl" +
-      "ng.proto\"0\n\tUploadRef\022\024\n\nupload_url\030\001 \001(" +
-      "\tH\000B\r\n\013file_source\"\025\n\007PhotoId\022\n\n\002id\030\001 \001(" +
-      "\t\"/\n\005Level\022\023\n\006number\030\001 \001(\001B\003\340A\001\022\021\n\004name\030" +
-      "\002 \001(\tB\003\340A\002\"\276\001\n\004Pose\022)\n\014lat_lng_pair\030\001 \001(" +
-      "\0132\023.google.type.LatLng\022\020\n\010altitude\030\002 \001(\001" +
-      "\022\017\n\007heading\030\003 \001(\001\022\r\n\005pitch\030\004 \001(\001\022\014\n\004roll" +
-      "\030\005 \001(\001\0222\n\005level\030\007 \001(\0132#.google.streetvie" +
-      "w.publish.v1.Level\022\027\n\017accuracy_meters\030\t " +
-      "\001(\002\"H\n\005Place\022\020\n\010place_id\030\001 \001(\t\022\021\n\004name\030\002" +
-      " \001(\tB\003\340A\003\022\032\n\rlanguage_code\030\003 \001(\tB\003\340A\003\"H\n" +
-      "\nConnection\022:\n\006target\030\001 \001(\0132%.google.str" +
-      "eetview.publish.v1.PhotoIdB\003\340A\002\"\315\007\n\005Phot" +
-      "o\022?\n\010photo_id\030\001 \001(\0132%.google.streetview." +
-      "publish.v1.PhotoIdB\006\340A\002\340A\003\022F\n\020upload_ref" +
-      "erence\030\002 \001(\0132\'.google.streetview.publish" +
-      ".v1.UploadRefB\003\340A\004\022\031\n\014download_url\030\003 \001(\t" +
-      "B\003\340A\003\022\032\n\rthumbnail_url\030\t \001(\tB\003\340A\003\022\027\n\nsha" +
-      "re_link\030\013 \001(\tB\003\340A\003\0225\n\004pose\030\004 \001(\0132\".googl" +
-      "e.streetview.publish.v1.PoseB\003\340A\001\022B\n\013con" +
-      "nections\030\005 \003(\0132(.google.streetview.publi" +
-      "sh.v1.ConnectionB\003\340A\001\0225\n\014capture_time\030\006 " +
-      "\001(\0132\032.google.protobuf.TimestampB\003\340A\001\0224\n\013" +
-      "upload_time\030\016 \001(\0132\032.google.protobuf.Time" +
-      "stampB\003\340A\003\0228\n\006places\030\007 \003(\0132#.google.stre" +
-      "etview.publish.v1.PlaceB\003\340A\001\022\027\n\nview_cou" +
-      "nt\030\n \001(\003B\003\340A\003\022P\n\017transfer_status\030\014 \001(\01622" +
-      ".google.streetview.publish.v1.Photo.Tran" +
-      "sferStatusB\003\340A\003\022W\n\023maps_publish_status\030\r" +
-      " \001(\01625.google.streetview.publish.v1.Phot" +
-      "o.MapsPublishStatusB\003\340A\003\"\245\001\n\016TransferSta" +
-      "tus\022\033\n\027TRANSFER_STATUS_UNKNOWN\020\000\022\025\n\021NEVE" +
-      "R_TRANSFERRED\020\001\022\013\n\007PENDING\020\002\022\r\n\tCOMPLETE" +
-      "D\020\003\022\014\n\010REJECTED\020\004\022\013\n\007EXPIRED\020\005\022\r\n\tCANCEL" +
-      "LED\020\006\022\031\n\025RECEIVED_VIA_TRANSFER\020\007\"]\n\021Maps" +
-      "PublishStatus\022#\n\037UNSPECIFIED_MAPS_PUBLIS" +
-      "H_STATUS\020\000\022\r\n\tPUBLISHED\020\001\022\024\n\020REJECTED_UN" +
-      "KNOWN\020\002B\213\001\n(com.google.geo.ugc.streetvie" +
-      "w.publish.v1B\032StreetViewPublishResources" +
-      "ZCgoogle.golang.org/genproto/googleapis/" +
-      "streetview/publish/v1;publishb\006proto3"
+      "ogle/api/field_behavior.proto\032\036google/pr" +
+      "otobuf/duration.proto\032\037google/protobuf/t" +
+      "imestamp.proto\032\030google/type/latlng.proto" +
+      "\"0\n\tUploadRef\022\024\n\nupload_url\030\001 \001(\tH\000B\r\n\013f" +
+      "ile_source\"\025\n\007PhotoId\022\n\n\002id\030\001 \001(\t\"/\n\005Lev" +
+      "el\022\023\n\006number\030\001 \001(\001B\003\340A\001\022\021\n\004name\030\002 \001(\tB\003\340" +
+      "A\002\"\203\002\n\004Pose\022)\n\014lat_lng_pair\030\001 \001(\0132\023.goog" +
+      "le.type.LatLng\022\020\n\010altitude\030\002 \001(\001\022\017\n\007head" +
+      "ing\030\003 \001(\001\022\r\n\005pitch\030\004 \001(\001\022\014\n\004roll\030\005 \001(\001\022C" +
+      "\n\037gps_record_timestamp_unix_epoch\030\006 \001(\0132" +
+      "\032.google.protobuf.Timestamp\0222\n\005level\030\007 \001" +
+      "(\0132#.google.streetview.publish.v1.Level\022" +
+      "\027\n\017accuracy_meters\030\t \001(\002\"\263\002\n\003Imu\022D\n\013acce" +
+      "l_mpsps\030\001 \003(\0132/.google.streetview.publis" +
+      "h.v1.Imu.Measurement3d\022A\n\010gyro_rps\030\002 \003(\013" +
+      "2/.google.streetview.publish.v1.Imu.Meas" +
+      "urement3d\022?\n\006mag_ut\030\003 \003(\0132/.google.stree" +
+      "tview.publish.v1.Imu.Measurement3d\032b\n\rMe" +
+      "asurement3d\0220\n\014capture_time\030\001 \001(\0132\032.goog" +
+      "le.protobuf.Timestamp\022\t\n\001x\030\002 \001(\002\022\t\n\001y\030\003 " +
+      "\001(\002\022\t\n\001z\030\004 \001(\002\"H\n\005Place\022\020\n\010place_id\030\001 \001(" +
+      "\t\022\021\n\004name\030\002 \001(\tB\003\340A\003\022\032\n\rlanguage_code\030\003 " +
+      "\001(\tB\003\340A\003\"H\n\nConnection\022:\n\006target\030\001 \001(\0132%" +
+      ".google.streetview.publish.v1.PhotoIdB\003\340" +
+      "A\002\"\315\007\n\005Photo\022?\n\010photo_id\030\001 \001(\0132%.google." +
+      "streetview.publish.v1.PhotoIdB\006\340A\002\340A\003\022F\n" +
+      "\020upload_reference\030\002 \001(\0132\'.google.streetv" +
+      "iew.publish.v1.UploadRefB\003\340A\004\022\031\n\014downloa" +
+      "d_url\030\003 \001(\tB\003\340A\003\022\032\n\rthumbnail_url\030\t \001(\tB" +
+      "\003\340A\003\022\027\n\nshare_link\030\013 \001(\tB\003\340A\003\0225\n\004pose\030\004 " +
+      "\001(\0132\".google.streetview.publish.v1.PoseB" +
+      "\003\340A\001\022B\n\013connections\030\005 \003(\0132(.google.stree" +
+      "tview.publish.v1.ConnectionB\003\340A\001\0225\n\014capt" +
+      "ure_time\030\006 \001(\0132\032.google.protobuf.Timesta" +
+      "mpB\003\340A\001\0224\n\013upload_time\030\016 \001(\0132\032.google.pr" +
+      "otobuf.TimestampB\003\340A\003\0228\n\006places\030\007 \003(\0132#." +
+      "google.streetview.publish.v1.PlaceB\003\340A\001\022" +
+      "\027\n\nview_count\030\n \001(\003B\003\340A\003\022P\n\017transfer_sta" +
+      "tus\030\014 \001(\01622.google.streetview.publish.v1" +
+      ".Photo.TransferStatusB\003\340A\003\022W\n\023maps_publi" +
+      "sh_status\030\r \001(\01625.google.streetview.publ" +
+      "ish.v1.Photo.MapsPublishStatusB\003\340A\003\"\245\001\n\016" +
+      "TransferStatus\022\033\n\027TRANSFER_STATUS_UNKNOW" +
+      "N\020\000\022\025\n\021NEVER_TRANSFERRED\020\001\022\013\n\007PENDING\020\002\022" +
+      "\r\n\tCOMPLETED\020\003\022\014\n\010REJECTED\020\004\022\013\n\007EXPIRED\020" +
+      "\005\022\r\n\tCANCELLED\020\006\022\031\n\025RECEIVED_VIA_TRANSFE" +
+      "R\020\007\"]\n\021MapsPublishStatus\022#\n\037UNSPECIFIED_" +
+      "MAPS_PUBLISH_STATUS\020\000\022\r\n\tPUBLISHED\020\001\022\024\n\020" +
+      "REJECTED_UNKNOWN\020\002\"\263\007\n\rPhotoSequence\022\017\n\002" +
+      "id\030\001 \001(\tB\003\340A\003\0228\n\006photos\030\002 \003(\0132#.google.s" +
+      "treetview.publish.v1.PhotoB\003\340A\003\022F\n\020uploa" +
+      "d_reference\030\003 \001(\0132\'.google.streetview.pu" +
+      "blish.v1.UploadRefB\003\340A\004\022>\n\025capture_time_" +
+      "override\030\004 \001(\0132\032.google.protobuf.Timesta" +
+      "mpB\003\340A\001\0224\n\013upload_time\030\022 \001(\0132\032.google.pr" +
+      "otobuf.TimestampB\003\340A\003\022A\n\020raw_gps_timelin" +
+      "e\030\007 \003(\0132\".google.streetview.publish.v1.P" +
+      "oseB\003\340A\004\022N\n\ngps_source\030\010 \001(\01625.google.st" +
+      "reetview.publish.v1.PhotoSequence.GpsSou" +
+      "rceB\003\340A\004\0223\n\003imu\030\013 \001(\0132!.google.streetvie" +
+      "w.publish.v1.ImuB\003\340A\004\022L\n\020processing_stat" +
+      "e\030\014 \001(\0162-.google.streetview.publish.v1.P" +
+      "rocessingStateB\003\340A\003\022R\n\016failure_reason\030\r " +
+      "\001(\01625.google.streetview.publish.v1.Proce" +
+      "ssingFailureReasonB\003\340A\003\022T\n\017failure_detai" +
+      "ls\030\027 \001(\01326.google.streetview.publish.v1." +
+      "ProcessingFailureDetailsB\003\340A\003\022\034\n\017distanc" +
+      "e_meters\030\020 \001(\001B\003\340A\003\022H\n\017sequence_bounds\030\024" +
+      " \001(\0132*.google.streetview.publish.v1.LatL" +
+      "ngBoundsB\003\340A\003\022\027\n\nview_count\030\025 \001(\003B\003\340A\003\022\025" +
+      "\n\010filename\030\026 \001(\tB\003\340A\003\"A\n\tGpsSource\022\022\n\016PH" +
+      "OTO_SEQUENCE\020\000\022 \n\034CAMERA_MOTION_METADATA" +
+      "_TRACK\020\001\"^\n\014LatLngBounds\022&\n\tsouthwest\030\001 " +
+      "\001(\0132\023.google.type.LatLng\022&\n\tnortheast\030\002 " +
+      "\001(\0132\023.google.type.LatLng\"\217\003\n\030ProcessingF" +
+      "ailureDetails\022_\n\030insufficient_gps_detail" +
+      "s\030\001 \001(\0132;.google.streetview.publish.v1.I" +
+      "nsufficientGpsFailureDetailsH\000\022V\n\024gps_da" +
+      "ta_gap_details\030\002 \001(\01326.google.streetview" +
+      ".publish.v1.GpsDataGapFailureDetailsH\000\022V" +
+      "\n\024imu_data_gap_details\030\003 \001(\01326.google.st" +
+      "reetview.publish.v1.ImuDataGapFailureDet" +
+      "ailsH\000\022W\n\024not_outdoors_details\030\004 \001(\01327.g" +
+      "oogle.streetview.publish.v1.NotOutdoorsF" +
+      "ailureDetailsH\000B\t\n\007details\"S\n\035Insufficie" +
+      "ntGpsFailureDetails\022\035\n\020gps_points_found\030" +
+      "\001 \001(\005H\000\210\001\001B\023\n\021_gps_points_found\"\254\001\n\030GpsD" +
+      "ataGapFailureDetails\0224\n\014gap_duration\030\001 \001" +
+      "(\0132\031.google.protobuf.DurationH\000\210\001\001\0226\n\016ga" +
+      "p_start_time\030\002 \001(\0132\031.google.protobuf.Dur" +
+      "ationH\001\210\001\001B\017\n\r_gap_durationB\021\n\017_gap_star" +
+      "t_time\"\254\001\n\030ImuDataGapFailureDetails\0224\n\014g" +
+      "ap_duration\030\001 \001(\0132\031.google.protobuf.Dura" +
+      "tionH\000\210\001\001\0226\n\016gap_start_time\030\002 \001(\0132\031.goog" +
+      "le.protobuf.DurationH\001\210\001\001B\017\n\r_gap_durati" +
+      "onB\021\n\017_gap_start_time\"^\n\031NotOutdoorsFail" +
+      "ureDetails\0222\n\nstart_time\030\001 \001(\0132\031.google." +
+      "protobuf.DurationH\000\210\001\001B\r\n\013_start_time*k\n" +
+      "\017ProcessingState\022 \n\034PROCESSING_STATE_UNS" +
+      "PECIFIED\020\000\022\013\n\007PENDING\020\001\022\016\n\nPROCESSING\020\002\022" +
+      "\r\n\tPROCESSED\020\003\022\n\n\006FAILED\020\004*\214\004\n\027Processin" +
+      "gFailureReason\022)\n%PROCESSING_FAILURE_REA" +
+      "SON_UNSPECIFIED\020\000\022\022\n\016LOW_RESOLUTION\020\001\022\r\n" +
+      "\tDUPLICATE\020\002\022\024\n\020INSUFFICIENT_GPS\020\003\022\022\n\016NO" +
+      "_OVERLAP_GPS\020\004\022\017\n\013INVALID_GPS\020\005\022\036\n\032FAILE" +
+      "D_TO_REFINE_POSITIONS\020\006\022\014\n\010TAKEDOWN\020\007\022\021\n" +
+      "\rCORRUPT_VIDEO\020\010\022\014\n\010INTERNAL\020\t\022\030\n\024INVALI" +
+      "D_VIDEO_FORMAT\020\n\022\034\n\030INVALID_VIDEO_DIMENS" +
+      "IONS\020\013\022\030\n\024INVALID_CAPTURE_TIME\020\014\022\020\n\014GPS_" +
+      "DATA_GAP\020\r\022\r\n\tJUMPY_GPS\020\016\022\017\n\013INVALID_IMU" +
+      "\020\017\022\024\n\020INSUFFICIENT_IMU\020\025\022$\n INSUFFICIENT" +
+      "_OVERLAP_TIME_SERIES\020\026\022\020\n\014IMU_DATA_GAP\020\020" +
+      "\022\026\n\022UNSUPPORTED_CAMERA\020\021\022\020\n\014NOT_OUTDOORS" +
+      "\020\022\022\035\n\031INSUFFICIENT_VIDEO_FRAMES\020\023B\213\001\n(co" +
+      "m.google.geo.ugc.streetview.publish.v1B\032" +
+      "StreetViewPublishResourcesZCgoogle.golan" +
+      "g.org/genproto/googleapis/streetview/pub" +
+      "lish/v1;publishb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.FieldBehaviorProto.getDescriptor(),
+          com.google.protobuf.DurationProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
           com.google.type.LatLngProto.getDescriptor(),
         });
@@ -9690,31 +23618,86 @@ public final class StreetViewPublishResources {
     internal_static_google_streetview_publish_v1_Pose_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_streetview_publish_v1_Pose_descriptor,
-        new java.lang.String[] { "LatLngPair", "Altitude", "Heading", "Pitch", "Roll", "Level", "AccuracyMeters", });
-    internal_static_google_streetview_publish_v1_Place_descriptor =
+        new java.lang.String[] { "LatLngPair", "Altitude", "Heading", "Pitch", "Roll", "GpsRecordTimestampUnixEpoch", "Level", "AccuracyMeters", });
+    internal_static_google_streetview_publish_v1_Imu_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_google_streetview_publish_v1_Imu_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_streetview_publish_v1_Imu_descriptor,
+        new java.lang.String[] { "AccelMpsps", "GyroRps", "MagUt", });
+    internal_static_google_streetview_publish_v1_Imu_Measurement3d_descriptor =
+      internal_static_google_streetview_publish_v1_Imu_descriptor.getNestedTypes().get(0);
+    internal_static_google_streetview_publish_v1_Imu_Measurement3d_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_streetview_publish_v1_Imu_Measurement3d_descriptor,
+        new java.lang.String[] { "CaptureTime", "X", "Y", "Z", });
+    internal_static_google_streetview_publish_v1_Place_descriptor =
+      getDescriptor().getMessageTypes().get(5);
     internal_static_google_streetview_publish_v1_Place_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_streetview_publish_v1_Place_descriptor,
         new java.lang.String[] { "PlaceId", "Name", "LanguageCode", });
     internal_static_google_streetview_publish_v1_Connection_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_google_streetview_publish_v1_Connection_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_streetview_publish_v1_Connection_descriptor,
         new java.lang.String[] { "Target", });
     internal_static_google_streetview_publish_v1_Photo_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_google_streetview_publish_v1_Photo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_streetview_publish_v1_Photo_descriptor,
         new java.lang.String[] { "PhotoId", "UploadReference", "DownloadUrl", "ThumbnailUrl", "ShareLink", "Pose", "Connections", "CaptureTime", "UploadTime", "Places", "ViewCount", "TransferStatus", "MapsPublishStatus", });
+    internal_static_google_streetview_publish_v1_PhotoSequence_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_google_streetview_publish_v1_PhotoSequence_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_streetview_publish_v1_PhotoSequence_descriptor,
+        new java.lang.String[] { "Id", "Photos", "UploadReference", "CaptureTimeOverride", "UploadTime", "RawGpsTimeline", "GpsSource", "Imu", "ProcessingState", "FailureReason", "FailureDetails", "DistanceMeters", "SequenceBounds", "ViewCount", "Filename", });
+    internal_static_google_streetview_publish_v1_LatLngBounds_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_google_streetview_publish_v1_LatLngBounds_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_streetview_publish_v1_LatLngBounds_descriptor,
+        new java.lang.String[] { "Southwest", "Northeast", });
+    internal_static_google_streetview_publish_v1_ProcessingFailureDetails_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_google_streetview_publish_v1_ProcessingFailureDetails_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_streetview_publish_v1_ProcessingFailureDetails_descriptor,
+        new java.lang.String[] { "InsufficientGpsDetails", "GpsDataGapDetails", "ImuDataGapDetails", "NotOutdoorsDetails", "Details", });
+    internal_static_google_streetview_publish_v1_InsufficientGpsFailureDetails_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_google_streetview_publish_v1_InsufficientGpsFailureDetails_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_streetview_publish_v1_InsufficientGpsFailureDetails_descriptor,
+        new java.lang.String[] { "GpsPointsFound", "GpsPointsFound", });
+    internal_static_google_streetview_publish_v1_GpsDataGapFailureDetails_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_google_streetview_publish_v1_GpsDataGapFailureDetails_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_streetview_publish_v1_GpsDataGapFailureDetails_descriptor,
+        new java.lang.String[] { "GapDuration", "GapStartTime", "GapDuration", "GapStartTime", });
+    internal_static_google_streetview_publish_v1_ImuDataGapFailureDetails_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_google_streetview_publish_v1_ImuDataGapFailureDetails_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_streetview_publish_v1_ImuDataGapFailureDetails_descriptor,
+        new java.lang.String[] { "GapDuration", "GapStartTime", "GapDuration", "GapStartTime", });
+    internal_static_google_streetview_publish_v1_NotOutdoorsFailureDetails_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_google_streetview_publish_v1_NotOutdoorsFailureDetails_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_streetview_publish_v1_NotOutdoorsFailureDetails_descriptor,
+        new java.lang.String[] { "StartTime", "StartTime", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.FieldBehaviorProto.fieldBehavior);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.api.FieldBehaviorProto.getDescriptor();
+    com.google.protobuf.DurationProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
     com.google.type.LatLngProto.getDescriptor();
   }

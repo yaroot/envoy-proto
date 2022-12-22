@@ -32,56 +32,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EnvelopeSignature(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-
-            sig_ = input.readBytes();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            keyid_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.grafeas.v1.Common.internal_static_grafeas_v1_EnvelopeSignature_descriptor;
@@ -96,7 +46,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SIG_FIELD_NUMBER = 1;
-  private com.google.protobuf.ByteString sig_;
+  private com.google.protobuf.ByteString sig_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <code>bytes sig = 1;</code>
    * @return The sig.
@@ -107,7 +57,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KEYID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object keyid_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object keyid_ = "";
   /**
    * <code>string keyid = 2;</code>
    * @return The keyid.
@@ -164,7 +115,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyid_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, keyid_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -180,7 +131,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyid_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, keyid_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -199,7 +150,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSig())) return false;
     if (!getKeyid()
         .equals(other.getKeyid())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -214,7 +165,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getSig().hashCode();
     hash = (37 * hash) + KEYID_FIELD_NUMBER;
     hash = (53 * hash) + getKeyid().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -331,26 +282,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.grafeas.v1.EnvelopeSignature.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       sig_ = com.google.protobuf.ByteString.EMPTY;
-
       keyid_ = "";
-
       return this;
     }
 
@@ -377,10 +322,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.grafeas.v1.EnvelopeSignature buildPartial() {
       io.grafeas.v1.EnvelopeSignature result = new io.grafeas.v1.EnvelopeSignature(this);
-      result.sig_ = sig_;
-      result.keyid_ = keyid_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.grafeas.v1.EnvelopeSignature result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.sig_ = sig_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.keyid_ = keyid_;
+      }
     }
 
     @java.lang.Override
@@ -432,9 +386,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getKeyid().isEmpty()) {
         keyid_ = other.keyid_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -449,19 +404,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.grafeas.v1.EnvelopeSignature parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              sig_ = input.readBytes();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              keyid_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.grafeas.v1.EnvelopeSignature) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.ByteString sig_ = com.google.protobuf.ByteString.EMPTY;
     /**
@@ -478,11 +457,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSig(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sig_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -491,7 +468,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSig() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       sig_ = getDefaultInstance().getSig();
       onChanged();
       return this;
@@ -538,11 +515,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKeyid(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       keyid_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -551,8 +526,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKeyid() {
-      
       keyid_ = getDefaultInstance().getKeyid();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -563,12 +538,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKeyidBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       keyid_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -605,7 +578,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EnvelopeSignature(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

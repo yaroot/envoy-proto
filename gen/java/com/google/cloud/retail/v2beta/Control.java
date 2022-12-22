@@ -5,8 +5,9 @@ package com.google.cloud.retail.v2beta;
 
 /**
  * <pre>
- * Configures dynamic serving time metadata that is used to pre and post
- * process search/recommendation model results.
+ * Configures dynamic metadata that can be linked to a
+ * [ServingConfig][google.cloud.retail.v2beta.ServingConfig] and affect search
+ * or recommendation results at serving time.
  * </pre>
  *
  * Protobuf type {@code google.cloud.retail.v2beta.Control}
@@ -25,6 +26,7 @@ private static final long serialVersionUID = 0L;
     displayName_ = "";
     associatedServingConfigIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     solutionTypes_ = java.util.Collections.emptyList();
+    searchSolutionUseCase_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -38,124 +40,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Control(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.retail.v2beta.SearchRequest.FacetSpec.Builder subBuilder = null;
-            if (controlCase_ == 3) {
-              subBuilder = ((com.google.cloud.retail.v2beta.SearchRequest.FacetSpec) control_).toBuilder();
-            }
-            control_ =
-                input.readMessage(com.google.cloud.retail.v2beta.SearchRequest.FacetSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.retail.v2beta.SearchRequest.FacetSpec) control_);
-              control_ = subBuilder.buildPartial();
-            }
-            controlCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.cloud.retail.v2beta.Rule.Builder subBuilder = null;
-            if (controlCase_ == 4) {
-              subBuilder = ((com.google.cloud.retail.v2beta.Rule) control_).toBuilder();
-            }
-            control_ =
-                input.readMessage(com.google.cloud.retail.v2beta.Rule.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.retail.v2beta.Rule) control_);
-              control_ = subBuilder.buildPartial();
-            }
-            controlCase_ = 4;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              associatedServingConfigIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            associatedServingConfigIds_.add(s);
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              solutionTypes_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            solutionTypes_.add(rawValue);
-            break;
-          }
-          case 50: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                solutionTypes_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              solutionTypes_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        associatedServingConfigIds_ = associatedServingConfigIds_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        solutionTypes_ = java.util.Collections.unmodifiableList(solutionTypes_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -175,7 +59,7 @@ private static final long serialVersionUID = 0L;
   public enum ControlCase
       implements com.google.protobuf.Internal.EnumLite,
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
-    FACET_SPEC(3),
+    @java.lang.Deprecated FACET_SPEC(3),
     RULE(4),
     CONTROL_NOT_SET(0);
     private final int value;
@@ -215,25 +99,33 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * A facet specification to perform faceted search.
+   * Note that this field is deprecated and will throw NOT_IMPLEMENTED if
+   * used for creating a control.
    * </pre>
    *
-   * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3;</code>
+   * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3 [deprecated = true];</code>
+   * @deprecated google.cloud.retail.v2beta.Control.facet_spec is deprecated.
+   *     See google/cloud/retail/v2beta/control.proto;l=51
    * @return Whether the facetSpec field is set.
    */
   @java.lang.Override
-  public boolean hasFacetSpec() {
+  @java.lang.Deprecated public boolean hasFacetSpec() {
     return controlCase_ == 3;
   }
   /**
    * <pre>
    * A facet specification to perform faceted search.
+   * Note that this field is deprecated and will throw NOT_IMPLEMENTED if
+   * used for creating a control.
    * </pre>
    *
-   * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3;</code>
+   * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3 [deprecated = true];</code>
+   * @deprecated google.cloud.retail.v2beta.Control.facet_spec is deprecated.
+   *     See google/cloud/retail/v2beta/control.proto;l=51
    * @return The facetSpec.
    */
   @java.lang.Override
-  public com.google.cloud.retail.v2beta.SearchRequest.FacetSpec getFacetSpec() {
+  @java.lang.Deprecated public com.google.cloud.retail.v2beta.SearchRequest.FacetSpec getFacetSpec() {
     if (controlCase_ == 3) {
        return (com.google.cloud.retail.v2beta.SearchRequest.FacetSpec) control_;
     }
@@ -242,12 +134,14 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * A facet specification to perform faceted search.
+   * Note that this field is deprecated and will throw NOT_IMPLEMENTED if
+   * used for creating a control.
    * </pre>
    *
-   * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3;</code>
+   * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3 [deprecated = true];</code>
    */
   @java.lang.Override
-  public com.google.cloud.retail.v2beta.SearchRequest.FacetSpecOrBuilder getFacetSpecOrBuilder() {
+  @java.lang.Deprecated public com.google.cloud.retail.v2beta.SearchRequest.FacetSpecOrBuilder getFacetSpecOrBuilder() {
     if (controlCase_ == 3) {
        return (com.google.cloud.retail.v2beta.SearchRequest.FacetSpec) control_;
     }
@@ -304,7 +198,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Immutable. Fully qualified name
@@ -352,7 +247,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Required. The human readable control display name. Used in Retail UI.
@@ -402,13 +298,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ASSOCIATED_SERVING_CONFIG_IDS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList associatedServingConfigIds_;
   /**
    * <pre>
-   * Output only. List of serving configuration ids that that are associated
-   * with this control. Note the association is managed via the ServingConfig,
-   * this is an output only denormalizeed  view. Assumed to be in the same
-   * catalog.
+   * Output only. List of [serving
+   * config][google.cloud.retail.v2beta.ServingConfig] ids that are associated
+   * with this control in the same
+   * [Catalog][google.cloud.retail.v2beta.Catalog].
+   * Note the association is managed via the
+   * [ServingConfig][google.cloud.retail.v2beta.ServingConfig], this is an
+   * output only denormalized view.
    * </pre>
    *
    * <code>repeated string associated_serving_config_ids = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -420,10 +320,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. List of serving configuration ids that that are associated
-   * with this control. Note the association is managed via the ServingConfig,
-   * this is an output only denormalizeed  view. Assumed to be in the same
-   * catalog.
+   * Output only. List of [serving
+   * config][google.cloud.retail.v2beta.ServingConfig] ids that are associated
+   * with this control in the same
+   * [Catalog][google.cloud.retail.v2beta.Catalog].
+   * Note the association is managed via the
+   * [ServingConfig][google.cloud.retail.v2beta.ServingConfig], this is an
+   * output only denormalized view.
    * </pre>
    *
    * <code>repeated string associated_serving_config_ids = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -434,10 +337,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. List of serving configuration ids that that are associated
-   * with this control. Note the association is managed via the ServingConfig,
-   * this is an output only denormalizeed  view. Assumed to be in the same
-   * catalog.
+   * Output only. List of [serving
+   * config][google.cloud.retail.v2beta.ServingConfig] ids that are associated
+   * with this control in the same
+   * [Catalog][google.cloud.retail.v2beta.Catalog].
+   * Note the association is managed via the
+   * [ServingConfig][google.cloud.retail.v2beta.ServingConfig], this is an
+   * output only denormalized view.
    * </pre>
    *
    * <code>repeated string associated_serving_config_ids = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -449,10 +355,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. List of serving configuration ids that that are associated
-   * with this control. Note the association is managed via the ServingConfig,
-   * this is an output only denormalizeed  view. Assumed to be in the same
-   * catalog.
+   * Output only. List of [serving
+   * config][google.cloud.retail.v2beta.ServingConfig] ids that are associated
+   * with this control in the same
+   * [Catalog][google.cloud.retail.v2beta.Catalog].
+   * Note the association is managed via the
+   * [ServingConfig][google.cloud.retail.v2beta.ServingConfig], this is an
+   * output only denormalized view.
    * </pre>
    *
    * <code>repeated string associated_serving_config_ids = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -465,25 +374,24 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOLUTION_TYPES_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> solutionTypes_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.retail.v2beta.SolutionType> solutionTypes_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.retail.v2beta.SolutionType>() {
             public com.google.cloud.retail.v2beta.SolutionType convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.retail.v2beta.SolutionType result = com.google.cloud.retail.v2beta.SolutionType.valueOf(from);
+              com.google.cloud.retail.v2beta.SolutionType result = com.google.cloud.retail.v2beta.SolutionType.forNumber(from);
               return result == null ? com.google.cloud.retail.v2beta.SolutionType.UNRECOGNIZED : result;
             }
           };
   /**
    * <pre>
-   * Required. Immutable. The solution types that the serving config is used
-   * for. Currently we support setting only one type of solution at creation
-   * time.
+   * Required. Immutable. The solution types that the control is used for.
+   * Currently we support setting only one type of solution at creation time.
    * Only `SOLUTION_TYPE_SEARCH` value is supported at the moment.
    * If no solution type is provided at creation time, will default to
-   * SOLUTION_TYPE_SEARCH.
+   * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2beta.SolutionType.SOLUTION_TYPE_SEARCH].
    * </pre>
    *
    * <code>repeated .google.cloud.retail.v2beta.SolutionType solution_types = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -496,12 +404,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Immutable. The solution types that the serving config is used
-   * for. Currently we support setting only one type of solution at creation
-   * time.
+   * Required. Immutable. The solution types that the control is used for.
+   * Currently we support setting only one type of solution at creation time.
    * Only `SOLUTION_TYPE_SEARCH` value is supported at the moment.
    * If no solution type is provided at creation time, will default to
-   * SOLUTION_TYPE_SEARCH.
+   * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2beta.SolutionType.SOLUTION_TYPE_SEARCH].
    * </pre>
    *
    * <code>repeated .google.cloud.retail.v2beta.SolutionType solution_types = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -513,12 +420,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Immutable. The solution types that the serving config is used
-   * for. Currently we support setting only one type of solution at creation
-   * time.
+   * Required. Immutable. The solution types that the control is used for.
+   * Currently we support setting only one type of solution at creation time.
    * Only `SOLUTION_TYPE_SEARCH` value is supported at the moment.
    * If no solution type is provided at creation time, will default to
-   * SOLUTION_TYPE_SEARCH.
+   * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2beta.SolutionType.SOLUTION_TYPE_SEARCH].
    * </pre>
    *
    * <code>repeated .google.cloud.retail.v2beta.SolutionType solution_types = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -531,12 +437,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Immutable. The solution types that the serving config is used
-   * for. Currently we support setting only one type of solution at creation
-   * time.
+   * Required. Immutable. The solution types that the control is used for.
+   * Currently we support setting only one type of solution at creation time.
    * Only `SOLUTION_TYPE_SEARCH` value is supported at the moment.
    * If no solution type is provided at creation time, will default to
-   * SOLUTION_TYPE_SEARCH.
+   * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2beta.SolutionType.SOLUTION_TYPE_SEARCH].
    * </pre>
    *
    * <code>repeated .google.cloud.retail.v2beta.SolutionType solution_types = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -549,12 +454,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Immutable. The solution types that the serving config is used
-   * for. Currently we support setting only one type of solution at creation
-   * time.
+   * Required. Immutable. The solution types that the control is used for.
+   * Currently we support setting only one type of solution at creation time.
    * Only `SOLUTION_TYPE_SEARCH` value is supported at the moment.
    * If no solution type is provided at creation time, will default to
-   * SOLUTION_TYPE_SEARCH.
+   * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2beta.SolutionType.SOLUTION_TYPE_SEARCH].
    * </pre>
    *
    * <code>repeated .google.cloud.retail.v2beta.SolutionType solution_types = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -566,6 +470,114 @@ private static final long serialVersionUID = 0L;
     return solutionTypes_.get(index);
   }
   private int solutionTypesMemoizedSerializedSize;
+
+  public static final int SEARCH_SOLUTION_USE_CASE_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
+  private java.util.List<java.lang.Integer> searchSolutionUseCase_;
+  private static final com.google.protobuf.Internal.ListAdapter.Converter<
+      java.lang.Integer, com.google.cloud.retail.v2beta.SearchSolutionUseCase> searchSolutionUseCase_converter_ =
+          new com.google.protobuf.Internal.ListAdapter.Converter<
+              java.lang.Integer, com.google.cloud.retail.v2beta.SearchSolutionUseCase>() {
+            public com.google.cloud.retail.v2beta.SearchSolutionUseCase convert(java.lang.Integer from) {
+              com.google.cloud.retail.v2beta.SearchSolutionUseCase result = com.google.cloud.retail.v2beta.SearchSolutionUseCase.forNumber(from);
+              return result == null ? com.google.cloud.retail.v2beta.SearchSolutionUseCase.UNRECOGNIZED : result;
+            }
+          };
+  /**
+   * <pre>
+   * Specifies the use case for the control.
+   * Affects what condition fields can be set.
+   * Only settable by search controls.
+   * Will default to
+   * [SEARCH_SOLUTION_USE_CASE_SEARCH][google.cloud.retail.v2beta.SearchSolutionUseCase.SEARCH_SOLUTION_USE_CASE_SEARCH]
+   * if not specified. Currently only allow one search_solution_use_case per
+   * control.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.SearchSolutionUseCase search_solution_use_case = 7;</code>
+   * @return A list containing the searchSolutionUseCase.
+   */
+  @java.lang.Override
+  public java.util.List<com.google.cloud.retail.v2beta.SearchSolutionUseCase> getSearchSolutionUseCaseList() {
+    return new com.google.protobuf.Internal.ListAdapter<
+        java.lang.Integer, com.google.cloud.retail.v2beta.SearchSolutionUseCase>(searchSolutionUseCase_, searchSolutionUseCase_converter_);
+  }
+  /**
+   * <pre>
+   * Specifies the use case for the control.
+   * Affects what condition fields can be set.
+   * Only settable by search controls.
+   * Will default to
+   * [SEARCH_SOLUTION_USE_CASE_SEARCH][google.cloud.retail.v2beta.SearchSolutionUseCase.SEARCH_SOLUTION_USE_CASE_SEARCH]
+   * if not specified. Currently only allow one search_solution_use_case per
+   * control.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.SearchSolutionUseCase search_solution_use_case = 7;</code>
+   * @return The count of searchSolutionUseCase.
+   */
+  @java.lang.Override
+  public int getSearchSolutionUseCaseCount() {
+    return searchSolutionUseCase_.size();
+  }
+  /**
+   * <pre>
+   * Specifies the use case for the control.
+   * Affects what condition fields can be set.
+   * Only settable by search controls.
+   * Will default to
+   * [SEARCH_SOLUTION_USE_CASE_SEARCH][google.cloud.retail.v2beta.SearchSolutionUseCase.SEARCH_SOLUTION_USE_CASE_SEARCH]
+   * if not specified. Currently only allow one search_solution_use_case per
+   * control.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.SearchSolutionUseCase search_solution_use_case = 7;</code>
+   * @param index The index of the element to return.
+   * @return The searchSolutionUseCase at the given index.
+   */
+  @java.lang.Override
+  public com.google.cloud.retail.v2beta.SearchSolutionUseCase getSearchSolutionUseCase(int index) {
+    return searchSolutionUseCase_converter_.convert(searchSolutionUseCase_.get(index));
+  }
+  /**
+   * <pre>
+   * Specifies the use case for the control.
+   * Affects what condition fields can be set.
+   * Only settable by search controls.
+   * Will default to
+   * [SEARCH_SOLUTION_USE_CASE_SEARCH][google.cloud.retail.v2beta.SearchSolutionUseCase.SEARCH_SOLUTION_USE_CASE_SEARCH]
+   * if not specified. Currently only allow one search_solution_use_case per
+   * control.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.SearchSolutionUseCase search_solution_use_case = 7;</code>
+   * @return A list containing the enum numeric values on the wire for searchSolutionUseCase.
+   */
+  @java.lang.Override
+  public java.util.List<java.lang.Integer>
+  getSearchSolutionUseCaseValueList() {
+    return searchSolutionUseCase_;
+  }
+  /**
+   * <pre>
+   * Specifies the use case for the control.
+   * Affects what condition fields can be set.
+   * Only settable by search controls.
+   * Will default to
+   * [SEARCH_SOLUTION_USE_CASE_SEARCH][google.cloud.retail.v2beta.SearchSolutionUseCase.SEARCH_SOLUTION_USE_CASE_SEARCH]
+   * if not specified. Currently only allow one search_solution_use_case per
+   * control.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.SearchSolutionUseCase search_solution_use_case = 7;</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of searchSolutionUseCase at the given index.
+   */
+  @java.lang.Override
+  public int getSearchSolutionUseCaseValue(int index) {
+    return searchSolutionUseCase_.get(index);
+  }
+  private int searchSolutionUseCaseMemoizedSerializedSize;
 
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
@@ -604,7 +616,14 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < solutionTypes_.size(); i++) {
       output.writeEnumNoTag(solutionTypes_.get(i));
     }
-    unknownFields.writeTo(output);
+    if (getSearchSolutionUseCaseList().size() > 0) {
+      output.writeUInt32NoTag(58);
+      output.writeUInt32NoTag(searchSolutionUseCaseMemoizedSerializedSize);
+    }
+    for (int i = 0; i < searchSolutionUseCase_.size(); i++) {
+      output.writeEnumNoTag(searchSolutionUseCase_.get(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -647,7 +666,19 @@ private static final long serialVersionUID = 0L;
           .computeUInt32SizeNoTag(dataSize);
       }solutionTypesMemoizedSerializedSize = dataSize;
     }
-    size += unknownFields.getSerializedSize();
+    {
+      int dataSize = 0;
+      for (int i = 0; i < searchSolutionUseCase_.size(); i++) {
+        dataSize += com.google.protobuf.CodedOutputStream
+          .computeEnumSizeNoTag(searchSolutionUseCase_.get(i));
+      }
+      size += dataSize;
+      if (!getSearchSolutionUseCaseList().isEmpty()) {  size += 1;
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32SizeNoTag(dataSize);
+      }searchSolutionUseCaseMemoizedSerializedSize = dataSize;
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -669,6 +700,7 @@ private static final long serialVersionUID = 0L;
     if (!getAssociatedServingConfigIdsList()
         .equals(other.getAssociatedServingConfigIdsList())) return false;
     if (!solutionTypes_.equals(other.solutionTypes_)) return false;
+    if (!searchSolutionUseCase_.equals(other.searchSolutionUseCase_)) return false;
     if (!getControlCase().equals(other.getControlCase())) return false;
     switch (controlCase_) {
       case 3:
@@ -682,7 +714,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -705,6 +737,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SOLUTION_TYPES_FIELD_NUMBER;
       hash = (53 * hash) + solutionTypes_.hashCode();
     }
+    if (getSearchSolutionUseCaseCount() > 0) {
+      hash = (37 * hash) + SEARCH_SOLUTION_USE_CASE_FIELD_NUMBER;
+      hash = (53 * hash) + searchSolutionUseCase_.hashCode();
+    }
     switch (controlCase_) {
       case 3:
         hash = (37 * hash) + FACET_SPEC_FIELD_NUMBER;
@@ -717,7 +753,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -814,8 +850,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Configures dynamic serving time metadata that is used to pre and post
-   * process search/recommendation model results.
+   * Configures dynamic metadata that can be linked to a
+   * [ServingConfig][google.cloud.retail.v2beta.ServingConfig] and affect search
+   * or recommendation results at serving time.
    * </pre>
    *
    * Protobuf type {@code google.cloud.retail.v2beta.Control}
@@ -839,30 +876,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.v2beta.Control.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (facetSpecBuilder_ != null) {
+        facetSpecBuilder_.clear();
+      }
+      if (ruleBuilder_ != null) {
+        ruleBuilder_.clear();
+      }
       name_ = "";
-
       displayName_ = "";
-
       associatedServingConfigIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       solutionTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000020);
+      searchSolutionUseCase_ = java.util.Collections.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000040);
       controlCase_ = 0;
       control_ = null;
       return this;
@@ -891,36 +930,52 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.v2beta.Control buildPartial() {
       com.google.cloud.retail.v2beta.Control result = new com.google.cloud.retail.v2beta.Control(this);
-      int from_bitField0_ = bitField0_;
-      if (controlCase_ == 3) {
-        if (facetSpecBuilder_ == null) {
-          result.control_ = control_;
-        } else {
-          result.control_ = facetSpecBuilder_.build();
-        }
-      }
-      if (controlCase_ == 4) {
-        if (ruleBuilder_ == null) {
-          result.control_ = control_;
-        } else {
-          result.control_ = ruleBuilder_.build();
-        }
-      }
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        associatedServingConfigIds_ = associatedServingConfigIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.associatedServingConfigIds_ = associatedServingConfigIds_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        solutionTypes_ = java.util.Collections.unmodifiableList(solutionTypes_);
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.solutionTypes_ = solutionTypes_;
-      result.controlCase_ = controlCase_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.retail.v2beta.Control result) {
+      if (((bitField0_ & 0x00000010) != 0)) {
+        associatedServingConfigIds_ = associatedServingConfigIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
+      result.associatedServingConfigIds_ = associatedServingConfigIds_;
+      if (((bitField0_ & 0x00000020) != 0)) {
+        solutionTypes_ = java.util.Collections.unmodifiableList(solutionTypes_);
+        bitField0_ = (bitField0_ & ~0x00000020);
+      }
+      result.solutionTypes_ = solutionTypes_;
+      if (((bitField0_ & 0x00000040) != 0)) {
+        searchSolutionUseCase_ = java.util.Collections.unmodifiableList(searchSolutionUseCase_);
+        bitField0_ = (bitField0_ & ~0x00000040);
+      }
+      result.searchSolutionUseCase_ = searchSolutionUseCase_;
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2beta.Control result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.displayName_ = displayName_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.retail.v2beta.Control result) {
+      result.controlCase_ = controlCase_;
+      result.control_ = this.control_;
+      if (controlCase_ == 3 &&
+          facetSpecBuilder_ != null) {
+        result.control_ = facetSpecBuilder_.build();
+      }
+      if (controlCase_ == 4 &&
+          ruleBuilder_ != null) {
+        result.control_ = ruleBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -969,16 +1024,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.retail.v2beta.Control.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.associatedServingConfigIds_.isEmpty()) {
         if (associatedServingConfigIds_.isEmpty()) {
           associatedServingConfigIds_ = other.associatedServingConfigIds_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureAssociatedServingConfigIdsIsMutable();
           associatedServingConfigIds_.addAll(other.associatedServingConfigIds_);
@@ -988,10 +1045,20 @@ private static final long serialVersionUID = 0L;
       if (!other.solutionTypes_.isEmpty()) {
         if (solutionTypes_.isEmpty()) {
           solutionTypes_ = other.solutionTypes_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureSolutionTypesIsMutable();
           solutionTypes_.addAll(other.solutionTypes_);
+        }
+        onChanged();
+      }
+      if (!other.searchSolutionUseCase_.isEmpty()) {
+        if (searchSolutionUseCase_.isEmpty()) {
+          searchSolutionUseCase_ = other.searchSolutionUseCase_;
+          bitField0_ = (bitField0_ & ~0x00000040);
+        } else {
+          ensureSearchSolutionUseCaseIsMutable();
+          searchSolutionUseCase_.addAll(other.searchSolutionUseCase_);
         }
         onChanged();
       }
@@ -1008,7 +1075,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1023,17 +1090,94 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2beta.Control parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getFacetSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              controlCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getRuleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              controlCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureAssociatedServingConfigIdsIsMutable();
+              associatedServingConfigIds_.add(s);
+              break;
+            } // case 42
+            case 48: {
+              int tmpRaw = input.readEnum();
+              ensureSolutionTypesIsMutable();
+              solutionTypes_.add(tmpRaw);
+              break;
+            } // case 48
+            case 50: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureSolutionTypesIsMutable();
+                solutionTypes_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 50
+            case 56: {
+              int tmpRaw = input.readEnum();
+              ensureSearchSolutionUseCaseIsMutable();
+              searchSolutionUseCase_.add(tmpRaw);
+              break;
+            } // case 56
+            case 58: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureSearchSolutionUseCaseIsMutable();
+                searchSolutionUseCase_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2beta.Control) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int controlCase_ = 0;
@@ -1058,25 +1202,33 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A facet specification to perform faceted search.
+     * Note that this field is deprecated and will throw NOT_IMPLEMENTED if
+     * used for creating a control.
      * </pre>
      *
-     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3;</code>
+     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3 [deprecated = true];</code>
+     * @deprecated google.cloud.retail.v2beta.Control.facet_spec is deprecated.
+     *     See google/cloud/retail/v2beta/control.proto;l=51
      * @return Whether the facetSpec field is set.
      */
     @java.lang.Override
-    public boolean hasFacetSpec() {
+    @java.lang.Deprecated public boolean hasFacetSpec() {
       return controlCase_ == 3;
     }
     /**
      * <pre>
      * A facet specification to perform faceted search.
+     * Note that this field is deprecated and will throw NOT_IMPLEMENTED if
+     * used for creating a control.
      * </pre>
      *
-     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3;</code>
+     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3 [deprecated = true];</code>
+     * @deprecated google.cloud.retail.v2beta.Control.facet_spec is deprecated.
+     *     See google/cloud/retail/v2beta/control.proto;l=51
      * @return The facetSpec.
      */
     @java.lang.Override
-    public com.google.cloud.retail.v2beta.SearchRequest.FacetSpec getFacetSpec() {
+    @java.lang.Deprecated public com.google.cloud.retail.v2beta.SearchRequest.FacetSpec getFacetSpec() {
       if (facetSpecBuilder_ == null) {
         if (controlCase_ == 3) {
           return (com.google.cloud.retail.v2beta.SearchRequest.FacetSpec) control_;
@@ -1092,11 +1244,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A facet specification to perform faceted search.
+     * Note that this field is deprecated and will throw NOT_IMPLEMENTED if
+     * used for creating a control.
      * </pre>
      *
-     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3;</code>
+     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3 [deprecated = true];</code>
      */
-    public Builder setFacetSpec(com.google.cloud.retail.v2beta.SearchRequest.FacetSpec value) {
+    @java.lang.Deprecated public Builder setFacetSpec(com.google.cloud.retail.v2beta.SearchRequest.FacetSpec value) {
       if (facetSpecBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -1112,11 +1266,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A facet specification to perform faceted search.
+     * Note that this field is deprecated and will throw NOT_IMPLEMENTED if
+     * used for creating a control.
      * </pre>
      *
-     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3;</code>
+     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3 [deprecated = true];</code>
      */
-    public Builder setFacetSpec(
+    @java.lang.Deprecated public Builder setFacetSpec(
         com.google.cloud.retail.v2beta.SearchRequest.FacetSpec.Builder builderForValue) {
       if (facetSpecBuilder_ == null) {
         control_ = builderForValue.build();
@@ -1130,11 +1286,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A facet specification to perform faceted search.
+     * Note that this field is deprecated and will throw NOT_IMPLEMENTED if
+     * used for creating a control.
      * </pre>
      *
-     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3;</code>
+     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3 [deprecated = true];</code>
      */
-    public Builder mergeFacetSpec(com.google.cloud.retail.v2beta.SearchRequest.FacetSpec value) {
+    @java.lang.Deprecated public Builder mergeFacetSpec(com.google.cloud.retail.v2beta.SearchRequest.FacetSpec value) {
       if (facetSpecBuilder_ == null) {
         if (controlCase_ == 3 &&
             control_ != com.google.cloud.retail.v2beta.SearchRequest.FacetSpec.getDefaultInstance()) {
@@ -1157,11 +1315,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A facet specification to perform faceted search.
+     * Note that this field is deprecated and will throw NOT_IMPLEMENTED if
+     * used for creating a control.
      * </pre>
      *
-     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3;</code>
+     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3 [deprecated = true];</code>
      */
-    public Builder clearFacetSpec() {
+    @java.lang.Deprecated public Builder clearFacetSpec() {
       if (facetSpecBuilder_ == null) {
         if (controlCase_ == 3) {
           controlCase_ = 0;
@@ -1180,22 +1340,26 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A facet specification to perform faceted search.
+     * Note that this field is deprecated and will throw NOT_IMPLEMENTED if
+     * used for creating a control.
      * </pre>
      *
-     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3;</code>
+     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3 [deprecated = true];</code>
      */
-    public com.google.cloud.retail.v2beta.SearchRequest.FacetSpec.Builder getFacetSpecBuilder() {
+    @java.lang.Deprecated public com.google.cloud.retail.v2beta.SearchRequest.FacetSpec.Builder getFacetSpecBuilder() {
       return getFacetSpecFieldBuilder().getBuilder();
     }
     /**
      * <pre>
      * A facet specification to perform faceted search.
+     * Note that this field is deprecated and will throw NOT_IMPLEMENTED if
+     * used for creating a control.
      * </pre>
      *
-     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3;</code>
+     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3 [deprecated = true];</code>
      */
     @java.lang.Override
-    public com.google.cloud.retail.v2beta.SearchRequest.FacetSpecOrBuilder getFacetSpecOrBuilder() {
+    @java.lang.Deprecated public com.google.cloud.retail.v2beta.SearchRequest.FacetSpecOrBuilder getFacetSpecOrBuilder() {
       if ((controlCase_ == 3) && (facetSpecBuilder_ != null)) {
         return facetSpecBuilder_.getMessageOrBuilder();
       } else {
@@ -1208,9 +1372,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A facet specification to perform faceted search.
+     * Note that this field is deprecated and will throw NOT_IMPLEMENTED if
+     * used for creating a control.
      * </pre>
      *
-     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3;</code>
+     * <code>.google.cloud.retail.v2beta.SearchRequest.FacetSpec facet_spec = 3 [deprecated = true];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.retail.v2beta.SearchRequest.FacetSpec, com.google.cloud.retail.v2beta.SearchRequest.FacetSpec.Builder, com.google.cloud.retail.v2beta.SearchRequest.FacetSpecOrBuilder> 
@@ -1227,7 +1393,7 @@ private static final long serialVersionUID = 0L;
         control_ = null;
       }
       controlCase_ = 3;
-      onChanged();;
+      onChanged();
       return facetSpecBuilder_;
     }
 
@@ -1423,7 +1589,7 @@ private static final long serialVersionUID = 0L;
         control_ = null;
       }
       controlCase_ = 4;
-      onChanged();;
+      onChanged();
       return ruleBuilder_;
     }
 
@@ -1483,11 +1649,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1501,8 +1665,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1518,12 +1682,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1587,11 +1749,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1606,8 +1766,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1624,29 +1784,30 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList associatedServingConfigIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureAssociatedServingConfigIdsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         associatedServingConfigIds_ = new com.google.protobuf.LazyStringArrayList(associatedServingConfigIds_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
      * <pre>
-     * Output only. List of serving configuration ids that that are associated
-     * with this control. Note the association is managed via the ServingConfig,
-     * this is an output only denormalizeed  view. Assumed to be in the same
-     * catalog.
+     * Output only. List of [serving
+     * config][google.cloud.retail.v2beta.ServingConfig] ids that are associated
+     * with this control in the same
+     * [Catalog][google.cloud.retail.v2beta.Catalog].
+     * Note the association is managed via the
+     * [ServingConfig][google.cloud.retail.v2beta.ServingConfig], this is an
+     * output only denormalized view.
      * </pre>
      *
      * <code>repeated string associated_serving_config_ids = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1658,10 +1819,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. List of serving configuration ids that that are associated
-     * with this control. Note the association is managed via the ServingConfig,
-     * this is an output only denormalizeed  view. Assumed to be in the same
-     * catalog.
+     * Output only. List of [serving
+     * config][google.cloud.retail.v2beta.ServingConfig] ids that are associated
+     * with this control in the same
+     * [Catalog][google.cloud.retail.v2beta.Catalog].
+     * Note the association is managed via the
+     * [ServingConfig][google.cloud.retail.v2beta.ServingConfig], this is an
+     * output only denormalized view.
      * </pre>
      *
      * <code>repeated string associated_serving_config_ids = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1672,10 +1836,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. List of serving configuration ids that that are associated
-     * with this control. Note the association is managed via the ServingConfig,
-     * this is an output only denormalizeed  view. Assumed to be in the same
-     * catalog.
+     * Output only. List of [serving
+     * config][google.cloud.retail.v2beta.ServingConfig] ids that are associated
+     * with this control in the same
+     * [Catalog][google.cloud.retail.v2beta.Catalog].
+     * Note the association is managed via the
+     * [ServingConfig][google.cloud.retail.v2beta.ServingConfig], this is an
+     * output only denormalized view.
      * </pre>
      *
      * <code>repeated string associated_serving_config_ids = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1687,10 +1854,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. List of serving configuration ids that that are associated
-     * with this control. Note the association is managed via the ServingConfig,
-     * this is an output only denormalizeed  view. Assumed to be in the same
-     * catalog.
+     * Output only. List of [serving
+     * config][google.cloud.retail.v2beta.ServingConfig] ids that are associated
+     * with this control in the same
+     * [Catalog][google.cloud.retail.v2beta.Catalog].
+     * Note the association is managed via the
+     * [ServingConfig][google.cloud.retail.v2beta.ServingConfig], this is an
+     * output only denormalized view.
      * </pre>
      *
      * <code>repeated string associated_serving_config_ids = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1703,10 +1873,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. List of serving configuration ids that that are associated
-     * with this control. Note the association is managed via the ServingConfig,
-     * this is an output only denormalizeed  view. Assumed to be in the same
-     * catalog.
+     * Output only. List of [serving
+     * config][google.cloud.retail.v2beta.ServingConfig] ids that are associated
+     * with this control in the same
+     * [Catalog][google.cloud.retail.v2beta.Catalog].
+     * Note the association is managed via the
+     * [ServingConfig][google.cloud.retail.v2beta.ServingConfig], this is an
+     * output only denormalized view.
      * </pre>
      *
      * <code>repeated string associated_serving_config_ids = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1716,20 +1889,21 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAssociatedServingConfigIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAssociatedServingConfigIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAssociatedServingConfigIdsIsMutable();
       associatedServingConfigIds_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. List of serving configuration ids that that are associated
-     * with this control. Note the association is managed via the ServingConfig,
-     * this is an output only denormalizeed  view. Assumed to be in the same
-     * catalog.
+     * Output only. List of [serving
+     * config][google.cloud.retail.v2beta.ServingConfig] ids that are associated
+     * with this control in the same
+     * [Catalog][google.cloud.retail.v2beta.Catalog].
+     * Note the association is managed via the
+     * [ServingConfig][google.cloud.retail.v2beta.ServingConfig], this is an
+     * output only denormalized view.
      * </pre>
      *
      * <code>repeated string associated_serving_config_ids = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1738,20 +1912,21 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAssociatedServingConfigIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAssociatedServingConfigIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAssociatedServingConfigIdsIsMutable();
       associatedServingConfigIds_.add(value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. List of serving configuration ids that that are associated
-     * with this control. Note the association is managed via the ServingConfig,
-     * this is an output only denormalizeed  view. Assumed to be in the same
-     * catalog.
+     * Output only. List of [serving
+     * config][google.cloud.retail.v2beta.ServingConfig] ids that are associated
+     * with this control in the same
+     * [Catalog][google.cloud.retail.v2beta.Catalog].
+     * Note the association is managed via the
+     * [ServingConfig][google.cloud.retail.v2beta.ServingConfig], this is an
+     * output only denormalized view.
      * </pre>
      *
      * <code>repeated string associated_serving_config_ids = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1768,10 +1943,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. List of serving configuration ids that that are associated
-     * with this control. Note the association is managed via the ServingConfig,
-     * this is an output only denormalizeed  view. Assumed to be in the same
-     * catalog.
+     * Output only. List of [serving
+     * config][google.cloud.retail.v2beta.ServingConfig] ids that are associated
+     * with this control in the same
+     * [Catalog][google.cloud.retail.v2beta.Catalog].
+     * Note the association is managed via the
+     * [ServingConfig][google.cloud.retail.v2beta.ServingConfig], this is an
+     * output only denormalized view.
      * </pre>
      *
      * <code>repeated string associated_serving_config_ids = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1779,16 +1957,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAssociatedServingConfigIds() {
       associatedServingConfigIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. List of serving configuration ids that that are associated
-     * with this control. Note the association is managed via the ServingConfig,
-     * this is an output only denormalizeed  view. Assumed to be in the same
-     * catalog.
+     * Output only. List of [serving
+     * config][google.cloud.retail.v2beta.ServingConfig] ids that are associated
+     * with this control in the same
+     * [Catalog][google.cloud.retail.v2beta.Catalog].
+     * Note the association is managed via the
+     * [ServingConfig][google.cloud.retail.v2beta.ServingConfig], this is an
+     * output only denormalized view.
      * </pre>
      *
      * <code>repeated string associated_serving_config_ids = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1797,10 +1978,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAssociatedServingConfigIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureAssociatedServingConfigIdsIsMutable();
       associatedServingConfigIds_.add(value);
       onChanged();
@@ -1810,19 +1989,18 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> solutionTypes_ =
       java.util.Collections.emptyList();
     private void ensureSolutionTypesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         solutionTypes_ = new java.util.ArrayList<java.lang.Integer>(solutionTypes_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000020;
       }
     }
     /**
      * <pre>
-     * Required. Immutable. The solution types that the serving config is used
-     * for. Currently we support setting only one type of solution at creation
-     * time.
+     * Required. Immutable. The solution types that the control is used for.
+     * Currently we support setting only one type of solution at creation time.
      * Only `SOLUTION_TYPE_SEARCH` value is supported at the moment.
      * If no solution type is provided at creation time, will default to
-     * SOLUTION_TYPE_SEARCH.
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2beta.SolutionType.SOLUTION_TYPE_SEARCH].
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.SolutionType solution_types = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1834,12 +2012,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Immutable. The solution types that the serving config is used
-     * for. Currently we support setting only one type of solution at creation
-     * time.
+     * Required. Immutable. The solution types that the control is used for.
+     * Currently we support setting only one type of solution at creation time.
      * Only `SOLUTION_TYPE_SEARCH` value is supported at the moment.
      * If no solution type is provided at creation time, will default to
-     * SOLUTION_TYPE_SEARCH.
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2beta.SolutionType.SOLUTION_TYPE_SEARCH].
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.SolutionType solution_types = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1850,12 +2027,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Immutable. The solution types that the serving config is used
-     * for. Currently we support setting only one type of solution at creation
-     * time.
+     * Required. Immutable. The solution types that the control is used for.
+     * Currently we support setting only one type of solution at creation time.
      * Only `SOLUTION_TYPE_SEARCH` value is supported at the moment.
      * If no solution type is provided at creation time, will default to
-     * SOLUTION_TYPE_SEARCH.
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2beta.SolutionType.SOLUTION_TYPE_SEARCH].
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.SolutionType solution_types = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1867,12 +2043,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Immutable. The solution types that the serving config is used
-     * for. Currently we support setting only one type of solution at creation
-     * time.
+     * Required. Immutable. The solution types that the control is used for.
+     * Currently we support setting only one type of solution at creation time.
      * Only `SOLUTION_TYPE_SEARCH` value is supported at the moment.
      * If no solution type is provided at creation time, will default to
-     * SOLUTION_TYPE_SEARCH.
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2beta.SolutionType.SOLUTION_TYPE_SEARCH].
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.SolutionType solution_types = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1892,12 +2067,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Immutable. The solution types that the serving config is used
-     * for. Currently we support setting only one type of solution at creation
-     * time.
+     * Required. Immutable. The solution types that the control is used for.
+     * Currently we support setting only one type of solution at creation time.
      * Only `SOLUTION_TYPE_SEARCH` value is supported at the moment.
      * If no solution type is provided at creation time, will default to
-     * SOLUTION_TYPE_SEARCH.
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2beta.SolutionType.SOLUTION_TYPE_SEARCH].
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.SolutionType solution_types = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1915,12 +2089,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Immutable. The solution types that the serving config is used
-     * for. Currently we support setting only one type of solution at creation
-     * time.
+     * Required. Immutable. The solution types that the control is used for.
+     * Currently we support setting only one type of solution at creation time.
      * Only `SOLUTION_TYPE_SEARCH` value is supported at the moment.
      * If no solution type is provided at creation time, will default to
-     * SOLUTION_TYPE_SEARCH.
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2beta.SolutionType.SOLUTION_TYPE_SEARCH].
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.SolutionType solution_types = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1938,12 +2111,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Immutable. The solution types that the serving config is used
-     * for. Currently we support setting only one type of solution at creation
-     * time.
+     * Required. Immutable. The solution types that the control is used for.
+     * Currently we support setting only one type of solution at creation time.
      * Only `SOLUTION_TYPE_SEARCH` value is supported at the moment.
      * If no solution type is provided at creation time, will default to
-     * SOLUTION_TYPE_SEARCH.
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2beta.SolutionType.SOLUTION_TYPE_SEARCH].
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.SolutionType solution_types = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1951,18 +2123,17 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSolutionTypes() {
       solutionTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Immutable. The solution types that the serving config is used
-     * for. Currently we support setting only one type of solution at creation
-     * time.
+     * Required. Immutable. The solution types that the control is used for.
+     * Currently we support setting only one type of solution at creation time.
      * Only `SOLUTION_TYPE_SEARCH` value is supported at the moment.
      * If no solution type is provided at creation time, will default to
-     * SOLUTION_TYPE_SEARCH.
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2beta.SolutionType.SOLUTION_TYPE_SEARCH].
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.SolutionType solution_types = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1974,12 +2145,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Immutable. The solution types that the serving config is used
-     * for. Currently we support setting only one type of solution at creation
-     * time.
+     * Required. Immutable. The solution types that the control is used for.
+     * Currently we support setting only one type of solution at creation time.
      * Only `SOLUTION_TYPE_SEARCH` value is supported at the moment.
      * If no solution type is provided at creation time, will default to
-     * SOLUTION_TYPE_SEARCH.
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2beta.SolutionType.SOLUTION_TYPE_SEARCH].
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.SolutionType solution_types = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1991,12 +2161,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Immutable. The solution types that the serving config is used
-     * for. Currently we support setting only one type of solution at creation
-     * time.
+     * Required. Immutable. The solution types that the control is used for.
+     * Currently we support setting only one type of solution at creation time.
      * Only `SOLUTION_TYPE_SEARCH` value is supported at the moment.
      * If no solution type is provided at creation time, will default to
-     * SOLUTION_TYPE_SEARCH.
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2beta.SolutionType.SOLUTION_TYPE_SEARCH].
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.SolutionType solution_types = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -2013,12 +2182,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Immutable. The solution types that the serving config is used
-     * for. Currently we support setting only one type of solution at creation
-     * time.
+     * Required. Immutable. The solution types that the control is used for.
+     * Currently we support setting only one type of solution at creation time.
      * Only `SOLUTION_TYPE_SEARCH` value is supported at the moment.
      * If no solution type is provided at creation time, will default to
-     * SOLUTION_TYPE_SEARCH.
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2beta.SolutionType.SOLUTION_TYPE_SEARCH].
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.SolutionType solution_types = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -2033,12 +2201,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Immutable. The solution types that the serving config is used
-     * for. Currently we support setting only one type of solution at creation
-     * time.
+     * Required. Immutable. The solution types that the control is used for.
+     * Currently we support setting only one type of solution at creation time.
      * Only `SOLUTION_TYPE_SEARCH` value is supported at the moment.
      * If no solution type is provided at creation time, will default to
-     * SOLUTION_TYPE_SEARCH.
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2beta.SolutionType.SOLUTION_TYPE_SEARCH].
      * </pre>
      *
      * <code>repeated .google.cloud.retail.v2beta.SolutionType solution_types = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -2050,6 +2217,266 @@ private static final long serialVersionUID = 0L;
       ensureSolutionTypesIsMutable();
       for (int value : values) {
         solutionTypes_.add(value);
+      }
+      onChanged();
+      return this;
+    }
+
+    private java.util.List<java.lang.Integer> searchSolutionUseCase_ =
+      java.util.Collections.emptyList();
+    private void ensureSearchSolutionUseCaseIsMutable() {
+      if (!((bitField0_ & 0x00000040) != 0)) {
+        searchSolutionUseCase_ = new java.util.ArrayList<java.lang.Integer>(searchSolutionUseCase_);
+        bitField0_ |= 0x00000040;
+      }
+    }
+    /**
+     * <pre>
+     * Specifies the use case for the control.
+     * Affects what condition fields can be set.
+     * Only settable by search controls.
+     * Will default to
+     * [SEARCH_SOLUTION_USE_CASE_SEARCH][google.cloud.retail.v2beta.SearchSolutionUseCase.SEARCH_SOLUTION_USE_CASE_SEARCH]
+     * if not specified. Currently only allow one search_solution_use_case per
+     * control.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.SearchSolutionUseCase search_solution_use_case = 7;</code>
+     * @return A list containing the searchSolutionUseCase.
+     */
+    public java.util.List<com.google.cloud.retail.v2beta.SearchSolutionUseCase> getSearchSolutionUseCaseList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          java.lang.Integer, com.google.cloud.retail.v2beta.SearchSolutionUseCase>(searchSolutionUseCase_, searchSolutionUseCase_converter_);
+    }
+    /**
+     * <pre>
+     * Specifies the use case for the control.
+     * Affects what condition fields can be set.
+     * Only settable by search controls.
+     * Will default to
+     * [SEARCH_SOLUTION_USE_CASE_SEARCH][google.cloud.retail.v2beta.SearchSolutionUseCase.SEARCH_SOLUTION_USE_CASE_SEARCH]
+     * if not specified. Currently only allow one search_solution_use_case per
+     * control.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.SearchSolutionUseCase search_solution_use_case = 7;</code>
+     * @return The count of searchSolutionUseCase.
+     */
+    public int getSearchSolutionUseCaseCount() {
+      return searchSolutionUseCase_.size();
+    }
+    /**
+     * <pre>
+     * Specifies the use case for the control.
+     * Affects what condition fields can be set.
+     * Only settable by search controls.
+     * Will default to
+     * [SEARCH_SOLUTION_USE_CASE_SEARCH][google.cloud.retail.v2beta.SearchSolutionUseCase.SEARCH_SOLUTION_USE_CASE_SEARCH]
+     * if not specified. Currently only allow one search_solution_use_case per
+     * control.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.SearchSolutionUseCase search_solution_use_case = 7;</code>
+     * @param index The index of the element to return.
+     * @return The searchSolutionUseCase at the given index.
+     */
+    public com.google.cloud.retail.v2beta.SearchSolutionUseCase getSearchSolutionUseCase(int index) {
+      return searchSolutionUseCase_converter_.convert(searchSolutionUseCase_.get(index));
+    }
+    /**
+     * <pre>
+     * Specifies the use case for the control.
+     * Affects what condition fields can be set.
+     * Only settable by search controls.
+     * Will default to
+     * [SEARCH_SOLUTION_USE_CASE_SEARCH][google.cloud.retail.v2beta.SearchSolutionUseCase.SEARCH_SOLUTION_USE_CASE_SEARCH]
+     * if not specified. Currently only allow one search_solution_use_case per
+     * control.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.SearchSolutionUseCase search_solution_use_case = 7;</code>
+     * @param index The index to set the value at.
+     * @param value The searchSolutionUseCase to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSearchSolutionUseCase(
+        int index, com.google.cloud.retail.v2beta.SearchSolutionUseCase value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureSearchSolutionUseCaseIsMutable();
+      searchSolutionUseCase_.set(index, value.getNumber());
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies the use case for the control.
+     * Affects what condition fields can be set.
+     * Only settable by search controls.
+     * Will default to
+     * [SEARCH_SOLUTION_USE_CASE_SEARCH][google.cloud.retail.v2beta.SearchSolutionUseCase.SEARCH_SOLUTION_USE_CASE_SEARCH]
+     * if not specified. Currently only allow one search_solution_use_case per
+     * control.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.SearchSolutionUseCase search_solution_use_case = 7;</code>
+     * @param value The searchSolutionUseCase to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSearchSolutionUseCase(com.google.cloud.retail.v2beta.SearchSolutionUseCase value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureSearchSolutionUseCaseIsMutable();
+      searchSolutionUseCase_.add(value.getNumber());
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies the use case for the control.
+     * Affects what condition fields can be set.
+     * Only settable by search controls.
+     * Will default to
+     * [SEARCH_SOLUTION_USE_CASE_SEARCH][google.cloud.retail.v2beta.SearchSolutionUseCase.SEARCH_SOLUTION_USE_CASE_SEARCH]
+     * if not specified. Currently only allow one search_solution_use_case per
+     * control.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.SearchSolutionUseCase search_solution_use_case = 7;</code>
+     * @param values The searchSolutionUseCase to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllSearchSolutionUseCase(
+        java.lang.Iterable<? extends com.google.cloud.retail.v2beta.SearchSolutionUseCase> values) {
+      ensureSearchSolutionUseCaseIsMutable();
+      for (com.google.cloud.retail.v2beta.SearchSolutionUseCase value : values) {
+        searchSolutionUseCase_.add(value.getNumber());
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies the use case for the control.
+     * Affects what condition fields can be set.
+     * Only settable by search controls.
+     * Will default to
+     * [SEARCH_SOLUTION_USE_CASE_SEARCH][google.cloud.retail.v2beta.SearchSolutionUseCase.SEARCH_SOLUTION_USE_CASE_SEARCH]
+     * if not specified. Currently only allow one search_solution_use_case per
+     * control.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.SearchSolutionUseCase search_solution_use_case = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSearchSolutionUseCase() {
+      searchSolutionUseCase_ = java.util.Collections.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000040);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies the use case for the control.
+     * Affects what condition fields can be set.
+     * Only settable by search controls.
+     * Will default to
+     * [SEARCH_SOLUTION_USE_CASE_SEARCH][google.cloud.retail.v2beta.SearchSolutionUseCase.SEARCH_SOLUTION_USE_CASE_SEARCH]
+     * if not specified. Currently only allow one search_solution_use_case per
+     * control.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.SearchSolutionUseCase search_solution_use_case = 7;</code>
+     * @return A list containing the enum numeric values on the wire for searchSolutionUseCase.
+     */
+    public java.util.List<java.lang.Integer>
+    getSearchSolutionUseCaseValueList() {
+      return java.util.Collections.unmodifiableList(searchSolutionUseCase_);
+    }
+    /**
+     * <pre>
+     * Specifies the use case for the control.
+     * Affects what condition fields can be set.
+     * Only settable by search controls.
+     * Will default to
+     * [SEARCH_SOLUTION_USE_CASE_SEARCH][google.cloud.retail.v2beta.SearchSolutionUseCase.SEARCH_SOLUTION_USE_CASE_SEARCH]
+     * if not specified. Currently only allow one search_solution_use_case per
+     * control.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.SearchSolutionUseCase search_solution_use_case = 7;</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of searchSolutionUseCase at the given index.
+     */
+    public int getSearchSolutionUseCaseValue(int index) {
+      return searchSolutionUseCase_.get(index);
+    }
+    /**
+     * <pre>
+     * Specifies the use case for the control.
+     * Affects what condition fields can be set.
+     * Only settable by search controls.
+     * Will default to
+     * [SEARCH_SOLUTION_USE_CASE_SEARCH][google.cloud.retail.v2beta.SearchSolutionUseCase.SEARCH_SOLUTION_USE_CASE_SEARCH]
+     * if not specified. Currently only allow one search_solution_use_case per
+     * control.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.SearchSolutionUseCase search_solution_use_case = 7;</code>
+     * @param index The index to set the value at.
+     * @param value The enum numeric value on the wire for searchSolutionUseCase to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSearchSolutionUseCaseValue(
+        int index, int value) {
+      ensureSearchSolutionUseCaseIsMutable();
+      searchSolutionUseCase_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies the use case for the control.
+     * Affects what condition fields can be set.
+     * Only settable by search controls.
+     * Will default to
+     * [SEARCH_SOLUTION_USE_CASE_SEARCH][google.cloud.retail.v2beta.SearchSolutionUseCase.SEARCH_SOLUTION_USE_CASE_SEARCH]
+     * if not specified. Currently only allow one search_solution_use_case per
+     * control.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.SearchSolutionUseCase search_solution_use_case = 7;</code>
+     * @param value The enum numeric value on the wire for searchSolutionUseCase to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSearchSolutionUseCaseValue(int value) {
+      ensureSearchSolutionUseCaseIsMutable();
+      searchSolutionUseCase_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies the use case for the control.
+     * Affects what condition fields can be set.
+     * Only settable by search controls.
+     * Will default to
+     * [SEARCH_SOLUTION_USE_CASE_SEARCH][google.cloud.retail.v2beta.SearchSolutionUseCase.SEARCH_SOLUTION_USE_CASE_SEARCH]
+     * if not specified. Currently only allow one search_solution_use_case per
+     * control.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.SearchSolutionUseCase search_solution_use_case = 7;</code>
+     * @param values The enum numeric values on the wire for searchSolutionUseCase to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllSearchSolutionUseCaseValue(
+        java.lang.Iterable<java.lang.Integer> values) {
+      ensureSearchSolutionUseCaseIsMutable();
+      for (int value : values) {
+        searchSolutionUseCase_.add(value);
       }
       onChanged();
       return this;
@@ -2087,7 +2514,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Control(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

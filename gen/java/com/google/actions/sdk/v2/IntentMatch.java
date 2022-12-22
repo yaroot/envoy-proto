@@ -38,77 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private IntentMatch(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            intentId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            handler_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            nextSceneId_ = s;
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              intentParameters_ = com.google.protobuf.MapField.newMapField(
-                  IntentParametersDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue>
-            intentParameters__ = input.readMessage(
-                IntentParametersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            intentParameters_.getMutableMap().put(
-                intentParameters__.getKey(), intentParameters__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.EventLogsProto.internal_static_google_actions_sdk_v2_IntentMatch_descriptor;
@@ -135,7 +64,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INTENT_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object intentId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object intentId_ = "";
   /**
    * <pre>
    * Intent id which triggered this interaction.
@@ -192,6 +122,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.actions.sdk.v2.conversation.IntentParameterValue.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue> intentParameters_;
   private com.google.protobuf.MapField<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue>
@@ -202,7 +133,6 @@ private static final long serialVersionUID = 0L;
     }
     return intentParameters_;
   }
-
   public int getIntentParametersCount() {
     return internalGetIntentParameters().getMap().size();
   }
@@ -213,7 +143,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; intent_parameters = 5;</code>
    */
-
   @java.lang.Override
   public boolean containsIntentParameters(
       java.lang.String key) {
@@ -236,7 +165,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; intent_parameters = 5;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue> getIntentParametersMap() {
     return internalGetIntentParameters().getMap();
   }
@@ -248,10 +176,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; intent_parameters = 5;</code>
    */
   @java.lang.Override
-
-  public com.google.actions.sdk.v2.conversation.IntentParameterValue getIntentParametersOrDefault(
+  public /* nullable */
+com.google.actions.sdk.v2.conversation.IntentParameterValue getIntentParametersOrDefault(
       java.lang.String key,
-      com.google.actions.sdk.v2.conversation.IntentParameterValue defaultValue) {
+      /* nullable */
+com.google.actions.sdk.v2.conversation.IntentParameterValue defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue> map =
         internalGetIntentParameters().getMap();
@@ -265,7 +194,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; intent_parameters = 5;</code>
    */
   @java.lang.Override
-
   public com.google.actions.sdk.v2.conversation.IntentParameterValue getIntentParametersOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -278,7 +206,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HANDLER_FIELD_NUMBER = 3;
-  private volatile java.lang.Object handler_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object handler_ = "";
   /**
    * <pre>
    * Name of the handler attached to this interaction.
@@ -324,7 +253,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEXT_SCENE_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object nextSceneId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nextSceneId_ = "";
   /**
    * <pre>
    * Scene to which this interaction leads to.
@@ -398,7 +328,7 @@ private static final long serialVersionUID = 0L;
         internalGetIntentParameters(),
         IntentParametersDefaultEntryHolder.defaultEntry,
         5);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -426,7 +356,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, intentParameters__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -449,7 +379,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getHandler())) return false;
     if (!getNextSceneId()
         .equals(other.getNextSceneId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -470,7 +400,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getHandler().hashCode();
     hash = (37 * hash) + NEXT_SCENE_ID_FIELD_NUMBER;
     hash = (53 * hash) + getNextSceneId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -614,29 +544,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.IntentMatch.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       intentId_ = "";
-
       internalGetMutableIntentParameters().clear();
       handler_ = "";
-
       nextSceneId_ = "";
-
       return this;
     }
 
@@ -663,14 +586,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.IntentMatch buildPartial() {
       com.google.actions.sdk.v2.IntentMatch result = new com.google.actions.sdk.v2.IntentMatch(this);
-      int from_bitField0_ = bitField0_;
-      result.intentId_ = intentId_;
-      result.intentParameters_ = internalGetIntentParameters();
-      result.intentParameters_.makeImmutable();
-      result.handler_ = handler_;
-      result.nextSceneId_ = nextSceneId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.IntentMatch result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.intentId_ = intentId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.intentParameters_ = internalGetIntentParameters();
+        result.intentParameters_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.handler_ = handler_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.nextSceneId_ = nextSceneId_;
+      }
     }
 
     @java.lang.Override
@@ -719,19 +654,23 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.actions.sdk.v2.IntentMatch.getDefaultInstance()) return this;
       if (!other.getIntentId().isEmpty()) {
         intentId_ = other.intentId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       internalGetMutableIntentParameters().mergeFrom(
           other.internalGetIntentParameters());
+      bitField0_ |= 0x00000002;
       if (!other.getHandler().isEmpty()) {
         handler_ = other.handler_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getNextSceneId().isEmpty()) {
         nextSceneId_ = other.nextSceneId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -746,17 +685,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.IntentMatch parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              intentId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              handler_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              nextSceneId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue>
+              intentParameters__ = input.readMessage(
+                  IntentParametersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableIntentParameters().getMutableMap().put(
+                  intentParameters__.getKey(), intentParameters__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.IntentMatch) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -814,11 +790,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIntentId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       intentId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -831,8 +805,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIntentId() {
-      
       intentId_ = getDefaultInstance().getIntentId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -847,12 +821,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIntentIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       intentId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -860,7 +832,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue> intentParameters_;
     private com.google.protobuf.MapField<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue>
-    internalGetIntentParameters() {
+        internalGetIntentParameters() {
       if (intentParameters_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             IntentParametersDefaultEntryHolder.defaultEntry);
@@ -868,8 +840,7 @@ private static final long serialVersionUID = 0L;
       return intentParameters_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue>
-    internalGetMutableIntentParameters() {
-      onChanged();;
+        internalGetMutableIntentParameters() {
       if (intentParameters_ == null) {
         intentParameters_ = com.google.protobuf.MapField.newMapField(
             IntentParametersDefaultEntryHolder.defaultEntry);
@@ -877,9 +848,10 @@ private static final long serialVersionUID = 0L;
       if (!intentParameters_.isMutable()) {
         intentParameters_ = intentParameters_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return intentParameters_;
     }
-
     public int getIntentParametersCount() {
       return internalGetIntentParameters().getMap().size();
     }
@@ -890,7 +862,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; intent_parameters = 5;</code>
      */
-
     @java.lang.Override
     public boolean containsIntentParameters(
         java.lang.String key) {
@@ -913,7 +884,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; intent_parameters = 5;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue> getIntentParametersMap() {
       return internalGetIntentParameters().getMap();
     }
@@ -925,10 +895,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; intent_parameters = 5;</code>
      */
     @java.lang.Override
-
-    public com.google.actions.sdk.v2.conversation.IntentParameterValue getIntentParametersOrDefault(
+    public /* nullable */
+com.google.actions.sdk.v2.conversation.IntentParameterValue getIntentParametersOrDefault(
         java.lang.String key,
-        com.google.actions.sdk.v2.conversation.IntentParameterValue defaultValue) {
+        /* nullable */
+com.google.actions.sdk.v2.conversation.IntentParameterValue defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue> map =
           internalGetIntentParameters().getMap();
@@ -942,7 +913,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; intent_parameters = 5;</code>
      */
     @java.lang.Override
-
     public com.google.actions.sdk.v2.conversation.IntentParameterValue getIntentParametersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -953,8 +923,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearIntentParameters() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableIntentParameters().getMutableMap()
           .clear();
       return this;
@@ -966,7 +936,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; intent_parameters = 5;</code>
      */
-
     public Builder removeIntentParameters(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -979,7 +948,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue>
-    getMutableIntentParameters() {
+        getMutableIntentParameters() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableIntentParameters().getMutableMap();
     }
     /**
@@ -993,12 +963,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.actions.sdk.v2.conversation.IntentParameterValue value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableIntentParameters().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -1008,11 +976,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; intent_parameters = 5;</code>
      */
-
     public Builder putAllIntentParameters(
         java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue> values) {
       internalGetMutableIntentParameters().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
 
@@ -1069,11 +1037,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHandler(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       handler_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1086,8 +1052,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHandler() {
-      
       handler_ = getDefaultInstance().getHandler();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1102,12 +1068,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHandlerBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       handler_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1165,11 +1129,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextSceneId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       nextSceneId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1182,8 +1144,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNextSceneId() {
-      
       nextSceneId_ = getDefaultInstance().getNextSceneId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1198,12 +1160,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextSceneIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nextSceneId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1240,7 +1200,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new IntentMatch(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

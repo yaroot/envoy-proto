@@ -38,81 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AudienceInsightsAttributeMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            dimension_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.ads.googleads.v11.services.AudienceInsightsAttribute.Builder subBuilder = null;
-            if (attribute_ != null) {
-              subBuilder = attribute_.toBuilder();
-            }
-            attribute_ = input.readMessage(com.google.ads.googleads.v11.services.AudienceInsightsAttribute.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(attribute_);
-              attribute_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 33: {
-
-            score_ = input.readDouble();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayInfo_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.services.AudienceInsightsServiceProto.internal_static_google_ads_googleads_v11_services_AudienceInsightsAttributeMetadata_descriptor;
@@ -126,8 +51,49 @@ private static final long serialVersionUID = 0L;
             com.google.ads.googleads.v11.services.AudienceInsightsAttributeMetadata.class, com.google.ads.googleads.v11.services.AudienceInsightsAttributeMetadata.Builder.class);
   }
 
+  private int dimensionMetadataCase_ = 0;
+  private java.lang.Object dimensionMetadata_;
+  public enum DimensionMetadataCase
+      implements com.google.protobuf.Internal.EnumLite,
+          com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+    YOUTUBE_CHANNEL_METADATA(6),
+    DYNAMIC_ATTRIBUTE_METADATA(7),
+    DIMENSIONMETADATA_NOT_SET(0);
+    private final int value;
+    private DimensionMetadataCase(int value) {
+      this.value = value;
+    }
+    /**
+     * @param value The number of the enum to look for.
+     * @return The enum associated with the given number.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static DimensionMetadataCase valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static DimensionMetadataCase forNumber(int value) {
+      switch (value) {
+        case 6: return YOUTUBE_CHANNEL_METADATA;
+        case 7: return DYNAMIC_ATTRIBUTE_METADATA;
+        case 0: return DIMENSIONMETADATA_NOT_SET;
+        default: return null;
+      }
+    }
+    public int getNumber() {
+      return this.value;
+    }
+  };
+
+  public DimensionMetadataCase
+  getDimensionMetadataCase() {
+    return DimensionMetadataCase.forNumber(
+        dimensionMetadataCase_);
+  }
+
   public static final int DIMENSION_FIELD_NUMBER = 1;
-  private int dimension_;
+  private int dimension_ = 0;
   /**
    * <pre>
    * The type of the attribute.
@@ -148,8 +114,7 @@ private static final long serialVersionUID = 0L;
    * @return The dimension.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.AudienceInsightsDimensionEnum.AudienceInsightsDimension getDimension() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.AudienceInsightsDimensionEnum.AudienceInsightsDimension result = com.google.ads.googleads.v11.enums.AudienceInsightsDimensionEnum.AudienceInsightsDimension.valueOf(dimension_);
+    com.google.ads.googleads.v11.enums.AudienceInsightsDimensionEnum.AudienceInsightsDimension result = com.google.ads.googleads.v11.enums.AudienceInsightsDimensionEnum.AudienceInsightsDimension.forNumber(dimension_);
     return result == null ? com.google.ads.googleads.v11.enums.AudienceInsightsDimensionEnum.AudienceInsightsDimension.UNRECOGNIZED : result;
   }
 
@@ -188,11 +153,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v11.services.AudienceInsightsAttributeOrBuilder getAttributeOrBuilder() {
-    return getAttribute();
+    return attribute_ == null ? com.google.ads.googleads.v11.services.AudienceInsightsAttribute.getDefaultInstance() : attribute_;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * The human-readable name of the attribute.
@@ -238,7 +204,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCORE_FIELD_NUMBER = 4;
-  private double score_;
+  private double score_ = 0D;
   /**
    * <pre>
    * A relevance score for this attribute, between 0 and 1.
@@ -253,7 +219,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_INFO_FIELD_NUMBER = 5;
-  private volatile java.lang.Object displayInfo_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayInfo_ = "";
   /**
    * <pre>
    * A string that supplements the display_name to identify the attribute.
@@ -308,6 +275,92 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int YOUTUBE_CHANNEL_METADATA_FIELD_NUMBER = 6;
+  /**
+   * <pre>
+   * Special metadata for a YouTube channel.
+   * </pre>
+   *
+   * <code>.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata youtube_channel_metadata = 6;</code>
+   * @return Whether the youtubeChannelMetadata field is set.
+   */
+  @java.lang.Override
+  public boolean hasYoutubeChannelMetadata() {
+    return dimensionMetadataCase_ == 6;
+  }
+  /**
+   * <pre>
+   * Special metadata for a YouTube channel.
+   * </pre>
+   *
+   * <code>.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata youtube_channel_metadata = 6;</code>
+   * @return The youtubeChannelMetadata.
+   */
+  @java.lang.Override
+  public com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata getYoutubeChannelMetadata() {
+    if (dimensionMetadataCase_ == 6) {
+       return (com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata) dimensionMetadata_;
+    }
+    return com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata.getDefaultInstance();
+  }
+  /**
+   * <pre>
+   * Special metadata for a YouTube channel.
+   * </pre>
+   *
+   * <code>.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata youtube_channel_metadata = 6;</code>
+   */
+  @java.lang.Override
+  public com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadataOrBuilder getYoutubeChannelMetadataOrBuilder() {
+    if (dimensionMetadataCase_ == 6) {
+       return (com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata) dimensionMetadata_;
+    }
+    return com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata.getDefaultInstance();
+  }
+
+  public static final int DYNAMIC_ATTRIBUTE_METADATA_FIELD_NUMBER = 7;
+  /**
+   * <pre>
+   * Special metadata for a YouTube Dynamic Lineup.
+   * </pre>
+   *
+   * <code>.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata dynamic_attribute_metadata = 7;</code>
+   * @return Whether the dynamicAttributeMetadata field is set.
+   */
+  @java.lang.Override
+  public boolean hasDynamicAttributeMetadata() {
+    return dimensionMetadataCase_ == 7;
+  }
+  /**
+   * <pre>
+   * Special metadata for a YouTube Dynamic Lineup.
+   * </pre>
+   *
+   * <code>.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata dynamic_attribute_metadata = 7;</code>
+   * @return The dynamicAttributeMetadata.
+   */
+  @java.lang.Override
+  public com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata getDynamicAttributeMetadata() {
+    if (dimensionMetadataCase_ == 7) {
+       return (com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata) dimensionMetadata_;
+    }
+    return com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata.getDefaultInstance();
+  }
+  /**
+   * <pre>
+   * Special metadata for a YouTube Dynamic Lineup.
+   * </pre>
+   *
+   * <code>.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata dynamic_attribute_metadata = 7;</code>
+   */
+  @java.lang.Override
+  public com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadataOrBuilder getDynamicAttributeMetadataOrBuilder() {
+    if (dimensionMetadataCase_ == 7) {
+       return (com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata) dimensionMetadata_;
+    }
+    return com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata.getDefaultInstance();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -337,7 +390,13 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayInfo_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, displayInfo_);
     }
-    unknownFields.writeTo(output);
+    if (dimensionMetadataCase_ == 6) {
+      output.writeMessage(6, (com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata) dimensionMetadata_);
+    }
+    if (dimensionMetadataCase_ == 7) {
+      output.writeMessage(7, (com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata) dimensionMetadata_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -364,7 +423,15 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayInfo_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, displayInfo_);
     }
-    size += unknownFields.getSerializedSize();
+    if (dimensionMetadataCase_ == 6) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, (com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata) dimensionMetadata_);
+    }
+    if (dimensionMetadataCase_ == 7) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, (com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata) dimensionMetadata_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -392,7 +459,20 @@ private static final long serialVersionUID = 0L;
             other.getScore())) return false;
     if (!getDisplayInfo()
         .equals(other.getDisplayInfo())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getDimensionMetadataCase().equals(other.getDimensionMetadataCase())) return false;
+    switch (dimensionMetadataCase_) {
+      case 6:
+        if (!getYoutubeChannelMetadata()
+            .equals(other.getYoutubeChannelMetadata())) return false;
+        break;
+      case 7:
+        if (!getDynamicAttributeMetadata()
+            .equals(other.getDynamicAttributeMetadata())) return false;
+        break;
+      case 0:
+      default:
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -416,7 +496,19 @@ private static final long serialVersionUID = 0L;
         java.lang.Double.doubleToLongBits(getScore()));
     hash = (37 * hash) + DISPLAY_INFO_FIELD_NUMBER;
     hash = (53 * hash) + getDisplayInfo().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    switch (dimensionMetadataCase_) {
+      case 6:
+        hash = (37 * hash) + YOUTUBE_CHANNEL_METADATA_FIELD_NUMBER;
+        hash = (53 * hash) + getYoutubeChannelMetadata().hashCode();
+        break;
+      case 7:
+        hash = (37 * hash) + DYNAMIC_ATTRIBUTE_METADATA_FIELD_NUMBER;
+        hash = (53 * hash) + getDynamicAttributeMetadata().hashCode();
+        break;
+      case 0:
+      default:
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -538,36 +630,35 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.services.AudienceInsightsAttributeMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       dimension_ = 0;
-
-      if (attributeBuilder_ == null) {
-        attribute_ = null;
-      } else {
-        attribute_ = null;
+      attribute_ = null;
+      if (attributeBuilder_ != null) {
+        attributeBuilder_.dispose();
         attributeBuilder_ = null;
       }
       displayName_ = "";
-
       score_ = 0D;
-
       displayInfo_ = "";
-
+      if (youtubeChannelMetadataBuilder_ != null) {
+        youtubeChannelMetadataBuilder_.clear();
+      }
+      if (dynamicAttributeMetadataBuilder_ != null) {
+        dynamicAttributeMetadataBuilder_.clear();
+      }
+      dimensionMetadataCase_ = 0;
+      dimensionMetadata_ = null;
       return this;
     }
 
@@ -594,17 +685,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.services.AudienceInsightsAttributeMetadata buildPartial() {
       com.google.ads.googleads.v11.services.AudienceInsightsAttributeMetadata result = new com.google.ads.googleads.v11.services.AudienceInsightsAttributeMetadata(this);
-      result.dimension_ = dimension_;
-      if (attributeBuilder_ == null) {
-        result.attribute_ = attribute_;
-      } else {
-        result.attribute_ = attributeBuilder_.build();
-      }
-      result.displayName_ = displayName_;
-      result.score_ = score_;
-      result.displayInfo_ = displayInfo_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.services.AudienceInsightsAttributeMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.dimension_ = dimension_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.attribute_ = attributeBuilder_ == null
+            ? attribute_
+            : attributeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.score_ = score_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.displayInfo_ = displayInfo_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.ads.googleads.v11.services.AudienceInsightsAttributeMetadata result) {
+      result.dimensionMetadataCase_ = dimensionMetadataCase_;
+      result.dimensionMetadata_ = this.dimensionMetadata_;
+      if (dimensionMetadataCase_ == 6 &&
+          youtubeChannelMetadataBuilder_ != null) {
+        result.dimensionMetadata_ = youtubeChannelMetadataBuilder_.build();
+      }
+      if (dimensionMetadataCase_ == 7 &&
+          dynamicAttributeMetadataBuilder_ != null) {
+        result.dimensionMetadata_ = dynamicAttributeMetadataBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -659,6 +777,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getScore() != 0D) {
@@ -666,9 +785,23 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDisplayInfo().isEmpty()) {
         displayInfo_ = other.displayInfo_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      switch (other.getDimensionMetadataCase()) {
+        case YOUTUBE_CHANNEL_METADATA: {
+          mergeYoutubeChannelMetadata(other.getYoutubeChannelMetadata());
+          break;
+        }
+        case DYNAMIC_ATTRIBUTE_METADATA: {
+          mergeDynamicAttributeMetadata(other.getDynamicAttributeMetadata());
+          break;
+        }
+        case DIMENSIONMETADATA_NOT_SET: {
+          break;
+        }
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -683,19 +816,89 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.services.AudienceInsightsAttributeMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              dimension_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getAttributeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 33: {
+              score_ = input.readDouble();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 33
+            case 42: {
+              displayInfo_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getYoutubeChannelMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              dimensionMetadataCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getDynamicAttributeMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              dimensionMetadataCase_ = 7;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.services.AudienceInsightsAttributeMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int dimensionMetadataCase_ = 0;
+    private java.lang.Object dimensionMetadata_;
+    public DimensionMetadataCase
+        getDimensionMetadataCase() {
+      return DimensionMetadataCase.forNumber(
+          dimensionMetadataCase_);
+    }
+
+    public Builder clearDimensionMetadata() {
+      dimensionMetadataCase_ = 0;
+      dimensionMetadata_ = null;
+      onChanged();
+      return this;
+    }
+
+    private int bitField0_;
 
     private int dimension_ = 0;
     /**
@@ -719,8 +922,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDimensionValue(int value) {
-      
       dimension_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -734,8 +937,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.AudienceInsightsDimensionEnum.AudienceInsightsDimension getDimension() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.AudienceInsightsDimensionEnum.AudienceInsightsDimension result = com.google.ads.googleads.v11.enums.AudienceInsightsDimensionEnum.AudienceInsightsDimension.valueOf(dimension_);
+      com.google.ads.googleads.v11.enums.AudienceInsightsDimensionEnum.AudienceInsightsDimension result = com.google.ads.googleads.v11.enums.AudienceInsightsDimensionEnum.AudienceInsightsDimension.forNumber(dimension_);
       return result == null ? com.google.ads.googleads.v11.enums.AudienceInsightsDimensionEnum.AudienceInsightsDimension.UNRECOGNIZED : result;
     }
     /**
@@ -751,7 +953,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       dimension_ = value.getNumber();
       onChanged();
       return this;
@@ -765,7 +967,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDimension() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       dimension_ = 0;
       onChanged();
       return this;
@@ -783,7 +985,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the attribute field is set.
      */
     public boolean hasAttribute() {
-      return attributeBuilder_ != null || attribute_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -813,11 +1015,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         attribute_ = value;
-        onChanged();
       } else {
         attributeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -831,11 +1033,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.services.AudienceInsightsAttribute.Builder builderForValue) {
       if (attributeBuilder_ == null) {
         attribute_ = builderForValue.build();
-        onChanged();
       } else {
         attributeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -847,17 +1049,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAttribute(com.google.ads.googleads.v11.services.AudienceInsightsAttribute value) {
       if (attributeBuilder_ == null) {
-        if (attribute_ != null) {
-          attribute_ =
-            com.google.ads.googleads.v11.services.AudienceInsightsAttribute.newBuilder(attribute_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          attribute_ != null &&
+          attribute_ != com.google.ads.googleads.v11.services.AudienceInsightsAttribute.getDefaultInstance()) {
+          getAttributeBuilder().mergeFrom(value);
         } else {
           attribute_ = value;
         }
-        onChanged();
       } else {
         attributeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -868,14 +1071,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.services.AudienceInsightsAttribute attribute = 2;</code>
      */
     public Builder clearAttribute() {
-      if (attributeBuilder_ == null) {
-        attribute_ = null;
-        onChanged();
-      } else {
-        attribute_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      attribute_ = null;
+      if (attributeBuilder_ != null) {
+        attributeBuilder_.dispose();
         attributeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -886,7 +1088,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.services.AudienceInsightsAttribute attribute = 2;</code>
      */
     public com.google.ads.googleads.v11.services.AudienceInsightsAttribute.Builder getAttributeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAttributeFieldBuilder().getBuilder();
     }
@@ -979,11 +1181,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -996,8 +1196,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1012,12 +1212,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1047,6 +1245,7 @@ private static final long serialVersionUID = 0L;
     public Builder setScore(double value) {
       
       score_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1059,7 +1258,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScore() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       score_ = 0D;
       onChanged();
       return this;
@@ -1133,11 +1332,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayInfo(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayInfo_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1155,8 +1352,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayInfo() {
-      
       displayInfo_ = getDefaultInstance().getDisplayInfo();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1176,14 +1373,368 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayInfoBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayInfo_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata, com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata.Builder, com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadataOrBuilder> youtubeChannelMetadataBuilder_;
+    /**
+     * <pre>
+     * Special metadata for a YouTube channel.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata youtube_channel_metadata = 6;</code>
+     * @return Whether the youtubeChannelMetadata field is set.
+     */
+    @java.lang.Override
+    public boolean hasYoutubeChannelMetadata() {
+      return dimensionMetadataCase_ == 6;
+    }
+    /**
+     * <pre>
+     * Special metadata for a YouTube channel.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata youtube_channel_metadata = 6;</code>
+     * @return The youtubeChannelMetadata.
+     */
+    @java.lang.Override
+    public com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata getYoutubeChannelMetadata() {
+      if (youtubeChannelMetadataBuilder_ == null) {
+        if (dimensionMetadataCase_ == 6) {
+          return (com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata) dimensionMetadata_;
+        }
+        return com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata.getDefaultInstance();
+      } else {
+        if (dimensionMetadataCase_ == 6) {
+          return youtubeChannelMetadataBuilder_.getMessage();
+        }
+        return com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * Special metadata for a YouTube channel.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata youtube_channel_metadata = 6;</code>
+     */
+    public Builder setYoutubeChannelMetadata(com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata value) {
+      if (youtubeChannelMetadataBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        dimensionMetadata_ = value;
+        onChanged();
+      } else {
+        youtubeChannelMetadataBuilder_.setMessage(value);
+      }
+      dimensionMetadataCase_ = 6;
+      return this;
+    }
+    /**
+     * <pre>
+     * Special metadata for a YouTube channel.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata youtube_channel_metadata = 6;</code>
+     */
+    public Builder setYoutubeChannelMetadata(
+        com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata.Builder builderForValue) {
+      if (youtubeChannelMetadataBuilder_ == null) {
+        dimensionMetadata_ = builderForValue.build();
+        onChanged();
+      } else {
+        youtubeChannelMetadataBuilder_.setMessage(builderForValue.build());
+      }
+      dimensionMetadataCase_ = 6;
+      return this;
+    }
+    /**
+     * <pre>
+     * Special metadata for a YouTube channel.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata youtube_channel_metadata = 6;</code>
+     */
+    public Builder mergeYoutubeChannelMetadata(com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata value) {
+      if (youtubeChannelMetadataBuilder_ == null) {
+        if (dimensionMetadataCase_ == 6 &&
+            dimensionMetadata_ != com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata.getDefaultInstance()) {
+          dimensionMetadata_ = com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata.newBuilder((com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata) dimensionMetadata_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          dimensionMetadata_ = value;
+        }
+        onChanged();
+      } else {
+        if (dimensionMetadataCase_ == 6) {
+          youtubeChannelMetadataBuilder_.mergeFrom(value);
+        } else {
+          youtubeChannelMetadataBuilder_.setMessage(value);
+        }
+      }
+      dimensionMetadataCase_ = 6;
+      return this;
+    }
+    /**
+     * <pre>
+     * Special metadata for a YouTube channel.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata youtube_channel_metadata = 6;</code>
+     */
+    public Builder clearYoutubeChannelMetadata() {
+      if (youtubeChannelMetadataBuilder_ == null) {
+        if (dimensionMetadataCase_ == 6) {
+          dimensionMetadataCase_ = 0;
+          dimensionMetadata_ = null;
+          onChanged();
+        }
+      } else {
+        if (dimensionMetadataCase_ == 6) {
+          dimensionMetadataCase_ = 0;
+          dimensionMetadata_ = null;
+        }
+        youtubeChannelMetadataBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Special metadata for a YouTube channel.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata youtube_channel_metadata = 6;</code>
+     */
+    public com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata.Builder getYoutubeChannelMetadataBuilder() {
+      return getYoutubeChannelMetadataFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Special metadata for a YouTube channel.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata youtube_channel_metadata = 6;</code>
+     */
+    @java.lang.Override
+    public com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadataOrBuilder getYoutubeChannelMetadataOrBuilder() {
+      if ((dimensionMetadataCase_ == 6) && (youtubeChannelMetadataBuilder_ != null)) {
+        return youtubeChannelMetadataBuilder_.getMessageOrBuilder();
+      } else {
+        if (dimensionMetadataCase_ == 6) {
+          return (com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata) dimensionMetadata_;
+        }
+        return com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * Special metadata for a YouTube channel.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata youtube_channel_metadata = 6;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata, com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata.Builder, com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadataOrBuilder> 
+        getYoutubeChannelMetadataFieldBuilder() {
+      if (youtubeChannelMetadataBuilder_ == null) {
+        if (!(dimensionMetadataCase_ == 6)) {
+          dimensionMetadata_ = com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata.getDefaultInstance();
+        }
+        youtubeChannelMetadataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata, com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata.Builder, com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadataOrBuilder>(
+                (com.google.ads.googleads.v11.services.YouTubeChannelAttributeMetadata) dimensionMetadata_,
+                getParentForChildren(),
+                isClean());
+        dimensionMetadata_ = null;
+      }
+      dimensionMetadataCase_ = 6;
+      onChanged();
+      return youtubeChannelMetadataBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata, com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata.Builder, com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadataOrBuilder> dynamicAttributeMetadataBuilder_;
+    /**
+     * <pre>
+     * Special metadata for a YouTube Dynamic Lineup.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata dynamic_attribute_metadata = 7;</code>
+     * @return Whether the dynamicAttributeMetadata field is set.
+     */
+    @java.lang.Override
+    public boolean hasDynamicAttributeMetadata() {
+      return dimensionMetadataCase_ == 7;
+    }
+    /**
+     * <pre>
+     * Special metadata for a YouTube Dynamic Lineup.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata dynamic_attribute_metadata = 7;</code>
+     * @return The dynamicAttributeMetadata.
+     */
+    @java.lang.Override
+    public com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata getDynamicAttributeMetadata() {
+      if (dynamicAttributeMetadataBuilder_ == null) {
+        if (dimensionMetadataCase_ == 7) {
+          return (com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata) dimensionMetadata_;
+        }
+        return com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata.getDefaultInstance();
+      } else {
+        if (dimensionMetadataCase_ == 7) {
+          return dynamicAttributeMetadataBuilder_.getMessage();
+        }
+        return com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * Special metadata for a YouTube Dynamic Lineup.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata dynamic_attribute_metadata = 7;</code>
+     */
+    public Builder setDynamicAttributeMetadata(com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata value) {
+      if (dynamicAttributeMetadataBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        dimensionMetadata_ = value;
+        onChanged();
+      } else {
+        dynamicAttributeMetadataBuilder_.setMessage(value);
+      }
+      dimensionMetadataCase_ = 7;
+      return this;
+    }
+    /**
+     * <pre>
+     * Special metadata for a YouTube Dynamic Lineup.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata dynamic_attribute_metadata = 7;</code>
+     */
+    public Builder setDynamicAttributeMetadata(
+        com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata.Builder builderForValue) {
+      if (dynamicAttributeMetadataBuilder_ == null) {
+        dimensionMetadata_ = builderForValue.build();
+        onChanged();
+      } else {
+        dynamicAttributeMetadataBuilder_.setMessage(builderForValue.build());
+      }
+      dimensionMetadataCase_ = 7;
+      return this;
+    }
+    /**
+     * <pre>
+     * Special metadata for a YouTube Dynamic Lineup.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata dynamic_attribute_metadata = 7;</code>
+     */
+    public Builder mergeDynamicAttributeMetadata(com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata value) {
+      if (dynamicAttributeMetadataBuilder_ == null) {
+        if (dimensionMetadataCase_ == 7 &&
+            dimensionMetadata_ != com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata.getDefaultInstance()) {
+          dimensionMetadata_ = com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata.newBuilder((com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata) dimensionMetadata_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          dimensionMetadata_ = value;
+        }
+        onChanged();
+      } else {
+        if (dimensionMetadataCase_ == 7) {
+          dynamicAttributeMetadataBuilder_.mergeFrom(value);
+        } else {
+          dynamicAttributeMetadataBuilder_.setMessage(value);
+        }
+      }
+      dimensionMetadataCase_ = 7;
+      return this;
+    }
+    /**
+     * <pre>
+     * Special metadata for a YouTube Dynamic Lineup.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata dynamic_attribute_metadata = 7;</code>
+     */
+    public Builder clearDynamicAttributeMetadata() {
+      if (dynamicAttributeMetadataBuilder_ == null) {
+        if (dimensionMetadataCase_ == 7) {
+          dimensionMetadataCase_ = 0;
+          dimensionMetadata_ = null;
+          onChanged();
+        }
+      } else {
+        if (dimensionMetadataCase_ == 7) {
+          dimensionMetadataCase_ = 0;
+          dimensionMetadata_ = null;
+        }
+        dynamicAttributeMetadataBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Special metadata for a YouTube Dynamic Lineup.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata dynamic_attribute_metadata = 7;</code>
+     */
+    public com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata.Builder getDynamicAttributeMetadataBuilder() {
+      return getDynamicAttributeMetadataFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Special metadata for a YouTube Dynamic Lineup.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata dynamic_attribute_metadata = 7;</code>
+     */
+    @java.lang.Override
+    public com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadataOrBuilder getDynamicAttributeMetadataOrBuilder() {
+      if ((dimensionMetadataCase_ == 7) && (dynamicAttributeMetadataBuilder_ != null)) {
+        return dynamicAttributeMetadataBuilder_.getMessageOrBuilder();
+      } else {
+        if (dimensionMetadataCase_ == 7) {
+          return (com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata) dimensionMetadata_;
+        }
+        return com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * Special metadata for a YouTube Dynamic Lineup.
+     * </pre>
+     *
+     * <code>.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata dynamic_attribute_metadata = 7;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata, com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata.Builder, com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadataOrBuilder> 
+        getDynamicAttributeMetadataFieldBuilder() {
+      if (dynamicAttributeMetadataBuilder_ == null) {
+        if (!(dimensionMetadataCase_ == 7)) {
+          dimensionMetadata_ = com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata.getDefaultInstance();
+        }
+        dynamicAttributeMetadataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata, com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata.Builder, com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadataOrBuilder>(
+                (com.google.ads.googleads.v11.services.DynamicLineupAttributeMetadata) dimensionMetadata_,
+                getParentForChildren(),
+                isClean());
+        dimensionMetadata_ = null;
+      }
+      dimensionMetadataCase_ = 7;
+      onChanged();
+      return dynamicAttributeMetadataBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1218,7 +1769,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AudienceInsightsAttributeMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -164,7 +164,6 @@ public interface ShipmentOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 14;</code>
    */
-
   /* nullable */
 com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrDefault(
       java.lang.String key,
@@ -182,7 +181,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
    *
    * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 14;</code>
    */
-
   com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrThrow(
       java.lang.String key);
 
@@ -531,7 +529,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
   /**
    * <pre>
    * Specifies a label for this shipment. This label is reported in the response
-   * in the `shipment_label` of the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+   * in the `shipment_label` of the corresponding
+   * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
    * </pre>
    *
    * <code>string label = 12;</code>
@@ -541,7 +540,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
   /**
    * <pre>
    * Specifies a label for this shipment. This label is reported in the response
-   * in the `shipment_label` of the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+   * in the `shipment_label` of the corresponding
+   * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
    * </pre>
    *
    * <code>string label = 12;</code>

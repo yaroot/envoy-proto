@@ -36,127 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SpriteSheet(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            format_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            filePrefix_ = s;
-            break;
-          }
-          case 24: {
-
-            spriteWidthPixels_ = input.readInt32();
-            break;
-          }
-          case 32: {
-
-            spriteHeightPixels_ = input.readInt32();
-            break;
-          }
-          case 40: {
-
-            columnCount_ = input.readInt32();
-            break;
-          }
-          case 48: {
-
-            rowCount_ = input.readInt32();
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (startTimeOffset_ != null) {
-              subBuilder = startTimeOffset_.toBuilder();
-            }
-            startTimeOffset_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(startTimeOffset_);
-              startTimeOffset_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (endTimeOffset_ != null) {
-              subBuilder = endTimeOffset_.toBuilder();
-            }
-            endTimeOffset_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(endTimeOffset_);
-              endTimeOffset_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 72: {
-            extractionStrategy_ = input.readInt32();
-            extractionStrategyCase_ = 9;
-            break;
-          }
-          case 82: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (extractionStrategyCase_ == 10) {
-              subBuilder = ((com.google.protobuf.Duration) extractionStrategy_).toBuilder();
-            }
-            extractionStrategy_ =
-                input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Duration) extractionStrategy_);
-              extractionStrategy_ = subBuilder.buildPartial();
-            }
-            extractionStrategyCase_ = 10;
-            break;
-          }
-          case 88: {
-
-            quality_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_SpriteSheet_descriptor;
@@ -212,7 +91,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORMAT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object format_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object format_ = "";
   /**
    * <pre>
    * Format type. The default is `jpeg`.
@@ -262,7 +142,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILE_PREFIX_FIELD_NUMBER = 2;
-  private volatile java.lang.Object filePrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object filePrefix_ = "";
   /**
    * <pre>
    * Required. File name prefix for the generated sprite sheets.
@@ -312,13 +193,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPRITE_WIDTH_PIXELS_FIELD_NUMBER = 3;
-  private int spriteWidthPixels_;
+  private int spriteWidthPixels_ = 0;
   /**
    * <pre>
    * Required. The width of sprite in pixels. Must be an even integer. To preserve the
    * source aspect ratio, set the [SpriteSheet.sprite_width_pixels][google.cloud.video.transcoder.v1.SpriteSheet.sprite_width_pixels] field or
    * the [SpriteSheet.sprite_height_pixels][google.cloud.video.transcoder.v1.SpriteSheet.sprite_height_pixels] field, but not both (the API will
    * automatically calculate the missing field).
+   * For portrait videos that contain horizontal ASR and rotation metadata,
+   * provide the width, in pixels, per the horizontal ASR. The API calculates
+   * the height per the horizontal ASR. The API detects any rotation metadata
+   * and swaps the requested height and width for the output.
    * </pre>
    *
    * <code>int32 sprite_width_pixels = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -330,13 +215,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPRITE_HEIGHT_PIXELS_FIELD_NUMBER = 4;
-  private int spriteHeightPixels_;
+  private int spriteHeightPixels_ = 0;
   /**
    * <pre>
    * Required. The height of sprite in pixels. Must be an even integer. To preserve the
    * source aspect ratio, set the [SpriteSheet.sprite_height_pixels][google.cloud.video.transcoder.v1.SpriteSheet.sprite_height_pixels] field or
    * the [SpriteSheet.sprite_width_pixels][google.cloud.video.transcoder.v1.SpriteSheet.sprite_width_pixels] field, but not both (the API will
    * automatically calculate the missing field).
+   * For portrait videos that contain horizontal ASR and rotation metadata,
+   * provide the height, in pixels, per the horizontal ASR. The API calculates
+   * the width per the horizontal ASR. The API detects any rotation metadata
+   * and swaps the requested height and width for the output.
    * </pre>
    *
    * <code>int32 sprite_height_pixels = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -348,7 +237,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COLUMN_COUNT_FIELD_NUMBER = 5;
-  private int columnCount_;
+  private int columnCount_ = 0;
   /**
    * <pre>
    * The maximum number of sprites per row in a sprite sheet. The default is 0,
@@ -364,7 +253,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROW_COUNT_FIELD_NUMBER = 6;
-  private int rowCount_;
+  private int rowCount_ = 0;
   /**
    * <pre>
    * The maximum number of rows per sprite sheet. When the sprite sheet is full,
@@ -418,7 +307,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getStartTimeOffsetOrBuilder() {
-    return getStartTimeOffset();
+    return startTimeOffset_ == null ? com.google.protobuf.Duration.getDefaultInstance() : startTimeOffset_;
   }
 
   public static final int END_TIME_OFFSET_FIELD_NUMBER = 8;
@@ -462,7 +351,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getEndTimeOffsetOrBuilder() {
-    return getEndTimeOffset();
+    return endTimeOffset_ == null ? com.google.protobuf.Duration.getDefaultInstance() : endTimeOffset_;
   }
 
   public static final int TOTAL_COUNT_FIELD_NUMBER = 9;
@@ -545,7 +434,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUALITY_FIELD_NUMBER = 11;
-  private int quality_;
+  private int quality_ = 0;
   /**
    * <pre>
    * The quality of the generated sprite sheet. Enter a value between 1
@@ -610,7 +499,7 @@ private static final long serialVersionUID = 0L;
     if (quality_ != 0) {
       output.writeInt32(11, quality_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -662,7 +551,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(11, quality_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -714,7 +603,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -759,7 +648,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -880,48 +769,38 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.video.transcoder.v1.SpriteSheet.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       format_ = "";
-
       filePrefix_ = "";
-
       spriteWidthPixels_ = 0;
-
       spriteHeightPixels_ = 0;
-
       columnCount_ = 0;
-
       rowCount_ = 0;
-
-      if (startTimeOffsetBuilder_ == null) {
-        startTimeOffset_ = null;
-      } else {
-        startTimeOffset_ = null;
+      startTimeOffset_ = null;
+      if (startTimeOffsetBuilder_ != null) {
+        startTimeOffsetBuilder_.dispose();
         startTimeOffsetBuilder_ = null;
       }
-      if (endTimeOffsetBuilder_ == null) {
-        endTimeOffset_ = null;
-      } else {
-        endTimeOffset_ = null;
+      endTimeOffset_ = null;
+      if (endTimeOffsetBuilder_ != null) {
+        endTimeOffsetBuilder_.dispose();
         endTimeOffsetBuilder_ = null;
       }
+      if (intervalBuilder_ != null) {
+        intervalBuilder_.clear();
+      }
       quality_ = 0;
-
       extractionStrategyCase_ = 0;
       extractionStrategy_ = null;
       return this;
@@ -950,36 +829,54 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.video.transcoder.v1.SpriteSheet buildPartial() {
       com.google.cloud.video.transcoder.v1.SpriteSheet result = new com.google.cloud.video.transcoder.v1.SpriteSheet(this);
-      result.format_ = format_;
-      result.filePrefix_ = filePrefix_;
-      result.spriteWidthPixels_ = spriteWidthPixels_;
-      result.spriteHeightPixels_ = spriteHeightPixels_;
-      result.columnCount_ = columnCount_;
-      result.rowCount_ = rowCount_;
-      if (startTimeOffsetBuilder_ == null) {
-        result.startTimeOffset_ = startTimeOffset_;
-      } else {
-        result.startTimeOffset_ = startTimeOffsetBuilder_.build();
-      }
-      if (endTimeOffsetBuilder_ == null) {
-        result.endTimeOffset_ = endTimeOffset_;
-      } else {
-        result.endTimeOffset_ = endTimeOffsetBuilder_.build();
-      }
-      if (extractionStrategyCase_ == 9) {
-        result.extractionStrategy_ = extractionStrategy_;
-      }
-      if (extractionStrategyCase_ == 10) {
-        if (intervalBuilder_ == null) {
-          result.extractionStrategy_ = extractionStrategy_;
-        } else {
-          result.extractionStrategy_ = intervalBuilder_.build();
-        }
-      }
-      result.quality_ = quality_;
-      result.extractionStrategyCase_ = extractionStrategyCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.video.transcoder.v1.SpriteSheet result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.format_ = format_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.filePrefix_ = filePrefix_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.spriteWidthPixels_ = spriteWidthPixels_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.spriteHeightPixels_ = spriteHeightPixels_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.columnCount_ = columnCount_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.rowCount_ = rowCount_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.startTimeOffset_ = startTimeOffsetBuilder_ == null
+            ? startTimeOffset_
+            : startTimeOffsetBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.endTimeOffset_ = endTimeOffsetBuilder_ == null
+            ? endTimeOffset_
+            : endTimeOffsetBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.quality_ = quality_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.video.transcoder.v1.SpriteSheet result) {
+      result.extractionStrategyCase_ = extractionStrategyCase_;
+      result.extractionStrategy_ = this.extractionStrategy_;
+      if (extractionStrategyCase_ == 10 &&
+          intervalBuilder_ != null) {
+        result.extractionStrategy_ = intervalBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1028,10 +925,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.video.transcoder.v1.SpriteSheet.getDefaultInstance()) return this;
       if (!other.getFormat().isEmpty()) {
         format_ = other.format_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getFilePrefix().isEmpty()) {
         filePrefix_ = other.filePrefix_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getSpriteWidthPixels() != 0) {
@@ -1068,7 +967,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1083,17 +982,91 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.video.transcoder.v1.SpriteSheet parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              format_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              filePrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              spriteWidthPixels_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              spriteHeightPixels_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              columnCount_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              rowCount_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              input.readMessage(
+                  getStartTimeOffsetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getEndTimeOffsetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 72: {
+              extractionStrategy_ = input.readInt32();
+              extractionStrategyCase_ = 9;
+              break;
+            } // case 72
+            case 82: {
+              input.readMessage(
+                  getIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              extractionStrategyCase_ = 10;
+              break;
+            } // case 82
+            case 88: {
+              quality_ = input.readInt32();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.video.transcoder.v1.SpriteSheet) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int extractionStrategyCase_ = 0;
@@ -1111,6 +1084,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object format_ = "";
     /**
@@ -1171,11 +1145,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFormat(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       format_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1190,8 +1162,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFormat() {
-      
       format_ = getDefaultInstance().getFormat();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1208,12 +1180,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFormatBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       format_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1277,11 +1247,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilePrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       filePrefix_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1296,8 +1264,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFilePrefix() {
-      
       filePrefix_ = getDefaultInstance().getFilePrefix();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1314,12 +1282,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilePrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       filePrefix_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1331,6 +1297,10 @@ private static final long serialVersionUID = 0L;
      * source aspect ratio, set the [SpriteSheet.sprite_width_pixels][google.cloud.video.transcoder.v1.SpriteSheet.sprite_width_pixels] field or
      * the [SpriteSheet.sprite_height_pixels][google.cloud.video.transcoder.v1.SpriteSheet.sprite_height_pixels] field, but not both (the API will
      * automatically calculate the missing field).
+     * For portrait videos that contain horizontal ASR and rotation metadata,
+     * provide the width, in pixels, per the horizontal ASR. The API calculates
+     * the height per the horizontal ASR. The API detects any rotation metadata
+     * and swaps the requested height and width for the output.
      * </pre>
      *
      * <code>int32 sprite_width_pixels = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1346,6 +1316,10 @@ private static final long serialVersionUID = 0L;
      * source aspect ratio, set the [SpriteSheet.sprite_width_pixels][google.cloud.video.transcoder.v1.SpriteSheet.sprite_width_pixels] field or
      * the [SpriteSheet.sprite_height_pixels][google.cloud.video.transcoder.v1.SpriteSheet.sprite_height_pixels] field, but not both (the API will
      * automatically calculate the missing field).
+     * For portrait videos that contain horizontal ASR and rotation metadata,
+     * provide the width, in pixels, per the horizontal ASR. The API calculates
+     * the height per the horizontal ASR. The API detects any rotation metadata
+     * and swaps the requested height and width for the output.
      * </pre>
      *
      * <code>int32 sprite_width_pixels = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1355,6 +1329,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSpriteWidthPixels(int value) {
       
       spriteWidthPixels_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1364,13 +1339,17 @@ private static final long serialVersionUID = 0L;
      * source aspect ratio, set the [SpriteSheet.sprite_width_pixels][google.cloud.video.transcoder.v1.SpriteSheet.sprite_width_pixels] field or
      * the [SpriteSheet.sprite_height_pixels][google.cloud.video.transcoder.v1.SpriteSheet.sprite_height_pixels] field, but not both (the API will
      * automatically calculate the missing field).
+     * For portrait videos that contain horizontal ASR and rotation metadata,
+     * provide the width, in pixels, per the horizontal ASR. The API calculates
+     * the height per the horizontal ASR. The API detects any rotation metadata
+     * and swaps the requested height and width for the output.
      * </pre>
      *
      * <code>int32 sprite_width_pixels = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearSpriteWidthPixels() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       spriteWidthPixels_ = 0;
       onChanged();
       return this;
@@ -1383,6 +1362,10 @@ private static final long serialVersionUID = 0L;
      * source aspect ratio, set the [SpriteSheet.sprite_height_pixels][google.cloud.video.transcoder.v1.SpriteSheet.sprite_height_pixels] field or
      * the [SpriteSheet.sprite_width_pixels][google.cloud.video.transcoder.v1.SpriteSheet.sprite_width_pixels] field, but not both (the API will
      * automatically calculate the missing field).
+     * For portrait videos that contain horizontal ASR and rotation metadata,
+     * provide the height, in pixels, per the horizontal ASR. The API calculates
+     * the width per the horizontal ASR. The API detects any rotation metadata
+     * and swaps the requested height and width for the output.
      * </pre>
      *
      * <code>int32 sprite_height_pixels = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1398,6 +1381,10 @@ private static final long serialVersionUID = 0L;
      * source aspect ratio, set the [SpriteSheet.sprite_height_pixels][google.cloud.video.transcoder.v1.SpriteSheet.sprite_height_pixels] field or
      * the [SpriteSheet.sprite_width_pixels][google.cloud.video.transcoder.v1.SpriteSheet.sprite_width_pixels] field, but not both (the API will
      * automatically calculate the missing field).
+     * For portrait videos that contain horizontal ASR and rotation metadata,
+     * provide the height, in pixels, per the horizontal ASR. The API calculates
+     * the width per the horizontal ASR. The API detects any rotation metadata
+     * and swaps the requested height and width for the output.
      * </pre>
      *
      * <code>int32 sprite_height_pixels = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1407,6 +1394,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSpriteHeightPixels(int value) {
       
       spriteHeightPixels_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1416,13 +1404,17 @@ private static final long serialVersionUID = 0L;
      * source aspect ratio, set the [SpriteSheet.sprite_height_pixels][google.cloud.video.transcoder.v1.SpriteSheet.sprite_height_pixels] field or
      * the [SpriteSheet.sprite_width_pixels][google.cloud.video.transcoder.v1.SpriteSheet.sprite_width_pixels] field, but not both (the API will
      * automatically calculate the missing field).
+     * For portrait videos that contain horizontal ASR and rotation metadata,
+     * provide the height, in pixels, per the horizontal ASR. The API calculates
+     * the width per the horizontal ASR. The API detects any rotation metadata
+     * and swaps the requested height and width for the output.
      * </pre>
      *
      * <code>int32 sprite_height_pixels = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearSpriteHeightPixels() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       spriteHeightPixels_ = 0;
       onChanged();
       return this;
@@ -1455,6 +1447,7 @@ private static final long serialVersionUID = 0L;
     public Builder setColumnCount(int value) {
       
       columnCount_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1468,7 +1461,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearColumnCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       columnCount_ = 0;
       onChanged();
       return this;
@@ -1503,6 +1496,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRowCount(int value) {
       
       rowCount_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1517,7 +1511,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRowCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       rowCount_ = 0;
       onChanged();
       return this;
@@ -1536,7 +1530,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the startTimeOffset field is set.
      */
     public boolean hasStartTimeOffset() {
-      return startTimeOffsetBuilder_ != null || startTimeOffset_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1568,11 +1562,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         startTimeOffset_ = value;
-        onChanged();
       } else {
         startTimeOffsetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1587,11 +1581,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (startTimeOffsetBuilder_ == null) {
         startTimeOffset_ = builderForValue.build();
-        onChanged();
       } else {
         startTimeOffsetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1604,17 +1598,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStartTimeOffset(com.google.protobuf.Duration value) {
       if (startTimeOffsetBuilder_ == null) {
-        if (startTimeOffset_ != null) {
-          startTimeOffset_ =
-            com.google.protobuf.Duration.newBuilder(startTimeOffset_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          startTimeOffset_ != null &&
+          startTimeOffset_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getStartTimeOffsetBuilder().mergeFrom(value);
         } else {
           startTimeOffset_ = value;
         }
-        onChanged();
       } else {
         startTimeOffsetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1626,14 +1621,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration start_time_offset = 7;</code>
      */
     public Builder clearStartTimeOffset() {
-      if (startTimeOffsetBuilder_ == null) {
-        startTimeOffset_ = null;
-        onChanged();
-      } else {
-        startTimeOffset_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      startTimeOffset_ = null;
+      if (startTimeOffsetBuilder_ != null) {
+        startTimeOffsetBuilder_.dispose();
         startTimeOffsetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1645,7 +1639,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration start_time_offset = 7;</code>
      */
     public com.google.protobuf.Duration.Builder getStartTimeOffsetBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getStartTimeOffsetFieldBuilder().getBuilder();
     }
@@ -1701,7 +1695,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the endTimeOffset field is set.
      */
     public boolean hasEndTimeOffset() {
-      return endTimeOffsetBuilder_ != null || endTimeOffset_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -1735,11 +1729,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         endTimeOffset_ = value;
-        onChanged();
       } else {
         endTimeOffsetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1755,11 +1749,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (endTimeOffsetBuilder_ == null) {
         endTimeOffset_ = builderForValue.build();
-        onChanged();
       } else {
         endTimeOffsetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1773,17 +1767,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEndTimeOffset(com.google.protobuf.Duration value) {
       if (endTimeOffsetBuilder_ == null) {
-        if (endTimeOffset_ != null) {
-          endTimeOffset_ =
-            com.google.protobuf.Duration.newBuilder(endTimeOffset_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          endTimeOffset_ != null &&
+          endTimeOffset_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getEndTimeOffsetBuilder().mergeFrom(value);
         } else {
           endTimeOffset_ = value;
         }
-        onChanged();
       } else {
         endTimeOffsetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1796,14 +1791,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration end_time_offset = 8;</code>
      */
     public Builder clearEndTimeOffset() {
-      if (endTimeOffsetBuilder_ == null) {
-        endTimeOffset_ = null;
-        onChanged();
-      } else {
-        endTimeOffset_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      endTimeOffset_ = null;
+      if (endTimeOffsetBuilder_ != null) {
+        endTimeOffsetBuilder_.dispose();
         endTimeOffsetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1816,7 +1810,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration end_time_offset = 8;</code>
      */
     public com.google.protobuf.Duration.Builder getEndTimeOffsetBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getEndTimeOffsetFieldBuilder().getBuilder();
     }
@@ -1901,6 +1895,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTotalCount(int value) {
+      
       extractionStrategyCase_ = 9;
       extractionStrategy_ = value;
       onChanged();
@@ -2108,7 +2103,7 @@ private static final long serialVersionUID = 0L;
         extractionStrategy_ = null;
       }
       extractionStrategyCase_ = 10;
-      onChanged();;
+      onChanged();
       return intervalBuilder_;
     }
 
@@ -2143,6 +2138,7 @@ private static final long serialVersionUID = 0L;
     public Builder setQuality(int value) {
       
       quality_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2158,7 +2154,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearQuality() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       quality_ = 0;
       onChanged();
       return this;
@@ -2196,7 +2192,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SpriteSheet(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

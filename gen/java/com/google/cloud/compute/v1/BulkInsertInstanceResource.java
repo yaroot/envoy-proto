@@ -36,107 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BulkInsertInstanceResource(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 758810744: {
-            bitField0_ |= 0x00000001;
-            count_ = input.readInt64();
-            break;
-          }
-          case 868018138: {
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              perInstanceProperties_ = com.google.protobuf.MapField.newMapField(
-                  PerInstancePropertiesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000020;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties>
-            perInstanceProperties__ = input.readMessage(
-                PerInstancePropertiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            perInstanceProperties_.getMutableMap().put(
-                perInstanceProperties__.getKey(), perInstanceProperties__.getValue());
-            break;
-          }
-          case 1722841322: {
-            com.google.cloud.compute.v1.InstanceProperties.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000002) != 0)) {
-              subBuilder = instanceProperties_.toBuilder();
-            }
-            instanceProperties_ = input.readMessage(com.google.cloud.compute.v1.InstanceProperties.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(instanceProperties_);
-              instanceProperties_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000002;
-            break;
-          }
-          case -1635578366: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000020;
-            sourceInstanceTemplate_ = s;
-            break;
-          }
-          case -984445214: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            namePattern_ = s;
-            break;
-          }
-          case -569448478: {
-            com.google.cloud.compute.v1.LocationPolicy.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000004) != 0)) {
-              subBuilder = locationPolicy_.toBuilder();
-            }
-            locationPolicy_ = input.readMessage(com.google.cloud.compute.v1.LocationPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(locationPolicy_);
-              locationPolicy_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000004;
-            break;
-          }
-          case -109140208: {
-            bitField0_ |= 0x00000008;
-            minCount_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_BulkInsertInstanceResource_descriptor;
@@ -164,7 +63,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int COUNT_FIELD_NUMBER = 94851343;
-  private long count_;
+  private long count_ = 0L;
   /**
    * <pre>
    * The maximum number of instances to create.
@@ -267,7 +166,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_COUNT_FIELD_NUMBER = 523228386;
-  private long minCount_;
+  private long minCount_ = 0L;
   /**
    * <pre>
    * The minimum number of instances to create. If no min_count is specified then count is used as the default value. If min_count instances cannot be created, then no instances will be created and instances already created will be deleted.
@@ -294,7 +193,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_PATTERN_FIELD_NUMBER = 413815260;
-  private volatile java.lang.Object namePattern_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object namePattern_ = "";
   /**
    * <pre>
    * The string pattern used for the names of the VMs. Either name_pattern or per_instance_properties must be set. The pattern must contain one continuous sequence of placeholder hash characters (#) with each character corresponding to one digit of the generated instance name. Example: a name_pattern of inst-#### generates instance names such as inst-0001 and inst-0002. If existing instances in the same project and zone have names that match the name pattern then the generated instance numbers start after the biggest existing number. For example, if there exists an instance with name inst-0050, then instance names generated using the pattern inst-#### begin with inst-0051. The name pattern placeholder #...# can contain up to 18 characters.
@@ -363,6 +263,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties> perInstanceProperties_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties>
@@ -373,7 +274,6 @@ private static final long serialVersionUID = 0L;
     }
     return perInstanceProperties_;
   }
-
   public int getPerInstancePropertiesCount() {
     return internalGetPerInstanceProperties().getMap().size();
   }
@@ -384,7 +284,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties&gt; per_instance_properties = 108502267;</code>
    */
-
   @java.lang.Override
   public boolean containsPerInstanceProperties(
       java.lang.String key) {
@@ -407,7 +306,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties&gt; per_instance_properties = 108502267;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties> getPerInstancePropertiesMap() {
     return internalGetPerInstanceProperties().getMap();
   }
@@ -419,10 +317,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties&gt; per_instance_properties = 108502267;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties getPerInstancePropertiesOrDefault(
+  public /* nullable */
+com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties getPerInstancePropertiesOrDefault(
       java.lang.String key,
-      com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties defaultValue) {
+      /* nullable */
+com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties> map =
         internalGetPerInstanceProperties().getMap();
@@ -436,7 +335,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties&gt; per_instance_properties = 108502267;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties getPerInstancePropertiesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -449,7 +347,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_INSTANCE_TEMPLATE_FIELD_NUMBER = 332423616;
-  private volatile java.lang.Object sourceInstanceTemplate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sourceInstanceTemplate_ = "";
   /**
    * <pre>
    * Specifies the instance template from which to create instances. You may combine sourceInstanceTemplate with instanceProperties to override specific values from an existing instance template. Bulk API follows the semantics of JSON Merge Patch described by RFC 7396. It can be a full or partial URL. For example, the following are all valid URLs to an instance template: - https://www.googleapis.com/compute/v1/projects/project /global/instanceTemplates/instanceTemplate - projects/project/global/instanceTemplates/instanceTemplate - global/instanceTemplates/instanceTemplate This field is optional.
@@ -544,7 +443,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000008) != 0)) {
       output.writeInt64(523228386, minCount_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -585,7 +484,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(523228386, minCount_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -632,7 +531,7 @@ private static final long serialVersionUID = 0L;
       if (!getSourceInstanceTemplate()
           .equals(other.getSourceInstanceTemplate())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -673,7 +572,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SOURCE_INSTANCE_TEMPLATE_FIELD_NUMBER;
       hash = (53 * hash) + getSourceInstanceTemplate().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -834,27 +733,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       count_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (instancePropertiesBuilder_ == null) {
-        instanceProperties_ = null;
-      } else {
-        instancePropertiesBuilder_.clear();
+      instanceProperties_ = null;
+      if (instancePropertiesBuilder_ != null) {
+        instancePropertiesBuilder_.dispose();
+        instancePropertiesBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000002);
-      if (locationPolicyBuilder_ == null) {
-        locationPolicy_ = null;
-      } else {
-        locationPolicyBuilder_.clear();
+      locationPolicy_ = null;
+      if (locationPolicyBuilder_ != null) {
+        locationPolicyBuilder_.dispose();
+        locationPolicyBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000004);
       minCount_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000008);
       namePattern_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutablePerInstanceProperties().clear();
       sourceInstanceTemplate_ = "";
-      bitField0_ = (bitField0_ & ~0x00000040);
       return this;
     }
 
@@ -881,6 +775,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.BulkInsertInstanceResource buildPartial() {
       com.google.cloud.compute.v1.BulkInsertInstanceResource result = new com.google.cloud.compute.v1.BulkInsertInstanceResource(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.BulkInsertInstanceResource result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -888,19 +788,15 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        if (instancePropertiesBuilder_ == null) {
-          result.instanceProperties_ = instanceProperties_;
-        } else {
-          result.instanceProperties_ = instancePropertiesBuilder_.build();
-        }
+        result.instanceProperties_ = instancePropertiesBuilder_ == null
+            ? instanceProperties_
+            : instancePropertiesBuilder_.build();
         to_bitField0_ |= 0x00000002;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        if (locationPolicyBuilder_ == null) {
-          result.locationPolicy_ = locationPolicy_;
-        } else {
-          result.locationPolicy_ = locationPolicyBuilder_.build();
-        }
+        result.locationPolicy_ = locationPolicyBuilder_ == null
+            ? locationPolicy_
+            : locationPolicyBuilder_.build();
         to_bitField0_ |= 0x00000004;
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
@@ -908,18 +804,18 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000008;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.namePattern_ = namePattern_;
         to_bitField0_ |= 0x00000010;
       }
-      result.namePattern_ = namePattern_;
-      result.perInstanceProperties_ = internalGetPerInstanceProperties();
-      result.perInstanceProperties_.makeImmutable();
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.perInstanceProperties_ = internalGetPerInstanceProperties();
+        result.perInstanceProperties_.makeImmutable();
+      }
       if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.sourceInstanceTemplate_ = sourceInstanceTemplate_;
         to_bitField0_ |= 0x00000020;
       }
-      result.sourceInstanceTemplate_ = sourceInstanceTemplate_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -979,18 +875,19 @@ private static final long serialVersionUID = 0L;
         setMinCount(other.getMinCount());
       }
       if (other.hasNamePattern()) {
-        bitField0_ |= 0x00000010;
         namePattern_ = other.namePattern_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       internalGetMutablePerInstanceProperties().mergeFrom(
           other.internalGetPerInstanceProperties());
+      bitField0_ |= 0x00000020;
       if (other.hasSourceInstanceTemplate()) {
-        bitField0_ |= 0x00000040;
         sourceInstanceTemplate_ = other.sourceInstanceTemplate_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1005,17 +902,73 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.BulkInsertInstanceResource parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 758810744: {
+              count_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 758810744
+            case 868018138: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties>
+              perInstanceProperties__ = input.readMessage(
+                  PerInstancePropertiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutablePerInstanceProperties().getMutableMap().put(
+                  perInstanceProperties__.getKey(), perInstanceProperties__.getValue());
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 868018138
+            case 1722841322: {
+              input.readMessage(
+                  getInstancePropertiesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1722841322
+            case -1635578366: {
+              sourceInstanceTemplate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case -1635578366
+            case -984445214: {
+              namePattern_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case -984445214
+            case -569448478: {
+              input.readMessage(
+                  getLocationPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -569448478
+            case -109140208: {
+              minCount_ = input.readInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -109140208
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.BulkInsertInstanceResource) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1055,8 +1008,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCount(long value) {
-      bitField0_ |= 0x00000001;
+      
       count_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1117,11 +1071,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         instanceProperties_ = value;
-        onChanged();
       } else {
         instancePropertiesBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1135,11 +1089,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.InstanceProperties.Builder builderForValue) {
       if (instancePropertiesBuilder_ == null) {
         instanceProperties_ = builderForValue.build();
-        onChanged();
       } else {
         instancePropertiesBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1152,18 +1106,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeInstanceProperties(com.google.cloud.compute.v1.InstanceProperties value) {
       if (instancePropertiesBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0) &&
-            instanceProperties_ != null &&
-            instanceProperties_ != com.google.cloud.compute.v1.InstanceProperties.getDefaultInstance()) {
-          instanceProperties_ =
-            com.google.cloud.compute.v1.InstanceProperties.newBuilder(instanceProperties_).mergeFrom(value).buildPartial();
+          instanceProperties_ != null &&
+          instanceProperties_ != com.google.cloud.compute.v1.InstanceProperties.getDefaultInstance()) {
+          getInstancePropertiesBuilder().mergeFrom(value);
         } else {
           instanceProperties_ = value;
         }
-        onChanged();
       } else {
         instancePropertiesBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1174,13 +1127,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.InstanceProperties instance_properties = 215355165;</code>
      */
     public Builder clearInstanceProperties() {
-      if (instancePropertiesBuilder_ == null) {
-        instanceProperties_ = null;
-        onChanged();
-      } else {
-        instancePropertiesBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000002);
+      instanceProperties_ = null;
+      if (instancePropertiesBuilder_ != null) {
+        instancePropertiesBuilder_.dispose();
+        instancePropertiesBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1273,11 +1226,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         locationPolicy_ = value;
-        onChanged();
       } else {
         locationPolicyBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1291,11 +1244,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.LocationPolicy.Builder builderForValue) {
       if (locationPolicyBuilder_ == null) {
         locationPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         locationPolicyBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1308,18 +1261,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeLocationPolicy(com.google.cloud.compute.v1.LocationPolicy value) {
       if (locationPolicyBuilder_ == null) {
         if (((bitField0_ & 0x00000004) != 0) &&
-            locationPolicy_ != null &&
-            locationPolicy_ != com.google.cloud.compute.v1.LocationPolicy.getDefaultInstance()) {
-          locationPolicy_ =
-            com.google.cloud.compute.v1.LocationPolicy.newBuilder(locationPolicy_).mergeFrom(value).buildPartial();
+          locationPolicy_ != null &&
+          locationPolicy_ != com.google.cloud.compute.v1.LocationPolicy.getDefaultInstance()) {
+          getLocationPolicyBuilder().mergeFrom(value);
         } else {
           locationPolicy_ = value;
         }
-        onChanged();
       } else {
         locationPolicyBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1330,13 +1282,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.LocationPolicy location_policy = 465689852;</code>
      */
     public Builder clearLocationPolicy() {
-      if (locationPolicyBuilder_ == null) {
-        locationPolicy_ = null;
-        onChanged();
-      } else {
-        locationPolicyBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000004);
+      locationPolicy_ = null;
+      if (locationPolicyBuilder_ != null) {
+        locationPolicyBuilder_.dispose();
+        locationPolicyBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1422,8 +1374,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMinCount(long value) {
-      bitField0_ |= 0x00000008;
+      
       minCount_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1506,11 +1459,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNamePattern(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       namePattern_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1523,8 +1474,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNamePattern() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       namePattern_ = getDefaultInstance().getNamePattern();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1539,12 +1490,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNamePatternBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       namePattern_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1552,7 +1501,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties> perInstanceProperties_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties>
-    internalGetPerInstanceProperties() {
+        internalGetPerInstanceProperties() {
       if (perInstanceProperties_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             PerInstancePropertiesDefaultEntryHolder.defaultEntry);
@@ -1560,8 +1509,7 @@ private static final long serialVersionUID = 0L;
       return perInstanceProperties_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties>
-    internalGetMutablePerInstanceProperties() {
-      onChanged();;
+        internalGetMutablePerInstanceProperties() {
       if (perInstanceProperties_ == null) {
         perInstanceProperties_ = com.google.protobuf.MapField.newMapField(
             PerInstancePropertiesDefaultEntryHolder.defaultEntry);
@@ -1569,9 +1517,10 @@ private static final long serialVersionUID = 0L;
       if (!perInstanceProperties_.isMutable()) {
         perInstanceProperties_ = perInstanceProperties_.copy();
       }
+      bitField0_ |= 0x00000020;
+      onChanged();
       return perInstanceProperties_;
     }
-
     public int getPerInstancePropertiesCount() {
       return internalGetPerInstanceProperties().getMap().size();
     }
@@ -1582,7 +1531,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties&gt; per_instance_properties = 108502267;</code>
      */
-
     @java.lang.Override
     public boolean containsPerInstanceProperties(
         java.lang.String key) {
@@ -1605,7 +1553,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties&gt; per_instance_properties = 108502267;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties> getPerInstancePropertiesMap() {
       return internalGetPerInstanceProperties().getMap();
     }
@@ -1617,10 +1564,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties&gt; per_instance_properties = 108502267;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties getPerInstancePropertiesOrDefault(
+    public /* nullable */
+com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties getPerInstancePropertiesOrDefault(
         java.lang.String key,
-        com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties defaultValue) {
+        /* nullable */
+com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties> map =
           internalGetPerInstanceProperties().getMap();
@@ -1634,7 +1582,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties&gt; per_instance_properties = 108502267;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties getPerInstancePropertiesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1645,8 +1592,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearPerInstanceProperties() {
+      bitField0_ = (bitField0_ & ~0x00000020);
       internalGetMutablePerInstanceProperties().getMutableMap()
           .clear();
       return this;
@@ -1658,7 +1605,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties&gt; per_instance_properties = 108502267;</code>
      */
-
     public Builder removePerInstanceProperties(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1671,7 +1617,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties>
-    getMutablePerInstanceProperties() {
+        getMutablePerInstanceProperties() {
+      bitField0_ |= 0x00000020;
       return internalGetMutablePerInstanceProperties().getMutableMap();
     }
     /**
@@ -1685,12 +1632,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutablePerInstanceProperties().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000020;
       return this;
     }
     /**
@@ -1700,11 +1645,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties&gt; per_instance_properties = 108502267;</code>
      */
-
     public Builder putAllPerInstanceProperties(
         java.util.Map<java.lang.String, com.google.cloud.compute.v1.BulkInsertInstanceResourcePerInstanceProperties> values) {
       internalGetMutablePerInstanceProperties().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000020;
       return this;
     }
 
@@ -1772,11 +1717,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceInstanceTemplate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
       sourceInstanceTemplate_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1789,8 +1732,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceInstanceTemplate() {
-      bitField0_ = (bitField0_ & ~0x00000040);
       sourceInstanceTemplate_ = getDefaultInstance().getSourceInstanceTemplate();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1805,12 +1748,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceInstanceTemplateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceInstanceTemplate_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1847,7 +1788,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BulkInsertInstanceResource(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -37,109 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Backend(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 140796637: {
-            bitField0_ |= 0x00000400;
-            maxRatePerInstance_ = input.readFloat();
-            break;
-          }
-          case 789033978: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            group_ = s;
-            break;
-          }
-          case 837375200: {
-            bitField0_ |= 0x00000080;
-            maxConnectionsPerInstance_ = input.readInt32();
-            break;
-          }
-          case 885217232: {
-            bitField0_ |= 0x00000020;
-            maxConnections_ = input.readInt32();
-            break;
-          }
-          case 1038658269: {
-            bitField0_ |= 0x00000200;
-            maxRatePerEndpoint_ = input.readFloat();
-            break;
-          }
-          case 1111140240: {
-            bitField0_ |= 0x00000008;
-            failover_ = input.readBool();
-            break;
-          }
-          case 1185537597: {
-            bitField0_ |= 0x00000800;
-            maxUtilization_ = input.readFloat();
-            break;
-          }
-          case 1735236832: {
-            bitField0_ |= 0x00000040;
-            maxConnectionsPerEndpoint_ = input.readInt32();
-            break;
-          }
-          case -1767302035: {
-            bitField0_ |= 0x00000002;
-            capacityScaler_ = input.readFloat();
-            break;
-          }
-          case -1030687016: {
-            bitField0_ |= 0x00000100;
-            maxRate_ = input.readInt32();
-            break;
-          }
-          case -911466526: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            description_ = s;
-            break;
-          }
-          case -852677558: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            balancingMode_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_Backend_descriptor;
@@ -317,7 +214,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int BALANCING_MODE_FIELD_NUMBER = 430286217;
-  private volatile java.lang.Object balancingMode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object balancingMode_ = "";
   /**
    * <pre>
    * Specifies how to determine whether the backend of a load balancer can handle additional traffic or is fully loaded. For usage guidelines, see Connection balancing mode. Backends must use compatible balancing modes. For more information, see Supported balancing modes and target capacity settings and Restrictions and guidance for instance groups. Note: Currently, if you use the API to configure incompatible balancing modes, the configuration might be accepted even though it has no impact and is ignored. Specifically, Backend.maxUtilization is ignored when Backend.balancingMode is RATE. In the future, this incompatible combination will be rejected.
@@ -378,10 +276,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CAPACITY_SCALER_FIELD_NUMBER = 315958157;
-  private float capacityScaler_;
+  private float capacityScaler_ = 0F;
   /**
    * <pre>
-   * A multiplier applied to the backend's target capacity of its balancing mode. The default value is 1, which means the group serves up to 100% of its configured capacity (depending on balancingMode). A setting of 0 means the group is completely drained, offering 0% of its available capacity. The valid ranges are 0.0 and [0.1,1.0]. You cannot configure a setting larger than 0 and smaller than 0.1. You cannot configure a setting of 0 when there is only one backend attached to the backend service.
+   * A multiplier applied to the backend's target capacity of its balancing mode. The default value is 1, which means the group serves up to 100% of its configured capacity (depending on balancingMode). A setting of 0 means the group is completely drained, offering 0% of its available capacity. The valid ranges are 0.0 and [0.1,1.0]. You cannot configure a setting larger than 0 and smaller than 0.1. You cannot configure a setting of 0 when there is only one backend attached to the backend service. Not available with backends that don't support using a balancingMode. This includes backends such as global internet NEGs, regional serverless NEGs, and PSC NEGs.
    * </pre>
    *
    * <code>optional float capacity_scaler = 315958157;</code>
@@ -393,7 +291,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A multiplier applied to the backend's target capacity of its balancing mode. The default value is 1, which means the group serves up to 100% of its configured capacity (depending on balancingMode). A setting of 0 means the group is completely drained, offering 0% of its available capacity. The valid ranges are 0.0 and [0.1,1.0]. You cannot configure a setting larger than 0 and smaller than 0.1. You cannot configure a setting of 0 when there is only one backend attached to the backend service.
+   * A multiplier applied to the backend's target capacity of its balancing mode. The default value is 1, which means the group serves up to 100% of its configured capacity (depending on balancingMode). A setting of 0 means the group is completely drained, offering 0% of its available capacity. The valid ranges are 0.0 and [0.1,1.0]. You cannot configure a setting larger than 0 and smaller than 0.1. You cannot configure a setting of 0 when there is only one backend attached to the backend service. Not available with backends that don't support using a balancingMode. This includes backends such as global internet NEGs, regional serverless NEGs, and PSC NEGs.
    * </pre>
    *
    * <code>optional float capacity_scaler = 315958157;</code>
@@ -405,7 +303,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 422937596;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * An optional description of this resource. Provide this property when you create the resource.
@@ -463,7 +362,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FAILOVER_FIELD_NUMBER = 138892530;
-  private boolean failover_;
+  private boolean failover_ = false;
   /**
    * <pre>
    * This field designates whether this is a failover backend. More than one failover backend can be configured for a given BackendService.
@@ -490,7 +389,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GROUP_FIELD_NUMBER = 98629247;
-  private volatile java.lang.Object group_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object group_ = "";
   /**
    * <pre>
    * The fully-qualified URL of an instance group or network endpoint group (NEG) resource. To determine what types of backends a load balancer supports, see the [Backend services overview](https://cloud.google.com/load-balancing/docs/backend-service#backends). You must use the *fully-qualified* URL (starting with https://www.googleapis.com/) to specify the instance group or NEG. Partial URLs are not supported.
@@ -548,7 +448,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_CONNECTIONS_FIELD_NUMBER = 110652154;
-  private int maxConnections_;
+  private int maxConnections_ = 0;
   /**
    * <pre>
    * Defines a target maximum number of simultaneous connections. For usage guidelines, see Connection balancing mode and Utilization balancing mode. Not available if the backend's balancingMode is RATE.
@@ -575,7 +475,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_CONNECTIONS_PER_ENDPOINT_FIELD_NUMBER = 216904604;
-  private int maxConnectionsPerEndpoint_;
+  private int maxConnectionsPerEndpoint_ = 0;
   /**
    * <pre>
    * Defines a target maximum number of simultaneous connections. For usage guidelines, see Connection balancing mode and Utilization balancing mode. Not available if the backend's balancingMode is RATE.
@@ -602,7 +502,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_CONNECTIONS_PER_INSTANCE_FIELD_NUMBER = 104671900;
-  private int maxConnectionsPerInstance_;
+  private int maxConnectionsPerInstance_ = 0;
   /**
    * <pre>
    * Defines a target maximum number of simultaneous connections. For usage guidelines, see Connection balancing mode and Utilization balancing mode. Not available if the backend's balancingMode is RATE.
@@ -629,7 +529,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_RATE_FIELD_NUMBER = 408035035;
-  private int maxRate_;
+  private int maxRate_ = 0;
   /**
    * <pre>
    * Defines a maximum number of HTTP requests per second (RPS). For usage guidelines, see Rate balancing mode and Utilization balancing mode. Not available if the backend's balancingMode is CONNECTION.
@@ -656,7 +556,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_RATE_PER_ENDPOINT_FIELD_NUMBER = 129832283;
-  private float maxRatePerEndpoint_;
+  private float maxRatePerEndpoint_ = 0F;
   /**
    * <pre>
    * Defines a maximum target for requests per second (RPS). For usage guidelines, see Rate balancing mode and Utilization balancing mode. Not available if the backend's balancingMode is CONNECTION.
@@ -683,7 +583,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_RATE_PER_INSTANCE_FIELD_NUMBER = 17599579;
-  private float maxRatePerInstance_;
+  private float maxRatePerInstance_ = 0F;
   /**
    * <pre>
    * Defines a maximum target for requests per second (RPS). For usage guidelines, see Rate balancing mode and Utilization balancing mode. Not available if the backend's balancingMode is CONNECTION.
@@ -710,7 +610,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_UTILIZATION_FIELD_NUMBER = 148192199;
-  private float maxUtilization_;
+  private float maxUtilization_ = 0F;
   /**
    * <pre>
    * Optional parameter to define a target capacity for the UTILIZATION balancing mode. The valid range is [0.0, 1.0]. For usage guidelines, see Utilization balancing mode.
@@ -786,7 +686,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 430286217, balancingMode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -840,7 +740,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(430286217, balancingMode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -919,7 +819,7 @@ private static final long serialVersionUID = 0L;
           != java.lang.Float.floatToIntBits(
               other.getMaxUtilization())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -983,7 +883,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getMaxUtilization());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1104,46 +1004,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.Backend.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       balancingMode_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       capacityScaler_ = 0F;
-      bitField0_ = (bitField0_ & ~0x00000002);
       description_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       failover_ = false;
-      bitField0_ = (bitField0_ & ~0x00000008);
       group_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       maxConnections_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000020);
       maxConnectionsPerEndpoint_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000040);
       maxConnectionsPerInstance_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000080);
       maxRate_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000100);
       maxRatePerEndpoint_ = 0F;
-      bitField0_ = (bitField0_ & ~0x00000200);
       maxRatePerInstance_ = 0F;
-      bitField0_ = (bitField0_ & ~0x00000400);
       maxUtilization_ = 0F;
-      bitField0_ = (bitField0_ & ~0x00000800);
       return this;
     }
 
@@ -1170,28 +1054,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.Backend buildPartial() {
       com.google.cloud.compute.v1.Backend result = new com.google.cloud.compute.v1.Backend(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.Backend result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.balancingMode_ = balancingMode_;
         to_bitField0_ |= 0x00000001;
       }
-      result.balancingMode_ = balancingMode_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.capacityScaler_ = capacityScaler_;
         to_bitField0_ |= 0x00000002;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.description_ = description_;
         to_bitField0_ |= 0x00000004;
       }
-      result.description_ = description_;
       if (((from_bitField0_ & 0x00000008) != 0)) {
         result.failover_ = failover_;
         to_bitField0_ |= 0x00000008;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.group_ = group_;
         to_bitField0_ |= 0x00000010;
       }
-      result.group_ = group_;
       if (((from_bitField0_ & 0x00000020) != 0)) {
         result.maxConnections_ = maxConnections_;
         to_bitField0_ |= 0x00000020;
@@ -1220,9 +1110,7 @@ private static final long serialVersionUID = 0L;
         result.maxUtilization_ = maxUtilization_;
         to_bitField0_ |= 0x00000800;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1270,24 +1158,24 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.Backend other) {
       if (other == com.google.cloud.compute.v1.Backend.getDefaultInstance()) return this;
       if (other.hasBalancingMode()) {
-        bitField0_ |= 0x00000001;
         balancingMode_ = other.balancingMode_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasCapacityScaler()) {
         setCapacityScaler(other.getCapacityScaler());
       }
       if (other.hasDescription()) {
-        bitField0_ |= 0x00000004;
         description_ = other.description_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasFailover()) {
         setFailover(other.getFailover());
       }
       if (other.hasGroup()) {
-        bitField0_ |= 0x00000010;
         group_ = other.group_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasMaxConnections()) {
@@ -1311,7 +1199,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasMaxUtilization()) {
         setMaxUtilization(other.getMaxUtilization());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1326,17 +1214,90 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.Backend parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 140796637: {
+              maxRatePerInstance_ = input.readFloat();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 140796637
+            case 789033978: {
+              group_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 789033978
+            case 837375200: {
+              maxConnectionsPerInstance_ = input.readInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 837375200
+            case 885217232: {
+              maxConnections_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 885217232
+            case 1038658269: {
+              maxRatePerEndpoint_ = input.readFloat();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 1038658269
+            case 1111140240: {
+              failover_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 1111140240
+            case 1185537597: {
+              maxUtilization_ = input.readFloat();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 1185537597
+            case 1735236832: {
+              maxConnectionsPerEndpoint_ = input.readInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 1735236832
+            case -1767302035: {
+              capacityScaler_ = input.readFloat();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -1767302035
+            case -1030687016: {
+              maxRate_ = input.readInt32();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case -1030687016
+            case -911466526: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -911466526
+            case -852677558: {
+              balancingMode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -852677558
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.Backend) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1409,11 +1370,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBalancingMode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       balancingMode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1427,8 +1386,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBalancingMode() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       balancingMode_ = getDefaultInstance().getBalancingMode();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1444,12 +1403,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBalancingModeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       balancingMode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1457,7 +1414,7 @@ private static final long serialVersionUID = 0L;
     private float capacityScaler_ ;
     /**
      * <pre>
-     * A multiplier applied to the backend's target capacity of its balancing mode. The default value is 1, which means the group serves up to 100% of its configured capacity (depending on balancingMode). A setting of 0 means the group is completely drained, offering 0% of its available capacity. The valid ranges are 0.0 and [0.1,1.0]. You cannot configure a setting larger than 0 and smaller than 0.1. You cannot configure a setting of 0 when there is only one backend attached to the backend service.
+     * A multiplier applied to the backend's target capacity of its balancing mode. The default value is 1, which means the group serves up to 100% of its configured capacity (depending on balancingMode). A setting of 0 means the group is completely drained, offering 0% of its available capacity. The valid ranges are 0.0 and [0.1,1.0]. You cannot configure a setting larger than 0 and smaller than 0.1. You cannot configure a setting of 0 when there is only one backend attached to the backend service. Not available with backends that don't support using a balancingMode. This includes backends such as global internet NEGs, regional serverless NEGs, and PSC NEGs.
      * </pre>
      *
      * <code>optional float capacity_scaler = 315958157;</code>
@@ -1469,7 +1426,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A multiplier applied to the backend's target capacity of its balancing mode. The default value is 1, which means the group serves up to 100% of its configured capacity (depending on balancingMode). A setting of 0 means the group is completely drained, offering 0% of its available capacity. The valid ranges are 0.0 and [0.1,1.0]. You cannot configure a setting larger than 0 and smaller than 0.1. You cannot configure a setting of 0 when there is only one backend attached to the backend service.
+     * A multiplier applied to the backend's target capacity of its balancing mode. The default value is 1, which means the group serves up to 100% of its configured capacity (depending on balancingMode). A setting of 0 means the group is completely drained, offering 0% of its available capacity. The valid ranges are 0.0 and [0.1,1.0]. You cannot configure a setting larger than 0 and smaller than 0.1. You cannot configure a setting of 0 when there is only one backend attached to the backend service. Not available with backends that don't support using a balancingMode. This includes backends such as global internet NEGs, regional serverless NEGs, and PSC NEGs.
      * </pre>
      *
      * <code>optional float capacity_scaler = 315958157;</code>
@@ -1481,7 +1438,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A multiplier applied to the backend's target capacity of its balancing mode. The default value is 1, which means the group serves up to 100% of its configured capacity (depending on balancingMode). A setting of 0 means the group is completely drained, offering 0% of its available capacity. The valid ranges are 0.0 and [0.1,1.0]. You cannot configure a setting larger than 0 and smaller than 0.1. You cannot configure a setting of 0 when there is only one backend attached to the backend service.
+     * A multiplier applied to the backend's target capacity of its balancing mode. The default value is 1, which means the group serves up to 100% of its configured capacity (depending on balancingMode). A setting of 0 means the group is completely drained, offering 0% of its available capacity. The valid ranges are 0.0 and [0.1,1.0]. You cannot configure a setting larger than 0 and smaller than 0.1. You cannot configure a setting of 0 when there is only one backend attached to the backend service. Not available with backends that don't support using a balancingMode. This includes backends such as global internet NEGs, regional serverless NEGs, and PSC NEGs.
      * </pre>
      *
      * <code>optional float capacity_scaler = 315958157;</code>
@@ -1489,14 +1446,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCapacityScaler(float value) {
-      bitField0_ |= 0x00000002;
+      
       capacityScaler_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * A multiplier applied to the backend's target capacity of its balancing mode. The default value is 1, which means the group serves up to 100% of its configured capacity (depending on balancingMode). A setting of 0 means the group is completely drained, offering 0% of its available capacity. The valid ranges are 0.0 and [0.1,1.0]. You cannot configure a setting larger than 0 and smaller than 0.1. You cannot configure a setting of 0 when there is only one backend attached to the backend service.
+     * A multiplier applied to the backend's target capacity of its balancing mode. The default value is 1, which means the group serves up to 100% of its configured capacity (depending on balancingMode). A setting of 0 means the group is completely drained, offering 0% of its available capacity. The valid ranges are 0.0 and [0.1,1.0]. You cannot configure a setting larger than 0 and smaller than 0.1. You cannot configure a setting of 0 when there is only one backend attached to the backend service. Not available with backends that don't support using a balancingMode. This includes backends such as global internet NEGs, regional serverless NEGs, and PSC NEGs.
      * </pre>
      *
      * <code>optional float capacity_scaler = 315958157;</code>
@@ -1573,11 +1531,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1590,8 +1546,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1606,12 +1562,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1651,8 +1605,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFailover(boolean value) {
-      bitField0_ |= 0x00000008;
+      
       failover_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1735,11 +1690,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGroup(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       group_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1752,8 +1705,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGroup() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       group_ = getDefaultInstance().getGroup();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1768,12 +1721,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGroupBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       group_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1813,8 +1764,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxConnections(int value) {
-      bitField0_ |= 0x00000020;
+      
       maxConnections_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1868,8 +1820,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxConnectionsPerEndpoint(int value) {
-      bitField0_ |= 0x00000040;
+      
       maxConnectionsPerEndpoint_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1923,8 +1876,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxConnectionsPerInstance(int value) {
-      bitField0_ |= 0x00000080;
+      
       maxConnectionsPerInstance_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1978,8 +1932,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxRate(int value) {
-      bitField0_ |= 0x00000100;
+      
       maxRate_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2033,8 +1988,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxRatePerEndpoint(float value) {
-      bitField0_ |= 0x00000200;
+      
       maxRatePerEndpoint_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2088,8 +2044,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxRatePerInstance(float value) {
-      bitField0_ |= 0x00000400;
+      
       maxRatePerInstance_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2143,8 +2100,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxUtilization(float value) {
-      bitField0_ |= 0x00000800;
+      
       maxUtilization_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2195,7 +2153,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Backend(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

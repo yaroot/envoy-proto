@@ -35,55 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HttpBody(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-
-            body_ = input.readBytes();
-            break;
-          }
-          case 16: {
-
-            endOfStream_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.service.ext_proc.v3.ExternalProcessorProto.internal_static_envoy_service_ext_proc_v3_HttpBody_descriptor;
@@ -98,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BODY_FIELD_NUMBER = 1;
-  private com.google.protobuf.ByteString body_;
+  private com.google.protobuf.ByteString body_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <code>bytes body = 1;</code>
    * @return The body.
@@ -109,7 +60,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int END_OF_STREAM_FIELD_NUMBER = 2;
-  private boolean endOfStream_;
+  private boolean endOfStream_ = false;
   /**
    * <code>bool end_of_stream = 2;</code>
    * @return The endOfStream.
@@ -139,7 +90,7 @@ private static final long serialVersionUID = 0L;
     if (endOfStream_ != false) {
       output.writeBool(2, endOfStream_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -156,7 +107,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(2, endOfStream_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -175,7 +126,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getBody())) return false;
     if (getEndOfStream()
         != other.getEndOfStream()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -191,7 +142,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + END_OF_STREAM_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getEndOfStream());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -312,26 +263,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.service.ext_proc.v3.HttpBody.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       body_ = com.google.protobuf.ByteString.EMPTY;
-
       endOfStream_ = false;
-
       return this;
     }
 
@@ -358,10 +303,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.service.ext_proc.v3.HttpBody buildPartial() {
       io.envoyproxy.envoy.service.ext_proc.v3.HttpBody result = new io.envoyproxy.envoy.service.ext_proc.v3.HttpBody(this);
-      result.body_ = body_;
-      result.endOfStream_ = endOfStream_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.service.ext_proc.v3.HttpBody result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.body_ = body_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.endOfStream_ = endOfStream_;
+      }
     }
 
     @java.lang.Override
@@ -414,7 +368,7 @@ private static final long serialVersionUID = 0L;
       if (other.getEndOfStream() != false) {
         setEndOfStream(other.getEndOfStream());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -429,19 +383,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.service.ext_proc.v3.HttpBody parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              body_ = input.readBytes();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              endOfStream_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.service.ext_proc.v3.HttpBody) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.ByteString body_ = com.google.protobuf.ByteString.EMPTY;
     /**
@@ -458,11 +436,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBody(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       body_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -471,7 +447,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBody() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       body_ = getDefaultInstance().getBody();
       onChanged();
       return this;
@@ -494,6 +470,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEndOfStream(boolean value) {
       
       endOfStream_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -502,7 +479,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEndOfStream() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       endOfStream_ = false;
       onChanged();
       return this;
@@ -540,7 +517,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HttpBody(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -14,14 +14,14 @@ _sym_db = _symbol_database.Default()
 from google.type import expr_pb2 as google_dot_type_dot_expr__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1cgoogle/iam/v2beta/deny.proto\x12\x11google.iam.v2beta\x1a\x16google/type/expr.proto\"\xab\x01\n\x08\x44\x65nyRule\x12\x19\n\x11\x64\x65nied_principals\x18\x01 \x03(\t\x12\x1c\n\x14\x65xception_principals\x18\x02 \x03(\t\x12\x1a\n\x12\x64\x65nied_permissions\x18\x03 \x03(\t\x12\x1d\n\x15\x65xception_permissions\x18\x04 \x03(\t\x12+\n\x10\x64\x65nial_condition\x18\x05 \x01(\x0b\x32\x11.google.type.ExprB^\n\x15\x63om.google.iam.v2betaB\rDenyRuleProtoP\x01Z4google.golang.org/genproto/googleapis/iam/v2beta;iamb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1cgoogle/iam/v2beta/deny.proto\x12\x11google.iam.v2beta\x1a\x16google/type/expr.proto\"\xab\x01\n\x08\x44\x65nyRule\x12\x19\n\x11\x64\x65nied_principals\x18\x01 \x03(\t\x12\x1c\n\x14\x65xception_principals\x18\x02 \x03(\t\x12\x1a\n\x12\x64\x65nied_permissions\x18\x03 \x03(\t\x12\x1d\n\x15\x65xception_permissions\x18\x04 \x03(\t\x12+\n\x10\x64\x65nial_condition\x18\x05 \x01(\x0b\x32\x11.google.type.ExprB\x92\x01\n\x15\x63om.google.iam.v2betaB\rDenyRuleProtoP\x01Z4google.golang.org/genproto/googleapis/iam/v2beta;iam\xaa\x02\x17Google.Cloud.Iam.V2Beta\xca\x02\x17Google\\Cloud\\Iam\\V2betab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.iam.v2beta.deny_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\025com.google.iam.v2betaB\rDenyRuleProtoP\001Z4google.golang.org/genproto/googleapis/iam/v2beta;iam'
+  DESCRIPTOR._serialized_options = b'\n\025com.google.iam.v2betaB\rDenyRuleProtoP\001Z4google.golang.org/genproto/googleapis/iam/v2beta;iam\252\002\027Google.Cloud.Iam.V2Beta\312\002\027Google\\Cloud\\Iam\\V2beta'
   _DENYRULE._serialized_start=76
   _DENYRULE._serialized_end=247
 # @@protoc_insertion_point(module_scope)

@@ -9,7 +9,8 @@ public interface ListAwsNodePoolsResponseOrBuilder extends
 
   /**
    * <pre>
-   * A list of [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resources in the specified `AwsCluster`.
+   * A list of [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool]
+   * resources in the specified `AwsCluster`.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AwsNodePool aws_node_pools = 1;</code>
@@ -18,7 +19,8 @@ public interface ListAwsNodePoolsResponseOrBuilder extends
       getAwsNodePoolsList();
   /**
    * <pre>
-   * A list of [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resources in the specified `AwsCluster`.
+   * A list of [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool]
+   * resources in the specified `AwsCluster`.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AwsNodePool aws_node_pools = 1;</code>
@@ -26,7 +28,8 @@ public interface ListAwsNodePoolsResponseOrBuilder extends
   com.google.cloud.gkemulticloud.v1.AwsNodePool getAwsNodePools(int index);
   /**
    * <pre>
-   * A list of [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resources in the specified `AwsCluster`.
+   * A list of [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool]
+   * resources in the specified `AwsCluster`.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AwsNodePool aws_node_pools = 1;</code>
@@ -34,7 +37,8 @@ public interface ListAwsNodePoolsResponseOrBuilder extends
   int getAwsNodePoolsCount();
   /**
    * <pre>
-   * A list of [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resources in the specified `AwsCluster`.
+   * A list of [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool]
+   * resources in the specified `AwsCluster`.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AwsNodePool aws_node_pools = 1;</code>
@@ -43,7 +47,8 @@ public interface ListAwsNodePoolsResponseOrBuilder extends
       getAwsNodePoolsOrBuilderList();
   /**
    * <pre>
-   * A list of [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resources in the specified `AwsCluster`.
+   * A list of [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool]
+   * resources in the specified `AwsCluster`.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AwsNodePool aws_node_pools = 1;</code>

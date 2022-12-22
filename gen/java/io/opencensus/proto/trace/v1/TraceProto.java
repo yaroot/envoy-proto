@@ -202,10 +202,10 @@ public final class TraceProto {
       "id\030\002 \001(\0132,.opencensus.proto.trace.v1.Tru" +
       "ncatableString\"@\n\021TruncatableString\022\r\n\005v" +
       "alue\030\001 \001(\t\022\034\n\024truncated_byte_count\030\002 \001(\005" +
-      "B\214\001\n\034io.opencensus.proto.trace.v1B\nTrace" +
+      "B\217\001\n\034io.opencensus.proto.trace.v1B\nTrace" +
       "ProtoP\001ZBgithub.com/census-instrumentati" +
-      "on/opencensus-proto/gen-go/trace/v1\352\002\031Op" +
-      "enCensus.Proto.Trace.V1b\006proto3"
+      "on/opencensus-proto/gen-go/trace/v1\352\002\034Op" +
+      "enCensus::Proto::Trace::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

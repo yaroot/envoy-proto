@@ -34,199 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ActionDetail(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.apps.drive.activity.v2.Create.Builder subBuilder = null;
-            if (actionDetailCase_ == 1) {
-              subBuilder = ((com.google.apps.drive.activity.v2.Create) actionDetail_).toBuilder();
-            }
-            actionDetail_ =
-                input.readMessage(com.google.apps.drive.activity.v2.Create.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.apps.drive.activity.v2.Create) actionDetail_);
-              actionDetail_ = subBuilder.buildPartial();
-            }
-            actionDetailCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.apps.drive.activity.v2.Edit.Builder subBuilder = null;
-            if (actionDetailCase_ == 2) {
-              subBuilder = ((com.google.apps.drive.activity.v2.Edit) actionDetail_).toBuilder();
-            }
-            actionDetail_ =
-                input.readMessage(com.google.apps.drive.activity.v2.Edit.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.apps.drive.activity.v2.Edit) actionDetail_);
-              actionDetail_ = subBuilder.buildPartial();
-            }
-            actionDetailCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.apps.drive.activity.v2.Move.Builder subBuilder = null;
-            if (actionDetailCase_ == 3) {
-              subBuilder = ((com.google.apps.drive.activity.v2.Move) actionDetail_).toBuilder();
-            }
-            actionDetail_ =
-                input.readMessage(com.google.apps.drive.activity.v2.Move.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.apps.drive.activity.v2.Move) actionDetail_);
-              actionDetail_ = subBuilder.buildPartial();
-            }
-            actionDetailCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.apps.drive.activity.v2.Rename.Builder subBuilder = null;
-            if (actionDetailCase_ == 4) {
-              subBuilder = ((com.google.apps.drive.activity.v2.Rename) actionDetail_).toBuilder();
-            }
-            actionDetail_ =
-                input.readMessage(com.google.apps.drive.activity.v2.Rename.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.apps.drive.activity.v2.Rename) actionDetail_);
-              actionDetail_ = subBuilder.buildPartial();
-            }
-            actionDetailCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.apps.drive.activity.v2.Delete.Builder subBuilder = null;
-            if (actionDetailCase_ == 5) {
-              subBuilder = ((com.google.apps.drive.activity.v2.Delete) actionDetail_).toBuilder();
-            }
-            actionDetail_ =
-                input.readMessage(com.google.apps.drive.activity.v2.Delete.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.apps.drive.activity.v2.Delete) actionDetail_);
-              actionDetail_ = subBuilder.buildPartial();
-            }
-            actionDetailCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.apps.drive.activity.v2.Restore.Builder subBuilder = null;
-            if (actionDetailCase_ == 6) {
-              subBuilder = ((com.google.apps.drive.activity.v2.Restore) actionDetail_).toBuilder();
-            }
-            actionDetail_ =
-                input.readMessage(com.google.apps.drive.activity.v2.Restore.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.apps.drive.activity.v2.Restore) actionDetail_);
-              actionDetail_ = subBuilder.buildPartial();
-            }
-            actionDetailCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.apps.drive.activity.v2.PermissionChange.Builder subBuilder = null;
-            if (actionDetailCase_ == 7) {
-              subBuilder = ((com.google.apps.drive.activity.v2.PermissionChange) actionDetail_).toBuilder();
-            }
-            actionDetail_ =
-                input.readMessage(com.google.apps.drive.activity.v2.PermissionChange.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.apps.drive.activity.v2.PermissionChange) actionDetail_);
-              actionDetail_ = subBuilder.buildPartial();
-            }
-            actionDetailCase_ = 7;
-            break;
-          }
-          case 66: {
-            com.google.apps.drive.activity.v2.Comment.Builder subBuilder = null;
-            if (actionDetailCase_ == 8) {
-              subBuilder = ((com.google.apps.drive.activity.v2.Comment) actionDetail_).toBuilder();
-            }
-            actionDetail_ =
-                input.readMessage(com.google.apps.drive.activity.v2.Comment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.apps.drive.activity.v2.Comment) actionDetail_);
-              actionDetail_ = subBuilder.buildPartial();
-            }
-            actionDetailCase_ = 8;
-            break;
-          }
-          case 74: {
-            com.google.apps.drive.activity.v2.DataLeakPreventionChange.Builder subBuilder = null;
-            if (actionDetailCase_ == 9) {
-              subBuilder = ((com.google.apps.drive.activity.v2.DataLeakPreventionChange) actionDetail_).toBuilder();
-            }
-            actionDetail_ =
-                input.readMessage(com.google.apps.drive.activity.v2.DataLeakPreventionChange.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.apps.drive.activity.v2.DataLeakPreventionChange) actionDetail_);
-              actionDetail_ = subBuilder.buildPartial();
-            }
-            actionDetailCase_ = 9;
-            break;
-          }
-          case 98: {
-            com.google.apps.drive.activity.v2.ApplicationReference.Builder subBuilder = null;
-            if (actionDetailCase_ == 12) {
-              subBuilder = ((com.google.apps.drive.activity.v2.ApplicationReference) actionDetail_).toBuilder();
-            }
-            actionDetail_ =
-                input.readMessage(com.google.apps.drive.activity.v2.ApplicationReference.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.apps.drive.activity.v2.ApplicationReference) actionDetail_);
-              actionDetail_ = subBuilder.buildPartial();
-            }
-            actionDetailCase_ = 12;
-            break;
-          }
-          case 106: {
-            com.google.apps.drive.activity.v2.SettingsChange.Builder subBuilder = null;
-            if (actionDetailCase_ == 13) {
-              subBuilder = ((com.google.apps.drive.activity.v2.SettingsChange) actionDetail_).toBuilder();
-            }
-            actionDetail_ =
-                input.readMessage(com.google.apps.drive.activity.v2.SettingsChange.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.apps.drive.activity.v2.SettingsChange) actionDetail_);
-              actionDetail_ = subBuilder.buildPartial();
-            }
-            actionDetailCase_ = 13;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.apps.drive.activity.v2.ActionProto.internal_static_google_apps_drive_activity_v2_ActionDetail_descriptor;
@@ -256,6 +63,7 @@ private static final long serialVersionUID = 0L;
     DLP_CHANGE(9),
     REFERENCE(12),
     SETTINGS_CHANGE(13),
+    APPLIED_LABEL_CHANGE(19),
     ACTIONDETAIL_NOT_SET(0);
     private final int value;
     private ActionDetailCase(int value) {
@@ -284,6 +92,7 @@ private static final long serialVersionUID = 0L;
         case 9: return DLP_CHANGE;
         case 12: return REFERENCE;
         case 13: return SETTINGS_CHANGE;
+        case 19: return APPLIED_LABEL_CHANGE;
         case 0: return ACTIONDETAIL_NOT_SET;
         default: return null;
       }
@@ -772,6 +581,49 @@ private static final long serialVersionUID = 0L;
     return com.google.apps.drive.activity.v2.SettingsChange.getDefaultInstance();
   }
 
+  public static final int APPLIED_LABEL_CHANGE_FIELD_NUMBER = 19;
+  /**
+   * <pre>
+   * Label was changed.
+   * </pre>
+   *
+   * <code>.google.apps.drive.activity.v2.AppliedLabelChange applied_label_change = 19;</code>
+   * @return Whether the appliedLabelChange field is set.
+   */
+  @java.lang.Override
+  public boolean hasAppliedLabelChange() {
+    return actionDetailCase_ == 19;
+  }
+  /**
+   * <pre>
+   * Label was changed.
+   * </pre>
+   *
+   * <code>.google.apps.drive.activity.v2.AppliedLabelChange applied_label_change = 19;</code>
+   * @return The appliedLabelChange.
+   */
+  @java.lang.Override
+  public com.google.apps.drive.activity.v2.AppliedLabelChange getAppliedLabelChange() {
+    if (actionDetailCase_ == 19) {
+       return (com.google.apps.drive.activity.v2.AppliedLabelChange) actionDetail_;
+    }
+    return com.google.apps.drive.activity.v2.AppliedLabelChange.getDefaultInstance();
+  }
+  /**
+   * <pre>
+   * Label was changed.
+   * </pre>
+   *
+   * <code>.google.apps.drive.activity.v2.AppliedLabelChange applied_label_change = 19;</code>
+   */
+  @java.lang.Override
+  public com.google.apps.drive.activity.v2.AppliedLabelChangeOrBuilder getAppliedLabelChangeOrBuilder() {
+    if (actionDetailCase_ == 19) {
+       return (com.google.apps.drive.activity.v2.AppliedLabelChange) actionDetail_;
+    }
+    return com.google.apps.drive.activity.v2.AppliedLabelChange.getDefaultInstance();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -819,7 +671,10 @@ private static final long serialVersionUID = 0L;
     if (actionDetailCase_ == 13) {
       output.writeMessage(13, (com.google.apps.drive.activity.v2.SettingsChange) actionDetail_);
     }
-    unknownFields.writeTo(output);
+    if (actionDetailCase_ == 19) {
+      output.writeMessage(19, (com.google.apps.drive.activity.v2.AppliedLabelChange) actionDetail_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -872,7 +727,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(13, (com.google.apps.drive.activity.v2.SettingsChange) actionDetail_);
     }
-    size += unknownFields.getSerializedSize();
+    if (actionDetailCase_ == 19) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(19, (com.google.apps.drive.activity.v2.AppliedLabelChange) actionDetail_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -933,10 +792,14 @@ private static final long serialVersionUID = 0L;
         if (!getSettingsChange()
             .equals(other.getSettingsChange())) return false;
         break;
+      case 19:
+        if (!getAppliedLabelChange()
+            .equals(other.getAppliedLabelChange())) return false;
+        break;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -992,10 +855,14 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + SETTINGS_CHANGE_FIELD_NUMBER;
         hash = (53 * hash) + getSettingsChange().hashCode();
         break;
+      case 19:
+        hash = (37 * hash) + APPLIED_LABEL_CHANGE_FIELD_NUMBER;
+        hash = (53 * hash) + getAppliedLabelChange().hashCode();
+        break;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1116,22 +983,54 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.apps.drive.activity.v2.ActionDetail.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (createBuilder_ != null) {
+        createBuilder_.clear();
+      }
+      if (editBuilder_ != null) {
+        editBuilder_.clear();
+      }
+      if (moveBuilder_ != null) {
+        moveBuilder_.clear();
+      }
+      if (renameBuilder_ != null) {
+        renameBuilder_.clear();
+      }
+      if (deleteBuilder_ != null) {
+        deleteBuilder_.clear();
+      }
+      if (restoreBuilder_ != null) {
+        restoreBuilder_.clear();
+      }
+      if (permissionChangeBuilder_ != null) {
+        permissionChangeBuilder_.clear();
+      }
+      if (commentBuilder_ != null) {
+        commentBuilder_.clear();
+      }
+      if (dlpChangeBuilder_ != null) {
+        dlpChangeBuilder_.clear();
+      }
+      if (referenceBuilder_ != null) {
+        referenceBuilder_.clear();
+      }
+      if (settingsChangeBuilder_ != null) {
+        settingsChangeBuilder_.clear();
+      }
+      if (appliedLabelChangeBuilder_ != null) {
+        appliedLabelChangeBuilder_.clear();
+      }
       actionDetailCase_ = 0;
       actionDetail_ = null;
       return this;
@@ -1160,86 +1059,67 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.apps.drive.activity.v2.ActionDetail buildPartial() {
       com.google.apps.drive.activity.v2.ActionDetail result = new com.google.apps.drive.activity.v2.ActionDetail(this);
-      if (actionDetailCase_ == 1) {
-        if (createBuilder_ == null) {
-          result.actionDetail_ = actionDetail_;
-        } else {
-          result.actionDetail_ = createBuilder_.build();
-        }
-      }
-      if (actionDetailCase_ == 2) {
-        if (editBuilder_ == null) {
-          result.actionDetail_ = actionDetail_;
-        } else {
-          result.actionDetail_ = editBuilder_.build();
-        }
-      }
-      if (actionDetailCase_ == 3) {
-        if (moveBuilder_ == null) {
-          result.actionDetail_ = actionDetail_;
-        } else {
-          result.actionDetail_ = moveBuilder_.build();
-        }
-      }
-      if (actionDetailCase_ == 4) {
-        if (renameBuilder_ == null) {
-          result.actionDetail_ = actionDetail_;
-        } else {
-          result.actionDetail_ = renameBuilder_.build();
-        }
-      }
-      if (actionDetailCase_ == 5) {
-        if (deleteBuilder_ == null) {
-          result.actionDetail_ = actionDetail_;
-        } else {
-          result.actionDetail_ = deleteBuilder_.build();
-        }
-      }
-      if (actionDetailCase_ == 6) {
-        if (restoreBuilder_ == null) {
-          result.actionDetail_ = actionDetail_;
-        } else {
-          result.actionDetail_ = restoreBuilder_.build();
-        }
-      }
-      if (actionDetailCase_ == 7) {
-        if (permissionChangeBuilder_ == null) {
-          result.actionDetail_ = actionDetail_;
-        } else {
-          result.actionDetail_ = permissionChangeBuilder_.build();
-        }
-      }
-      if (actionDetailCase_ == 8) {
-        if (commentBuilder_ == null) {
-          result.actionDetail_ = actionDetail_;
-        } else {
-          result.actionDetail_ = commentBuilder_.build();
-        }
-      }
-      if (actionDetailCase_ == 9) {
-        if (dlpChangeBuilder_ == null) {
-          result.actionDetail_ = actionDetail_;
-        } else {
-          result.actionDetail_ = dlpChangeBuilder_.build();
-        }
-      }
-      if (actionDetailCase_ == 12) {
-        if (referenceBuilder_ == null) {
-          result.actionDetail_ = actionDetail_;
-        } else {
-          result.actionDetail_ = referenceBuilder_.build();
-        }
-      }
-      if (actionDetailCase_ == 13) {
-        if (settingsChangeBuilder_ == null) {
-          result.actionDetail_ = actionDetail_;
-        } else {
-          result.actionDetail_ = settingsChangeBuilder_.build();
-        }
-      }
-      result.actionDetailCase_ = actionDetailCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.apps.drive.activity.v2.ActionDetail result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.apps.drive.activity.v2.ActionDetail result) {
+      result.actionDetailCase_ = actionDetailCase_;
+      result.actionDetail_ = this.actionDetail_;
+      if (actionDetailCase_ == 1 &&
+          createBuilder_ != null) {
+        result.actionDetail_ = createBuilder_.build();
+      }
+      if (actionDetailCase_ == 2 &&
+          editBuilder_ != null) {
+        result.actionDetail_ = editBuilder_.build();
+      }
+      if (actionDetailCase_ == 3 &&
+          moveBuilder_ != null) {
+        result.actionDetail_ = moveBuilder_.build();
+      }
+      if (actionDetailCase_ == 4 &&
+          renameBuilder_ != null) {
+        result.actionDetail_ = renameBuilder_.build();
+      }
+      if (actionDetailCase_ == 5 &&
+          deleteBuilder_ != null) {
+        result.actionDetail_ = deleteBuilder_.build();
+      }
+      if (actionDetailCase_ == 6 &&
+          restoreBuilder_ != null) {
+        result.actionDetail_ = restoreBuilder_.build();
+      }
+      if (actionDetailCase_ == 7 &&
+          permissionChangeBuilder_ != null) {
+        result.actionDetail_ = permissionChangeBuilder_.build();
+      }
+      if (actionDetailCase_ == 8 &&
+          commentBuilder_ != null) {
+        result.actionDetail_ = commentBuilder_.build();
+      }
+      if (actionDetailCase_ == 9 &&
+          dlpChangeBuilder_ != null) {
+        result.actionDetail_ = dlpChangeBuilder_.build();
+      }
+      if (actionDetailCase_ == 12 &&
+          referenceBuilder_ != null) {
+        result.actionDetail_ = referenceBuilder_.build();
+      }
+      if (actionDetailCase_ == 13 &&
+          settingsChangeBuilder_ != null) {
+        result.actionDetail_ = settingsChangeBuilder_.build();
+      }
+      if (actionDetailCase_ == 19 &&
+          appliedLabelChangeBuilder_ != null) {
+        result.actionDetail_ = appliedLabelChangeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1331,11 +1211,15 @@ private static final long serialVersionUID = 0L;
           mergeSettingsChange(other.getSettingsChange());
           break;
         }
+        case APPLIED_LABEL_CHANGE: {
+          mergeAppliedLabelChange(other.getAppliedLabelChange());
+          break;
+        }
         case ACTIONDETAIL_NOT_SET: {
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1350,17 +1234,114 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.apps.drive.activity.v2.ActionDetail parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCreateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionDetailCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getEditFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionDetailCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getMoveFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionDetailCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getRenameFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionDetailCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getDeleteFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionDetailCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getRestoreFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionDetailCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getPermissionChangeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionDetailCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getCommentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionDetailCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getDlpChangeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionDetailCase_ = 9;
+              break;
+            } // case 74
+            case 98: {
+              input.readMessage(
+                  getReferenceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionDetailCase_ = 12;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getSettingsChangeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionDetailCase_ = 13;
+              break;
+            } // case 106
+            case 154: {
+              input.readMessage(
+                  getAppliedLabelChangeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              actionDetailCase_ = 19;
+              break;
+            } // case 154
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.apps.drive.activity.v2.ActionDetail) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int actionDetailCase_ = 0;
@@ -1378,6 +1359,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.apps.drive.activity.v2.Create, com.google.apps.drive.activity.v2.Create.Builder, com.google.apps.drive.activity.v2.CreateOrBuilder> createBuilder_;
@@ -1553,7 +1535,7 @@ private static final long serialVersionUID = 0L;
         actionDetail_ = null;
       }
       actionDetailCase_ = 1;
-      onChanged();;
+      onChanged();
       return createBuilder_;
     }
 
@@ -1731,7 +1713,7 @@ private static final long serialVersionUID = 0L;
         actionDetail_ = null;
       }
       actionDetailCase_ = 2;
-      onChanged();;
+      onChanged();
       return editBuilder_;
     }
 
@@ -1909,7 +1891,7 @@ private static final long serialVersionUID = 0L;
         actionDetail_ = null;
       }
       actionDetailCase_ = 3;
-      onChanged();;
+      onChanged();
       return moveBuilder_;
     }
 
@@ -2087,7 +2069,7 @@ private static final long serialVersionUID = 0L;
         actionDetail_ = null;
       }
       actionDetailCase_ = 4;
-      onChanged();;
+      onChanged();
       return renameBuilder_;
     }
 
@@ -2265,7 +2247,7 @@ private static final long serialVersionUID = 0L;
         actionDetail_ = null;
       }
       actionDetailCase_ = 5;
-      onChanged();;
+      onChanged();
       return deleteBuilder_;
     }
 
@@ -2443,7 +2425,7 @@ private static final long serialVersionUID = 0L;
         actionDetail_ = null;
       }
       actionDetailCase_ = 6;
-      onChanged();;
+      onChanged();
       return restoreBuilder_;
     }
 
@@ -2621,7 +2603,7 @@ private static final long serialVersionUID = 0L;
         actionDetail_ = null;
       }
       actionDetailCase_ = 7;
-      onChanged();;
+      onChanged();
       return permissionChangeBuilder_;
     }
 
@@ -2799,7 +2781,7 @@ private static final long serialVersionUID = 0L;
         actionDetail_ = null;
       }
       actionDetailCase_ = 8;
-      onChanged();;
+      onChanged();
       return commentBuilder_;
     }
 
@@ -2977,7 +2959,7 @@ private static final long serialVersionUID = 0L;
         actionDetail_ = null;
       }
       actionDetailCase_ = 9;
-      onChanged();;
+      onChanged();
       return dlpChangeBuilder_;
     }
 
@@ -3155,7 +3137,7 @@ private static final long serialVersionUID = 0L;
         actionDetail_ = null;
       }
       actionDetailCase_ = 12;
-      onChanged();;
+      onChanged();
       return referenceBuilder_;
     }
 
@@ -3333,8 +3315,186 @@ private static final long serialVersionUID = 0L;
         actionDetail_ = null;
       }
       actionDetailCase_ = 13;
-      onChanged();;
+      onChanged();
       return settingsChangeBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.apps.drive.activity.v2.AppliedLabelChange, com.google.apps.drive.activity.v2.AppliedLabelChange.Builder, com.google.apps.drive.activity.v2.AppliedLabelChangeOrBuilder> appliedLabelChangeBuilder_;
+    /**
+     * <pre>
+     * Label was changed.
+     * </pre>
+     *
+     * <code>.google.apps.drive.activity.v2.AppliedLabelChange applied_label_change = 19;</code>
+     * @return Whether the appliedLabelChange field is set.
+     */
+    @java.lang.Override
+    public boolean hasAppliedLabelChange() {
+      return actionDetailCase_ == 19;
+    }
+    /**
+     * <pre>
+     * Label was changed.
+     * </pre>
+     *
+     * <code>.google.apps.drive.activity.v2.AppliedLabelChange applied_label_change = 19;</code>
+     * @return The appliedLabelChange.
+     */
+    @java.lang.Override
+    public com.google.apps.drive.activity.v2.AppliedLabelChange getAppliedLabelChange() {
+      if (appliedLabelChangeBuilder_ == null) {
+        if (actionDetailCase_ == 19) {
+          return (com.google.apps.drive.activity.v2.AppliedLabelChange) actionDetail_;
+        }
+        return com.google.apps.drive.activity.v2.AppliedLabelChange.getDefaultInstance();
+      } else {
+        if (actionDetailCase_ == 19) {
+          return appliedLabelChangeBuilder_.getMessage();
+        }
+        return com.google.apps.drive.activity.v2.AppliedLabelChange.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * Label was changed.
+     * </pre>
+     *
+     * <code>.google.apps.drive.activity.v2.AppliedLabelChange applied_label_change = 19;</code>
+     */
+    public Builder setAppliedLabelChange(com.google.apps.drive.activity.v2.AppliedLabelChange value) {
+      if (appliedLabelChangeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        actionDetail_ = value;
+        onChanged();
+      } else {
+        appliedLabelChangeBuilder_.setMessage(value);
+      }
+      actionDetailCase_ = 19;
+      return this;
+    }
+    /**
+     * <pre>
+     * Label was changed.
+     * </pre>
+     *
+     * <code>.google.apps.drive.activity.v2.AppliedLabelChange applied_label_change = 19;</code>
+     */
+    public Builder setAppliedLabelChange(
+        com.google.apps.drive.activity.v2.AppliedLabelChange.Builder builderForValue) {
+      if (appliedLabelChangeBuilder_ == null) {
+        actionDetail_ = builderForValue.build();
+        onChanged();
+      } else {
+        appliedLabelChangeBuilder_.setMessage(builderForValue.build());
+      }
+      actionDetailCase_ = 19;
+      return this;
+    }
+    /**
+     * <pre>
+     * Label was changed.
+     * </pre>
+     *
+     * <code>.google.apps.drive.activity.v2.AppliedLabelChange applied_label_change = 19;</code>
+     */
+    public Builder mergeAppliedLabelChange(com.google.apps.drive.activity.v2.AppliedLabelChange value) {
+      if (appliedLabelChangeBuilder_ == null) {
+        if (actionDetailCase_ == 19 &&
+            actionDetail_ != com.google.apps.drive.activity.v2.AppliedLabelChange.getDefaultInstance()) {
+          actionDetail_ = com.google.apps.drive.activity.v2.AppliedLabelChange.newBuilder((com.google.apps.drive.activity.v2.AppliedLabelChange) actionDetail_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          actionDetail_ = value;
+        }
+        onChanged();
+      } else {
+        if (actionDetailCase_ == 19) {
+          appliedLabelChangeBuilder_.mergeFrom(value);
+        } else {
+          appliedLabelChangeBuilder_.setMessage(value);
+        }
+      }
+      actionDetailCase_ = 19;
+      return this;
+    }
+    /**
+     * <pre>
+     * Label was changed.
+     * </pre>
+     *
+     * <code>.google.apps.drive.activity.v2.AppliedLabelChange applied_label_change = 19;</code>
+     */
+    public Builder clearAppliedLabelChange() {
+      if (appliedLabelChangeBuilder_ == null) {
+        if (actionDetailCase_ == 19) {
+          actionDetailCase_ = 0;
+          actionDetail_ = null;
+          onChanged();
+        }
+      } else {
+        if (actionDetailCase_ == 19) {
+          actionDetailCase_ = 0;
+          actionDetail_ = null;
+        }
+        appliedLabelChangeBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Label was changed.
+     * </pre>
+     *
+     * <code>.google.apps.drive.activity.v2.AppliedLabelChange applied_label_change = 19;</code>
+     */
+    public com.google.apps.drive.activity.v2.AppliedLabelChange.Builder getAppliedLabelChangeBuilder() {
+      return getAppliedLabelChangeFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Label was changed.
+     * </pre>
+     *
+     * <code>.google.apps.drive.activity.v2.AppliedLabelChange applied_label_change = 19;</code>
+     */
+    @java.lang.Override
+    public com.google.apps.drive.activity.v2.AppliedLabelChangeOrBuilder getAppliedLabelChangeOrBuilder() {
+      if ((actionDetailCase_ == 19) && (appliedLabelChangeBuilder_ != null)) {
+        return appliedLabelChangeBuilder_.getMessageOrBuilder();
+      } else {
+        if (actionDetailCase_ == 19) {
+          return (com.google.apps.drive.activity.v2.AppliedLabelChange) actionDetail_;
+        }
+        return com.google.apps.drive.activity.v2.AppliedLabelChange.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * Label was changed.
+     * </pre>
+     *
+     * <code>.google.apps.drive.activity.v2.AppliedLabelChange applied_label_change = 19;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.apps.drive.activity.v2.AppliedLabelChange, com.google.apps.drive.activity.v2.AppliedLabelChange.Builder, com.google.apps.drive.activity.v2.AppliedLabelChangeOrBuilder> 
+        getAppliedLabelChangeFieldBuilder() {
+      if (appliedLabelChangeBuilder_ == null) {
+        if (!(actionDetailCase_ == 19)) {
+          actionDetail_ = com.google.apps.drive.activity.v2.AppliedLabelChange.getDefaultInstance();
+        }
+        appliedLabelChangeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.apps.drive.activity.v2.AppliedLabelChange, com.google.apps.drive.activity.v2.AppliedLabelChange.Builder, com.google.apps.drive.activity.v2.AppliedLabelChangeOrBuilder>(
+                (com.google.apps.drive.activity.v2.AppliedLabelChange) actionDetail_,
+                getParentForChildren(),
+                isClean());
+        actionDetail_ = null;
+      }
+      actionDetailCase_ = 19;
+      onChanged();
+      return appliedLabelChangeBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -3369,7 +3529,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ActionDetail(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

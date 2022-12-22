@@ -220,8 +220,8 @@ public interface VirtualMachineConfigOrBuilder extends
    * `network` nor `subnet` is specified, the "default" network of
    * the project is used, if it exists.
    * A full URL or partial URI. Examples:
-   * * `https://www.googleapis.com/compute/v1/projects/[project_id]/regions/global/default`
-   * * `projects/[project_id]/regions/global/default`
+   * * `https://www.googleapis.com/compute/v1/projects/[project_id]/global/networks/default`
+   * * `projects/[project_id]/global/networks/default`
    * Runtimes are managed resources inside Google Infrastructure.
    * Runtimes support the following network configurations:
    * * Google Managed Network (Network &amp; subnet are empty)
@@ -242,8 +242,8 @@ public interface VirtualMachineConfigOrBuilder extends
    * `network` nor `subnet` is specified, the "default" network of
    * the project is used, if it exists.
    * A full URL or partial URI. Examples:
-   * * `https://www.googleapis.com/compute/v1/projects/[project_id]/regions/global/default`
-   * * `projects/[project_id]/regions/global/default`
+   * * `https://www.googleapis.com/compute/v1/projects/[project_id]/global/networks/default`
+   * * `projects/[project_id]/global/networks/default`
    * Runtimes are managed resources inside Google Infrastructure.
    * Runtimes support the following network configurations:
    * * Google Managed Network (Network &amp; subnet are empty)
@@ -398,7 +398,6 @@ public interface VirtualMachineConfigOrBuilder extends
    *
    * <code>map&lt;string, string&gt; guest_attributes = 14 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 java.lang.String getGuestAttributesOrDefault(
       java.lang.String key,
@@ -414,7 +413,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; guest_attributes = 14 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   java.lang.String getGuestAttributesOrThrow(
       java.lang.String key);
 
@@ -465,7 +463,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; metadata = 15 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getMetadataOrDefault(
       java.lang.String key,
@@ -480,7 +477,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; metadata = 15 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getMetadataOrThrow(
       java.lang.String key);
 
@@ -547,7 +543,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -566,7 +561,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 

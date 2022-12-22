@@ -36,8 +36,8 @@ public interface ReviewDocumentRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The resource name of the HumanReviewConfig that the document will be
-   * reviewed with.
+   * Required. The resource name of the HumanReviewConfig that the document will
+   * be reviewed with.
    * </pre>
    *
    * <code>string human_review_config = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -46,8 +46,8 @@ public interface ReviewDocumentRequestOrBuilder extends
   java.lang.String getHumanReviewConfig();
   /**
    * <pre>
-   * Required. The resource name of the HumanReviewConfig that the document will be
-   * reviewed with.
+   * Required. The resource name of the HumanReviewConfig that the document will
+   * be reviewed with.
    * </pre>
    *
    * <code>string human_review_config = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -63,7 +63,7 @@ public interface ReviewDocumentRequestOrBuilder extends
    *
    * <code>.google.cloud.documentai.v1beta3.Document document = 2 [deprecated = true];</code>
    * @deprecated google.cloud.documentai.v1beta3.ReviewDocumentRequest.document is deprecated.
-   *     See google/cloud/documentai/v1beta3/document_processor_service.proto;l=518
+   *     See google/cloud/documentai/v1beta3/document_processor_service.proto;l=948
    * @return Whether the document field is set.
    */
   @java.lang.Deprecated boolean hasDocument();
@@ -74,7 +74,7 @@ public interface ReviewDocumentRequestOrBuilder extends
    *
    * <code>.google.cloud.documentai.v1beta3.Document document = 2 [deprecated = true];</code>
    * @deprecated google.cloud.documentai.v1beta3.ReviewDocumentRequest.document is deprecated.
-   *     See google/cloud/documentai/v1beta3/document_processor_service.proto;l=518
+   *     See google/cloud/documentai/v1beta3/document_processor_service.proto;l=948
    * @return The document.
    */
   @java.lang.Deprecated com.google.cloud.documentai.v1beta3.Document getDocument();
@@ -115,6 +115,33 @@ public interface ReviewDocumentRequestOrBuilder extends
    * @return The priority.
    */
   com.google.cloud.documentai.v1beta3.ReviewDocumentRequest.Priority getPriority();
+
+  /**
+   * <pre>
+   * The document schema of the human review task.
+   * </pre>
+   *
+   * <code>.google.cloud.documentai.v1beta3.DocumentSchema document_schema = 6;</code>
+   * @return Whether the documentSchema field is set.
+   */
+  boolean hasDocumentSchema();
+  /**
+   * <pre>
+   * The document schema of the human review task.
+   * </pre>
+   *
+   * <code>.google.cloud.documentai.v1beta3.DocumentSchema document_schema = 6;</code>
+   * @return The documentSchema.
+   */
+  com.google.cloud.documentai.v1beta3.DocumentSchema getDocumentSchema();
+  /**
+   * <pre>
+   * The document schema of the human review task.
+   * </pre>
+   *
+   * <code>.google.cloud.documentai.v1beta3.DocumentSchema document_schema = 6;</code>
+   */
+  com.google.cloud.documentai.v1beta3.DocumentSchemaOrBuilder getDocumentSchemaOrBuilder();
 
   public com.google.cloud.documentai.v1beta3.ReviewDocumentRequest.SourceCase getSourceCase();
 }

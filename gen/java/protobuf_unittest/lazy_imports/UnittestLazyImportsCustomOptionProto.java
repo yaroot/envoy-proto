@@ -57,51 +57,6 @@ public final class UnittestLazyImportsCustomOptionProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LazyMessage(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              bitField0_ |= 0x00000001;
-              a_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return protobuf_unittest.lazy_imports.UnittestLazyImportsCustomOptionProto.internal_static_protobuf_unittest_lazy_imports_LazyMessage_descriptor;
@@ -117,7 +72,7 @@ public final class UnittestLazyImportsCustomOptionProto {
 
     private int bitField0_;
     public static final int A_FIELD_NUMBER = 1;
-    private int a_;
+    private int a_ = 0;
     /**
      * <code>optional int32 a = 1;</code>
      * @return Whether the a field is set.
@@ -152,7 +107,7 @@ public final class UnittestLazyImportsCustomOptionProto {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeInt32(1, a_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -165,7 +120,7 @@ public final class UnittestLazyImportsCustomOptionProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, a_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -185,7 +140,7 @@ public final class UnittestLazyImportsCustomOptionProto {
         if (getA()
             != other.getA()) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -200,7 +155,7 @@ public final class UnittestLazyImportsCustomOptionProto {
         hash = (37 * hash) + A_FIELD_NUMBER;
         hash = (53 * hash) + getA();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -317,24 +272,19 @@ public final class UnittestLazyImportsCustomOptionProto {
 
       // Construct using protobuf_unittest.lazy_imports.UnittestLazyImportsCustomOptionProto.LazyMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         a_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -361,15 +311,19 @@ public final class UnittestLazyImportsCustomOptionProto {
       @java.lang.Override
       public protobuf_unittest.lazy_imports.UnittestLazyImportsCustomOptionProto.LazyMessage buildPartial() {
         protobuf_unittest.lazy_imports.UnittestLazyImportsCustomOptionProto.LazyMessage result = new protobuf_unittest.lazy_imports.UnittestLazyImportsCustomOptionProto.LazyMessage(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(protobuf_unittest.lazy_imports.UnittestLazyImportsCustomOptionProto.LazyMessage result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.a_ = a_;
           to_bitField0_ |= 0x00000001;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -419,7 +373,7 @@ public final class UnittestLazyImportsCustomOptionProto {
         if (other.hasA()) {
           setA(other.getA());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -434,17 +388,35 @@ public final class UnittestLazyImportsCustomOptionProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        protobuf_unittest.lazy_imports.UnittestLazyImportsCustomOptionProto.LazyMessage parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                a_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protobuf_unittest.lazy_imports.UnittestLazyImportsCustomOptionProto.LazyMessage) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -472,8 +444,9 @@ public final class UnittestLazyImportsCustomOptionProto {
        * @return This builder for chaining.
        */
       public Builder setA(int value) {
-        bitField0_ |= 0x00000001;
+        
         a_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -520,7 +493,18 @@ public final class UnittestLazyImportsCustomOptionProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LazyMessage(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -567,9 +551,9 @@ public final class UnittestLazyImportsCustomOptionProto {
     java.lang.String[] descriptorData = {
       "\n>google/protobuf/unittest_lazy_dependen" +
       "cies_custom_option.proto\022\036protobuf_unitt" +
-      "est.lazy_imports\0325google/protobuf/unitte" +
-      "st_lazy_dependencies_enum.proto\032 google/" +
-      "protobuf/descriptor.proto\"\030\n\013LazyMessage" +
+      "est.lazy_imports\032 google/protobuf/descri" +
+      "ptor.proto\0325google/protobuf/unittest_laz" +
+      "y_dependencies_enum.proto\"\030\n\013LazyMessage" +
       "\022\t\n\001a\030\001 \001(\005:s\n\020lazy_enum_option\022\037.google" +
       ".protobuf.MessageOptions\030\357\237\213B \001(\0162(.prot" +
       "obuf_unittest.lazy_imports.LazyEnum:\013LAZ" +
@@ -579,8 +563,8 @@ public final class UnittestLazyImportsCustomOptionProto {
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          protobuf_unittest.lazy_imports.UnittestLazyImportsEnumProto.getDescriptor(),
           com.google.protobuf.DescriptorProtos.getDescriptor(),
+          protobuf_unittest.lazy_imports.UnittestLazyImportsEnumProto.getDescriptor(),
         });
     internal_static_protobuf_unittest_lazy_imports_LazyMessage_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -589,8 +573,8 @@ public final class UnittestLazyImportsCustomOptionProto {
         internal_static_protobuf_unittest_lazy_imports_LazyMessage_descriptor,
         new java.lang.String[] { "A", });
     lazyEnumOption.internalInit(descriptor.getExtensions().get(0));
-    protobuf_unittest.lazy_imports.UnittestLazyImportsEnumProto.getDescriptor();
     com.google.protobuf.DescriptorProtos.getDescriptor();
+    protobuf_unittest.lazy_imports.UnittestLazyImportsEnumProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

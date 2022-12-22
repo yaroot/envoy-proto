@@ -179,6 +179,33 @@ public interface DiscoverConnectionProfileRequestOrBuilder extends
    */
   com.google.cloud.datastream.v1.MysqlRdbmsOrBuilder getMysqlRdbmsOrBuilder();
 
+  /**
+   * <pre>
+   * PostgreSQL RDBMS to enrich with child data objects and metadata.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+   * @return Whether the postgresqlRdbms field is set.
+   */
+  boolean hasPostgresqlRdbms();
+  /**
+   * <pre>
+   * PostgreSQL RDBMS to enrich with child data objects and metadata.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+   * @return The postgresqlRdbms.
+   */
+  com.google.cloud.datastream.v1.PostgresqlRdbms getPostgresqlRdbms();
+  /**
+   * <pre>
+   * PostgreSQL RDBMS to enrich with child data objects and metadata.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+   */
+  com.google.cloud.datastream.v1.PostgresqlRdbmsOrBuilder getPostgresqlRdbmsOrBuilder();
+
   public com.google.cloud.datastream.v1.DiscoverConnectionProfileRequest.TargetCase getTargetCase();
 
   public com.google.cloud.datastream.v1.DiscoverConnectionProfileRequest.HierarchyCase getHierarchyCase();

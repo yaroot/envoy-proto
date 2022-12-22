@@ -9,7 +9,7 @@ public interface ListDataExchangesResponseOrBuilder extends
 
   /**
    * <pre>
-   * The list of DataExchange.
+   * The list of data exchanges.
    * </pre>
    *
    * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchanges = 1;</code>
@@ -18,7 +18,7 @@ public interface ListDataExchangesResponseOrBuilder extends
       getDataExchangesList();
   /**
    * <pre>
-   * The list of DataExchange.
+   * The list of data exchanges.
    * </pre>
    *
    * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchanges = 1;</code>
@@ -26,7 +26,7 @@ public interface ListDataExchangesResponseOrBuilder extends
   com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange getDataExchanges(int index);
   /**
    * <pre>
-   * The list of DataExchange.
+   * The list of data exchanges.
    * </pre>
    *
    * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchanges = 1;</code>
@@ -34,7 +34,7 @@ public interface ListDataExchangesResponseOrBuilder extends
   int getDataExchangesCount();
   /**
    * <pre>
-   * The list of DataExchange.
+   * The list of data exchanges.
    * </pre>
    *
    * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchanges = 1;</code>
@@ -43,7 +43,7 @@ public interface ListDataExchangesResponseOrBuilder extends
       getDataExchangesOrBuilderList();
   /**
    * <pre>
-   * The list of DataExchange.
+   * The list of data exchanges.
    * </pre>
    *
    * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchanges = 1;</code>

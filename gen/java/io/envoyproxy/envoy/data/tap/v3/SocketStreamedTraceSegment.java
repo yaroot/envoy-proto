@@ -34,78 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SocketStreamedTraceSegment(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            traceId_ = input.readUInt64();
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.data.tap.v3.Connection.Builder subBuilder = null;
-            if (messagePieceCase_ == 2) {
-              subBuilder = ((io.envoyproxy.envoy.data.tap.v3.Connection) messagePiece_).toBuilder();
-            }
-            messagePiece_ =
-                input.readMessage(io.envoyproxy.envoy.data.tap.v3.Connection.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.data.tap.v3.Connection) messagePiece_);
-              messagePiece_ = subBuilder.buildPartial();
-            }
-            messagePieceCase_ = 2;
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.data.tap.v3.SocketEvent.Builder subBuilder = null;
-            if (messagePieceCase_ == 3) {
-              subBuilder = ((io.envoyproxy.envoy.data.tap.v3.SocketEvent) messagePiece_).toBuilder();
-            }
-            messagePiece_ =
-                input.readMessage(io.envoyproxy.envoy.data.tap.v3.SocketEvent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.data.tap.v3.SocketEvent) messagePiece_);
-              messagePiece_ = subBuilder.buildPartial();
-            }
-            messagePieceCase_ = 3;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.data.tap.v3.TransportProto.internal_static_envoy_data_tap_v3_SocketStreamedTraceSegment_descriptor;
@@ -161,7 +89,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRACE_ID_FIELD_NUMBER = 1;
-  private long traceId_;
+  private long traceId_ = 0L;
   /**
    * <pre>
    * Trace ID unique to the originating Envoy only. Trace IDs can repeat and should not be used
@@ -285,7 +213,7 @@ private static final long serialVersionUID = 0L;
     if (messagePieceCase_ == 3) {
       output.writeMessage(3, (io.envoyproxy.envoy.data.tap.v3.SocketEvent) messagePiece_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -306,7 +234,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, (io.envoyproxy.envoy.data.tap.v3.SocketEvent) messagePiece_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -336,7 +264,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -362,7 +290,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -483,24 +411,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.data.tap.v3.SocketStreamedTraceSegment.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       traceId_ = 0L;
-
+      if (connectionBuilder_ != null) {
+        connectionBuilder_.clear();
+      }
+      if (eventBuilder_ != null) {
+        eventBuilder_.clear();
+      }
       messagePieceCase_ = 0;
       messagePiece_ = null;
       return this;
@@ -529,24 +458,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.data.tap.v3.SocketStreamedTraceSegment buildPartial() {
       io.envoyproxy.envoy.data.tap.v3.SocketStreamedTraceSegment result = new io.envoyproxy.envoy.data.tap.v3.SocketStreamedTraceSegment(this);
-      result.traceId_ = traceId_;
-      if (messagePieceCase_ == 2) {
-        if (connectionBuilder_ == null) {
-          result.messagePiece_ = messagePiece_;
-        } else {
-          result.messagePiece_ = connectionBuilder_.build();
-        }
-      }
-      if (messagePieceCase_ == 3) {
-        if (eventBuilder_ == null) {
-          result.messagePiece_ = messagePiece_;
-        } else {
-          result.messagePiece_ = eventBuilder_.build();
-        }
-      }
-      result.messagePieceCase_ = messagePieceCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.data.tap.v3.SocketStreamedTraceSegment result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.traceId_ = traceId_;
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.data.tap.v3.SocketStreamedTraceSegment result) {
+      result.messagePieceCase_ = messagePieceCase_;
+      result.messagePiece_ = this.messagePiece_;
+      if (messagePieceCase_ == 2 &&
+          connectionBuilder_ != null) {
+        result.messagePiece_ = connectionBuilder_.build();
+      }
+      if (messagePieceCase_ == 3 &&
+          eventBuilder_ != null) {
+        result.messagePiece_ = eventBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -609,7 +544,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -624,17 +559,49 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.data.tap.v3.SocketStreamedTraceSegment parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              traceId_ = input.readUInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getConnectionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              messagePieceCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getEventFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              messagePieceCase_ = 3;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.data.tap.v3.SocketStreamedTraceSegment) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int messagePieceCase_ = 0;
@@ -652,6 +619,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private long traceId_ ;
     /**
@@ -680,6 +648,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTraceId(long value) {
       
       traceId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -693,7 +662,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTraceId() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       traceId_ = 0L;
       onChanged();
       return this;
@@ -873,7 +842,7 @@ private static final long serialVersionUID = 0L;
         messagePiece_ = null;
       }
       messagePieceCase_ = 2;
-      onChanged();;
+      onChanged();
       return connectionBuilder_;
     }
 
@@ -1051,7 +1020,7 @@ private static final long serialVersionUID = 0L;
         messagePiece_ = null;
       }
       messagePieceCase_ = 3;
-      onChanged();;
+      onChanged();
       return eventBuilder_;
     }
     @java.lang.Override
@@ -1087,7 +1056,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SocketStreamedTraceSegment(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

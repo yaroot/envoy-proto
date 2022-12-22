@@ -10,7 +10,7 @@ public interface ListServingConfigsRequestOrBuilder extends
   /**
    * <pre>
    * Required. The catalog resource name. Format:
-   * projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}
+   * `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}`
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -20,7 +20,7 @@ public interface ListServingConfigsRequestOrBuilder extends
   /**
    * <pre>
    * Required. The catalog resource name. Format:
-   * projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}
+   * `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}`
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

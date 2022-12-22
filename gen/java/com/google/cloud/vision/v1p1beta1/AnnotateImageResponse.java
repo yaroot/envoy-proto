@@ -39,184 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AnnotateImageResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              faceAnnotations_ = new java.util.ArrayList<com.google.cloud.vision.v1p1beta1.FaceAnnotation>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            faceAnnotations_.add(
-                input.readMessage(com.google.cloud.vision.v1p1beta1.FaceAnnotation.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              landmarkAnnotations_ = new java.util.ArrayList<com.google.cloud.vision.v1p1beta1.EntityAnnotation>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            landmarkAnnotations_.add(
-                input.readMessage(com.google.cloud.vision.v1p1beta1.EntityAnnotation.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              logoAnnotations_ = new java.util.ArrayList<com.google.cloud.vision.v1p1beta1.EntityAnnotation>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            logoAnnotations_.add(
-                input.readMessage(com.google.cloud.vision.v1p1beta1.EntityAnnotation.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              labelAnnotations_ = new java.util.ArrayList<com.google.cloud.vision.v1p1beta1.EntityAnnotation>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            labelAnnotations_.add(
-                input.readMessage(com.google.cloud.vision.v1p1beta1.EntityAnnotation.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              textAnnotations_ = new java.util.ArrayList<com.google.cloud.vision.v1p1beta1.EntityAnnotation>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            textAnnotations_.add(
-                input.readMessage(com.google.cloud.vision.v1p1beta1.EntityAnnotation.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            com.google.cloud.vision.v1p1beta1.SafeSearchAnnotation.Builder subBuilder = null;
-            if (safeSearchAnnotation_ != null) {
-              subBuilder = safeSearchAnnotation_.toBuilder();
-            }
-            safeSearchAnnotation_ = input.readMessage(com.google.cloud.vision.v1p1beta1.SafeSearchAnnotation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(safeSearchAnnotation_);
-              safeSearchAnnotation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.cloud.vision.v1p1beta1.ImageProperties.Builder subBuilder = null;
-            if (imagePropertiesAnnotation_ != null) {
-              subBuilder = imagePropertiesAnnotation_.toBuilder();
-            }
-            imagePropertiesAnnotation_ = input.readMessage(com.google.cloud.vision.v1p1beta1.ImageProperties.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(imagePropertiesAnnotation_);
-              imagePropertiesAnnotation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            com.google.rpc.Status.Builder subBuilder = null;
-            if (error_ != null) {
-              subBuilder = error_.toBuilder();
-            }
-            error_ = input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(error_);
-              error_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            com.google.cloud.vision.v1p1beta1.CropHintsAnnotation.Builder subBuilder = null;
-            if (cropHintsAnnotation_ != null) {
-              subBuilder = cropHintsAnnotation_.toBuilder();
-            }
-            cropHintsAnnotation_ = input.readMessage(com.google.cloud.vision.v1p1beta1.CropHintsAnnotation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cropHintsAnnotation_);
-              cropHintsAnnotation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 98: {
-            com.google.cloud.vision.v1p1beta1.TextAnnotation.Builder subBuilder = null;
-            if (fullTextAnnotation_ != null) {
-              subBuilder = fullTextAnnotation_.toBuilder();
-            }
-            fullTextAnnotation_ = input.readMessage(com.google.cloud.vision.v1p1beta1.TextAnnotation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(fullTextAnnotation_);
-              fullTextAnnotation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            com.google.cloud.vision.v1p1beta1.WebDetection.Builder subBuilder = null;
-            if (webDetection_ != null) {
-              subBuilder = webDetection_.toBuilder();
-            }
-            webDetection_ = input.readMessage(com.google.cloud.vision.v1p1beta1.WebDetection.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(webDetection_);
-              webDetection_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        faceAnnotations_ = java.util.Collections.unmodifiableList(faceAnnotations_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        landmarkAnnotations_ = java.util.Collections.unmodifiableList(landmarkAnnotations_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        logoAnnotations_ = java.util.Collections.unmodifiableList(logoAnnotations_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        labelAnnotations_ = java.util.Collections.unmodifiableList(labelAnnotations_);
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        textAnnotations_ = java.util.Collections.unmodifiableList(textAnnotations_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.vision.v1p1beta1.ImageAnnotatorProto.internal_static_google_cloud_vision_v1p1beta1_AnnotateImageResponse_descriptor;
@@ -231,6 +53,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FACE_ANNOTATIONS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.vision.v1p1beta1.FaceAnnotation> faceAnnotations_;
   /**
    * <pre>
@@ -291,6 +114,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LANDMARK_ANNOTATIONS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.vision.v1p1beta1.EntityAnnotation> landmarkAnnotations_;
   /**
    * <pre>
@@ -351,6 +175,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOGO_ANNOTATIONS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.vision.v1p1beta1.EntityAnnotation> logoAnnotations_;
   /**
    * <pre>
@@ -411,6 +236,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LABEL_ANNOTATIONS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.vision.v1p1beta1.EntityAnnotation> labelAnnotations_;
   /**
    * <pre>
@@ -471,6 +297,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TEXT_ANNOTATIONS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.vision.v1p1beta1.EntityAnnotation> textAnnotations_;
   /**
    * <pre>
@@ -574,7 +401,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.vision.v1p1beta1.TextAnnotationOrBuilder getFullTextAnnotationOrBuilder() {
-    return getFullTextAnnotation();
+    return fullTextAnnotation_ == null ? com.google.cloud.vision.v1p1beta1.TextAnnotation.getDefaultInstance() : fullTextAnnotation_;
   }
 
   public static final int SAFE_SEARCH_ANNOTATION_FIELD_NUMBER = 6;
@@ -612,7 +439,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.vision.v1p1beta1.SafeSearchAnnotationOrBuilder getSafeSearchAnnotationOrBuilder() {
-    return getSafeSearchAnnotation();
+    return safeSearchAnnotation_ == null ? com.google.cloud.vision.v1p1beta1.SafeSearchAnnotation.getDefaultInstance() : safeSearchAnnotation_;
   }
 
   public static final int IMAGE_PROPERTIES_ANNOTATION_FIELD_NUMBER = 8;
@@ -650,7 +477,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.vision.v1p1beta1.ImagePropertiesOrBuilder getImagePropertiesAnnotationOrBuilder() {
-    return getImagePropertiesAnnotation();
+    return imagePropertiesAnnotation_ == null ? com.google.cloud.vision.v1p1beta1.ImageProperties.getDefaultInstance() : imagePropertiesAnnotation_;
   }
 
   public static final int CROP_HINTS_ANNOTATION_FIELD_NUMBER = 11;
@@ -688,7 +515,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.vision.v1p1beta1.CropHintsAnnotationOrBuilder getCropHintsAnnotationOrBuilder() {
-    return getCropHintsAnnotation();
+    return cropHintsAnnotation_ == null ? com.google.cloud.vision.v1p1beta1.CropHintsAnnotation.getDefaultInstance() : cropHintsAnnotation_;
   }
 
   public static final int WEB_DETECTION_FIELD_NUMBER = 13;
@@ -726,7 +553,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.vision.v1p1beta1.WebDetectionOrBuilder getWebDetectionOrBuilder() {
-    return getWebDetection();
+    return webDetection_ == null ? com.google.cloud.vision.v1p1beta1.WebDetection.getDefaultInstance() : webDetection_;
   }
 
   public static final int ERROR_FIELD_NUMBER = 9;
@@ -770,7 +597,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.rpc.StatusOrBuilder getErrorOrBuilder() {
-    return getError();
+    return error_ == null ? com.google.rpc.Status.getDefaultInstance() : error_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -820,7 +647,7 @@ private static final long serialVersionUID = 0L;
     if (webDetection_ != null) {
       output.writeMessage(13, getWebDetection());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -873,7 +700,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(13, getWebDetection());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -928,7 +755,7 @@ private static final long serialVersionUID = 0L;
       if (!getError()
           .equals(other.getError())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -983,7 +810,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ERROR_FIELD_NUMBER;
       hash = (53 * hash) + getError().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1104,91 +931,81 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.vision.v1p1beta1.AnnotateImageResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getFaceAnnotationsFieldBuilder();
-        getLandmarkAnnotationsFieldBuilder();
-        getLogoAnnotationsFieldBuilder();
-        getLabelAnnotationsFieldBuilder();
-        getTextAnnotationsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (faceAnnotationsBuilder_ == null) {
         faceAnnotations_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        faceAnnotations_ = null;
         faceAnnotationsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (landmarkAnnotationsBuilder_ == null) {
         landmarkAnnotations_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        landmarkAnnotations_ = null;
         landmarkAnnotationsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (logoAnnotationsBuilder_ == null) {
         logoAnnotations_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        logoAnnotations_ = null;
         logoAnnotationsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (labelAnnotationsBuilder_ == null) {
         labelAnnotations_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        labelAnnotations_ = null;
         labelAnnotationsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       if (textAnnotationsBuilder_ == null) {
         textAnnotations_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
+        textAnnotations_ = null;
         textAnnotationsBuilder_.clear();
       }
-      if (fullTextAnnotationBuilder_ == null) {
-        fullTextAnnotation_ = null;
-      } else {
-        fullTextAnnotation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      fullTextAnnotation_ = null;
+      if (fullTextAnnotationBuilder_ != null) {
+        fullTextAnnotationBuilder_.dispose();
         fullTextAnnotationBuilder_ = null;
       }
-      if (safeSearchAnnotationBuilder_ == null) {
-        safeSearchAnnotation_ = null;
-      } else {
-        safeSearchAnnotation_ = null;
+      safeSearchAnnotation_ = null;
+      if (safeSearchAnnotationBuilder_ != null) {
+        safeSearchAnnotationBuilder_.dispose();
         safeSearchAnnotationBuilder_ = null;
       }
-      if (imagePropertiesAnnotationBuilder_ == null) {
-        imagePropertiesAnnotation_ = null;
-      } else {
-        imagePropertiesAnnotation_ = null;
+      imagePropertiesAnnotation_ = null;
+      if (imagePropertiesAnnotationBuilder_ != null) {
+        imagePropertiesAnnotationBuilder_.dispose();
         imagePropertiesAnnotationBuilder_ = null;
       }
-      if (cropHintsAnnotationBuilder_ == null) {
-        cropHintsAnnotation_ = null;
-      } else {
-        cropHintsAnnotation_ = null;
+      cropHintsAnnotation_ = null;
+      if (cropHintsAnnotationBuilder_ != null) {
+        cropHintsAnnotationBuilder_.dispose();
         cropHintsAnnotationBuilder_ = null;
       }
-      if (webDetectionBuilder_ == null) {
-        webDetection_ = null;
-      } else {
-        webDetection_ = null;
+      webDetection_ = null;
+      if (webDetectionBuilder_ != null) {
+        webDetectionBuilder_.dispose();
         webDetectionBuilder_ = null;
       }
-      if (errorBuilder_ == null) {
-        error_ = null;
-      } else {
-        error_ = null;
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
         errorBuilder_ = null;
       }
       return this;
@@ -1217,7 +1034,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.vision.v1p1beta1.AnnotateImageResponse buildPartial() {
       com.google.cloud.vision.v1p1beta1.AnnotateImageResponse result = new com.google.cloud.vision.v1p1beta1.AnnotateImageResponse(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.vision.v1p1beta1.AnnotateImageResponse result) {
       if (faceAnnotationsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           faceAnnotations_ = java.util.Collections.unmodifiableList(faceAnnotations_);
@@ -1263,38 +1086,40 @@ private static final long serialVersionUID = 0L;
       } else {
         result.textAnnotations_ = textAnnotationsBuilder_.build();
       }
-      if (fullTextAnnotationBuilder_ == null) {
-        result.fullTextAnnotation_ = fullTextAnnotation_;
-      } else {
-        result.fullTextAnnotation_ = fullTextAnnotationBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.vision.v1p1beta1.AnnotateImageResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.fullTextAnnotation_ = fullTextAnnotationBuilder_ == null
+            ? fullTextAnnotation_
+            : fullTextAnnotationBuilder_.build();
       }
-      if (safeSearchAnnotationBuilder_ == null) {
-        result.safeSearchAnnotation_ = safeSearchAnnotation_;
-      } else {
-        result.safeSearchAnnotation_ = safeSearchAnnotationBuilder_.build();
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.safeSearchAnnotation_ = safeSearchAnnotationBuilder_ == null
+            ? safeSearchAnnotation_
+            : safeSearchAnnotationBuilder_.build();
       }
-      if (imagePropertiesAnnotationBuilder_ == null) {
-        result.imagePropertiesAnnotation_ = imagePropertiesAnnotation_;
-      } else {
-        result.imagePropertiesAnnotation_ = imagePropertiesAnnotationBuilder_.build();
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.imagePropertiesAnnotation_ = imagePropertiesAnnotationBuilder_ == null
+            ? imagePropertiesAnnotation_
+            : imagePropertiesAnnotationBuilder_.build();
       }
-      if (cropHintsAnnotationBuilder_ == null) {
-        result.cropHintsAnnotation_ = cropHintsAnnotation_;
-      } else {
-        result.cropHintsAnnotation_ = cropHintsAnnotationBuilder_.build();
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.cropHintsAnnotation_ = cropHintsAnnotationBuilder_ == null
+            ? cropHintsAnnotation_
+            : cropHintsAnnotationBuilder_.build();
       }
-      if (webDetectionBuilder_ == null) {
-        result.webDetection_ = webDetection_;
-      } else {
-        result.webDetection_ = webDetectionBuilder_.build();
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.webDetection_ = webDetectionBuilder_ == null
+            ? webDetection_
+            : webDetectionBuilder_.build();
       }
-      if (errorBuilder_ == null) {
-        result.error_ = error_;
-      } else {
-        result.error_ = errorBuilder_.build();
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.error_ = errorBuilder_ == null
+            ? error_
+            : errorBuilder_.build();
       }
-      onBuilt();
-      return result;
     }
 
     @java.lang.Override
@@ -1489,7 +1314,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasError()) {
         mergeError(other.getError());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1504,17 +1329,137 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.vision.v1p1beta1.AnnotateImageResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.vision.v1p1beta1.FaceAnnotation m =
+                  input.readMessage(
+                      com.google.cloud.vision.v1p1beta1.FaceAnnotation.parser(),
+                      extensionRegistry);
+              if (faceAnnotationsBuilder_ == null) {
+                ensureFaceAnnotationsIsMutable();
+                faceAnnotations_.add(m);
+              } else {
+                faceAnnotationsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.vision.v1p1beta1.EntityAnnotation m =
+                  input.readMessage(
+                      com.google.cloud.vision.v1p1beta1.EntityAnnotation.parser(),
+                      extensionRegistry);
+              if (landmarkAnnotationsBuilder_ == null) {
+                ensureLandmarkAnnotationsIsMutable();
+                landmarkAnnotations_.add(m);
+              } else {
+                landmarkAnnotationsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.vision.v1p1beta1.EntityAnnotation m =
+                  input.readMessage(
+                      com.google.cloud.vision.v1p1beta1.EntityAnnotation.parser(),
+                      extensionRegistry);
+              if (logoAnnotationsBuilder_ == null) {
+                ensureLogoAnnotationsIsMutable();
+                logoAnnotations_.add(m);
+              } else {
+                logoAnnotationsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              com.google.cloud.vision.v1p1beta1.EntityAnnotation m =
+                  input.readMessage(
+                      com.google.cloud.vision.v1p1beta1.EntityAnnotation.parser(),
+                      extensionRegistry);
+              if (labelAnnotationsBuilder_ == null) {
+                ensureLabelAnnotationsIsMutable();
+                labelAnnotations_.add(m);
+              } else {
+                labelAnnotationsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              com.google.cloud.vision.v1p1beta1.EntityAnnotation m =
+                  input.readMessage(
+                      com.google.cloud.vision.v1p1beta1.EntityAnnotation.parser(),
+                      extensionRegistry);
+              if (textAnnotationsBuilder_ == null) {
+                ensureTextAnnotationsIsMutable();
+                textAnnotations_.add(m);
+              } else {
+                textAnnotationsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getSafeSearchAnnotationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 66: {
+              input.readMessage(
+                  getImagePropertiesAnnotationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getErrorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 74
+            case 90: {
+              input.readMessage(
+                  getCropHintsAnnotationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getFullTextAnnotationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getWebDetectionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 106
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.vision.v1p1beta1.AnnotateImageResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -3094,7 +3039,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the fullTextAnnotation field is set.
      */
     public boolean hasFullTextAnnotation() {
-      return fullTextAnnotationBuilder_ != null || fullTextAnnotation_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -3130,11 +3075,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         fullTextAnnotation_ = value;
-        onChanged();
       } else {
         fullTextAnnotationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3151,11 +3096,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.vision.v1p1beta1.TextAnnotation.Builder builderForValue) {
       if (fullTextAnnotationBuilder_ == null) {
         fullTextAnnotation_ = builderForValue.build();
-        onChanged();
       } else {
         fullTextAnnotationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3170,17 +3115,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFullTextAnnotation(com.google.cloud.vision.v1p1beta1.TextAnnotation value) {
       if (fullTextAnnotationBuilder_ == null) {
-        if (fullTextAnnotation_ != null) {
-          fullTextAnnotation_ =
-            com.google.cloud.vision.v1p1beta1.TextAnnotation.newBuilder(fullTextAnnotation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          fullTextAnnotation_ != null &&
+          fullTextAnnotation_ != com.google.cloud.vision.v1p1beta1.TextAnnotation.getDefaultInstance()) {
+          getFullTextAnnotationBuilder().mergeFrom(value);
         } else {
           fullTextAnnotation_ = value;
         }
-        onChanged();
       } else {
         fullTextAnnotationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3194,14 +3140,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vision.v1p1beta1.TextAnnotation full_text_annotation = 12;</code>
      */
     public Builder clearFullTextAnnotation() {
-      if (fullTextAnnotationBuilder_ == null) {
-        fullTextAnnotation_ = null;
-        onChanged();
-      } else {
-        fullTextAnnotation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      fullTextAnnotation_ = null;
+      if (fullTextAnnotationBuilder_ != null) {
+        fullTextAnnotationBuilder_.dispose();
         fullTextAnnotationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3215,7 +3160,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vision.v1p1beta1.TextAnnotation full_text_annotation = 12;</code>
      */
     public com.google.cloud.vision.v1p1beta1.TextAnnotation.Builder getFullTextAnnotationBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getFullTextAnnotationFieldBuilder().getBuilder();
     }
@@ -3273,7 +3218,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the safeSearchAnnotation field is set.
      */
     public boolean hasSafeSearchAnnotation() {
-      return safeSearchAnnotationBuilder_ != null || safeSearchAnnotation_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -3303,11 +3248,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         safeSearchAnnotation_ = value;
-        onChanged();
       } else {
         safeSearchAnnotationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3321,11 +3266,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.vision.v1p1beta1.SafeSearchAnnotation.Builder builderForValue) {
       if (safeSearchAnnotationBuilder_ == null) {
         safeSearchAnnotation_ = builderForValue.build();
-        onChanged();
       } else {
         safeSearchAnnotationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3337,17 +3282,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSafeSearchAnnotation(com.google.cloud.vision.v1p1beta1.SafeSearchAnnotation value) {
       if (safeSearchAnnotationBuilder_ == null) {
-        if (safeSearchAnnotation_ != null) {
-          safeSearchAnnotation_ =
-            com.google.cloud.vision.v1p1beta1.SafeSearchAnnotation.newBuilder(safeSearchAnnotation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          safeSearchAnnotation_ != null &&
+          safeSearchAnnotation_ != com.google.cloud.vision.v1p1beta1.SafeSearchAnnotation.getDefaultInstance()) {
+          getSafeSearchAnnotationBuilder().mergeFrom(value);
         } else {
           safeSearchAnnotation_ = value;
         }
-        onChanged();
       } else {
         safeSearchAnnotationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3358,14 +3304,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vision.v1p1beta1.SafeSearchAnnotation safe_search_annotation = 6;</code>
      */
     public Builder clearSafeSearchAnnotation() {
-      if (safeSearchAnnotationBuilder_ == null) {
-        safeSearchAnnotation_ = null;
-        onChanged();
-      } else {
-        safeSearchAnnotation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      safeSearchAnnotation_ = null;
+      if (safeSearchAnnotationBuilder_ != null) {
+        safeSearchAnnotationBuilder_.dispose();
         safeSearchAnnotationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3376,7 +3321,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vision.v1p1beta1.SafeSearchAnnotation safe_search_annotation = 6;</code>
      */
     public com.google.cloud.vision.v1p1beta1.SafeSearchAnnotation.Builder getSafeSearchAnnotationBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getSafeSearchAnnotationFieldBuilder().getBuilder();
     }
@@ -3428,7 +3373,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the imagePropertiesAnnotation field is set.
      */
     public boolean hasImagePropertiesAnnotation() {
-      return imagePropertiesAnnotationBuilder_ != null || imagePropertiesAnnotation_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -3458,11 +3403,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         imagePropertiesAnnotation_ = value;
-        onChanged();
       } else {
         imagePropertiesAnnotationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3476,11 +3421,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.vision.v1p1beta1.ImageProperties.Builder builderForValue) {
       if (imagePropertiesAnnotationBuilder_ == null) {
         imagePropertiesAnnotation_ = builderForValue.build();
-        onChanged();
       } else {
         imagePropertiesAnnotationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3492,17 +3437,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeImagePropertiesAnnotation(com.google.cloud.vision.v1p1beta1.ImageProperties value) {
       if (imagePropertiesAnnotationBuilder_ == null) {
-        if (imagePropertiesAnnotation_ != null) {
-          imagePropertiesAnnotation_ =
-            com.google.cloud.vision.v1p1beta1.ImageProperties.newBuilder(imagePropertiesAnnotation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          imagePropertiesAnnotation_ != null &&
+          imagePropertiesAnnotation_ != com.google.cloud.vision.v1p1beta1.ImageProperties.getDefaultInstance()) {
+          getImagePropertiesAnnotationBuilder().mergeFrom(value);
         } else {
           imagePropertiesAnnotation_ = value;
         }
-        onChanged();
       } else {
         imagePropertiesAnnotationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3513,14 +3459,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vision.v1p1beta1.ImageProperties image_properties_annotation = 8;</code>
      */
     public Builder clearImagePropertiesAnnotation() {
-      if (imagePropertiesAnnotationBuilder_ == null) {
-        imagePropertiesAnnotation_ = null;
-        onChanged();
-      } else {
-        imagePropertiesAnnotation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      imagePropertiesAnnotation_ = null;
+      if (imagePropertiesAnnotationBuilder_ != null) {
+        imagePropertiesAnnotationBuilder_.dispose();
         imagePropertiesAnnotationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3531,7 +3476,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vision.v1p1beta1.ImageProperties image_properties_annotation = 8;</code>
      */
     public com.google.cloud.vision.v1p1beta1.ImageProperties.Builder getImagePropertiesAnnotationBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getImagePropertiesAnnotationFieldBuilder().getBuilder();
     }
@@ -3583,7 +3528,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cropHintsAnnotation field is set.
      */
     public boolean hasCropHintsAnnotation() {
-      return cropHintsAnnotationBuilder_ != null || cropHintsAnnotation_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -3613,11 +3558,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cropHintsAnnotation_ = value;
-        onChanged();
       } else {
         cropHintsAnnotationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3631,11 +3576,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.vision.v1p1beta1.CropHintsAnnotation.Builder builderForValue) {
       if (cropHintsAnnotationBuilder_ == null) {
         cropHintsAnnotation_ = builderForValue.build();
-        onChanged();
       } else {
         cropHintsAnnotationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3647,17 +3592,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCropHintsAnnotation(com.google.cloud.vision.v1p1beta1.CropHintsAnnotation value) {
       if (cropHintsAnnotationBuilder_ == null) {
-        if (cropHintsAnnotation_ != null) {
-          cropHintsAnnotation_ =
-            com.google.cloud.vision.v1p1beta1.CropHintsAnnotation.newBuilder(cropHintsAnnotation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          cropHintsAnnotation_ != null &&
+          cropHintsAnnotation_ != com.google.cloud.vision.v1p1beta1.CropHintsAnnotation.getDefaultInstance()) {
+          getCropHintsAnnotationBuilder().mergeFrom(value);
         } else {
           cropHintsAnnotation_ = value;
         }
-        onChanged();
       } else {
         cropHintsAnnotationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3668,14 +3614,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vision.v1p1beta1.CropHintsAnnotation crop_hints_annotation = 11;</code>
      */
     public Builder clearCropHintsAnnotation() {
-      if (cropHintsAnnotationBuilder_ == null) {
-        cropHintsAnnotation_ = null;
-        onChanged();
-      } else {
-        cropHintsAnnotation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      cropHintsAnnotation_ = null;
+      if (cropHintsAnnotationBuilder_ != null) {
+        cropHintsAnnotationBuilder_.dispose();
         cropHintsAnnotationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3686,7 +3631,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vision.v1p1beta1.CropHintsAnnotation crop_hints_annotation = 11;</code>
      */
     public com.google.cloud.vision.v1p1beta1.CropHintsAnnotation.Builder getCropHintsAnnotationBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getCropHintsAnnotationFieldBuilder().getBuilder();
     }
@@ -3738,7 +3683,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the webDetection field is set.
      */
     public boolean hasWebDetection() {
-      return webDetectionBuilder_ != null || webDetection_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -3768,11 +3713,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         webDetection_ = value;
-        onChanged();
       } else {
         webDetectionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3786,11 +3731,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.vision.v1p1beta1.WebDetection.Builder builderForValue) {
       if (webDetectionBuilder_ == null) {
         webDetection_ = builderForValue.build();
-        onChanged();
       } else {
         webDetectionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3802,17 +3747,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWebDetection(com.google.cloud.vision.v1p1beta1.WebDetection value) {
       if (webDetectionBuilder_ == null) {
-        if (webDetection_ != null) {
-          webDetection_ =
-            com.google.cloud.vision.v1p1beta1.WebDetection.newBuilder(webDetection_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          webDetection_ != null &&
+          webDetection_ != com.google.cloud.vision.v1p1beta1.WebDetection.getDefaultInstance()) {
+          getWebDetectionBuilder().mergeFrom(value);
         } else {
           webDetection_ = value;
         }
-        onChanged();
       } else {
         webDetectionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3823,14 +3769,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vision.v1p1beta1.WebDetection web_detection = 13;</code>
      */
     public Builder clearWebDetection() {
-      if (webDetectionBuilder_ == null) {
-        webDetection_ = null;
-        onChanged();
-      } else {
-        webDetection_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      webDetection_ = null;
+      if (webDetectionBuilder_ != null) {
+        webDetectionBuilder_.dispose();
         webDetectionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3841,7 +3786,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vision.v1p1beta1.WebDetection web_detection = 13;</code>
      */
     public com.google.cloud.vision.v1p1beta1.WebDetection.Builder getWebDetectionBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getWebDetectionFieldBuilder().getBuilder();
     }
@@ -3895,7 +3840,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the error field is set.
      */
     public boolean hasError() {
-      return errorBuilder_ != null || error_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -3929,11 +3874,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         error_ = value;
-        onChanged();
       } else {
         errorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3949,11 +3894,11 @@ private static final long serialVersionUID = 0L;
         com.google.rpc.Status.Builder builderForValue) {
       if (errorBuilder_ == null) {
         error_ = builderForValue.build();
-        onChanged();
       } else {
         errorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3967,17 +3912,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeError(com.google.rpc.Status value) {
       if (errorBuilder_ == null) {
-        if (error_ != null) {
-          error_ =
-            com.google.rpc.Status.newBuilder(error_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          error_ != null &&
+          error_ != com.google.rpc.Status.getDefaultInstance()) {
+          getErrorBuilder().mergeFrom(value);
         } else {
           error_ = value;
         }
-        onChanged();
       } else {
         errorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3990,14 +3936,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status error = 9;</code>
      */
     public Builder clearError() {
-      if (errorBuilder_ == null) {
-        error_ = null;
-        onChanged();
-      } else {
-        error_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
         errorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4010,7 +3955,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status error = 9;</code>
      */
     public com.google.rpc.Status.Builder getErrorBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getErrorFieldBuilder().getBuilder();
     }
@@ -4086,7 +4031,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AnnotateImageResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

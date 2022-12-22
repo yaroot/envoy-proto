@@ -30,7 +30,8 @@ public interface VersionToPathOrBuilder extends
   /**
    * <pre>
    * The Cloud Secret Manager secret version.
-   * Can be 'latest' for the latest value or an integer for a specific version.
+   * Can be 'latest' for the latest value, or an integer or a secret alias for a
+   * specific version.
    * </pre>
    *
    * <code>string version = 2;</code>
@@ -40,7 +41,8 @@ public interface VersionToPathOrBuilder extends
   /**
    * <pre>
    * The Cloud Secret Manager secret version.
-   * Can be 'latest' for the latest value or an integer for a specific version.
+   * Can be 'latest' for the latest value, or an integer or a secret alias for a
+   * specific version.
    * </pre>
    *
    * <code>string version = 2;</code>

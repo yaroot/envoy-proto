@@ -36,140 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StructuredQuery(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.firestore.v1.StructuredQuery.Projection.Builder subBuilder = null;
-            if (select_ != null) {
-              subBuilder = select_.toBuilder();
-            }
-            select_ = input.readMessage(com.google.firestore.v1.StructuredQuery.Projection.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(select_);
-              select_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              from_ = new java.util.ArrayList<com.google.firestore.v1.StructuredQuery.CollectionSelector>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            from_.add(
-                input.readMessage(com.google.firestore.v1.StructuredQuery.CollectionSelector.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            com.google.firestore.v1.StructuredQuery.Filter.Builder subBuilder = null;
-            if (where_ != null) {
-              subBuilder = where_.toBuilder();
-            }
-            where_ = input.readMessage(com.google.firestore.v1.StructuredQuery.Filter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(where_);
-              where_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              orderBy_ = new java.util.ArrayList<com.google.firestore.v1.StructuredQuery.Order>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            orderBy_.add(
-                input.readMessage(com.google.firestore.v1.StructuredQuery.Order.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (limit_ != null) {
-              subBuilder = limit_.toBuilder();
-            }
-            limit_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(limit_);
-              limit_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 48: {
-
-            offset_ = input.readInt32();
-            break;
-          }
-          case 58: {
-            com.google.firestore.v1.Cursor.Builder subBuilder = null;
-            if (startAt_ != null) {
-              subBuilder = startAt_.toBuilder();
-            }
-            startAt_ = input.readMessage(com.google.firestore.v1.Cursor.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(startAt_);
-              startAt_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.firestore.v1.Cursor.Builder subBuilder = null;
-            if (endAt_ != null) {
-              subBuilder = endAt_.toBuilder();
-            }
-            endAt_ = input.readMessage(com.google.firestore.v1.Cursor.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(endAt_);
-              endAt_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        from_ = java.util.Collections.unmodifiableList(from_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        orderBy_ = java.util.Collections.unmodifiableList(orderBy_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.firestore.v1.QueryProto.internal_static_google_firestore_v1_StructuredQuery_descriptor;
@@ -398,56 +264,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CollectionSelector(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              collectionId_ = s;
-              break;
-            }
-            case 24: {
-
-              allDescendants_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.firestore.v1.QueryProto.internal_static_google_firestore_v1_StructuredQuery_CollectionSelector_descriptor;
@@ -462,7 +278,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int COLLECTION_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object collectionId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object collectionId_ = "";
     /**
      * <pre>
      * The collection ID.
@@ -510,7 +327,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ALL_DESCENDANTS_FIELD_NUMBER = 3;
-    private boolean allDescendants_;
+    private boolean allDescendants_ = false;
     /**
      * <pre>
      * When false, selects only collections that are immediate children of
@@ -546,7 +363,7 @@ private static final long serialVersionUID = 0L;
       if (allDescendants_ != false) {
         output.writeBool(3, allDescendants_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -562,7 +379,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, allDescendants_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -581,7 +398,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getCollectionId())) return false;
       if (getAllDescendants()
           != other.getAllDescendants()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -597,7 +414,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ALL_DESCENDANTS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getAllDescendants());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -718,26 +535,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.firestore.v1.StructuredQuery.CollectionSelector.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         collectionId_ = "";
-
         allDescendants_ = false;
-
         return this;
       }
 
@@ -764,10 +575,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.firestore.v1.StructuredQuery.CollectionSelector buildPartial() {
         com.google.firestore.v1.StructuredQuery.CollectionSelector result = new com.google.firestore.v1.StructuredQuery.CollectionSelector(this);
-        result.collectionId_ = collectionId_;
-        result.allDescendants_ = allDescendants_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.firestore.v1.StructuredQuery.CollectionSelector result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.collectionId_ = collectionId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.allDescendants_ = allDescendants_;
+        }
       }
 
       @java.lang.Override
@@ -816,12 +636,13 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.firestore.v1.StructuredQuery.CollectionSelector.getDefaultInstance()) return this;
         if (!other.getCollectionId().isEmpty()) {
           collectionId_ = other.collectionId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getAllDescendants() != false) {
           setAllDescendants(other.getAllDescendants());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -836,19 +657,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.firestore.v1.StructuredQuery.CollectionSelector parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 18: {
+                collectionId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 18
+              case 24: {
+                allDescendants_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.firestore.v1.StructuredQuery.CollectionSelector) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object collectionId_ = "";
       /**
@@ -906,11 +751,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setCollectionId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         collectionId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -924,8 +767,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCollectionId() {
-        
         collectionId_ = getDefaultInstance().getCollectionId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -941,12 +784,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setCollectionIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         collectionId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -980,6 +821,7 @@ private static final long serialVersionUID = 0L;
       public Builder setAllDescendants(boolean value) {
         
         allDescendants_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -994,7 +836,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAllDescendants() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         allDescendants_ = false;
         onChanged();
         return this;
@@ -1032,7 +874,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CollectionSelector(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1169,87 +1022,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Filter(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.firestore.v1.StructuredQuery.CompositeFilter.Builder subBuilder = null;
-              if (filterTypeCase_ == 1) {
-                subBuilder = ((com.google.firestore.v1.StructuredQuery.CompositeFilter) filterType_).toBuilder();
-              }
-              filterType_ =
-                  input.readMessage(com.google.firestore.v1.StructuredQuery.CompositeFilter.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.firestore.v1.StructuredQuery.CompositeFilter) filterType_);
-                filterType_ = subBuilder.buildPartial();
-              }
-              filterTypeCase_ = 1;
-              break;
-            }
-            case 18: {
-              com.google.firestore.v1.StructuredQuery.FieldFilter.Builder subBuilder = null;
-              if (filterTypeCase_ == 2) {
-                subBuilder = ((com.google.firestore.v1.StructuredQuery.FieldFilter) filterType_).toBuilder();
-              }
-              filterType_ =
-                  input.readMessage(com.google.firestore.v1.StructuredQuery.FieldFilter.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.firestore.v1.StructuredQuery.FieldFilter) filterType_);
-                filterType_ = subBuilder.buildPartial();
-              }
-              filterTypeCase_ = 2;
-              break;
-            }
-            case 26: {
-              com.google.firestore.v1.StructuredQuery.UnaryFilter.Builder subBuilder = null;
-              if (filterTypeCase_ == 3) {
-                subBuilder = ((com.google.firestore.v1.StructuredQuery.UnaryFilter) filterType_).toBuilder();
-              }
-              filterType_ =
-                  input.readMessage(com.google.firestore.v1.StructuredQuery.UnaryFilter.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.firestore.v1.StructuredQuery.UnaryFilter) filterType_);
-                filterType_ = subBuilder.buildPartial();
-              }
-              filterTypeCase_ = 3;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1459,7 +1231,7 @@ private static final long serialVersionUID = 0L;
       if (filterTypeCase_ == 3) {
         output.writeMessage(3, (com.google.firestore.v1.StructuredQuery.UnaryFilter) filterType_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1480,7 +1252,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, (com.google.firestore.v1.StructuredQuery.UnaryFilter) filterType_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1512,7 +1284,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1539,7 +1311,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1660,22 +1432,27 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.firestore.v1.StructuredQuery.Filter.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (compositeFilterBuilder_ != null) {
+          compositeFilterBuilder_.clear();
+        }
+        if (fieldFilterBuilder_ != null) {
+          fieldFilterBuilder_.clear();
+        }
+        if (unaryFilterBuilder_ != null) {
+          unaryFilterBuilder_.clear();
+        }
         filterTypeCase_ = 0;
         filterType_ = null;
         return this;
@@ -1704,30 +1481,31 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.firestore.v1.StructuredQuery.Filter buildPartial() {
         com.google.firestore.v1.StructuredQuery.Filter result = new com.google.firestore.v1.StructuredQuery.Filter(this);
-        if (filterTypeCase_ == 1) {
-          if (compositeFilterBuilder_ == null) {
-            result.filterType_ = filterType_;
-          } else {
-            result.filterType_ = compositeFilterBuilder_.build();
-          }
-        }
-        if (filterTypeCase_ == 2) {
-          if (fieldFilterBuilder_ == null) {
-            result.filterType_ = filterType_;
-          } else {
-            result.filterType_ = fieldFilterBuilder_.build();
-          }
-        }
-        if (filterTypeCase_ == 3) {
-          if (unaryFilterBuilder_ == null) {
-            result.filterType_ = filterType_;
-          } else {
-            result.filterType_ = unaryFilterBuilder_.build();
-          }
-        }
-        result.filterTypeCase_ = filterTypeCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.firestore.v1.StructuredQuery.Filter result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      private void buildPartialOneofs(com.google.firestore.v1.StructuredQuery.Filter result) {
+        result.filterTypeCase_ = filterTypeCase_;
+        result.filterType_ = this.filterType_;
+        if (filterTypeCase_ == 1 &&
+            compositeFilterBuilder_ != null) {
+          result.filterType_ = compositeFilterBuilder_.build();
+        }
+        if (filterTypeCase_ == 2 &&
+            fieldFilterBuilder_ != null) {
+          result.filterType_ = fieldFilterBuilder_.build();
+        }
+        if (filterTypeCase_ == 3 &&
+            unaryFilterBuilder_ != null) {
+          result.filterType_ = unaryFilterBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1791,7 +1569,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1806,17 +1584,51 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.firestore.v1.StructuredQuery.Filter parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getCompositeFilterFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                filterTypeCase_ = 1;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getFieldFilterFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                filterTypeCase_ = 2;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getUnaryFilterFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                filterTypeCase_ = 3;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.firestore.v1.StructuredQuery.Filter) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int filterTypeCase_ = 0;
@@ -1834,6 +1646,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.firestore.v1.StructuredQuery.CompositeFilter, com.google.firestore.v1.StructuredQuery.CompositeFilter.Builder, com.google.firestore.v1.StructuredQuery.CompositeFilterOrBuilder> compositeFilterBuilder_;
@@ -2009,7 +1822,7 @@ private static final long serialVersionUID = 0L;
           filterType_ = null;
         }
         filterTypeCase_ = 1;
-        onChanged();;
+        onChanged();
         return compositeFilterBuilder_;
       }
 
@@ -2187,7 +2000,7 @@ private static final long serialVersionUID = 0L;
           filterType_ = null;
         }
         filterTypeCase_ = 2;
-        onChanged();;
+        onChanged();
         return fieldFilterBuilder_;
       }
 
@@ -2365,7 +2178,7 @@ private static final long serialVersionUID = 0L;
           filterType_ = null;
         }
         filterTypeCase_ = 3;
-        onChanged();;
+        onChanged();
         return unaryFilterBuilder_;
       }
       @java.lang.Override
@@ -2401,7 +2214,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Filter(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2530,64 +2354,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private CompositeFilter(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              op_ = rawValue;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                filters_ = new java.util.ArrayList<com.google.firestore.v1.StructuredQuery.Filter>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              filters_.add(
-                  input.readMessage(com.google.firestore.v1.StructuredQuery.Filter.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          filters_ = java.util.Collections.unmodifiableList(filters_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -2731,7 +2497,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int OP_FIELD_NUMBER = 1;
-    private int op_;
+    private int op_ = 0;
     /**
      * <pre>
      * The operator for combining multiple filters.
@@ -2752,12 +2518,12 @@ private static final long serialVersionUID = 0L;
      * @return The op.
      */
     @java.lang.Override public com.google.firestore.v1.StructuredQuery.CompositeFilter.Operator getOp() {
-      @SuppressWarnings("deprecation")
-      com.google.firestore.v1.StructuredQuery.CompositeFilter.Operator result = com.google.firestore.v1.StructuredQuery.CompositeFilter.Operator.valueOf(op_);
+      com.google.firestore.v1.StructuredQuery.CompositeFilter.Operator result = com.google.firestore.v1.StructuredQuery.CompositeFilter.Operator.forNumber(op_);
       return result == null ? com.google.firestore.v1.StructuredQuery.CompositeFilter.Operator.UNRECOGNIZED : result;
     }
 
     public static final int FILTERS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.firestore.v1.StructuredQuery.Filter> filters_;
     /**
      * <pre>
@@ -2847,7 +2613,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < filters_.size(); i++) {
         output.writeMessage(2, filters_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2864,7 +2630,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, filters_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2882,7 +2648,7 @@ private static final long serialVersionUID = 0L;
       if (op_ != other.op_) return false;
       if (!getFiltersList()
           .equals(other.getFiltersList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2899,7 +2665,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + FILTERS_FIELD_NUMBER;
         hash = (53 * hash) + getFiltersList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3020,31 +2786,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.firestore.v1.StructuredQuery.CompositeFilter.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getFiltersFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         op_ = 0;
-
         if (filtersBuilder_ == null) {
           filters_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          filters_ = null;
           filtersBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -3071,19 +2832,29 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.firestore.v1.StructuredQuery.CompositeFilter buildPartial() {
         com.google.firestore.v1.StructuredQuery.CompositeFilter result = new com.google.firestore.v1.StructuredQuery.CompositeFilter(this);
-        int from_bitField0_ = bitField0_;
-        result.op_ = op_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.firestore.v1.StructuredQuery.CompositeFilter result) {
         if (filtersBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             filters_ = java.util.Collections.unmodifiableList(filters_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.filters_ = filters_;
         } else {
           result.filters_ = filtersBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.firestore.v1.StructuredQuery.CompositeFilter result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.op_ = op_;
+        }
       }
 
       @java.lang.Override
@@ -3137,7 +2908,7 @@ private static final long serialVersionUID = 0L;
           if (!other.filters_.isEmpty()) {
             if (filters_.isEmpty()) {
               filters_ = other.filters_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureFiltersIsMutable();
               filters_.addAll(other.filters_);
@@ -3150,7 +2921,7 @@ private static final long serialVersionUID = 0L;
               filtersBuilder_.dispose();
               filtersBuilder_ = null;
               filters_ = other.filters_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               filtersBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getFiltersFieldBuilder() : null;
@@ -3159,7 +2930,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3174,17 +2945,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.firestore.v1.StructuredQuery.CompositeFilter parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                op_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                com.google.firestore.v1.StructuredQuery.Filter m =
+                    input.readMessage(
+                        com.google.firestore.v1.StructuredQuery.Filter.parser(),
+                        extensionRegistry);
+                if (filtersBuilder_ == null) {
+                  ensureFiltersIsMutable();
+                  filters_.add(m);
+                } else {
+                  filtersBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.firestore.v1.StructuredQuery.CompositeFilter) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3211,8 +3013,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setOpValue(int value) {
-        
         op_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3226,8 +3028,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.firestore.v1.StructuredQuery.CompositeFilter.Operator getOp() {
-        @SuppressWarnings("deprecation")
-        com.google.firestore.v1.StructuredQuery.CompositeFilter.Operator result = com.google.firestore.v1.StructuredQuery.CompositeFilter.Operator.valueOf(op_);
+        com.google.firestore.v1.StructuredQuery.CompositeFilter.Operator result = com.google.firestore.v1.StructuredQuery.CompositeFilter.Operator.forNumber(op_);
         return result == null ? com.google.firestore.v1.StructuredQuery.CompositeFilter.Operator.UNRECOGNIZED : result;
       }
       /**
@@ -3243,7 +3044,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         op_ = value.getNumber();
         onChanged();
         return this;
@@ -3257,7 +3058,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOp() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         op_ = 0;
         onChanged();
         return this;
@@ -3266,9 +3067,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<com.google.firestore.v1.StructuredQuery.Filter> filters_ =
         java.util.Collections.emptyList();
       private void ensureFiltersIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           filters_ = new java.util.ArrayList<com.google.firestore.v1.StructuredQuery.Filter>(filters_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -3484,7 +3285,7 @@ private static final long serialVersionUID = 0L;
       public Builder clearFilters() {
         if (filtersBuilder_ == null) {
           filters_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           filtersBuilder_.clear();
@@ -3603,7 +3404,7 @@ private static final long serialVersionUID = 0L;
           filtersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.firestore.v1.StructuredQuery.Filter, com.google.firestore.v1.StructuredQuery.Filter.Builder, com.google.firestore.v1.StructuredQuery.FilterOrBuilder>(
                   filters_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           filters_ = null;
@@ -3643,7 +3444,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CompositeFilter(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3771,77 +3583,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private FieldFilter(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.firestore.v1.StructuredQuery.FieldReference.Builder subBuilder = null;
-              if (field_ != null) {
-                subBuilder = field_.toBuilder();
-              }
-              field_ = input.readMessage(com.google.firestore.v1.StructuredQuery.FieldReference.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(field_);
-                field_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              op_ = rawValue;
-              break;
-            }
-            case 26: {
-              com.google.firestore.v1.Value.Builder subBuilder = null;
-              if (value_ != null) {
-                subBuilder = value_.toBuilder();
-              }
-              value_ = input.readMessage(com.google.firestore.v1.Value.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(value_);
-                value_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -4218,11 +3959,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.firestore.v1.StructuredQuery.FieldReferenceOrBuilder getFieldOrBuilder() {
-      return getField();
+      return field_ == null ? com.google.firestore.v1.StructuredQuery.FieldReference.getDefaultInstance() : field_;
     }
 
     public static final int OP_FIELD_NUMBER = 2;
-    private int op_;
+    private int op_ = 0;
     /**
      * <pre>
      * The operator to filter by.
@@ -4243,8 +3984,7 @@ private static final long serialVersionUID = 0L;
      * @return The op.
      */
     @java.lang.Override public com.google.firestore.v1.StructuredQuery.FieldFilter.Operator getOp() {
-      @SuppressWarnings("deprecation")
-      com.google.firestore.v1.StructuredQuery.FieldFilter.Operator result = com.google.firestore.v1.StructuredQuery.FieldFilter.Operator.valueOf(op_);
+      com.google.firestore.v1.StructuredQuery.FieldFilter.Operator result = com.google.firestore.v1.StructuredQuery.FieldFilter.Operator.forNumber(op_);
       return result == null ? com.google.firestore.v1.StructuredQuery.FieldFilter.Operator.UNRECOGNIZED : result;
     }
 
@@ -4283,7 +4023,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.firestore.v1.ValueOrBuilder getValueOrBuilder() {
-      return getValue();
+      return value_ == null ? com.google.firestore.v1.Value.getDefaultInstance() : value_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4309,7 +4049,7 @@ private static final long serialVersionUID = 0L;
       if (value_ != null) {
         output.writeMessage(3, getValue());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4330,7 +4070,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getValue());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4356,7 +4096,7 @@ private static final long serialVersionUID = 0L;
         if (!getValue()
             .equals(other.getValue())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4377,7 +4117,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + VALUE_FIELD_NUMBER;
         hash = (53 * hash) + getValue().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4498,34 +4238,27 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.firestore.v1.StructuredQuery.FieldFilter.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (fieldBuilder_ == null) {
-          field_ = null;
-        } else {
-          field_ = null;
+        bitField0_ = 0;
+        field_ = null;
+        if (fieldBuilder_ != null) {
+          fieldBuilder_.dispose();
           fieldBuilder_ = null;
         }
         op_ = 0;
-
-        if (valueBuilder_ == null) {
-          value_ = null;
-        } else {
-          value_ = null;
+        value_ = null;
+        if (valueBuilder_ != null) {
+          valueBuilder_.dispose();
           valueBuilder_ = null;
         }
         return this;
@@ -4554,19 +4287,26 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.firestore.v1.StructuredQuery.FieldFilter buildPartial() {
         com.google.firestore.v1.StructuredQuery.FieldFilter result = new com.google.firestore.v1.StructuredQuery.FieldFilter(this);
-        if (fieldBuilder_ == null) {
-          result.field_ = field_;
-        } else {
-          result.field_ = fieldBuilder_.build();
-        }
-        result.op_ = op_;
-        if (valueBuilder_ == null) {
-          result.value_ = value_;
-        } else {
-          result.value_ = valueBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.firestore.v1.StructuredQuery.FieldFilter result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.field_ = fieldBuilder_ == null
+              ? field_
+              : fieldBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.op_ = op_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.value_ = valueBuilder_ == null
+              ? value_
+              : valueBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -4622,7 +4362,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasValue()) {
           mergeValue(other.getValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4637,19 +4377,52 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.firestore.v1.StructuredQuery.FieldFilter parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getFieldFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                op_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                input.readMessage(
+                    getValueFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.firestore.v1.StructuredQuery.FieldFilter) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.firestore.v1.StructuredQuery.FieldReference field_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4663,7 +4436,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the field field is set.
        */
       public boolean hasField() {
-        return fieldBuilder_ != null || field_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -4693,11 +4466,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           field_ = value;
-          onChanged();
         } else {
           fieldBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4711,11 +4484,11 @@ private static final long serialVersionUID = 0L;
           com.google.firestore.v1.StructuredQuery.FieldReference.Builder builderForValue) {
         if (fieldBuilder_ == null) {
           field_ = builderForValue.build();
-          onChanged();
         } else {
           fieldBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4727,17 +4500,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeField(com.google.firestore.v1.StructuredQuery.FieldReference value) {
         if (fieldBuilder_ == null) {
-          if (field_ != null) {
-            field_ =
-              com.google.firestore.v1.StructuredQuery.FieldReference.newBuilder(field_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            field_ != null &&
+            field_ != com.google.firestore.v1.StructuredQuery.FieldReference.getDefaultInstance()) {
+            getFieldBuilder().mergeFrom(value);
           } else {
             field_ = value;
           }
-          onChanged();
         } else {
           fieldBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4748,14 +4522,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.firestore.v1.StructuredQuery.FieldReference field = 1;</code>
        */
       public Builder clearField() {
-        if (fieldBuilder_ == null) {
-          field_ = null;
-          onChanged();
-        } else {
-          field_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        field_ = null;
+        if (fieldBuilder_ != null) {
+          fieldBuilder_.dispose();
           fieldBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4766,7 +4539,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.firestore.v1.StructuredQuery.FieldReference field = 1;</code>
        */
       public com.google.firestore.v1.StructuredQuery.FieldReference.Builder getFieldBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getFieldFieldBuilder().getBuilder();
       }
@@ -4828,8 +4601,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setOpValue(int value) {
-        
         op_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4843,8 +4616,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.firestore.v1.StructuredQuery.FieldFilter.Operator getOp() {
-        @SuppressWarnings("deprecation")
-        com.google.firestore.v1.StructuredQuery.FieldFilter.Operator result = com.google.firestore.v1.StructuredQuery.FieldFilter.Operator.valueOf(op_);
+        com.google.firestore.v1.StructuredQuery.FieldFilter.Operator result = com.google.firestore.v1.StructuredQuery.FieldFilter.Operator.forNumber(op_);
         return result == null ? com.google.firestore.v1.StructuredQuery.FieldFilter.Operator.UNRECOGNIZED : result;
       }
       /**
@@ -4860,7 +4632,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         op_ = value.getNumber();
         onChanged();
         return this;
@@ -4874,7 +4646,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOp() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         op_ = 0;
         onChanged();
         return this;
@@ -4892,7 +4664,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the value field is set.
        */
       public boolean hasValue() {
-        return valueBuilder_ != null || value_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -4922,11 +4694,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           value_ = value;
-          onChanged();
         } else {
           valueBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -4940,11 +4712,11 @@ private static final long serialVersionUID = 0L;
           com.google.firestore.v1.Value.Builder builderForValue) {
         if (valueBuilder_ == null) {
           value_ = builderForValue.build();
-          onChanged();
         } else {
           valueBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -4956,17 +4728,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeValue(com.google.firestore.v1.Value value) {
         if (valueBuilder_ == null) {
-          if (value_ != null) {
-            value_ =
-              com.google.firestore.v1.Value.newBuilder(value_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            value_ != null &&
+            value_ != com.google.firestore.v1.Value.getDefaultInstance()) {
+            getValueBuilder().mergeFrom(value);
           } else {
             value_ = value;
           }
-          onChanged();
         } else {
           valueBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -4977,14 +4750,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.firestore.v1.Value value = 3;</code>
        */
       public Builder clearValue() {
-        if (valueBuilder_ == null) {
-          value_ = null;
-          onChanged();
-        } else {
-          value_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        value_ = null;
+        if (valueBuilder_ != null) {
+          valueBuilder_.dispose();
           valueBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4995,7 +4767,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.firestore.v1.Value value = 3;</code>
        */
       public com.google.firestore.v1.Value.Builder getValueBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getValueFieldBuilder().getBuilder();
       }
@@ -5067,7 +4839,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FieldFilter(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5170,65 +4953,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private UnaryFilter(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              op_ = rawValue;
-              break;
-            }
-            case 18: {
-              com.google.firestore.v1.StructuredQuery.FieldReference.Builder subBuilder = null;
-              if (operandTypeCase_ == 2) {
-                subBuilder = ((com.google.firestore.v1.StructuredQuery.FieldReference) operandType_).toBuilder();
-              }
-              operandType_ =
-                  input.readMessage(com.google.firestore.v1.StructuredQuery.FieldReference.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.firestore.v1.StructuredQuery.FieldReference) operandType_);
-                operandType_ = subBuilder.buildPartial();
-              }
-              operandTypeCase_ = 2;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -5474,7 +5198,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int OP_FIELD_NUMBER = 1;
-    private int op_;
+    private int op_ = 0;
     /**
      * <pre>
      * The unary operator to apply.
@@ -5495,8 +5219,7 @@ private static final long serialVersionUID = 0L;
      * @return The op.
      */
     @java.lang.Override public com.google.firestore.v1.StructuredQuery.UnaryFilter.Operator getOp() {
-      @SuppressWarnings("deprecation")
-      com.google.firestore.v1.StructuredQuery.UnaryFilter.Operator result = com.google.firestore.v1.StructuredQuery.UnaryFilter.Operator.valueOf(op_);
+      com.google.firestore.v1.StructuredQuery.UnaryFilter.Operator result = com.google.firestore.v1.StructuredQuery.UnaryFilter.Operator.forNumber(op_);
       return result == null ? com.google.firestore.v1.StructuredQuery.UnaryFilter.Operator.UNRECOGNIZED : result;
     }
 
@@ -5563,7 +5286,7 @@ private static final long serialVersionUID = 0L;
       if (operandTypeCase_ == 2) {
         output.writeMessage(2, (com.google.firestore.v1.StructuredQuery.FieldReference) operandType_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5580,7 +5303,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, (com.google.firestore.v1.StructuredQuery.FieldReference) operandType_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5605,7 +5328,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5626,7 +5349,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5747,24 +5470,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.firestore.v1.StructuredQuery.UnaryFilter.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         op_ = 0;
-
+        if (fieldBuilder_ != null) {
+          fieldBuilder_.clear();
+        }
         operandTypeCase_ = 0;
         operandType_ = null;
         return this;
@@ -5793,17 +5514,26 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.firestore.v1.StructuredQuery.UnaryFilter buildPartial() {
         com.google.firestore.v1.StructuredQuery.UnaryFilter result = new com.google.firestore.v1.StructuredQuery.UnaryFilter(this);
-        result.op_ = op_;
-        if (operandTypeCase_ == 2) {
-          if (fieldBuilder_ == null) {
-            result.operandType_ = operandType_;
-          } else {
-            result.operandType_ = fieldBuilder_.build();
-          }
-        }
-        result.operandTypeCase_ = operandTypeCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.firestore.v1.StructuredQuery.UnaryFilter result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.op_ = op_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.firestore.v1.StructuredQuery.UnaryFilter result) {
+        result.operandTypeCase_ = operandTypeCase_;
+        result.operandType_ = this.operandType_;
+        if (operandTypeCase_ == 2 &&
+            fieldBuilder_ != null) {
+          result.operandType_ = fieldBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -5862,7 +5592,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5877,17 +5607,42 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.firestore.v1.StructuredQuery.UnaryFilter parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                op_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                input.readMessage(
+                    getFieldFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                operandTypeCase_ = 2;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.firestore.v1.StructuredQuery.UnaryFilter) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int operandTypeCase_ = 0;
@@ -5905,6 +5660,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       private int op_ = 0;
       /**
@@ -5928,8 +5684,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setOpValue(int value) {
-        
         op_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5943,8 +5699,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.firestore.v1.StructuredQuery.UnaryFilter.Operator getOp() {
-        @SuppressWarnings("deprecation")
-        com.google.firestore.v1.StructuredQuery.UnaryFilter.Operator result = com.google.firestore.v1.StructuredQuery.UnaryFilter.Operator.valueOf(op_);
+        com.google.firestore.v1.StructuredQuery.UnaryFilter.Operator result = com.google.firestore.v1.StructuredQuery.UnaryFilter.Operator.forNumber(op_);
         return result == null ? com.google.firestore.v1.StructuredQuery.UnaryFilter.Operator.UNRECOGNIZED : result;
       }
       /**
@@ -5960,7 +5715,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         op_ = value.getNumber();
         onChanged();
         return this;
@@ -5974,7 +5729,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOp() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         op_ = 0;
         onChanged();
         return this;
@@ -6154,7 +5909,7 @@ private static final long serialVersionUID = 0L;
           operandType_ = null;
         }
         operandTypeCase_ = 2;
-        onChanged();;
+        onChanged();
         return fieldBuilder_;
       }
       @java.lang.Override
@@ -6190,7 +5945,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UnaryFilter(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6292,64 +6058,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Order(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.firestore.v1.StructuredQuery.FieldReference.Builder subBuilder = null;
-              if (field_ != null) {
-                subBuilder = field_.toBuilder();
-              }
-              field_ = input.readMessage(com.google.firestore.v1.StructuredQuery.FieldReference.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(field_);
-                field_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              direction_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.firestore.v1.QueryProto.internal_static_google_firestore_v1_StructuredQuery_Order_descriptor;
@@ -6398,11 +6106,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.firestore.v1.StructuredQuery.FieldReferenceOrBuilder getFieldOrBuilder() {
-      return getField();
+      return field_ == null ? com.google.firestore.v1.StructuredQuery.FieldReference.getDefaultInstance() : field_;
     }
 
     public static final int DIRECTION_FIELD_NUMBER = 2;
-    private int direction_;
+    private int direction_ = 0;
     /**
      * <pre>
      * The direction to order by. Defaults to `ASCENDING`.
@@ -6423,8 +6131,7 @@ private static final long serialVersionUID = 0L;
      * @return The direction.
      */
     @java.lang.Override public com.google.firestore.v1.StructuredQuery.Direction getDirection() {
-      @SuppressWarnings("deprecation")
-      com.google.firestore.v1.StructuredQuery.Direction result = com.google.firestore.v1.StructuredQuery.Direction.valueOf(direction_);
+      com.google.firestore.v1.StructuredQuery.Direction result = com.google.firestore.v1.StructuredQuery.Direction.forNumber(direction_);
       return result == null ? com.google.firestore.v1.StructuredQuery.Direction.UNRECOGNIZED : result;
     }
 
@@ -6448,7 +6155,7 @@ private static final long serialVersionUID = 0L;
       if (direction_ != com.google.firestore.v1.StructuredQuery.Direction.DIRECTION_UNSPECIFIED.getNumber()) {
         output.writeEnum(2, direction_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6465,7 +6172,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, direction_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6486,7 +6193,7 @@ private static final long serialVersionUID = 0L;
             .equals(other.getField())) return false;
       }
       if (direction_ != other.direction_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6503,7 +6210,7 @@ private static final long serialVersionUID = 0L;
       }
       hash = (37 * hash) + DIRECTION_FIELD_NUMBER;
       hash = (53 * hash) + direction_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6624,30 +6331,24 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.firestore.v1.StructuredQuery.Order.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (fieldBuilder_ == null) {
-          field_ = null;
-        } else {
-          field_ = null;
+        bitField0_ = 0;
+        field_ = null;
+        if (fieldBuilder_ != null) {
+          fieldBuilder_.dispose();
           fieldBuilder_ = null;
         }
         direction_ = 0;
-
         return this;
       }
 
@@ -6674,14 +6375,21 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.firestore.v1.StructuredQuery.Order buildPartial() {
         com.google.firestore.v1.StructuredQuery.Order result = new com.google.firestore.v1.StructuredQuery.Order(this);
-        if (fieldBuilder_ == null) {
-          result.field_ = field_;
-        } else {
-          result.field_ = fieldBuilder_.build();
-        }
-        result.direction_ = direction_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.firestore.v1.StructuredQuery.Order result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.field_ = fieldBuilder_ == null
+              ? field_
+              : fieldBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.direction_ = direction_;
+        }
       }
 
       @java.lang.Override
@@ -6734,7 +6442,7 @@ private static final long serialVersionUID = 0L;
         if (other.direction_ != 0) {
           setDirectionValue(other.getDirectionValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6749,19 +6457,45 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.firestore.v1.StructuredQuery.Order parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getFieldFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                direction_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.firestore.v1.StructuredQuery.Order) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.firestore.v1.StructuredQuery.FieldReference field_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -6775,7 +6509,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the field field is set.
        */
       public boolean hasField() {
-        return fieldBuilder_ != null || field_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -6805,11 +6539,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           field_ = value;
-          onChanged();
         } else {
           fieldBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -6823,11 +6557,11 @@ private static final long serialVersionUID = 0L;
           com.google.firestore.v1.StructuredQuery.FieldReference.Builder builderForValue) {
         if (fieldBuilder_ == null) {
           field_ = builderForValue.build();
-          onChanged();
         } else {
           fieldBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -6839,17 +6573,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeField(com.google.firestore.v1.StructuredQuery.FieldReference value) {
         if (fieldBuilder_ == null) {
-          if (field_ != null) {
-            field_ =
-              com.google.firestore.v1.StructuredQuery.FieldReference.newBuilder(field_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            field_ != null &&
+            field_ != com.google.firestore.v1.StructuredQuery.FieldReference.getDefaultInstance()) {
+            getFieldBuilder().mergeFrom(value);
           } else {
             field_ = value;
           }
-          onChanged();
         } else {
           fieldBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -6860,14 +6595,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.firestore.v1.StructuredQuery.FieldReference field = 1;</code>
        */
       public Builder clearField() {
-        if (fieldBuilder_ == null) {
-          field_ = null;
-          onChanged();
-        } else {
-          field_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        field_ = null;
+        if (fieldBuilder_ != null) {
+          fieldBuilder_.dispose();
           fieldBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -6878,7 +6612,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.firestore.v1.StructuredQuery.FieldReference field = 1;</code>
        */
       public com.google.firestore.v1.StructuredQuery.FieldReference.Builder getFieldBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getFieldFieldBuilder().getBuilder();
       }
@@ -6940,8 +6674,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setDirectionValue(int value) {
-        
         direction_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6955,8 +6689,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.firestore.v1.StructuredQuery.Direction getDirection() {
-        @SuppressWarnings("deprecation")
-        com.google.firestore.v1.StructuredQuery.Direction result = com.google.firestore.v1.StructuredQuery.Direction.valueOf(direction_);
+        com.google.firestore.v1.StructuredQuery.Direction result = com.google.firestore.v1.StructuredQuery.Direction.forNumber(direction_);
         return result == null ? com.google.firestore.v1.StructuredQuery.Direction.UNRECOGNIZED : result;
       }
       /**
@@ -6972,7 +6705,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         direction_ = value.getNumber();
         onChanged();
         return this;
@@ -6986,7 +6719,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDirection() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         direction_ = 0;
         onChanged();
         return this;
@@ -7024,7 +6757,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Order(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7049,11 +6793,23 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * The relative path of the document being referenced.
+     * Requires:
+     * * Conform to [document field name][google.firestore.v1.Document.fields] limitations.
+     * </pre>
+     *
      * <code>string field_path = 2;</code>
      * @return The fieldPath.
      */
     java.lang.String getFieldPath();
     /**
+     * <pre>
+     * The relative path of the document being referenced.
+     * Requires:
+     * * Conform to [document field name][google.firestore.v1.Document.fields] limitations.
+     * </pre>
+     *
      * <code>string field_path = 2;</code>
      * @return The bytes for fieldPath.
      */
@@ -7062,7 +6818,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A reference to a field, such as `max(messages.time) as max_time`.
+   * A reference to a field in a document, ex: `stats.operations`.
    * </pre>
    *
    * Protobuf type {@code google.firestore.v1.StructuredQuery.FieldReference}
@@ -7092,51 +6848,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private FieldReference(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              fieldPath_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.firestore.v1.QueryProto.internal_static_google_firestore_v1_StructuredQuery_FieldReference_descriptor;
@@ -7151,8 +6862,15 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int FIELD_PATH_FIELD_NUMBER = 2;
-    private volatile java.lang.Object fieldPath_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object fieldPath_ = "";
     /**
+     * <pre>
+     * The relative path of the document being referenced.
+     * Requires:
+     * * Conform to [document field name][google.firestore.v1.Document.fields] limitations.
+     * </pre>
+     *
      * <code>string field_path = 2;</code>
      * @return The fieldPath.
      */
@@ -7170,6 +6888,12 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * The relative path of the document being referenced.
+     * Requires:
+     * * Conform to [document field name][google.firestore.v1.Document.fields] limitations.
+     * </pre>
+     *
      * <code>string field_path = 2;</code>
      * @return The bytes for fieldPath.
      */
@@ -7205,7 +6929,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fieldPath_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, fieldPath_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -7217,7 +6941,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fieldPath_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, fieldPath_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7234,7 +6958,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getFieldPath()
           .equals(other.getFieldPath())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -7247,7 +6971,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + FIELD_PATH_FIELD_NUMBER;
       hash = (53 * hash) + getFieldPath().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7344,7 +7068,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A reference to a field, such as `max(messages.time) as max_time`.
+     * A reference to a field in a document, ex: `stats.operations`.
      * </pre>
      *
      * Protobuf type {@code google.firestore.v1.StructuredQuery.FieldReference}
@@ -7368,24 +7092,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.firestore.v1.StructuredQuery.FieldReference.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         fieldPath_ = "";
-
         return this;
       }
 
@@ -7412,9 +7131,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.firestore.v1.StructuredQuery.FieldReference buildPartial() {
         com.google.firestore.v1.StructuredQuery.FieldReference result = new com.google.firestore.v1.StructuredQuery.FieldReference(this);
-        result.fieldPath_ = fieldPath_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.firestore.v1.StructuredQuery.FieldReference result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.fieldPath_ = fieldPath_;
+        }
       }
 
       @java.lang.Override
@@ -7463,9 +7189,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.firestore.v1.StructuredQuery.FieldReference.getDefaultInstance()) return this;
         if (!other.getFieldPath().isEmpty()) {
           fieldPath_ = other.fieldPath_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -7480,22 +7207,47 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.firestore.v1.StructuredQuery.FieldReference parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 18: {
+                fieldPath_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.firestore.v1.StructuredQuery.FieldReference) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object fieldPath_ = "";
       /**
+       * <pre>
+       * The relative path of the document being referenced.
+       * Requires:
+       * * Conform to [document field name][google.firestore.v1.Document.fields] limitations.
+       * </pre>
+       *
        * <code>string field_path = 2;</code>
        * @return The fieldPath.
        */
@@ -7512,6 +7264,12 @@ private static final long serialVersionUID = 0L;
         }
       }
       /**
+       * <pre>
+       * The relative path of the document being referenced.
+       * Requires:
+       * * Conform to [document field name][google.firestore.v1.Document.fields] limitations.
+       * </pre>
+       *
        * <code>string field_path = 2;</code>
        * @return The bytes for fieldPath.
        */
@@ -7529,43 +7287,57 @@ private static final long serialVersionUID = 0L;
         }
       }
       /**
+       * <pre>
+       * The relative path of the document being referenced.
+       * Requires:
+       * * Conform to [document field name][google.firestore.v1.Document.fields] limitations.
+       * </pre>
+       *
        * <code>string field_path = 2;</code>
        * @param value The fieldPath to set.
        * @return This builder for chaining.
        */
       public Builder setFieldPath(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         fieldPath_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
+       * <pre>
+       * The relative path of the document being referenced.
+       * Requires:
+       * * Conform to [document field name][google.firestore.v1.Document.fields] limitations.
+       * </pre>
+       *
        * <code>string field_path = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearFieldPath() {
-        
         fieldPath_ = getDefaultInstance().getFieldPath();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
+       * <pre>
+       * The relative path of the document being referenced.
+       * Requires:
+       * * Conform to [document field name][google.firestore.v1.Document.fields] limitations.
+       * </pre>
+       *
        * <code>string field_path = 2;</code>
        * @param value The bytes for fieldPath to set.
        * @return This builder for chaining.
        */
       public Builder setFieldPathBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         fieldPath_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7602,7 +7374,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FieldReference(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7712,58 +7495,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Projection(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                fields_ = new java.util.ArrayList<com.google.firestore.v1.StructuredQuery.FieldReference>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              fields_.add(
-                  input.readMessage(com.google.firestore.v1.StructuredQuery.FieldReference.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          fields_ = java.util.Collections.unmodifiableList(fields_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.firestore.v1.QueryProto.internal_static_google_firestore_v1_StructuredQuery_Projection_descriptor;
@@ -7778,6 +7509,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int FIELDS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.firestore.v1.StructuredQuery.FieldReference> fields_;
     /**
      * <pre>
@@ -7864,7 +7596,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < fields_.size(); i++) {
         output.writeMessage(2, fields_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -7877,7 +7609,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, fields_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7894,7 +7626,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getFieldsList()
           .equals(other.getFieldsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -7909,7 +7641,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + FIELDS_FIELD_NUMBER;
         hash = (53 * hash) + getFieldsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8030,29 +7762,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.firestore.v1.StructuredQuery.Projection.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getFieldsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (fieldsBuilder_ == null) {
           fields_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          fields_ = null;
           fieldsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -8079,7 +7807,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.firestore.v1.StructuredQuery.Projection buildPartial() {
         com.google.firestore.v1.StructuredQuery.Projection result = new com.google.firestore.v1.StructuredQuery.Projection(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.firestore.v1.StructuredQuery.Projection result) {
         if (fieldsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             fields_ = java.util.Collections.unmodifiableList(fields_);
@@ -8089,8 +7823,10 @@ private static final long serialVersionUID = 0L;
         } else {
           result.fields_ = fieldsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.firestore.v1.StructuredQuery.Projection result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -8163,7 +7899,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -8178,17 +7914,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.firestore.v1.StructuredQuery.Projection parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 18: {
+                com.google.firestore.v1.StructuredQuery.FieldReference m =
+                    input.readMessage(
+                        com.google.firestore.v1.StructuredQuery.FieldReference.parser(),
+                        extensionRegistry);
+                if (fieldsBuilder_ == null) {
+                  ensureFieldsIsMutable();
+                  fields_.add(m);
+                } else {
+                  fieldsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.firestore.v1.StructuredQuery.Projection) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -8573,7 +8335,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Projection(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -8628,10 +8401,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.firestore.v1.StructuredQuery.ProjectionOrBuilder getSelectOrBuilder() {
-    return getSelect();
+    return select_ == null ? com.google.firestore.v1.StructuredQuery.Projection.getDefaultInstance() : select_;
   }
 
   public static final int FROM_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.firestore.v1.StructuredQuery.CollectionSelector> from_;
   /**
    * <pre>
@@ -8726,27 +8500,30 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.firestore.v1.StructuredQuery.FilterOrBuilder getWhereOrBuilder() {
-    return getWhere();
+    return where_ == null ? com.google.firestore.v1.StructuredQuery.Filter.getDefaultInstance() : where_;
   }
 
   public static final int ORDER_BY_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.firestore.v1.StructuredQuery.Order> orderBy_;
   /**
    * <pre>
    * The order to apply to the query results.
-   * Firestore guarantees a stable ordering through the following rules:
-   *  * Any field required to appear in `order_by`, that is not already
-   *    specified in `order_by`, is appended to the order in field name order
-   *    by default.
+   * Firestore allows callers to provide a full ordering, a partial ordering, or
+   * no ordering at all. In all cases, Firestore guarantees a stable ordering
+   * through the following rules:
+   *  * The `order_by` is required to reference all fields used with an
+   *    inequality filter.
+   *  * All fields that are required to be in the `order_by` but are not already
+   *    present are appended in lexicographical ordering of the field name.
    *  * If an order on `__name__` is not specified, it is appended by default.
    * Fields are appended with the same sort direction as the last order
    * specified, or 'ASCENDING' if no order was specified. For example:
-   *  * `SELECT * FROM Foo ORDER BY A` becomes
-   *    `SELECT * FROM Foo ORDER BY A, __name__`
-   *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-   *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-   *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-   *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+   *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+   *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+   *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+   *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+   *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
    * </pre>
    *
    * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -8758,19 +8535,21 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The order to apply to the query results.
-   * Firestore guarantees a stable ordering through the following rules:
-   *  * Any field required to appear in `order_by`, that is not already
-   *    specified in `order_by`, is appended to the order in field name order
-   *    by default.
+   * Firestore allows callers to provide a full ordering, a partial ordering, or
+   * no ordering at all. In all cases, Firestore guarantees a stable ordering
+   * through the following rules:
+   *  * The `order_by` is required to reference all fields used with an
+   *    inequality filter.
+   *  * All fields that are required to be in the `order_by` but are not already
+   *    present are appended in lexicographical ordering of the field name.
    *  * If an order on `__name__` is not specified, it is appended by default.
    * Fields are appended with the same sort direction as the last order
    * specified, or 'ASCENDING' if no order was specified. For example:
-   *  * `SELECT * FROM Foo ORDER BY A` becomes
-   *    `SELECT * FROM Foo ORDER BY A, __name__`
-   *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-   *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-   *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-   *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+   *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+   *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+   *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+   *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+   *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
    * </pre>
    *
    * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -8783,19 +8562,21 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The order to apply to the query results.
-   * Firestore guarantees a stable ordering through the following rules:
-   *  * Any field required to appear in `order_by`, that is not already
-   *    specified in `order_by`, is appended to the order in field name order
-   *    by default.
+   * Firestore allows callers to provide a full ordering, a partial ordering, or
+   * no ordering at all. In all cases, Firestore guarantees a stable ordering
+   * through the following rules:
+   *  * The `order_by` is required to reference all fields used with an
+   *    inequality filter.
+   *  * All fields that are required to be in the `order_by` but are not already
+   *    present are appended in lexicographical ordering of the field name.
    *  * If an order on `__name__` is not specified, it is appended by default.
    * Fields are appended with the same sort direction as the last order
    * specified, or 'ASCENDING' if no order was specified. For example:
-   *  * `SELECT * FROM Foo ORDER BY A` becomes
-   *    `SELECT * FROM Foo ORDER BY A, __name__`
-   *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-   *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-   *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-   *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+   *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+   *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+   *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+   *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+   *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
    * </pre>
    *
    * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -8807,19 +8588,21 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The order to apply to the query results.
-   * Firestore guarantees a stable ordering through the following rules:
-   *  * Any field required to appear in `order_by`, that is not already
-   *    specified in `order_by`, is appended to the order in field name order
-   *    by default.
+   * Firestore allows callers to provide a full ordering, a partial ordering, or
+   * no ordering at all. In all cases, Firestore guarantees a stable ordering
+   * through the following rules:
+   *  * The `order_by` is required to reference all fields used with an
+   *    inequality filter.
+   *  * All fields that are required to be in the `order_by` but are not already
+   *    present are appended in lexicographical ordering of the field name.
    *  * If an order on `__name__` is not specified, it is appended by default.
    * Fields are appended with the same sort direction as the last order
    * specified, or 'ASCENDING' if no order was specified. For example:
-   *  * `SELECT * FROM Foo ORDER BY A` becomes
-   *    `SELECT * FROM Foo ORDER BY A, __name__`
-   *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-   *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-   *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-   *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+   *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+   *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+   *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+   *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+   *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
    * </pre>
    *
    * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -8831,19 +8614,21 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The order to apply to the query results.
-   * Firestore guarantees a stable ordering through the following rules:
-   *  * Any field required to appear in `order_by`, that is not already
-   *    specified in `order_by`, is appended to the order in field name order
-   *    by default.
+   * Firestore allows callers to provide a full ordering, a partial ordering, or
+   * no ordering at all. In all cases, Firestore guarantees a stable ordering
+   * through the following rules:
+   *  * The `order_by` is required to reference all fields used with an
+   *    inequality filter.
+   *  * All fields that are required to be in the `order_by` but are not already
+   *    present are appended in lexicographical ordering of the field name.
    *  * If an order on `__name__` is not specified, it is appended by default.
    * Fields are appended with the same sort direction as the last order
    * specified, or 'ASCENDING' if no order was specified. For example:
-   *  * `SELECT * FROM Foo ORDER BY A` becomes
-   *    `SELECT * FROM Foo ORDER BY A, __name__`
-   *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-   *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-   *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-   *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+   *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+   *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+   *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+   *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+   *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
    * </pre>
    *
    * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -8858,7 +8643,28 @@ private static final long serialVersionUID = 0L;
   private com.google.firestore.v1.Cursor startAt_;
   /**
    * <pre>
-   * A starting point for the query results.
+   * A potential prefix of a position in the result set to start the query at.
+   * The ordering of the result set is based on the `ORDER BY` clause of the
+   * original query.
+   * ```
+   * SELECT * FROM k WHERE a = 1 AND b &gt; 2 ORDER BY b ASC, __name__ ASC;
+   * ```
+   * This query's results are ordered by `(b ASC, __name__ ASC)`.
+   * Cursors can reference either the full ordering or a prefix of the location,
+   * though it cannot reference more fields than what are in the provided
+   * `ORDER BY`.
+   * Continuing off the example above, attaching the following start cursors
+   * will have varying impact:
+   * - `START BEFORE (2, /k/123)`: start the query right before `a = 1 AND
+   *    b &gt; 2 AND __name__ &gt; /k/123`.
+   * - `START AFTER (10)`: start the query right after `a = 1 AND b &gt; 10`.
+   * Unlike `OFFSET` which requires scanning over the first N results to skip,
+   * a start cursor allows the query to begin at a logical position. This
+   * position is not required to match an actual result, it will scan forward
+   * from this position to find the next document.
+   * Requires:
+   * * The number of values cannot be greater than the number of fields
+   *   specified in the `ORDER BY` clause.
    * </pre>
    *
    * <code>.google.firestore.v1.Cursor start_at = 7;</code>
@@ -8870,7 +8676,28 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A starting point for the query results.
+   * A potential prefix of a position in the result set to start the query at.
+   * The ordering of the result set is based on the `ORDER BY` clause of the
+   * original query.
+   * ```
+   * SELECT * FROM k WHERE a = 1 AND b &gt; 2 ORDER BY b ASC, __name__ ASC;
+   * ```
+   * This query's results are ordered by `(b ASC, __name__ ASC)`.
+   * Cursors can reference either the full ordering or a prefix of the location,
+   * though it cannot reference more fields than what are in the provided
+   * `ORDER BY`.
+   * Continuing off the example above, attaching the following start cursors
+   * will have varying impact:
+   * - `START BEFORE (2, /k/123)`: start the query right before `a = 1 AND
+   *    b &gt; 2 AND __name__ &gt; /k/123`.
+   * - `START AFTER (10)`: start the query right after `a = 1 AND b &gt; 10`.
+   * Unlike `OFFSET` which requires scanning over the first N results to skip,
+   * a start cursor allows the query to begin at a logical position. This
+   * position is not required to match an actual result, it will scan forward
+   * from this position to find the next document.
+   * Requires:
+   * * The number of values cannot be greater than the number of fields
+   *   specified in the `ORDER BY` clause.
    * </pre>
    *
    * <code>.google.firestore.v1.Cursor start_at = 7;</code>
@@ -8882,21 +8709,47 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A starting point for the query results.
+   * A potential prefix of a position in the result set to start the query at.
+   * The ordering of the result set is based on the `ORDER BY` clause of the
+   * original query.
+   * ```
+   * SELECT * FROM k WHERE a = 1 AND b &gt; 2 ORDER BY b ASC, __name__ ASC;
+   * ```
+   * This query's results are ordered by `(b ASC, __name__ ASC)`.
+   * Cursors can reference either the full ordering or a prefix of the location,
+   * though it cannot reference more fields than what are in the provided
+   * `ORDER BY`.
+   * Continuing off the example above, attaching the following start cursors
+   * will have varying impact:
+   * - `START BEFORE (2, /k/123)`: start the query right before `a = 1 AND
+   *    b &gt; 2 AND __name__ &gt; /k/123`.
+   * - `START AFTER (10)`: start the query right after `a = 1 AND b &gt; 10`.
+   * Unlike `OFFSET` which requires scanning over the first N results to skip,
+   * a start cursor allows the query to begin at a logical position. This
+   * position is not required to match an actual result, it will scan forward
+   * from this position to find the next document.
+   * Requires:
+   * * The number of values cannot be greater than the number of fields
+   *   specified in the `ORDER BY` clause.
    * </pre>
    *
    * <code>.google.firestore.v1.Cursor start_at = 7;</code>
    */
   @java.lang.Override
   public com.google.firestore.v1.CursorOrBuilder getStartAtOrBuilder() {
-    return getStartAt();
+    return startAt_ == null ? com.google.firestore.v1.Cursor.getDefaultInstance() : startAt_;
   }
 
   public static final int END_AT_FIELD_NUMBER = 8;
   private com.google.firestore.v1.Cursor endAt_;
   /**
    * <pre>
-   * A end point for the query results.
+   * A potential prefix of a position in the result set to end the query at.
+   * This is similar to `START_AT` but with it controlling the end position
+   * rather than the start position.
+   * Requires:
+   * * The number of values cannot be greater than the number of fields
+   *   specified in the `ORDER BY` clause.
    * </pre>
    *
    * <code>.google.firestore.v1.Cursor end_at = 8;</code>
@@ -8908,7 +8761,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A end point for the query results.
+   * A potential prefix of a position in the result set to end the query at.
+   * This is similar to `START_AT` but with it controlling the end position
+   * rather than the start position.
+   * Requires:
+   * * The number of values cannot be greater than the number of fields
+   *   specified in the `ORDER BY` clause.
    * </pre>
    *
    * <code>.google.firestore.v1.Cursor end_at = 8;</code>
@@ -8920,23 +8778,30 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A end point for the query results.
+   * A potential prefix of a position in the result set to end the query at.
+   * This is similar to `START_AT` but with it controlling the end position
+   * rather than the start position.
+   * Requires:
+   * * The number of values cannot be greater than the number of fields
+   *   specified in the `ORDER BY` clause.
    * </pre>
    *
    * <code>.google.firestore.v1.Cursor end_at = 8;</code>
    */
   @java.lang.Override
   public com.google.firestore.v1.CursorOrBuilder getEndAtOrBuilder() {
-    return getEndAt();
+    return endAt_ == null ? com.google.firestore.v1.Cursor.getDefaultInstance() : endAt_;
   }
 
   public static final int OFFSET_FIELD_NUMBER = 6;
-  private int offset_;
+  private int offset_ = 0;
   /**
    * <pre>
-   * The number of results to skip.
-   * Applies before limit, but after all other constraints. Must be &gt;= 0 if
-   * specified.
+   * The number of documents to skip before returning the first result.
+   * This applies after the constraints specified by the `WHERE`, `START AT`, &amp;
+   * `END AT` but before the `LIMIT` clause.
+   * Requires:
+   * * The value must be greater than or equal to zero if specified.
    * </pre>
    *
    * <code>int32 offset = 6;</code>
@@ -8953,7 +8818,8 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The maximum number of results to return.
    * Applies after all other constraints.
-   * Must be &gt;= 0 if specified.
+   * Requires:
+   * * The value must be greater than or equal to zero if specified.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value limit = 5;</code>
@@ -8967,7 +8833,8 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The maximum number of results to return.
    * Applies after all other constraints.
-   * Must be &gt;= 0 if specified.
+   * Requires:
+   * * The value must be greater than or equal to zero if specified.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value limit = 5;</code>
@@ -8981,14 +8848,15 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The maximum number of results to return.
    * Applies after all other constraints.
-   * Must be &gt;= 0 if specified.
+   * Requires:
+   * * The value must be greater than or equal to zero if specified.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value limit = 5;</code>
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getLimitOrBuilder() {
-    return getLimit();
+    return limit_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : limit_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -9029,7 +8897,7 @@ private static final long serialVersionUID = 0L;
     if (endAt_ != null) {
       output.writeMessage(8, getEndAt());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -9070,7 +8938,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getEndAt());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -9116,7 +8984,7 @@ private static final long serialVersionUID = 0L;
       if (!getLimit()
           .equals(other.getLimit())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -9157,7 +9025,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LIMIT_FIELD_NUMBER;
       hash = (53 * hash) + getLimit().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -9278,66 +9146,56 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.firestore.v1.StructuredQuery.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getFromFieldBuilder();
-        getOrderByFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (selectBuilder_ == null) {
-        select_ = null;
-      } else {
-        select_ = null;
+      bitField0_ = 0;
+      select_ = null;
+      if (selectBuilder_ != null) {
+        selectBuilder_.dispose();
         selectBuilder_ = null;
       }
       if (fromBuilder_ == null) {
         from_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        from_ = null;
         fromBuilder_.clear();
       }
-      if (whereBuilder_ == null) {
-        where_ = null;
-      } else {
-        where_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      where_ = null;
+      if (whereBuilder_ != null) {
+        whereBuilder_.dispose();
         whereBuilder_ = null;
       }
       if (orderByBuilder_ == null) {
         orderBy_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        orderBy_ = null;
         orderByBuilder_.clear();
       }
-      if (startAtBuilder_ == null) {
-        startAt_ = null;
-      } else {
-        startAt_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      startAt_ = null;
+      if (startAtBuilder_ != null) {
+        startAtBuilder_.dispose();
         startAtBuilder_ = null;
       }
-      if (endAtBuilder_ == null) {
-        endAt_ = null;
-      } else {
-        endAt_ = null;
+      endAt_ = null;
+      if (endAtBuilder_ != null) {
+        endAtBuilder_.dispose();
         endAtBuilder_ = null;
       }
       offset_ = 0;
-
-      if (limitBuilder_ == null) {
-        limit_ = null;
-      } else {
-        limit_ = null;
+      limit_ = null;
+      if (limitBuilder_ != null) {
+        limitBuilder_.dispose();
         limitBuilder_ = null;
       }
       return this;
@@ -9366,53 +9224,63 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.firestore.v1.StructuredQuery buildPartial() {
       com.google.firestore.v1.StructuredQuery result = new com.google.firestore.v1.StructuredQuery(this);
-      int from_bitField0_ = bitField0_;
-      if (selectBuilder_ == null) {
-        result.select_ = select_;
-      } else {
-        result.select_ = selectBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.firestore.v1.StructuredQuery result) {
       if (fromBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           from_ = java.util.Collections.unmodifiableList(from_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.from_ = from_;
       } else {
         result.from_ = fromBuilder_.build();
       }
-      if (whereBuilder_ == null) {
-        result.where_ = where_;
-      } else {
-        result.where_ = whereBuilder_.build();
-      }
       if (orderByBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           orderBy_ = java.util.Collections.unmodifiableList(orderBy_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.orderBy_ = orderBy_;
       } else {
         result.orderBy_ = orderByBuilder_.build();
       }
-      if (startAtBuilder_ == null) {
-        result.startAt_ = startAt_;
-      } else {
-        result.startAt_ = startAtBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.firestore.v1.StructuredQuery result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.select_ = selectBuilder_ == null
+            ? select_
+            : selectBuilder_.build();
       }
-      if (endAtBuilder_ == null) {
-        result.endAt_ = endAt_;
-      } else {
-        result.endAt_ = endAtBuilder_.build();
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.where_ = whereBuilder_ == null
+            ? where_
+            : whereBuilder_.build();
       }
-      result.offset_ = offset_;
-      if (limitBuilder_ == null) {
-        result.limit_ = limit_;
-      } else {
-        result.limit_ = limitBuilder_.build();
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.startAt_ = startAtBuilder_ == null
+            ? startAt_
+            : startAtBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.endAt_ = endAtBuilder_ == null
+            ? endAt_
+            : endAtBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.offset_ = offset_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.limit_ = limitBuilder_ == null
+            ? limit_
+            : limitBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -9466,7 +9334,7 @@ private static final long serialVersionUID = 0L;
         if (!other.from_.isEmpty()) {
           if (from_.isEmpty()) {
             from_ = other.from_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureFromIsMutable();
             from_.addAll(other.from_);
@@ -9479,7 +9347,7 @@ private static final long serialVersionUID = 0L;
             fromBuilder_.dispose();
             fromBuilder_ = null;
             from_ = other.from_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             fromBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFromFieldBuilder() : null;
@@ -9495,7 +9363,7 @@ private static final long serialVersionUID = 0L;
         if (!other.orderBy_.isEmpty()) {
           if (orderBy_.isEmpty()) {
             orderBy_ = other.orderBy_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureOrderByIsMutable();
             orderBy_.addAll(other.orderBy_);
@@ -9508,7 +9376,7 @@ private static final long serialVersionUID = 0L;
             orderByBuilder_.dispose();
             orderByBuilder_ = null;
             orderBy_ = other.orderBy_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
             orderByBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getOrderByFieldBuilder() : null;
@@ -9529,7 +9397,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasLimit()) {
         mergeLimit(other.getLimit());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -9544,17 +9412,96 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.firestore.v1.StructuredQuery parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getSelectFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.firestore.v1.StructuredQuery.CollectionSelector m =
+                  input.readMessage(
+                      com.google.firestore.v1.StructuredQuery.CollectionSelector.parser(),
+                      extensionRegistry);
+              if (fromBuilder_ == null) {
+                ensureFromIsMutable();
+                from_.add(m);
+              } else {
+                fromBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getWhereFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.firestore.v1.StructuredQuery.Order m =
+                  input.readMessage(
+                      com.google.firestore.v1.StructuredQuery.Order.parser(),
+                      extensionRegistry);
+              if (orderByBuilder_ == null) {
+                ensureOrderByIsMutable();
+                orderBy_.add(m);
+              } else {
+                orderByBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getLimitFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 42
+            case 48: {
+              offset_ = input.readInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 48
+            case 58: {
+              input.readMessage(
+                  getStartAtFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getEndAtFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.firestore.v1.StructuredQuery) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -9571,7 +9518,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the select field is set.
      */
     public boolean hasSelect() {
-      return selectBuilder_ != null || select_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -9601,11 +9548,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         select_ = value;
-        onChanged();
       } else {
         selectBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -9619,11 +9566,11 @@ private static final long serialVersionUID = 0L;
         com.google.firestore.v1.StructuredQuery.Projection.Builder builderForValue) {
       if (selectBuilder_ == null) {
         select_ = builderForValue.build();
-        onChanged();
       } else {
         selectBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -9635,17 +9582,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSelect(com.google.firestore.v1.StructuredQuery.Projection value) {
       if (selectBuilder_ == null) {
-        if (select_ != null) {
-          select_ =
-            com.google.firestore.v1.StructuredQuery.Projection.newBuilder(select_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          select_ != null &&
+          select_ != com.google.firestore.v1.StructuredQuery.Projection.getDefaultInstance()) {
+          getSelectBuilder().mergeFrom(value);
         } else {
           select_ = value;
         }
-        onChanged();
       } else {
         selectBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -9656,14 +9604,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.firestore.v1.StructuredQuery.Projection select = 1;</code>
      */
     public Builder clearSelect() {
-      if (selectBuilder_ == null) {
-        select_ = null;
-        onChanged();
-      } else {
-        select_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      select_ = null;
+      if (selectBuilder_ != null) {
+        selectBuilder_.dispose();
         selectBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -9674,7 +9621,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.firestore.v1.StructuredQuery.Projection select = 1;</code>
      */
     public com.google.firestore.v1.StructuredQuery.Projection.Builder getSelectBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getSelectFieldBuilder().getBuilder();
     }
@@ -9717,9 +9664,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.firestore.v1.StructuredQuery.CollectionSelector> from_ =
       java.util.Collections.emptyList();
     private void ensureFromIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         from_ = new java.util.ArrayList<com.google.firestore.v1.StructuredQuery.CollectionSelector>(from_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -9913,7 +9860,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearFrom() {
       if (fromBuilder_ == null) {
         from_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         fromBuilder_.clear();
@@ -10018,7 +9965,7 @@ private static final long serialVersionUID = 0L;
         fromBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.firestore.v1.StructuredQuery.CollectionSelector, com.google.firestore.v1.StructuredQuery.CollectionSelector.Builder, com.google.firestore.v1.StructuredQuery.CollectionSelectorOrBuilder>(
                 from_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         from_ = null;
@@ -10038,7 +9985,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the where field is set.
      */
     public boolean hasWhere() {
-      return whereBuilder_ != null || where_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -10068,11 +10015,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         where_ = value;
-        onChanged();
       } else {
         whereBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -10086,11 +10033,11 @@ private static final long serialVersionUID = 0L;
         com.google.firestore.v1.StructuredQuery.Filter.Builder builderForValue) {
       if (whereBuilder_ == null) {
         where_ = builderForValue.build();
-        onChanged();
       } else {
         whereBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -10102,17 +10049,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWhere(com.google.firestore.v1.StructuredQuery.Filter value) {
       if (whereBuilder_ == null) {
-        if (where_ != null) {
-          where_ =
-            com.google.firestore.v1.StructuredQuery.Filter.newBuilder(where_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          where_ != null &&
+          where_ != com.google.firestore.v1.StructuredQuery.Filter.getDefaultInstance()) {
+          getWhereBuilder().mergeFrom(value);
         } else {
           where_ = value;
         }
-        onChanged();
       } else {
         whereBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -10123,14 +10071,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.firestore.v1.StructuredQuery.Filter where = 3;</code>
      */
     public Builder clearWhere() {
-      if (whereBuilder_ == null) {
-        where_ = null;
-        onChanged();
-      } else {
-        where_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      where_ = null;
+      if (whereBuilder_ != null) {
+        whereBuilder_.dispose();
         whereBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -10141,7 +10088,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.firestore.v1.StructuredQuery.Filter where = 3;</code>
      */
     public com.google.firestore.v1.StructuredQuery.Filter.Builder getWhereBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getWhereFieldBuilder().getBuilder();
     }
@@ -10184,9 +10131,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.firestore.v1.StructuredQuery.Order> orderBy_ =
       java.util.Collections.emptyList();
     private void ensureOrderByIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         orderBy_ = new java.util.ArrayList<com.google.firestore.v1.StructuredQuery.Order>(orderBy_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -10196,19 +10143,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10223,19 +10172,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10250,19 +10201,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10277,19 +10230,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10311,19 +10266,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10342,19 +10299,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10375,19 +10334,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10409,19 +10370,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10440,19 +10403,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10471,19 +10436,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10503,19 +10470,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10523,7 +10492,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearOrderBy() {
       if (orderByBuilder_ == null) {
         orderBy_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         orderByBuilder_.clear();
@@ -10533,19 +10502,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10563,19 +10534,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10587,19 +10560,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10614,19 +10589,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10642,19 +10619,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10666,19 +10645,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10691,19 +10672,21 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The order to apply to the query results.
-     * Firestore guarantees a stable ordering through the following rules:
-     *  * Any field required to appear in `order_by`, that is not already
-     *    specified in `order_by`, is appended to the order in field name order
-     *    by default.
+     * Firestore allows callers to provide a full ordering, a partial ordering, or
+     * no ordering at all. In all cases, Firestore guarantees a stable ordering
+     * through the following rules:
+     *  * The `order_by` is required to reference all fields used with an
+     *    inequality filter.
+     *  * All fields that are required to be in the `order_by` but are not already
+     *    present are appended in lexicographical ordering of the field name.
      *  * If an order on `__name__` is not specified, it is appended by default.
      * Fields are appended with the same sort direction as the last order
      * specified, or 'ASCENDING' if no order was specified. For example:
-     *  * `SELECT * FROM Foo ORDER BY A` becomes
-     *    `SELECT * FROM Foo ORDER BY A, __name__`
-     *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
-     *    `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
-     *  * `SELECT * FROM Foo WHERE A &gt; 1` becomes
-     *    `SELECT * FROM Foo WHERE A &gt; 1 ORDER BY A, __name__`
+     *  * `ORDER BY a` becomes `ORDER BY a ASC, __name__ ASC`
+     *  * `ORDER BY a DESC` becomes `ORDER BY a DESC, __name__ DESC`
+     *  * `WHERE a &gt; 1` becomes `WHERE a &gt; 1 ORDER BY a ASC, __name__ ASC`
+     *  * `WHERE __name__ &gt; ... AND a &gt; 1` becomes
+     *     `WHERE __name__ &gt; ... AND a &gt; 1 ORDER BY a ASC, __name__ ASC`
      * </pre>
      *
      * <code>repeated .google.firestore.v1.StructuredQuery.Order order_by = 4;</code>
@@ -10719,7 +10702,7 @@ private static final long serialVersionUID = 0L;
         orderByBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.firestore.v1.StructuredQuery.Order, com.google.firestore.v1.StructuredQuery.Order.Builder, com.google.firestore.v1.StructuredQuery.OrderOrBuilder>(
                 orderBy_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         orderBy_ = null;
@@ -10732,18 +10715,60 @@ private static final long serialVersionUID = 0L;
         com.google.firestore.v1.Cursor, com.google.firestore.v1.Cursor.Builder, com.google.firestore.v1.CursorOrBuilder> startAtBuilder_;
     /**
      * <pre>
-     * A starting point for the query results.
+     * A potential prefix of a position in the result set to start the query at.
+     * The ordering of the result set is based on the `ORDER BY` clause of the
+     * original query.
+     * ```
+     * SELECT * FROM k WHERE a = 1 AND b &gt; 2 ORDER BY b ASC, __name__ ASC;
+     * ```
+     * This query's results are ordered by `(b ASC, __name__ ASC)`.
+     * Cursors can reference either the full ordering or a prefix of the location,
+     * though it cannot reference more fields than what are in the provided
+     * `ORDER BY`.
+     * Continuing off the example above, attaching the following start cursors
+     * will have varying impact:
+     * - `START BEFORE (2, /k/123)`: start the query right before `a = 1 AND
+     *    b &gt; 2 AND __name__ &gt; /k/123`.
+     * - `START AFTER (10)`: start the query right after `a = 1 AND b &gt; 10`.
+     * Unlike `OFFSET` which requires scanning over the first N results to skip,
+     * a start cursor allows the query to begin at a logical position. This
+     * position is not required to match an actual result, it will scan forward
+     * from this position to find the next document.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor start_at = 7;</code>
      * @return Whether the startAt field is set.
      */
     public boolean hasStartAt() {
-      return startAtBuilder_ != null || startAt_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
-     * A starting point for the query results.
+     * A potential prefix of a position in the result set to start the query at.
+     * The ordering of the result set is based on the `ORDER BY` clause of the
+     * original query.
+     * ```
+     * SELECT * FROM k WHERE a = 1 AND b &gt; 2 ORDER BY b ASC, __name__ ASC;
+     * ```
+     * This query's results are ordered by `(b ASC, __name__ ASC)`.
+     * Cursors can reference either the full ordering or a prefix of the location,
+     * though it cannot reference more fields than what are in the provided
+     * `ORDER BY`.
+     * Continuing off the example above, attaching the following start cursors
+     * will have varying impact:
+     * - `START BEFORE (2, /k/123)`: start the query right before `a = 1 AND
+     *    b &gt; 2 AND __name__ &gt; /k/123`.
+     * - `START AFTER (10)`: start the query right after `a = 1 AND b &gt; 10`.
+     * Unlike `OFFSET` which requires scanning over the first N results to skip,
+     * a start cursor allows the query to begin at a logical position. This
+     * position is not required to match an actual result, it will scan forward
+     * from this position to find the next document.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor start_at = 7;</code>
@@ -10758,7 +10783,28 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A starting point for the query results.
+     * A potential prefix of a position in the result set to start the query at.
+     * The ordering of the result set is based on the `ORDER BY` clause of the
+     * original query.
+     * ```
+     * SELECT * FROM k WHERE a = 1 AND b &gt; 2 ORDER BY b ASC, __name__ ASC;
+     * ```
+     * This query's results are ordered by `(b ASC, __name__ ASC)`.
+     * Cursors can reference either the full ordering or a prefix of the location,
+     * though it cannot reference more fields than what are in the provided
+     * `ORDER BY`.
+     * Continuing off the example above, attaching the following start cursors
+     * will have varying impact:
+     * - `START BEFORE (2, /k/123)`: start the query right before `a = 1 AND
+     *    b &gt; 2 AND __name__ &gt; /k/123`.
+     * - `START AFTER (10)`: start the query right after `a = 1 AND b &gt; 10`.
+     * Unlike `OFFSET` which requires scanning over the first N results to skip,
+     * a start cursor allows the query to begin at a logical position. This
+     * position is not required to match an actual result, it will scan forward
+     * from this position to find the next document.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor start_at = 7;</code>
@@ -10769,16 +10815,37 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         startAt_ = value;
-        onChanged();
       } else {
         startAtBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * A starting point for the query results.
+     * A potential prefix of a position in the result set to start the query at.
+     * The ordering of the result set is based on the `ORDER BY` clause of the
+     * original query.
+     * ```
+     * SELECT * FROM k WHERE a = 1 AND b &gt; 2 ORDER BY b ASC, __name__ ASC;
+     * ```
+     * This query's results are ordered by `(b ASC, __name__ ASC)`.
+     * Cursors can reference either the full ordering or a prefix of the location,
+     * though it cannot reference more fields than what are in the provided
+     * `ORDER BY`.
+     * Continuing off the example above, attaching the following start cursors
+     * will have varying impact:
+     * - `START BEFORE (2, /k/123)`: start the query right before `a = 1 AND
+     *    b &gt; 2 AND __name__ &gt; /k/123`.
+     * - `START AFTER (10)`: start the query right after `a = 1 AND b &gt; 10`.
+     * Unlike `OFFSET` which requires scanning over the first N results to skip,
+     * a start cursor allows the query to begin at a logical position. This
+     * position is not required to match an actual result, it will scan forward
+     * from this position to find the next document.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor start_at = 7;</code>
@@ -10787,68 +10854,152 @@ private static final long serialVersionUID = 0L;
         com.google.firestore.v1.Cursor.Builder builderForValue) {
       if (startAtBuilder_ == null) {
         startAt_ = builderForValue.build();
-        onChanged();
       } else {
         startAtBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * A starting point for the query results.
+     * A potential prefix of a position in the result set to start the query at.
+     * The ordering of the result set is based on the `ORDER BY` clause of the
+     * original query.
+     * ```
+     * SELECT * FROM k WHERE a = 1 AND b &gt; 2 ORDER BY b ASC, __name__ ASC;
+     * ```
+     * This query's results are ordered by `(b ASC, __name__ ASC)`.
+     * Cursors can reference either the full ordering or a prefix of the location,
+     * though it cannot reference more fields than what are in the provided
+     * `ORDER BY`.
+     * Continuing off the example above, attaching the following start cursors
+     * will have varying impact:
+     * - `START BEFORE (2, /k/123)`: start the query right before `a = 1 AND
+     *    b &gt; 2 AND __name__ &gt; /k/123`.
+     * - `START AFTER (10)`: start the query right after `a = 1 AND b &gt; 10`.
+     * Unlike `OFFSET` which requires scanning over the first N results to skip,
+     * a start cursor allows the query to begin at a logical position. This
+     * position is not required to match an actual result, it will scan forward
+     * from this position to find the next document.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor start_at = 7;</code>
      */
     public Builder mergeStartAt(com.google.firestore.v1.Cursor value) {
       if (startAtBuilder_ == null) {
-        if (startAt_ != null) {
-          startAt_ =
-            com.google.firestore.v1.Cursor.newBuilder(startAt_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          startAt_ != null &&
+          startAt_ != com.google.firestore.v1.Cursor.getDefaultInstance()) {
+          getStartAtBuilder().mergeFrom(value);
         } else {
           startAt_ = value;
         }
-        onChanged();
       } else {
         startAtBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * A starting point for the query results.
+     * A potential prefix of a position in the result set to start the query at.
+     * The ordering of the result set is based on the `ORDER BY` clause of the
+     * original query.
+     * ```
+     * SELECT * FROM k WHERE a = 1 AND b &gt; 2 ORDER BY b ASC, __name__ ASC;
+     * ```
+     * This query's results are ordered by `(b ASC, __name__ ASC)`.
+     * Cursors can reference either the full ordering or a prefix of the location,
+     * though it cannot reference more fields than what are in the provided
+     * `ORDER BY`.
+     * Continuing off the example above, attaching the following start cursors
+     * will have varying impact:
+     * - `START BEFORE (2, /k/123)`: start the query right before `a = 1 AND
+     *    b &gt; 2 AND __name__ &gt; /k/123`.
+     * - `START AFTER (10)`: start the query right after `a = 1 AND b &gt; 10`.
+     * Unlike `OFFSET` which requires scanning over the first N results to skip,
+     * a start cursor allows the query to begin at a logical position. This
+     * position is not required to match an actual result, it will scan forward
+     * from this position to find the next document.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor start_at = 7;</code>
      */
     public Builder clearStartAt() {
-      if (startAtBuilder_ == null) {
-        startAt_ = null;
-        onChanged();
-      } else {
-        startAt_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      startAt_ = null;
+      if (startAtBuilder_ != null) {
+        startAtBuilder_.dispose();
         startAtBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * A starting point for the query results.
+     * A potential prefix of a position in the result set to start the query at.
+     * The ordering of the result set is based on the `ORDER BY` clause of the
+     * original query.
+     * ```
+     * SELECT * FROM k WHERE a = 1 AND b &gt; 2 ORDER BY b ASC, __name__ ASC;
+     * ```
+     * This query's results are ordered by `(b ASC, __name__ ASC)`.
+     * Cursors can reference either the full ordering or a prefix of the location,
+     * though it cannot reference more fields than what are in the provided
+     * `ORDER BY`.
+     * Continuing off the example above, attaching the following start cursors
+     * will have varying impact:
+     * - `START BEFORE (2, /k/123)`: start the query right before `a = 1 AND
+     *    b &gt; 2 AND __name__ &gt; /k/123`.
+     * - `START AFTER (10)`: start the query right after `a = 1 AND b &gt; 10`.
+     * Unlike `OFFSET` which requires scanning over the first N results to skip,
+     * a start cursor allows the query to begin at a logical position. This
+     * position is not required to match an actual result, it will scan forward
+     * from this position to find the next document.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor start_at = 7;</code>
      */
     public com.google.firestore.v1.Cursor.Builder getStartAtBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getStartAtFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * A starting point for the query results.
+     * A potential prefix of a position in the result set to start the query at.
+     * The ordering of the result set is based on the `ORDER BY` clause of the
+     * original query.
+     * ```
+     * SELECT * FROM k WHERE a = 1 AND b &gt; 2 ORDER BY b ASC, __name__ ASC;
+     * ```
+     * This query's results are ordered by `(b ASC, __name__ ASC)`.
+     * Cursors can reference either the full ordering or a prefix of the location,
+     * though it cannot reference more fields than what are in the provided
+     * `ORDER BY`.
+     * Continuing off the example above, attaching the following start cursors
+     * will have varying impact:
+     * - `START BEFORE (2, /k/123)`: start the query right before `a = 1 AND
+     *    b &gt; 2 AND __name__ &gt; /k/123`.
+     * - `START AFTER (10)`: start the query right after `a = 1 AND b &gt; 10`.
+     * Unlike `OFFSET` which requires scanning over the first N results to skip,
+     * a start cursor allows the query to begin at a logical position. This
+     * position is not required to match an actual result, it will scan forward
+     * from this position to find the next document.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor start_at = 7;</code>
@@ -10863,7 +11014,28 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A starting point for the query results.
+     * A potential prefix of a position in the result set to start the query at.
+     * The ordering of the result set is based on the `ORDER BY` clause of the
+     * original query.
+     * ```
+     * SELECT * FROM k WHERE a = 1 AND b &gt; 2 ORDER BY b ASC, __name__ ASC;
+     * ```
+     * This query's results are ordered by `(b ASC, __name__ ASC)`.
+     * Cursors can reference either the full ordering or a prefix of the location,
+     * though it cannot reference more fields than what are in the provided
+     * `ORDER BY`.
+     * Continuing off the example above, attaching the following start cursors
+     * will have varying impact:
+     * - `START BEFORE (2, /k/123)`: start the query right before `a = 1 AND
+     *    b &gt; 2 AND __name__ &gt; /k/123`.
+     * - `START AFTER (10)`: start the query right after `a = 1 AND b &gt; 10`.
+     * Unlike `OFFSET` which requires scanning over the first N results to skip,
+     * a start cursor allows the query to begin at a logical position. This
+     * position is not required to match an actual result, it will scan forward
+     * from this position to find the next document.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor start_at = 7;</code>
@@ -10887,18 +11059,28 @@ private static final long serialVersionUID = 0L;
         com.google.firestore.v1.Cursor, com.google.firestore.v1.Cursor.Builder, com.google.firestore.v1.CursorOrBuilder> endAtBuilder_;
     /**
      * <pre>
-     * A end point for the query results.
+     * A potential prefix of a position in the result set to end the query at.
+     * This is similar to `START_AT` but with it controlling the end position
+     * rather than the start position.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor end_at = 8;</code>
      * @return Whether the endAt field is set.
      */
     public boolean hasEndAt() {
-      return endAtBuilder_ != null || endAt_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
-     * A end point for the query results.
+     * A potential prefix of a position in the result set to end the query at.
+     * This is similar to `START_AT` but with it controlling the end position
+     * rather than the start position.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor end_at = 8;</code>
@@ -10913,7 +11095,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A end point for the query results.
+     * A potential prefix of a position in the result set to end the query at.
+     * This is similar to `START_AT` but with it controlling the end position
+     * rather than the start position.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor end_at = 8;</code>
@@ -10924,16 +11111,21 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         endAt_ = value;
-        onChanged();
       } else {
         endAtBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * A end point for the query results.
+     * A potential prefix of a position in the result set to end the query at.
+     * This is similar to `START_AT` but with it controlling the end position
+     * rather than the start position.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor end_at = 8;</code>
@@ -10942,68 +11134,88 @@ private static final long serialVersionUID = 0L;
         com.google.firestore.v1.Cursor.Builder builderForValue) {
       if (endAtBuilder_ == null) {
         endAt_ = builderForValue.build();
-        onChanged();
       } else {
         endAtBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * A end point for the query results.
+     * A potential prefix of a position in the result set to end the query at.
+     * This is similar to `START_AT` but with it controlling the end position
+     * rather than the start position.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor end_at = 8;</code>
      */
     public Builder mergeEndAt(com.google.firestore.v1.Cursor value) {
       if (endAtBuilder_ == null) {
-        if (endAt_ != null) {
-          endAt_ =
-            com.google.firestore.v1.Cursor.newBuilder(endAt_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          endAt_ != null &&
+          endAt_ != com.google.firestore.v1.Cursor.getDefaultInstance()) {
+          getEndAtBuilder().mergeFrom(value);
         } else {
           endAt_ = value;
         }
-        onChanged();
       } else {
         endAtBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * A end point for the query results.
+     * A potential prefix of a position in the result set to end the query at.
+     * This is similar to `START_AT` but with it controlling the end position
+     * rather than the start position.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor end_at = 8;</code>
      */
     public Builder clearEndAt() {
-      if (endAtBuilder_ == null) {
-        endAt_ = null;
-        onChanged();
-      } else {
-        endAt_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      endAt_ = null;
+      if (endAtBuilder_ != null) {
+        endAtBuilder_.dispose();
         endAtBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * A end point for the query results.
+     * A potential prefix of a position in the result set to end the query at.
+     * This is similar to `START_AT` but with it controlling the end position
+     * rather than the start position.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor end_at = 8;</code>
      */
     public com.google.firestore.v1.Cursor.Builder getEndAtBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getEndAtFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * A end point for the query results.
+     * A potential prefix of a position in the result set to end the query at.
+     * This is similar to `START_AT` but with it controlling the end position
+     * rather than the start position.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor end_at = 8;</code>
@@ -11018,7 +11230,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A end point for the query results.
+     * A potential prefix of a position in the result set to end the query at.
+     * This is similar to `START_AT` but with it controlling the end position
+     * rather than the start position.
+     * Requires:
+     * * The number of values cannot be greater than the number of fields
+     *   specified in the `ORDER BY` clause.
      * </pre>
      *
      * <code>.google.firestore.v1.Cursor end_at = 8;</code>
@@ -11040,9 +11257,11 @@ private static final long serialVersionUID = 0L;
     private int offset_ ;
     /**
      * <pre>
-     * The number of results to skip.
-     * Applies before limit, but after all other constraints. Must be &gt;= 0 if
-     * specified.
+     * The number of documents to skip before returning the first result.
+     * This applies after the constraints specified by the `WHERE`, `START AT`, &amp;
+     * `END AT` but before the `LIMIT` clause.
+     * Requires:
+     * * The value must be greater than or equal to zero if specified.
      * </pre>
      *
      * <code>int32 offset = 6;</code>
@@ -11054,9 +11273,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The number of results to skip.
-     * Applies before limit, but after all other constraints. Must be &gt;= 0 if
-     * specified.
+     * The number of documents to skip before returning the first result.
+     * This applies after the constraints specified by the `WHERE`, `START AT`, &amp;
+     * `END AT` but before the `LIMIT` clause.
+     * Requires:
+     * * The value must be greater than or equal to zero if specified.
      * </pre>
      *
      * <code>int32 offset = 6;</code>
@@ -11066,21 +11287,24 @@ private static final long serialVersionUID = 0L;
     public Builder setOffset(int value) {
       
       offset_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The number of results to skip.
-     * Applies before limit, but after all other constraints. Must be &gt;= 0 if
-     * specified.
+     * The number of documents to skip before returning the first result.
+     * This applies after the constraints specified by the `WHERE`, `START AT`, &amp;
+     * `END AT` but before the `LIMIT` clause.
+     * Requires:
+     * * The value must be greater than or equal to zero if specified.
      * </pre>
      *
      * <code>int32 offset = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearOffset() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       offset_ = 0;
       onChanged();
       return this;
@@ -11093,20 +11317,22 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The maximum number of results to return.
      * Applies after all other constraints.
-     * Must be &gt;= 0 if specified.
+     * Requires:
+     * * The value must be greater than or equal to zero if specified.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value limit = 5;</code>
      * @return Whether the limit field is set.
      */
     public boolean hasLimit() {
-      return limitBuilder_ != null || limit_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
      * The maximum number of results to return.
      * Applies after all other constraints.
-     * Must be &gt;= 0 if specified.
+     * Requires:
+     * * The value must be greater than or equal to zero if specified.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value limit = 5;</code>
@@ -11123,7 +11349,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The maximum number of results to return.
      * Applies after all other constraints.
-     * Must be &gt;= 0 if specified.
+     * Requires:
+     * * The value must be greater than or equal to zero if specified.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value limit = 5;</code>
@@ -11134,18 +11361,19 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         limit_ = value;
-        onChanged();
       } else {
         limitBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The maximum number of results to return.
      * Applies after all other constraints.
-     * Must be &gt;= 0 if specified.
+     * Requires:
+     * * The value must be greater than or equal to zero if specified.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value limit = 5;</code>
@@ -11154,68 +11382,71 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (limitBuilder_ == null) {
         limit_ = builderForValue.build();
-        onChanged();
       } else {
         limitBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The maximum number of results to return.
      * Applies after all other constraints.
-     * Must be &gt;= 0 if specified.
+     * Requires:
+     * * The value must be greater than or equal to zero if specified.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value limit = 5;</code>
      */
     public Builder mergeLimit(com.google.protobuf.Int32Value value) {
       if (limitBuilder_ == null) {
-        if (limit_ != null) {
-          limit_ =
-            com.google.protobuf.Int32Value.newBuilder(limit_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          limit_ != null &&
+          limit_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getLimitBuilder().mergeFrom(value);
         } else {
           limit_ = value;
         }
-        onChanged();
       } else {
         limitBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The maximum number of results to return.
      * Applies after all other constraints.
-     * Must be &gt;= 0 if specified.
+     * Requires:
+     * * The value must be greater than or equal to zero if specified.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value limit = 5;</code>
      */
     public Builder clearLimit() {
-      if (limitBuilder_ == null) {
-        limit_ = null;
-        onChanged();
-      } else {
-        limit_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      limit_ = null;
+      if (limitBuilder_ != null) {
+        limitBuilder_.dispose();
         limitBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The maximum number of results to return.
      * Applies after all other constraints.
-     * Must be &gt;= 0 if specified.
+     * Requires:
+     * * The value must be greater than or equal to zero if specified.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value limit = 5;</code>
      */
     public com.google.protobuf.Int32Value.Builder getLimitBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getLimitFieldBuilder().getBuilder();
     }
@@ -11223,7 +11454,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The maximum number of results to return.
      * Applies after all other constraints.
-     * Must be &gt;= 0 if specified.
+     * Requires:
+     * * The value must be greater than or equal to zero if specified.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value limit = 5;</code>
@@ -11240,7 +11472,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The maximum number of results to return.
      * Applies after all other constraints.
-     * Must be &gt;= 0 if specified.
+     * Requires:
+     * * The value must be greater than or equal to zero if specified.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value limit = 5;</code>
@@ -11291,7 +11524,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StructuredQuery(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

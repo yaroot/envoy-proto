@@ -39,162 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Certificate(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 42: {
-            com.google.cloud.certificatemanager.v1.Certificate.SelfManagedCertificate.Builder subBuilder = null;
-            if (typeCase_ == 5) {
-              subBuilder = ((com.google.cloud.certificatemanager.v1.Certificate.SelfManagedCertificate) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.cloud.certificatemanager.v1.Certificate.SelfManagedCertificate.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.certificatemanager.v1.Certificate.SelfManagedCertificate) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 5;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              sanDnsnames_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            sanDnsnames_.add(s);
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (expireTime_ != null) {
-              subBuilder = expireTime_.toBuilder();
-            }
-            expireTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(expireTime_);
-              expireTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pemCertificate_ = s;
-            break;
-          }
-          case 90: {
-            com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.Builder subBuilder = null;
-            if (typeCase_ == 11) {
-              subBuilder = ((com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 11;
-            break;
-          }
-          case 96: {
-            int rawValue = input.readEnum();
-
-            scope_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        sanDnsnames_ = sanDnsnames_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.certificatemanager.v1.CertificateManagerProto.internal_static_google_cloud_certificatemanager_v1_Certificate_descriptor;
@@ -433,57 +277,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SelfManagedCertificate(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              pemCertificate_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              pemPrivateKey_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.certificatemanager.v1.CertificateManagerProto.internal_static_google_cloud_certificatemanager_v1_Certificate_SelfManagedCertificate_descriptor;
@@ -498,7 +291,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PEM_CERTIFICATE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object pemCertificate_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object pemCertificate_ = "";
     /**
      * <pre>
      * Input only. The PEM-encoded certificate chain.
@@ -546,7 +340,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PEM_PRIVATE_KEY_FIELD_NUMBER = 2;
-    private volatile java.lang.Object pemPrivateKey_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object pemPrivateKey_ = "";
     /**
      * <pre>
      * Input only. The PEM-encoded private key of the leaf certificate.
@@ -611,7 +406,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pemPrivateKey_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, pemPrivateKey_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -626,7 +421,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pemPrivateKey_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, pemPrivateKey_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -645,7 +440,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getPemCertificate())) return false;
       if (!getPemPrivateKey()
           .equals(other.getPemPrivateKey())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -660,7 +455,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getPemCertificate().hashCode();
       hash = (37 * hash) + PEM_PRIVATE_KEY_FIELD_NUMBER;
       hash = (53 * hash) + getPemPrivateKey().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -783,26 +578,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.certificatemanager.v1.Certificate.SelfManagedCertificate.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         pemCertificate_ = "";
-
         pemPrivateKey_ = "";
-
         return this;
       }
 
@@ -829,10 +618,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.certificatemanager.v1.Certificate.SelfManagedCertificate buildPartial() {
         com.google.cloud.certificatemanager.v1.Certificate.SelfManagedCertificate result = new com.google.cloud.certificatemanager.v1.Certificate.SelfManagedCertificate(this);
-        result.pemCertificate_ = pemCertificate_;
-        result.pemPrivateKey_ = pemPrivateKey_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.certificatemanager.v1.Certificate.SelfManagedCertificate result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.pemCertificate_ = pemCertificate_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.pemPrivateKey_ = pemPrivateKey_;
+        }
       }
 
       @java.lang.Override
@@ -881,13 +679,15 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.certificatemanager.v1.Certificate.SelfManagedCertificate.getDefaultInstance()) return this;
         if (!other.getPemCertificate().isEmpty()) {
           pemCertificate_ = other.pemCertificate_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getPemPrivateKey().isEmpty()) {
           pemPrivateKey_ = other.pemPrivateKey_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -902,19 +702,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.certificatemanager.v1.Certificate.SelfManagedCertificate parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                pemCertificate_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                pemPrivateKey_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.certificatemanager.v1.Certificate.SelfManagedCertificate) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object pemCertificate_ = "";
       /**
@@ -972,11 +796,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPemCertificate(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         pemCertificate_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -990,8 +812,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPemCertificate() {
-        
         pemCertificate_ = getDefaultInstance().getPemCertificate();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1007,12 +829,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPemCertificateBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         pemCertificate_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1070,11 +890,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPemPrivateKey(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         pemPrivateKey_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1087,8 +905,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPemPrivateKey() {
-        
         pemPrivateKey_ = getDefaultInstance().getPemPrivateKey();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1103,12 +921,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPemPrivateKeyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         pemPrivateKey_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1145,7 +961,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SelfManagedCertificate(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1171,8 +998,9 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Immutable. The domains for which a managed SSL certificate will be generated.
-     * Wildcard domains are only supported with DNS challenge resolution.
+     * Immutable. The domains for which a managed SSL certificate will be
+     * generated. Wildcard domains are only supported with DNS challenge
+     * resolution.
      * </pre>
      *
      * <code>repeated string domains = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1182,8 +1010,9 @@ private static final long serialVersionUID = 0L;
         getDomainsList();
     /**
      * <pre>
-     * Immutable. The domains for which a managed SSL certificate will be generated.
-     * Wildcard domains are only supported with DNS challenge resolution.
+     * Immutable. The domains for which a managed SSL certificate will be
+     * generated. Wildcard domains are only supported with DNS challenge
+     * resolution.
      * </pre>
      *
      * <code>repeated string domains = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1192,8 +1021,9 @@ private static final long serialVersionUID = 0L;
     int getDomainsCount();
     /**
      * <pre>
-     * Immutable. The domains for which a managed SSL certificate will be generated.
-     * Wildcard domains are only supported with DNS challenge resolution.
+     * Immutable. The domains for which a managed SSL certificate will be
+     * generated. Wildcard domains are only supported with DNS challenge
+     * resolution.
      * </pre>
      *
      * <code>repeated string domains = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1203,8 +1033,9 @@ private static final long serialVersionUID = 0L;
     java.lang.String getDomains(int index);
     /**
      * <pre>
-     * Immutable. The domains for which a managed SSL certificate will be generated.
-     * Wildcard domains are only supported with DNS challenge resolution.
+     * Immutable. The domains for which a managed SSL certificate will be
+     * generated. Wildcard domains are only supported with DNS challenge
+     * resolution.
      * </pre>
      *
      * <code>repeated string domains = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1216,7 +1047,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Immutable. Authorizations that will be used for performing domain authorization.
+     * Immutable. Authorizations that will be used for performing domain
+     * authorization.
      * </pre>
      *
      * <code>repeated string dns_authorizations = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -1226,7 +1058,8 @@ private static final long serialVersionUID = 0L;
         getDnsAuthorizationsList();
     /**
      * <pre>
-     * Immutable. Authorizations that will be used for performing domain authorization.
+     * Immutable. Authorizations that will be used for performing domain
+     * authorization.
      * </pre>
      *
      * <code>repeated string dns_authorizations = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -1235,7 +1068,8 @@ private static final long serialVersionUID = 0L;
     int getDnsAuthorizationsCount();
     /**
      * <pre>
-     * Immutable. Authorizations that will be used for performing domain authorization.
+     * Immutable. Authorizations that will be used for performing domain
+     * authorization.
      * </pre>
      *
      * <code>repeated string dns_authorizations = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -1245,7 +1079,8 @@ private static final long serialVersionUID = 0L;
     java.lang.String getDnsAuthorizations(int index);
     /**
      * <pre>
-     * Immutable. Authorizations that will be used for performing domain authorization.
+     * Immutable. Authorizations that will be used for performing domain
+     * authorization.
      * </pre>
      *
      * <code>repeated string dns_authorizations = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -1254,6 +1089,38 @@ private static final long serialVersionUID = 0L;
      */
     com.google.protobuf.ByteString
         getDnsAuthorizationsBytes(int index);
+
+    /**
+     * <pre>
+     * The resource name for a
+     * [CertificateIssuanceConfig][google.cloud.certificatemanager.v1.CertificateIssuanceConfig]
+     * used to configure private PKI certificates in the format
+     * `projects/&#42;&#47;locations/&#42;&#47;certificateIssuanceConfigs/&#42;`.
+     * If this field is not set, the certificates will instead be publicly
+     * signed as documented at
+     * https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs#caa.
+     * </pre>
+     *
+     * <code>string issuance_config = 6 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
+     * @return The issuanceConfig.
+     */
+    java.lang.String getIssuanceConfig();
+    /**
+     * <pre>
+     * The resource name for a
+     * [CertificateIssuanceConfig][google.cloud.certificatemanager.v1.CertificateIssuanceConfig]
+     * used to configure private PKI certificates in the format
+     * `projects/&#42;&#47;locations/&#42;&#47;certificateIssuanceConfigs/&#42;`.
+     * If this field is not set, the certificates will instead be publicly
+     * signed as documented at
+     * https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs#caa.
+     * </pre>
+     *
+     * <code>string issuance_config = 6 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
+     * @return The bytes for issuanceConfig.
+     */
+    com.google.protobuf.ByteString
+        getIssuanceConfigBytes();
 
     /**
      * <pre>
@@ -1276,35 +1143,38 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Information about issues with provisioning a Managed Certificate.
+     * Output only. Information about issues with provisioning a Managed
+     * Certificate.
      * </pre>
      *
-     * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3;</code>
+     * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return Whether the provisioningIssue field is set.
      */
     boolean hasProvisioningIssue();
     /**
      * <pre>
-     * Information about issues with provisioning a Managed Certificate.
+     * Output only. Information about issues with provisioning a Managed
+     * Certificate.
      * </pre>
      *
-     * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3;</code>
+     * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The provisioningIssue.
      */
     com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue getProvisioningIssue();
     /**
      * <pre>
-     * Information about issues with provisioning a Managed Certificate.
+     * Output only. Information about issues with provisioning a Managed
+     * Certificate.
      * </pre>
      *
-     * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3;</code>
+     * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssueOrBuilder getProvisioningIssueOrBuilder();
 
     /**
      * <pre>
-     * Output only. Detailed state of the latest authorization attempt for each domain
-     * specified for managed certificate resource.
+     * Output only. Detailed state of the latest authorization attempt for each
+     * domain specified for managed certificate resource.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1313,8 +1183,8 @@ private static final long serialVersionUID = 0L;
         getAuthorizationAttemptInfoList();
     /**
      * <pre>
-     * Output only. Detailed state of the latest authorization attempt for each domain
-     * specified for managed certificate resource.
+     * Output only. Detailed state of the latest authorization attempt for each
+     * domain specified for managed certificate resource.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1322,8 +1192,8 @@ private static final long serialVersionUID = 0L;
     com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo getAuthorizationAttemptInfo(int index);
     /**
      * <pre>
-     * Output only. Detailed state of the latest authorization attempt for each domain
-     * specified for managed certificate resource.
+     * Output only. Detailed state of the latest authorization attempt for each
+     * domain specified for managed certificate resource.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1331,8 +1201,8 @@ private static final long serialVersionUID = 0L;
     int getAuthorizationAttemptInfoCount();
     /**
      * <pre>
-     * Output only. Detailed state of the latest authorization attempt for each domain
-     * specified for managed certificate resource.
+     * Output only. Detailed state of the latest authorization attempt for each
+     * domain specified for managed certificate resource.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1341,8 +1211,8 @@ private static final long serialVersionUID = 0L;
         getAuthorizationAttemptInfoOrBuilderList();
     /**
      * <pre>
-     * Output only. Detailed state of the latest authorization attempt for each domain
-     * specified for managed certificate resource.
+     * Output only. Detailed state of the latest authorization attempt for each
+     * domain specified for managed certificate resource.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1371,6 +1241,7 @@ private static final long serialVersionUID = 0L;
     private ManagedCertificate() {
       domains_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       dnsAuthorizations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      issuanceConfig_ = "";
       state_ = 0;
       authorizationAttemptInfo_ = java.util.Collections.emptyList();
     }
@@ -1386,101 +1257,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ManagedCertificate(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                domains_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              domains_.add(s);
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                dnsAuthorizations_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              dnsAuthorizations_.add(s);
-              break;
-            }
-            case 26: {
-              com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Builder subBuilder = null;
-              if (provisioningIssue_ != null) {
-                subBuilder = provisioningIssue_.toBuilder();
-              }
-              provisioningIssue_ = input.readMessage(com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(provisioningIssue_);
-                provisioningIssue_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              state_ = rawValue;
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                authorizationAttemptInfo_ = new java.util.ArrayList<com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              authorizationAttemptInfo_.add(
-                  input.readMessage(com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          domains_ = domains_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          dnsAuthorizations_ = dnsAuthorizations_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          authorizationAttemptInfo_ = java.util.Collections.unmodifiableList(authorizationAttemptInfo_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1663,42 +1439,42 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * Reason for provisioning failures.
+       * Output only. Reason for provisioning failures.
        * </pre>
        *
-       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1;</code>
+       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The enum numeric value on the wire for reason.
        */
       int getReasonValue();
       /**
        * <pre>
-       * Reason for provisioning failures.
+       * Output only. Reason for provisioning failures.
        * </pre>
        *
-       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1;</code>
+       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The reason.
        */
       com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason getReason();
 
       /**
        * <pre>
-       * Human readable explanation about the issue. Provided to help address
-       * the configuration issues.
-       * Not guaranteed to be stable. For programmatic access use Reason enum.
+       * Output only. Human readable explanation about the issue. Provided to
+       * help address the configuration issues. Not guaranteed to be stable. For
+       * programmatic access use Reason enum.
        * </pre>
        *
-       * <code>string details = 2;</code>
+       * <code>string details = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The details.
        */
       java.lang.String getDetails();
       /**
        * <pre>
-       * Human readable explanation about the issue. Provided to help address
-       * the configuration issues.
-       * Not guaranteed to be stable. For programmatic access use Reason enum.
+       * Output only. Human readable explanation about the issue. Provided to
+       * help address the configuration issues. Not guaranteed to be stable. For
+       * programmatic access use Reason enum.
        * </pre>
        *
-       * <code>string details = 2;</code>
+       * <code>string details = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The bytes for details.
        */
       com.google.protobuf.ByteString
@@ -1736,57 +1512,6 @@ private static final long serialVersionUID = 0L;
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
-      }
-      private ProvisioningIssue(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                int rawValue = input.readEnum();
-
-                reason_ = rawValue;
-                break;
-              }
-              case 18: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                details_ = s;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -1943,13 +1668,13 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int REASON_FIELD_NUMBER = 1;
-      private int reason_;
+      private int reason_ = 0;
       /**
        * <pre>
-       * Reason for provisioning failures.
+       * Output only. Reason for provisioning failures.
        * </pre>
        *
-       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1;</code>
+       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The enum numeric value on the wire for reason.
        */
       @java.lang.Override public int getReasonValue() {
@@ -1957,28 +1682,28 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Reason for provisioning failures.
+       * Output only. Reason for provisioning failures.
        * </pre>
        *
-       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1;</code>
+       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The reason.
        */
       @java.lang.Override public com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason getReason() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason result = com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason.valueOf(reason_);
+        com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason result = com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason.forNumber(reason_);
         return result == null ? com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason.UNRECOGNIZED : result;
       }
 
       public static final int DETAILS_FIELD_NUMBER = 2;
-      private volatile java.lang.Object details_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object details_ = "";
       /**
        * <pre>
-       * Human readable explanation about the issue. Provided to help address
-       * the configuration issues.
-       * Not guaranteed to be stable. For programmatic access use Reason enum.
+       * Output only. Human readable explanation about the issue. Provided to
+       * help address the configuration issues. Not guaranteed to be stable. For
+       * programmatic access use Reason enum.
        * </pre>
        *
-       * <code>string details = 2;</code>
+       * <code>string details = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The details.
        */
       @java.lang.Override
@@ -1996,12 +1721,12 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Human readable explanation about the issue. Provided to help address
-       * the configuration issues.
-       * Not guaranteed to be stable. For programmatic access use Reason enum.
+       * Output only. Human readable explanation about the issue. Provided to
+       * help address the configuration issues. Not guaranteed to be stable. For
+       * programmatic access use Reason enum.
        * </pre>
        *
-       * <code>string details = 2;</code>
+       * <code>string details = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The bytes for details.
        */
       @java.lang.Override
@@ -2039,7 +1764,7 @@ private static final long serialVersionUID = 0L;
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(details_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 2, details_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -2055,7 +1780,7 @@ private static final long serialVersionUID = 0L;
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(details_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, details_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -2073,7 +1798,7 @@ private static final long serialVersionUID = 0L;
         if (reason_ != other.reason_) return false;
         if (!getDetails()
             .equals(other.getDetails())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -2088,7 +1813,7 @@ private static final long serialVersionUID = 0L;
         hash = (53 * hash) + reason_;
         hash = (37 * hash) + DETAILS_FIELD_NUMBER;
         hash = (53 * hash) + getDetails().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -2209,26 +1934,20 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           reason_ = 0;
-
           details_ = "";
-
           return this;
         }
 
@@ -2255,10 +1974,19 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue buildPartial() {
           com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue result = new com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue(this);
-          result.reason_ = reason_;
-          result.details_ = details_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.reason_ = reason_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.details_ = details_;
+          }
         }
 
         @java.lang.Override
@@ -2310,9 +2038,10 @@ private static final long serialVersionUID = 0L;
           }
           if (!other.getDetails().isEmpty()) {
             details_ = other.details_;
+            bitField0_ |= 0x00000002;
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -2327,27 +2056,51 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  reason_ = input.readEnum();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+                case 18: {
+                  details_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private int reason_ = 0;
         /**
          * <pre>
-         * Reason for provisioning failures.
+         * Output only. Reason for provisioning failures.
          * </pre>
          *
-         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1;</code>
+         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return The enum numeric value on the wire for reason.
          */
         @java.lang.Override public int getReasonValue() {
@@ -2355,39 +2108,38 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Reason for provisioning failures.
+         * Output only. Reason for provisioning failures.
          * </pre>
          *
-         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1;</code>
+         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @param value The enum numeric value on the wire for reason to set.
          * @return This builder for chaining.
          */
         public Builder setReasonValue(int value) {
-          
           reason_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
         /**
          * <pre>
-         * Reason for provisioning failures.
+         * Output only. Reason for provisioning failures.
          * </pre>
          *
-         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1;</code>
+         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return The reason.
          */
         @java.lang.Override
         public com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason getReason() {
-          @SuppressWarnings("deprecation")
-          com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason result = com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason.valueOf(reason_);
+          com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason result = com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason.forNumber(reason_);
           return result == null ? com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason.UNRECOGNIZED : result;
         }
         /**
          * <pre>
-         * Reason for provisioning failures.
+         * Output only. Reason for provisioning failures.
          * </pre>
          *
-         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1;</code>
+         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @param value The reason to set.
          * @return This builder for chaining.
          */
@@ -2395,21 +2147,21 @@ private static final long serialVersionUID = 0L;
           if (value == null) {
             throw new NullPointerException();
           }
-          
+          bitField0_ |= 0x00000001;
           reason_ = value.getNumber();
           onChanged();
           return this;
         }
         /**
          * <pre>
-         * Reason for provisioning failures.
+         * Output only. Reason for provisioning failures.
          * </pre>
          *
-         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1;</code>
+         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Reason reason = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return This builder for chaining.
          */
         public Builder clearReason() {
-          
+          bitField0_ = (bitField0_ & ~0x00000001);
           reason_ = 0;
           onChanged();
           return this;
@@ -2418,12 +2170,12 @@ private static final long serialVersionUID = 0L;
         private java.lang.Object details_ = "";
         /**
          * <pre>
-         * Human readable explanation about the issue. Provided to help address
-         * the configuration issues.
-         * Not guaranteed to be stable. For programmatic access use Reason enum.
+         * Output only. Human readable explanation about the issue. Provided to
+         * help address the configuration issues. Not guaranteed to be stable. For
+         * programmatic access use Reason enum.
          * </pre>
          *
-         * <code>string details = 2;</code>
+         * <code>string details = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return The details.
          */
         public java.lang.String getDetails() {
@@ -2440,12 +2192,12 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Human readable explanation about the issue. Provided to help address
-         * the configuration issues.
-         * Not guaranteed to be stable. For programmatic access use Reason enum.
+         * Output only. Human readable explanation about the issue. Provided to
+         * help address the configuration issues. Not guaranteed to be stable. For
+         * programmatic access use Reason enum.
          * </pre>
          *
-         * <code>string details = 2;</code>
+         * <code>string details = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return The bytes for details.
          */
         public com.google.protobuf.ByteString
@@ -2463,60 +2215,56 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Human readable explanation about the issue. Provided to help address
-         * the configuration issues.
-         * Not guaranteed to be stable. For programmatic access use Reason enum.
+         * Output only. Human readable explanation about the issue. Provided to
+         * help address the configuration issues. Not guaranteed to be stable. For
+         * programmatic access use Reason enum.
          * </pre>
          *
-         * <code>string details = 2;</code>
+         * <code>string details = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @param value The details to set.
          * @return This builder for chaining.
          */
         public Builder setDetails(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           details_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
         /**
          * <pre>
-         * Human readable explanation about the issue. Provided to help address
-         * the configuration issues.
-         * Not guaranteed to be stable. For programmatic access use Reason enum.
+         * Output only. Human readable explanation about the issue. Provided to
+         * help address the configuration issues. Not guaranteed to be stable. For
+         * programmatic access use Reason enum.
          * </pre>
          *
-         * <code>string details = 2;</code>
+         * <code>string details = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return This builder for chaining.
          */
         public Builder clearDetails() {
-          
           details_ = getDefaultInstance().getDetails();
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
           return this;
         }
         /**
          * <pre>
-         * Human readable explanation about the issue. Provided to help address
-         * the configuration issues.
-         * Not guaranteed to be stable. For programmatic access use Reason enum.
+         * Output only. Human readable explanation about the issue. Provided to
+         * help address the configuration issues. Not guaranteed to be stable. For
+         * programmatic access use Reason enum.
          * </pre>
          *
-         * <code>string details = 2;</code>
+         * <code>string details = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @param value The bytes for details to set.
          * @return This builder for chaining.
          */
         public Builder setDetailsBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           details_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -2553,7 +2301,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ProvisioningIssue(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -2599,26 +2358,27 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * State of the domain for managed certificate issuance.
+       * Output only. State of the domain for managed certificate issuance.
        * </pre>
        *
-       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2;</code>
+       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The enum numeric value on the wire for state.
        */
       int getStateValue();
       /**
        * <pre>
-       * State of the domain for managed certificate issuance.
+       * Output only. State of the domain for managed certificate issuance.
        * </pre>
        *
-       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2;</code>
+       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The state.
        */
       com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State getState();
 
       /**
        * <pre>
-       * Output only. Reason for failure of the authorization attempt for the domain.
+       * Output only. Reason for failure of the authorization attempt for the
+       * domain.
        * </pre>
        *
        * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason failure_reason = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2627,7 +2387,8 @@ private static final long serialVersionUID = 0L;
       int getFailureReasonValue();
       /**
        * <pre>
-       * Output only. Reason for failure of the authorization attempt for the domain.
+       * Output only. Reason for failure of the authorization attempt for the
+       * domain.
        * </pre>
        *
        * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason failure_reason = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2637,23 +2398,23 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * Human readable explanation for reaching the state. Provided to help
-       * address the configuration issues.
-       * Not guaranteed to be stable. For programmatic access use Reason enum.
+       * Output only. Human readable explanation for reaching the state.
+       * Provided to help address the configuration issues. Not guaranteed to be
+       * stable. For programmatic access use FailureReason enum.
        * </pre>
        *
-       * <code>string details = 4;</code>
+       * <code>string details = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The details.
        */
       java.lang.String getDetails();
       /**
        * <pre>
-       * Human readable explanation for reaching the state. Provided to help
-       * address the configuration issues.
-       * Not guaranteed to be stable. For programmatic access use Reason enum.
+       * Output only. Human readable explanation for reaching the state.
+       * Provided to help address the configuration issues. Not guaranteed to be
+       * stable. For programmatic access use FailureReason enum.
        * </pre>
        *
-       * <code>string details = 4;</code>
+       * <code>string details = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The bytes for details.
        */
       com.google.protobuf.ByteString
@@ -2694,69 +2455,6 @@ private static final long serialVersionUID = 0L;
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
-      }
-      private AuthorizationAttemptInfo(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                domain_ = s;
-                break;
-              }
-              case 16: {
-                int rawValue = input.readEnum();
-
-                state_ = rawValue;
-                break;
-              }
-              case 24: {
-                int rawValue = input.readEnum();
-
-                failureReason_ = rawValue;
-                break;
-              }
-              case 34: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                details_ = s;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -3084,7 +2782,8 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int DOMAIN_FIELD_NUMBER = 1;
-      private volatile java.lang.Object domain_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object domain_ = "";
       /**
        * <pre>
        * Domain name of the authorization attempt.
@@ -3130,13 +2829,13 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int STATE_FIELD_NUMBER = 2;
-      private int state_;
+      private int state_ = 0;
       /**
        * <pre>
-       * State of the domain for managed certificate issuance.
+       * Output only. State of the domain for managed certificate issuance.
        * </pre>
        *
-       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2;</code>
+       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The enum numeric value on the wire for state.
        */
       @java.lang.Override public int getStateValue() {
@@ -3144,23 +2843,23 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * State of the domain for managed certificate issuance.
+       * Output only. State of the domain for managed certificate issuance.
        * </pre>
        *
-       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2;</code>
+       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The state.
        */
       @java.lang.Override public com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State getState() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State result = com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State.valueOf(state_);
+        com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State result = com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State.forNumber(state_);
         return result == null ? com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State.UNRECOGNIZED : result;
       }
 
       public static final int FAILURE_REASON_FIELD_NUMBER = 3;
-      private int failureReason_;
+      private int failureReason_ = 0;
       /**
        * <pre>
-       * Output only. Reason for failure of the authorization attempt for the domain.
+       * Output only. Reason for failure of the authorization attempt for the
+       * domain.
        * </pre>
        *
        * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason failure_reason = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -3171,28 +2870,29 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Reason for failure of the authorization attempt for the domain.
+       * Output only. Reason for failure of the authorization attempt for the
+       * domain.
        * </pre>
        *
        * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason failure_reason = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The failureReason.
        */
       @java.lang.Override public com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason getFailureReason() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason result = com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason.valueOf(failureReason_);
+        com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason result = com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason.forNumber(failureReason_);
         return result == null ? com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason.UNRECOGNIZED : result;
       }
 
       public static final int DETAILS_FIELD_NUMBER = 4;
-      private volatile java.lang.Object details_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object details_ = "";
       /**
        * <pre>
-       * Human readable explanation for reaching the state. Provided to help
-       * address the configuration issues.
-       * Not guaranteed to be stable. For programmatic access use Reason enum.
+       * Output only. Human readable explanation for reaching the state.
+       * Provided to help address the configuration issues. Not guaranteed to be
+       * stable. For programmatic access use FailureReason enum.
        * </pre>
        *
-       * <code>string details = 4;</code>
+       * <code>string details = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The details.
        */
       @java.lang.Override
@@ -3210,12 +2910,12 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Human readable explanation for reaching the state. Provided to help
-       * address the configuration issues.
-       * Not guaranteed to be stable. For programmatic access use Reason enum.
+       * Output only. Human readable explanation for reaching the state.
+       * Provided to help address the configuration issues. Not guaranteed to be
+       * stable. For programmatic access use FailureReason enum.
        * </pre>
        *
-       * <code>string details = 4;</code>
+       * <code>string details = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The bytes for details.
        */
       @java.lang.Override
@@ -3259,7 +2959,7 @@ private static final long serialVersionUID = 0L;
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(details_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 4, details_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -3282,7 +2982,7 @@ private static final long serialVersionUID = 0L;
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(details_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, details_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -3303,7 +3003,7 @@ private static final long serialVersionUID = 0L;
         if (failureReason_ != other.failureReason_) return false;
         if (!getDetails()
             .equals(other.getDetails())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -3322,7 +3022,7 @@ private static final long serialVersionUID = 0L;
         hash = (53 * hash) + failureReason_;
         hash = (37 * hash) + DETAILS_FIELD_NUMBER;
         hash = (53 * hash) + getDetails().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -3444,30 +3144,22 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           domain_ = "";
-
           state_ = 0;
-
           failureReason_ = 0;
-
           details_ = "";
-
           return this;
         }
 
@@ -3494,12 +3186,25 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo buildPartial() {
           com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo result = new com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo(this);
-          result.domain_ = domain_;
-          result.state_ = state_;
-          result.failureReason_ = failureReason_;
-          result.details_ = details_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.domain_ = domain_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.state_ = state_;
+          }
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.failureReason_ = failureReason_;
+          }
+          if (((from_bitField0_ & 0x00000008) != 0)) {
+            result.details_ = details_;
+          }
         }
 
         @java.lang.Override
@@ -3548,6 +3253,7 @@ private static final long serialVersionUID = 0L;
           if (other == com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.getDefaultInstance()) return this;
           if (!other.getDomain().isEmpty()) {
             domain_ = other.domain_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (other.state_ != 0) {
@@ -3558,9 +3264,10 @@ private static final long serialVersionUID = 0L;
           }
           if (!other.getDetails().isEmpty()) {
             details_ = other.details_;
+            bitField0_ |= 0x00000008;
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -3575,19 +3282,53 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  domain_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 16: {
+                  state_ = input.readEnum();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+                case 24: {
+                  failureReason_ = input.readEnum();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 24
+                case 34: {
+                  details_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000008;
+                  break;
+                } // case 34
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object domain_ = "";
         /**
@@ -3642,11 +3383,9 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDomain(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           domain_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -3659,8 +3398,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearDomain() {
-          
           domain_ = getDefaultInstance().getDomain();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -3675,12 +3414,10 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDomainBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           domain_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -3688,10 +3425,10 @@ private static final long serialVersionUID = 0L;
         private int state_ = 0;
         /**
          * <pre>
-         * State of the domain for managed certificate issuance.
+         * Output only. State of the domain for managed certificate issuance.
          * </pre>
          *
-         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2;</code>
+         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return The enum numeric value on the wire for state.
          */
         @java.lang.Override public int getStateValue() {
@@ -3699,39 +3436,38 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * State of the domain for managed certificate issuance.
+         * Output only. State of the domain for managed certificate issuance.
          * </pre>
          *
-         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2;</code>
+         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @param value The enum numeric value on the wire for state to set.
          * @return This builder for chaining.
          */
         public Builder setStateValue(int value) {
-          
           state_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
         /**
          * <pre>
-         * State of the domain for managed certificate issuance.
+         * Output only. State of the domain for managed certificate issuance.
          * </pre>
          *
-         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2;</code>
+         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return The state.
          */
         @java.lang.Override
         public com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State getState() {
-          @SuppressWarnings("deprecation")
-          com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State result = com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State.valueOf(state_);
+          com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State result = com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State.forNumber(state_);
           return result == null ? com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State.UNRECOGNIZED : result;
         }
         /**
          * <pre>
-         * State of the domain for managed certificate issuance.
+         * Output only. State of the domain for managed certificate issuance.
          * </pre>
          *
-         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2;</code>
+         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @param value The state to set.
          * @return This builder for chaining.
          */
@@ -3739,21 +3475,21 @@ private static final long serialVersionUID = 0L;
           if (value == null) {
             throw new NullPointerException();
           }
-          
+          bitField0_ |= 0x00000002;
           state_ = value.getNumber();
           onChanged();
           return this;
         }
         /**
          * <pre>
-         * State of the domain for managed certificate issuance.
+         * Output only. State of the domain for managed certificate issuance.
          * </pre>
          *
-         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2;</code>
+         * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State state = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return This builder for chaining.
          */
         public Builder clearState() {
-          
+          bitField0_ = (bitField0_ & ~0x00000002);
           state_ = 0;
           onChanged();
           return this;
@@ -3762,7 +3498,8 @@ private static final long serialVersionUID = 0L;
         private int failureReason_ = 0;
         /**
          * <pre>
-         * Output only. Reason for failure of the authorization attempt for the domain.
+         * Output only. Reason for failure of the authorization attempt for the
+         * domain.
          * </pre>
          *
          * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason failure_reason = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -3773,7 +3510,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Output only. Reason for failure of the authorization attempt for the domain.
+         * Output only. Reason for failure of the authorization attempt for the
+         * domain.
          * </pre>
          *
          * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason failure_reason = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -3781,14 +3519,15 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder setFailureReasonValue(int value) {
-          
           failureReason_ = value;
+          bitField0_ |= 0x00000004;
           onChanged();
           return this;
         }
         /**
          * <pre>
-         * Output only. Reason for failure of the authorization attempt for the domain.
+         * Output only. Reason for failure of the authorization attempt for the
+         * domain.
          * </pre>
          *
          * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason failure_reason = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -3796,13 +3535,13 @@ private static final long serialVersionUID = 0L;
          */
         @java.lang.Override
         public com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason getFailureReason() {
-          @SuppressWarnings("deprecation")
-          com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason result = com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason.valueOf(failureReason_);
+          com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason result = com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason.forNumber(failureReason_);
           return result == null ? com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason.UNRECOGNIZED : result;
         }
         /**
          * <pre>
-         * Output only. Reason for failure of the authorization attempt for the domain.
+         * Output only. Reason for failure of the authorization attempt for the
+         * domain.
          * </pre>
          *
          * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason failure_reason = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -3813,21 +3552,22 @@ private static final long serialVersionUID = 0L;
           if (value == null) {
             throw new NullPointerException();
           }
-          
+          bitField0_ |= 0x00000004;
           failureReason_ = value.getNumber();
           onChanged();
           return this;
         }
         /**
          * <pre>
-         * Output only. Reason for failure of the authorization attempt for the domain.
+         * Output only. Reason for failure of the authorization attempt for the
+         * domain.
          * </pre>
          *
          * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason failure_reason = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return This builder for chaining.
          */
         public Builder clearFailureReason() {
-          
+          bitField0_ = (bitField0_ & ~0x00000004);
           failureReason_ = 0;
           onChanged();
           return this;
@@ -3836,12 +3576,12 @@ private static final long serialVersionUID = 0L;
         private java.lang.Object details_ = "";
         /**
          * <pre>
-         * Human readable explanation for reaching the state. Provided to help
-         * address the configuration issues.
-         * Not guaranteed to be stable. For programmatic access use Reason enum.
+         * Output only. Human readable explanation for reaching the state.
+         * Provided to help address the configuration issues. Not guaranteed to be
+         * stable. For programmatic access use FailureReason enum.
          * </pre>
          *
-         * <code>string details = 4;</code>
+         * <code>string details = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return The details.
          */
         public java.lang.String getDetails() {
@@ -3858,12 +3598,12 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Human readable explanation for reaching the state. Provided to help
-         * address the configuration issues.
-         * Not guaranteed to be stable. For programmatic access use Reason enum.
+         * Output only. Human readable explanation for reaching the state.
+         * Provided to help address the configuration issues. Not guaranteed to be
+         * stable. For programmatic access use FailureReason enum.
          * </pre>
          *
-         * <code>string details = 4;</code>
+         * <code>string details = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return The bytes for details.
          */
         public com.google.protobuf.ByteString
@@ -3881,60 +3621,56 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Human readable explanation for reaching the state. Provided to help
-         * address the configuration issues.
-         * Not guaranteed to be stable. For programmatic access use Reason enum.
+         * Output only. Human readable explanation for reaching the state.
+         * Provided to help address the configuration issues. Not guaranteed to be
+         * stable. For programmatic access use FailureReason enum.
          * </pre>
          *
-         * <code>string details = 4;</code>
+         * <code>string details = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @param value The details to set.
          * @return This builder for chaining.
          */
         public Builder setDetails(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           details_ = value;
+          bitField0_ |= 0x00000008;
           onChanged();
           return this;
         }
         /**
          * <pre>
-         * Human readable explanation for reaching the state. Provided to help
-         * address the configuration issues.
-         * Not guaranteed to be stable. For programmatic access use Reason enum.
+         * Output only. Human readable explanation for reaching the state.
+         * Provided to help address the configuration issues. Not guaranteed to be
+         * stable. For programmatic access use FailureReason enum.
          * </pre>
          *
-         * <code>string details = 4;</code>
+         * <code>string details = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return This builder for chaining.
          */
         public Builder clearDetails() {
-          
           details_ = getDefaultInstance().getDetails();
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
           return this;
         }
         /**
          * <pre>
-         * Human readable explanation for reaching the state. Provided to help
-         * address the configuration issues.
-         * Not guaranteed to be stable. For programmatic access use Reason enum.
+         * Output only. Human readable explanation for reaching the state.
+         * Provided to help address the configuration issues. Not guaranteed to be
+         * stable. For programmatic access use FailureReason enum.
          * </pre>
          *
-         * <code>string details = 4;</code>
+         * <code>string details = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @param value The bytes for details to set.
          * @return This builder for chaining.
          */
         public Builder setDetailsBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           details_ = value;
+          bitField0_ |= 0x00000008;
           onChanged();
           return this;
         }
@@ -3971,7 +3707,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new AuthorizationAttemptInfo(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -3992,11 +3739,13 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DOMAINS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList domains_;
     /**
      * <pre>
-     * Immutable. The domains for which a managed SSL certificate will be generated.
-     * Wildcard domains are only supported with DNS challenge resolution.
+     * Immutable. The domains for which a managed SSL certificate will be
+     * generated. Wildcard domains are only supported with DNS challenge
+     * resolution.
      * </pre>
      *
      * <code>repeated string domains = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -4008,8 +3757,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The domains for which a managed SSL certificate will be generated.
-     * Wildcard domains are only supported with DNS challenge resolution.
+     * Immutable. The domains for which a managed SSL certificate will be
+     * generated. Wildcard domains are only supported with DNS challenge
+     * resolution.
      * </pre>
      *
      * <code>repeated string domains = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -4020,8 +3770,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The domains for which a managed SSL certificate will be generated.
-     * Wildcard domains are only supported with DNS challenge resolution.
+     * Immutable. The domains for which a managed SSL certificate will be
+     * generated. Wildcard domains are only supported with DNS challenge
+     * resolution.
      * </pre>
      *
      * <code>repeated string domains = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -4033,8 +3784,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The domains for which a managed SSL certificate will be generated.
-     * Wildcard domains are only supported with DNS challenge resolution.
+     * Immutable. The domains for which a managed SSL certificate will be
+     * generated. Wildcard domains are only supported with DNS challenge
+     * resolution.
      * </pre>
      *
      * <code>repeated string domains = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -4047,10 +3799,12 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DNS_AUTHORIZATIONS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList dnsAuthorizations_;
     /**
      * <pre>
-     * Immutable. Authorizations that will be used for performing domain authorization.
+     * Immutable. Authorizations that will be used for performing domain
+     * authorization.
      * </pre>
      *
      * <code>repeated string dns_authorizations = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -4062,7 +3816,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. Authorizations that will be used for performing domain authorization.
+     * Immutable. Authorizations that will be used for performing domain
+     * authorization.
      * </pre>
      *
      * <code>repeated string dns_authorizations = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -4073,7 +3828,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. Authorizations that will be used for performing domain authorization.
+     * Immutable. Authorizations that will be used for performing domain
+     * authorization.
      * </pre>
      *
      * <code>repeated string dns_authorizations = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -4085,7 +3841,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. Authorizations that will be used for performing domain authorization.
+     * Immutable. Authorizations that will be used for performing domain
+     * authorization.
      * </pre>
      *
      * <code>repeated string dns_authorizations = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -4097,8 +3854,67 @@ private static final long serialVersionUID = 0L;
       return dnsAuthorizations_.getByteString(index);
     }
 
+    public static final int ISSUANCE_CONFIG_FIELD_NUMBER = 6;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object issuanceConfig_ = "";
+    /**
+     * <pre>
+     * The resource name for a
+     * [CertificateIssuanceConfig][google.cloud.certificatemanager.v1.CertificateIssuanceConfig]
+     * used to configure private PKI certificates in the format
+     * `projects/&#42;&#47;locations/&#42;&#47;certificateIssuanceConfigs/&#42;`.
+     * If this field is not set, the certificates will instead be publicly
+     * signed as documented at
+     * https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs#caa.
+     * </pre>
+     *
+     * <code>string issuance_config = 6 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
+     * @return The issuanceConfig.
+     */
+    @java.lang.Override
+    public java.lang.String getIssuanceConfig() {
+      java.lang.Object ref = issuanceConfig_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        issuanceConfig_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The resource name for a
+     * [CertificateIssuanceConfig][google.cloud.certificatemanager.v1.CertificateIssuanceConfig]
+     * used to configure private PKI certificates in the format
+     * `projects/&#42;&#47;locations/&#42;&#47;certificateIssuanceConfigs/&#42;`.
+     * If this field is not set, the certificates will instead be publicly
+     * signed as documented at
+     * https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs#caa.
+     * </pre>
+     *
+     * <code>string issuance_config = 6 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
+     * @return The bytes for issuanceConfig.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIssuanceConfigBytes() {
+      java.lang.Object ref = issuanceConfig_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        issuanceConfig_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     public static final int STATE_FIELD_NUMBER = 4;
-    private int state_;
+    private int state_ = 0;
     /**
      * <pre>
      * Output only. State of the managed certificate resource.
@@ -4119,8 +3935,7 @@ private static final long serialVersionUID = 0L;
      * @return The state.
      */
     @java.lang.Override public com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.State result = com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.State.valueOf(state_);
+      com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.State result = com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.State.forNumber(state_);
       return result == null ? com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.State.UNRECOGNIZED : result;
     }
 
@@ -4128,10 +3943,11 @@ private static final long serialVersionUID = 0L;
     private com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioningIssue_;
     /**
      * <pre>
-     * Information about issues with provisioning a Managed Certificate.
+     * Output only. Information about issues with provisioning a Managed
+     * Certificate.
      * </pre>
      *
-     * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3;</code>
+     * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return Whether the provisioningIssue field is set.
      */
     @java.lang.Override
@@ -4140,10 +3956,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Information about issues with provisioning a Managed Certificate.
+     * Output only. Information about issues with provisioning a Managed
+     * Certificate.
      * </pre>
      *
-     * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3;</code>
+     * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The provisioningIssue.
      */
     @java.lang.Override
@@ -4152,22 +3969,24 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Information about issues with provisioning a Managed Certificate.
+     * Output only. Information about issues with provisioning a Managed
+     * Certificate.
      * </pre>
      *
-     * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3;</code>
+     * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
     public com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssueOrBuilder getProvisioningIssueOrBuilder() {
-      return getProvisioningIssue();
+      return provisioningIssue_ == null ? com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.getDefaultInstance() : provisioningIssue_;
     }
 
     public static final int AUTHORIZATION_ATTEMPT_INFO_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo> authorizationAttemptInfo_;
     /**
      * <pre>
-     * Output only. Detailed state of the latest authorization attempt for each domain
-     * specified for managed certificate resource.
+     * Output only. Detailed state of the latest authorization attempt for each
+     * domain specified for managed certificate resource.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4178,8 +3997,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Detailed state of the latest authorization attempt for each domain
-     * specified for managed certificate resource.
+     * Output only. Detailed state of the latest authorization attempt for each
+     * domain specified for managed certificate resource.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4191,8 +4010,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Detailed state of the latest authorization attempt for each domain
-     * specified for managed certificate resource.
+     * Output only. Detailed state of the latest authorization attempt for each
+     * domain specified for managed certificate resource.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4203,8 +4022,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Detailed state of the latest authorization attempt for each domain
-     * specified for managed certificate resource.
+     * Output only. Detailed state of the latest authorization attempt for each
+     * domain specified for managed certificate resource.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4215,8 +4034,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Detailed state of the latest authorization attempt for each domain
-     * specified for managed certificate resource.
+     * Output only. Detailed state of the latest authorization attempt for each
+     * domain specified for managed certificate resource.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4256,7 +4075,10 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < authorizationAttemptInfo_.size(); i++) {
         output.writeMessage(5, authorizationAttemptInfo_.get(i));
       }
-      unknownFields.writeTo(output);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(issuanceConfig_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, issuanceConfig_);
+      }
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4293,7 +4115,10 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, authorizationAttemptInfo_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(issuanceConfig_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, issuanceConfig_);
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4312,6 +4137,8 @@ private static final long serialVersionUID = 0L;
           .equals(other.getDomainsList())) return false;
       if (!getDnsAuthorizationsList()
           .equals(other.getDnsAuthorizationsList())) return false;
+      if (!getIssuanceConfig()
+          .equals(other.getIssuanceConfig())) return false;
       if (state_ != other.state_) return false;
       if (hasProvisioningIssue() != other.hasProvisioningIssue()) return false;
       if (hasProvisioningIssue()) {
@@ -4320,7 +4147,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!getAuthorizationAttemptInfoList()
           .equals(other.getAuthorizationAttemptInfoList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4339,6 +4166,8 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + DNS_AUTHORIZATIONS_FIELD_NUMBER;
         hash = (53 * hash) + getDnsAuthorizationsList().hashCode();
       }
+      hash = (37 * hash) + ISSUANCE_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getIssuanceConfig().hashCode();
       hash = (37 * hash) + STATE_FIELD_NUMBER;
       hash = (53 * hash) + state_;
       if (hasProvisioningIssue()) {
@@ -4349,7 +4178,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + AUTHORIZATION_ATTEMPT_INFO_FIELD_NUMBER;
         hash = (53 * hash) + getAuthorizationAttemptInfoList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4472,41 +4301,36 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getAuthorizationAttemptInfoFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         domains_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         dnsAuthorizations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
+        issuanceConfig_ = "";
         state_ = 0;
-
-        if (provisioningIssueBuilder_ == null) {
-          provisioningIssue_ = null;
-        } else {
-          provisioningIssue_ = null;
+        provisioningIssue_ = null;
+        if (provisioningIssueBuilder_ != null) {
+          provisioningIssueBuilder_.dispose();
           provisioningIssueBuilder_ = null;
         }
         if (authorizationAttemptInfoBuilder_ == null) {
           authorizationAttemptInfo_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
+          authorizationAttemptInfo_ = null;
           authorizationAttemptInfoBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -4533,7 +4357,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate buildPartial() {
         com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate result = new com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           domains_ = domains_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -4544,23 +4374,30 @@ private static final long serialVersionUID = 0L;
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.dnsAuthorizations_ = dnsAuthorizations_;
-        result.state_ = state_;
-        if (provisioningIssueBuilder_ == null) {
-          result.provisioningIssue_ = provisioningIssue_;
-        } else {
-          result.provisioningIssue_ = provisioningIssueBuilder_.build();
-        }
         if (authorizationAttemptInfoBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000020) != 0)) {
             authorizationAttemptInfo_ = java.util.Collections.unmodifiableList(authorizationAttemptInfo_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000020);
           }
           result.authorizationAttemptInfo_ = authorizationAttemptInfo_;
         } else {
           result.authorizationAttemptInfo_ = authorizationAttemptInfoBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.issuanceConfig_ = issuanceConfig_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.state_ = state_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.provisioningIssue_ = provisioningIssueBuilder_ == null
+              ? provisioningIssue_
+              : provisioningIssueBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -4627,6 +4464,11 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
+        if (!other.getIssuanceConfig().isEmpty()) {
+          issuanceConfig_ = other.issuanceConfig_;
+          bitField0_ |= 0x00000004;
+          onChanged();
+        }
         if (other.state_ != 0) {
           setStateValue(other.getStateValue());
         }
@@ -4637,7 +4479,7 @@ private static final long serialVersionUID = 0L;
           if (!other.authorizationAttemptInfo_.isEmpty()) {
             if (authorizationAttemptInfo_.isEmpty()) {
               authorizationAttemptInfo_ = other.authorizationAttemptInfo_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000020);
             } else {
               ensureAuthorizationAttemptInfoIsMutable();
               authorizationAttemptInfo_.addAll(other.authorizationAttemptInfo_);
@@ -4650,7 +4492,7 @@ private static final long serialVersionUID = 0L;
               authorizationAttemptInfoBuilder_.dispose();
               authorizationAttemptInfoBuilder_ = null;
               authorizationAttemptInfo_ = other.authorizationAttemptInfo_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000020);
               authorizationAttemptInfoBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getAuthorizationAttemptInfoFieldBuilder() : null;
@@ -4659,7 +4501,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4674,17 +4516,72 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureDomainsIsMutable();
+                domains_.add(s);
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureDnsAuthorizationsIsMutable();
+                dnsAuthorizations_.add(s);
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getProvisioningIssueFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 26
+              case 32: {
+                state_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 42: {
+                com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo m =
+                    input.readMessage(
+                        com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.parser(),
+                        extensionRegistry);
+                if (authorizationAttemptInfoBuilder_ == null) {
+                  ensureAuthorizationAttemptInfoIsMutable();
+                  authorizationAttemptInfo_.add(m);
+                } else {
+                  authorizationAttemptInfoBuilder_.addMessage(m);
+                }
+                break;
+              } // case 42
+              case 50: {
+                issuanceConfig_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 50
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -4698,8 +4595,9 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Immutable. The domains for which a managed SSL certificate will be generated.
-       * Wildcard domains are only supported with DNS challenge resolution.
+       * Immutable. The domains for which a managed SSL certificate will be
+       * generated. Wildcard domains are only supported with DNS challenge
+       * resolution.
        * </pre>
        *
        * <code>repeated string domains = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -4711,8 +4609,9 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Immutable. The domains for which a managed SSL certificate will be generated.
-       * Wildcard domains are only supported with DNS challenge resolution.
+       * Immutable. The domains for which a managed SSL certificate will be
+       * generated. Wildcard domains are only supported with DNS challenge
+       * resolution.
        * </pre>
        *
        * <code>repeated string domains = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -4723,8 +4622,9 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Immutable. The domains for which a managed SSL certificate will be generated.
-       * Wildcard domains are only supported with DNS challenge resolution.
+       * Immutable. The domains for which a managed SSL certificate will be
+       * generated. Wildcard domains are only supported with DNS challenge
+       * resolution.
        * </pre>
        *
        * <code>repeated string domains = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -4736,8 +4636,9 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Immutable. The domains for which a managed SSL certificate will be generated.
-       * Wildcard domains are only supported with DNS challenge resolution.
+       * Immutable. The domains for which a managed SSL certificate will be
+       * generated. Wildcard domains are only supported with DNS challenge
+       * resolution.
        * </pre>
        *
        * <code>repeated string domains = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -4750,8 +4651,9 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Immutable. The domains for which a managed SSL certificate will be generated.
-       * Wildcard domains are only supported with DNS challenge resolution.
+       * Immutable. The domains for which a managed SSL certificate will be
+       * generated. Wildcard domains are only supported with DNS challenge
+       * resolution.
        * </pre>
        *
        * <code>repeated string domains = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -4761,18 +4663,17 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDomains(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDomainsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureDomainsIsMutable();
         domains_.set(index, value);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Immutable. The domains for which a managed SSL certificate will be generated.
-       * Wildcard domains are only supported with DNS challenge resolution.
+       * Immutable. The domains for which a managed SSL certificate will be
+       * generated. Wildcard domains are only supported with DNS challenge
+       * resolution.
        * </pre>
        *
        * <code>repeated string domains = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -4781,18 +4682,17 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addDomains(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDomainsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureDomainsIsMutable();
         domains_.add(value);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Immutable. The domains for which a managed SSL certificate will be generated.
-       * Wildcard domains are only supported with DNS challenge resolution.
+       * Immutable. The domains for which a managed SSL certificate will be
+       * generated. Wildcard domains are only supported with DNS challenge
+       * resolution.
        * </pre>
        *
        * <code>repeated string domains = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -4809,8 +4709,9 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Immutable. The domains for which a managed SSL certificate will be generated.
-       * Wildcard domains are only supported with DNS challenge resolution.
+       * Immutable. The domains for which a managed SSL certificate will be
+       * generated. Wildcard domains are only supported with DNS challenge
+       * resolution.
        * </pre>
        *
        * <code>repeated string domains = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -4824,8 +4725,9 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Immutable. The domains for which a managed SSL certificate will be generated.
-       * Wildcard domains are only supported with DNS challenge resolution.
+       * Immutable. The domains for which a managed SSL certificate will be
+       * generated. Wildcard domains are only supported with DNS challenge
+       * resolution.
        * </pre>
        *
        * <code>repeated string domains = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -4834,10 +4736,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addDomainsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureDomainsIsMutable();
         domains_.add(value);
         onChanged();
@@ -4853,7 +4753,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Immutable. Authorizations that will be used for performing domain authorization.
+       * Immutable. Authorizations that will be used for performing domain
+       * authorization.
        * </pre>
        *
        * <code>repeated string dns_authorizations = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -4865,7 +4766,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Immutable. Authorizations that will be used for performing domain authorization.
+       * Immutable. Authorizations that will be used for performing domain
+       * authorization.
        * </pre>
        *
        * <code>repeated string dns_authorizations = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -4876,7 +4778,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Immutable. Authorizations that will be used for performing domain authorization.
+       * Immutable. Authorizations that will be used for performing domain
+       * authorization.
        * </pre>
        *
        * <code>repeated string dns_authorizations = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -4888,7 +4791,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Immutable. Authorizations that will be used for performing domain authorization.
+       * Immutable. Authorizations that will be used for performing domain
+       * authorization.
        * </pre>
        *
        * <code>repeated string dns_authorizations = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -4901,7 +4805,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Immutable. Authorizations that will be used for performing domain authorization.
+       * Immutable. Authorizations that will be used for performing domain
+       * authorization.
        * </pre>
        *
        * <code>repeated string dns_authorizations = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -4911,17 +4816,16 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDnsAuthorizations(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDnsAuthorizationsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureDnsAuthorizationsIsMutable();
         dnsAuthorizations_.set(index, value);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Immutable. Authorizations that will be used for performing domain authorization.
+       * Immutable. Authorizations that will be used for performing domain
+       * authorization.
        * </pre>
        *
        * <code>repeated string dns_authorizations = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -4930,17 +4834,16 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addDnsAuthorizations(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDnsAuthorizationsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureDnsAuthorizationsIsMutable();
         dnsAuthorizations_.add(value);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Immutable. Authorizations that will be used for performing domain authorization.
+       * Immutable. Authorizations that will be used for performing domain
+       * authorization.
        * </pre>
        *
        * <code>repeated string dns_authorizations = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -4957,7 +4860,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Immutable. Authorizations that will be used for performing domain authorization.
+       * Immutable. Authorizations that will be used for performing domain
+       * authorization.
        * </pre>
        *
        * <code>repeated string dns_authorizations = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -4971,7 +4875,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Immutable. Authorizations that will be used for performing domain authorization.
+       * Immutable. Authorizations that will be used for performing domain
+       * authorization.
        * </pre>
        *
        * <code>repeated string dns_authorizations = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -4980,12 +4885,132 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addDnsAuthorizationsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureDnsAuthorizationsIsMutable();
         dnsAuthorizations_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object issuanceConfig_ = "";
+      /**
+       * <pre>
+       * The resource name for a
+       * [CertificateIssuanceConfig][google.cloud.certificatemanager.v1.CertificateIssuanceConfig]
+       * used to configure private PKI certificates in the format
+       * `projects/&#42;&#47;locations/&#42;&#47;certificateIssuanceConfigs/&#42;`.
+       * If this field is not set, the certificates will instead be publicly
+       * signed as documented at
+       * https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs#caa.
+       * </pre>
+       *
+       * <code>string issuance_config = 6 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
+       * @return The issuanceConfig.
+       */
+      public java.lang.String getIssuanceConfig() {
+        java.lang.Object ref = issuanceConfig_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          issuanceConfig_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The resource name for a
+       * [CertificateIssuanceConfig][google.cloud.certificatemanager.v1.CertificateIssuanceConfig]
+       * used to configure private PKI certificates in the format
+       * `projects/&#42;&#47;locations/&#42;&#47;certificateIssuanceConfigs/&#42;`.
+       * If this field is not set, the certificates will instead be publicly
+       * signed as documented at
+       * https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs#caa.
+       * </pre>
+       *
+       * <code>string issuance_config = 6 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
+       * @return The bytes for issuanceConfig.
+       */
+      public com.google.protobuf.ByteString
+          getIssuanceConfigBytes() {
+        java.lang.Object ref = issuanceConfig_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          issuanceConfig_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The resource name for a
+       * [CertificateIssuanceConfig][google.cloud.certificatemanager.v1.CertificateIssuanceConfig]
+       * used to configure private PKI certificates in the format
+       * `projects/&#42;&#47;locations/&#42;&#47;certificateIssuanceConfigs/&#42;`.
+       * If this field is not set, the certificates will instead be publicly
+       * signed as documented at
+       * https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs#caa.
+       * </pre>
+       *
+       * <code>string issuance_config = 6 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
+       * @param value The issuanceConfig to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIssuanceConfig(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        issuanceConfig_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The resource name for a
+       * [CertificateIssuanceConfig][google.cloud.certificatemanager.v1.CertificateIssuanceConfig]
+       * used to configure private PKI certificates in the format
+       * `projects/&#42;&#47;locations/&#42;&#47;certificateIssuanceConfigs/&#42;`.
+       * If this field is not set, the certificates will instead be publicly
+       * signed as documented at
+       * https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs#caa.
+       * </pre>
+       *
+       * <code>string issuance_config = 6 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIssuanceConfig() {
+        issuanceConfig_ = getDefaultInstance().getIssuanceConfig();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The resource name for a
+       * [CertificateIssuanceConfig][google.cloud.certificatemanager.v1.CertificateIssuanceConfig]
+       * used to configure private PKI certificates in the format
+       * `projects/&#42;&#47;locations/&#42;&#47;certificateIssuanceConfigs/&#42;`.
+       * If this field is not set, the certificates will instead be publicly
+       * signed as documented at
+       * https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs#caa.
+       * </pre>
+       *
+       * <code>string issuance_config = 6 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
+       * @param value The bytes for issuanceConfig to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIssuanceConfigBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        issuanceConfig_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -5012,8 +5037,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
-        
         state_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -5027,8 +5052,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.State getState() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.State result = com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.State.valueOf(state_);
+        com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.State result = com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.State.forNumber(state_);
         return result == null ? com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.State.UNRECOGNIZED : result;
       }
       /**
@@ -5044,7 +5068,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000008;
         state_ = value.getNumber();
         onChanged();
         return this;
@@ -5058,7 +5082,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         state_ = 0;
         onChanged();
         return this;
@@ -5069,21 +5093,23 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue, com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Builder, com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssueOrBuilder> provisioningIssueBuilder_;
       /**
        * <pre>
-       * Information about issues with provisioning a Managed Certificate.
+       * Output only. Information about issues with provisioning a Managed
+       * Certificate.
        * </pre>
        *
-       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3;</code>
+       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return Whether the provisioningIssue field is set.
        */
       public boolean hasProvisioningIssue() {
-        return provisioningIssueBuilder_ != null || provisioningIssue_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
-       * Information about issues with provisioning a Managed Certificate.
+       * Output only. Information about issues with provisioning a Managed
+       * Certificate.
        * </pre>
        *
-       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3;</code>
+       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The provisioningIssue.
        */
       public com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue getProvisioningIssue() {
@@ -5095,10 +5121,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Information about issues with provisioning a Managed Certificate.
+       * Output only. Information about issues with provisioning a Managed
+       * Certificate.
        * </pre>
        *
-       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3;</code>
+       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder setProvisioningIssue(com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue value) {
         if (provisioningIssueBuilder_ == null) {
@@ -5106,89 +5133,94 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           provisioningIssue_ = value;
-          onChanged();
         } else {
           provisioningIssueBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Information about issues with provisioning a Managed Certificate.
+       * Output only. Information about issues with provisioning a Managed
+       * Certificate.
        * </pre>
        *
-       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3;</code>
+       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder setProvisioningIssue(
           com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Builder builderForValue) {
         if (provisioningIssueBuilder_ == null) {
           provisioningIssue_ = builderForValue.build();
-          onChanged();
         } else {
           provisioningIssueBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Information about issues with provisioning a Managed Certificate.
+       * Output only. Information about issues with provisioning a Managed
+       * Certificate.
        * </pre>
        *
-       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3;</code>
+       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder mergeProvisioningIssue(com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue value) {
         if (provisioningIssueBuilder_ == null) {
-          if (provisioningIssue_ != null) {
-            provisioningIssue_ =
-              com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.newBuilder(provisioningIssue_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            provisioningIssue_ != null &&
+            provisioningIssue_ != com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.getDefaultInstance()) {
+            getProvisioningIssueBuilder().mergeFrom(value);
           } else {
             provisioningIssue_ = value;
           }
-          onChanged();
         } else {
           provisioningIssueBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Information about issues with provisioning a Managed Certificate.
+       * Output only. Information about issues with provisioning a Managed
+       * Certificate.
        * </pre>
        *
-       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3;</code>
+       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearProvisioningIssue() {
-        if (provisioningIssueBuilder_ == null) {
-          provisioningIssue_ = null;
-          onChanged();
-        } else {
-          provisioningIssue_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        provisioningIssue_ = null;
+        if (provisioningIssueBuilder_ != null) {
+          provisioningIssueBuilder_.dispose();
           provisioningIssueBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Information about issues with provisioning a Managed Certificate.
+       * Output only. Information about issues with provisioning a Managed
+       * Certificate.
        * </pre>
        *
-       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3;</code>
+       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Builder getProvisioningIssueBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getProvisioningIssueFieldBuilder().getBuilder();
       }
       /**
        * <pre>
-       * Information about issues with provisioning a Managed Certificate.
+       * Output only. Information about issues with provisioning a Managed
+       * Certificate.
        * </pre>
        *
-       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3;</code>
+       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssueOrBuilder getProvisioningIssueOrBuilder() {
         if (provisioningIssueBuilder_ != null) {
@@ -5200,10 +5232,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Information about issues with provisioning a Managed Certificate.
+       * Output only. Information about issues with provisioning a Managed
+       * Certificate.
        * </pre>
        *
-       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3;</code>
+       * <code>.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue provisioning_issue = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue, com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssue.Builder, com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.ProvisioningIssueOrBuilder> 
@@ -5222,9 +5255,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo> authorizationAttemptInfo_ =
         java.util.Collections.emptyList();
       private void ensureAuthorizationAttemptInfoIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000020) != 0)) {
           authorizationAttemptInfo_ = new java.util.ArrayList<com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo>(authorizationAttemptInfo_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000020;
          }
       }
 
@@ -5233,8 +5266,8 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5248,8 +5281,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5263,8 +5296,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5278,8 +5311,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5300,8 +5333,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5319,8 +5352,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5340,8 +5373,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5362,8 +5395,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5381,8 +5414,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5400,8 +5433,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5420,8 +5453,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5429,7 +5462,7 @@ private static final long serialVersionUID = 0L;
       public Builder clearAuthorizationAttemptInfo() {
         if (authorizationAttemptInfoBuilder_ == null) {
           authorizationAttemptInfo_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000020);
           onChanged();
         } else {
           authorizationAttemptInfoBuilder_.clear();
@@ -5438,8 +5471,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5456,8 +5489,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5468,8 +5501,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5483,8 +5516,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5499,8 +5532,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5511,8 +5544,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5524,8 +5557,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. Detailed state of the latest authorization attempt for each domain
-       * specified for managed certificate resource.
+       * Output only. Detailed state of the latest authorization attempt for each
+       * domain specified for managed certificate resource.
        * </pre>
        *
        * <code>repeated .google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo authorization_attempt_info = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5541,7 +5574,7 @@ private static final long serialVersionUID = 0L;
           authorizationAttemptInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo, com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.Builder, com.google.cloud.certificatemanager.v1.Certificate.ManagedCertificate.AuthorizationAttemptInfoOrBuilder>(
                   authorizationAttemptInfo_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000020) != 0),
                   getParentForChildren(),
                   isClean());
           authorizationAttemptInfo_ = null;
@@ -5581,7 +5614,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ManagedCertificate(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5643,7 +5687,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * A user-defined name of the certificate. Certificate names must be unique
@@ -5691,7 +5736,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 8;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * One or more paragraphs of text description of a certificate.
@@ -5771,7 +5817,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 3;
@@ -5809,7 +5855,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int LABELS_FIELD_NUMBER = 4;
@@ -5824,6 +5870,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -5834,7 +5881,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -5845,7 +5891,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -5868,7 +5913,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -5880,10 +5924,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -5897,7 +5942,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -5996,13 +6040,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SAN_DNSNAMES_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList sanDnsnames_;
   /**
    * <pre>
-   * Output only. The list of Subject Alternative Names of dnsName type defined in the
-   * certificate (see RFC 5280 4.2.1.6).
-   * Managed certificates that haven't been provisioned yet have this field
-   * populated with a value of the managed.domains field.
+   * Output only. The list of Subject Alternative Names of dnsName type defined
+   * in the certificate (see RFC 5280 4.2.1.6). Managed certificates that
+   * haven't been provisioned yet have this field populated with a value of the
+   * managed.domains field.
    * </pre>
    *
    * <code>repeated string san_dnsnames = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -6014,10 +6059,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The list of Subject Alternative Names of dnsName type defined in the
-   * certificate (see RFC 5280 4.2.1.6).
-   * Managed certificates that haven't been provisioned yet have this field
-   * populated with a value of the managed.domains field.
+   * Output only. The list of Subject Alternative Names of dnsName type defined
+   * in the certificate (see RFC 5280 4.2.1.6). Managed certificates that
+   * haven't been provisioned yet have this field populated with a value of the
+   * managed.domains field.
    * </pre>
    *
    * <code>repeated string san_dnsnames = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -6028,10 +6073,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The list of Subject Alternative Names of dnsName type defined in the
-   * certificate (see RFC 5280 4.2.1.6).
-   * Managed certificates that haven't been provisioned yet have this field
-   * populated with a value of the managed.domains field.
+   * Output only. The list of Subject Alternative Names of dnsName type defined
+   * in the certificate (see RFC 5280 4.2.1.6). Managed certificates that
+   * haven't been provisioned yet have this field populated with a value of the
+   * managed.domains field.
    * </pre>
    *
    * <code>repeated string san_dnsnames = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -6043,10 +6088,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The list of Subject Alternative Names of dnsName type defined in the
-   * certificate (see RFC 5280 4.2.1.6).
-   * Managed certificates that haven't been provisioned yet have this field
-   * populated with a value of the managed.domains field.
+   * Output only. The list of Subject Alternative Names of dnsName type defined
+   * in the certificate (see RFC 5280 4.2.1.6). Managed certificates that
+   * haven't been provisioned yet have this field populated with a value of the
+   * managed.domains field.
    * </pre>
    *
    * <code>repeated string san_dnsnames = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -6059,7 +6104,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PEM_CERTIFICATE_FIELD_NUMBER = 9;
-  private volatile java.lang.Object pemCertificate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pemCertificate_ = "";
   /**
    * <pre>
    * Output only. The PEM-encoded certificate chain.
@@ -6139,11 +6185,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getExpireTimeOrBuilder() {
-    return getExpireTime();
+    return expireTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expireTime_;
   }
 
   public static final int SCOPE_FIELD_NUMBER = 12;
-  private int scope_;
+  private int scope_ = 0;
   /**
    * <pre>
    * Immutable. The scope of the certificate.
@@ -6164,8 +6210,7 @@ private static final long serialVersionUID = 0L;
    * @return The scope.
    */
   @java.lang.Override public com.google.cloud.certificatemanager.v1.Certificate.Scope getScope() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.certificatemanager.v1.Certificate.Scope result = com.google.cloud.certificatemanager.v1.Certificate.Scope.valueOf(scope_);
+    com.google.cloud.certificatemanager.v1.Certificate.Scope result = com.google.cloud.certificatemanager.v1.Certificate.Scope.forNumber(scope_);
     return result == null ? com.google.cloud.certificatemanager.v1.Certificate.Scope.UNRECOGNIZED : result;
   }
 
@@ -6219,7 +6264,7 @@ private static final long serialVersionUID = 0L;
     if (scope_ != com.google.cloud.certificatemanager.v1.Certificate.Scope.DEFAULT.getNumber()) {
       output.writeEnum(12, scope_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -6279,7 +6324,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(12, scope_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -6333,7 +6378,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -6384,7 +6429,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -6527,51 +6572,46 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.certificatemanager.v1.Certificate.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       description_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       internalGetMutableLabels().clear();
+      if (selfManagedBuilder_ != null) {
+        selfManagedBuilder_.clear();
+      }
+      if (managedBuilder_ != null) {
+        managedBuilder_.clear();
+      }
       sanDnsnames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000080);
       pemCertificate_ = "";
-
-      if (expireTimeBuilder_ == null) {
-        expireTime_ = null;
-      } else {
-        expireTime_ = null;
+      expireTime_ = null;
+      if (expireTimeBuilder_ != null) {
+        expireTimeBuilder_.dispose();
         expireTimeBuilder_ = null;
       }
       scope_ = 0;
-
       typeCase_ = 0;
       type_ = null;
       return this;
@@ -6600,50 +6640,67 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.certificatemanager.v1.Certificate buildPartial() {
       com.google.cloud.certificatemanager.v1.Certificate result = new com.google.cloud.certificatemanager.v1.Certificate(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.description_ = description_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      if (typeCase_ == 5) {
-        if (selfManagedBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = selfManagedBuilder_.build();
-        }
-      }
-      if (typeCase_ == 11) {
-        if (managedBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = managedBuilder_.build();
-        }
-      }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        sanDnsnames_ = sanDnsnames_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.sanDnsnames_ = sanDnsnames_;
-      result.pemCertificate_ = pemCertificate_;
-      if (expireTimeBuilder_ == null) {
-        result.expireTime_ = expireTime_;
-      } else {
-        result.expireTime_ = expireTimeBuilder_.build();
-      }
-      result.scope_ = scope_;
-      result.typeCase_ = typeCase_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.certificatemanager.v1.Certificate result) {
+      if (((bitField0_ & 0x00000080) != 0)) {
+        sanDnsnames_ = sanDnsnames_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000080);
+      }
+      result.sanDnsnames_ = sanDnsnames_;
+    }
+
+    private void buildPartial0(com.google.cloud.certificatemanager.v1.Certificate result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.pemCertificate_ = pemCertificate_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.expireTime_ = expireTimeBuilder_ == null
+            ? expireTime_
+            : expireTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.scope_ = scope_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.certificatemanager.v1.Certificate result) {
+      result.typeCase_ = typeCase_;
+      result.type_ = this.type_;
+      if (typeCase_ == 5 &&
+          selfManagedBuilder_ != null) {
+        result.type_ = selfManagedBuilder_.build();
+      }
+      if (typeCase_ == 11 &&
+          managedBuilder_ != null) {
+        result.type_ = managedBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -6692,10 +6749,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.certificatemanager.v1.Certificate.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -6706,10 +6765,11 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000010;
       if (!other.sanDnsnames_.isEmpty()) {
         if (sanDnsnames_.isEmpty()) {
           sanDnsnames_ = other.sanDnsnames_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensureSanDnsnamesIsMutable();
           sanDnsnames_.addAll(other.sanDnsnames_);
@@ -6718,6 +6778,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPemCertificate().isEmpty()) {
         pemCertificate_ = other.pemCertificate_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.hasExpireTime()) {
@@ -6739,7 +6800,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -6754,17 +6815,100 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.certificatemanager.v1.Certificate parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getSelfManagedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSanDnsnamesIsMutable();
+              sanDnsnames_.add(s);
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getExpireTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 58
+            case 66: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 66
+            case 74: {
+              pemCertificate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 90: {
+              input.readMessage(
+                  getManagedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 11;
+              break;
+            } // case 90
+            case 96: {
+              scope_ = input.readEnum();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 96
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.certificatemanager.v1.Certificate) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int typeCase_ = 0;
@@ -6840,11 +6984,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -6858,8 +7000,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -6875,12 +7017,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -6938,11 +7078,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -6955,8 +7093,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -6971,12 +7109,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -6993,7 +7129,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -7023,11 +7159,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -7041,11 +7177,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -7057,17 +7193,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -7078,14 +7215,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7096,7 +7232,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -7148,7 +7284,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -7178,11 +7314,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -7196,11 +7332,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -7212,17 +7348,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -7233,14 +7370,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7251,7 +7387,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -7294,7 +7430,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -7302,8 +7438,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -7311,9 +7446,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -7324,7 +7460,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -7347,7 +7482,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -7359,10 +7493,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -7376,7 +7511,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -7387,8 +7521,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -7400,7 +7534,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -7413,7 +7546,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -7427,12 +7561,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -7442,11 +7574,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
 
@@ -7624,7 +7756,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 5;
-      onChanged();;
+      onChanged();
       return selfManagedBuilder_;
     }
 
@@ -7802,23 +7934,23 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 11;
-      onChanged();;
+      onChanged();
       return managedBuilder_;
     }
 
     private com.google.protobuf.LazyStringList sanDnsnames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureSanDnsnamesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         sanDnsnames_ = new com.google.protobuf.LazyStringArrayList(sanDnsnames_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000080;
        }
     }
     /**
      * <pre>
-     * Output only. The list of Subject Alternative Names of dnsName type defined in the
-     * certificate (see RFC 5280 4.2.1.6).
-     * Managed certificates that haven't been provisioned yet have this field
-     * populated with a value of the managed.domains field.
+     * Output only. The list of Subject Alternative Names of dnsName type defined
+     * in the certificate (see RFC 5280 4.2.1.6). Managed certificates that
+     * haven't been provisioned yet have this field populated with a value of the
+     * managed.domains field.
      * </pre>
      *
      * <code>repeated string san_dnsnames = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -7830,10 +7962,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The list of Subject Alternative Names of dnsName type defined in the
-     * certificate (see RFC 5280 4.2.1.6).
-     * Managed certificates that haven't been provisioned yet have this field
-     * populated with a value of the managed.domains field.
+     * Output only. The list of Subject Alternative Names of dnsName type defined
+     * in the certificate (see RFC 5280 4.2.1.6). Managed certificates that
+     * haven't been provisioned yet have this field populated with a value of the
+     * managed.domains field.
      * </pre>
      *
      * <code>repeated string san_dnsnames = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -7844,10 +7976,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The list of Subject Alternative Names of dnsName type defined in the
-     * certificate (see RFC 5280 4.2.1.6).
-     * Managed certificates that haven't been provisioned yet have this field
-     * populated with a value of the managed.domains field.
+     * Output only. The list of Subject Alternative Names of dnsName type defined
+     * in the certificate (see RFC 5280 4.2.1.6). Managed certificates that
+     * haven't been provisioned yet have this field populated with a value of the
+     * managed.domains field.
      * </pre>
      *
      * <code>repeated string san_dnsnames = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -7859,10 +7991,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The list of Subject Alternative Names of dnsName type defined in the
-     * certificate (see RFC 5280 4.2.1.6).
-     * Managed certificates that haven't been provisioned yet have this field
-     * populated with a value of the managed.domains field.
+     * Output only. The list of Subject Alternative Names of dnsName type defined
+     * in the certificate (see RFC 5280 4.2.1.6). Managed certificates that
+     * haven't been provisioned yet have this field populated with a value of the
+     * managed.domains field.
      * </pre>
      *
      * <code>repeated string san_dnsnames = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -7875,10 +8007,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The list of Subject Alternative Names of dnsName type defined in the
-     * certificate (see RFC 5280 4.2.1.6).
-     * Managed certificates that haven't been provisioned yet have this field
-     * populated with a value of the managed.domains field.
+     * Output only. The list of Subject Alternative Names of dnsName type defined
+     * in the certificate (see RFC 5280 4.2.1.6). Managed certificates that
+     * haven't been provisioned yet have this field populated with a value of the
+     * managed.domains field.
      * </pre>
      *
      * <code>repeated string san_dnsnames = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -7888,20 +8020,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSanDnsnames(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSanDnsnamesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSanDnsnamesIsMutable();
       sanDnsnames_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The list of Subject Alternative Names of dnsName type defined in the
-     * certificate (see RFC 5280 4.2.1.6).
-     * Managed certificates that haven't been provisioned yet have this field
-     * populated with a value of the managed.domains field.
+     * Output only. The list of Subject Alternative Names of dnsName type defined
+     * in the certificate (see RFC 5280 4.2.1.6). Managed certificates that
+     * haven't been provisioned yet have this field populated with a value of the
+     * managed.domains field.
      * </pre>
      *
      * <code>repeated string san_dnsnames = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -7910,20 +8040,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSanDnsnames(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSanDnsnamesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSanDnsnamesIsMutable();
       sanDnsnames_.add(value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The list of Subject Alternative Names of dnsName type defined in the
-     * certificate (see RFC 5280 4.2.1.6).
-     * Managed certificates that haven't been provisioned yet have this field
-     * populated with a value of the managed.domains field.
+     * Output only. The list of Subject Alternative Names of dnsName type defined
+     * in the certificate (see RFC 5280 4.2.1.6). Managed certificates that
+     * haven't been provisioned yet have this field populated with a value of the
+     * managed.domains field.
      * </pre>
      *
      * <code>repeated string san_dnsnames = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -7940,10 +8068,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The list of Subject Alternative Names of dnsName type defined in the
-     * certificate (see RFC 5280 4.2.1.6).
-     * Managed certificates that haven't been provisioned yet have this field
-     * populated with a value of the managed.domains field.
+     * Output only. The list of Subject Alternative Names of dnsName type defined
+     * in the certificate (see RFC 5280 4.2.1.6). Managed certificates that
+     * haven't been provisioned yet have this field populated with a value of the
+     * managed.domains field.
      * </pre>
      *
      * <code>repeated string san_dnsnames = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -7951,16 +8079,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSanDnsnames() {
       sanDnsnames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The list of Subject Alternative Names of dnsName type defined in the
-     * certificate (see RFC 5280 4.2.1.6).
-     * Managed certificates that haven't been provisioned yet have this field
-     * populated with a value of the managed.domains field.
+     * Output only. The list of Subject Alternative Names of dnsName type defined
+     * in the certificate (see RFC 5280 4.2.1.6). Managed certificates that
+     * haven't been provisioned yet have this field populated with a value of the
+     * managed.domains field.
      * </pre>
      *
      * <code>repeated string san_dnsnames = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -7969,10 +8097,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSanDnsnamesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureSanDnsnamesIsMutable();
       sanDnsnames_.add(value);
       onChanged();
@@ -8032,11 +8158,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPemCertificate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pemCertificate_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -8049,8 +8173,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPemCertificate() {
-      
       pemCertificate_ = getDefaultInstance().getPemCertificate();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -8065,12 +8189,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPemCertificateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pemCertificate_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -8087,7 +8209,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the expireTime field is set.
      */
     public boolean hasExpireTime() {
-      return expireTimeBuilder_ != null || expireTime_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -8117,11 +8239,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         expireTime_ = value;
-        onChanged();
       } else {
         expireTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -8135,11 +8257,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (expireTimeBuilder_ == null) {
         expireTime_ = builderForValue.build();
-        onChanged();
       } else {
         expireTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -8151,17 +8273,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExpireTime(com.google.protobuf.Timestamp value) {
       if (expireTimeBuilder_ == null) {
-        if (expireTime_ != null) {
-          expireTime_ =
-            com.google.protobuf.Timestamp.newBuilder(expireTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          expireTime_ != null &&
+          expireTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getExpireTimeBuilder().mergeFrom(value);
         } else {
           expireTime_ = value;
         }
-        onChanged();
       } else {
         expireTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -8172,14 +8295,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp expire_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearExpireTime() {
-      if (expireTimeBuilder_ == null) {
-        expireTime_ = null;
-        onChanged();
-      } else {
-        expireTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      expireTime_ = null;
+      if (expireTimeBuilder_ != null) {
+        expireTimeBuilder_.dispose();
         expireTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -8190,7 +8312,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp expire_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getExpireTimeBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getExpireTimeFieldBuilder().getBuilder();
     }
@@ -8252,8 +8374,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setScopeValue(int value) {
-      
       scope_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -8267,8 +8389,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.certificatemanager.v1.Certificate.Scope getScope() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.certificatemanager.v1.Certificate.Scope result = com.google.cloud.certificatemanager.v1.Certificate.Scope.valueOf(scope_);
+      com.google.cloud.certificatemanager.v1.Certificate.Scope result = com.google.cloud.certificatemanager.v1.Certificate.Scope.forNumber(scope_);
       return result == null ? com.google.cloud.certificatemanager.v1.Certificate.Scope.UNRECOGNIZED : result;
     }
     /**
@@ -8284,7 +8405,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000400;
       scope_ = value.getNumber();
       onChanged();
       return this;
@@ -8298,7 +8419,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScope() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       scope_ = 0;
       onChanged();
       return this;
@@ -8336,7 +8457,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Certificate(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

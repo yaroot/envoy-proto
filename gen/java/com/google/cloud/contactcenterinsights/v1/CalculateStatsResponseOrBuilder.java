@@ -100,7 +100,6 @@ public interface CalculateStatsResponseOrBuilder extends
    *
    * <code>map&lt;string, int32&gt; smart_highlighter_matches = 4;</code>
    */
-
   int getSmartHighlighterMatchesOrDefault(
       java.lang.String key,
       int defaultValue);
@@ -112,7 +111,6 @@ public interface CalculateStatsResponseOrBuilder extends
    *
    * <code>map&lt;string, int32&gt; smart_highlighter_matches = 4;</code>
    */
-
   int getSmartHighlighterMatchesOrThrow(
       java.lang.String key);
 
@@ -159,7 +157,6 @@ public interface CalculateStatsResponseOrBuilder extends
    *
    * <code>map&lt;string, int32&gt; custom_highlighter_matches = 5;</code>
    */
-
   int getCustomHighlighterMatchesOrDefault(
       java.lang.String key,
       int defaultValue);
@@ -171,7 +168,6 @@ public interface CalculateStatsResponseOrBuilder extends
    *
    * <code>map&lt;string, int32&gt; custom_highlighter_matches = 5;</code>
    */
-
   int getCustomHighlighterMatchesOrThrow(
       java.lang.String key);
 
@@ -226,8 +222,7 @@ public interface CalculateStatsResponseOrBuilder extends
    *
    * <code>map&lt;string, int32&gt; issue_matches = 6 [deprecated = true];</code>
    */
-  @java.lang.Deprecated 
-  int getIssueMatchesOrDefault(
+  @java.lang.Deprecated int getIssueMatchesOrDefault(
       java.lang.String key,
       int defaultValue);
   /**
@@ -240,8 +235,7 @@ public interface CalculateStatsResponseOrBuilder extends
    *
    * <code>map&lt;string, int32&gt; issue_matches = 6 [deprecated = true];</code>
    */
-  @java.lang.Deprecated 
-  int getIssueMatchesOrThrow(
+  @java.lang.Deprecated int getIssueMatchesOrThrow(
       java.lang.String key);
 
   /**
@@ -291,7 +285,6 @@ public interface CalculateStatsResponseOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats&gt; issue_matches_stats = 8;</code>
    */
-
   /* nullable */
 com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats getIssueMatchesStatsOrDefault(
       java.lang.String key,
@@ -306,7 +299,6 @@ com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats defaul
    *
    * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats&gt; issue_matches_stats = 8;</code>
    */
-
   com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats getIssueMatchesStatsOrThrow(
       java.lang.String key);
 

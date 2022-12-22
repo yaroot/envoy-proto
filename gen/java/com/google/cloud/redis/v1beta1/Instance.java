@@ -54,281 +54,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Instance(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            locationId_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            alternativeLocationId_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            redisVersion_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            reservedIpRange_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            host_ = s;
-            break;
-          }
-          case 88: {
-
-            port_ = input.readInt32();
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            currentLocationId_ = s;
-            break;
-          }
-          case 106: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 112: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            statusMessage_ = s;
-            break;
-          }
-          case 130: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              redisConfigs_ = com.google.protobuf.MapField.newMapField(
-                  RedisConfigsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            redisConfigs__ = input.readMessage(
-                RedisConfigsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            redisConfigs_.getMutableMap().put(
-                redisConfigs__.getKey(), redisConfigs__.getValue());
-            break;
-          }
-          case 136: {
-            int rawValue = input.readEnum();
-
-            tier_ = rawValue;
-            break;
-          }
-          case 144: {
-
-            memorySizeGb_ = input.readInt32();
-            break;
-          }
-          case 162: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            authorizedNetwork_ = s;
-            break;
-          }
-          case 170: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            persistenceIamIdentity_ = s;
-            break;
-          }
-          case 176: {
-            int rawValue = input.readEnum();
-
-            connectMode_ = rawValue;
-            break;
-          }
-          case 184: {
-
-            authEnabled_ = input.readBool();
-            break;
-          }
-          case 202: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              serverCaCerts_ = new java.util.ArrayList<com.google.cloud.redis.v1beta1.TlsCertificate>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            serverCaCerts_.add(
-                input.readMessage(com.google.cloud.redis.v1beta1.TlsCertificate.parser(), extensionRegistry));
-            break;
-          }
-          case 208: {
-            int rawValue = input.readEnum();
-
-            transitEncryptionMode_ = rawValue;
-            break;
-          }
-          case 218: {
-            com.google.cloud.redis.v1beta1.MaintenancePolicy.Builder subBuilder = null;
-            if (maintenancePolicy_ != null) {
-              subBuilder = maintenancePolicy_.toBuilder();
-            }
-            maintenancePolicy_ = input.readMessage(com.google.cloud.redis.v1beta1.MaintenancePolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maintenancePolicy_);
-              maintenancePolicy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 226: {
-            com.google.cloud.redis.v1beta1.MaintenanceSchedule.Builder subBuilder = null;
-            if (maintenanceSchedule_ != null) {
-              subBuilder = maintenanceSchedule_.toBuilder();
-            }
-            maintenanceSchedule_ = input.readMessage(com.google.cloud.redis.v1beta1.MaintenanceSchedule.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maintenanceSchedule_);
-              maintenanceSchedule_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 242: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            secondaryIpRange_ = s;
-            break;
-          }
-          case 248: {
-
-            replicaCount_ = input.readInt32();
-            break;
-          }
-          case 258: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              nodes_ = new java.util.ArrayList<com.google.cloud.redis.v1beta1.NodeInfo>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            nodes_.add(
-                input.readMessage(com.google.cloud.redis.v1beta1.NodeInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 266: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            readEndpoint_ = s;
-            break;
-          }
-          case 272: {
-
-            readEndpointPort_ = input.readInt32();
-            break;
-          }
-          case 280: {
-            int rawValue = input.readEnum();
-
-            readReplicasMode_ = rawValue;
-            break;
-          }
-          case 298: {
-            com.google.cloud.redis.v1beta1.PersistenceConfig.Builder subBuilder = null;
-            if (persistenceConfig_ != null) {
-              subBuilder = persistenceConfig_.toBuilder();
-            }
-            persistenceConfig_ = input.readMessage(com.google.cloud.redis.v1beta1.PersistenceConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(persistenceConfig_);
-              persistenceConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        serverCaCerts_ = java.util.Collections.unmodifiableList(serverCaCerts_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        nodes_ = java.util.Collections.unmodifiableList(nodes_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.redis.v1beta1.CloudRedisServiceBetaProto.internal_static_google_cloud_redis_v1beta1_Instance_descriptor;
@@ -1198,7 +923,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. Unique name of the resource in this scope including project and
@@ -1258,7 +984,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * An arbitrary and optional user-provided name for the instance.
@@ -1315,6 +1042,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -1325,7 +1053,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -1336,7 +1063,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 3;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -1359,7 +1085,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 3;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -1371,10 +1096,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 3;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -1388,7 +1114,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 3;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1401,7 +1126,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCATION_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object locationId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object locationId_ = "";
   /**
    * <pre>
    * Optional. The zone where the instance will be provisioned. If not provided,
@@ -1455,7 +1181,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALTERNATIVE_LOCATION_ID_FIELD_NUMBER = 5;
-  private volatile java.lang.Object alternativeLocationId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object alternativeLocationId_ = "";
   /**
    * <pre>
    * Optional. If specified, at least one node will be provisioned in this zone
@@ -1509,7 +1236,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REDIS_VERSION_FIELD_NUMBER = 7;
-  private volatile java.lang.Object redisVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object redisVersion_ = "";
   /**
    * <pre>
    * Optional. The version of Redis software.
@@ -1567,7 +1295,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESERVED_IP_RANGE_FIELD_NUMBER = 9;
-  private volatile java.lang.Object reservedIpRange_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object reservedIpRange_ = "";
   /**
    * <pre>
    * Optional. For DIRECT_PEERING mode, the CIDR range of internal addresses
@@ -1627,7 +1356,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SECONDARY_IP_RANGE_FIELD_NUMBER = 30;
-  private volatile java.lang.Object secondaryIpRange_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object secondaryIpRange_ = "";
   /**
    * <pre>
    * Optional. Additional IP range for node placement. Required when enabling read
@@ -1681,7 +1411,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HOST_FIELD_NUMBER = 10;
-  private volatile java.lang.Object host_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object host_ = "";
   /**
    * <pre>
    * Output only. Hostname or IP address of the exposed Redis endpoint used by
@@ -1729,7 +1460,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PORT_FIELD_NUMBER = 11;
-  private int port_;
+  private int port_ = 0;
   /**
    * <pre>
    * Output only. The port number of the exposed Redis endpoint.
@@ -1744,7 +1475,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CURRENT_LOCATION_ID_FIELD_NUMBER = 12;
-  private volatile java.lang.Object currentLocationId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object currentLocationId_ = "";
   /**
    * <pre>
    * Output only. The current zone where the Redis primary node is located. In
@@ -1828,11 +1560,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int STATE_FIELD_NUMBER = 14;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The current state of this instance.
@@ -1853,13 +1585,13 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.redis.v1beta1.Instance.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.redis.v1beta1.Instance.State result = com.google.cloud.redis.v1beta1.Instance.State.valueOf(state_);
+    com.google.cloud.redis.v1beta1.Instance.State result = com.google.cloud.redis.v1beta1.Instance.State.forNumber(state_);
     return result == null ? com.google.cloud.redis.v1beta1.Instance.State.UNRECOGNIZED : result;
   }
 
   public static final int STATUS_MESSAGE_FIELD_NUMBER = 15;
-  private volatile java.lang.Object statusMessage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object statusMessage_ = "";
   /**
    * <pre>
    * Output only. Additional information about the current status of this
@@ -1918,6 +1650,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> redisConfigs_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -1928,7 +1661,6 @@ private static final long serialVersionUID = 0L;
     }
     return redisConfigs_;
   }
-
   public int getRedisConfigsCount() {
     return internalGetRedisConfigs().getMap().size();
   }
@@ -1952,7 +1684,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; redis_configs = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsRedisConfigs(
       java.lang.String key) {
@@ -1988,7 +1719,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; redis_configs = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getRedisConfigsMap() {
     return internalGetRedisConfigs().getMap();
   }
@@ -2013,10 +1743,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; redis_configs = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getRedisConfigsOrDefault(
+  public /* nullable */
+java.lang.String getRedisConfigsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetRedisConfigs().getMap();
@@ -2043,7 +1774,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; redis_configs = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.lang.String getRedisConfigsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -2056,7 +1786,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TIER_FIELD_NUMBER = 17;
-  private int tier_;
+  private int tier_ = 0;
   /**
    * <pre>
    * Required. The service tier of the instance.
@@ -2077,13 +1807,12 @@ private static final long serialVersionUID = 0L;
    * @return The tier.
    */
   @java.lang.Override public com.google.cloud.redis.v1beta1.Instance.Tier getTier() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.redis.v1beta1.Instance.Tier result = com.google.cloud.redis.v1beta1.Instance.Tier.valueOf(tier_);
+    com.google.cloud.redis.v1beta1.Instance.Tier result = com.google.cloud.redis.v1beta1.Instance.Tier.forNumber(tier_);
     return result == null ? com.google.cloud.redis.v1beta1.Instance.Tier.UNRECOGNIZED : result;
   }
 
   public static final int MEMORY_SIZE_GB_FIELD_NUMBER = 18;
-  private int memorySizeGb_;
+  private int memorySizeGb_ = 0;
   /**
    * <pre>
    * Required. Redis memory size in GiB.
@@ -2098,7 +1827,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUTHORIZED_NETWORK_FIELD_NUMBER = 20;
-  private volatile java.lang.Object authorizedNetwork_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object authorizedNetwork_ = "";
   /**
    * <pre>
    * Optional. The full name of the Google Compute Engine
@@ -2150,7 +1880,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PERSISTENCE_IAM_IDENTITY_FIELD_NUMBER = 21;
-  private volatile java.lang.Object persistenceIamIdentity_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object persistenceIamIdentity_ = "";
   /**
    * <pre>
    * Output only. Cloud IAM identity used by import / export operations to
@@ -2204,7 +1935,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONNECT_MODE_FIELD_NUMBER = 22;
-  private int connectMode_;
+  private int connectMode_ = 0;
   /**
    * <pre>
    * Optional. The network connect mode of the Redis instance.
@@ -2227,13 +1958,12 @@ private static final long serialVersionUID = 0L;
    * @return The connectMode.
    */
   @java.lang.Override public com.google.cloud.redis.v1beta1.Instance.ConnectMode getConnectMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.redis.v1beta1.Instance.ConnectMode result = com.google.cloud.redis.v1beta1.Instance.ConnectMode.valueOf(connectMode_);
+    com.google.cloud.redis.v1beta1.Instance.ConnectMode result = com.google.cloud.redis.v1beta1.Instance.ConnectMode.forNumber(connectMode_);
     return result == null ? com.google.cloud.redis.v1beta1.Instance.ConnectMode.UNRECOGNIZED : result;
   }
 
   public static final int AUTH_ENABLED_FIELD_NUMBER = 23;
-  private boolean authEnabled_;
+  private boolean authEnabled_ = false;
   /**
    * <pre>
    * Optional. Indicates whether OSS Redis AUTH is enabled for the instance. If set to
@@ -2250,6 +1980,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVER_CA_CERTS_FIELD_NUMBER = 25;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.redis.v1beta1.TlsCertificate> serverCaCerts_;
   /**
    * <pre>
@@ -2310,7 +2041,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRANSIT_ENCRYPTION_MODE_FIELD_NUMBER = 26;
-  private int transitEncryptionMode_;
+  private int transitEncryptionMode_ = 0;
   /**
    * <pre>
    * Optional. The TLS mode of the Redis instance.
@@ -2333,8 +2064,7 @@ private static final long serialVersionUID = 0L;
    * @return The transitEncryptionMode.
    */
   @java.lang.Override public com.google.cloud.redis.v1beta1.Instance.TransitEncryptionMode getTransitEncryptionMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.redis.v1beta1.Instance.TransitEncryptionMode result = com.google.cloud.redis.v1beta1.Instance.TransitEncryptionMode.valueOf(transitEncryptionMode_);
+    com.google.cloud.redis.v1beta1.Instance.TransitEncryptionMode result = com.google.cloud.redis.v1beta1.Instance.TransitEncryptionMode.forNumber(transitEncryptionMode_);
     return result == null ? com.google.cloud.redis.v1beta1.Instance.TransitEncryptionMode.UNRECOGNIZED : result;
   }
 
@@ -2376,7 +2106,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.redis.v1beta1.MaintenancePolicyOrBuilder getMaintenancePolicyOrBuilder() {
-    return getMaintenancePolicy();
+    return maintenancePolicy_ == null ? com.google.cloud.redis.v1beta1.MaintenancePolicy.getDefaultInstance() : maintenancePolicy_;
   }
 
   public static final int MAINTENANCE_SCHEDULE_FIELD_NUMBER = 28;
@@ -2417,11 +2147,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.redis.v1beta1.MaintenanceScheduleOrBuilder getMaintenanceScheduleOrBuilder() {
-    return getMaintenanceSchedule();
+    return maintenanceSchedule_ == null ? com.google.cloud.redis.v1beta1.MaintenanceSchedule.getDefaultInstance() : maintenanceSchedule_;
   }
 
   public static final int REPLICA_COUNT_FIELD_NUMBER = 31;
-  private int replicaCount_;
+  private int replicaCount_ = 0;
   /**
    * <pre>
    * Optional. The number of replica nodes. The valid range for the Standard Tier with
@@ -2440,6 +2170,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NODES_FIELD_NUMBER = 32;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.redis.v1beta1.NodeInfo> nodes_;
   /**
    * <pre>
@@ -2500,7 +2231,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int READ_ENDPOINT_FIELD_NUMBER = 33;
-  private volatile java.lang.Object readEndpoint_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object readEndpoint_ = "";
   /**
    * <pre>
    * Output only. Hostname or IP address of the exposed readonly Redis
@@ -2552,7 +2284,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int READ_ENDPOINT_PORT_FIELD_NUMBER = 34;
-  private int readEndpointPort_;
+  private int readEndpointPort_ = 0;
   /**
    * <pre>
    * Output only. The port number of the exposed readonly redis
@@ -2568,7 +2300,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int READ_REPLICAS_MODE_FIELD_NUMBER = 35;
-  private int readReplicasMode_;
+  private int readReplicasMode_ = 0;
   /**
    * <pre>
    * Optional. Read replicas mode for the instance. Defaults to READ_REPLICAS_DISABLED.
@@ -2589,8 +2321,7 @@ private static final long serialVersionUID = 0L;
    * @return The readReplicasMode.
    */
   @java.lang.Override public com.google.cloud.redis.v1beta1.Instance.ReadReplicasMode getReadReplicasMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.redis.v1beta1.Instance.ReadReplicasMode result = com.google.cloud.redis.v1beta1.Instance.ReadReplicasMode.valueOf(readReplicasMode_);
+    com.google.cloud.redis.v1beta1.Instance.ReadReplicasMode result = com.google.cloud.redis.v1beta1.Instance.ReadReplicasMode.forNumber(readReplicasMode_);
     return result == null ? com.google.cloud.redis.v1beta1.Instance.ReadReplicasMode.UNRECOGNIZED : result;
   }
 
@@ -2629,7 +2360,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.redis.v1beta1.PersistenceConfigOrBuilder getPersistenceConfigOrBuilder() {
-    return getPersistenceConfig();
+    return persistenceConfig_ == null ? com.google.cloud.redis.v1beta1.PersistenceConfig.getDefaultInstance() : persistenceConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -2745,7 +2476,7 @@ private static final long serialVersionUID = 0L;
     if (persistenceConfig_ != null) {
       output.writeMessage(37, getPersistenceConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2877,7 +2608,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(37, getPersistenceConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2961,7 +2692,7 @@ private static final long serialVersionUID = 0L;
       if (!getPersistenceConfig()
           .equals(other.getPersistenceConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3051,7 +2782,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PERSISTENCE_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getPersistenceConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3198,106 +2929,75 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.redis.v1beta1.Instance.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getServerCaCertsFieldBuilder();
-        getNodesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
       internalGetMutableLabels().clear();
       locationId_ = "";
-
       alternativeLocationId_ = "";
-
       redisVersion_ = "";
-
       reservedIpRange_ = "";
-
       secondaryIpRange_ = "";
-
       host_ = "";
-
       port_ = 0;
-
       currentLocationId_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
       state_ = 0;
-
       statusMessage_ = "";
-
       internalGetMutableRedisConfigs().clear();
       tier_ = 0;
-
       memorySizeGb_ = 0;
-
       authorizedNetwork_ = "";
-
       persistenceIamIdentity_ = "";
-
       connectMode_ = 0;
-
       authEnabled_ = false;
-
       if (serverCaCertsBuilder_ == null) {
         serverCaCerts_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        serverCaCerts_ = null;
         serverCaCertsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00200000);
       transitEncryptionMode_ = 0;
-
-      if (maintenancePolicyBuilder_ == null) {
-        maintenancePolicy_ = null;
-      } else {
-        maintenancePolicy_ = null;
+      maintenancePolicy_ = null;
+      if (maintenancePolicyBuilder_ != null) {
+        maintenancePolicyBuilder_.dispose();
         maintenancePolicyBuilder_ = null;
       }
-      if (maintenanceScheduleBuilder_ == null) {
-        maintenanceSchedule_ = null;
-      } else {
-        maintenanceSchedule_ = null;
+      maintenanceSchedule_ = null;
+      if (maintenanceScheduleBuilder_ != null) {
+        maintenanceScheduleBuilder_.dispose();
         maintenanceScheduleBuilder_ = null;
       }
       replicaCount_ = 0;
-
       if (nodesBuilder_ == null) {
         nodes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        nodes_ = null;
         nodesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x04000000);
       readEndpoint_ = "";
-
       readEndpointPort_ = 0;
-
       readReplicasMode_ = 0;
-
-      if (persistenceConfigBuilder_ == null) {
-        persistenceConfig_ = null;
-      } else {
-        persistenceConfig_ = null;
+      persistenceConfig_ = null;
+      if (persistenceConfigBuilder_ != null) {
+        persistenceConfigBuilder_.dispose();
         persistenceConfigBuilder_ = null;
       }
       return this;
@@ -3326,74 +3026,132 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.redis.v1beta1.Instance buildPartial() {
       com.google.cloud.redis.v1beta1.Instance result = new com.google.cloud.redis.v1beta1.Instance(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      result.locationId_ = locationId_;
-      result.alternativeLocationId_ = alternativeLocationId_;
-      result.redisVersion_ = redisVersion_;
-      result.reservedIpRange_ = reservedIpRange_;
-      result.secondaryIpRange_ = secondaryIpRange_;
-      result.host_ = host_;
-      result.port_ = port_;
-      result.currentLocationId_ = currentLocationId_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      result.state_ = state_;
-      result.statusMessage_ = statusMessage_;
-      result.redisConfigs_ = internalGetRedisConfigs();
-      result.redisConfigs_.makeImmutable();
-      result.tier_ = tier_;
-      result.memorySizeGb_ = memorySizeGb_;
-      result.authorizedNetwork_ = authorizedNetwork_;
-      result.persistenceIamIdentity_ = persistenceIamIdentity_;
-      result.connectMode_ = connectMode_;
-      result.authEnabled_ = authEnabled_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.redis.v1beta1.Instance result) {
       if (serverCaCertsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00200000) != 0)) {
           serverCaCerts_ = java.util.Collections.unmodifiableList(serverCaCerts_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00200000);
         }
         result.serverCaCerts_ = serverCaCerts_;
       } else {
         result.serverCaCerts_ = serverCaCertsBuilder_.build();
       }
-      result.transitEncryptionMode_ = transitEncryptionMode_;
-      if (maintenancePolicyBuilder_ == null) {
-        result.maintenancePolicy_ = maintenancePolicy_;
-      } else {
-        result.maintenancePolicy_ = maintenancePolicyBuilder_.build();
-      }
-      if (maintenanceScheduleBuilder_ == null) {
-        result.maintenanceSchedule_ = maintenanceSchedule_;
-      } else {
-        result.maintenanceSchedule_ = maintenanceScheduleBuilder_.build();
-      }
-      result.replicaCount_ = replicaCount_;
       if (nodesBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x04000000) != 0)) {
           nodes_ = java.util.Collections.unmodifiableList(nodes_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x04000000);
         }
         result.nodes_ = nodes_;
       } else {
         result.nodes_ = nodesBuilder_.build();
       }
-      result.readEndpoint_ = readEndpoint_;
-      result.readEndpointPort_ = readEndpointPort_;
-      result.readReplicasMode_ = readReplicasMode_;
-      if (persistenceConfigBuilder_ == null) {
-        result.persistenceConfig_ = persistenceConfig_;
-      } else {
-        result.persistenceConfig_ = persistenceConfigBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.redis.v1beta1.Instance result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.locationId_ = locationId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.alternativeLocationId_ = alternativeLocationId_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.redisVersion_ = redisVersion_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.reservedIpRange_ = reservedIpRange_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.secondaryIpRange_ = secondaryIpRange_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.host_ = host_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.port_ = port_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.currentLocationId_ = currentLocationId_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.statusMessage_ = statusMessage_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.redisConfigs_ = internalGetRedisConfigs();
+        result.redisConfigs_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.tier_ = tier_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.memorySizeGb_ = memorySizeGb_;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.authorizedNetwork_ = authorizedNetwork_;
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.persistenceIamIdentity_ = persistenceIamIdentity_;
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.connectMode_ = connectMode_;
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.authEnabled_ = authEnabled_;
+      }
+      if (((from_bitField0_ & 0x00400000) != 0)) {
+        result.transitEncryptionMode_ = transitEncryptionMode_;
+      }
+      if (((from_bitField0_ & 0x00800000) != 0)) {
+        result.maintenancePolicy_ = maintenancePolicyBuilder_ == null
+            ? maintenancePolicy_
+            : maintenancePolicyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x01000000) != 0)) {
+        result.maintenanceSchedule_ = maintenanceScheduleBuilder_ == null
+            ? maintenanceSchedule_
+            : maintenanceScheduleBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x02000000) != 0)) {
+        result.replicaCount_ = replicaCount_;
+      }
+      if (((from_bitField0_ & 0x08000000) != 0)) {
+        result.readEndpoint_ = readEndpoint_;
+      }
+      if (((from_bitField0_ & 0x10000000) != 0)) {
+        result.readEndpointPort_ = readEndpointPort_;
+      }
+      if (((from_bitField0_ & 0x20000000) != 0)) {
+        result.readReplicasMode_ = readReplicasMode_;
+      }
+      if (((from_bitField0_ & 0x40000000) != 0)) {
+        result.persistenceConfig_ = persistenceConfigBuilder_ == null
+            ? persistenceConfig_
+            : persistenceConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -3442,36 +3200,45 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.redis.v1beta1.Instance.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000004;
       if (!other.getLocationId().isEmpty()) {
         locationId_ = other.locationId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getAlternativeLocationId().isEmpty()) {
         alternativeLocationId_ = other.alternativeLocationId_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getRedisVersion().isEmpty()) {
         redisVersion_ = other.redisVersion_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getReservedIpRange().isEmpty()) {
         reservedIpRange_ = other.reservedIpRange_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getSecondaryIpRange().isEmpty()) {
         secondaryIpRange_ = other.secondaryIpRange_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.getHost().isEmpty()) {
         host_ = other.host_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.getPort() != 0) {
@@ -3479,6 +3246,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCurrentLocationId().isEmpty()) {
         currentLocationId_ = other.currentLocationId_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -3489,10 +3257,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getStatusMessage().isEmpty()) {
         statusMessage_ = other.statusMessage_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
       internalGetMutableRedisConfigs().mergeFrom(
           other.internalGetRedisConfigs());
+      bitField0_ |= 0x00004000;
       if (other.tier_ != 0) {
         setTierValue(other.getTierValue());
       }
@@ -3501,10 +3271,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAuthorizedNetwork().isEmpty()) {
         authorizedNetwork_ = other.authorizedNetwork_;
+        bitField0_ |= 0x00020000;
         onChanged();
       }
       if (!other.getPersistenceIamIdentity().isEmpty()) {
         persistenceIamIdentity_ = other.persistenceIamIdentity_;
+        bitField0_ |= 0x00040000;
         onChanged();
       }
       if (other.connectMode_ != 0) {
@@ -3517,7 +3289,7 @@ private static final long serialVersionUID = 0L;
         if (!other.serverCaCerts_.isEmpty()) {
           if (serverCaCerts_.isEmpty()) {
             serverCaCerts_ = other.serverCaCerts_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00200000);
           } else {
             ensureServerCaCertsIsMutable();
             serverCaCerts_.addAll(other.serverCaCerts_);
@@ -3530,7 +3302,7 @@ private static final long serialVersionUID = 0L;
             serverCaCertsBuilder_.dispose();
             serverCaCertsBuilder_ = null;
             serverCaCerts_ = other.serverCaCerts_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00200000);
             serverCaCertsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getServerCaCertsFieldBuilder() : null;
@@ -3555,7 +3327,7 @@ private static final long serialVersionUID = 0L;
         if (!other.nodes_.isEmpty()) {
           if (nodes_.isEmpty()) {
             nodes_ = other.nodes_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x04000000);
           } else {
             ensureNodesIsMutable();
             nodes_.addAll(other.nodes_);
@@ -3568,7 +3340,7 @@ private static final long serialVersionUID = 0L;
             nodesBuilder_.dispose();
             nodesBuilder_ = null;
             nodes_ = other.nodes_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x04000000);
             nodesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getNodesFieldBuilder() : null;
@@ -3579,6 +3351,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getReadEndpoint().isEmpty()) {
         readEndpoint_ = other.readEndpoint_;
+        bitField0_ |= 0x08000000;
         onChanged();
       }
       if (other.getReadEndpointPort() != 0) {
@@ -3590,7 +3363,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasPersistenceConfig()) {
         mergePersistenceConfig(other.getPersistenceConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3605,17 +3378,217 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.redis.v1beta1.Instance parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              locationId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              alternativeLocationId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 58: {
+              redisVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 58
+            case 74: {
+              reservedIpRange_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 74
+            case 82: {
+              host_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 82
+            case 88: {
+              port_ = input.readInt32();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 88
+            case 98: {
+              currentLocationId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 106
+            case 112: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 112
+            case 122: {
+              statusMessage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 122
+            case 130: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              redisConfigs__ = input.readMessage(
+                  RedisConfigsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableRedisConfigs().getMutableMap().put(
+                  redisConfigs__.getKey(), redisConfigs__.getValue());
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 130
+            case 136: {
+              tier_ = input.readEnum();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 136
+            case 144: {
+              memorySizeGb_ = input.readInt32();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 144
+            case 162: {
+              authorizedNetwork_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 162
+            case 170: {
+              persistenceIamIdentity_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 170
+            case 176: {
+              connectMode_ = input.readEnum();
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 176
+            case 184: {
+              authEnabled_ = input.readBool();
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 184
+            case 202: {
+              com.google.cloud.redis.v1beta1.TlsCertificate m =
+                  input.readMessage(
+                      com.google.cloud.redis.v1beta1.TlsCertificate.parser(),
+                      extensionRegistry);
+              if (serverCaCertsBuilder_ == null) {
+                ensureServerCaCertsIsMutable();
+                serverCaCerts_.add(m);
+              } else {
+                serverCaCertsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 202
+            case 208: {
+              transitEncryptionMode_ = input.readEnum();
+              bitField0_ |= 0x00400000;
+              break;
+            } // case 208
+            case 218: {
+              input.readMessage(
+                  getMaintenancePolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00800000;
+              break;
+            } // case 218
+            case 226: {
+              input.readMessage(
+                  getMaintenanceScheduleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x01000000;
+              break;
+            } // case 226
+            case 242: {
+              secondaryIpRange_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 242
+            case 248: {
+              replicaCount_ = input.readInt32();
+              bitField0_ |= 0x02000000;
+              break;
+            } // case 248
+            case 258: {
+              com.google.cloud.redis.v1beta1.NodeInfo m =
+                  input.readMessage(
+                      com.google.cloud.redis.v1beta1.NodeInfo.parser(),
+                      extensionRegistry);
+              if (nodesBuilder_ == null) {
+                ensureNodesIsMutable();
+                nodes_.add(m);
+              } else {
+                nodesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 258
+            case 266: {
+              readEndpoint_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x08000000;
+              break;
+            } // case 266
+            case 272: {
+              readEndpointPort_ = input.readInt32();
+              bitField0_ |= 0x10000000;
+              break;
+            } // case 272
+            case 280: {
+              readReplicasMode_ = input.readEnum();
+              bitField0_ |= 0x20000000;
+              break;
+            } // case 280
+            case 298: {
+              input.readMessage(
+                  getPersistenceConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x40000000;
+              break;
+            } // case 298
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.redis.v1beta1.Instance) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -3694,11 +3667,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3718,8 +3689,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -3741,12 +3712,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3804,11 +3773,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3821,8 +3788,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -3837,12 +3804,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3850,7 +3815,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -3858,8 +3823,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -3867,9 +3831,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -3880,7 +3845,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -3903,7 +3867,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -3915,10 +3878,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -3932,7 +3896,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3943,8 +3906,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -3956,7 +3919,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3969,7 +3931,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -3983,12 +3946,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -3998,11 +3959,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
@@ -4071,11 +4032,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocationId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       locationId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -4092,8 +4051,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocationId() {
-      
       locationId_ = getDefaultInstance().getLocationId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -4112,12 +4071,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocationIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       locationId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -4187,11 +4144,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAlternativeLocationId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       alternativeLocationId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -4208,8 +4163,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAlternativeLocationId() {
-      
       alternativeLocationId_ = getDefaultInstance().getAlternativeLocationId();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -4228,12 +4183,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAlternativeLocationIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       alternativeLocationId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -4309,11 +4262,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRedisVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       redisVersion_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -4332,8 +4283,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRedisVersion() {
-      
       redisVersion_ = getDefaultInstance().getRedisVersion();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -4354,12 +4305,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRedisVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       redisVersion_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -4438,11 +4387,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReservedIpRange(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       reservedIpRange_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -4462,8 +4409,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReservedIpRange() {
-      
       reservedIpRange_ = getDefaultInstance().getReservedIpRange();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -4485,12 +4432,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReservedIpRangeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       reservedIpRange_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -4560,11 +4505,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSecondaryIpRange(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       secondaryIpRange_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -4581,8 +4524,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSecondaryIpRange() {
-      
       secondaryIpRange_ = getDefaultInstance().getSecondaryIpRange();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -4601,12 +4544,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSecondaryIpRangeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       secondaryIpRange_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -4667,11 +4608,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHost(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       host_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -4685,8 +4624,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHost() {
-      
       host_ = getDefaultInstance().getHost();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -4702,12 +4641,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       host_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -4737,6 +4674,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPort(int value) {
       
       port_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -4749,7 +4687,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPort() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       port_ = 0;
       onChanged();
       return this;
@@ -4814,11 +4752,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCurrentLocationId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       currentLocationId_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -4833,8 +4769,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCurrentLocationId() {
-      
       currentLocationId_ = getDefaultInstance().getCurrentLocationId();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -4851,12 +4787,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCurrentLocationIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       currentLocationId_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -4873,7 +4807,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -4903,11 +4837,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -4921,11 +4855,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -4937,17 +4871,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -4958,14 +4893,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4976,7 +4910,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -5038,8 +4972,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -5053,8 +4987,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.redis.v1beta1.Instance.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.redis.v1beta1.Instance.State result = com.google.cloud.redis.v1beta1.Instance.State.valueOf(state_);
+      com.google.cloud.redis.v1beta1.Instance.State result = com.google.cloud.redis.v1beta1.Instance.State.forNumber(state_);
       return result == null ? com.google.cloud.redis.v1beta1.Instance.State.UNRECOGNIZED : result;
     }
     /**
@@ -5070,7 +5003,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00001000;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -5084,7 +5017,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       state_ = 0;
       onChanged();
       return this;
@@ -5146,11 +5079,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatusMessage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       statusMessage_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -5164,8 +5095,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatusMessage() {
-      
       statusMessage_ = getDefaultInstance().getStatusMessage();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -5181,12 +5112,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatusMessageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       statusMessage_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -5194,7 +5123,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> redisConfigs_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetRedisConfigs() {
+        internalGetRedisConfigs() {
       if (redisConfigs_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             RedisConfigsDefaultEntryHolder.defaultEntry);
@@ -5202,8 +5131,7 @@ private static final long serialVersionUID = 0L;
       return redisConfigs_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableRedisConfigs() {
-      onChanged();;
+        internalGetMutableRedisConfigs() {
       if (redisConfigs_ == null) {
         redisConfigs_ = com.google.protobuf.MapField.newMapField(
             RedisConfigsDefaultEntryHolder.defaultEntry);
@@ -5211,9 +5139,10 @@ private static final long serialVersionUID = 0L;
       if (!redisConfigs_.isMutable()) {
         redisConfigs_ = redisConfigs_.copy();
       }
+      bitField0_ |= 0x00004000;
+      onChanged();
       return redisConfigs_;
     }
-
     public int getRedisConfigsCount() {
       return internalGetRedisConfigs().getMap().size();
     }
@@ -5237,7 +5166,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; redis_configs = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsRedisConfigs(
         java.lang.String key) {
@@ -5273,7 +5201,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; redis_configs = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getRedisConfigsMap() {
       return internalGetRedisConfigs().getMap();
     }
@@ -5298,10 +5225,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; redis_configs = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getRedisConfigsOrDefault(
+    public /* nullable */
+java.lang.String getRedisConfigsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetRedisConfigs().getMap();
@@ -5328,7 +5256,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; redis_configs = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.lang.String getRedisConfigsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -5339,8 +5266,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearRedisConfigs() {
+      bitField0_ = (bitField0_ & ~0x00004000);
       internalGetMutableRedisConfigs().getMutableMap()
           .clear();
       return this;
@@ -5365,7 +5292,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; redis_configs = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeRedisConfigs(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -5378,7 +5304,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableRedisConfigs() {
+        getMutableRedisConfigs() {
+      bitField0_ |= 0x00004000;
       return internalGetMutableRedisConfigs().getMutableMap();
     }
     /**
@@ -5405,12 +5332,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableRedisConfigs().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00004000;
       return this;
     }
     /**
@@ -5433,11 +5358,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; redis_configs = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllRedisConfigs(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableRedisConfigs().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00004000;
       return this;
     }
 
@@ -5463,8 +5388,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTierValue(int value) {
-      
       tier_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -5478,8 +5403,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.redis.v1beta1.Instance.Tier getTier() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.redis.v1beta1.Instance.Tier result = com.google.cloud.redis.v1beta1.Instance.Tier.valueOf(tier_);
+      com.google.cloud.redis.v1beta1.Instance.Tier result = com.google.cloud.redis.v1beta1.Instance.Tier.forNumber(tier_);
       return result == null ? com.google.cloud.redis.v1beta1.Instance.Tier.UNRECOGNIZED : result;
     }
     /**
@@ -5495,7 +5419,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00008000;
       tier_ = value.getNumber();
       onChanged();
       return this;
@@ -5509,7 +5433,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTier() {
-      
+      bitField0_ = (bitField0_ & ~0x00008000);
       tier_ = 0;
       onChanged();
       return this;
@@ -5540,6 +5464,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMemorySizeGb(int value) {
       
       memorySizeGb_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -5552,7 +5477,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMemorySizeGb() {
-      
+      bitField0_ = (bitField0_ & ~0x00010000);
       memorySizeGb_ = 0;
       onChanged();
       return this;
@@ -5620,11 +5545,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthorizedNetwork(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       authorizedNetwork_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -5640,8 +5563,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAuthorizedNetwork() {
-      
       authorizedNetwork_ = getDefaultInstance().getAuthorizedNetwork();
+      bitField0_ = (bitField0_ & ~0x00020000);
       onChanged();
       return this;
     }
@@ -5659,12 +5582,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthorizedNetworkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       authorizedNetwork_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -5734,11 +5655,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPersistenceIamIdentity(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       persistenceIamIdentity_ = value;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
@@ -5755,8 +5674,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPersistenceIamIdentity() {
-      
       persistenceIamIdentity_ = getDefaultInstance().getPersistenceIamIdentity();
+      bitField0_ = (bitField0_ & ~0x00040000);
       onChanged();
       return this;
     }
@@ -5775,12 +5694,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPersistenceIamIdentityBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       persistenceIamIdentity_ = value;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
@@ -5809,8 +5726,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setConnectModeValue(int value) {
-      
       connectMode_ = value;
+      bitField0_ |= 0x00080000;
       onChanged();
       return this;
     }
@@ -5825,8 +5742,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.redis.v1beta1.Instance.ConnectMode getConnectMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.redis.v1beta1.Instance.ConnectMode result = com.google.cloud.redis.v1beta1.Instance.ConnectMode.valueOf(connectMode_);
+      com.google.cloud.redis.v1beta1.Instance.ConnectMode result = com.google.cloud.redis.v1beta1.Instance.ConnectMode.forNumber(connectMode_);
       return result == null ? com.google.cloud.redis.v1beta1.Instance.ConnectMode.UNRECOGNIZED : result;
     }
     /**
@@ -5843,7 +5759,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00080000;
       connectMode_ = value.getNumber();
       onChanged();
       return this;
@@ -5858,7 +5774,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConnectMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00080000);
       connectMode_ = 0;
       onChanged();
       return this;
@@ -5893,6 +5809,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAuthEnabled(boolean value) {
       
       authEnabled_ = value;
+      bitField0_ |= 0x00100000;
       onChanged();
       return this;
     }
@@ -5907,7 +5824,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAuthEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00100000);
       authEnabled_ = false;
       onChanged();
       return this;
@@ -5916,9 +5833,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.redis.v1beta1.TlsCertificate> serverCaCerts_ =
       java.util.Collections.emptyList();
     private void ensureServerCaCertsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00200000) != 0)) {
         serverCaCerts_ = new java.util.ArrayList<com.google.cloud.redis.v1beta1.TlsCertificate>(serverCaCerts_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00200000;
        }
     }
 
@@ -6112,7 +6029,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearServerCaCerts() {
       if (serverCaCertsBuilder_ == null) {
         serverCaCerts_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00200000);
         onChanged();
       } else {
         serverCaCertsBuilder_.clear();
@@ -6217,7 +6134,7 @@ private static final long serialVersionUID = 0L;
         serverCaCertsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.redis.v1beta1.TlsCertificate, com.google.cloud.redis.v1beta1.TlsCertificate.Builder, com.google.cloud.redis.v1beta1.TlsCertificateOrBuilder>(
                 serverCaCerts_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00200000) != 0),
                 getParentForChildren(),
                 isClean());
         serverCaCerts_ = null;
@@ -6249,8 +6166,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTransitEncryptionModeValue(int value) {
-      
       transitEncryptionMode_ = value;
+      bitField0_ |= 0x00400000;
       onChanged();
       return this;
     }
@@ -6265,8 +6182,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.redis.v1beta1.Instance.TransitEncryptionMode getTransitEncryptionMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.redis.v1beta1.Instance.TransitEncryptionMode result = com.google.cloud.redis.v1beta1.Instance.TransitEncryptionMode.valueOf(transitEncryptionMode_);
+      com.google.cloud.redis.v1beta1.Instance.TransitEncryptionMode result = com.google.cloud.redis.v1beta1.Instance.TransitEncryptionMode.forNumber(transitEncryptionMode_);
       return result == null ? com.google.cloud.redis.v1beta1.Instance.TransitEncryptionMode.UNRECOGNIZED : result;
     }
     /**
@@ -6283,7 +6199,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00400000;
       transitEncryptionMode_ = value.getNumber();
       onChanged();
       return this;
@@ -6298,7 +6214,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTransitEncryptionMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00400000);
       transitEncryptionMode_ = 0;
       onChanged();
       return this;
@@ -6317,7 +6233,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maintenancePolicy field is set.
      */
     public boolean hasMaintenancePolicy() {
-      return maintenancePolicyBuilder_ != null || maintenancePolicy_ != null;
+      return ((bitField0_ & 0x00800000) != 0);
     }
     /**
      * <pre>
@@ -6349,11 +6265,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maintenancePolicy_ = value;
-        onChanged();
       } else {
         maintenancePolicyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -6368,11 +6284,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.redis.v1beta1.MaintenancePolicy.Builder builderForValue) {
       if (maintenancePolicyBuilder_ == null) {
         maintenancePolicy_ = builderForValue.build();
-        onChanged();
       } else {
         maintenancePolicyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -6385,17 +6301,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaintenancePolicy(com.google.cloud.redis.v1beta1.MaintenancePolicy value) {
       if (maintenancePolicyBuilder_ == null) {
-        if (maintenancePolicy_ != null) {
-          maintenancePolicy_ =
-            com.google.cloud.redis.v1beta1.MaintenancePolicy.newBuilder(maintenancePolicy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00800000) != 0) &&
+          maintenancePolicy_ != null &&
+          maintenancePolicy_ != com.google.cloud.redis.v1beta1.MaintenancePolicy.getDefaultInstance()) {
+          getMaintenancePolicyBuilder().mergeFrom(value);
         } else {
           maintenancePolicy_ = value;
         }
-        onChanged();
       } else {
         maintenancePolicyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -6407,14 +6324,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.redis.v1beta1.MaintenancePolicy maintenance_policy = 27 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearMaintenancePolicy() {
-      if (maintenancePolicyBuilder_ == null) {
-        maintenancePolicy_ = null;
-        onChanged();
-      } else {
-        maintenancePolicy_ = null;
+      bitField0_ = (bitField0_ & ~0x00800000);
+      maintenancePolicy_ = null;
+      if (maintenancePolicyBuilder_ != null) {
+        maintenancePolicyBuilder_.dispose();
         maintenancePolicyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6426,7 +6342,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.redis.v1beta1.MaintenancePolicy maintenance_policy = 27 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.redis.v1beta1.MaintenancePolicy.Builder getMaintenancePolicyBuilder() {
-      
+      bitField0_ |= 0x00800000;
       onChanged();
       return getMaintenancePolicyFieldBuilder().getBuilder();
     }
@@ -6481,7 +6397,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maintenanceSchedule field is set.
      */
     public boolean hasMaintenanceSchedule() {
-      return maintenanceScheduleBuilder_ != null || maintenanceSchedule_ != null;
+      return ((bitField0_ & 0x01000000) != 0);
     }
     /**
      * <pre>
@@ -6513,11 +6429,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maintenanceSchedule_ = value;
-        onChanged();
       } else {
         maintenanceScheduleBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x01000000;
+      onChanged();
       return this;
     }
     /**
@@ -6532,11 +6448,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.redis.v1beta1.MaintenanceSchedule.Builder builderForValue) {
       if (maintenanceScheduleBuilder_ == null) {
         maintenanceSchedule_ = builderForValue.build();
-        onChanged();
       } else {
         maintenanceScheduleBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x01000000;
+      onChanged();
       return this;
     }
     /**
@@ -6549,17 +6465,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaintenanceSchedule(com.google.cloud.redis.v1beta1.MaintenanceSchedule value) {
       if (maintenanceScheduleBuilder_ == null) {
-        if (maintenanceSchedule_ != null) {
-          maintenanceSchedule_ =
-            com.google.cloud.redis.v1beta1.MaintenanceSchedule.newBuilder(maintenanceSchedule_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x01000000) != 0) &&
+          maintenanceSchedule_ != null &&
+          maintenanceSchedule_ != com.google.cloud.redis.v1beta1.MaintenanceSchedule.getDefaultInstance()) {
+          getMaintenanceScheduleBuilder().mergeFrom(value);
         } else {
           maintenanceSchedule_ = value;
         }
-        onChanged();
       } else {
         maintenanceScheduleBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x01000000;
+      onChanged();
       return this;
     }
     /**
@@ -6571,14 +6488,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.redis.v1beta1.MaintenanceSchedule maintenance_schedule = 28 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearMaintenanceSchedule() {
-      if (maintenanceScheduleBuilder_ == null) {
-        maintenanceSchedule_ = null;
-        onChanged();
-      } else {
-        maintenanceSchedule_ = null;
+      bitField0_ = (bitField0_ & ~0x01000000);
+      maintenanceSchedule_ = null;
+      if (maintenanceScheduleBuilder_ != null) {
+        maintenanceScheduleBuilder_.dispose();
         maintenanceScheduleBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6590,7 +6506,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.redis.v1beta1.MaintenanceSchedule maintenance_schedule = 28 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.redis.v1beta1.MaintenanceSchedule.Builder getMaintenanceScheduleBuilder() {
-      
+      bitField0_ |= 0x01000000;
       onChanged();
       return getMaintenanceScheduleFieldBuilder().getBuilder();
     }
@@ -6665,6 +6581,7 @@ private static final long serialVersionUID = 0L;
     public Builder setReplicaCount(int value) {
       
       replicaCount_ = value;
+      bitField0_ |= 0x02000000;
       onChanged();
       return this;
     }
@@ -6681,7 +6598,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReplicaCount() {
-      
+      bitField0_ = (bitField0_ & ~0x02000000);
       replicaCount_ = 0;
       onChanged();
       return this;
@@ -6690,9 +6607,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.redis.v1beta1.NodeInfo> nodes_ =
       java.util.Collections.emptyList();
     private void ensureNodesIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x04000000) != 0)) {
         nodes_ = new java.util.ArrayList<com.google.cloud.redis.v1beta1.NodeInfo>(nodes_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x04000000;
        }
     }
 
@@ -6886,7 +6803,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearNodes() {
       if (nodesBuilder_ == null) {
         nodes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x04000000);
         onChanged();
       } else {
         nodesBuilder_.clear();
@@ -6991,7 +6908,7 @@ private static final long serialVersionUID = 0L;
         nodesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.redis.v1beta1.NodeInfo, com.google.cloud.redis.v1beta1.NodeInfo.Builder, com.google.cloud.redis.v1beta1.NodeInfoOrBuilder>(
                 nodes_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x04000000) != 0),
                 getParentForChildren(),
                 isClean());
         nodes_ = null;
@@ -7061,11 +6978,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReadEndpoint(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       readEndpoint_ = value;
+      bitField0_ |= 0x08000000;
       onChanged();
       return this;
     }
@@ -7081,8 +6996,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReadEndpoint() {
-      
       readEndpoint_ = getDefaultInstance().getReadEndpoint();
+      bitField0_ = (bitField0_ & ~0x08000000);
       onChanged();
       return this;
     }
@@ -7100,12 +7015,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReadEndpointBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       readEndpoint_ = value;
+      bitField0_ |= 0x08000000;
       onChanged();
       return this;
     }
@@ -7137,6 +7050,7 @@ private static final long serialVersionUID = 0L;
     public Builder setReadEndpointPort(int value) {
       
       readEndpointPort_ = value;
+      bitField0_ |= 0x10000000;
       onChanged();
       return this;
     }
@@ -7150,7 +7064,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReadEndpointPort() {
-      
+      bitField0_ = (bitField0_ & ~0x10000000);
       readEndpointPort_ = 0;
       onChanged();
       return this;
@@ -7178,8 +7092,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setReadReplicasModeValue(int value) {
-      
       readReplicasMode_ = value;
+      bitField0_ |= 0x20000000;
       onChanged();
       return this;
     }
@@ -7193,8 +7107,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.redis.v1beta1.Instance.ReadReplicasMode getReadReplicasMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.redis.v1beta1.Instance.ReadReplicasMode result = com.google.cloud.redis.v1beta1.Instance.ReadReplicasMode.valueOf(readReplicasMode_);
+      com.google.cloud.redis.v1beta1.Instance.ReadReplicasMode result = com.google.cloud.redis.v1beta1.Instance.ReadReplicasMode.forNumber(readReplicasMode_);
       return result == null ? com.google.cloud.redis.v1beta1.Instance.ReadReplicasMode.UNRECOGNIZED : result;
     }
     /**
@@ -7210,7 +7123,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x20000000;
       readReplicasMode_ = value.getNumber();
       onChanged();
       return this;
@@ -7224,7 +7137,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReadReplicasMode() {
-      
+      bitField0_ = (bitField0_ & ~0x20000000);
       readReplicasMode_ = 0;
       onChanged();
       return this;
@@ -7242,7 +7155,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the persistenceConfig field is set.
      */
     public boolean hasPersistenceConfig() {
-      return persistenceConfigBuilder_ != null || persistenceConfig_ != null;
+      return ((bitField0_ & 0x40000000) != 0);
     }
     /**
      * <pre>
@@ -7272,11 +7185,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         persistenceConfig_ = value;
-        onChanged();
       } else {
         persistenceConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x40000000;
+      onChanged();
       return this;
     }
     /**
@@ -7290,11 +7203,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.redis.v1beta1.PersistenceConfig.Builder builderForValue) {
       if (persistenceConfigBuilder_ == null) {
         persistenceConfig_ = builderForValue.build();
-        onChanged();
       } else {
         persistenceConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x40000000;
+      onChanged();
       return this;
     }
     /**
@@ -7306,17 +7219,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePersistenceConfig(com.google.cloud.redis.v1beta1.PersistenceConfig value) {
       if (persistenceConfigBuilder_ == null) {
-        if (persistenceConfig_ != null) {
-          persistenceConfig_ =
-            com.google.cloud.redis.v1beta1.PersistenceConfig.newBuilder(persistenceConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x40000000) != 0) &&
+          persistenceConfig_ != null &&
+          persistenceConfig_ != com.google.cloud.redis.v1beta1.PersistenceConfig.getDefaultInstance()) {
+          getPersistenceConfigBuilder().mergeFrom(value);
         } else {
           persistenceConfig_ = value;
         }
-        onChanged();
       } else {
         persistenceConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x40000000;
+      onChanged();
       return this;
     }
     /**
@@ -7327,14 +7241,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.redis.v1beta1.PersistenceConfig persistence_config = 37 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearPersistenceConfig() {
-      if (persistenceConfigBuilder_ == null) {
-        persistenceConfig_ = null;
-        onChanged();
-      } else {
-        persistenceConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x40000000);
+      persistenceConfig_ = null;
+      if (persistenceConfigBuilder_ != null) {
+        persistenceConfigBuilder_.dispose();
         persistenceConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7345,7 +7258,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.redis.v1beta1.PersistenceConfig persistence_config = 37 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.redis.v1beta1.PersistenceConfig.Builder getPersistenceConfigBuilder() {
-      
+      bitField0_ |= 0x40000000;
       onChanged();
       return getPersistenceConfigFieldBuilder().getBuilder();
     }
@@ -7417,7 +7330,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Instance(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

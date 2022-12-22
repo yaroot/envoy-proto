@@ -5,9 +5,11 @@ package com.google.cloud.secretmanager.v1;
 
 /**
  * <pre>
- * The rotation time and period for a [Secret][google.cloud.secretmanager.v1.Secret]. At next_rotation_time, Secret
+ * The rotation time and period for a
+ * [Secret][google.cloud.secretmanager.v1.Secret]. At next_rotation_time, Secret
  * Manager will send a Pub/Sub notification to the topics configured on the
- * Secret. [Secret.topics][google.cloud.secretmanager.v1.Secret.topics] must be set to configure rotation.
+ * Secret. [Secret.topics][google.cloud.secretmanager.v1.Secret.topics] must be
+ * set to configure rotation.
  * </pre>
  *
  * Protobuf type {@code google.cloud.secretmanager.v1.Rotation}
@@ -36,71 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Rotation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (nextRotationTime_ != null) {
-              subBuilder = nextRotationTime_.toBuilder();
-            }
-            nextRotationTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(nextRotationTime_);
-              nextRotationTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (rotationPeriod_ != null) {
-              subBuilder = rotationPeriod_.toBuilder();
-            }
-            rotationPeriod_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rotationPeriod_);
-              rotationPeriod_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.secretmanager.v1.ResourcesProto.internal_static_google_cloud_secretmanager_v1_Rotation_descriptor;
@@ -118,10 +55,14 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp nextRotationTime_;
   /**
    * <pre>
-   * Optional. Timestamp in UTC at which the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate. Cannot be
-   * set to less than 300s (5 min) in the future and at most 3153600000s (100
-   * years).
-   * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] MUST  be set if [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set.
+   * Optional. Timestamp in UTC at which the
+   * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate.
+   * Cannot be set to less than 300s (5 min) in the future and at most
+   * 3153600000s (100 years).
+   * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+   * MUST  be set if
+   * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+   * is set.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_rotation_time = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -133,10 +74,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Timestamp in UTC at which the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate. Cannot be
-   * set to less than 300s (5 min) in the future and at most 3153600000s (100
-   * years).
-   * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] MUST  be set if [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set.
+   * Optional. Timestamp in UTC at which the
+   * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate.
+   * Cannot be set to less than 300s (5 min) in the future and at most
+   * 3153600000s (100 years).
+   * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+   * MUST  be set if
+   * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+   * is set.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_rotation_time = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -148,17 +93,21 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Timestamp in UTC at which the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate. Cannot be
-   * set to less than 300s (5 min) in the future and at most 3153600000s (100
-   * years).
-   * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] MUST  be set if [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set.
+   * Optional. Timestamp in UTC at which the
+   * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate.
+   * Cannot be set to less than 300s (5 min) in the future and at most
+   * 3153600000s (100 years).
+   * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+   * MUST  be set if
+   * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+   * is set.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp next_rotation_time = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getNextRotationTimeOrBuilder() {
-    return getNextRotationTime();
+    return nextRotationTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : nextRotationTime_;
   }
 
   public static final int ROTATION_PERIOD_FIELD_NUMBER = 2;
@@ -167,9 +116,14 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Input only. The Duration between rotation notifications. Must be in seconds
    * and at least 3600s (1h) and at most 3153600000s (100 years).
-   * If [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set, [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] must be set.
-   * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] will be advanced by this period when the service
-   * automatically sends rotation notifications.
+   * If
+   * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+   * is set,
+   * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+   * must be set.
+   * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+   * will be advanced by this period when the service automatically sends
+   * rotation notifications.
    * </pre>
    *
    * <code>.google.protobuf.Duration rotation_period = 2 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -183,9 +137,14 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Input only. The Duration between rotation notifications. Must be in seconds
    * and at least 3600s (1h) and at most 3153600000s (100 years).
-   * If [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set, [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] must be set.
-   * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] will be advanced by this period when the service
-   * automatically sends rotation notifications.
+   * If
+   * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+   * is set,
+   * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+   * must be set.
+   * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+   * will be advanced by this period when the service automatically sends
+   * rotation notifications.
    * </pre>
    *
    * <code>.google.protobuf.Duration rotation_period = 2 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -199,16 +158,21 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Input only. The Duration between rotation notifications. Must be in seconds
    * and at least 3600s (1h) and at most 3153600000s (100 years).
-   * If [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set, [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] must be set.
-   * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] will be advanced by this period when the service
-   * automatically sends rotation notifications.
+   * If
+   * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+   * is set,
+   * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+   * must be set.
+   * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+   * will be advanced by this period when the service automatically sends
+   * rotation notifications.
    * </pre>
    *
    * <code>.google.protobuf.Duration rotation_period = 2 [(.google.api.field_behavior) = INPUT_ONLY];</code>
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getRotationPeriodOrBuilder() {
-    return getRotationPeriod();
+    return rotationPeriod_ == null ? com.google.protobuf.Duration.getDefaultInstance() : rotationPeriod_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -231,7 +195,7 @@ private static final long serialVersionUID = 0L;
     if (rotationPeriod_ != null) {
       output.writeMessage(2, getRotationPeriod());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -248,7 +212,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getRotationPeriod());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -273,7 +237,7 @@ private static final long serialVersionUID = 0L;
       if (!getRotationPeriod()
           .equals(other.getRotationPeriod())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -292,7 +256,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ROTATION_PERIOD_FIELD_NUMBER;
       hash = (53 * hash) + getRotationPeriod().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -389,9 +353,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The rotation time and period for a [Secret][google.cloud.secretmanager.v1.Secret]. At next_rotation_time, Secret
+   * The rotation time and period for a
+   * [Secret][google.cloud.secretmanager.v1.Secret]. At next_rotation_time, Secret
    * Manager will send a Pub/Sub notification to the topics configured on the
-   * Secret. [Secret.topics][google.cloud.secretmanager.v1.Secret.topics] must be set to configure rotation.
+   * Secret. [Secret.topics][google.cloud.secretmanager.v1.Secret.topics] must be
+   * set to configure rotation.
    * </pre>
    *
    * Protobuf type {@code google.cloud.secretmanager.v1.Rotation}
@@ -415,32 +381,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.secretmanager.v1.Rotation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (nextRotationTimeBuilder_ == null) {
-        nextRotationTime_ = null;
-      } else {
-        nextRotationTime_ = null;
+      bitField0_ = 0;
+      nextRotationTime_ = null;
+      if (nextRotationTimeBuilder_ != null) {
+        nextRotationTimeBuilder_.dispose();
         nextRotationTimeBuilder_ = null;
       }
-      if (rotationPeriodBuilder_ == null) {
-        rotationPeriod_ = null;
-      } else {
-        rotationPeriod_ = null;
+      rotationPeriod_ = null;
+      if (rotationPeriodBuilder_ != null) {
+        rotationPeriodBuilder_.dispose();
         rotationPeriodBuilder_ = null;
       }
       return this;
@@ -469,18 +429,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.secretmanager.v1.Rotation buildPartial() {
       com.google.cloud.secretmanager.v1.Rotation result = new com.google.cloud.secretmanager.v1.Rotation(this);
-      if (nextRotationTimeBuilder_ == null) {
-        result.nextRotationTime_ = nextRotationTime_;
-      } else {
-        result.nextRotationTime_ = nextRotationTimeBuilder_.build();
-      }
-      if (rotationPeriodBuilder_ == null) {
-        result.rotationPeriod_ = rotationPeriod_;
-      } else {
-        result.rotationPeriod_ = rotationPeriodBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.secretmanager.v1.Rotation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.nextRotationTime_ = nextRotationTimeBuilder_ == null
+            ? nextRotationTime_
+            : nextRotationTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.rotationPeriod_ = rotationPeriodBuilder_ == null
+            ? rotationPeriod_
+            : rotationPeriodBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -533,7 +498,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRotationPeriod()) {
         mergeRotationPeriod(other.getRotationPeriod());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -548,43 +513,79 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.secretmanager.v1.Rotation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getNextRotationTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getRotationPeriodFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.secretmanager.v1.Rotation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.Timestamp nextRotationTime_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> nextRotationTimeBuilder_;
     /**
      * <pre>
-     * Optional. Timestamp in UTC at which the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate. Cannot be
-     * set to less than 300s (5 min) in the future and at most 3153600000s (100
-     * years).
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] MUST  be set if [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set.
+     * Optional. Timestamp in UTC at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate.
+     * Cannot be set to less than 300s (5 min) in the future and at most
+     * 3153600000s (100 years).
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * MUST  be set if
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_rotation_time = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return Whether the nextRotationTime field is set.
      */
     public boolean hasNextRotationTime() {
-      return nextRotationTimeBuilder_ != null || nextRotationTime_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
-     * Optional. Timestamp in UTC at which the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate. Cannot be
-     * set to less than 300s (5 min) in the future and at most 3153600000s (100
-     * years).
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] MUST  be set if [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set.
+     * Optional. Timestamp in UTC at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate.
+     * Cannot be set to less than 300s (5 min) in the future and at most
+     * 3153600000s (100 years).
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * MUST  be set if
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_rotation_time = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -599,10 +600,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Timestamp in UTC at which the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate. Cannot be
-     * set to less than 300s (5 min) in the future and at most 3153600000s (100
-     * years).
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] MUST  be set if [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set.
+     * Optional. Timestamp in UTC at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate.
+     * Cannot be set to less than 300s (5 min) in the future and at most
+     * 3153600000s (100 years).
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * MUST  be set if
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_rotation_time = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -613,19 +618,23 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         nextRotationTime_ = value;
-        onChanged();
       } else {
         nextRotationTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Timestamp in UTC at which the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate. Cannot be
-     * set to less than 300s (5 min) in the future and at most 3153600000s (100
-     * years).
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] MUST  be set if [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set.
+     * Optional. Timestamp in UTC at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate.
+     * Cannot be set to less than 300s (5 min) in the future and at most
+     * 3153600000s (100 years).
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * MUST  be set if
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_rotation_time = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -634,80 +643,96 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (nextRotationTimeBuilder_ == null) {
         nextRotationTime_ = builderForValue.build();
-        onChanged();
       } else {
         nextRotationTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Timestamp in UTC at which the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate. Cannot be
-     * set to less than 300s (5 min) in the future and at most 3153600000s (100
-     * years).
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] MUST  be set if [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set.
+     * Optional. Timestamp in UTC at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate.
+     * Cannot be set to less than 300s (5 min) in the future and at most
+     * 3153600000s (100 years).
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * MUST  be set if
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_rotation_time = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder mergeNextRotationTime(com.google.protobuf.Timestamp value) {
       if (nextRotationTimeBuilder_ == null) {
-        if (nextRotationTime_ != null) {
-          nextRotationTime_ =
-            com.google.protobuf.Timestamp.newBuilder(nextRotationTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          nextRotationTime_ != null &&
+          nextRotationTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getNextRotationTimeBuilder().mergeFrom(value);
         } else {
           nextRotationTime_ = value;
         }
-        onChanged();
       } else {
         nextRotationTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Timestamp in UTC at which the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate. Cannot be
-     * set to less than 300s (5 min) in the future and at most 3153600000s (100
-     * years).
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] MUST  be set if [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set.
+     * Optional. Timestamp in UTC at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate.
+     * Cannot be set to less than 300s (5 min) in the future and at most
+     * 3153600000s (100 years).
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * MUST  be set if
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_rotation_time = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearNextRotationTime() {
-      if (nextRotationTimeBuilder_ == null) {
-        nextRotationTime_ = null;
-        onChanged();
-      } else {
-        nextRotationTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      nextRotationTime_ = null;
+      if (nextRotationTimeBuilder_ != null) {
+        nextRotationTimeBuilder_.dispose();
         nextRotationTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Timestamp in UTC at which the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate. Cannot be
-     * set to less than 300s (5 min) in the future and at most 3153600000s (100
-     * years).
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] MUST  be set if [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set.
+     * Optional. Timestamp in UTC at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate.
+     * Cannot be set to less than 300s (5 min) in the future and at most
+     * 3153600000s (100 years).
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * MUST  be set if
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_rotation_time = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.protobuf.Timestamp.Builder getNextRotationTimeBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getNextRotationTimeFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Optional. Timestamp in UTC at which the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate. Cannot be
-     * set to less than 300s (5 min) in the future and at most 3153600000s (100
-     * years).
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] MUST  be set if [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set.
+     * Optional. Timestamp in UTC at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate.
+     * Cannot be set to less than 300s (5 min) in the future and at most
+     * 3153600000s (100 years).
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * MUST  be set if
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_rotation_time = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -722,10 +747,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Timestamp in UTC at which the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate. Cannot be
-     * set to less than 300s (5 min) in the future and at most 3153600000s (100
-     * years).
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] MUST  be set if [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set.
+     * Optional. Timestamp in UTC at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to rotate.
+     * Cannot be set to less than 300s (5 min) in the future and at most
+     * 3153600000s (100 years).
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * MUST  be set if
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp next_rotation_time = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -751,24 +780,34 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Input only. The Duration between rotation notifications. Must be in seconds
      * and at least 3600s (1h) and at most 3153600000s (100 years).
-     * If [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set, [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] must be set.
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] will be advanced by this period when the service
-     * automatically sends rotation notifications.
+     * If
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set,
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * must be set.
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * will be advanced by this period when the service automatically sends
+     * rotation notifications.
      * </pre>
      *
      * <code>.google.protobuf.Duration rotation_period = 2 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      * @return Whether the rotationPeriod field is set.
      */
     public boolean hasRotationPeriod() {
-      return rotationPeriodBuilder_ != null || rotationPeriod_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
      * Input only. The Duration between rotation notifications. Must be in seconds
      * and at least 3600s (1h) and at most 3153600000s (100 years).
-     * If [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set, [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] must be set.
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] will be advanced by this period when the service
-     * automatically sends rotation notifications.
+     * If
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set,
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * must be set.
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * will be advanced by this period when the service automatically sends
+     * rotation notifications.
      * </pre>
      *
      * <code>.google.protobuf.Duration rotation_period = 2 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -785,9 +824,14 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Input only. The Duration between rotation notifications. Must be in seconds
      * and at least 3600s (1h) and at most 3153600000s (100 years).
-     * If [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set, [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] must be set.
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] will be advanced by this period when the service
-     * automatically sends rotation notifications.
+     * If
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set,
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * must be set.
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * will be advanced by this period when the service automatically sends
+     * rotation notifications.
      * </pre>
      *
      * <code>.google.protobuf.Duration rotation_period = 2 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -798,20 +842,25 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rotationPeriod_ = value;
-        onChanged();
       } else {
         rotationPeriodBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Input only. The Duration between rotation notifications. Must be in seconds
      * and at least 3600s (1h) and at most 3153600000s (100 years).
-     * If [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set, [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] must be set.
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] will be advanced by this period when the service
-     * automatically sends rotation notifications.
+     * If
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set,
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * must be set.
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * will be advanced by this period when the service automatically sends
+     * rotation notifications.
      * </pre>
      *
      * <code>.google.protobuf.Duration rotation_period = 2 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -820,74 +869,89 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (rotationPeriodBuilder_ == null) {
         rotationPeriod_ = builderForValue.build();
-        onChanged();
       } else {
         rotationPeriodBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Input only. The Duration between rotation notifications. Must be in seconds
      * and at least 3600s (1h) and at most 3153600000s (100 years).
-     * If [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set, [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] must be set.
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] will be advanced by this period when the service
-     * automatically sends rotation notifications.
+     * If
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set,
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * must be set.
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * will be advanced by this period when the service automatically sends
+     * rotation notifications.
      * </pre>
      *
      * <code>.google.protobuf.Duration rotation_period = 2 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public Builder mergeRotationPeriod(com.google.protobuf.Duration value) {
       if (rotationPeriodBuilder_ == null) {
-        if (rotationPeriod_ != null) {
-          rotationPeriod_ =
-            com.google.protobuf.Duration.newBuilder(rotationPeriod_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          rotationPeriod_ != null &&
+          rotationPeriod_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getRotationPeriodBuilder().mergeFrom(value);
         } else {
           rotationPeriod_ = value;
         }
-        onChanged();
       } else {
         rotationPeriodBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Input only. The Duration between rotation notifications. Must be in seconds
      * and at least 3600s (1h) and at most 3153600000s (100 years).
-     * If [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set, [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] must be set.
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] will be advanced by this period when the service
-     * automatically sends rotation notifications.
+     * If
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set,
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * must be set.
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * will be advanced by this period when the service automatically sends
+     * rotation notifications.
      * </pre>
      *
      * <code>.google.protobuf.Duration rotation_period = 2 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public Builder clearRotationPeriod() {
-      if (rotationPeriodBuilder_ == null) {
-        rotationPeriod_ = null;
-        onChanged();
-      } else {
-        rotationPeriod_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      rotationPeriod_ = null;
+      if (rotationPeriodBuilder_ != null) {
+        rotationPeriodBuilder_.dispose();
         rotationPeriodBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Input only. The Duration between rotation notifications. Must be in seconds
      * and at least 3600s (1h) and at most 3153600000s (100 years).
-     * If [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set, [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] must be set.
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] will be advanced by this period when the service
-     * automatically sends rotation notifications.
+     * If
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set,
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * must be set.
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * will be advanced by this period when the service automatically sends
+     * rotation notifications.
      * </pre>
      *
      * <code>.google.protobuf.Duration rotation_period = 2 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public com.google.protobuf.Duration.Builder getRotationPeriodBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getRotationPeriodFieldBuilder().getBuilder();
     }
@@ -895,9 +959,14 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Input only. The Duration between rotation notifications. Must be in seconds
      * and at least 3600s (1h) and at most 3153600000s (100 years).
-     * If [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set, [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] must be set.
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] will be advanced by this period when the service
-     * automatically sends rotation notifications.
+     * If
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set,
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * must be set.
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * will be advanced by this period when the service automatically sends
+     * rotation notifications.
      * </pre>
      *
      * <code>.google.protobuf.Duration rotation_period = 2 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -914,9 +983,14 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Input only. The Duration between rotation notifications. Must be in seconds
      * and at least 3600s (1h) and at most 3153600000s (100 years).
-     * If [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period] is set, [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] must be set.
-     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time] will be advanced by this period when the service
-     * automatically sends rotation notifications.
+     * If
+     * [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
+     * is set,
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * must be set.
+     * [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
+     * will be advanced by this period when the service automatically sends
+     * rotation notifications.
      * </pre>
      *
      * <code>.google.protobuf.Duration rotation_period = 2 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -967,7 +1041,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Rotation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -5,7 +5,7 @@ package io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3;
 
 /**
  * <pre>
- * [#next-free-field: 17]
+ * [#next-free-field: 18]
  * </pre>
  *
  * Protobuf type {@code envoy.extensions.filters.http.ext_authz.v3.ExtAuthz}
@@ -38,196 +38,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ExtAuthz(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.core.v3.GrpcService.Builder subBuilder = null;
-            if (servicesCase_ == 1) {
-              subBuilder = ((io.envoyproxy.envoy.config.core.v3.GrpcService) services_).toBuilder();
-            }
-            services_ =
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.GrpcService.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.core.v3.GrpcService) services_);
-              services_ = subBuilder.buildPartial();
-            }
-            servicesCase_ = 1;
-            break;
-          }
-          case 16: {
-
-            failureModeAllow_ = input.readBool();
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.HttpService.Builder subBuilder = null;
-            if (servicesCase_ == 3) {
-              subBuilder = ((io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.HttpService) services_).toBuilder();
-            }
-            services_ =
-                input.readMessage(io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.HttpService.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.HttpService) services_);
-              services_ = subBuilder.buildPartial();
-            }
-            servicesCase_ = 3;
-            break;
-          }
-          case 42: {
-            io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.BufferSettings.Builder subBuilder = null;
-            if (withRequestBody_ != null) {
-              subBuilder = withRequestBody_.toBuilder();
-            }
-            withRequestBody_ = input.readMessage(io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.BufferSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(withRequestBody_);
-              withRequestBody_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 48: {
-
-            clearRouteCache_ = input.readBool();
-            break;
-          }
-          case 58: {
-            io.envoyproxy.envoy.type.v3.HttpStatus.Builder subBuilder = null;
-            if (statusOnError_ != null) {
-              subBuilder = statusOnError_.toBuilder();
-            }
-            statusOnError_ = input.readMessage(io.envoyproxy.envoy.type.v3.HttpStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(statusOnError_);
-              statusOnError_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              metadataContextNamespaces_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            metadataContextNamespaces_.add(s);
-            break;
-          }
-          case 74: {
-            io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.Builder subBuilder = null;
-            if (filterEnabled_ != null) {
-              subBuilder = filterEnabled_.toBuilder();
-            }
-            filterEnabled_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(filterEnabled_);
-              filterEnabled_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 80: {
-
-            includePeerCertificate_ = input.readBool();
-            break;
-          }
-          case 90: {
-            io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder subBuilder = null;
-            if (denyAtDisable_ != null) {
-              subBuilder = denyAtDisable_.toBuilder();
-            }
-            denyAtDisable_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(denyAtDisable_);
-              denyAtDisable_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 96: {
-            int rawValue = input.readEnum();
-
-            transportApiVersion_ = rawValue;
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            statPrefix_ = s;
-            break;
-          }
-          case 114: {
-            io.envoyproxy.envoy.type.matcher.v3.MetadataMatcher.Builder subBuilder = null;
-            if (filterEnabledMetadata_ != null) {
-              subBuilder = filterEnabledMetadata_.toBuilder();
-            }
-            filterEnabledMetadata_ = input.readMessage(io.envoyproxy.envoy.type.matcher.v3.MetadataMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(filterEnabledMetadata_);
-              filterEnabledMetadata_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            bootstrapMetadataLabelsKey_ = s;
-            break;
-          }
-          case 130: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              typedMetadataContextNamespaces_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            typedMetadataContextNamespaces_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        metadataContextNamespaces_ = metadataContextNamespaces_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        typedMetadataContextNamespaces_ = typedMetadataContextNamespaces_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -370,7 +180,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRANSPORT_API_VERSION_FIELD_NUMBER = 12;
-  private int transportApiVersion_;
+  private int transportApiVersion_ = 0;
   /**
    * <pre>
    * API version for ext_authz transport protocol. This describes the ext_authz gRPC endpoint and
@@ -393,13 +203,12 @@ private static final long serialVersionUID = 0L;
    * @return The transportApiVersion.
    */
   @java.lang.Override public io.envoyproxy.envoy.config.core.v3.ApiVersion getTransportApiVersion() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.config.core.v3.ApiVersion result = io.envoyproxy.envoy.config.core.v3.ApiVersion.valueOf(transportApiVersion_);
+    io.envoyproxy.envoy.config.core.v3.ApiVersion result = io.envoyproxy.envoy.config.core.v3.ApiVersion.forNumber(transportApiVersion_);
     return result == null ? io.envoyproxy.envoy.config.core.v3.ApiVersion.UNRECOGNIZED : result;
   }
 
   public static final int FAILURE_MODE_ALLOW_FIELD_NUMBER = 2;
-  private boolean failureModeAllow_;
+  private boolean failureModeAllow_ = false;
   /**
    * <pre>
    *  Changes filter's behaviour on errors:
@@ -462,11 +271,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.BufferSettingsOrBuilder getWithRequestBodyOrBuilder() {
-    return getWithRequestBody();
+    return withRequestBody_ == null ? io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.BufferSettings.getDefaultInstance() : withRequestBody_;
   }
 
   public static final int CLEAR_ROUTE_CACHE_FIELD_NUMBER = 6;
-  private boolean clearRouteCache_;
+  private boolean clearRouteCache_ = false;
   /**
    * <pre>
    * Clears route cache in order to allow the external authorization service to correctly affect
@@ -523,10 +332,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.v3.HttpStatusOrBuilder getStatusOnErrorOrBuilder() {
-    return getStatusOnError();
+    return statusOnError_ == null ? io.envoyproxy.envoy.type.v3.HttpStatus.getDefaultInstance() : statusOnError_;
   }
 
   public static final int METADATA_CONTEXT_NAMESPACES_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList metadataContextNamespaces_;
   /**
    * <pre>
@@ -606,6 +416,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPED_METADATA_CONTEXT_NAMESPACES_FIELD_NUMBER = 16;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList typedMetadataContextNamespaces_;
   /**
    * <pre>
@@ -712,7 +523,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercentOrBuilder getFilterEnabledOrBuilder() {
-    return getFilterEnabled();
+    return filterEnabled_ == null ? io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.getDefaultInstance() : filterEnabled_;
   }
 
   public static final int FILTER_ENABLED_METADATA_FIELD_NUMBER = 14;
@@ -753,7 +564,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.matcher.v3.MetadataMatcherOrBuilder getFilterEnabledMetadataOrBuilder() {
-    return getFilterEnabledMetadata();
+    return filterEnabledMetadata_ == null ? io.envoyproxy.envoy.type.matcher.v3.MetadataMatcher.getDefaultInstance() : filterEnabledMetadata_;
   }
 
   public static final int DENY_AT_DISABLE_FIELD_NUMBER = 11;
@@ -806,11 +617,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlagOrBuilder getDenyAtDisableOrBuilder() {
-    return getDenyAtDisable();
+    return denyAtDisable_ == null ? io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.getDefaultInstance() : denyAtDisable_;
   }
 
   public static final int INCLUDE_PEER_CERTIFICATE_FIELD_NUMBER = 10;
-  private boolean includePeerCertificate_;
+  private boolean includePeerCertificate_ = false;
   /**
    * <pre>
    * Specifies if the peer certificate is sent to the external service.
@@ -827,7 +638,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STAT_PREFIX_FIELD_NUMBER = 13;
-  private volatile java.lang.Object statPrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object statPrefix_ = "";
   /**
    * <pre>
    * Optional additional prefix to use when emitting statistics. This allows to distinguish
@@ -895,7 +707,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BOOTSTRAP_METADATA_LABELS_KEY_FIELD_NUMBER = 15;
-  private volatile java.lang.Object bootstrapMetadataLabelsKey_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object bootstrapMetadataLabelsKey_ = "";
   /**
    * <pre>
    * Optional labels that will be passed to :ref:`labels&lt;envoy_v3_api_field_service.auth.v3.AttributeContext.Peer.labels&gt;` in
@@ -942,6 +755,86 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int ALLOWED_HEADERS_FIELD_NUMBER = 17;
+  private io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher allowedHeaders_;
+  /**
+   * <pre>
+   * Check request to authorization server will include the client request headers that have a correspondent match
+   * in the :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. If this option isn't specified, then
+   * all client request headers are included in the check request to a gRPC authorization server, whereas no client request headers
+   * (besides the ones allowed by default - see note below) are included in the check request to an HTTP authorization server.
+   * This inconsistency between gRPC and HTTP servers is to maintain backwards compatibility with legacy behavior.
+   * .. note::
+   *  1. For requests to an HTTP authorization server: in addition to the the user's supplied matchers, ``Host``, ``Method``, ``Path``,
+   *     ``Content-Length``, and ``Authorization`` are **additionally included** in the list.
+   * .. note::
+   *  2. For requests to an HTTP authorization server: *Content-Length* will be set to 0 and the request to the
+   *  authorization server will not have a message body. However, the check request can include the buffered
+   *  client request body (controlled by :ref:`with_request_body
+   *  &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;` setting),
+   *  consequently the value of *Content-Length* of the authorization request reflects the size of
+   *  its payload size.
+   * </pre>
+   *
+   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 17;</code>
+   * @return Whether the allowedHeaders field is set.
+   */
+  @java.lang.Override
+  public boolean hasAllowedHeaders() {
+    return allowedHeaders_ != null;
+  }
+  /**
+   * <pre>
+   * Check request to authorization server will include the client request headers that have a correspondent match
+   * in the :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. If this option isn't specified, then
+   * all client request headers are included in the check request to a gRPC authorization server, whereas no client request headers
+   * (besides the ones allowed by default - see note below) are included in the check request to an HTTP authorization server.
+   * This inconsistency between gRPC and HTTP servers is to maintain backwards compatibility with legacy behavior.
+   * .. note::
+   *  1. For requests to an HTTP authorization server: in addition to the the user's supplied matchers, ``Host``, ``Method``, ``Path``,
+   *     ``Content-Length``, and ``Authorization`` are **additionally included** in the list.
+   * .. note::
+   *  2. For requests to an HTTP authorization server: *Content-Length* will be set to 0 and the request to the
+   *  authorization server will not have a message body. However, the check request can include the buffered
+   *  client request body (controlled by :ref:`with_request_body
+   *  &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;` setting),
+   *  consequently the value of *Content-Length* of the authorization request reflects the size of
+   *  its payload size.
+   * </pre>
+   *
+   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 17;</code>
+   * @return The allowedHeaders.
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher getAllowedHeaders() {
+    return allowedHeaders_ == null ? io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance() : allowedHeaders_;
+  }
+  /**
+   * <pre>
+   * Check request to authorization server will include the client request headers that have a correspondent match
+   * in the :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. If this option isn't specified, then
+   * all client request headers are included in the check request to a gRPC authorization server, whereas no client request headers
+   * (besides the ones allowed by default - see note below) are included in the check request to an HTTP authorization server.
+   * This inconsistency between gRPC and HTTP servers is to maintain backwards compatibility with legacy behavior.
+   * .. note::
+   *  1. For requests to an HTTP authorization server: in addition to the the user's supplied matchers, ``Host``, ``Method``, ``Path``,
+   *     ``Content-Length``, and ``Authorization`` are **additionally included** in the list.
+   * .. note::
+   *  2. For requests to an HTTP authorization server: *Content-Length* will be set to 0 and the request to the
+   *  authorization server will not have a message body. However, the check request can include the buffered
+   *  client request body (controlled by :ref:`with_request_body
+   *  &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;` setting),
+   *  consequently the value of *Content-Length* of the authorization request reflects the size of
+   *  its payload size.
+   * </pre>
+   *
+   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 17;</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder getAllowedHeadersOrBuilder() {
+    return allowedHeaders_ == null ? io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance() : allowedHeaders_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1003,7 +896,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < typedMetadataContextNamespaces_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 16, typedMetadataContextNamespaces_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    if (allowedHeaders_ != null) {
+      output.writeMessage(17, getAllowedHeaders());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1078,7 +974,11 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 2 * getTypedMetadataContextNamespacesList().size();
     }
-    size += unknownFields.getSerializedSize();
+    if (allowedHeaders_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(17, getAllowedHeaders());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1133,6 +1033,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getStatPrefix())) return false;
     if (!getBootstrapMetadataLabelsKey()
         .equals(other.getBootstrapMetadataLabelsKey())) return false;
+    if (hasAllowedHeaders() != other.hasAllowedHeaders()) return false;
+    if (hasAllowedHeaders()) {
+      if (!getAllowedHeaders()
+          .equals(other.getAllowedHeaders())) return false;
+    }
     if (!getServicesCase().equals(other.getServicesCase())) return false;
     switch (servicesCase_) {
       case 1:
@@ -1146,7 +1051,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1200,6 +1105,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getStatPrefix().hashCode();
     hash = (37 * hash) + BOOTSTRAP_METADATA_LABELS_KEY_FIELD_NUMBER;
     hash = (53 * hash) + getBootstrapMetadataLabelsKey().hashCode();
+    if (hasAllowedHeaders()) {
+      hash = (37 * hash) + ALLOWED_HEADERS_FIELD_NUMBER;
+      hash = (53 * hash) + getAllowedHeaders().hashCode();
+    }
     switch (servicesCase_) {
       case 1:
         hash = (37 * hash) + GRPC_SERVICE_FIELD_NUMBER;
@@ -1212,7 +1121,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1309,7 +1218,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * [#next-free-field: 17]
+   * [#next-free-field: 18]
    * </pre>
    *
    * Protobuf type {@code envoy.extensions.filters.http.ext_authz.v3.ExtAuthz}
@@ -1333,68 +1242,64 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.ExtAuthz.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (grpcServiceBuilder_ != null) {
+        grpcServiceBuilder_.clear();
+      }
+      if (httpServiceBuilder_ != null) {
+        httpServiceBuilder_.clear();
+      }
       transportApiVersion_ = 0;
-
       failureModeAllow_ = false;
-
-      if (withRequestBodyBuilder_ == null) {
-        withRequestBody_ = null;
-      } else {
-        withRequestBody_ = null;
+      withRequestBody_ = null;
+      if (withRequestBodyBuilder_ != null) {
+        withRequestBodyBuilder_.dispose();
         withRequestBodyBuilder_ = null;
       }
       clearRouteCache_ = false;
-
-      if (statusOnErrorBuilder_ == null) {
-        statusOnError_ = null;
-      } else {
-        statusOnError_ = null;
+      statusOnError_ = null;
+      if (statusOnErrorBuilder_ != null) {
+        statusOnErrorBuilder_.dispose();
         statusOnErrorBuilder_ = null;
       }
       metadataContextNamespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000080);
       typedMetadataContextNamespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
-      if (filterEnabledBuilder_ == null) {
-        filterEnabled_ = null;
-      } else {
-        filterEnabled_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      filterEnabled_ = null;
+      if (filterEnabledBuilder_ != null) {
+        filterEnabledBuilder_.dispose();
         filterEnabledBuilder_ = null;
       }
-      if (filterEnabledMetadataBuilder_ == null) {
-        filterEnabledMetadata_ = null;
-      } else {
-        filterEnabledMetadata_ = null;
+      filterEnabledMetadata_ = null;
+      if (filterEnabledMetadataBuilder_ != null) {
+        filterEnabledMetadataBuilder_.dispose();
         filterEnabledMetadataBuilder_ = null;
       }
-      if (denyAtDisableBuilder_ == null) {
-        denyAtDisable_ = null;
-      } else {
-        denyAtDisable_ = null;
+      denyAtDisable_ = null;
+      if (denyAtDisableBuilder_ != null) {
+        denyAtDisableBuilder_.dispose();
         denyAtDisableBuilder_ = null;
       }
       includePeerCertificate_ = false;
-
       statPrefix_ = "";
-
       bootstrapMetadataLabelsKey_ = "";
-
+      allowedHeaders_ = null;
+      if (allowedHeadersBuilder_ != null) {
+        allowedHeadersBuilder_.dispose();
+        allowedHeadersBuilder_ = null;
+      }
       servicesCase_ = 0;
       services_ = null;
       return this;
@@ -1423,65 +1328,89 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.ExtAuthz buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.ExtAuthz result = new io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.ExtAuthz(this);
-      int from_bitField0_ = bitField0_;
-      if (servicesCase_ == 1) {
-        if (grpcServiceBuilder_ == null) {
-          result.services_ = services_;
-        } else {
-          result.services_ = grpcServiceBuilder_.build();
-        }
-      }
-      if (servicesCase_ == 3) {
-        if (httpServiceBuilder_ == null) {
-          result.services_ = services_;
-        } else {
-          result.services_ = httpServiceBuilder_.build();
-        }
-      }
-      result.transportApiVersion_ = transportApiVersion_;
-      result.failureModeAllow_ = failureModeAllow_;
-      if (withRequestBodyBuilder_ == null) {
-        result.withRequestBody_ = withRequestBody_;
-      } else {
-        result.withRequestBody_ = withRequestBodyBuilder_.build();
-      }
-      result.clearRouteCache_ = clearRouteCache_;
-      if (statusOnErrorBuilder_ == null) {
-        result.statusOnError_ = statusOnError_;
-      } else {
-        result.statusOnError_ = statusOnErrorBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        metadataContextNamespaces_ = metadataContextNamespaces_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.metadataContextNamespaces_ = metadataContextNamespaces_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        typedMetadataContextNamespaces_ = typedMetadataContextNamespaces_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.typedMetadataContextNamespaces_ = typedMetadataContextNamespaces_;
-      if (filterEnabledBuilder_ == null) {
-        result.filterEnabled_ = filterEnabled_;
-      } else {
-        result.filterEnabled_ = filterEnabledBuilder_.build();
-      }
-      if (filterEnabledMetadataBuilder_ == null) {
-        result.filterEnabledMetadata_ = filterEnabledMetadata_;
-      } else {
-        result.filterEnabledMetadata_ = filterEnabledMetadataBuilder_.build();
-      }
-      if (denyAtDisableBuilder_ == null) {
-        result.denyAtDisable_ = denyAtDisable_;
-      } else {
-        result.denyAtDisable_ = denyAtDisableBuilder_.build();
-      }
-      result.includePeerCertificate_ = includePeerCertificate_;
-      result.statPrefix_ = statPrefix_;
-      result.bootstrapMetadataLabelsKey_ = bootstrapMetadataLabelsKey_;
-      result.servicesCase_ = servicesCase_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.ExtAuthz result) {
+      if (((bitField0_ & 0x00000080) != 0)) {
+        metadataContextNamespaces_ = metadataContextNamespaces_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000080);
+      }
+      result.metadataContextNamespaces_ = metadataContextNamespaces_;
+      if (((bitField0_ & 0x00000100) != 0)) {
+        typedMetadataContextNamespaces_ = typedMetadataContextNamespaces_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000100);
+      }
+      result.typedMetadataContextNamespaces_ = typedMetadataContextNamespaces_;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.ExtAuthz result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.transportApiVersion_ = transportApiVersion_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.failureModeAllow_ = failureModeAllow_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.withRequestBody_ = withRequestBodyBuilder_ == null
+            ? withRequestBody_
+            : withRequestBodyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.clearRouteCache_ = clearRouteCache_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.statusOnError_ = statusOnErrorBuilder_ == null
+            ? statusOnError_
+            : statusOnErrorBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.filterEnabled_ = filterEnabledBuilder_ == null
+            ? filterEnabled_
+            : filterEnabledBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.filterEnabledMetadata_ = filterEnabledMetadataBuilder_ == null
+            ? filterEnabledMetadata_
+            : filterEnabledMetadataBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.denyAtDisable_ = denyAtDisableBuilder_ == null
+            ? denyAtDisable_
+            : denyAtDisableBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.includePeerCertificate_ = includePeerCertificate_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.statPrefix_ = statPrefix_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.bootstrapMetadataLabelsKey_ = bootstrapMetadataLabelsKey_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.allowedHeaders_ = allowedHeadersBuilder_ == null
+            ? allowedHeaders_
+            : allowedHeadersBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.ExtAuthz result) {
+      result.servicesCase_ = servicesCase_;
+      result.services_ = this.services_;
+      if (servicesCase_ == 1 &&
+          grpcServiceBuilder_ != null) {
+        result.services_ = grpcServiceBuilder_.build();
+      }
+      if (servicesCase_ == 3 &&
+          httpServiceBuilder_ != null) {
+        result.services_ = httpServiceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1546,7 +1475,7 @@ private static final long serialVersionUID = 0L;
       if (!other.metadataContextNamespaces_.isEmpty()) {
         if (metadataContextNamespaces_.isEmpty()) {
           metadataContextNamespaces_ = other.metadataContextNamespaces_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensureMetadataContextNamespacesIsMutable();
           metadataContextNamespaces_.addAll(other.metadataContextNamespaces_);
@@ -1556,7 +1485,7 @@ private static final long serialVersionUID = 0L;
       if (!other.typedMetadataContextNamespaces_.isEmpty()) {
         if (typedMetadataContextNamespaces_.isEmpty()) {
           typedMetadataContextNamespaces_ = other.typedMetadataContextNamespaces_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000100);
         } else {
           ensureTypedMetadataContextNamespacesIsMutable();
           typedMetadataContextNamespaces_.addAll(other.typedMetadataContextNamespaces_);
@@ -1577,11 +1506,16 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getStatPrefix().isEmpty()) {
         statPrefix_ = other.statPrefix_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
       if (!other.getBootstrapMetadataLabelsKey().isEmpty()) {
         bootstrapMetadataLabelsKey_ = other.bootstrapMetadataLabelsKey_;
+        bitField0_ |= 0x00004000;
         onChanged();
+      }
+      if (other.hasAllowedHeaders()) {
+        mergeAllowedHeaders(other.getAllowedHeaders());
       }
       switch (other.getServicesCase()) {
         case GRPC_SERVICE: {
@@ -1596,7 +1530,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1611,17 +1545,128 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.ExtAuthz parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getGrpcServiceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              servicesCase_ = 1;
+              break;
+            } // case 10
+            case 16: {
+              failureModeAllow_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getHttpServiceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              servicesCase_ = 3;
+              break;
+            } // case 26
+            case 42: {
+              input.readMessage(
+                  getWithRequestBodyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              clearRouteCache_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              input.readMessage(
+                  getStatusOnErrorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureMetadataContextNamespacesIsMutable();
+              metadataContextNamespaces_.add(s);
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getFilterEnabledFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 74
+            case 80: {
+              includePeerCertificate_ = input.readBool();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 80
+            case 90: {
+              input.readMessage(
+                  getDenyAtDisableFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 90
+            case 96: {
+              transportApiVersion_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 96
+            case 106: {
+              statPrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getFilterEnabledMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 114
+            case 122: {
+              bootstrapMetadataLabelsKey_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 122
+            case 130: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureTypedMetadataContextNamespacesIsMutable();
+              typedMetadataContextNamespaces_.add(s);
+              break;
+            } // case 130
+            case 138: {
+              input.readMessage(
+                  getAllowedHeadersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 138
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.ExtAuthz) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int servicesCase_ = 0;
@@ -1815,7 +1860,7 @@ private static final long serialVersionUID = 0L;
         services_ = null;
       }
       servicesCase_ = 1;
-      onChanged();;
+      onChanged();
       return grpcServiceBuilder_;
     }
 
@@ -1993,7 +2038,7 @@ private static final long serialVersionUID = 0L;
         services_ = null;
       }
       servicesCase_ = 3;
-      onChanged();;
+      onChanged();
       return httpServiceBuilder_;
     }
 
@@ -2021,8 +2066,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTransportApiVersionValue(int value) {
-      
       transportApiVersion_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2037,8 +2082,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.ApiVersion getTransportApiVersion() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.config.core.v3.ApiVersion result = io.envoyproxy.envoy.config.core.v3.ApiVersion.valueOf(transportApiVersion_);
+      io.envoyproxy.envoy.config.core.v3.ApiVersion result = io.envoyproxy.envoy.config.core.v3.ApiVersion.forNumber(transportApiVersion_);
       return result == null ? io.envoyproxy.envoy.config.core.v3.ApiVersion.UNRECOGNIZED : result;
     }
     /**
@@ -2055,7 +2099,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       transportApiVersion_ = value.getNumber();
       onChanged();
       return this;
@@ -2070,7 +2114,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTransportApiVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       transportApiVersion_ = 0;
       onChanged();
       return this;
@@ -2117,6 +2161,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFailureModeAllow(boolean value) {
       
       failureModeAllow_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2137,7 +2182,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFailureModeAllow() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       failureModeAllow_ = false;
       onChanged();
       return this;
@@ -2157,7 +2202,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the withRequestBody field is set.
      */
     public boolean hasWithRequestBody() {
-      return withRequestBodyBuilder_ != null || withRequestBody_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2191,11 +2236,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         withRequestBody_ = value;
-        onChanged();
       } else {
         withRequestBodyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2211,11 +2256,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.BufferSettings.Builder builderForValue) {
       if (withRequestBodyBuilder_ == null) {
         withRequestBody_ = builderForValue.build();
-        onChanged();
       } else {
         withRequestBodyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2229,17 +2274,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWithRequestBody(io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.BufferSettings value) {
       if (withRequestBodyBuilder_ == null) {
-        if (withRequestBody_ != null) {
-          withRequestBody_ =
-            io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.BufferSettings.newBuilder(withRequestBody_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          withRequestBody_ != null &&
+          withRequestBody_ != io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.BufferSettings.getDefaultInstance()) {
+          getWithRequestBodyBuilder().mergeFrom(value);
         } else {
           withRequestBody_ = value;
         }
-        onChanged();
       } else {
         withRequestBodyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2252,14 +2298,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.ext_authz.v3.BufferSettings with_request_body = 5;</code>
      */
     public Builder clearWithRequestBody() {
-      if (withRequestBodyBuilder_ == null) {
-        withRequestBody_ = null;
-        onChanged();
-      } else {
-        withRequestBody_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      withRequestBody_ = null;
+      if (withRequestBodyBuilder_ != null) {
+        withRequestBodyBuilder_.dispose();
         withRequestBodyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2272,7 +2317,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.ext_authz.v3.BufferSettings with_request_body = 5;</code>
      */
     public io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.BufferSettings.Builder getWithRequestBodyBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getWithRequestBodyFieldBuilder().getBuilder();
     }
@@ -2351,6 +2396,7 @@ private static final long serialVersionUID = 0L;
     public Builder setClearRouteCache(boolean value) {
       
       clearRouteCache_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2368,7 +2414,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClearRouteCache() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       clearRouteCache_ = false;
       onChanged();
       return this;
@@ -2387,7 +2433,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the statusOnError field is set.
      */
     public boolean hasStatusOnError() {
-      return statusOnErrorBuilder_ != null || statusOnError_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2419,11 +2465,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         statusOnError_ = value;
-        onChanged();
       } else {
         statusOnErrorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2438,11 +2484,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.v3.HttpStatus.Builder builderForValue) {
       if (statusOnErrorBuilder_ == null) {
         statusOnError_ = builderForValue.build();
-        onChanged();
       } else {
         statusOnErrorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2455,17 +2501,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStatusOnError(io.envoyproxy.envoy.type.v3.HttpStatus value) {
       if (statusOnErrorBuilder_ == null) {
-        if (statusOnError_ != null) {
-          statusOnError_ =
-            io.envoyproxy.envoy.type.v3.HttpStatus.newBuilder(statusOnError_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          statusOnError_ != null &&
+          statusOnError_ != io.envoyproxy.envoy.type.v3.HttpStatus.getDefaultInstance()) {
+          getStatusOnErrorBuilder().mergeFrom(value);
         } else {
           statusOnError_ = value;
         }
-        onChanged();
       } else {
         statusOnErrorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2477,14 +2524,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.v3.HttpStatus status_on_error = 7;</code>
      */
     public Builder clearStatusOnError() {
-      if (statusOnErrorBuilder_ == null) {
-        statusOnError_ = null;
-        onChanged();
-      } else {
-        statusOnError_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      statusOnError_ = null;
+      if (statusOnErrorBuilder_ != null) {
+        statusOnErrorBuilder_.dispose();
         statusOnErrorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2496,7 +2542,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.v3.HttpStatus status_on_error = 7;</code>
      */
     public io.envoyproxy.envoy.type.v3.HttpStatus.Builder getStatusOnErrorBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getStatusOnErrorFieldBuilder().getBuilder();
     }
@@ -2540,9 +2586,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList metadataContextNamespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureMetadataContextNamespacesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         metadataContextNamespaces_ = new com.google.protobuf.LazyStringArrayList(metadataContextNamespaces_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000080;
        }
     }
     /**
@@ -2640,10 +2686,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMetadataContextNamespaces(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMetadataContextNamespacesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureMetadataContextNamespacesIsMutable();
       metadataContextNamespaces_.set(index, value);
       onChanged();
       return this;
@@ -2666,10 +2710,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addMetadataContextNamespaces(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMetadataContextNamespacesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureMetadataContextNamespacesIsMutable();
       metadataContextNamespaces_.add(value);
       onChanged();
       return this;
@@ -2715,7 +2757,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearMetadataContextNamespaces() {
       metadataContextNamespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2737,10 +2779,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addMetadataContextNamespacesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureMetadataContextNamespacesIsMutable();
       metadataContextNamespaces_.add(value);
       onChanged();
@@ -2749,9 +2789,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList typedMetadataContextNamespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureTypedMetadataContextNamespacesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         typedMetadataContextNamespaces_ = new com.google.protobuf.LazyStringArrayList(typedMetadataContextNamespaces_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000100;
        }
     }
     /**
@@ -2829,10 +2869,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypedMetadataContextNamespaces(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTypedMetadataContextNamespacesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTypedMetadataContextNamespacesIsMutable();
       typedMetadataContextNamespaces_.set(index, value);
       onChanged();
       return this;
@@ -2851,10 +2889,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTypedMetadataContextNamespaces(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTypedMetadataContextNamespacesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTypedMetadataContextNamespacesIsMutable();
       typedMetadataContextNamespaces_.add(value);
       onChanged();
       return this;
@@ -2892,7 +2928,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearTypedMetadataContextNamespaces() {
       typedMetadataContextNamespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2910,10 +2946,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTypedMetadataContextNamespacesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureTypedMetadataContextNamespacesIsMutable();
       typedMetadataContextNamespaces_.add(value);
       onChanged();
@@ -2935,7 +2969,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the filterEnabled field is set.
      */
     public boolean hasFilterEnabled() {
-      return filterEnabledBuilder_ != null || filterEnabled_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -2971,11 +3005,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         filterEnabled_ = value;
-        onChanged();
       } else {
         filterEnabledBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2992,11 +3026,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.Builder builderForValue) {
       if (filterEnabledBuilder_ == null) {
         filterEnabled_ = builderForValue.build();
-        onChanged();
       } else {
         filterEnabledBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3011,17 +3045,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFilterEnabled(io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent value) {
       if (filterEnabledBuilder_ == null) {
-        if (filterEnabled_ != null) {
-          filterEnabled_ =
-            io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.newBuilder(filterEnabled_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          filterEnabled_ != null &&
+          filterEnabled_ != io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.getDefaultInstance()) {
+          getFilterEnabledBuilder().mergeFrom(value);
         } else {
           filterEnabled_ = value;
         }
-        onChanged();
       } else {
         filterEnabledBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3035,14 +3070,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeFractionalPercent filter_enabled = 9;</code>
      */
     public Builder clearFilterEnabled() {
-      if (filterEnabledBuilder_ == null) {
-        filterEnabled_ = null;
-        onChanged();
-      } else {
-        filterEnabled_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      filterEnabled_ = null;
+      if (filterEnabledBuilder_ != null) {
+        filterEnabledBuilder_.dispose();
         filterEnabledBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3056,7 +3090,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeFractionalPercent filter_enabled = 9;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.Builder getFilterEnabledBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getFilterEnabledFieldBuilder().getBuilder();
     }
@@ -3115,7 +3149,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the filterEnabledMetadata field is set.
      */
     public boolean hasFilterEnabledMetadata() {
-      return filterEnabledMetadataBuilder_ != null || filterEnabledMetadata_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -3147,11 +3181,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         filterEnabledMetadata_ = value;
-        onChanged();
       } else {
         filterEnabledMetadataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3166,11 +3200,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.matcher.v3.MetadataMatcher.Builder builderForValue) {
       if (filterEnabledMetadataBuilder_ == null) {
         filterEnabledMetadata_ = builderForValue.build();
-        onChanged();
       } else {
         filterEnabledMetadataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3183,17 +3217,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFilterEnabledMetadata(io.envoyproxy.envoy.type.matcher.v3.MetadataMatcher value) {
       if (filterEnabledMetadataBuilder_ == null) {
-        if (filterEnabledMetadata_ != null) {
-          filterEnabledMetadata_ =
-            io.envoyproxy.envoy.type.matcher.v3.MetadataMatcher.newBuilder(filterEnabledMetadata_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          filterEnabledMetadata_ != null &&
+          filterEnabledMetadata_ != io.envoyproxy.envoy.type.matcher.v3.MetadataMatcher.getDefaultInstance()) {
+          getFilterEnabledMetadataBuilder().mergeFrom(value);
         } else {
           filterEnabledMetadata_ = value;
         }
-        onChanged();
       } else {
         filterEnabledMetadataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3205,14 +3240,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.MetadataMatcher filter_enabled_metadata = 14;</code>
      */
     public Builder clearFilterEnabledMetadata() {
-      if (filterEnabledMetadataBuilder_ == null) {
-        filterEnabledMetadata_ = null;
-        onChanged();
-      } else {
-        filterEnabledMetadata_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      filterEnabledMetadata_ = null;
+      if (filterEnabledMetadataBuilder_ != null) {
+        filterEnabledMetadataBuilder_.dispose();
         filterEnabledMetadataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3224,7 +3258,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.MetadataMatcher filter_enabled_metadata = 14;</code>
      */
     public io.envoyproxy.envoy.type.matcher.v3.MetadataMatcher.Builder getFilterEnabledMetadataBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getFilterEnabledMetadataFieldBuilder().getBuilder();
     }
@@ -3283,7 +3317,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the denyAtDisable field is set.
      */
     public boolean hasDenyAtDisable() {
-      return denyAtDisableBuilder_ != null || denyAtDisable_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -3323,11 +3357,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         denyAtDisable_ = value;
-        onChanged();
       } else {
         denyAtDisableBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3346,11 +3380,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder builderForValue) {
       if (denyAtDisableBuilder_ == null) {
         denyAtDisable_ = builderForValue.build();
-        onChanged();
       } else {
         denyAtDisableBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3367,17 +3401,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDenyAtDisable(io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag value) {
       if (denyAtDisableBuilder_ == null) {
-        if (denyAtDisable_ != null) {
-          denyAtDisable_ =
-            io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.newBuilder(denyAtDisable_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          denyAtDisable_ != null &&
+          denyAtDisable_ != io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.getDefaultInstance()) {
+          getDenyAtDisableBuilder().mergeFrom(value);
         } else {
           denyAtDisable_ = value;
         }
-        onChanged();
       } else {
         denyAtDisableBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3393,14 +3428,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag deny_at_disable = 11;</code>
      */
     public Builder clearDenyAtDisable() {
-      if (denyAtDisableBuilder_ == null) {
-        denyAtDisable_ = null;
-        onChanged();
-      } else {
-        denyAtDisable_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      denyAtDisable_ = null;
+      if (denyAtDisableBuilder_ != null) {
+        denyAtDisableBuilder_.dispose();
         denyAtDisableBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3416,7 +3450,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag deny_at_disable = 11;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder getDenyAtDisableBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getDenyAtDisableFieldBuilder().getBuilder();
     }
@@ -3495,6 +3529,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIncludePeerCertificate(boolean value) {
       
       includePeerCertificate_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3509,7 +3544,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncludePeerCertificate() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       includePeerCertificate_ = false;
       onChanged();
       return this;
@@ -3601,11 +3636,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       statPrefix_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3629,8 +3662,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatPrefix() {
-      
       statPrefix_ = getDefaultInstance().getStatPrefix();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -3656,12 +3689,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       statPrefix_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3725,11 +3756,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBootstrapMetadataLabelsKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       bootstrapMetadataLabelsKey_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -3744,8 +3773,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBootstrapMetadataLabelsKey() {
-      
       bootstrapMetadataLabelsKey_ = getDefaultInstance().getBootstrapMetadataLabelsKey();
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
@@ -3762,14 +3791,293 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBootstrapMetadataLabelsKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       bootstrapMetadataLabelsKey_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
+    }
+
+    private io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher allowedHeaders_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher, io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder, io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder> allowedHeadersBuilder_;
+    /**
+     * <pre>
+     * Check request to authorization server will include the client request headers that have a correspondent match
+     * in the :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. If this option isn't specified, then
+     * all client request headers are included in the check request to a gRPC authorization server, whereas no client request headers
+     * (besides the ones allowed by default - see note below) are included in the check request to an HTTP authorization server.
+     * This inconsistency between gRPC and HTTP servers is to maintain backwards compatibility with legacy behavior.
+     * .. note::
+     *  1. For requests to an HTTP authorization server: in addition to the the user's supplied matchers, ``Host``, ``Method``, ``Path``,
+     *     ``Content-Length``, and ``Authorization`` are **additionally included** in the list.
+     * .. note::
+     *  2. For requests to an HTTP authorization server: *Content-Length* will be set to 0 and the request to the
+     *  authorization server will not have a message body. However, the check request can include the buffered
+     *  client request body (controlled by :ref:`with_request_body
+     *  &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;` setting),
+     *  consequently the value of *Content-Length* of the authorization request reflects the size of
+     *  its payload size.
+     * </pre>
+     *
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 17;</code>
+     * @return Whether the allowedHeaders field is set.
+     */
+    public boolean hasAllowedHeaders() {
+      return ((bitField0_ & 0x00008000) != 0);
+    }
+    /**
+     * <pre>
+     * Check request to authorization server will include the client request headers that have a correspondent match
+     * in the :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. If this option isn't specified, then
+     * all client request headers are included in the check request to a gRPC authorization server, whereas no client request headers
+     * (besides the ones allowed by default - see note below) are included in the check request to an HTTP authorization server.
+     * This inconsistency between gRPC and HTTP servers is to maintain backwards compatibility with legacy behavior.
+     * .. note::
+     *  1. For requests to an HTTP authorization server: in addition to the the user's supplied matchers, ``Host``, ``Method``, ``Path``,
+     *     ``Content-Length``, and ``Authorization`` are **additionally included** in the list.
+     * .. note::
+     *  2. For requests to an HTTP authorization server: *Content-Length* will be set to 0 and the request to the
+     *  authorization server will not have a message body. However, the check request can include the buffered
+     *  client request body (controlled by :ref:`with_request_body
+     *  &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;` setting),
+     *  consequently the value of *Content-Length* of the authorization request reflects the size of
+     *  its payload size.
+     * </pre>
+     *
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 17;</code>
+     * @return The allowedHeaders.
+     */
+    public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher getAllowedHeaders() {
+      if (allowedHeadersBuilder_ == null) {
+        return allowedHeaders_ == null ? io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance() : allowedHeaders_;
+      } else {
+        return allowedHeadersBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Check request to authorization server will include the client request headers that have a correspondent match
+     * in the :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. If this option isn't specified, then
+     * all client request headers are included in the check request to a gRPC authorization server, whereas no client request headers
+     * (besides the ones allowed by default - see note below) are included in the check request to an HTTP authorization server.
+     * This inconsistency between gRPC and HTTP servers is to maintain backwards compatibility with legacy behavior.
+     * .. note::
+     *  1. For requests to an HTTP authorization server: in addition to the the user's supplied matchers, ``Host``, ``Method``, ``Path``,
+     *     ``Content-Length``, and ``Authorization`` are **additionally included** in the list.
+     * .. note::
+     *  2. For requests to an HTTP authorization server: *Content-Length* will be set to 0 and the request to the
+     *  authorization server will not have a message body. However, the check request can include the buffered
+     *  client request body (controlled by :ref:`with_request_body
+     *  &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;` setting),
+     *  consequently the value of *Content-Length* of the authorization request reflects the size of
+     *  its payload size.
+     * </pre>
+     *
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 17;</code>
+     */
+    public Builder setAllowedHeaders(io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher value) {
+      if (allowedHeadersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        allowedHeaders_ = value;
+      } else {
+        allowedHeadersBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Check request to authorization server will include the client request headers that have a correspondent match
+     * in the :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. If this option isn't specified, then
+     * all client request headers are included in the check request to a gRPC authorization server, whereas no client request headers
+     * (besides the ones allowed by default - see note below) are included in the check request to an HTTP authorization server.
+     * This inconsistency between gRPC and HTTP servers is to maintain backwards compatibility with legacy behavior.
+     * .. note::
+     *  1. For requests to an HTTP authorization server: in addition to the the user's supplied matchers, ``Host``, ``Method``, ``Path``,
+     *     ``Content-Length``, and ``Authorization`` are **additionally included** in the list.
+     * .. note::
+     *  2. For requests to an HTTP authorization server: *Content-Length* will be set to 0 and the request to the
+     *  authorization server will not have a message body. However, the check request can include the buffered
+     *  client request body (controlled by :ref:`with_request_body
+     *  &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;` setting),
+     *  consequently the value of *Content-Length* of the authorization request reflects the size of
+     *  its payload size.
+     * </pre>
+     *
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 17;</code>
+     */
+    public Builder setAllowedHeaders(
+        io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder builderForValue) {
+      if (allowedHeadersBuilder_ == null) {
+        allowedHeaders_ = builderForValue.build();
+      } else {
+        allowedHeadersBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Check request to authorization server will include the client request headers that have a correspondent match
+     * in the :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. If this option isn't specified, then
+     * all client request headers are included in the check request to a gRPC authorization server, whereas no client request headers
+     * (besides the ones allowed by default - see note below) are included in the check request to an HTTP authorization server.
+     * This inconsistency between gRPC and HTTP servers is to maintain backwards compatibility with legacy behavior.
+     * .. note::
+     *  1. For requests to an HTTP authorization server: in addition to the the user's supplied matchers, ``Host``, ``Method``, ``Path``,
+     *     ``Content-Length``, and ``Authorization`` are **additionally included** in the list.
+     * .. note::
+     *  2. For requests to an HTTP authorization server: *Content-Length* will be set to 0 and the request to the
+     *  authorization server will not have a message body. However, the check request can include the buffered
+     *  client request body (controlled by :ref:`with_request_body
+     *  &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;` setting),
+     *  consequently the value of *Content-Length* of the authorization request reflects the size of
+     *  its payload size.
+     * </pre>
+     *
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 17;</code>
+     */
+    public Builder mergeAllowedHeaders(io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher value) {
+      if (allowedHeadersBuilder_ == null) {
+        if (((bitField0_ & 0x00008000) != 0) &&
+          allowedHeaders_ != null &&
+          allowedHeaders_ != io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance()) {
+          getAllowedHeadersBuilder().mergeFrom(value);
+        } else {
+          allowedHeaders_ = value;
+        }
+      } else {
+        allowedHeadersBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Check request to authorization server will include the client request headers that have a correspondent match
+     * in the :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. If this option isn't specified, then
+     * all client request headers are included in the check request to a gRPC authorization server, whereas no client request headers
+     * (besides the ones allowed by default - see note below) are included in the check request to an HTTP authorization server.
+     * This inconsistency between gRPC and HTTP servers is to maintain backwards compatibility with legacy behavior.
+     * .. note::
+     *  1. For requests to an HTTP authorization server: in addition to the the user's supplied matchers, ``Host``, ``Method``, ``Path``,
+     *     ``Content-Length``, and ``Authorization`` are **additionally included** in the list.
+     * .. note::
+     *  2. For requests to an HTTP authorization server: *Content-Length* will be set to 0 and the request to the
+     *  authorization server will not have a message body. However, the check request can include the buffered
+     *  client request body (controlled by :ref:`with_request_body
+     *  &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;` setting),
+     *  consequently the value of *Content-Length* of the authorization request reflects the size of
+     *  its payload size.
+     * </pre>
+     *
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 17;</code>
+     */
+    public Builder clearAllowedHeaders() {
+      bitField0_ = (bitField0_ & ~0x00008000);
+      allowedHeaders_ = null;
+      if (allowedHeadersBuilder_ != null) {
+        allowedHeadersBuilder_.dispose();
+        allowedHeadersBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Check request to authorization server will include the client request headers that have a correspondent match
+     * in the :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. If this option isn't specified, then
+     * all client request headers are included in the check request to a gRPC authorization server, whereas no client request headers
+     * (besides the ones allowed by default - see note below) are included in the check request to an HTTP authorization server.
+     * This inconsistency between gRPC and HTTP servers is to maintain backwards compatibility with legacy behavior.
+     * .. note::
+     *  1. For requests to an HTTP authorization server: in addition to the the user's supplied matchers, ``Host``, ``Method``, ``Path``,
+     *     ``Content-Length``, and ``Authorization`` are **additionally included** in the list.
+     * .. note::
+     *  2. For requests to an HTTP authorization server: *Content-Length* will be set to 0 and the request to the
+     *  authorization server will not have a message body. However, the check request can include the buffered
+     *  client request body (controlled by :ref:`with_request_body
+     *  &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;` setting),
+     *  consequently the value of *Content-Length* of the authorization request reflects the size of
+     *  its payload size.
+     * </pre>
+     *
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 17;</code>
+     */
+    public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder getAllowedHeadersBuilder() {
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return getAllowedHeadersFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Check request to authorization server will include the client request headers that have a correspondent match
+     * in the :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. If this option isn't specified, then
+     * all client request headers are included in the check request to a gRPC authorization server, whereas no client request headers
+     * (besides the ones allowed by default - see note below) are included in the check request to an HTTP authorization server.
+     * This inconsistency between gRPC and HTTP servers is to maintain backwards compatibility with legacy behavior.
+     * .. note::
+     *  1. For requests to an HTTP authorization server: in addition to the the user's supplied matchers, ``Host``, ``Method``, ``Path``,
+     *     ``Content-Length``, and ``Authorization`` are **additionally included** in the list.
+     * .. note::
+     *  2. For requests to an HTTP authorization server: *Content-Length* will be set to 0 and the request to the
+     *  authorization server will not have a message body. However, the check request can include the buffered
+     *  client request body (controlled by :ref:`with_request_body
+     *  &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;` setting),
+     *  consequently the value of *Content-Length* of the authorization request reflects the size of
+     *  its payload size.
+     * </pre>
+     *
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 17;</code>
+     */
+    public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder getAllowedHeadersOrBuilder() {
+      if (allowedHeadersBuilder_ != null) {
+        return allowedHeadersBuilder_.getMessageOrBuilder();
+      } else {
+        return allowedHeaders_ == null ?
+            io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance() : allowedHeaders_;
+      }
+    }
+    /**
+     * <pre>
+     * Check request to authorization server will include the client request headers that have a correspondent match
+     * in the :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. If this option isn't specified, then
+     * all client request headers are included in the check request to a gRPC authorization server, whereas no client request headers
+     * (besides the ones allowed by default - see note below) are included in the check request to an HTTP authorization server.
+     * This inconsistency between gRPC and HTTP servers is to maintain backwards compatibility with legacy behavior.
+     * .. note::
+     *  1. For requests to an HTTP authorization server: in addition to the the user's supplied matchers, ``Host``, ``Method``, ``Path``,
+     *     ``Content-Length``, and ``Authorization`` are **additionally included** in the list.
+     * .. note::
+     *  2. For requests to an HTTP authorization server: *Content-Length* will be set to 0 and the request to the
+     *  authorization server will not have a message body. However, the check request can include the buffered
+     *  client request body (controlled by :ref:`with_request_body
+     *  &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;` setting),
+     *  consequently the value of *Content-Length* of the authorization request reflects the size of
+     *  its payload size.
+     * </pre>
+     *
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 17;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher, io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder, io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder> 
+        getAllowedHeadersFieldBuilder() {
+      if (allowedHeadersBuilder_ == null) {
+        allowedHeadersBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher, io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder, io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder>(
+                getAllowedHeaders(),
+                getParentForChildren(),
+                isClean());
+        allowedHeaders_ = null;
+      }
+      return allowedHeadersBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -3804,7 +4112,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExtAuthz(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MonitoringConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.container.v1.MonitoringComponentConfig.Builder subBuilder = null;
-            if (componentConfig_ != null) {
-              subBuilder = componentConfig_.toBuilder();
-            }
-            componentConfig_ = input.readMessage(com.google.container.v1.MonitoringComponentConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(componentConfig_);
-              componentConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.container.v1.ManagedPrometheusConfig.Builder subBuilder = null;
-            if (managedPrometheusConfig_ != null) {
-              subBuilder = managedPrometheusConfig_.toBuilder();
-            }
-            managedPrometheusConfig_ = input.readMessage(com.google.container.v1.ManagedPrometheusConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(managedPrometheusConfig_);
-              managedPrometheusConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1.ClusterServiceProto.internal_static_google_container_v1_MonitoringConfig_descriptor;
@@ -147,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.MonitoringComponentConfigOrBuilder getComponentConfigOrBuilder() {
-    return getComponentConfig();
+    return componentConfig_ == null ? com.google.container.v1.MonitoringComponentConfig.getDefaultInstance() : componentConfig_;
   }
 
   public static final int MANAGED_PROMETHEUS_CONFIG_FIELD_NUMBER = 2;
@@ -188,7 +123,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.ManagedPrometheusConfigOrBuilder getManagedPrometheusConfigOrBuilder() {
-    return getManagedPrometheusConfig();
+    return managedPrometheusConfig_ == null ? com.google.container.v1.ManagedPrometheusConfig.getDefaultInstance() : managedPrometheusConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -211,7 +146,7 @@ private static final long serialVersionUID = 0L;
     if (managedPrometheusConfig_ != null) {
       output.writeMessage(2, getManagedPrometheusConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -228,7 +163,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getManagedPrometheusConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -253,7 +188,7 @@ private static final long serialVersionUID = 0L;
       if (!getManagedPrometheusConfig()
           .equals(other.getManagedPrometheusConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -272,7 +207,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MANAGED_PROMETHEUS_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getManagedPrometheusConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -393,32 +328,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1.MonitoringConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (componentConfigBuilder_ == null) {
-        componentConfig_ = null;
-      } else {
-        componentConfig_ = null;
+      bitField0_ = 0;
+      componentConfig_ = null;
+      if (componentConfigBuilder_ != null) {
+        componentConfigBuilder_.dispose();
         componentConfigBuilder_ = null;
       }
-      if (managedPrometheusConfigBuilder_ == null) {
-        managedPrometheusConfig_ = null;
-      } else {
-        managedPrometheusConfig_ = null;
+      managedPrometheusConfig_ = null;
+      if (managedPrometheusConfigBuilder_ != null) {
+        managedPrometheusConfigBuilder_.dispose();
         managedPrometheusConfigBuilder_ = null;
       }
       return this;
@@ -447,18 +376,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1.MonitoringConfig buildPartial() {
       com.google.container.v1.MonitoringConfig result = new com.google.container.v1.MonitoringConfig(this);
-      if (componentConfigBuilder_ == null) {
-        result.componentConfig_ = componentConfig_;
-      } else {
-        result.componentConfig_ = componentConfigBuilder_.build();
-      }
-      if (managedPrometheusConfigBuilder_ == null) {
-        result.managedPrometheusConfig_ = managedPrometheusConfig_;
-      } else {
-        result.managedPrometheusConfig_ = managedPrometheusConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.container.v1.MonitoringConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.componentConfig_ = componentConfigBuilder_ == null
+            ? componentConfig_
+            : componentConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.managedPrometheusConfig_ = managedPrometheusConfigBuilder_ == null
+            ? managedPrometheusConfig_
+            : managedPrometheusConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -511,7 +445,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasManagedPrometheusConfig()) {
         mergeManagedPrometheusConfig(other.getManagedPrometheusConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -526,19 +460,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1.MonitoringConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getComponentConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getManagedPrometheusConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1.MonitoringConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.container.v1.MonitoringComponentConfig componentConfig_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -552,7 +514,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the componentConfig field is set.
      */
     public boolean hasComponentConfig() {
-      return componentConfigBuilder_ != null || componentConfig_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -582,11 +544,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         componentConfig_ = value;
-        onChanged();
       } else {
         componentConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -600,11 +562,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.MonitoringComponentConfig.Builder builderForValue) {
       if (componentConfigBuilder_ == null) {
         componentConfig_ = builderForValue.build();
-        onChanged();
       } else {
         componentConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -616,17 +578,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeComponentConfig(com.google.container.v1.MonitoringComponentConfig value) {
       if (componentConfigBuilder_ == null) {
-        if (componentConfig_ != null) {
-          componentConfig_ =
-            com.google.container.v1.MonitoringComponentConfig.newBuilder(componentConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          componentConfig_ != null &&
+          componentConfig_ != com.google.container.v1.MonitoringComponentConfig.getDefaultInstance()) {
+          getComponentConfigBuilder().mergeFrom(value);
         } else {
           componentConfig_ = value;
         }
-        onChanged();
       } else {
         componentConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -637,14 +600,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.MonitoringComponentConfig component_config = 1;</code>
      */
     public Builder clearComponentConfig() {
-      if (componentConfigBuilder_ == null) {
-        componentConfig_ = null;
-        onChanged();
-      } else {
-        componentConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      componentConfig_ = null;
+      if (componentConfigBuilder_ != null) {
+        componentConfigBuilder_.dispose();
         componentConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -655,7 +617,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.MonitoringComponentConfig component_config = 1;</code>
      */
     public com.google.container.v1.MonitoringComponentConfig.Builder getComponentConfigBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getComponentConfigFieldBuilder().getBuilder();
     }
@@ -708,7 +670,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the managedPrometheusConfig field is set.
      */
     public boolean hasManagedPrometheusConfig() {
-      return managedPrometheusConfigBuilder_ != null || managedPrometheusConfig_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -740,11 +702,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         managedPrometheusConfig_ = value;
-        onChanged();
       } else {
         managedPrometheusConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -759,11 +721,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.ManagedPrometheusConfig.Builder builderForValue) {
       if (managedPrometheusConfigBuilder_ == null) {
         managedPrometheusConfig_ = builderForValue.build();
-        onChanged();
       } else {
         managedPrometheusConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -776,17 +738,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeManagedPrometheusConfig(com.google.container.v1.ManagedPrometheusConfig value) {
       if (managedPrometheusConfigBuilder_ == null) {
-        if (managedPrometheusConfig_ != null) {
-          managedPrometheusConfig_ =
-            com.google.container.v1.ManagedPrometheusConfig.newBuilder(managedPrometheusConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          managedPrometheusConfig_ != null &&
+          managedPrometheusConfig_ != com.google.container.v1.ManagedPrometheusConfig.getDefaultInstance()) {
+          getManagedPrometheusConfigBuilder().mergeFrom(value);
         } else {
           managedPrometheusConfig_ = value;
         }
-        onChanged();
       } else {
         managedPrometheusConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -798,14 +761,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.ManagedPrometheusConfig managed_prometheus_config = 2;</code>
      */
     public Builder clearManagedPrometheusConfig() {
-      if (managedPrometheusConfigBuilder_ == null) {
-        managedPrometheusConfig_ = null;
-        onChanged();
-      } else {
-        managedPrometheusConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      managedPrometheusConfig_ = null;
+      if (managedPrometheusConfigBuilder_ != null) {
+        managedPrometheusConfigBuilder_.dispose();
         managedPrometheusConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -817,7 +779,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.ManagedPrometheusConfig managed_prometheus_config = 2;</code>
      */
     public com.google.container.v1.ManagedPrometheusConfig.Builder getManagedPrometheusConfigBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getManagedPrometheusConfigFieldBuilder().getBuilder();
     }
@@ -891,7 +853,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MonitoringConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

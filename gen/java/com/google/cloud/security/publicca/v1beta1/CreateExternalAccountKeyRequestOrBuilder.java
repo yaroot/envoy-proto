@@ -9,9 +9,9 @@ public interface CreateExternalAccountKeyRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The parent resource where this external_account_key will be
-   * created. Format:
-   * projects/[project_id]/locations/[location]/externalAccountKeys.
+   * Required. The parent resource where this external_account_key will be created.
+   * Format: projects/[project_id]/locations/[location].
+   * At present only the "global" location is supported.
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -20,9 +20,9 @@ public interface CreateExternalAccountKeyRequestOrBuilder extends
   java.lang.String getParent();
   /**
    * <pre>
-   * Required. The parent resource where this external_account_key will be
-   * created. Format:
-   * projects/[project_id]/locations/[location]/externalAccountKeys.
+   * Required. The parent resource where this external_account_key will be created.
+   * Format: projects/[project_id]/locations/[location].
+   * At present only the "global" location is supported.
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -33,7 +33,10 @@ public interface CreateExternalAccountKeyRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The external account key to create.
+   * Required. The external account key to create. This field only exists to future-proof
+   * the API. At present, all fields in ExternalAccountKey are output only and
+   * all values are ignored. For the purpose of the
+   * CreateExternalAccountKeyRequest, set it to a default/empty value.
    * </pre>
    *
    * <code>.google.cloud.security.publicca.v1beta1.ExternalAccountKey external_account_key = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -42,7 +45,10 @@ public interface CreateExternalAccountKeyRequestOrBuilder extends
   boolean hasExternalAccountKey();
   /**
    * <pre>
-   * Required. The external account key to create.
+   * Required. The external account key to create. This field only exists to future-proof
+   * the API. At present, all fields in ExternalAccountKey are output only and
+   * all values are ignored. For the purpose of the
+   * CreateExternalAccountKeyRequest, set it to a default/empty value.
    * </pre>
    *
    * <code>.google.cloud.security.publicca.v1beta1.ExternalAccountKey external_account_key = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -51,7 +57,10 @@ public interface CreateExternalAccountKeyRequestOrBuilder extends
   com.google.cloud.security.publicca.v1beta1.ExternalAccountKey getExternalAccountKey();
   /**
    * <pre>
-   * Required. The external account key to create.
+   * Required. The external account key to create. This field only exists to future-proof
+   * the API. At present, all fields in ExternalAccountKey are output only and
+   * all values are ignored. For the purpose of the
+   * CreateExternalAccountKeyRequest, set it to a default/empty value.
    * </pre>
    *
    * <code>.google.cloud.security.publicca.v1beta1.ExternalAccountKey external_account_key = 2 [(.google.api.field_behavior) = REQUIRED];</code>

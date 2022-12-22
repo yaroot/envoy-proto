@@ -36,101 +36,41 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateRoleRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            roleId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.iam.admin.v1.Role.Builder subBuilder = null;
-            if (role_ != null) {
-              subBuilder = role_.toBuilder();
-            }
-            role_ = input.readMessage(com.google.iam.admin.v1.Role.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(role_);
-              role_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_CreateRoleRequest_descriptor;
+    return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_CreateRoleRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_CreateRoleRequest_fieldAccessorTable
+    return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_CreateRoleRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.google.iam.admin.v1.CreateRoleRequest.class, com.google.iam.admin.v1.CreateRoleRequest.Builder.class);
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * The `parent` parameter's value depends on the target resource for the
    * request, namely
-   * [`projects`](/iam/reference/rest/v1/projects.roles) or
-   * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
-   * resource type's `parent` value format is described below:
-   * * [`projects.roles.create()`](/iam/reference/rest/v1/projects.roles/create):
+   * [`projects`](https://cloud.google.com/iam/reference/rest/v1/projects.roles)
+   * or
+   * [`organizations`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles).
+   * Each resource type's `parent` value format is described below:
+   * * [`projects.roles.create()`](https://cloud.google.com/iam/reference/rest/v1/projects.roles/create):
    *   `projects/{PROJECT_ID}`. This method creates project-level
-   *   [custom roles](/iam/docs/understanding-custom-roles).
+   *   [custom
+   *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles).
    *   Example request URL:
    *   `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles`
-   * * [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create):
+   * * [`organizations.roles.create()`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles/create):
    *   `organizations/{ORGANIZATION_ID}`. This method creates organization-level
-   *   [custom roles](/iam/docs/understanding-custom-roles). Example request
-   *   URL:
+   *   [custom
+   *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles).
+   *   Example request URL:
    *   `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles`
    * Note: Wildcard (*) values are invalid; you must specify a complete project
    * ID or organization ID.
@@ -156,18 +96,21 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The `parent` parameter's value depends on the target resource for the
    * request, namely
-   * [`projects`](/iam/reference/rest/v1/projects.roles) or
-   * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
-   * resource type's `parent` value format is described below:
-   * * [`projects.roles.create()`](/iam/reference/rest/v1/projects.roles/create):
+   * [`projects`](https://cloud.google.com/iam/reference/rest/v1/projects.roles)
+   * or
+   * [`organizations`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles).
+   * Each resource type's `parent` value format is described below:
+   * * [`projects.roles.create()`](https://cloud.google.com/iam/reference/rest/v1/projects.roles/create):
    *   `projects/{PROJECT_ID}`. This method creates project-level
-   *   [custom roles](/iam/docs/understanding-custom-roles).
+   *   [custom
+   *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles).
    *   Example request URL:
    *   `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles`
-   * * [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create):
+   * * [`organizations.roles.create()`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles/create):
    *   `organizations/{ORGANIZATION_ID}`. This method creates organization-level
-   *   [custom roles](/iam/docs/understanding-custom-roles). Example request
-   *   URL:
+   *   [custom
+   *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles).
+   *   Example request URL:
    *   `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles`
    * Note: Wildcard (*) values are invalid; you must specify a complete project
    * ID or organization ID.
@@ -192,7 +135,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROLE_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object roleId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object roleId_ = "";
   /**
    * <pre>
    * The role ID to use for this role.
@@ -278,7 +222,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.iam.admin.v1.RoleOrBuilder getRoleOrBuilder() {
-    return getRole();
+    return role_ == null ? com.google.iam.admin.v1.Role.getDefaultInstance() : role_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -304,7 +248,7 @@ private static final long serialVersionUID = 0L;
     if (role_ != null) {
       output.writeMessage(3, getRole());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -323,7 +267,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getRole());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -347,7 +291,7 @@ private static final long serialVersionUID = 0L;
       if (!getRole()
           .equals(other.getRole())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -366,7 +310,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ROLE_FIELD_NUMBER;
       hash = (53 * hash) + getRole().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -474,43 +418,36 @@ private static final long serialVersionUID = 0L;
       com.google.iam.admin.v1.CreateRoleRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_CreateRoleRequest_descriptor;
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_CreateRoleRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_CreateRoleRequest_fieldAccessorTable
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_CreateRoleRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.iam.admin.v1.CreateRoleRequest.class, com.google.iam.admin.v1.CreateRoleRequest.Builder.class);
     }
 
     // Construct using com.google.iam.admin.v1.CreateRoleRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       roleId_ = "";
-
-      if (roleBuilder_ == null) {
-        role_ = null;
-      } else {
-        role_ = null;
+      role_ = null;
+      if (roleBuilder_ != null) {
+        roleBuilder_.dispose();
         roleBuilder_ = null;
       }
       return this;
@@ -519,7 +456,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_CreateRoleRequest_descriptor;
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_CreateRoleRequest_descriptor;
     }
 
     @java.lang.Override
@@ -539,15 +476,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.iam.admin.v1.CreateRoleRequest buildPartial() {
       com.google.iam.admin.v1.CreateRoleRequest result = new com.google.iam.admin.v1.CreateRoleRequest(this);
-      result.parent_ = parent_;
-      result.roleId_ = roleId_;
-      if (roleBuilder_ == null) {
-        result.role_ = role_;
-      } else {
-        result.role_ = roleBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.iam.admin.v1.CreateRoleRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.roleId_ = roleId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.role_ = roleBuilder_ == null
+            ? role_
+            : roleBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -596,16 +542,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.iam.admin.v1.CreateRoleRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getRoleId().isEmpty()) {
         roleId_ = other.roleId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasRole()) {
         mergeRole(other.getRole());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -620,37 +568,71 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.iam.admin.v1.CreateRoleRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              roleId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getRoleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.iam.admin.v1.CreateRoleRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
      * <pre>
      * The `parent` parameter's value depends on the target resource for the
      * request, namely
-     * [`projects`](/iam/reference/rest/v1/projects.roles) or
-     * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
-     * resource type's `parent` value format is described below:
-     * * [`projects.roles.create()`](/iam/reference/rest/v1/projects.roles/create):
+     * [`projects`](https://cloud.google.com/iam/reference/rest/v1/projects.roles)
+     * or
+     * [`organizations`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles).
+     * Each resource type's `parent` value format is described below:
+     * * [`projects.roles.create()`](https://cloud.google.com/iam/reference/rest/v1/projects.roles/create):
      *   `projects/{PROJECT_ID}`. This method creates project-level
-     *   [custom roles](/iam/docs/understanding-custom-roles).
+     *   [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles).
      *   Example request URL:
      *   `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles`
-     * * [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create):
+     * * [`organizations.roles.create()`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles/create):
      *   `organizations/{ORGANIZATION_ID}`. This method creates organization-level
-     *   [custom roles](/iam/docs/understanding-custom-roles). Example request
-     *   URL:
+     *   [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles).
+     *   Example request URL:
      *   `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles`
      * Note: Wildcard (*) values are invalid; you must specify a complete project
      * ID or organization ID.
@@ -675,18 +657,21 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The `parent` parameter's value depends on the target resource for the
      * request, namely
-     * [`projects`](/iam/reference/rest/v1/projects.roles) or
-     * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
-     * resource type's `parent` value format is described below:
-     * * [`projects.roles.create()`](/iam/reference/rest/v1/projects.roles/create):
+     * [`projects`](https://cloud.google.com/iam/reference/rest/v1/projects.roles)
+     * or
+     * [`organizations`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles).
+     * Each resource type's `parent` value format is described below:
+     * * [`projects.roles.create()`](https://cloud.google.com/iam/reference/rest/v1/projects.roles/create):
      *   `projects/{PROJECT_ID}`. This method creates project-level
-     *   [custom roles](/iam/docs/understanding-custom-roles).
+     *   [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles).
      *   Example request URL:
      *   `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles`
-     * * [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create):
+     * * [`organizations.roles.create()`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles/create):
      *   `organizations/{ORGANIZATION_ID}`. This method creates organization-level
-     *   [custom roles](/iam/docs/understanding-custom-roles). Example request
-     *   URL:
+     *   [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles).
+     *   Example request URL:
      *   `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles`
      * Note: Wildcard (*) values are invalid; you must specify a complete project
      * ID or organization ID.
@@ -712,18 +697,21 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The `parent` parameter's value depends on the target resource for the
      * request, namely
-     * [`projects`](/iam/reference/rest/v1/projects.roles) or
-     * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
-     * resource type's `parent` value format is described below:
-     * * [`projects.roles.create()`](/iam/reference/rest/v1/projects.roles/create):
+     * [`projects`](https://cloud.google.com/iam/reference/rest/v1/projects.roles)
+     * or
+     * [`organizations`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles).
+     * Each resource type's `parent` value format is described below:
+     * * [`projects.roles.create()`](https://cloud.google.com/iam/reference/rest/v1/projects.roles/create):
      *   `projects/{PROJECT_ID}`. This method creates project-level
-     *   [custom roles](/iam/docs/understanding-custom-roles).
+     *   [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles).
      *   Example request URL:
      *   `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles`
-     * * [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create):
+     * * [`organizations.roles.create()`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles/create):
      *   `organizations/{ORGANIZATION_ID}`. This method creates organization-level
-     *   [custom roles](/iam/docs/understanding-custom-roles). Example request
-     *   URL:
+     *   [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles).
+     *   Example request URL:
      *   `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles`
      * Note: Wildcard (*) values are invalid; you must specify a complete project
      * ID or organization ID.
@@ -735,11 +723,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -747,18 +733,21 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The `parent` parameter's value depends on the target resource for the
      * request, namely
-     * [`projects`](/iam/reference/rest/v1/projects.roles) or
-     * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
-     * resource type's `parent` value format is described below:
-     * * [`projects.roles.create()`](/iam/reference/rest/v1/projects.roles/create):
+     * [`projects`](https://cloud.google.com/iam/reference/rest/v1/projects.roles)
+     * or
+     * [`organizations`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles).
+     * Each resource type's `parent` value format is described below:
+     * * [`projects.roles.create()`](https://cloud.google.com/iam/reference/rest/v1/projects.roles/create):
      *   `projects/{PROJECT_ID}`. This method creates project-level
-     *   [custom roles](/iam/docs/understanding-custom-roles).
+     *   [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles).
      *   Example request URL:
      *   `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles`
-     * * [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create):
+     * * [`organizations.roles.create()`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles/create):
      *   `organizations/{ORGANIZATION_ID}`. This method creates organization-level
-     *   [custom roles](/iam/docs/understanding-custom-roles). Example request
-     *   URL:
+     *   [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles).
+     *   Example request URL:
      *   `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles`
      * Note: Wildcard (*) values are invalid; you must specify a complete project
      * ID or organization ID.
@@ -768,8 +757,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -777,18 +766,21 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The `parent` parameter's value depends on the target resource for the
      * request, namely
-     * [`projects`](/iam/reference/rest/v1/projects.roles) or
-     * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
-     * resource type's `parent` value format is described below:
-     * * [`projects.roles.create()`](/iam/reference/rest/v1/projects.roles/create):
+     * [`projects`](https://cloud.google.com/iam/reference/rest/v1/projects.roles)
+     * or
+     * [`organizations`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles).
+     * Each resource type's `parent` value format is described below:
+     * * [`projects.roles.create()`](https://cloud.google.com/iam/reference/rest/v1/projects.roles/create):
      *   `projects/{PROJECT_ID}`. This method creates project-level
-     *   [custom roles](/iam/docs/understanding-custom-roles).
+     *   [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles).
      *   Example request URL:
      *   `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles`
-     * * [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create):
+     * * [`organizations.roles.create()`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles/create):
      *   `organizations/{ORGANIZATION_ID}`. This method creates organization-level
-     *   [custom roles](/iam/docs/understanding-custom-roles). Example request
-     *   URL:
+     *   [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles).
+     *   Example request URL:
      *   `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles`
      * Note: Wildcard (*) values are invalid; you must specify a complete project
      * ID or organization ID.
@@ -800,12 +792,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -872,11 +862,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRoleId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       roleId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -892,8 +880,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRoleId() {
-      
       roleId_ = getDefaultInstance().getRoleId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -911,12 +899,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRoleIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       roleId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -933,7 +919,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the role field is set.
      */
     public boolean hasRole() {
-      return roleBuilder_ != null || role_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -963,11 +949,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         role_ = value;
-        onChanged();
       } else {
         roleBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -981,11 +967,11 @@ private static final long serialVersionUID = 0L;
         com.google.iam.admin.v1.Role.Builder builderForValue) {
       if (roleBuilder_ == null) {
         role_ = builderForValue.build();
-        onChanged();
       } else {
         roleBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -997,17 +983,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRole(com.google.iam.admin.v1.Role value) {
       if (roleBuilder_ == null) {
-        if (role_ != null) {
-          role_ =
-            com.google.iam.admin.v1.Role.newBuilder(role_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          role_ != null &&
+          role_ != com.google.iam.admin.v1.Role.getDefaultInstance()) {
+          getRoleBuilder().mergeFrom(value);
         } else {
           role_ = value;
         }
-        onChanged();
       } else {
         roleBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1018,14 +1005,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.iam.admin.v1.Role role = 3;</code>
      */
     public Builder clearRole() {
-      if (roleBuilder_ == null) {
-        role_ = null;
-        onChanged();
-      } else {
-        role_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      role_ = null;
+      if (roleBuilder_ != null) {
+        roleBuilder_.dispose();
         roleBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1036,7 +1022,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.iam.admin.v1.Role role = 3;</code>
      */
     public com.google.iam.admin.v1.Role.Builder getRoleBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getRoleFieldBuilder().getBuilder();
     }
@@ -1108,7 +1094,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateRoleRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

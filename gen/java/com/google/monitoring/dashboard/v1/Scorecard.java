@@ -36,99 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Scorecard(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.monitoring.dashboard.v1.TimeSeriesQuery.Builder subBuilder = null;
-            if (timeSeriesQuery_ != null) {
-              subBuilder = timeSeriesQuery_.toBuilder();
-            }
-            timeSeriesQuery_ = input.readMessage(com.google.monitoring.dashboard.v1.TimeSeriesQuery.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timeSeriesQuery_);
-              timeSeriesQuery_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.monitoring.dashboard.v1.Scorecard.GaugeView.Builder subBuilder = null;
-            if (dataViewCase_ == 4) {
-              subBuilder = ((com.google.monitoring.dashboard.v1.Scorecard.GaugeView) dataView_).toBuilder();
-            }
-            dataView_ =
-                input.readMessage(com.google.monitoring.dashboard.v1.Scorecard.GaugeView.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.dashboard.v1.Scorecard.GaugeView) dataView_);
-              dataView_ = subBuilder.buildPartial();
-            }
-            dataViewCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.monitoring.dashboard.v1.Scorecard.SparkChartView.Builder subBuilder = null;
-            if (dataViewCase_ == 5) {
-              subBuilder = ((com.google.monitoring.dashboard.v1.Scorecard.SparkChartView) dataView_).toBuilder();
-            }
-            dataView_ =
-                input.readMessage(com.google.monitoring.dashboard.v1.Scorecard.SparkChartView.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.dashboard.v1.Scorecard.SparkChartView) dataView_);
-              dataView_ = subBuilder.buildPartial();
-            }
-            dataViewCase_ = 5;
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              thresholds_ = new java.util.ArrayList<com.google.monitoring.dashboard.v1.Threshold>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            thresholds_.add(
-                input.readMessage(com.google.monitoring.dashboard.v1.Threshold.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        thresholds_ = java.util.Collections.unmodifiableList(thresholds_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.dashboard.v1.ScorecardProto.internal_static_google_monitoring_dashboard_v1_Scorecard_descriptor;
@@ -201,55 +108,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GaugeView(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 9: {
-
-              lowerBound_ = input.readDouble();
-              break;
-            }
-            case 17: {
-
-              upperBound_ = input.readDouble();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.monitoring.dashboard.v1.ScorecardProto.internal_static_google_monitoring_dashboard_v1_Scorecard_GaugeView_descriptor;
@@ -264,7 +122,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int LOWER_BOUND_FIELD_NUMBER = 1;
-    private double lowerBound_;
+    private double lowerBound_ = 0D;
     /**
      * <pre>
      * The lower bound for this gauge chart. The value of the chart should
@@ -280,7 +138,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int UPPER_BOUND_FIELD_NUMBER = 2;
-    private double upperBound_;
+    private double upperBound_ = 0D;
     /**
      * <pre>
      * The upper bound for this gauge chart. The value of the chart should
@@ -315,7 +173,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Double.doubleToRawLongBits(upperBound_) != 0) {
         output.writeDouble(2, upperBound_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -332,7 +190,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(2, upperBound_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -353,7 +211,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Double.doubleToLongBits(getUpperBound())
           != java.lang.Double.doubleToLongBits(
               other.getUpperBound())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -370,7 +228,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UPPER_BOUND_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getUpperBound()));
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -493,26 +351,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.monitoring.dashboard.v1.Scorecard.GaugeView.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         lowerBound_ = 0D;
-
         upperBound_ = 0D;
-
         return this;
       }
 
@@ -539,10 +391,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.monitoring.dashboard.v1.Scorecard.GaugeView buildPartial() {
         com.google.monitoring.dashboard.v1.Scorecard.GaugeView result = new com.google.monitoring.dashboard.v1.Scorecard.GaugeView(this);
-        result.lowerBound_ = lowerBound_;
-        result.upperBound_ = upperBound_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.monitoring.dashboard.v1.Scorecard.GaugeView result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.lowerBound_ = lowerBound_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.upperBound_ = upperBound_;
+        }
       }
 
       @java.lang.Override
@@ -595,7 +456,7 @@ private static final long serialVersionUID = 0L;
         if (other.getUpperBound() != 0D) {
           setUpperBound(other.getUpperBound());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -610,19 +471,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.monitoring.dashboard.v1.Scorecard.GaugeView parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                lowerBound_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              case 17: {
+                upperBound_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 17
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.monitoring.dashboard.v1.Scorecard.GaugeView) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private double lowerBound_ ;
       /**
@@ -651,6 +536,7 @@ private static final long serialVersionUID = 0L;
       public Builder setLowerBound(double value) {
         
         lowerBound_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -664,7 +550,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearLowerBound() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         lowerBound_ = 0D;
         onChanged();
         return this;
@@ -697,6 +583,7 @@ private static final long serialVersionUID = 0L;
       public Builder setUpperBound(double value) {
         
         upperBound_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -710,7 +597,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearUpperBound() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         upperBound_ = 0D;
         onChanged();
         return this;
@@ -748,7 +635,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GaugeView(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -865,64 +763,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SparkChartView(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              sparkChartType_ = rawValue;
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (minAlignmentPeriod_ != null) {
-                subBuilder = minAlignmentPeriod_.toBuilder();
-              }
-              minAlignmentPeriod_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(minAlignmentPeriod_);
-                minAlignmentPeriod_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.monitoring.dashboard.v1.ScorecardProto.internal_static_google_monitoring_dashboard_v1_Scorecard_SparkChartView_descriptor;
@@ -937,7 +777,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SPARK_CHART_TYPE_FIELD_NUMBER = 1;
-    private int sparkChartType_;
+    private int sparkChartType_ = 0;
     /**
      * <pre>
      * Required. The type of sparkchart to show in this chartView.
@@ -958,8 +798,7 @@ private static final long serialVersionUID = 0L;
      * @return The sparkChartType.
      */
     @java.lang.Override public com.google.monitoring.dashboard.v1.SparkChartType getSparkChartType() {
-      @SuppressWarnings("deprecation")
-      com.google.monitoring.dashboard.v1.SparkChartType result = com.google.monitoring.dashboard.v1.SparkChartType.valueOf(sparkChartType_);
+      com.google.monitoring.dashboard.v1.SparkChartType result = com.google.monitoring.dashboard.v1.SparkChartType.forNumber(sparkChartType_);
       return result == null ? com.google.monitoring.dashboard.v1.SparkChartType.UNRECOGNIZED : result;
     }
 
@@ -1010,7 +849,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getMinAlignmentPeriodOrBuilder() {
-      return getMinAlignmentPeriod();
+      return minAlignmentPeriod_ == null ? com.google.protobuf.Duration.getDefaultInstance() : minAlignmentPeriod_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1033,7 +872,7 @@ private static final long serialVersionUID = 0L;
       if (minAlignmentPeriod_ != null) {
         output.writeMessage(2, getMinAlignmentPeriod());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1050,7 +889,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getMinAlignmentPeriod());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1071,7 +910,7 @@ private static final long serialVersionUID = 0L;
         if (!getMinAlignmentPeriod()
             .equals(other.getMinAlignmentPeriod())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1088,7 +927,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + MIN_ALIGNMENT_PERIOD_FIELD_NUMBER;
         hash = (53 * hash) + getMinAlignmentPeriod().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1212,28 +1051,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.monitoring.dashboard.v1.Scorecard.SparkChartView.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         sparkChartType_ = 0;
-
-        if (minAlignmentPeriodBuilder_ == null) {
-          minAlignmentPeriod_ = null;
-        } else {
-          minAlignmentPeriod_ = null;
+        minAlignmentPeriod_ = null;
+        if (minAlignmentPeriodBuilder_ != null) {
+          minAlignmentPeriodBuilder_.dispose();
           minAlignmentPeriodBuilder_ = null;
         }
         return this;
@@ -1262,14 +1095,21 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.monitoring.dashboard.v1.Scorecard.SparkChartView buildPartial() {
         com.google.monitoring.dashboard.v1.Scorecard.SparkChartView result = new com.google.monitoring.dashboard.v1.Scorecard.SparkChartView(this);
-        result.sparkChartType_ = sparkChartType_;
-        if (minAlignmentPeriodBuilder_ == null) {
-          result.minAlignmentPeriod_ = minAlignmentPeriod_;
-        } else {
-          result.minAlignmentPeriod_ = minAlignmentPeriodBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.monitoring.dashboard.v1.Scorecard.SparkChartView result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.sparkChartType_ = sparkChartType_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.minAlignmentPeriod_ = minAlignmentPeriodBuilder_ == null
+              ? minAlignmentPeriod_
+              : minAlignmentPeriodBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1322,7 +1162,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasMinAlignmentPeriod()) {
           mergeMinAlignmentPeriod(other.getMinAlignmentPeriod());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1337,19 +1177,45 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.monitoring.dashboard.v1.Scorecard.SparkChartView parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                sparkChartType_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                input.readMessage(
+                    getMinAlignmentPeriodFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.monitoring.dashboard.v1.Scorecard.SparkChartView) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int sparkChartType_ = 0;
       /**
@@ -1373,8 +1239,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setSparkChartTypeValue(int value) {
-        
         sparkChartType_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1388,8 +1254,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.monitoring.dashboard.v1.SparkChartType getSparkChartType() {
-        @SuppressWarnings("deprecation")
-        com.google.monitoring.dashboard.v1.SparkChartType result = com.google.monitoring.dashboard.v1.SparkChartType.valueOf(sparkChartType_);
+        com.google.monitoring.dashboard.v1.SparkChartType result = com.google.monitoring.dashboard.v1.SparkChartType.forNumber(sparkChartType_);
         return result == null ? com.google.monitoring.dashboard.v1.SparkChartType.UNRECOGNIZED : result;
       }
       /**
@@ -1405,7 +1270,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         sparkChartType_ = value.getNumber();
         onChanged();
         return this;
@@ -1419,7 +1284,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearSparkChartType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         sparkChartType_ = 0;
         onChanged();
         return this;
@@ -1441,7 +1306,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the minAlignmentPeriod field is set.
        */
       public boolean hasMinAlignmentPeriod() {
-        return minAlignmentPeriodBuilder_ != null || minAlignmentPeriod_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -1479,11 +1344,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           minAlignmentPeriod_ = value;
-          onChanged();
         } else {
           minAlignmentPeriodBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1501,11 +1366,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration.Builder builderForValue) {
         if (minAlignmentPeriodBuilder_ == null) {
           minAlignmentPeriod_ = builderForValue.build();
-          onChanged();
         } else {
           minAlignmentPeriodBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1521,17 +1386,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeMinAlignmentPeriod(com.google.protobuf.Duration value) {
         if (minAlignmentPeriodBuilder_ == null) {
-          if (minAlignmentPeriod_ != null) {
-            minAlignmentPeriod_ =
-              com.google.protobuf.Duration.newBuilder(minAlignmentPeriod_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            minAlignmentPeriod_ != null &&
+            minAlignmentPeriod_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getMinAlignmentPeriodBuilder().mergeFrom(value);
           } else {
             minAlignmentPeriod_ = value;
           }
-          onChanged();
         } else {
           minAlignmentPeriodBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1546,14 +1412,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration min_alignment_period = 2;</code>
        */
       public Builder clearMinAlignmentPeriod() {
-        if (minAlignmentPeriodBuilder_ == null) {
-          minAlignmentPeriod_ = null;
-          onChanged();
-        } else {
-          minAlignmentPeriod_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        minAlignmentPeriod_ = null;
+        if (minAlignmentPeriodBuilder_ != null) {
+          minAlignmentPeriodBuilder_.dispose();
           minAlignmentPeriodBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1568,7 +1433,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration min_alignment_period = 2;</code>
        */
       public com.google.protobuf.Duration.Builder getMinAlignmentPeriodBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getMinAlignmentPeriodFieldBuilder().getBuilder();
       }
@@ -1648,7 +1513,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SparkChartView(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1747,7 +1623,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.monitoring.dashboard.v1.TimeSeriesQueryOrBuilder getTimeSeriesQueryOrBuilder() {
-    return getTimeSeriesQuery();
+    return timeSeriesQuery_ == null ? com.google.monitoring.dashboard.v1.TimeSeriesQuery.getDefaultInstance() : timeSeriesQuery_;
   }
 
   public static final int GAUGE_VIEW_FIELD_NUMBER = 4;
@@ -1837,6 +1713,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int THRESHOLDS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.monitoring.dashboard.v1.Threshold> thresholds_;
   /**
    * <pre>
@@ -1848,6 +1725,7 @@ private static final long serialVersionUID = 0L;
    * above/below, then the scorecard is in a warning state - unless x also puts
    * it in a danger state. (Danger trumps warning.)
    * As an example, consider a scorecard with the following four thresholds:
+   * ```
    * {
    *   value: 90,
    *   category: 'DANGER',
@@ -1868,6 +1746,7 @@ private static final long serialVersionUID = 0L;
    *   category: 'WARNING',
    *   trigger: 'BELOW',
    * }
+   * ```
    * Then: values less than or equal to 10 would put the scorecard in a DANGER
    * state, values greater than 10 but less than or equal to 20 a WARNING state,
    * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -1891,6 +1770,7 @@ private static final long serialVersionUID = 0L;
    * above/below, then the scorecard is in a warning state - unless x also puts
    * it in a danger state. (Danger trumps warning.)
    * As an example, consider a scorecard with the following four thresholds:
+   * ```
    * {
    *   value: 90,
    *   category: 'DANGER',
@@ -1911,6 +1791,7 @@ private static final long serialVersionUID = 0L;
    *   category: 'WARNING',
    *   trigger: 'BELOW',
    * }
+   * ```
    * Then: values less than or equal to 10 would put the scorecard in a DANGER
    * state, values greater than 10 but less than or equal to 20 a WARNING state,
    * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -1935,6 +1816,7 @@ private static final long serialVersionUID = 0L;
    * above/below, then the scorecard is in a warning state - unless x also puts
    * it in a danger state. (Danger trumps warning.)
    * As an example, consider a scorecard with the following four thresholds:
+   * ```
    * {
    *   value: 90,
    *   category: 'DANGER',
@@ -1955,6 +1837,7 @@ private static final long serialVersionUID = 0L;
    *   category: 'WARNING',
    *   trigger: 'BELOW',
    * }
+   * ```
    * Then: values less than or equal to 10 would put the scorecard in a DANGER
    * state, values greater than 10 but less than or equal to 20 a WARNING state,
    * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -1978,6 +1861,7 @@ private static final long serialVersionUID = 0L;
    * above/below, then the scorecard is in a warning state - unless x also puts
    * it in a danger state. (Danger trumps warning.)
    * As an example, consider a scorecard with the following four thresholds:
+   * ```
    * {
    *   value: 90,
    *   category: 'DANGER',
@@ -1998,6 +1882,7 @@ private static final long serialVersionUID = 0L;
    *   category: 'WARNING',
    *   trigger: 'BELOW',
    * }
+   * ```
    * Then: values less than or equal to 10 would put the scorecard in a DANGER
    * state, values greater than 10 but less than or equal to 20 a WARNING state,
    * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -2021,6 +1906,7 @@ private static final long serialVersionUID = 0L;
    * above/below, then the scorecard is in a warning state - unless x also puts
    * it in a danger state. (Danger trumps warning.)
    * As an example, consider a scorecard with the following four thresholds:
+   * ```
    * {
    *   value: 90,
    *   category: 'DANGER',
@@ -2041,6 +1927,7 @@ private static final long serialVersionUID = 0L;
    *   category: 'WARNING',
    *   trigger: 'BELOW',
    * }
+   * ```
    * Then: values less than or equal to 10 would put the scorecard in a DANGER
    * state, values greater than 10 but less than or equal to 20 a WARNING state,
    * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -2082,7 +1969,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < thresholds_.size(); i++) {
       output.writeMessage(6, thresholds_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2107,7 +1994,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, thresholds_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2142,7 +2029,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2173,7 +2060,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2295,35 +2182,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.dashboard.v1.Scorecard.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getThresholdsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (timeSeriesQueryBuilder_ == null) {
-        timeSeriesQuery_ = null;
-      } else {
-        timeSeriesQuery_ = null;
+      bitField0_ = 0;
+      timeSeriesQuery_ = null;
+      if (timeSeriesQueryBuilder_ != null) {
+        timeSeriesQueryBuilder_.dispose();
         timeSeriesQueryBuilder_ = null;
+      }
+      if (gaugeViewBuilder_ != null) {
+        gaugeViewBuilder_.clear();
+      }
+      if (sparkChartViewBuilder_ != null) {
+        sparkChartViewBuilder_.clear();
       }
       if (thresholdsBuilder_ == null) {
         thresholds_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        thresholds_ = null;
         thresholdsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       dataViewCase_ = 0;
       dataView_ = null;
       return this;
@@ -2352,38 +2240,45 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.Scorecard buildPartial() {
       com.google.monitoring.dashboard.v1.Scorecard result = new com.google.monitoring.dashboard.v1.Scorecard(this);
-      int from_bitField0_ = bitField0_;
-      if (timeSeriesQueryBuilder_ == null) {
-        result.timeSeriesQuery_ = timeSeriesQuery_;
-      } else {
-        result.timeSeriesQuery_ = timeSeriesQueryBuilder_.build();
-      }
-      if (dataViewCase_ == 4) {
-        if (gaugeViewBuilder_ == null) {
-          result.dataView_ = dataView_;
-        } else {
-          result.dataView_ = gaugeViewBuilder_.build();
-        }
-      }
-      if (dataViewCase_ == 5) {
-        if (sparkChartViewBuilder_ == null) {
-          result.dataView_ = dataView_;
-        } else {
-          result.dataView_ = sparkChartViewBuilder_.build();
-        }
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.monitoring.dashboard.v1.Scorecard result) {
       if (thresholdsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           thresholds_ = java.util.Collections.unmodifiableList(thresholds_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.thresholds_ = thresholds_;
       } else {
         result.thresholds_ = thresholdsBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.monitoring.dashboard.v1.Scorecard result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.timeSeriesQuery_ = timeSeriesQueryBuilder_ == null
+            ? timeSeriesQuery_
+            : timeSeriesQueryBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.monitoring.dashboard.v1.Scorecard result) {
       result.dataViewCase_ = dataViewCase_;
-      onBuilt();
-      return result;
+      result.dataView_ = this.dataView_;
+      if (dataViewCase_ == 4 &&
+          gaugeViewBuilder_ != null) {
+        result.dataView_ = gaugeViewBuilder_.build();
+      }
+      if (dataViewCase_ == 5 &&
+          sparkChartViewBuilder_ != null) {
+        result.dataView_ = sparkChartViewBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2437,7 +2332,7 @@ private static final long serialVersionUID = 0L;
         if (!other.thresholds_.isEmpty()) {
           if (thresholds_.isEmpty()) {
             thresholds_ = other.thresholds_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureThresholdsIsMutable();
             thresholds_.addAll(other.thresholds_);
@@ -2450,7 +2345,7 @@ private static final long serialVersionUID = 0L;
             thresholdsBuilder_.dispose();
             thresholdsBuilder_ = null;
             thresholds_ = other.thresholds_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             thresholdsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getThresholdsFieldBuilder() : null;
@@ -2472,7 +2367,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2487,17 +2382,64 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.dashboard.v1.Scorecard parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTimeSeriesQueryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 34: {
+              input.readMessage(
+                  getGaugeViewFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              dataViewCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getSparkChartViewFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              dataViewCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              com.google.monitoring.dashboard.v1.Threshold m =
+                  input.readMessage(
+                      com.google.monitoring.dashboard.v1.Threshold.parser(),
+                      extensionRegistry);
+              if (thresholdsBuilder_ == null) {
+                ensureThresholdsIsMutable();
+                thresholds_.add(m);
+              } else {
+                thresholdsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.dashboard.v1.Scorecard) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int dataViewCase_ = 0;
@@ -2530,7 +2472,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timeSeriesQuery field is set.
      */
     public boolean hasTimeSeriesQuery() {
-      return timeSeriesQueryBuilder_ != null || timeSeriesQuery_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -2562,11 +2504,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timeSeriesQuery_ = value;
-        onChanged();
       } else {
         timeSeriesQueryBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2581,11 +2523,11 @@ private static final long serialVersionUID = 0L;
         com.google.monitoring.dashboard.v1.TimeSeriesQuery.Builder builderForValue) {
       if (timeSeriesQueryBuilder_ == null) {
         timeSeriesQuery_ = builderForValue.build();
-        onChanged();
       } else {
         timeSeriesQueryBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2598,17 +2540,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimeSeriesQuery(com.google.monitoring.dashboard.v1.TimeSeriesQuery value) {
       if (timeSeriesQueryBuilder_ == null) {
-        if (timeSeriesQuery_ != null) {
-          timeSeriesQuery_ =
-            com.google.monitoring.dashboard.v1.TimeSeriesQuery.newBuilder(timeSeriesQuery_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          timeSeriesQuery_ != null &&
+          timeSeriesQuery_ != com.google.monitoring.dashboard.v1.TimeSeriesQuery.getDefaultInstance()) {
+          getTimeSeriesQueryBuilder().mergeFrom(value);
         } else {
           timeSeriesQuery_ = value;
         }
-        onChanged();
       } else {
         timeSeriesQueryBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2620,14 +2563,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.dashboard.v1.TimeSeriesQuery time_series_query = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearTimeSeriesQuery() {
-      if (timeSeriesQueryBuilder_ == null) {
-        timeSeriesQuery_ = null;
-        onChanged();
-      } else {
-        timeSeriesQuery_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      timeSeriesQuery_ = null;
+      if (timeSeriesQueryBuilder_ != null) {
+        timeSeriesQueryBuilder_.dispose();
         timeSeriesQueryBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2639,7 +2581,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.dashboard.v1.TimeSeriesQuery time_series_query = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.monitoring.dashboard.v1.TimeSeriesQuery.Builder getTimeSeriesQueryBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getTimeSeriesQueryFieldBuilder().getBuilder();
     }
@@ -2855,7 +2797,7 @@ private static final long serialVersionUID = 0L;
         dataView_ = null;
       }
       dataViewCase_ = 4;
-      onChanged();;
+      onChanged();
       return gaugeViewBuilder_;
     }
 
@@ -3033,16 +2975,16 @@ private static final long serialVersionUID = 0L;
         dataView_ = null;
       }
       dataViewCase_ = 5;
-      onChanged();;
+      onChanged();
       return sparkChartViewBuilder_;
     }
 
     private java.util.List<com.google.monitoring.dashboard.v1.Threshold> thresholds_ =
       java.util.Collections.emptyList();
     private void ensureThresholdsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         thresholds_ = new java.util.ArrayList<com.google.monitoring.dashboard.v1.Threshold>(thresholds_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -3059,6 +3001,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3079,6 +3022,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3105,6 +3049,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3125,6 +3070,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3151,6 +3097,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3171,6 +3118,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3197,6 +3145,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3217,6 +3166,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3250,6 +3200,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3270,6 +3221,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3300,6 +3252,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3320,6 +3273,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3352,6 +3306,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3372,6 +3327,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3405,6 +3361,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3425,6 +3382,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3455,6 +3413,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3475,6 +3434,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3505,6 +3465,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3525,6 +3486,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3556,6 +3518,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3576,6 +3539,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3588,7 +3552,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearThresholds() {
       if (thresholdsBuilder_ == null) {
         thresholds_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         thresholdsBuilder_.clear();
@@ -3605,6 +3569,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3625,6 +3590,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3654,6 +3620,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3674,6 +3641,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3697,6 +3665,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3717,6 +3686,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3743,6 +3713,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3763,6 +3734,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3790,6 +3762,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3810,6 +3783,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3833,6 +3807,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3853,6 +3828,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3877,6 +3853,7 @@ private static final long serialVersionUID = 0L;
      * above/below, then the scorecard is in a warning state - unless x also puts
      * it in a danger state. (Danger trumps warning.)
      * As an example, consider a scorecard with the following four thresholds:
+     * ```
      * {
      *   value: 90,
      *   category: 'DANGER',
@@ -3897,6 +3874,7 @@ private static final long serialVersionUID = 0L;
      *   category: 'WARNING',
      *   trigger: 'BELOW',
      * }
+     * ```
      * Then: values less than or equal to 10 would put the scorecard in a DANGER
      * state, values greater than 10 but less than or equal to 20 a WARNING state,
      * values strictly between 20 and 70 an OK state, values greater than or equal
@@ -3917,7 +3895,7 @@ private static final long serialVersionUID = 0L;
         thresholdsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.monitoring.dashboard.v1.Threshold, com.google.monitoring.dashboard.v1.Threshold.Builder, com.google.monitoring.dashboard.v1.ThresholdOrBuilder>(
                 thresholds_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         thresholds_ = null;
@@ -3957,7 +3935,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Scorecard(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

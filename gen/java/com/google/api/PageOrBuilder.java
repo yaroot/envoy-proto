@@ -56,7 +56,8 @@ public interface PageOrBuilder extends
   /**
    * <pre>
    * The Markdown content of the page. You can use &lt;code&gt;&amp;#40;== include {path}
-   * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file.
+   * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file. The content can be
+   * used to produce the documentation page such as HTML format page.
    * </pre>
    *
    * <code>string content = 2;</code>
@@ -66,7 +67,8 @@ public interface PageOrBuilder extends
   /**
    * <pre>
    * The Markdown content of the page. You can use &lt;code&gt;&amp;#40;== include {path}
-   * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file.
+   * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file. The content can be
+   * used to produce the documentation page such as HTML format page.
    * </pre>
    *
    * <code>string content = 2;</code>

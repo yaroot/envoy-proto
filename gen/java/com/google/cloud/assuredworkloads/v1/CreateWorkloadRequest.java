@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateWorkloadRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.assuredworkloads.v1.Workload.Builder subBuilder = null;
-            if (workload_ != null) {
-              subBuilder = workload_.toBuilder();
-            }
-            workload_ = input.readMessage(com.google.cloud.assuredworkloads.v1.Workload.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(workload_);
-              workload_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            externalId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.assuredworkloads.v1.AssuredworkloadsProto.internal_static_google_cloud_assuredworkloads_v1_CreateWorkloadRequest_descriptor;
@@ -114,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The resource name of the new Workload's parent.
@@ -196,15 +133,16 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.assuredworkloads.v1.WorkloadOrBuilder getWorkloadOrBuilder() {
-    return getWorkload();
+    return workload_ == null ? com.google.cloud.assuredworkloads.v1.Workload.getDefaultInstance() : workload_;
   }
 
   public static final int EXTERNAL_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object externalId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object externalId_ = "";
   /**
    * <pre>
-   * Optional. A identifier associated with the workload and underlying projects
-   * which allows for the break down of billing costs for a workload. The value
+   * Optional. A identifier associated with the workload and underlying projects which
+   * allows for the break down of billing costs for a workload. The value
    * provided for the identifier will add a label to the workload and contained
    * projects with the identifier as the value.
    * </pre>
@@ -227,8 +165,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A identifier associated with the workload and underlying projects
-   * which allows for the break down of billing costs for a workload. The value
+   * Optional. A identifier associated with the workload and underlying projects which
+   * allows for the break down of billing costs for a workload. The value
    * provided for the identifier will add a label to the workload and contained
    * projects with the identifier as the value.
    * </pre>
@@ -274,7 +212,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(externalId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, externalId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -293,7 +231,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(externalId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, externalId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -317,7 +255,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getExternalId()
         .equals(other.getExternalId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -336,7 +274,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + EXTERNAL_ID_FIELD_NUMBER;
     hash = (53 * hash) + getExternalId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -457,32 +395,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.assuredworkloads.v1.CreateWorkloadRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (workloadBuilder_ == null) {
-        workload_ = null;
-      } else {
-        workload_ = null;
+      workload_ = null;
+      if (workloadBuilder_ != null) {
+        workloadBuilder_.dispose();
         workloadBuilder_ = null;
       }
       externalId_ = "";
-
       return this;
     }
 
@@ -509,15 +440,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.assuredworkloads.v1.CreateWorkloadRequest buildPartial() {
       com.google.cloud.assuredworkloads.v1.CreateWorkloadRequest result = new com.google.cloud.assuredworkloads.v1.CreateWorkloadRequest(this);
-      result.parent_ = parent_;
-      if (workloadBuilder_ == null) {
-        result.workload_ = workload_;
-      } else {
-        result.workload_ = workloadBuilder_.build();
-      }
-      result.externalId_ = externalId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.assuredworkloads.v1.CreateWorkloadRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.workload_ = workloadBuilder_ == null
+            ? workload_
+            : workloadBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.externalId_ = externalId_;
+      }
     }
 
     @java.lang.Override
@@ -566,6 +506,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.assuredworkloads.v1.CreateWorkloadRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasWorkload()) {
@@ -573,9 +514,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getExternalId().isEmpty()) {
         externalId_ = other.externalId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -590,19 +532,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.assuredworkloads.v1.CreateWorkloadRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getWorkloadFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              externalId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.assuredworkloads.v1.CreateWorkloadRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -660,11 +633,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -678,8 +649,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -695,12 +666,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -717,7 +686,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the workload field is set.
      */
     public boolean hasWorkload() {
-      return workloadBuilder_ != null || workload_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -747,11 +716,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         workload_ = value;
-        onChanged();
       } else {
         workloadBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -765,11 +734,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.assuredworkloads.v1.Workload.Builder builderForValue) {
       if (workloadBuilder_ == null) {
         workload_ = builderForValue.build();
-        onChanged();
       } else {
         workloadBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -781,17 +750,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWorkload(com.google.cloud.assuredworkloads.v1.Workload value) {
       if (workloadBuilder_ == null) {
-        if (workload_ != null) {
-          workload_ =
-            com.google.cloud.assuredworkloads.v1.Workload.newBuilder(workload_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          workload_ != null &&
+          workload_ != com.google.cloud.assuredworkloads.v1.Workload.getDefaultInstance()) {
+          getWorkloadBuilder().mergeFrom(value);
         } else {
           workload_ = value;
         }
-        onChanged();
       } else {
         workloadBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -802,14 +772,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.assuredworkloads.v1.Workload workload = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearWorkload() {
-      if (workloadBuilder_ == null) {
-        workload_ = null;
-        onChanged();
-      } else {
-        workload_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      workload_ = null;
+      if (workloadBuilder_ != null) {
+        workloadBuilder_.dispose();
         workloadBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -820,7 +789,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.assuredworkloads.v1.Workload workload = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.assuredworkloads.v1.Workload.Builder getWorkloadBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getWorkloadFieldBuilder().getBuilder();
     }
@@ -863,8 +832,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object externalId_ = "";
     /**
      * <pre>
-     * Optional. A identifier associated with the workload and underlying projects
-     * which allows for the break down of billing costs for a workload. The value
+     * Optional. A identifier associated with the workload and underlying projects which
+     * allows for the break down of billing costs for a workload. The value
      * provided for the identifier will add a label to the workload and contained
      * projects with the identifier as the value.
      * </pre>
@@ -886,8 +855,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A identifier associated with the workload and underlying projects
-     * which allows for the break down of billing costs for a workload. The value
+     * Optional. A identifier associated with the workload and underlying projects which
+     * allows for the break down of billing costs for a workload. The value
      * provided for the identifier will add a label to the workload and contained
      * projects with the identifier as the value.
      * </pre>
@@ -910,8 +879,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A identifier associated with the workload and underlying projects
-     * which allows for the break down of billing costs for a workload. The value
+     * Optional. A identifier associated with the workload and underlying projects which
+     * allows for the break down of billing costs for a workload. The value
      * provided for the identifier will add a label to the workload and contained
      * projects with the identifier as the value.
      * </pre>
@@ -922,18 +891,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExternalId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       externalId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A identifier associated with the workload and underlying projects
-     * which allows for the break down of billing costs for a workload. The value
+     * Optional. A identifier associated with the workload and underlying projects which
+     * allows for the break down of billing costs for a workload. The value
      * provided for the identifier will add a label to the workload and contained
      * projects with the identifier as the value.
      * </pre>
@@ -942,15 +909,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExternalId() {
-      
       externalId_ = getDefaultInstance().getExternalId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A identifier associated with the workload and underlying projects
-     * which allows for the break down of billing costs for a workload. The value
+     * Optional. A identifier associated with the workload and underlying projects which
+     * allows for the break down of billing costs for a workload. The value
      * provided for the identifier will add a label to the workload and contained
      * projects with the identifier as the value.
      * </pre>
@@ -961,12 +928,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExternalIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       externalId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1003,7 +968,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateWorkloadRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

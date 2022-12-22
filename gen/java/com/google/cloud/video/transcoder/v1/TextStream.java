@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TextStream(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            codec_ = s;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              mapping_ = new java.util.ArrayList<com.google.cloud.video.transcoder.v1.TextStream.TextMapping>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            mapping_.add(
-                input.readMessage(com.google.cloud.video.transcoder.v1.TextStream.TextMapping.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        mapping_ = java.util.Collections.unmodifiableList(mapping_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_TextStream_descriptor;
@@ -196,62 +138,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TextMapping(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              atomKey_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              inputKey_ = s;
-              break;
-            }
-            case 24: {
-
-              inputTrack_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_TextStream_TextMapping_descriptor;
@@ -266,7 +152,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ATOM_KEY_FIELD_NUMBER = 1;
-    private volatile java.lang.Object atomKey_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object atomKey_ = "";
     /**
      * <pre>
      * Required. The `EditAtom.key` that references atom with text inputs in the
@@ -314,7 +201,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int INPUT_KEY_FIELD_NUMBER = 2;
-    private volatile java.lang.Object inputKey_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object inputKey_ = "";
     /**
      * <pre>
      * Required. The `Input.key` that identifies the input file.
@@ -360,7 +248,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int INPUT_TRACK_FIELD_NUMBER = 3;
-    private int inputTrack_;
+    private int inputTrack_ = 0;
     /**
      * <pre>
      * Required. The zero-based index of the track in the input file.
@@ -397,7 +285,7 @@ private static final long serialVersionUID = 0L;
       if (inputTrack_ != 0) {
         output.writeInt32(3, inputTrack_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -416,7 +304,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, inputTrack_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -437,7 +325,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getInputKey())) return false;
       if (getInputTrack()
           != other.getInputTrack()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -454,7 +342,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getInputKey().hashCode();
       hash = (37 * hash) + INPUT_TRACK_FIELD_NUMBER;
       hash = (53 * hash) + getInputTrack();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -575,28 +463,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.video.transcoder.v1.TextStream.TextMapping.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         atomKey_ = "";
-
         inputKey_ = "";
-
         inputTrack_ = 0;
-
         return this;
       }
 
@@ -623,11 +504,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.video.transcoder.v1.TextStream.TextMapping buildPartial() {
         com.google.cloud.video.transcoder.v1.TextStream.TextMapping result = new com.google.cloud.video.transcoder.v1.TextStream.TextMapping(this);
-        result.atomKey_ = atomKey_;
-        result.inputKey_ = inputKey_;
-        result.inputTrack_ = inputTrack_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.video.transcoder.v1.TextStream.TextMapping result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.atomKey_ = atomKey_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.inputKey_ = inputKey_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.inputTrack_ = inputTrack_;
+        }
       }
 
       @java.lang.Override
@@ -676,16 +568,18 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.video.transcoder.v1.TextStream.TextMapping.getDefaultInstance()) return this;
         if (!other.getAtomKey().isEmpty()) {
           atomKey_ = other.atomKey_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getInputKey().isEmpty()) {
           inputKey_ = other.inputKey_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getInputTrack() != 0) {
           setInputTrack(other.getInputTrack());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -700,19 +594,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.video.transcoder.v1.TextStream.TextMapping parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                atomKey_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                inputKey_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                inputTrack_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.video.transcoder.v1.TextStream.TextMapping) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object atomKey_ = "";
       /**
@@ -770,11 +693,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAtomKey(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         atomKey_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -788,8 +709,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAtomKey() {
-        
         atomKey_ = getDefaultInstance().getAtomKey();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -805,12 +726,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAtomKeyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         atomKey_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -868,11 +787,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setInputKey(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         inputKey_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -885,8 +802,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearInputKey() {
-        
         inputKey_ = getDefaultInstance().getInputKey();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -901,12 +818,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setInputKeyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         inputKey_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -936,6 +851,7 @@ private static final long serialVersionUID = 0L;
       public Builder setInputTrack(int value) {
         
         inputTrack_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -948,7 +864,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearInputTrack() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         inputTrack_ = 0;
         onChanged();
         return this;
@@ -986,7 +902,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TextMapping(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1007,7 +934,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CODEC_FIELD_NUMBER = 1;
-  private volatile java.lang.Object codec_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object codec_ = "";
   /**
    * <pre>
    * The codec for this text stream. The default is `webvtt`.
@@ -1065,6 +993,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAPPING_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.video.transcoder.v1.TextStream.TextMapping> mapping_;
   /**
    * <pre>
@@ -1144,7 +1073,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < mapping_.size(); i++) {
       output.writeMessage(3, mapping_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1160,7 +1089,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, mapping_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1179,7 +1108,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCodec())) return false;
     if (!getMappingList()
         .equals(other.getMappingList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1196,7 +1125,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MAPPING_FIELD_NUMBER;
       hash = (53 * hash) + getMappingList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1317,31 +1246,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.video.transcoder.v1.TextStream.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMappingFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       codec_ = "";
-
       if (mappingBuilder_ == null) {
         mapping_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        mapping_ = null;
         mappingBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -1368,19 +1292,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.video.transcoder.v1.TextStream buildPartial() {
       com.google.cloud.video.transcoder.v1.TextStream result = new com.google.cloud.video.transcoder.v1.TextStream(this);
-      int from_bitField0_ = bitField0_;
-      result.codec_ = codec_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.video.transcoder.v1.TextStream result) {
       if (mappingBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           mapping_ = java.util.Collections.unmodifiableList(mapping_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.mapping_ = mapping_;
       } else {
         result.mapping_ = mappingBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.video.transcoder.v1.TextStream result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.codec_ = codec_;
+      }
     }
 
     @java.lang.Override
@@ -1429,13 +1363,14 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.video.transcoder.v1.TextStream.getDefaultInstance()) return this;
       if (!other.getCodec().isEmpty()) {
         codec_ = other.codec_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (mappingBuilder_ == null) {
         if (!other.mapping_.isEmpty()) {
           if (mapping_.isEmpty()) {
             mapping_ = other.mapping_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureMappingIsMutable();
             mapping_.addAll(other.mapping_);
@@ -1448,7 +1383,7 @@ private static final long serialVersionUID = 0L;
             mappingBuilder_.dispose();
             mappingBuilder_ = null;
             mapping_ = other.mapping_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             mappingBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMappingFieldBuilder() : null;
@@ -1457,7 +1392,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1472,17 +1407,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.video.transcoder.v1.TextStream parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              codec_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              com.google.cloud.video.transcoder.v1.TextStream.TextMapping m =
+                  input.readMessage(
+                      com.google.cloud.video.transcoder.v1.TextStream.TextMapping.parser(),
+                      extensionRegistry);
+              if (mappingBuilder_ == null) {
+                ensureMappingIsMutable();
+                mapping_.add(m);
+              } else {
+                mappingBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.video.transcoder.v1.TextStream) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1558,11 +1524,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCodec(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       codec_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1581,8 +1545,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCodec() {
-      
       codec_ = getDefaultInstance().getCodec();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1603,12 +1567,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCodecBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       codec_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1616,9 +1578,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.video.transcoder.v1.TextStream.TextMapping> mapping_ =
       java.util.Collections.emptyList();
     private void ensureMappingIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         mapping_ = new java.util.ArrayList<com.google.cloud.video.transcoder.v1.TextStream.TextMapping>(mapping_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1812,7 +1774,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMapping() {
       if (mappingBuilder_ == null) {
         mapping_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         mappingBuilder_.clear();
@@ -1917,7 +1879,7 @@ private static final long serialVersionUID = 0L;
         mappingBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.video.transcoder.v1.TextStream.TextMapping, com.google.cloud.video.transcoder.v1.TextStream.TextMapping.Builder, com.google.cloud.video.transcoder.v1.TextStream.TextMappingOrBuilder>(
                 mapping_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         mapping_ = null;
@@ -1957,7 +1919,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TextStream(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

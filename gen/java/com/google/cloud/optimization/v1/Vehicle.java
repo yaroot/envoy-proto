@@ -47,337 +47,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Vehicle(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            travelMode_ = rawValue;
-            break;
-          }
-          case 26: {
-            com.google.type.LatLng.Builder subBuilder = null;
-            if (startLocation_ != null) {
-              subBuilder = startLocation_.toBuilder();
-            }
-            startLocation_ = input.readMessage(com.google.type.LatLng.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(startLocation_);
-              startLocation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.optimization.v1.Waypoint.Builder subBuilder = null;
-            if (startWaypoint_ != null) {
-              subBuilder = startWaypoint_.toBuilder();
-            }
-            startWaypoint_ = input.readMessage(com.google.cloud.optimization.v1.Waypoint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(startWaypoint_);
-              startWaypoint_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.type.LatLng.Builder subBuilder = null;
-            if (endLocation_ != null) {
-              subBuilder = endLocation_.toBuilder();
-            }
-            endLocation_ = input.readMessage(com.google.type.LatLng.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(endLocation_);
-              endLocation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.optimization.v1.Waypoint.Builder subBuilder = null;
-            if (endWaypoint_ != null) {
-              subBuilder = endWaypoint_.toBuilder();
-            }
-            endWaypoint_ = input.readMessage(com.google.cloud.optimization.v1.Waypoint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(endWaypoint_);
-              endWaypoint_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              startTags_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            startTags_.add(s);
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              endTags_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            endTags_.add(s);
-            break;
-          }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              startTimeWindows_ = new java.util.ArrayList<com.google.cloud.optimization.v1.TimeWindow>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            startTimeWindows_.add(
-                input.readMessage(com.google.cloud.optimization.v1.TimeWindow.parser(), extensionRegistry));
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              endTimeWindows_ = new java.util.ArrayList<com.google.cloud.optimization.v1.TimeWindow>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            endTimeWindows_.add(
-                input.readMessage(com.google.cloud.optimization.v1.TimeWindow.parser(), extensionRegistry));
-            break;
-          }
-          case 89: {
-            bitField0_ |= 0x00000001;
-            travelDurationMultiple_ = input.readDouble();
-            break;
-          }
-          case 96: {
-            int rawValue = input.readEnum();
-
-            unloadingPolicy_ = rawValue;
-            break;
-          }
-          case 106: {
-            if (!((mutable_bitField0_ & 0x00000100) != 0)) {
-              capacities_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantity>();
-              mutable_bitField0_ |= 0x00000100;
-            }
-            capacities_.add(
-                input.readMessage(com.google.cloud.optimization.v1.CapacityQuantity.parser(), extensionRegistry));
-            break;
-          }
-          case 114: {
-            if (!((mutable_bitField0_ & 0x00000200) != 0)) {
-              startLoadIntervals_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantityInterval>();
-              mutable_bitField0_ |= 0x00000200;
-            }
-            startLoadIntervals_.add(
-                input.readMessage(com.google.cloud.optimization.v1.CapacityQuantityInterval.parser(), extensionRegistry));
-            break;
-          }
-          case 122: {
-            if (!((mutable_bitField0_ & 0x00000400) != 0)) {
-              endLoadIntervals_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantityInterval>();
-              mutable_bitField0_ |= 0x00000400;
-            }
-            endLoadIntervals_.add(
-                input.readMessage(com.google.cloud.optimization.v1.CapacityQuantityInterval.parser(), extensionRegistry));
-            break;
-          }
-          case 129: {
-
-            costPerHour_ = input.readDouble();
-            break;
-          }
-          case 137: {
-
-            costPerTraveledHour_ = input.readDouble();
-            break;
-          }
-          case 145: {
-
-            costPerKilometer_ = input.readDouble();
-            break;
-          }
-          case 153: {
-
-            fixedCost_ = input.readDouble();
-            break;
-          }
-          case 160: {
-
-            usedIfRouteIsEmpty_ = input.readBool();
-            break;
-          }
-          case 170: {
-            com.google.cloud.optimization.v1.Vehicle.DurationLimit.Builder subBuilder = null;
-            if (routeDurationLimit_ != null) {
-              subBuilder = routeDurationLimit_.toBuilder();
-            }
-            routeDurationLimit_ = input.readMessage(com.google.cloud.optimization.v1.Vehicle.DurationLimit.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(routeDurationLimit_);
-              routeDurationLimit_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 178: {
-            com.google.cloud.optimization.v1.Vehicle.DurationLimit.Builder subBuilder = null;
-            if (travelDurationLimit_ != null) {
-              subBuilder = travelDurationLimit_.toBuilder();
-            }
-            travelDurationLimit_ = input.readMessage(com.google.cloud.optimization.v1.Vehicle.DurationLimit.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(travelDurationLimit_);
-              travelDurationLimit_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 186: {
-            com.google.cloud.optimization.v1.DistanceLimit.Builder subBuilder = null;
-            if (routeDistanceLimit_ != null) {
-              subBuilder = routeDistanceLimit_.toBuilder();
-            }
-            routeDistanceLimit_ = input.readMessage(com.google.cloud.optimization.v1.DistanceLimit.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(routeDistanceLimit_);
-              routeDistanceLimit_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 194: {
-            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-              extraVisitDurationForVisitType_ = com.google.protobuf.MapField.newMapField(
-                  ExtraVisitDurationForVisitTypeDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000040;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Duration>
-            extraVisitDurationForVisitType__ = input.readMessage(
-                ExtraVisitDurationForVisitTypeDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            extraVisitDurationForVisitType_.getMutableMap().put(
-                extraVisitDurationForVisitType__.getKey(), extraVisitDurationForVisitType__.getValue());
-            break;
-          }
-          case 202: {
-            com.google.cloud.optimization.v1.BreakRule.Builder subBuilder = null;
-            if (breakRule_ != null) {
-              subBuilder = breakRule_.toBuilder();
-            }
-            breakRule_ = input.readMessage(com.google.cloud.optimization.v1.BreakRule.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(breakRule_);
-              breakRule_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 218: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            label_ = s;
-            break;
-          }
-          case 224: {
-
-            ignore_ = input.readBool();
-            break;
-          }
-          case 232: {
-            if (!((mutable_bitField0_ & 0x00000080) != 0)) {
-              breakRuleIndices_ = newIntList();
-              mutable_bitField0_ |= 0x00000080;
-            }
-            breakRuleIndices_.addInt(input.readInt32());
-            break;
-          }
-          case 234: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000080) != 0) && input.getBytesUntilLimit() > 0) {
-              breakRuleIndices_ = newIntList();
-              mutable_bitField0_ |= 0x00000080;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              breakRuleIndices_.addInt(input.readInt32());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 242: {
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              loadLimits_ = com.google.protobuf.MapField.newMapField(
-                  LoadLimitsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000020;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.optimization.v1.Vehicle.LoadLimit>
-            loadLimits__ = input.readMessage(
-                LoadLimitsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            loadLimits_.getMutableMap().put(
-                loadLimits__.getKey(), loadLimits__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        startTags_ = startTags_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        endTags_ = endTags_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        startTimeWindows_ = java.util.Collections.unmodifiableList(startTimeWindows_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        endTimeWindows_ = java.util.Collections.unmodifiableList(endTimeWindows_);
-      }
-      if (((mutable_bitField0_ & 0x00000100) != 0)) {
-        capacities_ = java.util.Collections.unmodifiableList(capacities_);
-      }
-      if (((mutable_bitField0_ & 0x00000200) != 0)) {
-        startLoadIntervals_ = java.util.Collections.unmodifiableList(startLoadIntervals_);
-      }
-      if (((mutable_bitField0_ & 0x00000400) != 0)) {
-        endLoadIntervals_ = java.util.Collections.unmodifiableList(endLoadIntervals_);
-      }
-      if (((mutable_bitField0_ & 0x00000080) != 0)) {
-        breakRuleIndices_.makeImmutable(); // C
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_Vehicle_descriptor;
@@ -711,7 +380,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * A soft limit of the load. See [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max].
+     * A soft limit of the load. See
+     * [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max].
      * </pre>
      *
      * <code>int64 soft_max_load = 2;</code>
@@ -721,10 +391,14 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * If the load ever exceeds [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load] along this vehicle's route,
-     * the following cost penalty applies (only once per vehicle):
-     * (load - [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load]) * [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max]. All costs
-     * add up and must be in the same unit as [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
+     * If the load ever exceeds
+     * [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load]
+     * along this vehicle's route, the following cost penalty applies (only once
+     * per vehicle): (load -
+     * [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load])
+     * * [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max]. All costs
+     * add up and must be in the same unit as
+     * [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
      * </pre>
      *
      * <code>double cost_per_unit_above_soft_max = 3;</code>
@@ -789,7 +463,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Defines a load limit applying to a vehicle, e.g. "this truck may only
-   * carry up to 3500 kg". See [load_limits][google.cloud.optimization.v1.Vehicle.load_limits].
+   * carry up to 3500 kg". See
+   * [load_limits][google.cloud.optimization.v1.Vehicle.load_limits].
    * </pre>
    *
    * Protobuf type {@code google.cloud.optimization.v1.Vehicle.LoadLimit}
@@ -818,87 +493,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LoadLimit(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              bitField0_ |= 0x00000001;
-              maxLoad_ = input.readInt64();
-              break;
-            }
-            case 16: {
-
-              softMaxLoad_ = input.readInt64();
-              break;
-            }
-            case 25: {
-
-              costPerUnitAboveSoftMax_ = input.readDouble();
-              break;
-            }
-            case 34: {
-              com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.Builder subBuilder = null;
-              if (startLoadInterval_ != null) {
-                subBuilder = startLoadInterval_.toBuilder();
-              }
-              startLoadInterval_ = input.readMessage(com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(startLoadInterval_);
-                startLoadInterval_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
-              com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.Builder subBuilder = null;
-              if (endLoadInterval_ != null) {
-                subBuilder = endLoadInterval_.toBuilder();
-              }
-              endLoadInterval_ = input.readMessage(com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(endLoadInterval_);
-                endLoadInterval_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_Vehicle_LoadLimit_descriptor;
@@ -919,7 +513,10 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * A minimum acceptable load. Must be ≥ 0.
-       * If they're both specified, [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must be ≤ [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
+       * If they're both specified,
+       * [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must
+       * be ≤
+       * [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
        * </pre>
        *
        * <code>int64 min = 1;</code>
@@ -931,7 +528,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * A maximum acceptable load. Must be ≥ 0. If unspecified, the maximum
        * load is unrestricted by this message.
-       * If they're both specified, [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must be ≤ [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
+       * If they're both specified,
+       * [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must
+       * be ≤
+       * [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
        * </pre>
        *
        * <code>optional int64 max = 2;</code>
@@ -942,7 +542,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * A maximum acceptable load. Must be ≥ 0. If unspecified, the maximum
        * load is unrestricted by this message.
-       * If they're both specified, [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must be ≤ [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
+       * If they're both specified,
+       * [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must
+       * be ≤
+       * [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
        * </pre>
        *
        * <code>optional int64 max = 2;</code>
@@ -981,56 +584,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Interval(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-
-                min_ = input.readInt64();
-                break;
-              }
-              case 16: {
-                bitField0_ |= 0x00000001;
-                max_ = input.readInt64();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_Vehicle_LoadLimit_Interval_descriptor;
@@ -1046,11 +599,14 @@ private static final long serialVersionUID = 0L;
 
       private int bitField0_;
       public static final int MIN_FIELD_NUMBER = 1;
-      private long min_;
+      private long min_ = 0L;
       /**
        * <pre>
        * A minimum acceptable load. Must be ≥ 0.
-       * If they're both specified, [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must be ≤ [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
+       * If they're both specified,
+       * [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must
+       * be ≤
+       * [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
        * </pre>
        *
        * <code>int64 min = 1;</code>
@@ -1062,12 +618,15 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int MAX_FIELD_NUMBER = 2;
-      private long max_;
+      private long max_ = 0L;
       /**
        * <pre>
        * A maximum acceptable load. Must be ≥ 0. If unspecified, the maximum
        * load is unrestricted by this message.
-       * If they're both specified, [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must be ≤ [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
+       * If they're both specified,
+       * [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must
+       * be ≤
+       * [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
        * </pre>
        *
        * <code>optional int64 max = 2;</code>
@@ -1081,7 +640,10 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * A maximum acceptable load. Must be ≥ 0. If unspecified, the maximum
        * load is unrestricted by this message.
-       * If they're both specified, [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must be ≤ [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
+       * If they're both specified,
+       * [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must
+       * be ≤
+       * [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
        * </pre>
        *
        * <code>optional int64 max = 2;</code>
@@ -1112,7 +674,7 @@ private static final long serialVersionUID = 0L;
         if (((bitField0_ & 0x00000001) != 0)) {
           output.writeInt64(2, max_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -1129,7 +691,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeInt64Size(2, max_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -1151,7 +713,7 @@ private static final long serialVersionUID = 0L;
           if (getMax()
               != other.getMax()) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -1170,7 +732,7 @@ private static final long serialVersionUID = 0L;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               getMax());
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -1291,26 +853,20 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           min_ = 0L;
-
           max_ = 0L;
-          bitField0_ = (bitField0_ & ~0x00000001);
           return this;
         }
 
@@ -1337,16 +893,22 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval buildPartial() {
           com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval result = new com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval(this);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartial0(com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
-          result.min_ = min_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.min_ = min_;
+          }
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000002) != 0)) {
             result.max_ = max_;
             to_bitField0_ |= 0x00000001;
           }
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
+          result.bitField0_ |= to_bitField0_;
         }
 
         @java.lang.Override
@@ -1399,7 +961,7 @@ private static final long serialVersionUID = 0L;
           if (other.hasMax()) {
             setMax(other.getMax());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -1414,17 +976,40 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  min_ = input.readInt64();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+                case 16: {
+                  max_ = input.readInt64();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -1433,7 +1018,10 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * A minimum acceptable load. Must be ≥ 0.
-         * If they're both specified, [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must be ≤ [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
+         * If they're both specified,
+         * [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must
+         * be ≤
+         * [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
          * </pre>
          *
          * <code>int64 min = 1;</code>
@@ -1446,7 +1034,10 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * A minimum acceptable load. Must be ≥ 0.
-         * If they're both specified, [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must be ≤ [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
+         * If they're both specified,
+         * [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must
+         * be ≤
+         * [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
          * </pre>
          *
          * <code>int64 min = 1;</code>
@@ -1456,20 +1047,24 @@ private static final long serialVersionUID = 0L;
         public Builder setMin(long value) {
           
           min_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
         /**
          * <pre>
          * A minimum acceptable load. Must be ≥ 0.
-         * If they're both specified, [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must be ≤ [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
+         * If they're both specified,
+         * [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must
+         * be ≤
+         * [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
          * </pre>
          *
          * <code>int64 min = 1;</code>
          * @return This builder for chaining.
          */
         public Builder clearMin() {
-          
+          bitField0_ = (bitField0_ & ~0x00000001);
           min_ = 0L;
           onChanged();
           return this;
@@ -1480,7 +1075,10 @@ private static final long serialVersionUID = 0L;
          * <pre>
          * A maximum acceptable load. Must be ≥ 0. If unspecified, the maximum
          * load is unrestricted by this message.
-         * If they're both specified, [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must be ≤ [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
+         * If they're both specified,
+         * [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must
+         * be ≤
+         * [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
          * </pre>
          *
          * <code>optional int64 max = 2;</code>
@@ -1488,13 +1086,16 @@ private static final long serialVersionUID = 0L;
          */
         @java.lang.Override
         public boolean hasMax() {
-          return ((bitField0_ & 0x00000001) != 0);
+          return ((bitField0_ & 0x00000002) != 0);
         }
         /**
          * <pre>
          * A maximum acceptable load. Must be ≥ 0. If unspecified, the maximum
          * load is unrestricted by this message.
-         * If they're both specified, [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must be ≤ [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
+         * If they're both specified,
+         * [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must
+         * be ≤
+         * [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
          * </pre>
          *
          * <code>optional int64 max = 2;</code>
@@ -1508,7 +1109,10 @@ private static final long serialVersionUID = 0L;
          * <pre>
          * A maximum acceptable load. Must be ≥ 0. If unspecified, the maximum
          * load is unrestricted by this message.
-         * If they're both specified, [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must be ≤ [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
+         * If they're both specified,
+         * [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must
+         * be ≤
+         * [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
          * </pre>
          *
          * <code>optional int64 max = 2;</code>
@@ -1516,8 +1120,9 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder setMax(long value) {
-          bitField0_ |= 0x00000001;
+          
           max_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -1525,14 +1130,17 @@ private static final long serialVersionUID = 0L;
          * <pre>
          * A maximum acceptable load. Must be ≥ 0. If unspecified, the maximum
          * load is unrestricted by this message.
-         * If they're both specified, [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must be ≤ [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
+         * If they're both specified,
+         * [min][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.min] must
+         * be ≤
+         * [max][google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.max].
          * </pre>
          *
          * <code>optional int64 max = 2;</code>
          * @return This builder for chaining.
          */
         public Builder clearMax() {
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           max_ = 0L;
           onChanged();
           return this;
@@ -1570,7 +1178,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Interval(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -1592,7 +1211,7 @@ private static final long serialVersionUID = 0L;
 
     private int bitField0_;
     public static final int MAX_LOAD_FIELD_NUMBER = 1;
-    private long maxLoad_;
+    private long maxLoad_ = 0L;
     /**
      * <pre>
      * The maximum acceptable amount of load.
@@ -1619,10 +1238,11 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SOFT_MAX_LOAD_FIELD_NUMBER = 2;
-    private long softMaxLoad_;
+    private long softMaxLoad_ = 0L;
     /**
      * <pre>
-     * A soft limit of the load. See [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max].
+     * A soft limit of the load. See
+     * [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max].
      * </pre>
      *
      * <code>int64 soft_max_load = 2;</code>
@@ -1634,13 +1254,17 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int COST_PER_UNIT_ABOVE_SOFT_MAX_FIELD_NUMBER = 3;
-    private double costPerUnitAboveSoftMax_;
+    private double costPerUnitAboveSoftMax_ = 0D;
     /**
      * <pre>
-     * If the load ever exceeds [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load] along this vehicle's route,
-     * the following cost penalty applies (only once per vehicle):
-     * (load - [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load]) * [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max]. All costs
-     * add up and must be in the same unit as [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
+     * If the load ever exceeds
+     * [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load]
+     * along this vehicle's route, the following cost penalty applies (only once
+     * per vehicle): (load -
+     * [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load])
+     * * [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max]. All costs
+     * add up and must be in the same unit as
+     * [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
      * </pre>
      *
      * <code>double cost_per_unit_above_soft_max = 3;</code>
@@ -1686,7 +1310,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.optimization.v1.Vehicle.LoadLimit.IntervalOrBuilder getStartLoadIntervalOrBuilder() {
-      return getStartLoadInterval();
+      return startLoadInterval_ == null ? com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.getDefaultInstance() : startLoadInterval_;
     }
 
     public static final int END_LOAD_INTERVAL_FIELD_NUMBER = 5;
@@ -1724,7 +1348,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.optimization.v1.Vehicle.LoadLimit.IntervalOrBuilder getEndLoadIntervalOrBuilder() {
-      return getEndLoadInterval();
+      return endLoadInterval_ == null ? com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.getDefaultInstance() : endLoadInterval_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1756,7 +1380,7 @@ private static final long serialVersionUID = 0L;
       if (endLoadInterval_ != null) {
         output.writeMessage(5, getEndLoadInterval());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1785,7 +1409,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getEndLoadInterval());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1820,7 +1444,7 @@ private static final long serialVersionUID = 0L;
         if (!getEndLoadInterval()
             .equals(other.getEndLoadInterval())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1850,7 +1474,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + END_LOAD_INTERVAL_FIELD_NUMBER;
         hash = (53 * hash) + getEndLoadInterval().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1948,7 +1572,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Defines a load limit applying to a vehicle, e.g. "this truck may only
-     * carry up to 3500 kg". See [load_limits][google.cloud.optimization.v1.Vehicle.load_limits].
+     * carry up to 3500 kg". See
+     * [load_limits][google.cloud.optimization.v1.Vehicle.load_limits].
      * </pre>
      *
      * Protobuf type {@code google.cloud.optimization.v1.Vehicle.LoadLimit}
@@ -1972,38 +1597,29 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.optimization.v1.Vehicle.LoadLimit.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         maxLoad_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000001);
         softMaxLoad_ = 0L;
-
         costPerUnitAboveSoftMax_ = 0D;
-
-        if (startLoadIntervalBuilder_ == null) {
-          startLoadInterval_ = null;
-        } else {
-          startLoadInterval_ = null;
+        startLoadInterval_ = null;
+        if (startLoadIntervalBuilder_ != null) {
+          startLoadIntervalBuilder_.dispose();
           startLoadIntervalBuilder_ = null;
         }
-        if (endLoadIntervalBuilder_ == null) {
-          endLoadInterval_ = null;
-        } else {
-          endLoadInterval_ = null;
+        endLoadInterval_ = null;
+        if (endLoadIntervalBuilder_ != null) {
+          endLoadIntervalBuilder_.dispose();
           endLoadIntervalBuilder_ = null;
         }
         return this;
@@ -2032,27 +1648,35 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.optimization.v1.Vehicle.LoadLimit buildPartial() {
         com.google.cloud.optimization.v1.Vehicle.LoadLimit result = new com.google.cloud.optimization.v1.Vehicle.LoadLimit(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.Vehicle.LoadLimit result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.maxLoad_ = maxLoad_;
           to_bitField0_ |= 0x00000001;
         }
-        result.softMaxLoad_ = softMaxLoad_;
-        result.costPerUnitAboveSoftMax_ = costPerUnitAboveSoftMax_;
-        if (startLoadIntervalBuilder_ == null) {
-          result.startLoadInterval_ = startLoadInterval_;
-        } else {
-          result.startLoadInterval_ = startLoadIntervalBuilder_.build();
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.softMaxLoad_ = softMaxLoad_;
         }
-        if (endLoadIntervalBuilder_ == null) {
-          result.endLoadInterval_ = endLoadInterval_;
-        } else {
-          result.endLoadInterval_ = endLoadIntervalBuilder_.build();
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.costPerUnitAboveSoftMax_ = costPerUnitAboveSoftMax_;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.startLoadInterval_ = startLoadIntervalBuilder_ == null
+              ? startLoadInterval_
+              : startLoadIntervalBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.endLoadInterval_ = endLoadIntervalBuilder_ == null
+              ? endLoadInterval_
+              : endLoadIntervalBuilder_.build();
+        }
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -2114,7 +1738,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasEndLoadInterval()) {
           mergeEndLoadInterval(other.getEndLoadInterval());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2129,17 +1753,59 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.Vehicle.LoadLimit parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                maxLoad_ = input.readInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                softMaxLoad_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 25: {
+                costPerUnitAboveSoftMax_ = input.readDouble();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 25
+              case 34: {
+                input.readMessage(
+                    getStartLoadIntervalFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getEndLoadIntervalFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.Vehicle.LoadLimit) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2179,8 +1845,9 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setMaxLoad(long value) {
-        bitField0_ |= 0x00000001;
+        
         maxLoad_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2202,7 +1869,8 @@ private static final long serialVersionUID = 0L;
       private long softMaxLoad_ ;
       /**
        * <pre>
-       * A soft limit of the load. See [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max].
+       * A soft limit of the load. See
+       * [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max].
        * </pre>
        *
        * <code>int64 soft_max_load = 2;</code>
@@ -2214,7 +1882,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A soft limit of the load. See [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max].
+       * A soft limit of the load. See
+       * [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max].
        * </pre>
        *
        * <code>int64 soft_max_load = 2;</code>
@@ -2224,19 +1893,21 @@ private static final long serialVersionUID = 0L;
       public Builder setSoftMaxLoad(long value) {
         
         softMaxLoad_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * A soft limit of the load. See [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max].
+       * A soft limit of the load. See
+       * [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max].
        * </pre>
        *
        * <code>int64 soft_max_load = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearSoftMaxLoad() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         softMaxLoad_ = 0L;
         onChanged();
         return this;
@@ -2245,10 +1916,14 @@ private static final long serialVersionUID = 0L;
       private double costPerUnitAboveSoftMax_ ;
       /**
        * <pre>
-       * If the load ever exceeds [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load] along this vehicle's route,
-       * the following cost penalty applies (only once per vehicle):
-       * (load - [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load]) * [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max]. All costs
-       * add up and must be in the same unit as [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
+       * If the load ever exceeds
+       * [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load]
+       * along this vehicle's route, the following cost penalty applies (only once
+       * per vehicle): (load -
+       * [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load])
+       * * [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max]. All costs
+       * add up and must be in the same unit as
+       * [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
        * </pre>
        *
        * <code>double cost_per_unit_above_soft_max = 3;</code>
@@ -2260,10 +1935,14 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * If the load ever exceeds [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load] along this vehicle's route,
-       * the following cost penalty applies (only once per vehicle):
-       * (load - [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load]) * [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max]. All costs
-       * add up and must be in the same unit as [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
+       * If the load ever exceeds
+       * [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load]
+       * along this vehicle's route, the following cost penalty applies (only once
+       * per vehicle): (load -
+       * [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load])
+       * * [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max]. All costs
+       * add up and must be in the same unit as
+       * [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
        * </pre>
        *
        * <code>double cost_per_unit_above_soft_max = 3;</code>
@@ -2273,22 +1952,27 @@ private static final long serialVersionUID = 0L;
       public Builder setCostPerUnitAboveSoftMax(double value) {
         
         costPerUnitAboveSoftMax_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * If the load ever exceeds [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load] along this vehicle's route,
-       * the following cost penalty applies (only once per vehicle):
-       * (load - [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load]) * [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max]. All costs
-       * add up and must be in the same unit as [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
+       * If the load ever exceeds
+       * [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load]
+       * along this vehicle's route, the following cost penalty applies (only once
+       * per vehicle): (load -
+       * [soft_max_load][google.cloud.optimization.v1.Vehicle.LoadLimit.soft_max_load])
+       * * [cost_per_unit_above_soft_max][google.cloud.optimization.v1.Vehicle.LoadLimit.cost_per_unit_above_soft_max]. All costs
+       * add up and must be in the same unit as
+       * [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
        * </pre>
        *
        * <code>double cost_per_unit_above_soft_max = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearCostPerUnitAboveSoftMax() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         costPerUnitAboveSoftMax_ = 0D;
         onChanged();
         return this;
@@ -2306,7 +1990,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the startLoadInterval field is set.
        */
       public boolean hasStartLoadInterval() {
-        return startLoadIntervalBuilder_ != null || startLoadInterval_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -2336,11 +2020,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           startLoadInterval_ = value;
-          onChanged();
         } else {
           startLoadIntervalBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -2354,11 +2038,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.Builder builderForValue) {
         if (startLoadIntervalBuilder_ == null) {
           startLoadInterval_ = builderForValue.build();
-          onChanged();
         } else {
           startLoadIntervalBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -2370,17 +2054,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeStartLoadInterval(com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval value) {
         if (startLoadIntervalBuilder_ == null) {
-          if (startLoadInterval_ != null) {
-            startLoadInterval_ =
-              com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.newBuilder(startLoadInterval_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            startLoadInterval_ != null &&
+            startLoadInterval_ != com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.getDefaultInstance()) {
+            getStartLoadIntervalBuilder().mergeFrom(value);
           } else {
             startLoadInterval_ = value;
           }
-          onChanged();
         } else {
           startLoadIntervalBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -2391,14 +2076,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval start_load_interval = 4;</code>
        */
       public Builder clearStartLoadInterval() {
-        if (startLoadIntervalBuilder_ == null) {
-          startLoadInterval_ = null;
-          onChanged();
-        } else {
-          startLoadInterval_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        startLoadInterval_ = null;
+        if (startLoadIntervalBuilder_ != null) {
+          startLoadIntervalBuilder_.dispose();
           startLoadIntervalBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2409,7 +2093,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval start_load_interval = 4;</code>
        */
       public com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.Builder getStartLoadIntervalBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getStartLoadIntervalFieldBuilder().getBuilder();
       }
@@ -2461,7 +2145,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the endLoadInterval field is set.
        */
       public boolean hasEndLoadInterval() {
-        return endLoadIntervalBuilder_ != null || endLoadInterval_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -2491,11 +2175,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           endLoadInterval_ = value;
-          onChanged();
         } else {
           endLoadIntervalBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -2509,11 +2193,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.Builder builderForValue) {
         if (endLoadIntervalBuilder_ == null) {
           endLoadInterval_ = builderForValue.build();
-          onChanged();
         } else {
           endLoadIntervalBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -2525,17 +2209,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeEndLoadInterval(com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval value) {
         if (endLoadIntervalBuilder_ == null) {
-          if (endLoadInterval_ != null) {
-            endLoadInterval_ =
-              com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.newBuilder(endLoadInterval_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            endLoadInterval_ != null &&
+            endLoadInterval_ != com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.getDefaultInstance()) {
+            getEndLoadIntervalBuilder().mergeFrom(value);
           } else {
             endLoadInterval_ = value;
           }
-          onChanged();
         } else {
           endLoadIntervalBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -2546,14 +2231,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval end_load_interval = 5;</code>
        */
       public Builder clearEndLoadInterval() {
-        if (endLoadIntervalBuilder_ == null) {
-          endLoadInterval_ = null;
-          onChanged();
-        } else {
-          endLoadInterval_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        endLoadInterval_ = null;
+        if (endLoadIntervalBuilder_ != null) {
+          endLoadIntervalBuilder_.dispose();
           endLoadIntervalBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2564,7 +2248,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval end_load_interval = 5;</code>
        */
       public com.google.cloud.optimization.v1.Vehicle.LoadLimit.Interval.Builder getEndLoadIntervalBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getEndLoadIntervalFieldBuilder().getBuilder();
       }
@@ -2636,7 +2320,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LoadLimit(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2874,95 +2569,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DurationLimit(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (maxDuration_ != null) {
-                subBuilder = maxDuration_.toBuilder();
-              }
-              maxDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(maxDuration_);
-                maxDuration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (softMaxDuration_ != null) {
-                subBuilder = softMaxDuration_.toBuilder();
-              }
-              softMaxDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(softMaxDuration_);
-                softMaxDuration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 25: {
-              bitField0_ |= 0x00000001;
-              costPerHourAfterSoftMax_ = input.readDouble();
-              break;
-            }
-            case 34: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (quadraticSoftMaxDuration_ != null) {
-                subBuilder = quadraticSoftMaxDuration_.toBuilder();
-              }
-              quadraticSoftMaxDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(quadraticSoftMaxDuration_);
-                quadraticSoftMaxDuration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 41: {
-              bitField0_ |= 0x00000002;
-              costPerSquareHourAfterQuadraticSoftMax_ = input.readDouble();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_Vehicle_DurationLimit_descriptor;
@@ -3012,7 +2618,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getMaxDurationOrBuilder() {
-      return getMaxDuration();
+      return maxDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : maxDuration_;
     }
 
     public static final int SOFT_MAX_DURATION_FIELD_NUMBER = 2;
@@ -3062,11 +2668,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getSoftMaxDurationOrBuilder() {
-      return getSoftMaxDuration();
+      return softMaxDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : softMaxDuration_;
     }
 
     public static final int COST_PER_HOUR_AFTER_SOFT_MAX_FIELD_NUMBER = 3;
-    private double costPerHourAfterSoftMax_;
+    private double costPerHourAfterSoftMax_ = 0D;
     /**
      * <pre>
      * Cost per hour incurred if the `soft_max_duration` threshold is violated.
@@ -3160,11 +2766,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getQuadraticSoftMaxDurationOrBuilder() {
-      return getQuadraticSoftMaxDuration();
+      return quadraticSoftMaxDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : quadraticSoftMaxDuration_;
     }
 
     public static final int COST_PER_SQUARE_HOUR_AFTER_QUADRATIC_SOFT_MAX_FIELD_NUMBER = 5;
-    private double costPerSquareHourAfterQuadraticSoftMax_;
+    private double costPerSquareHourAfterQuadraticSoftMax_ = 0D;
     /**
      * <pre>
      * Cost per square hour incurred if the
@@ -3235,7 +2841,7 @@ private static final long serialVersionUID = 0L;
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeDouble(5, costPerSquareHourAfterQuadraticSoftMax_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3264,7 +2870,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(5, costPerSquareHourAfterQuadraticSoftMax_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3306,7 +2912,7 @@ private static final long serialVersionUID = 0L;
             != java.lang.Double.doubleToLongBits(
                 other.getCostPerSquareHourAfterQuadraticSoftMax())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3339,7 +2945,7 @@ private static final long serialVersionUID = 0L;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             java.lang.Double.doubleToLongBits(getCostPerSquareHourAfterQuadraticSoftMax()));
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3463,44 +3069,35 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.optimization.v1.Vehicle.DurationLimit.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (maxDurationBuilder_ == null) {
-          maxDuration_ = null;
-        } else {
-          maxDuration_ = null;
+        bitField0_ = 0;
+        maxDuration_ = null;
+        if (maxDurationBuilder_ != null) {
+          maxDurationBuilder_.dispose();
           maxDurationBuilder_ = null;
         }
-        if (softMaxDurationBuilder_ == null) {
-          softMaxDuration_ = null;
-        } else {
-          softMaxDuration_ = null;
+        softMaxDuration_ = null;
+        if (softMaxDurationBuilder_ != null) {
+          softMaxDurationBuilder_.dispose();
           softMaxDurationBuilder_ = null;
         }
         costPerHourAfterSoftMax_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        if (quadraticSoftMaxDurationBuilder_ == null) {
-          quadraticSoftMaxDuration_ = null;
-        } else {
-          quadraticSoftMaxDuration_ = null;
+        quadraticSoftMaxDuration_ = null;
+        if (quadraticSoftMaxDurationBuilder_ != null) {
+          quadraticSoftMaxDurationBuilder_.dispose();
           quadraticSoftMaxDurationBuilder_ = null;
         }
         costPerSquareHourAfterQuadraticSoftMax_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -3527,34 +3124,38 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.optimization.v1.Vehicle.DurationLimit buildPartial() {
         com.google.cloud.optimization.v1.Vehicle.DurationLimit result = new com.google.cloud.optimization.v1.Vehicle.DurationLimit(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.Vehicle.DurationLimit result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (maxDurationBuilder_ == null) {
-          result.maxDuration_ = maxDuration_;
-        } else {
-          result.maxDuration_ = maxDurationBuilder_.build();
-        }
-        if (softMaxDurationBuilder_ == null) {
-          result.softMaxDuration_ = softMaxDuration_;
-        } else {
-          result.softMaxDuration_ = softMaxDurationBuilder_.build();
-        }
         if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.maxDuration_ = maxDurationBuilder_ == null
+              ? maxDuration_
+              : maxDurationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.softMaxDuration_ = softMaxDurationBuilder_ == null
+              ? softMaxDuration_
+              : softMaxDurationBuilder_.build();
+        }
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
           result.costPerHourAfterSoftMax_ = costPerHourAfterSoftMax_;
           to_bitField0_ |= 0x00000001;
         }
-        if (quadraticSoftMaxDurationBuilder_ == null) {
-          result.quadraticSoftMaxDuration_ = quadraticSoftMaxDuration_;
-        } else {
-          result.quadraticSoftMaxDuration_ = quadraticSoftMaxDurationBuilder_.build();
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.quadraticSoftMaxDuration_ = quadraticSoftMaxDurationBuilder_ == null
+              ? quadraticSoftMaxDuration_
+              : quadraticSoftMaxDurationBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
+        if (((from_bitField0_ & 0x00000010) != 0)) {
           result.costPerSquareHourAfterQuadraticSoftMax_ = costPerSquareHourAfterQuadraticSoftMax_;
           to_bitField0_ |= 0x00000002;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -3616,7 +3217,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasCostPerSquareHourAfterQuadraticSoftMax()) {
           setCostPerSquareHourAfterQuadraticSoftMax(other.getCostPerSquareHourAfterQuadraticSoftMax());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3631,17 +3232,61 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.Vehicle.DurationLimit parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getMaxDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getSoftMaxDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 25: {
+                costPerHourAfterSoftMax_ = input.readDouble();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 25
+              case 34: {
+                input.readMessage(
+                    getQuadraticSoftMaxDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 41: {
+                costPerSquareHourAfterQuadraticSoftMax_ = input.readDouble();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 41
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.Vehicle.DurationLimit) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3658,7 +3303,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the maxDuration field is set.
        */
       public boolean hasMaxDuration() {
-        return maxDurationBuilder_ != null || maxDuration_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -3688,11 +3333,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           maxDuration_ = value;
-          onChanged();
         } else {
           maxDurationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3706,11 +3351,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration.Builder builderForValue) {
         if (maxDurationBuilder_ == null) {
           maxDuration_ = builderForValue.build();
-          onChanged();
         } else {
           maxDurationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3722,17 +3367,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeMaxDuration(com.google.protobuf.Duration value) {
         if (maxDurationBuilder_ == null) {
-          if (maxDuration_ != null) {
-            maxDuration_ =
-              com.google.protobuf.Duration.newBuilder(maxDuration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            maxDuration_ != null &&
+            maxDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getMaxDurationBuilder().mergeFrom(value);
           } else {
             maxDuration_ = value;
           }
-          onChanged();
         } else {
           maxDurationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3743,14 +3389,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration max_duration = 1;</code>
        */
       public Builder clearMaxDuration() {
-        if (maxDurationBuilder_ == null) {
-          maxDuration_ = null;
-          onChanged();
-        } else {
-          maxDuration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        maxDuration_ = null;
+        if (maxDurationBuilder_ != null) {
+          maxDurationBuilder_.dispose();
           maxDurationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3761,7 +3406,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration max_duration = 1;</code>
        */
       public com.google.protobuf.Duration.Builder getMaxDurationBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getMaxDurationFieldBuilder().getBuilder();
       }
@@ -3817,7 +3462,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the softMaxDuration field is set.
        */
       public boolean hasSoftMaxDuration() {
-        return softMaxDurationBuilder_ != null || softMaxDuration_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -3855,11 +3500,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           softMaxDuration_ = value;
-          onChanged();
         } else {
           softMaxDurationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3877,11 +3522,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration.Builder builderForValue) {
         if (softMaxDurationBuilder_ == null) {
           softMaxDuration_ = builderForValue.build();
-          onChanged();
         } else {
           softMaxDurationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3897,17 +3542,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeSoftMaxDuration(com.google.protobuf.Duration value) {
         if (softMaxDurationBuilder_ == null) {
-          if (softMaxDuration_ != null) {
-            softMaxDuration_ =
-              com.google.protobuf.Duration.newBuilder(softMaxDuration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            softMaxDuration_ != null &&
+            softMaxDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getSoftMaxDurationBuilder().mergeFrom(value);
           } else {
             softMaxDuration_ = value;
           }
-          onChanged();
         } else {
           softMaxDurationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3922,14 +3568,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration soft_max_duration = 2;</code>
        */
       public Builder clearSoftMaxDuration() {
-        if (softMaxDurationBuilder_ == null) {
-          softMaxDuration_ = null;
-          onChanged();
-        } else {
-          softMaxDuration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        softMaxDuration_ = null;
+        if (softMaxDurationBuilder_ != null) {
+          softMaxDurationBuilder_.dispose();
           softMaxDurationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3944,7 +3589,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration soft_max_duration = 2;</code>
        */
       public com.google.protobuf.Duration.Builder getSoftMaxDurationBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getSoftMaxDurationFieldBuilder().getBuilder();
       }
@@ -4009,7 +3654,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public boolean hasCostPerHourAfterSoftMax() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -4045,8 +3690,9 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setCostPerHourAfterSoftMax(double value) {
-        bitField0_ |= 0x00000001;
+        
         costPerHourAfterSoftMax_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -4065,7 +3711,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCostPerHourAfterSoftMax() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         costPerHourAfterSoftMax_ = 0D;
         onChanged();
         return this;
@@ -4090,7 +3736,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the quadraticSoftMaxDuration field is set.
        */
       public boolean hasQuadraticSoftMaxDuration() {
-        return quadraticSoftMaxDurationBuilder_ != null || quadraticSoftMaxDuration_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -4134,11 +3780,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           quadraticSoftMaxDuration_ = value;
-          onChanged();
         } else {
           quadraticSoftMaxDurationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -4159,11 +3805,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration.Builder builderForValue) {
         if (quadraticSoftMaxDurationBuilder_ == null) {
           quadraticSoftMaxDuration_ = builderForValue.build();
-          onChanged();
         } else {
           quadraticSoftMaxDurationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -4182,17 +3828,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeQuadraticSoftMaxDuration(com.google.protobuf.Duration value) {
         if (quadraticSoftMaxDurationBuilder_ == null) {
-          if (quadraticSoftMaxDuration_ != null) {
-            quadraticSoftMaxDuration_ =
-              com.google.protobuf.Duration.newBuilder(quadraticSoftMaxDuration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            quadraticSoftMaxDuration_ != null &&
+            quadraticSoftMaxDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getQuadraticSoftMaxDurationBuilder().mergeFrom(value);
           } else {
             quadraticSoftMaxDuration_ = value;
           }
-          onChanged();
         } else {
           quadraticSoftMaxDurationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -4210,14 +3857,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration quadratic_soft_max_duration = 4;</code>
        */
       public Builder clearQuadraticSoftMaxDuration() {
-        if (quadraticSoftMaxDurationBuilder_ == null) {
-          quadraticSoftMaxDuration_ = null;
-          onChanged();
-        } else {
-          quadraticSoftMaxDuration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        quadraticSoftMaxDuration_ = null;
+        if (quadraticSoftMaxDurationBuilder_ != null) {
+          quadraticSoftMaxDurationBuilder_.dispose();
           quadraticSoftMaxDurationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4235,7 +3881,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration quadratic_soft_max_duration = 4;</code>
        */
       public com.google.protobuf.Duration.Builder getQuadraticSoftMaxDurationBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getQuadraticSoftMaxDurationFieldBuilder().getBuilder();
       }
@@ -4308,7 +3954,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public boolean hasCostPerSquareHourAfterQuadraticSoftMax() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -4348,8 +3994,9 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setCostPerSquareHourAfterQuadraticSoftMax(double value) {
-        bitField0_ |= 0x00000002;
+        
         costPerSquareHourAfterQuadraticSoftMax_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -4370,7 +4017,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCostPerSquareHourAfterQuadraticSoftMax() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
         costPerSquareHourAfterQuadraticSoftMax_ = 0D;
         onChanged();
         return this;
@@ -4408,7 +4055,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DurationLimit(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4430,7 +4088,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int TRAVEL_MODE_FIELD_NUMBER = 1;
-  private int travelMode_;
+  private int travelMode_ = 0;
   /**
    * <pre>
    * The travel mode which affects the roads usable by the vehicle and its
@@ -4453,8 +4111,7 @@ private static final long serialVersionUID = 0L;
    * @return The travelMode.
    */
   @java.lang.Override public com.google.cloud.optimization.v1.Vehicle.TravelMode getTravelMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.optimization.v1.Vehicle.TravelMode result = com.google.cloud.optimization.v1.Vehicle.TravelMode.valueOf(travelMode_);
+    com.google.cloud.optimization.v1.Vehicle.TravelMode result = com.google.cloud.optimization.v1.Vehicle.TravelMode.forNumber(travelMode_);
     return result == null ? com.google.cloud.optimization.v1.Vehicle.TravelMode.UNRECOGNIZED : result;
   }
 
@@ -4502,7 +4159,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.LatLngOrBuilder getStartLocationOrBuilder() {
-    return getStartLocation();
+    return startLocation_ == null ? com.google.type.LatLng.getDefaultInstance() : startLocation_;
   }
 
   public static final int START_WAYPOINT_FIELD_NUMBER = 4;
@@ -4552,7 +4209,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.optimization.v1.WaypointOrBuilder getStartWaypointOrBuilder() {
-    return getStartWaypoint();
+    return startWaypoint_ == null ? com.google.cloud.optimization.v1.Waypoint.getDefaultInstance() : startWaypoint_;
   }
 
   public static final int END_LOCATION_FIELD_NUMBER = 5;
@@ -4602,7 +4259,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.LatLngOrBuilder getEndLocationOrBuilder() {
-    return getEndLocation();
+    return endLocation_ == null ? com.google.type.LatLng.getDefaultInstance() : endLocation_;
   }
 
   public static final int END_WAYPOINT_FIELD_NUMBER = 6;
@@ -4655,10 +4312,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.optimization.v1.WaypointOrBuilder getEndWaypointOrBuilder() {
-    return getEndWaypoint();
+    return endWaypoint_ == null ? com.google.cloud.optimization.v1.Waypoint.getDefaultInstance() : endWaypoint_;
   }
 
   public static final int START_TAGS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList startTags_;
   /**
    * <pre>
@@ -4714,6 +4372,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int END_TAGS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList endTags_;
   /**
    * <pre>
@@ -4769,6 +4428,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int START_TIME_WINDOWS_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.TimeWindow> startTimeWindows_;
   /**
    * <pre>
@@ -4874,6 +4534,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int END_TIME_WINDOWS_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.TimeWindow> endTimeWindows_;
   /**
    * <pre>
@@ -4979,7 +4640,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRAVEL_DURATION_MULTIPLE_FIELD_NUMBER = 11;
-  private double travelDurationMultiple_;
+  private double travelDurationMultiple_ = 0D;
   /**
    * <pre>
    * Specifies a multiplicative factor that can be used to increase or decrease
@@ -5026,7 +4687,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UNLOADING_POLICY_FIELD_NUMBER = 12;
-  private int unloadingPolicy_;
+  private int unloadingPolicy_ = 0;
   /**
    * <pre>
    * Unloading policy enforced on the vehicle.
@@ -5047,8 +4708,7 @@ private static final long serialVersionUID = 0L;
    * @return The unloadingPolicy.
    */
   @java.lang.Override public com.google.cloud.optimization.v1.Vehicle.UnloadingPolicy getUnloadingPolicy() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.optimization.v1.Vehicle.UnloadingPolicy result = com.google.cloud.optimization.v1.Vehicle.UnloadingPolicy.valueOf(unloadingPolicy_);
+    com.google.cloud.optimization.v1.Vehicle.UnloadingPolicy result = com.google.cloud.optimization.v1.Vehicle.UnloadingPolicy.forNumber(unloadingPolicy_);
     return result == null ? com.google.cloud.optimization.v1.Vehicle.UnloadingPolicy.UNRECOGNIZED : result;
   }
 
@@ -5064,6 +4724,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.optimization.v1.Vehicle.LoadLimit.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.optimization.v1.Vehicle.LoadLimit> loadLimits_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.Vehicle.LoadLimit>
@@ -5074,7 +4735,6 @@ private static final long serialVersionUID = 0L;
     }
     return loadLimits_;
   }
-
   public int getLoadLimitsCount() {
     return internalGetLoadLimits().getMap().size();
   }
@@ -5090,7 +4750,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.optimization.v1.Vehicle.LoadLimit&gt; load_limits = 30;</code>
    */
-
   @java.lang.Override
   public boolean containsLoadLimits(
       java.lang.String key) {
@@ -5118,7 +4777,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.optimization.v1.Vehicle.LoadLimit&gt; load_limits = 30;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Vehicle.LoadLimit> getLoadLimitsMap() {
     return internalGetLoadLimits().getMap();
   }
@@ -5135,10 +4793,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.optimization.v1.Vehicle.LoadLimit&gt; load_limits = 30;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.optimization.v1.Vehicle.LoadLimit getLoadLimitsOrDefault(
+  public /* nullable */
+com.google.cloud.optimization.v1.Vehicle.LoadLimit getLoadLimitsOrDefault(
       java.lang.String key,
-      com.google.cloud.optimization.v1.Vehicle.LoadLimit defaultValue) {
+      /* nullable */
+com.google.cloud.optimization.v1.Vehicle.LoadLimit defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Vehicle.LoadLimit> map =
         internalGetLoadLimits().getMap();
@@ -5157,7 +4816,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.optimization.v1.Vehicle.LoadLimit&gt; load_limits = 30;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.optimization.v1.Vehicle.LoadLimit getLoadLimitsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -5170,7 +4828,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COST_PER_HOUR_FIELD_NUMBER = 16;
-  private double costPerHour_;
+  private double costPerHour_ = 0D;
   /**
    * <pre>
    * Vehicle costs: all costs add up and must be in the same unit as
@@ -5190,12 +4848,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COST_PER_TRAVELED_HOUR_FIELD_NUMBER = 17;
-  private double costPerTraveledHour_;
+  private double costPerTraveledHour_ = 0D;
   /**
    * <pre>
    * Cost per traveled hour of the vehicle route. This cost is applied only to
    * travel time taken by the route (i.e., that reported in
-   * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]), and excludes waiting time and visit time.
+   * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]),
+   * and excludes waiting time and visit time.
    * </pre>
    *
    * <code>double cost_per_traveled_hour = 17;</code>
@@ -5207,13 +4866,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COST_PER_KILOMETER_FIELD_NUMBER = 18;
-  private double costPerKilometer_;
+  private double costPerKilometer_ = 0D;
   /**
    * <pre>
    * Cost per kilometer of the vehicle route. This cost is applied to the
-   * distance reported in the [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] and does not apply
-   * to any distance implicitly traveled from the `arrival_location` to the
-   * `departure_location` of a single `VisitRequest`.
+   * distance reported in the
+   * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+   * and does not apply to any distance implicitly traveled from the
+   * `arrival_location` to the `departure_location` of a single `VisitRequest`.
    * </pre>
    *
    * <code>double cost_per_kilometer = 18;</code>
@@ -5225,7 +4885,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FIXED_COST_FIELD_NUMBER = 19;
-  private double fixedCost_;
+  private double fixedCost_ = 0D;
   /**
    * <pre>
    * Fixed cost applied if this vehicle is used to handle a shipment.
@@ -5240,7 +4900,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USED_IF_ROUTE_IS_EMPTY_FIELD_NUMBER = 20;
-  private boolean usedIfRouteIsEmpty_;
+  private boolean usedIfRouteIsEmpty_ = false;
   /**
    * <pre>
    * This field only applies to vehicles when their route does not serve any
@@ -5304,7 +4964,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.optimization.v1.Vehicle.DurationLimitOrBuilder getRouteDurationLimitOrBuilder() {
-    return getRouteDurationLimit();
+    return routeDurationLimit_ == null ? com.google.cloud.optimization.v1.Vehicle.DurationLimit.getDefaultInstance() : routeDurationLimit_;
   }
 
   public static final int TRAVEL_DURATION_LIMIT_FIELD_NUMBER = 22;
@@ -5348,7 +5008,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.optimization.v1.Vehicle.DurationLimitOrBuilder getTravelDurationLimitOrBuilder() {
-    return getTravelDurationLimit();
+    return travelDurationLimit_ == null ? com.google.cloud.optimization.v1.Vehicle.DurationLimit.getDefaultInstance() : travelDurationLimit_;
   }
 
   public static final int ROUTE_DISTANCE_LIMIT_FIELD_NUMBER = 23;
@@ -5392,7 +5052,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.optimization.v1.DistanceLimitOrBuilder getRouteDistanceLimitOrBuilder() {
-    return getRouteDistanceLimit();
+    return routeDistanceLimit_ == null ? com.google.cloud.optimization.v1.DistanceLimit.getDefaultInstance() : routeDistanceLimit_;
   }
 
   public static final int EXTRA_VISIT_DURATION_FOR_VISIT_TYPE_FIELD_NUMBER = 24;
@@ -5407,6 +5067,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.Duration.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.protobuf.Duration> extraVisitDurationForVisitType_;
   private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Duration>
@@ -5417,7 +5078,6 @@ private static final long serialVersionUID = 0L;
     }
     return extraVisitDurationForVisitType_;
   }
-
   public int getExtraVisitDurationForVisitTypeCount() {
     return internalGetExtraVisitDurationForVisitType().getMap().size();
   }
@@ -5435,7 +5095,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.protobuf.Duration&gt; extra_visit_duration_for_visit_type = 24;</code>
    */
-
   @java.lang.Override
   public boolean containsExtraVisitDurationForVisitType(
       java.lang.String key) {
@@ -5465,7 +5124,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.Duration&gt; extra_visit_duration_for_visit_type = 24;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.protobuf.Duration> getExtraVisitDurationForVisitTypeMap() {
     return internalGetExtraVisitDurationForVisitType().getMap();
   }
@@ -5484,10 +5142,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.Duration&gt; extra_visit_duration_for_visit_type = 24;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.Duration getExtraVisitDurationForVisitTypeOrDefault(
+  public /* nullable */
+com.google.protobuf.Duration getExtraVisitDurationForVisitTypeOrDefault(
       java.lang.String key,
-      com.google.protobuf.Duration defaultValue) {
+      /* nullable */
+com.google.protobuf.Duration defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
         internalGetExtraVisitDurationForVisitType().getMap();
@@ -5508,7 +5167,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.Duration&gt; extra_visit_duration_for_visit_type = 24;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.Duration getExtraVisitDurationForVisitTypeOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -5558,15 +5216,17 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.optimization.v1.BreakRuleOrBuilder getBreakRuleOrBuilder() {
-    return getBreakRule();
+    return breakRule_ == null ? com.google.cloud.optimization.v1.BreakRule.getDefaultInstance() : breakRule_;
   }
 
   public static final int LABEL_FIELD_NUMBER = 27;
-  private volatile java.lang.Object label_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object label_ = "";
   /**
    * <pre>
    * Specifies a label for this vehicle. This label is reported in the response
-   * as the `vehicle_label` of the corresponding [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute].
+   * as the `vehicle_label` of the corresponding
+   * [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute].
    * </pre>
    *
    * <code>string label = 27;</code>
@@ -5588,7 +5248,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Specifies a label for this vehicle. This label is reported in the response
-   * as the `vehicle_label` of the corresponding [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute].
+   * as the `vehicle_label` of the corresponding
+   * [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute].
    * </pre>
    *
    * <code>string label = 27;</code>
@@ -5610,7 +5271,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IGNORE_FIELD_NUMBER = 28;
-  private boolean ignore_;
+  private boolean ignore_ = false;
   /**
    * <pre>
    * If true, `used_if_route_is_empty` must be false, and this vehicle will
@@ -5635,6 +5296,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BREAK_RULE_INDICES_FIELD_NUMBER = 29;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.IntList breakRuleIndices_;
   /**
    * <pre>
@@ -5646,7 +5308,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated int32 break_rule_indices = 29 [deprecated = true];</code>
    * @deprecated google.cloud.optimization.v1.Vehicle.break_rule_indices is deprecated.
-   *     See google/cloud/optimization/v1/fleet_routing.proto;l=1379
+   *     See google/cloud/optimization/v1/fleet_routing.proto;l=1436
    * @return A list containing the breakRuleIndices.
    */
   @java.lang.Override
@@ -5664,7 +5326,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated int32 break_rule_indices = 29 [deprecated = true];</code>
    * @deprecated google.cloud.optimization.v1.Vehicle.break_rule_indices is deprecated.
-   *     See google/cloud/optimization/v1/fleet_routing.proto;l=1379
+   *     See google/cloud/optimization/v1/fleet_routing.proto;l=1436
    * @return The count of breakRuleIndices.
    */
   @java.lang.Deprecated public int getBreakRuleIndicesCount() {
@@ -5680,7 +5342,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated int32 break_rule_indices = 29 [deprecated = true];</code>
    * @deprecated google.cloud.optimization.v1.Vehicle.break_rule_indices is deprecated.
-   *     See google/cloud/optimization/v1/fleet_routing.proto;l=1379
+   *     See google/cloud/optimization/v1/fleet_routing.proto;l=1436
    * @param index The index of the element to return.
    * @return The breakRuleIndices at the given index.
    */
@@ -5690,6 +5352,7 @@ private static final long serialVersionUID = 0L;
   private int breakRuleIndicesMemoizedSerializedSize = -1;
 
   public static final int CAPACITIES_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.CapacityQuantity> capacities_;
   /**
    * <pre>
@@ -5750,6 +5413,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int START_LOAD_INTERVALS_FIELD_NUMBER = 14;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.CapacityQuantityInterval> startLoadIntervals_;
   /**
    * <pre>
@@ -5810,6 +5474,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int END_LOAD_INTERVALS_FIELD_NUMBER = 15;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.CapacityQuantityInterval> endLoadIntervals_;
   /**
    * <pre>
@@ -5978,7 +5643,7 @@ private static final long serialVersionUID = 0L;
         internalGetLoadLimits(),
         LoadLimitsDefaultEntryHolder.defaultEntry,
         30);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -6128,7 +5793,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(30, loadLimits__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -6229,7 +5894,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getStartLoadIntervalsList())) return false;
     if (!getEndLoadIntervalsList()
         .equals(other.getEndLoadIntervalsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -6341,7 +6006,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + END_LOAD_INTERVALS_FIELD_NUMBER;
       hash = (53 * hash) + getEndLoadIntervalsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -6490,133 +6155,110 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.optimization.v1.Vehicle.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getStartTimeWindowsFieldBuilder();
-        getEndTimeWindowsFieldBuilder();
-        getCapacitiesFieldBuilder();
-        getStartLoadIntervalsFieldBuilder();
-        getEndLoadIntervalsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       travelMode_ = 0;
-
-      if (startLocationBuilder_ == null) {
-        startLocation_ = null;
-      } else {
-        startLocation_ = null;
+      startLocation_ = null;
+      if (startLocationBuilder_ != null) {
+        startLocationBuilder_.dispose();
         startLocationBuilder_ = null;
       }
-      if (startWaypointBuilder_ == null) {
-        startWaypoint_ = null;
-      } else {
-        startWaypoint_ = null;
+      startWaypoint_ = null;
+      if (startWaypointBuilder_ != null) {
+        startWaypointBuilder_.dispose();
         startWaypointBuilder_ = null;
       }
-      if (endLocationBuilder_ == null) {
-        endLocation_ = null;
-      } else {
-        endLocation_ = null;
+      endLocation_ = null;
+      if (endLocationBuilder_ != null) {
+        endLocationBuilder_.dispose();
         endLocationBuilder_ = null;
       }
-      if (endWaypointBuilder_ == null) {
-        endWaypoint_ = null;
-      } else {
-        endWaypoint_ = null;
+      endWaypoint_ = null;
+      if (endWaypointBuilder_ != null) {
+        endWaypointBuilder_.dispose();
         endWaypointBuilder_ = null;
       }
       startTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       endTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000040);
       if (startTimeWindowsBuilder_ == null) {
         startTimeWindows_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        startTimeWindows_ = null;
         startTimeWindowsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       if (endTimeWindowsBuilder_ == null) {
         endTimeWindows_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        endTimeWindows_ = null;
         endTimeWindowsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000100);
       travelDurationMultiple_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000010);
       unloadingPolicy_ = 0;
-
       internalGetMutableLoadLimits().clear();
       costPerHour_ = 0D;
-
       costPerTraveledHour_ = 0D;
-
       costPerKilometer_ = 0D;
-
       fixedCost_ = 0D;
-
       usedIfRouteIsEmpty_ = false;
-
-      if (routeDurationLimitBuilder_ == null) {
-        routeDurationLimit_ = null;
-      } else {
-        routeDurationLimit_ = null;
+      routeDurationLimit_ = null;
+      if (routeDurationLimitBuilder_ != null) {
+        routeDurationLimitBuilder_.dispose();
         routeDurationLimitBuilder_ = null;
       }
-      if (travelDurationLimitBuilder_ == null) {
-        travelDurationLimit_ = null;
-      } else {
-        travelDurationLimit_ = null;
+      travelDurationLimit_ = null;
+      if (travelDurationLimitBuilder_ != null) {
+        travelDurationLimitBuilder_.dispose();
         travelDurationLimitBuilder_ = null;
       }
-      if (routeDistanceLimitBuilder_ == null) {
-        routeDistanceLimit_ = null;
-      } else {
-        routeDistanceLimit_ = null;
+      routeDistanceLimit_ = null;
+      if (routeDistanceLimitBuilder_ != null) {
+        routeDistanceLimitBuilder_.dispose();
         routeDistanceLimitBuilder_ = null;
       }
       internalGetMutableExtraVisitDurationForVisitType().clear();
-      if (breakRuleBuilder_ == null) {
-        breakRule_ = null;
-      } else {
-        breakRule_ = null;
+      breakRule_ = null;
+      if (breakRuleBuilder_ != null) {
+        breakRuleBuilder_.dispose();
         breakRuleBuilder_ = null;
       }
       label_ = "";
-
       ignore_ = false;
-
       breakRuleIndices_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000080);
       if (capacitiesBuilder_ == null) {
         capacities_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000100);
       } else {
+        capacities_ = null;
         capacitiesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x02000000);
       if (startLoadIntervalsBuilder_ == null) {
         startLoadIntervals_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000200);
       } else {
+        startLoadIntervals_ = null;
         startLoadIntervalsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x04000000);
       if (endLoadIntervalsBuilder_ == null) {
         endLoadIntervals_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000400);
       } else {
+        endLoadIntervals_ = null;
         endLoadIntervalsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x08000000);
       return this;
     }
 
@@ -6643,128 +6285,158 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.optimization.v1.Vehicle buildPartial() {
       com.google.cloud.optimization.v1.Vehicle result = new com.google.cloud.optimization.v1.Vehicle(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.travelMode_ = travelMode_;
-      if (startLocationBuilder_ == null) {
-        result.startLocation_ = startLocation_;
-      } else {
-        result.startLocation_ = startLocationBuilder_.build();
-      }
-      if (startWaypointBuilder_ == null) {
-        result.startWaypoint_ = startWaypoint_;
-      } else {
-        result.startWaypoint_ = startWaypointBuilder_.build();
-      }
-      if (endLocationBuilder_ == null) {
-        result.endLocation_ = endLocation_;
-      } else {
-        result.endLocation_ = endLocationBuilder_.build();
-      }
-      if (endWaypointBuilder_ == null) {
-        result.endWaypoint_ = endWaypoint_;
-      } else {
-        result.endWaypoint_ = endWaypointBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.Vehicle result) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         startTags_ = startTags_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
       }
       result.startTags_ = startTags_;
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         endTags_ = endTags_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000040);
       }
       result.endTags_ = endTags_;
       if (startTimeWindowsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           startTimeWindows_ = java.util.Collections.unmodifiableList(startTimeWindows_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.startTimeWindows_ = startTimeWindows_;
       } else {
         result.startTimeWindows_ = startTimeWindowsBuilder_.build();
       }
       if (endTimeWindowsBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000100) != 0)) {
           endTimeWindows_ = java.util.Collections.unmodifiableList(endTimeWindows_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000100);
         }
         result.endTimeWindows_ = endTimeWindows_;
       } else {
         result.endTimeWindows_ = endTimeWindowsBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.travelDurationMultiple_ = travelDurationMultiple_;
-        to_bitField0_ |= 0x00000001;
-      }
-      result.unloadingPolicy_ = unloadingPolicy_;
-      result.loadLimits_ = internalGetLoadLimits();
-      result.loadLimits_.makeImmutable();
-      result.costPerHour_ = costPerHour_;
-      result.costPerTraveledHour_ = costPerTraveledHour_;
-      result.costPerKilometer_ = costPerKilometer_;
-      result.fixedCost_ = fixedCost_;
-      result.usedIfRouteIsEmpty_ = usedIfRouteIsEmpty_;
-      if (routeDurationLimitBuilder_ == null) {
-        result.routeDurationLimit_ = routeDurationLimit_;
-      } else {
-        result.routeDurationLimit_ = routeDurationLimitBuilder_.build();
-      }
-      if (travelDurationLimitBuilder_ == null) {
-        result.travelDurationLimit_ = travelDurationLimit_;
-      } else {
-        result.travelDurationLimit_ = travelDurationLimitBuilder_.build();
-      }
-      if (routeDistanceLimitBuilder_ == null) {
-        result.routeDistanceLimit_ = routeDistanceLimit_;
-      } else {
-        result.routeDistanceLimit_ = routeDistanceLimitBuilder_.build();
-      }
-      result.extraVisitDurationForVisitType_ = internalGetExtraVisitDurationForVisitType();
-      result.extraVisitDurationForVisitType_.makeImmutable();
-      if (breakRuleBuilder_ == null) {
-        result.breakRule_ = breakRule_;
-      } else {
-        result.breakRule_ = breakRuleBuilder_.build();
-      }
-      result.label_ = label_;
-      result.ignore_ = ignore_;
-      if (((bitField0_ & 0x00000080) != 0)) {
+      if (((bitField0_ & 0x01000000) != 0)) {
         breakRuleIndices_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x01000000);
       }
       result.breakRuleIndices_ = breakRuleIndices_;
       if (capacitiesBuilder_ == null) {
-        if (((bitField0_ & 0x00000100) != 0)) {
+        if (((bitField0_ & 0x02000000) != 0)) {
           capacities_ = java.util.Collections.unmodifiableList(capacities_);
-          bitField0_ = (bitField0_ & ~0x00000100);
+          bitField0_ = (bitField0_ & ~0x02000000);
         }
         result.capacities_ = capacities_;
       } else {
         result.capacities_ = capacitiesBuilder_.build();
       }
       if (startLoadIntervalsBuilder_ == null) {
-        if (((bitField0_ & 0x00000200) != 0)) {
+        if (((bitField0_ & 0x04000000) != 0)) {
           startLoadIntervals_ = java.util.Collections.unmodifiableList(startLoadIntervals_);
-          bitField0_ = (bitField0_ & ~0x00000200);
+          bitField0_ = (bitField0_ & ~0x04000000);
         }
         result.startLoadIntervals_ = startLoadIntervals_;
       } else {
         result.startLoadIntervals_ = startLoadIntervalsBuilder_.build();
       }
       if (endLoadIntervalsBuilder_ == null) {
-        if (((bitField0_ & 0x00000400) != 0)) {
+        if (((bitField0_ & 0x08000000) != 0)) {
           endLoadIntervals_ = java.util.Collections.unmodifiableList(endLoadIntervals_);
-          bitField0_ = (bitField0_ & ~0x00000400);
+          bitField0_ = (bitField0_ & ~0x08000000);
         }
         result.endLoadIntervals_ = endLoadIntervals_;
       } else {
         result.endLoadIntervals_ = endLoadIntervalsBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.optimization.v1.Vehicle result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.travelMode_ = travelMode_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.startLocation_ = startLocationBuilder_ == null
+            ? startLocation_
+            : startLocationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.startWaypoint_ = startWaypointBuilder_ == null
+            ? startWaypoint_
+            : startWaypointBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.endLocation_ = endLocationBuilder_ == null
+            ? endLocation_
+            : endLocationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.endWaypoint_ = endWaypointBuilder_ == null
+            ? endWaypoint_
+            : endWaypointBuilder_.build();
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.travelDurationMultiple_ = travelDurationMultiple_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.unloadingPolicy_ = unloadingPolicy_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.loadLimits_ = internalGetLoadLimits();
+        result.loadLimits_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.costPerHour_ = costPerHour_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.costPerTraveledHour_ = costPerTraveledHour_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.costPerKilometer_ = costPerKilometer_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.fixedCost_ = fixedCost_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.usedIfRouteIsEmpty_ = usedIfRouteIsEmpty_;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.routeDurationLimit_ = routeDurationLimitBuilder_ == null
+            ? routeDurationLimit_
+            : routeDurationLimitBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.travelDurationLimit_ = travelDurationLimitBuilder_ == null
+            ? travelDurationLimit_
+            : travelDurationLimitBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.routeDistanceLimit_ = routeDistanceLimitBuilder_ == null
+            ? routeDistanceLimit_
+            : routeDistanceLimitBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.extraVisitDurationForVisitType_ = internalGetExtraVisitDurationForVisitType();
+        result.extraVisitDurationForVisitType_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00200000) != 0)) {
+        result.breakRule_ = breakRuleBuilder_ == null
+            ? breakRule_
+            : breakRuleBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00400000) != 0)) {
+        result.label_ = label_;
+      }
+      if (((from_bitField0_ & 0x00800000) != 0)) {
+        result.ignore_ = ignore_;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -6829,7 +6501,7 @@ private static final long serialVersionUID = 0L;
       if (!other.startTags_.isEmpty()) {
         if (startTags_.isEmpty()) {
           startTags_ = other.startTags_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureStartTagsIsMutable();
           startTags_.addAll(other.startTags_);
@@ -6839,7 +6511,7 @@ private static final long serialVersionUID = 0L;
       if (!other.endTags_.isEmpty()) {
         if (endTags_.isEmpty()) {
           endTags_ = other.endTags_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           ensureEndTagsIsMutable();
           endTags_.addAll(other.endTags_);
@@ -6850,7 +6522,7 @@ private static final long serialVersionUID = 0L;
         if (!other.startTimeWindows_.isEmpty()) {
           if (startTimeWindows_.isEmpty()) {
             startTimeWindows_ = other.startTimeWindows_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureStartTimeWindowsIsMutable();
             startTimeWindows_.addAll(other.startTimeWindows_);
@@ -6863,7 +6535,7 @@ private static final long serialVersionUID = 0L;
             startTimeWindowsBuilder_.dispose();
             startTimeWindowsBuilder_ = null;
             startTimeWindows_ = other.startTimeWindows_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000080);
             startTimeWindowsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getStartTimeWindowsFieldBuilder() : null;
@@ -6876,7 +6548,7 @@ private static final long serialVersionUID = 0L;
         if (!other.endTimeWindows_.isEmpty()) {
           if (endTimeWindows_.isEmpty()) {
             endTimeWindows_ = other.endTimeWindows_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000100);
           } else {
             ensureEndTimeWindowsIsMutable();
             endTimeWindows_.addAll(other.endTimeWindows_);
@@ -6889,7 +6561,7 @@ private static final long serialVersionUID = 0L;
             endTimeWindowsBuilder_.dispose();
             endTimeWindowsBuilder_ = null;
             endTimeWindows_ = other.endTimeWindows_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000100);
             endTimeWindowsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getEndTimeWindowsFieldBuilder() : null;
@@ -6906,6 +6578,7 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLoadLimits().mergeFrom(
           other.internalGetLoadLimits());
+      bitField0_ |= 0x00000800;
       if (other.getCostPerHour() != 0D) {
         setCostPerHour(other.getCostPerHour());
       }
@@ -6932,11 +6605,13 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableExtraVisitDurationForVisitType().mergeFrom(
           other.internalGetExtraVisitDurationForVisitType());
+      bitField0_ |= 0x00100000;
       if (other.hasBreakRule()) {
         mergeBreakRule(other.getBreakRule());
       }
       if (!other.getLabel().isEmpty()) {
         label_ = other.label_;
+        bitField0_ |= 0x00400000;
         onChanged();
       }
       if (other.getIgnore() != false) {
@@ -6945,7 +6620,7 @@ private static final long serialVersionUID = 0L;
       if (!other.breakRuleIndices_.isEmpty()) {
         if (breakRuleIndices_.isEmpty()) {
           breakRuleIndices_ = other.breakRuleIndices_;
-          bitField0_ = (bitField0_ & ~0x00000080);
+          bitField0_ = (bitField0_ & ~0x01000000);
         } else {
           ensureBreakRuleIndicesIsMutable();
           breakRuleIndices_.addAll(other.breakRuleIndices_);
@@ -6956,7 +6631,7 @@ private static final long serialVersionUID = 0L;
         if (!other.capacities_.isEmpty()) {
           if (capacities_.isEmpty()) {
             capacities_ = other.capacities_;
-            bitField0_ = (bitField0_ & ~0x00000100);
+            bitField0_ = (bitField0_ & ~0x02000000);
           } else {
             ensureCapacitiesIsMutable();
             capacities_.addAll(other.capacities_);
@@ -6969,7 +6644,7 @@ private static final long serialVersionUID = 0L;
             capacitiesBuilder_.dispose();
             capacitiesBuilder_ = null;
             capacities_ = other.capacities_;
-            bitField0_ = (bitField0_ & ~0x00000100);
+            bitField0_ = (bitField0_ & ~0x02000000);
             capacitiesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getCapacitiesFieldBuilder() : null;
@@ -6982,7 +6657,7 @@ private static final long serialVersionUID = 0L;
         if (!other.startLoadIntervals_.isEmpty()) {
           if (startLoadIntervals_.isEmpty()) {
             startLoadIntervals_ = other.startLoadIntervals_;
-            bitField0_ = (bitField0_ & ~0x00000200);
+            bitField0_ = (bitField0_ & ~0x04000000);
           } else {
             ensureStartLoadIntervalsIsMutable();
             startLoadIntervals_.addAll(other.startLoadIntervals_);
@@ -6995,7 +6670,7 @@ private static final long serialVersionUID = 0L;
             startLoadIntervalsBuilder_.dispose();
             startLoadIntervalsBuilder_ = null;
             startLoadIntervals_ = other.startLoadIntervals_;
-            bitField0_ = (bitField0_ & ~0x00000200);
+            bitField0_ = (bitField0_ & ~0x04000000);
             startLoadIntervalsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getStartLoadIntervalsFieldBuilder() : null;
@@ -7008,7 +6683,7 @@ private static final long serialVersionUID = 0L;
         if (!other.endLoadIntervals_.isEmpty()) {
           if (endLoadIntervals_.isEmpty()) {
             endLoadIntervals_ = other.endLoadIntervals_;
-            bitField0_ = (bitField0_ & ~0x00000400);
+            bitField0_ = (bitField0_ & ~0x08000000);
           } else {
             ensureEndLoadIntervalsIsMutable();
             endLoadIntervals_.addAll(other.endLoadIntervals_);
@@ -7021,7 +6696,7 @@ private static final long serialVersionUID = 0L;
             endLoadIntervalsBuilder_.dispose();
             endLoadIntervalsBuilder_ = null;
             endLoadIntervals_ = other.endLoadIntervals_;
-            bitField0_ = (bitField0_ & ~0x00000400);
+            bitField0_ = (bitField0_ & ~0x08000000);
             endLoadIntervalsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getEndLoadIntervalsFieldBuilder() : null;
@@ -7030,7 +6705,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -7045,17 +6720,247 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.optimization.v1.Vehicle parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              travelMode_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 26: {
+              input.readMessage(
+                  getStartLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getStartWaypointFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getEndLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getEndWaypointFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureStartTagsIsMutable();
+              startTags_.add(s);
+              break;
+            } // case 58
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureEndTagsIsMutable();
+              endTags_.add(s);
+              break;
+            } // case 66
+            case 74: {
+              com.google.cloud.optimization.v1.TimeWindow m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.TimeWindow.parser(),
+                      extensionRegistry);
+              if (startTimeWindowsBuilder_ == null) {
+                ensureStartTimeWindowsIsMutable();
+                startTimeWindows_.add(m);
+              } else {
+                startTimeWindowsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 74
+            case 82: {
+              com.google.cloud.optimization.v1.TimeWindow m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.TimeWindow.parser(),
+                      extensionRegistry);
+              if (endTimeWindowsBuilder_ == null) {
+                ensureEndTimeWindowsIsMutable();
+                endTimeWindows_.add(m);
+              } else {
+                endTimeWindowsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 82
+            case 89: {
+              travelDurationMultiple_ = input.readDouble();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 89
+            case 96: {
+              unloadingPolicy_ = input.readEnum();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 96
+            case 106: {
+              com.google.cloud.optimization.v1.CapacityQuantity m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.CapacityQuantity.parser(),
+                      extensionRegistry);
+              if (capacitiesBuilder_ == null) {
+                ensureCapacitiesIsMutable();
+                capacities_.add(m);
+              } else {
+                capacitiesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 106
+            case 114: {
+              com.google.cloud.optimization.v1.CapacityQuantityInterval m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.CapacityQuantityInterval.parser(),
+                      extensionRegistry);
+              if (startLoadIntervalsBuilder_ == null) {
+                ensureStartLoadIntervalsIsMutable();
+                startLoadIntervals_.add(m);
+              } else {
+                startLoadIntervalsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 114
+            case 122: {
+              com.google.cloud.optimization.v1.CapacityQuantityInterval m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.CapacityQuantityInterval.parser(),
+                      extensionRegistry);
+              if (endLoadIntervalsBuilder_ == null) {
+                ensureEndLoadIntervalsIsMutable();
+                endLoadIntervals_.add(m);
+              } else {
+                endLoadIntervalsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 122
+            case 129: {
+              costPerHour_ = input.readDouble();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 129
+            case 137: {
+              costPerTraveledHour_ = input.readDouble();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 137
+            case 145: {
+              costPerKilometer_ = input.readDouble();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 145
+            case 153: {
+              fixedCost_ = input.readDouble();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 153
+            case 160: {
+              usedIfRouteIsEmpty_ = input.readBool();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 160
+            case 170: {
+              input.readMessage(
+                  getRouteDurationLimitFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 170
+            case 178: {
+              input.readMessage(
+                  getTravelDurationLimitFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 178
+            case 186: {
+              input.readMessage(
+                  getRouteDistanceLimitFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 186
+            case 194: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Duration>
+              extraVisitDurationForVisitType__ = input.readMessage(
+                  ExtraVisitDurationForVisitTypeDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableExtraVisitDurationForVisitType().getMutableMap().put(
+                  extraVisitDurationForVisitType__.getKey(), extraVisitDurationForVisitType__.getValue());
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 194
+            case 202: {
+              input.readMessage(
+                  getBreakRuleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00200000;
+              break;
+            } // case 202
+            case 218: {
+              label_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00400000;
+              break;
+            } // case 218
+            case 224: {
+              ignore_ = input.readBool();
+              bitField0_ |= 0x00800000;
+              break;
+            } // case 224
+            case 232: {
+              int v = input.readInt32();
+              ensureBreakRuleIndicesIsMutable();
+              breakRuleIndices_.addInt(v);
+              break;
+            } // case 232
+            case 234: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureBreakRuleIndicesIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                breakRuleIndices_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 234
+            case 242: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.optimization.v1.Vehicle.LoadLimit>
+              loadLimits__ = input.readMessage(
+                  LoadLimitsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLoadLimits().getMutableMap().put(
+                  loadLimits__.getKey(), loadLimits__.getValue());
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 242
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.optimization.v1.Vehicle) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -7084,8 +6989,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTravelModeValue(int value) {
-      
       travelMode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -7100,8 +7005,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.optimization.v1.Vehicle.TravelMode getTravelMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.optimization.v1.Vehicle.TravelMode result = com.google.cloud.optimization.v1.Vehicle.TravelMode.valueOf(travelMode_);
+      com.google.cloud.optimization.v1.Vehicle.TravelMode result = com.google.cloud.optimization.v1.Vehicle.TravelMode.forNumber(travelMode_);
       return result == null ? com.google.cloud.optimization.v1.Vehicle.TravelMode.UNRECOGNIZED : result;
     }
     /**
@@ -7118,7 +7022,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       travelMode_ = value.getNumber();
       onChanged();
       return this;
@@ -7133,7 +7037,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTravelMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       travelMode_ = 0;
       onChanged();
       return this;
@@ -7154,7 +7058,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the startLocation field is set.
      */
     public boolean hasStartLocation() {
-      return startLocationBuilder_ != null || startLocation_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -7190,11 +7094,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         startLocation_ = value;
-        onChanged();
       } else {
         startLocationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -7211,11 +7115,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.LatLng.Builder builderForValue) {
       if (startLocationBuilder_ == null) {
         startLocation_ = builderForValue.build();
-        onChanged();
       } else {
         startLocationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -7230,17 +7134,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStartLocation(com.google.type.LatLng value) {
       if (startLocationBuilder_ == null) {
-        if (startLocation_ != null) {
-          startLocation_ =
-            com.google.type.LatLng.newBuilder(startLocation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          startLocation_ != null &&
+          startLocation_ != com.google.type.LatLng.getDefaultInstance()) {
+          getStartLocationBuilder().mergeFrom(value);
         } else {
           startLocation_ = value;
         }
-        onChanged();
       } else {
         startLocationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -7254,14 +7159,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng start_location = 3;</code>
      */
     public Builder clearStartLocation() {
-      if (startLocationBuilder_ == null) {
-        startLocation_ = null;
-        onChanged();
-      } else {
-        startLocation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      startLocation_ = null;
+      if (startLocationBuilder_ != null) {
+        startLocationBuilder_.dispose();
         startLocationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7275,7 +7179,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng start_location = 3;</code>
      */
     public com.google.type.LatLng.Builder getStartLocationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getStartLocationFieldBuilder().getBuilder();
     }
@@ -7337,7 +7241,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the startWaypoint field is set.
      */
     public boolean hasStartWaypoint() {
-      return startWaypointBuilder_ != null || startWaypoint_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -7375,11 +7279,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         startWaypoint_ = value;
-        onChanged();
       } else {
         startWaypointBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -7397,11 +7301,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.optimization.v1.Waypoint.Builder builderForValue) {
       if (startWaypointBuilder_ == null) {
         startWaypoint_ = builderForValue.build();
-        onChanged();
       } else {
         startWaypointBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -7417,17 +7321,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStartWaypoint(com.google.cloud.optimization.v1.Waypoint value) {
       if (startWaypointBuilder_ == null) {
-        if (startWaypoint_ != null) {
-          startWaypoint_ =
-            com.google.cloud.optimization.v1.Waypoint.newBuilder(startWaypoint_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          startWaypoint_ != null &&
+          startWaypoint_ != com.google.cloud.optimization.v1.Waypoint.getDefaultInstance()) {
+          getStartWaypointBuilder().mergeFrom(value);
         } else {
           startWaypoint_ = value;
         }
-        onChanged();
       } else {
         startWaypointBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -7442,14 +7347,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.Waypoint start_waypoint = 4;</code>
      */
     public Builder clearStartWaypoint() {
-      if (startWaypointBuilder_ == null) {
-        startWaypoint_ = null;
-        onChanged();
-      } else {
-        startWaypoint_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      startWaypoint_ = null;
+      if (startWaypointBuilder_ != null) {
+        startWaypointBuilder_.dispose();
         startWaypointBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7464,7 +7368,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.Waypoint start_waypoint = 4;</code>
      */
     public com.google.cloud.optimization.v1.Waypoint.Builder getStartWaypointBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getStartWaypointFieldBuilder().getBuilder();
     }
@@ -7528,7 +7432,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the endLocation field is set.
      */
     public boolean hasEndLocation() {
-      return endLocationBuilder_ != null || endLocation_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -7566,11 +7470,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         endLocation_ = value;
-        onChanged();
       } else {
         endLocationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -7588,11 +7492,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.LatLng.Builder builderForValue) {
       if (endLocationBuilder_ == null) {
         endLocation_ = builderForValue.build();
-        onChanged();
       } else {
         endLocationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -7608,17 +7512,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEndLocation(com.google.type.LatLng value) {
       if (endLocationBuilder_ == null) {
-        if (endLocation_ != null) {
-          endLocation_ =
-            com.google.type.LatLng.newBuilder(endLocation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          endLocation_ != null &&
+          endLocation_ != com.google.type.LatLng.getDefaultInstance()) {
+          getEndLocationBuilder().mergeFrom(value);
         } else {
           endLocation_ = value;
         }
-        onChanged();
       } else {
         endLocationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -7633,14 +7538,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng end_location = 5;</code>
      */
     public Builder clearEndLocation() {
-      if (endLocationBuilder_ == null) {
-        endLocation_ = null;
-        onChanged();
-      } else {
-        endLocation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      endLocation_ = null;
+      if (endLocationBuilder_ != null) {
+        endLocationBuilder_.dispose();
         endLocationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7655,7 +7559,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng end_location = 5;</code>
      */
     public com.google.type.LatLng.Builder getEndLocationBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getEndLocationFieldBuilder().getBuilder();
     }
@@ -7720,7 +7624,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the endWaypoint field is set.
      */
     public boolean hasEndWaypoint() {
-      return endWaypointBuilder_ != null || endWaypoint_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -7760,11 +7664,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         endWaypoint_ = value;
-        onChanged();
       } else {
         endWaypointBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -7783,11 +7687,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.optimization.v1.Waypoint.Builder builderForValue) {
       if (endWaypointBuilder_ == null) {
         endWaypoint_ = builderForValue.build();
-        onChanged();
       } else {
         endWaypointBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -7804,17 +7708,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEndWaypoint(com.google.cloud.optimization.v1.Waypoint value) {
       if (endWaypointBuilder_ == null) {
-        if (endWaypoint_ != null) {
-          endWaypoint_ =
-            com.google.cloud.optimization.v1.Waypoint.newBuilder(endWaypoint_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          endWaypoint_ != null &&
+          endWaypoint_ != com.google.cloud.optimization.v1.Waypoint.getDefaultInstance()) {
+          getEndWaypointBuilder().mergeFrom(value);
         } else {
           endWaypoint_ = value;
         }
-        onChanged();
       } else {
         endWaypointBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -7830,14 +7735,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.Waypoint end_waypoint = 6;</code>
      */
     public Builder clearEndWaypoint() {
-      if (endWaypointBuilder_ == null) {
-        endWaypoint_ = null;
-        onChanged();
-      } else {
-        endWaypoint_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      endWaypoint_ = null;
+      if (endWaypointBuilder_ != null) {
+        endWaypointBuilder_.dispose();
         endWaypointBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7853,7 +7757,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.Waypoint end_waypoint = 6;</code>
      */
     public com.google.cloud.optimization.v1.Waypoint.Builder getEndWaypointBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getEndWaypointFieldBuilder().getBuilder();
     }
@@ -7905,9 +7809,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList startTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureStartTagsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         startTags_ = new com.google.protobuf.LazyStringArrayList(startTags_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
     /**
@@ -7975,10 +7879,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStartTags(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureStartTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureStartTagsIsMutable();
       startTags_.set(index, value);
       onChanged();
       return this;
@@ -7995,10 +7897,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addStartTags(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureStartTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureStartTagsIsMutable();
       startTags_.add(value);
       onChanged();
       return this;
@@ -8032,7 +7932,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearStartTags() {
       startTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -8048,10 +7948,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addStartTagsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureStartTagsIsMutable();
       startTags_.add(value);
       onChanged();
@@ -8060,9 +7958,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList endTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureEndTagsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         endTags_ = new com.google.protobuf.LazyStringArrayList(endTags_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000040;
        }
     }
     /**
@@ -8130,10 +8028,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEndTags(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEndTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEndTagsIsMutable();
       endTags_.set(index, value);
       onChanged();
       return this;
@@ -8150,10 +8046,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addEndTags(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEndTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEndTagsIsMutable();
       endTags_.add(value);
       onChanged();
       return this;
@@ -8187,7 +8081,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearEndTags() {
       endTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -8203,10 +8097,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addEndTagsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureEndTagsIsMutable();
       endTags_.add(value);
       onChanged();
@@ -8216,9 +8108,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.optimization.v1.TimeWindow> startTimeWindows_ =
       java.util.Collections.emptyList();
     private void ensureStartTimeWindowsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         startTimeWindows_ = new java.util.ArrayList<com.google.cloud.optimization.v1.TimeWindow>(startTimeWindows_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -8511,7 +8403,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearStartTimeWindows() {
       if (startTimeWindowsBuilder_ == null) {
         startTimeWindows_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         startTimeWindowsBuilder_.clear();
@@ -8679,7 +8571,7 @@ private static final long serialVersionUID = 0L;
         startTimeWindowsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.TimeWindow, com.google.cloud.optimization.v1.TimeWindow.Builder, com.google.cloud.optimization.v1.TimeWindowOrBuilder>(
                 startTimeWindows_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         startTimeWindows_ = null;
@@ -8690,9 +8582,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.optimization.v1.TimeWindow> endTimeWindows_ =
       java.util.Collections.emptyList();
     private void ensureEndTimeWindowsIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         endTimeWindows_ = new java.util.ArrayList<com.google.cloud.optimization.v1.TimeWindow>(endTimeWindows_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000100;
        }
     }
 
@@ -8985,7 +8877,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearEndTimeWindows() {
       if (endTimeWindowsBuilder_ == null) {
         endTimeWindows_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
       } else {
         endTimeWindowsBuilder_.clear();
@@ -9153,7 +9045,7 @@ private static final long serialVersionUID = 0L;
         endTimeWindowsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.TimeWindow, com.google.cloud.optimization.v1.TimeWindow.Builder, com.google.cloud.optimization.v1.TimeWindowOrBuilder>(
                 endTimeWindows_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000100) != 0),
                 getParentForChildren(),
                 isClean());
         endTimeWindows_ = null;
@@ -9182,7 +9074,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasTravelDurationMultiple() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -9226,8 +9118,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTravelDurationMultiple(double value) {
-      bitField0_ |= 0x00000010;
+      
       travelDurationMultiple_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -9250,7 +9143,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTravelDurationMultiple() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000200);
       travelDurationMultiple_ = 0D;
       onChanged();
       return this;
@@ -9278,8 +9171,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setUnloadingPolicyValue(int value) {
-      
       unloadingPolicy_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -9293,8 +9186,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.optimization.v1.Vehicle.UnloadingPolicy getUnloadingPolicy() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.optimization.v1.Vehicle.UnloadingPolicy result = com.google.cloud.optimization.v1.Vehicle.UnloadingPolicy.valueOf(unloadingPolicy_);
+      com.google.cloud.optimization.v1.Vehicle.UnloadingPolicy result = com.google.cloud.optimization.v1.Vehicle.UnloadingPolicy.forNumber(unloadingPolicy_);
       return result == null ? com.google.cloud.optimization.v1.Vehicle.UnloadingPolicy.UNRECOGNIZED : result;
     }
     /**
@@ -9310,7 +9202,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000400;
       unloadingPolicy_ = value.getNumber();
       onChanged();
       return this;
@@ -9324,7 +9216,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUnloadingPolicy() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       unloadingPolicy_ = 0;
       onChanged();
       return this;
@@ -9333,7 +9225,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.optimization.v1.Vehicle.LoadLimit> loadLimits_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.Vehicle.LoadLimit>
-    internalGetLoadLimits() {
+        internalGetLoadLimits() {
       if (loadLimits_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LoadLimitsDefaultEntryHolder.defaultEntry);
@@ -9341,8 +9233,7 @@ private static final long serialVersionUID = 0L;
       return loadLimits_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.Vehicle.LoadLimit>
-    internalGetMutableLoadLimits() {
-      onChanged();;
+        internalGetMutableLoadLimits() {
       if (loadLimits_ == null) {
         loadLimits_ = com.google.protobuf.MapField.newMapField(
             LoadLimitsDefaultEntryHolder.defaultEntry);
@@ -9350,9 +9241,10 @@ private static final long serialVersionUID = 0L;
       if (!loadLimits_.isMutable()) {
         loadLimits_ = loadLimits_.copy();
       }
+      bitField0_ |= 0x00000800;
+      onChanged();
       return loadLimits_;
     }
-
     public int getLoadLimitsCount() {
       return internalGetLoadLimits().getMap().size();
     }
@@ -9368,7 +9260,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.Vehicle.LoadLimit&gt; load_limits = 30;</code>
      */
-
     @java.lang.Override
     public boolean containsLoadLimits(
         java.lang.String key) {
@@ -9396,7 +9287,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.optimization.v1.Vehicle.LoadLimit&gt; load_limits = 30;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Vehicle.LoadLimit> getLoadLimitsMap() {
       return internalGetLoadLimits().getMap();
     }
@@ -9413,10 +9303,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.optimization.v1.Vehicle.LoadLimit&gt; load_limits = 30;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.optimization.v1.Vehicle.LoadLimit getLoadLimitsOrDefault(
+    public /* nullable */
+com.google.cloud.optimization.v1.Vehicle.LoadLimit getLoadLimitsOrDefault(
         java.lang.String key,
-        com.google.cloud.optimization.v1.Vehicle.LoadLimit defaultValue) {
+        /* nullable */
+com.google.cloud.optimization.v1.Vehicle.LoadLimit defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Vehicle.LoadLimit> map =
           internalGetLoadLimits().getMap();
@@ -9435,7 +9326,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.optimization.v1.Vehicle.LoadLimit&gt; load_limits = 30;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.optimization.v1.Vehicle.LoadLimit getLoadLimitsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -9446,8 +9336,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLoadLimits() {
+      bitField0_ = (bitField0_ & ~0x00000800);
       internalGetMutableLoadLimits().getMutableMap()
           .clear();
       return this;
@@ -9464,7 +9354,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.Vehicle.LoadLimit&gt; load_limits = 30;</code>
      */
-
     public Builder removeLoadLimits(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -9477,7 +9366,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Vehicle.LoadLimit>
-    getMutableLoadLimits() {
+        getMutableLoadLimits() {
+      bitField0_ |= 0x00000800;
       return internalGetMutableLoadLimits().getMutableMap();
     }
     /**
@@ -9496,12 +9386,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.optimization.v1.Vehicle.LoadLimit value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLoadLimits().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000800;
       return this;
     }
     /**
@@ -9516,11 +9404,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.Vehicle.LoadLimit&gt; load_limits = 30;</code>
      */
-
     public Builder putAllLoadLimits(
         java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Vehicle.LoadLimit> values) {
       internalGetMutableLoadLimits().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000800;
       return this;
     }
 
@@ -9559,6 +9447,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCostPerHour(double value) {
       
       costPerHour_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -9576,7 +9465,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCostPerHour() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       costPerHour_ = 0D;
       onChanged();
       return this;
@@ -9587,7 +9476,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Cost per traveled hour of the vehicle route. This cost is applied only to
      * travel time taken by the route (i.e., that reported in
-     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]), and excludes waiting time and visit time.
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]),
+     * and excludes waiting time and visit time.
      * </pre>
      *
      * <code>double cost_per_traveled_hour = 17;</code>
@@ -9601,7 +9491,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Cost per traveled hour of the vehicle route. This cost is applied only to
      * travel time taken by the route (i.e., that reported in
-     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]), and excludes waiting time and visit time.
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]),
+     * and excludes waiting time and visit time.
      * </pre>
      *
      * <code>double cost_per_traveled_hour = 17;</code>
@@ -9611,6 +9502,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCostPerTraveledHour(double value) {
       
       costPerTraveledHour_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -9618,14 +9510,15 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Cost per traveled hour of the vehicle route. This cost is applied only to
      * travel time taken by the route (i.e., that reported in
-     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]), and excludes waiting time and visit time.
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]),
+     * and excludes waiting time and visit time.
      * </pre>
      *
      * <code>double cost_per_traveled_hour = 17;</code>
      * @return This builder for chaining.
      */
     public Builder clearCostPerTraveledHour() {
-      
+      bitField0_ = (bitField0_ & ~0x00002000);
       costPerTraveledHour_ = 0D;
       onChanged();
       return this;
@@ -9635,9 +9528,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cost per kilometer of the vehicle route. This cost is applied to the
-     * distance reported in the [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] and does not apply
-     * to any distance implicitly traveled from the `arrival_location` to the
-     * `departure_location` of a single `VisitRequest`.
+     * distance reported in the
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+     * and does not apply to any distance implicitly traveled from the
+     * `arrival_location` to the `departure_location` of a single `VisitRequest`.
      * </pre>
      *
      * <code>double cost_per_kilometer = 18;</code>
@@ -9650,9 +9544,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Cost per kilometer of the vehicle route. This cost is applied to the
-     * distance reported in the [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] and does not apply
-     * to any distance implicitly traveled from the `arrival_location` to the
-     * `departure_location` of a single `VisitRequest`.
+     * distance reported in the
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+     * and does not apply to any distance implicitly traveled from the
+     * `arrival_location` to the `departure_location` of a single `VisitRequest`.
      * </pre>
      *
      * <code>double cost_per_kilometer = 18;</code>
@@ -9662,22 +9557,24 @@ private static final long serialVersionUID = 0L;
     public Builder setCostPerKilometer(double value) {
       
       costPerKilometer_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Cost per kilometer of the vehicle route. This cost is applied to the
-     * distance reported in the [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] and does not apply
-     * to any distance implicitly traveled from the `arrival_location` to the
-     * `departure_location` of a single `VisitRequest`.
+     * distance reported in the
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+     * and does not apply to any distance implicitly traveled from the
+     * `arrival_location` to the `departure_location` of a single `VisitRequest`.
      * </pre>
      *
      * <code>double cost_per_kilometer = 18;</code>
      * @return This builder for chaining.
      */
     public Builder clearCostPerKilometer() {
-      
+      bitField0_ = (bitField0_ & ~0x00004000);
       costPerKilometer_ = 0D;
       onChanged();
       return this;
@@ -9708,6 +9605,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFixedCost(double value) {
       
       fixedCost_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -9720,7 +9618,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFixedCost() {
-      
+      bitField0_ = (bitField0_ & ~0x00008000);
       fixedCost_ = 0D;
       onChanged();
       return this;
@@ -9769,6 +9667,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUsedIfRouteIsEmpty(boolean value) {
       
       usedIfRouteIsEmpty_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -9790,7 +9689,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUsedIfRouteIsEmpty() {
-      
+      bitField0_ = (bitField0_ & ~0x00010000);
       usedIfRouteIsEmpty_ = false;
       onChanged();
       return this;
@@ -9810,7 +9709,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the routeDurationLimit field is set.
      */
     public boolean hasRouteDurationLimit() {
-      return routeDurationLimitBuilder_ != null || routeDurationLimit_ != null;
+      return ((bitField0_ & 0x00020000) != 0);
     }
     /**
      * <pre>
@@ -9844,11 +9743,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         routeDurationLimit_ = value;
-        onChanged();
       } else {
         routeDurationLimitBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -9864,11 +9763,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.optimization.v1.Vehicle.DurationLimit.Builder builderForValue) {
       if (routeDurationLimitBuilder_ == null) {
         routeDurationLimit_ = builderForValue.build();
-        onChanged();
       } else {
         routeDurationLimitBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -9882,17 +9781,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRouteDurationLimit(com.google.cloud.optimization.v1.Vehicle.DurationLimit value) {
       if (routeDurationLimitBuilder_ == null) {
-        if (routeDurationLimit_ != null) {
-          routeDurationLimit_ =
-            com.google.cloud.optimization.v1.Vehicle.DurationLimit.newBuilder(routeDurationLimit_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00020000) != 0) &&
+          routeDurationLimit_ != null &&
+          routeDurationLimit_ != com.google.cloud.optimization.v1.Vehicle.DurationLimit.getDefaultInstance()) {
+          getRouteDurationLimitBuilder().mergeFrom(value);
         } else {
           routeDurationLimit_ = value;
         }
-        onChanged();
       } else {
         routeDurationLimitBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -9905,14 +9805,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.Vehicle.DurationLimit route_duration_limit = 21;</code>
      */
     public Builder clearRouteDurationLimit() {
-      if (routeDurationLimitBuilder_ == null) {
-        routeDurationLimit_ = null;
-        onChanged();
-      } else {
-        routeDurationLimit_ = null;
+      bitField0_ = (bitField0_ & ~0x00020000);
+      routeDurationLimit_ = null;
+      if (routeDurationLimitBuilder_ != null) {
+        routeDurationLimitBuilder_.dispose();
         routeDurationLimitBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -9925,7 +9824,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.Vehicle.DurationLimit route_duration_limit = 21;</code>
      */
     public com.google.cloud.optimization.v1.Vehicle.DurationLimit.Builder getRouteDurationLimitBuilder() {
-      
+      bitField0_ |= 0x00020000;
       onChanged();
       return getRouteDurationLimitFieldBuilder().getBuilder();
     }
@@ -9983,7 +9882,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the travelDurationLimit field is set.
      */
     public boolean hasTravelDurationLimit() {
-      return travelDurationLimitBuilder_ != null || travelDurationLimit_ != null;
+      return ((bitField0_ & 0x00040000) != 0);
     }
     /**
      * <pre>
@@ -10017,11 +9916,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         travelDurationLimit_ = value;
-        onChanged();
       } else {
         travelDurationLimitBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -10037,11 +9936,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.optimization.v1.Vehicle.DurationLimit.Builder builderForValue) {
       if (travelDurationLimitBuilder_ == null) {
         travelDurationLimit_ = builderForValue.build();
-        onChanged();
       } else {
         travelDurationLimitBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -10055,17 +9954,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTravelDurationLimit(com.google.cloud.optimization.v1.Vehicle.DurationLimit value) {
       if (travelDurationLimitBuilder_ == null) {
-        if (travelDurationLimit_ != null) {
-          travelDurationLimit_ =
-            com.google.cloud.optimization.v1.Vehicle.DurationLimit.newBuilder(travelDurationLimit_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00040000) != 0) &&
+          travelDurationLimit_ != null &&
+          travelDurationLimit_ != com.google.cloud.optimization.v1.Vehicle.DurationLimit.getDefaultInstance()) {
+          getTravelDurationLimitBuilder().mergeFrom(value);
         } else {
           travelDurationLimit_ = value;
         }
-        onChanged();
       } else {
         travelDurationLimitBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -10078,14 +9978,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.Vehicle.DurationLimit travel_duration_limit = 22;</code>
      */
     public Builder clearTravelDurationLimit() {
-      if (travelDurationLimitBuilder_ == null) {
-        travelDurationLimit_ = null;
-        onChanged();
-      } else {
-        travelDurationLimit_ = null;
+      bitField0_ = (bitField0_ & ~0x00040000);
+      travelDurationLimit_ = null;
+      if (travelDurationLimitBuilder_ != null) {
+        travelDurationLimitBuilder_.dispose();
         travelDurationLimitBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -10098,7 +9997,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.Vehicle.DurationLimit travel_duration_limit = 22;</code>
      */
     public com.google.cloud.optimization.v1.Vehicle.DurationLimit.Builder getTravelDurationLimitBuilder() {
-      
+      bitField0_ |= 0x00040000;
       onChanged();
       return getTravelDurationLimitFieldBuilder().getBuilder();
     }
@@ -10156,7 +10055,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the routeDistanceLimit field is set.
      */
     public boolean hasRouteDistanceLimit() {
-      return routeDistanceLimitBuilder_ != null || routeDistanceLimit_ != null;
+      return ((bitField0_ & 0x00080000) != 0);
     }
     /**
      * <pre>
@@ -10190,11 +10089,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         routeDistanceLimit_ = value;
-        onChanged();
       } else {
         routeDistanceLimitBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -10210,11 +10109,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.optimization.v1.DistanceLimit.Builder builderForValue) {
       if (routeDistanceLimitBuilder_ == null) {
         routeDistanceLimit_ = builderForValue.build();
-        onChanged();
       } else {
         routeDistanceLimitBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -10228,17 +10127,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRouteDistanceLimit(com.google.cloud.optimization.v1.DistanceLimit value) {
       if (routeDistanceLimitBuilder_ == null) {
-        if (routeDistanceLimit_ != null) {
-          routeDistanceLimit_ =
-            com.google.cloud.optimization.v1.DistanceLimit.newBuilder(routeDistanceLimit_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00080000) != 0) &&
+          routeDistanceLimit_ != null &&
+          routeDistanceLimit_ != com.google.cloud.optimization.v1.DistanceLimit.getDefaultInstance()) {
+          getRouteDistanceLimitBuilder().mergeFrom(value);
         } else {
           routeDistanceLimit_ = value;
         }
-        onChanged();
       } else {
         routeDistanceLimitBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -10251,14 +10151,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.DistanceLimit route_distance_limit = 23;</code>
      */
     public Builder clearRouteDistanceLimit() {
-      if (routeDistanceLimitBuilder_ == null) {
-        routeDistanceLimit_ = null;
-        onChanged();
-      } else {
-        routeDistanceLimit_ = null;
+      bitField0_ = (bitField0_ & ~0x00080000);
+      routeDistanceLimit_ = null;
+      if (routeDistanceLimitBuilder_ != null) {
+        routeDistanceLimitBuilder_.dispose();
         routeDistanceLimitBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -10271,7 +10170,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.DistanceLimit route_distance_limit = 23;</code>
      */
     public com.google.cloud.optimization.v1.DistanceLimit.Builder getRouteDistanceLimitBuilder() {
-      
+      bitField0_ |= 0x00080000;
       onChanged();
       return getRouteDistanceLimitFieldBuilder().getBuilder();
     }
@@ -10318,7 +10217,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf.Duration> extraVisitDurationForVisitType_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Duration>
-    internalGetExtraVisitDurationForVisitType() {
+        internalGetExtraVisitDurationForVisitType() {
       if (extraVisitDurationForVisitType_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ExtraVisitDurationForVisitTypeDefaultEntryHolder.defaultEntry);
@@ -10326,8 +10225,7 @@ private static final long serialVersionUID = 0L;
       return extraVisitDurationForVisitType_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Duration>
-    internalGetMutableExtraVisitDurationForVisitType() {
-      onChanged();;
+        internalGetMutableExtraVisitDurationForVisitType() {
       if (extraVisitDurationForVisitType_ == null) {
         extraVisitDurationForVisitType_ = com.google.protobuf.MapField.newMapField(
             ExtraVisitDurationForVisitTypeDefaultEntryHolder.defaultEntry);
@@ -10335,9 +10233,10 @@ private static final long serialVersionUID = 0L;
       if (!extraVisitDurationForVisitType_.isMutable()) {
         extraVisitDurationForVisitType_ = extraVisitDurationForVisitType_.copy();
       }
+      bitField0_ |= 0x00100000;
+      onChanged();
       return extraVisitDurationForVisitType_;
     }
-
     public int getExtraVisitDurationForVisitTypeCount() {
       return internalGetExtraVisitDurationForVisitType().getMap().size();
     }
@@ -10355,7 +10254,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.Duration&gt; extra_visit_duration_for_visit_type = 24;</code>
      */
-
     @java.lang.Override
     public boolean containsExtraVisitDurationForVisitType(
         java.lang.String key) {
@@ -10385,7 +10283,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.Duration&gt; extra_visit_duration_for_visit_type = 24;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf.Duration> getExtraVisitDurationForVisitTypeMap() {
       return internalGetExtraVisitDurationForVisitType().getMap();
     }
@@ -10404,10 +10301,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.Duration&gt; extra_visit_duration_for_visit_type = 24;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Duration getExtraVisitDurationForVisitTypeOrDefault(
+    public /* nullable */
+com.google.protobuf.Duration getExtraVisitDurationForVisitTypeOrDefault(
         java.lang.String key,
-        com.google.protobuf.Duration defaultValue) {
+        /* nullable */
+com.google.protobuf.Duration defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.Duration> map =
           internalGetExtraVisitDurationForVisitType().getMap();
@@ -10428,7 +10326,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.Duration&gt; extra_visit_duration_for_visit_type = 24;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Duration getExtraVisitDurationForVisitTypeOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -10439,8 +10336,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearExtraVisitDurationForVisitType() {
+      bitField0_ = (bitField0_ & ~0x00100000);
       internalGetMutableExtraVisitDurationForVisitType().getMutableMap()
           .clear();
       return this;
@@ -10459,7 +10356,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.Duration&gt; extra_visit_duration_for_visit_type = 24;</code>
      */
-
     public Builder removeExtraVisitDurationForVisitType(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -10472,7 +10368,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.protobuf.Duration>
-    getMutableExtraVisitDurationForVisitType() {
+        getMutableExtraVisitDurationForVisitType() {
+      bitField0_ |= 0x00100000;
       return internalGetMutableExtraVisitDurationForVisitType().getMutableMap();
     }
     /**
@@ -10493,12 +10390,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.protobuf.Duration value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableExtraVisitDurationForVisitType().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00100000;
       return this;
     }
     /**
@@ -10515,11 +10410,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.Duration&gt; extra_visit_duration_for_visit_type = 24;</code>
      */
-
     public Builder putAllExtraVisitDurationForVisitType(
         java.util.Map<java.lang.String, com.google.protobuf.Duration> values) {
       internalGetMutableExtraVisitDurationForVisitType().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00100000;
       return this;
     }
 
@@ -10536,7 +10431,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the breakRule field is set.
      */
     public boolean hasBreakRule() {
-      return breakRuleBuilder_ != null || breakRule_ != null;
+      return ((bitField0_ & 0x00200000) != 0);
     }
     /**
      * <pre>
@@ -10568,11 +10463,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         breakRule_ = value;
-        onChanged();
       } else {
         breakRuleBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -10587,11 +10482,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.optimization.v1.BreakRule.Builder builderForValue) {
       if (breakRuleBuilder_ == null) {
         breakRule_ = builderForValue.build();
-        onChanged();
       } else {
         breakRuleBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -10604,17 +10499,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBreakRule(com.google.cloud.optimization.v1.BreakRule value) {
       if (breakRuleBuilder_ == null) {
-        if (breakRule_ != null) {
-          breakRule_ =
-            com.google.cloud.optimization.v1.BreakRule.newBuilder(breakRule_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00200000) != 0) &&
+          breakRule_ != null &&
+          breakRule_ != com.google.cloud.optimization.v1.BreakRule.getDefaultInstance()) {
+          getBreakRuleBuilder().mergeFrom(value);
         } else {
           breakRule_ = value;
         }
-        onChanged();
       } else {
         breakRuleBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -10626,14 +10522,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.BreakRule break_rule = 25;</code>
      */
     public Builder clearBreakRule() {
-      if (breakRuleBuilder_ == null) {
-        breakRule_ = null;
-        onChanged();
-      } else {
-        breakRule_ = null;
+      bitField0_ = (bitField0_ & ~0x00200000);
+      breakRule_ = null;
+      if (breakRuleBuilder_ != null) {
+        breakRuleBuilder_.dispose();
         breakRuleBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -10645,7 +10540,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.BreakRule break_rule = 25;</code>
      */
     public com.google.cloud.optimization.v1.BreakRule.Builder getBreakRuleBuilder() {
-      
+      bitField0_ |= 0x00200000;
       onChanged();
       return getBreakRuleFieldBuilder().getBuilder();
     }
@@ -10691,7 +10586,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies a label for this vehicle. This label is reported in the response
-     * as the `vehicle_label` of the corresponding [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute].
+     * as the `vehicle_label` of the corresponding
+     * [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute].
      * </pre>
      *
      * <code>string label = 27;</code>
@@ -10712,7 +10608,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies a label for this vehicle. This label is reported in the response
-     * as the `vehicle_label` of the corresponding [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute].
+     * as the `vehicle_label` of the corresponding
+     * [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute].
      * </pre>
      *
      * <code>string label = 27;</code>
@@ -10734,7 +10631,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies a label for this vehicle. This label is reported in the response
-     * as the `vehicle_label` of the corresponding [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute].
+     * as the `vehicle_label` of the corresponding
+     * [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute].
      * </pre>
      *
      * <code>string label = 27;</code>
@@ -10743,33 +10641,33 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLabel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       label_ = value;
+      bitField0_ |= 0x00400000;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Specifies a label for this vehicle. This label is reported in the response
-     * as the `vehicle_label` of the corresponding [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute].
+     * as the `vehicle_label` of the corresponding
+     * [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute].
      * </pre>
      *
      * <code>string label = 27;</code>
      * @return This builder for chaining.
      */
     public Builder clearLabel() {
-      
       label_ = getDefaultInstance().getLabel();
+      bitField0_ = (bitField0_ & ~0x00400000);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Specifies a label for this vehicle. This label is reported in the response
-     * as the `vehicle_label` of the corresponding [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute].
+     * as the `vehicle_label` of the corresponding
+     * [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute].
      * </pre>
      *
      * <code>string label = 27;</code>
@@ -10778,12 +10676,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLabelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       label_ = value;
+      bitField0_ |= 0x00400000;
       onChanged();
       return this;
     }
@@ -10833,6 +10729,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIgnore(boolean value) {
       
       ignore_ = value;
+      bitField0_ |= 0x00800000;
       onChanged();
       return this;
     }
@@ -10855,7 +10752,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIgnore() {
-      
+      bitField0_ = (bitField0_ & ~0x00800000);
       ignore_ = false;
       onChanged();
       return this;
@@ -10863,10 +10760,10 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.Internal.IntList breakRuleIndices_ = emptyIntList();
     private void ensureBreakRuleIndicesIsMutable() {
-      if (!((bitField0_ & 0x00000080) != 0)) {
+      if (!((bitField0_ & 0x01000000) != 0)) {
         breakRuleIndices_ = mutableCopy(breakRuleIndices_);
-        bitField0_ |= 0x00000080;
-       }
+        bitField0_ |= 0x01000000;
+      }
     }
     /**
      * <pre>
@@ -10878,12 +10775,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>repeated int32 break_rule_indices = 29 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.Vehicle.break_rule_indices is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1379
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1436
      * @return A list containing the breakRuleIndices.
      */
     @java.lang.Deprecated public java.util.List<java.lang.Integer>
         getBreakRuleIndicesList() {
-      return ((bitField0_ & 0x00000080) != 0) ?
+      return ((bitField0_ & 0x01000000) != 0) ?
                java.util.Collections.unmodifiableList(breakRuleIndices_) : breakRuleIndices_;
     }
     /**
@@ -10896,7 +10793,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>repeated int32 break_rule_indices = 29 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.Vehicle.break_rule_indices is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1379
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1436
      * @return The count of breakRuleIndices.
      */
     @java.lang.Deprecated public int getBreakRuleIndicesCount() {
@@ -10912,7 +10809,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>repeated int32 break_rule_indices = 29 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.Vehicle.break_rule_indices is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1379
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1436
      * @param index The index of the element to return.
      * @return The breakRuleIndices at the given index.
      */
@@ -10929,13 +10826,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>repeated int32 break_rule_indices = 29 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.Vehicle.break_rule_indices is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1379
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1436
      * @param index The index to set the value at.
      * @param value The breakRuleIndices to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setBreakRuleIndices(
         int index, int value) {
+      
       ensureBreakRuleIndicesIsMutable();
       breakRuleIndices_.setInt(index, value);
       onChanged();
@@ -10951,11 +10849,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>repeated int32 break_rule_indices = 29 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.Vehicle.break_rule_indices is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1379
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1436
      * @param value The breakRuleIndices to add.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder addBreakRuleIndices(int value) {
+      
       ensureBreakRuleIndicesIsMutable();
       breakRuleIndices_.addInt(value);
       onChanged();
@@ -10971,7 +10870,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>repeated int32 break_rule_indices = 29 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.Vehicle.break_rule_indices is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1379
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1436
      * @param values The breakRuleIndices to add.
      * @return This builder for chaining.
      */
@@ -10993,12 +10892,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>repeated int32 break_rule_indices = 29 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.Vehicle.break_rule_indices is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1379
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1436
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearBreakRuleIndices() {
       breakRuleIndices_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x01000000);
       onChanged();
       return this;
     }
@@ -11006,9 +10905,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.optimization.v1.CapacityQuantity> capacities_ =
       java.util.Collections.emptyList();
     private void ensureCapacitiesIsMutable() {
-      if (!((bitField0_ & 0x00000100) != 0)) {
+      if (!((bitField0_ & 0x02000000) != 0)) {
         capacities_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantity>(capacities_);
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x02000000;
        }
     }
 
@@ -11202,7 +11101,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Deprecated public Builder clearCapacities() {
       if (capacitiesBuilder_ == null) {
         capacities_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x02000000);
         onChanged();
       } else {
         capacitiesBuilder_.clear();
@@ -11307,7 +11206,7 @@ private static final long serialVersionUID = 0L;
         capacitiesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.CapacityQuantity, com.google.cloud.optimization.v1.CapacityQuantity.Builder, com.google.cloud.optimization.v1.CapacityQuantityOrBuilder>(
                 capacities_,
-                ((bitField0_ & 0x00000100) != 0),
+                ((bitField0_ & 0x02000000) != 0),
                 getParentForChildren(),
                 isClean());
         capacities_ = null;
@@ -11318,9 +11217,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.optimization.v1.CapacityQuantityInterval> startLoadIntervals_ =
       java.util.Collections.emptyList();
     private void ensureStartLoadIntervalsIsMutable() {
-      if (!((bitField0_ & 0x00000200) != 0)) {
+      if (!((bitField0_ & 0x04000000) != 0)) {
         startLoadIntervals_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantityInterval>(startLoadIntervals_);
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x04000000;
        }
     }
 
@@ -11514,7 +11413,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Deprecated public Builder clearStartLoadIntervals() {
       if (startLoadIntervalsBuilder_ == null) {
         startLoadIntervals_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x04000000);
         onChanged();
       } else {
         startLoadIntervalsBuilder_.clear();
@@ -11619,7 +11518,7 @@ private static final long serialVersionUID = 0L;
         startLoadIntervalsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.CapacityQuantityInterval, com.google.cloud.optimization.v1.CapacityQuantityInterval.Builder, com.google.cloud.optimization.v1.CapacityQuantityIntervalOrBuilder>(
                 startLoadIntervals_,
-                ((bitField0_ & 0x00000200) != 0),
+                ((bitField0_ & 0x04000000) != 0),
                 getParentForChildren(),
                 isClean());
         startLoadIntervals_ = null;
@@ -11630,9 +11529,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.optimization.v1.CapacityQuantityInterval> endLoadIntervals_ =
       java.util.Collections.emptyList();
     private void ensureEndLoadIntervalsIsMutable() {
-      if (!((bitField0_ & 0x00000400) != 0)) {
+      if (!((bitField0_ & 0x08000000) != 0)) {
         endLoadIntervals_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantityInterval>(endLoadIntervals_);
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x08000000;
        }
     }
 
@@ -11826,7 +11725,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Deprecated public Builder clearEndLoadIntervals() {
       if (endLoadIntervalsBuilder_ == null) {
         endLoadIntervals_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x08000000);
         onChanged();
       } else {
         endLoadIntervalsBuilder_.clear();
@@ -11931,7 +11830,7 @@ private static final long serialVersionUID = 0L;
         endLoadIntervalsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.CapacityQuantityInterval, com.google.cloud.optimization.v1.CapacityQuantityInterval.Builder, com.google.cloud.optimization.v1.CapacityQuantityIntervalOrBuilder>(
                 endLoadIntervals_,
-                ((bitField0_ & 0x00000400) != 0),
+                ((bitField0_ & 0x08000000) != 0),
                 getParentForChildren(),
                 isClean());
         endLoadIntervals_ = null;
@@ -11971,7 +11870,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Vehicle(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

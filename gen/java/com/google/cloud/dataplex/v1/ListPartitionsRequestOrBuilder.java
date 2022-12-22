@@ -31,9 +31,10 @@ public interface ListPartitionsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Optional. Maximum number of partitions to return. The service may return fewer than
-   * this value. If unspecified, 100 partitions will be returned by default. The
-   * maximum page size is 500; larger values will will be truncated to 500.
+   * Optional. Maximum number of partitions to return. The service may return
+   * fewer than this value. If unspecified, 100 partitions will be returned by
+   * default. The maximum page size is 500; larger values will will be truncated
+   * to 500.
    * </pre>
    *
    * <code>int32 page_size = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -43,10 +44,10 @@ public interface ListPartitionsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Optional. Page token received from a previous `ListPartitions` call. Provide
-   * this to retrieve the subsequent page. When paginating, all other parameters
-   * provided to `ListPartitions` must match the call that provided the
-   * page token.
+   * Optional. Page token received from a previous `ListPartitions` call.
+   * Provide this to retrieve the subsequent page. When paginating, all other
+   * parameters provided to `ListPartitions` must match the call that provided
+   * the page token.
    * </pre>
    *
    * <code>string page_token = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -55,10 +56,10 @@ public interface ListPartitionsRequestOrBuilder extends
   java.lang.String getPageToken();
   /**
    * <pre>
-   * Optional. Page token received from a previous `ListPartitions` call. Provide
-   * this to retrieve the subsequent page. When paginating, all other parameters
-   * provided to `ListPartitions` must match the call that provided the
-   * page token.
+   * Optional. Page token received from a previous `ListPartitions` call.
+   * Provide this to retrieve the subsequent page. When paginating, all other
+   * parameters provided to `ListPartitions` must match the call that provided
+   * the page token.
    * </pre>
    *
    * <code>string page_token = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -69,8 +70,8 @@ public interface ListPartitionsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Optional. Filter the partitions returned to the caller using a key value pair
-   * expression. Supported operators and syntax:
+   * Optional. Filter the partitions returned to the caller using a key value
+   * pair expression. Supported operators and syntax:
    * - logic operators: AND, OR
    * - comparison operators: &lt;, &gt;, &gt;=, &lt;= ,=, !=
    * - LIKE operators:
@@ -92,8 +93,8 @@ public interface ListPartitionsRequestOrBuilder extends
   java.lang.String getFilter();
   /**
    * <pre>
-   * Optional. Filter the partitions returned to the caller using a key value pair
-   * expression. Supported operators and syntax:
+   * Optional. Filter the partitions returned to the caller using a key value
+   * pair expression. Supported operators and syntax:
    * - logic operators: AND, OR
    * - comparison operators: &lt;, &gt;, &gt;=, &lt;= ,=, !=
    * - LIKE operators:

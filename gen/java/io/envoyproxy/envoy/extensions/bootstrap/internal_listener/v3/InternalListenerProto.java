@@ -31,35 +31,43 @@ public final class InternalListenerProto {
       "\nGenvoy/extensions/bootstrap/internal_li" +
       "stener/v3/internal_listener.proto\022/envoy" +
       ".extensions.bootstrap.internal_listener." +
-      "v3\032\037xds/annotations/v3/status.proto\032\035udp" +
-      "a/annotations/status.proto\"\022\n\020InternalLi" +
-      "stenerB\324\001\n=io.envoyproxy.envoy.extension" +
-      "s.bootstrap.internal_listener.v3B\025Intern" +
-      "alListenerProtoP\001Zjgithub.com/envoyproxy" +
-      "/go-control-plane/envoy/extensions/boots" +
-      "trap/internal_listener/v3;internal_liste" +
-      "nerv3\272\200\310\321\006\002\020\002\322\306\244\341\006\002\010\001b\006proto3"
+      "v3\032\036google/protobuf/wrappers.proto\032\037xds/" +
+      "annotations/v3/status.proto\032\035udpa/annota" +
+      "tions/status.proto\032\027validate/validate.pr" +
+      "oto\"T\n\020InternalListener\022@\n\016buffer_size_k" +
+      "b\030\001 \001(\0132\034.google.protobuf.UInt32ValueB\n\372" +
+      "B\007*\005\030\200@(\001B\324\001\n=io.envoyproxy.envoy.extens" +
+      "ions.bootstrap.internal_listener.v3B\025Int" +
+      "ernalListenerProtoP\001Zjgithub.com/envoypr" +
+      "oxy/go-control-plane/envoy/extensions/bo" +
+      "otstrap/internal_listener/v3;internal_li" +
+      "stenerv3\272\200\310\321\006\002\020\002\322\306\244\341\006\002\010\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.WrappersProto.getDescriptor(),
           xds.annotations.v3.Status.getDescriptor(),
           udpa.annotations.Status.getDescriptor(),
+          io.envoyproxy.pgv.validate.Validate.getDescriptor(),
         });
     internal_static_envoy_extensions_bootstrap_internal_listener_v3_InternalListener_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_envoy_extensions_bootstrap_internal_listener_v3_InternalListener_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_bootstrap_internal_listener_v3_InternalListener_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "BufferSizeKb", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(udpa.annotations.Status.fileStatus);
+    registry.add(io.envoyproxy.pgv.validate.Validate.rules);
     registry.add(xds.annotations.v3.Status.fileStatus);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
+    com.google.protobuf.WrappersProto.getDescriptor();
     xds.annotations.v3.Status.getDescriptor();
     udpa.annotations.Status.getDescriptor();
+    io.envoyproxy.pgv.validate.Validate.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

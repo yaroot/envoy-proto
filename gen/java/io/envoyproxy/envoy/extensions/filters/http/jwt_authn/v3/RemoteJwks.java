@@ -34,97 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RemoteJwks(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.core.v3.HttpUri.Builder subBuilder = null;
-            if (httpUri_ != null) {
-              subBuilder = httpUri_.toBuilder();
-            }
-            httpUri_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.HttpUri.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(httpUri_);
-              httpUri_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (cacheDuration_ != null) {
-              subBuilder = cacheDuration_.toBuilder();
-            }
-            cacheDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cacheDuration_);
-              cacheDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetch.Builder subBuilder = null;
-            if (asyncFetch_ != null) {
-              subBuilder = asyncFetch_.toBuilder();
-            }
-            asyncFetch_ = input.readMessage(io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetch.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(asyncFetch_);
-              asyncFetch_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            io.envoyproxy.envoy.config.core.v3.RetryPolicy.Builder subBuilder = null;
-            if (retryPolicy_ != null) {
-              subBuilder = retryPolicy_.toBuilder();
-            }
-            retryPolicy_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.RetryPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(retryPolicy_);
-              retryPolicy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.ConfigProto.internal_static_envoy_extensions_filters_http_jwt_authn_v3_RemoteJwks_descriptor;
@@ -188,7 +97,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.HttpUriOrBuilder getHttpUriOrBuilder() {
-    return getHttpUri();
+    return httpUri_ == null ? io.envoyproxy.envoy.config.core.v3.HttpUri.getDefaultInstance() : httpUri_;
   }
 
   public static final int CACHE_DURATION_FIELD_NUMBER = 2;
@@ -196,7 +105,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Duration after which the cached JWKS should be expired. If not specified, default cache
-   * duration is 5 minutes.
+   * duration is 10 minutes.
    * </pre>
    *
    * <code>.google.protobuf.Duration cache_duration = 2;</code>
@@ -209,7 +118,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Duration after which the cached JWKS should be expired. If not specified, default cache
-   * duration is 5 minutes.
+   * duration is 10 minutes.
    * </pre>
    *
    * <code>.google.protobuf.Duration cache_duration = 2;</code>
@@ -222,14 +131,14 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Duration after which the cached JWKS should be expired. If not specified, default cache
-   * duration is 5 minutes.
+   * duration is 10 minutes.
    * </pre>
    *
    * <code>.google.protobuf.Duration cache_duration = 2;</code>
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getCacheDurationOrBuilder() {
-    return getCacheDuration();
+    return cacheDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : cacheDuration_;
   }
 
   public static final int ASYNC_FETCH_FIELD_NUMBER = 3;
@@ -294,7 +203,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetchOrBuilder getAsyncFetchOrBuilder() {
-    return getAsyncFetch();
+    return asyncFetch_ == null ? io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetch.getDefaultInstance() : asyncFetch_;
   }
 
   public static final int RETRY_POLICY_FIELD_NUMBER = 4;
@@ -380,7 +289,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.RetryPolicyOrBuilder getRetryPolicyOrBuilder() {
-    return getRetryPolicy();
+    return retryPolicy_ == null ? io.envoyproxy.envoy.config.core.v3.RetryPolicy.getDefaultInstance() : retryPolicy_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -409,7 +318,7 @@ private static final long serialVersionUID = 0L;
     if (retryPolicy_ != null) {
       output.writeMessage(4, getRetryPolicy());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -434,7 +343,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getRetryPolicy());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -469,7 +378,7 @@ private static final long serialVersionUID = 0L;
       if (!getRetryPolicy()
           .equals(other.getRetryPolicy())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -496,7 +405,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RETRY_POLICY_FIELD_NUMBER;
       hash = (53 * hash) + getRetryPolicy().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -617,44 +526,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.RemoteJwks.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (httpUriBuilder_ == null) {
-        httpUri_ = null;
-      } else {
-        httpUri_ = null;
+      bitField0_ = 0;
+      httpUri_ = null;
+      if (httpUriBuilder_ != null) {
+        httpUriBuilder_.dispose();
         httpUriBuilder_ = null;
       }
-      if (cacheDurationBuilder_ == null) {
-        cacheDuration_ = null;
-      } else {
-        cacheDuration_ = null;
+      cacheDuration_ = null;
+      if (cacheDurationBuilder_ != null) {
+        cacheDurationBuilder_.dispose();
         cacheDurationBuilder_ = null;
       }
-      if (asyncFetchBuilder_ == null) {
-        asyncFetch_ = null;
-      } else {
-        asyncFetch_ = null;
+      asyncFetch_ = null;
+      if (asyncFetchBuilder_ != null) {
+        asyncFetchBuilder_.dispose();
         asyncFetchBuilder_ = null;
       }
-      if (retryPolicyBuilder_ == null) {
-        retryPolicy_ = null;
-      } else {
-        retryPolicy_ = null;
+      retryPolicy_ = null;
+      if (retryPolicyBuilder_ != null) {
+        retryPolicyBuilder_.dispose();
         retryPolicyBuilder_ = null;
       }
       return this;
@@ -683,28 +584,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.RemoteJwks buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.RemoteJwks result = new io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.RemoteJwks(this);
-      if (httpUriBuilder_ == null) {
-        result.httpUri_ = httpUri_;
-      } else {
-        result.httpUri_ = httpUriBuilder_.build();
-      }
-      if (cacheDurationBuilder_ == null) {
-        result.cacheDuration_ = cacheDuration_;
-      } else {
-        result.cacheDuration_ = cacheDurationBuilder_.build();
-      }
-      if (asyncFetchBuilder_ == null) {
-        result.asyncFetch_ = asyncFetch_;
-      } else {
-        result.asyncFetch_ = asyncFetchBuilder_.build();
-      }
-      if (retryPolicyBuilder_ == null) {
-        result.retryPolicy_ = retryPolicy_;
-      } else {
-        result.retryPolicy_ = retryPolicyBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.RemoteJwks result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.httpUri_ = httpUriBuilder_ == null
+            ? httpUri_
+            : httpUriBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.cacheDuration_ = cacheDurationBuilder_ == null
+            ? cacheDuration_
+            : cacheDurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.asyncFetch_ = asyncFetchBuilder_ == null
+            ? asyncFetch_
+            : asyncFetchBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.retryPolicy_ = retryPolicyBuilder_ == null
+            ? retryPolicy_
+            : retryPolicyBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -763,7 +669,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRetryPolicy()) {
         mergeRetryPolicy(other.getRetryPolicy());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -778,19 +684,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.RemoteJwks parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getHttpUriFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCacheDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getAsyncFetchFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getRetryPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.RemoteJwks) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.config.core.v3.HttpUri httpUri_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -809,7 +757,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the httpUri field is set.
      */
     public boolean hasHttpUri() {
-      return httpUriBuilder_ != null || httpUri_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -849,11 +797,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         httpUri_ = value;
-        onChanged();
       } else {
         httpUriBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -872,11 +820,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.HttpUri.Builder builderForValue) {
       if (httpUriBuilder_ == null) {
         httpUri_ = builderForValue.build();
-        onChanged();
       } else {
         httpUriBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -893,17 +841,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHttpUri(io.envoyproxy.envoy.config.core.v3.HttpUri value) {
       if (httpUriBuilder_ == null) {
-        if (httpUri_ != null) {
-          httpUri_ =
-            io.envoyproxy.envoy.config.core.v3.HttpUri.newBuilder(httpUri_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          httpUri_ != null &&
+          httpUri_ != io.envoyproxy.envoy.config.core.v3.HttpUri.getDefaultInstance()) {
+          getHttpUriBuilder().mergeFrom(value);
         } else {
           httpUri_ = value;
         }
-        onChanged();
       } else {
         httpUriBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -919,14 +868,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.HttpUri http_uri = 1;</code>
      */
     public Builder clearHttpUri() {
-      if (httpUriBuilder_ == null) {
-        httpUri_ = null;
-        onChanged();
-      } else {
-        httpUri_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      httpUri_ = null;
+      if (httpUriBuilder_ != null) {
+        httpUriBuilder_.dispose();
         httpUriBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -942,7 +890,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.HttpUri http_uri = 1;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.HttpUri.Builder getHttpUriBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getHttpUriFieldBuilder().getBuilder();
     }
@@ -998,19 +946,19 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Duration after which the cached JWKS should be expired. If not specified, default cache
-     * duration is 5 minutes.
+     * duration is 10 minutes.
      * </pre>
      *
      * <code>.google.protobuf.Duration cache_duration = 2;</code>
      * @return Whether the cacheDuration field is set.
      */
     public boolean hasCacheDuration() {
-      return cacheDurationBuilder_ != null || cacheDuration_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
      * Duration after which the cached JWKS should be expired. If not specified, default cache
-     * duration is 5 minutes.
+     * duration is 10 minutes.
      * </pre>
      *
      * <code>.google.protobuf.Duration cache_duration = 2;</code>
@@ -1026,7 +974,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Duration after which the cached JWKS should be expired. If not specified, default cache
-     * duration is 5 minutes.
+     * duration is 10 minutes.
      * </pre>
      *
      * <code>.google.protobuf.Duration cache_duration = 2;</code>
@@ -1037,17 +985,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cacheDuration_ = value;
-        onChanged();
       } else {
         cacheDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Duration after which the cached JWKS should be expired. If not specified, default cache
-     * duration is 5 minutes.
+     * duration is 10 minutes.
      * </pre>
      *
      * <code>.google.protobuf.Duration cache_duration = 2;</code>
@@ -1056,72 +1004,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (cacheDurationBuilder_ == null) {
         cacheDuration_ = builderForValue.build();
-        onChanged();
       } else {
         cacheDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Duration after which the cached JWKS should be expired. If not specified, default cache
-     * duration is 5 minutes.
+     * duration is 10 minutes.
      * </pre>
      *
      * <code>.google.protobuf.Duration cache_duration = 2;</code>
      */
     public Builder mergeCacheDuration(com.google.protobuf.Duration value) {
       if (cacheDurationBuilder_ == null) {
-        if (cacheDuration_ != null) {
-          cacheDuration_ =
-            com.google.protobuf.Duration.newBuilder(cacheDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          cacheDuration_ != null &&
+          cacheDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getCacheDurationBuilder().mergeFrom(value);
         } else {
           cacheDuration_ = value;
         }
-        onChanged();
       } else {
         cacheDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Duration after which the cached JWKS should be expired. If not specified, default cache
-     * duration is 5 minutes.
+     * duration is 10 minutes.
      * </pre>
      *
      * <code>.google.protobuf.Duration cache_duration = 2;</code>
      */
     public Builder clearCacheDuration() {
-      if (cacheDurationBuilder_ == null) {
-        cacheDuration_ = null;
-        onChanged();
-      } else {
-        cacheDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      cacheDuration_ = null;
+      if (cacheDurationBuilder_ != null) {
+        cacheDurationBuilder_.dispose();
         cacheDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Duration after which the cached JWKS should be expired. If not specified, default cache
-     * duration is 5 minutes.
+     * duration is 10 minutes.
      * </pre>
      *
      * <code>.google.protobuf.Duration cache_duration = 2;</code>
      */
     public com.google.protobuf.Duration.Builder getCacheDurationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCacheDurationFieldBuilder().getBuilder();
     }
     /**
      * <pre>
      * Duration after which the cached JWKS should be expired. If not specified, default cache
-     * duration is 5 minutes.
+     * duration is 10 minutes.
      * </pre>
      *
      * <code>.google.protobuf.Duration cache_duration = 2;</code>
@@ -1137,7 +1085,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Duration after which the cached JWKS should be expired. If not specified, default cache
-     * duration is 5 minutes.
+     * duration is 10 minutes.
      * </pre>
      *
      * <code>.google.protobuf.Duration cache_duration = 2;</code>
@@ -1177,7 +1125,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the asyncFetch field is set.
      */
     public boolean hasAsyncFetch() {
-      return asyncFetchBuilder_ != null || asyncFetch_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1225,11 +1173,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         asyncFetch_ = value;
-        onChanged();
       } else {
         asyncFetchBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1252,11 +1200,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetch.Builder builderForValue) {
       if (asyncFetchBuilder_ == null) {
         asyncFetch_ = builderForValue.build();
-        onChanged();
       } else {
         asyncFetchBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1277,17 +1225,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAsyncFetch(io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetch value) {
       if (asyncFetchBuilder_ == null) {
-        if (asyncFetch_ != null) {
-          asyncFetch_ =
-            io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetch.newBuilder(asyncFetch_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          asyncFetch_ != null &&
+          asyncFetch_ != io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetch.getDefaultInstance()) {
+          getAsyncFetchBuilder().mergeFrom(value);
         } else {
           asyncFetch_ = value;
         }
-        onChanged();
       } else {
         asyncFetchBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1307,14 +1256,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetch async_fetch = 3;</code>
      */
     public Builder clearAsyncFetch() {
-      if (asyncFetchBuilder_ == null) {
-        asyncFetch_ = null;
-        onChanged();
-      } else {
-        asyncFetch_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      asyncFetch_ = null;
+      if (asyncFetchBuilder_ != null) {
+        asyncFetchBuilder_.dispose();
         asyncFetchBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1334,7 +1282,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetch async_fetch = 3;</code>
      */
     public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwksAsyncFetch.Builder getAsyncFetchBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getAsyncFetchFieldBuilder().getBuilder();
     }
@@ -1420,7 +1368,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the retryPolicy field is set.
      */
     public boolean hasRetryPolicy() {
-      return retryPolicyBuilder_ != null || retryPolicy_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1482,11 +1430,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         retryPolicy_ = value;
-        onChanged();
       } else {
         retryPolicyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1516,11 +1464,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.RetryPolicy.Builder builderForValue) {
       if (retryPolicyBuilder_ == null) {
         retryPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         retryPolicyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1548,17 +1496,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRetryPolicy(io.envoyproxy.envoy.config.core.v3.RetryPolicy value) {
       if (retryPolicyBuilder_ == null) {
-        if (retryPolicy_ != null) {
-          retryPolicy_ =
-            io.envoyproxy.envoy.config.core.v3.RetryPolicy.newBuilder(retryPolicy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          retryPolicy_ != null &&
+          retryPolicy_ != io.envoyproxy.envoy.config.core.v3.RetryPolicy.getDefaultInstance()) {
+          getRetryPolicyBuilder().mergeFrom(value);
         } else {
           retryPolicy_ = value;
         }
-        onChanged();
       } else {
         retryPolicyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1585,14 +1534,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RetryPolicy retry_policy = 4;</code>
      */
     public Builder clearRetryPolicy() {
-      if (retryPolicyBuilder_ == null) {
-        retryPolicy_ = null;
-        onChanged();
-      } else {
-        retryPolicy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      retryPolicy_ = null;
+      if (retryPolicyBuilder_ != null) {
+        retryPolicyBuilder_.dispose();
         retryPolicyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1619,7 +1567,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RetryPolicy retry_policy = 4;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.RetryPolicy.Builder getRetryPolicyBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getRetryPolicyFieldBuilder().getBuilder();
     }
@@ -1723,7 +1671,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RemoteJwks(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

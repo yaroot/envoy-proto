@@ -51,104 +51,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AccountLinking(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            enableAccountCreation_ = input.readBool();
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            linkingType_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            authGrantType_ = rawValue;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            appClientId_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            authorizationUrl_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            tokenUrl_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              scopes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            scopes_.add(s);
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            learnMoreUrl_ = s;
-            break;
-          }
-          case 72: {
-
-            useBasicAuthHeader_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        scopes_ = scopes_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.AccountLinkingProto.internal_static_google_actions_sdk_v2_AccountLinking_descriptor;
@@ -477,7 +379,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_ACCOUNT_CREATION_FIELD_NUMBER = 1;
-  private boolean enableAccountCreation_;
+  private boolean enableAccountCreation_ = false;
   /**
    * <pre>
    * Required. If `true`, users are allowed to sign up for new accounts via voice.
@@ -497,7 +399,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LINKING_TYPE_FIELD_NUMBER = 2;
-  private int linkingType_;
+  private int linkingType_ = 0;
   /**
    * <pre>
    * Required. The linking type to use.
@@ -522,13 +424,12 @@ private static final long serialVersionUID = 0L;
    * @return The linkingType.
    */
   @java.lang.Override public com.google.actions.sdk.v2.AccountLinking.LinkingType getLinkingType() {
-    @SuppressWarnings("deprecation")
-    com.google.actions.sdk.v2.AccountLinking.LinkingType result = com.google.actions.sdk.v2.AccountLinking.LinkingType.valueOf(linkingType_);
+    com.google.actions.sdk.v2.AccountLinking.LinkingType result = com.google.actions.sdk.v2.AccountLinking.LinkingType.forNumber(linkingType_);
     return result == null ? com.google.actions.sdk.v2.AccountLinking.LinkingType.UNRECOGNIZED : result;
   }
 
   public static final int AUTH_GRANT_TYPE_FIELD_NUMBER = 3;
-  private int authGrantType_;
+  private int authGrantType_ = 0;
   /**
    * <pre>
    * Optional. Indicates the type of authentication for OAUTH linking_type.
@@ -549,13 +450,13 @@ private static final long serialVersionUID = 0L;
    * @return The authGrantType.
    */
   @java.lang.Override public com.google.actions.sdk.v2.AccountLinking.AuthGrantType getAuthGrantType() {
-    @SuppressWarnings("deprecation")
-    com.google.actions.sdk.v2.AccountLinking.AuthGrantType result = com.google.actions.sdk.v2.AccountLinking.AuthGrantType.valueOf(authGrantType_);
+    com.google.actions.sdk.v2.AccountLinking.AuthGrantType result = com.google.actions.sdk.v2.AccountLinking.AuthGrantType.forNumber(authGrantType_);
     return result == null ? com.google.actions.sdk.v2.AccountLinking.AuthGrantType.UNRECOGNIZED : result;
   }
 
   public static final int APP_CLIENT_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object appClientId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object appClientId_ = "";
   /**
    * <pre>
    * Optional. Client ID issued by your App to Google.
@@ -605,7 +506,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUTHORIZATION_URL_FIELD_NUMBER = 5;
-  private volatile java.lang.Object authorizationUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object authorizationUrl_ = "";
   /**
    * <pre>
    * Optional. Endpoint for your sign-in web page that supports OAuth2 code or
@@ -657,7 +559,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOKEN_URL_FIELD_NUMBER = 6;
-  private volatile java.lang.Object tokenUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object tokenUrl_ = "";
   /**
    * <pre>
    * Optional. OAuth2 endpoint for token exchange.
@@ -711,6 +614,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCOPES_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList scopes_;
   /**
    * <pre>
@@ -778,7 +682,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LEARN_MORE_URL_FIELD_NUMBER = 8;
-  private volatile java.lang.Object learnMoreUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object learnMoreUrl_ = "";
   /**
    * <pre>
    * Optional. This is the web page on your service which describes the
@@ -832,7 +737,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USE_BASIC_AUTH_HEADER_FIELD_NUMBER = 9;
-  private boolean useBasicAuthHeader_;
+  private boolean useBasicAuthHeader_ = false;
   /**
    * <pre>
    * Optional. If true, allow Google to transmit client ID and secret via HTTP
@@ -892,7 +797,7 @@ private static final long serialVersionUID = 0L;
     if (useBasicAuthHeader_ != false) {
       output.writeBool(9, useBasicAuthHeader_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -937,7 +842,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(9, useBasicAuthHeader_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -968,7 +873,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getLearnMoreUrl())) return false;
     if (getUseBasicAuthHeader()
         != other.getUseBasicAuthHeader()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1001,7 +906,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + USE_BASIC_AUTH_HEADER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getUseBasicAuthHeader());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1132,40 +1037,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.AccountLinking.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       enableAccountCreation_ = false;
-
       linkingType_ = 0;
-
       authGrantType_ = 0;
-
       appClientId_ = "";
-
       authorizationUrl_ = "";
-
       tokenUrl_ = "";
-
       scopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000040);
       learnMoreUrl_ = "";
-
       useBasicAuthHeader_ = false;
-
       return this;
     }
 
@@ -1192,22 +1085,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.AccountLinking buildPartial() {
       com.google.actions.sdk.v2.AccountLinking result = new com.google.actions.sdk.v2.AccountLinking(this);
-      int from_bitField0_ = bitField0_;
-      result.enableAccountCreation_ = enableAccountCreation_;
-      result.linkingType_ = linkingType_;
-      result.authGrantType_ = authGrantType_;
-      result.appClientId_ = appClientId_;
-      result.authorizationUrl_ = authorizationUrl_;
-      result.tokenUrl_ = tokenUrl_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        scopes_ = scopes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.scopes_ = scopes_;
-      result.learnMoreUrl_ = learnMoreUrl_;
-      result.useBasicAuthHeader_ = useBasicAuthHeader_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.actions.sdk.v2.AccountLinking result) {
+      if (((bitField0_ & 0x00000040) != 0)) {
+        scopes_ = scopes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000040);
+      }
+      result.scopes_ = scopes_;
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.AccountLinking result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.enableAccountCreation_ = enableAccountCreation_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.linkingType_ = linkingType_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.authGrantType_ = authGrantType_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.appClientId_ = appClientId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.authorizationUrl_ = authorizationUrl_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.tokenUrl_ = tokenUrl_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.learnMoreUrl_ = learnMoreUrl_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.useBasicAuthHeader_ = useBasicAuthHeader_;
+      }
     }
 
     @java.lang.Override
@@ -1265,20 +1182,23 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAppClientId().isEmpty()) {
         appClientId_ = other.appClientId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getAuthorizationUrl().isEmpty()) {
         authorizationUrl_ = other.authorizationUrl_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getTokenUrl().isEmpty()) {
         tokenUrl_ = other.tokenUrl_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.scopes_.isEmpty()) {
         if (scopes_.isEmpty()) {
           scopes_ = other.scopes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           ensureScopesIsMutable();
           scopes_.addAll(other.scopes_);
@@ -1287,12 +1207,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLearnMoreUrl().isEmpty()) {
         learnMoreUrl_ = other.learnMoreUrl_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.getUseBasicAuthHeader() != false) {
         setUseBasicAuthHeader(other.getUseBasicAuthHeader());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1307,17 +1228,76 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.AccountLinking parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              enableAccountCreation_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              linkingType_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              authGrantType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              appClientId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              authorizationUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              tokenUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureScopesIsMutable();
+              scopes_.add(s);
+              break;
+            } // case 58
+            case 66: {
+              learnMoreUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 72: {
+              useBasicAuthHeader_ = input.readBool();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.AccountLinking) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1357,6 +1337,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnableAccountCreation(boolean value) {
       
       enableAccountCreation_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1374,7 +1355,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableAccountCreation() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       enableAccountCreation_ = false;
       onChanged();
       return this;
@@ -1406,8 +1387,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLinkingTypeValue(int value) {
-      
       linkingType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1423,8 +1404,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.actions.sdk.v2.AccountLinking.LinkingType getLinkingType() {
-      @SuppressWarnings("deprecation")
-      com.google.actions.sdk.v2.AccountLinking.LinkingType result = com.google.actions.sdk.v2.AccountLinking.LinkingType.valueOf(linkingType_);
+      com.google.actions.sdk.v2.AccountLinking.LinkingType result = com.google.actions.sdk.v2.AccountLinking.LinkingType.forNumber(linkingType_);
       return result == null ? com.google.actions.sdk.v2.AccountLinking.LinkingType.UNRECOGNIZED : result;
     }
     /**
@@ -1442,7 +1422,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       linkingType_ = value.getNumber();
       onChanged();
       return this;
@@ -1458,7 +1438,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLinkingType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       linkingType_ = 0;
       onChanged();
       return this;
@@ -1486,8 +1466,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAuthGrantTypeValue(int value) {
-      
       authGrantType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1501,8 +1481,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.actions.sdk.v2.AccountLinking.AuthGrantType getAuthGrantType() {
-      @SuppressWarnings("deprecation")
-      com.google.actions.sdk.v2.AccountLinking.AuthGrantType result = com.google.actions.sdk.v2.AccountLinking.AuthGrantType.valueOf(authGrantType_);
+      com.google.actions.sdk.v2.AccountLinking.AuthGrantType result = com.google.actions.sdk.v2.AccountLinking.AuthGrantType.forNumber(authGrantType_);
       return result == null ? com.google.actions.sdk.v2.AccountLinking.AuthGrantType.UNRECOGNIZED : result;
     }
     /**
@@ -1518,7 +1497,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       authGrantType_ = value.getNumber();
       onChanged();
       return this;
@@ -1532,7 +1511,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAuthGrantType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       authGrantType_ = 0;
       onChanged();
       return this;
@@ -1597,11 +1576,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAppClientId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       appClientId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1616,8 +1593,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAppClientId() {
-      
       appClientId_ = getDefaultInstance().getAppClientId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1634,12 +1611,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAppClientIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       appClientId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1706,11 +1681,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthorizationUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       authorizationUrl_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1726,8 +1699,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAuthorizationUrl() {
-      
       authorizationUrl_ = getDefaultInstance().getAuthorizationUrl();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1745,12 +1718,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthorizationUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       authorizationUrl_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1820,11 +1791,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTokenUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       tokenUrl_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1841,8 +1810,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTokenUrl() {
-      
       tokenUrl_ = getDefaultInstance().getTokenUrl();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1861,21 +1830,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTokenUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       tokenUrl_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList scopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureScopesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         scopes_ = new com.google.protobuf.LazyStringArrayList(scopes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000040;
        }
     }
     /**
@@ -1958,10 +1925,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setScopes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureScopesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureScopesIsMutable();
       scopes_.set(index, value);
       onChanged();
       return this;
@@ -1981,10 +1946,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addScopes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureScopesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureScopesIsMutable();
       scopes_.add(value);
       onChanged();
       return this;
@@ -2024,7 +1987,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearScopes() {
       scopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2043,10 +2006,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addScopesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureScopesIsMutable();
       scopes_.add(value);
       onChanged();
@@ -2118,11 +2079,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLearnMoreUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       learnMoreUrl_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2139,8 +2098,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLearnMoreUrl() {
-      
       learnMoreUrl_ = getDefaultInstance().getLearnMoreUrl();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2159,12 +2118,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLearnMoreUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       learnMoreUrl_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2204,6 +2161,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUseBasicAuthHeader(boolean value) {
       
       useBasicAuthHeader_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2221,7 +2179,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUseBasicAuthHeader() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       useBasicAuthHeader_ = false;
       onChanged();
       return this;
@@ -2259,7 +2217,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AccountLinking(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

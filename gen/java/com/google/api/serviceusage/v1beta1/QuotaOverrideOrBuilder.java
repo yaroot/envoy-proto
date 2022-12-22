@@ -161,7 +161,6 @@ public interface QuotaOverrideOrBuilder extends
    *
    * <code>map&lt;string, string&gt; dimensions = 3;</code>
    */
-
   /* nullable */
 java.lang.String getDimensionsOrDefault(
       java.lang.String key,
@@ -192,7 +191,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; dimensions = 3;</code>
    */
-
   java.lang.String getDimensionsOrThrow(
       java.lang.String key);
 

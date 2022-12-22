@@ -34,115 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TestEnvironmentCatalog(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.devtools.testing.v1.AndroidDeviceCatalog.Builder subBuilder = null;
-            if (environmentCatalogCase_ == 1) {
-              subBuilder = ((com.google.devtools.testing.v1.AndroidDeviceCatalog) environmentCatalog_).toBuilder();
-            }
-            environmentCatalog_ =
-                input.readMessage(com.google.devtools.testing.v1.AndroidDeviceCatalog.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.AndroidDeviceCatalog) environmentCatalog_);
-              environmentCatalog_ = subBuilder.buildPartial();
-            }
-            environmentCatalogCase_ = 1;
-            break;
-          }
-          case 26: {
-            com.google.devtools.testing.v1.IosDeviceCatalog.Builder subBuilder = null;
-            if (environmentCatalogCase_ == 3) {
-              subBuilder = ((com.google.devtools.testing.v1.IosDeviceCatalog) environmentCatalog_).toBuilder();
-            }
-            environmentCatalog_ =
-                input.readMessage(com.google.devtools.testing.v1.IosDeviceCatalog.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.IosDeviceCatalog) environmentCatalog_);
-              environmentCatalog_ = subBuilder.buildPartial();
-            }
-            environmentCatalogCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.devtools.testing.v1.NetworkConfigurationCatalog.Builder subBuilder = null;
-            if (environmentCatalogCase_ == 4) {
-              subBuilder = ((com.google.devtools.testing.v1.NetworkConfigurationCatalog) environmentCatalog_).toBuilder();
-            }
-            environmentCatalog_ =
-                input.readMessage(com.google.devtools.testing.v1.NetworkConfigurationCatalog.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.NetworkConfigurationCatalog) environmentCatalog_);
-              environmentCatalog_ = subBuilder.buildPartial();
-            }
-            environmentCatalogCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.devtools.testing.v1.ProvidedSoftwareCatalog.Builder subBuilder = null;
-            if (environmentCatalogCase_ == 5) {
-              subBuilder = ((com.google.devtools.testing.v1.ProvidedSoftwareCatalog) environmentCatalog_).toBuilder();
-            }
-            environmentCatalog_ =
-                input.readMessage(com.google.devtools.testing.v1.ProvidedSoftwareCatalog.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.ProvidedSoftwareCatalog) environmentCatalog_);
-              environmentCatalog_ = subBuilder.buildPartial();
-            }
-            environmentCatalogCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.devtools.testing.v1.DeviceIpBlockCatalog.Builder subBuilder = null;
-            if (environmentCatalogCase_ == 6) {
-              subBuilder = ((com.google.devtools.testing.v1.DeviceIpBlockCatalog) environmentCatalog_).toBuilder();
-            }
-            environmentCatalog_ =
-                input.readMessage(com.google.devtools.testing.v1.DeviceIpBlockCatalog.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.DeviceIpBlockCatalog) environmentCatalog_);
-              environmentCatalog_ = subBuilder.buildPartial();
-            }
-            environmentCatalogCase_ = 6;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.TestEnvironmentDiscoveryProto.internal_static_google_devtools_testing_v1_TestEnvironmentCatalog_descriptor;
@@ -447,7 +338,7 @@ private static final long serialVersionUID = 0L;
     if (environmentCatalogCase_ == 6) {
       output.writeMessage(6, (com.google.devtools.testing.v1.DeviceIpBlockCatalog) environmentCatalog_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -476,7 +367,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, (com.google.devtools.testing.v1.DeviceIpBlockCatalog) environmentCatalog_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -516,7 +407,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -551,7 +442,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -672,22 +563,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.TestEnvironmentCatalog.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (androidDeviceCatalogBuilder_ != null) {
+        androidDeviceCatalogBuilder_.clear();
+      }
+      if (iosDeviceCatalogBuilder_ != null) {
+        iosDeviceCatalogBuilder_.clear();
+      }
+      if (networkConfigurationCatalogBuilder_ != null) {
+        networkConfigurationCatalogBuilder_.clear();
+      }
+      if (softwareCatalogBuilder_ != null) {
+        softwareCatalogBuilder_.clear();
+      }
+      if (deviceIpBlockCatalogBuilder_ != null) {
+        deviceIpBlockCatalogBuilder_.clear();
+      }
       environmentCatalogCase_ = 0;
       environmentCatalog_ = null;
       return this;
@@ -716,44 +618,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.TestEnvironmentCatalog buildPartial() {
       com.google.devtools.testing.v1.TestEnvironmentCatalog result = new com.google.devtools.testing.v1.TestEnvironmentCatalog(this);
-      if (environmentCatalogCase_ == 1) {
-        if (androidDeviceCatalogBuilder_ == null) {
-          result.environmentCatalog_ = environmentCatalog_;
-        } else {
-          result.environmentCatalog_ = androidDeviceCatalogBuilder_.build();
-        }
-      }
-      if (environmentCatalogCase_ == 3) {
-        if (iosDeviceCatalogBuilder_ == null) {
-          result.environmentCatalog_ = environmentCatalog_;
-        } else {
-          result.environmentCatalog_ = iosDeviceCatalogBuilder_.build();
-        }
-      }
-      if (environmentCatalogCase_ == 4) {
-        if (networkConfigurationCatalogBuilder_ == null) {
-          result.environmentCatalog_ = environmentCatalog_;
-        } else {
-          result.environmentCatalog_ = networkConfigurationCatalogBuilder_.build();
-        }
-      }
-      if (environmentCatalogCase_ == 5) {
-        if (softwareCatalogBuilder_ == null) {
-          result.environmentCatalog_ = environmentCatalog_;
-        } else {
-          result.environmentCatalog_ = softwareCatalogBuilder_.build();
-        }
-      }
-      if (environmentCatalogCase_ == 6) {
-        if (deviceIpBlockCatalogBuilder_ == null) {
-          result.environmentCatalog_ = environmentCatalog_;
-        } else {
-          result.environmentCatalog_ = deviceIpBlockCatalogBuilder_.build();
-        }
-      }
-      result.environmentCatalogCase_ = environmentCatalogCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.TestEnvironmentCatalog result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.devtools.testing.v1.TestEnvironmentCatalog result) {
+      result.environmentCatalogCase_ = environmentCatalogCase_;
+      result.environmentCatalog_ = this.environmentCatalog_;
+      if (environmentCatalogCase_ == 1 &&
+          androidDeviceCatalogBuilder_ != null) {
+        result.environmentCatalog_ = androidDeviceCatalogBuilder_.build();
+      }
+      if (environmentCatalogCase_ == 3 &&
+          iosDeviceCatalogBuilder_ != null) {
+        result.environmentCatalog_ = iosDeviceCatalogBuilder_.build();
+      }
+      if (environmentCatalogCase_ == 4 &&
+          networkConfigurationCatalogBuilder_ != null) {
+        result.environmentCatalog_ = networkConfigurationCatalogBuilder_.build();
+      }
+      if (environmentCatalogCase_ == 5 &&
+          softwareCatalogBuilder_ != null) {
+        result.environmentCatalog_ = softwareCatalogBuilder_.build();
+      }
+      if (environmentCatalogCase_ == 6 &&
+          deviceIpBlockCatalogBuilder_ != null) {
+        result.environmentCatalog_ = deviceIpBlockCatalogBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -825,7 +722,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -840,17 +737,65 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.TestEnvironmentCatalog parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAndroidDeviceCatalogFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              environmentCatalogCase_ = 1;
+              break;
+            } // case 10
+            case 26: {
+              input.readMessage(
+                  getIosDeviceCatalogFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              environmentCatalogCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getNetworkConfigurationCatalogFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              environmentCatalogCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getSoftwareCatalogFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              environmentCatalogCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getDeviceIpBlockCatalogFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              environmentCatalogCase_ = 6;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.TestEnvironmentCatalog) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int environmentCatalogCase_ = 0;
@@ -868,6 +813,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.devtools.testing.v1.AndroidDeviceCatalog, com.google.devtools.testing.v1.AndroidDeviceCatalog.Builder, com.google.devtools.testing.v1.AndroidDeviceCatalogOrBuilder> androidDeviceCatalogBuilder_;
@@ -1043,7 +989,7 @@ private static final long serialVersionUID = 0L;
         environmentCatalog_ = null;
       }
       environmentCatalogCase_ = 1;
-      onChanged();;
+      onChanged();
       return androidDeviceCatalogBuilder_;
     }
 
@@ -1221,7 +1167,7 @@ private static final long serialVersionUID = 0L;
         environmentCatalog_ = null;
       }
       environmentCatalogCase_ = 3;
-      onChanged();;
+      onChanged();
       return iosDeviceCatalogBuilder_;
     }
 
@@ -1399,7 +1345,7 @@ private static final long serialVersionUID = 0L;
         environmentCatalog_ = null;
       }
       environmentCatalogCase_ = 4;
-      onChanged();;
+      onChanged();
       return networkConfigurationCatalogBuilder_;
     }
 
@@ -1577,7 +1523,7 @@ private static final long serialVersionUID = 0L;
         environmentCatalog_ = null;
       }
       environmentCatalogCase_ = 5;
-      onChanged();;
+      onChanged();
       return softwareCatalogBuilder_;
     }
 
@@ -1755,7 +1701,7 @@ private static final long serialVersionUID = 0L;
         environmentCatalog_ = null;
       }
       environmentCatalogCase_ = 6;
-      onChanged();;
+      onChanged();
       return deviceIpBlockCatalogBuilder_;
     }
     @java.lang.Override
@@ -1791,7 +1737,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TestEnvironmentCatalog(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -37,73 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Connection(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            destinationIp_ = s;
-            break;
-          }
-          case 16: {
-
-            destinationPort_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sourceIp_ = s;
-            break;
-          }
-          case 32: {
-
-            sourcePort_ = input.readInt32();
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            protocol_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.securitycenter.v1.ConnectionProto.internal_static_google_cloud_securitycenter_v1_Connection_descriptor;
@@ -314,7 +247,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESTINATION_IP_FIELD_NUMBER = 1;
-  private volatile java.lang.Object destinationIp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object destinationIp_ = "";
   /**
    * <pre>
    * Destination IP address. Not present for sockets that are listening and not
@@ -362,7 +296,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESTINATION_PORT_FIELD_NUMBER = 2;
-  private int destinationPort_;
+  private int destinationPort_ = 0;
   /**
    * <pre>
    * Destination port. Not present for sockets that are listening and not
@@ -378,7 +312,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_IP_FIELD_NUMBER = 3;
-  private volatile java.lang.Object sourceIp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sourceIp_ = "";
   /**
    * <pre>
    * Source IP address.
@@ -424,7 +359,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_PORT_FIELD_NUMBER = 4;
-  private int sourcePort_;
+  private int sourcePort_ = 0;
   /**
    * <pre>
    * Source port.
@@ -439,7 +374,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROTOCOL_FIELD_NUMBER = 5;
-  private int protocol_;
+  private int protocol_ = 0;
   /**
    * <pre>
    * IANA Internet Protocol Number such as TCP(6) and UDP(17).
@@ -460,8 +395,7 @@ private static final long serialVersionUID = 0L;
    * @return The protocol.
    */
   @java.lang.Override public com.google.cloud.securitycenter.v1.Connection.Protocol getProtocol() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.securitycenter.v1.Connection.Protocol result = com.google.cloud.securitycenter.v1.Connection.Protocol.valueOf(protocol_);
+    com.google.cloud.securitycenter.v1.Connection.Protocol result = com.google.cloud.securitycenter.v1.Connection.Protocol.forNumber(protocol_);
     return result == null ? com.google.cloud.securitycenter.v1.Connection.Protocol.UNRECOGNIZED : result;
   }
 
@@ -494,7 +428,7 @@ private static final long serialVersionUID = 0L;
     if (protocol_ != com.google.cloud.securitycenter.v1.Connection.Protocol.PROTOCOL_UNSPECIFIED.getNumber()) {
       output.writeEnum(5, protocol_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -521,7 +455,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(5, protocol_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -545,7 +479,7 @@ private static final long serialVersionUID = 0L;
     if (getSourcePort()
         != other.getSourcePort()) return false;
     if (protocol_ != other.protocol_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -566,7 +500,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getSourcePort();
     hash = (37 * hash) + PROTOCOL_FIELD_NUMBER;
     hash = (53 * hash) + protocol_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -687,32 +621,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.securitycenter.v1.Connection.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       destinationIp_ = "";
-
       destinationPort_ = 0;
-
       sourceIp_ = "";
-
       sourcePort_ = 0;
-
       protocol_ = 0;
-
       return this;
     }
 
@@ -739,13 +664,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.securitycenter.v1.Connection buildPartial() {
       com.google.cloud.securitycenter.v1.Connection result = new com.google.cloud.securitycenter.v1.Connection(this);
-      result.destinationIp_ = destinationIp_;
-      result.destinationPort_ = destinationPort_;
-      result.sourceIp_ = sourceIp_;
-      result.sourcePort_ = sourcePort_;
-      result.protocol_ = protocol_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.securitycenter.v1.Connection result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.destinationIp_ = destinationIp_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.destinationPort_ = destinationPort_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.sourceIp_ = sourceIp_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.sourcePort_ = sourcePort_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.protocol_ = protocol_;
+      }
     }
 
     @java.lang.Override
@@ -794,6 +734,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.securitycenter.v1.Connection.getDefaultInstance()) return this;
       if (!other.getDestinationIp().isEmpty()) {
         destinationIp_ = other.destinationIp_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getDestinationPort() != 0) {
@@ -801,6 +742,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSourceIp().isEmpty()) {
         sourceIp_ = other.sourceIp_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getSourcePort() != 0) {
@@ -809,7 +751,7 @@ private static final long serialVersionUID = 0L;
       if (other.protocol_ != 0) {
         setProtocolValue(other.getProtocolValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -824,19 +766,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.securitycenter.v1.Connection parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              destinationIp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              destinationPort_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              sourceIp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              sourcePort_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              protocol_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.securitycenter.v1.Connection) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object destinationIp_ = "";
     /**
@@ -894,11 +875,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestinationIp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       destinationIp_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -912,8 +891,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDestinationIp() {
-      
       destinationIp_ = getDefaultInstance().getDestinationIp();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -929,12 +908,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestinationIpBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       destinationIp_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -966,6 +943,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDestinationPort(int value) {
       
       destinationPort_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -979,7 +957,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDestinationPort() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       destinationPort_ = 0;
       onChanged();
       return this;
@@ -1038,11 +1016,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceIp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sourceIp_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1055,8 +1031,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceIp() {
-      
       sourceIp_ = getDefaultInstance().getSourceIp();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1071,12 +1047,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceIpBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceIp_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1106,6 +1080,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSourcePort(int value) {
       
       sourcePort_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1118,7 +1093,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourcePort() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       sourcePort_ = 0;
       onChanged();
       return this;
@@ -1146,8 +1121,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setProtocolValue(int value) {
-      
       protocol_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1161,8 +1136,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.securitycenter.v1.Connection.Protocol getProtocol() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.securitycenter.v1.Connection.Protocol result = com.google.cloud.securitycenter.v1.Connection.Protocol.valueOf(protocol_);
+      com.google.cloud.securitycenter.v1.Connection.Protocol result = com.google.cloud.securitycenter.v1.Connection.Protocol.forNumber(protocol_);
       return result == null ? com.google.cloud.securitycenter.v1.Connection.Protocol.UNRECOGNIZED : result;
     }
     /**
@@ -1178,7 +1152,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       protocol_ = value.getNumber();
       onChanged();
       return this;
@@ -1192,7 +1166,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProtocol() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       protocol_ = 0;
       onChanged();
       return this;
@@ -1230,7 +1204,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Connection(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

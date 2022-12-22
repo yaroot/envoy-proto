@@ -35,93 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RuleBasedUserListInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            prepopulationStatus_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.ads.googleads.v10.common.CombinedRuleUserListInfo.Builder subBuilder = null;
-            if (ruleBasedUserListCase_ == 2) {
-              subBuilder = ((com.google.ads.googleads.v10.common.CombinedRuleUserListInfo) ruleBasedUserList_).toBuilder();
-            }
-            ruleBasedUserList_ =
-                input.readMessage(com.google.ads.googleads.v10.common.CombinedRuleUserListInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.CombinedRuleUserListInfo) ruleBasedUserList_);
-              ruleBasedUserList_ = subBuilder.buildPartial();
-            }
-            ruleBasedUserListCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.ads.googleads.v10.common.DateSpecificRuleUserListInfo.Builder subBuilder = null;
-            if (ruleBasedUserListCase_ == 3) {
-              subBuilder = ((com.google.ads.googleads.v10.common.DateSpecificRuleUserListInfo) ruleBasedUserList_).toBuilder();
-            }
-            ruleBasedUserList_ =
-                input.readMessage(com.google.ads.googleads.v10.common.DateSpecificRuleUserListInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.DateSpecificRuleUserListInfo) ruleBasedUserList_);
-              ruleBasedUserList_ = subBuilder.buildPartial();
-            }
-            ruleBasedUserListCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.ads.googleads.v10.common.ExpressionRuleUserListInfo.Builder subBuilder = null;
-            if (ruleBasedUserListCase_ == 4) {
-              subBuilder = ((com.google.ads.googleads.v10.common.ExpressionRuleUserListInfo) ruleBasedUserList_).toBuilder();
-            }
-            ruleBasedUserList_ =
-                input.readMessage(com.google.ads.googleads.v10.common.ExpressionRuleUserListInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v10.common.ExpressionRuleUserListInfo) ruleBasedUserList_);
-              ruleBasedUserList_ = subBuilder.buildPartial();
-            }
-            ruleBasedUserListCase_ = 4;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.common.UserListsProto.internal_static_google_ads_googleads_v10_common_RuleBasedUserListInfo_descriptor;
@@ -179,7 +92,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PREPOPULATION_STATUS_FIELD_NUMBER = 1;
-  private int prepopulationStatus_;
+  private int prepopulationStatus_ = 0;
   /**
    * <pre>
    * The status of pre-population. The field is default to NONE if not set which
@@ -214,8 +127,7 @@ private static final long serialVersionUID = 0L;
    * @return The prepopulationStatus.
    */
   @java.lang.Override public com.google.ads.googleads.v10.enums.UserListPrepopulationStatusEnum.UserListPrepopulationStatus getPrepopulationStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v10.enums.UserListPrepopulationStatusEnum.UserListPrepopulationStatus result = com.google.ads.googleads.v10.enums.UserListPrepopulationStatusEnum.UserListPrepopulationStatus.valueOf(prepopulationStatus_);
+    com.google.ads.googleads.v10.enums.UserListPrepopulationStatusEnum.UserListPrepopulationStatus result = com.google.ads.googleads.v10.enums.UserListPrepopulationStatusEnum.UserListPrepopulationStatus.forNumber(prepopulationStatus_);
     return result == null ? com.google.ads.googleads.v10.enums.UserListPrepopulationStatusEnum.UserListPrepopulationStatus.UNRECOGNIZED : result;
   }
 
@@ -395,7 +307,7 @@ private static final long serialVersionUID = 0L;
     if (ruleBasedUserListCase_ == 4) {
       output.writeMessage(4, (com.google.ads.googleads.v10.common.ExpressionRuleUserListInfo) ruleBasedUserList_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -420,7 +332,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, (com.google.ads.googleads.v10.common.ExpressionRuleUserListInfo) ruleBasedUserList_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -453,7 +365,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -482,7 +394,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -603,24 +515,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.common.RuleBasedUserListInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       prepopulationStatus_ = 0;
-
+      if (combinedRuleUserListBuilder_ != null) {
+        combinedRuleUserListBuilder_.clear();
+      }
+      if (dateSpecificRuleUserListBuilder_ != null) {
+        dateSpecificRuleUserListBuilder_.clear();
+      }
+      if (expressionRuleUserListBuilder_ != null) {
+        expressionRuleUserListBuilder_.clear();
+      }
       ruleBasedUserListCase_ = 0;
       ruleBasedUserList_ = null;
       return this;
@@ -649,31 +565,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.common.RuleBasedUserListInfo buildPartial() {
       com.google.ads.googleads.v10.common.RuleBasedUserListInfo result = new com.google.ads.googleads.v10.common.RuleBasedUserListInfo(this);
-      result.prepopulationStatus_ = prepopulationStatus_;
-      if (ruleBasedUserListCase_ == 2) {
-        if (combinedRuleUserListBuilder_ == null) {
-          result.ruleBasedUserList_ = ruleBasedUserList_;
-        } else {
-          result.ruleBasedUserList_ = combinedRuleUserListBuilder_.build();
-        }
-      }
-      if (ruleBasedUserListCase_ == 3) {
-        if (dateSpecificRuleUserListBuilder_ == null) {
-          result.ruleBasedUserList_ = ruleBasedUserList_;
-        } else {
-          result.ruleBasedUserList_ = dateSpecificRuleUserListBuilder_.build();
-        }
-      }
-      if (ruleBasedUserListCase_ == 4) {
-        if (expressionRuleUserListBuilder_ == null) {
-          result.ruleBasedUserList_ = ruleBasedUserList_;
-        } else {
-          result.ruleBasedUserList_ = expressionRuleUserListBuilder_.build();
-        }
-      }
-      result.ruleBasedUserListCase_ = ruleBasedUserListCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.common.RuleBasedUserListInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.prepopulationStatus_ = prepopulationStatus_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.ads.googleads.v10.common.RuleBasedUserListInfo result) {
+      result.ruleBasedUserListCase_ = ruleBasedUserListCase_;
+      result.ruleBasedUserList_ = this.ruleBasedUserList_;
+      if (ruleBasedUserListCase_ == 2 &&
+          combinedRuleUserListBuilder_ != null) {
+        result.ruleBasedUserList_ = combinedRuleUserListBuilder_.build();
+      }
+      if (ruleBasedUserListCase_ == 3 &&
+          dateSpecificRuleUserListBuilder_ != null) {
+        result.ruleBasedUserList_ = dateSpecificRuleUserListBuilder_.build();
+      }
+      if (ruleBasedUserListCase_ == 4 &&
+          expressionRuleUserListBuilder_ != null) {
+        result.ruleBasedUserList_ = expressionRuleUserListBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -740,7 +659,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -755,17 +674,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.common.RuleBasedUserListInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              prepopulationStatus_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getCombinedRuleUserListFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              ruleBasedUserListCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getDateSpecificRuleUserListFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              ruleBasedUserListCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getExpressionRuleUserListFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              ruleBasedUserListCase_ = 4;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.common.RuleBasedUserListInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int ruleBasedUserListCase_ = 0;
@@ -783,6 +741,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private int prepopulationStatus_ = 0;
     /**
@@ -820,8 +779,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPrepopulationStatusValue(int value) {
-      
       prepopulationStatus_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -842,8 +801,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.UserListPrepopulationStatusEnum.UserListPrepopulationStatus getPrepopulationStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.UserListPrepopulationStatusEnum.UserListPrepopulationStatus result = com.google.ads.googleads.v10.enums.UserListPrepopulationStatusEnum.UserListPrepopulationStatus.valueOf(prepopulationStatus_);
+      com.google.ads.googleads.v10.enums.UserListPrepopulationStatusEnum.UserListPrepopulationStatus result = com.google.ads.googleads.v10.enums.UserListPrepopulationStatusEnum.UserListPrepopulationStatus.forNumber(prepopulationStatus_);
       return result == null ? com.google.ads.googleads.v10.enums.UserListPrepopulationStatusEnum.UserListPrepopulationStatus.UNRECOGNIZED : result;
     }
     /**
@@ -866,7 +824,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       prepopulationStatus_ = value.getNumber();
       onChanged();
       return this;
@@ -887,7 +845,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrepopulationStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       prepopulationStatus_ = 0;
       onChanged();
       return this;
@@ -1085,7 +1043,7 @@ private static final long serialVersionUID = 0L;
         ruleBasedUserList_ = null;
       }
       ruleBasedUserListCase_ = 2;
-      onChanged();;
+      onChanged();
       return combinedRuleUserListBuilder_;
     }
 
@@ -1299,7 +1257,7 @@ private static final long serialVersionUID = 0L;
         ruleBasedUserList_ = null;
       }
       ruleBasedUserListCase_ = 3;
-      onChanged();;
+      onChanged();
       return dateSpecificRuleUserListBuilder_;
     }
 
@@ -1486,7 +1444,7 @@ private static final long serialVersionUID = 0L;
         ruleBasedUserList_ = null;
       }
       ruleBasedUserListCase_ = 4;
-      onChanged();;
+      onChanged();
       return expressionRuleUserListBuilder_;
     }
     @java.lang.Override
@@ -1522,7 +1480,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RuleBasedUserListInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

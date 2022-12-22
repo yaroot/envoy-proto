@@ -36,74 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateOfflineUserDataJobRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            customerId_ = s;
-            break;
-          }
-          case 18: {
-            com.google.ads.googleads.v11.resources.OfflineUserDataJob.Builder subBuilder = null;
-            if (job_ != null) {
-              subBuilder = job_.toBuilder();
-            }
-            job_ = input.readMessage(com.google.ads.googleads.v11.resources.OfflineUserDataJob.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(job_);
-              job_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-
-            validateOnly_ = input.readBool();
-            break;
-          }
-          case 40: {
-
-            enableMatchRateRangePreview_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.services.OfflineUserDataJobServiceProto.internal_static_google_ads_googleads_v11_services_CreateOfflineUserDataJobRequest_descriptor;
@@ -118,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOMER_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object customerId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customerId_ = "";
   /**
    * <pre>
    * Required. The ID of the customer for which to create an offline user data job.
@@ -198,11 +131,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v11.resources.OfflineUserDataJobOrBuilder getJobOrBuilder() {
-    return getJob();
+    return job_ == null ? com.google.ads.googleads.v11.resources.OfflineUserDataJob.getDefaultInstance() : job_;
   }
 
   public static final int VALIDATE_ONLY_FIELD_NUMBER = 3;
-  private boolean validateOnly_;
+  private boolean validateOnly_ = false;
   /**
    * <pre>
    * If true, the request is validated but not executed. Only errors are
@@ -218,7 +151,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_MATCH_RATE_RANGE_PREVIEW_FIELD_NUMBER = 5;
-  private boolean enableMatchRateRangePreview_;
+  private boolean enableMatchRateRangePreview_ = false;
   /**
    * <pre>
    * If true, match rate range for the offline user data job is calculated and
@@ -259,7 +192,7 @@ private static final long serialVersionUID = 0L;
     if (enableMatchRateRangePreview_ != false) {
       output.writeBool(5, enableMatchRateRangePreview_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -283,7 +216,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, enableMatchRateRangePreview_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -309,7 +242,7 @@ private static final long serialVersionUID = 0L;
         != other.getValidateOnly()) return false;
     if (getEnableMatchRateRangePreview()
         != other.getEnableMatchRateRangePreview()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -332,7 +265,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ENABLE_MATCH_RATE_RANGE_PREVIEW_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getEnableMatchRateRangePreview());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -454,34 +387,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.services.CreateOfflineUserDataJobRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       customerId_ = "";
-
-      if (jobBuilder_ == null) {
-        job_ = null;
-      } else {
-        job_ = null;
+      job_ = null;
+      if (jobBuilder_ != null) {
+        jobBuilder_.dispose();
         jobBuilder_ = null;
       }
       validateOnly_ = false;
-
       enableMatchRateRangePreview_ = false;
-
       return this;
     }
 
@@ -508,16 +433,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.services.CreateOfflineUserDataJobRequest buildPartial() {
       com.google.ads.googleads.v11.services.CreateOfflineUserDataJobRequest result = new com.google.ads.googleads.v11.services.CreateOfflineUserDataJobRequest(this);
-      result.customerId_ = customerId_;
-      if (jobBuilder_ == null) {
-        result.job_ = job_;
-      } else {
-        result.job_ = jobBuilder_.build();
-      }
-      result.validateOnly_ = validateOnly_;
-      result.enableMatchRateRangePreview_ = enableMatchRateRangePreview_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.services.CreateOfflineUserDataJobRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.customerId_ = customerId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.job_ = jobBuilder_ == null
+            ? job_
+            : jobBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.validateOnly_ = validateOnly_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.enableMatchRateRangePreview_ = enableMatchRateRangePreview_;
+      }
     }
 
     @java.lang.Override
@@ -566,6 +502,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v11.services.CreateOfflineUserDataJobRequest.getDefaultInstance()) return this;
       if (!other.getCustomerId().isEmpty()) {
         customerId_ = other.customerId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasJob()) {
@@ -577,7 +514,7 @@ private static final long serialVersionUID = 0L;
       if (other.getEnableMatchRateRangePreview() != false) {
         setEnableMatchRateRangePreview(other.getEnableMatchRateRangePreview());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -592,19 +529,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.services.CreateOfflineUserDataJobRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              customerId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getJobFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              validateOnly_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 40: {
+              enableMatchRateRangePreview_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.services.CreateOfflineUserDataJobRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object customerId_ = "";
     /**
@@ -659,11 +632,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       customerId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -676,8 +647,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomerId() {
-      
       customerId_ = getDefaultInstance().getCustomerId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -692,12 +663,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customerId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -714,7 +683,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the job field is set.
      */
     public boolean hasJob() {
-      return jobBuilder_ != null || job_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -744,11 +713,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         job_ = value;
-        onChanged();
       } else {
         jobBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -762,11 +731,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.resources.OfflineUserDataJob.Builder builderForValue) {
       if (jobBuilder_ == null) {
         job_ = builderForValue.build();
-        onChanged();
       } else {
         jobBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -778,17 +747,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeJob(com.google.ads.googleads.v11.resources.OfflineUserDataJob value) {
       if (jobBuilder_ == null) {
-        if (job_ != null) {
-          job_ =
-            com.google.ads.googleads.v11.resources.OfflineUserDataJob.newBuilder(job_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          job_ != null &&
+          job_ != com.google.ads.googleads.v11.resources.OfflineUserDataJob.getDefaultInstance()) {
+          getJobBuilder().mergeFrom(value);
         } else {
           job_ = value;
         }
-        onChanged();
       } else {
         jobBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -799,14 +769,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.resources.OfflineUserDataJob job = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearJob() {
-      if (jobBuilder_ == null) {
-        job_ = null;
-        onChanged();
-      } else {
-        job_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      job_ = null;
+      if (jobBuilder_ != null) {
+        jobBuilder_.dispose();
         jobBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -817,7 +786,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.resources.OfflineUserDataJob job = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.ads.googleads.v11.resources.OfflineUserDataJob.Builder getJobBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getJobFieldBuilder().getBuilder();
     }
@@ -884,6 +853,7 @@ private static final long serialVersionUID = 0L;
     public Builder setValidateOnly(boolean value) {
       
       validateOnly_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -897,7 +867,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidateOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       validateOnly_ = false;
       onChanged();
       return this;
@@ -930,6 +900,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnableMatchRateRangePreview(boolean value) {
       
       enableMatchRateRangePreview_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -943,7 +914,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableMatchRateRangePreview() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       enableMatchRateRangePreview_ = false;
       onChanged();
       return this;
@@ -981,7 +952,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateOfflineUserDataJobRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

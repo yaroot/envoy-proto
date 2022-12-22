@@ -14,18 +14,21 @@ _sym_db = _symbol_database.Default()
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.rpc import code_pb2 as google_dot_rpc_dot_code__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&google/cloud/eventarc/v1/trigger.proto\x12\x18google.cloud.eventarc.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb3\x05\n\x07Trigger\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x10\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x44\n\revent_filters\x18\x08 \x03(\x0b\x32%.google.cloud.eventarc.v1.EventFilterB\x06\xe0\x41\x06\xe0\x41\x02\x12\x42\n\x0fservice_account\x18\t \x01(\tB)\xe0\x41\x01\xfa\x41#\n!iam.googleapis.com/ServiceAccount\x12?\n\x0b\x64\x65stination\x18\n \x01(\x0b\x32%.google.cloud.eventarc.v1.DestinationB\x03\xe0\x41\x02\x12;\n\ttransport\x18\x0b \x01(\x0b\x32#.google.cloud.eventarc.v1.TransportB\x03\xe0\x41\x01\x12\x42\n\x06labels\x18\x0c \x03(\x0b\x32-.google.cloud.eventarc.v1.Trigger.LabelsEntryB\x03\xe0\x41\x01\x12\x14\n\x07\x63hannel\x18\r \x01(\tB\x03\xe0\x41\x01\x12\x11\n\x04\x65tag\x18\x63 \x01(\tB\x03\xe0\x41\x03\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:s\xea\x41p\n\x1f\x65ventarc.googleapis.com/Trigger\x12:projects/{project}/locations/{location}/triggers/{trigger}*\x08triggers2\x07trigger\"P\n\x0b\x45ventFilter\x12\x16\n\tattribute\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05value\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08operator\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xce\x01\n\x0b\x44\x65stination\x12\x37\n\tcloud_run\x18\x01 \x01(\x0b\x32\".google.cloud.eventarc.v1.CloudRunH\x00\x12J\n\x0e\x63loud_function\x18\x02 \x01(\tB0\xfa\x41-\n+cloudfunctions.googleapis.com/CloudFunctionH\x00\x12,\n\x03gke\x18\x03 \x01(\x0b\x32\x1d.google.cloud.eventarc.v1.GKEH\x00\x42\x0c\n\ndescriptor\"O\n\tTransport\x12\x32\n\x06pubsub\x18\x01 \x01(\x0b\x32 .google.cloud.eventarc.v1.PubsubH\x00\x42\x0e\n\x0cintermediary\"g\n\x08\x43loudRun\x12\x33\n\x07service\x18\x01 \x01(\tB\"\xe0\x41\x02\xfa\x41\x1c\n\x1arun.googleapis.com/Service\x12\x11\n\x04path\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06region\x18\x03 \x01(\tB\x03\xe0\x41\x02\"s\n\x03GKE\x12\x14\n\x07\x63luster\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08location\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tnamespace\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07service\x18\x04 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\x04path\x18\x05 \x01(\tB\x03\xe0\x41\x01\"7\n\x06Pubsub\x12\x12\n\x05topic\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x19\n\x0csubscription\x18\x02 \x01(\tB\x03\xe0\x41\x03\x42\xdc\x02\n\x1c\x63om.google.cloud.eventarc.v1B\x0cTriggerProtoP\x01Z@google.golang.org/genproto/googleapis/cloud/eventarc/v1;eventarc\xea\x41k\n+cloudfunctions.googleapis.com/CloudFunction\x12<projects/{project}/locations/{location}/functions/{function}\xea\x41Y\n!iam.googleapis.com/ServiceAccount\x12\x34projects/{project}/serviceAccounts/{service_account}\xea\x41\x1f\n\x1arun.googleapis.com/Service\x12\x01*b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&google/cloud/eventarc/v1/trigger.proto\x12\x18google.cloud.eventarc.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x15google/rpc/code.proto\"\xdc\x06\n\x07Trigger\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x10\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x44\n\revent_filters\x18\x08 \x03(\x0b\x32%.google.cloud.eventarc.v1.EventFilterB\x06\xe0\x41\x06\xe0\x41\x02\x12\x42\n\x0fservice_account\x18\t \x01(\tB)\xe0\x41\x01\xfa\x41#\n!iam.googleapis.com/ServiceAccount\x12?\n\x0b\x64\x65stination\x18\n \x01(\x0b\x32%.google.cloud.eventarc.v1.DestinationB\x03\xe0\x41\x02\x12;\n\ttransport\x18\x0b \x01(\x0b\x32#.google.cloud.eventarc.v1.TransportB\x03\xe0\x41\x01\x12\x42\n\x06labels\x18\x0c \x03(\x0b\x32-.google.cloud.eventarc.v1.Trigger.LabelsEntryB\x03\xe0\x41\x01\x12\x14\n\x07\x63hannel\x18\r \x01(\tB\x03\xe0\x41\x01\x12J\n\nconditions\x18\x0f \x03(\x0b\x32\x31.google.cloud.eventarc.v1.Trigger.ConditionsEntryB\x03\xe0\x41\x03\x12\x11\n\x04\x65tag\x18\x63 \x01(\tB\x03\xe0\x41\x03\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a[\n\x0f\x43onditionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x37\n\x05value\x18\x02 \x01(\x0b\x32(.google.cloud.eventarc.v1.StateCondition:\x02\x38\x01:s\xea\x41p\n\x1f\x65ventarc.googleapis.com/Trigger\x12:projects/{project}/locations/{location}/triggers/{trigger}*\x08triggers2\x07trigger\"P\n\x0b\x45ventFilter\x12\x16\n\tattribute\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05value\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08operator\x18\x03 \x01(\tB\x03\xe0\x41\x01\"A\n\x0eStateCondition\x12\x1e\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x10.google.rpc.Code\x12\x0f\n\x07message\x18\x02 \x01(\t\"\x8a\x02\n\x0b\x44\x65stination\x12\x37\n\tcloud_run\x18\x01 \x01(\x0b\x32\".google.cloud.eventarc.v1.CloudRunH\x00\x12J\n\x0e\x63loud_function\x18\x02 \x01(\tB0\xfa\x41-\n+cloudfunctions.googleapis.com/CloudFunctionH\x00\x12,\n\x03gke\x18\x03 \x01(\x0b\x32\x1d.google.cloud.eventarc.v1.GKEH\x00\x12:\n\x08workflow\x18\x04 \x01(\tB&\xfa\x41#\n!workflows.googleapis.com/WorkflowH\x00\x42\x0c\n\ndescriptor\"O\n\tTransport\x12\x32\n\x06pubsub\x18\x01 \x01(\x0b\x32 .google.cloud.eventarc.v1.PubsubH\x00\x42\x0e\n\x0cintermediary\"g\n\x08\x43loudRun\x12\x33\n\x07service\x18\x01 \x01(\tB\"\xe0\x41\x02\xfa\x41\x1c\n\x1arun.googleapis.com/Service\x12\x11\n\x04path\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06region\x18\x03 \x01(\tB\x03\xe0\x41\x02\"s\n\x03GKE\x12\x14\n\x07\x63luster\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08location\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tnamespace\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07service\x18\x04 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\x04path\x18\x05 \x01(\tB\x03\xe0\x41\x01\"7\n\x06Pubsub\x12\x12\n\x05topic\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x19\n\x0csubscription\x18\x02 \x01(\tB\x03\xe0\x41\x03\x42\xc0\x03\n\x1c\x63om.google.cloud.eventarc.v1B\x0cTriggerProtoP\x01Z@google.golang.org/genproto/googleapis/cloud/eventarc/v1;eventarc\xea\x41k\n+cloudfunctions.googleapis.com/CloudFunction\x12<projects/{project}/locations/{location}/functions/{function}\xea\x41Y\n!iam.googleapis.com/ServiceAccount\x12\x34projects/{project}/serviceAccounts/{service_account}\xea\x41\x1f\n\x1arun.googleapis.com/Service\x12\x01*\xea\x41\x61\n!workflows.googleapis.com/Workflow\x12<projects/{project}/locations/{location}/workflows/{workflow}b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.eventarc.v1.trigger_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\034com.google.cloud.eventarc.v1B\014TriggerProtoP\001Z@google.golang.org/genproto/googleapis/cloud/eventarc/v1;eventarc\352Ak\n+cloudfunctions.googleapis.com/CloudFunction\022<projects/{project}/locations/{location}/functions/{function}\352AY\n!iam.googleapis.com/ServiceAccount\0224projects/{project}/serviceAccounts/{service_account}\352A\037\n\032run.googleapis.com/Service\022\001*'
+  DESCRIPTOR._serialized_options = b'\n\034com.google.cloud.eventarc.v1B\014TriggerProtoP\001Z@google.golang.org/genproto/googleapis/cloud/eventarc/v1;eventarc\352Ak\n+cloudfunctions.googleapis.com/CloudFunction\022<projects/{project}/locations/{location}/functions/{function}\352AY\n!iam.googleapis.com/ServiceAccount\0224projects/{project}/serviceAccounts/{service_account}\352A\037\n\032run.googleapis.com/Service\022\001*\352Aa\n!workflows.googleapis.com/Workflow\022<projects/{project}/locations/{location}/workflows/{workflow}'
   _TRIGGER_LABELSENTRY._options = None
   _TRIGGER_LABELSENTRY._serialized_options = b'8\001'
+  _TRIGGER_CONDITIONSENTRY._options = None
+  _TRIGGER_CONDITIONSENTRY._serialized_options = b'8\001'
   _TRIGGER.fields_by_name['name']._options = None
   _TRIGGER.fields_by_name['name']._serialized_options = b'\340A\002'
   _TRIGGER.fields_by_name['uid']._options = None
@@ -46,6 +49,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _TRIGGER.fields_by_name['labels']._serialized_options = b'\340A\001'
   _TRIGGER.fields_by_name['channel']._options = None
   _TRIGGER.fields_by_name['channel']._serialized_options = b'\340A\001'
+  _TRIGGER.fields_by_name['conditions']._options = None
+  _TRIGGER.fields_by_name['conditions']._serialized_options = b'\340A\003'
   _TRIGGER.fields_by_name['etag']._options = None
   _TRIGGER.fields_by_name['etag']._serialized_options = b'\340A\003'
   _TRIGGER._options = None
@@ -58,6 +63,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _EVENTFILTER.fields_by_name['operator']._serialized_options = b'\340A\001'
   _DESTINATION.fields_by_name['cloud_function']._options = None
   _DESTINATION.fields_by_name['cloud_function']._serialized_options = b'\372A-\n+cloudfunctions.googleapis.com/CloudFunction'
+  _DESTINATION.fields_by_name['workflow']._options = None
+  _DESTINATION.fields_by_name['workflow']._serialized_options = b'\372A#\n!workflows.googleapis.com/Workflow'
   _CLOUDRUN.fields_by_name['service']._options = None
   _CLOUDRUN.fields_by_name['service']._serialized_options = b'\340A\002\372A\034\n\032run.googleapis.com/Service'
   _CLOUDRUN.fields_by_name['path']._options = None
@@ -78,20 +85,24 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _PUBSUB.fields_by_name['topic']._serialized_options = b'\340A\001'
   _PUBSUB.fields_by_name['subscription']._options = None
   _PUBSUB.fields_by_name['subscription']._serialized_options = b'\340A\003'
-  _TRIGGER._serialized_start=162
-  _TRIGGER._serialized_end=853
-  _TRIGGER_LABELSENTRY._serialized_start=691
-  _TRIGGER_LABELSENTRY._serialized_end=736
-  _EVENTFILTER._serialized_start=855
-  _EVENTFILTER._serialized_end=935
-  _DESTINATION._serialized_start=938
-  _DESTINATION._serialized_end=1144
-  _TRANSPORT._serialized_start=1146
-  _TRANSPORT._serialized_end=1225
-  _CLOUDRUN._serialized_start=1227
-  _CLOUDRUN._serialized_end=1330
-  _GKE._serialized_start=1332
-  _GKE._serialized_end=1447
-  _PUBSUB._serialized_start=1449
-  _PUBSUB._serialized_end=1504
+  _TRIGGER._serialized_start=185
+  _TRIGGER._serialized_end=1045
+  _TRIGGER_LABELSENTRY._serialized_start=790
+  _TRIGGER_LABELSENTRY._serialized_end=835
+  _TRIGGER_CONDITIONSENTRY._serialized_start=837
+  _TRIGGER_CONDITIONSENTRY._serialized_end=928
+  _EVENTFILTER._serialized_start=1047
+  _EVENTFILTER._serialized_end=1127
+  _STATECONDITION._serialized_start=1129
+  _STATECONDITION._serialized_end=1194
+  _DESTINATION._serialized_start=1197
+  _DESTINATION._serialized_end=1463
+  _TRANSPORT._serialized_start=1465
+  _TRANSPORT._serialized_end=1544
+  _CLOUDRUN._serialized_start=1546
+  _CLOUDRUN._serialized_end=1649
+  _GKE._serialized_start=1651
+  _GKE._serialized_end=1766
+  _PUBSUB._serialized_start=1768
+  _PUBSUB._serialized_end=1823
 # @@protoc_insertion_point(module_scope)

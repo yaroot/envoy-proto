@@ -70,50 +70,6 @@ public final class TextSentimentProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TextSentimentAnnotation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              sentiment_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.automl.v1beta1.TextSentimentProto.internal_static_google_cloud_automl_v1beta1_TextSentimentAnnotation_descriptor;
@@ -128,7 +84,7 @@ public final class TextSentimentProto {
     }
 
     public static final int SENTIMENT_FIELD_NUMBER = 1;
-    private int sentiment_;
+    private int sentiment_ = 0;
     /**
      * <pre>
      * Output only. The sentiment with the semantic, as given to the
@@ -170,7 +126,7 @@ public final class TextSentimentProto {
       if (sentiment_ != 0) {
         output.writeInt32(1, sentiment_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -183,7 +139,7 @@ public final class TextSentimentProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, sentiment_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -200,7 +156,7 @@ public final class TextSentimentProto {
 
       if (getSentiment()
           != other.getSentiment()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -213,7 +169,7 @@ public final class TextSentimentProto {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + SENTIMENT_FIELD_NUMBER;
       hash = (53 * hash) + getSentiment();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -334,24 +290,19 @@ public final class TextSentimentProto {
 
       // Construct using com.google.cloud.automl.v1beta1.TextSentimentProto.TextSentimentAnnotation.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         sentiment_ = 0;
-
         return this;
       }
 
@@ -378,9 +329,16 @@ public final class TextSentimentProto {
       @java.lang.Override
       public com.google.cloud.automl.v1beta1.TextSentimentProto.TextSentimentAnnotation buildPartial() {
         com.google.cloud.automl.v1beta1.TextSentimentProto.TextSentimentAnnotation result = new com.google.cloud.automl.v1beta1.TextSentimentProto.TextSentimentAnnotation(this);
-        result.sentiment_ = sentiment_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.automl.v1beta1.TextSentimentProto.TextSentimentAnnotation result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.sentiment_ = sentiment_;
+        }
       }
 
       @java.lang.Override
@@ -430,7 +388,7 @@ public final class TextSentimentProto {
         if (other.getSentiment() != 0) {
           setSentiment(other.getSentiment());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -445,19 +403,38 @@ public final class TextSentimentProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.automl.v1beta1.TextSentimentProto.TextSentimentAnnotation parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                sentiment_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.automl.v1beta1.TextSentimentProto.TextSentimentAnnotation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int sentiment_ ;
       /**
@@ -506,6 +483,7 @@ public final class TextSentimentProto {
       public Builder setSentiment(int value) {
         
         sentiment_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -529,7 +507,7 @@ public final class TextSentimentProto {
        * @return This builder for chaining.
        */
       public Builder clearSentiment() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         sentiment_ = 0;
         onChanged();
         return this;
@@ -567,7 +545,18 @@ public final class TextSentimentProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TextSentimentAnnotation(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -706,7 +695,7 @@ public final class TextSentimentProto {
      *
      * <code>repeated string annotation_spec_id = 9 [deprecated = true];</code>
      * @deprecated google.cloud.automl.v1beta1.TextSentimentEvaluationMetrics.annotation_spec_id is deprecated.
-     *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=78
+     *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=77
      * @return A list containing the annotationSpecId.
      */
     @java.lang.Deprecated java.util.List<java.lang.String>
@@ -719,7 +708,7 @@ public final class TextSentimentProto {
      *
      * <code>repeated string annotation_spec_id = 9 [deprecated = true];</code>
      * @deprecated google.cloud.automl.v1beta1.TextSentimentEvaluationMetrics.annotation_spec_id is deprecated.
-     *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=78
+     *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=77
      * @return The count of annotationSpecId.
      */
     @java.lang.Deprecated int getAnnotationSpecIdCount();
@@ -731,7 +720,7 @@ public final class TextSentimentProto {
      *
      * <code>repeated string annotation_spec_id = 9 [deprecated = true];</code>
      * @deprecated google.cloud.automl.v1beta1.TextSentimentEvaluationMetrics.annotation_spec_id is deprecated.
-     *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=78
+     *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=77
      * @param index The index of the element to return.
      * @return The annotationSpecId at the given index.
      */
@@ -744,7 +733,7 @@ public final class TextSentimentProto {
      *
      * <code>repeated string annotation_spec_id = 9 [deprecated = true];</code>
      * @deprecated google.cloud.automl.v1beta1.TextSentimentEvaluationMetrics.annotation_spec_id is deprecated.
-     *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=78
+     *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=77
      * @param index The index of the value to return.
      * @return The bytes of the annotationSpecId at the given index.
      */
@@ -783,106 +772,6 @@ public final class TextSentimentProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TextSentimentEvaluationMetrics(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 13: {
-
-              precision_ = input.readFloat();
-              break;
-            }
-            case 21: {
-
-              recall_ = input.readFloat();
-              break;
-            }
-            case 29: {
-
-              f1Score_ = input.readFloat();
-              break;
-            }
-            case 37: {
-
-              meanAbsoluteError_ = input.readFloat();
-              break;
-            }
-            case 45: {
-
-              meanSquaredError_ = input.readFloat();
-              break;
-            }
-            case 53: {
-
-              linearKappa_ = input.readFloat();
-              break;
-            }
-            case 61: {
-
-              quadraticKappa_ = input.readFloat();
-              break;
-            }
-            case 66: {
-              com.google.cloud.automl.v1beta1.ClassificationProto.ClassificationEvaluationMetrics.ConfusionMatrix.Builder subBuilder = null;
-              if (confusionMatrix_ != null) {
-                subBuilder = confusionMatrix_.toBuilder();
-              }
-              confusionMatrix_ = input.readMessage(com.google.cloud.automl.v1beta1.ClassificationProto.ClassificationEvaluationMetrics.ConfusionMatrix.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(confusionMatrix_);
-                confusionMatrix_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 74: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                annotationSpecId_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              annotationSpecId_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          annotationSpecId_ = annotationSpecId_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.automl.v1beta1.TextSentimentProto.internal_static_google_cloud_automl_v1beta1_TextSentimentEvaluationMetrics_descriptor;
@@ -897,7 +786,7 @@ public final class TextSentimentProto {
     }
 
     public static final int PRECISION_FIELD_NUMBER = 1;
-    private float precision_;
+    private float precision_ = 0F;
     /**
      * <pre>
      * Output only. Precision.
@@ -912,7 +801,7 @@ public final class TextSentimentProto {
     }
 
     public static final int RECALL_FIELD_NUMBER = 2;
-    private float recall_;
+    private float recall_ = 0F;
     /**
      * <pre>
      * Output only. Recall.
@@ -927,7 +816,7 @@ public final class TextSentimentProto {
     }
 
     public static final int F1_SCORE_FIELD_NUMBER = 3;
-    private float f1Score_;
+    private float f1Score_ = 0F;
     /**
      * <pre>
      * Output only. The harmonic mean of recall and precision.
@@ -942,7 +831,7 @@ public final class TextSentimentProto {
     }
 
     public static final int MEAN_ABSOLUTE_ERROR_FIELD_NUMBER = 4;
-    private float meanAbsoluteError_;
+    private float meanAbsoluteError_ = 0F;
     /**
      * <pre>
      * Output only. Mean absolute error. Only set for the overall model
@@ -958,7 +847,7 @@ public final class TextSentimentProto {
     }
 
     public static final int MEAN_SQUARED_ERROR_FIELD_NUMBER = 5;
-    private float meanSquaredError_;
+    private float meanSquaredError_ = 0F;
     /**
      * <pre>
      * Output only. Mean squared error. Only set for the overall model
@@ -974,7 +863,7 @@ public final class TextSentimentProto {
     }
 
     public static final int LINEAR_KAPPA_FIELD_NUMBER = 6;
-    private float linearKappa_;
+    private float linearKappa_ = 0F;
     /**
      * <pre>
      * Output only. Linear weighted kappa. Only set for the overall model
@@ -990,7 +879,7 @@ public final class TextSentimentProto {
     }
 
     public static final int QUADRATIC_KAPPA_FIELD_NUMBER = 7;
-    private float quadraticKappa_;
+    private float quadraticKappa_ = 0F;
     /**
      * <pre>
      * Output only. Quadratic weighted kappa. Only set for the overall model
@@ -1046,10 +935,11 @@ public final class TextSentimentProto {
      */
     @java.lang.Override
     public com.google.cloud.automl.v1beta1.ClassificationProto.ClassificationEvaluationMetrics.ConfusionMatrixOrBuilder getConfusionMatrixOrBuilder() {
-      return getConfusionMatrix();
+      return confusionMatrix_ == null ? com.google.cloud.automl.v1beta1.ClassificationProto.ClassificationEvaluationMetrics.ConfusionMatrix.getDefaultInstance() : confusionMatrix_;
     }
 
     public static final int ANNOTATION_SPEC_ID_FIELD_NUMBER = 9;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList annotationSpecId_;
     /**
      * <pre>
@@ -1059,7 +949,7 @@ public final class TextSentimentProto {
      *
      * <code>repeated string annotation_spec_id = 9 [deprecated = true];</code>
      * @deprecated google.cloud.automl.v1beta1.TextSentimentEvaluationMetrics.annotation_spec_id is deprecated.
-     *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=78
+     *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=77
      * @return A list containing the annotationSpecId.
      */
     @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -1074,7 +964,7 @@ public final class TextSentimentProto {
      *
      * <code>repeated string annotation_spec_id = 9 [deprecated = true];</code>
      * @deprecated google.cloud.automl.v1beta1.TextSentimentEvaluationMetrics.annotation_spec_id is deprecated.
-     *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=78
+     *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=77
      * @return The count of annotationSpecId.
      */
     @java.lang.Deprecated public int getAnnotationSpecIdCount() {
@@ -1088,7 +978,7 @@ public final class TextSentimentProto {
      *
      * <code>repeated string annotation_spec_id = 9 [deprecated = true];</code>
      * @deprecated google.cloud.automl.v1beta1.TextSentimentEvaluationMetrics.annotation_spec_id is deprecated.
-     *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=78
+     *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=77
      * @param index The index of the element to return.
      * @return The annotationSpecId at the given index.
      */
@@ -1103,7 +993,7 @@ public final class TextSentimentProto {
      *
      * <code>repeated string annotation_spec_id = 9 [deprecated = true];</code>
      * @deprecated google.cloud.automl.v1beta1.TextSentimentEvaluationMetrics.annotation_spec_id is deprecated.
-     *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=78
+     *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=77
      * @param index The index of the value to return.
      * @return The bytes of the annotationSpecId at the given index.
      */
@@ -1153,7 +1043,7 @@ public final class TextSentimentProto {
       for (int i = 0; i < annotationSpecId_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 9, annotationSpecId_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1202,7 +1092,7 @@ public final class TextSentimentProto {
         size += dataSize;
         size += 1 * getAnnotationSpecIdList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1245,7 +1135,7 @@ public final class TextSentimentProto {
       }
       if (!getAnnotationSpecIdList()
           .equals(other.getAnnotationSpecIdList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1285,7 +1175,7 @@ public final class TextSentimentProto {
         hash = (37 * hash) + ANNOTATION_SPEC_ID_FIELD_NUMBER;
         hash = (53 * hash) + getAnnotationSpecIdList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1406,44 +1296,32 @@ public final class TextSentimentProto {
 
       // Construct using com.google.cloud.automl.v1beta1.TextSentimentProto.TextSentimentEvaluationMetrics.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         precision_ = 0F;
-
         recall_ = 0F;
-
         f1Score_ = 0F;
-
         meanAbsoluteError_ = 0F;
-
         meanSquaredError_ = 0F;
-
         linearKappa_ = 0F;
-
         quadraticKappa_ = 0F;
-
-        if (confusionMatrixBuilder_ == null) {
-          confusionMatrix_ = null;
-        } else {
-          confusionMatrix_ = null;
+        confusionMatrix_ = null;
+        if (confusionMatrixBuilder_ != null) {
+          confusionMatrixBuilder_.dispose();
           confusionMatrixBuilder_ = null;
         }
         annotationSpecId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
 
@@ -1470,26 +1348,48 @@ public final class TextSentimentProto {
       @java.lang.Override
       public com.google.cloud.automl.v1beta1.TextSentimentProto.TextSentimentEvaluationMetrics buildPartial() {
         com.google.cloud.automl.v1beta1.TextSentimentProto.TextSentimentEvaluationMetrics result = new com.google.cloud.automl.v1beta1.TextSentimentProto.TextSentimentEvaluationMetrics(this);
-        int from_bitField0_ = bitField0_;
-        result.precision_ = precision_;
-        result.recall_ = recall_;
-        result.f1Score_ = f1Score_;
-        result.meanAbsoluteError_ = meanAbsoluteError_;
-        result.meanSquaredError_ = meanSquaredError_;
-        result.linearKappa_ = linearKappa_;
-        result.quadraticKappa_ = quadraticKappa_;
-        if (confusionMatrixBuilder_ == null) {
-          result.confusionMatrix_ = confusionMatrix_;
-        } else {
-          result.confusionMatrix_ = confusionMatrixBuilder_.build();
-        }
-        if (((bitField0_ & 0x00000001) != 0)) {
-          annotationSpecId_ = annotationSpecId_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.annotationSpecId_ = annotationSpecId_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.automl.v1beta1.TextSentimentProto.TextSentimentEvaluationMetrics result) {
+        if (((bitField0_ & 0x00000100) != 0)) {
+          annotationSpecId_ = annotationSpecId_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000100);
+        }
+        result.annotationSpecId_ = annotationSpecId_;
+      }
+
+      private void buildPartial0(com.google.cloud.automl.v1beta1.TextSentimentProto.TextSentimentEvaluationMetrics result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.precision_ = precision_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.recall_ = recall_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.f1Score_ = f1Score_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.meanAbsoluteError_ = meanAbsoluteError_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.meanSquaredError_ = meanSquaredError_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.linearKappa_ = linearKappa_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.quadraticKappa_ = quadraticKappa_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.confusionMatrix_ = confusionMatrixBuilder_ == null
+              ? confusionMatrix_
+              : confusionMatrixBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1563,14 +1463,14 @@ public final class TextSentimentProto {
         if (!other.annotationSpecId_.isEmpty()) {
           if (annotationSpecId_.isEmpty()) {
             annotationSpecId_ = other.annotationSpecId_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000100);
           } else {
             ensureAnnotationSpecIdIsMutable();
             annotationSpecId_.addAll(other.annotationSpecId_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1585,17 +1485,78 @@ public final class TextSentimentProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.automl.v1beta1.TextSentimentProto.TextSentimentEvaluationMetrics parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 13: {
+                precision_ = input.readFloat();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 13
+              case 21: {
+                recall_ = input.readFloat();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 21
+              case 29: {
+                f1Score_ = input.readFloat();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 29
+              case 37: {
+                meanAbsoluteError_ = input.readFloat();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 37
+              case 45: {
+                meanSquaredError_ = input.readFloat();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 45
+              case 53: {
+                linearKappa_ = input.readFloat();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 53
+              case 61: {
+                quadraticKappa_ = input.readFloat();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 61
+              case 66: {
+                input.readMessage(
+                    getConfusionMatrixFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              case 74: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureAnnotationSpecIdIsMutable();
+                annotationSpecId_.add(s);
+                break;
+              } // case 74
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.automl.v1beta1.TextSentimentProto.TextSentimentEvaluationMetrics) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1625,6 +1586,7 @@ public final class TextSentimentProto {
       public Builder setPrecision(float value) {
         
         precision_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1637,7 +1599,7 @@ public final class TextSentimentProto {
        * @return This builder for chaining.
        */
       public Builder clearPrecision() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         precision_ = 0F;
         onChanged();
         return this;
@@ -1668,6 +1630,7 @@ public final class TextSentimentProto {
       public Builder setRecall(float value) {
         
         recall_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1680,7 +1643,7 @@ public final class TextSentimentProto {
        * @return This builder for chaining.
        */
       public Builder clearRecall() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         recall_ = 0F;
         onChanged();
         return this;
@@ -1711,6 +1674,7 @@ public final class TextSentimentProto {
       public Builder setF1Score(float value) {
         
         f1Score_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1723,7 +1687,7 @@ public final class TextSentimentProto {
        * @return This builder for chaining.
        */
       public Builder clearF1Score() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         f1Score_ = 0F;
         onChanged();
         return this;
@@ -1756,6 +1720,7 @@ public final class TextSentimentProto {
       public Builder setMeanAbsoluteError(float value) {
         
         meanAbsoluteError_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1769,7 +1734,7 @@ public final class TextSentimentProto {
        * @return This builder for chaining.
        */
       public Builder clearMeanAbsoluteError() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         meanAbsoluteError_ = 0F;
         onChanged();
         return this;
@@ -1802,6 +1767,7 @@ public final class TextSentimentProto {
       public Builder setMeanSquaredError(float value) {
         
         meanSquaredError_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1815,7 +1781,7 @@ public final class TextSentimentProto {
        * @return This builder for chaining.
        */
       public Builder clearMeanSquaredError() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         meanSquaredError_ = 0F;
         onChanged();
         return this;
@@ -1848,6 +1814,7 @@ public final class TextSentimentProto {
       public Builder setLinearKappa(float value) {
         
         linearKappa_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1861,7 +1828,7 @@ public final class TextSentimentProto {
        * @return This builder for chaining.
        */
       public Builder clearLinearKappa() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         linearKappa_ = 0F;
         onChanged();
         return this;
@@ -1894,6 +1861,7 @@ public final class TextSentimentProto {
       public Builder setQuadraticKappa(float value) {
         
         quadraticKappa_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -1907,7 +1875,7 @@ public final class TextSentimentProto {
        * @return This builder for chaining.
        */
       public Builder clearQuadraticKappa() {
-        
+        bitField0_ = (bitField0_ & ~0x00000040);
         quadraticKappa_ = 0F;
         onChanged();
         return this;
@@ -1927,7 +1895,7 @@ public final class TextSentimentProto {
        * @return Whether the confusionMatrix field is set.
        */
       public boolean hasConfusionMatrix() {
-        return confusionMatrixBuilder_ != null || confusionMatrix_ != null;
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
        * <pre>
@@ -1961,11 +1929,11 @@ public final class TextSentimentProto {
             throw new NullPointerException();
           }
           confusionMatrix_ = value;
-          onChanged();
         } else {
           confusionMatrixBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -1981,11 +1949,11 @@ public final class TextSentimentProto {
           com.google.cloud.automl.v1beta1.ClassificationProto.ClassificationEvaluationMetrics.ConfusionMatrix.Builder builderForValue) {
         if (confusionMatrixBuilder_ == null) {
           confusionMatrix_ = builderForValue.build();
-          onChanged();
         } else {
           confusionMatrixBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -1999,17 +1967,18 @@ public final class TextSentimentProto {
        */
       public Builder mergeConfusionMatrix(com.google.cloud.automl.v1beta1.ClassificationProto.ClassificationEvaluationMetrics.ConfusionMatrix value) {
         if (confusionMatrixBuilder_ == null) {
-          if (confusionMatrix_ != null) {
-            confusionMatrix_ =
-              com.google.cloud.automl.v1beta1.ClassificationProto.ClassificationEvaluationMetrics.ConfusionMatrix.newBuilder(confusionMatrix_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000080) != 0) &&
+            confusionMatrix_ != null &&
+            confusionMatrix_ != com.google.cloud.automl.v1beta1.ClassificationProto.ClassificationEvaluationMetrics.ConfusionMatrix.getDefaultInstance()) {
+            getConfusionMatrixBuilder().mergeFrom(value);
           } else {
             confusionMatrix_ = value;
           }
-          onChanged();
         } else {
           confusionMatrixBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -2022,14 +1991,13 @@ public final class TextSentimentProto {
        * <code>.google.cloud.automl.v1beta1.ClassificationEvaluationMetrics.ConfusionMatrix confusion_matrix = 8;</code>
        */
       public Builder clearConfusionMatrix() {
-        if (confusionMatrixBuilder_ == null) {
-          confusionMatrix_ = null;
-          onChanged();
-        } else {
-          confusionMatrix_ = null;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        confusionMatrix_ = null;
+        if (confusionMatrixBuilder_ != null) {
+          confusionMatrixBuilder_.dispose();
           confusionMatrixBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2042,7 +2010,7 @@ public final class TextSentimentProto {
        * <code>.google.cloud.automl.v1beta1.ClassificationEvaluationMetrics.ConfusionMatrix confusion_matrix = 8;</code>
        */
       public com.google.cloud.automl.v1beta1.ClassificationProto.ClassificationEvaluationMetrics.ConfusionMatrix.Builder getConfusionMatrixBuilder() {
-        
+        bitField0_ |= 0x00000080;
         onChanged();
         return getConfusionMatrixFieldBuilder().getBuilder();
       }
@@ -2088,9 +2056,9 @@ public final class TextSentimentProto {
 
       private com.google.protobuf.LazyStringList annotationSpecId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureAnnotationSpecIdIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000100) != 0)) {
           annotationSpecId_ = new com.google.protobuf.LazyStringArrayList(annotationSpecId_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000100;
          }
       }
       /**
@@ -2101,7 +2069,7 @@ public final class TextSentimentProto {
        *
        * <code>repeated string annotation_spec_id = 9 [deprecated = true];</code>
        * @deprecated google.cloud.automl.v1beta1.TextSentimentEvaluationMetrics.annotation_spec_id is deprecated.
-       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=78
+       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=77
        * @return A list containing the annotationSpecId.
        */
       @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -2116,7 +2084,7 @@ public final class TextSentimentProto {
        *
        * <code>repeated string annotation_spec_id = 9 [deprecated = true];</code>
        * @deprecated google.cloud.automl.v1beta1.TextSentimentEvaluationMetrics.annotation_spec_id is deprecated.
-       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=78
+       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=77
        * @return The count of annotationSpecId.
        */
       @java.lang.Deprecated public int getAnnotationSpecIdCount() {
@@ -2130,7 +2098,7 @@ public final class TextSentimentProto {
        *
        * <code>repeated string annotation_spec_id = 9 [deprecated = true];</code>
        * @deprecated google.cloud.automl.v1beta1.TextSentimentEvaluationMetrics.annotation_spec_id is deprecated.
-       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=78
+       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=77
        * @param index The index of the element to return.
        * @return The annotationSpecId at the given index.
        */
@@ -2145,7 +2113,7 @@ public final class TextSentimentProto {
        *
        * <code>repeated string annotation_spec_id = 9 [deprecated = true];</code>
        * @deprecated google.cloud.automl.v1beta1.TextSentimentEvaluationMetrics.annotation_spec_id is deprecated.
-       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=78
+       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=77
        * @param index The index of the value to return.
        * @return The bytes of the annotationSpecId at the given index.
        */
@@ -2161,17 +2129,15 @@ public final class TextSentimentProto {
        *
        * <code>repeated string annotation_spec_id = 9 [deprecated = true];</code>
        * @deprecated google.cloud.automl.v1beta1.TextSentimentEvaluationMetrics.annotation_spec_id is deprecated.
-       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=78
+       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=77
        * @param index The index to set the value at.
        * @param value The annotationSpecId to set.
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder setAnnotationSpecId(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAnnotationSpecIdIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAnnotationSpecIdIsMutable();
         annotationSpecId_.set(index, value);
         onChanged();
         return this;
@@ -2184,16 +2150,14 @@ public final class TextSentimentProto {
        *
        * <code>repeated string annotation_spec_id = 9 [deprecated = true];</code>
        * @deprecated google.cloud.automl.v1beta1.TextSentimentEvaluationMetrics.annotation_spec_id is deprecated.
-       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=78
+       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=77
        * @param value The annotationSpecId to add.
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder addAnnotationSpecId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAnnotationSpecIdIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAnnotationSpecIdIsMutable();
         annotationSpecId_.add(value);
         onChanged();
         return this;
@@ -2206,7 +2170,7 @@ public final class TextSentimentProto {
        *
        * <code>repeated string annotation_spec_id = 9 [deprecated = true];</code>
        * @deprecated google.cloud.automl.v1beta1.TextSentimentEvaluationMetrics.annotation_spec_id is deprecated.
-       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=78
+       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=77
        * @param values The annotationSpecId to add.
        * @return This builder for chaining.
        */
@@ -2226,12 +2190,12 @@ public final class TextSentimentProto {
        *
        * <code>repeated string annotation_spec_id = 9 [deprecated = true];</code>
        * @deprecated google.cloud.automl.v1beta1.TextSentimentEvaluationMetrics.annotation_spec_id is deprecated.
-       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=78
+       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=77
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearAnnotationSpecId() {
         annotationSpecId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
         return this;
       }
@@ -2243,16 +2207,14 @@ public final class TextSentimentProto {
        *
        * <code>repeated string annotation_spec_id = 9 [deprecated = true];</code>
        * @deprecated google.cloud.automl.v1beta1.TextSentimentEvaluationMetrics.annotation_spec_id is deprecated.
-       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=78
+       *     See google/cloud/automl/v1beta1/text_sentiment.proto;l=77
        * @param value The bytes of the annotationSpecId to add.
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder addAnnotationSpecIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureAnnotationSpecIdIsMutable();
         annotationSpecId_.add(value);
         onChanged();
@@ -2291,7 +2253,18 @@ public final class TextSentimentProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TextSentimentEvaluationMetrics(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2333,28 +2306,26 @@ public final class TextSentimentProto {
       "\n0google/cloud/automl/v1beta1/text_senti" +
       "ment.proto\022\033google.cloud.automl.v1beta1\032" +
       "0google/cloud/automl/v1beta1/classificat" +
-      "ion.proto\032\034google/api/annotations.proto\"" +
-      ",\n\027TextSentimentAnnotation\022\021\n\tsentiment\030" +
-      "\001 \001(\005\"\305\002\n\036TextSentimentEvaluationMetrics" +
-      "\022\021\n\tprecision\030\001 \001(\002\022\016\n\006recall\030\002 \001(\002\022\020\n\010f" +
-      "1_score\030\003 \001(\002\022\033\n\023mean_absolute_error\030\004 \001" +
-      "(\002\022\032\n\022mean_squared_error\030\005 \001(\002\022\024\n\014linear" +
-      "_kappa\030\006 \001(\002\022\027\n\017quadratic_kappa\030\007 \001(\002\022f\n" +
-      "\020confusion_matrix\030\010 \001(\0132L.google.cloud.a" +
-      "utoml.v1beta1.ClassificationEvaluationMe" +
-      "trics.ConfusionMatrix\022\036\n\022annotation_spec" +
-      "_id\030\t \003(\tB\002\030\001B\267\001\n\037com.google.cloud.autom" +
-      "l.v1beta1B\022TextSentimentProtoZAgoogle.go" +
-      "lang.org/genproto/googleapis/cloud/autom" +
-      "l/v1beta1;automl\312\002\033Google\\Cloud\\AutoMl\\V" +
-      "1beta1\352\002\036Google::Cloud::AutoML::V1beta1b" +
-      "\006proto3"
+      "ion.proto\",\n\027TextSentimentAnnotation\022\021\n\t" +
+      "sentiment\030\001 \001(\005\"\305\002\n\036TextSentimentEvaluat" +
+      "ionMetrics\022\021\n\tprecision\030\001 \001(\002\022\016\n\006recall\030" +
+      "\002 \001(\002\022\020\n\010f1_score\030\003 \001(\002\022\033\n\023mean_absolute" +
+      "_error\030\004 \001(\002\022\032\n\022mean_squared_error\030\005 \001(\002" +
+      "\022\024\n\014linear_kappa\030\006 \001(\002\022\027\n\017quadratic_kapp" +
+      "a\030\007 \001(\002\022f\n\020confusion_matrix\030\010 \001(\0132L.goog" +
+      "le.cloud.automl.v1beta1.ClassificationEv" +
+      "aluationMetrics.ConfusionMatrix\022\036\n\022annot" +
+      "ation_spec_id\030\t \003(\tB\002\030\001B\267\001\n\037com.google.c" +
+      "loud.automl.v1beta1B\022TextSentimentProtoZ" +
+      "Agoogle.golang.org/genproto/googleapis/c" +
+      "loud/automl/v1beta1;automl\312\002\033Google\\Clou" +
+      "d\\AutoMl\\V1beta1\352\002\036Google::Cloud::AutoML" +
+      "::V1beta1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.cloud.automl.v1beta1.ClassificationProto.getDescriptor(),
-          com.google.api.AnnotationsProto.getDescriptor(),
         });
     internal_static_google_cloud_automl_v1beta1_TextSentimentAnnotation_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2369,7 +2340,6 @@ public final class TextSentimentProto {
         internal_static_google_cloud_automl_v1beta1_TextSentimentEvaluationMetrics_descriptor,
         new java.lang.String[] { "Precision", "Recall", "F1Score", "MeanAbsoluteError", "MeanSquaredError", "LinearKappa", "QuadraticKappa", "ConfusionMatrix", "AnnotationSpecId", });
     com.google.cloud.automl.v1beta1.ClassificationProto.getDescriptor();
-    com.google.api.AnnotationsProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

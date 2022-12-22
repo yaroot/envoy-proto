@@ -9,8 +9,8 @@ public interface GetDnsAuthorizationRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. A name of the dns authorization to describe. Must be in the format
-   * `projects/&#42;&#47;locations/&#42;&#47;dnsAuthorizations/&#42;`.
+   * Required. A name of the dns authorization to describe. Must be in the
+   * format `projects/&#42;&#47;locations/&#42;&#47;dnsAuthorizations/&#42;`.
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -19,8 +19,8 @@ public interface GetDnsAuthorizationRequestOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Required. A name of the dns authorization to describe. Must be in the format
-   * `projects/&#42;&#47;locations/&#42;&#47;dnsAuthorizations/&#42;`.
+   * Required. A name of the dns authorization to describe. Must be in the
+   * format `projects/&#42;&#47;locations/&#42;&#47;dnsAuthorizations/&#42;`.
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

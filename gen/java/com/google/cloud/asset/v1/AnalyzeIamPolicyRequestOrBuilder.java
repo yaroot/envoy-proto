@@ -80,8 +80,7 @@ public interface AnalyzeIamPolicyRequestOrBuilder extends
 
   /**
    * <pre>
-   * Optional. Amount of time executable has to complete.  See JSON
-   * representation of
+   * Optional. Amount of time executable has to complete.  See JSON representation of
    * [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json).
    * If this field is set with a value less than the RPC deadline, and the
    * execution of your query hasn't finished in the specified
@@ -97,8 +96,7 @@ public interface AnalyzeIamPolicyRequestOrBuilder extends
   boolean hasExecutionTimeout();
   /**
    * <pre>
-   * Optional. Amount of time executable has to complete.  See JSON
-   * representation of
+   * Optional. Amount of time executable has to complete.  See JSON representation of
    * [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json).
    * If this field is set with a value less than the RPC deadline, and the
    * execution of your query hasn't finished in the specified
@@ -114,8 +112,7 @@ public interface AnalyzeIamPolicyRequestOrBuilder extends
   com.google.protobuf.Duration getExecutionTimeout();
   /**
    * <pre>
-   * Optional. Amount of time executable has to complete.  See JSON
-   * representation of
+   * Optional. Amount of time executable has to complete.  See JSON representation of
    * [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json).
    * If this field is set with a value less than the RPC deadline, and the
    * execution of your query hasn't finished in the specified

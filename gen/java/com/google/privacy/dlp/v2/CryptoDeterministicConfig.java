@@ -36,84 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CryptoDeterministicConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.privacy.dlp.v2.CryptoKey.Builder subBuilder = null;
-            if (cryptoKey_ != null) {
-              subBuilder = cryptoKey_.toBuilder();
-            }
-            cryptoKey_ = input.readMessage(com.google.privacy.dlp.v2.CryptoKey.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cryptoKey_);
-              cryptoKey_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.privacy.dlp.v2.InfoType.Builder subBuilder = null;
-            if (surrogateInfoType_ != null) {
-              subBuilder = surrogateInfoType_.toBuilder();
-            }
-            surrogateInfoType_ = input.readMessage(com.google.privacy.dlp.v2.InfoType.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(surrogateInfoType_);
-              surrogateInfoType_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.privacy.dlp.v2.FieldId.Builder subBuilder = null;
-            if (context_ != null) {
-              subBuilder = context_.toBuilder();
-            }
-            context_ = input.readMessage(com.google.privacy.dlp.v2.FieldId.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(context_);
-              context_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_CryptoDeterministicConfig_descriptor;
@@ -168,7 +90,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.privacy.dlp.v2.CryptoKeyOrBuilder getCryptoKeyOrBuilder() {
-    return getCryptoKey();
+    return cryptoKey_ == null ? com.google.privacy.dlp.v2.CryptoKey.getDefaultInstance() : cryptoKey_;
   }
 
   public static final int SURROGATE_INFO_TYPE_FIELD_NUMBER = 2;
@@ -281,7 +203,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.privacy.dlp.v2.InfoTypeOrBuilder getSurrogateInfoTypeOrBuilder() {
-    return getSurrogateInfoType();
+    return surrogateInfoType_ == null ? com.google.privacy.dlp.v2.InfoType.getDefaultInstance() : surrogateInfoType_;
   }
 
   public static final int CONTEXT_FIELD_NUMBER = 3;
@@ -301,7 +223,7 @@ private static final long serialVersionUID = 0L;
    * 2. the field is not present when transforming a given value,
    * plaintext would be used as is for encryption.
    * Note that case (1) is expected when an `InfoTypeTransformation` is
-   * applied to both structured and non-structured `ContentItem`s.
+   * applied to both structured and unstructured `ContentItem`s.
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.FieldId context = 3;</code>
@@ -326,7 +248,7 @@ private static final long serialVersionUID = 0L;
    * 2. the field is not present when transforming a given value,
    * plaintext would be used as is for encryption.
    * Note that case (1) is expected when an `InfoTypeTransformation` is
-   * applied to both structured and non-structured `ContentItem`s.
+   * applied to both structured and unstructured `ContentItem`s.
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.FieldId context = 3;</code>
@@ -351,14 +273,14 @@ private static final long serialVersionUID = 0L;
    * 2. the field is not present when transforming a given value,
    * plaintext would be used as is for encryption.
    * Note that case (1) is expected when an `InfoTypeTransformation` is
-   * applied to both structured and non-structured `ContentItem`s.
+   * applied to both structured and unstructured `ContentItem`s.
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.FieldId context = 3;</code>
    */
   @java.lang.Override
   public com.google.privacy.dlp.v2.FieldIdOrBuilder getContextOrBuilder() {
-    return getContext();
+    return context_ == null ? com.google.privacy.dlp.v2.FieldId.getDefaultInstance() : context_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -384,7 +306,7 @@ private static final long serialVersionUID = 0L;
     if (context_ != null) {
       output.writeMessage(3, getContext());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -405,7 +327,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getContext());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -435,7 +357,7 @@ private static final long serialVersionUID = 0L;
       if (!getContext()
           .equals(other.getContext())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -458,7 +380,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CONTEXT_FIELD_NUMBER;
       hash = (53 * hash) + getContext().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -581,38 +503,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.CryptoDeterministicConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (cryptoKeyBuilder_ == null) {
-        cryptoKey_ = null;
-      } else {
-        cryptoKey_ = null;
+      bitField0_ = 0;
+      cryptoKey_ = null;
+      if (cryptoKeyBuilder_ != null) {
+        cryptoKeyBuilder_.dispose();
         cryptoKeyBuilder_ = null;
       }
-      if (surrogateInfoTypeBuilder_ == null) {
-        surrogateInfoType_ = null;
-      } else {
-        surrogateInfoType_ = null;
+      surrogateInfoType_ = null;
+      if (surrogateInfoTypeBuilder_ != null) {
+        surrogateInfoTypeBuilder_.dispose();
         surrogateInfoTypeBuilder_ = null;
       }
-      if (contextBuilder_ == null) {
-        context_ = null;
-      } else {
-        context_ = null;
+      context_ = null;
+      if (contextBuilder_ != null) {
+        contextBuilder_.dispose();
         contextBuilder_ = null;
       }
       return this;
@@ -641,23 +556,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.CryptoDeterministicConfig buildPartial() {
       com.google.privacy.dlp.v2.CryptoDeterministicConfig result = new com.google.privacy.dlp.v2.CryptoDeterministicConfig(this);
-      if (cryptoKeyBuilder_ == null) {
-        result.cryptoKey_ = cryptoKey_;
-      } else {
-        result.cryptoKey_ = cryptoKeyBuilder_.build();
-      }
-      if (surrogateInfoTypeBuilder_ == null) {
-        result.surrogateInfoType_ = surrogateInfoType_;
-      } else {
-        result.surrogateInfoType_ = surrogateInfoTypeBuilder_.build();
-      }
-      if (contextBuilder_ == null) {
-        result.context_ = context_;
-      } else {
-        result.context_ = contextBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.CryptoDeterministicConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.cryptoKey_ = cryptoKeyBuilder_ == null
+            ? cryptoKey_
+            : cryptoKeyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.surrogateInfoType_ = surrogateInfoTypeBuilder_ == null
+            ? surrogateInfoType_
+            : surrogateInfoTypeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.context_ = contextBuilder_ == null
+            ? context_
+            : contextBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -713,7 +633,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasContext()) {
         mergeContext(other.getContext());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -728,19 +648,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.CryptoDeterministicConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCryptoKeyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getSurrogateInfoTypeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.CryptoDeterministicConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.privacy.dlp.v2.CryptoKey cryptoKey_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -756,7 +711,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cryptoKey field is set.
      */
     public boolean hasCryptoKey() {
-      return cryptoKeyBuilder_ != null || cryptoKey_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -790,11 +745,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cryptoKey_ = value;
-        onChanged();
       } else {
         cryptoKeyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -810,11 +765,11 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.CryptoKey.Builder builderForValue) {
       if (cryptoKeyBuilder_ == null) {
         cryptoKey_ = builderForValue.build();
-        onChanged();
       } else {
         cryptoKeyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -828,17 +783,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCryptoKey(com.google.privacy.dlp.v2.CryptoKey value) {
       if (cryptoKeyBuilder_ == null) {
-        if (cryptoKey_ != null) {
-          cryptoKey_ =
-            com.google.privacy.dlp.v2.CryptoKey.newBuilder(cryptoKey_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          cryptoKey_ != null &&
+          cryptoKey_ != com.google.privacy.dlp.v2.CryptoKey.getDefaultInstance()) {
+          getCryptoKeyBuilder().mergeFrom(value);
         } else {
           cryptoKey_ = value;
         }
-        onChanged();
       } else {
         cryptoKeyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -851,14 +807,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.CryptoKey crypto_key = 1;</code>
      */
     public Builder clearCryptoKey() {
-      if (cryptoKeyBuilder_ == null) {
-        cryptoKey_ = null;
-        onChanged();
-      } else {
-        cryptoKey_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      cryptoKey_ = null;
+      if (cryptoKeyBuilder_ != null) {
+        cryptoKeyBuilder_.dispose();
         cryptoKeyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -871,7 +826,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.CryptoKey crypto_key = 1;</code>
      */
     public com.google.privacy.dlp.v2.CryptoKey.Builder getCryptoKeyBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getCryptoKeyFieldBuilder().getBuilder();
     }
@@ -952,7 +907,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the surrogateInfoType field is set.
      */
     public boolean hasSurrogateInfoType() {
-      return surrogateInfoTypeBuilder_ != null || surrogateInfoType_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1032,11 +987,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         surrogateInfoType_ = value;
-        onChanged();
       } else {
         surrogateInfoTypeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1075,11 +1030,11 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.InfoType.Builder builderForValue) {
       if (surrogateInfoTypeBuilder_ == null) {
         surrogateInfoType_ = builderForValue.build();
-        onChanged();
       } else {
         surrogateInfoTypeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1116,17 +1071,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSurrogateInfoType(com.google.privacy.dlp.v2.InfoType value) {
       if (surrogateInfoTypeBuilder_ == null) {
-        if (surrogateInfoType_ != null) {
-          surrogateInfoType_ =
-            com.google.privacy.dlp.v2.InfoType.newBuilder(surrogateInfoType_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          surrogateInfoType_ != null &&
+          surrogateInfoType_ != com.google.privacy.dlp.v2.InfoType.getDefaultInstance()) {
+          getSurrogateInfoTypeBuilder().mergeFrom(value);
         } else {
           surrogateInfoType_ = value;
         }
-        onChanged();
       } else {
         surrogateInfoTypeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1162,14 +1118,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.InfoType surrogate_info_type = 2;</code>
      */
     public Builder clearSurrogateInfoType() {
-      if (surrogateInfoTypeBuilder_ == null) {
-        surrogateInfoType_ = null;
-        onChanged();
-      } else {
-        surrogateInfoType_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      surrogateInfoType_ = null;
+      if (surrogateInfoTypeBuilder_ != null) {
+        surrogateInfoTypeBuilder_.dispose();
         surrogateInfoTypeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1205,7 +1160,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.InfoType surrogate_info_type = 2;</code>
      */
     public com.google.privacy.dlp.v2.InfoType.Builder getSurrogateInfoTypeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getSurrogateInfoTypeFieldBuilder().getBuilder();
     }
@@ -1313,14 +1268,14 @@ private static final long serialVersionUID = 0L;
      * 2. the field is not present when transforming a given value,
      * plaintext would be used as is for encryption.
      * Note that case (1) is expected when an `InfoTypeTransformation` is
-     * applied to both structured and non-structured `ContentItem`s.
+     * applied to both structured and unstructured `ContentItem`s.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.FieldId context = 3;</code>
      * @return Whether the context field is set.
      */
     public boolean hasContext() {
-      return contextBuilder_ != null || context_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1337,7 +1292,7 @@ private static final long serialVersionUID = 0L;
      * 2. the field is not present when transforming a given value,
      * plaintext would be used as is for encryption.
      * Note that case (1) is expected when an `InfoTypeTransformation` is
-     * applied to both structured and non-structured `ContentItem`s.
+     * applied to both structured and unstructured `ContentItem`s.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.FieldId context = 3;</code>
@@ -1365,7 +1320,7 @@ private static final long serialVersionUID = 0L;
      * 2. the field is not present when transforming a given value,
      * plaintext would be used as is for encryption.
      * Note that case (1) is expected when an `InfoTypeTransformation` is
-     * applied to both structured and non-structured `ContentItem`s.
+     * applied to both structured and unstructured `ContentItem`s.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.FieldId context = 3;</code>
@@ -1376,11 +1331,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         context_ = value;
-        onChanged();
       } else {
         contextBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1398,7 +1353,7 @@ private static final long serialVersionUID = 0L;
      * 2. the field is not present when transforming a given value,
      * plaintext would be used as is for encryption.
      * Note that case (1) is expected when an `InfoTypeTransformation` is
-     * applied to both structured and non-structured `ContentItem`s.
+     * applied to both structured and unstructured `ContentItem`s.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.FieldId context = 3;</code>
@@ -1407,11 +1362,11 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.FieldId.Builder builderForValue) {
       if (contextBuilder_ == null) {
         context_ = builderForValue.build();
-        onChanged();
       } else {
         contextBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1429,24 +1384,25 @@ private static final long serialVersionUID = 0L;
      * 2. the field is not present when transforming a given value,
      * plaintext would be used as is for encryption.
      * Note that case (1) is expected when an `InfoTypeTransformation` is
-     * applied to both structured and non-structured `ContentItem`s.
+     * applied to both structured and unstructured `ContentItem`s.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.FieldId context = 3;</code>
      */
     public Builder mergeContext(com.google.privacy.dlp.v2.FieldId value) {
       if (contextBuilder_ == null) {
-        if (context_ != null) {
-          context_ =
-            com.google.privacy.dlp.v2.FieldId.newBuilder(context_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          context_ != null &&
+          context_ != com.google.privacy.dlp.v2.FieldId.getDefaultInstance()) {
+          getContextBuilder().mergeFrom(value);
         } else {
           context_ = value;
         }
-        onChanged();
       } else {
         contextBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1464,20 +1420,19 @@ private static final long serialVersionUID = 0L;
      * 2. the field is not present when transforming a given value,
      * plaintext would be used as is for encryption.
      * Note that case (1) is expected when an `InfoTypeTransformation` is
-     * applied to both structured and non-structured `ContentItem`s.
+     * applied to both structured and unstructured `ContentItem`s.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.FieldId context = 3;</code>
      */
     public Builder clearContext() {
-      if (contextBuilder_ == null) {
-        context_ = null;
-        onChanged();
-      } else {
-        context_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      context_ = null;
+      if (contextBuilder_ != null) {
+        contextBuilder_.dispose();
         contextBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1495,13 +1450,13 @@ private static final long serialVersionUID = 0L;
      * 2. the field is not present when transforming a given value,
      * plaintext would be used as is for encryption.
      * Note that case (1) is expected when an `InfoTypeTransformation` is
-     * applied to both structured and non-structured `ContentItem`s.
+     * applied to both structured and unstructured `ContentItem`s.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.FieldId context = 3;</code>
      */
     public com.google.privacy.dlp.v2.FieldId.Builder getContextBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getContextFieldBuilder().getBuilder();
     }
@@ -1520,7 +1475,7 @@ private static final long serialVersionUID = 0L;
      * 2. the field is not present when transforming a given value,
      * plaintext would be used as is for encryption.
      * Note that case (1) is expected when an `InfoTypeTransformation` is
-     * applied to both structured and non-structured `ContentItem`s.
+     * applied to both structured and unstructured `ContentItem`s.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.FieldId context = 3;</code>
@@ -1548,7 +1503,7 @@ private static final long serialVersionUID = 0L;
      * 2. the field is not present when transforming a given value,
      * plaintext would be used as is for encryption.
      * Note that case (1) is expected when an `InfoTypeTransformation` is
-     * applied to both structured and non-structured `ContentItem`s.
+     * applied to both structured and unstructured `ContentItem`s.
      * </pre>
      *
      * <code>.google.privacy.dlp.v2.FieldId context = 3;</code>
@@ -1599,7 +1554,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CryptoDeterministicConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

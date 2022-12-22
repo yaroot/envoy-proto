@@ -10,7 +10,9 @@ public interface UpdateInstanceRequestOrBuilder extends
   /**
    * <pre>
    * Required. The instance to update, which must always include the instance
-   * name.  Otherwise, only fields mentioned in [field_mask][google.spanner.admin.instance.v1.UpdateInstanceRequest.field_mask] need be included.
+   * name.  Otherwise, only fields mentioned in
+   * [field_mask][google.spanner.admin.instance.v1.UpdateInstanceRequest.field_mask]
+   * need be included.
    * </pre>
    *
    * <code>.google.spanner.admin.instance.v1.Instance instance = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -20,7 +22,9 @@ public interface UpdateInstanceRequestOrBuilder extends
   /**
    * <pre>
    * Required. The instance to update, which must always include the instance
-   * name.  Otherwise, only fields mentioned in [field_mask][google.spanner.admin.instance.v1.UpdateInstanceRequest.field_mask] need be included.
+   * name.  Otherwise, only fields mentioned in
+   * [field_mask][google.spanner.admin.instance.v1.UpdateInstanceRequest.field_mask]
+   * need be included.
    * </pre>
    *
    * <code>.google.spanner.admin.instance.v1.Instance instance = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -30,7 +34,9 @@ public interface UpdateInstanceRequestOrBuilder extends
   /**
    * <pre>
    * Required. The instance to update, which must always include the instance
-   * name.  Otherwise, only fields mentioned in [field_mask][google.spanner.admin.instance.v1.UpdateInstanceRequest.field_mask] need be included.
+   * name.  Otherwise, only fields mentioned in
+   * [field_mask][google.spanner.admin.instance.v1.UpdateInstanceRequest.field_mask]
+   * need be included.
    * </pre>
    *
    * <code>.google.spanner.admin.instance.v1.Instance instance = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -39,10 +45,11 @@ public interface UpdateInstanceRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. A mask specifying which fields in [Instance][google.spanner.admin.instance.v1.Instance] should be updated.
+   * Required. A mask specifying which fields in
+   * [Instance][google.spanner.admin.instance.v1.Instance] should be updated.
    * The field mask must always be specified; this prevents any future fields in
-   * [Instance][google.spanner.admin.instance.v1.Instance] from being erased accidentally by clients that do not know
-   * about them.
+   * [Instance][google.spanner.admin.instance.v1.Instance] from being erased
+   * accidentally by clients that do not know about them.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask field_mask = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -51,10 +58,11 @@ public interface UpdateInstanceRequestOrBuilder extends
   boolean hasFieldMask();
   /**
    * <pre>
-   * Required. A mask specifying which fields in [Instance][google.spanner.admin.instance.v1.Instance] should be updated.
+   * Required. A mask specifying which fields in
+   * [Instance][google.spanner.admin.instance.v1.Instance] should be updated.
    * The field mask must always be specified; this prevents any future fields in
-   * [Instance][google.spanner.admin.instance.v1.Instance] from being erased accidentally by clients that do not know
-   * about them.
+   * [Instance][google.spanner.admin.instance.v1.Instance] from being erased
+   * accidentally by clients that do not know about them.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask field_mask = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -63,10 +71,11 @@ public interface UpdateInstanceRequestOrBuilder extends
   com.google.protobuf.FieldMask getFieldMask();
   /**
    * <pre>
-   * Required. A mask specifying which fields in [Instance][google.spanner.admin.instance.v1.Instance] should be updated.
+   * Required. A mask specifying which fields in
+   * [Instance][google.spanner.admin.instance.v1.Instance] should be updated.
    * The field mask must always be specified; this prevents any future fields in
-   * [Instance][google.spanner.admin.instance.v1.Instance] from being erased accidentally by clients that do not know
-   * about them.
+   * [Instance][google.spanner.admin.instance.v1.Instance] from being erased
+   * accidentally by clients that do not know about them.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask field_mask = 2 [(.google.api.field_behavior) = REQUIRED];</code>

@@ -36,95 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PipelineResources(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            minimumCpuCores_ = input.readInt32();
-            break;
-          }
-          case 16: {
-
-            preemptible_ = input.readBool();
-            break;
-          }
-          case 25: {
-
-            minimumRamGb_ = input.readDouble();
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              disks_ = new java.util.ArrayList<com.google.genomics.v1a.PipelineResources.Disk>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            disks_.add(
-                input.readMessage(com.google.genomics.v1a.PipelineResources.Disk.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              zones_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            zones_.add(s);
-            break;
-          }
-          case 48: {
-
-            bootDiskSizeGb_ = input.readInt32();
-            break;
-          }
-          case 56: {
-
-            noAddress_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        disks_ = java.util.Collections.unmodifiableList(disks_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        zones_ = zones_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.genomics.v1a.PipelinesProto.internal_static_google_genomics_v1alpha2_PipelineResources_descriptor;
@@ -299,79 +210,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Disk(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              type_ = rawValue;
-              break;
-            }
-            case 24: {
-
-              sizeGb_ = input.readInt32();
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              source_ = s;
-              break;
-            }
-            case 48: {
-
-              autoDelete_ = input.readBool();
-              break;
-            }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              mountPoint_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -555,7 +393,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Required. The name of the disk that can be used in the pipeline
@@ -605,7 +444,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TYPE_FIELD_NUMBER = 2;
-    private int type_;
+    private int type_ = 0;
     /**
      * <pre>
      * Required. The type of the disk to create.
@@ -626,13 +465,12 @@ private static final long serialVersionUID = 0L;
      * @return The type.
      */
     @java.lang.Override public com.google.genomics.v1a.PipelineResources.Disk.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.genomics.v1a.PipelineResources.Disk.Type result = com.google.genomics.v1a.PipelineResources.Disk.Type.valueOf(type_);
+      com.google.genomics.v1a.PipelineResources.Disk.Type result = com.google.genomics.v1a.PipelineResources.Disk.Type.forNumber(type_);
       return result == null ? com.google.genomics.v1a.PipelineResources.Disk.Type.UNRECOGNIZED : result;
     }
 
     public static final int SIZE_GB_FIELD_NUMBER = 3;
-    private int sizeGb_;
+    private int sizeGb_ = 0;
     /**
      * <pre>
      * The size of the disk. Defaults to 500 (GB).
@@ -648,7 +486,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SOURCE_FIELD_NUMBER = 4;
-    private volatile java.lang.Object source_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object source_ = "";
     /**
      * <pre>
      * The full or partial URL of the persistent disk to attach. See
@@ -702,7 +541,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int AUTO_DELETE_FIELD_NUMBER = 6;
-    private boolean autoDelete_;
+    private boolean autoDelete_ = false;
     /**
      * <pre>
      * Deprecated. Disks created by the Pipelines API will be deleted at the end
@@ -718,7 +557,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MOUNT_POINT_FIELD_NUMBER = 8;
-    private volatile java.lang.Object mountPoint_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object mountPoint_ = "";
     /**
      * <pre>
      * Required at create time and cannot be overridden at run time.
@@ -805,7 +645,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mountPoint_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, mountPoint_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -835,7 +675,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mountPoint_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, mountPoint_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -861,7 +701,7 @@ private static final long serialVersionUID = 0L;
           != other.getAutoDelete()) return false;
       if (!getMountPoint()
           .equals(other.getMountPoint())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -885,7 +725,7 @@ private static final long serialVersionUID = 0L;
           getAutoDelete());
       hash = (37 * hash) + MOUNT_POINT_FIELD_NUMBER;
       hash = (53 * hash) + getMountPoint().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1006,34 +846,24 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.genomics.v1a.PipelineResources.Disk.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         type_ = 0;
-
         sizeGb_ = 0;
-
         source_ = "";
-
         autoDelete_ = false;
-
         mountPoint_ = "";
-
         return this;
       }
 
@@ -1060,14 +890,31 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.genomics.v1a.PipelineResources.Disk buildPartial() {
         com.google.genomics.v1a.PipelineResources.Disk result = new com.google.genomics.v1a.PipelineResources.Disk(this);
-        result.name_ = name_;
-        result.type_ = type_;
-        result.sizeGb_ = sizeGb_;
-        result.source_ = source_;
-        result.autoDelete_ = autoDelete_;
-        result.mountPoint_ = mountPoint_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.genomics.v1a.PipelineResources.Disk result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.type_ = type_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.sizeGb_ = sizeGb_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.source_ = source_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.autoDelete_ = autoDelete_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.mountPoint_ = mountPoint_;
+        }
       }
 
       @java.lang.Override
@@ -1116,6 +963,7 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.genomics.v1a.PipelineResources.Disk.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.type_ != 0) {
@@ -1126,6 +974,7 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getSource().isEmpty()) {
           source_ = other.source_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (other.getAutoDelete() != false) {
@@ -1133,9 +982,10 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getMountPoint().isEmpty()) {
           mountPoint_ = other.mountPoint_;
+          bitField0_ |= 0x00000020;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1150,19 +1000,63 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.genomics.v1a.PipelineResources.Disk parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                sizeGb_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                source_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 48: {
+                autoDelete_ = input.readBool();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 48
+              case 66: {
+                mountPoint_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 66
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.genomics.v1a.PipelineResources.Disk) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -1223,11 +1117,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1242,8 +1134,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1260,12 +1152,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1292,8 +1182,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
-        
         type_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1307,8 +1197,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.genomics.v1a.PipelineResources.Disk.Type getType() {
-        @SuppressWarnings("deprecation")
-        com.google.genomics.v1a.PipelineResources.Disk.Type result = com.google.genomics.v1a.PipelineResources.Disk.Type.valueOf(type_);
+        com.google.genomics.v1a.PipelineResources.Disk.Type result = com.google.genomics.v1a.PipelineResources.Disk.Type.forNumber(type_);
         return result == null ? com.google.genomics.v1a.PipelineResources.Disk.Type.UNRECOGNIZED : result;
       }
       /**
@@ -1324,7 +1213,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -1338,7 +1227,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         type_ = 0;
         onChanged();
         return this;
@@ -1371,6 +1260,7 @@ private static final long serialVersionUID = 0L;
       public Builder setSizeGb(int value) {
         
         sizeGb_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1384,7 +1274,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearSizeGb() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         sizeGb_ = 0;
         onChanged();
         return this;
@@ -1455,11 +1345,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSource(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         source_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1476,8 +1364,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearSource() {
-        
         source_ = getDefaultInstance().getSource();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1496,12 +1384,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSourceBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         source_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1533,6 +1419,7 @@ private static final long serialVersionUID = 0L;
       public Builder setAutoDelete(boolean value) {
         
         autoDelete_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1546,7 +1433,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAutoDelete() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         autoDelete_ = false;
         onChanged();
         return this;
@@ -1620,11 +1507,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setMountPoint(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         mountPoint_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1642,8 +1527,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMountPoint() {
-        
         mountPoint_ = getDefaultInstance().getMountPoint();
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -1663,12 +1548,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setMountPointBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         mountPoint_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1705,7 +1588,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Disk(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1726,7 +1620,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MINIMUM_CPU_CORES_FIELD_NUMBER = 1;
-  private int minimumCpuCores_;
+  private int minimumCpuCores_ = 0;
   /**
    * <pre>
    * The minimum number of cores to use. Defaults to 1.
@@ -1741,7 +1635,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PREEMPTIBLE_FIELD_NUMBER = 2;
-  private boolean preemptible_;
+  private boolean preemptible_ = false;
   /**
    * <pre>
    * Whether to use preemptible VMs. Defaults to `false`. In order to use this,
@@ -1758,7 +1652,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MINIMUM_RAM_GB_FIELD_NUMBER = 3;
-  private double minimumRamGb_;
+  private double minimumRamGb_ = 0D;
   /**
    * <pre>
    * The minimum amount of RAM to use. Defaults to 3.75 (GB)
@@ -1773,6 +1667,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISKS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.genomics.v1a.PipelineResources.Disk> disks_;
   /**
    * <pre>
@@ -1833,6 +1728,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ZONES_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList zones_;
   /**
    * <pre>
@@ -1888,7 +1784,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BOOT_DISK_SIZE_GB_FIELD_NUMBER = 6;
-  private int bootDiskSizeGb_;
+  private int bootDiskSizeGb_ = 0;
   /**
    * <pre>
    * The size of the boot disk. Defaults to 10 (GB).
@@ -1903,7 +1799,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NO_ADDRESS_FIELD_NUMBER = 7;
-  private boolean noAddress_;
+  private boolean noAddress_ = false;
   /**
    * <pre>
    * Whether to assign an external IP to the instance. This is an experimental
@@ -1962,7 +1858,7 @@ private static final long serialVersionUID = 0L;
     if (noAddress_ != false) {
       output.writeBool(7, noAddress_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2003,7 +1899,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(7, noAddress_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2033,7 +1929,7 @@ private static final long serialVersionUID = 0L;
         != other.getBootDiskSizeGb()) return false;
     if (getNoAddress()
         != other.getNoAddress()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2065,7 +1961,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + NO_ADDRESS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getNoAddress());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2186,41 +2082,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.genomics.v1a.PipelineResources.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getDisksFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       minimumCpuCores_ = 0;
-
       preemptible_ = false;
-
       minimumRamGb_ = 0D;
-
       if (disksBuilder_ == null) {
         disks_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        disks_ = null;
         disksBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       zones_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000010);
       bootDiskSizeGb_ = 0;
-
       noAddress_ = false;
-
       return this;
     }
 
@@ -2247,28 +2134,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.genomics.v1a.PipelineResources buildPartial() {
       com.google.genomics.v1a.PipelineResources result = new com.google.genomics.v1a.PipelineResources(this);
-      int from_bitField0_ = bitField0_;
-      result.minimumCpuCores_ = minimumCpuCores_;
-      result.preemptible_ = preemptible_;
-      result.minimumRamGb_ = minimumRamGb_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.genomics.v1a.PipelineResources result) {
       if (disksBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           disks_ = java.util.Collections.unmodifiableList(disks_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.disks_ = disks_;
       } else {
         result.disks_ = disksBuilder_.build();
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         zones_ = zones_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
       }
       result.zones_ = zones_;
-      result.bootDiskSizeGb_ = bootDiskSizeGb_;
-      result.noAddress_ = noAddress_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.genomics.v1a.PipelineResources result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.minimumCpuCores_ = minimumCpuCores_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.preemptible_ = preemptible_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.minimumRamGb_ = minimumRamGb_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.bootDiskSizeGb_ = bootDiskSizeGb_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.noAddress_ = noAddress_;
+      }
     }
 
     @java.lang.Override
@@ -2328,7 +2233,7 @@ private static final long serialVersionUID = 0L;
         if (!other.disks_.isEmpty()) {
           if (disks_.isEmpty()) {
             disks_ = other.disks_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureDisksIsMutable();
             disks_.addAll(other.disks_);
@@ -2341,7 +2246,7 @@ private static final long serialVersionUID = 0L;
             disksBuilder_.dispose();
             disksBuilder_ = null;
             disks_ = other.disks_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             disksBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getDisksFieldBuilder() : null;
@@ -2353,7 +2258,7 @@ private static final long serialVersionUID = 0L;
       if (!other.zones_.isEmpty()) {
         if (zones_.isEmpty()) {
           zones_ = other.zones_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureZonesIsMutable();
           zones_.addAll(other.zones_);
@@ -2366,7 +2271,7 @@ private static final long serialVersionUID = 0L;
       if (other.getNoAddress() != false) {
         setNoAddress(other.getNoAddress());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2381,17 +2286,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.genomics.v1a.PipelineResources parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              minimumCpuCores_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              preemptible_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 25: {
+              minimumRamGb_ = input.readDouble();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 25
+            case 34: {
+              com.google.genomics.v1a.PipelineResources.Disk m =
+                  input.readMessage(
+                      com.google.genomics.v1a.PipelineResources.Disk.parser(),
+                      extensionRegistry);
+              if (disksBuilder_ == null) {
+                ensureDisksIsMutable();
+                disks_.add(m);
+              } else {
+                disksBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureZonesIsMutable();
+              zones_.add(s);
+              break;
+            } // case 42
+            case 48: {
+              bootDiskSizeGb_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              noAddress_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.genomics.v1a.PipelineResources) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2421,6 +2383,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMinimumCpuCores(int value) {
       
       minimumCpuCores_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2433,7 +2396,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinimumCpuCores() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       minimumCpuCores_ = 0;
       onChanged();
       return this;
@@ -2468,6 +2431,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPreemptible(boolean value) {
       
       preemptible_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2482,7 +2446,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPreemptible() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       preemptible_ = false;
       onChanged();
       return this;
@@ -2513,6 +2477,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMinimumRamGb(double value) {
       
       minimumRamGb_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2525,7 +2490,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinimumRamGb() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       minimumRamGb_ = 0D;
       onChanged();
       return this;
@@ -2534,9 +2499,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.genomics.v1a.PipelineResources.Disk> disks_ =
       java.util.Collections.emptyList();
     private void ensureDisksIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         disks_ = new java.util.ArrayList<com.google.genomics.v1a.PipelineResources.Disk>(disks_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -2730,7 +2695,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearDisks() {
       if (disksBuilder_ == null) {
         disks_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         disksBuilder_.clear();
@@ -2835,7 +2800,7 @@ private static final long serialVersionUID = 0L;
         disksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.genomics.v1a.PipelineResources.Disk, com.google.genomics.v1a.PipelineResources.Disk.Builder, com.google.genomics.v1a.PipelineResources.DiskOrBuilder>(
                 disks_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         disks_ = null;
@@ -2845,9 +2810,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList zones_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureZonesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         zones_ = new com.google.protobuf.LazyStringArrayList(zones_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -2915,10 +2880,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setZones(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureZonesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureZonesIsMutable();
       zones_.set(index, value);
       onChanged();
       return this;
@@ -2935,10 +2898,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addZones(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureZonesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureZonesIsMutable();
       zones_.add(value);
       onChanged();
       return this;
@@ -2972,7 +2933,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearZones() {
       zones_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2988,10 +2949,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addZonesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureZonesIsMutable();
       zones_.add(value);
       onChanged();
@@ -3023,6 +2982,7 @@ private static final long serialVersionUID = 0L;
     public Builder setBootDiskSizeGb(int value) {
       
       bootDiskSizeGb_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3035,7 +2995,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBootDiskSizeGb() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       bootDiskSizeGb_ = 0;
       onChanged();
       return this;
@@ -3086,6 +3046,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNoAddress(boolean value) {
       
       noAddress_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -3108,7 +3069,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNoAddress() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       noAddress_ = false;
       onChanged();
       return this;
@@ -3146,7 +3107,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PipelineResources(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

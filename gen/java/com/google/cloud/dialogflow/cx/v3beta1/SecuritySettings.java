@@ -43,139 +43,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SecuritySettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            redactionStrategy_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            redactionScope_ = rawValue;
-            break;
-          }
-          case 48: {
-            dataRetention_ = input.readInt32();
-            dataRetentionCase_ = 6;
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              purgeDataTypes_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            purgeDataTypes_.add(rawValue);
-            break;
-          }
-          case 66: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                purgeDataTypes_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              purgeDataTypes_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            inspectTemplate_ = s;
-            break;
-          }
-          case 98: {
-            com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.Builder subBuilder = null;
-            if (audioExportSettings_ != null) {
-              subBuilder = audioExportSettings_.toBuilder();
-            }
-            audioExportSettings_ = input.readMessage(com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(audioExportSettings_);
-              audioExportSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettings.Builder subBuilder = null;
-            if (insightsExportSettings_ != null) {
-              subBuilder = insightsExportSettings_.toBuilder();
-            }
-            insightsExportSettings_ = input.readMessage(com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(insightsExportSettings_);
-              insightsExportSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 138: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            deidentifyTemplate_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        purgeDataTypes_ = java.util.Collections.unmodifiableList(purgeDataTypes_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.cx.v3beta1.SecuritySettingsProto.internal_static_google_cloud_dialogflow_cx_v3beta1_SecuritySettings_descriptor;
@@ -585,10 +452,11 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Cloud Storage bucket to export audio record to. You need to grant
-     * `service-&lt;Conversation Project
-     * Number&gt;&#64;gcp-sa-dialogflow.iam.gserviceaccount.com` the `Storage Object
-     * Admin` role in this bucket.
+     * Cloud Storage bucket to export audio record to.
+     * Setting this field would grant the Storage Object Creator role to
+     * the Dialogflow Service Agent.
+     * API caller that tries to modify this field should have the permission of
+     * storage.buckets.setIamPolicy.
      * </pre>
      *
      * <code>string gcs_bucket = 1;</code>
@@ -597,10 +465,11 @@ private static final long serialVersionUID = 0L;
     java.lang.String getGcsBucket();
     /**
      * <pre>
-     * Cloud Storage bucket to export audio record to. You need to grant
-     * `service-&lt;Conversation Project
-     * Number&gt;&#64;gcp-sa-dialogflow.iam.gserviceaccount.com` the `Storage Object
-     * Admin` role in this bucket.
+     * Cloud Storage bucket to export audio record to.
+     * Setting this field would grant the Storage Object Creator role to
+     * the Dialogflow Service Agent.
+     * API caller that tries to modify this field should have the permission of
+     * storage.buckets.setIamPolicy.
      * </pre>
      *
      * <code>string gcs_bucket = 1;</code>
@@ -693,68 +562,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private AudioExportSettings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              gcsBucket_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              audioExportPattern_ = s;
-              break;
-            }
-            case 24: {
-
-              enableAudioRedaction_ = input.readBool();
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              audioFormat_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -933,13 +740,15 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int GCS_BUCKET_FIELD_NUMBER = 1;
-    private volatile java.lang.Object gcsBucket_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object gcsBucket_ = "";
     /**
      * <pre>
-     * Cloud Storage bucket to export audio record to. You need to grant
-     * `service-&lt;Conversation Project
-     * Number&gt;&#64;gcp-sa-dialogflow.iam.gserviceaccount.com` the `Storage Object
-     * Admin` role in this bucket.
+     * Cloud Storage bucket to export audio record to.
+     * Setting this field would grant the Storage Object Creator role to
+     * the Dialogflow Service Agent.
+     * API caller that tries to modify this field should have the permission of
+     * storage.buckets.setIamPolicy.
      * </pre>
      *
      * <code>string gcs_bucket = 1;</code>
@@ -960,10 +769,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Cloud Storage bucket to export audio record to. You need to grant
-     * `service-&lt;Conversation Project
-     * Number&gt;&#64;gcp-sa-dialogflow.iam.gserviceaccount.com` the `Storage Object
-     * Admin` role in this bucket.
+     * Cloud Storage bucket to export audio record to.
+     * Setting this field would grant the Storage Object Creator role to
+     * the Dialogflow Service Agent.
+     * API caller that tries to modify this field should have the permission of
+     * storage.buckets.setIamPolicy.
      * </pre>
      *
      * <code>string gcs_bucket = 1;</code>
@@ -985,7 +795,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int AUDIO_EXPORT_PATTERN_FIELD_NUMBER = 2;
-    private volatile java.lang.Object audioExportPattern_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object audioExportPattern_ = "";
     /**
      * <pre>
      * Filename pattern for exported audio.
@@ -1031,7 +842,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ENABLE_AUDIO_REDACTION_FIELD_NUMBER = 3;
-    private boolean enableAudioRedaction_;
+    private boolean enableAudioRedaction_ = false;
     /**
      * <pre>
      * Enable audio redaction if it is true.
@@ -1046,7 +857,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int AUDIO_FORMAT_FIELD_NUMBER = 4;
-    private int audioFormat_;
+    private int audioFormat_ = 0;
     /**
      * <pre>
      * File format for exported audio file. Currently only in telephony
@@ -1069,8 +880,7 @@ private static final long serialVersionUID = 0L;
      * @return The audioFormat.
      */
     @java.lang.Override public com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.AudioFormat getAudioFormat() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.AudioFormat result = com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.AudioFormat.valueOf(audioFormat_);
+      com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.AudioFormat result = com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.AudioFormat.forNumber(audioFormat_);
       return result == null ? com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.AudioFormat.UNRECOGNIZED : result;
     }
 
@@ -1100,7 +910,7 @@ private static final long serialVersionUID = 0L;
       if (audioFormat_ != com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.AudioFormat.AUDIO_FORMAT_UNSPECIFIED.getNumber()) {
         output.writeEnum(4, audioFormat_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1123,7 +933,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, audioFormat_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1145,7 +955,7 @@ private static final long serialVersionUID = 0L;
       if (getEnableAudioRedaction()
           != other.getEnableAudioRedaction()) return false;
       if (audioFormat_ != other.audioFormat_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1165,7 +975,7 @@ private static final long serialVersionUID = 0L;
           getEnableAudioRedaction());
       hash = (37 * hash) + AUDIO_FORMAT_FIELD_NUMBER;
       hash = (53 * hash) + audioFormat_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1286,30 +1096,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         gcsBucket_ = "";
-
         audioExportPattern_ = "";
-
         enableAudioRedaction_ = false;
-
         audioFormat_ = 0;
-
         return this;
       }
 
@@ -1336,12 +1138,25 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings buildPartial() {
         com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings result = new com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings(this);
-        result.gcsBucket_ = gcsBucket_;
-        result.audioExportPattern_ = audioExportPattern_;
-        result.enableAudioRedaction_ = enableAudioRedaction_;
-        result.audioFormat_ = audioFormat_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.gcsBucket_ = gcsBucket_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.audioExportPattern_ = audioExportPattern_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.enableAudioRedaction_ = enableAudioRedaction_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.audioFormat_ = audioFormat_;
+        }
       }
 
       @java.lang.Override
@@ -1390,10 +1205,12 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.getDefaultInstance()) return this;
         if (!other.getGcsBucket().isEmpty()) {
           gcsBucket_ = other.gcsBucket_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getAudioExportPattern().isEmpty()) {
           audioExportPattern_ = other.audioExportPattern_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getEnableAudioRedaction() != false) {
@@ -1402,7 +1219,7 @@ private static final long serialVersionUID = 0L;
         if (other.audioFormat_ != 0) {
           setAudioFormatValue(other.getAudioFormatValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1417,27 +1234,62 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                gcsBucket_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                audioExportPattern_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                enableAudioRedaction_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                audioFormat_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object gcsBucket_ = "";
       /**
        * <pre>
-       * Cloud Storage bucket to export audio record to. You need to grant
-       * `service-&lt;Conversation Project
-       * Number&gt;&#64;gcp-sa-dialogflow.iam.gserviceaccount.com` the `Storage Object
-       * Admin` role in this bucket.
+       * Cloud Storage bucket to export audio record to.
+       * Setting this field would grant the Storage Object Creator role to
+       * the Dialogflow Service Agent.
+       * API caller that tries to modify this field should have the permission of
+       * storage.buckets.setIamPolicy.
        * </pre>
        *
        * <code>string gcs_bucket = 1;</code>
@@ -1457,10 +1309,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Cloud Storage bucket to export audio record to. You need to grant
-       * `service-&lt;Conversation Project
-       * Number&gt;&#64;gcp-sa-dialogflow.iam.gserviceaccount.com` the `Storage Object
-       * Admin` role in this bucket.
+       * Cloud Storage bucket to export audio record to.
+       * Setting this field would grant the Storage Object Creator role to
+       * the Dialogflow Service Agent.
+       * API caller that tries to modify this field should have the permission of
+       * storage.buckets.setIamPolicy.
        * </pre>
        *
        * <code>string gcs_bucket = 1;</code>
@@ -1481,10 +1334,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Cloud Storage bucket to export audio record to. You need to grant
-       * `service-&lt;Conversation Project
-       * Number&gt;&#64;gcp-sa-dialogflow.iam.gserviceaccount.com` the `Storage Object
-       * Admin` role in this bucket.
+       * Cloud Storage bucket to export audio record to.
+       * Setting this field would grant the Storage Object Creator role to
+       * the Dialogflow Service Agent.
+       * API caller that tries to modify this field should have the permission of
+       * storage.buckets.setIamPolicy.
        * </pre>
        *
        * <code>string gcs_bucket = 1;</code>
@@ -1493,37 +1347,37 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setGcsBucket(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         gcsBucket_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Cloud Storage bucket to export audio record to. You need to grant
-       * `service-&lt;Conversation Project
-       * Number&gt;&#64;gcp-sa-dialogflow.iam.gserviceaccount.com` the `Storage Object
-       * Admin` role in this bucket.
+       * Cloud Storage bucket to export audio record to.
+       * Setting this field would grant the Storage Object Creator role to
+       * the Dialogflow Service Agent.
+       * API caller that tries to modify this field should have the permission of
+       * storage.buckets.setIamPolicy.
        * </pre>
        *
        * <code>string gcs_bucket = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearGcsBucket() {
-        
         gcsBucket_ = getDefaultInstance().getGcsBucket();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Cloud Storage bucket to export audio record to. You need to grant
-       * `service-&lt;Conversation Project
-       * Number&gt;&#64;gcp-sa-dialogflow.iam.gserviceaccount.com` the `Storage Object
-       * Admin` role in this bucket.
+       * Cloud Storage bucket to export audio record to.
+       * Setting this field would grant the Storage Object Creator role to
+       * the Dialogflow Service Agent.
+       * API caller that tries to modify this field should have the permission of
+       * storage.buckets.setIamPolicy.
        * </pre>
        *
        * <code>string gcs_bucket = 1;</code>
@@ -1532,12 +1386,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setGcsBucketBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         gcsBucket_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1595,11 +1447,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAudioExportPattern(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         audioExportPattern_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1612,8 +1462,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAudioExportPattern() {
-        
         audioExportPattern_ = getDefaultInstance().getAudioExportPattern();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1628,12 +1478,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAudioExportPatternBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         audioExportPattern_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1663,6 +1511,7 @@ private static final long serialVersionUID = 0L;
       public Builder setEnableAudioRedaction(boolean value) {
         
         enableAudioRedaction_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1675,7 +1524,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearEnableAudioRedaction() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         enableAudioRedaction_ = false;
         onChanged();
         return this;
@@ -1705,8 +1554,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setAudioFormatValue(int value) {
-        
         audioFormat_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1721,8 +1570,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.AudioFormat getAudioFormat() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.AudioFormat result = com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.AudioFormat.valueOf(audioFormat_);
+        com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.AudioFormat result = com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.AudioFormat.forNumber(audioFormat_);
         return result == null ? com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.AudioFormat.UNRECOGNIZED : result;
       }
       /**
@@ -1739,7 +1587,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000008;
         audioFormat_ = value.getNumber();
         onChanged();
         return this;
@@ -1754,7 +1602,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAudioFormat() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         audioFormat_ = 0;
         onChanged();
         return this;
@@ -1792,7 +1640,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AudioExportSettings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1859,50 +1718,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private InsightsExportSettings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              enableInsightsExport_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dialogflow.cx.v3beta1.SecuritySettingsProto.internal_static_google_cloud_dialogflow_cx_v3beta1_SecuritySettings_InsightsExportSettings_descriptor;
@@ -1917,7 +1732,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ENABLE_INSIGHTS_EXPORT_FIELD_NUMBER = 1;
-    private boolean enableInsightsExport_;
+    private boolean enableInsightsExport_ = false;
     /**
      * <pre>
      * If enabled, we will automatically exports
@@ -1949,7 +1764,7 @@ private static final long serialVersionUID = 0L;
       if (enableInsightsExport_ != false) {
         output.writeBool(1, enableInsightsExport_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1962,7 +1777,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(1, enableInsightsExport_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1979,7 +1794,7 @@ private static final long serialVersionUID = 0L;
 
       if (getEnableInsightsExport()
           != other.getEnableInsightsExport()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1993,7 +1808,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ENABLE_INSIGHTS_EXPORT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getEnableInsightsExport());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2115,24 +1930,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         enableInsightsExport_ = false;
-
         return this;
       }
 
@@ -2159,9 +1969,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettings buildPartial() {
         com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettings result = new com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettings(this);
-        result.enableInsightsExport_ = enableInsightsExport_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettings result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.enableInsightsExport_ = enableInsightsExport_;
+        }
       }
 
       @java.lang.Override
@@ -2211,7 +2028,7 @@ private static final long serialVersionUID = 0L;
         if (other.getEnableInsightsExport() != false) {
           setEnableInsightsExport(other.getEnableInsightsExport());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2226,19 +2043,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                enableInsightsExport_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private boolean enableInsightsExport_ ;
       /**
@@ -2267,6 +2103,7 @@ private static final long serialVersionUID = 0L;
       public Builder setEnableInsightsExport(boolean value) {
         
         enableInsightsExport_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2280,7 +2117,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearEnableInsightsExport() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         enableInsightsExport_ = false;
         onChanged();
         return this;
@@ -2318,7 +2155,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new InsightsExportSettings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2378,7 +2226,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Resource name of the settings.
@@ -2434,7 +2283,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Required. The human-readable name of the security settings, unique within the
@@ -2482,7 +2332,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REDACTION_STRATEGY_FIELD_NUMBER = 3;
-  private int redactionStrategy_;
+  private int redactionStrategy_ = 0;
   /**
    * <pre>
    * Strategy that defines how we do redaction.
@@ -2503,13 +2353,12 @@ private static final long serialVersionUID = 0L;
    * @return The redactionStrategy.
    */
   @java.lang.Override public com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionStrategy getRedactionStrategy() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionStrategy result = com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionStrategy.valueOf(redactionStrategy_);
+    com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionStrategy result = com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionStrategy.forNumber(redactionStrategy_);
     return result == null ? com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionStrategy.UNRECOGNIZED : result;
   }
 
   public static final int REDACTION_SCOPE_FIELD_NUMBER = 4;
-  private int redactionScope_;
+  private int redactionScope_ = 0;
   /**
    * <pre>
    * Defines the data for which Dialogflow applies redaction. Dialogflow does
@@ -2534,13 +2383,13 @@ private static final long serialVersionUID = 0L;
    * @return The redactionScope.
    */
   @java.lang.Override public com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionScope getRedactionScope() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionScope result = com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionScope.valueOf(redactionScope_);
+    com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionScope result = com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionScope.forNumber(redactionScope_);
     return result == null ? com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionScope.UNRECOGNIZED : result;
   }
 
   public static final int INSPECT_TEMPLATE_FIELD_NUMBER = 9;
-  private volatile java.lang.Object inspectTemplate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object inspectTemplate_ = "";
   /**
    * <pre>
    * [DLP](https://cloud.google.com/dlp/docs) inspect template name. Use this
@@ -2610,7 +2459,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEIDENTIFY_TEMPLATE_FIELD_NUMBER = 17;
-  private volatile java.lang.Object deidentifyTemplate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object deidentifyTemplate_ = "";
   /**
    * <pre>
    * [DLP](https://cloud.google.com/dlp/docs) deidentify template name. Use this
@@ -2685,12 +2535,10 @@ private static final long serialVersionUID = 0L;
    * Retains data in interaction logging for the specified number of days.
    * This does not apply to Cloud logging, which is owned by the user - not
    * Dialogflow.
-   * User must set a value lower than Dialogflow's default 365d TTL. Setting a
-   * value higher than that has no effect.
-   * A missing value or setting to 0 also means we use Dialogflow's default
-   * TTL.
-   * Note: Interaction logging is a limited access feature. Talk to your
-   * Google representative to check availability for you.
+   * User must set a value lower than Dialogflow's default 365d TTL (30 days
+   * for Agent Assist traffic), higher value will be ignored and use default.
+   * Setting a value higher than that has no effect. A missing value or
+   * setting to 0 also means we use default TTL.
    * </pre>
    *
    * <code>int32 retention_window_days = 6;</code>
@@ -2705,12 +2553,10 @@ private static final long serialVersionUID = 0L;
    * Retains data in interaction logging for the specified number of days.
    * This does not apply to Cloud logging, which is owned by the user - not
    * Dialogflow.
-   * User must set a value lower than Dialogflow's default 365d TTL. Setting a
-   * value higher than that has no effect.
-   * A missing value or setting to 0 also means we use Dialogflow's default
-   * TTL.
-   * Note: Interaction logging is a limited access feature. Talk to your
-   * Google representative to check availability for you.
+   * User must set a value lower than Dialogflow's default 365d TTL (30 days
+   * for Agent Assist traffic), higher value will be ignored and use default.
+   * Setting a value higher than that has no effect. A missing value or
+   * setting to 0 also means we use default TTL.
    * </pre>
    *
    * <code>int32 retention_window_days = 6;</code>
@@ -2725,14 +2571,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PURGE_DATA_TYPES_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> purgeDataTypes_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.PurgeDataType> purgeDataTypes_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.PurgeDataType>() {
             public com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.PurgeDataType convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.PurgeDataType result = com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.PurgeDataType.valueOf(from);
+              com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.PurgeDataType result = com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.PurgeDataType.forNumber(from);
               return result == null ? com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.PurgeDataType.UNRECOGNIZED : result;
             }
           };
@@ -2864,7 +2710,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettingsOrBuilder getAudioExportSettingsOrBuilder() {
-    return getAudioExportSettings();
+    return audioExportSettings_ == null ? com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.getDefaultInstance() : audioExportSettings_;
   }
 
   public static final int INSIGHTS_EXPORT_SETTINGS_FIELD_NUMBER = 13;
@@ -2911,7 +2757,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettingsOrBuilder getInsightsExportSettingsOrBuilder() {
-    return getInsightsExportSettings();
+    return insightsExportSettings_ == null ? com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettings.getDefaultInstance() : insightsExportSettings_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -2964,7 +2810,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deidentifyTemplate_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 17, deidentifyTemplate_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3018,7 +2864,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deidentifyTemplate_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, deidentifyTemplate_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3063,7 +2909,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3106,7 +2952,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3229,46 +3075,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
       redactionStrategy_ = 0;
-
       redactionScope_ = 0;
-
       inspectTemplate_ = "";
-
       deidentifyTemplate_ = "";
-
       purgeDataTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (audioExportSettingsBuilder_ == null) {
-        audioExportSettings_ = null;
-      } else {
-        audioExportSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      audioExportSettings_ = null;
+      if (audioExportSettingsBuilder_ != null) {
+        audioExportSettingsBuilder_.dispose();
         audioExportSettingsBuilder_ = null;
       }
-      if (insightsExportSettingsBuilder_ == null) {
-        insightsExportSettings_ = null;
-      } else {
-        insightsExportSettings_ = null;
+      insightsExportSettings_ = null;
+      if (insightsExportSettingsBuilder_ != null) {
+        insightsExportSettingsBuilder_.dispose();
         insightsExportSettingsBuilder_ = null;
       }
       dataRetentionCase_ = 0;
@@ -3299,34 +3133,56 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings buildPartial() {
       com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings result = new com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      result.redactionStrategy_ = redactionStrategy_;
-      result.redactionScope_ = redactionScope_;
-      result.inspectTemplate_ = inspectTemplate_;
-      result.deidentifyTemplate_ = deidentifyTemplate_;
-      if (dataRetentionCase_ == 6) {
-        result.dataRetention_ = dataRetention_;
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        purgeDataTypes_ = java.util.Collections.unmodifiableList(purgeDataTypes_);
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.purgeDataTypes_ = purgeDataTypes_;
-      if (audioExportSettingsBuilder_ == null) {
-        result.audioExportSettings_ = audioExportSettings_;
-      } else {
-        result.audioExportSettings_ = audioExportSettingsBuilder_.build();
-      }
-      if (insightsExportSettingsBuilder_ == null) {
-        result.insightsExportSettings_ = insightsExportSettings_;
-      } else {
-        result.insightsExportSettings_ = insightsExportSettingsBuilder_.build();
-      }
-      result.dataRetentionCase_ = dataRetentionCase_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings result) {
+      if (((bitField0_ & 0x00000080) != 0)) {
+        purgeDataTypes_ = java.util.Collections.unmodifiableList(purgeDataTypes_);
+        bitField0_ = (bitField0_ & ~0x00000080);
+      }
+      result.purgeDataTypes_ = purgeDataTypes_;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.redactionStrategy_ = redactionStrategy_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.redactionScope_ = redactionScope_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.inspectTemplate_ = inspectTemplate_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.deidentifyTemplate_ = deidentifyTemplate_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.audioExportSettings_ = audioExportSettingsBuilder_ == null
+            ? audioExportSettings_
+            : audioExportSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.insightsExportSettings_ = insightsExportSettingsBuilder_ == null
+            ? insightsExportSettings_
+            : insightsExportSettingsBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings result) {
+      result.dataRetentionCase_ = dataRetentionCase_;
+      result.dataRetention_ = this.dataRetention_;
     }
 
     @java.lang.Override
@@ -3375,10 +3231,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.redactionStrategy_ != 0) {
@@ -3389,16 +3247,18 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getInspectTemplate().isEmpty()) {
         inspectTemplate_ = other.inspectTemplate_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getDeidentifyTemplate().isEmpty()) {
         deidentifyTemplate_ = other.deidentifyTemplate_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.purgeDataTypes_.isEmpty()) {
         if (purgeDataTypes_.isEmpty()) {
           purgeDataTypes_ = other.purgeDataTypes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensurePurgeDataTypesIsMutable();
           purgeDataTypes_.addAll(other.purgeDataTypes_);
@@ -3420,7 +3280,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3435,17 +3295,96 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              redactionStrategy_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              redactionScope_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 48: {
+              dataRetention_ = input.readInt32();
+              dataRetentionCase_ = 6;
+              break;
+            } // case 48
+            case 64: {
+              int tmpRaw = input.readEnum();
+              ensurePurgeDataTypesIsMutable();
+              purgeDataTypes_.add(tmpRaw);
+              break;
+            } // case 64
+            case 66: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensurePurgeDataTypesIsMutable();
+                purgeDataTypes_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 66
+            case 74: {
+              inspectTemplate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 74
+            case 98: {
+              input.readMessage(
+                  getAudioExportSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getInsightsExportSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 106
+            case 138: {
+              deidentifyTemplate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 138
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int dataRetentionCase_ = 0;
@@ -3533,11 +3472,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3555,8 +3492,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -3576,12 +3513,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3642,11 +3577,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3660,8 +3593,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -3677,12 +3610,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3709,8 +3640,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRedactionStrategyValue(int value) {
-      
       redactionStrategy_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3724,8 +3655,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionStrategy getRedactionStrategy() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionStrategy result = com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionStrategy.valueOf(redactionStrategy_);
+      com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionStrategy result = com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionStrategy.forNumber(redactionStrategy_);
       return result == null ? com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionStrategy.UNRECOGNIZED : result;
     }
     /**
@@ -3741,7 +3671,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       redactionStrategy_ = value.getNumber();
       onChanged();
       return this;
@@ -3755,7 +3685,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRedactionStrategy() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       redactionStrategy_ = 0;
       onChanged();
       return this;
@@ -3787,8 +3717,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRedactionScopeValue(int value) {
-      
       redactionScope_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3804,8 +3734,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionScope getRedactionScope() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionScope result = com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionScope.valueOf(redactionScope_);
+      com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionScope result = com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionScope.forNumber(redactionScope_);
       return result == null ? com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.RedactionScope.UNRECOGNIZED : result;
     }
     /**
@@ -3823,7 +3752,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       redactionScope_ = value.getNumber();
       onChanged();
       return this;
@@ -3839,7 +3768,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRedactionScope() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       redactionScope_ = 0;
       onChanged();
       return this;
@@ -3934,11 +3863,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInspectTemplate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       inspectTemplate_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3963,8 +3890,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInspectTemplate() {
-      
       inspectTemplate_ = getDefaultInstance().getInspectTemplate();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -3991,12 +3918,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInspectTemplateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       inspectTemplate_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -4090,11 +4015,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeidentifyTemplate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       deidentifyTemplate_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -4119,8 +4042,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDeidentifyTemplate() {
-      
       deidentifyTemplate_ = getDefaultInstance().getDeidentifyTemplate();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -4147,12 +4070,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeidentifyTemplateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       deidentifyTemplate_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -4162,12 +4083,10 @@ private static final long serialVersionUID = 0L;
      * Retains data in interaction logging for the specified number of days.
      * This does not apply to Cloud logging, which is owned by the user - not
      * Dialogflow.
-     * User must set a value lower than Dialogflow's default 365d TTL. Setting a
-     * value higher than that has no effect.
-     * A missing value or setting to 0 also means we use Dialogflow's default
-     * TTL.
-     * Note: Interaction logging is a limited access feature. Talk to your
-     * Google representative to check availability for you.
+     * User must set a value lower than Dialogflow's default 365d TTL (30 days
+     * for Agent Assist traffic), higher value will be ignored and use default.
+     * Setting a value higher than that has no effect. A missing value or
+     * setting to 0 also means we use default TTL.
      * </pre>
      *
      * <code>int32 retention_window_days = 6;</code>
@@ -4181,12 +4100,10 @@ private static final long serialVersionUID = 0L;
      * Retains data in interaction logging for the specified number of days.
      * This does not apply to Cloud logging, which is owned by the user - not
      * Dialogflow.
-     * User must set a value lower than Dialogflow's default 365d TTL. Setting a
-     * value higher than that has no effect.
-     * A missing value or setting to 0 also means we use Dialogflow's default
-     * TTL.
-     * Note: Interaction logging is a limited access feature. Talk to your
-     * Google representative to check availability for you.
+     * User must set a value lower than Dialogflow's default 365d TTL (30 days
+     * for Agent Assist traffic), higher value will be ignored and use default.
+     * Setting a value higher than that has no effect. A missing value or
+     * setting to 0 also means we use default TTL.
      * </pre>
      *
      * <code>int32 retention_window_days = 6;</code>
@@ -4203,12 +4120,10 @@ private static final long serialVersionUID = 0L;
      * Retains data in interaction logging for the specified number of days.
      * This does not apply to Cloud logging, which is owned by the user - not
      * Dialogflow.
-     * User must set a value lower than Dialogflow's default 365d TTL. Setting a
-     * value higher than that has no effect.
-     * A missing value or setting to 0 also means we use Dialogflow's default
-     * TTL.
-     * Note: Interaction logging is a limited access feature. Talk to your
-     * Google representative to check availability for you.
+     * User must set a value lower than Dialogflow's default 365d TTL (30 days
+     * for Agent Assist traffic), higher value will be ignored and use default.
+     * Setting a value higher than that has no effect. A missing value or
+     * setting to 0 also means we use default TTL.
      * </pre>
      *
      * <code>int32 retention_window_days = 6;</code>
@@ -4216,6 +4131,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRetentionWindowDays(int value) {
+      
       dataRetentionCase_ = 6;
       dataRetention_ = value;
       onChanged();
@@ -4226,12 +4142,10 @@ private static final long serialVersionUID = 0L;
      * Retains data in interaction logging for the specified number of days.
      * This does not apply to Cloud logging, which is owned by the user - not
      * Dialogflow.
-     * User must set a value lower than Dialogflow's default 365d TTL. Setting a
-     * value higher than that has no effect.
-     * A missing value or setting to 0 also means we use Dialogflow's default
-     * TTL.
-     * Note: Interaction logging is a limited access feature. Talk to your
-     * Google representative to check availability for you.
+     * User must set a value lower than Dialogflow's default 365d TTL (30 days
+     * for Agent Assist traffic), higher value will be ignored and use default.
+     * Setting a value higher than that has no effect. A missing value or
+     * setting to 0 also means we use default TTL.
      * </pre>
      *
      * <code>int32 retention_window_days = 6;</code>
@@ -4249,9 +4163,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> purgeDataTypes_ =
       java.util.Collections.emptyList();
     private void ensurePurgeDataTypesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         purgeDataTypes_ = new java.util.ArrayList<java.lang.Integer>(purgeDataTypes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000080;
       }
     }
     /**
@@ -4355,7 +4269,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPurgeDataTypes() {
       purgeDataTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -4455,7 +4369,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the audioExportSettings field is set.
      */
     public boolean hasAudioExportSettings() {
-      return audioExportSettingsBuilder_ != null || audioExportSettings_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -4503,11 +4417,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         audioExportSettings_ = value;
-        onChanged();
       } else {
         audioExportSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4530,11 +4444,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.Builder builderForValue) {
       if (audioExportSettingsBuilder_ == null) {
         audioExportSettings_ = builderForValue.build();
-        onChanged();
       } else {
         audioExportSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4555,17 +4469,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAudioExportSettings(com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings value) {
       if (audioExportSettingsBuilder_ == null) {
-        if (audioExportSettings_ != null) {
-          audioExportSettings_ =
-            com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.newBuilder(audioExportSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          audioExportSettings_ != null &&
+          audioExportSettings_ != com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.getDefaultInstance()) {
+          getAudioExportSettingsBuilder().mergeFrom(value);
         } else {
           audioExportSettings_ = value;
         }
-        onChanged();
       } else {
         audioExportSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4585,14 +4500,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings audio_export_settings = 12;</code>
      */
     public Builder clearAudioExportSettings() {
-      if (audioExportSettingsBuilder_ == null) {
-        audioExportSettings_ = null;
-        onChanged();
-      } else {
-        audioExportSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      audioExportSettings_ = null;
+      if (audioExportSettingsBuilder_ != null) {
+        audioExportSettingsBuilder_.dispose();
         audioExportSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4612,7 +4526,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings audio_export_settings = 12;</code>
      */
     public com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.AudioExportSettings.Builder getAudioExportSettingsBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getAudioExportSettingsFieldBuilder().getBuilder();
     }
@@ -4685,7 +4599,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the insightsExportSettings field is set.
      */
     public boolean hasInsightsExportSettings() {
-      return insightsExportSettingsBuilder_ != null || insightsExportSettings_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -4721,11 +4635,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         insightsExportSettings_ = value;
-        onChanged();
       } else {
         insightsExportSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4742,11 +4656,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettings.Builder builderForValue) {
       if (insightsExportSettingsBuilder_ == null) {
         insightsExportSettings_ = builderForValue.build();
-        onChanged();
       } else {
         insightsExportSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4761,17 +4675,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInsightsExportSettings(com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettings value) {
       if (insightsExportSettingsBuilder_ == null) {
-        if (insightsExportSettings_ != null) {
-          insightsExportSettings_ =
-            com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettings.newBuilder(insightsExportSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          insightsExportSettings_ != null &&
+          insightsExportSettings_ != com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettings.getDefaultInstance()) {
+          getInsightsExportSettingsBuilder().mergeFrom(value);
         } else {
           insightsExportSettings_ = value;
         }
-        onChanged();
       } else {
         insightsExportSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4785,14 +4700,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettings insights_export_settings = 13;</code>
      */
     public Builder clearInsightsExportSettings() {
-      if (insightsExportSettingsBuilder_ == null) {
-        insightsExportSettings_ = null;
-        onChanged();
-      } else {
-        insightsExportSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      insightsExportSettings_ = null;
+      if (insightsExportSettingsBuilder_ != null) {
+        insightsExportSettingsBuilder_.dispose();
         insightsExportSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4806,7 +4720,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettings insights_export_settings = 13;</code>
      */
     public com.google.cloud.dialogflow.cx.v3beta1.SecuritySettings.InsightsExportSettings.Builder getInsightsExportSettingsBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getInsightsExportSettingsFieldBuilder().getBuilder();
     }
@@ -4884,7 +4798,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SecuritySettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

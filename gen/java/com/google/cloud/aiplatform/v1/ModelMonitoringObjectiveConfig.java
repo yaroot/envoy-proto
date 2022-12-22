@@ -5,7 +5,8 @@ package com.google.cloud.aiplatform.v1;
 
 /**
  * <pre>
- * Next ID: 8
+ * The objective configuration for model monitoring, including the information
+ * needed to detect anomalies for one particular model.
  * </pre>
  *
  * Protobuf type {@code google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig}
@@ -33,97 +34,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ModelMonitoringObjectiveConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset.Builder subBuilder = null;
-            if (trainingDataset_ != null) {
-              subBuilder = trainingDataset_.toBuilder();
-            }
-            trainingDataset_ = input.readMessage(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(trainingDataset_);
-              trainingDataset_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.Builder subBuilder = null;
-            if (trainingPredictionSkewDetectionConfig_ != null) {
-              subBuilder = trainingPredictionSkewDetectionConfig_.toBuilder();
-            }
-            trainingPredictionSkewDetectionConfig_ = input.readMessage(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(trainingPredictionSkewDetectionConfig_);
-              trainingPredictionSkewDetectionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.Builder subBuilder = null;
-            if (predictionDriftDetectionConfig_ != null) {
-              subBuilder = predictionDriftDetectionConfig_.toBuilder();
-            }
-            predictionDriftDetectionConfig_ = input.readMessage(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(predictionDriftDetectionConfig_);
-              predictionDriftDetectionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.Builder subBuilder = null;
-            if (explanationConfig_ != null) {
-              subBuilder = explanationConfig_.toBuilder();
-            }
-            explanationConfig_ = input.readMessage(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(explanationConfig_);
-              explanationConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -356,104 +266,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TrainingDataset(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              dataFormat_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              dataSourceCase_ = 3;
-              dataSource_ = s;
-              break;
-            }
-            case 34: {
-              com.google.cloud.aiplatform.v1.GcsSource.Builder subBuilder = null;
-              if (dataSourceCase_ == 4) {
-                subBuilder = ((com.google.cloud.aiplatform.v1.GcsSource) dataSource_).toBuilder();
-              }
-              dataSource_ =
-                  input.readMessage(com.google.cloud.aiplatform.v1.GcsSource.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.aiplatform.v1.GcsSource) dataSource_);
-                dataSource_ = subBuilder.buildPartial();
-              }
-              dataSourceCase_ = 4;
-              break;
-            }
-            case 42: {
-              com.google.cloud.aiplatform.v1.BigQuerySource.Builder subBuilder = null;
-              if (dataSourceCase_ == 5) {
-                subBuilder = ((com.google.cloud.aiplatform.v1.BigQuerySource) dataSource_).toBuilder();
-              }
-              dataSource_ =
-                  input.readMessage(com.google.cloud.aiplatform.v1.BigQuerySource.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.aiplatform.v1.BigQuerySource) dataSource_);
-                dataSource_ = subBuilder.buildPartial();
-              }
-              dataSourceCase_ = 5;
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              targetField_ = s;
-              break;
-            }
-            case 58: {
-              com.google.cloud.aiplatform.v1.SamplingStrategy.Builder subBuilder = null;
-              if (loggingSamplingStrategy_ != null) {
-                subBuilder = loggingSamplingStrategy_.toBuilder();
-              }
-              loggingSamplingStrategy_ = input.readMessage(com.google.cloud.aiplatform.v1.SamplingStrategy.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(loggingSamplingStrategy_);
-                loggingSamplingStrategy_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.aiplatform.v1.ModelMonitoringProto.internal_static_google_cloud_aiplatform_v1_ModelMonitoringObjectiveConfig_TrainingDataset_descriptor;
@@ -667,7 +479,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DATA_FORMAT_FIELD_NUMBER = 2;
-    private volatile java.lang.Object dataFormat_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object dataFormat_ = "";
     /**
      * <pre>
      * Data format of the dataset, only applicable if the input is from
@@ -729,7 +542,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TARGET_FIELD_FIELD_NUMBER = 6;
-    private volatile java.lang.Object targetField_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object targetField_ = "";
     /**
      * <pre>
      * The target field name the model is to predict.
@@ -816,7 +630,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.SamplingStrategyOrBuilder getLoggingSamplingStrategyOrBuilder() {
-      return getLoggingSamplingStrategy();
+      return loggingSamplingStrategy_ == null ? com.google.cloud.aiplatform.v1.SamplingStrategy.getDefaultInstance() : loggingSamplingStrategy_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -851,7 +665,7 @@ private static final long serialVersionUID = 0L;
       if (loggingSamplingStrategy_ != null) {
         output.writeMessage(7, getLoggingSamplingStrategy());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -881,7 +695,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, getLoggingSamplingStrategy());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -922,7 +736,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -957,7 +771,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1078,30 +892,29 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (gcsSourceBuilder_ != null) {
+          gcsSourceBuilder_.clear();
+        }
+        if (bigquerySourceBuilder_ != null) {
+          bigquerySourceBuilder_.clear();
+        }
         dataFormat_ = "";
-
         targetField_ = "";
-
-        if (loggingSamplingStrategyBuilder_ == null) {
-          loggingSamplingStrategy_ = null;
-        } else {
-          loggingSamplingStrategy_ = null;
+        loggingSamplingStrategy_ = null;
+        if (loggingSamplingStrategyBuilder_ != null) {
+          loggingSamplingStrategyBuilder_.dispose();
           loggingSamplingStrategyBuilder_ = null;
         }
         dataSourceCase_ = 0;
@@ -1132,33 +945,38 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset buildPartial() {
         com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset result = new com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset(this);
-        if (dataSourceCase_ == 3) {
-          result.dataSource_ = dataSource_;
-        }
-        if (dataSourceCase_ == 4) {
-          if (gcsSourceBuilder_ == null) {
-            result.dataSource_ = dataSource_;
-          } else {
-            result.dataSource_ = gcsSourceBuilder_.build();
-          }
-        }
-        if (dataSourceCase_ == 5) {
-          if (bigquerySourceBuilder_ == null) {
-            result.dataSource_ = dataSource_;
-          } else {
-            result.dataSource_ = bigquerySourceBuilder_.build();
-          }
-        }
-        result.dataFormat_ = dataFormat_;
-        result.targetField_ = targetField_;
-        if (loggingSamplingStrategyBuilder_ == null) {
-          result.loggingSamplingStrategy_ = loggingSamplingStrategy_;
-        } else {
-          result.loggingSamplingStrategy_ = loggingSamplingStrategyBuilder_.build();
-        }
-        result.dataSourceCase_ = dataSourceCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.dataFormat_ = dataFormat_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.targetField_ = targetField_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.loggingSamplingStrategy_ = loggingSamplingStrategyBuilder_ == null
+              ? loggingSamplingStrategy_
+              : loggingSamplingStrategyBuilder_.build();
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset result) {
+        result.dataSourceCase_ = dataSourceCase_;
+        result.dataSource_ = this.dataSource_;
+        if (dataSourceCase_ == 4 &&
+            gcsSourceBuilder_ != null) {
+          result.dataSource_ = gcsSourceBuilder_.build();
+        }
+        if (dataSourceCase_ == 5 &&
+            bigquerySourceBuilder_ != null) {
+          result.dataSource_ = bigquerySourceBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1207,10 +1025,12 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset.getDefaultInstance()) return this;
         if (!other.getDataFormat().isEmpty()) {
           dataFormat_ = other.dataFormat_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (!other.getTargetField().isEmpty()) {
           targetField_ = other.targetField_;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
         if (other.hasLoggingSamplingStrategy()) {
@@ -1235,7 +1055,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1250,17 +1070,67 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 18: {
+                dataFormat_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                dataSourceCase_ = 3;
+                dataSource_ = s;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getGcsSourceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataSourceCase_ = 4;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getBigquerySourceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataSourceCase_ = 5;
+                break;
+              } // case 42
+              case 50: {
+                targetField_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 50
+              case 58: {
+                input.readMessage(
+                    getLoggingSamplingStrategyFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 58
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int dataSourceCase_ = 0;
@@ -1278,6 +1148,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       /**
        * <pre>
@@ -1355,10 +1226,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDataset(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  dataSourceCase_ = 3;
+        if (value == null) { throw new NullPointerException(); }
+        dataSourceCase_ = 3;
         dataSource_ = value;
         onChanged();
         return this;
@@ -1390,10 +1259,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDatasetBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         dataSourceCase_ = 3;
         dataSource_ = value;
         onChanged();
@@ -1583,7 +1450,7 @@ private static final long serialVersionUID = 0L;
           dataSource_ = null;
         }
         dataSourceCase_ = 4;
-        onChanged();;
+        onChanged();
         return gcsSourceBuilder_;
       }
 
@@ -1770,7 +1637,7 @@ private static final long serialVersionUID = 0L;
           dataSource_ = null;
         }
         dataSourceCase_ = 5;
-        onChanged();;
+        onChanged();
         return bigquerySourceBuilder_;
       }
 
@@ -1851,11 +1718,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDataFormat(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         dataFormat_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1876,8 +1741,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDataFormat() {
-        
         dataFormat_ = getDefaultInstance().getDataFormat();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1900,12 +1765,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDataFormatBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         dataFormat_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1969,11 +1832,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setTargetField(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         targetField_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1988,8 +1849,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearTargetField() {
-        
         targetField_ = getDefaultInstance().getTargetField();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -2006,12 +1867,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setTargetFieldBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         targetField_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -2029,7 +1888,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the loggingSamplingStrategy field is set.
        */
       public boolean hasLoggingSamplingStrategy() {
-        return loggingSamplingStrategyBuilder_ != null || loggingSamplingStrategy_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -2061,11 +1920,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           loggingSamplingStrategy_ = value;
-          onChanged();
         } else {
           loggingSamplingStrategyBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -2080,11 +1939,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.aiplatform.v1.SamplingStrategy.Builder builderForValue) {
         if (loggingSamplingStrategyBuilder_ == null) {
           loggingSamplingStrategy_ = builderForValue.build();
-          onChanged();
         } else {
           loggingSamplingStrategyBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -2097,17 +1956,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeLoggingSamplingStrategy(com.google.cloud.aiplatform.v1.SamplingStrategy value) {
         if (loggingSamplingStrategyBuilder_ == null) {
-          if (loggingSamplingStrategy_ != null) {
-            loggingSamplingStrategy_ =
-              com.google.cloud.aiplatform.v1.SamplingStrategy.newBuilder(loggingSamplingStrategy_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            loggingSamplingStrategy_ != null &&
+            loggingSamplingStrategy_ != com.google.cloud.aiplatform.v1.SamplingStrategy.getDefaultInstance()) {
+            getLoggingSamplingStrategyBuilder().mergeFrom(value);
           } else {
             loggingSamplingStrategy_ = value;
           }
-          onChanged();
         } else {
           loggingSamplingStrategyBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -2119,14 +1979,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.aiplatform.v1.SamplingStrategy logging_sampling_strategy = 7;</code>
        */
       public Builder clearLoggingSamplingStrategy() {
-        if (loggingSamplingStrategyBuilder_ == null) {
-          loggingSamplingStrategy_ = null;
-          onChanged();
-        } else {
-          loggingSamplingStrategy_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        loggingSamplingStrategy_ = null;
+        if (loggingSamplingStrategyBuilder_ != null) {
+          loggingSamplingStrategyBuilder_.dispose();
           loggingSamplingStrategyBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2138,7 +1997,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.aiplatform.v1.SamplingStrategy logging_sampling_strategy = 7;</code>
        */
       public com.google.cloud.aiplatform.v1.SamplingStrategy.Builder getLoggingSamplingStrategyBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getLoggingSamplingStrategyFieldBuilder().getBuilder();
       }
@@ -2212,7 +2071,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TrainingDataset(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2287,7 +2157,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; skew_thresholds = 1;</code>
      */
-
     /* nullable */
 com.google.cloud.aiplatform.v1.ThresholdConfig getSkewThresholdsOrDefault(
         java.lang.String key,
@@ -2303,7 +2172,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; skew_thresholds = 1;</code>
      */
-
     com.google.cloud.aiplatform.v1.ThresholdConfig getSkewThresholdsOrThrow(
         java.lang.String key);
 
@@ -2354,7 +2222,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_skew_thresholds = 2;</code>
      */
-
     /* nullable */
 com.google.cloud.aiplatform.v1.ThresholdConfig getAttributionScoreSkewThresholdsOrDefault(
         java.lang.String key,
@@ -2369,7 +2236,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_skew_thresholds = 2;</code>
      */
-
     com.google.cloud.aiplatform.v1.ThresholdConfig getAttributionScoreSkewThresholdsOrThrow(
         java.lang.String key);
 
@@ -2438,85 +2304,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TrainingPredictionSkewDetectionConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                skewThresholds_ = com.google.protobuf.MapField.newMapField(
-                    SkewThresholdsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
-              skewThresholds__ = input.readMessage(
-                  SkewThresholdsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              skewThresholds_.getMutableMap().put(
-                  skewThresholds__.getKey(), skewThresholds__.getValue());
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                attributionScoreSkewThresholds_ = com.google.protobuf.MapField.newMapField(
-                    AttributionScoreSkewThresholdsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000002;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
-              attributionScoreSkewThresholds__ = input.readMessage(
-                  AttributionScoreSkewThresholdsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              attributionScoreSkewThresholds_.getMutableMap().put(
-                  attributionScoreSkewThresholds__.getKey(), attributionScoreSkewThresholds__.getValue());
-              break;
-            }
-            case 50: {
-              com.google.cloud.aiplatform.v1.ThresholdConfig.Builder subBuilder = null;
-              if (defaultSkewThreshold_ != null) {
-                subBuilder = defaultSkewThreshold_.toBuilder();
-              }
-              defaultSkewThreshold_ = input.readMessage(com.google.cloud.aiplatform.v1.ThresholdConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(defaultSkewThreshold_);
-                defaultSkewThreshold_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.aiplatform.v1.ModelMonitoringProto.internal_static_google_cloud_aiplatform_v1_ModelMonitoringObjectiveConfig_TrainingPredictionSkewDetectionConfig_descriptor;
@@ -2556,6 +2343,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.cloud.aiplatform.v1.ThresholdConfig.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> skewThresholds_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
@@ -2566,7 +2354,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       }
       return skewThresholds_;
     }
-
     public int getSkewThresholdsCount() {
       return internalGetSkewThresholds().getMap().size();
     }
@@ -2580,7 +2367,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; skew_thresholds = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsSkewThresholds(
         java.lang.String key) {
@@ -2606,7 +2392,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; skew_thresholds = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> getSkewThresholdsMap() {
       return internalGetSkewThresholds().getMap();
     }
@@ -2621,10 +2406,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; skew_thresholds = 1;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.aiplatform.v1.ThresholdConfig getSkewThresholdsOrDefault(
+    public /* nullable */
+com.google.cloud.aiplatform.v1.ThresholdConfig getSkewThresholdsOrDefault(
         java.lang.String key,
-        com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue) {
+        /* nullable */
+com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> map =
           internalGetSkewThresholds().getMap();
@@ -2641,7 +2427,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; skew_thresholds = 1;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.aiplatform.v1.ThresholdConfig getSkewThresholdsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2665,6 +2450,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.cloud.aiplatform.v1.ThresholdConfig.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> attributionScoreSkewThresholds_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
@@ -2675,7 +2461,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       }
       return attributionScoreSkewThresholds_;
     }
-
     public int getAttributionScoreSkewThresholdsCount() {
       return internalGetAttributionScoreSkewThresholds().getMap().size();
     }
@@ -2688,7 +2473,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_skew_thresholds = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsAttributionScoreSkewThresholds(
         java.lang.String key) {
@@ -2713,7 +2497,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_skew_thresholds = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> getAttributionScoreSkewThresholdsMap() {
       return internalGetAttributionScoreSkewThresholds().getMap();
     }
@@ -2727,10 +2510,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_skew_thresholds = 2;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.aiplatform.v1.ThresholdConfig getAttributionScoreSkewThresholdsOrDefault(
+    public /* nullable */
+com.google.cloud.aiplatform.v1.ThresholdConfig getAttributionScoreSkewThresholdsOrDefault(
         java.lang.String key,
-        com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue) {
+        /* nullable */
+com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> map =
           internalGetAttributionScoreSkewThresholds().getMap();
@@ -2746,7 +2530,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_skew_thresholds = 2;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.aiplatform.v1.ThresholdConfig getAttributionScoreSkewThresholdsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2799,7 +2582,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.ThresholdConfigOrBuilder getDefaultSkewThresholdOrBuilder() {
-      return getDefaultSkewThreshold();
+      return defaultSkewThreshold_ == null ? com.google.cloud.aiplatform.v1.ThresholdConfig.getDefaultInstance() : defaultSkewThreshold_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2831,7 +2614,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       if (defaultSkewThreshold_ != null) {
         output.writeMessage(6, getDefaultSkewThreshold());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2864,7 +2647,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, getDefaultSkewThreshold());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2888,7 +2671,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         if (!getDefaultSkewThreshold()
             .equals(other.getDefaultSkewThreshold())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2911,7 +2694,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         hash = (37 * hash) + DEFAULT_SKEW_THRESHOLD_FIELD_NUMBER;
         hash = (53 * hash) + getDefaultSkewThreshold().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3059,28 +2842,23 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
 
       // Construct using com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutableSkewThresholds().clear();
         internalGetMutableAttributionScoreSkewThresholds().clear();
-        if (defaultSkewThresholdBuilder_ == null) {
-          defaultSkewThreshold_ = null;
-        } else {
-          defaultSkewThreshold_ = null;
+        defaultSkewThreshold_ = null;
+        if (defaultSkewThresholdBuilder_ != null) {
+          defaultSkewThresholdBuilder_.dispose();
           defaultSkewThresholdBuilder_ = null;
         }
         return this;
@@ -3109,18 +2887,26 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       @java.lang.Override
       public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig buildPartial() {
         com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig result = new com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig(this);
-        int from_bitField0_ = bitField0_;
-        result.skewThresholds_ = internalGetSkewThresholds();
-        result.skewThresholds_.makeImmutable();
-        result.attributionScoreSkewThresholds_ = internalGetAttributionScoreSkewThresholds();
-        result.attributionScoreSkewThresholds_.makeImmutable();
-        if (defaultSkewThresholdBuilder_ == null) {
-          result.defaultSkewThreshold_ = defaultSkewThreshold_;
-        } else {
-          result.defaultSkewThreshold_ = defaultSkewThresholdBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.skewThresholds_ = internalGetSkewThresholds();
+          result.skewThresholds_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.attributionScoreSkewThresholds_ = internalGetAttributionScoreSkewThresholds();
+          result.attributionScoreSkewThresholds_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.defaultSkewThreshold_ = defaultSkewThresholdBuilder_ == null
+              ? defaultSkewThreshold_
+              : defaultSkewThresholdBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3169,12 +2955,14 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         if (other == com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.getDefaultInstance()) return this;
         internalGetMutableSkewThresholds().mergeFrom(
             other.internalGetSkewThresholds());
+        bitField0_ |= 0x00000001;
         internalGetMutableAttributionScoreSkewThresholds().mergeFrom(
             other.internalGetAttributionScoreSkewThresholds());
+        bitField0_ |= 0x00000002;
         if (other.hasDefaultSkewThreshold()) {
           mergeDefaultSkewThreshold(other.getDefaultSkewThreshold());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3189,17 +2977,55 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
+                skewThresholds__ = input.readMessage(
+                    SkewThresholdsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableSkewThresholds().getMutableMap().put(
+                    skewThresholds__.getKey(), skewThresholds__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
+                attributionScoreSkewThresholds__ = input.readMessage(
+                    AttributionScoreSkewThresholdsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableAttributionScoreSkewThresholds().getMutableMap().put(
+                    attributionScoreSkewThresholds__.getKey(), attributionScoreSkewThresholds__.getValue());
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 50: {
+                input.readMessage(
+                    getDefaultSkewThresholdFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 50
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3207,7 +3033,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> skewThresholds_;
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
-      internalGetSkewThresholds() {
+          internalGetSkewThresholds() {
         if (skewThresholds_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               SkewThresholdsDefaultEntryHolder.defaultEntry);
@@ -3215,8 +3041,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         return skewThresholds_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
-      internalGetMutableSkewThresholds() {
-        onChanged();;
+          internalGetMutableSkewThresholds() {
         if (skewThresholds_ == null) {
           skewThresholds_ = com.google.protobuf.MapField.newMapField(
               SkewThresholdsDefaultEntryHolder.defaultEntry);
@@ -3224,9 +3049,10 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         if (!skewThresholds_.isMutable()) {
           skewThresholds_ = skewThresholds_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return skewThresholds_;
       }
-
       public int getSkewThresholdsCount() {
         return internalGetSkewThresholds().getMap().size();
       }
@@ -3240,7 +3066,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        *
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; skew_thresholds = 1;</code>
        */
-
       @java.lang.Override
       public boolean containsSkewThresholds(
           java.lang.String key) {
@@ -3266,7 +3091,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; skew_thresholds = 1;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> getSkewThresholdsMap() {
         return internalGetSkewThresholds().getMap();
       }
@@ -3281,10 +3105,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; skew_thresholds = 1;</code>
        */
       @java.lang.Override
-
-      public com.google.cloud.aiplatform.v1.ThresholdConfig getSkewThresholdsOrDefault(
+      public /* nullable */
+com.google.cloud.aiplatform.v1.ThresholdConfig getSkewThresholdsOrDefault(
           java.lang.String key,
-          com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue) {
+          /* nullable */
+com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> map =
             internalGetSkewThresholds().getMap();
@@ -3301,7 +3126,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; skew_thresholds = 1;</code>
        */
       @java.lang.Override
-
       public com.google.cloud.aiplatform.v1.ThresholdConfig getSkewThresholdsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -3312,8 +3136,8 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearSkewThresholds() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableSkewThresholds().getMutableMap()
             .clear();
         return this;
@@ -3328,7 +3152,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        *
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; skew_thresholds = 1;</code>
        */
-
       public Builder removeSkewThresholds(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -3341,7 +3164,8 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
-      getMutableSkewThresholds() {
+          getMutableSkewThresholds() {
+        bitField0_ |= 0x00000001;
         return internalGetMutableSkewThresholds().getMutableMap();
       }
       /**
@@ -3358,12 +3182,10 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           java.lang.String key,
           com.google.cloud.aiplatform.v1.ThresholdConfig value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableSkewThresholds().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
@@ -3376,18 +3198,18 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        *
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; skew_thresholds = 1;</code>
        */
-
       public Builder putAllSkewThresholds(
           java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> values) {
         internalGetMutableSkewThresholds().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> attributionScoreSkewThresholds_;
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
-      internalGetAttributionScoreSkewThresholds() {
+          internalGetAttributionScoreSkewThresholds() {
         if (attributionScoreSkewThresholds_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               AttributionScoreSkewThresholdsDefaultEntryHolder.defaultEntry);
@@ -3395,8 +3217,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         return attributionScoreSkewThresholds_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
-      internalGetMutableAttributionScoreSkewThresholds() {
-        onChanged();;
+          internalGetMutableAttributionScoreSkewThresholds() {
         if (attributionScoreSkewThresholds_ == null) {
           attributionScoreSkewThresholds_ = com.google.protobuf.MapField.newMapField(
               AttributionScoreSkewThresholdsDefaultEntryHolder.defaultEntry);
@@ -3404,9 +3225,10 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         if (!attributionScoreSkewThresholds_.isMutable()) {
           attributionScoreSkewThresholds_ = attributionScoreSkewThresholds_.copy();
         }
+        bitField0_ |= 0x00000002;
+        onChanged();
         return attributionScoreSkewThresholds_;
       }
-
       public int getAttributionScoreSkewThresholdsCount() {
         return internalGetAttributionScoreSkewThresholds().getMap().size();
       }
@@ -3419,7 +3241,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        *
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_skew_thresholds = 2;</code>
        */
-
       @java.lang.Override
       public boolean containsAttributionScoreSkewThresholds(
           java.lang.String key) {
@@ -3444,7 +3265,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_skew_thresholds = 2;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> getAttributionScoreSkewThresholdsMap() {
         return internalGetAttributionScoreSkewThresholds().getMap();
       }
@@ -3458,10 +3278,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_skew_thresholds = 2;</code>
        */
       @java.lang.Override
-
-      public com.google.cloud.aiplatform.v1.ThresholdConfig getAttributionScoreSkewThresholdsOrDefault(
+      public /* nullable */
+com.google.cloud.aiplatform.v1.ThresholdConfig getAttributionScoreSkewThresholdsOrDefault(
           java.lang.String key,
-          com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue) {
+          /* nullable */
+com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> map =
             internalGetAttributionScoreSkewThresholds().getMap();
@@ -3477,7 +3298,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_skew_thresholds = 2;</code>
        */
       @java.lang.Override
-
       public com.google.cloud.aiplatform.v1.ThresholdConfig getAttributionScoreSkewThresholdsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -3488,8 +3308,8 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearAttributionScoreSkewThresholds() {
+        bitField0_ = (bitField0_ & ~0x00000002);
         internalGetMutableAttributionScoreSkewThresholds().getMutableMap()
             .clear();
         return this;
@@ -3503,7 +3323,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        *
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_skew_thresholds = 2;</code>
        */
-
       public Builder removeAttributionScoreSkewThresholds(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -3516,7 +3335,8 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
-      getMutableAttributionScoreSkewThresholds() {
+          getMutableAttributionScoreSkewThresholds() {
+        bitField0_ |= 0x00000002;
         return internalGetMutableAttributionScoreSkewThresholds().getMutableMap();
       }
       /**
@@ -3532,12 +3352,10 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           java.lang.String key,
           com.google.cloud.aiplatform.v1.ThresholdConfig value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableAttributionScoreSkewThresholds().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
@@ -3549,11 +3367,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        *
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_skew_thresholds = 2;</code>
        */
-
       public Builder putAllAttributionScoreSkewThresholds(
           java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> values) {
         internalGetMutableAttributionScoreSkewThresholds().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000002;
         return this;
       }
 
@@ -3571,7 +3389,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * @return Whether the defaultSkewThreshold field is set.
        */
       public boolean hasDefaultSkewThreshold() {
-        return defaultSkewThresholdBuilder_ != null || defaultSkewThreshold_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -3605,11 +3423,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
             throw new NullPointerException();
           }
           defaultSkewThreshold_ = value;
-          onChanged();
         } else {
           defaultSkewThresholdBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -3625,11 +3443,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           com.google.cloud.aiplatform.v1.ThresholdConfig.Builder builderForValue) {
         if (defaultSkewThresholdBuilder_ == null) {
           defaultSkewThreshold_ = builderForValue.build();
-          onChanged();
         } else {
           defaultSkewThresholdBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -3643,17 +3461,18 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        */
       public Builder mergeDefaultSkewThreshold(com.google.cloud.aiplatform.v1.ThresholdConfig value) {
         if (defaultSkewThresholdBuilder_ == null) {
-          if (defaultSkewThreshold_ != null) {
-            defaultSkewThreshold_ =
-              com.google.cloud.aiplatform.v1.ThresholdConfig.newBuilder(defaultSkewThreshold_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            defaultSkewThreshold_ != null &&
+            defaultSkewThreshold_ != com.google.cloud.aiplatform.v1.ThresholdConfig.getDefaultInstance()) {
+            getDefaultSkewThresholdBuilder().mergeFrom(value);
           } else {
             defaultSkewThreshold_ = value;
           }
-          onChanged();
         } else {
           defaultSkewThresholdBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -3666,14 +3485,13 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>.google.cloud.aiplatform.v1.ThresholdConfig default_skew_threshold = 6;</code>
        */
       public Builder clearDefaultSkewThreshold() {
-        if (defaultSkewThresholdBuilder_ == null) {
-          defaultSkewThreshold_ = null;
-          onChanged();
-        } else {
-          defaultSkewThreshold_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        defaultSkewThreshold_ = null;
+        if (defaultSkewThresholdBuilder_ != null) {
+          defaultSkewThresholdBuilder_.dispose();
           defaultSkewThresholdBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3686,7 +3504,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>.google.cloud.aiplatform.v1.ThresholdConfig default_skew_threshold = 6;</code>
        */
       public com.google.cloud.aiplatform.v1.ThresholdConfig.Builder getDefaultSkewThresholdBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getDefaultSkewThresholdFieldBuilder().getBuilder();
       }
@@ -3762,7 +3580,18 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TrainingPredictionSkewDetectionConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3837,7 +3666,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; drift_thresholds = 1;</code>
      */
-
     /* nullable */
 com.google.cloud.aiplatform.v1.ThresholdConfig getDriftThresholdsOrDefault(
         java.lang.String key,
@@ -3853,7 +3681,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; drift_thresholds = 1;</code>
      */
-
     com.google.cloud.aiplatform.v1.ThresholdConfig getDriftThresholdsOrThrow(
         java.lang.String key);
 
@@ -3900,7 +3727,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_drift_thresholds = 2;</code>
      */
-
     /* nullable */
 com.google.cloud.aiplatform.v1.ThresholdConfig getAttributionScoreDriftThresholdsOrDefault(
         java.lang.String key,
@@ -3914,7 +3740,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_drift_thresholds = 2;</code>
      */
-
     com.google.cloud.aiplatform.v1.ThresholdConfig getAttributionScoreDriftThresholdsOrThrow(
         java.lang.String key);
 
@@ -3982,85 +3807,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PredictionDriftDetectionConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                driftThresholds_ = com.google.protobuf.MapField.newMapField(
-                    DriftThresholdsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
-              driftThresholds__ = input.readMessage(
-                  DriftThresholdsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              driftThresholds_.getMutableMap().put(
-                  driftThresholds__.getKey(), driftThresholds__.getValue());
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                attributionScoreDriftThresholds_ = com.google.protobuf.MapField.newMapField(
-                    AttributionScoreDriftThresholdsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000002;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
-              attributionScoreDriftThresholds__ = input.readMessage(
-                  AttributionScoreDriftThresholdsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              attributionScoreDriftThresholds_.getMutableMap().put(
-                  attributionScoreDriftThresholds__.getKey(), attributionScoreDriftThresholds__.getValue());
-              break;
-            }
-            case 42: {
-              com.google.cloud.aiplatform.v1.ThresholdConfig.Builder subBuilder = null;
-              if (defaultDriftThreshold_ != null) {
-                subBuilder = defaultDriftThreshold_.toBuilder();
-              }
-              defaultDriftThreshold_ = input.readMessage(com.google.cloud.aiplatform.v1.ThresholdConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(defaultDriftThreshold_);
-                defaultDriftThreshold_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.aiplatform.v1.ModelMonitoringProto.internal_static_google_cloud_aiplatform_v1_ModelMonitoringObjectiveConfig_PredictionDriftDetectionConfig_descriptor;
@@ -4100,6 +3846,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.cloud.aiplatform.v1.ThresholdConfig.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> driftThresholds_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
@@ -4110,7 +3857,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       }
       return driftThresholds_;
     }
-
     public int getDriftThresholdsCount() {
       return internalGetDriftThresholds().getMap().size();
     }
@@ -4124,7 +3870,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; drift_thresholds = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsDriftThresholds(
         java.lang.String key) {
@@ -4150,7 +3895,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; drift_thresholds = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> getDriftThresholdsMap() {
       return internalGetDriftThresholds().getMap();
     }
@@ -4165,10 +3909,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; drift_thresholds = 1;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.aiplatform.v1.ThresholdConfig getDriftThresholdsOrDefault(
+    public /* nullable */
+com.google.cloud.aiplatform.v1.ThresholdConfig getDriftThresholdsOrDefault(
         java.lang.String key,
-        com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue) {
+        /* nullable */
+com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> map =
           internalGetDriftThresholds().getMap();
@@ -4185,7 +3930,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; drift_thresholds = 1;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.aiplatform.v1.ThresholdConfig getDriftThresholdsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -4209,6 +3953,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.cloud.aiplatform.v1.ThresholdConfig.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> attributionScoreDriftThresholds_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
@@ -4219,7 +3964,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       }
       return attributionScoreDriftThresholds_;
     }
-
     public int getAttributionScoreDriftThresholdsCount() {
       return internalGetAttributionScoreDriftThresholds().getMap().size();
     }
@@ -4231,7 +3975,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_drift_thresholds = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsAttributionScoreDriftThresholds(
         java.lang.String key) {
@@ -4255,7 +3998,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_drift_thresholds = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> getAttributionScoreDriftThresholdsMap() {
       return internalGetAttributionScoreDriftThresholds().getMap();
     }
@@ -4268,10 +4010,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_drift_thresholds = 2;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.aiplatform.v1.ThresholdConfig getAttributionScoreDriftThresholdsOrDefault(
+    public /* nullable */
+com.google.cloud.aiplatform.v1.ThresholdConfig getAttributionScoreDriftThresholdsOrDefault(
         java.lang.String key,
-        com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue) {
+        /* nullable */
+com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> map =
           internalGetAttributionScoreDriftThresholds().getMap();
@@ -4286,7 +4029,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_drift_thresholds = 2;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.aiplatform.v1.ThresholdConfig getAttributionScoreDriftThresholdsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -4339,7 +4081,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.ThresholdConfigOrBuilder getDefaultDriftThresholdOrBuilder() {
-      return getDefaultDriftThreshold();
+      return defaultDriftThreshold_ == null ? com.google.cloud.aiplatform.v1.ThresholdConfig.getDefaultInstance() : defaultDriftThreshold_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4371,7 +4113,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       if (defaultDriftThreshold_ != null) {
         output.writeMessage(5, getDefaultDriftThreshold());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4404,7 +4146,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getDefaultDriftThreshold());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4428,7 +4170,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         if (!getDefaultDriftThreshold()
             .equals(other.getDefaultDriftThreshold())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4451,7 +4193,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         hash = (37 * hash) + DEFAULT_DRIFT_THRESHOLD_FIELD_NUMBER;
         hash = (53 * hash) + getDefaultDriftThreshold().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4598,28 +4340,23 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
 
       // Construct using com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutableDriftThresholds().clear();
         internalGetMutableAttributionScoreDriftThresholds().clear();
-        if (defaultDriftThresholdBuilder_ == null) {
-          defaultDriftThreshold_ = null;
-        } else {
-          defaultDriftThreshold_ = null;
+        defaultDriftThreshold_ = null;
+        if (defaultDriftThresholdBuilder_ != null) {
+          defaultDriftThresholdBuilder_.dispose();
           defaultDriftThresholdBuilder_ = null;
         }
         return this;
@@ -4648,18 +4385,26 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       @java.lang.Override
       public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig buildPartial() {
         com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig result = new com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig(this);
-        int from_bitField0_ = bitField0_;
-        result.driftThresholds_ = internalGetDriftThresholds();
-        result.driftThresholds_.makeImmutable();
-        result.attributionScoreDriftThresholds_ = internalGetAttributionScoreDriftThresholds();
-        result.attributionScoreDriftThresholds_.makeImmutable();
-        if (defaultDriftThresholdBuilder_ == null) {
-          result.defaultDriftThreshold_ = defaultDriftThreshold_;
-        } else {
-          result.defaultDriftThreshold_ = defaultDriftThresholdBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.driftThresholds_ = internalGetDriftThresholds();
+          result.driftThresholds_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.attributionScoreDriftThresholds_ = internalGetAttributionScoreDriftThresholds();
+          result.attributionScoreDriftThresholds_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.defaultDriftThreshold_ = defaultDriftThresholdBuilder_ == null
+              ? defaultDriftThreshold_
+              : defaultDriftThresholdBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -4708,12 +4453,14 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         if (other == com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.getDefaultInstance()) return this;
         internalGetMutableDriftThresholds().mergeFrom(
             other.internalGetDriftThresholds());
+        bitField0_ |= 0x00000001;
         internalGetMutableAttributionScoreDriftThresholds().mergeFrom(
             other.internalGetAttributionScoreDriftThresholds());
+        bitField0_ |= 0x00000002;
         if (other.hasDefaultDriftThreshold()) {
           mergeDefaultDriftThreshold(other.getDefaultDriftThreshold());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4728,17 +4475,55 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
+                driftThresholds__ = input.readMessage(
+                    DriftThresholdsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableDriftThresholds().getMutableMap().put(
+                    driftThresholds__.getKey(), driftThresholds__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
+                attributionScoreDriftThresholds__ = input.readMessage(
+                    AttributionScoreDriftThresholdsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableAttributionScoreDriftThresholds().getMutableMap().put(
+                    attributionScoreDriftThresholds__.getKey(), attributionScoreDriftThresholds__.getValue());
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 42: {
+                input.readMessage(
+                    getDefaultDriftThresholdFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -4746,7 +4531,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> driftThresholds_;
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
-      internalGetDriftThresholds() {
+          internalGetDriftThresholds() {
         if (driftThresholds_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               DriftThresholdsDefaultEntryHolder.defaultEntry);
@@ -4754,8 +4539,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         return driftThresholds_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
-      internalGetMutableDriftThresholds() {
-        onChanged();;
+          internalGetMutableDriftThresholds() {
         if (driftThresholds_ == null) {
           driftThresholds_ = com.google.protobuf.MapField.newMapField(
               DriftThresholdsDefaultEntryHolder.defaultEntry);
@@ -4763,9 +4547,10 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         if (!driftThresholds_.isMutable()) {
           driftThresholds_ = driftThresholds_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return driftThresholds_;
       }
-
       public int getDriftThresholdsCount() {
         return internalGetDriftThresholds().getMap().size();
       }
@@ -4779,7 +4564,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        *
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; drift_thresholds = 1;</code>
        */
-
       @java.lang.Override
       public boolean containsDriftThresholds(
           java.lang.String key) {
@@ -4805,7 +4589,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; drift_thresholds = 1;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> getDriftThresholdsMap() {
         return internalGetDriftThresholds().getMap();
       }
@@ -4820,10 +4603,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; drift_thresholds = 1;</code>
        */
       @java.lang.Override
-
-      public com.google.cloud.aiplatform.v1.ThresholdConfig getDriftThresholdsOrDefault(
+      public /* nullable */
+com.google.cloud.aiplatform.v1.ThresholdConfig getDriftThresholdsOrDefault(
           java.lang.String key,
-          com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue) {
+          /* nullable */
+com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> map =
             internalGetDriftThresholds().getMap();
@@ -4840,7 +4624,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; drift_thresholds = 1;</code>
        */
       @java.lang.Override
-
       public com.google.cloud.aiplatform.v1.ThresholdConfig getDriftThresholdsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -4851,8 +4634,8 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearDriftThresholds() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableDriftThresholds().getMutableMap()
             .clear();
         return this;
@@ -4867,7 +4650,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        *
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; drift_thresholds = 1;</code>
        */
-
       public Builder removeDriftThresholds(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -4880,7 +4662,8 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
-      getMutableDriftThresholds() {
+          getMutableDriftThresholds() {
+        bitField0_ |= 0x00000001;
         return internalGetMutableDriftThresholds().getMutableMap();
       }
       /**
@@ -4897,12 +4680,10 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           java.lang.String key,
           com.google.cloud.aiplatform.v1.ThresholdConfig value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableDriftThresholds().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
@@ -4915,18 +4696,18 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        *
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; drift_thresholds = 1;</code>
        */
-
       public Builder putAllDriftThresholds(
           java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> values) {
         internalGetMutableDriftThresholds().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> attributionScoreDriftThresholds_;
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
-      internalGetAttributionScoreDriftThresholds() {
+          internalGetAttributionScoreDriftThresholds() {
         if (attributionScoreDriftThresholds_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               AttributionScoreDriftThresholdsDefaultEntryHolder.defaultEntry);
@@ -4934,8 +4715,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         return attributionScoreDriftThresholds_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
-      internalGetMutableAttributionScoreDriftThresholds() {
-        onChanged();;
+          internalGetMutableAttributionScoreDriftThresholds() {
         if (attributionScoreDriftThresholds_ == null) {
           attributionScoreDriftThresholds_ = com.google.protobuf.MapField.newMapField(
               AttributionScoreDriftThresholdsDefaultEntryHolder.defaultEntry);
@@ -4943,9 +4723,10 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         if (!attributionScoreDriftThresholds_.isMutable()) {
           attributionScoreDriftThresholds_ = attributionScoreDriftThresholds_.copy();
         }
+        bitField0_ |= 0x00000002;
+        onChanged();
         return attributionScoreDriftThresholds_;
       }
-
       public int getAttributionScoreDriftThresholdsCount() {
         return internalGetAttributionScoreDriftThresholds().getMap().size();
       }
@@ -4957,7 +4738,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        *
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_drift_thresholds = 2;</code>
        */
-
       @java.lang.Override
       public boolean containsAttributionScoreDriftThresholds(
           java.lang.String key) {
@@ -4981,7 +4761,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_drift_thresholds = 2;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> getAttributionScoreDriftThresholdsMap() {
         return internalGetAttributionScoreDriftThresholds().getMap();
       }
@@ -4994,10 +4773,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_drift_thresholds = 2;</code>
        */
       @java.lang.Override
-
-      public com.google.cloud.aiplatform.v1.ThresholdConfig getAttributionScoreDriftThresholdsOrDefault(
+      public /* nullable */
+com.google.cloud.aiplatform.v1.ThresholdConfig getAttributionScoreDriftThresholdsOrDefault(
           java.lang.String key,
-          com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue) {
+          /* nullable */
+com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> map =
             internalGetAttributionScoreDriftThresholds().getMap();
@@ -5012,7 +4792,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_drift_thresholds = 2;</code>
        */
       @java.lang.Override
-
       public com.google.cloud.aiplatform.v1.ThresholdConfig getAttributionScoreDriftThresholdsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -5023,8 +4802,8 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearAttributionScoreDriftThresholds() {
+        bitField0_ = (bitField0_ & ~0x00000002);
         internalGetMutableAttributionScoreDriftThresholds().getMutableMap()
             .clear();
         return this;
@@ -5037,7 +4816,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        *
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_drift_thresholds = 2;</code>
        */
-
       public Builder removeAttributionScoreDriftThresholds(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -5050,7 +4828,8 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig>
-      getMutableAttributionScoreDriftThresholds() {
+          getMutableAttributionScoreDriftThresholds() {
+        bitField0_ |= 0x00000002;
         return internalGetMutableAttributionScoreDriftThresholds().getMutableMap();
       }
       /**
@@ -5065,12 +4844,10 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           java.lang.String key,
           com.google.cloud.aiplatform.v1.ThresholdConfig value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableAttributionScoreDriftThresholds().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
@@ -5081,11 +4858,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        *
        * <code>map&lt;string, .google.cloud.aiplatform.v1.ThresholdConfig&gt; attribution_score_drift_thresholds = 2;</code>
        */
-
       public Builder putAllAttributionScoreDriftThresholds(
           java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.ThresholdConfig> values) {
         internalGetMutableAttributionScoreDriftThresholds().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000002;
         return this;
       }
 
@@ -5103,7 +4880,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * @return Whether the defaultDriftThreshold field is set.
        */
       public boolean hasDefaultDriftThreshold() {
-        return defaultDriftThresholdBuilder_ != null || defaultDriftThreshold_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -5137,11 +4914,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
             throw new NullPointerException();
           }
           defaultDriftThreshold_ = value;
-          onChanged();
         } else {
           defaultDriftThresholdBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -5157,11 +4934,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           com.google.cloud.aiplatform.v1.ThresholdConfig.Builder builderForValue) {
         if (defaultDriftThresholdBuilder_ == null) {
           defaultDriftThreshold_ = builderForValue.build();
-          onChanged();
         } else {
           defaultDriftThresholdBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -5175,17 +4952,18 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        */
       public Builder mergeDefaultDriftThreshold(com.google.cloud.aiplatform.v1.ThresholdConfig value) {
         if (defaultDriftThresholdBuilder_ == null) {
-          if (defaultDriftThreshold_ != null) {
-            defaultDriftThreshold_ =
-              com.google.cloud.aiplatform.v1.ThresholdConfig.newBuilder(defaultDriftThreshold_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            defaultDriftThreshold_ != null &&
+            defaultDriftThreshold_ != com.google.cloud.aiplatform.v1.ThresholdConfig.getDefaultInstance()) {
+            getDefaultDriftThresholdBuilder().mergeFrom(value);
           } else {
             defaultDriftThreshold_ = value;
           }
-          onChanged();
         } else {
           defaultDriftThresholdBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -5198,14 +4976,13 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>.google.cloud.aiplatform.v1.ThresholdConfig default_drift_threshold = 5;</code>
        */
       public Builder clearDefaultDriftThreshold() {
-        if (defaultDriftThresholdBuilder_ == null) {
-          defaultDriftThreshold_ = null;
-          onChanged();
-        } else {
-          defaultDriftThreshold_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        defaultDriftThreshold_ = null;
+        if (defaultDriftThresholdBuilder_ != null) {
+          defaultDriftThresholdBuilder_.dispose();
           defaultDriftThresholdBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -5218,7 +4995,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>.google.cloud.aiplatform.v1.ThresholdConfig default_drift_threshold = 5;</code>
        */
       public com.google.cloud.aiplatform.v1.ThresholdConfig.Builder getDefaultDriftThresholdBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getDefaultDriftThresholdFieldBuilder().getBuilder();
       }
@@ -5294,7 +5071,18 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PredictionDriftDetectionConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5388,63 +5176,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ExplanationConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              enableFeatureAttributes_ = input.readBool();
-              break;
-            }
-            case 18: {
-              com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.Builder subBuilder = null;
-              if (explanationBaseline_ != null) {
-                subBuilder = explanationBaseline_.toBuilder();
-              }
-              explanationBaseline_ = input.readMessage(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(explanationBaseline_);
-                explanationBaseline_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -5570,79 +5301,6 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
-      }
-      private ExplanationBaseline(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                int rawValue = input.readEnum();
-
-                predictionFormat_ = rawValue;
-                break;
-              }
-              case 18: {
-                com.google.cloud.aiplatform.v1.GcsDestination.Builder subBuilder = null;
-                if (destinationCase_ == 2) {
-                  subBuilder = ((com.google.cloud.aiplatform.v1.GcsDestination) destination_).toBuilder();
-                }
-                destination_ =
-                    input.readMessage(com.google.cloud.aiplatform.v1.GcsDestination.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((com.google.cloud.aiplatform.v1.GcsDestination) destination_);
-                  destination_ = subBuilder.buildPartial();
-                }
-                destinationCase_ = 2;
-                break;
-              }
-              case 26: {
-                com.google.cloud.aiplatform.v1.BigQueryDestination.Builder subBuilder = null;
-                if (destinationCase_ == 3) {
-                  subBuilder = ((com.google.cloud.aiplatform.v1.BigQueryDestination) destination_).toBuilder();
-                }
-                destination_ =
-                    input.readMessage(com.google.cloud.aiplatform.v1.BigQueryDestination.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((com.google.cloud.aiplatform.v1.BigQueryDestination) destination_);
-                  destination_ = subBuilder.buildPartial();
-                }
-                destinationCase_ = 3;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -5930,7 +5588,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       }
 
       public static final int PREDICTION_FORMAT_FIELD_NUMBER = 1;
-      private int predictionFormat_;
+      private int predictionFormat_ = 0;
       /**
        * <pre>
        * The storage format of the predictions generated BatchPrediction job.
@@ -5951,8 +5609,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * @return The predictionFormat.
        */
       @java.lang.Override public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat getPredictionFormat() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat result = com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat.valueOf(predictionFormat_);
+        com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat result = com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat.forNumber(predictionFormat_);
         return result == null ? com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat.UNRECOGNIZED : result;
       }
 
@@ -5979,7 +5636,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         if (destinationCase_ == 3) {
           output.writeMessage(3, (com.google.cloud.aiplatform.v1.BigQueryDestination) destination_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -6000,7 +5657,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(3, (com.google.cloud.aiplatform.v1.BigQueryDestination) destination_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -6029,7 +5686,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           case 0:
           default:
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -6054,7 +5711,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           case 0:
           default:
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -6176,24 +5833,25 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
 
         // Construct using com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
+          if (gcsBuilder_ != null) {
+            gcsBuilder_.clear();
+          }
+          if (bigqueryBuilder_ != null) {
+            bigqueryBuilder_.clear();
+          }
           predictionFormat_ = 0;
-
           destinationCase_ = 0;
           destination_ = null;
           return this;
@@ -6222,24 +5880,30 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         @java.lang.Override
         public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline buildPartial() {
           com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline result = new com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline(this);
-          if (destinationCase_ == 2) {
-            if (gcsBuilder_ == null) {
-              result.destination_ = destination_;
-            } else {
-              result.destination_ = gcsBuilder_.build();
-            }
-          }
-          if (destinationCase_ == 3) {
-            if (bigqueryBuilder_ == null) {
-              result.destination_ = destination_;
-            } else {
-              result.destination_ = bigqueryBuilder_.build();
-            }
-          }
-          result.predictionFormat_ = predictionFormat_;
-          result.destinationCase_ = destinationCase_;
+          if (bitField0_ != 0) { buildPartial0(result); }
+          buildPartialOneofs(result);
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.predictionFormat_ = predictionFormat_;
+          }
+        }
+
+        private void buildPartialOneofs(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline result) {
+          result.destinationCase_ = destinationCase_;
+          result.destination_ = this.destination_;
+          if (destinationCase_ == 2 &&
+              gcsBuilder_ != null) {
+            result.destination_ = gcsBuilder_.build();
+          }
+          if (destinationCase_ == 3 &&
+              bigqueryBuilder_ != null) {
+            result.destination_ = bigqueryBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -6302,7 +5966,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
               break;
             }
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -6317,17 +5981,49 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  predictionFormat_ = input.readEnum();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 8
+                case 18: {
+                  input.readMessage(
+                      getGcsFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  destinationCase_ = 2;
+                  break;
+                } // case 18
+                case 26: {
+                  input.readMessage(
+                      getBigqueryFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  destinationCase_ = 3;
+                  break;
+                } // case 26
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int destinationCase_ = 0;
@@ -6345,6 +6041,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           return this;
         }
 
+        private int bitField0_;
 
         private com.google.protobuf.SingleFieldBuilderV3<
             com.google.cloud.aiplatform.v1.GcsDestination, com.google.cloud.aiplatform.v1.GcsDestination.Builder, com.google.cloud.aiplatform.v1.GcsDestinationOrBuilder> gcsBuilder_;
@@ -6520,7 +6217,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
             destination_ = null;
           }
           destinationCase_ = 2;
-          onChanged();;
+          onChanged();
           return gcsBuilder_;
         }
 
@@ -6698,7 +6395,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
             destination_ = null;
           }
           destinationCase_ = 3;
-          onChanged();;
+          onChanged();
           return bigqueryBuilder_;
         }
 
@@ -6724,8 +6421,8 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
          * @return This builder for chaining.
          */
         public Builder setPredictionFormatValue(int value) {
-          
           predictionFormat_ = value;
+          bitField0_ |= 0x00000004;
           onChanged();
           return this;
         }
@@ -6739,8 +6436,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
          */
         @java.lang.Override
         public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat getPredictionFormat() {
-          @SuppressWarnings("deprecation")
-          com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat result = com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat.valueOf(predictionFormat_);
+          com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat result = com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat.forNumber(predictionFormat_);
           return result == null ? com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat.UNRECOGNIZED : result;
         }
         /**
@@ -6756,7 +6452,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           if (value == null) {
             throw new NullPointerException();
           }
-          
+          bitField0_ |= 0x00000004;
           predictionFormat_ = value.getNumber();
           onChanged();
           return this;
@@ -6770,7 +6466,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
          * @return This builder for chaining.
          */
         public Builder clearPredictionFormat() {
-          
+          bitField0_ = (bitField0_ & ~0x00000004);
           predictionFormat_ = 0;
           onChanged();
           return this;
@@ -6808,7 +6504,18 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ExplanationBaseline(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -6829,7 +6536,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
     }
 
     public static final int ENABLE_FEATURE_ATTRIBUTES_FIELD_NUMBER = 1;
-    private boolean enableFeatureAttributes_;
+    private boolean enableFeatureAttributes_ = false;
     /**
      * <pre>
      * If want to analyze the Vertex Explainable AI feature attribute scores or
@@ -6880,7 +6587,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaselineOrBuilder getExplanationBaselineOrBuilder() {
-      return getExplanationBaseline();
+      return explanationBaseline_ == null ? com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.getDefaultInstance() : explanationBaseline_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6903,7 +6610,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       if (explanationBaseline_ != null) {
         output.writeMessage(2, getExplanationBaseline());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6920,7 +6627,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getExplanationBaseline());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6942,7 +6649,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         if (!getExplanationBaseline()
             .equals(other.getExplanationBaseline())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6960,7 +6667,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         hash = (37 * hash) + EXPLANATION_BASELINE_FIELD_NUMBER;
         hash = (53 * hash) + getExplanationBaseline().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7082,28 +6789,22 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
 
       // Construct using com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         enableFeatureAttributes_ = false;
-
-        if (explanationBaselineBuilder_ == null) {
-          explanationBaseline_ = null;
-        } else {
-          explanationBaseline_ = null;
+        explanationBaseline_ = null;
+        if (explanationBaselineBuilder_ != null) {
+          explanationBaselineBuilder_.dispose();
           explanationBaselineBuilder_ = null;
         }
         return this;
@@ -7132,14 +6833,21 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       @java.lang.Override
       public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig buildPartial() {
         com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig result = new com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig(this);
-        result.enableFeatureAttributes_ = enableFeatureAttributes_;
-        if (explanationBaselineBuilder_ == null) {
-          result.explanationBaseline_ = explanationBaseline_;
-        } else {
-          result.explanationBaseline_ = explanationBaselineBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.enableFeatureAttributes_ = enableFeatureAttributes_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.explanationBaseline_ = explanationBaselineBuilder_ == null
+              ? explanationBaseline_
+              : explanationBaselineBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -7192,7 +6900,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         if (other.hasExplanationBaseline()) {
           mergeExplanationBaseline(other.getExplanationBaseline());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -7207,19 +6915,45 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                enableFeatureAttributes_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                input.readMessage(
+                    getExplanationBaselineFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private boolean enableFeatureAttributes_ ;
       /**
@@ -7250,6 +6984,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       public Builder setEnableFeatureAttributes(boolean value) {
         
         enableFeatureAttributes_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7264,7 +6999,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearEnableFeatureAttributes() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         enableFeatureAttributes_ = false;
         onChanged();
         return this;
@@ -7282,7 +7017,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * @return Whether the explanationBaseline field is set.
        */
       public boolean hasExplanationBaseline() {
-        return explanationBaselineBuilder_ != null || explanationBaseline_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -7312,11 +7047,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
             throw new NullPointerException();
           }
           explanationBaseline_ = value;
-          onChanged();
         } else {
           explanationBaselineBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -7330,11 +7065,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.Builder builderForValue) {
         if (explanationBaselineBuilder_ == null) {
           explanationBaseline_ = builderForValue.build();
-          onChanged();
         } else {
           explanationBaselineBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -7346,17 +7081,18 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        */
       public Builder mergeExplanationBaseline(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline value) {
         if (explanationBaselineBuilder_ == null) {
-          if (explanationBaseline_ != null) {
-            explanationBaseline_ =
-              com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.newBuilder(explanationBaseline_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            explanationBaseline_ != null &&
+            explanationBaseline_ != com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.getDefaultInstance()) {
+            getExplanationBaselineBuilder().mergeFrom(value);
           } else {
             explanationBaseline_ = value;
           }
-          onChanged();
         } else {
           explanationBaselineBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -7367,14 +7103,13 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline explanation_baseline = 2;</code>
        */
       public Builder clearExplanationBaseline() {
-        if (explanationBaselineBuilder_ == null) {
-          explanationBaseline_ = null;
-          onChanged();
-        } else {
-          explanationBaseline_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        explanationBaseline_ = null;
+        if (explanationBaselineBuilder_ != null) {
+          explanationBaselineBuilder_.dispose();
           explanationBaselineBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -7385,7 +7120,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
        * <code>.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline explanation_baseline = 2;</code>
        */
       public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.Builder getExplanationBaselineBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getExplanationBaselineFieldBuilder().getBuilder();
       }
@@ -7457,7 +7192,18 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ExplanationConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7515,7 +7261,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDatasetOrBuilder getTrainingDatasetOrBuilder() {
-    return getTrainingDataset();
+    return trainingDataset_ == null ? com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset.getDefaultInstance() : trainingDataset_;
   }
 
   public static final int TRAINING_PREDICTION_SKEW_DETECTION_CONFIG_FIELD_NUMBER = 2;
@@ -7553,7 +7299,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfigOrBuilder getTrainingPredictionSkewDetectionConfigOrBuilder() {
-    return getTrainingPredictionSkewDetectionConfig();
+    return trainingPredictionSkewDetectionConfig_ == null ? com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.getDefaultInstance() : trainingPredictionSkewDetectionConfig_;
   }
 
   public static final int PREDICTION_DRIFT_DETECTION_CONFIG_FIELD_NUMBER = 3;
@@ -7591,7 +7337,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfigOrBuilder getPredictionDriftDetectionConfigOrBuilder() {
-    return getPredictionDriftDetectionConfig();
+    return predictionDriftDetectionConfig_ == null ? com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.getDefaultInstance() : predictionDriftDetectionConfig_;
   }
 
   public static final int EXPLANATION_CONFIG_FIELD_NUMBER = 5;
@@ -7629,7 +7375,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfigOrBuilder getExplanationConfigOrBuilder() {
-    return getExplanationConfig();
+    return explanationConfig_ == null ? com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.getDefaultInstance() : explanationConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -7658,7 +7404,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
     if (explanationConfig_ != null) {
       output.writeMessage(5, getExplanationConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -7683,7 +7429,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getExplanationConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -7718,7 +7464,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       if (!getExplanationConfig()
           .equals(other.getExplanationConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -7745,7 +7491,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       hash = (37 * hash) + EXPLANATION_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getExplanationConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -7842,7 +7588,8 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
   }
   /**
    * <pre>
-   * Next ID: 8
+   * The objective configuration for model monitoring, including the information
+   * needed to detect anomalies for one particular model.
    * </pre>
    *
    * Protobuf type {@code google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig}
@@ -7866,44 +7613,36 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
 
     // Construct using com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (trainingDatasetBuilder_ == null) {
-        trainingDataset_ = null;
-      } else {
-        trainingDataset_ = null;
+      bitField0_ = 0;
+      trainingDataset_ = null;
+      if (trainingDatasetBuilder_ != null) {
+        trainingDatasetBuilder_.dispose();
         trainingDatasetBuilder_ = null;
       }
-      if (trainingPredictionSkewDetectionConfigBuilder_ == null) {
-        trainingPredictionSkewDetectionConfig_ = null;
-      } else {
-        trainingPredictionSkewDetectionConfig_ = null;
+      trainingPredictionSkewDetectionConfig_ = null;
+      if (trainingPredictionSkewDetectionConfigBuilder_ != null) {
+        trainingPredictionSkewDetectionConfigBuilder_.dispose();
         trainingPredictionSkewDetectionConfigBuilder_ = null;
       }
-      if (predictionDriftDetectionConfigBuilder_ == null) {
-        predictionDriftDetectionConfig_ = null;
-      } else {
-        predictionDriftDetectionConfig_ = null;
+      predictionDriftDetectionConfig_ = null;
+      if (predictionDriftDetectionConfigBuilder_ != null) {
+        predictionDriftDetectionConfigBuilder_.dispose();
         predictionDriftDetectionConfigBuilder_ = null;
       }
-      if (explanationConfigBuilder_ == null) {
-        explanationConfig_ = null;
-      } else {
-        explanationConfig_ = null;
+      explanationConfig_ = null;
+      if (explanationConfigBuilder_ != null) {
+        explanationConfigBuilder_.dispose();
         explanationConfigBuilder_ = null;
       }
       return this;
@@ -7932,28 +7671,33 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig buildPartial() {
       com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig result = new com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig(this);
-      if (trainingDatasetBuilder_ == null) {
-        result.trainingDataset_ = trainingDataset_;
-      } else {
-        result.trainingDataset_ = trainingDatasetBuilder_.build();
-      }
-      if (trainingPredictionSkewDetectionConfigBuilder_ == null) {
-        result.trainingPredictionSkewDetectionConfig_ = trainingPredictionSkewDetectionConfig_;
-      } else {
-        result.trainingPredictionSkewDetectionConfig_ = trainingPredictionSkewDetectionConfigBuilder_.build();
-      }
-      if (predictionDriftDetectionConfigBuilder_ == null) {
-        result.predictionDriftDetectionConfig_ = predictionDriftDetectionConfig_;
-      } else {
-        result.predictionDriftDetectionConfig_ = predictionDriftDetectionConfigBuilder_.build();
-      }
-      if (explanationConfigBuilder_ == null) {
-        result.explanationConfig_ = explanationConfig_;
-      } else {
-        result.explanationConfig_ = explanationConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.trainingDataset_ = trainingDatasetBuilder_ == null
+            ? trainingDataset_
+            : trainingDatasetBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.trainingPredictionSkewDetectionConfig_ = trainingPredictionSkewDetectionConfigBuilder_ == null
+            ? trainingPredictionSkewDetectionConfig_
+            : trainingPredictionSkewDetectionConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.predictionDriftDetectionConfig_ = predictionDriftDetectionConfigBuilder_ == null
+            ? predictionDriftDetectionConfig_
+            : predictionDriftDetectionConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.explanationConfig_ = explanationConfigBuilder_ == null
+            ? explanationConfig_
+            : explanationConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -8012,7 +7756,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
       if (other.hasExplanationConfig()) {
         mergeExplanationConfig(other.getExplanationConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -8027,19 +7771,61 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTrainingDatasetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTrainingPredictionSkewDetectionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getPredictionDriftDetectionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 42: {
+              input.readMessage(
+                  getExplanationConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset trainingDataset_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -8054,7 +7840,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * @return Whether the trainingDataset field is set.
      */
     public boolean hasTrainingDataset() {
-      return trainingDatasetBuilder_ != null || trainingDataset_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -8086,11 +7872,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           throw new NullPointerException();
         }
         trainingDataset_ = value;
-        onChanged();
       } else {
         trainingDatasetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -8105,11 +7891,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset.Builder builderForValue) {
       if (trainingDatasetBuilder_ == null) {
         trainingDataset_ = builderForValue.build();
-        onChanged();
       } else {
         trainingDatasetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -8122,17 +7908,18 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      */
     public Builder mergeTrainingDataset(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset value) {
       if (trainingDatasetBuilder_ == null) {
-        if (trainingDataset_ != null) {
-          trainingDataset_ =
-            com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset.newBuilder(trainingDataset_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          trainingDataset_ != null &&
+          trainingDataset_ != com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset.getDefaultInstance()) {
+          getTrainingDatasetBuilder().mergeFrom(value);
         } else {
           trainingDataset_ = value;
         }
-        onChanged();
       } else {
         trainingDatasetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -8144,14 +7931,13 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset training_dataset = 1;</code>
      */
     public Builder clearTrainingDataset() {
-      if (trainingDatasetBuilder_ == null) {
-        trainingDataset_ = null;
-        onChanged();
-      } else {
-        trainingDataset_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      trainingDataset_ = null;
+      if (trainingDatasetBuilder_ != null) {
+        trainingDatasetBuilder_.dispose();
         trainingDatasetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -8163,7 +7949,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset training_dataset = 1;</code>
      */
     public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingDataset.Builder getTrainingDatasetBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getTrainingDatasetFieldBuilder().getBuilder();
     }
@@ -8217,7 +8003,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * @return Whether the trainingPredictionSkewDetectionConfig field is set.
      */
     public boolean hasTrainingPredictionSkewDetectionConfig() {
-      return trainingPredictionSkewDetectionConfigBuilder_ != null || trainingPredictionSkewDetectionConfig_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -8247,11 +8033,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           throw new NullPointerException();
         }
         trainingPredictionSkewDetectionConfig_ = value;
-        onChanged();
       } else {
         trainingPredictionSkewDetectionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -8265,11 +8051,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.Builder builderForValue) {
       if (trainingPredictionSkewDetectionConfigBuilder_ == null) {
         trainingPredictionSkewDetectionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         trainingPredictionSkewDetectionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -8281,17 +8067,18 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      */
     public Builder mergeTrainingPredictionSkewDetectionConfig(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig value) {
       if (trainingPredictionSkewDetectionConfigBuilder_ == null) {
-        if (trainingPredictionSkewDetectionConfig_ != null) {
-          trainingPredictionSkewDetectionConfig_ =
-            com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.newBuilder(trainingPredictionSkewDetectionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          trainingPredictionSkewDetectionConfig_ != null &&
+          trainingPredictionSkewDetectionConfig_ != com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.getDefaultInstance()) {
+          getTrainingPredictionSkewDetectionConfigBuilder().mergeFrom(value);
         } else {
           trainingPredictionSkewDetectionConfig_ = value;
         }
-        onChanged();
       } else {
         trainingPredictionSkewDetectionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -8302,14 +8089,13 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig training_prediction_skew_detection_config = 2;</code>
      */
     public Builder clearTrainingPredictionSkewDetectionConfig() {
-      if (trainingPredictionSkewDetectionConfigBuilder_ == null) {
-        trainingPredictionSkewDetectionConfig_ = null;
-        onChanged();
-      } else {
-        trainingPredictionSkewDetectionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      trainingPredictionSkewDetectionConfig_ = null;
+      if (trainingPredictionSkewDetectionConfigBuilder_ != null) {
+        trainingPredictionSkewDetectionConfigBuilder_.dispose();
         trainingPredictionSkewDetectionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -8320,7 +8106,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig training_prediction_skew_detection_config = 2;</code>
      */
     public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.Builder getTrainingPredictionSkewDetectionConfigBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTrainingPredictionSkewDetectionConfigFieldBuilder().getBuilder();
     }
@@ -8372,7 +8158,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * @return Whether the predictionDriftDetectionConfig field is set.
      */
     public boolean hasPredictionDriftDetectionConfig() {
-      return predictionDriftDetectionConfigBuilder_ != null || predictionDriftDetectionConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -8402,11 +8188,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           throw new NullPointerException();
         }
         predictionDriftDetectionConfig_ = value;
-        onChanged();
       } else {
         predictionDriftDetectionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -8420,11 +8206,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.Builder builderForValue) {
       if (predictionDriftDetectionConfigBuilder_ == null) {
         predictionDriftDetectionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         predictionDriftDetectionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -8436,17 +8222,18 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      */
     public Builder mergePredictionDriftDetectionConfig(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig value) {
       if (predictionDriftDetectionConfigBuilder_ == null) {
-        if (predictionDriftDetectionConfig_ != null) {
-          predictionDriftDetectionConfig_ =
-            com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.newBuilder(predictionDriftDetectionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          predictionDriftDetectionConfig_ != null &&
+          predictionDriftDetectionConfig_ != com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.getDefaultInstance()) {
+          getPredictionDriftDetectionConfigBuilder().mergeFrom(value);
         } else {
           predictionDriftDetectionConfig_ = value;
         }
-        onChanged();
       } else {
         predictionDriftDetectionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -8457,14 +8244,13 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig prediction_drift_detection_config = 3;</code>
      */
     public Builder clearPredictionDriftDetectionConfig() {
-      if (predictionDriftDetectionConfigBuilder_ == null) {
-        predictionDriftDetectionConfig_ = null;
-        onChanged();
-      } else {
-        predictionDriftDetectionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      predictionDriftDetectionConfig_ = null;
+      if (predictionDriftDetectionConfigBuilder_ != null) {
+        predictionDriftDetectionConfigBuilder_.dispose();
         predictionDriftDetectionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -8475,7 +8261,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig prediction_drift_detection_config = 3;</code>
      */
     public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.Builder getPredictionDriftDetectionConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getPredictionDriftDetectionConfigFieldBuilder().getBuilder();
     }
@@ -8527,7 +8313,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * @return Whether the explanationConfig field is set.
      */
     public boolean hasExplanationConfig() {
-      return explanationConfigBuilder_ != null || explanationConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -8557,11 +8343,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
           throw new NullPointerException();
         }
         explanationConfig_ = value;
-        onChanged();
       } else {
         explanationConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -8575,11 +8361,11 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.Builder builderForValue) {
       if (explanationConfigBuilder_ == null) {
         explanationConfig_ = builderForValue.build();
-        onChanged();
       } else {
         explanationConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -8591,17 +8377,18 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      */
     public Builder mergeExplanationConfig(com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig value) {
       if (explanationConfigBuilder_ == null) {
-        if (explanationConfig_ != null) {
-          explanationConfig_ =
-            com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.newBuilder(explanationConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          explanationConfig_ != null &&
+          explanationConfig_ != com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.getDefaultInstance()) {
+          getExplanationConfigBuilder().mergeFrom(value);
         } else {
           explanationConfig_ = value;
         }
-        onChanged();
       } else {
         explanationConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -8612,14 +8399,13 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig explanation_config = 5;</code>
      */
     public Builder clearExplanationConfig() {
-      if (explanationConfigBuilder_ == null) {
-        explanationConfig_ = null;
-        onChanged();
-      } else {
-        explanationConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      explanationConfig_ = null;
+      if (explanationConfigBuilder_ != null) {
+        explanationConfigBuilder_.dispose();
         explanationConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -8630,7 +8416,7 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
      * <code>.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig explanation_config = 5;</code>
      */
     public com.google.cloud.aiplatform.v1.ModelMonitoringObjectiveConfig.ExplanationConfig.Builder getExplanationConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getExplanationConfigFieldBuilder().getBuilder();
     }
@@ -8702,7 +8488,18 @@ com.google.cloud.aiplatform.v1.ThresholdConfig defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ModelMonitoringObjectiveConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

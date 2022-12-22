@@ -39,141 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TripWaypoint(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            google.maps.fleetengine.v1.TerminalLocation.Builder subBuilder = null;
-            if (location_ != null) {
-              subBuilder = location_.toBuilder();
-            }
-            location_ = input.readMessage(google.maps.fleetengine.v1.TerminalLocation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(location_);
-              location_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            tripId_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            waypointType_ = rawValue;
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              pathToWaypoint_ = new java.util.ArrayList<com.google.type.LatLng>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            pathToWaypoint_.add(
-                input.readMessage(com.google.type.LatLng.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            encodedPathToWaypoint_ = s;
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (distanceMeters_ != null) {
-              subBuilder = distanceMeters_.toBuilder();
-            }
-            distanceMeters_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(distanceMeters_);
-              distanceMeters_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (eta_ != null) {
-              subBuilder = eta_.toBuilder();
-            }
-            eta_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(eta_);
-              eta_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (duration_ != null) {
-              subBuilder = duration_.toBuilder();
-            }
-            duration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(duration_);
-              duration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            google.maps.fleetengine.v1.ConsumableTrafficPolyline.Builder subBuilder = null;
-            if (trafficToWaypoint_ != null) {
-              subBuilder = trafficToWaypoint_.toBuilder();
-            }
-            trafficToWaypoint_ = input.readMessage(google.maps.fleetengine.v1.ConsumableTrafficPolyline.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(trafficToWaypoint_);
-              trafficToWaypoint_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        pathToWaypoint_ = java.util.Collections.unmodifiableList(pathToWaypoint_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.v1.FleetEngine.internal_static_maps_fleetengine_v1_TripWaypoint_descriptor;
@@ -222,11 +87,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.v1.TerminalLocationOrBuilder getLocationOrBuilder() {
-    return getLocation();
+    return location_ == null ? google.maps.fleetengine.v1.TerminalLocation.getDefaultInstance() : location_;
   }
 
   public static final int TRIP_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object tripId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object tripId_ = "";
   /**
    * <pre>
    * The trip associated with this waypoint.
@@ -272,7 +138,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WAYPOINT_TYPE_FIELD_NUMBER = 3;
-  private int waypointType_;
+  private int waypointType_ = 0;
   /**
    * <pre>
    * The role this waypoint plays in this trip, such as pickup or dropoff.
@@ -293,16 +159,17 @@ private static final long serialVersionUID = 0L;
    * @return The waypointType.
    */
   @java.lang.Override public google.maps.fleetengine.v1.WaypointType getWaypointType() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.v1.WaypointType result = google.maps.fleetengine.v1.WaypointType.valueOf(waypointType_);
+    google.maps.fleetengine.v1.WaypointType result = google.maps.fleetengine.v1.WaypointType.forNumber(waypointType_);
     return result == null ? google.maps.fleetengine.v1.WaypointType.UNRECOGNIZED : result;
   }
 
   public static final int PATH_TO_WAYPOINT_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.type.LatLng> pathToWaypoint_;
   /**
    * <pre>
-   * The path from the previous waypoint to the current waypoint.
+   * The path from the previous waypoint to the current waypoint.  Undefined for
+   * the first waypoint in a list. This field is only populated when requested.
    * </pre>
    *
    * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -313,7 +180,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The path from the previous waypoint to the current waypoint.
+   * The path from the previous waypoint to the current waypoint.  Undefined for
+   * the first waypoint in a list. This field is only populated when requested.
    * </pre>
    *
    * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -325,7 +193,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The path from the previous waypoint to the current waypoint.
+   * The path from the previous waypoint to the current waypoint.  Undefined for
+   * the first waypoint in a list. This field is only populated when requested.
    * </pre>
    *
    * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -336,7 +205,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The path from the previous waypoint to the current waypoint.
+   * The path from the previous waypoint to the current waypoint.  Undefined for
+   * the first waypoint in a list. This field is only populated when requested.
    * </pre>
    *
    * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -347,7 +217,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The path from the previous waypoint to the current waypoint.
+   * The path from the previous waypoint to the current waypoint.  Undefined for
+   * the first waypoint in a list. This field is only populated when requested.
    * </pre>
    *
    * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -359,11 +230,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENCODED_PATH_TO_WAYPOINT_FIELD_NUMBER = 5;
-  private volatile java.lang.Object encodedPathToWaypoint_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object encodedPathToWaypoint_ = "";
   /**
    * <pre>
    * The encoded path from the previous waypoint to the current waypoint.
-   * Decoding is not yet supported.
+   * &lt;p&gt;Note: This field is intended only for use by the Driver SDK and Consumer
+   * SDK. Decoding is not yet supported.
    * </pre>
    *
    * <code>string encoded_path_to_waypoint = 5;</code>
@@ -385,7 +258,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The encoded path from the previous waypoint to the current waypoint.
-   * Decoding is not yet supported.
+   * &lt;p&gt;Note: This field is intended only for use by the Driver SDK and Consumer
+   * SDK. Decoding is not yet supported.
    * </pre>
    *
    * <code>string encoded_path_to_waypoint = 5;</code>
@@ -447,17 +321,15 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.v1.ConsumableTrafficPolylineOrBuilder getTrafficToWaypointOrBuilder() {
-    return getTrafficToWaypoint();
+    return trafficToWaypoint_ == null ? google.maps.fleetengine.v1.ConsumableTrafficPolyline.getDefaultInstance() : trafficToWaypoint_;
   }
 
   public static final int DISTANCE_METERS_FIELD_NUMBER = 6;
   private com.google.protobuf.Int32Value distanceMeters_;
   /**
    * <pre>
-   * The path distance from the previous waypoint to the current waypoint. If
-   * the waypoint is the first waypoint in the list (e.g.,
-   * `Vehicle.waypoints[0]` or `Trip.remaining_waypoints[0]`), then the value of
-   * this field is undefined.
+   * The path distance from the previous waypoint to the current waypoint.
+   * Undefined for the first waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value distance_meters = 6;</code>
@@ -469,10 +341,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The path distance from the previous waypoint to the current waypoint. If
-   * the waypoint is the first waypoint in the list (e.g.,
-   * `Vehicle.waypoints[0]` or `Trip.remaining_waypoints[0]`), then the value of
-   * this field is undefined.
+   * The path distance from the previous waypoint to the current waypoint.
+   * Undefined for the first waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value distance_meters = 6;</code>
@@ -484,24 +354,23 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The path distance from the previous waypoint to the current waypoint. If
-   * the waypoint is the first waypoint in the list (e.g.,
-   * `Vehicle.waypoints[0]` or `Trip.remaining_waypoints[0]`), then the value of
-   * this field is undefined.
+   * The path distance from the previous waypoint to the current waypoint.
+   * Undefined for the first waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value distance_meters = 6;</code>
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getDistanceMetersOrBuilder() {
-    return getDistanceMeters();
+    return distanceMeters_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : distanceMeters_;
   }
 
   public static final int ETA_FIELD_NUMBER = 7;
   private com.google.protobuf.Timestamp eta_;
   /**
    * <pre>
-   * The estimated time of arrival at this waypoint.
+   * The estimated time of arrival at this waypoint. Undefined for the first
+   * waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp eta = 7;</code>
@@ -513,7 +382,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The estimated time of arrival at this waypoint.
+   * The estimated time of arrival at this waypoint. Undefined for the first
+   * waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp eta = 7;</code>
@@ -525,24 +395,23 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The estimated time of arrival at this waypoint.
+   * The estimated time of arrival at this waypoint. Undefined for the first
+   * waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp eta = 7;</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getEtaOrBuilder() {
-    return getEta();
+    return eta_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : eta_;
   }
 
   public static final int DURATION_FIELD_NUMBER = 8;
   private com.google.protobuf.Duration duration_;
   /**
    * <pre>
-   * The travel time from previous waypoint to this point. If the waypoint is
-   * the first waypoint in the list (e.g., `Vehicle.waypoints[0]` or
-   * `Trip.remaining_waypoints[0]`), then this value indicates the remaining
-   * time to the waypoint.
+   * The travel time from previous waypoint to this point. Undefined for the
+   * first waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Duration duration = 8;</code>
@@ -554,10 +423,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The travel time from previous waypoint to this point. If the waypoint is
-   * the first waypoint in the list (e.g., `Vehicle.waypoints[0]` or
-   * `Trip.remaining_waypoints[0]`), then this value indicates the remaining
-   * time to the waypoint.
+   * The travel time from previous waypoint to this point. Undefined for the
+   * first waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Duration duration = 8;</code>
@@ -569,17 +436,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The travel time from previous waypoint to this point. If the waypoint is
-   * the first waypoint in the list (e.g., `Vehicle.waypoints[0]` or
-   * `Trip.remaining_waypoints[0]`), then this value indicates the remaining
-   * time to the waypoint.
+   * The travel time from previous waypoint to this point. Undefined for the
+   * first waypoint in a list.
    * </pre>
    *
    * <code>.google.protobuf.Duration duration = 8;</code>
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getDurationOrBuilder() {
-    return getDuration();
+    return duration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : duration_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -623,7 +488,7 @@ private static final long serialVersionUID = 0L;
     if (trafficToWaypoint_ != null) {
       output.writeMessage(10, getTrafficToWaypoint());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -666,7 +531,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, getTrafficToWaypoint());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -713,7 +578,7 @@ private static final long serialVersionUID = 0L;
       if (!getDuration()
           .equals(other.getDuration())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -754,7 +619,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DURATION_FIELD_NUMBER;
       hash = (53 * hash) + getDuration().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -876,63 +741,51 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.v1.TripWaypoint.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getPathToWaypointFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (locationBuilder_ == null) {
-        location_ = null;
-      } else {
-        location_ = null;
+      bitField0_ = 0;
+      location_ = null;
+      if (locationBuilder_ != null) {
+        locationBuilder_.dispose();
         locationBuilder_ = null;
       }
       tripId_ = "";
-
       waypointType_ = 0;
-
       if (pathToWaypointBuilder_ == null) {
         pathToWaypoint_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        pathToWaypoint_ = null;
         pathToWaypointBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       encodedPathToWaypoint_ = "";
-
-      if (trafficToWaypointBuilder_ == null) {
-        trafficToWaypoint_ = null;
-      } else {
-        trafficToWaypoint_ = null;
+      trafficToWaypoint_ = null;
+      if (trafficToWaypointBuilder_ != null) {
+        trafficToWaypointBuilder_.dispose();
         trafficToWaypointBuilder_ = null;
       }
-      if (distanceMetersBuilder_ == null) {
-        distanceMeters_ = null;
-      } else {
-        distanceMeters_ = null;
+      distanceMeters_ = null;
+      if (distanceMetersBuilder_ != null) {
+        distanceMetersBuilder_.dispose();
         distanceMetersBuilder_ = null;
       }
-      if (etaBuilder_ == null) {
-        eta_ = null;
-      } else {
-        eta_ = null;
+      eta_ = null;
+      if (etaBuilder_ != null) {
+        etaBuilder_.dispose();
         etaBuilder_ = null;
       }
-      if (durationBuilder_ == null) {
-        duration_ = null;
-      } else {
-        duration_ = null;
+      duration_ = null;
+      if (durationBuilder_ != null) {
+        durationBuilder_.dispose();
         durationBuilder_ = null;
       }
       return this;
@@ -961,46 +814,60 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.v1.TripWaypoint buildPartial() {
       google.maps.fleetengine.v1.TripWaypoint result = new google.maps.fleetengine.v1.TripWaypoint(this);
-      int from_bitField0_ = bitField0_;
-      if (locationBuilder_ == null) {
-        result.location_ = location_;
-      } else {
-        result.location_ = locationBuilder_.build();
-      }
-      result.tripId_ = tripId_;
-      result.waypointType_ = waypointType_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(google.maps.fleetengine.v1.TripWaypoint result) {
       if (pathToWaypointBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           pathToWaypoint_ = java.util.Collections.unmodifiableList(pathToWaypoint_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.pathToWaypoint_ = pathToWaypoint_;
       } else {
         result.pathToWaypoint_ = pathToWaypointBuilder_.build();
       }
-      result.encodedPathToWaypoint_ = encodedPathToWaypoint_;
-      if (trafficToWaypointBuilder_ == null) {
-        result.trafficToWaypoint_ = trafficToWaypoint_;
-      } else {
-        result.trafficToWaypoint_ = trafficToWaypointBuilder_.build();
+    }
+
+    private void buildPartial0(google.maps.fleetengine.v1.TripWaypoint result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.location_ = locationBuilder_ == null
+            ? location_
+            : locationBuilder_.build();
       }
-      if (distanceMetersBuilder_ == null) {
-        result.distanceMeters_ = distanceMeters_;
-      } else {
-        result.distanceMeters_ = distanceMetersBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.tripId_ = tripId_;
       }
-      if (etaBuilder_ == null) {
-        result.eta_ = eta_;
-      } else {
-        result.eta_ = etaBuilder_.build();
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.waypointType_ = waypointType_;
       }
-      if (durationBuilder_ == null) {
-        result.duration_ = duration_;
-      } else {
-        result.duration_ = durationBuilder_.build();
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.encodedPathToWaypoint_ = encodedPathToWaypoint_;
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.trafficToWaypoint_ = trafficToWaypointBuilder_ == null
+            ? trafficToWaypoint_
+            : trafficToWaypointBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.distanceMeters_ = distanceMetersBuilder_ == null
+            ? distanceMeters_
+            : distanceMetersBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.eta_ = etaBuilder_ == null
+            ? eta_
+            : etaBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.duration_ = durationBuilder_ == null
+            ? duration_
+            : durationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1052,6 +919,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTripId().isEmpty()) {
         tripId_ = other.tripId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.waypointType_ != 0) {
@@ -1061,7 +929,7 @@ private static final long serialVersionUID = 0L;
         if (!other.pathToWaypoint_.isEmpty()) {
           if (pathToWaypoint_.isEmpty()) {
             pathToWaypoint_ = other.pathToWaypoint_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensurePathToWaypointIsMutable();
             pathToWaypoint_.addAll(other.pathToWaypoint_);
@@ -1074,7 +942,7 @@ private static final long serialVersionUID = 0L;
             pathToWaypointBuilder_.dispose();
             pathToWaypointBuilder_ = null;
             pathToWaypoint_ = other.pathToWaypoint_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             pathToWaypointBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPathToWaypointFieldBuilder() : null;
@@ -1085,6 +953,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEncodedPathToWaypoint().isEmpty()) {
         encodedPathToWaypoint_ = other.encodedPathToWaypoint_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasTrafficToWaypoint()) {
@@ -1099,7 +968,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDuration()) {
         mergeDuration(other.getDuration());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1114,17 +983,93 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.v1.TripWaypoint parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              tripId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              waypointType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              com.google.type.LatLng m =
+                  input.readMessage(
+                      com.google.type.LatLng.parser(),
+                      extensionRegistry);
+              if (pathToWaypointBuilder_ == null) {
+                ensurePathToWaypointIsMutable();
+                pathToWaypoint_.add(m);
+              } else {
+                pathToWaypointBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              encodedPathToWaypoint_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getDistanceMetersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getEtaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 66
+            case 82: {
+              input.readMessage(
+                  getTrafficToWaypointFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.v1.TripWaypoint) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1141,7 +1086,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the location field is set.
      */
     public boolean hasLocation() {
-      return locationBuilder_ != null || location_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1171,11 +1116,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         location_ = value;
-        onChanged();
       } else {
         locationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1189,11 +1134,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.v1.TerminalLocation.Builder builderForValue) {
       if (locationBuilder_ == null) {
         location_ = builderForValue.build();
-        onChanged();
       } else {
         locationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1205,17 +1150,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLocation(google.maps.fleetengine.v1.TerminalLocation value) {
       if (locationBuilder_ == null) {
-        if (location_ != null) {
-          location_ =
-            google.maps.fleetengine.v1.TerminalLocation.newBuilder(location_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          location_ != null &&
+          location_ != google.maps.fleetengine.v1.TerminalLocation.getDefaultInstance()) {
+          getLocationBuilder().mergeFrom(value);
         } else {
           location_ = value;
         }
-        onChanged();
       } else {
         locationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1226,14 +1172,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.TerminalLocation location = 1;</code>
      */
     public Builder clearLocation() {
-      if (locationBuilder_ == null) {
-        location_ = null;
-        onChanged();
-      } else {
-        location_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      location_ = null;
+      if (locationBuilder_ != null) {
+        locationBuilder_.dispose();
         locationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1244,7 +1189,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.TerminalLocation location = 1;</code>
      */
     public google.maps.fleetengine.v1.TerminalLocation.Builder getLocationBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getLocationFieldBuilder().getBuilder();
     }
@@ -1337,11 +1282,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTripId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       tripId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1354,8 +1297,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTripId() {
-      
       tripId_ = getDefaultInstance().getTripId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1370,12 +1313,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTripIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       tripId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1402,8 +1343,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setWaypointTypeValue(int value) {
-      
       waypointType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1417,8 +1358,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.v1.WaypointType getWaypointType() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.WaypointType result = google.maps.fleetengine.v1.WaypointType.valueOf(waypointType_);
+      google.maps.fleetengine.v1.WaypointType result = google.maps.fleetengine.v1.WaypointType.forNumber(waypointType_);
       return result == null ? google.maps.fleetengine.v1.WaypointType.UNRECOGNIZED : result;
     }
     /**
@@ -1434,7 +1374,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       waypointType_ = value.getNumber();
       onChanged();
       return this;
@@ -1448,7 +1388,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWaypointType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       waypointType_ = 0;
       onChanged();
       return this;
@@ -1457,9 +1397,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.type.LatLng> pathToWaypoint_ =
       java.util.Collections.emptyList();
     private void ensurePathToWaypointIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         pathToWaypoint_ = new java.util.ArrayList<com.google.type.LatLng>(pathToWaypoint_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1468,7 +1408,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1482,7 +1423,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1496,7 +1438,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1510,7 +1453,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1531,7 +1475,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1549,7 +1494,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1569,7 +1515,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1590,7 +1537,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1608,7 +1556,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1626,7 +1575,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1645,7 +1595,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1653,7 +1604,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPathToWaypoint() {
       if (pathToWaypointBuilder_ == null) {
         pathToWaypoint_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         pathToWaypointBuilder_.clear();
@@ -1662,7 +1613,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1679,7 +1631,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1690,7 +1643,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1704,7 +1658,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1719,7 +1674,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1730,7 +1686,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1742,7 +1699,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path from the previous waypoint to the current waypoint.
+     * The path from the previous waypoint to the current waypoint.  Undefined for
+     * the first waypoint in a list. This field is only populated when requested.
      * </pre>
      *
      * <code>repeated .google.type.LatLng path_to_waypoint = 4;</code>
@@ -1758,7 +1716,7 @@ private static final long serialVersionUID = 0L;
         pathToWaypointBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.type.LatLng, com.google.type.LatLng.Builder, com.google.type.LatLngOrBuilder>(
                 pathToWaypoint_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         pathToWaypoint_ = null;
@@ -1770,7 +1728,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The encoded path from the previous waypoint to the current waypoint.
-     * Decoding is not yet supported.
+     * &lt;p&gt;Note: This field is intended only for use by the Driver SDK and Consumer
+     * SDK. Decoding is not yet supported.
      * </pre>
      *
      * <code>string encoded_path_to_waypoint = 5;</code>
@@ -1791,7 +1750,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The encoded path from the previous waypoint to the current waypoint.
-     * Decoding is not yet supported.
+     * &lt;p&gt;Note: This field is intended only for use by the Driver SDK and Consumer
+     * SDK. Decoding is not yet supported.
      * </pre>
      *
      * <code>string encoded_path_to_waypoint = 5;</code>
@@ -1813,7 +1773,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The encoded path from the previous waypoint to the current waypoint.
-     * Decoding is not yet supported.
+     * &lt;p&gt;Note: This field is intended only for use by the Driver SDK and Consumer
+     * SDK. Decoding is not yet supported.
      * </pre>
      *
      * <code>string encoded_path_to_waypoint = 5;</code>
@@ -1822,33 +1783,33 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEncodedPathToWaypoint(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       encodedPathToWaypoint_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * The encoded path from the previous waypoint to the current waypoint.
-     * Decoding is not yet supported.
+     * &lt;p&gt;Note: This field is intended only for use by the Driver SDK and Consumer
+     * SDK. Decoding is not yet supported.
      * </pre>
      *
      * <code>string encoded_path_to_waypoint = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearEncodedPathToWaypoint() {
-      
       encodedPathToWaypoint_ = getDefaultInstance().getEncodedPathToWaypoint();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * The encoded path from the previous waypoint to the current waypoint.
-     * Decoding is not yet supported.
+     * &lt;p&gt;Note: This field is intended only for use by the Driver SDK and Consumer
+     * SDK. Decoding is not yet supported.
      * </pre>
      *
      * <code>string encoded_path_to_waypoint = 5;</code>
@@ -1857,12 +1818,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEncodedPathToWaypointBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       encodedPathToWaypoint_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1881,7 +1840,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the trafficToWaypoint field is set.
      */
     public boolean hasTrafficToWaypoint() {
-      return trafficToWaypointBuilder_ != null || trafficToWaypoint_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1915,11 +1874,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         trafficToWaypoint_ = value;
-        onChanged();
       } else {
         trafficToWaypointBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1935,11 +1894,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.v1.ConsumableTrafficPolyline.Builder builderForValue) {
       if (trafficToWaypointBuilder_ == null) {
         trafficToWaypoint_ = builderForValue.build();
-        onChanged();
       } else {
         trafficToWaypointBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1953,17 +1912,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTrafficToWaypoint(google.maps.fleetengine.v1.ConsumableTrafficPolyline value) {
       if (trafficToWaypointBuilder_ == null) {
-        if (trafficToWaypoint_ != null) {
-          trafficToWaypoint_ =
-            google.maps.fleetengine.v1.ConsumableTrafficPolyline.newBuilder(trafficToWaypoint_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          trafficToWaypoint_ != null &&
+          trafficToWaypoint_ != google.maps.fleetengine.v1.ConsumableTrafficPolyline.getDefaultInstance()) {
+          getTrafficToWaypointBuilder().mergeFrom(value);
         } else {
           trafficToWaypoint_ = value;
         }
-        onChanged();
       } else {
         trafficToWaypointBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1976,14 +1936,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.ConsumableTrafficPolyline traffic_to_waypoint = 10;</code>
      */
     public Builder clearTrafficToWaypoint() {
-      if (trafficToWaypointBuilder_ == null) {
-        trafficToWaypoint_ = null;
-        onChanged();
-      } else {
-        trafficToWaypoint_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      trafficToWaypoint_ = null;
+      if (trafficToWaypointBuilder_ != null) {
+        trafficToWaypointBuilder_.dispose();
         trafficToWaypointBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1996,7 +1955,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.ConsumableTrafficPolyline traffic_to_waypoint = 10;</code>
      */
     public google.maps.fleetengine.v1.ConsumableTrafficPolyline.Builder getTrafficToWaypointBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getTrafficToWaypointFieldBuilder().getBuilder();
     }
@@ -2045,24 +2004,20 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> distanceMetersBuilder_;
     /**
      * <pre>
-     * The path distance from the previous waypoint to the current waypoint. If
-     * the waypoint is the first waypoint in the list (e.g.,
-     * `Vehicle.waypoints[0]` or `Trip.remaining_waypoints[0]`), then the value of
-     * this field is undefined.
+     * The path distance from the previous waypoint to the current waypoint.
+     * Undefined for the first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value distance_meters = 6;</code>
      * @return Whether the distanceMeters field is set.
      */
     public boolean hasDistanceMeters() {
-      return distanceMetersBuilder_ != null || distanceMeters_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
-     * The path distance from the previous waypoint to the current waypoint. If
-     * the waypoint is the first waypoint in the list (e.g.,
-     * `Vehicle.waypoints[0]` or `Trip.remaining_waypoints[0]`), then the value of
-     * this field is undefined.
+     * The path distance from the previous waypoint to the current waypoint.
+     * Undefined for the first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value distance_meters = 6;</code>
@@ -2077,10 +2032,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path distance from the previous waypoint to the current waypoint. If
-     * the waypoint is the first waypoint in the list (e.g.,
-     * `Vehicle.waypoints[0]` or `Trip.remaining_waypoints[0]`), then the value of
-     * this field is undefined.
+     * The path distance from the previous waypoint to the current waypoint.
+     * Undefined for the first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value distance_meters = 6;</code>
@@ -2091,19 +2044,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         distanceMeters_ = value;
-        onChanged();
       } else {
         distanceMetersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The path distance from the previous waypoint to the current waypoint. If
-     * the waypoint is the first waypoint in the list (e.g.,
-     * `Vehicle.waypoints[0]` or `Trip.remaining_waypoints[0]`), then the value of
-     * this field is undefined.
+     * The path distance from the previous waypoint to the current waypoint.
+     * Undefined for the first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value distance_meters = 6;</code>
@@ -2112,80 +2063,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (distanceMetersBuilder_ == null) {
         distanceMeters_ = builderForValue.build();
-        onChanged();
       } else {
         distanceMetersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The path distance from the previous waypoint to the current waypoint. If
-     * the waypoint is the first waypoint in the list (e.g.,
-     * `Vehicle.waypoints[0]` or `Trip.remaining_waypoints[0]`), then the value of
-     * this field is undefined.
+     * The path distance from the previous waypoint to the current waypoint.
+     * Undefined for the first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value distance_meters = 6;</code>
      */
     public Builder mergeDistanceMeters(com.google.protobuf.Int32Value value) {
       if (distanceMetersBuilder_ == null) {
-        if (distanceMeters_ != null) {
-          distanceMeters_ =
-            com.google.protobuf.Int32Value.newBuilder(distanceMeters_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          distanceMeters_ != null &&
+          distanceMeters_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getDistanceMetersBuilder().mergeFrom(value);
         } else {
           distanceMeters_ = value;
         }
-        onChanged();
       } else {
         distanceMetersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The path distance from the previous waypoint to the current waypoint. If
-     * the waypoint is the first waypoint in the list (e.g.,
-     * `Vehicle.waypoints[0]` or `Trip.remaining_waypoints[0]`), then the value of
-     * this field is undefined.
+     * The path distance from the previous waypoint to the current waypoint.
+     * Undefined for the first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value distance_meters = 6;</code>
      */
     public Builder clearDistanceMeters() {
-      if (distanceMetersBuilder_ == null) {
-        distanceMeters_ = null;
-        onChanged();
-      } else {
-        distanceMeters_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      distanceMeters_ = null;
+      if (distanceMetersBuilder_ != null) {
+        distanceMetersBuilder_.dispose();
         distanceMetersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The path distance from the previous waypoint to the current waypoint. If
-     * the waypoint is the first waypoint in the list (e.g.,
-     * `Vehicle.waypoints[0]` or `Trip.remaining_waypoints[0]`), then the value of
-     * this field is undefined.
+     * The path distance from the previous waypoint to the current waypoint.
+     * Undefined for the first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value distance_meters = 6;</code>
      */
     public com.google.protobuf.Int32Value.Builder getDistanceMetersBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getDistanceMetersFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * The path distance from the previous waypoint to the current waypoint. If
-     * the waypoint is the first waypoint in the list (e.g.,
-     * `Vehicle.waypoints[0]` or `Trip.remaining_waypoints[0]`), then the value of
-     * this field is undefined.
+     * The path distance from the previous waypoint to the current waypoint.
+     * Undefined for the first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value distance_meters = 6;</code>
@@ -2200,10 +2143,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The path distance from the previous waypoint to the current waypoint. If
-     * the waypoint is the first waypoint in the list (e.g.,
-     * `Vehicle.waypoints[0]` or `Trip.remaining_waypoints[0]`), then the value of
-     * this field is undefined.
+     * The path distance from the previous waypoint to the current waypoint.
+     * Undefined for the first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value distance_meters = 6;</code>
@@ -2227,18 +2168,20 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> etaBuilder_;
     /**
      * <pre>
-     * The estimated time of arrival at this waypoint.
+     * The estimated time of arrival at this waypoint. Undefined for the first
+     * waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp eta = 7;</code>
      * @return Whether the eta field is set.
      */
     public boolean hasEta() {
-      return etaBuilder_ != null || eta_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
-     * The estimated time of arrival at this waypoint.
+     * The estimated time of arrival at this waypoint. Undefined for the first
+     * waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp eta = 7;</code>
@@ -2253,7 +2196,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The estimated time of arrival at this waypoint.
+     * The estimated time of arrival at this waypoint. Undefined for the first
+     * waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp eta = 7;</code>
@@ -2264,16 +2208,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         eta_ = value;
-        onChanged();
       } else {
         etaBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The estimated time of arrival at this waypoint.
+     * The estimated time of arrival at this waypoint. Undefined for the first
+     * waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp eta = 7;</code>
@@ -2282,68 +2227,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (etaBuilder_ == null) {
         eta_ = builderForValue.build();
-        onChanged();
       } else {
         etaBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The estimated time of arrival at this waypoint.
+     * The estimated time of arrival at this waypoint. Undefined for the first
+     * waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp eta = 7;</code>
      */
     public Builder mergeEta(com.google.protobuf.Timestamp value) {
       if (etaBuilder_ == null) {
-        if (eta_ != null) {
-          eta_ =
-            com.google.protobuf.Timestamp.newBuilder(eta_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          eta_ != null &&
+          eta_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getEtaBuilder().mergeFrom(value);
         } else {
           eta_ = value;
         }
-        onChanged();
       } else {
         etaBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The estimated time of arrival at this waypoint.
+     * The estimated time of arrival at this waypoint. Undefined for the first
+     * waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp eta = 7;</code>
      */
     public Builder clearEta() {
-      if (etaBuilder_ == null) {
-        eta_ = null;
-        onChanged();
-      } else {
-        eta_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      eta_ = null;
+      if (etaBuilder_ != null) {
+        etaBuilder_.dispose();
         etaBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The estimated time of arrival at this waypoint.
+     * The estimated time of arrival at this waypoint. Undefined for the first
+     * waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp eta = 7;</code>
      */
     public com.google.protobuf.Timestamp.Builder getEtaBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getEtaFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * The estimated time of arrival at this waypoint.
+     * The estimated time of arrival at this waypoint. Undefined for the first
+     * waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp eta = 7;</code>
@@ -2358,7 +2307,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The estimated time of arrival at this waypoint.
+     * The estimated time of arrival at this waypoint. Undefined for the first
+     * waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp eta = 7;</code>
@@ -2382,24 +2332,20 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> durationBuilder_;
     /**
      * <pre>
-     * The travel time from previous waypoint to this point. If the waypoint is
-     * the first waypoint in the list (e.g., `Vehicle.waypoints[0]` or
-     * `Trip.remaining_waypoints[0]`), then this value indicates the remaining
-     * time to the waypoint.
+     * The travel time from previous waypoint to this point. Undefined for the
+     * first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Duration duration = 8;</code>
      * @return Whether the duration field is set.
      */
     public boolean hasDuration() {
-      return durationBuilder_ != null || duration_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
-     * The travel time from previous waypoint to this point. If the waypoint is
-     * the first waypoint in the list (e.g., `Vehicle.waypoints[0]` or
-     * `Trip.remaining_waypoints[0]`), then this value indicates the remaining
-     * time to the waypoint.
+     * The travel time from previous waypoint to this point. Undefined for the
+     * first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Duration duration = 8;</code>
@@ -2414,10 +2360,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The travel time from previous waypoint to this point. If the waypoint is
-     * the first waypoint in the list (e.g., `Vehicle.waypoints[0]` or
-     * `Trip.remaining_waypoints[0]`), then this value indicates the remaining
-     * time to the waypoint.
+     * The travel time from previous waypoint to this point. Undefined for the
+     * first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Duration duration = 8;</code>
@@ -2428,19 +2372,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         duration_ = value;
-        onChanged();
       } else {
         durationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The travel time from previous waypoint to this point. If the waypoint is
-     * the first waypoint in the list (e.g., `Vehicle.waypoints[0]` or
-     * `Trip.remaining_waypoints[0]`), then this value indicates the remaining
-     * time to the waypoint.
+     * The travel time from previous waypoint to this point. Undefined for the
+     * first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Duration duration = 8;</code>
@@ -2449,80 +2391,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (durationBuilder_ == null) {
         duration_ = builderForValue.build();
-        onChanged();
       } else {
         durationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The travel time from previous waypoint to this point. If the waypoint is
-     * the first waypoint in the list (e.g., `Vehicle.waypoints[0]` or
-     * `Trip.remaining_waypoints[0]`), then this value indicates the remaining
-     * time to the waypoint.
+     * The travel time from previous waypoint to this point. Undefined for the
+     * first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Duration duration = 8;</code>
      */
     public Builder mergeDuration(com.google.protobuf.Duration value) {
       if (durationBuilder_ == null) {
-        if (duration_ != null) {
-          duration_ =
-            com.google.protobuf.Duration.newBuilder(duration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          duration_ != null &&
+          duration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getDurationBuilder().mergeFrom(value);
         } else {
           duration_ = value;
         }
-        onChanged();
       } else {
         durationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The travel time from previous waypoint to this point. If the waypoint is
-     * the first waypoint in the list (e.g., `Vehicle.waypoints[0]` or
-     * `Trip.remaining_waypoints[0]`), then this value indicates the remaining
-     * time to the waypoint.
+     * The travel time from previous waypoint to this point. Undefined for the
+     * first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Duration duration = 8;</code>
      */
     public Builder clearDuration() {
-      if (durationBuilder_ == null) {
-        duration_ = null;
-        onChanged();
-      } else {
-        duration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      duration_ = null;
+      if (durationBuilder_ != null) {
+        durationBuilder_.dispose();
         durationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The travel time from previous waypoint to this point. If the waypoint is
-     * the first waypoint in the list (e.g., `Vehicle.waypoints[0]` or
-     * `Trip.remaining_waypoints[0]`), then this value indicates the remaining
-     * time to the waypoint.
+     * The travel time from previous waypoint to this point. Undefined for the
+     * first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Duration duration = 8;</code>
      */
     public com.google.protobuf.Duration.Builder getDurationBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getDurationFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * The travel time from previous waypoint to this point. If the waypoint is
-     * the first waypoint in the list (e.g., `Vehicle.waypoints[0]` or
-     * `Trip.remaining_waypoints[0]`), then this value indicates the remaining
-     * time to the waypoint.
+     * The travel time from previous waypoint to this point. Undefined for the
+     * first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Duration duration = 8;</code>
@@ -2537,10 +2471,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The travel time from previous waypoint to this point. If the waypoint is
-     * the first waypoint in the list (e.g., `Vehicle.waypoints[0]` or
-     * `Trip.remaining_waypoints[0]`), then this value indicates the remaining
-     * time to the waypoint.
+     * The travel time from previous waypoint to this point. Undefined for the
+     * first waypoint in a list.
      * </pre>
      *
      * <code>.google.protobuf.Duration duration = 8;</code>
@@ -2591,7 +2523,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TripWaypoint(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -58,7 +58,7 @@ public interface ListChannelConnectionsResponseOrBuilder extends
 
   /**
    * <pre>
-   * A page token that can be sent to ListChannelConnections to request the
+   * A page token that can be sent to `ListChannelConnections` to request the
    * next page.
    * If this is empty, then there are no more pages.
    * </pre>
@@ -69,7 +69,7 @@ public interface ListChannelConnectionsResponseOrBuilder extends
   java.lang.String getNextPageToken();
   /**
    * <pre>
-   * A page token that can be sent to ListChannelConnections to request the
+   * A page token that can be sent to `ListChannelConnections` to request the
    * next page.
    * If this is empty, then there are no more pages.
    * </pre>

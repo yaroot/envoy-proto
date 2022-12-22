@@ -40,81 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConfigSyncDeploymentState(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            importer_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            syncer_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            gitSync_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            monitor_ = rawValue;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            reconcilerManager_ = rawValue;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            rootReconciler_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkehub.configmanagement.v1.ConfigManagementProto.internal_static_google_cloud_gkehub_configmanagement_v1_ConfigSyncDeploymentState_descriptor;
@@ -129,7 +54,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMPORTER_FIELD_NUMBER = 1;
-  private int importer_;
+  private int importer_ = 0;
   /**
    * <pre>
    * Deployment state of the importer pod
@@ -150,13 +75,12 @@ private static final long serialVersionUID = 0L;
    * @return The importer.
    */
   @java.lang.Override public com.google.cloud.gkehub.configmanagement.v1.DeploymentState getImporter() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.valueOf(importer_);
+    com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.forNumber(importer_);
     return result == null ? com.google.cloud.gkehub.configmanagement.v1.DeploymentState.UNRECOGNIZED : result;
   }
 
   public static final int SYNCER_FIELD_NUMBER = 2;
-  private int syncer_;
+  private int syncer_ = 0;
   /**
    * <pre>
    * Deployment state of the syncer pod
@@ -177,13 +101,12 @@ private static final long serialVersionUID = 0L;
    * @return The syncer.
    */
   @java.lang.Override public com.google.cloud.gkehub.configmanagement.v1.DeploymentState getSyncer() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.valueOf(syncer_);
+    com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.forNumber(syncer_);
     return result == null ? com.google.cloud.gkehub.configmanagement.v1.DeploymentState.UNRECOGNIZED : result;
   }
 
   public static final int GIT_SYNC_FIELD_NUMBER = 3;
-  private int gitSync_;
+  private int gitSync_ = 0;
   /**
    * <pre>
    * Deployment state of the git-sync pod
@@ -204,13 +127,12 @@ private static final long serialVersionUID = 0L;
    * @return The gitSync.
    */
   @java.lang.Override public com.google.cloud.gkehub.configmanagement.v1.DeploymentState getGitSync() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.valueOf(gitSync_);
+    com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.forNumber(gitSync_);
     return result == null ? com.google.cloud.gkehub.configmanagement.v1.DeploymentState.UNRECOGNIZED : result;
   }
 
   public static final int MONITOR_FIELD_NUMBER = 4;
-  private int monitor_;
+  private int monitor_ = 0;
   /**
    * <pre>
    * Deployment state of the monitor pod
@@ -231,13 +153,12 @@ private static final long serialVersionUID = 0L;
    * @return The monitor.
    */
   @java.lang.Override public com.google.cloud.gkehub.configmanagement.v1.DeploymentState getMonitor() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.valueOf(monitor_);
+    com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.forNumber(monitor_);
     return result == null ? com.google.cloud.gkehub.configmanagement.v1.DeploymentState.UNRECOGNIZED : result;
   }
 
   public static final int RECONCILER_MANAGER_FIELD_NUMBER = 5;
-  private int reconcilerManager_;
+  private int reconcilerManager_ = 0;
   /**
    * <pre>
    * Deployment state of reconciler-manager pod
@@ -258,13 +179,12 @@ private static final long serialVersionUID = 0L;
    * @return The reconcilerManager.
    */
   @java.lang.Override public com.google.cloud.gkehub.configmanagement.v1.DeploymentState getReconcilerManager() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.valueOf(reconcilerManager_);
+    com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.forNumber(reconcilerManager_);
     return result == null ? com.google.cloud.gkehub.configmanagement.v1.DeploymentState.UNRECOGNIZED : result;
   }
 
   public static final int ROOT_RECONCILER_FIELD_NUMBER = 6;
-  private int rootReconciler_;
+  private int rootReconciler_ = 0;
   /**
    * <pre>
    * Deployment state of root-reconciler
@@ -285,8 +205,7 @@ private static final long serialVersionUID = 0L;
    * @return The rootReconciler.
    */
   @java.lang.Override public com.google.cloud.gkehub.configmanagement.v1.DeploymentState getRootReconciler() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.valueOf(rootReconciler_);
+    com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.forNumber(rootReconciler_);
     return result == null ? com.google.cloud.gkehub.configmanagement.v1.DeploymentState.UNRECOGNIZED : result;
   }
 
@@ -322,7 +241,7 @@ private static final long serialVersionUID = 0L;
     if (rootReconciler_ != com.google.cloud.gkehub.configmanagement.v1.DeploymentState.DEPLOYMENT_STATE_UNSPECIFIED.getNumber()) {
       output.writeEnum(6, rootReconciler_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -355,7 +274,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(6, rootReconciler_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -376,7 +295,7 @@ private static final long serialVersionUID = 0L;
     if (monitor_ != other.monitor_) return false;
     if (reconcilerManager_ != other.reconcilerManager_) return false;
     if (rootReconciler_ != other.rootReconciler_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -399,7 +318,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + reconcilerManager_;
     hash = (37 * hash) + ROOT_RECONCILER_FIELD_NUMBER;
     hash = (53 * hash) + rootReconciler_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -520,34 +439,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkehub.configmanagement.v1.ConfigSyncDeploymentState.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       importer_ = 0;
-
       syncer_ = 0;
-
       gitSync_ = 0;
-
       monitor_ = 0;
-
       reconcilerManager_ = 0;
-
       rootReconciler_ = 0;
-
       return this;
     }
 
@@ -574,14 +483,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1.ConfigSyncDeploymentState buildPartial() {
       com.google.cloud.gkehub.configmanagement.v1.ConfigSyncDeploymentState result = new com.google.cloud.gkehub.configmanagement.v1.ConfigSyncDeploymentState(this);
-      result.importer_ = importer_;
-      result.syncer_ = syncer_;
-      result.gitSync_ = gitSync_;
-      result.monitor_ = monitor_;
-      result.reconcilerManager_ = reconcilerManager_;
-      result.rootReconciler_ = rootReconciler_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkehub.configmanagement.v1.ConfigSyncDeploymentState result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.importer_ = importer_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.syncer_ = syncer_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.gitSync_ = gitSync_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.monitor_ = monitor_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.reconcilerManager_ = reconcilerManager_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.rootReconciler_ = rootReconciler_;
+      }
     }
 
     @java.lang.Override
@@ -646,7 +572,7 @@ private static final long serialVersionUID = 0L;
       if (other.rootReconciler_ != 0) {
         setRootReconcilerValue(other.getRootReconcilerValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -661,19 +587,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkehub.configmanagement.v1.ConfigSyncDeploymentState parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              importer_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              syncer_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              gitSync_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              monitor_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              reconcilerManager_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              rootReconciler_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkehub.configmanagement.v1.ConfigSyncDeploymentState) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int importer_ = 0;
     /**
@@ -697,8 +667,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setImporterValue(int value) {
-      
       importer_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -712,8 +682,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1.DeploymentState getImporter() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.valueOf(importer_);
+      com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.forNumber(importer_);
       return result == null ? com.google.cloud.gkehub.configmanagement.v1.DeploymentState.UNRECOGNIZED : result;
     }
     /**
@@ -729,7 +698,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       importer_ = value.getNumber();
       onChanged();
       return this;
@@ -743,7 +712,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImporter() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       importer_ = 0;
       onChanged();
       return this;
@@ -771,8 +740,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSyncerValue(int value) {
-      
       syncer_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -786,8 +755,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1.DeploymentState getSyncer() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.valueOf(syncer_);
+      com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.forNumber(syncer_);
       return result == null ? com.google.cloud.gkehub.configmanagement.v1.DeploymentState.UNRECOGNIZED : result;
     }
     /**
@@ -803,7 +771,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       syncer_ = value.getNumber();
       onChanged();
       return this;
@@ -817,7 +785,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSyncer() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       syncer_ = 0;
       onChanged();
       return this;
@@ -845,8 +813,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setGitSyncValue(int value) {
-      
       gitSync_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -860,8 +828,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1.DeploymentState getGitSync() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.valueOf(gitSync_);
+      com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.forNumber(gitSync_);
       return result == null ? com.google.cloud.gkehub.configmanagement.v1.DeploymentState.UNRECOGNIZED : result;
     }
     /**
@@ -877,7 +844,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       gitSync_ = value.getNumber();
       onChanged();
       return this;
@@ -891,7 +858,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGitSync() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       gitSync_ = 0;
       onChanged();
       return this;
@@ -919,8 +886,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMonitorValue(int value) {
-      
       monitor_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -934,8 +901,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1.DeploymentState getMonitor() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.valueOf(monitor_);
+      com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.forNumber(monitor_);
       return result == null ? com.google.cloud.gkehub.configmanagement.v1.DeploymentState.UNRECOGNIZED : result;
     }
     /**
@@ -951,7 +917,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       monitor_ = value.getNumber();
       onChanged();
       return this;
@@ -965,7 +931,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMonitor() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       monitor_ = 0;
       onChanged();
       return this;
@@ -993,8 +959,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setReconcilerManagerValue(int value) {
-      
       reconcilerManager_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1008,8 +974,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1.DeploymentState getReconcilerManager() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.valueOf(reconcilerManager_);
+      com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.forNumber(reconcilerManager_);
       return result == null ? com.google.cloud.gkehub.configmanagement.v1.DeploymentState.UNRECOGNIZED : result;
     }
     /**
@@ -1025,7 +990,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       reconcilerManager_ = value.getNumber();
       onChanged();
       return this;
@@ -1039,7 +1004,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReconcilerManager() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       reconcilerManager_ = 0;
       onChanged();
       return this;
@@ -1067,8 +1032,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRootReconcilerValue(int value) {
-      
       rootReconciler_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1082,8 +1047,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1.DeploymentState getRootReconciler() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.valueOf(rootReconciler_);
+      com.google.cloud.gkehub.configmanagement.v1.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1.DeploymentState.forNumber(rootReconciler_);
       return result == null ? com.google.cloud.gkehub.configmanagement.v1.DeploymentState.UNRECOGNIZED : result;
     }
     /**
@@ -1099,7 +1063,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       rootReconciler_ = value.getNumber();
       onChanged();
       return this;
@@ -1113,7 +1077,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRootReconciler() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       rootReconciler_ = 0;
       onChanged();
       return this;
@@ -1151,7 +1115,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConfigSyncDeploymentState(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

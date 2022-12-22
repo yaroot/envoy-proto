@@ -11,14 +11,13 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.cloud.osconfig.agentendpoint.v1beta import guest_policies_pb2 as google_dot_cloud_dot_osconfig_dot_agentendpoint_dot_v1beta_dot_guest__policies__pb2
 from google.cloud.osconfig.agentendpoint.v1beta import tasks_pb2 as google_dot_cloud_dot_osconfig_dot_agentendpoint_dot_v1beta_dot_tasks__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n>google/cloud/osconfig/agentendpoint/v1beta/agentendpoint.proto\x12*google.cloud.osconfig.agentendpoint.v1beta\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a?google/cloud/osconfig/agentendpoint/v1beta/guest_policies.proto\x1a\x36google/cloud/osconfig/agentendpoint/v1beta/tasks.proto\"\\\n\x1eReceiveTaskNotificationRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\ragent_version\x18\x02 \x01(\tB\x03\xe0\x41\x02\"!\n\x1fReceiveTaskNotificationResponse\"6\n\x14StartNextTaskRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\"W\n\x15StartNextTaskResponse\x12>\n\x04task\x18\x01 \x01(\x0b\x32\x30.google.cloud.osconfig.agentendpoint.v1beta.Task\"\xfd\x02\n\x19ReportTaskProgressRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07task_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12L\n\ttask_type\x18\x03 \x01(\x0e\x32\x34.google.cloud.osconfig.agentendpoint.v1beta.TaskTypeB\x03\xe0\x41\x02\x12k\n\x1b\x61pply_patches_task_progress\x18\x04 \x01(\x0b\x32\x44.google.cloud.osconfig.agentendpoint.v1beta.ApplyPatchesTaskProgressH\x00\x12\x63\n\x17\x65xec_step_task_progress\x18\x05 \x01(\x0b\x32@.google.cloud.osconfig.agentendpoint.v1beta.ExecStepTaskProgressH\x00\x42\n\n\x08progress\"o\n\x1aReportTaskProgressResponse\x12Q\n\x0etask_directive\x18\x01 \x01(\x0e\x32\x39.google.cloud.osconfig.agentendpoint.v1beta.TaskDirective\"\x8a\x03\n\x19ReportTaskCompleteRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07task_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12L\n\ttask_type\x18\x03 \x01(\x0e\x32\x34.google.cloud.osconfig.agentendpoint.v1beta.TaskTypeB\x03\xe0\x41\x02\x12\x15\n\rerror_message\x18\x04 \x01(\t\x12g\n\x19\x61pply_patches_task_output\x18\x05 \x01(\x0b\x32\x42.google.cloud.osconfig.agentendpoint.v1beta.ApplyPatchesTaskOutputH\x00\x12_\n\x15\x65xec_step_task_output\x18\x06 \x01(\x0b\x32>.google.cloud.osconfig.agentendpoint.v1beta.ExecStepTaskOutputH\x00\x42\x08\n\x06output\"\x1c\n\x1aReportTaskCompleteResponse\"\xd1\x01\n\x14RegisterAgentRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\ragent_version\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12#\n\x16supported_capabilities\x18\x03 \x03(\tB\x03\xe0\x41\x02\x12\x14\n\x0cos_long_name\x18\x04 \x01(\t\x12\x15\n\ros_short_name\x18\x05 \x01(\t\x12\x12\n\nos_version\x18\x06 \x01(\t\x12\x17\n\x0fos_architecture\x18\x07 \x01(\t\"\x17\n\x15RegisterAgentResponse2\xa5\n\n\x14\x41gentEndpointService\x12\xd8\x01\n\x17ReceiveTaskNotification\x12J.google.cloud.osconfig.agentendpoint.v1beta.ReceiveTaskNotificationRequest\x1aK.google.cloud.osconfig.agentendpoint.v1beta.ReceiveTaskNotificationResponse\"\"\xda\x41\x1finstance_id_token,agent_version0\x01\x12\xaa\x01\n\rStartNextTask\x12@.google.cloud.osconfig.agentendpoint.v1beta.StartNextTaskRequest\x1a\x41.google.cloud.osconfig.agentendpoint.v1beta.StartNextTaskResponse\"\x14\xda\x41\x11instance_id_token\x12\xcb\x01\n\x12ReportTaskProgress\x12\x45.google.cloud.osconfig.agentendpoint.v1beta.ReportTaskProgressRequest\x1a\x46.google.cloud.osconfig.agentendpoint.v1beta.ReportTaskProgressResponse\"&\xda\x41#instance_id_token,task_id,task_type\x12\xd9\x01\n\x12ReportTaskComplete\x12\x45.google.cloud.osconfig.agentendpoint.v1beta.ReportTaskCompleteRequest\x1a\x46.google.cloud.osconfig.agentendpoint.v1beta.ReportTaskCompleteResponse\"4\xda\x41\x31instance_id_token,task_id,task_type,error_message\x12\xec\x01\n\x1aLookupEffectiveGuestPolicy\x12M.google.cloud.osconfig.agentendpoint.v1beta.LookupEffectiveGuestPolicyRequest\x1a@.google.cloud.osconfig.agentendpoint.v1beta.EffectiveGuestPolicy\"=\xda\x41:instance_id_token,os_short_name,os_version,os_architecture\x12\xcf\x01\n\rRegisterAgent\x12@.google.cloud.osconfig.agentendpoint.v1beta.RegisterAgentRequest\x1a\x41.google.cloud.osconfig.agentendpoint.v1beta.RegisterAgentResponse\"9\xda\x41\x36instance_id_token,agent_version,supported_capabilities\x1a\x1a\xca\x41\x17osconfig.googleapis.comB\xbe\x01\n.com.google.cloud.osconfig.agentendpoint.v1betaB\x12\x41gentEndpointProtoP\x01ZWgoogle.golang.org/genproto/googleapis/cloud/osconfig/agentendpoint/v1beta;agentendpoint\xca\x02\x1cGoogle\\Cloud\\OsConfig\\V1betab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n>google/cloud/osconfig/agentendpoint/v1beta/agentendpoint.proto\x12*google.cloud.osconfig.agentendpoint.v1beta\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a?google/cloud/osconfig/agentendpoint/v1beta/guest_policies.proto\x1a\x36google/cloud/osconfig/agentendpoint/v1beta/tasks.proto\"\\\n\x1eReceiveTaskNotificationRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\ragent_version\x18\x02 \x01(\tB\x03\xe0\x41\x02\"!\n\x1fReceiveTaskNotificationResponse\"6\n\x14StartNextTaskRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\"W\n\x15StartNextTaskResponse\x12>\n\x04task\x18\x01 \x01(\x0b\x32\x30.google.cloud.osconfig.agentendpoint.v1beta.Task\"\xfd\x02\n\x19ReportTaskProgressRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07task_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12L\n\ttask_type\x18\x03 \x01(\x0e\x32\x34.google.cloud.osconfig.agentendpoint.v1beta.TaskTypeB\x03\xe0\x41\x02\x12k\n\x1b\x61pply_patches_task_progress\x18\x04 \x01(\x0b\x32\x44.google.cloud.osconfig.agentendpoint.v1beta.ApplyPatchesTaskProgressH\x00\x12\x63\n\x17\x65xec_step_task_progress\x18\x05 \x01(\x0b\x32@.google.cloud.osconfig.agentendpoint.v1beta.ExecStepTaskProgressH\x00\x42\n\n\x08progress\"o\n\x1aReportTaskProgressResponse\x12Q\n\x0etask_directive\x18\x01 \x01(\x0e\x32\x39.google.cloud.osconfig.agentendpoint.v1beta.TaskDirective\"\x8a\x03\n\x19ReportTaskCompleteRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07task_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12L\n\ttask_type\x18\x03 \x01(\x0e\x32\x34.google.cloud.osconfig.agentendpoint.v1beta.TaskTypeB\x03\xe0\x41\x02\x12\x15\n\rerror_message\x18\x04 \x01(\t\x12g\n\x19\x61pply_patches_task_output\x18\x05 \x01(\x0b\x32\x42.google.cloud.osconfig.agentendpoint.v1beta.ApplyPatchesTaskOutputH\x00\x12_\n\x15\x65xec_step_task_output\x18\x06 \x01(\x0b\x32>.google.cloud.osconfig.agentendpoint.v1beta.ExecStepTaskOutputH\x00\x42\x08\n\x06output\"\x1c\n\x1aReportTaskCompleteResponse\"\xd1\x01\n\x14RegisterAgentRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\ragent_version\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12#\n\x16supported_capabilities\x18\x03 \x03(\tB\x03\xe0\x41\x02\x12\x14\n\x0cos_long_name\x18\x04 \x01(\t\x12\x15\n\ros_short_name\x18\x05 \x01(\t\x12\x12\n\nos_version\x18\x06 \x01(\t\x12\x17\n\x0fos_architecture\x18\x07 \x01(\t\"\x17\n\x15RegisterAgentResponse2\xa5\n\n\x14\x41gentEndpointService\x12\xd8\x01\n\x17ReceiveTaskNotification\x12J.google.cloud.osconfig.agentendpoint.v1beta.ReceiveTaskNotificationRequest\x1aK.google.cloud.osconfig.agentendpoint.v1beta.ReceiveTaskNotificationResponse\"\"\xda\x41\x1finstance_id_token,agent_version0\x01\x12\xaa\x01\n\rStartNextTask\x12@.google.cloud.osconfig.agentendpoint.v1beta.StartNextTaskRequest\x1a\x41.google.cloud.osconfig.agentendpoint.v1beta.StartNextTaskResponse\"\x14\xda\x41\x11instance_id_token\x12\xcb\x01\n\x12ReportTaskProgress\x12\x45.google.cloud.osconfig.agentendpoint.v1beta.ReportTaskProgressRequest\x1a\x46.google.cloud.osconfig.agentendpoint.v1beta.ReportTaskProgressResponse\"&\xda\x41#instance_id_token,task_id,task_type\x12\xd9\x01\n\x12ReportTaskComplete\x12\x45.google.cloud.osconfig.agentendpoint.v1beta.ReportTaskCompleteRequest\x1a\x46.google.cloud.osconfig.agentendpoint.v1beta.ReportTaskCompleteResponse\"4\xda\x41\x31instance_id_token,task_id,task_type,error_message\x12\xec\x01\n\x1aLookupEffectiveGuestPolicy\x12M.google.cloud.osconfig.agentendpoint.v1beta.LookupEffectiveGuestPolicyRequest\x1a@.google.cloud.osconfig.agentendpoint.v1beta.EffectiveGuestPolicy\"=\xda\x41:instance_id_token,os_short_name,os_version,os_architecture\x12\xcf\x01\n\rRegisterAgent\x12@.google.cloud.osconfig.agentendpoint.v1beta.RegisterAgentRequest\x1a\x41.google.cloud.osconfig.agentendpoint.v1beta.RegisterAgentResponse\"9\xda\x41\x36instance_id_token,agent_version,supported_capabilities\x1a\x1a\xca\x41\x17osconfig.googleapis.comB\xbe\x01\n.com.google.cloud.osconfig.agentendpoint.v1betaB\x12\x41gentEndpointProtoP\x01ZWgoogle.golang.org/genproto/googleapis/cloud/osconfig/agentendpoint/v1beta;agentendpoint\xca\x02\x1cGoogle\\Cloud\\OsConfig\\V1betab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.osconfig.agentendpoint.v1beta.agentendpoint_pb2', globals())
@@ -64,26 +63,26 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _AGENTENDPOINTSERVICE.methods_by_name['LookupEffectiveGuestPolicy']._serialized_options = b'\332A:instance_id_token,os_short_name,os_version,os_architecture'
   _AGENTENDPOINTSERVICE.methods_by_name['RegisterAgent']._options = None
   _AGENTENDPOINTSERVICE.methods_by_name['RegisterAgent']._serialized_options = b'\332A6instance_id_token,agent_version,supported_capabilities'
-  _RECEIVETASKNOTIFICATIONREQUEST._serialized_start=319
-  _RECEIVETASKNOTIFICATIONREQUEST._serialized_end=411
-  _RECEIVETASKNOTIFICATIONRESPONSE._serialized_start=413
-  _RECEIVETASKNOTIFICATIONRESPONSE._serialized_end=446
-  _STARTNEXTTASKREQUEST._serialized_start=448
-  _STARTNEXTTASKREQUEST._serialized_end=502
-  _STARTNEXTTASKRESPONSE._serialized_start=504
-  _STARTNEXTTASKRESPONSE._serialized_end=591
-  _REPORTTASKPROGRESSREQUEST._serialized_start=594
-  _REPORTTASKPROGRESSREQUEST._serialized_end=975
-  _REPORTTASKPROGRESSRESPONSE._serialized_start=977
-  _REPORTTASKPROGRESSRESPONSE._serialized_end=1088
-  _REPORTTASKCOMPLETEREQUEST._serialized_start=1091
-  _REPORTTASKCOMPLETEREQUEST._serialized_end=1485
-  _REPORTTASKCOMPLETERESPONSE._serialized_start=1487
-  _REPORTTASKCOMPLETERESPONSE._serialized_end=1515
-  _REGISTERAGENTREQUEST._serialized_start=1518
-  _REGISTERAGENTREQUEST._serialized_end=1727
-  _REGISTERAGENTRESPONSE._serialized_start=1729
-  _REGISTERAGENTRESPONSE._serialized_end=1752
-  _AGENTENDPOINTSERVICE._serialized_start=1755
-  _AGENTENDPOINTSERVICE._serialized_end=3072
+  _RECEIVETASKNOTIFICATIONREQUEST._serialized_start=289
+  _RECEIVETASKNOTIFICATIONREQUEST._serialized_end=381
+  _RECEIVETASKNOTIFICATIONRESPONSE._serialized_start=383
+  _RECEIVETASKNOTIFICATIONRESPONSE._serialized_end=416
+  _STARTNEXTTASKREQUEST._serialized_start=418
+  _STARTNEXTTASKREQUEST._serialized_end=472
+  _STARTNEXTTASKRESPONSE._serialized_start=474
+  _STARTNEXTTASKRESPONSE._serialized_end=561
+  _REPORTTASKPROGRESSREQUEST._serialized_start=564
+  _REPORTTASKPROGRESSREQUEST._serialized_end=945
+  _REPORTTASKPROGRESSRESPONSE._serialized_start=947
+  _REPORTTASKPROGRESSRESPONSE._serialized_end=1058
+  _REPORTTASKCOMPLETEREQUEST._serialized_start=1061
+  _REPORTTASKCOMPLETEREQUEST._serialized_end=1455
+  _REPORTTASKCOMPLETERESPONSE._serialized_start=1457
+  _REPORTTASKCOMPLETERESPONSE._serialized_end=1485
+  _REGISTERAGENTREQUEST._serialized_start=1488
+  _REGISTERAGENTREQUEST._serialized_end=1697
+  _REGISTERAGENTRESPONSE._serialized_start=1699
+  _REGISTERAGENTRESPONSE._serialized_end=1722
+  _AGENTENDPOINTSERVICE._serialized_start=1725
+  _AGENTENDPOINTSERVICE._serialized_end=3042
 # @@protoc_insertion_point(module_scope)

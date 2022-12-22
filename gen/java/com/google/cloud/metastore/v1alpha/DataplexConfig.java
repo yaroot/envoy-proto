@@ -35,59 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DataplexConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              lakeResources_ = com.google.protobuf.MapField.newMapField(
-                  LakeResourcesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.metastore.v1alpha.Lake>
-            lakeResources__ = input.readMessage(
-                LakeResourcesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            lakeResources_.getMutableMap().put(
-                lakeResources__.getKey(), lakeResources__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.metastore.v1alpha.MetastoreProto.internal_static_google_cloud_metastore_v1alpha_DataplexConfig_descriptor;
@@ -125,6 +72,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.metastore.v1alpha.Lake.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.metastore.v1alpha.Lake> lakeResources_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.metastore.v1alpha.Lake>
@@ -135,7 +83,6 @@ private static final long serialVersionUID = 0L;
     }
     return lakeResources_;
   }
-
   public int getLakeResourcesCount() {
     return internalGetLakeResources().getMap().size();
   }
@@ -148,7 +95,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.metastore.v1alpha.Lake&gt; lake_resources = 1;</code>
    */
-
   @java.lang.Override
   public boolean containsLakeResources(
       java.lang.String key) {
@@ -173,7 +119,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.metastore.v1alpha.Lake&gt; lake_resources = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.metastore.v1alpha.Lake> getLakeResourcesMap() {
     return internalGetLakeResources().getMap();
   }
@@ -187,10 +132,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.metastore.v1alpha.Lake&gt; lake_resources = 1;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.metastore.v1alpha.Lake getLakeResourcesOrDefault(
+  public /* nullable */
+com.google.cloud.metastore.v1alpha.Lake getLakeResourcesOrDefault(
       java.lang.String key,
-      com.google.cloud.metastore.v1alpha.Lake defaultValue) {
+      /* nullable */
+com.google.cloud.metastore.v1alpha.Lake defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.metastore.v1alpha.Lake> map =
         internalGetLakeResources().getMap();
@@ -206,7 +152,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.metastore.v1alpha.Lake&gt; lake_resources = 1;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.metastore.v1alpha.Lake getLakeResourcesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -238,7 +183,7 @@ private static final long serialVersionUID = 0L;
         internalGetLakeResources(),
         LakeResourcesDefaultEntryHolder.defaultEntry,
         1);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -257,7 +202,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, lakeResources__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -274,7 +219,7 @@ private static final long serialVersionUID = 0L;
 
     if (!internalGetLakeResources().equals(
         other.internalGetLakeResources())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -289,7 +234,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LAKE_RESOURCES_FIELD_NUMBER;
       hash = (53 * hash) + internalGetLakeResources().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -433,22 +378,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.metastore.v1alpha.DataplexConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableLakeResources().clear();
       return this;
     }
@@ -476,11 +417,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.metastore.v1alpha.DataplexConfig buildPartial() {
       com.google.cloud.metastore.v1alpha.DataplexConfig result = new com.google.cloud.metastore.v1alpha.DataplexConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.lakeResources_ = internalGetLakeResources();
-      result.lakeResources_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.metastore.v1alpha.DataplexConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.lakeResources_ = internalGetLakeResources();
+        result.lakeResources_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -529,7 +476,8 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.metastore.v1alpha.DataplexConfig.getDefaultInstance()) return this;
       internalGetMutableLakeResources().mergeFrom(
           other.internalGetLakeResources());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000001;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -544,17 +492,39 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.metastore.v1alpha.DataplexConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.metastore.v1alpha.Lake>
+              lakeResources__ = input.readMessage(
+                  LakeResourcesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLakeResources().getMutableMap().put(
+                  lakeResources__.getKey(), lakeResources__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.metastore.v1alpha.DataplexConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -562,7 +532,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.metastore.v1alpha.Lake> lakeResources_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.metastore.v1alpha.Lake>
-    internalGetLakeResources() {
+        internalGetLakeResources() {
       if (lakeResources_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LakeResourcesDefaultEntryHolder.defaultEntry);
@@ -570,8 +540,7 @@ private static final long serialVersionUID = 0L;
       return lakeResources_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.metastore.v1alpha.Lake>
-    internalGetMutableLakeResources() {
-      onChanged();;
+        internalGetMutableLakeResources() {
       if (lakeResources_ == null) {
         lakeResources_ = com.google.protobuf.MapField.newMapField(
             LakeResourcesDefaultEntryHolder.defaultEntry);
@@ -579,9 +548,10 @@ private static final long serialVersionUID = 0L;
       if (!lakeResources_.isMutable()) {
         lakeResources_ = lakeResources_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return lakeResources_;
     }
-
     public int getLakeResourcesCount() {
       return internalGetLakeResources().getMap().size();
     }
@@ -594,7 +564,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.metastore.v1alpha.Lake&gt; lake_resources = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsLakeResources(
         java.lang.String key) {
@@ -619,7 +588,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.metastore.v1alpha.Lake&gt; lake_resources = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.metastore.v1alpha.Lake> getLakeResourcesMap() {
       return internalGetLakeResources().getMap();
     }
@@ -633,10 +601,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.metastore.v1alpha.Lake&gt; lake_resources = 1;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.metastore.v1alpha.Lake getLakeResourcesOrDefault(
+    public /* nullable */
+com.google.cloud.metastore.v1alpha.Lake getLakeResourcesOrDefault(
         java.lang.String key,
-        com.google.cloud.metastore.v1alpha.Lake defaultValue) {
+        /* nullable */
+com.google.cloud.metastore.v1alpha.Lake defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.metastore.v1alpha.Lake> map =
           internalGetLakeResources().getMap();
@@ -652,7 +621,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.metastore.v1alpha.Lake&gt; lake_resources = 1;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.metastore.v1alpha.Lake getLakeResourcesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -663,8 +631,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLakeResources() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableLakeResources().getMutableMap()
           .clear();
       return this;
@@ -678,7 +646,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.metastore.v1alpha.Lake&gt; lake_resources = 1;</code>
      */
-
     public Builder removeLakeResources(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -691,7 +658,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.metastore.v1alpha.Lake>
-    getMutableLakeResources() {
+        getMutableLakeResources() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableLakeResources().getMutableMap();
     }
     /**
@@ -707,12 +675,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.metastore.v1alpha.Lake value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLakeResources().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -724,11 +690,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.metastore.v1alpha.Lake&gt; lake_resources = 1;</code>
      */
-
     public Builder putAllLakeResources(
         java.util.Map<java.lang.String, com.google.cloud.metastore.v1alpha.Lake> values) {
       internalGetMutableLakeResources().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
     @java.lang.Override
@@ -764,7 +730,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DataplexConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

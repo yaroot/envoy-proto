@@ -50,7 +50,6 @@ public interface RuntimeInfoOrBuilder extends
    *
    * <code>map&lt;string, string&gt; endpoints = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 java.lang.String getEndpointsOrDefault(
       java.lang.String key,
@@ -64,7 +63,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; endpoints = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   java.lang.String getEndpointsOrThrow(
       java.lang.String key);
 

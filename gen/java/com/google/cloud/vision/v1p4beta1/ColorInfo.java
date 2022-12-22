@@ -35,68 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ColorInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.type.Color.Builder subBuilder = null;
-            if (color_ != null) {
-              subBuilder = color_.toBuilder();
-            }
-            color_ = input.readMessage(com.google.type.Color.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(color_);
-              color_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 21: {
-
-            score_ = input.readFloat();
-            break;
-          }
-          case 29: {
-
-            pixelFraction_ = input.readFloat();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.vision.v1p4beta1.ImageAnnotatorProto.internal_static_google_cloud_vision_v1p4beta1_ColorInfo_descriptor;
@@ -145,11 +83,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.ColorOrBuilder getColorOrBuilder() {
-    return getColor();
+    return color_ == null ? com.google.type.Color.getDefaultInstance() : color_;
   }
 
   public static final int SCORE_FIELD_NUMBER = 2;
-  private float score_;
+  private float score_ = 0F;
   /**
    * <pre>
    * Image-specific score for this color. Value in range [0, 1].
@@ -164,7 +102,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PIXEL_FRACTION_FIELD_NUMBER = 3;
-  private float pixelFraction_;
+  private float pixelFraction_ = 0F;
   /**
    * <pre>
    * The fraction of pixels the color occupies in the image.
@@ -202,7 +140,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToRawIntBits(pixelFraction_) != 0) {
       output.writeFloat(3, pixelFraction_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -223,7 +161,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(3, pixelFraction_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -249,7 +187,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToIntBits(getPixelFraction())
         != java.lang.Float.floatToIntBits(
             other.getPixelFraction())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -270,7 +208,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + PIXEL_FRACTION_FIELD_NUMBER;
     hash = (53 * hash) + java.lang.Float.floatToIntBits(
         getPixelFraction());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -392,32 +330,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.vision.v1p4beta1.ColorInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (colorBuilder_ == null) {
-        color_ = null;
-      } else {
-        color_ = null;
+      bitField0_ = 0;
+      color_ = null;
+      if (colorBuilder_ != null) {
+        colorBuilder_.dispose();
         colorBuilder_ = null;
       }
       score_ = 0F;
-
       pixelFraction_ = 0F;
-
       return this;
     }
 
@@ -444,15 +375,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.vision.v1p4beta1.ColorInfo buildPartial() {
       com.google.cloud.vision.v1p4beta1.ColorInfo result = new com.google.cloud.vision.v1p4beta1.ColorInfo(this);
-      if (colorBuilder_ == null) {
-        result.color_ = color_;
-      } else {
-        result.color_ = colorBuilder_.build();
-      }
-      result.score_ = score_;
-      result.pixelFraction_ = pixelFraction_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.vision.v1p4beta1.ColorInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.color_ = colorBuilder_ == null
+            ? color_
+            : colorBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.score_ = score_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pixelFraction_ = pixelFraction_;
+      }
     }
 
     @java.lang.Override
@@ -508,7 +448,7 @@ private static final long serialVersionUID = 0L;
       if (other.getPixelFraction() != 0F) {
         setPixelFraction(other.getPixelFraction());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -523,19 +463,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.vision.v1p4beta1.ColorInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getColorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 21: {
+              score_ = input.readFloat();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 21
+            case 29: {
+              pixelFraction_ = input.readFloat();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 29
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.vision.v1p4beta1.ColorInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.type.Color color_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -549,7 +520,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the color field is set.
      */
     public boolean hasColor() {
-      return colorBuilder_ != null || color_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -579,11 +550,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         color_ = value;
-        onChanged();
       } else {
         colorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -597,11 +568,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.Color.Builder builderForValue) {
       if (colorBuilder_ == null) {
         color_ = builderForValue.build();
-        onChanged();
       } else {
         colorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -613,17 +584,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeColor(com.google.type.Color value) {
       if (colorBuilder_ == null) {
-        if (color_ != null) {
-          color_ =
-            com.google.type.Color.newBuilder(color_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          color_ != null &&
+          color_ != com.google.type.Color.getDefaultInstance()) {
+          getColorBuilder().mergeFrom(value);
         } else {
           color_ = value;
         }
-        onChanged();
       } else {
         colorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -634,14 +606,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.Color color = 1;</code>
      */
     public Builder clearColor() {
-      if (colorBuilder_ == null) {
-        color_ = null;
-        onChanged();
-      } else {
-        color_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      color_ = null;
+      if (colorBuilder_ != null) {
+        colorBuilder_.dispose();
         colorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -652,7 +623,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.Color color = 1;</code>
      */
     public com.google.type.Color.Builder getColorBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getColorFieldBuilder().getBuilder();
     }
@@ -717,6 +688,7 @@ private static final long serialVersionUID = 0L;
     public Builder setScore(float value) {
       
       score_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -729,7 +701,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScore() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       score_ = 0F;
       onChanged();
       return this;
@@ -762,6 +734,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPixelFraction(float value) {
       
       pixelFraction_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -775,7 +748,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPixelFraction() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       pixelFraction_ = 0F;
       onChanged();
       return this;
@@ -813,7 +786,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ColorInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

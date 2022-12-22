@@ -124,7 +124,6 @@ public interface DnsAuthorizationOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -137,7 +136,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -163,9 +161,10 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Required. Immutable. A domain which is being authorized. A DnsAuthorization resource covers a
-   * single domain and its wildcard, e.g. authorization for `example.com` can
-   * be used to issue certificates for `example.com` and `*.example.com`.
+   * Required. Immutable. A domain which is being authorized. A DnsAuthorization
+   * resource covers a single domain and its wildcard, e.g. authorization for
+   * `example.com` can be used to issue certificates for `example.com` and
+   * `*.example.com`.
    * </pre>
    *
    * <code>string domain = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -174,9 +173,10 @@ java.lang.String defaultValue);
   java.lang.String getDomain();
   /**
    * <pre>
-   * Required. Immutable. A domain which is being authorized. A DnsAuthorization resource covers a
-   * single domain and its wildcard, e.g. authorization for `example.com` can
-   * be used to issue certificates for `example.com` and `*.example.com`.
+   * Required. Immutable. A domain which is being authorized. A DnsAuthorization
+   * resource covers a single domain and its wildcard, e.g. authorization for
+   * `example.com` can be used to issue certificates for `example.com` and
+   * `*.example.com`.
    * </pre>
    *
    * <code>string domain = 6 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -187,7 +187,8 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Output only. DNS Resource Record that needs to be added to DNS configuration.
+   * Output only. DNS Resource Record that needs to be added to DNS
+   * configuration.
    * </pre>
    *
    * <code>.google.cloud.certificatemanager.v1.DnsAuthorization.DnsResourceRecord dns_resource_record = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -196,7 +197,8 @@ java.lang.String defaultValue);
   boolean hasDnsResourceRecord();
   /**
    * <pre>
-   * Output only. DNS Resource Record that needs to be added to DNS configuration.
+   * Output only. DNS Resource Record that needs to be added to DNS
+   * configuration.
    * </pre>
    *
    * <code>.google.cloud.certificatemanager.v1.DnsAuthorization.DnsResourceRecord dns_resource_record = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -205,7 +207,8 @@ java.lang.String defaultValue);
   com.google.cloud.certificatemanager.v1.DnsAuthorization.DnsResourceRecord getDnsResourceRecord();
   /**
    * <pre>
-   * Output only. DNS Resource Record that needs to be added to DNS configuration.
+   * Output only. DNS Resource Record that needs to be added to DNS
+   * configuration.
    * </pre>
    *
    * <code>.google.cloud.certificatemanager.v1.DnsAuthorization.DnsResourceRecord dns_resource_record = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>

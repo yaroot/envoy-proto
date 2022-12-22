@@ -12,11 +12,9 @@ _sym_db = _symbol_database.Default()
 
 
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
-from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n>google/cloud/aiplatform/v1beta1/schema/data_item_payload.proto\x12&google.cloud.aiplatform.v1beta1.schema\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/api/annotations.proto\"=\n\rImageDataItem\x12\x14\n\x07gcs_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tmime_type\x18\x02 \x01(\tB\x03\xe0\x41\x03\"=\n\rVideoDataItem\x12\x14\n\x07gcs_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tmime_type\x18\x02 \x01(\tB\x03\xe0\x41\x03\"$\n\x0cTextDataItem\x12\x14\n\x07gcs_uri\x18\x01 \x01(\tB\x03\xe0\x41\x03\x42\x91\x02\n*com.google.cloud.aiplatform.v1beta1.schemaB\x14\x44\x61taItemPayloadProtoP\x01ZLgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema;schema\xaa\x02&Google.Cloud.AIPlatform.V1Beta1.Schema\xca\x02&Google\\Cloud\\AIPlatform\\V1beta1\\Schema\xea\x02*Google::Cloud::AIPlatform::V1beta1::Schemab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n>google/cloud/aiplatform/v1beta1/schema/data_item_payload.proto\x12&google.cloud.aiplatform.v1beta1.schema\x1a\x1fgoogle/api/field_behavior.proto\"=\n\rImageDataItem\x12\x14\n\x07gcs_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tmime_type\x18\x02 \x01(\tB\x03\xe0\x41\x03\"=\n\rVideoDataItem\x12\x14\n\x07gcs_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tmime_type\x18\x02 \x01(\tB\x03\xe0\x41\x03\"$\n\x0cTextDataItem\x12\x14\n\x07gcs_uri\x18\x01 \x01(\tB\x03\xe0\x41\x03\x42\x91\x02\n*com.google.cloud.aiplatform.v1beta1.schemaB\x14\x44\x61taItemPayloadProtoP\x01ZLgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema;schema\xaa\x02&Google.Cloud.AIPlatform.V1Beta1.Schema\xca\x02&Google\\Cloud\\AIPlatform\\V1beta1\\Schema\xea\x02*Google::Cloud::AIPlatform::V1beta1::Schemab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.aiplatform.v1beta1.schema.data_item_payload_pb2', globals())
@@ -34,10 +32,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _VIDEODATAITEM.fields_by_name['mime_type']._serialized_options = b'\340A\003'
   _TEXTDATAITEM.fields_by_name['gcs_uri']._options = None
   _TEXTDATAITEM.fields_by_name['gcs_uri']._serialized_options = b'\340A\003'
-  _IMAGEDATAITEM._serialized_start=201
-  _IMAGEDATAITEM._serialized_end=262
-  _VIDEODATAITEM._serialized_start=264
-  _VIDEODATAITEM._serialized_end=325
-  _TEXTDATAITEM._serialized_start=327
-  _TEXTDATAITEM._serialized_end=363
+  _IMAGEDATAITEM._serialized_start=139
+  _IMAGEDATAITEM._serialized_end=200
+  _VIDEODATAITEM._serialized_start=202
+  _VIDEODATAITEM._serialized_end=263
+  _TEXTDATAITEM._serialized_start=265
+  _TEXTDATAITEM._serialized_end=301
 # @@protoc_insertion_point(module_scope)

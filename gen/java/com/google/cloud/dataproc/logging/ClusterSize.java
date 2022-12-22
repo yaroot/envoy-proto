@@ -34,55 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ClusterSize(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            primaryWorkerCount_ = input.readInt32();
-            break;
-          }
-          case 16: {
-
-            secondaryWorkerCount_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.logging.AutoscalerLogOuterClass.internal_static_google_cloud_dataproc_logging_ClusterSize_descriptor;
@@ -97,7 +48,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRIMARY_WORKER_COUNT_FIELD_NUMBER = 1;
-  private int primaryWorkerCount_;
+  private int primaryWorkerCount_ = 0;
   /**
    * <pre>
    * The number of primary workers in the cluster.
@@ -112,7 +63,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SECONDARY_WORKER_COUNT_FIELD_NUMBER = 2;
-  private int secondaryWorkerCount_;
+  private int secondaryWorkerCount_ = 0;
   /**
    * <pre>
    * The number of secondary workers in the cluster.
@@ -146,7 +97,7 @@ private static final long serialVersionUID = 0L;
     if (secondaryWorkerCount_ != 0) {
       output.writeInt32(2, secondaryWorkerCount_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -163,7 +114,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, secondaryWorkerCount_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -182,7 +133,7 @@ private static final long serialVersionUID = 0L;
         != other.getPrimaryWorkerCount()) return false;
     if (getSecondaryWorkerCount()
         != other.getSecondaryWorkerCount()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -197,7 +148,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPrimaryWorkerCount();
     hash = (37 * hash) + SECONDARY_WORKER_COUNT_FIELD_NUMBER;
     hash = (53 * hash) + getSecondaryWorkerCount();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -318,26 +269,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.logging.ClusterSize.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       primaryWorkerCount_ = 0;
-
       secondaryWorkerCount_ = 0;
-
       return this;
     }
 
@@ -364,10 +309,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.logging.ClusterSize buildPartial() {
       com.google.cloud.dataproc.logging.ClusterSize result = new com.google.cloud.dataproc.logging.ClusterSize(this);
-      result.primaryWorkerCount_ = primaryWorkerCount_;
-      result.secondaryWorkerCount_ = secondaryWorkerCount_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.logging.ClusterSize result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.primaryWorkerCount_ = primaryWorkerCount_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.secondaryWorkerCount_ = secondaryWorkerCount_;
+      }
     }
 
     @java.lang.Override
@@ -420,7 +374,7 @@ private static final long serialVersionUID = 0L;
       if (other.getSecondaryWorkerCount() != 0) {
         setSecondaryWorkerCount(other.getSecondaryWorkerCount());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -435,19 +389,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.logging.ClusterSize parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              primaryWorkerCount_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              secondaryWorkerCount_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.logging.ClusterSize) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int primaryWorkerCount_ ;
     /**
@@ -474,6 +452,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPrimaryWorkerCount(int value) {
       
       primaryWorkerCount_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -486,7 +465,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrimaryWorkerCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       primaryWorkerCount_ = 0;
       onChanged();
       return this;
@@ -517,6 +496,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSecondaryWorkerCount(int value) {
       
       secondaryWorkerCount_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -529,7 +509,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSecondaryWorkerCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       secondaryWorkerCount_ = 0;
       onChanged();
       return this;
@@ -567,7 +547,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ClusterSize(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

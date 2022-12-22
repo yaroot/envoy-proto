@@ -44,7 +44,7 @@ public interface CryptoReplaceFfxFpeConfigOrBuilder extends
    * 1. the field is not present when transforming a given value,
    * a default tweak will be used.
    * Note that case (1) is expected when an `InfoTypeTransformation` is
-   * applied to both structured and non-structured `ContentItem`s.
+   * applied to both structured and unstructured `ContentItem`s.
    * Currently, the referenced field may be of value type integer or string.
    * The tweak is constructed as a sequence of bytes in big endian byte order
    * such that:
@@ -66,7 +66,7 @@ public interface CryptoReplaceFfxFpeConfigOrBuilder extends
    * 1. the field is not present when transforming a given value,
    * a default tweak will be used.
    * Note that case (1) is expected when an `InfoTypeTransformation` is
-   * applied to both structured and non-structured `ContentItem`s.
+   * applied to both structured and unstructured `ContentItem`s.
    * Currently, the referenced field may be of value type integer or string.
    * The tweak is constructed as a sequence of bytes in big endian byte order
    * such that:
@@ -88,7 +88,7 @@ public interface CryptoReplaceFfxFpeConfigOrBuilder extends
    * 1. the field is not present when transforming a given value,
    * a default tweak will be used.
    * Note that case (1) is expected when an `InfoTypeTransformation` is
-   * applied to both structured and non-structured `ContentItem`s.
+   * applied to both structured and unstructured `ContentItem`s.
    * Currently, the referenced field may be of value type integer or string.
    * The tweak is constructed as a sequence of bytes in big endian byte order
    * such that:

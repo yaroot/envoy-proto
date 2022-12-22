@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BackupRetentionSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            retentionUnit_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (retainedBackups_ != null) {
-              subBuilder = retainedBackups_.toBuilder();
-            }
-            retainedBackups_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(retainedBackups_);
-              retainedBackups_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.sql.v1.CloudSqlResourcesProto.internal_static_google_cloud_sql_v1_BackupRetentionSettings_descriptor;
@@ -236,7 +178,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RETENTION_UNIT_FIELD_NUMBER = 1;
-  private int retentionUnit_;
+  private int retentionUnit_ = 0;
   /**
    * <pre>
    * The unit that 'retained_backups' represents.
@@ -257,8 +199,7 @@ private static final long serialVersionUID = 0L;
    * @return The retentionUnit.
    */
   @java.lang.Override public com.google.cloud.sql.v1.BackupRetentionSettings.RetentionUnit getRetentionUnit() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.sql.v1.BackupRetentionSettings.RetentionUnit result = com.google.cloud.sql.v1.BackupRetentionSettings.RetentionUnit.valueOf(retentionUnit_);
+    com.google.cloud.sql.v1.BackupRetentionSettings.RetentionUnit result = com.google.cloud.sql.v1.BackupRetentionSettings.RetentionUnit.forNumber(retentionUnit_);
     return result == null ? com.google.cloud.sql.v1.BackupRetentionSettings.RetentionUnit.UNRECOGNIZED : result;
   }
 
@@ -303,7 +244,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getRetainedBackupsOrBuilder() {
-    return getRetainedBackups();
+    return retainedBackups_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : retainedBackups_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -326,7 +267,7 @@ private static final long serialVersionUID = 0L;
     if (retainedBackups_ != null) {
       output.writeMessage(2, getRetainedBackups());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -343,7 +284,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getRetainedBackups());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -364,7 +305,7 @@ private static final long serialVersionUID = 0L;
       if (!getRetainedBackups()
           .equals(other.getRetainedBackups())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -381,7 +322,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RETAINED_BACKUPS_FIELD_NUMBER;
       hash = (53 * hash) + getRetainedBackups().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -503,28 +444,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.sql.v1.BackupRetentionSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       retentionUnit_ = 0;
-
-      if (retainedBackupsBuilder_ == null) {
-        retainedBackups_ = null;
-      } else {
-        retainedBackups_ = null;
+      retainedBackups_ = null;
+      if (retainedBackupsBuilder_ != null) {
+        retainedBackupsBuilder_.dispose();
         retainedBackupsBuilder_ = null;
       }
       return this;
@@ -553,14 +488,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.sql.v1.BackupRetentionSettings buildPartial() {
       com.google.cloud.sql.v1.BackupRetentionSettings result = new com.google.cloud.sql.v1.BackupRetentionSettings(this);
-      result.retentionUnit_ = retentionUnit_;
-      if (retainedBackupsBuilder_ == null) {
-        result.retainedBackups_ = retainedBackups_;
-      } else {
-        result.retainedBackups_ = retainedBackupsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.sql.v1.BackupRetentionSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.retentionUnit_ = retentionUnit_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.retainedBackups_ = retainedBackupsBuilder_ == null
+            ? retainedBackups_
+            : retainedBackupsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -613,7 +555,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRetainedBackups()) {
         mergeRetainedBackups(other.getRetainedBackups());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -628,19 +570,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.sql.v1.BackupRetentionSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              retentionUnit_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getRetainedBackupsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.sql.v1.BackupRetentionSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int retentionUnit_ = 0;
     /**
@@ -664,8 +632,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRetentionUnitValue(int value) {
-      
       retentionUnit_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -679,8 +647,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.sql.v1.BackupRetentionSettings.RetentionUnit getRetentionUnit() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.sql.v1.BackupRetentionSettings.RetentionUnit result = com.google.cloud.sql.v1.BackupRetentionSettings.RetentionUnit.valueOf(retentionUnit_);
+      com.google.cloud.sql.v1.BackupRetentionSettings.RetentionUnit result = com.google.cloud.sql.v1.BackupRetentionSettings.RetentionUnit.forNumber(retentionUnit_);
       return result == null ? com.google.cloud.sql.v1.BackupRetentionSettings.RetentionUnit.UNRECOGNIZED : result;
     }
     /**
@@ -696,7 +663,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       retentionUnit_ = value.getNumber();
       onChanged();
       return this;
@@ -710,7 +677,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRetentionUnit() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       retentionUnit_ = 0;
       onChanged();
       return this;
@@ -730,7 +697,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the retainedBackups field is set.
      */
     public boolean hasRetainedBackups() {
-      return retainedBackupsBuilder_ != null || retainedBackups_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -764,11 +731,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         retainedBackups_ = value;
-        onChanged();
       } else {
         retainedBackupsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -784,11 +751,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (retainedBackupsBuilder_ == null) {
         retainedBackups_ = builderForValue.build();
-        onChanged();
       } else {
         retainedBackupsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -802,17 +769,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRetainedBackups(com.google.protobuf.Int32Value value) {
       if (retainedBackupsBuilder_ == null) {
-        if (retainedBackups_ != null) {
-          retainedBackups_ =
-            com.google.protobuf.Int32Value.newBuilder(retainedBackups_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          retainedBackups_ != null &&
+          retainedBackups_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getRetainedBackupsBuilder().mergeFrom(value);
         } else {
           retainedBackups_ = value;
         }
-        onChanged();
       } else {
         retainedBackupsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -825,14 +793,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value retained_backups = 2;</code>
      */
     public Builder clearRetainedBackups() {
-      if (retainedBackupsBuilder_ == null) {
-        retainedBackups_ = null;
-        onChanged();
-      } else {
-        retainedBackups_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      retainedBackups_ = null;
+      if (retainedBackupsBuilder_ != null) {
+        retainedBackupsBuilder_.dispose();
         retainedBackupsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -845,7 +812,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value retained_backups = 2;</code>
      */
     public com.google.protobuf.Int32Value.Builder getRetainedBackupsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getRetainedBackupsFieldBuilder().getBuilder();
     }
@@ -921,7 +888,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BackupRetentionSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

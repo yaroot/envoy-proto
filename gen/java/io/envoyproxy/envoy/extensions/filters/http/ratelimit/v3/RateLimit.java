@@ -5,7 +5,7 @@ package io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3;
 
 /**
  * <pre>
- * [#next-free-field: 11]
+ * [#next-free-field: 12]
  * </pre>
  *
  * Protobuf type {@code envoy.extensions.filters.http.ratelimit.v3.RateLimit}
@@ -23,6 +23,7 @@ private static final long serialVersionUID = 0L;
     domain_ = "";
     requestType_ = "";
     enableXRatelimitHeaders_ = 0;
+    responseHeadersToAdd_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -36,122 +37,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private RateLimit(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            domain_ = s;
-            break;
-          }
-          case 16: {
-
-            stage_ = input.readUInt32();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            requestType_ = s;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (timeout_ != null) {
-              subBuilder = timeout_.toBuilder();
-            }
-            timeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timeout_);
-              timeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            failureModeDeny_ = input.readBool();
-            break;
-          }
-          case 48: {
-
-            rateLimitedAsResourceExhausted_ = input.readBool();
-            break;
-          }
-          case 58: {
-            io.envoyproxy.envoy.config.ratelimit.v3.RateLimitServiceConfig.Builder subBuilder = null;
-            if (rateLimitService_ != null) {
-              subBuilder = rateLimitService_.toBuilder();
-            }
-            rateLimitService_ = input.readMessage(io.envoyproxy.envoy.config.ratelimit.v3.RateLimitServiceConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rateLimitService_);
-              rateLimitService_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-
-            enableXRatelimitHeaders_ = rawValue;
-            break;
-          }
-          case 72: {
-
-            disableXEnvoyRatelimitedHeader_ = input.readBool();
-            break;
-          }
-          case 82: {
-            io.envoyproxy.envoy.type.v3.HttpStatus.Builder subBuilder = null;
-            if (rateLimitedStatus_ != null) {
-              subBuilder = rateLimitedStatus_.toBuilder();
-            }
-            rateLimitedStatus_ = input.readMessage(io.envoyproxy.envoy.type.v3.HttpStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rateLimitedStatus_);
-              rateLimitedStatus_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -296,7 +181,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOMAIN_FIELD_NUMBER = 1;
-  private volatile java.lang.Object domain_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object domain_ = "";
   /**
    * <pre>
    * The rate limit domain to use when calling the rate limit service.
@@ -342,7 +228,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STAGE_FIELD_NUMBER = 2;
-  private int stage_;
+  private int stage_ = 0;
   /**
    * <pre>
    * Specifies the rate limit configurations to be applied with the same
@@ -360,7 +246,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUEST_TYPE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object requestType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object requestType_ = "";
   /**
    * <pre>
    * The type of requests the filter should apply to. The supported
@@ -453,11 +340,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getTimeoutOrBuilder() {
-    return getTimeout();
+    return timeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : timeout_;
   }
 
   public static final int FAILURE_MODE_DENY_FIELD_NUMBER = 5;
-  private boolean failureModeDeny_;
+  private boolean failureModeDeny_ = false;
   /**
    * <pre>
    * The filter's behaviour in case the rate limiting service does
@@ -474,7 +361,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RATE_LIMITED_AS_RESOURCE_EXHAUSTED_FIELD_NUMBER = 6;
-  private boolean rateLimitedAsResourceExhausted_;
+  private boolean rateLimitedAsResourceExhausted_ = false;
   /**
    * <pre>
    * Specifies whether a ``RESOURCE_EXHAUSTED`` gRPC code must be returned instead
@@ -531,11 +418,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.ratelimit.v3.RateLimitServiceConfigOrBuilder getRateLimitServiceOrBuilder() {
-    return getRateLimitService();
+    return rateLimitService_ == null ? io.envoyproxy.envoy.config.ratelimit.v3.RateLimitServiceConfig.getDefaultInstance() : rateLimitService_;
   }
 
   public static final int ENABLE_X_RATELIMIT_HEADERS_FIELD_NUMBER = 8;
-  private int enableXRatelimitHeaders_;
+  private int enableXRatelimitHeaders_ = 0;
   /**
    * <pre>
    * Defines the standard version to use for X-RateLimit headers emitted by the filter:
@@ -594,13 +481,12 @@ private static final long serialVersionUID = 0L;
    * @return The enableXRatelimitHeaders.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit.XRateLimitHeadersRFCVersion getEnableXRatelimitHeaders() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit.XRateLimitHeadersRFCVersion result = io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit.XRateLimitHeadersRFCVersion.valueOf(enableXRatelimitHeaders_);
+    io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit.XRateLimitHeadersRFCVersion result = io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit.XRateLimitHeadersRFCVersion.forNumber(enableXRatelimitHeaders_);
     return result == null ? io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit.XRateLimitHeadersRFCVersion.UNRECOGNIZED : result;
   }
 
   public static final int DISABLE_X_ENVOY_RATELIMITED_HEADER_FIELD_NUMBER = 9;
-  private boolean disableXEnvoyRatelimitedHeader_;
+  private boolean disableXEnvoyRatelimitedHeader_ = false;
   /**
    * <pre>
    * Disables emitting the :ref:`x-envoy-ratelimited&lt;config_http_filters_router_x-envoy-ratelimited&gt;` header
@@ -663,7 +549,73 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.v3.HttpStatusOrBuilder getRateLimitedStatusOrBuilder() {
-    return getRateLimitedStatus();
+    return rateLimitedStatus_ == null ? io.envoyproxy.envoy.type.v3.HttpStatus.getDefaultInstance() : rateLimitedStatus_;
+  }
+
+  public static final int RESPONSE_HEADERS_TO_ADD_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
+  private java.util.List<io.envoyproxy.envoy.config.core.v3.HeaderValueOption> responseHeadersToAdd_;
+  /**
+   * <pre>
+   * Specifies a list of HTTP headers that should be added to each response for requests that
+   * have been rate limited.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+   */
+  @java.lang.Override
+  public java.util.List<io.envoyproxy.envoy.config.core.v3.HeaderValueOption> getResponseHeadersToAddList() {
+    return responseHeadersToAdd_;
+  }
+  /**
+   * <pre>
+   * Specifies a list of HTTP headers that should be added to each response for requests that
+   * have been rate limited.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends io.envoyproxy.envoy.config.core.v3.HeaderValueOptionOrBuilder> 
+      getResponseHeadersToAddOrBuilderList() {
+    return responseHeadersToAdd_;
+  }
+  /**
+   * <pre>
+   * Specifies a list of HTTP headers that should be added to each response for requests that
+   * have been rate limited.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+   */
+  @java.lang.Override
+  public int getResponseHeadersToAddCount() {
+    return responseHeadersToAdd_.size();
+  }
+  /**
+   * <pre>
+   * Specifies a list of HTTP headers that should be added to each response for requests that
+   * have been rate limited.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.config.core.v3.HeaderValueOption getResponseHeadersToAdd(int index) {
+    return responseHeadersToAdd_.get(index);
+  }
+  /**
+   * <pre>
+   * Specifies a list of HTTP headers that should be added to each response for requests that
+   * have been rate limited.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.config.core.v3.HeaderValueOptionOrBuilder getResponseHeadersToAddOrBuilder(
+      int index) {
+    return responseHeadersToAdd_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -710,7 +662,10 @@ private static final long serialVersionUID = 0L;
     if (rateLimitedStatus_ != null) {
       output.writeMessage(10, getRateLimitedStatus());
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < responseHeadersToAdd_.size(); i++) {
+      output.writeMessage(11, responseHeadersToAdd_.get(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -757,7 +712,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, getRateLimitedStatus());
     }
-    size += unknownFields.getSerializedSize();
+    for (int i = 0; i < responseHeadersToAdd_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(11, responseHeadersToAdd_.get(i));
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -800,7 +759,9 @@ private static final long serialVersionUID = 0L;
       if (!getRateLimitedStatus()
           .equals(other.getRateLimitedStatus())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getResponseHeadersToAddList()
+        .equals(other.getResponseHeadersToAddList())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -840,7 +801,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RATE_LIMITED_STATUS_FIELD_NUMBER;
       hash = (53 * hash) + getRateLimitedStatus().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (getResponseHeadersToAddCount() > 0) {
+      hash = (37 * hash) + RESPONSE_HEADERS_TO_ADD_FIELD_NUMBER;
+      hash = (53 * hash) + getResponseHeadersToAddList().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -937,7 +902,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * [#next-free-field: 11]
+   * [#next-free-field: 12]
    * </pre>
    *
    * Protobuf type {@code envoy.extensions.filters.http.ratelimit.v3.RateLimit}
@@ -961,54 +926,47 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       domain_ = "";
-
       stage_ = 0;
-
       requestType_ = "";
-
-      if (timeoutBuilder_ == null) {
-        timeout_ = null;
-      } else {
-        timeout_ = null;
+      timeout_ = null;
+      if (timeoutBuilder_ != null) {
+        timeoutBuilder_.dispose();
         timeoutBuilder_ = null;
       }
       failureModeDeny_ = false;
-
       rateLimitedAsResourceExhausted_ = false;
-
-      if (rateLimitServiceBuilder_ == null) {
-        rateLimitService_ = null;
-      } else {
-        rateLimitService_ = null;
+      rateLimitService_ = null;
+      if (rateLimitServiceBuilder_ != null) {
+        rateLimitServiceBuilder_.dispose();
         rateLimitServiceBuilder_ = null;
       }
       enableXRatelimitHeaders_ = 0;
-
       disableXEnvoyRatelimitedHeader_ = false;
-
-      if (rateLimitedStatusBuilder_ == null) {
-        rateLimitedStatus_ = null;
-      } else {
-        rateLimitedStatus_ = null;
+      rateLimitedStatus_ = null;
+      if (rateLimitedStatusBuilder_ != null) {
+        rateLimitedStatusBuilder_.dispose();
         rateLimitedStatusBuilder_ = null;
       }
+      if (responseHeadersToAddBuilder_ == null) {
+        responseHeadersToAdd_ = java.util.Collections.emptyList();
+      } else {
+        responseHeadersToAdd_ = null;
+        responseHeadersToAddBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000400);
       return this;
     }
 
@@ -1035,30 +993,62 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit result = new io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit(this);
-      result.domain_ = domain_;
-      result.stage_ = stage_;
-      result.requestType_ = requestType_;
-      if (timeoutBuilder_ == null) {
-        result.timeout_ = timeout_;
-      } else {
-        result.timeout_ = timeoutBuilder_.build();
-      }
-      result.failureModeDeny_ = failureModeDeny_;
-      result.rateLimitedAsResourceExhausted_ = rateLimitedAsResourceExhausted_;
-      if (rateLimitServiceBuilder_ == null) {
-        result.rateLimitService_ = rateLimitService_;
-      } else {
-        result.rateLimitService_ = rateLimitServiceBuilder_.build();
-      }
-      result.enableXRatelimitHeaders_ = enableXRatelimitHeaders_;
-      result.disableXEnvoyRatelimitedHeader_ = disableXEnvoyRatelimitedHeader_;
-      if (rateLimitedStatusBuilder_ == null) {
-        result.rateLimitedStatus_ = rateLimitedStatus_;
-      } else {
-        result.rateLimitedStatus_ = rateLimitedStatusBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit result) {
+      if (responseHeadersToAddBuilder_ == null) {
+        if (((bitField0_ & 0x00000400) != 0)) {
+          responseHeadersToAdd_ = java.util.Collections.unmodifiableList(responseHeadersToAdd_);
+          bitField0_ = (bitField0_ & ~0x00000400);
+        }
+        result.responseHeadersToAdd_ = responseHeadersToAdd_;
+      } else {
+        result.responseHeadersToAdd_ = responseHeadersToAddBuilder_.build();
+      }
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.domain_ = domain_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.stage_ = stage_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.requestType_ = requestType_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.timeout_ = timeoutBuilder_ == null
+            ? timeout_
+            : timeoutBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.failureModeDeny_ = failureModeDeny_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.rateLimitedAsResourceExhausted_ = rateLimitedAsResourceExhausted_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.rateLimitService_ = rateLimitServiceBuilder_ == null
+            ? rateLimitService_
+            : rateLimitServiceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.enableXRatelimitHeaders_ = enableXRatelimitHeaders_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.disableXEnvoyRatelimitedHeader_ = disableXEnvoyRatelimitedHeader_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.rateLimitedStatus_ = rateLimitedStatusBuilder_ == null
+            ? rateLimitedStatus_
+            : rateLimitedStatusBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1107,6 +1097,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit.getDefaultInstance()) return this;
       if (!other.getDomain().isEmpty()) {
         domain_ = other.domain_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getStage() != 0) {
@@ -1114,6 +1105,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRequestType().isEmpty()) {
         requestType_ = other.requestType_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasTimeout()) {
@@ -1137,7 +1129,33 @@ private static final long serialVersionUID = 0L;
       if (other.hasRateLimitedStatus()) {
         mergeRateLimitedStatus(other.getRateLimitedStatus());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (responseHeadersToAddBuilder_ == null) {
+        if (!other.responseHeadersToAdd_.isEmpty()) {
+          if (responseHeadersToAdd_.isEmpty()) {
+            responseHeadersToAdd_ = other.responseHeadersToAdd_;
+            bitField0_ = (bitField0_ & ~0x00000400);
+          } else {
+            ensureResponseHeadersToAddIsMutable();
+            responseHeadersToAdd_.addAll(other.responseHeadersToAdd_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.responseHeadersToAdd_.isEmpty()) {
+          if (responseHeadersToAddBuilder_.isEmpty()) {
+            responseHeadersToAddBuilder_.dispose();
+            responseHeadersToAddBuilder_ = null;
+            responseHeadersToAdd_ = other.responseHeadersToAdd_;
+            bitField0_ = (bitField0_ & ~0x00000400);
+            responseHeadersToAddBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getResponseHeadersToAddFieldBuilder() : null;
+          } else {
+            responseHeadersToAddBuilder_.addAllMessages(other.responseHeadersToAdd_);
+          }
+        }
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1152,19 +1170,102 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              domain_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              stage_ = input.readUInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              requestType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              failureModeDeny_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              rateLimitedAsResourceExhausted_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              input.readMessage(
+                  getRateLimitServiceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 64: {
+              enableXRatelimitHeaders_ = input.readEnum();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 72: {
+              disableXEnvoyRatelimitedHeader_ = input.readBool();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 82: {
+              input.readMessage(
+                  getRateLimitedStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              io.envoyproxy.envoy.config.core.v3.HeaderValueOption m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.core.v3.HeaderValueOption.parser(),
+                      extensionRegistry);
+              if (responseHeadersToAddBuilder_ == null) {
+                ensureResponseHeadersToAddIsMutable();
+                responseHeadersToAdd_.add(m);
+              } else {
+                responseHeadersToAddBuilder_.addMessage(m);
+              }
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object domain_ = "";
     /**
@@ -1219,11 +1320,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDomain(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       domain_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1236,8 +1335,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDomain() {
-      
       domain_ = getDefaultInstance().getDomain();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1252,12 +1351,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDomainBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       domain_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1293,6 +1390,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStage(int value) {
       
       stage_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1308,7 +1406,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStage() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       stage_ = 0;
       onChanged();
       return this;
@@ -1382,11 +1480,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       requestType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1404,8 +1500,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequestType() {
-      
       requestType_ = getDefaultInstance().getRequestType();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1425,12 +1521,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       requestType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1448,7 +1542,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timeout field is set.
      */
     public boolean hasTimeout() {
-      return timeoutBuilder_ != null || timeout_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1480,11 +1574,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timeout_ = value;
-        onChanged();
       } else {
         timeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1499,11 +1593,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (timeoutBuilder_ == null) {
         timeout_ = builderForValue.build();
-        onChanged();
       } else {
         timeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1516,17 +1610,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimeout(com.google.protobuf.Duration value) {
       if (timeoutBuilder_ == null) {
-        if (timeout_ != null) {
-          timeout_ =
-            com.google.protobuf.Duration.newBuilder(timeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          timeout_ != null &&
+          timeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getTimeoutBuilder().mergeFrom(value);
         } else {
           timeout_ = value;
         }
-        onChanged();
       } else {
         timeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1538,14 +1633,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration timeout = 4;</code>
      */
     public Builder clearTimeout() {
-      if (timeoutBuilder_ == null) {
-        timeout_ = null;
-        onChanged();
-      } else {
-        timeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      timeout_ = null;
+      if (timeoutBuilder_ != null) {
+        timeoutBuilder_.dispose();
         timeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1557,7 +1651,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration timeout = 4;</code>
      */
     public com.google.protobuf.Duration.Builder getTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getTimeoutFieldBuilder().getBuilder();
     }
@@ -1628,6 +1722,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFailureModeDeny(boolean value) {
       
       failureModeDeny_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1642,7 +1737,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFailureModeDeny() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       failureModeDeny_ = false;
       onChanged();
       return this;
@@ -1677,6 +1772,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRateLimitedAsResourceExhausted(boolean value) {
       
       rateLimitedAsResourceExhausted_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1691,7 +1787,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRateLimitedAsResourceExhausted() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       rateLimitedAsResourceExhausted_ = false;
       onChanged();
       return this;
@@ -1711,7 +1807,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rateLimitService field is set.
      */
     public boolean hasRateLimitService() {
-      return rateLimitServiceBuilder_ != null || rateLimitService_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1745,11 +1841,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rateLimitService_ = value;
-        onChanged();
       } else {
         rateLimitServiceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1765,11 +1861,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.ratelimit.v3.RateLimitServiceConfig.Builder builderForValue) {
       if (rateLimitServiceBuilder_ == null) {
         rateLimitService_ = builderForValue.build();
-        onChanged();
       } else {
         rateLimitServiceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1783,17 +1879,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRateLimitService(io.envoyproxy.envoy.config.ratelimit.v3.RateLimitServiceConfig value) {
       if (rateLimitServiceBuilder_ == null) {
-        if (rateLimitService_ != null) {
-          rateLimitService_ =
-            io.envoyproxy.envoy.config.ratelimit.v3.RateLimitServiceConfig.newBuilder(rateLimitService_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          rateLimitService_ != null &&
+          rateLimitService_ != io.envoyproxy.envoy.config.ratelimit.v3.RateLimitServiceConfig.getDefaultInstance()) {
+          getRateLimitServiceBuilder().mergeFrom(value);
         } else {
           rateLimitService_ = value;
         }
-        onChanged();
       } else {
         rateLimitServiceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1806,14 +1903,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.ratelimit.v3.RateLimitServiceConfig rate_limit_service = 7 [(.validate.rules) = { ... }</code>
      */
     public Builder clearRateLimitService() {
-      if (rateLimitServiceBuilder_ == null) {
-        rateLimitService_ = null;
-        onChanged();
-      } else {
-        rateLimitService_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      rateLimitService_ = null;
+      if (rateLimitServiceBuilder_ != null) {
+        rateLimitServiceBuilder_.dispose();
         rateLimitServiceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1826,7 +1922,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.ratelimit.v3.RateLimitServiceConfig rate_limit_service = 7 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.config.ratelimit.v3.RateLimitServiceConfig.Builder getRateLimitServiceBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getRateLimitServiceFieldBuilder().getBuilder();
     }
@@ -1930,8 +2026,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEnableXRatelimitHeadersValue(int value) {
-      
       enableXRatelimitHeaders_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1964,8 +2060,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit.XRateLimitHeadersRFCVersion getEnableXRatelimitHeaders() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit.XRateLimitHeadersRFCVersion result = io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit.XRateLimitHeadersRFCVersion.valueOf(enableXRatelimitHeaders_);
+      io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit.XRateLimitHeadersRFCVersion result = io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit.XRateLimitHeadersRFCVersion.forNumber(enableXRatelimitHeaders_);
       return result == null ? io.envoyproxy.envoy.extensions.filters.http.ratelimit.v3.RateLimit.XRateLimitHeadersRFCVersion.UNRECOGNIZED : result;
     }
     /**
@@ -2000,7 +2095,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000080;
       enableXRatelimitHeaders_ = value.getNumber();
       onChanged();
       return this;
@@ -2033,7 +2128,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableXRatelimitHeaders() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       enableXRatelimitHeaders_ = 0;
       onChanged();
       return this;
@@ -2068,6 +2163,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDisableXEnvoyRatelimitedHeader(boolean value) {
       
       disableXEnvoyRatelimitedHeader_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2082,7 +2178,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisableXEnvoyRatelimitedHeader() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       disableXEnvoyRatelimitedHeader_ = false;
       onChanged();
       return this;
@@ -2104,7 +2200,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rateLimitedStatus field is set.
      */
     public boolean hasRateLimitedStatus() {
-      return rateLimitedStatusBuilder_ != null || rateLimitedStatus_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -2142,11 +2238,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rateLimitedStatus_ = value;
-        onChanged();
       } else {
         rateLimitedStatusBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2164,11 +2260,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.v3.HttpStatus.Builder builderForValue) {
       if (rateLimitedStatusBuilder_ == null) {
         rateLimitedStatus_ = builderForValue.build();
-        onChanged();
       } else {
         rateLimitedStatusBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2184,17 +2280,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRateLimitedStatus(io.envoyproxy.envoy.type.v3.HttpStatus value) {
       if (rateLimitedStatusBuilder_ == null) {
-        if (rateLimitedStatus_ != null) {
-          rateLimitedStatus_ =
-            io.envoyproxy.envoy.type.v3.HttpStatus.newBuilder(rateLimitedStatus_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          rateLimitedStatus_ != null &&
+          rateLimitedStatus_ != io.envoyproxy.envoy.type.v3.HttpStatus.getDefaultInstance()) {
+          getRateLimitedStatusBuilder().mergeFrom(value);
         } else {
           rateLimitedStatus_ = value;
         }
-        onChanged();
       } else {
         rateLimitedStatusBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2209,14 +2306,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.v3.HttpStatus rate_limited_status = 10;</code>
      */
     public Builder clearRateLimitedStatus() {
-      if (rateLimitedStatusBuilder_ == null) {
-        rateLimitedStatus_ = null;
-        onChanged();
-      } else {
-        rateLimitedStatus_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      rateLimitedStatus_ = null;
+      if (rateLimitedStatusBuilder_ != null) {
+        rateLimitedStatusBuilder_.dispose();
         rateLimitedStatusBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2231,7 +2327,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.v3.HttpStatus rate_limited_status = 10;</code>
      */
     public io.envoyproxy.envoy.type.v3.HttpStatus.Builder getRateLimitedStatusBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getRateLimitedStatusFieldBuilder().getBuilder();
     }
@@ -2278,6 +2374,336 @@ private static final long serialVersionUID = 0L;
       }
       return rateLimitedStatusBuilder_;
     }
+
+    private java.util.List<io.envoyproxy.envoy.config.core.v3.HeaderValueOption> responseHeadersToAdd_ =
+      java.util.Collections.emptyList();
+    private void ensureResponseHeadersToAddIsMutable() {
+      if (!((bitField0_ & 0x00000400) != 0)) {
+        responseHeadersToAdd_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.HeaderValueOption>(responseHeadersToAdd_);
+        bitField0_ |= 0x00000400;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.envoyproxy.envoy.config.core.v3.HeaderValueOption, io.envoyproxy.envoy.config.core.v3.HeaderValueOption.Builder, io.envoyproxy.envoy.config.core.v3.HeaderValueOptionOrBuilder> responseHeadersToAddBuilder_;
+
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public java.util.List<io.envoyproxy.envoy.config.core.v3.HeaderValueOption> getResponseHeadersToAddList() {
+      if (responseHeadersToAddBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(responseHeadersToAdd_);
+      } else {
+        return responseHeadersToAddBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public int getResponseHeadersToAddCount() {
+      if (responseHeadersToAddBuilder_ == null) {
+        return responseHeadersToAdd_.size();
+      } else {
+        return responseHeadersToAddBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public io.envoyproxy.envoy.config.core.v3.HeaderValueOption getResponseHeadersToAdd(int index) {
+      if (responseHeadersToAddBuilder_ == null) {
+        return responseHeadersToAdd_.get(index);
+      } else {
+        return responseHeadersToAddBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public Builder setResponseHeadersToAdd(
+        int index, io.envoyproxy.envoy.config.core.v3.HeaderValueOption value) {
+      if (responseHeadersToAddBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureResponseHeadersToAddIsMutable();
+        responseHeadersToAdd_.set(index, value);
+        onChanged();
+      } else {
+        responseHeadersToAddBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public Builder setResponseHeadersToAdd(
+        int index, io.envoyproxy.envoy.config.core.v3.HeaderValueOption.Builder builderForValue) {
+      if (responseHeadersToAddBuilder_ == null) {
+        ensureResponseHeadersToAddIsMutable();
+        responseHeadersToAdd_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        responseHeadersToAddBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public Builder addResponseHeadersToAdd(io.envoyproxy.envoy.config.core.v3.HeaderValueOption value) {
+      if (responseHeadersToAddBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureResponseHeadersToAddIsMutable();
+        responseHeadersToAdd_.add(value);
+        onChanged();
+      } else {
+        responseHeadersToAddBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public Builder addResponseHeadersToAdd(
+        int index, io.envoyproxy.envoy.config.core.v3.HeaderValueOption value) {
+      if (responseHeadersToAddBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureResponseHeadersToAddIsMutable();
+        responseHeadersToAdd_.add(index, value);
+        onChanged();
+      } else {
+        responseHeadersToAddBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public Builder addResponseHeadersToAdd(
+        io.envoyproxy.envoy.config.core.v3.HeaderValueOption.Builder builderForValue) {
+      if (responseHeadersToAddBuilder_ == null) {
+        ensureResponseHeadersToAddIsMutable();
+        responseHeadersToAdd_.add(builderForValue.build());
+        onChanged();
+      } else {
+        responseHeadersToAddBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public Builder addResponseHeadersToAdd(
+        int index, io.envoyproxy.envoy.config.core.v3.HeaderValueOption.Builder builderForValue) {
+      if (responseHeadersToAddBuilder_ == null) {
+        ensureResponseHeadersToAddIsMutable();
+        responseHeadersToAdd_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        responseHeadersToAddBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public Builder addAllResponseHeadersToAdd(
+        java.lang.Iterable<? extends io.envoyproxy.envoy.config.core.v3.HeaderValueOption> values) {
+      if (responseHeadersToAddBuilder_ == null) {
+        ensureResponseHeadersToAddIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, responseHeadersToAdd_);
+        onChanged();
+      } else {
+        responseHeadersToAddBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public Builder clearResponseHeadersToAdd() {
+      if (responseHeadersToAddBuilder_ == null) {
+        responseHeadersToAdd_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000400);
+        onChanged();
+      } else {
+        responseHeadersToAddBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public Builder removeResponseHeadersToAdd(int index) {
+      if (responseHeadersToAddBuilder_ == null) {
+        ensureResponseHeadersToAddIsMutable();
+        responseHeadersToAdd_.remove(index);
+        onChanged();
+      } else {
+        responseHeadersToAddBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public io.envoyproxy.envoy.config.core.v3.HeaderValueOption.Builder getResponseHeadersToAddBuilder(
+        int index) {
+      return getResponseHeadersToAddFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public io.envoyproxy.envoy.config.core.v3.HeaderValueOptionOrBuilder getResponseHeadersToAddOrBuilder(
+        int index) {
+      if (responseHeadersToAddBuilder_ == null) {
+        return responseHeadersToAdd_.get(index);  } else {
+        return responseHeadersToAddBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public java.util.List<? extends io.envoyproxy.envoy.config.core.v3.HeaderValueOptionOrBuilder> 
+         getResponseHeadersToAddOrBuilderList() {
+      if (responseHeadersToAddBuilder_ != null) {
+        return responseHeadersToAddBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(responseHeadersToAdd_);
+      }
+    }
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public io.envoyproxy.envoy.config.core.v3.HeaderValueOption.Builder addResponseHeadersToAddBuilder() {
+      return getResponseHeadersToAddFieldBuilder().addBuilder(
+          io.envoyproxy.envoy.config.core.v3.HeaderValueOption.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public io.envoyproxy.envoy.config.core.v3.HeaderValueOption.Builder addResponseHeadersToAddBuilder(
+        int index) {
+      return getResponseHeadersToAddFieldBuilder().addBuilder(
+          index, io.envoyproxy.envoy.config.core.v3.HeaderValueOption.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Specifies a list of HTTP headers that should be added to each response for requests that
+     * have been rate limited.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.core.v3.HeaderValueOption response_headers_to_add = 11 [(.validate.rules) = { ... }</code>
+     */
+    public java.util.List<io.envoyproxy.envoy.config.core.v3.HeaderValueOption.Builder> 
+         getResponseHeadersToAddBuilderList() {
+      return getResponseHeadersToAddFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.envoyproxy.envoy.config.core.v3.HeaderValueOption, io.envoyproxy.envoy.config.core.v3.HeaderValueOption.Builder, io.envoyproxy.envoy.config.core.v3.HeaderValueOptionOrBuilder> 
+        getResponseHeadersToAddFieldBuilder() {
+      if (responseHeadersToAddBuilder_ == null) {
+        responseHeadersToAddBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            io.envoyproxy.envoy.config.core.v3.HeaderValueOption, io.envoyproxy.envoy.config.core.v3.HeaderValueOption.Builder, io.envoyproxy.envoy.config.core.v3.HeaderValueOptionOrBuilder>(
+                responseHeadersToAdd_,
+                ((bitField0_ & 0x00000400) != 0),
+                getParentForChildren(),
+                isClean());
+        responseHeadersToAdd_ = null;
+      }
+      return responseHeadersToAddBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2311,7 +2737,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RateLimit(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

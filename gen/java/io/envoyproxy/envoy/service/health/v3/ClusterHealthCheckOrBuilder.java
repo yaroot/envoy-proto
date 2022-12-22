@@ -120,4 +120,34 @@ public interface ClusterHealthCheckOrBuilder extends
    */
   io.envoyproxy.envoy.config.cluster.v3.Cluster.TransportSocketMatchOrBuilder getTransportSocketMatchesOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * Optional configuration used to bind newly established upstream connections.
+   * If the address and port are empty, no bind will be performed.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.BindConfig upstream_bind_config = 5;</code>
+   * @return Whether the upstreamBindConfig field is set.
+   */
+  boolean hasUpstreamBindConfig();
+  /**
+   * <pre>
+   * Optional configuration used to bind newly established upstream connections.
+   * If the address and port are empty, no bind will be performed.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.BindConfig upstream_bind_config = 5;</code>
+   * @return The upstreamBindConfig.
+   */
+  io.envoyproxy.envoy.config.core.v3.BindConfig getUpstreamBindConfig();
+  /**
+   * <pre>
+   * Optional configuration used to bind newly established upstream connections.
+   * If the address and port are empty, no bind will be performed.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.BindConfig upstream_bind_config = 5;</code>
+   */
+  io.envoyproxy.envoy.config.core.v3.BindConfigOrBuilder getUpstreamBindConfigOrBuilder();
 }

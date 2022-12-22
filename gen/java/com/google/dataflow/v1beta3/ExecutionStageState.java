@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ExecutionStageState(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            executionStageName_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            executionStageState_ = rawValue;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (currentStateTime_ != null) {
-              subBuilder = currentStateTime_.toBuilder();
-            }
-            currentStateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(currentStateTime_);
-              currentStateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.dataflow.v1beta3.JobsProto.internal_static_google_dataflow_v1beta3_ExecutionStageState_descriptor;
@@ -114,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXECUTION_STAGE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object executionStageName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object executionStageName_ = "";
   /**
    * <pre>
    * The name of the execution stage.
@@ -160,7 +97,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXECUTION_STAGE_STATE_FIELD_NUMBER = 2;
-  private int executionStageState_;
+  private int executionStageState_ = 0;
   /**
    * <pre>
    * Executions stage states allow the same set of values as JobState.
@@ -181,8 +118,7 @@ private static final long serialVersionUID = 0L;
    * @return The executionStageState.
    */
   @java.lang.Override public com.google.dataflow.v1beta3.JobState getExecutionStageState() {
-    @SuppressWarnings("deprecation")
-    com.google.dataflow.v1beta3.JobState result = com.google.dataflow.v1beta3.JobState.valueOf(executionStageState_);
+    com.google.dataflow.v1beta3.JobState result = com.google.dataflow.v1beta3.JobState.forNumber(executionStageState_);
     return result == null ? com.google.dataflow.v1beta3.JobState.UNRECOGNIZED : result;
   }
 
@@ -221,7 +157,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCurrentStateTimeOrBuilder() {
-    return getCurrentStateTime();
+    return currentStateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : currentStateTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -247,7 +183,7 @@ private static final long serialVersionUID = 0L;
     if (currentStateTime_ != null) {
       output.writeMessage(3, getCurrentStateTime());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -267,7 +203,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getCurrentStateTime());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -290,7 +226,7 @@ private static final long serialVersionUID = 0L;
       if (!getCurrentStateTime()
           .equals(other.getCurrentStateTime())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -309,7 +245,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CURRENT_STATE_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getCurrentStateTime().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -430,30 +366,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.dataflow.v1beta3.ExecutionStageState.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       executionStageName_ = "";
-
       executionStageState_ = 0;
-
-      if (currentStateTimeBuilder_ == null) {
-        currentStateTime_ = null;
-      } else {
-        currentStateTime_ = null;
+      currentStateTime_ = null;
+      if (currentStateTimeBuilder_ != null) {
+        currentStateTimeBuilder_.dispose();
         currentStateTimeBuilder_ = null;
       }
       return this;
@@ -482,15 +411,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.dataflow.v1beta3.ExecutionStageState buildPartial() {
       com.google.dataflow.v1beta3.ExecutionStageState result = new com.google.dataflow.v1beta3.ExecutionStageState(this);
-      result.executionStageName_ = executionStageName_;
-      result.executionStageState_ = executionStageState_;
-      if (currentStateTimeBuilder_ == null) {
-        result.currentStateTime_ = currentStateTime_;
-      } else {
-        result.currentStateTime_ = currentStateTimeBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.dataflow.v1beta3.ExecutionStageState result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.executionStageName_ = executionStageName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.executionStageState_ = executionStageState_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.currentStateTime_ = currentStateTimeBuilder_ == null
+            ? currentStateTime_
+            : currentStateTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -539,6 +477,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.dataflow.v1beta3.ExecutionStageState.getDefaultInstance()) return this;
       if (!other.getExecutionStageName().isEmpty()) {
         executionStageName_ = other.executionStageName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.executionStageState_ != 0) {
@@ -547,7 +486,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasCurrentStateTime()) {
         mergeCurrentStateTime(other.getCurrentStateTime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -562,19 +501,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.dataflow.v1beta3.ExecutionStageState parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              executionStageName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              executionStageState_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getCurrentStateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.dataflow.v1beta3.ExecutionStageState) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object executionStageName_ = "";
     /**
@@ -629,11 +599,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExecutionStageName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       executionStageName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -646,8 +614,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExecutionStageName() {
-      
       executionStageName_ = getDefaultInstance().getExecutionStageName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -662,12 +630,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExecutionStageNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       executionStageName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -694,8 +660,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setExecutionStageStateValue(int value) {
-      
       executionStageState_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -709,8 +675,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.dataflow.v1beta3.JobState getExecutionStageState() {
-      @SuppressWarnings("deprecation")
-      com.google.dataflow.v1beta3.JobState result = com.google.dataflow.v1beta3.JobState.valueOf(executionStageState_);
+      com.google.dataflow.v1beta3.JobState result = com.google.dataflow.v1beta3.JobState.forNumber(executionStageState_);
       return result == null ? com.google.dataflow.v1beta3.JobState.UNRECOGNIZED : result;
     }
     /**
@@ -726,7 +691,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       executionStageState_ = value.getNumber();
       onChanged();
       return this;
@@ -740,7 +705,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExecutionStageState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       executionStageState_ = 0;
       onChanged();
       return this;
@@ -758,7 +723,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the currentStateTime field is set.
      */
     public boolean hasCurrentStateTime() {
-      return currentStateTimeBuilder_ != null || currentStateTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -788,11 +753,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         currentStateTime_ = value;
-        onChanged();
       } else {
         currentStateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -806,11 +771,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (currentStateTimeBuilder_ == null) {
         currentStateTime_ = builderForValue.build();
-        onChanged();
       } else {
         currentStateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -822,17 +787,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCurrentStateTime(com.google.protobuf.Timestamp value) {
       if (currentStateTimeBuilder_ == null) {
-        if (currentStateTime_ != null) {
-          currentStateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(currentStateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          currentStateTime_ != null &&
+          currentStateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCurrentStateTimeBuilder().mergeFrom(value);
         } else {
           currentStateTime_ = value;
         }
-        onChanged();
       } else {
         currentStateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -843,14 +809,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp current_state_time = 3;</code>
      */
     public Builder clearCurrentStateTime() {
-      if (currentStateTimeBuilder_ == null) {
-        currentStateTime_ = null;
-        onChanged();
-      } else {
-        currentStateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      currentStateTime_ = null;
+      if (currentStateTimeBuilder_ != null) {
+        currentStateTimeBuilder_.dispose();
         currentStateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -861,7 +826,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp current_state_time = 3;</code>
      */
     public com.google.protobuf.Timestamp.Builder getCurrentStateTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCurrentStateTimeFieldBuilder().getBuilder();
     }
@@ -933,7 +898,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExecutionStageState(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

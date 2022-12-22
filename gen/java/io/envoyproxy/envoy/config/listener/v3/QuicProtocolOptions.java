@@ -6,7 +6,7 @@ package io.envoyproxy.envoy.config.listener.v3;
 /**
  * <pre>
  * Configuration specific to the UDP QUIC listener.
- * [#next-free-field: 8]
+ * [#next-free-field: 9]
  * </pre>
  *
  * Protobuf type {@code envoy.config.listener.v3.QuicProtocolOptions}
@@ -34,136 +34,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private QuicProtocolOptions(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions.Builder subBuilder = null;
-            if (quicProtocolOptions_ != null) {
-              subBuilder = quicProtocolOptions_.toBuilder();
-            }
-            quicProtocolOptions_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(quicProtocolOptions_);
-              quicProtocolOptions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (idleTimeout_ != null) {
-              subBuilder = idleTimeout_.toBuilder();
-            }
-            idleTimeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(idleTimeout_);
-              idleTimeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (cryptoHandshakeTimeout_ != null) {
-              subBuilder = cryptoHandshakeTimeout_.toBuilder();
-            }
-            cryptoHandshakeTimeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cryptoHandshakeTimeout_);
-              cryptoHandshakeTimeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder subBuilder = null;
-            if (enabled_ != null) {
-              subBuilder = enabled_.toBuilder();
-            }
-            enabled_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(enabled_);
-              enabled_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (packetsToReadToConnectionCountRatio_ != null) {
-              subBuilder = packetsToReadToConnectionCountRatio_.toBuilder();
-            }
-            packetsToReadToConnectionCountRatio_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(packetsToReadToConnectionCountRatio_);
-              packetsToReadToConnectionCountRatio_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder subBuilder = null;
-            if (cryptoStreamConfig_ != null) {
-              subBuilder = cryptoStreamConfig_.toBuilder();
-            }
-            cryptoStreamConfig_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cryptoStreamConfig_);
-              cryptoStreamConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder subBuilder = null;
-            if (proofSourceConfig_ != null) {
-              subBuilder = proofSourceConfig_.toBuilder();
-            }
-            proofSourceConfig_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(proofSourceConfig_);
-              proofSourceConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -201,7 +71,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.QuicProtocolOptionsOrBuilder getQuicProtocolOptionsOrBuilder() {
-    return getQuicProtocolOptions();
+    return quicProtocolOptions_ == null ? io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions.getDefaultInstance() : quicProtocolOptions_;
   }
 
   public static final int IDLE_TIMEOUT_FIELD_NUMBER = 2;
@@ -245,7 +115,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getIdleTimeoutOrBuilder() {
-    return getIdleTimeout();
+    return idleTimeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : idleTimeout_;
   }
 
   public static final int CRYPTO_HANDSHAKE_TIMEOUT_FIELD_NUMBER = 3;
@@ -286,7 +156,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getCryptoHandshakeTimeoutOrBuilder() {
-    return getCryptoHandshakeTimeout();
+    return cryptoHandshakeTimeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : cryptoHandshakeTimeout_;
   }
 
   public static final int ENABLED_FIELD_NUMBER = 4;
@@ -327,7 +197,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlagOrBuilder getEnabledOrBuilder() {
-    return getEnabled();
+    return enabled_ == null ? io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.getDefaultInstance() : enabled_;
   }
 
   public static final int PACKETS_TO_READ_TO_CONNECTION_COUNT_RATIO_FIELD_NUMBER = 5;
@@ -383,7 +253,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getPacketsToReadToConnectionCountRatioOrBuilder() {
-    return getPacketsToReadToConnectionCountRatio();
+    return packetsToReadToConnectionCountRatio_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : packetsToReadToConnectionCountRatio_;
   }
 
   public static final int CRYPTO_STREAM_CONFIG_FIELD_NUMBER = 6;
@@ -427,7 +297,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder getCryptoStreamConfigOrBuilder() {
-    return getCryptoStreamConfig();
+    return cryptoStreamConfig_ == null ? io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.getDefaultInstance() : cryptoStreamConfig_;
   }
 
   public static final int PROOF_SOURCE_CONFIG_FIELD_NUMBER = 7;
@@ -471,7 +341,51 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder getProofSourceConfigOrBuilder() {
-    return getProofSourceConfig();
+    return proofSourceConfig_ == null ? io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.getDefaultInstance() : proofSourceConfig_;
+  }
+
+  public static final int CONNECTION_ID_GENERATOR_CONFIG_FIELD_NUMBER = 8;
+  private io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig connectionIdGeneratorConfig_;
+  /**
+   * <pre>
+   * Config which implementation of ``quic::ConnectionIdGeneratorInterface`` to be used for this listener.
+   * If not specified the :ref:`default one configured by &lt;envoy_v3_api_msg_extensions.quic.connection_id_generator.v3.DeterministicConnectionIdGeneratorConfig&gt;` will be used.
+   * [#extension-category: envoy.quic.connection_id_generator]
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.TypedExtensionConfig connection_id_generator_config = 8;</code>
+   * @return Whether the connectionIdGeneratorConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasConnectionIdGeneratorConfig() {
+    return connectionIdGeneratorConfig_ != null;
+  }
+  /**
+   * <pre>
+   * Config which implementation of ``quic::ConnectionIdGeneratorInterface`` to be used for this listener.
+   * If not specified the :ref:`default one configured by &lt;envoy_v3_api_msg_extensions.quic.connection_id_generator.v3.DeterministicConnectionIdGeneratorConfig&gt;` will be used.
+   * [#extension-category: envoy.quic.connection_id_generator]
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.TypedExtensionConfig connection_id_generator_config = 8;</code>
+   * @return The connectionIdGeneratorConfig.
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig getConnectionIdGeneratorConfig() {
+    return connectionIdGeneratorConfig_ == null ? io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.getDefaultInstance() : connectionIdGeneratorConfig_;
+  }
+  /**
+   * <pre>
+   * Config which implementation of ``quic::ConnectionIdGeneratorInterface`` to be used for this listener.
+   * If not specified the :ref:`default one configured by &lt;envoy_v3_api_msg_extensions.quic.connection_id_generator.v3.DeterministicConnectionIdGeneratorConfig&gt;` will be used.
+   * [#extension-category: envoy.quic.connection_id_generator]
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.TypedExtensionConfig connection_id_generator_config = 8;</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder getConnectionIdGeneratorConfigOrBuilder() {
+    return connectionIdGeneratorConfig_ == null ? io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.getDefaultInstance() : connectionIdGeneratorConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -509,7 +423,10 @@ private static final long serialVersionUID = 0L;
     if (proofSourceConfig_ != null) {
       output.writeMessage(7, getProofSourceConfig());
     }
-    unknownFields.writeTo(output);
+    if (connectionIdGeneratorConfig_ != null) {
+      output.writeMessage(8, getConnectionIdGeneratorConfig());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -546,7 +463,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getProofSourceConfig());
     }
-    size += unknownFields.getSerializedSize();
+    if (connectionIdGeneratorConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, getConnectionIdGeneratorConfig());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -596,7 +517,12 @@ private static final long serialVersionUID = 0L;
       if (!getProofSourceConfig()
           .equals(other.getProofSourceConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasConnectionIdGeneratorConfig() != other.hasConnectionIdGeneratorConfig()) return false;
+    if (hasConnectionIdGeneratorConfig()) {
+      if (!getConnectionIdGeneratorConfig()
+          .equals(other.getConnectionIdGeneratorConfig())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -635,7 +561,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PROOF_SOURCE_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getProofSourceConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasConnectionIdGeneratorConfig()) {
+      hash = (37 * hash) + CONNECTION_ID_GENERATOR_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getConnectionIdGeneratorConfig().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -733,7 +663,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Configuration specific to the UDP QUIC listener.
-   * [#next-free-field: 8]
+   * [#next-free-field: 9]
    * </pre>
    *
    * Protobuf type {@code envoy.config.listener.v3.QuicProtocolOptions}
@@ -757,63 +687,57 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.listener.v3.QuicProtocolOptions.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (quicProtocolOptionsBuilder_ == null) {
-        quicProtocolOptions_ = null;
-      } else {
-        quicProtocolOptions_ = null;
+      bitField0_ = 0;
+      quicProtocolOptions_ = null;
+      if (quicProtocolOptionsBuilder_ != null) {
+        quicProtocolOptionsBuilder_.dispose();
         quicProtocolOptionsBuilder_ = null;
       }
-      if (idleTimeoutBuilder_ == null) {
-        idleTimeout_ = null;
-      } else {
-        idleTimeout_ = null;
+      idleTimeout_ = null;
+      if (idleTimeoutBuilder_ != null) {
+        idleTimeoutBuilder_.dispose();
         idleTimeoutBuilder_ = null;
       }
-      if (cryptoHandshakeTimeoutBuilder_ == null) {
-        cryptoHandshakeTimeout_ = null;
-      } else {
-        cryptoHandshakeTimeout_ = null;
+      cryptoHandshakeTimeout_ = null;
+      if (cryptoHandshakeTimeoutBuilder_ != null) {
+        cryptoHandshakeTimeoutBuilder_.dispose();
         cryptoHandshakeTimeoutBuilder_ = null;
       }
-      if (enabledBuilder_ == null) {
-        enabled_ = null;
-      } else {
-        enabled_ = null;
+      enabled_ = null;
+      if (enabledBuilder_ != null) {
+        enabledBuilder_.dispose();
         enabledBuilder_ = null;
       }
-      if (packetsToReadToConnectionCountRatioBuilder_ == null) {
-        packetsToReadToConnectionCountRatio_ = null;
-      } else {
-        packetsToReadToConnectionCountRatio_ = null;
+      packetsToReadToConnectionCountRatio_ = null;
+      if (packetsToReadToConnectionCountRatioBuilder_ != null) {
+        packetsToReadToConnectionCountRatioBuilder_.dispose();
         packetsToReadToConnectionCountRatioBuilder_ = null;
       }
-      if (cryptoStreamConfigBuilder_ == null) {
-        cryptoStreamConfig_ = null;
-      } else {
-        cryptoStreamConfig_ = null;
+      cryptoStreamConfig_ = null;
+      if (cryptoStreamConfigBuilder_ != null) {
+        cryptoStreamConfigBuilder_.dispose();
         cryptoStreamConfigBuilder_ = null;
       }
-      if (proofSourceConfigBuilder_ == null) {
-        proofSourceConfig_ = null;
-      } else {
-        proofSourceConfig_ = null;
+      proofSourceConfig_ = null;
+      if (proofSourceConfigBuilder_ != null) {
+        proofSourceConfigBuilder_.dispose();
         proofSourceConfigBuilder_ = null;
+      }
+      connectionIdGeneratorConfig_ = null;
+      if (connectionIdGeneratorConfigBuilder_ != null) {
+        connectionIdGeneratorConfigBuilder_.dispose();
+        connectionIdGeneratorConfigBuilder_ = null;
       }
       return this;
     }
@@ -841,43 +765,53 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.listener.v3.QuicProtocolOptions buildPartial() {
       io.envoyproxy.envoy.config.listener.v3.QuicProtocolOptions result = new io.envoyproxy.envoy.config.listener.v3.QuicProtocolOptions(this);
-      if (quicProtocolOptionsBuilder_ == null) {
-        result.quicProtocolOptions_ = quicProtocolOptions_;
-      } else {
-        result.quicProtocolOptions_ = quicProtocolOptionsBuilder_.build();
-      }
-      if (idleTimeoutBuilder_ == null) {
-        result.idleTimeout_ = idleTimeout_;
-      } else {
-        result.idleTimeout_ = idleTimeoutBuilder_.build();
-      }
-      if (cryptoHandshakeTimeoutBuilder_ == null) {
-        result.cryptoHandshakeTimeout_ = cryptoHandshakeTimeout_;
-      } else {
-        result.cryptoHandshakeTimeout_ = cryptoHandshakeTimeoutBuilder_.build();
-      }
-      if (enabledBuilder_ == null) {
-        result.enabled_ = enabled_;
-      } else {
-        result.enabled_ = enabledBuilder_.build();
-      }
-      if (packetsToReadToConnectionCountRatioBuilder_ == null) {
-        result.packetsToReadToConnectionCountRatio_ = packetsToReadToConnectionCountRatio_;
-      } else {
-        result.packetsToReadToConnectionCountRatio_ = packetsToReadToConnectionCountRatioBuilder_.build();
-      }
-      if (cryptoStreamConfigBuilder_ == null) {
-        result.cryptoStreamConfig_ = cryptoStreamConfig_;
-      } else {
-        result.cryptoStreamConfig_ = cryptoStreamConfigBuilder_.build();
-      }
-      if (proofSourceConfigBuilder_ == null) {
-        result.proofSourceConfig_ = proofSourceConfig_;
-      } else {
-        result.proofSourceConfig_ = proofSourceConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.listener.v3.QuicProtocolOptions result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.quicProtocolOptions_ = quicProtocolOptionsBuilder_ == null
+            ? quicProtocolOptions_
+            : quicProtocolOptionsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.idleTimeout_ = idleTimeoutBuilder_ == null
+            ? idleTimeout_
+            : idleTimeoutBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.cryptoHandshakeTimeout_ = cryptoHandshakeTimeoutBuilder_ == null
+            ? cryptoHandshakeTimeout_
+            : cryptoHandshakeTimeoutBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.enabled_ = enabledBuilder_ == null
+            ? enabled_
+            : enabledBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.packetsToReadToConnectionCountRatio_ = packetsToReadToConnectionCountRatioBuilder_ == null
+            ? packetsToReadToConnectionCountRatio_
+            : packetsToReadToConnectionCountRatioBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.cryptoStreamConfig_ = cryptoStreamConfigBuilder_ == null
+            ? cryptoStreamConfig_
+            : cryptoStreamConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.proofSourceConfig_ = proofSourceConfigBuilder_ == null
+            ? proofSourceConfig_
+            : proofSourceConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.connectionIdGeneratorConfig_ = connectionIdGeneratorConfigBuilder_ == null
+            ? connectionIdGeneratorConfig_
+            : connectionIdGeneratorConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -945,7 +879,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasProofSourceConfig()) {
         mergeProofSourceConfig(other.getProofSourceConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasConnectionIdGeneratorConfig()) {
+        mergeConnectionIdGeneratorConfig(other.getConnectionIdGeneratorConfig());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -960,19 +897,89 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.listener.v3.QuicProtocolOptions parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getQuicProtocolOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getIdleTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCryptoHandshakeTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getEnabledFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getPacketsToReadToConnectionCountRatioFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getCryptoStreamConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getProofSourceConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getConnectionIdGeneratorConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.listener.v3.QuicProtocolOptions) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions quicProtocolOptions_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -982,7 +989,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the quicProtocolOptions field is set.
      */
     public boolean hasQuicProtocolOptions() {
-      return quicProtocolOptionsBuilder_ != null || quicProtocolOptions_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.envoy.config.core.v3.QuicProtocolOptions quic_protocol_options = 1;</code>
@@ -1004,11 +1011,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         quicProtocolOptions_ = value;
-        onChanged();
       } else {
         quicProtocolOptionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1018,11 +1025,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions.Builder builderForValue) {
       if (quicProtocolOptionsBuilder_ == null) {
         quicProtocolOptions_ = builderForValue.build();
-        onChanged();
       } else {
         quicProtocolOptionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1030,38 +1037,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeQuicProtocolOptions(io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions value) {
       if (quicProtocolOptionsBuilder_ == null) {
-        if (quicProtocolOptions_ != null) {
-          quicProtocolOptions_ =
-            io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions.newBuilder(quicProtocolOptions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          quicProtocolOptions_ != null &&
+          quicProtocolOptions_ != io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions.getDefaultInstance()) {
+          getQuicProtocolOptionsBuilder().mergeFrom(value);
         } else {
           quicProtocolOptions_ = value;
         }
-        onChanged();
       } else {
         quicProtocolOptionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.config.core.v3.QuicProtocolOptions quic_protocol_options = 1;</code>
      */
     public Builder clearQuicProtocolOptions() {
-      if (quicProtocolOptionsBuilder_ == null) {
-        quicProtocolOptions_ = null;
-        onChanged();
-      } else {
-        quicProtocolOptions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      quicProtocolOptions_ = null;
+      if (quicProtocolOptionsBuilder_ != null) {
+        quicProtocolOptionsBuilder_.dispose();
         quicProtocolOptionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.config.core.v3.QuicProtocolOptions quic_protocol_options = 1;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.QuicProtocolOptions.Builder getQuicProtocolOptionsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getQuicProtocolOptionsFieldBuilder().getBuilder();
     }
@@ -1107,7 +1114,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the idleTimeout field is set.
      */
     public boolean hasIdleTimeout() {
-      return idleTimeoutBuilder_ != null || idleTimeout_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1141,11 +1148,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         idleTimeout_ = value;
-        onChanged();
       } else {
         idleTimeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1161,11 +1168,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (idleTimeoutBuilder_ == null) {
         idleTimeout_ = builderForValue.build();
-        onChanged();
       } else {
         idleTimeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1179,17 +1186,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeIdleTimeout(com.google.protobuf.Duration value) {
       if (idleTimeoutBuilder_ == null) {
-        if (idleTimeout_ != null) {
-          idleTimeout_ =
-            com.google.protobuf.Duration.newBuilder(idleTimeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          idleTimeout_ != null &&
+          idleTimeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getIdleTimeoutBuilder().mergeFrom(value);
         } else {
           idleTimeout_ = value;
         }
-        onChanged();
       } else {
         idleTimeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1202,14 +1210,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration idle_timeout = 2;</code>
      */
     public Builder clearIdleTimeout() {
-      if (idleTimeoutBuilder_ == null) {
-        idleTimeout_ = null;
-        onChanged();
-      } else {
-        idleTimeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      idleTimeout_ = null;
+      if (idleTimeoutBuilder_ != null) {
+        idleTimeoutBuilder_.dispose();
         idleTimeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1222,7 +1229,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration idle_timeout = 2;</code>
      */
     public com.google.protobuf.Duration.Builder getIdleTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getIdleTimeoutFieldBuilder().getBuilder();
     }
@@ -1279,7 +1286,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cryptoHandshakeTimeout field is set.
      */
     public boolean hasCryptoHandshakeTimeout() {
-      return cryptoHandshakeTimeoutBuilder_ != null || cryptoHandshakeTimeout_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1311,11 +1318,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cryptoHandshakeTimeout_ = value;
-        onChanged();
       } else {
         cryptoHandshakeTimeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1330,11 +1337,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (cryptoHandshakeTimeoutBuilder_ == null) {
         cryptoHandshakeTimeout_ = builderForValue.build();
-        onChanged();
       } else {
         cryptoHandshakeTimeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1347,17 +1354,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCryptoHandshakeTimeout(com.google.protobuf.Duration value) {
       if (cryptoHandshakeTimeoutBuilder_ == null) {
-        if (cryptoHandshakeTimeout_ != null) {
-          cryptoHandshakeTimeout_ =
-            com.google.protobuf.Duration.newBuilder(cryptoHandshakeTimeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          cryptoHandshakeTimeout_ != null &&
+          cryptoHandshakeTimeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getCryptoHandshakeTimeoutBuilder().mergeFrom(value);
         } else {
           cryptoHandshakeTimeout_ = value;
         }
-        onChanged();
       } else {
         cryptoHandshakeTimeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1369,14 +1377,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration crypto_handshake_timeout = 3;</code>
      */
     public Builder clearCryptoHandshakeTimeout() {
-      if (cryptoHandshakeTimeoutBuilder_ == null) {
-        cryptoHandshakeTimeout_ = null;
-        onChanged();
-      } else {
-        cryptoHandshakeTimeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      cryptoHandshakeTimeout_ = null;
+      if (cryptoHandshakeTimeoutBuilder_ != null) {
+        cryptoHandshakeTimeoutBuilder_.dispose();
         cryptoHandshakeTimeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1388,7 +1395,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration crypto_handshake_timeout = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getCryptoHandshakeTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCryptoHandshakeTimeoutFieldBuilder().getBuilder();
     }
@@ -1443,7 +1450,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the enabled field is set.
      */
     public boolean hasEnabled() {
-      return enabledBuilder_ != null || enabled_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1475,11 +1482,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         enabled_ = value;
-        onChanged();
       } else {
         enabledBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1494,11 +1501,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder builderForValue) {
       if (enabledBuilder_ == null) {
         enabled_ = builderForValue.build();
-        onChanged();
       } else {
         enabledBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1511,17 +1518,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnabled(io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag value) {
       if (enabledBuilder_ == null) {
-        if (enabled_ != null) {
-          enabled_ =
-            io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.newBuilder(enabled_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          enabled_ != null &&
+          enabled_ != io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.getDefaultInstance()) {
+          getEnabledBuilder().mergeFrom(value);
         } else {
           enabled_ = value;
         }
-        onChanged();
       } else {
         enabledBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1533,14 +1541,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 4;</code>
      */
     public Builder clearEnabled() {
-      if (enabledBuilder_ == null) {
-        enabled_ = null;
-        onChanged();
-      } else {
-        enabled_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      enabled_ = null;
+      if (enabledBuilder_ != null) {
+        enabledBuilder_.dispose();
         enabledBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1552,7 +1559,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 4;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder getEnabledBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getEnabledFieldBuilder().getBuilder();
     }
@@ -1612,7 +1619,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the packetsToReadToConnectionCountRatio field is set.
      */
     public boolean hasPacketsToReadToConnectionCountRatio() {
-      return packetsToReadToConnectionCountRatioBuilder_ != null || packetsToReadToConnectionCountRatio_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1654,11 +1661,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         packetsToReadToConnectionCountRatio_ = value;
-        onChanged();
       } else {
         packetsToReadToConnectionCountRatioBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1678,11 +1685,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (packetsToReadToConnectionCountRatioBuilder_ == null) {
         packetsToReadToConnectionCountRatio_ = builderForValue.build();
-        onChanged();
       } else {
         packetsToReadToConnectionCountRatioBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1700,17 +1707,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePacketsToReadToConnectionCountRatio(com.google.protobuf.UInt32Value value) {
       if (packetsToReadToConnectionCountRatioBuilder_ == null) {
-        if (packetsToReadToConnectionCountRatio_ != null) {
-          packetsToReadToConnectionCountRatio_ =
-            com.google.protobuf.UInt32Value.newBuilder(packetsToReadToConnectionCountRatio_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          packetsToReadToConnectionCountRatio_ != null &&
+          packetsToReadToConnectionCountRatio_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getPacketsToReadToConnectionCountRatioBuilder().mergeFrom(value);
         } else {
           packetsToReadToConnectionCountRatio_ = value;
         }
-        onChanged();
       } else {
         packetsToReadToConnectionCountRatioBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1727,14 +1735,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value packets_to_read_to_connection_count_ratio = 5 [(.validate.rules) = { ... }</code>
      */
     public Builder clearPacketsToReadToConnectionCountRatio() {
-      if (packetsToReadToConnectionCountRatioBuilder_ == null) {
-        packetsToReadToConnectionCountRatio_ = null;
-        onChanged();
-      } else {
-        packetsToReadToConnectionCountRatio_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      packetsToReadToConnectionCountRatio_ = null;
+      if (packetsToReadToConnectionCountRatioBuilder_ != null) {
+        packetsToReadToConnectionCountRatioBuilder_.dispose();
         packetsToReadToConnectionCountRatioBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1751,7 +1758,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value packets_to_read_to_connection_count_ratio = 5 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getPacketsToReadToConnectionCountRatioBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getPacketsToReadToConnectionCountRatioFieldBuilder().getBuilder();
     }
@@ -1817,7 +1824,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cryptoStreamConfig field is set.
      */
     public boolean hasCryptoStreamConfig() {
-      return cryptoStreamConfigBuilder_ != null || cryptoStreamConfig_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1851,11 +1858,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cryptoStreamConfig_ = value;
-        onChanged();
       } else {
         cryptoStreamConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1871,11 +1878,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder builderForValue) {
       if (cryptoStreamConfigBuilder_ == null) {
         cryptoStreamConfig_ = builderForValue.build();
-        onChanged();
       } else {
         cryptoStreamConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1889,17 +1896,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCryptoStreamConfig(io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig value) {
       if (cryptoStreamConfigBuilder_ == null) {
-        if (cryptoStreamConfig_ != null) {
-          cryptoStreamConfig_ =
-            io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.newBuilder(cryptoStreamConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          cryptoStreamConfig_ != null &&
+          cryptoStreamConfig_ != io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.getDefaultInstance()) {
+          getCryptoStreamConfigBuilder().mergeFrom(value);
         } else {
           cryptoStreamConfig_ = value;
         }
-        onChanged();
       } else {
         cryptoStreamConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1912,14 +1920,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.TypedExtensionConfig crypto_stream_config = 6;</code>
      */
     public Builder clearCryptoStreamConfig() {
-      if (cryptoStreamConfigBuilder_ == null) {
-        cryptoStreamConfig_ = null;
-        onChanged();
-      } else {
-        cryptoStreamConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      cryptoStreamConfig_ = null;
+      if (cryptoStreamConfigBuilder_ != null) {
+        cryptoStreamConfigBuilder_.dispose();
         cryptoStreamConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1932,7 +1939,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.TypedExtensionConfig crypto_stream_config = 6;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder getCryptoStreamConfigBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getCryptoStreamConfigFieldBuilder().getBuilder();
     }
@@ -1990,7 +1997,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the proofSourceConfig field is set.
      */
     public boolean hasProofSourceConfig() {
-      return proofSourceConfigBuilder_ != null || proofSourceConfig_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2024,11 +2031,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         proofSourceConfig_ = value;
-        onChanged();
       } else {
         proofSourceConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2044,11 +2051,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder builderForValue) {
       if (proofSourceConfigBuilder_ == null) {
         proofSourceConfig_ = builderForValue.build();
-        onChanged();
       } else {
         proofSourceConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2062,17 +2069,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeProofSourceConfig(io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig value) {
       if (proofSourceConfigBuilder_ == null) {
-        if (proofSourceConfig_ != null) {
-          proofSourceConfig_ =
-            io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.newBuilder(proofSourceConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          proofSourceConfig_ != null &&
+          proofSourceConfig_ != io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.getDefaultInstance()) {
+          getProofSourceConfigBuilder().mergeFrom(value);
         } else {
           proofSourceConfig_ = value;
         }
-        onChanged();
       } else {
         proofSourceConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2085,14 +2093,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.TypedExtensionConfig proof_source_config = 7;</code>
      */
     public Builder clearProofSourceConfig() {
-      if (proofSourceConfigBuilder_ == null) {
-        proofSourceConfig_ = null;
-        onChanged();
-      } else {
-        proofSourceConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      proofSourceConfig_ = null;
+      if (proofSourceConfigBuilder_ != null) {
+        proofSourceConfigBuilder_.dispose();
         proofSourceConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2105,7 +2112,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.TypedExtensionConfig proof_source_config = 7;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder getProofSourceConfigBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getProofSourceConfigFieldBuilder().getBuilder();
     }
@@ -2148,6 +2155,179 @@ private static final long serialVersionUID = 0L;
       }
       return proofSourceConfigBuilder_;
     }
+
+    private io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig connectionIdGeneratorConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig, io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder, io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder> connectionIdGeneratorConfigBuilder_;
+    /**
+     * <pre>
+     * Config which implementation of ``quic::ConnectionIdGeneratorInterface`` to be used for this listener.
+     * If not specified the :ref:`default one configured by &lt;envoy_v3_api_msg_extensions.quic.connection_id_generator.v3.DeterministicConnectionIdGeneratorConfig&gt;` will be used.
+     * [#extension-category: envoy.quic.connection_id_generator]
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.TypedExtensionConfig connection_id_generator_config = 8;</code>
+     * @return Whether the connectionIdGeneratorConfig field is set.
+     */
+    public boolean hasConnectionIdGeneratorConfig() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <pre>
+     * Config which implementation of ``quic::ConnectionIdGeneratorInterface`` to be used for this listener.
+     * If not specified the :ref:`default one configured by &lt;envoy_v3_api_msg_extensions.quic.connection_id_generator.v3.DeterministicConnectionIdGeneratorConfig&gt;` will be used.
+     * [#extension-category: envoy.quic.connection_id_generator]
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.TypedExtensionConfig connection_id_generator_config = 8;</code>
+     * @return The connectionIdGeneratorConfig.
+     */
+    public io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig getConnectionIdGeneratorConfig() {
+      if (connectionIdGeneratorConfigBuilder_ == null) {
+        return connectionIdGeneratorConfig_ == null ? io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.getDefaultInstance() : connectionIdGeneratorConfig_;
+      } else {
+        return connectionIdGeneratorConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Config which implementation of ``quic::ConnectionIdGeneratorInterface`` to be used for this listener.
+     * If not specified the :ref:`default one configured by &lt;envoy_v3_api_msg_extensions.quic.connection_id_generator.v3.DeterministicConnectionIdGeneratorConfig&gt;` will be used.
+     * [#extension-category: envoy.quic.connection_id_generator]
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.TypedExtensionConfig connection_id_generator_config = 8;</code>
+     */
+    public Builder setConnectionIdGeneratorConfig(io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig value) {
+      if (connectionIdGeneratorConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        connectionIdGeneratorConfig_ = value;
+      } else {
+        connectionIdGeneratorConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Config which implementation of ``quic::ConnectionIdGeneratorInterface`` to be used for this listener.
+     * If not specified the :ref:`default one configured by &lt;envoy_v3_api_msg_extensions.quic.connection_id_generator.v3.DeterministicConnectionIdGeneratorConfig&gt;` will be used.
+     * [#extension-category: envoy.quic.connection_id_generator]
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.TypedExtensionConfig connection_id_generator_config = 8;</code>
+     */
+    public Builder setConnectionIdGeneratorConfig(
+        io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder builderForValue) {
+      if (connectionIdGeneratorConfigBuilder_ == null) {
+        connectionIdGeneratorConfig_ = builderForValue.build();
+      } else {
+        connectionIdGeneratorConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Config which implementation of ``quic::ConnectionIdGeneratorInterface`` to be used for this listener.
+     * If not specified the :ref:`default one configured by &lt;envoy_v3_api_msg_extensions.quic.connection_id_generator.v3.DeterministicConnectionIdGeneratorConfig&gt;` will be used.
+     * [#extension-category: envoy.quic.connection_id_generator]
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.TypedExtensionConfig connection_id_generator_config = 8;</code>
+     */
+    public Builder mergeConnectionIdGeneratorConfig(io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig value) {
+      if (connectionIdGeneratorConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00000080) != 0) &&
+          connectionIdGeneratorConfig_ != null &&
+          connectionIdGeneratorConfig_ != io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.getDefaultInstance()) {
+          getConnectionIdGeneratorConfigBuilder().mergeFrom(value);
+        } else {
+          connectionIdGeneratorConfig_ = value;
+        }
+      } else {
+        connectionIdGeneratorConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Config which implementation of ``quic::ConnectionIdGeneratorInterface`` to be used for this listener.
+     * If not specified the :ref:`default one configured by &lt;envoy_v3_api_msg_extensions.quic.connection_id_generator.v3.DeterministicConnectionIdGeneratorConfig&gt;` will be used.
+     * [#extension-category: envoy.quic.connection_id_generator]
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.TypedExtensionConfig connection_id_generator_config = 8;</code>
+     */
+    public Builder clearConnectionIdGeneratorConfig() {
+      bitField0_ = (bitField0_ & ~0x00000080);
+      connectionIdGeneratorConfig_ = null;
+      if (connectionIdGeneratorConfigBuilder_ != null) {
+        connectionIdGeneratorConfigBuilder_.dispose();
+        connectionIdGeneratorConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Config which implementation of ``quic::ConnectionIdGeneratorInterface`` to be used for this listener.
+     * If not specified the :ref:`default one configured by &lt;envoy_v3_api_msg_extensions.quic.connection_id_generator.v3.DeterministicConnectionIdGeneratorConfig&gt;` will be used.
+     * [#extension-category: envoy.quic.connection_id_generator]
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.TypedExtensionConfig connection_id_generator_config = 8;</code>
+     */
+    public io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder getConnectionIdGeneratorConfigBuilder() {
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return getConnectionIdGeneratorConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Config which implementation of ``quic::ConnectionIdGeneratorInterface`` to be used for this listener.
+     * If not specified the :ref:`default one configured by &lt;envoy_v3_api_msg_extensions.quic.connection_id_generator.v3.DeterministicConnectionIdGeneratorConfig&gt;` will be used.
+     * [#extension-category: envoy.quic.connection_id_generator]
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.TypedExtensionConfig connection_id_generator_config = 8;</code>
+     */
+    public io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder getConnectionIdGeneratorConfigOrBuilder() {
+      if (connectionIdGeneratorConfigBuilder_ != null) {
+        return connectionIdGeneratorConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return connectionIdGeneratorConfig_ == null ?
+            io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.getDefaultInstance() : connectionIdGeneratorConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * Config which implementation of ``quic::ConnectionIdGeneratorInterface`` to be used for this listener.
+     * If not specified the :ref:`default one configured by &lt;envoy_v3_api_msg_extensions.quic.connection_id_generator.v3.DeterministicConnectionIdGeneratorConfig&gt;` will be used.
+     * [#extension-category: envoy.quic.connection_id_generator]
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.TypedExtensionConfig connection_id_generator_config = 8;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig, io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder, io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder> 
+        getConnectionIdGeneratorConfigFieldBuilder() {
+      if (connectionIdGeneratorConfigBuilder_ == null) {
+        connectionIdGeneratorConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig, io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder, io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder>(
+                getConnectionIdGeneratorConfig(),
+                getParentForChildren(),
+                isClean());
+        connectionIdGeneratorConfig_ = null;
+      }
+      return connectionIdGeneratorConfigBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2181,7 +2361,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new QuicProtocolOptions(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

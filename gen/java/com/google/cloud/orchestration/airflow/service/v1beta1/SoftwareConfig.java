@@ -36,97 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SoftwareConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            imageVersion_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              airflowConfigOverrides_ = com.google.protobuf.MapField.newMapField(
-                  AirflowConfigOverridesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            airflowConfigOverrides__ = input.readMessage(
-                AirflowConfigOverridesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            airflowConfigOverrides_.getMutableMap().put(
-                airflowConfigOverrides__.getKey(), airflowConfigOverrides__.getValue());
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              pypiPackages_ = com.google.protobuf.MapField.newMapField(
-                  PypiPackagesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            pypiPackages__ = input.readMessage(
-                PypiPackagesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            pypiPackages_.getMutableMap().put(
-                pypiPackages__.getKey(), pypiPackages__.getValue());
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              envVariables_ = com.google.protobuf.MapField.newMapField(
-                  EnvVariablesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            envVariables__ = input.readMessage(
-                EnvVariablesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            envVariables_.getMutableMap().put(
-                envVariables__.getKey(), envVariables__.getValue());
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pythonVersion_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.orchestration.airflow.service.v1beta1.EnvironmentsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1beta1_SoftwareConfig_descriptor;
@@ -157,26 +66,30 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGE_VERSION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object imageVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object imageVersion_ = "";
   /**
    * <pre>
    * The version of the software running in the environment.
    * This encapsulates both the version of Cloud Composer functionality and the
    * version of Apache Airflow. It must match the regular expression
-   * `composer-([0-9]+&#92;.[0-9]+&#92;.[0-9]+|latest)-airflow-[0-9]+&#92;.[0-9]+(&#92;.[0-9]+.*)?`.
+   * `composer-([0-9]+(&#92;.[0-9]+&#92;.[0-9]+(-preview&#92;.[0-9]+)?)?|latest)-airflow-([0-9]+(&#92;.[0-9]+(&#92;.[0-9]+)?)?)`.
    * When used as input, the server also checks if the provided version is
    * supported and denies the request for an unsupported version.
-   * The Cloud Composer portion of the version is a
-   * [semantic version](https://semver.org) or `latest`. When the patch version
-   * is omitted, the current Cloud Composer patch version is selected.
-   * When `latest` is provided instead of an explicit version number,
-   * the server replaces `latest` with the current Cloud Composer version
-   * and stores that version number in the same field.
-   * The portion of the image version that follows *airflow-* is an
-   * official Apache Airflow repository
-   * [release name](https://github.com/apache/incubator-airflow/releases).
-   * See also [Version
-   * List](/composer/docs/concepts/versioning/composer-versions).
+   * The Cloud Composer portion of the image version is a full
+   * [semantic version](https://semver.org), or an alias in the form of major
+   * version number or `latest`. When an alias is provided, the server replaces
+   * it with the current Cloud Composer version that satisfies the alias.
+   * The Apache Airflow portion of the image version is a full semantic version
+   * that points to one of the supported Apache Airflow versions, or an alias in
+   * the form of only major or major.minor versions specified. When an alias is
+   * provided, the server replaces it with the latest Apache Airflow version
+   * that satisfies the alias and is supported in the given Cloud Composer
+   * version.
+   * In all cases, the resolved image version is stored in the same field.
+   * See also [version
+   * list](/composer/docs/concepts/versioning/composer-versions) and [versioning
+   * overview](/composer/docs/concepts/versioning/composer-versioning-overview).
    * </pre>
    *
    * <code>string image_version = 1;</code>
@@ -200,20 +113,23 @@ private static final long serialVersionUID = 0L;
    * The version of the software running in the environment.
    * This encapsulates both the version of Cloud Composer functionality and the
    * version of Apache Airflow. It must match the regular expression
-   * `composer-([0-9]+&#92;.[0-9]+&#92;.[0-9]+|latest)-airflow-[0-9]+&#92;.[0-9]+(&#92;.[0-9]+.*)?`.
+   * `composer-([0-9]+(&#92;.[0-9]+&#92;.[0-9]+(-preview&#92;.[0-9]+)?)?|latest)-airflow-([0-9]+(&#92;.[0-9]+(&#92;.[0-9]+)?)?)`.
    * When used as input, the server also checks if the provided version is
    * supported and denies the request for an unsupported version.
-   * The Cloud Composer portion of the version is a
-   * [semantic version](https://semver.org) or `latest`. When the patch version
-   * is omitted, the current Cloud Composer patch version is selected.
-   * When `latest` is provided instead of an explicit version number,
-   * the server replaces `latest` with the current Cloud Composer version
-   * and stores that version number in the same field.
-   * The portion of the image version that follows *airflow-* is an
-   * official Apache Airflow repository
-   * [release name](https://github.com/apache/incubator-airflow/releases).
-   * See also [Version
-   * List](/composer/docs/concepts/versioning/composer-versions).
+   * The Cloud Composer portion of the image version is a full
+   * [semantic version](https://semver.org), or an alias in the form of major
+   * version number or `latest`. When an alias is provided, the server replaces
+   * it with the current Cloud Composer version that satisfies the alias.
+   * The Apache Airflow portion of the image version is a full semantic version
+   * that points to one of the supported Apache Airflow versions, or an alias in
+   * the form of only major or major.minor versions specified. When an alias is
+   * provided, the server replaces it with the latest Apache Airflow version
+   * that satisfies the alias and is supported in the given Cloud Composer
+   * version.
+   * In all cases, the resolved image version is stored in the same field.
+   * See also [version
+   * list](/composer/docs/concepts/versioning/composer-versions) and [versioning
+   * overview](/composer/docs/concepts/versioning/composer-versioning-overview).
    * </pre>
    *
    * <code>string image_version = 1;</code>
@@ -246,6 +162,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> airflowConfigOverrides_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -256,7 +173,6 @@ private static final long serialVersionUID = 0L;
     }
     return airflowConfigOverrides_;
   }
-
   public int getAirflowConfigOverridesCount() {
     return internalGetAirflowConfigOverrides().getMap().size();
   }
@@ -279,7 +195,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; airflow_config_overrides = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsAirflowConfigOverrides(
       java.lang.String key) {
@@ -314,7 +229,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; airflow_config_overrides = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getAirflowConfigOverridesMap() {
     return internalGetAirflowConfigOverrides().getMap();
   }
@@ -338,10 +252,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; airflow_config_overrides = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getAirflowConfigOverridesOrDefault(
+  public /* nullable */
+java.lang.String getAirflowConfigOverridesOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetAirflowConfigOverrides().getMap();
@@ -367,7 +282,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; airflow_config_overrides = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.lang.String getAirflowConfigOverridesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -391,6 +305,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> pypiPackages_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -401,7 +316,6 @@ private static final long serialVersionUID = 0L;
     }
     return pypiPackages_;
   }
-
   public int getPypiPackagesCount() {
     return internalGetPypiPackages().getMap().size();
   }
@@ -418,7 +332,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; pypi_packages = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsPypiPackages(
       java.lang.String key) {
@@ -447,7 +360,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; pypi_packages = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getPypiPackagesMap() {
     return internalGetPypiPackages().getMap();
   }
@@ -465,10 +377,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; pypi_packages = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getPypiPackagesOrDefault(
+  public /* nullable */
+java.lang.String getPypiPackagesOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetPypiPackages().getMap();
@@ -488,7 +401,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; pypi_packages = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.lang.String getPypiPackagesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -512,6 +424,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> envVariables_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -522,7 +435,6 @@ private static final long serialVersionUID = 0L;
     }
     return envVariables_;
   }
-
   public int getEnvVariablesCount() {
     return internalGetEnvVariables().getMap().size();
   }
@@ -552,7 +464,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; env_variables = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsEnvVariables(
       java.lang.String key) {
@@ -594,7 +505,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; env_variables = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getEnvVariablesMap() {
     return internalGetEnvVariables().getMap();
   }
@@ -625,10 +535,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; env_variables = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getEnvVariablesOrDefault(
+  public /* nullable */
+java.lang.String getEnvVariablesOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetEnvVariables().getMap();
@@ -661,7 +572,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; env_variables = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.lang.String getEnvVariablesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -674,13 +584,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PYTHON_VERSION_FIELD_NUMBER = 6;
-  private volatile java.lang.Object pythonVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pythonVersion_ = "";
   /**
    * <pre>
    * Optional. The major version of Python used to run the Apache Airflow
    * scheduler, worker, and webserver processes.
    * Can be set to '2' or '3'. If not specified, the default is '3'. Cannot be
    * updated.
+   * This field is only supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*. Environments in newer versions always use
+   * Python major version 3.
    * </pre>
    *
    * <code>string python_version = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -705,6 +619,9 @@ private static final long serialVersionUID = 0L;
    * scheduler, worker, and webserver processes.
    * Can be set to '2' or '3'. If not specified, the default is '3'. Cannot be
    * updated.
+   * This field is only supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*. Environments in newer versions always use
+   * Python major version 3.
    * </pre>
    *
    * <code>string python_version = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -723,6 +640,61 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int SCHEDULER_COUNT_FIELD_NUMBER = 7;
+  private int schedulerCount_ = 0;
+  /**
+   * <pre>
+   * Optional. The number of schedulers for Airflow.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-2.*.*.
+   * </pre>
+   *
+   * <code>int32 scheduler_count = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The schedulerCount.
+   */
+  @java.lang.Override
+  public int getSchedulerCount() {
+    return schedulerCount_;
+  }
+
+  public static final int CLOUD_DATA_LINEAGE_INTEGRATION_FIELD_NUMBER = 8;
+  private com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration cloudDataLineageIntegration_;
+  /**
+   * <pre>
+   * Optional. The configuration for Cloud Data Lineage integration.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration cloud_data_lineage_integration = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return Whether the cloudDataLineageIntegration field is set.
+   */
+  @java.lang.Override
+  public boolean hasCloudDataLineageIntegration() {
+    return cloudDataLineageIntegration_ != null;
+  }
+  /**
+   * <pre>
+   * Optional. The configuration for Cloud Data Lineage integration.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration cloud_data_lineage_integration = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The cloudDataLineageIntegration.
+   */
+  @java.lang.Override
+  public com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration getCloudDataLineageIntegration() {
+    return cloudDataLineageIntegration_ == null ? com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration.getDefaultInstance() : cloudDataLineageIntegration_;
+  }
+  /**
+   * <pre>
+   * Optional. The configuration for Cloud Data Lineage integration.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration cloud_data_lineage_integration = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegrationOrBuilder getCloudDataLineageIntegrationOrBuilder() {
+    return cloudDataLineageIntegration_ == null ? com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration.getDefaultInstance() : cloudDataLineageIntegration_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -763,7 +735,13 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pythonVersion_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, pythonVersion_);
     }
-    unknownFields.writeTo(output);
+    if (schedulerCount_ != 0) {
+      output.writeInt32(7, schedulerCount_);
+    }
+    if (cloudDataLineageIntegration_ != null) {
+      output.writeMessage(8, getCloudDataLineageIntegration());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -808,7 +786,15 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pythonVersion_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, pythonVersion_);
     }
-    size += unknownFields.getSerializedSize();
+    if (schedulerCount_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(7, schedulerCount_);
+    }
+    if (cloudDataLineageIntegration_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, getCloudDataLineageIntegration());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -833,7 +819,14 @@ private static final long serialVersionUID = 0L;
         other.internalGetEnvVariables())) return false;
     if (!getPythonVersion()
         .equals(other.getPythonVersion())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (getSchedulerCount()
+        != other.getSchedulerCount()) return false;
+    if (hasCloudDataLineageIntegration() != other.hasCloudDataLineageIntegration()) return false;
+    if (hasCloudDataLineageIntegration()) {
+      if (!getCloudDataLineageIntegration()
+          .equals(other.getCloudDataLineageIntegration())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -860,7 +853,13 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + PYTHON_VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getPythonVersion().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + SCHEDULER_COUNT_FIELD_NUMBER;
+    hash = (53 * hash) + getSchedulerCount();
+    if (hasCloudDataLineageIntegration()) {
+      hash = (37 * hash) + CLOUD_DATA_LINEAGE_INTEGRATION_FIELD_NUMBER;
+      hash = (53 * hash) + getCloudDataLineageIntegration().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1011,29 +1010,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.orchestration.airflow.service.v1beta1.SoftwareConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       imageVersion_ = "";
-
       internalGetMutableAirflowConfigOverrides().clear();
       internalGetMutablePypiPackages().clear();
       internalGetMutableEnvVariables().clear();
       pythonVersion_ = "";
-
+      schedulerCount_ = 0;
+      cloudDataLineageIntegration_ = null;
+      if (cloudDataLineageIntegrationBuilder_ != null) {
+        cloudDataLineageIntegrationBuilder_.dispose();
+        cloudDataLineageIntegrationBuilder_ = null;
+      }
       return this;
     }
 
@@ -1060,17 +1059,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.orchestration.airflow.service.v1beta1.SoftwareConfig buildPartial() {
       com.google.cloud.orchestration.airflow.service.v1beta1.SoftwareConfig result = new com.google.cloud.orchestration.airflow.service.v1beta1.SoftwareConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.imageVersion_ = imageVersion_;
-      result.airflowConfigOverrides_ = internalGetAirflowConfigOverrides();
-      result.airflowConfigOverrides_.makeImmutable();
-      result.pypiPackages_ = internalGetPypiPackages();
-      result.pypiPackages_.makeImmutable();
-      result.envVariables_ = internalGetEnvVariables();
-      result.envVariables_.makeImmutable();
-      result.pythonVersion_ = pythonVersion_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.orchestration.airflow.service.v1beta1.SoftwareConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.imageVersion_ = imageVersion_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.airflowConfigOverrides_ = internalGetAirflowConfigOverrides();
+        result.airflowConfigOverrides_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pypiPackages_ = internalGetPypiPackages();
+        result.pypiPackages_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.envVariables_ = internalGetEnvVariables();
+        result.envVariables_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.pythonVersion_ = pythonVersion_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.schedulerCount_ = schedulerCount_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.cloudDataLineageIntegration_ = cloudDataLineageIntegrationBuilder_ == null
+            ? cloudDataLineageIntegration_
+            : cloudDataLineageIntegrationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1119,19 +1140,30 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.orchestration.airflow.service.v1beta1.SoftwareConfig.getDefaultInstance()) return this;
       if (!other.getImageVersion().isEmpty()) {
         imageVersion_ = other.imageVersion_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       internalGetMutableAirflowConfigOverrides().mergeFrom(
           other.internalGetAirflowConfigOverrides());
+      bitField0_ |= 0x00000002;
       internalGetMutablePypiPackages().mergeFrom(
           other.internalGetPypiPackages());
+      bitField0_ |= 0x00000004;
       internalGetMutableEnvVariables().mergeFrom(
           other.internalGetEnvVariables());
+      bitField0_ |= 0x00000008;
       if (!other.getPythonVersion().isEmpty()) {
         pythonVersion_ = other.pythonVersion_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.getSchedulerCount() != 0) {
+        setSchedulerCount(other.getSchedulerCount());
+      }
+      if (other.hasCloudDataLineageIntegration()) {
+        mergeCloudDataLineageIntegration(other.getCloudDataLineageIntegration());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1146,17 +1178,79 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.orchestration.airflow.service.v1beta1.SoftwareConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              imageVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              airflowConfigOverrides__ = input.readMessage(
+                  AirflowConfigOverridesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableAirflowConfigOverrides().getMutableMap().put(
+                  airflowConfigOverrides__.getKey(), airflowConfigOverrides__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              pypiPackages__ = input.readMessage(
+                  PypiPackagesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutablePypiPackages().getMutableMap().put(
+                  pypiPackages__.getKey(), pypiPackages__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              envVariables__ = input.readMessage(
+                  EnvVariablesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableEnvVariables().getMutableMap().put(
+                  envVariables__.getKey(), envVariables__.getValue());
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 50: {
+              pythonVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            case 56: {
+              schedulerCount_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 56
+            case 66: {
+              input.readMessage(
+                  getCloudDataLineageIntegrationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.orchestration.airflow.service.v1beta1.SoftwareConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1167,20 +1261,23 @@ private static final long serialVersionUID = 0L;
      * The version of the software running in the environment.
      * This encapsulates both the version of Cloud Composer functionality and the
      * version of Apache Airflow. It must match the regular expression
-     * `composer-([0-9]+&#92;.[0-9]+&#92;.[0-9]+|latest)-airflow-[0-9]+&#92;.[0-9]+(&#92;.[0-9]+.*)?`.
+     * `composer-([0-9]+(&#92;.[0-9]+&#92;.[0-9]+(-preview&#92;.[0-9]+)?)?|latest)-airflow-([0-9]+(&#92;.[0-9]+(&#92;.[0-9]+)?)?)`.
      * When used as input, the server also checks if the provided version is
      * supported and denies the request for an unsupported version.
-     * The Cloud Composer portion of the version is a
-     * [semantic version](https://semver.org) or `latest`. When the patch version
-     * is omitted, the current Cloud Composer patch version is selected.
-     * When `latest` is provided instead of an explicit version number,
-     * the server replaces `latest` with the current Cloud Composer version
-     * and stores that version number in the same field.
-     * The portion of the image version that follows *airflow-* is an
-     * official Apache Airflow repository
-     * [release name](https://github.com/apache/incubator-airflow/releases).
-     * See also [Version
-     * List](/composer/docs/concepts/versioning/composer-versions).
+     * The Cloud Composer portion of the image version is a full
+     * [semantic version](https://semver.org), or an alias in the form of major
+     * version number or `latest`. When an alias is provided, the server replaces
+     * it with the current Cloud Composer version that satisfies the alias.
+     * The Apache Airflow portion of the image version is a full semantic version
+     * that points to one of the supported Apache Airflow versions, or an alias in
+     * the form of only major or major.minor versions specified. When an alias is
+     * provided, the server replaces it with the latest Apache Airflow version
+     * that satisfies the alias and is supported in the given Cloud Composer
+     * version.
+     * In all cases, the resolved image version is stored in the same field.
+     * See also [version
+     * list](/composer/docs/concepts/versioning/composer-versions) and [versioning
+     * overview](/composer/docs/concepts/versioning/composer-versioning-overview).
      * </pre>
      *
      * <code>string image_version = 1;</code>
@@ -1203,20 +1300,23 @@ private static final long serialVersionUID = 0L;
      * The version of the software running in the environment.
      * This encapsulates both the version of Cloud Composer functionality and the
      * version of Apache Airflow. It must match the regular expression
-     * `composer-([0-9]+&#92;.[0-9]+&#92;.[0-9]+|latest)-airflow-[0-9]+&#92;.[0-9]+(&#92;.[0-9]+.*)?`.
+     * `composer-([0-9]+(&#92;.[0-9]+&#92;.[0-9]+(-preview&#92;.[0-9]+)?)?|latest)-airflow-([0-9]+(&#92;.[0-9]+(&#92;.[0-9]+)?)?)`.
      * When used as input, the server also checks if the provided version is
      * supported and denies the request for an unsupported version.
-     * The Cloud Composer portion of the version is a
-     * [semantic version](https://semver.org) or `latest`. When the patch version
-     * is omitted, the current Cloud Composer patch version is selected.
-     * When `latest` is provided instead of an explicit version number,
-     * the server replaces `latest` with the current Cloud Composer version
-     * and stores that version number in the same field.
-     * The portion of the image version that follows *airflow-* is an
-     * official Apache Airflow repository
-     * [release name](https://github.com/apache/incubator-airflow/releases).
-     * See also [Version
-     * List](/composer/docs/concepts/versioning/composer-versions).
+     * The Cloud Composer portion of the image version is a full
+     * [semantic version](https://semver.org), or an alias in the form of major
+     * version number or `latest`. When an alias is provided, the server replaces
+     * it with the current Cloud Composer version that satisfies the alias.
+     * The Apache Airflow portion of the image version is a full semantic version
+     * that points to one of the supported Apache Airflow versions, or an alias in
+     * the form of only major or major.minor versions specified. When an alias is
+     * provided, the server replaces it with the latest Apache Airflow version
+     * that satisfies the alias and is supported in the given Cloud Composer
+     * version.
+     * In all cases, the resolved image version is stored in the same field.
+     * See also [version
+     * list](/composer/docs/concepts/versioning/composer-versions) and [versioning
+     * overview](/composer/docs/concepts/versioning/composer-versioning-overview).
      * </pre>
      *
      * <code>string image_version = 1;</code>
@@ -1240,20 +1340,23 @@ private static final long serialVersionUID = 0L;
      * The version of the software running in the environment.
      * This encapsulates both the version of Cloud Composer functionality and the
      * version of Apache Airflow. It must match the regular expression
-     * `composer-([0-9]+&#92;.[0-9]+&#92;.[0-9]+|latest)-airflow-[0-9]+&#92;.[0-9]+(&#92;.[0-9]+.*)?`.
+     * `composer-([0-9]+(&#92;.[0-9]+&#92;.[0-9]+(-preview&#92;.[0-9]+)?)?|latest)-airflow-([0-9]+(&#92;.[0-9]+(&#92;.[0-9]+)?)?)`.
      * When used as input, the server also checks if the provided version is
      * supported and denies the request for an unsupported version.
-     * The Cloud Composer portion of the version is a
-     * [semantic version](https://semver.org) or `latest`. When the patch version
-     * is omitted, the current Cloud Composer patch version is selected.
-     * When `latest` is provided instead of an explicit version number,
-     * the server replaces `latest` with the current Cloud Composer version
-     * and stores that version number in the same field.
-     * The portion of the image version that follows *airflow-* is an
-     * official Apache Airflow repository
-     * [release name](https://github.com/apache/incubator-airflow/releases).
-     * See also [Version
-     * List](/composer/docs/concepts/versioning/composer-versions).
+     * The Cloud Composer portion of the image version is a full
+     * [semantic version](https://semver.org), or an alias in the form of major
+     * version number or `latest`. When an alias is provided, the server replaces
+     * it with the current Cloud Composer version that satisfies the alias.
+     * The Apache Airflow portion of the image version is a full semantic version
+     * that points to one of the supported Apache Airflow versions, or an alias in
+     * the form of only major or major.minor versions specified. When an alias is
+     * provided, the server replaces it with the latest Apache Airflow version
+     * that satisfies the alias and is supported in the given Cloud Composer
+     * version.
+     * In all cases, the resolved image version is stored in the same field.
+     * See also [version
+     * list](/composer/docs/concepts/versioning/composer-versions) and [versioning
+     * overview](/composer/docs/concepts/versioning/composer-versioning-overview).
      * </pre>
      *
      * <code>string image_version = 1;</code>
@@ -1262,11 +1365,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       imageVersion_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1275,28 +1376,31 @@ private static final long serialVersionUID = 0L;
      * The version of the software running in the environment.
      * This encapsulates both the version of Cloud Composer functionality and the
      * version of Apache Airflow. It must match the regular expression
-     * `composer-([0-9]+&#92;.[0-9]+&#92;.[0-9]+|latest)-airflow-[0-9]+&#92;.[0-9]+(&#92;.[0-9]+.*)?`.
+     * `composer-([0-9]+(&#92;.[0-9]+&#92;.[0-9]+(-preview&#92;.[0-9]+)?)?|latest)-airflow-([0-9]+(&#92;.[0-9]+(&#92;.[0-9]+)?)?)`.
      * When used as input, the server also checks if the provided version is
      * supported and denies the request for an unsupported version.
-     * The Cloud Composer portion of the version is a
-     * [semantic version](https://semver.org) or `latest`. When the patch version
-     * is omitted, the current Cloud Composer patch version is selected.
-     * When `latest` is provided instead of an explicit version number,
-     * the server replaces `latest` with the current Cloud Composer version
-     * and stores that version number in the same field.
-     * The portion of the image version that follows *airflow-* is an
-     * official Apache Airflow repository
-     * [release name](https://github.com/apache/incubator-airflow/releases).
-     * See also [Version
-     * List](/composer/docs/concepts/versioning/composer-versions).
+     * The Cloud Composer portion of the image version is a full
+     * [semantic version](https://semver.org), or an alias in the form of major
+     * version number or `latest`. When an alias is provided, the server replaces
+     * it with the current Cloud Composer version that satisfies the alias.
+     * The Apache Airflow portion of the image version is a full semantic version
+     * that points to one of the supported Apache Airflow versions, or an alias in
+     * the form of only major or major.minor versions specified. When an alias is
+     * provided, the server replaces it with the latest Apache Airflow version
+     * that satisfies the alias and is supported in the given Cloud Composer
+     * version.
+     * In all cases, the resolved image version is stored in the same field.
+     * See also [version
+     * list](/composer/docs/concepts/versioning/composer-versions) and [versioning
+     * overview](/composer/docs/concepts/versioning/composer-versioning-overview).
      * </pre>
      *
      * <code>string image_version = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearImageVersion() {
-      
       imageVersion_ = getDefaultInstance().getImageVersion();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1305,20 +1409,23 @@ private static final long serialVersionUID = 0L;
      * The version of the software running in the environment.
      * This encapsulates both the version of Cloud Composer functionality and the
      * version of Apache Airflow. It must match the regular expression
-     * `composer-([0-9]+&#92;.[0-9]+&#92;.[0-9]+|latest)-airflow-[0-9]+&#92;.[0-9]+(&#92;.[0-9]+.*)?`.
+     * `composer-([0-9]+(&#92;.[0-9]+&#92;.[0-9]+(-preview&#92;.[0-9]+)?)?|latest)-airflow-([0-9]+(&#92;.[0-9]+(&#92;.[0-9]+)?)?)`.
      * When used as input, the server also checks if the provided version is
      * supported and denies the request for an unsupported version.
-     * The Cloud Composer portion of the version is a
-     * [semantic version](https://semver.org) or `latest`. When the patch version
-     * is omitted, the current Cloud Composer patch version is selected.
-     * When `latest` is provided instead of an explicit version number,
-     * the server replaces `latest` with the current Cloud Composer version
-     * and stores that version number in the same field.
-     * The portion of the image version that follows *airflow-* is an
-     * official Apache Airflow repository
-     * [release name](https://github.com/apache/incubator-airflow/releases).
-     * See also [Version
-     * List](/composer/docs/concepts/versioning/composer-versions).
+     * The Cloud Composer portion of the image version is a full
+     * [semantic version](https://semver.org), or an alias in the form of major
+     * version number or `latest`. When an alias is provided, the server replaces
+     * it with the current Cloud Composer version that satisfies the alias.
+     * The Apache Airflow portion of the image version is a full semantic version
+     * that points to one of the supported Apache Airflow versions, or an alias in
+     * the form of only major or major.minor versions specified. When an alias is
+     * provided, the server replaces it with the latest Apache Airflow version
+     * that satisfies the alias and is supported in the given Cloud Composer
+     * version.
+     * In all cases, the resolved image version is stored in the same field.
+     * See also [version
+     * list](/composer/docs/concepts/versioning/composer-versions) and [versioning
+     * overview](/composer/docs/concepts/versioning/composer-versioning-overview).
      * </pre>
      *
      * <code>string image_version = 1;</code>
@@ -1327,12 +1434,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       imageVersion_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1340,7 +1445,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> airflowConfigOverrides_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetAirflowConfigOverrides() {
+        internalGetAirflowConfigOverrides() {
       if (airflowConfigOverrides_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             AirflowConfigOverridesDefaultEntryHolder.defaultEntry);
@@ -1348,8 +1453,7 @@ private static final long serialVersionUID = 0L;
       return airflowConfigOverrides_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableAirflowConfigOverrides() {
-      onChanged();;
+        internalGetMutableAirflowConfigOverrides() {
       if (airflowConfigOverrides_ == null) {
         airflowConfigOverrides_ = com.google.protobuf.MapField.newMapField(
             AirflowConfigOverridesDefaultEntryHolder.defaultEntry);
@@ -1357,9 +1461,10 @@ private static final long serialVersionUID = 0L;
       if (!airflowConfigOverrides_.isMutable()) {
         airflowConfigOverrides_ = airflowConfigOverrides_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return airflowConfigOverrides_;
     }
-
     public int getAirflowConfigOverridesCount() {
       return internalGetAirflowConfigOverrides().getMap().size();
     }
@@ -1382,7 +1487,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; airflow_config_overrides = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsAirflowConfigOverrides(
         java.lang.String key) {
@@ -1417,7 +1521,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; airflow_config_overrides = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getAirflowConfigOverridesMap() {
       return internalGetAirflowConfigOverrides().getMap();
     }
@@ -1441,10 +1544,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; airflow_config_overrides = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getAirflowConfigOverridesOrDefault(
+    public /* nullable */
+java.lang.String getAirflowConfigOverridesOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAirflowConfigOverrides().getMap();
@@ -1470,7 +1574,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; airflow_config_overrides = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.lang.String getAirflowConfigOverridesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1481,8 +1584,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearAirflowConfigOverrides() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableAirflowConfigOverrides().getMutableMap()
           .clear();
       return this;
@@ -1506,7 +1609,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; airflow_config_overrides = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeAirflowConfigOverrides(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1519,7 +1621,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableAirflowConfigOverrides() {
+        getMutableAirflowConfigOverrides() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableAirflowConfigOverrides().getMutableMap();
     }
     /**
@@ -1545,12 +1648,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableAirflowConfigOverrides().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -1572,18 +1673,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; airflow_config_overrides = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllAirflowConfigOverrides(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableAirflowConfigOverrides().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> pypiPackages_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetPypiPackages() {
+        internalGetPypiPackages() {
       if (pypiPackages_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             PypiPackagesDefaultEntryHolder.defaultEntry);
@@ -1591,8 +1692,7 @@ private static final long serialVersionUID = 0L;
       return pypiPackages_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutablePypiPackages() {
-      onChanged();;
+        internalGetMutablePypiPackages() {
       if (pypiPackages_ == null) {
         pypiPackages_ = com.google.protobuf.MapField.newMapField(
             PypiPackagesDefaultEntryHolder.defaultEntry);
@@ -1600,9 +1700,10 @@ private static final long serialVersionUID = 0L;
       if (!pypiPackages_.isMutable()) {
         pypiPackages_ = pypiPackages_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return pypiPackages_;
     }
-
     public int getPypiPackagesCount() {
       return internalGetPypiPackages().getMap().size();
     }
@@ -1619,7 +1720,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; pypi_packages = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsPypiPackages(
         java.lang.String key) {
@@ -1648,7 +1748,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; pypi_packages = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getPypiPackagesMap() {
       return internalGetPypiPackages().getMap();
     }
@@ -1666,10 +1765,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; pypi_packages = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getPypiPackagesOrDefault(
+    public /* nullable */
+java.lang.String getPypiPackagesOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetPypiPackages().getMap();
@@ -1689,7 +1789,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; pypi_packages = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.lang.String getPypiPackagesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1700,8 +1799,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearPypiPackages() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutablePypiPackages().getMutableMap()
           .clear();
       return this;
@@ -1719,7 +1818,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; pypi_packages = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removePypiPackages(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1732,7 +1830,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutablePypiPackages() {
+        getMutablePypiPackages() {
+      bitField0_ |= 0x00000004;
       return internalGetMutablePypiPackages().getMutableMap();
     }
     /**
@@ -1752,12 +1851,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutablePypiPackages().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -1773,18 +1870,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; pypi_packages = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllPypiPackages(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutablePypiPackages().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> envVariables_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetEnvVariables() {
+        internalGetEnvVariables() {
       if (envVariables_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             EnvVariablesDefaultEntryHolder.defaultEntry);
@@ -1792,8 +1889,7 @@ private static final long serialVersionUID = 0L;
       return envVariables_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableEnvVariables() {
-      onChanged();;
+        internalGetMutableEnvVariables() {
       if (envVariables_ == null) {
         envVariables_ = com.google.protobuf.MapField.newMapField(
             EnvVariablesDefaultEntryHolder.defaultEntry);
@@ -1801,9 +1897,10 @@ private static final long serialVersionUID = 0L;
       if (!envVariables_.isMutable()) {
         envVariables_ = envVariables_.copy();
       }
+      bitField0_ |= 0x00000008;
+      onChanged();
       return envVariables_;
     }
-
     public int getEnvVariablesCount() {
       return internalGetEnvVariables().getMap().size();
     }
@@ -1833,7 +1930,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; env_variables = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsEnvVariables(
         java.lang.String key) {
@@ -1875,7 +1971,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; env_variables = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getEnvVariablesMap() {
       return internalGetEnvVariables().getMap();
     }
@@ -1906,10 +2001,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; env_variables = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getEnvVariablesOrDefault(
+    public /* nullable */
+java.lang.String getEnvVariablesOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetEnvVariables().getMap();
@@ -1942,7 +2038,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; env_variables = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.lang.String getEnvVariablesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1953,8 +2048,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearEnvVariables() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutableEnvVariables().getMutableMap()
           .clear();
       return this;
@@ -1985,7 +2080,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; env_variables = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeEnvVariables(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1998,7 +2092,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableEnvVariables() {
+        getMutableEnvVariables() {
+      bitField0_ |= 0x00000008;
       return internalGetMutableEnvVariables().getMutableMap();
     }
     /**
@@ -2031,12 +2126,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableEnvVariables().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
@@ -2065,11 +2158,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; env_variables = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllEnvVariables(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableEnvVariables().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000008;
       return this;
     }
 
@@ -2080,6 +2173,9 @@ private static final long serialVersionUID = 0L;
      * scheduler, worker, and webserver processes.
      * Can be set to '2' or '3'. If not specified, the default is '3'. Cannot be
      * updated.
+     * This field is only supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*. Environments in newer versions always use
+     * Python major version 3.
      * </pre>
      *
      * <code>string python_version = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2103,6 +2199,9 @@ private static final long serialVersionUID = 0L;
      * scheduler, worker, and webserver processes.
      * Can be set to '2' or '3'. If not specified, the default is '3'. Cannot be
      * updated.
+     * This field is only supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*. Environments in newer versions always use
+     * Python major version 3.
      * </pre>
      *
      * <code>string python_version = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2127,6 +2226,9 @@ private static final long serialVersionUID = 0L;
      * scheduler, worker, and webserver processes.
      * Can be set to '2' or '3'. If not specified, the default is '3'. Cannot be
      * updated.
+     * This field is only supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*. Environments in newer versions always use
+     * Python major version 3.
      * </pre>
      *
      * <code>string python_version = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2135,11 +2237,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPythonVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pythonVersion_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2149,14 +2249,17 @@ private static final long serialVersionUID = 0L;
      * scheduler, worker, and webserver processes.
      * Can be set to '2' or '3'. If not specified, the default is '3'. Cannot be
      * updated.
+     * This field is only supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*. Environments in newer versions always use
+     * Python major version 3.
      * </pre>
      *
      * <code>string python_version = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearPythonVersion() {
-      
       pythonVersion_ = getDefaultInstance().getPythonVersion();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2166,6 +2269,9 @@ private static final long serialVersionUID = 0L;
      * scheduler, worker, and webserver processes.
      * Can be set to '2' or '3'. If not specified, the default is '3'. Cannot be
      * updated.
+     * This field is only supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*. Environments in newer versions always use
+     * Python major version 3.
      * </pre>
      *
      * <code>string python_version = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2174,14 +2280,217 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPythonVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pythonVersion_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
+    }
+
+    private int schedulerCount_ ;
+    /**
+     * <pre>
+     * Optional. The number of schedulers for Airflow.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-2.*.*.
+     * </pre>
+     *
+     * <code>int32 scheduler_count = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The schedulerCount.
+     */
+    @java.lang.Override
+    public int getSchedulerCount() {
+      return schedulerCount_;
+    }
+    /**
+     * <pre>
+     * Optional. The number of schedulers for Airflow.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-2.*.*.
+     * </pre>
+     *
+     * <code>int32 scheduler_count = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The schedulerCount to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSchedulerCount(int value) {
+      
+      schedulerCount_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The number of schedulers for Airflow.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-2.*.*.
+     * </pre>
+     *
+     * <code>int32 scheduler_count = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSchedulerCount() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      schedulerCount_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration cloudDataLineageIntegration_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration, com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration.Builder, com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegrationOrBuilder> cloudDataLineageIntegrationBuilder_;
+    /**
+     * <pre>
+     * Optional. The configuration for Cloud Data Lineage integration.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration cloud_data_lineage_integration = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return Whether the cloudDataLineageIntegration field is set.
+     */
+    public boolean hasCloudDataLineageIntegration() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <pre>
+     * Optional. The configuration for Cloud Data Lineage integration.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration cloud_data_lineage_integration = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The cloudDataLineageIntegration.
+     */
+    public com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration getCloudDataLineageIntegration() {
+      if (cloudDataLineageIntegrationBuilder_ == null) {
+        return cloudDataLineageIntegration_ == null ? com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration.getDefaultInstance() : cloudDataLineageIntegration_;
+      } else {
+        return cloudDataLineageIntegrationBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The configuration for Cloud Data Lineage integration.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration cloud_data_lineage_integration = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setCloudDataLineageIntegration(com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration value) {
+      if (cloudDataLineageIntegrationBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        cloudDataLineageIntegration_ = value;
+      } else {
+        cloudDataLineageIntegrationBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The configuration for Cloud Data Lineage integration.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration cloud_data_lineage_integration = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setCloudDataLineageIntegration(
+        com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration.Builder builderForValue) {
+      if (cloudDataLineageIntegrationBuilder_ == null) {
+        cloudDataLineageIntegration_ = builderForValue.build();
+      } else {
+        cloudDataLineageIntegrationBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The configuration for Cloud Data Lineage integration.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration cloud_data_lineage_integration = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder mergeCloudDataLineageIntegration(com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration value) {
+      if (cloudDataLineageIntegrationBuilder_ == null) {
+        if (((bitField0_ & 0x00000040) != 0) &&
+          cloudDataLineageIntegration_ != null &&
+          cloudDataLineageIntegration_ != com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration.getDefaultInstance()) {
+          getCloudDataLineageIntegrationBuilder().mergeFrom(value);
+        } else {
+          cloudDataLineageIntegration_ = value;
+        }
+      } else {
+        cloudDataLineageIntegrationBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The configuration for Cloud Data Lineage integration.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration cloud_data_lineage_integration = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder clearCloudDataLineageIntegration() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      cloudDataLineageIntegration_ = null;
+      if (cloudDataLineageIntegrationBuilder_ != null) {
+        cloudDataLineageIntegrationBuilder_.dispose();
+        cloudDataLineageIntegrationBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The configuration for Cloud Data Lineage integration.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration cloud_data_lineage_integration = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration.Builder getCloudDataLineageIntegrationBuilder() {
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return getCloudDataLineageIntegrationFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Optional. The configuration for Cloud Data Lineage integration.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration cloud_data_lineage_integration = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegrationOrBuilder getCloudDataLineageIntegrationOrBuilder() {
+      if (cloudDataLineageIntegrationBuilder_ != null) {
+        return cloudDataLineageIntegrationBuilder_.getMessageOrBuilder();
+      } else {
+        return cloudDataLineageIntegration_ == null ?
+            com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration.getDefaultInstance() : cloudDataLineageIntegration_;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The configuration for Cloud Data Lineage integration.
+     * </pre>
+     *
+     * <code>.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration cloud_data_lineage_integration = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration, com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration.Builder, com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegrationOrBuilder> 
+        getCloudDataLineageIntegrationFieldBuilder() {
+      if (cloudDataLineageIntegrationBuilder_ == null) {
+        cloudDataLineageIntegrationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration, com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration.Builder, com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegrationOrBuilder>(
+                getCloudDataLineageIntegration(),
+                getParentForChildren(),
+                isClean());
+        cloudDataLineageIntegration_ = null;
+      }
+      return cloudDataLineageIntegrationBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -2216,7 +2525,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SoftwareConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

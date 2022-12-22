@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MutateBiddingStrategyResult(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceName_ = s;
-            break;
-          }
-          case 18: {
-            com.google.ads.googleads.v10.resources.BiddingStrategy.Builder subBuilder = null;
-            if (biddingStrategy_ != null) {
-              subBuilder = biddingStrategy_.toBuilder();
-            }
-            biddingStrategy_ = input.readMessage(com.google.ads.googleads.v10.resources.BiddingStrategy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(biddingStrategy_);
-              biddingStrategy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.services.BiddingStrategyServiceProto.internal_static_google_ads_googleads_v10_services_MutateBiddingStrategyResult_descriptor;
@@ -107,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object resourceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceName_ = "";
   /**
    * <pre>
    * Returned for successful operations.
@@ -193,7 +136,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v10.resources.BiddingStrategyOrBuilder getBiddingStrategyOrBuilder() {
-    return getBiddingStrategy();
+    return biddingStrategy_ == null ? com.google.ads.googleads.v10.resources.BiddingStrategy.getDefaultInstance() : biddingStrategy_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -216,7 +159,7 @@ private static final long serialVersionUID = 0L;
     if (biddingStrategy_ != null) {
       output.writeMessage(2, getBiddingStrategy());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -232,7 +175,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getBiddingStrategy());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -254,7 +197,7 @@ private static final long serialVersionUID = 0L;
       if (!getBiddingStrategy()
           .equals(other.getBiddingStrategy())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -271,7 +214,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BIDDING_STRATEGY_FIELD_NUMBER;
       hash = (53 * hash) + getBiddingStrategy().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -392,28 +335,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.services.MutateBiddingStrategyResult.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       resourceName_ = "";
-
-      if (biddingStrategyBuilder_ == null) {
-        biddingStrategy_ = null;
-      } else {
-        biddingStrategy_ = null;
+      biddingStrategy_ = null;
+      if (biddingStrategyBuilder_ != null) {
+        biddingStrategyBuilder_.dispose();
         biddingStrategyBuilder_ = null;
       }
       return this;
@@ -442,14 +379,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.services.MutateBiddingStrategyResult buildPartial() {
       com.google.ads.googleads.v10.services.MutateBiddingStrategyResult result = new com.google.ads.googleads.v10.services.MutateBiddingStrategyResult(this);
-      result.resourceName_ = resourceName_;
-      if (biddingStrategyBuilder_ == null) {
-        result.biddingStrategy_ = biddingStrategy_;
-      } else {
-        result.biddingStrategy_ = biddingStrategyBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.services.MutateBiddingStrategyResult result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resourceName_ = resourceName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.biddingStrategy_ = biddingStrategyBuilder_ == null
+            ? biddingStrategy_
+            : biddingStrategyBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -498,12 +442,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v10.services.MutateBiddingStrategyResult.getDefaultInstance()) return this;
       if (!other.getResourceName().isEmpty()) {
         resourceName_ = other.resourceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasBiddingStrategy()) {
         mergeBiddingStrategy(other.getBiddingStrategy());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -518,19 +463,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.services.MutateBiddingStrategyResult parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              resourceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getBiddingStrategyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.services.MutateBiddingStrategyResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object resourceName_ = "";
     /**
@@ -585,11 +556,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -602,8 +571,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceName() {
-      
       resourceName_ = getDefaultInstance().getResourceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -618,12 +587,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -642,7 +609,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the biddingStrategy field is set.
      */
     public boolean hasBiddingStrategy() {
-      return biddingStrategyBuilder_ != null || biddingStrategy_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -676,11 +643,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         biddingStrategy_ = value;
-        onChanged();
       } else {
         biddingStrategyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -696,11 +663,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.resources.BiddingStrategy.Builder builderForValue) {
       if (biddingStrategyBuilder_ == null) {
         biddingStrategy_ = builderForValue.build();
-        onChanged();
       } else {
         biddingStrategyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -714,17 +681,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBiddingStrategy(com.google.ads.googleads.v10.resources.BiddingStrategy value) {
       if (biddingStrategyBuilder_ == null) {
-        if (biddingStrategy_ != null) {
-          biddingStrategy_ =
-            com.google.ads.googleads.v10.resources.BiddingStrategy.newBuilder(biddingStrategy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          biddingStrategy_ != null &&
+          biddingStrategy_ != com.google.ads.googleads.v10.resources.BiddingStrategy.getDefaultInstance()) {
+          getBiddingStrategyBuilder().mergeFrom(value);
         } else {
           biddingStrategy_ = value;
         }
-        onChanged();
       } else {
         biddingStrategyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -737,14 +705,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.resources.BiddingStrategy bidding_strategy = 2;</code>
      */
     public Builder clearBiddingStrategy() {
-      if (biddingStrategyBuilder_ == null) {
-        biddingStrategy_ = null;
-        onChanged();
-      } else {
-        biddingStrategy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      biddingStrategy_ = null;
+      if (biddingStrategyBuilder_ != null) {
+        biddingStrategyBuilder_.dispose();
         biddingStrategyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -757,7 +724,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.resources.BiddingStrategy bidding_strategy = 2;</code>
      */
     public com.google.ads.googleads.v10.resources.BiddingStrategy.Builder getBiddingStrategyBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getBiddingStrategyFieldBuilder().getBuilder();
     }
@@ -833,7 +800,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MutateBiddingStrategyResult(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

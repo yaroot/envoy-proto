@@ -37,58 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StaticPrompt(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              candidates_ = new java.util.ArrayList<com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            candidates_.add(
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        candidates_ = java.util.Collections.unmodifiableList(candidates_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.interactionmodel.prompt.StaticPromptProto.internal_static_google_actions_sdk_v2_interactionmodel_prompt_StaticPrompt_descriptor;
@@ -193,71 +141,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private StaticPromptCandidate(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector.Builder subBuilder = null;
-              if (selector_ != null) {
-                subBuilder = selector_.toBuilder();
-              }
-              selector_ = input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(selector_);
-                selector_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse.Builder subBuilder = null;
-              if (promptResponse_ != null) {
-                subBuilder = promptResponse_.toBuilder();
-              }
-              promptResponse_ = input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(promptResponse_);
-                promptResponse_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -533,128 +416,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private StaticPromptResponse(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 18: {
-                com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt.Builder subBuilder = null;
-                if (firstSimple_ != null) {
-                  subBuilder = firstSimple_.toBuilder();
-                }
-                firstSimple_ = input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(firstSimple_);
-                  firstSimple_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              case 26: {
-                com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt.Builder subBuilder = null;
-                if (content_ != null) {
-                  subBuilder = content_.toBuilder();
-                }
-                content_ = input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(content_);
-                  content_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              case 34: {
-                com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt.Builder subBuilder = null;
-                if (lastSimple_ != null) {
-                  subBuilder = lastSimple_.toBuilder();
-                }
-                lastSimple_ = input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(lastSimple_);
-                  lastSimple_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              case 42: {
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  suggestions_ = new java.util.ArrayList<com.google.actions.sdk.v2.interactionmodel.prompt.Suggestion>();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                suggestions_.add(
-                    input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.Suggestion.parser(), extensionRegistry));
-                break;
-              }
-              case 50: {
-                com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt.Builder subBuilder = null;
-                if (link_ != null) {
-                  subBuilder = link_.toBuilder();
-                }
-                link_ = input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(link_);
-                  link_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              case 56: {
-
-                override_ = input.readBool();
-                break;
-              }
-              case 66: {
-                com.google.actions.sdk.v2.interactionmodel.prompt.StaticCanvasPrompt.Builder subBuilder = null;
-                if (canvas_ != null) {
-                  subBuilder = canvas_.toBuilder();
-                }
-                canvas_ = input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticCanvasPrompt.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(canvas_);
-                  canvas_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          if (((mutable_bitField0_ & 0x00000001) != 0)) {
-            suggestions_ = java.util.Collections.unmodifiableList(suggestions_);
-          }
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.actions.sdk.v2.interactionmodel.prompt.StaticPromptProto.internal_static_google_actions_sdk_v2_interactionmodel_prompt_StaticPrompt_StaticPromptCandidate_StaticPromptResponse_descriptor;
@@ -703,7 +464,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePromptOrBuilder getFirstSimpleOrBuilder() {
-        return getFirstSimple();
+        return firstSimple_ == null ? com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt.getDefaultInstance() : firstSimple_;
       }
 
       public static final int CONTENT_FIELD_NUMBER = 3;
@@ -741,7 +502,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPromptOrBuilder getContentOrBuilder() {
-        return getContent();
+        return content_ == null ? com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt.getDefaultInstance() : content_;
       }
 
       public static final int LAST_SIMPLE_FIELD_NUMBER = 4;
@@ -779,10 +540,11 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePromptOrBuilder getLastSimpleOrBuilder() {
-        return getLastSimple();
+        return lastSimple_ == null ? com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt.getDefaultInstance() : lastSimple_;
       }
 
       public static final int SUGGESTIONS_FIELD_NUMBER = 5;
+      @SuppressWarnings("serial")
       private java.util.List<com.google.actions.sdk.v2.interactionmodel.prompt.Suggestion> suggestions_;
       /**
        * <pre>
@@ -903,11 +665,11 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPromptOrBuilder getLinkOrBuilder() {
-        return getLink();
+        return link_ == null ? com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt.getDefaultInstance() : link_;
       }
 
       public static final int OVERRIDE_FIELD_NUMBER = 7;
-      private boolean override_;
+      private boolean override_ = false;
       /**
        * <pre>
        * Optional. Mode for how this messages should be merged with previously defined
@@ -965,7 +727,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.actions.sdk.v2.interactionmodel.prompt.StaticCanvasPromptOrBuilder getCanvasOrBuilder() {
-        return getCanvas();
+        return canvas_ == null ? com.google.actions.sdk.v2.interactionmodel.prompt.StaticCanvasPrompt.getDefaultInstance() : canvas_;
       }
 
       private byte memoizedIsInitialized = -1;
@@ -1003,7 +765,7 @@ private static final long serialVersionUID = 0L;
         if (canvas_ != null) {
           output.writeMessage(8, getCanvas());
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -1040,7 +802,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(8, getCanvas());
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -1084,7 +846,7 @@ private static final long serialVersionUID = 0L;
           if (!getCanvas()
               .equals(other.getCanvas())) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -1122,7 +884,7 @@ private static final long serialVersionUID = 0L;
           hash = (37 * hash) + CANVAS_FIELD_NUMBER;
           hash = (53 * hash) + getCanvas().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -1244,59 +1006,49 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-            getSuggestionsFieldBuilder();
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
-          if (firstSimpleBuilder_ == null) {
-            firstSimple_ = null;
-          } else {
-            firstSimple_ = null;
+          bitField0_ = 0;
+          firstSimple_ = null;
+          if (firstSimpleBuilder_ != null) {
+            firstSimpleBuilder_.dispose();
             firstSimpleBuilder_ = null;
           }
-          if (contentBuilder_ == null) {
-            content_ = null;
-          } else {
-            content_ = null;
+          content_ = null;
+          if (contentBuilder_ != null) {
+            contentBuilder_.dispose();
             contentBuilder_ = null;
           }
-          if (lastSimpleBuilder_ == null) {
-            lastSimple_ = null;
-          } else {
-            lastSimple_ = null;
+          lastSimple_ = null;
+          if (lastSimpleBuilder_ != null) {
+            lastSimpleBuilder_.dispose();
             lastSimpleBuilder_ = null;
           }
           if (suggestionsBuilder_ == null) {
             suggestions_ = java.util.Collections.emptyList();
-            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
+            suggestions_ = null;
             suggestionsBuilder_.clear();
           }
-          if (linkBuilder_ == null) {
-            link_ = null;
-          } else {
-            link_ = null;
+          bitField0_ = (bitField0_ & ~0x00000008);
+          link_ = null;
+          if (linkBuilder_ != null) {
+            linkBuilder_.dispose();
             linkBuilder_ = null;
           }
           override_ = false;
-
-          if (canvasBuilder_ == null) {
-            canvas_ = null;
-          } else {
-            canvas_ = null;
+          canvas_ = null;
+          if (canvasBuilder_ != null) {
+            canvasBuilder_.dispose();
             canvasBuilder_ = null;
           }
           return this;
@@ -1325,44 +1077,54 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse buildPartial() {
           com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse result = new com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse(this);
-          int from_bitField0_ = bitField0_;
-          if (firstSimpleBuilder_ == null) {
-            result.firstSimple_ = firstSimple_;
-          } else {
-            result.firstSimple_ = firstSimpleBuilder_.build();
-          }
-          if (contentBuilder_ == null) {
-            result.content_ = content_;
-          } else {
-            result.content_ = contentBuilder_.build();
-          }
-          if (lastSimpleBuilder_ == null) {
-            result.lastSimple_ = lastSimple_;
-          } else {
-            result.lastSimple_ = lastSimpleBuilder_.build();
-          }
+          buildPartialRepeatedFields(result);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartialRepeatedFields(com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse result) {
           if (suggestionsBuilder_ == null) {
-            if (((bitField0_ & 0x00000001) != 0)) {
+            if (((bitField0_ & 0x00000008) != 0)) {
               suggestions_ = java.util.Collections.unmodifiableList(suggestions_);
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000008);
             }
             result.suggestions_ = suggestions_;
           } else {
             result.suggestions_ = suggestionsBuilder_.build();
           }
-          if (linkBuilder_ == null) {
-            result.link_ = link_;
-          } else {
-            result.link_ = linkBuilder_.build();
+        }
+
+        private void buildPartial0(com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.firstSimple_ = firstSimpleBuilder_ == null
+                ? firstSimple_
+                : firstSimpleBuilder_.build();
           }
-          result.override_ = override_;
-          if (canvasBuilder_ == null) {
-            result.canvas_ = canvas_;
-          } else {
-            result.canvas_ = canvasBuilder_.build();
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.content_ = contentBuilder_ == null
+                ? content_
+                : contentBuilder_.build();
           }
-          onBuilt();
-          return result;
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.lastSimple_ = lastSimpleBuilder_ == null
+                ? lastSimple_
+                : lastSimpleBuilder_.build();
+          }
+          if (((from_bitField0_ & 0x00000010) != 0)) {
+            result.link_ = linkBuilder_ == null
+                ? link_
+                : linkBuilder_.build();
+          }
+          if (((from_bitField0_ & 0x00000020) != 0)) {
+            result.override_ = override_;
+          }
+          if (((from_bitField0_ & 0x00000040) != 0)) {
+            result.canvas_ = canvasBuilder_ == null
+                ? canvas_
+                : canvasBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -1422,7 +1184,7 @@ private static final long serialVersionUID = 0L;
             if (!other.suggestions_.isEmpty()) {
               if (suggestions_.isEmpty()) {
                 suggestions_ = other.suggestions_;
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = (bitField0_ & ~0x00000008);
               } else {
                 ensureSuggestionsIsMutable();
                 suggestions_.addAll(other.suggestions_);
@@ -1435,7 +1197,7 @@ private static final long serialVersionUID = 0L;
                 suggestionsBuilder_.dispose();
                 suggestionsBuilder_ = null;
                 suggestions_ = other.suggestions_;
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = (bitField0_ & ~0x00000008);
                 suggestionsBuilder_ = 
                   com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                      getSuggestionsFieldBuilder() : null;
@@ -1453,7 +1215,7 @@ private static final long serialVersionUID = 0L;
           if (other.hasCanvas()) {
             mergeCanvas(other.getCanvas());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -1468,17 +1230,83 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 18: {
+                  input.readMessage(
+                      getFirstSimpleFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 18
+                case 26: {
+                  input.readMessage(
+                      getContentFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 26
+                case 34: {
+                  input.readMessage(
+                      getLastSimpleFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 34
+                case 42: {
+                  com.google.actions.sdk.v2.interactionmodel.prompt.Suggestion m =
+                      input.readMessage(
+                          com.google.actions.sdk.v2.interactionmodel.prompt.Suggestion.parser(),
+                          extensionRegistry);
+                  if (suggestionsBuilder_ == null) {
+                    ensureSuggestionsIsMutable();
+                    suggestions_.add(m);
+                  } else {
+                    suggestionsBuilder_.addMessage(m);
+                  }
+                  break;
+                } // case 42
+                case 50: {
+                  input.readMessage(
+                      getLinkFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000010;
+                  break;
+                } // case 50
+                case 56: {
+                  override_ = input.readBool();
+                  bitField0_ |= 0x00000020;
+                  break;
+                } // case 56
+                case 66: {
+                  input.readMessage(
+                      getCanvasFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000040;
+                  break;
+                } // case 66
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -1495,7 +1323,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the firstSimple field is set.
          */
         public boolean hasFirstSimple() {
-          return firstSimpleBuilder_ != null || firstSimple_ != null;
+          return ((bitField0_ & 0x00000001) != 0);
         }
         /**
          * <pre>
@@ -1525,11 +1353,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             firstSimple_ = value;
-            onChanged();
           } else {
             firstSimpleBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -1543,11 +1371,11 @@ private static final long serialVersionUID = 0L;
             com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt.Builder builderForValue) {
           if (firstSimpleBuilder_ == null) {
             firstSimple_ = builderForValue.build();
-            onChanged();
           } else {
             firstSimpleBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -1559,17 +1387,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeFirstSimple(com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt value) {
           if (firstSimpleBuilder_ == null) {
-            if (firstSimple_ != null) {
-              firstSimple_ =
-                com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt.newBuilder(firstSimple_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000001) != 0) &&
+              firstSimple_ != null &&
+              firstSimple_ != com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt.getDefaultInstance()) {
+              getFirstSimpleBuilder().mergeFrom(value);
             } else {
               firstSimple_ = value;
             }
-            onChanged();
           } else {
             firstSimpleBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -1580,14 +1409,13 @@ private static final long serialVersionUID = 0L;
          * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt first_simple = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
          */
         public Builder clearFirstSimple() {
-          if (firstSimpleBuilder_ == null) {
-            firstSimple_ = null;
-            onChanged();
-          } else {
-            firstSimple_ = null;
+          bitField0_ = (bitField0_ & ~0x00000001);
+          firstSimple_ = null;
+          if (firstSimpleBuilder_ != null) {
+            firstSimpleBuilder_.dispose();
             firstSimpleBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -1598,7 +1426,7 @@ private static final long serialVersionUID = 0L;
          * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt first_simple = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
          */
         public com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt.Builder getFirstSimpleBuilder() {
-          
+          bitField0_ |= 0x00000001;
           onChanged();
           return getFirstSimpleFieldBuilder().getBuilder();
         }
@@ -1650,7 +1478,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the content field is set.
          */
         public boolean hasContent() {
-          return contentBuilder_ != null || content_ != null;
+          return ((bitField0_ & 0x00000002) != 0);
         }
         /**
          * <pre>
@@ -1680,11 +1508,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             content_ = value;
-            onChanged();
           } else {
             contentBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -1698,11 +1526,11 @@ private static final long serialVersionUID = 0L;
             com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt.Builder builderForValue) {
           if (contentBuilder_ == null) {
             content_ = builderForValue.build();
-            onChanged();
           } else {
             contentBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -1714,17 +1542,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeContent(com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt value) {
           if (contentBuilder_ == null) {
-            if (content_ != null) {
-              content_ =
-                com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt.newBuilder(content_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000002) != 0) &&
+              content_ != null &&
+              content_ != com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt.getDefaultInstance()) {
+              getContentBuilder().mergeFrom(value);
             } else {
               content_ = value;
             }
-            onChanged();
           } else {
             contentBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -1735,14 +1564,13 @@ private static final long serialVersionUID = 0L;
          * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt content = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
          */
         public Builder clearContent() {
-          if (contentBuilder_ == null) {
-            content_ = null;
-            onChanged();
-          } else {
-            content_ = null;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          content_ = null;
+          if (contentBuilder_ != null) {
+            contentBuilder_.dispose();
             contentBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -1753,7 +1581,7 @@ private static final long serialVersionUID = 0L;
          * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt content = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
          */
         public com.google.actions.sdk.v2.interactionmodel.prompt.StaticContentPrompt.Builder getContentBuilder() {
-          
+          bitField0_ |= 0x00000002;
           onChanged();
           return getContentFieldBuilder().getBuilder();
         }
@@ -1805,7 +1633,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the lastSimple field is set.
          */
         public boolean hasLastSimple() {
-          return lastSimpleBuilder_ != null || lastSimple_ != null;
+          return ((bitField0_ & 0x00000004) != 0);
         }
         /**
          * <pre>
@@ -1835,11 +1663,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             lastSimple_ = value;
-            onChanged();
           } else {
             lastSimpleBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000004;
+          onChanged();
           return this;
         }
         /**
@@ -1853,11 +1681,11 @@ private static final long serialVersionUID = 0L;
             com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt.Builder builderForValue) {
           if (lastSimpleBuilder_ == null) {
             lastSimple_ = builderForValue.build();
-            onChanged();
           } else {
             lastSimpleBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000004;
+          onChanged();
           return this;
         }
         /**
@@ -1869,17 +1697,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeLastSimple(com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt value) {
           if (lastSimpleBuilder_ == null) {
-            if (lastSimple_ != null) {
-              lastSimple_ =
-                com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt.newBuilder(lastSimple_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000004) != 0) &&
+              lastSimple_ != null &&
+              lastSimple_ != com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt.getDefaultInstance()) {
+              getLastSimpleBuilder().mergeFrom(value);
             } else {
               lastSimple_ = value;
             }
-            onChanged();
           } else {
             lastSimpleBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000004;
+          onChanged();
           return this;
         }
         /**
@@ -1890,14 +1719,13 @@ private static final long serialVersionUID = 0L;
          * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt last_simple = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
          */
         public Builder clearLastSimple() {
-          if (lastSimpleBuilder_ == null) {
-            lastSimple_ = null;
-            onChanged();
-          } else {
-            lastSimple_ = null;
+          bitField0_ = (bitField0_ & ~0x00000004);
+          lastSimple_ = null;
+          if (lastSimpleBuilder_ != null) {
+            lastSimpleBuilder_.dispose();
             lastSimpleBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -1908,7 +1736,7 @@ private static final long serialVersionUID = 0L;
          * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt last_simple = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
          */
         public com.google.actions.sdk.v2.interactionmodel.prompt.StaticSimplePrompt.Builder getLastSimpleBuilder() {
-          
+          bitField0_ |= 0x00000004;
           onChanged();
           return getLastSimpleFieldBuilder().getBuilder();
         }
@@ -1951,9 +1779,9 @@ private static final long serialVersionUID = 0L;
         private java.util.List<com.google.actions.sdk.v2.interactionmodel.prompt.Suggestion> suggestions_ =
           java.util.Collections.emptyList();
         private void ensureSuggestionsIsMutable() {
-          if (!((bitField0_ & 0x00000001) != 0)) {
+          if (!((bitField0_ & 0x00000008) != 0)) {
             suggestions_ = new java.util.ArrayList<com.google.actions.sdk.v2.interactionmodel.prompt.Suggestion>(suggestions_);
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000008;
            }
         }
 
@@ -2191,7 +2019,7 @@ private static final long serialVersionUID = 0L;
         public Builder clearSuggestions() {
           if (suggestionsBuilder_ == null) {
             suggestions_ = java.util.Collections.emptyList();
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             onChanged();
           } else {
             suggestionsBuilder_.clear();
@@ -2324,7 +2152,7 @@ private static final long serialVersionUID = 0L;
             suggestionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
                 com.google.actions.sdk.v2.interactionmodel.prompt.Suggestion, com.google.actions.sdk.v2.interactionmodel.prompt.Suggestion.Builder, com.google.actions.sdk.v2.interactionmodel.prompt.SuggestionOrBuilder>(
                     suggestions_,
-                    ((bitField0_ & 0x00000001) != 0),
+                    ((bitField0_ & 0x00000008) != 0),
                     getParentForChildren(),
                     isClean());
             suggestions_ = null;
@@ -2346,7 +2174,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the link field is set.
          */
         public boolean hasLink() {
-          return linkBuilder_ != null || link_ != null;
+          return ((bitField0_ & 0x00000010) != 0);
         }
         /**
          * <pre>
@@ -2380,11 +2208,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             link_ = value;
-            onChanged();
           } else {
             linkBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000010;
+          onChanged();
           return this;
         }
         /**
@@ -2400,11 +2228,11 @@ private static final long serialVersionUID = 0L;
             com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt.Builder builderForValue) {
           if (linkBuilder_ == null) {
             link_ = builderForValue.build();
-            onChanged();
           } else {
             linkBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000010;
+          onChanged();
           return this;
         }
         /**
@@ -2418,17 +2246,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeLink(com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt value) {
           if (linkBuilder_ == null) {
-            if (link_ != null) {
-              link_ =
-                com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt.newBuilder(link_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000010) != 0) &&
+              link_ != null &&
+              link_ != com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt.getDefaultInstance()) {
+              getLinkBuilder().mergeFrom(value);
             } else {
               link_ = value;
             }
-            onChanged();
           } else {
             linkBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000010;
+          onChanged();
           return this;
         }
         /**
@@ -2441,14 +2270,13 @@ private static final long serialVersionUID = 0L;
          * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt link = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
          */
         public Builder clearLink() {
-          if (linkBuilder_ == null) {
-            link_ = null;
-            onChanged();
-          } else {
-            link_ = null;
+          bitField0_ = (bitField0_ & ~0x00000010);
+          link_ = null;
+          if (linkBuilder_ != null) {
+            linkBuilder_.dispose();
             linkBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -2461,7 +2289,7 @@ private static final long serialVersionUID = 0L;
          * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt link = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
          */
         public com.google.actions.sdk.v2.interactionmodel.prompt.StaticLinkPrompt.Builder getLinkBuilder() {
-          
+          bitField0_ |= 0x00000010;
           onChanged();
           return getLinkFieldBuilder().getBuilder();
         }
@@ -2548,6 +2376,7 @@ private static final long serialVersionUID = 0L;
         public Builder setOverride(boolean value) {
           
           override_ = value;
+          bitField0_ |= 0x00000020;
           onChanged();
           return this;
         }
@@ -2569,7 +2398,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearOverride() {
-          
+          bitField0_ = (bitField0_ & ~0x00000020);
           override_ = false;
           onChanged();
           return this;
@@ -2587,7 +2416,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the canvas field is set.
          */
         public boolean hasCanvas() {
-          return canvasBuilder_ != null || canvas_ != null;
+          return ((bitField0_ & 0x00000040) != 0);
         }
         /**
          * <pre>
@@ -2617,11 +2446,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             canvas_ = value;
-            onChanged();
           } else {
             canvasBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000040;
+          onChanged();
           return this;
         }
         /**
@@ -2635,11 +2464,11 @@ private static final long serialVersionUID = 0L;
             com.google.actions.sdk.v2.interactionmodel.prompt.StaticCanvasPrompt.Builder builderForValue) {
           if (canvasBuilder_ == null) {
             canvas_ = builderForValue.build();
-            onChanged();
           } else {
             canvasBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000040;
+          onChanged();
           return this;
         }
         /**
@@ -2651,17 +2480,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeCanvas(com.google.actions.sdk.v2.interactionmodel.prompt.StaticCanvasPrompt value) {
           if (canvasBuilder_ == null) {
-            if (canvas_ != null) {
-              canvas_ =
-                com.google.actions.sdk.v2.interactionmodel.prompt.StaticCanvasPrompt.newBuilder(canvas_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000040) != 0) &&
+              canvas_ != null &&
+              canvas_ != com.google.actions.sdk.v2.interactionmodel.prompt.StaticCanvasPrompt.getDefaultInstance()) {
+              getCanvasBuilder().mergeFrom(value);
             } else {
               canvas_ = value;
             }
-            onChanged();
           } else {
             canvasBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000040;
+          onChanged();
           return this;
         }
         /**
@@ -2672,14 +2502,13 @@ private static final long serialVersionUID = 0L;
          * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticCanvasPrompt canvas = 8;</code>
          */
         public Builder clearCanvas() {
-          if (canvasBuilder_ == null) {
-            canvas_ = null;
-            onChanged();
-          } else {
-            canvas_ = null;
+          bitField0_ = (bitField0_ & ~0x00000040);
+          canvas_ = null;
+          if (canvasBuilder_ != null) {
+            canvasBuilder_.dispose();
             canvasBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -2690,7 +2519,7 @@ private static final long serialVersionUID = 0L;
          * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticCanvasPrompt canvas = 8;</code>
          */
         public com.google.actions.sdk.v2.interactionmodel.prompt.StaticCanvasPrompt.Builder getCanvasBuilder() {
-          
+          bitField0_ |= 0x00000040;
           onChanged();
           return getCanvasFieldBuilder().getBuilder();
         }
@@ -2762,7 +2591,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new StaticPromptResponse(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -2820,7 +2660,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.SelectorOrBuilder getSelectorOrBuilder() {
-      return getSelector();
+      return selector_ == null ? com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector.getDefaultInstance() : selector_;
     }
 
     public static final int PROMPT_RESPONSE_FIELD_NUMBER = 2;
@@ -2858,7 +2698,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponseOrBuilder getPromptResponseOrBuilder() {
-      return getPromptResponse();
+      return promptResponse_ == null ? com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse.getDefaultInstance() : promptResponse_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2881,7 +2721,7 @@ private static final long serialVersionUID = 0L;
       if (promptResponse_ != null) {
         output.writeMessage(2, getPromptResponse());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2898,7 +2738,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getPromptResponse());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2923,7 +2763,7 @@ private static final long serialVersionUID = 0L;
         if (!getPromptResponse()
             .equals(other.getPromptResponse())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2942,7 +2782,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + PROMPT_RESPONSE_FIELD_NUMBER;
         hash = (53 * hash) + getPromptResponse().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3063,32 +2903,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (selectorBuilder_ == null) {
-          selector_ = null;
-        } else {
-          selector_ = null;
+        bitField0_ = 0;
+        selector_ = null;
+        if (selectorBuilder_ != null) {
+          selectorBuilder_.dispose();
           selectorBuilder_ = null;
         }
-        if (promptResponseBuilder_ == null) {
-          promptResponse_ = null;
-        } else {
-          promptResponse_ = null;
+        promptResponse_ = null;
+        if (promptResponseBuilder_ != null) {
+          promptResponseBuilder_.dispose();
           promptResponseBuilder_ = null;
         }
         return this;
@@ -3117,18 +2951,23 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate buildPartial() {
         com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate result = new com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate(this);
-        if (selectorBuilder_ == null) {
-          result.selector_ = selector_;
-        } else {
-          result.selector_ = selectorBuilder_.build();
-        }
-        if (promptResponseBuilder_ == null) {
-          result.promptResponse_ = promptResponse_;
-        } else {
-          result.promptResponse_ = promptResponseBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.selector_ = selectorBuilder_ == null
+              ? selector_
+              : selectorBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.promptResponse_ = promptResponseBuilder_ == null
+              ? promptResponse_
+              : promptResponseBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3181,7 +3020,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasPromptResponse()) {
           mergePromptResponse(other.getPromptResponse());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3196,19 +3035,47 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getSelectorFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getPromptResponseFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector selector_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -3223,7 +3090,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the selector field is set.
        */
       public boolean hasSelector() {
-        return selectorBuilder_ != null || selector_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -3255,11 +3122,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           selector_ = value;
-          onChanged();
         } else {
           selectorBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3274,11 +3141,11 @@ private static final long serialVersionUID = 0L;
           com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector.Builder builderForValue) {
         if (selectorBuilder_ == null) {
           selector_ = builderForValue.build();
-          onChanged();
         } else {
           selectorBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3291,17 +3158,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeSelector(com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector value) {
         if (selectorBuilder_ == null) {
-          if (selector_ != null) {
-            selector_ =
-              com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector.newBuilder(selector_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            selector_ != null &&
+            selector_ != com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector.getDefaultInstance()) {
+            getSelectorBuilder().mergeFrom(value);
           } else {
             selector_ = value;
           }
-          onChanged();
         } else {
           selectorBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3313,14 +3181,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector selector = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearSelector() {
-        if (selectorBuilder_ == null) {
-          selector_ = null;
-          onChanged();
-        } else {
-          selector_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        selector_ = null;
+        if (selectorBuilder_ != null) {
+          selectorBuilder_.dispose();
           selectorBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3332,7 +3199,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector selector = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector.Builder getSelectorBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getSelectorFieldBuilder().getBuilder();
       }
@@ -3386,7 +3253,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the promptResponse field is set.
        */
       public boolean hasPromptResponse() {
-        return promptResponseBuilder_ != null || promptResponse_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -3416,11 +3283,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           promptResponse_ = value;
-          onChanged();
         } else {
           promptResponseBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3434,11 +3301,11 @@ private static final long serialVersionUID = 0L;
           com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse.Builder builderForValue) {
         if (promptResponseBuilder_ == null) {
           promptResponse_ = builderForValue.build();
-          onChanged();
         } else {
           promptResponseBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3450,17 +3317,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergePromptResponse(com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse value) {
         if (promptResponseBuilder_ == null) {
-          if (promptResponse_ != null) {
-            promptResponse_ =
-              com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse.newBuilder(promptResponse_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            promptResponse_ != null &&
+            promptResponse_ != com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse.getDefaultInstance()) {
+            getPromptResponseBuilder().mergeFrom(value);
           } else {
             promptResponse_ = value;
           }
-          onChanged();
         } else {
           promptResponseBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3471,14 +3339,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse prompt_response = 2;</code>
        */
       public Builder clearPromptResponse() {
-        if (promptResponseBuilder_ == null) {
-          promptResponse_ = null;
-          onChanged();
-        } else {
-          promptResponse_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        promptResponse_ = null;
+        if (promptResponseBuilder_ != null) {
+          promptResponseBuilder_.dispose();
           promptResponseBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3489,7 +3356,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse prompt_response = 2;</code>
        */
       public com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse.Builder getPromptResponseBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getPromptResponseFieldBuilder().getBuilder();
       }
@@ -3561,7 +3428,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StaticPromptCandidate(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3643,58 +3521,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Selector(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.actions.sdk.v2.interactionmodel.prompt.SurfaceCapabilities.Builder subBuilder = null;
-              if (surfaceCapabilities_ != null) {
-                subBuilder = surfaceCapabilities_.toBuilder();
-              }
-              surfaceCapabilities_ = input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.SurfaceCapabilities.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(surfaceCapabilities_);
-                surfaceCapabilities_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.actions.sdk.v2.interactionmodel.prompt.StaticPromptProto.internal_static_google_actions_sdk_v2_interactionmodel_prompt_StaticPrompt_Selector_descriptor;
@@ -3743,7 +3569,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.actions.sdk.v2.interactionmodel.prompt.SurfaceCapabilitiesOrBuilder getSurfaceCapabilitiesOrBuilder() {
-      return getSurfaceCapabilities();
+      return surfaceCapabilities_ == null ? com.google.actions.sdk.v2.interactionmodel.prompt.SurfaceCapabilities.getDefaultInstance() : surfaceCapabilities_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3763,7 +3589,7 @@ private static final long serialVersionUID = 0L;
       if (surfaceCapabilities_ != null) {
         output.writeMessage(1, getSurfaceCapabilities());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3776,7 +3602,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getSurfaceCapabilities());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3796,7 +3622,7 @@ private static final long serialVersionUID = 0L;
         if (!getSurfaceCapabilities()
             .equals(other.getSurfaceCapabilities())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3811,7 +3637,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + SURFACE_CAPABILITIES_FIELD_NUMBER;
         hash = (53 * hash) + getSurfaceCapabilities().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3932,26 +3758,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (surfaceCapabilitiesBuilder_ == null) {
-          surfaceCapabilities_ = null;
-        } else {
-          surfaceCapabilities_ = null;
+        bitField0_ = 0;
+        surfaceCapabilities_ = null;
+        if (surfaceCapabilitiesBuilder_ != null) {
+          surfaceCapabilitiesBuilder_.dispose();
           surfaceCapabilitiesBuilder_ = null;
         }
         return this;
@@ -3980,13 +3801,18 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector buildPartial() {
         com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector result = new com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector(this);
-        if (surfaceCapabilitiesBuilder_ == null) {
-          result.surfaceCapabilities_ = surfaceCapabilities_;
-        } else {
-          result.surfaceCapabilities_ = surfaceCapabilitiesBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.surfaceCapabilities_ = surfaceCapabilitiesBuilder_ == null
+              ? surfaceCapabilities_
+              : surfaceCapabilitiesBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -4036,7 +3862,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasSurfaceCapabilities()) {
           mergeSurfaceCapabilities(other.getSurfaceCapabilities());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4051,19 +3877,40 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getSurfaceCapabilitiesFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Selector) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.actions.sdk.v2.interactionmodel.prompt.SurfaceCapabilities surfaceCapabilities_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4077,7 +3924,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the surfaceCapabilities field is set.
        */
       public boolean hasSurfaceCapabilities() {
-        return surfaceCapabilitiesBuilder_ != null || surfaceCapabilities_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -4107,11 +3954,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           surfaceCapabilities_ = value;
-          onChanged();
         } else {
           surfaceCapabilitiesBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4125,11 +3972,11 @@ private static final long serialVersionUID = 0L;
           com.google.actions.sdk.v2.interactionmodel.prompt.SurfaceCapabilities.Builder builderForValue) {
         if (surfaceCapabilitiesBuilder_ == null) {
           surfaceCapabilities_ = builderForValue.build();
-          onChanged();
         } else {
           surfaceCapabilitiesBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4141,17 +3988,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeSurfaceCapabilities(com.google.actions.sdk.v2.interactionmodel.prompt.SurfaceCapabilities value) {
         if (surfaceCapabilitiesBuilder_ == null) {
-          if (surfaceCapabilities_ != null) {
-            surfaceCapabilities_ =
-              com.google.actions.sdk.v2.interactionmodel.prompt.SurfaceCapabilities.newBuilder(surfaceCapabilities_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            surfaceCapabilities_ != null &&
+            surfaceCapabilities_ != com.google.actions.sdk.v2.interactionmodel.prompt.SurfaceCapabilities.getDefaultInstance()) {
+            getSurfaceCapabilitiesBuilder().mergeFrom(value);
           } else {
             surfaceCapabilities_ = value;
           }
-          onChanged();
         } else {
           surfaceCapabilitiesBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4162,14 +4010,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.actions.sdk.v2.interactionmodel.prompt.SurfaceCapabilities surface_capabilities = 1;</code>
        */
       public Builder clearSurfaceCapabilities() {
-        if (surfaceCapabilitiesBuilder_ == null) {
-          surfaceCapabilities_ = null;
-          onChanged();
-        } else {
-          surfaceCapabilities_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        surfaceCapabilities_ = null;
+        if (surfaceCapabilitiesBuilder_ != null) {
+          surfaceCapabilitiesBuilder_.dispose();
           surfaceCapabilitiesBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4180,7 +4027,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.actions.sdk.v2.interactionmodel.prompt.SurfaceCapabilities surface_capabilities = 1;</code>
        */
       public com.google.actions.sdk.v2.interactionmodel.prompt.SurfaceCapabilities.Builder getSurfaceCapabilitiesBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getSurfaceCapabilitiesFieldBuilder().getBuilder();
       }
@@ -4252,7 +4099,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Selector(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4273,6 +4131,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CANDIDATES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate> candidates_;
   /**
    * <pre>
@@ -4359,7 +4218,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < candidates_.size(); i++) {
       output.writeMessage(1, candidates_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -4372,7 +4231,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, candidates_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -4389,7 +4248,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getCandidatesList()
         .equals(other.getCandidatesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -4404,7 +4263,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CANDIDATES_FIELD_NUMBER;
       hash = (53 * hash) + getCandidatesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -4527,29 +4386,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getCandidatesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (candidatesBuilder_ == null) {
         candidates_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        candidates_ = null;
         candidatesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -4576,7 +4431,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt buildPartial() {
       com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt result = new com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt result) {
       if (candidatesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           candidates_ = java.util.Collections.unmodifiableList(candidates_);
@@ -4586,8 +4447,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.candidates_ = candidatesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -4660,7 +4523,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -4675,17 +4538,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate m =
+                  input.readMessage(
+                      com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.StaticPromptCandidate.parser(),
+                      extensionRegistry);
+              if (candidatesBuilder_ == null) {
+                ensureCandidatesIsMutable();
+                candidates_.add(m);
+              } else {
+                candidatesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -5070,7 +4959,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StaticPrompt(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

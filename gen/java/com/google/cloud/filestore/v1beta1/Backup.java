@@ -5,7 +5,7 @@ package com.google.cloud.filestore.v1beta1;
 
 /**
  * <pre>
- * A Cloud Filestore backup.
+ * A Filestore backup.
  * </pre>
  *
  * Protobuf type {@code google.cloud.filestore.v1beta1.Backup}
@@ -26,6 +26,7 @@ private static final long serialVersionUID = 0L;
     sourceInstance_ = "";
     sourceFileShare_ = "";
     sourceInstanceTier_ = 0;
+    kmsKeyName_ = "";
   }
 
   @java.lang.Override
@@ -39,136 +40,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Backup(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 48: {
-
-            capacityGb_ = input.readInt64();
-            break;
-          }
-          case 56: {
-
-            storageBytes_ = input.readInt64();
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sourceInstance_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sourceFileShare_ = s;
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-
-            sourceInstanceTier_ = rawValue;
-            break;
-          }
-          case 88: {
-
-            downloadBytes_ = input.readInt64();
-            break;
-          }
-          case 98: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (satisfiesPzs_ != null) {
-              subBuilder = satisfiesPzs_.toBuilder();
-            }
-            satisfiesPzs_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(satisfiesPzs_);
-              satisfiesPzs_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -377,7 +248,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The resource name of the backup, in the format
@@ -425,7 +297,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * A description of the backup with 2048 characters or less.
@@ -473,7 +346,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 3;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The backup state.
@@ -494,8 +367,7 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.filestore.v1beta1.Backup.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.filestore.v1beta1.Backup.State result = com.google.cloud.filestore.v1beta1.Backup.State.valueOf(state_);
+    com.google.cloud.filestore.v1beta1.Backup.State result = com.google.cloud.filestore.v1beta1.Backup.State.forNumber(state_);
     return result == null ? com.google.cloud.filestore.v1beta1.Backup.State.UNRECOGNIZED : result;
   }
 
@@ -534,7 +406,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int LABELS_FIELD_NUMBER = 5;
@@ -549,6 +421,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -559,7 +432,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -570,7 +442,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 5;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -593,7 +464,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 5;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -605,10 +475,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 5;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -622,7 +493,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 5;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -635,7 +505,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CAPACITY_GB_FIELD_NUMBER = 6;
-  private long capacityGb_;
+  private long capacityGb_ = 0L;
   /**
    * <pre>
    * Output only. Capacity of the source file share when the backup was created.
@@ -650,7 +520,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STORAGE_BYTES_FIELD_NUMBER = 7;
-  private long storageBytes_;
+  private long storageBytes_ = 0L;
   /**
    * <pre>
    * Output only. The size of the storage used by the backup. As backups share storage,
@@ -666,10 +536,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_INSTANCE_FIELD_NUMBER = 8;
-  private volatile java.lang.Object sourceInstance_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sourceInstance_ = "";
   /**
    * <pre>
-   * The resource name of the source Cloud Filestore instance, in the format
+   * The resource name of the source Filestore instance, in the format
    * `projects/{project_id}/locations/{location_id}/instances/{instance_id}`,
    * used to create this backup.
    * </pre>
@@ -692,7 +563,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The resource name of the source Cloud Filestore instance, in the format
+   * The resource name of the source Filestore instance, in the format
    * `projects/{project_id}/locations/{location_id}/instances/{instance_id}`,
    * used to create this backup.
    * </pre>
@@ -716,10 +587,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_FILE_SHARE_FIELD_NUMBER = 9;
-  private volatile java.lang.Object sourceFileShare_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sourceFileShare_ = "";
   /**
    * <pre>
-   * Name of the file share in the source Cloud Filestore instance that the
+   * Name of the file share in the source Filestore instance that the
    * backup is created from.
    * </pre>
    *
@@ -741,7 +613,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Name of the file share in the source Cloud Filestore instance that the
+   * Name of the file share in the source Filestore instance that the
    * backup is created from.
    * </pre>
    *
@@ -764,10 +636,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_INSTANCE_TIER_FIELD_NUMBER = 10;
-  private int sourceInstanceTier_;
+  private int sourceInstanceTier_ = 0;
   /**
    * <pre>
-   * Output only. The service tier of the source Cloud Filestore instance that this backup
+   * Output only. The service tier of the source Filestore instance that this backup
    * is created from.
    * </pre>
    *
@@ -779,7 +651,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The service tier of the source Cloud Filestore instance that this backup
+   * Output only. The service tier of the source Filestore instance that this backup
    * is created from.
    * </pre>
    *
@@ -787,13 +659,12 @@ private static final long serialVersionUID = 0L;
    * @return The sourceInstanceTier.
    */
   @java.lang.Override public com.google.cloud.filestore.v1beta1.Instance.Tier getSourceInstanceTier() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.filestore.v1beta1.Instance.Tier result = com.google.cloud.filestore.v1beta1.Instance.Tier.valueOf(sourceInstanceTier_);
+    com.google.cloud.filestore.v1beta1.Instance.Tier result = com.google.cloud.filestore.v1beta1.Instance.Tier.forNumber(sourceInstanceTier_);
     return result == null ? com.google.cloud.filestore.v1beta1.Instance.Tier.UNRECOGNIZED : result;
   }
 
   public static final int DOWNLOAD_BYTES_FIELD_NUMBER = 11;
-  private long downloadBytes_;
+  private long downloadBytes_ = 0L;
   /**
    * <pre>
    * Output only. Amount of bytes that will be downloaded if the backup is restored
@@ -842,7 +713,54 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getSatisfiesPzsOrBuilder() {
-    return getSatisfiesPzs();
+    return satisfiesPzs_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : satisfiesPzs_;
+  }
+
+  public static final int KMS_KEY_NAME_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kmsKeyName_ = "";
+  /**
+   * <pre>
+   * Immutable. KMS key name used for data encryption.
+   * </pre>
+   *
+   * <code>string kms_key_name = 13 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * @return The kmsKeyName.
+   */
+  @java.lang.Override
+  public java.lang.String getKmsKeyName() {
+    java.lang.Object ref = kmsKeyName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      kmsKeyName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Immutable. KMS key name used for data encryption.
+   * </pre>
+   *
+   * <code>string kms_key_name = 13 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * @return The bytes for kmsKeyName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getKmsKeyNameBytes() {
+    java.lang.Object ref = kmsKeyName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      kmsKeyName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -898,7 +816,10 @@ private static final long serialVersionUID = 0L;
     if (satisfiesPzs_ != null) {
       output.writeMessage(12, getSatisfiesPzs());
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kmsKeyName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, kmsKeyName_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -957,7 +878,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, getSatisfiesPzs());
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kmsKeyName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, kmsKeyName_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1000,7 +924,9 @@ private static final long serialVersionUID = 0L;
       if (!getSatisfiesPzs()
           .equals(other.getSatisfiesPzs())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getKmsKeyName()
+        .equals(other.getKmsKeyName())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1044,7 +970,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SATISFIES_PZS_FIELD_NUMBER;
       hash = (53 * hash) + getSatisfiesPzs().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + KMS_KEY_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getKmsKeyName().hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1141,7 +1069,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A Cloud Filestore backup.
+   * A Filestore backup.
    * </pre>
    *
    * Protobuf type {@code google.cloud.filestore.v1beta1.Backup}
@@ -1187,53 +1115,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.filestore.v1beta1.Backup.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       description_ = "";
-
       state_ = 0;
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
       internalGetMutableLabels().clear();
       capacityGb_ = 0L;
-
       storageBytes_ = 0L;
-
       sourceInstance_ = "";
-
       sourceFileShare_ = "";
-
       sourceInstanceTier_ = 0;
-
       downloadBytes_ = 0L;
-
-      if (satisfiesPzsBuilder_ == null) {
-        satisfiesPzs_ = null;
-      } else {
-        satisfiesPzs_ = null;
+      satisfiesPzs_ = null;
+      if (satisfiesPzsBuilder_ != null) {
+        satisfiesPzsBuilder_.dispose();
         satisfiesPzsBuilder_ = null;
       }
+      kmsKeyName_ = "";
       return this;
     }
 
@@ -1260,30 +1174,57 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.filestore.v1beta1.Backup buildPartial() {
       com.google.cloud.filestore.v1beta1.Backup result = new com.google.cloud.filestore.v1beta1.Backup(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.description_ = description_;
-      result.state_ = state_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      result.capacityGb_ = capacityGb_;
-      result.storageBytes_ = storageBytes_;
-      result.sourceInstance_ = sourceInstance_;
-      result.sourceFileShare_ = sourceFileShare_;
-      result.sourceInstanceTier_ = sourceInstanceTier_;
-      result.downloadBytes_ = downloadBytes_;
-      if (satisfiesPzsBuilder_ == null) {
-        result.satisfiesPzs_ = satisfiesPzs_;
-      } else {
-        result.satisfiesPzs_ = satisfiesPzsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.filestore.v1beta1.Backup result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.capacityGb_ = capacityGb_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.storageBytes_ = storageBytes_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.sourceInstance_ = sourceInstance_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.sourceFileShare_ = sourceFileShare_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.sourceInstanceTier_ = sourceInstanceTier_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.downloadBytes_ = downloadBytes_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.satisfiesPzs_ = satisfiesPzsBuilder_ == null
+            ? satisfiesPzs_
+            : satisfiesPzsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.kmsKeyName_ = kmsKeyName_;
+      }
     }
 
     @java.lang.Override
@@ -1332,10 +1273,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.filestore.v1beta1.Backup.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -1346,6 +1289,7 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000010;
       if (other.getCapacityGb() != 0L) {
         setCapacityGb(other.getCapacityGb());
       }
@@ -1354,10 +1298,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSourceInstance().isEmpty()) {
         sourceInstance_ = other.sourceInstance_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.getSourceFileShare().isEmpty()) {
         sourceFileShare_ = other.sourceFileShare_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.sourceInstanceTier_ != 0) {
@@ -1369,7 +1315,12 @@ private static final long serialVersionUID = 0L;
       if (other.hasSatisfiesPzs()) {
         mergeSatisfiesPzs(other.getSatisfiesPzs());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getKmsKeyName().isEmpty()) {
+        kmsKeyName_ = other.kmsKeyName_;
+        bitField0_ |= 0x00001000;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1384,17 +1335,103 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.filestore.v1beta1.Backup parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              capacityGb_ = input.readInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              storageBytes_ = input.readInt64();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 66: {
+              sourceInstance_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              sourceFileShare_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 80: {
+              sourceInstanceTier_ = input.readEnum();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 88: {
+              downloadBytes_ = input.readInt64();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 98: {
+              input.readMessage(
+                  getSatisfiesPzsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 106: {
+              kmsKeyName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.filestore.v1beta1.Backup) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1455,11 +1492,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1473,8 +1508,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1490,12 +1525,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1556,11 +1589,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1574,8 +1605,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1591,12 +1622,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1623,8 +1652,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1638,8 +1667,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.filestore.v1beta1.Backup.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.filestore.v1beta1.Backup.State result = com.google.cloud.filestore.v1beta1.Backup.State.valueOf(state_);
+      com.google.cloud.filestore.v1beta1.Backup.State result = com.google.cloud.filestore.v1beta1.Backup.State.forNumber(state_);
       return result == null ? com.google.cloud.filestore.v1beta1.Backup.State.UNRECOGNIZED : result;
     }
     /**
@@ -1655,7 +1683,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -1669,7 +1697,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       state_ = 0;
       onChanged();
       return this;
@@ -1687,7 +1715,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1717,11 +1745,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1735,11 +1763,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1751,17 +1779,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1772,14 +1801,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1790,7 +1818,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -1833,7 +1861,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -1841,8 +1869,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -1850,9 +1877,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -1863,7 +1891,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 5;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -1886,7 +1913,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 5;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -1898,10 +1924,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 5;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -1915,7 +1942,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 5;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1926,8 +1952,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -1939,7 +1965,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 5;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1952,7 +1977,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -1966,12 +1992,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -1981,11 +2005,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 5;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
 
@@ -2014,6 +2038,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCapacityGb(long value) {
       
       capacityGb_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2026,7 +2051,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCapacityGb() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       capacityGb_ = 0L;
       onChanged();
       return this;
@@ -2059,6 +2084,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStorageBytes(long value) {
       
       storageBytes_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2072,7 +2098,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStorageBytes() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       storageBytes_ = 0L;
       onChanged();
       return this;
@@ -2081,7 +2107,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object sourceInstance_ = "";
     /**
      * <pre>
-     * The resource name of the source Cloud Filestore instance, in the format
+     * The resource name of the source Filestore instance, in the format
      * `projects/{project_id}/locations/{location_id}/instances/{instance_id}`,
      * used to create this backup.
      * </pre>
@@ -2103,7 +2129,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The resource name of the source Cloud Filestore instance, in the format
+     * The resource name of the source Filestore instance, in the format
      * `projects/{project_id}/locations/{location_id}/instances/{instance_id}`,
      * used to create this backup.
      * </pre>
@@ -2126,7 +2152,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The resource name of the source Cloud Filestore instance, in the format
+     * The resource name of the source Filestore instance, in the format
      * `projects/{project_id}/locations/{location_id}/instances/{instance_id}`,
      * used to create this backup.
      * </pre>
@@ -2137,17 +2163,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceInstance(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sourceInstance_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The resource name of the source Cloud Filestore instance, in the format
+     * The resource name of the source Filestore instance, in the format
      * `projects/{project_id}/locations/{location_id}/instances/{instance_id}`,
      * used to create this backup.
      * </pre>
@@ -2156,14 +2180,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceInstance() {
-      
       sourceInstance_ = getDefaultInstance().getSourceInstance();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The resource name of the source Cloud Filestore instance, in the format
+     * The resource name of the source Filestore instance, in the format
      * `projects/{project_id}/locations/{location_id}/instances/{instance_id}`,
      * used to create this backup.
      * </pre>
@@ -2174,12 +2198,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceInstanceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceInstance_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2187,7 +2209,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object sourceFileShare_ = "";
     /**
      * <pre>
-     * Name of the file share in the source Cloud Filestore instance that the
+     * Name of the file share in the source Filestore instance that the
      * backup is created from.
      * </pre>
      *
@@ -2208,7 +2230,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the file share in the source Cloud Filestore instance that the
+     * Name of the file share in the source Filestore instance that the
      * backup is created from.
      * </pre>
      *
@@ -2230,7 +2252,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Name of the file share in the source Cloud Filestore instance that the
+     * Name of the file share in the source Filestore instance that the
      * backup is created from.
      * </pre>
      *
@@ -2240,17 +2262,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceFileShare(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sourceFileShare_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Name of the file share in the source Cloud Filestore instance that the
+     * Name of the file share in the source Filestore instance that the
      * backup is created from.
      * </pre>
      *
@@ -2258,14 +2278,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceFileShare() {
-      
       sourceFileShare_ = getDefaultInstance().getSourceFileShare();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Name of the file share in the source Cloud Filestore instance that the
+     * Name of the file share in the source Filestore instance that the
      * backup is created from.
      * </pre>
      *
@@ -2275,12 +2295,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceFileShareBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceFileShare_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2288,7 +2306,7 @@ private static final long serialVersionUID = 0L;
     private int sourceInstanceTier_ = 0;
     /**
      * <pre>
-     * Output only. The service tier of the source Cloud Filestore instance that this backup
+     * Output only. The service tier of the source Filestore instance that this backup
      * is created from.
      * </pre>
      *
@@ -2300,7 +2318,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The service tier of the source Cloud Filestore instance that this backup
+     * Output only. The service tier of the source Filestore instance that this backup
      * is created from.
      * </pre>
      *
@@ -2309,14 +2327,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSourceInstanceTierValue(int value) {
-      
       sourceInstanceTier_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The service tier of the source Cloud Filestore instance that this backup
+     * Output only. The service tier of the source Filestore instance that this backup
      * is created from.
      * </pre>
      *
@@ -2325,13 +2343,12 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.filestore.v1beta1.Instance.Tier getSourceInstanceTier() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.filestore.v1beta1.Instance.Tier result = com.google.cloud.filestore.v1beta1.Instance.Tier.valueOf(sourceInstanceTier_);
+      com.google.cloud.filestore.v1beta1.Instance.Tier result = com.google.cloud.filestore.v1beta1.Instance.Tier.forNumber(sourceInstanceTier_);
       return result == null ? com.google.cloud.filestore.v1beta1.Instance.Tier.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Output only. The service tier of the source Cloud Filestore instance that this backup
+     * Output only. The service tier of the source Filestore instance that this backup
      * is created from.
      * </pre>
      *
@@ -2343,14 +2360,14 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000200;
       sourceInstanceTier_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The service tier of the source Cloud Filestore instance that this backup
+     * Output only. The service tier of the source Filestore instance that this backup
      * is created from.
      * </pre>
      *
@@ -2358,7 +2375,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceInstanceTier() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       sourceInstanceTier_ = 0;
       onChanged();
       return this;
@@ -2389,6 +2406,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDownloadBytes(long value) {
       
       downloadBytes_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2401,7 +2419,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDownloadBytes() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       downloadBytes_ = 0L;
       onChanged();
       return this;
@@ -2419,7 +2437,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the satisfiesPzs field is set.
      */
     public boolean hasSatisfiesPzs() {
-      return satisfiesPzsBuilder_ != null || satisfiesPzs_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -2449,11 +2467,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         satisfiesPzs_ = value;
-        onChanged();
       } else {
         satisfiesPzsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -2467,11 +2485,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (satisfiesPzsBuilder_ == null) {
         satisfiesPzs_ = builderForValue.build();
-        onChanged();
       } else {
         satisfiesPzsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -2483,17 +2501,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSatisfiesPzs(com.google.protobuf.BoolValue value) {
       if (satisfiesPzsBuilder_ == null) {
-        if (satisfiesPzs_ != null) {
-          satisfiesPzs_ =
-            com.google.protobuf.BoolValue.newBuilder(satisfiesPzs_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          satisfiesPzs_ != null &&
+          satisfiesPzs_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getSatisfiesPzsBuilder().mergeFrom(value);
         } else {
           satisfiesPzs_ = value;
         }
-        onChanged();
       } else {
         satisfiesPzsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -2504,14 +2523,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue satisfies_pzs = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearSatisfiesPzs() {
-      if (satisfiesPzsBuilder_ == null) {
-        satisfiesPzs_ = null;
-        onChanged();
-      } else {
-        satisfiesPzs_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      satisfiesPzs_ = null;
+      if (satisfiesPzsBuilder_ != null) {
+        satisfiesPzsBuilder_.dispose();
         satisfiesPzsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2522,7 +2540,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue satisfies_pzs = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.BoolValue.Builder getSatisfiesPzsBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getSatisfiesPzsFieldBuilder().getBuilder();
     }
@@ -2561,6 +2579,98 @@ private static final long serialVersionUID = 0L;
       }
       return satisfiesPzsBuilder_;
     }
+
+    private java.lang.Object kmsKeyName_ = "";
+    /**
+     * <pre>
+     * Immutable. KMS key name used for data encryption.
+     * </pre>
+     *
+     * <code>string kms_key_name = 13 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @return The kmsKeyName.
+     */
+    public java.lang.String getKmsKeyName() {
+      java.lang.Object ref = kmsKeyName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        kmsKeyName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Immutable. KMS key name used for data encryption.
+     * </pre>
+     *
+     * <code>string kms_key_name = 13 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @return The bytes for kmsKeyName.
+     */
+    public com.google.protobuf.ByteString
+        getKmsKeyNameBytes() {
+      java.lang.Object ref = kmsKeyName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        kmsKeyName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Immutable. KMS key name used for data encryption.
+     * </pre>
+     *
+     * <code>string kms_key_name = 13 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @param value The kmsKeyName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKmsKeyName(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      kmsKeyName_ = value;
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Immutable. KMS key name used for data encryption.
+     * </pre>
+     *
+     * <code>string kms_key_name = 13 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearKmsKeyName() {
+      kmsKeyName_ = getDefaultInstance().getKmsKeyName();
+      bitField0_ = (bitField0_ & ~0x00001000);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Immutable. KMS key name used for data encryption.
+     * </pre>
+     *
+     * <code>string kms_key_name = 13 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @param value The bytes for kmsKeyName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKmsKeyNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      kmsKeyName_ = value;
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2594,7 +2704,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Backup(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

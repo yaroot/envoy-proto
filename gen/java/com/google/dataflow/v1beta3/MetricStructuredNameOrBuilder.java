@@ -104,7 +104,6 @@ public interface MetricStructuredNameOrBuilder extends
    *
    * <code>map&lt;string, string&gt; context = 3;</code>
    */
-
   /* nullable */
 java.lang.String getContextOrDefault(
       java.lang.String key,
@@ -121,7 +120,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; context = 3;</code>
    */
-
   java.lang.String getContextOrThrow(
       java.lang.String key);
 }

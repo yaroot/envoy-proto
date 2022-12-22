@@ -151,7 +151,6 @@ public interface AttributeContextOrBuilder extends
    *
    * <code>map&lt;string, string&gt; context_extensions = 10;</code>
    */
-
   /* nullable */
 java.lang.String getContextExtensionsOrDefault(
       java.lang.String key,
@@ -167,7 +166,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; context_extensions = 10;</code>
    */
-
   java.lang.String getContextExtensionsOrThrow(
       java.lang.String key);
 

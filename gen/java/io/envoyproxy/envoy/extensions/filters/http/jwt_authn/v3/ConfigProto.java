@@ -94,6 +94,11 @@ public final class ConfigProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_envoy_extensions_filters_http_jwt_authn_v3_PerRouteConfig_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_envoy_extensions_filters_http_jwt_authn_v3_JwtClaimToHeader_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_envoy_extensions_filters_http_jwt_authn_v3_JwtClaimToHeader_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -112,7 +117,7 @@ public final class ConfigProto {
       "ion.proto\032\033google/protobuf/empty.proto\032\035" +
       "udpa/annotations/status.proto\032!udpa/anno" +
       "tations/versioning.proto\032\027validate/valid" +
-      "ate.proto\"\231\005\n\013JwtProvider\022\016\n\006issuer\030\001 \001(" +
+      "ate.proto\"\361\005\n\013JwtProvider\022\016\n\006issuer\030\001 \001(" +
       "\t\022\021\n\taudiences\030\002 \003(\t\022M\n\013remote_jwks\030\003 \001(" +
       "\01326.envoy.extensions.filters.http.jwt_au" +
       "thn.v3.RemoteJwksH\000\0226\n\nlocal_jwks\030\004 \001(\0132" +
@@ -126,89 +131,95 @@ public final class ConfigProto {
       "(\t\022\032\n\022header_in_metadata\030\016 \001(\t\022\032\n\022clock_" +
       "skew_seconds\030\n \001(\r\022T\n\020jwt_cache_config\030\014" +
       " \001(\0132:.envoy.extensions.filters.http.jwt" +
-      "_authn.v3.JwtCacheConfig:=\232\305\210\0368\n6envoy.c" +
-      "onfig.filter.http.jwt_authn.v2alpha.JwtP" +
-      "roviderB\034\n\025jwks_source_specifier\022\003\370B\001\"(\n" +
-      "\016JwtCacheConfig\022\026\n\016jwt_cache_size\030\001 \001(\r\"" +
-      "\270\002\n\nRemoteJwks\022/\n\010http_uri\030\001 \001(\0132\035.envoy" +
-      ".config.core.v3.HttpUri\0221\n\016cache_duratio" +
-      "n\030\002 \001(\0132\031.google.protobuf.Duration\022O\n\013as" +
-      "ync_fetch\030\003 \001(\0132:.envoy.extensions.filte" +
-      "rs.http.jwt_authn.v3.JwksAsyncFetch\0227\n\014r" +
-      "etry_policy\030\004 \001(\0132!.envoy.config.core.v3" +
-      ".RetryPolicy:<\232\305\210\0367\n5envoy.config.filter" +
-      ".http.jwt_authn.v2alpha.RemoteJwks\"\'\n\016Jw" +
-      "ksAsyncFetch\022\025\n\rfast_listener\030\001 \001(\010\"\210\001\n\t" +
-      "JwtHeader\022\033\n\004name\030\001 \001(\tB\r\372B\nr\010\020\001\300\001\001\310\001\000\022!" +
-      "\n\014value_prefix\030\002 \001(\tB\013\372B\010r\006\300\001\002\310\001\000:;\232\305\210\0366" +
-      "\n4envoy.config.filter.http.jwt_authn.v2a" +
-      "lpha.JwtHeader\"\212\001\n\025ProviderWithAudiences" +
-      "\022\025\n\rprovider_name\030\001 \001(\t\022\021\n\taudiences\030\002 \003" +
-      "(\t:G\232\305\210\036B\n@envoy.config.filter.http.jwt_" +
-      "authn.v2alpha.ProviderWithAudiences\"\202\004\n\016" +
-      "JwtRequirement\022\027\n\rprovider_name\030\001 \001(\tH\000\022" +
-      "c\n\026provider_and_audiences\030\002 \001(\0132A.envoy." +
-      "extensions.filters.http.jwt_authn.v3.Pro" +
-      "viderWithAudiencesH\000\022X\n\014requires_any\030\003 \001" +
-      "(\0132@.envoy.extensions.filters.http.jwt_a" +
-      "uthn.v3.JwtRequirementOrListH\000\022Y\n\014requir" +
-      "es_all\030\004 \001(\0132A.envoy.extensions.filters." +
-      "http.jwt_authn.v3.JwtRequirementAndListH" +
-      "\000\0229\n\027allow_missing_or_failed\030\005 \001(\0132\026.goo" +
-      "gle.protobuf.EmptyH\000\022/\n\rallow_missing\030\006 " +
-      "\001(\0132\026.google.protobuf.EmptyH\000:@\232\305\210\036;\n9en" +
-      "voy.config.filter.http.jwt_authn.v2alpha" +
-      ".JwtRequirementB\017\n\rrequires_type\"\272\001\n\024Jwt" +
-      "RequirementOrList\022Z\n\014requirements\030\001 \003(\0132" +
-      ":.envoy.extensions.filters.http.jwt_auth" +
-      "n.v3.JwtRequirementB\010\372B\005\222\001\002\010\002:F\232\305\210\036A\n?en" +
-      "voy.config.filter.http.jwt_authn.v2alpha" +
-      ".JwtRequirementOrList\"\274\001\n\025JwtRequirement" +
-      "AndList\022Z\n\014requirements\030\001 \003(\0132:.envoy.ex" +
-      "tensions.filters.http.jwt_authn.v3.JwtRe" +
-      "quirementB\010\372B\005\222\001\002\010\002:G\232\305\210\036B\n@envoy.config" +
-      ".filter.http.jwt_authn.v2alpha.JwtRequir" +
-      "ementAndList\"\231\002\n\017RequirementRule\022:\n\005matc" +
-      "h\030\001 \001(\0132!.envoy.config.route.v3.RouteMat" +
-      "chB\010\372B\005\212\001\002\020\001\022N\n\010requires\030\002 \001(\0132:.envoy.e" +
+      "_authn.v3.JwtCacheConfig\022V\n\020claim_to_hea" +
+      "ders\030\017 \003(\0132<.envoy.extensions.filters.ht" +
+      "tp.jwt_authn.v3.JwtClaimToHeader:=\232\305\210\0368\n" +
+      "6envoy.config.filter.http.jwt_authn.v2al" +
+      "pha.JwtProviderB\034\n\025jwks_source_specifier" +
+      "\022\003\370B\001\"(\n\016JwtCacheConfig\022\026\n\016jwt_cache_siz" +
+      "e\030\001 \001(\r\"\270\002\n\nRemoteJwks\022/\n\010http_uri\030\001 \001(\013" +
+      "2\035.envoy.config.core.v3.HttpUri\0221\n\016cache" +
+      "_duration\030\002 \001(\0132\031.google.protobuf.Durati" +
+      "on\022O\n\013async_fetch\030\003 \001(\0132:.envoy.extensio" +
+      "ns.filters.http.jwt_authn.v3.JwksAsyncFe" +
+      "tch\0227\n\014retry_policy\030\004 \001(\0132!.envoy.config" +
+      ".core.v3.RetryPolicy:<\232\305\210\0367\n5envoy.confi" +
+      "g.filter.http.jwt_authn.v2alpha.RemoteJw" +
+      "ks\"c\n\016JwksAsyncFetch\022\025\n\rfast_listener\030\001 " +
+      "\001(\010\022:\n\027failed_refetch_duration\030\002 \001(\0132\031.g" +
+      "oogle.protobuf.Duration\"\210\001\n\tJwtHeader\022\033\n" +
+      "\004name\030\001 \001(\tB\r\372B\nr\010\020\001\300\001\001\310\001\000\022!\n\014value_pref" +
+      "ix\030\002 \001(\tB\013\372B\010r\006\300\001\002\310\001\000:;\232\305\210\0366\n4envoy.conf" +
+      "ig.filter.http.jwt_authn.v2alpha.JwtHead" +
+      "er\"\212\001\n\025ProviderWithAudiences\022\025\n\rprovider" +
+      "_name\030\001 \001(\t\022\021\n\taudiences\030\002 \003(\t:G\232\305\210\036B\n@e" +
+      "nvoy.config.filter.http.jwt_authn.v2alph" +
+      "a.ProviderWithAudiences\"\202\004\n\016JwtRequireme" +
+      "nt\022\027\n\rprovider_name\030\001 \001(\tH\000\022c\n\026provider_" +
+      "and_audiences\030\002 \001(\0132A.envoy.extensions.f" +
+      "ilters.http.jwt_authn.v3.ProviderWithAud" +
+      "iencesH\000\022X\n\014requires_any\030\003 \001(\0132@.envoy.e" +
       "xtensions.filters.http.jwt_authn.v3.JwtR" +
-      "equirementH\000\022#\n\020requirement_name\030\003 \001(\tB\007" +
-      "\372B\004r\002\020\001H\000:A\232\305\210\036<\n:envoy.config.filter.ht" +
-      "tp.jwt_authn.v2alpha.RequirementRuleB\022\n\020" +
-      "requirement_type\"\265\002\n\017FilterStateRule\022\025\n\004" +
-      "name\030\001 \001(\tB\007\372B\004r\002\020\001\022[\n\010requires\030\003 \003(\0132I." +
+      "equirementOrListH\000\022Y\n\014requires_all\030\004 \001(\013" +
+      "2A.envoy.extensions.filters.http.jwt_aut" +
+      "hn.v3.JwtRequirementAndListH\000\0229\n\027allow_m" +
+      "issing_or_failed\030\005 \001(\0132\026.google.protobuf" +
+      ".EmptyH\000\022/\n\rallow_missing\030\006 \001(\0132\026.google" +
+      ".protobuf.EmptyH\000:@\232\305\210\036;\n9envoy.config.f" +
+      "ilter.http.jwt_authn.v2alpha.JwtRequirem" +
+      "entB\017\n\rrequires_type\"\272\001\n\024JwtRequirementO" +
+      "rList\022Z\n\014requirements\030\001 \003(\0132:.envoy.exte" +
+      "nsions.filters.http.jwt_authn.v3.JwtRequ" +
+      "irementB\010\372B\005\222\001\002\010\002:F\232\305\210\036A\n?envoy.config.f" +
+      "ilter.http.jwt_authn.v2alpha.JwtRequirem" +
+      "entOrList\"\274\001\n\025JwtRequirementAndList\022Z\n\014r" +
+      "equirements\030\001 \003(\0132:.envoy.extensions.fil" +
+      "ters.http.jwt_authn.v3.JwtRequirementB\010\372" +
+      "B\005\222\001\002\010\002:G\232\305\210\036B\n@envoy.config.filter.http" +
+      ".jwt_authn.v2alpha.JwtRequirementAndList" +
+      "\"\231\002\n\017RequirementRule\022:\n\005match\030\001 \001(\0132!.en" +
+      "voy.config.route.v3.RouteMatchB\010\372B\005\212\001\002\020\001" +
+      "\022N\n\010requires\030\002 \001(\0132:.envoy.extensions.fi" +
+      "lters.http.jwt_authn.v3.JwtRequirementH\000" +
+      "\022#\n\020requirement_name\030\003 \001(\tB\007\372B\004r\002\020\001H\000:A\232" +
+      "\305\210\036<\n:envoy.config.filter.http.jwt_authn" +
+      ".v2alpha.RequirementRuleB\022\n\020requirement_" +
+      "type\"\265\002\n\017FilterStateRule\022\025\n\004name\030\001 \001(\tB\007" +
+      "\372B\004r\002\020\001\022[\n\010requires\030\003 \003(\0132I.envoy.extens" +
+      "ions.filters.http.jwt_authn.v3.FilterSta" +
+      "teRule.RequiresEntry\032k\n\rRequiresEntry\022\013\n" +
+      "\003key\030\001 \001(\t\022I\n\005value\030\002 \001(\0132:.envoy.extens" +
+      "ions.filters.http.jwt_authn.v3.JwtRequir" +
+      "ement:\0028\001:A\232\305\210\036<\n:envoy.config.filter.ht" +
+      "tp.jwt_authn.v2alpha.FilterStateRule\"\307\005\n" +
+      "\021JwtAuthentication\022_\n\tproviders\030\001 \003(\0132L." +
       "envoy.extensions.filters.http.jwt_authn." +
-      "v3.FilterStateRule.RequiresEntry\032k\n\rRequ" +
-      "iresEntry\022\013\n\003key\030\001 \001(\t\022I\n\005value\030\002 \001(\0132:." +
-      "envoy.extensions.filters.http.jwt_authn." +
-      "v3.JwtRequirement:\0028\001:A\232\305\210\036<\n:envoy.conf" +
-      "ig.filter.http.jwt_authn.v2alpha.FilterS" +
-      "tateRule\"\307\005\n\021JwtAuthentication\022_\n\tprovid" +
-      "ers\030\001 \003(\0132L.envoy.extensions.filters.htt" +
-      "p.jwt_authn.v3.JwtAuthentication.Provide" +
-      "rsEntry\022J\n\005rules\030\002 \003(\0132;.envoy.extension" +
-      "s.filters.http.jwt_authn.v3.RequirementR" +
-      "ule\022W\n\022filter_state_rules\030\003 \001(\0132;.envoy." +
-      "extensions.filters.http.jwt_authn.v3.Fil" +
-      "terStateRule\022\035\n\025bypass_cors_preflight\030\004 " +
-      "\001(\010\022j\n\017requirement_map\030\005 \003(\0132Q.envoy.ext" +
-      "ensions.filters.http.jwt_authn.v3.JwtAut" +
-      "hentication.RequirementMapEntry\032i\n\016Provi" +
-      "dersEntry\022\013\n\003key\030\001 \001(\t\022F\n\005value\030\002 \001(\01327." +
-      "envoy.extensions.filters.http.jwt_authn." +
-      "v3.JwtProvider:\0028\001\032q\n\023RequirementMapEntr" +
-      "y\022\013\n\003key\030\001 \001(\t\022I\n\005value\030\002 \001(\0132:.envoy.ex" +
-      "tensions.filters.http.jwt_authn.v3.JwtRe" +
-      "quirement:\0028\001:C\232\305\210\036>\n<envoy.config.filte" +
-      "r.http.jwt_authn.v2alpha.JwtAuthenticati" +
-      "on\"p\n\016PerRouteConfig\022\033\n\010disabled\030\001 \001(\010B\007" +
-      "\372B\004j\002\010\001H\000\022#\n\020requirement_name\030\002 \001(\tB\007\372B\004" +
-      "r\002\020\001H\000B\034\n\025requirement_specifier\022\003\370B\001B\260\001\n" +
-      "8io.envoyproxy.envoy.extensions.filters." +
-      "http.jwt_authn.v3B\013ConfigProtoP\001Z]github" +
-      ".com/envoyproxy/go-control-plane/envoy/e" +
-      "xtensions/filters/http/jwt_authn/v3;jwt_" +
-      "authnv3\272\200\310\321\006\002\020\002b\006proto3"
+      "v3.JwtAuthentication.ProvidersEntry\022J\n\005r" +
+      "ules\030\002 \003(\0132;.envoy.extensions.filters.ht" +
+      "tp.jwt_authn.v3.RequirementRule\022W\n\022filte" +
+      "r_state_rules\030\003 \001(\0132;.envoy.extensions.f" +
+      "ilters.http.jwt_authn.v3.FilterStateRule" +
+      "\022\035\n\025bypass_cors_preflight\030\004 \001(\010\022j\n\017requi" +
+      "rement_map\030\005 \003(\0132Q.envoy.extensions.filt" +
+      "ers.http.jwt_authn.v3.JwtAuthentication." +
+      "RequirementMapEntry\032i\n\016ProvidersEntry\022\013\n" +
+      "\003key\030\001 \001(\t\022F\n\005value\030\002 \001(\01327.envoy.extens" +
+      "ions.filters.http.jwt_authn.v3.JwtProvid" +
+      "er:\0028\001\032q\n\023RequirementMapEntry\022\013\n\003key\030\001 \001" +
+      "(\t\022I\n\005value\030\002 \001(\0132:.envoy.extensions.fil" +
+      "ters.http.jwt_authn.v3.JwtRequirement:\0028" +
+      "\001:C\232\305\210\036>\n<envoy.config.filter.http.jwt_a" +
+      "uthn.v2alpha.JwtAuthentication\"p\n\016PerRou" +
+      "teConfig\022\033\n\010disabled\030\001 \001(\010B\007\372B\004j\002\010\001H\000\022#\n" +
+      "\020requirement_name\030\002 \001(\tB\007\372B\004r\002\020\001H\000B\034\n\025re" +
+      "quirement_specifier\022\003\370B\001\"S\n\020JwtClaimToHe" +
+      "ader\022\"\n\013header_name\030\001 \001(\tB\r\372B\nr\010\020\001\300\001\001\310\001\000" +
+      "\022\033\n\nclaim_name\030\002 \001(\tB\007\372B\004r\002\020\001B\260\001\n8io.env" +
+      "oyproxy.envoy.extensions.filters.http.jw" +
+      "t_authn.v3B\013ConfigProtoP\001Z]github.com/en" +
+      "voyproxy/go-control-plane/envoy/extensio" +
+      "ns/filters/http/jwt_authn/v3;jwt_authnv3" +
+      "\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -227,7 +238,7 @@ public final class ConfigProto {
     internal_static_envoy_extensions_filters_http_jwt_authn_v3_JwtProvider_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_http_jwt_authn_v3_JwtProvider_descriptor,
-        new java.lang.String[] { "Issuer", "Audiences", "RemoteJwks", "LocalJwks", "Forward", "FromHeaders", "FromParams", "FromCookies", "ForwardPayloadHeader", "PadForwardPayloadHeader", "PayloadInMetadata", "HeaderInMetadata", "ClockSkewSeconds", "JwtCacheConfig", "JwksSourceSpecifier", });
+        new java.lang.String[] { "Issuer", "Audiences", "RemoteJwks", "LocalJwks", "Forward", "FromHeaders", "FromParams", "FromCookies", "ForwardPayloadHeader", "PadForwardPayloadHeader", "PayloadInMetadata", "HeaderInMetadata", "ClockSkewSeconds", "JwtCacheConfig", "ClaimToHeaders", "JwksSourceSpecifier", });
     internal_static_envoy_extensions_filters_http_jwt_authn_v3_JwtCacheConfig_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_envoy_extensions_filters_http_jwt_authn_v3_JwtCacheConfig_fieldAccessorTable = new
@@ -245,7 +256,7 @@ public final class ConfigProto {
     internal_static_envoy_extensions_filters_http_jwt_authn_v3_JwksAsyncFetch_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_http_jwt_authn_v3_JwksAsyncFetch_descriptor,
-        new java.lang.String[] { "FastListener", });
+        new java.lang.String[] { "FastListener", "FailedRefetchDuration", });
     internal_static_envoy_extensions_filters_http_jwt_authn_v3_JwtHeader_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_envoy_extensions_filters_http_jwt_authn_v3_JwtHeader_fieldAccessorTable = new
@@ -318,6 +329,12 @@ public final class ConfigProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_http_jwt_authn_v3_PerRouteConfig_descriptor,
         new java.lang.String[] { "Disabled", "RequirementName", "RequirementSpecifier", });
+    internal_static_envoy_extensions_filters_http_jwt_authn_v3_JwtClaimToHeader_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_envoy_extensions_filters_http_jwt_authn_v3_JwtClaimToHeader_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_envoy_extensions_filters_http_jwt_authn_v3_JwtClaimToHeader_descriptor,
+        new java.lang.String[] { "HeaderName", "ClaimName", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(udpa.annotations.Status.fileStatus);

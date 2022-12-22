@@ -41,74 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CharacterMaskConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            maskingCharacter_ = s;
-            break;
-          }
-          case 16: {
-
-            numberToMask_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            reverseOrder_ = input.readBool();
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              charactersToIgnore_ = new java.util.ArrayList<com.google.privacy.dlp.v2.CharsToIgnore>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            charactersToIgnore_.add(
-                input.readMessage(com.google.privacy.dlp.v2.CharsToIgnore.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        charactersToIgnore_ = java.util.Collections.unmodifiableList(charactersToIgnore_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_CharacterMaskConfig_descriptor;
@@ -123,7 +55,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MASKING_CHARACTER_FIELD_NUMBER = 1;
-  private volatile java.lang.Object maskingCharacter_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object maskingCharacter_ = "";
   /**
    * <pre>
    * Character to use to mask the sensitive values&amp;mdash;for example, `*` for an
@@ -175,11 +108,23 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NUMBER_TO_MASK_FIELD_NUMBER = 2;
-  private int numberToMask_;
+  private int numberToMask_ = 0;
   /**
    * <pre>
    * Number of characters to mask. If not set, all matching chars will be
    * masked. Skipped characters do not count towards this tally.
+   * If `number_to_mask` is negative, this denotes inverse masking. Cloud DLP
+   * masks all but a number of characters.
+   * For example, suppose you have the following values:
+   * - `masking_character` is `*`
+   * - `number_to_mask` is `-4`
+   * - `reverse_order` is `false`
+   * - `CharsToIgnore` includes `-`
+   * - Input string is `1234-5678-9012-3456`
+   * The resulting de-identified string is
+   * `****-****-****-3456`. Cloud DLP masks all but the last four characters.
+   * If `reverse_order` is `true`, all but the first four characters are masked
+   * as `1234-****-****-****`.
    * </pre>
    *
    * <code>int32 number_to_mask = 2;</code>
@@ -191,7 +136,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REVERSE_ORDER_FIELD_NUMBER = 3;
-  private boolean reverseOrder_;
+  private boolean reverseOrder_ = false;
   /**
    * <pre>
    * Mask characters in reverse order. For example, if `masking_character` is
@@ -210,6 +155,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CHARACTERS_TO_IGNORE_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.privacy.dlp.v2.CharsToIgnore> charactersToIgnore_;
   /**
    * <pre>
@@ -310,7 +256,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < charactersToIgnore_.size(); i++) {
       output.writeMessage(4, charactersToIgnore_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -334,7 +280,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, charactersToIgnore_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -357,7 +303,7 @@ private static final long serialVersionUID = 0L;
         != other.getReverseOrder()) return false;
     if (!getCharactersToIgnoreList()
         .equals(other.getCharactersToIgnoreList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -379,7 +325,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CHARACTERS_TO_IGNORE_FIELD_NUMBER;
       hash = (53 * hash) + getCharactersToIgnoreList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -505,35 +451,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.CharacterMaskConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getCharactersToIgnoreFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       maskingCharacter_ = "";
-
       numberToMask_ = 0;
-
       reverseOrder_ = false;
-
       if (charactersToIgnoreBuilder_ == null) {
         charactersToIgnore_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        charactersToIgnore_ = null;
         charactersToIgnoreBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -560,21 +499,35 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.CharacterMaskConfig buildPartial() {
       com.google.privacy.dlp.v2.CharacterMaskConfig result = new com.google.privacy.dlp.v2.CharacterMaskConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.maskingCharacter_ = maskingCharacter_;
-      result.numberToMask_ = numberToMask_;
-      result.reverseOrder_ = reverseOrder_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.privacy.dlp.v2.CharacterMaskConfig result) {
       if (charactersToIgnoreBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           charactersToIgnore_ = java.util.Collections.unmodifiableList(charactersToIgnore_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.charactersToIgnore_ = charactersToIgnore_;
       } else {
         result.charactersToIgnore_ = charactersToIgnoreBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.CharacterMaskConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.maskingCharacter_ = maskingCharacter_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.numberToMask_ = numberToMask_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.reverseOrder_ = reverseOrder_;
+      }
     }
 
     @java.lang.Override
@@ -623,6 +576,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.privacy.dlp.v2.CharacterMaskConfig.getDefaultInstance()) return this;
       if (!other.getMaskingCharacter().isEmpty()) {
         maskingCharacter_ = other.maskingCharacter_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getNumberToMask() != 0) {
@@ -635,7 +589,7 @@ private static final long serialVersionUID = 0L;
         if (!other.charactersToIgnore_.isEmpty()) {
           if (charactersToIgnore_.isEmpty()) {
             charactersToIgnore_ = other.charactersToIgnore_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureCharactersToIgnoreIsMutable();
             charactersToIgnore_.addAll(other.charactersToIgnore_);
@@ -648,7 +602,7 @@ private static final long serialVersionUID = 0L;
             charactersToIgnoreBuilder_.dispose();
             charactersToIgnoreBuilder_ = null;
             charactersToIgnore_ = other.charactersToIgnore_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             charactersToIgnoreBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getCharactersToIgnoreFieldBuilder() : null;
@@ -657,7 +611,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -672,17 +626,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.CharacterMaskConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              maskingCharacter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              numberToMask_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              reverseOrder_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              com.google.privacy.dlp.v2.CharsToIgnore m =
+                  input.readMessage(
+                      com.google.privacy.dlp.v2.CharsToIgnore.parser(),
+                      extensionRegistry);
+              if (charactersToIgnoreBuilder_ == null) {
+                ensureCharactersToIgnoreIsMutable();
+                charactersToIgnore_.add(m);
+              } else {
+                charactersToIgnoreBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.CharacterMaskConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -749,11 +744,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMaskingCharacter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       maskingCharacter_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -769,8 +762,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaskingCharacter() {
-      
       maskingCharacter_ = getDefaultInstance().getMaskingCharacter();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -788,12 +781,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMaskingCharacterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       maskingCharacter_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -803,6 +794,18 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Number of characters to mask. If not set, all matching chars will be
      * masked. Skipped characters do not count towards this tally.
+     * If `number_to_mask` is negative, this denotes inverse masking. Cloud DLP
+     * masks all but a number of characters.
+     * For example, suppose you have the following values:
+     * - `masking_character` is `*`
+     * - `number_to_mask` is `-4`
+     * - `reverse_order` is `false`
+     * - `CharsToIgnore` includes `-`
+     * - Input string is `1234-5678-9012-3456`
+     * The resulting de-identified string is
+     * `****-****-****-3456`. Cloud DLP masks all but the last four characters.
+     * If `reverse_order` is `true`, all but the first four characters are masked
+     * as `1234-****-****-****`.
      * </pre>
      *
      * <code>int32 number_to_mask = 2;</code>
@@ -816,6 +819,18 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Number of characters to mask. If not set, all matching chars will be
      * masked. Skipped characters do not count towards this tally.
+     * If `number_to_mask` is negative, this denotes inverse masking. Cloud DLP
+     * masks all but a number of characters.
+     * For example, suppose you have the following values:
+     * - `masking_character` is `*`
+     * - `number_to_mask` is `-4`
+     * - `reverse_order` is `false`
+     * - `CharsToIgnore` includes `-`
+     * - Input string is `1234-5678-9012-3456`
+     * The resulting de-identified string is
+     * `****-****-****-3456`. Cloud DLP masks all but the last four characters.
+     * If `reverse_order` is `true`, all but the first four characters are masked
+     * as `1234-****-****-****`.
      * </pre>
      *
      * <code>int32 number_to_mask = 2;</code>
@@ -825,6 +840,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNumberToMask(int value) {
       
       numberToMask_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -832,13 +848,25 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Number of characters to mask. If not set, all matching chars will be
      * masked. Skipped characters do not count towards this tally.
+     * If `number_to_mask` is negative, this denotes inverse masking. Cloud DLP
+     * masks all but a number of characters.
+     * For example, suppose you have the following values:
+     * - `masking_character` is `*`
+     * - `number_to_mask` is `-4`
+     * - `reverse_order` is `false`
+     * - `CharsToIgnore` includes `-`
+     * - Input string is `1234-5678-9012-3456`
+     * The resulting de-identified string is
+     * `****-****-****-3456`. Cloud DLP masks all but the last four characters.
+     * If `reverse_order` is `true`, all but the first four characters are masked
+     * as `1234-****-****-****`.
      * </pre>
      *
      * <code>int32 number_to_mask = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearNumberToMask() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       numberToMask_ = 0;
       onChanged();
       return this;
@@ -877,6 +905,7 @@ private static final long serialVersionUID = 0L;
     public Builder setReverseOrder(boolean value) {
       
       reverseOrder_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -893,7 +922,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReverseOrder() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       reverseOrder_ = false;
       onChanged();
       return this;
@@ -902,9 +931,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.privacy.dlp.v2.CharsToIgnore> charactersToIgnore_ =
       java.util.Collections.emptyList();
     private void ensureCharactersToIgnoreIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         charactersToIgnore_ = new java.util.ArrayList<com.google.privacy.dlp.v2.CharsToIgnore>(charactersToIgnore_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1131,7 +1160,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearCharactersToIgnore() {
       if (charactersToIgnoreBuilder_ == null) {
         charactersToIgnore_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         charactersToIgnoreBuilder_.clear();
@@ -1257,7 +1286,7 @@ private static final long serialVersionUID = 0L;
         charactersToIgnoreBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.privacy.dlp.v2.CharsToIgnore, com.google.privacy.dlp.v2.CharsToIgnore.Builder, com.google.privacy.dlp.v2.CharsToIgnoreOrBuilder>(
                 charactersToIgnore_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         charactersToIgnore_ = null;
@@ -1297,7 +1326,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CharacterMaskConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -35,77 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateRowRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.area120.tables.v1alpha1.Row.Builder subBuilder = null;
-            if (row_ != null) {
-              subBuilder = row_.toBuilder();
-            }
-            row_ = input.readMessage(com.google.area120.tables.v1alpha1.Row.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(row_);
-              row_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.FieldMask.Builder subBuilder = null;
-            if (updateMask_ != null) {
-              subBuilder = updateMask_.toBuilder();
-            }
-            updateMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateMask_);
-              updateMask_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            view_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.area120.tables.v1alpha1.TablesProto.internal_static_google_area120_tables_v1alpha1_UpdateRowRequest_descriptor;
@@ -154,7 +83,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.area120.tables.v1alpha1.RowOrBuilder getRowOrBuilder() {
-    return getRow();
+    return row_ == null ? com.google.area120.tables.v1alpha1.Row.getDefaultInstance() : row_;
   }
 
   public static final int UPDATE_MASK_FIELD_NUMBER = 2;
@@ -192,11 +121,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
-    return getUpdateMask();
+    return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
   }
 
   public static final int VIEW_FIELD_NUMBER = 3;
-  private int view_;
+  private int view_ = 0;
   /**
    * <pre>
    * Optional. Column key to use for values in the row.
@@ -219,8 +148,7 @@ private static final long serialVersionUID = 0L;
    * @return The view.
    */
   @java.lang.Override public com.google.area120.tables.v1alpha1.View getView() {
-    @SuppressWarnings("deprecation")
-    com.google.area120.tables.v1alpha1.View result = com.google.area120.tables.v1alpha1.View.valueOf(view_);
+    com.google.area120.tables.v1alpha1.View result = com.google.area120.tables.v1alpha1.View.forNumber(view_);
     return result == null ? com.google.area120.tables.v1alpha1.View.UNRECOGNIZED : result;
   }
 
@@ -247,7 +175,7 @@ private static final long serialVersionUID = 0L;
     if (view_ != com.google.area120.tables.v1alpha1.View.VIEW_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, view_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -268,7 +196,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, view_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -294,7 +222,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getUpdateMask())) return false;
     }
     if (view_ != other.view_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -315,7 +243,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + VIEW_FIELD_NUMBER;
     hash = (53 * hash) + view_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -436,36 +364,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.area120.tables.v1alpha1.UpdateRowRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (rowBuilder_ == null) {
-        row_ = null;
-      } else {
-        row_ = null;
+      bitField0_ = 0;
+      row_ = null;
+      if (rowBuilder_ != null) {
+        rowBuilder_.dispose();
         rowBuilder_ = null;
       }
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-      } else {
-        updateMask_ = null;
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
       view_ = 0;
-
       return this;
     }
 
@@ -492,19 +413,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.area120.tables.v1alpha1.UpdateRowRequest buildPartial() {
       com.google.area120.tables.v1alpha1.UpdateRowRequest result = new com.google.area120.tables.v1alpha1.UpdateRowRequest(this);
-      if (rowBuilder_ == null) {
-        result.row_ = row_;
-      } else {
-        result.row_ = rowBuilder_.build();
-      }
-      if (updateMaskBuilder_ == null) {
-        result.updateMask_ = updateMask_;
-      } else {
-        result.updateMask_ = updateMaskBuilder_.build();
-      }
-      result.view_ = view_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.area120.tables.v1alpha1.UpdateRowRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.row_ = rowBuilder_ == null
+            ? row_
+            : rowBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.updateMask_ = updateMaskBuilder_ == null
+            ? updateMask_
+            : updateMaskBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.view_ = view_;
+      }
     }
 
     @java.lang.Override
@@ -560,7 +488,7 @@ private static final long serialVersionUID = 0L;
       if (other.view_ != 0) {
         setViewValue(other.getViewValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -575,19 +503,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.area120.tables.v1alpha1.UpdateRowRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getRowFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getUpdateMaskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              view_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.area120.tables.v1alpha1.UpdateRowRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.area120.tables.v1alpha1.Row row_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -601,7 +562,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the row field is set.
      */
     public boolean hasRow() {
-      return rowBuilder_ != null || row_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -631,11 +592,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         row_ = value;
-        onChanged();
       } else {
         rowBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -649,11 +610,11 @@ private static final long serialVersionUID = 0L;
         com.google.area120.tables.v1alpha1.Row.Builder builderForValue) {
       if (rowBuilder_ == null) {
         row_ = builderForValue.build();
-        onChanged();
       } else {
         rowBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -665,17 +626,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRow(com.google.area120.tables.v1alpha1.Row value) {
       if (rowBuilder_ == null) {
-        if (row_ != null) {
-          row_ =
-            com.google.area120.tables.v1alpha1.Row.newBuilder(row_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          row_ != null &&
+          row_ != com.google.area120.tables.v1alpha1.Row.getDefaultInstance()) {
+          getRowBuilder().mergeFrom(value);
         } else {
           row_ = value;
         }
-        onChanged();
       } else {
         rowBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -686,14 +648,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.area120.tables.v1alpha1.Row row = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearRow() {
-      if (rowBuilder_ == null) {
-        row_ = null;
-        onChanged();
-      } else {
-        row_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      row_ = null;
+      if (rowBuilder_ != null) {
+        rowBuilder_.dispose();
         rowBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -704,7 +665,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.area120.tables.v1alpha1.Row row = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.area120.tables.v1alpha1.Row.Builder getRowBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getRowFieldBuilder().getBuilder();
     }
@@ -756,7 +717,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateMask field is set.
      */
     public boolean hasUpdateMask() {
-      return updateMaskBuilder_ != null || updateMask_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -786,11 +747,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateMask_ = value;
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -804,11 +765,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.FieldMask.Builder builderForValue) {
       if (updateMaskBuilder_ == null) {
         updateMask_ = builderForValue.build();
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -820,17 +781,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateMask(com.google.protobuf.FieldMask value) {
       if (updateMaskBuilder_ == null) {
-        if (updateMask_ != null) {
-          updateMask_ =
-            com.google.protobuf.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          updateMask_ != null &&
+          updateMask_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
+          getUpdateMaskBuilder().mergeFrom(value);
         } else {
           updateMask_ = value;
         }
-        onChanged();
       } else {
         updateMaskBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -841,14 +803,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FieldMask update_mask = 2;</code>
      */
     public Builder clearUpdateMask() {
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-        onChanged();
-      } else {
-        updateMask_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -859,7 +820,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FieldMask update_mask = 2;</code>
      */
     public com.google.protobuf.FieldMask.Builder getUpdateMaskBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getUpdateMaskFieldBuilder().getBuilder();
     }
@@ -923,8 +884,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setViewValue(int value) {
-      
       view_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -939,8 +900,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.area120.tables.v1alpha1.View getView() {
-      @SuppressWarnings("deprecation")
-      com.google.area120.tables.v1alpha1.View result = com.google.area120.tables.v1alpha1.View.valueOf(view_);
+      com.google.area120.tables.v1alpha1.View result = com.google.area120.tables.v1alpha1.View.forNumber(view_);
       return result == null ? com.google.area120.tables.v1alpha1.View.UNRECOGNIZED : result;
     }
     /**
@@ -957,7 +917,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       view_ = value.getNumber();
       onChanged();
       return this;
@@ -972,7 +932,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearView() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       view_ = 0;
       onChanged();
       return this;
@@ -1010,7 +970,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateRowRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

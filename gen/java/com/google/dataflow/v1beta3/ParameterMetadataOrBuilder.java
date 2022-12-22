@@ -178,7 +178,6 @@ public interface ParameterMetadataOrBuilder extends
    *
    * <code>map&lt;string, string&gt; custom_metadata = 7;</code>
    */
-
   /* nullable */
 java.lang.String getCustomMetadataOrDefault(
       java.lang.String key,
@@ -191,7 +190,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; custom_metadata = 7;</code>
    */
-
   java.lang.String getCustomMetadataOrThrow(
       java.lang.String key);
 }

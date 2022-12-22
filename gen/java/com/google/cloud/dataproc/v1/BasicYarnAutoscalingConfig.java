@@ -34,78 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BasicYarnAutoscalingConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 9: {
-
-            scaleUpFactor_ = input.readDouble();
-            break;
-          }
-          case 17: {
-
-            scaleDownFactor_ = input.readDouble();
-            break;
-          }
-          case 25: {
-
-            scaleUpMinWorkerFraction_ = input.readDouble();
-            break;
-          }
-          case 33: {
-
-            scaleDownMinWorkerFraction_ = input.readDouble();
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (gracefulDecommissionTimeout_ != null) {
-              subBuilder = gracefulDecommissionTimeout_.toBuilder();
-            }
-            gracefulDecommissionTimeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(gracefulDecommissionTimeout_);
-              gracefulDecommissionTimeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.v1.AutoscalingPoliciesProto.internal_static_google_cloud_dataproc_v1_BasicYarnAutoscalingConfig_descriptor;
@@ -166,11 +94,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getGracefulDecommissionTimeoutOrBuilder() {
-    return getGracefulDecommissionTimeout();
+    return gracefulDecommissionTimeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gracefulDecommissionTimeout_;
   }
 
   public static final int SCALE_UP_FACTOR_FIELD_NUMBER = 1;
-  private double scaleUpFactor_;
+  private double scaleUpFactor_ = 0D;
   /**
    * <pre>
    * Required. Fraction of average YARN pending memory in the last cooldown period
@@ -193,7 +121,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCALE_DOWN_FACTOR_FIELD_NUMBER = 2;
-  private double scaleDownFactor_;
+  private double scaleDownFactor_ = 0D;
   /**
    * <pre>
    * Required. Fraction of average YARN pending memory in the last cooldown period
@@ -216,7 +144,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCALE_UP_MIN_WORKER_FRACTION_FIELD_NUMBER = 3;
-  private double scaleUpMinWorkerFraction_;
+  private double scaleUpMinWorkerFraction_ = 0D;
   /**
    * <pre>
    * Optional. Minimum scale-up threshold as a fraction of total cluster size
@@ -236,7 +164,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCALE_DOWN_MIN_WORKER_FRACTION_FIELD_NUMBER = 4;
-  private double scaleDownMinWorkerFraction_;
+  private double scaleDownMinWorkerFraction_ = 0D;
   /**
    * <pre>
    * Optional. Minimum scale-down threshold as a fraction of total cluster size
@@ -284,7 +212,7 @@ private static final long serialVersionUID = 0L;
     if (gracefulDecommissionTimeout_ != null) {
       output.writeMessage(5, getGracefulDecommissionTimeout());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -313,7 +241,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getGracefulDecommissionTimeout());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -345,7 +273,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToLongBits(getScaleDownMinWorkerFraction())
         != java.lang.Double.doubleToLongBits(
             other.getScaleDownMinWorkerFraction())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -372,7 +300,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SCALE_DOWN_MIN_WORKER_FRACTION_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getScaleDownMinWorkerFraction()));
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -493,36 +421,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.BasicYarnAutoscalingConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (gracefulDecommissionTimeoutBuilder_ == null) {
-        gracefulDecommissionTimeout_ = null;
-      } else {
-        gracefulDecommissionTimeout_ = null;
+      bitField0_ = 0;
+      gracefulDecommissionTimeout_ = null;
+      if (gracefulDecommissionTimeoutBuilder_ != null) {
+        gracefulDecommissionTimeoutBuilder_.dispose();
         gracefulDecommissionTimeoutBuilder_ = null;
       }
       scaleUpFactor_ = 0D;
-
       scaleDownFactor_ = 0D;
-
       scaleUpMinWorkerFraction_ = 0D;
-
       scaleDownMinWorkerFraction_ = 0D;
-
       return this;
     }
 
@@ -549,17 +468,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.BasicYarnAutoscalingConfig buildPartial() {
       com.google.cloud.dataproc.v1.BasicYarnAutoscalingConfig result = new com.google.cloud.dataproc.v1.BasicYarnAutoscalingConfig(this);
-      if (gracefulDecommissionTimeoutBuilder_ == null) {
-        result.gracefulDecommissionTimeout_ = gracefulDecommissionTimeout_;
-      } else {
-        result.gracefulDecommissionTimeout_ = gracefulDecommissionTimeoutBuilder_.build();
-      }
-      result.scaleUpFactor_ = scaleUpFactor_;
-      result.scaleDownFactor_ = scaleDownFactor_;
-      result.scaleUpMinWorkerFraction_ = scaleUpMinWorkerFraction_;
-      result.scaleDownMinWorkerFraction_ = scaleDownMinWorkerFraction_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.BasicYarnAutoscalingConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.gracefulDecommissionTimeout_ = gracefulDecommissionTimeoutBuilder_ == null
+            ? gracefulDecommissionTimeout_
+            : gracefulDecommissionTimeoutBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.scaleUpFactor_ = scaleUpFactor_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.scaleDownFactor_ = scaleDownFactor_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.scaleUpMinWorkerFraction_ = scaleUpMinWorkerFraction_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.scaleDownMinWorkerFraction_ = scaleDownMinWorkerFraction_;
+      }
     }
 
     @java.lang.Override
@@ -621,7 +553,7 @@ private static final long serialVersionUID = 0L;
       if (other.getScaleDownMinWorkerFraction() != 0D) {
         setScaleDownMinWorkerFraction(other.getScaleDownMinWorkerFraction());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -636,19 +568,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.BasicYarnAutoscalingConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 9: {
+              scaleUpFactor_ = input.readDouble();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 9
+            case 17: {
+              scaleDownFactor_ = input.readDouble();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 17
+            case 25: {
+              scaleUpMinWorkerFraction_ = input.readDouble();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 25
+            case 33: {
+              scaleDownMinWorkerFraction_ = input.readDouble();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 33
+            case 42: {
+              input.readMessage(
+                  getGracefulDecommissionTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.BasicYarnAutoscalingConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.Duration gracefulDecommissionTimeout_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -666,7 +639,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the gracefulDecommissionTimeout field is set.
      */
     public boolean hasGracefulDecommissionTimeout() {
-      return gracefulDecommissionTimeoutBuilder_ != null || gracefulDecommissionTimeout_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -704,11 +677,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         gracefulDecommissionTimeout_ = value;
-        onChanged();
       } else {
         gracefulDecommissionTimeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -726,11 +699,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (gracefulDecommissionTimeoutBuilder_ == null) {
         gracefulDecommissionTimeout_ = builderForValue.build();
-        onChanged();
       } else {
         gracefulDecommissionTimeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -746,17 +719,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGracefulDecommissionTimeout(com.google.protobuf.Duration value) {
       if (gracefulDecommissionTimeoutBuilder_ == null) {
-        if (gracefulDecommissionTimeout_ != null) {
-          gracefulDecommissionTimeout_ =
-            com.google.protobuf.Duration.newBuilder(gracefulDecommissionTimeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          gracefulDecommissionTimeout_ != null &&
+          gracefulDecommissionTimeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getGracefulDecommissionTimeoutBuilder().mergeFrom(value);
         } else {
           gracefulDecommissionTimeout_ = value;
         }
-        onChanged();
       } else {
         gracefulDecommissionTimeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -771,14 +745,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration graceful_decommission_timeout = 5 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearGracefulDecommissionTimeout() {
-      if (gracefulDecommissionTimeoutBuilder_ == null) {
-        gracefulDecommissionTimeout_ = null;
-        onChanged();
-      } else {
-        gracefulDecommissionTimeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      gracefulDecommissionTimeout_ = null;
+      if (gracefulDecommissionTimeoutBuilder_ != null) {
+        gracefulDecommissionTimeoutBuilder_.dispose();
         gracefulDecommissionTimeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -793,7 +766,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration graceful_decommission_timeout = 5 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.protobuf.Duration.Builder getGracefulDecommissionTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getGracefulDecommissionTimeoutFieldBuilder().getBuilder();
     }
@@ -882,6 +855,7 @@ private static final long serialVersionUID = 0L;
     public Builder setScaleUpFactor(double value) {
       
       scaleUpFactor_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -902,7 +876,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScaleUpFactor() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       scaleUpFactor_ = 0D;
       onChanged();
       return this;
@@ -949,6 +923,7 @@ private static final long serialVersionUID = 0L;
     public Builder setScaleDownFactor(double value) {
       
       scaleDownFactor_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -969,7 +944,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScaleDownFactor() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       scaleDownFactor_ = 0D;
       onChanged();
       return this;
@@ -1010,6 +985,7 @@ private static final long serialVersionUID = 0L;
     public Builder setScaleUpMinWorkerFraction(double value) {
       
       scaleUpMinWorkerFraction_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1027,7 +1003,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScaleUpMinWorkerFraction() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       scaleUpMinWorkerFraction_ = 0D;
       onChanged();
       return this;
@@ -1068,6 +1044,7 @@ private static final long serialVersionUID = 0L;
     public Builder setScaleDownMinWorkerFraction(double value) {
       
       scaleDownMinWorkerFraction_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1085,7 +1062,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScaleDownMinWorkerFraction() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       scaleDownMinWorkerFraction_ = 0D;
       onChanged();
       return this;
@@ -1123,7 +1100,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BasicYarnAutoscalingConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

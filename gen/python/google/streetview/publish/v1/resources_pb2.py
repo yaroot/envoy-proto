@@ -12,11 +12,12 @@ _sym_db = _symbol_database.Default()
 
 
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
+from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.type import latlng_pb2 as google_dot_type_dot_latlng__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,google/streetview/publish/v1/resources.proto\x12\x1cgoogle.streetview.publish.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x18google/type/latlng.proto\"0\n\tUploadRef\x12\x14\n\nupload_url\x18\x01 \x01(\tH\x00\x42\r\n\x0b\x66ile_source\"\x15\n\x07PhotoId\x12\n\n\x02id\x18\x01 \x01(\t\"/\n\x05Level\x12\x13\n\x06number\x18\x01 \x01(\x01\x42\x03\xe0\x41\x01\x12\x11\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\xbe\x01\n\x04Pose\x12)\n\x0clat_lng_pair\x18\x01 \x01(\x0b\x32\x13.google.type.LatLng\x12\x10\n\x08\x61ltitude\x18\x02 \x01(\x01\x12\x0f\n\x07heading\x18\x03 \x01(\x01\x12\r\n\x05pitch\x18\x04 \x01(\x01\x12\x0c\n\x04roll\x18\x05 \x01(\x01\x12\x32\n\x05level\x18\x07 \x01(\x0b\x32#.google.streetview.publish.v1.Level\x12\x17\n\x0f\x61\x63\x63uracy_meters\x18\t \x01(\x02\"H\n\x05Place\x12\x10\n\x08place_id\x18\x01 \x01(\t\x12\x11\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x1a\n\rlanguage_code\x18\x03 \x01(\tB\x03\xe0\x41\x03\"H\n\nConnection\x12:\n\x06target\x18\x01 \x01(\x0b\x32%.google.streetview.publish.v1.PhotoIdB\x03\xe0\x41\x02\"\xcd\x07\n\x05Photo\x12?\n\x08photo_id\x18\x01 \x01(\x0b\x32%.google.streetview.publish.v1.PhotoIdB\x06\xe0\x41\x02\xe0\x41\x03\x12\x46\n\x10upload_reference\x18\x02 \x01(\x0b\x32\'.google.streetview.publish.v1.UploadRefB\x03\xe0\x41\x04\x12\x19\n\x0c\x64ownload_url\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x1a\n\rthumbnail_url\x18\t \x01(\tB\x03\xe0\x41\x03\x12\x17\n\nshare_link\x18\x0b \x01(\tB\x03\xe0\x41\x03\x12\x35\n\x04pose\x18\x04 \x01(\x0b\x32\".google.streetview.publish.v1.PoseB\x03\xe0\x41\x01\x12\x42\n\x0b\x63onnections\x18\x05 \x03(\x0b\x32(.google.streetview.publish.v1.ConnectionB\x03\xe0\x41\x01\x12\x35\n\x0c\x63\x61pture_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\x12\x34\n\x0bupload_time\x18\x0e \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x38\n\x06places\x18\x07 \x03(\x0b\x32#.google.streetview.publish.v1.PlaceB\x03\xe0\x41\x01\x12\x17\n\nview_count\x18\n \x01(\x03\x42\x03\xe0\x41\x03\x12P\n\x0ftransfer_status\x18\x0c \x01(\x0e\x32\x32.google.streetview.publish.v1.Photo.TransferStatusB\x03\xe0\x41\x03\x12W\n\x13maps_publish_status\x18\r \x01(\x0e\x32\x35.google.streetview.publish.v1.Photo.MapsPublishStatusB\x03\xe0\x41\x03\"\xa5\x01\n\x0eTransferStatus\x12\x1b\n\x17TRANSFER_STATUS_UNKNOWN\x10\x00\x12\x15\n\x11NEVER_TRANSFERRED\x10\x01\x12\x0b\n\x07PENDING\x10\x02\x12\r\n\tCOMPLETED\x10\x03\x12\x0c\n\x08REJECTED\x10\x04\x12\x0b\n\x07\x45XPIRED\x10\x05\x12\r\n\tCANCELLED\x10\x06\x12\x19\n\x15RECEIVED_VIA_TRANSFER\x10\x07\"]\n\x11MapsPublishStatus\x12#\n\x1fUNSPECIFIED_MAPS_PUBLISH_STATUS\x10\x00\x12\r\n\tPUBLISHED\x10\x01\x12\x14\n\x10REJECTED_UNKNOWN\x10\x02\x42\x8b\x01\n(com.google.geo.ugc.streetview.publish.v1B\x1aStreetViewPublishResourcesZCgoogle.golang.org/genproto/googleapis/streetview/publish/v1;publishb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,google/streetview/publish/v1/resources.proto\x12\x1cgoogle.streetview.publish.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x18google/type/latlng.proto\"0\n\tUploadRef\x12\x14\n\nupload_url\x18\x01 \x01(\tH\x00\x42\r\n\x0b\x66ile_source\"\x15\n\x07PhotoId\x12\n\n\x02id\x18\x01 \x01(\t\"/\n\x05Level\x12\x13\n\x06number\x18\x01 \x01(\x01\x42\x03\xe0\x41\x01\x12\x11\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\x83\x02\n\x04Pose\x12)\n\x0clat_lng_pair\x18\x01 \x01(\x0b\x32\x13.google.type.LatLng\x12\x10\n\x08\x61ltitude\x18\x02 \x01(\x01\x12\x0f\n\x07heading\x18\x03 \x01(\x01\x12\r\n\x05pitch\x18\x04 \x01(\x01\x12\x0c\n\x04roll\x18\x05 \x01(\x01\x12\x43\n\x1fgps_record_timestamp_unix_epoch\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x32\n\x05level\x18\x07 \x01(\x0b\x32#.google.streetview.publish.v1.Level\x12\x17\n\x0f\x61\x63\x63uracy_meters\x18\t \x01(\x02\"\xb3\x02\n\x03Imu\x12\x44\n\x0b\x61\x63\x63\x65l_mpsps\x18\x01 \x03(\x0b\x32/.google.streetview.publish.v1.Imu.Measurement3d\x12\x41\n\x08gyro_rps\x18\x02 \x03(\x0b\x32/.google.streetview.publish.v1.Imu.Measurement3d\x12?\n\x06mag_ut\x18\x03 \x03(\x0b\x32/.google.streetview.publish.v1.Imu.Measurement3d\x1a\x62\n\rMeasurement3d\x12\x30\n\x0c\x63\x61pture_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\t\n\x01x\x18\x02 \x01(\x02\x12\t\n\x01y\x18\x03 \x01(\x02\x12\t\n\x01z\x18\x04 \x01(\x02\"H\n\x05Place\x12\x10\n\x08place_id\x18\x01 \x01(\t\x12\x11\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x1a\n\rlanguage_code\x18\x03 \x01(\tB\x03\xe0\x41\x03\"H\n\nConnection\x12:\n\x06target\x18\x01 \x01(\x0b\x32%.google.streetview.publish.v1.PhotoIdB\x03\xe0\x41\x02\"\xcd\x07\n\x05Photo\x12?\n\x08photo_id\x18\x01 \x01(\x0b\x32%.google.streetview.publish.v1.PhotoIdB\x06\xe0\x41\x02\xe0\x41\x03\x12\x46\n\x10upload_reference\x18\x02 \x01(\x0b\x32\'.google.streetview.publish.v1.UploadRefB\x03\xe0\x41\x04\x12\x19\n\x0c\x64ownload_url\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x1a\n\rthumbnail_url\x18\t \x01(\tB\x03\xe0\x41\x03\x12\x17\n\nshare_link\x18\x0b \x01(\tB\x03\xe0\x41\x03\x12\x35\n\x04pose\x18\x04 \x01(\x0b\x32\".google.streetview.publish.v1.PoseB\x03\xe0\x41\x01\x12\x42\n\x0b\x63onnections\x18\x05 \x03(\x0b\x32(.google.streetview.publish.v1.ConnectionB\x03\xe0\x41\x01\x12\x35\n\x0c\x63\x61pture_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\x12\x34\n\x0bupload_time\x18\x0e \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x38\n\x06places\x18\x07 \x03(\x0b\x32#.google.streetview.publish.v1.PlaceB\x03\xe0\x41\x01\x12\x17\n\nview_count\x18\n \x01(\x03\x42\x03\xe0\x41\x03\x12P\n\x0ftransfer_status\x18\x0c \x01(\x0e\x32\x32.google.streetview.publish.v1.Photo.TransferStatusB\x03\xe0\x41\x03\x12W\n\x13maps_publish_status\x18\r \x01(\x0e\x32\x35.google.streetview.publish.v1.Photo.MapsPublishStatusB\x03\xe0\x41\x03\"\xa5\x01\n\x0eTransferStatus\x12\x1b\n\x17TRANSFER_STATUS_UNKNOWN\x10\x00\x12\x15\n\x11NEVER_TRANSFERRED\x10\x01\x12\x0b\n\x07PENDING\x10\x02\x12\r\n\tCOMPLETED\x10\x03\x12\x0c\n\x08REJECTED\x10\x04\x12\x0b\n\x07\x45XPIRED\x10\x05\x12\r\n\tCANCELLED\x10\x06\x12\x19\n\x15RECEIVED_VIA_TRANSFER\x10\x07\"]\n\x11MapsPublishStatus\x12#\n\x1fUNSPECIFIED_MAPS_PUBLISH_STATUS\x10\x00\x12\r\n\tPUBLISHED\x10\x01\x12\x14\n\x10REJECTED_UNKNOWN\x10\x02\"\xb3\x07\n\rPhotoSequence\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x38\n\x06photos\x18\x02 \x03(\x0b\x32#.google.streetview.publish.v1.PhotoB\x03\xe0\x41\x03\x12\x46\n\x10upload_reference\x18\x03 \x01(\x0b\x32\'.google.streetview.publish.v1.UploadRefB\x03\xe0\x41\x04\x12>\n\x15\x63\x61pture_time_override\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\x12\x34\n\x0bupload_time\x18\x12 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x41\n\x10raw_gps_timeline\x18\x07 \x03(\x0b\x32\".google.streetview.publish.v1.PoseB\x03\xe0\x41\x04\x12N\n\ngps_source\x18\x08 \x01(\x0e\x32\x35.google.streetview.publish.v1.PhotoSequence.GpsSourceB\x03\xe0\x41\x04\x12\x33\n\x03imu\x18\x0b \x01(\x0b\x32!.google.streetview.publish.v1.ImuB\x03\xe0\x41\x04\x12L\n\x10processing_state\x18\x0c \x01(\x0e\x32-.google.streetview.publish.v1.ProcessingStateB\x03\xe0\x41\x03\x12R\n\x0e\x66\x61ilure_reason\x18\r \x01(\x0e\x32\x35.google.streetview.publish.v1.ProcessingFailureReasonB\x03\xe0\x41\x03\x12T\n\x0f\x66\x61ilure_details\x18\x17 \x01(\x0b\x32\x36.google.streetview.publish.v1.ProcessingFailureDetailsB\x03\xe0\x41\x03\x12\x1c\n\x0f\x64istance_meters\x18\x10 \x01(\x01\x42\x03\xe0\x41\x03\x12H\n\x0fsequence_bounds\x18\x14 \x01(\x0b\x32*.google.streetview.publish.v1.LatLngBoundsB\x03\xe0\x41\x03\x12\x17\n\nview_count\x18\x15 \x01(\x03\x42\x03\xe0\x41\x03\x12\x15\n\x08\x66ilename\x18\x16 \x01(\tB\x03\xe0\x41\x03\"A\n\tGpsSource\x12\x12\n\x0ePHOTO_SEQUENCE\x10\x00\x12 \n\x1c\x43\x41MERA_MOTION_METADATA_TRACK\x10\x01\"^\n\x0cLatLngBounds\x12&\n\tsouthwest\x18\x01 \x01(\x0b\x32\x13.google.type.LatLng\x12&\n\tnortheast\x18\x02 \x01(\x0b\x32\x13.google.type.LatLng\"\x8f\x03\n\x18ProcessingFailureDetails\x12_\n\x18insufficient_gps_details\x18\x01 \x01(\x0b\x32;.google.streetview.publish.v1.InsufficientGpsFailureDetailsH\x00\x12V\n\x14gps_data_gap_details\x18\x02 \x01(\x0b\x32\x36.google.streetview.publish.v1.GpsDataGapFailureDetailsH\x00\x12V\n\x14imu_data_gap_details\x18\x03 \x01(\x0b\x32\x36.google.streetview.publish.v1.ImuDataGapFailureDetailsH\x00\x12W\n\x14not_outdoors_details\x18\x04 \x01(\x0b\x32\x37.google.streetview.publish.v1.NotOutdoorsFailureDetailsH\x00\x42\t\n\x07\x64\x65tails\"S\n\x1dInsufficientGpsFailureDetails\x12\x1d\n\x10gps_points_found\x18\x01 \x01(\x05H\x00\x88\x01\x01\x42\x13\n\x11_gps_points_found\"\xac\x01\n\x18GpsDataGapFailureDetails\x12\x34\n\x0cgap_duration\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x88\x01\x01\x12\x36\n\x0egap_start_time\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationH\x01\x88\x01\x01\x42\x0f\n\r_gap_durationB\x11\n\x0f_gap_start_time\"\xac\x01\n\x18ImuDataGapFailureDetails\x12\x34\n\x0cgap_duration\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x88\x01\x01\x12\x36\n\x0egap_start_time\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationH\x01\x88\x01\x01\x42\x0f\n\r_gap_durationB\x11\n\x0f_gap_start_time\"^\n\x19NotOutdoorsFailureDetails\x12\x32\n\nstart_time\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x88\x01\x01\x42\r\n\x0b_start_time*k\n\x0fProcessingState\x12 \n\x1cPROCESSING_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\x0e\n\nPROCESSING\x10\x02\x12\r\n\tPROCESSED\x10\x03\x12\n\n\x06\x46\x41ILED\x10\x04*\x8c\x04\n\x17ProcessingFailureReason\x12)\n%PROCESSING_FAILURE_REASON_UNSPECIFIED\x10\x00\x12\x12\n\x0eLOW_RESOLUTION\x10\x01\x12\r\n\tDUPLICATE\x10\x02\x12\x14\n\x10INSUFFICIENT_GPS\x10\x03\x12\x12\n\x0eNO_OVERLAP_GPS\x10\x04\x12\x0f\n\x0bINVALID_GPS\x10\x05\x12\x1e\n\x1a\x46\x41ILED_TO_REFINE_POSITIONS\x10\x06\x12\x0c\n\x08TAKEDOWN\x10\x07\x12\x11\n\rCORRUPT_VIDEO\x10\x08\x12\x0c\n\x08INTERNAL\x10\t\x12\x18\n\x14INVALID_VIDEO_FORMAT\x10\n\x12\x1c\n\x18INVALID_VIDEO_DIMENSIONS\x10\x0b\x12\x18\n\x14INVALID_CAPTURE_TIME\x10\x0c\x12\x10\n\x0cGPS_DATA_GAP\x10\r\x12\r\n\tJUMPY_GPS\x10\x0e\x12\x0f\n\x0bINVALID_IMU\x10\x0f\x12\x14\n\x10INSUFFICIENT_IMU\x10\x15\x12$\n INSUFFICIENT_OVERLAP_TIME_SERIES\x10\x16\x12\x10\n\x0cIMU_DATA_GAP\x10\x10\x12\x16\n\x12UNSUPPORTED_CAMERA\x10\x11\x12\x10\n\x0cNOT_OUTDOORS\x10\x12\x12\x1d\n\x19INSUFFICIENT_VIDEO_FRAMES\x10\x13\x42\x8b\x01\n(com.google.geo.ugc.streetview.publish.v1B\x1aStreetViewPublishResourcesZCgoogle.golang.org/genproto/googleapis/streetview/publish/v1;publishb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.streetview.publish.v1.resources_pb2', globals())
@@ -60,22 +61,76 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _PHOTO.fields_by_name['transfer_status']._serialized_options = b'\340A\003'
   _PHOTO.fields_by_name['maps_publish_status']._options = None
   _PHOTO.fields_by_name['maps_publish_status']._serialized_options = b'\340A\003'
-  _UPLOADREF._serialized_start=170
-  _UPLOADREF._serialized_end=218
-  _PHOTOID._serialized_start=220
-  _PHOTOID._serialized_end=241
-  _LEVEL._serialized_start=243
-  _LEVEL._serialized_end=290
-  _POSE._serialized_start=293
-  _POSE._serialized_end=483
-  _PLACE._serialized_start=485
-  _PLACE._serialized_end=557
-  _CONNECTION._serialized_start=559
-  _CONNECTION._serialized_end=631
-  _PHOTO._serialized_start=634
-  _PHOTO._serialized_end=1607
-  _PHOTO_TRANSFERSTATUS._serialized_start=1347
-  _PHOTO_TRANSFERSTATUS._serialized_end=1512
-  _PHOTO_MAPSPUBLISHSTATUS._serialized_start=1514
-  _PHOTO_MAPSPUBLISHSTATUS._serialized_end=1607
+  _PHOTOSEQUENCE.fields_by_name['id']._options = None
+  _PHOTOSEQUENCE.fields_by_name['id']._serialized_options = b'\340A\003'
+  _PHOTOSEQUENCE.fields_by_name['photos']._options = None
+  _PHOTOSEQUENCE.fields_by_name['photos']._serialized_options = b'\340A\003'
+  _PHOTOSEQUENCE.fields_by_name['upload_reference']._options = None
+  _PHOTOSEQUENCE.fields_by_name['upload_reference']._serialized_options = b'\340A\004'
+  _PHOTOSEQUENCE.fields_by_name['capture_time_override']._options = None
+  _PHOTOSEQUENCE.fields_by_name['capture_time_override']._serialized_options = b'\340A\001'
+  _PHOTOSEQUENCE.fields_by_name['upload_time']._options = None
+  _PHOTOSEQUENCE.fields_by_name['upload_time']._serialized_options = b'\340A\003'
+  _PHOTOSEQUENCE.fields_by_name['raw_gps_timeline']._options = None
+  _PHOTOSEQUENCE.fields_by_name['raw_gps_timeline']._serialized_options = b'\340A\004'
+  _PHOTOSEQUENCE.fields_by_name['gps_source']._options = None
+  _PHOTOSEQUENCE.fields_by_name['gps_source']._serialized_options = b'\340A\004'
+  _PHOTOSEQUENCE.fields_by_name['imu']._options = None
+  _PHOTOSEQUENCE.fields_by_name['imu']._serialized_options = b'\340A\004'
+  _PHOTOSEQUENCE.fields_by_name['processing_state']._options = None
+  _PHOTOSEQUENCE.fields_by_name['processing_state']._serialized_options = b'\340A\003'
+  _PHOTOSEQUENCE.fields_by_name['failure_reason']._options = None
+  _PHOTOSEQUENCE.fields_by_name['failure_reason']._serialized_options = b'\340A\003'
+  _PHOTOSEQUENCE.fields_by_name['failure_details']._options = None
+  _PHOTOSEQUENCE.fields_by_name['failure_details']._serialized_options = b'\340A\003'
+  _PHOTOSEQUENCE.fields_by_name['distance_meters']._options = None
+  _PHOTOSEQUENCE.fields_by_name['distance_meters']._serialized_options = b'\340A\003'
+  _PHOTOSEQUENCE.fields_by_name['sequence_bounds']._options = None
+  _PHOTOSEQUENCE.fields_by_name['sequence_bounds']._serialized_options = b'\340A\003'
+  _PHOTOSEQUENCE.fields_by_name['view_count']._options = None
+  _PHOTOSEQUENCE.fields_by_name['view_count']._serialized_options = b'\340A\003'
+  _PHOTOSEQUENCE.fields_by_name['filename']._options = None
+  _PHOTOSEQUENCE.fields_by_name['filename']._serialized_options = b'\340A\003'
+  _PROCESSINGSTATE._serialized_start=3999
+  _PROCESSINGSTATE._serialized_end=4106
+  _PROCESSINGFAILUREREASON._serialized_start=4109
+  _PROCESSINGFAILUREREASON._serialized_end=4633
+  _UPLOADREF._serialized_start=202
+  _UPLOADREF._serialized_end=250
+  _PHOTOID._serialized_start=252
+  _PHOTOID._serialized_end=273
+  _LEVEL._serialized_start=275
+  _LEVEL._serialized_end=322
+  _POSE._serialized_start=325
+  _POSE._serialized_end=584
+  _IMU._serialized_start=587
+  _IMU._serialized_end=894
+  _IMU_MEASUREMENT3D._serialized_start=796
+  _IMU_MEASUREMENT3D._serialized_end=894
+  _PLACE._serialized_start=896
+  _PLACE._serialized_end=968
+  _CONNECTION._serialized_start=970
+  _CONNECTION._serialized_end=1042
+  _PHOTO._serialized_start=1045
+  _PHOTO._serialized_end=2018
+  _PHOTO_TRANSFERSTATUS._serialized_start=1758
+  _PHOTO_TRANSFERSTATUS._serialized_end=1923
+  _PHOTO_MAPSPUBLISHSTATUS._serialized_start=1925
+  _PHOTO_MAPSPUBLISHSTATUS._serialized_end=2018
+  _PHOTOSEQUENCE._serialized_start=2021
+  _PHOTOSEQUENCE._serialized_end=2968
+  _PHOTOSEQUENCE_GPSSOURCE._serialized_start=2903
+  _PHOTOSEQUENCE_GPSSOURCE._serialized_end=2968
+  _LATLNGBOUNDS._serialized_start=2970
+  _LATLNGBOUNDS._serialized_end=3064
+  _PROCESSINGFAILUREDETAILS._serialized_start=3067
+  _PROCESSINGFAILUREDETAILS._serialized_end=3466
+  _INSUFFICIENTGPSFAILUREDETAILS._serialized_start=3468
+  _INSUFFICIENTGPSFAILUREDETAILS._serialized_end=3551
+  _GPSDATAGAPFAILUREDETAILS._serialized_start=3554
+  _GPSDATAGAPFAILUREDETAILS._serialized_end=3726
+  _IMUDATAGAPFAILUREDETAILS._serialized_start=3729
+  _IMUDATAGAPFAILUREDETAILS._serialized_end=3901
+  _NOTOUTDOORSFAILUREDETAILS._serialized_start=3903
+  _NOTOUTDOORSFAILUREDETAILS._serialized_end=3997
 # @@protoc_insertion_point(module_scope)

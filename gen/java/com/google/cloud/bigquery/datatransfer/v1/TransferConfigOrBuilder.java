@@ -88,7 +88,9 @@ public interface TransferConfigOrBuilder extends
 
   /**
    * <pre>
-   * Data source id. Cannot be changed once data transfer is created.
+   * Data source ID. This cannot be changed once data transfer is created. The
+   * full list of available data source IDs can be returned through an API call:
+   * https://cloud.google.com/bigquery-transfer/docs/reference/datatransfer/rest/v1/projects.locations.dataSources/list
    * </pre>
    *
    * <code>string data_source_id = 5;</code>
@@ -97,7 +99,9 @@ public interface TransferConfigOrBuilder extends
   java.lang.String getDataSourceId();
   /**
    * <pre>
-   * Data source id. Cannot be changed once data transfer is created.
+   * Data source ID. This cannot be changed once data transfer is created. The
+   * full list of available data source IDs can be returned through an API call:
+   * https://cloud.google.com/bigquery-transfer/docs/reference/datatransfer/rest/v1/projects.locations.dataSources/list
    * </pre>
    *
    * <code>string data_source_id = 5;</code>

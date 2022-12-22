@@ -35,78 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AuxiliaryVersionConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            version_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              configOverrides_ = com.google.protobuf.MapField.newMapField(
-                  ConfigOverridesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            configOverrides__ = input.readMessage(
-                ConfigOverridesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            configOverrides_.getMutableMap().put(
-                configOverrides__.getKey(), configOverrides__.getValue());
-            break;
-          }
-          case 26: {
-            com.google.cloud.metastore.v1alpha.NetworkConfig.Builder subBuilder = null;
-            if (networkConfig_ != null) {
-              subBuilder = networkConfig_.toBuilder();
-            }
-            networkConfig_ = input.readMessage(com.google.cloud.metastore.v1alpha.NetworkConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(networkConfig_);
-              networkConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.metastore.v1alpha.MetastoreProto.internal_static_google_cloud_metastore_v1alpha_AuxiliaryVersionConfig_descriptor;
@@ -133,7 +61,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object version_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object version_ = "";
   /**
    * <pre>
    * The Hive metastore version of the auxiliary service. It must be less
@@ -192,6 +121,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> configOverrides_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -202,7 +132,6 @@ private static final long serialVersionUID = 0L;
     }
     return configOverrides_;
   }
-
   public int getConfigOverridesCount() {
     return internalGetConfigOverrides().getMap().size();
   }
@@ -217,7 +146,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsConfigOverrides(
       java.lang.String key) {
@@ -244,7 +172,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getConfigOverridesMap() {
     return internalGetConfigOverrides().getMap();
   }
@@ -260,10 +187,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getConfigOverridesOrDefault(
+  public /* nullable */
+java.lang.String getConfigOverridesOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetConfigOverrides().getMap();
@@ -281,7 +209,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
   @java.lang.Override
-
   public java.lang.String getConfigOverridesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -297,8 +224,8 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.metastore.v1alpha.NetworkConfig networkConfig_;
   /**
    * <pre>
-   * Output only. The network configuration contains the endpoint URI(s) of the auxiliary
-   * Hive metastore service.
+   * Output only. The network configuration contains the endpoint URI(s) of the
+   * auxiliary Hive metastore service.
    * </pre>
    *
    * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -310,8 +237,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The network configuration contains the endpoint URI(s) of the auxiliary
-   * Hive metastore service.
+   * Output only. The network configuration contains the endpoint URI(s) of the
+   * auxiliary Hive metastore service.
    * </pre>
    *
    * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -323,15 +250,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The network configuration contains the endpoint URI(s) of the auxiliary
-   * Hive metastore service.
+   * Output only. The network configuration contains the endpoint URI(s) of the
+   * auxiliary Hive metastore service.
    * </pre>
    *
    * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
   public com.google.cloud.metastore.v1alpha.NetworkConfigOrBuilder getNetworkConfigOrBuilder() {
-    return getNetworkConfig();
+    return networkConfig_ == null ? com.google.cloud.metastore.v1alpha.NetworkConfig.getDefaultInstance() : networkConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -360,7 +287,7 @@ private static final long serialVersionUID = 0L;
     if (networkConfig_ != null) {
       output.writeMessage(3, getNetworkConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -386,7 +313,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getNetworkConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -410,7 +337,7 @@ private static final long serialVersionUID = 0L;
       if (!getNetworkConfig()
           .equals(other.getNetworkConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -431,7 +358,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NETWORK_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getNetworkConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -574,29 +501,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       version_ = "";
-
       internalGetMutableConfigOverrides().clear();
-      if (networkConfigBuilder_ == null) {
-        networkConfig_ = null;
-      } else {
-        networkConfig_ = null;
+      networkConfig_ = null;
+      if (networkConfigBuilder_ != null) {
+        networkConfigBuilder_.dispose();
         networkConfigBuilder_ = null;
       }
       return this;
@@ -625,17 +546,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig buildPartial() {
       com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig result = new com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.version_ = version_;
-      result.configOverrides_ = internalGetConfigOverrides();
-      result.configOverrides_.makeImmutable();
-      if (networkConfigBuilder_ == null) {
-        result.networkConfig_ = networkConfig_;
-      } else {
-        result.networkConfig_ = networkConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.version_ = version_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.configOverrides_ = internalGetConfigOverrides();
+        result.configOverrides_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.networkConfig_ = networkConfigBuilder_ == null
+            ? networkConfig_
+            : networkConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -684,14 +613,16 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig.getDefaultInstance()) return this;
       if (!other.getVersion().isEmpty()) {
         version_ = other.version_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       internalGetMutableConfigOverrides().mergeFrom(
           other.internalGetConfigOverrides());
+      bitField0_ |= 0x00000002;
       if (other.hasNetworkConfig()) {
         mergeNetworkConfig(other.getNetworkConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -706,17 +637,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              version_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              configOverrides__ = input.readMessage(
+                  ConfigOverridesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableConfigOverrides().getMutableMap().put(
+                  configOverrides__.getKey(), configOverrides__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getNetworkConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -777,11 +742,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       version_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -795,8 +758,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVersion() {
-      
       version_ = getDefaultInstance().getVersion();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -812,12 +775,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       version_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -825,7 +786,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> configOverrides_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetConfigOverrides() {
+        internalGetConfigOverrides() {
       if (configOverrides_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ConfigOverridesDefaultEntryHolder.defaultEntry);
@@ -833,8 +794,7 @@ private static final long serialVersionUID = 0L;
       return configOverrides_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableConfigOverrides() {
-      onChanged();;
+        internalGetMutableConfigOverrides() {
       if (configOverrides_ == null) {
         configOverrides_ = com.google.protobuf.MapField.newMapField(
             ConfigOverridesDefaultEntryHolder.defaultEntry);
@@ -842,9 +802,10 @@ private static final long serialVersionUID = 0L;
       if (!configOverrides_.isMutable()) {
         configOverrides_ = configOverrides_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return configOverrides_;
     }
-
     public int getConfigOverridesCount() {
       return internalGetConfigOverrides().getMap().size();
     }
@@ -859,7 +820,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsConfigOverrides(
         java.lang.String key) {
@@ -886,7 +846,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getConfigOverridesMap() {
       return internalGetConfigOverrides().getMap();
     }
@@ -902,10 +861,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getConfigOverridesOrDefault(
+    public /* nullable */
+java.lang.String getConfigOverridesOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetConfigOverrides().getMap();
@@ -923,7 +883,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
     @java.lang.Override
-
     public java.lang.String getConfigOverridesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -934,8 +893,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearConfigOverrides() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableConfigOverrides().getMutableMap()
           .clear();
       return this;
@@ -951,7 +910,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
-
     public Builder removeConfigOverrides(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -964,7 +922,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableConfigOverrides() {
+        getMutableConfigOverrides() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableConfigOverrides().getMutableMap();
     }
     /**
@@ -982,12 +941,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableConfigOverrides().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -1001,11 +958,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
-
     public Builder putAllConfigOverrides(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableConfigOverrides().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
 
@@ -1014,20 +971,20 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.metastore.v1alpha.NetworkConfig, com.google.cloud.metastore.v1alpha.NetworkConfig.Builder, com.google.cloud.metastore.v1alpha.NetworkConfigOrBuilder> networkConfigBuilder_;
     /**
      * <pre>
-     * Output only. The network configuration contains the endpoint URI(s) of the auxiliary
-     * Hive metastore service.
+     * Output only. The network configuration contains the endpoint URI(s) of the
+     * auxiliary Hive metastore service.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return Whether the networkConfig field is set.
      */
     public boolean hasNetworkConfig() {
-      return networkConfigBuilder_ != null || networkConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
-     * Output only. The network configuration contains the endpoint URI(s) of the auxiliary
-     * Hive metastore service.
+     * Output only. The network configuration contains the endpoint URI(s) of the
+     * auxiliary Hive metastore service.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1042,8 +999,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The network configuration contains the endpoint URI(s) of the auxiliary
-     * Hive metastore service.
+     * Output only. The network configuration contains the endpoint URI(s) of the
+     * auxiliary Hive metastore service.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1054,17 +1011,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         networkConfig_ = value;
-        onChanged();
       } else {
         networkConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The network configuration contains the endpoint URI(s) of the auxiliary
-     * Hive metastore service.
+     * Output only. The network configuration contains the endpoint URI(s) of the
+     * auxiliary Hive metastore service.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1073,72 +1030,72 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.metastore.v1alpha.NetworkConfig.Builder builderForValue) {
       if (networkConfigBuilder_ == null) {
         networkConfig_ = builderForValue.build();
-        onChanged();
       } else {
         networkConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The network configuration contains the endpoint URI(s) of the auxiliary
-     * Hive metastore service.
+     * Output only. The network configuration contains the endpoint URI(s) of the
+     * auxiliary Hive metastore service.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder mergeNetworkConfig(com.google.cloud.metastore.v1alpha.NetworkConfig value) {
       if (networkConfigBuilder_ == null) {
-        if (networkConfig_ != null) {
-          networkConfig_ =
-            com.google.cloud.metastore.v1alpha.NetworkConfig.newBuilder(networkConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          networkConfig_ != null &&
+          networkConfig_ != com.google.cloud.metastore.v1alpha.NetworkConfig.getDefaultInstance()) {
+          getNetworkConfigBuilder().mergeFrom(value);
         } else {
           networkConfig_ = value;
         }
-        onChanged();
       } else {
         networkConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The network configuration contains the endpoint URI(s) of the auxiliary
-     * Hive metastore service.
+     * Output only. The network configuration contains the endpoint URI(s) of the
+     * auxiliary Hive metastore service.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearNetworkConfig() {
-      if (networkConfigBuilder_ == null) {
-        networkConfig_ = null;
-        onChanged();
-      } else {
-        networkConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      networkConfig_ = null;
+      if (networkConfigBuilder_ != null) {
+        networkConfigBuilder_.dispose();
         networkConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The network configuration contains the endpoint URI(s) of the auxiliary
-     * Hive metastore service.
+     * Output only. The network configuration contains the endpoint URI(s) of the
+     * auxiliary Hive metastore service.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.metastore.v1alpha.NetworkConfig.Builder getNetworkConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getNetworkConfigFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Output only. The network configuration contains the endpoint URI(s) of the auxiliary
-     * Hive metastore service.
+     * Output only. The network configuration contains the endpoint URI(s) of the
+     * auxiliary Hive metastore service.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1153,8 +1110,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The network configuration contains the endpoint URI(s) of the auxiliary
-     * Hive metastore service.
+     * Output only. The network configuration contains the endpoint URI(s) of the
+     * auxiliary Hive metastore service.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1205,7 +1162,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AuxiliaryVersionConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

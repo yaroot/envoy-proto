@@ -22,6 +22,8 @@ private static final long serialVersionUID = 0L;
   }
   private Artifacts() {
     images_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    mavenArtifacts_ = java.util.Collections.emptyList();
+    pythonPackages_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -35,71 +37,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Artifacts(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              images_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            images_.add(s);
-            break;
-          }
-          case 18: {
-            com.google.cloudbuild.v1.Artifacts.ArtifactObjects.Builder subBuilder = null;
-            if (objects_ != null) {
-              subBuilder = objects_.toBuilder();
-            }
-            objects_ = input.readMessage(com.google.cloudbuild.v1.Artifacts.ArtifactObjects.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(objects_);
-              objects_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        images_ = images_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -248,77 +185,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ArtifactObjects(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              location_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                paths_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              paths_.add(s);
-              break;
-            }
-            case 26: {
-              com.google.cloudbuild.v1.TimeSpan.Builder subBuilder = null;
-              if (timing_ != null) {
-                subBuilder = timing_.toBuilder();
-              }
-              timing_ = input.readMessage(com.google.cloudbuild.v1.TimeSpan.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(timing_);
-                timing_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          paths_ = paths_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloudbuild.v1.Cloudbuild.internal_static_google_devtools_cloudbuild_v1_Artifacts_ArtifactObjects_descriptor;
@@ -333,7 +199,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int LOCATION_FIELD_NUMBER = 1;
-    private volatile java.lang.Object location_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object location_ = "";
     /**
      * <pre>
      * Cloud Storage bucket and optional object path, in the form
@@ -387,6 +254,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PATHS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList paths_;
     /**
      * <pre>
@@ -472,7 +340,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloudbuild.v1.TimeSpanOrBuilder getTimingOrBuilder() {
-      return getTiming();
+      return timing_ == null ? com.google.cloudbuild.v1.TimeSpan.getDefaultInstance() : timing_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -498,7 +366,7 @@ private static final long serialVersionUID = 0L;
       if (timing_ != null) {
         output.writeMessage(3, getTiming());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -522,7 +390,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getTiming());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -546,7 +414,7 @@ private static final long serialVersionUID = 0L;
         if (!getTiming()
             .equals(other.getTiming())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -567,7 +435,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + TIMING_FIELD_NUMBER;
         hash = (53 * hash) + getTiming().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -689,30 +557,24 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloudbuild.v1.Artifacts.ArtifactObjects.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         location_ = "";
-
         paths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        if (timingBuilder_ == null) {
-          timing_ = null;
-        } else {
-          timing_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        timing_ = null;
+        if (timingBuilder_ != null) {
+          timingBuilder_.dispose();
           timingBuilder_ = null;
         }
         return this;
@@ -741,20 +603,30 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloudbuild.v1.Artifacts.ArtifactObjects buildPartial() {
         com.google.cloudbuild.v1.Artifacts.ArtifactObjects result = new com.google.cloudbuild.v1.Artifacts.ArtifactObjects(this);
-        int from_bitField0_ = bitField0_;
-        result.location_ = location_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          paths_ = paths_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.paths_ = paths_;
-        if (timingBuilder_ == null) {
-          result.timing_ = timing_;
-        } else {
-          result.timing_ = timingBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloudbuild.v1.Artifacts.ArtifactObjects result) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          paths_ = paths_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.paths_ = paths_;
+      }
+
+      private void buildPartial0(com.google.cloudbuild.v1.Artifacts.ArtifactObjects result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.location_ = location_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.timing_ = timingBuilder_ == null
+              ? timing_
+              : timingBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -803,12 +675,13 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloudbuild.v1.Artifacts.ArtifactObjects.getDefaultInstance()) return this;
         if (!other.getLocation().isEmpty()) {
           location_ = other.location_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.paths_.isEmpty()) {
           if (paths_.isEmpty()) {
             paths_ = other.paths_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensurePathsIsMutable();
             paths_.addAll(other.paths_);
@@ -818,7 +691,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasTiming()) {
           mergeTiming(other.getTiming());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -833,17 +706,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloudbuild.v1.Artifacts.ArtifactObjects parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                location_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensurePathsIsMutable();
+                paths_.add(s);
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getTimingFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloudbuild.v1.Artifacts.ArtifactObjects) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -913,11 +817,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setLocation(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         location_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -934,8 +836,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearLocation() {
-        
         location_ = getDefaultInstance().getLocation();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -954,21 +856,19 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setLocationBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         location_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.LazyStringList paths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensurePathsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           paths_ = new com.google.protobuf.LazyStringArrayList(paths_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
       /**
@@ -1031,10 +931,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPaths(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePathsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensurePathsIsMutable();
         paths_.set(index, value);
         onChanged();
         return this;
@@ -1050,10 +948,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addPaths(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePathsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensurePathsIsMutable();
         paths_.add(value);
         onChanged();
         return this;
@@ -1085,7 +981,7 @@ private static final long serialVersionUID = 0L;
        */
       public Builder clearPaths() {
         paths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1100,10 +996,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addPathsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensurePathsIsMutable();
         paths_.add(value);
         onChanged();
@@ -1122,7 +1016,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the timing field is set.
        */
       public boolean hasTiming() {
-        return timingBuilder_ != null || timing_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -1152,11 +1046,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           timing_ = value;
-          onChanged();
         } else {
           timingBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1170,11 +1064,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloudbuild.v1.TimeSpan.Builder builderForValue) {
         if (timingBuilder_ == null) {
           timing_ = builderForValue.build();
-          onChanged();
         } else {
           timingBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1186,17 +1080,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeTiming(com.google.cloudbuild.v1.TimeSpan value) {
         if (timingBuilder_ == null) {
-          if (timing_ != null) {
-            timing_ =
-              com.google.cloudbuild.v1.TimeSpan.newBuilder(timing_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            timing_ != null &&
+            timing_ != com.google.cloudbuild.v1.TimeSpan.getDefaultInstance()) {
+            getTimingBuilder().mergeFrom(value);
           } else {
             timing_ = value;
           }
-          onChanged();
         } else {
           timingBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1207,14 +1102,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.devtools.cloudbuild.v1.TimeSpan timing = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearTiming() {
-        if (timingBuilder_ == null) {
-          timing_ = null;
-          onChanged();
-        } else {
-          timing_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        timing_ = null;
+        if (timingBuilder_ != null) {
+          timingBuilder_.dispose();
           timingBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1225,7 +1119,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.devtools.cloudbuild.v1.TimeSpan timing = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.cloudbuild.v1.TimeSpan.Builder getTimingBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getTimingFieldBuilder().getBuilder();
       }
@@ -1297,7 +1191,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ArtifactObjects(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1317,7 +1222,2386 @@ private static final long serialVersionUID = 0L;
 
   }
 
+  public interface MavenArtifactOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.devtools.cloudbuild.v1.Artifacts.MavenArtifact)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Artifact Registry repository, in the form
+     * "https://$REGION-maven.pkg.dev/$PROJECT/$REPOSITORY"
+     * Artifact in the workspace specified by path will be uploaded to
+     * Artifact Registry with this location as a prefix.
+     * </pre>
+     *
+     * <code>string repository = 1;</code>
+     * @return The repository.
+     */
+    java.lang.String getRepository();
+    /**
+     * <pre>
+     * Artifact Registry repository, in the form
+     * "https://$REGION-maven.pkg.dev/$PROJECT/$REPOSITORY"
+     * Artifact in the workspace specified by path will be uploaded to
+     * Artifact Registry with this location as a prefix.
+     * </pre>
+     *
+     * <code>string repository = 1;</code>
+     * @return The bytes for repository.
+     */
+    com.google.protobuf.ByteString
+        getRepositoryBytes();
+
+    /**
+     * <pre>
+     * Path to an artifact in the build's workspace to be uploaded to
+     * Artifact Registry.
+     * This can be either an absolute path,
+     * e.g. /workspace/my-app/target/my-app-1.0.SNAPSHOT.jar
+     * or a relative path from /workspace,
+     * e.g. my-app/target/my-app-1.0.SNAPSHOT.jar.
+     * </pre>
+     *
+     * <code>string path = 2;</code>
+     * @return The path.
+     */
+    java.lang.String getPath();
+    /**
+     * <pre>
+     * Path to an artifact in the build's workspace to be uploaded to
+     * Artifact Registry.
+     * This can be either an absolute path,
+     * e.g. /workspace/my-app/target/my-app-1.0.SNAPSHOT.jar
+     * or a relative path from /workspace,
+     * e.g. my-app/target/my-app-1.0.SNAPSHOT.jar.
+     * </pre>
+     *
+     * <code>string path = 2;</code>
+     * @return The bytes for path.
+     */
+    com.google.protobuf.ByteString
+        getPathBytes();
+
+    /**
+     * <pre>
+     * Maven `artifactId` value used when uploading the artifact to Artifact
+     * Registry.
+     * </pre>
+     *
+     * <code>string artifact_id = 3;</code>
+     * @return The artifactId.
+     */
+    java.lang.String getArtifactId();
+    /**
+     * <pre>
+     * Maven `artifactId` value used when uploading the artifact to Artifact
+     * Registry.
+     * </pre>
+     *
+     * <code>string artifact_id = 3;</code>
+     * @return The bytes for artifactId.
+     */
+    com.google.protobuf.ByteString
+        getArtifactIdBytes();
+
+    /**
+     * <pre>
+     * Maven `groupId` value used when uploading the artifact to Artifact
+     * Registry.
+     * </pre>
+     *
+     * <code>string group_id = 4;</code>
+     * @return The groupId.
+     */
+    java.lang.String getGroupId();
+    /**
+     * <pre>
+     * Maven `groupId` value used when uploading the artifact to Artifact
+     * Registry.
+     * </pre>
+     *
+     * <code>string group_id = 4;</code>
+     * @return The bytes for groupId.
+     */
+    com.google.protobuf.ByteString
+        getGroupIdBytes();
+
+    /**
+     * <pre>
+     * Maven `version` value used when uploading the artifact to Artifact
+     * Registry.
+     * </pre>
+     *
+     * <code>string version = 5;</code>
+     * @return The version.
+     */
+    java.lang.String getVersion();
+    /**
+     * <pre>
+     * Maven `version` value used when uploading the artifact to Artifact
+     * Registry.
+     * </pre>
+     *
+     * <code>string version = 5;</code>
+     * @return The bytes for version.
+     */
+    com.google.protobuf.ByteString
+        getVersionBytes();
+  }
+  /**
+   * <pre>
+   * A Maven artifact to upload to Artifact Registry upon successful completion
+   * of all build steps.
+   * </pre>
+   *
+   * Protobuf type {@code google.devtools.cloudbuild.v1.Artifacts.MavenArtifact}
+   */
+  public static final class MavenArtifact extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.devtools.cloudbuild.v1.Artifacts.MavenArtifact)
+      MavenArtifactOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MavenArtifact.newBuilder() to construct.
+    private MavenArtifact(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MavenArtifact() {
+      repository_ = "";
+      path_ = "";
+      artifactId_ = "";
+      groupId_ = "";
+      version_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MavenArtifact();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.cloudbuild.v1.Cloudbuild.internal_static_google_devtools_cloudbuild_v1_Artifacts_MavenArtifact_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.cloudbuild.v1.Cloudbuild.internal_static_google_devtools_cloudbuild_v1_Artifacts_MavenArtifact_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.cloudbuild.v1.Artifacts.MavenArtifact.class, com.google.cloudbuild.v1.Artifacts.MavenArtifact.Builder.class);
+    }
+
+    public static final int REPOSITORY_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object repository_ = "";
+    /**
+     * <pre>
+     * Artifact Registry repository, in the form
+     * "https://$REGION-maven.pkg.dev/$PROJECT/$REPOSITORY"
+     * Artifact in the workspace specified by path will be uploaded to
+     * Artifact Registry with this location as a prefix.
+     * </pre>
+     *
+     * <code>string repository = 1;</code>
+     * @return The repository.
+     */
+    @java.lang.Override
+    public java.lang.String getRepository() {
+      java.lang.Object ref = repository_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        repository_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Artifact Registry repository, in the form
+     * "https://$REGION-maven.pkg.dev/$PROJECT/$REPOSITORY"
+     * Artifact in the workspace specified by path will be uploaded to
+     * Artifact Registry with this location as a prefix.
+     * </pre>
+     *
+     * <code>string repository = 1;</code>
+     * @return The bytes for repository.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRepositoryBytes() {
+      java.lang.Object ref = repository_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        repository_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PATH_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object path_ = "";
+    /**
+     * <pre>
+     * Path to an artifact in the build's workspace to be uploaded to
+     * Artifact Registry.
+     * This can be either an absolute path,
+     * e.g. /workspace/my-app/target/my-app-1.0.SNAPSHOT.jar
+     * or a relative path from /workspace,
+     * e.g. my-app/target/my-app-1.0.SNAPSHOT.jar.
+     * </pre>
+     *
+     * <code>string path = 2;</code>
+     * @return The path.
+     */
+    @java.lang.Override
+    public java.lang.String getPath() {
+      java.lang.Object ref = path_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        path_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Path to an artifact in the build's workspace to be uploaded to
+     * Artifact Registry.
+     * This can be either an absolute path,
+     * e.g. /workspace/my-app/target/my-app-1.0.SNAPSHOT.jar
+     * or a relative path from /workspace,
+     * e.g. my-app/target/my-app-1.0.SNAPSHOT.jar.
+     * </pre>
+     *
+     * <code>string path = 2;</code>
+     * @return The bytes for path.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPathBytes() {
+      java.lang.Object ref = path_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        path_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ARTIFACT_ID_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object artifactId_ = "";
+    /**
+     * <pre>
+     * Maven `artifactId` value used when uploading the artifact to Artifact
+     * Registry.
+     * </pre>
+     *
+     * <code>string artifact_id = 3;</code>
+     * @return The artifactId.
+     */
+    @java.lang.Override
+    public java.lang.String getArtifactId() {
+      java.lang.Object ref = artifactId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        artifactId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Maven `artifactId` value used when uploading the artifact to Artifact
+     * Registry.
+     * </pre>
+     *
+     * <code>string artifact_id = 3;</code>
+     * @return The bytes for artifactId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getArtifactIdBytes() {
+      java.lang.Object ref = artifactId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        artifactId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int GROUP_ID_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object groupId_ = "";
+    /**
+     * <pre>
+     * Maven `groupId` value used when uploading the artifact to Artifact
+     * Registry.
+     * </pre>
+     *
+     * <code>string group_id = 4;</code>
+     * @return The groupId.
+     */
+    @java.lang.Override
+    public java.lang.String getGroupId() {
+      java.lang.Object ref = groupId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        groupId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Maven `groupId` value used when uploading the artifact to Artifact
+     * Registry.
+     * </pre>
+     *
+     * <code>string group_id = 4;</code>
+     * @return The bytes for groupId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getGroupIdBytes() {
+      java.lang.Object ref = groupId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        groupId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VERSION_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object version_ = "";
+    /**
+     * <pre>
+     * Maven `version` value used when uploading the artifact to Artifact
+     * Registry.
+     * </pre>
+     *
+     * <code>string version = 5;</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public java.lang.String getVersion() {
+      java.lang.Object ref = version_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        version_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Maven `version` value used when uploading the artifact to Artifact
+     * Registry.
+     * </pre>
+     *
+     * <code>string version = 5;</code>
+     * @return The bytes for version.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getVersionBytes() {
+      java.lang.Object ref = version_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        version_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(repository_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, repository_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, path_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(artifactId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, artifactId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(groupId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, groupId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, version_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(repository_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, repository_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, path_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(artifactId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, artifactId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(groupId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, groupId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, version_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.cloudbuild.v1.Artifacts.MavenArtifact)) {
+        return super.equals(obj);
+      }
+      com.google.cloudbuild.v1.Artifacts.MavenArtifact other = (com.google.cloudbuild.v1.Artifacts.MavenArtifact) obj;
+
+      if (!getRepository()
+          .equals(other.getRepository())) return false;
+      if (!getPath()
+          .equals(other.getPath())) return false;
+      if (!getArtifactId()
+          .equals(other.getArtifactId())) return false;
+      if (!getGroupId()
+          .equals(other.getGroupId())) return false;
+      if (!getVersion()
+          .equals(other.getVersion())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + REPOSITORY_FIELD_NUMBER;
+      hash = (53 * hash) + getRepository().hashCode();
+      hash = (37 * hash) + PATH_FIELD_NUMBER;
+      hash = (53 * hash) + getPath().hashCode();
+      hash = (37 * hash) + ARTIFACT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getArtifactId().hashCode();
+      hash = (37 * hash) + GROUP_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getGroupId().hashCode();
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getVersion().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.cloudbuild.v1.Artifacts.MavenArtifact parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.MavenArtifact parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.MavenArtifact parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.MavenArtifact parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.MavenArtifact parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.MavenArtifact parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.MavenArtifact parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.MavenArtifact parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.MavenArtifact parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.MavenArtifact parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.MavenArtifact parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.MavenArtifact parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.cloudbuild.v1.Artifacts.MavenArtifact prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * A Maven artifact to upload to Artifact Registry upon successful completion
+     * of all build steps.
+     * </pre>
+     *
+     * Protobuf type {@code google.devtools.cloudbuild.v1.Artifacts.MavenArtifact}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.devtools.cloudbuild.v1.Artifacts.MavenArtifact)
+        com.google.cloudbuild.v1.Artifacts.MavenArtifactOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.cloudbuild.v1.Cloudbuild.internal_static_google_devtools_cloudbuild_v1_Artifacts_MavenArtifact_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.cloudbuild.v1.Cloudbuild.internal_static_google_devtools_cloudbuild_v1_Artifacts_MavenArtifact_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.cloudbuild.v1.Artifacts.MavenArtifact.class, com.google.cloudbuild.v1.Artifacts.MavenArtifact.Builder.class);
+      }
+
+      // Construct using com.google.cloudbuild.v1.Artifacts.MavenArtifact.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        repository_ = "";
+        path_ = "";
+        artifactId_ = "";
+        groupId_ = "";
+        version_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.cloudbuild.v1.Cloudbuild.internal_static_google_devtools_cloudbuild_v1_Artifacts_MavenArtifact_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.cloudbuild.v1.Artifacts.MavenArtifact getDefaultInstanceForType() {
+        return com.google.cloudbuild.v1.Artifacts.MavenArtifact.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.cloudbuild.v1.Artifacts.MavenArtifact build() {
+        com.google.cloudbuild.v1.Artifacts.MavenArtifact result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.cloudbuild.v1.Artifacts.MavenArtifact buildPartial() {
+        com.google.cloudbuild.v1.Artifacts.MavenArtifact result = new com.google.cloudbuild.v1.Artifacts.MavenArtifact(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.cloudbuild.v1.Artifacts.MavenArtifact result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.repository_ = repository_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.path_ = path_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.artifactId_ = artifactId_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.groupId_ = groupId_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.version_ = version_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.cloudbuild.v1.Artifacts.MavenArtifact) {
+          return mergeFrom((com.google.cloudbuild.v1.Artifacts.MavenArtifact)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.cloudbuild.v1.Artifacts.MavenArtifact other) {
+        if (other == com.google.cloudbuild.v1.Artifacts.MavenArtifact.getDefaultInstance()) return this;
+        if (!other.getRepository().isEmpty()) {
+          repository_ = other.repository_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (!other.getPath().isEmpty()) {
+          path_ = other.path_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        if (!other.getArtifactId().isEmpty()) {
+          artifactId_ = other.artifactId_;
+          bitField0_ |= 0x00000004;
+          onChanged();
+        }
+        if (!other.getGroupId().isEmpty()) {
+          groupId_ = other.groupId_;
+          bitField0_ |= 0x00000008;
+          onChanged();
+        }
+        if (!other.getVersion().isEmpty()) {
+          version_ = other.version_;
+          bitField0_ |= 0x00000010;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                repository_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                path_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                artifactId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                groupId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                version_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object repository_ = "";
+      /**
+       * <pre>
+       * Artifact Registry repository, in the form
+       * "https://$REGION-maven.pkg.dev/$PROJECT/$REPOSITORY"
+       * Artifact in the workspace specified by path will be uploaded to
+       * Artifact Registry with this location as a prefix.
+       * </pre>
+       *
+       * <code>string repository = 1;</code>
+       * @return The repository.
+       */
+      public java.lang.String getRepository() {
+        java.lang.Object ref = repository_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          repository_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Artifact Registry repository, in the form
+       * "https://$REGION-maven.pkg.dev/$PROJECT/$REPOSITORY"
+       * Artifact in the workspace specified by path will be uploaded to
+       * Artifact Registry with this location as a prefix.
+       * </pre>
+       *
+       * <code>string repository = 1;</code>
+       * @return The bytes for repository.
+       */
+      public com.google.protobuf.ByteString
+          getRepositoryBytes() {
+        java.lang.Object ref = repository_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          repository_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Artifact Registry repository, in the form
+       * "https://$REGION-maven.pkg.dev/$PROJECT/$REPOSITORY"
+       * Artifact in the workspace specified by path will be uploaded to
+       * Artifact Registry with this location as a prefix.
+       * </pre>
+       *
+       * <code>string repository = 1;</code>
+       * @param value The repository to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRepository(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        repository_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Artifact Registry repository, in the form
+       * "https://$REGION-maven.pkg.dev/$PROJECT/$REPOSITORY"
+       * Artifact in the workspace specified by path will be uploaded to
+       * Artifact Registry with this location as a prefix.
+       * </pre>
+       *
+       * <code>string repository = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRepository() {
+        repository_ = getDefaultInstance().getRepository();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Artifact Registry repository, in the form
+       * "https://$REGION-maven.pkg.dev/$PROJECT/$REPOSITORY"
+       * Artifact in the workspace specified by path will be uploaded to
+       * Artifact Registry with this location as a prefix.
+       * </pre>
+       *
+       * <code>string repository = 1;</code>
+       * @param value The bytes for repository to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRepositoryBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        repository_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object path_ = "";
+      /**
+       * <pre>
+       * Path to an artifact in the build's workspace to be uploaded to
+       * Artifact Registry.
+       * This can be either an absolute path,
+       * e.g. /workspace/my-app/target/my-app-1.0.SNAPSHOT.jar
+       * or a relative path from /workspace,
+       * e.g. my-app/target/my-app-1.0.SNAPSHOT.jar.
+       * </pre>
+       *
+       * <code>string path = 2;</code>
+       * @return The path.
+       */
+      public java.lang.String getPath() {
+        java.lang.Object ref = path_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          path_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Path to an artifact in the build's workspace to be uploaded to
+       * Artifact Registry.
+       * This can be either an absolute path,
+       * e.g. /workspace/my-app/target/my-app-1.0.SNAPSHOT.jar
+       * or a relative path from /workspace,
+       * e.g. my-app/target/my-app-1.0.SNAPSHOT.jar.
+       * </pre>
+       *
+       * <code>string path = 2;</code>
+       * @return The bytes for path.
+       */
+      public com.google.protobuf.ByteString
+          getPathBytes() {
+        java.lang.Object ref = path_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          path_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Path to an artifact in the build's workspace to be uploaded to
+       * Artifact Registry.
+       * This can be either an absolute path,
+       * e.g. /workspace/my-app/target/my-app-1.0.SNAPSHOT.jar
+       * or a relative path from /workspace,
+       * e.g. my-app/target/my-app-1.0.SNAPSHOT.jar.
+       * </pre>
+       *
+       * <code>string path = 2;</code>
+       * @param value The path to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPath(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        path_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Path to an artifact in the build's workspace to be uploaded to
+       * Artifact Registry.
+       * This can be either an absolute path,
+       * e.g. /workspace/my-app/target/my-app-1.0.SNAPSHOT.jar
+       * or a relative path from /workspace,
+       * e.g. my-app/target/my-app-1.0.SNAPSHOT.jar.
+       * </pre>
+       *
+       * <code>string path = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPath() {
+        path_ = getDefaultInstance().getPath();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Path to an artifact in the build's workspace to be uploaded to
+       * Artifact Registry.
+       * This can be either an absolute path,
+       * e.g. /workspace/my-app/target/my-app-1.0.SNAPSHOT.jar
+       * or a relative path from /workspace,
+       * e.g. my-app/target/my-app-1.0.SNAPSHOT.jar.
+       * </pre>
+       *
+       * <code>string path = 2;</code>
+       * @param value The bytes for path to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        path_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object artifactId_ = "";
+      /**
+       * <pre>
+       * Maven `artifactId` value used when uploading the artifact to Artifact
+       * Registry.
+       * </pre>
+       *
+       * <code>string artifact_id = 3;</code>
+       * @return The artifactId.
+       */
+      public java.lang.String getArtifactId() {
+        java.lang.Object ref = artifactId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          artifactId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Maven `artifactId` value used when uploading the artifact to Artifact
+       * Registry.
+       * </pre>
+       *
+       * <code>string artifact_id = 3;</code>
+       * @return The bytes for artifactId.
+       */
+      public com.google.protobuf.ByteString
+          getArtifactIdBytes() {
+        java.lang.Object ref = artifactId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          artifactId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Maven `artifactId` value used when uploading the artifact to Artifact
+       * Registry.
+       * </pre>
+       *
+       * <code>string artifact_id = 3;</code>
+       * @param value The artifactId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setArtifactId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        artifactId_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Maven `artifactId` value used when uploading the artifact to Artifact
+       * Registry.
+       * </pre>
+       *
+       * <code>string artifact_id = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearArtifactId() {
+        artifactId_ = getDefaultInstance().getArtifactId();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Maven `artifactId` value used when uploading the artifact to Artifact
+       * Registry.
+       * </pre>
+       *
+       * <code>string artifact_id = 3;</code>
+       * @param value The bytes for artifactId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setArtifactIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        artifactId_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object groupId_ = "";
+      /**
+       * <pre>
+       * Maven `groupId` value used when uploading the artifact to Artifact
+       * Registry.
+       * </pre>
+       *
+       * <code>string group_id = 4;</code>
+       * @return The groupId.
+       */
+      public java.lang.String getGroupId() {
+        java.lang.Object ref = groupId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          groupId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Maven `groupId` value used when uploading the artifact to Artifact
+       * Registry.
+       * </pre>
+       *
+       * <code>string group_id = 4;</code>
+       * @return The bytes for groupId.
+       */
+      public com.google.protobuf.ByteString
+          getGroupIdBytes() {
+        java.lang.Object ref = groupId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          groupId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Maven `groupId` value used when uploading the artifact to Artifact
+       * Registry.
+       * </pre>
+       *
+       * <code>string group_id = 4;</code>
+       * @param value The groupId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setGroupId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        groupId_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Maven `groupId` value used when uploading the artifact to Artifact
+       * Registry.
+       * </pre>
+       *
+       * <code>string group_id = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearGroupId() {
+        groupId_ = getDefaultInstance().getGroupId();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Maven `groupId` value used when uploading the artifact to Artifact
+       * Registry.
+       * </pre>
+       *
+       * <code>string group_id = 4;</code>
+       * @param value The bytes for groupId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setGroupIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        groupId_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object version_ = "";
+      /**
+       * <pre>
+       * Maven `version` value used when uploading the artifact to Artifact
+       * Registry.
+       * </pre>
+       *
+       * <code>string version = 5;</code>
+       * @return The version.
+       */
+      public java.lang.String getVersion() {
+        java.lang.Object ref = version_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          version_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Maven `version` value used when uploading the artifact to Artifact
+       * Registry.
+       * </pre>
+       *
+       * <code>string version = 5;</code>
+       * @return The bytes for version.
+       */
+      public com.google.protobuf.ByteString
+          getVersionBytes() {
+        java.lang.Object ref = version_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          version_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Maven `version` value used when uploading the artifact to Artifact
+       * Registry.
+       * </pre>
+       *
+       * <code>string version = 5;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVersion(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        version_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Maven `version` value used when uploading the artifact to Artifact
+       * Registry.
+       * </pre>
+       *
+       * <code>string version = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVersion() {
+        version_ = getDefaultInstance().getVersion();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Maven `version` value used when uploading the artifact to Artifact
+       * Registry.
+       * </pre>
+       *
+       * <code>string version = 5;</code>
+       * @param value The bytes for version to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVersionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        version_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.devtools.cloudbuild.v1.Artifacts.MavenArtifact)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.devtools.cloudbuild.v1.Artifacts.MavenArtifact)
+    private static final com.google.cloudbuild.v1.Artifacts.MavenArtifact DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.cloudbuild.v1.Artifacts.MavenArtifact();
+    }
+
+    public static com.google.cloudbuild.v1.Artifacts.MavenArtifact getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MavenArtifact>
+        PARSER = new com.google.protobuf.AbstractParser<MavenArtifact>() {
+      @java.lang.Override
+      public MavenArtifact parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<MavenArtifact> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MavenArtifact> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.cloudbuild.v1.Artifacts.MavenArtifact getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PythonPackageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.devtools.cloudbuild.v1.Artifacts.PythonPackage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Artifact Registry repository, in the form
+     * "https://$REGION-python.pkg.dev/$PROJECT/$REPOSITORY"
+     * Files in the workspace matching any path pattern will be uploaded to
+     * Artifact Registry with this location as a prefix.
+     * </pre>
+     *
+     * <code>string repository = 1;</code>
+     * @return The repository.
+     */
+    java.lang.String getRepository();
+    /**
+     * <pre>
+     * Artifact Registry repository, in the form
+     * "https://$REGION-python.pkg.dev/$PROJECT/$REPOSITORY"
+     * Files in the workspace matching any path pattern will be uploaded to
+     * Artifact Registry with this location as a prefix.
+     * </pre>
+     *
+     * <code>string repository = 1;</code>
+     * @return The bytes for repository.
+     */
+    com.google.protobuf.ByteString
+        getRepositoryBytes();
+
+    /**
+     * <pre>
+     * Path globs used to match files in the build's workspace. For Python/
+     * Twine, this is usually `dist/&#42;`, and sometimes additionally an `.asc`
+     * file.
+     * </pre>
+     *
+     * <code>repeated string paths = 2;</code>
+     * @return A list containing the paths.
+     */
+    java.util.List<java.lang.String>
+        getPathsList();
+    /**
+     * <pre>
+     * Path globs used to match files in the build's workspace. For Python/
+     * Twine, this is usually `dist/&#42;`, and sometimes additionally an `.asc`
+     * file.
+     * </pre>
+     *
+     * <code>repeated string paths = 2;</code>
+     * @return The count of paths.
+     */
+    int getPathsCount();
+    /**
+     * <pre>
+     * Path globs used to match files in the build's workspace. For Python/
+     * Twine, this is usually `dist/&#42;`, and sometimes additionally an `.asc`
+     * file.
+     * </pre>
+     *
+     * <code>repeated string paths = 2;</code>
+     * @param index The index of the element to return.
+     * @return The paths at the given index.
+     */
+    java.lang.String getPaths(int index);
+    /**
+     * <pre>
+     * Path globs used to match files in the build's workspace. For Python/
+     * Twine, this is usually `dist/&#42;`, and sometimes additionally an `.asc`
+     * file.
+     * </pre>
+     *
+     * <code>repeated string paths = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the paths at the given index.
+     */
+    com.google.protobuf.ByteString
+        getPathsBytes(int index);
+  }
+  /**
+   * <pre>
+   * Python package to upload to Artifact Registry upon successful completion
+   * of all build steps. A package can encapsulate multiple objects to be
+   * uploaded to a single repository.
+   * </pre>
+   *
+   * Protobuf type {@code google.devtools.cloudbuild.v1.Artifacts.PythonPackage}
+   */
+  public static final class PythonPackage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.devtools.cloudbuild.v1.Artifacts.PythonPackage)
+      PythonPackageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PythonPackage.newBuilder() to construct.
+    private PythonPackage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PythonPackage() {
+      repository_ = "";
+      paths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PythonPackage();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.cloudbuild.v1.Cloudbuild.internal_static_google_devtools_cloudbuild_v1_Artifacts_PythonPackage_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.cloudbuild.v1.Cloudbuild.internal_static_google_devtools_cloudbuild_v1_Artifacts_PythonPackage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.cloudbuild.v1.Artifacts.PythonPackage.class, com.google.cloudbuild.v1.Artifacts.PythonPackage.Builder.class);
+    }
+
+    public static final int REPOSITORY_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object repository_ = "";
+    /**
+     * <pre>
+     * Artifact Registry repository, in the form
+     * "https://$REGION-python.pkg.dev/$PROJECT/$REPOSITORY"
+     * Files in the workspace matching any path pattern will be uploaded to
+     * Artifact Registry with this location as a prefix.
+     * </pre>
+     *
+     * <code>string repository = 1;</code>
+     * @return The repository.
+     */
+    @java.lang.Override
+    public java.lang.String getRepository() {
+      java.lang.Object ref = repository_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        repository_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Artifact Registry repository, in the form
+     * "https://$REGION-python.pkg.dev/$PROJECT/$REPOSITORY"
+     * Files in the workspace matching any path pattern will be uploaded to
+     * Artifact Registry with this location as a prefix.
+     * </pre>
+     *
+     * <code>string repository = 1;</code>
+     * @return The bytes for repository.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRepositoryBytes() {
+      java.lang.Object ref = repository_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        repository_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PATHS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.LazyStringList paths_;
+    /**
+     * <pre>
+     * Path globs used to match files in the build's workspace. For Python/
+     * Twine, this is usually `dist/&#42;`, and sometimes additionally an `.asc`
+     * file.
+     * </pre>
+     *
+     * <code>repeated string paths = 2;</code>
+     * @return A list containing the paths.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPathsList() {
+      return paths_;
+    }
+    /**
+     * <pre>
+     * Path globs used to match files in the build's workspace. For Python/
+     * Twine, this is usually `dist/&#42;`, and sometimes additionally an `.asc`
+     * file.
+     * </pre>
+     *
+     * <code>repeated string paths = 2;</code>
+     * @return The count of paths.
+     */
+    public int getPathsCount() {
+      return paths_.size();
+    }
+    /**
+     * <pre>
+     * Path globs used to match files in the build's workspace. For Python/
+     * Twine, this is usually `dist/&#42;`, and sometimes additionally an `.asc`
+     * file.
+     * </pre>
+     *
+     * <code>repeated string paths = 2;</code>
+     * @param index The index of the element to return.
+     * @return The paths at the given index.
+     */
+    public java.lang.String getPaths(int index) {
+      return paths_.get(index);
+    }
+    /**
+     * <pre>
+     * Path globs used to match files in the build's workspace. For Python/
+     * Twine, this is usually `dist/&#42;`, and sometimes additionally an `.asc`
+     * file.
+     * </pre>
+     *
+     * <code>repeated string paths = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the paths at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getPathsBytes(int index) {
+      return paths_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(repository_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, repository_);
+      }
+      for (int i = 0; i < paths_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, paths_.getRaw(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(repository_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, repository_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < paths_.size(); i++) {
+          dataSize += computeStringSizeNoTag(paths_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPathsList().size();
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.cloudbuild.v1.Artifacts.PythonPackage)) {
+        return super.equals(obj);
+      }
+      com.google.cloudbuild.v1.Artifacts.PythonPackage other = (com.google.cloudbuild.v1.Artifacts.PythonPackage) obj;
+
+      if (!getRepository()
+          .equals(other.getRepository())) return false;
+      if (!getPathsList()
+          .equals(other.getPathsList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + REPOSITORY_FIELD_NUMBER;
+      hash = (53 * hash) + getRepository().hashCode();
+      if (getPathsCount() > 0) {
+        hash = (37 * hash) + PATHS_FIELD_NUMBER;
+        hash = (53 * hash) + getPathsList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.cloudbuild.v1.Artifacts.PythonPackage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.PythonPackage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.PythonPackage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.PythonPackage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.PythonPackage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.PythonPackage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.PythonPackage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.PythonPackage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.PythonPackage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.PythonPackage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.PythonPackage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.cloudbuild.v1.Artifacts.PythonPackage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.cloudbuild.v1.Artifacts.PythonPackage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Python package to upload to Artifact Registry upon successful completion
+     * of all build steps. A package can encapsulate multiple objects to be
+     * uploaded to a single repository.
+     * </pre>
+     *
+     * Protobuf type {@code google.devtools.cloudbuild.v1.Artifacts.PythonPackage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.devtools.cloudbuild.v1.Artifacts.PythonPackage)
+        com.google.cloudbuild.v1.Artifacts.PythonPackageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.cloudbuild.v1.Cloudbuild.internal_static_google_devtools_cloudbuild_v1_Artifacts_PythonPackage_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.cloudbuild.v1.Cloudbuild.internal_static_google_devtools_cloudbuild_v1_Artifacts_PythonPackage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.cloudbuild.v1.Artifacts.PythonPackage.class, com.google.cloudbuild.v1.Artifacts.PythonPackage.Builder.class);
+      }
+
+      // Construct using com.google.cloudbuild.v1.Artifacts.PythonPackage.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        repository_ = "";
+        paths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.cloudbuild.v1.Cloudbuild.internal_static_google_devtools_cloudbuild_v1_Artifacts_PythonPackage_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.cloudbuild.v1.Artifacts.PythonPackage getDefaultInstanceForType() {
+        return com.google.cloudbuild.v1.Artifacts.PythonPackage.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.cloudbuild.v1.Artifacts.PythonPackage build() {
+        com.google.cloudbuild.v1.Artifacts.PythonPackage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.cloudbuild.v1.Artifacts.PythonPackage buildPartial() {
+        com.google.cloudbuild.v1.Artifacts.PythonPackage result = new com.google.cloudbuild.v1.Artifacts.PythonPackage(this);
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloudbuild.v1.Artifacts.PythonPackage result) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          paths_ = paths_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.paths_ = paths_;
+      }
+
+      private void buildPartial0(com.google.cloudbuild.v1.Artifacts.PythonPackage result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.repository_ = repository_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.cloudbuild.v1.Artifacts.PythonPackage) {
+          return mergeFrom((com.google.cloudbuild.v1.Artifacts.PythonPackage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.cloudbuild.v1.Artifacts.PythonPackage other) {
+        if (other == com.google.cloudbuild.v1.Artifacts.PythonPackage.getDefaultInstance()) return this;
+        if (!other.getRepository().isEmpty()) {
+          repository_ = other.repository_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (!other.paths_.isEmpty()) {
+          if (paths_.isEmpty()) {
+            paths_ = other.paths_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensurePathsIsMutable();
+            paths_.addAll(other.paths_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                repository_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensurePathsIsMutable();
+                paths_.add(s);
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object repository_ = "";
+      /**
+       * <pre>
+       * Artifact Registry repository, in the form
+       * "https://$REGION-python.pkg.dev/$PROJECT/$REPOSITORY"
+       * Files in the workspace matching any path pattern will be uploaded to
+       * Artifact Registry with this location as a prefix.
+       * </pre>
+       *
+       * <code>string repository = 1;</code>
+       * @return The repository.
+       */
+      public java.lang.String getRepository() {
+        java.lang.Object ref = repository_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          repository_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Artifact Registry repository, in the form
+       * "https://$REGION-python.pkg.dev/$PROJECT/$REPOSITORY"
+       * Files in the workspace matching any path pattern will be uploaded to
+       * Artifact Registry with this location as a prefix.
+       * </pre>
+       *
+       * <code>string repository = 1;</code>
+       * @return The bytes for repository.
+       */
+      public com.google.protobuf.ByteString
+          getRepositoryBytes() {
+        java.lang.Object ref = repository_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          repository_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Artifact Registry repository, in the form
+       * "https://$REGION-python.pkg.dev/$PROJECT/$REPOSITORY"
+       * Files in the workspace matching any path pattern will be uploaded to
+       * Artifact Registry with this location as a prefix.
+       * </pre>
+       *
+       * <code>string repository = 1;</code>
+       * @param value The repository to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRepository(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        repository_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Artifact Registry repository, in the form
+       * "https://$REGION-python.pkg.dev/$PROJECT/$REPOSITORY"
+       * Files in the workspace matching any path pattern will be uploaded to
+       * Artifact Registry with this location as a prefix.
+       * </pre>
+       *
+       * <code>string repository = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRepository() {
+        repository_ = getDefaultInstance().getRepository();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Artifact Registry repository, in the form
+       * "https://$REGION-python.pkg.dev/$PROJECT/$REPOSITORY"
+       * Files in the workspace matching any path pattern will be uploaded to
+       * Artifact Registry with this location as a prefix.
+       * </pre>
+       *
+       * <code>string repository = 1;</code>
+       * @param value The bytes for repository to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRepositoryBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        repository_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList paths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePathsIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          paths_ = new com.google.protobuf.LazyStringArrayList(paths_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <pre>
+       * Path globs used to match files in the build's workspace. For Python/
+       * Twine, this is usually `dist/&#42;`, and sometimes additionally an `.asc`
+       * file.
+       * </pre>
+       *
+       * <code>repeated string paths = 2;</code>
+       * @return A list containing the paths.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPathsList() {
+        return paths_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * Path globs used to match files in the build's workspace. For Python/
+       * Twine, this is usually `dist/&#42;`, and sometimes additionally an `.asc`
+       * file.
+       * </pre>
+       *
+       * <code>repeated string paths = 2;</code>
+       * @return The count of paths.
+       */
+      public int getPathsCount() {
+        return paths_.size();
+      }
+      /**
+       * <pre>
+       * Path globs used to match files in the build's workspace. For Python/
+       * Twine, this is usually `dist/&#42;`, and sometimes additionally an `.asc`
+       * file.
+       * </pre>
+       *
+       * <code>repeated string paths = 2;</code>
+       * @param index The index of the element to return.
+       * @return The paths at the given index.
+       */
+      public java.lang.String getPaths(int index) {
+        return paths_.get(index);
+      }
+      /**
+       * <pre>
+       * Path globs used to match files in the build's workspace. For Python/
+       * Twine, this is usually `dist/&#42;`, and sometimes additionally an `.asc`
+       * file.
+       * </pre>
+       *
+       * <code>repeated string paths = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the paths at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getPathsBytes(int index) {
+        return paths_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * Path globs used to match files in the build's workspace. For Python/
+       * Twine, this is usually `dist/&#42;`, and sometimes additionally an `.asc`
+       * file.
+       * </pre>
+       *
+       * <code>repeated string paths = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The paths to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPaths(
+          int index, java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensurePathsIsMutable();
+        paths_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Path globs used to match files in the build's workspace. For Python/
+       * Twine, this is usually `dist/&#42;`, and sometimes additionally an `.asc`
+       * file.
+       * </pre>
+       *
+       * <code>repeated string paths = 2;</code>
+       * @param value The paths to add.
+       * @return This builder for chaining.
+       */
+      public Builder addPaths(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensurePathsIsMutable();
+        paths_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Path globs used to match files in the build's workspace. For Python/
+       * Twine, this is usually `dist/&#42;`, and sometimes additionally an `.asc`
+       * file.
+       * </pre>
+       *
+       * <code>repeated string paths = 2;</code>
+       * @param values The paths to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllPaths(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePathsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, paths_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Path globs used to match files in the build's workspace. For Python/
+       * Twine, this is usually `dist/&#42;`, and sometimes additionally an `.asc`
+       * file.
+       * </pre>
+       *
+       * <code>repeated string paths = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPaths() {
+        paths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Path globs used to match files in the build's workspace. For Python/
+       * Twine, this is usually `dist/&#42;`, and sometimes additionally an `.asc`
+       * file.
+       * </pre>
+       *
+       * <code>repeated string paths = 2;</code>
+       * @param value The bytes of the paths to add.
+       * @return This builder for chaining.
+       */
+      public Builder addPathsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        ensurePathsIsMutable();
+        paths_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.devtools.cloudbuild.v1.Artifacts.PythonPackage)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.devtools.cloudbuild.v1.Artifacts.PythonPackage)
+    private static final com.google.cloudbuild.v1.Artifacts.PythonPackage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.cloudbuild.v1.Artifacts.PythonPackage();
+    }
+
+    public static com.google.cloudbuild.v1.Artifacts.PythonPackage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PythonPackage>
+        PARSER = new com.google.protobuf.AbstractParser<PythonPackage>() {
+      @java.lang.Override
+      public PythonPackage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<PythonPackage> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PythonPackage> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.cloudbuild.v1.Artifacts.PythonPackage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public static final int IMAGES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList images_;
   /**
    * <pre>
@@ -1444,7 +3728,169 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloudbuild.v1.Artifacts.ArtifactObjectsOrBuilder getObjectsOrBuilder() {
-    return getObjects();
+    return objects_ == null ? com.google.cloudbuild.v1.Artifacts.ArtifactObjects.getDefaultInstance() : objects_;
+  }
+
+  public static final int MAVEN_ARTIFACTS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
+  private java.util.List<com.google.cloudbuild.v1.Artifacts.MavenArtifact> mavenArtifacts_;
+  /**
+   * <pre>
+   * A list of Maven artifacts to be uploaded to Artifact Registry upon
+   * successful completion of all build steps.
+   * Artifacts in the workspace matching specified paths globs will be uploaded
+   * to the specified Artifact Registry repository using the builder service
+   * account's credentials.
+   * If any artifacts fail to be pushed, the build is marked FAILURE.
+   * </pre>
+   *
+   * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.google.cloudbuild.v1.Artifacts.MavenArtifact> getMavenArtifactsList() {
+    return mavenArtifacts_;
+  }
+  /**
+   * <pre>
+   * A list of Maven artifacts to be uploaded to Artifact Registry upon
+   * successful completion of all build steps.
+   * Artifacts in the workspace matching specified paths globs will be uploaded
+   * to the specified Artifact Registry repository using the builder service
+   * account's credentials.
+   * If any artifacts fail to be pushed, the build is marked FAILURE.
+   * </pre>
+   *
+   * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.google.cloudbuild.v1.Artifacts.MavenArtifactOrBuilder> 
+      getMavenArtifactsOrBuilderList() {
+    return mavenArtifacts_;
+  }
+  /**
+   * <pre>
+   * A list of Maven artifacts to be uploaded to Artifact Registry upon
+   * successful completion of all build steps.
+   * Artifacts in the workspace matching specified paths globs will be uploaded
+   * to the specified Artifact Registry repository using the builder service
+   * account's credentials.
+   * If any artifacts fail to be pushed, the build is marked FAILURE.
+   * </pre>
+   *
+   * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+   */
+  @java.lang.Override
+  public int getMavenArtifactsCount() {
+    return mavenArtifacts_.size();
+  }
+  /**
+   * <pre>
+   * A list of Maven artifacts to be uploaded to Artifact Registry upon
+   * successful completion of all build steps.
+   * Artifacts in the workspace matching specified paths globs will be uploaded
+   * to the specified Artifact Registry repository using the builder service
+   * account's credentials.
+   * If any artifacts fail to be pushed, the build is marked FAILURE.
+   * </pre>
+   *
+   * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+   */
+  @java.lang.Override
+  public com.google.cloudbuild.v1.Artifacts.MavenArtifact getMavenArtifacts(int index) {
+    return mavenArtifacts_.get(index);
+  }
+  /**
+   * <pre>
+   * A list of Maven artifacts to be uploaded to Artifact Registry upon
+   * successful completion of all build steps.
+   * Artifacts in the workspace matching specified paths globs will be uploaded
+   * to the specified Artifact Registry repository using the builder service
+   * account's credentials.
+   * If any artifacts fail to be pushed, the build is marked FAILURE.
+   * </pre>
+   *
+   * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+   */
+  @java.lang.Override
+  public com.google.cloudbuild.v1.Artifacts.MavenArtifactOrBuilder getMavenArtifactsOrBuilder(
+      int index) {
+    return mavenArtifacts_.get(index);
+  }
+
+  public static final int PYTHON_PACKAGES_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private java.util.List<com.google.cloudbuild.v1.Artifacts.PythonPackage> pythonPackages_;
+  /**
+   * <pre>
+   * A list of Python packages to be uploaded to Artifact Registry upon
+   * successful completion of all build steps.
+   * The build service account credentials will be used to perform the upload.
+   * If any objects fail to be pushed, the build is marked FAILURE.
+   * </pre>
+   *
+   * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.google.cloudbuild.v1.Artifacts.PythonPackage> getPythonPackagesList() {
+    return pythonPackages_;
+  }
+  /**
+   * <pre>
+   * A list of Python packages to be uploaded to Artifact Registry upon
+   * successful completion of all build steps.
+   * The build service account credentials will be used to perform the upload.
+   * If any objects fail to be pushed, the build is marked FAILURE.
+   * </pre>
+   *
+   * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.google.cloudbuild.v1.Artifacts.PythonPackageOrBuilder> 
+      getPythonPackagesOrBuilderList() {
+    return pythonPackages_;
+  }
+  /**
+   * <pre>
+   * A list of Python packages to be uploaded to Artifact Registry upon
+   * successful completion of all build steps.
+   * The build service account credentials will be used to perform the upload.
+   * If any objects fail to be pushed, the build is marked FAILURE.
+   * </pre>
+   *
+   * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+   */
+  @java.lang.Override
+  public int getPythonPackagesCount() {
+    return pythonPackages_.size();
+  }
+  /**
+   * <pre>
+   * A list of Python packages to be uploaded to Artifact Registry upon
+   * successful completion of all build steps.
+   * The build service account credentials will be used to perform the upload.
+   * If any objects fail to be pushed, the build is marked FAILURE.
+   * </pre>
+   *
+   * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+   */
+  @java.lang.Override
+  public com.google.cloudbuild.v1.Artifacts.PythonPackage getPythonPackages(int index) {
+    return pythonPackages_.get(index);
+  }
+  /**
+   * <pre>
+   * A list of Python packages to be uploaded to Artifact Registry upon
+   * successful completion of all build steps.
+   * The build service account credentials will be used to perform the upload.
+   * If any objects fail to be pushed, the build is marked FAILURE.
+   * </pre>
+   *
+   * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+   */
+  @java.lang.Override
+  public com.google.cloudbuild.v1.Artifacts.PythonPackageOrBuilder getPythonPackagesOrBuilder(
+      int index) {
+    return pythonPackages_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1467,7 +3913,13 @@ private static final long serialVersionUID = 0L;
     if (objects_ != null) {
       output.writeMessage(2, getObjects());
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < mavenArtifacts_.size(); i++) {
+      output.writeMessage(3, mavenArtifacts_.get(i));
+    }
+    for (int i = 0; i < pythonPackages_.size(); i++) {
+      output.writeMessage(5, pythonPackages_.get(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1488,7 +3940,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getObjects());
     }
-    size += unknownFields.getSerializedSize();
+    for (int i = 0; i < mavenArtifacts_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, mavenArtifacts_.get(i));
+    }
+    for (int i = 0; i < pythonPackages_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, pythonPackages_.get(i));
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1510,7 +3970,11 @@ private static final long serialVersionUID = 0L;
       if (!getObjects()
           .equals(other.getObjects())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getMavenArtifactsList()
+        .equals(other.getMavenArtifactsList())) return false;
+    if (!getPythonPackagesList()
+        .equals(other.getPythonPackagesList())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1529,7 +3993,15 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OBJECTS_FIELD_NUMBER;
       hash = (53 * hash) + getObjects().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (getMavenArtifactsCount() > 0) {
+      hash = (37 * hash) + MAVEN_ARTIFACTS_FIELD_NUMBER;
+      hash = (53 * hash) + getMavenArtifactsList().hashCode();
+    }
+    if (getPythonPackagesCount() > 0) {
+      hash = (37 * hash) + PYTHON_PACKAGES_FIELD_NUMBER;
+      hash = (53 * hash) + getPythonPackagesList().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1651,30 +4123,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloudbuild.v1.Artifacts.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       images_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
-      if (objectsBuilder_ == null) {
-        objects_ = null;
-      } else {
-        objects_ = null;
+      objects_ = null;
+      if (objectsBuilder_ != null) {
+        objectsBuilder_.dispose();
         objectsBuilder_ = null;
       }
+      if (mavenArtifactsBuilder_ == null) {
+        mavenArtifacts_ = java.util.Collections.emptyList();
+      } else {
+        mavenArtifacts_ = null;
+        mavenArtifactsBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000004);
+      if (pythonPackagesBuilder_ == null) {
+        pythonPackages_ = java.util.Collections.emptyList();
+      } else {
+        pythonPackages_ = null;
+        pythonPackagesBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -1701,19 +4182,45 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloudbuild.v1.Artifacts buildPartial() {
       com.google.cloudbuild.v1.Artifacts result = new com.google.cloudbuild.v1.Artifacts(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloudbuild.v1.Artifacts result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         images_ = images_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.images_ = images_;
-      if (objectsBuilder_ == null) {
-        result.objects_ = objects_;
+      if (mavenArtifactsBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) != 0)) {
+          mavenArtifacts_ = java.util.Collections.unmodifiableList(mavenArtifacts_);
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.mavenArtifacts_ = mavenArtifacts_;
       } else {
-        result.objects_ = objectsBuilder_.build();
+        result.mavenArtifacts_ = mavenArtifactsBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (pythonPackagesBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0)) {
+          pythonPackages_ = java.util.Collections.unmodifiableList(pythonPackages_);
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.pythonPackages_ = pythonPackages_;
+      } else {
+        result.pythonPackages_ = pythonPackagesBuilder_.build();
+      }
+    }
+
+    private void buildPartial0(com.google.cloudbuild.v1.Artifacts result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.objects_ = objectsBuilder_ == null
+            ? objects_
+            : objectsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1773,7 +4280,59 @@ private static final long serialVersionUID = 0L;
       if (other.hasObjects()) {
         mergeObjects(other.getObjects());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (mavenArtifactsBuilder_ == null) {
+        if (!other.mavenArtifacts_.isEmpty()) {
+          if (mavenArtifacts_.isEmpty()) {
+            mavenArtifacts_ = other.mavenArtifacts_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureMavenArtifactsIsMutable();
+            mavenArtifacts_.addAll(other.mavenArtifacts_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.mavenArtifacts_.isEmpty()) {
+          if (mavenArtifactsBuilder_.isEmpty()) {
+            mavenArtifactsBuilder_.dispose();
+            mavenArtifactsBuilder_ = null;
+            mavenArtifacts_ = other.mavenArtifacts_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+            mavenArtifactsBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getMavenArtifactsFieldBuilder() : null;
+          } else {
+            mavenArtifactsBuilder_.addAllMessages(other.mavenArtifacts_);
+          }
+        }
+      }
+      if (pythonPackagesBuilder_ == null) {
+        if (!other.pythonPackages_.isEmpty()) {
+          if (pythonPackages_.isEmpty()) {
+            pythonPackages_ = other.pythonPackages_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensurePythonPackagesIsMutable();
+            pythonPackages_.addAll(other.pythonPackages_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.pythonPackages_.isEmpty()) {
+          if (pythonPackagesBuilder_.isEmpty()) {
+            pythonPackagesBuilder_.dispose();
+            pythonPackagesBuilder_ = null;
+            pythonPackages_ = other.pythonPackages_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+            pythonPackagesBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getPythonPackagesFieldBuilder() : null;
+          } else {
+            pythonPackagesBuilder_.addAllMessages(other.pythonPackages_);
+          }
+        }
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1788,17 +4347,69 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloudbuild.v1.Artifacts parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureImagesIsMutable();
+              images_.add(s);
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getObjectsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloudbuild.v1.Artifacts.MavenArtifact m =
+                  input.readMessage(
+                      com.google.cloudbuild.v1.Artifacts.MavenArtifact.parser(),
+                      extensionRegistry);
+              if (mavenArtifactsBuilder_ == null) {
+                ensureMavenArtifactsIsMutable();
+                mavenArtifacts_.add(m);
+              } else {
+                mavenArtifactsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 42: {
+              com.google.cloudbuild.v1.Artifacts.PythonPackage m =
+                  input.readMessage(
+                      com.google.cloudbuild.v1.Artifacts.PythonPackage.parser(),
+                      extensionRegistry);
+              if (pythonPackagesBuilder_ == null) {
+                ensurePythonPackagesIsMutable();
+                pythonPackages_.add(m);
+              } else {
+                pythonPackagesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloudbuild.v1.Artifacts) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1895,10 +4506,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImages(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureImagesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureImagesIsMutable();
       images_.set(index, value);
       onChanged();
       return this;
@@ -1919,10 +4528,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addImages(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureImagesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureImagesIsMutable();
       images_.add(value);
       onChanged();
       return this;
@@ -1984,10 +4591,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addImagesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureImagesIsMutable();
       images_.add(value);
       onChanged();
@@ -2013,7 +4618,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the objects field is set.
      */
     public boolean hasObjects() {
-      return objectsBuilder_ != null || objects_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -2057,11 +4662,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         objects_ = value;
-        onChanged();
       } else {
         objectsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2082,11 +4687,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloudbuild.v1.Artifacts.ArtifactObjects.Builder builderForValue) {
       if (objectsBuilder_ == null) {
         objects_ = builderForValue.build();
-        onChanged();
       } else {
         objectsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2105,17 +4710,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeObjects(com.google.cloudbuild.v1.Artifacts.ArtifactObjects value) {
       if (objectsBuilder_ == null) {
-        if (objects_ != null) {
-          objects_ =
-            com.google.cloudbuild.v1.Artifacts.ArtifactObjects.newBuilder(objects_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          objects_ != null &&
+          objects_ != com.google.cloudbuild.v1.Artifacts.ArtifactObjects.getDefaultInstance()) {
+          getObjectsBuilder().mergeFrom(value);
         } else {
           objects_ = value;
         }
-        onChanged();
       } else {
         objectsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2133,14 +4739,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.cloudbuild.v1.Artifacts.ArtifactObjects objects = 2;</code>
      */
     public Builder clearObjects() {
-      if (objectsBuilder_ == null) {
-        objects_ = null;
-        onChanged();
-      } else {
-        objects_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      objects_ = null;
+      if (objectsBuilder_ != null) {
+        objectsBuilder_.dispose();
         objectsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2158,7 +4763,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.cloudbuild.v1.Artifacts.ArtifactObjects objects = 2;</code>
      */
     public com.google.cloudbuild.v1.Artifacts.ArtifactObjects.Builder getObjectsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getObjectsFieldBuilder().getBuilder();
     }
@@ -2211,6 +4816,774 @@ private static final long serialVersionUID = 0L;
       }
       return objectsBuilder_;
     }
+
+    private java.util.List<com.google.cloudbuild.v1.Artifacts.MavenArtifact> mavenArtifacts_ =
+      java.util.Collections.emptyList();
+    private void ensureMavenArtifactsIsMutable() {
+      if (!((bitField0_ & 0x00000004) != 0)) {
+        mavenArtifacts_ = new java.util.ArrayList<com.google.cloudbuild.v1.Artifacts.MavenArtifact>(mavenArtifacts_);
+        bitField0_ |= 0x00000004;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloudbuild.v1.Artifacts.MavenArtifact, com.google.cloudbuild.v1.Artifacts.MavenArtifact.Builder, com.google.cloudbuild.v1.Artifacts.MavenArtifactOrBuilder> mavenArtifactsBuilder_;
+
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public java.util.List<com.google.cloudbuild.v1.Artifacts.MavenArtifact> getMavenArtifactsList() {
+      if (mavenArtifactsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(mavenArtifacts_);
+      } else {
+        return mavenArtifactsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public int getMavenArtifactsCount() {
+      if (mavenArtifactsBuilder_ == null) {
+        return mavenArtifacts_.size();
+      } else {
+        return mavenArtifactsBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public com.google.cloudbuild.v1.Artifacts.MavenArtifact getMavenArtifacts(int index) {
+      if (mavenArtifactsBuilder_ == null) {
+        return mavenArtifacts_.get(index);
+      } else {
+        return mavenArtifactsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public Builder setMavenArtifacts(
+        int index, com.google.cloudbuild.v1.Artifacts.MavenArtifact value) {
+      if (mavenArtifactsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMavenArtifactsIsMutable();
+        mavenArtifacts_.set(index, value);
+        onChanged();
+      } else {
+        mavenArtifactsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public Builder setMavenArtifacts(
+        int index, com.google.cloudbuild.v1.Artifacts.MavenArtifact.Builder builderForValue) {
+      if (mavenArtifactsBuilder_ == null) {
+        ensureMavenArtifactsIsMutable();
+        mavenArtifacts_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        mavenArtifactsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public Builder addMavenArtifacts(com.google.cloudbuild.v1.Artifacts.MavenArtifact value) {
+      if (mavenArtifactsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMavenArtifactsIsMutable();
+        mavenArtifacts_.add(value);
+        onChanged();
+      } else {
+        mavenArtifactsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public Builder addMavenArtifacts(
+        int index, com.google.cloudbuild.v1.Artifacts.MavenArtifact value) {
+      if (mavenArtifactsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMavenArtifactsIsMutable();
+        mavenArtifacts_.add(index, value);
+        onChanged();
+      } else {
+        mavenArtifactsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public Builder addMavenArtifacts(
+        com.google.cloudbuild.v1.Artifacts.MavenArtifact.Builder builderForValue) {
+      if (mavenArtifactsBuilder_ == null) {
+        ensureMavenArtifactsIsMutable();
+        mavenArtifacts_.add(builderForValue.build());
+        onChanged();
+      } else {
+        mavenArtifactsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public Builder addMavenArtifacts(
+        int index, com.google.cloudbuild.v1.Artifacts.MavenArtifact.Builder builderForValue) {
+      if (mavenArtifactsBuilder_ == null) {
+        ensureMavenArtifactsIsMutable();
+        mavenArtifacts_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        mavenArtifactsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public Builder addAllMavenArtifacts(
+        java.lang.Iterable<? extends com.google.cloudbuild.v1.Artifacts.MavenArtifact> values) {
+      if (mavenArtifactsBuilder_ == null) {
+        ensureMavenArtifactsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, mavenArtifacts_);
+        onChanged();
+      } else {
+        mavenArtifactsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public Builder clearMavenArtifacts() {
+      if (mavenArtifactsBuilder_ == null) {
+        mavenArtifacts_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+      } else {
+        mavenArtifactsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public Builder removeMavenArtifacts(int index) {
+      if (mavenArtifactsBuilder_ == null) {
+        ensureMavenArtifactsIsMutable();
+        mavenArtifacts_.remove(index);
+        onChanged();
+      } else {
+        mavenArtifactsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public com.google.cloudbuild.v1.Artifacts.MavenArtifact.Builder getMavenArtifactsBuilder(
+        int index) {
+      return getMavenArtifactsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public com.google.cloudbuild.v1.Artifacts.MavenArtifactOrBuilder getMavenArtifactsOrBuilder(
+        int index) {
+      if (mavenArtifactsBuilder_ == null) {
+        return mavenArtifacts_.get(index);  } else {
+        return mavenArtifactsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public java.util.List<? extends com.google.cloudbuild.v1.Artifacts.MavenArtifactOrBuilder> 
+         getMavenArtifactsOrBuilderList() {
+      if (mavenArtifactsBuilder_ != null) {
+        return mavenArtifactsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(mavenArtifacts_);
+      }
+    }
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public com.google.cloudbuild.v1.Artifacts.MavenArtifact.Builder addMavenArtifactsBuilder() {
+      return getMavenArtifactsFieldBuilder().addBuilder(
+          com.google.cloudbuild.v1.Artifacts.MavenArtifact.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public com.google.cloudbuild.v1.Artifacts.MavenArtifact.Builder addMavenArtifactsBuilder(
+        int index) {
+      return getMavenArtifactsFieldBuilder().addBuilder(
+          index, com.google.cloudbuild.v1.Artifacts.MavenArtifact.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * A list of Maven artifacts to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * Artifacts in the workspace matching specified paths globs will be uploaded
+     * to the specified Artifact Registry repository using the builder service
+     * account's credentials.
+     * If any artifacts fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.MavenArtifact maven_artifacts = 3;</code>
+     */
+    public java.util.List<com.google.cloudbuild.v1.Artifacts.MavenArtifact.Builder> 
+         getMavenArtifactsBuilderList() {
+      return getMavenArtifactsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloudbuild.v1.Artifacts.MavenArtifact, com.google.cloudbuild.v1.Artifacts.MavenArtifact.Builder, com.google.cloudbuild.v1.Artifacts.MavenArtifactOrBuilder> 
+        getMavenArtifactsFieldBuilder() {
+      if (mavenArtifactsBuilder_ == null) {
+        mavenArtifactsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.google.cloudbuild.v1.Artifacts.MavenArtifact, com.google.cloudbuild.v1.Artifacts.MavenArtifact.Builder, com.google.cloudbuild.v1.Artifacts.MavenArtifactOrBuilder>(
+                mavenArtifacts_,
+                ((bitField0_ & 0x00000004) != 0),
+                getParentForChildren(),
+                isClean());
+        mavenArtifacts_ = null;
+      }
+      return mavenArtifactsBuilder_;
+    }
+
+    private java.util.List<com.google.cloudbuild.v1.Artifacts.PythonPackage> pythonPackages_ =
+      java.util.Collections.emptyList();
+    private void ensurePythonPackagesIsMutable() {
+      if (!((bitField0_ & 0x00000008) != 0)) {
+        pythonPackages_ = new java.util.ArrayList<com.google.cloudbuild.v1.Artifacts.PythonPackage>(pythonPackages_);
+        bitField0_ |= 0x00000008;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloudbuild.v1.Artifacts.PythonPackage, com.google.cloudbuild.v1.Artifacts.PythonPackage.Builder, com.google.cloudbuild.v1.Artifacts.PythonPackageOrBuilder> pythonPackagesBuilder_;
+
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public java.util.List<com.google.cloudbuild.v1.Artifacts.PythonPackage> getPythonPackagesList() {
+      if (pythonPackagesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(pythonPackages_);
+      } else {
+        return pythonPackagesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public int getPythonPackagesCount() {
+      if (pythonPackagesBuilder_ == null) {
+        return pythonPackages_.size();
+      } else {
+        return pythonPackagesBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public com.google.cloudbuild.v1.Artifacts.PythonPackage getPythonPackages(int index) {
+      if (pythonPackagesBuilder_ == null) {
+        return pythonPackages_.get(index);
+      } else {
+        return pythonPackagesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public Builder setPythonPackages(
+        int index, com.google.cloudbuild.v1.Artifacts.PythonPackage value) {
+      if (pythonPackagesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensurePythonPackagesIsMutable();
+        pythonPackages_.set(index, value);
+        onChanged();
+      } else {
+        pythonPackagesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public Builder setPythonPackages(
+        int index, com.google.cloudbuild.v1.Artifacts.PythonPackage.Builder builderForValue) {
+      if (pythonPackagesBuilder_ == null) {
+        ensurePythonPackagesIsMutable();
+        pythonPackages_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        pythonPackagesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public Builder addPythonPackages(com.google.cloudbuild.v1.Artifacts.PythonPackage value) {
+      if (pythonPackagesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensurePythonPackagesIsMutable();
+        pythonPackages_.add(value);
+        onChanged();
+      } else {
+        pythonPackagesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public Builder addPythonPackages(
+        int index, com.google.cloudbuild.v1.Artifacts.PythonPackage value) {
+      if (pythonPackagesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensurePythonPackagesIsMutable();
+        pythonPackages_.add(index, value);
+        onChanged();
+      } else {
+        pythonPackagesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public Builder addPythonPackages(
+        com.google.cloudbuild.v1.Artifacts.PythonPackage.Builder builderForValue) {
+      if (pythonPackagesBuilder_ == null) {
+        ensurePythonPackagesIsMutable();
+        pythonPackages_.add(builderForValue.build());
+        onChanged();
+      } else {
+        pythonPackagesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public Builder addPythonPackages(
+        int index, com.google.cloudbuild.v1.Artifacts.PythonPackage.Builder builderForValue) {
+      if (pythonPackagesBuilder_ == null) {
+        ensurePythonPackagesIsMutable();
+        pythonPackages_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        pythonPackagesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public Builder addAllPythonPackages(
+        java.lang.Iterable<? extends com.google.cloudbuild.v1.Artifacts.PythonPackage> values) {
+      if (pythonPackagesBuilder_ == null) {
+        ensurePythonPackagesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, pythonPackages_);
+        onChanged();
+      } else {
+        pythonPackagesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public Builder clearPythonPackages() {
+      if (pythonPackagesBuilder_ == null) {
+        pythonPackages_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+      } else {
+        pythonPackagesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public Builder removePythonPackages(int index) {
+      if (pythonPackagesBuilder_ == null) {
+        ensurePythonPackagesIsMutable();
+        pythonPackages_.remove(index);
+        onChanged();
+      } else {
+        pythonPackagesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public com.google.cloudbuild.v1.Artifacts.PythonPackage.Builder getPythonPackagesBuilder(
+        int index) {
+      return getPythonPackagesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public com.google.cloudbuild.v1.Artifacts.PythonPackageOrBuilder getPythonPackagesOrBuilder(
+        int index) {
+      if (pythonPackagesBuilder_ == null) {
+        return pythonPackages_.get(index);  } else {
+        return pythonPackagesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public java.util.List<? extends com.google.cloudbuild.v1.Artifacts.PythonPackageOrBuilder> 
+         getPythonPackagesOrBuilderList() {
+      if (pythonPackagesBuilder_ != null) {
+        return pythonPackagesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(pythonPackages_);
+      }
+    }
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public com.google.cloudbuild.v1.Artifacts.PythonPackage.Builder addPythonPackagesBuilder() {
+      return getPythonPackagesFieldBuilder().addBuilder(
+          com.google.cloudbuild.v1.Artifacts.PythonPackage.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public com.google.cloudbuild.v1.Artifacts.PythonPackage.Builder addPythonPackagesBuilder(
+        int index) {
+      return getPythonPackagesFieldBuilder().addBuilder(
+          index, com.google.cloudbuild.v1.Artifacts.PythonPackage.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * A list of Python packages to be uploaded to Artifact Registry upon
+     * successful completion of all build steps.
+     * The build service account credentials will be used to perform the upload.
+     * If any objects fail to be pushed, the build is marked FAILURE.
+     * </pre>
+     *
+     * <code>repeated .google.devtools.cloudbuild.v1.Artifacts.PythonPackage python_packages = 5;</code>
+     */
+    public java.util.List<com.google.cloudbuild.v1.Artifacts.PythonPackage.Builder> 
+         getPythonPackagesBuilderList() {
+      return getPythonPackagesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloudbuild.v1.Artifacts.PythonPackage, com.google.cloudbuild.v1.Artifacts.PythonPackage.Builder, com.google.cloudbuild.v1.Artifacts.PythonPackageOrBuilder> 
+        getPythonPackagesFieldBuilder() {
+      if (pythonPackagesBuilder_ == null) {
+        pythonPackagesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.google.cloudbuild.v1.Artifacts.PythonPackage, com.google.cloudbuild.v1.Artifacts.PythonPackage.Builder, com.google.cloudbuild.v1.Artifacts.PythonPackageOrBuilder>(
+                pythonPackages_,
+                ((bitField0_ & 0x00000008) != 0),
+                getParentForChildren(),
+                isClean());
+        pythonPackages_ = null;
+      }
+      return pythonPackagesBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2244,7 +5617,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Artifacts(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

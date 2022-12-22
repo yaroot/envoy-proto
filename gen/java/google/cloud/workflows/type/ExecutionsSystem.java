@@ -203,112 +203,6 @@ public final class ExecutionsSystem {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ExecutionsSystemLog(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              message_ = s;
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (activityTime_ != null) {
-                subBuilder = activityTime_.toBuilder();
-              }
-              activityTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(activityTime_);
-                activityTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              state_ = rawValue;
-              break;
-            }
-            case 34: {
-              google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Start.Builder subBuilder = null;
-              if (detailsCase_ == 4) {
-                subBuilder = ((google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Start) details_).toBuilder();
-              }
-              details_ =
-                  input.readMessage(google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Start.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Start) details_);
-                details_ = subBuilder.buildPartial();
-              }
-              detailsCase_ = 4;
-              break;
-            }
-            case 42: {
-              google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Success.Builder subBuilder = null;
-              if (detailsCase_ == 5) {
-                subBuilder = ((google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Success) details_).toBuilder();
-              }
-              details_ =
-                  input.readMessage(google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Success.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Success) details_);
-                details_ = subBuilder.buildPartial();
-              }
-              detailsCase_ = 5;
-              break;
-            }
-            case 50: {
-              google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Failure.Builder subBuilder = null;
-              if (detailsCase_ == 6) {
-                subBuilder = ((google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Failure) details_).toBuilder();
-              }
-              details_ =
-                  input.readMessage(google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Failure.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Failure) details_);
-                details_ = subBuilder.buildPartial();
-              }
-              detailsCase_ = 6;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return google.cloud.workflows.type.ExecutionsSystem.internal_static_google_cloud_workflows_type_ExecutionsSystemLog_descriptor;
@@ -557,51 +451,6 @@ public final class ExecutionsSystem {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Start(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 18: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                argument_ = s;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return google.cloud.workflows.type.ExecutionsSystem.internal_static_google_cloud_workflows_type_ExecutionsSystemLog_Start_descriptor;
@@ -616,7 +465,8 @@ public final class ExecutionsSystem {
       }
 
       public static final int ARGUMENT_FIELD_NUMBER = 2;
-      private volatile java.lang.Object argument_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object argument_ = "";
       /**
        * <pre>
        * The execution input argument.
@@ -678,7 +528,7 @@ public final class ExecutionsSystem {
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(argument_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 2, argument_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -690,7 +540,7 @@ public final class ExecutionsSystem {
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(argument_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, argument_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -707,7 +557,7 @@ public final class ExecutionsSystem {
 
         if (!getArgument()
             .equals(other.getArgument())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -720,7 +570,7 @@ public final class ExecutionsSystem {
         hash = (19 * hash) + getDescriptor().hashCode();
         hash = (37 * hash) + ARGUMENT_FIELD_NUMBER;
         hash = (53 * hash) + getArgument().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -841,24 +691,19 @@ public final class ExecutionsSystem {
 
         // Construct using google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Start.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           argument_ = "";
-
           return this;
         }
 
@@ -885,9 +730,16 @@ public final class ExecutionsSystem {
         @java.lang.Override
         public google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Start buildPartial() {
           google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Start result = new google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Start(this);
-          result.argument_ = argument_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Start result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.argument_ = argument_;
+          }
         }
 
         @java.lang.Override
@@ -936,9 +788,10 @@ public final class ExecutionsSystem {
           if (other == google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Start.getDefaultInstance()) return this;
           if (!other.getArgument().isEmpty()) {
             argument_ = other.argument_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -953,19 +806,38 @@ public final class ExecutionsSystem {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Start parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 18: {
+                  argument_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Start) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object argument_ = "";
         /**
@@ -1020,11 +892,9 @@ public final class ExecutionsSystem {
          */
         public Builder setArgument(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           argument_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -1037,8 +907,8 @@ public final class ExecutionsSystem {
          * @return This builder for chaining.
          */
         public Builder clearArgument() {
-          
           argument_ = getDefaultInstance().getArgument();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -1053,12 +923,10 @@ public final class ExecutionsSystem {
          */
         public Builder setArgumentBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           argument_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -1095,7 +963,18 @@ public final class ExecutionsSystem {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Start(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -1171,51 +1050,6 @@ public final class ExecutionsSystem {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Success(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 18: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                result_ = s;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return google.cloud.workflows.type.ExecutionsSystem.internal_static_google_cloud_workflows_type_ExecutionsSystemLog_Success_descriptor;
@@ -1230,7 +1064,8 @@ public final class ExecutionsSystem {
       }
 
       public static final int RESULT_FIELD_NUMBER = 2;
-      private volatile java.lang.Object result_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object result_ = "";
       /**
        * <pre>
        * The final result of the execution.
@@ -1292,7 +1127,7 @@ public final class ExecutionsSystem {
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(result_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 2, result_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -1304,7 +1139,7 @@ public final class ExecutionsSystem {
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(result_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, result_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -1321,7 +1156,7 @@ public final class ExecutionsSystem {
 
         if (!getResult()
             .equals(other.getResult())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -1334,7 +1169,7 @@ public final class ExecutionsSystem {
         hash = (19 * hash) + getDescriptor().hashCode();
         hash = (37 * hash) + RESULT_FIELD_NUMBER;
         hash = (53 * hash) + getResult().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -1455,24 +1290,19 @@ public final class ExecutionsSystem {
 
         // Construct using google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Success.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           result_ = "";
-
           return this;
         }
 
@@ -1499,9 +1329,16 @@ public final class ExecutionsSystem {
         @java.lang.Override
         public google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Success buildPartial() {
           google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Success result = new google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Success(this);
-          result.result_ = result_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Success result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.result_ = result_;
+          }
         }
 
         @java.lang.Override
@@ -1550,9 +1387,10 @@ public final class ExecutionsSystem {
           if (other == google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Success.getDefaultInstance()) return this;
           if (!other.getResult().isEmpty()) {
             result_ = other.result_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -1567,19 +1405,38 @@ public final class ExecutionsSystem {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Success parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 18: {
+                  result_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Success) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object result_ = "";
         /**
@@ -1634,11 +1491,9 @@ public final class ExecutionsSystem {
          */
         public Builder setResult(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           result_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -1651,8 +1506,8 @@ public final class ExecutionsSystem {
          * @return This builder for chaining.
          */
         public Builder clearResult() {
-          
           result_ = getDefaultInstance().getResult();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -1667,12 +1522,10 @@ public final class ExecutionsSystem {
          */
         public Builder setResultBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           result_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -1709,7 +1562,18 @@ public final class ExecutionsSystem {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Success(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -1810,57 +1674,6 @@ public final class ExecutionsSystem {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Failure(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                exception_ = s;
-                break;
-              }
-              case 18: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                source_ = s;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return google.cloud.workflows.type.ExecutionsSystem.internal_static_google_cloud_workflows_type_ExecutionsSystemLog_Failure_descriptor;
@@ -1875,7 +1688,8 @@ public final class ExecutionsSystem {
       }
 
       public static final int EXCEPTION_FIELD_NUMBER = 1;
-      private volatile java.lang.Object exception_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object exception_ = "";
       /**
        * <pre>
        * The exception message, e.g. "division by zero". The size limit is 1 kB.
@@ -1921,7 +1735,8 @@ public final class ExecutionsSystem {
       }
 
       public static final int SOURCE_FIELD_NUMBER = 2;
-      private volatile java.lang.Object source_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object source_ = "";
       /**
        * <pre>
        * The code location of the statement that has created the log. For example,
@@ -1990,7 +1805,7 @@ public final class ExecutionsSystem {
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(source_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 2, source_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -2005,7 +1820,7 @@ public final class ExecutionsSystem {
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(source_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, source_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -2024,7 +1839,7 @@ public final class ExecutionsSystem {
             .equals(other.getException())) return false;
         if (!getSource()
             .equals(other.getSource())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -2039,7 +1854,7 @@ public final class ExecutionsSystem {
         hash = (53 * hash) + getException().hashCode();
         hash = (37 * hash) + SOURCE_FIELD_NUMBER;
         hash = (53 * hash) + getSource().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -2160,26 +1975,20 @@ public final class ExecutionsSystem {
 
         // Construct using google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Failure.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           exception_ = "";
-
           source_ = "";
-
           return this;
         }
 
@@ -2206,10 +2015,19 @@ public final class ExecutionsSystem {
         @java.lang.Override
         public google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Failure buildPartial() {
           google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Failure result = new google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Failure(this);
-          result.exception_ = exception_;
-          result.source_ = source_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Failure result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.exception_ = exception_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.source_ = source_;
+          }
         }
 
         @java.lang.Override
@@ -2258,13 +2076,15 @@ public final class ExecutionsSystem {
           if (other == google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Failure.getDefaultInstance()) return this;
           if (!other.getException().isEmpty()) {
             exception_ = other.exception_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (!other.getSource().isEmpty()) {
             source_ = other.source_;
+            bitField0_ |= 0x00000002;
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -2279,19 +2099,43 @@ public final class ExecutionsSystem {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Failure parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  exception_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  source_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Failure) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object exception_ = "";
         /**
@@ -2346,11 +2190,9 @@ public final class ExecutionsSystem {
          */
         public Builder setException(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           exception_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -2363,8 +2205,8 @@ public final class ExecutionsSystem {
          * @return This builder for chaining.
          */
         public Builder clearException() {
-          
           exception_ = getDefaultInstance().getException();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -2379,12 +2221,10 @@ public final class ExecutionsSystem {
          */
         public Builder setExceptionBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           exception_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -2448,11 +2288,9 @@ public final class ExecutionsSystem {
          */
         public Builder setSource(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           source_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -2467,8 +2305,8 @@ public final class ExecutionsSystem {
          * @return This builder for chaining.
          */
         public Builder clearSource() {
-          
           source_ = getDefaultInstance().getSource();
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
           return this;
         }
@@ -2485,12 +2323,10 @@ public final class ExecutionsSystem {
          */
         public Builder setSourceBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           source_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -2527,7 +2363,18 @@ public final class ExecutionsSystem {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Failure(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -2591,7 +2438,8 @@ public final class ExecutionsSystem {
     }
 
     public static final int MESSAGE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object message_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object message_ = "";
     /**
      * <pre>
      * Human readable contents of the log in English. The size limit is 5 kB.
@@ -2671,11 +2519,11 @@ public final class ExecutionsSystem {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getActivityTimeOrBuilder() {
-      return getActivityTime();
+      return activityTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : activityTime_;
     }
 
     public static final int STATE_FIELD_NUMBER = 3;
-    private int state_;
+    private int state_ = 0;
     /**
      * <pre>
      * State of the execution when the log was created.
@@ -2696,8 +2544,7 @@ public final class ExecutionsSystem {
      * @return The state.
      */
     @java.lang.Override public google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.State getState() {
-      @SuppressWarnings("deprecation")
-      google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.State result = google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.State.valueOf(state_);
+      google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.State result = google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.State.forNumber(state_);
       return result == null ? google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.State.UNRECOGNIZED : result;
     }
 
@@ -2865,7 +2712,7 @@ public final class ExecutionsSystem {
       if (detailsCase_ == 6) {
         output.writeMessage(6, (google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Failure) details_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2897,7 +2744,7 @@ public final class ExecutionsSystem {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, (google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.Failure) details_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2937,7 +2784,7 @@ public final class ExecutionsSystem {
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2972,7 +2819,7 @@ public final class ExecutionsSystem {
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3093,32 +2940,34 @@ public final class ExecutionsSystem {
 
       // Construct using google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         message_ = "";
-
-        if (activityTimeBuilder_ == null) {
-          activityTime_ = null;
-        } else {
-          activityTime_ = null;
+        activityTime_ = null;
+        if (activityTimeBuilder_ != null) {
+          activityTimeBuilder_.dispose();
           activityTimeBuilder_ = null;
         }
         state_ = 0;
-
+        if (startBuilder_ != null) {
+          startBuilder_.clear();
+        }
+        if (successBuilder_ != null) {
+          successBuilder_.clear();
+        }
+        if (failureBuilder_ != null) {
+          failureBuilder_.clear();
+        }
         detailsCase_ = 0;
         details_ = null;
         return this;
@@ -3147,37 +2996,42 @@ public final class ExecutionsSystem {
       @java.lang.Override
       public google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog buildPartial() {
         google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog result = new google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog(this);
-        result.message_ = message_;
-        if (activityTimeBuilder_ == null) {
-          result.activityTime_ = activityTime_;
-        } else {
-          result.activityTime_ = activityTimeBuilder_.build();
-        }
-        result.state_ = state_;
-        if (detailsCase_ == 4) {
-          if (startBuilder_ == null) {
-            result.details_ = details_;
-          } else {
-            result.details_ = startBuilder_.build();
-          }
-        }
-        if (detailsCase_ == 5) {
-          if (successBuilder_ == null) {
-            result.details_ = details_;
-          } else {
-            result.details_ = successBuilder_.build();
-          }
-        }
-        if (detailsCase_ == 6) {
-          if (failureBuilder_ == null) {
-            result.details_ = details_;
-          } else {
-            result.details_ = failureBuilder_.build();
-          }
-        }
-        result.detailsCase_ = detailsCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.message_ = message_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.activityTime_ = activityTimeBuilder_ == null
+              ? activityTime_
+              : activityTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.state_ = state_;
+        }
+      }
+
+      private void buildPartialOneofs(google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog result) {
+        result.detailsCase_ = detailsCase_;
+        result.details_ = this.details_;
+        if (detailsCase_ == 4 &&
+            startBuilder_ != null) {
+          result.details_ = startBuilder_.build();
+        }
+        if (detailsCase_ == 5 &&
+            successBuilder_ != null) {
+          result.details_ = successBuilder_.build();
+        }
+        if (detailsCase_ == 6 &&
+            failureBuilder_ != null) {
+          result.details_ = failureBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3226,6 +3080,7 @@ public final class ExecutionsSystem {
         if (other == google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.getDefaultInstance()) return this;
         if (!other.getMessage().isEmpty()) {
           message_ = other.message_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasActivityTime()) {
@@ -3251,7 +3106,7 @@ public final class ExecutionsSystem {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3266,17 +3121,68 @@ public final class ExecutionsSystem {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                message_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getActivityTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                state_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                input.readMessage(
+                    getStartFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                detailsCase_ = 4;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getSuccessFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                detailsCase_ = 5;
+                break;
+              } // case 42
+              case 50: {
+                input.readMessage(
+                    getFailureFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                detailsCase_ = 6;
+                break;
+              } // case 50
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int detailsCase_ = 0;
@@ -3294,6 +3200,7 @@ public final class ExecutionsSystem {
         return this;
       }
 
+      private int bitField0_;
 
       private java.lang.Object message_ = "";
       /**
@@ -3348,11 +3255,9 @@ public final class ExecutionsSystem {
        */
       public Builder setMessage(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         message_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3365,8 +3270,8 @@ public final class ExecutionsSystem {
        * @return This builder for chaining.
        */
       public Builder clearMessage() {
-        
         message_ = getDefaultInstance().getMessage();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3381,12 +3286,10 @@ public final class ExecutionsSystem {
        */
       public Builder setMessageBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         message_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3403,7 +3306,7 @@ public final class ExecutionsSystem {
        * @return Whether the activityTime field is set.
        */
       public boolean hasActivityTime() {
-        return activityTimeBuilder_ != null || activityTime_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -3433,11 +3336,11 @@ public final class ExecutionsSystem {
             throw new NullPointerException();
           }
           activityTime_ = value;
-          onChanged();
         } else {
           activityTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3451,11 +3354,11 @@ public final class ExecutionsSystem {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (activityTimeBuilder_ == null) {
           activityTime_ = builderForValue.build();
-          onChanged();
         } else {
           activityTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3467,17 +3370,18 @@ public final class ExecutionsSystem {
        */
       public Builder mergeActivityTime(com.google.protobuf.Timestamp value) {
         if (activityTimeBuilder_ == null) {
-          if (activityTime_ != null) {
-            activityTime_ =
-              com.google.protobuf.Timestamp.newBuilder(activityTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            activityTime_ != null &&
+            activityTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getActivityTimeBuilder().mergeFrom(value);
           } else {
             activityTime_ = value;
           }
-          onChanged();
         } else {
           activityTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3488,14 +3392,13 @@ public final class ExecutionsSystem {
        * <code>.google.protobuf.Timestamp activity_time = 2;</code>
        */
       public Builder clearActivityTime() {
-        if (activityTimeBuilder_ == null) {
-          activityTime_ = null;
-          onChanged();
-        } else {
-          activityTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        activityTime_ = null;
+        if (activityTimeBuilder_ != null) {
+          activityTimeBuilder_.dispose();
           activityTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3506,7 +3409,7 @@ public final class ExecutionsSystem {
        * <code>.google.protobuf.Timestamp activity_time = 2;</code>
        */
       public com.google.protobuf.Timestamp.Builder getActivityTimeBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getActivityTimeFieldBuilder().getBuilder();
       }
@@ -3568,8 +3471,8 @@ public final class ExecutionsSystem {
        * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
-        
         state_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3583,8 +3486,7 @@ public final class ExecutionsSystem {
        */
       @java.lang.Override
       public google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.State getState() {
-        @SuppressWarnings("deprecation")
-        google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.State result = google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.State.valueOf(state_);
+        google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.State result = google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.State.forNumber(state_);
         return result == null ? google.cloud.workflows.type.ExecutionsSystem.ExecutionsSystemLog.State.UNRECOGNIZED : result;
       }
       /**
@@ -3600,7 +3502,7 @@ public final class ExecutionsSystem {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         state_ = value.getNumber();
         onChanged();
         return this;
@@ -3614,7 +3516,7 @@ public final class ExecutionsSystem {
        * @return This builder for chaining.
        */
       public Builder clearState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         state_ = 0;
         onChanged();
         return this;
@@ -3794,7 +3696,7 @@ public final class ExecutionsSystem {
           details_ = null;
         }
         detailsCase_ = 4;
-        onChanged();;
+        onChanged();
         return startBuilder_;
       }
 
@@ -3981,7 +3883,7 @@ public final class ExecutionsSystem {
           details_ = null;
         }
         detailsCase_ = 5;
-        onChanged();;
+        onChanged();
         return successBuilder_;
       }
 
@@ -4159,7 +4061,7 @@ public final class ExecutionsSystem {
           details_ = null;
         }
         detailsCase_ = 6;
-        onChanged();;
+        onChanged();
         return failureBuilder_;
       }
       @java.lang.Override
@@ -4195,7 +4097,18 @@ public final class ExecutionsSystem {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ExecutionsSystemLog(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

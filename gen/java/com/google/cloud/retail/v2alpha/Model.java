@@ -9,7 +9,7 @@ package com.google.cloud.retail.v2alpha;
  * [Model][google.cloud.retail.v2alpha.Model]. A
  * [Model][google.cloud.retail.v2alpha.Model] can be associated with a
  * [ServingConfig][google.cloud.retail.v2alpha.ServingConfig] and then queried
- * through the Predict api.
+ * through the Predict API.
  * </pre>
  *
  * Protobuf type {@code google.cloud.retail.v2alpha.Model}
@@ -48,171 +48,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Model(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            trainingState_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            servingState_ = rawValue;
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            type_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            optimizationObjective_ = s;
-            break;
-          }
-          case 88: {
-            int rawValue = input.readEnum();
-
-            periodicTuningState_ = rawValue;
-            break;
-          }
-          case 98: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (lastTuneTime_ != null) {
-              subBuilder = lastTuneTime_.toBuilder();
-            }
-            lastTuneTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lastTuneTime_);
-              lastTuneTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            tuningOperation_ = s;
-            break;
-          }
-          case 128: {
-            int rawValue = input.readEnum();
-
-            dataState_ = rawValue;
-            break;
-          }
-          case 138: {
-            com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Builder subBuilder = null;
-            if (trainingConfigCase_ == 17) {
-              subBuilder = ((com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig) trainingConfig_).toBuilder();
-            }
-            trainingConfig_ =
-                input.readMessage(com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig) trainingConfig_);
-              trainingConfig_ = subBuilder.buildPartial();
-            }
-            trainingConfigCase_ = 17;
-            break;
-          }
-          case 144: {
-            int rawValue = input.readEnum();
-
-            filteringOption_ = rawValue;
-            break;
-          }
-          case 154: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              servingConfigLists_ = new java.util.ArrayList<com.google.cloud.retail.v2alpha.Model.ServingConfigList>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            servingConfigLists_.add(
-                input.readMessage(com.google.cloud.retail.v2alpha.Model.ServingConfigList.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        servingConfigLists_ = java.util.Collections.unmodifiableList(servingConfigLists_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -262,7 +97,7 @@ private static final long serialVersionUID = 0L;
     ACTIVE(2),
     /**
      * <pre>
-     * The model is trained on tuned hyperparameters, and can be
+     * The model is trained on tuned hyperparameters and can be
      * queried.
      * </pre>
      *
@@ -298,7 +133,7 @@ private static final long serialVersionUID = 0L;
     public static final int ACTIVE_VALUE = 2;
     /**
      * <pre>
-     * The model is trained on tuned hyperparameters, and can be
+     * The model is trained on tuned hyperparameters and can be
      * queried.
      * </pre>
      *
@@ -540,7 +375,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Describes whether periodic tuning is enabled for this model
    * or not. Periodic tuning is scheduled at most every three months. You can
-   * start a tuning process manually by using the ModelTune
+   * start a tuning process manually by using the `TuneModel`
    * method, which starts a tuning process immediately and resets the quarterly
    * schedule. Enabling or disabling periodic tuning does not affect any
    * current tuning processes.
@@ -552,7 +387,7 @@ private static final long serialVersionUID = 0L;
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
-     * Unspecified default value - should never be explicitly set.
+     * Unspecified default value, should never be explicitly set.
      * </pre>
      *
      * <code>PERIODIC_TUNING_STATE_UNSPECIFIED = 0;</code>
@@ -561,8 +396,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The model has periodic tuning disabled. Tuning
-     * can be reenabled by calling the EnableModelPeriodicTuning
-     * method or by calling the TuneModel method.
+     * can be reenabled by calling the `EnableModelPeriodicTuning`
+     * method or by calling the `TuneModel` method.
      * </pre>
      *
      * <code>PERIODIC_TUNING_DISABLED = 1;</code>
@@ -571,7 +406,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The model cannot be tuned with periodic tuning OR the
-     * TuneModel method. Hide the options in customer UI and
+     * `TuneModel` method. Hide the options in customer UI and
      * reject any requests through the backend self serve API.
      * </pre>
      *
@@ -581,7 +416,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The model has periodic tuning enabled. Tuning
-     * can be disabled by calling the DisableModelPeriodicTuning
+     * can be disabled by calling the `DisableModelPeriodicTuning`
      * method.
      * </pre>
      *
@@ -593,7 +428,7 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Unspecified default value - should never be explicitly set.
+     * Unspecified default value, should never be explicitly set.
      * </pre>
      *
      * <code>PERIODIC_TUNING_STATE_UNSPECIFIED = 0;</code>
@@ -602,8 +437,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The model has periodic tuning disabled. Tuning
-     * can be reenabled by calling the EnableModelPeriodicTuning
-     * method or by calling the TuneModel method.
+     * can be reenabled by calling the `EnableModelPeriodicTuning`
+     * method or by calling the `TuneModel` method.
      * </pre>
      *
      * <code>PERIODIC_TUNING_DISABLED = 1;</code>
@@ -612,7 +447,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The model cannot be tuned with periodic tuning OR the
-     * TuneModel method. Hide the options in customer UI and
+     * `TuneModel` method. Hide the options in customer UI and
      * reject any requests through the backend self serve API.
      * </pre>
      *
@@ -622,7 +457,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The model has periodic tuning enabled. Tuning
-     * can be disabled by calling the DisableModelPeriodicTuning
+     * can be disabled by calling the `DisableModelPeriodicTuning`
      * method.
      * </pre>
      *
@@ -727,7 +562,7 @@ private static final long serialVersionUID = 0L;
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
-     * Unspecified default value - should never be explicitly set.
+     * Unspecified default value, should never be explicitly set.
      * </pre>
      *
      * <code>DATA_STATE_UNSPECIFIED = 0;</code>
@@ -755,7 +590,7 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Unspecified default value - should never be explicitly set.
+     * Unspecified default value, should never be explicitly set.
      * </pre>
      *
      * <code>DATA_STATE_UNSPECIFIED = 0;</code>
@@ -991,7 +826,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The PageOptimizationConfig for model training.
    * This determines how many panels to optimize for, and which serving
-   * configurations to consider for each panel.
+   * configs to consider for each panel.
    * The purpose of this model is to optimize which
    * [ServingConfig][google.cloud.retail.v2alpha.ServingConfig] to show on which
    * panels in way that optimizes the visitors shopping journey.
@@ -1025,70 +860,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private PageOptimizationConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              pageOptimizationEventType_ = s;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                panels_ = new java.util.ArrayList<com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              panels_.add(
-                  input.readMessage(com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel.parser(), extensionRegistry));
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              restriction_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          panels_ = java.util.Collections.unmodifiableList(panels_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1157,7 +928,7 @@ private static final long serialVersionUID = 0L;
        * `Panel2 candidates`: &lt;i&gt; home_page_ctr_no_diversity,
        * home_page_ctr_diversity_low,
        *    pdp_cvr_no_diversity &lt;/i&gt;
-       * `Restriction` = UNIQUE_SERVING_CONFIG_RESTRICTION
+       * `Restriction` = `UNIQUE_SERVING_CONFIG_RESTRICTION`
        * `Valid combinations`:
        *   * &lt;i&gt; (pdp_ctr, home_page_ctr_no_diversity)
        *   * (pdp_ctr, home_page_ctr_diversity_low)
@@ -1187,7 +958,7 @@ private static final long serialVersionUID = 0L;
        * `Panel2 candidates`: &lt;i&gt; home_page_ctr_no_diversity,
        * home_page_ctr_diversity_low,
        *  pdp_cvr_no_diversity &lt;/i&gt;
-       * `Restriction` = UNIQUE_MODEL_RESTRICTION
+       * `Restriction` = `UNIQUE_MODEL_RESTRICTION`
        * `Valid combinations`:
        *  * &lt;i&gt; (pdp_ctr, home_page_ctr_no_diversity)
        *  * (pdp_ctr, home_page_ctr_diversity)
@@ -1216,7 +987,7 @@ private static final long serialVersionUID = 0L;
        * `Panel2 candidates`: &lt;i&gt; home_page_ctr_no_diversity,
        * home_page_ctr_diversity_low,
        *  pdp_cvr_no_diversity &lt;/i&gt;
-       * `Restriction` = UNIQUE_MODEL_RESTRICTION
+       * `Restriction` = `UNIQUE_MODEL_RESTRICTION`
        * `Valid combinations`:
        * * &lt;i&gt; (pdp_ctr, home_page_ctr_no_diversity)
        * * (pdp_ctr, home_page_ctr_diversity)
@@ -1282,7 +1053,7 @@ private static final long serialVersionUID = 0L;
        * `Panel2 candidates`: &lt;i&gt; home_page_ctr_no_diversity,
        * home_page_ctr_diversity_low,
        *    pdp_cvr_no_diversity &lt;/i&gt;
-       * `Restriction` = UNIQUE_SERVING_CONFIG_RESTRICTION
+       * `Restriction` = `UNIQUE_SERVING_CONFIG_RESTRICTION`
        * `Valid combinations`:
        *   * &lt;i&gt; (pdp_ctr, home_page_ctr_no_diversity)
        *   * (pdp_ctr, home_page_ctr_diversity_low)
@@ -1312,7 +1083,7 @@ private static final long serialVersionUID = 0L;
        * `Panel2 candidates`: &lt;i&gt; home_page_ctr_no_diversity,
        * home_page_ctr_diversity_low,
        *  pdp_cvr_no_diversity &lt;/i&gt;
-       * `Restriction` = UNIQUE_MODEL_RESTRICTION
+       * `Restriction` = `UNIQUE_MODEL_RESTRICTION`
        * `Valid combinations`:
        *  * &lt;i&gt; (pdp_ctr, home_page_ctr_no_diversity)
        *  * (pdp_ctr, home_page_ctr_diversity)
@@ -1341,7 +1112,7 @@ private static final long serialVersionUID = 0L;
        * `Panel2 candidates`: &lt;i&gt; home_page_ctr_no_diversity,
        * home_page_ctr_diversity_low,
        *  pdp_cvr_no_diversity &lt;/i&gt;
-       * `Restriction` = UNIQUE_MODEL_RESTRICTION
+       * `Restriction` = `UNIQUE_MODEL_RESTRICTION`
        * `Valid combinations`:
        * * &lt;i&gt; (pdp_ctr, home_page_ctr_no_diversity)
        * * (pdp_ctr, home_page_ctr_diversity)
@@ -1454,9 +1225,9 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * This has to be a valid
        * [ServingConfig][google.cloud.retail.v2alpha.ServingConfig]
-       * identifier. e.g. for a ServingConfig with full name:
-       * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`
-       * this would be 'my_candidate_config'
+       * identifier. For example, for a ServingConfig with full name:
+       * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`,
+       * this would be `my_candidate_config`.
        * </pre>
        *
        * <code>string serving_config_id = 1;</code>
@@ -1467,9 +1238,9 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * This has to be a valid
        * [ServingConfig][google.cloud.retail.v2alpha.ServingConfig]
-       * identifier. e.g. for a ServingConfig with full name:
-       * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`
-       * this would be 'my_candidate_config'
+       * identifier. For example, for a ServingConfig with full name:
+       * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`,
+       * this would be `my_candidate_config`.
        * </pre>
        *
        * <code>string serving_config_id = 1;</code>
@@ -1480,9 +1251,9 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * This has to be a valid
        * [ServingConfig][google.cloud.retail.v2alpha.ServingConfig]
-       * identifier. e.g. for a ServingConfig with full name:
-       * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`
-       * this would be 'my_candidate_config'
+       * identifier. For example, for a ServingConfig with full name:
+       * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`,
+       * this would be `my_candidate_config`.
        * </pre>
        *
        * <code>string serving_config_id = 1;</code>
@@ -1525,51 +1296,6 @@ private static final long serialVersionUID = 0L;
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
-      }
-      private Candidate(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-                candidateCase_ = 1;
-                candidate_ = s;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -1628,9 +1354,9 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * This has to be a valid
        * [ServingConfig][google.cloud.retail.v2alpha.ServingConfig]
-       * identifier. e.g. for a ServingConfig with full name:
-       * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`
-       * this would be 'my_candidate_config'
+       * identifier. For example, for a ServingConfig with full name:
+       * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`,
+       * this would be `my_candidate_config`.
        * </pre>
        *
        * <code>string serving_config_id = 1;</code>
@@ -1643,9 +1369,9 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * This has to be a valid
        * [ServingConfig][google.cloud.retail.v2alpha.ServingConfig]
-       * identifier. e.g. for a ServingConfig with full name:
-       * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`
-       * this would be 'my_candidate_config'
+       * identifier. For example, for a ServingConfig with full name:
+       * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`,
+       * this would be `my_candidate_config`.
        * </pre>
        *
        * <code>string serving_config_id = 1;</code>
@@ -1672,9 +1398,9 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * This has to be a valid
        * [ServingConfig][google.cloud.retail.v2alpha.ServingConfig]
-       * identifier. e.g. for a ServingConfig with full name:
-       * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`
-       * this would be 'my_candidate_config'
+       * identifier. For example, for a ServingConfig with full name:
+       * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`,
+       * this would be `my_candidate_config`.
        * </pre>
        *
        * <code>string serving_config_id = 1;</code>
@@ -1716,7 +1442,7 @@ private static final long serialVersionUID = 0L;
         if (candidateCase_ == 1) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, candidate_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -1728,7 +1454,7 @@ private static final long serialVersionUID = 0L;
         if (candidateCase_ == 1) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, candidate_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -1752,7 +1478,7 @@ private static final long serialVersionUID = 0L;
           case 0:
           default:
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -1771,7 +1497,7 @@ private static final long serialVersionUID = 0L;
           case 0:
           default:
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -1894,22 +1620,18 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           candidateCase_ = 0;
           candidate_ = null;
           return this;
@@ -1938,12 +1660,19 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate buildPartial() {
           com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate result = new com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate(this);
-          if (candidateCase_ == 1) {
-            result.candidate_ = candidate_;
-          }
-          result.candidateCase_ = candidateCase_;
+          if (bitField0_ != 0) { buildPartial0(result); }
+          buildPartialOneofs(result);
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate result) {
+          int from_bitField0_ = bitField0_;
+        }
+
+        private void buildPartialOneofs(com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate result) {
+          result.candidateCase_ = candidateCase_;
+          result.candidate_ = this.candidate_;
         }
 
         @java.lang.Override
@@ -2001,7 +1730,7 @@ private static final long serialVersionUID = 0L;
               break;
             }
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -2016,17 +1745,36 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  java.lang.String s = input.readStringRequireUtf8();
+                  candidateCase_ = 1;
+                  candidate_ = s;
+                  break;
+                } // case 10
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int candidateCase_ = 0;
@@ -2044,14 +1792,15 @@ private static final long serialVersionUID = 0L;
           return this;
         }
 
+        private int bitField0_;
 
         /**
          * <pre>
          * This has to be a valid
          * [ServingConfig][google.cloud.retail.v2alpha.ServingConfig]
-         * identifier. e.g. for a ServingConfig with full name:
-         * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`
-         * this would be 'my_candidate_config'
+         * identifier. For example, for a ServingConfig with full name:
+         * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`,
+         * this would be `my_candidate_config`.
          * </pre>
          *
          * <code>string serving_config_id = 1;</code>
@@ -2065,9 +1814,9 @@ private static final long serialVersionUID = 0L;
          * <pre>
          * This has to be a valid
          * [ServingConfig][google.cloud.retail.v2alpha.ServingConfig]
-         * identifier. e.g. for a ServingConfig with full name:
-         * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`
-         * this would be 'my_candidate_config'
+         * identifier. For example, for a ServingConfig with full name:
+         * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`,
+         * this would be `my_candidate_config`.
          * </pre>
          *
          * <code>string serving_config_id = 1;</code>
@@ -2095,9 +1844,9 @@ private static final long serialVersionUID = 0L;
          * <pre>
          * This has to be a valid
          * [ServingConfig][google.cloud.retail.v2alpha.ServingConfig]
-         * identifier. e.g. for a ServingConfig with full name:
-         * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`
-         * this would be 'my_candidate_config'
+         * identifier. For example, for a ServingConfig with full name:
+         * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`,
+         * this would be `my_candidate_config`.
          * </pre>
          *
          * <code>string serving_config_id = 1;</code>
@@ -2126,9 +1875,9 @@ private static final long serialVersionUID = 0L;
          * <pre>
          * This has to be a valid
          * [ServingConfig][google.cloud.retail.v2alpha.ServingConfig]
-         * identifier. e.g. for a ServingConfig with full name:
-         * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`
-         * this would be 'my_candidate_config'
+         * identifier. For example, for a ServingConfig with full name:
+         * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`,
+         * this would be `my_candidate_config`.
          * </pre>
          *
          * <code>string serving_config_id = 1;</code>
@@ -2137,10 +1886,8 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setServingConfigId(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  candidateCase_ = 1;
+          if (value == null) { throw new NullPointerException(); }
+          candidateCase_ = 1;
           candidate_ = value;
           onChanged();
           return this;
@@ -2149,9 +1896,9 @@ private static final long serialVersionUID = 0L;
          * <pre>
          * This has to be a valid
          * [ServingConfig][google.cloud.retail.v2alpha.ServingConfig]
-         * identifier. e.g. for a ServingConfig with full name:
-         * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`
-         * this would be 'my_candidate_config'
+         * identifier. For example, for a ServingConfig with full name:
+         * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`,
+         * this would be `my_candidate_config`.
          * </pre>
          *
          * <code>string serving_config_id = 1;</code>
@@ -2169,9 +1916,9 @@ private static final long serialVersionUID = 0L;
          * <pre>
          * This has to be a valid
          * [ServingConfig][google.cloud.retail.v2alpha.ServingConfig]
-         * identifier. e.g. for a ServingConfig with full name:
-         * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`
-         * this would be 'my_candidate_config'
+         * identifier. For example, for a ServingConfig with full name:
+         * `projects/&#42;&#47;locations/global/catalogs/default_catalog/servingConfigs/my_candidate_config`,
+         * this would be `my_candidate_config`.
          * </pre>
          *
          * <code>string serving_config_id = 1;</code>
@@ -2180,10 +1927,8 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setServingConfigIdBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           candidateCase_ = 1;
           candidate_ = value;
           onChanged();
@@ -2222,7 +1967,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Candidate(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -2269,7 +2025,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. The candidates to consider on the panel.
-       * Limit = 10.
        * </pre>
        *
        * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2279,7 +2034,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. The candidates to consider on the panel.
-       * Limit = 10.
        * </pre>
        *
        * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2288,7 +2042,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. The candidates to consider on the panel.
-       * Limit = 10.
        * </pre>
        *
        * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2297,7 +2050,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. The candidates to consider on the panel.
-       * Limit = 10.
        * </pre>
        *
        * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2307,7 +2059,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. The candidates to consider on the panel.
-       * Limit = 10.
        * </pre>
        *
        * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2317,8 +2068,8 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * Required. The default candidate (in case the model fails at serving
-       * time, we can fall back to the default).
+       * Required. The default candidate. If the model fails at serving time,
+       * we fall back to the default.
        * </pre>
        *
        * <code>.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate default_candidate = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2327,8 +2078,8 @@ private static final long serialVersionUID = 0L;
       boolean hasDefaultCandidate();
       /**
        * <pre>
-       * Required. The default candidate (in case the model fails at serving
-       * time, we can fall back to the default).
+       * Required. The default candidate. If the model fails at serving time,
+       * we fall back to the default.
        * </pre>
        *
        * <code>.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate default_candidate = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2337,8 +2088,8 @@ private static final long serialVersionUID = 0L;
       com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate getDefaultCandidate();
       /**
        * <pre>
-       * Required. The default candidate (in case the model fails at serving
-       * time, we can fall back to the default).
+       * Required. The default candidate. If the model fails at serving time,
+       * we fall back to the default.
        * </pre>
        *
        * <code>.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate default_candidate = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2380,77 +2131,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Panel(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                displayName_ = s;
-                break;
-              }
-              case 18: {
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  candidates_ = new java.util.ArrayList<com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate>();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                candidates_.add(
-                    input.readMessage(com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate.parser(), extensionRegistry));
-                break;
-              }
-              case 26: {
-                com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate.Builder subBuilder = null;
-                if (defaultCandidate_ != null) {
-                  subBuilder = defaultCandidate_.toBuilder();
-                }
-                defaultCandidate_ = input.readMessage(com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(defaultCandidate_);
-                  defaultCandidate_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          if (((mutable_bitField0_ & 0x00000001) != 0)) {
-            candidates_ = java.util.Collections.unmodifiableList(candidates_);
-          }
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.retail.v2alpha.ModelProto.internal_static_google_cloud_retail_v2alpha_Model_PageOptimizationConfig_Panel_descriptor;
@@ -2465,7 +2145,8 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int DISPLAY_NAME_FIELD_NUMBER = 1;
-      private volatile java.lang.Object displayName_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object displayName_ = "";
       /**
        * <pre>
        * Optional. The name to display for the panel.
@@ -2511,11 +2192,11 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int CANDIDATES_FIELD_NUMBER = 2;
+      @SuppressWarnings("serial")
       private java.util.List<com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate> candidates_;
       /**
        * <pre>
        * Required. The candidates to consider on the panel.
-       * Limit = 10.
        * </pre>
        *
        * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2527,7 +2208,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. The candidates to consider on the panel.
-       * Limit = 10.
        * </pre>
        *
        * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2540,7 +2220,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. The candidates to consider on the panel.
-       * Limit = 10.
        * </pre>
        *
        * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2552,7 +2231,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. The candidates to consider on the panel.
-       * Limit = 10.
        * </pre>
        *
        * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2564,7 +2242,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. The candidates to consider on the panel.
-       * Limit = 10.
        * </pre>
        *
        * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2579,8 +2256,8 @@ private static final long serialVersionUID = 0L;
       private com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate defaultCandidate_;
       /**
        * <pre>
-       * Required. The default candidate (in case the model fails at serving
-       * time, we can fall back to the default).
+       * Required. The default candidate. If the model fails at serving time,
+       * we fall back to the default.
        * </pre>
        *
        * <code>.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate default_candidate = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2592,8 +2269,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The default candidate (in case the model fails at serving
-       * time, we can fall back to the default).
+       * Required. The default candidate. If the model fails at serving time,
+       * we fall back to the default.
        * </pre>
        *
        * <code>.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate default_candidate = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2605,15 +2282,15 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The default candidate (in case the model fails at serving
-       * time, we can fall back to the default).
+       * Required. The default candidate. If the model fails at serving time,
+       * we fall back to the default.
        * </pre>
        *
        * <code>.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate default_candidate = 3 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       @java.lang.Override
       public com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.CandidateOrBuilder getDefaultCandidateOrBuilder() {
-        return getDefaultCandidate();
+        return defaultCandidate_ == null ? com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate.getDefaultInstance() : defaultCandidate_;
       }
 
       private byte memoizedIsInitialized = -1;
@@ -2639,7 +2316,7 @@ private static final long serialVersionUID = 0L;
         if (defaultCandidate_ != null) {
           output.writeMessage(3, getDefaultCandidate());
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -2659,7 +2336,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(3, getDefaultCandidate());
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -2683,7 +2360,7 @@ private static final long serialVersionUID = 0L;
           if (!getDefaultCandidate()
               .equals(other.getDefaultCandidate())) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -2704,7 +2381,7 @@ private static final long serialVersionUID = 0L;
           hash = (37 * hash) + DEFAULT_CANDIDATE_FIELD_NUMBER;
           hash = (53 * hash) + getDefaultCandidate().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -2827,35 +2504,29 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-            getCandidatesFieldBuilder();
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           displayName_ = "";
-
           if (candidatesBuilder_ == null) {
             candidates_ = java.util.Collections.emptyList();
-            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
+            candidates_ = null;
             candidatesBuilder_.clear();
           }
-          if (defaultCandidateBuilder_ == null) {
-            defaultCandidate_ = null;
-          } else {
-            defaultCandidate_ = null;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          defaultCandidate_ = null;
+          if (defaultCandidateBuilder_ != null) {
+            defaultCandidateBuilder_.dispose();
             defaultCandidateBuilder_ = null;
           }
           return this;
@@ -2884,24 +2555,34 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel buildPartial() {
           com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel result = new com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel(this);
-          int from_bitField0_ = bitField0_;
-          result.displayName_ = displayName_;
+          buildPartialRepeatedFields(result);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartialRepeatedFields(com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel result) {
           if (candidatesBuilder_ == null) {
-            if (((bitField0_ & 0x00000001) != 0)) {
+            if (((bitField0_ & 0x00000002) != 0)) {
               candidates_ = java.util.Collections.unmodifiableList(candidates_);
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             }
             result.candidates_ = candidates_;
           } else {
             result.candidates_ = candidatesBuilder_.build();
           }
-          if (defaultCandidateBuilder_ == null) {
-            result.defaultCandidate_ = defaultCandidate_;
-          } else {
-            result.defaultCandidate_ = defaultCandidateBuilder_.build();
+        }
+
+        private void buildPartial0(com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.displayName_ = displayName_;
           }
-          onBuilt();
-          return result;
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.defaultCandidate_ = defaultCandidateBuilder_ == null
+                ? defaultCandidate_
+                : defaultCandidateBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -2950,13 +2631,14 @@ private static final long serialVersionUID = 0L;
           if (other == com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel.getDefaultInstance()) return this;
           if (!other.getDisplayName().isEmpty()) {
             displayName_ = other.displayName_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (candidatesBuilder_ == null) {
             if (!other.candidates_.isEmpty()) {
               if (candidates_.isEmpty()) {
                 candidates_ = other.candidates_;
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = (bitField0_ & ~0x00000002);
               } else {
                 ensureCandidatesIsMutable();
                 candidates_.addAll(other.candidates_);
@@ -2969,7 +2651,7 @@ private static final long serialVersionUID = 0L;
                 candidatesBuilder_.dispose();
                 candidatesBuilder_ = null;
                 candidates_ = other.candidates_;
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = (bitField0_ & ~0x00000002);
                 candidatesBuilder_ = 
                   com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                      getCandidatesFieldBuilder() : null;
@@ -2981,7 +2663,7 @@ private static final long serialVersionUID = 0L;
           if (other.hasDefaultCandidate()) {
             mergeDefaultCandidate(other.getDefaultCandidate());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -2996,17 +2678,55 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  displayName_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate m =
+                      input.readMessage(
+                          com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate.parser(),
+                          extensionRegistry);
+                  if (candidatesBuilder_ == null) {
+                    ensureCandidatesIsMutable();
+                    candidates_.add(m);
+                  } else {
+                    candidatesBuilder_.addMessage(m);
+                  }
+                  break;
+                } // case 18
+                case 26: {
+                  input.readMessage(
+                      getDefaultCandidateFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 26
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -3064,11 +2784,9 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDisplayName(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           displayName_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -3081,8 +2799,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearDisplayName() {
-          
           displayName_ = getDefaultInstance().getDisplayName();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -3097,12 +2815,10 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDisplayNameBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           displayName_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -3110,9 +2826,9 @@ private static final long serialVersionUID = 0L;
         private java.util.List<com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate> candidates_ =
           java.util.Collections.emptyList();
         private void ensureCandidatesIsMutable() {
-          if (!((bitField0_ & 0x00000001) != 0)) {
+          if (!((bitField0_ & 0x00000002) != 0)) {
             candidates_ = new java.util.ArrayList<com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate>(candidates_);
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000002;
            }
         }
 
@@ -3122,7 +2838,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3137,7 +2852,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3152,7 +2866,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3167,7 +2880,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3189,7 +2901,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3208,7 +2919,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3229,7 +2939,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3251,7 +2960,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3270,7 +2978,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3289,7 +2996,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3309,7 +3015,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3317,7 +3022,7 @@ private static final long serialVersionUID = 0L;
         public Builder clearCandidates() {
           if (candidatesBuilder_ == null) {
             candidates_ = java.util.Collections.emptyList();
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             onChanged();
           } else {
             candidatesBuilder_.clear();
@@ -3327,7 +3032,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3345,7 +3049,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3357,7 +3060,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3372,7 +3074,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3388,7 +3089,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3400,7 +3100,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3413,7 +3112,6 @@ private static final long serialVersionUID = 0L;
         /**
          * <pre>
          * Required. The candidates to consider on the panel.
-         * Limit = 10.
          * </pre>
          *
          * <code>repeated .google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate candidates = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3429,7 +3127,7 @@ private static final long serialVersionUID = 0L;
             candidatesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
                 com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate, com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate.Builder, com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.CandidateOrBuilder>(
                     candidates_,
-                    ((bitField0_ & 0x00000001) != 0),
+                    ((bitField0_ & 0x00000002) != 0),
                     getParentForChildren(),
                     isClean());
             candidates_ = null;
@@ -3442,20 +3140,20 @@ private static final long serialVersionUID = 0L;
             com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate, com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate.Builder, com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.CandidateOrBuilder> defaultCandidateBuilder_;
         /**
          * <pre>
-         * Required. The default candidate (in case the model fails at serving
-         * time, we can fall back to the default).
+         * Required. The default candidate. If the model fails at serving time,
+         * we fall back to the default.
          * </pre>
          *
          * <code>.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate default_candidate = 3 [(.google.api.field_behavior) = REQUIRED];</code>
          * @return Whether the defaultCandidate field is set.
          */
         public boolean hasDefaultCandidate() {
-          return defaultCandidateBuilder_ != null || defaultCandidate_ != null;
+          return ((bitField0_ & 0x00000004) != 0);
         }
         /**
          * <pre>
-         * Required. The default candidate (in case the model fails at serving
-         * time, we can fall back to the default).
+         * Required. The default candidate. If the model fails at serving time,
+         * we fall back to the default.
          * </pre>
          *
          * <code>.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate default_candidate = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3470,8 +3168,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Required. The default candidate (in case the model fails at serving
-         * time, we can fall back to the default).
+         * Required. The default candidate. If the model fails at serving time,
+         * we fall back to the default.
          * </pre>
          *
          * <code>.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate default_candidate = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3482,17 +3180,17 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             defaultCandidate_ = value;
-            onChanged();
           } else {
             defaultCandidateBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000004;
+          onChanged();
           return this;
         }
         /**
          * <pre>
-         * Required. The default candidate (in case the model fails at serving
-         * time, we can fall back to the default).
+         * Required. The default candidate. If the model fails at serving time,
+         * we fall back to the default.
          * </pre>
          *
          * <code>.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate default_candidate = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3501,72 +3199,72 @@ private static final long serialVersionUID = 0L;
             com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate.Builder builderForValue) {
           if (defaultCandidateBuilder_ == null) {
             defaultCandidate_ = builderForValue.build();
-            onChanged();
           } else {
             defaultCandidateBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000004;
+          onChanged();
           return this;
         }
         /**
          * <pre>
-         * Required. The default candidate (in case the model fails at serving
-         * time, we can fall back to the default).
+         * Required. The default candidate. If the model fails at serving time,
+         * we fall back to the default.
          * </pre>
          *
          * <code>.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate default_candidate = 3 [(.google.api.field_behavior) = REQUIRED];</code>
          */
         public Builder mergeDefaultCandidate(com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate value) {
           if (defaultCandidateBuilder_ == null) {
-            if (defaultCandidate_ != null) {
-              defaultCandidate_ =
-                com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate.newBuilder(defaultCandidate_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000004) != 0) &&
+              defaultCandidate_ != null &&
+              defaultCandidate_ != com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate.getDefaultInstance()) {
+              getDefaultCandidateBuilder().mergeFrom(value);
             } else {
               defaultCandidate_ = value;
             }
-            onChanged();
           } else {
             defaultCandidateBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000004;
+          onChanged();
           return this;
         }
         /**
          * <pre>
-         * Required. The default candidate (in case the model fails at serving
-         * time, we can fall back to the default).
+         * Required. The default candidate. If the model fails at serving time,
+         * we fall back to the default.
          * </pre>
          *
          * <code>.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate default_candidate = 3 [(.google.api.field_behavior) = REQUIRED];</code>
          */
         public Builder clearDefaultCandidate() {
-          if (defaultCandidateBuilder_ == null) {
-            defaultCandidate_ = null;
-            onChanged();
-          } else {
-            defaultCandidate_ = null;
+          bitField0_ = (bitField0_ & ~0x00000004);
+          defaultCandidate_ = null;
+          if (defaultCandidateBuilder_ != null) {
+            defaultCandidateBuilder_.dispose();
             defaultCandidateBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
          * <pre>
-         * Required. The default candidate (in case the model fails at serving
-         * time, we can fall back to the default).
+         * Required. The default candidate. If the model fails at serving time,
+         * we fall back to the default.
          * </pre>
          *
          * <code>.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate default_candidate = 3 [(.google.api.field_behavior) = REQUIRED];</code>
          */
         public com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate.Builder getDefaultCandidateBuilder() {
-          
+          bitField0_ |= 0x00000004;
           onChanged();
           return getDefaultCandidateFieldBuilder().getBuilder();
         }
         /**
          * <pre>
-         * Required. The default candidate (in case the model fails at serving
-         * time, we can fall back to the default).
+         * Required. The default candidate. If the model fails at serving time,
+         * we fall back to the default.
          * </pre>
          *
          * <code>.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate default_candidate = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3581,8 +3279,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Required. The default candidate (in case the model fails at serving
-         * time, we can fall back to the default).
+         * Required. The default candidate. If the model fails at serving time,
+         * we fall back to the default.
          * </pre>
          *
          * <code>.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Candidate default_candidate = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3633,7 +3331,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Panel(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -3654,7 +3363,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PAGE_OPTIMIZATION_EVENT_TYPE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object pageOptimizationEventType_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object pageOptimizationEventType_ = "";
     /**
      * <pre>
      * Required. The type of [UserEvent][google.cloud.retail.v2alpha.UserEvent]
@@ -3726,6 +3436,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PANELS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel> panels_;
     /**
      * <pre>
@@ -3791,7 +3502,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int RESTRICTION_FIELD_NUMBER = 3;
-    private int restriction_;
+    private int restriction_ = 0;
     /**
      * <pre>
      * Optional. How to restrict results across panels e.g. can the same
@@ -3818,8 +3529,7 @@ private static final long serialVersionUID = 0L;
      * @return The restriction.
      */
     @java.lang.Override public com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Restriction getRestriction() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Restriction result = com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Restriction.valueOf(restriction_);
+      com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Restriction result = com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Restriction.forNumber(restriction_);
       return result == null ? com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Restriction.UNRECOGNIZED : result;
     }
 
@@ -3846,7 +3556,7 @@ private static final long serialVersionUID = 0L;
       if (restriction_ != com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Restriction.RESTRICTION_UNSPECIFIED.getNumber()) {
         output.writeEnum(3, restriction_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3866,7 +3576,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, restriction_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3886,7 +3596,7 @@ private static final long serialVersionUID = 0L;
       if (!getPanelsList()
           .equals(other.getPanelsList())) return false;
       if (restriction_ != other.restriction_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3905,7 +3615,7 @@ private static final long serialVersionUID = 0L;
       }
       hash = (37 * hash) + RESTRICTION_FIELD_NUMBER;
       hash = (53 * hash) + restriction_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4004,7 +3714,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The PageOptimizationConfig for model training.
      * This determines how many panels to optimize for, and which serving
-     * configurations to consider for each panel.
+     * configs to consider for each panel.
      * The purpose of this model is to optimize which
      * [ServingConfig][google.cloud.retail.v2alpha.ServingConfig] to show on which
      * panels in way that optimizes the visitors shopping journey.
@@ -4031,33 +3741,27 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getPanelsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         pageOptimizationEventType_ = "";
-
         if (panelsBuilder_ == null) {
           panels_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          panels_ = null;
           panelsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         restriction_ = 0;
-
         return this;
       }
 
@@ -4084,20 +3788,32 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig buildPartial() {
         com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig result = new com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig(this);
-        int from_bitField0_ = bitField0_;
-        result.pageOptimizationEventType_ = pageOptimizationEventType_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig result) {
         if (panelsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             panels_ = java.util.Collections.unmodifiableList(panels_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.panels_ = panels_;
         } else {
           result.panels_ = panelsBuilder_.build();
         }
-        result.restriction_ = restriction_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.pageOptimizationEventType_ = pageOptimizationEventType_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.restriction_ = restriction_;
+        }
       }
 
       @java.lang.Override
@@ -4146,13 +3862,14 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.getDefaultInstance()) return this;
         if (!other.getPageOptimizationEventType().isEmpty()) {
           pageOptimizationEventType_ = other.pageOptimizationEventType_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (panelsBuilder_ == null) {
           if (!other.panels_.isEmpty()) {
             if (panels_.isEmpty()) {
               panels_ = other.panels_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensurePanelsIsMutable();
               panels_.addAll(other.panels_);
@@ -4165,7 +3882,7 @@ private static final long serialVersionUID = 0L;
               panelsBuilder_.dispose();
               panelsBuilder_ = null;
               panels_ = other.panels_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               panelsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getPanelsFieldBuilder() : null;
@@ -4177,7 +3894,7 @@ private static final long serialVersionUID = 0L;
         if (other.restriction_ != 0) {
           setRestrictionValue(other.getRestrictionValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4192,17 +3909,53 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                pageOptimizationEventType_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel m =
+                    input.readMessage(
+                        com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel.parser(),
+                        extensionRegistry);
+                if (panelsBuilder_ == null) {
+                  ensurePanelsIsMutable();
+                  panels_.add(m);
+                } else {
+                  panelsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              case 24: {
+                restriction_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -4299,11 +4052,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPageOptimizationEventType(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         pageOptimizationEventType_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4329,8 +4080,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPageOptimizationEventType() {
-        
         pageOptimizationEventType_ = getDefaultInstance().getPageOptimizationEventType();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4358,12 +4109,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPageOptimizationEventTypeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         pageOptimizationEventType_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4371,9 +4120,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel> panels_ =
         java.util.Collections.emptyList();
       private void ensurePanelsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           panels_ = new java.util.ArrayList<com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel>(panels_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -4578,7 +4327,7 @@ private static final long serialVersionUID = 0L;
       public Builder clearPanels() {
         if (panelsBuilder_ == null) {
           panels_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           panelsBuilder_.clear();
@@ -4690,7 +4439,7 @@ private static final long serialVersionUID = 0L;
           panelsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel, com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Panel.Builder, com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.PanelOrBuilder>(
                   panels_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           panels_ = null;
@@ -4726,8 +4475,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setRestrictionValue(int value) {
-        
         restriction_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -4744,8 +4493,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Restriction getRestriction() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Restriction result = com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Restriction.valueOf(restriction_);
+        com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Restriction result = com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Restriction.forNumber(restriction_);
         return result == null ? com.google.cloud.retail.v2alpha.Model.PageOptimizationConfig.Restriction.UNRECOGNIZED : result;
       }
       /**
@@ -4764,7 +4512,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         restriction_ = value.getNumber();
         onChanged();
         return this;
@@ -4781,7 +4529,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearRestriction() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         restriction_ = 0;
         onChanged();
         return this;
@@ -4819,7 +4567,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PageOptimizationConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4846,7 +4605,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional. A set of valid serving configs that may be used for
-     * PAGE_OPTIMIZATION.
+     * `PAGE_OPTIMIZATION`.
      * </pre>
      *
      * <code>repeated string serving_config_ids = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4857,7 +4616,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional. A set of valid serving configs that may be used for
-     * PAGE_OPTIMIZATION.
+     * `PAGE_OPTIMIZATION`.
      * </pre>
      *
      * <code>repeated string serving_config_ids = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4867,7 +4626,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional. A set of valid serving configs that may be used for
-     * PAGE_OPTIMIZATION.
+     * `PAGE_OPTIMIZATION`.
      * </pre>
      *
      * <code>repeated string serving_config_ids = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4878,7 +4637,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional. A set of valid serving configs that may be used for
-     * PAGE_OPTIMIZATION.
+     * `PAGE_OPTIMIZATION`.
      * </pre>
      *
      * <code>repeated string serving_config_ids = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4891,7 +4650,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Represents an ordered combination of valid serving configs, which
-   * / may be used for PAGE_OPTIMIZATION recommendations.
+   * can be used for `PAGE_OPTIMIZATION` recommendations.
    * </pre>
    *
    * Protobuf type {@code google.cloud.retail.v2alpha.Model.ServingConfigList}
@@ -4921,58 +4680,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ServingConfigList(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                servingConfigIds_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              servingConfigIds_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          servingConfigIds_ = servingConfigIds_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.retail.v2alpha.ModelProto.internal_static_google_cloud_retail_v2alpha_Model_ServingConfigList_descriptor;
@@ -4987,11 +4694,12 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SERVING_CONFIG_IDS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList servingConfigIds_;
     /**
      * <pre>
      * Optional. A set of valid serving configs that may be used for
-     * PAGE_OPTIMIZATION.
+     * `PAGE_OPTIMIZATION`.
      * </pre>
      *
      * <code>repeated string serving_config_ids = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5004,7 +4712,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional. A set of valid serving configs that may be used for
-     * PAGE_OPTIMIZATION.
+     * `PAGE_OPTIMIZATION`.
      * </pre>
      *
      * <code>repeated string serving_config_ids = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5016,7 +4724,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional. A set of valid serving configs that may be used for
-     * PAGE_OPTIMIZATION.
+     * `PAGE_OPTIMIZATION`.
      * </pre>
      *
      * <code>repeated string serving_config_ids = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5029,7 +4737,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional. A set of valid serving configs that may be used for
-     * PAGE_OPTIMIZATION.
+     * `PAGE_OPTIMIZATION`.
      * </pre>
      *
      * <code>repeated string serving_config_ids = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5058,7 +4766,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < servingConfigIds_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, servingConfigIds_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5075,7 +4783,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getServingConfigIdsList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5092,7 +4800,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getServingConfigIdsList()
           .equals(other.getServingConfigIdsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5107,7 +4815,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + SERVING_CONFIG_IDS_FIELD_NUMBER;
         hash = (53 * hash) + getServingConfigIdsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5205,7 +4913,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Represents an ordered combination of valid serving configs, which
-     * / may be used for PAGE_OPTIMIZATION recommendations.
+     * can be used for `PAGE_OPTIMIZATION` recommendations.
      * </pre>
      *
      * Protobuf type {@code google.cloud.retail.v2alpha.Model.ServingConfigList}
@@ -5229,22 +4937,18 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.retail.v2alpha.Model.ServingConfigList.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         servingConfigIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -5273,14 +4977,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.retail.v2alpha.Model.ServingConfigList buildPartial() {
         com.google.cloud.retail.v2alpha.Model.ServingConfigList result = new com.google.cloud.retail.v2alpha.Model.ServingConfigList(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.retail.v2alpha.Model.ServingConfigList result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           servingConfigIds_ = servingConfigIds_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.servingConfigIds_ = servingConfigIds_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.retail.v2alpha.Model.ServingConfigList result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -5337,7 +5049,7 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5352,17 +5064,36 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.retail.v2alpha.Model.ServingConfigList parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureServingConfigIdsIsMutable();
+                servingConfigIds_.add(s);
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.retail.v2alpha.Model.ServingConfigList) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -5377,7 +5108,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Optional. A set of valid serving configs that may be used for
-       * PAGE_OPTIMIZATION.
+       * `PAGE_OPTIMIZATION`.
        * </pre>
        *
        * <code>repeated string serving_config_ids = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5390,7 +5121,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Optional. A set of valid serving configs that may be used for
-       * PAGE_OPTIMIZATION.
+       * `PAGE_OPTIMIZATION`.
        * </pre>
        *
        * <code>repeated string serving_config_ids = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5402,7 +5133,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Optional. A set of valid serving configs that may be used for
-       * PAGE_OPTIMIZATION.
+       * `PAGE_OPTIMIZATION`.
        * </pre>
        *
        * <code>repeated string serving_config_ids = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5415,7 +5146,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Optional. A set of valid serving configs that may be used for
-       * PAGE_OPTIMIZATION.
+       * `PAGE_OPTIMIZATION`.
        * </pre>
        *
        * <code>repeated string serving_config_ids = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5429,7 +5160,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Optional. A set of valid serving configs that may be used for
-       * PAGE_OPTIMIZATION.
+       * `PAGE_OPTIMIZATION`.
        * </pre>
        *
        * <code>repeated string serving_config_ids = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5439,10 +5170,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setServingConfigIds(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureServingConfigIdsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureServingConfigIdsIsMutable();
         servingConfigIds_.set(index, value);
         onChanged();
         return this;
@@ -5450,7 +5179,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Optional. A set of valid serving configs that may be used for
-       * PAGE_OPTIMIZATION.
+       * `PAGE_OPTIMIZATION`.
        * </pre>
        *
        * <code>repeated string serving_config_ids = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5459,10 +5188,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addServingConfigIds(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureServingConfigIdsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureServingConfigIdsIsMutable();
         servingConfigIds_.add(value);
         onChanged();
         return this;
@@ -5470,7 +5197,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Optional. A set of valid serving configs that may be used for
-       * PAGE_OPTIMIZATION.
+       * `PAGE_OPTIMIZATION`.
        * </pre>
        *
        * <code>repeated string serving_config_ids = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5488,7 +5215,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Optional. A set of valid serving configs that may be used for
-       * PAGE_OPTIMIZATION.
+       * `PAGE_OPTIMIZATION`.
        * </pre>
        *
        * <code>repeated string serving_config_ids = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5503,7 +5230,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Optional. A set of valid serving configs that may be used for
-       * PAGE_OPTIMIZATION.
+       * `PAGE_OPTIMIZATION`.
        * </pre>
        *
        * <code>repeated string serving_config_ids = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5512,10 +5239,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addServingConfigIdsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureServingConfigIdsIsMutable();
         servingConfigIds_.add(value);
         onChanged();
@@ -5554,7 +5279,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ServingConfigList(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5657,12 +5393,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The fully qualified resource name of the model.
    * Format:
-   * projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}
+   * `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
    * catalog_id has char limit of 50.
    * recommendation_model_id has char limit of 40.
    * </pre>
@@ -5687,7 +5424,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Required. The fully qualified resource name of the model.
    * Format:
-   * projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}
+   * `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
    * catalog_id has char limit of 50.
    * recommendation_model_id has char limit of 40.
    * </pre>
@@ -5711,12 +5448,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Required. The display name of the model.
    * Should be human readable, used to display Recommendation Models in the
-   * Retail Cloud Cosole Dashboard. UTF-8 encoded string with limit of 1024
+   * Retail Cloud Console Dashboard. UTF-8 encoded string with limit of 1024
    * characters.
    * </pre>
    *
@@ -5740,7 +5478,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Required. The display name of the model.
    * Should be human readable, used to display Recommendation Models in the
-   * Retail Cloud Cosole Dashboard. UTF-8 encoded string with limit of 1024
+   * Retail Cloud Console Dashboard. UTF-8 encoded string with limit of 1024
    * characters.
    * </pre>
    *
@@ -5763,16 +5501,16 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRAINING_STATE_FIELD_NUMBER = 3;
-  private int trainingState_;
+  private int trainingState_ = 0;
   /**
    * <pre>
    * Optional. The training state that the model is in (e.g.
-   * TRAINING or PAUSED).
+   * `TRAINING` or `PAUSED`).
    * Since part of the cost of running the service
    * is frequency of training - this can be used to determine when to train
    * model in order to control cost. If not specified: the default value for
-   * CreateModel method is TRAINING. the default value for
-   * UpdateModel method is to keep the state the same as before.
+   * `CreateModel` method is `TRAINING`. The default value for
+   * `UpdateModel` method is to keep the state the same as before.
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.Model.TrainingState training_state = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5784,28 +5522,27 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Optional. The training state that the model is in (e.g.
-   * TRAINING or PAUSED).
+   * `TRAINING` or `PAUSED`).
    * Since part of the cost of running the service
    * is frequency of training - this can be used to determine when to train
    * model in order to control cost. If not specified: the default value for
-   * CreateModel method is TRAINING. the default value for
-   * UpdateModel method is to keep the state the same as before.
+   * `CreateModel` method is `TRAINING`. The default value for
+   * `UpdateModel` method is to keep the state the same as before.
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.Model.TrainingState training_state = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The trainingState.
    */
   @java.lang.Override public com.google.cloud.retail.v2alpha.Model.TrainingState getTrainingState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.retail.v2alpha.Model.TrainingState result = com.google.cloud.retail.v2alpha.Model.TrainingState.valueOf(trainingState_);
+    com.google.cloud.retail.v2alpha.Model.TrainingState result = com.google.cloud.retail.v2alpha.Model.TrainingState.forNumber(trainingState_);
     return result == null ? com.google.cloud.retail.v2alpha.Model.TrainingState.UNRECOGNIZED : result;
   }
 
   public static final int SERVING_STATE_FIELD_NUMBER = 4;
-  private int servingState_;
+  private int servingState_ = 0;
   /**
    * <pre>
-   * Output only. The serving state of the model: ACTIVE, NOT_ACTIVE.
+   * Output only. The serving state of the model: `ACTIVE`, `NOT_ACTIVE`.
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.Model.ServingState serving_state = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5816,15 +5553,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The serving state of the model: ACTIVE, NOT_ACTIVE.
+   * Output only. The serving state of the model: `ACTIVE`, `NOT_ACTIVE`.
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.Model.ServingState serving_state = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The servingState.
    */
   @java.lang.Override public com.google.cloud.retail.v2alpha.Model.ServingState getServingState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.retail.v2alpha.Model.ServingState result = com.google.cloud.retail.v2alpha.Model.ServingState.valueOf(servingState_);
+    com.google.cloud.retail.v2alpha.Model.ServingState result = com.google.cloud.retail.v2alpha.Model.ServingState.forNumber(servingState_);
     return result == null ? com.google.cloud.retail.v2alpha.Model.ServingState.UNRECOGNIZED : result;
   }
 
@@ -5863,7 +5599,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 6;
@@ -5907,17 +5643,27 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int TYPE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object type_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object type_ = "";
   /**
    * <pre>
    * Required. The type of model e.g. `home-page`.
    * Currently supported values: `recommended-for-you`, `others-you-may-like`,
-   * `frequently-bought-together`, `page-optimization`, 'similar-items',
-   * 'buy-it-again', `recently-viewed`(readonly value).
+   * `frequently-bought-together`, `page-optimization`, `similar-items`,
+   * `buy-it-again`, `on-sale-items`, and `recently-viewed`(readonly value).
+   * This field together with
+   * [optimization_objective][google.cloud.retail.v2alpha.Model.optimization_objective]
+   * describe model metadata to use to control model training and serving.
+   * See https://cloud.google.com/retail/docs/models
+   * for more details on what the model metadata control and which combination
+   * of parameters are valid. For invalid combinations of parameters (e.g. type
+   * = `frequently-bought-together` and optimization_objective = `ctr`), you
+   * receive an error 400 if you try to create/update a recommendation with
+   * this set of knobs.
    * </pre>
    *
    * <code>string type = 7 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -5940,8 +5686,17 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Required. The type of model e.g. `home-page`.
    * Currently supported values: `recommended-for-you`, `others-you-may-like`,
-   * `frequently-bought-together`, `page-optimization`, 'similar-items',
-   * 'buy-it-again', `recently-viewed`(readonly value).
+   * `frequently-bought-together`, `page-optimization`, `similar-items`,
+   * `buy-it-again`, `on-sale-items`, and `recently-viewed`(readonly value).
+   * This field together with
+   * [optimization_objective][google.cloud.retail.v2alpha.Model.optimization_objective]
+   * describe model metadata to use to control model training and serving.
+   * See https://cloud.google.com/retail/docs/models
+   * for more details on what the model metadata control and which combination
+   * of parameters are valid. For invalid combinations of parameters (e.g. type
+   * = `frequently-bought-together` and optimization_objective = `ctr`), you
+   * receive an error 400 if you try to create/update a recommendation with
+   * this set of knobs.
    * </pre>
    *
    * <code>string type = 7 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -5963,7 +5718,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OPTIMIZATION_OBJECTIVE_FIELD_NUMBER = 8;
-  private volatile java.lang.Object optimizationObjective_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object optimizationObjective_ = "";
   /**
    * <pre>
    * Optional. The optimization objective e.g. `cvr`.
@@ -5974,6 +5730,15 @@ private static final long serialVersionUID = 0L;
    * `recommended-for-you` =&gt; `ctr`
    * `others-you-may-like` =&gt; `ctr`
    * `frequently-bought-together` =&gt; `revenue_per_order`
+   * This field together with
+   * [optimization_objective][google.cloud.retail.v2alpha.Model.type]
+   * describe model metadata to use to control model training and serving.
+   * See https://cloud.google.com/retail/docs/models
+   * for more details on what the model metadata control and which combination
+   * of parameters are valid. For invalid combinations of parameters (e.g. type
+   * = `frequently-bought-together` and optimization_objective = `ctr`), you
+   * receive an error 400 if you try to create/update a recommendation with
+   * this set of knobs.
    * </pre>
    *
    * <code>string optimization_objective = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -6002,6 +5767,15 @@ private static final long serialVersionUID = 0L;
    * `recommended-for-you` =&gt; `ctr`
    * `others-you-may-like` =&gt; `ctr`
    * `frequently-bought-together` =&gt; `revenue_per_order`
+   * This field together with
+   * [optimization_objective][google.cloud.retail.v2alpha.Model.type]
+   * describe model metadata to use to control model training and serving.
+   * See https://cloud.google.com/retail/docs/models
+   * for more details on what the model metadata control and which combination
+   * of parameters are valid. For invalid combinations of parameters (e.g. type
+   * = `frequently-bought-together` and optimization_objective = `ctr`), you
+   * receive an error 400 if you try to create/update a recommendation with
+   * this set of knobs.
    * </pre>
    *
    * <code>string optimization_objective = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -6023,13 +5797,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PERIODIC_TUNING_STATE_FIELD_NUMBER = 11;
-  private int periodicTuningState_;
+  private int periodicTuningState_ = 0;
   /**
    * <pre>
    * Optional. The state of periodic tuning.
    * The period we use is 3 months - to do a
-   * one-off tune earlier use the TuneModel method. Default value
-   * is PERIODIC_TUNING_ENABLED.
+   * one-off tune earlier use the `TuneModel` method. Default value
+   * is `PERIODIC_TUNING_ENABLED`.
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.Model.PeriodicTuningState periodic_tuning_state = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -6042,16 +5816,15 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Optional. The state of periodic tuning.
    * The period we use is 3 months - to do a
-   * one-off tune earlier use the TuneModel method. Default value
-   * is PERIODIC_TUNING_ENABLED.
+   * one-off tune earlier use the `TuneModel` method. Default value
+   * is `PERIODIC_TUNING_ENABLED`.
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.Model.PeriodicTuningState periodic_tuning_state = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The periodicTuningState.
    */
   @java.lang.Override public com.google.cloud.retail.v2alpha.Model.PeriodicTuningState getPeriodicTuningState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.retail.v2alpha.Model.PeriodicTuningState result = com.google.cloud.retail.v2alpha.Model.PeriodicTuningState.valueOf(periodicTuningState_);
+    com.google.cloud.retail.v2alpha.Model.PeriodicTuningState result = com.google.cloud.retail.v2alpha.Model.PeriodicTuningState.forNumber(periodicTuningState_);
     return result == null ? com.google.cloud.retail.v2alpha.Model.PeriodicTuningState.UNRECOGNIZED : result;
   }
 
@@ -6090,11 +5863,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getLastTuneTimeOrBuilder() {
-    return getLastTuneTime();
+    return lastTuneTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastTuneTime_;
   }
 
   public static final int TUNING_OPERATION_FIELD_NUMBER = 15;
-  private volatile java.lang.Object tuningOperation_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object tuningOperation_ = "";
   /**
    * <pre>
    * Output only. The tune operation associated with the model.
@@ -6144,14 +5918,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATA_STATE_FIELD_NUMBER = 16;
-  private int dataState_;
+  private int dataState_ = 0;
   /**
    * <pre>
-   * Output only. The state of data requirements for this model: DATA_OK and
-   * DATA_ERROR.
+   * Output only. The state of data requirements for this model: `DATA_OK` and
+   * `DATA_ERROR`.
    * Recommendation model cannot be trained if the data is in
-   * DATA_ERROR state. Recommendation model can have DATA_ERROR state even if
-   * serving state is ACTIVE: models were trained successfully before, but
+   * `DATA_ERROR` state. Recommendation model can have `DATA_ERROR` state even
+   * if serving state is `ACTIVE`: models were trained successfully before, but
    * cannot be refreshed because model no longer has sufficient
    * data for training.
    * </pre>
@@ -6164,11 +5938,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The state of data requirements for this model: DATA_OK and
-   * DATA_ERROR.
+   * Output only. The state of data requirements for this model: `DATA_OK` and
+   * `DATA_ERROR`.
    * Recommendation model cannot be trained if the data is in
-   * DATA_ERROR state. Recommendation model can have DATA_ERROR state even if
-   * serving state is ACTIVE: models were trained successfully before, but
+   * `DATA_ERROR` state. Recommendation model can have `DATA_ERROR` state even
+   * if serving state is `ACTIVE`: models were trained successfully before, but
    * cannot be refreshed because model no longer has sufficient
    * data for training.
    * </pre>
@@ -6177,17 +5951,16 @@ private static final long serialVersionUID = 0L;
    * @return The dataState.
    */
   @java.lang.Override public com.google.cloud.retail.v2alpha.Model.DataState getDataState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.retail.v2alpha.Model.DataState result = com.google.cloud.retail.v2alpha.Model.DataState.valueOf(dataState_);
+    com.google.cloud.retail.v2alpha.Model.DataState result = com.google.cloud.retail.v2alpha.Model.DataState.forNumber(dataState_);
     return result == null ? com.google.cloud.retail.v2alpha.Model.DataState.UNRECOGNIZED : result;
   }
 
   public static final int FILTERING_OPTION_FIELD_NUMBER = 18;
-  private int filteringOption_;
+  private int filteringOption_ = 0;
   /**
    * <pre>
-   * Optional. If RECOMMENDATIONS_FILTERING_ENABLED, recommendation filtering by
-   * attributes is enabled for the model.
+   * Optional. If `RECOMMENDATIONS_FILTERING_ENABLED`, recommendation filtering
+   * by attributes is enabled for the model.
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.RecommendationsFilteringOption filtering_option = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -6198,20 +5971,20 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. If RECOMMENDATIONS_FILTERING_ENABLED, recommendation filtering by
-   * attributes is enabled for the model.
+   * Optional. If `RECOMMENDATIONS_FILTERING_ENABLED`, recommendation filtering
+   * by attributes is enabled for the model.
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.RecommendationsFilteringOption filtering_option = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The filteringOption.
    */
   @java.lang.Override public com.google.cloud.retail.v2alpha.RecommendationsFilteringOption getFilteringOption() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.retail.v2alpha.RecommendationsFilteringOption result = com.google.cloud.retail.v2alpha.RecommendationsFilteringOption.valueOf(filteringOption_);
+    com.google.cloud.retail.v2alpha.RecommendationsFilteringOption result = com.google.cloud.retail.v2alpha.RecommendationsFilteringOption.forNumber(filteringOption_);
     return result == null ? com.google.cloud.retail.v2alpha.RecommendationsFilteringOption.UNRECOGNIZED : result;
   }
 
   public static final int SERVING_CONFIG_LISTS_FIELD_NUMBER = 19;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.retail.v2alpha.Model.ServingConfigList> servingConfigLists_;
   /**
    * <pre>
@@ -6335,7 +6108,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < servingConfigLists_.size(); i++) {
       output.writeMessage(19, servingConfigLists_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -6399,7 +6172,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(19, servingConfigLists_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -6455,7 +6228,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -6510,7 +6283,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -6611,7 +6384,7 @@ private static final long serialVersionUID = 0L;
    * [Model][google.cloud.retail.v2alpha.Model]. A
    * [Model][google.cloud.retail.v2alpha.Model] can be associated with a
    * [ServingConfig][google.cloud.retail.v2alpha.ServingConfig] and then queried
-   * through the Predict api.
+   * through the Predict API.
    * </pre>
    *
    * Protobuf type {@code google.cloud.retail.v2alpha.Model}
@@ -6635,67 +6408,53 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.v2alpha.Model.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getServingConfigListsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (pageOptimizationConfigBuilder_ != null) {
+        pageOptimizationConfigBuilder_.clear();
+      }
       name_ = "";
-
       displayName_ = "";
-
       trainingState_ = 0;
-
       servingState_ = 0;
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       type_ = "";
-
       optimizationObjective_ = "";
-
       periodicTuningState_ = 0;
-
-      if (lastTuneTimeBuilder_ == null) {
-        lastTuneTime_ = null;
-      } else {
-        lastTuneTime_ = null;
+      lastTuneTime_ = null;
+      if (lastTuneTimeBuilder_ != null) {
+        lastTuneTimeBuilder_.dispose();
         lastTuneTimeBuilder_ = null;
       }
       tuningOperation_ = "";
-
       dataState_ = 0;
-
       filteringOption_ = 0;
-
       if (servingConfigListsBuilder_ == null) {
         servingConfigLists_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        servingConfigLists_ = null;
         servingConfigListsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00004000);
       trainingConfigCase_ = 0;
       trainingConfig_ = null;
       return this;
@@ -6724,51 +6483,81 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.v2alpha.Model buildPartial() {
       com.google.cloud.retail.v2alpha.Model result = new com.google.cloud.retail.v2alpha.Model(this);
-      int from_bitField0_ = bitField0_;
-      if (trainingConfigCase_ == 17) {
-        if (pageOptimizationConfigBuilder_ == null) {
-          result.trainingConfig_ = trainingConfig_;
-        } else {
-          result.trainingConfig_ = pageOptimizationConfigBuilder_.build();
-        }
-      }
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      result.trainingState_ = trainingState_;
-      result.servingState_ = servingState_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.type_ = type_;
-      result.optimizationObjective_ = optimizationObjective_;
-      result.periodicTuningState_ = periodicTuningState_;
-      if (lastTuneTimeBuilder_ == null) {
-        result.lastTuneTime_ = lastTuneTime_;
-      } else {
-        result.lastTuneTime_ = lastTuneTimeBuilder_.build();
-      }
-      result.tuningOperation_ = tuningOperation_;
-      result.dataState_ = dataState_;
-      result.filteringOption_ = filteringOption_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.retail.v2alpha.Model result) {
       if (servingConfigListsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00004000) != 0)) {
           servingConfigLists_ = java.util.Collections.unmodifiableList(servingConfigLists_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00004000);
         }
         result.servingConfigLists_ = servingConfigLists_;
       } else {
         result.servingConfigLists_ = servingConfigListsBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2alpha.Model result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.trainingState_ = trainingState_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.servingState_ = servingState_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.optimizationObjective_ = optimizationObjective_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.periodicTuningState_ = periodicTuningState_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.lastTuneTime_ = lastTuneTimeBuilder_ == null
+            ? lastTuneTime_
+            : lastTuneTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.tuningOperation_ = tuningOperation_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.dataState_ = dataState_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.filteringOption_ = filteringOption_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.retail.v2alpha.Model result) {
       result.trainingConfigCase_ = trainingConfigCase_;
-      onBuilt();
-      return result;
+      result.trainingConfig_ = this.trainingConfig_;
+      if (trainingConfigCase_ == 17 &&
+          pageOptimizationConfigBuilder_ != null) {
+        result.trainingConfig_ = pageOptimizationConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -6817,10 +6606,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.retail.v2alpha.Model.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.trainingState_ != 0) {
@@ -6837,10 +6628,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getType().isEmpty()) {
         type_ = other.type_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.getOptimizationObjective().isEmpty()) {
         optimizationObjective_ = other.optimizationObjective_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.periodicTuningState_ != 0) {
@@ -6851,6 +6644,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTuningOperation().isEmpty()) {
         tuningOperation_ = other.tuningOperation_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (other.dataState_ != 0) {
@@ -6863,7 +6657,7 @@ private static final long serialVersionUID = 0L;
         if (!other.servingConfigLists_.isEmpty()) {
           if (servingConfigLists_.isEmpty()) {
             servingConfigLists_ = other.servingConfigLists_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00004000);
           } else {
             ensureServingConfigListsIsMutable();
             servingConfigLists_.addAll(other.servingConfigLists_);
@@ -6876,7 +6670,7 @@ private static final long serialVersionUID = 0L;
             servingConfigListsBuilder_.dispose();
             servingConfigListsBuilder_ = null;
             servingConfigLists_ = other.servingConfigLists_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00004000);
             servingConfigListsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getServingConfigListsFieldBuilder() : null;
@@ -6894,7 +6688,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -6909,17 +6703,121 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2alpha.Model parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 24: {
+              trainingState_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 24
+            case 32: {
+              servingState_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 58: {
+              type_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 58
+            case 66: {
+              optimizationObjective_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 66
+            case 88: {
+              periodicTuningState_ = input.readEnum();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 88
+            case 98: {
+              input.readMessage(
+                  getLastTuneTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 98
+            case 122: {
+              tuningOperation_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 122
+            case 128: {
+              dataState_ = input.readEnum();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 128
+            case 138: {
+              input.readMessage(
+                  getPageOptimizationConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              trainingConfigCase_ = 17;
+              break;
+            } // case 138
+            case 144: {
+              filteringOption_ = input.readEnum();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 144
+            case 154: {
+              com.google.cloud.retail.v2alpha.Model.ServingConfigList m =
+                  input.readMessage(
+                      com.google.cloud.retail.v2alpha.Model.ServingConfigList.parser(),
+                      extensionRegistry);
+              if (servingConfigListsBuilder_ == null) {
+                ensureServingConfigListsIsMutable();
+                servingConfigLists_.add(m);
+              } else {
+                servingConfigListsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 154
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2alpha.Model) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int trainingConfigCase_ = 0;
@@ -7113,7 +7011,7 @@ private static final long serialVersionUID = 0L;
         trainingConfig_ = null;
       }
       trainingConfigCase_ = 17;
-      onChanged();;
+      onChanged();
       return pageOptimizationConfigBuilder_;
     }
 
@@ -7122,7 +7020,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The fully qualified resource name of the model.
      * Format:
-     * projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}
+     * `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
      * catalog_id has char limit of 50.
      * recommendation_model_id has char limit of 40.
      * </pre>
@@ -7146,7 +7044,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The fully qualified resource name of the model.
      * Format:
-     * projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}
+     * `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
      * catalog_id has char limit of 50.
      * recommendation_model_id has char limit of 40.
      * </pre>
@@ -7171,7 +7069,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The fully qualified resource name of the model.
      * Format:
-     * projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}
+     * `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
      * catalog_id has char limit of 50.
      * recommendation_model_id has char limit of 40.
      * </pre>
@@ -7182,11 +7080,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -7194,7 +7090,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The fully qualified resource name of the model.
      * Format:
-     * projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}
+     * `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
      * catalog_id has char limit of 50.
      * recommendation_model_id has char limit of 40.
      * </pre>
@@ -7203,8 +7099,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -7212,7 +7108,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The fully qualified resource name of the model.
      * Format:
-     * projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}
+     * `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
      * catalog_id has char limit of 50.
      * recommendation_model_id has char limit of 40.
      * </pre>
@@ -7223,12 +7119,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -7238,7 +7132,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The display name of the model.
      * Should be human readable, used to display Recommendation Models in the
-     * Retail Cloud Cosole Dashboard. UTF-8 encoded string with limit of 1024
+     * Retail Cloud Console Dashboard. UTF-8 encoded string with limit of 1024
      * characters.
      * </pre>
      *
@@ -7261,7 +7155,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The display name of the model.
      * Should be human readable, used to display Recommendation Models in the
-     * Retail Cloud Cosole Dashboard. UTF-8 encoded string with limit of 1024
+     * Retail Cloud Console Dashboard. UTF-8 encoded string with limit of 1024
      * characters.
      * </pre>
      *
@@ -7285,7 +7179,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The display name of the model.
      * Should be human readable, used to display Recommendation Models in the
-     * Retail Cloud Cosole Dashboard. UTF-8 encoded string with limit of 1024
+     * Retail Cloud Console Dashboard. UTF-8 encoded string with limit of 1024
      * characters.
      * </pre>
      *
@@ -7295,11 +7189,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -7307,7 +7199,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The display name of the model.
      * Should be human readable, used to display Recommendation Models in the
-     * Retail Cloud Cosole Dashboard. UTF-8 encoded string with limit of 1024
+     * Retail Cloud Console Dashboard. UTF-8 encoded string with limit of 1024
      * characters.
      * </pre>
      *
@@ -7315,8 +7207,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -7324,7 +7216,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The display name of the model.
      * Should be human readable, used to display Recommendation Models in the
-     * Retail Cloud Cosole Dashboard. UTF-8 encoded string with limit of 1024
+     * Retail Cloud Console Dashboard. UTF-8 encoded string with limit of 1024
      * characters.
      * </pre>
      *
@@ -7334,12 +7226,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -7348,12 +7238,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional. The training state that the model is in (e.g.
-     * TRAINING or PAUSED).
+     * `TRAINING` or `PAUSED`).
      * Since part of the cost of running the service
      * is frequency of training - this can be used to determine when to train
      * model in order to control cost. If not specified: the default value for
-     * CreateModel method is TRAINING. the default value for
-     * UpdateModel method is to keep the state the same as before.
+     * `CreateModel` method is `TRAINING`. The default value for
+     * `UpdateModel` method is to keep the state the same as before.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.Model.TrainingState training_state = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -7365,12 +7255,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional. The training state that the model is in (e.g.
-     * TRAINING or PAUSED).
+     * `TRAINING` or `PAUSED`).
      * Since part of the cost of running the service
      * is frequency of training - this can be used to determine when to train
      * model in order to control cost. If not specified: the default value for
-     * CreateModel method is TRAINING. the default value for
-     * UpdateModel method is to keep the state the same as before.
+     * `CreateModel` method is `TRAINING`. The default value for
+     * `UpdateModel` method is to keep the state the same as before.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.Model.TrainingState training_state = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -7378,20 +7268,20 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTrainingStateValue(int value) {
-      
       trainingState_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Optional. The training state that the model is in (e.g.
-     * TRAINING or PAUSED).
+     * `TRAINING` or `PAUSED`).
      * Since part of the cost of running the service
      * is frequency of training - this can be used to determine when to train
      * model in order to control cost. If not specified: the default value for
-     * CreateModel method is TRAINING. the default value for
-     * UpdateModel method is to keep the state the same as before.
+     * `CreateModel` method is `TRAINING`. The default value for
+     * `UpdateModel` method is to keep the state the same as before.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.Model.TrainingState training_state = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -7399,19 +7289,18 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.retail.v2alpha.Model.TrainingState getTrainingState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.retail.v2alpha.Model.TrainingState result = com.google.cloud.retail.v2alpha.Model.TrainingState.valueOf(trainingState_);
+      com.google.cloud.retail.v2alpha.Model.TrainingState result = com.google.cloud.retail.v2alpha.Model.TrainingState.forNumber(trainingState_);
       return result == null ? com.google.cloud.retail.v2alpha.Model.TrainingState.UNRECOGNIZED : result;
     }
     /**
      * <pre>
      * Optional. The training state that the model is in (e.g.
-     * TRAINING or PAUSED).
+     * `TRAINING` or `PAUSED`).
      * Since part of the cost of running the service
      * is frequency of training - this can be used to determine when to train
      * model in order to control cost. If not specified: the default value for
-     * CreateModel method is TRAINING. the default value for
-     * UpdateModel method is to keep the state the same as before.
+     * `CreateModel` method is `TRAINING`. The default value for
+     * `UpdateModel` method is to keep the state the same as before.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.Model.TrainingState training_state = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -7422,7 +7311,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       trainingState_ = value.getNumber();
       onChanged();
       return this;
@@ -7430,19 +7319,19 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional. The training state that the model is in (e.g.
-     * TRAINING or PAUSED).
+     * `TRAINING` or `PAUSED`).
      * Since part of the cost of running the service
      * is frequency of training - this can be used to determine when to train
      * model in order to control cost. If not specified: the default value for
-     * CreateModel method is TRAINING. the default value for
-     * UpdateModel method is to keep the state the same as before.
+     * `CreateModel` method is `TRAINING`. The default value for
+     * `UpdateModel` method is to keep the state the same as before.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.Model.TrainingState training_state = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearTrainingState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       trainingState_ = 0;
       onChanged();
       return this;
@@ -7451,7 +7340,7 @@ private static final long serialVersionUID = 0L;
     private int servingState_ = 0;
     /**
      * <pre>
-     * Output only. The serving state of the model: ACTIVE, NOT_ACTIVE.
+     * Output only. The serving state of the model: `ACTIVE`, `NOT_ACTIVE`.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.Model.ServingState serving_state = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -7462,7 +7351,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The serving state of the model: ACTIVE, NOT_ACTIVE.
+     * Output only. The serving state of the model: `ACTIVE`, `NOT_ACTIVE`.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.Model.ServingState serving_state = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -7470,14 +7359,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setServingStateValue(int value) {
-      
       servingState_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The serving state of the model: ACTIVE, NOT_ACTIVE.
+     * Output only. The serving state of the model: `ACTIVE`, `NOT_ACTIVE`.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.Model.ServingState serving_state = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -7485,13 +7374,12 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.retail.v2alpha.Model.ServingState getServingState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.retail.v2alpha.Model.ServingState result = com.google.cloud.retail.v2alpha.Model.ServingState.valueOf(servingState_);
+      com.google.cloud.retail.v2alpha.Model.ServingState result = com.google.cloud.retail.v2alpha.Model.ServingState.forNumber(servingState_);
       return result == null ? com.google.cloud.retail.v2alpha.Model.ServingState.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Output only. The serving state of the model: ACTIVE, NOT_ACTIVE.
+     * Output only. The serving state of the model: `ACTIVE`, `NOT_ACTIVE`.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.Model.ServingState serving_state = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -7502,21 +7390,21 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       servingState_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The serving state of the model: ACTIVE, NOT_ACTIVE.
+     * Output only. The serving state of the model: `ACTIVE`, `NOT_ACTIVE`.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.Model.ServingState serving_state = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearServingState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       servingState_ = 0;
       onChanged();
       return this;
@@ -7534,7 +7422,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -7564,11 +7452,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -7582,11 +7470,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -7598,17 +7486,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -7619,14 +7508,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7637,7 +7525,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -7691,7 +7579,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -7725,11 +7613,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -7745,11 +7633,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -7763,17 +7651,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -7786,14 +7675,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7806,7 +7694,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -7855,8 +7743,17 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The type of model e.g. `home-page`.
      * Currently supported values: `recommended-for-you`, `others-you-may-like`,
-     * `frequently-bought-together`, `page-optimization`, 'similar-items',
-     * 'buy-it-again', `recently-viewed`(readonly value).
+     * `frequently-bought-together`, `page-optimization`, `similar-items`,
+     * `buy-it-again`, `on-sale-items`, and `recently-viewed`(readonly value).
+     * This field together with
+     * [optimization_objective][google.cloud.retail.v2alpha.Model.optimization_objective]
+     * describe model metadata to use to control model training and serving.
+     * See https://cloud.google.com/retail/docs/models
+     * for more details on what the model metadata control and which combination
+     * of parameters are valid. For invalid combinations of parameters (e.g. type
+     * = `frequently-bought-together` and optimization_objective = `ctr`), you
+     * receive an error 400 if you try to create/update a recommendation with
+     * this set of knobs.
      * </pre>
      *
      * <code>string type = 7 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -7878,8 +7775,17 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The type of model e.g. `home-page`.
      * Currently supported values: `recommended-for-you`, `others-you-may-like`,
-     * `frequently-bought-together`, `page-optimization`, 'similar-items',
-     * 'buy-it-again', `recently-viewed`(readonly value).
+     * `frequently-bought-together`, `page-optimization`, `similar-items`,
+     * `buy-it-again`, `on-sale-items`, and `recently-viewed`(readonly value).
+     * This field together with
+     * [optimization_objective][google.cloud.retail.v2alpha.Model.optimization_objective]
+     * describe model metadata to use to control model training and serving.
+     * See https://cloud.google.com/retail/docs/models
+     * for more details on what the model metadata control and which combination
+     * of parameters are valid. For invalid combinations of parameters (e.g. type
+     * = `frequently-bought-together` and optimization_objective = `ctr`), you
+     * receive an error 400 if you try to create/update a recommendation with
+     * this set of knobs.
      * </pre>
      *
      * <code>string type = 7 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -7902,8 +7808,17 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The type of model e.g. `home-page`.
      * Currently supported values: `recommended-for-you`, `others-you-may-like`,
-     * `frequently-bought-together`, `page-optimization`, 'similar-items',
-     * 'buy-it-again', `recently-viewed`(readonly value).
+     * `frequently-bought-together`, `page-optimization`, `similar-items`,
+     * `buy-it-again`, `on-sale-items`, and `recently-viewed`(readonly value).
+     * This field together with
+     * [optimization_objective][google.cloud.retail.v2alpha.Model.optimization_objective]
+     * describe model metadata to use to control model training and serving.
+     * See https://cloud.google.com/retail/docs/models
+     * for more details on what the model metadata control and which combination
+     * of parameters are valid. For invalid combinations of parameters (e.g. type
+     * = `frequently-bought-together` and optimization_objective = `ctr`), you
+     * receive an error 400 if you try to create/update a recommendation with
+     * this set of knobs.
      * </pre>
      *
      * <code>string type = 7 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -7912,11 +7827,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       type_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -7924,16 +7837,25 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The type of model e.g. `home-page`.
      * Currently supported values: `recommended-for-you`, `others-you-may-like`,
-     * `frequently-bought-together`, `page-optimization`, 'similar-items',
-     * 'buy-it-again', `recently-viewed`(readonly value).
+     * `frequently-bought-together`, `page-optimization`, `similar-items`,
+     * `buy-it-again`, `on-sale-items`, and `recently-viewed`(readonly value).
+     * This field together with
+     * [optimization_objective][google.cloud.retail.v2alpha.Model.optimization_objective]
+     * describe model metadata to use to control model training and serving.
+     * See https://cloud.google.com/retail/docs/models
+     * for more details on what the model metadata control and which combination
+     * of parameters are valid. For invalid combinations of parameters (e.g. type
+     * = `frequently-bought-together` and optimization_objective = `ctr`), you
+     * receive an error 400 if you try to create/update a recommendation with
+     * this set of knobs.
      * </pre>
      *
      * <code>string type = 7 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
       type_ = getDefaultInstance().getType();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -7941,8 +7863,17 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The type of model e.g. `home-page`.
      * Currently supported values: `recommended-for-you`, `others-you-may-like`,
-     * `frequently-bought-together`, `page-optimization`, 'similar-items',
-     * 'buy-it-again', `recently-viewed`(readonly value).
+     * `frequently-bought-together`, `page-optimization`, `similar-items`,
+     * `buy-it-again`, `on-sale-items`, and `recently-viewed`(readonly value).
+     * This field together with
+     * [optimization_objective][google.cloud.retail.v2alpha.Model.optimization_objective]
+     * describe model metadata to use to control model training and serving.
+     * See https://cloud.google.com/retail/docs/models
+     * for more details on what the model metadata control and which combination
+     * of parameters are valid. For invalid combinations of parameters (e.g. type
+     * = `frequently-bought-together` and optimization_objective = `ctr`), you
+     * receive an error 400 if you try to create/update a recommendation with
+     * this set of knobs.
      * </pre>
      *
      * <code>string type = 7 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -7951,12 +7882,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       type_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -7972,6 +7901,15 @@ private static final long serialVersionUID = 0L;
      * `recommended-for-you` =&gt; `ctr`
      * `others-you-may-like` =&gt; `ctr`
      * `frequently-bought-together` =&gt; `revenue_per_order`
+     * This field together with
+     * [optimization_objective][google.cloud.retail.v2alpha.Model.type]
+     * describe model metadata to use to control model training and serving.
+     * See https://cloud.google.com/retail/docs/models
+     * for more details on what the model metadata control and which combination
+     * of parameters are valid. For invalid combinations of parameters (e.g. type
+     * = `frequently-bought-together` and optimization_objective = `ctr`), you
+     * receive an error 400 if you try to create/update a recommendation with
+     * this set of knobs.
      * </pre>
      *
      * <code>string optimization_objective = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -7999,6 +7937,15 @@ private static final long serialVersionUID = 0L;
      * `recommended-for-you` =&gt; `ctr`
      * `others-you-may-like` =&gt; `ctr`
      * `frequently-bought-together` =&gt; `revenue_per_order`
+     * This field together with
+     * [optimization_objective][google.cloud.retail.v2alpha.Model.type]
+     * describe model metadata to use to control model training and serving.
+     * See https://cloud.google.com/retail/docs/models
+     * for more details on what the model metadata control and which combination
+     * of parameters are valid. For invalid combinations of parameters (e.g. type
+     * = `frequently-bought-together` and optimization_objective = `ctr`), you
+     * receive an error 400 if you try to create/update a recommendation with
+     * this set of knobs.
      * </pre>
      *
      * <code>string optimization_objective = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -8027,6 +7974,15 @@ private static final long serialVersionUID = 0L;
      * `recommended-for-you` =&gt; `ctr`
      * `others-you-may-like` =&gt; `ctr`
      * `frequently-bought-together` =&gt; `revenue_per_order`
+     * This field together with
+     * [optimization_objective][google.cloud.retail.v2alpha.Model.type]
+     * describe model metadata to use to control model training and serving.
+     * See https://cloud.google.com/retail/docs/models
+     * for more details on what the model metadata control and which combination
+     * of parameters are valid. For invalid combinations of parameters (e.g. type
+     * = `frequently-bought-together` and optimization_objective = `ctr`), you
+     * receive an error 400 if you try to create/update a recommendation with
+     * this set of knobs.
      * </pre>
      *
      * <code>string optimization_objective = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -8035,11 +7991,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOptimizationObjective(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       optimizationObjective_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -8053,14 +8007,23 @@ private static final long serialVersionUID = 0L;
      * `recommended-for-you` =&gt; `ctr`
      * `others-you-may-like` =&gt; `ctr`
      * `frequently-bought-together` =&gt; `revenue_per_order`
+     * This field together with
+     * [optimization_objective][google.cloud.retail.v2alpha.Model.type]
+     * describe model metadata to use to control model training and serving.
+     * See https://cloud.google.com/retail/docs/models
+     * for more details on what the model metadata control and which combination
+     * of parameters are valid. For invalid combinations of parameters (e.g. type
+     * = `frequently-bought-together` and optimization_objective = `ctr`), you
+     * receive an error 400 if you try to create/update a recommendation with
+     * this set of knobs.
      * </pre>
      *
      * <code>string optimization_objective = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearOptimizationObjective() {
-      
       optimizationObjective_ = getDefaultInstance().getOptimizationObjective();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -8074,6 +8037,15 @@ private static final long serialVersionUID = 0L;
      * `recommended-for-you` =&gt; `ctr`
      * `others-you-may-like` =&gt; `ctr`
      * `frequently-bought-together` =&gt; `revenue_per_order`
+     * This field together with
+     * [optimization_objective][google.cloud.retail.v2alpha.Model.type]
+     * describe model metadata to use to control model training and serving.
+     * See https://cloud.google.com/retail/docs/models
+     * for more details on what the model metadata control and which combination
+     * of parameters are valid. For invalid combinations of parameters (e.g. type
+     * = `frequently-bought-together` and optimization_objective = `ctr`), you
+     * receive an error 400 if you try to create/update a recommendation with
+     * this set of knobs.
      * </pre>
      *
      * <code>string optimization_objective = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -8082,12 +8054,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOptimizationObjectiveBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       optimizationObjective_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -8097,8 +8067,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. The state of periodic tuning.
      * The period we use is 3 months - to do a
-     * one-off tune earlier use the TuneModel method. Default value
-     * is PERIODIC_TUNING_ENABLED.
+     * one-off tune earlier use the `TuneModel` method. Default value
+     * is `PERIODIC_TUNING_ENABLED`.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.Model.PeriodicTuningState periodic_tuning_state = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -8111,8 +8081,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. The state of periodic tuning.
      * The period we use is 3 months - to do a
-     * one-off tune earlier use the TuneModel method. Default value
-     * is PERIODIC_TUNING_ENABLED.
+     * one-off tune earlier use the `TuneModel` method. Default value
+     * is `PERIODIC_TUNING_ENABLED`.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.Model.PeriodicTuningState periodic_tuning_state = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -8120,8 +8090,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPeriodicTuningStateValue(int value) {
-      
       periodicTuningState_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -8129,8 +8099,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. The state of periodic tuning.
      * The period we use is 3 months - to do a
-     * one-off tune earlier use the TuneModel method. Default value
-     * is PERIODIC_TUNING_ENABLED.
+     * one-off tune earlier use the `TuneModel` method. Default value
+     * is `PERIODIC_TUNING_ENABLED`.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.Model.PeriodicTuningState periodic_tuning_state = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -8138,16 +8108,15 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.retail.v2alpha.Model.PeriodicTuningState getPeriodicTuningState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.retail.v2alpha.Model.PeriodicTuningState result = com.google.cloud.retail.v2alpha.Model.PeriodicTuningState.valueOf(periodicTuningState_);
+      com.google.cloud.retail.v2alpha.Model.PeriodicTuningState result = com.google.cloud.retail.v2alpha.Model.PeriodicTuningState.forNumber(periodicTuningState_);
       return result == null ? com.google.cloud.retail.v2alpha.Model.PeriodicTuningState.UNRECOGNIZED : result;
     }
     /**
      * <pre>
      * Optional. The state of periodic tuning.
      * The period we use is 3 months - to do a
-     * one-off tune earlier use the TuneModel method. Default value
-     * is PERIODIC_TUNING_ENABLED.
+     * one-off tune earlier use the `TuneModel` method. Default value
+     * is `PERIODIC_TUNING_ENABLED`.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.Model.PeriodicTuningState periodic_tuning_state = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -8158,7 +8127,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000200;
       periodicTuningState_ = value.getNumber();
       onChanged();
       return this;
@@ -8167,15 +8136,15 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. The state of periodic tuning.
      * The period we use is 3 months - to do a
-     * one-off tune earlier use the TuneModel method. Default value
-     * is PERIODIC_TUNING_ENABLED.
+     * one-off tune earlier use the `TuneModel` method. Default value
+     * is `PERIODIC_TUNING_ENABLED`.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.Model.PeriodicTuningState periodic_tuning_state = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearPeriodicTuningState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       periodicTuningState_ = 0;
       onChanged();
       return this;
@@ -8193,7 +8162,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lastTuneTime field is set.
      */
     public boolean hasLastTuneTime() {
-      return lastTuneTimeBuilder_ != null || lastTuneTime_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -8223,11 +8192,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         lastTuneTime_ = value;
-        onChanged();
       } else {
         lastTuneTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -8241,11 +8210,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (lastTuneTimeBuilder_ == null) {
         lastTuneTime_ = builderForValue.build();
-        onChanged();
       } else {
         lastTuneTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -8257,17 +8226,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLastTuneTime(com.google.protobuf.Timestamp value) {
       if (lastTuneTimeBuilder_ == null) {
-        if (lastTuneTime_ != null) {
-          lastTuneTime_ =
-            com.google.protobuf.Timestamp.newBuilder(lastTuneTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          lastTuneTime_ != null &&
+          lastTuneTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getLastTuneTimeBuilder().mergeFrom(value);
         } else {
           lastTuneTime_ = value;
         }
-        onChanged();
       } else {
         lastTuneTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -8278,14 +8248,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_tune_time = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearLastTuneTime() {
-      if (lastTuneTimeBuilder_ == null) {
-        lastTuneTime_ = null;
-        onChanged();
-      } else {
-        lastTuneTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      lastTuneTime_ = null;
+      if (lastTuneTimeBuilder_ != null) {
+        lastTuneTimeBuilder_.dispose();
         lastTuneTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -8296,7 +8265,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_tune_time = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getLastTuneTimeBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getLastTuneTimeFieldBuilder().getBuilder();
     }
@@ -8395,11 +8364,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTuningOperation(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       tuningOperation_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -8414,8 +8381,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTuningOperation() {
-      
       tuningOperation_ = getDefaultInstance().getTuningOperation();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -8432,12 +8399,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTuningOperationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       tuningOperation_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -8445,11 +8410,11 @@ private static final long serialVersionUID = 0L;
     private int dataState_ = 0;
     /**
      * <pre>
-     * Output only. The state of data requirements for this model: DATA_OK and
-     * DATA_ERROR.
+     * Output only. The state of data requirements for this model: `DATA_OK` and
+     * `DATA_ERROR`.
      * Recommendation model cannot be trained if the data is in
-     * DATA_ERROR state. Recommendation model can have DATA_ERROR state even if
-     * serving state is ACTIVE: models were trained successfully before, but
+     * `DATA_ERROR` state. Recommendation model can have `DATA_ERROR` state even
+     * if serving state is `ACTIVE`: models were trained successfully before, but
      * cannot be refreshed because model no longer has sufficient
      * data for training.
      * </pre>
@@ -8462,11 +8427,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The state of data requirements for this model: DATA_OK and
-     * DATA_ERROR.
+     * Output only. The state of data requirements for this model: `DATA_OK` and
+     * `DATA_ERROR`.
      * Recommendation model cannot be trained if the data is in
-     * DATA_ERROR state. Recommendation model can have DATA_ERROR state even if
-     * serving state is ACTIVE: models were trained successfully before, but
+     * `DATA_ERROR` state. Recommendation model can have `DATA_ERROR` state even
+     * if serving state is `ACTIVE`: models were trained successfully before, but
      * cannot be refreshed because model no longer has sufficient
      * data for training.
      * </pre>
@@ -8476,18 +8441,18 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDataStateValue(int value) {
-      
       dataState_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The state of data requirements for this model: DATA_OK and
-     * DATA_ERROR.
+     * Output only. The state of data requirements for this model: `DATA_OK` and
+     * `DATA_ERROR`.
      * Recommendation model cannot be trained if the data is in
-     * DATA_ERROR state. Recommendation model can have DATA_ERROR state even if
-     * serving state is ACTIVE: models were trained successfully before, but
+     * `DATA_ERROR` state. Recommendation model can have `DATA_ERROR` state even
+     * if serving state is `ACTIVE`: models were trained successfully before, but
      * cannot be refreshed because model no longer has sufficient
      * data for training.
      * </pre>
@@ -8497,17 +8462,16 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.retail.v2alpha.Model.DataState getDataState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.retail.v2alpha.Model.DataState result = com.google.cloud.retail.v2alpha.Model.DataState.valueOf(dataState_);
+      com.google.cloud.retail.v2alpha.Model.DataState result = com.google.cloud.retail.v2alpha.Model.DataState.forNumber(dataState_);
       return result == null ? com.google.cloud.retail.v2alpha.Model.DataState.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Output only. The state of data requirements for this model: DATA_OK and
-     * DATA_ERROR.
+     * Output only. The state of data requirements for this model: `DATA_OK` and
+     * `DATA_ERROR`.
      * Recommendation model cannot be trained if the data is in
-     * DATA_ERROR state. Recommendation model can have DATA_ERROR state even if
-     * serving state is ACTIVE: models were trained successfully before, but
+     * `DATA_ERROR` state. Recommendation model can have `DATA_ERROR` state even
+     * if serving state is `ACTIVE`: models were trained successfully before, but
      * cannot be refreshed because model no longer has sufficient
      * data for training.
      * </pre>
@@ -8520,18 +8484,18 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00001000;
       dataState_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The state of data requirements for this model: DATA_OK and
-     * DATA_ERROR.
+     * Output only. The state of data requirements for this model: `DATA_OK` and
+     * `DATA_ERROR`.
      * Recommendation model cannot be trained if the data is in
-     * DATA_ERROR state. Recommendation model can have DATA_ERROR state even if
-     * serving state is ACTIVE: models were trained successfully before, but
+     * `DATA_ERROR` state. Recommendation model can have `DATA_ERROR` state even
+     * if serving state is `ACTIVE`: models were trained successfully before, but
      * cannot be refreshed because model no longer has sufficient
      * data for training.
      * </pre>
@@ -8540,7 +8504,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDataState() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       dataState_ = 0;
       onChanged();
       return this;
@@ -8549,8 +8513,8 @@ private static final long serialVersionUID = 0L;
     private int filteringOption_ = 0;
     /**
      * <pre>
-     * Optional. If RECOMMENDATIONS_FILTERING_ENABLED, recommendation filtering by
-     * attributes is enabled for the model.
+     * Optional. If `RECOMMENDATIONS_FILTERING_ENABLED`, recommendation filtering
+     * by attributes is enabled for the model.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.RecommendationsFilteringOption filtering_option = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -8561,8 +8525,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. If RECOMMENDATIONS_FILTERING_ENABLED, recommendation filtering by
-     * attributes is enabled for the model.
+     * Optional. If `RECOMMENDATIONS_FILTERING_ENABLED`, recommendation filtering
+     * by attributes is enabled for the model.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.RecommendationsFilteringOption filtering_option = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -8570,15 +8534,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFilteringOptionValue(int value) {
-      
       filteringOption_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. If RECOMMENDATIONS_FILTERING_ENABLED, recommendation filtering by
-     * attributes is enabled for the model.
+     * Optional. If `RECOMMENDATIONS_FILTERING_ENABLED`, recommendation filtering
+     * by attributes is enabled for the model.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.RecommendationsFilteringOption filtering_option = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -8586,14 +8550,13 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.retail.v2alpha.RecommendationsFilteringOption getFilteringOption() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.retail.v2alpha.RecommendationsFilteringOption result = com.google.cloud.retail.v2alpha.RecommendationsFilteringOption.valueOf(filteringOption_);
+      com.google.cloud.retail.v2alpha.RecommendationsFilteringOption result = com.google.cloud.retail.v2alpha.RecommendationsFilteringOption.forNumber(filteringOption_);
       return result == null ? com.google.cloud.retail.v2alpha.RecommendationsFilteringOption.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Optional. If RECOMMENDATIONS_FILTERING_ENABLED, recommendation filtering by
-     * attributes is enabled for the model.
+     * Optional. If `RECOMMENDATIONS_FILTERING_ENABLED`, recommendation filtering
+     * by attributes is enabled for the model.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.RecommendationsFilteringOption filtering_option = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -8604,22 +8567,22 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00002000;
       filteringOption_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. If RECOMMENDATIONS_FILTERING_ENABLED, recommendation filtering by
-     * attributes is enabled for the model.
+     * Optional. If `RECOMMENDATIONS_FILTERING_ENABLED`, recommendation filtering
+     * by attributes is enabled for the model.
      * </pre>
      *
      * <code>.google.cloud.retail.v2alpha.RecommendationsFilteringOption filtering_option = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearFilteringOption() {
-      
+      bitField0_ = (bitField0_ & ~0x00002000);
       filteringOption_ = 0;
       onChanged();
       return this;
@@ -8628,9 +8591,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.retail.v2alpha.Model.ServingConfigList> servingConfigLists_ =
       java.util.Collections.emptyList();
     private void ensureServingConfigListsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00004000) != 0)) {
         servingConfigLists_ = new java.util.ArrayList<com.google.cloud.retail.v2alpha.Model.ServingConfigList>(servingConfigLists_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00004000;
        }
     }
 
@@ -8835,7 +8798,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearServingConfigLists() {
       if (servingConfigListsBuilder_ == null) {
         servingConfigLists_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00004000);
         onChanged();
       } else {
         servingConfigListsBuilder_.clear();
@@ -8947,7 +8910,7 @@ private static final long serialVersionUID = 0L;
         servingConfigListsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.retail.v2alpha.Model.ServingConfigList, com.google.cloud.retail.v2alpha.Model.ServingConfigList.Builder, com.google.cloud.retail.v2alpha.Model.ServingConfigListOrBuilder>(
                 servingConfigLists_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00004000) != 0),
                 getParentForChildren(),
                 isClean());
         servingConfigLists_ = null;
@@ -8987,7 +8950,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Model(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

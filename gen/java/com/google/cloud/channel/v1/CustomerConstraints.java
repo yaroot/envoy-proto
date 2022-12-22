@@ -37,110 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CustomerConstraints(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              allowedRegions_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            allowedRegions_.add(s);
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              allowedCustomerTypes_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            allowedCustomerTypes_.add(rawValue);
-            break;
-          }
-          case 18: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                allowedCustomerTypes_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              allowedCustomerTypes_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              promotionalOrderTypes_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            promotionalOrderTypes_.add(rawValue);
-            break;
-          }
-          case 26: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                promotionalOrderTypes_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              promotionalOrderTypes_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        allowedRegions_ = allowedRegions_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        allowedCustomerTypes_ = java.util.Collections.unmodifiableList(allowedCustomerTypes_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        promotionalOrderTypes_ = java.util.Collections.unmodifiableList(promotionalOrderTypes_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.OffersProto.internal_static_google_cloud_channel_v1_CustomerConstraints_descriptor;
@@ -155,6 +51,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOWED_REGIONS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList allowedRegions_;
   /**
    * <pre>
@@ -206,14 +103,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOWED_CUSTOMER_TYPES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> allowedCustomerTypes_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType> allowedCustomerTypes_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType>() {
             public com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType result = com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType.valueOf(from);
+              com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType result = com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType.forNumber(from);
               return result == null ? com.google.cloud.channel.v1.CloudIdentityInfo.CustomerType.UNRECOGNIZED : result;
             }
           };
@@ -284,14 +181,14 @@ private static final long serialVersionUID = 0L;
   private int allowedCustomerTypesMemoizedSerializedSize;
 
   public static final int PROMOTIONAL_ORDER_TYPES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> promotionalOrderTypes_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.channel.v1.PromotionalOrderType> promotionalOrderTypes_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.channel.v1.PromotionalOrderType>() {
             public com.google.cloud.channel.v1.PromotionalOrderType convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.channel.v1.PromotionalOrderType result = com.google.cloud.channel.v1.PromotionalOrderType.valueOf(from);
+              com.google.cloud.channel.v1.PromotionalOrderType result = com.google.cloud.channel.v1.PromotionalOrderType.forNumber(from);
               return result == null ? com.google.cloud.channel.v1.PromotionalOrderType.UNRECOGNIZED : result;
             }
           };
@@ -393,7 +290,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < promotionalOrderTypes_.size(); i++) {
       output.writeEnumNoTag(promotionalOrderTypes_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -434,7 +331,7 @@ private static final long serialVersionUID = 0L;
           .computeUInt32SizeNoTag(dataSize);
       }promotionalOrderTypesMemoizedSerializedSize = dataSize;
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -453,7 +350,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAllowedRegionsList())) return false;
     if (!allowedCustomerTypes_.equals(other.allowedCustomerTypes_)) return false;
     if (!promotionalOrderTypes_.equals(other.promotionalOrderTypes_)) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -476,7 +373,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PROMOTIONAL_ORDER_TYPES_FIELD_NUMBER;
       hash = (53 * hash) + promotionalOrderTypes_.hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -597,22 +494,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.CustomerConstraints.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       allowedRegions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       allowedCustomerTypes_ = java.util.Collections.emptyList();
@@ -645,7 +538,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.CustomerConstraints buildPartial() {
       com.google.cloud.channel.v1.CustomerConstraints result = new com.google.cloud.channel.v1.CustomerConstraints(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.channel.v1.CustomerConstraints result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         allowedRegions_ = allowedRegions_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -661,8 +560,10 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.promotionalOrderTypes_ = promotionalOrderTypes_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.CustomerConstraints result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -739,7 +640,7 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -754,17 +655,70 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.CustomerConstraints parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureAllowedRegionsIsMutable();
+              allowedRegions_.add(s);
+              break;
+            } // case 10
+            case 16: {
+              int tmpRaw = input.readEnum();
+              ensureAllowedCustomerTypesIsMutable();
+              allowedCustomerTypes_.add(tmpRaw);
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureAllowedCustomerTypesIsMutable();
+                allowedCustomerTypes_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 18
+            case 24: {
+              int tmpRaw = input.readEnum();
+              ensurePromotionalOrderTypesIsMutable();
+              promotionalOrderTypes_.add(tmpRaw);
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensurePromotionalOrderTypesIsMutable();
+                promotionalOrderTypes_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.CustomerConstraints) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -836,10 +790,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAllowedRegions(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowedRegionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAllowedRegionsIsMutable();
       allowedRegions_.set(index, value);
       onChanged();
       return this;
@@ -855,10 +807,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAllowedRegions(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowedRegionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAllowedRegionsIsMutable();
       allowedRegions_.add(value);
       onChanged();
       return this;
@@ -905,10 +855,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAllowedRegionsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureAllowedRegionsIsMutable();
       allowedRegions_.add(value);
       onChanged();
@@ -1323,7 +1271,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CustomerConstraints(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

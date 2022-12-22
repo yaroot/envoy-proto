@@ -39,32 +39,30 @@ public final class DomainMappingProto {
   static {
     java.lang.String[] descriptorData = {
       "\n,google/appengine/v1beta/domain_mapping" +
-      ".proto\022\027google.appengine.v1beta\032\034google/" +
-      "api/annotations.proto\"\250\001\n\rDomainMapping\022" +
-      "\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\022:\n\014ssl_setting" +
-      "s\030\003 \001(\0132$.google.appengine.v1beta.SslSet" +
-      "tings\022A\n\020resource_records\030\004 \003(\0132\'.google" +
-      ".appengine.v1beta.ResourceRecord\"\322\001\n\013Ssl" +
-      "Settings\022\026\n\016certificate_id\030\001 \001(\t\022S\n\023ssl_" +
-      "management_type\030\003 \001(\01626.google.appengine" +
-      ".v1beta.SslSettings.SslManagementType\022&\n" +
-      "\036pending_managed_certificate_id\030\004 \001(\t\".\n" +
-      "\021SslManagementType\022\r\n\tAUTOMATIC\020\000\022\n\n\006MAN" +
-      "UAL\020\001\"\232\001\n\016ResourceRecord\022\014\n\004name\030\001 \001(\t\022\016" +
-      "\n\006rrdata\030\002 \001(\t\022@\n\004type\030\003 \001(\01622.google.ap" +
-      "pengine.v1beta.ResourceRecord.RecordType" +
-      "\"(\n\nRecordType\022\005\n\001A\020\000\022\010\n\004AAAA\020\001\022\t\n\005CNAME" +
-      "\020\002B\330\001\n\033com.google.appengine.v1betaB\022Doma" +
-      "inMappingProtoP\001Z@google.golang.org/genp" +
-      "roto/googleapis/appengine/v1beta;appengi" +
-      "ne\252\002\035Google.Cloud.AppEngine.V1Beta\312\002\035Goo" +
-      "gle\\Cloud\\AppEngine\\V1beta\352\002 Google::Clo" +
-      "ud::AppEngine::V1betab\006proto3"
+      ".proto\022\027google.appengine.v1beta\"\250\001\n\rDoma" +
+      "inMapping\022\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\022:\n\014s" +
+      "sl_settings\030\003 \001(\0132$.google.appengine.v1b" +
+      "eta.SslSettings\022A\n\020resource_records\030\004 \003(" +
+      "\0132\'.google.appengine.v1beta.ResourceReco" +
+      "rd\"\322\001\n\013SslSettings\022\026\n\016certificate_id\030\001 \001" +
+      "(\t\022S\n\023ssl_management_type\030\003 \001(\01626.google" +
+      ".appengine.v1beta.SslSettings.SslManagem" +
+      "entType\022&\n\036pending_managed_certificate_i" +
+      "d\030\004 \001(\t\".\n\021SslManagementType\022\r\n\tAUTOMATI" +
+      "C\020\000\022\n\n\006MANUAL\020\001\"\232\001\n\016ResourceRecord\022\014\n\004na" +
+      "me\030\001 \001(\t\022\016\n\006rrdata\030\002 \001(\t\022@\n\004type\030\003 \001(\01622" +
+      ".google.appengine.v1beta.ResourceRecord." +
+      "RecordType\"(\n\nRecordType\022\005\n\001A\020\000\022\010\n\004AAAA\020" +
+      "\001\022\t\n\005CNAME\020\002B\330\001\n\033com.google.appengine.v1" +
+      "betaB\022DomainMappingProtoP\001Z@google.golan" +
+      "g.org/genproto/googleapis/appengine/v1be" +
+      "ta;appengine\252\002\035Google.Cloud.AppEngine.V1" +
+      "Beta\312\002\035Google\\Cloud\\AppEngine\\V1beta\352\002 G" +
+      "oogle::Cloud::AppEngine::V1betab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.api.AnnotationsProto.getDescriptor(),
         });
     internal_static_google_appengine_v1beta_DomainMapping_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -84,7 +82,6 @@ public final class DomainMappingProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_appengine_v1beta_ResourceRecord_descriptor,
         new java.lang.String[] { "Name", "Rrdata", "Type", });
-    com.google.api.AnnotationsProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

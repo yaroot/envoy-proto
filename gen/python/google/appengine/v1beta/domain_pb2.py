@@ -11,10 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$google/appengine/v1beta/domain.proto\x12\x17google.appengine.v1beta\x1a\x1cgoogle/api/annotations.proto\",\n\x10\x41uthorizedDomain\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\tB\xd1\x01\n\x1b\x63om.google.appengine.v1betaB\x0b\x44omainProtoP\x01Z@google.golang.org/genproto/googleapis/appengine/v1beta;appengine\xaa\x02\x1dGoogle.Cloud.AppEngine.V1Beta\xca\x02\x1dGoogle\\Cloud\\AppEngine\\V1beta\xea\x02 Google::Cloud::AppEngine::V1betab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$google/appengine/v1beta/domain.proto\x12\x17google.appengine.v1beta\",\n\x10\x41uthorizedDomain\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\tB\xd1\x01\n\x1b\x63om.google.appengine.v1betaB\x0b\x44omainProtoP\x01Z@google.golang.org/genproto/googleapis/appengine/v1beta;appengine\xaa\x02\x1dGoogle.Cloud.AppEngine.V1Beta\xca\x02\x1dGoogle\\Cloud\\AppEngine\\V1beta\xea\x02 Google::Cloud::AppEngine::V1betab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.appengine.v1beta.domain_pb2', globals())
@@ -22,6 +21,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\033com.google.appengine.v1betaB\013DomainProtoP\001Z@google.golang.org/genproto/googleapis/appengine/v1beta;appengine\252\002\035Google.Cloud.AppEngine.V1Beta\312\002\035Google\\Cloud\\AppEngine\\V1beta\352\002 Google::Cloud::AppEngine::V1beta'
-  _AUTHORIZEDDOMAIN._serialized_start=95
-  _AUTHORIZEDDOMAIN._serialized_end=139
+  _AUTHORIZEDDOMAIN._serialized_start=65
+  _AUTHORIZEDDOMAIN._serialized_end=109
 # @@protoc_insertion_point(module_scope)

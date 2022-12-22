@@ -41,62 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PickTimeSeriesFilter(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            rankingMethod_ = rawValue;
-            break;
-          }
-          case 16: {
-
-            numTimeSeries_ = input.readInt32();
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            direction_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.dashboard.v1.CommonProto.internal_static_google_monitoring_dashboard_v1_PickTimeSeriesFilter_descriptor;
@@ -456,7 +400,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RANKING_METHOD_FIELD_NUMBER = 1;
-  private int rankingMethod_;
+  private int rankingMethod_ = 0;
   /**
    * <pre>
    * `ranking_method` is applied to each time series independently to produce
@@ -481,13 +425,12 @@ private static final long serialVersionUID = 0L;
    * @return The rankingMethod.
    */
   @java.lang.Override public com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Method getRankingMethod() {
-    @SuppressWarnings("deprecation")
-    com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Method result = com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Method.valueOf(rankingMethod_);
+    com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Method result = com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Method.forNumber(rankingMethod_);
     return result == null ? com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Method.UNRECOGNIZED : result;
   }
 
   public static final int NUM_TIME_SERIES_FIELD_NUMBER = 2;
-  private int numTimeSeries_;
+  private int numTimeSeries_ = 0;
   /**
    * <pre>
    * How many time series to allow to pass through the filter.
@@ -502,7 +445,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DIRECTION_FIELD_NUMBER = 3;
-  private int direction_;
+  private int direction_ = 0;
   /**
    * <pre>
    * How to use the ranking to select time series that pass through the filter.
@@ -523,8 +466,7 @@ private static final long serialVersionUID = 0L;
    * @return The direction.
    */
   @java.lang.Override public com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Direction getDirection() {
-    @SuppressWarnings("deprecation")
-    com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Direction result = com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Direction.valueOf(direction_);
+    com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Direction result = com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Direction.forNumber(direction_);
     return result == null ? com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Direction.UNRECOGNIZED : result;
   }
 
@@ -551,7 +493,7 @@ private static final long serialVersionUID = 0L;
     if (direction_ != com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Direction.DIRECTION_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, direction_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -572,7 +514,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, direction_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -591,7 +533,7 @@ private static final long serialVersionUID = 0L;
     if (getNumTimeSeries()
         != other.getNumTimeSeries()) return false;
     if (direction_ != other.direction_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -608,7 +550,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getNumTimeSeries();
     hash = (37 * hash) + DIRECTION_FIELD_NUMBER;
     hash = (53 * hash) + direction_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -734,28 +676,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       rankingMethod_ = 0;
-
       numTimeSeries_ = 0;
-
       direction_ = 0;
-
       return this;
     }
 
@@ -782,11 +717,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.PickTimeSeriesFilter buildPartial() {
       com.google.monitoring.dashboard.v1.PickTimeSeriesFilter result = new com.google.monitoring.dashboard.v1.PickTimeSeriesFilter(this);
-      result.rankingMethod_ = rankingMethod_;
-      result.numTimeSeries_ = numTimeSeries_;
-      result.direction_ = direction_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.monitoring.dashboard.v1.PickTimeSeriesFilter result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.rankingMethod_ = rankingMethod_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.numTimeSeries_ = numTimeSeries_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.direction_ = direction_;
+      }
     }
 
     @java.lang.Override
@@ -842,7 +788,7 @@ private static final long serialVersionUID = 0L;
       if (other.direction_ != 0) {
         setDirectionValue(other.getDirectionValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -857,19 +803,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.dashboard.v1.PickTimeSeriesFilter parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              rankingMethod_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              numTimeSeries_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              direction_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.dashboard.v1.PickTimeSeriesFilter) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int rankingMethod_ = 0;
     /**
@@ -897,8 +872,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRankingMethodValue(int value) {
-      
       rankingMethod_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -914,8 +889,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Method getRankingMethod() {
-      @SuppressWarnings("deprecation")
-      com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Method result = com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Method.valueOf(rankingMethod_);
+      com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Method result = com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Method.forNumber(rankingMethod_);
       return result == null ? com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Method.UNRECOGNIZED : result;
     }
     /**
@@ -933,7 +907,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       rankingMethod_ = value.getNumber();
       onChanged();
       return this;
@@ -949,7 +923,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRankingMethod() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       rankingMethod_ = 0;
       onChanged();
       return this;
@@ -980,6 +954,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNumTimeSeries(int value) {
       
       numTimeSeries_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -992,7 +967,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNumTimeSeries() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       numTimeSeries_ = 0;
       onChanged();
       return this;
@@ -1020,8 +995,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDirectionValue(int value) {
-      
       direction_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1035,8 +1010,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Direction getDirection() {
-      @SuppressWarnings("deprecation")
-      com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Direction result = com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Direction.valueOf(direction_);
+      com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Direction result = com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Direction.forNumber(direction_);
       return result == null ? com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Direction.UNRECOGNIZED : result;
     }
     /**
@@ -1052,7 +1026,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       direction_ = value.getNumber();
       onChanged();
       return this;
@@ -1066,7 +1040,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDirection() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       direction_ = 0;
       onChanged();
       return this;
@@ -1104,7 +1078,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PickTimeSeriesFilter(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

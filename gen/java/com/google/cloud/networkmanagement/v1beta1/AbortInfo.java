@@ -37,70 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AbortInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            cause_ = rawValue;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceUri_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              projectsMissingPermission_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            projectsMissingPermission_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        projectsMissingPermission_ = projectsMissingPermission_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.networkmanagement.v1beta1.TraceProto.internal_static_google_cloud_networkmanagement_v1beta1_AbortInfo_descriptor;
@@ -511,7 +447,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CAUSE_FIELD_NUMBER = 1;
-  private int cause_;
+  private int cause_ = 0;
   /**
    * <pre>
    * Causes that the analysis is aborted.
@@ -532,13 +468,13 @@ private static final long serialVersionUID = 0L;
    * @return The cause.
    */
   @java.lang.Override public com.google.cloud.networkmanagement.v1beta1.AbortInfo.Cause getCause() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.networkmanagement.v1beta1.AbortInfo.Cause result = com.google.cloud.networkmanagement.v1beta1.AbortInfo.Cause.valueOf(cause_);
+    com.google.cloud.networkmanagement.v1beta1.AbortInfo.Cause result = com.google.cloud.networkmanagement.v1beta1.AbortInfo.Cause.forNumber(cause_);
     return result == null ? com.google.cloud.networkmanagement.v1beta1.AbortInfo.Cause.UNRECOGNIZED : result;
   }
 
   public static final int RESOURCE_URI_FIELD_NUMBER = 2;
-  private volatile java.lang.Object resourceUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceUri_ = "";
   /**
    * <pre>
    * URI of the resource that caused the abort.
@@ -584,6 +520,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECTS_MISSING_PERMISSION_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList projectsMissingPermission_;
   /**
    * <pre>
@@ -665,7 +602,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < projectsMissingPermission_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, projectsMissingPermission_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -689,7 +626,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getProjectsMissingPermissionList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -709,7 +646,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getResourceUri())) return false;
     if (!getProjectsMissingPermissionList()
         .equals(other.getProjectsMissingPermissionList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -728,7 +665,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PROJECTS_MISSING_PERMISSION_FIELD_NUMBER;
       hash = (53 * hash) + getProjectsMissingPermissionList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -849,28 +786,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.networkmanagement.v1beta1.AbortInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       cause_ = 0;
-
       resourceUri_ = "";
-
       projectsMissingPermission_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -897,16 +828,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.networkmanagement.v1beta1.AbortInfo buildPartial() {
       com.google.cloud.networkmanagement.v1beta1.AbortInfo result = new com.google.cloud.networkmanagement.v1beta1.AbortInfo(this);
-      int from_bitField0_ = bitField0_;
-      result.cause_ = cause_;
-      result.resourceUri_ = resourceUri_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        projectsMissingPermission_ = projectsMissingPermission_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.projectsMissingPermission_ = projectsMissingPermission_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.networkmanagement.v1beta1.AbortInfo result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        projectsMissingPermission_ = projectsMissingPermission_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.projectsMissingPermission_ = projectsMissingPermission_;
+    }
+
+    private void buildPartial0(com.google.cloud.networkmanagement.v1beta1.AbortInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.cause_ = cause_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.resourceUri_ = resourceUri_;
+      }
     }
 
     @java.lang.Override
@@ -958,19 +901,20 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getResourceUri().isEmpty()) {
         resourceUri_ = other.resourceUri_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.projectsMissingPermission_.isEmpty()) {
         if (projectsMissingPermission_.isEmpty()) {
           projectsMissingPermission_ = other.projectsMissingPermission_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureProjectsMissingPermissionIsMutable();
           projectsMissingPermission_.addAll(other.projectsMissingPermission_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -985,17 +929,46 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.networkmanagement.v1beta1.AbortInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              cause_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              resourceUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureProjectsMissingPermissionIsMutable();
+              projectsMissingPermission_.add(s);
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.networkmanagement.v1beta1.AbortInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1022,8 +995,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCauseValue(int value) {
-      
       cause_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1037,8 +1010,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.networkmanagement.v1beta1.AbortInfo.Cause getCause() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.networkmanagement.v1beta1.AbortInfo.Cause result = com.google.cloud.networkmanagement.v1beta1.AbortInfo.Cause.valueOf(cause_);
+      com.google.cloud.networkmanagement.v1beta1.AbortInfo.Cause result = com.google.cloud.networkmanagement.v1beta1.AbortInfo.Cause.forNumber(cause_);
       return result == null ? com.google.cloud.networkmanagement.v1beta1.AbortInfo.Cause.UNRECOGNIZED : result;
     }
     /**
@@ -1054,7 +1026,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       cause_ = value.getNumber();
       onChanged();
       return this;
@@ -1068,7 +1040,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCause() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       cause_ = 0;
       onChanged();
       return this;
@@ -1127,11 +1099,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceUri_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1144,8 +1114,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceUri() {
-      
       resourceUri_ = getDefaultInstance().getResourceUri();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1160,21 +1130,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceUri_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList projectsMissingPermission_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureProjectsMissingPermissionIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         projectsMissingPermission_ = new com.google.protobuf.LazyStringArrayList(projectsMissingPermission_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1247,10 +1215,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectsMissingPermission(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureProjectsMissingPermissionIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureProjectsMissingPermissionIsMutable();
       projectsMissingPermission_.set(index, value);
       onChanged();
       return this;
@@ -1268,10 +1234,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addProjectsMissingPermission(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureProjectsMissingPermissionIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureProjectsMissingPermissionIsMutable();
       projectsMissingPermission_.add(value);
       onChanged();
       return this;
@@ -1307,7 +1271,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearProjectsMissingPermission() {
       projectsMissingPermission_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1324,10 +1288,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addProjectsMissingPermissionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureProjectsMissingPermissionIsMutable();
       projectsMissingPermission_.add(value);
       onChanged();
@@ -1366,7 +1328,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AbortInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

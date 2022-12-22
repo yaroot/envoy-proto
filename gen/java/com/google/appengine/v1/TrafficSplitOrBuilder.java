@@ -97,7 +97,6 @@ public interface TrafficSplitOrBuilder extends
    *
    * <code>map&lt;string, double&gt; allocations = 2;</code>
    */
-
   double getAllocationsOrDefault(
       java.lang.String key,
       double defaultValue);
@@ -115,7 +114,6 @@ public interface TrafficSplitOrBuilder extends
    *
    * <code>map&lt;string, double&gt; allocations = 2;</code>
    */
-
   double getAllocationsOrThrow(
       java.lang.String key);
 }

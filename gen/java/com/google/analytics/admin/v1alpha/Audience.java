@@ -39,105 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Audience(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 32: {
-
-            membershipDurationDays_ = input.readInt32();
-            break;
-          }
-          case 40: {
-
-            adsPersonalizationEnabled_ = input.readBool();
-            break;
-          }
-          case 50: {
-            com.google.analytics.admin.v1alpha.AudienceEventTrigger.Builder subBuilder = null;
-            if (eventTrigger_ != null) {
-              subBuilder = eventTrigger_.toBuilder();
-            }
-            eventTrigger_ = input.readMessage(com.google.analytics.admin.v1alpha.AudienceEventTrigger.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(eventTrigger_);
-              eventTrigger_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            exclusionDurationMode_ = rawValue;
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              filterClauses_ = new java.util.ArrayList<com.google.analytics.admin.v1alpha.AudienceFilterClause>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            filterClauses_.add(
-                input.readMessage(com.google.analytics.admin.v1alpha.AudienceFilterClause.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        filterClauses_ = java.util.Collections.unmodifiableList(filterClauses_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.admin.v1alpha.AudienceProto.internal_static_google_analytics_admin_v1alpha_Audience_descriptor;
@@ -300,7 +201,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The resource name for this Audience resource.
@@ -348,7 +250,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Required. The display name of the Audience.
@@ -394,7 +297,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * Required. The description of the Audience.
@@ -440,7 +344,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MEMBERSHIP_DURATION_DAYS_FIELD_NUMBER = 4;
-  private int membershipDurationDays_;
+  private int membershipDurationDays_ = 0;
   /**
    * <pre>
    * Required. Immutable. The duration a user should stay in an Audience. It cannot be set to more
@@ -456,7 +360,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADS_PERSONALIZATION_ENABLED_FIELD_NUMBER = 5;
-  private boolean adsPersonalizationEnabled_;
+  private boolean adsPersonalizationEnabled_ = false;
   /**
    * <pre>
    * Output only. It is automatically set by GA to false if this is an NPA Audience and is
@@ -509,11 +413,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.admin.v1alpha.AudienceEventTriggerOrBuilder getEventTriggerOrBuilder() {
-    return getEventTrigger();
+    return eventTrigger_ == null ? com.google.analytics.admin.v1alpha.AudienceEventTrigger.getDefaultInstance() : eventTrigger_;
   }
 
   public static final int EXCLUSION_DURATION_MODE_FIELD_NUMBER = 7;
-  private int exclusionDurationMode_;
+  private int exclusionDurationMode_ = 0;
   /**
    * <pre>
    * Immutable. Specifies how long an exclusion lasts for users that meet the exclusion
@@ -538,12 +442,12 @@ private static final long serialVersionUID = 0L;
    * @return The exclusionDurationMode.
    */
   @java.lang.Override public com.google.analytics.admin.v1alpha.Audience.AudienceExclusionDurationMode getExclusionDurationMode() {
-    @SuppressWarnings("deprecation")
-    com.google.analytics.admin.v1alpha.Audience.AudienceExclusionDurationMode result = com.google.analytics.admin.v1alpha.Audience.AudienceExclusionDurationMode.valueOf(exclusionDurationMode_);
+    com.google.analytics.admin.v1alpha.Audience.AudienceExclusionDurationMode result = com.google.analytics.admin.v1alpha.Audience.AudienceExclusionDurationMode.forNumber(exclusionDurationMode_);
     return result == null ? com.google.analytics.admin.v1alpha.Audience.AudienceExclusionDurationMode.UNRECOGNIZED : result;
   }
 
   public static final int FILTER_CLAUSES_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.analytics.admin.v1alpha.AudienceFilterClause> filterClauses_;
   /**
    * <pre>
@@ -646,7 +550,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < filterClauses_.size(); i++) {
       output.writeMessage(8, filterClauses_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -684,7 +588,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, filterClauses_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -717,7 +621,7 @@ private static final long serialVersionUID = 0L;
     if (exclusionDurationMode_ != other.exclusionDurationMode_) return false;
     if (!getFilterClausesList()
         .equals(other.getFilterClausesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -749,7 +653,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FILTER_CLAUSES_FIELD_NUMBER;
       hash = (53 * hash) + getFilterClausesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -870,47 +774,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.admin.v1alpha.Audience.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getFilterClausesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
       description_ = "";
-
       membershipDurationDays_ = 0;
-
       adsPersonalizationEnabled_ = false;
-
-      if (eventTriggerBuilder_ == null) {
-        eventTrigger_ = null;
-      } else {
-        eventTrigger_ = null;
+      eventTrigger_ = null;
+      if (eventTriggerBuilder_ != null) {
+        eventTriggerBuilder_.dispose();
         eventTriggerBuilder_ = null;
       }
       exclusionDurationMode_ = 0;
-
       if (filterClausesBuilder_ == null) {
         filterClauses_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        filterClauses_ = null;
         filterClausesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       return this;
     }
 
@@ -937,29 +830,49 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.admin.v1alpha.Audience buildPartial() {
       com.google.analytics.admin.v1alpha.Audience result = new com.google.analytics.admin.v1alpha.Audience(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      result.description_ = description_;
-      result.membershipDurationDays_ = membershipDurationDays_;
-      result.adsPersonalizationEnabled_ = adsPersonalizationEnabled_;
-      if (eventTriggerBuilder_ == null) {
-        result.eventTrigger_ = eventTrigger_;
-      } else {
-        result.eventTrigger_ = eventTriggerBuilder_.build();
-      }
-      result.exclusionDurationMode_ = exclusionDurationMode_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.analytics.admin.v1alpha.Audience result) {
       if (filterClausesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           filterClauses_ = java.util.Collections.unmodifiableList(filterClauses_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.filterClauses_ = filterClauses_;
       } else {
         result.filterClauses_ = filterClausesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.analytics.admin.v1alpha.Audience result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.membershipDurationDays_ = membershipDurationDays_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.adsPersonalizationEnabled_ = adsPersonalizationEnabled_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.eventTrigger_ = eventTriggerBuilder_ == null
+            ? eventTrigger_
+            : eventTriggerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.exclusionDurationMode_ = exclusionDurationMode_;
+      }
     }
 
     @java.lang.Override
@@ -1008,14 +921,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.analytics.admin.v1alpha.Audience.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getMembershipDurationDays() != 0) {
@@ -1034,7 +950,7 @@ private static final long serialVersionUID = 0L;
         if (!other.filterClauses_.isEmpty()) {
           if (filterClauses_.isEmpty()) {
             filterClauses_ = other.filterClauses_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureFilterClausesIsMutable();
             filterClauses_.addAll(other.filterClauses_);
@@ -1047,7 +963,7 @@ private static final long serialVersionUID = 0L;
             filterClausesBuilder_.dispose();
             filterClausesBuilder_ = null;
             filterClauses_ = other.filterClauses_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000080);
             filterClausesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFilterClausesFieldBuilder() : null;
@@ -1056,7 +972,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1071,17 +987,80 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.admin.v1alpha.Audience parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              membershipDurationDays_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              adsPersonalizationEnabled_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              input.readMessage(
+                  getEventTriggerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 56: {
+              exclusionDurationMode_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 66: {
+              com.google.analytics.admin.v1alpha.AudienceFilterClause m =
+                  input.readMessage(
+                      com.google.analytics.admin.v1alpha.AudienceFilterClause.parser(),
+                      extensionRegistry);
+              if (filterClausesBuilder_ == null) {
+                ensureFilterClausesIsMutable();
+                filterClauses_.add(m);
+              } else {
+                filterClausesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.admin.v1alpha.Audience) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1142,11 +1121,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1160,8 +1137,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1177,12 +1154,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1240,11 +1215,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1257,8 +1230,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1273,12 +1246,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1336,11 +1307,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1353,8 +1322,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1369,12 +1338,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1406,6 +1373,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMembershipDurationDays(int value) {
       
       membershipDurationDays_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1419,7 +1387,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMembershipDurationDays() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       membershipDurationDays_ = 0;
       onChanged();
       return this;
@@ -1452,6 +1420,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAdsPersonalizationEnabled(boolean value) {
       
       adsPersonalizationEnabled_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1465,7 +1434,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAdsPersonalizationEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       adsPersonalizationEnabled_ = false;
       onChanged();
       return this;
@@ -1484,7 +1453,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the eventTrigger field is set.
      */
     public boolean hasEventTrigger() {
-      return eventTriggerBuilder_ != null || eventTrigger_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1516,11 +1485,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         eventTrigger_ = value;
-        onChanged();
       } else {
         eventTriggerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1535,11 +1504,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.admin.v1alpha.AudienceEventTrigger.Builder builderForValue) {
       if (eventTriggerBuilder_ == null) {
         eventTrigger_ = builderForValue.build();
-        onChanged();
       } else {
         eventTriggerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1552,17 +1521,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEventTrigger(com.google.analytics.admin.v1alpha.AudienceEventTrigger value) {
       if (eventTriggerBuilder_ == null) {
-        if (eventTrigger_ != null) {
-          eventTrigger_ =
-            com.google.analytics.admin.v1alpha.AudienceEventTrigger.newBuilder(eventTrigger_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          eventTrigger_ != null &&
+          eventTrigger_ != com.google.analytics.admin.v1alpha.AudienceEventTrigger.getDefaultInstance()) {
+          getEventTriggerBuilder().mergeFrom(value);
         } else {
           eventTrigger_ = value;
         }
-        onChanged();
       } else {
         eventTriggerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1574,14 +1544,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.admin.v1alpha.AudienceEventTrigger event_trigger = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearEventTrigger() {
-      if (eventTriggerBuilder_ == null) {
-        eventTrigger_ = null;
-        onChanged();
-      } else {
-        eventTrigger_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      eventTrigger_ = null;
+      if (eventTriggerBuilder_ != null) {
+        eventTriggerBuilder_.dispose();
         eventTriggerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1593,7 +1562,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.admin.v1alpha.AudienceEventTrigger event_trigger = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.analytics.admin.v1alpha.AudienceEventTrigger.Builder getEventTriggerBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getEventTriggerFieldBuilder().getBuilder();
     }
@@ -1661,8 +1630,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setExclusionDurationModeValue(int value) {
-      
       exclusionDurationMode_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1678,8 +1647,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.analytics.admin.v1alpha.Audience.AudienceExclusionDurationMode getExclusionDurationMode() {
-      @SuppressWarnings("deprecation")
-      com.google.analytics.admin.v1alpha.Audience.AudienceExclusionDurationMode result = com.google.analytics.admin.v1alpha.Audience.AudienceExclusionDurationMode.valueOf(exclusionDurationMode_);
+      com.google.analytics.admin.v1alpha.Audience.AudienceExclusionDurationMode result = com.google.analytics.admin.v1alpha.Audience.AudienceExclusionDurationMode.forNumber(exclusionDurationMode_);
       return result == null ? com.google.analytics.admin.v1alpha.Audience.AudienceExclusionDurationMode.UNRECOGNIZED : result;
     }
     /**
@@ -1697,7 +1665,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       exclusionDurationMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1713,7 +1681,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExclusionDurationMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       exclusionDurationMode_ = 0;
       onChanged();
       return this;
@@ -1722,9 +1690,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.analytics.admin.v1alpha.AudienceFilterClause> filterClauses_ =
       java.util.Collections.emptyList();
     private void ensureFilterClausesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         filterClauses_ = new java.util.ArrayList<com.google.analytics.admin.v1alpha.AudienceFilterClause>(filterClauses_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -1929,7 +1897,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearFilterClauses() {
       if (filterClausesBuilder_ == null) {
         filterClauses_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         filterClausesBuilder_.clear();
@@ -2041,7 +2009,7 @@ private static final long serialVersionUID = 0L;
         filterClausesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.analytics.admin.v1alpha.AudienceFilterClause, com.google.analytics.admin.v1alpha.AudienceFilterClause.Builder, com.google.analytics.admin.v1alpha.AudienceFilterClauseOrBuilder>(
                 filterClauses_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         filterClauses_ = null;
@@ -2081,7 +2049,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Audience(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

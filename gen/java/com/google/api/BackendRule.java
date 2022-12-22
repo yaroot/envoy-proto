@@ -38,95 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BackendRule(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            selector_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            address_ = s;
-            break;
-          }
-          case 25: {
-
-            deadline_ = input.readDouble();
-            break;
-          }
-          case 33: {
-
-            minDeadline_ = input.readDouble();
-            break;
-          }
-          case 41: {
-
-            operationDeadline_ = input.readDouble();
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            pathTranslation_ = rawValue;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            authenticationCase_ = 7;
-            authentication_ = s;
-            break;
-          }
-          case 64: {
-            authentication_ = input.readBool();
-            authenticationCase_ = 8;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            protocol_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.BackendProto.internal_static_google_api_BackendRule_descriptor;
@@ -380,7 +291,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SELECTOR_FIELD_NUMBER = 1;
-  private volatile java.lang.Object selector_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object selector_ = "";
   /**
    * <pre>
    * Selects the methods to which this rule applies.
@@ -428,7 +340,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADDRESS_FIELD_NUMBER = 2;
-  private volatile java.lang.Object address_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object address_ = "";
   /**
    * <pre>
    * The address of the API backend.
@@ -502,7 +415,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEADLINE_FIELD_NUMBER = 3;
-  private double deadline_;
+  private double deadline_ = 0D;
   /**
    * <pre>
    * The number of seconds to wait for a response from a request. The default
@@ -518,23 +431,24 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_DEADLINE_FIELD_NUMBER = 4;
-  private double minDeadline_;
+  private double minDeadline_ = 0D;
   /**
    * <pre>
-   * Minimum deadline in seconds needed for this method. Calls having deadline
-   * value lower than this will be rejected.
+   * Deprecated, do not use.
    * </pre>
    *
-   * <code>double min_deadline = 4;</code>
+   * <code>double min_deadline = 4 [deprecated = true];</code>
+   * @deprecated google.api.BackendRule.min_deadline is deprecated.
+   *     See google/api/backend.proto;l=123
    * @return The minDeadline.
    */
   @java.lang.Override
-  public double getMinDeadline() {
+  @java.lang.Deprecated public double getMinDeadline() {
     return minDeadline_;
   }
 
   public static final int OPERATION_DEADLINE_FIELD_NUMBER = 5;
-  private double operationDeadline_;
+  private double operationDeadline_ = 0D;
   /**
    * <pre>
    * The number of seconds to wait for the completion of a long running
@@ -550,7 +464,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PATH_TRANSLATION_FIELD_NUMBER = 6;
-  private int pathTranslation_;
+  private int pathTranslation_ = 0;
   /**
    * <code>.google.api.BackendRule.PathTranslation path_translation = 6;</code>
    * @return The enum numeric value on the wire for pathTranslation.
@@ -563,8 +477,7 @@ private static final long serialVersionUID = 0L;
    * @return The pathTranslation.
    */
   @java.lang.Override public com.google.api.BackendRule.PathTranslation getPathTranslation() {
-    @SuppressWarnings("deprecation")
-    com.google.api.BackendRule.PathTranslation result = com.google.api.BackendRule.PathTranslation.valueOf(pathTranslation_);
+    com.google.api.BackendRule.PathTranslation result = com.google.api.BackendRule.PathTranslation.forNumber(pathTranslation_);
     return result == null ? com.google.api.BackendRule.PathTranslation.UNRECOGNIZED : result;
   }
 
@@ -674,7 +587,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROTOCOL_FIELD_NUMBER = 9;
-  private volatile java.lang.Object protocol_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object protocol_ = "";
   /**
    * <pre>
    * The protocol used for sending a request to the backend.
@@ -791,7 +705,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(protocol_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, protocol_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -833,7 +747,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(protocol_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, protocol_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -877,7 +791,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -918,7 +832,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1039,36 +953,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.BackendRule.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       selector_ = "";
-
       address_ = "";
-
       deadline_ = 0D;
-
       minDeadline_ = 0D;
-
       operationDeadline_ = 0D;
-
       pathTranslation_ = 0;
-
       protocol_ = "";
-
       authenticationCase_ = 0;
       authentication_ = null;
       return this;
@@ -1097,22 +1000,40 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.BackendRule buildPartial() {
       com.google.api.BackendRule result = new com.google.api.BackendRule(this);
-      result.selector_ = selector_;
-      result.address_ = address_;
-      result.deadline_ = deadline_;
-      result.minDeadline_ = minDeadline_;
-      result.operationDeadline_ = operationDeadline_;
-      result.pathTranslation_ = pathTranslation_;
-      if (authenticationCase_ == 7) {
-        result.authentication_ = authentication_;
-      }
-      if (authenticationCase_ == 8) {
-        result.authentication_ = authentication_;
-      }
-      result.protocol_ = protocol_;
-      result.authenticationCase_ = authenticationCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.api.BackendRule result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.selector_ = selector_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.address_ = address_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.deadline_ = deadline_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.minDeadline_ = minDeadline_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.operationDeadline_ = operationDeadline_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.pathTranslation_ = pathTranslation_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.protocol_ = protocol_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.api.BackendRule result) {
+      result.authenticationCase_ = authenticationCase_;
+      result.authentication_ = this.authentication_;
     }
 
     @java.lang.Override
@@ -1161,10 +1082,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.api.BackendRule.getDefaultInstance()) return this;
       if (!other.getSelector().isEmpty()) {
         selector_ = other.selector_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getAddress().isEmpty()) {
         address_ = other.address_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getDeadline() != 0D) {
@@ -1181,6 +1104,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getProtocol().isEmpty()) {
         protocol_ = other.protocol_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       switch (other.getAuthenticationCase()) {
@@ -1198,7 +1122,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1213,17 +1137,76 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.BackendRule parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              selector_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              address_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 25: {
+              deadline_ = input.readDouble();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 25
+            case 33: {
+              minDeadline_ = input.readDouble();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 33
+            case 41: {
+              operationDeadline_ = input.readDouble();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 41
+            case 48: {
+              pathTranslation_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              authenticationCase_ = 7;
+              authentication_ = s;
+              break;
+            } // case 58
+            case 64: {
+              authentication_ = input.readBool();
+              authenticationCase_ = 8;
+              break;
+            } // case 64
+            case 74: {
+              protocol_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.BackendRule) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int authenticationCase_ = 0;
@@ -1241,6 +1224,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object selector_ = "";
     /**
@@ -1298,11 +1282,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelector(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       selector_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1316,8 +1298,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSelector() {
-      
       selector_ = getDefaultInstance().getSelector();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1333,12 +1315,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelectorBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       selector_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1438,11 +1418,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       address_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1469,8 +1447,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAddress() {
-      
       address_ = getDefaultInstance().getAddress();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1499,12 +1477,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       address_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1536,6 +1512,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDeadline(double value) {
       
       deadline_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1549,7 +1526,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDeadline() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       deadline_ = 0D;
       onChanged();
       return this;
@@ -1558,44 +1535,48 @@ private static final long serialVersionUID = 0L;
     private double minDeadline_ ;
     /**
      * <pre>
-     * Minimum deadline in seconds needed for this method. Calls having deadline
-     * value lower than this will be rejected.
+     * Deprecated, do not use.
      * </pre>
      *
-     * <code>double min_deadline = 4;</code>
+     * <code>double min_deadline = 4 [deprecated = true];</code>
+     * @deprecated google.api.BackendRule.min_deadline is deprecated.
+     *     See google/api/backend.proto;l=123
      * @return The minDeadline.
      */
     @java.lang.Override
-    public double getMinDeadline() {
+    @java.lang.Deprecated public double getMinDeadline() {
       return minDeadline_;
     }
     /**
      * <pre>
-     * Minimum deadline in seconds needed for this method. Calls having deadline
-     * value lower than this will be rejected.
+     * Deprecated, do not use.
      * </pre>
      *
-     * <code>double min_deadline = 4;</code>
+     * <code>double min_deadline = 4 [deprecated = true];</code>
+     * @deprecated google.api.BackendRule.min_deadline is deprecated.
+     *     See google/api/backend.proto;l=123
      * @param value The minDeadline to set.
      * @return This builder for chaining.
      */
-    public Builder setMinDeadline(double value) {
+    @java.lang.Deprecated public Builder setMinDeadline(double value) {
       
       minDeadline_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Minimum deadline in seconds needed for this method. Calls having deadline
-     * value lower than this will be rejected.
+     * Deprecated, do not use.
      * </pre>
      *
-     * <code>double min_deadline = 4;</code>
+     * <code>double min_deadline = 4 [deprecated = true];</code>
+     * @deprecated google.api.BackendRule.min_deadline is deprecated.
+     *     See google/api/backend.proto;l=123
      * @return This builder for chaining.
      */
-    public Builder clearMinDeadline() {
-      
+    @java.lang.Deprecated public Builder clearMinDeadline() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       minDeadline_ = 0D;
       onChanged();
       return this;
@@ -1628,6 +1609,7 @@ private static final long serialVersionUID = 0L;
     public Builder setOperationDeadline(double value) {
       
       operationDeadline_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1641,7 +1623,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOperationDeadline() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       operationDeadline_ = 0D;
       onChanged();
       return this;
@@ -1661,8 +1643,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPathTranslationValue(int value) {
-      
       pathTranslation_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1672,8 +1654,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.api.BackendRule.PathTranslation getPathTranslation() {
-      @SuppressWarnings("deprecation")
-      com.google.api.BackendRule.PathTranslation result = com.google.api.BackendRule.PathTranslation.valueOf(pathTranslation_);
+      com.google.api.BackendRule.PathTranslation result = com.google.api.BackendRule.PathTranslation.forNumber(pathTranslation_);
       return result == null ? com.google.api.BackendRule.PathTranslation.UNRECOGNIZED : result;
     }
     /**
@@ -1685,7 +1666,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       pathTranslation_ = value.getNumber();
       onChanged();
       return this;
@@ -1695,7 +1676,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPathTranslation() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       pathTranslation_ = 0;
       onChanged();
       return this;
@@ -1785,10 +1766,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setJwtAudience(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  authenticationCase_ = 7;
+      if (value == null) { throw new NullPointerException(); }
+      authenticationCase_ = 7;
       authentication_ = value;
       onChanged();
       return this;
@@ -1824,10 +1803,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setJwtAudienceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       authenticationCase_ = 7;
       authentication_ = value;
       onChanged();
@@ -1878,6 +1855,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDisableAuth(boolean value) {
+      
       authenticationCase_ = 8;
       authentication_ = value;
       onChanged();
@@ -2001,11 +1979,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProtocol(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       protocol_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2033,8 +2009,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProtocol() {
-      
       protocol_ = getDefaultInstance().getProtocol();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2064,12 +2040,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProtocolBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       protocol_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2106,7 +2080,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BackendRule(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

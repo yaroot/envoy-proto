@@ -41,75 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SafeSearchAnnotation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            adult_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            spoof_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            medical_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            violence_ = rawValue;
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            racy_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.vision.v1.ImageAnnotatorProto.internal_static_google_cloud_vision_v1_SafeSearchAnnotation_descriptor;
@@ -124,7 +55,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADULT_FIELD_NUMBER = 1;
-  private int adult_;
+  private int adult_ = 0;
   /**
    * <pre>
    * Represents the adult content likelihood for the image. Adult content may
@@ -149,13 +80,12 @@ private static final long serialVersionUID = 0L;
    * @return The adult.
    */
   @java.lang.Override public com.google.cloud.vision.v1.Likelihood getAdult() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.valueOf(adult_);
+    com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.forNumber(adult_);
     return result == null ? com.google.cloud.vision.v1.Likelihood.UNRECOGNIZED : result;
   }
 
   public static final int SPOOF_FIELD_NUMBER = 2;
-  private int spoof_;
+  private int spoof_ = 0;
   /**
    * <pre>
    * Spoof likelihood. The likelihood that an modification
@@ -180,13 +110,12 @@ private static final long serialVersionUID = 0L;
    * @return The spoof.
    */
   @java.lang.Override public com.google.cloud.vision.v1.Likelihood getSpoof() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.valueOf(spoof_);
+    com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.forNumber(spoof_);
     return result == null ? com.google.cloud.vision.v1.Likelihood.UNRECOGNIZED : result;
   }
 
   public static final int MEDICAL_FIELD_NUMBER = 3;
-  private int medical_;
+  private int medical_ = 0;
   /**
    * <pre>
    * Likelihood that this is a medical image.
@@ -207,13 +136,12 @@ private static final long serialVersionUID = 0L;
    * @return The medical.
    */
   @java.lang.Override public com.google.cloud.vision.v1.Likelihood getMedical() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.valueOf(medical_);
+    com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.forNumber(medical_);
     return result == null ? com.google.cloud.vision.v1.Likelihood.UNRECOGNIZED : result;
   }
 
   public static final int VIOLENCE_FIELD_NUMBER = 4;
-  private int violence_;
+  private int violence_ = 0;
   /**
    * <pre>
    * Likelihood that this image contains violent content.
@@ -234,13 +162,12 @@ private static final long serialVersionUID = 0L;
    * @return The violence.
    */
   @java.lang.Override public com.google.cloud.vision.v1.Likelihood getViolence() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.valueOf(violence_);
+    com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.forNumber(violence_);
     return result == null ? com.google.cloud.vision.v1.Likelihood.UNRECOGNIZED : result;
   }
 
   public static final int RACY_FIELD_NUMBER = 9;
-  private int racy_;
+  private int racy_ = 0;
   /**
    * <pre>
    * Likelihood that the request image contains racy content. Racy content may
@@ -267,8 +194,7 @@ private static final long serialVersionUID = 0L;
    * @return The racy.
    */
   @java.lang.Override public com.google.cloud.vision.v1.Likelihood getRacy() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.valueOf(racy_);
+    com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.forNumber(racy_);
     return result == null ? com.google.cloud.vision.v1.Likelihood.UNRECOGNIZED : result;
   }
 
@@ -301,7 +227,7 @@ private static final long serialVersionUID = 0L;
     if (racy_ != com.google.cloud.vision.v1.Likelihood.UNKNOWN.getNumber()) {
       output.writeEnum(9, racy_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -330,7 +256,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(9, racy_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -350,7 +276,7 @@ private static final long serialVersionUID = 0L;
     if (medical_ != other.medical_) return false;
     if (violence_ != other.violence_) return false;
     if (racy_ != other.racy_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -371,7 +297,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + violence_;
     hash = (37 * hash) + RACY_FIELD_NUMBER;
     hash = (53 * hash) + racy_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -494,32 +420,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.vision.v1.SafeSearchAnnotation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       adult_ = 0;
-
       spoof_ = 0;
-
       medical_ = 0;
-
       violence_ = 0;
-
       racy_ = 0;
-
       return this;
     }
 
@@ -546,13 +463,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.vision.v1.SafeSearchAnnotation buildPartial() {
       com.google.cloud.vision.v1.SafeSearchAnnotation result = new com.google.cloud.vision.v1.SafeSearchAnnotation(this);
-      result.adult_ = adult_;
-      result.spoof_ = spoof_;
-      result.medical_ = medical_;
-      result.violence_ = violence_;
-      result.racy_ = racy_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.vision.v1.SafeSearchAnnotation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.adult_ = adult_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.spoof_ = spoof_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.medical_ = medical_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.violence_ = violence_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.racy_ = racy_;
+      }
     }
 
     @java.lang.Override
@@ -614,7 +546,7 @@ private static final long serialVersionUID = 0L;
       if (other.racy_ != 0) {
         setRacyValue(other.getRacyValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -629,19 +561,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.vision.v1.SafeSearchAnnotation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              adult_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              spoof_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              medical_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              violence_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 72: {
+              racy_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 72
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.vision.v1.SafeSearchAnnotation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int adult_ = 0;
     /**
@@ -669,8 +640,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAdultValue(int value) {
-      
       adult_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -686,8 +657,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.vision.v1.Likelihood getAdult() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.valueOf(adult_);
+      com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.forNumber(adult_);
       return result == null ? com.google.cloud.vision.v1.Likelihood.UNRECOGNIZED : result;
     }
     /**
@@ -705,7 +675,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       adult_ = value.getNumber();
       onChanged();
       return this;
@@ -721,7 +691,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAdult() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       adult_ = 0;
       onChanged();
       return this;
@@ -753,8 +723,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSpoofValue(int value) {
-      
       spoof_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -770,8 +740,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.vision.v1.Likelihood getSpoof() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.valueOf(spoof_);
+      com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.forNumber(spoof_);
       return result == null ? com.google.cloud.vision.v1.Likelihood.UNRECOGNIZED : result;
     }
     /**
@@ -789,7 +758,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       spoof_ = value.getNumber();
       onChanged();
       return this;
@@ -805,7 +774,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSpoof() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       spoof_ = 0;
       onChanged();
       return this;
@@ -833,8 +802,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMedicalValue(int value) {
-      
       medical_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -848,8 +817,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.vision.v1.Likelihood getMedical() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.valueOf(medical_);
+      com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.forNumber(medical_);
       return result == null ? com.google.cloud.vision.v1.Likelihood.UNRECOGNIZED : result;
     }
     /**
@@ -865,7 +833,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       medical_ = value.getNumber();
       onChanged();
       return this;
@@ -879,7 +847,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMedical() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       medical_ = 0;
       onChanged();
       return this;
@@ -907,8 +875,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setViolenceValue(int value) {
-      
       violence_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -922,8 +890,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.vision.v1.Likelihood getViolence() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.valueOf(violence_);
+      com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.forNumber(violence_);
       return result == null ? com.google.cloud.vision.v1.Likelihood.UNRECOGNIZED : result;
     }
     /**
@@ -939,7 +906,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       violence_ = value.getNumber();
       onChanged();
       return this;
@@ -953,7 +920,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearViolence() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       violence_ = 0;
       onChanged();
       return this;
@@ -987,8 +954,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRacyValue(int value) {
-      
       racy_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1005,8 +972,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.vision.v1.Likelihood getRacy() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.valueOf(racy_);
+      com.google.cloud.vision.v1.Likelihood result = com.google.cloud.vision.v1.Likelihood.forNumber(racy_);
       return result == null ? com.google.cloud.vision.v1.Likelihood.UNRECOGNIZED : result;
     }
     /**
@@ -1025,7 +991,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       racy_ = value.getNumber();
       onChanged();
       return this;
@@ -1042,7 +1008,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRacy() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       racy_ = 0;
       onChanged();
       return this;
@@ -1080,7 +1046,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SafeSearchAnnotation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

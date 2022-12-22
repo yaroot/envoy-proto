@@ -402,7 +402,6 @@ public interface TrialOrBuilder extends
    *
    * <code>map&lt;string, string&gt; web_access_uris = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 java.lang.String getWebAccessUrisOrDefault(
       java.lang.String key,
@@ -425,7 +424,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; web_access_uris = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   java.lang.String getWebAccessUrisOrThrow(
       java.lang.String key);
 }

@@ -9,31 +9,31 @@ public interface RewriteObjectRequestOrBuilder extends
 
   /**
    * <pre>
-   * Immutable. The name of the destination object.
+   * Required. Immutable. The name of the destination object.
    * See the
-   * [Naming Guidelines](https://cloud.google.com/storage/docs/naming-objects).
+   * [Naming Guidelines](https://cloud.google.com/storage/docs/objects#naming).
    * Example: `test.txt`
    * The `name` field by itself does not uniquely identify a Cloud Storage
    * object. A Cloud Storage object is uniquely identified by the tuple of
    * (bucket, object, generation).
    * </pre>
    *
-   * <code>string destination_name = 24 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * <code>string destination_name = 24 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
    * @return The destinationName.
    */
   java.lang.String getDestinationName();
   /**
    * <pre>
-   * Immutable. The name of the destination object.
+   * Required. Immutable. The name of the destination object.
    * See the
-   * [Naming Guidelines](https://cloud.google.com/storage/docs/naming-objects).
+   * [Naming Guidelines](https://cloud.google.com/storage/docs/objects#naming).
    * Example: `test.txt`
    * The `name` field by itself does not uniquely identify a Cloud Storage
    * object. A Cloud Storage object is uniquely identified by the tuple of
    * (bucket, object, generation).
    * </pre>
    *
-   * <code>string destination_name = 24 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * <code>string destination_name = 24 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
    * @return The bytes for destinationName.
    */
   com.google.protobuf.ByteString
@@ -41,19 +41,21 @@ public interface RewriteObjectRequestOrBuilder extends
 
   /**
    * <pre>
-   * Immutable. The name of the bucket containing the destination object.
+   * Required. Immutable. The name of the bucket containing the destination
+   * object.
    * </pre>
    *
-   * <code>string destination_bucket = 25 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
+   * <code>string destination_bucket = 25 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
    * @return The destinationBucket.
    */
   java.lang.String getDestinationBucket();
   /**
    * <pre>
-   * Immutable. The name of the bucket containing the destination object.
+   * Required. Immutable. The name of the bucket containing the destination
+   * object.
    * </pre>
    *
-   * <code>string destination_bucket = 25 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
+   * <code>string destination_bucket = 25 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
    * @return The bytes for destinationBucket.
    */
   com.google.protobuf.ByteString
@@ -498,4 +500,34 @@ public interface RewriteObjectRequestOrBuilder extends
    * <code>.google.storage.v2.CommonObjectRequestParams common_object_request_params = 19;</code>
    */
   com.google.storage.v2.CommonObjectRequestParamsOrBuilder getCommonObjectRequestParamsOrBuilder();
+
+  /**
+   * <pre>
+   * The checksums of the complete object. This will be used to validate the
+   * destination object after rewriting.
+   * </pre>
+   *
+   * <code>.google.storage.v2.ObjectChecksums object_checksums = 29;</code>
+   * @return Whether the objectChecksums field is set.
+   */
+  boolean hasObjectChecksums();
+  /**
+   * <pre>
+   * The checksums of the complete object. This will be used to validate the
+   * destination object after rewriting.
+   * </pre>
+   *
+   * <code>.google.storage.v2.ObjectChecksums object_checksums = 29;</code>
+   * @return The objectChecksums.
+   */
+  com.google.storage.v2.ObjectChecksums getObjectChecksums();
+  /**
+   * <pre>
+   * The checksums of the complete object. This will be used to validate the
+   * destination object after rewriting.
+   * </pre>
+   *
+   * <code>.google.storage.v2.ObjectChecksums object_checksums = 29;</code>
+   */
+  com.google.storage.v2.ObjectChecksumsOrBuilder getObjectChecksumsOrBuilder();
 }

@@ -37,75 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SdkHarnessContainerImage(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            containerImage_ = s;
-            break;
-          }
-          case 16: {
-
-            useSingleCorePerContainer_ = input.readBool();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            environmentId_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              capabilities_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            capabilities_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        capabilities_ = capabilities_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.dataflow.v1beta3.EnvironmentProto.internal_static_google_dataflow_v1beta3_SdkHarnessContainerImage_descriptor;
@@ -120,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTAINER_IMAGE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object containerImage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object containerImage_ = "";
   /**
    * <pre>
    * A docker container image that resides in Google Container Registry.
@@ -166,7 +98,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USE_SINGLE_CORE_PER_CONTAINER_FIELD_NUMBER = 2;
-  private boolean useSingleCorePerContainer_;
+  private boolean useSingleCorePerContainer_ = false;
   /**
    * <pre>
    * If true, recommends the Dataflow service to use only one core per SDK
@@ -185,7 +117,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENVIRONMENT_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object environmentId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object environmentId_ = "";
   /**
    * <pre>
    * Environment ID for the Beam runner API proto Environment that corresponds
@@ -233,6 +166,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CAPABILITIES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList capabilities_;
   /**
    * <pre>
@@ -313,7 +247,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < capabilities_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, capabilities_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -340,7 +274,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getCapabilitiesList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -363,7 +297,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getEnvironmentId())) return false;
     if (!getCapabilitiesList()
         .equals(other.getCapabilitiesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -385,7 +319,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CAPABILITIES_FIELD_NUMBER;
       hash = (53 * hash) + getCapabilitiesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -506,30 +440,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.dataflow.v1beta3.SdkHarnessContainerImage.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       containerImage_ = "";
-
       useSingleCorePerContainer_ = false;
-
       environmentId_ = "";
-
       capabilities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -556,17 +483,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.dataflow.v1beta3.SdkHarnessContainerImage buildPartial() {
       com.google.dataflow.v1beta3.SdkHarnessContainerImage result = new com.google.dataflow.v1beta3.SdkHarnessContainerImage(this);
-      int from_bitField0_ = bitField0_;
-      result.containerImage_ = containerImage_;
-      result.useSingleCorePerContainer_ = useSingleCorePerContainer_;
-      result.environmentId_ = environmentId_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        capabilities_ = capabilities_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.capabilities_ = capabilities_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.dataflow.v1beta3.SdkHarnessContainerImage result) {
+      if (((bitField0_ & 0x00000008) != 0)) {
+        capabilities_ = capabilities_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.capabilities_ = capabilities_;
+    }
+
+    private void buildPartial0(com.google.dataflow.v1beta3.SdkHarnessContainerImage result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.containerImage_ = containerImage_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.useSingleCorePerContainer_ = useSingleCorePerContainer_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.environmentId_ = environmentId_;
+      }
     }
 
     @java.lang.Override
@@ -615,6 +556,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.dataflow.v1beta3.SdkHarnessContainerImage.getDefaultInstance()) return this;
       if (!other.getContainerImage().isEmpty()) {
         containerImage_ = other.containerImage_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getUseSingleCorePerContainer() != false) {
@@ -622,19 +564,20 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEnvironmentId().isEmpty()) {
         environmentId_ = other.environmentId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.capabilities_.isEmpty()) {
         if (capabilities_.isEmpty()) {
           capabilities_ = other.capabilities_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureCapabilitiesIsMutable();
           capabilities_.addAll(other.capabilities_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -649,17 +592,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.dataflow.v1beta3.SdkHarnessContainerImage parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              containerImage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              useSingleCorePerContainer_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              environmentId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureCapabilitiesIsMutable();
+              capabilities_.add(s);
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.dataflow.v1beta3.SdkHarnessContainerImage) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -717,11 +694,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setContainerImage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       containerImage_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -734,8 +709,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearContainerImage() {
-      
       containerImage_ = getDefaultInstance().getContainerImage();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -750,12 +725,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setContainerImageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       containerImage_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -793,6 +766,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUseSingleCorePerContainer(boolean value) {
       
       useSingleCorePerContainer_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -809,7 +783,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUseSingleCorePerContainer() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       useSingleCorePerContainer_ = false;
       onChanged();
       return this;
@@ -871,11 +845,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEnvironmentId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       environmentId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -889,8 +861,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnvironmentId() {
-      
       environmentId_ = getDefaultInstance().getEnvironmentId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -906,21 +878,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEnvironmentIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       environmentId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList capabilities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureCapabilitiesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         capabilities_ = new com.google.protobuf.LazyStringArrayList(capabilities_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -988,10 +958,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCapabilities(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCapabilitiesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCapabilitiesIsMutable();
       capabilities_.set(index, value);
       onChanged();
       return this;
@@ -1008,10 +976,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCapabilities(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCapabilitiesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCapabilitiesIsMutable();
       capabilities_.add(value);
       onChanged();
       return this;
@@ -1045,7 +1011,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearCapabilities() {
       capabilities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1061,10 +1027,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCapabilitiesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureCapabilitiesIsMutable();
       capabilities_.add(value);
       onChanged();
@@ -1103,7 +1067,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SdkHarnessContainerImage(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

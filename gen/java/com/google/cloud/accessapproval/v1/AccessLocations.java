@@ -36,57 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AccessLocations(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            principalOfficeCountry_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            principalPhysicalLocationCountry_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.accessapproval.v1.AccessApprovalProto.internal_static_google_cloud_accessapproval_v1_AccessLocations_descriptor;
@@ -101,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRINCIPAL_OFFICE_COUNTRY_FIELD_NUMBER = 1;
-  private volatile java.lang.Object principalOfficeCountry_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object principalOfficeCountry_ = "";
   /**
    * <pre>
    * The "home office" location of the principal. A two-letter country code
@@ -171,7 +121,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRINCIPAL_PHYSICAL_LOCATION_COUNTRY_FIELD_NUMBER = 2;
-  private volatile java.lang.Object principalPhysicalLocationCountry_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object principalPhysicalLocationCountry_ = "";
   /**
    * <pre>
    * Physical location of the principal at the time of the access. A
@@ -260,7 +211,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(principalPhysicalLocationCountry_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, principalPhysicalLocationCountry_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -275,7 +226,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(principalPhysicalLocationCountry_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, principalPhysicalLocationCountry_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -294,7 +245,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPrincipalOfficeCountry())) return false;
     if (!getPrincipalPhysicalLocationCountry()
         .equals(other.getPrincipalPhysicalLocationCountry())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -309,7 +260,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPrincipalOfficeCountry().hashCode();
     hash = (37 * hash) + PRINCIPAL_PHYSICAL_LOCATION_COUNTRY_FIELD_NUMBER;
     hash = (53 * hash) + getPrincipalPhysicalLocationCountry().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -430,26 +381,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.accessapproval.v1.AccessLocations.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       principalOfficeCountry_ = "";
-
       principalPhysicalLocationCountry_ = "";
-
       return this;
     }
 
@@ -476,10 +421,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.accessapproval.v1.AccessLocations buildPartial() {
       com.google.cloud.accessapproval.v1.AccessLocations result = new com.google.cloud.accessapproval.v1.AccessLocations(this);
-      result.principalOfficeCountry_ = principalOfficeCountry_;
-      result.principalPhysicalLocationCountry_ = principalPhysicalLocationCountry_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.accessapproval.v1.AccessLocations result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.principalOfficeCountry_ = principalOfficeCountry_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.principalPhysicalLocationCountry_ = principalPhysicalLocationCountry_;
+      }
     }
 
     @java.lang.Override
@@ -528,13 +482,15 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.accessapproval.v1.AccessLocations.getDefaultInstance()) return this;
       if (!other.getPrincipalOfficeCountry().isEmpty()) {
         principalOfficeCountry_ = other.principalOfficeCountry_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getPrincipalPhysicalLocationCountry().isEmpty()) {
         principalPhysicalLocationCountry_ = other.principalPhysicalLocationCountry_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -549,19 +505,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.accessapproval.v1.AccessLocations parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              principalOfficeCountry_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              principalPhysicalLocationCountry_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.accessapproval.v1.AccessLocations) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object principalOfficeCountry_ = "";
     /**
@@ -652,11 +632,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrincipalOfficeCountry(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       principalOfficeCountry_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -681,8 +659,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrincipalOfficeCountry() {
-      
       principalOfficeCountry_ = getDefaultInstance().getPrincipalOfficeCountry();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -709,12 +687,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrincipalOfficeCountryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       principalOfficeCountry_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -808,11 +784,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrincipalPhysicalLocationCountry(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       principalPhysicalLocationCountry_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -837,8 +811,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrincipalPhysicalLocationCountry() {
-      
       principalPhysicalLocationCountry_ = getDefaultInstance().getPrincipalPhysicalLocationCountry();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -865,12 +839,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrincipalPhysicalLocationCountryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       principalPhysicalLocationCountry_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -907,7 +879,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AccessLocations(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

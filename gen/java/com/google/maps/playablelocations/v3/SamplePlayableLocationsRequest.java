@@ -52,71 +52,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SamplePlayableLocationsRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.maps.playablelocations.v3.sample.AreaFilter.Builder subBuilder = null;
-            if (areaFilter_ != null) {
-              subBuilder = areaFilter_.toBuilder();
-            }
-            areaFilter_ = input.readMessage(com.google.maps.playablelocations.v3.sample.AreaFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(areaFilter_);
-              areaFilter_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              criteria_ = new java.util.ArrayList<com.google.maps.playablelocations.v3.sample.Criterion>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            criteria_.add(
-                input.readMessage(com.google.maps.playablelocations.v3.sample.Criterion.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        criteria_ = java.util.Collections.unmodifiableList(criteria_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.playablelocations.v3.PlayableLocationsProto.internal_static_google_maps_playablelocations_v3_SamplePlayableLocationsRequest_descriptor;
@@ -165,10 +100,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.maps.playablelocations.v3.sample.AreaFilterOrBuilder getAreaFilterOrBuilder() {
-    return getAreaFilter();
+    return areaFilter_ == null ? com.google.maps.playablelocations.v3.sample.AreaFilter.getDefaultInstance() : areaFilter_;
   }
 
   public static final int CRITERIA_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.maps.playablelocations.v3.sample.Criterion> criteria_;
   /**
    * <pre>
@@ -253,7 +189,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < criteria_.size(); i++) {
       output.writeMessage(2, criteria_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -270,7 +206,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, criteria_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -292,7 +228,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getCriteriaList()
         .equals(other.getCriteriaList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -311,7 +247,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CRITERIA_FIELD_NUMBER;
       hash = (53 * hash) + getCriteriaList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -449,35 +385,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.playablelocations.v3.SamplePlayableLocationsRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getCriteriaFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (areaFilterBuilder_ == null) {
-        areaFilter_ = null;
-      } else {
-        areaFilter_ = null;
+      bitField0_ = 0;
+      areaFilter_ = null;
+      if (areaFilterBuilder_ != null) {
+        areaFilterBuilder_.dispose();
         areaFilterBuilder_ = null;
       }
       if (criteriaBuilder_ == null) {
         criteria_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        criteria_ = null;
         criteriaBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -504,23 +435,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.playablelocations.v3.SamplePlayableLocationsRequest buildPartial() {
       com.google.maps.playablelocations.v3.SamplePlayableLocationsRequest result = new com.google.maps.playablelocations.v3.SamplePlayableLocationsRequest(this);
-      int from_bitField0_ = bitField0_;
-      if (areaFilterBuilder_ == null) {
-        result.areaFilter_ = areaFilter_;
-      } else {
-        result.areaFilter_ = areaFilterBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.maps.playablelocations.v3.SamplePlayableLocationsRequest result) {
       if (criteriaBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           criteria_ = java.util.Collections.unmodifiableList(criteria_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.criteria_ = criteria_;
       } else {
         result.criteria_ = criteriaBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.maps.playablelocations.v3.SamplePlayableLocationsRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.areaFilter_ = areaFilterBuilder_ == null
+            ? areaFilter_
+            : areaFilterBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -574,7 +513,7 @@ private static final long serialVersionUID = 0L;
         if (!other.criteria_.isEmpty()) {
           if (criteria_.isEmpty()) {
             criteria_ = other.criteria_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureCriteriaIsMutable();
             criteria_.addAll(other.criteria_);
@@ -587,7 +526,7 @@ private static final long serialVersionUID = 0L;
             criteriaBuilder_.dispose();
             criteriaBuilder_ = null;
             criteria_ = other.criteria_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             criteriaBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getCriteriaFieldBuilder() : null;
@@ -596,7 +535,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -611,17 +550,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.playablelocations.v3.SamplePlayableLocationsRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAreaFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.maps.playablelocations.v3.sample.Criterion m =
+                  input.readMessage(
+                      com.google.maps.playablelocations.v3.sample.Criterion.parser(),
+                      extensionRegistry);
+              if (criteriaBuilder_ == null) {
+                ensureCriteriaIsMutable();
+                criteria_.add(m);
+              } else {
+                criteriaBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.playablelocations.v3.SamplePlayableLocationsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -638,7 +610,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the areaFilter field is set.
      */
     public boolean hasAreaFilter() {
-      return areaFilterBuilder_ != null || areaFilter_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -668,11 +640,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         areaFilter_ = value;
-        onChanged();
       } else {
         areaFilterBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -686,11 +658,11 @@ private static final long serialVersionUID = 0L;
         com.google.maps.playablelocations.v3.sample.AreaFilter.Builder builderForValue) {
       if (areaFilterBuilder_ == null) {
         areaFilter_ = builderForValue.build();
-        onChanged();
       } else {
         areaFilterBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -702,17 +674,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAreaFilter(com.google.maps.playablelocations.v3.sample.AreaFilter value) {
       if (areaFilterBuilder_ == null) {
-        if (areaFilter_ != null) {
-          areaFilter_ =
-            com.google.maps.playablelocations.v3.sample.AreaFilter.newBuilder(areaFilter_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          areaFilter_ != null &&
+          areaFilter_ != com.google.maps.playablelocations.v3.sample.AreaFilter.getDefaultInstance()) {
+          getAreaFilterBuilder().mergeFrom(value);
         } else {
           areaFilter_ = value;
         }
-        onChanged();
       } else {
         areaFilterBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -723,14 +696,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.playablelocations.v3.sample.AreaFilter area_filter = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearAreaFilter() {
-      if (areaFilterBuilder_ == null) {
-        areaFilter_ = null;
-        onChanged();
-      } else {
-        areaFilter_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      areaFilter_ = null;
+      if (areaFilterBuilder_ != null) {
+        areaFilterBuilder_.dispose();
         areaFilterBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -741,7 +713,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.playablelocations.v3.sample.AreaFilter area_filter = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.maps.playablelocations.v3.sample.AreaFilter.Builder getAreaFilterBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAreaFilterFieldBuilder().getBuilder();
     }
@@ -784,9 +756,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.maps.playablelocations.v3.sample.Criterion> criteria_ =
       java.util.Collections.emptyList();
     private void ensureCriteriaIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         criteria_ = new java.util.ArrayList<com.google.maps.playablelocations.v3.sample.Criterion>(criteria_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -991,7 +963,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearCriteria() {
       if (criteriaBuilder_ == null) {
         criteria_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         criteriaBuilder_.clear();
@@ -1103,7 +1075,7 @@ private static final long serialVersionUID = 0L;
         criteriaBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.maps.playablelocations.v3.sample.Criterion, com.google.maps.playablelocations.v3.sample.Criterion.Builder, com.google.maps.playablelocations.v3.sample.CriterionOrBuilder>(
                 criteria_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         criteria_ = null;
@@ -1143,7 +1115,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SamplePlayableLocationsRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

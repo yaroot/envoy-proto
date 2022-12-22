@@ -35,69 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Suggestion(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.dataqna.v1alpha.SuggestionInfo.Builder subBuilder = null;
-            if (suggestionInfo_ != null) {
-              subBuilder = suggestionInfo_.toBuilder();
-            }
-            suggestionInfo_ = input.readMessage(com.google.cloud.dataqna.v1alpha.SuggestionInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(suggestionInfo_);
-              suggestionInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 17: {
-
-            rankingScore_ = input.readDouble();
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            suggestionType_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataqna.v1alpha.AutoSuggestionServiceProto.internal_static_google_cloud_dataqna_v1alpha_Suggestion_descriptor;
@@ -146,11 +83,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataqna.v1alpha.SuggestionInfoOrBuilder getSuggestionInfoOrBuilder() {
-    return getSuggestionInfo();
+    return suggestionInfo_ == null ? com.google.cloud.dataqna.v1alpha.SuggestionInfo.getDefaultInstance() : suggestionInfo_;
   }
 
   public static final int RANKING_SCORE_FIELD_NUMBER = 2;
-  private double rankingScore_;
+  private double rankingScore_ = 0D;
   /**
    * <pre>
    * The score of the suggestion. This can be used to define ordering in UI.
@@ -167,7 +104,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUGGESTION_TYPE_FIELD_NUMBER = 3;
-  private int suggestionType_;
+  private int suggestionType_ = 0;
   /**
    * <pre>
    * The type of the suggestion.
@@ -188,8 +125,7 @@ private static final long serialVersionUID = 0L;
    * @return The suggestionType.
    */
   @java.lang.Override public com.google.cloud.dataqna.v1alpha.SuggestionType getSuggestionType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dataqna.v1alpha.SuggestionType result = com.google.cloud.dataqna.v1alpha.SuggestionType.valueOf(suggestionType_);
+    com.google.cloud.dataqna.v1alpha.SuggestionType result = com.google.cloud.dataqna.v1alpha.SuggestionType.forNumber(suggestionType_);
     return result == null ? com.google.cloud.dataqna.v1alpha.SuggestionType.UNRECOGNIZED : result;
   }
 
@@ -216,7 +152,7 @@ private static final long serialVersionUID = 0L;
     if (suggestionType_ != com.google.cloud.dataqna.v1alpha.SuggestionType.SUGGESTION_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, suggestionType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -237,7 +173,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, suggestionType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -261,7 +197,7 @@ private static final long serialVersionUID = 0L;
         != java.lang.Double.doubleToLongBits(
             other.getRankingScore())) return false;
     if (suggestionType_ != other.suggestionType_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -281,7 +217,7 @@ private static final long serialVersionUID = 0L;
         java.lang.Double.doubleToLongBits(getRankingScore()));
     hash = (37 * hash) + SUGGESTION_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + suggestionType_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -402,32 +338,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataqna.v1alpha.Suggestion.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (suggestionInfoBuilder_ == null) {
-        suggestionInfo_ = null;
-      } else {
-        suggestionInfo_ = null;
+      bitField0_ = 0;
+      suggestionInfo_ = null;
+      if (suggestionInfoBuilder_ != null) {
+        suggestionInfoBuilder_.dispose();
         suggestionInfoBuilder_ = null;
       }
       rankingScore_ = 0D;
-
       suggestionType_ = 0;
-
       return this;
     }
 
@@ -454,15 +383,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataqna.v1alpha.Suggestion buildPartial() {
       com.google.cloud.dataqna.v1alpha.Suggestion result = new com.google.cloud.dataqna.v1alpha.Suggestion(this);
-      if (suggestionInfoBuilder_ == null) {
-        result.suggestionInfo_ = suggestionInfo_;
-      } else {
-        result.suggestionInfo_ = suggestionInfoBuilder_.build();
-      }
-      result.rankingScore_ = rankingScore_;
-      result.suggestionType_ = suggestionType_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataqna.v1alpha.Suggestion result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.suggestionInfo_ = suggestionInfoBuilder_ == null
+            ? suggestionInfo_
+            : suggestionInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.rankingScore_ = rankingScore_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.suggestionType_ = suggestionType_;
+      }
     }
 
     @java.lang.Override
@@ -518,7 +456,7 @@ private static final long serialVersionUID = 0L;
       if (other.suggestionType_ != 0) {
         setSuggestionTypeValue(other.getSuggestionTypeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -533,19 +471,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataqna.v1alpha.Suggestion parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getSuggestionInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 17: {
+              rankingScore_ = input.readDouble();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 17
+            case 24: {
+              suggestionType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataqna.v1alpha.Suggestion) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.dataqna.v1alpha.SuggestionInfo suggestionInfo_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -559,7 +528,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the suggestionInfo field is set.
      */
     public boolean hasSuggestionInfo() {
-      return suggestionInfoBuilder_ != null || suggestionInfo_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -589,11 +558,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         suggestionInfo_ = value;
-        onChanged();
       } else {
         suggestionInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -607,11 +576,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataqna.v1alpha.SuggestionInfo.Builder builderForValue) {
       if (suggestionInfoBuilder_ == null) {
         suggestionInfo_ = builderForValue.build();
-        onChanged();
       } else {
         suggestionInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -623,17 +592,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSuggestionInfo(com.google.cloud.dataqna.v1alpha.SuggestionInfo value) {
       if (suggestionInfoBuilder_ == null) {
-        if (suggestionInfo_ != null) {
-          suggestionInfo_ =
-            com.google.cloud.dataqna.v1alpha.SuggestionInfo.newBuilder(suggestionInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          suggestionInfo_ != null &&
+          suggestionInfo_ != com.google.cloud.dataqna.v1alpha.SuggestionInfo.getDefaultInstance()) {
+          getSuggestionInfoBuilder().mergeFrom(value);
         } else {
           suggestionInfo_ = value;
         }
-        onChanged();
       } else {
         suggestionInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -644,14 +614,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataqna.v1alpha.SuggestionInfo suggestion_info = 1;</code>
      */
     public Builder clearSuggestionInfo() {
-      if (suggestionInfoBuilder_ == null) {
-        suggestionInfo_ = null;
-        onChanged();
-      } else {
-        suggestionInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      suggestionInfo_ = null;
+      if (suggestionInfoBuilder_ != null) {
+        suggestionInfoBuilder_.dispose();
         suggestionInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -662,7 +631,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataqna.v1alpha.SuggestionInfo suggestion_info = 1;</code>
      */
     public com.google.cloud.dataqna.v1alpha.SuggestionInfo.Builder getSuggestionInfoBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getSuggestionInfoFieldBuilder().getBuilder();
     }
@@ -731,6 +700,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRankingScore(double value) {
       
       rankingScore_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -745,7 +715,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRankingScore() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       rankingScore_ = 0D;
       onChanged();
       return this;
@@ -773,8 +743,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSuggestionTypeValue(int value) {
-      
       suggestionType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -788,8 +758,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dataqna.v1alpha.SuggestionType getSuggestionType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dataqna.v1alpha.SuggestionType result = com.google.cloud.dataqna.v1alpha.SuggestionType.valueOf(suggestionType_);
+      com.google.cloud.dataqna.v1alpha.SuggestionType result = com.google.cloud.dataqna.v1alpha.SuggestionType.forNumber(suggestionType_);
       return result == null ? com.google.cloud.dataqna.v1alpha.SuggestionType.UNRECOGNIZED : result;
     }
     /**
@@ -805,7 +774,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       suggestionType_ = value.getNumber();
       onChanged();
       return this;
@@ -819,7 +788,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSuggestionType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       suggestionType_ = 0;
       onChanged();
       return this;
@@ -857,7 +826,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Suggestion(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

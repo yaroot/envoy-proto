@@ -36,7 +36,7 @@ public interface ReviewDocumentOperationMetadataOrBuilder extends
 
   /**
    * <pre>
-   * The question ID.
+   * The Crowd Compute question ID.
    * </pre>
    *
    * <code>string question_id = 6;</code>
@@ -45,7 +45,7 @@ public interface ReviewDocumentOperationMetadataOrBuilder extends
   java.lang.String getQuestionId();
   /**
    * <pre>
-   * The question ID.
+   * The Crowd Compute question ID.
    * </pre>
    *
    * <code>string question_id = 6;</code>

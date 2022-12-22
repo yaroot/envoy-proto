@@ -36,71 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Watchdogs(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.bootstrap.v3.Watchdog.Builder subBuilder = null;
-            if (mainThreadWatchdog_ != null) {
-              subBuilder = mainThreadWatchdog_.toBuilder();
-            }
-            mainThreadWatchdog_ = input.readMessage(io.envoyproxy.envoy.config.bootstrap.v3.Watchdog.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(mainThreadWatchdog_);
-              mainThreadWatchdog_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.config.bootstrap.v3.Watchdog.Builder subBuilder = null;
-            if (workerWatchdog_ != null) {
-              subBuilder = workerWatchdog_.toBuilder();
-            }
-            workerWatchdog_ = input.readMessage(io.envoyproxy.envoy.config.bootstrap.v3.Watchdog.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(workerWatchdog_);
-              workerWatchdog_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.bootstrap.v3.BootstrapProto.internal_static_envoy_config_bootstrap_v3_Watchdogs_descriptor;
@@ -149,7 +84,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.bootstrap.v3.WatchdogOrBuilder getMainThreadWatchdogOrBuilder() {
-    return getMainThreadWatchdog();
+    return mainThreadWatchdog_ == null ? io.envoyproxy.envoy.config.bootstrap.v3.Watchdog.getDefaultInstance() : mainThreadWatchdog_;
   }
 
   public static final int WORKER_WATCHDOG_FIELD_NUMBER = 2;
@@ -187,7 +122,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.bootstrap.v3.WatchdogOrBuilder getWorkerWatchdogOrBuilder() {
-    return getWorkerWatchdog();
+    return workerWatchdog_ == null ? io.envoyproxy.envoy.config.bootstrap.v3.Watchdog.getDefaultInstance() : workerWatchdog_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -210,7 +145,7 @@ private static final long serialVersionUID = 0L;
     if (workerWatchdog_ != null) {
       output.writeMessage(2, getWorkerWatchdog());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -227,7 +162,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getWorkerWatchdog());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -252,7 +187,7 @@ private static final long serialVersionUID = 0L;
       if (!getWorkerWatchdog()
           .equals(other.getWorkerWatchdog())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -271,7 +206,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + WORKER_WATCHDOG_FIELD_NUMBER;
       hash = (53 * hash) + getWorkerWatchdog().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -394,32 +329,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.bootstrap.v3.Watchdogs.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (mainThreadWatchdogBuilder_ == null) {
-        mainThreadWatchdog_ = null;
-      } else {
-        mainThreadWatchdog_ = null;
+      bitField0_ = 0;
+      mainThreadWatchdog_ = null;
+      if (mainThreadWatchdogBuilder_ != null) {
+        mainThreadWatchdogBuilder_.dispose();
         mainThreadWatchdogBuilder_ = null;
       }
-      if (workerWatchdogBuilder_ == null) {
-        workerWatchdog_ = null;
-      } else {
-        workerWatchdog_ = null;
+      workerWatchdog_ = null;
+      if (workerWatchdogBuilder_ != null) {
+        workerWatchdogBuilder_.dispose();
         workerWatchdogBuilder_ = null;
       }
       return this;
@@ -448,18 +377,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.bootstrap.v3.Watchdogs buildPartial() {
       io.envoyproxy.envoy.config.bootstrap.v3.Watchdogs result = new io.envoyproxy.envoy.config.bootstrap.v3.Watchdogs(this);
-      if (mainThreadWatchdogBuilder_ == null) {
-        result.mainThreadWatchdog_ = mainThreadWatchdog_;
-      } else {
-        result.mainThreadWatchdog_ = mainThreadWatchdogBuilder_.build();
-      }
-      if (workerWatchdogBuilder_ == null) {
-        result.workerWatchdog_ = workerWatchdog_;
-      } else {
-        result.workerWatchdog_ = workerWatchdogBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.bootstrap.v3.Watchdogs result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.mainThreadWatchdog_ = mainThreadWatchdogBuilder_ == null
+            ? mainThreadWatchdog_
+            : mainThreadWatchdogBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.workerWatchdog_ = workerWatchdogBuilder_ == null
+            ? workerWatchdog_
+            : workerWatchdogBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -512,7 +446,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasWorkerWatchdog()) {
         mergeWorkerWatchdog(other.getWorkerWatchdog());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -527,19 +461,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.bootstrap.v3.Watchdogs parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMainThreadWatchdogFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getWorkerWatchdogFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.bootstrap.v3.Watchdogs) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.config.bootstrap.v3.Watchdog mainThreadWatchdog_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -553,7 +515,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the mainThreadWatchdog field is set.
      */
     public boolean hasMainThreadWatchdog() {
-      return mainThreadWatchdogBuilder_ != null || mainThreadWatchdog_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -583,11 +545,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         mainThreadWatchdog_ = value;
-        onChanged();
       } else {
         mainThreadWatchdogBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -601,11 +563,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.bootstrap.v3.Watchdog.Builder builderForValue) {
       if (mainThreadWatchdogBuilder_ == null) {
         mainThreadWatchdog_ = builderForValue.build();
-        onChanged();
       } else {
         mainThreadWatchdogBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -617,17 +579,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMainThreadWatchdog(io.envoyproxy.envoy.config.bootstrap.v3.Watchdog value) {
       if (mainThreadWatchdogBuilder_ == null) {
-        if (mainThreadWatchdog_ != null) {
-          mainThreadWatchdog_ =
-            io.envoyproxy.envoy.config.bootstrap.v3.Watchdog.newBuilder(mainThreadWatchdog_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          mainThreadWatchdog_ != null &&
+          mainThreadWatchdog_ != io.envoyproxy.envoy.config.bootstrap.v3.Watchdog.getDefaultInstance()) {
+          getMainThreadWatchdogBuilder().mergeFrom(value);
         } else {
           mainThreadWatchdog_ = value;
         }
-        onChanged();
       } else {
         mainThreadWatchdogBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -638,14 +601,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.bootstrap.v3.Watchdog main_thread_watchdog = 1;</code>
      */
     public Builder clearMainThreadWatchdog() {
-      if (mainThreadWatchdogBuilder_ == null) {
-        mainThreadWatchdog_ = null;
-        onChanged();
-      } else {
-        mainThreadWatchdog_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      mainThreadWatchdog_ = null;
+      if (mainThreadWatchdogBuilder_ != null) {
+        mainThreadWatchdogBuilder_.dispose();
         mainThreadWatchdogBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -656,7 +618,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.bootstrap.v3.Watchdog main_thread_watchdog = 1;</code>
      */
     public io.envoyproxy.envoy.config.bootstrap.v3.Watchdog.Builder getMainThreadWatchdogBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMainThreadWatchdogFieldBuilder().getBuilder();
     }
@@ -708,7 +670,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the workerWatchdog field is set.
      */
     public boolean hasWorkerWatchdog() {
-      return workerWatchdogBuilder_ != null || workerWatchdog_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -738,11 +700,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         workerWatchdog_ = value;
-        onChanged();
       } else {
         workerWatchdogBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -756,11 +718,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.bootstrap.v3.Watchdog.Builder builderForValue) {
       if (workerWatchdogBuilder_ == null) {
         workerWatchdog_ = builderForValue.build();
-        onChanged();
       } else {
         workerWatchdogBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -772,17 +734,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWorkerWatchdog(io.envoyproxy.envoy.config.bootstrap.v3.Watchdog value) {
       if (workerWatchdogBuilder_ == null) {
-        if (workerWatchdog_ != null) {
-          workerWatchdog_ =
-            io.envoyproxy.envoy.config.bootstrap.v3.Watchdog.newBuilder(workerWatchdog_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          workerWatchdog_ != null &&
+          workerWatchdog_ != io.envoyproxy.envoy.config.bootstrap.v3.Watchdog.getDefaultInstance()) {
+          getWorkerWatchdogBuilder().mergeFrom(value);
         } else {
           workerWatchdog_ = value;
         }
-        onChanged();
       } else {
         workerWatchdogBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -793,14 +756,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.bootstrap.v3.Watchdog worker_watchdog = 2;</code>
      */
     public Builder clearWorkerWatchdog() {
-      if (workerWatchdogBuilder_ == null) {
-        workerWatchdog_ = null;
-        onChanged();
-      } else {
-        workerWatchdog_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      workerWatchdog_ = null;
+      if (workerWatchdogBuilder_ != null) {
+        workerWatchdogBuilder_.dispose();
         workerWatchdogBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -811,7 +773,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.bootstrap.v3.Watchdog worker_watchdog = 2;</code>
      */
     public io.envoyproxy.envoy.config.bootstrap.v3.Watchdog.Builder getWorkerWatchdogBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getWorkerWatchdogFieldBuilder().getBuilder();
     }
@@ -883,7 +845,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Watchdogs(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

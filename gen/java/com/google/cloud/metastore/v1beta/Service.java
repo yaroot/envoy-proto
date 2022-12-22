@@ -29,6 +29,7 @@ private static final long serialVersionUID = 0L;
     tier_ = 0;
     uid_ = "";
     releaseChannel_ = 0;
+    databaseType_ = 0;
   }
 
   @java.lang.Override
@@ -42,197 +43,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Service(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 42: {
-            com.google.cloud.metastore.v1beta.HiveMetastoreConfig.Builder subBuilder = null;
-            if (metastoreConfigCase_ == 5) {
-              subBuilder = ((com.google.cloud.metastore.v1beta.HiveMetastoreConfig) metastoreConfig_).toBuilder();
-            }
-            metastoreConfig_ =
-                input.readMessage(com.google.cloud.metastore.v1beta.HiveMetastoreConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.metastore.v1beta.HiveMetastoreConfig) metastoreConfig_);
-              metastoreConfig_ = subBuilder.buildPartial();
-            }
-            metastoreConfigCase_ = 5;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            network_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            endpointUri_ = s;
-            break;
-          }
-          case 72: {
-
-            port_ = input.readInt32();
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            stateMessage_ = s;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            artifactGcsUri_ = s;
-            break;
-          }
-          case 104: {
-            int rawValue = input.readEnum();
-
-            tier_ = rawValue;
-            break;
-          }
-          case 114: {
-            com.google.cloud.metastore.v1beta.MetadataIntegration.Builder subBuilder = null;
-            if (metadataIntegration_ != null) {
-              subBuilder = metadataIntegration_.toBuilder();
-            }
-            metadataIntegration_ = input.readMessage(com.google.cloud.metastore.v1beta.MetadataIntegration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(metadataIntegration_);
-              metadataIntegration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            com.google.cloud.metastore.v1beta.MaintenanceWindow.Builder subBuilder = null;
-            if (maintenanceWindow_ != null) {
-              subBuilder = maintenanceWindow_.toBuilder();
-            }
-            maintenanceWindow_ = input.readMessage(com.google.cloud.metastore.v1beta.MaintenanceWindow.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maintenanceWindow_);
-              maintenanceWindow_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 130: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            uid_ = s;
-            break;
-          }
-          case 138: {
-            com.google.cloud.metastore.v1beta.MetadataManagementActivity.Builder subBuilder = null;
-            if (metadataManagementActivity_ != null) {
-              subBuilder = metadataManagementActivity_.toBuilder();
-            }
-            metadataManagementActivity_ = input.readMessage(com.google.cloud.metastore.v1beta.MetadataManagementActivity.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(metadataManagementActivity_);
-              metadataManagementActivity_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 152: {
-            int rawValue = input.readEnum();
-
-            releaseChannel_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -797,6 +607,151 @@ private static final long serialVersionUID = 0L;
     // @@protoc_insertion_point(enum_scope:google.cloud.metastore.v1beta.Service.ReleaseChannel)
   }
 
+  /**
+   * <pre>
+   * The backend database type for the metastore service.
+   * </pre>
+   *
+   * Protobuf enum {@code google.cloud.metastore.v1beta.Service.DatabaseType}
+   */
+  public enum DatabaseType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * The DATABASE_TYPE is not set.
+     * </pre>
+     *
+     * <code>DATABASE_TYPE_UNSPECIFIED = 0;</code>
+     */
+    DATABASE_TYPE_UNSPECIFIED(0),
+    /**
+     * <pre>
+     * MySQL is used to persist the metastore data.
+     * </pre>
+     *
+     * <code>MYSQL = 1;</code>
+     */
+    MYSQL(1),
+    /**
+     * <pre>
+     * Spanner is used to persist the metastore data.
+     * </pre>
+     *
+     * <code>SPANNER = 2;</code>
+     */
+    SPANNER(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * The DATABASE_TYPE is not set.
+     * </pre>
+     *
+     * <code>DATABASE_TYPE_UNSPECIFIED = 0;</code>
+     */
+    public static final int DATABASE_TYPE_UNSPECIFIED_VALUE = 0;
+    /**
+     * <pre>
+     * MySQL is used to persist the metastore data.
+     * </pre>
+     *
+     * <code>MYSQL = 1;</code>
+     */
+    public static final int MYSQL_VALUE = 1;
+    /**
+     * <pre>
+     * Spanner is used to persist the metastore data.
+     * </pre>
+     *
+     * <code>SPANNER = 2;</code>
+     */
+    public static final int SPANNER_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static DatabaseType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static DatabaseType forNumber(int value) {
+      switch (value) {
+        case 0: return DATABASE_TYPE_UNSPECIFIED;
+        case 1: return MYSQL;
+        case 2: return SPANNER;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<DatabaseType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        DatabaseType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<DatabaseType>() {
+            public DatabaseType findValueByNumber(int number) {
+              return DatabaseType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.cloud.metastore.v1beta.Service.getDescriptor().getEnumTypes().get(3);
+    }
+
+    private static final DatabaseType[] VALUES = values();
+
+    public static DatabaseType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private DatabaseType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.cloud.metastore.v1beta.Service.DatabaseType)
+  }
+
   private int metastoreConfigCase_ = 0;
   private java.lang.Object metastoreConfig_;
   public enum MetastoreConfigCase
@@ -883,11 +838,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
-   * Immutable. The relative resource name of the metastore service, of the
-   * form:
+   * Immutable. The relative resource name of the metastore service, in the
+   * following format:
    * `projects/{project_number}/locations/{location_id}/services/{service_id}`.
    * </pre>
    *
@@ -909,8 +865,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Immutable. The relative resource name of the metastore service, of the
-   * form:
+   * Immutable. The relative resource name of the metastore service, in the
+   * following format:
    * `projects/{project_number}/locations/{location_id}/services/{service_id}`.
    * </pre>
    *
@@ -967,7 +923,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 3;
@@ -1005,7 +961,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int LABELS_FIELD_NUMBER = 4;
@@ -1020,6 +976,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -1030,7 +987,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -1041,7 +997,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -1064,7 +1019,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -1076,10 +1030,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -1093,7 +1048,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1106,7 +1060,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_FIELD_NUMBER = 7;
-  private volatile java.lang.Object network_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object network_ = "";
   /**
    * <pre>
    * Immutable. The relative resource name of the VPC network on which the
@@ -1156,7 +1111,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENDPOINT_URI_FIELD_NUMBER = 8;
-  private volatile java.lang.Object endpointUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object endpointUri_ = "";
   /**
    * <pre>
    * Output only. The URI of the endpoint used to access the metastore service.
@@ -1202,7 +1158,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PORT_FIELD_NUMBER = 9;
-  private int port_;
+  private int port_ = 0;
   /**
    * <pre>
    * The TCP port at which the metastore service is reached. Default: 9083.
@@ -1217,7 +1173,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 10;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The current state of the metastore service.
@@ -1238,13 +1194,13 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.metastore.v1beta.Service.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.metastore.v1beta.Service.State result = com.google.cloud.metastore.v1beta.Service.State.valueOf(state_);
+    com.google.cloud.metastore.v1beta.Service.State result = com.google.cloud.metastore.v1beta.Service.State.forNumber(state_);
     return result == null ? com.google.cloud.metastore.v1beta.Service.State.UNRECOGNIZED : result;
   }
 
   public static final int STATE_MESSAGE_FIELD_NUMBER = 11;
-  private volatile java.lang.Object stateMessage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object stateMessage_ = "";
   /**
    * <pre>
    * Output only. Additional information about the current state of the
@@ -1292,7 +1248,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ARTIFACT_GCS_URI_FIELD_NUMBER = 12;
-  private volatile java.lang.Object artifactGcsUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object artifactGcsUri_ = "";
   /**
    * <pre>
    * Output only. A Cloud Storage URI (starting with `gs://`) that specifies
@@ -1340,7 +1297,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TIER_FIELD_NUMBER = 13;
-  private int tier_;
+  private int tier_ = 0;
   /**
    * <pre>
    * The tier of the service.
@@ -1361,8 +1318,7 @@ private static final long serialVersionUID = 0L;
    * @return The tier.
    */
   @java.lang.Override public com.google.cloud.metastore.v1beta.Service.Tier getTier() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.metastore.v1beta.Service.Tier result = com.google.cloud.metastore.v1beta.Service.Tier.valueOf(tier_);
+    com.google.cloud.metastore.v1beta.Service.Tier result = com.google.cloud.metastore.v1beta.Service.Tier.forNumber(tier_);
     return result == null ? com.google.cloud.metastore.v1beta.Service.Tier.UNRECOGNIZED : result;
   }
 
@@ -1404,7 +1360,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.metastore.v1beta.MetadataIntegrationOrBuilder getMetadataIntegrationOrBuilder() {
-    return getMetadataIntegration();
+    return metadataIntegration_ == null ? com.google.cloud.metastore.v1beta.MetadataIntegration.getDefaultInstance() : metadataIntegration_;
   }
 
   public static final int MAINTENANCE_WINDOW_FIELD_NUMBER = 15;
@@ -1413,6 +1369,8 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The one hour maintenance window of the metastore service. This specifies
    * when the service can be restarted for maintenance purposes in UTC time.
+   * Maintenance window is not needed for services with the SPANNER
+   * database type.
    * </pre>
    *
    * <code>.google.cloud.metastore.v1beta.MaintenanceWindow maintenance_window = 15;</code>
@@ -1426,6 +1384,8 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The one hour maintenance window of the metastore service. This specifies
    * when the service can be restarted for maintenance purposes in UTC time.
+   * Maintenance window is not needed for services with the SPANNER
+   * database type.
    * </pre>
    *
    * <code>.google.cloud.metastore.v1beta.MaintenanceWindow maintenance_window = 15;</code>
@@ -1439,17 +1399,20 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The one hour maintenance window of the metastore service. This specifies
    * when the service can be restarted for maintenance purposes in UTC time.
+   * Maintenance window is not needed for services with the SPANNER
+   * database type.
    * </pre>
    *
    * <code>.google.cloud.metastore.v1beta.MaintenanceWindow maintenance_window = 15;</code>
    */
   @java.lang.Override
   public com.google.cloud.metastore.v1beta.MaintenanceWindowOrBuilder getMaintenanceWindowOrBuilder() {
-    return getMaintenanceWindow();
+    return maintenanceWindow_ == null ? com.google.cloud.metastore.v1beta.MaintenanceWindow.getDefaultInstance() : maintenanceWindow_;
   }
 
   public static final int UID_FIELD_NUMBER = 16;
-  private volatile java.lang.Object uid_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object uid_ = "";
   /**
    * <pre>
    * Output only. The globally unique resource identifier of the metastore
@@ -1531,11 +1494,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.metastore.v1beta.MetadataManagementActivityOrBuilder getMetadataManagementActivityOrBuilder() {
-    return getMetadataManagementActivity();
+    return metadataManagementActivity_ == null ? com.google.cloud.metastore.v1beta.MetadataManagementActivity.getDefaultInstance() : metadataManagementActivity_;
   }
 
   public static final int RELEASE_CHANNEL_FIELD_NUMBER = 19;
-  private int releaseChannel_;
+  private int releaseChannel_ = 0;
   /**
    * <pre>
    * Immutable. The release channel of the service.
@@ -1558,9 +1521,157 @@ private static final long serialVersionUID = 0L;
    * @return The releaseChannel.
    */
   @java.lang.Override public com.google.cloud.metastore.v1beta.Service.ReleaseChannel getReleaseChannel() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.metastore.v1beta.Service.ReleaseChannel result = com.google.cloud.metastore.v1beta.Service.ReleaseChannel.valueOf(releaseChannel_);
+    com.google.cloud.metastore.v1beta.Service.ReleaseChannel result = com.google.cloud.metastore.v1beta.Service.ReleaseChannel.forNumber(releaseChannel_);
     return result == null ? com.google.cloud.metastore.v1beta.Service.ReleaseChannel.UNRECOGNIZED : result;
+  }
+
+  public static final int ENCRYPTION_CONFIG_FIELD_NUMBER = 20;
+  private com.google.cloud.metastore.v1beta.EncryptionConfig encryptionConfig_;
+  /**
+   * <pre>
+   * Immutable. Information used to configure the Dataproc Metastore service to
+   * encrypt customer data at rest. Cannot be updated.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1beta.EncryptionConfig encryption_config = 20 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * @return Whether the encryptionConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasEncryptionConfig() {
+    return encryptionConfig_ != null;
+  }
+  /**
+   * <pre>
+   * Immutable. Information used to configure the Dataproc Metastore service to
+   * encrypt customer data at rest. Cannot be updated.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1beta.EncryptionConfig encryption_config = 20 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * @return The encryptionConfig.
+   */
+  @java.lang.Override
+  public com.google.cloud.metastore.v1beta.EncryptionConfig getEncryptionConfig() {
+    return encryptionConfig_ == null ? com.google.cloud.metastore.v1beta.EncryptionConfig.getDefaultInstance() : encryptionConfig_;
+  }
+  /**
+   * <pre>
+   * Immutable. Information used to configure the Dataproc Metastore service to
+   * encrypt customer data at rest. Cannot be updated.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1beta.EncryptionConfig encryption_config = 20 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.metastore.v1beta.EncryptionConfigOrBuilder getEncryptionConfigOrBuilder() {
+    return encryptionConfig_ == null ? com.google.cloud.metastore.v1beta.EncryptionConfig.getDefaultInstance() : encryptionConfig_;
+  }
+
+  public static final int NETWORK_CONFIG_FIELD_NUMBER = 21;
+  private com.google.cloud.metastore.v1beta.NetworkConfig networkConfig_;
+  /**
+   * <pre>
+   * The configuration specifying the network settings for the
+   * Dataproc Metastore service.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1beta.NetworkConfig network_config = 21;</code>
+   * @return Whether the networkConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasNetworkConfig() {
+    return networkConfig_ != null;
+  }
+  /**
+   * <pre>
+   * The configuration specifying the network settings for the
+   * Dataproc Metastore service.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1beta.NetworkConfig network_config = 21;</code>
+   * @return The networkConfig.
+   */
+  @java.lang.Override
+  public com.google.cloud.metastore.v1beta.NetworkConfig getNetworkConfig() {
+    return networkConfig_ == null ? com.google.cloud.metastore.v1beta.NetworkConfig.getDefaultInstance() : networkConfig_;
+  }
+  /**
+   * <pre>
+   * The configuration specifying the network settings for the
+   * Dataproc Metastore service.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1beta.NetworkConfig network_config = 21;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.metastore.v1beta.NetworkConfigOrBuilder getNetworkConfigOrBuilder() {
+    return networkConfig_ == null ? com.google.cloud.metastore.v1beta.NetworkConfig.getDefaultInstance() : networkConfig_;
+  }
+
+  public static final int DATABASE_TYPE_FIELD_NUMBER = 22;
+  private int databaseType_ = 0;
+  /**
+   * <pre>
+   * Immutable. The database type that the Metastore service stores its data.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1beta.Service.DatabaseType database_type = 22 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * @return The enum numeric value on the wire for databaseType.
+   */
+  @java.lang.Override public int getDatabaseTypeValue() {
+    return databaseType_;
+  }
+  /**
+   * <pre>
+   * Immutable. The database type that the Metastore service stores its data.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1beta.Service.DatabaseType database_type = 22 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * @return The databaseType.
+   */
+  @java.lang.Override public com.google.cloud.metastore.v1beta.Service.DatabaseType getDatabaseType() {
+    com.google.cloud.metastore.v1beta.Service.DatabaseType result = com.google.cloud.metastore.v1beta.Service.DatabaseType.forNumber(databaseType_);
+    return result == null ? com.google.cloud.metastore.v1beta.Service.DatabaseType.UNRECOGNIZED : result;
+  }
+
+  public static final int TELEMETRY_CONFIG_FIELD_NUMBER = 23;
+  private com.google.cloud.metastore.v1beta.TelemetryConfig telemetryConfig_;
+  /**
+   * <pre>
+   * The configuration specifying telemetry settings for the Dataproc Metastore
+   * service. If unspecified defaults to `JSON`.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1beta.TelemetryConfig telemetry_config = 23;</code>
+   * @return Whether the telemetryConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasTelemetryConfig() {
+    return telemetryConfig_ != null;
+  }
+  /**
+   * <pre>
+   * The configuration specifying telemetry settings for the Dataproc Metastore
+   * service. If unspecified defaults to `JSON`.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1beta.TelemetryConfig telemetry_config = 23;</code>
+   * @return The telemetryConfig.
+   */
+  @java.lang.Override
+  public com.google.cloud.metastore.v1beta.TelemetryConfig getTelemetryConfig() {
+    return telemetryConfig_ == null ? com.google.cloud.metastore.v1beta.TelemetryConfig.getDefaultInstance() : telemetryConfig_;
+  }
+  /**
+   * <pre>
+   * The configuration specifying telemetry settings for the Dataproc Metastore
+   * service. If unspecified defaults to `JSON`.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1beta.TelemetryConfig telemetry_config = 23;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.metastore.v1beta.TelemetryConfigOrBuilder getTelemetryConfigOrBuilder() {
+    return telemetryConfig_ == null ? com.google.cloud.metastore.v1beta.TelemetryConfig.getDefaultInstance() : telemetryConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1631,7 +1742,19 @@ private static final long serialVersionUID = 0L;
     if (releaseChannel_ != com.google.cloud.metastore.v1beta.Service.ReleaseChannel.RELEASE_CHANNEL_UNSPECIFIED.getNumber()) {
       output.writeEnum(19, releaseChannel_);
     }
-    unknownFields.writeTo(output);
+    if (encryptionConfig_ != null) {
+      output.writeMessage(20, getEncryptionConfig());
+    }
+    if (networkConfig_ != null) {
+      output.writeMessage(21, getNetworkConfig());
+    }
+    if (databaseType_ != com.google.cloud.metastore.v1beta.Service.DatabaseType.DATABASE_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(22, databaseType_);
+    }
+    if (telemetryConfig_ != null) {
+      output.writeMessage(23, getTelemetryConfig());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1708,7 +1831,23 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(19, releaseChannel_);
     }
-    size += unknownFields.getSerializedSize();
+    if (encryptionConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(20, getEncryptionConfig());
+    }
+    if (networkConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(21, getNetworkConfig());
+    }
+    if (databaseType_ != com.google.cloud.metastore.v1beta.Service.DatabaseType.DATABASE_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(22, databaseType_);
+    }
+    if (telemetryConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(23, getTelemetryConfig());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1767,6 +1906,22 @@ private static final long serialVersionUID = 0L;
           .equals(other.getMetadataManagementActivity())) return false;
     }
     if (releaseChannel_ != other.releaseChannel_) return false;
+    if (hasEncryptionConfig() != other.hasEncryptionConfig()) return false;
+    if (hasEncryptionConfig()) {
+      if (!getEncryptionConfig()
+          .equals(other.getEncryptionConfig())) return false;
+    }
+    if (hasNetworkConfig() != other.hasNetworkConfig()) return false;
+    if (hasNetworkConfig()) {
+      if (!getNetworkConfig()
+          .equals(other.getNetworkConfig())) return false;
+    }
+    if (databaseType_ != other.databaseType_) return false;
+    if (hasTelemetryConfig() != other.hasTelemetryConfig()) return false;
+    if (hasTelemetryConfig()) {
+      if (!getTelemetryConfig()
+          .equals(other.getTelemetryConfig())) return false;
+    }
     if (!getMetastoreConfigCase().equals(other.getMetastoreConfigCase())) return false;
     switch (metastoreConfigCase_) {
       case 5:
@@ -1776,7 +1931,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1831,6 +1986,20 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + RELEASE_CHANNEL_FIELD_NUMBER;
     hash = (53 * hash) + releaseChannel_;
+    if (hasEncryptionConfig()) {
+      hash = (37 * hash) + ENCRYPTION_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getEncryptionConfig().hashCode();
+    }
+    if (hasNetworkConfig()) {
+      hash = (37 * hash) + NETWORK_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getNetworkConfig().hashCode();
+    }
+    hash = (37 * hash) + DATABASE_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + databaseType_;
+    if (hasTelemetryConfig()) {
+      hash = (37 * hash) + TELEMETRY_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getTelemetryConfig().hashCode();
+    }
     switch (metastoreConfigCase_) {
       case 5:
         hash = (37 * hash) + HIVE_METASTORE_CONFIG_FIELD_NUMBER;
@@ -1839,7 +2008,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1982,73 +2151,73 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.metastore.v1beta.Service.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (hiveMetastoreConfigBuilder_ != null) {
+        hiveMetastoreConfigBuilder_.clear();
+      }
       name_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       internalGetMutableLabels().clear();
       network_ = "";
-
       endpointUri_ = "";
-
       port_ = 0;
-
       state_ = 0;
-
       stateMessage_ = "";
-
       artifactGcsUri_ = "";
-
       tier_ = 0;
-
-      if (metadataIntegrationBuilder_ == null) {
-        metadataIntegration_ = null;
-      } else {
-        metadataIntegration_ = null;
+      metadataIntegration_ = null;
+      if (metadataIntegrationBuilder_ != null) {
+        metadataIntegrationBuilder_.dispose();
         metadataIntegrationBuilder_ = null;
       }
-      if (maintenanceWindowBuilder_ == null) {
-        maintenanceWindow_ = null;
-      } else {
-        maintenanceWindow_ = null;
+      maintenanceWindow_ = null;
+      if (maintenanceWindowBuilder_ != null) {
+        maintenanceWindowBuilder_.dispose();
         maintenanceWindowBuilder_ = null;
       }
       uid_ = "";
-
-      if (metadataManagementActivityBuilder_ == null) {
-        metadataManagementActivity_ = null;
-      } else {
-        metadataManagementActivity_ = null;
+      metadataManagementActivity_ = null;
+      if (metadataManagementActivityBuilder_ != null) {
+        metadataManagementActivityBuilder_.dispose();
         metadataManagementActivityBuilder_ = null;
       }
       releaseChannel_ = 0;
-
+      encryptionConfig_ = null;
+      if (encryptionConfigBuilder_ != null) {
+        encryptionConfigBuilder_.dispose();
+        encryptionConfigBuilder_ = null;
+      }
+      networkConfig_ = null;
+      if (networkConfigBuilder_ != null) {
+        networkConfigBuilder_.dispose();
+        networkConfigBuilder_ = null;
+      }
+      databaseType_ = 0;
+      telemetryConfig_ = null;
+      if (telemetryConfigBuilder_ != null) {
+        telemetryConfigBuilder_.dispose();
+        telemetryConfigBuilder_ = null;
+      }
       metastoreConfigCase_ = 0;
       metastoreConfig_ = null;
       return this;
@@ -2077,54 +2246,100 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.metastore.v1beta.Service buildPartial() {
       com.google.cloud.metastore.v1beta.Service result = new com.google.cloud.metastore.v1beta.Service(this);
-      int from_bitField0_ = bitField0_;
-      if (metastoreConfigCase_ == 5) {
-        if (hiveMetastoreConfigBuilder_ == null) {
-          result.metastoreConfig_ = metastoreConfig_;
-        } else {
-          result.metastoreConfig_ = hiveMetastoreConfigBuilder_.build();
-        }
-      }
-      result.name_ = name_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      result.network_ = network_;
-      result.endpointUri_ = endpointUri_;
-      result.port_ = port_;
-      result.state_ = state_;
-      result.stateMessage_ = stateMessage_;
-      result.artifactGcsUri_ = artifactGcsUri_;
-      result.tier_ = tier_;
-      if (metadataIntegrationBuilder_ == null) {
-        result.metadataIntegration_ = metadataIntegration_;
-      } else {
-        result.metadataIntegration_ = metadataIntegrationBuilder_.build();
-      }
-      if (maintenanceWindowBuilder_ == null) {
-        result.maintenanceWindow_ = maintenanceWindow_;
-      } else {
-        result.maintenanceWindow_ = maintenanceWindowBuilder_.build();
-      }
-      result.uid_ = uid_;
-      if (metadataManagementActivityBuilder_ == null) {
-        result.metadataManagementActivity_ = metadataManagementActivity_;
-      } else {
-        result.metadataManagementActivity_ = metadataManagementActivityBuilder_.build();
-      }
-      result.releaseChannel_ = releaseChannel_;
-      result.metastoreConfigCase_ = metastoreConfigCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.metastore.v1beta.Service result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.network_ = network_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.endpointUri_ = endpointUri_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.port_ = port_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.stateMessage_ = stateMessage_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.artifactGcsUri_ = artifactGcsUri_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.tier_ = tier_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.metadataIntegration_ = metadataIntegrationBuilder_ == null
+            ? metadataIntegration_
+            : metadataIntegrationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.maintenanceWindow_ = maintenanceWindowBuilder_ == null
+            ? maintenanceWindow_
+            : maintenanceWindowBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.uid_ = uid_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.metadataManagementActivity_ = metadataManagementActivityBuilder_ == null
+            ? metadataManagementActivity_
+            : metadataManagementActivityBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.releaseChannel_ = releaseChannel_;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.encryptionConfig_ = encryptionConfigBuilder_ == null
+            ? encryptionConfig_
+            : encryptionConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.networkConfig_ = networkConfigBuilder_ == null
+            ? networkConfig_
+            : networkConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.databaseType_ = databaseType_;
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.telemetryConfig_ = telemetryConfigBuilder_ == null
+            ? telemetryConfig_
+            : telemetryConfigBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.metastore.v1beta.Service result) {
+      result.metastoreConfigCase_ = metastoreConfigCase_;
+      result.metastoreConfig_ = this.metastoreConfig_;
+      if (metastoreConfigCase_ == 5 &&
+          hiveMetastoreConfigBuilder_ != null) {
+        result.metastoreConfig_ = hiveMetastoreConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2173,6 +2388,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.metastore.v1beta.Service.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -2183,12 +2399,15 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000010;
       if (!other.getNetwork().isEmpty()) {
         network_ = other.network_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getEndpointUri().isEmpty()) {
         endpointUri_ = other.endpointUri_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.getPort() != 0) {
@@ -2199,10 +2418,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getStateMessage().isEmpty()) {
         stateMessage_ = other.stateMessage_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (!other.getArtifactGcsUri().isEmpty()) {
         artifactGcsUri_ = other.artifactGcsUri_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.tier_ != 0) {
@@ -2216,6 +2437,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getUid().isEmpty()) {
         uid_ = other.uid_;
+        bitField0_ |= 0x00004000;
         onChanged();
       }
       if (other.hasMetadataManagementActivity()) {
@@ -2223,6 +2445,18 @@ private static final long serialVersionUID = 0L;
       }
       if (other.releaseChannel_ != 0) {
         setReleaseChannelValue(other.getReleaseChannelValue());
+      }
+      if (other.hasEncryptionConfig()) {
+        mergeEncryptionConfig(other.getEncryptionConfig());
+      }
+      if (other.hasNetworkConfig()) {
+        mergeNetworkConfig(other.getNetworkConfig());
+      }
+      if (other.databaseType_ != 0) {
+        setDatabaseTypeValue(other.getDatabaseTypeValue());
+      }
+      if (other.hasTelemetryConfig()) {
+        mergeTelemetryConfig(other.getTelemetryConfig());
       }
       switch (other.getMetastoreConfigCase()) {
         case HIVE_METASTORE_CONFIG: {
@@ -2233,7 +2467,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2248,17 +2482,157 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.metastore.v1beta.Service parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getHiveMetastoreConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              metastoreConfigCase_ = 5;
+              break;
+            } // case 42
+            case 58: {
+              network_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 58
+            case 66: {
+              endpointUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            case 72: {
+              port_ = input.readInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 72
+            case 80: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 80
+            case 90: {
+              stateMessage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 90
+            case 98: {
+              artifactGcsUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 98
+            case 104: {
+              tier_ = input.readEnum();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 104
+            case 114: {
+              input.readMessage(
+                  getMetadataIntegrationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getMaintenanceWindowFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 122
+            case 130: {
+              uid_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 130
+            case 138: {
+              input.readMessage(
+                  getMetadataManagementActivityFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 138
+            case 152: {
+              releaseChannel_ = input.readEnum();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 152
+            case 162: {
+              input.readMessage(
+                  getEncryptionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 162
+            case 170: {
+              input.readMessage(
+                  getNetworkConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 170
+            case 176: {
+              databaseType_ = input.readEnum();
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 176
+            case 186: {
+              input.readMessage(
+                  getTelemetryConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 186
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.metastore.v1beta.Service) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int metastoreConfigCase_ = 0;
@@ -2461,15 +2835,15 @@ private static final long serialVersionUID = 0L;
         metastoreConfig_ = null;
       }
       metastoreConfigCase_ = 5;
-      onChanged();;
+      onChanged();
       return hiveMetastoreConfigBuilder_;
     }
 
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Immutable. The relative resource name of the metastore service, of the
-     * form:
+     * Immutable. The relative resource name of the metastore service, in the
+     * following format:
      * `projects/{project_number}/locations/{location_id}/services/{service_id}`.
      * </pre>
      *
@@ -2490,8 +2864,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The relative resource name of the metastore service, of the
-     * form:
+     * Immutable. The relative resource name of the metastore service, in the
+     * following format:
      * `projects/{project_number}/locations/{location_id}/services/{service_id}`.
      * </pre>
      *
@@ -2513,8 +2887,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The relative resource name of the metastore service, of the
-     * form:
+     * Immutable. The relative resource name of the metastore service, in the
+     * following format:
      * `projects/{project_number}/locations/{location_id}/services/{service_id}`.
      * </pre>
      *
@@ -2524,18 +2898,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Immutable. The relative resource name of the metastore service, of the
-     * form:
+     * Immutable. The relative resource name of the metastore service, in the
+     * following format:
      * `projects/{project_number}/locations/{location_id}/services/{service_id}`.
      * </pre>
      *
@@ -2543,15 +2915,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Immutable. The relative resource name of the metastore service, of the
-     * form:
+     * Immutable. The relative resource name of the metastore service, in the
+     * following format:
      * `projects/{project_number}/locations/{location_id}/services/{service_id}`.
      * </pre>
      *
@@ -2561,12 +2933,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2583,7 +2953,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2613,11 +2983,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2631,11 +3001,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2647,17 +3017,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2668,14 +3039,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2686,7 +3056,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -2738,7 +3108,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2768,11 +3138,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2786,11 +3156,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2802,17 +3172,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2823,14 +3194,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2841,7 +3211,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -2884,7 +3254,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -2892,8 +3262,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -2901,9 +3270,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -2914,7 +3284,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -2937,7 +3306,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -2949,10 +3317,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -2966,7 +3335,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2977,8 +3345,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -2990,7 +3358,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3003,7 +3370,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -3017,12 +3385,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -3032,11 +3398,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
 
@@ -3099,11 +3465,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetwork(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       network_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3118,8 +3482,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNetwork() {
-      
       network_ = getDefaultInstance().getNetwork();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -3136,12 +3500,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetworkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       network_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3199,11 +3561,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEndpointUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       endpointUri_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -3216,8 +3576,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEndpointUri() {
-      
       endpointUri_ = getDefaultInstance().getEndpointUri();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -3232,12 +3592,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEndpointUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       endpointUri_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -3267,6 +3625,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPort(int value) {
       
       port_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3279,7 +3638,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPort() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       port_ = 0;
       onChanged();
       return this;
@@ -3307,8 +3666,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3322,8 +3681,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.metastore.v1beta.Service.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.metastore.v1beta.Service.State result = com.google.cloud.metastore.v1beta.Service.State.valueOf(state_);
+      com.google.cloud.metastore.v1beta.Service.State result = com.google.cloud.metastore.v1beta.Service.State.forNumber(state_);
       return result == null ? com.google.cloud.metastore.v1beta.Service.State.UNRECOGNIZED : result;
     }
     /**
@@ -3339,7 +3697,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000100;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -3353,7 +3711,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       state_ = 0;
       onChanged();
       return this;
@@ -3415,11 +3773,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStateMessage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       stateMessage_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3433,8 +3789,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStateMessage() {
-      
       stateMessage_ = getDefaultInstance().getStateMessage();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -3450,12 +3806,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStateMessageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       stateMessage_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3516,11 +3870,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setArtifactGcsUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       artifactGcsUri_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3534,8 +3886,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearArtifactGcsUri() {
-      
       artifactGcsUri_ = getDefaultInstance().getArtifactGcsUri();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -3551,12 +3903,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setArtifactGcsUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       artifactGcsUri_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3583,8 +3933,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTierValue(int value) {
-      
       tier_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3598,8 +3948,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.metastore.v1beta.Service.Tier getTier() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.metastore.v1beta.Service.Tier result = com.google.cloud.metastore.v1beta.Service.Tier.valueOf(tier_);
+      com.google.cloud.metastore.v1beta.Service.Tier result = com.google.cloud.metastore.v1beta.Service.Tier.forNumber(tier_);
       return result == null ? com.google.cloud.metastore.v1beta.Service.Tier.UNRECOGNIZED : result;
     }
     /**
@@ -3615,7 +3964,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000800;
       tier_ = value.getNumber();
       onChanged();
       return this;
@@ -3629,7 +3978,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTier() {
-      
+      bitField0_ = (bitField0_ & ~0x00000800);
       tier_ = 0;
       onChanged();
       return this;
@@ -3648,7 +3997,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the metadataIntegration field is set.
      */
     public boolean hasMetadataIntegration() {
-      return metadataIntegrationBuilder_ != null || metadataIntegration_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -3680,11 +4029,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         metadataIntegration_ = value;
-        onChanged();
       } else {
         metadataIntegrationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3699,11 +4048,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.metastore.v1beta.MetadataIntegration.Builder builderForValue) {
       if (metadataIntegrationBuilder_ == null) {
         metadataIntegration_ = builderForValue.build();
-        onChanged();
       } else {
         metadataIntegrationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3716,17 +4065,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMetadataIntegration(com.google.cloud.metastore.v1beta.MetadataIntegration value) {
       if (metadataIntegrationBuilder_ == null) {
-        if (metadataIntegration_ != null) {
-          metadataIntegration_ =
-            com.google.cloud.metastore.v1beta.MetadataIntegration.newBuilder(metadataIntegration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          metadataIntegration_ != null &&
+          metadataIntegration_ != com.google.cloud.metastore.v1beta.MetadataIntegration.getDefaultInstance()) {
+          getMetadataIntegrationBuilder().mergeFrom(value);
         } else {
           metadataIntegration_ = value;
         }
-        onChanged();
       } else {
         metadataIntegrationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3738,14 +4088,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.metastore.v1beta.MetadataIntegration metadata_integration = 14;</code>
      */
     public Builder clearMetadataIntegration() {
-      if (metadataIntegrationBuilder_ == null) {
-        metadataIntegration_ = null;
-        onChanged();
-      } else {
-        metadataIntegration_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      metadataIntegration_ = null;
+      if (metadataIntegrationBuilder_ != null) {
+        metadataIntegrationBuilder_.dispose();
         metadataIntegrationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3757,7 +4106,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.metastore.v1beta.MetadataIntegration metadata_integration = 14;</code>
      */
     public com.google.cloud.metastore.v1beta.MetadataIntegration.Builder getMetadataIntegrationBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getMetadataIntegrationFieldBuilder().getBuilder();
     }
@@ -3806,18 +4155,22 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The one hour maintenance window of the metastore service. This specifies
      * when the service can be restarted for maintenance purposes in UTC time.
+     * Maintenance window is not needed for services with the SPANNER
+     * database type.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1beta.MaintenanceWindow maintenance_window = 15;</code>
      * @return Whether the maintenanceWindow field is set.
      */
     public boolean hasMaintenanceWindow() {
-      return maintenanceWindowBuilder_ != null || maintenanceWindow_ != null;
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
      * The one hour maintenance window of the metastore service. This specifies
      * when the service can be restarted for maintenance purposes in UTC time.
+     * Maintenance window is not needed for services with the SPANNER
+     * database type.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1beta.MaintenanceWindow maintenance_window = 15;</code>
@@ -3834,6 +4187,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The one hour maintenance window of the metastore service. This specifies
      * when the service can be restarted for maintenance purposes in UTC time.
+     * Maintenance window is not needed for services with the SPANNER
+     * database type.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1beta.MaintenanceWindow maintenance_window = 15;</code>
@@ -3844,17 +4199,19 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maintenanceWindow_ = value;
-        onChanged();
       } else {
         maintenanceWindowBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The one hour maintenance window of the metastore service. This specifies
      * when the service can be restarted for maintenance purposes in UTC time.
+     * Maintenance window is not needed for services with the SPANNER
+     * database type.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1beta.MaintenanceWindow maintenance_window = 15;</code>
@@ -3863,65 +4220,71 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.metastore.v1beta.MaintenanceWindow.Builder builderForValue) {
       if (maintenanceWindowBuilder_ == null) {
         maintenanceWindow_ = builderForValue.build();
-        onChanged();
       } else {
         maintenanceWindowBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The one hour maintenance window of the metastore service. This specifies
      * when the service can be restarted for maintenance purposes in UTC time.
+     * Maintenance window is not needed for services with the SPANNER
+     * database type.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1beta.MaintenanceWindow maintenance_window = 15;</code>
      */
     public Builder mergeMaintenanceWindow(com.google.cloud.metastore.v1beta.MaintenanceWindow value) {
       if (maintenanceWindowBuilder_ == null) {
-        if (maintenanceWindow_ != null) {
-          maintenanceWindow_ =
-            com.google.cloud.metastore.v1beta.MaintenanceWindow.newBuilder(maintenanceWindow_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00002000) != 0) &&
+          maintenanceWindow_ != null &&
+          maintenanceWindow_ != com.google.cloud.metastore.v1beta.MaintenanceWindow.getDefaultInstance()) {
+          getMaintenanceWindowBuilder().mergeFrom(value);
         } else {
           maintenanceWindow_ = value;
         }
-        onChanged();
       } else {
         maintenanceWindowBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The one hour maintenance window of the metastore service. This specifies
      * when the service can be restarted for maintenance purposes in UTC time.
+     * Maintenance window is not needed for services with the SPANNER
+     * database type.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1beta.MaintenanceWindow maintenance_window = 15;</code>
      */
     public Builder clearMaintenanceWindow() {
-      if (maintenanceWindowBuilder_ == null) {
-        maintenanceWindow_ = null;
-        onChanged();
-      } else {
-        maintenanceWindow_ = null;
+      bitField0_ = (bitField0_ & ~0x00002000);
+      maintenanceWindow_ = null;
+      if (maintenanceWindowBuilder_ != null) {
+        maintenanceWindowBuilder_.dispose();
         maintenanceWindowBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The one hour maintenance window of the metastore service. This specifies
      * when the service can be restarted for maintenance purposes in UTC time.
+     * Maintenance window is not needed for services with the SPANNER
+     * database type.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1beta.MaintenanceWindow maintenance_window = 15;</code>
      */
     public com.google.cloud.metastore.v1beta.MaintenanceWindow.Builder getMaintenanceWindowBuilder() {
-      
+      bitField0_ |= 0x00002000;
       onChanged();
       return getMaintenanceWindowFieldBuilder().getBuilder();
     }
@@ -3929,6 +4292,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The one hour maintenance window of the metastore service. This specifies
      * when the service can be restarted for maintenance purposes in UTC time.
+     * Maintenance window is not needed for services with the SPANNER
+     * database type.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1beta.MaintenanceWindow maintenance_window = 15;</code>
@@ -3945,6 +4310,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The one hour maintenance window of the metastore service. This specifies
      * when the service can be restarted for maintenance purposes in UTC time.
+     * Maintenance window is not needed for services with the SPANNER
+     * database type.
      * </pre>
      *
      * <code>.google.cloud.metastore.v1beta.MaintenanceWindow maintenance_window = 15;</code>
@@ -4019,11 +4386,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUid(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       uid_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -4037,8 +4402,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUid() {
-      
       uid_ = getDefaultInstance().getUid();
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
@@ -4054,12 +4419,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUidBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       uid_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -4076,7 +4439,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the metadataManagementActivity field is set.
      */
     public boolean hasMetadataManagementActivity() {
-      return metadataManagementActivityBuilder_ != null || metadataManagementActivity_ != null;
+      return ((bitField0_ & 0x00008000) != 0);
     }
     /**
      * <pre>
@@ -4106,11 +4469,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         metadataManagementActivity_ = value;
-        onChanged();
       } else {
         metadataManagementActivityBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -4124,11 +4487,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.metastore.v1beta.MetadataManagementActivity.Builder builderForValue) {
       if (metadataManagementActivityBuilder_ == null) {
         metadataManagementActivity_ = builderForValue.build();
-        onChanged();
       } else {
         metadataManagementActivityBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -4140,17 +4503,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMetadataManagementActivity(com.google.cloud.metastore.v1beta.MetadataManagementActivity value) {
       if (metadataManagementActivityBuilder_ == null) {
-        if (metadataManagementActivity_ != null) {
-          metadataManagementActivity_ =
-            com.google.cloud.metastore.v1beta.MetadataManagementActivity.newBuilder(metadataManagementActivity_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00008000) != 0) &&
+          metadataManagementActivity_ != null &&
+          metadataManagementActivity_ != com.google.cloud.metastore.v1beta.MetadataManagementActivity.getDefaultInstance()) {
+          getMetadataManagementActivityBuilder().mergeFrom(value);
         } else {
           metadataManagementActivity_ = value;
         }
-        onChanged();
       } else {
         metadataManagementActivityBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -4161,14 +4525,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.metastore.v1beta.MetadataManagementActivity metadata_management_activity = 17 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearMetadataManagementActivity() {
-      if (metadataManagementActivityBuilder_ == null) {
-        metadataManagementActivity_ = null;
-        onChanged();
-      } else {
-        metadataManagementActivity_ = null;
+      bitField0_ = (bitField0_ & ~0x00008000);
+      metadataManagementActivity_ = null;
+      if (metadataManagementActivityBuilder_ != null) {
+        metadataManagementActivityBuilder_.dispose();
         metadataManagementActivityBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4179,7 +4542,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.metastore.v1beta.MetadataManagementActivity metadata_management_activity = 17 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.metastore.v1beta.MetadataManagementActivity.Builder getMetadataManagementActivityBuilder() {
-      
+      bitField0_ |= 0x00008000;
       onChanged();
       return getMetadataManagementActivityFieldBuilder().getBuilder();
     }
@@ -4243,8 +4606,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setReleaseChannelValue(int value) {
-      
       releaseChannel_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -4259,8 +4622,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.metastore.v1beta.Service.ReleaseChannel getReleaseChannel() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.metastore.v1beta.Service.ReleaseChannel result = com.google.cloud.metastore.v1beta.Service.ReleaseChannel.valueOf(releaseChannel_);
+      com.google.cloud.metastore.v1beta.Service.ReleaseChannel result = com.google.cloud.metastore.v1beta.Service.ReleaseChannel.forNumber(releaseChannel_);
       return result == null ? com.google.cloud.metastore.v1beta.Service.ReleaseChannel.UNRECOGNIZED : result;
     }
     /**
@@ -4277,7 +4639,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00010000;
       releaseChannel_ = value.getNumber();
       onChanged();
       return this;
@@ -4292,10 +4654,575 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReleaseChannel() {
-      
+      bitField0_ = (bitField0_ & ~0x00010000);
       releaseChannel_ = 0;
       onChanged();
       return this;
+    }
+
+    private com.google.cloud.metastore.v1beta.EncryptionConfig encryptionConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.metastore.v1beta.EncryptionConfig, com.google.cloud.metastore.v1beta.EncryptionConfig.Builder, com.google.cloud.metastore.v1beta.EncryptionConfigOrBuilder> encryptionConfigBuilder_;
+    /**
+     * <pre>
+     * Immutable. Information used to configure the Dataproc Metastore service to
+     * encrypt customer data at rest. Cannot be updated.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.EncryptionConfig encryption_config = 20 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @return Whether the encryptionConfig field is set.
+     */
+    public boolean hasEncryptionConfig() {
+      return ((bitField0_ & 0x00020000) != 0);
+    }
+    /**
+     * <pre>
+     * Immutable. Information used to configure the Dataproc Metastore service to
+     * encrypt customer data at rest. Cannot be updated.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.EncryptionConfig encryption_config = 20 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @return The encryptionConfig.
+     */
+    public com.google.cloud.metastore.v1beta.EncryptionConfig getEncryptionConfig() {
+      if (encryptionConfigBuilder_ == null) {
+        return encryptionConfig_ == null ? com.google.cloud.metastore.v1beta.EncryptionConfig.getDefaultInstance() : encryptionConfig_;
+      } else {
+        return encryptionConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Immutable. Information used to configure the Dataproc Metastore service to
+     * encrypt customer data at rest. Cannot be updated.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.EncryptionConfig encryption_config = 20 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     */
+    public Builder setEncryptionConfig(com.google.cloud.metastore.v1beta.EncryptionConfig value) {
+      if (encryptionConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        encryptionConfig_ = value;
+      } else {
+        encryptionConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Immutable. Information used to configure the Dataproc Metastore service to
+     * encrypt customer data at rest. Cannot be updated.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.EncryptionConfig encryption_config = 20 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     */
+    public Builder setEncryptionConfig(
+        com.google.cloud.metastore.v1beta.EncryptionConfig.Builder builderForValue) {
+      if (encryptionConfigBuilder_ == null) {
+        encryptionConfig_ = builderForValue.build();
+      } else {
+        encryptionConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Immutable. Information used to configure the Dataproc Metastore service to
+     * encrypt customer data at rest. Cannot be updated.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.EncryptionConfig encryption_config = 20 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     */
+    public Builder mergeEncryptionConfig(com.google.cloud.metastore.v1beta.EncryptionConfig value) {
+      if (encryptionConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00020000) != 0) &&
+          encryptionConfig_ != null &&
+          encryptionConfig_ != com.google.cloud.metastore.v1beta.EncryptionConfig.getDefaultInstance()) {
+          getEncryptionConfigBuilder().mergeFrom(value);
+        } else {
+          encryptionConfig_ = value;
+        }
+      } else {
+        encryptionConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Immutable. Information used to configure the Dataproc Metastore service to
+     * encrypt customer data at rest. Cannot be updated.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.EncryptionConfig encryption_config = 20 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     */
+    public Builder clearEncryptionConfig() {
+      bitField0_ = (bitField0_ & ~0x00020000);
+      encryptionConfig_ = null;
+      if (encryptionConfigBuilder_ != null) {
+        encryptionConfigBuilder_.dispose();
+        encryptionConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Immutable. Information used to configure the Dataproc Metastore service to
+     * encrypt customer data at rest. Cannot be updated.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.EncryptionConfig encryption_config = 20 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     */
+    public com.google.cloud.metastore.v1beta.EncryptionConfig.Builder getEncryptionConfigBuilder() {
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return getEncryptionConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Immutable. Information used to configure the Dataproc Metastore service to
+     * encrypt customer data at rest. Cannot be updated.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.EncryptionConfig encryption_config = 20 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     */
+    public com.google.cloud.metastore.v1beta.EncryptionConfigOrBuilder getEncryptionConfigOrBuilder() {
+      if (encryptionConfigBuilder_ != null) {
+        return encryptionConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return encryptionConfig_ == null ?
+            com.google.cloud.metastore.v1beta.EncryptionConfig.getDefaultInstance() : encryptionConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * Immutable. Information used to configure the Dataproc Metastore service to
+     * encrypt customer data at rest. Cannot be updated.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.EncryptionConfig encryption_config = 20 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.metastore.v1beta.EncryptionConfig, com.google.cloud.metastore.v1beta.EncryptionConfig.Builder, com.google.cloud.metastore.v1beta.EncryptionConfigOrBuilder> 
+        getEncryptionConfigFieldBuilder() {
+      if (encryptionConfigBuilder_ == null) {
+        encryptionConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.metastore.v1beta.EncryptionConfig, com.google.cloud.metastore.v1beta.EncryptionConfig.Builder, com.google.cloud.metastore.v1beta.EncryptionConfigOrBuilder>(
+                getEncryptionConfig(),
+                getParentForChildren(),
+                isClean());
+        encryptionConfig_ = null;
+      }
+      return encryptionConfigBuilder_;
+    }
+
+    private com.google.cloud.metastore.v1beta.NetworkConfig networkConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.metastore.v1beta.NetworkConfig, com.google.cloud.metastore.v1beta.NetworkConfig.Builder, com.google.cloud.metastore.v1beta.NetworkConfigOrBuilder> networkConfigBuilder_;
+    /**
+     * <pre>
+     * The configuration specifying the network settings for the
+     * Dataproc Metastore service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.NetworkConfig network_config = 21;</code>
+     * @return Whether the networkConfig field is set.
+     */
+    public boolean hasNetworkConfig() {
+      return ((bitField0_ & 0x00040000) != 0);
+    }
+    /**
+     * <pre>
+     * The configuration specifying the network settings for the
+     * Dataproc Metastore service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.NetworkConfig network_config = 21;</code>
+     * @return The networkConfig.
+     */
+    public com.google.cloud.metastore.v1beta.NetworkConfig getNetworkConfig() {
+      if (networkConfigBuilder_ == null) {
+        return networkConfig_ == null ? com.google.cloud.metastore.v1beta.NetworkConfig.getDefaultInstance() : networkConfig_;
+      } else {
+        return networkConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * The configuration specifying the network settings for the
+     * Dataproc Metastore service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.NetworkConfig network_config = 21;</code>
+     */
+    public Builder setNetworkConfig(com.google.cloud.metastore.v1beta.NetworkConfig value) {
+      if (networkConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        networkConfig_ = value;
+      } else {
+        networkConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00040000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The configuration specifying the network settings for the
+     * Dataproc Metastore service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.NetworkConfig network_config = 21;</code>
+     */
+    public Builder setNetworkConfig(
+        com.google.cloud.metastore.v1beta.NetworkConfig.Builder builderForValue) {
+      if (networkConfigBuilder_ == null) {
+        networkConfig_ = builderForValue.build();
+      } else {
+        networkConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00040000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The configuration specifying the network settings for the
+     * Dataproc Metastore service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.NetworkConfig network_config = 21;</code>
+     */
+    public Builder mergeNetworkConfig(com.google.cloud.metastore.v1beta.NetworkConfig value) {
+      if (networkConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00040000) != 0) &&
+          networkConfig_ != null &&
+          networkConfig_ != com.google.cloud.metastore.v1beta.NetworkConfig.getDefaultInstance()) {
+          getNetworkConfigBuilder().mergeFrom(value);
+        } else {
+          networkConfig_ = value;
+        }
+      } else {
+        networkConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00040000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The configuration specifying the network settings for the
+     * Dataproc Metastore service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.NetworkConfig network_config = 21;</code>
+     */
+    public Builder clearNetworkConfig() {
+      bitField0_ = (bitField0_ & ~0x00040000);
+      networkConfig_ = null;
+      if (networkConfigBuilder_ != null) {
+        networkConfigBuilder_.dispose();
+        networkConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The configuration specifying the network settings for the
+     * Dataproc Metastore service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.NetworkConfig network_config = 21;</code>
+     */
+    public com.google.cloud.metastore.v1beta.NetworkConfig.Builder getNetworkConfigBuilder() {
+      bitField0_ |= 0x00040000;
+      onChanged();
+      return getNetworkConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The configuration specifying the network settings for the
+     * Dataproc Metastore service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.NetworkConfig network_config = 21;</code>
+     */
+    public com.google.cloud.metastore.v1beta.NetworkConfigOrBuilder getNetworkConfigOrBuilder() {
+      if (networkConfigBuilder_ != null) {
+        return networkConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return networkConfig_ == null ?
+            com.google.cloud.metastore.v1beta.NetworkConfig.getDefaultInstance() : networkConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * The configuration specifying the network settings for the
+     * Dataproc Metastore service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.NetworkConfig network_config = 21;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.metastore.v1beta.NetworkConfig, com.google.cloud.metastore.v1beta.NetworkConfig.Builder, com.google.cloud.metastore.v1beta.NetworkConfigOrBuilder> 
+        getNetworkConfigFieldBuilder() {
+      if (networkConfigBuilder_ == null) {
+        networkConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.metastore.v1beta.NetworkConfig, com.google.cloud.metastore.v1beta.NetworkConfig.Builder, com.google.cloud.metastore.v1beta.NetworkConfigOrBuilder>(
+                getNetworkConfig(),
+                getParentForChildren(),
+                isClean());
+        networkConfig_ = null;
+      }
+      return networkConfigBuilder_;
+    }
+
+    private int databaseType_ = 0;
+    /**
+     * <pre>
+     * Immutable. The database type that the Metastore service stores its data.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.Service.DatabaseType database_type = 22 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @return The enum numeric value on the wire for databaseType.
+     */
+    @java.lang.Override public int getDatabaseTypeValue() {
+      return databaseType_;
+    }
+    /**
+     * <pre>
+     * Immutable. The database type that the Metastore service stores its data.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.Service.DatabaseType database_type = 22 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @param value The enum numeric value on the wire for databaseType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDatabaseTypeValue(int value) {
+      databaseType_ = value;
+      bitField0_ |= 0x00080000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Immutable. The database type that the Metastore service stores its data.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.Service.DatabaseType database_type = 22 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @return The databaseType.
+     */
+    @java.lang.Override
+    public com.google.cloud.metastore.v1beta.Service.DatabaseType getDatabaseType() {
+      com.google.cloud.metastore.v1beta.Service.DatabaseType result = com.google.cloud.metastore.v1beta.Service.DatabaseType.forNumber(databaseType_);
+      return result == null ? com.google.cloud.metastore.v1beta.Service.DatabaseType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Immutable. The database type that the Metastore service stores its data.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.Service.DatabaseType database_type = 22 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @param value The databaseType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDatabaseType(com.google.cloud.metastore.v1beta.Service.DatabaseType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00080000;
+      databaseType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Immutable. The database type that the Metastore service stores its data.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.Service.DatabaseType database_type = 22 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDatabaseType() {
+      bitField0_ = (bitField0_ & ~0x00080000);
+      databaseType_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private com.google.cloud.metastore.v1beta.TelemetryConfig telemetryConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.metastore.v1beta.TelemetryConfig, com.google.cloud.metastore.v1beta.TelemetryConfig.Builder, com.google.cloud.metastore.v1beta.TelemetryConfigOrBuilder> telemetryConfigBuilder_;
+    /**
+     * <pre>
+     * The configuration specifying telemetry settings for the Dataproc Metastore
+     * service. If unspecified defaults to `JSON`.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.TelemetryConfig telemetry_config = 23;</code>
+     * @return Whether the telemetryConfig field is set.
+     */
+    public boolean hasTelemetryConfig() {
+      return ((bitField0_ & 0x00100000) != 0);
+    }
+    /**
+     * <pre>
+     * The configuration specifying telemetry settings for the Dataproc Metastore
+     * service. If unspecified defaults to `JSON`.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.TelemetryConfig telemetry_config = 23;</code>
+     * @return The telemetryConfig.
+     */
+    public com.google.cloud.metastore.v1beta.TelemetryConfig getTelemetryConfig() {
+      if (telemetryConfigBuilder_ == null) {
+        return telemetryConfig_ == null ? com.google.cloud.metastore.v1beta.TelemetryConfig.getDefaultInstance() : telemetryConfig_;
+      } else {
+        return telemetryConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * The configuration specifying telemetry settings for the Dataproc Metastore
+     * service. If unspecified defaults to `JSON`.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.TelemetryConfig telemetry_config = 23;</code>
+     */
+    public Builder setTelemetryConfig(com.google.cloud.metastore.v1beta.TelemetryConfig value) {
+      if (telemetryConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        telemetryConfig_ = value;
+      } else {
+        telemetryConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00100000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The configuration specifying telemetry settings for the Dataproc Metastore
+     * service. If unspecified defaults to `JSON`.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.TelemetryConfig telemetry_config = 23;</code>
+     */
+    public Builder setTelemetryConfig(
+        com.google.cloud.metastore.v1beta.TelemetryConfig.Builder builderForValue) {
+      if (telemetryConfigBuilder_ == null) {
+        telemetryConfig_ = builderForValue.build();
+      } else {
+        telemetryConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00100000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The configuration specifying telemetry settings for the Dataproc Metastore
+     * service. If unspecified defaults to `JSON`.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.TelemetryConfig telemetry_config = 23;</code>
+     */
+    public Builder mergeTelemetryConfig(com.google.cloud.metastore.v1beta.TelemetryConfig value) {
+      if (telemetryConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00100000) != 0) &&
+          telemetryConfig_ != null &&
+          telemetryConfig_ != com.google.cloud.metastore.v1beta.TelemetryConfig.getDefaultInstance()) {
+          getTelemetryConfigBuilder().mergeFrom(value);
+        } else {
+          telemetryConfig_ = value;
+        }
+      } else {
+        telemetryConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00100000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The configuration specifying telemetry settings for the Dataproc Metastore
+     * service. If unspecified defaults to `JSON`.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.TelemetryConfig telemetry_config = 23;</code>
+     */
+    public Builder clearTelemetryConfig() {
+      bitField0_ = (bitField0_ & ~0x00100000);
+      telemetryConfig_ = null;
+      if (telemetryConfigBuilder_ != null) {
+        telemetryConfigBuilder_.dispose();
+        telemetryConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The configuration specifying telemetry settings for the Dataproc Metastore
+     * service. If unspecified defaults to `JSON`.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.TelemetryConfig telemetry_config = 23;</code>
+     */
+    public com.google.cloud.metastore.v1beta.TelemetryConfig.Builder getTelemetryConfigBuilder() {
+      bitField0_ |= 0x00100000;
+      onChanged();
+      return getTelemetryConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The configuration specifying telemetry settings for the Dataproc Metastore
+     * service. If unspecified defaults to `JSON`.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.TelemetryConfig telemetry_config = 23;</code>
+     */
+    public com.google.cloud.metastore.v1beta.TelemetryConfigOrBuilder getTelemetryConfigOrBuilder() {
+      if (telemetryConfigBuilder_ != null) {
+        return telemetryConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return telemetryConfig_ == null ?
+            com.google.cloud.metastore.v1beta.TelemetryConfig.getDefaultInstance() : telemetryConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * The configuration specifying telemetry settings for the Dataproc Metastore
+     * service. If unspecified defaults to `JSON`.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.TelemetryConfig telemetry_config = 23;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.metastore.v1beta.TelemetryConfig, com.google.cloud.metastore.v1beta.TelemetryConfig.Builder, com.google.cloud.metastore.v1beta.TelemetryConfigOrBuilder> 
+        getTelemetryConfigFieldBuilder() {
+      if (telemetryConfigBuilder_ == null) {
+        telemetryConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.metastore.v1beta.TelemetryConfig, com.google.cloud.metastore.v1beta.TelemetryConfig.Builder, com.google.cloud.metastore.v1beta.TelemetryConfigOrBuilder>(
+                getTelemetryConfig(),
+                getParentForChildren(),
+                isClean());
+        telemetryConfig_ = null;
+      }
+      return telemetryConfigBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -4330,7 +5257,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Service(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

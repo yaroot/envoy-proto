@@ -66,7 +66,7 @@ public interface CreateVehicleRequestOrBuilder extends
    * Subject to the following restrictions:
    * * Must be a valid Unicode string.
    * * Limited to a maximum length of 64 characters.
-   * * Normalized according to Unicode Normalization Form C
+   * * Normalized according to [Unicode Normalization Form C]
    * (http://www.unicode.org/reports/tr15/).
    * * May not contain any of the following ASCII characters: '/', ':', '?',
    * ',', or '#'.
@@ -82,7 +82,7 @@ public interface CreateVehicleRequestOrBuilder extends
    * Subject to the following restrictions:
    * * Must be a valid Unicode string.
    * * Limited to a maximum length of 64 characters.
-   * * Normalized according to Unicode Normalization Form C
+   * * Normalized according to [Unicode Normalization Form C]
    * (http://www.unicode.org/reports/tr15/).
    * * May not contain any of the following ASCII characters: '/', ':', '?',
    * ',', or '#'.
@@ -96,8 +96,8 @@ public interface CreateVehicleRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The Vehicle entity to create. When creating a Vehicle, the following
-   * fields are required:
+   * Required. The Vehicle entity to create. When creating a Vehicle, the
+   * following fields are required:
    * * `vehicleState`
    * * `supportedTripTypes`
    * * `maximumCapacity`
@@ -126,8 +126,8 @@ public interface CreateVehicleRequestOrBuilder extends
   boolean hasVehicle();
   /**
    * <pre>
-   * Required. The Vehicle entity to create. When creating a Vehicle, the following
-   * fields are required:
+   * Required. The Vehicle entity to create. When creating a Vehicle, the
+   * following fields are required:
    * * `vehicleState`
    * * `supportedTripTypes`
    * * `maximumCapacity`
@@ -156,8 +156,8 @@ public interface CreateVehicleRequestOrBuilder extends
   google.maps.fleetengine.v1.Vehicle getVehicle();
   /**
    * <pre>
-   * Required. The Vehicle entity to create. When creating a Vehicle, the following
-   * fields are required:
+   * Required. The Vehicle entity to create. When creating a Vehicle, the
+   * following fields are required:
    * * `vehicleState`
    * * `supportedTripTypes`
    * * `maximumCapacity`

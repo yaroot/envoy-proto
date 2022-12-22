@@ -9,8 +9,8 @@ public interface ListCertificateMapEntriesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The project, location and certificate map from which the certificate map
-   * entries should be listed, specified in the format
+   * Required. The project, location and certificate map from which the
+   * certificate map entries should be listed, specified in the format
    * `projects/&#42;&#47;locations/&#42;&#47;certificateMaps/&#42;`.
    * </pre>
    *
@@ -20,8 +20,8 @@ public interface ListCertificateMapEntriesRequestOrBuilder extends
   java.lang.String getParent();
   /**
    * <pre>
-   * Required. The project, location and certificate map from which the certificate map
-   * entries should be listed, specified in the format
+   * Required. The project, location and certificate map from which the
+   * certificate map entries should be listed, specified in the format
    * `projects/&#42;&#47;locations/&#42;&#47;certificateMaps/&#42;`.
    * </pre>
    *

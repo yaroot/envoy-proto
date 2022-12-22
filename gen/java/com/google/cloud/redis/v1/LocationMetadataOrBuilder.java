@@ -58,7 +58,6 @@ public interface LocationMetadataOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.redis.v1.ZoneMetadata&gt; available_zones = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 com.google.cloud.redis.v1.ZoneMetadata getAvailableZonesOrDefault(
       java.lang.String key,
@@ -74,7 +73,6 @@ com.google.cloud.redis.v1.ZoneMetadata defaultValue);
    *
    * <code>map&lt;string, .google.cloud.redis.v1.ZoneMetadata&gt; available_zones = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   com.google.cloud.redis.v1.ZoneMetadata getAvailableZonesOrThrow(
       java.lang.String key);
 }

@@ -31,58 +31,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private IpUtilizationInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              subnetIpUtilization_ = new java.util.ArrayList<com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo.SubnetIpUtilization>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            subnetIpUtilization_.add(
-                input.readMessage(com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo.SubnetIpUtilization.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        subnetIpUtilization_ = java.util.Collections.unmodifiableList(subnetIpUtilization_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.networkanalyzer.logging.v1.AnalyzerLogProto.internal_static_google_cloud_networkanalyzer_logging_v1_IpUtilizationInfo_descriptor;
@@ -191,67 +139,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SubnetIpUtilization(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              subnetUri_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              secondaryRangeName_ = s;
-              break;
-            }
-            case 24: {
-
-              totalUsableAddresses_ = input.readUInt64();
-              break;
-            }
-            case 33: {
-
-              allocationRatio_ = input.readDouble();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.networkanalyzer.logging.v1.AnalyzerLogProto.internal_static_google_cloud_networkanalyzer_logging_v1_IpUtilizationInfo_SubnetIpUtilization_descriptor;
@@ -266,7 +153,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SUBNET_URI_FIELD_NUMBER = 1;
-    private volatile java.lang.Object subnetUri_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object subnetUri_ = "";
     /**
      * <pre>
      * URI of subnet.
@@ -312,7 +200,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SECONDARY_RANGE_NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object secondaryRangeName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object secondaryRangeName_ = "";
     /**
      * <pre>
      * Secondary range name. If the range is the primary range of the subnet,
@@ -360,7 +249,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TOTAL_USABLE_ADDRESSES_FIELD_NUMBER = 3;
-    private long totalUsableAddresses_;
+    private long totalUsableAddresses_ = 0L;
     /**
      * <pre>
      * Total number of usable IP addresses in the IP range.
@@ -375,7 +264,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ALLOCATION_RATIO_FIELD_NUMBER = 4;
-    private double allocationRatio_;
+    private double allocationRatio_ = 0D;
     /**
      * <pre>
      * The ratio of allocated IP addresses from the total usable addresses.
@@ -415,7 +304,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Double.doubleToRawLongBits(allocationRatio_) != 0) {
         output.writeDouble(4, allocationRatio_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -438,7 +327,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(4, allocationRatio_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -462,7 +351,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Double.doubleToLongBits(getAllocationRatio())
           != java.lang.Double.doubleToLongBits(
               other.getAllocationRatio())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -483,7 +372,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ALLOCATION_RATIO_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getAllocationRatio()));
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -600,30 +489,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo.SubnetIpUtilization.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         subnetUri_ = "";
-
         secondaryRangeName_ = "";
-
         totalUsableAddresses_ = 0L;
-
         allocationRatio_ = 0D;
-
         return this;
       }
 
@@ -650,12 +531,25 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo.SubnetIpUtilization buildPartial() {
         com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo.SubnetIpUtilization result = new com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo.SubnetIpUtilization(this);
-        result.subnetUri_ = subnetUri_;
-        result.secondaryRangeName_ = secondaryRangeName_;
-        result.totalUsableAddresses_ = totalUsableAddresses_;
-        result.allocationRatio_ = allocationRatio_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo.SubnetIpUtilization result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.subnetUri_ = subnetUri_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.secondaryRangeName_ = secondaryRangeName_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.totalUsableAddresses_ = totalUsableAddresses_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.allocationRatio_ = allocationRatio_;
+        }
       }
 
       @java.lang.Override
@@ -704,10 +598,12 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo.SubnetIpUtilization.getDefaultInstance()) return this;
         if (!other.getSubnetUri().isEmpty()) {
           subnetUri_ = other.subnetUri_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getSecondaryRangeName().isEmpty()) {
           secondaryRangeName_ = other.secondaryRangeName_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getTotalUsableAddresses() != 0L) {
@@ -716,7 +612,7 @@ private static final long serialVersionUID = 0L;
         if (other.getAllocationRatio() != 0D) {
           setAllocationRatio(other.getAllocationRatio());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -731,19 +627,53 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo.SubnetIpUtilization parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                subnetUri_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                secondaryRangeName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                totalUsableAddresses_ = input.readUInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 33: {
+                allocationRatio_ = input.readDouble();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 33
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo.SubnetIpUtilization) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object subnetUri_ = "";
       /**
@@ -798,11 +728,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSubnetUri(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         subnetUri_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -815,8 +743,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearSubnetUri() {
-        
         subnetUri_ = getDefaultInstance().getSubnetUri();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -831,12 +759,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSubnetUriBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         subnetUri_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -897,11 +823,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSecondaryRangeName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         secondaryRangeName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -915,8 +839,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearSecondaryRangeName() {
-        
         secondaryRangeName_ = getDefaultInstance().getSecondaryRangeName();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -932,12 +856,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSecondaryRangeNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         secondaryRangeName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -967,6 +889,7 @@ private static final long serialVersionUID = 0L;
       public Builder setTotalUsableAddresses(long value) {
         
         totalUsableAddresses_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -979,7 +902,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearTotalUsableAddresses() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         totalUsableAddresses_ = 0L;
         onChanged();
         return this;
@@ -1010,6 +933,7 @@ private static final long serialVersionUID = 0L;
       public Builder setAllocationRatio(double value) {
         
         allocationRatio_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1022,7 +946,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAllocationRatio() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         allocationRatio_ = 0D;
         onChanged();
         return this;
@@ -1060,7 +984,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SubnetIpUtilization(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1081,6 +1016,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBNET_IP_UTILIZATION_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo.SubnetIpUtilization> subnetIpUtilization_;
   /**
    * <code>repeated .google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo.SubnetIpUtilization subnet_ip_utilization = 1;</code>
@@ -1137,7 +1073,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < subnetIpUtilization_.size(); i++) {
       output.writeMessage(1, subnetIpUtilization_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1150,7 +1086,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, subnetIpUtilization_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1167,7 +1103,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getSubnetIpUtilizationList()
         .equals(other.getSubnetIpUtilizationList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1182,7 +1118,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SUBNET_IP_UTILIZATION_FIELD_NUMBER;
       hash = (53 * hash) + getSubnetIpUtilizationList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1299,29 +1235,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSubnetIpUtilizationFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (subnetIpUtilizationBuilder_ == null) {
         subnetIpUtilization_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        subnetIpUtilization_ = null;
         subnetIpUtilizationBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -1348,7 +1280,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo buildPartial() {
       com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo result = new com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo result) {
       if (subnetIpUtilizationBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           subnetIpUtilization_ = java.util.Collections.unmodifiableList(subnetIpUtilization_);
@@ -1358,8 +1296,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.subnetIpUtilization_ = subnetIpUtilizationBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -1432,7 +1372,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1447,17 +1387,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo.SubnetIpUtilization m =
+                  input.readMessage(
+                      com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo.SubnetIpUtilization.parser(),
+                      extensionRegistry);
+              if (subnetIpUtilizationBuilder_ == null) {
+                ensureSubnetIpUtilizationIsMutable();
+                subnetIpUtilization_.add(m);
+              } else {
+                subnetIpUtilizationBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1734,7 +1700,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new IpUtilizationInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -34,84 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RecordLocation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.privacy.dlp.v2.RecordKey.Builder subBuilder = null;
-            if (recordKey_ != null) {
-              subBuilder = recordKey_.toBuilder();
-            }
-            recordKey_ = input.readMessage(com.google.privacy.dlp.v2.RecordKey.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(recordKey_);
-              recordKey_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.privacy.dlp.v2.FieldId.Builder subBuilder = null;
-            if (fieldId_ != null) {
-              subBuilder = fieldId_.toBuilder();
-            }
-            fieldId_ = input.readMessage(com.google.privacy.dlp.v2.FieldId.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(fieldId_);
-              fieldId_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.privacy.dlp.v2.TableLocation.Builder subBuilder = null;
-            if (tableLocation_ != null) {
-              subBuilder = tableLocation_.toBuilder();
-            }
-            tableLocation_ = input.readMessage(com.google.privacy.dlp.v2.TableLocation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tableLocation_);
-              tableLocation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_RecordLocation_descriptor;
@@ -160,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.privacy.dlp.v2.RecordKeyOrBuilder getRecordKeyOrBuilder() {
-    return getRecordKey();
+    return recordKey_ == null ? com.google.privacy.dlp.v2.RecordKey.getDefaultInstance() : recordKey_;
   }
 
   public static final int FIELD_ID_FIELD_NUMBER = 2;
@@ -198,7 +120,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.privacy.dlp.v2.FieldIdOrBuilder getFieldIdOrBuilder() {
-    return getFieldId();
+    return fieldId_ == null ? com.google.privacy.dlp.v2.FieldId.getDefaultInstance() : fieldId_;
   }
 
   public static final int TABLE_LOCATION_FIELD_NUMBER = 3;
@@ -236,7 +158,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.privacy.dlp.v2.TableLocationOrBuilder getTableLocationOrBuilder() {
-    return getTableLocation();
+    return tableLocation_ == null ? com.google.privacy.dlp.v2.TableLocation.getDefaultInstance() : tableLocation_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -262,7 +184,7 @@ private static final long serialVersionUID = 0L;
     if (tableLocation_ != null) {
       output.writeMessage(3, getTableLocation());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -283,7 +205,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getTableLocation());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -313,7 +235,7 @@ private static final long serialVersionUID = 0L;
       if (!getTableLocation()
           .equals(other.getTableLocation())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -336,7 +258,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TABLE_LOCATION_FIELD_NUMBER;
       hash = (53 * hash) + getTableLocation().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -457,38 +379,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.RecordLocation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (recordKeyBuilder_ == null) {
-        recordKey_ = null;
-      } else {
-        recordKey_ = null;
+      bitField0_ = 0;
+      recordKey_ = null;
+      if (recordKeyBuilder_ != null) {
+        recordKeyBuilder_.dispose();
         recordKeyBuilder_ = null;
       }
-      if (fieldIdBuilder_ == null) {
-        fieldId_ = null;
-      } else {
-        fieldId_ = null;
+      fieldId_ = null;
+      if (fieldIdBuilder_ != null) {
+        fieldIdBuilder_.dispose();
         fieldIdBuilder_ = null;
       }
-      if (tableLocationBuilder_ == null) {
-        tableLocation_ = null;
-      } else {
-        tableLocation_ = null;
+      tableLocation_ = null;
+      if (tableLocationBuilder_ != null) {
+        tableLocationBuilder_.dispose();
         tableLocationBuilder_ = null;
       }
       return this;
@@ -517,23 +432,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.RecordLocation buildPartial() {
       com.google.privacy.dlp.v2.RecordLocation result = new com.google.privacy.dlp.v2.RecordLocation(this);
-      if (recordKeyBuilder_ == null) {
-        result.recordKey_ = recordKey_;
-      } else {
-        result.recordKey_ = recordKeyBuilder_.build();
-      }
-      if (fieldIdBuilder_ == null) {
-        result.fieldId_ = fieldId_;
-      } else {
-        result.fieldId_ = fieldIdBuilder_.build();
-      }
-      if (tableLocationBuilder_ == null) {
-        result.tableLocation_ = tableLocation_;
-      } else {
-        result.tableLocation_ = tableLocationBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.RecordLocation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.recordKey_ = recordKeyBuilder_ == null
+            ? recordKey_
+            : recordKeyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.fieldId_ = fieldIdBuilder_ == null
+            ? fieldId_
+            : fieldIdBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.tableLocation_ = tableLocationBuilder_ == null
+            ? tableLocation_
+            : tableLocationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -589,7 +509,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasTableLocation()) {
         mergeTableLocation(other.getTableLocation());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -604,19 +524,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.RecordLocation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getRecordKeyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getFieldIdFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getTableLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.RecordLocation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.privacy.dlp.v2.RecordKey recordKey_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -630,7 +585,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the recordKey field is set.
      */
     public boolean hasRecordKey() {
-      return recordKeyBuilder_ != null || recordKey_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -660,11 +615,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         recordKey_ = value;
-        onChanged();
       } else {
         recordKeyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -678,11 +633,11 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.RecordKey.Builder builderForValue) {
       if (recordKeyBuilder_ == null) {
         recordKey_ = builderForValue.build();
-        onChanged();
       } else {
         recordKeyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -694,17 +649,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRecordKey(com.google.privacy.dlp.v2.RecordKey value) {
       if (recordKeyBuilder_ == null) {
-        if (recordKey_ != null) {
-          recordKey_ =
-            com.google.privacy.dlp.v2.RecordKey.newBuilder(recordKey_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          recordKey_ != null &&
+          recordKey_ != com.google.privacy.dlp.v2.RecordKey.getDefaultInstance()) {
+          getRecordKeyBuilder().mergeFrom(value);
         } else {
           recordKey_ = value;
         }
-        onChanged();
       } else {
         recordKeyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -715,14 +671,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.RecordKey record_key = 1;</code>
      */
     public Builder clearRecordKey() {
-      if (recordKeyBuilder_ == null) {
-        recordKey_ = null;
-        onChanged();
-      } else {
-        recordKey_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      recordKey_ = null;
+      if (recordKeyBuilder_ != null) {
+        recordKeyBuilder_.dispose();
         recordKeyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -733,7 +688,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.RecordKey record_key = 1;</code>
      */
     public com.google.privacy.dlp.v2.RecordKey.Builder getRecordKeyBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getRecordKeyFieldBuilder().getBuilder();
     }
@@ -785,7 +740,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the fieldId field is set.
      */
     public boolean hasFieldId() {
-      return fieldIdBuilder_ != null || fieldId_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -815,11 +770,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         fieldId_ = value;
-        onChanged();
       } else {
         fieldIdBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -833,11 +788,11 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.FieldId.Builder builderForValue) {
       if (fieldIdBuilder_ == null) {
         fieldId_ = builderForValue.build();
-        onChanged();
       } else {
         fieldIdBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -849,17 +804,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFieldId(com.google.privacy.dlp.v2.FieldId value) {
       if (fieldIdBuilder_ == null) {
-        if (fieldId_ != null) {
-          fieldId_ =
-            com.google.privacy.dlp.v2.FieldId.newBuilder(fieldId_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          fieldId_ != null &&
+          fieldId_ != com.google.privacy.dlp.v2.FieldId.getDefaultInstance()) {
+          getFieldIdBuilder().mergeFrom(value);
         } else {
           fieldId_ = value;
         }
-        onChanged();
       } else {
         fieldIdBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -870,14 +826,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.FieldId field_id = 2;</code>
      */
     public Builder clearFieldId() {
-      if (fieldIdBuilder_ == null) {
-        fieldId_ = null;
-        onChanged();
-      } else {
-        fieldId_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      fieldId_ = null;
+      if (fieldIdBuilder_ != null) {
+        fieldIdBuilder_.dispose();
         fieldIdBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -888,7 +843,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.FieldId field_id = 2;</code>
      */
     public com.google.privacy.dlp.v2.FieldId.Builder getFieldIdBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getFieldIdFieldBuilder().getBuilder();
     }
@@ -940,7 +895,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the tableLocation field is set.
      */
     public boolean hasTableLocation() {
-      return tableLocationBuilder_ != null || tableLocation_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -970,11 +925,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tableLocation_ = value;
-        onChanged();
       } else {
         tableLocationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -988,11 +943,11 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.TableLocation.Builder builderForValue) {
       if (tableLocationBuilder_ == null) {
         tableLocation_ = builderForValue.build();
-        onChanged();
       } else {
         tableLocationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1004,17 +959,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTableLocation(com.google.privacy.dlp.v2.TableLocation value) {
       if (tableLocationBuilder_ == null) {
-        if (tableLocation_ != null) {
-          tableLocation_ =
-            com.google.privacy.dlp.v2.TableLocation.newBuilder(tableLocation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          tableLocation_ != null &&
+          tableLocation_ != com.google.privacy.dlp.v2.TableLocation.getDefaultInstance()) {
+          getTableLocationBuilder().mergeFrom(value);
         } else {
           tableLocation_ = value;
         }
-        onChanged();
       } else {
         tableLocationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1025,14 +981,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.TableLocation table_location = 3;</code>
      */
     public Builder clearTableLocation() {
-      if (tableLocationBuilder_ == null) {
-        tableLocation_ = null;
-        onChanged();
-      } else {
-        tableLocation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      tableLocation_ = null;
+      if (tableLocationBuilder_ != null) {
+        tableLocationBuilder_.dispose();
         tableLocationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1043,7 +998,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.TableLocation table_location = 3;</code>
      */
     public com.google.privacy.dlp.v2.TableLocation.Builder getTableLocationBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getTableLocationFieldBuilder().getBuilder();
     }
@@ -1115,7 +1070,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RecordLocation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

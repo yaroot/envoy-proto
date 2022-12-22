@@ -18,7 +18,7 @@ from google.rpc import status_pb2 as google_dot_rpc_dot_status__pb2
 from google.streetview.publish.v1 import resources_pb2 as google_dot_streetview_dot_publish_dot_v1_dot_resources__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.google/streetview/publish/v1/rpcmessages.proto\x12\x1cgoogle.streetview.publish.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x17google/rpc/status.proto\x1a,google/streetview/publish/v1/resources.proto\"M\n\x12\x43reatePhotoRequest\x12\x37\n\x05photo\x18\x01 \x01(\x0b\x32#.google.streetview.publish.v1.PhotoB\x03\xe0\x41\x02\"{\n\x0fGetPhotoRequest\x12\x15\n\x08photo_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12:\n\x04view\x18\x02 \x01(\x0e\x32\'.google.streetview.publish.v1.PhotoViewB\x03\xe0\x41\x02\x12\x15\n\rlanguage_code\x18\x03 \x01(\t\"\x87\x01\n\x15\x42\x61tchGetPhotosRequest\x12\x16\n\tphoto_ids\x18\x01 \x03(\tB\x03\xe0\x41\x02\x12:\n\x04view\x18\x02 \x01(\x0e\x32\'.google.streetview.publish.v1.PhotoViewB\x03\xe0\x41\x02\x12\x1a\n\rlanguage_code\x18\x03 \x01(\tB\x03\xe0\x41\x01\"V\n\x16\x42\x61tchGetPhotosResponse\x12<\n\x07results\x18\x01 \x03(\x0b\x32+.google.streetview.publish.v1.PhotoResponse\"g\n\rPhotoResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\x32\n\x05photo\x18\x02 \x01(\x0b\x32#.google.streetview.publish.v1.Photo\"\xb1\x01\n\x11ListPhotosRequest\x12:\n\x04view\x18\x01 \x01(\x0e\x32\'.google.streetview.publish.v1.PhotoViewB\x03\xe0\x41\x02\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rlanguage_code\x18\x05 \x01(\tB\x03\xe0\x41\x01\"b\n\x12ListPhotosResponse\x12\x33\n\x06photos\x18\x01 \x03(\x0b\x32#.google.streetview.publish.v1.Photo\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x83\x01\n\x12UpdatePhotoRequest\x12\x37\n\x05photo\x18\x01 \x01(\x0b\x32#.google.streetview.publish.v1.PhotoB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"p\n\x18\x42\x61tchUpdatePhotosRequest\x12T\n\x15update_photo_requests\x18\x01 \x03(\x0b\x32\x30.google.streetview.publish.v1.UpdatePhotoRequestB\x03\xe0\x41\x02\"Y\n\x19\x42\x61tchUpdatePhotosResponse\x12<\n\x07results\x18\x01 \x03(\x0b\x32+.google.streetview.publish.v1.PhotoResponse\"+\n\x12\x44\x65letePhotoRequest\x12\x15\n\x08photo_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\"2\n\x18\x42\x61tchDeletePhotosRequest\x12\x16\n\tphoto_ids\x18\x01 \x03(\tB\x03\xe0\x41\x02\"?\n\x19\x42\x61tchDeletePhotosResponse\x12\"\n\x06status\x18\x01 \x03(\x0b\x32\x12.google.rpc.Status*0\n\tPhotoView\x12\t\n\x05\x42\x41SIC\x10\x00\x12\x18\n\x14INCLUDE_DOWNLOAD_URL\x10\x01\x42\x8d\x01\n(com.google.geo.ugc.streetview.publish.v1B\x1cStreetViewPublishRpcMessagesZCgoogle.golang.org/genproto/googleapis/streetview/publish/v1;publishb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.google/streetview/publish/v1/rpcmessages.proto\x12\x1cgoogle.streetview.publish.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x17google/rpc/status.proto\x1a,google/streetview/publish/v1/resources.proto\"M\n\x12\x43reatePhotoRequest\x12\x37\n\x05photo\x18\x01 \x01(\x0b\x32#.google.streetview.publish.v1.PhotoB\x03\xe0\x41\x02\"{\n\x0fGetPhotoRequest\x12\x15\n\x08photo_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12:\n\x04view\x18\x02 \x01(\x0e\x32\'.google.streetview.publish.v1.PhotoViewB\x03\xe0\x41\x02\x12\x15\n\rlanguage_code\x18\x03 \x01(\t\"\x87\x01\n\x15\x42\x61tchGetPhotosRequest\x12\x16\n\tphoto_ids\x18\x01 \x03(\tB\x03\xe0\x41\x02\x12:\n\x04view\x18\x02 \x01(\x0e\x32\'.google.streetview.publish.v1.PhotoViewB\x03\xe0\x41\x02\x12\x1a\n\rlanguage_code\x18\x03 \x01(\tB\x03\xe0\x41\x01\"V\n\x16\x42\x61tchGetPhotosResponse\x12<\n\x07results\x18\x01 \x03(\x0b\x32+.google.streetview.publish.v1.PhotoResponse\"g\n\rPhotoResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\x32\n\x05photo\x18\x02 \x01(\x0b\x32#.google.streetview.publish.v1.Photo\"\xb1\x01\n\x11ListPhotosRequest\x12:\n\x04view\x18\x01 \x01(\x0e\x32\'.google.streetview.publish.v1.PhotoViewB\x03\xe0\x41\x02\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rlanguage_code\x18\x05 \x01(\tB\x03\xe0\x41\x01\"b\n\x12ListPhotosResponse\x12\x33\n\x06photos\x18\x01 \x03(\x0b\x32#.google.streetview.publish.v1.Photo\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x83\x01\n\x12UpdatePhotoRequest\x12\x37\n\x05photo\x18\x01 \x01(\x0b\x32#.google.streetview.publish.v1.PhotoB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"p\n\x18\x42\x61tchUpdatePhotosRequest\x12T\n\x15update_photo_requests\x18\x01 \x03(\x0b\x32\x30.google.streetview.publish.v1.UpdatePhotoRequestB\x03\xe0\x41\x02\"Y\n\x19\x42\x61tchUpdatePhotosResponse\x12<\n\x07results\x18\x01 \x03(\x0b\x32+.google.streetview.publish.v1.PhotoResponse\"+\n\x12\x44\x65letePhotoRequest\x12\x15\n\x08photo_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\"2\n\x18\x42\x61tchDeletePhotosRequest\x12\x16\n\tphoto_ids\x18\x01 \x03(\tB\x03\xe0\x41\x02\"\x80\x02\n\x1a\x43reatePhotoSequenceRequest\x12H\n\x0ephoto_sequence\x18\x01 \x01(\x0b\x32+.google.streetview.publish.v1.PhotoSequenceB\x03\xe0\x41\x02\x12[\n\ninput_type\x18\x02 \x01(\x0e\x32\x42.google.streetview.publish.v1.CreatePhotoSequenceRequest.InputTypeB\x03\xe0\x41\x02\";\n\tInputType\x12\x1a\n\x16INPUT_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05VIDEO\x10\x01\x12\x07\n\x03XDM\x10\x02\"\x83\x01\n\x17GetPhotoSequenceRequest\x12\x18\n\x0bsequence_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x39\n\x04view\x18\x02 \x01(\x0e\x32\'.google.streetview.publish.v1.PhotoViewB\x02\x18\x01\x12\x13\n\x06\x66ilter\x18\x03 \x01(\tB\x03\xe0\x41\x01\"6\n\x1a\x44\x65letePhotoSequenceRequest\x12\x18\n\x0bsequence_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\"?\n\x19\x42\x61tchDeletePhotosResponse\x12\"\n\x06status\x18\x01 \x03(\x0b\x32\x12.google.rpc.Status\"a\n\x19ListPhotoSequencesRequest\x12\x16\n\tpage_size\x18\x01 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\"m\n\x1aListPhotoSequencesResponse\x12\x36\n\x0fphoto_sequences\x18\x01 \x03(\x0b\x32\x1d.google.longrunning.Operation\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t*0\n\tPhotoView\x12\t\n\x05\x42\x41SIC\x10\x00\x12\x18\n\x14INCLUDE_DOWNLOAD_URL\x10\x01\x42\x8d\x01\n(com.google.geo.ugc.streetview.publish.v1B\x1cStreetViewPublishRpcMessagesZCgoogle.golang.org/genproto/googleapis/streetview/publish/v1;publishb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.streetview.publish.v1.rpcmessages_pb2', globals())
@@ -58,8 +58,26 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _DELETEPHOTOREQUEST.fields_by_name['photo_id']._serialized_options = b'\340A\002'
   _BATCHDELETEPHOTOSREQUEST.fields_by_name['photo_ids']._options = None
   _BATCHDELETEPHOTOSREQUEST.fields_by_name['photo_ids']._serialized_options = b'\340A\002'
-  _PHOTOVIEW._serialized_start=1571
-  _PHOTOVIEW._serialized_end=1619
+  _CREATEPHOTOSEQUENCEREQUEST.fields_by_name['photo_sequence']._options = None
+  _CREATEPHOTOSEQUENCEREQUEST.fields_by_name['photo_sequence']._serialized_options = b'\340A\002'
+  _CREATEPHOTOSEQUENCEREQUEST.fields_by_name['input_type']._options = None
+  _CREATEPHOTOSEQUENCEREQUEST.fields_by_name['input_type']._serialized_options = b'\340A\002'
+  _GETPHOTOSEQUENCEREQUEST.fields_by_name['sequence_id']._options = None
+  _GETPHOTOSEQUENCEREQUEST.fields_by_name['sequence_id']._serialized_options = b'\340A\002'
+  _GETPHOTOSEQUENCEREQUEST.fields_by_name['view']._options = None
+  _GETPHOTOSEQUENCEREQUEST.fields_by_name['view']._serialized_options = b'\030\001'
+  _GETPHOTOSEQUENCEREQUEST.fields_by_name['filter']._options = None
+  _GETPHOTOSEQUENCEREQUEST.fields_by_name['filter']._serialized_options = b'\340A\001'
+  _DELETEPHOTOSEQUENCEREQUEST.fields_by_name['sequence_id']._options = None
+  _DELETEPHOTOSEQUENCEREQUEST.fields_by_name['sequence_id']._serialized_options = b'\340A\002'
+  _LISTPHOTOSEQUENCESREQUEST.fields_by_name['page_size']._options = None
+  _LISTPHOTOSEQUENCESREQUEST.fields_by_name['page_size']._serialized_options = b'\340A\001'
+  _LISTPHOTOSEQUENCESREQUEST.fields_by_name['page_token']._options = None
+  _LISTPHOTOSEQUENCESREQUEST.fields_by_name['page_token']._serialized_options = b'\340A\001'
+  _LISTPHOTOSEQUENCESREQUEST.fields_by_name['filter']._options = None
+  _LISTPHOTOSEQUENCESREQUEST.fields_by_name['filter']._serialized_options = b'\340A\001'
+  _PHOTOVIEW._serialized_start=2230
+  _PHOTOVIEW._serialized_end=2278
   _CREATEPHOTOREQUEST._serialized_start=255
   _CREATEPHOTOREQUEST._serialized_end=332
   _GETPHOTOREQUEST._serialized_start=334
@@ -84,6 +102,18 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _DELETEPHOTOREQUEST._serialized_end=1452
   _BATCHDELETEPHOTOSREQUEST._serialized_start=1454
   _BATCHDELETEPHOTOSREQUEST._serialized_end=1504
-  _BATCHDELETEPHOTOSRESPONSE._serialized_start=1506
-  _BATCHDELETEPHOTOSRESPONSE._serialized_end=1569
+  _CREATEPHOTOSEQUENCEREQUEST._serialized_start=1507
+  _CREATEPHOTOSEQUENCEREQUEST._serialized_end=1763
+  _CREATEPHOTOSEQUENCEREQUEST_INPUTTYPE._serialized_start=1704
+  _CREATEPHOTOSEQUENCEREQUEST_INPUTTYPE._serialized_end=1763
+  _GETPHOTOSEQUENCEREQUEST._serialized_start=1766
+  _GETPHOTOSEQUENCEREQUEST._serialized_end=1897
+  _DELETEPHOTOSEQUENCEREQUEST._serialized_start=1899
+  _DELETEPHOTOSEQUENCEREQUEST._serialized_end=1953
+  _BATCHDELETEPHOTOSRESPONSE._serialized_start=1955
+  _BATCHDELETEPHOTOSRESPONSE._serialized_end=2018
+  _LISTPHOTOSEQUENCESREQUEST._serialized_start=2020
+  _LISTPHOTOSEQUENCESREQUEST._serialized_end=2117
+  _LISTPHOTOSEQUENCESRESPONSE._serialized_start=2119
+  _LISTPHOTOSEQUENCESRESPONSE._serialized_end=2228
 # @@protoc_insertion_point(module_scope)

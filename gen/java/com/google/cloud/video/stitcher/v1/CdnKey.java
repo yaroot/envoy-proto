@@ -38,85 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CdnKey(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            hostname_ = s;
-            break;
-          }
-          case 42: {
-            com.google.cloud.video.stitcher.v1.GoogleCdnKey.Builder subBuilder = null;
-            if (cdnKeyConfigCase_ == 5) {
-              subBuilder = ((com.google.cloud.video.stitcher.v1.GoogleCdnKey) cdnKeyConfig_).toBuilder();
-            }
-            cdnKeyConfig_ =
-                input.readMessage(com.google.cloud.video.stitcher.v1.GoogleCdnKey.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.video.stitcher.v1.GoogleCdnKey) cdnKeyConfig_);
-              cdnKeyConfig_ = subBuilder.buildPartial();
-            }
-            cdnKeyConfigCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.cloud.video.stitcher.v1.AkamaiCdnKey.Builder subBuilder = null;
-            if (cdnKeyConfigCase_ == 6) {
-              subBuilder = ((com.google.cloud.video.stitcher.v1.AkamaiCdnKey) cdnKeyConfig_).toBuilder();
-            }
-            cdnKeyConfig_ =
-                input.readMessage(com.google.cloud.video.stitcher.v1.AkamaiCdnKey.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.video.stitcher.v1.AkamaiCdnKey) cdnKeyConfig_);
-              cdnKeyConfig_ = subBuilder.buildPartial();
-            }
-            cdnKeyConfigCase_ = 6;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.video.stitcher.v1.CdnKeysProto.internal_static_google_cloud_video_stitcher_v1_CdnKey_descriptor;
@@ -137,6 +58,7 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
     GOOGLE_CDN_KEY(5),
     AKAMAI_CDN_KEY(6),
+    MEDIA_CDN_KEY(8),
     CDNKEYCONFIG_NOT_SET(0);
     private final int value;
     private CdnKeyConfigCase(int value) {
@@ -156,6 +78,7 @@ private static final long serialVersionUID = 0L;
       switch (value) {
         case 5: return GOOGLE_CDN_KEY;
         case 6: return AKAMAI_CDN_KEY;
+        case 8: return MEDIA_CDN_KEY;
         case 0: return CDNKEYCONFIG_NOT_SET;
         default: return null;
       }
@@ -257,8 +180,52 @@ private static final long serialVersionUID = 0L;
     return com.google.cloud.video.stitcher.v1.AkamaiCdnKey.getDefaultInstance();
   }
 
+  public static final int MEDIA_CDN_KEY_FIELD_NUMBER = 8;
+  /**
+   * <pre>
+   * The configuration for a Media CDN key.
+   * </pre>
+   *
+   * <code>.google.cloud.video.stitcher.v1.MediaCdnKey media_cdn_key = 8;</code>
+   * @return Whether the mediaCdnKey field is set.
+   */
+  @java.lang.Override
+  public boolean hasMediaCdnKey() {
+    return cdnKeyConfigCase_ == 8;
+  }
+  /**
+   * <pre>
+   * The configuration for a Media CDN key.
+   * </pre>
+   *
+   * <code>.google.cloud.video.stitcher.v1.MediaCdnKey media_cdn_key = 8;</code>
+   * @return The mediaCdnKey.
+   */
+  @java.lang.Override
+  public com.google.cloud.video.stitcher.v1.MediaCdnKey getMediaCdnKey() {
+    if (cdnKeyConfigCase_ == 8) {
+       return (com.google.cloud.video.stitcher.v1.MediaCdnKey) cdnKeyConfig_;
+    }
+    return com.google.cloud.video.stitcher.v1.MediaCdnKey.getDefaultInstance();
+  }
+  /**
+   * <pre>
+   * The configuration for a Media CDN key.
+   * </pre>
+   *
+   * <code>.google.cloud.video.stitcher.v1.MediaCdnKey media_cdn_key = 8;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.video.stitcher.v1.MediaCdnKeyOrBuilder getMediaCdnKeyOrBuilder() {
+    if (cdnKeyConfigCase_ == 8) {
+       return (com.google.cloud.video.stitcher.v1.MediaCdnKey) cdnKeyConfig_;
+    }
+    return com.google.cloud.video.stitcher.v1.MediaCdnKey.getDefaultInstance();
+  }
+
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The resource name of the CDN key, in the form of
@@ -308,7 +275,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HOSTNAME_FIELD_NUMBER = 4;
-  private volatile java.lang.Object hostname_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object hostname_ = "";
   /**
    * <pre>
    * The hostname this key applies to.
@@ -379,7 +347,10 @@ private static final long serialVersionUID = 0L;
     if (cdnKeyConfigCase_ == 6) {
       output.writeMessage(6, (com.google.cloud.video.stitcher.v1.AkamaiCdnKey) cdnKeyConfig_);
     }
-    unknownFields.writeTo(output);
+    if (cdnKeyConfigCase_ == 8) {
+      output.writeMessage(8, (com.google.cloud.video.stitcher.v1.MediaCdnKey) cdnKeyConfig_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -402,7 +373,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, (com.google.cloud.video.stitcher.v1.AkamaiCdnKey) cdnKeyConfig_);
     }
-    size += unknownFields.getSerializedSize();
+    if (cdnKeyConfigCase_ == 8) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, (com.google.cloud.video.stitcher.v1.MediaCdnKey) cdnKeyConfig_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -431,10 +406,14 @@ private static final long serialVersionUID = 0L;
         if (!getAkamaiCdnKey()
             .equals(other.getAkamaiCdnKey())) return false;
         break;
+      case 8:
+        if (!getMediaCdnKey()
+            .equals(other.getMediaCdnKey())) return false;
+        break;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -458,10 +437,14 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + AKAMAI_CDN_KEY_FIELD_NUMBER;
         hash = (53 * hash) + getAkamaiCdnKey().hashCode();
         break;
+      case 8:
+        hash = (37 * hash) + MEDIA_CDN_KEY_FIELD_NUMBER;
+        hash = (53 * hash) + getMediaCdnKey().hashCode();
+        break;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -584,26 +567,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.video.stitcher.v1.CdnKey.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (googleCdnKeyBuilder_ != null) {
+        googleCdnKeyBuilder_.clear();
+      }
+      if (akamaiCdnKeyBuilder_ != null) {
+        akamaiCdnKeyBuilder_.clear();
+      }
+      if (mediaCdnKeyBuilder_ != null) {
+        mediaCdnKeyBuilder_.clear();
+      }
       name_ = "";
-
       hostname_ = "";
-
       cdnKeyConfigCase_ = 0;
       cdnKeyConfig_ = null;
       return this;
@@ -632,25 +618,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.video.stitcher.v1.CdnKey buildPartial() {
       com.google.cloud.video.stitcher.v1.CdnKey result = new com.google.cloud.video.stitcher.v1.CdnKey(this);
-      if (cdnKeyConfigCase_ == 5) {
-        if (googleCdnKeyBuilder_ == null) {
-          result.cdnKeyConfig_ = cdnKeyConfig_;
-        } else {
-          result.cdnKeyConfig_ = googleCdnKeyBuilder_.build();
-        }
-      }
-      if (cdnKeyConfigCase_ == 6) {
-        if (akamaiCdnKeyBuilder_ == null) {
-          result.cdnKeyConfig_ = cdnKeyConfig_;
-        } else {
-          result.cdnKeyConfig_ = akamaiCdnKeyBuilder_.build();
-        }
-      }
-      result.name_ = name_;
-      result.hostname_ = hostname_;
-      result.cdnKeyConfigCase_ = cdnKeyConfigCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.video.stitcher.v1.CdnKey result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.hostname_ = hostname_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.video.stitcher.v1.CdnKey result) {
+      result.cdnKeyConfigCase_ = cdnKeyConfigCase_;
+      result.cdnKeyConfig_ = this.cdnKeyConfig_;
+      if (cdnKeyConfigCase_ == 5 &&
+          googleCdnKeyBuilder_ != null) {
+        result.cdnKeyConfig_ = googleCdnKeyBuilder_.build();
+      }
+      if (cdnKeyConfigCase_ == 6 &&
+          akamaiCdnKeyBuilder_ != null) {
+        result.cdnKeyConfig_ = akamaiCdnKeyBuilder_.build();
+      }
+      if (cdnKeyConfigCase_ == 8 &&
+          mediaCdnKeyBuilder_ != null) {
+        result.cdnKeyConfig_ = mediaCdnKeyBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -699,10 +697,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.video.stitcher.v1.CdnKey.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getHostname().isEmpty()) {
         hostname_ = other.hostname_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       switch (other.getCdnKeyConfigCase()) {
@@ -714,11 +714,15 @@ private static final long serialVersionUID = 0L;
           mergeAkamaiCdnKey(other.getAkamaiCdnKey());
           break;
         }
+        case MEDIA_CDN_KEY: {
+          mergeMediaCdnKey(other.getMediaCdnKey());
+          break;
+        }
         case CDNKEYCONFIG_NOT_SET: {
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -733,17 +737,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.video.stitcher.v1.CdnKey parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 10
+            case 34: {
+              hostname_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getGoogleCdnKeyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              cdnKeyConfigCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getAkamaiCdnKeyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              cdnKeyConfigCase_ = 6;
+              break;
+            } // case 50
+            case 66: {
+              input.readMessage(
+                  getMediaCdnKeyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              cdnKeyConfigCase_ = 8;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.video.stitcher.v1.CdnKey) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int cdnKeyConfigCase_ = 0;
@@ -761,6 +809,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.video.stitcher.v1.GoogleCdnKey, com.google.cloud.video.stitcher.v1.GoogleCdnKey.Builder, com.google.cloud.video.stitcher.v1.GoogleCdnKeyOrBuilder> googleCdnKeyBuilder_;
@@ -936,7 +985,7 @@ private static final long serialVersionUID = 0L;
         cdnKeyConfig_ = null;
       }
       cdnKeyConfigCase_ = 5;
-      onChanged();;
+      onChanged();
       return googleCdnKeyBuilder_;
     }
 
@@ -1114,8 +1163,186 @@ private static final long serialVersionUID = 0L;
         cdnKeyConfig_ = null;
       }
       cdnKeyConfigCase_ = 6;
-      onChanged();;
+      onChanged();
       return akamaiCdnKeyBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.video.stitcher.v1.MediaCdnKey, com.google.cloud.video.stitcher.v1.MediaCdnKey.Builder, com.google.cloud.video.stitcher.v1.MediaCdnKeyOrBuilder> mediaCdnKeyBuilder_;
+    /**
+     * <pre>
+     * The configuration for a Media CDN key.
+     * </pre>
+     *
+     * <code>.google.cloud.video.stitcher.v1.MediaCdnKey media_cdn_key = 8;</code>
+     * @return Whether the mediaCdnKey field is set.
+     */
+    @java.lang.Override
+    public boolean hasMediaCdnKey() {
+      return cdnKeyConfigCase_ == 8;
+    }
+    /**
+     * <pre>
+     * The configuration for a Media CDN key.
+     * </pre>
+     *
+     * <code>.google.cloud.video.stitcher.v1.MediaCdnKey media_cdn_key = 8;</code>
+     * @return The mediaCdnKey.
+     */
+    @java.lang.Override
+    public com.google.cloud.video.stitcher.v1.MediaCdnKey getMediaCdnKey() {
+      if (mediaCdnKeyBuilder_ == null) {
+        if (cdnKeyConfigCase_ == 8) {
+          return (com.google.cloud.video.stitcher.v1.MediaCdnKey) cdnKeyConfig_;
+        }
+        return com.google.cloud.video.stitcher.v1.MediaCdnKey.getDefaultInstance();
+      } else {
+        if (cdnKeyConfigCase_ == 8) {
+          return mediaCdnKeyBuilder_.getMessage();
+        }
+        return com.google.cloud.video.stitcher.v1.MediaCdnKey.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * The configuration for a Media CDN key.
+     * </pre>
+     *
+     * <code>.google.cloud.video.stitcher.v1.MediaCdnKey media_cdn_key = 8;</code>
+     */
+    public Builder setMediaCdnKey(com.google.cloud.video.stitcher.v1.MediaCdnKey value) {
+      if (mediaCdnKeyBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        cdnKeyConfig_ = value;
+        onChanged();
+      } else {
+        mediaCdnKeyBuilder_.setMessage(value);
+      }
+      cdnKeyConfigCase_ = 8;
+      return this;
+    }
+    /**
+     * <pre>
+     * The configuration for a Media CDN key.
+     * </pre>
+     *
+     * <code>.google.cloud.video.stitcher.v1.MediaCdnKey media_cdn_key = 8;</code>
+     */
+    public Builder setMediaCdnKey(
+        com.google.cloud.video.stitcher.v1.MediaCdnKey.Builder builderForValue) {
+      if (mediaCdnKeyBuilder_ == null) {
+        cdnKeyConfig_ = builderForValue.build();
+        onChanged();
+      } else {
+        mediaCdnKeyBuilder_.setMessage(builderForValue.build());
+      }
+      cdnKeyConfigCase_ = 8;
+      return this;
+    }
+    /**
+     * <pre>
+     * The configuration for a Media CDN key.
+     * </pre>
+     *
+     * <code>.google.cloud.video.stitcher.v1.MediaCdnKey media_cdn_key = 8;</code>
+     */
+    public Builder mergeMediaCdnKey(com.google.cloud.video.stitcher.v1.MediaCdnKey value) {
+      if (mediaCdnKeyBuilder_ == null) {
+        if (cdnKeyConfigCase_ == 8 &&
+            cdnKeyConfig_ != com.google.cloud.video.stitcher.v1.MediaCdnKey.getDefaultInstance()) {
+          cdnKeyConfig_ = com.google.cloud.video.stitcher.v1.MediaCdnKey.newBuilder((com.google.cloud.video.stitcher.v1.MediaCdnKey) cdnKeyConfig_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          cdnKeyConfig_ = value;
+        }
+        onChanged();
+      } else {
+        if (cdnKeyConfigCase_ == 8) {
+          mediaCdnKeyBuilder_.mergeFrom(value);
+        } else {
+          mediaCdnKeyBuilder_.setMessage(value);
+        }
+      }
+      cdnKeyConfigCase_ = 8;
+      return this;
+    }
+    /**
+     * <pre>
+     * The configuration for a Media CDN key.
+     * </pre>
+     *
+     * <code>.google.cloud.video.stitcher.v1.MediaCdnKey media_cdn_key = 8;</code>
+     */
+    public Builder clearMediaCdnKey() {
+      if (mediaCdnKeyBuilder_ == null) {
+        if (cdnKeyConfigCase_ == 8) {
+          cdnKeyConfigCase_ = 0;
+          cdnKeyConfig_ = null;
+          onChanged();
+        }
+      } else {
+        if (cdnKeyConfigCase_ == 8) {
+          cdnKeyConfigCase_ = 0;
+          cdnKeyConfig_ = null;
+        }
+        mediaCdnKeyBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The configuration for a Media CDN key.
+     * </pre>
+     *
+     * <code>.google.cloud.video.stitcher.v1.MediaCdnKey media_cdn_key = 8;</code>
+     */
+    public com.google.cloud.video.stitcher.v1.MediaCdnKey.Builder getMediaCdnKeyBuilder() {
+      return getMediaCdnKeyFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The configuration for a Media CDN key.
+     * </pre>
+     *
+     * <code>.google.cloud.video.stitcher.v1.MediaCdnKey media_cdn_key = 8;</code>
+     */
+    @java.lang.Override
+    public com.google.cloud.video.stitcher.v1.MediaCdnKeyOrBuilder getMediaCdnKeyOrBuilder() {
+      if ((cdnKeyConfigCase_ == 8) && (mediaCdnKeyBuilder_ != null)) {
+        return mediaCdnKeyBuilder_.getMessageOrBuilder();
+      } else {
+        if (cdnKeyConfigCase_ == 8) {
+          return (com.google.cloud.video.stitcher.v1.MediaCdnKey) cdnKeyConfig_;
+        }
+        return com.google.cloud.video.stitcher.v1.MediaCdnKey.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * The configuration for a Media CDN key.
+     * </pre>
+     *
+     * <code>.google.cloud.video.stitcher.v1.MediaCdnKey media_cdn_key = 8;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.video.stitcher.v1.MediaCdnKey, com.google.cloud.video.stitcher.v1.MediaCdnKey.Builder, com.google.cloud.video.stitcher.v1.MediaCdnKeyOrBuilder> 
+        getMediaCdnKeyFieldBuilder() {
+      if (mediaCdnKeyBuilder_ == null) {
+        if (!(cdnKeyConfigCase_ == 8)) {
+          cdnKeyConfig_ = com.google.cloud.video.stitcher.v1.MediaCdnKey.getDefaultInstance();
+        }
+        mediaCdnKeyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.video.stitcher.v1.MediaCdnKey, com.google.cloud.video.stitcher.v1.MediaCdnKey.Builder, com.google.cloud.video.stitcher.v1.MediaCdnKeyOrBuilder>(
+                (com.google.cloud.video.stitcher.v1.MediaCdnKey) cdnKeyConfig_,
+                getParentForChildren(),
+                isClean());
+        cdnKeyConfig_ = null;
+      }
+      cdnKeyConfigCase_ = 8;
+      onChanged();
+      return mediaCdnKeyBuilder_;
     }
 
     private java.lang.Object name_ = "";
@@ -1177,11 +1404,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1196,8 +1421,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1214,12 +1439,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1277,11 +1500,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostname(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       hostname_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1294,8 +1515,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHostname() {
-      
       hostname_ = getDefaultInstance().getHostname();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1310,12 +1531,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostnameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       hostname_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1352,7 +1571,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CdnKey(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

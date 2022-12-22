@@ -38,76 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CustomerEncryptionKey(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 1360900410: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            sha256_ = s;
-            break;
-          }
-          case 1679890090: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            kmsKeyServiceAccount_ = s;
-            break;
-          }
-          case -1611068118: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            rsaEncryptedKey_ = s;
-            break;
-          }
-          case -701395390: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            rawKey_ = s;
-            break;
-          }
-          case -419975990: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            kmsKeyName_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_CustomerEncryptionKey_descriptor;
@@ -123,7 +53,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int KMS_KEY_NAME_FIELD_NUMBER = 484373913;
-  private volatile java.lang.Object kmsKeyName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kmsKeyName_ = "";
   /**
    * <pre>
    * The name of the encryption key that is stored in Google Cloud KMS. For example: "kmsKeyName": "projects/kms_project_id/locations/region/keyRings/ key_region/cryptoKeys/key 
@@ -181,7 +112,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KMS_KEY_SERVICE_ACCOUNT_FIELD_NUMBER = 209986261;
-  private volatile java.lang.Object kmsKeyServiceAccount_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kmsKeyServiceAccount_ = "";
   /**
    * <pre>
    * The service account being used for the encryption request for the given KMS key. If absent, the Compute Engine default service account is used. For example: "kmsKeyServiceAccount": "name&#64;project_id.iam.gserviceaccount.com/ 
@@ -239,7 +171,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RAW_KEY_FIELD_NUMBER = 449196488;
-  private volatile java.lang.Object rawKey_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object rawKey_ = "";
   /**
    * <pre>
    * Specifies a 256-bit customer-supplied encryption key, encoded in RFC 4648 base64 to either encrypt or decrypt this resource. You can provide either the rawKey or the rsaEncryptedKey. For example: "rawKey": "SGVsbG8gZnJvbSBHb29nbGUgQ2xvdWQgUGxhdGZvcm0=" 
@@ -297,7 +230,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RSA_ENCRYPTED_KEY_FIELD_NUMBER = 335487397;
-  private volatile java.lang.Object rsaEncryptedKey_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object rsaEncryptedKey_ = "";
   /**
    * <pre>
    * Specifies an RFC 4648 base64 encoded, RSA-wrapped 2048-bit customer-supplied encryption key to either encrypt or decrypt this resource. You can provide either the rawKey or the rsaEncryptedKey. For example: "rsaEncryptedKey": "ieCx/NcW06PcT7Ep1X6LUTc/hLvUDYyzSZPPVCVPTVEohpeHASqC8uw5TzyO9U+Fka9JFH z0mBibXUInrC/jEk014kCK/NPjYgEMOyssZ4ZINPKxlUh2zn1bV+MCaTICrdmuSBTWlUUiFoD D6PYznLwh8ZNdaheCeZ8ewEXgFQ8V+sDroLaN3Xs3MDTXQEMMoNUXMCZEIpg9Vtp9x2oe==" The key must meet the following requirements before you can provide it to Compute Engine: 1. The key is wrapped using a RSA public key certificate provided by Google. 2. After being wrapped, the key must be encoded in RFC 4648 base64 encoding. Gets the RSA public key certificate provided by Google at: https://cloud-certs.storage.googleapis.com/google-cloud-csek-ingress.pem 
@@ -355,7 +289,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SHA256_FIELD_NUMBER = 170112551;
-  private volatile java.lang.Object sha256_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sha256_ = "";
   /**
    * <pre>
    * [Output only] The RFC 4648 base64 encoded SHA-256 hash of the customer-supplied encryption key that protects this resource.
@@ -441,7 +376,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 484373913, kmsKeyName_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -465,7 +400,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(484373913, kmsKeyName_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -505,7 +440,7 @@ private static final long serialVersionUID = 0L;
       if (!getSha256()
           .equals(other.getSha256())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -536,7 +471,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SHA256_FIELD_NUMBER;
       hash = (53 * hash) + getSha256().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -656,32 +591,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.CustomerEncryptionKey.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       kmsKeyName_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       kmsKeyServiceAccount_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       rawKey_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       rsaEncryptedKey_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       sha256_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -708,31 +634,35 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.CustomerEncryptionKey buildPartial() {
       com.google.cloud.compute.v1.CustomerEncryptionKey result = new com.google.cloud.compute.v1.CustomerEncryptionKey(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.CustomerEncryptionKey result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.kmsKeyName_ = kmsKeyName_;
         to_bitField0_ |= 0x00000001;
       }
-      result.kmsKeyName_ = kmsKeyName_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.kmsKeyServiceAccount_ = kmsKeyServiceAccount_;
         to_bitField0_ |= 0x00000002;
       }
-      result.kmsKeyServiceAccount_ = kmsKeyServiceAccount_;
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.rawKey_ = rawKey_;
         to_bitField0_ |= 0x00000004;
       }
-      result.rawKey_ = rawKey_;
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.rsaEncryptedKey_ = rsaEncryptedKey_;
         to_bitField0_ |= 0x00000008;
       }
-      result.rsaEncryptedKey_ = rsaEncryptedKey_;
       if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.sha256_ = sha256_;
         to_bitField0_ |= 0x00000010;
       }
-      result.sha256_ = sha256_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -780,31 +710,31 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.CustomerEncryptionKey other) {
       if (other == com.google.cloud.compute.v1.CustomerEncryptionKey.getDefaultInstance()) return this;
       if (other.hasKmsKeyName()) {
-        bitField0_ |= 0x00000001;
         kmsKeyName_ = other.kmsKeyName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasKmsKeyServiceAccount()) {
-        bitField0_ |= 0x00000002;
         kmsKeyServiceAccount_ = other.kmsKeyServiceAccount_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasRawKey()) {
-        bitField0_ |= 0x00000004;
         rawKey_ = other.rawKey_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasRsaEncryptedKey()) {
-        bitField0_ |= 0x00000008;
         rsaEncryptedKey_ = other.rsaEncryptedKey_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasSha256()) {
-        bitField0_ |= 0x00000010;
         sha256_ = other.sha256_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -819,17 +749,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.CustomerEncryptionKey parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 1360900410: {
+              sha256_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 1360900410
+            case 1679890090: {
+              kmsKeyServiceAccount_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1679890090
+            case -1611068118: {
+              rsaEncryptedKey_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -1611068118
+            case -701395390: {
+              rawKey_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -701395390
+            case -419975990: {
+              kmsKeyName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -419975990
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.CustomerEncryptionKey) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -898,11 +866,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKeyName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       kmsKeyName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -915,8 +881,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKmsKeyName() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       kmsKeyName_ = getDefaultInstance().getKmsKeyName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -931,12 +897,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKeyNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kmsKeyName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1005,11 +969,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKeyServiceAccount(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       kmsKeyServiceAccount_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1022,8 +984,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKmsKeyServiceAccount() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       kmsKeyServiceAccount_ = getDefaultInstance().getKmsKeyServiceAccount();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1038,12 +1000,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKeyServiceAccountBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kmsKeyServiceAccount_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1112,11 +1072,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRawKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       rawKey_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1129,8 +1087,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRawKey() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       rawKey_ = getDefaultInstance().getRawKey();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1145,12 +1103,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRawKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       rawKey_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1219,11 +1175,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRsaEncryptedKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       rsaEncryptedKey_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1236,8 +1190,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRsaEncryptedKey() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       rsaEncryptedKey_ = getDefaultInstance().getRsaEncryptedKey();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1252,12 +1206,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRsaEncryptedKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       rsaEncryptedKey_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1326,11 +1278,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSha256(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       sha256_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1343,8 +1293,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSha256() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       sha256_ = getDefaultInstance().getSha256();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1359,12 +1309,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSha256Bytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sha256_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1401,7 +1349,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CustomerEncryptionKey(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

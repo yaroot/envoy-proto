@@ -38,69 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SmoothGradConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 13: {
-            gradientNoiseSigma_ = input.readFloat();
-            gradientNoiseSigmaCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.cloud.aiplatform.v1beta1.FeatureNoiseSigma.Builder subBuilder = null;
-            if (gradientNoiseSigmaCase_ == 2) {
-              subBuilder = ((com.google.cloud.aiplatform.v1beta1.FeatureNoiseSigma) gradientNoiseSigma_).toBuilder();
-            }
-            gradientNoiseSigma_ =
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.FeatureNoiseSigma.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1beta1.FeatureNoiseSigma) gradientNoiseSigma_);
-              gradientNoiseSigma_ = subBuilder.buildPartial();
-            }
-            gradientNoiseSigmaCase_ = 2;
-            break;
-          }
-          case 24: {
-
-            noisySampleCount_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.ExplanationProto.internal_static_google_cloud_aiplatform_v1beta1_SmoothGradConfig_descriptor;
@@ -263,7 +200,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NOISY_SAMPLE_COUNT_FIELD_NUMBER = 3;
-  private int noisySampleCount_;
+  private int noisySampleCount_ = 0;
   /**
    * <pre>
    * The number of gradient samples to use for
@@ -304,7 +241,7 @@ private static final long serialVersionUID = 0L;
     if (noisySampleCount_ != 0) {
       output.writeInt32(3, noisySampleCount_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -326,7 +263,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, noisySampleCount_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -357,7 +294,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -383,7 +320,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -508,24 +445,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.SmoothGradConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (featureNoiseSigmaBuilder_ != null) {
+        featureNoiseSigmaBuilder_.clear();
+      }
       noisySampleCount_ = 0;
-
       gradientNoiseSigmaCase_ = 0;
       gradientNoiseSigma_ = null;
       return this;
@@ -554,20 +489,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.SmoothGradConfig buildPartial() {
       com.google.cloud.aiplatform.v1beta1.SmoothGradConfig result = new com.google.cloud.aiplatform.v1beta1.SmoothGradConfig(this);
-      if (gradientNoiseSigmaCase_ == 1) {
-        result.gradientNoiseSigma_ = gradientNoiseSigma_;
-      }
-      if (gradientNoiseSigmaCase_ == 2) {
-        if (featureNoiseSigmaBuilder_ == null) {
-          result.gradientNoiseSigma_ = gradientNoiseSigma_;
-        } else {
-          result.gradientNoiseSigma_ = featureNoiseSigmaBuilder_.build();
-        }
-      }
-      result.noisySampleCount_ = noisySampleCount_;
-      result.gradientNoiseSigmaCase_ = gradientNoiseSigmaCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.SmoothGradConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.noisySampleCount_ = noisySampleCount_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.aiplatform.v1beta1.SmoothGradConfig result) {
+      result.gradientNoiseSigmaCase_ = gradientNoiseSigmaCase_;
+      result.gradientNoiseSigma_ = this.gradientNoiseSigma_;
+      if (gradientNoiseSigmaCase_ == 2 &&
+          featureNoiseSigmaBuilder_ != null) {
+        result.gradientNoiseSigma_ = featureNoiseSigmaBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -630,7 +571,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -645,17 +586,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.SmoothGradConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 13: {
+              gradientNoiseSigma_ = input.readFloat();
+              gradientNoiseSigmaCase_ = 1;
+              break;
+            } // case 13
+            case 18: {
+              input.readMessage(
+                  getFeatureNoiseSigmaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              gradientNoiseSigmaCase_ = 2;
+              break;
+            } // case 18
+            case 24: {
+              noisySampleCount_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.SmoothGradConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int gradientNoiseSigmaCase_ = 0;
@@ -673,6 +644,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -739,6 +711,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setNoiseSigma(float value) {
+      
       gradientNoiseSigmaCase_ = 1;
       gradientNoiseSigma_ = value;
       onChanged();
@@ -990,7 +963,7 @@ private static final long serialVersionUID = 0L;
         gradientNoiseSigma_ = null;
       }
       gradientNoiseSigmaCase_ = 2;
-      onChanged();;
+      onChanged();
       return featureNoiseSigmaBuilder_;
     }
 
@@ -1025,6 +998,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNoisySampleCount(int value) {
       
       noisySampleCount_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1040,7 +1014,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNoisySampleCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       noisySampleCount_ = 0;
       onChanged();
       return this;
@@ -1078,7 +1052,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SmoothGradConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

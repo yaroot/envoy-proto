@@ -38,82 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AzureClusterNetworking(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            virtualNetworkId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              podAddressCidrBlocks_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            podAddressCidrBlocks_.add(s);
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              serviceAddressCidrBlocks_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            serviceAddressCidrBlocks_.add(s);
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceLoadBalancerSubnetId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        podAddressCidrBlocks_ = podAddressCidrBlocks_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        serviceAddressCidrBlocks_ = serviceAddressCidrBlocks_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkemulticloud.v1.AzureResourcesProto.internal_static_google_cloud_gkemulticloud_v1_AzureClusterNetworking_descriptor;
@@ -128,11 +52,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VIRTUAL_NETWORK_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object virtualNetworkId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object virtualNetworkId_ = "";
   /**
    * <pre>
-   * Required. The Azure Resource Manager (ARM) ID of the VNet associated with your
-   * cluster.
+   * Required. The Azure Resource Manager (ARM) ID of the VNet associated with
+   * your cluster.
    * All components in the cluster (i.e. control plane and node pools) run on a
    * single VNet.
    * Example:
@@ -158,8 +83,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The Azure Resource Manager (ARM) ID of the VNet associated with your
-   * cluster.
+   * Required. The Azure Resource Manager (ARM) ID of the VNet associated with
+   * your cluster.
    * All components in the cluster (i.e. control plane and node pools) run on a
    * single VNet.
    * Example:
@@ -186,6 +111,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POD_ADDRESS_CIDR_BLOCKS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList podAddressCidrBlocks_;
   /**
    * <pre>
@@ -253,6 +179,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_ADDRESS_CIDR_BLOCKS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList serviceAddressCidrBlocks_;
   /**
    * <pre>
@@ -320,11 +247,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_LOAD_BALANCER_SUBNET_ID_FIELD_NUMBER = 5;
-  private volatile java.lang.Object serviceLoadBalancerSubnetId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceLoadBalancerSubnetId_ = "";
   /**
    * <pre>
-   * Optional. The ARM ID of the subnet where Kubernetes private service type load
-   * balancers are deployed. When unspecified, it defaults to
+   * Optional. The ARM ID of the subnet where Kubernetes private service type
+   * load balancers are deployed. When unspecified, it defaults to
    * AzureControlPlane.subnet_id.
    * Example:
    * "/subscriptions/d00494d6-6f3c-4280-bbb2-899e163d1d30/resourceGroups/anthos_cluster_gkeust4/providers/Microsoft.Network/virtualNetworks/gke-vnet-gkeust4/subnets/subnetid456"
@@ -348,8 +276,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The ARM ID of the subnet where Kubernetes private service type load
-   * balancers are deployed. When unspecified, it defaults to
+   * Optional. The ARM ID of the subnet where Kubernetes private service type
+   * load balancers are deployed. When unspecified, it defaults to
    * AzureControlPlane.subnet_id.
    * Example:
    * "/subscriptions/d00494d6-6f3c-4280-bbb2-899e163d1d30/resourceGroups/anthos_cluster_gkeust4/providers/Microsoft.Network/virtualNetworks/gke-vnet-gkeust4/subnets/subnetid456"
@@ -399,7 +327,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serviceLoadBalancerSubnetId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, serviceLoadBalancerSubnetId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -430,7 +358,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serviceLoadBalancerSubnetId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, serviceLoadBalancerSubnetId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -453,7 +381,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getServiceAddressCidrBlocksList())) return false;
     if (!getServiceLoadBalancerSubnetId()
         .equals(other.getServiceLoadBalancerSubnetId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -476,7 +404,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + SERVICE_LOAD_BALANCER_SUBNET_ID_FIELD_NUMBER;
     hash = (53 * hash) + getServiceLoadBalancerSubnetId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -597,30 +525,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkemulticloud.v1.AzureClusterNetworking.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       virtualNetworkId_ = "";
-
       podAddressCidrBlocks_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      serviceAddressCidrBlocks_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
+      serviceAddressCidrBlocks_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000004);
       serviceLoadBalancerSubnetId_ = "";
-
       return this;
     }
 
@@ -647,21 +569,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.AzureClusterNetworking buildPartial() {
       com.google.cloud.gkemulticloud.v1.AzureClusterNetworking result = new com.google.cloud.gkemulticloud.v1.AzureClusterNetworking(this);
-      int from_bitField0_ = bitField0_;
-      result.virtualNetworkId_ = virtualNetworkId_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        podAddressCidrBlocks_ = podAddressCidrBlocks_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.podAddressCidrBlocks_ = podAddressCidrBlocks_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        serviceAddressCidrBlocks_ = serviceAddressCidrBlocks_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.serviceAddressCidrBlocks_ = serviceAddressCidrBlocks_;
-      result.serviceLoadBalancerSubnetId_ = serviceLoadBalancerSubnetId_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.gkemulticloud.v1.AzureClusterNetworking result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
+        podAddressCidrBlocks_ = podAddressCidrBlocks_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.podAddressCidrBlocks_ = podAddressCidrBlocks_;
+      if (((bitField0_ & 0x00000004) != 0)) {
+        serviceAddressCidrBlocks_ = serviceAddressCidrBlocks_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.serviceAddressCidrBlocks_ = serviceAddressCidrBlocks_;
+    }
+
+    private void buildPartial0(com.google.cloud.gkemulticloud.v1.AzureClusterNetworking result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.virtualNetworkId_ = virtualNetworkId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.serviceLoadBalancerSubnetId_ = serviceLoadBalancerSubnetId_;
+      }
     }
 
     @java.lang.Override
@@ -710,12 +644,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gkemulticloud.v1.AzureClusterNetworking.getDefaultInstance()) return this;
       if (!other.getVirtualNetworkId().isEmpty()) {
         virtualNetworkId_ = other.virtualNetworkId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.podAddressCidrBlocks_.isEmpty()) {
         if (podAddressCidrBlocks_.isEmpty()) {
           podAddressCidrBlocks_ = other.podAddressCidrBlocks_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensurePodAddressCidrBlocksIsMutable();
           podAddressCidrBlocks_.addAll(other.podAddressCidrBlocks_);
@@ -725,7 +660,7 @@ private static final long serialVersionUID = 0L;
       if (!other.serviceAddressCidrBlocks_.isEmpty()) {
         if (serviceAddressCidrBlocks_.isEmpty()) {
           serviceAddressCidrBlocks_ = other.serviceAddressCidrBlocks_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureServiceAddressCidrBlocksIsMutable();
           serviceAddressCidrBlocks_.addAll(other.serviceAddressCidrBlocks_);
@@ -734,9 +669,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getServiceLoadBalancerSubnetId().isEmpty()) {
         serviceLoadBalancerSubnetId_ = other.serviceLoadBalancerSubnetId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -751,17 +687,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkemulticloud.v1.AzureClusterNetworking parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              virtualNetworkId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensurePodAddressCidrBlocksIsMutable();
+              podAddressCidrBlocks_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureServiceAddressCidrBlocksIsMutable();
+              serviceAddressCidrBlocks_.add(s);
+              break;
+            } // case 26
+            case 42: {
+              serviceLoadBalancerSubnetId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkemulticloud.v1.AzureClusterNetworking) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -769,8 +740,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object virtualNetworkId_ = "";
     /**
      * <pre>
-     * Required. The Azure Resource Manager (ARM) ID of the VNet associated with your
-     * cluster.
+     * Required. The Azure Resource Manager (ARM) ID of the VNet associated with
+     * your cluster.
      * All components in the cluster (i.e. control plane and node pools) run on a
      * single VNet.
      * Example:
@@ -795,8 +766,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The Azure Resource Manager (ARM) ID of the VNet associated with your
-     * cluster.
+     * Required. The Azure Resource Manager (ARM) ID of the VNet associated with
+     * your cluster.
      * All components in the cluster (i.e. control plane and node pools) run on a
      * single VNet.
      * Example:
@@ -822,8 +793,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The Azure Resource Manager (ARM) ID of the VNet associated with your
-     * cluster.
+     * Required. The Azure Resource Manager (ARM) ID of the VNet associated with
+     * your cluster.
      * All components in the cluster (i.e. control plane and node pools) run on a
      * single VNet.
      * Example:
@@ -837,18 +808,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVirtualNetworkId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       virtualNetworkId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The Azure Resource Manager (ARM) ID of the VNet associated with your
-     * cluster.
+     * Required. The Azure Resource Manager (ARM) ID of the VNet associated with
+     * your cluster.
      * All components in the cluster (i.e. control plane and node pools) run on a
      * single VNet.
      * Example:
@@ -860,15 +829,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVirtualNetworkId() {
-      
       virtualNetworkId_ = getDefaultInstance().getVirtualNetworkId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The Azure Resource Manager (ARM) ID of the VNet associated with your
-     * cluster.
+     * Required. The Azure Resource Manager (ARM) ID of the VNet associated with
+     * your cluster.
      * All components in the cluster (i.e. control plane and node pools) run on a
      * single VNet.
      * Example:
@@ -882,21 +851,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVirtualNetworkIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       virtualNetworkId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList podAddressCidrBlocks_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensurePodAddressCidrBlocksIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         podAddressCidrBlocks_ = new com.google.protobuf.LazyStringArrayList(podAddressCidrBlocks_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -979,10 +946,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPodAddressCidrBlocks(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePodAddressCidrBlocksIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensurePodAddressCidrBlocksIsMutable();
       podAddressCidrBlocks_.set(index, value);
       onChanged();
       return this;
@@ -1002,10 +967,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPodAddressCidrBlocks(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePodAddressCidrBlocksIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensurePodAddressCidrBlocksIsMutable();
       podAddressCidrBlocks_.add(value);
       onChanged();
       return this;
@@ -1045,7 +1008,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPodAddressCidrBlocks() {
       podAddressCidrBlocks_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1064,10 +1027,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPodAddressCidrBlocksBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensurePodAddressCidrBlocksIsMutable();
       podAddressCidrBlocks_.add(value);
       onChanged();
@@ -1076,9 +1037,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList serviceAddressCidrBlocks_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureServiceAddressCidrBlocksIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         serviceAddressCidrBlocks_ = new com.google.protobuf.LazyStringArrayList(serviceAddressCidrBlocks_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1161,10 +1122,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAddressCidrBlocks(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureServiceAddressCidrBlocksIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureServiceAddressCidrBlocksIsMutable();
       serviceAddressCidrBlocks_.set(index, value);
       onChanged();
       return this;
@@ -1184,10 +1143,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addServiceAddressCidrBlocks(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureServiceAddressCidrBlocksIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureServiceAddressCidrBlocksIsMutable();
       serviceAddressCidrBlocks_.add(value);
       onChanged();
       return this;
@@ -1227,7 +1184,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearServiceAddressCidrBlocks() {
       serviceAddressCidrBlocks_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1246,10 +1203,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addServiceAddressCidrBlocksBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureServiceAddressCidrBlocksIsMutable();
       serviceAddressCidrBlocks_.add(value);
       onChanged();
@@ -1259,8 +1214,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object serviceLoadBalancerSubnetId_ = "";
     /**
      * <pre>
-     * Optional. The ARM ID of the subnet where Kubernetes private service type load
-     * balancers are deployed. When unspecified, it defaults to
+     * Optional. The ARM ID of the subnet where Kubernetes private service type
+     * load balancers are deployed. When unspecified, it defaults to
      * AzureControlPlane.subnet_id.
      * Example:
      * "/subscriptions/d00494d6-6f3c-4280-bbb2-899e163d1d30/resourceGroups/anthos_cluster_gkeust4/providers/Microsoft.Network/virtualNetworks/gke-vnet-gkeust4/subnets/subnetid456"
@@ -1283,8 +1238,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The ARM ID of the subnet where Kubernetes private service type load
-     * balancers are deployed. When unspecified, it defaults to
+     * Optional. The ARM ID of the subnet where Kubernetes private service type
+     * load balancers are deployed. When unspecified, it defaults to
      * AzureControlPlane.subnet_id.
      * Example:
      * "/subscriptions/d00494d6-6f3c-4280-bbb2-899e163d1d30/resourceGroups/anthos_cluster_gkeust4/providers/Microsoft.Network/virtualNetworks/gke-vnet-gkeust4/subnets/subnetid456"
@@ -1308,8 +1263,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The ARM ID of the subnet where Kubernetes private service type load
-     * balancers are deployed. When unspecified, it defaults to
+     * Optional. The ARM ID of the subnet where Kubernetes private service type
+     * load balancers are deployed. When unspecified, it defaults to
      * AzureControlPlane.subnet_id.
      * Example:
      * "/subscriptions/d00494d6-6f3c-4280-bbb2-899e163d1d30/resourceGroups/anthos_cluster_gkeust4/providers/Microsoft.Network/virtualNetworks/gke-vnet-gkeust4/subnets/subnetid456"
@@ -1321,18 +1276,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceLoadBalancerSubnetId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceLoadBalancerSubnetId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The ARM ID of the subnet where Kubernetes private service type load
-     * balancers are deployed. When unspecified, it defaults to
+     * Optional. The ARM ID of the subnet where Kubernetes private service type
+     * load balancers are deployed. When unspecified, it defaults to
      * AzureControlPlane.subnet_id.
      * Example:
      * "/subscriptions/d00494d6-6f3c-4280-bbb2-899e163d1d30/resourceGroups/anthos_cluster_gkeust4/providers/Microsoft.Network/virtualNetworks/gke-vnet-gkeust4/subnets/subnetid456"
@@ -1342,15 +1295,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServiceLoadBalancerSubnetId() {
-      
       serviceLoadBalancerSubnetId_ = getDefaultInstance().getServiceLoadBalancerSubnetId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The ARM ID of the subnet where Kubernetes private service type load
-     * balancers are deployed. When unspecified, it defaults to
+     * Optional. The ARM ID of the subnet where Kubernetes private service type
+     * load balancers are deployed. When unspecified, it defaults to
      * AzureControlPlane.subnet_id.
      * Example:
      * "/subscriptions/d00494d6-6f3c-4280-bbb2-899e163d1d30/resourceGroups/anthos_cluster_gkeust4/providers/Microsoft.Network/virtualNetworks/gke-vnet-gkeust4/subnets/subnetid456"
@@ -1362,12 +1315,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceLoadBalancerSubnetIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceLoadBalancerSubnetId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1404,7 +1355,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AzureClusterNetworking(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

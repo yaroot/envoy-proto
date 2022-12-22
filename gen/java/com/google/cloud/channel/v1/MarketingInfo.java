@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MarketingInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.channel.v1.Media.Builder subBuilder = null;
-            if (defaultLogo_ != null) {
-              subBuilder = defaultLogo_.toBuilder();
-            }
-            defaultLogo_ = input.readMessage(com.google.cloud.channel.v1.Media.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(defaultLogo_);
-              defaultLogo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.ProductsProto.internal_static_google_cloud_channel_v1_MarketingInfo_descriptor;
@@ -114,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Human readable name.
@@ -160,7 +97,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * Human readable description. Description can contain HTML.
@@ -240,7 +178,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.MediaOrBuilder getDefaultLogoOrBuilder() {
-    return getDefaultLogo();
+    return defaultLogo_ == null ? com.google.cloud.channel.v1.Media.getDefaultInstance() : defaultLogo_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -266,7 +204,7 @@ private static final long serialVersionUID = 0L;
     if (defaultLogo_ != null) {
       output.writeMessage(3, getDefaultLogo());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -285,7 +223,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getDefaultLogo());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -309,7 +247,7 @@ private static final long serialVersionUID = 0L;
       if (!getDefaultLogo()
           .equals(other.getDefaultLogo())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -328,7 +266,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DEFAULT_LOGO_FIELD_NUMBER;
       hash = (53 * hash) + getDefaultLogo().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -449,30 +387,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.MarketingInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       displayName_ = "";
-
       description_ = "";
-
-      if (defaultLogoBuilder_ == null) {
-        defaultLogo_ = null;
-      } else {
-        defaultLogo_ = null;
+      defaultLogo_ = null;
+      if (defaultLogoBuilder_ != null) {
+        defaultLogoBuilder_.dispose();
         defaultLogoBuilder_ = null;
       }
       return this;
@@ -501,15 +432,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.MarketingInfo buildPartial() {
       com.google.cloud.channel.v1.MarketingInfo result = new com.google.cloud.channel.v1.MarketingInfo(this);
-      result.displayName_ = displayName_;
-      result.description_ = description_;
-      if (defaultLogoBuilder_ == null) {
-        result.defaultLogo_ = defaultLogo_;
-      } else {
-        result.defaultLogo_ = defaultLogoBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.MarketingInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.defaultLogo_ = defaultLogoBuilder_ == null
+            ? defaultLogo_
+            : defaultLogoBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -558,16 +498,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.channel.v1.MarketingInfo.getDefaultInstance()) return this;
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasDefaultLogo()) {
         mergeDefaultLogo(other.getDefaultLogo());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -582,19 +524,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.MarketingInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getDefaultLogoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.MarketingInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object displayName_ = "";
     /**
@@ -649,11 +622,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -666,8 +637,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -682,12 +653,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -745,11 +714,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -762,8 +729,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -778,12 +745,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -800,7 +765,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the defaultLogo field is set.
      */
     public boolean hasDefaultLogo() {
-      return defaultLogoBuilder_ != null || defaultLogo_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -830,11 +795,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         defaultLogo_ = value;
-        onChanged();
       } else {
         defaultLogoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -848,11 +813,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.Media.Builder builderForValue) {
       if (defaultLogoBuilder_ == null) {
         defaultLogo_ = builderForValue.build();
-        onChanged();
       } else {
         defaultLogoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -864,17 +829,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDefaultLogo(com.google.cloud.channel.v1.Media value) {
       if (defaultLogoBuilder_ == null) {
-        if (defaultLogo_ != null) {
-          defaultLogo_ =
-            com.google.cloud.channel.v1.Media.newBuilder(defaultLogo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          defaultLogo_ != null &&
+          defaultLogo_ != com.google.cloud.channel.v1.Media.getDefaultInstance()) {
+          getDefaultLogoBuilder().mergeFrom(value);
         } else {
           defaultLogo_ = value;
         }
-        onChanged();
       } else {
         defaultLogoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -885,14 +851,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.Media default_logo = 3;</code>
      */
     public Builder clearDefaultLogo() {
-      if (defaultLogoBuilder_ == null) {
-        defaultLogo_ = null;
-        onChanged();
-      } else {
-        defaultLogo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      defaultLogo_ = null;
+      if (defaultLogoBuilder_ != null) {
+        defaultLogoBuilder_.dispose();
         defaultLogoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -903,7 +868,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.Media default_logo = 3;</code>
      */
     public com.google.cloud.channel.v1.Media.Builder getDefaultLogoBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDefaultLogoFieldBuilder().getBuilder();
     }
@@ -975,7 +940,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MarketingInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

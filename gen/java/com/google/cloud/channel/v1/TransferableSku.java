@@ -36,84 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TransferableSku(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 74: {
-            com.google.cloud.channel.v1.TransferEligibility.Builder subBuilder = null;
-            if (transferEligibility_ != null) {
-              subBuilder = transferEligibility_.toBuilder();
-            }
-            transferEligibility_ = input.readMessage(com.google.cloud.channel.v1.TransferEligibility.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(transferEligibility_);
-              transferEligibility_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            com.google.cloud.channel.v1.Sku.Builder subBuilder = null;
-            if (sku_ != null) {
-              subBuilder = sku_.toBuilder();
-            }
-            sku_ = input.readMessage(com.google.cloud.channel.v1.Sku.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sku_);
-              sku_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 98: {
-            com.google.cloud.channel.v1.Sku.Builder subBuilder = null;
-            if (legacySku_ != null) {
-              subBuilder = legacySku_.toBuilder();
-            }
-            legacySku_ = input.readMessage(com.google.cloud.channel.v1.Sku.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(legacySku_);
-              legacySku_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.EntitlementsProto.internal_static_google_cloud_channel_v1_TransferableSku_descriptor;
@@ -162,7 +84,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.TransferEligibilityOrBuilder getTransferEligibilityOrBuilder() {
-    return getTransferEligibility();
+    return transferEligibility_ == null ? com.google.cloud.channel.v1.TransferEligibility.getDefaultInstance() : transferEligibility_;
   }
 
   public static final int SKU_FIELD_NUMBER = 11;
@@ -200,14 +122,15 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.SkuOrBuilder getSkuOrBuilder() {
-    return getSku();
+    return sku_ == null ? com.google.cloud.channel.v1.Sku.getDefaultInstance() : sku_;
   }
 
   public static final int LEGACY_SKU_FIELD_NUMBER = 12;
   private com.google.cloud.channel.v1.Sku legacySku_;
   /**
    * <pre>
-   * Optional. The customer to transfer has an entitlement with the populated legacy SKU.
+   * Optional. The customer to transfer has an entitlement with the populated
+   * legacy SKU.
    * </pre>
    *
    * <code>.google.cloud.channel.v1.Sku legacy_sku = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -219,7 +142,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The customer to transfer has an entitlement with the populated legacy SKU.
+   * Optional. The customer to transfer has an entitlement with the populated
+   * legacy SKU.
    * </pre>
    *
    * <code>.google.cloud.channel.v1.Sku legacy_sku = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -231,14 +155,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The customer to transfer has an entitlement with the populated legacy SKU.
+   * Optional. The customer to transfer has an entitlement with the populated
+   * legacy SKU.
    * </pre>
    *
    * <code>.google.cloud.channel.v1.Sku legacy_sku = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.SkuOrBuilder getLegacySkuOrBuilder() {
-    return getLegacySku();
+    return legacySku_ == null ? com.google.cloud.channel.v1.Sku.getDefaultInstance() : legacySku_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -264,7 +189,7 @@ private static final long serialVersionUID = 0L;
     if (legacySku_ != null) {
       output.writeMessage(12, getLegacySku());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -285,7 +210,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, getLegacySku());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -315,7 +240,7 @@ private static final long serialVersionUID = 0L;
       if (!getLegacySku()
           .equals(other.getLegacySku())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -338,7 +263,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LEGACY_SKU_FIELD_NUMBER;
       hash = (53 * hash) + getLegacySku().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -461,38 +386,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.TransferableSku.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (transferEligibilityBuilder_ == null) {
-        transferEligibility_ = null;
-      } else {
-        transferEligibility_ = null;
+      bitField0_ = 0;
+      transferEligibility_ = null;
+      if (transferEligibilityBuilder_ != null) {
+        transferEligibilityBuilder_.dispose();
         transferEligibilityBuilder_ = null;
       }
-      if (skuBuilder_ == null) {
-        sku_ = null;
-      } else {
-        sku_ = null;
+      sku_ = null;
+      if (skuBuilder_ != null) {
+        skuBuilder_.dispose();
         skuBuilder_ = null;
       }
-      if (legacySkuBuilder_ == null) {
-        legacySku_ = null;
-      } else {
-        legacySku_ = null;
+      legacySku_ = null;
+      if (legacySkuBuilder_ != null) {
+        legacySkuBuilder_.dispose();
         legacySkuBuilder_ = null;
       }
       return this;
@@ -521,23 +439,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.TransferableSku buildPartial() {
       com.google.cloud.channel.v1.TransferableSku result = new com.google.cloud.channel.v1.TransferableSku(this);
-      if (transferEligibilityBuilder_ == null) {
-        result.transferEligibility_ = transferEligibility_;
-      } else {
-        result.transferEligibility_ = transferEligibilityBuilder_.build();
-      }
-      if (skuBuilder_ == null) {
-        result.sku_ = sku_;
-      } else {
-        result.sku_ = skuBuilder_.build();
-      }
-      if (legacySkuBuilder_ == null) {
-        result.legacySku_ = legacySku_;
-      } else {
-        result.legacySku_ = legacySkuBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.TransferableSku result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.transferEligibility_ = transferEligibilityBuilder_ == null
+            ? transferEligibility_
+            : transferEligibilityBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.sku_ = skuBuilder_ == null
+            ? sku_
+            : skuBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.legacySku_ = legacySkuBuilder_ == null
+            ? legacySku_
+            : legacySkuBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -593,7 +516,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasLegacySku()) {
         mergeLegacySku(other.getLegacySku());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -608,19 +531,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.TransferableSku parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 74: {
+              input.readMessage(
+                  getTransferEligibilityFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 74
+            case 90: {
+              input.readMessage(
+                  getSkuFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getLegacySkuFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 98
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.TransferableSku) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.channel.v1.TransferEligibility transferEligibility_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -634,7 +592,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the transferEligibility field is set.
      */
     public boolean hasTransferEligibility() {
-      return transferEligibilityBuilder_ != null || transferEligibility_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -664,11 +622,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         transferEligibility_ = value;
-        onChanged();
       } else {
         transferEligibilityBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -682,11 +640,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.TransferEligibility.Builder builderForValue) {
       if (transferEligibilityBuilder_ == null) {
         transferEligibility_ = builderForValue.build();
-        onChanged();
       } else {
         transferEligibilityBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -698,17 +656,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTransferEligibility(com.google.cloud.channel.v1.TransferEligibility value) {
       if (transferEligibilityBuilder_ == null) {
-        if (transferEligibility_ != null) {
-          transferEligibility_ =
-            com.google.cloud.channel.v1.TransferEligibility.newBuilder(transferEligibility_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          transferEligibility_ != null &&
+          transferEligibility_ != com.google.cloud.channel.v1.TransferEligibility.getDefaultInstance()) {
+          getTransferEligibilityBuilder().mergeFrom(value);
         } else {
           transferEligibility_ = value;
         }
-        onChanged();
       } else {
         transferEligibilityBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -719,14 +678,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.TransferEligibility transfer_eligibility = 9;</code>
      */
     public Builder clearTransferEligibility() {
-      if (transferEligibilityBuilder_ == null) {
-        transferEligibility_ = null;
-        onChanged();
-      } else {
-        transferEligibility_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      transferEligibility_ = null;
+      if (transferEligibilityBuilder_ != null) {
+        transferEligibilityBuilder_.dispose();
         transferEligibilityBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -737,7 +695,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.TransferEligibility transfer_eligibility = 9;</code>
      */
     public com.google.cloud.channel.v1.TransferEligibility.Builder getTransferEligibilityBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getTransferEligibilityFieldBuilder().getBuilder();
     }
@@ -789,7 +747,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sku field is set.
      */
     public boolean hasSku() {
-      return skuBuilder_ != null || sku_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -819,11 +777,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sku_ = value;
-        onChanged();
       } else {
         skuBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -837,11 +795,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.Sku.Builder builderForValue) {
       if (skuBuilder_ == null) {
         sku_ = builderForValue.build();
-        onChanged();
       } else {
         skuBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -853,17 +811,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSku(com.google.cloud.channel.v1.Sku value) {
       if (skuBuilder_ == null) {
-        if (sku_ != null) {
-          sku_ =
-            com.google.cloud.channel.v1.Sku.newBuilder(sku_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          sku_ != null &&
+          sku_ != com.google.cloud.channel.v1.Sku.getDefaultInstance()) {
+          getSkuBuilder().mergeFrom(value);
         } else {
           sku_ = value;
         }
-        onChanged();
       } else {
         skuBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -874,14 +833,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.Sku sku = 11;</code>
      */
     public Builder clearSku() {
-      if (skuBuilder_ == null) {
-        sku_ = null;
-        onChanged();
-      } else {
-        sku_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      sku_ = null;
+      if (skuBuilder_ != null) {
+        skuBuilder_.dispose();
         skuBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -892,7 +850,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.Sku sku = 11;</code>
      */
     public com.google.cloud.channel.v1.Sku.Builder getSkuBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getSkuFieldBuilder().getBuilder();
     }
@@ -937,18 +895,20 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.Sku, com.google.cloud.channel.v1.Sku.Builder, com.google.cloud.channel.v1.SkuOrBuilder> legacySkuBuilder_;
     /**
      * <pre>
-     * Optional. The customer to transfer has an entitlement with the populated legacy SKU.
+     * Optional. The customer to transfer has an entitlement with the populated
+     * legacy SKU.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.Sku legacy_sku = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return Whether the legacySku field is set.
      */
     public boolean hasLegacySku() {
-      return legacySkuBuilder_ != null || legacySku_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
-     * Optional. The customer to transfer has an entitlement with the populated legacy SKU.
+     * Optional. The customer to transfer has an entitlement with the populated
+     * legacy SKU.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.Sku legacy_sku = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -963,7 +923,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The customer to transfer has an entitlement with the populated legacy SKU.
+     * Optional. The customer to transfer has an entitlement with the populated
+     * legacy SKU.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.Sku legacy_sku = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -974,16 +935,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         legacySku_ = value;
-        onChanged();
       } else {
         legacySkuBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The customer to transfer has an entitlement with the populated legacy SKU.
+     * Optional. The customer to transfer has an entitlement with the populated
+     * legacy SKU.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.Sku legacy_sku = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -992,68 +954,72 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.Sku.Builder builderForValue) {
       if (legacySkuBuilder_ == null) {
         legacySku_ = builderForValue.build();
-        onChanged();
       } else {
         legacySkuBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The customer to transfer has an entitlement with the populated legacy SKU.
+     * Optional. The customer to transfer has an entitlement with the populated
+     * legacy SKU.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.Sku legacy_sku = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder mergeLegacySku(com.google.cloud.channel.v1.Sku value) {
       if (legacySkuBuilder_ == null) {
-        if (legacySku_ != null) {
-          legacySku_ =
-            com.google.cloud.channel.v1.Sku.newBuilder(legacySku_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          legacySku_ != null &&
+          legacySku_ != com.google.cloud.channel.v1.Sku.getDefaultInstance()) {
+          getLegacySkuBuilder().mergeFrom(value);
         } else {
           legacySku_ = value;
         }
-        onChanged();
       } else {
         legacySkuBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The customer to transfer has an entitlement with the populated legacy SKU.
+     * Optional. The customer to transfer has an entitlement with the populated
+     * legacy SKU.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.Sku legacy_sku = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearLegacySku() {
-      if (legacySkuBuilder_ == null) {
-        legacySku_ = null;
-        onChanged();
-      } else {
-        legacySku_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      legacySku_ = null;
+      if (legacySkuBuilder_ != null) {
+        legacySkuBuilder_.dispose();
         legacySkuBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The customer to transfer has an entitlement with the populated legacy SKU.
+     * Optional. The customer to transfer has an entitlement with the populated
+     * legacy SKU.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.Sku legacy_sku = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.channel.v1.Sku.Builder getLegacySkuBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getLegacySkuFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Optional. The customer to transfer has an entitlement with the populated legacy SKU.
+     * Optional. The customer to transfer has an entitlement with the populated
+     * legacy SKU.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.Sku legacy_sku = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1068,7 +1034,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The customer to transfer has an entitlement with the populated legacy SKU.
+     * Optional. The customer to transfer has an entitlement with the populated
+     * legacy SKU.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.Sku legacy_sku = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1119,7 +1086,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TransferableSku(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

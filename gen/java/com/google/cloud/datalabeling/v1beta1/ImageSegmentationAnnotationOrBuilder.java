@@ -54,7 +54,6 @@ public interface ImageSegmentationAnnotationOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.datalabeling.v1beta1.AnnotationSpec&gt; annotation_colors = 1;</code>
    */
-
   /* nullable */
 com.google.cloud.datalabeling.v1beta1.AnnotationSpec getAnnotationColorsOrDefault(
       java.lang.String key,
@@ -69,7 +68,6 @@ com.google.cloud.datalabeling.v1beta1.AnnotationSpec defaultValue);
    *
    * <code>map&lt;string, .google.cloud.datalabeling.v1beta1.AnnotationSpec&gt; annotation_colors = 1;</code>
    */
-
   com.google.cloud.datalabeling.v1beta1.AnnotationSpec getAnnotationColorsOrThrow(
       java.lang.String key);
 

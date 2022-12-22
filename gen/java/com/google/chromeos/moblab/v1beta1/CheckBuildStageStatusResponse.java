@@ -34,76 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CheckBuildStageStatusResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            isBuildStaged_ = input.readBool();
-            break;
-          }
-          case 18: {
-            com.google.chromeos.moblab.v1beta1.BuildArtifact.Builder subBuilder = null;
-            if (stagedBuildArtifact_ != null) {
-              subBuilder = stagedBuildArtifact_.toBuilder();
-            }
-            stagedBuildArtifact_ = input.readMessage(com.google.chromeos.moblab.v1beta1.BuildArtifact.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(stagedBuildArtifact_);
-              stagedBuildArtifact_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.chromeos.moblab.v1beta1.BuildArtifact.Builder subBuilder = null;
-            if (sourceBuildArtifact_ != null) {
-              subBuilder = sourceBuildArtifact_.toBuilder();
-            }
-            sourceBuildArtifact_ = input.readMessage(com.google.chromeos.moblab.v1beta1.BuildArtifact.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sourceBuildArtifact_);
-              sourceBuildArtifact_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.chromeos.moblab.v1beta1.BuildServiceProto.internal_static_google_chromeos_moblab_v1beta1_CheckBuildStageStatusResponse_descriptor;
@@ -118,7 +48,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IS_BUILD_STAGED_FIELD_NUMBER = 1;
-  private boolean isBuildStaged_;
+  private boolean isBuildStaged_ = false;
   /**
    * <pre>
    * The status to represent if the build is staged or not.
@@ -167,7 +97,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.chromeos.moblab.v1beta1.BuildArtifactOrBuilder getStagedBuildArtifactOrBuilder() {
-    return getStagedBuildArtifact();
+    return stagedBuildArtifact_ == null ? com.google.chromeos.moblab.v1beta1.BuildArtifact.getDefaultInstance() : stagedBuildArtifact_;
   }
 
   public static final int SOURCE_BUILD_ARTIFACT_FIELD_NUMBER = 3;
@@ -205,7 +135,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.chromeos.moblab.v1beta1.BuildArtifactOrBuilder getSourceBuildArtifactOrBuilder() {
-    return getSourceBuildArtifact();
+    return sourceBuildArtifact_ == null ? com.google.chromeos.moblab.v1beta1.BuildArtifact.getDefaultInstance() : sourceBuildArtifact_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -231,7 +161,7 @@ private static final long serialVersionUID = 0L;
     if (sourceBuildArtifact_ != null) {
       output.writeMessage(3, getSourceBuildArtifact());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -252,7 +182,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getSourceBuildArtifact());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -279,7 +209,7 @@ private static final long serialVersionUID = 0L;
       if (!getSourceBuildArtifact()
           .equals(other.getSourceBuildArtifact())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -301,7 +231,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SOURCE_BUILD_ARTIFACT_FIELD_NUMBER;
       hash = (53 * hash) + getSourceBuildArtifact().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -422,34 +352,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.chromeos.moblab.v1beta1.CheckBuildStageStatusResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       isBuildStaged_ = false;
-
-      if (stagedBuildArtifactBuilder_ == null) {
-        stagedBuildArtifact_ = null;
-      } else {
-        stagedBuildArtifact_ = null;
+      stagedBuildArtifact_ = null;
+      if (stagedBuildArtifactBuilder_ != null) {
+        stagedBuildArtifactBuilder_.dispose();
         stagedBuildArtifactBuilder_ = null;
       }
-      if (sourceBuildArtifactBuilder_ == null) {
-        sourceBuildArtifact_ = null;
-      } else {
-        sourceBuildArtifact_ = null;
+      sourceBuildArtifact_ = null;
+      if (sourceBuildArtifactBuilder_ != null) {
+        sourceBuildArtifactBuilder_.dispose();
         sourceBuildArtifactBuilder_ = null;
       }
       return this;
@@ -478,19 +401,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.chromeos.moblab.v1beta1.CheckBuildStageStatusResponse buildPartial() {
       com.google.chromeos.moblab.v1beta1.CheckBuildStageStatusResponse result = new com.google.chromeos.moblab.v1beta1.CheckBuildStageStatusResponse(this);
-      result.isBuildStaged_ = isBuildStaged_;
-      if (stagedBuildArtifactBuilder_ == null) {
-        result.stagedBuildArtifact_ = stagedBuildArtifact_;
-      } else {
-        result.stagedBuildArtifact_ = stagedBuildArtifactBuilder_.build();
-      }
-      if (sourceBuildArtifactBuilder_ == null) {
-        result.sourceBuildArtifact_ = sourceBuildArtifact_;
-      } else {
-        result.sourceBuildArtifact_ = sourceBuildArtifactBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.chromeos.moblab.v1beta1.CheckBuildStageStatusResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.isBuildStaged_ = isBuildStaged_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.stagedBuildArtifact_ = stagedBuildArtifactBuilder_ == null
+            ? stagedBuildArtifact_
+            : stagedBuildArtifactBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.sourceBuildArtifact_ = sourceBuildArtifactBuilder_ == null
+            ? sourceBuildArtifact_
+            : sourceBuildArtifactBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -546,7 +476,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSourceBuildArtifact()) {
         mergeSourceBuildArtifact(other.getSourceBuildArtifact());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -561,19 +491,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.chromeos.moblab.v1beta1.CheckBuildStageStatusResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              isBuildStaged_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getStagedBuildArtifactFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getSourceBuildArtifactFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.chromeos.moblab.v1beta1.CheckBuildStageStatusResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean isBuildStaged_ ;
     /**
@@ -600,6 +563,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIsBuildStaged(boolean value) {
       
       isBuildStaged_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -612,7 +576,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIsBuildStaged() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       isBuildStaged_ = false;
       onChanged();
       return this;
@@ -630,7 +594,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the stagedBuildArtifact field is set.
      */
     public boolean hasStagedBuildArtifact() {
-      return stagedBuildArtifactBuilder_ != null || stagedBuildArtifact_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -660,11 +624,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         stagedBuildArtifact_ = value;
-        onChanged();
       } else {
         stagedBuildArtifactBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -678,11 +642,11 @@ private static final long serialVersionUID = 0L;
         com.google.chromeos.moblab.v1beta1.BuildArtifact.Builder builderForValue) {
       if (stagedBuildArtifactBuilder_ == null) {
         stagedBuildArtifact_ = builderForValue.build();
-        onChanged();
       } else {
         stagedBuildArtifactBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -694,17 +658,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStagedBuildArtifact(com.google.chromeos.moblab.v1beta1.BuildArtifact value) {
       if (stagedBuildArtifactBuilder_ == null) {
-        if (stagedBuildArtifact_ != null) {
-          stagedBuildArtifact_ =
-            com.google.chromeos.moblab.v1beta1.BuildArtifact.newBuilder(stagedBuildArtifact_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          stagedBuildArtifact_ != null &&
+          stagedBuildArtifact_ != com.google.chromeos.moblab.v1beta1.BuildArtifact.getDefaultInstance()) {
+          getStagedBuildArtifactBuilder().mergeFrom(value);
         } else {
           stagedBuildArtifact_ = value;
         }
-        onChanged();
       } else {
         stagedBuildArtifactBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -715,14 +680,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.chromeos.moblab.v1beta1.BuildArtifact staged_build_artifact = 2;</code>
      */
     public Builder clearStagedBuildArtifact() {
-      if (stagedBuildArtifactBuilder_ == null) {
-        stagedBuildArtifact_ = null;
-        onChanged();
-      } else {
-        stagedBuildArtifact_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      stagedBuildArtifact_ = null;
+      if (stagedBuildArtifactBuilder_ != null) {
+        stagedBuildArtifactBuilder_.dispose();
         stagedBuildArtifactBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -733,7 +697,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.chromeos.moblab.v1beta1.BuildArtifact staged_build_artifact = 2;</code>
      */
     public com.google.chromeos.moblab.v1beta1.BuildArtifact.Builder getStagedBuildArtifactBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getStagedBuildArtifactFieldBuilder().getBuilder();
     }
@@ -785,7 +749,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sourceBuildArtifact field is set.
      */
     public boolean hasSourceBuildArtifact() {
-      return sourceBuildArtifactBuilder_ != null || sourceBuildArtifact_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -815,11 +779,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sourceBuildArtifact_ = value;
-        onChanged();
       } else {
         sourceBuildArtifactBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -833,11 +797,11 @@ private static final long serialVersionUID = 0L;
         com.google.chromeos.moblab.v1beta1.BuildArtifact.Builder builderForValue) {
       if (sourceBuildArtifactBuilder_ == null) {
         sourceBuildArtifact_ = builderForValue.build();
-        onChanged();
       } else {
         sourceBuildArtifactBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -849,17 +813,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSourceBuildArtifact(com.google.chromeos.moblab.v1beta1.BuildArtifact value) {
       if (sourceBuildArtifactBuilder_ == null) {
-        if (sourceBuildArtifact_ != null) {
-          sourceBuildArtifact_ =
-            com.google.chromeos.moblab.v1beta1.BuildArtifact.newBuilder(sourceBuildArtifact_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          sourceBuildArtifact_ != null &&
+          sourceBuildArtifact_ != com.google.chromeos.moblab.v1beta1.BuildArtifact.getDefaultInstance()) {
+          getSourceBuildArtifactBuilder().mergeFrom(value);
         } else {
           sourceBuildArtifact_ = value;
         }
-        onChanged();
       } else {
         sourceBuildArtifactBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -870,14 +835,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.chromeos.moblab.v1beta1.BuildArtifact source_build_artifact = 3;</code>
      */
     public Builder clearSourceBuildArtifact() {
-      if (sourceBuildArtifactBuilder_ == null) {
-        sourceBuildArtifact_ = null;
-        onChanged();
-      } else {
-        sourceBuildArtifact_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      sourceBuildArtifact_ = null;
+      if (sourceBuildArtifactBuilder_ != null) {
+        sourceBuildArtifactBuilder_.dispose();
         sourceBuildArtifactBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -888,7 +852,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.chromeos.moblab.v1beta1.BuildArtifact source_build_artifact = 3;</code>
      */
     public com.google.chromeos.moblab.v1beta1.BuildArtifact.Builder getSourceBuildArtifactBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getSourceBuildArtifactFieldBuilder().getBuilder();
     }
@@ -960,7 +924,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CheckBuildStageStatusResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

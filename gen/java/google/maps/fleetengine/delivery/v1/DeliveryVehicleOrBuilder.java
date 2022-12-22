@@ -310,8 +310,8 @@ public interface DeliveryVehicleOrBuilder extends
 
   /**
    * <pre>
-   * A list of custom Delivery Vehicle attributes. Each attribute must have a
-   * unique key.
+   * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+   * at most 50 attributes, and each attribute must have a unique key.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -320,8 +320,8 @@ public interface DeliveryVehicleOrBuilder extends
       getAttributesList();
   /**
    * <pre>
-   * A list of custom Delivery Vehicle attributes. Each attribute must have a
-   * unique key.
+   * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+   * at most 50 attributes, and each attribute must have a unique key.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -329,8 +329,8 @@ public interface DeliveryVehicleOrBuilder extends
   google.maps.fleetengine.delivery.v1.DeliveryVehicleAttribute getAttributes(int index);
   /**
    * <pre>
-   * A list of custom Delivery Vehicle attributes. Each attribute must have a
-   * unique key.
+   * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+   * at most 50 attributes, and each attribute must have a unique key.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -338,8 +338,8 @@ public interface DeliveryVehicleOrBuilder extends
   int getAttributesCount();
   /**
    * <pre>
-   * A list of custom Delivery Vehicle attributes. Each attribute must have a
-   * unique key.
+   * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+   * at most 50 attributes, and each attribute must have a unique key.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -348,8 +348,8 @@ public interface DeliveryVehicleOrBuilder extends
       getAttributesOrBuilderList();
   /**
    * <pre>
-   * A list of custom Delivery Vehicle attributes. Each attribute must have a
-   * unique key.
+   * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+   * at most 50 attributes, and each attribute must have a unique key.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>

@@ -93,7 +93,6 @@ public interface GqlQueryOrBuilder extends
    *
    * <code>map&lt;string, .google.datastore.v1beta3.GqlQueryParameter&gt; named_bindings = 5;</code>
    */
-
   /* nullable */
 com.google.datastore.v1beta3.GqlQueryParameter getNamedBindingsOrDefault(
       java.lang.String key,
@@ -109,7 +108,6 @@ com.google.datastore.v1beta3.GqlQueryParameter defaultValue);
    *
    * <code>map&lt;string, .google.datastore.v1beta3.GqlQueryParameter&gt; named_bindings = 5;</code>
    */
-
   com.google.datastore.v1beta3.GqlQueryParameter getNamedBindingsOrThrow(
       java.lang.String key);
 

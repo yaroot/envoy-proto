@@ -16,7 +16,7 @@ public interface SetNodePoolAutoscalingRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.SetNodePoolAutoscalingRequest.project_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2502
+   *     See google/container/v1beta1/cluster_service.proto;l=2573
    * @return The projectId.
    */
   @java.lang.Deprecated java.lang.String getProjectId();
@@ -29,7 +29,7 @@ public interface SetNodePoolAutoscalingRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.SetNodePoolAutoscalingRequest.project_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2502
+   *     See google/container/v1beta1/cluster_service.proto;l=2573
    * @return The bytes for projectId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -45,7 +45,7 @@ public interface SetNodePoolAutoscalingRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.SetNodePoolAutoscalingRequest.zone is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2511
+   *     See google/container/v1beta1/cluster_service.proto;l=2582
    * @return The zone.
    */
   @java.lang.Deprecated java.lang.String getZone();
@@ -59,7 +59,7 @@ public interface SetNodePoolAutoscalingRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.SetNodePoolAutoscalingRequest.zone is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2511
+   *     See google/container/v1beta1/cluster_service.proto;l=2582
    * @return The bytes for zone.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -73,7 +73,7 @@ public interface SetNodePoolAutoscalingRequestOrBuilder extends
    *
    * <code>string cluster_id = 3 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.SetNodePoolAutoscalingRequest.cluster_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2518
+   *     See google/container/v1beta1/cluster_service.proto;l=2589
    * @return The clusterId.
    */
   @java.lang.Deprecated java.lang.String getClusterId();
@@ -85,7 +85,7 @@ public interface SetNodePoolAutoscalingRequestOrBuilder extends
    *
    * <code>string cluster_id = 3 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.SetNodePoolAutoscalingRequest.cluster_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2518
+   *     See google/container/v1beta1/cluster_service.proto;l=2589
    * @return The bytes for clusterId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -99,7 +99,7 @@ public interface SetNodePoolAutoscalingRequestOrBuilder extends
    *
    * <code>string node_pool_id = 4 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.SetNodePoolAutoscalingRequest.node_pool_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2525
+   *     See google/container/v1beta1/cluster_service.proto;l=2596
    * @return The nodePoolId.
    */
   @java.lang.Deprecated java.lang.String getNodePoolId();
@@ -111,7 +111,7 @@ public interface SetNodePoolAutoscalingRequestOrBuilder extends
    *
    * <code>string node_pool_id = 4 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.SetNodePoolAutoscalingRequest.node_pool_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2525
+   *     See google/container/v1beta1/cluster_service.proto;l=2596
    * @return The bytes for nodePoolId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

@@ -5,7 +5,8 @@ package com.google.cloud.assuredworkloads.v1beta1;
 
 /**
  * <pre>
- * Request to check if source workload can be moved to target workload.
+ * A request to analyze a hypothetical move of a source project or project-based
+ * workload to a target (destination) folder-based workload.
  * </pre>
  *
  * Protobuf type {@code google.cloud.assuredworkloads.v1beta1.AnalyzeWorkloadMoveRequest}
@@ -34,63 +35,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private AnalyzeWorkloadMoveRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            projectOrWorkloadResourceCase_ = 1;
-            projectOrWorkloadResource_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            target_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            projectOrWorkloadResourceCase_ = 3;
-            projectOrWorkloadResource_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -149,11 +93,11 @@ private static final long serialVersionUID = 0L;
   public static final int SOURCE_FIELD_NUMBER = 1;
   /**
    * <pre>
-   * The Source is project based Workload to be moved. This is the workloads's
-   * relative path in the API, formatted as
-   * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
-   * For example,
-   * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+   * The source type is a project-based workload. Specify the workloads's
+   * relative resource name, formatted as:
+   * "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+   * For example:
+   * "organizations/123/locations/us-east1/workloads/assured-workload-1"
    * </pre>
    *
    * <code>string source = 1;</code>
@@ -164,11 +108,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The Source is project based Workload to be moved. This is the workloads's
-   * relative path in the API, formatted as
-   * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
-   * For example,
-   * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+   * The source type is a project-based workload. Specify the workloads's
+   * relative resource name, formatted as:
+   * "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+   * For example:
+   * "organizations/123/locations/us-east1/workloads/assured-workload-1"
    * </pre>
    *
    * <code>string source = 1;</code>
@@ -193,11 +137,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The Source is project based Workload to be moved. This is the workloads's
-   * relative path in the API, formatted as
-   * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
-   * For example,
-   * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+   * The source type is a project-based workload. Specify the workloads's
+   * relative resource name, formatted as:
+   * "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+   * For example:
+   * "organizations/123/locations/us-east1/workloads/assured-workload-1"
    * </pre>
    *
    * <code>string source = 1;</code>
@@ -225,14 +169,12 @@ private static final long serialVersionUID = 0L;
   public static final int PROJECT_FIELD_NUMBER = 3;
   /**
    * <pre>
-   * The Source is a project based to be moved.
-   * This is the project's relative path in the API, formatted as
-   * "cloudresourcemanager.googleapis.com/projects/{project_number}"
-   * "projects/{project_number}"
-   * "cloudresourcemanager.googleapis.com/projects/{project_id}"
-   * "projects/{project_id}"
-   * For example,
-   * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+   * The source type is a project. Specify the project's relative resource
+   * name, formatted as either a project number or a project ID:
+   * "projects/{PROJECT_NUMBER}" or "projects/{PROJECT_ID}"
+   * For example:
+   * "projects/951040570662" when specifying a project number, or
+   * "projects/my-project-123" when specifying a project ID.
    * </pre>
    *
    * <code>string project = 3;</code>
@@ -243,14 +185,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The Source is a project based to be moved.
-   * This is the project's relative path in the API, formatted as
-   * "cloudresourcemanager.googleapis.com/projects/{project_number}"
-   * "projects/{project_number}"
-   * "cloudresourcemanager.googleapis.com/projects/{project_id}"
-   * "projects/{project_id}"
-   * For example,
-   * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+   * The source type is a project. Specify the project's relative resource
+   * name, formatted as either a project number or a project ID:
+   * "projects/{PROJECT_NUMBER}" or "projects/{PROJECT_ID}"
+   * For example:
+   * "projects/951040570662" when specifying a project number, or
+   * "projects/my-project-123" when specifying a project ID.
    * </pre>
    *
    * <code>string project = 3;</code>
@@ -275,14 +215,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The Source is a project based to be moved.
-   * This is the project's relative path in the API, formatted as
-   * "cloudresourcemanager.googleapis.com/projects/{project_number}"
-   * "projects/{project_number}"
-   * "cloudresourcemanager.googleapis.com/projects/{project_id}"
-   * "projects/{project_id}"
-   * For example,
-   * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+   * The source type is a project. Specify the project's relative resource
+   * name, formatted as either a project number or a project ID:
+   * "projects/{PROJECT_NUMBER}" or "projects/{PROJECT_ID}"
+   * For example:
+   * "projects/951040570662" when specifying a project number, or
+   * "projects/my-project-123" when specifying a project ID.
    * </pre>
    *
    * <code>string project = 3;</code>
@@ -308,14 +246,16 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGET_FIELD_NUMBER = 2;
-  private volatile java.lang.Object target_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object target_ = "";
   /**
    * <pre>
-   * Required. The resource name of the Workload to fetch. This is the workloads's
-   * relative path in the API, formatted as
-   * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
-   * For example,
-   * "organizations/123/locations/us-east1/workloads/assured-workload-2".
+   * Required. The resource ID of the folder-based destination workload. This workload is
+   * where the source project will hypothetically be moved to. Specify the
+   * workload's relative resource name, formatted as:
+   * "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+   * For example:
+   * "organizations/123/locations/us-east1/workloads/assured-workload-2"
    * </pre>
    *
    * <code>string target = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -336,11 +276,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The resource name of the Workload to fetch. This is the workloads's
-   * relative path in the API, formatted as
-   * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
-   * For example,
-   * "organizations/123/locations/us-east1/workloads/assured-workload-2".
+   * Required. The resource ID of the folder-based destination workload. This workload is
+   * where the source project will hypothetically be moved to. Specify the
+   * workload's relative resource name, formatted as:
+   * "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+   * For example:
+   * "organizations/123/locations/us-east1/workloads/assured-workload-2"
    * </pre>
    *
    * <code>string target = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -384,7 +325,7 @@ private static final long serialVersionUID = 0L;
     if (projectOrWorkloadResourceCase_ == 3) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, projectOrWorkloadResource_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -402,7 +343,7 @@ private static final long serialVersionUID = 0L;
     if (projectOrWorkloadResourceCase_ == 3) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, projectOrWorkloadResource_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -432,7 +373,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -457,7 +398,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -554,7 +495,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Request to check if source workload can be moved to target workload.
+   * A request to analyze a hypothetical move of a source project or project-based
+   * workload to a target (destination) folder-based workload.
    * </pre>
    *
    * Protobuf type {@code google.cloud.assuredworkloads.v1beta1.AnalyzeWorkloadMoveRequest}
@@ -578,24 +520,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.assuredworkloads.v1beta1.AnalyzeWorkloadMoveRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       target_ = "";
-
       projectOrWorkloadResourceCase_ = 0;
       projectOrWorkloadResource_ = null;
       return this;
@@ -624,16 +561,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.assuredworkloads.v1beta1.AnalyzeWorkloadMoveRequest buildPartial() {
       com.google.cloud.assuredworkloads.v1beta1.AnalyzeWorkloadMoveRequest result = new com.google.cloud.assuredworkloads.v1beta1.AnalyzeWorkloadMoveRequest(this);
-      if (projectOrWorkloadResourceCase_ == 1) {
-        result.projectOrWorkloadResource_ = projectOrWorkloadResource_;
-      }
-      if (projectOrWorkloadResourceCase_ == 3) {
-        result.projectOrWorkloadResource_ = projectOrWorkloadResource_;
-      }
-      result.target_ = target_;
-      result.projectOrWorkloadResourceCase_ = projectOrWorkloadResourceCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.assuredworkloads.v1beta1.AnalyzeWorkloadMoveRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.target_ = target_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.assuredworkloads.v1beta1.AnalyzeWorkloadMoveRequest result) {
+      result.projectOrWorkloadResourceCase_ = projectOrWorkloadResourceCase_;
+      result.projectOrWorkloadResource_ = this.projectOrWorkloadResource_;
     }
 
     @java.lang.Override
@@ -682,6 +625,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.assuredworkloads.v1beta1.AnalyzeWorkloadMoveRequest.getDefaultInstance()) return this;
       if (!other.getTarget().isEmpty()) {
         target_ = other.target_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       switch (other.getProjectOrWorkloadResourceCase()) {
@@ -701,7 +645,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -716,17 +660,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.assuredworkloads.v1beta1.AnalyzeWorkloadMoveRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              projectOrWorkloadResourceCase_ = 1;
+              projectOrWorkloadResource_ = s;
+              break;
+            } // case 10
+            case 18: {
+              target_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              projectOrWorkloadResourceCase_ = 3;
+              projectOrWorkloadResource_ = s;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.assuredworkloads.v1beta1.AnalyzeWorkloadMoveRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int projectOrWorkloadResourceCase_ = 0;
@@ -744,14 +718,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
-     * The Source is project based Workload to be moved. This is the workloads's
-     * relative path in the API, formatted as
-     * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
-     * For example,
-     * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+     * The source type is a project-based workload. Specify the workloads's
+     * relative resource name, formatted as:
+     * "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+     * For example:
+     * "organizations/123/locations/us-east1/workloads/assured-workload-1"
      * </pre>
      *
      * <code>string source = 1;</code>
@@ -763,11 +738,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Source is project based Workload to be moved. This is the workloads's
-     * relative path in the API, formatted as
-     * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
-     * For example,
-     * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+     * The source type is a project-based workload. Specify the workloads's
+     * relative resource name, formatted as:
+     * "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+     * For example:
+     * "organizations/123/locations/us-east1/workloads/assured-workload-1"
      * </pre>
      *
      * <code>string source = 1;</code>
@@ -793,11 +768,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Source is project based Workload to be moved. This is the workloads's
-     * relative path in the API, formatted as
-     * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
-     * For example,
-     * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+     * The source type is a project-based workload. Specify the workloads's
+     * relative resource name, formatted as:
+     * "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+     * For example:
+     * "organizations/123/locations/us-east1/workloads/assured-workload-1"
      * </pre>
      *
      * <code>string source = 1;</code>
@@ -824,11 +799,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Source is project based Workload to be moved. This is the workloads's
-     * relative path in the API, formatted as
-     * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
-     * For example,
-     * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+     * The source type is a project-based workload. Specify the workloads's
+     * relative resource name, formatted as:
+     * "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+     * For example:
+     * "organizations/123/locations/us-east1/workloads/assured-workload-1"
      * </pre>
      *
      * <code>string source = 1;</code>
@@ -837,21 +812,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSource(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  projectOrWorkloadResourceCase_ = 1;
+      if (value == null) { throw new NullPointerException(); }
+      projectOrWorkloadResourceCase_ = 1;
       projectOrWorkloadResource_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The Source is project based Workload to be moved. This is the workloads's
-     * relative path in the API, formatted as
-     * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
-     * For example,
-     * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+     * The source type is a project-based workload. Specify the workloads's
+     * relative resource name, formatted as:
+     * "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+     * For example:
+     * "organizations/123/locations/us-east1/workloads/assured-workload-1"
      * </pre>
      *
      * <code>string source = 1;</code>
@@ -867,11 +840,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Source is project based Workload to be moved. This is the workloads's
-     * relative path in the API, formatted as
-     * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
-     * For example,
-     * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+     * The source type is a project-based workload. Specify the workloads's
+     * relative resource name, formatted as:
+     * "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+     * For example:
+     * "organizations/123/locations/us-east1/workloads/assured-workload-1"
      * </pre>
      *
      * <code>string source = 1;</code>
@@ -880,10 +853,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectOrWorkloadResourceCase_ = 1;
       projectOrWorkloadResource_ = value;
       onChanged();
@@ -892,14 +863,12 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * The Source is a project based to be moved.
-     * This is the project's relative path in the API, formatted as
-     * "cloudresourcemanager.googleapis.com/projects/{project_number}"
-     * "projects/{project_number}"
-     * "cloudresourcemanager.googleapis.com/projects/{project_id}"
-     * "projects/{project_id}"
-     * For example,
-     * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+     * The source type is a project. Specify the project's relative resource
+     * name, formatted as either a project number or a project ID:
+     * "projects/{PROJECT_NUMBER}" or "projects/{PROJECT_ID}"
+     * For example:
+     * "projects/951040570662" when specifying a project number, or
+     * "projects/my-project-123" when specifying a project ID.
      * </pre>
      *
      * <code>string project = 3;</code>
@@ -911,14 +880,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Source is a project based to be moved.
-     * This is the project's relative path in the API, formatted as
-     * "cloudresourcemanager.googleapis.com/projects/{project_number}"
-     * "projects/{project_number}"
-     * "cloudresourcemanager.googleapis.com/projects/{project_id}"
-     * "projects/{project_id}"
-     * For example,
-     * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+     * The source type is a project. Specify the project's relative resource
+     * name, formatted as either a project number or a project ID:
+     * "projects/{PROJECT_NUMBER}" or "projects/{PROJECT_ID}"
+     * For example:
+     * "projects/951040570662" when specifying a project number, or
+     * "projects/my-project-123" when specifying a project ID.
      * </pre>
      *
      * <code>string project = 3;</code>
@@ -944,14 +911,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Source is a project based to be moved.
-     * This is the project's relative path in the API, formatted as
-     * "cloudresourcemanager.googleapis.com/projects/{project_number}"
-     * "projects/{project_number}"
-     * "cloudresourcemanager.googleapis.com/projects/{project_id}"
-     * "projects/{project_id}"
-     * For example,
-     * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+     * The source type is a project. Specify the project's relative resource
+     * name, formatted as either a project number or a project ID:
+     * "projects/{PROJECT_NUMBER}" or "projects/{PROJECT_ID}"
+     * For example:
+     * "projects/951040570662" when specifying a project number, or
+     * "projects/my-project-123" when specifying a project ID.
      * </pre>
      *
      * <code>string project = 3;</code>
@@ -978,14 +943,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Source is a project based to be moved.
-     * This is the project's relative path in the API, formatted as
-     * "cloudresourcemanager.googleapis.com/projects/{project_number}"
-     * "projects/{project_number}"
-     * "cloudresourcemanager.googleapis.com/projects/{project_id}"
-     * "projects/{project_id}"
-     * For example,
-     * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+     * The source type is a project. Specify the project's relative resource
+     * name, formatted as either a project number or a project ID:
+     * "projects/{PROJECT_NUMBER}" or "projects/{PROJECT_ID}"
+     * For example:
+     * "projects/951040570662" when specifying a project number, or
+     * "projects/my-project-123" when specifying a project ID.
      * </pre>
      *
      * <code>string project = 3;</code>
@@ -994,24 +957,20 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProject(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  projectOrWorkloadResourceCase_ = 3;
+      if (value == null) { throw new NullPointerException(); }
+      projectOrWorkloadResourceCase_ = 3;
       projectOrWorkloadResource_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The Source is a project based to be moved.
-     * This is the project's relative path in the API, formatted as
-     * "cloudresourcemanager.googleapis.com/projects/{project_number}"
-     * "projects/{project_number}"
-     * "cloudresourcemanager.googleapis.com/projects/{project_id}"
-     * "projects/{project_id}"
-     * For example,
-     * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+     * The source type is a project. Specify the project's relative resource
+     * name, formatted as either a project number or a project ID:
+     * "projects/{PROJECT_NUMBER}" or "projects/{PROJECT_ID}"
+     * For example:
+     * "projects/951040570662" when specifying a project number, or
+     * "projects/my-project-123" when specifying a project ID.
      * </pre>
      *
      * <code>string project = 3;</code>
@@ -1027,14 +986,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Source is a project based to be moved.
-     * This is the project's relative path in the API, formatted as
-     * "cloudresourcemanager.googleapis.com/projects/{project_number}"
-     * "projects/{project_number}"
-     * "cloudresourcemanager.googleapis.com/projects/{project_id}"
-     * "projects/{project_id}"
-     * For example,
-     * "organizations/123/locations/us-east1/workloads/assured-workload-1".
+     * The source type is a project. Specify the project's relative resource
+     * name, formatted as either a project number or a project ID:
+     * "projects/{PROJECT_NUMBER}" or "projects/{PROJECT_ID}"
+     * For example:
+     * "projects/951040570662" when specifying a project number, or
+     * "projects/my-project-123" when specifying a project ID.
      * </pre>
      *
      * <code>string project = 3;</code>
@@ -1043,10 +1000,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectOrWorkloadResourceCase_ = 3;
       projectOrWorkloadResource_ = value;
       onChanged();
@@ -1056,11 +1011,12 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object target_ = "";
     /**
      * <pre>
-     * Required. The resource name of the Workload to fetch. This is the workloads's
-     * relative path in the API, formatted as
-     * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
-     * For example,
-     * "organizations/123/locations/us-east1/workloads/assured-workload-2".
+     * Required. The resource ID of the folder-based destination workload. This workload is
+     * where the source project will hypothetically be moved to. Specify the
+     * workload's relative resource name, formatted as:
+     * "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+     * For example:
+     * "organizations/123/locations/us-east1/workloads/assured-workload-2"
      * </pre>
      *
      * <code>string target = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1080,11 +1036,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The resource name of the Workload to fetch. This is the workloads's
-     * relative path in the API, formatted as
-     * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
-     * For example,
-     * "organizations/123/locations/us-east1/workloads/assured-workload-2".
+     * Required. The resource ID of the folder-based destination workload. This workload is
+     * where the source project will hypothetically be moved to. Specify the
+     * workload's relative resource name, formatted as:
+     * "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+     * For example:
+     * "organizations/123/locations/us-east1/workloads/assured-workload-2"
      * </pre>
      *
      * <code>string target = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1105,11 +1062,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The resource name of the Workload to fetch. This is the workloads's
-     * relative path in the API, formatted as
-     * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
-     * For example,
-     * "organizations/123/locations/us-east1/workloads/assured-workload-2".
+     * Required. The resource ID of the folder-based destination workload. This workload is
+     * where the source project will hypothetically be moved to. Specify the
+     * workload's relative resource name, formatted as:
+     * "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+     * For example:
+     * "organizations/123/locations/us-east1/workloads/assured-workload-2"
      * </pre>
      *
      * <code>string target = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1118,39 +1076,39 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTarget(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       target_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The resource name of the Workload to fetch. This is the workloads's
-     * relative path in the API, formatted as
-     * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
-     * For example,
-     * "organizations/123/locations/us-east1/workloads/assured-workload-2".
+     * Required. The resource ID of the folder-based destination workload. This workload is
+     * where the source project will hypothetically be moved to. Specify the
+     * workload's relative resource name, formatted as:
+     * "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+     * For example:
+     * "organizations/123/locations/us-east1/workloads/assured-workload-2"
      * </pre>
      *
      * <code>string target = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearTarget() {
-      
       target_ = getDefaultInstance().getTarget();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The resource name of the Workload to fetch. This is the workloads's
-     * relative path in the API, formatted as
-     * "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
-     * For example,
-     * "organizations/123/locations/us-east1/workloads/assured-workload-2".
+     * Required. The resource ID of the folder-based destination workload. This workload is
+     * where the source project will hypothetically be moved to. Specify the
+     * workload's relative resource name, formatted as:
+     * "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
+     * For example:
+     * "organizations/123/locations/us-east1/workloads/assured-workload-2"
      * </pre>
      *
      * <code>string target = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1159,12 +1117,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTargetBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       target_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1201,7 +1157,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AnalyzeWorkloadMoveRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ImportSshPublicKeyResponse() {
+    details_ = "";
   }
 
   @java.lang.Override
@@ -33,58 +34,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ImportSshPublicKeyResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.oslogin.v1beta.LoginProfile.Builder subBuilder = null;
-            if (loginProfile_ != null) {
-              subBuilder = loginProfile_.toBuilder();
-            }
-            loginProfile_ = input.readMessage(com.google.cloud.oslogin.v1beta.LoginProfile.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(loginProfile_);
-              loginProfile_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -134,7 +83,54 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.oslogin.v1beta.LoginProfileOrBuilder getLoginProfileOrBuilder() {
-    return getLoginProfile();
+    return loginProfile_ == null ? com.google.cloud.oslogin.v1beta.LoginProfile.getDefaultInstance() : loginProfile_;
+  }
+
+  public static final int DETAILS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object details_ = "";
+  /**
+   * <pre>
+   * Detailed information about import results.
+   * </pre>
+   *
+   * <code>string details = 2;</code>
+   * @return The details.
+   */
+  @java.lang.Override
+  public java.lang.String getDetails() {
+    java.lang.Object ref = details_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      details_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Detailed information about import results.
+   * </pre>
+   *
+   * <code>string details = 2;</code>
+   * @return The bytes for details.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDetailsBytes() {
+    java.lang.Object ref = details_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      details_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -154,7 +150,10 @@ private static final long serialVersionUID = 0L;
     if (loginProfile_ != null) {
       output.writeMessage(1, getLoginProfile());
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(details_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, details_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -167,7 +166,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getLoginProfile());
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(details_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, details_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -187,7 +189,9 @@ private static final long serialVersionUID = 0L;
       if (!getLoginProfile()
           .equals(other.getLoginProfile())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getDetails()
+        .equals(other.getDetails())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -202,7 +206,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LOGIN_PROFILE_FIELD_NUMBER;
       hash = (53 * hash) + getLoginProfile().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + DETAILS_FIELD_NUMBER;
+    hash = (53 * hash) + getDetails().hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -323,28 +329,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.oslogin.v1beta.ImportSshPublicKeyResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (loginProfileBuilder_ == null) {
-        loginProfile_ = null;
-      } else {
-        loginProfile_ = null;
+      bitField0_ = 0;
+      loginProfile_ = null;
+      if (loginProfileBuilder_ != null) {
+        loginProfileBuilder_.dispose();
         loginProfileBuilder_ = null;
       }
+      details_ = "";
       return this;
     }
 
@@ -371,13 +373,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.oslogin.v1beta.ImportSshPublicKeyResponse buildPartial() {
       com.google.cloud.oslogin.v1beta.ImportSshPublicKeyResponse result = new com.google.cloud.oslogin.v1beta.ImportSshPublicKeyResponse(this);
-      if (loginProfileBuilder_ == null) {
-        result.loginProfile_ = loginProfile_;
-      } else {
-        result.loginProfile_ = loginProfileBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.oslogin.v1beta.ImportSshPublicKeyResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.loginProfile_ = loginProfileBuilder_ == null
+            ? loginProfile_
+            : loginProfileBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.details_ = details_;
+      }
     }
 
     @java.lang.Override
@@ -427,7 +437,12 @@ private static final long serialVersionUID = 0L;
       if (other.hasLoginProfile()) {
         mergeLoginProfile(other.getLoginProfile());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getDetails().isEmpty()) {
+        details_ = other.details_;
+        bitField0_ |= 0x00000002;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -442,19 +457,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.oslogin.v1beta.ImportSshPublicKeyResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getLoginProfileFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              details_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.oslogin.v1beta.ImportSshPublicKeyResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.oslogin.v1beta.LoginProfile loginProfile_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -468,7 +509,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the loginProfile field is set.
      */
     public boolean hasLoginProfile() {
-      return loginProfileBuilder_ != null || loginProfile_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -498,11 +539,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         loginProfile_ = value;
-        onChanged();
       } else {
         loginProfileBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -516,11 +557,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.oslogin.v1beta.LoginProfile.Builder builderForValue) {
       if (loginProfileBuilder_ == null) {
         loginProfile_ = builderForValue.build();
-        onChanged();
       } else {
         loginProfileBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -532,17 +573,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLoginProfile(com.google.cloud.oslogin.v1beta.LoginProfile value) {
       if (loginProfileBuilder_ == null) {
-        if (loginProfile_ != null) {
-          loginProfile_ =
-            com.google.cloud.oslogin.v1beta.LoginProfile.newBuilder(loginProfile_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          loginProfile_ != null &&
+          loginProfile_ != com.google.cloud.oslogin.v1beta.LoginProfile.getDefaultInstance()) {
+          getLoginProfileBuilder().mergeFrom(value);
         } else {
           loginProfile_ = value;
         }
-        onChanged();
       } else {
         loginProfileBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -553,14 +595,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.oslogin.v1beta.LoginProfile login_profile = 1;</code>
      */
     public Builder clearLoginProfile() {
-      if (loginProfileBuilder_ == null) {
-        loginProfile_ = null;
-        onChanged();
-      } else {
-        loginProfile_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      loginProfile_ = null;
+      if (loginProfileBuilder_ != null) {
+        loginProfileBuilder_.dispose();
         loginProfileBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -571,7 +612,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.oslogin.v1beta.LoginProfile login_profile = 1;</code>
      */
     public com.google.cloud.oslogin.v1beta.LoginProfile.Builder getLoginProfileBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getLoginProfileFieldBuilder().getBuilder();
     }
@@ -610,6 +651,98 @@ private static final long serialVersionUID = 0L;
       }
       return loginProfileBuilder_;
     }
+
+    private java.lang.Object details_ = "";
+    /**
+     * <pre>
+     * Detailed information about import results.
+     * </pre>
+     *
+     * <code>string details = 2;</code>
+     * @return The details.
+     */
+    public java.lang.String getDetails() {
+      java.lang.Object ref = details_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        details_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Detailed information about import results.
+     * </pre>
+     *
+     * <code>string details = 2;</code>
+     * @return The bytes for details.
+     */
+    public com.google.protobuf.ByteString
+        getDetailsBytes() {
+      java.lang.Object ref = details_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        details_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Detailed information about import results.
+     * </pre>
+     *
+     * <code>string details = 2;</code>
+     * @param value The details to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDetails(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      details_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Detailed information about import results.
+     * </pre>
+     *
+     * <code>string details = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDetails() {
+      details_ = getDefaultInstance().getDetails();
+      bitField0_ = (bitField0_ & ~0x00000002);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Detailed information about import results.
+     * </pre>
+     *
+     * <code>string details = 2;</code>
+     * @param value The bytes for details to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDetailsBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      details_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -643,7 +776,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImportSshPublicKeyResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -35,72 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Preferences(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 24: {
-            int rawValue = input.readEnum();
-
-            adLength_ = rawValue;
-            break;
-          }
-          case 48: {
-            bitField0_ |= 0x00000001;
-            isSkippable_ = input.readBool();
-            break;
-          }
-          case 56: {
-            bitField0_ |= 0x00000002;
-            startsWithSound_ = input.readBool();
-            break;
-          }
-          case 64: {
-            bitField0_ |= 0x00000004;
-            topContentOnly_ = input.readBool();
-            break;
-          }
-          case 72: {
-            bitField0_ |= 0x00000008;
-            hasGuaranteedPrice_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.services.ReachPlanServiceProto.internal_static_google_ads_googleads_v11_services_Preferences_descriptor;
@@ -116,7 +50,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int IS_SKIPPABLE_FIELD_NUMBER = 6;
-  private boolean isSkippable_;
+  private boolean isSkippable_ = false;
   /**
    * <pre>
    * True if ad skippable.
@@ -145,7 +79,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STARTS_WITH_SOUND_FIELD_NUMBER = 7;
-  private boolean startsWithSound_;
+  private boolean startsWithSound_ = false;
   /**
    * <pre>
    * True if ad start with sound.
@@ -174,7 +108,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AD_LENGTH_FIELD_NUMBER = 3;
-  private int adLength_;
+  private int adLength_ = 0;
   /**
    * <pre>
    * The length of the ad.
@@ -197,13 +131,12 @@ private static final long serialVersionUID = 0L;
    * @return The adLength.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.ReachPlanAdLengthEnum.ReachPlanAdLength getAdLength() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.ReachPlanAdLengthEnum.ReachPlanAdLength result = com.google.ads.googleads.v11.enums.ReachPlanAdLengthEnum.ReachPlanAdLength.valueOf(adLength_);
+    com.google.ads.googleads.v11.enums.ReachPlanAdLengthEnum.ReachPlanAdLength result = com.google.ads.googleads.v11.enums.ReachPlanAdLengthEnum.ReachPlanAdLength.forNumber(adLength_);
     return result == null ? com.google.ads.googleads.v11.enums.ReachPlanAdLengthEnum.ReachPlanAdLength.UNRECOGNIZED : result;
   }
 
   public static final int TOP_CONTENT_ONLY_FIELD_NUMBER = 8;
-  private boolean topContentOnly_;
+  private boolean topContentOnly_ = false;
   /**
    * <pre>
    * True if ad will only show on the top content.
@@ -232,7 +165,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HAS_GUARANTEED_PRICE_FIELD_NUMBER = 9;
-  private boolean hasGuaranteedPrice_;
+  private boolean hasGuaranteedPrice_ = false;
   /**
    * <pre>
    * True if the price is guaranteed. The cost of serving the ad is agreed
@@ -291,7 +224,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000008) != 0)) {
       output.writeBool(9, hasGuaranteedPrice_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -320,7 +253,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(9, hasGuaranteedPrice_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -356,7 +289,7 @@ private static final long serialVersionUID = 0L;
       if (getHasGuaranteedPrice()
           != other.getHasGuaranteedPrice()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -389,7 +322,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getHasGuaranteedPrice());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -510,32 +443,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.services.Preferences.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       isSkippable_ = false;
-      bitField0_ = (bitField0_ & ~0x00000001);
       startsWithSound_ = false;
-      bitField0_ = (bitField0_ & ~0x00000002);
       adLength_ = 0;
-
       topContentOnly_ = false;
-      bitField0_ = (bitField0_ & ~0x00000004);
       hasGuaranteedPrice_ = false;
-      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -562,6 +486,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.services.Preferences buildPartial() {
       com.google.ads.googleads.v11.services.Preferences result = new com.google.ads.googleads.v11.services.Preferences(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.services.Preferences result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -572,18 +502,18 @@ private static final long serialVersionUID = 0L;
         result.startsWithSound_ = startsWithSound_;
         to_bitField0_ |= 0x00000002;
       }
-      result.adLength_ = adLength_;
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.adLength_ = adLength_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.topContentOnly_ = topContentOnly_;
         to_bitField0_ |= 0x00000004;
       }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
+      if (((from_bitField0_ & 0x00000010) != 0)) {
         result.hasGuaranteedPrice_ = hasGuaranteedPrice_;
         to_bitField0_ |= 0x00000008;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -645,7 +575,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasHasGuaranteedPrice()) {
         setHasGuaranteedPrice(other.getHasGuaranteedPrice());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -660,17 +590,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.services.Preferences parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 24: {
+              adLength_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 48: {
+              isSkippable_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 48
+            case 56: {
+              startsWithSound_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 56
+            case 64: {
+              topContentOnly_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 64
+            case 72: {
+              hasGuaranteedPrice_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 72
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.services.Preferences) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -713,8 +681,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIsSkippable(boolean value) {
-      bitField0_ |= 0x00000001;
+      
       isSkippable_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -772,8 +741,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStartsWithSound(boolean value) {
-      bitField0_ |= 0x00000002;
+      
       startsWithSound_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -817,8 +787,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAdLengthValue(int value) {
-      
       adLength_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -833,8 +803,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.ReachPlanAdLengthEnum.ReachPlanAdLength getAdLength() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.ReachPlanAdLengthEnum.ReachPlanAdLength result = com.google.ads.googleads.v11.enums.ReachPlanAdLengthEnum.ReachPlanAdLength.valueOf(adLength_);
+      com.google.ads.googleads.v11.enums.ReachPlanAdLengthEnum.ReachPlanAdLength result = com.google.ads.googleads.v11.enums.ReachPlanAdLengthEnum.ReachPlanAdLength.forNumber(adLength_);
       return result == null ? com.google.ads.googleads.v11.enums.ReachPlanAdLengthEnum.ReachPlanAdLength.UNRECOGNIZED : result;
     }
     /**
@@ -851,7 +820,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       adLength_ = value.getNumber();
       onChanged();
       return this;
@@ -866,7 +835,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAdLength() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       adLength_ = 0;
       onChanged();
       return this;
@@ -884,7 +853,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasTopContentOnly() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -910,8 +879,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTopContentOnly(boolean value) {
-      bitField0_ |= 0x00000004;
+      
       topContentOnly_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -925,7 +895,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTopContentOnly() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       topContentOnly_ = false;
       onChanged();
       return this;
@@ -944,7 +914,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasHasGuaranteedPrice() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -972,8 +942,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHasGuaranteedPrice(boolean value) {
-      bitField0_ |= 0x00000008;
+      
       hasGuaranteedPrice_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -988,7 +959,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHasGuaranteedPrice() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000010);
       hasGuaranteedPrice_ = false;
       onChanged();
       return this;
@@ -1026,7 +997,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Preferences(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

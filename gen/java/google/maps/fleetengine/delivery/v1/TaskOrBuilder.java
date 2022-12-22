@@ -177,7 +177,7 @@ public interface TaskOrBuilder extends
    * following restrictions:
    * * Must be a valid Unicode string.
    * * Limited to a maximum length of 64 characters.
-   * * Normalized according to Unicode Normalization Form C
+   * * Normalized according to [Unicode Normalization Form C]
    * (http://www.unicode.org/reports/tr15/).
    * * May not contain any of the following ASCII characters: '/', ':', '?',
    * ',', or '#'.
@@ -195,7 +195,7 @@ public interface TaskOrBuilder extends
    * following restrictions:
    * * Must be a valid Unicode string.
    * * Limited to a maximum length of 64 characters.
-   * * Normalized according to Unicode Normalization Form C
+   * * Normalized according to [Unicode Normalization Form C]
    * (http://www.unicode.org/reports/tr15/).
    * * May not contain any of the following ASCII characters: '/', ':', '?',
    * ',', or '#'.
@@ -213,7 +213,7 @@ public interface TaskOrBuilder extends
    * subject to the following restrictions:
    * * Must be a valid Unicode string.
    * * Limited to a maximum length of 64 characters.
-   * * Normalized according to Unicode Normalization Form C
+   * * Normalized according to [Unicode Normalization Form C]
    * (http://www.unicode.org/reports/tr15/).
    * * May not contain any of the following ASCII characters: '/', ':', '?',
    * ',', or '#'.
@@ -229,7 +229,7 @@ public interface TaskOrBuilder extends
    * subject to the following restrictions:
    * * Must be a valid Unicode string.
    * * Limited to a maximum length of 64 characters.
-   * * Normalized according to Unicode Normalization Form C
+   * * Normalized according to [Unicode Normalization Form C]
    * (http://www.unicode.org/reports/tr15/).
    * * May not contain any of the following ASCII characters: '/', ':', '?',
    * ',', or '#'.

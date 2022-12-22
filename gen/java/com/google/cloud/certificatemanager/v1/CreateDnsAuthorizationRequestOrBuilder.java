@@ -9,8 +9,8 @@ public interface CreateDnsAuthorizationRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The parent resource of the dns authorization. Must be in the format
-   * `projects/&#42;&#47;locations/&#42;`.
+   * Required. The parent resource of the dns authorization. Must be in the
+   * format `projects/&#42;&#47;locations/&#42;`.
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -19,8 +19,8 @@ public interface CreateDnsAuthorizationRequestOrBuilder extends
   java.lang.String getParent();
   /**
    * <pre>
-   * Required. The parent resource of the dns authorization. Must be in the format
-   * `projects/&#42;&#47;locations/&#42;`.
+   * Required. The parent resource of the dns authorization. Must be in the
+   * format `projects/&#42;&#47;locations/&#42;`.
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

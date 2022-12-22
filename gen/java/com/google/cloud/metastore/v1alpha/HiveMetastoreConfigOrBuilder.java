@@ -82,7 +82,6 @@ public interface HiveMetastoreConfigOrBuilder extends
    *
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
-
   /* nullable */
 java.lang.String getConfigOverridesOrDefault(
       java.lang.String key,
@@ -99,7 +98,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
-
   java.lang.String getConfigOverridesOrThrow(
       java.lang.String key);
 
@@ -230,7 +228,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, .google.cloud.metastore.v1alpha.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
    */
-
   /* nullable */
 com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig getAuxiliaryVersionsOrDefault(
       java.lang.String key,
@@ -250,7 +247,6 @@ com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig defaultValue);
    *
    * <code>map&lt;string, .google.cloud.metastore.v1alpha.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
    */
-
   com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig getAuxiliaryVersionsOrThrow(
       java.lang.String key);
 }

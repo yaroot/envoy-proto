@@ -5,9 +5,7 @@ package com.google.cloud.batch.v1alpha;
 
 /**
  * <pre>
- * Volume and mount parameters to be associated with a TaskSpec. A TaskSpec
- * might describe zero, one, or multiple volumes to be mounted as part of the
- * task.
+ * Volume describes a volume and parameters for it to be mounted to a VM.
  * </pre>
  *
  * Protobuf type {@code google.cloud.batch.v1alpha.Volume}
@@ -37,112 +35,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Volume(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.batch.v1alpha.NFS.Builder subBuilder = null;
-            if (sourceCase_ == 1) {
-              subBuilder = ((com.google.cloud.batch.v1alpha.NFS) source_).toBuilder();
-            }
-            source_ =
-                input.readMessage(com.google.cloud.batch.v1alpha.NFS.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.batch.v1alpha.NFS) source_);
-              source_ = subBuilder.buildPartial();
-            }
-            sourceCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.cloud.batch.v1alpha.PD.Builder subBuilder = null;
-            if (sourceCase_ == 2) {
-              subBuilder = ((com.google.cloud.batch.v1alpha.PD) source_).toBuilder();
-            }
-            source_ =
-                input.readMessage(com.google.cloud.batch.v1alpha.PD.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.batch.v1alpha.PD) source_);
-              source_ = subBuilder.buildPartial();
-            }
-            sourceCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.cloud.batch.v1alpha.GCS.Builder subBuilder = null;
-            if (sourceCase_ == 3) {
-              subBuilder = ((com.google.cloud.batch.v1alpha.GCS) source_).toBuilder();
-            }
-            source_ =
-                input.readMessage(com.google.cloud.batch.v1alpha.GCS.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.batch.v1alpha.GCS) source_);
-              source_ = subBuilder.buildPartial();
-            }
-            sourceCase_ = 3;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            mountPath_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              mountOptions_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            mountOptions_.add(s);
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            sourceCase_ = 6;
-            source_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        mountOptions_ = mountOptions_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -205,7 +97,8 @@ private static final long serialVersionUID = 0L;
   public static final int NFS_FIELD_NUMBER = 1;
   /**
    * <pre>
-   * An NFS source for the volume (could be a Filestore, for example).
+   * A Network File System (NFS) volume. For example, a
+   * Filestore file share.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.NFS nfs = 1;</code>
@@ -217,7 +110,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * An NFS source for the volume (could be a Filestore, for example).
+   * A Network File System (NFS) volume. For example, a
+   * Filestore file share.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.NFS nfs = 1;</code>
@@ -232,7 +126,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * An NFS source for the volume (could be a Filestore, for example).
+   * A Network File System (NFS) volume. For example, a
+   * Filestore file share.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.NFS nfs = 1;</code>
@@ -248,12 +143,12 @@ private static final long serialVersionUID = 0L;
   public static final int PD_FIELD_NUMBER = 2;
   /**
    * <pre>
-   * A persistent disk source for the volume.
+   * Deprecated: please use device_name instead.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.PD pd = 2 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.Volume.pd is deprecated.
-   *     See google/cloud/batch/v1alpha/volume.proto;l=37
+   *     See google/cloud/batch/v1alpha/volume.proto;l=36
    * @return Whether the pd field is set.
    */
   @java.lang.Override
@@ -262,12 +157,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A persistent disk source for the volume.
+   * Deprecated: please use device_name instead.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.PD pd = 2 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.Volume.pd is deprecated.
-   *     See google/cloud/batch/v1alpha/volume.proto;l=37
+   *     See google/cloud/batch/v1alpha/volume.proto;l=36
    * @return The pd.
    */
   @java.lang.Override
@@ -279,7 +174,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A persistent disk source for the volume.
+   * Deprecated: please use device_name instead.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.PD pd = 2 [deprecated = true];</code>
@@ -295,7 +190,7 @@ private static final long serialVersionUID = 0L;
   public static final int GCS_FIELD_NUMBER = 3;
   /**
    * <pre>
-   * A Google Cloud Storage source for the volume.
+   * A Google Cloud Storage (GCS) volume.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.GCS gcs = 3;</code>
@@ -307,7 +202,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A Google Cloud Storage source for the volume.
+   * A Google Cloud Storage (GCS) volume.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.GCS gcs = 3;</code>
@@ -322,7 +217,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A Google Cloud Storage source for the volume.
+   * A Google Cloud Storage (GCS) volume.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.GCS gcs = 3;</code>
@@ -338,7 +233,11 @@ private static final long serialVersionUID = 0L;
   public static final int DEVICE_NAME_FIELD_NUMBER = 6;
   /**
    * <pre>
-   * Device name of an attached disk
+   * Device name of an attached disk volume, which should align with a
+   * device_name specified by
+   * job.allocation_policy.instances[0].policy.disks[i].device_name or
+   * defined by the given instance template in
+   * job.allocation_policy.instances[0].instance_template.
    * </pre>
    *
    * <code>string device_name = 6;</code>
@@ -349,7 +248,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Device name of an attached disk
+   * Device name of an attached disk volume, which should align with a
+   * device_name specified by
+   * job.allocation_policy.instances[0].policy.disks[i].device_name or
+   * defined by the given instance template in
+   * job.allocation_policy.instances[0].instance_template.
    * </pre>
    *
    * <code>string device_name = 6;</code>
@@ -374,7 +277,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Device name of an attached disk
+   * Device name of an attached disk volume, which should align with a
+   * device_name specified by
+   * job.allocation_policy.instances[0].policy.disks[i].device_name or
+   * defined by the given instance template in
+   * job.allocation_policy.instances[0].instance_template.
    * </pre>
    *
    * <code>string device_name = 6;</code>
@@ -400,10 +307,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MOUNT_PATH_FIELD_NUMBER = 4;
-  private volatile java.lang.Object mountPath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object mountPath_ = "";
   /**
    * <pre>
-   * Mount path for the volume, e.g. /mnt/share
+   * The mount path for the volume, e.g. /mnt/disks/share.
    * </pre>
    *
    * <code>string mount_path = 4;</code>
@@ -424,7 +332,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Mount path for the volume, e.g. /mnt/share
+   * The mount path for the volume, e.g. /mnt/disks/share.
    * </pre>
    *
    * <code>string mount_path = 4;</code>
@@ -446,17 +354,19 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MOUNT_OPTIONS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList mountOptions_;
   /**
    * <pre>
-   * Mount options
-   * For Google Cloud Storage, mount options are the global options supported by
-   * gcsfuse tool. Batch will use them to mount the volume with the following
-   * command:
-   * "gcsfuse [global options] bucket mountpoint".
-   * For PD, NFS, mount options are these supported by /etc/fstab. Batch will
-   * use Fstab to mount such volumes.
-   * https://help.ubuntu.com/community/Fstab
+   * For Google Cloud Storage (GCS), mount options are the options supported by
+   * the gcsfuse tool (https://github.com/GoogleCloudPlatform/gcsfuse).
+   * For existing persistent disks, mount options provided by the
+   * mount command (https://man7.org/linux/man-pages/man8/mount.8.html) except
+   * writing are supported. This is due to restrictions of multi-writer mode
+   * (https://cloud.google.com/compute/docs/disks/sharing-disks-between-vms).
+   * For other attached disks and Network File System (NFS), mount options are
+   * these supported by the mount command
+   * (https://man7.org/linux/man-pages/man8/mount.8.html).
    * </pre>
    *
    * <code>repeated string mount_options = 5;</code>
@@ -468,14 +378,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Mount options
-   * For Google Cloud Storage, mount options are the global options supported by
-   * gcsfuse tool. Batch will use them to mount the volume with the following
-   * command:
-   * "gcsfuse [global options] bucket mountpoint".
-   * For PD, NFS, mount options are these supported by /etc/fstab. Batch will
-   * use Fstab to mount such volumes.
-   * https://help.ubuntu.com/community/Fstab
+   * For Google Cloud Storage (GCS), mount options are the options supported by
+   * the gcsfuse tool (https://github.com/GoogleCloudPlatform/gcsfuse).
+   * For existing persistent disks, mount options provided by the
+   * mount command (https://man7.org/linux/man-pages/man8/mount.8.html) except
+   * writing are supported. This is due to restrictions of multi-writer mode
+   * (https://cloud.google.com/compute/docs/disks/sharing-disks-between-vms).
+   * For other attached disks and Network File System (NFS), mount options are
+   * these supported by the mount command
+   * (https://man7.org/linux/man-pages/man8/mount.8.html).
    * </pre>
    *
    * <code>repeated string mount_options = 5;</code>
@@ -486,14 +397,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Mount options
-   * For Google Cloud Storage, mount options are the global options supported by
-   * gcsfuse tool. Batch will use them to mount the volume with the following
-   * command:
-   * "gcsfuse [global options] bucket mountpoint".
-   * For PD, NFS, mount options are these supported by /etc/fstab. Batch will
-   * use Fstab to mount such volumes.
-   * https://help.ubuntu.com/community/Fstab
+   * For Google Cloud Storage (GCS), mount options are the options supported by
+   * the gcsfuse tool (https://github.com/GoogleCloudPlatform/gcsfuse).
+   * For existing persistent disks, mount options provided by the
+   * mount command (https://man7.org/linux/man-pages/man8/mount.8.html) except
+   * writing are supported. This is due to restrictions of multi-writer mode
+   * (https://cloud.google.com/compute/docs/disks/sharing-disks-between-vms).
+   * For other attached disks and Network File System (NFS), mount options are
+   * these supported by the mount command
+   * (https://man7.org/linux/man-pages/man8/mount.8.html).
    * </pre>
    *
    * <code>repeated string mount_options = 5;</code>
@@ -505,14 +417,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Mount options
-   * For Google Cloud Storage, mount options are the global options supported by
-   * gcsfuse tool. Batch will use them to mount the volume with the following
-   * command:
-   * "gcsfuse [global options] bucket mountpoint".
-   * For PD, NFS, mount options are these supported by /etc/fstab. Batch will
-   * use Fstab to mount such volumes.
-   * https://help.ubuntu.com/community/Fstab
+   * For Google Cloud Storage (GCS), mount options are the options supported by
+   * the gcsfuse tool (https://github.com/GoogleCloudPlatform/gcsfuse).
+   * For existing persistent disks, mount options provided by the
+   * mount command (https://man7.org/linux/man-pages/man8/mount.8.html) except
+   * writing are supported. This is due to restrictions of multi-writer mode
+   * (https://cloud.google.com/compute/docs/disks/sharing-disks-between-vms).
+   * For other attached disks and Network File System (NFS), mount options are
+   * these supported by the mount command
+   * (https://man7.org/linux/man-pages/man8/mount.8.html).
    * </pre>
    *
    * <code>repeated string mount_options = 5;</code>
@@ -556,7 +469,7 @@ private static final long serialVersionUID = 0L;
     if (sourceCase_ == 6) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, source_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -591,7 +504,7 @@ private static final long serialVersionUID = 0L;
     if (sourceCase_ == 6) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, source_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -631,7 +544,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -668,7 +581,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -765,9 +678,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Volume and mount parameters to be associated with a TaskSpec. A TaskSpec
-   * might describe zero, one, or multiple volumes to be mounted as part of the
-   * task.
+   * Volume describes a volume and parameters for it to be mounted to a VM.
    * </pre>
    *
    * Protobuf type {@code google.cloud.batch.v1alpha.Volume}
@@ -791,26 +702,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.batch.v1alpha.Volume.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (nfsBuilder_ != null) {
+        nfsBuilder_.clear();
+      }
+      if (pdBuilder_ != null) {
+        pdBuilder_.clear();
+      }
+      if (gcsBuilder_ != null) {
+        gcsBuilder_.clear();
+      }
       mountPath_ = "";
-
       mountOptions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       sourceCase_ = 0;
       source_ = null;
       return this;
@@ -839,40 +754,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.batch.v1alpha.Volume buildPartial() {
       com.google.cloud.batch.v1alpha.Volume result = new com.google.cloud.batch.v1alpha.Volume(this);
-      int from_bitField0_ = bitField0_;
-      if (sourceCase_ == 1) {
-        if (nfsBuilder_ == null) {
-          result.source_ = source_;
-        } else {
-          result.source_ = nfsBuilder_.build();
-        }
-      }
-      if (sourceCase_ == 2) {
-        if (pdBuilder_ == null) {
-          result.source_ = source_;
-        } else {
-          result.source_ = pdBuilder_.build();
-        }
-      }
-      if (sourceCase_ == 3) {
-        if (gcsBuilder_ == null) {
-          result.source_ = source_;
-        } else {
-          result.source_ = gcsBuilder_.build();
-        }
-      }
-      if (sourceCase_ == 6) {
-        result.source_ = source_;
-      }
-      result.mountPath_ = mountPath_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        mountOptions_ = mountOptions_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.mountOptions_ = mountOptions_;
-      result.sourceCase_ = sourceCase_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.batch.v1alpha.Volume result) {
+      if (((bitField0_ & 0x00000020) != 0)) {
+        mountOptions_ = mountOptions_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000020);
+      }
+      result.mountOptions_ = mountOptions_;
+    }
+
+    private void buildPartial0(com.google.cloud.batch.v1alpha.Volume result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.mountPath_ = mountPath_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.batch.v1alpha.Volume result) {
+      result.sourceCase_ = sourceCase_;
+      result.source_ = this.source_;
+      if (sourceCase_ == 1 &&
+          nfsBuilder_ != null) {
+        result.source_ = nfsBuilder_.build();
+      }
+      if (sourceCase_ == 2 &&
+          pdBuilder_ != null) {
+        result.source_ = pdBuilder_.build();
+      }
+      if (sourceCase_ == 3 &&
+          gcsBuilder_ != null) {
+        result.source_ = gcsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -921,12 +839,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.batch.v1alpha.Volume.getDefaultInstance()) return this;
       if (!other.getMountPath().isEmpty()) {
         mountPath_ = other.mountPath_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.mountOptions_.isEmpty()) {
         if (mountOptions_.isEmpty()) {
           mountOptions_ = other.mountOptions_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureMountOptionsIsMutable();
           mountOptions_.addAll(other.mountOptions_);
@@ -956,7 +875,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -971,17 +890,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.batch.v1alpha.Volume parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getNfsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              sourceCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPdFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              sourceCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getGcsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              sourceCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              mountPath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureMountOptionsIsMutable();
+              mountOptions_.add(s);
+              break;
+            } // case 42
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              sourceCase_ = 6;
+              source_ = s;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.batch.v1alpha.Volume) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int sourceCase_ = 0;
@@ -1005,7 +975,8 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1alpha.NFS, com.google.cloud.batch.v1alpha.NFS.Builder, com.google.cloud.batch.v1alpha.NFSOrBuilder> nfsBuilder_;
     /**
      * <pre>
-     * An NFS source for the volume (could be a Filestore, for example).
+     * A Network File System (NFS) volume. For example, a
+     * Filestore file share.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.NFS nfs = 1;</code>
@@ -1017,7 +988,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * An NFS source for the volume (could be a Filestore, for example).
+     * A Network File System (NFS) volume. For example, a
+     * Filestore file share.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.NFS nfs = 1;</code>
@@ -1039,7 +1011,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * An NFS source for the volume (could be a Filestore, for example).
+     * A Network File System (NFS) volume. For example, a
+     * Filestore file share.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.NFS nfs = 1;</code>
@@ -1059,7 +1032,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * An NFS source for the volume (could be a Filestore, for example).
+     * A Network File System (NFS) volume. For example, a
+     * Filestore file share.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.NFS nfs = 1;</code>
@@ -1077,7 +1051,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * An NFS source for the volume (could be a Filestore, for example).
+     * A Network File System (NFS) volume. For example, a
+     * Filestore file share.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.NFS nfs = 1;</code>
@@ -1104,7 +1079,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * An NFS source for the volume (could be a Filestore, for example).
+     * A Network File System (NFS) volume. For example, a
+     * Filestore file share.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.NFS nfs = 1;</code>
@@ -1127,7 +1103,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * An NFS source for the volume (could be a Filestore, for example).
+     * A Network File System (NFS) volume. For example, a
+     * Filestore file share.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.NFS nfs = 1;</code>
@@ -1137,7 +1114,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * An NFS source for the volume (could be a Filestore, for example).
+     * A Network File System (NFS) volume. For example, a
+     * Filestore file share.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.NFS nfs = 1;</code>
@@ -1155,7 +1133,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * An NFS source for the volume (could be a Filestore, for example).
+     * A Network File System (NFS) volume. For example, a
+     * Filestore file share.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.NFS nfs = 1;</code>
@@ -1175,7 +1154,7 @@ private static final long serialVersionUID = 0L;
         source_ = null;
       }
       sourceCase_ = 1;
-      onChanged();;
+      onChanged();
       return nfsBuilder_;
     }
 
@@ -1183,12 +1162,12 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1alpha.PD, com.google.cloud.batch.v1alpha.PD.Builder, com.google.cloud.batch.v1alpha.PDOrBuilder> pdBuilder_;
     /**
      * <pre>
-     * A persistent disk source for the volume.
+     * Deprecated: please use device_name instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.PD pd = 2 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.Volume.pd is deprecated.
-     *     See google/cloud/batch/v1alpha/volume.proto;l=37
+     *     See google/cloud/batch/v1alpha/volume.proto;l=36
      * @return Whether the pd field is set.
      */
     @java.lang.Override
@@ -1197,12 +1176,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A persistent disk source for the volume.
+     * Deprecated: please use device_name instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.PD pd = 2 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.Volume.pd is deprecated.
-     *     See google/cloud/batch/v1alpha/volume.proto;l=37
+     *     See google/cloud/batch/v1alpha/volume.proto;l=36
      * @return The pd.
      */
     @java.lang.Override
@@ -1221,7 +1200,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A persistent disk source for the volume.
+     * Deprecated: please use device_name instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.PD pd = 2 [deprecated = true];</code>
@@ -1241,7 +1220,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A persistent disk source for the volume.
+     * Deprecated: please use device_name instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.PD pd = 2 [deprecated = true];</code>
@@ -1259,7 +1238,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A persistent disk source for the volume.
+     * Deprecated: please use device_name instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.PD pd = 2 [deprecated = true];</code>
@@ -1286,7 +1265,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A persistent disk source for the volume.
+     * Deprecated: please use device_name instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.PD pd = 2 [deprecated = true];</code>
@@ -1309,7 +1288,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A persistent disk source for the volume.
+     * Deprecated: please use device_name instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.PD pd = 2 [deprecated = true];</code>
@@ -1319,7 +1298,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A persistent disk source for the volume.
+     * Deprecated: please use device_name instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.PD pd = 2 [deprecated = true];</code>
@@ -1337,7 +1316,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A persistent disk source for the volume.
+     * Deprecated: please use device_name instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.PD pd = 2 [deprecated = true];</code>
@@ -1357,7 +1336,7 @@ private static final long serialVersionUID = 0L;
         source_ = null;
       }
       sourceCase_ = 2;
-      onChanged();;
+      onChanged();
       return pdBuilder_;
     }
 
@@ -1365,7 +1344,7 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1alpha.GCS, com.google.cloud.batch.v1alpha.GCS.Builder, com.google.cloud.batch.v1alpha.GCSOrBuilder> gcsBuilder_;
     /**
      * <pre>
-     * A Google Cloud Storage source for the volume.
+     * A Google Cloud Storage (GCS) volume.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.GCS gcs = 3;</code>
@@ -1377,7 +1356,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Google Cloud Storage source for the volume.
+     * A Google Cloud Storage (GCS) volume.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.GCS gcs = 3;</code>
@@ -1399,7 +1378,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Google Cloud Storage source for the volume.
+     * A Google Cloud Storage (GCS) volume.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.GCS gcs = 3;</code>
@@ -1419,7 +1398,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Google Cloud Storage source for the volume.
+     * A Google Cloud Storage (GCS) volume.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.GCS gcs = 3;</code>
@@ -1437,7 +1416,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Google Cloud Storage source for the volume.
+     * A Google Cloud Storage (GCS) volume.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.GCS gcs = 3;</code>
@@ -1464,7 +1443,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Google Cloud Storage source for the volume.
+     * A Google Cloud Storage (GCS) volume.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.GCS gcs = 3;</code>
@@ -1487,7 +1466,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Google Cloud Storage source for the volume.
+     * A Google Cloud Storage (GCS) volume.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.GCS gcs = 3;</code>
@@ -1497,7 +1476,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Google Cloud Storage source for the volume.
+     * A Google Cloud Storage (GCS) volume.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.GCS gcs = 3;</code>
@@ -1515,7 +1494,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Google Cloud Storage source for the volume.
+     * A Google Cloud Storage (GCS) volume.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.GCS gcs = 3;</code>
@@ -1535,13 +1514,17 @@ private static final long serialVersionUID = 0L;
         source_ = null;
       }
       sourceCase_ = 3;
-      onChanged();;
+      onChanged();
       return gcsBuilder_;
     }
 
     /**
      * <pre>
-     * Device name of an attached disk
+     * Device name of an attached disk volume, which should align with a
+     * device_name specified by
+     * job.allocation_policy.instances[0].policy.disks[i].device_name or
+     * defined by the given instance template in
+     * job.allocation_policy.instances[0].instance_template.
      * </pre>
      *
      * <code>string device_name = 6;</code>
@@ -1553,7 +1536,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device name of an attached disk
+     * Device name of an attached disk volume, which should align with a
+     * device_name specified by
+     * job.allocation_policy.instances[0].policy.disks[i].device_name or
+     * defined by the given instance template in
+     * job.allocation_policy.instances[0].instance_template.
      * </pre>
      *
      * <code>string device_name = 6;</code>
@@ -1579,7 +1566,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device name of an attached disk
+     * Device name of an attached disk volume, which should align with a
+     * device_name specified by
+     * job.allocation_policy.instances[0].policy.disks[i].device_name or
+     * defined by the given instance template in
+     * job.allocation_policy.instances[0].instance_template.
      * </pre>
      *
      * <code>string device_name = 6;</code>
@@ -1606,7 +1597,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device name of an attached disk
+     * Device name of an attached disk volume, which should align with a
+     * device_name specified by
+     * job.allocation_policy.instances[0].policy.disks[i].device_name or
+     * defined by the given instance template in
+     * job.allocation_policy.instances[0].instance_template.
      * </pre>
      *
      * <code>string device_name = 6;</code>
@@ -1615,17 +1610,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeviceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  sourceCase_ = 6;
+      if (value == null) { throw new NullPointerException(); }
+      sourceCase_ = 6;
       source_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Device name of an attached disk
+     * Device name of an attached disk volume, which should align with a
+     * device_name specified by
+     * job.allocation_policy.instances[0].policy.disks[i].device_name or
+     * defined by the given instance template in
+     * job.allocation_policy.instances[0].instance_template.
      * </pre>
      *
      * <code>string device_name = 6;</code>
@@ -1641,7 +1638,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Device name of an attached disk
+     * Device name of an attached disk volume, which should align with a
+     * device_name specified by
+     * job.allocation_policy.instances[0].policy.disks[i].device_name or
+     * defined by the given instance template in
+     * job.allocation_policy.instances[0].instance_template.
      * </pre>
      *
      * <code>string device_name = 6;</code>
@@ -1650,10 +1651,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeviceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceCase_ = 6;
       source_ = value;
       onChanged();
@@ -1663,7 +1662,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object mountPath_ = "";
     /**
      * <pre>
-     * Mount path for the volume, e.g. /mnt/share
+     * The mount path for the volume, e.g. /mnt/disks/share.
      * </pre>
      *
      * <code>string mount_path = 4;</code>
@@ -1683,7 +1682,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Mount path for the volume, e.g. /mnt/share
+     * The mount path for the volume, e.g. /mnt/disks/share.
      * </pre>
      *
      * <code>string mount_path = 4;</code>
@@ -1704,7 +1703,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Mount path for the volume, e.g. /mnt/share
+     * The mount path for the volume, e.g. /mnt/disks/share.
      * </pre>
      *
      * <code>string mount_path = 4;</code>
@@ -1713,31 +1712,29 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMountPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       mountPath_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Mount path for the volume, e.g. /mnt/share
+     * The mount path for the volume, e.g. /mnt/disks/share.
      * </pre>
      *
      * <code>string mount_path = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearMountPath() {
-      
       mountPath_ = getDefaultInstance().getMountPath();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Mount path for the volume, e.g. /mnt/share
+     * The mount path for the volume, e.g. /mnt/disks/share.
      * </pre>
      *
      * <code>string mount_path = 4;</code>
@@ -1746,33 +1743,32 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMountPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       mountPath_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList mountOptions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureMountOptionsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         mountOptions_ = new com.google.protobuf.LazyStringArrayList(mountOptions_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
     /**
      * <pre>
-     * Mount options
-     * For Google Cloud Storage, mount options are the global options supported by
-     * gcsfuse tool. Batch will use them to mount the volume with the following
-     * command:
-     * "gcsfuse [global options] bucket mountpoint".
-     * For PD, NFS, mount options are these supported by /etc/fstab. Batch will
-     * use Fstab to mount such volumes.
-     * https://help.ubuntu.com/community/Fstab
+     * For Google Cloud Storage (GCS), mount options are the options supported by
+     * the gcsfuse tool (https://github.com/GoogleCloudPlatform/gcsfuse).
+     * For existing persistent disks, mount options provided by the
+     * mount command (https://man7.org/linux/man-pages/man8/mount.8.html) except
+     * writing are supported. This is due to restrictions of multi-writer mode
+     * (https://cloud.google.com/compute/docs/disks/sharing-disks-between-vms).
+     * For other attached disks and Network File System (NFS), mount options are
+     * these supported by the mount command
+     * (https://man7.org/linux/man-pages/man8/mount.8.html).
      * </pre>
      *
      * <code>repeated string mount_options = 5;</code>
@@ -1784,14 +1780,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Mount options
-     * For Google Cloud Storage, mount options are the global options supported by
-     * gcsfuse tool. Batch will use them to mount the volume with the following
-     * command:
-     * "gcsfuse [global options] bucket mountpoint".
-     * For PD, NFS, mount options are these supported by /etc/fstab. Batch will
-     * use Fstab to mount such volumes.
-     * https://help.ubuntu.com/community/Fstab
+     * For Google Cloud Storage (GCS), mount options are the options supported by
+     * the gcsfuse tool (https://github.com/GoogleCloudPlatform/gcsfuse).
+     * For existing persistent disks, mount options provided by the
+     * mount command (https://man7.org/linux/man-pages/man8/mount.8.html) except
+     * writing are supported. This is due to restrictions of multi-writer mode
+     * (https://cloud.google.com/compute/docs/disks/sharing-disks-between-vms).
+     * For other attached disks and Network File System (NFS), mount options are
+     * these supported by the mount command
+     * (https://man7.org/linux/man-pages/man8/mount.8.html).
      * </pre>
      *
      * <code>repeated string mount_options = 5;</code>
@@ -1802,14 +1799,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Mount options
-     * For Google Cloud Storage, mount options are the global options supported by
-     * gcsfuse tool. Batch will use them to mount the volume with the following
-     * command:
-     * "gcsfuse [global options] bucket mountpoint".
-     * For PD, NFS, mount options are these supported by /etc/fstab. Batch will
-     * use Fstab to mount such volumes.
-     * https://help.ubuntu.com/community/Fstab
+     * For Google Cloud Storage (GCS), mount options are the options supported by
+     * the gcsfuse tool (https://github.com/GoogleCloudPlatform/gcsfuse).
+     * For existing persistent disks, mount options provided by the
+     * mount command (https://man7.org/linux/man-pages/man8/mount.8.html) except
+     * writing are supported. This is due to restrictions of multi-writer mode
+     * (https://cloud.google.com/compute/docs/disks/sharing-disks-between-vms).
+     * For other attached disks and Network File System (NFS), mount options are
+     * these supported by the mount command
+     * (https://man7.org/linux/man-pages/man8/mount.8.html).
      * </pre>
      *
      * <code>repeated string mount_options = 5;</code>
@@ -1821,14 +1819,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Mount options
-     * For Google Cloud Storage, mount options are the global options supported by
-     * gcsfuse tool. Batch will use them to mount the volume with the following
-     * command:
-     * "gcsfuse [global options] bucket mountpoint".
-     * For PD, NFS, mount options are these supported by /etc/fstab. Batch will
-     * use Fstab to mount such volumes.
-     * https://help.ubuntu.com/community/Fstab
+     * For Google Cloud Storage (GCS), mount options are the options supported by
+     * the gcsfuse tool (https://github.com/GoogleCloudPlatform/gcsfuse).
+     * For existing persistent disks, mount options provided by the
+     * mount command (https://man7.org/linux/man-pages/man8/mount.8.html) except
+     * writing are supported. This is due to restrictions of multi-writer mode
+     * (https://cloud.google.com/compute/docs/disks/sharing-disks-between-vms).
+     * For other attached disks and Network File System (NFS), mount options are
+     * these supported by the mount command
+     * (https://man7.org/linux/man-pages/man8/mount.8.html).
      * </pre>
      *
      * <code>repeated string mount_options = 5;</code>
@@ -1841,14 +1840,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Mount options
-     * For Google Cloud Storage, mount options are the global options supported by
-     * gcsfuse tool. Batch will use them to mount the volume with the following
-     * command:
-     * "gcsfuse [global options] bucket mountpoint".
-     * For PD, NFS, mount options are these supported by /etc/fstab. Batch will
-     * use Fstab to mount such volumes.
-     * https://help.ubuntu.com/community/Fstab
+     * For Google Cloud Storage (GCS), mount options are the options supported by
+     * the gcsfuse tool (https://github.com/GoogleCloudPlatform/gcsfuse).
+     * For existing persistent disks, mount options provided by the
+     * mount command (https://man7.org/linux/man-pages/man8/mount.8.html) except
+     * writing are supported. This is due to restrictions of multi-writer mode
+     * (https://cloud.google.com/compute/docs/disks/sharing-disks-between-vms).
+     * For other attached disks and Network File System (NFS), mount options are
+     * these supported by the mount command
+     * (https://man7.org/linux/man-pages/man8/mount.8.html).
      * </pre>
      *
      * <code>repeated string mount_options = 5;</code>
@@ -1858,24 +1858,23 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMountOptions(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMountOptionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureMountOptionsIsMutable();
       mountOptions_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Mount options
-     * For Google Cloud Storage, mount options are the global options supported by
-     * gcsfuse tool. Batch will use them to mount the volume with the following
-     * command:
-     * "gcsfuse [global options] bucket mountpoint".
-     * For PD, NFS, mount options are these supported by /etc/fstab. Batch will
-     * use Fstab to mount such volumes.
-     * https://help.ubuntu.com/community/Fstab
+     * For Google Cloud Storage (GCS), mount options are the options supported by
+     * the gcsfuse tool (https://github.com/GoogleCloudPlatform/gcsfuse).
+     * For existing persistent disks, mount options provided by the
+     * mount command (https://man7.org/linux/man-pages/man8/mount.8.html) except
+     * writing are supported. This is due to restrictions of multi-writer mode
+     * (https://cloud.google.com/compute/docs/disks/sharing-disks-between-vms).
+     * For other attached disks and Network File System (NFS), mount options are
+     * these supported by the mount command
+     * (https://man7.org/linux/man-pages/man8/mount.8.html).
      * </pre>
      *
      * <code>repeated string mount_options = 5;</code>
@@ -1884,24 +1883,23 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addMountOptions(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMountOptionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureMountOptionsIsMutable();
       mountOptions_.add(value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Mount options
-     * For Google Cloud Storage, mount options are the global options supported by
-     * gcsfuse tool. Batch will use them to mount the volume with the following
-     * command:
-     * "gcsfuse [global options] bucket mountpoint".
-     * For PD, NFS, mount options are these supported by /etc/fstab. Batch will
-     * use Fstab to mount such volumes.
-     * https://help.ubuntu.com/community/Fstab
+     * For Google Cloud Storage (GCS), mount options are the options supported by
+     * the gcsfuse tool (https://github.com/GoogleCloudPlatform/gcsfuse).
+     * For existing persistent disks, mount options provided by the
+     * mount command (https://man7.org/linux/man-pages/man8/mount.8.html) except
+     * writing are supported. This is due to restrictions of multi-writer mode
+     * (https://cloud.google.com/compute/docs/disks/sharing-disks-between-vms).
+     * For other attached disks and Network File System (NFS), mount options are
+     * these supported by the mount command
+     * (https://man7.org/linux/man-pages/man8/mount.8.html).
      * </pre>
      *
      * <code>repeated string mount_options = 5;</code>
@@ -1918,14 +1916,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Mount options
-     * For Google Cloud Storage, mount options are the global options supported by
-     * gcsfuse tool. Batch will use them to mount the volume with the following
-     * command:
-     * "gcsfuse [global options] bucket mountpoint".
-     * For PD, NFS, mount options are these supported by /etc/fstab. Batch will
-     * use Fstab to mount such volumes.
-     * https://help.ubuntu.com/community/Fstab
+     * For Google Cloud Storage (GCS), mount options are the options supported by
+     * the gcsfuse tool (https://github.com/GoogleCloudPlatform/gcsfuse).
+     * For existing persistent disks, mount options provided by the
+     * mount command (https://man7.org/linux/man-pages/man8/mount.8.html) except
+     * writing are supported. This is due to restrictions of multi-writer mode
+     * (https://cloud.google.com/compute/docs/disks/sharing-disks-between-vms).
+     * For other attached disks and Network File System (NFS), mount options are
+     * these supported by the mount command
+     * (https://man7.org/linux/man-pages/man8/mount.8.html).
      * </pre>
      *
      * <code>repeated string mount_options = 5;</code>
@@ -1933,20 +1932,21 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearMountOptions() {
       mountOptions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Mount options
-     * For Google Cloud Storage, mount options are the global options supported by
-     * gcsfuse tool. Batch will use them to mount the volume with the following
-     * command:
-     * "gcsfuse [global options] bucket mountpoint".
-     * For PD, NFS, mount options are these supported by /etc/fstab. Batch will
-     * use Fstab to mount such volumes.
-     * https://help.ubuntu.com/community/Fstab
+     * For Google Cloud Storage (GCS), mount options are the options supported by
+     * the gcsfuse tool (https://github.com/GoogleCloudPlatform/gcsfuse).
+     * For existing persistent disks, mount options provided by the
+     * mount command (https://man7.org/linux/man-pages/man8/mount.8.html) except
+     * writing are supported. This is due to restrictions of multi-writer mode
+     * (https://cloud.google.com/compute/docs/disks/sharing-disks-between-vms).
+     * For other attached disks and Network File System (NFS), mount options are
+     * these supported by the mount command
+     * (https://man7.org/linux/man-pages/man8/mount.8.html).
      * </pre>
      *
      * <code>repeated string mount_options = 5;</code>
@@ -1955,10 +1955,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addMountOptionsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureMountOptionsIsMutable();
       mountOptions_.add(value);
       onChanged();
@@ -1997,7 +1995,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Volume(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

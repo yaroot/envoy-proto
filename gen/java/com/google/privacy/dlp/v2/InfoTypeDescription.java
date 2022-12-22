@@ -24,6 +24,7 @@ private static final long serialVersionUID = 0L;
     displayName_ = "";
     supportedBy_ = java.util.Collections.emptyList();
     description_ = "";
+    versions_ = java.util.Collections.emptyList();
     categories_ = java.util.Collections.emptyList();
   }
 
@@ -39,102 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InfoTypeDescription(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              supportedBy_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            supportedBy_.add(rawValue);
-            break;
-          }
-          case 26: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                supportedBy_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              supportedBy_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              categories_ = new java.util.ArrayList<com.google.privacy.dlp.v2.InfoTypeCategory>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            categories_.add(
-                input.readMessage(com.google.privacy.dlp.v2.InfoTypeCategory.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        supportedBy_ = java.util.Collections.unmodifiableList(supportedBy_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        categories_ = java.util.Collections.unmodifiableList(categories_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_InfoTypeDescription_descriptor;
@@ -149,7 +54,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Internal name of the infoType.
@@ -195,7 +101,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Human readable form of the infoType name.
@@ -241,14 +148,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUPPORTED_BY_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> supportedBy_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.privacy.dlp.v2.InfoTypeSupportedBy> supportedBy_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.privacy.dlp.v2.InfoTypeSupportedBy>() {
             public com.google.privacy.dlp.v2.InfoTypeSupportedBy convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.privacy.dlp.v2.InfoTypeSupportedBy result = com.google.privacy.dlp.v2.InfoTypeSupportedBy.valueOf(from);
+              com.google.privacy.dlp.v2.InfoTypeSupportedBy result = com.google.privacy.dlp.v2.InfoTypeSupportedBy.forNumber(from);
               return result == null ? com.google.privacy.dlp.v2.InfoTypeSupportedBy.UNRECOGNIZED : result;
             }
           };
@@ -319,7 +226,8 @@ private static final long serialVersionUID = 0L;
   private int supportedByMemoizedSerializedSize;
 
   public static final int DESCRIPTION_FIELD_NUMBER = 4;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * Description of the infotype. Translated when language is provided in the
@@ -366,7 +274,69 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int VERSIONS_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
+  private java.util.List<com.google.privacy.dlp.v2.VersionDescription> versions_;
+  /**
+   * <pre>
+   * A list of available versions for the infotype.
+   * </pre>
+   *
+   * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.google.privacy.dlp.v2.VersionDescription> getVersionsList() {
+    return versions_;
+  }
+  /**
+   * <pre>
+   * A list of available versions for the infotype.
+   * </pre>
+   *
+   * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.google.privacy.dlp.v2.VersionDescriptionOrBuilder> 
+      getVersionsOrBuilderList() {
+    return versions_;
+  }
+  /**
+   * <pre>
+   * A list of available versions for the infotype.
+   * </pre>
+   *
+   * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+   */
+  @java.lang.Override
+  public int getVersionsCount() {
+    return versions_.size();
+  }
+  /**
+   * <pre>
+   * A list of available versions for the infotype.
+   * </pre>
+   *
+   * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+   */
+  @java.lang.Override
+  public com.google.privacy.dlp.v2.VersionDescription getVersions(int index) {
+    return versions_.get(index);
+  }
+  /**
+   * <pre>
+   * A list of available versions for the infotype.
+   * </pre>
+   *
+   * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+   */
+  @java.lang.Override
+  public com.google.privacy.dlp.v2.VersionDescriptionOrBuilder getVersionsOrBuilder(
+      int index) {
+    return versions_.get(index);
+  }
+
   public static final int CATEGORIES_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.privacy.dlp.v2.InfoTypeCategory> categories_;
   /**
    * <pre>
@@ -457,10 +427,13 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
     }
+    for (int i = 0; i < versions_.size(); i++) {
+      output.writeMessage(9, versions_.get(i));
+    }
     for (int i = 0; i < categories_.size(); i++) {
       output.writeMessage(10, categories_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -490,11 +463,15 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
     }
+    for (int i = 0; i < versions_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, versions_.get(i));
+    }
     for (int i = 0; i < categories_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, categories_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -516,9 +493,11 @@ private static final long serialVersionUID = 0L;
     if (!supportedBy_.equals(other.supportedBy_)) return false;
     if (!getDescription()
         .equals(other.getDescription())) return false;
+    if (!getVersionsList()
+        .equals(other.getVersionsList())) return false;
     if (!getCategoriesList()
         .equals(other.getCategoriesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -539,11 +518,15 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
     hash = (53 * hash) + getDescription().hashCode();
+    if (getVersionsCount() > 0) {
+      hash = (37 * hash) + VERSIONS_FIELD_NUMBER;
+      hash = (53 * hash) + getVersionsList().hashCode();
+    }
     if (getCategoriesCount() > 0) {
       hash = (37 * hash) + CATEGORIES_FIELD_NUMBER;
       hash = (53 * hash) + getCategoriesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -664,37 +647,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.InfoTypeDescription.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getCategoriesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
       supportedBy_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       description_ = "";
-
+      if (versionsBuilder_ == null) {
+        versions_ = java.util.Collections.emptyList();
+      } else {
+        versions_ = null;
+        versionsBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000010);
       if (categoriesBuilder_ == null) {
         categories_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        categories_ = null;
         categoriesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -721,26 +704,49 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.InfoTypeDescription buildPartial() {
       com.google.privacy.dlp.v2.InfoTypeDescription result = new com.google.privacy.dlp.v2.InfoTypeDescription(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.privacy.dlp.v2.InfoTypeDescription result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         supportedBy_ = java.util.Collections.unmodifiableList(supportedBy_);
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.supportedBy_ = supportedBy_;
-      result.description_ = description_;
+      if (versionsBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0)) {
+          versions_ = java.util.Collections.unmodifiableList(versions_);
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.versions_ = versions_;
+      } else {
+        result.versions_ = versionsBuilder_.build();
+      }
       if (categoriesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           categories_ = java.util.Collections.unmodifiableList(categories_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.categories_ = categories_;
       } else {
         result.categories_ = categoriesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.InfoTypeDescription result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.description_ = description_;
+      }
     }
 
     @java.lang.Override
@@ -789,16 +795,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.privacy.dlp.v2.InfoTypeDescription.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.supportedBy_.isEmpty()) {
         if (supportedBy_.isEmpty()) {
           supportedBy_ = other.supportedBy_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureSupportedByIsMutable();
           supportedBy_.addAll(other.supportedBy_);
@@ -807,13 +815,40 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000008;
         onChanged();
+      }
+      if (versionsBuilder_ == null) {
+        if (!other.versions_.isEmpty()) {
+          if (versions_.isEmpty()) {
+            versions_ = other.versions_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureVersionsIsMutable();
+            versions_.addAll(other.versions_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.versions_.isEmpty()) {
+          if (versionsBuilder_.isEmpty()) {
+            versionsBuilder_.dispose();
+            versionsBuilder_ = null;
+            versions_ = other.versions_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+            versionsBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getVersionsFieldBuilder() : null;
+          } else {
+            versionsBuilder_.addAllMessages(other.versions_);
+          }
+        }
       }
       if (categoriesBuilder_ == null) {
         if (!other.categories_.isEmpty()) {
           if (categories_.isEmpty()) {
             categories_ = other.categories_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureCategoriesIsMutable();
             categories_.addAll(other.categories_);
@@ -826,7 +861,7 @@ private static final long serialVersionUID = 0L;
             categoriesBuilder_.dispose();
             categoriesBuilder_ = null;
             categories_ = other.categories_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
             categoriesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getCategoriesFieldBuilder() : null;
@@ -835,7 +870,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -850,17 +885,88 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.InfoTypeDescription parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              int tmpRaw = input.readEnum();
+              ensureSupportedByIsMutable();
+              supportedBy_.add(tmpRaw);
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureSupportedByIsMutable();
+                supportedBy_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 26
+            case 34: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 74: {
+              com.google.privacy.dlp.v2.VersionDescription m =
+                  input.readMessage(
+                      com.google.privacy.dlp.v2.VersionDescription.parser(),
+                      extensionRegistry);
+              if (versionsBuilder_ == null) {
+                ensureVersionsIsMutable();
+                versions_.add(m);
+              } else {
+                versionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 74
+            case 82: {
+              com.google.privacy.dlp.v2.InfoTypeCategory m =
+                  input.readMessage(
+                      com.google.privacy.dlp.v2.InfoTypeCategory.parser(),
+                      extensionRegistry);
+              if (categoriesBuilder_ == null) {
+                ensureCategoriesIsMutable();
+                categories_.add(m);
+              } else {
+                categoriesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.InfoTypeDescription) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -918,11 +1024,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -935,8 +1039,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -951,12 +1055,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1014,11 +1116,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1031,8 +1131,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1047,12 +1147,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1060,9 +1158,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> supportedBy_ =
       java.util.Collections.emptyList();
     private void ensureSupportedByIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         supportedBy_ = new java.util.ArrayList<java.lang.Integer>(supportedBy_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
       }
     }
     /**
@@ -1166,7 +1264,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSupportedBy() {
       supportedBy_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1301,11 +1399,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1319,8 +1415,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1336,22 +1432,332 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
+    }
+
+    private java.util.List<com.google.privacy.dlp.v2.VersionDescription> versions_ =
+      java.util.Collections.emptyList();
+    private void ensureVersionsIsMutable() {
+      if (!((bitField0_ & 0x00000010) != 0)) {
+        versions_ = new java.util.ArrayList<com.google.privacy.dlp.v2.VersionDescription>(versions_);
+        bitField0_ |= 0x00000010;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.privacy.dlp.v2.VersionDescription, com.google.privacy.dlp.v2.VersionDescription.Builder, com.google.privacy.dlp.v2.VersionDescriptionOrBuilder> versionsBuilder_;
+
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public java.util.List<com.google.privacy.dlp.v2.VersionDescription> getVersionsList() {
+      if (versionsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(versions_);
+      } else {
+        return versionsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public int getVersionsCount() {
+      if (versionsBuilder_ == null) {
+        return versions_.size();
+      } else {
+        return versionsBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public com.google.privacy.dlp.v2.VersionDescription getVersions(int index) {
+      if (versionsBuilder_ == null) {
+        return versions_.get(index);
+      } else {
+        return versionsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public Builder setVersions(
+        int index, com.google.privacy.dlp.v2.VersionDescription value) {
+      if (versionsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureVersionsIsMutable();
+        versions_.set(index, value);
+        onChanged();
+      } else {
+        versionsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public Builder setVersions(
+        int index, com.google.privacy.dlp.v2.VersionDescription.Builder builderForValue) {
+      if (versionsBuilder_ == null) {
+        ensureVersionsIsMutable();
+        versions_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        versionsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public Builder addVersions(com.google.privacy.dlp.v2.VersionDescription value) {
+      if (versionsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureVersionsIsMutable();
+        versions_.add(value);
+        onChanged();
+      } else {
+        versionsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public Builder addVersions(
+        int index, com.google.privacy.dlp.v2.VersionDescription value) {
+      if (versionsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureVersionsIsMutable();
+        versions_.add(index, value);
+        onChanged();
+      } else {
+        versionsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public Builder addVersions(
+        com.google.privacy.dlp.v2.VersionDescription.Builder builderForValue) {
+      if (versionsBuilder_ == null) {
+        ensureVersionsIsMutable();
+        versions_.add(builderForValue.build());
+        onChanged();
+      } else {
+        versionsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public Builder addVersions(
+        int index, com.google.privacy.dlp.v2.VersionDescription.Builder builderForValue) {
+      if (versionsBuilder_ == null) {
+        ensureVersionsIsMutable();
+        versions_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        versionsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public Builder addAllVersions(
+        java.lang.Iterable<? extends com.google.privacy.dlp.v2.VersionDescription> values) {
+      if (versionsBuilder_ == null) {
+        ensureVersionsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, versions_);
+        onChanged();
+      } else {
+        versionsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public Builder clearVersions() {
+      if (versionsBuilder_ == null) {
+        versions_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+      } else {
+        versionsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public Builder removeVersions(int index) {
+      if (versionsBuilder_ == null) {
+        ensureVersionsIsMutable();
+        versions_.remove(index);
+        onChanged();
+      } else {
+        versionsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public com.google.privacy.dlp.v2.VersionDescription.Builder getVersionsBuilder(
+        int index) {
+      return getVersionsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public com.google.privacy.dlp.v2.VersionDescriptionOrBuilder getVersionsOrBuilder(
+        int index) {
+      if (versionsBuilder_ == null) {
+        return versions_.get(index);  } else {
+        return versionsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public java.util.List<? extends com.google.privacy.dlp.v2.VersionDescriptionOrBuilder> 
+         getVersionsOrBuilderList() {
+      if (versionsBuilder_ != null) {
+        return versionsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(versions_);
+      }
+    }
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public com.google.privacy.dlp.v2.VersionDescription.Builder addVersionsBuilder() {
+      return getVersionsFieldBuilder().addBuilder(
+          com.google.privacy.dlp.v2.VersionDescription.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public com.google.privacy.dlp.v2.VersionDescription.Builder addVersionsBuilder(
+        int index) {
+      return getVersionsFieldBuilder().addBuilder(
+          index, com.google.privacy.dlp.v2.VersionDescription.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * A list of available versions for the infotype.
+     * </pre>
+     *
+     * <code>repeated .google.privacy.dlp.v2.VersionDescription versions = 9;</code>
+     */
+    public java.util.List<com.google.privacy.dlp.v2.VersionDescription.Builder> 
+         getVersionsBuilderList() {
+      return getVersionsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.privacy.dlp.v2.VersionDescription, com.google.privacy.dlp.v2.VersionDescription.Builder, com.google.privacy.dlp.v2.VersionDescriptionOrBuilder> 
+        getVersionsFieldBuilder() {
+      if (versionsBuilder_ == null) {
+        versionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.google.privacy.dlp.v2.VersionDescription, com.google.privacy.dlp.v2.VersionDescription.Builder, com.google.privacy.dlp.v2.VersionDescriptionOrBuilder>(
+                versions_,
+                ((bitField0_ & 0x00000010) != 0),
+                getParentForChildren(),
+                isClean());
+        versions_ = null;
+      }
+      return versionsBuilder_;
     }
 
     private java.util.List<com.google.privacy.dlp.v2.InfoTypeCategory> categories_ =
       java.util.Collections.emptyList();
     private void ensureCategoriesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         categories_ = new java.util.ArrayList<com.google.privacy.dlp.v2.InfoTypeCategory>(categories_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -1545,7 +1951,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearCategories() {
       if (categoriesBuilder_ == null) {
         categories_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         categoriesBuilder_.clear();
@@ -1650,7 +2056,7 @@ private static final long serialVersionUID = 0L;
         categoriesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.privacy.dlp.v2.InfoTypeCategory, com.google.privacy.dlp.v2.InfoTypeCategory.Builder, com.google.privacy.dlp.v2.InfoTypeCategoryOrBuilder>(
                 categories_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         categories_ = null;
@@ -1690,7 +2096,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InfoTypeDescription(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

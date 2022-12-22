@@ -92,12 +92,12 @@ public final class HealthCheckEventProto {
       "data.core.v2alpha.NoLongerDegradedHost*S" +
       "\n\026HealthCheckFailureType\022\n\n\006ACTIVE\020\000\022\013\n\007" +
       "PASSIVE\020\001\022\013\n\007NETWORK\020\002\022\023\n\017NETWORK_TIMEOU" +
-      "T\020\003*;\n\021HealthCheckerType\022\010\n\004HTTP\020\000\022\007\n\003TC" +
-      "P\020\001\022\010\n\004GRPC\020\002\022\t\n\005REDIS\020\003B\205\001\n io.envoypro" +
-      "xy.envoy.data.core.v3B\025HealthCheckEventP" +
-      "rotoP\001Z@github.com/envoyproxy/go-control" +
-      "-plane/envoy/data/core/v3;corev3\272\200\310\321\006\002\020\002" +
-      "b\006proto3"
+      "T\020\003*G\n\021HealthCheckerType\022\010\n\004HTTP\020\000\022\007\n\003TC" +
+      "P\020\001\022\010\n\004GRPC\020\002\022\t\n\005REDIS\020\003\022\n\n\006THRIFT\020\004B\205\001\n" +
+      " io.envoyproxy.envoy.data.core.v3B\025Healt" +
+      "hCheckEventProtoP\001Z@github.com/envoyprox" +
+      "y/go-control-plane/envoy/data/core/v3;co" +
+      "rev3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

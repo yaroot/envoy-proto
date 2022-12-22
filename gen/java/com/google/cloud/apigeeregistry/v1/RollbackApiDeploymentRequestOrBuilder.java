@@ -31,7 +31,7 @@ public interface RollbackApiDeploymentRequestOrBuilder extends
    * <pre>
    * Required. The revision ID to roll back to.
    * It must be a revision of the same deployment.
-   *   Example: c7cfa2a8
+   *   Example: `c7cfa2a8`
    * </pre>
    *
    * <code>string revision_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -42,7 +42,7 @@ public interface RollbackApiDeploymentRequestOrBuilder extends
    * <pre>
    * Required. The revision ID to roll back to.
    * It must be a revision of the same deployment.
-   *   Example: c7cfa2a8
+   *   Example: `c7cfa2a8`
    * </pre>
    *
    * <code>string revision_id = 2 [(.google.api.field_behavior) = REQUIRED];</code>

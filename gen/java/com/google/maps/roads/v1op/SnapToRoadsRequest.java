@@ -38,68 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SnapToRoadsRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            path_ = s;
-            break;
-          }
-          case 16: {
-
-            interpolate_ = input.readBool();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            assetId_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            travelMode_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.roads.v1op.RoadsProto.internal_static_google_maps_roads_v1op_SnapToRoadsRequest_descriptor;
@@ -114,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PATH_FIELD_NUMBER = 1;
-  private volatile java.lang.Object path_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object path_ = "";
   /**
    * <pre>
    * The path to be snapped as a series of lat, lng points. Specified as
@@ -162,7 +101,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INTERPOLATE_FIELD_NUMBER = 2;
-  private boolean interpolate_;
+  private boolean interpolate_ = false;
   /**
    * <pre>
    * Whether to interpolate the points to return full road geometry.
@@ -177,7 +116,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ASSET_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object assetId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object assetId_ = "";
   /**
    * <pre>
    * The asset ID of the asset to which this path relates. This is used for
@@ -225,7 +165,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRAVEL_MODE_FIELD_NUMBER = 4;
-  private int travelMode_;
+  private int travelMode_ = 0;
   /**
    * <pre>
    * The type of travel being tracked. This will constrain the paths we snap to.
@@ -246,8 +186,7 @@ private static final long serialVersionUID = 0L;
    * @return The travelMode.
    */
   @java.lang.Override public com.google.maps.roads.v1op.TravelMode getTravelMode() {
-    @SuppressWarnings("deprecation")
-    com.google.maps.roads.v1op.TravelMode result = com.google.maps.roads.v1op.TravelMode.valueOf(travelMode_);
+    com.google.maps.roads.v1op.TravelMode result = com.google.maps.roads.v1op.TravelMode.forNumber(travelMode_);
     return result == null ? com.google.maps.roads.v1op.TravelMode.UNRECOGNIZED : result;
   }
 
@@ -277,7 +216,7 @@ private static final long serialVersionUID = 0L;
     if (travelMode_ != com.google.maps.roads.v1op.TravelMode.TRAVEL_MODE_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, travelMode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -300,7 +239,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, travelMode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -322,7 +261,7 @@ private static final long serialVersionUID = 0L;
     if (!getAssetId()
         .equals(other.getAssetId())) return false;
     if (travelMode_ != other.travelMode_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -342,7 +281,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getAssetId().hashCode();
     hash = (37 * hash) + TRAVEL_MODE_FIELD_NUMBER;
     hash = (53 * hash) + travelMode_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -464,30 +403,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.roads.v1op.SnapToRoadsRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       path_ = "";
-
       interpolate_ = false;
-
       assetId_ = "";
-
       travelMode_ = 0;
-
       return this;
     }
 
@@ -514,12 +445,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.roads.v1op.SnapToRoadsRequest buildPartial() {
       com.google.maps.roads.v1op.SnapToRoadsRequest result = new com.google.maps.roads.v1op.SnapToRoadsRequest(this);
-      result.path_ = path_;
-      result.interpolate_ = interpolate_;
-      result.assetId_ = assetId_;
-      result.travelMode_ = travelMode_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.maps.roads.v1op.SnapToRoadsRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.path_ = path_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.interpolate_ = interpolate_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.assetId_ = assetId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.travelMode_ = travelMode_;
+      }
     }
 
     @java.lang.Override
@@ -568,6 +512,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.maps.roads.v1op.SnapToRoadsRequest.getDefaultInstance()) return this;
       if (!other.getPath().isEmpty()) {
         path_ = other.path_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getInterpolate() != false) {
@@ -575,12 +520,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAssetId().isEmpty()) {
         assetId_ = other.assetId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.travelMode_ != 0) {
         setTravelModeValue(other.getTravelModeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -595,19 +541,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.roads.v1op.SnapToRoadsRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              path_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              interpolate_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              assetId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              travelMode_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.roads.v1op.SnapToRoadsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object path_ = "";
     /**
@@ -665,11 +645,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       path_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -683,8 +661,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPath() {
-      
       path_ = getDefaultInstance().getPath();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -700,12 +678,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       path_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -735,6 +711,7 @@ private static final long serialVersionUID = 0L;
     public Builder setInterpolate(boolean value) {
       
       interpolate_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -747,7 +724,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInterpolate() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       interpolate_ = false;
       onChanged();
       return this;
@@ -809,11 +786,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAssetId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       assetId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -827,8 +802,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAssetId() {
-      
       assetId_ = getDefaultInstance().getAssetId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -844,12 +819,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAssetIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       assetId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -876,8 +849,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTravelModeValue(int value) {
-      
       travelMode_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -891,8 +864,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.maps.roads.v1op.TravelMode getTravelMode() {
-      @SuppressWarnings("deprecation")
-      com.google.maps.roads.v1op.TravelMode result = com.google.maps.roads.v1op.TravelMode.valueOf(travelMode_);
+      com.google.maps.roads.v1op.TravelMode result = com.google.maps.roads.v1op.TravelMode.forNumber(travelMode_);
       return result == null ? com.google.maps.roads.v1op.TravelMode.UNRECOGNIZED : result;
     }
     /**
@@ -908,7 +880,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       travelMode_ = value.getNumber();
       onChanged();
       return this;
@@ -922,7 +894,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTravelMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       travelMode_ = 0;
       onChanged();
       return this;
@@ -960,7 +932,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SnapToRoadsRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 
